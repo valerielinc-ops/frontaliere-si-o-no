@@ -41,6 +41,8 @@ const translations: Record<string, string> = {
  'nav.guida': 'Guida Pratica',
  'nav.vita': 'Vita Quotidiana',
  'nav.stats': 'Statistiche',
+ 'nav.plateAuctions': 'Aste targhe',
+ 'nav.plateAuctions.mobile': 'Targhe',
  'nav.simulator.mobile': 'Calcolo',
  'nav.confronti.mobile': 'Confronti',
  'nav.fisco.mobile': 'Fisco',

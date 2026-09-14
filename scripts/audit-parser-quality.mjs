@@ -29,6 +29,7 @@ import {
   isKnownSwissMunicipality,
   swissMunicipalityCantons,
 } from './lib/target-swiss-locations.mjs';
+import { isLocationDerivedFromVacancyText } from './lib/crawler-location-config.mjs';
 import {
   FOREIGN_COUNTRY_NAME_LABELS,
   ISO_ALPHA2_COUNTRY_CODES,
@@ -587,15 +588,43 @@ function elementValue(html, openTagEnd, tagName, attrs) {
   return plainText(html.slice(openTagEnd, closing.index));
 }
 
+function emptyLocationEvidenceCounts() {
+  return { jsonld: 0, 'strong-markup': 0 };
+}
+
+function addLocationEvidenceCounts(target, counts = {}) {
+  for (const evidence of ['jsonld', 'strong-markup']) {
+    const value = Number(counts[evidence]);
+    if (Number.isFinite(value)) target[evidence] += value;
+  }
+}
+
+function withLocationEvidenceCounts(observation, beforeGate, afterGate, includeDiagnostics) {
+  if (!includeDiagnostics) return observation;
+  return {
+    ...observation,
+    locationEvidenceCounts: { beforeGate, afterGate },
+  };
+}
+
 /**
  * Return a location only together with the markup scope that makes it
  * authoritative. This prevents a generic footer `addressLocality` from being
  * promoted merely because a different job-scoped location exists later.
  */
-export function extractSourceLocationObservation(html = '', pageUrl = '') {
-  const structuredCandidates = extractJsonLd(html, pageUrl)
-    .flatMap((item) => (item.locationCandidates || [])
-      .filter((candidate) => isUsableSourceLocation(candidate.location, candidate)))
+export function extractSourceLocationObservation(html = '', pageUrl = '', {
+  includeDiagnostics = false,
+} = {}) {
+  const structuredItems = extractJsonLd(html, pageUrl);
+  const rawStructuredCandidates = structuredItems
+    .flatMap((item) => item.locationCandidates || [])
+    .filter((candidate) => plainText(candidate.location));
+  const structuredCandidates = rawStructuredCandidates
+    .filter((candidate) => isUsableSourceLocation(candidate.location, candidate));
+  const structuredBeforeGate = emptyLocationEvidenceCounts();
+  const structuredAfterGate = emptyLocationEvidenceCounts();
+  structuredBeforeGate.jsonld = Number(rawStructuredCandidates.length > 0);
+  structuredAfterGate.jsonld = Number(structuredCandidates.length > 0);
   // A JobPosting may list a foreign tenant/primary office first and the Swiss
   // workplace in a later location. This audit runs on a Swiss corpus: prefer a
   // candidate that independently resolves to Swiss geography, while retaining
@@ -604,9 +633,18 @@ export function extractSourceLocationObservation(html = '', pageUrl = '') {
   const structured = structuredCandidates.find((candidate) => (
     resolveSourceBackedSwissGeography(candidate)
   )) || structuredCandidates.at(0);
-  if (structured) return { location: structured.location, evidence: 'jsonld' };
+  if (structured) {
+    return withLocationEvidenceCounts(
+      { location: structured.location, evidence: 'jsonld' },
+      structuredBeforeGate,
+      structuredAfterGate,
+      includeDiagnostics,
+    );
+  }
 
   const stack = [];
+  const domBeforeGate = emptyLocationEvidenceCounts();
+  const domAfterGate = emptyLocationEvidenceCounts();
   const tagRx = /<(\/?)\s*([a-z][a-z0-9:-]*)\b([^>]*)>/gi;
   let match;
   while ((match = tagRx.exec(html))) {
@@ -623,12 +661,37 @@ export function extractSourceLocationObservation(html = '', pageUrl = '') {
     const itemprops = readAttr(attrs, 'itemprop').split(/\s+/);
     if (!blocked && (hasJobLocationClass(attrs) || (jobScoped && itemprops.includes('addressLocality')))) {
       const location = elementValue(html, tagRx.lastIndex, tagName, attrs);
-      if (isUsableSourceLocation(location)) return { location, evidence: 'strong-markup' };
+      if (location) {
+        domBeforeGate['strong-markup'] = 1;
+        if (isUsableSourceLocation(location)) {
+          domAfterGate['strong-markup'] = 1;
+          return withLocationEvidenceCounts(
+            { location, evidence: 'strong-markup' },
+            {
+              jsonld: structuredBeforeGate.jsonld,
+              'strong-markup': domBeforeGate['strong-markup'],
+            },
+            { ...structuredAfterGate, 'strong-markup': domAfterGate['strong-markup'] },
+            includeDiagnostics,
+          );
+        }
+      }
     }
 
     if (!VOID_HTML_TAGS.has(tagName) && !/\/\s*$/.test(attrs)) stack.push({ tagName, jobScoped, blocked });
   }
-  return { location: '', evidence: 'generic' };
+  return withLocationEvidenceCounts(
+    { location: '', evidence: 'generic' },
+    {
+      jsonld: structuredBeforeGate.jsonld,
+      'strong-markup': domBeforeGate['strong-markup'],
+    },
+    {
+      jsonld: structuredAfterGate.jsonld,
+      'strong-markup': domAfterGate['strong-markup'],
+    },
+    includeDiagnostics,
+  );
 }
 
 /**
@@ -743,7 +806,9 @@ function structuredAddressNamesLocality(detail, publishedLocation) {
  * rendered markup IS a workplace declaration, so a disagreement with it stays
  * a finding.
  */
-export function sourceCorroboratesPublishedLocation(detail, publishedLocation) {
+export function sourceCorroboratesPublishedLocation(detail, publishedLocation, {
+  fields = ['title', 'description'],
+} = {}) {
   const normalizedLocation = normalizePlace(publishedLocation);
   if (normalizedLocation.length < 3) return false;
   // The workplace is not always in the prose: the federal portal renders it as
@@ -766,7 +831,7 @@ export function sourceCorroboratesPublishedLocation(detail, publishedLocation) {
     : publishedTokens;
   const sourceEvidenceTexts = workplaceLabels.length > 0
     ? workplaceLabels
-    : [detail?.title || '', detail?.description || ''];
+    : fields.map((field) => detail?.[field] || '');
   const postalAddressed = sourceEvidenceTexts
     .some((value) => namesPostalAddressedLocality(value, publishedLocalityTokens));
   if (postalAddressed) return true;
@@ -794,20 +859,34 @@ export function compareSourceDetail(job, detail, {
   const sourceWords = wordSet(sourceDescriptionText);
   let overlap = 0;
   for (const word of publishedWords) if (sourceWords.has(word)) overlap++;
+  const locationFromVacancyText = isLocationDerivedFromVacancyText(job);
+  const corroborationFields = locationFromVacancyText
+    ? ['title']
+    : ['title', 'description'];
   const publishedCorroboratedBySource = locationEvidence === 'jsonld'
+    && sourceCorroboratesPublishedLocation(detail, publishedLocation, {
+      fields: corroborationFields,
+    });
+  const sourceFieldsAgree = sourceLocationMatches(publishedLocation, sourceLocation);
+  const locationMatchesPublished = sourceFieldsAgree || publishedCorroboratedBySource;
+  const circularCorroboration = !sourceFieldsAgree
+    && !publishedCorroboratedBySource
+    && locationEvidence === 'jsonld'
+    && locationFromVacancyText
     && sourceCorroboratesPublishedLocation(detail, publishedLocation);
-  const locationMatchesPublished = sourceLocationMatches(publishedLocation, sourceLocation)
-    || publishedCorroboratedBySource;
   const locationChecked = Boolean(publishedLocation)
     && isUsableSourceLocation(sourceLocation)
-    && locationEvidence !== 'generic';
+    && locationEvidence !== 'generic'
+    && !circularCorroboration;
   const observation = {
     location: {
       checked: locationChecked,
       matchesPublished: locationMatchesPublished,
       inconclusive: Boolean(sourceLocation) && !locationChecked,
       evidence: locationEvidence,
-      authority: publishedCorroboratedBySource ? 'source-corroborated' : 'source-detail',
+      authority: circularCorroboration
+        ? 'circular'
+        : (publishedCorroboratedBySource ? 'source-corroborated' : 'source-detail'),
       published: publishedLocation,
       source: sourceLocation,
     },
@@ -898,7 +977,11 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
     }
     try {
       const detail = extractDetail(fetched.body, fetched.url || item.url);
-      const locationObservation = observeLocation(fetched.body, fetched.url || item.url);
+      const locationObservation = observeLocation(
+        fetched.body,
+        fetched.url || item.url,
+        { includeDiagnostics: true },
+      );
       if (locationObservation.location) detail.location = locationObservation.location;
       const locationEvidence = locationObservation.evidence;
       const comparison = compareSourceDetail(item.job, detail, { locationEvidence });
@@ -912,7 +995,14 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
           versions: evidenceContext.versions,
         })
         : null;
-      return { ...item, ...comparison, ...(sourceDetailEvidence ? { sourceDetailEvidence } : {}) };
+      return {
+        ...item,
+        ...comparison,
+        ...(locationObservation.locationEvidenceCounts
+          ? { locationEvidenceCounts: locationObservation.locationEvidenceCounts }
+          : {}),
+        ...(sourceDetailEvidence ? { sourceDetailEvidence } : {}),
+      };
     } catch (error) {
       return processingFailureResult(item, error);
     }
@@ -1141,9 +1231,17 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
     unobserved: 0,
     tenantConstantLocationObservations: 0,
     authoritativeLocationChecks: 0,
+    authoritativeLocationChecksByEvidence: {
+      jsonld: 0,
+      'strong-markup': 0,
+      other: 0,
+    },
+    locationEvidenceBeforeGateByEvidence: emptyLocationEvidenceCounts(),
+    locationEvidenceAfterGateByEvidence: emptyLocationEvidenceCounts(),
     locationMatches: 0,
     locationMismatches: 0,
     sourceCorroboratedLocationObservations: 0,
+    circularCorroborationObservations: 0,
     inconclusiveLocationObservations: 0,
     descriptionMismatches: 0,
   };
@@ -1155,6 +1253,7 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
       checked: 0, fetchFailed: 0, processingFailed: 0, processingErrors: [],
       locationChecked: 0, locationInconclusive: 0, locationMismatches: 0,
       descriptionMismatches: 0, unobserved: 0, tenantConstantObservations: 0,
+      circularCorroborationObservations: 0,
       unobservedDetails: [], details: [], failureFamilies: {},
     };
     const info = byKey[key];
@@ -1177,6 +1276,14 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
       continue;
     }
     sourceDetailSummary.fetched++;
+    addLocationEvidenceCounts(
+      sourceDetailSummary.locationEvidenceBeforeGateByEvidence,
+      result.locationEvidenceCounts?.beforeGate,
+    );
+    addLocationEvidenceCounts(
+      sourceDetailSummary.locationEvidenceAfterGateByEvidence,
+      result.locationEvidenceCounts?.afterGate,
+    );
     if (sourceDetailUnobserved(result)) {
       info.unobserved++;
       sourceDetailSummary.unobserved++;
@@ -1195,6 +1302,12 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
     } else if (result.locationChecked) {
       info.locationChecked++;
       sourceDetailSummary.authoritativeLocationChecks++;
+      const evidence = result.locationEvidence === 'jsonld'
+        ? 'jsonld'
+        : result.locationEvidence === 'strong-markup'
+          ? 'strong-markup'
+          : 'other';
+      sourceDetailSummary.authoritativeLocationChecksByEvidence[evidence]++;
       if (result.locationMismatch) sourceDetailSummary.locationMismatches++;
       else sourceDetailSummary.locationMatches++;
       // Kept visible: a pass earned because the page names the published place
@@ -1206,6 +1319,11 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
     } else if (result.locationInconclusive) {
       info.locationInconclusive++;
       sourceDetailSummary.inconclusiveLocationObservations++;
+      if (result.locationAuthority === 'circular') {
+        info.circularCorroborationObservations++;
+        sourceDetailSummary.circularCorroborationObservations++;
+        info.unobservedDetails.push(`${sourceReference}: published "${result.publishedLocation}" is named only in the vacancy text used to derive the locality; the source detail corroborates nothing here`);
+      }
     }
     if (result.locationMismatch && !isTenantConstant) {
       info.locationMismatches++;
@@ -1227,17 +1345,20 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
       });
       entry.severity = 'CRITICAL';
     }
-    if (info.unobserved > 0 || info.tenantConstantObservations > 0) {
+    if (info.unobserved > 0 || info.tenantConstantObservations > 0 || info.circularCorroborationObservations > 0) {
       const parts = [];
       if (info.unobserved > 0) parts.push(`${info.unobserved}/${info.checked} fetched but observable in neither location nor description`);
       if (info.tenantConstantObservations > 0) parts.push(`${info.tenantConstantObservations}/${info.checked} carrying the tenant address instead of the vacancy's`);
+      if (info.circularCorroborationObservations > 0) parts.push(`${info.circularCorroborationObservations}/${info.checked} circular locality corroborations`);
       entry.issues.push({
         type: 'source-detail-unobserved',
-        count: info.unobserved + info.tenantConstantObservations, total: info.checked,
+        count: info.unobserved + info.tenantConstantObservations + info.circularCorroborationObservations,
+        total: info.checked,
         unobserved: info.unobserved,
         tenantConstantObservations: info.tenantConstantObservations,
+        circularCorroborationObservations: info.circularCorroborationObservations,
         details: info.unobservedDetails,
-        message: `${parts.join(', ')} — those samples score as a pass without proving anything`,
+        message: `${parts.join(', ')} — those samples are inconclusive and prove nothing`,
       });
     }
     const findings = info.locationMismatches + info.descriptionMismatches;
@@ -1295,12 +1416,27 @@ export function formatSourceDetailObservationLines(summary = {}) {
     const mismatches = count(summary.locationMismatches);
     const corroborated = count(summary.sourceCorroboratedLocationObservations);
     const tenantConstant = count(summary.tenantConstantLocationObservations);
+    const circular = count(summary.circularCorroborationObservations);
     const share = authoritative
       ? (100 * corroborated / authoritative).toFixed(1)
       : '0.0';
     lines.push(`Source detail location observations: ${matches}/${authoritative} authoritative checks matched, ${mismatches} mismatched`);
     lines.push(`  corroborated by other page evidence: ${corroborated}/${authoritative} (${share} % of authoritative checks)`);
+    if (summary.authoritativeLocationChecksByEvidence) {
+      const byEvidence = summary.authoritativeLocationChecksByEvidence;
+      const jsonld = count(byEvidence.jsonld);
+      const markup = count(byEvidence['strong-markup']);
+      const other = count(byEvidence.other);
+      const otherSuffix = other > 0 ? `, other ${other}` : '';
+      lines.push(`  evidence: JSON-LD ${jsonld}, DOM/label ${markup}${otherSuffix}`);
+    }
+    if (summary.locationEvidenceBeforeGateByEvidence || summary.locationEvidenceAfterGateByEvidence) {
+      const before = summary.locationEvidenceBeforeGateByEvidence || {};
+      const after = summary.locationEvidenceAfterGateByEvidence || {};
+      lines.push(`  evidence gate: JSON-LD ${count(before.jsonld)}→${count(after.jsonld)}, DOM/label ${count(before['strong-markup'])}→${count(after['strong-markup'])}`);
+    }
     lines.push(`  inconclusive: ${inconclusive} (${tenantConstant} tenant-constant)`);
+    if (circular > 0) lines.push(`  circular corroboration: ${circular} (inconclusive)`);
   }
   if (descriptionMismatches > 0) {
     lines.push(`Source detail description mismatches: ${descriptionMismatches}`);

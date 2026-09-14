@@ -150,7 +150,7 @@ function readDurableHealth(ledgerDir, registry) {
 
 export const summarizeLifecycleEvents = summarizeLifecycleEventsContract;
 
-function readDurableLifecycle(ledgerDir, registry) {
+function readDurableLifecycle(ledgerDir, registry, now = new Date()) {
   const file = path.resolve(ledgerDir, 'lifecycle-events.jsonl');
   if (!fs.existsSync(file)) return { byLoop: {}, error: null, available: false };
   try {
@@ -178,7 +178,7 @@ function readDurableLifecycle(ledgerDir, registry) {
       byLoop[event.loopId].push(event);
     }
     return {
-      byLoop: Object.fromEntries(Object.entries(byLoop).map(([loopId, events]) => [loopId, summarizeLifecycleEvents(events)])),
+      byLoop: Object.fromEntries(Object.entries(byLoop).map(([loopId, events]) => [loopId, summarizeLifecycleEvents(events, { now })])),
       error: null,
       available: true,
     };
@@ -205,7 +205,7 @@ function evidenceFromDurableHealth(health) {
   };
 }
 
-function downloadEvidence(loopId, run, tempRoot, registry) {
+function downloadEvidence(loopId, run, tempRoot, registry, now = new Date()) {
   const runId = typeof run === 'object' ? run.databaseId : run;
   const target = path.join(tempRoot, loopId.toLowerCase());
   fs.mkdirSync(target, { recursive: true });
@@ -249,7 +249,7 @@ function downloadEvidence(loopId, run, tempRoot, registry) {
       : null;
     return {
       evidence: { ...evidence, health },
-      lifecycleEvents: lifecycleEvents ? summarizeLifecycleEvents(lifecycleEvents) : null,
+      lifecycleEvents: lifecycleEvents ? summarizeLifecycleEvents(lifecycleEvents, { now }) : null,
       error: null,
     };
   } catch (error) {
@@ -295,13 +295,17 @@ export function buildStatusRows(registry, runResults, evidenceResults) {
       ? 'independent outcome not recorded'
       : (outcomeMeasured ? null : `${outcome.status || 'unmeasurable'}: ${outcome.reason || 'independent outcome unavailable or incomplete'}`);
     const actualAutonomy = text(evidence?.requiredAutonomy) || text(health.requiredAutonomy);
+    const lifecycleSlaOverdue = lifecycleEvents?.sla?.status === 'overdue'
+      || lifecycleEvents?.candidates?.some((candidate) => candidate.sla?.status === 'overdue');
     const nextHumanAction = evidenceError
       ? 'restore or attach the independent source and rerun the loop'
       : (missingOutcome
         ? 'validate or attach the independent outcome before changing exposure'
-        : (lifecycleIncomplete
-          ? 'advance the candidate through PR, tests, review, merge and post-merge verification'
-          : 'review the recorded outcome and close the observation window'));
+        : (lifecycleSlaOverdue
+          ? 'resolve the overdue lifecycle candidate with its owner and record trusted terminal evidence'
+          : (lifecycleIncomplete
+            ? 'advance the candidate through PR, tests, review, merge and post-merge verification'
+            : 'review the recorded outcome and close the observation window')));
     return {
       loopId: policy.loopId,
       goal: policy.goal,
@@ -309,6 +313,7 @@ export function buildStatusRows(registry, runResults, evidenceResults) {
       cadence: policy.cadence,
       primaryMetric: policy.primaryMetric,
       maxAutonomy: policy.maxAutonomy,
+      actionPolicy: policy.actionPolicy,
       lifecycle: policy.lifecycle,
       sourceRefs: policy.sourceRefs,
       candidateTtlHours: policy.lifecycle.candidateTtlHours,
@@ -341,6 +346,7 @@ export function buildStatusRows(registry, runResults, evidenceResults) {
       outcomePolicyCompliant,
       lifecycleEvents,
       lifecycleState: lifecycleEvents?.state || 'unavailable',
+      lifecycleSla: lifecycleEvents?.sla || null,
       lifecycleEventCount: lifecycleEvents?.eventCount ?? null,
       lifecycleComplete: lifecycleEvents?.complete ?? null,
       historyAvailable: Boolean(durableHealth),
@@ -357,8 +363,8 @@ function renderMarkdown(rows) {
   const lines = [
     '## Loop fleet status',
     '',
-    '| Loop | Owner | Ultimo run | Ledger durable | Qualità | Issue | Missing outcome | Decisione | Autonomia effettiva / max | TTL / SLA / verify | Lifecycle | Fonti dichiarate | Next human action | Policy |',
-    '| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |',
+    '| Loop | Owner | Ultimo run | Ledger durable | Qualità | Issue | Missing outcome | Decisione | Autonomia effettiva / max | TTL / SLA / verify | Lifecycle | SLA lifecycle | Fonti dichiarate | Next human action | Policy |',
+    '| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |',
   ];
   for (const row of rows) {
     const run = row.lastRun ? `[${row.lastRun.conclusion}](${row.lastRun.url || '#'})` : 'n/d';
@@ -370,11 +376,12 @@ function renderMarkdown(rows) {
     const lifecycleState = row.lifecycleEvents
       ? `${row.lifecycleState} (${row.lifecycleEventCount ?? 'n/d'})`
       : 'unavailable';
+    const lifecycleSla = row.lifecycleSla?.status || 'unavailable';
     const sources = row.sourceRefs.join(', ');
     const issue = row.issue || '—';
     const missingOutcome = row.missingOutcome || '—';
     const policy = row.evidenceComplete && row.policyCompliant ? 'ok' : 'incomplete';
-    lines.push(`| ${row.loopId} | ${row.owner} | ${run} | ${ledger} | ${row.quality} | ${issue} | ${missingOutcome} | ${row.decision} | ${autonomy} | ${lifecycle} | ${lifecycleState} | ${sources} | ${row.nextHumanAction} | ${policy} |`);
+    lines.push(`| ${row.loopId} | ${row.owner} | ${run} | ${ledger} | ${row.quality} | ${issue} | ${missingOutcome} | ${row.decision} | ${autonomy} | ${lifecycle} | ${lifecycleState} | ${lifecycleSla} | ${sources} | ${row.nextHumanAction} | ${policy} |`);
   }
   lines.push('', 'Qualità o evidenza assente = `unmeasurable`; il report non sintetizza zeri.');
   return `${lines.join('\n')}\n`;
@@ -386,10 +393,11 @@ export function collectStatus({
   tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-status-')),
   ghRun = latestRun,
   download = downloadEvidence,
+  now = new Date(),
 } = {}) {
   const registry = validateLoopRegistry(readJson(registryPath));
   const durable = readDurableHealth(ledgerDir, registry);
-  const durableLifecycle = readDurableLifecycle(ledgerDir, registry);
+  const durableLifecycle = readDurableLifecycle(ledgerDir, registry, now);
   const runResults = {};
   const evidenceResults = {};
   for (const policy of registry.loops) {
@@ -397,13 +405,13 @@ export function collectStatus({
     const runResult = ghRun(workflow);
     runResults[policy.loopId] = runResult;
     const artifactResult = runResult.run
-      ? download(policy.loopId, runResult.run, tempRoot, registry)
+      ? download(policy.loopId, runResult.run, tempRoot, registry, now)
       : { evidence: null, error: runResult.error };
     evidenceResults[policy.loopId] = {
       ...artifactResult,
       canonicalHealth: durable.byLoop[policy.loopId] || null,
       canonicalLifecycle: durableLifecycle.available
-        ? (durableLifecycle.byLoop[policy.loopId] || summarizeLifecycleEvents([]))
+        ? (durableLifecycle.byLoop[policy.loopId] || summarizeLifecycleEvents([], { now }))
         : null,
       canonicalError: durable.error || durableLifecycle.error,
     };

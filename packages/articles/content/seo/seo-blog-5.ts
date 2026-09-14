@@ -90397,6 +90397,240 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-veleso-lavorare-ticino': {
+    title: 'Vivere a Veleso e lavorare in Ticino da frontaliere',
+    description: 'Guida completa per frontalieri a Veleso: imposte alla fonte, nuovo accordo 2024, franchigie fiscali, LAMal e contributi AVS/LPP in Ticino. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, veleso, lavorare, pratica',
+    ogTitle: 'Vivere a Veleso e lavorare in Ticino da frontaliere',
+    ogDescription: 'Scopri come gestire fiscalità, permessi e previdenza vivendo a Veleso e lavorando in Ticino. Dettagli su nuovo accordo 2024 e trattenute AVS/LPP.',
+    canonicalPath: '/articoli-frontaliere/vivere-veleso-lavorare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Veleso e lavorare in Ticino da frontaliere",
+      "description": "Guida completa per frontalieri a Veleso: imposte alla fonte, nuovo accordo 2024, franchigie fiscali, LAMal e contributi AVS/LPP in Ticino. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-veleso-lavorare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di un borgo residenziale vicino al confine svizzero"
+      },
+      "datePublished": "2026-09-13T23:27:03+00:00",
+      "dateModified": "2026-09-13T23:27:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-veleso-lavorare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-veniano-lavorare-ticino': {
+    title: 'Vivere a Veniano e lavorare in Ticino da frontaliere',
+    description: 'Guida per chi vive a Veniano e lavora in Canton Ticino: collegamenti, imposta alla fonte, previdenza e regole del nuovo accordo frontalieri. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, veniano, lavorare, pratica',
+    ogTitle: 'Vivere a Veniano e lavorare in Ticino da frontaliere',
+    ogDescription: 'Scopri tutto su collegamenti, fiscalità, imposta alla fonte e assicurazione LAMal per chi risiede a Veniano e lavora in Canton Ticino.',
+    canonicalPath: '/articoli-frontaliere/vivere-veniano-lavorare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Veniano e lavorare in Ticino da frontaliere",
+      "description": "Guida per chi vive a Veniano e lavora in Canton Ticino: collegamenti, imposta alla fonte, previdenza e regole del nuovo accordo frontalieri. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-veniano-lavorare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Veniano vicino al confine con la Svizzera"
+      },
+      "datePublished": "2026-09-14T00:12:30+00:00",
+      "dateModified": "2026-09-14T00:12:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-veniano-lavorare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-crisi-bally-caslano-licenziamenti': {
+    title: 'Crisi Bally a Caslano: altri 25 licenziati in Ticino',
+    description: 'Crisi Bally in Ticino: blocco a Caslano, altri 25 licenziati amministrativi da Transliq AG. I dati finanziari e la moratoria concordataria. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, crisi, bally, caslano, altri',
+    ogTitle: 'Crisi Bally: 25 nuovi licenziati a Caslano in Ticino',
+    ogDescription: 'La crisi dello storico marchio di lusso Bally colpisce il Ticino: blocco delle attività a Caslano, 25 nuovi licenziamenti amministrativi e conti in rosso milionario gestiti da Transliq AG.',
+    canonicalPath: '/articoli-frontaliere/crisi-bally-caslano-licenziamenti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Crisi Bally a Caslano: altri 25 licenziati in Ticino",
+      "description": "Crisi Bally in Ticino: blocco a Caslano, altri 25 licenziati amministrativi da Transliq AG. I dati finanziari e la moratoria concordataria. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/crisi-bally-caslano-licenziamenti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stabilimento Bally in crisi a Caslano nel Canton Ticino"
+      },
+      "datePublished": "2026-09-14T00:20:14+00:00",
+      "dateModified": "2026-09-14T00:20:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crisi-bally-caslano-licenziamenti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-brenta-lavorare-ticino': {
+    title: 'Vivere a Brenta e lavorare in Ticino: la guida',
+    description: 'Tutto su vivere a Brenta e lavorare in Ticino da frontaliere: nuovo accordo fiscale, imposte, contributi, tempi di percorrenza e consigli pratici.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, brenta, lavorare, scopri',
+    ogTitle: 'Vivere a Brenta e lavorare in Ticino: guida completa',
+    ogDescription: 'Scopri le implicazioni del nuovo Accordo Frontalieri per chi vive a Brenta e lavora in Ticino. Analisi fiscale, contributi sociali, tempi di percorrenza e consigli pratici per ottimizzare la tua esperienza di frontaliere.',
+    canonicalPath: '/articoli-frontaliere/vivere-brenta-lavorare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Brenta e lavorare in Ticino: la guida",
+      "description": "Tutto su vivere a Brenta e lavorare in Ticino da frontaliere: nuovo accordo fiscale, imposte, contributi, tempi di percorrenza e consigli pratici.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-brenta-lavorare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Lago di Lugano e delle montagne circostanti in Ticino."
+      },
+      "datePublished": "2026-09-14T00:37:42+00:00",
+      "dateModified": "2026-09-14T00:37:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-brenta-lavorare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cannabis-terapeutica-ticino-proposta': {
+    title: 'Cannabis terapeutica in Ticino: nuova proposta',
+    description: 'CanMedTicino prepara una nuova proposta sulla cannabis terapeutica in Ticino dopo lo stop ricevuto dalle autorita sanitarie. Forum a Olivone il 14 novembre.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cannabis, terapeutica, nuova, proposta',
+    ogTitle: 'Cannabis terapeutica in Ticino: la nuova proposta',
+    ogDescription: 'CanMedTicino rilancia sulla cannabis terapeutica dopo lo stop delle autorita cantonali. Obiettivo garantire la continuita delle cure ai pazienti.',
+    canonicalPath: '/articoli-frontaliere/cannabis-terapeutica-ticino-proposta',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cannabis terapeutica in Ticino: nuova proposta",
+      "description": "CanMedTicino prepara una nuova proposta sulla cannabis terapeutica in Ticino dopo lo stop ricevuto dalle autorita sanitarie. Forum a Olivone il 14 novembre.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cannabis-terapeutica-ticino-proposta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incontro sulla cannabis terapeutica in Ticino tra esperti"
+      },
+      "datePublished": "2026-09-14T01:49:27+00:00",
+      "dateModified": "2026-09-14T01:49:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cannabis-terapeutica-ticino-proposta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bollettino-frontaliere-2026-09-14': {
+    title: 'Bollettino del frontaliere – 14 settembre 2026: 168 nuovi annunci di lavoro ieri',
+    description: 'Bollettino frontalieri del 14 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    keywords: 'bollettino frontaliere, dogana, attesa dogana, code valichi ticino, prezzi benzina confine, cambio franco euro, lavoro svizzera, frontalieri ticino',
+    ogTitle: 'Bollettino del frontaliere – 14 settembre 2026: 168 nuovi annunci di lavoro ieri',
+    ogDescription: 'I numeri del 14 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/bollettino-frontaliere-2026-09-14',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bollettino del frontaliere – 14 settembre 2026: 168 nuovi annunci di lavoro ieri",
+      "description": "Bollettino frontalieri del 14 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bollettino-frontaliere-2026-09-14.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I numeri del giorno per i frontalieri – 14 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro"
+      },
+      "datePublished": "2026-09-14T10:26:13+00:00",
+      "dateModified": "2026-09-14T10:26:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bollettino-frontaliere-2026-09-14/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

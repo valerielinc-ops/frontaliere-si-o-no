@@ -76,9 +76,19 @@ jobs:
         if: ${{ inputs.dry_run != true }}
         run: node scripts/audit-expired-at-parsable.mjs
 
-      - name: Test gate (bot-direct-to-main)
+      - name: Test gate (reconciler and commit contract)
         if: ${{ inputs.dry_run != true }}
-        run: npm test
+        run: |
+          set -euo pipefail
+          # This is a data-only writer. Run its deterministic route, archive,
+          # parsability, and slice-commit contracts; the broad application
+          # suite needs services/artifacts this job does not provision.
+          npx vitest run \
+            tests/reconcile-crawler-company-ownership.test.ts \
+            tests/cleanup-jobs-archive-dedup-losers.test.ts \
+            tests/expired-at-parsable.test.ts \
+            tests/git-commit-data-slice-scoping.test.ts \
+            --reporter=dot
 
       - name: Commit and push changed slices
         if: ${{ inputs.dry_run != true }}

@@ -1,8 +1,12 @@
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   buildL1TelemetryExport,
   buildL4OutcomeLedger,
   buildL9OutcomeLedger,
+  exportL4,
   GoogleDataClient,
 } from '../scripts/ci/export-loop-outcomes.mjs';
 
@@ -92,6 +96,11 @@ describe('read-only loop outcome exporters', () => {
         deduplicationChecked: true,
         quietHoursChecked: true,
         externalDeliveryUntouched: true,
+        unattributedDeliveryReasons: {
+          missingAlertId: 0,
+          missingSentAt: 0,
+          noConsentedAlert: 0,
+        },
       },
     });
   });
@@ -112,6 +121,105 @@ describe('read-only loop outcome exporters', () => {
       deduplicationChecked: false,
       quietHoursChecked: false,
       unattributedDeliveries: 1,
+      unattributedDeliveryReasons: {
+        missingAlertId: 1,
+        missingSentAt: 0,
+        noConsentedAlert: 0,
+      },
+    });
+  });
+
+  it('attributes a consented historical delivery after the alert is no longer active', () => {
+    const output = buildL4OutcomeLedger({
+      now: NOW,
+      alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: false })],
+      jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {})],
+      deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
+        campaign_id: 'a1',
+        sent_at: '2026-09-12T09:00:00.000Z',
+        scheduled_for: '2026-09-12T08:45:00.000Z',
+        send_time_source: 'personal',
+        delivered_at: '2026-09-12T09:01:00.000Z',
+      })],
+      predicates: {
+        evaluateJobAlertConsent: () => ({ allowed: true, reason: 'explicit-alert' }),
+        isCrossChannelStop: () => true,
+        isJobAlertExcluded: () => true,
+      },
+    });
+
+    expect(output).toMatchObject({
+      eligibleConsentedUsers: 0,
+      deliveredAlerts: 1,
+      export: {
+        consentChecked: true,
+        deduplicationChecked: true,
+        unattributedDeliveries: 0,
+        unattributedDeliveryReasons: {
+          missingAlertId: 0,
+          missingSentAt: 0,
+          noConsentedAlert: 0,
+        },
+      },
+    });
+  });
+
+  it('projects the affirmative consent field used by the live backfill predicate', async () => {
+    const calls: Array<Record<string, unknown>> = [];
+    const rows = {
+      alerts: [row('job_alert_subscribers/user@example.test/alerts/a1', {
+        active: true,
+        backfilled_from: 'newsletter_subscribers',
+      })],
+      jobs: [row('job_alert_subscribers/user@example.test', { status: 'confirmed' })],
+      newsletters: [row('newsletter_subscribers/user@example.test', {
+        consent_given: true,
+        consent_text_displayed: true,
+        consent_act: 'typed_email_submit',
+        consent_text: 'Chiedo di ricevere gli avvisi di lavoro quotidiani.',
+      })],
+      deliveries: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
+        campaign_id: 'a1',
+        sent_at: '2026-09-12T09:00:00.000Z',
+        scheduled_for: '2026-09-12T08:45:00.000Z',
+        send_time_source: 'personal',
+        delivered_at: '2026-09-12T09:01:00.000Z',
+      })],
+      events: [],
+    };
+    const client = {
+      runQuery: async (query: Record<string, unknown>) => {
+        calls.push(query);
+        const source = query.collectionId === 'alerts' ? rows.alerts
+          : query.collectionId === 'job_alert_subscribers' ? rows.jobs
+            : query.collectionId === 'newsletter_subscribers' ? rows.newsletters
+              : query.collectionId === 'campaign_deliveries' ? rows.deliveries
+                : rows.events;
+        const fieldPaths = new Set(Array.isArray(query.fieldPaths) ? query.fieldPaths : []);
+        return source.map((sourceRow) => ({
+          ...sourceRow,
+          data: Object.fromEntries(Object.entries(sourceRow.data).filter(([field]) => fieldPaths.has(field))),
+        }));
+      },
+    };
+    const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l4-export-test-'));
+    const output = await exportL4({
+      now: NOW,
+      outputPath: path.join(outputDir, 'outcomes.json'),
+      client: client as any,
+    });
+
+    expect(calls.find((query) => query.collectionId === 'newsletter_subscribers')?.fieldPaths)
+      .toContain('consent_given');
+    expect(output).toMatchObject({
+      eligibleConsentedUsers: 1,
+      deliveredAlerts: 1,
+      export: {
+        consentChecked: true,
+        deduplicationChecked: true,
+        unattributedDeliveries: 0,
+      },
     });
   });
 
@@ -142,6 +250,25 @@ describe('read-only loop outcome exporters', () => {
         pricesUntouched: true,
         outreachSent: false,
       },
+    });
+  });
+
+  it('does not promote a paid inventory job into a paid activation without an active order', () => {
+    const output = buildL9OutcomeLedger({
+      now: NOW,
+      profiles: {
+        _meta: { generatedAt: NOW.toISOString() },
+        profiles: [{ companyKey: 'demo' }],
+      },
+      publisherRows: [row('publishers/p1', { company: { companyKey: 'demo', name: 'Demo AG' } })],
+      jobRows: [row('publisher_jobs/j1', { publisherUid: 'p1', status: 'paid', tier: 'sponsored', companyKey: 'demo' })],
+    });
+
+    expect(output).toMatchObject({
+      eligibleEmployerAccounts: 1,
+      paidActivations: 0,
+      activeSubscriptions: 0,
+      attachedJobs: 1,
     });
   });
 });

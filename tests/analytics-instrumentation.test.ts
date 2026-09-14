@@ -93,6 +93,13 @@ describe('analytics.ts — app_error payload', () => {
     expect(block).not.toBeNull();
     expect(block![0]).toMatch(/\bmethod:\s*truncate\(info\.apiMethod/);
   });
+
+  it('attaches the embedded build id to app errors and error-page views', () => {
+    const appErrorBlock = analyticsSrc.match(/log\('app_error',[\s\S]*?\}\);/);
+    const errorPageBlock = analyticsSrc.match(/trackErrorPageView:[\s\S]*?log\('error_page_view',[\s\S]*?\}\);/);
+    expect(appErrorBlock?.[0]).toMatch(/build_id:\s*truncate\(readEmbeddedBuildId\(\)/);
+    expect(errorPageBlock?.[0]).toMatch(/build_id:\s*truncate\(readEmbeddedBuildId\(\)/);
+  });
 });
 
 describe('analytics.ts — app_error message truncation vs GA4 100-char cap (#4589)', () => {

@@ -16,6 +16,7 @@ import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 import {
+  actionClassForPolicy,
   buildDecision,
   buildObservation,
   loadLoopPolicyForRun,
@@ -369,7 +370,20 @@ export function validateFleetControl({ registry, quota, health = null }, {
   quotaPath = DEFAULT_QUOTA_PATH,
   healthPath = DEFAULT_HEALTH_PATH,
   minimumSample = MINIMUM_SAMPLE,
+  candidateActionClasses = null,
 } = {}) {
+  const resolvedActionClasses = candidateActionClasses || (() => {
+    try {
+      const policy = validateLoopRegistry(registry).loops.find((loop) => loop.loopId === LOOP_ID);
+      return policy ? {
+        missingHealth: actionClassForPolicy(policy, 'missingHealth'),
+        repair: actionClassForPolicy(policy, 'repair'),
+        retry: actionClassForPolicy(policy, 'retry'),
+      } : null;
+    } catch {
+      return null;
+    }
+  })();
   const registryVerdict = validateRegistry(registry, registryPath);
   const quotaVerdict = validateQuotaHistory(quota, { now, maxAgeHours, sourcePath: quotaPath });
   const healthVerdict = validateHealthHistory(health, {
@@ -395,7 +409,7 @@ export function validateFleetControl({ registry, quota, health = null }, {
   const candidates = [];
   if (healthVerdict.quality === 'unmeasurable') {
     candidates.push({
-      actionClass: 'route',
+      ...(resolvedActionClasses?.missingHealth ? { actionClass: resolvedActionClasses.missingHealth } : {}),
       action: 'route every loop producer to append a health row with runId, status, verified decision, artifacts, retries and quota usage',
       reversible: true,
       externalMutation: false,
@@ -404,7 +418,7 @@ export function validateFleetControl({ registry, quota, health = null }, {
   }
   if (registryVerdict.quality !== 'observed' || quotaVerdict.quality !== 'observed' || healthVerdict.quality === 'partial') {
     candidates.push({
-      actionClass: 'follow-up',
+      ...(resolvedActionClasses?.repair ? { actionClass: resolvedActionClasses.repair } : {}),
       action: 'prepare a reviewed PR to repair registry, quota or health schema/cardinality; never bypass a failing gate',
       reversible: true,
       externalMutation: false,
@@ -413,7 +427,7 @@ export function validateFleetControl({ registry, quota, health = null }, {
   }
   if ((healthVerdict.snapshot?.artifactCollisions || 0) > 0 || (healthVerdict.snapshot?.retries || 0) > 0 || healthVerdict.quality !== 'observed') {
     candidates.push({
-      actionClass: 'lock+retry',
+      ...(resolvedActionClasses?.retry ? { actionClass: resolvedActionClasses.retry } : {}),
       action: 'apply a runner-local per-artifact lock, bounded queue and capped retry policy before another write; leave gates enforced',
       reversible: true,
       externalMutation: false,
@@ -547,11 +561,11 @@ function writeReports(reportDir, verdict, observation, decision) {
   return files.map(([name]) => path.join(dir, name));
 }
 
-function writeActions(reportDir, verdict, now, registry) {
+function writeActions(reportDir, verdict, now, registry, loopPolicy) {
   if (!reportDir || verdict.ok) return null;
   if (!registry) return null;
   const actions = verdict.candidates.map((candidate) => {
-    const actionClass = candidate.actionClass || 'follow-up';
+    const actionClass = candidate.actionClass || actionClassForPolicy(loopPolicy, 'repair');
     const policy = validateActionClassAgainstPolicy(registry, LOOP_ID, actionClass);
     return {
       ...candidate,
@@ -615,7 +629,7 @@ export async function runL10({
   quotaPath = DEFAULT_QUOTA_PATH,
   healthPath = DEFAULT_HEALTH_PATH,
   maxAgeHours = DEFAULT_MAX_AGE_HOURS,
-  minimumSample = MINIMUM_SAMPLE,
+  minimumSample,
   issue = false,
   apply = false,
   reportDir = null,
@@ -627,6 +641,11 @@ export async function runL10({
     policy: loopPolicy,
     minimumSample: policyMinimumSample,
   } = loadLoopPolicyForRun(registryPath, LOOP_ID, minimumSample);
+  const candidateActionClasses = {
+    missingHealth: actionClassForPolicy(loopPolicy, 'missingHealth'),
+    repair: actionClassForPolicy(loopPolicy, 'repair'),
+    retry: actionClassForPolicy(loopPolicy, 'retry'),
+  };
   let verdict;
   try {
     const quota = readJsonl(quotaPath, 'quota history');
@@ -638,6 +657,7 @@ export async function runL10({
       quotaPath,
       healthPath,
       minimumSample: policyMinimumSample,
+      candidateActionClasses,
     });
   } catch (error) {
     verdict = baseVerdict({
@@ -653,7 +673,7 @@ export async function runL10({
         health: emptyHealthSnapshot(healthPath),
       },
       candidates: [{
-        actionClass: 'follow-up',
+        actionClass: candidateActionClasses.repair,
         action: 'prepare a reviewed PR to restore or repair the fleet control inputs; preserve all gates',
         reversible: true,
         externalMutation: false,
@@ -661,7 +681,7 @@ export async function runL10({
       }],
     });
   }
-  const actionClass = verdict.ok ? 'observe' : 'route+lock+retry+follow-up';
+  const actionClass = actionClassForPolicy(loopPolicy, verdict.ok ? 'healthy' : 'needsReview');
   const actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
   verdict = {
     ...verdict,
@@ -725,7 +745,7 @@ export async function runL10({
   const files = writeReports(reportDir, verdict, observation, decision);
   let actionsWritten = false;
   if (apply && reportDir) {
-    const actionFile = writeActions(reportDir, verdict, now, loopRegistry);
+    const actionFile = writeActions(reportDir, verdict, now, loopRegistry, loopPolicy);
     actionsWritten = Boolean(actionFile);
     if (actionFile) files.push(actionFile);
   }
@@ -752,9 +772,12 @@ function parseArgs(argv) {
     return index === -1 ? fallback : argv[index + 1] || fallback;
   };
   const maxAgeHours = Number(valueAfter('--max-age-hours', DEFAULT_MAX_AGE_HOURS));
-  const minimumSample = Number(valueAfter('--minimum-sample', MINIMUM_SAMPLE));
+  const minimumSampleIndex = argv.indexOf('--minimum-sample');
+  const minimumSample = minimumSampleIndex === -1 ? undefined : Number(argv[minimumSampleIndex + 1]);
   if (!Number.isFinite(maxAgeHours) || maxAgeHours <= 0) throw new Error('--max-age-hours must be a finite positive number');
-  if (!Number.isInteger(minimumSample) || minimumSample < 1) throw new Error('--minimum-sample must be a positive integer');
+  if (minimumSample !== undefined && (!Number.isInteger(minimumSample) || minimumSample < 1)) {
+    throw new Error('--minimum-sample must be a positive integer');
+  }
   return {
     json: argv.includes('--json'),
     issue: argv.includes('--issue'),

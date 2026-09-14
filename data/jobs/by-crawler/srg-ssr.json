@@ -77,7 +77,7 @@
         "it": "praticanta-praticant-srg-ssr-cuira",
         "en": "intern-srg-ssr-cuira",
         "de": "praktikant-srg-ssr-cuira",
-        "fr": "praticanta-praticant-srg-ssr-cuira"
+        "fr": "pratique-pratique-srg-ssr-cuira"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -87,7 +87,7 @@
         "it": "Praticanta / praticant",
         "en": "Intern",
         "de": "Praktikant",
-        "fr": "Praticanta / praticant"
+        "fr": "Pratique / Pratique"
       },
       "description": "Vulessas ti daventar schurnalista u schurnalist? Ubain far ina lavur da tecnicist u tecnicista? Has ti mirveglias ed es ti gugent là nua che las chaussas capitan - t'interessas per la Rumantschia, il Grischun, il mund - lavuras ti gugent cun la lingua, purtrets e tun ubain la tecnica? Nus sustegnain e scolain tai! Ti pos frequentar tar nus in praticum da 3 fin 6 mais. En quest temp emprendas ti d'enconuscher la branscha da medias e nossa chasa cun sias vastas purschidas. Gia davent da l'entschatta fas ti part dal team e pos ta sviluppar en la pratica cun sustegn e scolaziuns internas. Tge spetgain nus? Vegliadetgna: da circa 18 onns fin 30 onns Scolaziun: emprendissadi, matura gimnasiala u professiunala, studi u scolaziun equivalenta Durada: ideal 6 mais; las plazzas èn limitadas, per regla 1 practicantA per mez onn. E suenter il praticum? davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08",
       "descriptionByLocale": {
@@ -142,15 +142,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-29T11:35:50.122Z",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "fr": [
-          "pratique-pratique-srg-ssr-cuira"
-        ]
-      },
-      "previousSlugs": [
-        "pratique-pratique-srg-ssr-cuira"
-      ],
       "salaryMin": 42640,
       "salaryMax": 61000,
       "salarySource": "estimated",
@@ -169,7 +160,7 @@
       "id": "srg-ssr-d9ec5b9a657a",
       "slug": "service-operator-srg-ssr-bern",
       "slugByLocale": {
-        "it": "service-operator-srg-ssr-bern",
+        "it": "operatore-di-servizio-srg-ssr-bern",
         "en": "service-operator-srg-ssr-bern",
         "de": "service-operator-srg-ssr-bern",
         "fr": "operateur-de-service-srg-ssr-bern"
@@ -179,7 +170,7 @@
       "companyDomain": "srgssr.ch",
       "title": "Service Operator",
       "titleByLocale": {
-        "it": "Service Operator",
+        "it": "Operatore di servizio",
         "en": "Service",
         "de": "Service Operator",
         "fr": "Opérateur de Service"
@@ -259,18 +250,7 @@
         "pensumMin": 80,
         "pensumMax": 80
       },
-      "previousSlugs": [
-        "operatore-di-servizio-srg-ssr-bern",
-        "service-operator-srg-ssr-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "operatore-di-servizio-srg-ssr-bern",
-          "service-operator-srg-ssr-bern"
-        ]
-      },
       "firstSeenAt": "2026-06-29T11:35:27.904Z",
-      "needsRetranslation": true,
       "salaryMin": 71500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -284,7 +264,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "service-operator-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "service-operator-srg-ssr-bern"
+      ]
     },
     {
       "id": "srg-ssr-a8ae3325568d",
@@ -353,21 +341,16 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
-          "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich"
+          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
         ],
         "it": [
-          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
-          "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich"
+          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
         ]
       },
       "previousSlugs": [
-        "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
-        "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich",
-        "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich"
+        "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
       ],
       "firstSeenAt": "2026-08-17T21:37:04.179Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 136000,
       "salarySource": "estimated",
@@ -449,20 +432,17 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
-        "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich"
+        "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
-          "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich"
+          "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
         ],
         "de": [
           "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
         ]
       },
       "firstSeenAt": "2026-08-17T21:37:03.185Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 136000,
       "salarySource": "estimated",
@@ -561,7 +541,6 @@
         ]
       },
       "firstSeenAt": "2026-08-13T21:48:15.082Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -645,13 +624,11 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern",
-        "controllore-strategico-del-progetto-e-degli-investimenti-srg-ssr-bern"
+        "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern",
-          "controllore-strategico-del-progetto-e-degli-investimenti-srg-ssr-bern"
+          "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
         ],
         "en": [
           "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
@@ -661,7 +638,6 @@
         ]
       },
       "firstSeenAt": "2026-08-13T21:48:14.284Z",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -747,13 +723,11 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16",
-        "apprendistato-come-informatiker-in-cfc-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
+        "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16",
-          "apprendistato-come-informatiker-in-cfc-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
+          "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
         ],
         "en": [
           "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
@@ -763,7 +737,6 @@
         ]
       },
       "firstSeenAt": "2026-08-14T21:28:35.078Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -849,13 +822,11 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16",
-        "apprendistato-come-informatiker-in-cfc-plattformentwicklung-2027-bern-srg-ssr-bern-16"
+        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16",
-          "apprendistato-come-informatiker-in-cfc-plattformentwicklung-2027-bern-srg-ssr-bern-16"
+          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
         ],
         "en": [
           "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
@@ -865,7 +836,6 @@
         ]
       },
       "firstSeenAt": "2026-08-14T21:28:34.182Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -949,13 +919,11 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern",
-        "responsabile-per-lo-sviluppo-del-prodotto-swissinfo-srg-ssr-bern"
+        "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern",
-          "responsabile-per-lo-sviluppo-del-prodotto-swissinfo-srg-ssr-bern"
+          "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
         ],
         "en": [
           "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
@@ -965,7 +933,6 @@
         ]
       },
       "firstSeenAt": "2026-08-21T09:46:05.638Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -1061,7 +1028,6 @@
         "orgLabel": "RSI"
       },
       "firstSeenAt": "2026-08-24T10:00:42.039Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -1166,7 +1132,6 @@
         ]
       },
       "firstSeenAt": "2026-08-25T09:48:14.107Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -1250,13 +1215,11 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich",
-        "responsabile-r-operazioni-offerta-nazionale-di-informazione-srg-ssr-zurich"
+        "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich",
-          "responsabile-r-operazioni-offerta-nazionale-di-informazione-srg-ssr-zurich"
+          "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich"
         ],
         "en": [
           "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich"
@@ -1266,7 +1229,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:00:42.256Z",
-      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "salarySource": "estimated",
@@ -1351,7 +1313,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-08-31T17:00:43.065Z",
-      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "salarySource": "estimated",
@@ -1436,13 +1397,11 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich",
-        "capo-di-genere-offerta-nazionale-di-informazione-operazioni-srg-ssr-zurich"
+        "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich",
-          "capo-di-genere-offerta-nazionale-di-informazione-operazioni-srg-ssr-zurich"
+          "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich"
         ],
         "en": [
           "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich"
@@ -1452,7 +1411,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:00:43.813Z",
-      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "salarySource": "estimated",
@@ -1636,7 +1594,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-09-02T23:09:02.702Z",
-      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -1728,13 +1685,11 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "stagiaire-recherchiste-srg-ssr-bern",
-        "formazione-di-ricerca-srg-ssr-bern"
+        "stagiaire-recherchiste-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-recherchiste-srg-ssr-bern",
-          "formazione-di-ricerca-srg-ssr-bern"
+          "stagiaire-recherchiste-srg-ssr-bern"
         ],
         "en": [
           "stagiaire-recherchiste-srg-ssr-bern"
@@ -1744,7 +1699,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:28:01.047Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1835,8 +1789,7 @@
         "presentatore-di-tempo-srg-ssr-bern",
         "weather-presenter-srg-ssr-bern",
         "wettermoderator-srg-ssr-bern",
-        "presentatrice-ou-presentateur-meteo-srg-ssr-bern",
-        "sviluppatori-di-imprese-srg-ssr-bern"
+        "presentatrice-ou-presentateur-meteo-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1844,8 +1797,7 @@
           "presentatore-di-tempo-srg-ssr-bern",
           "weather-presenter-srg-ssr-bern",
           "wettermoderator-srg-ssr-bern",
-          "presentatrice-ou-presentateur-meteo-srg-ssr-bern",
-          "sviluppatori-di-imprese-srg-ssr-bern"
+          "presentatrice-ou-presentateur-meteo-srg-ssr-bern"
         ],
         "en": [
           "unternehmensentwickler-in-srg-ssr-bern",
@@ -1860,7 +1812,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:36:17.762Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -1946,13 +1897,11 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "specialiste-developpement-de-l-39-entreprise-f-h-srg-ssr-bern",
-        "specialista-di-sviluppo-aziendale-m-f-srg-ssr-bern"
+        "specialiste-developpement-de-l-39-entreprise-f-h-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-developpement-de-l-39-entreprise-f-h-srg-ssr-bern",
-          "specialista-di-sviluppo-aziendale-m-f-srg-ssr-bern"
+          "specialiste-developpement-de-l-39-entreprise-f-h-srg-ssr-bern"
         ],
         "en": [
           "specialiste-developpement-de-l-39-entreprise-f-h-srg-ssr-bern"
@@ -1962,7 +1911,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:36:17.077Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2048,7 +1996,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-09-08T13:36:16.364Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2139,13 +2086,11 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "charge-e-s-de-projet-technique-srg-ssr-lausanne",
-        "responsabile-del-progetto-tecnico-srg-ssr-lausanne"
+        "charge-e-s-de-projet-technique-srg-ssr-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-e-s-de-projet-technique-srg-ssr-lausanne",
-          "responsabile-del-progetto-tecnico-srg-ssr-lausanne"
+          "charge-e-s-de-projet-technique-srg-ssr-lausanne"
         ],
         "en": [
           "charge-e-s-de-projet-technique-srg-ssr-lausanne"
@@ -2155,7 +2100,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T23:04:42.334Z",
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 163000,
       "salarySource": "estimated",
@@ -2252,13 +2196,11 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "journaliste-data-actualite-srg-ssr-bern",
-        "giornalista-news-srg-ssr-bern"
+        "journaliste-data-actualite-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "journaliste-data-actualite-srg-ssr-bern",
-          "giornalista-news-srg-ssr-bern"
+          "journaliste-data-actualite-srg-ssr-bern"
         ],
         "en": [
           "journaliste-data-actualite-srg-ssr-bern"
@@ -2268,7 +2210,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:45:01.576Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2352,7 +2293,6 @@
         "pensumMax": 80
       },
       "firstSeenAt": "2026-09-10T23:07:07.025Z",
-      "needsRetranslation": true,
       "salaryMin": 63500,
       "salaryMax": 112500,
       "salarySource": "estimated",
@@ -2438,7 +2378,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-09-10T23:07:06.414Z",
-      "needsRetranslation": true,
       "salaryMin": 75500,
       "salaryMax": 133000,
       "salarySource": "estimated",
@@ -2532,7 +2471,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-09-11T13:35:22.240Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 74000,
       "salarySource": "estimated",
@@ -2627,7 +2565,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-09-11T13:35:21.643Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 74000,
       "salarySource": "estimated",

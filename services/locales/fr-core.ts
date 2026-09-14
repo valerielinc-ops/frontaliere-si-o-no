@@ -34,6 +34,8 @@ const frCore: Record<string, string> = {
  'nav.guida': 'Guide Pratique',
  'nav.vita': 'Vie Quotidienne',
  'nav.stats': 'Statistiques',
+ 'nav.plateAuctions': 'Enchères de plaques',
+ 'nav.plateAuctions.mobile': 'Plaques',
  'nav.simulator.mobile': 'Calcul',
  'nav.confronti.mobile': 'Comparer',
  'nav.fisco.mobile': 'Fiscal',

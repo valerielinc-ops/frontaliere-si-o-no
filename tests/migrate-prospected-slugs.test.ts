@@ -147,7 +147,9 @@ describe('migrate-prospected-slugs', () => {
       for (const locale of LOCALES) {
         const slug = entry.job.slugByLocale[locale];
         expect(slug).toBe(entry.plan.nextSlugByLocale[locale]);
-        expect(entry.job.previousSlugsByLocale[locale]).toContain(oldSlugs[locale]);
+        if (oldSlugs[locale] !== entry.plan.nextSlugByLocale[locale]) {
+          expect(entry.job.previousSlugsByLocale?.[locale] || []).toContain(oldSlugs[locale]);
+        }
         const key = locale + ':' + slug;
         expect(seen.has(key), key).toBe(false);
         seen.add(key);

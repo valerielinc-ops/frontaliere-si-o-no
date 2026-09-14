@@ -54,7 +54,11 @@ const GROUP_SEP = String.raw`(?:[.,]|\s*['’]\s*|[    ])`;
  * locales' conventions. Grouped forms must use exact 3-digit groups, which is
  * what stops "In 2023, 20% of" from being read as the number 202320.
  */
-export const NUMBER_TOKEN = String.raw`\d{1,3}(?:${GROUP_SEP}\d{3})+(?:[.,]\d+)?|\d+(?:[.,]\d+)?`;
+// Keep fixed-precision decimals whole: without the boundary, `1.0590` can
+// match the grouped prefix `1.059` and leave the trailing zero behind. A final
+// period or comma may be sentence punctuation, so only block separators that
+// are immediately followed by another digit.
+export const NUMBER_TOKEN = String.raw`(?:\d{1,3}(?:${GROUP_SEP}\d{3})+(?:[.,]\d+)?|\d+(?:[.,]\d+)?)(?!\d|[.,](?=\d))`;
 
 /**
  * Reads a number written in ANY of the four locales' conventions.

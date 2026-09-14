@@ -260,6 +260,18 @@ describe('fuel-daily page generation — content quality', () => {
     }
   });
 
+  it('derives the commuter fuel bill from distance and consumption, not four arbitrary tanks', () => {
+    const italian = pages['/prezzi-benzina/chiasso/oggi/'];
+    expect(italian).toContain('105.6 litri al mese');
+    expect(italian).not.toContain('4 × 50 ×');
+    expect(italian).not.toContain('circa 200 litri');
+
+    const english = pages['/en/gasoline-price-switzerland/chiasso/today/'];
+    expect(english).toContain('105.6 litres a month');
+    expect(english).not.toContain('4 × 50 ×');
+    expect(english).not.toContain('about 200 litres');
+  });
+
   it('locale coverage — exactly 4 locales × 2 fuels × 6 combos', () => {
     const byLocale: Record<string, number> = { it: 0, en: 0, de: 0, fr: 0 };
     for (const path of Object.keys(pages)) {

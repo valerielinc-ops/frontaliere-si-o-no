@@ -7,6 +7,11 @@ import {
   runStandardCrawlerPipeline,
   exitCrawlerOnError,
 } from '../scripts/lib/crawler-template.mjs';
+import {
+  FeedEndpointUnavailableError,
+  assertFeedBodyLooksLikeXml,
+  assertFeedEndpointHost,
+} from '../scripts/lib/feed-endpoint-guard.mjs';
 
 function makeRoot(): string {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-guard-'));
@@ -80,6 +85,71 @@ describe('runStandardCrawlerPipeline — connection-level fetch guard', () => {
       }),
     ).resolves.toBeUndefined();
   });
+
+  it('preserves existing jobs when a feed endpoint is unavailable', async () => {
+    const root = makeRoot();
+    await expect(
+      runStandardCrawlerPipeline({
+        companyKey: 'test-co',
+        companyLabel: 'Test Co',
+        isCompanyJob: () => false,
+        fetchJobs: async () => {
+          throw new FeedEndpointUnavailableError('feed redirected off its own host');
+        },
+        root,
+      }),
+    ).resolves.toBeUndefined();
+  });
+
+  it('preserves existing jobs when a retryable HTTP response exhausted its retry budget', async () => {
+    // httpFetchWithRetry returns the final 429/5xx Response so parsers can keep
+    // their status handling. A parser that turns that marked Response into a
+    // domain error must still get the same soft-exit as the other transient
+    // guards; a persistent 4xx has no marker and remains loud below.
+    const root = makeRoot();
+    const err = Object.assign(new Error('HTTP 429'), {
+      status: 429,
+      retryBudgetExhausted: true,
+    });
+    await expect(
+      runStandardCrawlerPipeline({
+        companyKey: 'test-co',
+        companyLabel: 'Test Co',
+        isCompanyJob: () => false,
+        fetchJobs: async () => {
+          throw err;
+        },
+        root,
+      }),
+    ).resolves.toBeUndefined();
+  });
+});
+
+describe('feed-endpoint-guard', () => {
+  it('flags a response redirected away from the expected host', () => {
+    expect(() => assertFeedEndpointHost(
+      'nord-anglia',
+      'careers.nordangliaeducation.com',
+      'https://www.nordangliaeducation.com/careers',
+    )).toThrow(/redirected off careers\.nordangliaeducation\.com to www\.nordangliaeducation\.com/);
+  });
+
+  it('flags an HTML maintenance page but leaves malformed XML to the XML parser', () => {
+    expect(() => assertFeedBodyLooksLikeXml(
+      'nord-anglia',
+      'careers.nordangliaeducation.com',
+      '<!DOCTYPE html><html><body>careers unavailable</body></html>',
+    )).toThrow(/answered with an HTML document/);
+    expect(() => assertFeedBodyLooksLikeXml(
+      'nord-anglia',
+      'careers.nordangliaeducation.com',
+      '<?xml version="1.0"?><rss><channel>',
+    )).not.toThrow();
+  });
+
+  it('marks endpoint errors as soft-exitable', () => {
+    expect(new FeedEndpointUnavailableError('unavailable').feedEndpointUnavailable).toBe(true);
+  });
 });
 
 describe('exitCrawlerOnError — custom-main terminal catch', () => {
@@ -95,6 +165,17 @@ describe('exitCrawlerOnError — custom-main terminal catch', () => {
     expect(exit).toHaveBeenCalledWith(0);
   });
 
+  it('exits 0 (soft, preserve) when the feed endpoint is unavailable', () => {
+    const exit = vi.spyOn(process, 'exit').mockImplementation(((code?: number) => {
+      throw new Error(`exit:${code}`);
+    }) as never);
+    expect(() => exitCrawlerOnError(
+      new FeedEndpointUnavailableError('feed unavailable'),
+      'Test Co',
+    )).toThrow('exit:0');
+    expect(exit).toHaveBeenCalledWith(0);
+  });
+
   it('exits 1 (surface) on an HTTP-status error', () => {
     const exit = vi.spyOn(process, 'exit').mockImplementation(((code?: number) => {
       throw new Error(`exit:${code}`);
@@ -103,5 +184,17 @@ describe('exitCrawlerOnError — custom-main terminal catch', () => {
     httpErr.status = 403;
     expect(() => exitCrawlerOnError(httpErr, 'Test Co')).toThrow('exit:1');
     expect(exit).toHaveBeenCalledWith(1);
+  });
+
+  it('exits 0 (soft, preserve) on a retry-budget-exhausted HTTP error', () => {
+    const exit = vi.spyOn(process, 'exit').mockImplementation(((code?: number) => {
+      throw new Error(`exit:${code}`);
+    }) as never);
+    const httpErr = Object.assign(new Error('HTTP 429'), {
+      status: 429,
+      retryBudgetExhausted: true,
+    });
+    expect(() => exitCrawlerOnError(httpErr, 'Test Co')).toThrow('exit:0');
+    expect(exit).toHaveBeenCalledWith(0);
   });
 });

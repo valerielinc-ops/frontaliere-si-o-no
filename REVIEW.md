@@ -4,8 +4,6 @@
 
 I file sotto `tests/` o `__tests__/`, anche annidati, e i file `*.test.*`/`*.spec.*` JavaScript/TypeScript sono esclusi dalla review, dalle ricerche cross-file e dai finding. Questa regola sostituisce le precedenti eccezioni sui bug nei test esistenti. I test continuano a essere eseguiti in CI. Una PR composta esclusivamente da questi file riceve `## LGTM` deterministico dopo i controlli, senza chiamare un modello. Una PR mista viene reviewata soltanto per i file non-test.
 
-Reviewer contract. Filtra finding via scopo progetto, non stile/sicurezza/naming.
-
 ## Scopo progetto = filtro "important"
 
 `frontaliereticino.ch` = SEO funnel ad revenue (~95% AdSense Auto Ads). NOT daily app.
@@ -28,27 +26,25 @@ Non passa nessuno → drop. Non importante per questo progetto.
 
 ### Disposizione 🟡 al review-time (anti-treadmill follow-up)
 
-Ogni 🟡 nit che sollevi **deve dichiarare la propria disposizione**, così `post-merge-followup` non deve indovinarla e non minta un follow-up di basso valore (~470 run/sett — vedi `FOLLOWUP.md → Gate grandchild-suppression`):
+Ogni 🟡 nit che sollevi **deve dichiarare la propria disposizione**, così `post-merge-followup` non deve indovinarla né mintare un follow-up non necessario:
 
 - **Nit non-funnel** (stile/leggibilità/naming/maintenance-debt senza impatto monetizzazione/traffico) → suffissa **`— deferred, non funnel-critical`**. `post-merge-followup` lo droppa senza issue (eccezione esistente in `AGENTS.md → Post-merge feedback handling`). NON diventa follow-up.
-- **Nit funnel-critical E azionabile** (cambia un comportamento su monetizzazione/traffico/correttezza) → resta candidate follow-up normale. Questi sono gli UNICI 🟡 che devono mintare. Se il fix è banale e isolato, preferisci dirlo come 🔴-soft "fixa in-PR prima di `## LGTM`" invece di deferirlo (un fix in-PR = zero run treadmill; un follow-up = ~3 run).
-
-Razionale: la disposizione esplicita sposta il triage del nit **a sinistra** (al review, gratis) non **a destra** (minting → `agent:fix` → `pr-review`). Non bloccare l'auto-merge sui nit non-funnel (quota-shift, non quota-saving). Il blocco merge resta solo su 🔴 + process.
+- **Nit funnel-critical E azionabile** (cambia un comportamento su monetizzazione/traffico/correttezza) → resta candidate follow-up normale. Questi sono gli UNICI 🟡 che devono mintare. Se il fix è banale e isolato, preferisci 🔴-soft "fixa in-PR prima di `## LGTM`".
 
 ## IGNORA (anche se veri)
 
 - Security (XSS/injection/secret leak/path traversal) — out of scope
 - Style/formatting/naming
 - TS strictness salvo maschera bug logico
-- **Test coverage — MAI un finding** (né 🟡 nit né voce `## Adversarial check`), nemmeno su path funnel-critici. "Manca un test per X", "aggiungi coverage", "committa il test citato nel PR body", "pinna questo comportamento con un test" → NON sollevare in alcuna forma. Zero valore per l'owner; auto-routano `agent:fix`, bruciano quota condivisa. **Eccezione (resta in scope):** un BUG in un test ESISTENTE — assertion sbagliata, regex/guard leaky che resta verde sulla regressione, fixture con date assolute — è correttezza, non coverage → 🔴/🟡 normale.
-- **Verifica-live-only — MAI un finding actionable.** Un item la cui **unica azione è ispezionare il sito già deployato** (no file da editare): "verifica live / post-deploy", "curl la URL prod / live-200", "renderizza a NNNpx", "apri DevTools", "Playwright hydration", checkbox `## Test plan` etichettata `(post-merge, live)` → NON emetterlo come 🟡 nit né come voce `## Adversarial check` né come "crea issue follow-up". Non c'è codice da cambiare → auto-routerebbe `agent:fix` su una PR vuota, quota condivisa bruciata (classe #1149/#959/#1129). Il fix è già nel diff: conferma runtime è promemoria per l'owner, non deliverable d'agente. **Eccezione (resta in scope):** un item che **mescola** la verifica-live con un'edit concreta su un file ("aggiungi `min-height` E poi verifica il CLS live") → solleva la parte editabile, normale. E un BUG di rendering **diagnosticabile dal diff/codice** (non "controlla in prod" ma "questo selettore omette `width` → CLS") resta 🔴/🟡. Vedi `FOLLOWUP.md → Hard-exclude: live-verification-only item`.
+- **Test coverage — MAI un finding** (né 🟡 nit né voce `## Adversarial check`), nemmeno su path funnel-critici. "Manca un test per X", "aggiungi coverage", "committa il test citato nel PR body", "pinna questo comportamento con un test" → NON sollevare. **Eccezione:** un BUG in un test ESISTENTE — assertion sbagliata, regex/guard leaky, fixture con date assolute — è correttezza → 🔴/🟡 normale.
+- **Verifica-live-only — MAI un finding actionable.** Se l'**unica azione è ispezionare il sito già deployato** senza file da editare ("verifica live / post-deploy", "curl la URL prod / live-200", "renderizza a NNNpx", "apri DevTools", "Playwright hydration", checkbox `## Test plan` etichettata `(post-merge, live)`), NON emetterlo come 🟡, `## Adversarial check` o "crea issue follow-up". Se mescola verifica-live con un'edit ("aggiungi `min-height` E poi verifica il CLS live"), solleva la parte editabile. Un BUG di rendering diagnosticabile dal diff/codice resta 🔴/🟡. Vedi `FOLLOWUP.md → Gate grandchild-suppression` e `FOLLOWUP.md → Hard-exclude: live-verification-only item`
 - Script funnel-critico senza workflow CI corrispondente (manual-only, dipende da SA/credenziali su macchina dev) → 🟡 Nit. Eccezioni motivate (one-shot ammortizzato, dev-only) restano nel `## Non implementato` con motivo esplicito.
 - Refactor speculativi non legati al diff
 - Cavilli architetturali se la soluzione attuale funziona
 
 ## Tier review (effort + adversarial depth)
 
-Determina tier dai file toccati. Reviewer regola depth+probing in base a tier. Tier auto-calcolato dal workflow (`pr-review-loop.yml`) e passato nel prompt; le righe sotto sono il razionale.
+Determina tier dai file toccati. Il workflow (`pr-review-loop.yml`) lo calcola e lo passa nel prompt; il reviewer regola depth+probing in base al tier.
 
 **Il tier si decide SOLO sul CODE.** I file dati/static rigenerati — `data/**` (job JSON, snapshot, translation-cache, blog-articles), `public/**` (immagini/asset), `reports/**`, `_newsletter_variants/**`, `docs/**` — NON sono code: non escalano il tier e non vanno revieweati riga-per-riga (vedi "CODE vs DATA nel diff").
 
@@ -59,8 +55,6 @@ Determina tier dai file toccati. Reviewer regola depth+probing in base a tier. T
 | **normal** | tutto il resto, inclusi gli script NON-funnel: `scripts/{ci,dev,evals}/` (helper CI/dev) e gli audit/report read-only (`audit-*`, `analytics*`, `*-report` — verificano, non mutano l'indice) | Single-pass standard. No adversarial step obbligatorio. |
 | **minimal** | PR data/docs-only (ZERO code reviewable) | Percorso corto ≤6 turni (sonnet): solo completeness-contract del body, niente REVIEW.md/cross-file/adversarial. Posta `## LGTM`. |
 | **incremental** / **incremental-high** | Re-review (esiste già una review Claude su un commit precedente) con delta-code non-funnel (→ `incremental`) o funnel-critical (→ `incremental-high`). Modello UNIFICATO claude-opus-5 a `--effort medium` su entrambi (owner 2026-09-03, supersede claude-sonnet-5 del 2026-07-17: mai claude-sonnet-4-6 — cambia solo il probing, non il modello). | **Token-lever**: i commit fino a `INCREMENTAL_BASE` erano già reviewati → review SOLO il delta dei file PR (`compare $INCREMENTAL_BASE...$HEAD`), non l'intero contributo. Read/grep dei file pieni consentito per il contesto. `incremental-high` mantiene il probing rigoroso + `## Adversarial check` sul delta; `incremental` è single-pass. Prima review / delta vuoto / contributo invariato → NON incrementale (rispettivamente high|normal full, oppure skip via fingerprint-guard). |
-
-High-tier non implica più 🔴 — implica più probing. Filtro scopo identico. Il delta-scope incrementale riduce i token, NON la severity: un 🔴 nel delta resta 🔴.
 
 ### CODE vs DATA nel diff
 
@@ -87,8 +81,6 @@ PR body DEVE avere:
 
 «Nessuno» al posto dei bullet = task completo (AGENTS.md #8).
 
-Gli **stati letterali** ammessi sono CINQUE, e sono quelli che le macchine riconoscono — `STATE_PATTERNS` in `scripts/lib/pr-body-sections-check.mjs`, da cui `scripts/ci/followup-has-candidates.mjs` importa `bulletState()`. Elencarne solo tre qui rendeva questo doc più stretto dei gate, quindi un `per scelta` legittimo tornava come finding:
-
 | stato | significato | il task resta aperto? |
 |---|---|---|
 | `in questa PR` | è già nel diff che si sta mergiando | no |
@@ -103,25 +95,27 @@ Gli **stati letterali** ammessi sono CINQUE, e sono quelli che le macchine ricon
 
 1. **Implementato item** → critical thinking: diff lo implementa? edge case? logica boundary/null/async/ordering? modo più semplice? buco visibile? Code-smell con maintenance debt anche se non blocca il funnel → 🟡 Nit.
 2. **Non implementato item** → **post-#8 `## Non implementato` = piano di completamento del task aperto, NON scope-deferito-e-chiuso** (vedi `AGENTS.md → Non-Negotiable #8`). Ogni voce è lavoro ancora dovuto. Verifica che dichiari **stato/next-step concreto** — uno dei sei della tabella qui sopra, non tre: `in questa PR` / `PR concatenata #N` / `blocked: <causa esterna reale>` (lavoro ancora dovuto) **oppure** `per scelta` / `by construction` / `blocked: decisione del proprietario` (voce chiusa con un motivo) — non un motivo-scappatoia (`out of scope`/`posposto`).
-   - **Un bullet che dichiara uno stato CHIUDENTE con il motivo scritto dopo lo stato NON è un finding.** Non emettere 🔴 (né 🟡) per chiedere che venga implementato: quella voce è un no motivato, e la stessa tassonomia la escludono `scripts/ci/followup-has-candidates.mjs` (`CLOSING_STATES`) e i due fixer autonomi. Ri-emettere quel 🔴 non lo fa chiudere da nessuno: il 🔴-fixer legge lo stato, declina, e il round si consuma — a round 2 la PR prende `needs-human` con una diagnosi sbagliata («il fixer non ce la fa») su una PR che non aveva niente da fixare. Se il motivo ti sembra debole, quello è `❓ q:`, non 🔴.
-   - Resta 🔴 il caso opposto, ed è quello per cui la parola-stato non basta: `per scelta` **senza** motivo, o con il motivo che nega lo stato stesso («non per scelta ma per un limite dell'API») — è un `out of scope` travestito, e per giunta `bulletState()` lo classificherebbe come chiuso. Voce di scope-feature lasciata come deferral senza piano-di-completamento né essere fatta → **🔴 Important**: "scope dovuto non implementato né pianificato; il task non è chiuso finché `## Non implementato` non legge «Nessuno» — completa (PR concatenata) o dichiara `blocked:<causa>`." Una singola PR PUÒ mergiare con la sezione non-vuota se ogni voce porta un next-step credibile (è una catena): in quel caso non bloccare il merge, ma **non scrivere `## LGTM` per il TASK** — l'auto-merge della PR ≠ chiusura del task. `blocked:` con causa esterna reale → accettato (task resta aperto, non colpa). `Nessuno` → task completo, ok.
+   - **Un bullet che dichiara uno stato CHIUDENTE con il motivo scritto dopo lo stato NON è un finding.** Non emettere 🔴/🟡: `scripts/ci/followup-has-candidates.mjs` (`CLOSING_STATES`) e i fixer autonomi lo escludono. Motivo debole → `❓ q:`, non 🔴.
+   - Resta 🔴 `per scelta` senza motivo o in contrasto con il motivo: è `out of scope` travestito. Scope-feature in deferral senza piano né implementazione → **🔴 Important**: il task non è chiuso finché `## Non implementato` non legge «Nessuno»; completa con `PR concatenata` o dichiara `blocked:<causa>`. PR può mergiare con sezione non vuota se ogni voce ha next-step, ma non scrivere `## LGTM` per il TASK. `blocked:` esterno lascia il task aperto; `Nessuno` lo completa.
 3. **Diff fa cose non dichiarate** → 🟡 scope drift: "diff fa X non in scope. PR separata o aggiungi a Implementato."
    - **Inverso — body dichiara X ma diff non lo mostra** (claim falso; es. cluster PR #1508) → 🟡 Nit: "`## Implementato` afferma X ma il diff non lo riflette — aggiornare il body." (`pr-body-contract.yml` valida presenza degli header, non la precisione del contenuto.)
 4. **Sezioni mancanti** → 🔴 process: "manca Implementato/Non implementato nel PR body. Aggiungere prima review sostanziale."
    - **Tier normal**: termina qui, no altri finding (path basso rischio, review sostanziale rimandata al re-push conforme).
-   - **Tier high (vedi tabella "Tier review"): NON terminare.** Posta il 🔴 process E prosegui con la review sostanziale + `## Adversarial check` completi nello stesso pass. Motivo: 🔴 process blocca solo l'auto-merge, non un merge manuale — se deferito il probing salta (#814→#816/#817; #795/#802→#822). Non deferire mai il probing su tier high.
-   - **`Closes #a #b` multi-issue su una riga** → 🔴 process: GitHub chiude SOLO la prima issue dopo una keyword (`Closes`/`Fixes`/`Resolves`); `Closes #a #b #c` chiude solo `#a`, le altre restano aperte (cfr. PR #1320). Chiedi una keyword per issue, una per riga (`Closes #a` / `Closes #b`). Il gate `pr-body-contract.yml` lo flagga già a ogni edit (zero-Claude) — cintura nel raro caso non scatti; **non** ripeterlo se il bot ha già commentato lo stesso 🔴.
+   - **Tier high (vedi tabella "Tier review"): NON terminare.** Posta il 🔴 process E prosegui con la review sostanziale + `## Adversarial check` completi nello stesso pass. Il 🔴 process blocca solo l'auto-merge; se deferito il probing salta (#814→#816/#817; #795/#802→#822). Non deferire mai il probing.
+   - **`Closes #a #b` multi-issue su una riga** → 🔴 process: GitHub chiude SOLO la prima issue dopo una keyword (`Closes`/`Fixes`/`Resolves`); `Closes #a #b #c` chiude solo `#a`. Chiedi una keyword per issue, una per riga (`Closes #a` / `Closes #b`). Il gate `pr-body-contract.yml` lo flagga a ogni edit; non ripeterlo se il bot ha già commentato lo stesso 🔴.
 5. **Cross-file pattern repetition** → quando il diff fix-a un pattern (regex, parsing idiom, assertion shape) in 1 file, `rg`/`grep` su pattern equivalente nel resto repo. **Scopa la ricerca al CODE**: `rg <pattern> scripts build-plugins components services functions server hooks tests` (o `rg <pattern> -g '!data/**' -g '!public/**' -g '!reports/**'`) — cercare in `data/`/`public/` matcha migliaia di blob rigenerati = token sprecati. Se stesso anti-pattern presente altrove non toccato → 🔴 se file funnel-critico (crawler/build-plugin/test gate), 🟡 altrove. Esempio: A3 fix regex `<link rel="canonical"...>` → cerca regex simili su HTML in altri test/crawler.
 6. **Test plan compliance** → PR body con `## Test plan` o checklist `- [ ]`: ogni voce è verificabile pre-merge o richiede live? **Se richiede live** (verifica del sito deployato, no file da editare), ok merged-without-tick: **NON sollevare 🟡 né chiedere issue follow-up** — è un item verifica-live-only (vedi `IGNORA → Verifica-live-only`), `post-merge-followup` lo batcha in una checklist promemoria senza issue/fixer. Al più etichetta la voce `(post-merge, live)` nel `## Non implementato` se non già marcata, così il triage la riconosce. **Se verificabile pre-merge** + non spuntata + reviewer non può confermare dal diff → 🟡 chiedi conferma o issue follow-up.
 7. **Claim perf/optimization non validato** → PR perf/build/CI che dichiara uno speedup o riduzione regressione (`atteso 65s → 5-10s`, `~60s risparmiati`) **senza misura baseline pre-merge** (solo "il profiler misura al prossimo deploy" / numeri "attesi") su path tier high → 🔴 Important: "claim perf non validato pre-merge; mergi su speculazione. Allega misura pre/post oppure dichiara revert-risk esplicito nel `## Non implementato`." Motivo: #795/#802 mergiati su claim attesi non misurati → regrediti (+17% wall) → revertati (#822). Eccezione: ottimizzazione byte-identica provabile dal diff, o claim con run linkato pre/post.
 
 ### Pre-output adversarial check (tier high)
 
-PR a tier `high` (vedi tabella "Tier review"): prima del summary finale, includi sezione `## Adversarial check` con 3 cose NON verificate (regex edge case non testato, exit-code path non esplorato, file related non aperto, idempotency assumption). Surface come ❓ q dove pertinente. Ogni `❓ q:` che resta non-funnel deve terminare con la disposizione esplicita `— deferred, non funnel-critical.`; scrivere `(report-only)`, `non-funnel-critical` o `deferred` soltanto nel testo della domanda non è una disposizione. Un rischio funnel-critical va promosso a 🔴 Important e non può ricevere quel suffisso. Tier normal: skip questa sezione.
+PR a tier `high` (vedi tabella "Tier review"): prima del summary, includi `## Adversarial check` con 3 cose NON verificate (regex edge case non testato, exit-code path non esplorato, file related non aperto, idempotency assumption). Surface come ❓ q dove pertinente. Ogni `❓ q:` non-funnel deve terminare con `— deferred, non funnel-critical.`; `(report-only)`, `non-funnel-critical` o `deferred` nel testo non basta. Un rischio funnel-critical va promosso a 🔴 Important. Tier normal: skip questa sezione.
 
-**Le "cose non verificate" sono rischi di COMPORTAMENTO/correttezza, mai "manca un test".** Non scrivere voci adversarial del tipo "questo branch non ha test" / "andrebbe pinnato con un test" (vedi IGNORA → test coverage): sono missing-coverage travestiti e violano la regola. Surface invece il rischio sottostante — *il comportamento X su input degenere potrebbe sbagliare* — come ❓ q (o 🔴 se funnel-critical). La differenza è netta: "non so se `parseFoo()` gestisce il null → potrebbe emettere structured-data invalido" = valido (rischio di comportamento); "manca un test per il ramo null di `parseFoo()`" = vietato (coverage).
+**Le "cose non verificate" sono rischi di COMPORTAMENTO/correttezza, mai "manca un test".** Mai missing-coverage; surface il rischio sottostante come ❓ q (o 🔴 se funnel-critical): "non so se `parseFoo()` gestisce il null → potrebbe emettere structured-data invalido" è valido.
 
-**Un ❓ dell'adversarial check il cui soggetto è funnel-critical NON resta sepolto qui.** Se mentre lo scrivi riconosci che, se vero, l'item impatta monetizzazione/traffico (SEO/redirect/structured-data/AdSense/sitemap/indicizzabilità) → promuovilo a 🔴 Important in `## Findings` (vedi Verification → escalation). L'adversarial check è per incertezze residue non-bloccanti, non per parcheggiare bug funnel-critical con un punto di domanda (#829: bug redirect-bridge come ❓ invece di 🔴 → `## LGTM` + zero follow-up).
+**Un ❓ dell'adversarial check il cui soggetto è funnel-critical NON resta sepolto qui.** Se impatta monetizzazione/traffico (SEO/redirect/structured-data/AdSense/sitemap/indicizzabilità) → 🔴 Important in `## Findings` (vedi Verification → escalation); non parcheggiarlo qui (#829: redirect-bridge come ❓ → `## LGTM` + zero follow-up).
+
+Tassonomia macchina: `STATE_PATTERNS` in `scripts/lib/pr-body-sections-check.mjs`; `bulletState()` gestisce gli stati chiudenti, quindi niente `agent:fix`/`needs-human`. Omissione di `width` resta bug di rendering.
 
 ## Verification
 
@@ -129,14 +123,14 @@ Behavior claims richiedono `file:linea`. No speculazione. Incerto → `❓ q:`.
 
 **Edge case probing via `❓ q:`** anche quando sei sicuro dell'implementazione: input degenere, race condition, default che diventa permanente, refresh manuale dell'autore. Surface come domanda, non assumere che l'autore l'abbia considerato.
 
-**Escalation ❓ funnel-critical → 🔴.** Un `❓ q` resta `❓` solo se l'impatto, fosse anche vero, è non-funnel o cosmetico. Se il soggetto del dubbio — pre-existing o no — impatta monetizzazione/traffico (gate writeJson/persistenza su dataset indicizzato, canonical/redirect/previousSlugs, structured data, sitemap, AdSense placement, indicizzabilità) → NON lasciarlo `❓` passivo accanto a un `## LGTM`. Promuovilo a 🔴 Important (blocca auto-merge) **oppure** apri esplicitamente una follow-up issue e linkala nel finding. Il filtro "pre-existing / out of scope" abbassa la severità del *blocco PR*, non cancella un bug funnel-critical: vale comunque 🔴 o issue. Non affidarti a `post-merge-followup` come rete: può non scattare.
+**Escalation ❓ funnel-critical → 🔴.** Un `❓ q` resta `❓` solo se l'impatto è non-funnel o cosmetico. Se il dubbio impatta monetizzazione/traffico (gate writeJson/persistenza su dataset indicizzato, canonical/redirect/previousSlugs, structured data, sitemap, AdSense placement, indicizzabilità) → NON lasciarlo accanto a un `## LGTM`: promuovilo a 🔴 Important (blocca auto-merge) **oppure** apri una follow-up issue e linkala nel finding. "Pre-existing / out of scope" non cancella un bug funnel-critical.
 
 ## Re-review convergence
 
 Dopo prima review:
 - Sopprimi 🟡. Posta solo 🔴.
 - Fix di `path:L<linea>` già applicato → conferma esplicitamente «Fix di `path:L<linea>`: ok.»
-- Un riallineamento della base non chiude un 🔴 Important precedente per silenzio: il bundle elenca gli anchor `path:Llinea` ancora aperti. Se l’anchor è ancora presente, riportalo nella review; se è stato corretto, conferma la riga di fix per ogni anchor citato prima di scendere a `Important: 0` + `## LGTM`.
+- Un riallineamento della base non chiude un 🔴 Important precedente per silenzio: se l'anchor `path:Llinea` è ancora presente, riportalo; se corretto, conferma la riga di fix prima di scendere a `Important: 0` + `## LGTM`.
 - 🔴 Important senza citazione di file → non chiuderlo per silenzio: se il rilievo è risolto, conferma «Fix di `<testo normalizzato>`: ok.» usando il testo del finding senza backtick interni.
 - No rilanciare nit già detti.
 
@@ -149,7 +143,7 @@ Una riga/finding:
 
 Prefix: `🔴 Important` / `🟡 Nit` / `🟣 Pre-existing` / `❓ q:`.
 
-**Marker `🔴 Important` = stringa esatta, MAI bold.** Scrivi `🔴 Important` (emoji + spazio + parola piana), non `🔴 **Important**` né `🔴 __Important__`. È un marker leggibile da gate deterministici (`pr-redflag-fixer.yml` per auto-fixare il 🔴, `auto-merge-eval.mjs` per bloccare il merge). Un bold rompeva il match literal, 🔴 mai indirizzato (PR #2211 round-2). Gate ora tolleranti (regex `🔴\s*\*{0,2}\s*Important`), ma tieni il formato piano: tolleranza è solo cintura.
+**Marker `🔴 Important` = stringa esatta, MAI bold.** Scrivi `🔴 Important`, non `🔴 **Important**` né `🔴 __Important__`. È letto dai gate (`pr-redflag-fixer.yml`, `auto-merge-eval.mjs`); il formato piano evita il mancato match (PR #2211 round-2). Gate ora tolleranti (regex `🔴\s*\*{0,2}\s*Important`), ma tienilo piano.
 
 **Drop:** "I noticed", "It seems", "perhaps/maybe", "You might want to", restating, "Great work but". No hedging.
 
@@ -178,4 +172,4 @@ Prefix: `🔴 Important` / `🟡 Nit` / `🟣 Pre-existing` / `❓ q:`.
 <solo tier high: 3 cose NON verificate, ognuna con `— deferred, non funnel-critical.` se non-funnel>
 ```
 
-Zero 🔴 Important: chiudi con `## LGTM` + frase recap. **Critico:** la stringa esatta `## LGTM` triggera auto-merge in `auto-merge-on-lgtm.yml`. Non scrivere mai `## LGTM` se hai aperto un 🔴 in findings o adversarial check, **né se hai un ❓ funnel-critical non escalato** (vedi Verification → escalation): o lo promuovi a 🔴, o apri follow-up issue + lo dichiari, prima di poter scrivere `## LGTM`.
+Zero 🔴 Important: `## LGTM` + rec. La stringa esatta `## LGTM` triggera auto-merge in `auto-merge-on-lgtm.yml`. Non scrivere `## LGTM` con 🔴 in findings/adversarial check o ❓ funnel-critical non escalato: promuovilo a 🔴 oppure apri e dichiara la follow-up issue

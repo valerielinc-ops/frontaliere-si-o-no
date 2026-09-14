@@ -7,6 +7,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
+  actionClassForPolicy,
   buildDecision,
   buildObservation,
   loadLoopPolicyForRun,
@@ -72,7 +73,7 @@ function isHeartbeat(record) {
   return record.id === 'heartbeat' || record.message === 'no alerts';
 }
 
-function candidateFor(record) {
+function candidateFor(record, actionClass = null) {
   const evidence = object(record.evidence) ? record.evidence : {};
   return {
     sourceLine: record.line,
@@ -81,7 +82,7 @@ function candidateFor(record) {
     articleId: evidence.articleId ?? evidence.slug ?? evidence.path ?? null,
     locale: evidence.locale ?? null,
     sourceUrl: text(evidence.sourceUrl) ? evidence.sourceUrl.trim() : null,
-    actionClass: 'candidate',
+    ...(actionClass ? { actionClass } : {}),
     action: 'candidate-only: verify the claim against an external source and open a reviewed PR with a regression test',
     reversible: true,
     generatorIsNotOracle: true,
@@ -97,6 +98,7 @@ export function validateQualityHistory(historyText, {
   now = new Date(),
   maxAgeHours = DEFAULT_MAX_AGE_HOURS,
   sourcePath = DEFAULT_HISTORY_PATH,
+  candidateActionClass = null,
 } = {}) {
   const issues = [];
   const warnings = [];
@@ -138,7 +140,7 @@ export function validateQualityHistory(historyText, {
     }
     const normalized = { ...record, line };
     records.push(normalized);
-    if (!isHeartbeat(normalized)) candidates.push(candidateFor(normalized));
+    if (!isHeartbeat(normalized)) candidates.push(candidateFor(normalized, candidateActionClass));
   }
 
   const timestamps = records.map((record) => finiteDate(record.timestamp)).filter(Boolean);
@@ -289,8 +291,9 @@ export function validateContentFactuality({ historyText, outcomes = null }, {
   sourcePath = DEFAULT_HISTORY_PATH,
   outcomePath = DEFAULT_OUTCOME_PATH,
   minimumSample = MINIMUM_SAMPLE,
+  candidateActionClass = null,
 } = {}) {
-  const historyVerdict = validateQualityHistory(historyText, { now, maxAgeHours, sourcePath });
+  const historyVerdict = validateQualityHistory(historyText, { now, maxAgeHours, sourcePath, candidateActionClass });
   const outcomeVerdict = validateOutcomes(outcomes, {
     now,
     maxAgeHours,
@@ -446,13 +449,14 @@ function writeReports(reportDir, verdict, observation, decision) {
   return files.map(([name]) => path.join(dir, name));
 }
 
-function writeActions(reportDir, verdict, now, loopRegistry) {
+function writeActions(reportDir, verdict, now, loopRegistry, loopPolicy) {
   if (!reportDir || verdict.ok || !loopRegistry) return null;
-  const candidatePolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, 'candidate');
+  const candidateActionClass = actionClassForPolicy(loopPolicy, 'candidate');
+  const candidatePolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, candidateActionClass);
   const file = path.join(path.resolve(reportDir), 'l6-actions.json');
   const actions = [
     {
-      actionClass: 'candidate',
+      actionClass: candidateActionClass,
       autonomy: candidatePolicy.requiredAutonomy,
       action: 'record a candidate correction only after independent source and locale verification',
       reversible: true,
@@ -461,7 +465,7 @@ function writeActions(reportDir, verdict, now, loopRegistry) {
     },
     ...verdict.candidates.map((candidate) => ({
       ...candidate,
-      actionClass: 'candidate',
+      actionClass: candidateActionClass,
       autonomy: candidatePolicy.requiredAutonomy,
     })),
   ];
@@ -527,7 +531,7 @@ export async function runL6({
   outcomePath = DEFAULT_OUTCOME_PATH,
   registryPath = DEFAULT_REGISTRY_PATH,
   maxAgeHours = DEFAULT_MAX_AGE_HOURS,
-  minimumSample = MINIMUM_SAMPLE,
+  minimumSample,
   issue = false,
   apply = false,
   reportDir = null,
@@ -539,6 +543,7 @@ export async function runL6({
     policy: loopPolicy,
     minimumSample: policyMinimumSample,
   } = loadLoopPolicyForRun(registryPath, LOOP_ID, minimumSample);
+  const candidateActionClass = actionClassForPolicy(loopPolicy, 'candidate');
   let verdict;
   let sourceOutcomes = null;
   let outcomeRead = { value: null, invalidRecord: null };
@@ -554,6 +559,7 @@ export async function runL6({
       sourcePath: historyPath,
       outcomePath,
       minimumSample: policyMinimumSample,
+      candidateActionClass,
     });
   } catch (error) {
     verdict = baseVerdict({
@@ -585,14 +591,14 @@ export async function runL6({
     };
   }
   const measurable = verdict.quality === 'observed';
-  const actionClass = verdict.ok ? 'observe' : 'quarantine+candidate+issue';
+  const actionClass = actionClassForPolicy(loopPolicy, verdict.ok ? 'healthy' : 'needsReview');
   const actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
-  const candidatePolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, 'candidate');
+  const candidatePolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, candidateActionClass);
   verdict = {
     ...verdict,
     candidates: verdict.candidates.map((candidate) => ({
       ...candidate,
-      actionClass: 'candidate',
+      actionClass: candidateActionClass,
       autonomy: candidatePolicy.requiredAutonomy,
     })),
     snapshot: {
@@ -654,7 +660,7 @@ export async function runL6({
   let actionsWritten = false;
   let quarantineWritten = false;
   if (apply && reportDir) {
-    const actionFile = writeActions(reportDir, verdict, now, loopRegistry);
+    const actionFile = writeActions(reportDir, verdict, now, loopRegistry, loopPolicy);
     const quarantineFile = writeQuarantine(reportDir, verdict, now);
     actionsWritten = Boolean(actionFile);
     quarantineWritten = Boolean(quarantineFile);
@@ -687,9 +693,12 @@ function parseArgs(argv) {
     return index === -1 ? fallback : argv[index + 1] || fallback;
   };
   const maxAgeHours = Number(valueAfter('--max-age-hours', DEFAULT_MAX_AGE_HOURS));
-  const minimumSample = Number(valueAfter('--minimum-sample', MINIMUM_SAMPLE));
+  const minimumSampleIndex = argv.indexOf('--minimum-sample');
+  const minimumSample = minimumSampleIndex === -1 ? undefined : Number(argv[minimumSampleIndex + 1]);
   if (!Number.isFinite(maxAgeHours) || maxAgeHours <= 0) throw new Error('--max-age-hours must be a finite positive number');
-  if (!Number.isInteger(minimumSample) || minimumSample < 1) throw new Error('--minimum-sample must be a positive integer');
+  if (minimumSample !== undefined && (!Number.isInteger(minimumSample) || minimumSample < 1)) {
+    throw new Error('--minimum-sample must be a positive integer');
+  }
   return {
     json: argv.includes('--json'),
     issue: argv.includes('--issue'),

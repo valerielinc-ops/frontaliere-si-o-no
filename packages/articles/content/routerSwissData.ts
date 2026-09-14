@@ -2148,6 +2148,16 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'settimana-contro-lo-spreco-alimentare-svizzera': { it: 'settimana-contro-lo-spreco-alimentare-svizzera', en: 'food-waste-reduction-week-switzerland', de: 'woche-gegen-lebensmittelverschwendung-schweiz', fr: 'semaine-contre-le-gaspillage-alimentaire-suisse' },
  'record-imprese-culturali-svizzera': { it: 'record-imprese-culturali-svizzera', en: 'record-cultural-enterprises-switzerland', de: 'rekord-kulturunternehmen-schweiz', fr: 'record-entreprises-culturelles-suisse' },
  'forum-economico-ambientale-osce-praga': { it: 'forum-economico-ambientale-osce-praga', en: 'osce-economic-environmental-forum-prague', de: 'osce-wirtschafts-und-umweltforum-prag', fr: 'forum-economique-environnemental-osce-prague' },
+ 'latte-e-agricoltura-svizzera-studi': { it: 'latte-e-agricoltura-svizzera-studi', en: 'milk-and-swiss-agriculture-study', de: 'milch-und-schweizer-landwirtschaft-studie', fr: 'lait-et-agriculture-suisse-etude' },
+ 'ps-chiede-cpi-su-f35': { it: 'ps-chiede-cpi-su-f35', en: 'ps-requests-f35-parliamentary-inquiry', de: 'ps-fordert-f35-untersuchungskommission', fr: 'le-ps-demande-une-enquete-sur-les-f35' },
+ 'permesso-c-nidvaldo-requisiti': { it: 'permesso-c-nidvaldo-requisiti', en: 'permits-c-nidwalden-requirements', de: 'bewilligung-c-nidwalden-voraussetzungen', fr: 'permis-c-nidwald-conditions' },
+ 'benzina-oggi-costo-confronto': { it: 'benzina-oggi-costo-confronto', en: 'petrol-today-costs-less-than-in-the-1980s', de: 'benzin-kostet-heute-weniger-als-in-den-80er-jahren', fr: 'l-essence-coute-aujourd-hui-moins-cher-que-dans-les-annees-80' },
+ 'consiglio-federale-decisioni-2026': { it: 'consiglio-federale-decisioni-2026', en: 'federal-council-decisions-2026', de: 'bundesrat-entscheidungen-2026', fr: 'conseil-federal-decisions-2026' },
+ 'naturalizzazione-nidvaldo-procedura': { it: 'naturalizzazione-nidvaldo-procedura', en: 'nidwalden-naturalization-procedure', de: 'einbuergerung-nidwalden-verfahren', fr: 'naturalisation-nidwald-procedure' },
+ 'prezzi-produzione-importazione-agosto-2026': { it: 'prezzi-produzione-importazione-agosto-2026', en: 'producer-import-prices-august-2026', de: 'erzeuger-importpreise-august-2026', fr: 'prix-production-importation-aout-2026' },
+ 'votazione-scuola-qualita-berna-2026': { it: 'votazione-scuola-qualita-berna-2026', en: 'berne-school-quality-vote-2026', de: 'berner-schulqualita-volksabstimmung-2026', fr: 'vote-qualite-ecole-berne-2026' },
+ 'transpa-reg-quadri-rinvio-1-ottobre': { it: 'transpa-reg-quadri-rinvio-1-ottobre', en: 'transpa-reg-quadri-postpone-october', de: 'transpa-reg-quadri-aufschiebung-okt', fr: 'transpa-reg-quadri-report-octobre' },
+ 'detenzione-48-ore-manifestazioni': { it: 'detenzione-48-ore-manifestazioni', en: '48-hour-detention-protests', de: '48-stunden-festnahme-demonstrationen', fr: 'detention-48-heures-manifestations' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

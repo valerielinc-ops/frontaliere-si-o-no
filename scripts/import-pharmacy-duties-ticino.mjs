@@ -13,7 +13,7 @@ import { buildPharmacyDuties } from './lib/pharmacy-ticino-duty-parser.mjs';
 const __filename = fileURLToPath(import.meta.url);
 const REPO_ROOT = resolve(dirname(__filename), '..');
 const DATA_PATH = resolve(REPO_ROOT, 'data/pharmacy-duties-ticino.json');
-const PHARMACY_PATH = resolve(REPO_ROOT, 'data/pharmacies-ticino.json');
+const PHARMACY_PATH = resolve(REPO_ROOT, 'data/pharmacies-ticino-complete.json');
 const STATUS_PATH = resolve(REPO_ROOT, 'data/pharmacy-duties-ticino-status.json');
 const USER_AGENT = 'FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/bot)';
 const CRAWL_DELAY_MS = 10_000;

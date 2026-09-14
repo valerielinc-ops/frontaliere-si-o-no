@@ -586,7 +586,7 @@ if [ "${CRAWLER_GROUP_DEFER_COMMIT:-0}" = "1" ]; then
   CRAWLER_GROUP_COMMIT_MESSAGE="$COMMIT_MSG" \
     node "$(dirname "$0")/crawler-generation-receipt.mjs" --defer-group-commit "${RESOLVED_FILES[@]}" \
     || descriptor_exit=$?
-  if [ "$descriptor_exit" -ge 128 ]; then
+  if [ "$descriptor_exit" -eq 143 ] || [ "$descriptor_exit" -eq 130 ]; then
     echo "⚠️ crawler group defer receipt was terminated by a signal (exit ${descriptor_exit}) — classifying as shared precondition (exit 43)"
     descriptor_exit=43
   fi

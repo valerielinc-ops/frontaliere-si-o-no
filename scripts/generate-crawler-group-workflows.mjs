@@ -893,9 +893,9 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
     '# shellcheck disable=SC2016,SC1003',
     `printf '%s\\n' ${shellQuote(launcher)} > "$launcher_path"`,
     'if command -v setsid >/dev/null 2>&1; then',
-    '  nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &',
+    '  env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &',
     'else',
-    '  nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &',
+    '  env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &',
     'fi',
     'launcher_pid=$!',
     'printf \'%s\\n\' "$launcher_pid" > "$pid_path"',
@@ -912,6 +912,15 @@ export function buildCrawlerResultShellBody(crawler, groupIndex) {
     `status_file="$state_dir/${slug}.status"`,
     `pid_file="$state_dir/${slug}.pid"`,
     `log_file="$state_dir/${slug}.log"`,
+    'launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"',
+    'if [ "$launch_outcome" != "success" ]; then',
+    `  echo "::error::${slug}: launch step outcome is $launch_outcome; detached crawler was not started"`,
+    '  exit 1',
+    'fi',
+    'if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then',
+    `  echo "::error::${slug}: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"`,
+    '  exit 1',
+    'fi',
     `deadline=$((SECONDS + ${JOB_TIMEOUT_MINUTES} * 60))`,
     'while [ ! -s "$status_file" ]; do',
     '  if [ "$SECONDS" -ge "$deadline" ]; then',
@@ -920,6 +929,10 @@ export function buildCrawlerResultShellBody(crawler, groupIndex) {
     '  fi',
     '  if [ -s "$pid_file" ]; then',
     '    pid="$(cat "$pid_file" 2>/dev/null || true)"',
+    '    if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then',
+    `      echo "::error::${slug}: invalid detached crawler PID: $pid"`,
+    '      exit 1',
+    '    fi',
     '    if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then',
     '      sleep 1',
     '      if [ ! -s "$status_file" ]; then',
@@ -1266,6 +1279,9 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
       name: `Run ${crawler.slug}`,
       id: `crawler-${crawler.slug}`,
       if: 'always()',
+      env: {
+        CRAWLER_LAUNCH_OUTCOME: `\${{ steps['crawler-launch-${crawler.slug}'].outcome }}`,
+      },
       run: buildCrawlerResultShellBody(crawler, groupIndex),
     });
   }
@@ -1980,6 +1996,7 @@ function canonicalizePortableCrawlerIdentities(content, logic, sourceMembers) {
 
     const launchIdPattern = new RegExp(`^(\\s*)id: crawler-launch-${sourceSlug}$`, 'gmu');
     const resultIdPattern = new RegExp(`^(\\s*)id: crawler-${sourceSlug}$`, 'gmu');
+    const launchReferencePattern = new RegExp(`crawler-launch-${sourceSlug}(?![a-z0-9-])`, 'gu');
     const launchMatches = [...canonicalContent.matchAll(launchIdPattern)];
     const resultMatches = [...canonicalContent.matchAll(resultIdPattern)];
     if (launchMatches.length !== 1 || resultMatches.length !== 1) {
@@ -1989,7 +2006,8 @@ function canonicalizePortableCrawlerIdentities(content, logic, sourceMembers) {
     }
     canonicalContent = canonicalContent
       .replace(launchIdPattern, `$1id: crawler-launch-${canonicalSlug}`)
-      .replace(resultIdPattern, `$1id: crawler-${canonicalSlug}`);
+      .replace(resultIdPattern, `$1id: crawler-${canonicalSlug}`)
+      .replace(launchReferencePattern, `crawler-launch-${canonicalSlug}`);
     return canonicalSlug;
   });
   return { content: canonicalContent, members: canonicalMembers };

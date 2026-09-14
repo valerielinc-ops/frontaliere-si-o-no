@@ -19,7 +19,7 @@
         "it": "Candidatura",
         "en": "Candidatura spontanea",
         "de": "Candidatura spontanea",
-        "fr": "Candidatura spontanea"
+        "fr": "candidature spontanée"
       },
       "description": "CH - Croglio\n\nAltro\n\nPosto indeterminato\n\nTutti\n\nCandidarsi ora\n\nStampa lavoro\n\nContatto:\n\nHuman Resources Croglio\n\nFaulhaber SA\n\nVia Cantonale 6980 Croglio",
       "descriptionByLocale": {
@@ -51,25 +51,20 @@
         "spontaneous-application-faulhaber-croglio",
         "spontananwendung-faulhaber-croglio",
         "demande-spontanee-faulhaber-croglio",
-        "candidatura-spontanea-croglio-faulhaber",
-        "candidatura-faulhaber-croglio",
-        "candidatura-spontanea-faulhaber-croglio"
+        "candidatura-spontanea-croglio-faulhaber"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "candidatura-spontanea-croglio-faulhaber",
-          "candidatura-faulhaber-croglio"
+          "candidatura-spontanea-croglio-faulhaber"
         ],
         "en": [
           "spontaneous-application-faulhaber-croglio"
         ],
         "de": [
-          "spontananwendung-faulhaber-croglio",
-          "candidatura-spontanea-faulhaber-croglio"
+          "spontananwendung-faulhaber-croglio"
         ],
         "fr": [
-          "demande-spontanee-faulhaber-croglio",
-          "candidatura-spontanea-faulhaber-croglio"
+          "demande-spontanee-faulhaber-croglio"
         ]
       },
       "needsRetranslation": true,
@@ -135,13 +130,11 @@
       "sourceLang": "de",
       "crawledAt": "2026-09-13T13:54:37.101Z",
       "previousSlugs": [
-        "r-d-mechanical-engineer-gearbox-design-croglio-faulhaber",
-        "r-d-mechanical-ingegnere-gearbox-design-faulhaber-croglio"
+        "r-d-mechanical-engineer-gearbox-design-croglio-faulhaber"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "r-d-mechanical-engineer-gearbox-design-croglio-faulhaber",
-          "r-d-mechanical-ingegnere-gearbox-design-faulhaber-croglio"
+          "r-d-mechanical-engineer-gearbox-design-croglio-faulhaber"
         ],
         "fr": [
           "r-d-mechanical-engineer-gearbox-design-croglio-faulhaber"
@@ -210,19 +203,11 @@
       "sourceLang": "it",
       "crawledAt": "2026-09-13T13:54:24.904Z",
       "previousSlugs": [
-        "junior-logistica-specialista-faulhaber-croglio",
-        "junior-logistics-specialist-croglio-faulhaber"
+        "junior-logistica-specialista-faulhaber-croglio"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-logistica-specialista-faulhaber-croglio",
-          "junior-logistics-specialist-croglio-faulhaber"
-        ],
-        "de": [
-          "junior-logistics-specialist-croglio-faulhaber"
-        ],
-        "fr": [
-          "junior-logistics-specialist-croglio-faulhaber"
+          "junior-logistica-specialista-faulhaber-croglio"
         ]
       },
       "needsRetranslation": true,
@@ -244,9 +229,9 @@
     },
     {
       "id": "faulhaber-cd396bb6e76c",
-      "slug": "tecnico-di-misura-croglio-faulhaber",
+      "slug": "tecnologia-misura-faulhaber-croglio",
       "slugByLocale": {
-        "it": "tecnico-di-misura-croglio-faulhaber",
+        "it": "tecnologia-misura-faulhaber-croglio",
         "en": "technician-di-misura-faulhaber-croglio",
         "de": "techniker-di-misura-faulhaber-croglio",
         "fr": "tecnico-di-misura-croglio-faulhaber"
@@ -256,7 +241,7 @@
       "companyDomain": "faulhaber.com",
       "title": "Tecnico di misura",
       "titleByLocale": {
-        "it": "Tecnico di misura",
+        "it": "Tecnologia Misura",
         "en": "Technician di misura",
         "de": "Techniker di misura",
         "fr": "Technicien di misura"
@@ -288,11 +273,15 @@
       "sourceLang": "fr",
       "crawledAt": "2026-09-13T13:54:12.626Z",
       "previousSlugs": [
-        "technicien-di-misura-faulhaber-croglio"
+        "technicien-di-misura-faulhaber-croglio",
+        "tecnico-di-misura-croglio-faulhaber"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "technicien-di-misura-faulhaber-croglio"
+        ],
+        "it": [
+          "tecnico-di-misura-croglio-faulhaber"
         ]
       },
       "needsRetranslation": true,

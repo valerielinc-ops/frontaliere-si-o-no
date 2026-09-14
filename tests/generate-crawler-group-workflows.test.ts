@@ -21,7 +21,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import YAML from 'yaml';
-import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, generate, buildCrawlerShellBody, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths, resolveCrawlerContractSource } from '../scripts/generate-crawler-group-workflows.mjs';
+import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, generate, buildCrawlerShellBody, buildCrawlerLaunchShellBody, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths, resolveCrawlerContractSource } from '../scripts/generate-crawler-group-workflows.mjs';
 import { assertCrawlerManifestDelta, CORPUS_OBSERVER_FILES, CRAWLER_WORKFLOW_FILES, prepareCrawlerWorkflowCorpusSync } from '../scripts/ci/prepare-crawler-workflow-corpus-sync.mjs';
 import { collectRelativeImportClosure } from './helpers/collectRelativeImportClosure';
 
@@ -714,6 +714,19 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
     // failure-report gate never fires. This is the mechanism that silenced
     // ~160 "Crawler Failure" issues overnight post-#3701.
     expect(stdout).not.toContain('REPORTED_FAILURE');
+  });
+});
+
+describe('buildCrawlerLaunchShellBody — runner cleanup isolation', () => {
+  it('does not pass RUNNER_TRACKING_ID to either detached launcher branch', () => {
+    const body = buildCrawlerLaunchShellBody({
+      slug: 'tracking-isolated',
+      runStep: { env: {}, run: 'true' },
+      postSteps: [],
+    }, 1);
+
+    expect(body).toContain('env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path"');
+    expect(body).toContain('env -u RUNNER_TRACKING_ID nohup bash "$launcher_path"');
   });
 });
 
@@ -1808,6 +1821,27 @@ describe('cross-repo crawler execution artifacts', () => {
       );
       expect(new Set(executed.map((step: any) => step.id)).size).toBe(executed.length);
       expect(job.needs).toBeUndefined();
+    }
+  });
+
+  it('i waiter propagano il launch outcome e falliscono subito senza stato ne PID', () => {
+    const { contract, outDir } = generateArtifacts();
+    for (const artifact of contract.artifacts.filter((item: any) => item.members.length > 0)) {
+      const doc = YAML.parse(fs.readFileSync(path.join(outDir, artifact.file), 'utf8'));
+      const job: any = Object.values(doc.jobs)[0];
+      for (const member of artifact.members) {
+        const result = job.steps.find((step: any) => step.id === `crawler-${member}`);
+        expect(result, `${artifact.file}: missing waiter for ${member}`).toBeDefined();
+        expect(result.env?.CRAWLER_LAUNCH_OUTCOME).toBe(
+          `\${{ steps['crawler-launch-${member}'].outcome }}`,
+        );
+        expect(result.run).toContain('if [ "$launch_outcome" != "success" ]; then');
+        expect(result.run).toContain('if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then');
+        expect(result.run).toContain('if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then');
+        expect(result.run).toContain('invalid detached crawler PID');
+        expect(result.run).not.toContain("steps['crawler-launch-vf'].outcome");
+        expect(result.run).not.toContain("steps['crawler-launch-guess'].outcome");
+      }
     }
   });
 });

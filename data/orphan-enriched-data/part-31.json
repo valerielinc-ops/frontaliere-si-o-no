@@ -12215,10 +12215,10 @@
         "fr": "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-feuerthalen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-feuerthalen",
-        "en": "/en/find-jobs-zurich/boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-feuerthalen",
+        "it": "/cerca-lavoro-berna/boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-feuerthalen",
+        "en": "/en/find-jobs-bern/boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-feuerthalen",
         "de": "/de/jobs-im-zurich/boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-feuerthalen",
-        "fr": "/fr/trouver-emploi-zurich/boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-feuerthalen"
+        "fr": "/fr/trouver-emploi-berne/boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-feuerthalen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -25589,10 +25589,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "disponent-disponentin-medizinisches-ambulatorium-mit-geregelten-arbeitszeiten-von-montag",
-        "en": "disponent-disponentin-medizinisches-ambulatorium-mit-geregelten-arbeitszeiten-von-montag",
         "de": "disponent-disponentin-medizinisches-ambulatorium-mit-geregelten-arbeitszeiten-von-montag",
-        "fr": "disponent-disponentin-medizinisches-ambulatorium-mit-geregelten-arbeitszeiten-von-montag"
+        "it": "disponent-disponent-medical-ambulatorium-con-orario-di-lavoro-regolato-da-lunedi-a-venerdi-middle-office-spital",
+        "en": "disponent-disponent-medical-ambulatorium-with-regulated-working-hours-from-monday-to-friday-middle-office-spital",
+        "fr": "deposant-deposant-ambulatoire-medical-avec-des-horaires-de-travail-reglementes-du-lundi-au-vendredi-middle-office-spital"
       },
       "localePaths": {
         "it": "/cerca-lavoro-ticino/disponent-disponentin-medizinisches-ambulatorium-mit-geregelten-arbeitszeiten-von-montag",
@@ -25606,6 +25606,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -30187,6 +30188,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "fully",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-valais/fully/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-valais/fully/"
+      },
+      "queries": [
+        {
+          "query": "fully",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "fully",
+      "title": "Fully",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "fully",
+        "en": "fully",
+        "de": "fully",
+        "fr": "fully"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-vallese/fully",
+        "en": "/en/find-jobs-valais/fully",
+        "de": "/de/jobs-im-wallis/fully",
+        "fr": "/fr/trouver-emploi-valais/fully"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -45512,6 +45570,63 @@
       ]
     },
     {
+      "slug": "menuisiers",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-lucerne/menuisiers/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-lucerne/menuisiers/"
+      },
+      "queries": [
+        {
+          "query": "agence placement fixe genie civil lucerne",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "agence placement fixe genie civil lucerne",
+      "title": "Menuisiers",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "menuisiers",
+        "en": "menuisiers",
+        "de": "menuisiers",
+        "fr": "menuisiers"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-lucerna/menuisiers",
+        "en": "/en/find-jobs-lucerne/menuisiers",
+        "de": "/de/jobs-im-luzern/menuisiers",
+        "fr": "/fr/trouver-emploi-lucerne/menuisiers"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "messspezialist-vor-ort-eta-sa-manufacture-horlogere-suisse-ticino",
       "locale": "it",
       "path": "/cerca-lavoro-soletta/messspezialist-vor-ort-eta-sa-manufacture-horlogere-suisse-ticino",
@@ -60055,7 +60170,7 @@
         {
           "query": "i need jobs in italian speaking switzerland in a restaurant kitchen with split shifts and a seasonal or permanent contract.",
           "clicks": 0,
-          "impressions": 51
+          "impressions": 55
         },
         {
           "query": "\"zurich\" surety",
@@ -60068,12 +60183,17 @@
           "impressions": 3
         },
         {
+          "query": "si",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
           "query": "\"debiopharm\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
           "clicks": 0,
           "impressions": 2
         },
         {
-          "query": "si",
+          "query": "chef",
           "clicks": 0,
           "impressions": 2
         },
@@ -60098,7 +60218,7 @@
           "impressions": 1
         },
         {
-          "query": "chef",
+          "query": "dammi link",
           "clicks": 0,
           "impressions": 1
         },
@@ -60146,14 +60266,9 @@
           "query": "job restaurant weather",
           "clicks": 0,
           "impressions": 1
-        },
-        {
-          "query": "job restaurants near me",
-          "clicks": 0,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 87,
+      "totalImpressions": 96,
       "totalClicks": 1,
       "topQuery": "i need jobs in italian speaking switzerland in a restaurant kitchen with split shifts and a seasonal or permanent contract.",
       "title": "Restaurants",
@@ -73822,10 +73937,10 @@
         "fr": "sviluppatore-java-senior-in-m-f-d-coopers-group-ag-luzern"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-vaud/sviluppatore-java-senior-in-m-f-d-coopers-group-ag-luzern",
-        "en": "/en/find-jobs-vaud/sviluppatore-java-senior-in-m-f-d-coopers-group-ag-luzern",
+        "it": "/cerca-lavoro-lucerna/sviluppatore-java-senior-in-m-f-d-coopers-group-ag-luzern",
+        "en": "/en/find-jobs-lucerne/sviluppatore-java-senior-in-m-f-d-coopers-group-ag-luzern",
         "de": "/de/jobs-im-waadt/sviluppatore-java-senior-in-m-f-d-coopers-group-ag-luzern",
-        "fr": "/fr/trouver-emploi-vaud/sviluppatore-java-senior-in-m-f-d-coopers-group-ag-luzern"
+        "fr": "/fr/trouver-emploi-lucerne/sviluppatore-java-senior-in-m-f-d-coopers-group-ag-luzern"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -81633,10 +81748,10 @@
         "fr": "venditore-food-bevande-coop-genossenschaft-schwyz"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-svitto/venditore-food-bevande-coop-genossenschaft-schwyz",
-        "en": "/en/find-jobs-schwyz/venditore-food-bevande-coop-genossenschaft-schwyz",
+        "it": "/cerca-lavoro-basilea/venditore-food-bevande-coop-genossenschaft-schwyz",
+        "en": "/en/find-jobs-basel/venditore-food-bevande-coop-genossenschaft-schwyz",
         "de": "/de/jobs-im-luzern/venditore-food-bevande-coop-genossenschaft-schwyz",
-        "fr": "/fr/trouver-emploi-schwytz/venditore-food-bevande-coop-genossenschaft-schwyz"
+        "fr": "/fr/trouver-emploi-bale/venditore-food-bevande-coop-genossenschaft-schwyz"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

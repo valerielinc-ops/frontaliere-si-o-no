@@ -5,6 +5,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
   JOBS_SEO_RETENTION_PROBE_ENV,
+  jobsSeoRetentionReleasePlan,
   parseJobsSeoRetentionProbe,
   shouldReleaseJobsSeoRetentionCandidate,
 } from '../build-plugins/shared/jobsSeoRetentionProbe';
@@ -223,5 +224,8 @@ describe('corpus retention discipline (#5330)', () => {
     expect(shouldReleaseJobsSeoRetentionCandidate(null, 'careClusterPartition')).toBe(true);
     expect(shouldReleaseJobsSeoRetentionCandidate('careClusterPartition', 'careClusterPartition')).toBe(true);
     expect(shouldReleaseJobsSeoRetentionCandidate('careClusterPartition', 'locationPartition')).toBe(false);
+    expect(jobsSeoRetentionReleasePlan(null)).toEqual(['careClusterPartition', 'locationPartition']);
+    expect(jobsSeoRetentionReleasePlan('careClusterPartition')).toEqual(['careClusterPartition']);
+    expect(jobsSeoRetentionReleasePlan('locationPartition')).toEqual(['locationPartition']);
   });
 });

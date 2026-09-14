@@ -20,7 +20,11 @@ jobs:
   retry:
     runs-on: ubuntu-latest
     steps:
-      - name: Download workflow helpers
+      # Two-step rollout: the gate is trusted only when it is already present
+      # on main. If this workflow lands before the helper (or main is rolled
+      # back to a version without it), the job is a successful no-op and never
+      # enables native auto-merge.
+      - name: Download trusted workflow helpers
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -33,9 +37,29 @@ jobs:
           gh api "repos/${GITHUB_REPOSITORY}/contents/scripts/lib/google-service-account-token.mjs?ref=main" \
             --header 'Accept: application/vnd.github.raw+json' \
             > "$helper_dir/lib/google-service-account-token.mjs"
+          # Keep the final extension while syntax-checking: Node otherwise
+          # parses an `.tmp` file as CommonJS and rejects the helper exports.
+          gate_tmp="$helper_dir/native-automerge-gate-check.mjs"
+          if gh api "repos/${GITHUB_REPOSITORY}/contents/scripts/ci/native-automerge-gate.mjs?ref=main" \
+            --header 'Accept: application/vnd.github.raw+json' \
+            > "$gate_tmp" \
+            && [ -s "$gate_tmp" ] \
+            && node --check "$gate_tmp"; then
+            mv "$gate_tmp" "$helper_dir/native-automerge-gate.mjs"
+            gh api "repos/${GITHUB_REPOSITORY}/contents/scripts/ci/lib/constants.mjs?ref=main" \
+              --header 'Accept: application/vnd.github.raw+json' \
+              > "$helper_dir/lib/constants.mjs"
+            echo "NATIVE_AUTOMERGE_BOOTSTRAP_READY=true" >> "$GITHUB_ENV"
+            echo 'Native auto-merge gate bootstrap is present on main.'
+          else
+            rm -f "$gate_tmp" "$helper_dir/native-automerge-gate.mjs"
+            echo "NATIVE_AUTOMERGE_BOOTSTRAP_READY=false" >> "$GITHUB_ENV"
+            echo 'Native auto-merge gate is not installed on main; fail-closed no-op.'
+          fi
           echo "NATIVE_AUTOMERGE_HELPER_DIR=$helper_dir" >> "$GITHUB_ENV"
 
       - name: Prepare Firebase credentials
+        if: env.NATIVE_AUTOMERGE_BOOTSTRAP_READY == 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -47,12 +71,14 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load PAT from Remote Config
+        if: env.NATIVE_AUTOMERGE_BOOTSTRAP_READY == 'true'
         run: node "$NATIVE_AUTOMERGE_HELPER_DIR/load-rc-env.mjs"
 
       - name: Retry bounded native auto-merge opt-in
+        if: env.NATIVE_AUTOMERGE_BOOTSTRAP_READY == 'true'
         env:
           REPOSITORY: ${{ github.repository }}
-          MAX_PR_RETRIES: '10'
+          MAX_PR_SCAN: '100'
         run: |
           set -euo pipefail
           if [ -z "${GITHUB_PAT:-}" ]; then
@@ -61,15 +87,17 @@ jobs:
           fi
 
           open_prs=$(GH_TOKEN="$GITHUB_PAT" gh pr list \
-            --repo "$REPOSITORY" --state open --base main --limit 100 \
+            --repo "$REPOSITORY" --state open --base main --limit "$MAX_PR_SCAN" \
             --json number,isDraft,createdAt)
-          pr_numbers=$(jq -r --argjson max "$MAX_PR_RETRIES" \
-            '[.[] | select(.isDraft == false)] | sort_by(.createdAt) | .[:$max][] | .number' \
+          pr_numbers=$(jq -r \
+            '[.[] | select(.isDraft == false)] | sort_by(.createdAt) | reverse | .[].number' \
             <<<"$open_prs")
+          scanned=0
           attempted=0
           failed=0
           while IFS= read -r -u 9 pr_number; do
             [ -n "$pr_number" ] || continue
+            scanned=$((scanned + 1))
             if ! [[ "$pr_number" =~ ^[0-9]+$ ]]; then
               echo "::warning::skipping malformed PR number from GitHub API: $pr_number"
               continue
@@ -84,19 +112,16 @@ jobs:
               <<<"$current" >/dev/null; then
               continue
             fi
-            if jq -e '.autoMergeRequest != null' <<<"$current" >/dev/null; then
-              continue
-            fi
             attempted=$((attempted + 1))
-            if GH_TOKEN="$GITHUB_PAT" gh pr merge "$pr_number" --repo "$REPOSITORY" \
-              --auto --squash --delete-branch; then
-              echo "Native auto-merge enabled for PR #$pr_number"
+            if GH_TOKEN="$GITHUB_PAT" node "$NATIVE_AUTOMERGE_HELPER_DIR/native-automerge-gate.mjs" \
+              "$REPOSITORY" "$pr_number"; then
+              echo "Native auto-merge guard evaluated for PR #$pr_number"
             else
               echo "::warning::native auto-merge opt-in failed for PR #$pr_number; the next scheduled tick will retry"
               failed=$((failed + 1))
             fi
           done 9<<<"$pr_numbers"
-          echo "Bounded native auto-merge retry attempted $attempted PR(s); $failed transient failure(s)"
+          echo "Bounded native auto-merge scan inspected $scanned PR(s), gate-attempted $attempted PR(s); $failed transient failure(s)"
 
       - name: Cleanup Firebase credentials
         if: always()

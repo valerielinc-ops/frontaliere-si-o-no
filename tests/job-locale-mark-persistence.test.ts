@@ -387,7 +387,9 @@ describe('#5645 — the cross-runner path: git-commit-data.sh must not drop the 
 
   function extractMergeScript(): string {
     const source = fs.readFileSync(SH, 'utf8');
-    const match = source.match(/<<'NODE'\n([\s\S]*?)\nNODE\n/);
+    const mergeStart = source.indexOf('\nmerge_json_3way() {');
+    expect(mergeStart, 'merge_json_3way function not found in git-commit-data.sh').toBeGreaterThanOrEqual(0);
+    const match = source.slice(mergeStart).match(/\n  node - [^\n]* <<'NODE'\n([\s\S]*?)\nNODE\n/);
     // A failed extraction is a real signal (the heredoc was renamed or
     // restructured), not a reason to skip: the guard would go quietly vacuous.
     expect(match, 'merge_json_3way heredoc not found in git-commit-data.sh').toBeTruthy();

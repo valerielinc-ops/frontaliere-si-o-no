@@ -16,6 +16,7 @@ import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 import {
+  actionClassForPolicy,
   buildDecision,
   buildObservation,
   loadLoopPolicyForRun,
@@ -395,6 +396,7 @@ export function validateRevenueAttribution({ history, affiliate = null }, {
   historyPath = DEFAULT_HISTORY_PATH,
   affiliatePath = DEFAULT_AFFILIATE_EXPORT_PATH,
   minimumSample = MINIMUM_SAMPLE,
+  candidateActionClasses = null,
 } = {}) {
   const historyVerdict = validateHistory(history, { now, maxAgeHours, sourcePath: historyPath });
   const affiliateVerdict = validateAffiliateExport(affiliate, {
@@ -408,7 +410,7 @@ export function validateRevenueAttribution({ history, affiliate = null }, {
   const candidates = [];
   if (affiliateVerdict.quality === 'unmeasurable') {
     candidates.push({
-      actionClass: 'recommend',
+      ...(candidateActionClasses?.recommend ? { actionClass: candidateActionClasses.recommend } : {}),
       action: 'request or attach a fresh authorised affiliate/commercial export with exposure denominators',
       reversible: true,
       externalMutation: false,
@@ -417,7 +419,7 @@ export function validateRevenueAttribution({ history, affiliate = null }, {
   }
   if (affiliateVerdict.snapshot?.invalidRows > 0 || historyVerdict.quality === 'partial') {
     candidates.push({
-      actionClass: 'recommend',
+      ...(candidateActionClasses?.recommend ? { actionClass: candidateActionClasses.recommend } : {}),
       action: 'open a reviewed PR to repair the producer/schema or its cardinality checks; do not rewrite the export in place',
       reversible: true,
       externalMutation: false,
@@ -426,7 +428,7 @@ export function validateRevenueAttribution({ history, affiliate = null }, {
   }
   if (affiliateVerdict.snapshot?.approvedNetChf !== null) {
     candidates.push({
-      actionClass: 'reconcile',
+      ...(candidateActionClasses?.reconcile ? { actionClass: candidateActionClasses.reconcile } : {}),
       action: 'reconcile approved, pending and reversed states before proposing a placement or partner change',
       reversible: true,
       externalMutation: false,
@@ -585,12 +587,14 @@ function writeReports(reportDir, verdict, observation, decision) {
   return files.map(([name]) => path.join(dir, name));
 }
 
-function writeActions(reportDir, verdict, now, loopRegistry) {
+function writeActions(reportDir, verdict, now, loopRegistry, loopPolicy) {
   if (!reportDir || verdict.ok || !loopRegistry) return null;
   const file = path.join(path.resolve(reportDir), 'l8-safe-actions.json');
-  const reconcilePolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, 'reconcile');
+  const reconcileActionClass = actionClassForPolicy(loopPolicy, 'reconcile');
+  const recommendActionClass = actionClassForPolicy(loopPolicy, 'recommend');
+  const reconcilePolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, reconcileActionClass);
   const actions = verdict.candidates.map((candidate) => {
-    const actionClass = candidate.actionClass || 'recommend';
+    const actionClass = candidate.actionClass || recommendActionClass;
     const policy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
     return { ...candidate, actionClass, autonomy: policy.requiredAutonomy };
   });
@@ -654,7 +658,7 @@ export async function runL8({
   affiliatePath = DEFAULT_AFFILIATE_EXPORT_PATH,
   registryPath = DEFAULT_REGISTRY_PATH,
   maxAgeHours = DEFAULT_MAX_AGE_HOURS,
-  minimumSample = MINIMUM_SAMPLE,
+  minimumSample,
   issue = false,
   apply = false,
   reportDir = null,
@@ -666,6 +670,8 @@ export async function runL8({
     policy: loopPolicy,
     minimumSample: policyMinimumSample,
   } = loadLoopPolicyForRun(registryPath, LOOP_ID, minimumSample);
+  const recommendActionClass = actionClassForPolicy(loopPolicy, 'recommend');
+  const reconcileActionClass = actionClassForPolicy(loopPolicy, 'reconcile');
   let verdict;
   let sourceAffiliate = null;
   try {
@@ -677,6 +683,10 @@ export async function runL8({
       historyPath,
       affiliatePath,
       minimumSample: policyMinimumSample,
+      candidateActionClasses: {
+        recommend: recommendActionClass,
+        reconcile: reconcileActionClass,
+      },
     });
   } catch (error) {
     verdict = baseVerdict({
@@ -690,7 +700,7 @@ export async function runL8({
         commercial: emptyAffiliateSnapshot(affiliatePath),
       },
       candidates: [{
-        actionClass: 'recommend',
+        actionClass: recommendActionClass,
         action: 'restore the missing or unreadable revenue input in a reviewed change',
         reversible: true,
         externalMutation: false,
@@ -698,16 +708,16 @@ export async function runL8({
       }],
     });
   }
-  const actionClass = 'reconcile+issue';
-  const effectiveActionClass = verdict.ok ? 'observe' : actionClass;
+  const reviewActionClass = actionClassForPolicy(loopPolicy, 'needsReview');
+  const effectiveActionClass = verdict.ok ? actionClassForPolicy(loopPolicy, 'healthy') : reviewActionClass;
   const actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, effectiveActionClass);
   for (const candidate of verdict.candidates) {
-    validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, candidate.actionClass || 'recommend');
+    validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, candidate.actionClass || recommendActionClass);
   }
   verdict = {
     ...verdict,
     candidates: verdict.candidates.map((candidate) => {
-      const candidateActionClass = candidate.actionClass || 'recommend';
+      const candidateActionClass = candidate.actionClass || recommendActionClass;
       return {
         ...candidate,
         actionClass: candidateActionClass,
@@ -778,7 +788,7 @@ export async function runL8({
   const files = writeReports(reportDir, verdict, observation, decision);
   let actionsWritten = false;
   if (apply && reportDir) {
-    const actionFile = writeActions(reportDir, verdict, now, loopRegistry);
+    const actionFile = writeActions(reportDir, verdict, now, loopRegistry, loopPolicy);
     actionsWritten = Boolean(actionFile);
     if (actionFile) files.push(actionFile);
   }
@@ -805,9 +815,12 @@ function parseArgs(argv) {
     return index === -1 ? fallback : argv[index + 1] || fallback;
   };
   const maxAgeHours = Number(valueAfter('--max-age-hours', DEFAULT_MAX_AGE_HOURS));
-  const minimumSample = Number(valueAfter('--minimum-sample', MINIMUM_SAMPLE));
+  const minimumSampleIndex = argv.indexOf('--minimum-sample');
+  const minimumSample = minimumSampleIndex === -1 ? undefined : Number(argv[minimumSampleIndex + 1]);
   if (!Number.isFinite(maxAgeHours) || maxAgeHours <= 0) throw new Error('--max-age-hours must be a finite positive number');
-  if (!Number.isInteger(minimumSample) || minimumSample < 1) throw new Error('--minimum-sample must be a positive integer');
+  if (minimumSample !== undefined && (!Number.isInteger(minimumSample) || minimumSample < 1)) {
+    throw new Error('--minimum-sample must be a positive integer');
+  }
   return {
     json: argv.includes('--json'),
     issue: argv.includes('--issue'),

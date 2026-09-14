@@ -153,6 +153,7 @@ import {
   writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
+  markCrawlerSummaryAbortKind,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from '../assemble-jobs-dataset.mjs';
@@ -173,11 +174,17 @@ import {
 } from './transient-fetch.mjs';
 import { fetchHtmlViaJinaWithRetry, rescueHtmlIfChallenged } from './jina-proxy.mjs';
 import { fetchFollowingValidatedRedirects } from './prospector/public-fetch-policy.mjs';
+import { assertFeedEndpointHost } from './feed-endpoint-guard.mjs';
 
 // Re-export the shared transient-fetch primitives so existing importers of
 // crawler-template keep working and the ATS clients share one classifier.
 export { RETRYABLE_STATUS, WAF_IP_BLOCK_STATUS, isTransientFetchError, isConnectionLevelFetchError, fetchWithRetry };
 export { fetchFollowingValidatedRedirects } from './prospector/public-fetch-policy.mjs';
+export { assertFeedEndpointHost };
+
+function isRetryBudgetExhaustedError(err) {
+  return err?.retryBudgetExhausted === true || err?.response?.retryBudgetExhausted === true;
+}
 
 /* ── Shared Utilities (re-exported for parser convenience) ──────────── */
 
@@ -753,8 +760,21 @@ export function warnIfListingAtCap({ label, count, cap, total }) {
 
 export function exitCrawlerOnError(err, label = 'crawler') {
   if (isConnectionLevelFetchError(err)) {
+    markCrawlerSummaryAbortKind('connection-level-fetch');
     console.log(
       `\n⚠️ ${label}: connection-level fetch failure after retries + proxy fallback (${err?.message || err}). Keeping existing jobs (no de-index).`,
+    );
+    process.exit(0);
+  }
+  if (isRetryBudgetExhaustedError(err)) {
+    console.log(
+      `\n⚠️ ${label}: retryable HTTP response exhausted its retry budget (${err?.message || err}). Keeping existing jobs (no de-index).`,
+    );
+    process.exit(0);
+  }
+  if (err?.feedEndpointUnavailable) {
+    console.log(
+      `\n⚠️ ${label}: ${err?.message || err}. Keeping existing jobs (no de-index).`,
     );
     process.exit(0);
   }
@@ -953,14 +973,21 @@ export async function runStandardCrawlerPipeline(config) {
   // `written === 0`) and check-crawler-health calls a broken crawler healthy.
   // `counts.lastFetchOutcome` (issue #7897) is the run's own verdict on WHY it
   // ended up empty, when its parser can tell: `ok`, `anti_bot_block`,
-  // `selector_miss`, `filtered_empty`. `discovered`/`parsed` let the monitor
+  // `selector_miss`, `filtered_empty`, `connection_error`, `exhausted_retry`
+  // or `feed_endpoint_unavailable`. `discovered`/`parsed` let the monitor
   // INFER a cause by comparing counts; this reports one observed at the
   // fetch/parse boundary, which is the only place an anti-bot block and a dead
   // selector are distinguishable at all. It rides the same `counts` object so
   // the exit-guard slice carries it too — the zero-match soft exit below is
   // precisely the run whose cause matters most. Parsers that don't set
   // `.fetchOutcome` leave it null: unchanged behaviour.
-  const counts = { discovered: null, parsed: null, lastFetchOutcome: null, detailDrop: null };
+  const counts = {
+    discovered: null,
+    parsed: null,
+    lastFetchOutcome: null,
+    abortKind: null,
+    detailDrop: null,
+  };
   registerCrawlerSummaryGuard(companyKey, companyLabel, counts);
   console.log('═══════════════════════════════════════════════');
   console.log(`  ${companyLabel} — Standard Crawler Pipeline`);
@@ -996,8 +1023,24 @@ export async function runStandardCrawlerPipeline(config) {
     // fallback before re-throwing a connection-level error here, so this is the
     // last-resort guard after the proxy could not help either.
     if (isConnectionLevelFetchError(err)) {
+      counts.lastFetchOutcome = 'connection_error';
+      counts.abortKind = 'connection-level-fetch';
       console.log(
         `\n⚠️ ${companyLabel}: connection-level fetch failure after retries + proxy fallback (${err.message}). Keeping existing jobs.`,
+      );
+      return;
+    }
+    if (isRetryBudgetExhaustedError(err)) {
+      counts.lastFetchOutcome = 'exhausted_retry';
+      console.log(
+        `\n⚠️ ${companyLabel}: retryable HTTP response exhausted its retry budget (${err?.message || err}). Keeping existing jobs.`,
+      );
+      return;
+    }
+    if (err?.feedEndpointUnavailable) {
+      counts.lastFetchOutcome = 'feed_endpoint_unavailable';
+      console.log(
+        `\n⚠️ ${companyLabel}: ${err.message}. Keeping existing jobs.`,
       );
       return;
     }
@@ -1008,6 +1051,8 @@ export async function runStandardCrawlerPipeline(config) {
     // existing slice, no de-index, no "Crawler Failure" issue every run. A
     // persistent outage is still caught by the crawler-health monitor.
     if (err?.antiBotExhausted) {
+      counts.lastFetchOutcome = 'connection_error';
+      counts.abortKind = 'connection-level-fetch';
       console.log(
         `\n⚠️ ${companyLabel}: anti-bot fence exhausted (UA + Jina + Playwright) for ${err.message}. Keeping existing jobs.`,
       );
@@ -1062,6 +1107,7 @@ export async function runStandardCrawlerPipeline(config) {
   );
 
   if (!parsedJobs || (parsedJobs.length === 0 && !authoritativeEmptySnapshot)) {
+    counts.abortKind = 'no-jobs-parsed';
     console.log(`\n⚠️ No ${companyLabel} jobs discovered. Keeping existing jobs.`);
     return;
   }

@@ -78,6 +78,27 @@ describe('review gate: scope classification is fail-closed', () => {
     expect(result.unresolved[0]?.reason).toMatch(/diff non verificabile/i);
   });
 
+  it('does not treat Fix confirmations as in-diff anchors of an outside finding', () => {
+    const body = [
+      'scripts/generate-crawler-group-workflows.mjs:L896: 🔴 Important: the detached launcher inherits the runner tracking id.',
+      'Fix di `scripts/import-pharmacies-border.mjs:L175`: ok.',
+      'Fix di `build-plugins/pharmacyDirectoryPagesPlugin.ts:L524`: ok.',
+    ].join('\n');
+    const result = classifyReview(body, {
+      files: ['scripts/import-pharmacies-border.mjs', 'build-plugins/pharmacyDirectoryPagesPlugin.ts'],
+      complete: true,
+      repositoryPaths: [
+        'scripts/generate-crawler-group-workflows.mjs',
+        'scripts/import-pharmacies-border.mjs',
+        'build-plugins/pharmacyDirectoryPagesPlugin.ts',
+      ],
+    });
+
+    expect(result.blocking).toBe(false);
+    expect(result.outsideOnly).toBe(true);
+    expect(result.outside[0]?.resolvedFiles).toEqual(['scripts/generate-crawler-group-workflows.mjs']);
+  });
+
   it('blocks when the repository tree cannot resolve an outside citation', () => {
     const result = classifyReview(reviewFor('scripts/legacy.mjs', 'old bug'), {
       files: DIFF_FILES,

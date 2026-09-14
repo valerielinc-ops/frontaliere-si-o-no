@@ -1120,7 +1120,7 @@ jobs:
             else
               nohup bash "$script" > "$state_dir/$label.log" 2>&1 < /dev/null &
             fi
-            printf '%s\\n' "$!" > "$state_dir/$label.pid"
+            printf '%s\n' "$!" > "$state_dir/$label.pid"
           }
           if [ "$RUN_TSC" = "true" ]; then
             start_gate tsc 'env NODE_OPTIONS=--max-old-space-size=8192 bash scripts/ci/sample-mem-during.sh -- npm run typecheck:gate'
@@ -1498,8 +1498,13 @@ jobs:
         # FOREGROUND, dopo "Assemble + migrate": i test scelti dal grafo
         # possono leggere i dataset generati. Questo è l'unico invocatore di
         # Vitest del job PR; `run-related-tests.mjs` usa il related graph e un
-        # fallback conservativo quando il percorso non è rappresentabile.
+        # fallback conservativo quando il percorso non è rappresentabile. Il
+        # predicato Assemble è l'input del consumer: se dice `false`, il run
+        # resta attivo ma viene confinato ai test indipendenti; se manca,
+        # l'espressione applica il default fail-safe `true`, mentre un valore
+        # inatteso interrompe il consumer invece di usare output non assemblati.
         env:
+          ASSEMBLE_REQUIRED: ${{ steps.assemble.outputs.required || 'true' }}
           # Vitest 4's related graph can exceed Node's default 4GB heap in this
           # repository. Keep the graph bounded to one fork and leave headroom
           # on the hosted runner; this does not change the related-only scope.
@@ -1521,7 +1526,21 @@ jobs:
           VITEST_CACHE_DIR: node_modules/.vite-related
           CHANGED_PATHS_STATUS_FILE: changed-paths-status.txt
           VITEST_SKIP_CORPUS_WIDE: 'true'
-        run: node scripts/ci/run-related-tests.mjs --reporter=default --reporter=json --outputFile=shard-timing-related.json
+        run: |
+          set -euo pipefail
+          case "$ASSEMBLE_REQUIRED" in
+            true)
+              node scripts/ci/run-related-tests.mjs --reporter=default --reporter=json --outputFile=shard-timing-related.json
+              ;;
+            false)
+              VITEST_DATASET_GROUP=independent \
+                node scripts/ci/run-related-tests.mjs --reporter=default --reporter=json --outputFile=shard-timing-related.json
+              ;;
+            *)
+              echo "::error::unexpected Assemble + migrate decision: $ASSEMBLE_REQUIRED"
+              exit 1
+              ;;
+          esac
 
       # Collect the detached gate processes after the Vitest run. Each process
       # publishes an atomic status file; a missing status from a dead process is
@@ -1555,27 +1574,39 @@ jobs:
                   echo "::error::$label did not publish a PID"
                   failures=1
                 fi
+                gate_waited=0
+                gate_wait_limit=300
+                launcher_gone_reported=0
                 while [ ! -s "$status_file" ]; do
                   if [ ! -s "$pid_file" ]; then
                     echo "::error::$label cannot be monitored because its PID is missing"
                     failures=1
                     break
                   fi
-                  pid="$(cat "$pid_file" 2>/dev/null || true)"
-                  if ! kill -0 "$pid" 2>/dev/null; then
-                    for retry in 1 2 3 4 5; do
-                      [ -s "$status_file" ] && break
-                      echo "waiting for $label status (attempt $retry/5)"
-                      sleep 1
-                    done
-                    if [ ! -s "$status_file" ]; then
-                      echo "::error::$label exited without publishing a status"
-                      failures=1
-                      break
-                    fi
-                  else
-                    sleep 1
+                  if [ "$gate_waited" -ge "$gate_wait_limit" ]; then
+                    echo "::error::$label did not publish a status within ${gate_wait_limit}s"
+                    echo "[$label] launcher log:"
+                    cat "$state_dir/$label.log" 2>/dev/null || true
+                    failures=1
+                    break
                   fi
+                  pid="$(cat "$pid_file" 2>/dev/null || true)"
+                  if ! printf '%s\n' "$pid" | grep -Eq '^[0-9]+$'; then
+                    echo "::error::$label published an invalid launcher PID: $pid"
+                    echo "[$label] launcher log:"
+                    cat "$state_dir/$label.log" 2>/dev/null || true
+                    failures=1
+                    break
+                  fi
+                  # The launcher PID is advisory: setsid can hand the actual
+                  # wrapper to a child while that child still writes status.
+                  # Wait on the atomic status file, but keep the wait bounded.
+                  if ! kill -0 "$pid" 2>/dev/null && [ "$launcher_gone_reported" -eq 0 ]; then
+                    echo "::warning::$label launcher PID ended; waiting for the wrapper status file up to ${gate_wait_limit}s"
+                    launcher_gone_reported=1
+                  fi
+                  sleep 1
+                  gate_waited=$((gate_waited + 1))
                 done
                 if [ -s "$status_file" ]; then
                   status="$(cat "$status_file" 2>/dev/null || true)"
@@ -1688,7 +1719,7 @@ jobs:
         run: |
           set -euo pipefail
           last=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate \
-            --jq '[.[] | select(.user.type=="Bot" and (.user.login|test("^(claude(\\\\[bot\\\\])?|frontaliere-automation\\\\[bot\\\\])$";"i")) and (.body|contains("## LGTM")))] | last | .commit_id // empty' 2>/dev/null || true)
+            --jq '[.[] | select((.user.login // "" | test("^(claude\\[bot\\]|frontaliere-automation\\[bot\\])$";"i")) and (.body|contains("## LGTM")))] | last | .commit_id // empty' 2>/dev/null || true)
           if [ -z "$last" ]; then
             echo "skip=false" >> "$GITHUB_OUTPUT"; echo "Nessuna review LGTM precedente → review piena."; exit 0
           fi
@@ -1867,7 +1898,7 @@ jobs:
           # incrementale. Il prompt resta autorizzato a Read/grep i file pieni per il
           # contesto → le interazioni col code non-toccato restano coglibili.
           lastRev=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate \
-            --jq '[.[] | select(.user.type=="Bot" and (.user.login|test("^(claude(\\[bot\\])?|frontaliere-automation\\[bot\\])$";"i")))] | last | .commit_id // empty' 2>/dev/null || true)
+            --jq '[.[] | select((.user.login // "" | test("^(claude\\[bot\\]|frontaliere-automation\\[bot\\])$";"i")))] | last | .commit_id // empty' 2>/dev/null || true)
           if [ -n "$lastRev" ] && [ "$lastRev" != "$HEAD_SHA" ]; then
             delta_code=$(gh api "repos/$REPO/compare/$lastRev...$HEAD_SHA" --jq '.files[] | .filename, (.previous_filename // empty)' 2>/dev/null \
               | grep -Fxf <(echo "$code_files") || true)

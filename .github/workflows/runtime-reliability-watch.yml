@@ -1,0 +1,153 @@
+name: Runtime reliability watchdog
+
+# Detects the production failure mode that a normal 200 probe cannot see:
+# stable CDN asset URLs still serving a previous edge object after the
+# current build marker is live. A clean run resolves the same issue it opens;
+# a degraded run first attempts a bounded, exact-URL Cloudflare purge and then
+# re-probes before filing the issue.
+
+on:
+  # A direct push is intentionally not a trigger. The Pages deploy publishes
+  # the CDN marker before the apex HTML marker, so a push-triggered probe can
+  # observe a valid rollout halfway through and report a false degradation.
+  # Run immediately after the deploy workflow reaches a terminal state, then
+  # keep the independent schedule as a backstop for drift between deploys.
+  workflow_run:
+    workflows: ["Publish to GitHub Pages (deploy + validate)"]
+    types: [completed]
+    branches: [main]
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch: {}
+
+concurrency:
+  group: runtime-reliability-watch
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            scripts/runtime-reliability-watch.mjs
+            scripts/
+            scripts/load-rc-env.mjs
+            scripts/lib/**
+            infra/cloudflare-worker/**
+            package.json
+            package-lock.json
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load Cloudflare credentials from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Probe live runtime
+        id: probe
+        run: |
+          set +e
+          node scripts/runtime-reliability-watch.mjs --json > runtime-reliability.json
+          status=$?
+          set -e
+          echo "exit_code=$status" >> "$GITHUB_OUTPUT"
+          if [ -s runtime-reliability.json ]; then
+            purge_urls="$(node --input-type=module -e "import fs from 'node:fs'; const p=JSON.parse(fs.readFileSync('runtime-reliability.json','utf8')); process.stdout.write((p.purgeUrls||[]).join(','));")"
+          else
+            purge_urls=""
+          fi
+          echo "purge_urls=$purge_urls" >> "$GITHUB_OUTPUT"
+
+      - name: Purge divergent CDN assets
+        if: steps.probe.outputs.purge_urls != ''
+        continue-on-error: true
+        env:
+          PURGE_URLS: ${{ steps.probe.outputs.purge_urls }}
+        run: |
+          if [ -z "${CF_API_TOKEN:-}" ]; then
+            echo "::error::runtime reliability found stale CDN assets but CF_API_TOKEN is unavailable; no automatic repair was attempted"
+            exit 1
+          fi
+          node scripts/cf-purge-cache.mjs "--files=$PURGE_URLS"
+
+      - name: Allow targeted purge propagation
+        if: steps.probe.outputs.purge_urls != ''
+        run: sleep 10
+
+      - name: Verify live runtime after repair
+        id: verify
+        run: |
+          set +e
+          node scripts/runtime-reliability-watch.mjs --json > runtime-reliability-final.json
+          status=$?
+          set -e
+          echo "exit_code=$status" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Upload runtime evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: runtime-reliability-${{ github.run_id }}
+          path: |
+            runtime-reliability.json
+            runtime-reliability-final.json
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Open or update reliability issue
+        if: steps.verify.outputs.exit_code != '0'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Runtime reliability: live build coherence" \
+            --description "$(node --input-type=module -e "import fs from 'node:fs'; const p=JSON.parse(fs.readFileSync('runtime-reliability-final.json','utf8')); const run=process.env.GITHUB_SERVER_URL+'/'+process.env.GITHUB_REPOSITORY+'/actions/runs/'+process.env.GITHUB_RUN_ID; process.stdout.write('## Runtime degradation\\n\\n- Run: '+run+'\\n- Marker state: '+p.markerState+'\\n- Site build: '+(p.siteBuildId||'unavailable')+'\\n- CDN build: '+(p.cdnBuildId||'unavailable')+'\\n- Reasons: '+(p.reasons||[]).join('; ')+'\\n\\nThe watchdog attempted only exact CDN asset purges when the marker pair was coherent. No zone-wide purge was performed.');")" \
+            --priority 1 \
+            --label Bug \
+            --label runtime-reliability \
+            --workflow "${{ github.workflow }}"
+
+      - name: Resolve reliability issue on green
+        if: steps.verify.outputs.exit_code == '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs --resolve \
+            --title "Runtime reliability: live build coherence" \
+            --workflow "${{ github.workflow }}" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      - name: Fail when runtime remains degraded
+        if: steps.verify.outputs.exit_code != '0'
+        run: |
+          echo "::error::Runtime reliability watchdog remains degraded after safe targeted repair attempt"
+          exit 1

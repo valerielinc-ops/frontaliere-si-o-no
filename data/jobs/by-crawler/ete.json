@@ -9,7 +9,7 @@
         "it": "operatore-logistico-e-manutenzione-negozio-automatizzato-emil-egger-ag-lugano",
         "en": "logistics-maintenance-operator-automated-store-emil-egger-ag-lugano",
         "de": "logistik-und-wartungsbetreiber-automated-store-emil-egger-ag-lugano",
-        "fr": "operateur-logistique-038-maintenance-magasin-automatise-emil-egger-ag-avenches-8e1b0445"
+        "fr": "operateur-logistique-maintenance-magasin-automatise-emil-egger-ag-lugano"
       },
       "slugDisambiguator": "8e1b0445",
       "company": "Emil Egger AG",
@@ -53,11 +53,12 @@
       "previousSlugsByLocale": {
         "fr": [
           "operateur-logistique-maintenance-magasin-automatise-ete-ch",
-          "operateur-logistique-maintenance-magasin-automatise-emil-egger-ag-lugano"
+          "operateur-logistique-maintenance-magasin-automatise-emil-egger-ag-lugano",
+          "operateur-logistique-038-maintenance-magasin-automatise-emil-egger-ag-avenches-8e1b0445"
         ],
         "it": [
           "operateur-logistique-maintenance-magasin-automatise-ete-ch",
-          "operatore-logistico-e-manutenzione-negozio-automatizzato-emil-egger-ag-lugano"
+          "operateur-logistique-038-maintenance-magasin-automatise-emil-egger-ag-avenches-8e1b0445"
         ],
         "en": [
           "operateur-logistique-maintenance-magasin-automatise-ete-ch"
@@ -69,10 +70,9 @@
       "previousSlugs": [
         "operateur-logistique-maintenance-magasin-automatise-ete-ch",
         "operateur-logistique-maintenance-magasin-automatise-emil-egger-ag-lugano",
-        "operatore-logistico-e-manutenzione-negozio-automatizzato-emil-egger-ag-lugano"
+        "operateur-logistique-038-maintenance-magasin-automatise-emil-egger-ag-avenches-8e1b0445"
       ],
       "firstSeenAt": "2026-08-23T21:34:46.434Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -93,7 +93,7 @@
       "slugByLocale": {
         "it": "lehre-zum-kaufmann-kauffrau-cfc-start-ab-sommer-2027-emil-egger-ag-lugano",
         "en": "apprenticeship-to-the-merchant-merchant-efz-start-from-summer-2027-emil-egger-ag-lugano",
-        "de": "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-st-gallen-6517d934",
+        "de": "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-lugano",
         "fr": "apprentissage-au-marchand-marchand-efz-a-partir-de-l-ete-2027-emil-egger-ag-lugano"
       },
       "slugDisambiguator": "6517d934",
@@ -138,11 +138,11 @@
       "previousSlugsByLocale": {
         "de": [
           "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-ete-ch",
-          "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-lugano"
+          "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-st-gallen-6517d934"
         ],
         "it": [
           "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-ete-ch",
-          "lehre-zum-kaufmann-kauffrau-cfc-start-ab-sommer-2027-emil-egger-ag-lugano"
+          "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-st-gallen-6517d934"
         ],
         "en": [
           "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-lugano"
@@ -154,9 +154,8 @@
       "previousSlugs": [
         "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-ete-ch",
         "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-lugano",
-        "lehre-zum-kaufmann-kauffrau-cfc-start-ab-sommer-2027-emil-egger-ag-lugano"
+        "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-st-gallen-6517d934"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T21:34:46.129Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -170,7 +169,10 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1867
     },
     {
       "id": "ete-dad26f9be703",
@@ -178,7 +180,7 @@
       "slugByLocale": {
         "it": "chauffeur-chauffeuse-per-kat-c-e-per-hebebuhnen-e-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano",
         "en": "chauffeur-chauffeuse-for-cat-c-e-for-lifting-platform-and-construction-machines-semitrailers-100-emil-egger-ag-lugano",
-        "de": "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-bassersdorf-dad26f9b",
+        "de": "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano",
         "fr": "chauffeur-chauffeuse-pour-cat-c-e-pour-plate-forme-de-levage-et-machines-de-construction-semi-remorques-100-emil-egger"
       },
       "slugDisambiguator": "dad26f9b",
@@ -223,14 +225,15 @@
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete",
-          "chauffeur-chauffeuse-per-kat-c-e-per-hebebuhnen-e-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano"
+          "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-bassersdorf-dad26f9b"
         ],
         "en": [
           "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano"
         ],
         "de": [
           "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete",
-          "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano"
+          "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano",
+          "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-bassersdorf-dad26f9b"
         ],
         "fr": [
           "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano"
@@ -239,7 +242,7 @@
       "previousSlugs": [
         "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete",
         "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano",
-        "chauffeur-chauffeuse-per-kat-c-e-per-hebebuhnen-e-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano"
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-bassersdorf-dad26f9b"
       ],
       "firstSeenAt": "2026-08-23T21:34:45.821Z",
       "salaryMin": 73500,
@@ -308,7 +311,7 @@
         "it": [
           "chauffeur-chauffeuse-per-kat-c-e-per-hebebuhnen-e-baumaschinen-sattelschlepper-100-emil-egger-ag-st-gallen",
           "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete",
-          "chauffeur-chauffeuse-per-cat-c-e-per-piattaforme-di-sollevamento-e-macchine-da-costruzione-semirimorchio-100-emil-egger"
+          "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-st-gallen-feec8724"
         ],
         "en": [
           "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-st-gallen"
@@ -324,7 +327,7 @@
         "chauffeur-chauffeuse-per-kat-c-e-per-hebebuhnen-e-baumaschinen-sattelschlepper-100-emil-egger-ag-st-gallen",
         "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete",
         "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-st-gallen",
-        "chauffeur-chauffeuse-per-cat-c-e-per-piattaforme-di-sollevamento-e-macchine-da-costruzione-semirimorchio-100-emil-egger"
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-st-gallen-feec8724"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T05:44:50.244Z",
@@ -340,7 +343,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 2
     },
     {
       "id": "ete-4f890e1dbbc4",
@@ -349,7 +353,7 @@
         "it": "driver-c-e-trasporto-speciale-m-f-emil-egger-ag-lugano",
         "en": "driver-c-e-special-transport-m-f-emil-egger-ag-lugano",
         "de": "chauffeur-c-e-transports-speciaux-h-f-ete-ch",
-        "fr": "chauffeur-c-e-8211-transports-speciaux-h-f-emil-egger-ag-avenches-4f890e1d"
+        "fr": "chauffeur-c-e-transports-speciaux-h-f-emil-egger-ag-lugano"
       },
       "slugDisambiguator": "4f890e1d",
       "company": "Emil Egger AG",
@@ -394,7 +398,7 @@
         "it": [
           "chauffeur-c-e-transports-speciaux-h-f-ete-ch",
           "chauffeur-c-e-transports-speciaux-m-w-d-emil-egger-ag-lugano",
-          "driver-c-e-trasporto-speciale-m-f-emil-egger-ag-lugano"
+          "chauffeur-c-e-8211-transports-speciaux-h-f-emil-egger-ag-avenches-4f890e1d"
         ],
         "en": [
           "chauffeur-c-e-transports-speciaux-h-f-ete-ch",
@@ -404,7 +408,8 @@
           "fahrer-c-e-sondertransport-m-w-emil-egger-ag-lugano"
         ],
         "fr": [
-          "chauffeur-c-e-transports-speciaux-h-f-emil-egger-ag-lugano"
+          "chauffeur-c-e-transports-speciaux-h-f-emil-egger-ag-lugano",
+          "chauffeur-c-e-8211-transports-speciaux-h-f-emil-egger-ag-avenches-4f890e1d"
         ]
       },
       "previousSlugs": [
@@ -412,7 +417,7 @@
         "chauffeur-c-e-transports-speciaux-m-w-d-emil-egger-ag-lugano",
         "fahrer-c-e-sondertransport-m-w-emil-egger-ag-lugano",
         "chauffeur-c-e-transports-speciaux-h-f-emil-egger-ag-lugano",
-        "driver-c-e-trasporto-speciale-m-f-emil-egger-ag-lugano"
+        "chauffeur-c-e-8211-transports-speciaux-h-f-emil-egger-ag-avenches-4f890e1d"
       ],
       "firstSeenAt": "2026-08-23T21:34:45.214Z",
       "salaryMin": 60500,
@@ -435,7 +440,7 @@
       "slugByLocale": {
         "it": "supporto-clienti-elaborazione-ordini-logistica-di-trasporto-100-m-f-emil-egger-ag-lugano",
         "en": "customer-support-order-processing-transport-logistics-100-m-f-emil-egger-ag-lugano",
-        "de": "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-emil-egger-ag-st-gallen-7672e8ba",
+        "de": "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-emil-egger-ag-lugano",
         "fr": "assistance-client-traitement-des-commandes-transport-logistique-100-h-f-emil-egger-ag-lugano"
       },
       "slugDisambiguator": "7672e8ba",
@@ -480,12 +485,13 @@
       "previousSlugsByLocale": {
         "de": [
           "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-ete-ch",
-          "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-emil-egger-ag-lugano"
+          "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-emil-egger-ag-lugano",
+          "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-emil-egger-ag-st-gallen-7672e8ba"
         ],
         "it": [
           "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-ete-ch",
           "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-emil-egger-ag-lugano",
-          "supporto-clienti-elaborazione-ordini-logistica-di-trasporto-100-m-f-emil-egger-ag-lugano"
+          "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-emil-egger-ag-st-gallen-7672e8ba"
         ],
         "en": [
           "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-emil-egger-ag-lugano"
@@ -497,7 +503,7 @@
       "previousSlugs": [
         "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-ete-ch",
         "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-emil-egger-ag-lugano",
-        "supporto-clienti-elaborazione-ordini-logistica-di-trasporto-100-m-f-emil-egger-ag-lugano"
+        "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-emil-egger-ag-st-gallen-7672e8ba"
       ],
       "firstSeenAt": "2026-08-23T21:34:44.911Z",
       "salaryMin": 57500,
@@ -520,7 +526,7 @@
       "slugByLocale": {
         "it": "lehre-zum-logistikerin-cfc-start-ab-sommer-2027-emil-egger-ag-lugano",
         "en": "apprenticeship-as-a-logistician-efz-start-from-summer-2027-emil-egger-ag-harkingen",
-        "de": "lehre-zum-logistikerin-efz-start-ab-sommer-2027-emil-egger-ag-harkingen-9499465d",
+        "de": "lehre-zum-logistikerin-efz-start-ab-sommer-2027-emil-egger-ag-lugano",
         "fr": "apprentissage-en-tant-que-logisticien-efz-a-partir-de-l-ete-2027-emil-egger-ag-harkingen"
       },
       "slugDisambiguator": "9499465d",
@@ -565,7 +571,7 @@
       "previousSlugsByLocale": {
         "it": [
           "lehre-zum-logistikerin-efz-start-ab-sommer-2027-ete-ch",
-          "lehre-zum-logistikerin-cfc-start-ab-sommer-2027-emil-egger-ag-lugano"
+          "lehre-zum-logistikerin-efz-start-ab-sommer-2027-emil-egger-ag-harkingen-9499465d"
         ],
         "en": [
           "lehre-zum-logistikerin-efz-start-ab-sommer-2027-emil-egger-ag-lugano"
@@ -574,15 +580,14 @@
           "lehre-zum-logistikerin-efz-start-ab-sommer-2027-emil-egger-ag-lugano"
         ],
         "de": [
-          "lehre-zum-logistikerin-efz-start-ab-sommer-2027-emil-egger-ag-lugano"
+          "lehre-zum-logistikerin-efz-start-ab-sommer-2027-emil-egger-ag-harkingen-9499465d"
         ]
       },
       "previousSlugs": [
         "lehre-zum-logistikerin-efz-start-ab-sommer-2027-ete-ch",
         "lehre-zum-logistikerin-efz-start-ab-sommer-2027-emil-egger-ag-lugano",
-        "lehre-zum-logistikerin-cfc-start-ab-sommer-2027-emil-egger-ag-lugano"
+        "lehre-zum-logistikerin-efz-start-ab-sommer-2027-emil-egger-ag-harkingen-9499465d"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T21:34:44.604Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -596,7 +601,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1908
     },
     {
       "id": "ete-b3aa4e179045",
@@ -604,7 +612,7 @@
       "slugByLocale": {
         "it": "dipendenti-nella-movimentazione-delle-merci-cambio-notturno-permanente-emil-egger-ag-lugano",
         "en": "employee-in-freight-handling-permanent-night-shift-emil-egger-ag-lugano",
-        "de": "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-emil-egger-ag-harkingen-b3aa4e17",
+        "de": "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-emil-egger-ag-lugano",
         "fr": "employe-dans-la-manutention-du-fret-poste-de-nuit-permanent-emil-egger-ag-lugano"
       },
       "slugDisambiguator": "b3aa4e17",
@@ -649,12 +657,13 @@
       "previousSlugsByLocale": {
         "de": [
           "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-ete-ch",
-          "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-emil-egger-ag-lugano"
+          "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-emil-egger-ag-lugano",
+          "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-emil-egger-ag-harkingen-b3aa4e17"
         ],
         "it": [
           "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-ete-ch",
           "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-emil-egger-ag-lugano",
-          "dipendenti-nella-movimentazione-delle-merci-cambio-notturno-permanente-emil-egger-ag-lugano"
+          "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-emil-egger-ag-harkingen-b3aa4e17"
         ],
         "en": [
           "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-emil-egger-ag-lugano"
@@ -666,7 +675,7 @@
       "previousSlugs": [
         "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-ete-ch",
         "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-emil-egger-ag-lugano",
-        "dipendenti-nella-movimentazione-delle-merci-cambio-notturno-permanente-emil-egger-ag-lugano"
+        "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-emil-egger-ag-harkingen-b3aa4e17"
       ],
       "firstSeenAt": "2026-08-23T21:34:44.299Z",
       "salaryMin": 68500,
@@ -685,9 +694,9 @@
     },
     {
       "id": "ete-8f9f30e9dfdc",
-      "slug": "transport-disponent-in-emil-egger-ag-harkingen-8f9f30e9",
+      "slug": "smaltimento-dei-trasporti-emil-egger-ag-harkingen-8f9f30e9",
       "slugByLocale": {
-        "it": "servizi-di-trasporto-emil-egger-ag-harkingen",
+        "it": "smaltimento-dei-trasporti-emil-egger-ag-harkingen-8f9f30e9",
         "en": "transport-disposal-emil-egger-ag-harkingen",
         "de": "transport-disponent-in-emil-egger-ag-harkingen-8f9f30e9",
         "fr": "detecteur-de-transport-in-emil-egger-ag-harkingen"
@@ -698,7 +707,7 @@
       "companyDomain": "ete.ch",
       "title": "Transport Disponent/in",
       "titleByLocale": {
-        "it": "Transport Disponent/in",
+        "it": "Smaltimento dei trasporti",
         "en": "Transport Disposal",
         "de": "Transport Disponent/in",
         "fr": "Détecteur de transport"
@@ -736,7 +745,8 @@
           "transport-disponent-in-emil-egger-ag-harkingen",
           "transport-disponent-in-ete-ch-harkingen",
           "smaltimento-dei-trasporti-emil-egger-ag-harkingen",
-          "servizi-di-trasporto-emil-egger-ag-harkingen"
+          "servizi-di-trasporto-emil-egger-ag-harkingen",
+          "transport-disponent-in-emil-egger-ag-harkingen-8f9f30e9"
         ],
         "fr": [
           "transport-disponent-in-ete-ch-harkingen"
@@ -752,7 +762,8 @@
         "transport-disponent-in-emil-egger-ag-harkingen",
         "transport-disponent-in-ete-ch-harkingen",
         "smaltimento-dei-trasporti-emil-egger-ag-harkingen",
-        "servizi-di-trasporto-emil-egger-ag-harkingen"
+        "servizi-di-trasporto-emil-egger-ag-harkingen",
+        "transport-disponent-in-emil-egger-ag-harkingen-8f9f30e9"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T05:44:48.734Z",
@@ -776,7 +787,7 @@
       "slugByLocale": {
         "it": "chauffeur-kat-c-e-per-wechselpritschen-100-m-w-d-emil-egger-ag-lugano",
         "en": "chauffeur-cat-c-e-for-changeable-platforms-100-m-f-d-emil-egger-ag-lugano",
-        "de": "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-harkingen-27fbe7b5",
+        "de": "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-lugano",
         "fr": "chauffeur-cat-c-e-pour-plates-formes-modifiables-100-h-f-d-emil-egger-ag-lugano"
       },
       "slugDisambiguator": "27fbe7b5",
@@ -821,14 +832,15 @@
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-ete-ch",
-          "chauffeur-kat-c-e-per-wechselpritschen-100-m-w-d-emil-egger-ag-lugano"
+          "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-harkingen-27fbe7b5"
         ],
         "en": [
           "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-lugano"
         ],
         "de": [
           "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-ete-ch",
-          "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-lugano"
+          "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-lugano",
+          "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-harkingen-27fbe7b5"
         ],
         "fr": [
           "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-lugano"
@@ -837,7 +849,7 @@
       "previousSlugs": [
         "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-ete-ch",
         "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-lugano",
-        "chauffeur-kat-c-e-per-wechselpritschen-100-m-w-d-emil-egger-ag-lugano"
+        "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-harkingen-27fbe7b5"
       ],
       "firstSeenAt": "2026-08-23T21:34:43.693Z",
       "salaryMin": 68500,
@@ -906,7 +918,7 @@
         "it": [
           "chauffeur-kat-c-e-per-wechselpritschen-100-m-w-d-emil-egger-ag-bassersdorf",
           "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-ete-ch-bassersdorf",
-          "chauffeur-cat-c-e-per-piattaforme-modificabili-100-m-f-d-emil-egger-ag-bassersdorf"
+          "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-bassersdorf-03c5de57"
         ],
         "en": [
           "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-bassersdorf"
@@ -922,7 +934,7 @@
         "chauffeur-kat-c-e-per-wechselpritschen-100-m-w-d-emil-egger-ag-bassersdorf",
         "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-ete-ch-bassersdorf",
         "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-bassersdorf",
-        "chauffeur-cat-c-e-per-piattaforme-modificabili-100-m-f-d-emil-egger-ag-bassersdorf"
+        "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-bassersdorf-03c5de57"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T05:44:48.129Z",
@@ -938,7 +950,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 2
     },
     {
       "id": "ete-08d39e2960e3",
@@ -946,7 +959,7 @@
       "slugByLocale": {
         "it": "chauffeur-chauffeuse-per-kat-c-e-per-spezialtransporte-per-offenen-sattelschlepper-100-emil-egger-ag-lugano",
         "en": "chauffeur-chauffeuse-for-cat-c-e-for-special-transports-for-open-semi-trailers-100-emil-egger-ag-lugano",
-        "de": "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-emil-egger-ag-harkingen-08d39e29",
+        "de": "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-emil-egger-ag-lugano",
         "fr": "chauffeur-chauffeuse-pour-cat-c-e-pour-les-transports-speciaux-pour-semi-remorques-ouvertes-100-emil-egger-ag-lugano"
       },
       "slugDisambiguator": "08d39e29",
@@ -991,11 +1004,12 @@
       "previousSlugsByLocale": {
         "de": [
           "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-ete",
-          "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-emil-egger-ag-lugano"
+          "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-emil-egger-ag-lugano",
+          "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-emil-egger-ag-harkingen-08d39e29"
         ],
         "it": [
           "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-ete",
-          "chauffeur-chauffeuse-per-kat-c-e-per-spezialtransporte-per-offenen-sattelschlepper-100-emil-egger-ag-lugano"
+          "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-emil-egger-ag-harkingen-08d39e29"
         ],
         "en": [
           "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-emil-egger-ag-lugano"
@@ -1007,7 +1021,7 @@
       "previousSlugs": [
         "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-ete",
         "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-emil-egger-ag-lugano",
-        "chauffeur-chauffeuse-per-kat-c-e-per-spezialtransporte-per-offenen-sattelschlepper-100-emil-egger-ag-lugano"
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-emil-egger-ag-harkingen-08d39e29"
       ],
       "firstSeenAt": "2026-08-23T21:34:43.087Z",
       "salaryMin": 68500,
@@ -1030,7 +1044,7 @@
       "slugByLocale": {
         "it": "disponent-in-lw-krane-100-emil-egger-ag-lugano",
         "en": "equipped-in-lw-krane-100-emil-egger-ag-lugano",
-        "de": "disponent-in-lw-krane-100-emil-egger-ag-st-gallen-207db82b",
+        "de": "ausgestattet-in-lw-krane-100-emil-egger-ag-lugano",
         "fr": "equipe-en-lw-krane-100-emil-egger-ag-lugano"
       },
       "slugDisambiguator": "207db82b",
@@ -1039,7 +1053,7 @@
       "companyDomain": "ete.ch",
       "title": "Disponent / in LW-Krane 100%",
       "titleByLocale": {
-        "it": "Disponent / in LW-Krane 100%",
+        "it": "dotato / in gru LW 100%",
         "en": "Equipped / in LW-Krane 100%",
         "de": "Disponent / in LW-Krane 100%",
         "fr": "Équipé / en LW-Krane 100%"
@@ -1075,19 +1089,29 @@
       "previousSlugsByLocale": {
         "it": [
           "disponent-in-lw-krane-100-ete-ch",
-          "disponent-in-lw-krane-100-emil-egger-ag-lugano"
+          "disponent-in-lw-krane-100-emil-egger-ag-lugano",
+          "disponent-in-industrieumzuge-100-ete-ch-st-gallen",
+          "disponent-in-industrieumzuge-100-emil-egger-ag-st-gallen",
+          "disponent-in-lw-krane-100-emil-egger-ag-st-gallen-207db82b"
         ],
         "de": [
-          "ausgestattet-in-lw-krane-100-emil-egger-ag-lugano"
+          "ausgestattet-in-lw-krane-100-emil-egger-ag-lugano",
+          "disponent-in-industrieumzuge-100-ete-ch-st-gallen",
+          "disponent-in-lw-krane-100-emil-egger-ag-st-gallen-207db82b"
+        ],
+        "fr": [
+          "disponent-in-industrieumzuge-100-emil-egger-ag-st-gallen"
         ]
       },
       "previousSlugs": [
         "disponent-in-lw-krane-100-ete-ch",
         "ausgestattet-in-lw-krane-100-emil-egger-ag-lugano",
-        "disponent-in-lw-krane-100-emil-egger-ag-lugano"
+        "disponent-in-lw-krane-100-emil-egger-ag-lugano",
+        "disponent-in-industrieumzuge-100-ete-ch-st-gallen",
+        "disponent-in-industrieumzuge-100-emil-egger-ag-st-gallen",
+        "disponent-in-lw-krane-100-emil-egger-ag-st-gallen-207db82b"
       ],
       "firstSeenAt": "2026-08-23T21:34:42.782Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1109,7 +1133,7 @@
         "it": "macchine-mecanicien-de-chantier-agricole-m-f-emil-egger-ag-lugano",
         "en": "mecanicien-machines-de-chantier-agricole-m-f-emil-egger-ag-lugano",
         "de": "mecanicien-machines-de-chantier-agricole-h-f-ete-ch",
-        "fr": "mecanicien-machines-de-chantier-agricole-h-f-emil-egger-ag-avenches-7a440ff6"
+        "fr": "mecanicien-machines-de-chantier-agricole-h-f-emil-egger-ag-lugano"
       },
       "slugDisambiguator": "7a440ff6",
       "company": "Emil Egger AG",
@@ -1153,19 +1177,20 @@
       "previousSlugsByLocale": {
         "it": [
           "mecanicien-machines-de-chantier-agricole-h-f-ete-ch",
-          "macchine-mecanicien-de-chantier-agricole-m-f-emil-egger-ag-lugano"
+          "mecanicien-machines-de-chantier-agricole-h-f-emil-egger-ag-avenches-7a440ff6"
         ],
         "en": [
           "mecanicien-machines-de-chantier-agricole-h-f-ete-ch"
         ],
         "fr": [
-          "mecanicien-machines-de-chantier-agricole-h-f-emil-egger-ag-lugano"
+          "mecanicien-machines-de-chantier-agricole-h-f-emil-egger-ag-lugano",
+          "mecanicien-machines-de-chantier-agricole-h-f-emil-egger-ag-avenches-7a440ff6"
         ]
       },
       "previousSlugs": [
         "mecanicien-machines-de-chantier-agricole-h-f-ete-ch",
         "mecanicien-machines-de-chantier-agricole-h-f-emil-egger-ag-lugano",
-        "macchine-mecanicien-de-chantier-agricole-m-f-emil-egger-ag-lugano"
+        "mecanicien-machines-de-chantier-agricole-h-f-emil-egger-ag-avenches-7a440ff6"
       ],
       "firstSeenAt": "2026-08-23T21:34:42.477Z",
       "salaryMin": 60500,
@@ -1188,7 +1213,7 @@
       "slugByLocale": {
         "it": "quereinsteigerin-per-kat-c-emil-egger-ag-lugano",
         "en": "newcomer-to-kat-c-emil-egger-ag-lugano",
-        "de": "quereinsteigerin-fur-kat-c-emil-egger-ag-harkingen-0a81ee61",
+        "de": "quereinsteigerin-fur-kat-c-emil-egger-ag-lugano",
         "fr": "nouveau-venu-a-kat-c-emil-egger-ag-lugano"
       },
       "slugDisambiguator": "0a81ee61",
@@ -1233,11 +1258,12 @@
       "previousSlugsByLocale": {
         "de": [
           "quereinsteigerin-fur-kat-c-ete-ch",
-          "quereinsteigerin-fur-kat-c-emil-egger-ag-lugano"
+          "quereinsteigerin-fur-kat-c-emil-egger-ag-lugano",
+          "quereinsteigerin-fur-kat-c-emil-egger-ag-harkingen-0a81ee61"
         ],
         "it": [
           "quereinsteigerin-fur-kat-c-ete-ch",
-          "quereinsteigerin-per-kat-c-emil-egger-ag-lugano"
+          "quereinsteigerin-fur-kat-c-emil-egger-ag-harkingen-0a81ee61"
         ],
         "en": [
           "quereinsteigerin-fur-kat-c-emil-egger-ag-lugano"
@@ -1249,7 +1275,7 @@
       "previousSlugs": [
         "quereinsteigerin-fur-kat-c-ete-ch",
         "quereinsteigerin-fur-kat-c-emil-egger-ag-lugano",
-        "quereinsteigerin-per-kat-c-emil-egger-ag-lugano"
+        "quereinsteigerin-fur-kat-c-emil-egger-ag-harkingen-0a81ee61"
       ],
       "firstSeenAt": "2026-08-23T21:34:42.174Z",
       "salaryMin": 68500,
@@ -1272,7 +1298,7 @@
       "slugByLocale": {
         "it": "assistenti-di-trasporto-eccezionali-100-emil-egger-ag-lugano",
         "en": "exceptional-transport-attendants-100-emil-egger-ag-lugano",
-        "de": "ausnahmetransportbegleiter-in-100-emil-egger-ag-bassersdorf-224fcb1a",
+        "de": "ausnahmetransportbegleiter-in-100-emil-egger-ag-lugano",
         "fr": "agents-de-transport-exceptionnels-100-emil-egger-ag-lugano"
       },
       "slugDisambiguator": "224fcb1a",
@@ -1317,12 +1343,12 @@
       "previousSlugsByLocale": {
         "de": [
           "ausnahmetransportbegleiter-in-100-ete-ch",
-          "ausnahmetransportbegleiter-in-100-emil-egger-ag-lugano"
+          "ausnahmetransportbegleiter-in-100-emil-egger-ag-bassersdorf-224fcb1a"
         ],
         "it": [
           "ausnahmetransportbegleiter-in-100-ete-ch",
           "ausnahmetransportbegleiter-in-100-emil-egger-ag-lugano",
-          "assistenti-di-trasporto-eccezionali-100-emil-egger-ag-lugano"
+          "ausnahmetransportbegleiter-in-100-emil-egger-ag-bassersdorf-224fcb1a"
         ],
         "en": [
           "ausnahmetransportbegleiter-in-100-emil-egger-ag-lugano"
@@ -1334,9 +1360,8 @@
       "previousSlugs": [
         "ausnahmetransportbegleiter-in-100-ete-ch",
         "ausnahmetransportbegleiter-in-100-emil-egger-ag-lugano",
-        "assistenti-di-trasporto-eccezionali-100-emil-egger-ag-lugano"
+        "ausnahmetransportbegleiter-in-100-emil-egger-ag-bassersdorf-224fcb1a"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T21:34:41.871Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1350,7 +1375,10 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1710
     },
     {
       "id": "ete-1874e798b6e2",
@@ -1405,11 +1433,12 @@
           "chauffeur-chauffeuse-auf-lw-kran-50m-t-mit-fly-jib-100-ete-ch-harkingen"
         ],
         "it": [
-          "chauffeur-chauffeuse-auf-lw-kran-50m-t-mit-fly-jib-100-ete-ch-harkingen"
+          "chauffeur-chauffeuse-auf-lw-kran-50m-t-mit-fly-jib-100-emil-egger-ag-harkingen-1874e798"
         ]
       },
       "previousSlugs": [
-        "chauffeur-chauffeuse-auf-lw-kran-50m-t-mit-fly-jib-100-ete-ch-harkingen"
+        "chauffeur-chauffeuse-auf-lw-kran-50m-t-mit-fly-jib-100-ete-ch-harkingen",
+        "chauffeur-chauffeuse-auf-lw-kran-50m-t-mit-fly-jib-100-emil-egger-ag-harkingen-1874e798"
       ],
       "firstSeenAt": "2026-09-11T23:12:03.647Z",
       "salaryMin": 68500,
@@ -1432,7 +1461,7 @@
       "slugByLocale": {
         "it": "chauffeur-chauffeuse-cat-c-e-emil-egger-ag-lugano",
         "en": "chauffeur-chauffeuse-kat-c-e-ete-ch",
-        "de": "chauffeur-chauffeuse-kat-c-e-emil-egger-ag-harkingen-d82a5625",
+        "de": "chauffeur-chauffeuse-kat-c-e-emil-egger-ag-lugano",
         "fr": "chauffeur-chauffeuse-kat-c-e-ete-ch"
       },
       "slugDisambiguator": "d82a5625",
@@ -1477,19 +1506,17 @@
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-chauffeuse-kat-c-e-ete-ch",
-          "chauffeur-chauffeuse-cat-c-e-emil-egger-ag-lugano"
+          "chauffeur-chauffeuse-kat-c-e-emil-egger-ag-harkingen-d82a5625"
         ],
         "de": [
           "chauffeur-chauffeuse-kat-c-e-ete-ch",
-          "chauffeur-chauffeuse-kat-c-e-emil-egger-ag-lugano"
+          "chauffeur-chauffeuse-kat-c-e-emil-egger-ag-harkingen-d82a5625"
         ]
       },
       "previousSlugs": [
         "chauffeur-chauffeuse-kat-c-e-ete-ch",
-        "chauffeur-chauffeuse-kat-c-e-emil-egger-ag-lugano",
-        "chauffeur-chauffeuse-cat-c-e-emil-egger-ag-lugano"
+        "chauffeur-chauffeuse-kat-c-e-emil-egger-ag-harkingen-d82a5625"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T21:34:41.568Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1503,7 +1530,10 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1873
     },
     {
       "id": "ete-692f3baf5d3f",
@@ -1511,7 +1541,7 @@
       "slugByLocale": {
         "it": "chauffeur-in-kat-c-e-per-spezialtransporte-4-man-100-emil-egger-ag-lugano",
         "en": "chauffeur-in-cat-c-e-for-special-transports-4-4-man-100-emil-egger-ag-lugano",
-        "de": "chauffeur-in-kat-c-e-fur-spezialtransporte-4-215-4-man-100-emil-egger-ag-bassersdorf-692f3baf",
+        "de": "chauffeur-in-kat-c-e-fur-spezialtransporte-4-4-man-100-emil-egger-ag-lugano",
         "fr": "chauffeur-en-cat-c-e-pour-les-transports-speciaux-4-4-man-100-emil-egger-ag-lugano"
       },
       "slugDisambiguator": "692f3baf",
@@ -1556,11 +1586,11 @@
       "previousSlugsByLocale": {
         "de": [
           "chauffeur-in-kat-c-e-fur-spezialtransporte-4-4-man-100-ete-ch",
-          "chauffeur-in-kat-c-e-fur-spezialtransporte-4-4-man-100-emil-egger-ag-lugano"
+          "chauffeur-in-kat-c-e-fur-spezialtransporte-4-215-4-man-100-emil-egger-ag-bassersdorf-692f3baf"
         ],
         "it": [
           "chauffeur-in-kat-c-e-fur-spezialtransporte-4-4-man-100-ete-ch",
-          "chauffeur-in-kat-c-e-per-spezialtransporte-4-man-100-emil-egger-ag-lugano"
+          "chauffeur-in-kat-c-e-fur-spezialtransporte-4-215-4-man-100-emil-egger-ag-bassersdorf-692f3baf"
         ],
         "en": [
           "chauffeur-in-kat-c-e-fur-spezialtransporte-4-4-man-100-emil-egger-ag-lugano"
@@ -1572,9 +1602,8 @@
       "previousSlugs": [
         "chauffeur-in-kat-c-e-fur-spezialtransporte-4-4-man-100-ete-ch",
         "chauffeur-in-kat-c-e-fur-spezialtransporte-4-4-man-100-emil-egger-ag-lugano",
-        "chauffeur-in-kat-c-e-per-spezialtransporte-4-man-100-emil-egger-ag-lugano"
+        "chauffeur-in-kat-c-e-fur-spezialtransporte-4-215-4-man-100-emil-egger-ag-bassersdorf-692f3baf"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T21:34:41.264Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1588,7 +1617,10 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2296
     },
     {
       "id": "ete-f8c27dc9648c",
@@ -1642,7 +1674,7 @@
         "it": [
           "sachbearbeiterin-auftragserfassung-transport-logistik-100-emil-egger-ag-harkingen",
           "sachbearbeiterin-auftragserfassung-transport-logistik-100-ete-ch-harkingen",
-          "personale-in-ordinazione-logistica-di-trasporto-100-emil-egger-ag-harkingen"
+          "sachbearbeiterin-auftragserfassung-transport-logistik-100-emil-egger-ag-harkingen-f8c27dc9"
         ],
         "en": [
           "sachbearbeiterin-auftragserfassung-transport-logistik-100-emil-egger-ag-harkingen"
@@ -1657,7 +1689,7 @@
       "previousSlugs": [
         "sachbearbeiterin-auftragserfassung-transport-logistik-100-emil-egger-ag-harkingen",
         "sachbearbeiterin-auftragserfassung-transport-logistik-100-ete-ch-harkingen",
-        "personale-in-ordinazione-logistica-di-trasporto-100-emil-egger-ag-harkingen"
+        "sachbearbeiterin-auftragserfassung-transport-logistik-100-emil-egger-ag-harkingen-f8c27dc9"
       ],
       "firstSeenAt": "2026-09-04T23:01:38.513Z",
       "salaryMin": 68500,
@@ -1680,7 +1712,7 @@
       "slugByLocale": {
         "it": "all-rounder-in-logistica-di-merci-pesanti-attenzione-su-accompagnamento-80-100-emil-egger-ag-lugano",
         "en": "all-rounder-in-heavy-goods-logistics-focus-on-accompaniment-80-100-emil-egger-ag-lugano",
-        "de": "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-emil-egger-ag-st-gallen-2d4d449c",
+        "de": "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-emil-egger-ag-lugano",
         "fr": "logistique-des-marchandises-lourdes-ensembles-accent-sur-l-accompagnement-80-100-emil-egger-ag-lugano"
       },
       "slugDisambiguator": "2d4d449c",
@@ -1725,11 +1757,12 @@
       "previousSlugsByLocale": {
         "de": [
           "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-ete-ch",
-          "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-emil-egger-ag-lugano"
+          "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-emil-egger-ag-lugano",
+          "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-emil-egger-ag-st-gallen-2d4d449c"
         ],
         "it": [
           "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-ete-ch",
-          "all-rounder-in-logistica-di-merci-pesanti-attenzione-su-accompagnamento-80-100-emil-egger-ag-lugano"
+          "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-emil-egger-ag-st-gallen-2d4d449c"
         ],
         "en": [
           "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-ete-ch"
@@ -1741,7 +1774,7 @@
       "previousSlugs": [
         "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-ete-ch",
         "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-emil-egger-ag-lugano",
-        "all-rounder-in-logistica-di-merci-pesanti-attenzione-su-accompagnamento-80-100-emil-egger-ag-lugano"
+        "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-emil-egger-ag-st-gallen-2d4d449c"
       ],
       "firstSeenAt": "2026-08-23T21:34:40.961Z",
       "salaryMin": 57500,
@@ -1773,7 +1806,7 @@
       "companyDomain": "ete.ch",
       "title": "Logisticien/ne de nuit",
       "titleByLocale": {
-        "it": "Logisticien/ne de nuit",
+        "it": "Logisticista",
         "en": "Logistician",
         "de": "Logistiker",
         "fr": "Logisticien/ne de nuit"
@@ -1810,7 +1843,7 @@
         "it": [
           "logisticien-ne-de-nuit-emil-egger-ag-avenches",
           "logisticien-ne-de-nuit-ete-ch-avenches",
-          "logisticista-emil-egger-ag-avenches"
+          "logisticien-ne-de-nuit-emil-egger-ag-avenches-f71f0455"
         ],
         "en": [
           "logisticien-ne-de-nuit-ete-ch-avenches"
@@ -1825,7 +1858,7 @@
       "previousSlugs": [
         "logisticien-ne-de-nuit-emil-egger-ag-avenches",
         "logisticien-ne-de-nuit-ete-ch-avenches",
-        "logisticista-emil-egger-ag-avenches"
+        "logisticien-ne-de-nuit-emil-egger-ag-avenches-f71f0455"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T05:44:45.407Z",
@@ -1841,7 +1874,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 2
     },
     {
       "id": "ete-d5ea0472e9b7",
@@ -1849,7 +1883,7 @@
       "slugByLocale": {
         "it": "lw-gru-driver-in-kat-ce-100-36mt-fassi-gru-emil-egger-ag-lugano",
         "en": "lw-crane-driver-in-kat-ce-100-36mt-fassi-crane-emil-egger-ag-lugano",
-        "de": "lw-kranchauffeur-in-kat-ce-100-8211-36mt-fassi-kran-emil-egger-ag-harkingen-d5ea0472",
+        "de": "lw-kranchauffeur-in-kat-ce-100-36mt-fassi-kran-emil-egger-ag-lugano",
         "fr": "conducteur-de-grue-lw-dans-kat-ce-100-36mt-grue-fassi-emil-egger-ag-lugano"
       },
       "slugDisambiguator": "d5ea0472",
@@ -1894,11 +1928,12 @@
       "previousSlugsByLocale": {
         "de": [
           "lw-kranchauffeur-in-kat-ce-100-36mt-fassi-kran-ete-ch",
-          "lw-kranchauffeur-in-kat-ce-100-36mt-fassi-kran-emil-egger-ag-lugano"
+          "lw-kranchauffeur-in-kat-ce-100-36mt-fassi-kran-emil-egger-ag-lugano",
+          "lw-kranchauffeur-in-kat-ce-100-8211-36mt-fassi-kran-emil-egger-ag-harkingen-d5ea0472"
         ],
         "it": [
           "lw-kranchauffeur-in-kat-ce-100-36mt-fassi-kran-ete-ch",
-          "lw-gru-driver-in-kat-ce-100-36mt-fassi-gru-emil-egger-ag-lugano"
+          "lw-kranchauffeur-in-kat-ce-100-8211-36mt-fassi-kran-emil-egger-ag-harkingen-d5ea0472"
         ],
         "en": [
           "lw-kranchauffeur-in-kat-ce-100-36mt-fassi-kran-ete-ch"
@@ -1910,7 +1945,7 @@
       "previousSlugs": [
         "lw-kranchauffeur-in-kat-ce-100-36mt-fassi-kran-ete-ch",
         "lw-kranchauffeur-in-kat-ce-100-36mt-fassi-kran-emil-egger-ag-lugano",
-        "lw-gru-driver-in-kat-ce-100-36mt-fassi-gru-emil-egger-ag-lugano"
+        "lw-kranchauffeur-in-kat-ce-100-8211-36mt-fassi-kran-emil-egger-ag-harkingen-d5ea0472"
       ],
       "firstSeenAt": "2026-08-23T21:34:40.355Z",
       "salaryMin": 68500,
@@ -1933,7 +1968,7 @@
       "slugByLocale": {
         "it": "driver-atb-operatore-di-trasporto-eccezionale-a-100-emil-egger-ag-lugano",
         "en": "atb-driver-exceptional-transport-attendant-a-100-emil-egger-ag-lugano",
-        "de": "atb-fahrer-ausnahmetransportbegleiter-a-100-emil-egger-ag-harkingen-0b498480",
+        "de": "atb-fahrer-ausnahmetransportbegleiter-a-100-emil-egger-ag-lugano",
         "fr": "conducteur-atb-agent-de-transport-exceptionnel-a-100-emil-egger-ag-lugano"
       },
       "slugDisambiguator": "0b498480",
@@ -1978,12 +2013,13 @@
       "previousSlugsByLocale": {
         "de": [
           "atb-fahrer-ausnahmetransportbegleiter-a-100-ete-ch",
-          "atb-fahrer-ausnahmetransportbegleiter-a-100-emil-egger-ag-lugano"
+          "atb-fahrer-ausnahmetransportbegleiter-a-100-emil-egger-ag-lugano",
+          "atb-fahrer-ausnahmetransportbegleiter-a-100-emil-egger-ag-harkingen-0b498480"
         ],
         "it": [
           "atb-fahrer-ausnahmetransportbegleiter-a-100-ete-ch",
           "atb-fahrer-ausnahmetransportbegleiter-a-100-emil-egger-ag-lugano",
-          "driver-atb-operatore-di-trasporto-eccezionale-a-100-emil-egger-ag-lugano"
+          "atb-fahrer-ausnahmetransportbegleiter-a-100-emil-egger-ag-harkingen-0b498480"
         ],
         "en": [
           "atb-fahrer-ausnahmetransportbegleiter-a-100-emil-egger-ag-lugano"
@@ -1995,7 +2031,7 @@
       "previousSlugs": [
         "atb-fahrer-ausnahmetransportbegleiter-a-100-ete-ch",
         "atb-fahrer-ausnahmetransportbegleiter-a-100-emil-egger-ag-lugano",
-        "driver-atb-operatore-di-trasporto-eccezionale-a-100-emil-egger-ag-lugano"
+        "atb-fahrer-ausnahmetransportbegleiter-a-100-emil-egger-ag-harkingen-0b498480"
       ],
       "firstSeenAt": "2026-08-23T21:34:40.053Z",
       "salaryMin": 68500,
@@ -2064,7 +2100,7 @@
         "it": [
           "spontanbewerbung-emil-egger-ag-st-gallen",
           "spontanbewerbung-ete-ch-st-gallen",
-          "applicazione-spontanea-emil-egger-ag-st-gallen"
+          "spontanbewerbung-emil-egger-ag-st-gallen-b5449b49"
         ],
         "en": [
           "spontanbewerbung-emil-egger-ag-st-gallen"
@@ -2079,7 +2115,7 @@
       "previousSlugs": [
         "spontanbewerbung-emil-egger-ag-st-gallen",
         "spontanbewerbung-ete-ch-st-gallen",
-        "applicazione-spontanea-emil-egger-ag-st-gallen"
+        "spontanbewerbung-emil-egger-ag-st-gallen-b5449b49"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T05:44:44.499Z",
@@ -2095,14 +2131,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 2
     },
     {
       "id": "ete-f45d285760e0",
       "slug": "chauffeur-chauffeuse-kat-c-e-emil-egger-ag-st-gallen-f45d2857",
       "slugByLocale": {
         "it": "chauffeur-chauffeuse-cat-c-e-emil-egger-ag-st-gallen",
-        "en": "chauffeur-chauffeuse-kat-c-e-ete-ch-st-gallen",
+        "en": "chauffeur-chauffeuse-cat-c-e-emil-egger-ag-st-gallen-f45d2857",
         "de": "chauffeur-chauffeuse-kat-c-e-emil-egger-ag-st-gallen-f45d2857",
         "fr": "chauffeur-chauffeuse-kat-c-e-ete-ch-st-gallen"
       },
@@ -2148,15 +2185,18 @@
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-chauffeuse-kat-c-e-ete-ch-st-gallen",
-          "chauffeur-chauffeuse-cat-c-e-emil-egger-ag-st-gallen"
+          "chauffeur-chauffeuse-kat-c-e-emil-egger-ag-st-gallen-f45d2857"
         ],
         "de": [
+          "chauffeur-chauffeuse-kat-c-e-ete-ch-st-gallen"
+        ],
+        "en": [
           "chauffeur-chauffeuse-kat-c-e-ete-ch-st-gallen"
         ]
       },
       "previousSlugs": [
         "chauffeur-chauffeuse-kat-c-e-ete-ch-st-gallen",
-        "chauffeur-chauffeuse-cat-c-e-emil-egger-ag-st-gallen"
+        "chauffeur-chauffeuse-kat-c-e-emil-egger-ag-st-gallen-f45d2857"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T05:44:44.198Z",
@@ -2172,7 +2212,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 2
     },
     {
       "id": "ete-d5fd3983aedd",
@@ -2180,7 +2221,7 @@
       "slugByLocale": {
         "it": "candidato-a-in-riqualificazione-per-kat-c-emil-egger-ag-lugano",
         "en": "join-the-team-for-cat-c-emil-egger-ag-lugano",
-        "de": "quereinsteiger-in-fur-kat-c-emil-egger-ag-st-gallen-d5fd3983",
+        "de": "quereinsteiger-in-fur-kat-c-emil-egger-ag-lugano",
         "fr": "rejoignez-l-equipe-pour-cat-c-emil-egger-ag-lugano"
       },
       "slugDisambiguator": "d5fd3983",
@@ -2225,11 +2266,12 @@
       "previousSlugsByLocale": {
         "de": [
           "quereinsteiger-in-fur-kat-c-ete-ch",
-          "quereinsteiger-in-fur-kat-c-emil-egger-ag-lugano"
+          "quereinsteiger-in-fur-kat-c-emil-egger-ag-lugano",
+          "quereinsteiger-in-fur-kat-c-emil-egger-ag-st-gallen-d5fd3983"
         ],
         "it": [
           "quereinsteiger-in-fur-kat-c-ete-ch",
-          "candidato-a-in-riqualificazione-per-kat-c-emil-egger-ag-lugano"
+          "quereinsteiger-in-fur-kat-c-emil-egger-ag-st-gallen-d5fd3983"
         ],
         "en": [
           "quereinsteiger-in-fur-kat-c-ete-ch"
@@ -2241,7 +2283,7 @@
       "previousSlugs": [
         "quereinsteiger-in-fur-kat-c-ete-ch",
         "quereinsteiger-in-fur-kat-c-emil-egger-ag-lugano",
-        "candidato-a-in-riqualificazione-per-kat-c-emil-egger-ag-lugano"
+        "quereinsteiger-in-fur-kat-c-emil-egger-ag-st-gallen-d5fd3983"
       ],
       "firstSeenAt": "2026-08-23T21:34:39.448Z",
       "salaryMin": 57500,
@@ -2310,7 +2352,7 @@
         "it": [
           "lehre-zum-logistikerin-cfc-start-ab-sommer-2027-emil-egger-ag-st-gallen",
           "lehre-zum-logistikerin-efz-start-ab-sommer-2027-ete-ch-st-gallen",
-          "apprendistato-come-logistico-efz-a-partire-dall-estate-2027-emil-egger-ag-st-gallen"
+          "lehre-zum-logistikerin-efz-start-ab-sommer-2027-emil-egger-ag-st-gallen-2aa60663"
         ],
         "en": [
           "lehre-zum-logistikerin-efz-start-ab-sommer-2027-ete-ch-st-gallen"
@@ -2325,7 +2367,7 @@
       "previousSlugs": [
         "lehre-zum-logistikerin-cfc-start-ab-sommer-2027-emil-egger-ag-st-gallen",
         "lehre-zum-logistikerin-efz-start-ab-sommer-2027-ete-ch-st-gallen",
-        "apprendistato-come-logistico-efz-a-partire-dall-estate-2027-emil-egger-ag-st-gallen"
+        "lehre-zum-logistikerin-efz-start-ab-sommer-2027-emil-egger-ag-st-gallen-2aa60663"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T05:44:43.595Z",
@@ -2341,7 +2383,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 2
     },
     {
       "id": "ete-a74ebdca32fe",
@@ -2349,7 +2392,7 @@
       "slugByLocale": {
         "it": "meccanico-del-camion-in-80-100-emil-egger-ag-lugano",
         "en": "truck-mechanic-in-80-100-emil-egger-ag-lugano",
-        "de": "lkw-mechaniker-in-80-100-emil-egger-ag-st-gallen-a74ebdca",
+        "de": "lkw-mechaniker-in-80-100-emil-egger-ag-lugano",
         "fr": "mecanicien-de-camion-en-80-100-emil-egger-ag-lugano"
       },
       "slugDisambiguator": "a74ebdca",
@@ -2394,11 +2437,11 @@
       "previousSlugsByLocale": {
         "de": [
           "lkw-mechaniker-in-80-100-ete-ch",
-          "lkw-mechaniker-in-80-100-emil-egger-ag-lugano"
+          "lkw-mechaniker-in-80-100-emil-egger-ag-st-gallen-a74ebdca"
         ],
         "it": [
           "lkw-mechaniker-in-80-100-ete-ch",
-          "meccanico-del-camion-in-80-100-emil-egger-ag-lugano"
+          "lkw-mechaniker-in-80-100-emil-egger-ag-st-gallen-a74ebdca"
         ],
         "en": [
           "lkw-mechaniker-in-80-100-ete-ch"
@@ -2409,10 +2452,8 @@
       },
       "previousSlugs": [
         "lkw-mechaniker-in-80-100-ete-ch",
-        "lkw-mechaniker-in-80-100-emil-egger-ag-lugano",
-        "meccanico-del-camion-in-80-100-emil-egger-ag-lugano"
+        "lkw-mechaniker-in-80-100-emil-egger-ag-st-gallen-a74ebdca"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T21:34:39.144Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -2426,7 +2467,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1936
     },
     {
       "id": "ete-d86c95825995",
@@ -2434,7 +2478,7 @@
       "slugByLocale": {
         "it": "lehre-zum-strassentransportfachfrau-mann-cfc-start-ab-sommer-2027-emil-egger-ag-lugano",
         "en": "apprenticeship-as-road-transport-specialist-efz-start-from-summer-2027-emil-egger-ag-harkingen",
-        "de": "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-emil-egger-ag-harkingen-d86c9582",
+        "de": "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-emil-egger-ag-lugano",
         "fr": "apprentissage-en-tant-que-specialiste-du-transport-routier-efz-a-partir-de-l-ete-2027-emil-egger-ag-harkingen"
       },
       "slugDisambiguator": "d86c9582",
@@ -2479,7 +2523,7 @@
       "previousSlugsByLocale": {
         "it": [
           "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-ete-ch",
-          "lehre-zum-strassentransportfachfrau-mann-cfc-start-ab-sommer-2027-emil-egger-ag-lugano"
+          "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-emil-egger-ag-harkingen-d86c9582"
         ],
         "en": [
           "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-emil-egger-ag-lugano"
@@ -2488,15 +2532,14 @@
           "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-emil-egger-ag-lugano"
         ],
         "de": [
-          "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-emil-egger-ag-lugano"
+          "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-emil-egger-ag-harkingen-d86c9582"
         ]
       },
       "previousSlugs": [
         "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-ete-ch",
         "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-emil-egger-ag-lugano",
-        "lehre-zum-strassentransportfachfrau-mann-cfc-start-ab-sommer-2027-emil-egger-ag-lugano"
+        "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-emil-egger-ag-harkingen-d86c9582"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-28T05:22:56.006Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -2510,7 +2553,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1720
     },
     {
       "id": "ete-89271a69d1db",
@@ -2564,7 +2610,7 @@
         "it": [
           "lehre-zum-strassentransportfachfrau-mann-cfc-start-ab-sommer-2027-emil-egger-ag-st-gallen",
           "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-ete-ch-st-gallen",
-          "apprendistato-come-specialista-del-trasporto-stradale-efz-a-partire-dall-estate-2027-emil-egger-ag-st-gallen"
+          "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-emil-egger-ag-st-gallen-89271a69"
         ],
         "en": [
           "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-ete-ch-st-gallen"
@@ -2579,7 +2625,7 @@
       "previousSlugs": [
         "lehre-zum-strassentransportfachfrau-mann-cfc-start-ab-sommer-2027-emil-egger-ag-st-gallen",
         "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-ete-ch-st-gallen",
-        "apprendistato-come-specialista-del-trasporto-stradale-efz-a-partire-dall-estate-2027-emil-egger-ag-st-gallen"
+        "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-emil-egger-ag-st-gallen-89271a69"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T05:44:42.690Z",
@@ -2595,7 +2641,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 2
     },
     {
       "id": "ete-db7ff58f1338",
@@ -2649,7 +2696,7 @@
         "it": [
           "chauffeur-chauffeuse-kat-c-e-100-maschinenumzuge-spezialtransporte-100-emil-egger-ag-bassersdorf",
           "chauffeur-chauffeuse-kat-c-e-100-8211-maschinenumzuge-038-spezialtransporte-100-ete-ch",
-          "chauffeur-chauffeuse-kat-c-e-100-mosse-della-macchina-e-trasporti-speciali-100-emil-egger-ag-bassersdorf"
+          "chauffeur-chauffeuse-kat-c-e-100-8211-maschinenumzuge-038-spezialtransporte-100-emil-egger-ag-bassersdorf-db7ff58f"
         ],
         "en": [
           "chauffeur-chauffeuse-kat-c-e-100-maschinenumzuge-spezialtransporte-100-emil-egger-ag-bassersdorf"
@@ -2664,7 +2711,7 @@
       "previousSlugs": [
         "chauffeur-chauffeuse-kat-c-e-100-maschinenumzuge-spezialtransporte-100-emil-egger-ag-bassersdorf",
         "chauffeur-chauffeuse-kat-c-e-100-8211-maschinenumzuge-038-spezialtransporte-100-ete-ch",
-        "chauffeur-chauffeuse-kat-c-e-100-mosse-della-macchina-e-trasporti-speciali-100-emil-egger-ag-bassersdorf"
+        "chauffeur-chauffeuse-kat-c-e-100-8211-maschinenumzuge-038-spezialtransporte-100-emil-egger-ag-bassersdorf-db7ff58f"
       ],
       "firstSeenAt": "2026-09-11T23:12:03.618Z",
       "salaryMin": 73500,

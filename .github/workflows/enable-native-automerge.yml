@@ -1,19 +1,27 @@
 name: Enable native auto-merge
 
 # GitHub's native auto-merge owns the waiting/merge decision. This workflow
-# only opts an eligible PR into that mechanism; required checks and reviews are
-# configured on the main branch ruleset, not reimplemented in Actions.
+# only opts an eligible PR into that mechanism after the repository's explicit
+# reviewer/check verdict; native merge still owns the final wait and merge.
 # The required `vitest (unit + integration)` context is the complete `tests`
-# job, whose final review-gate step fails on a Claude `🔴 Important`; native
-# auto-merge therefore cannot bypass the Claude decision.
+# job. The helper below additionally requires the latest reviewer-bot verdict
+# to be anchored to the current HEAD, so an opening event cannot opt in an
+# unreviewed PR.
 on:
   # This workflow only calls the GitHub API and never executes PR code.
   # pull_request_target keeps the write permission available for fork PRs too.
   pull_request_target:
-    # Native auto-merge persists across new commits. `synchronize` is retained
-    # as a bounded recovery path for a transient API failure on the first
-    # opt-in; the job reads the current state before attempting the mutation.
+    # These events are observation/retry points only: the helper is fail-closed
+    # until review and the required check both pass.
     types: [opened, reopened, ready_for_review, synchronize]
+  pull_request_review:
+    # A later edit/dismissal invalidates a previously valid verdict too; the
+    # same fail-closed gate must re-read the review/check pair and revoke any
+    # persisted native opt-in.
+    types: [submitted, edited, dismissed]
+  workflow_run:
+    workflows: [tests]
+    types: [completed]
 
 permissions:
   contents: read
@@ -24,14 +32,22 @@ jobs:
     # Guard explicitly against non-PR dispatches. This keeps a malformed or
     # manually replayed push event from producing a failed empty run while
     # dereferencing pull_request fields that do not exist.
-    if: github.event_name == 'pull_request_target' && github.event.pull_request.draft == false
+    if: >-
+      github.event_name == 'workflow_run' ||
+      (github.event_name == 'pull_request_review' && github.event.pull_request.draft == false) ||
+      (github.event_name == 'pull_request_target' && github.event.pull_request.draft == false)
     runs-on: ubuntu-latest
     steps:
       # This job needs only the Remote Config loader and its dependency-free
       # JWT helper. A git checkout still has to fetch the repository's large
       # tree before sparse checkout can select those files, so download the
-      # two raw files directly instead of initializing a repository.
-      - name: Download workflow helpers
+      # raw files directly instead of initializing a repository.
+      #
+      # Two-step rollout: the gate is trusted only when it is already present
+      # on main. If this workflow lands before the helper (or main is rolled
+      # back to a version without it), the job is a successful no-op and never
+      # enables native auto-merge.
+      - name: Download trusted workflow helpers
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -44,9 +60,29 @@ jobs:
           gh api "repos/${GITHUB_REPOSITORY}/contents/scripts/lib/google-service-account-token.mjs?ref=main" \
             --header 'Accept: application/vnd.github.raw+json' \
             > "$helper_dir/lib/google-service-account-token.mjs"
+          # Keep the final extension while syntax-checking: Node otherwise
+          # parses an `.tmp` file as CommonJS and rejects the helper exports.
+          gate_tmp="$helper_dir/native-automerge-gate-check.mjs"
+          if gh api "repos/${GITHUB_REPOSITORY}/contents/scripts/ci/native-automerge-gate.mjs?ref=main" \
+            --header 'Accept: application/vnd.github.raw+json' \
+            > "$gate_tmp" \
+            && [ -s "$gate_tmp" ] \
+            && node --check "$gate_tmp"; then
+            mv "$gate_tmp" "$helper_dir/native-automerge-gate.mjs"
+            gh api "repos/${GITHUB_REPOSITORY}/contents/scripts/ci/lib/constants.mjs?ref=main" \
+              --header 'Accept: application/vnd.github.raw+json' \
+              > "$helper_dir/lib/constants.mjs"
+            echo "NATIVE_AUTOMERGE_BOOTSTRAP_READY=true" >> "$GITHUB_ENV"
+            echo 'Native auto-merge gate bootstrap is present on main.'
+          else
+            rm -f "$gate_tmp" "$helper_dir/native-automerge-gate.mjs"
+            echo "NATIVE_AUTOMERGE_BOOTSTRAP_READY=false" >> "$GITHUB_ENV"
+            echo 'Native auto-merge gate is not installed on main; fail-closed no-op.'
+          fi
           echo "NATIVE_AUTOMERGE_HELPER_DIR=$helper_dir" >> "$GITHUB_ENV"
 
       - name: Prepare Firebase credentials
+        if: env.NATIVE_AUTOMERGE_BOOTSTRAP_READY == 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -58,23 +94,33 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load PAT from Remote Config
+        if: env.NATIVE_AUTOMERGE_BOOTSTRAP_READY == 'true'
         run: node "$NATIVE_AUTOMERGE_HELPER_DIR/load-rc-env.mjs"
 
-      - name: Enable GitHub auto-merge
+      - name: Enable GitHub auto-merge after verified verdict
+        if: env.NATIVE_AUTOMERGE_BOOTSTRAP_READY == 'true'
         env:
-          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_NUMBER: ${{ github.event.pull_request.number || '' }}
+          WORKFLOW_HEAD_SHA: ${{ github.event.workflow_run.head_sha || '' }}
           REPOSITORY: ${{ github.repository }}
         run: |
+          set -euo pipefail
           if [ -z "$GITHUB_PAT" ]; then
             echo "GITHUB_PAT was not loaded from Remote Config" >&2
             exit 1
           fi
-          current=$(GH_TOKEN="$GITHUB_PAT" gh pr view "$PR_NUMBER" --repo "$REPOSITORY" --json autoMergeRequest)
-          if jq -e '.autoMergeRequest != null' <<<"$current" >/dev/null; then
-            echo 'Native auto-merge is already enabled; no mutation needed.'
+          pr_number="${PR_NUMBER:-}"
+          if [ -z "$pr_number" ] && [ -n "${WORKFLOW_HEAD_SHA:-}" ]; then
+            pr_number=$(GH_TOKEN="$GITHUB_PAT" gh api \
+              "repos/$REPOSITORY/commits/$WORKFLOW_HEAD_SHA/pulls" --paginate --slurp \
+              | jq -r '[add[] | select(.state == "open" and .base.ref == "main") | .number] | .[0] // empty')
+          fi
+          if [ -z "$pr_number" ]; then
+            echo 'Native auto-merge guard: no open main PR found for this event; no merge.'
             exit 0
           fi
-          GH_TOKEN="$GITHUB_PAT" gh pr merge "$PR_NUMBER" --repo "$REPOSITORY" --auto --squash --delete-branch
+          GH_TOKEN="$GITHUB_PAT" node "$NATIVE_AUTOMERGE_HELPER_DIR/native-automerge-gate.mjs" \
+            "$REPOSITORY" "$pr_number"
       - name: Cleanup Firebase credentials
         if: always()
         run: rm -f /tmp/firebase-sa.json

@@ -454,6 +454,7 @@ export function buildL4OutcomeLedger({
   }
 
   const eligibleAlerts = new Map();
+  const consentedAlerts = new Map();
   let consentChecked = true;
   let suppressedWithoutConsent = 0;
   for (const row of alertRows) {
@@ -461,7 +462,6 @@ export function buildL4OutcomeLedger({
     if (!child) { consentChecked = false; continue; }
     const email = child.parentId.toLowerCase();
     const alert = documentData(row);
-    if (alert.active !== true) continue;
     const newsletter = newsletters.get(email) || null;
     let consent;
     try {
@@ -470,12 +470,21 @@ export function buildL4OutcomeLedger({
       consentChecked = false;
       consent = { allowed: false, reason: 'consent-evaluation-failed' };
     }
+    const alertKey = buildAlertKey(email, child.childId);
+    if (consent?.allowed === true) {
+      // Delivery attribution is historical: an alert can be paused, deleted or
+      // suppressed after a message was sent without invalidating the consent
+      // that authorized that message. Current active/suppression state remains
+      // the source for the eligible-user denominator below.
+      consentedAlerts.set(alertKey, { email, alertId: child.childId, alert });
+    }
+    if (alert.active !== true) continue;
     if (!consent || consent.allowed !== true) suppressedWithoutConsent += 1;
     const eligible = alert.paused !== true
       && !crossChannelStop(newsletter)
       && !jobAlertExcluded(jobs.get(email)?.status)
       && consent?.allowed === true;
-    if (eligible) eligibleAlerts.set(buildAlertKey(email, child.childId), { email, alertId: child.childId, alert });
+    if (eligible) eligibleAlerts.set(alertKey, { email, alertId: child.childId, alert });
   }
 
   const eligibleUsers = new Set([...eligibleAlerts.values()].map((alert) => alert.email));
@@ -486,6 +495,11 @@ export function buildL4OutcomeLedger({
   const returnedUsers = new Set();
   const dedupGroups = new Map();
   let unattributedDeliveries = 0;
+  const unattributedDeliveryReasons = {
+    missingAlertId: 0,
+    missingSentAt: 0,
+    noConsentedAlert: 0,
+  };
   let quietHoursEvidenceComplete = true;
 
   for (const row of deliveryRows) {
@@ -502,8 +516,11 @@ export function buildL4OutcomeLedger({
     const alertId = String(first(data, ['campaign_id', 'campaignId']) || '').trim();
     const sentAt = toMillis(first(data, ['sent_at', 'sentAt']));
     const key = buildAlertKey(email, alertId);
-    if (!alertId || sentAt == null || !eligibleAlerts.has(key)) {
+    if (!alertId || sentAt == null || !consentedAlerts.has(key)) {
       unattributedDeliveries += 1;
+      if (!alertId) unattributedDeliveryReasons.missingAlertId += 1;
+      else if (sentAt == null) unattributedDeliveryReasons.missingSentAt += 1;
+      else unattributedDeliveryReasons.noConsentedAlert += 1;
       continue;
     }
     const deliveryId = row.name || `${email}/${child.childId}`;
@@ -564,6 +581,7 @@ export function buildL4OutcomeLedger({
       quietHoursEvidence: 'sender scheduled_for/send_time_source retained; exporter never schedules or sends',
       externalDeliveryUntouched: true,
       unattributedDeliveries,
+      unattributedDeliveryReasons,
       consentClassifier: 'functions/src/jobAlertBackfillCore.js',
       returnClassifier: 'functions/src/lib/returnVisit.js',
       deduplicationKey: 'recipient + alert id + UTC send day',
@@ -575,7 +593,7 @@ export async function exportL4({ configPath = null, snoozesPath = null, outputPa
   const firestore = client || new GoogleDataClient();
   const window = rollingWindow(now, DEFAULT_L4_WINDOW_HOURS);
   const fields = [
-    'active', 'paused', 'backfilled_from', 'backfilledFrom', 'consent_text', 'consentText',
+    'active', 'paused', 'backfilled_from', 'backfilledFrom', 'consent_given', 'consentGiven', 'consent_text', 'consentText',
     'consent_text_displayed', 'consentTextDisplayed', 'consent_act', 'consentAct',
     'consent_origin', 'consentOrigin', 'status', 'unsubscribed_at', 'unsubscribedAt',
     'resubscribed_at', 'resubscribedAt', 'last_site_visit_at', 'lastSiteVisitAt',
@@ -681,8 +699,10 @@ export function buildL9OutcomeLedger({ profiles, publisherRows = [], orderRows =
     const status = String(data.status || '').toLowerCase();
     const tier = String(data.tier || '').toLowerCase();
     if (status === 'paid') {
+      // A paid inventory job proves attachment only. Billing activation must
+      // come from the authoritative order/subscription ledger above; joining
+      // this set here would turn inventory into a false paid outcome.
       livePaidJobs.add(row.name || documentId(row));
-      if (id) paidAccounts.add(id);
     }
     const key = companyKeyFor(row, publishers);
     if (!profileKeys.has(key)) continue;

@@ -193,6 +193,37 @@ export function evaluateIntegrity(failedGates) {
 }
 
 /**
+ * Render the annotation for the verdict without conflating a blocking gate
+ * with a quality-only gate. The distinction matters operationally: quality
+ * keeps the workflow red but does not sequester publish; blocking keeps both
+ * the workflow red and publish closed.
+ *
+ * @param {{ integrityOk: boolean, blocking: string[], quality: string[] }} verdict
+ * @returns {string | null}
+ */
+export function formatIntegrityAnnotation(verdict) {
+  if (verdict.blocking.length > 0) {
+    const qualitySuffix = verdict.quality.length > 0
+      ? ` Quality gate(s) also failed: ${verdict.quality.join(', ')}.`
+      : '';
+    return (
+      '::error::validate-dist blocked publish because deploy-invalidating ' +
+      `gate(s) failed: ${verdict.blocking.join(', ')}.${qualitySuffix} ` +
+      'Fix the blocking gate(s); do not widen the classifier.'
+    );
+  }
+  if (verdict.quality.length > 0) {
+    return (
+      '::warning::validate-dist failed on quality gate(s) ' +
+      `${verdict.quality.join(', ')}. Publish is not sequestered because ` +
+      'no deploy-invalidating gate failed. The validate-dist job stays RED ' +
+      'and its failure issue still opens — fix the audit, do not widen it.'
+    );
+  }
+  return null;
+}
+
+/**
  * Parse the `<name>  <seconds>  rc=<code>` rows the gate jobs emit into the
  * list of gates that failed. Returns null when a row is malformed — the
  * summary loop in the workflow treats a missing rc as FAIL, and so do we,
@@ -246,15 +277,8 @@ async function main() {
   console.log(`  blocking: ${verdict.blocking.join(', ') || '(none)'}`);
   console.log(`  quality:  ${verdict.quality.join(', ') || '(none)'}`);
   console.log('─'.repeat(70));
-  if (verdict.quality.length > 0) {
-    console.log(
-      '::warning::validate-dist failed on quality gate(s) ' +
-        `${verdict.quality.join(', ')}. The deploy is live and validated, so ` +
-        'publish (IndexNow / Indexing API / GSC) is NOT sequestered. The ' +
-        'validate-dist job stays RED and its failure issue still opens — fix ' +
-        'the audit, do not widen it.',
-    );
-  }
+  const annotation = formatIntegrityAnnotation(verdict);
+  if (annotation) console.log(annotation);
 
   if (process.env.GITHUB_OUTPUT) {
     appendFileSync(

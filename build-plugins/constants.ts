@@ -105,6 +105,10 @@ const OFFERWALL_AUTH_CHECK = `if(window.localStorage.getItem('${FIREBASE_AUTH_SE
 const DEPLOY_BUILD_ID_OVERRIDE = (process.env.DEPLOY_BUILD_ID || '').replace(/\D/g, '');
 export const BUILD_ID = DEPLOY_BUILD_ID_OVERRIDE || String(Date.now());
 export const BUILD_DATE_STAMP = new Date(Number(BUILD_ID)).toISOString().slice(0, 10);
+// Kept in the HTML head as well as build-id.txt so error telemetry can identify
+// the document/chunk pair synchronously, including errors raised before the
+// async metadata fetch in services/buildInfo.ts completes.
+export const BUILD_ID_META_TAG = `<meta name="ft-build-id" content="${BUILD_ID}">`;
 
 /**
  * Fail-fast guard for the externalised stylesheets that live in

@@ -482,6 +482,20 @@ service cloud.firestore {
       allow read: if true;
     }
 
+    // Plate-auction snapshots are served through the allow-listed Cloud
+    // Function. Direct Firestore reads stay closed because source documents
+    // may contain operational diagnostics and the browser does not need a
+    // queryable collection.
+    match /plate_auctions_current/{docId} {
+      allow read, write: if false;
+    }
+    match /plate_auctions_history/{docId} {
+      allow read, write: if false;
+    }
+    match /plate_auction_sources/{docId} {
+      allow read, write: if false;
+    }
+
     // Collection-group reads for `alerts` (getUserAlerts + createAlert's per-user
     // limit check both run `collectionGroup('alerts').where('userId','==',uid)`).
     // Firestore does NOT apply the nested

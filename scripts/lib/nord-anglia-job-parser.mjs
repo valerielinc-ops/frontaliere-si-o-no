@@ -48,6 +48,7 @@ import { createHash } from 'node:crypto';
 import { XMLParser, XMLValidator } from 'fast-xml-parser';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import { assertFeedBodyLooksLikeXml, assertFeedEndpointHost } from './feed-endpoint-guard.mjs';
 import { httpFetchWithRetry } from './transient-fetch.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -317,11 +318,16 @@ async function fetchJobListings() {
     { headers: { 'User-Agent': POLITE_UA, Accept: 'application/rss+xml,application/xml,text/xml' } },
     { timeout: DEFAULT_TIMEOUT_MS, label: 'nord-anglia rss' },
   );
+  assertFeedEndpointHost('nord-anglia', ATS_HOST, res.url);
   if (!res.ok) {
-    throw new Error(`Nord Anglia RSS feed returned HTTP ${res.status}`);
+    const error = new Error(`Nord Anglia RSS feed returned HTTP ${res.status}`);
+    error.status = res.status;
+    if (res.retryBudgetExhausted === true) error.retryBudgetExhausted = true;
+    throw error;
   }
 
   const xml = await res.text();
+  assertFeedBodyLooksLikeXml('nord-anglia', ATS_HOST, xml);
   return parseNordAngliaRss(xml);
 }
 

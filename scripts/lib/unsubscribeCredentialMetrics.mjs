@@ -120,6 +120,30 @@
  *  `credential` disappearing from the paths that do set it. */
 export const CREDENTIAL_LINK_CHANNEL = 'unsubscribe_link';
 
+export const UNSUBSCRIBE_WRITERS = Object.freeze([
+  'cloud_function',
+  'spa',
+  'unknown',
+]);
+
+/**
+ * Classify only the persisted field shape; this is a diagnostic split, not a
+ * root-cause claim. The two writers intentionally have disjoint signatures:
+ * the function records request forensics, while the SPA event writer carries
+ * the common client-event fields. Ambiguous or incomplete documents stay
+ * `unknown` instead of being assigned by guesswork.
+ */
+export function classifyUnsubscribeWriter(record) {
+  if (!record || typeof record !== 'object') return 'unknown';
+  const hasFunctionShape = ['unsubscribe_method', 'unsubscribe_ip', 'unsubscribe_user_agent']
+    .some((field) => Object.prototype.hasOwnProperty.call(record, field));
+  const hasSpaShape = ['user_id', 'metadata', 'source_page']
+    .some((field) => Object.prototype.hasOwnProperty.call(record, field));
+  if (hasFunctionShape && !hasSpaShape) return 'cloud_function';
+  if (hasSpaShape && !hasFunctionShape) return 'spa';
+  return 'unknown';
+}
+
 /**
  * Alert thresholds, expressed as a share of graded (credentialed) unsubscribes.
  *
@@ -226,8 +250,11 @@ export function classifyCredential(value) {
 export function aggregate(records) {
   const { records: deduped, duplicatesDropped } = dedupeRepeatedActions(records);
   const counts = { autologin_code: 0, email_token: 0, legacy_auth_token: 0, missing: 0 };
+  const writerCounts = { cloud_function: 0, spa: 0, unknown: 0 };
   for (const rec of deduped) {
     counts[classifyCredential(rec.credential)] += 1;
+    const writer = UNSUBSCRIBE_WRITERS.includes(rec.writer) ? rec.writer : 'unknown';
+    writerCounts[writer] += 1;
   }
   const graded = counts.autologin_code + counts.email_token + counts.legacy_auth_token;
   const total = graded + counts.missing;
@@ -236,6 +263,7 @@ export function aggregate(records) {
     graded,
     total,
     duplicatesDropped,
+    writerCounts,
     uncredentialedShare: total === 0 ? null : counts.missing / total,
     fallbackRate: fallbackRate({ counts }),
   };

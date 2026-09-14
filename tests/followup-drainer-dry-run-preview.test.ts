@@ -127,4 +127,18 @@ describe('followup-drainer --dry-run a slot occupato (#5524 item 2)', () => {
     // gira dopo il `return` in modalità reale.
     expect(lines).toEqual(['followup-drainer repo=o/r', 'slot issue-fix occupati (in-flight=1/1) → nessuna azione.']);
   });
+
+  it('non promuove in modalità reale quando il ledger del floor non è leggibile', async () => {
+    process.env.FOLLOWUP_MAX_INFLIGHT_FIX = '2';
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'api' && String(args[1] || '').startsWith('repos/')) {
+        throw new Error('ledger offline');
+      }
+      return ghDispatch(_cmd, args);
+    });
+
+    const lines = await runDrainCapturingLogs([]);
+    expect(lines.some((l) => l.includes('quota floor telemetry unavailable'))).toBe(true);
+    expect(lines.some((l) => l.includes('PROMUOVO #9001'))).toBe(false);
+  });
 });

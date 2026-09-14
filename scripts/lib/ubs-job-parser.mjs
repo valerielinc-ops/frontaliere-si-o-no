@@ -32,6 +32,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton, rescueSwissCityFromText  } from './target-swiss-locations.mjs';
+import { markLocationDerivedFromVacancyText } from './crawler-location-config.mjs';
 import { assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -544,11 +545,12 @@ function buildJobFromTaleo(taleoJob, siteId = SITE_IDS[0]) {
   // resolveSwissLocation(), not a lack-of-signal case.
   const regionExplicitlyForeign = Boolean(region) && !isSwissRegion(region);
   const resolvedLocation = resolveSwissLocation(cityStr, region) || (regionExplicitlyForeign ? null : (() => {
-    const rescueCity = rescueSwissCityFromText(descriptionText) || 'Zürich';
-    return { city: rescueCity, canton: inferAnyCanton(rescueCity) || 'ZH' };
+    const cityFromText = rescueSwissCityFromText(descriptionText);
+    const rescueCity = cityFromText || 'Zürich';
+    return { city: rescueCity, canton: inferAnyCanton(rescueCity) || 'ZH', fromVacancyText: Boolean(cityFromText) };
   })());
   if (!resolvedLocation) return null;
-  const { city, canton } = resolvedLocation;
+  const { city, canton, fromVacancyText } = resolvedLocation;
   const publicUrl = buildJobUrl(reqId, siteId);
 
   // Detect source language: use Taleo's language code, fallback to content detection
@@ -559,7 +561,7 @@ function buildJobFromTaleo(taleoJob, siteId = SITE_IDS[0]) {
   const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
   const postedDate = parseTaleoDate(lastUpdated) || new Date().toISOString().slice(0, 10);
 
-  return {
+  const job = {
     // ── Required fields ──
     id: `ubs-${urlHash}`,
     slug: jobSlug,
@@ -605,6 +607,7 @@ function buildJobFromTaleo(taleoJob, siteId = SITE_IDS[0]) {
       jobType,
     },
   };
+  return fromVacancyText ? markLocationDerivedFromVacancyText(job) : job;
 }
 
 /* ── Main fetch function ──────────────────────────────────── */

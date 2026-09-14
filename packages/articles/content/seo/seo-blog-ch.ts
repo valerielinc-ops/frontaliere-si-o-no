@@ -82661,6 +82661,396 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-latte-e-agricoltura-svizzera-studi': {
+    title: 'Studi agricoli: guadagni bassi per il latte in Svizzera',
+    description: 'Studio FHNW sui redditi agricoli in Svizzera: produttori di latte a 8.30 franchi all\'ora contro i 73.60 della colza. Dati e aumenti necessari. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, studi, agricoli, guadagni, bassi',
+    ogTitle: 'Guadagni agricoltura in Svizzera: latte a 8.30 franchi l\'ora',
+    ogDescription: 'Un\'analisi approfondita basata sullo studio della FHNW svela i dati sui redditi orari degli agricoltori svizzeri, evidenziando il divario tra la produzione lattiera e le colture vegetali come la colza.',
+    canonicalPath: '/articoli-svizzera/latte-e-agricoltura-svizzera-studi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Studi agricoli: guadagni bassi per il latte in Svizzera",
+      "description": "Studio FHNW sui redditi agricoli in Svizzera: produttori di latte a 8.30 franchi all'ora contro i 73.60 della colza. Dati e aumenti necessari. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/latte-e-agricoltura-svizzera-studi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Produttori di latte e agricoltura in Svizzera secondo lo studio FHNW"
+      },
+      "datePublished": "2026-09-14T00:08:47+00:00",
+      "dateModified": "2026-09-14T00:08:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/latte-e-agricoltura-svizzera-studi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ps-chiede-cpi-su-f35': {
+    title: 'F-35, il PS chiede una Commissione parlamentare d\'inchiesta',
+    description: 'Il PS avvia l\'iter per una Commissione parlamentare d\'inchiesta sull\'acquisto dei caccia F-35 per verificare trasparenza, costi e procedure del Dipartimento.',
+    keywords: 'frontalieri, ticino, svizzera, italia, f-35, chiede, commissione, parlamentare',
+    ogTitle: 'F-35, il PS chiede una Commissione parlamentare d\'inchiesta',
+    ogDescription: 'Il Partito socialista richiede ufficialmente l\'istituzione di una CPI per fare luce sull\'acquisto dei caccia F-35 e sulla correttezza delle informazioni fornite al Parlamento.',
+    canonicalPath: '/articoli-svizzera/ps-chiede-cpi-su-f35/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "F-35, il PS chiede una Commissione parlamentare d'inchiesta",
+      "description": "Il PS avvia l'iter per una Commissione parlamentare d'inchiesta sull'acquisto dei caccia F-35 per verificare trasparenza, costi e procedure del Dipartimento.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ps-chiede-cpi-su-f35.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna, sede del Parlamento svizzero."
+      },
+      "datePublished": "2026-09-14T00:16:27+00:00",
+      "dateModified": "2026-09-14T00:16:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ps-chiede-cpi-su-f35/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-permesso-c-nidvaldo-requisiti': {
+    title: 'Permesso C Canton Nidvaldo: requisiti e domanda',
+    description: 'Guida completa al permesso di domicilio C nel Canton Nidvaldo: anni richiesti, criteri di integrazione, lingua e procedura di domanda. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, canton, nidvaldo, requisiti',
+    ogTitle: 'Permesso C nel Canton Nidvaldo: requisiti e domanda',
+    ogDescription: 'Approfondimento completo sui requisiti, i criteri di integrazione, le competenze linguistiche e la procedura per ottenere il permesso di domicilio C nel Canton Nidvaldo.',
+    canonicalPath: '/articoli-svizzera/permesso-c-nidvaldo-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso C Canton Nidvaldo: requisiti e domanda",
+      "description": "Guida completa al permesso di domicilio C nel Canton Nidvaldo: anni richiesti, criteri di integrazione, lingua e procedura di domanda. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-c-nidvaldo-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio amministrativo nel Canton Nidvaldo"
+      },
+      "datePublished": "2026-09-14T00:24:26+00:00",
+      "dateModified": "2026-09-14T00:24:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-c-nidvaldo-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-benzina-oggi-costo-confronto': {
+    title: 'La benzina oggi costa meno che negli anni ‘80 | Frontaliere Ticino',
+    description: 'Analisi del prezzo della benzina in Svizzera: oggi attorno a 2 CHF/litro, inferiore al valore degli anni ’80 corretto per potere d’acquisto e più vantaggioso',
+    keywords: 'frontalieri, ticino, svizzera, italia, benzina, oggi, costa, meno',
+    ogTitle: 'La benzina oggi costa meno che negli anni ‘80',
+    ogDescription: 'Il costo della benzina svizzera, pur superando la soglia dei due franchi al litro, risulta inferiore al passato quando si considera il potere d’acquisto e più vantaggioso rispetto a molti paesi esteri. L’articolo confronta i valori nominali, quelli',
+    canonicalPath: '/articoli-svizzera/benzina-oggi-costo-confronto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La benzina oggi costa meno che negli anni ‘80",
+      "description": "Analisi del prezzo della benzina in Svizzera: oggi attorno a 2 CHF/litro, inferiore al valore degli anni ’80 corretto per potere d’acquisto e più vantaggioso",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/benzina-oggi-costo-confronto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione di servizio svizzera con prezzo benzina intorno a 2 CHF/litro"
+      },
+      "datePublished": "2026-09-14T00:56:30+00:00",
+      "dateModified": "2026-09-14T00:56:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/benzina-oggi-costo-confronto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-consiglio-federale-decisioni-2026': {
+    title: 'Decisioni Consiglio federale: novità e votazioni 2026',
+    description: 'Scopri le decisioni del Consiglio federale, i progetti di legge, le misure contro la siccità e la votazione popolare del 27 settembre 2026 in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, decisioni, consiglio, federale, novità',
+    ogTitle: 'Decisioni e riforme del Consiglio federale: tutti gli aggiornamenti',
+    ogDescription: 'Approfondisci le decisioni del Consiglio federale svizzero, dai progetti di legge sulla protezione climatica e la fibra ottica fino alla votazione popolare del 27 settembre 2026.',
+    canonicalPath: '/articoli-svizzera/consiglio-federale-decisioni-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Decisioni Consiglio federale: novità e votazioni 2026",
+      "description": "Scopri le decisioni del Consiglio federale, i progetti di legge, le misure contro la siccità e la votazione popolare del 27 settembre 2026 in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/consiglio-federale-decisioni-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna sede del Consiglio federale"
+      },
+      "datePublished": "2026-09-14T01:45:57+00:00",
+      "dateModified": "2026-09-14T01:45:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/consiglio-federale-decisioni-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-naturalizzazione-nidvaldo-procedura': {
+    title: 'Naturalizzazione a Nidvaldo: requisiti e procedura',
+    description: 'Guida ufficiale alla naturalizzazione ordinaria nel Cantone di Nidvaldo: anni di residenza, test di lingua, requisiti di integrazione e tasse. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, naturalizzazione, nidvaldo, requisiti, procedura',
+    ogTitle: 'Naturalizzazione nel Canton Nidvaldo: Requisiti e Procedura',
+    ogDescription: 'Scopri la procedura completa per la naturalizzazione ordinaria nel Cantone di Nidvaldo: anni richiesti, test di lingua, integrazione e costi amministrativi.',
+    canonicalPath: '/articoli-svizzera/naturalizzazione-nidvaldo-procedura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Naturalizzazione a Nidvaldo: requisiti e procedura",
+      "description": "Guida ufficiale alla naturalizzazione ordinaria nel Cantone di Nidvaldo: anni di residenza, test di lingua, requisiti di integrazione e tasse. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/naturalizzazione-nidvaldo-procedura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio comunale nel Cantone di Nidvaldo"
+      },
+      "datePublished": "2026-09-14T01:54:08+00:00",
+      "dateModified": "2026-09-14T01:54:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/naturalizzazione-nidvaldo-procedura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-prezzi-produzione-importazione-agosto-2026': {
+    title: 'Prezzi produzione e import: +0,7% in agosto 2026',
+    description: 'Dati UST agosto 2026: l\'indice dei prezzi alla produzione e importazione sale dello 0,7% mensile a 100,4 punti. Calo annuo dello 0,7%. Analisi e dettagli.',
+    keywords: 'frontalieri, ticino, svizzera, italia, prezzi, produzione, import, agosto',
+    ogTitle: 'Svizzera: prezzi produzione e import in aumento in agosto',
+    ogDescription: 'L\'Ufficio federale di statistica rileva un incremento mensile dello 0,7% nell\'indice dei prezzi alla produzione e all\'importazione. Analisi dei settori chiave.',
+    canonicalPath: '/articoli-svizzera/prezzi-produzione-importazione-agosto-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Prezzi produzione e import: +0,7% in agosto 2026",
+      "description": "Dati UST agosto 2026: l'indice dei prezzi alla produzione e importazione sale dello 0,7% mensile a 100,4 punti. Calo annuo dello 0,7%. Analisi e dettagli.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/prezzi-produzione-importazione-agosto-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "L'Ufficio federale di statistica a Neuchâtel, sede delle rilevazioni economiche svizzere."
+      },
+      "datePublished": "2026-09-14T07:31:45+00:00",
+      "dateModified": "2026-09-14T07:31:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/prezzi-produzione-importazione-agosto-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-votazione-scuola-qualita-berna-2026': {
+    title: 'Scuola qualità a Berna: il voto è fissato al 2026',
+    description: 'Il 27 settembre 2026 i bernesi voteranno sull\'iniziativa per un mandato costituzionale sulla qualità della scuola. Promossa dagli insegnanti, opposta',
+    keywords: 'frontalieri, ticino, svizzera, italia, scuola, qualità, berna, voto',
+    ogTitle: 'Scuola qualità a Berna: il voto è fissato al 2026',
+    ogDescription: 'L\'Associazione cantonale degli insegnanti promuove un\'iniziativa per inserire un mandato sulla qualità della scuola nella Costituzione bernese. La consultazione popolare avverrà il 27 settembre 2026, con forti opposizioni da parte del Governo',
+    canonicalPath: '/articoli-svizzera/votazione-scuola-qualita-berna-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scuola qualità a Berna: il voto è fissato al 2026",
+      "description": "Il 27 settembre 2026 i bernesi voteranno sull'iniziativa per un mandato costituzionale sulla qualità della scuola. Promossa dagli insegnanti, opposta",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/votazione-scuola-qualita-berna-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aula scolastica vuota in attesa della votazione sulla qualità dell'insegnamento nel Cantone Berna"
+      },
+      "datePublished": "2026-09-14T10:07:20+00:00",
+      "dateModified": "2026-09-14T10:07:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/votazione-scuola-qualita-berna-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-transpa-reg-quadri-rinvio-1-ottobre': {
+    title: 'TranspaReg: Quadri chiede rinvio per rischio informatico',
+    description: 'Quadri chiede di sospendere la TranspaReg al 1° ottobre per rischio informatico. Cita il caso Liechtenstein e propone sistemi decentralizzati per gli ADE.',
+    keywords: 'frontalieri, ticino, svizzera, italia, transpareg, quadri, chiede, rinvio',
+    ogTitle: 'TranspaReg: Quadri chiede rinvio per rischio informatico',
+    ogDescription: 'Il Consigliere nazionale Lorenzo Quadri chiede di sospendere la TranspaReg al 1° ottobre. Il timore è un attacco informatico ai dati di 500\'000 entità, come avvenuto nel Liechtenstein con 31\'000 aziende. Quadri propone sistemi decentralizzati',
+    canonicalPath: '/articoli-svizzera/transpa-reg-quadri-rinvio-1-ottobre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "TranspaReg: Quadri chiede rinvio per rischio informatico",
+      "description": "Quadri chiede di sospendere la TranspaReg al 1° ottobre per rischio informatico. Cita il caso Liechtenstein e propone sistemi decentralizzati per gli ADE.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/transpa-reg-quadri-rinvio-1-ottobre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Server room con luci LED blu che simboleggia la sicurezza informatica e la trasparenza finanziaria in Svizzera."
+      },
+      "datePublished": "2026-09-14T11:57:32+00:00",
+      "dateModified": "2026-09-14T11:57:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/transpa-reg-quadri-rinvio-1-ottobre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-detenzione-48-ore-manifestazioni': {
+    title: 'Detenzione 48 ore: il piano contro i facinorosi',
+    description: 'Dopo le violenze a Berna, il Parlamento svizzero discute l\'aumento della detenzione preventiva a 48 ore e nuovi poteri di sorveglianza per il SIC.',
+    keywords: 'frontalieri, ticino, svizzera, italia, detenzione, piano, contro, facinorosi',
+    ogTitle: 'Detenzione 48 ore: il piano contro i facinorosi',
+    ogDescription: 'Il Consiglio nazionale ha approvato l\'allungamento della detenzione preventiva a 48 ore e maggiori poteri per il SIC dopo i disordini di Berna. Gli organizzatori di manifestazioni rischiano di dover pagare i costi di sicurezza. Il Consiglio',
+    canonicalPath: '/articoli-svizzera/detenzione-48-ore-manifestazioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Detenzione 48 ore: il piano contro i facinorosi",
+      "description": "Dopo le violenze a Berna, il Parlamento svizzero discute l'aumento della detenzione preventiva a 48 ore e nuovi poteri di sorveglianza per il SIC.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/detenzione-48-ore-manifestazioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Palazzo federale a Berna con manifestanti in primo piano, simbolo del dibattito sulla sicurezza pubblica"
+      },
+      "datePublished": "2026-09-14T12:38:56+00:00",
+      "dateModified": "2026-09-14T12:38:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/detenzione-48-ore-manifestazioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -114,6 +114,13 @@ const hasStaticContent = (): boolean => {
  return !!(rootElement && rootElement.children.length > 0);
 };
 
+// Plate-auction pages have a data-validated handoff: their crawler-facing
+// `<main>` must stay outside `#root` until PlateAuctionsPage has accepted the
+// live snapshot. Moving it into `#root` here would make createRoot().render()
+// destroy the only useful fallback before the request can succeed or fail.
+const hasPlateAuctionStaticFallback = (): boolean =>
+ !!document.querySelector('main.plate-auction-static');
+
 const mountApp = async () => {
  if (mounted) return;
  mounted = true;
@@ -154,7 +161,8 @@ const mountApp = async () => {
  // (no JS) still get the fallback verbatim.
  try {
    const { parsePath } = await import('./services/router');
-   if (!parsePath(window.location.pathname).route.staticOverlay) {
+   if (!parsePath(window.location.pathname).route.staticOverlay
+     && !hasPlateAuctionStaticFallback()) {
      const fallback = document.querySelector<HTMLElement>('main.seo-static-content, main.cluster-seo-prose');
      if (fallback && !rootElement.contains(fallback)) {
        const railWrap = fallback.closest<HTMLElement>('.ft-rail-grid');

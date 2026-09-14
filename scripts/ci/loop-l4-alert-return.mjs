@@ -8,6 +8,7 @@ import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 import {
+  actionClassForPolicy,
   buildDecision,
   buildObservation,
   loadLoopPolicyForRun,
@@ -82,7 +83,7 @@ function validateConfig(config, issues) {
   return true;
 }
 
-function validateSnoozes(snoozes, { now, candidates, issues }) {
+function validateSnoozes(snoozes, { now, candidates, issues, candidateActionClass = null }) {
   if (!snoozes || typeof snoozes !== 'object' || Array.isArray(snoozes)) {
     issues.push('alert snoozes is not a JSON object');
     return false;
@@ -114,7 +115,7 @@ function validateSnoozes(snoozes, { now, candidates, issues }) {
       candidates.push({
         key,
         issueCodes: rowIssues,
-        actionClass: 'suppress+defer',
+        ...(candidateActionClass ? { actionClass: candidateActionClass } : {}),
         action: 'suppress/defer this alert until its consent and snooze window are repaired',
         reversible: true,
       });
@@ -224,12 +225,13 @@ export function validateAlertReturn({ config, snoozes, outcomes = null }, {
   snoozesPath = DEFAULT_SNOOZES_PATH,
   outcomePath = DEFAULT_OUTCOME_PATH,
   minimumSample = MINIMUM_SAMPLE,
+  candidateActionClass = null,
 } = {}) {
   const issues = [];
   const warnings = [];
   const candidates = [];
   validateConfig(config, issues);
-  validateSnoozes(snoozes, { now, candidates, issues });
+  validateSnoozes(snoozes, { now, candidates, issues, candidateActionClass });
   const outcomeVerdict = validateOutcomes(outcomes, {
     now,
     maxAgeHours,
@@ -330,7 +332,7 @@ function writeActions(reportDir, verdict, now, candidatePolicy) {
     },
     ...verdict.candidates.map((candidate) => ({
       ...candidate,
-      actionClass: 'suppress+defer',
+      actionClass: candidatePolicy.actionClass,
       autonomy: candidatePolicy.requiredAutonomy,
     })),
   ];
@@ -380,7 +382,7 @@ export async function runL4({
   outcomePath = DEFAULT_OUTCOME_PATH,
   registryPath = DEFAULT_REGISTRY_PATH,
   maxAgeHours = DEFAULT_MAX_AGE_HOURS,
-  minimumSample = MINIMUM_SAMPLE,
+  minimumSample,
   issue = false,
   apply = false,
   reportDir = null,
@@ -392,6 +394,7 @@ export async function runL4({
     policy: loopPolicy,
     minimumSample: policyMinimumSample,
   } = loadLoopPolicyForRun(registryPath, LOOP_ID, minimumSample);
+  const candidateActionClass = actionClassForPolicy(loopPolicy, 'candidate');
   let verdict;
   try {
     verdict = validateAlertReturn({
@@ -405,20 +408,21 @@ export async function runL4({
       snoozesPath,
       outcomePath,
       minimumSample: policyMinimumSample,
+      candidateActionClass,
     });
   } catch (error) {
     verdict = baseVerdict({ sourcePath: configPath, now, quality: 'unmeasurable', ok: false, reason: error.message });
   }
-  const actionClass = verdict.ok ? 'observe' : 'suppress+defer+issue';
+  const actionClass = actionClassForPolicy(loopPolicy, verdict.ok ? 'healthy' : 'needsReview');
   const actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
   const candidatePolicy = !verdict.ok
-    ? validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, 'suppress+defer')
+    ? validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, candidateActionClass)
     : null;
   verdict = {
     ...verdict,
     candidates: verdict.candidates.map((candidate) => ({
       ...candidate,
-      actionClass: 'suppress+defer',
+      actionClass: candidateActionClass,
       autonomy: candidatePolicy?.requiredAutonomy || null,
     })),
     snapshot: {
@@ -518,9 +522,12 @@ function parseArgs(argv) {
     return index === -1 ? fallback : argv[index + 1] || fallback;
   };
   const maxAgeHours = Number(valueAfter('--max-age-hours', DEFAULT_MAX_AGE_HOURS));
-  const minimumSample = Number(valueAfter('--minimum-sample', MINIMUM_SAMPLE));
+  const minimumSampleIndex = argv.indexOf('--minimum-sample');
+  const minimumSample = minimumSampleIndex === -1 ? undefined : Number(argv[minimumSampleIndex + 1]);
   if (!Number.isFinite(maxAgeHours) || maxAgeHours <= 0) throw new Error('--max-age-hours must be a finite positive number');
-  if (!Number.isInteger(minimumSample) || minimumSample < 1) throw new Error('--minimum-sample must be a positive integer');
+  if (minimumSample !== undefined && (!Number.isInteger(minimumSample) || minimumSample < 1)) {
+    throw new Error('--minimum-sample must be a positive integer');
+  }
   return {
     json: argv.includes('--json'),
     issue: argv.includes('--issue'),

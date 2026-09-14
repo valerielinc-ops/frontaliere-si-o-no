@@ -355,6 +355,35 @@ describe('source-detail fidelity checks', () => {
     });
   });
 
+  it('attributes the usability gate to JSON-LD versus DOM/label evidence', () => {
+    const rejectedJsonLd = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Role',
+      jobLocation: { address: { addressLocality: 'Campus' } },
+    })}</script>`;
+    expect(extractSourceLocationObservation(rejectedJsonLd, '', { includeDiagnostics: true })).toEqual({
+      location: '',
+      evidence: 'generic',
+      locationEvidenceCounts: {
+        beforeGate: { jsonld: 1, 'strong-markup': 0 },
+        afterGate: { jsonld: 0, 'strong-markup': 0 },
+      },
+    });
+
+    expect(extractSourceLocationObservation(
+      '<div class="job-detail-location">Lugano</div>',
+      '',
+      { includeDiagnostics: true },
+    )).toMatchObject({
+      location: 'Lugano',
+      evidence: 'strong-markup',
+      locationEvidenceCounts: {
+        beforeGate: { jsonld: 0, 'strong-markup': 1 },
+        afterGate: { jsonld: 0, 'strong-markup': 1 },
+      },
+    });
+  });
+
   it('does not promote related cards or search results as the current vacancy location', () => {
     for (const html of [
       '<section class="job-search-results"><article><span class="job-location">Zürich</span></article></section>',
@@ -395,6 +424,87 @@ describe('source-detail fidelity checks', () => {
       expect(result.locationMismatch, sourceLocation).toBe(true);
       expect(result.locationInconclusive, sourceLocation).toBe(false);
     }
+  });
+
+  it('marks description-only corroboration as circular for text-derived jobs', () => {
+    const result = compareSourceDetail(
+      {
+        addressLocality: 'Horgen',
+        locationDerivedFrom: 'vacancy-text',
+        sourceLang: 'de',
+        description: 'Ausführliche Stellenbeschreibung '.repeat(20),
+      },
+      {
+        title: 'Sozialarbeiter/in',
+        location: 'Dietikon',
+        description: `Unser Team in Horgen sucht Verstärkung. ${'Ausführliche Stellenbeschreibung '.repeat(20)}`,
+      },
+      { locationEvidence: 'jsonld' },
+    );
+
+    expect(result.locationAuthority).toBe('circular');
+    expect(result.locationMismatch).toBe(false);
+    expect(result.locationChecked).toBe(false);
+    expect(result.locationInconclusive).toBe(true);
+  });
+
+  it('still accepts an independent title corroboration for a text-derived job', () => {
+    const result = compareSourceDetail(
+      {
+        addressLocality: 'Horgen',
+        locationDerivedFrom: 'vacancy-text',
+        sourceLang: 'de',
+        description: 'Ausführliche Stellenbeschreibung '.repeat(20),
+      },
+      {
+        title: 'Sozialarbeiter/in im kjz Horgen',
+        location: 'Dietikon',
+        description: 'Unser Team in Horgen sucht Verstärkung.',
+      },
+      { locationEvidence: 'jsonld' },
+    );
+
+    expect(result.locationAuthority).toBe('source-corroborated');
+    expect(result.locationMismatch).toBe(false);
+  });
+
+  it('keeps a real mismatch when a text-derived locality is never named independently', () => {
+    const result = compareSourceDetail(
+      {
+        addressLocality: 'Horgen',
+        locationDerivedFrom: 'vacancy-text',
+        sourceLang: 'de',
+        description: 'Ausführliche Stellenbeschreibung '.repeat(20),
+      },
+      {
+        title: 'Sozialarbeiter/in',
+        location: 'Dietikon',
+        description: 'Ausführliche Stellenbeschreibung '.repeat(20),
+      },
+      { locationEvidence: 'jsonld' },
+    );
+
+    expect(result.locationAuthority).toBe('source-detail');
+    expect(result.locationMismatch).toBe(true);
+  });
+
+  it('leaves description corroboration enabled for a structured-field job', () => {
+    const result = compareSourceDetail(
+      {
+        addressLocality: 'Horgen',
+        sourceLang: 'de',
+        description: 'Ausführliche Stellenbeschreibung '.repeat(20),
+      },
+      {
+        title: 'Sozialarbeiter/in',
+        location: 'Dietikon',
+        description: 'Unser Team in Horgen sucht Verstärkung.',
+      },
+      { locationEvidence: 'jsonld' },
+    );
+
+    expect(result.locationAuthority).toBe('source-corroborated');
+    expect(result.locationMismatch).toBe(false);
   });
 
   it('treats non-toponym source labels as inconclusive without dropping foreign places', () => {
@@ -1610,6 +1720,11 @@ describe('source-detail observation counters (#7714)', () => {
     const report = { 'kanton-zuerich': { total: 1, issues: [], severity: 'OK' as const } };
     const summary = applySourceDetailResults(report, [result], 1);
     expect(summary.authoritativeLocationChecks).toBe(1);
+    expect(summary.authoritativeLocationChecksByEvidence).toEqual({
+      jsonld: 1,
+      'strong-markup': 0,
+      other: 0,
+    });
     expect(summary.sourceCorroboratedLocationObservations).toBe(1);
 
     // The reader the counter lacked: a pass earned by page corroboration is
@@ -1617,6 +1732,93 @@ describe('source-detail observation counters (#7714)', () => {
     // shows up in stdout instead of only in the JSON report.
     const lines = formatSourceDetailObservationLines(summary);
     expect(lines.join('\n')).toContain('corroborated by other page evidence: 1/1 (100.0 % of authoritative checks)');
+    expect(lines.join('\n')).toContain('evidence: JSON-LD 1, DOM/label 0');
+  });
+
+  it('splits authoritative checks by JSON-LD versus DOM/label evidence', () => {
+    const report = { fixture: { total: 2, issues: [], severity: 'OK' as const } };
+    const base = {
+      crawlerKey: 'fixture',
+      sourceDescriptionLength: 400,
+      publishedDescriptionLength: 400,
+      locationChecked: true,
+      locationMismatch: false,
+      locationAuthority: 'source-detail',
+      descriptionMismatch: false,
+    };
+    const summary = applySourceDetailResults(report, [
+      {
+        ...base,
+        url: 'https://example.test/jsonld',
+        sourceLocation: 'Bern',
+        publishedLocation: 'Bern',
+        locationEvidence: 'jsonld',
+        locationEvidenceCounts: {
+          beforeGate: { jsonld: 1, 'strong-markup': 0 },
+          afterGate: { jsonld: 1, 'strong-markup': 0 },
+        },
+      },
+      {
+        ...base,
+        url: 'https://example.test/dom',
+        sourceLocation: 'Lugano',
+        publishedLocation: 'Lugano',
+        locationEvidence: 'strong-markup',
+        locationEvidenceCounts: {
+          beforeGate: { jsonld: 0, 'strong-markup': 1 },
+          afterGate: { jsonld: 0, 'strong-markup': 1 },
+        },
+      },
+    ], 2);
+
+    expect(summary.authoritativeLocationChecksByEvidence).toEqual({
+      jsonld: 1,
+      'strong-markup': 1,
+      other: 0,
+    });
+    expect(summary.locationEvidenceBeforeGateByEvidence).toEqual({
+      jsonld: 1,
+      'strong-markup': 1,
+    });
+    expect(summary.locationEvidenceAfterGateByEvidence).toEqual({
+      jsonld: 1,
+      'strong-markup': 1,
+    });
+    expect(formatSourceDetailObservationLines(summary)).toContain(
+      '  evidence: JSON-LD 1, DOM/label 1',
+    );
+    expect(formatSourceDetailObservationLines(summary)).toContain(
+      '  evidence gate: JSON-LD 1→1, DOM/label 1→1',
+    );
+  });
+
+  it('keeps circular corroboration visible as an inconclusive observation', () => {
+    const report = { fixture: { total: 1, issues: [], severity: 'OK' as const } };
+    const summary = applySourceDetailResults(report, [{
+      crawlerKey: 'fixture',
+      url: 'https://example.test/fixture',
+      sourceLocation: 'Bern',
+      publishedLocation: 'Lugano',
+      locationChecked: false,
+      locationInconclusive: true,
+      locationAuthority: 'circular',
+      locationEvidence: 'jsonld',
+      sourceDescriptionLength: 400,
+      publishedDescriptionLength: 400,
+      descriptionMismatch: false,
+    }], 1);
+
+    expect(summary).toMatchObject({
+      inconclusiveLocationObservations: 1,
+      circularCorroborationObservations: 1,
+    });
+    expect(formatSourceDetailObservationLines(summary)).toContain(
+      '  circular corroboration: 1 (inconclusive)',
+    );
+    expect(report.fixture.issues[0]).toMatchObject({
+      type: 'source-detail-unobserved',
+      circularCorroborationObservations: 1,
+    });
   });
 
   it('reports the share over the authoritative checks, not over the fetched pages', () => {

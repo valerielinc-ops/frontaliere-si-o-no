@@ -126,6 +126,33 @@ describe('seo-ctr-curve (issue #4300)', () => {
       expect(fam.targetCtr).toBeGreaterThan(0);
     });
 
+    it('registers the localized events template and suppresses every locale discovery candidate', () => {
+      const fam = SEO_CTR_FAMILIES.find((f) => f.id === 'eventi');
+      expect(fam).toBeDefined();
+      expect(fam).toMatchObject({
+        pathContains: '/eventi/',
+        kind: 'template',
+        monitored: true,
+        impressions90d: 106949,
+        measuredCtr: 0.01558,
+      });
+      expect(fam!.targetCtr).toBeCloseTo(fam!.measuredCtr! * 0.8, 3);
+      expect(familyPathPrefixes(fam!)).toEqual([
+        '/eventi/',
+        '/events/',
+        '/veranstaltungen/',
+        '/evenements/',
+      ]);
+
+      const localizedRows = [
+        { path: '/eventi/ticino/', impressions: MIN_IMPRESSIONS_TO_MONITOR * 2 },
+        { path: '/en/events/ticino/', impressions: MIN_IMPRESSIONS_TO_MONITOR * 2 },
+        { path: '/de/veranstaltungen/tessin/', impressions: MIN_IMPRESSIONS_TO_MONITOR * 2 },
+        { path: '/fr/evenements/tessin/', impressions: MIN_IMPRESSIONS_TO_MONITOR * 2 },
+      ];
+      expect(discoverUnregisteredFamilies(localizedRows)).toEqual([]);
+    });
+
     it('every family carries a measured 90-day impression volume', () => {
       // The invariant below is only as good as its input: a family with no
       // `impressions90d` would slip under any volume threshold for free.

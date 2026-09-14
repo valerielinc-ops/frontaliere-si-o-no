@@ -45,6 +45,9 @@ const allRequiredPages = [
   `${SLUG_TABLES.it.guida}/index.html`,
   `${SLUG_TABLES.it.sitemap}/index.html`,
   `${SLUG_TABLES.it.privacy}/index.html`,
+  // #8507: a critical health-premium route must not publish as a 404 when the
+  // upstream dataset is empty or incomplete.
+  'premi-cassa-malati/ticino/adulto-26-30/index.html',
   'sitemap.xml',
   // Data asset fetched at runtime by jobBoardStatsService → /data/jobs-stats.json.
   // A cache-HIT assemble path can skip copying the public twin (see #1148/#1153);

@@ -185,11 +185,11 @@ jobs:
           echo "🧹 Running housekeeping (no slug hardening — deferred to Phase 3)..."
           for slice in data/jobs/by-crawler/*.json; do
             [ -f "$slice" ] || continue
-            JOBS_SLICE_FILE="$slice" node scripts/cleanup-jobs.mjs || true
+            JOBS_SLICE_FILE="$slice" node scripts/cleanup-jobs.mjs
           done
           echo "✅ Housekeeping complete"
       - name: Commit housekeeping
-        if: always() && steps.checkout.outcome == 'success' && steps.hk.outputs.run == 'true' && inputs.dry_run != true
+        if: success() && steps.checkout.outcome == 'success' && steps.hk.outputs.run == 'true' && inputs.dry_run != true
         run: bash scripts/lib/git-commit-data.sh --slice-only "🧹 Housekeeping — prune expired + validate URLs"
       - name: Install Argos Translate (local MT engine)
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
@@ -310,6 +310,15 @@ jobs:
             --mode capture \
             --decision "$RUNNER_TEMP/translation-shadow-preflight-v2-decision.json" 2>/dev/null || true)
           exit "$legacy_status"
+      - name: Upload thinking A/B rows
+        if: always() && inputs.skip_translate != true
+        continue-on-error: true
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: translation-thinking-ab-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/translation-thinking-ab.json
+          retention-days: 30
+          if-no-files-found: warn
       - name: Scatter changes back to per-crawler slices
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
         run: node scripts/scatter-jobs-to-slices.mjs
@@ -452,15 +461,6 @@ jobs:
       - name: Roll up translation observability history
         if: always() && steps.translation_observability_before.outputs.ready == 'true' && inputs.dry_run != true
         run: node scripts/rollup-translation-observability.mjs "$RUNNER_TEMP/translation-observability.json" data/translation-observability-history.json
-      - name: Upload thinking A/B rows
-        if: always() && inputs.skip_translate != true
-        continue-on-error: true
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
-        with:
-          name: translation-thinking-ab-${{ github.run_id }}-${{ github.run_attempt }}
-          path: ${{ runner.temp }}/translation-thinking-ab.json
-          retention-days: 30
-          if-no-files-found: warn
       - name: Upload cascade company rows
         if: always() && inputs.skip_translate != true
         continue-on-error: true

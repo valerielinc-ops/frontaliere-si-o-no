@@ -1,9 +1,14 @@
+import { execFileSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
 // The script is pure ESM (.mjs); main() is gated on process.argv[1], so
 // importing it is side-effect-free — same pattern as
 // tests/scripts/revenue-monitor.test.ts.
 import * as reportModule from '../../scripts/adsense-format-ab-report.mjs';
+
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const {
   ADSENSE_ACCOUNT,
   CANTON_PAGE_PATHS,
@@ -66,6 +71,19 @@ afterEach(() => {
 });
 
 describe('adsense-format-ab-report / identifiers', () => {
+  it('loads the TypeScript slot registry through Node ESM, as the scheduled workflow does', () => {
+    const output = execFileSync(
+      process.execPath,
+      [
+        '--input-type=module',
+        '-e',
+        "const m = await import('./services/adsenseSlots.ts'); if (m.AD_CLIENT !== 'ca-pub-8628054934855353') throw new Error('slot registry not loaded'); console.log('loaded');",
+      ],
+      { cwd: REPO_ROOT, encoding: 'utf8' },
+    );
+    expect(output.trim()).toBe('loaded');
+  });
+
   it('derives the AdSense account resource name from AD_CLIENT (no second hardcoded literal)', () => {
     expect(ADSENSE_ACCOUNT).toBe('accounts/pub-8628054934855353');
   });

@@ -200,6 +200,24 @@ describe('LOCAL_MT_LANG_AWARE_OVERWRITE default', () => {
     // Phase 2a (Argos bulk) and Phase 2c (mop-up) both run local-mt-mopup.mjs.
     expect(wired?.length).toBe(2);
   });
+
+  it('logs the same OFF default consumed by Phase 2a in the live logic workflow', () => {
+    const wf = readFileSync(
+      new URL('../.github/workflows/translate-pending-logic.yml', import.meta.url),
+      'utf-8',
+    );
+    const fallback = "${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}";
+    const rolloutStart = wf.indexOf('name: Record translation rollout context');
+    const phase2aStart = wf.indexOf('name: "Phase 2a: Local MT bulk translate (Argos)"');
+    const phase2aEnd = wf.indexOf('name: Re-assemble dataset after Argos bulk', phase2aStart);
+    expect(rolloutStart).toBeGreaterThanOrEqual(0);
+    expect(phase2aStart).toBeGreaterThan(rolloutStart);
+    expect(phase2aEnd).toBeGreaterThan(phase2aStart);
+    const rolloutLog = wf.slice(rolloutStart, phase2aStart);
+    const phase2a = wf.slice(phase2aStart, phase2aEnd);
+    expect(rolloutLog).toContain(`ROLLOUT_SWITCH: ${fallback}`);
+    expect(phase2a).toContain(`LOCAL_MT_LANG_AWARE_OVERWRITE: ${fallback}`);
+  });
 });
 
 describe('stratifyByCompany()', () => {

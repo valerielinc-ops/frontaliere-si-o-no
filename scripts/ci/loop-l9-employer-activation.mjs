@@ -15,6 +15,7 @@ import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 import {
+  actionClassForPolicy,
   buildDecision,
   buildObservation,
   loadLoopPolicyForRun,
@@ -144,7 +145,7 @@ function validateDistribution(entries, prefix, activeJobs, issues) {
   }
 }
 
-function profileCandidate(profile) {
+function profileCandidate(profile, actionClass = null) {
   return {
     profileSlug: profile.slug,
     companyKey: profile.companyKey,
@@ -152,7 +153,7 @@ function profileCandidate(profile) {
     activeJobs: profile.activeJobs,
     topCantons: profile.cantons.slice(0, 3),
     topCities: profile.cities.slice(0, 3),
-    actionClass: 'draft-outreach',
+    ...(actionClass ? { actionClass } : {}),
     action: 'draft-outreach only: prepare a human-reviewed employer activation brief; do not send it',
     reversible: true,
     externalMutation: false,
@@ -165,6 +166,7 @@ export function validateEmployerProfiles(source, {
   now = new Date(),
   maxAgeHours = DEFAULT_MAX_AGE_HOURS,
   sourcePath = DEFAULT_PROFILES_PATH,
+  candidateActionClass = null,
 } = {}) {
   const issues = [];
   const warnings = [];
@@ -258,7 +260,7 @@ export function validateEmployerProfiles(source, {
       continue;
     }
     validProfileCount += 1;
-    candidates.push(profileCandidate(profile));
+    candidates.push(profileCandidate(profile, candidateActionClass));
   }
 
   let ageHours = null;
@@ -450,8 +452,14 @@ export function validateEmployerActivation({ profiles, outcomes = null, outcomeP
   sourcePath = DEFAULT_PROFILES_PATH,
   outcomePath = DEFAULT_OUTCOME_PATH,
   minimumSample = MINIMUM_SAMPLE,
+  candidateActionClasses = null,
 } = {}) {
-  const profileVerdict = validateEmployerProfiles(profiles, { now, maxAgeHours, sourcePath });
+  const profileVerdict = validateEmployerProfiles(profiles, {
+    now,
+    maxAgeHours,
+    sourcePath,
+    candidateActionClass: candidateActionClasses?.draftOutreach || null,
+  });
   const outcomeVerdict = validateEmployerFunnelOutcomes(outcomes, {
     now,
     maxAgeHours,
@@ -486,7 +494,7 @@ export function validateEmployerActivation({ profiles, outcomes = null, outcomeP
   const candidates = [...profileVerdict.candidates];
   if (profileVerdict.quality !== 'observed' || outcomeVerdict.quality !== 'observed' || issues.length) {
     candidates.unshift({
-      actionClass: 'pr',
+      ...(candidateActionClasses?.pr ? { actionClass: candidateActionClasses.pr } : {}),
       action: 'prepare a reviewed PR to repair the producer/schema or its funnel cardinality checks; never rewrite inventory in place',
       reversible: true,
       externalMutation: false,
@@ -555,24 +563,26 @@ function writeReports(reportDir, verdict, observation, decision) {
   return files.map(([name]) => path.join(dir, name));
 }
 
-function writeActions(reportDir, verdict, now, loopRegistry) {
+function writeActions(reportDir, verdict, now, loopRegistry, loopPolicy) {
   if (!reportDir || verdict.ok || !loopRegistry) return null;
   const file = path.join(path.resolve(reportDir), 'l9-actions.json');
+  const prActionClass = actionClassForPolicy(loopPolicy, 'pr');
+  const draftOutreachActionClass = actionClassForPolicy(loopPolicy, 'draftOutreach');
   const actions = [
     {
-      actionClass: 'pr',
-      autonomy: validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, 'pr').requiredAutonomy,
+      actionClass: prActionClass,
+      autonomy: validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, prActionClass).requiredAutonomy,
       action: 'prepare a reviewed PR for malformed profile or funnel data; preserve the published inventory and ledger',
       reversible: true,
       externalMutation: false,
       noAutomaticPriceChange: true,
     },
     ...verdict.candidates
-      .filter((candidate) => candidate.action.includes('draft-outreach'))
+      .filter((candidate) => candidate.actionClass === draftOutreachActionClass)
       .map((candidate) => ({
         ...candidate,
-        actionClass: 'draft-outreach',
-        autonomy: validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, 'draft-outreach').requiredAutonomy,
+        actionClass: draftOutreachActionClass,
+        autonomy: validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, draftOutreachActionClass).requiredAutonomy,
       })),
   ];
   fs.writeFileSync(file, `${JSON.stringify({
@@ -600,6 +610,11 @@ function writeResult(reportDir, { verdict, issued, actionsWritten }) {
     candidateCount: verdict.candidates.length,
     issued,
     actionsWritten,
+    safeDraftOnly: true,
+    realOutreachSent: false,
+    inventoryUntouched: true,
+    subscriptionStateUntouched: true,
+    pricesUntouched: true,
     outcomeLedgerMissing: verdict.snapshot?.outcomes?.missing === true,
     profileInventoryComplete: verdict.snapshot?.profiles?.validProfileCount > 0
       && verdict.snapshot?.profiles?.invalidProfileCount === 0,
@@ -629,7 +644,7 @@ export async function runL9({
   outcomePath = DEFAULT_OUTCOME_PATH,
   registryPath = DEFAULT_REGISTRY_PATH,
   maxAgeHours = DEFAULT_MAX_AGE_HOURS,
-  minimumSample = MINIMUM_SAMPLE,
+  minimumSample,
   issue = false,
   apply = false,
   reportDir = null,
@@ -641,6 +656,8 @@ export async function runL9({
     policy: loopPolicy,
     minimumSample: policyMinimumSample,
   } = loadLoopPolicyForRun(registryPath, LOOP_ID, minimumSample);
+  const prActionClass = actionClassForPolicy(loopPolicy, 'pr');
+  const draftOutreachActionClass = actionClassForPolicy(loopPolicy, 'draftOutreach');
   let verdict;
   const outcomePresent = fs.existsSync(path.resolve(outcomePath));
   try {
@@ -654,6 +671,10 @@ export async function runL9({
       sourcePath: profilesPath,
       outcomePath,
       minimumSample: policyMinimumSample,
+      candidateActionClasses: {
+        pr: prActionClass,
+        draftOutreach: draftOutreachActionClass,
+      },
     });
   } catch (error) {
     verdict = baseVerdict({
@@ -668,7 +689,7 @@ export async function runL9({
         outcomes: emptyOutcomeSnapshot(outcomePath, { missing: !outcomePresent }),
       },
       candidates: [{
-        actionClass: 'pr',
+        actionClass: prActionClass,
         action: 'prepare a reviewed PR to restore or repair the employer input; preserve the current published surface',
         reversible: true,
         externalMutation: false,
@@ -676,15 +697,15 @@ export async function runL9({
       }],
     });
   }
-  const actionClass = verdict.ok ? 'observe' : 'candidate+pr+draft-outreach';
+  const actionClass = actionClassForPolicy(loopPolicy, verdict.ok ? 'healthy' : 'needsReview');
   const actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
   for (const candidate of verdict.candidates) {
-    validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, candidate.actionClass || 'pr');
+    validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, candidate.actionClass || prActionClass);
   }
   verdict = {
     ...verdict,
     candidates: verdict.candidates.map((candidate) => {
-      const candidateActionClass = candidate.actionClass || 'pr';
+      const candidateActionClass = candidate.actionClass || prActionClass;
       return {
         ...candidate,
         actionClass: candidateActionClass,
@@ -761,7 +782,7 @@ export async function runL9({
   const files = writeReports(reportDir, verdict, observation, decision);
   let actionsWritten = false;
   if (apply && reportDir) {
-    const actionFile = writeActions(reportDir, verdict, now, loopRegistry);
+    const actionFile = writeActions(reportDir, verdict, now, loopRegistry, loopPolicy);
     actionsWritten = Boolean(actionFile);
     if (actionFile) files.push(actionFile);
   }
@@ -788,9 +809,12 @@ function parseArgs(argv) {
     return index === -1 ? fallback : argv[index + 1] || fallback;
   };
   const maxAgeHours = Number(valueAfter('--max-age-hours', DEFAULT_MAX_AGE_HOURS));
-  const minimumSample = Number(valueAfter('--minimum-sample', MINIMUM_SAMPLE));
+  const minimumSampleIndex = argv.indexOf('--minimum-sample');
+  const minimumSample = minimumSampleIndex === -1 ? undefined : Number(argv[minimumSampleIndex + 1]);
   if (!Number.isFinite(maxAgeHours) || maxAgeHours <= 0) throw new Error('--max-age-hours must be a finite positive number');
-  if (!Number.isInteger(minimumSample) || minimumSample < 1) throw new Error('--minimum-sample must be a positive integer');
+  if (minimumSample !== undefined && (!Number.isInteger(minimumSample) || minimumSample < 1)) {
+    throw new Error('--minimum-sample must be a positive integer');
+  }
   return {
     json: argv.includes('--json'),
     issue: argv.includes('--issue'),

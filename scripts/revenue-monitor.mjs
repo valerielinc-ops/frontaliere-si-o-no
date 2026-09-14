@@ -73,6 +73,10 @@ const AFFILIATE_REVENUE_AMOUNT_FORMAT = process.env.AFFILIATE_REVENUE_AMOUNT_FOR
 export const BASELINE = {
   period: '2026-04-06 → 2026-04-19',
   adsense: {
+    // AdSense reports its account currency in the API response. The account
+    // currently reports EUR; keep this beside the legacy CHF-suffixed keys so
+    // old history consumers remain readable without mislabelling new output.
+    currencyCode: 'EUR',
     revenuePerDayCHF: 0.87,
     rpmCHF: 0.91,
     desktopRpmCHF: 1.10,
@@ -210,6 +214,11 @@ async function fetchAdSenseReport(token) {
   const revenue = Number(row[0]?.value ?? 0);
   const rpm = Number(row[1]?.value ?? 0);
   const impressions = Number(row[2]?.value ?? 0);
+  const currencyCode = String(
+    totals.currencyCode
+      || totals.headers?.find((header) => header.currencyCode)?.currencyCode
+      || 'EUR',
+  ).toUpperCase();
 
   // 3. Desktop-only RPM via PLATFORM_TYPE_NAME dimension.
   const dtParams = new URLSearchParams(params);
@@ -244,6 +253,13 @@ async function fetchAdSenseReport(token) {
   return {
     account,
     window: { start, end },
+    currencyCode,
+    revenue7d: Number(revenue.toFixed(2)),
+    revenuePerDay: Number((revenue / 7).toFixed(2)),
+    rpm: Number(rpm.toFixed(2)),
+    desktopRpm: desktopRpm !== null ? Number(desktopRpm.toFixed(2)) : null,
+    // Legacy aliases: retained for append-only history readers. `currencyCode`
+    // above is the authoritative unit; these names are not claims of CHF.
     revenue7dCHF: Number(revenue.toFixed(2)),
     revenuePerDayCHF: Number((revenue / 7).toFixed(2)),
     rpmCHF: Number(rpm.toFixed(2)),
@@ -493,9 +509,16 @@ export function buildComparisonRows(current, baseline = BASELINE) {
   const b = baseline;
 
   if (adsense) {
-    rows.push({ metric: 'AdSense revenue / day (CHF)', baseline: b.adsense.revenuePerDayCHF, current: adsense.revenuePerDayCHF, ...compare(adsense.revenuePerDayCHF, b.adsense.revenuePerDayCHF) });
-    rows.push({ metric: 'AdSense RPM (CHF)', baseline: b.adsense.rpmCHF, current: adsense.rpmCHF, ...compare(adsense.rpmCHF, b.adsense.rpmCHF) });
-    rows.push({ metric: 'AdSense desktop RPM (CHF)', baseline: b.adsense.desktopRpmCHF, current: adsense.desktopRpmCHF, ...compare(adsense.desktopRpmCHF, b.adsense.desktopRpmCHF) });
+    const currencyCode = String(adsense.currencyCode || b.adsense.currencyCode || 'EUR').toUpperCase();
+    const revenuePerDay = adsense.revenuePerDay ?? adsense.revenuePerDayCHF;
+    const baselineRevenuePerDay = b.adsense.revenuePerDay ?? b.adsense.revenuePerDayCHF;
+    const rpm = adsense.rpm ?? adsense.rpmCHF;
+    const baselineRpm = b.adsense.rpm ?? b.adsense.rpmCHF;
+    const desktopRpm = adsense.desktopRpm ?? adsense.desktopRpmCHF;
+    const baselineDesktopRpm = b.adsense.desktopRpm ?? b.adsense.desktopRpmCHF;
+    rows.push({ metric: `AdSense revenue / day (${currencyCode})`, baseline: baselineRevenuePerDay, current: revenuePerDay, ...compare(revenuePerDay, baselineRevenuePerDay) });
+    rows.push({ metric: `AdSense RPM (${currencyCode})`, baseline: baselineRpm, current: rpm, ...compare(rpm, baselineRpm) });
+    rows.push({ metric: `AdSense desktop RPM (${currencyCode})`, baseline: baselineDesktopRpm, current: desktopRpm, ...compare(desktopRpm, baselineDesktopRpm) });
     const gateCurrent7d = adsense.authGateImpressions7d;
     const gateBaseline7d = Math.round(b.adsense.authGateImpressions14d / 2);
     rows.push({ metric: 'Auth-gate impressions (7d)', baseline: gateBaseline7d, current: gateCurrent7d, ...compare(gateCurrent7d, gateBaseline7d) });
@@ -684,6 +707,10 @@ export function buildHistoryEntry(current, rows, dateStr) {
     date: dateStr,
     adsense: current.adsense
       ? {
+          currencyCode: current.adsense.currencyCode ?? null,
+          revenuePerDay: current.adsense.revenuePerDay ?? current.adsense.revenuePerDayCHF ?? null,
+          rpm: current.adsense.rpm ?? current.adsense.rpmCHF ?? null,
+          desktopRpm: current.adsense.desktopRpm ?? current.adsense.desktopRpmCHF ?? null,
           revenuePerDayCHF: current.adsense.revenuePerDayCHF ?? null,
           rpmCHF: current.adsense.rpmCHF ?? null,
           desktopRpmCHF: current.adsense.desktopRpmCHF ?? null,

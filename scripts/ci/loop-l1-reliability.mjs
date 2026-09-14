@@ -8,6 +8,7 @@ import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 import {
+  actionClassForPolicy,
   buildDecision,
   buildObservation,
   loadLoopPolicyForRun,
@@ -187,7 +188,7 @@ export async function runL1({
   sourcePath = DEFAULT_TELEMETRY_PATH,
   registryPath = DEFAULT_REGISTRY_PATH,
   maxAgeHours = DEFAULT_MAX_AGE_HOURS,
-  minimumSample = MINIMUM_SAMPLE,
+  minimumSample,
   issue = false,
   apply = false,
   reportDir = null,
@@ -213,7 +214,7 @@ export async function runL1({
       reason: error.message,
     });
   }
-  const actionClass = verdict.ok ? 'observe' : 'issue+suspend-canary';
+  const actionClass = actionClassForPolicy(loopPolicy, verdict.ok ? 'healthy' : 'needsReview');
   const actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
 
   const measurable = verdict.quality === 'observed' || verdict.quality === 'zero';
@@ -327,7 +328,9 @@ function parseArgs(argv) {
     sourcePath: valueAfter('--telemetry', DEFAULT_TELEMETRY_PATH),
     registryPath: valueAfter('--registry', DEFAULT_REGISTRY_PATH),
     maxAgeHours: Number(valueAfter('--max-age-hours', DEFAULT_MAX_AGE_HOURS)),
-    minimumSample: Number(valueAfter('--minimum-sample', MINIMUM_SAMPLE)),
+    minimumSample: argv.includes('--minimum-sample')
+      ? Number(argv[argv.indexOf('--minimum-sample') + 1])
+      : undefined,
     reportDir: valueAfter('--report-dir', process.env.RUNNER_TEMP
       ? path.join(process.env.RUNNER_TEMP, 'loop-fleet-l1')
       : path.join(os.tmpdir(), 'loop-fleet-l1')),

@@ -119,7 +119,7 @@ describe('Albergo Gardenia authoritative crawler', () => {
     const sitemap = representativeSitemap({ contentCount: 56, totalCount: 69 });
     const failedPrimary = new Set([
       ALBERGO_GARDENIA_SITEMAP_URL,
-      'https://www.albergo-gardenia.ch/story.php?mid=17&pid=1',
+      'https://albergo-gardenia.ch/story.php?mid=17&pid=1',
     ]);
     const fetchPage = vi.fn(async (url: string) => {
       if (failedPrimary.has(url)) {
@@ -153,6 +153,33 @@ describe('Albergo Gardenia authoritative crawler', () => {
       'https://albergo-gardenia.ch/story.php?mid=17&pid=1',
       expect.objectContaining(ALBERGO_GARDENIA_FETCH_BUDGET.content),
     );
+  });
+
+  it('sticks to the first successful apex/www alias without weakening resource identity checks', async () => {
+    const sitemap = representativeSitemap();
+    const fetchPage = vi.fn(async (url: string) => {
+      const parsed = new URL(url);
+      const isPrimarySitemap = url === ALBERGO_GARDENIA_SITEMAP_URL;
+      const isWwwContent = parsed.hostname === `www.${ALBERGO_GARDENIA_COMPANY_DOMAIN}`
+        && parsed.pathname !== '/sitemap.xml';
+      if (isPrimarySitemap || isWwwContent) {
+        return { ok: false, status: 0, url, body: '', host: parsed.hostname };
+      }
+      if (parsed.pathname === '/sitemap.xml') {
+        return { ok: true, status: 200, url, body: sitemap, host: parsed.hostname };
+      }
+      return { ok: true, status: 200, url, body: gardeniaPage(), host: parsed.hostname };
+    });
+
+    const jobs = await fetchAllAlbergoGardeniaJobs({ fetchPage });
+
+    expect(assertCompleteAlbergoGardeniaSnapshot(jobs)).toBe(true);
+    expect(fetchPage).toHaveBeenCalledTimes(42);
+    const contentCalls = fetchPage.mock.calls
+      .map(([url]) => String(url))
+      .filter((url) => new URL(url).pathname !== '/sitemap.xml');
+    expect(contentCalls).toHaveLength(40);
+    expect(contentCalls.every((url) => new URL(url).hostname === ALBERGO_GARDENIA_COMPANY_DOMAIN)).toBe(true);
   });
 
   it('switches once to bounded Chromium after both HTTP aliases exhaust and keeps that transport sticky', async () => {

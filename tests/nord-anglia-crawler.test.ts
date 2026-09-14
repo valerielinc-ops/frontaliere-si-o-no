@@ -15,6 +15,7 @@ import {
 } from '../scripts/lib/nord-anglia-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 import { mergePreserveLocaleData } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { FeedEndpointUnavailableError } from '../scripts/lib/feed-endpoint-guard.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -382,6 +383,58 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
       );
       expect(warnSpy).toHaveBeenCalled();
       warnSpy.mockRestore();
+    });
+
+    it('classifies the live ATS redirect before handing the body to XML parsing', async () => {
+      const response = new Response('<!DOCTYPE html><html><body>careers unavailable</body></html>', {
+        status: 200,
+      });
+      Object.defineProperty(response, 'url', {
+        value: 'https://www.nordangliaeducation.com/careers',
+      });
+      vi.stubGlobal('fetch', vi.fn(async () => response));
+
+      const error = await fetchAllNordAngliaJobs().catch((caught) => caught);
+      expect(error).toBeInstanceOf(FeedEndpointUnavailableError);
+      expect(error).toMatchObject({ feedEndpointUnavailable: true });
+    });
+
+    it('classifies an off-host non-OK redirect before the HTTP error path', async () => {
+      const response = new Response('vendor unavailable', { status: 403 });
+      Object.defineProperty(response, 'url', {
+        value: 'https://www.nordangliaeducation.com/careers',
+      });
+      vi.stubGlobal('fetch', vi.fn(async () => response));
+
+      const error = await fetchAllNordAngliaJobs().catch((caught) => caught);
+      expect(error).toBeInstanceOf(FeedEndpointUnavailableError);
+      expect(error).toMatchObject({ feedEndpointUnavailable: true });
+    });
+
+    it('propagates the exhausted retry marker when the ATS keeps returning 503', async () => {
+      const previousRetries = process.env.JOBS_CRAWLER_RETRIES;
+      const previousBaseMs = process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+      process.env.JOBS_CRAWLER_RETRIES = '1';
+      process.env.JOBS_CRAWLER_RETRY_BASE_MS = '0';
+      const fetchMock = vi.fn(() => {
+        const response = new Response('vendor unavailable', { status: 503 });
+        Object.defineProperty(response, 'url', {
+          value: 'https://careers.nordangliaeducation.com/services/rss/job/?locale=en_GB&keywords=(Aubonne)',
+        });
+        return response;
+      });
+      vi.stubGlobal('fetch', fetchMock);
+
+      try {
+        const error = await fetchAllNordAngliaJobs().catch((caught) => caught);
+        expect(error).toMatchObject({ status: 503, retryBudgetExhausted: true });
+        expect(fetchMock).toHaveBeenCalledTimes(2);
+      } finally {
+        if (previousRetries === undefined) delete process.env.JOBS_CRAWLER_RETRIES;
+        else process.env.JOBS_CRAWLER_RETRIES = previousRetries;
+        if (previousBaseMs === undefined) delete process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+        else process.env.JOBS_CRAWLER_RETRY_BASE_MS = previousBaseMs;
+      }
     });
   });
 

@@ -594,7 +594,7 @@ step_push_cdn() {
   fi
   keyfile="$RUNNER_TEMP/cdn_deploy_key"
   printf '%s\n' "$CDN_DEPLOY_KEY" > "$keyfile" && chmod 600 "$keyfile"
-  export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
+  export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=30 -o ServerAliveCountMax=6 -o TCPKeepAlive=yes"
   # ── Additive assets/ (anti-clobber) ──────────────────────────────────
   # Bundler assets/ have STABLE names (index-entry.js, App.js, index.css …
   # vite.config.ts chunkFileNames/assetFileNames): the stage already holds
