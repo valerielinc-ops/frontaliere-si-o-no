@@ -116,13 +116,13 @@ const CONNECTORS = {
   sz: {
     canton: 'Svitto',
     plateCode: 'SZ',
-    url: 'https://cariegov.sz.ch/ecari-auction/ui/app/init?locale=de_ch',
+    url: 'https://cariegov.sz.ch/ecari-auction/ui/app/init',
     parserVersion: '2.0.0',
     parse(html, fetchedAt) {
       return parseEcariSource(html, {
         canton: 'Svitto',
         plateCode: 'SZ',
-        officialAuctionUrl: 'https://cariegov.sz.ch/ecari-auction/ui/app/init?locale=de_ch',
+        officialAuctionUrl: 'https://cariegov.sz.ch/ecari-auction/ui/app/init',
         fetchedAt,
       });
     },
