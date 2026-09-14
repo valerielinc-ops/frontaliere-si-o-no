@@ -2666,10 +2666,10 @@ function BlogArticles({
  <Icon size={24} className={`${CTA_ICON_COLORS[cta.color]} shrink-0 mt-0.5`} />
  <div className="flex-1 min-w-0">
  <p className={`font-semibold ${CTA_TEXT_COLORS[cta.color].title}`}>
- {t(cta.titleKey)}
+ {t(cta.titleKey, getCantonI18nParams())}
  </p>
  <p className={`text-sm ${CTA_TEXT_COLORS[cta.color].desc} mt-1`}>
- {t(cta.descKey)}
+ {t(cta.descKey, getCantonI18nParams())}
  </p>
  <a
  href={buildPath(NAV_ACTION_ROUTES[cta.navAction])}
