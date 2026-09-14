@@ -2,11 +2,13 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import {
   evaluateNativeAutoMerge,
+  latestBotReview,
   latestBotReviewOnHead,
   nativeAutoMergeArgs,
   requiredVitestDecision,
   revalidateNativeAutoMerge,
   reviewHasLgtm,
+  reviewIsApproved,
   reviewHasZeroFindings,
 } from '../scripts/ci/native-automerge-gate.mjs';
 
@@ -54,7 +56,7 @@ function vitest(overrides: Record<string, unknown> = {}) {
 }
 
 describe('native auto-merge gate (#8512)', () => {
-  it('allows only the exact-head bot verdict plus a completed green Vitest check', () => {
+  it('allows an approving bot verdict plus a completed green current-head check', () => {
     const result = evaluateNativeAutoMerge({
       pr: pr(),
       reviews: [review(CLEAN_BODY)],
@@ -71,15 +73,31 @@ describe('native auto-merge gate (#8512)', () => {
     });
   });
 
-  it('rejects a clean review anchored to a stale HEAD', () => {
+  it('carries a clean older LGTM forward when the complete current-head check is green', () => {
     const result = evaluateNativeAutoMerge({
       pr: pr(),
       reviews: [review(CLEAN_BODY, OLD_HEAD)],
       checkRuns: [vitest()],
     });
 
-    expect(result).toMatchObject({ allow: false });
-    expect(result.reason).toMatch(/exact-head/i);
+    expect(result).toMatchObject({ allow: true });
+    expect(result.reason).toMatch(/carry-forward/i);
+  });
+
+  it('uses the latest bot review across commits and blocks a later stale finding', () => {
+    const reviews = [
+      review(CLEAN_BODY, HEAD, '2026-09-13T12:00:00Z'),
+      review(
+        '## Findings (Important: 1, Nit: 0)\n\n🔴 Important: stale finding.\n\n## LGTM',
+        OLD_HEAD,
+        '2026-09-13T12:02:00Z',
+      ),
+    ];
+
+    expect(latestBotReview(reviews)?.commit_id).toBe(OLD_HEAD);
+    expect(evaluateNativeAutoMerge({ pr: pr(), reviews, checkRuns: [vitest()] })).toMatchObject({
+      allow: false,
+    });
   });
 
   it('uses the newest bot review on the current HEAD, so a later finding wins', () => {
@@ -114,6 +132,7 @@ describe('native auto-merge gate (#8512)', () => {
   it('requires explicit Important 0, Nit 0 and an H2 LGTM', () => {
     expect(reviewHasZeroFindings(CLEAN_BODY)).toBe(true);
     expect(reviewHasLgtm(CLEAN_BODY)).toBe(true);
+    expect(reviewIsApproved(review(CLEAN_BODY))).toBe(true);
     expect(reviewHasZeroFindings('## Findings (Important: 0, Nit: 1)\n\n## LGTM')).toBe(false);
     expect(reviewHasZeroFindings('## Findings (Important: 0, Nit: 0)\n\n🟡 Nit: not harmless')).toBe(false);
     expect(reviewHasLgtm('The text says ## LGTM, but is not a heading')).toBe(false);
@@ -136,15 +155,15 @@ describe('native auto-merge gate (#8512)', () => {
     })).toMatchObject({ allow: false, reason: 'native auto-merge già abilitato' });
   });
 
-  it('marks a persisted native opt-in for revocation when the current HEAD lacks a fresh verdict', () => {
+  it('marks a persisted native opt-in for revocation when the latest verdict is not approving', () => {
     const result = revalidateNativeAutoMerge({
       pr: pr({ autoMergeRequest: { enabledAt: '2026-09-13T12:00:00Z' } }),
-      reviews: [review(CLEAN_BODY, OLD_HEAD)],
+      reviews: [review('## Findings (Important: 1, Nit: 0)\n\n🔴 Important: regression.', OLD_HEAD)],
       checkRuns: [vitest()],
     });
 
     expect(result).toMatchObject({ allow: false, action: 'revoke' });
-    expect(result.reason).toMatch(/exact-head/i);
+    expect(result.reason).toMatch(/Important 0\/Nit 0/i);
   });
 
   it('retains a persisted native opt-in only after revalidating the current HEAD', () => {
@@ -155,6 +174,17 @@ describe('native auto-merge gate (#8512)', () => {
     });
 
     expect(result).toMatchObject({ allow: true, action: 'retain' });
+  });
+
+  it('retains a persisted native opt-in when the full current-head check validates LGTM carry-forward', () => {
+    const result = revalidateNativeAutoMerge({
+      pr: pr({ autoMergeRequest: { enabledAt: '2026-09-13T12:00:00Z' } }),
+      reviews: [review(CLEAN_BODY, OLD_HEAD)],
+      checkRuns: [vitest()],
+    });
+
+    expect(result).toMatchObject({ allow: true, action: 'retain' });
+    expect(result.reason).toMatch(/carry-forward/i);
   });
 
   it('revokes an inherited native opt-in through the GitHub API instead of trusting persistence', () => {
