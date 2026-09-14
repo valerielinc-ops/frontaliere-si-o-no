@@ -230,7 +230,7 @@ async function main() {
   const tmpDir = mkdtempSync(join(tmpdir(), 'cdn-janitor-'));
   const keyFile = join(tmpDir, 'key');
   writeFileSync(keyFile, `${CDN_DEPLOY_KEY}\n`, { mode: 0o600 });
-  const sshCmd = `ssh -i ${keyFile} -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new`;
+  const sshCmd = `ssh -i ${keyFile} -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=30 -o ServerAliveCountMax=6 -o TCPKeepAlive=yes`;
   const sshEnv = { GIT_SSH_COMMAND: sshCmd };
 
   try {

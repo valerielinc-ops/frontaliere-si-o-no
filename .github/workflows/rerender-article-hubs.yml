@@ -356,7 +356,7 @@ jobs:
             kf="$RUNNER_TEMP/probe_${shard}_${loc}"
             printf '%s\n' "$key" > "$kf"
             chmod 600 "$kf"
-            if GIT_SSH_COMMAND="ssh -i $kf -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new" \
+            if GIT_SSH_COMMAND="ssh -i $kf -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=30 -o ServerAliveCountMax=6 -o TCPKeepAlive=yes" \
                git ls-remote --heads "git@github.com:$owner/frontaliere-$shard-$loc.git" main \
                2>/dev/null | grep -q 'refs/heads/main'; then
               echo "  reachable  $owner/frontaliere-$shard-$loc"
