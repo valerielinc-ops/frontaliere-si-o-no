@@ -94,6 +94,16 @@ describe('plate-auction static pages', () => {
     expect(hreflangs).toEqual(['it', 'en', 'de', 'fr', 'x-default']);
   });
 
+  it('keeps the visible H1 distinct and emits a breadcrumb schema block', () => {
+    const rootDir = fixtureRoot();
+    const rendered = renderPlateAuctionPage({ locale: 'it', view: 'canton', canton: 'GR', rootDir });
+    const title = rendered.html.match(/<title>([^<]*)<\/title>/)?.[1] || '';
+    const h1 = rendered.html.match(/<h1[^>]*>([^<]*)<\/h1>/)?.[1] || '';
+    expect(h1).toContain('(guida frontaliere)');
+    expect(h1).not.toBe(title);
+    expect(rendered.html).toContain('"@type":"BreadcrumbList"');
+  });
+
   it('links every sitemap detail URL from static locale hubs', async () => {
     const rootDir = fixtureRoot({ auctionCount: 41, withDist: true });
     const closeBundle = plateAuctionsPagesPlugin(rootDir).closeBundle;

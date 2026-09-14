@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { stripLiteralMarkdown } from '../../build-plugins/shared/stripLiteralMarkdown';
+import { stripLiteralMarkdown, stripWholeMarkdownBoldWrapper } from '../../build-plugins/shared/stripLiteralMarkdown';
 
 // Pins the funnel-critical contract of the single shared helper that scrubs
 // literal markdown out of crawler-/AI-sourced strings before they reach indexed
@@ -41,5 +41,18 @@ describe('stripLiteralMarkdown', () => {
   it('passes through clean strings and empty input untouched', () => {
     expect(stripLiteralMarkdown('Offerte di Lavoro in Ticino')).toBe('Offerte di Lavoro in Ticino');
     expect(stripLiteralMarkdown('')).toBe('');
+  });
+});
+
+describe('stripWholeMarkdownBoldWrapper', () => {
+  it('removes only a wrapper around the complete value', () => {
+    expect(stripWholeMarkdownBoldWrapper('**Assistant Store Manager (m/w/d)**')).toBe('Assistant Store Manager (m/w/d)');
+    expect(stripWholeMarkdownBoldWrapper('** Breaking it down: - **')).toBe('Breaking it down: -');
+  });
+
+  it('preserves employer wording that starts with a triple-star brand marker', () => {
+    expect(stripWholeMarkdownBoldWrapper('Verkaufsberater:in ***delicatessa 40-60% (w/m/d)')).toBe(
+      'Verkaufsberater:in ***delicatessa 40-60% (w/m/d)',
+    );
   });
 });
