@@ -1,8 +1,8 @@
-import { MapContainer, CircleMarker, Popup, TileLayer, useMap } from 'react-leaflet';
+import { CircleMarker, Popup, useMap } from 'react-leaflet';
 import { useEffect } from 'react';
-import 'leaflet/dist/leaflet.css';
 import type { LatLngBoundsExpression, LatLngExpression } from 'leaflet';
 import type { Pharmacy } from '@/services/pharmacies/types';
+import MapCanvas from '@/components/shared/MapCanvas';
 
 interface PharmacyMapProps {
   pharmacies: Pharmacy[];
@@ -41,18 +41,13 @@ export default function PharmacyMap({ pharmacies, getHref, openLabel, noLocation
 
   const center = [located[0].latitude!, located[0].longitude!] as LatLngExpression;
   return (
-    <div className="overflow-hidden rounded-2xl border border-edge bg-surface shadow-sm">
-      <MapContainer
-        center={center}
-        zoom={located.length === 1 ? 16 : 10}
-        scrollWheelZoom={false}
-        className="h-[22rem] w-full sm:h-[28rem]"
-        aria-label={openLabel}
-      >
-        <TileLayer
-          attribution="&copy; OpenStreetMap contributors"
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
+    <MapCanvas
+      center={center}
+      zoom={located.length === 1 ? 16 : 10}
+      scrollWheelZoom={false}
+      className="h-[22rem] w-full overflow-hidden rounded-2xl border border-edge bg-surface shadow-sm sm:h-[28rem]"
+      ariaLabel={openLabel}
+    >
         <MapViewport pharmacies={located} />
         {located.map((pharmacy) => (
           <CircleMarker
@@ -70,7 +65,6 @@ export default function PharmacyMap({ pharmacies, getHref, openLabel, noLocation
             </Popup>
           </CircleMarker>
         ))}
-      </MapContainer>
-    </div>
+    </MapCanvas>
   );
 }
