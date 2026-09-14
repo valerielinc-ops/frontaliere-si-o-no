@@ -25,7 +25,7 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { parseDocument } from 'yaml';
-import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { createGithubIssue, ensureLabelsExist } from '../lib/github-issue-creator.mjs';
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 export const WORKFLOW_DIR_NAME = path.join('.github', 'workflows');
@@ -891,11 +891,11 @@ export function auditIssueRouting(summary) {
 function syncAuditIssueRouting(issueNumber, summary) {
   if (!issueNumber) return;
   const routing = auditIssueRouting(summary);
-  // Deduplicated issues return before createGithubIssue's normal label
-  // provisioning path. Provision the target label here too, otherwise the
-  // first warning-only recurrence can fail to leave the durable review route.
-  ensureLabelsExist([routing.add]);
   try {
+    // Deduplicated issues return before createGithubIssue's normal label
+    // provisioning path. Provision the target label here too, otherwise the
+    // first warning-only recurrence can fail to leave the durable review route.
+    ensureLabelsExist([routing.add]);
     execFileSync('gh', [
       'issue', 'edit', String(issueNumber),
       '--add-label', routing.add,
