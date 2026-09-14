@@ -4,20 +4,20 @@
   "generatorSha256": "e49713b711ae3cf404a79e97b4e4fea406c6399db3a18e531effae27b34576b4",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "5dfbe52430b22bf1bae03adf949e3f4425d9bf3d",
+  "sourceCommit": "034829fd4a96035470c902aa4318d93429d9f364",
   "artifactObservation": {
     "generatorSha256": "e49713b711ae3cf404a79e97b4e4fea406c6399db3a18e531effae27b34576b4",
     "sourceRef": "main",
-    "sourceCommit": "5dfbe52430b22bf1bae03adf949e3f4425d9bf3d"
+    "sourceCommit": "034829fd4a96035470c902aa4318d93429d9f364"
   },
   "groupCount": 23,
   "artifactCount": 24,
   "observerCount": 7,
-  "crawlerCount": 601,
+  "crawlerCount": 602,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:38c75dbd377f18ab0826a536013f621a1cccbe92e49f93643da1d4b485863219",
+    "rosterDigest": "sha256:80747d27d6778cf7dfd0b3e39fbc21f73b8d48f989a8ae762edb933619a60bfd",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -330,6 +330,7 @@
     "scripts/update-mabetex-jobs.mjs",
     "scripts/update-marriott-jobs.mjs",
     "scripts/update-matterhorn-gotthard-bahn-jobs.mjs",
+    "scripts/update-mcm-group-jobs.mjs",
     "scripts/update-med-ipersonal-jobs.mjs",
     "scripts/update-medartis-jobs.mjs",
     "scripts/update-medbase-jobs.mjs",
@@ -614,8 +615,8 @@
     {
       "file": "crawler-group-02.yml",
       "sourceLogic": "crawler-group-02-logic.yml",
-      "sourceSha256": "8704d352cfc154b3f6e6867547c5240cd9da98d7c133838456de6fad7f960e65",
-      "artifactSha256": "b8fe8a5c02dc151d65e38fdf3817f0b69fb769183c44346ff2a04a7e9da3198d",
+      "sourceSha256": "275e3e7ad9abb91d62c4de33a7e3bc19a1e2874ddcf4786d835c9df4654373a0",
+      "artifactSha256": "a812468b205535a600939ac8ca080586b204e9f94f6e41f74c1a1049e7149041",
       "generatorSha256": "e49713b711ae3cf404a79e97b4e4fea406c6399db3a18e531effae27b34576b4",
       "members": [
         "roche",
@@ -643,7 +644,8 @@
         "kanton-gr",
         "chicco-doro",
         "belimo",
-        "fart"
+        "fart",
+        "mcm-group"
       ]
     },
     {
