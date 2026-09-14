@@ -67,5 +67,9 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json
           git commit -m "chore(data): refresh Ticino pharmacy duties"
-          bash scripts/lib/configure-main-push-auth.sh
-          git push origin HEAD:main
+          # The duty files are generated data and can race with crawler/article
+          # writers on main. Rebase cleanly when possible; if the generated
+          # JSON itself conflicts, regenerate it on the fetched main tip so we
+          # never publish a stale snapshot or lose a concurrent commit.
+          bash scripts/lib/git-push-with-retry.sh \
+            --regenerate-cmd "node scripts/sync-pharmacy-duties.mjs && git add data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json"

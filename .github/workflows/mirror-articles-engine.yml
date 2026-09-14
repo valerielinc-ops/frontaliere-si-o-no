@@ -143,6 +143,19 @@ jobs:
 
           work=$(mktemp -d)
           echo "work=$work" >> "$GITHUB_OUTPUT"
+          source_manifest="$RUNNER_TEMP/engine-source-manifest.txt"
+          source_tree_sha="$(git rev-parse HEAD:packages/articles/engine)"
+          manifest() {
+            local root="$1"
+            find "$root" -type f -print0 \
+              | LC_ALL=C sort -z \
+              | while IFS= read -r -d '' file; do
+                  rel="${file#"$root"/}"
+                  printf '%s  %s\n' "$(sha256sum "$file" | cut -d' ' -f1)" "$rel"
+                done
+          }
+          manifest packages/articles/engine > "$source_manifest"
+          echo "source_tree_sha=$source_tree_sha" >> "$GITHUB_OUTPUT"
 
           # Always branch from nanako's CURRENT main, never from whatever the
           # side branch happens to hold. The side branch is derived state; if
@@ -158,8 +171,17 @@ jobs:
           # destructive step was `rm -rf content` — there is deliberately no
           # analogue here, and the guard below proves it on the actual diff
           # rather than trusting this comment.
-          rm -rf "${work:?}/engine"
-          cp -R packages/articles/engine "$work/engine"
+          stage_dir="$work/.engine-stage"
+          mkdir -p "$stage_dir"
+          cp -R packages/articles/engine "$stage_dir/engine"
+          manifest "$stage_dir/engine" > "$stage_dir/engine-manifest.txt"
+          if ! diff -u "$source_manifest" "$stage_dir/engine-manifest.txt"; then
+            echo "::error::engine/shared preflight mismatch after the copy — refusing to fan out a partial mirror"
+            exit 1
+          fi
+          mv "$work/engine" "$work/.engine-before-preflight"
+          mv "$stage_dir/engine" "$work/engine"
+          rm -rf "$work/.engine-before-preflight" "$stage_dir"
           for f in index.ts articleSections.ts; do
             [ -f "packages/articles/$f" ] && cp "packages/articles/$f" "$work/$f"
           done

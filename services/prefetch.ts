@@ -27,8 +27,11 @@ export function prefetchOnIdle(key: string, loader: PrefetchFn) {
  });
  };
 
- if ('requestIdleCallback' in window) {
- (window as any).requestIdleCallback(run, { timeout: 3000 });
+ const idleWindow = window as Window & {
+ requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
+ };
+ if (typeof idleWindow.requestIdleCallback === 'function') {
+ idleWindow.requestIdleCallback(run, { timeout: 3000 });
  } else {
  setTimeout(run, 100);
  }

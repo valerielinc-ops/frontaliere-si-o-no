@@ -21,6 +21,7 @@ export const SITE_ORIGIN = 'https://frontaliereticino.ch';
 export const CDN_ORIGIN = 'https://cdn.frontaliereticino.ch';
 export const SITE_BUILD_ID_PATH = '/build-id.txt';
 export const CDN_BUILD_ID_PATH = '/cdn-build-id.txt';
+export const RUNTIME_CIRCUIT_COOLDOWN_MS = 15 * 60 * 1000;
 
 // These are the stable bundle files involved in the observed version-skew
 // family. Keep the list short: the goal is a cheap liveness/coherence signal,
@@ -46,6 +47,74 @@ function cacheBust(url, nonce) {
 
 function sha256(text) {
   return createHash('sha256').update(text).digest('hex');
+}
+
+/**
+ * Stable identity of one observed failure.  It intentionally excludes the
+ * clock, cache-busting nonce and response bodies: a retry of the same
+ * generation must be deduplicated, while a new deploy or a changed asset
+ * must reopen the repair path.
+ */
+export function runtimeFailureFingerprint(result) {
+  const signature = {
+    assets: (result?.assets || []).map((asset) => ({
+      cachedHash: asset.cachedHash || null,
+      cachedStatus: asset.cachedStatus || 0,
+      error: asset.error || null,
+      freshHash: asset.freshHash || null,
+      freshStatus: asset.freshStatus || 0,
+      path: asset.path,
+      state: asset.state,
+    })),
+    cdnBuildId: result?.cdnBuildId || null,
+    markerState: result?.markerState || 'unknown',
+    siteBuildId: result?.siteBuildId || null,
+    version: 'runtime-reliability/v1',
+  };
+  return sha256(JSON.stringify(signature)).slice(0, 16);
+}
+
+/**
+ * Decide whether an exact-URL purge is safe and useful.  The state is stored
+ * by the workflow in an Actions cache, so repeated schedule/deploy triggers
+ * do not spend Cloudflare quota on the same unchanged divergence.  A marker
+ * mismatch remains blocked: there is no safe generation to purge against.
+ */
+export function evaluateRepairPolicy({
+  probe,
+  previousState = {},
+  nowMs = Date.now(),
+  cooldownMs = RUNTIME_CIRCUIT_COOLDOWN_MS,
+} = {}) {
+  const fingerprint = probe?.fingerprint || runtimeFailureFingerprint(probe);
+  const previousAt = Date.parse(previousState?.lastActionAt || '');
+  const sameFailure = previousState?.fingerprint === fingerprint;
+  const cooldownActive = sameFailure
+    && Number.isFinite(previousAt)
+    && nowMs >= previousAt
+    && nowMs - previousAt < Math.max(0, Number(cooldownMs) || 0);
+  if (!probe?.purgeUrls?.length) {
+    return {
+      action: probe?.markerState === 'coherent' ? 'none' : 'blocked_marker',
+      circuit: 'closed',
+      fingerprint,
+      reason: probe?.markerState === 'coherent' ? 'no_targeted_assets' : 'marker_not_coherent',
+    };
+  }
+  if (cooldownActive) {
+    return {
+      action: 'skip_duplicate_purge',
+      circuit: 'open',
+      fingerprint,
+      reason: 'same_fingerprint_within_cooldown',
+    };
+  }
+  return {
+    action: 'purge',
+    circuit: 'closed',
+    fingerprint,
+    reason: sameFailure ? 'cooldown_elapsed' : 'new_fingerprint',
+  };
 }
 
 function validBuildId(value) {
@@ -150,7 +219,7 @@ export function evaluateProbe({ siteCached, siteFresh, cdnMarker, assets }) {
   const unhealthyAssets = assetResults.filter((asset) => asset.state !== 'healthy');
   const ok = markerState === 'coherent' && unhealthyAssets.length === 0;
 
-  return {
+  const result = {
     ok,
     markerState,
     siteBuildId,
@@ -170,6 +239,8 @@ export function evaluateProbe({ siteCached, siteFresh, cdnMarker, assets }) {
       ...unhealthyAssets.map((asset) => `${asset.path}: ${asset.state}`),
     ].filter(Boolean),
   };
+  result.fingerprint = runtimeFailureFingerprint(result);
+  return result;
 }
 
 export async function probeRuntime({

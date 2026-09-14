@@ -1,0 +1,60 @@
+name: Orchestrator heartbeat
+
+# A scheduled run that never gets created cannot fail and cannot notify the
+# owner. This independent 15-minute read-only watchdog detects that hole after
+# the measured GitHub cron delay, while orchestrate-crawlers remains the single
+# writer/dispatcher for the crawler wave.
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch: {}
+
+concurrency:
+  group: orchestrator-heartbeat
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  actions: read
+  issues: write
+
+jobs:
+  heartbeat:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout heartbeat runtime
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            scripts/ci/orchestrator-heartbeat.mjs
+            scripts/lib/github-issue-creator.mjs
+          sparse-checkout-cone-mode: false
+
+      - name: Check latest orchestrator cron slot
+        env:
+          GH_REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ORCHESTRATOR_HEARTBEAT_GRACE_MINUTES: '180'
+        run: |
+          mkdir -p "$RUNNER_TEMP/orchestrator-heartbeat"
+          node scripts/ci/orchestrator-heartbeat.mjs \
+            --output "$RUNNER_TEMP/orchestrator-heartbeat/report.json"
+
+      - name: Publish heartbeat evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: orchestrator-heartbeat-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/orchestrator-heartbeat/report.json
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Add heartbeat report to summary
+        if: always()
+        run: |
+          if [ -f "$RUNNER_TEMP/orchestrator-heartbeat/report.json" ]; then
+            echo '### Orchestrator heartbeat' >> "$GITHUB_STEP_SUMMARY"
+            cat "$RUNNER_TEMP/orchestrator-heartbeat/report.json" >> "$GITHUB_STEP_SUMMARY"
+          fi

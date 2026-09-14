@@ -22,6 +22,11 @@ describe('fallback GA4 dei monitor PostHog', () => {
     }
   });
 
+  it('non sporca lo stdout dei consumer JSON con la diagnostica auth', () => {
+    const helper = readFileSync(resolve(import.meta.dirname, '../scripts/lib/ga4-service-account.mjs'), 'utf8');
+    expect(helper).toContain('logInfo = console.error');
+  });
+
   it('usa una finestra assestata di esattamente N giornate', () => {
     expect(ga4DateRange(7, 2, new Date('2026-09-08T12:00:00Z'))).toEqual({
       startDate: '2026-08-31',

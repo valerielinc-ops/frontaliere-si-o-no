@@ -184,8 +184,11 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
     if (!active) return;
     const divId = divIdRef.current;
 
-    const ric: (cb: () => void) => void = (window as any).requestIdleCallback
-      ? (cb) => (window as any).requestIdleCallback(cb, { timeout: 3000 })
+    const idleWindow = window as Window & {
+      requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
+    };
+    const ric: (cb: () => void) => void = typeof idleWindow.requestIdleCallback === 'function'
+      ? (cb) => { idleWindow.requestIdleCallback?.(cb, { timeout: 3000 }); }
       : (cb) => window.setTimeout(cb, 1200);
     ric(initGptFramework);
 

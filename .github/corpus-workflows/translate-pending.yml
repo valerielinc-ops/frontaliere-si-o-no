@@ -46,6 +46,7 @@ permissions:
   issues: write
 env:
   NODE_OPTIONS: --disable-warning=DEP0040 --disable-warning=DEP0169 --max-old-space-size=12288
+  DATA_PIPELINE_LEASE: "1"
   TRANSLATE_RUN_CLOCK_REQUIRED: "1"
 jobs:
   translate:
@@ -119,6 +120,16 @@ jobs:
         id: checkout
         if: always() && (steps.site_checkout_primary.outcome == 'success' || steps.site_checkout_retry.outcome == 'success')
         run: "true"
+      - name: Validate recovery successor claim
+        if: steps.checkout.outcome == 'success' && github.run_attempt > 1
+        env:
+          GITHUB_API_URL: ${{ github.api_url }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_RUN_ATTEMPT: ${{ github.run_attempt }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          GITHUB_SHA: ${{ github.sha }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/ci/translate-recovery-successor-guard.mjs
       - name: Setup Node.js
         uses: actions/setup-node@v5
         with:

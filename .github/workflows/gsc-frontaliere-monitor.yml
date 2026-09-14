@@ -125,27 +125,7 @@ jobs:
           # push is the expected failure mode, NOT a code bug. Mirror the
           # rebase loop already used by crawler-health-monitor.yml,
           # refresh-thin-promotions.yml, and deploy.yml's dist-history step.
-          MAX_ATTEMPTS=5
-          BACKOFF_BASE=3
-          attempt=1
-          bash scripts/lib/configure-main-push-auth.sh
-          while [ "$attempt" -le "$MAX_ATTEMPTS" ]; do
-            if git push origin HEAD:main; then
-              echo "✅ Pushed gsc baseline refresh."
-              exit 0
-            fi
-            echo "⚠️ Push rejected (attempt $attempt/$MAX_ATTEMPTS) — fetch + rebase, then retry…"
-            git fetch origin main || true  # tolerate transient net failure; rebase below will signal staleness
-            if ! git rebase origin/main; then
-              echo "⚠️ Rebase conflict on data/gsc-frontaliere-baseline.json — aborting and resetting."
-              git rebase --abort || true
-              exit 1
-            fi
-            sleep $((BACKOFF_BASE * attempt))
-            attempt=$((attempt + 1))
-          done
-          echo "❌ Push failed after $MAX_ATTEMPTS attempts — leaving baseline uncommitted."
-          exit 1
+          bash scripts/lib/git-push-with-retry.sh
 
       - name: Open brand drift issue
         if: ${{ steps.status.outputs.drift == 'true' }}

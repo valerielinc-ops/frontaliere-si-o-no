@@ -88,27 +88,7 @@ jobs:
           # without surfacing in the workflow log. Mirror the pattern
           # from refresh-thin-promotions.yml (#794), dist-history
           # (#804), and gsc-frontaliere-monitor (#805).
-          bash scripts/lib/configure-main-push-auth.sh
-          MAX_ATTEMPTS=5
-          BACKOFF_BASE=3
-          attempt=1
-          while [ "$attempt" -le "$MAX_ATTEMPTS" ]; do
-            if git push origin HEAD:main; then
-              echo "✅ Pushed quality-alerts state."
-              exit 0
-            fi
-            echo "⚠️ Push rejected (attempt $attempt/$MAX_ATTEMPTS) — fetch + rebase, then retry…"
-            git fetch origin main
-            if ! git -c rebase.autoStash=true rebase origin/main; then
-              echo "⚠️ Rebase conflict on alert state files — aborting and resetting."
-              git rebase --abort || true
-              exit 1
-            fi
-            sleep $((BACKOFF_BASE * attempt))
-            attempt=$((attempt + 1))
-          done
-          echo "❌ Push failed after $MAX_ATTEMPTS attempts — leaving alert state uncommitted."
-          exit 1
+          bash scripts/lib/git-push-with-retry.sh
 
       - name: Report failure to GitHub Issues
         # Skip when the failure is an intentional quality alert (exit code 8 =

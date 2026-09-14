@@ -43,18 +43,15 @@ jobs:
             scripts/load-rc-env.mjs
             scripts/lib/**
             infra/cloudflare-worker/**
-            package.json
-            package-lock.json
           sparse-checkout-cone-mode: false
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v5
+      - name: Restore runtime repair circuit state
+        id: circuit
+        uses: actions/cache/restore@v5
         with:
-          node-version: '22'
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
+          path: .runtime-reliability-state
+          key: runtime-reliability-circuit-${{ github.run_id }}
+          restore-keys: runtime-reliability-circuit-
 
       - name: Prepare Firebase credentials
         env:
@@ -71,20 +68,32 @@ jobs:
       - name: Probe live runtime
         id: probe
         run: |
-          set +e
-          node scripts/runtime-reliability-watch.mjs --json > runtime-reliability.json
-          status=$?
-          set -e
-          echo "exit_code=$status" >> "$GITHUB_OUTPUT"
-          if [ -s runtime-reliability.json ]; then
-            purge_urls="$(node --input-type=module -e "import fs from 'node:fs'; const p=JSON.parse(fs.readFileSync('runtime-reliability.json','utf8')); process.stdout.write((p.purgeUrls||[]).join(','));")"
-          else
-            purge_urls=""
-          fi
-          echo "purge_urls=$purge_urls" >> "$GITHUB_OUTPUT"
+          set -euo pipefail
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import { evaluateRepairPolicy, probeRuntime } from './scripts/runtime-reliability-watch.mjs';
+
+          const report = await probeRuntime();
+          const statePath = '.runtime-reliability-state/state.json';
+          let previous = {};
+          try { previous = JSON.parse(fs.readFileSync(statePath, 'utf8')); } catch {}
+          const repair = evaluateRepairPolicy({ probe: report, previousState: previous });
+          fs.writeFileSync('runtime-reliability.json', `${JSON.stringify({ ...report, repair }, null, 2)}\n`);
+          NODE
+          status=0
+          purge_urls="$(node --input-type=module -e "import fs from 'node:fs'; const p=JSON.parse(fs.readFileSync('runtime-reliability.json','utf8')); process.stdout.write((p.purgeUrls||[]).join(','));")"
+          repair_action="$(node --input-type=module -e "import fs from 'node:fs'; const p=JSON.parse(fs.readFileSync('runtime-reliability.json','utf8')); process.stdout.write(p.repair?.action||'none');")"
+          fingerprint="$(node --input-type=module -e "import fs from 'node:fs'; const p=JSON.parse(fs.readFileSync('runtime-reliability.json','utf8')); process.stdout.write(p.fingerprint||'unknown');")"
+          {
+            echo "exit_code=$status"
+            echo "purge_urls=$purge_urls"
+            echo "repair_action=$repair_action"
+            echo "fingerprint=$fingerprint"
+          } >> "$GITHUB_OUTPUT"
 
       - name: Purge divergent CDN assets
-        if: steps.probe.outputs.purge_urls != ''
+        id: purge
+        if: steps.probe.outputs.repair_action == 'purge'
         continue-on-error: true
         env:
           PURGE_URLS: ${{ steps.probe.outputs.purge_urls }}
@@ -96,7 +105,7 @@ jobs:
           node scripts/cf-purge-cache.mjs "--files=$PURGE_URLS"
 
       - name: Allow targeted purge propagation
-        if: steps.probe.outputs.purge_urls != ''
+        if: steps.probe.outputs.repair_action == 'purge'
         run: sleep 10
 
       - name: Verify live runtime after repair
@@ -108,6 +117,52 @@ jobs:
           set -e
           echo "exit_code=$status" >> "$GITHUB_OUTPUT"
           exit 0
+
+      - name: Persist runtime circuit state
+        if: always()
+        run: |
+          set -euo pipefail
+          mkdir -p .runtime-reliability-state
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const source = fs.existsSync('runtime-reliability-final.json')
+            ? 'runtime-reliability-final.json'
+            : 'runtime-reliability.json';
+          const report = JSON.parse(fs.readFileSync(source, 'utf8'));
+          const first = JSON.parse(fs.readFileSync('runtime-reliability.json', 'utf8'));
+          let previous = {};
+          try {
+            const candidate = JSON.parse(fs.readFileSync('.runtime-reliability-state/state.json', 'utf8'));
+            if (candidate && typeof candidate === 'object' && !Array.isArray(candidate)) previous = candidate;
+          } catch {}
+          const fingerprint = report.fingerprint || first.fingerprint || null;
+          const previousLastActionAt = typeof previous.lastActionAt === 'string'
+            && Number.isFinite(Date.parse(previous.lastActionAt))
+            ? previous.lastActionAt
+            : null;
+          const sameFingerprint = Boolean(fingerprint) && previous.fingerprint === fingerprint;
+          const purgeSucceeded = Boolean(fingerprint)
+            && first.fingerprint === fingerprint
+            && first.repair?.action === 'purge'
+            && '${{ steps.purge.outcome }}' === 'success';
+          const state = {
+            fingerprint,
+            lastActionAt: purgeSucceeded
+              ? new Date().toISOString()
+              : sameFingerprint ? previousLastActionAt : null,
+            lastAction: first.repair?.action || 'none',
+            markerState: report.markerState || null,
+          };
+          fs.writeFileSync('.runtime-reliability-state/state.json', `${JSON.stringify(state, null, 2)}\n`);
+          NODE
+
+      - name: Save runtime repair circuit state
+        if: always()
+        continue-on-error: true
+        uses: actions/cache/save@v5
+        with:
+          path: .runtime-reliability-state
+          key: runtime-reliability-circuit-${{ github.run_id }}
 
       - name: Upload runtime evidence
         if: always()

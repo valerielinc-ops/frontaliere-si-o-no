@@ -1000,6 +1000,9 @@ export async function runCrawlerGenerationDispatchCli(argv = process.argv.slice(
         `ready=${result.ready}\ndispatch_mode=${result.dispatchMode}\ncorpus_commit=${result.corpusCodeCommit ?? ''}\n`,
       );
     }
+    if (env.GENERATION_PREFLIGHT_OUTPUT) {
+      writeJsonAtomic(env.GENERATION_PREFLIGHT_OUTPUT, result, { compact: true });
+    }
     if (result.ready && (result.warnings ?? []).includes('corpus_mirror_lockstep_pending')) {
       process.stderr.write(
         `::warning::crawler generation mirror ahead of ${CALLER_REPOSITORY}@${result.corpusCodeCommit}`

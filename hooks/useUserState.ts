@@ -65,8 +65,11 @@ export function useUserState(
  }
  });
  };
- if ('requestIdleCallback' in window) {
- requestIdleCallback(loadProfile, { timeout: 4000 });
+ const idleWindow = window as Window & {
+ requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
+ };
+ if (typeof idleWindow.requestIdleCallback === 'function') {
+ idleWindow.requestIdleCallback(loadProfile, { timeout: 4000 });
  } else {
  setTimeout(loadProfile, 2000);
  }

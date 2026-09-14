@@ -226,8 +226,11 @@ export function initMobileUxMonitor(): void {
  };
 
  // Use requestIdleCallback if available, else setTimeout
- if ('requestIdleCallback' in window) {
- (window as any).requestIdleCallback(runAudits, { timeout: 10000 });
+ const idleWindow = window as Window & {
+ requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
+ };
+ if (typeof idleWindow.requestIdleCallback === 'function') {
+ idleWindow.requestIdleCallback(runAudits, { timeout: 10000 });
  } else {
  setTimeout(runAudits, 5000);
  }

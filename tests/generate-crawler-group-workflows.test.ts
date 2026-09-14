@@ -479,6 +479,30 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
     expect(exitCode).not.toBe(0);
   });
 
+  it('exit 44 (global lease busy): no per-crawler issue and retryable soft success', () => {
+    const leaseBusyDir = writeFixtureCommitScript(44);
+    const crawler = withInspectableFailureReporter(crawlerFixture({ commitCommand: leaseBusyDir }));
+
+    const { exitCode, stdout } = runBody(buildCrawlerShellBody(crawler));
+
+    expect(exitCode).toBe(0);
+    expect(stdout).not.toContain('TITLE=Crawler Failure: Run test-crawler');
+    expect(stdout).toContain('global data-pipeline lease is busy (exit 44)');
+  });
+
+  it('exit 44 under the target timeout wrapper: same retryable verdict through target_exit', () => {
+    const leaseBusyDir = writeFixtureCommitScript(44);
+    const crawler = {
+      ...withInspectableFailureReporter(crawlerFixture({ commitCommand: leaseBusyDir })),
+      targetTimeoutMinutes: 30,
+    };
+
+    const { exitCode, stdout } = runBody(buildCrawlerShellBody(crawler));
+
+    expect(exitCode).toBe(0);
+    expect(stdout).not.toContain('TITLE=Crawler Failure: Run test-crawler');
+  });
+
   // Il contrappeso: il carve-out deve restare stretto. Un fallimento di
   // commit VERO del singolo crawler (exit 1) tiene la sua issue, altrimenti
   // la fix avrebbe barattato il rumore con il silenzio.
@@ -741,6 +765,9 @@ describe('push-contention class (exit 42) in generated steps', () => {
       expect(y).toContain('[ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]');
       // ...and the contention branch must log loudly instead of filing an issue
       expect(y).toContain('push contention loss (exit 42)');
+      // A global lease convoy is a separate retryable systemic class.
+      expect(y).toContain('[ "$git_commit_exit" -ne 44 ]');
+      expect(y).toContain('global data-pipeline lease busy (exit 44)');
       // real failures still fail the step (the plain exit 1 path survives)
       expect(y).toContain('exit 1');
     }
@@ -762,6 +789,9 @@ describe('#7116 — push-contention class (exit 42) on the group-batch commit st
       // ...42 must be handled explicitly and keep the step green...
       expect(commitStep.run).toContain('[ "$git_commit_exit" -eq 42 ]');
       expect(commitStep.run).toContain('exit 0');
+      // ...as must the cross-repository lease convoy (exit 44).
+      expect(commitStep.run).toContain('[ "$git_commit_exit" -eq 44 ]');
+      expect(commitStep.run).toContain('global data-pipeline lease busy (exit 44)');
       // ...while any other non-zero exit still propagates and fails the step.
       expect(commitStep.run).toContain('exit "$git_commit_exit"');
     }
@@ -1254,7 +1284,13 @@ describe('cross-repo crawler execution artifacts', () => {
 
   it('hash-binda la closure import reale del finalizer in ogni artifact di gruppo', () => {
     const { contract, outDir } = generateArtifacts();
-    const expectedClosure = collectRelativeImportClosure(repoRoot, 'scripts/crawler-group-generation-finalizer.mjs');
+    const expectedClosure = [
+      ...collectRelativeImportClosure(repoRoot, 'scripts/crawler-group-generation-finalizer.mjs'),
+      // The generated workflow also executes git-commit-data.sh, whose
+      // cross-repository serialization helper is a deliberate runtime path
+      // even though it is not imported by the finalizer.
+      'scripts/lib/global-data-pipeline-lease.mjs',
+    ].sort();
     expect(expectedClosure).not.toContain('scripts/ci/crawler-generation-roster.json');
 
     for (const artifact of contract.artifacts.filter((entry: any) => /^crawler-group-/.test(entry.file))) {
@@ -1808,6 +1844,37 @@ describe('cross-repo crawler execution artifacts', () => {
       }
     }
     expect(diagnosticReporters).toBe(24);
+  });
+
+  it('protegge il solo workflow translate con il claim immutabile del successore', () => {
+    const { contract, outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const job: any = Object.values(translation.jobs)[0];
+    const checkoutReady = job.steps.find((step: any) => step.id === 'checkout');
+    const guard = job.steps.find((step: any) => step.name === 'Validate recovery successor claim');
+
+    expect(contract.siteRuntimePaths).toContain('scripts/ci/translate-recovery-successor-guard.mjs');
+    expect(guard).toMatchObject({
+      if: "steps.checkout.outcome == 'success' && github.run_attempt > 1",
+      env: {
+        GITHUB_API_URL: '${{ github.api_url }}',
+        GITHUB_EVENT_NAME: '${{ github.event_name }}',
+        GITHUB_RUN_ATTEMPT: '${{ github.run_attempt }}',
+        GITHUB_RUN_ID: '${{ github.run_id }}',
+        GITHUB_SHA: '${{ github.sha }}',
+        GITHUB_TOKEN: '${{ github.token }}',
+      },
+      run: 'node scripts/ci/translate-recovery-successor-guard.mjs',
+    });
+    expect(job.steps.indexOf(guard)).toBeGreaterThan(job.steps.indexOf(checkoutReady));
+    expect(job.steps.filter((step: any) => step.name === 'Validate recovery successor claim')).toHaveLength(1);
+
+    for (const artifact of contract.artifacts.filter((entry: any) => entry.file !== 'translate-pending.yml')) {
+      const doc = YAML.parse(fs.readFileSync(path.join(outDir, artifact.file), 'utf8'));
+      expect(Object.values(doc.jobs)[0].steps.some(
+        (step: any) => step.name === 'Validate recovery successor claim',
+      ), artifact.file).toBe(false);
+    }
   });
 
   it('un fallimento parziale non puo rilanciare i crawler gia eseguiti', () => {

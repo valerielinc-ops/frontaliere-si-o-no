@@ -230,6 +230,19 @@ describe('declareNotMeasurable — abstention is loud, never silent', () => {
     expect(printed).toMatch(/nessuna issue aperta/);
     expect(printed).toMatch(/::warning title=some-monitor: source not measurable::/);
   });
+
+  it('manda la diagnostica sullo stderr anche col logger predefinito', () => {
+    const stdout = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const stderr = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const verdict = evaluateLiveness({
+      dailyCounts: MEASURED, windowDays: 7, now: new Date('2026-08-10T12:00:00Z'),
+    });
+
+    declareNotMeasurable('json-monitor', verdict);
+
+    expect(stdout).not.toHaveBeenCalled();
+    expect(stderr).toHaveBeenCalledTimes(2);
+  });
 });
 
 // ---------------------------------------------------------------------------
