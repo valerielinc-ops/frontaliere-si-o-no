@@ -82973,6 +82973,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-transpa-reg-quadri-rinvio-1-ottobre': {
+    title: 'TranspaReg: Quadri chiede rinvio per rischio informatico',
+    description: 'Quadri chiede di sospendere la TranspaReg al 1° ottobre per rischio informatico. Cita il caso Liechtenstein e propone sistemi decentralizzati per gli ADE.',
+    keywords: 'frontalieri, ticino, svizzera, italia, transpareg, quadri, chiede, rinvio',
+    ogTitle: 'TranspaReg: Quadri chiede rinvio per rischio informatico',
+    ogDescription: 'Il Consigliere nazionale Lorenzo Quadri chiede di sospendere la TranspaReg al 1° ottobre. Il timore è un attacco informatico ai dati di 500\'000 entità, come avvenuto nel Liechtenstein con 31\'000 aziende. Quadri propone sistemi decentralizzati',
+    canonicalPath: '/articoli-svizzera/transpa-reg-quadri-rinvio-1-ottobre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "TranspaReg: Quadri chiede rinvio per rischio informatico",
+      "description": "Quadri chiede di sospendere la TranspaReg al 1° ottobre per rischio informatico. Cita il caso Liechtenstein e propone sistemi decentralizzati per gli ADE.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/transpa-reg-quadri-rinvio-1-ottobre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Server room con luci LED blu che simboleggia la sicurezza informatica e la trasparenza finanziaria in Svizzera."
+      },
+      "datePublished": "2026-09-14T11:57:32+00:00",
+      "dateModified": "2026-09-14T11:57:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/transpa-reg-quadri-rinvio-1-ottobre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

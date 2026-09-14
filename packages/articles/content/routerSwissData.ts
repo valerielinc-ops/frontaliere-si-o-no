@@ -2156,6 +2156,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'naturalizzazione-nidvaldo-procedura': { it: 'naturalizzazione-nidvaldo-procedura', en: 'nidwalden-naturalization-procedure', de: 'einbuergerung-nidwalden-verfahren', fr: 'naturalisation-nidwald-procedure' },
  'prezzi-produzione-importazione-agosto-2026': { it: 'prezzi-produzione-importazione-agosto-2026', en: 'producer-import-prices-august-2026', de: 'erzeuger-importpreise-august-2026', fr: 'prix-production-importation-aout-2026' },
  'votazione-scuola-qualita-berna-2026': { it: 'votazione-scuola-qualita-berna-2026', en: 'berne-school-quality-vote-2026', de: 'berner-schulqualita-volksabstimmung-2026', fr: 'vote-qualite-ecole-berne-2026' },
+ 'transpa-reg-quadri-rinvio-1-ottobre': { it: 'transpa-reg-quadri-rinvio-1-ottobre', en: 'transpa-reg-quadri-postpone-october', de: 'transpa-reg-quadri-aufschiebung-okt', fr: 'transpa-reg-quadri-report-octobre' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

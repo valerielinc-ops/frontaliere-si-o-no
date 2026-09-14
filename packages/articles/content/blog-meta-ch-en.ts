@@ -6391,6 +6391,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.votazione-scuola-qualita-berna-2026.title': 'Quality school in Bern: the grade is set for 2026',
     'blog.article.votazione-scuola-qualita-berna-2026.excerpt': 'The initiative to insert a constitutional mandate on the school will be submitted to the voters on September 27, 2026.',
     'blog.article.votazione-scuola-qualita-berna-2026.imageAlt': 'Empty classroom awaiting the vote on teaching quality in the Canton of Bern',
+    'blog.article.transpa-reg-quadri-rinvio-1-ottobre.title': 'TranspaReg: Frames request deferral for cyber risk',
+    'blog.article.transpa-reg-quadri-rinvio-1-ottobre.excerpt': 'National Councillor Lorenzo Quadri asks to suspend the entry into force on 1 October, citing the case of Liechtenstein.',
+    'blog.article.transpa-reg-quadri-rinvio-1-ottobre.imageAlt': 'Server room with blue LED lights symbolizing cybersecurity and financial transparency in Switzerland.',
 };
 
 export default blogMetaChEn;
