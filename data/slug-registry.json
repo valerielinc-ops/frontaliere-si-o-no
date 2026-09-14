@@ -54986,8 +54986,8 @@
     "canton": "TI",
     "createdAt": "2026-05-11",
     "slugByLocale": {
-      "de": "postdoc-position-in-quantitative-finance-at-epfl-epfl-lausanne",
-      "it": "postdoc-position-in-quantitative-finance-at-epfl-epfl-lausanne",
+      "de": "postdoktorandenstelle-in-quantitativer-finanz-bei-epfl-epfl-lausanne",
+      "it": "posizione-da-postdoc-in-finanza-quantitativa-presso-l-epfl-epfl-lausanne",
       "en": "postdoc-epfl-lausanne",
       "fr": "postdoc-position-in-quantitative-finance-at-epfl-epfl-lausanne"
     }
@@ -81537,7 +81537,8 @@
     "slugByLocale": {
       "it": "cook-i-a-kantonsspital-baden-ksb-baden",
       "de": "koch-kochin-i-a-ksb-ch",
-      "en": "koch-kochin-i-a-kantonsspital-baden-ksb-baden"
+      "en": "koch-kochin-i-a-kantonsspital-baden-ksb-baden",
+      "fr": "chef-cuisinier-i-a-kantonsspital-baden-ksb-baden"
     }
   },
   "id|kantonsspitalbaden.wd3.myworkdayjobs.com|r12234": {
@@ -87033,7 +87034,8 @@
     "slugByLocale": {
       "de": "strukturiertes-praxisjahr-kantonsspital-graubunden-chur",
       "it": "anno-di-pratica-strutturato-kantonsspital-graubunden-chur",
-      "fr": "annee-de-pratique-structuree-kantonsspital-graubunden-chur"
+      "fr": "annee-de-pratique-structuree-kantonsspital-graubunden-chur",
+      "en": "structured-practical-year-kantonsspital-graubunden-chur"
     }
   },
   "id|ksgr.ch|a89d7c6c-e2f0-4508-a1f1-8868174d18eb": {
@@ -92377,7 +92379,8 @@
     "slugByLocale": {
       "fr": "spitalseelsorgerine-spitalseelsorger-50-luzerner-kantonsspital-luks-luzern",
       "it": "hospitalseelsorger-hospitalseelsorger-50-luzerner-kantonsspital-luks-luzern",
-      "de": "spitalseelsorgerin-spitalseelsorger-50-luks-luzern"
+      "de": "spitalseelsorgerin-spitalseelsorger-50-luks-luzern",
+      "en": "hospital-chaplain-50-luzerner-kantonsspital-luks-luzern"
     }
   },
   "id|luks.ch|d00da75a-7b42-4c05-b98d-9735b878a96d": {
@@ -142026,7 +142029,8 @@
     "slugByLocale": {
       "fr": "directeur-du-developpement-des-affaires-felfel-zurich",
       "it": "responsabile-dello-sviluppo-commerciale-felfel-zurich",
-      "en": "business-development-manager-felfel-zurich"
+      "en": "business-development-manager-felfel-zurich",
+      "de": "geschaftsentwicklungsmanager-felfel-zurich"
     }
   },
   "id|personio.de|2668071": {
@@ -202383,7 +202387,9 @@
     "createdAt": "2026-07-03",
     "slugByLocale": {
       "de": "chauffeur-ce-autotransporte-a-galliker-altishofen",
-      "it": "trasporti-auto-con-autista-ce-a-galliker-transport-ag-altishofen"
+      "it": "trasporti-auto-con-autista-ce-a-galliker-transport-ag-altishofen",
+      "en": "chauffeur-ce-car-transport-a-galliker-transport-ag-altishofen",
+      "fr": "transport-de-voiture-avec-chauffeur-ce-a-galliker-transport-ag-altishofen"
     }
   },
   "url|https://apply.refline.ch/878019/0046/pub/20/index.html": {
@@ -211037,7 +211043,7 @@
     "createdAt": "2026-05-19",
     "slugByLocale": {
       "de": "medizinischer-assistent-f-m-ensemble-hospitalier-de-la-cote-ehc-morges",
-      "en": "assistant-medical-f-h-ehc-vd-morges",
+      "en": "assistente-medico-f-m-ensemble-hospitalier-de-la-cote-ehc-morges",
       "fr": "assistant-medical-f-h-ehc-vd-morges",
       "it": "assistente-medico-f-m-ensemble-hospitalier-de-la-cote-ehc-morges"
     }
@@ -211224,8 +211230,8 @@
     "canton": "VD",
     "createdAt": "2026-06-03",
     "slugByLocale": {
-      "de": "gestionnaire-en-intendance-ehc-vd-morges",
-      "en": "gestionnaire-en-intendance-ehc-vd-morges",
+      "de": "gestionnaire-en-intendance-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "stewardship-manager-ensemble-hospitalier-de-la-cote-ehc-morges",
       "fr": "gestionnaire-en-intendance-ehc-vd-morges",
       "it": "gestionnaire-en-intendance-ensemble-hospitalier-de-la-cote-ehc-morges"
     }
@@ -211257,7 +211263,7 @@
     "canton": "VD",
     "createdAt": "2026-05-19",
     "slugByLocale": {
-      "de": "infirmier-f-h-en-ctr-ehc-vd-gilly",
+      "de": "krankenschwester-m-w-in-ctr-ensemble-hospitalier-de-la-cote-ehc-gilly",
       "en": "nurse-f-m-in-ctr-ensemble-hospitalier-de-la-cote-ehc-gilly",
       "fr": "infirmier-f-h-en-ctr-ehc-vd-gilly",
       "it": "infermiere-f-h-in-ctr-ensemble-hospitalier-de-la-cote-ehc-gilly"
@@ -211565,7 +211571,12 @@
     "canonicalSlug": "secretaire-medicale-f-h-ehc-vd-morges",
     "canton": "VD",
     "createdAt": "2026-05-28",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "segretario-medico-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "medical-secretary-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "medizinischer-sekretar-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "secretaire-medicale-f-h-ehc-vd-morges"
+    }
   },
   "url|https://emploi.ehc-vd.ch/nos-offres/stagiaire-assistant-formation-fh": {
     "canonicalSlug": "stagiaire-assistant-formation-f-h-ehc-vd-morges",
@@ -212246,7 +212257,12 @@
     "canonicalSlug": "technologue-en-dispositifs-medicaux-clinique-la-source-lausanne",
     "canton": "VD",
     "createdAt": "2026-05-21",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "tecnologo-del-dispositivo-medico-clinique-de-la-source-lausanne",
+      "en": "medical-device-technologist-clinique-de-la-source-lausanne",
+      "de": "medizintechniker-clinique-de-la-source-lausanne",
+      "fr": "technologue-en-dispositifs-medicaux-clinique-la-source-lausanne"
+    }
   },
   "url|https://emploi.lasource.ch?page=advertisement_display&id=764": {
     "canonicalSlug": "technicien-ne-en-radio-oncologie-clinique-la-source-lausanne",
@@ -221374,7 +221390,8 @@
     "slugByLocale": {
       "en": "head-building-ph-labor-geberit-rapperswil-jona",
       "fr": "laboratoire-de-physique-du-batiment-a-100-geberit-rapperswil-jona",
-      "de": "head-building-physics-laboratory-a-100-geberit-ch"
+      "de": "head-building-physics-laboratory-a-100-geberit-ch",
+      "it": "responsabile-laboratorio-di-fisica-edile-a-100-geberit-rapperswil-jona"
     }
   },
   "url|https://jobs.geberit.com/job-invite/1922?locale=sv_se": {
@@ -256675,8 +256692,8 @@
     "createdAt": "2026-05-29",
     "slugByLocale": {
       "de": "mitarbeiter-in-front-office-hotel-joseph-s-house-davos-klosters-bergbahnen-davos",
-      "en": "mitarbeiter-in-front-office-hotel-joseph-s-house-davos-klosters-bergbahnen-davos",
-      "fr": "mitarbeiter-in-front-office-hotel-joseph-s-house-davos-klosters-bergbahnen-davos",
+      "en": "collaboratore-trice-front-office-hotel-joseph-s-house-davos-klosters-bergbahnen-ag-davos",
+      "fr": "collaboratore-trice-front-office-hotel-joseph-s-house-davos-klosters-bergbahnen-ag-davos",
       "it": "collaboratore-trice-front-office-hotel-joseph-s-house-davos-klosters-bergbahnen-ag-davos"
     }
   },
@@ -256686,8 +256703,8 @@
     "createdAt": "2026-05-29",
     "slugByLocale": {
       "de": "mitarbeiter-in-front-office-hotel-montana-davos-klosters-bergbahnen-davos",
-      "en": "mitarbeiter-in-front-office-hotel-montana-davos-klosters-bergbahnen-davos",
-      "fr": "mitarbeiter-in-front-office-hotel-montana-davos-klosters-bergbahnen-davos",
+      "en": "collaboratore-trice-front-office-hotel-montana-davos-klosters-bergbahnen-ag-davos",
+      "fr": "collaboratore-trice-front-office-hotel-montana-davos-klosters-bergbahnen-ag-davos",
       "it": "collaboratore-trice-front-office-hotel-montana-davos-klosters-bergbahnen-ag-davos"
     }
   },
@@ -259571,7 +259588,8 @@
     "createdAt": "2026-03-30",
     "slugByLocale": {
       "it": "senior-private-banker-lwp-ledermann-wieting-partners-lugano",
-      "de": "leitender-privatbanker-lwp-ledermann-wieting-partners-lugano"
+      "de": "leitender-privatbanker-lwp-ledermann-wieting-partners-lugano",
+      "fr": "banquier-prive-principal-lwp-ledermann-wieting-partners-lugano"
     }
   },
   "url|https://www.lwphr.ch/uploads/1/4/6/5/146598773/specialista_contabile_.pdf": {
@@ -318720,7 +318738,9 @@
     "canonicalSlug": "it-automation-operations-manager-felfel-zurich",
     "slugByLocale": {
       "en": "it-automation-operations-manager-felfel-zurich",
-      "fr": "gestionnaire-des-operations-informatiques-et-d-automatisation-felfel-zurich"
+      "fr": "gestionnaire-des-operations-informatiques-et-d-automatisation-felfel-zurich",
+      "it": "responsabile-delle-operazioni-it-e-automazione-felfel-zurich",
+      "de": "it-und-automatisierungsbetriebsleiter-felfel-zurich"
     },
     "createdAt": "2026-07-12",
     "canton": "ZH"
@@ -333758,7 +333778,9 @@
     "canonicalSlug": "software-engineering-infrastructure-internship-epfl-lausanne",
     "slugByLocale": {
       "de": "software-engineering-infrastruktur-praktikum-epfl-lausanne",
-      "fr": "software-engineering-infrastructure-internship-epfl-lausanne"
+      "fr": "software-engineering-infrastructure-internship-epfl-lausanne",
+      "it": "software-engineering-infrastructure-internship-epfl-lausanne",
+      "en": "soft-engineering-epfl-lausanne"
     },
     "createdAt": "2026-07-15",
     "canton": "VD"
@@ -422736,7 +422758,8 @@
     "canonicalSlug": "assistant-concierge-giardino-group-champfer",
     "slugByLocale": {
       "de": "assistant-concierge-giardino-group-champfer",
-      "it": "assistente-giardino-group-champfer"
+      "it": "assistente-giardino-group-champfer",
+      "fr": "assistante-conciergerie-giardino-group-champfer"
     },
     "createdAt": "2026-07-29",
     "canton": "GR"
@@ -425851,7 +425874,8 @@
     "slugByLocale": {
       "en": "event-service-shiftleader-marriott-zurich",
       "it": "servizio-eventi-shiftleader-marriott-international-zurich",
-      "fr": "chef-de-quart-de-service-d-evenement-marriott-international-zurich"
+      "fr": "chef-de-quart-de-service-d-evenement-marriott-international-zurich",
+      "de": "schichtleiter-im-veranstaltungsdienst-marriott-international-zurich"
     },
     "createdAt": "2026-07-30",
     "canton": "ZH"
@@ -491321,7 +491345,8 @@
     "canonicalSlug": "ict-system-engineer-kantonsspital-graubunden-chur",
     "slugByLocale": {
       "de": "ict-system-engineer-kantonsspital-graubunden-chur",
-      "fr": "ingenieur-du-systeme-informatique-kantonsspital-graubunden-chur"
+      "fr": "ingenieur-du-systeme-informatique-kantonsspital-graubunden-chur",
+      "it": "ingegnere-di-sistemi-informatici-kantonsspital-graubunden-chur"
     },
     "createdAt": "2026-08-12",
     "canton": "GR"
@@ -494469,7 +494494,8 @@
     "slugByLocale": {
       "it": "postdoc-in-cancro-neuroscience-epfl-lausanne",
       "en": "postdoc-in-cancer-neuroscience-epfl-lausanne",
-      "de": "postdoc-in-krebs-neurowissenschaften-epfl-lausanne"
+      "de": "postdoc-in-krebs-neurowissenschaften-epfl-lausanne",
+      "fr": "postdoc-in-cancer-neuroscience-epfl-lausanne"
     },
     "createdAt": "2026-08-13",
     "canton": "VD"
@@ -494488,7 +494514,8 @@
   "id|epfl.ch|1165174155": {
     "canonicalSlug": "it-systems-administrator-software-developer-epfl-lausanne",
     "slugByLocale": {
-      "en": "it-systems-administrator-software-developer-epfl-lausanne"
+      "en": "it-systems-administrator-software-developer-epfl-lausanne",
+      "it": "it-systems-administrator-software-developer-epfl-lausanne"
     },
     "createdAt": "2026-08-13",
     "canton": "VD"
@@ -494520,7 +494547,8 @@
     "slugByLocale": {
       "it": "direttore-of-operations-cime-epfl-lausanne",
       "en": "director-of-operations-cime-epfl-lausanne",
-      "de": "direktor-of-operations-cime-epfl-lausanne"
+      "de": "direktor-of-operations-cime-epfl-lausanne",
+      "fr": "director-of-operations-cime-epfl-lausanne"
     },
     "createdAt": "2026-08-13",
     "canton": "VD"
@@ -494745,7 +494773,8 @@
     "slugByLocale": {
       "it": "responsabile-della-mobilita-internazionale-holcim-group-zug",
       "en": "international-mobility-manager-holcim-ch",
-      "fr": "directeur-de-la-mobilite-internationale-holcim-group-zug"
+      "fr": "directeur-de-la-mobilite-internationale-holcim-group-zug",
+      "de": "internationaler-mobilitatsmanager-holcim-group-zug"
     },
     "createdAt": "2026-08-13",
     "canton": "ZG"
@@ -504437,7 +504466,8 @@
   "id|epfl.ch|1165276655": {
     "canonicalSlug": "postdoc-epfl-lausanne",
     "slugByLocale": {
-      "en": "postdoc-epfl-lausanne"
+      "en": "postdoc-epfl-lausanne",
+      "fr": "postdoc-epfl-lausanne"
     },
     "createdAt": "2026-08-14",
     "canton": "VD"
@@ -514078,7 +514108,8 @@
   "url|https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3706103387958f54dbd6ebd30cbb35f5/atsann0004728/params/language/fr": {
     "canonicalSlug": "koch-kochin-efz-hopital-du-valais-brig",
     "slugByLocale": {
-      "de": "koch-kochin-efz-hopital-du-valais-brig"
+      "de": "koch-kochin-efz-hopital-du-valais-brig",
+      "en": "chef-efz-hopital-du-valais-brig"
     },
     "createdAt": "2026-08-14",
     "canton": "VS"
@@ -520699,7 +520730,8 @@
     "slugByLocale": {
       "it": "senior-regulatory-data-analista-givaudan-vernier",
       "en": "senior-regulatory-data-analyst-givaudan-ch",
-      "fr": "senior-regulatory-data-analyste-givaudan-vernier"
+      "fr": "senior-regulatory-data-analyste-givaudan-vernier",
+      "de": "leitender-analyst-fur-regulatorische-daten-givaudan-vernier-switzerland"
     },
     "createdAt": "2026-08-15",
     "canton": "GE"
@@ -520731,7 +520763,8 @@
     "slugByLocale": {
       "it": "responsabile-della-sicurezza-dei-processi-globali-givaudan-vernier-switzerland",
       "en": "global-process-safety-manager-givaudan-ch",
-      "fr": "gestionnaire-de-la-securite-des-processus-mondiaux-givaudan-vernier-switzerland"
+      "fr": "gestionnaire-de-la-securite-des-processus-mondiaux-givaudan-vernier-switzerland",
+      "de": "globaler-prozesssicherheitsmanager-givaudan-vernier-switzerland"
     },
     "createdAt": "2026-08-15",
     "canton": "GE"
@@ -521911,7 +521944,8 @@
     "canonicalSlug": "apprendistato-in-digital-business-entwickler-in-cfc-august-2027-google-switzerland-zurich",
     "slugByLocale": {
       "it": "apprendistato-in-digital-business-entwickler-in-cfc-august-2027-google-switzerland-zurich",
-      "en": "apprenticeship-in-digital-business-entwickler-in-efz-august-2027-google-switzerland-zurich"
+      "en": "apprenticeship-in-digital-business-entwickler-in-efz-august-2027-google-switzerland-zurich",
+      "fr": "formation-en-affaires-numeriques-developpeur-developpeur-efz-aout-2027-google-switzerland-zurich"
     },
     "createdAt": "2026-08-15",
     "canton": "ZH"
@@ -522061,7 +522095,8 @@
     "canonicalSlug": "gestione-avanzata-di-ingegneria-ai-generativo-google-cloud-google-switzerland-zurich",
     "slugByLocale": {
       "it": "gestione-avanzata-di-ingegneria-ai-generativo-google-cloud-google-switzerland-zurich",
-      "en": "forward-deployed-engineering-manager-generative-ai-google-cloud-google-switzerland-zurich"
+      "en": "forward-deployed-engineering-manager-generative-ai-google-cloud-google-switzerland-zurich",
+      "fr": "responsable-de-l-ingenierie-deployee-vers-l-avant-ia-generative-google-cloud-google-switzerland-zurich"
     },
     "createdAt": "2026-08-15",
     "canton": "ZH"
@@ -525676,7 +525711,8 @@
     "slugByLocale": {
       "it": "farmacia-clinica-senior-idorsia-pharmaceuticals-allschwil",
       "en": "senior-clinical-pharmacologist-idorsia-allschwil",
-      "fr": "pharmacologue-clinique-principal-idorsia-pharmaceuticals-allschwil"
+      "fr": "pharmacologue-clinique-principal-idorsia-pharmaceuticals-allschwil",
+      "de": "leitender-klinischer-pharmakologe-idorsia-pharmaceuticals-allschwil-basel-area"
     },
     "createdAt": "2026-08-15",
     "canton": "BL"
@@ -525706,7 +525742,8 @@
     "canonicalSlug": "senior-qa-compliance-auditing-manager-gmp-gdp-idorsia-allschwil",
     "slugByLocale": {
       "en": "senior-qa-compliance-auditing-manager-gmp-gdp-idorsia-allschwil",
-      "fr": "gestionnaire-principal-de-la-conformite-et-de-la-verification-des-aq-bpf-pib-idorsia-pharmaceuticals-allschwil"
+      "fr": "gestionnaire-principal-de-la-conformite-et-de-la-verification-des-aq-bpf-pib-idorsia-pharmaceuticals-allschwil",
+      "it": "responsabile-senior-della-conformita-e-audit-qa-gmp-gdp-idorsia-pharmaceuticals-allschwil"
     },
     "createdAt": "2026-08-15",
     "canton": "BL"
@@ -525715,7 +525752,8 @@
     "canonicalSlug": "cpcts-manager-idorsia-allschwil",
     "slugByLocale": {
       "en": "cpcts-manager-idorsia-allschwil",
-      "fr": "gestionnaire-des-scpc-idorsia-pharmaceuticals-allschwil"
+      "fr": "gestionnaire-des-scpc-idorsia-pharmaceuticals-allschwil",
+      "it": "responsabile-del-cpcts-idorsia-pharmaceuticals-allschwil"
     },
     "createdAt": "2026-08-15",
     "canton": "BL"
@@ -525725,7 +525763,8 @@
     "slugByLocale": {
       "en": "senior-scientific-associate-idorsia-allschwil",
       "de": "senior-scientific-associated-idorsia-pharmaceuticals-allschwil",
-      "fr": "associe-scientifique-principal-idorsia-pharmaceuticals-allschwil"
+      "fr": "associe-scientifique-principal-idorsia-pharmaceuticals-allschwil",
+      "it": "associato-scientifico-senior-idorsia-pharmaceuticals-allschwil"
     },
     "createdAt": "2026-08-15",
     "canton": "BL"
@@ -528431,7 +528470,7 @@
     "slugByLocale": {
       "de": "besatzung-mcdonald-s-switzerland-langenthal",
       "it": "crew-mcdonalds-switzerland-langenthal-p8-318434-2",
-      "en": "crew-mcdonalds-switzerland-langenthal-p8-318434-2",
+      "en": "crew-member-mcdonald-s-switzerland-langenthal",
       "fr": "crew-mcdonald-s-switzerland-langenthal"
     },
     "createdAt": "2026-08-16",
@@ -528475,7 +528514,7 @@
     "slugByLocale": {
       "de": "besatzung-mcdonald-s-switzerland-therwil",
       "it": "crew-mcdonalds-switzerland-therwil-p8-317570-2",
-      "en": "crew-mcdonalds-switzerland-therwil-p8-317570-2",
+      "en": "crew-member-mcdonald-s-switzerland-therwil",
       "fr": "crew-mcdonald-s-switzerland-therwil"
     },
     "createdAt": "2026-08-16",
@@ -545582,7 +545621,8 @@
   "id|ems-group.com|45364b0a-facc-415c-838d-718632db9f57": {
     "canonicalSlug": "distribution-manager-m-w-d-100-ems-chemie-domat-ems",
     "slugByLocale": {
-      "it": "distribution-manager-m-w-d-100-ems-chemie-domat-ems"
+      "it": "distribution-manager-m-w-d-100-ems-chemie-domat-ems",
+      "de": "vertriebsleiter-m-w-d-100-ems-chemie-ag-domat-ems"
     },
     "createdAt": "2026-08-20",
     "canton": "GR"
@@ -545591,7 +545631,8 @@
     "canonicalSlug": "key-account-executive-fsi-google-cloud-google-switzerland-zurich",
     "slugByLocale": {
       "en": "key-account-executive-fsi-google-cloud-google-switzerland-zurich",
-      "fr": "responsable-de-compte-cle-fsi-google-cloud-google-switzerland-zurich"
+      "fr": "responsable-de-compte-cle-fsi-google-cloud-google-switzerland-zurich",
+      "it": "amministratore-delegato-fsi-google-cloud-google-switzerland-zurich"
     },
     "createdAt": "2026-08-20",
     "canton": "ZH"
@@ -559380,7 +559421,8 @@
     "canonicalSlug": "outsystems-tech-lead-fust-oberburen-sankt-gallen",
     "slugByLocale": {
       "de": "outsystems-tech-lead-fust-oberburen-sankt-gallen-95gicv",
-      "fr": "outsystems-responsable-technique-fust-oberburen-sankt-gallen-95gicv"
+      "fr": "outsystems-responsable-technique-fust-oberburen-sankt-gallen-95gicv",
+      "it": "responsabile-tecnico-dei-sistemi-esterni-fust-oberburen"
     },
     "createdAt": "2026-08-25",
     "canton": "SG"
@@ -560102,7 +560144,8 @@
     "canonicalSlug": "housekeeping-allrounder-in-rinerhorn-davos-klosters-bergbahnen-davos",
     "slugByLocale": {
       "de": "housekeeping-allrounder-in-rinerhorn-davos-klosters-bergbahnen-davos",
-      "fr": "entretien-menager-rinerhorn-davos-klosters-bergbahnen-ag-davos"
+      "fr": "entretien-menager-rinerhorn-davos-klosters-bergbahnen-ag-davos",
+      "en": "housekeeping-all-rounder-in-rinerhorn-davos-klosters-bergbahnen-ag-davos"
     },
     "createdAt": "2026-08-25",
     "canton": "GR"
@@ -564269,7 +564312,9 @@
     "canonicalSlug": "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-swiss-medical-network",
     "slugByLocale": {
       "it": "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-swiss-medical-network",
-      "en": "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-swiss-medical-network"
+      "en": "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-swiss-medical-network",
+      "de": "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-klinik-siloah",
+      "fr": "dipl-specialiste-des-soins-hf-fh-40-100-pour-le-poste-de-lit-chirurgical-privatklinik-siloah-muri-bei-bern"
     },
     "createdAt": "2026-08-26",
     "canton": "BE"
@@ -566724,7 +566769,8 @@
     "canonicalSlug": "senior-software-engineering-manager-youtube-channel-memberships-google-switzerland-zurich",
     "slugByLocale": {
       "en": "senior-software-engineering-manager-youtube-channel-memberships-google-switzerland-zurich",
-      "fr": "gestionnaire-principal-du-genie-logiciel-adhesions-a-youtube-channel-google-switzerland-zurich"
+      "fr": "gestionnaire-principal-du-genie-logiciel-adhesions-a-youtube-channel-google-switzerland-zurich",
+      "it": "responsabile-senior-dell-ingegneria-del-software-abbonamenti-al-canale-youtube-google-switzerland-zurich"
     },
     "createdAt": "2026-08-26",
     "canton": "ZH"
@@ -602506,7 +602552,9 @@
     "canonicalSlug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-20",
     "slugByLocale": {
       "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-uqr3aa",
-      "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-uqr3aa"
+      "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-uqr3aa",
+      "en": "retail-specialist-mann-efz-designing-shopping-experiences-fust-oberburen-3106c0",
+      "fr": "specialiste-du-commerce-de-detail-mann-efz-concevoir-des-experiences-d-achat-fust-oberburen-3106c0"
     },
     "createdAt": "2026-08-27",
     "canton": "SG"
@@ -602546,7 +602594,9 @@
     "canonicalSlug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen",
     "slugByLocale": {
       "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-fpey5u",
-      "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-fpey5u"
+      "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-fpey5u",
+      "en": "retail-specialist-mann-efz-designing-shopping-experiences-fust-oberburen",
+      "fr": "specialiste-du-commerce-de-detail-mann-efz-concevoir-des-experiences-d-achat-fust-oberburen"
     },
     "createdAt": "2026-08-27",
     "canton": "SG"
@@ -602566,7 +602616,9 @@
     "canonicalSlug": "kauffrau-mann-efz-fust-oberburen",
     "slugByLocale": {
       "it": "kauffrau-mann-cfc-fust-oberburen-hs6cxs",
-      "de": "kauffrau-mann-efz-fust-oberburen-hs6cxs"
+      "de": "kauffrau-mann-efz-fust-oberburen-hs6cxs",
+      "en": "businesswoman-man-efz-fust-oberburen",
+      "fr": "femme-d-affaires-homme-efz-fust-oberburen"
     },
     "createdAt": "2026-08-27",
     "canton": "SG"
@@ -603626,7 +603678,10 @@
   "url|https://www.google.com/about/careers/applications/jobs/results/87843457015390918-software-engineer-iii-generative-ai-safety": {
     "canonicalSlug": "software-engineer-iii-generative-ai-safety-google-switzerland-zurich",
     "slugByLocale": {
-      "en": "software-engineer-iii-generative-ai-safety-google-switzerland-zurich"
+      "en": "software-engineer-iii-generative-ai-safety-google-switzerland-zurich",
+      "it": "software-engineer-iii-generativa-ai-sicurezza-google-switzerland-zurich",
+      "de": "software-ingenieur-iii-generative-ki-sicherheit-google-switzerland-zurich",
+      "fr": "ingenieur-logiciel-iii-securite-de-l-ia-generative-google-switzerland-zurich"
     },
     "createdAt": "2026-08-27",
     "canton": "ZH"
@@ -603669,7 +603724,8 @@
   "id|ems-group.com|7087611b-f352-44c2-82a5-9ee01f7638fb": {
     "canonicalSlug": "area-sales-manager-m-w-d-100-ems-chemie-domat-ems",
     "slugByLocale": {
-      "it": "area-sales-manager-m-w-d-100-ems-chemie-domat-ems"
+      "it": "area-sales-manager-m-w-d-100-ems-chemie-domat-ems",
+      "fr": "directeur-des-ventes-h-f-d-100-ems-chemie-ag-domat-ems"
     },
     "createdAt": "2026-08-27",
     "canton": "GR"
@@ -639311,7 +639367,8 @@
     "slugByLocale": {
       "it": "emsr-ingegnere-equans-switzerland-olten-96d3bb",
       "de": "emsr-engineer-equans-olten",
-      "fr": "emsr-ingenieur-equans-switzerland-olten"
+      "fr": "emsr-ingenieur-equans-switzerland-olten",
+      "en": "ems-engineer-equans-switzerland-olten"
     },
     "createdAt": "2026-08-31",
     "canton": "SO"
@@ -640988,7 +641045,8 @@
     "canonicalSlug": "field-service-allrounder-lausanne-60-felfel-lausanne",
     "slugByLocale": {
       "en": "field-service-allrounder-lausanne-60-felfel-lausanne",
-      "fr": "service-mobile-allrounder-lausanne-60-felfel-lausanne"
+      "fr": "service-mobile-allrounder-lausanne-60-felfel-lausanne",
+      "de": "au-endienst-allrounder-lausanne-60-felfel-lausanne"
     },
     "createdAt": "2026-08-31",
     "canton": "VD"
@@ -667795,7 +667853,8 @@
     "slugByLocale": {
       "it": "ospitalita-allrounder-giardino-group-champfer",
       "de": "hospitality-allrounder-giardino-group-champfer-llu6hw",
-      "fr": "accueil-allrounder-giardino-group-champfer"
+      "fr": "accueil-allrounder-giardino-group-champfer",
+      "en": "hospitality-all-rounder-giardino-group-champfer"
     },
     "createdAt": "2026-09-08",
     "canton": "GR"
@@ -667804,7 +667863,8 @@
     "canonicalSlug": "capo-di-grado-giardino-group-champfer",
     "slugByLocale": {
       "it": "capo-di-grado-giardino-group-champfer",
-      "de": "chef-de-rang-giardino-group-champfer-xfwxht"
+      "de": "chef-de-rang-giardino-group-champfer-xfwxht",
+      "en": "chief-of-rank-giardino-group-champfer"
     },
     "createdAt": "2026-09-08",
     "canton": "GR"
@@ -667813,7 +667873,8 @@
     "canonicalSlug": "amministratore-giardino-group-champfer",
     "slugByLocale": {
       "it": "amministratore-giardino-group-champfer",
-      "de": "steward-giardino-group-champfer-tl57jw"
+      "de": "steward-giardino-group-champfer-tl57jw",
+      "fr": "intendant-giardino-group-champfer"
     },
     "createdAt": "2026-09-08",
     "canton": "GR"
@@ -667830,7 +667891,8 @@
     "canonicalSlug": "staff-cook-giardino-group-champfer",
     "slugByLocale": {
       "de": "staff-cook-giardino-group-champfer",
-      "fr": "cuisiniere-du-personnel-giardino-group-champfer"
+      "fr": "cuisiniere-du-personnel-giardino-group-champfer",
+      "it": "cuoco-del-personale-giardino-group-champfer"
     },
     "createdAt": "2026-09-08",
     "canton": "GR"
@@ -669662,7 +669724,9 @@
     "canonicalSlug": "koch-kochin-cfc-100-kantonsspital-baden-ksb-baden",
     "slugByLocale": {
       "it": "koch-kochin-cfc-100-kantonsspital-baden-ksb-baden",
-      "de": "koch-kochin-efz-100-ksb-ch"
+      "de": "koch-kochin-efz-100-ksb-ch",
+      "en": "chef-cook-efz-100-kantonsspital-baden-ksb-baden",
+      "fr": "chef-cook-frz-100-kantonsspital-baden-ksb-baden"
     },
     "createdAt": "2026-09-08",
     "canton": "AG"
@@ -670687,7 +670751,8 @@
   "url|https://www.susenbergklinik.ch/fileadmin/user_upload/stellen/06-koch-koechin-100-2026-08-28.pdf": {
     "canonicalSlug": "koch-kochin-efz-100-klinik-susenberg-zurich",
     "slugByLocale": {
-      "de": "koch-kochin-efz-100-klinik-susenberg-zurich"
+      "de": "koch-kochin-efz-100-klinik-susenberg-zurich",
+      "en": "chef-efz-100-klinik-susenberg-zurich"
     },
     "createdAt": "2026-09-08",
     "canton": "ZH"
@@ -671778,7 +671843,9 @@
     "canonicalSlug": "collaboratore-trice-booking-office-mountain-hotels-davos-klosters-bergbahnen-ag-davos",
     "slugByLocale": {
       "it": "collaboratore-trice-booking-office-mountain-hotels-davos-klosters-bergbahnen-ag-davos",
-      "de": "mitarbeiter-in-booking-office-mountain-hotels-davos-klosters-bergbahnen-davos"
+      "de": "mitarbeiter-in-booking-office-mountain-hotels-davos-klosters-bergbahnen-davos",
+      "en": "collaboratore-trice-booking-office-mountain-hotels-davos-klosters-bergbahnen-ag-davos",
+      "fr": "collaboratore-trice-booking-office-mountain-hotels-davos-klosters-bergbahnen-ag-davos"
     },
     "createdAt": "2026-09-08",
     "canton": "GR"
@@ -681056,7 +681123,8 @@
     "slugByLocale": {
       "en": "technician-di-misura-faulhaber-croglio",
       "de": "techniker-di-misura-faulhaber-croglio",
-      "fr": "tecnico-di-misura-croglio-faulhaber"
+      "fr": "tecnico-di-misura-croglio-faulhaber",
+      "it": "tecnologia-misura-faulhaber-croglio"
     },
     "createdAt": "2026-09-08",
     "canton": "TI"
@@ -681508,7 +681576,8 @@
   "url|https://apply.refline.ch/878019/0125/pub/17/index.html": {
     "canonicalSlug": "chauffeur-c-ce-a-galliker-landquart",
     "slugByLocale": {
-      "de": "chauffeur-c-ce-a-galliker-landquart"
+      "de": "chauffeur-c-ce-a-galliker-landquart",
+      "it": "autista-c-ce-a-galliker-transport-ag-landquart"
     },
     "createdAt": "2026-09-08",
     "canton": "GR"
@@ -681670,7 +681739,8 @@
     "canonicalSlug": "chauffeur-c-ce-a-jona-galliker-jona",
     "slugByLocale": {
       "de": "chauffeur-c-ce-a-jona-galliker-jona",
-      "fr": "chauffeur-c-ce-a-jonas-galliker-transport-ag-jona"
+      "fr": "chauffeur-c-ce-a-jonas-galliker-transport-ag-jona",
+      "it": "autista-c-ce-a-jona-galliker-transport-ag-jona"
     },
     "createdAt": "2026-09-08",
     "canton": "SG"
@@ -697612,7 +697682,9 @@
     "canonicalSlug": "recruitment-admissions-manager-eth-zurich-ch",
     "slugByLocale": {
       "en": "recruitment-admissions-manager-eth-zurich-ch",
-      "fr": "gestionnaire-du-recrutement-et-des-admissions-eth-zurich-zurich"
+      "fr": "gestionnaire-du-recrutement-et-des-admissions-eth-zurich-zurich",
+      "it": "responsabile-reclutamento-e-ammissioni-eth-zurich-zurich",
+      "de": "rekrutierungs-und-zulassungsmanager-eth-zurich-zurich"
     },
     "createdAt": "2026-09-10",
     "canton": "ZH"
@@ -700434,7 +700506,8 @@
     "canonicalSlug": "spezialist-in-casemanagement-60-ferrovia-retica-rhb-chur",
     "slugByLocale": {
       "it": "spezialist-in-casemanagement-60-ferrovia-retica-rhb-chur",
-      "fr": "spezialist-en-gestion-de-cas-60-ferrovia-retica-rhb-chur"
+      "fr": "spezialist-en-gestion-de-cas-60-ferrovia-retica-rhb-chur",
+      "de": "spezialist-im-fallmanagement-60-ferrovia-retica-rhb-chur"
     },
     "createdAt": "2026-09-10",
     "canton": "GR"
@@ -702095,7 +702168,9 @@
     "canonicalSlug": "group-commercial-fp-a-manager-galderma-ch",
     "slugByLocale": {
       "en": "group-commercial-fp-a-manager-galderma-ch",
-      "fr": "gestionnaire-des-programmes-et-des-programmes-commerciaux-de-groupe-galderma-zug"
+      "fr": "gestionnaire-des-programmes-et-des-programmes-commerciaux-de-groupe-galderma-zug",
+      "it": "responsabile-commerciale-fp-a-del-gruppo-galderma-zug",
+      "de": "kommerzieller-fp-a-manager-der-gruppe-galderma-zug"
     },
     "createdAt": "2026-09-11",
     "canton": "ZG"
@@ -702299,7 +702374,8 @@
     "slugByLocale": {
       "en": "f-b-service-shiftleader-marriott-zurich",
       "fr": "chef-de-quart-de-service-f-b-marriott-international-zurich",
-      "it": "leader-del-servizio-f-b-marriott-international-zurich"
+      "it": "leader-del-servizio-f-b-marriott-international-zurich",
+      "de": "schichtleiter-im-f-b-service-marriott-international-zurich"
     },
     "createdAt": "2026-09-11",
     "canton": "ZH"
@@ -702657,7 +702733,8 @@
   "id|theheinekencompany.com|127858": {
     "canonicalSlug": "chauffeur-c-e-orion-heineken-ch-luzern",
     "slugByLocale": {
-      "de": "chauffeur-c-e-orion-heineken-ch-luzern"
+      "de": "chauffeur-c-e-orion-heineken-ch-luzern",
+      "it": "autista-c-e-orion-heineken-switzerland-luzern"
     },
     "createdAt": "2026-09-11",
     "canton": "LU"
@@ -704026,7 +704103,10 @@
   "url|https://www.ksml.apps.be.ch/ksml?q=stellen%2fad%2f40248": {
     "canonicalSlug": "stv-heilpadagog-in-11-lektionen-an-einer-6-klasse-schule-manuel-bern-40248",
     "slugByLocale": {
-      "de": "stv-heilpadagog-in-11-lektionen-an-einer-6-klasse-schule-manuel-bern-40248"
+      "de": "stv-heilpadagog-in-11-lektionen-an-einer-6-klasse-schule-manuel-bern-40248",
+      "it": "vice-insegnante-di-educazione-speciale-11-lezioni-in-una-classe-di-6a-elementare-ksml-kantonaler-stellenmarkt-fur-40248",
+      "en": "deputy-special-education-teacher-11-lessons-in-a-6th-grade-class-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-40248",
+      "fr": "professeur-adjoint-d-education-specialisee-11-cours-dans-une-classe-de-6eme-ksml-kantonaler-stellenmarkt-fur-40248"
     },
     "createdAt": "2026-09-11",
     "canton": "BE"
@@ -716683,7 +716763,8 @@
     "slugByLocale": {
       "it": "galenica-galenica-ag-pharmacy-support-f-h-d-bern",
       "de": "pharmazie-unterstutzung-m-w-d-galenica-ag-galenica-bern-637369",
-      "fr": "assistance-pharmacie-h-f-d-galenica-ag-galenica-bern-637369"
+      "fr": "assistance-pharmacie-h-f-d-galenica-ag-galenica-bern-637369",
+      "en": "pharmac-support-support-zq0-m-f-d-galenica-ag-galenica-bern"
     },
     "createdAt": "2026-09-14",
     "canton": "BE"
@@ -717137,7 +717218,8 @@
     "canonicalSlug": "business-project-manager-fust-oberburen",
     "slugByLocale": {
       "de": "business-project-manager-fust-oberburen",
-      "fr": "gestionnaire-de-projet-operationnel-fust-oberburen"
+      "fr": "gestionnaire-de-projet-operationnel-fust-oberburen",
+      "it": "responsabile-del-progetto-aziendale-fust-oberburen"
     },
     "createdAt": "2026-09-14",
     "canton": "SG"
@@ -718542,7 +718624,9 @@
   "id|coopjobs.ch|d48963e3-3a15-44a9-8ea0-81ade92bbd74": {
     "canonicalSlug": "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-bulle-fribourg",
     "slugByLocale": {
-      "fr": "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-bulle-fribourg-u2bwem"
+      "fr": "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-bulle-fribourg-u2bwem",
+      "it": "macellaio-a-salumiere-a-f-m-d-coop-genossenschaft-bulle-fribourg",
+      "en": "butcher-delicatessen-specialist-f-m-d-coop-genossenschaft-bulle-fribourg"
     },
     "createdAt": "2026-09-14",
     "canton": "FR"
@@ -720141,7 +720225,8 @@
     "slugByLocale": {
       "it": "product-manager-ricerca-annunci-in-esperienze-ai-google-switzerland-zurich",
       "en": "product-manager-search-ads-in-ai-experiences-google-switzerland-zurich",
-      "fr": "gestionnaire-de-produits-recherche-annonces-dans-les-experiences-d-ia-google-switzerland-zurich"
+      "fr": "gestionnaire-de-produits-recherche-annonces-dans-les-experiences-d-ia-google-switzerland-zurich",
+      "de": "produktmanager-suchanzeigen-in-ai-erfahrungen-google-switzerland-zurich"
     },
     "createdAt": "2026-09-14",
     "canton": "ZH"
@@ -720165,7 +720250,8 @@
   "url|https://www.google.com/about/careers/applications/jobs/results/80559871086207686-software-engineer-iii-original-content-youtube": {
     "canonicalSlug": "software-engineer-iii-original-content-youtube-google-switzerland-zurich",
     "slugByLocale": {
-      "en": "software-engineer-iii-original-content-youtube-google-switzerland-zurich"
+      "en": "software-engineer-iii-original-content-youtube-google-switzerland-zurich",
+      "fr": "ingenieur-logiciel-iii-contenu-original-youtube-google-switzerland-zurich"
     },
     "createdAt": "2026-09-14",
     "canton": "ZH"
@@ -720173,7 +720259,8 @@
   "url|https://www.google.com/about/careers/applications/jobs/results/118063353716187846-staff-ux-designer-lead-studio-content-publishing": {
     "canonicalSlug": "staff-ux-designer-lead-studio-content-publishing-google-switzerland-zurich",
     "slugByLocale": {
-      "en": "staff-ux-designer-lead-studio-content-publishing-google-switzerland-zurich"
+      "en": "staff-ux-designer-lead-studio-content-publishing-google-switzerland-zurich",
+      "it": "capo-progettista-ux-dello-staff-pubblicazione-di-contenuti-di-studio-google-switzerland-zurich"
     },
     "createdAt": "2026-09-14",
     "canton": "ZH"
@@ -720222,7 +720309,8 @@
   "url|https://www.google.com/about/careers/applications/jobs/results/110935215538348742-senior-ux-designer-youtube-creators-monetization": {
     "canonicalSlug": "senior-ux-designer-youtube-creators-monetization-google-switzerland-zurich",
     "slugByLocale": {
-      "en": "senior-ux-designer-youtube-creators-monetization-google-switzerland-zurich"
+      "en": "senior-ux-designer-youtube-creators-monetization-google-switzerland-zurich",
+      "it": "senior-ux-designer-monetizzazione-dei-creatori-di-youtube-google-switzerland-zurich"
     },
     "createdAt": "2026-09-14",
     "canton": "ZH"
@@ -720230,7 +720318,8 @@
   "url|https://www.google.com/about/careers/applications/jobs/results/101411546466263750-senior-ux-researcher-youtube-creator": {
     "canonicalSlug": "senior-ux-researcher-youtube-creator-google-switzerland-zurich",
     "slugByLocale": {
-      "en": "senior-ux-researcher-youtube-creator-google-switzerland-zurich"
+      "en": "senior-ux-researcher-youtube-creator-google-switzerland-zurich",
+      "de": "leitender-ux-forscher-youtube-ersteller-google-switzerland-zurich"
     },
     "createdAt": "2026-09-14",
     "canton": "ZH"
@@ -720262,5 +720351,561 @@
     },
     "createdAt": "2026-09-14",
     "canton": "ZH"
+  },
+  "url|https://www.entero.ch/de/karriere/psychotherapeutin-oder-psychotherapeut-80-100": {
+    "canonicalSlug": "psychotherapeutin-o-psychotherapeut-80-100-entero-niederlenz",
+    "slugByLocale": {
+      "it": "psychotherapeutin-o-psychotherapeut-80-100-entero-niederlenz",
+      "en": "psychotherapist-80-100-entero-niederlenz",
+      "de": "psychotherapeutin-oder-psychotherapeut-80-100-entero-niederlenz",
+      "fr": "psychotherapie-80-100-entero-niederlenz"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "AG"
+  },
+  "url|https://www.entero.ch/de/karriere/diplomierte-pflegefachperson-hf-60-100": {
+    "canonicalSlug": "infermiera-laureata-hf-60-100-entero-egliswil",
+    "slugByLocale": {
+      "it": "infermiera-laureata-hf-60-100-entero-egliswil",
+      "en": "graduated-nurse-hf-60-100-entero-egliswil",
+      "de": "diplomierte-pflegefachperson-hf-60-100-entero-egliswil",
+      "fr": "infirmiere-diplomee-hf-60-100-entero-egliswil"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "AG"
+  },
+  "url|https://www.entero.ch/de/karriere/dauernachtwache-dipl-pflegefachperson-hf-fh-60-100": {
+    "canonicalSlug": "perpetual-night-watch-dipl-infermiera-hf-fh-60-100-entero-egliswil",
+    "slugByLocale": {
+      "it": "perpetual-night-watch-dipl-infermiera-hf-fh-60-100-entero-egliswil",
+      "en": "perpetual-night-watch-dipl-nurse-hf-fh-60-100-entero-egliswil",
+      "de": "dauernachtwache-dipl-pflegefachperson-hf-fh-60-100-entero-egliswil",
+      "fr": "veille-de-nuit-permanente-infirmiere-diplomee-hf-fh-60-100-entero-egliswil"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "AG"
+  },
+  "url|https://emploi.ehc-vd.ch/nos-offres/chef-de-clinique-soins-palliatifs-et-ctr-fh": {
+    "canonicalSlug": "capo-clinica-cure-palliative-e-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+    "slugByLocale": {
+      "it": "capo-clinica-cure-palliative-e-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "en": "head-of-palliative-care-and-rtc-clinic-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "de": "leiterin-palliative-care-und-rtc-clinic-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "fr": "chef-de-clinique-soins-palliatifs-et-ctr-f-h-ehc-vd-aubonne"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/nos-offres/chef-de-clinique-en-ctr-fh": {
+    "canonicalSlug": "capo-clinica-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+    "slugByLocale": {
+      "it": "capo-clinica-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "en": "head-of-clinic-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "de": "leiter-der-klinik-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "fr": "chef-de-clinique-en-ctr-f-h-ehc-vd-aubonne"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/nos-offres/infirmier-hf-au-pole-plaie-et-en-stomatherapie": {
+    "canonicalSlug": "infermiera-h-f-in-plaice-e-stomaterapia-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "infermiera-h-f-in-plaice-e-stomaterapia-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "nurse-m-f-at-plaice-and-stomatherapy-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "krankenschwester-h-f-in-scholle-und-stomatherapie-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "infirmier-h-f-au-pole-plaie-et-en-stomatherapie-ehc-vd-morges"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/nos-offres/facturiste-fh": {
+    "canonicalSlug": "fattura-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "fattura-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "invoice-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "rechnung-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "facturiste-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/nos-offres/infirmier-chef-dunite-icus-en-geriatrie-fh": {
+    "canonicalSlug": "infermiera-capo-unita-icus-in-geriatrics-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "infermiera-capo-unita-icus-in-geriatrics-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "nurse-head-of-unit-icus-in-geriatrics-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "nurse-head-of-unit-icus-in-geriatrie-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "infirmier-chef-d-unite-icus-en-geriatrie-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/nos-offres/assistant-medical-fh-centre-medical-nord-sud": {
+    "canonicalSlug": "assistente-medico-m-f-centro-medico-nord-sud-ensemble-hospitalier-de-la-cote-ehc-crissier",
+    "slugByLocale": {
+      "it": "assistente-medico-m-f-centro-medico-nord-sud-ensemble-hospitalier-de-la-cote-ehc-crissier",
+      "en": "medical-assistant-m-f-north-south-medical-centre-ensemble-hospitalier-de-la-cote-ehc-crissier",
+      "de": "assistent-medical-f-h-centre-medical-nord-sud-ensemble-hospitalier-de-la-cote-ehc-crissier",
+      "fr": "assistant-medical-f-h-centre-medical-nord-sud-ehc-vd-crissier"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/nos-offres/assistant-en-pharmacie-dunite-de-soins-apus-fh": {
+    "canonicalSlug": "assistente-per-la-farmacia-apus-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "assistente-per-la-farmacia-apus-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "care-unit-pharmacy-assistant-apus-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "assistent-en-pharmacie-d-unite-de-soins-apus-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "assistant-en-pharmacie-d-unite-de-soins-apus-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/nos-offres/assistant-technique-en-sterilisation-fh": {
+    "canonicalSlug": "assistente-tecnico-nella-sterilizzazione-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "fr": "assistant-technique-en-sterilisation-f-h-ehc-vd-morges",
+      "it": "assistente-tecnico-nella-sterilizzazione-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "technical-assistant-in-sterilization-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/nos-offres/assistant-medical-fh-centre-medical-du-simplon": {
+    "canonicalSlug": "assistente-medico-m-f-centro-medico-di-simplon-ensemble-hospitalier-de-la-cote-ehc-renens",
+    "slugByLocale": {
+      "it": "assistente-medico-m-f-centro-medico-di-simplon-ensemble-hospitalier-de-la-cote-ehc-renens",
+      "de": "assistent-medical-f-h-centre-medical-du-simplon-ensemble-hospitalier-de-la-cote-ehc-renens",
+      "fr": "assistant-medical-f-h-centre-medical-du-simplon-ehc-vd-renens"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/nos-offres/assistant-medical-fh-centre-medical-de-chavannes-pres-renens": {
+    "canonicalSlug": "assistente-medico-m-f-chavannes-near-renens-medical-centre-ensemble-hospitalier-de-la-cote-ehc-chavannes-pres-renens",
+    "slugByLocale": {
+      "it": "assistente-medico-m-f-chavannes-near-renens-medical-centre-ensemble-hospitalier-de-la-cote-ehc-chavannes-pres-renens",
+      "de": "assistent-medical-f-h-centre-medical-de-chavannes-pres-renens-ensemble-hospitalier-de-la-cote-ehc-chavannes-pres-renens",
+      "fr": "assistant-medical-f-h-centre-medical-de-chavannes-pres-renens-ehc-vd-chavannes-pres-renens"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/nos-offres/secretaire-medicale-fh-centre-medical-nedol": {
+    "canonicalSlug": "segretario-medico-m-f-nedol-medical-centre-ensemble-hospitalier-de-la-cote-ehc-renens",
+    "slugByLocale": {
+      "it": "segretario-medico-m-f-nedol-medical-centre-ensemble-hospitalier-de-la-cote-ehc-renens",
+      "en": "medical-secretary-m-f-nedol-medical-centre-ensemble-hospitalier-de-la-cote-ehc-renens",
+      "de": "medizinischer-sekretar-m-w-nedol-medical-center-ensemble-hospitalier-de-la-cote-ehc-renens",
+      "fr": "secretaire-medicale-f-h-centre-medical-nedol-ehc-vd-renens"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/nos-offres/infirmier-soins-aigus-fh": {
+    "canonicalSlug": "infermiera-cura-acuta-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "infermiera-cura-acuta-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "nurse-acute-care-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "krankenschwester-akutpflege-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "infirmier-soins-aigus-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/nos-offres/infirmier-en-pediatrie-fh": {
+    "canonicalSlug": "infermiera-pediatrica-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "fr": "infirmier-en-pediatrie-f-h-ehc-vd-morges",
+      "it": "infermiera-pediatrica-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "paediatric-nurse-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "kinderkrankenschwester-m-w-ensemble-hospitalier-de-la-cote-ehc-morges"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/nos-offres/neuropsychologue-fsp": {
+    "canonicalSlug": "neuropsicologo-fsp-ensemble-hospitalier-de-la-cote-ehc-lavigny",
+    "slugByLocale": {
+      "it": "neuropsicologo-fsp-ensemble-hospitalier-de-la-cote-ehc-lavigny",
+      "en": "neuropsychologist-fsp-ensemble-hospitalier-de-la-cote-ehc-lavigny",
+      "de": "neuropsychologe-fsp-ensemble-hospitalier-de-la-cote-ehc-lavigny",
+      "fr": "neuropsychologue-fsp-ehc-vd-lavigny"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/nos-offres/assistant-medical-fh-multisites": {
+    "canonicalSlug": "assistente-medico-m-f-multisites-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "assistente-medico-m-f-multisites-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "assistent-medical-f-h-multisites-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "assistant-medical-f-h-multisites-ehc-vd-morges"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/nos-offres/aide-ergo-physio-etudiant-fh": {
+    "canonicalSlug": "studente-ergo-physio-aiuto-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+    "slugByLocale": {
+      "it": "studente-ergo-physio-aiuto-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "en": "ergo-physio-student-help-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "de": "ergo-physio-student-hilft-m-w-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "fr": "aide-ergo-physio-etudiant-f-h-ehc-vd-aubonne"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
+  },
+  "url|https://emploi.lasource.ch?page=advertisement_display&id=769": {
+    "canonicalSlug": "coordinatore-delle-unita-di-cura-clinique-de-la-source-lausanne",
+    "slugByLocale": {
+      "it": "coordinatore-delle-unita-di-cura-clinique-de-la-source-lausanne",
+      "en": "head-nurse-coordinator-of-care-units-clinique-de-la-source-lausanne",
+      "de": "leiterin-krankenschwester-koordinatorin-der-pflegeeinheiten-clinique-de-la-source-lausanne",
+      "fr": "infirmier-iere-chef-fe-coordinateur-trice-des-unites-de-soins-clinique-la-source-lausanne"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
+  },
+  "url|https://emploi.lasource.ch?page=advertisement_display&id=776": {
+    "canonicalSlug": "infermiera-per-la-nostra-unita-in-medicina-e-chirurgia-oncologica-multiuso-clinique-de-la-source-lausanne",
+    "slugByLocale": {
+      "it": "infermiera-per-la-nostra-unita-in-medicina-e-chirurgia-oncologica-multiuso-clinique-de-la-source-lausanne",
+      "en": "nurse-for-our-unit-in-medicine-and-multi-purpose-oncological-surgery-clinique-de-la-source-lausanne",
+      "de": "krankenschwester-fur-unsere-einheit-in-medizin-und-mehrzweck-onkologische-chirurgie-clinique-de-la-source-lausanne",
+      "fr": "infirmier-ere-pour-notre-unite-en-medecine-et-chirurgie-polyvalente-a-dominante"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
+  },
+  "url|https://emploi.lasource.ch?page=advertisement_display&id=783": {
+    "canonicalSlug": "intensiva-cura-infermiera-clinique-de-la-source-lausanne",
+    "slugByLocale": {
+      "it": "intensiva-cura-infermiera-clinique-de-la-source-lausanne",
+      "en": "intensive-care-nurse-clinique-de-la-source-lausanne",
+      "de": "intensivkrankenschwester-clinique-de-la-source-lausanne",
+      "fr": "infirmier-ere-expert-e-en-soins-intensifs-clinique-la-source-lausanne"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
+  },
+  "url|https://emploi.lasource.ch?page=advertisement_display&id=779": {
+    "canonicalSlug": "infermiera-in-chirurgia-urologica-e-viscerale-clinique-de-la-source-lausanne",
+    "slugByLocale": {
+      "it": "infermiera-in-chirurgia-urologica-e-viscerale-clinique-de-la-source-lausanne",
+      "en": "nurse-in-urological-and-visceral-surgery-clinique-de-la-source-lausanne",
+      "de": "krankenschwester-in-urologischen-und-viszeralen-chirurgie-clinique-de-la-source-lausanne",
+      "fr": "infirmier-ere-en-chirurgie-urologique-et-viscerale-clinique-la-source-lausanne"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
+  },
+  "url|https://emploi.lasource.ch?page=advertisement_display&id=771": {
+    "canonicalSlug": "infermiera-in-piscina-clinique-de-la-source-lausanne",
+    "slugByLocale": {
+      "it": "infermiera-in-piscina-clinique-de-la-source-lausanne",
+      "en": "nurse-at-the-pool-clinique-de-la-source-lausanne",
+      "de": "krankenschwester-am-pool-clinique-de-la-source-lausanne",
+      "fr": "infirmier-ere-au-pool-clinique-la-source-lausanne"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
+  },
+  "url|https://emploi.lasource.ch?page=advertisement_display&id=772": {
+    "canonicalSlug": "assistente-medico-per-la-nostra-consulenza-preanestetica-clinique-de-la-source-lausanne",
+    "slugByLocale": {
+      "it": "assistente-medico-per-la-nostra-consulenza-preanestetica-clinique-de-la-source-lausanne",
+      "en": "medical-assistant-for-our-pre-anesthetic-consultation-clinique-de-la-source-lausanne",
+      "de": "medizinische-assistenz-fur-unsere-praanasthetische-beratung-clinique-de-la-source-lausanne",
+      "fr": "assistant-e-medical-e-pour-notre-consultation-pre-anesthesique-clinique-la-source-lausanne"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
+  },
+  "url|https://emploi.lasource.ch?page=advertisement_display&id=778": {
+    "canonicalSlug": "assistente-di-governo-clinique-de-la-source-lausanne",
+    "slugByLocale": {
+      "it": "assistente-di-governo-clinique-de-la-source-lausanne",
+      "en": "governing-assistant-clinique-de-la-source-lausanne",
+      "de": "assistent-e-gouvernant-e-clinique-de-la-source-lausanne",
+      "fr": "assistant-e-gouvernant-e-clinique-la-source-lausanne"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
+  },
+  "url|https://emploi.lasource.ch?page=advertisement_display&id=775": {
+    "canonicalSlug": "gestione-delle-camere-clinique-de-la-source-lausanne",
+    "slugByLocale": {
+      "it": "gestione-delle-camere-clinique-de-la-source-lausanne",
+      "en": "operations-room-manager-clinique-de-la-source-lausanne",
+      "de": "operationsraummanager-clinique-de-la-source-lausanne",
+      "fr": "responsable-des-salles-d-operation-clinique-la-source-lausanne"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
+  },
+  "url|https://emploi.lasource.ch?page=advertisement_display&id=777": {
+    "canonicalSlug": "infermiere-anestetiche-clinique-de-la-source-lausanne",
+    "slugByLocale": {
+      "it": "infermiere-anestetiche-clinique-de-la-source-lausanne",
+      "en": "anaesthetic-nurse-clinique-de-la-source-lausanne",
+      "de": "anasthetische-krankenschwester-clinique-de-la-source-lausanne",
+      "fr": "infirmier-ere-anesthesiste-clinique-la-source-lausanne"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
+  },
+  "url|https://emploi.lasource.ch?page=advertisement_display&id=782": {
+    "canonicalSlug": "assistente-tecnico-nella-sala-operatoria-atsso-clinique-de-la-source-lausanne",
+    "slugByLocale": {
+      "it": "assistente-tecnico-nella-sala-operatoria-atsso-clinique-de-la-source-lausanne",
+      "en": "technical-assistant-in-the-operating-room-atsso-clinique-de-la-source-lausanne",
+      "fr": "assistant-e-technique-specialise-e-en-salle-d-operation-atsso-clinique-la-source-lausanne"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
+  },
+  "url|https://emploi.lasource.ch?page=advertisement_display&id=780": {
+    "canonicalSlug": "coordinatore-di-prenotazione-clinique-de-la-source-lausanne",
+    "slugByLocale": {
+      "it": "coordinatore-di-prenotazione-clinique-de-la-source-lausanne",
+      "en": "booking-co-ordinator-clinique-de-la-source-lausanne",
+      "de": "buchungskoordinator-clinique-de-la-source-lausanne",
+      "fr": "collaborateur-trice-aux-reservations-clinique-la-source-lausanne"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
+  },
+  "id|personio.de|2793209": {
+    "canonicalSlug": "lavoro-a-tempo-parziale-consegna-frigorifera-e-commissione-nella-cella-frigorifera-2-turni-a-settimana-felfel-zurich",
+    "slugByLocale": {
+      "it": "lavoro-a-tempo-parziale-consegna-frigorifera-e-commissione-nella-cella-frigorifera-2-turni-a-settimana-felfel-zurich",
+      "en": "part-time-job-fridge-delivery-commission-in-the-cool-cell-2-shifts-per-week-felfel-zurich",
+      "de": "teilzeitjob-kuhlschranklieferung-kommission-in-der-kuhlen-zelle-2-schichten-pro-woche-felfel-zurich"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "ZH"
+  },
+  "id|ems-group.com|3a3724b6-107c-44ed-ae6a-2bafbed774ff": {
+    "canonicalSlug": "elektroinstallateur-automatiker-in-m-w-d-100-ems-chemie-ag-domat-ems",
+    "slugByLocale": {
+      "it": "elektroinstallateur-automatiker-in-m-w-d-100-ems-chemie-ag-domat-ems",
+      "en": "elektroinstallateur-automatiker-in-m-w-d-100-ems-chemie-domat-ems",
+      "de": "elektroinstallateur-automatiker-in-m-w-d-100-ems-chemie-domat-ems",
+      "fr": "elektroinstallateur-automatiker-in-m-w-d-100-ems-chemie-domat-ems"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "GR"
+  },
+  "id|ems-group.com|4a254f58-0893-432a-b451-eecd2ca50dba": {
+    "canonicalSlug": "elektroniker-per-betriebstechnik-mechatroniker-m-w-d-100-ems-chemie-ag-domat-ems",
+    "slugByLocale": {
+      "it": "elektroniker-per-betriebstechnik-mechatroniker-m-w-d-100-ems-chemie-ag-domat-ems",
+      "en": "elektroniker-fur-betriebstechnik-mechatroniker-m-w-d-100-ems-chemie-domat-ems",
+      "de": "elektroniker-fur-betriebstechnik-mechatroniker-m-w-d-100-ems-chemie-domat-ems",
+      "fr": "elektroniker-fur-betriebstechnik-mechatroniker-m-w-d-100-ems-chemie-domat-ems"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "GR"
+  },
+  "id|ems-group.com|c9b0ac93-f797-4150-8e84-5ef5f33f89de": {
+    "canonicalSlug": "entwicklungschemiker-entwicklungsingenieur-m-w-d-100-ems-chemie-romanshorn",
+    "slugByLocale": {
+      "it": "entwicklungschemiker-entwicklungsingenieur-m-w-d-100-ems-chemie-romanshorn"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "TG"
+  },
+  "id|ems-group.com|e8adb7ff-a22a-450b-a858-9ee5c15acbfb": {
+    "canonicalSlug": "hr-business-partner-personalreferent-m-w-d-100-ems-chemie-domat-ems",
+    "slugByLocale": {
+      "it": "hr-business-partner-personalreferent-m-w-d-100-ems-chemie-domat-ems"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "GR"
+  },
+  "id|ems-group.com|8b0c7794-62f8-4757-90de-d5f5d4275dc8": {
+    "canonicalSlug": "it-supporter-100-ems-chemie-romanshorn",
+    "slugByLocale": {
+      "it": "it-supporter-100-ems-chemie-romanshorn",
+      "en": "it-engineer-100-ems-chemie-ag-domat-ems",
+      "de": "it-supporter-100-ems-chemie-ag-domat-ems",
+      "fr": "support-informatique-100-ems-chemie-ag-romanshorn"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "TG"
+  },
+  "id|ems-group.com|0934fb73-93ac-499d-90ad-7da34c631459": {
+    "canonicalSlug": "key-account-manager-packaging-m-w-d-100-home-office-100-ems-chemie-domat-ems",
+    "slugByLocale": {
+      "it": "key-account-manager-packaging-m-w-d-100-home-office-100-ems-chemie-domat-ems",
+      "fr": "gestionnaire-de-comptes-cles-emballage-h-f-d-100-home-office-100-ems-chemie-ag-domat-ems"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "GR"
+  },
+  "id|ems-group.com|666d01e2-4939-4073-a7c6-a2eebf5fd8ab": {
+    "canonicalSlug": "laborleiter-qualitatskontrolle-fasern-e-garn-m-w-d-100-ems-chemie-ag-domat-ems",
+    "slugByLocale": {
+      "it": "laborleiter-qualitatskontrolle-fasern-e-garn-m-w-d-100-ems-chemie-ag-domat-ems",
+      "en": "laborleiter-qualitatskontrolle-fasern-und-garn-m-w-d-100-ems-chemie-domat-ems",
+      "de": "laborleiter-qualitatskontrolle-fasern-und-garn-m-w-d-100-ems-chemie-domat-ems",
+      "fr": "laborleiter-qualitatskontrolle-fasern-und-garn-m-w-d-100-ems-chemie-domat-ems"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "GR"
+  },
+  "id|ems-group.com|d209a760-a4b3-4024-95d8-7e5b1bb0d8d9": {
+    "canonicalSlug": "logistiker-wareneingang-m-w-d-100-ems-chemie-ag-domat-ems",
+    "slugByLocale": {
+      "it": "logistiker-wareneingang-m-w-d-100-ems-chemie-ag-domat-ems",
+      "en": "logistiker-wareneingang-m-w-d-100-ems-chemie-domat-ems",
+      "de": "logistiker-wareneingang-m-w-d-100-ems-chemie-domat-ems",
+      "fr": "logistiker-wareneingang-m-w-d-100-ems-chemie-domat-ems"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "GR"
+  },
+  "id|ems-group.com|8dc3c64e-92f3-4c2c-b123-5d81b7db54ba": {
+    "canonicalSlug": "produktionscontroller-100-ems-chemie-domat-ems",
+    "slugByLocale": {
+      "it": "produktionscontroller-100-ems-chemie-domat-ems",
+      "de": "produktscontroller-100-ems-chemie-ag-domat-ems",
+      "fr": "produktionscontroleur-100-ems-chemie-ag-domat-ems"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "GR"
+  },
+  "id|ems-group.com|bba40aea-b4b7-4b31-95c2-4185094e19ae": {
+    "canonicalSlug": "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-ag-domat-ems",
+    "slugByLocale": {
+      "it": "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-ag-domat-ems",
+      "en": "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems",
+      "de": "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems",
+      "fr": "projektleiter-kunstoffanwendungen-automobile-h-f-d-100-ems-chemie-ag-domat-ems"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "GR"
+  },
+  "id|ems-group.com|d2dfabd7-661b-4af5-8846-8fa82c9003e3": {
+    "canonicalSlug": "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-ag-domat-ems",
+    "slugByLocale": {
+      "it": "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-ag-domat-ems",
+      "en": "projektleiter-kunstoffanwendungen-industries-consumer-m-f-d-100-ems-chemie-ag-domat-ems",
+      "de": "projektleiter-kunstoffanwendungen-industries-consumer-m-w-d-100-ems-chemie-ag-domat-ems",
+      "fr": "projektleiter-kunstoffanwendungen-industries-et-consommateurs-h-f-d-100-ems-chemie-ag-domat-ems"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "GR"
+  },
+  "id|ems-group.com|5608412e-903b-48f7-bd6c-f5f87287a3f0": {
+    "canonicalSlug": "senior-financial-accountant-fachspezialist-rechnungswesen-m-w-d-100-ems-chemie-domat-ems",
+    "slugByLocale": {
+      "it": "senior-financial-accountant-fachspezialist-rechnungswesen-m-w-d-100-ems-chemie-domat-ems"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "GR"
+  },
+  "id|epfl.ch|1165354555": {
+    "canonicalSlug": "ricercatore-post-dottorato-e-docente-in-imprenditoria-100-epfl-lausanne",
+    "slugByLocale": {
+      "it": "ricercatore-post-dottorato-e-docente-in-imprenditoria-100-epfl-lausanne",
+      "de": "postdoktorand-und-dozent-fur-unternehmertum-100-epfl-lausanne",
+      "fr": "postdoctoral-researcher-and-lecturer-in-entrepreneurship-100-epfl-lausanne"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
+  },
+  "id|epfl.ch|1165367055": {
+    "canonicalSlug": "responsabile-del-servizio-per-le-operazioni-e-le-infrastrutture-it-epfl-lausanne",
+    "slugByLocale": {
+      "it": "responsabile-del-servizio-per-le-operazioni-e-le-infrastrutture-it-epfl-lausanne",
+      "en": "head-of-service-for-operations-and-it-infrastructure-epfl-lausanne",
+      "de": "leiter-service-fur-operations-und-it-infrastruktur-epfl-lausanne",
+      "fr": "chef-fe-de-service-pour-les-operations-et-l-infrastructure-it-epfl-lausanne"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
+  },
+  "id|epfl.ch|1165373455": {
+    "canonicalSlug": "apertura-dello-scholar-postdoctoral-nella-qualita-dell-aria-interna-epfl-fribourg",
+    "slugByLocale": {
+      "it": "apertura-dello-scholar-postdoctoral-nella-qualita-dell-aria-interna-epfl-fribourg",
+      "fr": "postdoctoral-scholar-opening-in-indoor-air-quality-epfl-fribourg"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "FR"
+  },
+  "id|epfl.ch|1165376555": {
+    "canonicalSlug": "2-phd-posizioni-in-meccanica-di-cemento-armato-enac-construct-epfl-lausanne",
+    "slugByLocale": {
+      "it": "2-phd-posizioni-in-meccanica-di-cemento-armato-enac-construct-epfl-lausanne",
+      "de": "2-phd-positionen-in-der-mechanik-des-verstarkten-betons-enac-construct-epfl-lausanne",
+      "fr": "2-phd-positions-in-mechanics-of-reinforced-concrete-enac-construct-epfl-lausanne"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
+  },
+  "id|epfl.ch|1165381255": {
+    "canonicalSlug": "istologia-tecnica-epfl-lausanne",
+    "slugByLocale": {
+      "it": "istologia-tecnica-epfl-lausanne",
+      "en": "histology-technician-epfl-lausanne",
+      "de": "histologietechniker-epfl-lausanne",
+      "fr": "technicien-ne-en-histologie-epfl-lausanne"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
+  },
+  "id|epfl.ch|1165381655": {
+    "canonicalSlug": "teaching-program-coordinatore-epfl-lausanne",
+    "slugByLocale": {
+      "it": "teaching-program-coordinatore-epfl-lausanne",
+      "en": "teaching-program-coordinator-epfl-lausanne",
+      "de": "teaching-program-koordinator-epfl-lausanne",
+      "fr": "teaching-program-coordinateur-epfl-lausanne"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
+  },
+  "id|epfl.ch|1165382855": {
+    "canonicalSlug": "system-administrator-devops-engineer-epfl-lausanne",
+    "slugByLocale": {
+      "fr": "system-administrator-devops-engineer-epfl-lausanne"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
+  },
+  "id|epfl.ch|1165377555": {
+    "canonicalSlug": "postdoctoral-researcher-in-urban-verticality-and-geospatial-digital-observatory-epfl",
+    "slugByLocale": {
+      "it": "postdoctoral-researcher-in-urban-verticality-and-geospatial-digital-observatory-epfl",
+      "en": "postdoctoral-researcher-in-urban-verticality-ge-epfl-lausanne",
+      "de": "postdoktorand-in-urbaner-vertikalitat-und-geospatialem-digitalem-observatorium-epfl-lausanne",
+      "fr": "chercheur-postdoctoral-en-verticalite-urbaine-et-observatoire-numerique-geospatial-epfl-lausanne"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
+  },
+  "id|epfl.ch|1165384655": {
+    "canonicalSlug": "phd-posizione-degli-studenti-nei-flussi-di-lavoro-digitali-interoperabili-per-la-progettazione-e-l-esecuzione-di-edifici",
+    "slugByLocale": {
+      "it": "phd-posizione-degli-studenti-nei-flussi-di-lavoro-digitali-interoperabili-per-la-progettazione-e-l-esecuzione-di-edifici",
+      "en": "phd-student-position-in-interoperable-digital-workflows-for-regenerative-building-design",
+      "de": "phd-student-position-in-interoperablen-digitalen-workflows-fur-regenerative-gebaudeplanung-und-durchfuhrung-epfl",
+      "fr": "poste-d-etudiant-au-doctorat-dans-les-flux-de-travail-numeriques-interoperables-pour-la-conception-et-la-realisation-de"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "FR"
+  },
+  "id|epfl.ch|1165425355": {
+    "canonicalSlug": "posizione-post-dottorale-screening-di-farmaci-basati-su-immagini-contro-gli-agenti-patogeni-batterici-epfl-lausanne",
+    "slugByLocale": {
+      "it": "posizione-post-dottorale-screening-di-farmaci-basati-su-immagini-contro-gli-agenti-patogeni-batterici-epfl-lausanne",
+      "fr": "postdoctoral-position-image-based-drug-screening-against-bacterial-pathogens-epfl-lausanne"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "VD"
   }
 }
