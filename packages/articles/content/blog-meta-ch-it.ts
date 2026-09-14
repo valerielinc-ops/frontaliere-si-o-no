@@ -6379,6 +6379,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.benzina-oggi-costo-confronto.title': 'La benzina oggi costa meno che negli anni ‘80',
     'blog.article.benzina-oggi-costo-confronto.excerpt': 'Il prezzo della benzina è attorno a 2 CHF/litro, inferiore al valore degli anni ’80 corretto per potere d’acquisto (3,50 CHF) e più vantaggioso rispetto a molti Paesi esteri.',
     'blog.article.benzina-oggi-costo-confronto.imageAlt': 'Stazione di servizio svizzera con prezzo benzina intorno a 2 CHF/litro',
+    'blog.article.consiglio-federale-decisioni-2026.title': 'Decisioni Consiglio federale: novità e votazioni 2026',
+    'blog.article.consiglio-federale-decisioni-2026.excerpt': 'Le ultime notizie e i progetti del Consiglio federale: dalle donne nel servizio volontario alla protezione climatica e alla votazione popolare.',
+    'blog.article.consiglio-federale-decisioni-2026.imageAlt': 'Palazzo federale a Berna sede del Consiglio federale',
 };
 
 export default blogMetaChIt;

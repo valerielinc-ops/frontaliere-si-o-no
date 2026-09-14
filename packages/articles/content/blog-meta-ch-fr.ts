@@ -6379,6 +6379,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.benzina-oggi-costo-confronto.title': 'L\'essence coûte aujourd\'hui moins cher que dans les années 80',
     'blog.article.benzina-oggi-costo-confronto.excerpt': 'Le prix de l\'essence est d\'environ 2 CHF/litre, inférieur à la valeur des années 80 corrigée du pouvoir d’achat (3,50 CHF) et plus avantageux que dans de nombreux pays étrangers.',
     'blog.article.benzina-oggi-costo-confronto.imageAlt': 'Station-service suisse avec prix de l\'essence autour de 2 CHF par litre',
+    'blog.article.consiglio-federale-decisioni-2026.title': 'Décisions du Conseil fédéral : nouveautés et votations 2026',
+    'blog.article.consiglio-federale-decisioni-2026.excerpt': 'Les dernières nouvelles et les projets du Conseil fédéral : des femmes dans le service volontaire à la protection climatique et à la votation populaire.',
+    'blog.article.consiglio-federale-decisioni-2026.imageAlt': 'Palais fédéral à Berne siège du Conseil fédéral',
 };
 
 export default blogMetaChFr;

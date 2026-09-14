@@ -82817,6 +82817,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-consiglio-federale-decisioni-2026': {
+    title: 'Decisioni Consiglio federale: novità e votazioni 2026',
+    description: 'Scopri le decisioni del Consiglio federale, i progetti di legge, le misure contro la siccità e la votazione popolare del 27 settembre 2026 in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, decisioni, consiglio, federale, novità',
+    ogTitle: 'Decisioni e riforme del Consiglio federale: tutti gli aggiornamenti',
+    ogDescription: 'Approfondisci le decisioni del Consiglio federale svizzero, dai progetti di legge sulla protezione climatica e la fibra ottica fino alla votazione popolare del 27 settembre 2026.',
+    canonicalPath: '/articoli-svizzera/consiglio-federale-decisioni-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Decisioni Consiglio federale: novità e votazioni 2026",
+      "description": "Scopri le decisioni del Consiglio federale, i progetti di legge, le misure contro la siccità e la votazione popolare del 27 settembre 2026 in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/consiglio-federale-decisioni-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna sede del Consiglio federale"
+      },
+      "datePublished": "2026-09-14T01:45:57+00:00",
+      "dateModified": "2026-09-14T01:45:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/consiglio-federale-decisioni-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

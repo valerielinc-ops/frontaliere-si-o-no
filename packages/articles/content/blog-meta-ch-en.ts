@@ -6379,6 +6379,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.benzina-oggi-costo-confronto.title': 'Petrol today costs less than in the 1980s',
     'blog.article.benzina-oggi-costo-confronto.excerpt': 'The price of petrol is around CHF 2/litre, lower than the value of the 1980s adjusted for purchasing power (CHF 3.50) and more advantageous than in many foreign countries.',
     'blog.article.benzina-oggi-costo-confronto.imageAlt': 'Swiss fuel station with gasoline price around 2 CHF per liter',
+    'blog.article.consiglio-federale-decisioni-2026.title': 'Federal Council decisions: news and votes 2026',
+    'blog.article.consiglio-federale-decisioni-2026.excerpt': 'The latest news and projects of the Federal Council: from women in voluntary service to climate protection and popular voting.',
+    'blog.article.consiglio-federale-decisioni-2026.imageAlt': 'Federal Palace in Bern home of the Federal Council',
 };
 
 export default blogMetaChEn;
