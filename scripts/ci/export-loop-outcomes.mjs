@@ -486,6 +486,11 @@ export function buildL4OutcomeLedger({
   const returnedUsers = new Set();
   const dedupGroups = new Map();
   let unattributedDeliveries = 0;
+  const unattributedDeliveryReasons = {
+    missingAlertId: 0,
+    missingSentAt: 0,
+    noEligibleAlert: 0,
+  };
   let quietHoursEvidenceComplete = true;
 
   for (const row of deliveryRows) {
@@ -504,6 +509,9 @@ export function buildL4OutcomeLedger({
     const key = buildAlertKey(email, alertId);
     if (!alertId || sentAt == null || !eligibleAlerts.has(key)) {
       unattributedDeliveries += 1;
+      if (!alertId) unattributedDeliveryReasons.missingAlertId += 1;
+      else if (sentAt == null) unattributedDeliveryReasons.missingSentAt += 1;
+      else unattributedDeliveryReasons.noEligibleAlert += 1;
       continue;
     }
     const deliveryId = row.name || `${email}/${child.childId}`;
@@ -564,6 +572,7 @@ export function buildL4OutcomeLedger({
       quietHoursEvidence: 'sender scheduled_for/send_time_source retained; exporter never schedules or sends',
       externalDeliveryUntouched: true,
       unattributedDeliveries,
+      unattributedDeliveryReasons,
       consentClassifier: 'functions/src/jobAlertBackfillCore.js',
       returnClassifier: 'functions/src/lib/returnVisit.js',
       deduplicationKey: 'recipient + alert id + UTC send day',
@@ -575,7 +584,7 @@ export async function exportL4({ configPath = null, snoozesPath = null, outputPa
   const firestore = client || new GoogleDataClient();
   const window = rollingWindow(now, DEFAULT_L4_WINDOW_HOURS);
   const fields = [
-    'active', 'paused', 'backfilled_from', 'backfilledFrom', 'consent_text', 'consentText',
+    'active', 'paused', 'backfilled_from', 'backfilledFrom', 'consent_given', 'consentGiven', 'consent_text', 'consentText',
     'consent_text_displayed', 'consentTextDisplayed', 'consent_act', 'consentAct',
     'consent_origin', 'consentOrigin', 'status', 'unsubscribed_at', 'unsubscribedAt',
     'resubscribed_at', 'resubscribedAt', 'last_site_visit_at', 'lastSiteVisitAt',

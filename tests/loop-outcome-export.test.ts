@@ -92,6 +92,11 @@ describe('read-only loop outcome exporters', () => {
         deduplicationChecked: true,
         quietHoursChecked: true,
         externalDeliveryUntouched: true,
+        unattributedDeliveryReasons: {
+          missingAlertId: 0,
+          missingSentAt: 0,
+          noEligibleAlert: 0,
+        },
       },
     });
   });
@@ -112,6 +117,11 @@ describe('read-only loop outcome exporters', () => {
       deduplicationChecked: false,
       quietHoursChecked: false,
       unattributedDeliveries: 1,
+      unattributedDeliveryReasons: {
+        missingAlertId: 1,
+        missingSentAt: 0,
+        noEligibleAlert: 0,
+      },
     });
   });
 
