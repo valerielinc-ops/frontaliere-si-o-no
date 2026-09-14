@@ -220,6 +220,24 @@ describe('technical operations audit', () => {
     expect(findings.filter((item: any) => item.rule === 'workflow.data-write-without-check')).toHaveLength(1);
   });
 
+  it('rileva una redirezione dopo continuazioni consecutive', () => {
+    const source = [
+      'name: continued-redirect-twice',
+      'on: [workflow_dispatch]',
+      'jobs:',
+      '  persist:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: write',
+      '        run: |',
+      '          printf payload > \\',
+      '            \\',
+      '            "data/result.json"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/continued-redirect-twice.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.data-write-without-check')).toHaveLength(1);
+  });
+
   it('accetta queue:max come estensione supportata da GitHub Actions', () => {
     const source = [
       'name: queue-extension',
