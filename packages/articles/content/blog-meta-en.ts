@@ -11745,6 +11745,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-brenta-lavorare-ticino.title': 'Living in Brenta and working in Ticino: the guide',
     'blog.article.vivere-brenta-lavorare-ticino.excerpt': 'Discover the pros and cons of living at Brenta and working in Ticino. Journey times, costs, advantages and taxation for border workers.',
     'blog.article.vivere-brenta-lavorare-ticino.imageAlt': 'Panoramic view of Lake Lugano and surrounding mountains in Ticino.',
+    'blog.article.cannabis-terapeutica-ticino-proposta.title': 'Therapeutic cannabis in Ticino: new proposal',
+    'blog.article.cannabis-terapeutica-ticino-proposta.excerpt': 'CanMedTicino is preparing a new proposal on medical cannabis after the halt of the cantonal health authorities.',
+    'blog.article.cannabis-terapeutica-ticino-proposta.imageAlt': 'Meeting on therapeutic cannabis in Ticino between experts',
 };
 
 export default blogMetaEn;

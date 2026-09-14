@@ -11747,6 +11747,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-brenta-lavorare-ticino.title': 'Vivre à Brenta et travailler au Tessin : le guide',
     'blog.article.vivere-brenta-lavorare-ticino.excerpt': 'Découvrez les avantages et les inconvénients de vivre à Brenta et de travailler au Tessin. Temps de trajet, coûts, avantages et fiscalité pour les frontaliers.',
     'blog.article.vivere-brenta-lavorare-ticino.imageAlt': 'Vue panoramique du lac de Lugano et des montagnes environnantes au Tessin.',
+    'blog.article.cannabis-terapeutica-ticino-proposta.title': 'Cannabis thérapeutique au Tessin : nouvelle proposition',
+    'blog.article.cannabis-terapeutica-ticino-proposta.excerpt': 'CanMedTicino prépare une nouvelle proposition sur le cannabis thérapeutique après l\'arrêt des autorités sanitaires cantonales.',
+    'blog.article.cannabis-terapeutica-ticino-proposta.imageAlt': 'Réunion sur le cannabis thérapeutique au Tessin',
 };
 
 export default blogMetaFr;
