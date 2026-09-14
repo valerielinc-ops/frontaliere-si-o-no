@@ -39,7 +39,7 @@ function formatMoney(value: number | undefined, locale: PlateLocale): string { r
 function formatDate(value: string | undefined, locale: PlateLocale): string { if (!value) return '—'; const date = new Date(value); return Number.isNaN(date.getTime()) ? '—' : new Intl.DateTimeFormat(locale === 'it' ? 'it-CH' : locale === 'de' ? 'de-CH' : locale === 'fr' ? 'fr-CH' : 'en-CH', { dateStyle: 'medium', timeZone: 'Europe/Zurich' }).format(date); }
 function pathFor(locale: PlateLocale, view: 'hub' | 'rankings' | 'canton' | 'detail', canton?: string, plate?: string): string { return buildPlateAuctionPath({ locale, view, canton, plate }); }
 function detailPathForRow(row: SnapshotRow, locale: PlateLocale): string { return pathFor(locale, 'detail', row.sourceKey || row.platePrefix, row.normalizedPlate); }
-function alternates(view: 'hub' | 'rankings' | 'canton' | 'detail', canton?: string, plate?: string): string { return LOCALES.map((locale) => `<link rel="alternate" hreflang="${locale}-CH" href="${BASE_URL}${pathFor(locale, view, canton, plate)}">`).concat(`<link rel="alternate" hreflang="x-default" href="${BASE_URL}${pathFor('it', view, canton, plate)}">`).join('\n'); }
+function alternates(view: 'hub' | 'rankings' | 'canton' | 'detail', canton?: string, plate?: string): string { return LOCALES.map((locale) => `<link rel="alternate" hreflang="${locale}" href="${BASE_URL}${pathFor(locale, view, canton, plate)}">`).concat(`<link rel="alternate" hreflang="x-default" href="${BASE_URL}${pathFor('it', view, canton, plate)}">`).join('\n'); }
 function latestVerifiedFinalRows(rows: SnapshotRow[]): SnapshotRow[] {
   const latest = new Map<string, SnapshotRow>();
   for (const row of rows) {
