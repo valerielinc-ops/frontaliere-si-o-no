@@ -80,7 +80,7 @@ import {
 } from '../scripts/lib/events-utils.mjs';
 import { getCantonLabel, type CantonLocale } from '../services/cantonList';
 import { imageObjectLd, type ImageObjectLd } from '../services/seo/imageObjectLd';
-import { osmEmbedSrc, CTA_PRIMARY_CLASS } from './shared/seoContentTokens';
+import { differentiateH1FromTitle, osmEmbedSrc, CTA_PRIMARY_CLASS } from './shared/seoContentTokens';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 
@@ -2654,6 +2654,8 @@ export function renderOverflowLadderPage(params: {
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
   const pageCount = overflowLadderPageCount(events, cap, detailHref);
   const rowCount = overflowRows(events, cap, detailHref).length;
+  const ladderTitle = oCopy.ladderTitle(label, page, pageCount);
+  const ladderH1 = differentiateH1FromTitle(ladderTitle, ladderTitle, locale);
 
   const body = `${EVENTS_STYLE_BLOCK}<div class="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8">
     <nav class="mb-4 text-sm text-muted" aria-label="Breadcrumb">
@@ -2669,7 +2671,7 @@ export function renderOverflowLadderPage(params: {
     </nav>
 
     <header class="ev-in rounded-lg border border-edge bg-surface p-5 shadow-stripe-sm sm:p-8">
-      <h1 class="max-w-4xl font-display text-2xl font-bold leading-tight text-heading sm:text-3xl">${esc(oCopy.ladderTitle(label, page, pageCount))}</h1>
+      <h1 class="max-w-4xl font-display text-2xl font-bold leading-tight text-heading sm:text-3xl">${esc(ladderH1)}</h1>
       <p class="mt-3 max-w-3xl text-base leading-7 text-body">${esc(oCopy.ladderLede(label, rowCount))}</p>
       <p class="mt-3 text-sm text-muted">${renderSourceAttribution(events, copy, dateStamp)}</p>
     </header>
@@ -2699,7 +2701,7 @@ export function renderOverflowLadderPage(params: {
   const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: isIndexableWordCount(wordCount) })}`;
   const html = buildSeoPageHtml({
     locale,
-    title: oCopy.ladderTitle(label, page, pageCount),
+    title: ladderTitle,
     description: oCopy.ladderDesc(label, page, pageCount),
     canonicalUrl,
     hreflangHtml: buildLadderAlternates(canton, comune, page),

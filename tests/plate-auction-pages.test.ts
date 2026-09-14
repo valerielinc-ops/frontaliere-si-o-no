@@ -94,6 +94,38 @@ describe('plate-auction static pages', () => {
     expect(hreflangs).toEqual(['it', 'en', 'de', 'fr', 'x-default']);
   });
 
+  it('keeps the visible H1 distinct and emits a breadcrumb schema block', () => {
+    const rootDir = fixtureRoot();
+    const rendered = renderPlateAuctionPage({ locale: 'it', view: 'canton', canton: 'GR', rootDir });
+    const title = rendered.html.match(/<title>([^<]*)<\/title>/)?.[1] || '';
+    const h1 = rendered.html.match(/<h1[^>]*>([^<]*)<\/h1>/)?.[1] || '';
+    expect(h1).toContain('(guida frontaliere)');
+    expect(h1).not.toBe(title);
+    expect(rendered.html).toContain('"@type":"BreadcrumbList"');
+  });
+
+  it('emits each current URL exactly once in the breadcrumb chain', () => {
+    const rootDir = fixtureRoot();
+    const pages = [
+      renderPlateAuctionPage({ locale: 'it', view: 'hub', rootDir }),
+      renderPlateAuctionPage({ locale: 'it', view: 'rankings', rootDir }),
+      renderPlateAuctionPage({ locale: 'it', view: 'canton', canton: 'GR', rootDir }),
+      renderPlateAuctionPage({ locale: 'it', view: 'detail', canton: 'GR', plate: 'GR7', rootDir }),
+    ];
+
+    for (const page of pages) {
+      const payload = [...page.html.matchAll(/<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)]
+        .map((match) => match[1])
+        .find((json) => json.includes('"@type":"BreadcrumbList"'));
+      expect(payload).toBeDefined();
+      const breadcrumb = JSON.parse(payload!) as { itemListElement: Array<{ position: number; item?: string }> };
+      const items = breadcrumb.itemListElement;
+      expect(items.map((item) => item.position)).toEqual(items.map((_, index) => index + 1));
+      expect(new Set(items.map((item) => item.item)).size).toBe(items.length);
+      expect(items.at(-1)?.item).toBe(`https://frontaliereticino.ch/${page.urlPath}/`);
+    }
+  });
+
   it('links every sitemap detail URL from static locale hubs', async () => {
     const rootDir = fixtureRoot({ auctionCount: 41, withDist: true });
     const closeBundle = plateAuctionsPagesPlugin(rootDir).closeBundle;

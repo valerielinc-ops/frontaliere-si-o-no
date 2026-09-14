@@ -32,3 +32,21 @@ export function stripLiteralMarkdown(value: string): string {
   t = t.replace(/[ \t]{2,}/g, ' ');
   return t.trim();
 }
+
+/**
+ * Remove a markdown bold wrapper only when it surrounds the whole value.
+ *
+ * This narrower variant is for job titles copied into list links. A broad
+ * `**` scrub would damage legitimate employer wording such as
+ * `***delicatessa`; a complete wrapper is the only shape that can be safely
+ * classified as formatting without interpreting the title's vocabulary.
+ */
+export function stripWholeMarkdownBoldWrapper(value: string): string {
+  if (!value) return value;
+  const source = String(value);
+  const trimmed = source.trim();
+  if (trimmed.length < 5 || !trimmed.startsWith('**') || !trimmed.endsWith('**')) return source;
+  const inner = trimmed.slice(2, -2).trim();
+  if (!inner || inner.includes('*')) return source;
+  return inner;
+}

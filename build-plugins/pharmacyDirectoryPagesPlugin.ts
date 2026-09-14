@@ -5,7 +5,7 @@ import { BASE_URL, BUILD_DATE_STAMP, MIN_INDEXABLE_WORDS, SPA_ACTION_REDIRECT_SC
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
-import { esc, H1_STYLE, H2_STYLE, H3_STYLE, LEDE_STYLE, BODY_STYLE, CARD_CLASS } from './shared/seoContentTokens';
+import { differentiateH1FromTitle, esc, H1_STYLE, H2_STYLE, H3_STYLE, LEDE_STYLE, BODY_STYLE, CARD_CLASS } from './shared/seoContentTokens';
 import {
   BORDER_PHARMACIES,
   ITALY_BORDER_PHARMACIES,
@@ -408,9 +408,8 @@ function pagePharmacies(descriptor: PageDescriptor): Pharmacy[] {
   return [];
 }
 
-function renderBody(descriptor: PageDescriptor, locale: Locale): string {
+function renderBody(descriptor: PageDescriptor, locale: Locale, h1 = pageTitle(descriptor.kind, locale, descriptor)): string {
   const copy = COPY[locale];
-  const title = pageTitle(descriptor.kind, locale, descriptor);
   let sections = '';
   if (descriptor.kind === 'hub') {
     sections = `<section><h2 style="${H2_STYLE}">${esc(copy.directoryHeading)}</h2><p style="${BODY_STYLE}">${href({ kind: 'canton', locale }, copy.ticinoTitle)} · ${href({ kind: 'country', country: 'IT', locale }, copy.italyTitle)} · ${href({ kind: 'duty-hub', locale }, copy.duties)}</p><p style="${BODY_STYLE}">${ITALY_BORDER_PROVINCES.map((area) => href({ kind: 'area', country: 'IT', areaSlug: area.slug, locale }, area.name)).join(' · ')}</p><p style="${BODY_STYLE}">${esc(copy.locarneseNote)}</p></section>`;
@@ -431,7 +430,7 @@ function renderBody(descriptor: PageDescriptor, locale: Locale): string {
     const pharmacies = pagePharmacies(descriptor);
     sections = `<section><h2 style="${H2_STYLE}">${esc(copy.directoryHeading)}</h2><div class="s-XENO3U">${pharmacies.map((pharmacy) => renderPharmacyCard(pharmacy, locale)).join('')}</div>${descriptor.kind === 'city' && descriptor.country === 'CH' ? `<p style="${BODY_STYLE}">${href({ kind: 'duty-city', locale, citySlug: descriptor.citySlug }, copy.viewDuties)}</p>` : ''}</section>`;
   }
-  return `<header><h1 style="${H1_STYLE}">${esc(title)}</h1><p style="${LEDE_STYLE}">${esc(pageLede(descriptor.kind, locale))}</p></header>${sections}<section><h2 style="${H2_STYLE}">${esc(copy.disclaimerHeading)}</h2><p style="${BODY_STYLE}">${esc(copy.disclaimer)}</p></section>`;
+  return `<header><h1 style="${H1_STYLE}">${esc(h1)}</h1><p style="${LEDE_STYLE}">${esc(pageLede(descriptor.kind, locale))}</p></header>${sections}<section><h2 style="${H2_STYLE}">${esc(copy.disclaimerHeading)}</h2><p style="${BODY_STYLE}">${esc(copy.disclaimer)}</p></section>`;
 }
 
 function breadcrumbJsonLd(descriptor: PageDescriptor, locale: Locale): string {
@@ -489,21 +488,22 @@ function descriptors(): PageDescriptor[] {
 }
 
 function buildPage(descriptor: PageDescriptor, locale: Locale, distDir: string) {
-  const body = renderBody(descriptor, locale);
+  const title = pageTitle(descriptor.kind, locale, descriptor);
+  const emittedTitle = shellTitle(descriptor, locale);
+  const body = renderBody(descriptor, locale, differentiateH1FromTitle(title, emittedTitle, locale));
   const wordCount = countHtmlBodyWords(body);
   // City duty URLs are useful navigation aliases, but their body repeats the
   // regional OFCT schedule. Keep them crawlable for users without creating
   // duplicate indexable pages or an ItemList with a different visible scope.
   const indexable = descriptor.kind !== 'duty-city' && wordCount >= MIN_INDEXABLE_WORDS;
   const pathValue = descriptorPath(descriptor, locale);
-  const title = pageTitle(descriptor.kind, locale, descriptor);
   const description = pageDescription(descriptor, locale);
   const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable })}`;
   return {
     path: buildPharmacyPath(pathValue, locale),
     wordCount,
     indexable,
-    html: buildSeoPageHtml({ locale, title: shellTitle(descriptor, locale), description, canonicalUrl: `${BASE_URL}${buildPharmacyPath(pathValue, locale)}`, hreflangHtml: hreflang(descriptor), robots: indexable ? 'index,follow' : 'noindex,follow', jsonLdScripts: jsonLd(descriptor, locale), bodyHtml, seoContentOutsideRoot: true, seoMainClass: 'seo-static-content', distDir }),
+    html: buildSeoPageHtml({ locale, title: emittedTitle, description, canonicalUrl: `${BASE_URL}${buildPharmacyPath(pathValue, locale)}`, hreflangHtml: hreflang(descriptor), robots: indexable ? 'index,follow' : 'noindex,follow', jsonLdScripts: jsonLd(descriptor, locale), bodyHtml, seoContentOutsideRoot: true, seoMainClass: 'seo-static-content', distDir }),
   };
 }
 

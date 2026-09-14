@@ -33,6 +33,16 @@ describe('pharmacy directory page matrix', () => {
     expect(page.path).toContain('/');
   });
 
+  it('keeps the directory H1 distinct from the emitted title', () => {
+    const descriptor = pharmacyPageDescriptors().find((candidate) => candidate.kind === 'canton');
+    expect(descriptor).toBeDefined();
+    const page = buildPharmacyDirectoryPage(descriptor!, 'it', '');
+    const title = page.html.match(/<title>([^<]*)<\/title>/)?.[1] || '';
+    const h1 = page.html.match(/<h1[^>]*>([^<]*)<\/h1>/)?.[1] || '';
+    expect(h1).toContain('(guida frontaliere)');
+    expect(h1).not.toBe(title);
+  });
+
   it('keeps same-name detail titles unique and duty-city aliases noindex without collection schema', () => {
     const details = pharmacyPageDescriptors().filter((descriptor) => descriptor.kind === 'pharmacy');
     const titles = details.map((descriptor) => buildPharmacyDirectoryPage(descriptor, 'it', '').html.match(/<title>([^<]*)<\/title>/)?.[1] || '');
