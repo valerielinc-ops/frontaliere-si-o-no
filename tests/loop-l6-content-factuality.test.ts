@@ -87,10 +87,49 @@ describe('L6 Content Learning & Factuality', () => {
   it('requires explicit independent source and locale evidence', () => {
     const verdict = validateContentFactuality({
       historyText: historyText(historyRow()),
-      outcomes: outcomes({ independent: false }),
+      outcomes: outcomes({
+        independent: true,
+        evidence: {
+          source: 'editorial-source-review-ledger',
+          sourceRefs: ['editorial-source-evidence'],
+          externalSourceVerified: false,
+          localeVerified: false,
+        },
+      }),
     }, { now: NOW });
     expect(verdict.ok).toBe(false);
-    expect(verdict.issues.join(' ')).toContain('independent must be explicitly true');
+    expect(verdict.issues.join(' ')).toContain('externalSourceVerified must be explicitly true');
+    expect(verdict.issues.join(' ')).toContain('localeVerified must be explicitly true');
+  });
+
+  it('does not promote an LLM suggestion field to an independent verdict', () => {
+    const verdict = validateContentFactuality({
+      historyText: historyText(historyRow()),
+      outcomes: outcomes({ llmSuggestion: 'claim appears correct' }),
+    }, { now: NOW });
+    expect(verdict).toMatchObject({ ok: false, quality: 'partial' });
+    expect(verdict.snapshot.outcomes).toMatchObject({ invalid: true, independent: true });
+    expect(verdict.issues.join(' ')).toContain('LLM suggestions are not independent factuality verdicts');
+    expect(verdict.invalidRecords).toHaveLength(1);
+    expect(verdict.invalidRecords[0].record).toHaveProperty('llmSuggestion', 'claim appears correct');
+  });
+
+  it('quarantines a suggestion-bearing outcome without touching published content', async () => {
+    const files = tempFiles({ outcome: outcomes({ llmSuggestion: 'claim appears correct' }) });
+    const result = await runL6({
+      now: NOW,
+      historyPath: files.historyPath,
+      outcomePath: files.outcomePath,
+      reportDir: files.reportDir,
+      apply: true,
+      logger: { log() {} },
+    });
+    expect(result.outcome).toMatchObject({ independent: false, evidenceStatus: 'invalid', publishedContentUntouched: true });
+    expect(result.quarantineWritten).toBe(true);
+    expect(JSON.parse(fs.readFileSync(path.join(files.reportDir, 'l6-quarantine.json'), 'utf8'))).toMatchObject({
+      records: [{ path: files.outcomePath, record: { llmSuggestion: 'claim appears correct' } }],
+      publishedContentUntouched: true,
+    });
   });
 
   it('does not treat a zero reviewed cohort as a measurable zero rate', async () => {
@@ -137,6 +176,27 @@ describe('L6 Content Learning & Factuality', () => {
       appliesToPublishedContent: false,
     });
     expect(JSON.parse(fs.readFileSync(path.join(files.reportDir, 'l6-quarantine.json'), 'utf8')).publishedContentUntouched).toBe(true);
+  });
+
+  it('quarantines malformed outcome JSON instead of dropping the source', async () => {
+    const files = tempFiles({ outcome: null });
+    const rawOutcome = '{"independent":true,\n';
+    fs.writeFileSync(files.outcomePath, rawOutcome);
+    const result = await runL6({
+      now: NOW,
+      historyPath: files.historyPath,
+      outcomePath: files.outcomePath,
+      reportDir: files.reportDir,
+      apply: true,
+      logger: { log() {} },
+    });
+    expect(result.verdict.ok).toBe(false);
+    expect(result.outcome.evidenceStatus).toBe('invalid');
+    expect(result.quarantineWritten).toBe(true);
+    expect(JSON.parse(fs.readFileSync(path.join(files.reportDir, 'l6-quarantine.json'), 'utf8'))).toMatchObject({
+      records: [{ path: files.outcomePath, raw: rawOutcome }],
+      publishedContentUntouched: true,
+    });
   });
 
   it('exports a source-independent partial verdict without changing published content', async () => {

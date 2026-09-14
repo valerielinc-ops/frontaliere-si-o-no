@@ -24,6 +24,7 @@ export const MINIMUM_SAMPLE = 1;
 export const MAX_CANDIDATES = 50;
 
 const SEVERITIES = new Set(['P0', 'P1', 'P2', 'P3', 'INFO', 'WARN']);
+const MODEL_SUGGESTION_KEY = /(?:llm|model|ai).*(?:suggest|recommend|verdict)|(?:^|_)(?:suggestion|recommendation)s?$/i;
 
 function finiteDate(value) {
   const time = Date.parse(value);
@@ -184,12 +185,17 @@ function validateOutcomes(outcomes, {
   minimumSample,
 } = {}) {
   if (!object(outcomes)) {
+    const missing = outcomes === null || outcomes === undefined;
+    const reason = missing
+      ? 'content factuality outcome export is missing'
+      : 'content factuality outcome export is not a JSON object';
     return {
       quality: 'partial',
-      issues: ['content factuality outcome export is missing'],
+      issues: [reason],
       snapshot: {
         path: sourcePath,
-        missing: true,
+        missing,
+        invalid: !missing,
         independent: false,
         evidence: null,
         generatedAt: null,
@@ -199,9 +205,14 @@ function validateOutcomes(outcomes, {
         reopenedDefects: null,
         quality: 'partial',
       },
+      invalidRecords: missing ? [] : [{ path: sourcePath, record: outcomes, reason }],
     };
   }
   const issues = [];
+  const modelSuggestionFields = Object.keys(outcomes).filter((key) => MODEL_SUGGESTION_KEY.test(key));
+  if (modelSuggestionFields.length) {
+    issues.push(`outcomes contains model suggestion fields (${modelSuggestionFields.join(', ')}); LLM suggestions are not independent factuality verdicts`);
+  }
   const evidence = outcomes.evidence || outcomes.provenance;
   if (outcomes.independent !== true) {
     issues.push('outcomes.independent must be explicitly true for an independent factuality verdict');
@@ -244,6 +255,7 @@ function validateOutcomes(outcomes, {
   const snapshot = {
     path: sourcePath,
     missing: false,
+    invalid: issues.length > 0,
     independent: outcomes.independent === true,
     evidence: evidence && typeof evidence === 'object' && !Array.isArray(evidence)
       ? {
@@ -267,7 +279,10 @@ function validateOutcomes(outcomes, {
   else if (reviewedArticles === 0 && issues.length === 0) quality = 'zero';
   else if (reviewedArticles < minimumSample || issues.length) quality = 'partial';
   snapshot.quality = quality;
-  return { quality, issues, snapshot };
+  const invalidRecords = issues.length
+    ? [{ path: sourcePath, record: outcomes, reason: `invalid factuality outcome: ${issues.join('; ')}` }]
+    : [];
+  return { quality, issues, snapshot, invalidRecords };
 }
 
 export function validateContentFactuality({ historyText, outcomes = null }, {
@@ -314,7 +329,7 @@ export function validateContentFactuality({ historyText, outcomes = null }, {
     warnings,
     snapshot,
     candidates: historyVerdict.candidates,
-    invalidRecords: historyVerdict.invalidRecords,
+    invalidRecords: [...historyVerdict.invalidRecords, ...(outcomeVerdict.invalidRecords || [])],
   });
 }
 
@@ -326,7 +341,20 @@ function readText(filePath, label) {
 
 function readOptionalJson(filePath) {
   const absolute = path.resolve(filePath);
-  return fs.existsSync(absolute) ? JSON.parse(fs.readFileSync(absolute, 'utf8')) : null;
+  if (!fs.existsSync(absolute)) return { value: null, invalidRecord: null };
+  const raw = fs.readFileSync(absolute, 'utf8');
+  try {
+    return { value: JSON.parse(raw), invalidRecord: null };
+  } catch (error) {
+    return {
+      value: null,
+      invalidRecord: {
+        path: filePath,
+        raw,
+        reason: `content factuality outcome export is invalid JSON (${error.message})`,
+      },
+    };
+  }
 }
 
 function reportMarkdown(verdict, observation, decision) {
@@ -392,7 +420,7 @@ function buildContentFactualityOutcome({ source, verdict, policy, registry, now 
       sourcePath: outcomeSnapshot.path,
       sourceRefs: policy.outcome.sourceRefs,
     },
-    evidenceStatus: outcomeSnapshot.missing ? 'missing' : (outcome.independent ? 'verified' : 'unverified'),
+    evidenceStatus: outcomeSnapshot.missing ? 'missing' : (outcomeSnapshot.invalid ? 'invalid' : (outcome.independent ? 'verified' : 'unverified')),
     sourcePath: outcomeSnapshot.path,
     generatorIsNotOracle: true,
     publishedContentUntouched: true,
@@ -518,8 +546,10 @@ export async function runL6({
   const candidateActionClass = actionClassForPolicy(loopPolicy, 'candidate');
   let verdict;
   let sourceOutcomes = null;
+  let outcomeRead = { value: null, invalidRecord: null };
   try {
-    sourceOutcomes = readOptionalJson(outcomePath);
+    outcomeRead = readOptionalJson(outcomePath);
+    sourceOutcomes = outcomeRead.value;
     verdict = validateContentFactuality({
       historyText: readText(historyPath, 'quality alert history'),
       outcomes: sourceOutcomes,
@@ -539,6 +569,26 @@ export async function runL6({
       ok: false,
       reason: error.message,
     });
+  }
+  if (outcomeRead.invalidRecord) {
+    const issues = [...verdict.issues, outcomeRead.invalidRecord.reason];
+    verdict = {
+      ...verdict,
+      ok: false,
+      reason: summarizeIssues(issues, verdict.quality),
+      issues,
+      invalidRecords: [...(verdict.invalidRecords || []), outcomeRead.invalidRecord],
+      snapshot: {
+        ...(verdict.snapshot || { source: 'quality-alerts-history', historyPath, outcomePath }),
+        outcomes: {
+          ...(verdict.snapshot?.outcomes || {}),
+          path: outcomePath,
+          missing: false,
+          invalid: true,
+          parseError: outcomeRead.invalidRecord.reason,
+        },
+      },
+    };
   }
   const measurable = verdict.quality === 'observed';
   const actionClass = actionClassForPolicy(loopPolicy, verdict.ok ? 'healthy' : 'needsReview');
