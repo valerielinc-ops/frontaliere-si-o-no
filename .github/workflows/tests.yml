@@ -1700,7 +1700,7 @@ jobs:
         run: |
           set -euo pipefail
           last=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate \
-            --jq '[.[] | select(.user.type=="Bot" and (.user.login|test("^(claude(\\\\[bot\\\\])?|frontaliere-automation\\\\[bot\\\\])$";"i")) and (.body|contains("## LGTM")))] | last | .commit_id // empty' 2>/dev/null || true)
+            --jq '[.[] | select((.user.login // "" | test("^(claude\\[bot\\]|frontaliere-automation\\[bot\\])$";"i")) and (.body|contains("## LGTM")))] | last | .commit_id // empty' 2>/dev/null || true)
           if [ -z "$last" ]; then
             echo "skip=false" >> "$GITHUB_OUTPUT"; echo "Nessuna review LGTM precedente → review piena."; exit 0
           fi
@@ -1879,7 +1879,7 @@ jobs:
           # incrementale. Il prompt resta autorizzato a Read/grep i file pieni per il
           # contesto → le interazioni col code non-toccato restano coglibili.
           lastRev=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate \
-            --jq '[.[] | select(.user.type=="Bot" and (.user.login|test("^(claude(\\[bot\\])?|frontaliere-automation\\[bot\\])$";"i")))] | last | .commit_id // empty' 2>/dev/null || true)
+            --jq '[.[] | select((.user.login // "" | test("^(claude\\[bot\\]|frontaliere-automation\\[bot\\])$";"i")))] | last | .commit_id // empty' 2>/dev/null || true)
           if [ -n "$lastRev" ] && [ "$lastRev" != "$HEAD_SHA" ]; then
             delta_code=$(gh api "repos/$REPO/compare/$lastRev...$HEAD_SHA" --jq '.files[] | .filename, (.previous_filename // empty)' 2>/dev/null \
               | grep -Fxf <(echo "$code_files") || true)
