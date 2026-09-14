@@ -15205,7 +15205,7 @@
       "slugByLocale": {
         "it": "global-categoria-manager-it-hw-sw-roche-basel",
         "en": "global-category-manager-it-hw-sw-roche-ch",
-        "de": "global-category-manager-it-hw-sw-roche-ch",
+        "de": "globaler-category-manager-it-hardware-software-roche-basel",
         "fr": "gestionnaire-de-categorie-globale-it-hw-sw-roche-sant-cugat-del-valles"
       },
       "company": "Roche",
@@ -15250,6 +15250,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "global-category-manager-it-hw-sw-roche-ch"
+        ],
+        "de": [
           "global-category-manager-it-hw-sw-roche-ch"
         ]
       },
