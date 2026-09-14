@@ -90,7 +90,7 @@ describe('index.html inline bootstrap self-heal', () => {
     });
 
     it('prevents the Firebase missing-object-store rejection without reloading', () => {
-      const reason = new Error('Object store cannot be found in the database');
+      const reason = new Error('InvalidStateError: Object store cannot be found in the database');
       const ev = Object.assign(new Event('unhandledrejection', { cancelable: true }), { reason });
       window.dispatchEvent(ev);
 
