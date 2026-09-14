@@ -107,7 +107,13 @@ import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { classifySparseErrors, trackedButAbsent, tsconfigPaths, unmeasurableBaselineFiles } from './lib/typecheck-sparse.mjs';
+import {
+  classifySparseErrors,
+  missingFullCheckoutArtifacts,
+  trackedButAbsent,
+  tsconfigPaths,
+  unmeasurableBaselineFiles,
+} from './lib/typecheck-sparse.mjs';
 // Lettore sparse-immune già esistente e documentato come tale: legge il file
 // dal working tree quando c'è, altrimenti dall'oggetto git. La baseline vive
 // sotto `data/`, che è proprio ciò che un worktree sparse non materializza.
@@ -139,18 +145,8 @@ const GLOBAL_ERROR_RE = /^error (?<code>TS\d+): (?<msg>.*)$/;
  * modalità degradata qui sotto (ed è l'unica cosa che paga la scansione di
  * `git ls-files`, che su un checkout pieno non viene mai eseguita).
  */
-const REQUIRED_FULL_CHECKOUT_ARTIFACTS = Object.freeze([
-  'data/blog-articles-data.ts',
-  'data/swiss-articles-data.ts',
-  'public/.nojekyll',
-]);
-
-function missingFullCheckoutArtifacts() {
-  return REQUIRED_FULL_CHECKOUT_ARTIFACTS.filter((relative) => !fs.existsSync(path.join(ROOT, relative)));
-}
-
 function isWorktreeIncomplete() {
-  return missingFullCheckoutArtifacts().length > 0;
+  return missingFullCheckoutArtifacts(ROOT).length > 0;
 }
 
 function runTsc() {
@@ -280,7 +276,7 @@ if (unknown.length) {
 
 const jsonOutput = args.includes('--json');
 const sparse = isWorktreeIncomplete();
-const missingArtifacts = sparse ? missingFullCheckoutArtifacts() : [];
+const missingArtifacts = sparse ? missingFullCheckoutArtifacts(ROOT) : [];
 
 // La modalità degradata è per il LOCALE. In CI resta l'abort di sempre: il job
 // `vitest (unit + integration)` gira su un checkout sparse anche lui, ma con i

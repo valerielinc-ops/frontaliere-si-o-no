@@ -60,6 +60,21 @@ const CANDIDATE_SUFFIXES = [
   '/index.js',
 ];
 
+/**
+ * Sentinelle che distinguono un checkout pieno dal profilo sparse usato dagli
+ * agenti. La lista è condivisa con `run-related-tests.mjs`: i due gate devono
+ * prendere la stessa decisione d'ambiente, non due copie che possono divergere.
+ */
+export const REQUIRED_FULL_CHECKOUT_ARTIFACTS = Object.freeze([
+  'data/blog-articles-data.ts',
+  'data/swiss-articles-data.ts',
+  'public/.nojekyll',
+]);
+
+export function missingFullCheckoutArtifacts(root = process.cwd()) {
+  return REQUIRED_FULL_CHECKOUT_ARTIFACTS.filter((relative) => !fs.existsSync(path.join(root, relative)));
+}
+
 /** Lo specificatore di un `TS2307`, o `null` se l'errore è di altra natura. */
 export function missingModuleSpecifier(error) {
   if (!error || error.code !== MODULE_NOT_FOUND_CODE) return null;
