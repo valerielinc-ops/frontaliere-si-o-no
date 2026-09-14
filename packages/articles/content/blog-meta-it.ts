@@ -11746,6 +11746,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-brenta-lavorare-ticino.title': 'Vivere a Brenta e lavorare in Ticino: la guida',
     'blog.article.vivere-brenta-lavorare-ticino.excerpt': 'Scopri i pro e contro di vivere a Brenta e lavorare in Ticino. Tempi di percorrenza, costi, vantaggi e fiscalità per i frontalieri.',
     'blog.article.vivere-brenta-lavorare-ticino.imageAlt': 'Vista panoramica del Lago di Lugano e delle montagne circostanti in Ticino.',
+    'blog.article.cannabis-terapeutica-ticino-proposta.title': 'Cannabis terapeutica in Ticino: nuova proposta',
+    'blog.article.cannabis-terapeutica-ticino-proposta.excerpt': 'CanMedTicino prepara una nuova proposta sulla cannabis terapeutica dopo lo stop delle autorita sanitarie cantonali.',
+    'blog.article.cannabis-terapeutica-ticino-proposta.imageAlt': 'Incontro sulla cannabis terapeutica in Ticino tra esperti',
 };
 
 export default blogMetaIt;
