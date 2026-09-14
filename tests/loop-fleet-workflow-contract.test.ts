@@ -113,6 +113,8 @@ describe('loop fleet workflow contract', () => {
   it('keeps the automatic ledger recovery probe bounded and unable to write repository content', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger-reconcile.yml'), 'utf8');
     expect(source).toContain("cron: '*/20 * * * *'");
+    expect(source).toContain('group: loop-fleet-ledger-reconcile');
+    expect(source).not.toContain('group: loop-fleet-durable-ledger');
     expect(source).toContain('actions: write');
     expect(source).toContain('contents: read');
     expect(source).not.toMatch(/contents:\s*write/u);
