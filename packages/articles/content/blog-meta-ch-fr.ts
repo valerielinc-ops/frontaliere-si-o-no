@@ -6382,6 +6382,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.consiglio-federale-decisioni-2026.title': 'Décisions du Conseil fédéral : nouveautés et votations 2026',
     'blog.article.consiglio-federale-decisioni-2026.excerpt': 'Les dernières nouvelles et les projets du Conseil fédéral : des femmes dans le service volontaire à la protection climatique et à la votation populaire.',
     'blog.article.consiglio-federale-decisioni-2026.imageAlt': 'Palais fédéral à Berne siège du Conseil fédéral',
+    'blog.article.naturalizzazione-nidvaldo-procedura.title': 'Naturalisation à Nidwald : exigences et procédure',
+    'blog.article.naturalizzazione-nidvaldo-procedura.excerpt': 'Guide complet de la naturalisation ordinaire dans le canton de Nidwald : années requises, tests, taxes et démarches administratives.',
+    'blog.article.naturalizzazione-nidvaldo-procedura.imageAlt': 'Batiment communal dans le canton de Nidwald',
 };
 
 export default blogMetaChFr;

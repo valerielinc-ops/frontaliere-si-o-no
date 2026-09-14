@@ -6382,6 +6382,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.consiglio-federale-decisioni-2026.title': 'Federal Council decisions: news and votes 2026',
     'blog.article.consiglio-federale-decisioni-2026.excerpt': 'The latest news and projects of the Federal Council: from women in voluntary service to climate protection and popular voting.',
     'blog.article.consiglio-federale-decisioni-2026.imageAlt': 'Federal Palace in Bern home of the Federal Council',
+    'blog.article.naturalizzazione-nidvaldo-procedura.title': 'Naturalization in Nidvaldo: requirements and procedure',
+    'blog.article.naturalizzazione-nidvaldo-procedura.excerpt': 'Complete guide to ordinary naturalization in the Canton of Nidvaldo: required years, tests, taxes and bureaucratic steps.',
+    'blog.article.naturalizzazione-nidvaldo-procedura.imageAlt': 'Municipal building in the Canton of Nidwalden',
 };
 
 export default blogMetaChEn;

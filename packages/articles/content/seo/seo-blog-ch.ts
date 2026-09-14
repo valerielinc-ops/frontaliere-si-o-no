@@ -82856,6 +82856,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-naturalizzazione-nidvaldo-procedura': {
+    title: 'Naturalizzazione a Nidvaldo: requisiti e procedura',
+    description: 'Guida ufficiale alla naturalizzazione ordinaria nel Cantone di Nidvaldo: anni di residenza, test di lingua, requisiti di integrazione e tasse. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, naturalizzazione, nidvaldo, requisiti, procedura',
+    ogTitle: 'Naturalizzazione nel Canton Nidvaldo: Requisiti e Procedura',
+    ogDescription: 'Scopri la procedura completa per la naturalizzazione ordinaria nel Cantone di Nidvaldo: anni richiesti, test di lingua, integrazione e costi amministrativi.',
+    canonicalPath: '/articoli-svizzera/naturalizzazione-nidvaldo-procedura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Naturalizzazione a Nidvaldo: requisiti e procedura",
+      "description": "Guida ufficiale alla naturalizzazione ordinaria nel Cantone di Nidvaldo: anni di residenza, test di lingua, requisiti di integrazione e tasse. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/naturalizzazione-nidvaldo-procedura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio comunale nel Cantone di Nidvaldo"
+      },
+      "datePublished": "2026-09-14T01:54:08+00:00",
+      "dateModified": "2026-09-14T01:54:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/naturalizzazione-nidvaldo-procedura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

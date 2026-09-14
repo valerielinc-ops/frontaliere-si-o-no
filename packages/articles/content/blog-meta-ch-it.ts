@@ -6382,6 +6382,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.consiglio-federale-decisioni-2026.title': 'Decisioni Consiglio federale: novità e votazioni 2026',
     'blog.article.consiglio-federale-decisioni-2026.excerpt': 'Le ultime notizie e i progetti del Consiglio federale: dalle donne nel servizio volontario alla protezione climatica e alla votazione popolare.',
     'blog.article.consiglio-federale-decisioni-2026.imageAlt': 'Palazzo federale a Berna sede del Consiglio federale',
+    'blog.article.naturalizzazione-nidvaldo-procedura.title': 'Naturalizzazione a Nidvaldo: requisiti e procedura',
+    'blog.article.naturalizzazione-nidvaldo-procedura.excerpt': 'Guida completa alla naturalizzazione ordinaria nel Cantone di Nidvaldo: anni richiesti, test, tasse e passaggi burocratici.',
+    'blog.article.naturalizzazione-nidvaldo-procedura.imageAlt': 'Edificio comunale nel Cantone di Nidvaldo',
 };
 
 export default blogMetaChIt;
