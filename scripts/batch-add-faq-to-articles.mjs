@@ -28,9 +28,9 @@ const __dirname = dirname(__filename);
 const ROOT = resolve(__dirname, '..');
 import { resolveGitAddPath } from './lib/resolve-git-add-path.mjs';
 import { callLLM, callSingleModel, AI_MODELS, initScoreStore, getStats, flushScores, flushScoresBeforeExit, resetExhaustedModel, printRunSummary } from './lib/ai-models.mjs';
-import { freeTranslateWithRetry, logCascadeSummary } from './lib/free-translate.mjs';
+import { freeTranslateWithRetry, isSourcePassthrough, logCascadeSummary } from './lib/free-translate.mjs';
 import { stripCodeFences, findMatchingClose, fixJsonStringBody, JSON_QUOTE_SAFETY_RULE_IT, describeJsonParseError, describeRawForDiagnostics } from './lib/llm-json-repair.mjs';
-import { detectLanguage } from './lib/detect-language.mjs';
+import { wrongLocalePair } from './fix-faq-locales.mjs';
 import { unescapeTsString } from './lib/unescape-ts-string.mjs';
 import { cleanFaqPairs } from './lib/prompt-placeholder-guard.mjs';
 
@@ -413,14 +413,6 @@ export function extractBodyContent(fileContent, articleId) {
   return bodies.join('\n\n');
 }
 
-/** Check if FAQ text is in the wrong locale (same logic as job crawlers) */
-function isWrongLocale(faqArray, expectedLocale) {
-  const allText = faqArray.map(p => `${p.q} ${p.a}`).join(' ');
-  if (allText.length < 50) return false;
-  const detected = detectLanguage(allText, expectedLocale);
-  return detected !== expectedLocale;
-}
-
 /**
  * Il LETTORE simmetrico agli scrittori di questo file (nanako#394).
  *
@@ -476,6 +468,12 @@ export function extractFaqFromContent(fileContent) {
 
 const MIN_FAQ_PAIRS = 3;
 
+export function localeNeedsFaqRepair(localeFaq, expectedLocale, sourceFaq) {
+  return !Array.isArray(localeFaq)
+    || localeFaq.length < sourceFaq.length
+    || !!wrongLocalePair(localeFaq, expectedLocale, sourceFaq);
+}
+
 /**
  * Discover articles that need work:
  * - needsGeneration: IT has no .faq key → needs AI generation
@@ -521,7 +519,9 @@ function discoverArticles() {
         missingLocales.push(locale);
       } else {
         const localeFaq = extractFaqFromContent(locContent);
-        if (localeFaq && isWrongLocale(localeFaq, locale)) {
+        // A rejected top-up leaves the previous, shorter locale FAQ in place;
+        // queue it again so the missing tail is retried on the next run.
+        if (localeNeedsFaqRepair(localeFaq, locale, itFaq)) {
           missingLocales.push(locale);
         }
       }
@@ -785,20 +785,58 @@ export async function generateTopUpFaqIT(articleId, bodyText, existingFaq) {
   return _withFaqRetry('generateTopUpFaqIT', (maxTokens) => _generateTopUpFaqITAttempt(bodyText, existingFaq, maxTokens));
 }
 
-async function translateFaq(faqArray, targetLang) {
+export async function translateFaq(faqArray, targetLang) {
   const results = [];
-  for (const pair of faqArray) {
+  const fallbackIndexes = new Set();
+  const sourceEchoIndexes = new Set();
+
+  for (let index = 0; index < faqArray.length; index++) {
+    const pair = faqArray[index];
     const [translatedQ, translatedA] = await Promise.all([
       freeTranslateWithRetry({ text: pair.q, sourceLang: 'it', targetLang }),
       freeTranslateWithRetry({ text: pair.a, sourceLang: 'it', targetLang }),
     ]);
-    if (translatedQ && translatedA && translatedQ.length > 10 && translatedA.length > 20) {
+
+    const sourceEcho = isSourcePassthrough(pair.q, translatedQ)
+      || isSourcePassthrough(pair.a, translatedA);
+    const usable = translatedQ && translatedA && translatedQ.length > 10 && translatedA.length > 20;
+    if (usable && !sourceEcho) {
       results.push({ q: translatedQ, a: translatedA });
     } else {
       results.push(pair); // Keep Italian pair as fallback
+      fallbackIndexes.add(index);
+      if (sourceEcho) sourceEchoIndexes.add(index);
     }
   }
-  return results.length > 0 ? results : null;
+
+  if (!results.length) return { faq: null, rejected: false };
+
+  // A source echo is a language rejection, not a recoverable engine miss:
+  // callers must skip the locale write instead of publishing the Italian pair.
+  // Keep the pre-existing Italian fallback only for an unclassified engine
+  // failure, so this fix does not silently change that separate policy.
+  let wrong = null;
+  for (let index = 0; index < results.length; index++) {
+    if (fallbackIndexes.has(index)) continue;
+    const pairWrong = wrongLocalePair([results[index]], targetLang, [faqArray[index]]);
+    if (pairWrong) {
+      wrong = { ...pairWrong, index };
+      break;
+    }
+  }
+  if (sourceEchoIndexes.size > 0 || (wrong && !fallbackIndexes.has(wrong.index))) {
+    const rejectedIndex = sourceEchoIndexes.size > 0 ? [...sourceEchoIndexes][0] : wrong.index;
+    const rejected = wrong?.index === rejectedIndex ? wrong : {
+      index: rejectedIndex,
+      detected: 'it',
+      via: 'verbatim',
+    };
+    console.error(`   ⚠️  translateFaq ${targetLang}: pair ${rejected.index + 1} remains in `
+      + `${rejected.detected} (${rejected.via}) — skipping FAQ write`);
+    return { faq: null, rejected: true };
+  }
+
+  return { faq: results, rejected: false };
 }
 
 /**
@@ -1018,9 +1056,15 @@ async function processArticle(articleId, file, itBodyContent) {
         continue;
       }
 
+      const res = translations[i].status === 'fulfilled' ? translations[i].value : null;
+      if (res?.rejected) {
+        console.error(`${label} ⚠️  ${locale.toUpperCase()} translation rejected: FAQ not written`);
+        continue;
+      }
+
       let faqForLocale;
-      if (translations[i].status === 'fulfilled' && translations[i].value) {
-        faqForLocale = translations[i].value;
+      if (res?.faq) {
+        faqForLocale = res.faq;
         console.error(`${label} ✅ ${locale.toUpperCase()} translated (${faqForLocale.length} pairs)`);
       } else {
         const reason = translations[i].status === 'rejected' ? translations[i].reason?.message : 'null result';
@@ -1099,10 +1143,12 @@ async function processTopUp(articleId, file, itContent, existingFaq) {
       if (!existsSync(resolve(localePath))) continue;
 
       try {
-        const translated = await translateFaq(validMerged, locale);
-        if (translated) {
-          insertFaqIntoBodyFile(localePath, articleId, translated);
-          console.error(`${label} ✅ ${locale.toUpperCase()} translated (${translated.length} pairs)`);
+        const res = await translateFaq(validMerged, locale);
+        if (res?.faq) {
+          insertFaqIntoBodyFile(localePath, articleId, res.faq);
+          console.error(`${label} ✅ ${locale.toUpperCase()} translated (${res.faq.length} pairs)`);
+        } else if (res?.rejected) {
+          console.error(`${label} ⚠️  ${locale.toUpperCase()} translation rejected: FAQ not written`);
         } else {
           insertFaqIntoBodyFile(localePath, articleId, validMerged);
           console.error(`${label} ⚠️  ${locale.toUpperCase()} translation failed, using Italian`);
@@ -1119,20 +1165,22 @@ async function processTopUp(articleId, file, itContent, existingFaq) {
 
 // ── Process translation-only (IT FAQ ok, locale missing/wrong) ──
 
-async function processTranslation(articleId, file, itFaq, missingLocales) {
+export async function processTranslation(articleId, file, itFaq, missingLocales, { bodyDir = BODY_DIR } = {}) {
   const label = `[${articleId}] [TRANSLATE ${missingLocales.join(',')}]`;
   let fixed = 0;
 
   for (const locale of missingLocales) {
-    const localePath = `${BODY_DIR}/${locale}/${file}`;
+    const localePath = `${bodyDir}/${locale}/${file}`;
     if (!existsSync(resolve(localePath))) continue;
 
     try {
-      const translated = await translateFaq(itFaq, locale);
-      if (translated) {
-        insertFaqIntoBodyFile(localePath, articleId, translated);
-        console.error(`${label} ✅ ${locale.toUpperCase()} (${translated.length} pairs)`);
+      const res = await translateFaq(itFaq, locale);
+      if (res?.faq) {
+        insertFaqIntoBodyFile(localePath, articleId, res.faq);
+        console.error(`${label} ✅ ${locale.toUpperCase()} (${res.faq.length} pairs)`);
         fixed++;
+      } else if (res?.rejected) {
+        console.error(`${label} ⚠️  ${locale.toUpperCase()} translation rejected: FAQ not written`);
       } else {
         console.error(`${label} ⚠️  ${locale.toUpperCase()} translation null`);
       }
