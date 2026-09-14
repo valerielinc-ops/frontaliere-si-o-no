@@ -261,7 +261,7 @@ jobs:
         with:
           name: seo-health-${{ github.run_id }}
           path: data/seo-health/latest.json
-          if-no-files-found: warn
+          if-no-files-found: error
           retention-days: 30
 
       - name: Report workflow failure
