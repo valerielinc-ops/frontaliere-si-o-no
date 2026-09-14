@@ -299,6 +299,32 @@ export function nativeAutoMergeArgs({ repo, prNumber, headSha } = {}) {
   ];
 }
 
+/** GitHub returns this when a concurrent guard already enabled the request. */
+export function isAlreadyInProgressOutput(value) {
+  return /merge already in progress/i.test(String(value || ''));
+}
+
+function capturedErrorOutput(error) {
+  return [error?.stderr, error?.stdout]
+    .map((value) => Buffer.isBuffer(value) ? value.toString('utf8') : String(value || ''))
+    .filter(Boolean)
+    .join('\n');
+}
+
+/** Confirm that a concurrent opt-in achieved the intended state before going green. */
+function concurrentOptInSucceeded(repo, prNumber, expectedHead) {
+  try {
+    const observed = ghJson(['pr', 'view', prNumber, '--repo', repo, '--json',
+      'state,headRefOid,autoMergeRequest']);
+    if (observed.state === 'MERGED') return true;
+    return observed.state === 'OPEN'
+      && observed.headRefOid === expectedHead
+      && observed.autoMergeRequest !== null;
+  } catch {
+    return false;
+  }
+}
+
 function main() {
   const repo = process.argv[2] || process.env.REPOSITORY || process.env.GITHUB_REPOSITORY || '';
   const prNumber = process.argv[3] || process.env.PR_NUMBER || '';
@@ -401,12 +427,19 @@ function main() {
   }
 
   try {
-    execFileSync('gh', nativeAutoMergeArgs({ repo, prNumber, headSha: pr.headRefOid }), {
+    const output = execFileSync('gh', nativeAutoMergeArgs({ repo, prNumber, headSha: pr.headRefOid }), {
       encoding: 'utf8',
-      stdio: 'inherit',
+      stdio: ['ignore', 'pipe', 'pipe'],
       env: { ...process.env },
     });
+    if (output) process.stdout.write(output);
   } catch (error) {
+    const details = capturedErrorOutput(error);
+    if (isAlreadyInProgressOutput(details)
+      && concurrentOptInSucceeded(repo, prNumber, pr.headRefOid)) {
+      console.log(`Native auto-merge guard: opt-in concorrente confermato per PR #${prNumber} sulla HEAD corrente`);
+      return;
+    }
     console.error(`::error::native auto-merge opt-in fallito: ${String(error).slice(0, 240)}`);
     process.exitCode = 1;
   }
