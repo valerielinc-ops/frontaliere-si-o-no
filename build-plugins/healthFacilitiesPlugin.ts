@@ -10,9 +10,9 @@
  *
  * Both live at the SAME URL, so the searchConsoleCompat self-map
  * (isHealthFacilityPath) always points at a real 200 target. Full pages carry
- * complete JobPosting structured data for the featured live jobs (all 9
- * mandatory fields per CLAUDE.md Non-Negotiable #3, in every locale) via the
- * canonical buildJobPostingSchema builder.
+ * the complete active job inventory in visible cards, plus a bounded first-six
+ * JobPosting projection (all 9 mandatory fields per CLAUDE.md Non-Negotiable
+ * #3, in every locale) via the canonical buildJobPostingSchema builder.
  *
  * Contract: apply:'build', enforce:'post', emit in closeBundle, pass distDir
  * through buildSeoPageHtml. Sitemap covers indexable pages only (bridges are
@@ -105,7 +105,7 @@ function cantonJobBoardPath(locale: HealthFacilityLocale, canton: string): strin
   return `${prefix}/${resolveCantonSection(locale as CantonLocale, canton)}/`.replace(/\/{2,}/g, '/');
 }
 
-/** Detail URL for a featured job (canton-aware, locale slug fallback). */
+/** Detail URL for a facility job (canton-aware, locale slug fallback). */
 function featuredJobPath(job: FacilityFeaturedJob, locale: HealthFacilityLocale): string {
   const canton = job.canton || 'TI';
   const slug = job.slugByLocale[locale] ?? job.slug;
@@ -154,6 +154,15 @@ function boardLabel(locale: HealthFacilityLocale, cantonName: string): string {
     case 'it':
     default: return `Tutte le offerte nel Cantone ${cantonName}`;
   }
+}
+
+function jobsHeading(locale: HealthFacilityLocale): string {
+  return {
+    it: 'Tutte le offerte attive',
+    en: 'All active openings',
+    de: 'Alle offenen Stellen',
+    fr: 'Tous les postes ouverts',
+  }[locale];
 }
 
 function toJobCard(job: FacilityFeaturedJob): JobCardJob {
@@ -208,7 +217,7 @@ interface RenderResult {
   wordCount: number;
 }
 
-function renderFacilityPage(
+export function renderFacilityPage(
   locale: HealthFacilityLocale,
   facility: HealthFacilityRecord,
   snapshot: FacilitySnapshot,
@@ -247,12 +256,13 @@ function renderFacilityPage(
     { label: copy.tileFresh, value: String(snapshot.fresh30Count), tone: pickStatTileTone('fresh', snapshot.fresh30Count) },
   ]);
 
-  // Featured jobs.
-  const cardItems = snapshot.featured.map((j) => ({ job: toJobCard(j), href: featuredJobPath(j, locale) }));
+  // Complete live inventory. `snapshot.featured` remains intentionally bounded
+  // below for JobPosting JSON-LD; the visible list must not hide the long tail.
+  const cardItems = snapshot.jobs.map((j) => ({ job: toJobCard(j), href: featuredJobPath(j, locale) }));
   const emptyHtml = `<p class="s-card" style="color:var(--color-subtle);font-size:14px;margin:0">${esc(copy.featuredEmpty)}</p>`;
   const listHtml = renderJobCardListHtml(cardItems, { locale, emptyStateHtml: emptyHtml });
   const boardHref = cantonJobBoardPath(locale, facility.canton);
-  const featuredSection = `<section class="mt-6"><h2 style="${headingStyle()}">${esc(copy.featuredTitle)}</h2>${listHtml}<p class="mt-3"><a href="${esc(boardHref)}" style="${LINK_ACCENT_STYLE};font-weight:700">${esc(copy.ctaJobsLabel)} →</a></p></section>`;
+  const jobsSection = `<section class="mt-6"><h2 style="${headingStyle()}">${esc(jobsHeading(locale))}</h2>${listHtml}<p class="mt-3"><a href="${esc(boardHref)}" style="${LINK_ACCENT_STYLE};font-weight:700">${esc(copy.ctaJobsLabel)} →</a></p></section>`;
 
   // Roles list.
   const rolesSection = roles.length > 0
@@ -307,7 +317,7 @@ function renderFacilityPage(
     ${breadcrumb}
     ${header}
     ${tiles}
-    ${featuredSection}
+    ${jobsSection}
     ${rolesSection}
     ${infoSection}
     ${funnelSection}

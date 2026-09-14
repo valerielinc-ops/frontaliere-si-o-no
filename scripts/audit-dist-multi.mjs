@@ -40,6 +40,7 @@ import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { TYPES_ACCEPT_IN_LANGUAGE_LIST } from '../services/seo/inlanguage-whitelist.data.mjs';
 import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
+import { HEALTH_FACILITIES_SECTION_RX } from './lib/healthFacilitiesSections.mjs';
 import {
   JOB_BOARD_COMPANY_HUB_PATH_RX,
   JOB_BOARD_SECTION_RX,
@@ -102,14 +103,18 @@ const DUP_LOCALE_PREFIXES = /** @type {const} */ (['en', 'de', 'fr']);
 const PW_ITALIAN_STATIONS_INDEX_BUDGET = 900 * 1024;
 const PW_ITALIAN_STATIONS_INDEX_RE =
   /(?:^|\/)(?:stazioni-italia|italienische-tankstellen|italian-stations|stations-italiennes)\//;
+const PW_HEALTH_FACILITY_PAGE_BUDGET = 640 * 1024;
 // Keep in lock-step with audit-page-weight.mjs: the complete company-hub and
 // employer-profile result sets are explicit owner-approved page-weight
 // exceptions, while image dimension/loading validation remains enforced.
+// Facility pages have the same complete-inventory contract, with a finite
+// 640 KB ceiling so future corpus growth remains visible to the audit.
 function pwBudgetForPath(relPath) {
   const p = '/' + String(relPath).replace(/\\/g, '/').replace(/^dist\//, '').replace(/index\.html$/, '');
   if (JOB_BOARD_COMPANY_HUB_PATH_RX.test(p) || EMPLOYER_PROFILE_PATH_RX.test(p)) {
     return Number.POSITIVE_INFINITY;
   }
+  if (HEALTH_FACILITIES_SECTION_RX.test(p)) return PW_HEALTH_FACILITY_PAGE_BUDGET;
   return PW_ITALIAN_STATIONS_INDEX_RE.test(p) ? PW_ITALIAN_STATIONS_INDEX_BUDGET : MAX_HTML_BYTES;
 }
 
