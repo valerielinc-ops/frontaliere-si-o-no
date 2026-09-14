@@ -20,14 +20,16 @@ import {
   buildDecision,
   buildObservation,
   loadLoopPolicyForRun,
+  QUALITY_STATES,
   validateActionClassAgainstPolicy,
+  validateOutcomeAgainstPolicy,
   validateLoopRegistry,
 } from '../lib/loop-fleet-contract.mjs';
 
 export const LOOP_ID = 'L10';
 export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
 export const DEFAULT_QUOTA_PATH = path.join('data', 'quota-history.jsonl');
-export const DEFAULT_HEALTH_PATH = path.join('data', 'loop-health-history.jsonl');
+export const DEFAULT_HEALTH_PATH = path.join('data', 'loop-fleet', 'ledger', 'loop-health-history.jsonl');
 export const DEFAULT_MAX_AGE_HOURS = 48;
 export const MINIMUM_SAMPLE = 1;
 export const EXPECTED_LOOP_IDS = Object.freeze(Array.from({ length: 12 }, (_, index) => `L${index}`));
@@ -249,7 +251,187 @@ function validateQuotaHistory(history, { now, maxAgeHours, sourcePath }) {
   };
 }
 
-function validateHealthHistory(history, { now, maxAgeHours, sourcePath, loopIds, minimumSample }) {
+function isCanonicalHealthRecord(row) {
+  return object(row) && row.recordType === 'health' && object(row.execution);
+}
+
+function canonicalEvidencePaths(row) {
+  if (!object(row.evidence)) return [];
+  return Object.values(row.evidence).filter((value) => text(value));
+}
+
+function validateCanonicalHealthHistory(history, {
+  now,
+  maxAgeHours,
+  sourcePath,
+  loopIds,
+  minimumSample,
+  registry,
+}) {
+  const records = Array.isArray(history?.records) ? history.records : [];
+  const issues = Array.isArray(history?.parseIssues) ? [...history.parseIssues] : [];
+  const warnings = [];
+  const knownLoops = new Set(loopIds);
+  const policies = new Map();
+  try {
+    for (const policy of validateLoopRegistry(registry).loops) policies.set(policy.loopId, policy);
+  } catch (error) {
+    issues.push(`canonical health registry cannot be validated: ${error.message}`);
+  }
+  const seenRuns = new Set();
+  let latest = null;
+  let validRowCount = 0;
+  let eligibleRuns = 0;
+  let verifiedDecisions = 0;
+  let successfulRuns = 0;
+  let failedRuns = 0;
+  let retries = 0;
+  let quotaUnits = 0;
+  let artifactCollisions = 0;
+  const missingOperationalFields = new Set();
+  let operationalMetricsComplete = true;
+
+  for (const [index, row] of records.entries()) {
+    const prefix = `canonicalHealth[${index}]`;
+    const rowIssues = [];
+    const execution = object(row?.execution) ? row.execution : null;
+    const policy = policies.get(row?.loopId);
+    if (!object(row)) {
+      rowIssues.push('row is not an object');
+    } else {
+      if (row.schemaVersion !== 1) rowIssues.push('schemaVersion must be 1');
+      if (!text(row.recordId)) rowIssues.push('recordId is missing');
+      if (!knownLoops.has(row.loopId)) rowIssues.push(`loopId is not registered: ${String(row.loopId)}`);
+      if (!execution) rowIssues.push('execution identity is missing');
+      if (execution && execution.loopId !== row.loopId) rowIssues.push('execution.loopId does not match loopId');
+      if (execution && !text(execution.runId)) rowIssues.push('execution.runId is missing');
+      if (execution && !/^[0-9a-f]{40}$/iu.test(String(execution.sha || ''))) rowIssues.push('execution.sha is missing or not a full commit SHA');
+      const runKey = execution && text(execution.runId)
+        ? `${execution.runId}:${text(execution.runAttempt) || '1'}`
+        : null;
+      if (runKey && seenRuns.has(runKey)) rowIssues.push(`duplicate execution ${runKey}`);
+      if (runKey) seenRuns.add(runKey);
+      const stamp = finiteDate(row.recordedAt);
+      if (!stamp) rowIssues.push('recordedAt is missing or invalid');
+      if (stamp && stamp.getTime() > now.getTime() + CLOCK_SKEW_HOURS * 3_600_000) rowIssues.push('recordedAt is in the future');
+      if (stamp && (!latest || stamp.getTime() > latest.stamp.getTime())) latest = { stamp, row };
+      if (!QUALITY_STATES.includes(row.quality)) rowIssues.push('quality is missing or unsupported');
+      for (const field of ['ok', 'evidenceComplete', 'policyCompliant', 'lifecycleCompliant', 'outcomePolicyCompliant', 'issued', 'actionsWritten']) {
+        if (typeof row[field] !== 'boolean') rowIssues.push(`${field} must be boolean`);
+      }
+      for (const field of ['policyErrors', 'outcomeErrors', 'sourceRefs']) {
+        if (!Array.isArray(row[field])) rowIssues.push(`${field} must be an array`);
+      }
+      if (!object(row.lifecycle)) rowIssues.push('lifecycle is missing');
+      else if (policy && ['candidateTtlHours', 'ownerSlaHours', 'postMergeVerificationHours', 'rollbackOwner']
+        .some((field) => row.lifecycle[field] !== policy.lifecycle[field])) {
+        rowIssues.push('lifecycle metadata does not match the registry');
+      }
+      if (!text(row.actionClass)) rowIssues.push('actionClass is missing');
+      else {
+        try {
+          const actionPolicy = validateActionClassAgainstPolicy(registry, row.loopId, row.actionClass);
+          if (row.requiredAutonomy !== actionPolicy.requiredAutonomy) rowIssues.push('requiredAutonomy does not match actionClass policy');
+          if (row.maxAutonomy !== actionPolicy.maxAutonomy) rowIssues.push('maxAutonomy does not match registry');
+        } catch (error) {
+          rowIssues.push(error.message);
+        }
+      }
+      if (!object(row.outcome)) rowIssues.push('outcome is missing');
+      else {
+        try {
+          validateOutcomeAgainstPolicy(registry, row.loopId, row.outcome);
+        } catch (error) {
+          rowIssues.push(`outcome violates registry: ${error.message}`);
+        }
+      }
+      if (canonicalEvidencePaths(row).length === 0) rowIssues.push('evidence contains no artifact path');
+
+      for (const field of ['durationSeconds', 'retryCount', 'quotaUnits', 'collisions', 'gateBypass']) {
+        if (!Object.hasOwn(row, field)) {
+          missingOperationalFields.add(field);
+          operationalMetricsComplete = false;
+        } else if (field === 'durationSeconds' && !finiteNumber(row[field])) {
+          rowIssues.push('durationSeconds is not a non-negative number');
+        } else if (field === 'retryCount' && !integer(row[field])) {
+          rowIssues.push('retryCount is not a non-negative integer');
+        } else if (field === 'quotaUnits' && !finiteNumber(row[field])) {
+          rowIssues.push('quotaUnits is not a non-negative number');
+        } else if (field === 'collisions' && !integer(row[field])) {
+          rowIssues.push('collisions is not a non-negative integer');
+        } else if (field === 'gateBypass' && row[field] !== false) {
+          rowIssues.push('gateBypass must remain false');
+        }
+      }
+      if (policy && Array.isArray(row.sourceRefs)
+          && JSON.stringify(row.sourceRefs) !== JSON.stringify(policy.sourceRefs)) {
+        rowIssues.push('sourceRefs do not match the registry');
+      }
+      for (const field of ['issueCount', 'warningCount', 'candidateCount']) {
+        if (row[field] !== null && row[field] !== undefined && !integer(row[field])) {
+          rowIssues.push(`${field} is not a non-negative integer or null`);
+        }
+      }
+    }
+    if (rowIssues.length) {
+      issues.push(`${prefix}: ${rowIssues.join(', ')}`);
+    } else {
+      validRowCount += 1;
+      eligibleRuns += 1;
+      if (row.ok === true) {
+        successfulRuns += 1;
+        verifiedDecisions += 1;
+      } else {
+        failedRuns += 1;
+      }
+      if (operationalMetricsComplete) {
+        retries += row.retryCount;
+        quotaUnits += row.quotaUnits;
+        artifactCollisions += row.collisions;
+      }
+    }
+  }
+
+  if (!records.length) issues.push('loop health history has no records');
+  if (missingOperationalFields.size) {
+    issues.push(`canonical health ledger omits operational fields: ${[...missingOperationalFields].join(', ')}; complete fleet control remains partial`);
+  }
+  if (eligibleRuns > 0 && eligibleRuns < minimumSample) {
+    issues.push(`eligible loop runs are below minimum sample (${eligibleRuns} < ${minimumSample})`);
+  }
+  const ageHours = latest ? hoursBetween(now, latest.stamp) : null;
+  if (latest && ageHours < -CLOCK_SKEW_HOURS) issues.push('latest canonical health record is in the future');
+  if (latest && ageHours > maxAgeHours) issues.push(`latest canonical health record is ${ageHours.toFixed(1)}h old (max ${maxAgeHours}h)`);
+  const quality = !records.length ? 'unmeasurable'
+    : (ageHours !== null && ageHours > maxAgeHours ? 'stale' : (issues.length ? 'partial' : 'observed'));
+  return {
+    quality,
+    issues,
+    warnings,
+    snapshot: {
+      path: sourcePath,
+      missing: false,
+      canonical: true,
+      rowCount: records.length,
+      validRowCount,
+      invalidRowCount: records.length - validRowCount,
+      latestAt: latest?.stamp.toISOString() || null,
+      ageHours: ageHours === null ? null : Number(ageHours.toFixed(3)),
+      eligibleRuns,
+      verifiedDecisions,
+      successfulRuns,
+      failedRuns,
+      timeoutRuns: 0,
+      skippedRuns: 0,
+      retries: operationalMetricsComplete ? retries : null,
+      quotaUnits: operationalMetricsComplete ? Number(quotaUnits.toFixed(3)) : null,
+      artifactCollisions: operationalMetricsComplete ? artifactCollisions : null,
+      quality,
+    },
+  };
+}
+
+function validateHealthHistory(history, { now, maxAgeHours, sourcePath, loopIds, minimumSample, registry }) {
   if (!history || history.missing) {
     return {
       quality: 'unmeasurable',
@@ -259,6 +441,25 @@ function validateHealthHistory(history, { now, maxAgeHours, sourcePath, loopIds,
     };
   }
   const records = Array.isArray(history.records) ? history.records : [];
+  const canonicalRows = records.filter(isCanonicalHealthRecord).length;
+  if (canonicalRows === records.length && canonicalRows > 0) {
+    return validateCanonicalHealthHistory(history, {
+      now,
+      maxAgeHours,
+      sourcePath,
+      loopIds,
+      minimumSample,
+      registry,
+    });
+  }
+  if (canonicalRows > 0) {
+    return {
+      quality: 'partial',
+      issues: ['health ledger mixes canonical and legacy row schemas; refusing to combine them'],
+      warnings: [],
+      snapshot: { ...emptyHealthSnapshot(sourcePath), missing: false, schema: 'mixed', quality: 'partial' },
+    };
+  }
   const issues = Array.isArray(history.parseIssues) ? [...history.parseIssues] : [];
   const warnings = [];
   const knownLoops = new Set(loopIds);
@@ -392,6 +593,7 @@ export function validateFleetControl({ registry, quota, health = null }, {
     sourcePath: healthPath,
     loopIds: registryVerdict.snapshot?.loopIds || EXPECTED_LOOP_IDS,
     minimumSample,
+    registry,
   });
   const issues = [...registryVerdict.issues, ...quotaVerdict.issues, ...healthVerdict.issues];
   const warnings = [...registryVerdict.warnings, ...quotaVerdict.warnings, ...healthVerdict.warnings];

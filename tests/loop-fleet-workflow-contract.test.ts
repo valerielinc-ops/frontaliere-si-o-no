@@ -46,6 +46,12 @@ describe('loop fleet workflow contract', () => {
     }
   });
 
+  it('fa leggere L10 dal ledger health canonico', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-l10-fleet-control.yml'), 'utf8');
+    expect(source).toContain('data/loop-fleet/ledger/loop-health-history.jsonl');
+    expect(source).not.toContain('data/loop-health-history.jsonl');
+  });
+
   it('uploads lifecycle evidence for every loop', () => {
     for (const name of loopWorkflows) {
       const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
