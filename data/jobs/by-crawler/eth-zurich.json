@@ -4684,7 +4684,7 @@
           "junior-researcher-in-public-economics-and-international-taxation-eth-zurich-ch"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T09:54:50.519Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -4699,7 +4699,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "retranslationAttempts": 0
     },
     {
       "id": "eth-zurich-0651671dda46",
