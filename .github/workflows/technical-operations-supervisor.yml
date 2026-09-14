@@ -52,6 +52,7 @@ jobs:
             !/data/all-known-job-slugs/
             !/public/data/
             /scripts/ci/record-loop-fleet-evidence.mjs
+            /scripts/ci/loop-fleet-registry-audit.mjs
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
