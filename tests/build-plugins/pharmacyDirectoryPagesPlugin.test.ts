@@ -93,7 +93,15 @@ describe('pharmacy directory page matrix', () => {
       expect(nav).toContain(String(count));
     }
     expect(page.html.match(/<article\b/g) || []).toHaveLength(0);
-    expect(page.html).toContain('"@type":"CollectionPage"');
+    const schemas = [...page.html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((match) => JSON.parse(match[1]));
+    const collection = schemas.find((schema) => schema['@type'] === 'CollectionPage');
+    expect(collection.mainEntity.numberOfItems).toBe(3);
+    expect(collection.mainEntity.itemListElement).toHaveLength(3);
+    expect(collection.mainEntity.itemListElement.map((item: { url: string }) => item.url)).toEqual(expect.arrayContaining([
+      `https://frontaliereticino.ch${buildPharmacyPath({ kind: 'area', country: 'IT', areaSlug: 'como', locale }, locale)}`,
+      `https://frontaliereticino.ch${buildPharmacyPath({ kind: 'area', country: 'IT', areaSlug: 'varese', locale }, locale)}`,
+      `https://frontaliereticino.ch${buildPharmacyPath({ kind: 'area', country: 'IT', areaSlug: 'verbano-cusio-ossola', locale }, locale)}`,
+    ]));
     expect(page.html).toContain('"@type":"BreadcrumbList"');
   });
 

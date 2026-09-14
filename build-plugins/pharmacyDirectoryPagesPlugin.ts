@@ -319,6 +319,22 @@ function collectionJsonLd(pathValue: PharmacyPath, title: string, pharmacies: Ph
   });
 }
 
+function countryCollectionJsonLd(pathValue: PharmacyPath, title: string): string {
+  const itemListElement = ITALY_BORDER_PROVINCES.map((area, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: area.name,
+    url: `${BASE_URL}${buildPharmacyPath({ kind: 'area', country: 'IT', areaSlug: area.slug, locale: pathValue.locale }, pathValue.locale)}`,
+  }));
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: title,
+    url: `${BASE_URL}${buildPharmacyPath(pathValue, pathValue.locale)}`,
+    mainEntity: { '@type': 'ItemList', numberOfItems: itemListElement.length, itemListElement },
+  });
+}
+
 function pageTitle(kind: PharmacyPageKind, locale: Locale, descriptor: PageDescriptor): string {
   const copy = COPY[locale];
   if (kind === 'hub') return copy.hubTitle;
@@ -521,6 +537,7 @@ function jsonLd(descriptor: PageDescriptor, locale: Locale): string[] {
   const title = pageTitle(descriptor.kind, locale, descriptor);
   if (descriptor.kind === 'pharmacy') return [detailJsonLd(descriptor.pharmacy!, locale), breadcrumbJsonLd(descriptor, locale)];
   if (descriptor.kind === 'duty-city') return [breadcrumbJsonLd(descriptor, locale)];
+  if (descriptor.kind === 'country') return [countryCollectionJsonLd(pathValue, title), breadcrumbJsonLd(descriptor, locale)];
   return [collectionJsonLd(pathValue, title, pagePharmacies(descriptor)), breadcrumbJsonLd(descriptor, locale)];
 }
 
