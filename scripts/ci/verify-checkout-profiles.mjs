@@ -140,9 +140,32 @@ export function importedDataOrPublicPathsIn(source) {
   return out;
 }
 
-/** Un percorso e' fuori dal checkout, dati i pattern di negazione? */
-export function isExcludedBy(excluded, p) {
-  return excluded.some((e) => (e.endsWith('/') ? p.startsWith(e) : p === e));
+/** Un percorso e' fuori dal checkout, dati i pattern sparse non-cone. */
+export function isExcludedBy(patterns, p) {
+  const list = Array.isArray(patterns) ? patterns : [];
+  const structured = list.some((pattern) => /^!?\//.test(String(pattern).trim()));
+  if (!structured) {
+    return list.some((e) => (e.endsWith('/') ? p.startsWith(e) : p === e));
+  }
+
+  // Git applica i pattern in ordine: una reinclusione successiva a una
+  // negazione riporta il percorso nel checkout (es. data/loop-fleet/).
+  let included = true;
+  for (const raw of list) {
+    const pattern = String(raw).trim();
+    if (!pattern) continue;
+    const negated = pattern.startsWith('!');
+    const target = pattern.replace(/^!?\//, '');
+    if (target === '*' || target === '') {
+      included = !negated;
+      continue;
+    }
+    const matches = target.endsWith('/')
+      ? p.startsWith(target)
+      : p === target;
+    if (matches) included = !negated;
+  }
+  return !included;
 }
 
 export function verifyCheckoutProfiles() {
@@ -180,15 +203,16 @@ export function verifyCheckoutProfiles() {
           `Rigenera con: node scripts/ci/apply-checkout-profiles.mjs`);
       }
 
-      for (const l of lines.slice(1)) {
-        if (!/^!\/[\w./-]+$/.test(l)) problems.push(`${where}: pattern malformato «${l}»`);
+      const patternLines = lines.slice(1);
+      for (const l of patternLines) {
+        if (!/^!?\/[\w./-]+$/.test(l)) problems.push(`${where}: pattern malformato «${l}»`);
       }
       if (step.with['sparse-checkout-cone-mode'] !== false) {
         problems.push(`${where}: i pattern con negazione richiedono sparse-checkout-cone-mode: false`);
       }
 
-      const excluded = lines.slice(1).map((l) => l.slice(2));
-      const isPathOutsideCheckout = (p) => isExcludedBy(excluded, p);
+      const excluded = patternLines.filter((l) => l.startsWith('!/')).map((l) => l.slice(2));
+      const isPathOutsideCheckout = (p) => isExcludedBy(patternLines, p);
 
       // Se il job passa il codice a `tsc`, la chiusura per import non basta:
       // si estende al programma TS intero (vedi jobInvokesTsc/tsProgramFiles).
