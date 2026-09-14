@@ -547,7 +547,7 @@
     {
       "source": "observers/generator/tests/crawler-cross-repo-artifacts.test.mjs",
       "target": "generator/tests/crawler-cross-repo-artifacts.test.mjs",
-      "sha256": "3c2136aa2e0f1d07fef209d4d239a0d47c0cce6af16e0f84760ee2532e091173"
+      "sha256": "84871c4f99c400d7d0b6c87c776da301aecdb07807d8d0d1b3613c73272685a6"
     },
     {
       "source": "observers/workflows/crawler-generation-observer-shadow.yml",
@@ -557,7 +557,7 @@
     {
       "source": "observers/scripts/crawler-generation-observer-selector.mjs",
       "target": "scripts/ci/crawler-generation-observer-selector.mjs",
-      "sha256": "712a817d31a6ddb76ded21675eab9fa770a2d2bb988d938091022ce537ff45a2"
+      "sha256": "f317e033d892d7025bec83ee61f601b993f6e511de9152c9adf21dec89e3068d"
     },
     {
       "source": "observers/scripts/lib/canonical-json-digest.mjs",
