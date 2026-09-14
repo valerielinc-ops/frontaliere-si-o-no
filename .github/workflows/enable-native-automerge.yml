@@ -65,6 +65,7 @@ jobs:
           gate_tmp="$helper_dir/native-automerge-gate-check.mjs"
           policy_tmp="$helper_dir/review-test-policy-check.mjs"
           files_tmp="$helper_dir/lib/fetchPrFiles-check.mjs"
+          vitest_tmp="$helper_dir/lib/vitestCheck-check.mjs"
           if gh api "repos/${GITHUB_REPOSITORY}/contents/scripts/ci/native-automerge-gate.mjs?ref=main" \
             --header 'Accept: application/vnd.github.raw+json' \
             > "$gate_tmp" \
@@ -74,22 +75,28 @@ jobs:
             && gh api "repos/${GITHUB_REPOSITORY}/contents/scripts/ci/lib/fetchPrFiles.mjs?ref=main" \
             --header 'Accept: application/vnd.github.raw+json' \
             > "$files_tmp" \
+            && gh api "repos/${GITHUB_REPOSITORY}/contents/scripts/ci/lib/vitestCheck.mjs?ref=main" \
+            --header 'Accept: application/vnd.github.raw+json' \
+            > "$vitest_tmp" \
             && [ -s "$gate_tmp" ] \
             && [ -s "$policy_tmp" ] \
             && [ -s "$files_tmp" ] \
+            && [ -s "$vitest_tmp" ] \
             && node --check "$gate_tmp" \
             && node --check "$policy_tmp" \
-            && node --check "$files_tmp"; then
+            && node --check "$files_tmp" \
+            && node --check "$vitest_tmp"; then
             mv "$gate_tmp" "$helper_dir/native-automerge-gate.mjs"
             mv "$policy_tmp" "$helper_dir/review-test-policy.mjs"
             mv "$files_tmp" "$helper_dir/lib/fetchPrFiles.mjs"
+            mv "$vitest_tmp" "$helper_dir/lib/vitestCheck.mjs"
             gh api "repos/${GITHUB_REPOSITORY}/contents/scripts/ci/lib/constants.mjs?ref=main" \
               --header 'Accept: application/vnd.github.raw+json' \
               > "$helper_dir/lib/constants.mjs"
             echo "NATIVE_AUTOMERGE_BOOTSTRAP_READY=true" >> "$GITHUB_ENV"
             echo 'Native auto-merge gate bootstrap is present on main.'
           else
-            rm -f "$gate_tmp" "$policy_tmp" "$files_tmp" \
+            rm -f "$gate_tmp" "$policy_tmp" "$files_tmp" "$vitest_tmp" \
               "$helper_dir/native-automerge-gate.mjs" "$helper_dir/review-test-policy.mjs" \
               "$helper_dir/lib/fetchPrFiles.mjs"
             echo "NATIVE_AUTOMERGE_BOOTSTRAP_READY=false" >> "$GITHUB_ENV"
