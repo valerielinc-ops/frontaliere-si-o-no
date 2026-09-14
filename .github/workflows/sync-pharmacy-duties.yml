@@ -16,5 +16,7 @@ concurrency:
 
 jobs:
   sync:
+    permissions:
+      contents: write
     uses: ./.github/workflows/sync-pharmacies-border.yml
     secrets: inherit
