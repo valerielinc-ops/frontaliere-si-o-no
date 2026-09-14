@@ -1040,9 +1040,9 @@
     },
     {
       "id": "helsana-dcb8f92ecaaf",
-      "slug": "case-manager-a-80-100-helsana-lausanne-homeoffice",
+      "slug": "responsabile-del-caso-a-80-100-helsana-vaud",
       "slugByLocale": {
-        "it": "case-manager-a-80-100-helsana-lausanne-homeoffice",
+        "it": "responsabile-del-caso-a-80-100-helsana-vaud",
         "en": "case-manager-a-80-100-helsana-lausanne-homeoffice",
         "de": "case-manager-a-80-100-helsana-lausanne-homeoffice",
         "fr": "gestionnaire-de-cas-a-80-100-helsana-ticino"
@@ -1100,7 +1100,15 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "case-manager-a-80-100-helsana-lausanne-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "case-manager-a-80-100-helsana-lausanne-homeoffice"
+      ]
     },
     {
       "id": "helsana-62d28e348fe3",
@@ -3163,9 +3171,9 @@
     },
     {
       "id": "helsana-34809716d352",
-      "slug": "medecin-specialiste-t-60-100-helsana-bern-homeoffice",
+      "slug": "medico-specialista-t-60-100-helsana-berna",
       "slugByLocale": {
-        "it": "medecin-specialiste-t-60-100-helsana-bern-homeoffice",
+        "it": "medico-specialista-t-60-100-helsana-berna",
         "en": "medecin-specialiste-t-60-100-helsana-bern-homeoffice",
         "de": "medecin-specialiste-t-60-100-helsana-bern-homeoffice",
         "fr": "medecin-specialise-t-60-100-helsana-berna"
@@ -3223,7 +3231,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-specialiste-t-60-100-helsana-bern-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-specialiste-t-60-100-helsana-bern-homeoffice"
+      ]
     },
     {
       "id": "helsana-c20528ceec44",

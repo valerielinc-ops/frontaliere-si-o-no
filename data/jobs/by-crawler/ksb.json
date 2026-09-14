@@ -2022,7 +2022,7 @@
         "it": "cook-i-a-kantonsspital-baden-ksb-baden",
         "en": "koch-kochin-i-a-kantonsspital-baden-ksb-baden",
         "de": "koch-kochin-i-a-ksb-ch",
-        "fr": "koch-kochin-i-a-ksb-ch"
+        "fr": "chef-cuisinier-i-a-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -2079,6 +2079,9 @@
           "koch-kochin-i-a-ksb-ch"
         ],
         "en": [
+          "koch-kochin-i-a-ksb-ch"
+        ],
+        "fr": [
           "koch-kochin-i-a-ksb-ch"
         ]
       },
@@ -6406,9 +6409,9 @@
       "slug": "koch-kochin-cfc-100-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
         "it": "koch-kochin-cfc-100-kantonsspital-baden-ksb-baden",
-        "en": "koch-kochin-efz-100-ksb-ch",
+        "en": "chef-cook-efz-100-kantonsspital-baden-ksb-baden",
         "de": "koch-kochin-efz-100-ksb-ch",
-        "fr": "koch-kochin-efz-100-ksb-ch"
+        "fr": "chef-cook-frz-100-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -6455,6 +6458,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "koch-kochin-efz-100-ksb-ch"
+        ],
+        "en": [
+          "koch-kochin-efz-100-ksb-ch"
+        ],
+        "fr": [
           "koch-kochin-efz-100-ksb-ch"
         ]
       },

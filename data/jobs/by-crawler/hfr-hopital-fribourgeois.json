@@ -908,10 +908,10 @@
     },
     {
       "id": "hfr-hopital-fribourgeois-f4893914ffe3",
-      "slug": "infirmier-ere-diplome-e-70-pflegefachmann-pflegefachfrau-70-hfr-hopital-fribourgeois-hfr",
+      "slug": "infermiera-qualificata-70-pflegefachmann-pflegefachfrau-70-hopital-fribourgeois-hfr-hfr-riaz",
       "slugByLocale": {
-        "it": "infirmier-ere-diplome-e-70-pflegefachmann-pflegefachfrau-70-hfr-hopital-fribourgeois-hfr",
-        "en": "infirmier-ere-diplome-e-70-pflegefachmann-pflegefachfrau-70-hfr-hopital-fribourgeois-hfr",
+        "it": "infermiera-qualificata-70-pflegefachmann-pflegefachfrau-70-hopital-fribourgeois-hfr-hfr-riaz",
+        "en": "qualified-nurse-70-pflegefachmann-pflegefachfrau-70-hopital-fribourgeois-hfr-hfr-riaz",
         "de": "pflegefachmann-pflegefachfrau-70-hopital-fribourgeois-hfr-hfr-riaz",
         "fr": "infirmier-ere-diplome-e-70-pflegefachmann-pflegefachfrau-70-hfr-hopital-fribourgeois-hfr"
       },
@@ -969,7 +969,18 @@
           "maxValue": 83300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-diplome-e-70-pflegefachmann-pflegefachfrau-70-hfr-hopital-fribourgeois-hfr"
+        ],
+        "en": [
+          "infirmier-ere-diplome-e-70-pflegefachmann-pflegefachfrau-70-hfr-hopital-fribourgeois-hfr"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-diplome-e-70-pflegefachmann-pflegefachfrau-70-hfr-hopital-fribourgeois-hfr"
+      ]
     },
     {
       "id": "hfr-hopital-fribourgeois-f329233b1f04",

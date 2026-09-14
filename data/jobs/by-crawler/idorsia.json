@@ -52,14 +52,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "business-analyst-drug-safety-systems-idorsia-allschwil",
-        "business-analyst-drug-safety-systems-idorsia-allschwil-basel-area",
-        "business-analista-drug-safety-systems-idorsia-pharmaceuticals-allschwil"
+        "business-analyst-drug-safety-systems-idorsia-allschwil-basel-area"
       ],
       "previousSlugsByLocale": {
         "it": [
           "business-analyst-drug-safety-systems-idorsia-allschwil",
-          "business-analyst-drug-safety-systems-idorsia-allschwil-basel-area",
-          "business-analista-drug-safety-systems-idorsia-pharmaceuticals-allschwil"
+          "business-analyst-drug-safety-systems-idorsia-allschwil-basel-area"
         ],
         "en": [
           "business-analyst-drug-safety-systems-idorsia-allschwil-basel-area"
@@ -133,14 +131,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "clinical-development-lead-idorsia-allschwil",
-        "clinical-development-lead-idorsia-allschwil-basel-area",
-        "piombo-di-sviluppo-clinico-idorsia-pharmaceuticals-allschwil"
+        "clinical-development-lead-idorsia-allschwil-basel-area"
       ],
       "previousSlugsByLocale": {
         "it": [
           "clinical-development-lead-idorsia-allschwil",
-          "clinical-development-lead-idorsia-allschwil-basel-area",
-          "piombo-di-sviluppo-clinico-idorsia-pharmaceuticals-allschwil"
+          "clinical-development-lead-idorsia-allschwil-basel-area"
         ],
         "en": [
           "clinical-development-lead-idorsia-allschwil-basel-area"
@@ -173,7 +169,7 @@
       "slugByLocale": {
         "it": "farmacia-clinica-senior-idorsia-pharmaceuticals-allschwil",
         "en": "senior-clinical-pharmacologist-idorsia-allschwil",
-        "de": "senior-clinical-pharmacologist-idorsia-allschwil",
+        "de": "leitender-klinischer-pharmakologe-idorsia-pharmaceuticals-allschwil-basel-area",
         "fr": "pharmacologue-clinique-principal-idorsia-pharmaceuticals-allschwil"
       },
       "company": "Idorsia Pharmaceuticals",
@@ -219,18 +215,19 @@
       "previousSlugs": [
         "senior-clinical-pharmacologist-idorsia-allschwil",
         "senior-clinical-pharmacologist-idorsia-pharmaceuticals-allschwil",
-        "senior-clinical-pharmacologist-idorsia-allschwil-basel-area",
-        "farmacia-clinica-senior-idorsia-pharmaceuticals-allschwil"
+        "senior-clinical-pharmacologist-idorsia-allschwil-basel-area"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-clinical-pharmacologist-idorsia-allschwil",
           "senior-clinical-pharmacologist-idorsia-pharmaceuticals-allschwil",
-          "senior-clinical-pharmacologist-idorsia-allschwil-basel-area",
-          "farmacia-clinica-senior-idorsia-pharmaceuticals-allschwil"
+          "senior-clinical-pharmacologist-idorsia-allschwil-basel-area"
         ],
         "en": [
           "senior-clinical-pharmacologist-idorsia-allschwil-basel-area"
+        ],
+        "de": [
+          "senior-clinical-pharmacologist-idorsia-allschwil"
         ]
       },
       "firstSeenAt": "2026-07-03T22:50:55.908Z",
@@ -298,13 +295,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "drug-safety-physician-idorsia-allschwil-basel-area",
-        "medicina-di-sicurezza-idorsia-pharmaceuticals-allschwil-basel-area"
+        "drug-safety-physician-idorsia-allschwil-basel-area"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "drug-safety-physician-idorsia-allschwil-basel-area",
-          "medicina-di-sicurezza-idorsia-pharmaceuticals-allschwil-basel-area"
+          "drug-safety-physician-idorsia-allschwil-basel-area"
         ],
         "de": [
           "drug-safety-physician-idorsia-allschwil-basel-area"
@@ -330,9 +325,9 @@
     },
     {
       "id": "idorsia-573190616204",
-      "slug": "cpcts-manager-idorsia-allschwil",
+      "slug": "responsabile-del-cpcts-idorsia-pharmaceuticals-allschwil",
       "slugByLocale": {
-        "it": "cpcts-manager-idorsia-allschwil",
+        "it": "responsabile-del-cpcts-idorsia-pharmaceuticals-allschwil",
         "en": "cpcts-manager-idorsia-allschwil",
         "de": "cpcts-manager-idorsia-allschwil",
         "fr": "gestionnaire-des-scpc-idorsia-pharmaceuticals-allschwil"
@@ -390,13 +385,21 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "cpcts-manager-idorsia-allschwil"
+        ]
+      },
+      "previousSlugs": [
+        "cpcts-manager-idorsia-allschwil"
+      ]
     },
     {
       "id": "idorsia-a8b38eb86476",
-      "slug": "senior-scientific-associate-idorsia-allschwil",
+      "slug": "associato-scientifico-senior-idorsia-pharmaceuticals-allschwil",
       "slugByLocale": {
-        "it": "senior-scientific-associate-idorsia-allschwil",
+        "it": "associato-scientifico-senior-idorsia-pharmaceuticals-allschwil",
         "en": "senior-scientific-associate-idorsia-allschwil",
         "de": "senior-scientific-associated-idorsia-pharmaceuticals-allschwil",
         "fr": "associe-scientifique-principal-idorsia-pharmaceuticals-allschwil"
@@ -454,13 +457,21 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-scientific-associate-idorsia-allschwil"
+        ]
+      },
+      "previousSlugs": [
+        "senior-scientific-associate-idorsia-allschwil"
+      ]
     },
     {
       "id": "idorsia-bbc7048c5949",
-      "slug": "senior-qa-compliance-auditing-manager-gmp-gdp-idorsia-allschwil",
+      "slug": "responsabile-senior-della-conformita-e-audit-qa-gmp-gdp-idorsia-pharmaceuticals-allschwil",
       "slugByLocale": {
-        "it": "senior-qa-compliance-auditing-manager-gmp-gdp-idorsia-allschwil",
+        "it": "responsabile-senior-della-conformita-e-audit-qa-gmp-gdp-idorsia-pharmaceuticals-allschwil",
         "en": "senior-qa-compliance-auditing-manager-gmp-gdp-idorsia-allschwil",
         "de": "senior-qa-compliance-auditing-manager-gmp-gdp-idorsia-allschwil",
         "fr": "gestionnaire-principal-de-la-conformite-et-de-la-verification-des-aq-bpf-pib-idorsia-pharmaceuticals-allschwil"
@@ -518,7 +529,15 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-qa-compliance-auditing-manager-gmp-gdp-idorsia-allschwil"
+        ]
+      },
+      "previousSlugs": [
+        "senior-qa-compliance-auditing-manager-gmp-gdp-idorsia-allschwil"
+      ]
     },
     {
       "id": "idorsia-89502e13d70a",
@@ -570,13 +589,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-payroll-specialist-switzerland-eu-i-idorsia-allschwil",
-        "senior-payroll-specialista-switzerland-eu-i-idorsia-pharmaceuticals-allschwil"
+        "senior-payroll-specialist-switzerland-eu-i-idorsia-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-payroll-specialist-switzerland-eu-i-idorsia-allschwil",
-          "senior-payroll-specialista-switzerland-eu-i-idorsia-pharmaceuticals-allschwil"
+          "senior-payroll-specialist-switzerland-eu-i-idorsia-allschwil"
         ],
         "de": [
           "senior-payroll-specialist-switzerland-eu-i-idorsia-allschwil"
@@ -650,14 +667,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "postdoctoral-researcher-idorsia-basel",
-        "postdoctoral-researcher-idorsia-basel-2",
-        "ricercatore-post-dottorato-idorsia-pharmaceuticals-basel-16c062"
+        "postdoctoral-researcher-idorsia-basel-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postdoctoral-researcher-idorsia-basel",
-          "postdoctoral-researcher-idorsia-basel-2",
-          "ricercatore-post-dottorato-idorsia-pharmaceuticals-basel-16c062"
+          "postdoctoral-researcher-idorsia-basel-2"
         ],
         "de": [
           "postdoctoral-researcher-idorsia-basel"
@@ -732,14 +747,12 @@
       "previousSlugs": [
         "postdoctoral-researcher-idorsia-basel",
         "postdoctoral-researcher-idorsia-basel-2",
-        "postdoctoral-researcher-idorsia-basel-m03rp9",
-        "ricercatore-post-dottorato-idorsia-pharmaceuticals-basel"
+        "postdoctoral-researcher-idorsia-basel-m03rp9"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postdoctoral-researcher-idorsia-basel",
-          "postdoctoral-researcher-idorsia-basel-2",
-          "ricercatore-post-dottorato-idorsia-pharmaceuticals-basel"
+          "postdoctoral-researcher-idorsia-basel-2"
         ],
         "en": [
           "postdoctoral-researcher-idorsia-basel",
@@ -820,8 +833,7 @@
         "direttore-associato-progetto-tecnico-leader-drug-product-idorsia-pharmaceuticals-basel",
         "associate-director-technical-project-leader-drug-product-idorsia-basel",
         "associate-director-technischer-projektleiter-drug-product-idorsia-pharmaceuticals-basel",
-        "directeur-associe-chef-de-projet-technique-produit-pharmaceutique-idorsia-pharmaceuticals-basel",
-        "direttore-associato-responsabile-del-progetto-tecnico-idorsia-pharmaceuticals-basel"
+        "directeur-associe-chef-de-projet-technique-produit-pharmaceutique-idorsia-pharmaceuticals-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -829,8 +841,7 @@
           "direttore-associato-progetto-tecnico-leader-drug-product-idorsia-pharmaceuticals-basel",
           "associate-director-technical-project-leader-drug-product-idorsia-basel",
           "associate-director-technischer-projektleiter-drug-product-idorsia-pharmaceuticals-basel",
-          "directeur-associe-chef-de-projet-technique-produit-pharmaceutique-idorsia-pharmaceuticals-basel",
-          "direttore-associato-responsabile-del-progetto-tecnico-idorsia-pharmaceuticals-basel"
+          "directeur-associe-chef-de-projet-technique-produit-pharmaceutique-idorsia-pharmaceuticals-basel"
         ],
         "en": [
           "associate-director-technical-project-leader-drug-product-idorsia-basel"
@@ -909,13 +920,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hr-services-specialist-idorsia-basel",
-        "risorse-umane-services-specialista-idorsia-pharmaceuticals-basel"
+        "hr-services-specialist-idorsia-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hr-services-specialist-idorsia-basel",
-          "risorse-umane-services-specialista-idorsia-pharmaceuticals-basel"
+          "hr-services-specialist-idorsia-basel"
         ]
       },
       "firstSeenAt": "2026-07-03T22:50:53.461Z",

@@ -312,11 +312,11 @@
     },
     {
       "id": "jsafrasarasin-36022dbbf26f",
-      "slug": "risk-officer-management-company-jsafrasarasin-ch",
+      "slug": "societa-di-gestione-degli-ufficiali-del-rischio-j-safra-sarasin-basel-ch",
       "slugByLocale": {
-        "it": "risk-officer-management-company-jsafrasarasin-ch",
+        "it": "societa-di-gestione-degli-ufficiali-del-rischio-j-safra-sarasin-basel-ch",
         "en": "risk-officer-management-company-jsafrasarasin-ch",
-        "de": "risk-officer-management-company-jsafrasarasin-ch",
+        "de": "risiko-officer-management-unternehmen-j-safra-sarasin-basel-ch",
         "fr": "agent-de-gestion-des-risques-j-safra-sarasin-basel-ch"
       },
       "company": "J. Safra Sarasin",
@@ -358,11 +358,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "risk-officer-management-company-j-safra-sarasin-basel"
+        "risk-officer-management-company-j-safra-sarasin-basel",
+        "risk-officer-management-company-jsafrasarasin-ch"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "risk-officer-management-company-j-safra-sarasin-basel"
+        ],
+        "it": [
+          "risk-officer-management-company-jsafrasarasin-ch"
+        ],
+        "de": [
+          "risk-officer-management-company-jsafrasarasin-ch"
         ]
       },
       "needsRetranslation": true,
@@ -387,7 +394,7 @@
       "slugByLocale": {
         "it": "senior-fmi-business-analista-j-safra-sarasin-zurich",
         "en": "senior-fmi-business-analyst-jsafrasarasin-ch",
-        "de": "senior-fmi-business-analyst-jsafrasarasin-ch",
+        "de": "leitender-fmi-geschaftsanalyst-j-safra-sarasin-zurich-ch",
         "fr": "senior-fmi-business-analyste-j-safra-sarasin-zurich"
       },
       "company": "J. Safra Sarasin",
@@ -436,6 +443,9 @@
           "senior-fmi-business-analyst-jsafrasarasin-ch"
         ],
         "fr": [
+          "senior-fmi-business-analyst-jsafrasarasin-ch"
+        ],
+        "de": [
           "senior-fmi-business-analyst-jsafrasarasin-ch"
         ]
       },

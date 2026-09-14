@@ -13081,7 +13081,7 @@
       "slug": "kauffrau-kaufmann-cfc-e-profil-kanton-aargau-aarau",
       "slugByLocale": {
         "it": "kauffrau-kaufmann-cfc-e-profil-kanton-aargau-aarau",
-        "en": "kauffrau-kaufmann-efz-e-profil-kanton-aargau-ch",
+        "en": "commercial-clerk-efz-e-profile-kanton-aargau-aarau",
         "de": "kauffrau-kaufmann-efz-e-profil-kanton-aargau-ch",
         "fr": "kauffrau-kaufmann-efz-e-profil-kanton-aargau-ch"
       },
@@ -13132,6 +13132,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "kauffrau-kaufmann-efz-e-profil-kanton-aargau-ch"
+        ],
+        "en": [
           "kauffrau-kaufmann-efz-e-profil-kanton-aargau-ch"
         ]
       },
@@ -15536,7 +15539,6 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-empfang-kasse-shop-60-kanton-aargau-ch",
-        "reception-des-employes-caissier-magasin-60-kanton-aargau-aarau",
         "collaboratore-trice-empfang-kasse-shop-60-kanton-aargau-aarau-qso6t0",
         "collaboratore-trice-empfang-kasse-shop-60-kanton-aargau-aarau-qso6sz",
         "collaboratore-trice-empfang-kasse-shop-60-kanton-aargau-aarau-uilo9c",
@@ -25049,9 +25051,9 @@
       "slug": "biblioteca-multimediale-70-kanton-aargau-aarau",
       "slugByLocale": {
         "it": "biblioteca-multimediale-70-kanton-aargau-aarau",
-        "en": "mediothekarin-mediothekar-70-kanton-aargau-ch",
+        "en": "media-library-70-kanton-aargau-aarau",
         "de": "mediothekarin-mediothekar-70-kanton-aargau-ch",
-        "fr": "mediothekarin-mediothekar-70-kanton-aargau-ch"
+        "fr": "bibliotheque-mediatique-70-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -25100,6 +25102,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "mediothekarin-mediothekar-70-kanton-aargau-ch"
+        ],
+        "en": [
+          "mediothekarin-mediothekar-70-kanton-aargau-ch"
+        ],
+        "fr": [
           "mediothekarin-mediothekar-70-kanton-aargau-ch"
         ]
       },
