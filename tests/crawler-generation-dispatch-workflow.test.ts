@@ -198,6 +198,28 @@ describe('crawler generation PR B workflow wiring', () => {
     expect(contract.crawlerGeneration).toMatchObject({ mode: 'shadow', dispatchesTranslation: false });
   });
 
+  it('carica le righe A/B subito dopo il cascade, prima del mop-up lungo', () => {
+    const sourceTranslate = YAML.parse(fs.readFileSync(
+      '.github/workflows/translate-pending-logic.yml',
+      'utf8',
+    ));
+    const portableTranslate = YAML.parse(fs.readFileSync(
+      '.github/corpus-workflows/translate-pending.yml',
+      'utf8',
+    ));
+    for (const document of [sourceTranslate, portableTranslate]) {
+      const steps = document.jobs.translate.steps;
+      const cascade = findUniqueStep(steps, 'Phase 2b: Translate pending jobs (cascade top-up)');
+      const thinkingUpload = findUniqueStep(steps, 'Upload thinking A/B rows');
+      const mopUp = findUniqueStep(steps, 'Phase 2c mop-up: local MT (Argos Translate, in-process)');
+      expect(thinkingUpload.index).toBe(cascade.index + 1);
+      expect(thinkingUpload.index).toBeLessThan(mopUp.index);
+      expect(thinkingUpload.step.if).toContain('always()');
+      expect(thinkingUpload.step.with.path).toBe('${{ runner.temp }}/translation-thinking-ab.json');
+      expect(thinkingUpload.step.with['if-no-files-found']).toBe('warn');
+    }
+  });
+
   it('wires checkpointed generation dispatch and an always-run sentinel without return_run_details', () => {
     const source = fs.readFileSync(orchestratorPath, 'utf8');
     const parsed = YAML.parse(source);
