@@ -136,7 +136,22 @@ export function buildPharmacyDuties(html, region, fetchedAt, pharmacyIds = new S
   const parsed = parsePharmacyDutyRows(html);
   const warnings = [...parsed.warnings];
   const duties = [];
-  const rows = [...parsed.rows].sort((a, b) => Date.parse(a.startsAt) - Date.parse(b.startsAt));
+  const fetchedAtMs = Date.parse(fetchedAt);
+  if (!Number.isFinite(fetchedAtMs)) {
+    warnings.push('invalid fetchedAt; no Ticino duty intervals emitted');
+    return { duties, skipped: parsed.skipped, warnings };
+  }
+
+  // Boundary markers belong to the source order. Sorting first could pair a
+  // row with a later boundary across an out-of-order source gap.
+  const rows = parsed.rows;
+  const nonChronological = rows.some((row, index) => index > 0
+    && Date.parse(row.startsAt) <= Date.parse(rows[index - 1].startsAt));
+  if (nonChronological) {
+    warnings.push(`${region.key}: source rows are not chronological; no duty intervals emitted`);
+    return { duties, skipped: parsed.skipped, warnings };
+  }
+
   for (let index = 0; index < rows.length - 1; index += 1) {
     const row = rows[index];
     const next = rows[index + 1];
@@ -150,7 +165,7 @@ export function buildPharmacyDuties(html, region, fetchedAt, pharmacyIds = new S
     }
     const pharmacyId = makePharmacyId(row.name, row.city);
     const endsAt = next.startsAt;
-    const isExpired = Date.parse(endsAt) <= Date.parse(fetchedAt);
+    const isExpired = Date.parse(endsAt) <= fetchedAtMs;
     duties.push({
       id: `ti-duty-${region.key}-${row.startsAt}-${pharmacyId}`.replace(/[^a-zA-Z0-9_-]/g, '-'),
       pharmacyId,
