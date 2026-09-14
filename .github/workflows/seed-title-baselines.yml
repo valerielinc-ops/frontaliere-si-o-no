@@ -221,6 +221,9 @@ jobs:
           node scripts/audit-title-length.mjs \
             --threshold=66 \
             --write-baseline=data/title-length-baseline.json
+          node scripts/ci/validate-generated-data.mjs \
+            --kind title-length \
+            --file data/title-length-baseline.json
           echo ""
           echo "==== title-length baseline preview ===="
           head -30 data/title-length-baseline.json
@@ -229,6 +232,9 @@ jobs:
         run: |
           node scripts/audit-title-no-disambig-hash.mjs \
             --write-baseline=data/title-no-disambig-hash-baseline.json
+          node scripts/ci/validate-generated-data.mjs \
+            --kind title-no-disambig-hash \
+            --file data/title-no-disambig-hash-baseline.json
           echo ""
           echo "==== title-no-disambig-hash baseline preview ===="
           head -30 data/title-no-disambig-hash-baseline.json
@@ -237,6 +243,9 @@ jobs:
         run: |
           node scripts/audit-h1-title-duplicates.mjs \
             --write-baseline=data/h1-title-duplicates-baseline.json
+          node scripts/ci/validate-generated-data.mjs \
+            --kind h1-title-duplicates \
+            --file data/h1-title-duplicates-baseline.json
           echo ""
           echo "==== h1-title-duplicates baseline preview ===="
           head -30 data/h1-title-duplicates-baseline.json

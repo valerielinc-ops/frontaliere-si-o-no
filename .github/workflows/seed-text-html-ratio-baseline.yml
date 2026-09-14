@@ -226,6 +226,9 @@ jobs:
         run: |
           node scripts/audit-text-html-ratio.mjs \
             --write-baseline=data/text-html-ratio-baseline.json
+          node scripts/ci/validate-generated-data.mjs \
+            --kind text-html-ratio \
+            --file data/text-html-ratio-baseline.json
           echo ""
           echo "==== text-html-ratio baseline preview (byFeature) ===="
           node -e "const b=require('./data/text-html-ratio-baseline.json');console.log(JSON.stringify({mode:b.mode,threshold:b.threshold,scanned:b.scanned,totalOffenders:b.totalOffenders,byFeature:b.byFeature},null,2))"

@@ -277,6 +277,156 @@ function validateUnemployment(value) {
   return errors;
 }
 
+function validateRate(value, path, errors) {
+  if (!isFiniteNumber(value) || value < 0 || value > 100) {
+    add(errors, path, 'percentuale numerica tra 0 e 100 richiesta');
+  }
+}
+
+function validateRateTolerance(value, errors) {
+  if (!isObject(value)) {
+    add(errors, 'tolerance', 'oggetto richiesto');
+    return;
+  }
+  for (const field of ['relPct', 'absPp', 'minAbsDelta', 'maxDeltaPp']) {
+    if (!isFiniteNumber(value[field]) || value[field] < 0) {
+      add(errors, `tolerance.${field}`, 'numero non negativo richiesto');
+    }
+  }
+}
+
+function validateRateAggregate(value, errors) {
+  if (!Number.isInteger(value.scanned) || value.scanned < 0) {
+    add(errors, 'scanned', 'intero non negativo richiesto');
+  }
+  if (!Number.isInteger(value.totalOffenders) || value.totalOffenders < 0) {
+    add(errors, 'totalOffenders', 'intero non negativo richiesto');
+  } else if (Number.isInteger(value.scanned) && value.totalOffenders > value.scanned) {
+    add(errors, 'totalOffenders', 'non può superare scanned');
+  }
+  validateRate(value.totalRatePct, 'totalRatePct', errors);
+}
+
+function validateRateBuckets(value, errors) {
+  if (!isObject(value.byFeature) || Object.keys(value.byFeature).length === 0) {
+    add(errors, 'byFeature', 'oggetto non vuoto richiesto');
+  } else {
+    for (const [feature, bucket] of Object.entries(value.byFeature)) {
+      const base = `byFeature.${feature}`;
+      if (!isObject(bucket)) {
+        add(errors, base, 'oggetto richiesto');
+        continue;
+      }
+      if (!Number.isInteger(bucket.scanned) || bucket.scanned < 0) add(errors, `${base}.scanned`, 'intero non negativo richiesto');
+      if (!Number.isInteger(bucket.offenders) || bucket.offenders < 0) {
+        add(errors, `${base}.offenders`, 'intero non negativo richiesto');
+      } else if (Number.isInteger(bucket.scanned) && bucket.offenders > bucket.scanned) {
+        add(errors, `${base}.offenders`, 'non può superare scanned');
+      }
+      validateRate(bucket.ratePct, `${base}.ratePct`, errors);
+    }
+  }
+  if (value.byLocale !== undefined) {
+    if (!isObject(value.byLocale)) {
+      add(errors, 'byLocale', 'oggetto richiesto');
+    } else {
+      for (const [locale, count] of Object.entries(value.byLocale)) {
+        if (!Number.isInteger(count) || count < 0) add(errors, `byLocale.${locale}`, 'intero non negativo richiesto');
+      }
+    }
+  }
+}
+
+function validateBfsSitemaps(value, errors) {
+  if (!isObject(value.perSitemap) || Object.keys(value.perSitemap).length === 0) {
+    add(errors, 'perSitemap', 'oggetto non vuoto richiesto');
+    return;
+  }
+  for (const [sitemap, entry] of Object.entries(value.perSitemap)) {
+    const base = `perSitemap.${sitemap}`;
+    if (!isObject(entry)) {
+      add(errors, base, 'oggetto richiesto');
+      continue;
+    }
+    for (const field of ['total', 'reached', 'atDepthGtMax', 'deepest']) {
+      if (!Number.isInteger(entry[field]) || entry[field] < 0) add(errors, `${base}.${field}`, 'intero non negativo richiesto');
+    }
+    if (Number.isInteger(entry.total) && Number.isInteger(entry.reached) && entry.reached > entry.total) {
+      add(errors, `${base}.reached`, 'non può superare total');
+    }
+    if (Number.isInteger(entry.total) && Number.isInteger(entry.atDepthGtMax) && entry.atDepthGtMax > entry.total) {
+      add(errors, `${base}.atDepthGtMax`, 'non può superare total');
+    }
+    validateRate(entry.ratePct, `${base}.ratePct`, errors);
+  }
+}
+
+function validateOrphanSitemaps(value, errors) {
+  if (!isObject(value.perSitemap) || Object.keys(value.perSitemap).length === 0) {
+    add(errors, 'perSitemap', 'oggetto non vuoto richiesto');
+    return;
+  }
+  for (const [sitemap, entry] of Object.entries(value.perSitemap)) {
+    const base = `perSitemap.${sitemap}`;
+    if (!isObject(entry)) {
+      add(errors, base, 'oggetto richiesto');
+      continue;
+    }
+    if (!Number.isInteger(entry.total) || entry.total < 0) add(errors, `${base}.total`, 'intero non negativo richiesto');
+    if (!Number.isInteger(entry.orphans) || entry.orphans < 0) {
+      add(errors, `${base}.orphans`, 'intero non negativo richiesto');
+    } else if (Number.isInteger(entry.total) && entry.orphans > entry.total) {
+      add(errors, `${base}.orphans`, 'non può superare total');
+    }
+    validateRate(entry.ratePct, `${base}.ratePct`, errors);
+    if (entry.examples !== undefined && (!Array.isArray(entry.examples) || entry.examples.some((url) => !isUrl(url)))) {
+      add(errors, `${base}.examples`, 'array di URL http(s) richiesto');
+    }
+  }
+}
+
+function validateRateBaseline(value, kind) {
+  const errors = [];
+  if (!isObject(value)) {
+    add(errors, '$', `${kind} baseline deve essere un oggetto`);
+    return errors;
+  }
+  if (value.mode !== 'rate') add(errors, 'mode', 'deve essere rate');
+  const generated = value.generatedAt ?? value.generated;
+  if (!isIso(generated)) add(errors, 'generated/generatedAt', 'timestamp ISO non valido');
+  validateRateTolerance(value.tolerance, errors);
+
+  if (kind === 'bfs-depth') {
+    if (value.version !== 2) add(errors, 'version', 'deve essere 2');
+    if (!Number.isInteger(value.maxDepth) || value.maxDepth < 0) add(errors, 'maxDepth', 'intero non negativo richiesto');
+    validateBfsSitemaps(value, errors);
+    return errors;
+  }
+
+  if (kind === 'orphan-pages') {
+    if (value.version !== 2) add(errors, 'version', 'deve essere 2');
+    if (typeof value.scanMode !== 'string' || !value.scanMode.trim()) add(errors, 'scanMode', 'stringa non vuota richiesta');
+    if (!Number.isInteger(value.totalSitemapUrls) || value.totalSitemapUrls < 0) add(errors, 'totalSitemapUrls', 'intero non negativo richiesto');
+    if (!Number.isInteger(value.totalOrphans) || value.totalOrphans < 0) {
+      add(errors, 'totalOrphans', 'intero non negativo richiesto');
+    } else if (Number.isInteger(value.totalSitemapUrls) && value.totalOrphans > value.totalSitemapUrls) {
+      add(errors, 'totalOrphans', 'non può superare totalSitemapUrls');
+    }
+    validateOrphanSitemaps(value, errors);
+    return errors;
+  }
+
+  validateRateAggregate(value, errors);
+  validateRateBuckets(value, errors);
+  if (kind === 'title-length' && (!Number.isInteger(value.threshold) || value.threshold < 1)) {
+    add(errors, 'threshold', 'intero positivo richiesto');
+  }
+  if (kind === 'text-html-ratio' && (!isFiniteNumber(value.threshold) || value.threshold < 0 || value.threshold > 100)) {
+    add(errors, 'threshold', 'numero tra 0 e 100 richiesto');
+  }
+  return errors;
+}
+
 export function validateGeneratedData(kind, value) {
   switch (kind) {
     case 'evergreen':
@@ -287,6 +437,13 @@ export function validateGeneratedData(kind, value) {
       return validateParserProposals(value);
     case 'unemployment':
       return validateUnemployment(value);
+    case 'bfs-depth':
+    case 'orphan-pages':
+    case 'text-html-ratio':
+    case 'title-length':
+    case 'title-no-disambig-hash':
+    case 'h1-title-duplicates':
+      return validateRateBaseline(value, kind);
     default:
       return [`$: kind non supportato: ${kind}`];
   }
@@ -301,7 +458,7 @@ function main() {
   const kind = arg('--kind');
   const file = arg('--file');
   if (!kind || !file) {
-    console.error('Uso: node scripts/ci/validate-generated-data.mjs --kind <evergreen|funnel|parser-proposals|unemployment> --file <path>');
+    console.error('Uso: node scripts/ci/validate-generated-data.mjs --kind <evergreen|funnel|parser-proposals|unemployment|bfs-depth|orphan-pages|text-html-ratio|title-length|title-no-disambig-hash|h1-title-duplicates> --file <path>');
     process.exitCode = 2;
     return;
   }

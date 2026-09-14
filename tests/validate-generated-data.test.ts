@@ -72,5 +72,52 @@ describe('validate-generated-data', () => {
       fetchedAt: NOW,
     }).join('\n')).toContain('ultima voce');
   });
-});
 
+  it('accepts the rate-baseline shapes used by the SEO seed workflows', () => {
+    const common = {
+      mode: 'rate',
+      generated: NOW,
+      tolerance: { relPct: 20, absPp: 1, minAbsDelta: 5, maxDeltaPp: 3 },
+      scanned: 100,
+      totalOffenders: 2,
+      totalRatePct: 2,
+      byFeature: { blog: { scanned: 100, offenders: 2, ratePct: 2 } },
+      byLocale: { it: 2 },
+    };
+    expect(validateGeneratedData('text-html-ratio', { ...common, threshold: 10 })).toEqual([]);
+    expect(validateGeneratedData('title-length', { ...common, threshold: 66 })).toEqual([]);
+    expect(validateGeneratedData('title-no-disambig-hash', common)).toEqual([]);
+    expect(validateGeneratedData('h1-title-duplicates', common)).toEqual([]);
+    expect(validateGeneratedData('bfs-depth', {
+      version: 2,
+      mode: 'rate',
+      generatedAt: NOW,
+      maxDepth: 4,
+      tolerance: common.tolerance,
+      perSitemap: { 'sitemap-blog.xml': { total: 10, reached: 9, atDepthGtMax: 1, ratePct: 10, deepest: 5 } },
+    })).toEqual([]);
+    expect(validateGeneratedData('orphan-pages', {
+      version: 2,
+      mode: 'rate',
+      generatedAt: NOW,
+      scanMode: 'html',
+      totalSitemapUrls: 10,
+      totalOrphans: 1,
+      tolerance: common.tolerance,
+      perSitemap: { 'sitemap-blog.xml': { total: 10, orphans: 1, ratePct: 10, examples: ['https://example.com/a'] } },
+    })).toEqual([]);
+  });
+
+  it('rejects a rate baseline with impossible bucket counts or a non-rate mode', () => {
+    expect(validateGeneratedData('title-length', {
+      mode: 'absolute',
+      generated: NOW,
+      tolerance: { relPct: 20, absPp: 1, minAbsDelta: 5, maxDeltaPp: 3 },
+      threshold: 66,
+      scanned: 10,
+      totalOffenders: 11,
+      totalRatePct: 110,
+      byFeature: { blog: { scanned: 2, offenders: 3, ratePct: 150 } },
+    }).join('\n')).toMatch(/mode|totalOffenders|ratePct/);
+  });
+});
