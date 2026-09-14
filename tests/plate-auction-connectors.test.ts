@@ -63,6 +63,27 @@ describe('expanded plate-auction connectors', () => {
     }
   });
 
+  it('retries when the response body stream fails after headers arrive', async () => {
+    const firstResponse = {
+      ok: true,
+      text: vi.fn().mockRejectedValueOnce(new TypeError('temporary stream reset')),
+    } as unknown as Response;
+    const secondResponse = {
+      ok: true,
+      text: vi.fn().mockResolvedValue('<html>ok</html>'),
+    } as unknown as Response;
+    const fetchMock = vi.spyOn(globalThis, 'fetch')
+      .mockResolvedValueOnce(firstResponse)
+      .mockResolvedValueOnce(secondResponse);
+
+    try {
+      await expect(fetchHtml('https://example.test/catalogue', { retries: 1, retryDelayMs: 0 })).resolves.toBe('<html>ok</html>');
+      expect(fetchMock).toHaveBeenCalledTimes(2);
+    } finally {
+      fetchMock.mockRestore();
+    }
+  });
+
   it('parses the GR eCari full-width row and never exposes bidder text', () => {
     const [row] = parseGrAuctionRows(GR_SAMPLE, { fetchedAt: '2026-09-13T08:00:00.000Z' });
     expect(row).toMatchObject({

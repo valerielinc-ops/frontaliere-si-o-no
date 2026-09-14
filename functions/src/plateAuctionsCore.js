@@ -253,7 +253,7 @@ export async function fetchHtml(url, { timeoutMs = 20000, userAgent, retries = 2
         error.retryable = response.status === 408 || response.status === 425 || response.status === 429 || response.status >= 500;
         throw error;
       }
-      return response.text();
+      return await response.text();
     } catch (error) {
       lastError = error;
       if (attempt >= maxRetries || error?.retryable === false) throw error;
