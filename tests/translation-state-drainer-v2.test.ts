@@ -547,6 +547,34 @@ describe('translation state drainer v2', () => {
   });
 
   it.each([
+    ['rejected_candidate', 'same-source'],
+    ['stale_source', 'rotated-source'],
+  ] as const)('invalidates the memory candidate for reducer outcome %s', async (expectedOutcome, scenario) => {
+    const { one, rival, slice } = setup();
+    const patch = patchFor(
+      slice.jobs[0],
+      scenario === 'same-source' ? slice.jobs[0].title : `Traduzione ${slice.jobs[0].slug}`,
+    );
+    if (scenario === 'rotated-source') {
+      advanceMain(rival, 'source-rotated-before-drain', (current) => {
+        current.jobs[0].title = 'Neue Stelle';
+        current.jobs[0].titleByLocale.it = '';
+      });
+    }
+    const { drainer, stateStore } = createPair(one);
+
+    const result = await drainer.drain({ slicePath: SLICE_PATH, patches: [patch] });
+    const memory = (await stateStore.readTranslationMemories({ identities: [patch.identity] })).memories[0];
+    const candidate = memory.records[0].candidates.find((item) => item.candidateId === patch.candidate.candidateId);
+
+    expect(result.outcomes).toEqual([expectedOutcome]);
+    expect(candidate).toMatchObject({
+      applicability: 'invalidated',
+      invalidationReason: `reducer_${expectedOutcome}`,
+    });
+  });
+
+  it.each([
     ['already_valid', (current: any) => { current.jobs[0].titleByLocale.it = 'Traduzione curata'; }],
     ['stale_target', (current: any) => { current.jobs[0].url += 'rotated/'; }],
     ['ambiguous_target', (current: any) => { current.jobs.push(structuredClone(current.jobs[0])); }],
