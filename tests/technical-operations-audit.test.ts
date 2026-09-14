@@ -151,6 +151,41 @@ describe('technical operations audit', () => {
     expect(findings.filter((item: any) => item.rule === 'workflow.data-write-without-check')).toHaveLength(1);
   });
 
+  it('rileva una redirezione verso un path dati quotato', () => {
+    const source = [
+      'name: redirected-write',
+      'on: [workflow_dispatch]',
+      'jobs:',
+      '  persist:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: write',
+      '        run: printf payload > "data/result.json"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/redirected-write.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.data-write-without-check')).toHaveLength(1);
+  });
+
+  it('rileva anche il path quotato in una scrittura mista', () => {
+    const source = [
+      'name: mixed-write',
+      'on: [workflow_dispatch]',
+      'jobs:',
+      '  persist:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: write',
+      '        run: git add data/first.json "data/second.json" && git commit -m result',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/mixed-write.yml', source, { root: '/repo' });
+    const writes = findings.filter((item: any) => item.rule === 'workflow.data-write-without-check');
+    expect(writes).toHaveLength(2);
+    expect(writes.map((item: any) => item.message)).toEqual(expect.arrayContaining([
+      expect.stringContaining('data/first.json'),
+      expect.stringContaining('data/second.json'),
+    ]));
+  });
+
   it('accetta queue:max come estensione supportata da GitHub Actions', () => {
     const source = [
       'name: queue-extension',

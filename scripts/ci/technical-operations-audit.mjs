@@ -205,43 +205,100 @@ function extractDataPaths(run) {
  * Remove shell string contents before looking for operational commands.
  * Workflow steps often print a copy/paste recipe containing `git add` and a
  * data path; those words are documentation, not a write performed by the
- * step. Preserve newlines so finding line numbers remain stable. The caller
- * still falls back to the raw paths when an actual write uses a quoted path.
+ * step. Preserve newlines so finding line numbers remain stable. When enabled,
+ * preserve a quoted data path only after an operational `git add` or shell
+ * redirection, so real quoted writes remain visible without reviving recipes.
  */
-function shellOperationalText(run) {
+function shellOperationalText(run, { preserveQuotedWritePaths = false } = {}) {
   const source = String(run || '');
+  const output = [];
+  let line = '';
   let singleQuoted = false;
   let doubleQuoted = false;
   let comment = false;
   let escaped = false;
-  return [...source].map((char) => {
+  let quote = null;
+  let quotePrefix = '';
+  let quoteContent = '';
+
+  const append = (text) => {
+    output.push(text);
+    const parts = text.split('\n');
+    line = parts.length > 1 ? parts.at(-1) : `${line}${text}`;
+  };
+  const mask = (text) => append([...text].map((char) => char === '\n' ? '\n' : ' ').join(''));
+  const quotedPathIsOperational = (content) => {
+    if (!preserveQuotedWritePaths || !/^((?:data|public\/data)\/[A-Za-z0-9_./-]+\.(?:json|jsonl|csv|ts))$/i.test(content)) return false;
+    const command = quotePrefix.split(/&&|\|\||[;|]/).at(-1) || '';
+    return /\bgit\s+add\b[^\n]*$|(?:>>|>)\s*$/i.test(command);
+  };
+
+  for (const char of source) {
+    if (quote) {
+      if (doubleQuoted && escaped) {
+        quoteContent += char;
+        escaped = false;
+        continue;
+      }
+      if (doubleQuoted && char === '\\') {
+        quoteContent += char;
+        escaped = true;
+        continue;
+      }
+      if (char === quote) {
+        if (quotedPathIsOperational(quoteContent)) append(quoteContent);
+        else mask(quoteContent);
+        mask(char);
+        quote = null;
+        singleQuoted = false;
+        doubleQuoted = false;
+        escaped = false;
+        quoteContent = '';
+        continue;
+      }
+      quoteContent += char;
+      continue;
+    }
     if (comment) {
       if (char === '\n') comment = false;
-      return char === '\n' ? '\n' : ' ';
+      mask(char);
+      continue;
     }
     if (escaped) {
       escaped = false;
-      return char === '\n' ? '\n' : ' ';
+      mask(char);
+      continue;
     }
     if (doubleQuoted && char === '\\') {
       escaped = true;
-      return ' ';
+      mask(char);
+      continue;
     }
     if (!doubleQuoted && char === "'") {
       singleQuoted = !singleQuoted;
-      return ' ';
+      mask(char);
+      continue;
     }
     if (!singleQuoted && !doubleQuoted && char === '#') {
       comment = true;
-      return ' ';
+      mask(char);
+      continue;
     }
-    if (!singleQuoted && char === '"') {
-      doubleQuoted = !doubleQuoted;
-      return ' ';
+    if (char === "'" || char === '"') {
+      quote = char;
+      singleQuoted = char === "'";
+      doubleQuoted = char === '"';
+      quotePrefix = line;
+      quoteContent = '';
+      mask(char);
+      continue;
     }
-    if (singleQuoted || doubleQuoted) return char === '\n' ? '\n' : ' ';
-    return char;
-  }).join('');
+    append(char);
+  }
+  if (quoteContent) {
+    mask(quoteContent);
+  }
+  return output.join('');
 }
 
 function outputKeysFromSource(source) {
@@ -654,9 +711,9 @@ function validateJobs(workflow, file, source, root, exists, readFile, knownWorkf
             ));
           }
         }
-        const operationalRun = shellOperationalText(rawStep.run);
+        const operationalRun = shellOperationalText(rawStep.run, { preserveQuotedWritePaths: true });
         const operationalDataPaths = extractDataPaths(operationalRun);
-        const dataPaths = operationalDataPaths.length ? operationalDataPaths : extractDataPaths(rawStep.run);
+        const dataPaths = operationalDataPaths;
         const writesData = /\bgit\s+(?:add|commit)\b|(?:>>|>)\s*["']?(?:data|public\/data)\//i.test(operationalRun);
         const hasValidation = /\b(?:validat(?:e|ion)|audit|check|assert|test|strict|quality|schema|diff)\b/i.test(operationalRun);
         if (writesData && dataPaths.length > 0 && !hasValidation) {
