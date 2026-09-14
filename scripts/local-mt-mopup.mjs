@@ -253,7 +253,7 @@ function isLikelyGermanGenderStem(stem) {
 export function masculineGermanTitle(text) {
   const skipped = [];
   const guarded = String(text ?? '').replace(
-    /\b(\p{L}[\p{L}-]*)([/:*_])-?in(?:innen)?\b/giu,
+    /\b(\p{L}[\p{L}-]*)([/:*_])-?in(?:nen)?\b/giu,
     (match, stem, separator) => {
       if (separator === '/' || isLikelyGermanGenderStem(stem)) return match;
       const token = 'QZSKIP' + skipped.length + 'QZ';

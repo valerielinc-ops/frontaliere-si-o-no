@@ -490,6 +490,16 @@ describe('local-mt mop-up (Argos tier) — the third writer uses the same exit p
     }
   });
 
+  it('collapses plural gender forms through the conservative guard', () => {
+    for (const [source, expected] of [
+      ['Mitarbeiter*innen Dispensation', 'Mitarbeiter Dispensation'],
+      ['Leiter/-innen Rechnungswesen', 'Leiter Rechnungswesen'],
+      ['Kolleg:innen im Team', 'Kolleg im Team'],
+    ]) {
+      expect(mopup.masculineGermanTitle(source)).toBe(expected);
+    }
+  });
+
   it('emits the locale form instead of weekday names (it target)', () => {
     const { out } = roundTrip('Leiter Umweltlabor (m/w/d)', argos, 'it');
     expect(out).not.toMatch(WEEKDAY_RE);
