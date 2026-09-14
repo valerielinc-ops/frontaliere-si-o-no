@@ -12,6 +12,7 @@ import {
   SlidersHorizontal,
 } from 'lucide-react';
 import PharmacyMap from '@/components/pharmacies/PharmacyMap';
+import PharmacyDutyWeek from '@/components/pages/PharmacyDutyWeek';
 import {
   BORDER_PHARMACIES,
   ITALY_BORDER_PHARMACIES,
@@ -215,6 +216,7 @@ export default function PharmacyDirectory({ page }: { page: PharmacyPath }) {
   useEffect(() => { const timer = window.setInterval(() => setNow(new Date()), 30_000); return () => window.clearInterval(timer); }, []);
   const pharmacy = pharmacyForPage(page);
   if (page.kind === 'pharmacy') return pharmacy ? <DetailPage pharmacy={pharmacy} locale={page.locale} now={now} /> : <p className="mx-auto max-w-2xl rounded-xl border border-edge bg-surface-alt p-5 text-muted">{COPY[page.locale].noPharmacy}</p>;
+  if (page.kind === 'duty-week') return <PharmacyDutyWeek page={page} />;
   if (page.kind === 'duty-hub' || page.kind === 'duty-city') return <DutyPage page={page} locale={page.locale} now={now} />;
   if (page.kind === 'country') return <CountryDirectoryPage locale={page.locale} />;
   if (page.kind === 'city' && !page.areaSlug && page.citySlug) {

@@ -105,6 +105,21 @@ describe('pharmacy directory page matrix', () => {
     expect(page.html).toContain('"@type":"BreadcrumbList"');
   });
 
+  it('emits the current weekly duty route as transparent noindex until the release contract is published', () => {
+    const descriptor = pharmacyPageDescriptors().find((candidate) => candidate.kind === 'duty-week');
+    expect(descriptor?.weekStart).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    const page = buildPharmacyDirectoryPage(descriptor!, 'it', '/tmp/pharmacy-dist');
+    expect(page.path).toContain('/farmacie-di-turno/settimana/');
+    expect(page.indexable).toBe(false);
+    expect(page.html).toContain('noindex,follow');
+    expect(page.html).toContain('Mendrisiotto');
+    expect(page.html).toContain('Luganese');
+    expect(page.html).toContain('Bellinzonese');
+    expect(page.html).toContain('Biasca e Valli');
+    expect(page.html).toContain('Non coperto in questa edizione');
+    expect(page.html).not.toContain('"@type":"ItemList"');
+  });
+
   it('emits a noindex canonical bridge for a historical Italian detail path', () => {
     const bridge = buildPharmacyAliasBridge({
       pharmacy: pharmacyPageDescriptors().find((descriptor) => descriptor.kind === 'pharmacy' && descriptor.country === 'IT')!.pharmacy!,
