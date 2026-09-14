@@ -82700,6 +82700,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ps-chiede-cpi-su-f35': {
+    title: 'F-35, il PS chiede una Commissione parlamentare d\'inchiesta',
+    description: 'Il PS avvia l\'iter per una Commissione parlamentare d\'inchiesta sull\'acquisto dei caccia F-35 per verificare trasparenza, costi e procedure del Dipartimento.',
+    keywords: 'frontalieri, ticino, svizzera, italia, f-35, chiede, commissione, parlamentare',
+    ogTitle: 'F-35, il PS chiede una Commissione parlamentare d\'inchiesta',
+    ogDescription: 'Il Partito socialista richiede ufficialmente l\'istituzione di una CPI per fare luce sull\'acquisto dei caccia F-35 e sulla correttezza delle informazioni fornite al Parlamento.',
+    canonicalPath: '/articoli-svizzera/ps-chiede-cpi-su-f35/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "F-35, il PS chiede una Commissione parlamentare d'inchiesta",
+      "description": "Il PS avvia l'iter per una Commissione parlamentare d'inchiesta sull'acquisto dei caccia F-35 per verificare trasparenza, costi e procedure del Dipartimento.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ps-chiede-cpi-su-f35.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna, sede del Parlamento svizzero."
+      },
+      "datePublished": "2026-09-14T00:16:27+00:00",
+      "dateModified": "2026-09-14T00:16:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ps-chiede-cpi-su-f35/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
