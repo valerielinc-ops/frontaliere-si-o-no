@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { stripScriptsAndStyles } from './lib/crawler-template.mjs';
 import { extractMetaDescriptionRaw } from './lib/meta-description-extract.mjs';
+import { pathToFileURL } from 'node:url';
 
 /**
  * Deploy validation: checks generated HTML pages in dist/ for SEO issues
@@ -15,9 +16,11 @@ import { extractMetaDescriptionRaw } from './lib/meta-description-extract.mjs';
  *  6. Meta description: must be present and non-empty
  *  7. Meta robots: must NOT contain "noindex" (except 404.html)
  *  8. Meta refresh: must NOT exist (indicates redirect shell, not real content)
+ *  9. Best-practice advisory checks: self-canonical, Open Graph, partial
+ *     Twitter cards, meta description length, and image alt attributes
  *
  * Sampling strategy (16K+ pages):
- *  - ALL pages in key SEO directories (FAQ, jobs, articles, glossary)
+ *  - ALL pages in key SEO directories (FAQ, jobs, articles, glossary, pharmacies)
  *  - Random sample of 500 pages from all other directories
  *  - Always checks root index.html
  *
@@ -52,6 +55,10 @@ const FULL_CHECK_DIRS = [
   'trouver-emploi-tessin', // cathedral-allow: dist directory checked exhaustively, beside the FAQ/blog/glossary dirs — not the locale table
   'articles-frontalier',
   'glossaire-frontalier',
+  // Pharmacy directories are high-volume indexable landing pages.
+  'farmacie',
+  'pharmacies',
+  'apotheken',
 ];
 
 // Primary schema types that conflict with each other on the same object
@@ -86,6 +93,10 @@ const SUPPLEMENTARY_SCHEMAS = new Set([
   'HowTo',
   'SpeakableSpecification',
 ]);
+
+const CANONICAL_ORIGIN = 'https://frontaliereticino.ch';
+const MIN_META_DESCRIPTION_LENGTH = 50;
+const MAX_META_DESCRIPTION_LENGTH = 160;
 
 // Locale detection from path
 function detectLocale(pagePath) {
@@ -296,6 +307,147 @@ function hasMetaRefresh(html) {
   return /<meta[^>]*http-equiv\s*=\s*["']refresh["']/i.test(withoutNoscript);
 }
 
+// Read quoted and unquoted HTML attributes. Vite's minifier removes quotes
+// from single-token attributes, while URLs and descriptions are usually quoted.
+function readAttribute(attributes, name) {
+  const escapedName = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const match = attributes.match(new RegExp(`\\b${escapedName}\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s>]+))`, 'i'));
+  if (!match) return null;
+  return decodeHtmlEntities(match[1] ?? match[2] ?? match[3]).trim();
+}
+
+function decodeHtmlEntities(value) {
+  return String(value || '')
+    .replace(/&amp;/gi, '&')
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;|&apos;/gi, "'")
+    .replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>')
+    .replace(/&nbsp;/gi, ' ');
+}
+
+function extractMetaContent(html, key, attributeName = 'property') {
+  for (const match of html.matchAll(/<meta\b([^>]*)>/gi)) {
+    const attributes = match[1];
+    if (readAttribute(attributes, attributeName)?.toLowerCase() !== key.toLowerCase()) continue;
+    return readAttribute(attributes, 'content') || '';
+  }
+  return '';
+}
+
+function extractLinkByRel(html, expectedRel) {
+  for (const match of html.matchAll(/<link\b([^>]*)>/gi)) {
+    const rel = readAttribute(match[1], 'rel');
+    if (!rel?.split(/\s+/).some(token => token.toLowerCase() === expectedRel.toLowerCase())) continue;
+    return readAttribute(match[1], 'href') || '';
+  }
+  return '';
+}
+
+function pageUrlForPath(pagePath) {
+  const route = pagePath ? `/${pagePath.replace(/^\/+/, '').replace(/\/*$/, '')}/` : '/';
+  return new URL(route, `${CANONICAL_ORIGIN}/`);
+}
+
+function urlIdentity(value) {
+  const url = value instanceof URL ? value : new URL(value);
+  const pathname = url.pathname === '/' ? '/' : url.pathname.replace(/\/+$/, '');
+  return `${url.protocol}//${url.host.toLowerCase()}${pathname}`;
+}
+
+function isIndexablePage(html) {
+  return !hasNoindex(html) && !hasMetaRefresh(html);
+}
+
+function validateBestPracticeSeo(html, pagePath) {
+  if (!isIndexablePage(html)) return [];
+
+  const issues = [];
+  const pageUrl = pageUrlForPath(pagePath);
+  const canonicalHref = extractLinkByRel(html, 'canonical');
+  let canonicalUrl = null;
+
+  if (!canonicalHref) {
+    issues.push({ type: 'missingCanonical', detail: 'No rel="canonical" link' });
+  } else {
+    try {
+      canonicalUrl = new URL(canonicalHref, pageUrl);
+      if (!/^[a-z][a-z\d+.-]*:\/\//i.test(canonicalHref)) {
+        issues.push({ type: 'canonicalNotAbsolute', detail: `canonical=${canonicalHref}` });
+      }
+      if (canonicalUrl.protocol !== 'https:' || canonicalUrl.hostname.toLowerCase() !== new URL(CANONICAL_ORIGIN).hostname) {
+        issues.push({ type: 'canonicalWrongHost', detail: `canonical=${canonicalUrl.href}` });
+      }
+      if (canonicalUrl.search || canonicalUrl.hash) {
+        issues.push({ type: 'canonicalHasQuery', detail: `canonical=${canonicalUrl.href}` });
+      }
+      if (canonicalUrl.pathname !== '/' && !canonicalUrl.pathname.endsWith('/')) {
+        issues.push({ type: 'canonicalMissingTrailingSlash', detail: `canonical=${canonicalUrl.href}` });
+      }
+      if (urlIdentity(canonicalUrl) !== urlIdentity(pageUrl)) {
+        issues.push({ type: 'canonicalMismatch', detail: `canonical=${canonicalUrl.href} vs page=${pageUrl.href}` });
+      }
+    } catch {
+      issues.push({ type: 'invalidCanonical', detail: `canonical=${canonicalHref}` });
+    }
+  }
+
+  const requiredOpenGraph = [
+    ['og:title', 'missingOgTitle'],
+    ['og:description', 'missingOgDescription'],
+    ['og:url', 'missingOgUrl'],
+  ];
+  for (const [key, type] of requiredOpenGraph) {
+    if (!extractMetaContent(html, key)) {
+      issues.push({ type, detail: `Missing meta property="${key}"` });
+    }
+  }
+
+  const ogUrl = extractMetaContent(html, 'og:url');
+  if (ogUrl) {
+    try {
+      const parsedOgUrl = new URL(ogUrl, pageUrl);
+      if (urlIdentity(parsedOgUrl) !== urlIdentity(canonicalUrl || pageUrl)) {
+        issues.push({ type: 'ogUrlMismatch', detail: `og:url=${parsedOgUrl.href} vs canonical=${(canonicalUrl || pageUrl).href}` });
+      }
+    } catch {
+      issues.push({ type: 'invalidOgUrl', detail: `og:url=${ogUrl}` });
+    }
+  }
+
+  const twitterTags = [...html.matchAll(/<meta\b([^>]*)>/gi)]
+    .map(match => readAttribute(match[1], 'name')?.toLowerCase())
+    .filter(name => name?.startsWith('twitter:'));
+  if (twitterTags.length > 0) {
+    for (const key of ['twitter:card', 'twitter:title', 'twitter:description', 'twitter:image']) {
+      if (!extractMetaContent(html, key, 'name')) {
+        issues.push({ type: 'partialTwitterCard', detail: `Missing meta name="${key}"` });
+      }
+    }
+  }
+
+  const description = extractMetaDescription(html);
+  const descriptionLength = decodeHtmlEntities(description).replace(/\s+/g, ' ').trim().length;
+  if (descriptionLength > 0 && descriptionLength < MIN_META_DESCRIPTION_LENGTH) {
+    issues.push({ type: 'shortMetaDescription', detail: `${descriptionLength} characters (minimum ${MIN_META_DESCRIPTION_LENGTH})` });
+  } else if (descriptionLength > MAX_META_DESCRIPTION_LENGTH) {
+    issues.push({ type: 'longMetaDescription', detail: `${descriptionLength} characters (maximum ${MAX_META_DESCRIPTION_LENGTH})` });
+  }
+
+  const contentHtml = stripScriptsAndStyles(html);
+  for (const match of contentHtml.matchAll(/<img\b([^>]*)>/gi)) {
+    const attributes = match[1];
+    const role = readAttribute(attributes, 'role')?.toLowerCase();
+    const ariaHidden = readAttribute(attributes, 'aria-hidden')?.toLowerCase();
+    if (role === 'presentation' || role === 'none' || ariaHidden === 'true') continue;
+    if (readAttribute(attributes, 'alt') === null) {
+      issues.push({ type: 'missingImageAlt', detail: 'Image has no alt attribute' });
+    }
+  }
+
+  return issues;
+}
+
 function main() {
   if (!existsSync(DIST)) {
     console.error(`[validate-page-seo] dist/ directory not found. Run 'npx vite build' first.`);
@@ -341,6 +493,24 @@ function main() {
     missingDescription: [],
     hasNoindex: [],
     hasMetaRefresh: [],
+  };
+  const warnings = {
+    missingCanonical: [],
+    canonicalNotAbsolute: [],
+    canonicalWrongHost: [],
+    canonicalHasQuery: [],
+    canonicalMissingTrailingSlash: [],
+    invalidCanonical: [],
+    canonicalMismatch: [],
+    missingOgTitle: [],
+    missingOgDescription: [],
+    missingOgUrl: [],
+    invalidOgUrl: [],
+    ogUrlMismatch: [],
+    partialTwitterCard: [],
+    shortMetaDescription: [],
+    longMetaDescription: [],
+    missingImageAlt: [],
   };
   let warningCount = 0;
   let errorCount = 0;
@@ -416,6 +586,14 @@ function main() {
       errors.hasMetaRefresh.push(page.pagePath || '/');
       errorCount++;
     }
+
+    // 9. Advisory best-practice checks. These intentionally remain warnings:
+    // canonical/social metadata and decorative-image choices need signal first
+    // across the full generated corpus before any blocking promotion.
+    for (const issue of validateBestPracticeSeo(html, page.pagePath)) {
+      warnings[issue.type].push({ path: page.pagePath || '/', detail: issue.detail });
+      warningCount++;
+    }
   }
 
   // Print results
@@ -439,6 +617,7 @@ function main() {
   console.log(`  PASSED: ${passedCount}`);
   console.log(`  WITH ERRORS: ${pagesToCheck.length - passedCount}`);
   console.log(`  TOTAL ISSUES: ${errorCount}`);
+  console.log(`  ADVISORY WARNINGS: ${warningCount}`);
   console.log('='.repeat(60));
   console.log();
 
@@ -500,11 +679,36 @@ function main() {
     printErrorGroup('Contains <meta http-equiv="refresh"> (redirect shell)', errors.hasMetaRefresh, 20);
   }
 
+  const warningLabels = {
+    missingCanonical: 'Missing rel="canonical"',
+    canonicalNotAbsolute: 'Canonical is not absolute',
+    canonicalWrongHost: 'Canonical uses the wrong host or protocol',
+    canonicalHasQuery: 'Canonical contains a query string or fragment',
+    canonicalMissingTrailingSlash: 'Canonical route is missing trailing slash',
+    invalidCanonical: 'Canonical URL is invalid',
+    canonicalMismatch: 'Canonical does not match the page URL',
+    missingOgTitle: 'Missing og:title',
+    missingOgDescription: 'Missing og:description',
+    missingOgUrl: 'Missing og:url',
+    invalidOgUrl: 'og:url is invalid',
+    ogUrlMismatch: 'og:url does not match canonical',
+    partialTwitterCard: 'Incomplete Twitter card metadata',
+    shortMetaDescription: 'Meta description is too short',
+    longMetaDescription: 'Meta description is too long',
+    missingImageAlt: 'Image is missing alt attribute',
+  };
+  for (const [type, entries] of Object.entries(warnings)) {
+    if (entries.length > 0) printWarningGroup(warningLabels[type], entries, 20);
+  }
+
   if (errorCount > 0) {
     console.log(`\n\u274C DEPLOY BLOCKED: ${errorCount} SEO issue(s) found across ${pagesToCheck.length - passedCount} page(s).`);
     process.exit(1);
   } else {
-    console.log(`\n\u2705 All ${pagesToCheck.length} checked pages pass SEO quality validation.`);
+    console.log(`\n\u2705 All ${pagesToCheck.length} checked pages pass blocking SEO quality validation.`);
+    if (warningCount > 0) {
+      console.log(`\u26a0\ufe0f ${warningCount} advisory best-practice finding(s) require review.`);
+    }
     process.exit(0);
   }
 }
@@ -518,4 +722,16 @@ function printErrorGroup(label, paths, limit) {
   console.log();
 }
 
-main();
+function printWarningGroup(label, entries, limit) {
+  console.log(`\u26a0\ufe0f ${entries.length} page-level advisory finding(s): ${label}`);
+  for (const { path, detail } of entries.slice(0, limit)) {
+    console.log(`   /${path}: ${detail}`);
+  }
+  if (entries.length > limit) console.log(`   ... and ${entries.length - limit} more`);
+  console.log();
+}
+
+export { validateBestPracticeSeo };
+
+const invokedScript = process.argv[1] ? pathToFileURL(process.argv[1]).href : '';
+if (import.meta.url === invokedScript) main();
