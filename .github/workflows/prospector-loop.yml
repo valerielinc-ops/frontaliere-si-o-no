@@ -150,17 +150,7 @@ jobs:
             exit 0
           fi
           git commit -m 'prospector: aggiorna coda candidati, registro piattaforme e report qualita'
-          bash scripts/lib/configure-main-push-auth.sh
-          for attempt in 1 2 3; do
-            if git push; then
-              echo "push riuscito al tentativo $attempt"
-              exit 0
-            fi
-            echo "push respinto, ribaso e riprovo ($attempt/3)"
-            git pull --rebase --autostash origin "$GITHUB_REF_NAME" || exit 1
-          done
-          echo 'push fallito dopo 3 tentativi'
-          exit 1
+          bash scripts/lib/git-push-with-retry.sh --branch "$GITHUB_REF_NAME"
 
       # ── Chiusura del loop ────────────────────────────────────────────────
       # Ship dei crawler che hanno superato il gate: nessun passo umano. Gira
