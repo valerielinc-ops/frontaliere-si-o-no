@@ -35,6 +35,7 @@ import fs from 'node:fs';
 import np from 'node:path';
 import {
   BASE_URL,
+  BUILD_DATE_STAMP,
   MIN_INDEXABLE_WORDS,
   countHtmlBodyWords,
   DRIVEBY_AD_SNIPPET,
@@ -61,6 +62,7 @@ import {
   WEEKLY_EMPLOYERS_OG_LOCALE,
   WEEKLY_EMPLOYERS_SECTION,
   buildArchiveWeekPath,
+  buildWeeklyEmployersDate,
   buildCompanyCityArchivePath,
   buildCompanyCityCurrentPath,
   buildCurrentWeekPath,
@@ -4464,7 +4466,10 @@ export function weeklyEmployersPlugin(rootDir: string): Plugin {
         return;
       }
       const distDir = np.resolve(rootDir, 'dist');
-      const today = new Date();
+      // BUILD_DATE_STAMP is minted once in matrix-setup and shared by every
+      // locale leg; the process clock could split current/archive pages at UTC
+      // midnight.
+      const today = buildWeeklyEmployersDate(BUILD_DATE_STAMP);
 
       // Ext3 task 3 — wipe owned namespaces before regeneration so last
       // build's company×city pages don't linger after employer drops out

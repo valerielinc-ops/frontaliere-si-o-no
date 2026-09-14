@@ -319,6 +319,15 @@ export function getIsoWeekAndYear(d: Date): { week: number; year: number } {
   return { week, year: date.getUTCFullYear() };
 }
 
+/**
+ * Rehydrate the deploy-wide UTC date used by matrix-safe generators.
+ * Keeping this conversion pure makes the week boundary deterministic in tests
+ * and prevents a generator from falling back to its process wall clock.
+ */
+export function buildWeeklyEmployersDate(buildDateStamp: string): Date {
+  return new Date(`${buildDateStamp}T00:00:00.000Z`);
+}
+
 /** Compact key "YYYY-WW" used as snapshot filename / dict key. */
 export function isoWeekKey(d: Date): string {
   const { week, year } = getIsoWeekAndYear(d);
