@@ -157,6 +157,62 @@ describe('technical operations audit', () => {
     expect(findings.map((item: any) => item.rule)).toContain('workflow.output-not-produced');
   });
 
+  it('segue gli output letterali di uno script first-party invocato staticamente', () => {
+    const files = new Map([
+      ['/repo/scripts/check-health.mjs', [
+        "import { appendFileSync } from 'node:fs';",
+        'appendFileSync(process.env.GITHUB_OUTPUT, `summary<<EOF\\nhealthy\\nEOF\\n`);',
+      ].join('\n')],
+    ]);
+    const source = [
+      'name: delegated-output',
+      'on: [push]',
+      'jobs:',
+      '  check:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: producer',
+      '        id: health',
+      '        run: node scripts/check-health.mjs',
+      '      - name: consumer',
+      '        run: echo "${{ steps.health.outputs.summary }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/delegated-output.yml', source, {
+      root: '/repo',
+      exists: (candidate: string) => files.has(candidate),
+      readFile: (candidate: string) => files.get(candidate) || '',
+    });
+    expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([]);
+  });
+
+  it('riconosce le chiavi letterali passate a un helper shell', () => {
+    const files = new Map([
+      ['/repo/scripts/wait-health.sh', [
+        'emit_output() { printf \'%s=%s\\n\' "$1" "$2" >> "$GITHUB_OUTPUT"; }',
+        'emit_output health_result ready',
+      ].join('\n')],
+    ]);
+    const source = [
+      'name: delegated-shell-output',
+      'on: [push]',
+      'jobs:',
+      '  check:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: producer',
+      '        id: health',
+      '        run: bash scripts/wait-health.sh',
+      '      - name: consumer',
+      '        run: echo "${{ steps.health.outputs.health_result }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/delegated-shell-output.yml', source, {
+      root: '/repo',
+      exists: (candidate: string) => files.has(candidate),
+      readFile: (candidate: string) => files.get(candidate) || '',
+    });
+    expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([]);
+  });
+
   it('mantiene separati gli scope tra job e verifica gli output needs dichiarati', () => {
     const source = [
       'name: scoped',
