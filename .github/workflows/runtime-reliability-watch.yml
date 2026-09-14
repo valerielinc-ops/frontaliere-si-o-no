@@ -47,7 +47,7 @@ jobs:
 
       - name: Restore runtime repair circuit state
         id: circuit
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           path: .runtime-reliability-state
           key: runtime-reliability-circuit-${{ github.run_id }}
@@ -144,7 +144,7 @@ jobs:
       - name: Save runtime repair circuit state
         if: always()
         continue-on-error: true
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v5
         with:
           path: .runtime-reliability-state
           key: runtime-reliability-circuit-${{ github.run_id }}
