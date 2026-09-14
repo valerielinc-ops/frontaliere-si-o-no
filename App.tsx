@@ -458,6 +458,16 @@ const App: React.FC = () => {
  useLayoutEffect(() => {
    const staticMains = document.querySelectorAll<HTMLElement>('main.seo-static-content, main.cluster-seo-prose');
    for (const staticMain of staticMains) {
+     // Plate-auction pages have a real interactive equivalent. Keep their
+     // crawl-facing snapshot visible until the page validates the live feed;
+     // this prevents a failed API request from replacing useful static data
+     // with an empty error shell. PlateAuctionsPage completes the handshake
+     // after a schema-valid snapshot and hides this sibling synchronously.
+     if (staticMain.classList.contains('plate-auction-static')
+       && !document.documentElement.hasAttribute('data-plate-auctions-live')) {
+       staticMain.style.removeProperty('display');
+       continue;
+     }
      if (staticOverlay) {
        staticMain.style.removeProperty('display');
      } else {

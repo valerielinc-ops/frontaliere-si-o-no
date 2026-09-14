@@ -47,4 +47,9 @@ describe('plate-auction rankings', () => {
     const row = auction({ id: 'no-bid', currentBidChf: undefined, startingPriceChf: 9000, bidCount: 0 });
     expect(rankPlateAuctions([row], { mode: 'current', now })).toMatchObject([{ auction: { id: 'no-bid' }, amountChf: 9000 }]);
   });
+
+  it('does not rank an active row after its official deadline', () => {
+    const row = auction({ id: 'expired', endsAt: '2026-09-15T09:00:00.000Z', currentBidChf: 9000 });
+    expect(rankPlateAuctions([row], { mode: 'current', now })).toEqual([]);
+  });
 });
