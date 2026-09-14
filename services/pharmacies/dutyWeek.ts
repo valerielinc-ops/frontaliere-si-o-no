@@ -1,4 +1,5 @@
-import type { PharmacyDuty, PharmacyDutiesDataset } from './types';
+import { getPharmacyReleaseEvaluation } from './duties';
+import type { PharmacyCatalogueDataset, PharmacyDuty, PharmacyDutiesDataset } from './types';
 
 export const DUTY_WEEK_TIMEZONE = 'Europe/Zurich';
 export const DUTY_WEEK_SOURCE_URL = 'https://www.ofct.ch/farmacieturno/';
@@ -36,8 +37,7 @@ export interface DutyWeekModel {
 
 export interface BuildDutyWeekOptions {
   now?: Date;
-  catalogReleaseId?: string | null;
-  catalogPharmacyIds?: ReadonlySet<string>;
+  catalogue?: PharmacyCatalogueDataset;
   maxAgeMs?: number;
 }
 
@@ -47,30 +47,21 @@ function recordOf(value: unknown): Record<string, unknown> {
     : {};
 }
 
-/** Accept the P0 contract while remaining readable during the migration. */
+/** Reads the release identity from the P0 nested metadata block. */
 export function snapshotReleaseId(snapshot: unknown): string | undefined {
   const record = recordOf(snapshot);
-  const nested = record._release && typeof record._release === 'object'
-    ? record._release as Record<string, unknown>
-    : {};
-  const metadata = record.metadata && typeof record.metadata === 'object'
-    ? record.metadata as Record<string, unknown>
-    : {};
-  for (const candidate of [record.releaseId, record._releaseId, nested.releaseId, metadata.releaseId]) {
-    if (typeof candidate === 'string' && candidate.trim()) return candidate.trim();
-  }
-  return undefined;
+  const release = recordOf(record._release);
+  return typeof release.releaseId === 'string' && release.releaseId.trim()
+    ? release.releaseId.trim()
+    : undefined;
 }
 
 function snapshotTimezone(snapshot: unknown): string {
   const record = recordOf(snapshot);
-  const scope = record._scope && typeof record._scope === 'object'
-    ? record._scope as Record<string, unknown>
-    : {};
-  for (const candidate of [record.timezone, record._timezone, scope.timezone]) {
-    if (typeof candidate === 'string' && candidate.trim()) return candidate.trim();
-  }
-  return DUTY_WEEK_TIMEZONE;
+  const release = recordOf(record._release);
+  return typeof release.timezone === 'string' && release.timezone.trim()
+    ? release.timezone.trim()
+    : '';
 }
 
 function dateKeyParts(value: string): [number, number, number] | null {
@@ -151,12 +142,17 @@ export function buildDutyWeekModel(
 ): DutyWeekModel {
   const start = weekStartDate(weekStartKey);
   const weekEndDate = start ? addDays(start, 7) : null;
+  const now = options.now || new Date();
   const record = recordOf(dataset);
   const sourceUrl = typeof record._source === 'string' && record._source.trim() ? record._source : null;
   const fetchedAt = typeof record._fetchedAt === 'string' && record._fetchedAt.trim() ? record._fetchedAt : null;
-  const releaseId = snapshotReleaseId(dataset) || null;
+  const evaluation = getPharmacyReleaseEvaluation(dataset, now, options.catalogue);
+  const releaseId = evaluation.releaseId;
   const timezone = snapshotTimezone(dataset);
   const duties = Array.isArray(record.duties) ? record.duties as PharmacyDuty[] : [];
+  const cataloguePharmacyIds = options.catalogue && Array.isArray(options.catalogue.pharmacies)
+    ? new Set(options.catalogue.pharmacies.map((pharmacy) => pharmacy.id))
+    : undefined;
   const regions = DUTY_WEEK_REGIONS.map((region) => ({
     key: region.key,
     name: region.name,
@@ -170,13 +166,16 @@ export function buildDutyWeekModel(
   const overlappingUnverified = start && weekEndDate
     ? duties.filter((duty) => dutyIntersectsWeek(duty, start, weekEndDate) && duty.status !== 'verified')
     : [];
-  const unresolvedPharmacyIds = options.catalogPharmacyIds
+  const unresolvedPharmacyIds = cataloguePharmacyIds
     ? uniqueSorted(regions.flatMap((region) => region.duties
-      .filter((duty) => !options.catalogPharmacyIds?.has(duty.pharmacyId))
+      .filter((duty) => !cataloguePharmacyIds.has(duty.pharmacyId))
       .map((duty) => duty.pharmacyId)))
     : [];
-  const reasons: string[] = [];
-  let status: DutyWeekStatus = 'ready';
+  const reasons: string[] = [...evaluation.reasons];
+  let status: DutyWeekStatus = evaluation.state === 'fresh' ? 'ready' : evaluation.state;
+  if (!evaluation.publishable && evaluation.reasons.length === 0) {
+    reasons.push('catalogue and duties release is not publishable');
+  }
 
   if (!start) {
     status = 'unknown';
@@ -186,19 +185,14 @@ export function buildDutyWeekModel(
     status = 'unknown';
     reasons.push('duty source is missing');
   }
-  if (timezone !== DUTY_WEEK_TIMEZONE) {
-    status = 'unknown';
+  if (!timezone) {
+    status = status === 'conflicting' ? status : 'unknown';
+    reasons.push('duty release timezone is missing');
+  } else if (timezone !== DUTY_WEEK_TIMEZONE) {
+    status = status === 'conflicting' ? status : 'unknown';
     reasons.push(`unsupported timezone ${timezone}`);
   }
-  if (!releaseId || !options.catalogReleaseId) {
-    status = 'not_published';
-    reasons.push('catalogue and duties do not expose a shared releaseId');
-  } else if (releaseId !== options.catalogReleaseId) {
-    status = 'conflicting';
-    reasons.push('catalogue and duties belong to different releases');
-  }
   const parsedFetchedAt = fetchedAt ? Date.parse(fetchedAt) : NaN;
-  const now = options.now || new Date();
   const maxAgeMs = options.maxAgeMs ?? DUTY_WEEK_MAX_AGE_MS;
   if (!Number.isFinite(parsedFetchedAt)) {
     status = status === 'conflicting' || status === 'not_published' ? status : 'stale';
@@ -232,7 +226,10 @@ export function buildDutyWeekModel(
     reasons.push('the requested week has expired and has no verified intervals');
   }
 
-  const indexable = status === 'ready' && regions.every((region) => region.duties.length > 0);
+  const indexable = evaluation.publishable
+    && evaluation.state === 'fresh'
+    && status === 'ready'
+    && regions.every((region) => region.duties.length > 0);
   return {
     weekStart: weekStartKey,
     weekEnd: weekEndDate ? keyForDate(weekEndDate) : '',

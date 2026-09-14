@@ -21,17 +21,17 @@ import {
 } from '../services/pharmacies/data';
 import { buildPharmacyPath, type PharmacyPageKind, type PharmacyPath } from '../services/pharmacies/paths';
 import { publicDutiesForRegion } from '../services/pharmacies/duties';
-import { buildDutyWeekModel, currentDutyWeekStart, DUTY_WEEK_SOURCE_URL, snapshotReleaseId, type DutyWeekModel } from '../services/pharmacies/dutyWeek';
+import { buildDutyWeekModel, currentDutyWeekStart, DUTY_WEEK_SOURCE_URL, type DutyWeekModel } from '../services/pharmacies/dutyWeek';
 import { currentDutyForRegion } from '../services/pharmacies/duties';
 import type { Locale } from '../services/i18n';
-import { safePharmacyUrl, type Pharmacy, type PharmacyDuty, type PharmacyDutiesDataset, type PharmacyFieldSource, type PharmacyUrlAlias } from '../services/pharmacies/types';
+import { safePharmacyUrl, type Pharmacy, type PharmacyCatalogueDataset, type PharmacyDuty, type PharmacyDutiesDataset, type PharmacyFieldSource, type PharmacyUrlAlias } from '../services/pharmacies/types';
 import dutiesJson from '../data/pharmacy-duties-ticino.json';
 import completeTicinoJson from '../data/pharmacies-ticino-complete.json';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 
 const LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'];
 const dutiesDataset = dutiesJson as PharmacyDutiesDataset;
-const completeTicinoSnapshot = completeTicinoJson as Record<string, unknown>;
+const completeTicinoSnapshot = completeTicinoJson as unknown as PharmacyCatalogueDataset;
 const dutySource = 'https://www.ofct.ch/farmacieturno/';
 const osmLicense = 'OpenStreetMap contributors, ODbL 1.0';
 const PHARMACY_TITLE_DUPLICATES = new Set(
@@ -346,10 +346,10 @@ function renderDuty(duty: PharmacyDuty | undefined, locale: Locale): string {
   return `<article class="${CARD_CLASS}"><h3 style="${H3_STYLE}">${esc(pharmacy?.name || duty.pharmacyId)}</h3><p style="${BODY_STYLE}"><strong>${esc(copy.coverage)}:</strong> ${esc(duty.coverageName)}<br><strong>${esc(copy.interval)}:</strong> ${esc(formatDate(duty.startsAt, locale))} – ${esc(formatDate(duty.endsAt, locale))}<br><strong>${esc(copy.checked)}:</strong> ${esc(formatDate(duty.fetchedAt, locale))}</p>${pharmacy ? `<p style="${BODY_STYLE}">${esc(pharmacy.address)}, ${esc(pharmacy.postalCode)} ${esc(pharmacy.city)}${pharmacy.phone ? ` · <a href="tel:${esc(pharmacy.phone)}">${esc(pharmacy.phone)}</a>` : ''}</p>` : ''}<p style="${BODY_STYLE}"><a href="${esc(duty.sourceUrl || dutySource)}" rel="nofollow noopener">${esc(copy.sourceLink)}</a></p></article>`;
 }
 
-function dutyWeekModel(descriptor: PageDescriptor): DutyWeekModel {
-  return buildDutyWeekModel(dutiesDataset, descriptor.weekStart || '', {
-    catalogReleaseId: snapshotReleaseId(completeTicinoSnapshot),
-    catalogPharmacyIds: new Set(TICINO_PHARMACIES.map((pharmacy) => pharmacy.id)),
+function dutyWeekModel(descriptor: PageDescriptor, dataset: PharmacyDutiesDataset = dutiesDataset, now = new Date()): DutyWeekModel {
+  return buildDutyWeekModel(dataset, descriptor.weekStart || '', {
+    catalogue: completeTicinoSnapshot,
+    now,
   });
 }
 
@@ -363,9 +363,15 @@ function dutyWeekDateRange(model: DutyWeekModel, locale: Locale): string {
   return `${model.weekStart} – ${formatter.format(end)}`;
 }
 
-function renderDutyWeek(descriptor: PageDescriptor, locale: Locale, h1 = pageTitle(descriptor.kind, locale, descriptor)): string {
+function renderDutyWeek(
+  descriptor: PageDescriptor,
+  locale: Locale,
+  h1 = pageTitle(descriptor.kind, locale, descriptor),
+  dataset: PharmacyDutiesDataset = dutiesDataset,
+  now = new Date(),
+): string {
   const copy = DUTY_WEEK_COPY[locale];
-  const model = dutyWeekModel(descriptor);
+  const model = dutyWeekModel(descriptor, dataset, now);
   const status = model.indexable
     ? `<p style="${LEDE_STYLE}">${esc(copy.coverage)}</p>`
     : `<aside style="${BODY_STYLE}"><strong>${esc(copy.unavailable)}</strong><br>${esc(model.reason)}</aside>`;
@@ -610,7 +616,7 @@ function renderBody(
   now = new Date(),
 ): string {
   const copy = COPY[locale];
-  if (descriptor.kind === 'duty-week') return renderDutyWeek(descriptor, locale, h1);
+  if (descriptor.kind === 'duty-week') return renderDutyWeek(descriptor, locale, h1, dataset, now);
   const datasetDuties = Array.isArray(dataset.duties) ? dataset.duties : [];
   let sections = '';
   if (descriptor.kind === 'hub') {
@@ -681,7 +687,7 @@ function jsonLd(descriptor: PageDescriptor, locale: Locale, dataset: PharmacyDut
   if (descriptor.kind === 'pharmacy') return [detailJsonLd(descriptor.pharmacy!, locale), breadcrumbJsonLd(descriptor, locale)];
   if (descriptor.kind === 'duty-city') return [breadcrumbJsonLd(descriptor, locale)];
   if (descriptor.kind === 'duty-week') {
-    const model = dutyWeekModel(descriptor);
+    const model = dutyWeekModel(descriptor, dataset, now);
     return model.indexable
       ? [dutyWeekCollectionJsonLd(pathValue, title, model), breadcrumbJsonLd(descriptor, locale)]
       : [breadcrumbJsonLd(descriptor, locale)];
@@ -726,7 +732,7 @@ function buildPage(
   // City duty URLs are useful navigation aliases, but their body repeats the
   // regional OFCT schedule. Keep them crawlable for users without creating
   // duplicate indexable pages or an ItemList with a different visible scope.
-  const dutyWeek = descriptor.kind === 'duty-week' ? dutyWeekModel(descriptor) : null;
+  const dutyWeek = descriptor.kind === 'duty-week' ? dutyWeekModel(descriptor, dataset, now) : null;
   const indexable = descriptor.kind === 'duty-week'
     ? Boolean(dutyWeek?.indexable && wordCount >= MIN_INDEXABLE_WORDS)
     : descriptor.kind !== 'duty-city' && wordCount >= MIN_INDEXABLE_WORDS;

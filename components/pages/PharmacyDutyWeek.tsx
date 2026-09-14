@@ -3,22 +3,19 @@ import { ExternalLink } from 'lucide-react';
 import {
   buildDutyWeekModel,
   currentDutyWeekStart,
-  snapshotReleaseId,
 } from '@/services/pharmacies/dutyWeek';
 import {
   pharmacyById,
   pharmacyCitySlug,
-  TICINO_PHARMACIES,
 } from '@/services/pharmacies/data';
 import { buildPharmacyPath, type PharmacyPath } from '@/services/pharmacies/paths';
 import type { Locale } from '@/services/i18n';
-import type { Pharmacy } from '@/services/pharmacies/types';
-import type { PharmacyDutiesDataset } from '@/services/pharmacies/types';
+import type { Pharmacy, PharmacyCatalogueDataset, PharmacyDutiesDataset } from '@/services/pharmacies/types';
 import dutiesJson from '@/data/pharmacy-duties-ticino.json';
 import completeTicinoJson from '@/data/pharmacies-ticino-complete.json';
 
 const DUTIES = dutiesJson as PharmacyDutiesDataset;
-const COMPLETE_TICINO = completeTicinoJson as Record<string, unknown>;
+const COMPLETE_TICINO = completeTicinoJson as unknown as PharmacyCatalogueDataset;
 const DUTY_SOURCE = 'https://www.ofct.ch/farmacieturno/';
 
 type DutyWeekCopy = {
@@ -118,8 +115,7 @@ export default function PharmacyDutyWeek({ page }: { page: PharmacyPath }) {
   const copy = COPY[locale];
   const weekStart = page.weekStart || currentDutyWeekStart();
   const model = buildDutyWeekModel(DUTIES, weekStart, {
-    catalogReleaseId: snapshotReleaseId(COMPLETE_TICINO),
-    catalogPharmacyIds: new Set(TICINO_PHARMACIES.map((pharmacy) => pharmacy.id)),
+    catalogue: COMPLETE_TICINO,
   });
 
   return <div className="mx-auto max-w-6xl space-y-8">
