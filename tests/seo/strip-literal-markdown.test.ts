@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { extractNarrativeJobTitle } from '../../scripts/lib/job-title-normalization.mjs';
 import { sanitizeJobTitleForDisplay, stripLiteralMarkdown, stripWholeMarkdownBoldWrapper } from '../../build-plugins/shared/stripLiteralMarkdown';
 
 // Pins the funnel-critical contract of the single shared helper that scrubs
@@ -66,6 +67,18 @@ describe('sanitizeJobTitleForDisplay', () => {
   it('preserves triple-star employer wording while scrubbing other markdown', () => {
     expect(sanitizeJobTitleForDisplay('Verkaufsberater:in ***delicatessa 40-60% (w/m/d)')).toBe(
       'Verkaufsberater:in ***delicatessa 40-60% (w/m/d)',
+    );
+  });
+
+  it('does not interpret a triple-star brand as a narrative title segment', () => {
+    const narrative = 'The complete translation is: ***delicatessa***';
+    expect(extractNarrativeJobTitle(narrative)).toBe('');
+    expect(sanitizeJobTitleForDisplay(narrative)).toContain('***delicatessa***');
+  });
+
+  it('recovers a short narrative whose bold title is the final value', () => {
+    expect(sanitizeJobTitleForDisplay('The complete translation is: **Assistente vendite 80%**')).toBe(
+      'Assistente vendite 80%',
     );
   });
 });
