@@ -288,12 +288,15 @@ function validateCanonicalHealthHistory(history, {
   let retries = 0;
   let quotaUnits = 0;
   let artifactCollisions = 0;
+  let completeOperationalRuns = 0;
+  let incompleteOperationalRuns = 0;
   const missingOperationalFields = new Set();
   let operationalMetricsComplete = true;
 
   for (const [index, row] of records.entries()) {
     const prefix = `canonicalHealth[${index}]`;
     const rowIssues = [];
+    let rowOperationalMetricsComplete = true;
     const execution = object(row?.execution) ? row.execution : null;
     const policy = policies.get(row?.loopId);
     if (!object(row)) {
@@ -351,17 +354,32 @@ function validateCanonicalHealthHistory(history, {
         if (!Object.hasOwn(row, field)) {
           missingOperationalFields.add(field);
           operationalMetricsComplete = false;
+          rowOperationalMetricsComplete = false;
         } else if (field === 'durationSeconds' && !finiteNumber(row[field])) {
           rowIssues.push('durationSeconds is not a non-negative number');
+          operationalMetricsComplete = false;
+          rowOperationalMetricsComplete = false;
         } else if (field === 'retryCount' && !integer(row[field])) {
           rowIssues.push('retryCount is not a non-negative integer');
+          operationalMetricsComplete = false;
+          rowOperationalMetricsComplete = false;
         } else if (field === 'quotaUnits' && !finiteNumber(row[field])) {
           rowIssues.push('quotaUnits is not a non-negative number');
+          operationalMetricsComplete = false;
+          rowOperationalMetricsComplete = false;
         } else if (field === 'collisions' && !integer(row[field])) {
           rowIssues.push('collisions is not a non-negative integer');
+          operationalMetricsComplete = false;
+          rowOperationalMetricsComplete = false;
         } else if (field === 'gateBypass' && row[field] !== false) {
           rowIssues.push('gateBypass must remain false');
+          operationalMetricsComplete = false;
+          rowOperationalMetricsComplete = false;
         }
+      }
+      if (Object.hasOwn(row, 'operationalMetricsComplete')
+          && row.operationalMetricsComplete !== rowOperationalMetricsComplete) {
+        rowIssues.push('operationalMetricsComplete does not match the persisted fields');
       }
       if (policy && Array.isArray(row.sourceRefs)
           && JSON.stringify(row.sourceRefs) !== JSON.stringify(policy.sourceRefs)) {
@@ -384,11 +402,12 @@ function validateCanonicalHealthHistory(history, {
       } else {
         failedRuns += 1;
       }
-      if (operationalMetricsComplete) {
+      if (rowOperationalMetricsComplete) {
+        completeOperationalRuns += 1;
         retries += row.retryCount;
         quotaUnits += row.quotaUnits;
         artifactCollisions += row.collisions;
-      }
+      } else incompleteOperationalRuns += 1;
     }
   }
 
@@ -426,6 +445,9 @@ function validateCanonicalHealthHistory(history, {
       retries: operationalMetricsComplete ? retries : null,
       quotaUnits: operationalMetricsComplete ? Number(quotaUnits.toFixed(3)) : null,
       artifactCollisions: operationalMetricsComplete ? artifactCollisions : null,
+      operationalMetricsComplete: records.length > 0 && operationalMetricsComplete,
+      operationalMetricsCompleteRuns: completeOperationalRuns,
+      operationalMetricsIncompleteRuns: incompleteOperationalRuns,
       quality,
     },
   };

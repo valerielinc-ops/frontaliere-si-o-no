@@ -245,6 +245,37 @@ describe('L10 Engineering Learning / Fleet Control', () => {
     expect(verdict.issues.join(' ')).toContain('canonical health ledger omits operational fields');
   });
 
+  it('mantiene esplicita la copertura mista durante la transizione del ledger', () => {
+    const complete = canonicalHealthRow({
+      recordId: 'health-complete',
+      execution: {
+        ...canonicalHealthRow().execution,
+        runId: 'run-complete',
+      },
+      durationSeconds: 12,
+      retryCount: 1,
+      quotaUnits: 2,
+      collisions: 0,
+      gateBypass: false,
+      operationalMetricsComplete: true,
+    });
+    const verdict = validateFleetControl({
+      registry: registry(),
+      quota: quotaHistory(),
+      health: healthHistory(canonicalHealthRow(), complete),
+    }, { now: NOW });
+    expect(verdict.quality).toBe('partial');
+    expect(verdict.snapshot.health).toMatchObject({
+      operationalMetricsComplete: false,
+      operationalMetricsCompleteRuns: 1,
+      operationalMetricsIncompleteRuns: 1,
+      retries: null,
+      quotaUnits: null,
+      artifactCollisions: null,
+    });
+    expect(verdict.issues.join(' ')).toContain('canonical health ledger omits operational fields');
+  });
+
   it('keeps a missing health ledger unmeasurable instead of counting zero successes', () => {
     const verdict = validateFleetControl({
       registry: registry(),
