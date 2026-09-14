@@ -16248,7 +16248,7 @@
         "fr": "cheffe-chef-de-rayon-garden-f-h-d-jumbo-crissier",
         "it": "chef-capo-dipartimento-giardino-m-f-d-jumbo-crissier",
         "en": "chef-head-of-department-garden-m-f-d-jumbo-crissier",
-        "de": "chef-abteilungsleiter-garten-m-w-d-jumbo-crissier"
+        "de": "chef-chef-de-ray-garden-m-w-d-jumbo-crissier"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -16301,8 +16301,7 @@
       "previousSlugs": [
         "chef-head-of-department-garden-m-f-d-jumbo-crissier",
         "chef-abteilungsleiter-garten-m-w-d-jumbo-crissier",
-        "cheffe-chef-de-rayon-garden-f-h-d-jumbo-crissier",
-        "chef-chef-de-ray-garden-m-w-d-jumbo-crissier"
+        "cheffe-chef-de-rayon-garden-f-h-d-jumbo-crissier"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16315,7 +16314,7 @@
         ],
         "de": [
           "cheffe-chef-de-rayon-garden-f-h-d-jumbo-crissier",
-          "chef-chef-de-ray-garden-m-w-d-jumbo-crissier"
+          "chef-abteilungsleiter-garten-m-w-d-jumbo-crissier"
         ]
       },
       "firstSeenAt": "2026-09-10T23:07:55.396Z",
@@ -17472,8 +17471,6 @@
         "verkaufer-in-kassen-services-jumbo-widnau-sankt-gallen-yqxwqj",
         "vendeur-dans-les-caisses-enregistreuses-services-jumbo-division-der-coop-genossenschaft-widnau",
         "vendeur-dans-les-caisses-enregistreuses-services-jumbo-rickenbach",
-        "vendita-cassa-servizi-jumbo-widnau",
-        "seller-cash-register-services-jumbo-widnau",
         "verkaufer-in-kassen-services-jumbo-widnau"
       ],
       "previousSlugsByLocale": {
@@ -17497,15 +17494,12 @@
           "verkaufer-in-kassen-services-jumbo-widnau-sankt-gallen-yqxwqj",
           "vendeur-dans-les-caisses-enregistreuses-services-jumbo-division-der-coop-genossenschaft-widnau",
           "vendeur-dans-les-caisses-enregistreuses-services-jumbo-rickenbach",
-          "vendita-cassa-servizi-jumbo-widnau",
           "verkaufer-in-kassen-services-jumbo-widnau"
         ],
         "en": [
-          "seller-cash-register-services-jumbo-widnau",
           "verkaufer-in-kassen-services-jumbo-widnau"
         ],
         "fr": [
-          "caisse-enregistreuse-services-du-vendeur-jumbo-widnau",
           "verkaufer-in-kassen-services-jumbo-widnau"
         ]
       },
@@ -17526,12 +17520,12 @@
     },
     {
       "id": "jumbo-efd0a6b3-847",
-      "slug": "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-eyholz",
+      "slug": "rayon-direttore-do-it-incl-gestione-aggiunto-jumbo-eyholz",
       "slugByLocale": {
         "de": "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-eyholz",
-        "it": "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-eyholz",
-        "en": "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-eyholz",
-        "fr": "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-eyholz"
+        "it": "rayon-direttore-do-it-incl-gestione-aggiunto-jumbo-eyholz",
+        "en": "rayon-conductor-do-it-incl-deputy-management-jumbo-eyholz",
+        "fr": "rayon-chef-do-it-incl-gestion-adjointe-jumbo-eyholz"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17605,11 +17599,19 @@
       "firstSeenAt": "2026-09-14T16:01:49.987Z",
       "previousSlugsByLocale": {
         "it": [
-          "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-division-der-coop-genossenschaft-eyholz"
+          "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-division-der-coop-genossenschaft-eyholz",
+          "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-eyholz"
+        ],
+        "en": [
+          "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-eyholz"
+        ],
+        "fr": [
+          "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-eyholz"
         ]
       },
       "previousSlugs": [
-        "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-division-der-coop-genossenschaft-eyholz"
+        "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-division-der-coop-genossenschaft-eyholz",
+        "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-eyholz"
       ]
     }
   ]
