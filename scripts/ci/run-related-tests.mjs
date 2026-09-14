@@ -23,6 +23,7 @@ import { listCorpusWideTests } from './corpus-wide-tests.mjs';
 import { shouldAssembleForRelatedTests } from './dataset-dependent-tests.mjs';
 import { shouldSkipFullSuiteFallback } from './lib/orphan-fallback.mjs';
 import { selectMaxWorkers } from './lib/select-max-workers.mjs';
+import { missingFullCheckoutArtifacts } from './lib/typecheck-sparse.mjs';
 import { GRAPH_IGNORED_RE, GRAPH_SOURCE_RE, isGraphSourceFile } from './lib/related-graph-scope.mjs';
 
 const changedPathFile = process.env.CHANGED_PATHS_FILE || 'changed-paths.txt';
@@ -72,14 +73,6 @@ const corpusWideTests = skipCorpusWide ? new Set(listCorpusWideTests()) : new Se
 // sentinels; a local sparse worktree does not. Keep `--select-only` and the
 // local dry-run seam usable for inspecting the graph, but never let a real
 // Vitest invocation turn missing artifacts into application regressions.
-const REQUIRED_FULL_CHECKOUT_ARTIFACTS = Object.freeze([
-  'data/blog-articles-data.ts',
-  'data/swiss-articles-data.ts',
-  'public/.nojekyll',
-]);
-function missingFullCheckoutArtifacts() {
-  return REQUIRED_FULL_CHECKOUT_ARTIFACTS.filter((relative) => !existsSync(relative));
-}
 function requireFullCheckoutForVerdict() {
   const missing = missingFullCheckoutArtifacts();
   const localInspection = selectionOnly

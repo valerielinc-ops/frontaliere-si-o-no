@@ -26,6 +26,7 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { parseDocument } from 'yaml';
 import { createGithubIssue, ensureLabelsExist } from '../lib/github-issue-creator.mjs';
+import { auditLoopFleetBindings } from './loop-fleet-registry-audit.mjs';
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 export const WORKFLOW_DIR_NAME = path.join('.github', 'workflows');
@@ -1247,6 +1248,7 @@ export function renderMarkdown(report, { maxFindings = 240, compact = true } = {
     '## Technical operations audit',
     '',
     `- Workflow scansionati: **${report.filesScanned}**`,
+    `- Binding registry flotta: **${report.registry?.loopsScanned ?? 'n/d'} loop**`,
     `- Errori: **${summary.error}** · warning: **${summary.warning}** · totale: **${summary.total}**`,
     `- Commit osservato: \`${report.commit || 'sconosciuto'}\``,
     `- Generato: ${report.generatedAt}`,
@@ -1275,7 +1277,18 @@ function setOutput(name, value) {
 
 async function main() {
   const argv = process.argv.slice(2);
-  const report = auditWorkflowFiles(ROOT);
+  const workflowReport = auditWorkflowFiles(ROOT);
+  const registryReport = auditLoopFleetBindings({ root: ROOT });
+  const report = {
+    ...workflowReport,
+    registry: {
+      path: registryReport.registryPath,
+      loopsScanned: registryReport.loopsScanned,
+      loopIds: registryReport.loopIds,
+    },
+    findings: dedupeFindings([...workflowReport.findings, ...registryReport.findings])
+      .sort((left, right) => left.file.localeCompare(right.file) || left.line - right.line || left.rule.localeCompare(right.rule)),
+  };
   const summary = summarize(report);
   const reportPath = cliValue(argv, '--report');
   if (reportPath) {
