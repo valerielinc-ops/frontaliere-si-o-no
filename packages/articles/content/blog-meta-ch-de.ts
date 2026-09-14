@@ -6385,6 +6385,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.naturalizzazione-nidvaldo-procedura.title': 'Einbürgerung in Nidwalden: Voraussetzungen und Verfahren',
     'blog.article.naturalizzazione-nidvaldo-procedura.excerpt': 'Vollständiger Leitfaden zur ordentlichen Einbürgerung im Kanton Nidwalden: erforderliche Jahre, Tests, Gebühren und bürokratische Schritte.',
     'blog.article.naturalizzazione-nidvaldo-procedura.imageAlt': 'Gemeindehaus im Kanton Nidwalden',
+    'blog.article.prezzi-produzione-importazione-agosto-2026.title': 'Produktions- und Importpreise: +0,7% im August 2026',
+    'blog.article.prezzi-produzione-importazione-agosto-2026.excerpt': 'Der Erzeuger- und Importpreisindex steigt im August 2026 auf 100,4 Punkte. Auf Jahresbasis ergibt sich ein Rückgang von 0,7% gemäss USt.',
+    'blog.article.prezzi-produzione-importazione-agosto-2026.imageAlt': 'Das Bundesamt für Statistik in Neuenburg, Quelle der nationalen Wirtschaftsdaten.',
 };
 
 export default blogMetaChDe;

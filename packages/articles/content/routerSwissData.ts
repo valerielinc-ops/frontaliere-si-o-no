@@ -2154,6 +2154,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'benzina-oggi-costo-confronto': { it: 'benzina-oggi-costo-confronto', en: 'petrol-today-costs-less-than-in-the-1980s', de: 'benzin-kostet-heute-weniger-als-in-den-80er-jahren', fr: 'l-essence-coute-aujourd-hui-moins-cher-que-dans-les-annees-80' },
  'consiglio-federale-decisioni-2026': { it: 'consiglio-federale-decisioni-2026', en: 'federal-council-decisions-2026', de: 'bundesrat-entscheidungen-2026', fr: 'conseil-federal-decisions-2026' },
  'naturalizzazione-nidvaldo-procedura': { it: 'naturalizzazione-nidvaldo-procedura', en: 'nidwalden-naturalization-procedure', de: 'einbuergerung-nidwalden-verfahren', fr: 'naturalisation-nidwald-procedure' },
+ 'prezzi-produzione-importazione-agosto-2026': { it: 'prezzi-produzione-importazione-agosto-2026', en: 'producer-import-prices-august-2026', de: 'erzeuger-importpreise-august-2026', fr: 'prix-production-importation-aout-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

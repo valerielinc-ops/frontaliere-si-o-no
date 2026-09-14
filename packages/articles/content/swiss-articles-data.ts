@@ -19153,6 +19153,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'prezzi-produzione-importazione-agosto-2026',
+    category: 'fiscale',
+    date: '2026-09-14T07:31:45.370Z',
+    image: '/images/blog/prezzi-produzione-importazione-agosto-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

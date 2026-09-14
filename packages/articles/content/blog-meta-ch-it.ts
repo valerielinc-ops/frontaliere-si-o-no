@@ -6385,6 +6385,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.naturalizzazione-nidvaldo-procedura.title': 'Naturalizzazione a Nidvaldo: requisiti e procedura',
     'blog.article.naturalizzazione-nidvaldo-procedura.excerpt': 'Guida completa alla naturalizzazione ordinaria nel Cantone di Nidvaldo: anni richiesti, test, tasse e passaggi burocratici.',
     'blog.article.naturalizzazione-nidvaldo-procedura.imageAlt': 'Edificio comunale nel Cantone di Nidvaldo',
+    'blog.article.prezzi-produzione-importazione-agosto-2026.title': 'Prezzi produzione e import: +0,7% in agosto 2026',
+    'blog.article.prezzi-produzione-importazione-agosto-2026.excerpt': 'L\'indice dei prezzi alla produzione e all\'importazione sale a 100,4 punti ad agosto 2026. Su base annua si registra un calo dello 0,7% secondo i dati UST.',
+    'blog.article.prezzi-produzione-importazione-agosto-2026.imageAlt': 'L\'Ufficio federale di statistica a Neuchâtel, sede delle rilevazioni economiche svizzere.',
 };
 
 export default blogMetaChIt;
