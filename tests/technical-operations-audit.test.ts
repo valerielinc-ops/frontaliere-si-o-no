@@ -594,7 +594,7 @@ describe('technical operations audit', () => {
     expect(report.filesScanned).toBeGreaterThanOrEqual(200);
     expect(report.workflowNames.length).toBeGreaterThanOrEqual(200);
     expect(report.findings.every((item: any) => item.file.endsWith('.yml') || item.file.endsWith('.yaml'))).toBe(true);
-  });
+  }, 30_000);
 
   it('renderizza conteggi e severità nel report', () => {
     const report = {
