@@ -217,6 +217,9 @@ jobs:
           node scripts/audit-bfs-depth.mjs \
             --max-depth="$INPUT_MAX_DEPTH" \
             --write-baseline=data/bfs-depth-baseline.json
+          node scripts/ci/validate-generated-data.mjs \
+            --kind bfs-depth \
+            --file data/bfs-depth-baseline.json
           echo ""
           echo "==== baseline preview ===="
           head -50 data/bfs-depth-baseline.json
