@@ -1,5 +1,8 @@
 import { describe, it, expect } from 'vitest';
-import { isBenignErrorMessage } from '@/services/benignErrorPatterns';
+import {
+  isBenignErrorMessage,
+  isIndexedDbError,
+} from '@/services/benignErrorPatterns';
 
 describe('isBenignErrorMessage()', () => {
   describe('drops confirmed-benign environmental noise', () => {
@@ -15,6 +18,7 @@ describe('isBenignErrorMessage()', () => {
       'Installations: Application offline (installations/app-offline).',
       'Connection to Indexed Database server lost. Refresh the page to try again',
       "Failed to execute 'transaction' on 'IDBDatabase': The database connection is closing.",
+      'InvalidStateError: Object store cannot be found in the database',
       'Database deleted by request of the user',
       'TypeError: Load failed',
       '[exchangeRate.twelveDataFetch] Failed to fetch',
@@ -46,6 +50,13 @@ describe('isBenignErrorMessage()', () => {
     ])('drops: %s', (msg) => {
       expect(isBenignErrorMessage(msg)).toBe(true);
     });
+  });
+
+  it('classifies the Firebase object-store rejection for recovery', () => {
+    expect(isIndexedDbError(
+      new Error('Object store cannot be found in the database'),
+    )).toBe(true);
+    expect(isIndexedDbError('unrelated InvalidStateError')).toBe(false);
   });
 
   describe('keeps real, actionable errors', () => {

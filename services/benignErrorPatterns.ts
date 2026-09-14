@@ -68,6 +68,7 @@ export const UNIVERSAL_BENIGN_PATTERNS: readonly RegExp[] = [
   /Connection to Indexed Database server lost/i,
   /Failed to execute 'transaction' on 'IDBDatabase'/i,
   /InvalidStateError.*IDBDatabase/i,
+  /Object store cannot be found in the database/i,
   /UnknownError.*IDBDatabase/i,
   /Database deleted by request of the user/i,
 
@@ -180,6 +181,16 @@ export const BENIGN_ERROR_PATTERNS: readonly RegExp[] = [
  */
 export function isBenignErrorMessage(message: string): boolean {
   return BENIGN_ERROR_PATTERNS.some((re) => re.test(message));
+}
+
+/** Shared classifier for IndexedDB failures that have a recovery/fallback. */
+export const INDEXED_DB_ERROR_PATTERN = /(?:connection to indexed database server lost|failed to execute 'transaction' on 'idbdatabase'|invalidstateerror.*idbdatabase|object store cannot be found in the database|unknownerror.*idbdatabase|database deleted by request of the user|internal error was encountered in the indexed database|refusing to open indexeddb)/i;
+
+export function isIndexedDbError(error: unknown): boolean {
+  const message = error instanceof Error
+    ? error.name + ': ' + error.message
+    : String(error ?? '');
+  return INDEXED_DB_ERROR_PATTERN.test(message);
 }
 
 /**

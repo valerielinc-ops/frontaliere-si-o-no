@@ -15,6 +15,7 @@ import type { AppCheck } from "firebase/app-check";
 import { reportCaughtError } from '@/services/errorReporter';
 import { isRecaptchaClientReady, type RecaptchaLikeWindow } from '@/services/recaptchaReady';
 import { setFirebaseApiKey } from '@/services/firebaseAuthPersistence';
+import { openIndexedDbWithSchema } from './indexedDbSchema';
 
 const firebaseConfig = {
  // Use the default Firebase auth domain (frontaliere-ticino.firebaseapp.com), NOT the
@@ -123,6 +124,37 @@ let _analytics: FirebaseAnalytics | null = null;
 let _analyticsLoading: Promise<FirebaseAnalytics | null> | null = null;
 let _analyticsBlocked = false;
 
+// Firebase Installations is a dependency of Analytics. Its SDK opens this
+// database at version 1 and only creates the store during oldVersion === 0;
+// an existing version-1 database with a lost store otherwise rejects later
+// from `transaction('firebase-installations-store')`.
+const FIREBASE_INSTALLATIONS_SCHEMA = {
+ name: 'firebase-installations-database',
+ version: 1,
+ stores: [{ name: 'firebase-installations-store' }],
+} as const;
+
+/**
+ * Repair only Firebase's anonymous-installation cache before Analytics starts.
+ * `unavailable` is allowed through because Firebase's own isSupported path
+ * intentionally runs without a FID when IndexedDB is restricted; blocked,
+ * unsupported, and invalid schemas must not reach the SDK's unhandled promise.
+ */
+async function prepareFirebaseInstallationsStore(): Promise<boolean> {
+ if (typeof indexedDB === 'undefined' || indexedDB === null) return true;
+ try {
+  const result = await openIndexedDbWithSchema(FIREBASE_INSTALLATIONS_SCHEMA);
+  if (result.db) {
+   result.db.close();
+   return true;
+  }
+  return result.status === 'unavailable';
+ } catch {
+  // Disable optional Analytics if the schema preflight itself is inconclusive.
+  return false;
+ }
+}
+
 function getEnvironmentFirebaseApiKey(): string {
  if (typeof process === 'undefined') return '';
  return String(process.env.FIREBASE_API_KEY || process.env.VITE_FIREBASE_API_KEY || '').trim();
@@ -196,12 +228,20 @@ async function getAnalyticsInstance(): Promise<FirebaseAnalytics | null> {
  _analyticsLoading = (async () => {
  try {
  const { initializeAnalytics } = await import("firebase/analytics");
+ const installationsStoreReady = await prepareFirebaseInstallationsStore();
+ if (!installationsStoreReady) {
+  // Analytics is non-critical; leave the app usable when a different tab
+  // holds the broken database open or a newer SDK owns its schema.
+  _analyticsBlocked = true;
+  _analytics = null;
+ } else {
  // Use initializeAnalytics instead of getAnalytics to pass config:
  // - send_page_view: false — App.tsx tracks SPA page views manually
  // to avoid duplicate page_view events that inflate pagesPerSession.
  _analytics = initializeAnalytics(await getAppInstance(), {
  config: { send_page_view: false },
  });
+ }
  } catch {
  // Ad blocker or privacy extension blocked the analytics chunk or
  // gtag.js — analytics will be silently disabled for this session.

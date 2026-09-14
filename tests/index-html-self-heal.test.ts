@@ -60,6 +60,10 @@ describe('index.html inline bootstrap self-heal', () => {
     expect(BOOTSTRAP_SCRIPT).toMatch(/Importing a module script failed/);
   });
 
+  it('suppresses Firebase missing-object-store rejections before React mounts (issue #7919)', () => {
+    expect(BOOTSTRAP_SCRIPT).toMatch(/Object store cannot be found in the database/);
+  });
+
   describe('runtime behaviour', () => {
     beforeAll(() => {
       loadBootstrap();
@@ -77,12 +81,21 @@ describe('index.html inline bootstrap self-heal', () => {
 
     it('reloads on an unhandledrejection with WebKit\'s "Importing a module script failed" wording', async () => {
       const reason = new Error('Importing a module script failed.');
-      const ev = Object.assign(new Event('unhandledrejection'), { reason });
+      const ev = Object.assign(new Event('unhandledrejection', { cancelable: true }), { reason });
       window.dispatchEvent(ev);
 
       await vi.waitFor(() => expect(reloadBudgetTotal()).toBe(1));
       const info = JSON.parse(sessionStorage.getItem('_forceReloadInfo') || '{}');
       expect(info.source).toBe('index_html_import');
+    });
+
+    it('prevents the Firebase missing-object-store rejection without reloading', () => {
+      const reason = new Error('Object store cannot be found in the database');
+      const ev = Object.assign(new Event('unhandledrejection', { cancelable: true }), { reason });
+      window.dispatchEvent(ev);
+
+      expect(ev.defaultPrevented).toBe(true);
+      expect(sessionStorage.getItem('_swReloadCount')).toBeNull();
     });
 
     it('reloads on a link-time module-export skew SyntaxError', async () => {

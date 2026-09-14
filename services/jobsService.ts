@@ -51,6 +51,7 @@
 import { expandCantonGroup } from './cantonList';
 import { cdnDataUrl } from './cdnDataBase';
 import { jobCantonShardPath, resolveCantonShardKey } from './jobCantonShards';
+import { openIndexedDbWithSchema } from './indexedDbSchema';
 import type { Locale } from './i18n';
 
 /**
@@ -86,6 +87,20 @@ const IDB_DB_VERSION = 2;
 const IDB_STORE_NAME = 'canton-shards';
 const SESSION_DEFAULT_CANTON_KEY = 'frontaliere:defaultCanton';
 
+const CANTON_CACHE_SCHEMA = {
+ name: IDB_DB_NAME,
+ version: IDB_DB_VERSION,
+ stores: [{ name: IDB_STORE_NAME, options: { keyPath: 'cacheKey' } }],
+ onUpgrade(db: IDBDatabase, oldVersion: number): void {
+  // v1 keyed records by canton alone. Those entries cannot be re-keyed in
+  // place and holding them would mean serving one locale's slugs/titles to
+  // another, so drop the store and recreate it on the locale-aware keyPath.
+  if (oldVersion < IDB_DB_VERSION && db.objectStoreNames.contains(IDB_STORE_NAME)) {
+   db.deleteObjectStore(IDB_STORE_NAME);
+  }
+ },
+} as const;
+
 interface CantonCacheRecord {
  /** Primary key: `<CANTON_KEY>:<locale>`. The locale segment is load-bearing —
   * shards are locale-flattened (a job's `slug` and `title` differ per locale),
@@ -118,39 +133,7 @@ interface FetchAggregatedJobsOptions {
  * mode, ad-blockers, quota-exceeded). Callers MUST treat null as "no cache".
  */
 function openCantonCacheDb(): Promise<IDBDatabase | null> {
- return new Promise((resolve) => {
-  if (typeof indexedDB === 'undefined' || indexedDB === null) {
-   resolve(null);
-   return;
-  }
-  let request: IDBOpenDBRequest;
-  try {
-   request = indexedDB.open(IDB_DB_NAME, IDB_DB_VERSION);
-  } catch {
-   resolve(null);
-   return;
-  }
-  request.onupgradeneeded = () => {
-   const db = request.result;
-   // v1 keyed records by canton alone. Those entries cannot be re-keyed in
-   // place and holding them would mean serving one locale's slugs to another,
-   // so drop the store and recreate it on the locale-aware keyPath. The cost
-   // is one cold fetch per canton after the upgrade.
-   if (db.objectStoreNames.contains(IDB_STORE_NAME)) {
-    db.deleteObjectStore(IDB_STORE_NAME);
-   }
-   db.createObjectStore(IDB_STORE_NAME, { keyPath: 'cacheKey' });
-  };
-  request.onsuccess = () => {
-   resolve(request.result);
-  };
-  request.onerror = () => {
-   resolve(null);
-  };
-  request.onblocked = () => {
-   resolve(null);
-  };
- });
+ return openIndexedDbWithSchema(CANTON_CACHE_SCHEMA).then(({ db }) => db);
 }
 
 function idbGet(db: IDBDatabase, cacheKey: string): Promise<CantonCacheRecord | null> {
