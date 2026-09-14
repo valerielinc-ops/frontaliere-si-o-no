@@ -95,7 +95,7 @@ describe('read-only loop outcome exporters', () => {
         unattributedDeliveryReasons: {
           missingAlertId: 0,
           missingSentAt: 0,
-          noEligibleAlert: 0,
+          noConsentedAlert: 0,
         },
       },
     });
@@ -120,7 +120,43 @@ describe('read-only loop outcome exporters', () => {
       unattributedDeliveryReasons: {
         missingAlertId: 1,
         missingSentAt: 0,
-        noEligibleAlert: 0,
+        noConsentedAlert: 0,
+      },
+    });
+  });
+
+  it('attributes a consented historical delivery after the alert is no longer active', () => {
+    const output = buildL4OutcomeLedger({
+      now: NOW,
+      alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: false })],
+      jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {})],
+      deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
+        campaign_id: 'a1',
+        sent_at: '2026-09-12T09:00:00.000Z',
+        scheduled_for: '2026-09-12T08:45:00.000Z',
+        send_time_source: 'personal',
+        delivered_at: '2026-09-12T09:01:00.000Z',
+      })],
+      predicates: {
+        evaluateJobAlertConsent: () => ({ allowed: true, reason: 'explicit-alert' }),
+        isCrossChannelStop: () => true,
+        isJobAlertExcluded: () => true,
+      },
+    });
+
+    expect(output).toMatchObject({
+      eligibleConsentedUsers: 0,
+      deliveredAlerts: 1,
+      export: {
+        consentChecked: true,
+        deduplicationChecked: true,
+        unattributedDeliveries: 0,
+        unattributedDeliveryReasons: {
+          missingAlertId: 0,
+          missingSentAt: 0,
+          noConsentedAlert: 0,
+        },
       },
     });
   });
