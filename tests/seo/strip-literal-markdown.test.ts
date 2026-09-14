@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { stripLiteralMarkdown, stripWholeMarkdownBoldWrapper } from '../../build-plugins/shared/stripLiteralMarkdown';
+import { sanitizeJobTitleForDisplay, stripLiteralMarkdown, stripWholeMarkdownBoldWrapper } from '../../build-plugins/shared/stripLiteralMarkdown';
 
 // Pins the funnel-critical contract of the single shared helper that scrubs
 // literal markdown out of crawler-/AI-sourced strings before they reach indexed
@@ -52,6 +52,19 @@ describe('stripWholeMarkdownBoldWrapper', () => {
 
   it('preserves employer wording that starts with a triple-star brand marker', () => {
     expect(stripWholeMarkdownBoldWrapper('Verkaufsberater:in ***delicatessa 40-60% (w/m/d)')).toBe(
+      'Verkaufsberater:in ***delicatessa 40-60% (w/m/d)',
+    );
+  });
+});
+
+describe('sanitizeJobTitleForDisplay', () => {
+  it('extracts the translated title from an AI explanation', () => {
+    const narrative = 'I need to see the current job data to understand the context and identify which job title needs translation to Italian. Let me check the job data files: Looking at the modified files, I can see several job crawler files have been updated. Let me examine one of them to find the job title that needs translation: The title you are asking about appears to be a German job title that needs to be translated to Italian. Based on the context of retail/shopping experience design, here is the complete Italian translation: **Specialista nel commercio al dettaglio EFZ "Progettazione di esperienze di acquisto"** However, if you would like me to locate and fix this in the actual job data file, and so on.';
+    expect(sanitizeJobTitleForDisplay(narrative)).toBe('Specialista nel commercio al dettaglio EFZ "Progettazione di esperienze di acquisto"');
+  });
+
+  it('preserves triple-star employer wording while scrubbing other markdown', () => {
+    expect(sanitizeJobTitleForDisplay('Verkaufsberater:in ***delicatessa 40-60% (w/m/d)')).toBe(
       'Verkaufsberater:in ***delicatessa 40-60% (w/m/d)',
     );
   });
