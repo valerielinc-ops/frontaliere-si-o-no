@@ -34,7 +34,9 @@ import {
   lastLabelEventAt,
   lastFixPromotion,
   latestFixOutcomeEntryFromComments,
+  linkedPullRequestNumbers,
   mergeAfterFixOutcomeAt,
+  selectLatestMergedFixPr,
   crawlerFixDecision,
   DELIVERED,
   NON_RETRYABLE,
@@ -157,6 +159,41 @@ describe('latestFixOutcomeEntryFromComments — il verdetto porta il suo timesta
   });
 });
 
+describe('ricerca della PR consegnata — collegamento all\'issue, non nome del branch', () => {
+  it('estrae solo le PR dai cross-reference della timeline e deduplica i numeri', () => {
+    const events = [
+      [{ event: 'cross-referenced', source: { issue: {
+        number: 7908,
+        pull_request: {},
+        repository: { full_name: 'valerielinc-ops/frontaliere-si-o-no' },
+      } } }],
+      { event: 'referenced', source: { issue: { number: 99, pull_request: {} } } },
+      { event: 'cross-referenced', source: { issue: {
+        number: 7908,
+        pull_request: {},
+        repository: { full_name: 'valerielinc-ops/frontaliere-si-o-no' },
+      } } },
+      { event: 'cross-referenced', source: { issue: { number: 7909 } } },
+      { event: 'cross-referenced', source: { issue: {
+        number: 1416,
+        pull_request: {},
+        repository: { full_name: 'nanakokyobashi-rgb/frontaliere-articles' },
+      } } },
+    ];
+    expect(linkedPullRequestNumbers(events)).toEqual([7908, 1416]);
+    expect(linkedPullRequestNumbers(events, 'valerielinc-ops/frontaliere-si-o-no')).toEqual([7908]);
+  });
+
+  it('sceglie il merge piu\' recente anche quando l\'head e\' rinominato', () => {
+    expect(selectLatestMergedFixPr([
+      { mergedAt: '2026-09-07T06:50:44Z', headRefName: 'fix/issue-8066-old' },
+      { mergedAt: '2026-09-08T06:50:44Z', headRefName: 'manual-fix-8066' },
+    ])).toEqual({
+      mergedAt: Date.parse('2026-09-08T06:50:44Z'),
+    });
+  });
+});
+
 describe('crawlerFixDecision — stesso ramo nel gemello crawler (AGENTS.md #6, la classe non il file)', () => {
   const old = 40; // > ORPHAN_MIN_AGE_MIN: quando il RESCUE guarda, la PR e' gia' mergiata
 
@@ -249,6 +286,22 @@ describe('il cablaggio del ramo DELIVERED non si scollega in silenzio', () => {
     expect(crawler).toMatch(/outcomeAt: entry\.at/);
     expect(crawler).toMatch(/mergedAt = delivered \? mergedFixPrAt\(/);
     expect(crawler).toMatch(/promotedAt: promotion\.at/);
+  });
+
+  it('triage-sweep non rimuove agent:fix-queued quando aggiunge agent:fix', () => {
+    const triage = readFileSync(new URL('../scripts/ci/triage-sweep.mjs', import.meta.url), 'utf8');
+    const directRoutes = [...triage.matchAll(/--add-label', 'agent:fix'[\s\S]{0,160}?\);/g)];
+    expect(directRoutes).toHaveLength(2);
+    for (const route of directRoutes) {
+      expect(route[0]).not.toContain("--remove-label', 'agent:fix-queued'");
+    }
+  });
+
+  it('la lookup usa il repository della timeline e conserva il fallback storico', () => {
+    expect(src).toMatch(/linkedPullRequestNumbers\(raw, REPO\)/);
+    expect(src).toContain('timeline?per_page=100');
+    expect(src).toContain("'--head', `fix/issue-${num}`");
+    expect(src).toMatch(/'--json',\s*'mergedAt'/);
   });
 });
 

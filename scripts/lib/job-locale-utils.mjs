@@ -112,8 +112,8 @@ export function detectTextLocale(value = '', fallback = 'it') {
 }
 
 // Confidence bar under which a fresh detection may NOT overrule the sourceLang
-// already stored on a job. Same 0.65 bar the cross-locale contamination check
-// uses in scripts/relocalize-pending-jobs.mjs (a literal there, not exported).
+// already stored on a job. The cross-locale contamination check imports this
+// value from here too, so the two guards cannot drift.
 //
 // Why the guard exists: detectTextLocale re-runs on EVERY crawler pass and the
 // callers used to write its verdict back unconditionally, so a job whose text
@@ -131,10 +131,13 @@ export const SOURCE_LANG_HOLD_CONFIDENCE = 0.65;
  * otherwise. A job with no stored sourceLang has nothing to protect — the
  * low-confidence detection is then the only information available and wins.
  * The guard protects against the FLIP, never against the first assignment.
+ * Empty text is not a detection signal, so the caller's fallback wins even
+ * when an old sourceLang is present.
  */
 export function holdSourceLang(job, text, fallbackLang = 'it') {
+  if (!String(text || '').trim()) return fallbackLang;
   const detected = detectTextLocale(text, fallbackLang);
-  const stored = String((job && job.sourceLang) || '').trim();
+  const stored = String((job && job.sourceLang) || '').trim().toLowerCase().split(/[-_]/)[0];
   if (
     stored &&
     DEFAULT_JOB_LOCALES.includes(stored) &&
