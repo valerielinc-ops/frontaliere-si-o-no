@@ -75,6 +75,14 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version: '22'
+      - name: Start loop operational telemetry
+        run: |
+          {
+            echo "LOOP_FLEET_STARTED_AT=$(date -u +%Y-%m-%dT%H:%M:%S.%3NZ)"
+            echo 'LOOP_FLEET_QUOTA_UNITS=0'
+            echo 'LOOP_FLEET_COLLISIONS=0'
+            echo 'LOOP_FLEET_GATE_BYPASS=false'
+          } >> "$GITHUB_ENV"
       - name: Audit decision moments
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

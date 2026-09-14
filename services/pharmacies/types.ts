@@ -415,7 +415,15 @@ const DUTY_COVERAGE_TYPES: readonly PharmacyDutyCoverageType[] = ['city', 'distr
 const DUTY_TYPES: readonly PharmacyDutyType[] = ['day', 'night', 'weekend', 'holiday', '24h'];
 const DUTY_STATUSES: readonly PharmacyDutyStatus[] = ['verified', 'pending_review', 'expired', 'conflicting'];
 const DUTY_SOURCE_TYPES: readonly PharmacyDutySourceType[] = ['official', 'association', 'pharmacy', 'verified_partner'];
-export function validatePharmacyDuty(index: number | string, entry: unknown): string[] {
+const ISO_TIMESTAMP_RE = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?(?:Z|[+-]\d{2}:\d{2})$/;
+
+function parseDutyTimestamp(value: unknown): number {
+  if (typeof value !== 'string' || !ISO_TIMESTAMP_RE.test(value)) return NaN;
+  const timestamp = Date.parse(value);
+  return Number.isFinite(timestamp) ? timestamp : NaN;
+}
+
+export function validatePharmacyDuty(index: number | string, entry: unknown, now: Date = new Date()): string[] {
   const errors: string[] = [];
   if (typeof entry !== 'object' || entry === null || Array.isArray(entry)) {
     return [`duty[${index}]: entry is not an object`];
@@ -438,48 +446,99 @@ export function validatePharmacyDuty(index: number | string, entry: unknown): st
   if (typeof e.sourceType === 'string' && !DUTY_SOURCE_TYPES.includes(e.sourceType as PharmacyDutySourceType)) {
     errors.push(`duty[${index}]: invalid sourceType "${e.sourceType}"`);
   }
-  const starts = typeof e.startsAt === 'string' ? Date.parse(e.startsAt) : NaN;
-  const ends = typeof e.endsAt === 'string' ? Date.parse(e.endsAt) : NaN;
+  if (typeof e.sourceUrl === 'string' && !safePharmacyUrl(e.sourceUrl)) {
+    errors.push(`duty[${index}]: invalid sourceUrl (expected an absolute HTTPS URL)`);
+  }
+  const starts = parseDutyTimestamp(e.startsAt);
+  const ends = parseDutyTimestamp(e.endsAt);
   if (!Number.isFinite(starts)) errors.push(`duty[${index}]: invalid startsAt`);
   if (!Number.isFinite(ends)) errors.push(`duty[${index}]: invalid endsAt`);
   if (Number.isFinite(starts) && Number.isFinite(ends) && ends <= starts) {
     errors.push(`duty[${index}]: endsAt must be after startsAt`);
   }
+  if (e.verifiedAt !== undefined && !Number.isFinite(parseDutyTimestamp(e.verifiedAt))) {
+    errors.push(`duty[${index}]: invalid verifiedAt`);
+  }
+  const nowMs = now instanceof Date ? now.getTime() : NaN;
+  if (Number.isFinite(ends) && Number.isFinite(nowMs)) {
+    if (e.status === 'verified' && ends <= nowMs) errors.push(`duty[${index}]: verified duty must not be expired`);
+    if (e.status === 'expired' && ends > nowMs) errors.push(`duty[${index}]: expired duty must have ended`);
+  }
   return errors;
 }
 
-export function validatePharmacyDutyList(duties: unknown): string[] {
+export function validatePharmacyDutyList(duties: unknown, now: Date = new Date()): string[] {
   if (!Array.isArray(duties)) return ['duties: expected an array'];
   const errors: string[] = [];
   const seenIds = new Set<string>();
   duties.forEach((entry, index) => {
-    errors.push(...validatePharmacyDuty(index, entry));
+    errors.push(...validatePharmacyDuty(index, entry, now));
     const id = (entry as Record<string, unknown> | null)?.id;
     if (typeof id === 'string' && id) {
       if (seenIds.has(id)) errors.push(`duty[${index}]: duplicate id "${id}"`);
       seenIds.add(id);
     }
   });
+
+  // A source can publish adjacent intervals, but two intervals for the same
+  // regional coverage must never overlap silently. The importer marks every
+  // member of such a group as `conflicting`; this validator protects checked-in
+  // snapshots and catches hand-edited data that skipped that step.
+  for (let index = 0; index < duties.length; index += 1) {
+    const current = duties[index] as Record<string, unknown> | null;
+    if (!current || typeof current !== 'object') continue;
+    const currentStarts = parseDutyTimestamp(current.startsAt);
+    const currentEnds = parseDutyTimestamp(current.endsAt);
+    if (!Number.isFinite(currentStarts) || !Number.isFinite(currentEnds)) continue;
+    for (let nextIndex = index + 1; nextIndex < duties.length; nextIndex += 1) {
+      const next = duties[nextIndex] as Record<string, unknown> | null;
+      if (!next || typeof next !== 'object' || next.coverageName !== current.coverageName) continue;
+      const nextStarts = parseDutyTimestamp(next.startsAt);
+      const nextEnds = parseDutyTimestamp(next.endsAt);
+      if (!Number.isFinite(nextStarts) || !Number.isFinite(nextEnds)) continue;
+      if (currentStarts < nextEnds && nextStarts < currentEnds
+        && (current.status !== 'conflicting' || next.status !== 'conflicting')) {
+        errors.push(`duty[${index}]: overlapping coverage interval must be marked conflicting with duty[${nextIndex}]`);
+      }
+    }
+  }
   return errors;
 }
 
-export function validatePharmacyDutiesDataset(dataset: unknown): string[] {
+export function validatePharmacyDutiesDataset(dataset: unknown, now: Date = new Date()): string[] {
   if (typeof dataset !== 'object' || dataset === null || Array.isArray(dataset)) {
     return ['dataset is not an object'];
   }
   const d = dataset as Record<string, unknown>;
   const errors: string[] = [];
-  for (const field of ['_source', '_errors', '_warnings', '_release', 'duties'] as const) {
+  // Runner-temporary duty artifacts are intentionally release-less; the
+  // atomic border finalizer adds `_release` before any public snapshot write.
+  for (const field of ['_source', '_sourceRegions', '_fetchedAt', '_errors', '_warnings', 'duties'] as const) {
     if (!(field in d)) errors.push(`dataset: missing "${field}"`);
   }
   if (typeof d._source !== 'string' || d._source.trim() === '') errors.push('dataset: invalid "_source"');
+  if (!Array.isArray(d._sourceRegions) || d._sourceRegions.some((url) => !safePharmacyUrl(url))) {
+    errors.push('dataset: "_sourceRegions" must be an array of absolute HTTPS URLs');
+  }
+  if (d._fetchedAt !== null && !Number.isFinite(parseDutyTimestamp(d._fetchedAt))) {
+    errors.push('dataset: invalid "_fetchedAt"');
+  }
+  if (d._lastSuccessfulFetchAt !== undefined
+    && d._lastSuccessfulFetchAt !== null
+    && !Number.isFinite(parseDutyTimestamp(d._lastSuccessfulFetchAt))) {
+    errors.push('dataset: invalid "_lastSuccessfulFetchAt"');
+  }
   if (!Array.isArray(d._errors)) errors.push('dataset: "_errors" must be an array');
   if (!Array.isArray(d._warnings)) errors.push('dataset: "_warnings" must be an array');
   if ('_release' in d) errors.push(...validatePharmacyReleaseContract(d._release));
   if (d._successfulRegions !== undefined && (!Array.isArray(d._successfulRegions) || d._successfulRegions.some((region) => typeof region !== 'string'))) {
     errors.push('dataset: "_successfulRegions" must be an array of strings');
   }
-  errors.push(...validatePharmacyDutyList(d.duties));
+  if (d._preservedRegions !== undefined
+    && (!Array.isArray(d._preservedRegions) || d._preservedRegions.some((region) => typeof region !== 'string' || !region.trim()))) {
+    errors.push('dataset: invalid optional "_preservedRegions"');
+  }
+  errors.push(...validatePharmacyDutyList(d.duties, now));
   return errors;
 }
 

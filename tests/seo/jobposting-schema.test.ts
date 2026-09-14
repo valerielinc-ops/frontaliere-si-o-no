@@ -114,6 +114,21 @@ describe('buildJobPostingSchema — complete input', () => {
     expect(schema.employmentType).toBe('FULL_TIME');
     expect(schema.identifier?.value).toBe('eoc-infermiere-123');
   });
+
+  it('recovers a real title when the localized source contains an AI translation narrative', () => {
+    const schema = buildJobPostingSchema({
+      titleByLocale: {
+        it: 'I need to see the current job data and verify the employer details before I can provide a complete Italian translation: **Assistente vendite 80%** However, the translation breaks down because the source context does not include enough information about the employer or location.',
+      },
+      company: 'Klinik Hirslanden',
+      city: 'Zürich',
+    }, OPTS);
+
+    expect(schema.title).toBe('Assistente vendite 80%');
+    expect(schema.description).toContain('Assistente vendite 80%');
+    expect(schema.title).not.toContain('I need to see');
+    expect(schema.title).not.toContain('**');
+  });
 });
 
 describe('buildJobPostingSchema — partial input (missing address + salary)', () => {

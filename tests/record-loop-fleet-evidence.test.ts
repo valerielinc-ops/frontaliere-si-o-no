@@ -161,6 +161,144 @@ describe('record-loop-fleet-evidence', () => {
       .toMatchObject({ loopId: 'L1', quality: 'partial', ok: false, issueCount: 1, warningCount: 2, sourceRefs: registry.loops.find((loop: any) => loop.loopId === 'L1').sourceRefs, outcome: { outcomeId: 'error-free-useful-session', status: 'partial', independent: false } });
   });
 
+  it('persists workflow operational telemetry with explicit zero declarations', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-operational-metrics-'));
+    writeL1Evidence(dir);
+    const names = [
+      'LOOP_FLEET_STARTED_AT',
+      'LOOP_FLEET_QUOTA_UNITS',
+      'LOOP_FLEET_COLLISIONS',
+      'LOOP_FLEET_GATE_BYPASS',
+      'GITHUB_RUN_ATTEMPT',
+    ];
+    const previous = Object.fromEntries(names.map((name) => [name, process.env[name]]));
+    process.env.LOOP_FLEET_STARTED_AT = new Date(NOW.getTime() - 2_500).toISOString();
+    process.env.LOOP_FLEET_QUOTA_UNITS = '0';
+    process.env.LOOP_FLEET_COLLISIONS = '0';
+    process.env.LOOP_FLEET_GATE_BYPASS = 'false';
+    process.env.GITHUB_RUN_ATTEMPT = '3';
+    try {
+      const result = recordLoopEvidence({ loopId: 'L1', reportDir: dir, now: NOW });
+      expect(result.health).toMatchObject({
+        durationSeconds: 2.5,
+        retryCount: 2,
+        quotaUnits: 0,
+        collisions: 0,
+        gateBypass: false,
+        operationalMetricsComplete: true,
+        operationalMetricsSources: {
+          durationSeconds: 'workflow-start',
+          retryCount: 'github-run-attempt',
+          quotaUnits: 'workflow-declaration',
+          collisions: 'workflow-declaration',
+          gateBypass: 'workflow-declaration',
+        },
+      });
+    } finally {
+      for (const name of names) {
+        if (previous[name] === undefined) delete process.env[name];
+        else process.env[name] = previous[name];
+      }
+    }
+  });
+
+  it('does not invent quota or collision metrics when the workflow declaration is absent', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-operational-metrics-missing-'));
+    writeL1Evidence(dir);
+    const names = ['LOOP_FLEET_STARTED_AT', 'LOOP_FLEET_QUOTA_UNITS', 'LOOP_FLEET_COLLISIONS', 'GITHUB_RUN_ATTEMPT'];
+    const previous = Object.fromEntries(names.map((name) => [name, process.env[name]]));
+    for (const name of names) delete process.env[name];
+    try {
+      const result = recordLoopEvidence({ loopId: 'L1', reportDir: dir, now: NOW });
+      expect(result.health).toMatchObject({
+        durationSeconds: 0,
+        retryCount: null,
+        quotaUnits: null,
+        collisions: null,
+        operationalMetricsComplete: false,
+      });
+    } finally {
+      for (const name of names) {
+        if (previous[name] === undefined) delete process.env[name];
+        else process.env[name] = previous[name];
+      }
+    }
+  });
+
+  it('preserves explicit metric provenance from the nested result outcome', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-operational-metrics-provenance-'));
+    writeL1Evidence(dir);
+    const resultFile = path.join(dir, 'l1-result.json');
+    const result = JSON.parse(fs.readFileSync(resultFile, 'utf8'));
+    result.outcome = {
+      metrics: {
+        retryCount: 4,
+        quotaUnits: 2,
+        collisions: 1,
+        gateBypass: false,
+      },
+    };
+    fs.writeFileSync(resultFile, `${JSON.stringify(result, null, 2)}\n`);
+    const names = ['LOOP_FLEET_QUOTA_UNITS', 'LOOP_FLEET_COLLISIONS', 'LOOP_FLEET_GATE_BYPASS', 'GITHUB_RUN_ATTEMPT'];
+    const previous = Object.fromEntries(names.map((name) => [name, process.env[name]]));
+    delete process.env.LOOP_FLEET_QUOTA_UNITS;
+    delete process.env.LOOP_FLEET_COLLISIONS;
+    delete process.env.LOOP_FLEET_GATE_BYPASS;
+    process.env.GITHUB_RUN_ATTEMPT = '1';
+    try {
+      const recorded = recordLoopEvidence({ loopId: 'L1', reportDir: dir, now: NOW });
+      expect(recorded.health).toMatchObject({
+        retryCount: 4,
+        quotaUnits: 2,
+        collisions: 1,
+        gateBypass: false,
+        operationalMetricsComplete: true,
+        operationalMetricsSources: {
+          retryCount: 'result.outcome.metrics',
+          quotaUnits: 'result.outcome.metrics',
+          collisions: 'result.outcome.metrics',
+          gateBypass: 'result.outcome.metrics',
+        },
+      });
+    } finally {
+      for (const name of names) {
+        if (previous[name] === undefined) delete process.env[name];
+        else process.env[name] = previous[name];
+      }
+    }
+  });
+
+  it('fails closed when the workflow declares an invalid gate bypass value', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-operational-metrics-invalid-gate-'));
+    writeL1Evidence(dir);
+    const names = [
+      'LOOP_FLEET_STARTED_AT',
+      'LOOP_FLEET_QUOTA_UNITS',
+      'LOOP_FLEET_COLLISIONS',
+      'LOOP_FLEET_GATE_BYPASS',
+      'GITHUB_RUN_ATTEMPT',
+    ];
+    const previous = Object.fromEntries(names.map((name) => [name, process.env[name]]));
+    process.env.LOOP_FLEET_STARTED_AT = new Date(NOW.getTime() - 1_000).toISOString();
+    process.env.LOOP_FLEET_QUOTA_UNITS = '0';
+    process.env.LOOP_FLEET_COLLISIONS = '0';
+    process.env.LOOP_FLEET_GATE_BYPASS = '1';
+    process.env.GITHUB_RUN_ATTEMPT = '1';
+    try {
+      const recorded = recordLoopEvidence({ loopId: 'L1', reportDir: dir, now: NOW });
+      expect(recorded.health).toMatchObject({
+        gateBypass: null,
+        operationalMetricsComplete: false,
+        operationalMetricsSources: { gateBypass: 'invalid-declaration' },
+      });
+    } finally {
+      for (const name of names) {
+        if (previous[name] === undefined) delete process.env[name];
+        else process.env[name] = previous[name];
+      }
+    }
+  });
+
   it('validates a measured outcome against the loop-specific independent source contract', () => {
     const outcome = buildOutcome({
       outcomeId: 'error-free-useful-session',

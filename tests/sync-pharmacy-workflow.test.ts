@@ -15,6 +15,7 @@ describe('sync-pharmacy-duties workflow', () => {
   it('delegates the manual duty trigger to the atomic border writer', () => {
     expect(WORKFLOW).toContain('workflow_dispatch: {}');
     expect(WORKFLOW).toContain('uses: ./.github/workflows/sync-pharmacies-border.yml');
+    expect(WORKFLOW).toContain('permissions:\n      contents: write\n    uses: ./.github/workflows/sync-pharmacies-border.yml');
     expect(WORKFLOW).not.toContain('schedule:');
     expect(WORKFLOW).not.toContain('git push');
     expect(WORKFLOW).not.toContain('node scripts/sync-pharmacy-duties.mjs');
