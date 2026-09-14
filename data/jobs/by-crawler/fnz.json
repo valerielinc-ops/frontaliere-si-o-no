@@ -57,7 +57,7 @@
           "solution-consultant-crm-fnz"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T13:28:24.249Z",
       "crawledAt": "",
       "salaryMin": 61000,
@@ -75,7 +75,8 @@
         }
       },
       "addressLocality": "Chiasso",
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "retranslationAttempts": 0
     }
   ]
 }
