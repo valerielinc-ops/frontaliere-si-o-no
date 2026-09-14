@@ -103,6 +103,7 @@ import { captureEvent as posthogCapture } from './posthog';
 import { createAnalyticsEmissionId } from './analyticsEmissionId';
 import {
  isBenignErrorMessage,
+ isIndexedDbError,
  isOriginRedactedThirdPartyStack,
  BROWSER_EXTENSION_ORIGIN_PATTERN,
 } from './benignErrorPatterns';
@@ -330,9 +331,8 @@ function _doLog(eventName: string, params?: Record<string, any>) {
  _logEvent(_analytics, eventName as any, params);
  }
  } catch (error) {
- const msg = error instanceof Error ? error.message : '';
  // If logEvent failed due to IndexedDB loss, re-queue the event and attempt recovery
- if (msg.includes('Indexed Database') || msg.includes('IDBDatabase') || msg.includes('IndexedDB')) {
+ if (isIndexedDbError(error)) {
  _eventQueue.push({ type: 'log', args: [eventName, params] });
  recoverFromIndexedDbLoss();
  return;
@@ -349,8 +349,7 @@ function _doSetProps(properties: Record<string, string>) {
  _setUserProperties(_analytics, properties);
  }
  } catch (error) {
- const msg = error instanceof Error ? error.message : '';
- if (msg.includes('Indexed Database') || msg.includes('IDBDatabase') || msg.includes('IndexedDB')) {
+ if (isIndexedDbError(error)) {
  _eventQueue.push({ type: 'props', args: [properties] });
  recoverFromIndexedDbLoss();
  }
@@ -1348,7 +1347,7 @@ export const Analytics = {
  // iOS Safari IndexedDB errors can also surface as plain errors (not just
  // rejections) — special-cased BEFORE the benign drop because they trigger an
  // Analytics re-init, not a silent drop.
- if (msg.includes('Indexed Database') || msg.includes('IDBDatabase') || msg.includes('IndexedDB')) {
+ if (isIndexedDbError(msg)) {
  recoverFromIndexedDbLoss();
  return;
  }
@@ -1384,9 +1383,7 @@ export const Analytics = {
  // Firebase Analytics uses IndexedDB internally for event persistence.
  // When iOS suspends/resumes the page, the IDB connection can die.
  // Instead of silently dropping events, attempt to re-initialize Analytics.
- if (message.includes('Indexed Database server lost') || message.includes('IDBDatabase')
- || message.includes('Internal error was encountered in the Indexed Database')
- || message.includes('Refusing to open IndexedDB')) {
+ if (isIndexedDbError(message)) {
  event.preventDefault();
  recoverFromIndexedDbLoss();
  return;
