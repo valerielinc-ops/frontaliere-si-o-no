@@ -286,6 +286,14 @@ const IMPACT_VERB = String.raw`impatt\w*|impact\b|ricadut\w*|tocca\w*|touch\w*|r
 // scansionabile «.json`, sulle sitemap o sui feed» — bucket `canonical-sitemap`.
 const SPACED_HYPHEN = String.raw`[ \t]-[ \t]`;
 const CLAUSE_BODY = String.raw`(?:(?!${SPACED_HYPHEN})[^.;—–\n]|\.(?!\s|$))`;
+// Una virgola puo' anche essere il punto in cui la ricognizione negata lascia
+// posto a una proposizione affermativa («nessun impatto su X, il fix tocca Y»).
+// Se dopo la virgola compare un verbo di impatto entro poche parole, chiudi qui
+// la forma A: altrimenti il suo corpo greedy mangia proprio il verbo che la forma
+// B deve usare come ancora nel replace successivo. Le liste negate restano
+// invariate: una virgola seguita da nomi/coordinate senza un verbo di impatto
+// continua a far parte del corpo della ricognizione.
+const NEGATED_CLAUSE_BODY = String.raw`(?:(?!,\s+(?:\S+\s+){0,3}(?:${IMPACT_VERB})\b)${CLAUSE_BODY})`;
 // (C) La negazione E' il difetto quando la riga afferma uno SWEEP incompleto: «lo
 //     stesso anti-pattern in `cf-purge-cache.mjs` non e' toccato». E' la
 //     formulazione che REVIEW.md prescrive per un finding di classe, ed e' anche
@@ -301,7 +309,7 @@ const SWEEP_ASSERTION_RE = /stesso anti-?pattern|file gemello|stesso costrutto|s
 // (A) negazione PRIMA del verbo: «nessun impatto su …», «nulla tocca …»,
 //     «nessun articolo nuovo raggiunge …», «no impact on …».
 const NEGATED_IMPACT_CLAUSE_RE =
-  new RegExp(String.raw`\b(?:nessun\w*|nulla|niente|zero|senza|non|not|no)\b(?:\s+\S+){0,3}?\s+(?:${IMPACT_VERB})${CLAUSE_BODY}*`, 'giu');
+  new RegExp(String.raw`\b(?:nessun\w*|nulla|niente|zero|senza|non|not|no)\b(?:\s+\S+){0,3}?\s+(?:${IMPACT_VERB})${NEGATED_CLAUSE_BODY}*`, 'giu');
 // (B) negazione DOPO il verbo, in forma contrastiva: «il ramo tocca l'automazione
 //     delle issue di CI, non `dist/api/`, le sitemap, i feed o gli slug». Qui il
 //     vocabolario del bucket sta nella coda negata, quindi si toglie SOLO quella

@@ -189,8 +189,9 @@ jobs:
               IMPORTANT_MARKER_STATUS=$?
             fi
             if [ "$IMPORTANT_MARKER_STATUS" -gt 1 ]; then
-              echo "::error::grep -P non ha potuto validare il marker 🔴 Important (exit $IMPORTANT_MARKER_STATUS)."
-              continue
+              echo "::error::grep -P non ha potuto validare il marker 🔴 Important (exit $IMPORTANT_MARKER_STATUS): Classe B disabilitata per questa PR."
+              # Non uscire dall'iterazione: le classi A e C non usano il marker
+              # e devono restare raggiungibili anche se il runner ha un PCRE rotto.
             fi
 
             REASON=""; RESCUE=""; CLASS=""
