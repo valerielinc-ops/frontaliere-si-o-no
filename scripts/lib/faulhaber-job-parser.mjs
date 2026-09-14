@@ -15,6 +15,9 @@
  *   - isFaulhaberJob()         — Match jobs belonging to this company
  *   - isTrustedDomain()        — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
+ *
+ * `validateDetailHtml()` is also exported as the testable detail-validation
+ * boundary; it returns the parsed detail that the caller can reuse.
  */
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
@@ -184,14 +187,14 @@ function parseListingData(body = '') {
  * Parse a Faulhaber detail page for description and location.
  * HPv3 detail pages have the job description in structured sections.
  */
-function parseDetailPage(html = '') {
+function parseDetailPage(html = '', document = null) {
   if (!html) return { description: '', location: '' };
 
-  const { document } = new JSDOM(html).window;
+  const parsedDocument = document || new JSDOM(html).window.document;
 
   // Extract location from meta or detail fields
   let location = '';
-  const locationEls = document.querySelectorAll('.tag, .detail-field, [class*="location"]');
+  const locationEls = parsedDocument.querySelectorAll('.tag, .detail-field, [class*="location"]');
   for (const el of locationEls) {
     const text = normalizeSpace(el.textContent || '');
     if (SWISS_LOCATION_RE.test(text)) {
@@ -213,7 +216,7 @@ function parseDetailPage(html = '') {
 
   let body = '';
   for (const sel of BODY_SELECTORS) {
-    const els = document.querySelectorAll(sel);
+    const els = parsedDocument.querySelectorAll(sel);
     for (const el of els) {
       const candidate = stripHtml(el.innerHTML || '');
       if (candidate.length > body.length) body = candidate;
@@ -224,7 +227,7 @@ function parseDetailPage(html = '') {
   if (body.length < MIN_DESC_LENGTH) {
     let best = null;
     let bestLen = 0;
-    for (const el of document.querySelectorAll('div, section, article')) {
+    for (const el of parsedDocument.querySelectorAll('div, section, article')) {
       const len = (el.textContent || '').trim().length;
       if (len > bestLen) { best = el; bestLen = len; }
     }
@@ -236,17 +239,17 @@ function parseDetailPage(html = '') {
   return { description: body, location };
 }
 
-function validateDetailHtml(html = '') {
+export function validateDetailHtml(html = '') {
   if (!html) throw new Error('Faulhaber: empty detail response');
   const { document } = new JSDOM(html).window;
   if (!document.querySelector('.annonce #position')) {
     throw new Error('Faulhaber: detail response has no supported vacancy boundary');
   }
-  const detail = parseDetailPage(html);
+  const detail = parseDetailPage(html, document);
   if (detail.description.length < MIN_DESC_LENGTH) {
     throw new Error(`Faulhaber: detail description below ${MIN_DESC_LENGTH} characters`);
   }
-  return html;
+  return detail;
 }
 
 /* ── Category / Employment helpers ────────────────────────── */
@@ -377,7 +380,7 @@ export async function fetchAllFaulhaberJobs({
 
     if (listing.url) {
       try {
-        const detailHtml = await fetchFaulhaberHtml(listing.url, {
+        const detail = await fetchFaulhaberHtml(listing.url, {
           timeoutMs: 15000,
           validateRedirectUrl: detailRedirectValidator(listing.url),
           parseBody: validateDetailHtml,
@@ -385,7 +388,6 @@ export async function fetchAllFaulhaberJobs({
           fetchHtmlImpl,
           fetchJinaImpl,
         });
-        const detail = parseDetailPage(detailHtml);
         description = detail.description;
         if (!detailLocation && detail.location) detailLocation = detail.location;
       } catch (err) {

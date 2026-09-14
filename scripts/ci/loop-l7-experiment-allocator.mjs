@@ -25,8 +25,6 @@ export const MINIMUM_SAMPLE = 200;
 export const MAX_CANDIDATES = 50;
 const DEFAULT_PRIMARY_METRIC = 'registered_outcome_per_eligible_cohort';
 const DEFAULT_GUARDRAILS = ['persistent assignment', 'minimum sample', 'explicit expiry', 'no automatic price change'];
-const DEFAULT_ASSIGNMENT_METHOD = 'stable-sha256';
-const DEFAULT_ASSIGNMENT_KEY = 'experiment-session-id';
 const LOCALES = new Set(['it', 'en', 'de', 'fr']);
 
 function finiteDate(value) {
@@ -69,6 +67,8 @@ function summarizeIssues(issues, quality) {
 }
 
 function buildAllocationPlan({ registry, policy, now }) {
+  const allocationPolicy = policy?.allocationPolicy;
+  if (!allocationPolicy) throw new Error('L7 allocationPolicy is missing from the validated loop registry');
   const candidateIds = (Array.isArray(registry?.candidates) ? registry.candidates : [])
     .map((candidate) => text(candidate?.id) ? candidate.id.trim() : null)
     .filter(Boolean)
@@ -78,16 +78,12 @@ function buildAllocationPlan({ registry, policy, now }) {
   const expiresAt = new Date(now.getTime() + (policy.lifecycle?.candidateTtlHours || 168) * 3_600_000).toISOString();
   return {
     schemaVersion: 1,
-    assignmentMethod: DEFAULT_ASSIGNMENT_METHOD,
-    assignmentKey: DEFAULT_ASSIGNMENT_KEY,
+    persistent: allocationPolicy.persistent,
+    assignmentMethod: allocationPolicy.assignmentMethod,
+    assignmentKey: allocationPolicy.assignmentKey,
     seed,
     candidateIds,
-    persistent: true,
-    boundedCanary: {
-      enabled: false,
-      maxExposure: 0,
-      requiresReviewedApproval: true,
-    },
+    boundedCanary: { ...allocationPolicy.boundedCanary },
     preRegistration: {
       outcomeId: policy.outcome.outcomeId,
       primaryMetric: policy.primaryMetric,
@@ -95,15 +91,10 @@ function buildAllocationPlan({ registry, policy, now }) {
       guardrails: [...policy.guardrails],
       expiresAt,
     },
-    contaminationPolicy: {
-      controlled: true,
-      key: DEFAULT_ASSIGNMENT_KEY,
-      rejectReassignment: true,
-      rejectCrossCandidateExposure: true,
-    },
-    trafficMutationAllowed: false,
-    priceMutationAllowed: false,
-    noAutomaticPriceChange: true,
+    contaminationPolicy: { ...allocationPolicy.contaminationPolicy },
+    trafficMutationAllowed: allocationPolicy.trafficMutationAllowed,
+    priceMutationAllowed: allocationPolicy.priceMutationAllowed,
+    noAutomaticPriceChange: allocationPolicy.noAutomaticPriceChange,
   };
 }
 

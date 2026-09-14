@@ -19171,6 +19171,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'transpa-reg-quadri-rinvio-1-ottobre',
+    category: 'novita',
+    date: '2026-09-14T11:57:32.850Z',
+    image: '/images/blog/transpa-reg-quadri-rinvio-1-ottobre.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'detenzione-48-ore-manifestazioni',
+    category: 'novita',
+    date: '2026-09-14T12:38:56.698Z',
+    image: '/images/blog/detenzione-48-ore-manifestazioni.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

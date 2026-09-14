@@ -322,6 +322,32 @@ describe('L7 Experiment Allocator', () => {
       .toMatchObject({ loopId: 'L7', safeToAct: false, allocationPlan: { persistent: true } });
   });
 
+  it('takes the allocation contract from the registry instead of script defaults', async () => {
+    const files = tempFiles(registry(), null);
+    const loopRegistry = JSON.parse(fs.readFileSync('data/loop-fleet/loop-registry.json', 'utf8'));
+    const l7 = loopRegistry.loops.find((loop: { loopId: string }) => loop.loopId === 'L7');
+    l7.allocationPolicy.assignmentMethod = 'stable-sha256-test';
+    l7.allocationPolicy.assignmentKey = 'registered-experiment-key';
+    l7.allocationPolicy.contaminationPolicy.key = 'registered-experiment-key';
+    const registryPath = path.join(files.dir, 'loop-registry.json');
+    fs.writeFileSync(registryPath, `${JSON.stringify(loopRegistry, null, 2)}\n`);
+
+    const result = await runL7({
+      now: NOW,
+      candidatesPath: files.candidatesPath,
+      outcomePath: files.outcomePath,
+      registryPath,
+      reportDir: files.reportDir,
+      logger: { log() {} },
+    });
+
+    expect(result.allocationPlan).toMatchObject({
+      assignmentMethod: 'stable-sha256-test',
+      assignmentKey: 'registered-experiment-key',
+      contaminationPolicy: { key: 'registered-experiment-key' },
+    });
+  });
+
   it('keeps the allocation seed deterministic for the same registry snapshot', async () => {
     const first = tempFiles(registry(), null);
     const second = tempFiles(registry(), null);

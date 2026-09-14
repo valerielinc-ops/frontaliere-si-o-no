@@ -94,6 +94,10 @@ on:
 jobs:
   validate-dist-source:
     runs-on: ubuntu-latest
+    # Source validators measured ~38 min on the current artifact. Keep a
+    # bounded runner even if a validator or GitHub API call stops making
+    # progress.
+    timeout-minutes: 90
     outputs:
       failed_gates: ${{ steps.gate-results.outputs.failed_gates }}
     permissions:
@@ -602,6 +606,10 @@ jobs:
 
   validate-dist-postbuild:
     runs-on: ubuntu-latest
+    # audit:all is the critical path and historically takes about 2h20m.
+    # Five hours leaves ample headroom without allowing an unbounded audit to
+    # hold a runner forever.
+    timeout-minutes: 300
     outputs:
       failed_gates: ${{ steps.gate-results.outputs.failed_gates }}
     permissions:
@@ -1543,8 +1551,9 @@ jobs:
           # being absorbed. It has NOT been measured at production scale (no
           # dist/ exists outside this job), so treat the first post-merge run's
           # `audit-all: - collect:` line as the measurement, not this comment.
-          # The job has no timeout-minutes, so the failure mode of being wrong
-          # here is a slower gate, not a fabricated red.
+          # The job has an explicit 300-minute timeout, deliberately well above
+          # the observed runtime; a slower first run remains visible as a
+          # bounded gate rather than holding a runner indefinitely.
           #
           # Unlike that report, this one is a REAL gate: non-zero rc is
           # appended to /tmp/post-build-failures.txt like every spawn_capped
@@ -1879,6 +1888,9 @@ jobs:
   # WITH EACH OTHER even though they're now parallel with audit:all).
   validate-dist-postbuild-bfs:
     runs-on: ubuntu-latest
+    # The two serialized BFS walkers measured ~46 min on the current
+    # artifact; this cap leaves margin for runner variance and stalls.
+    timeout-minutes: 120
     outputs:
       failed_gates: ${{ steps.gate-results.outputs.failed_gates }}
     permissions:
