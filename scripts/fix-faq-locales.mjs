@@ -14,7 +14,7 @@ import { readFileSync, writeFileSync, existsSync, readdirSync } from 'fs';
 import { resolve, basename } from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-import { freeTranslateWithRetry, logCascadeSummary } from './lib/free-translate.mjs';
+import { freeTranslateWithRetry, isSourcePassthrough, logCascadeSummary } from './lib/free-translate.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -92,29 +92,27 @@ function insertFaqKey(filePath, articleId, faqArray) {
 
 // ── Language detection (same as job crawlers) ───────────────
 
-const normalizeFaqText = (text) => String(text ?? '').replace(/\s+/g, ' ').trim().toLowerCase();
-
-function sameFaqPair(left, right) {
+function hasSourcePassthroughField(left, right) {
   return !!left && !!right
-    && normalizeFaqText(left.q) === normalizeFaqText(right.q)
-    && normalizeFaqText(left.a) === normalizeFaqText(right.a);
+    && (isSourcePassthrough(right.q, left.q) || isSourcePassthrough(right.a, left.a));
 }
 
 /**
  * Check the unit that the writer actually translates: one FAQ pair.
  *
  * The old aggregate check let one Italian fallback pair hide among otherwise
- * translated pairs. Comparing with the Italian source is deterministic and
- * catches the cascade's verbatim output even when the language detector picks
- * another language for a short FAQ. The previous non-expected-locale check is
- * retained, but applied to each pair instead of the aggregate.
+ * translated pairs. Comparing each output field with its Italian source is
+ * deterministic and catches a partial cascade passthrough even when the
+ * language detector picks another language for a short FAQ. The previous
+ * non-expected-locale check is retained, but applied to each pair instead of
+ * the aggregate.
  */
 export function wrongLocalePair(faqArray, expectedLocale, sourceFaq = null, sourceLang = 'it') {
   if (expectedLocale === sourceLang) return null;
 
   for (let index = 0; index < faqArray.length; index++) {
     const pair = faqArray[index];
-    if (sameFaqPair(pair, sourceFaq?.[index])) {
+    if (hasSourcePassthroughField(pair, sourceFaq?.[index])) {
       return { index, detected: sourceLang, via: 'verbatim' };
     }
 

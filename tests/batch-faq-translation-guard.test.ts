@@ -11,6 +11,7 @@ vi.mock('../scripts/lib/free-translate.mjs', async (importOriginal) => {
 });
 
 import {
+  localeNeedsFaqRepair,
   processTranslation,
   translateFaq,
 } from '../scripts/batch-add-faq-to-articles.mjs';
@@ -25,6 +26,16 @@ const IT_PAIR = {
 const EN_PAIR = {
   q: 'Where do cross-border workers living in Italy work?',
   a: 'Cross-border workers living in Italy work in Switzerland and can hold a valid G permit.',
+};
+
+const IT_PAIR_TWO = {
+  q: 'Quali documenti servono per richiedere un permesso G?',
+  a: 'Per richiedere un permesso G servono i documenti indicati dall autorità competente.',
+};
+
+const DE_PAIR = {
+  q: 'Welche Dokumente braucht man für die Beantragung eines G-Ausweises?',
+  a: 'Für die Beantragung eines G-Ausweises braucht man die von der zuständigen Behörde verlangten Dokumente.',
 };
 
 function bodyFile(faq: unknown): string {
@@ -60,6 +71,23 @@ describe('batch FAQ — source-language translation guard (#7710)', () => {
     });
   });
 
+  it('rejects a pair when only one field is the Italian source', () => {
+    expect(wrongLocalePair(
+      [{ q: IT_PAIR.q, a: EN_PAIR.a }],
+      'en',
+      [IT_PAIR],
+    )).toEqual({
+      index: 0,
+      detected: 'it',
+      via: 'verbatim',
+    });
+  });
+
+  it('marks a shorter locale FAQ for retry after a rejected top-up', () => {
+    expect(localeNeedsFaqRepair([EN_PAIR], 'en', [IT_PAIR, IT_PAIR_TWO])).toBe(true);
+    expect(localeNeedsFaqRepair([EN_PAIR, EN_PAIR], 'en', [IT_PAIR, IT_PAIR_TWO])).toBe(false);
+  });
+
   it('rejects verbatim engine output and reports that the FAQ is not written', async () => {
     freeTranslateMock.mockImplementation(async ({ text }: { text: string }) => text);
     const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
@@ -70,6 +98,29 @@ describe('batch FAQ — source-language translation guard (#7710)', () => {
     });
 
     expect(errorSpy.mock.calls.flat().join('\n')).toMatch(/skipping FAQ write/);
+  });
+
+  it('rejects a source echo even when the other field is unusable', async () => {
+    freeTranslateMock.mockImplementation(async ({ text }: { text: string }) => (
+      text === IT_PAIR.q ? text : ''
+    ));
+
+    await expect(translateFaq([IT_PAIR], 'en')).resolves.toEqual({
+      faq: null,
+      rejected: true,
+    });
+  });
+
+  it('does not let an earlier generic fallback hide a later wrong-locale pair', async () => {
+    freeTranslateMock.mockImplementation(async ({ text }: { text: string }) => {
+      if (text === IT_PAIR.q || text === IT_PAIR.a) return '';
+      return text === IT_PAIR_TWO.q ? DE_PAIR.q : DE_PAIR.a;
+    });
+
+    await expect(translateFaq([IT_PAIR, IT_PAIR_TWO], 'en')).resolves.toEqual({
+      faq: null,
+      rejected: true,
+    });
   });
 
   it('leaves the locale file unchanged when processTranslation receives source output', async () => {

@@ -468,6 +468,12 @@ export function extractFaqFromContent(fileContent) {
 
 const MIN_FAQ_PAIRS = 3;
 
+export function localeNeedsFaqRepair(localeFaq, expectedLocale, sourceFaq) {
+  return !Array.isArray(localeFaq)
+    || localeFaq.length < sourceFaq.length
+    || !!wrongLocalePair(localeFaq, expectedLocale, sourceFaq);
+}
+
 /**
  * Discover articles that need work:
  * - needsGeneration: IT has no .faq key → needs AI generation
@@ -513,7 +519,9 @@ function discoverArticles() {
         missingLocales.push(locale);
       } else {
         const localeFaq = extractFaqFromContent(locContent);
-        if (localeFaq && wrongLocalePair(localeFaq, locale, itFaq)) {
+        // A rejected top-up leaves the previous, shorter locale FAQ in place;
+        // queue it again so the missing tail is retried on the next run.
+        if (localeNeedsFaqRepair(localeFaq, locale, itFaq)) {
           missingLocales.push(locale);
         }
       }
@@ -789,9 +797,9 @@ export async function translateFaq(faqArray, targetLang) {
       freeTranslateWithRetry({ text: pair.a, sourceLang: 'it', targetLang }),
     ]);
 
+    const sourceEcho = isSourcePassthrough(pair.q, translatedQ)
+      || isSourcePassthrough(pair.a, translatedA);
     const usable = translatedQ && translatedA && translatedQ.length > 10 && translatedA.length > 20;
-    const sourceEcho = usable
-      && (isSourcePassthrough(pair.q, translatedQ) || isSourcePassthrough(pair.a, translatedA));
     if (usable && !sourceEcho) {
       results.push({ q: translatedQ, a: translatedA });
     } else {
@@ -807,7 +815,15 @@ export async function translateFaq(faqArray, targetLang) {
   // callers must skip the locale write instead of publishing the Italian pair.
   // Keep the pre-existing Italian fallback only for an unclassified engine
   // failure, so this fix does not silently change that separate policy.
-  const wrong = wrongLocalePair(results, targetLang, faqArray);
+  let wrong = null;
+  for (let index = 0; index < results.length; index++) {
+    if (fallbackIndexes.has(index)) continue;
+    const pairWrong = wrongLocalePair([results[index]], targetLang, [faqArray[index]]);
+    if (pairWrong) {
+      wrong = { ...pairWrong, index };
+      break;
+    }
+  }
   if (sourceEchoIndexes.size > 0 || (wrong && !fallbackIndexes.has(wrong.index))) {
     const rejectedIndex = sourceEchoIndexes.size > 0 ? [...sourceEchoIndexes][0] : wrong.index;
     const rejected = wrong?.index === rejectedIndex ? wrong : {
