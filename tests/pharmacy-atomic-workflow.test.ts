@@ -9,9 +9,10 @@ describe('pharmacy atomic refresh workflow', () => {
   it('keeps the duty alias free of a release-less main writer', () => {
     const source = readFileSync(resolve(WORKFLOWS, 'sync-pharmacy-duties.yml'), 'utf8');
     expect(source).toContain('workflow_dispatch: {}');
+    expect(source).toContain("cron: '*/15 * * * *'");
     expect(source).toContain('uses: ./.github/workflows/sync-pharmacies-border.yml');
-    expect(source).not.toContain('schedule:');
     expect(source).not.toMatch(/\bgit push\b/);
+    expect(source).not.toContain('node scripts/sync-pharmacy-duties.mjs');
   });
 
   it('stages duties and finalizes them in the same border writer job', () => {
@@ -57,5 +58,27 @@ describe('pharmacy atomic refresh workflow', () => {
     expect(`${result.stdout}\n${result.stderr}`).toContain(`atomic finalizer completed after duty diagnostic exit=${dutyExit}`);
     expect(result.stdout).toContain('FINALIZER');
     expect(result.stdout).toContain('CHECK');
+  });
+
+  it.each([
+    ['finalizer', 'npm run pharmacies:import'],
+    ['checker', 'npm run pharmacies:check'],
+    ['staging', 'git add data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json'],
+  ])('fails closed when retry %s fails', (_step, command) => {
+    const source = readFileSync(resolve(WORKFLOWS, 'sync-pharmacies-border.yml'), 'utf8');
+    const retryCommand = source.match(/--regenerate-cmd '([\s\S]*?)\n\s*'/)?.[1];
+    expect(retryCommand).toBeTruthy();
+
+    const simulation = retryCommand!
+      .replace('node scripts/sync-pharmacy-duties.mjs', ':')
+      .replace('npm run pharmacies:import', command === 'npm run pharmacies:import' ? '(exit "$FAILURE_EXIT")' : 'echo FINALIZER')
+      .replace('npm run pharmacies:check', command === 'npm run pharmacies:check' ? '(exit "$FAILURE_EXIT")' : 'echo CHECK')
+      .replace('git add data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json', command.startsWith('git add') ? '(exit "$FAILURE_EXIT")' : 'echo ADD');
+    const result = spawnSync('bash', ['-e', '-u', '-o', 'pipefail', '-c', simulation], {
+      env: { ...process.env, FAILURE_EXIT: '7' },
+      encoding: 'utf8',
+    });
+
+    expect(result.status, result.stderr).toBe(7);
   });
 });
