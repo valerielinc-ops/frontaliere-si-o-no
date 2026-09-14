@@ -6376,6 +6376,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-c-nidvaldo-requisiti.title': 'Permis C canton Nidwald : exigences et demande',
     'blog.article.permesso-c-nidvaldo-requisiti.excerpt': 'Guide complet du permis de séjour C dans le canton de Nidwald : années de résidence, critères d\'intégration et procédure.',
     'blog.article.permesso-c-nidvaldo-requisiti.imageAlt': 'Bâtiment administratif dans le canton de Nidwald',
+    'blog.article.benzina-oggi-costo-confronto.title': 'L\'essence coûte aujourd\'hui moins cher que dans les années 80',
+    'blog.article.benzina-oggi-costo-confronto.excerpt': 'Le prix de l\'essence est d\'environ 2 CHF/litre, inférieur à la valeur des années 80 corrigée du pouvoir d’achat (3,50 CHF) et plus avantageux que dans de nombreux pays étrangers.',
+    'blog.article.benzina-oggi-costo-confronto.imageAlt': 'Station-service suisse avec prix de l\'essence autour de 2 CHF par litre',
 };
 
 export default blogMetaChFr;

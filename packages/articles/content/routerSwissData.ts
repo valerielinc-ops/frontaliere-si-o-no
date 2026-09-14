@@ -2151,6 +2151,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'latte-e-agricoltura-svizzera-studi': { it: 'latte-e-agricoltura-svizzera-studi', en: 'milk-and-swiss-agriculture-study', de: 'milch-und-schweizer-landwirtschaft-studie', fr: 'lait-et-agriculture-suisse-etude' },
  'ps-chiede-cpi-su-f35': { it: 'ps-chiede-cpi-su-f35', en: 'ps-requests-f35-parliamentary-inquiry', de: 'ps-fordert-f35-untersuchungskommission', fr: 'le-ps-demande-une-enquete-sur-les-f35' },
  'permesso-c-nidvaldo-requisiti': { it: 'permesso-c-nidvaldo-requisiti', en: 'permits-c-nidwalden-requirements', de: 'bewilligung-c-nidwalden-voraussetzungen', fr: 'permis-c-nidwald-conditions' },
+ 'benzina-oggi-costo-confronto': { it: 'benzina-oggi-costo-confronto', en: 'petrol-today-costs-less-than-in-the-1980s', de: 'benzin-kostet-heute-weniger-als-in-den-80er-jahren', fr: 'l-essence-coute-aujourd-hui-moins-cher-que-dans-les-annees-80' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

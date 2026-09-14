@@ -6376,6 +6376,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-c-nidvaldo-requisiti.title': 'Permesso C Canton Nidvaldo: requisiti e domanda',
     'blog.article.permesso-c-nidvaldo-requisiti.excerpt': 'Guida completa al permesso di domicilio C nel Cantone di Nidvaldo: anni di residenza, criteri di integrazione e procedura.',
     'blog.article.permesso-c-nidvaldo-requisiti.imageAlt': 'Edificio amministrativo nel Canton Nidvaldo',
+    'blog.article.benzina-oggi-costo-confronto.title': 'La benzina oggi costa meno che negli anni ‘80',
+    'blog.article.benzina-oggi-costo-confronto.excerpt': 'Il prezzo della benzina è attorno a 2 CHF/litro, inferiore al valore degli anni ’80 corretto per potere d’acquisto (3,50 CHF) e più vantaggioso rispetto a molti Paesi esteri.',
+    'blog.article.benzina-oggi-costo-confronto.imageAlt': 'Stazione di servizio svizzera con prezzo benzina intorno a 2 CHF/litro',
 };
 
 export default blogMetaChIt;
