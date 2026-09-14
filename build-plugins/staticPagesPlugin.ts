@@ -1002,7 +1002,7 @@ function buildHomepageRelatedGuidesBlock(locale: HpSeoLocale): string {
 }
 
 // ── Locale main nav (crawlable) ─────────────────────────────────────
-// The 17-anchor pipe nav that every buildPage() artifact ships (see
+// The locale-aware pipe nav shipped with generated static artifacts (see
 // `navHtml` in the page builder). Hoisted to module scope — it is no
 // longer buildPage()-private, because the locale-root SPA shells need the
 // SAME table and CLAUDE.md non-negotiable #6 forbids a second copy of it.
