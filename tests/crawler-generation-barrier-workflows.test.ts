@@ -211,6 +211,11 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
           '  echo "⚠️ group commit: push contention loss (exit 42) — crawl data was fine, group not failed" >> "$GITHUB_STEP_SUMMARY"',
           '  exit 0',
           'fi',
+          'if [ "$git_commit_exit" -eq 44 ]; then',
+          '  echo "::warning::group commit: global data-pipeline lease is busy (exit 44); no group data was staged and the next scheduled cycle will retry — group not failed (systemic class)."',
+          '  echo "⚠️ group commit: global data-pipeline lease busy (exit 44) — group data not staged, group not failed" >> "$GITHUB_STEP_SUMMARY"',
+          '  exit 0',
+          'fi',
           'exit "$git_commit_exit"',
         ].join('\n'),
       });

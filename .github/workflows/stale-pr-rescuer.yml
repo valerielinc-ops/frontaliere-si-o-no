@@ -270,8 +270,9 @@ jobs:
             # new heads expose only the required execution check itself.
             RESCUE_RUN=$(echo "$checks" | jq -r '[.check_runs[] |
               select((.name == "vitest execution" or .name == "vitest (unit + integration)") and .status == "completed" and .conclusion != "skipped")]
-              | sort_by([(.name == "vitest execution"), .completed_at]) | last | .details_url // ""
-              | capture("/actions/runs/(?<id>[0-9]+)")?.id // empty')
+              | sort_by([(.name == "vitest execution"), .completed_at]) | last
+              | (.details_url // "")
+              | (try (capture("/actions/runs/(?<id>[0-9]+)").id) catch "")')
             ACTION_OK=true
             if [ -n "$RESCUE_RUN" ]; then
               gh run rerun "$RESCUE_RUN" --repo "$REPO" || {
