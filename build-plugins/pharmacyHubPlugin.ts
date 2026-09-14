@@ -55,7 +55,7 @@ import borderSourcesJson from '../data/pharmacy-border-sources.json';
 const registry = registryJson as PharmacySourcesRegistry;
 const borderSources = borderSourcesJson as { sources?: Record<string, { officialSourceUrl?: string }> };
 const ITALY_BORDER_SOURCE_URL = borderSources.sources?.['italy-border']?.officialSourceUrl
-  || 'https://www.dati.salute.gov.it/it/dataset/farmacie/';
+  || null;
 const ITALY_BORDER_PATH: Record<PageLocale, string> = {
   it: '/farmacie/italia/',
   en: '/en/pharmacies/italy/',
@@ -289,6 +289,9 @@ function renderBody(locale: PageLocale): string {
   const heading = activeEntries.length > 0 ? COVERAGE_ACTIVE_HEADING[locale] : COVERAGE_IN_PROGRESS_HEADING[locale];
   const intro = coverageIntro(activeEntries.length, cantonCards.length, locale);
   const cards = cantonCards.map((card) => renderCantonCard(card, locale)).join('');
+  const borderSourceLink = ITALY_BORDER_SOURCE_URL
+    ? `<a href="${esc(ITALY_BORDER_SOURCE_URL)}" rel="nofollow noopener">${esc(BORDER_SOURCE_LABEL[locale])} →</a>`
+    : '';
 
   return `
     <header>
@@ -304,7 +307,7 @@ function renderBody(locale: PageLocale): string {
     <section>
       <h2 style="${H2_STYLE}">${esc(BORDER_HEADING[locale])}</h2>
       <p style="${BODY_STYLE}">${esc(BORDER_TEXT[locale])}</p>
-      <p style="${BODY_STYLE}"><a href="${esc(ITALY_BORDER_PATH[locale])}">${esc(BORDER_DIRECTORY_LABEL[locale])} →</a><br><a href="${esc(ITALY_BORDER_SOURCE_URL)}" rel="nofollow noopener">${esc(BORDER_SOURCE_LABEL[locale])} →</a></p>
+      <p style="${BODY_STYLE}"><a href="${esc(ITALY_BORDER_PATH[locale])}">${esc(BORDER_DIRECTORY_LABEL[locale])} →</a>${borderSourceLink ? `<br>${borderSourceLink}` : ''}</p>
     </section>
     <section>
       <h2 style="${H2_STYLE}">${esc(DISCLAIMER_HEADING[locale])}</h2>
