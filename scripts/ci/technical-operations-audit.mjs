@@ -201,6 +201,119 @@ function extractDataPaths(run) {
   return [...new Set([...String(run || '').matchAll(DATA_PATH_RE)].map((match) => match[1]))];
 }
 
+/**
+ * Remove shell string contents before looking for operational commands.
+ * Workflow steps often print a copy/paste recipe containing `git add` and a
+ * data path; those words are documentation, not a write performed by the
+ * step. Preserve newlines so finding line numbers remain stable. When enabled,
+ * preserve a quoted data path only after an operational `git add` or shell
+ * redirection, so real quoted writes remain visible without reviving recipes.
+ */
+function shellOperationalText(run, { preserveQuotedWritePaths = false } = {}) {
+  const source = String(run || '');
+  const output = [];
+  let line = '';
+  let doubleQuoted = false;
+  let comment = false;
+  let escaped = false;
+  let quote = null;
+  let quotePrefix = '';
+  let quoteContent = '';
+  // This is the current shell command, not the current physical line. Keep it
+  // separate from the masked output so a quoted data path can still inherit
+  // the operational `git add`/redirection prefix across escaped newlines.
+  let logicalCommand = '';
+  let trailingBackslashes = 0;
+
+  const append = (text) => {
+    output.push(text);
+    const parts = text.split('\n');
+    line = parts.length > 1 ? parts.at(-1) : `${line}${text}`;
+    for (const char of text) {
+      // GitHub's YAML parser normally gives us LF, but accepting CRLF here
+      // keeps the shell-context state independent of the source line ending.
+      if (char === '\r') continue;
+      if (char === '\n') {
+        // A shell continuation is present only after an odd number of trailing
+        // backslashes. Remove the continuation slash but retain the command
+        // prefix while the next physical line is appended.
+        if (trailingBackslashes % 2 === 1) logicalCommand = logicalCommand.slice(0, -1);
+        else logicalCommand = '';
+        trailingBackslashes = 0;
+      } else {
+        logicalCommand += char;
+        trailingBackslashes = char === '\\' ? trailingBackslashes + 1 : 0;
+      }
+    }
+  };
+  const mask = (text) => append([...text].map((char) => char === '\n' ? '\n' : ' ').join(''));
+  const quotedPathIsOperational = (content) => {
+    if (!preserveQuotedWritePaths || !/^((?:data|public\/data)\/[A-Za-z0-9_./-]+\.(?:json|jsonl|csv|ts))$/i.test(content)) return false;
+    const command = quotePrefix.split(/&&|\|\||[;|]/).at(-1) || '';
+    return /\bgit\s+add\b[^\n]*$|(?:>>|>)\s*$/i.test(command);
+  };
+
+  for (const char of source) {
+    if (quote) {
+      if (doubleQuoted && escaped) {
+        quoteContent += char;
+        escaped = false;
+        continue;
+      }
+      if (doubleQuoted && char === '\\') {
+        quoteContent += char;
+        escaped = true;
+        continue;
+      }
+      if (char === quote) {
+        if (quotedPathIsOperational(quoteContent)) append(quoteContent);
+        else mask(quoteContent);
+        mask(char);
+        quote = null;
+        doubleQuoted = false;
+        escaped = false;
+        quoteContent = '';
+        continue;
+      }
+      quoteContent += char;
+      continue;
+    }
+    if (comment) {
+      if (char === '\n') comment = false;
+      mask(char);
+      continue;
+    }
+    if (escaped) {
+      escaped = false;
+      mask(char);
+      continue;
+    }
+    if (doubleQuoted && char === '\\') {
+      escaped = true;
+      mask(char);
+      continue;
+    }
+    if (!doubleQuoted && char === '#') {
+      comment = true;
+      mask(char);
+      continue;
+    }
+    if (char === "'" || char === '"') {
+      quote = char;
+      doubleQuoted = char === '"';
+      quotePrefix = logicalCommand;
+      quoteContent = '';
+      mask(char);
+      continue;
+    }
+    append(char);
+  }
+  if (quoteContent) {
+    mask(quoteContent);
+  }
+  return output.join('');
+}
+
 function outputKeysFromSource(source) {
   const raw = String(source || '');
   if (!/\$GITHUB_OUTPUT\b|process\.env\.GITHUB_OUTPUT\b/.test(raw)) return new Set();
@@ -611,9 +724,11 @@ function validateJobs(workflow, file, source, root, exists, readFile, knownWorkf
             ));
           }
         }
-        const dataPaths = extractDataPaths(rawStep.run);
-        const writesData = /\bgit\s+(?:add|commit)\b|(?:>>|>)\s*["']?(?:data|public\/data)\//i.test(rawStep.run);
-        const hasValidation = /\b(?:validat(?:e|ion)|audit|check|assert|test|strict|quality|schema|diff)\b/i.test(rawStep.run);
+        const operationalRun = shellOperationalText(rawStep.run, { preserveQuotedWritePaths: true });
+        const operationalDataPaths = extractDataPaths(operationalRun);
+        const dataPaths = operationalDataPaths;
+        const writesData = /\bgit\s+(?:add|commit)\b|(?:>>|>)\s*(?:\\\r?\n\s*)*["']?(?:data|public\/data)\//i.test(operationalRun);
+        const hasValidation = /\b(?:validat(?:e|ion)|audit|check|assert|test|strict|quality|schema|diff)\b/i.test(operationalRun);
         if (writesData && dataPaths.length > 0 && !hasValidation) {
           for (const dataPath of dataPaths) findings.push(finding(file, 'workflow.data-write-without-check', 'warning', `scrittura di ${dataPath} senza validazione visibile nello step; verificare completezza/timestamp/schema prima del commit`, stepLine, rawStep.run.trim().slice(0, 300)));
         }
