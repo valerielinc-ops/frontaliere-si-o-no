@@ -53,12 +53,86 @@ describe('loop fleet status', () => {
     });
   });
 
+  it('computes lifecycle TTL and owner SLA from trusted event timestamps', () => {
+    const lifecycle = registry.loops.find((row: any) => row.loopId === 'L1').lifecycle;
+    const event = (eventType: string, occurredAt: string) => ({
+      eventType,
+      candidateId: 'lf-decision-sla-check',
+      owner: 'CTO / Reliability',
+      sourceRecordId: 'lf-decision-sla-check',
+      lifecycle,
+      occurredAt,
+    });
+    const summary = summarizeLifecycleEvents([
+      event('candidate', '2026-09-12T12:00:00.000Z'),
+      event('owner_assigned', '2026-09-12T12:00:01.000Z'),
+    ], { now: new Date('2026-09-14T13:00:00.000Z') });
+
+    expect(summary.candidates[0]).toMatchObject({
+      complete: false,
+      sla: {
+        status: 'overdue',
+        coherent: true,
+        candidateTtl: {
+          hours: 24,
+          deadlineAt: '2026-09-13T12:00:00.000Z',
+          status: 'overdue',
+        },
+        ownerSla: {
+          hours: 24,
+          deadlineAt: '2026-09-13T12:00:00.000Z',
+          status: 'met',
+        },
+        postMergeVerification: {
+          status: 'not_started',
+          deadlineAt: null,
+        },
+      },
+    });
+    expect(summary.sla).toMatchObject({
+      status: 'overdue',
+      candidateCount: 1,
+      overdueCount: 1,
+      pendingCount: 0,
+      nextDeadlineAt: '2026-09-13T12:00:00.000Z',
+    });
+  });
+
+  it('treats the exact SLA boundary as overdue and ignores invalid timestamps', () => {
+    const lifecycle = registry.loops.find((row: any) => row.loopId === 'L1').lifecycle;
+    const event = (eventType: string, occurredAt: string) => ({
+      eventType,
+      candidateId: 'lf-decision-sla-boundary',
+      owner: 'CTO / Reliability',
+      sourceRecordId: 'lf-decision-sla-boundary',
+      lifecycle,
+      occurredAt,
+    });
+    const summary = summarizeLifecycleEvents([
+      event('candidate', 'invalid'),
+      event('candidate', '2026-09-12T12:00:00.000Z'),
+      event('owner_assigned', '2026-09-12T12:00:01.000Z'),
+    ], { now: new Date('2026-09-13T12:00:00.000Z') });
+
+    expect(summary).toMatchObject({
+      sla: { status: 'unmeasurable' },
+      candidates: [{
+        sla: {
+          status: 'unmeasurable',
+          coherent: false,
+          candidateTtl: { status: 'overdue' },
+        },
+      }],
+    });
+  });
+
   it('does not mark a present event set verified when order, owner or evidence is incoherent', () => {
     const base = (eventType: string, occurredAt: string, overrides: Record<string, unknown> = {}) => ({
       eventType,
       candidateId: 'lf-decision-coherent-check',
       owner: 'CTO / Reliability',
       sourceRecordId: 'lf-decision-coherent-check',
+      lifecycle: registry.loops.find((row: any) => row.loopId === 'L1').lifecycle,
       occurredAt,
       artifactOrPr: `evidence://${eventType}`,
       ...overrides,
@@ -80,6 +154,7 @@ describe('loop fleet status', () => {
       duplicateEventTypes: ['candidate'],
       missingEvidence: ['post_merge_verified'],
       complete: false,
+      sla: { status: 'unmeasurable', coherent: false },
     }] });
   });
 
