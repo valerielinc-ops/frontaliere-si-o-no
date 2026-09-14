@@ -188,7 +188,7 @@ describe('supply validation opens the demand-signal dead zone without lowering a
  * claim can be verified with one request instead of inferred.
  */
 describe('keyword-page paths: the report prints the URL the emitter serves', () => {
-  /** Parse a `const <name>: Record<...> = { it: '…', … };` literal out of the plugin. */
+  /** Parse an inline `const <name>: Record<...> = { it: '…', … };` table. */
   const pluginLocaleMap = (name: string): Record<string, string> => {
     const block = new RegExp(`const ${name}: Record<[^>]*> = \\{([\\s\\S]*?)\\n\\s*\\};`).exec(PLUGIN_SRC);
     expect(block, `${name} literal not found in build-plugins/jobsSeoPagesPlugin.ts`).toBeTruthy();
@@ -201,7 +201,11 @@ describe('keyword-page paths: the report prints the URL the emitter serves', () 
     // A rename on the plugin side must fail HERE, not silently turn every URL
     // the weekly report prints into a 404.
     expect(pluginLocaleMap('localePrefix')).toEqual(KEYWORD_LANDING_LOCALE_PREFIX);
-    expect(pluginLocaleMap('sectionByLocale')).toEqual(KEYWORD_LANDING_SECTION);
+    // The emitter deliberately aliases the canonical table instead of copying
+    // its four values. Keep this source pin aligned with that convention.
+    expect(PLUGIN_SRC).toMatch(
+      /const sectionByLocale:\s*Record<[^>]*>\s*=\s*SECTION_LEGACY_TI\s*;/,
+    );
     expect(pluginLocaleMap('searchRoutePrefix')).toEqual(KEYWORD_LANDING_SEARCH_PREFIX);
   });
 
