@@ -6385,6 +6385,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.naturalizzazione-nidvaldo-procedura.title': 'Naturalization in Nidvaldo: requirements and procedure',
     'blog.article.naturalizzazione-nidvaldo-procedura.excerpt': 'Complete guide to ordinary naturalization in the Canton of Nidvaldo: required years, tests, taxes and bureaucratic steps.',
     'blog.article.naturalizzazione-nidvaldo-procedura.imageAlt': 'Municipal building in the Canton of Nidwalden',
+    'blog.article.prezzi-produzione-importazione-agosto-2026.title': 'Production and import prices: +0.7% in August 2026',
+    'blog.article.prezzi-produzione-importazione-agosto-2026.excerpt': 'The producer and import price index rises to 100.4 points in August 2026. On an annual basis, there is a decrease of 0.7% according to UST data.',
+    'blog.article.prezzi-produzione-importazione-agosto-2026.imageAlt': 'The Swiss Federal Statistical Office in Neuchâtel, source of national economic data.',
 };
 
 export default blogMetaChEn;
