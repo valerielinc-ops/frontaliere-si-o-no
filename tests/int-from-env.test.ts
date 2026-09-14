@@ -110,6 +110,24 @@ function render() {
     expect(findRawNumberEnvBoundViolations(source, 'fixture.mjs')).toEqual([]);
   });
 
+  it('non lascia che uno shadowing in un blocco chiuso oscuri il bound esterno (#8031)', () => {
+    const source = `const limit = Number(process.env.LIMIT);
+function render() {
+  { const limit = 50; }
+  return items.slice(0, limit);
+}`;
+    expect(findRawNumberEnvBoundViolations(source, 'fixture.mjs')).toHaveLength(1);
+  });
+
+  it('riconosce lo shadowing var nella funzione che contiene il bound (#8031)', () => {
+    const source = `const limit = Number(process.env.LIMIT);
+function render() {
+  var limit = 50;
+  return items.slice(0, limit);
+}`;
+    expect(findRawNumberEnvBoundViolations(source, 'fixture.mjs')).toEqual([]);
+  });
+
   it('mantiene il bound quando la funzione annidata chiude davvero sull env esterno (#8031)', () => {
     const source = `const limit = Number(process.env.LIMIT);
 function render() {

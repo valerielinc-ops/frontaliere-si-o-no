@@ -253,17 +253,35 @@ function maskNumericEnvLiterals(source) {
   return out;
 }
 
-function shadowingBindingBeforeUse(maskedCode, range, variable, usageIndex) {
+function maskDescendantScopes(maskedCode, range, usageIndex, ranges) {
+  const start = range.start;
+  const end = Math.min(range.end, usageIndex);
+  const chars = maskedCode.slice(start, end).split('');
+  for (const descendant of ranges) {
+    if (descendant.start <= start || descendant.start >= end) continue;
+    const descendantEnd = Math.min(descendant.end, usageIndex);
+    for (let index = descendant.start; index < descendantEnd; index++) {
+      const local = index - start;
+      if (chars[local] !== '\n') chars[local] = ' ';
+    }
+  }
+  return chars.join('');
+}
+
+function shadowingBindingBeforeUse(maskedCode, range, variable, usageIndex, ranges) {
   const escaped = escapeNumericEnvIdentifier(variable);
-  const beforeUse = maskedCode.slice(range.start, usageIndex);
+  const beforeUse = maskDescendantScopes(maskedCode, range, usageIndex, ranges);
+  const unmaskedBeforeUse = maskedCode.slice(range.start, usageIndex);
   const lexicalDeclaration = new RegExp(`\\b(?:const|let|class|function)\\s+${escaped}\\b`);
   if (lexicalDeclaration.test(beforeUse)) return true;
 
   const header = maskedCode.slice(Math.max(0, range.open - 300), range.open);
-  const isFunctionBody = /(?:\\bfunction(?:\\s+[A-Za-z_$][A-Za-z0-9_$]*)?\\s*\\([^)]*\\)|\\([^)]*\\)|\\b[A-Za-z_$][A-Za-z0-9_$]*)\\s*=>\\s*$/.test(header);
+  const isFunctionBody =
+    /\bfunction(?:\s+[A-Za-z_$][A-Za-z0-9_$]*)?\s*\([^)]*\)\s*$/.test(header)
+    || /(?:\([^)]*\)|\b[A-Za-z_$][A-Za-z0-9_$]*)\s*=>\s*$/.test(header);
   // `var` is function-scoped, so count it only when this range is a function
   // body. A `var` in an ordinary nested block redeclares the same binding.
-  if (isFunctionBody && new RegExp(`\\bvar\\s+${escaped}\\b`).test(beforeUse)) return true;
+  if (isFunctionBody && new RegExp(`\\bvar\\s+${escaped}\\b`).test(unmaskedBeforeUse)) return true;
 
   const parameterPatterns = [
     new RegExp(`\\bfunction(?:\\s+[A-Za-z_$][A-Za-z0-9_$]*)?\\s*\\([^)]*\\b${escaped}\\b[^)]*\\)\\s*$`),
@@ -289,7 +307,7 @@ function boundUseIsUnshadowed(code, maskedCode, ranges, variable, scopeStart, sc
         range.start > scopeStart
         && range.start <= usageIndex
         && usageIndex < range.end
-        && shadowingBindingBeforeUse(maskedCode, range, variable, usageIndex)
+        && shadowingBindingBeforeUse(maskedCode, range, variable, usageIndex, ranges)
       ));
       if (!shadowed) return true;
     }
