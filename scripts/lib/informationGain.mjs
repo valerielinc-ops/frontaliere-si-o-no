@@ -523,19 +523,22 @@ export function skeletonHashHex(skeletonHash) {
  * SBAGLIATA, e in modo silenzioso: `it:~2b6ed2` non è mai uguale a
  * `it:/calcola-stipendio/stipendio-netto-~2b6ed2`, quindi nessuna delle 37
  * righe potrebbe più essere segnalata come risalita e l'inventario perderebbe
- * la sola direzione in cui deve poter cambiare. Ma per una chiave-template
- * l'asimmetria non ha oggetto: la riga È una coorte, non una famiglia di
- * coorti, quindi qualunque run che la misura la misura per intero.
+ * la sola direzione in cui deve poter cambiare. Ma la riga-template può essere
+ * tolta solo quando il chiamante dichiara `fullCohortCoverage`: un campione di
+ * 12 pagine può essere un sottoinsieme sano della coorte, non la sua misura
+ * completa. Il live scan resta quindi conservativo; l'audit dist lo abilita
+ * solo quando `sampleRate === 1`.
  *
  * Regola condivisa e in un posto solo, perché due copie divergerebbero senza
  * che nulla lo mostri (AGENTS.md #6).
  *
  * @param {string} inventoryKey
  * @param {string} label
+ * @param {{fullCohortCoverage?: boolean}} [options]
  * @returns {boolean}
  */
-export function isFamilyWideMeasure(inventoryKey, label) {
-  return inventoryKey === label || /^[a-z]{2}:~[0-9a-f]{6}$/.test(inventoryKey);
+export function isFamilyWideMeasure(inventoryKey, label, { fullCohortCoverage = false } = {}) {
+  return inventoryKey === label || (fullCohortCoverage && /^[a-z]{2}:~[0-9a-f]{6}$/.test(inventoryKey));
 }
 
 /**

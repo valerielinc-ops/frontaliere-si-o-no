@@ -330,7 +330,10 @@ function createAuditor({ dist = DEFAULT_DIST, sampleRate = 1 } = {}) {
             recordedMedian: known.value,
             inventoryKey: known.key,
           });
-        } else if (cohort.medianIgs >= MEDIAN_IGS_FLOOR_PCT && isFamilyWideMeasure(known.key, cohort.label)) {
+        } else if (
+          cohort.medianIgs >= MEDIAN_IGS_FLOOR_PCT &&
+          isFamilyWideMeasure(known.key, cohort.label, { fullCohortCoverage: sampleRate === 1 })
+        ) {
           // La risoluzione per prefisso è ASIMMETRICA di proposito. Verso il
           // basso un campione basta: una sotto-famiglia sotto la baseline è di
           // per sé la prova che qualcosa è peggiorato, e il ratchet può solo
@@ -342,7 +345,8 @@ function createAuditor({ dist = DEFAULT_DIST, sampleRate = 1 } = {}) {
           // tornerebbe a lampeggiare col numero di run, cioè esattamente il
           // difetto che #7384 chiude. Solo un'etichetta UGUALE alla chiave —
           // una run che ha misurato la famiglia per intero — è prova di
-          // recupero family-wide.
+          // recupero family-wide. Una chiave-template passa solo su un audit
+          // full-dist (`sampleRate === 1`), mai su un campione rotante.
           recovered.push({ ...cohort, recordedMedian: known.value, inventoryKey: known.key });
         }
       }

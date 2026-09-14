@@ -178,7 +178,7 @@ async function collectFamily(sitemap) {
  * an "opportunity" would leave its inventory line in place forever, and the
  * gate would never tighten again.
  */
-export function classifyCohorts(cohorts, { floor, tolerance, target, inventory }) {
+export function classifyCohorts(cohorts, { floor, tolerance, target, inventory, fullCohortCoverage = false }) {
   const regressions = [];
   const ratchets = [];
   const opportunities = [];
@@ -201,15 +201,18 @@ export function classifyCohorts(cohorts, { floor, tolerance, target, inventory }
     const { key: inventoryKey, value: recorded } = entry;
     if (cohort.medianIgs < recorded - tolerance) {
       regressions.push({ ...cohort, recorded, inventoryKey, reason: 'regressed-vs-inventory' });
-    } else if (cohort.medianIgs >= floor && isFamilyWideMeasure(inventoryKey, cohort.label)) {
+    } else if (
+      cohort.medianIgs >= floor &&
+      isFamilyWideMeasure(inventoryKey, cohort.label, { fullCohortCoverage })
+    ) {
       // Asimmetria voluta, stessa del gate su dist: il ratchet si stringe su
       // un campione (una sotto-famiglia sotto la baseline è già una prova di
       // peggioramento) ma si allenta solo su una misura che copre la famiglia
-      // intera, cioè quando l'etichetta è UGUALE alla chiave. Qui conta il
-      // doppio: questo scan campiona 12 URL per sitemap, quindi la quasi
-      // totalità delle sue etichette è più stretta del tronco inventariato, e
-      // senza questo vincolo ogni run detterebbe di togliere una riga di
-      // famiglia sulla base di una sola sotto-famiglia (issue #7384).
+      // intera. Questo scan campiona 12 URL per sitemap, quindi non dichiara
+      // mai completa una chiave-template: `fullCohortCoverage` resta false e
+      // una sotto-famiglia sana non può togliere la baseline della coorte
+      // intera. Le chiavi di famiglia storiche conservano il loro controllo di
+      // uguaglianza, come nel comportamento precedente (#7384).
       ratchets.push({ ...cohort, recorded, inventoryKey });
     }
   }
@@ -243,6 +246,10 @@ async function main() {
     tolerance: REGRESSION_TOLERANCE_PCT,
     target: ISSUE_TARGET_PCT,
     inventory: KNOWN_LOW_GAIN_COHORTS,
+    // This monitor samples 12 URLs per family. A template-key recovery must
+    // be proven on the complete cohort before its inventory line can be
+    // removed; the default is fail-closed for this sampled scan.
+    fullCohortCoverage: false,
   });
   const opportunity = opportunities[0] ?? null;
 

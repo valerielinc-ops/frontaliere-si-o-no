@@ -39,6 +39,7 @@ import {
   factory as createInformationGainAuditor,
   INFORMATION_GAIN_GATE,
 } from '@/scripts/audit-information-gain.mjs';
+import { classifyCohorts } from '@/scripts/ci/information-gain-live-scan.mjs';
 
 /** A mail-merge page: same prose, place name and figure substituted. */
 const mailMergePage = (name: string, rate: string): string => `<!doctype html>
@@ -580,8 +581,36 @@ describe("information-gain: le chiavi di identità-template risolvono ogni etich
         // uscire dall'inventario, e un inventario che può solo crescere è il
         // difetto che l'inventario esiste per non essere.
         for (const { label } of template.observedLabels) {
-          expect(isFamilyWideMeasure(template.inventoryKey, label)).toBe(true);
+          expect(isFamilyWideMeasure(template.inventoryKey, label, { fullCohortCoverage: true })).toBe(true);
         }
+      });
+
+      it('il live scan campionato non ratcheta una chiave-template senza copertura completa', () => {
+        const hash = template.inventoryKey.slice(template.inventoryKey.indexOf('~') + 1);
+        const skeletonHash = Number.parseInt(hash, 16);
+        const cohort = {
+          label: template.observedLabels[0].label,
+          skeletonHash,
+          medianIgs: INFORMATION_GAIN_GATE.MEDIAN_IGS_FLOOR_PCT + 1,
+          pages: 12,
+        };
+        const sampled = classifyCohorts([cohort], {
+          floor: INFORMATION_GAIN_GATE.MEDIAN_IGS_FLOOR_PCT,
+          tolerance: 1.5,
+          target: 40,
+          inventory,
+          fullCohortCoverage: false,
+        });
+        expect(sampled.ratchets).toHaveLength(0);
+
+        const complete = classifyCohorts([cohort], {
+          floor: INFORMATION_GAIN_GATE.MEDIAN_IGS_FLOOR_PCT,
+          tolerance: 1.5,
+          target: 40,
+          inventory,
+          fullCohortCoverage: true,
+        });
+        expect(complete.ratchets).toHaveLength(1);
       });
 
       it('senza lo skeletonHash nessuna etichetta risolve — è il motivo della chiave', () => {
