@@ -90,6 +90,30 @@ const LIFECYCLE_FIELDS = Object.freeze([
   'rollbackOwner',
 ]);
 
+const ALLOCATION_POLICY_FIELDS = Object.freeze([
+  'persistent',
+  'assignmentMethod',
+  'assignmentKey',
+  'boundedCanary',
+  'contaminationPolicy',
+  'trafficMutationAllowed',
+  'priceMutationAllowed',
+  'noAutomaticPriceChange',
+]);
+
+const BOUNDED_CANARY_FIELDS = Object.freeze([
+  'enabled',
+  'maxExposure',
+  'requiresReviewedApproval',
+]);
+
+const CONTAMINATION_POLICY_FIELDS = Object.freeze([
+  'controlled',
+  'key',
+  'rejectReassignment',
+  'rejectCrossCandidateExposure',
+]);
+
 function fail(message) {
   throw new TypeError(`loop-fleet contract: ${message}`);
 }
@@ -163,6 +187,78 @@ function requireLifecycle(value, name) {
     ownerSlaHours: requirePositiveInteger(value.ownerSlaHours, `${name}.ownerSlaHours`),
     postMergeVerificationHours: requirePositiveInteger(value.postMergeVerificationHours, `${name}.postMergeVerificationHours`),
     rollbackOwner: requireText(value.rollbackOwner, `${name}.rollbackOwner`),
+  };
+}
+
+function requireBoolean(value, name) {
+  if (typeof value !== 'boolean') fail(`${name} must be boolean`);
+  return value;
+}
+
+function rejectUnknownKeys(value, allowed, name) {
+  for (const key of Object.keys(value)) {
+    if (!allowed.includes(key)) fail(`${name}.${key} is not a supported field`);
+  }
+}
+
+function requireAllocationPolicy(value, name) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) fail(`${name} must be an object`);
+  rejectUnknownKeys(value, ALLOCATION_POLICY_FIELDS, name);
+  if (value.persistent !== true) fail(`${name}.persistent must be true`);
+  const boundedCanary = value.boundedCanary;
+  if (!boundedCanary || typeof boundedCanary !== 'object' || Array.isArray(boundedCanary)) {
+    fail(`${name}.boundedCanary must be an object`);
+  }
+  rejectUnknownKeys(boundedCanary, BOUNDED_CANARY_FIELDS, `${name}.boundedCanary`);
+  requireBoolean(boundedCanary.enabled, `${name}.boundedCanary.enabled`);
+  requirePositiveInteger(boundedCanary.maxExposure, `${name}.boundedCanary.maxExposure`, { allowZero: true });
+  requireBoolean(boundedCanary.requiresReviewedApproval, `${name}.boundedCanary.requiresReviewedApproval`);
+  // This runner only produces a reviewed plan. A registry change must not
+  // silently turn it into a live traffic mutator.
+  if (boundedCanary.enabled !== false) fail(`${name}.boundedCanary.enabled must be false until a reviewed canary executor exists`);
+  if (boundedCanary.maxExposure !== 0) fail(`${name}.boundedCanary.maxExposure must be 0 until a reviewed canary executor exists`);
+  if (boundedCanary.requiresReviewedApproval !== true) fail(`${name}.boundedCanary.requiresReviewedApproval must be true`);
+
+  const contaminationPolicy = value.contaminationPolicy;
+  if (!contaminationPolicy || typeof contaminationPolicy !== 'object' || Array.isArray(contaminationPolicy)) {
+    fail(`${name}.contaminationPolicy must be an object`);
+  }
+  rejectUnknownKeys(contaminationPolicy, CONTAMINATION_POLICY_FIELDS, `${name}.contaminationPolicy`);
+  requireBoolean(contaminationPolicy.controlled, `${name}.contaminationPolicy.controlled`);
+  requireBoolean(contaminationPolicy.rejectReassignment, `${name}.contaminationPolicy.rejectReassignment`);
+  requireBoolean(contaminationPolicy.rejectCrossCandidateExposure, `${name}.contaminationPolicy.rejectCrossCandidateExposure`);
+  if (contaminationPolicy.controlled !== true) fail(`${name}.contaminationPolicy.controlled must be true`);
+  if (contaminationPolicy.rejectReassignment !== true) fail(`${name}.contaminationPolicy.rejectReassignment must be true`);
+  if (contaminationPolicy.rejectCrossCandidateExposure !== true) fail(`${name}.contaminationPolicy.rejectCrossCandidateExposure must be true`);
+
+  const assignmentMethod = requireText(value.assignmentMethod, `${name}.assignmentMethod`);
+  const assignmentKey = requireText(value.assignmentKey, `${name}.assignmentKey`);
+  const contaminationKey = requireText(contaminationPolicy.key, `${name}.contaminationPolicy.key`);
+  if (contaminationKey !== assignmentKey) fail(`${name}.contaminationPolicy.key must match assignmentKey`);
+  requireBoolean(value.trafficMutationAllowed, `${name}.trafficMutationAllowed`);
+  requireBoolean(value.priceMutationAllowed, `${name}.priceMutationAllowed`);
+  requireBoolean(value.noAutomaticPriceChange, `${name}.noAutomaticPriceChange`);
+  if (value.trafficMutationAllowed !== false) fail(`${name}.trafficMutationAllowed must be false`);
+  if (value.priceMutationAllowed !== false) fail(`${name}.priceMutationAllowed must be false`);
+  if (value.noAutomaticPriceChange !== true) fail(`${name}.noAutomaticPriceChange must be true`);
+  return {
+    persistent: true,
+    assignmentMethod,
+    assignmentKey,
+    boundedCanary: {
+      enabled: false,
+      maxExposure: 0,
+      requiresReviewedApproval: true,
+    },
+    contaminationPolicy: {
+      controlled: true,
+      key: contaminationKey,
+      rejectReassignment: true,
+      rejectCrossCandidateExposure: true,
+    },
+    trafficMutationAllowed: false,
+    priceMutationAllowed: false,
+    noAutomaticPriceChange: true,
   };
 }
 
@@ -246,6 +342,9 @@ export function validateLoopRegistry(registry) {
     }
     const lifecycle = requireLifecycle(loop.lifecycle, `${id}.lifecycle`);
     const actionPolicy = requireActionPolicy(loop.actionPolicy, `${id}.actionPolicy`);
+    const allocationPolicy = id === 'L7'
+      ? requireAllocationPolicy(loop.allocationPolicy, `${id}.allocationPolicy`)
+      : (loop.allocationPolicy === undefined ? undefined : requireAllocationPolicy(loop.allocationPolicy, `${id}.allocationPolicy`));
     for (const actionClass of loop.actionClasses) {
       for (const part of actionClass.split('+').map((value) => value.trim()).filter(Boolean)) {
         declaredActionClasses.add(part);
@@ -257,6 +356,7 @@ export function validateLoopRegistry(registry) {
       outcome,
       lifecycle,
       actionPolicy,
+      ...(allocationPolicy ? { allocationPolicy } : {}),
     });
   }
   const actionAutonomyMap = registry.actionAutonomy;

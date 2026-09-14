@@ -56,6 +56,16 @@ describe('record-loop-fleet-evidence', () => {
     expect(actionClassForPolicy(registry.loops.find((loop: any) => loop.loopId === 'L0'), 'needsReview')).toBe('issue+quarantine');
     expect(registry.loops.find((loop: any) => loop.loopId === 'L7')?.actionPolicy)
       .toEqual({ healthy: 'observe', needsReview: 'candidate+stop+issue', guardrail: 'stop', candidate: 'candidate' });
+    expect(registry.loops.find((loop: any) => loop.loopId === 'L7')?.allocationPolicy)
+      .toMatchObject({
+        persistent: true,
+        assignmentMethod: 'stable-sha256',
+        assignmentKey: 'experiment-session-id',
+        boundedCanary: { enabled: false, maxExposure: 0, requiresReviewedApproval: true },
+        trafficMutationAllowed: false,
+        priceMutationAllowed: false,
+        noAutomaticPriceChange: true,
+      });
     expect(actionAutonomy('issue+suspend-canary', registry.actionAutonomy)).toBe('A2');
     expect(validateActionClassAgainstPolicy(registry, 'L1', 'issue+suspend-canary'))
       .toMatchObject({ requiredAutonomy: 'A2', maxAutonomy: 'A2' });
@@ -100,6 +110,16 @@ describe('record-loop-fleet-evidence', () => {
         : loop),
     };
     expect(() => validateLoopRegistry(invalid)).toThrow(/L7\.actionPolicy\.needsReview is not allowed/);
+  });
+
+  it('fails closed when the L7 allocation policy could enable an unreviewed mutation', () => {
+    const invalid = {
+      ...registry,
+      loops: registry.loops.map((loop: any) => loop.loopId === 'L7'
+        ? { ...loop, allocationPolicy: { ...loop.allocationPolicy, trafficMutationAllowed: true } }
+        : loop),
+    };
+    expect(() => validateLoopRegistry(invalid)).toThrow(/L7\.allocationPolicy\.trafficMutationAllowed must be false/);
   });
 
   it('writes one canonical line per ledger and is idempotent for a rerun', () => {
