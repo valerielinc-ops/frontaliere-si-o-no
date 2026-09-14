@@ -4,6 +4,7 @@ import {
   USZ_COMPANY_NAME,
   isUszJob,
   isTrustedDomain,
+  resolveUszLocation,
 } from '../scripts/lib/usz-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -12,6 +13,29 @@ describe('Universitätsspital Zürich (USZ) crawler parser', () => {
   it('exports valid company key and name', () => {
     expect(USZ_KEY).toBe('usz');
     expect(USZ_COMPANY_NAME).toBe('Universitätsspital Zürich (USZ)');
+  });
+
+  describe('resolveUszLocation', () => {
+    it('prefers the vacancy city over the generic campus facet', () => {
+      expect(resolveUszLocation({
+        attributes: { '65': ['USZ Campus'] },
+        szas: { 'sza_location.city': '8091 Zürich' },
+      })).toBe('Zürich');
+    });
+
+    it('accepts a city without a postal-code prefix', () => {
+      expect(resolveUszLocation({
+        attributes: { '65': ['USZ Stettbach'] },
+        szas: { 'sza_location.city': 'Zürich' },
+      })).toBe('Zürich');
+    });
+
+    it('falls back to the campus only when the city field is absent', () => {
+      expect(resolveUszLocation({
+        attributes: { '65': ['USZ Stettbach'] },
+        szas: {},
+      })).toBe('Stettbach');
+    });
   });
 
   // ── isCompanyJob ──

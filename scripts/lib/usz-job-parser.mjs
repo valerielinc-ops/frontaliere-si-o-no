@@ -175,17 +175,22 @@ function normalizeSpaceLocal(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
 }
 
-function pickLocation(job = {}) {
-  // USZ Prospective attribute "65" carries campus (e.g. "USZ Campus", "Standort Lengg").
+export function resolveUszLocation(job = {}) {
+  // `sza_location.city` is vacancy-specific (for example, `8091 Zürich`).
+  // Prospective attribute "65" is a campus facet (`USZ Campus`, `USZ
+  // Stettbach`) and must only be the fallback: preferring it turns every
+  // Zürich vacancy into the non-geographic label "Campus".
+  const cityRaw = normalizeSpaceLocal(job?.szas?.['sza_location.city'] || '');
+  if (cityRaw) {
+    const city = normalizeSpaceLocal(cityRaw)
+      .replace(/^\d{4}\s+/, '')
+      .split(/[,\n]/, 1)[0];
+    if (city) return city;
+  }
+
   const attrs = job?.attributes || {};
-  const szas = job?.szas || {};
   const campus = Array.isArray(attrs['65']) ? attrs['65'][0] : '';
   if (campus) return normalizeSpaceLocal(campus).replace(/^USZ\s+/i, '') || 'Zürich';
-  const cityRaw = String(szas['sza_location.city'] || '').trim();
-  if (cityRaw) {
-    const m = cityRaw.match(/\b(\d{4})\s+([^\n,]+)/);
-    if (m) return normalizeSpaceLocal(m[2]);
-  }
   return 'Zürich';
 }
 
@@ -243,7 +248,7 @@ export async function fetchAllUszJobs() {
     const directLink = normalizeSpaceLocal(listing?.links?.directlink || '');
     const applyLink = normalizeSpaceLocal(szas.sza_apply_link || '');
     const publicUrl = directLink || applyLink || CAREER_URL;
-    const location = pickLocation(listing);
+    const location = resolveUszLocation(listing);
     const canton = inferSwissTargetCanton(location) || 'ZH';
     const descriptionText = buildDescription(listing);
 
