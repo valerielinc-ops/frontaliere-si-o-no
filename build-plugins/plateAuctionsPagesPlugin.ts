@@ -106,21 +106,6 @@ export function renderPlateAuctionPage({ locale, view, canton, plate, rootDir, d
   return { urlPath: urlPath.replace(/^\//, '').replace(/\/$/, ''), html: buildSeoPageHtml({ locale, title, description, canonicalUrl, hreflangHtml: alternates(view, canton, detailRow?.normalizedPlate || plate), bodyHtml: staticBody, jsonLdScripts: [jsonLd], distDir, seoContentOutsideRoot: true }) };
 }
 
-function injectHomepageAuctionHubs(distDir: string): void {
-  const file = np.join(distDir, 'index.html');
-  if (!fs.existsSync(file)) return;
-  const html = fs.readFileSync(file, 'utf8');
-  if (html.includes('data-plate-auction-discovery')) return;
-  const links = LOCALES.map((locale) => `<li><a href="${esc(pathFor(locale, 'hub'))}" style="${LINK_ACCENT_STYLE}">${esc(COPY[locale].title)}</a></li>`).join('');
-  const nav = `<h2 data-plate-auction-discovery>${esc(COPY.it.title)}</h2><ul>${links}</ul>`;
-  const noscriptStart = html.indexOf('<noscript');
-  const noscriptEnd = html.indexOf('</noscript>', noscriptStart);
-  const marker = '<h2>Altro</h2>';
-  const markerIndex = html.indexOf(marker, noscriptStart);
-  if (noscriptStart < 0 || noscriptEnd < 0 || markerIndex < noscriptStart || markerIndex > noscriptEnd) return;
-  fs.writeFileSync(file, `${html.slice(0, markerIndex)}${nav}${html.slice(markerIndex)}`, 'utf8');
-}
-
 export function plateAuctionsPagesPlugin(rootDir: string): Plugin {
   return { name: 'plate-auction-pages', apply: 'build', enforce: 'post', async closeBundle() {
     if (process.env.SKIP_PLATE_AUCTION_PAGES === '1') return;
@@ -145,7 +130,6 @@ export function plateAuctionsPagesPlugin(rootDir: string): Plugin {
     }
     const sitemap = LOCALES.flatMap((locale) => [pathFor(locale, 'hub'), pathFor(locale, 'rankings'), ...allPlateAuctionCantonCodes().map((code) => pathFor(locale, 'canton', code)), ...auctionRows.map((row) => detailPathForRow(row, locale))]).map((url) => `<url><loc>${BASE_URL}${esc(url)}</loc><changefreq>daily</changefreq></url>`).join('');
     fs.writeFileSync(np.join(distDir, 'sitemap-plate-auctions.xml'), `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${sitemap}</urlset>\n`, 'utf8');
-    injectHomepageAuctionHubs(distDir);
     // sitemapAliasPlugin is a core post-hook and this emitter lives in the
     // later SEO list. Refresh the index here as well so the new shard is not
     // omitted when Rollup orders two post closeBundle hooks by declaration.

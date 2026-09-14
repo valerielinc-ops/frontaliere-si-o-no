@@ -67,6 +67,7 @@ import { parseSlugRegistry } from '../scripts/lib/article-slug-registry.mjs';
 import { buildFaqHubPath } from '../data/faq-hub/routes';
 import { PHARMACY_HUB_PATH } from '../services/pharmacies/types';
 import { COMMUNICATIONS_PAGE_PATH } from '../services/communicationChannels';
+import { buildPlateAuctionPath } from '../services/plateAuctions/paths';
 // Same story, same rail, the other eleven pills: the guide/fisco hrefs below
 // were hand-copied literals that had drifted from `services/routeSlugs.data.ts`
 // on EN and DE. Derived now from SLUG_TABLES, one module for the four copies
@@ -1001,7 +1002,7 @@ function buildHomepageRelatedGuidesBlock(locale: HpSeoLocale): string {
 }
 
 // ── Locale main nav (crawlable) ─────────────────────────────────────
-// The 17-anchor pipe nav that every buildPage() artifact ships (see
+// The locale-aware pipe nav shipped with generated static artifacts (see
 // `navHtml` in the page builder). Hoisted to module scope — it is no
 // longer buildPage()-private, because the locale-root SPA shells need the
 // SAME table and CLAUDE.md non-negotiable #6 forbids a second copy of it.
@@ -1024,6 +1025,7 @@ export const NAV_LABELS: Readonly<Record<HpSeoLocale, ReadonlyArray<{ href: stri
  { href: '/', label: 'Simulatore Fiscale' },
  { href: '/compara-servizi/', label: 'Confronta Servizi' },
  { href: PHARMACY_HUB_PATH.it, label: 'Farmacie e turni' },
+ { href: buildPlateAuctionPath({ locale: 'it', view: 'hub' }), label: 'Aste targhe' },
  { href: '/tasse-e-pensione/', label: 'Tasse e Pensione' },
  { href: '/guida-frontaliere/', label: 'Guida Frontaliere' },
  { href: '/domande-frequenti-frontalieri/', label: 'FAQ' },
@@ -1045,6 +1047,7 @@ export const NAV_LABELS: Readonly<Record<HpSeoLocale, ReadonlyArray<{ href: stri
  { href: '/en/', label: 'Tax Simulator' },
  { href: '/en/service-comparison/', label: 'Compare Services' },
  { href: PHARMACY_HUB_PATH.en, label: 'Pharmacies and duties' },
+ { href: buildPlateAuctionPath({ locale: 'en', view: 'hub' }), label: 'Plate auctions' },
  { href: '/en/taxes-and-pension/', label: 'Taxes & Pensions' },
  { href: '/en/cross-border-guide/', label: 'Cross-Border Guide' },
  { href: '/en/cross-border-faq/', label: 'FAQ' },
@@ -1061,6 +1064,7 @@ export const NAV_LABELS: Readonly<Record<HpSeoLocale, ReadonlyArray<{ href: stri
  { href: '/de/', label: 'Steuersimulator' },
  { href: '/de/service-vergleich/', label: 'Dienste Vergleichen' },
  { href: PHARMACY_HUB_PATH.de, label: 'Apotheken und Notdienst' },
+ { href: buildPlateAuctionPath({ locale: 'de', view: 'hub' }), label: 'Kontrollschildauktionen' },
  { href: '/de/grenzgaenger-besteuerung-leitfaden-2026/', label: 'Steuern & Vorsorge' },
  { href: '/de/grenzgaenger-ratgeber/', label: 'Grenzgänger-Leitfaden' },
  { href: '/de/grenzgaenger-faq/', label: 'FAQ' },
@@ -1077,6 +1081,7 @@ export const NAV_LABELS: Readonly<Record<HpSeoLocale, ReadonlyArray<{ href: stri
  { href: '/fr/', label: 'Simulateur Fiscal' },
  { href: '/fr/comparaison-services/', label: 'Comparer les Services' },
  { href: PHARMACY_HUB_PATH.fr, label: 'Pharmacies et gardes' },
+ { href: buildPlateAuctionPath({ locale: 'fr', view: 'hub' }), label: 'Enchères de plaques' },
  { href: '/fr/impots-et-retraite/', label: 'Impôts & Retraite' },
  { href: '/fr/guide-frontalier/', label: 'Guide Frontalier' },
  { href: '/fr/faq-frontaliers/', label: 'FAQ' },

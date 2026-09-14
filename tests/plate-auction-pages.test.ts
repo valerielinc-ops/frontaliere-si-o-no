@@ -50,9 +50,7 @@ function fixtureRoot({ auctionCount = 1, withDist = false }: { auctionCount?: nu
     history: [{ id: 'gr-final', sourceKey: 'GR', canton: 'Grigioni', platePrefix: 'GR', normalizedPlate: 'GR7', finalPriceChf: 7000, finalPriceVerifiedAt: '2026-09-12T18:00:00.000Z', auctionStatus: 'sold', dataConfidence: 'verified', officialAuctionUrl: 'https://eauktion.gr.ch/' }],
   }), 'utf8');
   if (withDist) {
-    const distDir = join(rootDir, 'dist');
-    mkdirSync(distDir, { recursive: true });
-    writeFileSync(join(distDir, 'index.html'), '<!doctype html><html><body><noscript><div><h2>Altro</h2><ul></ul></div></noscript><div id="root"></div></body></html>', 'utf8');
+    mkdirSync(join(rootDir, 'dist'), { recursive: true });
   }
   return rootDir;
 }
@@ -78,21 +76,17 @@ describe('plate-auction static pages', () => {
     expect(rendered.html).not.toContain('GR8');
   });
 
-  it('links every sitemap detail URL from static locale hubs reachable from the homepage', async () => {
+  it('links every sitemap detail URL from static locale hubs', async () => {
     const rootDir = fixtureRoot({ auctionCount: 41, withDist: true });
     const closeBundle = plateAuctionsPagesPlugin(rootDir).closeBundle;
     if (typeof closeBundle !== 'function') throw new Error('plate-auction plugin has no closeBundle hook');
     await closeBundle();
 
     const sitemap = readFileSync(join(rootDir, 'dist', 'sitemap-plate-auctions.xml'), 'utf8');
-    const homepage = readFileSync(join(rootDir, 'dist', 'index.html'), 'utf8');
-    expect(homepage).toContain('<noscript>');
-    expect(homepage).toContain('data-plate-auction-discovery');
     const expectedDetailUrls = new Set<string>();
     for (const locale of ['it', 'en', 'de', 'fr'] as const) {
       const hubPath = buildPlateAuctionPath({ locale, view: 'hub' });
       const hub = readFileSync(join(rootDir, 'dist', hubPath.slice(1), 'index.html'), 'utf8');
-      expect(homepage).toContain(`href="${hubPath}"`);
       for (const group of FULL_FIXTURE_GROUPS) {
         const cantonPath = buildPlateAuctionPath({ locale, view: 'canton', canton: group.sourceKey });
         const canton = readFileSync(join(rootDir, 'dist', cantonPath.slice(1), 'index.html'), 'utf8');
