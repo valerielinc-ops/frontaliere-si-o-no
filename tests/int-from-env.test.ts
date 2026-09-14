@@ -128,6 +128,15 @@ function render() {
     expect(findRawNumberEnvBoundViolations(source, 'fixture.mjs')).toEqual([]);
   });
 
+  it('non lascia che un var in una funzione discendente oscuri il bound esterno (#8031)', () => {
+    const source = `const limit = Number(process.env.LIMIT);
+function render() {
+  function nested() { var limit = 50; }
+  return items.slice(0, limit);
+}`;
+    expect(findRawNumberEnvBoundViolations(source, 'fixture.mjs')).toHaveLength(1);
+  });
+
   it('mantiene il bound quando la funzione annidata chiude davvero sull env esterno (#8031)', () => {
     const source = `const limit = Number(process.env.LIMIT);
 function render() {
