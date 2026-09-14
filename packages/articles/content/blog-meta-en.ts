@@ -11736,6 +11736,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-veleso-lavorare-ticino.title': 'Living in Veleso and working in Ticino as a border worker',
     'blog.article.vivere-veleso-lavorare-ticino.excerpt': 'Practical guide for those who wish to reside in Veleso and commute in Ticino: taxation, permits and management of the cost of living.',
     'blog.article.vivere-veleso-lavorare-ticino.imageAlt': 'View of a residential village near the Swiss border',
+    'blog.article.vivere-veniano-lavorare-ticino.title': 'Living in Veniano and working in Ticino as a border worker',
+    'blog.article.vivere-veniano-lavorare-ticino.excerpt': 'Practical guide for those who live in Veniano and work in Canton Ticino: connections, tax at source, social security and aspects of the transfer.',
+    'blog.article.vivere-veniano-lavorare-ticino.imageAlt': 'View of Veniano near the Swiss border',
 };
 
 export default blogMetaEn;
