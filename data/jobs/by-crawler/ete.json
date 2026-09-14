@@ -156,7 +156,6 @@
         "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-lugano",
         "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-st-gallen-6517d934"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T21:34:46.129Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -171,7 +170,9 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1867
     },
     {
       "id": "ete-dad26f9be703",
@@ -343,7 +344,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "ete-4f890e1dbbc4",
@@ -587,7 +588,6 @@
         "lehre-zum-logistikerin-efz-start-ab-sommer-2027-emil-egger-ag-lugano",
         "lehre-zum-logistikerin-efz-start-ab-sommer-2027-emil-egger-ag-harkingen-9499465d"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T21:34:44.604Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -602,7 +602,9 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1908
     },
     {
       "id": "ete-b3aa4e179045",
@@ -949,7 +951,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "ete-08d39e2960e3",
@@ -1360,7 +1362,6 @@
         "ausnahmetransportbegleiter-in-100-emil-egger-ag-lugano",
         "ausnahmetransportbegleiter-in-100-emil-egger-ag-bassersdorf-224fcb1a"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T21:34:41.871Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1375,7 +1376,9 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1710
     },
     {
       "id": "ete-1874e798b6e2",
@@ -1514,7 +1517,6 @@
         "chauffeur-chauffeuse-kat-c-e-ete-ch",
         "chauffeur-chauffeuse-kat-c-e-emil-egger-ag-harkingen-d82a5625"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T21:34:41.568Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1529,7 +1531,9 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1873
     },
     {
       "id": "ete-692f3baf5d3f",
@@ -1600,7 +1604,6 @@
         "chauffeur-in-kat-c-e-fur-spezialtransporte-4-4-man-100-emil-egger-ag-lugano",
         "chauffeur-in-kat-c-e-fur-spezialtransporte-4-215-4-man-100-emil-egger-ag-bassersdorf-692f3baf"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T21:34:41.264Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1615,7 +1618,9 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2296
     },
     {
       "id": "ete-f8c27dc9648c",
@@ -1870,7 +1875,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "ete-d5ea0472e9b7",
@@ -2127,7 +2132,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "ete-f45d285760e0",
@@ -2208,7 +2213,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "ete-d5fd3983aedd",
@@ -2379,7 +2384,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "ete-a74ebdca32fe",
@@ -2449,7 +2454,6 @@
         "lkw-mechaniker-in-80-100-ete-ch",
         "lkw-mechaniker-in-80-100-emil-egger-ag-st-gallen-a74ebdca"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T21:34:39.144Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -2464,7 +2468,9 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1936
     },
     {
       "id": "ete-d86c95825995",
@@ -2534,7 +2540,6 @@
         "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-emil-egger-ag-lugano",
         "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-emil-egger-ag-harkingen-d86c9582"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-28T05:22:56.006Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -2549,7 +2554,9 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1720
     },
     {
       "id": "ete-89271a69d1db",
@@ -2635,7 +2642,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "ete-db7ff58f1338",
