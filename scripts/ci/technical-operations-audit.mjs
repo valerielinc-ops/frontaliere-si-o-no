@@ -40,7 +40,9 @@ const WORKFLOW_RUN_TYPES = new Set(['completed', 'requested', 'in_progress']);
 const STEP_ID_RE = /^[A-Za-z_][A-Za-z0-9_-]*$/;
 const PATH_RE = /\b((?:scripts|functions|tests|\.github\/actions|\.github\/scripts)\/[A-Za-z0-9_./-]+\.(?:mjs|cjs|js|ts|sh|yml|yaml))\b/g;
 const DATA_PATH_RE = /\b((?:data|public\/data)\/[A-Za-z0-9_./-]+\.(?:json|jsonl|csv|ts))\b/g;
-const OUTPUT_RE = /(?:echo|printf)\s+["']?([A-Za-z_][A-Za-z0-9_-]*)=/g;
+const OUTPUT_RE = /(?:echo|printf)\s+["']?([A-Za-z_][A-Za-z0-9_-]*)(?:=|<<)/g;
+const OUTPUT_HELPER_CALL_RE = /\b(?:write_output|writeOutput|set_output|setOutput|emit_output|emitOutput)\s*\(\s*["']([A-Za-z_][A-Za-z0-9_-]*)["']/g;
+const OUTPUT_HELPER_SHELL_RE = /\b(?:write_output|writeOutput|set_output|setOutput|emit_output|emitOutput)\s+["']?([A-Za-z_][A-Za-z0-9_-]*)["']?/g;
 
 function isRecord(value) {
   return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
@@ -199,9 +201,55 @@ function extractDataPaths(run) {
   return [...new Set([...String(run || '').matchAll(DATA_PATH_RE)].map((match) => match[1]))];
 }
 
-function stepOutputKeys(run) {
-  if (!/\$GITHUB_OUTPUT\b/.test(String(run || ''))) return new Set();
-  return new Set([...String(run).matchAll(OUTPUT_RE)].map((match) => match[1]));
+function outputKeysFromSource(source) {
+  const raw = String(source || '');
+  if (!/\$GITHUB_OUTPUT\b|process\.env\.GITHUB_OUTPUT\b/.test(raw)) return new Set();
+  const keys = new Set([...raw.matchAll(OUTPUT_RE)].map((match) => match[1]));
+  for (const match of raw.matchAll(OUTPUT_HELPER_CALL_RE)) keys.add(match[1]);
+  for (const match of raw.matchAll(OUTPUT_HELPER_SHELL_RE)) keys.add(match[1]);
+
+  // A workflow commonly delegates its output writer to a first-party script.
+  // Follow only a statically-known output file (the literal env expression or
+  // a variable assigned from it) and only literal output prefixes. This keeps
+  // the audit conservative: dynamic keys remain unknown and still warn.
+  const outputVariables = new Set(['process.env.GITHUB_OUTPUT']);
+  for (const match of raw.matchAll(/\b(?:const|let|var)\s+([A-Za-z_$][A-Za-z0-9_$]*)\s*=\s*process\.env\.GITHUB_OUTPUT\b/g)) {
+    outputVariables.add(match[1]);
+  }
+  const variableAlternation = [...outputVariables]
+    .map((value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+    .join('|');
+  const sinkRe = new RegExp(
+    '\\b(?:appendFileSync|writeFileSync)\\(\\s*(?:'
+      + variableAlternation
+      + ')\\s*,\\s*[`\'\"]([A-Za-z_][A-Za-z0-9_-]*)(?:=|<<)',
+    'g',
+  );
+  for (const match of raw.matchAll(sinkRe)) keys.add(match[1]);
+  return keys;
+}
+
+function stepOutputKeys(run, {
+  root = ROOT,
+  workingRoot = root,
+  exists = fs.existsSync,
+  readFile = fs.readFileSync,
+  followReferences = true,
+} = {}) {
+  const source = String(run || '');
+  const keys = outputKeysFromSource(source);
+  if (!followReferences || workingRoot === null) return keys;
+  for (const candidate of extractCommandPaths(source)) {
+    const absolute = path.resolve(workingRoot, candidate);
+    if (!exists(absolute)) continue;
+    try {
+      for (const key of outputKeysFromSource(readFile(absolute, 'utf8'))) keys.add(key);
+    } catch {
+      // A runtime checkout or a permission failure is not proof of an output
+      // contract. Leave the key unknown so the existing warning is retained.
+    }
+  }
+  return keys;
 }
 
 function expressionIsInComment(source, offset) {
@@ -455,7 +503,7 @@ function validateWorkflowLevel(workflow, file, source, findings) {
   }
 }
 
-function validateJobs(workflow, file, source, root, exists, knownWorkflowNames, findings, reusableWorkflowOutputs) {
+function validateJobs(workflow, file, source, root, exists, readFile, knownWorkflowNames, findings, reusableWorkflowOutputs) {
   const jobs = isRecord(workflow.jobs) ? workflow.jobs : {};
   const jobNames = new Set(Object.keys(jobs));
   const inputNames = inputDefinitions(normalizeTriggers(workflow.on));
@@ -532,11 +580,19 @@ function validateJobs(workflow, file, source, root, exists, knownWorkflowNames, 
       if (hasUses && rawStep.uses.startsWith('./') && !localReferenceExists(root, rawStep.uses, '.', exists)) {
         findings.push(finding(file, 'workflow.local-action', 'error', `local action non trovata: ${rawStep.uses}`, stepLine));
       }
+      let outputKeys = new Set();
       if (hasRun) {
         const workingRoot = staticWorkingDirectory(root, rawStep['working-directory']);
         const dynamicDirectory = workingRoot === null
           || /\b(?:cd|pushd)\s+["']?\$(?:\{)?[A-Za-z_][A-Za-z0-9_]*(?:\})?|\bgit\s+clone\b/i.test(rawStep.run);
         const runtimeCheckout = checkoutPathForWorkingDirectory(root, workingRoot, checkoutPaths);
+        outputKeys = stepOutputKeys(rawStep.run, {
+          root,
+          workingRoot,
+          exists,
+          readFile,
+          followReferences: !dynamicDirectory && !runtimeCheckout,
+        });
         for (const candidate of extractCommandPaths(rawStep.run)) {
           const inWorkingDirectory = workingRoot !== null && exists(path.resolve(workingRoot, candidate));
           if (!inWorkingDirectory) {
@@ -571,7 +627,7 @@ function validateJobs(workflow, file, source, root, exists, knownWorkflowNames, 
         } else {
           idsForJob.add(rawStep.id);
           outputsForJob.set(rawStep.id, hasRun
-            ? { keys: stepOutputKeys(rawStep.run), known: true }
+            ? { keys: outputKeys, known: true }
             : { keys: new Set(), known: false });
         }
       }
@@ -598,6 +654,7 @@ function validateJobs(workflow, file, source, root, exists, knownWorkflowNames, 
 export function auditWorkflowText(file, source, {
   root = ROOT,
   exists = fs.existsSync,
+  readFile = fs.readFileSync,
   knownWorkflowNames = new Set(),
   reusableWorkflowOutputs = new Map(),
 } = {}) {
@@ -623,7 +680,7 @@ export function auditWorkflowText(file, source, {
   validateTriggers(triggers, knownWorkflowNames, file, source, findings);
   const inputNames = validateInputs(triggers, file, source, findings);
   validatePermissions(workflow, file, source, findings);
-  validateJobs(workflow, file, source, root, exists, knownWorkflowNames, findings, reusableWorkflowOutputs);
+  validateJobs(workflow, file, source, root, exists, readFile, knownWorkflowNames, findings, reusableWorkflowOutputs);
   void inputNames;
   return dedupeFindings(findings);
 }
