@@ -2158,6 +2158,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'votazione-scuola-qualita-berna-2026': { it: 'votazione-scuola-qualita-berna-2026', en: 'berne-school-quality-vote-2026', de: 'berner-schulqualita-volksabstimmung-2026', fr: 'vote-qualite-ecole-berne-2026' },
  'transpa-reg-quadri-rinvio-1-ottobre': { it: 'transpa-reg-quadri-rinvio-1-ottobre', en: 'transpa-reg-quadri-postpone-october', de: 'transpa-reg-quadri-aufschiebung-okt', fr: 'transpa-reg-quadri-report-octobre' },
  'detenzione-48-ore-manifestazioni': { it: 'detenzione-48-ore-manifestazioni', en: '48-hour-detention-protests', de: '48-stunden-festnahme-demonstrationen', fr: 'detention-48-heures-manifestations' },
+ 'tassi-interesse-svizzera-bassi': { it: 'tassi-interesse-svizzera-bassi', en: 'why-interest-rates-in-switzerland-remain-low', de: 'warum-die-zinsen-in-der-schweiz-niedrig-bleiben', fr: 'parce-que-les-taux-d-interet-en-suisse-restent-bas' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

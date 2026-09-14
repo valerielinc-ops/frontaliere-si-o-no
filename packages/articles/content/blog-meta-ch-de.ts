@@ -6397,6 +6397,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.detenzione-48-ore-manifestazioni.title': '48 Stunden Haft: Der Plan gegen die Peiniger',
     'blog.article.detenzione-48-ore-manifestazioni.excerpt': 'Nach den Ereignissen von Bern 2023 genehmigte der Nationalrat die Erhöhung der Untersuchungshaft auf 48 Stunden und erhöhte Befugnisse für den NDB.',
     'blog.article.detenzione-48-ore-manifestazioni.imageAlt': 'Der Bundespalast in Bern mit Demonstranten im Vordergrund, Symbol der Debatte über die öffentliche Sicherheit',
+    'blog.article.tassi-interesse-svizzera-bassi.title': 'Warum die Zinsen in der Schweiz niedrig bleiben',
+    'blog.article.tassi-interesse-svizzera-bassi.excerpt': 'Die SNB hält den Zinssatz seit über einem Jahr bei 0%; Schweizer Inflation im August bei 0,8%; durchschnittliche 10-jährige Hypotheken bei 1,9%; nächste Revision am 24. September.',
+    'blog.article.tassi-interesse-svizzera-bassi.imageAlt': 'Realistische Foto einer modernen Schweizer Bank mit der Schweizer Flagge, die den Kontext tiefer Zinssätze illustriert.',
 };
 
 export default blogMetaChDe;

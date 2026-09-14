@@ -19189,6 +19189,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'tassi-interesse-svizzera-bassi',
+    category: 'pratico',
+    date: '2026-09-14T19:40:31.336Z',
+    image: '/images/blog/tassi-interesse-svizzera-bassi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -6397,6 +6397,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.detenzione-48-ore-manifestazioni.title': 'Détention 48 heures : le plan contre les voyous',
     'blog.article.detenzione-48-ore-manifestazioni.excerpt': 'Après les événements de Berne de 2023, le National a approuvé l\'augmentation de la détention préventive à 48 heures et des pouvoirs accrus pour le SRC.',
     'blog.article.detenzione-48-ore-manifestazioni.imageAlt': 'Le Palais fédéral à Berne avec des manifestants au premier plan, symbole du débat sur la sécurité publique',
+    'blog.article.tassi-interesse-svizzera-bassi.title': 'Parce que les taux d\'intérêt en Suisse restent bas',
+    'blog.article.tassi-interesse-svizzera-bassi.excerpt': 'La BNS maintient le taux à 0% depuis plus d\'un an ; inflation suisse à 0,8% en août ; prêts à 10 ans moyens à 1,9% ; prochaine révision le 24 septembre.',
+    'blog.article.tassi-interesse-svizzera-bassi.imageAlt': 'Photo réaliste d\'une banque suisse moderne avec le drapeau suisse, illustrant le contexte de taux d\'intérêt bas.',
 };
 
 export default blogMetaChFr;
