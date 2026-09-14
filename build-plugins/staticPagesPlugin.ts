@@ -634,9 +634,18 @@ function buildHomepageBreadcrumbJsonLd(locale: HpSeoLocale): string {
  });
 }
 
-function injectHomepageSeoContent(html: string, locale: HpSeoLocale): string {
- // Inject only once: skip if already present.
- if (html.includes('id="hp-seo-block"')) return html;
+export function injectHomepageSeoContent(html: string, locale: HpSeoLocale): string {
+ // Inject only once: skip if already present. An older incremental artifact
+ // can already carry the SEO block without the directory rail, so repair that
+ // specific missing sibling before returning instead of treating the marker
+ // as proof that the whole homepage contract is current.
+ if (html.includes('id="hp-seo-block"')) {
+  if (locale === 'it' && !html.includes('id="hp-directory-hubs"') && html.includes('</body>')) {
+   const directoryHubs = buildHomepageDirectoryHubsBlock(locale);
+   return html.replace('</body>', `${directoryHubs}\n</body>`);
+  }
+  return html;
+ }
  const block = collapsifySeoBlock(HOMEPAGE_SEO_BLOCK_HTML[locale] ?? HOMEPAGE_SEO_BLOCK_HTML.it);
  // Place the block before </body> so it sits as a sibling of #root and is
  // not touched by React hydration. Falls back to no-op if no </body>.
@@ -650,6 +659,7 @@ function injectHomepageSeoContent(html: string, locale: HpSeoLocale): string {
  // 81-anchor bridge here; the canton hubs remain reachable at depth 2
  // via the language switcher → locale home → canton hub.
  const relatedGuides = buildHomepageRelatedGuidesBlock(locale);
+ const directoryHubs = buildHomepageDirectoryHubsBlock(locale);
  // tests/seo/breadcrumb-coverage.test.ts requires every non-noindex dist/
  // page to carry a BreadcrumbList JSON-LD block. The locale-root mirrors
  // (/en/, /de/, /fr/) are NOT in that test's exempt list (only bare
@@ -661,7 +671,7 @@ function injectHomepageSeoContent(html: string, locale: HpSeoLocale): string {
  const breadcrumbScript = html.includes('id="hp-breadcrumb-ld"')
   ? ''
   : `<script type="application/ld+json" id="hp-breadcrumb-ld">${buildHomepageBreadcrumbJsonLd(locale)}</script>\n`;
- return html.replace('</body>', `${block}\n${breadcrumbScript}${langSwitch}\n${relatedGuides}\n${cantonNav}\n</body>`);
+ return html.replace('</body>', `${block}\n${breadcrumbScript}${langSwitch}\n${relatedGuides}\n${directoryHubs}\n${cantonNav}\n</body>`);
 }
 
 /**
@@ -1001,6 +1011,27 @@ function buildHomepageRelatedGuidesBlock(locale: HpSeoLocale): string {
  return `<aside class="s-Q1eQm9" id="hp-related-guides" aria-labelledby="hpRelatedGuidesTitle"><h2 class="s-WrrqHM" id="hpRelatedGuidesTitle">${heading}</h2><nav class="s-G8-GwP" aria-label="${heading}">${anchors}</nav></aside>`;
 }
 
+// The IT root is the crawl entry point for the static BFS audit. Locale roots
+// already receive their own locale main nav below, but the root homepage used
+// to receive only the editorial rail: pharmacy and plate-auction hubs were
+// therefore absent from the first static hop even though NAV_LABELS declared
+// them. Keep this small, visible directory rail separate from the editorial
+// guides so the root-to-hub links cannot disappear when guide content changes.
+const HOMEPAGE_DIRECTORY_LINKS: ReadonlyArray<{ href: string; label: string }> = [
+ { href: PHARMACY_HUB_PATH.it, label: 'Farmacie e turni' },
+ { href: buildPlateAuctionPath({ locale: 'it', view: 'hub' }), label: 'Aste targhe' },
+ { href: buildPlateAuctionPath({ locale: 'en', view: 'hub' }), label: 'Plate auctions' },
+ { href: buildPlateAuctionPath({ locale: 'de', view: 'hub' }), label: 'Kontrollschildauktionen' },
+ { href: buildPlateAuctionPath({ locale: 'fr', view: 'hub' }), label: 'Enchères de plaques' },
+];
+
+function buildHomepageDirectoryHubsBlock(locale: HpSeoLocale): string {
+ if (locale !== 'it') return '';
+ const heading = 'Farmacie e dati utili';
+ const anchors = renderPillAnchors(HOMEPAGE_DIRECTORY_LINKS, 500);
+ return `<aside class="s-Q1eQm9" id="hp-directory-hubs" aria-labelledby="hpDirectoryHubsTitle"><h2 class="s-WrrqHM" id="hpDirectoryHubsTitle">${heading}</h2><nav class="s-G8-GwP" aria-label="${heading}">${anchors}</nav></aside>`;
+}
+
 // ── Locale main nav (crawlable) ─────────────────────────────────────
 // The locale-aware pipe nav shipped with generated static artifacts (see
 // `navHtml` in the page builder). Hoisted to module scope — it is no
@@ -1160,8 +1191,9 @@ export function injectLocaleMainNav(html: string, locale: HpSeoLocale): string {
  * so removing the injection from the ratchet is what makes the test go red.
  */
 export function renderLocaleRootShell(html: string, locale: 'en' | 'de' | 'fr'): string {
-  let out = html.replace(/<aside id="hp-seo-block"[\s\S]*?<\/aside>\s*/i, '');
-  out = out.replace(/<script[^>]*\bid="hp-breadcrumb-ld"[^>]*>[\s\S]*?<\/script>\s*/i, '');
+ let out = html.replace(/<aside id="hp-seo-block"[\s\S]*?<\/aside>\s*/i, '');
+ out = out.replace(/<aside\b[^>]*\bid="hp-directory-hubs"[^>]*>[\s\S]*?<\/aside>\s*/i, '');
+ out = out.replace(/<script[^>]*\bid="hp-breadcrumb-ld"[^>]*>[\s\S]*?<\/script>\s*/i, '');
   out = injectHomepageSeoContent(out, locale);
   // Locale main nav — the one thing this shell cannot inherit from the IT root
   // it mirrors. Both ratchet branches end up carrying the ITALIAN pipe nav (or
