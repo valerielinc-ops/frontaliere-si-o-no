@@ -114,6 +114,19 @@ describe('checkClosesLines — ineffective closing keyword', () => {
     expect(checkClosesLines('La issue è già chiusa da #849').ok).toBe(true);
   });
 
+  it('mantiene NEG_REPORT_RE ancorata alla fine del prefisso', () => {
+    const source = readFileSync(new URL('../scripts/lib/pr-body-closes-check.mjs', import.meta.url), 'utf8');
+    const start = source.indexOf('const NEG_REPORT_RE');
+    const end = source.indexOf(');', start);
+    expect(start).toBeGreaterThanOrEqual(0);
+    expect(source.slice(start, end)).toContain('\\\\s*$');
+  });
+
+  it('non perde una catena multi-issue dopo una negazione in una clausola precedente', () => {
+    const res = checkClosesLines('Non chiude nulla, ma Closes #12 #13');
+    expect(res.violations.find((v) => v.type === 'multi-ref-close')?.refs).toEqual(['12', '13']);
+  });
+
   describe('flags closure intent GitHub will ignore', () => {
     const bad: Array<{ body: string; ref: string }> = [
       { body: 'Chiude #133', ref: '#133' }, // the measured recurrence (PR #139)

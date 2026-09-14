@@ -1900,6 +1900,9 @@ export async function runRelocalization(phase) {
   phase.startedAtMs = window.startedAtMs;
   phase.windowMs = window.windowMs;
   phase.stopReason = window.stopReason;
+  // Keep the artifact's terminal reason in sync even when the run clock is
+  // incoherent and the cascade returns before initialCascadeStopReason().
+  cascadeStop = window.stopReason;
   recordRunPhase(phase);
   if (window.stopReason === 'clock incoherent') {
     console.log('⚠️  Run clock incoherent — stopping cascade without spending translation budget.');
