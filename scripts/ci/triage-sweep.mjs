@@ -120,7 +120,9 @@ export function crawlerDirectFixBudget({ inFlightFixRuns, openFixLabeled, cap = 
   return Number.isFinite(cap) && cap > 0 ? cap : 0;
 }
 
-const names = (iss) => (iss.labels || []).map((l) => l.name);
+const names = (iss) => (iss.labels || [])
+  .map((label) => (typeof label === 'string' ? label : label?.name))
+  .filter(Boolean);
 const has = (iss, n) => names(iss).includes(n);
 
 // Labels che indicano che il routing è già stato applicato (in qualsiasi forma).

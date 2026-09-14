@@ -60,8 +60,12 @@ describe('crawlerDirectFixBudget', () => {
 
   it('esclude dal secondo passaggio i pin keep-open e agent:no-age-out', () => {
     const labels = (...names: string[]) => names.map((name) => ({ name }));
+    const stringLabels = (...names: string[]) => names;
     expect(isTriagedButNotRouted({ labels: labels('agent:triaged', 'keep-open') })).toBe(false);
     expect(isTriagedButNotRouted({ labels: labels('agent:triaged', 'agent:no-age-out') })).toBe(false);
     expect(isTriagedButNotRouted({ labels: labels('agent:triaged') })).toBe(true);
+    expect(isTriagedButNotRouted({ labels: stringLabels('agent:triaged', 'keep-open') })).toBe(false);
+    expect(isTriagedButNotRouted({ labels: stringLabels('agent:triaged', 'agent:no-age-out') })).toBe(false);
+    expect(isTriagedButNotRouted({ labels: stringLabels('agent:triaged') })).toBe(true);
   });
 });
