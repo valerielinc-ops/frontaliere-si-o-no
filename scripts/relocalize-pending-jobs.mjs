@@ -38,7 +38,11 @@ import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 
 import { fileURLToPath } from 'node:url';
-import { detectJobTitleLocaleDetails, titleLooksUntranslated } from './lib/job-locale-utils.mjs';
+import {
+  detectJobTitleLocaleDetails,
+  SOURCE_LANG_HOLD_CONFIDENCE,
+  titleLooksUntranslated,
+} from './lib/job-locale-utils.mjs';
 import { sourceChangedSinceSuppression } from './lib/source-changed-since-suppression.mjs';
 import {
   addPreviousSlugForLocale,
@@ -827,14 +831,15 @@ export function isIncomplete(job) {
     //   1. Crawler seed-copies of source text that weren't translated
     //   2. AI translation that wrote to the wrong locale slot
     //   3. Locale slots polluted with a different translation pass
-    // Only flag when detection is confident (>=0.65) and the detected language
+    // Only flag when detection is confident (>=SOURCE_LANG_HOLD_CONFIDENCE) and the detected language
     // is actually one of our supported locales (avoid false positives on short
-    // or mixed-language text). Aligned with title contamination threshold (0.65)
-    // to reduce false positives from Romance-language cognates (IT/FR share many words).
+    // or mixed-language text). Aligned with the shared source-language hold
+    // threshold to reduce false positives from Romance-language cognates
+    // (IT/FR share many words).
     if (desc.length >= MIN_DESC_CHARS) {
       const detected = detectLanguageWithConfidence(desc, locale);
       if (
-        detected.confidence >= 0.65 &&
+        detected.confidence >= SOURCE_LANG_HOLD_CONFIDENCE &&
         detected.lang !== locale &&
         LOCALES.includes(detected.lang)
       ) {
