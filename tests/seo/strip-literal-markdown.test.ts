@@ -90,5 +90,7 @@ describe('sanitizeJobTitleForDisplay', () => {
 
   it('does not treat ordinary bold job wording as an AI narrative', () => {
     expect(sanitizeJobTitleForDisplay('Translation **Project Manager**')).toBe('Translation Project Manager');
+    expect(sanitizeJobTitleForDisplay('Translation Specialist **Project Manager**')).toBe('Translation Specialist Project Manager');
+    expect(sanitizeJobTitleForDisplay('Based on the contextual **Project Manager**')).toBe('Based on the contextual Project Manager');
   });
 });

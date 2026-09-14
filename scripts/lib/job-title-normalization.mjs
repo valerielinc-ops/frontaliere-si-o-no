@@ -16,13 +16,13 @@ const BOLD_SEGMENT_RE = /(?<!\*)\*\*([^*\n]{1,240})\*\*(?!\*)/g;
 // `\b` is deliberately avoided at the start of these expressions because
 // JavaScript word boundaries are ASCII-only (`Übersetzung` would not match).
 const NARRATIVE_TITLE_INTRODUCERS = [
-  /(?:^|[^\p{L}\p{N}_])(?:translation|traduzione|traduction|übersetzung)[^:!?\n]*:\s*$/iu,
-  /(?:^|[^\p{L}\p{N}_])(?:the\s+)?title[^:!?\n]*:\s*$/iu,
-  /(?:^|[^\p{L}\p{N}_])(?:here(?:'s| is)|ecco|voici|hier ist)[^:!?\n]*:\s*$/iu,
-  /(?:^|[^\p{L}\p{N}_])(?:translation|traduzione|traduction|übersetzung)[^.!?\n]*(?:is|è|est|ist)\s*$/iu,
-  /(?:^|[^\p{L}\p{N}_])(?:the\s+)?title[^.!?\n]*(?:needs?|appears?|translated?)(?:\s+to\s+be)?\s*:?\s*$/iu,
-  /(?:^|[^\p{L}\p{N}_])based on[^.!?\n]*context[^.!?\n]*$/iu,
-  /(?:^|[^\p{L}\p{N}_])(?:i need to|let me|looking at|reading (?:the )?job files?|if you(?:'d| would) like me)[^.!?\n]*$/iu,
+  /(?:^|[^\p{L}\p{N}_])(?:translation|traduzione|traduction|übersetzung)(?=$|[^\p{L}\p{N}_])[^:!?\n]*:\s*$/iu,
+  /(?:^|[^\p{L}\p{N}_])(?:the\s+)?title(?=$|[^\p{L}\p{N}_])[^:!?\n]*:\s*$/iu,
+  /(?:^|[^\p{L}\p{N}_])(?:here(?:'s| is)|ecco|voici|hier ist)(?=$|[^\p{L}\p{N}_])[^:!?\n]*:\s*$/iu,
+  /(?:^|[^\p{L}\p{N}_])(?:translation|traduzione|traduction|übersetzung)(?=$|[^\p{L}\p{N}_])[^.!?\n]*(?:^|[^\p{L}\p{N}_])(?:is|è|est|ist)(?=$|[^\p{L}\p{N}_])\s*$/iu,
+  /(?:^|[^\p{L}\p{N}_])(?:the\s+)?title(?=$|[^\p{L}\p{N}_])[^.!?\n]*(?:^|[^\p{L}\p{N}_])(?:needs?|appears?|translated?)(?=$|[^\p{L}\p{N}_])(?:\s+to\s+be)?\s*:?\s*$/iu,
+  /(?:^|[^\p{L}\p{N}_])based on(?=$|[^\p{L}\p{N}_])[^.!?\n]*(?:^|[^\p{L}\p{N}_])context(?=$|[^\p{L}\p{N}_])[^.!?\n]*$/iu,
+  /(?:^|[^\p{L}\p{N}_])(?:i need to|let me|looking at|reading (?:the )?job files?|if you(?:'d| would) like me)(?=$|[^\p{L}\p{N}_])[^.!?\n]*$/iu,
 ];
 
 /**
