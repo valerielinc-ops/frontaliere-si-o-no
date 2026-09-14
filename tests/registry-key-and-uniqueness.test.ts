@@ -69,6 +69,18 @@ describe('fingerprintJob → registry key', () => {
       .toBe('id|example.com|123456');
   });
 
+  it('keeps ETA requisition fingerprints stable across the index.php path variant', () => {
+    const before = 'https://www.eta.ch/en/jobs-careers/vacancies/detail/3770';
+    const after = 'https://www.eta.ch/index.php/en/jobs-careers/vacancies/detail/3770';
+
+    expect(fingerprintJob({ url: before })).toBe('id|eta.ch|3770');
+    expect(fingerprintJob({ url: after })).toBe('id|eta.ch|3770');
+    expect(fingerprintJob({ url: before })).toBe(fingerprintJob({ url: after }));
+    // The short numeric leaf is an ETA-specific rule and must not re-key other hosts.
+    expect(fingerprintJob({ url: 'https://example.com/careers/vacancies/detail/3770' }))
+      .toBe('url|https://example.com/careers/vacancies/detail/3770');
+  });
+
   it('keys a numeric-then-text id by the leading number (not collapsed by the UUID guard)', () => {
     // teamtailor `7887338-projektleiter`, hilti `17627-fr` — the digits ARE the
     // stable id; the leaf is not UUID-shaped so the numeric path rule still wins.

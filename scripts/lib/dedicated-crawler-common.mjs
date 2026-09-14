@@ -25,7 +25,13 @@ import {
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { MAX_SLUG_LENGTH } from './regenerate-slugs-helpers.mjs';
 import { extractStableJobId } from './job-match-key.mjs';
-import { WORKDAY_HOST_RE, workdayReqFromLeaf, UMANTIS_HOST_RE, UMANTIS_VACANCY_PATH_RE } from './job-url-key.mjs';
+import {
+  WORKDAY_HOST_RE,
+  workdayReqFromLeaf,
+  UMANTIS_HOST_RE,
+  UMANTIS_VACANCY_PATH_RE,
+  trailingDigitRunFromLeaf,
+} from './job-url-key.mjs';
 import { recordSlugMutation, capSlugArray } from './slug-history-journal.mjs';
 import {
   isAcceptableTranslation,
@@ -5341,6 +5347,15 @@ export function extractJobIdentityFromUrl(rawUrl = '') {
     if (vac) return `${host}|${vac[1]}`;
   }
 
+  // ETA SA (Swatch Group): the four-digit requisition id is stable while the
+  // portal may add/remove an `index.php/` ancestor. Mirror mergeUrlKey Rule L
+  // so the persisted producer fingerprint does not split those URL variants.
+  const leafSeg = u.pathname.split('/').filter(Boolean).pop() || '';
+  if (host === 'eta.ch') {
+    const etaReq = trailingDigitRunFromLeaf(leafSeg);
+    if (etaReq) return `${host}|${etaReq}`;
+  }
+
   // A per-job UUID in the LEAF path segment is the globally-unique id — prefer it
   // BEFORE the numeric/path heuristics below. The `\/jobs\/(\d+)` etc. rules
   // would otherwise latch onto the LEADING DIGITS of a UUID slug
@@ -5358,7 +5373,6 @@ export function extractJobIdentityFromUrl(rawUrl = '') {
   // ancestor-collapse this fix removes (every cseb job → one `cseb.ch|<board-uuid>`
   // key). Vendors put the per-job reference in the rightmost segment; board/site
   // uuids live in ancestor segments.
-  const leafSeg = u.pathname.split('/').filter(Boolean).pop() || '';
   const leafUuid = extractUuidLikeId(leafSeg);
   if (leafUuid) return `${registrableDomain(host)}|${leafUuid}`;
 
