@@ -195,8 +195,9 @@ describe('loop fleet status', () => {
       sourceRefs: registry.loops.find((row: any) => row.loopId === 'L0').sourceRefs,
       policyCompliant: true,
       lifecycleCompliant: true,
-      issue: null,
+      issue: 'operational telemetry incomplete: durationSeconds, retryCount, quotaUnits, collisions, gateBypass',
       missingOutcome: null,
+      nextHumanAction: 'restore complete operational telemetry and rerun the loop',
     });
     expect(rows.find((row: any) => row.loopId === 'L1')).toMatchObject({
       quality: 'unmeasurable',
@@ -271,7 +272,7 @@ describe('loop fleet status', () => {
     expect(rows.find((row: any) => row.loopId === 'L0')).toMatchObject({
       policyCompliant: false,
       missingOutcome: 'independent outcome not recorded',
-      nextHumanAction: 'restore or attach the independent source and rerun the loop',
+      nextHumanAction: 'validate or attach the independent outcome before changing exposure',
     });
   });
 
@@ -294,6 +295,12 @@ describe('loop fleet status', () => {
       lifecycleCompliant: true,
       actionClass: 'observe',
       requiredAutonomy: 'A0',
+      durationSeconds: 1.25,
+      retryCount: 0,
+      quotaUnits: 0,
+      collisions: 0,
+      gateBypass: false,
+      operationalMetricsComplete: true,
       outcome: {
         outcomeId: 'fresh-complete-published-data',
         status: 'observed',
@@ -319,6 +326,63 @@ describe('loop fleet status', () => {
       outcome: { outcomeId: 'fresh-complete-published-data', status: 'observed' },
       missingOutcome: null,
       ledgerLastRun: { id: '77', headSha: 'a'.repeat(40) },
+      operationalMetrics: {
+        durationSeconds: 1.25,
+        retryCount: 0,
+        quotaUnits: 0,
+        collisions: 0,
+        gateBypass: false,
+        complete: true,
+      },
+    });
+  });
+
+  it('espone la telemetria mancante senza promuovere un ledger legacy', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-status-legacy-health-'));
+    const ledgerDir = path.join(root, 'ledger');
+    fs.mkdirSync(ledgerDir);
+    fs.writeFileSync(path.join(ledgerDir, 'loop-health-history.jsonl'), `${JSON.stringify({
+      recordType: 'health',
+      schemaVersion: 1,
+      recordId: 'health-legacy',
+      loopId: 'L0',
+      execution: { runId: '78', sha: 'b'.repeat(40) },
+      recordedAt: '2026-09-12T12:00:00.000Z',
+      quality: 'partial',
+      ok: false,
+      evidenceComplete: true,
+      policyCompliant: true,
+      outcomePolicyCompliant: true,
+      lifecycleCompliant: true,
+      actionClass: 'observe',
+      requiredAutonomy: 'A0',
+      outcome: {
+        outcomeId: 'fresh-complete-published-data',
+        status: 'partial',
+        independent: false,
+        sourceRefs: ['manifest-api-corpus'],
+        primaryMetric: 'fresh_complete_manifest_rate',
+        numerator: null,
+        denominator: null,
+        requiredFieldsPresent: [],
+        missingFields: ['generatedAt', 'numerator', 'denominator'],
+        reason: 'legacy fixture',
+        recordedAt: '2026-09-12T12:00:00.000Z',
+      },
+    })}\n`);
+
+    const rows = collectStatus({
+      ledgerDir,
+      ghRun: () => ({ run: null, error: 'no completed run found' }),
+      download: () => ({ evidence: null, error: 'not called' }),
+    });
+    expect(rows.find((row: any) => row.loopId === 'L0')).toMatchObject({
+      operationalMetrics: {
+        complete: false,
+        durationSeconds: null,
+        missing: ['durationSeconds', 'retryCount', 'quotaUnits', 'collisions', 'gateBypass'],
+      },
+      nextHumanAction: 'validate or attach the independent outcome before changing exposure',
     });
   });
 
