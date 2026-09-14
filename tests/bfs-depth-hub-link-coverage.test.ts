@@ -42,10 +42,13 @@ import {
   renderOverflowLadderPage,
   overflowLadderPageCount,
   overflowLadderPath,
+  indexableLadderPages,
+  buildSitemap,
   pathFor,
   cantonLadders,
   sitemapLadders,
 } from '../build-plugins/eventsSeoPagesPlugin';
+import { MIN_INDEXABLE_WORDS } from '../build-plugins/constants';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const distDir = mkdtempSync(path.join(os.tmpdir(), 'bfs-hub-links-'));
@@ -414,6 +417,26 @@ describe('the overflow ladder keeps the rows it carries reachable (#7329)', () =
     for (let page = 2; page <= 40; page += 1) {
       expect(bucketPaths).not.toContain(overflowLadderPath('it', 'altri-cantoni', undefined, page));
     }
+  });
+
+  it('sitemaps only rendered ladder pages that pass their robots word-count gate (#7741)', () => {
+    const renderedPages = [
+      { page: 2, wordCount: MIN_INDEXABLE_WORDS },
+      { page: 3, wordCount: MIN_INDEXABLE_WORDS - 1 },
+    ];
+    const pages = indexableLadderPages(renderedPages);
+    const sitemap = buildSitemap([
+      {
+        canton: 'altri-cantoni',
+        comuni: [],
+        digests: [],
+        ladders: [{ comune: undefined, pages }],
+      },
+    ], new Date().toISOString().slice(0, 10));
+
+    expect(pages).toEqual([2]);
+    expect(sitemap).toContain(overflowLadderPath('it', 'altri-cantoni', undefined, 2));
+    expect(sitemap).not.toContain(overflowLadderPath('it', 'altri-cantoni', undefined, 3));
   });
 });
 

@@ -133,6 +133,19 @@ const LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'] as const;
 const SITEMAP_NAME = 'sitemap-eventi.xml';
 const SOURCE = EVENT_SOURCES['tio-agenda'];
 
+function isIndexableWordCount(wordCount: number): boolean {
+  return wordCount >= MIN_INDEXABLE_WORDS;
+}
+
+/** Page numbers whose rendered bodies pass the same gate used by `robots`. */
+export function indexableLadderPages(
+  renderedPages: ReadonlyArray<{ page: number; wordCount: number }>,
+): number[] {
+  return renderedPages
+    .filter(({ page, wordCount }) => page >= 2 && isIndexableWordCount(wordCount))
+    .map(({ page }) => page);
+}
+
 // Localized base segment per canton+locale — shared with the FB poster and
 // the weekend-digest article generator (AGENTS.md §6, one source of truth).
 // `eventsBasePathForCanton('TI')` is byte-identical to the legacy TI-only
@@ -2602,9 +2615,9 @@ function buildLadderAlternates(canton: string, comune: string | undefined, page:
  * weight (issue #7329). Carries ONLY the index rows for its slice plus the
  * ladder nav; the cards, stats, FAQ and methodology stay on the base page.
  *
- * Indexable under the ordinary `MIN_INDEXABLE_WORDS` gate, exactly like the
- * bucket/hub/digest siblings — NOT `noindex` by construction. A ladder page is
- * the ONLY inbound link of the rows it carries (rows past
+ * Indexability follows the ordinary `MIN_INDEXABLE_WORDS` gate, exactly like
+ * the bucket/hub/digest siblings. A ladder page is the ONLY inbound link of
+ * the rows it carries (rows past
  * `OVERFLOW_ROWS_PER_PAGE` moved off the base page), and both reachability
  * auditors treat a noindex page as a bridge that stops the walk:
  * `scripts/audit-orphan-pages-in-sitemaps.mjs` (`if (htmlHasNoindex(html)) {
@@ -2612,7 +2625,8 @@ function buildLadderAlternates(canton: string, comune: string | undefined, page:
  * (`if (htmlHasNoindex(html)) continue;`) both skip link extraction. A noindex
  * ladder would therefore re-orphan every row it transports — precisely the
  * #5434 regression this overflow block exists to prevent. For the same reason
- * the ladder URLs ARE listed in `sitemap-eventi.xml` (see `buildSitemap`).
+ * only indexable ladder URLs are listed in `sitemap-eventi.xml` (see
+ * `buildSitemap`).
  *
  * BFS: linked from the CANTON HUB (`renderHubLadderIndex`), not only from the
  * base page, so a ladder page sits at the same depth as the base page and its
@@ -2682,14 +2696,14 @@ export function renderOverflowLadderPage(params: {
   });
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}`;
+  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: isIndexableWordCount(wordCount) })}`;
   const html = buildSeoPageHtml({
     locale,
     title: oCopy.ladderTitle(label, page, pageCount),
     description: oCopy.ladderDesc(label, page, pageCount),
     canonicalUrl,
     hreflangHtml: buildLadderAlternates(canton, comune, page),
-    robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
+    robots: isIndexableWordCount(wordCount) ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
     bodyHtml,
     jsonLdScripts: [breadcrumbLd],
@@ -3477,13 +3491,13 @@ export function renderDigestPage(params: {
 // `sitemap-eventi-<canton>.xml` per group, indexed from a sitemap index),
 // mirroring the existing `data/seo-404-compat/part-*.json` sharding pattern
 // used elsewhere in this codebase for the same class of problem.
-function buildSitemap(
+export function buildSitemap(
   perCanton: Array<{
     canton: string;
     comuni: string[];
     digests: DigestDef[];
     hasOtherEvents?: boolean;
-    ladders?: Array<{ comune: string | undefined; pageCount: number }>;
+    ladders?: Array<{ comune: string | undefined; pages: number[] }>;
   }>,
   dateStamp: string,
   detailEntries: Array<{ canton: string; comune: string; slug: string }> = [],
@@ -3504,8 +3518,8 @@ function buildSitemap(
     if (hasOtherEvents) entries.push(sitemapUrl(canton, OTHER_EVENTS_COMUNE_KEY, dateStamp, '0.5'));
     // Overflow ladder pages of the buckets that have one (page 1 IS the bucket
     // page already pushed above, so the ladder starts at 2).
-    for (const { comune, pageCount } of ladders ?? []) {
-      for (let page = 2; page <= pageCount; page += 1) entries.push(ladderSitemapUrl(canton, comune, page, dateStamp));
+    for (const { comune, pages } of ladders ?? []) {
+      for (const page of pages) entries.push(ladderSitemapUrl(canton, comune, page, dateStamp));
     }
   }
   // Per-event detail pages
@@ -3939,7 +3953,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         comuni: string[];
         digests: DigestDef[];
         hasOtherEvents: boolean;
-        ladders: Array<{ comune: string | undefined; pageCount: number }>;
+        ladders: Array<{ comune: string | undefined; pages: number[] }>;
       }> = [];
       // Per-canton aggregates for the Swiss-wide index hub (issue #3645, F3)
       // — filled alongside `perCantonSitemap` in the same loop below so both
@@ -3965,13 +3979,41 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         const digestEvents = new Map(DIGESTS.map((d) => [d.key, d.filter(events, { todayIso: dateStamp })]));
 
         // The ladder of this canton, counted ONCE per locale (#7742). Everything
-        // downstream — the hub pills, the emit loop below, the sitemap — reads
-        // this map instead of re-deriving page counts from its own `detailHref`,
-        // so the pages linked, the pages written and the pages sitemapped are by
-        // construction the same set. Computed for ALL locales, not just the ones
-        // this shard emits, because the sitemap is built for all four (see the
-        // BUILD_LOCALE note in the loop).
+        // downstream — the hub pills and the emit loop — reads this map instead
+        // of re-deriving page counts from its own `detailHref`.
         const laddersByLocale = new Map<Locale, LadderBucket[]>(LOCALES.map((locale) => [locale, cantonLadders(byComune, otherEvents, detailHrefFor(locale))]));
+        const sharedLadderPageCounts = new Map<string | undefined, number>(
+          sitemapLadders(laddersByLocale).map(({ comune, pageCount }): [string | undefined, number] => [comune, pageCount]),
+        );
+        // The sitemap's canonical <loc> is always the IT path. Record the actual
+        // IT render result, so its membership reads the page's own robots gate;
+        // non-IT pages remain hreflang alternates, not sitemap <loc>s.
+        const renderedItLadderPages = new Map<string | undefined, Array<{ page: number; wordCount: number }>>();
+        const recordItLadderPage = (comune: string | undefined, page: number, rendered: { wordCount: number }) => {
+          const pages = renderedItLadderPages.get(comune) ?? [];
+          pages.push({ page, wordCount: rendered.wordCount });
+          renderedItLadderPages.set(comune, pages);
+        };
+        const renderItLadderForSitemap = (
+          comune: string | undefined,
+          events: SiteEvent[],
+          cap: number,
+          detailHref: DetailHref,
+        ) => {
+          for (let page = 2; page <= (sharedLadderPageCounts.get(comune) ?? 1); page += 1) {
+            recordItLadderPage(comune, page, renderOverflowLadderPage({ locale: 'it', canton, comune, events, cap, page, dateStamp, distDir, detailHref }));
+          }
+        };
+
+        // Shared sitemaps are owned by the IT/main shard. On a non-IT matrix
+        // shard the normal locale loop is intentionally skipped before it can
+        // render IT, so collect the same IT render results here for the
+        // complete sitemap metadata without emitting those pages twice.
+        if (!shouldEmitLocale('it')) {
+          const itDetailHref = detailHrefFor('it');
+          for (const comune of comuni) renderItLadderForSitemap(comune, byComune.get(comune)!, EVENT_CARD_CAP, itDetailHref);
+          if (otherEvents.length > 0) renderItLadderForSitemap(OTHER_EVENTS_COMUNE_KEY, otherEvents, OTHER_EVENTS_CARD_CAP, itDetailHref);
+        }
 
         for (const locale of LOCALES) {
           // Per-locale matrix shard (BUILD_LOCALE): render nothing for a locale
@@ -4012,7 +4054,9 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
             // pages. Sitemapped alongside the bucket (see `perCantonSitemap`
             // below): the ladder is the only inbound of the rows it carries.
             for (let page = 2; page <= (ladderPages.get(comune) ?? 1); page += 1) {
-              emit(renderOverflowLadderPage({ locale, canton, comune, events: list, cap: EVENT_CARD_CAP, page, dateStamp, distDir, detailHref }));
+              const rendered = renderOverflowLadderPage({ locale, canton, comune, events: list, cap: EVENT_CARD_CAP, page, dateStamp, distDir, detailHref });
+              emit(rendered);
+              if (locale === 'it' && page <= (sharedLadderPageCounts.get(comune) ?? 1)) recordItLadderPage(comune, page, rendered);
             }
             // One indexable detail page per event under its comune.
             for (const ev of list) {
@@ -4037,19 +4081,19 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
           if (otherEvents.length > 0) {
             emit(renderOtherEventsPage({ locale, canton, events: otherEvents, dateStamp, weekendDays, distDir, detailHref }));
             for (let page = 2; page <= (ladderPages.get(OTHER_EVENTS_COMUNE_KEY) ?? 1); page += 1) {
-              emit(
-                renderOverflowLadderPage({
-                  locale,
-                  canton,
-                  comune: OTHER_EVENTS_COMUNE_KEY,
-                  events: otherEvents,
-                  cap: OTHER_EVENTS_CARD_CAP,
-                  page,
-                  dateStamp,
-                  distDir,
-                  detailHref,
-                }),
-              );
+              const rendered = renderOverflowLadderPage({
+                locale,
+                canton,
+                comune: OTHER_EVENTS_COMUNE_KEY,
+                events: otherEvents,
+                cap: OTHER_EVENTS_CARD_CAP,
+                page,
+                dateStamp,
+                distDir,
+                detailHref,
+              });
+              emit(rendered);
+              if (locale === 'it' && page <= (sharedLadderPageCounts.get(OTHER_EVENTS_COMUNE_KEY) ?? 1)) recordItLadderPage(OTHER_EVENTS_COMUNE_KEY, page, rendered);
             }
             for (const ev of otherEvents) {
               const eventSlug = detailSlugs.get(ev.id)!.slug;
@@ -4074,15 +4118,18 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
           }
         }
 
+        const ladders = [...renderedItLadderPages.entries()]
+          .map(([comune, renderedPages]) => ({ comune, pages: indexableLadderPages(renderedPages) }))
+          .filter(({ pages }) => pages.length > 0);
+
         perCantonSitemap.push({
           canton,
           comuni,
           digests: DIGESTS.filter((d) => (digestEvents.get(d.key)?.length ?? 0) > 0),
           hasOtherEvents: otherEvents.length > 0,
-          // Not a third count of its own: the same per-locale lists the hub and
-          // the emit loop used, narrowed to the pages every locale emits (a
-          // sitemap `<loc>` advertises an alternate for each one).
-          ladders: sitemapLadders(laddersByLocale),
+          // The list is derived from the rendered IT ladder pages and the same
+          // word-count predicate as their `robots` value (#7741).
+          ladders,
         });
         cantonStats.push({ canton, eventCount: events.length, comuneCount: byComune.size });
       }

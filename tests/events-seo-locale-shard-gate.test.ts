@@ -41,15 +41,15 @@ afterEach(() => {
 
 describe('#5130 — events-seo-pages does not render locales this shard discards', () => {
   it('gates every render loop, not just the biggest one', () => {
-    // Three loops feed `emit()`: per-canton hub/comune/detail, past-event
-    // detail, and the national index. Gating only the first would leave two
-    // thirds of the discarded renders in place.
+    // The locale loops cover the per-canton pages, past-event details, the
+    // national index, and locale-owned cleanup/redirect work. Gating only the
+    // main render loop would leave other non-owned work in place.
     const emitLoops = CODE.split(/for \(const locale of LOCALES\) \{/).length - 1;
     const gates = CODE.split('if (!shouldEmitLocale(locale))').length - 1;
     expect(emitLoops).toBeGreaterThanOrEqual(3);
     // Every locale loop that renders is gated; the inbound-link patch loop is
     // deliberately NOT (it only touches hub files that already exist on disk).
-    expect(gates).toBe(3);
+    expect(gates).toBe(emitLoops);
   });
 
   it('imports the shared filter rather than re-deriving locale ownership', () => {
