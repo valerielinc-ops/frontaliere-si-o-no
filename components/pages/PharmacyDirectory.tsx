@@ -207,7 +207,8 @@ function CountryDirectoryPage({ locale }: { locale: Locale }) {
 
 function DutyPage({ page, locale, now }: { page: PharmacyPath; locale: Locale; now: Date }) {
   const copy = COPY[locale];
-  const regionNames = [...new Set(DUTIES.duties.map((duty) => duty.coverageName))];
+  const regionNames = [...new Set(DUTIES.duties.map((duty) => duty.coverageName))]
+    .filter((region) => Boolean(currentDutyForRegion(DUTIES, region, now)));
   const city = page.kind === 'duty-city' && page.citySlug ? TICINO_CITIES.find((candidate) => candidate.slug === page.citySlug)?.name : undefined;
   const coverage = city ? [...new Set(scopeForPage(page).map((pharmacy) => DUTY_COVERAGE_BY_PHARMACY.get(pharmacy.id)).filter(Boolean))][0] : undefined;
   const currentDuty = coverage ? currentDutyForRegion(DUTIES, coverage, now) : undefined;
