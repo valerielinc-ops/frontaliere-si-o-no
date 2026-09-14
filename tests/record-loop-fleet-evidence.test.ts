@@ -205,7 +205,7 @@ describe('record-loop-fleet-evidence', () => {
   it('does not invent quota or collision metrics when the workflow declaration is absent', () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-operational-metrics-missing-'));
     writeL1Evidence(dir);
-    const names = ['LOOP_FLEET_STARTED_AT', 'LOOP_FLEET_QUOTA_UNITS', 'LOOP_FLEET_COLLISIONS'];
+    const names = ['LOOP_FLEET_STARTED_AT', 'LOOP_FLEET_QUOTA_UNITS', 'LOOP_FLEET_COLLISIONS', 'GITHUB_RUN_ATTEMPT'];
     const previous = Object.fromEntries(names.map((name) => [name, process.env[name]]));
     for (const name of names) delete process.env[name];
     try {
