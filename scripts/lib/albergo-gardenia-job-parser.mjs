@@ -89,23 +89,33 @@ function isSameGardeniaResource(leftUrl, rightUrl) {
   }
 }
 
-function gardeniaTransportCandidates(rawUrl) {
+function isCanonicalGardeniaHost(hostname) {
+  return hostname === GARDENIA_APEX_HOST || hostname === GARDENIA_WWW_HOST;
+}
+
+function gardeniaTransportCandidates(rawUrl, preferredHost = '') {
   const primary = new URL(rawUrl);
-  if (![GARDENIA_APEX_HOST, GARDENIA_WWW_HOST].includes(primary.hostname)) {
+  if (!isCanonicalGardeniaHost(primary.hostname)) {
     return [primary.href];
   }
-  const alternate = new URL(primary);
-  alternate.hostname = primary.hostname === GARDENIA_WWW_HOST
+  const alternateHost = primary.hostname === GARDENIA_WWW_HOST
     ? GARDENIA_APEX_HOST
     : GARDENIA_WWW_HOST;
-  return alternate.href === primary.href ? [primary.href] : [primary.href, alternate.href];
+  const preferred = String(preferredHost || '').toLowerCase();
+  const hosts = [preferred, primary.hostname, alternateHost]
+    .filter((host, index, all) => isCanonicalGardeniaHost(host) && all.indexOf(host) === index);
+  return hosts.map((host) => {
+    const candidate = new URL(primary);
+    candidate.hostname = host;
+    return candidate.href;
+  });
 }
 
 function isAllowedGardeniaBrowserUrl(rawUrl) {
   try {
     const parsed = new URL(rawUrl);
     return parsed.protocol === 'https:'
-      && [GARDENIA_APEX_HOST, GARDENIA_WWW_HOST].includes(parsed.hostname.toLowerCase());
+      && isCanonicalGardeniaHost(parsed.hostname.toLowerCase());
   } catch {
     return false;
   }
@@ -575,7 +585,7 @@ function gardeniaDeadlineError(sourceUrl) {
  * noise. The caller still validates resource identity and source content.
  *
  * @param {string} rawUrl
- * @param {{ kind?: 'sitemap'|'content', fetchPage?: typeof politeFetch, browserFetchPage?: typeof politeFetch, transportState?: { preferred?: 'browser' }, deadlineAt?: number, nowImpl?: () => number }} [runtime]
+ * @param {{ kind?: 'sitemap'|'content', fetchPage?: typeof politeFetch, browserFetchPage?: typeof politeFetch, transportState?: { preferred?: 'browser', preferredHost?: string }, deadlineAt?: number, nowImpl?: () => number }} [runtime]
  */
 export async function fetchAlbergoGardeniaSourcePage(
   rawUrl,
@@ -603,13 +613,18 @@ export async function fetchAlbergoGardeniaSourcePage(
   }
 
   let last = null;
-  const candidates = gardeniaTransportCandidates(rawUrl);
+  const candidates = gardeniaTransportCandidates(rawUrl, transportState?.preferredHost);
   for (const [index, candidateUrl] of candidates.entries()) {
     if (nowImpl() >= deadlineAt) throw gardeniaDeadlineError(candidateUrl);
     const response = await fetchPage(candidateUrl, fetchOptions);
     if (nowImpl() >= deadlineAt) throw gardeniaDeadlineError(candidateUrl);
     last = response;
-    if (response?.ok) return response;
+    if (response?.ok) {
+      if (transportState && isCanonicalGardeniaHost(new URL(candidateUrl).hostname)) {
+        transportState.preferredHost = new URL(candidateUrl).hostname;
+      }
+      return response;
+    }
 
     const connectionFailure = Number(response?.status || 0) === 0
       && !response?.blockedByRobots
