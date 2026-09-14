@@ -335,29 +335,34 @@ describe('company website resolver', () => {
   // registry at all. The invariant below is the one worth holding, and it is
   // capable of failing: it did, on 6 of the 22 probed hosts, until
   // `companyWebsiteFromDomain` started deriving the published value from the
-  // verified one.
+  // verified one and using a bare-host fallback for an unverified one.
   it('derives every published website from the verified host form, not from an unconditional www.', () => {
     const registry = JSON.parse(readFileSync(path.resolve('data/company-website-resolved.json'), 'utf8'));
     const domains: Record<string, string | null> = registry.domains;
 
     for (const [domain, verified] of Object.entries(domains)) {
-      expect(companyWebsiteFromDomain(domain, domains))
-        .toBe(verified ? new URL(verified).origin : '');
+      expect(companyWebsiteFromDomain(domain, domains)).toBe(
+        verified ? new URL(verified).origin : `https://${domain}`,
+      );
     }
 
     // Proof the assertion above is not vacuous: on this registry the verified
     // answer contradicts the old unconditional `https://www.<domain>` for six
     // hosts (aarreha.ch, afry.com, amstein-walthert.ch and aldi.ch answer on a
-    // different host; abb.ch and alten.ch answer on neither form). Were the
-    // derivation reverted, those six comparisons would fail rather than pass.
+    // different host; abb.ch and alten.ch have no verdict and use their bare
+    // host). Were the derivation reverted, those six comparisons would fail
+    // rather than pass.
     const contradicted = Object.keys(domains)
       .filter((domain) => companyWebsiteFromDomain(domain, domains) !== `https://www.${domain}`);
     expect(contradicted).toHaveLength(6);
   });
 
-  it('keeps the old default for a domain the probe has no verdict for', () => {
-    expect(companyWebsiteFromDomain('example.ch', {})).toBe('https://www.example.ch');
-    expect(companyWebsiteFromDomain('www.example.ch', {})).toBe('https://www.example.ch');
+  it('uses the bare host when the probe has no verdict or returns null', () => {
+    expect(companyWebsiteFromDomain('example.ch', {})).toBe('https://example.ch');
+    expect(companyWebsiteFromDomain('www.example.ch', {})).toBe('https://example.ch');
+    expect(companyWebsiteFromDomain('karriere.ameos.eu', {})).toBe('https://karriere.ameos.eu');
+    expect(companyWebsiteFromDomain('www.karriere.ameos.eu', {})).toBe('https://karriere.ameos.eu');
+    expect(companyWebsiteFromDomain('example.ch', { 'example.ch': null })).toBe('https://example.ch');
     expect(companyWebsiteFromDomain('', { 'example.ch': null })).toBe('');
   });
 });

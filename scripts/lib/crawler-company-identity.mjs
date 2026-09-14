@@ -259,9 +259,9 @@ export function sliceDomainForName(summary, chosenName) {
  * finora i due valori divergono su SEI: `aarreha.ch`, `afry.com` e
  * `amstein-walthert.ch` rispondono nudi, `aldi.ch` risponde come
  * `www.aldi-suisse.ch`, e `abb.ch`/`alten.ch` non rispondono su nessuna delle
- * due — per quei due pubblichiamo un link morto. Un dominio ancora senza
- * verdetto tiene il default di prima: questa regola restringe una supposizione
- * a una misura, non introduce una supposizione nuova.
+ * due — per quei due il verdetto resta esplicitamente nullo. Un dominio senza
+ * verdetto, o con verdetto nullo, ricade sull'host nudo: questa regola elimina
+ * la supposizione `www.` senza inventare un host alternativo.
  *
  * Della URL verificata si tiene solo l'origin: la sonda segue i redirect e
  * atterra su landing localizzate (`https://afry.com/en`), ottime come prova di
@@ -269,16 +269,17 @@ export function sliceDomainForName(summary, chosenName) {
  *
  * @param {string} companyDomain dominio nudo o con `www.`
  * @param {Record<string, string|null>} resolvedDomains verdetti per dominio nudo
- * @returns {string} il website da pubblicare, o '' se non se ne deve pubblicare uno
+ * @returns {string} il website da pubblicare, o '' se il dominio e' vuoto o
+ *  il verdetto non e' valido
  */
 export function companyWebsiteFromDomain(companyDomain, resolvedDomains = {}) {
   const bare = String(companyDomain || '').replace(/^www\./, '');
   if (!bare) return '';
   if (!resolvedDomains || !Object.prototype.hasOwnProperty.call(resolvedDomains, bare)) {
-    return `https://www.${bare}`;
+    return `https://${bare}`;
   }
   const verified = resolvedDomains[bare];
-  if (!verified) return '';
+  if (!verified) return `https://${bare}`;
   try {
     return new URL(verified).origin;
   } catch {

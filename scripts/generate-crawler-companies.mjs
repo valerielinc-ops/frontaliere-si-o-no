@@ -43,7 +43,7 @@ function loadResolvedWebsites() {
     const parsed = JSON.parse(fs.readFileSync(RESOLVED_WEBSITES, 'utf8'));
     return parsed?.domains && typeof parsed.domains === 'object' ? parsed.domains : {};
   } catch {
-    // No registry yet (or unreadable): every domain keeps the old default.
+    // No registry yet (or unreadable): the helper uses the bare-host fallback.
     return {};
   }
 }
