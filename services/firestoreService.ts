@@ -9,6 +9,7 @@ import type {
 } from 'firebase/firestore';
 import { SimulationInputs, SimulationResult } from '@/types';
 import { reportCaughtError } from '@/services/errorReporter';
+import { isIndexedDbError } from '@/services/benignErrorPatterns';
 
 // ─── Firestore dynamic lazy-import (keeps firebase/firestore out of the main bundle) ──
 
@@ -23,17 +24,6 @@ async function fs() {
 
 let db: Firestore | null = null;
 const SOCIAL_PROOF_COUNTED_KEY = 'ft_social_proof_counted_v1';
-
-/**
- * Detect if an error is caused by iOS Safari IndexedDB connection loss.
- * When this happens, the cached Firestore instance is stale and must be
- * discarded so the next call creates a fresh connection.
- */
-function isIndexedDbError(error: unknown): boolean {
- const msg = error instanceof Error ? error.message : String(error || '');
- return msg.includes('Indexed Database') || msg.includes('IDBDatabase')
- || msg.includes('IndexedDB') || msg.includes('internal error was encountered');
-}
 
 /** Discard the cached Firestore instance to force a fresh connection on next call. */
 export function resetFirestoreConnection(): void {
@@ -77,6 +67,7 @@ export async function registerSimulationForSocialProof(): Promise<void> {
  }, { merge: true });
  localStorage.setItem(SOCIAL_PROOF_COUNTED_KEY, '1');
  } catch (e) {
+ if (isIndexedDbError(e)) resetFirestoreConnection();
  reportCaughtError(e, 'firestore.socialProofCounter', { apiEndpoint: 'counters/simulations' });
  }
 }

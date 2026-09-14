@@ -107,6 +107,11 @@ import { jobsSeoPagesFlushed } from './shared/buildSignals';
 import { SITEMAP_SHARD_CAP, padShardIndex } from '../scripts/lib/sitemap-limits.mjs';
 import { shouldEmitLocale, EMIT_ALL_LOCALES, localeOfDistPath } from './shared/localeEmitFilter';
 import {
+  normalizeRelatedSearchClusterPath,
+  parseRelatedSearchClusterPathKey,
+  relatedSearchClusterKeyFromAnyPath,
+} from '../scripts/lib/related-search-cluster-path.mjs';
+import {
   registerKeywordLandingPaths,
   registerRetiredKeywordLandingPaths,
   keywordLandingPlanSize,
@@ -329,6 +334,7 @@ const CACHE_KEY_INPUTS = [
   // Missing file is hashed as `missing:<rel>` by computeCacheKey, so
   // bootstrap stub vs. populated data still produce distinct cache keys.
   'data/indexed-cluster-urls.json',
+  'scripts/lib/related-search-cluster-path.mjs',
   'build-plugins/relatedSearchClustersPlugin.ts',
   'build-plugins/relatedSearchClustersData.ts',
   'build-plugins/shared/seoPageShell.ts',
@@ -798,23 +804,14 @@ function loadJobs(rootDir: string): RawJob[] {
  * Svizzera aggregator sections, since those ARE the canonical and don't need
  * a mirror entry.
  *
- * Mirrors the `CLUSTER_PATH_RX` regex in scripts/refresh-indexed-cluster-urls.mjs.
- * If you change one, change the other — keep the de/jobs-im, de/jobs-in,
- * de/jobs-in-der prefixes in sync because the data file is consumed by this
- * function unmodified.
+ * Uses the same parser as scripts/refresh-indexed-cluster-urls.mjs. Keeping
+ * the grammar in one module prevents the data producer and consumer from
+ * bucketing the same path differently.
  */
-const CLUSTER_PATH_HEAD_RX_SRC = String.raw`^\/(?:(en|de|fr)\/)?(?:cerca-lavoro|find-jobs|jobs-im|jobs-in|jobs-in-der|trouver-emploi)-`;
-const CLUSTER_PATH_TAIL_RX_SRC = String.raw`[a-z-]+\/((?:ricerca|search|suche|recherche)-[a-z0-9-]+)\/?$`;
-const CLUSTER_PATH_PARSE_RX = new RegExp(
-  `${CLUSTER_PATH_HEAD_RX_SRC}(?!svizzera\\b|switzerland\\b|schweiz\\b|suisse\\b)${CLUSTER_PATH_TAIL_RX_SRC}`,
-);
-
 function parseClusterPathKey(p: string): { locale: Locale; slug: string } | null {
-  if (!p) return null;
-  const m = p.toLowerCase().match(CLUSTER_PATH_PARSE_RX);
-  if (!m) return null;
-  const locale = (m[1] || 'it') as Locale;
-  return { locale, slug: m[2] };
+  const parsed = parseRelatedSearchClusterPathKey(p);
+  if (!parsed) return null;
+  return parsed as { locale: Locale; slug: string };
 }
 
 /**
@@ -828,15 +825,8 @@ function parseClusterPathKey(p: string): { locale: Locale; slug: string } | null
  * canonicalizes since #4400. Built from the same two sources so the section
  * prefixes cannot drift apart between the two readings.
  */
-const ANY_SECTION_CLUSTER_PATH_RX = new RegExp(
-  `${CLUSTER_PATH_HEAD_RX_SRC}${CLUSTER_PATH_TAIL_RX_SRC}`,
-);
-
 function clusterKeyFromAnyPath(p: string): string | null {
-  if (!p) return null;
-  const m = p.toLowerCase().match(ANY_SECTION_CLUSTER_PATH_RX);
-  if (!m) return null;
-  return `${m[1] || 'it'}::${m[2]}`;
+  return relatedSearchClusterKeyFromAnyPath(p);
 }
 
 /**
@@ -954,13 +944,14 @@ function loadIndexedClusterUrls(rootDir: string): Map<string, string[]> {
   if (!Array.isArray(indexedPaths)) return out;
   for (const entry of indexedPaths) {
     if (typeof entry !== 'string') continue;
-    const parsed = parseClusterPathKey(entry);
+    const normalized = normalizeRelatedSearchClusterPath(entry);
+    if (!normalized) continue;
+    const parsed = parseClusterPathKey(normalized);
     if (!parsed) continue;
     const key = `${parsed.locale}::${parsed.slug}`;
     const list = out.get(key) || [];
     // Normalize to trailing-slash form so the emit-loop dedup against
     // `out.urlPath` (always slashed) catches collisions with the canonical.
-    const normalized = entry.endsWith('/') ? entry : `${entry}/`;
     if (!list.includes(normalized)) list.push(normalized);
     out.set(key, list);
   }
@@ -1992,6 +1983,34 @@ export function assertRetirementsDisjointFromPlan(
       `— the withdrawal would overwrite a page this build also emits (issue #7752):\n  ${collisions.join('\n  ')}`,
     );
   }
+}
+
+/**
+ * Keep the cross-shard landing registry complete, but scope fail-fast
+ * retirement collision checks to the locale this shard can write.
+ *
+ * The plan is normalised once here and the same normalised values are used
+ * both for registration and for the guard. A shard must not fail because a
+ * different shard owns a retirement/landing pair, while an owned collision
+ * remains a hard error.
+ */
+export function prepareRetirementGuardInputs(
+  retirements: ReadonlyArray<JunkRetirement>,
+  plannedPaths: ReadonlyArray<string>,
+  ownsLocale: (locale: string) => boolean = shouldEmitLocale,
+): {
+  normalizedPlannedPaths: string[];
+  guardPlannedPaths: string[];
+  guardRetirements: JunkRetirement[];
+} {
+  const normalizedPlannedPaths = plannedPaths.map(normalizeLandingPath);
+  return {
+    normalizedPlannedPaths,
+    guardPlannedPaths: normalizedPlannedPaths.filter((plannedPath) =>
+      ownsLocale(localeOfDistPath(plannedPath, '')),
+    ),
+    guardRetirements: retirements.filter((retirement) => ownsLocale(retirement.locale)),
+  };
 }
 
 function assertManifestRetirementsDisjointFromPlan(
@@ -4076,16 +4095,27 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         const extras = indexedClusterUrlsByKey.get(`${loc}::${ctx.candidate.slug}`);
         if (extras) for (const p of extras) plannedPaths.push(p);
       }
-      // The plan is now complete for every locale, and `junkRetirements` was
-      // enumerated above: assert the two sets are disjoint BEFORE anything is
-      // registered or written, so a collision fails the build with the paths
-      // named instead of resolving itself as "whoever writes last wins"
-      // (issue #7752).
-      assertRetirementsDisjointFromPlan(junkRetirements, plannedPaths);
+      // The plan is complete for every locale. Normalise it for registration,
+      // but scope the fail-fast collision guard to the locale this shard owns:
+      // a different shard may legitimately own the other half of the plan.
+      const retirementGuardInputs = prepareRetirementGuardInputs(junkRetirements, plannedPaths);
+      assertRetirementsDisjointFromPlan(
+        retirementGuardInputs.guardRetirements,
+        retirementGuardInputs.guardPlannedPaths,
+      );
       const invalidatedRetirementPaths = invalidatedRetirementWrites.map((write) =>
         landingPathFromDistRelative(write.rel));
-      assertManifestRetirementsDisjointFromPlan(invalidatedRetirementPaths, plannedPaths);
-      registerKeywordLandingPaths('related-search-clusters', plannedPaths);
+      const guardInvalidatedRetirementPaths = invalidatedRetirementPaths.filter((retiredPath) =>
+        shouldEmitLocale(localeOfDistPath(retiredPath, '')),
+      );
+      assertManifestRetirementsDisjointFromPlan(
+        guardInvalidatedRetirementPaths,
+        retirementGuardInputs.guardPlannedPaths,
+      );
+      registerKeywordLandingPaths(
+        'related-search-clusters',
+        retirementGuardInputs.normalizedPlannedPaths,
+      );
       // Withdrawals are EMITTED, just never advertised: declaring them keeps
       // the hreflang gate from reading "unplanned" as "written nowhere" and
       // stripping the whole block off every live sibling (issue #7756). All

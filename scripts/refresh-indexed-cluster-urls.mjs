@@ -52,6 +52,10 @@ import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { utcDaysBefore } from './lib/analytics-settled-window.mjs';
+import {
+  normalizeRelatedSearchClusterPath,
+  parseRelatedSearchClusterPathKey,
+} from './lib/related-search-cluster-path.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -65,15 +69,6 @@ function arg(name, def) {
 }
 const days = parseInt(arg('--days', '90'), 10);
 const minImpressions = parseInt(arg('--min-impressions', '1'), 10);
-
-// Match cluster-page paths under a NON-aggregator section. Captures:
-//   group 1: optional locale prefix (en|de|fr) — IT has no prefix
-//   group 2: canton section slug (cerca-lavoro-{canton} / find-jobs-{canton} /
-//            jobs-im-{canton} / jobs-in-{canton} / trouver-emploi-{canton})
-//   group 3: cluster slug (ricerca-... / search-... / suche-... / recherche-...)
-// The svizzera/switzerland/schweiz/suisse aggregator sections are explicitly
-// excluded — those URLs ARE the canonical and don't need a mirror.
-const CLUSTER_PATH_RX = /^\/(?:(en|de|fr)\/)?((?:cerca-lavoro|find-jobs|jobs-im|jobs-in|jobs-in-der|trouver-emploi)-(?!svizzera\/|switzerland\/|schweiz\/|suisse\/)[a-z-]+)\/((?:ricerca|search|suche|recherche)-[a-z0-9-]+)\/?$/i;
 
 function loadServiceAccount() {
   const envPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
@@ -132,15 +127,56 @@ function pathFromUrl(u) {
   }
 }
 
-// Canonicalize cluster path: ensure trailing slash, lowercase. Returns the
-// normalized path on match, null otherwise. Filters out svizzera/aggregator
-// variants (those ARE the canonical and don't need a mirror).
-function normalizeClusterPath(p) {
-  if (!p) return null;
-  const trimmed = p.endsWith('/') ? p : `${p}/`;
-  const lower = trimmed.toLowerCase();
-  if (!CLUSTER_PATH_RX.test(lower)) return null;
-  return lower;
+// Canonicalisation is shared with the build consumer. This includes stripping
+// query/hash variants before the uniqueness check and before serialisation.
+const normalizeClusterPath = normalizeRelatedSearchClusterPath;
+
+/**
+ * A path may be observed more than once by the same traffic source or by
+ * different sources, but it must never be assigned to two cluster keys. The
+ * old flat Set removed duplicate strings before this invariant could be
+ * checked, so validate the keyed map before its paths are serialised.
+ */
+export function assertIndexedClusterUrlsUnique(indexedClusterUrlsByKey) {
+  const ownerByPath = new Map();
+  const collisions = new Map();
+  for (const [key, paths] of indexedClusterUrlsByKey) {
+    for (const value of paths) {
+      const normalized = normalizeClusterPath(value);
+      if (!normalized) continue;
+      const previous = ownerByPath.get(normalized);
+      if (previous !== undefined && previous !== key) {
+        const keys = collisions.get(normalized) || new Set([previous]);
+        keys.add(key);
+        collisions.set(normalized, keys);
+      } else if (previous === undefined) {
+        ownerByPath.set(normalized, key);
+      }
+    }
+  }
+  if (collisions.size === 0) return;
+  const details = Array.from(collisions, ([pathValue, keys]) =>
+    pathValue + ' (' + Array.from(keys).sort().join(', ') + ')',
+  );
+  throw new Error(
+    '[indexed-cluster-urls] duplicate URL assigned to multiple locale::slug keys:\n  '
+      + details.join('\n  '),
+  );
+}
+
+function addIndexedClusterPath(indexedClusterUrlsByKey, rawPath) {
+  const normalized = normalizeClusterPath(rawPath);
+  if (!normalized) return null;
+  const parsed = parseRelatedSearchClusterPathKey(normalized);
+  if (!parsed) return null;
+  const key = parsed.locale + '::' + parsed.slug;
+  let paths = indexedClusterUrlsByKey.get(key);
+  if (!paths) {
+    paths = new Set();
+    indexedClusterUrlsByKey.set(key, paths);
+  }
+  paths.add(normalized);
+  return normalized;
 }
 
 async function fetchGsc(sa, startDate, endDate) {
@@ -233,7 +269,7 @@ async function main() {
 
   console.error(`[indexed-cluster-urls] lookback ${startDate} → ${endDate} (${days} days), min impressions/views = ${minImpressions}`);
 
-  const indexed = new Set();
+  const indexedClusterUrlsByKey = new Map();
   const sources = { gsc: { ok: false }, ga4: { ok: false }, posthog: { ok: false } };
   const sa = loadServiceAccount();
 
@@ -248,7 +284,7 @@ async function main() {
         if (!normalized) continue;
         clusterSeen += 1;
         if (row.impressions < minImpressions) continue;
-        indexed.add(normalized);
+        addIndexedClusterPath(indexedClusterUrlsByKey, normalized);
         kept += 1;
       }
       sources.gsc = { ok: true, rowsScanned: rows.length, clusterSeen, kept };
@@ -272,7 +308,7 @@ async function main() {
         if (!normalized) continue;
         clusterSeen += 1;
         if (row.views < minImpressions) continue;
-        indexed.add(normalized);
+        addIndexedClusterPath(indexedClusterUrlsByKey, normalized);
         kept += 1;
       }
       sources.ga4 = { ok: true, rowsScanned: rows.length, clusterSeen, kept };
@@ -296,7 +332,7 @@ async function main() {
         if (!normalized) continue;
         clusterSeen += 1;
         if (row.views < minImpressions) continue;
-        indexed.add(normalized);
+        addIndexedClusterPath(indexedClusterUrlsByKey, normalized);
         kept += 1;
       }
       sources.posthog = { ok: true, rowsScanned: rows.length, clusterSeen, kept };
@@ -326,11 +362,14 @@ async function main() {
   if (prev && Array.isArray(prev.indexedPaths)) {
     for (const p of prev.indexedPaths) {
       const normalized = normalizeClusterPath(p);
-      if (normalized) indexed.add(normalized);
+      if (normalized) addIndexedClusterPath(indexedClusterUrlsByKey, normalized);
     }
   }
 
-  const indexedPaths = Array.from(indexed).sort();
+  assertIndexedClusterUrlsUnique(indexedClusterUrlsByKey);
+  const indexedPaths = Array.from(new Set(
+    Array.from(indexedClusterUrlsByKey.values()).flatMap((paths) => Array.from(paths)),
+  )).sort();
   const output = {
     refreshedAt: new Date().toISOString(),
     lookbackDays: days,
@@ -343,7 +382,11 @@ async function main() {
   console.error(`[indexed-cluster-urls] Wrote ${OUT_PATH} — ${indexedPaths.length} indexed cluster paths total (union of GSC/GA4/PostHog + previous list)`);
 }
 
-main().catch((err) => {
-  console.error('[indexed-cluster-urls] Fatal:', err.message);
-  process.exit(1);
-});
+const invokedDirectly = process.argv[1]
+  && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url));
+if (invokedDirectly) {
+  main().catch((err) => {
+    console.error('[indexed-cluster-urls] Fatal:', err.message);
+    process.exit(1);
+  });
+}
