@@ -533,6 +533,21 @@ jobs:
             echo "::error::decision registry missing: $DECISIONS_FILE"
             exit 1
           fi
+          if [ ! -s "$DECISIONS_FILE" ]; then
+            echo "::error::decision registry empty: $DECISIONS_FILE"
+            exit 1
+          fi
+          node --input-type=module - "$DECISIONS_FILE" <<'NODE'
+          import fs from 'node:fs';
+          import { parseDecisionRegistry } from './scripts/ci/needs-human-prepass.mjs';
+
+          const file = process.argv[2];
+          const rows = parseDecisionRegistry(fs.readFileSync(file, 'utf8'));
+          if (!rows.length) {
+            console.error(`decision registry has no recognized rows: ${file}`);
+            process.exit(1);
+          }
+          NODE
           DECISIONS_BYTES=$(wc -c < "$DECISIONS_FILE")
           if [ "$DECISIONS_BYTES" -gt "$DECISIONS_MAX_BYTES" ]; then
             echo "::error::decision registry too large: $DECISIONS_BYTES bytes > $DECISIONS_MAX_BYTES-byte cap"
