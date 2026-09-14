@@ -8,6 +8,7 @@ import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
   AUTONOMY_ORDER,
+  actionClassForPolicy,
   actionAutonomy,
   buildDecision,
   buildObservation,
@@ -84,7 +85,7 @@ function applyRegistryPolicy(candidates, registry, issues) {
   }
   const accepted = [];
   for (const candidate of candidates) {
-    const actionClass = candidate.actionClass || 'candidate';
+    const actionClass = candidate.actionClass || actionClassForPolicy(policy, 'candidate');
     if (!policy.actionClasses.includes(actionClass)) {
       issues.push(`registry disallows ${LOOP_ID} action class ${actionClass}`);
       continue;
@@ -201,7 +202,6 @@ function validateBorder(border, { now, maxAgeHours, issues, candidates }) {
   candidates.push(...SURFACES.filter((surface) => surface.key === 'border').map((surface) => ({
     surface: surface.key,
     landingPath: surface.path,
-    actionClass: 'candidate',
     action: 'reorder a sourced same-corridor bridge or CTA through a reviewed PR',
     reversible: true,
   })));
@@ -240,7 +240,6 @@ function validatePharmacies(pharmacies, { now, maxAgeHours, issues, candidates }
   candidates.push(...SURFACES.filter((surface) => surface.key === 'pharmacy').map((surface) => ({
     surface: surface.key,
     landingPath: surface.path,
-    actionClass: 'candidate',
     action: 'add a sourced freshness reminder or related tool bridge through a reviewed PR',
     reversible: true,
   })));
@@ -531,18 +530,20 @@ function writeReports(reportDir, verdict, observation, decision) {
   return files.map(([name]) => path.join(dir, name));
 }
 
-function writeActions(reportDir, verdict, now, loopRegistry) {
+function writeActions(reportDir, verdict, now, loopRegistry, loopPolicy) {
   if (!reportDir || verdict.ok || !loopRegistry) return null;
+  const staleLabelActionClass = actionClassForPolicy(loopPolicy, 'staleLabel');
+  const candidateActionClass = actionClassForPolicy(loopPolicy, 'candidate');
   const actions = [
     {
-      actionClass: 'stale-label',
+      actionClass: staleLabelActionClass,
       action: 'label a stale or incomplete surface and suppress any unsupported freshness promise',
       reversible: true,
       publishedDataUntouched: true,
     },
     ...verdict.candidates,
   ].map((action) => {
-    const actionClass = action.actionClass || 'candidate';
+    const actionClass = action.actionClass || candidateActionClass;
     const policy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
     return {
       ...action,
@@ -621,7 +622,7 @@ export async function runL5({
   } catch (error) {
     verdict = baseVerdict({ sourcePath: fuelPath, now, quality: 'unmeasurable', ok: false, reason: error.message });
   }
-  const actionClass = verdict.ok ? 'observe' : 'stale-label+candidate+issue';
+  const actionClass = actionClassForPolicy(loopPolicy, verdict.ok ? 'healthy' : 'needsReview');
   const actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
   verdict = {
     ...verdict,
@@ -679,7 +680,7 @@ export async function runL5({
   const files = writeReports(reportDir, verdict, observation, decision);
   let actionsWritten = false;
   if (apply && reportDir) {
-    const actionFile = writeActions(reportDir, verdict, now, loopRegistry);
+    const actionFile = writeActions(reportDir, verdict, now, loopRegistry, loopPolicy);
     actionsWritten = Boolean(actionFile);
     if (actionFile) files.push(actionFile);
   }

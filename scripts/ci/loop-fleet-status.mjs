@@ -309,6 +309,7 @@ export function buildStatusRows(registry, runResults, evidenceResults) {
       cadence: policy.cadence,
       primaryMetric: policy.primaryMetric,
       maxAutonomy: policy.maxAutonomy,
+      actionPolicy: policy.actionPolicy,
       lifecycle: policy.lifecycle,
       sourceRefs: policy.sourceRefs,
       candidateTtlHours: policy.lifecycle.candidateTtlHours,
