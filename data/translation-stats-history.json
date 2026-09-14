@@ -1,83 +1,5 @@
 [
   {
-    "timestamp": "2026-08-26T00:26:31.835Z",
-    "label": "after",
-    "total": 30756,
-    "needsRetranslation": 15108,
-    "suppressed": 49,
-    "incomplete": 16297,
-    "complete": 14459,
-    "slotsPresent": 14459,
-    "flaggedAmongSlotsPresent": 0,
-    "verifiedTranslated": 14459,
-    "sourceCopyExcused": 683,
-    "languageVerified": null,
-    "missingByLocale": {
-      "it": 4031,
-      "en": 3784,
-      "de": 3591,
-      "fr": 3836
-    },
-    "queueAge": {
-      "count": 15108,
-      "withTimestamp": 15108,
-      "oldestAgeDays": 134.6,
-      "p50AgeDays": 18.6,
-      "p90AgeDays": 57.1,
-      "buckets": {
-        "0-7d": 5176,
-        "7-30d": 5770,
-        "30-90d": 3622,
-        "90-180d": 540,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "topPending": [
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 3068
-      },
-      {
-        "company": "Marché Restaurants Schweiz AG",
-        "pending": 1924
-      },
-      {
-        "company": "Roche",
-        "pending": 550
-      },
-      {
-        "company": "Société coopérative Migros Vaud",
-        "pending": 438
-      },
-      {
-        "company": "Zurich Insurance (sede Ticino)",
-        "pending": 312
-      },
-      {
-        "company": "TRAVECO Transporte AG",
-        "pending": 307
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 272
-      },
-      {
-        "company": "Confederazione Svizzera",
-        "pending": 262
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 246
-      },
-      {
-        "company": "BKW",
-        "pending": 230
-      }
-    ]
-  },
-  {
     "timestamp": "2026-08-26T00:05:37.263Z",
     "label": "before",
     "total": 30925,
@@ -17361,6 +17283,107 @@
       {
         "company": "Coop Genossenschaft",
         "pending": 467
+      },
+      {
+        "company": "Roche",
+        "pending": 450
+      },
+      {
+        "company": "Sulzer",
+        "pending": 162
+      },
+      {
+        "company": "Swiss Re",
+        "pending": 131
+      },
+      {
+        "company": "PEMSA",
+        "pending": 129
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 104
+      },
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 87
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 72
+      },
+      {
+        "company": "JUMBO",
+        "pending": 65
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-14T23:30:52.693Z",
+    "label": "after",
+    "total": 32587,
+    "needsRetranslation": 4889,
+    "suppressed": 164,
+    "incomplete": 5342,
+    "complete": 27245,
+    "slotsPresent": 27245,
+    "flaggedAmongSlotsPresent": 19,
+    "verifiedTranslated": 27226,
+    "sourceCopyExcused": 422,
+    "slotsPresentByLength": 32469,
+    "languageVerified": 28108,
+    "missingByLocale": {
+      "it": 70,
+      "en": 59,
+      "de": 66,
+      "fr": 75
+    },
+    "queueAge": {
+      "count": 4889,
+      "withTimestamp": 4889,
+      "oldestAgeDays": 154.6,
+      "p50AgeDays": 14.3,
+      "p90AgeDays": 74.5,
+      "buckets": {
+        "0-1d": 11,
+        "1-2d": 16,
+        "2-7d": 1607,
+        "0-7d": 1634,
+        "7-30d": 1550,
+        "30-90d": 1335,
+        "90-180d": 370,
+        "180d+": 0
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": {
+      "count": 28,
+      "withTimestamp": 28,
+      "oldestAgeDays": 126,
+      "p50AgeDays": 17.8,
+      "p90AgeDays": 88.4,
+      "buckets": {
+        "0-1d": 9,
+        "1-2d": 0,
+        "2-7d": 1,
+        "0-7d": 10,
+        "7-30d": 9,
+        "30-90d": 7,
+        "90-180d": 2,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "STA Personal AG",
+        "pending": 1192
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 453
       },
       {
         "company": "Roche",

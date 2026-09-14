@@ -1244,6 +1244,12 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
     ].join('\n'),
   });
 
+  // #7091 — refuse to start if the live cross-repo run of this same group is
+  // already in flight (see scripts/check-crawler-group-live-run.mjs for why
+  // this cannot be a `concurrency:` block instead). Must run after the RC
+  // load above so GITHUB_PAT_NANAKO is in $GITHUB_ENV.
+  steps.push(liveRunGuardStep(groupName));
+
   // OmniRoute (ON by default, RC kill-switch ENABLE_OMNIROUTE_FALLBACK='0')
   // — self-hosted local AI gateway, offered in ai-models.mjs's DEFAULT_CHAIN
   // as AI_MODELS.OMNIROUTE_AUTO. Since 2026-07-29 (AI_COMPETING_TIERS
@@ -1341,6 +1347,7 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
   });
   steps.push(codexAuthBrokerCleanupStep());
   steps.push(...crawlerGenerationTerminalSteps(groupIndex, crawlerGenerationMembers(group)));
+  steps.push(liveRunLeaseReleaseStep(groupName));
 
   return {
     name: `Crawler Group ${String(groupIndex).padStart(2, '0')} (${group.members.length} crawlers)`,
@@ -1524,6 +1531,33 @@ function logicRemoteConfigStep() {
   return { name: 'Load secrets from Remote Config', run: 'node scripts/load-rc-env.mjs' };
 }
 
+// #7091 — see scripts/check-crawler-group-live-run.mjs. Each entry point
+// checks the OTHER one: the generated (workflow_dispatch) side checks the
+// live corpus repo, the logic (workflow_call) side checks this repo's own
+// disabled manual entry point.
+function liveRunGuardStep(groupName) {
+  return {
+    name: 'Guard: refuse a concurrent run of the other entry point',
+    run: `node scripts/check-crawler-group-live-run.mjs ${groupName}.yml`,
+  };
+}
+
+function liveRunLeaseReleaseStep(groupName) {
+  return {
+    name: 'Release cross-entry crawler live-run lease',
+    if: "always() && env.CRAWLER_GROUP_LIVE_LEASE_OWNED == '1'",
+    'continue-on-error': true,
+    run: `node scripts/check-crawler-group-live-run.mjs ${groupName}.yml --release`,
+  };
+}
+
+function logicLiveRunGuardStep(groupName) {
+  return {
+    name: 'Guard: refuse a concurrent run of the other entry point',
+    run: `node scripts/check-crawler-group-live-run.mjs ${groupName}.yml --repo ${SITE_REPOSITORY} --token-env GITHUB_PAT`,
+  };
+}
+
 function logicWriteAuthStep(members) {
   return {
     name: 'Bootstrap write auth for frontaliere-si-o-no (GITHUB_PAT from Remote Config)',
@@ -1581,6 +1615,12 @@ export function buildCrawlerLogicWorkflow(generatedWorkflowText, {
 
   job.steps[rcAt] = logicRemoteConfigStep();
   job.steps.splice(rcAt + 1, 0, logicWriteAuthStep(members));
+
+  const guardAt = job.steps.findIndex(
+    (step) => step?.name === 'Guard: refuse a concurrent run of the other entry point',
+  );
+  if (guardAt < 0) throw new Error(`crawler-group-${nn}: live-run guard step missing`);
+  job.steps[guardAt] = logicLiveRunGuardStep(`crawler-group-${nn}`);
 
   for (const step of job.steps) {
     if (step?.uses?.startsWith('./.github/actions/')) {
@@ -1680,6 +1720,26 @@ function normalizedContractStep(step, side, fileName, members) {
       throw new Error(`${fileName}: undeclared write-auth bootstrap difference`);
     }
     return null;
+  }
+
+  if (copy?.name === 'Guard: refuse a concurrent run of the other entry point') {
+    const nn = /crawler-group-(\d{2})/.exec(fileName)?.[1];
+    const groupName = `crawler-group-${nn}`;
+    const expected = side === 'generated' ? liveRunGuardStep(groupName) : logicLiveRunGuardStep(groupName);
+    if (!nn || JSON.stringify(copy) !== JSON.stringify(expected)) {
+      throw new Error(`${fileName}: ${side} live-run guard drifted from its complete allowed form`);
+    }
+    return { name: copy.name };
+  }
+
+  if (copy?.name === 'Release cross-entry crawler live-run lease') {
+    const nn = /crawler-group-(\d{2})/.exec(fileName)?.[1];
+    const groupName = `crawler-group-${nn}`;
+    const expected = liveRunLeaseReleaseStep(groupName);
+    if (!nn || JSON.stringify(copy) !== JSON.stringify(expected)) {
+      throw new Error(`${fileName}: ${side} live-run lease release drifted from its complete allowed form`);
+    }
+    return copy;
   }
 
   const composite = /^valerielinc-ops\/frontaliere-si-o-no\/(\.github\/actions\/[^@]+)@main$/.exec(copy?.uses ?? '');
