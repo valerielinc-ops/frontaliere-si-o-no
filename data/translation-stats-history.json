@@ -1,83 +1,5 @@
 [
   {
-    "timestamp": "2026-08-25T01:23:59.918Z",
-    "label": "after",
-    "total": 30697,
-    "needsRetranslation": 14159,
-    "suppressed": 53,
-    "incomplete": 15358,
-    "complete": 15339,
-    "slotsPresent": 15339,
-    "flaggedAmongSlotsPresent": 0,
-    "verifiedTranslated": 15339,
-    "sourceCopyExcused": 596,
-    "languageVerified": null,
-    "missingByLocale": {
-      "it": 3808,
-      "en": 3689,
-      "de": 3435,
-      "fr": 3709
-    },
-    "queueAge": {
-      "count": 14159,
-      "withTimestamp": 14159,
-      "oldestAgeDays": 133.6,
-      "p50AgeDays": 18,
-      "p90AgeDays": 61.6,
-      "buckets": {
-        "0-7d": 5109,
-        "7-30d": 5134,
-        "30-90d": 3382,
-        "90-180d": 534,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "topPending": [
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 3004
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 1934
-      },
-      {
-        "company": "Roche",
-        "pending": 550
-      },
-      {
-        "company": "Denner AG",
-        "pending": 384
-      },
-      {
-        "company": "LANDI Aare Genossenschaft",
-        "pending": 294
-      },
-      {
-        "company": "Confederazione Svizzera",
-        "pending": 270
-      },
-      {
-        "company": "Zurich Insurance (sede Ticino)",
-        "pending": 267
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 263
-      },
-      {
-        "company": "BKW",
-        "pending": 225
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 223
-      }
-    ]
-  },
-  {
     "timestamp": "2026-08-25T07:02:10.416Z",
     "label": "before",
     "total": 30808,
@@ -17277,6 +17199,107 @@
       {
         "company": "Coop Genossenschaft",
         "pending": 485
+      },
+      {
+        "company": "Roche",
+        "pending": 450
+      },
+      {
+        "company": "Sulzer",
+        "pending": 162
+      },
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 160
+      },
+      {
+        "company": "Swiss Re",
+        "pending": 131
+      },
+      {
+        "company": "PEMSA",
+        "pending": 129
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 104
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 72
+      },
+      {
+        "company": "JUMBO",
+        "pending": 65
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-14T10:23:07.474Z",
+    "label": "after",
+    "total": 32489,
+    "needsRetranslation": 5012,
+    "suppressed": 157,
+    "incomplete": 5468,
+    "complete": 27021,
+    "slotsPresent": 27021,
+    "flaggedAmongSlotsPresent": 8,
+    "verifiedTranslated": 27013,
+    "sourceCopyExcused": 411,
+    "slotsPresentByLength": 32372,
+    "languageVerified": 27882,
+    "missingByLocale": {
+      "it": 70,
+      "en": 57,
+      "de": 62,
+      "fr": 76
+    },
+    "queueAge": {
+      "count": 5012,
+      "withTimestamp": 5012,
+      "oldestAgeDays": 154,
+      "p50AgeDays": 13.7,
+      "p90AgeDays": 73.5,
+      "buckets": {
+        "0-1d": 16,
+        "1-2d": 5,
+        "2-7d": 1655,
+        "0-7d": 1676,
+        "7-30d": 1628,
+        "30-90d": 1338,
+        "90-180d": 370,
+        "180d+": 0
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": {
+      "count": 28,
+      "withTimestamp": 28,
+      "oldestAgeDays": 126.5,
+      "p50AgeDays": 11.9,
+      "p90AgeDays": 126.5,
+      "buckets": {
+        "0-1d": 0,
+        "1-2d": 0,
+        "2-7d": 8,
+        "0-7d": 8,
+        "7-30d": 13,
+        "30-90d": 4,
+        "90-180d": 3,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "STA Personal AG",
+        "pending": 1192
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 475
       },
       {
         "company": "Roche",
