@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Notizie e guide sulla Svizzera: economia, lavoro, fisco e vita quotidiana</description>
     <language>it</language>
-    <lastBuildDate>Mon, 14 Sep 2026 19:40:31 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 14 Sep 2026 20:06:51 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Svizzera</title>
@@ -17,6 +17,194 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Farmacia aperta o di turno: come leggere l’elenco</title>
+      <link>https://frontaliereticino.ch/articoli-svizzera/farmacia-aperta-turno-elenco/</link>
+      <description><![CDATA[La differenza pratica tra trovare una farmacia nel catalogo, leggere un orario pubblicato e verificare un turno OFCT. 207 record Ticino e 542 nelle province CO, VA e VB; turni OFCT solo nelle quattro aree pubblicate.]]></description>
+      <content:encoded><![CDATA[## In breve
+- **Ambito**: Ticino e province italiane CO, VA e VB.
+- **Catalogo Ticino**: 207 record dalla lista ufficiale.
+- **Catalogo italiano**: 542 record filtrati sulle tre province di confine.
+- **Turni verificati**: OFCT, solo Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli.
+
+La differenza pratica tra trovare una farmacia nel catalogo, leggere un orario pubblicato e verificare un turno OFCT.
+## Tre domande prima di partire
+Primo: la farmacia compare nell’elenco anagrafico? Secondo: la scheda pubblica un orario? Terzo: esiste un turno verificato per la sua area e per l’intervallo indicato? Solo la terza risposta riguarda il turno; le altre due non lo sostituiscono.
+
+Apri il percorso corretto, controlla la data di recupero dello snapshot e la fonte indicata, poi chiama la farmacia. La pagina non interpreta automaticamente un record come “aperto ora”, né estende i turni alle province italiane.
+
+## Catalogo, orari e turno: tre dati diversi
+- **catalogo**: La presenza nell’elenco indica una voce del catalogo ufficiale, non che la farmacia sia aperta ora.
+- **orari di apertura**: Gli orari compaiono solo quando la pagina o la fonte li pubblica; non vengono dedotti dal catalogo né dal timestamp.
+- **turno verificato**: Un turno verificato è un intervallo regionale pubblicato dall’OFCT; non equivale a un’apertura continua. Prima di partire, verifica sempre per telefono.
+## Perimetro, fonti e timestamp
+Questa guida usa snapshot separati: un catalogo anagrafico ticinese, un catalogo italiano filtrato e un dataset di turni OFCT. Le fonti non vengono fuse in un unico stato di apertura.
+
+- **Elenco ufficiale delle farmacie del Ticino**: 207 record, recuperati alle 2026-09-14T10:03:57.824Z. [lista ufficiale](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
+- **Dataset ufficiale italiano filtrato sulle province CO, VA e VB**: 542 record, recuperati alle 2026-09-14T10:03:57.824Z. [dataset del Ministero della Salute](https://www.dati.salute.gov.it/it/dataset/farmacie/)
+- **Pagine OFCT per i turni regionali**: aree Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, recuperate alle 2026-09-14T18:16:05.788Z. [fonte OFCT](https://www.ofct.ch/farmacieturno/)
+
+**Ultimo recupero degli snapshot**: cataloghi 2026-09-14T10:03:57.824Z; turni 2026-09-14T18:16:05.788Z. Il timestamp indica quando è stato recuperato lo snapshot della fonte; non indica l’orario di apertura e non dimostra che una sede sia aperta in questo momento.
+
+Questa non è una copertura nazionale: il perimetro è limitato al Ticino e alle province italiane CO, VA e VB.
+Il Locarnese non è ancora incluso nel parser dei turni: non deduciamo né presentiamo un turno OFCT per quell’area. È una limitazione del dato di turno, non una dichiarazione sull’anagrafica cantonale.
+Per l’Italia non viene fatto alcun claim di turno: il catalogo italiano è anagrafico e non prova una farmacia aperta o di turno.
+
+## Fonti ufficiali e percorsi utili
+- [hub farmacie](/farmacie/)
+- [elenco Ticino](/farmacie/ticino/)
+- [elenco province italiane](/farmacie/italia/)
+- [farmacie di turno](/farmacie-di-turno/)
+- **fonti OFCT per area**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/)
+
+Per un caso concreto, apri il percorso locale, controlla la scheda disponibile e contatta la farmacia: un elenco statico non sostituisce la verifica diretta.]]></content:encoded>
+      <pubDate>Mon, 14 Sep 2026 20:06:51 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/farmacia-aperta-turno-elenco</guid>
+      <category>Notizie</category>
+      <media:content url="https://frontaliereticino.ch/images/places/castelgrande.webp" medium="image"/>
+    </item>
+    <item>
+      <title>Farmacie al confine: Como, Varese e Verbano</title>
+      <link>https://frontaliereticino.ch/articoli-svizzera/farmacie-confine-italia-como-varese-verbano/</link>
+      <description><![CDATA[Come usare il catalogo delle farmacie italiane di confine insieme all’elenco ticinese, senza trasformare un’anagrafica in una promessa di apertura. 207 record Ticino e 542 nelle province CO, VA e VB; turni OFCT solo nelle quattro aree pubblicate.]]></description>
+      <content:encoded><![CDATA[## In breve
+- **Ambito**: Ticino e province italiane CO, VA e VB.
+- **Catalogo Ticino**: 207 record dalla lista ufficiale.
+- **Catalogo italiano**: 542 record filtrati sulle tre province di confine.
+- **Turni verificati**: OFCT, solo Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli.
+
+Come usare il catalogo delle farmacie italiane di confine insieme all’elenco ticinese, senza trasformare un’anagrafica in una promessa di apertura.
+## Il perimetro italiano del catalogo
+Il dataset italiano è filtrato sulle province CO, VA e VB, cioè Como, Varese e Verbano-Cusio-Ossola; lo snapshot corrente contiene 542 record. È un catalogo di sedi e contatti pubblicati, non una copertura italiana completa e non un elenco di turni.
+
+Per confrontare le due sponde, usa i percorsi Ticino e Italia e leggi separatamente la fonte di ciascun catalogo. Per un’apertura o un turno in Italia verifica la farmacia e le autorità locali: questa guida non fa alcun claim di turno italiano.
+
+## Catalogo, orari e turno: tre dati diversi
+- **catalogo**: La presenza nell’elenco indica una voce del catalogo ufficiale, non che la farmacia sia aperta ora.
+- **orari di apertura**: Gli orari compaiono solo quando la pagina o la fonte li pubblica; non vengono dedotti dal catalogo né dal timestamp.
+- **turno verificato**: Un turno verificato è un intervallo regionale pubblicato dall’OFCT; non equivale a un’apertura continua. Prima di partire, verifica sempre per telefono.
+## Perimetro, fonti e timestamp
+Questa guida usa snapshot separati: un catalogo anagrafico ticinese, un catalogo italiano filtrato e un dataset di turni OFCT. Le fonti non vengono fuse in un unico stato di apertura.
+
+- **Elenco ufficiale delle farmacie del Ticino**: 207 record, recuperati alle 2026-09-14T10:03:57.824Z. [lista ufficiale](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
+- **Dataset ufficiale italiano filtrato sulle province CO, VA e VB**: 542 record, recuperati alle 2026-09-14T10:03:57.824Z. [dataset del Ministero della Salute](https://www.dati.salute.gov.it/it/dataset/farmacie/)
+- **Pagine OFCT per i turni regionali**: aree Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, recuperate alle 2026-09-14T18:16:05.788Z. [fonte OFCT](https://www.ofct.ch/farmacieturno/)
+
+**Ultimo recupero degli snapshot**: cataloghi 2026-09-14T10:03:57.824Z; turni 2026-09-14T18:16:05.788Z. Il timestamp indica quando è stato recuperato lo snapshot della fonte; non indica l’orario di apertura e non dimostra che una sede sia aperta in questo momento.
+
+Questa non è una copertura nazionale: il perimetro è limitato al Ticino e alle province italiane CO, VA e VB.
+Il Locarnese non è ancora incluso nel parser dei turni: non deduciamo né presentiamo un turno OFCT per quell’area. È una limitazione del dato di turno, non una dichiarazione sull’anagrafica cantonale.
+Per l’Italia non viene fatto alcun claim di turno: il catalogo italiano è anagrafico e non prova una farmacia aperta o di turno.
+
+## Fonti ufficiali e percorsi utili
+- [hub farmacie](/farmacie/)
+- [elenco Ticino](/farmacie/ticino/)
+- [elenco province italiane](/farmacie/italia/)
+- [farmacie di turno](/farmacie-di-turno/)
+- **fonti OFCT per area**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/)
+
+Per un caso concreto, apri il percorso locale, controlla la scheda disponibile e contatta la farmacia: un elenco statico non sostituisce la verifica diretta.]]></content:encoded>
+      <pubDate>Mon, 14 Sep 2026 20:06:50 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/farmacie-confine-italia-como-varese-verbano</guid>
+      <category>Notizie</category>
+      <media:content url="https://frontaliereticino.ch/images/places/mendrisio.webp" medium="image"/>
+    </item>
+    <item>
+      <title>Farmacie di turno in Ticino: guida a fonti e copertura</title>
+      <link>https://frontaliereticino.ch/articoli-svizzera/farmacie-turno-ticino-guida/</link>
+      <description><![CDATA[Questa guida spiega dove leggere i turni di farmacia del Ticino e come interpretare correttamente una copertura regionale. 207 record Ticino e 542 nelle province CO, VA e VB; turni OFCT solo nelle quattro aree pubblicate.]]></description>
+      <content:encoded><![CDATA[## In breve
+- **Ambito**: Ticino e province italiane CO, VA e VB.
+- **Catalogo Ticino**: 207 record dalla lista ufficiale.
+- **Catalogo italiano**: 542 record filtrati sulle tre province di confine.
+- **Turni verificati**: OFCT, solo Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli.
+
+Questa guida spiega dove leggere i turni di farmacia del Ticino e come interpretare correttamente una copertura regionale.
+## Che cosa significa “di turno” qui
+Il dato di turno arriva dalle pagine ufficiali dell’Ordine dei farmacisti del Cantone Ticino (OFCT). Lo snapshot pubblicato per questa guida copre soltanto Mendrisiotto, Luganese, Bellinzonese e Biasca e Valli. Il Locarnese non è ancora incluso nel parser dei turni: per questa area non viene fatta alcuna deduzione.
+
+Se cerchi una farmacia aperta adesso, usa la pagina di turno della tua area e verifica l’intervallo indicato. Il catalogo anagrafico e gli orari ordinari sono superfici diverse dal turno verificato.
+
+## Catalogo, orari e turno: tre dati diversi
+- **catalogo**: La presenza nell’elenco indica una voce del catalogo ufficiale, non che la farmacia sia aperta ora.
+- **orari di apertura**: Gli orari compaiono solo quando la pagina o la fonte li pubblica; non vengono dedotti dal catalogo né dal timestamp.
+- **turno verificato**: Un turno verificato è un intervallo regionale pubblicato dall’OFCT; non equivale a un’apertura continua. Prima di partire, verifica sempre per telefono.
+## Perimetro, fonti e timestamp
+Questa guida usa snapshot separati: un catalogo anagrafico ticinese, un catalogo italiano filtrato e un dataset di turni OFCT. Le fonti non vengono fuse in un unico stato di apertura.
+
+- **Elenco ufficiale delle farmacie del Ticino**: 207 record, recuperati alle 2026-09-14T10:03:57.824Z. [lista ufficiale](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
+- **Dataset ufficiale italiano filtrato sulle province CO, VA e VB**: 542 record, recuperati alle 2026-09-14T10:03:57.824Z. [dataset del Ministero della Salute](https://www.dati.salute.gov.it/it/dataset/farmacie/)
+- **Pagine OFCT per i turni regionali**: aree Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, recuperate alle 2026-09-14T18:16:05.788Z. [fonte OFCT](https://www.ofct.ch/farmacieturno/)
+
+**Ultimo recupero degli snapshot**: cataloghi 2026-09-14T10:03:57.824Z; turni 2026-09-14T18:16:05.788Z. Il timestamp indica quando è stato recuperato lo snapshot della fonte; non indica l’orario di apertura e non dimostra che una sede sia aperta in questo momento.
+
+Questa non è una copertura nazionale: il perimetro è limitato al Ticino e alle province italiane CO, VA e VB.
+Il Locarnese non è ancora incluso nel parser dei turni: non deduciamo né presentiamo un turno OFCT per quell’area. È una limitazione del dato di turno, non una dichiarazione sull’anagrafica cantonale.
+Per l’Italia non viene fatto alcun claim di turno: il catalogo italiano è anagrafico e non prova una farmacia aperta o di turno.
+
+## Fonti ufficiali e percorsi utili
+- [hub farmacie](/farmacie/)
+- [elenco Ticino](/farmacie/ticino/)
+- [elenco province italiane](/farmacie/italia/)
+- [farmacie di turno](/farmacie-di-turno/)
+- **fonti OFCT per area**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/)
+
+Per un caso concreto, apri il percorso locale, controlla la scheda disponibile e contatta la farmacia: un elenco statico non sostituisce la verifica diretta.]]></content:encoded>
+      <pubDate>Mon, 14 Sep 2026 20:06:49 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/farmacie-turno-ticino-guida</guid>
+      <category>Notizie</category>
+      <media:content url="https://frontaliereticino.ch/images/places/bellinzona.webp" medium="image"/>
+    </item>
+    <item>
+      <title>Farmacie in Ticino: elenco e contatti</title>
+      <link>https://frontaliereticino.ch/articoli-svizzera/farmacie-ticino-elenco-contatti/</link>
+      <description><![CDATA[Un punto di partenza per cercare le farmacie presenti nel catalogo ticinese e raggiungere le schede locali disponibili. 207 record Ticino e 542 nelle province CO, VA e VB; turni OFCT solo nelle quattro aree pubblicate.]]></description>
+      <content:encoded><![CDATA[## In breve
+- **Ambito**: Ticino e province italiane CO, VA e VB.
+- **Catalogo Ticino**: 207 record dalla lista ufficiale.
+- **Catalogo italiano**: 542 record filtrati sulle tre province di confine.
+- **Turni verificati**: OFCT, solo Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli.
+
+Un punto di partenza per cercare le farmacie presenti nel catalogo ticinese e raggiungere le schede locali disponibili.
+## Che cosa contiene l’elenco
+Il catalogo Ticino deriva dalla lista ufficiale del Cantone e, nello snapshot corrente, contiene 207 record. Un record serve per orientarsi tra nomi, indirizzi e contatti pubblicati; non è una conferma di apertura in tempo reale e non sostituisce la telefonata.
+
+Per una ricerca pratica, parti dal percorso Ticino, usa la scheda della farmacia e controlla quali informazioni sono effettivamente pubblicate. Se ti serve un turno, passa alla pagina OFCT: non confondere il catalogo con il servizio di turno.
+
+## Catalogo, orari e turno: tre dati diversi
+- **catalogo**: La presenza nell’elenco indica una voce del catalogo ufficiale, non che la farmacia sia aperta ora.
+- **orari di apertura**: Gli orari compaiono solo quando la pagina o la fonte li pubblica; non vengono dedotti dal catalogo né dal timestamp.
+- **turno verificato**: Un turno verificato è un intervallo regionale pubblicato dall’OFCT; non equivale a un’apertura continua. Prima di partire, verifica sempre per telefono.
+## Perimetro, fonti e timestamp
+Questa guida usa snapshot separati: un catalogo anagrafico ticinese, un catalogo italiano filtrato e un dataset di turni OFCT. Le fonti non vengono fuse in un unico stato di apertura.
+
+- **Elenco ufficiale delle farmacie del Ticino**: 207 record, recuperati alle 2026-09-14T10:03:57.824Z. [lista ufficiale](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
+- **Dataset ufficiale italiano filtrato sulle province CO, VA e VB**: 542 record, recuperati alle 2026-09-14T10:03:57.824Z. [dataset del Ministero della Salute](https://www.dati.salute.gov.it/it/dataset/farmacie/)
+- **Pagine OFCT per i turni regionali**: aree Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, recuperate alle 2026-09-14T18:16:05.788Z. [fonte OFCT](https://www.ofct.ch/farmacieturno/)
+
+**Ultimo recupero degli snapshot**: cataloghi 2026-09-14T10:03:57.824Z; turni 2026-09-14T18:16:05.788Z. Il timestamp indica quando è stato recuperato lo snapshot della fonte; non indica l’orario di apertura e non dimostra che una sede sia aperta in questo momento.
+
+Questa non è una copertura nazionale: il perimetro è limitato al Ticino e alle province italiane CO, VA e VB.
+Il Locarnese non è ancora incluso nel parser dei turni: non deduciamo né presentiamo un turno OFCT per quell’area. È una limitazione del dato di turno, non una dichiarazione sull’anagrafica cantonale.
+Per l’Italia non viene fatto alcun claim di turno: il catalogo italiano è anagrafico e non prova una farmacia aperta o di turno.
+
+## Fonti ufficiali e percorsi utili
+- [hub farmacie](/farmacie/)
+- [elenco Ticino](/farmacie/ticino/)
+- [elenco province italiane](/farmacie/italia/)
+- [farmacie di turno](/farmacie-di-turno/)
+- **fonti OFCT per area**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/)
+
+Per un caso concreto, apri il percorso locale, controlla la scheda disponibile e contatta la farmacia: un elenco statico non sostituisce la verifica diretta.]]></content:encoded>
+      <pubDate>Mon, 14 Sep 2026 20:06:49 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/farmacie-ticino-elenco-contatti</guid>
+      <category>Notizie</category>
+      <media:content url="https://frontaliereticino.ch/images/places/lugano-view.webp" medium="image"/>
+    </item>
     <item>
       <title>Perché i tassi di interesse in Svizzera restano bassi</title>
       <link>https://frontaliereticino.ch/articoli-svizzera/tassi-interesse-svizzera-bassi/</link>
@@ -2329,216 +2517,6 @@ Dal 2025, il Canton Giura introduce un sistema di riduzioni automatiche per bene
       <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/premi-cassa-malati-canton-giura-riduzioni</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/premi-cassa-malati-canton-giura-riduzioni.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Lonza investe negli USA: nuovo impianto farmaceutico in Oregon</title>
-      <link>https://frontaliereticino.ch/articoli-svizzera/investimento-svizzero-usa-lonza/</link>
-      <description><![CDATA[Il colosso farmaceutico svizzero Lonza costruirà un nuovo impianto di produzione a Bend, nell'Oregon, con completamento previsto entro il 2029.]]></description>
-      <content:encoded><![CDATA[## In breve
-- Lonza costruirà un nuovo impianto a Bend, in Oregon
-- Completamento della struttura previsto entro il 2029
-- Creazione iniziale di oltre 80 nuovi posti di lavoro
-- Investimento definito significativo dal gruppo farmaceutico
-
-## Fatti chiave
-- **Cosa**: Costruzione di un nuovo impianto di produzione commerciale
-- Quando: Completamento previsto entro il 2029
-- Dove: Bend, Oregon, Stati Uniti
-- Chi: Lonza
-- Importo: Importo non ancora specificato
-
-L'industria farmaceutica svizzera rafforza ulteriormente la propria presenza e i propri investimenti negli Stati Uniti. Il gruppo Lonza ha annunciato ufficialmente la costruzione di un nuovo impianto a Bend, nello stato dell'Oregon. La struttura sarà dedicata alla produzione commerciale di dispersioni di principi attivi a spruzzo. Secondo quanto comunicato dall'azienda farmaceutica svizzera, il completamento dell'opera è atteso entro il corso dell'anno 2029. L'operazione finanziaria è stata definita dai vertici aziendali come un investimento significativo, sebbene l'importo esatto in denaro non sia stato reso noto nel comunicato ufficiale diffuso dalla società.
-
-### Dettagli della tecnologia farmaceutica
-
-Il progetto industriale si concentra su una tecnologia avanzata in grado di migliorare in modo sensibile la solubilità e, di conseguenza, la disponibilità biologica dei principi attivi che risultano scarsamente solubili. Dal punto di vista del mercato farmaceutico globale, la domanda per questi particolari processi produttivi registra una crescita costante, spinta dall'aumentare della complessità nello sviluppo dei medicinali moderni. La nuova struttura nell'Oregon permetterà a Lonza di rispondere in modo tempestivo a questa domanda crescente, consolidando il proprio posizionamento tecnologico nel settore della produzione farmaceutica avanzata su scala internazionale.
-### Impatto occupazionale e catene di fornitura
-
-L'avvio di questo importante progetto industriale negli Stati Uniti porterà inizialmente alla creazione di oltre ottanta nuovi posti di lavoro altamente specializzati nella regione di Bend. La decisione strategica di ampliare la capacità produttiva oltreoceano risponde a precise logiche di vicinanza operativa rispetto ai clienti importanti e di rafforzamento della resilienza delle catene di fornitura regionali. Avvicinare la produzione ai mercati di sbocco principali consente all'azienda di ridurre i rischi legati alla logistica internazionale e di ottimizzare i tempi di consegna per l'industria farmaceutica locale.
-
-### Strategia aziendale e leadership
-
-L'amministratore delegato Wolfgang Wienand ha sottolineato l'importanza strategica dell'operazione per il futuro del gruppo svizzero. L'investimento nella sede di Bend riflette la ferma convinzione che gli Stati Uniti rimarranno una fonte leader di innovazione farmaceutica e un mercato chiave per Lonza. Questa mossa si inserisce perfettamente nella strategia aziendale denominata One Lonza, che ha l'obiettivo di concentrare gli investimenti laddove è possibile generare il massimo valore economico per i clienti e, in ultima analisi, per i pazienti. Il manager tedesco, cinquantaquattrenne e con un passato di schermidore di punta, guida la società renana dal luglio del 2024.
-
-## Tool consigliati
-Per una stima aggiornata, usa il [calcolatore stipendio netto](nav:calculator) e il [comparatore cambio CHF-EUR](nav:exchange).
-### Profilo e storia del gruppo Lonza
-
-Fondata nell'ormai lontano 1897, Lonza vanta una lunga storia industriale radicata in Svizzera. La società nacque originariamente a Gampel, nel Canton Vallese, sulle rive del fiume Lonza, che rappresenta un affluente del Rodano. Nel corso del Novecento, precisamente nel 1909, la sede fu trasferita a Visp, sempre nel Canton Vallese. Successivamente, nel 1974, l'azienda entrò a far parte dell'orbita di Alusuisse, per poi uscirne nel 1999 e ottenere la quotazione ufficiale in borsa. Nel 2002 il centro operativo principale del gruppo è stato spostato a Basilea.
-
-### Posizione nei mercati finanziari elvetici
-
-Oggi Lonza rappresenta una delle realtà industriali più importanti della Confederazione, potendo contare su una forza lavoro globale di ventimila dipendenti. Nel corso dell'esercizio 2025, la società ha registrato un fatturato complessivo pari a 6,5 miliardi di franchi svizzeri. Grazie a questi dati economici e alla sua solidità, l'azienda fa parte dell'SMI, l'indice azionario che raggruppa i venti titoli principali del mercato finanziario elvetico. Per approfondire la gestione delle finanze aziendali, la fiscalità e gli investimenti in Svizzera, consulta il [calcolatore stipendio e imposte](nav:calculator).
-
-*Fonte: [swissinfo.ch](https://www.swissinfo.ch/ita/nuovo-investimento-svizzero-in-usa%2c-lonza-costruir%c3%a0-nuova-fabbrica/92037653)*]]></content:encoded>
-      <pubDate>Fri, 11 Sep 2026 00:33:25 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/investimento-svizzero-usa-lonza</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/investimento-svizzero-usa-lonza.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Imposte cantonali Giura: aliquote, scaglioni e deduzioni 2024</title>
-      <link>https://frontaliereticino.ch/articoli-svizzera/imposte-cantonali-giura-aliquote-deduzioni/</link>
-      <description><![CDATA[Guida pratica al sistema fiscale del Cantone Giura: struttura a tre livelli, moltiplicatori comunali, deduzioni ammesse e portale ufficiale per la dichiarazione.]]></description>
-      <content:encoded><![CDATA[## In breve
-- Il Cantone Giura applica imposte su tre livelli: federale, cantonale e comunale
-- Le aliquote cantonali sono progressive; i comuni applicano un moltiplicatore sull'imposta cantonale
-- Le deduzioni seguono principi federali con integrazioni cantonali specifiche
-- La dichiarazione si presenta online tramite il portale dell'amministrazione fiscale giurassiana
-
-## Fatti chiave
-- **Cosa**: Imposte cantonali e comunali nel Cantone Giura
-- Quando: Scadenza dichiarazione ordinaria 31 marzo (proroghe possibili)
-- Dove: Cantone Giura, Svizzera
-- Chi: Amministrazione fiscale cantonale del Giura (Service des contributions)
-- Importo: Aliquote progressive per scaglioni di reddito e sostanza; moltiplicatori comunali variabili
-
-Il sistema fiscale svizzero si articola su tre livelli: l'imposta federale diretta (IFD) gestita dall'AFC/ESTV, l'imposta cantonale e l'imposta comunale, entrambe di competenza delle amministrazioni cantonali. Nel Cantone Giura, come in tutti i cantoni, la legge fiscale cantonale definisce gli scaglioni di reddito e di sostanza, le aliquote base e le deduzioni ammesse. I comuni giurassiani applicano poi un moltiplicatore (coefficiente) sull'imposta cantonale netta per determinare l'imposta comunale dovuta.
-
-### Struttura a tre livelli e competenze
-L'IFD è identica per tutti i contribuenti svizzeri e viene calcolata sull'imponibile federale. L'imposta cantonale del Giura segue una tariffa progressiva per scaglioni: all'aumentare del reddito imponibile (o della sostanza imponibile) si applicano aliquote marginali crescenti. L'imposta comunale non ha tariffa propria: è il risultato dell'imposta cantonale moltiplicata per il coefficiente comunale, che ogni comune fissa annualmente. Questa architettura rende il carico fiscale finale diverso da comune a comune pur restando all'interno dello stesso cantone.
-
-La distinzione di competenze è rigida: AFC/ESTV gestisce IFD e IVA; le amministrazioni cantonali (nel Giura il Service des contributions) gestiscono imposte cantonali e comunali; UFAS/BSV si occupa di previdenza sociale (AVS/AI/LPP) e non fissa imposte; UST/BFS produce statistiche e non fissa aliquote.
-### Aliquote, scaglioni e moltiplicatori comunali
-Le aliquote cantonali del Giura sono pubblicate ogni anno nel tariffario ufficiale e si applicano per scaglioni di reddito netto imponibile (dopo deduzioni) e di sostanza netta imponibile. Non esiste un'aliquota unica: il sistema è progressivo a scaglioni, quindi la prima tranche di reddito è tassata all'aliquota più bassa, la tranche successiva all'aliquota superiore, e così via. L'imposta cantonale lorda che ne risulta viene poi ridotta degli eventuali abbuoni o crediti d'imposta cantonali per arrivare all'imposta cantonale netta.
-
-Su questa base netta si applica il moltiplicatore comunale. Ogni comune del Giura delibera annualmente il proprio coefficiente (es. 1,45; 1,60; 1,30 ecc.). L'imposta comunale = imposta cantonale netta × moltiplicatore comunale. La somma di imposta cantonale netta + imposta comunale costituisce l'imposta cantonale/comunale complessiva. A questa si aggiunge l'IFD per ottenere l'imposta totale dovuta.
-
-### Deduzioni ammesse: principi federali e specificità cantonali
-Le deduzioni seguono in larga misura i principi del diritto federale armonizzato (LIFD), ma il Cantone Giura può prevedere deduzioni supplementari o parametri propri (es. deduzioni per figli, per spese di guadagno, per premi LAMal/KVG, per versamenti nel pilastro 3a, per interessi passivi, per spese mediche eccedenti una franchigia). L'elenco preciso e gli importi massimi deducibili per l'anno d'imposta in corso sono indicati nelle istruzioni ufficiali della dichiarazione d'imposta giurassiana e sul portale dell'amministrazione fiscale.
-
-Un aspetto pratico rilevante: i contributi sociali trattenuti alla fonte (AVS/AI/IPG 5,3% a carico dipendente, AD/AC 1,1%, LAINF/LAA secondo settore, LPP sul salario coordinato con aliquote per fasce d'età) riducono il reddito lordo per determinare il reddito netto imponibile. I premi LAMal/KVG non sono contributi salariali né tasse, ma sono deducibili entro i limiti cantonali.
-
-## Tool utili per il tuo caso
-Per verificare in modo pratico il tuo scenario entro/oltre 20 km, usa il [calcolatore stipendio netto](nav:calculator) e la [guida dichiarazione redditi](nav:tax-return).
-### Scadenze, procedura e portale online
-La dichiarazione d'imposta ordinaria va presentata entro il 31 marzo dell'anno successivo a quello d'imposta (salvo proroghe concesse su richiesta all'amministrazione fiscale). Il Cantone Giura mette a disposizione il portale ufficiale per la dichiarazione elettronica (e-tax / dichiarazione online), che guida il contribuente passo passo: importazione dei dati precompilati (certificati di salario, attestati bancari, ecc.), inserimento manuale delle voci mancanti, calcolo automatico dell'imponibile e dell'imposta stimata, invio firmato digitalmente.
-
-Chi non riceve la dichiarazione precompilata o preferisce il cartaceo può richiedere i moduli all'amministrazione fiscale. Dopo l'invio, l'ufficio emette la tassazione definitiva con la decisione di tassazione (Veranlagungsverfügung / décision de taxation). Contro questa è possibile presentare reclamo entro 30 giorni all'autorità di ricorso competente.
-
-### Strumenti utili per il contribuente
-Per simulare l'impatto di reddito, deduzioni, comune di residenza e situazione familiare, il calcolatore stipendio/imposte del sito permette di confrontare scenari. Chi deve coordinare IFD, cantonale/comunale e previdenza (AVS/LPP/pilastro 3a) trova nel calcolatore busta paga una visione d'insieme. Per la dichiarazione vera e propria, il link diretto al portale e-tax del Giura è il canale più rapido.
-
-[Calcola la tua imposta stimata in Giura](nav:calculator)]]></content:encoded>
-      <pubDate>Thu, 10 Sep 2026 22:13:44 GMT</pubDate>
-      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/imposte-cantonali-giura-aliquote-deduzioni</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/imposte-cantonali-giura-aliquote-deduzioni.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Stefan Leist nominato vicedirettore Amministrazione federale finanze</title>
-      <link>https://frontaliereticino.ch/articoli-svizzera/stefan-leist-vicedirettore-aff-2026/</link>
-      <description><![CDATA[Karin Keller-Sutter nomina Stefan Leist vicedirettore AFF dal 1° ottobre 2026. Già alla guida della divisione Politica finanziaria dal 1° marzo 2026.]]></description>
-      <content:encoded><![CDATA[## In breve
-- Karin Keller-Sutter nomina Stefan Leist vicedirettore AFF dal 1° ottobre 2026
-- Il Consiglio federale informato nella seduta del 9 settembre 2026
-- Leist guida dal 1° marzo 2026 la divisione Politica finanziaria e perequazione
-
-## Fatti chiave
-- **Cosa**: Nomina a vicedirettore dell'Amministrazione federale delle finanze
-- Quando: Entrata in funzione 1° ottobre 2026, decisione 9 settembre 2026
-- Dove: Amministrazione federale delle finanze, Berna
-- Chi: Stefan Leist, 45 anni, dottorato in economia politica
-- Importato: Ruolo chiave per politica finanziaria e perequazione intercantonale
-
-La consigliera federale Karin Keller-Sutter, capa del Dipartimento federale delle finanze, ha nominato Stefan Leist direttore sostituto dell'Amministrazione federale delle finanze (AFF) con effetto dal 1° ottobre 2026. La decisione è stata comunicata al Consiglio federale nella seduta del 9 settembre 2026.
-
-### Percorso professionale e competenze
-Stefan Leist, 45 anni, vanta un'esperienza pluriennale all'interno dell'Amministrazione federale. Dal 1° marzo 2026 ricopre già la carica di vicedirettore dell'AFF e capo della divisione Politica finanziaria, perequazione finanziaria e statistica finanziaria. Laureato in economia politica all'Università di Berna, ha conseguito il dottorato nel 2012, anno in cui è entrato in servizio presso la Segreteria di Stato dell'economia (SECO). Prima di approdare all'AFF, ha diretto il settore Analisi del mercato del lavoro e politica sociale della SECO ed è stato capo sostituto della Direzione della politica economica.
-
-### Il ruolo dell'AFF nel sistema federale
-L'Amministrazione federale delle finanze è l'unità centrale per la gestione delle finanze della Confederazione. Tra i suoi compiti principali figurano l'elaborazione del bilancio federale, la gestione del debito pubblico, la politica finanziaria e la perequazione finanziaria tra Confederazione e Cantoni. La divisione guidata da Leist si occupa proprio di questi dossier strategici, inclusa la statistica finanziaria che alimenta le decisioni di politica fiscale a livello nazionale.
-### Implicazioni per la politica finanziaria svizzera
-La nomina di Leist arriva in una fase in cui la politica finanziaria federale deve confrontarsi con sfide strutturali: il freno all'indebitamento, la perequazione delle risorse tra Cantoni e l'evoluzione dell'imposta federale diretta. La divisione Politica finanziaria, perequazione finanziaria e statistica finanziaria che egli guida è il motore analitico dietro le proposte che il Consiglio federale sottopone al Parlamento per il preventivo e i conti consuntivi.
-
-### Continuità e segnali dall'interno
-Il fatto che Leist fosse già vicedirettore AFF dal 1° marzo 2026 segnala una continuità operativa: la promozione a direttore sostituto formalizza un ruolo che esercita de facto da sei mesi. Il suo percorso in SECO, dove ha maturato competenze su mercato del lavoro e politica economica, porta nell'AFF una visione trasversale che lega entrate federali, spesa sociale e dinamiche occupazionali. Questo profilo ibrido è raro ai vertici dell'amministrazione finanziaria e potrebbe rafforzare il coordinamento tra Dipartimento federale delle finanze e Dipartimento federale dell'economia, della formazione e della ricerca.
-
-### Perequazione finanziaria: il dossier caldo
-Tra i dossier più sensibili che la divisione di Leist gestisce c'è la perequazione finanziaria 2028-2035, attualmente in fase di preparazione. Il meccanismo redistribuisce risorse tra Confederazione e Cantoni e tra Cantoni ricchi e Cantoni con minore capacità fiscale. Qualsiasi aggiustamento dei parametri — potenza fiscale, indici di onere, compensazione dei casi di rigore — ha effetti diretti sui bilanci cantonali e, per riflesso, sulle imposte cantonali e comunali che cittadini e imprese pagano. La continuità garantita da Leist, che conosce i modelli statistici UST/BFS alla base dei calcoli, riduce i rischi di discontinuità tecnica nel prossimo ciclo.
-
-## Tool utili per il tuo caso
-Per verificare in modo pratico il tuo scenario entro/oltre 20 km, usa il [calcolatore stipendio netto](nav:calculator) e la [guida dichiarazione redditi](nav:tax-return).
-### Cosa cambia per chi vive e lavora in Svizzera
-La nomina non modifica direttamente aliquote o scadenze per i contribuenti. Tuttavia, la stabilità ai vertici dell'AFF è condizione necessaria affinché i processi di preventivo, conto consuntivo e perequazione rispettino i tempi costituzionali. Ritardi o incertezze in questi processi si ripercuotono sui preventivi cantonali e, in ultima analisi, sulle imposte che i residenti — frontalieri compresi — versano a livello cantonale e comunale.
-
-### Come seguire i lavori dell'AFF
-I documenti di politica finanziaria, i rapporti sulla perequazione e le statistiche finanziarie sono pubblicati sul sito dell'AFF e dell'UST/BFS. Chi vuole monitorare l'impatto delle decisioni federali sul proprio cantone può consultare i preventivi cantonali, solitamente adottati tra novembre e dicembre per l'anno successivo. Per stimare l'incidenza dell'imposta federale diretta e delle imposte cantonali/comunali sul proprio reddito, è utile confrontare i moltiplicatori comunali aggiornati.
-
-### Prossimi passi
-- Verificare il preventivo 2027 del proprio cantone (pubblicazione autunno 2026)
-- Consultare la statistica finanziaria UST/BFS per confrontare la capacità fiscale del proprio comune
-- Usare il calcolatore stipendio/imposte per simulare l'onere fiscale complessivo
-
-[Calcola il tuo onere fiscale stimato](nav:calculator)
-
-*Fonte: [admin.ch](https://www.admin.ch/it/newnsb/sggEkCiBadFx)*]]></content:encoded>
-      <pubDate>Thu, 10 Sep 2026 05:17:54 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/stefan-leist-vicedirettore-aff-2026</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/stefan-leist-vicedirettore-aff-2026.webp" medium="image"/>
-    </item>
-    <item>
-      <title>F-35: Amherd rischia responsabilità per costi extra</title>
-      <link>https://frontaliereticino.ch/articoli-svizzera/f-35-amherd-prescrizione-responsabilita/</link>
-      <description><![CDATA[CdG accerta che Amherd sapeva dei rischi costi F-35 mesi prima. Prescrizione triennale in scadenza, Wyssmann chiede interruzione.]]></description>
-      <content:encoded><![CDATA[## In breve
-- La CdG ha accertato che Amherd sapeva dei rischi di costi extra sugli F-35 mesi prima di informare il Consiglio federale
-- Nessun prezzo definitivo fu mai fissato per l'acquisto dei 36 jet
-- Il consigliere nazionale UDC Wyssmann chiede di bloccare la prescrizione per eventuali azioni di responsabilità
-- Il termine di tre anni per agire legalmente potrebbe scadere a breve
-
-## Fatti chiave
-- **Cosa**: Indagine della Commissione della gestione del Consiglio nazionale sull'acquisto degli F-35
-- Quando: Rapporto pubblicato di recente; prescrizione triennale in corso
-- Dove: Berna, livello federale
-- Chi: Ex consigliera federale Viola Amherd, CdG, consigliere nazionale Rémy Wyssmann (UDC), Consiglio federale
-- Importo: Non ancora specificato l'eventuale danno; precedente Bischof 112'500 franchi
-- Base legale: Art. 5 cpv. 3 ordinanza sulla legge sulla responsabilità
-
-### L'indagine della CdG e i suoi risultati
-La Commissione della gestione del Consiglio nazionale (CdG) ha concluso i propri accertamenti sulle modalità di acquisto dei 36 jet F-35. Secondo il rapporto, l'ex consigliera federale Viola Amherd era a conoscenza, già mesi prima di informare il Consiglio federale, del rischio di costi aggiuntivi. Inoltre, non è mai stato fissato un prezzo definitivo per la commessa. Amherd, attualmente a Oslo per i funerali del re di Norvegia Harald V, ha finora scelto il silenzio e non ha risposto alle richieste dei giornalisti.
-
-### Il dibattito sulla responsabilità legale
-A Berna il tema della responsabilità personale è al centro del dibattito politico. Il consigliere nazionale UDC Rémy Wyssmann aveva chiesto un anno fa che il Consiglio federale adottasse «tutte le misure» necessarie affinché eventuali pretese di responsabilità civile nei confronti di Amherd e dei funzionari coinvolti non cadessero in prescrizione. All'epoca il Consiglio federale aveva raccomandato di respingere la richiesta, sostenendo che non vi erano «sufficienti indizi concreti né per la presenza di un danno, né per un comportamento illecito». Tuttavia, aveva assicurato che le autorità competenti avrebbero valutato azioni legali qualora fossero emersi tali indizi.
-
-### Competenze e precedenti
-Secondo l'articolo 5, capoverso 3, dell'ordinanza sulla legge sulla responsabilità, la competenza per eventuali azioni legali contro Amherd spetta al Consiglio federale nel suo insieme; per i funzionari coinvolti, la responsabilità ricade sul Dipartimento della difesa. Un precedente storico è rappresentato dal caso del consigliere agli Stati Pirmin Bischof (Centro), che negli anni '90 fu ritenuto personalmente responsabile per il fallimento della Banca cantonale di Soletta e pagò 112'500 franchi. L'ex consigliere nazionale socialista Pierre-Alain Fridez ritiene l'indagine insufficiente e chiede l'istituzione di una commissione parlamentare d'inchiesta, estendendo l'approfondimento anche alla scelta del modello F-35.
-
-[Scopri come funziona il calcolo dell'imposta federale diretta](nav:calculator)
-### Implicazioni per la gestione dei grandi appalti federali
-Le conclusioni della CdG sollevano interrogativi strutturali sulla gestione degli appalti miliardari a livello federale. Wyssmann ha criticato aspramente la prassi: «Ancora una volta i contratti non vengono letti, ma i responsabili continuano a incassare oltre 400'000 franchi di stipendio». Il riferimento è allo stipendio annuo lordo di un consigliere federale. Il parlamentare solettese estende il timore ai futuri contratti importanti, come quelli con l'UE: «Anche questi non sono stati letti? L'amministrazione federale ormai firma i contratti come altre persone firmano abbonamenti in palestra».
-
-### Il nodo della prescrizione e i tempi stretti
-L'avvocato Wyssmann spiega che l'obbligo di prescrizione relativa di tre anni inizia dal momento in cui si viene a conoscenza per la prima volta che potrebbe essere stato causato un danno. Questo termine viene spesso posticipato dai tribunali, ma «i tre anni potrebbero quindi scadere in qualsiasi momento». La procedura per interrompere la prescrizione sarebbe semplice: «Basterebbe una telefonata di cinque minuti con Amherd, in cui lei acconsente per iscritto a rinunciare all'eccezione di prescrizione – senza alcuna ammissione di colpa». Finora, però, non risulta che il Consiglio federale abbia avviato questo passo.
-
-### Cosa significa per le finanze pubbliche e i contribuenti
-Se e in quale misura sia derivato dall'acquisto un danno giuridicamente rilevante è ancora da stabilire. Wyssmann precisa che questo potrà essere accertato solo una volta concluso l'acquisto stesso. «Poi dovranno essere individuati tutti i corresponsabili in solido e le rispettive quote di responsabilità. Non solo Amherd. Tutti i coinvolti», sottolinea. La vicenda tocca direttamente la gestione delle risorse pubbliche: un eventuale danno ricadrebbe sulle casse federali, alimentate dall'imposta federale diretta e dall'IVA versate da cittadini e imprese. La trasparenza sui costi definitivi degli F-35, che ammontano a diversi miliardi di franchi, diventa quindi un tema di interesse fiscale nazionale.
-
-[Confronta il costo della vita tra i cantoni](nav:cost-of-living)
-
-## Tool utili per il tuo caso
-Per verificare in modo pratico il tuo scenario entro/oltre 20 km, usa il [calcolatore stipendio netto](nav:calculator) e la [guida dichiarazione redditi](nav:tax-return).
-### Prossimi passi procedurali e scenari possibili
-Il Consiglio federale deve ora decidere se avviare l'interruzione della prescrizione nei confronti di Amherd e dei funzionari del Dipartimento della difesa. La competenza è collegiale per l'ex consigliera federale, mentre per i collaboratori spetta al Dipartimento guidato attualmente da Viola Amherd (fino al suo congedo) e dal suo successore. Se il Consiglio federale non agisce tempestivamente, il rischio è che la prescrizione triennale maturi, rendendo impossibile qualsiasi azione di recupero. Parallelamente, la richiesta di Fridez per una commissione parlamentare d'inchiesta (CPI) richiederebbe una decisione delle Camere federali: una CPI ha poteri d'indagine più ampi della CdG, inclusa la facoltà di ordinare perquisizioni e sequestri.
-
-### Come seguire gli sviluppi e tutelare i propri interessi
-Per i cittadini che vogliono monitorare la vicenda, i canali ufficiali sono il sito del Parlamento (parlamento.ch) per gli atti della CdG e le eventuali mozioni, e il sito dell'Amministrazione federale (admin.ch) per le prese di posizione del Consiglio federale. Chi desidera comprendere l'impatto delle spese militari sulla fiscalità federale può consultare i bilanci della Confederazione pubblicati dall'Amministrazione federale delle finanze (AFF). La trasparenza sui costi definitivi degli F-35 sarà determinante per valutare se vi sia stato un danno erariale.
-
-### Strumenti per orientarsi nella finanza pubblica svizzera
-La gestione dei grandi appalti federali incide sul bilancio della Confederazione e, di riflesso, sulla pressione fiscale a livello nazionale. Per avere una visione concreta di come le decisioni di Berna influenzano le tasche dei contribuenti, puoi utilizzare il nostro calcolatore per stimare l'impatto dell'imposta federale diretta sul tuo reddito. Lo strumento tiene conto delle ultime scale d'imposta e delle deduzioni ammesse.
-
-[Calcola la tua imposta federale diretta](nav:calculator)
-
-*Fonte: [tio.ch](https://www.tio.ch/svizzera/politica/1949060/federale-essere-amherd-consiglio-prescrizione-consigliera-viola-chiede-acquisto-f-35)*]]></content:encoded>
-      <pubDate>Thu, 10 Sep 2026 02:33:16 GMT</pubDate>
-      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/f-35-amherd-prescrizione-responsabilita</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/f-35-amherd-prescrizione-responsabilita.webp" medium="image"/>
     </item>
   </channel>
 </rss>
