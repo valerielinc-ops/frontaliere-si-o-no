@@ -168,6 +168,26 @@ describe('decontaminate-prev-slugs: flat previousSlugs redirect', () => {
     }
   });
 
+  it('skips malformed jobs while building the fleet ownership index', async () => {
+    const { decontaminateEntries } = await import('../scripts/decontaminate-prev-slugs.mjs');
+    const validJob = {
+      id: 'valid-job',
+      url: 'https://jobs.example.com/posting/valid',
+      previousSlugs: [] as string[],
+    };
+    const entry = {
+      filePath: null,
+      slice: { jobs: [null, 'malformed', validJob] as unknown[] },
+    };
+
+    const result = decontaminateEntries([entry], {
+      sourceEntries: [entry],
+      apply: false,
+    });
+
+    expect(result).toMatchObject({ moved: 0, emptyLocaleBucketsPruned: 0, affected: [] });
+  });
+
   it('keeps the claimant route recoverable when a final write fails, then converges on retry', async () => {
     const { processFiles } = await import('../scripts/decontaminate-prev-slugs.mjs');
     const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'decontaminate-retry-'));

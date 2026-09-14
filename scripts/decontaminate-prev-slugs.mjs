@@ -159,6 +159,7 @@ export function decontaminateEntries(entries, {
 
   for (const entry of validEntries) {
     for (const job of entry.slice.jobs) {
+      if (!job || typeof job !== 'object') continue;
       ownerEntry.set(job, entry);
       const hash = stableSlugHash(job);
       if (!hash) continue;
@@ -177,6 +178,7 @@ export function decontaminateEntries(entries, {
     if (!sourceSet.has(entry)) continue;
     const owners = new Map(globallyUnique);
     for (const job of entry.slice.jobs) {
+      if (!job || typeof job !== 'object') continue;
       const hash = stableSlugHash(job);
       if (hash && !owners.has(hash)) owners.set(hash, job);
       // A same-slice owner is stronger than a unique global fallback.
@@ -212,6 +214,7 @@ export function decontaminateEntries(entries, {
   for (const entry of validEntries) {
     if (!sourceSet.has(entry)) continue;
     for (const job of entry.slice.jobs) {
+      if (!job || typeof job !== 'object') continue;
       stats.get(entry).emptyLocaleBucketsPruned += pruneEmptyPreviousSlugLocaleBuckets(job);
     }
   }
