@@ -62,6 +62,7 @@ import {
   fetchSmartRecruitersJobs,
   fetchSmartRecruitersDepartments,
 } from './ats-clients/smartrecruiters-client.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 
 const SMN_HOST = 'https://www.swissmedical.net';
 const SR_PUBLIC_JOBS_BASE = 'https://jobs.smartrecruiters.com';
@@ -555,6 +556,12 @@ export function createSmnClinicParser(config) {
           break;
         case 'empty-board':
           console.log(`ℹ️ ${companyName}: 0/${scannedPostings} postings matched, but the configured department is still listed and non-archived in the tenant department directory — legitimately empty board (no current openings), NOT label drift. No config change needed.`);
+          markAuthoritativeEmptySnapshot(
+            jobs,
+            `SmartRecruiters tenant ${SMN_SR_COMPANY_ID} scanned ${scannedPostings} active postings; `
+              + `the complete department directory still lists the configured ${companyName} department as non-archived, `
+              + 'with no matching postings.',
+          );
           break;
         case 'label-drift': {
           const candidates = suggestDirectoryLabels(ownTargets, departments || []);
