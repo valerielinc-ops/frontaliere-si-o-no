@@ -64,7 +64,8 @@ describe('plate-auction static pages', () => {
     expect(rendered.html).not.toContain('GR8');
     expect(rendered.html).toContain('https://frontaliereticino.ch/aste-targhe-svizzera/classifiche/');
     expect(rendered.html).toContain('id=root');
-    expect(rendered.html).toContain('class=seo-static-content');
+    expect(rendered.html).toContain('class="seo-static-content plate-auction-static"');
+    expect(rendered.html).toContain('data-plate-auctions-static=true');
     expect(rendered.html).not.toContain('<main><nav');
   });
 
@@ -74,6 +75,16 @@ describe('plate-auction static pages', () => {
     expect(rendered.urlPath).toBe('en/swiss-plate-auctions/graubunden-gr/gr7');
     expect(rendered.html).toContain('No public row is available right now.');
     expect(rendered.html).not.toContain('GR8');
+  });
+
+  it('keeps a live row with an unparseable deadline consistent with the dynamic feed', () => {
+    const rootDir = fixtureRoot();
+    const snapshotPath = join(rootDir, 'public', 'data', 'plate-auctions.json');
+    const snapshot = JSON.parse(readFileSync(snapshotPath, 'utf8')) as { auctions: Array<Record<string, unknown>> };
+    snapshot.auctions[0].endsAt = 'not-a-date';
+    writeFileSync(snapshotPath, JSON.stringify(snapshot), 'utf8');
+    const rendered = renderPlateAuctionPage({ locale: 'it', view: 'hub', rootDir });
+    expect(rendered.html).toContain('GR8');
   });
 
   it('emits the site hreflang locale codes for auction pages', () => {

@@ -11,6 +11,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import registry from '../../data/plate-auction-sources-registry.json' with { type: 'json' };
 import { fetchGrPlateAuctions } from './connectors/gr.mjs';
+import { fetchTiPlateAuctions } from './connectors/ti.mjs';
 import { fetchVsPlateAuctions } from './connectors/vs.mjs';
 import { fetchZhPlateAuctions } from './connectors/zh.mjs';
 import {
@@ -22,6 +23,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const DEFAULT_OUTPUT = resolve(__dirname, '../../public/data/plate-auctions.json');
 const FETCHERS = {
   gr: fetchGrPlateAuctions,
+  ti: fetchTiPlateAuctions,
   vs: fetchVsPlateAuctions,
   zh: fetchZhPlateAuctions,
 };

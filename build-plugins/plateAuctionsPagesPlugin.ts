@@ -40,6 +40,15 @@ function formatDate(value: string | undefined, locale: PlateLocale): string { if
 function pathFor(locale: PlateLocale, view: 'hub' | 'rankings' | 'canton' | 'detail', canton?: string, plate?: string): string { return buildPlateAuctionPath({ locale, view, canton, plate }); }
 function detailPathForRow(row: SnapshotRow, locale: PlateLocale): string { return pathFor(locale, 'detail', row.sourceKey || row.platePrefix, row.normalizedPlate); }
 function alternates(view: 'hub' | 'rankings' | 'canton' | 'detail', canton?: string, plate?: string): string { return LOCALES.map((locale) => `<link rel="alternate" hreflang="${locale}" href="${BASE_URL}${pathFor(locale, view, canton, plate)}">`).concat(`<link rel="alternate" hreflang="x-default" href="${BASE_URL}${pathFor('it', view, canton, plate)}">`).join('\n'); }
+function normalizeExpiredRow(row: SnapshotRow): SnapshotRow {
+  const endsAt = row.endsAt ? Date.parse(row.endsAt) : Number.NaN;
+  if (!['active', 'upcoming'].includes(row.auctionStatus) || !Number.isFinite(endsAt) || endsAt > Date.now()) return row;
+  return { ...row, auctionStatus: 'closed', closedAt: row.closedAt || row.endsAt, dataConfidence: row.dataConfidence === 'verified' ? 'partial' : row.dataConfidence };
+}
+function isCurrentRow(row: SnapshotRow): boolean {
+  return ['active', 'upcoming'].includes(row.auctionStatus)
+    && (!row.endsAt || !Number.isFinite(Date.parse(row.endsAt)) || Date.parse(row.endsAt) > Date.now());
+}
 function latestVerifiedFinalRows(rows: SnapshotRow[]): SnapshotRow[] {
   const latest = new Map<string, SnapshotRow>();
   for (const row of rows) {
@@ -66,7 +75,7 @@ function unlistedDetailLinks(rows: SnapshotRow[], locale: PlateLocale, listedRow
 export function renderPlateAuctionPage({ locale, view, canton, plate, rootDir, distDir }: { locale: PlateLocale; view: 'hub' | 'rankings' | 'canton' | 'detail'; canton?: string; plate?: string; rootDir: string; distDir?: string }): { urlPath: string; html: string } {
   const copy = COPY[locale];
   const snapshot = readSnapshot(rootDir);
-  const auctionRows = snapshot.auctions || [];
+  const auctionRows = (snapshot.auctions || []).map(normalizeExpiredRow);
   const detailRow = view === 'detail'
     ? auctionRows.find((row) => row.dataConfidence !== 'conflicting' && row.normalizedPlate.toLowerCase() === String(plate || '').toLowerCase() && (!canton || row.sourceKey === canton || row.platePrefix === canton))
     : undefined;
@@ -74,7 +83,7 @@ export function renderPlateAuctionPage({ locale, view, canton, plate, rootDir, d
   const candidateRows = (view === 'rankings' ? rankingRows : auctionRows)
     .filter((row) => (view === 'rankings'
       ? ['closed', 'sold', 'unsold'].includes(row.auctionStatus) && row.dataConfidence === 'verified' && typeof row.finalPriceChf === 'number' && Boolean(row.finalPriceVerifiedAt)
-      : ['active', 'upcoming'].includes(row.auctionStatus))
+      : isCurrentRow(row))
       && row.dataConfidence !== 'conflicting'
       && (!canton || row.sourceKey === canton || row.platePrefix === canton))
     .sort((a, b) => (view === 'rankings' ? (b.finalPriceChf || 0) - (a.finalPriceChf || 0) : (b.currentBidChf ?? b.startingPriceChf ?? 0) - (a.currentBidChf ?? a.startingPriceChf ?? 0)));
@@ -94,16 +103,17 @@ export function renderPlateAuctionPage({ locale, view, canton, plate, rootDir, d
   const links = allPlateAuctionCantonCodes().map((code) => `<li><a href="${esc(pathFor(locale, 'canton', code))}" style="${LINK_ACCENT_STYLE}">${esc(code)} — ${esc(CANTON_NAMES[code]?.[locale] || code)}</a></li>`).join('');
   const cantonAuctionRows = canton ? auctionRows.filter((row) => row.sourceKey === canton || row.platePrefix === canton) : [];
   const detailLinks = view === 'canton' ? unlistedDetailLinks(cantonAuctionRows, locale, rows) : '';
-  const parentPath = canton ? pathFor(locale, 'canton', canton) : view === 'rankings' ? pathFor(locale, 'rankings') : pathFor(locale, 'hub');
-  const parentLabel = canton ? name : view === 'rankings' ? copy.rankings : copy.current;
-  const body = `<main><nav aria-label="breadcrumb"><a href="${esc(pathFor(locale, 'hub'))}" style="${LINK_ACCENT_STYLE}">Home</a> / <a href="${esc(parentPath)}" style="${LINK_ACCENT_STYLE}">${esc(parentLabel || copy.current)}</a> / <span>${esc(title)}</span></nav><h1 style="${H1_STYLE}">${esc(title)}</h1><p style="${LEDE_STYLE}">${esc(description)}</p><p>${esc(copy.context)}</p><p><a href="${esc(pathFor(locale, 'hub'))}" style="${LINK_ACCENT_STYLE}">${esc(copy.current)}</a> · <a href="${esc(pathFor(locale, 'rankings'))}" style="${LINK_ACCENT_STYLE}">${esc(copy.rankings)}</a></p><section><h2 style="${H2_STYLE}">${esc(view === 'rankings' ? copy.rankings : view === 'detail' ? copy.detail : copy.current)}</h2>${tableRows(rows, locale, copy)}${detailLinks ? `<h3 style="${H2_STYLE}">${esc(copy.allListings)}</h3><ul>${detailLinks}</ul>` : ''}</section><section><h2 style="${H2_STYLE}">${esc(canton ? copy.method : copy.sources)}</h2><p>${esc(canton && sourceRows.find((source) => source.plateCode === canton)?.status === 'not-discovered' ? copy.notDiscovered : copy.context)}</p>${canton || view === 'detail' ? '' : `<ul>${links}</ul>`}</section></main>`;
+  const parentPath = canton ? pathFor(locale, 'canton', canton) : pathFor(locale, 'hub');
+  const parentLabel = canton ? name : copy.current;
+  const breadcrumbParent = view === 'hub' ? '' : ` / <a href="${esc(parentPath)}" style="${LINK_ACCENT_STYLE}">${esc(parentLabel || copy.current)}</a>`;
+  const body = `<main><nav aria-label="breadcrumb"><a href="${esc(pathFor(locale, 'hub'))}" style="${LINK_ACCENT_STYLE}">Home</a>${breadcrumbParent} / <span>${esc(title)}</span></nav><div data-plate-auctions-static="true" data-generated-at="${esc(snapshot.generatedAt || '')}"><h1 style="${H1_STYLE}">${esc(title)}</h1><p style="${LEDE_STYLE}">${esc(description)}</p><p>${esc(copy.context)}</p><p><a href="${esc(pathFor(locale, 'hub'))}" style="${LINK_ACCENT_STYLE}">${esc(copy.current)}</a> · <a href="${esc(pathFor(locale, 'rankings'))}" style="${LINK_ACCENT_STYLE}">${esc(copy.rankings)}</a></p><section><h2 style="${H2_STYLE}">${esc(view === 'rankings' ? copy.rankings : view === 'detail' ? copy.detail : copy.current)}</h2>${tableRows(rows, locale, copy)}${detailLinks ? `<h3 style="${H2_STYLE}">${esc(copy.allListings)}</h3><ul>${detailLinks}</ul>` : ''}</section><section><h2 style="${H2_STYLE}">${esc(canton ? copy.method : copy.sources)}</h2><p>${esc(canton && sourceRows.find((source) => source.plateCode === canton)?.status === 'not-discovered' ? copy.notDiscovered : copy.context)}</p>${canton || view === 'detail' ? '' : `<ul>${links}</ul>`}</section></div></main>`;
   // buildSeoPageHtml owns the single outer <main> in outside-root mode. Keep
   // this page-specific string as inner content so React mounts only its lite
   // chrome in #root and cannot replace the crawler-facing table.
   const staticBody = body.replace(/^<main>/, '').replace(/<\/main>$/, '');
   const itemList = rows.map((row, index) => ({ '@type': 'ListItem', position: index + 1, name: row.normalizedPlate, url: `${BASE_URL}${detailPathForRow(row, locale)}` }));
-  const jsonLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': view === 'detail' ? 'WebPage' : 'CollectionPage', name: title, url: canonicalUrl, description, ...(view === 'detail' ? { about: { '@type': 'Thing', name: detailRow?.normalizedPlate || plate } } : { mainEntity: { '@type': 'ItemList', itemListElement: itemList } }) });
-  return { urlPath: urlPath.replace(/^\//, '').replace(/\/$/, ''), html: buildSeoPageHtml({ locale, title, description, canonicalUrl, hreflangHtml: alternates(view, canton, detailRow?.normalizedPlate || plate), bodyHtml: staticBody, jsonLdScripts: [jsonLd], distDir, seoContentOutsideRoot: true }) };
+  const jsonLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': view === 'detail' ? 'WebPage' : 'CollectionPage', name: title, url: canonicalUrl, description, inLanguage: locale, ...(snapshot.generatedAt ? { dateModified: snapshot.generatedAt } : {}), ...(view === 'detail' ? { about: { '@type': 'Thing', name: detailRow?.normalizedPlate || plate } } : { mainEntity: { '@type': 'ItemList', itemListElement: itemList } }) });
+  return { urlPath: urlPath.replace(/^\//, '').replace(/\/$/, ''), html: buildSeoPageHtml({ locale, title, description, canonicalUrl, hreflangHtml: alternates(view, canton, detailRow?.normalizedPlate || plate), bodyHtml: staticBody, jsonLdScripts: [jsonLd], distDir, seoContentOutsideRoot: true, seoMainClass: 'seo-static-content plate-auction-static' }) };
 }
 
 export function plateAuctionsPagesPlugin(rootDir: string): Plugin {

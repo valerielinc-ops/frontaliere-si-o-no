@@ -63,6 +63,29 @@ const CONNECTORS = {
       }));
     },
   },
+  ti: {
+    canton: 'Ticino',
+    plateCode: 'TI',
+    url: 'https://www.carieauktion.ti.ch/ecari-auktion/',
+    parserVersion: '2.0.0',
+    parse(html, fetchedAt) {
+      return [
+        ['tabContent1', 'active', 'auction', 'ti'],
+        ['tabContent2', 'upcoming', 'future-registration', 'ti-future'],
+        ['tabContent3', 'active', 'fixed-price', 'ti-fixed'],
+        ['tabContent4', 'upcoming', 'wanted', 'ti-wanted'],
+      ].flatMap(([tab, auctionStatus, listingType, idPrefix]) => parseEcariAuctionRows(extractEcariTabSection(html, tab), {
+        canton: 'Ticino',
+        plateCode: 'TI',
+        officialAuctionUrl: 'https://www.carieauktion.ti.ch/ecari-auktion/',
+        fetchedAt,
+        auctionStatus,
+        listingType,
+        idPrefix,
+        detailUrlBuilder: () => 'https://www.carieauktion.ti.ch/ecari-auktion/',
+      }));
+    },
+  },
   zh: {
     canton: 'Zurigo',
     plateCode: 'ZH',
@@ -84,6 +107,27 @@ function timestampValue(value) {
   if (typeof value.toDate === 'function') return value.toDate().toISOString();
   if (value instanceof Date) return value.toISOString();
   return undefined;
+}
+
+function timestampMs(value) {
+  const normalized = timestampValue(value);
+  if (!normalized) return undefined;
+  const parsed = Date.parse(normalized);
+  return Number.isFinite(parsed) ? parsed : undefined;
+}
+
+function closeExpiredObservation(row, now) {
+  if (!row || !['active', 'upcoming'].includes(row.auctionStatus)) return null;
+  const endsAt = timestampMs(row.endsAt);
+  if (endsAt === undefined || endsAt > now.getTime()) return null;
+  return {
+    ...row,
+    auctionStatus: 'closed',
+    closedAt: row.closedAt || row.endsAt,
+    // A deadline is not a sale result. Keep the record in history without
+    // manufacturing a final price or ranking it as a verified sale.
+    dataConfidence: row.dataConfidence === 'verified' ? 'partial' : row.dataConfidence,
+  };
 }
 
 function publicAuction(value) {
@@ -160,7 +204,10 @@ export async function getPublicPlateAuctionSnapshot(db = getAdminDb()) {
     // first deployment must not take the live catalogue down with it.
     console.warn('[getPublicPlateAuctionSnapshot:history]', error instanceof Error ? error.message : String(error));
   }
-  const auctions = auctionRows.map(publicAuction).filter(Boolean);
+  const auctions = auctionRows.map(publicAuction).filter(Boolean).map((auction) => {
+    const closed = closeExpiredObservation(auction, new Date());
+    return closed ? publicAuction(closed) : auction;
+  }).filter(Boolean);
   const history = historyRows.map(publicAuction).filter(Boolean);
   const sources = Object.fromEntries(Object.entries(PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY).map(([key, source]) => [key, { ...source, rowCount: 0 }]));
   for (const source of sourceRows) {
@@ -212,14 +259,33 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher = fetchH
       const html = await fetcher(config.url, { timeoutMs: 20000 });
       const parsedRows = config.parse(html, fetchedAt);
       const sourceRef = db.collection(PLATE_AUCTION_SOURCE_COLLECTION).doc(key);
+      const previous = await db.collection(PLATE_AUCTION_COLLECTION).where('sourceKey', '==', config.plateCode).limit(2500).get();
+      const previousById = new Map(previous.docs.map((doc) => [doc.id, { id: doc.id, ...doc.data() }]));
       if (parsedRows.length === 0) {
+        // An empty upstream response is degraded, but it must not leave a
+        // record visibly active after its official deadline. Close expired
+        // observations in both current and history collections while keeping
+        // unexpired rows untouched for the next successful fetch.
+        const writes = [];
+        for (const [id, old] of previousById) {
+          const record = closeExpiredObservation(old, now);
+          if (!record) continue;
+          writes.push({ ref: db.collection(PLATE_AUCTION_COLLECTION).doc(id), record, merge: true });
+          writes.push({ ref: db.collection(PLATE_AUCTION_HISTORY_COLLECTION).doc(`${id}-${fetchedAt.replace(/[^0-9]/g, '').slice(0, 14)}-closed`), record });
+        }
+        for (const chunk of chunkPlateAuctionWrites(writes)) {
+          const batch = db.batch();
+          for (const write of chunk) {
+            if (write.merge) batch.set(write.ref, write.record, { merge: true });
+            else batch.set(write.ref, write.record);
+          }
+          await batch.commit();
+        }
         await sourceRef.set(sourceDocument(config, fetchedAt, { status: 'degraded', rowCount: 0, errorCode: 'zero_rows' }), { merge: true });
-        summaries[key] = { status: 'degraded', rowCount: 0 };
+        summaries[key] = { status: 'degraded', rowCount: 0, closedExpired: writes.length / 2 };
         continue;
       }
 
-      const previous = await db.collection(PLATE_AUCTION_COLLECTION).where('sourceKey', '==', config.plateCode).limit(2500).get();
-      const previousById = new Map(previous.docs.map((doc) => [doc.id, { id: doc.id, ...doc.data() }]));
       const qualityIssues = checkPlateAuctionQuality(parsedRows, previousById, now);
       const issuesById = new Map();
       for (const item of qualityIssues) {
@@ -246,13 +312,9 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher = fetchH
       }
       const currentIds = new Set(rows.map((row) => row.id));
       for (const [id, old] of previousById) {
-        if (currentIds.has(id) || !['active', 'upcoming'].includes(old.auctionStatus) || !old.endsAt || Date.parse(old.endsAt) > now.getTime()) continue;
-        const record = {
-          ...old,
-          auctionStatus: 'closed',
-          closedAt: old.closedAt || old.endsAt,
-          dataConfidence: old.dataConfidence === 'verified' ? 'partial' : old.dataConfidence,
-        };
+        if (currentIds.has(id)) continue;
+        const record = closeExpiredObservation(old, now);
+        if (!record) continue;
         writes.push({ ref: db.collection(PLATE_AUCTION_COLLECTION).doc(id), record, merge: true });
         writes.push({ ref: db.collection(PLATE_AUCTION_HISTORY_COLLECTION).doc(`${id}-${fetchedAt.replace(/[^0-9]/g, '').slice(0, 14)}-closed`), record });
       }
@@ -262,7 +324,7 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher = fetchH
           // catalogue only when quality checks find no source disappearance.
           // A partial catalogue must not erase an unexpired live observation.
           if (currentIds.has(id) || !['active', 'upcoming'].includes(old.auctionStatus)
-            || (old.endsAt && Date.parse(old.endsAt) <= now.getTime())) continue;
+            || (timestampMs(old.endsAt) !== undefined && timestampMs(old.endsAt) <= now.getTime())) continue;
           writes.push({ ref: db.collection(PLATE_AUCTION_COLLECTION).doc(id), delete: true });
         }
       }

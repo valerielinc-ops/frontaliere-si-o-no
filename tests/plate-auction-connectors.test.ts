@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { parseGrAuctionRows } from '../scripts/plate-auctions/connectors/gr.mjs';
+import { parseTiAuctionRows } from '../scripts/plate-auctions/connectors/ti.mjs';
 import { parseZhAuctions } from '../scripts/plate-auctions/connectors/zh.mjs';
 import { validatePlateAuction } from '../services/plateAuctions/types';
 
@@ -22,6 +23,13 @@ const ZH_SAMPLE = `
   <div class="auction-element-text"><div class="auction-number-bids">17 Gebote</div>
   <div class="auction-ends-at-text">Endet am:</div><div>16.09.2026, 19:00:00</div></div>
 </a>`;
+
+const TI_SAMPLE = `
+<div id="tabContent1"><table><tbody><tr class="L">
+  <td><a onclick="openDetails(1532)" href="#"><div class="number">13457</div></a></td>
+  <td class="amount">500</td><td class="amount">50</td><td class="amount">650</td>
+  <td class="closingTime">2026/09/14 20:00:00</td><td>3</td><td>offerente privato</td>
+</tr></tbody></table></div>`;
 
 describe('expanded plate-auction connectors', () => {
   it('parses the GR eCari full-width row and never exposes bidder text', () => {
@@ -53,5 +61,15 @@ describe('expanded plate-auction connectors', () => {
     expect(rows[0]).toMatchObject({ id: 'gr-fixed-77', listingType: 'fixed-price', currentBidChf: 2500, auctionStatus: 'active' });
     expect(rows[1]).toMatchObject({ id: 'gr-wanted-78', listingType: 'wanted', auctionStatus: 'upcoming' });
     expect(rows.every((row) => validatePlateAuction(row).length === 0)).toBe(true);
+  });
+
+  it('reads the public Ticino eCari catalogue and keeps bidder data private', () => {
+    const [row] = parseTiAuctionRows(TI_SAMPLE, { fetchedAt: '2026-09-14T08:00:00.000Z' });
+    expect(row).toMatchObject({
+      id: 'ti-1532', sourceKey: 'TI', normalizedPlate: 'TI13457', currentBidChf: 650,
+      bidCount: 3, endsAt: '2026-09-14T18:00:00.000Z', officialAuctionUrl: 'https://www.carieauktion.ti.ch/ecari-auktion/',
+    });
+    expect(JSON.stringify(row)).not.toContain('offerente privato');
+    expect(validatePlateAuction(row)).toEqual([]);
   });
 });
