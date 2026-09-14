@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { describe, it, expect } from 'vitest';
 import {
   CLINIQUE_GENERALE_STE_ANNE_KEY,
@@ -8,6 +9,13 @@ import {
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
 describe('Clinique Générale Ste-Anne crawler parser', () => {
+  it('wires the source-proven empty-board contract into the standard pipeline', () => {
+    const runner = readFileSync(new URL('../scripts/update-clinique-generale-ste-anne-jobs.mjs', import.meta.url), 'utf8');
+    expect(runner).toContain('authoritativeEmptySnapshotValidator(CLINIQUE_GENERALE_STE_ANNE_COMPANY_NAME)');
+    expect(runner).toContain('allowAuthoritativeEmptySnapshot: true');
+    expect(runner).toContain("authoritativeSnapshotScope: 'empty-only'");
+  });
+
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(CLINIQUE_GENERALE_STE_ANNE_KEY).toBe('clinique-generale-ste-anne');

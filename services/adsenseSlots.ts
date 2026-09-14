@@ -33,10 +33,10 @@
  * AUTHGATE_RAIL_LEFT/RIGHT, JOBDETAIL_SIDEBAR_2 (cannibalized JOBDETAIL_SIDEBAR).
  */
 
-import { shouldSuppressManualInfeedAd } from './adExperiment';
+import { shouldSuppressManualInfeedAd } from './adExperiment.ts';
 
-export { INFEED_AD_EXPERIMENT_ID, INFEED_AD_EXPERIMENT_RC_KILL_KEY, INFEED_AD_VARIANTS } from './adExperiment';
-export { INFEED_AD_TREATMENT_CANTONS as INFEED_AD_AB_TEST_SUPPRESSED_CANTONS } from './adExperiment';
+export { INFEED_AD_EXPERIMENT_ID, INFEED_AD_EXPERIMENT_RC_KILL_KEY, INFEED_AD_VARIANTS } from './adExperiment.ts';
+export { INFEED_AD_TREATMENT_CANTONS as INFEED_AD_AB_TEST_SUPPRESSED_CANTONS } from './adExperiment.ts';
 
 export const AD_CLIENT = 'ca-pub-8628054934855353';
 

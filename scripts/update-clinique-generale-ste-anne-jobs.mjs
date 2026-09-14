@@ -8,6 +8,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
+import { authoritativeEmptySnapshotValidator } from './lib/authoritative-empty-snapshot.mjs';
 import {
   fetchAllCliniqueGeneraleSteAnneJobs,
   isCliniqueGeneraleSteAnneJob,
@@ -27,6 +28,11 @@ runStandardCrawlerPipeline({
   isCompanyJob: isCliniqueGeneraleSteAnneJob,
   isTrustedDomain,
   defaultSourceLang: 'fr',
+  // The SMN directory proves an idle board only when the configured department
+  // is still present and non-archived. An unproven zero keeps the old slice.
+  validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator(CLINIQUE_GENERALE_STE_ANNE_COMPANY_NAME),
+  allowAuthoritativeEmptySnapshot: true,
+  authoritativeSnapshotScope: 'empty-only',
 }).catch((err) => {
   console.error(`❌ Clinique Générale Ste-Anne crawler failed: ${err?.message || err}`);
   process.exit(1);
