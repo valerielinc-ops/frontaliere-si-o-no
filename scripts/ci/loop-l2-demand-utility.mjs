@@ -279,7 +279,7 @@ export async function runL2({
   sourcePath = DEFAULT_SOURCE_PATH,
   registryPath = DEFAULT_REGISTRY_PATH,
   maxAgeHours = DEFAULT_MAX_AGE_HOURS,
-  minimumSample = MINIMUM_SAMPLE,
+  minimumSample,
   issue = false,
   apply = false,
   reportDir = null,
@@ -424,9 +424,12 @@ function parseArgs(argv) {
     return index === -1 ? fallback : argv[index + 1] || fallback;
   };
   const maxAgeHours = Number(valueAfter('--max-age-hours', DEFAULT_MAX_AGE_HOURS));
-  const minimumSample = Number(valueAfter('--minimum-sample', MINIMUM_SAMPLE));
+  const minimumSampleIndex = argv.indexOf('--minimum-sample');
+  const minimumSample = minimumSampleIndex === -1 ? undefined : Number(argv[minimumSampleIndex + 1]);
   if (!Number.isFinite(maxAgeHours) || maxAgeHours <= 0) throw new Error('--max-age-hours must be a finite positive number');
-  if (!Number.isInteger(minimumSample) || minimumSample < 1) throw new Error('--minimum-sample must be a positive integer');
+  if (minimumSample !== undefined && (!Number.isInteger(minimumSample) || minimumSample < 1)) {
+    throw new Error('--minimum-sample must be a positive integer');
+  }
   return {
     json: argv.includes('--json'),
     issue: argv.includes('--issue'),

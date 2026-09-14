@@ -242,6 +242,41 @@ describe('L7 Experiment Allocator', () => {
     expect(result.verdict.snapshot.registry.actionPolicy).toEqual(l7.actionPolicy);
   });
 
+  it('uses the registry minimum sample when no strengthening override is supplied', async () => {
+    const files = tempFiles(registry(), null);
+    const loopRegistry = JSON.parse(fs.readFileSync('data/loop-fleet/loop-registry.json', 'utf8'));
+    const l7 = loopRegistry.loops.find((loop: { loopId: string }) => loop.loopId === 'L7');
+    l7.minimumSample = 80;
+    const registryPath = path.join(files.dir, 'loop-registry.json');
+    fs.writeFileSync(registryPath, `${JSON.stringify(loopRegistry, null, 2)}\n`);
+
+    const result = await runL7({
+      now: NOW,
+      candidatesPath: files.candidatesPath,
+      outcomePath: files.outcomePath,
+      registryPath,
+      reportDir: files.reportDir,
+      logger: { log() {} },
+    });
+
+    expect(result.allocationPlan.preRegistration.minimumSample).toBe(80);
+  });
+
+  it('keeps a stronger direct minimum-sample override above the registry floor', () => {
+    const loopRegistry = JSON.parse(fs.readFileSync('data/loop-fleet/loop-registry.json', 'utf8'));
+    const l7 = loopRegistry.loops.find((loop: { loopId: string }) => loop.loopId === 'L7');
+    l7.minimumSample = 80;
+
+    const verdict = validateExperimentAllocator({ registry: registry(), outcomes: outcomes() }, {
+      now: NOW,
+      minimumSample: 300,
+      loopRegistry,
+    });
+
+    expect(verdict.ok).toBe(false);
+    expect(verdict.issues.join(' ')).toContain('preRegistration.minimumSample must be at least 300');
+  });
+
   it('exports a persistent, bounded, review-only allocation plan with the outcome ledger', async () => {
     const files = tempFiles(registry(), null);
     const result = await runL7({

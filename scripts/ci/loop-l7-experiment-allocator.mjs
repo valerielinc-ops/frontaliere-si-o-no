@@ -382,12 +382,18 @@ export function validateExperimentAllocator({ registry, outcomes = null }, {
   maxAgeHours = DEFAULT_MAX_AGE_HOURS,
   sourcePath = DEFAULT_CANDIDATES_PATH,
   outcomePath = DEFAULT_OUTCOME_PATH,
-  minimumSample = MINIMUM_SAMPLE,
+  minimumSample,
   loopRegistry = null,
 } = {}) {
   const loopPolicy = Array.isArray(loopRegistry?.loops)
     ? loopRegistry.loops.find((loop) => loop.loopId === LOOP_ID)
     : null;
+  const registryMinimumSample = loopPolicy?.minimumSample;
+  const effectiveMinimumSample = registryMinimumSample === undefined
+    ? (minimumSample ?? MINIMUM_SAMPLE)
+    : (minimumSample === undefined
+      ? registryMinimumSample
+      : Math.max(registryMinimumSample, minimumSample));
   const candidateActionClass = loopRegistry && loopPolicy
     ? actionClassForPolicy(loopPolicy, 'candidate')
     : null;
@@ -401,7 +407,7 @@ export function validateExperimentAllocator({ registry, outcomes = null }, {
     now,
     maxAgeHours,
     sourcePath: outcomePath,
-    minimumSample,
+    minimumSample: effectiveMinimumSample,
     primaryMetric: loopPolicy?.primaryMetric || DEFAULT_PRIMARY_METRIC,
     guardrails: loopPolicy?.guardrails || DEFAULT_GUARDRAILS,
     candidateTtlHours: loopPolicy?.lifecycle?.candidateTtlHours || 168,
@@ -638,7 +644,9 @@ export async function runL7({
   outcomePath = DEFAULT_OUTCOME_PATH,
   registryPath = DEFAULT_REGISTRY_PATH,
   maxAgeHours = DEFAULT_MAX_AGE_HOURS,
-  minimumSample = MINIMUM_SAMPLE,
+  // Undefined lets the validated registry set the floor; an explicit value
+  // is treated by loadLoopPolicyForRun as a strengthening override only.
+  minimumSample,
   issue = false,
   apply = false,
   reportDir = null,
@@ -762,9 +770,14 @@ function parseArgs(argv) {
     return index === -1 ? fallback : argv[index + 1] || fallback;
   };
   const maxAgeHours = Number(valueAfter('--max-age-hours', DEFAULT_MAX_AGE_HOURS));
-  const minimumSample = Number(valueAfter('--minimum-sample', MINIMUM_SAMPLE));
+  // Keep omission distinct from an override so a registry value below the
+  // legacy compatibility constant is still authoritative.
+  const minimumSampleIndex = argv.indexOf('--minimum-sample');
+  const minimumSample = minimumSampleIndex === -1 ? undefined : Number(argv[minimumSampleIndex + 1]);
   if (!Number.isFinite(maxAgeHours) || maxAgeHours <= 0) throw new Error('--max-age-hours must be a finite positive number');
-  if (!Number.isInteger(minimumSample) || minimumSample < 1) throw new Error('--minimum-sample must be a positive integer');
+  if (minimumSample !== undefined && (!Number.isInteger(minimumSample) || minimumSample < 1)) {
+    throw new Error('--minimum-sample must be a positive integer');
+  }
   return {
     json: argv.includes('--json'),
     issue: argv.includes('--issue'),
