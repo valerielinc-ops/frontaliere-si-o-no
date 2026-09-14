@@ -19108,6 +19108,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ps-chiede-cpi-su-f35',
+    category: 'novita',
+    date: '2026-09-14T00:16:27.063Z',
+    image: '/images/blog/ps-chiede-cpi-su-f35.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

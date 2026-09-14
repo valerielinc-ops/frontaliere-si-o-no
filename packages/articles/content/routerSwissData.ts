@@ -2149,6 +2149,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'record-imprese-culturali-svizzera': { it: 'record-imprese-culturali-svizzera', en: 'record-cultural-enterprises-switzerland', de: 'rekord-kulturunternehmen-schweiz', fr: 'record-entreprises-culturelles-suisse' },
  'forum-economico-ambientale-osce-praga': { it: 'forum-economico-ambientale-osce-praga', en: 'osce-economic-environmental-forum-prague', de: 'osce-wirtschafts-und-umweltforum-prag', fr: 'forum-economique-environnemental-osce-prague' },
  'latte-e-agricoltura-svizzera-studi': { it: 'latte-e-agricoltura-svizzera-studi', en: 'milk-and-swiss-agriculture-study', de: 'milch-und-schweizer-landwirtschaft-studie', fr: 'lait-et-agriculture-suisse-etude' },
+ 'ps-chiede-cpi-su-f35': { it: 'ps-chiede-cpi-su-f35', en: 'ps-requests-f35-parliamentary-inquiry', de: 'ps-fordert-f35-untersuchungskommission', fr: 'le-ps-demande-une-enquete-sur-les-f35' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

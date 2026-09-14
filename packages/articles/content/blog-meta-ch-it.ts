@@ -6370,6 +6370,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.latte-e-agricoltura-svizzera-studi.title': 'Studi agricoli: guadagni bassi per il latte in Svizzera',
     'blog.article.latte-e-agricoltura-svizzera-studi.excerpt': 'Un recente studio della FHNW rivela che i produttori di latte guadagnano in media 8.30 franchi all\'ora, contro i 73.60 franchi della colza.',
     'blog.article.latte-e-agricoltura-svizzera-studi.imageAlt': 'Produttori di latte e agricoltura in Svizzera secondo lo studio FHNW',
+    'blog.article.ps-chiede-cpi-su-f35.title': 'F-35, il PS chiede una Commissione parlamentare d\'inchiesta',
+    'blog.article.ps-chiede-cpi-su-f35.excerpt': 'Il Partito socialista avvia l\'iter per una CPI sull\'acquisto dei caccia F-35, mirando a fare chiarezza su costi, procedure e trasparenza verso il Parlamento.',
+    'blog.article.ps-chiede-cpi-su-f35.imageAlt': 'Palazzo federale a Berna, sede del Parlamento svizzero.',
 };
 
 export default blogMetaChIt;

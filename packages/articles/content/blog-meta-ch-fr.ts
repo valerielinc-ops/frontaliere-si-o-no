@@ -6370,6 +6370,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.latte-e-agricoltura-svizzera-studi.title': 'Études agricoles : faibles gains pour le lait en Suisse',
     'blog.article.latte-e-agricoltura-svizzera-studi.excerpt': 'Une étude récente de la FHNW révèle que les producteurs de lait gagnent en moyenne 8,30 francs de l\'heure, contre 73,60 francs pour le colza.',
     'blog.article.latte-e-agricoltura-svizzera-studi.imageAlt': 'Producteurs de lait et agriculture suisse selon l\'etude de la FHNW',
+    'blog.article.ps-chiede-cpi-su-f35.title': 'F-35, le PS demande une commission d\'enquête parlementaire',
+    'blog.article.ps-chiede-cpi-su-f35.excerpt': 'Le Parti socialiste entame le processus d\'une CPI sur l\'achat des chasseurs F-35, visant à clarifier les coûts, les procédures et la transparence envers le Parlement.',
+    'blog.article.ps-chiede-cpi-su-f35.imageAlt': 'Palais fédéral à Berne, siège du Parlement suisse.',
 };
 
 export default blogMetaChFr;

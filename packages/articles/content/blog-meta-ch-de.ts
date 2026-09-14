@@ -6370,6 +6370,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.latte-e-agricoltura-svizzera-studi.title': 'Landwirtschaftsstudien: Niedriger Milchverdienst in der Schweiz',
     'blog.article.latte-e-agricoltura-svizzera-studi.excerpt': 'Eine aktuelle Studie der FHNW zeigt, dass Milchproduzenten durchschnittlich 8,30 Franken pro Stunde verdienen, Raps hingegen 73,60 Franken.',
     'blog.article.latte-e-agricoltura-svizzera-studi.imageAlt': 'Milchproduzenten und Schweizer Landwirtschaft laut FHNW-Studie',
+    'blog.article.ps-chiede-cpi-su-f35.title': 'F-35, SP fordert parlamentarischen Untersuchungsausschuss',
+    'blog.article.ps-chiede-cpi-su-f35.excerpt': 'Die Sozialistische Partei leitet das Verfahren für einen IStGH zum Kauf von F-35-Kampfflugzeugen ein, um Klarheit über Kosten, Verfahren und Transparenz gegenüber dem Parlament zu schaffen.',
+    'blog.article.ps-chiede-cpi-su-f35.imageAlt': 'Bundeshaus in Bern, Sitz des Schweizer Parlaments.',
 };
 
 export default blogMetaChDe;
