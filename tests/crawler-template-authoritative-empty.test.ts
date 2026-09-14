@@ -19,6 +19,7 @@ const mocks = vi.hoisted(() => ({
   writeJobsCrawlerSliceVerified: vi.fn(async () => ({ written: true, shrinkAccepted: false })),
   writeSummaryCrawlerSlice: vi.fn(() => undefined),
   registerCrawlerSummaryGuard: vi.fn(),
+  markCrawlerSummaryAbortKind: vi.fn(),
   isConnectionLevelFetchError: vi.fn(() => false),
 }));
 
@@ -46,6 +47,7 @@ vi.mock('../scripts/assemble-jobs-dataset.mjs', () => ({
   writeJobsCrawlerSliceVerified: mocks.writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice: mocks.writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard: mocks.registerCrawlerSummaryGuard,
+  markCrawlerSummaryAbortKind: mocks.markCrawlerSummaryAbortKind,
   assembleJobsDataset: mocks.assembleJobsDataset,
   readExistingCrawlerJobs: mocks.readExistingCrawlerJobs,
 }));
@@ -116,6 +118,48 @@ describe('standard crawler authoritative-empty policy', () => {
 
     const [, , counts] = mocks.registerCrawlerSummaryGuard.mock.calls.at(-1);
     expect(counts.lastFetchOutcome).toBe('connection_error');
+    expect(counts.abortKind).toBe('connection-level-fetch');
+  });
+
+  it('classifies an exhausted anti-bot fence as a connection bail-out (#7784)', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'anti-bot-abort-root-'));
+    try {
+      await runStandardCrawlerPipeline({
+        companyKey: COMPANY_KEY,
+        companyLabel: 'Anti-Bot Abort Test',
+        root,
+        fetchJobs: async () => {
+          throw Object.assign(new Error('HTTP 403 after all anti-bot fallbacks'), {
+            antiBotExhausted: true,
+          });
+        },
+        isCompanyJob: () => true,
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+
+    const [, , counts] = mocks.registerCrawlerSummaryGuard.mock.calls.at(-1);
+    expect(counts.lastFetchOutcome).toBe('connection_error');
+    expect(counts.abortKind).toBe('connection-level-fetch');
+  });
+
+  it('pins the fail-closed no-jobs bail-out in the exit-guard counters (#7784)', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'no-jobs-abort-root-'));
+    try {
+      await runStandardCrawlerPipeline({
+        companyKey: COMPANY_KEY,
+        companyLabel: 'No Jobs Abort Test',
+        root,
+        fetchJobs: async () => [],
+        isCompanyJob: () => true,
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+
+    const [, , counts] = mocks.registerCrawlerSummaryGuard.mock.calls.at(-1);
+    expect(counts.abortKind).toBe('no-jobs-parsed');
   });
 
   it('records an unavailable feed endpoint in the exit-guard counters (#8375)', async () => {
