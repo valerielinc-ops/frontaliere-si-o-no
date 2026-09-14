@@ -482,6 +482,27 @@ describe('technical operations audit', () => {
     ]));
   });
 
+  it('riconosce gli output prodotti da un heredoc shell diretto verso GITHUB_OUTPUT', () => {
+    const source = [
+      'name: heredoc-output',
+      'on: [push]',
+      'jobs:',
+      '  check:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: producer',
+      '        id: generated',
+      '        run: |',
+      '          node --input-type=module - "$CTX_DIR/issue.json" >> "$GITHUB_OUTPUT" <<\'NODE\'',
+      "          console.log('ready=true');",
+      '          NODE',
+      '      - name: consumer',
+      '        run: echo "${{ steps.generated.outputs.ready }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/heredoc-output.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([]);
+  });
+
   it('segue un helper importato da uno script first-party', () => {
     const files = new Map([
       ['/repo/scripts/pull.mjs', [

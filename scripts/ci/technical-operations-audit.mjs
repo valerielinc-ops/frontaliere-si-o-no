@@ -448,6 +448,25 @@ function matchingParen(source, openingIndex) {
   return -1;
 }
 
+function heredocOutputRanges(source) {
+  const raw = String(source || '');
+  const ranges = [];
+  const heredocRe = /(?:>>|>)\s*["']?\$GITHUB_OUTPUT["']?\s+<<-?\s*(?:(['"])([A-Za-z_][A-Za-z0-9_]*)\1|([A-Za-z_][A-Za-z0-9_]*))[^\r\n]*(?:\r?\n|$)/g;
+  for (const match of raw.matchAll(heredocRe)) {
+    const rangeStart = match.index ?? 0;
+    const bodyStart = rangeStart + match[0].length;
+    const delimiter = match[2] || match[3];
+    const indentation = match[0].includes('<<-') ? '[\\t]*' : '';
+    const terminatorRe = new RegExp(`^${indentation}${delimiter}[ \\t]*(?:\\r?\\n|$)`, 'm');
+    const terminator = raw.slice(bodyStart).match(terminatorRe);
+    ranges.push({
+      start: rangeStart,
+      end: terminator ? bodyStart + (terminator.index ?? 0) : raw.length,
+    });
+  }
+  return ranges;
+}
+
 function outputSinkRanges(source) {
   const raw = String(source || '');
   const outputVariables = new Set(['process.env.GITHUB_OUTPUT', 'env.GITHUB_OUTPUT']);
@@ -484,7 +503,7 @@ function outputSinkRanges(source) {
       end: closingIndex >= 0 ? closingIndex + 1 : raw.length,
     });
   }
-  return ranges;
+  return [...ranges, ...heredocOutputRanges(raw)];
 }
 
 function literalOutputKeys(source, sinkRanges = outputSinkRanges(source)) {
