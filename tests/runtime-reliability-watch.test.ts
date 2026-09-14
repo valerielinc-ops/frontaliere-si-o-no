@@ -150,8 +150,10 @@ describe('runtime reliability watchdog', () => {
       new URL('../.github/workflows/runtime-reliability-watch.yml', import.meta.url),
       'utf8',
     );
-    expect(workflow).toContain('const sameFingerprint = previous.fingerprint === fingerprint;');
-    expect(workflow).toContain("const purgeSucceeded = first.repair?.action === 'purge'");
-    expect(workflow).toContain(': sameFingerprint ? previous.lastActionAt || null : null,');
+    expect(workflow).toContain('const sameFingerprint = Boolean(fingerprint) && previous.fingerprint === fingerprint;');
+    expect(workflow).toContain('&& first.fingerprint === fingerprint');
+    expect(workflow).toContain("&& first.repair?.action === 'purge'");
+    expect(workflow).toContain(': sameFingerprint ? previousLastActionAt : null,');
+    expect(workflow).toContain("!Array.isArray(candidate)");
   });
 });

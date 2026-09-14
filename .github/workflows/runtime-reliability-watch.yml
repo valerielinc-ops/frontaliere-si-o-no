@@ -131,15 +131,25 @@ jobs:
           const report = JSON.parse(fs.readFileSync(source, 'utf8'));
           const first = JSON.parse(fs.readFileSync('runtime-reliability.json', 'utf8'));
           let previous = {};
-          try { previous = JSON.parse(fs.readFileSync('.runtime-reliability-state/state.json', 'utf8')); } catch {}
+          try {
+            const candidate = JSON.parse(fs.readFileSync('.runtime-reliability-state/state.json', 'utf8'));
+            if (candidate && typeof candidate === 'object' && !Array.isArray(candidate)) previous = candidate;
+          } catch {}
           const fingerprint = report.fingerprint || first.fingerprint || null;
-          const sameFingerprint = previous.fingerprint === fingerprint;
-          const purgeSucceeded = first.repair?.action === 'purge' && '${{ steps.purge.outcome }}' === 'success';
+          const previousLastActionAt = typeof previous.lastActionAt === 'string'
+            && Number.isFinite(Date.parse(previous.lastActionAt))
+            ? previous.lastActionAt
+            : null;
+          const sameFingerprint = Boolean(fingerprint) && previous.fingerprint === fingerprint;
+          const purgeSucceeded = Boolean(fingerprint)
+            && first.fingerprint === fingerprint
+            && first.repair?.action === 'purge'
+            && '${{ steps.purge.outcome }}' === 'success';
           const state = {
             fingerprint,
             lastActionAt: purgeSucceeded
               ? new Date().toISOString()
-              : sameFingerprint ? previous.lastActionAt || null : null,
+              : sameFingerprint ? previousLastActionAt : null,
             lastAction: first.repair?.action || 'none',
             markerState: report.markerState || null,
           };
