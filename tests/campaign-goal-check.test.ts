@@ -7,6 +7,14 @@ import {
   runCampaignGoalCheck,
   isJobIntentBrandQuery,
   alertFunnelOutcome,
+  ALERT_CTA_SURFACES,
+  ALERT_FUNNEL_EVENT_NAMES,
+  ALERT_CTA_SURFACE_DIMENSION,
+  ALERT_CTA_SURFACE_MAX_NOT_SET_SHARE,
+  buildAlertFunnelHogqlQuery,
+  buildAlertFunnelGa4Filter,
+  checkAlertCtaSurfaceDimension,
+  evalAlertFunnelConversionGa4,
 } from '../scripts/campaign-goal-check.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -374,7 +382,101 @@ describe('alertFunnelOutcome (#7311 — person-scoped funnel)', () => {
     );
     expect(src).toContain("uniqIf(person_id, event = 'job_alert_created')");
     expect(src).toContain("uniqIf(person_id, event = 'job_alert_cta_shown')");
-    expect(src).toMatch(/ga4EventCountByName\(token, \['job_alert_cta_shown', 'job_alert_created'\], 14, 'totalUsers'\)/);
+    expect(src).toContain('ga4EventCountByName');
+    expect(src).toContain("'totalUsers'");
     expect(src).not.toContain("countIf(event = 'job_alert_cta_shown')");
+  });
+});
+
+describe('alert funnel surface attribution (#7763/#7764)', () => {
+  it('keeps one seven-surface allowlist across HogQL and GA4', () => {
+    expect(ALERT_CTA_SURFACES).toEqual([
+      'inline_card',
+      'job_detail_button',
+      'job_detail_prompt',
+      'job_board_filters',
+      'job_match_pill',
+      'sticky_banner',
+      'end_card',
+    ]);
+    expect(ALERT_FUNNEL_EVENT_NAMES).toEqual(['job_alert_cta_shown', 'job_alert_created']);
+
+    const hogql = buildAlertFunnelHogqlQuery();
+    expect(hogql).toContain("uniqIf(person_id, event = 'job_alert_created')");
+    expect(hogql).toContain("uniqIf(person_id, event = 'job_alert_cta_shown')");
+    expect(hogql).toContain(`properties.cta_surface IN (${ALERT_CTA_SURFACES.map((surface) => `'${surface}'`).join(', ')})`);
+
+    const filter = buildAlertFunnelGa4Filter();
+    expect(filter.andGroup.expressions).toContainEqual({
+      filter: { fieldName: 'eventName', inListFilter: { values: ALERT_FUNNEL_EVENT_NAMES } },
+    });
+    expect(filter.andGroup.expressions).toContainEqual({
+      filter: { fieldName: ALERT_CTA_SURFACE_DIMENSION, inListFilter: { values: ALERT_CTA_SURFACES } },
+    });
+  });
+
+  it('fails closed when GA4 rejects the unregistered custom dimension with 400', async () => {
+    const error = Object.assign(
+      new Error('GA4 400: Field customEvent:cta_surface is not a valid dimension.'),
+      { status: 400 },
+    );
+    const runReportImpl = vi.fn().mockRejectedValue(error);
+    const logImpl = vi.fn();
+    const result = await checkAlertCtaSurfaceDimension('token', 14, { runReportImpl, logImpl });
+
+    expect(result.ready).toBe(false);
+    expect(result.reason).toContain('custom dimension `cta_surface` non registrata / non popolata');
+    expect(logImpl).toHaveBeenCalledWith(expect.stringContaining('cta_surface (not set) n/a'));
+    expect(runReportImpl).toHaveBeenCalledWith('token', expect.objectContaining({
+      dimensions: [{ name: ALERT_CTA_SURFACE_DIMENSION }],
+      metrics: ['totalUsers'],
+      windowDays: 14,
+    }));
+  });
+
+  it('fails closed on an all-(not set) report and never computes a rate', async () => {
+    const runReportImpl = vi.fn().mockResolvedValue({
+      rows: [{ dimensionValues: [{ value: '(not set)' }], metricValues: [{ value: '100' }] }],
+    });
+    const logImpl = vi.fn();
+    const result = await evalAlertFunnelConversionGa4({ token: 'token', runReportImpl, logImpl });
+
+    expect(result.unmeasurable).toBe(true);
+    expect(result.note).toContain('custom dimension `cta_surface` non registrata / non popolata');
+    expect(runReportImpl).toHaveBeenCalledTimes(1);
+    expect(logImpl).toHaveBeenCalledWith(expect.stringContaining('(not set)'));
+  });
+
+  it('prints the coverage quota and applies the allowlist to the GA4 totals', async () => {
+    const runReportImpl = vi.fn()
+      .mockResolvedValueOnce({
+        rows: [
+          { dimensionValues: [{ value: 'inline_card' }], metricValues: [{ value: '95' }] },
+          { dimensionValues: [{ value: '(not set)' }], metricValues: [{ value: '5' }] },
+        ],
+      })
+      .mockResolvedValueOnce({
+        rows: [
+          { dimensionValues: [{ value: 'job_alert_cta_shown' }], metricValues: [{ value: '100' }] },
+          { dimensionValues: [{ value: 'job_alert_created' }], metricValues: [{ value: '10' }] },
+        ],
+      });
+    const logImpl = vi.fn();
+    const result = await evalAlertFunnelConversionGa4({ token: 'token', runReportImpl, logImpl });
+
+    expect(result.unmeasurable).toBeUndefined();
+    expect(result.value).toMatchObject({ created: 10, shown: 100, rate: 0.1, ctaSurfaceNotSetShare: ALERT_CTA_SURFACE_MAX_NOT_SET_SHARE });
+    expect(result.detail).toContain('cta_surface (not set) 5.00%');
+    expect(logImpl).toHaveBeenCalledWith(expect.stringContaining('5/100'));
+    expect(runReportImpl).toHaveBeenCalledTimes(2);
+    expect(runReportImpl.mock.calls[1][1]).toMatchObject({
+      dimensions: [{ name: 'eventName' }],
+      metrics: ['totalUsers'],
+      dimensionFilter: buildAlertFunnelGa4Filter(),
+      windowDays: 14,
+    });
+    expect(runReportImpl.mock.calls[1][1].dimensionFilter).not.toEqual({
+      filter: { fieldName: 'eventName', inListFilter: { values: ALERT_FUNNEL_EVENT_NAMES } },
+    });
   });
 });

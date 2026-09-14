@@ -109,6 +109,43 @@ function fmtNum(n) {
   return n === null || n === undefined || Number.isNaN(n) ? 'n/a' : (Math.round(n * 100) / 100).toString();
 }
 
+// Issue #7763: only these surfaces emit the preceding
+// `job_alert_cta_shown` impression. The other `job_alert_created` surfaces are
+// valid product events, but they do not belong in this impression funnel.
+export const ALERT_CTA_SURFACES = Object.freeze([
+  'inline_card',
+  'job_detail_button',
+  'job_detail_prompt',
+  'job_board_filters',
+  'job_match_pill',
+  'sticky_banner',
+  'end_card',
+]);
+export const ALERT_FUNNEL_EVENT_NAMES = Object.freeze(['job_alert_cta_shown', 'job_alert_created']);
+export const ALERT_CTA_SURFACE_DIMENSION = 'customEvent:cta_surface';
+export const ALERT_CTA_SURFACE_NOT_SET = '(not set)';
+// A registered dimension is still unusable when more than 5% of the observed
+// users have no surface value. This is deliberately explicit and observable;
+// tighten it only after the scheduled preflight has produced evidence.
+export const ALERT_CTA_SURFACE_MAX_NOT_SET_SHARE = 0.05;
+
+function alertCtaSurfaceHogqlFilter() {
+  const values = ALERT_CTA_SURFACES.map((surface) => `'${surface}'`).join(', ');
+  return `properties.cta_surface IN (${values})`;
+}
+
+/** The person-scoped alert funnel, restricted to impression-bearing surfaces. */
+export function buildAlertFunnelHogqlQuery() {
+  return `
+    SELECT
+      uniqIf(person_id, event = 'job_alert_created') AS created,
+      uniqIf(person_id, event = 'job_alert_cta_shown') AS shown
+    FROM events
+    WHERE timestamp >= now() - INTERVAL 14 DAY
+      AND ${alertCtaSurfaceHogqlFilter()}
+  `;
+}
+
 // #4298 — funnel: job_alert_cta_shown → job_alert_created, 14d, target >= 5%.
 //
 // Counted per PERSON, not per event (fix #7311). A funnel conversion answers
@@ -129,27 +166,29 @@ function fmtNum(n) {
 // two other funnel goals in this file were already person/session-scoped —
 // `evalErrorRate` counts persons and `evalCalcDeeplinkInputStart` counts
 // `uniq($session_id)`; the alert funnel was the only one left on raw events.
-export function alertFunnelOutcome({ created, shown, viaGa4 = false }) {
+export function alertFunnelOutcome({ created, shown, viaGa4 = false, ctaSurfaceNotSetShare = null }) {
   const shownN = Number(shown) || 0;
   const createdN = Number(created) || 0;
   const rate = shownN > 0 ? createdN / shownN : null;
   const unit = viaGa4 ? 'utenti' : 'persone';
+  const coverageDetail = viaGa4 && ctaSurfaceNotSetShare !== null
+    ? `, cta_surface (not set) ${fmtPct(ctaSurfaceNotSetShare)}`
+    : '';
   return {
     passed: rate !== null && rate >= 0.05,
-    value: { rate, created: createdN, shown: shownN },
+    value: {
+      rate,
+      created: createdN,
+      shown: shownN,
+      ...(viaGa4 && ctaSurfaceNotSetShare !== null ? { ctaSurfaceNotSetShare } : {}),
+    },
     targetDescription: `>= 5% (${unit} job_alert_created / ${unit} job_alert_cta_shown, 14gg${viaGa4 ? ', fallback GA4' : ''})`,
-    detail: `${createdN}/${shownN} ${unit} = ${fmtPct(rate)}${viaGa4 ? ' [GA4 fallback — PostHog non misurabile]' : ''}`,
+    detail: `${createdN}/${shownN} ${unit} = ${fmtPct(rate)}${coverageDetail}${viaGa4 ? ' [GA4 fallback — PostHog non misurabile]' : ''}`,
   };
 }
 
 async function evalAlertFunnelConversion() {
-  const [created, shown] = await hogqlRow(`
-    SELECT
-      uniqIf(person_id, event = 'job_alert_created') AS created,
-      uniqIf(person_id, event = 'job_alert_cta_shown') AS shown
-    FROM events
-    WHERE timestamp >= now() - INTERVAL 14 DAY
-  `);
+  const [created, shown] = await hogqlRow(buildAlertFunnelHogqlQuery());
   return alertFunnelOutcome({ created, shown });
 }
 
@@ -160,18 +199,32 @@ async function evalAlertFunnelConversion() {
 // GA4 verbatim by Analytics.log() (services/analytics.ts — the same call
 // fires both posthogCapture() and the Firebase/GA4 log), so GA4's
 // per-eventName `totalUsers` is a faithful substitute for the PostHog
-// uniqIf(person_id, ...). #4304's
+// uniqIf(person_id, ...) once the read-only cta_surface preflight succeeds and
+// the same seven-surface allowlist is applied. #4304's
 // native $dead_click (PostHog-only autocapture) and #4307's session-scoped
 // funnel have no GA4 equivalent and are not given a fallback — see GOALS.
-async function evalAlertFunnelConversionGa4() {
-  const token = await getGoogleAccessToken();
+export async function evalAlertFunnelConversionGa4({
+  token = null,
+  runReportImpl = ga4RunReport,
+  logImpl = console.log,
+} = {}) {
+  const accessToken = token || await getGoogleAccessToken();
+  const preflight = await checkAlertCtaSurfaceDimension(accessToken, 14, { runReportImpl, logImpl });
+  if (!preflight.ready) return { unmeasurable: true, note: preflight.reason };
   // `totalUsers` broken down by eventName = distinct users who fired that
   // event, GA4's equivalent of the HogQL uniqIf(person_id, ...) above.
-  const counts = await ga4EventCountByName(token, ['job_alert_cta_shown', 'job_alert_created'], 14, 'totalUsers');
+  const counts = await ga4EventCountByName(
+    accessToken,
+    ALERT_FUNNEL_EVENT_NAMES,
+    14,
+    'totalUsers',
+    { dimensionFilter: buildAlertFunnelGa4Filter(), runReportImpl },
+  );
   return alertFunnelOutcome({
     created: counts.get('job_alert_created') || 0,
     shown: counts.get('job_alert_cta_shown') || 0,
     viaGa4: true,
+    ctaSurfaceNotSetShare: preflight.notSetShare,
   });
 }
 
@@ -524,7 +577,11 @@ async function ga4RunReport(token, { dimensions = [], metrics, dimensionFilter, 
       ...(dimensionFilter ? { dimensionFilter } : {}),
     }),
   });
-  if (!res.ok) throw new Error(`GA4 ${res.status}: ${(await res.text()).slice(0, 300)}`);
+  if (!res.ok) {
+    const error = new Error(`GA4 ${res.status}: ${(await res.text()).slice(0, 300)}`);
+    error.status = res.status;
+    throw error;
+  }
   return res.json();
 }
 
@@ -532,14 +589,112 @@ function ga4EventNameFilter(eventNames) {
   return { filter: { fieldName: 'eventName', inListFilter: { values: eventNames } } };
 }
 
+/** GA4 filter shared by the alert funnel's two event totals. */
+export function buildAlertFunnelGa4Filter(eventNames = ALERT_FUNNEL_EVENT_NAMES) {
+  return {
+    andGroup: {
+      expressions: [
+        ga4EventNameFilter(eventNames),
+        {
+          filter: {
+            fieldName: ALERT_CTA_SURFACE_DIMENSION,
+            inListFilter: { values: ALERT_CTA_SURFACES },
+          },
+        },
+      ],
+    },
+  };
+}
+
+/** Reduce a custom-dimension report to the coverage evidence used by #7764. */
+export function inspectAlertCtaSurfaceReport(data) {
+  let totalUsers = 0;
+  let notSetUsers = 0;
+  let allowlistedUsers = 0;
+  const rows = [];
+  for (const row of data?.rows || []) {
+    const surface = row.dimensionValues?.[0]?.value || ALERT_CTA_SURFACE_NOT_SET;
+    const users = Number(row.metricValues?.[0]?.value || 0);
+    if (!Number.isFinite(users) || users < 0) continue;
+    totalUsers += users;
+    if (surface === ALERT_CTA_SURFACE_NOT_SET) notSetUsers += users;
+    if (ALERT_CTA_SURFACES.includes(surface)) allowlistedUsers += users;
+    rows.push({ surface, users });
+  }
+  return {
+    rows,
+    totalUsers,
+    notSetUsers,
+    allowlistedUsers,
+    notSetShare: totalUsers > 0 ? notSetUsers / totalUsers : null,
+  };
+}
+
+/**
+ * Read-only GA4 Data API preflight for `customEvent:cta_surface` (#7764).
+ * A 400 means the dimension is not registered on the property; a high
+ * `(not set)` share means it is registered but not populated reliably. Both
+ * cases abstain from producing a funnel rate.
+ */
+export async function checkAlertCtaSurfaceDimension(
+  token,
+  windowDays = 14,
+  { runReportImpl = ga4RunReport, logImpl = console.log } = {},
+) {
+  let data;
+  try {
+    data = await runReportImpl(token, {
+      dimensions: [{ name: ALERT_CTA_SURFACE_DIMENSION }],
+      metrics: ['totalUsers'],
+      dimensionFilter: ga4EventNameFilter(ALERT_FUNNEL_EVENT_NAMES),
+      windowDays,
+    });
+  } catch (error) {
+    if (error?.status !== 400 && !/^GA4 400:/.test(error?.message || '')) throw error;
+    const reason = `custom dimension \`cta_surface\` non registrata / non popolata: ${error.message}`;
+    logImpl(`[campaign-goal-check] alert funnel preflight: cta_surface (not set) n/a; ${reason}`);
+    return { ready: false, reason, notSetShare: null };
+  }
+
+  const coverage = inspectAlertCtaSurfaceReport(data);
+  const shareText = fmtPct(coverage.notSetShare);
+  logImpl(
+    `[campaign-goal-check] alert funnel preflight: cta_surface (not set) `
+      + `${coverage.notSetUsers}/${coverage.totalUsers} (${shareText}), `
+      + `allowlisted=${coverage.allowlistedUsers}, soglia <= ${fmtPct(ALERT_CTA_SURFACE_MAX_NOT_SET_SHARE)}`,
+  );
+
+  if (coverage.totalUsers === 0 || coverage.allowlistedUsers === 0) {
+    return {
+      ready: false,
+      reason: 'custom dimension `cta_surface` non registrata / non popolata: nessun utente attribuibile alle superfici allowlist nella finestra',
+      ...coverage,
+    };
+  }
+  if (coverage.notSetShare === null || coverage.notSetShare > ALERT_CTA_SURFACE_MAX_NOT_SET_SHARE) {
+    return {
+      ready: false,
+      reason: `custom dimension \`cta_surface\` non registrata / non popolata: quota (not set) ${shareText} oltre la soglia ${fmtPct(ALERT_CTA_SURFACE_MAX_NOT_SET_SHARE)}`,
+      ...coverage,
+    };
+  }
+  return { ready: true, ...coverage };
+}
+
 /** Per-eventName totals — the alert-funnel GA4 fallback needs the two events
  * kept separate. `metric` is 'eventCount' by default; the alert funnel passes
  * 'totalUsers' because it is scored per person (see alertFunnelOutcome). */
-async function ga4EventCountByName(token, eventNames, windowDays, metric = 'eventCount') {
-  const data = await ga4RunReport(token, {
+async function ga4EventCountByName(
+  token,
+  eventNames,
+  windowDays,
+  metric = 'eventCount',
+  { dimensionFilter = ga4EventNameFilter(eventNames), runReportImpl = ga4RunReport } = {},
+) {
+  const data = await runReportImpl(token, {
     dimensions: [{ name: 'eventName' }],
     metrics: [metric],
-    dimensionFilter: ga4EventNameFilter(eventNames),
+    dimensionFilter,
     windowDays,
   });
   const perEvent = new Map();
