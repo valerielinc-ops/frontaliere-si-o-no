@@ -92,11 +92,41 @@ function insertFaqKey(filePath, articleId, faqArray) {
 
 // ── Language detection (same as job crawlers) ───────────────
 
-function isWrongLocale(faqArray, expectedLocale) {
-  const allText = faqArray.map(p => `${p.q} ${p.a}`).join(' ');
-  if (allText.length < 50) return false; // too short to detect
-  const detected = detectLanguage(allText, expectedLocale);
-  return detected !== expectedLocale;
+const normalizeFaqText = (text) => String(text ?? '').replace(/\s+/g, ' ').trim().toLowerCase();
+
+function sameFaqPair(left, right) {
+  return !!left && !!right
+    && normalizeFaqText(left.q) === normalizeFaqText(right.q)
+    && normalizeFaqText(left.a) === normalizeFaqText(right.a);
+}
+
+/**
+ * Check the unit that the writer actually translates: one FAQ pair.
+ *
+ * The old aggregate check let one Italian fallback pair hide among otherwise
+ * translated pairs. Comparing with the Italian source is deterministic and
+ * catches the cascade's verbatim output even when the language detector picks
+ * another language for a short FAQ. The previous non-expected-locale check is
+ * retained, but applied to each pair instead of the aggregate.
+ */
+export function wrongLocalePair(faqArray, expectedLocale, sourceFaq = null, sourceLang = 'it') {
+  if (expectedLocale === sourceLang) return null;
+
+  for (let index = 0; index < faqArray.length; index++) {
+    const pair = faqArray[index];
+    if (sameFaqPair(pair, sourceFaq?.[index])) {
+      return { index, detected: sourceLang, via: 'verbatim' };
+    }
+
+    const text = `${pair.q} ${pair.a}`;
+    if (text.length < 50) continue; // too short to detect
+    const detected = detectLanguage(text, expectedLocale);
+    if (detected !== expectedLocale) {
+      return { index, detected, via: 'lingua' };
+    }
+  }
+
+  return null;
 }
 
 // ── Translation (same cascade as job crawlers) ──────────────
@@ -140,7 +170,7 @@ async function main() {
         issues.push({ articleId, file, locale, reason: 'missing', itFaq });
       } else {
         const localeFaq = extractFaqFromFile(localePath);
-        if (localeFaq && isWrongLocale(localeFaq, locale)) {
+        if (localeFaq && wrongLocalePair(localeFaq, locale, itFaq)) {
           issues.push({ articleId, file, locale, reason: 'wrong_locale', itFaq });
         }
       }
@@ -179,9 +209,11 @@ async function main() {
         continue;
       }
 
-      // Verify the translation is actually in the right locale
-      if (isWrongLocale(translated, issue.locale)) {
-        console.error(`${label} ❌ Translation still detected as wrong locale`);
+      // Verify the translation per pair: the cascade falls back per pair.
+      const wrong = wrongLocalePair(translated, issue.locale, issue.itFaq);
+      if (wrong) {
+        console.error(`${label} ❌ Translation still contains source-language FAQ `
+          + `(pair ${wrong.index + 1}/${translated.length}: ${wrong.detected}, ${wrong.via})`);
         failed++;
         continue;
       }
@@ -209,7 +241,8 @@ async function main() {
   logCascadeSummary();
 }
 
-main().catch(err => {
+const shouldRunFaqLocaleScript = process.argv[1] && resolve(process.argv[1]) === __filename;
+if (shouldRunFaqLocaleScript) main().catch(err => {
   console.error('Fatal error:', err);
   process.exit(1);
 });
