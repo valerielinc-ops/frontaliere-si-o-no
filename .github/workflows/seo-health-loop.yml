@@ -114,6 +114,8 @@ jobs:
             --auto-correction \
             --sample="$HEALTH_SAMPLE" \
             --job-sample="$HEALTH_JOB_SAMPLE" \
+            --max-fetches=640 \
+            --cycle-budget-ms=1500000 \
             "${extra_args[@]}"
 
       - name: Reconcile 404 compatibility store

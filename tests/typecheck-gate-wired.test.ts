@@ -29,11 +29,11 @@ const VITEST_JOB_NAME = 'vitest (unit + integration)';
 const TYPECHECK_JOB_NAME = 'typecheck (tsc --noEmit)';
 
 // Il gate gira sotto il sampler di memoria (follow-up #6573,
-// `scripts/ci/sample-mem-during.sh -- npm run typecheck:gate`): il prefisso
-// e' opzionale nella regex cosi' il contratto resta vero sia con sia senza il
-// wrapper, ma continua a pretendere che `npm run typecheck:gate` sia
-// realmente invocato.
-const GATE_RUN_RE = /run:\s+(?:bash scripts\/ci\/sample-mem-during\.sh -- )?npm run typecheck:gate/;
+// `scripts/ci/sample-mem-during.sh -- npm run typecheck:gate`) dentro lo
+// launcher dei cancelli indipendenti. Accettiamo anche un futuro step `run:`
+// diretto, ma richiediamo sempre una invocazione eseguibile e non una semplice
+// citazione nei commenti.
+const GATE_RUN_RE = /(?:run:\s+[^\n]*|start_gate\s+tsc\s+'[^']*)npm run typecheck:gate/;
 
 const pkg = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8')) as {
   scripts: Record<string, string>;
@@ -66,9 +66,8 @@ describe('typecheck gate wiring (#5540)', () => {
 
   it('tests.yml lancia davvero il gate', () => {
     // Il check-run `typecheck (tsc --noEmit)` NON esiste più: con la fusione il
-    // typecheck è uno step del job `vitest (unit + integration)`. Ciò che va
-    // guardato è che il gate sia INVOCATO — che è anche l'unica cosa che il
-    // vecchio `toContain(name:)` provava davvero.
+    // typecheck è un gate del job `vitest (unit + integration)`. Ciò che va
+    // guardato è che il comando sia INVOCATO, non soltanto nominato nei commenti.
     expect(workflow).not.toContain(`name: ${TYPECHECK_JOB_NAME}`);
     expect(workflow).toMatch(GATE_RUN_RE);
   });

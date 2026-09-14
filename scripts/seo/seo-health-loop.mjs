@@ -69,6 +69,9 @@ const DEFAULT_TIMEOUT_MS = 15_000;
 const DEFAULT_MAX_SITEMAPS = 160;
 const DEFAULT_GA4_DAYS = 28;
 const DEFAULT_GSC_STATE_MAX_AGE_DAYS = 10;
+export const DEFAULT_MAX_FETCHES = 640;
+export const DEFAULT_CYCLE_BUDGET_MS = 25 * 60 * 1000;
+export const SEO_CONCURRENCY_GROUP = 'seo-health-loop';
 const MAX_ISSUE_FINDINGS = 50;
 const MAX_HISTORY_LINES = 400;
 
@@ -84,6 +87,8 @@ function parseArgs(argv) {
     timeoutMs: DEFAULT_TIMEOUT_MS,
     ga4Days: DEFAULT_GA4_DAYS,
     findingThreshold: DEFAULT_FINDING_THRESHOLD,
+    maxFetches: DEFAULT_MAX_FETCHES,
+    cycleBudgetMs: DEFAULT_CYCLE_BUDGET_MS,
     reportDir: DEFAULT_REPORT_DIR,
     statePath: DEFAULT_STATE_PATH,
     historyPath: DEFAULT_HISTORY_PATH,
@@ -108,6 +113,8 @@ function parseArgs(argv) {
     else if (key === 'timeout-ms') out.timeoutMs = Number(value);
     else if (key === 'ga4-days') out.ga4Days = Number(value);
     else if (key === 'finding-threshold') out.findingThreshold = Number(value);
+    else if (key === 'max-fetches') out.maxFetches = Number(value);
+    else if (key === 'cycle-budget-ms') out.cycleBudgetMs = Number(value);
     else if (key === 'report-dir' && value) out.reportDir = path.resolve(ROOT, value);
     else if (key === 'state' && value) out.statePath = path.resolve(ROOT, value);
     else if (key === 'history' && value) out.historyPath = path.resolve(ROOT, value);
@@ -130,6 +137,59 @@ function readJson(file, fallback = null) {
 
 function safeError(error) {
   return error?.message ? String(error.message) : String(error);
+}
+
+/**
+ * Bound the expensive live part of one SEO cycle.  The wrapper returns the
+ * original error to the existing retry/provenance logic, but refuses to start
+ * new network work after either budget is exhausted.  This keeps a large
+ * sitemap or a degraded provider from turning one scheduled run into an
+ * unbounded quota consumer.
+ */
+export function createCycleBudget(fetchImpl = fetch, {
+  maxFetches = DEFAULT_MAX_FETCHES,
+  maxDurationMs = DEFAULT_CYCLE_BUDGET_MS,
+  now = Date.now,
+} = {}) {
+  const max = Math.max(1, Math.floor(Number(maxFetches) || DEFAULT_MAX_FETCHES));
+  const deadlineAt = now() + Math.max(1, Math.floor(Number(maxDurationMs) || DEFAULT_CYCLE_BUDGET_MS));
+  let used = 0;
+  let exhausted = false;
+  const guardedFetch = async (...args) => {
+    if (used >= max || now() >= deadlineAt) {
+      exhausted = true;
+      throw new Error('seo_cycle_budget_exhausted');
+    }
+    used += 1;
+    return fetchImpl(...args);
+  };
+  return {
+    fetch: guardedFetch,
+    snapshot() {
+      return {
+        deadlineAt: new Date(deadlineAt).toISOString(),
+        exhausted,
+        maxFetches: max,
+        usedFetches: used,
+      };
+    },
+  };
+}
+
+export function buildCycleIdentity({ now = new Date(), workflow = process.env.GITHUB_WORKFLOW, runId = process.env.GITHUB_RUN_ID } = {}) {
+  const observedAt = new Date(now).toISOString();
+  return {
+    idempotencyKey: runId ? `run:${runId}` : `generated:${observedAt}`,
+    lease: {
+      cancelInProgress: false,
+      group: SEO_CONCURRENCY_GROUP,
+      mechanism: 'github-actions-concurrency',
+      state: 'serialised',
+      ttlSeconds: Math.floor(DEFAULT_CYCLE_BUDGET_MS / 1000),
+    },
+    runId: runId || null,
+    workflow: workflow || SEO_CONCURRENCY_GROUP,
+  };
 }
 
 function responseHeader(response, name) {
@@ -494,10 +554,15 @@ async function collectCloudflare({ fetchImpl = fetch, timeoutMs = DEFAULT_TIMEOU
     };
   }
   try {
-    const zoneId = await resolveZoneId(process.env.CF_API_TOKEN, process.env.CF_ZONE_NAME || DEFAULT_ZONE_NAME, process.env.CF_ZONE_ID);
+    const zoneId = await resolveZoneId(
+      process.env.CF_API_TOKEN,
+      process.env.CF_ZONE_NAME || DEFAULT_ZONE_NAME,
+      process.env.CF_ZONE_ID,
+      fetchImpl,
+    );
     const [diagnostics, paths] = await Promise.all([
-      fetchErrorDiagnostics(process.env.CF_API_TOKEN, zoneId, { hours: 23 }),
-      fetchErrorPaths(process.env.CF_API_TOKEN, zoneId, { hours: 23, minStatus: 500, limit: 10_000 }),
+      fetchErrorDiagnostics(process.env.CF_API_TOKEN, zoneId, { hours: 23, fetchImpl }),
+      fetchErrorPaths(process.env.CF_API_TOKEN, zoneId, { hours: 23, minStatus: 500, limit: 10_000, fetchImpl }),
     ]);
     const total5xx = diagnostics.reduce((sum, row) => sum + Number(row.count || 0), 0);
     const topPaths = [...paths].sort((a, b) => Number(b.count || 0) - Number(a.count || 0)).slice(0, finitePositive(errorSample, DEFAULT_ERROR_SAMPLE));
@@ -727,10 +792,16 @@ export async function runSeoHealthLoop({
   const statePath = options.statePath || (root === ROOT ? DEFAULT_STATE_PATH : path.join(root, 'data', 'seo-health-state.json'));
   const historyPath = options.historyPath || path.join(reportDir, 'history.jsonl');
   const generatedAt = new Date(now).toISOString();
-  const graph = await loadSitemapGraph({ origin: opts.origin, sitemap: opts.sitemap, fetchImpl, timeoutMs: opts.timeoutMs });
-  const pageAudit = await probePages(graph.entries, { fetchImpl, timeoutMs: opts.timeoutMs, sample: opts.sample, jobSample: opts.jobSample, origin: opts.origin });
-  const cloudflare = collectAnalytics ? await collectCloudflare({ fetchImpl, timeoutMs: opts.timeoutMs, errorSample: opts.errorSample }) : { source: sourceResult({ name: 'cloudflare-analytics', skipped: true, error: 'disabled for this run' }), available: false, confirmedPersistent: [], paths: [], diagnostics: [] };
-  const ga4 = collectAnalytics ? await collectGa4({ fetchImpl, days: opts.ga4Days }) : { source: sourceResult({ name: 'ga4', skipped: true, error: 'disabled for this run' }), available: false, pages: [], lowEngagement: [] };
+  const cycle = buildCycleIdentity({ now });
+  const budget = createCycleBudget(fetchImpl, {
+    maxFetches: opts.maxFetches,
+    maxDurationMs: opts.cycleBudgetMs,
+  });
+  const cycleFetch = budget.fetch;
+  const graph = await loadSitemapGraph({ origin: opts.origin, sitemap: opts.sitemap, fetchImpl: cycleFetch, timeoutMs: opts.timeoutMs });
+  const pageAudit = await probePages(graph.entries, { fetchImpl: cycleFetch, timeoutMs: opts.timeoutMs, sample: opts.sample, jobSample: opts.jobSample, origin: opts.origin });
+  const cloudflare = collectAnalytics ? await collectCloudflare({ fetchImpl: cycleFetch, timeoutMs: opts.timeoutMs, errorSample: opts.errorSample }) : { source: sourceResult({ name: 'cloudflare-analytics', skipped: true, error: 'disabled for this run' }), available: false, confirmedPersistent: [], paths: [], diagnostics: [] };
+  const ga4 = collectAnalytics ? await collectGa4({ fetchImpl: cycleFetch, days: opts.ga4Days }) : { source: sourceResult({ name: 'ga4', skipped: true, error: 'disabled for this run' }), available: false, pages: [], lowEngagement: [] };
   const repository = collectRepositorySignals(root);
 
   const cfFindings = cloudflare.confirmedPersistent.map((row) => ({
@@ -793,12 +864,18 @@ export async function runSeoHealthLoop({
   const report = {
     schemaVersion: 1,
     generatedAt,
+    cycle: {
+      ...cycle,
+      budget: budget.snapshot(),
+    },
     options: {
       origin: opts.origin,
       sitemap: opts.sitemap,
       sample: opts.sample,
       jobSample: opts.jobSample,
       findingThreshold: opts.findingThreshold,
+      maxFetches: opts.maxFetches,
+      cycleBudgetMs: opts.cycleBudgetMs,
       dryRun: Boolean(opts.dryRun),
       strictSources: Boolean(opts.strictSources),
       openIssue: Boolean(opts.openIssue),
@@ -883,8 +960,9 @@ export async function runSeoHealthLoop({
     writeJsonAtomic(statePath, nextState);
     fs.mkdirSync(path.dirname(historyPath), { recursive: true });
     const historyEntry = {
-      historyKey: process.env.GITHUB_RUN_ID ? `run:${process.env.GITHUB_RUN_ID}` : `generated:${generatedAt}`,
+      historyKey: cycle.idempotencyKey,
       generatedAt,
+      cycleBudget: budget.snapshot(),
       runId: process.env.GITHUB_RUN_ID || null,
       runAttempt: process.env.GITHUB_RUN_ATTEMPT || null,
       phaseStatuses: Object.fromEntries(Object.entries(report.phases).map(([name, value]) => [name, value.status])),
@@ -924,6 +1002,8 @@ async function main() {
   options.timeoutMs = finitePositive(options.timeoutMs, DEFAULT_TIMEOUT_MS);
   options.ga4Days = finitePositive(options.ga4Days, DEFAULT_GA4_DAYS);
   options.findingThreshold = finitePositive(options.findingThreshold, DEFAULT_FINDING_THRESHOLD);
+  options.maxFetches = finitePositive(options.maxFetches, DEFAULT_MAX_FETCHES);
+  options.cycleBudgetMs = finitePositive(options.cycleBudgetMs, DEFAULT_CYCLE_BUDGET_MS);
   const report = await runSeoHealthLoop({ options });
   console.log(`[seo-health-loop] ${report.generatedAt}`);
   console.log(`  sitemap: ${report.sitemap.entries} URL, sample: ${report.pageAudit.sampledCount} (${report.pageAudit.sampledJobCount} job)`);

@@ -1,8 +1,10 @@
 import { describe, expect, it, vi } from 'vitest';
 import {
   CDN_ORIGIN,
+  evaluateRepairPolicy,
   evaluateProbe,
   probeRuntime,
+  runtimeFailureFingerprint,
 } from '../scripts/runtime-reliability-watch.mjs';
 
 function response(body: string, status = 200) {
@@ -48,6 +50,57 @@ describe('runtime reliability watchdog', () => {
     });
     expect(result.ok).toBe(false);
     expect(result.purgeUrls).toEqual([`${CDN_ORIGIN}/assets/App.js`]);
+  });
+
+  it('deduplicates the same divergence during the repair cooldown', () => {
+    const probe = evaluateProbe({
+      siteCached: { body: '1789306155656', status: 200, ok: true },
+      siteFresh: { body: '1789306155656', status: 200, ok: true },
+      cdnMarker: { body: '1789306155656', status: 200, ok: true },
+      assets: [{
+        path: '/assets/App.js',
+        cached: { status: 200, ok: true, bytes: 3, hash: 'old' },
+        fresh: { status: 200, ok: true, bytes: 3, hash: 'new' },
+      }],
+    });
+    const at = Date.parse('2026-09-13T00:00:00Z');
+    const policy = evaluateRepairPolicy({
+      probe,
+      previousState: { fingerprint: probe.fingerprint, lastActionAt: new Date(at - 60_000).toISOString() },
+      nowMs: at,
+    });
+    expect(policy).toMatchObject({ action: 'skip_duplicate_purge', circuit: 'open' });
+    expect(runtimeFailureFingerprint(probe)).toBe(probe.fingerprint);
+  });
+
+  it('riapre il purge dopo il cooldown e blocca un marker non coerente', () => {
+    const stale = evaluateProbe({
+      siteCached: { body: '1789306155656', status: 200, ok: true },
+      siteFresh: { body: '1789306155656', status: 200, ok: true },
+      cdnMarker: { body: '1789306155656', status: 200, ok: true },
+      assets: [{
+        path: '/assets/App.js',
+        cached: { status: 200, ok: true, bytes: 3, hash: 'old' },
+        fresh: { status: 200, ok: true, bytes: 3, hash: 'new' },
+      }],
+    });
+    const at = Date.parse('2026-09-13T00:00:00Z');
+    expect(evaluateRepairPolicy({
+      probe: stale,
+      previousState: { fingerprint: stale.fingerprint, lastActionAt: new Date(at - 16 * 60_000).toISOString() },
+      nowMs: at,
+    }).action).toBe('purge');
+    const mismatch = evaluateProbe({
+      siteCached: { body: '1789306155656', status: 200, ok: true },
+      siteFresh: { body: '1789306155657', status: 200, ok: true },
+      cdnMarker: { body: '1789306155656', status: 200, ok: true },
+      assets: [{
+        path: '/assets/App.js',
+        cached: { status: 200, ok: true, bytes: 3, hash: 'old' },
+        fresh: { status: 200, ok: true, bytes: 3, hash: 'new' },
+      }],
+    });
+    expect(evaluateRepairPolicy({ probe: mismatch }).action).toBe('blocked_marker');
   });
 
   it('fails closed without purging while markers disagree', () => {
