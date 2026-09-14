@@ -101,6 +101,23 @@ describe('check-number-env-fallback — il gate che impedisce il rientro', () =>
     }
   });
 
+  it('non scambia una variabile shadowed in una funzione annidata per il bound env esterno (#8031)', () => {
+    const source = `const limit = Number(process.env.LIMIT);
+function render() {
+  const limit = 50;
+  return items.slice(0, limit);
+}`;
+    expect(findRawNumberEnvBoundViolations(source, 'fixture.mjs')).toEqual([]);
+  });
+
+  it('mantiene il bound quando la funzione annidata chiude davvero sull env esterno (#8031)', () => {
+    const source = `const limit = Number(process.env.LIMIT);
+function render() {
+  return items.slice(0, limit);
+}`;
+    expect(findRawNumberEnvBoundViolations(source, 'fixture.mjs')).toHaveLength(1);
+  });
+
   it('non segnala il campione frazionario di audit-dist-multi né un fallback esplicito', () => {
     expect(findRawNumberEnvBoundViolations(
       'const v = Number(process.env.AUDIT_SAMPLE_RATE);\nreturn v > 0 && v <= 1 ? v : 1;',
