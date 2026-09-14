@@ -54,7 +54,7 @@ import {
 } from './shared/cantonSalaryIndex';
 import { resolveCantonSection } from './shared/cantonSection';
 import { buildListItemJobPosting } from './shared/jobPostingListItem';
-import { stripLiteralMarkdown } from './shared/stripLiteralMarkdown';
+import { sanitizeJobTitleForDisplay } from './shared/stripLiteralMarkdown';
 import {
   aggregateProfessionJobsByCanton,
   type ProfessionJobsSnapshot,
@@ -523,7 +523,7 @@ export function renderSalaryProfessionCantonPage(opts: {
     const detailUrl = jobDetailUrl(job, locale, cantonKey);
     const posting = buildListItemJobPosting(featuredToJobInput(job), { locale, url: detailUrl, baseUrl: BASE_URL });
     if (posting) jobLdItems.push(posting);
-    const title = stripLiteralMarkdown(job.titleByLocale[locale] ?? job.title ?? '');
+    const title = sanitizeJobTitleForDisplay(job.titleByLocale[locale] ?? job.title ?? '');
     const cityBit = job.city ? ` · ${esc(job.city)}` : '';
     jobCards.push(
       `<li class="${CARD_CLASS}"><a href="${esc(detailUrl)}" class="font-semibold text-heading">${esc(title)}</a><div class="text-sm text-subtle">${esc(job.company)}${cityBit} · ${esc(c.jobPostedDays(job.daysAgo))}</div></li>`,

@@ -18,7 +18,10 @@
 
 import { escHtml } from './htmlEscape';
 import { firstParsableDateStr } from './firstParsableDate';
-import { stripLiteralMarkdown as stripLiteralMarkdownFromTitle } from './stripLiteralMarkdown';
+import {
+  sanitizeJobTitleForDisplay as sanitizeJobTitleForCard,
+  stripLiteralMarkdown as stripLiteralMarkdownFromTitle,
+} from './stripLiteralMarkdown';
 import { resolveJobLogoSrc as resolveJobCardLogo } from './companyLogoResolver';
 import { LOGO_FALLBACK_SCRIPT } from './logoFallbackScript';
 import { infeedAdListItemHtml } from '../lib/adSlotHtml';
@@ -293,7 +296,7 @@ export function renderJobCardHtml(
 
   const titleSource =
     (job.titleByLocale && job.titleByLocale[locale]) || job.title || '';
-  const title = stripLiteralMarkdownFromTitle(
+  const title = sanitizeJobTitleForCard(
     String(titleSource).replace(/\s+/g, ' ').trim(),
   );
   // Company + location are crawler-/AI-sourced free text rendered into the

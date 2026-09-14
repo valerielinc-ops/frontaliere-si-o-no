@@ -10,9 +10,12 @@
  * copies (jobsSeoPagesPlugin.stripLiteralMarkdownFromTitle, jobCardHtml, and
  * relatedSearchClustersPlugin) — and a fix applied to one copy (the orphan-`**`
  * nuke) was missing from another that renders onto the SAME scanned pages,
- * re-tripping the gate. Pure, zero-import, idempotent → safe to share from any
- * build plugin without circular-import risk.
+ * re-tripping the gate. The narrative-title extractor is a pure helper shared
+ * with the Node assembler; all display scrubbing remains idempotent and safe
+ * to call from any build plugin.
  */
+import { extractNarrativeJobTitle } from '../../scripts/lib/job-title-normalization.mjs';
+
 export function stripLiteralMarkdown(value: string): string {
   if (!value) return value;
   let t = String(value);
@@ -49,4 +52,34 @@ export function stripWholeMarkdownBoldWrapper(value: string): string {
   const inner = trimmed.slice(2, -2).trim();
   if (!inner || inner.includes('*')) return source;
   return inner;
+}
+
+/**
+ * Clean a job title for a visible HTML surface.
+ *
+ * The normal whole-value wrapper rule is retained, while a known AI response
+ * such as `I need to ... **Translated title** ...` is reduced to its actual
+ * title. Triple-star employer brands (for example `***delicatessa`) are
+ * protected while the generic markdown scrub removes any other literal
+ * markers.
+ */
+export function sanitizeJobTitleForDisplay(value: string): string {
+  if (!value) return value;
+  const source = String(value);
+  const whole = stripWholeMarkdownBoldWrapper(source);
+  const narrative = extractNarrativeJobTitle(source);
+  const candidate = narrative || (whole !== source ? whole : source);
+  return stripJobTitleMarkdown(candidate);
+}
+
+function stripJobTitleMarkdown(value: string): string {
+  const protectedRuns: string[] = [];
+  const protectedValue = String(value).replace(/\*{3,}/g, (run) => {
+    const index = protectedRuns.push(run) - 1;
+    return `\uE000${index}\uE001`;
+  });
+  return stripLiteralMarkdown(protectedValue).replace(
+    /\uE000(\d+)\uE001/g,
+    (_match, index: string) => protectedRuns[Number(index)] || '',
+  );
 }

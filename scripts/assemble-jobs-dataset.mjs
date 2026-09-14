@@ -69,6 +69,7 @@ import { loadSourceHostOwnership, dropForeignOwnedVacancies } from './lib/crawle
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 import { detailDropSummaryFields } from './lib/crawler-detail-drop.mjs';
 import { decontaminateEntries } from './decontaminate-prev-slugs.mjs';
+import { extractNarrativeJobTitle } from './lib/job-title-normalization.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -308,8 +309,10 @@ export function sanitizeJobCompanyField(rawValue, fallback = '') {
 }
 
 /**
- * Strip a markdown bold wrapper that the translation pipeline left around a
- * WHOLE job title: `**Partner Comercial de Recursos Humanos**` → the title.
+ * Strip a markdown wrapper or recover the title from the specific AI
+ * translation narrative shape left by the translation pipeline:
+ * `**Partner Comercial de Recursos Humanos**` → the title, and
+ * `I need to ... **Translated title** ...` → the translated title.
  *
  * Deliberately the narrowest rule that fixes the observed defect, because
  * asterisks in a job title are usually REAL CONTENT and removing them
@@ -330,6 +333,8 @@ export function sanitizeJobCompanyField(rawValue, fallback = '') {
 export function sanitizeJobTitleField(rawValue) {
   const s = String(rawValue ?? '');
   const t = s.trim();
+  const narrative = extractNarrativeJobTitle(t);
+  if (narrative) return narrative;
   if (t.length < 5 || !t.startsWith('**') || !t.endsWith('**')) return s;
   const inner = t.slice(2, -2).trim();
   if (!inner || inner.includes('*')) return s;

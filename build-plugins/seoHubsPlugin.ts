@@ -78,7 +78,7 @@ import { isCantonNoindex } from './shared/cantonNoindexRegistry';
 import { hasCantonSectorPage } from './shared/cantonSectorPageRegistry';
 import { renderCantonSeoProse, type CantonSeoLocale, type CantonSeoSlot } from './shared/cantonSeoProse';
 import { buildDayStampIso } from './shared/buildDayStamp';
-import { stripLiteralMarkdown } from './shared/stripLiteralMarkdown';
+import { sanitizeJobTitleForDisplay, stripLiteralMarkdown } from './shared/stripLiteralMarkdown';
 import { readAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
 
 const LOCALE_OG: Record<HubLocale, string> = {
@@ -198,11 +198,11 @@ function esc(s: unknown): string {
 // `___` straight into the hub listing and trips the 0-tolerance
 // `audit:no-literal-markdown` gate (CLAUDE.md rule #1). Mirrors
 // renderJobCardHtml, which already strips the card title via
-// stripLiteralMarkdown; the compact hub lists (`.thi` / `.s-7DS5hj`) bypassed
+// sanitizeJobTitleForDisplay; the compact hub lists (`.thi` / `.s-7DS5hj`) bypassed
 // the card renderer and re-introduced the leak. Idempotent and byte-identical
 // on already-clean company/sector labels.
 function escLabel(s: unknown): string {
-  return esc(stripLiteralMarkdown(String(s ?? '')));
+  return esc(sanitizeJobTitleForDisplay(String(s ?? '')));
 }
 
 /** Convert a job slug like "infermiera-bellinzona-eoc" → "Infermiera Bellinzona Eoc" */
@@ -1115,7 +1115,7 @@ function buildHtml(args: BuildHtmlArgs): string {
       itemListElement: pageItems.slice(0, 25).map((it, idx) => ({
         '@type': 'ListItem',
         position: (page - 1) * 100 + idx + 1,
-        name: stripLiteralMarkdown(String(it.label ?? '')),
+        name: sanitizeJobTitleForDisplay(String(it.label ?? '')),
         // Normalise to absolute: pageItems[].href is usually root-relative but
         // may be already-absolute (per-locale job URLs from all-known-job-slugs)
         // — bare `${BASE_URL}${href}` would double-prefix those (issue #2235).
@@ -1146,7 +1146,7 @@ function buildHtml(args: BuildHtmlArgs): string {
                 logoUrl: it.logo ?? undefined,
                 iconSvg: it.logo ? undefined : ICON_BUILDING_SVG,
                 logoOnerror: it.logo ? LOGO_IMG_ONERROR : undefined,
-                title: stripLiteralMarkdown(String(it.label ?? '')),
+                title: sanitizeJobTitleForDisplay(String(it.label ?? '')),
                 subtitle: it.jobCount ? jobsActiveLabel(locale, it.jobCount) : undefined,
                 metric: it.jobCount ? String(it.jobCount) : undefined,
                 metricTone: 'accent',
@@ -1951,7 +1951,7 @@ export function buildThinCantonHubHtml(args: {
                 logoUrl: it.logo ?? undefined,
                 iconSvg: it.logo ? undefined : ICON_BUILDING_SVG,
                 logoOnerror: it.logo ? LOGO_IMG_ONERROR : undefined,
-                title: stripLiteralMarkdown(String(it.label ?? '')),
+                title: sanitizeJobTitleForDisplay(String(it.label ?? '')),
                 subtitle: it.sub != null ? stripLiteralMarkdown(it.sub) : it.sub,
                 metric: it.metric,
                 metricTone: it.metricTone ?? 'accent',
@@ -2053,7 +2053,7 @@ export function buildThinCantonHubHtml(args: {
             // via the shared normaliser (see absItemUrl) so the two ItemList
             // emitters cannot drift.
             url: absItemUrl(it.href),
-            name: stripLiteralMarkdown(String(it.label ?? '')),
+            name: sanitizeJobTitleForDisplay(String(it.label ?? '')),
           })),
         },
       });

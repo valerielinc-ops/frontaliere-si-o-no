@@ -53,7 +53,7 @@ import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
-import { stripLiteralMarkdown, stripWholeMarkdownBoldWrapper } from './shared/stripLiteralMarkdown';
+import { sanitizeJobTitleForDisplay, stripLiteralMarkdown } from './shared/stripLiteralMarkdown';
 import { ORPHAN_LANDING_SECTION } from './orphanQueryData';
 import { buildTitleWithBrand, escapeForBudget, TITLE_MAX_CHARS } from './shared/titleSuffix';
 import {
@@ -2857,7 +2857,7 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   // pages ≈ ~150 MB on the dist artifact.
   const jobLinksHtml = ctx.matchingJobs.length > 0
     ? `<ul class="cluster-seo-jobs">${ctx.matchingJobs.map((job) => {
-        const jobTitle = stripWholeMarkdownBoldWrapper(String(job.titleByLocale?.[locale] ?? job.title ?? '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim());
+        const jobTitle = sanitizeJobTitleForDisplay(String(job.titleByLocale?.[locale] ?? job.title ?? '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim());
         const company = String(job.company || '').trim();
         const loc = String(job.location || '').trim();
         const meta = [company, loc].filter(Boolean).join(' · ');

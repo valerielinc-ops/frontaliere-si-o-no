@@ -70,6 +70,7 @@ import {
   type SalaryBand,
 } from './salaryDefaults';
 import { truncateCodeUnits } from './safeTruncate';
+import { sanitizeJobTitleForDisplay } from './stripLiteralMarkdown';
 
 // ── Types ───────────────────────────────────────────────────────────────────
 
@@ -446,7 +447,7 @@ function buildDescriptionFallback(
 function resolveTitle(job: JobInput, locale: string): string {
   const short = (locale || 'it').slice(0, 2).toLowerCase();
   const byLocale = job.titleByLocale?.[short] || job.titleByLocale?.[locale];
-  const base = String(byLocale || job.title || '').trim();
+  const base = sanitizeJobTitleForDisplay(String(byLocale || job.title || '').trim());
   if (base.length > 0) return base;
   const company = (job.company || '').trim();
   switch (short) {

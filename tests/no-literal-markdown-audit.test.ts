@@ -63,6 +63,11 @@ describe('sanitizeJobTitleField — strips the wrapper, never real content', () 
       .toBe('Partner Comercial de Recursos Humanos');
   });
 
+  it('recovers a translated title from a leaked AI explanation', () => {
+    const narrative = 'I need to see the current job data to understand the context and identify which job title needs translation to Italian. Let me check the job data files: Looking at the modified files, I can see several job crawler files have been updated. Let me examine one of them to find the job title that needs translation: The title you are asking about appears to be a German job title that needs to be translated to Italian. Based on the context of retail/shopping experience design, here is the complete Italian translation: **Specialista nel commercio al dettaglio EFZ "Progettazione di esperienze di acquisto"** However, if you would like me to locate and fix this in the actual job data file, and so on.';
+    expect(sanitizeJobTitleField(narrative)).toBe('Specialista nel commercio al dettaglio EFZ "Progettazione di esperienze di acquisto"');
+  });
+
   it('leaves the Globus brand alone — asterisks mid-title are content', () => {
     const t = 'Verkaufsberater:in ***delicatessa 40-60% (w/m/d)';
     expect(sanitizeJobTitleField(t)).toBe(t);
