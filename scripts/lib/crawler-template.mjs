@@ -153,6 +153,7 @@ import {
   writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
+  markCrawlerSummaryAbortKind,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from '../assemble-jobs-dataset.mjs';
@@ -759,6 +760,7 @@ export function warnIfListingAtCap({ label, count, cap, total }) {
 
 export function exitCrawlerOnError(err, label = 'crawler') {
   if (isConnectionLevelFetchError(err)) {
+    markCrawlerSummaryAbortKind('connection-level-fetch');
     console.log(
       `\n⚠️ ${label}: connection-level fetch failure after retries + proxy fallback (${err?.message || err}). Keeping existing jobs (no de-index).`,
     );
@@ -979,7 +981,13 @@ export async function runStandardCrawlerPipeline(config) {
   // the exit-guard slice carries it too — the zero-match soft exit below is
   // precisely the run whose cause matters most. Parsers that don't set
   // `.fetchOutcome` leave it null: unchanged behaviour.
-  const counts = { discovered: null, parsed: null, lastFetchOutcome: null, detailDrop: null };
+  const counts = {
+    discovered: null,
+    parsed: null,
+    lastFetchOutcome: null,
+    abortKind: null,
+    detailDrop: null,
+  };
   registerCrawlerSummaryGuard(companyKey, companyLabel, counts);
   console.log('═══════════════════════════════════════════════');
   console.log(`  ${companyLabel} — Standard Crawler Pipeline`);
@@ -1016,6 +1024,7 @@ export async function runStandardCrawlerPipeline(config) {
     // last-resort guard after the proxy could not help either.
     if (isConnectionLevelFetchError(err)) {
       counts.lastFetchOutcome = 'connection_error';
+      counts.abortKind = 'connection-level-fetch';
       console.log(
         `\n⚠️ ${companyLabel}: connection-level fetch failure after retries + proxy fallback (${err.message}). Keeping existing jobs.`,
       );
@@ -1042,6 +1051,8 @@ export async function runStandardCrawlerPipeline(config) {
     // existing slice, no de-index, no "Crawler Failure" issue every run. A
     // persistent outage is still caught by the crawler-health monitor.
     if (err?.antiBotExhausted) {
+      counts.lastFetchOutcome = 'connection_error';
+      counts.abortKind = 'connection-level-fetch';
       console.log(
         `\n⚠️ ${companyLabel}: anti-bot fence exhausted (UA + Jina + Playwright) for ${err.message}. Keeping existing jobs.`,
       );
@@ -1096,6 +1107,7 @@ export async function runStandardCrawlerPipeline(config) {
   );
 
   if (!parsedJobs || (parsedJobs.length === 0 && !authoritativeEmptySnapshot)) {
+    counts.abortKind = 'no-jobs-parsed';
     console.log(`\n⚠️ No ${companyLabel} jobs discovered. Keeping existing jobs.`);
     return;
   }

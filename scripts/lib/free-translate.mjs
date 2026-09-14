@@ -75,6 +75,7 @@ const HF_OPUS_MT_MODELS = {
   'de-fr': 'Helsinki-NLP/opus-mt-de-fr', 'fr-de': 'Helsinki-NLP/opus-mt-fr-de',
   'fr-en': 'Helsinki-NLP/opus-mt-fr-en', 'en-fr': 'Helsinki-NLP/opus-mt-en-fr',
 };
+const HF_OPUS_MT_MAX_CHARS = 2000;
 
 const GOOGLE_TRANSLATE_ENDPOINTS = [
   'https://translate.googleapis.com/translate_a/single',
@@ -1100,8 +1101,13 @@ export async function translateWithHuggingFace(text, sourceLang, targetLang, out
   const model = HF_OPUS_MT_MODELS[modelKey];
   if (!model) return '';
 
-  // OPUS-MT models work best with shorter texts (< 512 tokens ≈ ~2000 chars)
-  const truncated = clean.slice(0, 2000);
+  // OPUS-MT models work best with shorter texts (< 512 tokens ≈ ~2000 chars).
+  // Never send only a prefix: the cascade would otherwise publish a plausible
+  // translation of incomplete source as if the whole field were translated.
+  if (clean.length > HF_OPUS_MT_MAX_CHARS) {
+    noteTranslationOutcome(outcome, 'incomplete');
+    return '';
+  }
 
   try {
     const res = await fetch(`https://router.huggingface.co/hf-inference/models/${model}`, {
@@ -1110,7 +1116,7 @@ export async function translateWithHuggingFace(text, sourceLang, targetLang, out
         'Authorization': `Bearer ${HF_TOKEN}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ inputs: truncated }),
+      body: JSON.stringify({ inputs: clean }),
       signal: AbortSignal.timeout(TIMEOUT_MS),
     });
     if (!res.ok) {
