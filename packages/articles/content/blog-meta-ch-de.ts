@@ -6391,6 +6391,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.votazione-scuola-qualita-berna-2026.title': 'Qualitätsschule in Bern: Die Note ist auf 2026 festgelegt',
     'blog.article.votazione-scuola-qualita-berna-2026.excerpt': 'Die Initiative zur Aufnahme eines Verfassungsauftrags an der Schule wird am 27. September 2026 den Wählern vorgelegt.',
     'blog.article.votazione-scuola-qualita-berna-2026.imageAlt': 'Leeres Klassenzimmer vor der Abstimmung über die Unterrichtsqualität im Kanton Bern',
+    'blog.article.transpa-reg-quadri-rinvio-1-ottobre.title': 'TranspaReg: Kader bittet um Vertagung wegen Cyber-Risiko',
+    'blog.article.transpa-reg-quadri-rinvio-1-ottobre.excerpt': 'Nationalrat Lorenzo Quadri beantragt unter Berufung auf den Fall Liechtenstein, das Inkrafttreten auf den 1. Oktober auszusetzen.',
+    'blog.article.transpa-reg-quadri-rinvio-1-ottobre.imageAlt': 'Serverraum mit blauen LED-Lichtern, der Cybersicherheit und finanzielle Transparenz in der Schweiz symbolisiert.',
 };
 
 export default blogMetaChDe;

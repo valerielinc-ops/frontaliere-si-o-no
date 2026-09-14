@@ -6391,6 +6391,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.votazione-scuola-qualita-berna-2026.title': 'Ecole qualité à Berne : le vote est fixé à 2026',
     'blog.article.votazione-scuola-qualita-berna-2026.excerpt': 'L\'initiative d\'insérer un mandat constitutionnel sur l\'école sera soumise aux électeurs le 27 septembre 2026.',
     'blog.article.votazione-scuola-qualita-berna-2026.imageAlt': 'Salle de classe vide en attente du vote sur la qualité de l\'enseignement dans le canton de Berne',
+    'blog.article.transpa-reg-quadri-rinvio-1-ottobre.title': 'TranspaReg : Cadres demande un renvoi pour risque informatique',
+    'blog.article.transpa-reg-quadri-rinvio-1-ottobre.excerpt': 'Le Conseiller national Lorenzo Quadri demande de suspendre l\'entrée en vigueur au 1er octobre, citant le cas du Liechtenstein.',
+    'blog.article.transpa-reg-quadri-rinvio-1-ottobre.imageAlt': 'Salle serveurs avec des lumières LED bleues symbolisant la cybersécurité et la transparence financière en Suisse.',
 };
 
 export default blogMetaChFr;
