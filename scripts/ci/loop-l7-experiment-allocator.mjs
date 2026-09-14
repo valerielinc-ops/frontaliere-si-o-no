@@ -382,13 +382,18 @@ export function validateExperimentAllocator({ registry, outcomes = null }, {
   maxAgeHours = DEFAULT_MAX_AGE_HOURS,
   sourcePath = DEFAULT_CANDIDATES_PATH,
   outcomePath = DEFAULT_OUTCOME_PATH,
-  minimumSample = MINIMUM_SAMPLE,
+  minimumSample,
   loopRegistry = null,
 } = {}) {
   const loopPolicy = Array.isArray(loopRegistry?.loops)
     ? loopRegistry.loops.find((loop) => loop.loopId === LOOP_ID)
     : null;
-  const effectiveMinimumSample = loopPolicy?.minimumSample ?? minimumSample;
+  const registryMinimumSample = loopPolicy?.minimumSample;
+  const effectiveMinimumSample = registryMinimumSample === undefined
+    ? (minimumSample ?? MINIMUM_SAMPLE)
+    : (minimumSample === undefined
+      ? registryMinimumSample
+      : Math.max(registryMinimumSample, minimumSample));
   const candidateActionClass = loopRegistry && loopPolicy
     ? actionClassForPolicy(loopPolicy, 'candidate')
     : null;
