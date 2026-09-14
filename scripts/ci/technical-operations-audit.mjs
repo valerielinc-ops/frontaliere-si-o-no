@@ -220,11 +220,20 @@ function shellOperationalText(run, { preserveQuotedWritePaths = false } = {}) {
   let quote = null;
   let quotePrefix = '';
   let quoteContent = '';
+  let logicalLine = '';
 
   const append = (text) => {
     output.push(text);
     const parts = text.split('\n');
     line = parts.length > 1 ? parts.at(-1) : `${line}${text}`;
+    for (const char of text) {
+      if (char === '\n') {
+        if (logicalLine.endsWith('\\')) logicalLine = logicalLine.slice(0, -1);
+        else logicalLine = '';
+      } else {
+        logicalLine += char;
+      }
+    }
   };
   const mask = (text) => append([...text].map((char) => char === '\n' ? '\n' : ' ').join(''));
   const quotedPathIsOperational = (content) => {
@@ -288,7 +297,7 @@ function shellOperationalText(run, { preserveQuotedWritePaths = false } = {}) {
       quote = char;
       singleQuoted = char === "'";
       doubleQuoted = char === '"';
-      quotePrefix = line;
+      quotePrefix = logicalLine;
       quoteContent = '';
       mask(char);
       continue;
@@ -714,7 +723,7 @@ function validateJobs(workflow, file, source, root, exists, readFile, knownWorkf
         const operationalRun = shellOperationalText(rawStep.run, { preserveQuotedWritePaths: true });
         const operationalDataPaths = extractDataPaths(operationalRun);
         const dataPaths = operationalDataPaths;
-        const writesData = /\bgit\s+(?:add|commit)\b|(?:>>|>)\s*["']?(?:data|public\/data)\//i.test(operationalRun);
+        const writesData = /\bgit\s+(?:add|commit)\b|(?:>>|>)\s*(?:\\\r?\n\s*)?["']?(?:data|public\/data)\//i.test(operationalRun);
         const hasValidation = /\b(?:validat(?:e|ion)|audit|check|assert|test|strict|quality|schema|diff)\b/i.test(operationalRun);
         if (writesData && dataPaths.length > 0 && !hasValidation) {
           for (const dataPath of dataPaths) findings.push(finding(file, 'workflow.data-write-without-check', 'warning', `scrittura di ${dataPath} senza validazione visibile nello step; verificare completezza/timestamp/schema prima del commit`, stepLine, rawStep.run.trim().slice(0, 300)));

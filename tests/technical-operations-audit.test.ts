@@ -186,6 +186,40 @@ describe('technical operations audit', () => {
     ]));
   });
 
+  it('mantiene il contesto di git add dopo una line-continuation', () => {
+    const source = [
+      'name: continued-add',
+      'on: [workflow_dispatch]',
+      'jobs:',
+      '  persist:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: commit',
+      '        run: |',
+      '          git add \\',
+      '            "data/result.json" && git commit -m result',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/continued-add.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.data-write-without-check')).toHaveLength(1);
+  });
+
+  it('mantiene il contesto di redirezione dopo una line-continuation', () => {
+    const source = [
+      'name: continued-redirect',
+      'on: [workflow_dispatch]',
+      'jobs:',
+      '  persist:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: write',
+      '        run: |',
+      '          printf payload > \\',
+      '            "data/result.json"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/continued-redirect.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.data-write-without-check')).toHaveLength(1);
+  });
+
   it('accetta queue:max come estensione supportata da GitHub Actions', () => {
     const source = [
       'name: queue-extension',
