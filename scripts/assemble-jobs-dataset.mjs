@@ -36,7 +36,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { listSliceFilePaths } from './lib/crawler-slice-files.mjs';
-import { normalizeFetchOutcome } from './lib/crawler-fetch-outcome.mjs';
+import { normalizeAbortKind, normalizeFetchOutcome } from './lib/crawler-fetch-outcome.mjs';
 import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -74,6 +74,12 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 /* ── Summary guard — ensures every crawler writes a summary on exit ──── */
 
 let _summaryWritten = false;
+let _summaryAbortKind = null;
+
+/** Set the early-exit cause before `exitCrawlerOnError` calls process.exit(0). */
+export function markCrawlerSummaryAbortKind(kind) {
+  _summaryAbortKind = normalizeAbortKind(kind);
+}
 
 /**
  * Register a process-exit guard that writes a minimal summary if the crawler
@@ -84,7 +90,7 @@ let _summaryWritten = false;
  *
  * @param {string} key   - Crawler key (same as COMPANY_KEY)
  * @param {string} label - Human-readable label (company name)
- * @param {{discovered?: number|null}|null} [counts] - Optional mutable
+ * @param {{discovered?: number|null, parsed?: number|null, lastFetchOutcome?: string|null, abortKind?: string|null}|null} [counts] - Optional mutable
  *   counter the crawler updates as it discovers candidates (issue #5945):
  *   `counts.discovered` set right after the pre-filter fetch lets an early
  *   return (e.g. "0 Swiss jobs after filtering") report a non-zero
@@ -108,6 +114,10 @@ export function registerCrawlerSummaryGuard(key, label, counts = null) {
       // published summary. Dropping it on the guard path would instrument the
       // one case that never needed instrumenting.
       const lastFetchOutcome = normalizeFetchOutcome(counts ? counts.lastFetchOutcome : null);
+      const abortKind =
+        normalizeAbortKind(counts?.abortKind) ??
+        _summaryAbortKind ??
+        (code === 0 ? null : 'crash');
       writeSummaryCrawlerSlice({
         ...detailDropFields,
         key,
@@ -117,6 +127,7 @@ export function registerCrawlerSummaryGuard(key, label, counts = null) {
         discovered,
         parsed,
         lastFetchOutcome,
+        abortKind,
         written: 0,
         newCount: 0,
         updatedCount: 0,

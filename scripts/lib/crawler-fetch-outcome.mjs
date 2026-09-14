@@ -60,6 +60,13 @@ export const CRAWLER_FETCH_FAILURE_OUTCOMES = new Set([
   'feed_endpoint_unavailable',
 ]);
 
+/** Causes recorded by the process-exit summary guard for an early run. */
+export const CRAWLER_ABORT_KINDS = new Set([
+  'no-jobs-parsed',
+  'connection-level-fetch',
+  'crash',
+]);
+
 /**
  * Read a slice's (or parser's) self-reported outcome, or `null` when it is
  * absent or not a recognised value. An unknown string is a producer bug, and
@@ -70,4 +77,14 @@ export const CRAWLER_FETCH_FAILURE_OUTCOMES = new Set([
  */
 export function normalizeFetchOutcome(value) {
   return typeof value === 'string' && CRAWLER_FETCH_OUTCOMES.has(value) ? value : null;
+}
+
+/**
+ * Read an early-exit cause, or `null` when the producer did not report one.
+ *
+ * @param {unknown} value
+ * @returns {'no-jobs-parsed'|'connection-level-fetch'|'crash'|null}
+ */
+export function normalizeAbortKind(value) {
+  return typeof value === 'string' && CRAWLER_ABORT_KINDS.has(value) ? value : null;
 }
