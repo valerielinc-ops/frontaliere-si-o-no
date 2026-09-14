@@ -5,6 +5,13 @@ import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 import { TITLE_RE } from '../../scripts/ci/close-recovered-failure-issues.mjs';
+import {
+  MAX_DISCOVERY_ARTIFACTS,
+  MAX_DISCOVERY_ARTIFACT_REFERENCES,
+  MAX_DISCOVERY_RUNS,
+  MAX_DISCOVERY_TOKENS,
+  recordDiscoveredArtifactIds,
+} from '../../scripts/ci/crawler-generation-observer-selector.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const WORKFLOWS = path.join(ROOT, '.github/workflows');
@@ -21,6 +28,32 @@ function sha256(text) {
 function occurrences(text, pattern) {
   return [...text.matchAll(pattern)].length;
 }
+
+test('il budget cumulativo dell observer copre le liste bounded della finestra', () => {
+  assert.equal(
+    MAX_DISCOVERY_ARTIFACT_REFERENCES,
+    MAX_DISCOVERY_RUNS + MAX_DISCOVERY_TOKENS * MAX_DISCOVERY_ARTIFACTS,
+  );
+
+  const seen = new Set();
+  recordDiscoveredArtifactIds(
+    seen,
+    Array.from({ length: 26 }, (_, index) => ({ id: index + 1 })),
+  );
+  recordDiscoveredArtifactIds(
+    seen,
+    Array.from({ length: 96 }, (_, index) => ({ id: 1_000 + index })),
+  );
+  assert.equal(seen.size, 122);
+
+  assert.throws(
+    () => recordDiscoveredArtifactIds(
+      new Set(Array.from({ length: MAX_DISCOVERY_ARTIFACT_REFERENCES }, (_, index) => index + 1)),
+      [{ id: MAX_DISCOVERY_ARTIFACT_REFERENCES + 1 }],
+    ),
+    /discovery artifact cap exceeded/,
+  );
+});
 
 function crawlerIdsFromArtifact(text) {
   const lines = text.split(/\r?\n/);
