@@ -122,8 +122,9 @@ jobs:
             # Abort any conflicting rebase before retrying, otherwise the loop
             # wedges on "unmerged files" until the job is canceled.
             bash scripts/lib/configure-main-push-auth.sh
+            PUSH_BRANCH="${GITHUB_REF_NAME:-main}"
             for i in 1 2 3; do
-              git pull --rebase origin main && git push && { echo "pushed=true" >> "$GITHUB_OUTPUT"; exit 0; }
+              git pull --rebase origin "$PUSH_BRANCH" && git push origin "HEAD:$PUSH_BRANCH" && { echo "pushed=true" >> "$GITHUB_OUTPUT"; exit 0; }
               git rebase --abort 2>/dev/null || true
               sleep $((i * 5))
             done
