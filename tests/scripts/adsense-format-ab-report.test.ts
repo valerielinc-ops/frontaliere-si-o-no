@@ -124,12 +124,14 @@ describe('adsense-format-ab-report / identifiers', () => {
     expect(() => experimentFromArgs(['--experiment=unknown'])).toThrow(/Esperimento sconosciuto/);
   });
 
-  it('does not inherit the active default for an untagged history row', () => {
+  it('counts only explicitly post-treatment rows and never inherits the active default', () => {
     const dir = mkdtempSync(path.join(tmpdir(), 'adsense-format-ab-history-'));
     const historyFile = path.join(dir, 'history.jsonl');
     writeFileSync(historyFile, [
       JSON.stringify({ control: { pageViews: 165 }, treatment: { pageViews: 114 } }),
-      JSON.stringify({ experimentId: 'svizzera-ticino', control: { pageViews: 10 }, treatment: { pageViews: 20 } }),
+      JSON.stringify({ experimentId: 'svizzera-ticino', windowPhase: 'pre-treatment', control: { pageViews: 100 }, treatment: { pageViews: 200 } }),
+      JSON.stringify({ experimentId: 'svizzera-ticino', windowPhase: 'mixed', control: { pageViews: 300 }, treatment: { pageViews: 400 } }),
+      JSON.stringify({ experimentId: 'svizzera-ticino', windowPhase: 'post-treatment', control: { pageViews: 10 }, treatment: { pageViews: 20 } }),
     ].join('\n') + '\n');
 
     try {

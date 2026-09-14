@@ -855,6 +855,9 @@ export function readHistorySummary(experiment = DEFAULT_EXPERIMENT, historyFile 
       const entryExperimentId = entry?.experimentId;
       if (!entryExperimentId) continue;
       if (entryExperimentId !== experiment.id) continue;
+      // The publication target is post-treatment volume only. Do not infer a
+      // phase from dates here: every appended row carries the explicit phase.
+      if (entry?.windowPhase !== 'post-treatment') continue;
       if (entry?.control?.pageViews != null && entry?.treatment?.pageViews != null) {
         weeksWithData++;
         controlPv += Number(entry.control.pageViews) || 0;
