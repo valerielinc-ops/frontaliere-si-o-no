@@ -6367,6 +6367,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.forum-economico-ambientale-osce-praga.title': '32nd OSCE Forum in Prague: focus on security and technology',
     'blog.article.forum-economico-ambientale-osce-praga.excerpt': 'The 32nd OSCE Economic and Environmental Forum was inaugurated in Prague under the leadership of the 2026 Swiss Presidency.',
     'blog.article.forum-economico-ambientale-osce-praga.imageAlt': 'Conference hall at the OSCE Economic and Environmental Forum in Prague',
+    'blog.article.latte-e-agricoltura-svizzera-studi.title': 'Agricultural studies: low earnings for milk in Switzerland',
+    'blog.article.latte-e-agricoltura-svizzera-studi.excerpt': 'A recent FHNW study reveals that dairy farmers earn on average 8.30 francs per hour, compared to 73.60 francs for rapeseed.',
+    'blog.article.latte-e-agricoltura-svizzera-studi.imageAlt': 'Milk producers and Swiss agriculture according to the FHNW study',
+    'blog.article.ps-chiede-cpi-su-f35.title': 'F-35, the SP calls for a Parliamentary Committee of Inquiry',
+    'blog.article.ps-chiede-cpi-su-f35.excerpt': 'The Socialist Party launches the process for an ICC on the purchase of F-35 fighters, aiming to clarify costs, procedures and transparency towards Parliament.',
+    'blog.article.ps-chiede-cpi-su-f35.imageAlt': 'Federal Palace in Bern, seat of the Swiss Parliament.',
+    'blog.article.permesso-c-nidvaldo-requisiti.title': 'Permit C Canton Nidvaldo: requirements and application',
+    'blog.article.permesso-c-nidvaldo-requisiti.excerpt': 'Complete guide to residence permit C in the Canton of Nidvaldo: years of residence, integration criteria and procedure.',
+    'blog.article.permesso-c-nidvaldo-requisiti.imageAlt': 'Administrative building in Canton Nidwalden',
 };
 
 export default blogMetaChEn;

@@ -320,7 +320,10 @@ async function fetchJobListings() {
   );
   assertFeedEndpointHost('nord-anglia', ATS_HOST, res.url);
   if (!res.ok) {
-    throw new Error(`Nord Anglia RSS feed returned HTTP ${res.status}`);
+    const error = new Error(`Nord Anglia RSS feed returned HTTP ${res.status}`);
+    error.status = res.status;
+    if (res.retryBudgetExhausted === true) error.retryBudgetExhausted = true;
+    throw error;
   }
 
   const xml = await res.text();

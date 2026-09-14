@@ -2148,6 +2148,9 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'settimana-contro-lo-spreco-alimentare-svizzera': { it: 'settimana-contro-lo-spreco-alimentare-svizzera', en: 'food-waste-reduction-week-switzerland', de: 'woche-gegen-lebensmittelverschwendung-schweiz', fr: 'semaine-contre-le-gaspillage-alimentaire-suisse' },
  'record-imprese-culturali-svizzera': { it: 'record-imprese-culturali-svizzera', en: 'record-cultural-enterprises-switzerland', de: 'rekord-kulturunternehmen-schweiz', fr: 'record-entreprises-culturelles-suisse' },
  'forum-economico-ambientale-osce-praga': { it: 'forum-economico-ambientale-osce-praga', en: 'osce-economic-environmental-forum-prague', de: 'osce-wirtschafts-und-umweltforum-prag', fr: 'forum-economique-environnemental-osce-prague' },
+ 'latte-e-agricoltura-svizzera-studi': { it: 'latte-e-agricoltura-svizzera-studi', en: 'milk-and-swiss-agriculture-study', de: 'milch-und-schweizer-landwirtschaft-studie', fr: 'lait-et-agriculture-suisse-etude' },
+ 'ps-chiede-cpi-su-f35': { it: 'ps-chiede-cpi-su-f35', en: 'ps-requests-f35-parliamentary-inquiry', de: 'ps-fordert-f35-untersuchungskommission', fr: 'le-ps-demande-une-enquete-sur-les-f35' },
+ 'permesso-c-nidvaldo-requisiti': { it: 'permesso-c-nidvaldo-requisiti', en: 'permits-c-nidwalden-requirements', de: 'bewilligung-c-nidwalden-voraussetzungen', fr: 'permis-c-nidwald-conditions' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

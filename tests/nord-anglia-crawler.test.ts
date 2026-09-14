@@ -410,6 +410,32 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
       expect(error).toBeInstanceOf(FeedEndpointUnavailableError);
       expect(error).toMatchObject({ feedEndpointUnavailable: true });
     });
+
+    it('propagates the exhausted retry marker when the ATS keeps returning 503', async () => {
+      const previousRetries = process.env.JOBS_CRAWLER_RETRIES;
+      const previousBaseMs = process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+      process.env.JOBS_CRAWLER_RETRIES = '1';
+      process.env.JOBS_CRAWLER_RETRY_BASE_MS = '0';
+      const fetchMock = vi.fn(() => {
+        const response = new Response('vendor unavailable', { status: 503 });
+        Object.defineProperty(response, 'url', {
+          value: 'https://careers.nordangliaeducation.com/services/rss/job/?locale=en_GB&keywords=(Aubonne)',
+        });
+        return response;
+      });
+      vi.stubGlobal('fetch', fetchMock);
+
+      try {
+        const error = await fetchAllNordAngliaJobs().catch((caught) => caught);
+        expect(error).toMatchObject({ status: 503, retryBudgetExhausted: true });
+        expect(fetchMock).toHaveBeenCalledTimes(2);
+      } finally {
+        if (previousRetries === undefined) delete process.env.JOBS_CRAWLER_RETRIES;
+        else process.env.JOBS_CRAWLER_RETRIES = previousRetries;
+        if (previousBaseMs === undefined) delete process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+        else process.env.JOBS_CRAWLER_RETRY_BASE_MS = previousBaseMs;
+      }
+    });
   });
 
   // ── slugify (imported from crawler-template) ──

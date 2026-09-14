@@ -82661,6 +82661,123 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-latte-e-agricoltura-svizzera-studi': {
+    title: 'Studi agricoli: guadagni bassi per il latte in Svizzera',
+    description: 'Studio FHNW sui redditi agricoli in Svizzera: produttori di latte a 8.30 franchi all\'ora contro i 73.60 della colza. Dati e aumenti necessari. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, studi, agricoli, guadagni, bassi',
+    ogTitle: 'Guadagni agricoltura in Svizzera: latte a 8.30 franchi l\'ora',
+    ogDescription: 'Un\'analisi approfondita basata sullo studio della FHNW svela i dati sui redditi orari degli agricoltori svizzeri, evidenziando il divario tra la produzione lattiera e le colture vegetali come la colza.',
+    canonicalPath: '/articoli-svizzera/latte-e-agricoltura-svizzera-studi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Studi agricoli: guadagni bassi per il latte in Svizzera",
+      "description": "Studio FHNW sui redditi agricoli in Svizzera: produttori di latte a 8.30 franchi all'ora contro i 73.60 della colza. Dati e aumenti necessari. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/latte-e-agricoltura-svizzera-studi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Produttori di latte e agricoltura in Svizzera secondo lo studio FHNW"
+      },
+      "datePublished": "2026-09-14T00:08:47+00:00",
+      "dateModified": "2026-09-14T00:08:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/latte-e-agricoltura-svizzera-studi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ps-chiede-cpi-su-f35': {
+    title: 'F-35, il PS chiede una Commissione parlamentare d\'inchiesta',
+    description: 'Il PS avvia l\'iter per una Commissione parlamentare d\'inchiesta sull\'acquisto dei caccia F-35 per verificare trasparenza, costi e procedure del Dipartimento.',
+    keywords: 'frontalieri, ticino, svizzera, italia, f-35, chiede, commissione, parlamentare',
+    ogTitle: 'F-35, il PS chiede una Commissione parlamentare d\'inchiesta',
+    ogDescription: 'Il Partito socialista richiede ufficialmente l\'istituzione di una CPI per fare luce sull\'acquisto dei caccia F-35 e sulla correttezza delle informazioni fornite al Parlamento.',
+    canonicalPath: '/articoli-svizzera/ps-chiede-cpi-su-f35/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "F-35, il PS chiede una Commissione parlamentare d'inchiesta",
+      "description": "Il PS avvia l'iter per una Commissione parlamentare d'inchiesta sull'acquisto dei caccia F-35 per verificare trasparenza, costi e procedure del Dipartimento.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ps-chiede-cpi-su-f35.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna, sede del Parlamento svizzero."
+      },
+      "datePublished": "2026-09-14T00:16:27+00:00",
+      "dateModified": "2026-09-14T00:16:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ps-chiede-cpi-su-f35/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-permesso-c-nidvaldo-requisiti': {
+    title: 'Permesso C Canton Nidvaldo: requisiti e domanda',
+    description: 'Guida completa al permesso di domicilio C nel Canton Nidvaldo: anni richiesti, criteri di integrazione, lingua e procedura di domanda. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, canton, nidvaldo, requisiti',
+    ogTitle: 'Permesso C nel Canton Nidvaldo: requisiti e domanda',
+    ogDescription: 'Approfondimento completo sui requisiti, i criteri di integrazione, le competenze linguistiche e la procedura per ottenere il permesso di domicilio C nel Canton Nidvaldo.',
+    canonicalPath: '/articoli-svizzera/permesso-c-nidvaldo-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso C Canton Nidvaldo: requisiti e domanda",
+      "description": "Guida completa al permesso di domicilio C nel Canton Nidvaldo: anni richiesti, criteri di integrazione, lingua e procedura di domanda. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-c-nidvaldo-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio amministrativo nel Canton Nidvaldo"
+      },
+      "datePublished": "2026-09-14T00:24:26+00:00",
+      "dateModified": "2026-09-14T00:24:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-c-nidvaldo-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
