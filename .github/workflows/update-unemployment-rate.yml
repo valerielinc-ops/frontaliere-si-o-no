@@ -77,6 +77,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          node scripts/ci/validate-generated-data.mjs \
+            --kind unemployment \
+            --file public/data/switzerland-unemployment-rate.json
+
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 

@@ -73,6 +73,9 @@ jobs:
 
       - name: Commit snapshot history
         run: |
+          node scripts/ci/validate-generated-data.mjs \
+            --kind evergreen \
+            --file data/evergreen-pool-history.json
           if [ -n "$(git status --porcelain data/evergreen-pool-history.json)" ]; then
             git config user.name "Valerie Linc"
             git config user.email "valerielinc@gmail.com"
