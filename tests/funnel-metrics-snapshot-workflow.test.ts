@@ -7,10 +7,12 @@ const workflow = readFileSync(
 );
 
 describe('funnel-metrics-snapshot persistence contract', () => {
-  it('rebases and pushes the ref that the workflow actually checked out', () => {
+  it('delegates branch-aware rebase and push to the shared retry helper', () => {
     expect(workflow).toContain('PUSH_BRANCH="${GITHUB_REF_NAME:-main}"');
-    expect(workflow).toContain('git pull --rebase origin "$PUSH_BRANCH"');
-    expect(workflow).toContain('git push origin "HEAD:$PUSH_BRANCH"');
+    expect(workflow).toContain('bash scripts/lib/git-push-with-retry.sh');
+    expect(workflow).toContain('--branch "$PUSH_BRANCH"');
+    expect(workflow).toContain('--max-attempts 3');
     expect(workflow).not.toContain('git pull --rebase origin main');
+    expect(workflow).not.toContain('git pull --rebase origin "$PUSH_BRANCH"');
   });
 });

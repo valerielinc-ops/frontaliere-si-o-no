@@ -204,6 +204,8 @@ describe('SEO health live runner', () => {
     expect(graph.findings.map((finding) => finding.code)).toContain('sitemap-no-trailing-slash');
 
     const root = mkdtempSync(join(tmpdir(), 'seo-health-dry-run-'));
+    const previousRunId = process.env.GITHUB_RUN_ID;
+    delete process.env.GITHUB_RUN_ID;
     try {
       const report = await runSeoHealthLoop({
         options: {
@@ -240,6 +242,8 @@ describe('SEO health live runner', () => {
       expect(existsSync(join(root, 'state.json'))).toBe(false);
       expect(existsSync(join(root, 'history.jsonl'))).toBe(false);
     } finally {
+      if (previousRunId === undefined) delete process.env.GITHUB_RUN_ID;
+      else process.env.GITHUB_RUN_ID = previousRunId;
       rmSync(root, { recursive: true, force: true });
     }
   });
