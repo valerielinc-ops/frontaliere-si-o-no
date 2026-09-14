@@ -2,6 +2,32 @@
 
 Extracted from `AGENTS.md` to reduce context window usage (same pattern as `docs/CI-CD-PIPELINE.md`). `AGENTS.md` keeps the operative rule; this file keeps the incident narrative, citations, and root-cause detail behind each rule. Not injected into every agent session — load on demand.
 
+## issue-triad-7919-7704-7699
+
+Audit del 2026-09-14 per il recupero del checkpoint orfano `a67d4d4e2dc` di
+#7919. Il confronto `origin/main...a67d4d4e2dc` ha trovato gli stessi 10 path
+del checkpoint, ma i percorsi di produzione erano già atterrati su `origin/main`:
+
+- #7919 è coperta da #8579, commit `9cce3861b111`: `index.html` blocca la
+  rejection `InvalidStateError: Object store cannot be found in the database`,
+  `services/benignErrorPatterns.ts` la classifica e i servizi Analytics/
+  Firestore/saved-jobs applicano il recovery IndexedDB; i test root e di
+  classificazione sono presenti.
+- #7704 e #7699 sono coperte da #8573, commit `d2ea14d92d65`: il repair importa
+  `scripts/lib/sanitize-body-braces.mjs` prima di scrivere i body, e il tier
+  Hugging Face rifiuta sorgenti oltre 2000 caratteri marcandole incomplete,
+  senza inviare un prefisso pubblicabile; entrambi hanno test deterministici.
+
+Il checkpoint è stato quindi conservato come evidenza server-side ma non
+cherry-pickato: avrebbe duplicato fix già live. Il solo delta non sovrapposto,
+`build-plugins/constants.ts` e il relativo test early-boot, è stato scartato
+perché `bin/where-to-fix` lo classifica `adapted` verso `host/constants.ts` del
+corpus; #8579 lo aveva già qualificato come falso positivo per il fix root in
+`index.html`. La manifest considera invece `free-translate.mjs`
+`identical` (direzione sito → corpus) e `sanitize-body-braces.mjs`
+`corpus-only-pending` (direzione sito, senza import dal corpus). Nessun
+`data/`/`public/` è stato rigenerato o modificato.
+
 ## sibling-pattern-fix
 
 Pre-empt del 🔴 reviewer "stesso antipattern nel file gemello" (bucket `sibling-class-fix` ×7 in 14gg, #1348) → risparmia un ciclo review+fix (~3M token quota Max). Un commento o un titolo che descrive ancora il meccanismo vecchio dopo un rename = 🟡 stale ricorrente (6 PR cluster CDN #1185–1311: jsDelivr→cdn-domain, orphan-branch→Pages).
