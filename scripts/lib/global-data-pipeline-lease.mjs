@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
- * Cross-repository lease for the canonical jobs-data writer.
+ * Cross-repository Firestore lease helper for the canonical jobs-data writer
+ * and other explicitly scoped cross-repository critical sections.
  *
  * GitHub Actions concurrency groups are repository-local. The crawler groups
  * run in the site repository while translation runs are dispatched from the
@@ -8,10 +9,12 @@
  * already backs the project configuration and is reachable from both runners;
  * this helper uses its REST transaction API and only Node built-ins.
  *
- * The lease is deliberately acquired around the commit/push helper, not around
- * crawling or translation. A crashed runner leaves an expiry that the next
- * writer can take over. A release deletes only a document still owned by the
- * releasing run.
+ * The default document is deliberately acquired around the commit/push
+ * helper, not around crawling or translation. Callers that need a separate
+ * critical section may pass `leaseDoc`; each document is still arbitrated by
+ * the same Firestore transaction protocol. A crashed runner leaves an expiry
+ * that the next owner can take over. A release deletes only a document still
+ * owned by the releasing run.
  */
 import fs from 'node:fs';
 import { createSign } from 'node:crypto';
@@ -234,8 +237,8 @@ async function beginTransaction(baseUrl, token) {
   return body.transaction;
 }
 
-async function readLease(baseUrl, token, transaction) {
-  const url = baseUrl + '/' + GLOBAL_DATA_PIPELINE_LEASE_DOC
+async function readLease(baseUrl, token, transaction, leaseDoc) {
+  const url = baseUrl + '/' + leaseDoc
     + '?transaction=' + encodeURIComponent(transaction);
   try {
     const document = await firestoreRequest(url, token, { method: 'GET' });
@@ -257,7 +260,17 @@ async function commitTransaction(baseUrl, token, transaction, write) {
   });
 }
 
-async function transact({ action, credentials, owner, repo, workflow, runId, now = Date.now(), ttlMs }) {
+async function transact({
+  action,
+  credentials,
+  owner,
+  repo,
+  workflow,
+  runId,
+  now = Date.now(),
+  ttlMs,
+  leaseDoc = GLOBAL_DATA_PIPELINE_LEASE_DOC,
+}) {
   const projectId = credentials.project_id || process.env.GOOGLE_CLOUD_PROJECT;
   if (!projectId) throw new Error('service account project_id is missing');
   const baseUrl = 'https://firestore.googleapis.com/v1/projects/'
@@ -267,7 +280,7 @@ async function transact({ action, credentials, owner, repo, workflow, runId, now
 
   for (let attempt = 1; attempt <= TRANSACTION_ATTEMPTS; attempt++) {
     const transaction = await beginTransaction(baseUrl, token);
-    const current = await readLease(baseUrl, token, transaction);
+    const current = await readLease(baseUrl, token, transaction, leaseDoc);
     const decision = leaseDecision(current.lease, owner, now);
 
     if (action === 'acquire' && decision.action === 'busy') {
@@ -277,7 +290,7 @@ async function transact({ action, credentials, owner, repo, workflow, runId, now
       return { acquired: false, released: false, busy: false, notOwner: current.exists };
     }
 
-    const documentName = baseUrl + '/' + GLOBAL_DATA_PIPELINE_LEASE_DOC;
+    const documentName = baseUrl + '/' + leaseDoc;
     const precondition = current.exists
       ? { currentDocument: { updateTime: current.updateTime } }
       : { currentDocument: { exists: false } };
