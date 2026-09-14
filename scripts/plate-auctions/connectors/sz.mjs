@@ -8,7 +8,7 @@ import {
 export const SZ_CANTON = "Svitto";
 export const SZ_PLATE_CODE = "SZ";
 export const SZ_AUCTION_URL =
-  "https://cariegov.sz.ch/ecari-auction/ui/app/init?locale=de_ch";
+  "https://cariegov.sz.ch/ecari-auction/ui/app/init";
 
 export function parseSzAuctionRows(
   html,

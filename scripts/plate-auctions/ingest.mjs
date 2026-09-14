@@ -164,6 +164,7 @@ export async function collectPlateAuctions({
       results[key] = { rows: outputRows, fetchedAt, fetchedRowCount: rows.length, previousRows: previousForSource, previousSuccessAt, zeroRows: rows.length === 0, sourceDisappeared, qualityIssues: quality.issues, error: null };
     } catch (error) {
       const previousForSource = previousRows.filter((row) => row.sourceKey === source.plateCode);
+      console.warn(`[collectPlateAuctions:${key}] ${error instanceof Error ? error.message : String(error)}`);
       results[key] = { rows: [], fetchedAt, fetchedRowCount: 0, previousRows: previousForSource, previousSuccessAt: previous?.sources?.[key]?.lastSuccessAt || previous?.generatedAt, error };
     }
   }
