@@ -8690,11 +8690,11 @@
     },
     {
       "id": "eth-zurich-d4278fe0912f",
-      "slug": "recruitment-admissions-manager-eth-zurich-ch",
+      "slug": "responsabile-reclutamento-e-ammissioni-eth-zurich-zurich",
       "slugByLocale": {
-        "it": "recruitment-admissions-manager-eth-zurich-ch",
+        "it": "responsabile-reclutamento-e-ammissioni-eth-zurich-zurich",
         "en": "recruitment-admissions-manager-eth-zurich-ch",
-        "de": "recruitment-admissions-manager-eth-zurich-ch",
+        "de": "rekrutierungs-und-zulassungsmanager-eth-zurich-zurich",
         "fr": "gestionnaire-du-recrutement-et-des-admissions-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
@@ -8749,7 +8749,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "recruitment-admissions-manager-eth-zurich-ch"
+        ],
+        "de": [
+          "recruitment-admissions-manager-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "recruitment-admissions-manager-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-f953d7c0156d",

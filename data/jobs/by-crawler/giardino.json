@@ -279,7 +279,7 @@
         "it": "assistente-giardino-group-champfer",
         "en": "assistant-concierge-giardino-group-champfer",
         "de": "assistant-concierge-giardino-group-champfer",
-        "fr": "assistant-concierge-giardino-group-champfer"
+        "fr": "assistante-conciergerie-giardino-group-champfer"
       },
       "company": "Giardino Group",
       "companyKey": "giardino",
@@ -346,6 +346,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "assistant-concierge-giardino-group-champfer"
+        ],
+        "fr": [
           "assistant-concierge-giardino-group-champfer"
         ]
       },
@@ -558,7 +561,7 @@
       "slug": "ospitalita-allrounder-giardino-group-champfer",
       "slugByLocale": {
         "it": "ospitalita-allrounder-giardino-group-champfer",
-        "en": "hospitality-allrounder-giardino-group-champfer-llu6hw",
+        "en": "hospitality-all-rounder-giardino-group-champfer",
         "de": "hospitality-allrounder-giardino-group-champfer-llu6hw",
         "fr": "accueil-allrounder-giardino-group-champfer"
       },
@@ -621,7 +624,8 @@
       },
       "previousSlugs": [
         "accueil-allrounder-giardino-group-champfer",
-        "hospitality-allrounder-giardino-group-champfer"
+        "hospitality-allrounder-giardino-group-champfer",
+        "hospitality-allrounder-giardino-group-champfer-llu6hw"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -629,7 +633,8 @@
           "hospitality-allrounder-giardino-group-champfer"
         ],
         "en": [
-          "hospitality-allrounder-giardino-group-champfer"
+          "hospitality-allrounder-giardino-group-champfer",
+          "hospitality-allrounder-giardino-group-champfer-llu6hw"
         ],
         "de": [
           "hospitality-allrounder-giardino-group-champfer"
@@ -752,7 +757,7 @@
       "slug": "capo-di-grado-giardino-group-champfer",
       "slugByLocale": {
         "it": "capo-di-grado-giardino-group-champfer",
-        "en": "chef-de-rang-giardino-group-champfer-xfwxht",
+        "en": "chief-of-rank-giardino-group-champfer",
         "de": "chef-de-rang-giardino-group-champfer-xfwxht",
         "fr": "chef-de-rang-giardino-group-champfer-xfwxht"
       },
@@ -816,14 +821,16 @@
         ]
       },
       "previousSlugs": [
-        "chef-de-rang-giardino-group-champfer"
+        "chef-de-rang-giardino-group-champfer",
+        "chef-de-rang-giardino-group-champfer-xfwxht"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-de-rang-giardino-group-champfer"
         ],
         "en": [
-          "chef-de-rang-giardino-group-champfer"
+          "chef-de-rang-giardino-group-champfer",
+          "chef-de-rang-giardino-group-champfer-xfwxht"
         ],
         "de": [
           "chef-de-rang-giardino-group-champfer"
@@ -855,7 +862,7 @@
         "it": "amministratore-giardino-group-champfer",
         "en": "steward-giardino-group-champfer-tl57jw",
         "de": "steward-giardino-group-champfer-tl57jw",
-        "fr": "steward-giardino-group-champfer-tl57jw"
+        "fr": "intendant-giardino-group-champfer"
       },
       "company": "Giardino Group",
       "companyKey": "giardino",
@@ -909,7 +916,8 @@
         ]
       },
       "previousSlugs": [
-        "steward-giardino-group-champfer"
+        "steward-giardino-group-champfer",
+        "steward-giardino-group-champfer-tl57jw"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -922,7 +930,8 @@
           "steward-giardino-group-champfer"
         ],
         "fr": [
-          "steward-giardino-group-champfer"
+          "steward-giardino-group-champfer",
+          "steward-giardino-group-champfer-tl57jw"
         ]
       },
       "needsRetranslation": true,
@@ -1118,9 +1127,9 @@
     },
     {
       "id": "giardino-111f635d1923",
-      "slug": "staff-cook-giardino-group-champfer",
+      "slug": "cuoco-del-personale-giardino-group-champfer",
       "slugByLocale": {
-        "it": "staff-cook-giardino-group-champfer",
+        "it": "cuoco-del-personale-giardino-group-champfer",
         "en": "staff-cook-giardino-group-champfer",
         "de": "staff-cook-giardino-group-champfer",
         "fr": "cuisiniere-du-personnel-giardino-group-champfer"
@@ -1181,11 +1190,13 @@
         ]
       },
       "previousSlugs": [
-        "cuisiniere-du-personnel-giardino-group-champfer"
+        "cuisiniere-du-personnel-giardino-group-champfer",
+        "staff-cook-giardino-group-champfer"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cuisiniere-du-personnel-giardino-group-champfer"
+          "cuisiniere-du-personnel-giardino-group-champfer",
+          "staff-cook-giardino-group-champfer"
         ]
       },
       "needsRetranslation": true,

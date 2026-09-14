@@ -906,7 +906,7 @@
       "slugByLocale": {
         "it": "leader-del-servizio-f-b-marriott-international-zurich",
         "en": "f-b-service-shiftleader-marriott-zurich",
-        "de": "f-b-service-shiftleader-marriott-zurich",
+        "de": "schichtleiter-im-f-b-service-marriott-international-zurich",
         "fr": "chef-de-quart-de-service-f-b-marriott-international-zurich"
       },
       "company": "Marriott International",
@@ -975,6 +975,9 @@
       "previousSlugsByLocale": {
         "it": [
           "f-b-service-shiftleader-marriott-zurich"
+        ],
+        "de": [
+          "f-b-service-shiftleader-marriott-zurich"
         ]
       },
       "previousSlugs": [
@@ -1040,7 +1043,6 @@
       },
       "previousSlugs": [
         "event-manager-marriott-zurich",
-        "gestione-eventi-marriott-international-zurich-a2671d",
         "gestione-eventi-marriott-international-zurich",
         "veranstaltungsleiter-marriott-international-zurich",
         "gestionnaire-d-evenements-marriott-international-zurich",
@@ -1049,7 +1051,6 @@
       "previousSlugsByLocale": {
         "it": [
           "event-manager-marriott-zurich",
-          "gestione-eventi-marriott-international-zurich-a2671d",
           "gestione-eventi-marriott-international-zurich",
           "veranstaltungsleiter-marriott-international-zurich",
           "gestionnaire-d-evenements-marriott-international-zurich",
@@ -1086,7 +1087,7 @@
       "slugByLocale": {
         "it": "servizio-eventi-shiftleader-marriott-international-zurich",
         "en": "event-service-shiftleader-marriott-zurich",
-        "de": "event-service-shiftleader-marriott-zurich",
+        "de": "schichtleiter-im-veranstaltungsdienst-marriott-international-zurich",
         "fr": "chef-de-quart-de-service-d-evenement-marriott-international-zurich"
       },
       "company": "Marriott International",
@@ -1145,6 +1146,9 @@
           "event-service-shiftleader-marriott-zurich"
         ],
         "fr": [
+          "event-service-shiftleader-marriott-zurich"
+        ],
+        "de": [
           "event-service-shiftleader-marriott-zurich"
         ]
       },

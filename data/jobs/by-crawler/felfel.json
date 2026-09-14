@@ -403,11 +403,11 @@
     },
     {
       "id": "felfel-e250d3128601",
-      "slug": "it-automation-operations-manager-felfel-zurich",
+      "slug": "responsabile-delle-operazioni-it-e-automazione-felfel-zurich",
       "slugByLocale": {
-        "it": "it-automation-operations-manager-felfel-zurich",
+        "it": "responsabile-delle-operazioni-it-e-automazione-felfel-zurich",
         "en": "it-automation-operations-manager-felfel-zurich",
-        "de": "it-automation-operations-manager-felfel-zurich",
+        "de": "it-und-automatisierungsbetriebsleiter-felfel-zurich",
         "fr": "gestionnaire-des-operations-informatiques-et-d-automatisation-felfel-zurich"
       },
       "company": "FELFEL",
@@ -465,7 +465,18 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "it-automation-operations-manager-felfel-zurich"
+        ],
+        "de": [
+          "it-automation-operations-manager-felfel-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "it-automation-operations-manager-felfel-zurich"
+      ]
     },
     {
       "id": "felfel-96f3d5419d96",
@@ -709,7 +720,7 @@
       "slugByLocale": {
         "it": "field-service-allrounder-lausanne-60-felfel-lausanne",
         "en": "field-service-allrounder-lausanne-60-felfel-lausanne",
-        "de": "field-service-allrounder-lausanne-60-felfel-lausanne",
+        "de": "au-endienst-allrounder-lausanne-60-felfel-lausanne",
         "fr": "service-mobile-allrounder-lausanne-60-felfel-lausanne"
       },
       "company": "FELFEL",
@@ -953,7 +964,7 @@
       "slugByLocale": {
         "it": "responsabile-dello-sviluppo-commerciale-felfel-zurich",
         "en": "business-development-manager-felfel-zurich",
-        "de": "business-development-manager-felfel-zurich",
+        "de": "geschaftsentwicklungsmanager-felfel-zurich",
         "fr": "directeur-du-developpement-des-affaires-felfel-zurich"
       },
       "company": "FELFEL",
@@ -1005,6 +1016,9 @@
           "business-development-manager-felfel-zurich"
         ],
         "fr": [
+          "business-development-manager-felfel-zurich"
+        ],
+        "de": [
           "business-development-manager-felfel-zurich"
         ]
       },

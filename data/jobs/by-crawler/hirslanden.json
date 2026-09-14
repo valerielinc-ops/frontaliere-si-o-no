@@ -561,15 +561,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachfrau-pflegefachmann-mit-uberwachungspflegekurs-a-80-100-hirslanden"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-mit-uberwachungspflegekurs-a-80-100-hirslanden"
-      ]
+      }
     },
     {
       "id": "hirslanden-ec8103a9f02e",
@@ -630,8 +622,7 @@
         "it": [
           "tecnico-di-radiologia-medica-risonanza-magnetica-cardiaca-hirslanden-klinik-geneve",
           "radiologia-medica-technican-irm-cardiaco-hirslanden-klinik-geneve",
-          "technicienn-e-en-radiologie-medicale-irm-cardiaque-hirslanden-geneve",
-          "technicienn-e-en-radiologie-medicale-irm-cardiaque-hirslanden-klinik-geneve"
+          "technicienn-e-en-radiologie-medicale-irm-cardiaque-hirslanden-geneve"
         ],
         "en": [
           "technicienn-e-en-radiologie-medicale-irm-cardiaque-hirslanden-geneve"
@@ -643,8 +634,7 @@
         "medizinisch-technischer-radiologieassistent-kardiale-mrt-hirslanden-klinik-geneve",
         "tecnico-di-radiologia-medica-risonanza-magnetica-cardiaca-hirslanden-klinik-geneve",
         "radiologia-medica-technican-irm-cardiaco-hirslanden-klinik-geneve",
-        "technicienn-e-en-radiologie-medicale-irm-cardiaque-hirslanden-geneve",
-        "technicienn-e-en-radiologie-medicale-irm-cardiaque-hirslanden-klinik-geneve"
+        "technicienn-e-en-radiologie-medicale-irm-cardiaque-hirslanden-geneve"
       ],
       "firstSeenAt": "2026-06-19T12:42:43.204Z",
       "salaryMin": 86500,
@@ -719,8 +709,7 @@
         ],
         "it": [
           "infermiera-di-emergenza-per-adulti-hirslanden-klinik-geneve",
-          "infirmier-e-urgences-adultes-hirslanden-geneve",
-          "infirmier-e-urgences-adultes-hirslanden-klinik-geneve"
+          "infirmier-e-urgences-adultes-hirslanden-geneve"
         ],
         "en": [
           "infirmier-e-urgences-adultes-hirslanden-geneve"
@@ -731,8 +720,7 @@
         "notfallpflegekraft-erwachsene-hirslanden-klinik-geneve",
         "krankenschwester-e-notfall-erwachsene-hirslanden-klinik-geneve",
         "infermiera-di-emergenza-per-adulti-hirslanden-klinik-geneve",
-        "infirmier-e-urgences-adultes-hirslanden-geneve",
-        "infirmier-e-urgences-adultes-hirslanden-klinik-geneve"
+        "infirmier-e-urgences-adultes-hirslanden-geneve"
       ],
       "firstSeenAt": "2026-06-19T21:55:35.121Z",
       "salaryMin": 86500,
@@ -16316,15 +16304,7 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikantin-praktikant-a-pflege-3-6-monate-80-100-hirslanden-hirslanden-klinik-aarau"
-        ]
-      },
-      "previousSlugs": [
-        "praktikantin-praktikant-a-pflege-3-6-monate-80-100-hirslanden-hirslanden-klinik-aarau"
-      ]
+      }
     },
     {
       "id": "hirslanden-c668b67acc6f",
@@ -17878,15 +17858,7 @@
           "maxValue": 83300,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiterin-mitarbeiter-rezeption-a-50-70-hirslanden-hirslanden-salem-spital"
-        ]
-      },
-      "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-rezeption-a-50-70-hirslanden-hirslanden-salem-spital"
-      ]
+      }
     },
     {
       "id": "hirslanden-757287311675",
@@ -26995,16 +26967,14 @@
           "aide-soignant-e-hirslanden-geneve"
         ],
         "it": [
-          "aide-soignant-e-hirslanden-geneve",
-          "aide-soignant-e-hirslanden-klinik-geneve"
+          "aide-soignant-e-hirslanden-geneve"
         ],
         "en": [
           "aide-soignant-e-hirslanden-geneve"
         ]
       },
       "previousSlugs": [
-        "aide-soignant-e-hirslanden-geneve",
-        "aide-soignant-e-hirslanden-klinik-geneve"
+        "aide-soignant-e-hirslanden-geneve"
       ],
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3057,
@@ -27031,7 +27001,7 @@
       "slugByLocale": {
         "de": "physiotherapeute-a-100-hirslanden-hirslanden-clinique-bois-cerf",
         "it": "fisioterapeutica-al-100-hirslanden-klinik-hirslanden-clinique-bois-cerf",
-        "en": "physiotherapeute-a-100-hirslanden-hirslanden-clinique-bois-cerf",
+        "en": "physiotherapist-100-hirslanden-klinik-hirslanden-clinique-bois-cerf",
         "fr": "physiotherapeute-a-100-hirslanden-hirslanden-clinique-bois-cerf"
       },
       "company": "Hirslanden Klinik",
@@ -27078,6 +27048,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "physiotherapeute-a-100-hirslanden-hirslanden-clinique-bois-cerf"
+        ],
+        "en": [
           "physiotherapeute-a-100-hirslanden-hirslanden-clinique-bois-cerf"
         ]
       },

@@ -10072,12 +10072,12 @@
     },
     {
       "id": "interdiscount-84796d87-d03",
-      "slug": "schnuppertag-detailhandelsfachfrau-mann-interdiscount-wil",
+      "slug": "specialista-della-vendita-al-dettaglio-del-giorno-di-prova-uomo-interdiscount-wil",
       "slugByLocale": {
-        "it": "schnuppertag-detailhandelsfachfrau-mann-interdiscount-wil",
-        "en": "schnuppertag-detailhandelsfachfrau-mann-interdiscount-wil",
+        "it": "specialista-della-vendita-al-dettaglio-del-giorno-di-prova-uomo-interdiscount-wil",
+        "en": "trial-day-retail-specialist-man-interdiscount-wil",
         "de": "schnuppertag-detailhandelsfachfrau-mann-interdiscount-jegensdorf-wd75m5",
-        "fr": "schnuppertag-detailhandelsfachfrau-mann-interdiscount-wil"
+        "fr": "specialiste-du-commerce-de-detail-du-jour-d-essai-homme-interdiscount-wil"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",
@@ -10145,7 +10145,21 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "schnuppertag-detailhandelsfachfrau-mann-interdiscount-wil"
+        ],
+        "en": [
+          "schnuppertag-detailhandelsfachfrau-mann-interdiscount-wil"
+        ],
+        "fr": [
+          "schnuppertag-detailhandelsfachfrau-mann-interdiscount-wil"
+        ]
+      },
+      "previousSlugs": [
+        "schnuppertag-detailhandelsfachfrau-mann-interdiscount-wil"
+      ]
     },
     {
       "id": "interdiscount-a2765916-e5d",
@@ -25710,15 +25724,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "logistiker-in-interdiscount-jegenstorf"
-        ]
-      },
-      "previousSlugs": [
-        "logistiker-in-interdiscount-jegenstorf"
-      ]
+      }
     },
     {
       "id": "interdiscount-2558d934-f91",

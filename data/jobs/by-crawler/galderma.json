@@ -377,11 +377,11 @@
     },
     {
       "id": "galderma-00a5f8ecdce2",
-      "slug": "group-commercial-fp-a-manager-galderma-ch",
+      "slug": "responsabile-commerciale-fp-a-del-gruppo-galderma-zug",
       "slugByLocale": {
-        "it": "group-commercial-fp-a-manager-galderma-ch",
+        "it": "responsabile-commerciale-fp-a-del-gruppo-galderma-zug",
         "en": "group-commercial-fp-a-manager-galderma-ch",
-        "de": "group-commercial-fp-a-manager-galderma-ch",
+        "de": "kommerzieller-fp-a-manager-der-gruppe-galderma-zug",
         "fr": "gestionnaire-des-programmes-et-des-programmes-commerciaux-de-groupe-galderma-zug"
       },
       "company": "Galderma",
@@ -437,7 +437,18 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "group-commercial-fp-a-manager-galderma-ch"
+        ],
+        "de": [
+          "group-commercial-fp-a-manager-galderma-ch"
+        ]
+      },
+      "previousSlugs": [
+        "group-commercial-fp-a-manager-galderma-ch"
+      ]
     }
   ]
 }

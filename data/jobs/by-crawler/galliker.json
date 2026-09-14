@@ -880,9 +880,9 @@
     },
     {
       "id": "galliker-1754fc2e16a2",
-      "slug": "chauffeur-c-ce-a-galliker-landquart",
+      "slug": "autista-c-ce-a-galliker-transport-ag-landquart",
       "slugByLocale": {
-        "it": "chauffeur-c-ce-a-galliker-landquart",
+        "it": "autista-c-ce-a-galliker-transport-ag-landquart",
         "en": "chauffeur-c-ce-a-galliker-landquart",
         "de": "chauffeur-c-ce-a-galliker-landquart",
         "fr": "chauffeur-c-ce-a-galliker-landquart"
@@ -942,7 +942,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-c-ce-a-galliker-landquart"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-c-ce-a-galliker-landquart"
+      ]
     },
     {
       "id": "galliker-5680ec5ad948",
@@ -1741,9 +1749,9 @@
     },
     {
       "id": "galliker-68e4bca4d200",
-      "slug": "chauffeur-c-ce-a-jona-galliker-jona",
+      "slug": "autista-c-ce-a-jona-galliker-transport-ag-jona",
       "slugByLocale": {
-        "it": "chauffeur-c-ce-a-jona-galliker-jona",
+        "it": "autista-c-ce-a-jona-galliker-transport-ag-jona",
         "en": "chauffeur-c-ce-a-jona-galliker-jona",
         "de": "chauffeur-c-ce-a-jona-galliker-jona",
         "fr": "chauffeur-c-ce-a-jonas-galliker-transport-ag-jona"
@@ -1803,7 +1811,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-c-ce-a-jona-galliker-jona"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-c-ce-a-jona-galliker-jona"
+      ]
     },
     {
       "id": "galliker-0f0fe9f38e52",
@@ -2608,14 +2624,12 @@
       "previousSlugs": [
         "carrosseriespengler-pw-a-galliker-altishofen",
         "idraulico-carrozzeria-pw-a-galliker-transport-ag-altishofen",
-        "carrosseriespengler-pw-a-galliker-transport-ag-altishofen-3j6f0c",
-        "pw-a-galliker-transport-ag-altishofen"
+        "carrosseriespengler-pw-a-galliker-transport-ag-altishofen-3j6f0c"
       ],
       "previousSlugsByLocale": {
         "it": [
           "carrosseriespengler-pw-a-galliker-altishofen",
-          "idraulico-carrozzeria-pw-a-galliker-transport-ag-altishofen",
-          "pw-a-galliker-transport-ag-altishofen"
+          "idraulico-carrozzeria-pw-a-galliker-transport-ag-altishofen"
         ],
         "en": [
           "carrosseriespengler-pw-a-galliker-transport-ag-altishofen-3j6f0c"
@@ -3451,9 +3465,9 @@
       "slug": "trasporti-auto-con-autista-ce-a-galliker-transport-ag-altishofen",
       "slugByLocale": {
         "it": "trasporti-auto-con-autista-ce-a-galliker-transport-ag-altishofen",
-        "en": "chauffeur-ce-autotransporte-a-galliker-altishofen",
+        "en": "chauffeur-ce-car-transport-a-galliker-transport-ag-altishofen",
         "de": "chauffeur-ce-autotransporte-a-galliker-altishofen",
-        "fr": "chauffeur-ce-autotransporte-a-galliker-altishofen"
+        "fr": "transport-de-voiture-avec-chauffeur-ce-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -3502,6 +3516,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "chauffeur-ce-autotransporte-a-galliker-altishofen"
+        ],
+        "en": [
+          "chauffeur-ce-autotransporte-a-galliker-altishofen"
+        ],
+        "fr": [
           "chauffeur-ce-autotransporte-a-galliker-altishofen"
         ]
       },

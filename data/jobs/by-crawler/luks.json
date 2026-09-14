@@ -4429,7 +4429,7 @@
       "slug": "spitalseelsorgerin-spitalseelsorger-50-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "it": "hospitalseelsorger-hospitalseelsorger-50-luzerner-kantonsspital-luks-luzern",
-        "en": "spitalseelsorgerin-spitalseelsorger-50-luks-luzern",
+        "en": "hospital-chaplain-50-luzerner-kantonsspital-luks-luzern",
         "de": "spitalseelsorgerin-spitalseelsorger-50-luks-luzern",
         "fr": "spitalseelsorgerine-spitalseelsorger-50-luzerner-kantonsspital-luks-luzern"
       },
@@ -4483,6 +4483,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "spitalseelsorgerin-spitalseelsorger-50-luks-luzern"
+        ],
+        "en": [
           "spitalseelsorgerin-spitalseelsorger-50-luks-luzern"
         ]
       },
