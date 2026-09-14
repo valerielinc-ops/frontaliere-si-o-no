@@ -2643,50 +2643,108 @@ function fixPromotion(num) {
   }
 }
 
-/** Epoch ms del merge più recente di una PR fix (`fix/issue-N`) successivo
+/** Pull request numbers cross-referenced from an issue timeline. When a
+ * repository is supplied, cross-references from another repository are
+ * ignored because pull request numbers are repository-local. Pure so the
+ * linked-PR selection can be tested without spending a GitHub API call. */
+export function linkedPullRequestNumbers(raw, repository = '') {
+  if (!Array.isArray(raw)) return [];
+  const expectedRepo = String(repository || '').trim().toLowerCase();
+  const numbers = [];
+  for (const event of raw.flat(Infinity)) {
+    if (event?.event !== 'cross-referenced') continue;
+    if (!event?.source?.issue?.pull_request) continue;
+    const sourceRepo = String(event.source.issue.repository?.full_name || '').trim().toLowerCase();
+    if (expectedRepo && sourceRepo !== expectedRepo) continue;
+    const number = Number(event.source.issue.number);
+    if (Number.isInteger(number) && number > 0) numbers.push(number);
+  }
+  return [...new Set(numbers)];
+}
+
+/** Select the latest merged PR timestamp. Pure; the API lookup happens in
+ * `mergedFixPr`. */
+export function selectLatestMergedFixPr(prs) {
+  let best = null;
+  for (const pr of Array.isArray(prs) ? prs : []) {
+    const at = Date.parse(pr?.mergedAt);
+    if (Number.isNaN(at)) continue;
+    if (best !== null && at <= best.mergedAt) continue;
+    best = { mergedAt: at };
+  }
+  return best;
+}
+
+/** Epoch ms del merge più recente di una PR fix collegata all'issue successivo
  * all'ultimo verdetto, o null se nessuna è mai stata MERGIATA (o su errore gh).
- * `--state merged` e non l'assenza di PR aperte: una PR chiusa SENZA merge non
- * ha fatto atterrare niente, e `hasFixPR` (`--state open`) non le distingue.
- * Fail-safe a null = nessuna gratuità, cioè il ramo bounded pre-esistente. */
+ * La timeline segue anche branch rinominati o creati manualmente; la ricerca
+ * sul vecchio branch resta come fallback per i dati storici senza evento di
+ * cross-reference. `--state merged` e non l'assenza di PR aperte: una PR chiusa
+ * SENZA merge non ha fatto atterrare niente, e `hasFixPR` (`--state open`) non
+ * le distingue. Fail-safe a null = nessuna gratuità, cioè il ramo bounded
+ * pre-esistente. */
 function mergedFixPrAt(num) {
   const mergedAt = mergedFixPr(num)?.mergedAt ?? null;
   const outcomeAt = latestFixOutcomeEntry(num)?.at ?? null;
   return mergeAfterFixOutcomeAt(mergedAt, outcomeAt);
 }
 
-// `gh pr list --json files` risolve `files(first: 100)`: oltre quella soglia la
-// lista e` troncata SENZA segnalarlo. Una vista troncata non e` "nessun
-// workflow", ed e` la differenza fra un verdetto e una falsa affermazione.
-const PR_FILES_PAGE = 100;
-
-/** Ultima PR fix MERGIATA di questa issue: `{mergedAt, mergeSha, files,
- * filesKnown}` (epoch ms, SHA del commit di merge, path modificati), o null se
- * non ne esiste nessuna / errore gh. Sorgente unica del merge di una fix —
- * `mergedFixPrAt` ne è la proiezione — così il ramo DELIVERED e il pass
- * PRODUCTION-PROOF non possono divergere su "quale merge conta". `files`,
- * `mergeSha` e `filesKnown` servono solo al secondo, e costano zero in più:
- * `gh pr list` li restituisce nella stessa chiamata. */
+/** Ultima PR fix MERGIATA di questa issue: `{mergedAt}` oppure null se non ne
+ * esiste nessuna / errore gh. La timeline REST segue i cross-reference
+ * delle PR e quindi non dipende dal nome del branch; la ricerca su
+ * `fix/issue-N` resta come fallback. `mergedFixPrAt` ne è la proiezione, così
+ * il ramo DELIVERED ha una sola sorgente per il merge che conta. */
 function mergedFixPr(num) {
+  const linked = [];
   try {
-    const prs = gh(['pr', 'list', '--repo', REPO, '--head', `fix/issue-${num}`, '--state', 'merged', '--json', 'mergedAt,files,mergeCommit', '--limit', '20']);
-    let best = null;
-    for (const pr of Array.isArray(prs) ? prs : []) {
-      const at = Date.parse(pr?.mergedAt);
-      if (Number.isNaN(at)) continue;
-      if (best === null || at > best.mergedAt) {
-        const files = (pr?.files || []).map((f) => String(f?.path || ''));
-        best = {
-          mergedAt: at,
-          mergeSha: String(pr?.mergeCommit?.oid || ''),
-          files,
-          filesKnown: files.length > 0 && files.length < PR_FILES_PAGE,
-        };
+    const raw = gh([
+      'api',
+      `repos/${REPO}/issues/${num}/timeline?per_page=100`,
+      '--paginate',
+      '--slurp',
+    ]);
+    for (const prNumber of linkedPullRequestNumbers(raw, REPO)) {
+      try {
+        linked.push(gh([
+          'pr',
+          'view',
+          String(prNumber),
+          '--repo',
+          REPO,
+          '--json',
+          'mergedAt',
+        ]));
+      } catch {
+        // A single deleted/inaccessible linked PR must not hide other candidates.
       }
     }
-    return best;
   } catch {
-    return null;
+    // Fall back to the historical branch query below.
   }
+
+  let branchFallback = [];
+  try {
+    branchFallback = gh([
+      'pr',
+      'list',
+      '--repo',
+      REPO,
+      '--head',
+      `fix/issue-${num}`,
+      '--state',
+      'merged',
+      '--json',
+      'mergedAt',
+      '--limit',
+      '20',
+    ]);
+  } catch {
+    // A timeline result is still authoritative when the legacy query fails.
+  }
+  return selectLatestMergedFixPr([
+    ...linked,
+    ...(Array.isArray(branchFallback) ? branchFallback : []),
+  ]);
 }
 
 function minutesSince(iso) {
