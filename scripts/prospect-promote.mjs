@@ -36,7 +36,13 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 import { loadCandidates, saveCandidates, setStatus, byStatus } from './lib/prospector/candidate-store.mjs';
-import { selectForPromotion, clampMinDays, findOpenPromotionPr, GATE_DEFAULTS } from './lib/prospector/promotion-gate.mjs';
+import {
+  selectForPromotion,
+  summarizePromotionBlocks,
+  clampMinDays,
+  findOpenPromotionPr,
+  GATE_DEFAULTS,
+} from './lib/prospector/promotion-gate.mjs';
 import { loadCoverage } from './lib/prospector/coverage.mjs';
 import { ROOT, PROSPECTOR_DIR } from './lib/prospector/config.mjs';
 import { validatePrBodyFile } from './ci/pr-body-check-gate.mjs';
@@ -263,7 +269,8 @@ if (inFlight) {
 console.log('═══ Prospector · PROMOTE ═══');
 console.log(`candidati graduati "promoted": ${byStatus(store, 'promoted').length}`);
 console.log(`passano il gate di produzione: ${promotable.length}${capped ? ` (+${capped} oltre il tetto di ${maxPerRun}, rinviati)` : ''}`);
-console.log(`fermati dal gate: ${blocked.length}\n`);
+const blockedSummary = summarizePromotionBlocks(blocked);
+console.log(`fermati dal gate: ${blocked.length} (${blockedSummary.stabilityOnly} solo stabilita'; ${blockedSummary.other} altre condizioni)\n`);
 
 // Why each one was held back. With nobody watching, this IS the review.
 const reasonTally = {};
@@ -514,7 +521,7 @@ ${bullets}${relaxedNote}
 
 - **by construction** — nessun parser scritto a mano: cio' che e' specifico del datore vive nella spec dichiarativa sotto \`data/prospector/crawlers/\`, e l'estrazione in produzione e' la stessa che il gate ha misurato.
 - **per scelta** — al massimo ${maxPerRun} crawler per giro. Una pipeline non presidiata che ne aggiunge dieci al giorno e' recuperabile, una che ne aggiunge quattrocento no.
-- **blocked: serve una run successiva** — ${blocked.length} candidati graduati non hanno superato il gate; le cause sono nel log dello stadio PROMOTE e la piu' frequente e' la stabilita' su due giorni, che si risolve da sola al giro dopo.
+- **blocked: serve una run successiva** — ${blocked.length} candidati graduati non hanno superato il gate (${blockedSummary.stabilityOnly} solo per la stabilita' su due giorni; ${blockedSummary.other} per altre condizioni). Le cause dettagliate sono nel log dello stadio PROMOTE: solo il primo gruppo si risolve con una run successiva.
 `;
 
 // Il body sopra non cita mai i file `.github/workflows/**` che
