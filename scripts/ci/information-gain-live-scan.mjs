@@ -58,6 +58,8 @@ import {
   scoreCohorts,
   resolveInventoryEntry,
   MIN_COHORT_PAGES,
+  skeletonHashHex,
+  isFamilyWideMeasure,
 } from '../lib/informationGain.mjs';
 import { INFORMATION_GAIN_GATE } from '../audit-information-gain.mjs';
 
@@ -182,10 +184,12 @@ export function classifyCohorts(cohorts, { floor, tolerance, target, inventory }
   const opportunities = [];
 
   for (const cohort of cohorts) {
-    // Same prefix-relation resolution as the dist gate (issue #7384): this
-    // scan samples 12 URLs per sitemap, so its labels are narrower than the
-    // family stem even more often than the dist auditor's.
-    const entry = resolveInventoryEntry(inventory, cohort.label);
+    // Same resolution as the dist gate (issue #7384): this scan samples 12
+    // URLs per sitemap, so its labels are narrower than the family stem even
+    // more often than the dist auditor's — and for a cohort whose label carries
+    // the `~` anti-collision suffix the stem does not resolve at all, which is
+    // why the identity passed here is the template's `skeletonHash` (#7382).
+    const entry = resolveInventoryEntry(inventory, cohort.label, skeletonHashHex(cohort.skeletonHash));
     if (entry === null) {
       if (cohort.medianIgs < floor) {
         regressions.push({ ...cohort, recorded: null, inventoryKey: null, reason: 'below-floor' });
@@ -197,7 +201,7 @@ export function classifyCohorts(cohorts, { floor, tolerance, target, inventory }
     const { key: inventoryKey, value: recorded } = entry;
     if (cohort.medianIgs < recorded - tolerance) {
       regressions.push({ ...cohort, recorded, inventoryKey, reason: 'regressed-vs-inventory' });
-    } else if (cohort.medianIgs >= floor && inventoryKey === cohort.label) {
+    } else if (cohort.medianIgs >= floor && isFamilyWideMeasure(inventoryKey, cohort.label)) {
       // Asimmetria voluta, stessa del gate su dist: il ratchet si stringe su
       // un campione (una sotto-famiglia sotto la baseline è già una prova di
       // peggioramento) ma si allenta solo su una misura che copre la famiglia
@@ -243,7 +247,7 @@ async function main() {
   const opportunity = opportunities[0] ?? null;
 
   const pct = (v) => `${v.toFixed(1).replace('.', ',')} %`;
-  const inventoryOf = (c) => resolveInventoryEntry(KNOWN_LOW_GAIN_COHORTS, c.label);
+  const inventoryOf = (c) => resolveInventoryEntry(KNOWN_LOW_GAIN_COHORTS, c.label, skeletonHashHex(c.skeletonHash));
   const table = gated
     .map(
       (c) =>
