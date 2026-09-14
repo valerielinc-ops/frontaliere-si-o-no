@@ -124,6 +124,50 @@ describe('decontaminate-prev-slugs: flat previousSlugs redirect', () => {
     }
   });
 
+  it('routes a fresh writer payload to a unique owner already present in the fleet', async () => {
+    const { decontaminateEntries } = await import('../scripts/decontaminate-prev-slugs.mjs');
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'decontaminate-writer-fleet-'));
+    const claimantFile = path.join(tmpDir, 'a-claimant.json');
+    const ownerFile = path.join(tmpDir, 'z-owner.json');
+    const owner = {
+      id: 'owner',
+      url: 'https://owner.example/jobs/owner',
+      previousSlugs: [] as string[],
+    };
+    const ownerSlug = `owner-route-${stableSlugHash(owner)}`;
+    const claimant = {
+      id: 'claimant',
+      url: 'https://claimant.example/jobs/claimant',
+      previousSlugs: [ownerSlug],
+    };
+    const claimantEntry = { filePath: claimantFile, slice: { jobs: [claimant] } };
+    const ownerEntry = { filePath: ownerFile, slice: { jobs: [owner] } };
+    const writes: Array<{ filePath: string; phase: string }> = [];
+
+    try {
+      const result = decontaminateEntries([claimantEntry, ownerEntry], {
+        sourceEntries: [claimantEntry],
+        apply: true,
+        writeSlice: (filePath: string, slice: unknown, context: { phase: string }) => {
+          writes.push({ filePath, phase: context.phase });
+          fs.writeFileSync(filePath, JSON.stringify(slice));
+        },
+      });
+
+      expect(result.moved).toBe(1);
+      expect(writes).toEqual([
+        { filePath: ownerFile, phase: 'cross-file-target' },
+        { filePath: claimantFile, phase: 'final' },
+      ]);
+      expect(JSON.parse(fs.readFileSync(claimantFile, 'utf8')).jobs[0].previousSlugs)
+        .toEqual([]);
+      expect(JSON.parse(fs.readFileSync(ownerFile, 'utf8')).jobs[0].previousSlugs)
+        .toEqual([ownerSlug]);
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    }
+  });
+
   it('keeps the claimant route recoverable when a final write fails, then converges on retry', async () => {
     const { processFiles } = await import('../scripts/decontaminate-prev-slugs.mjs');
     const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'decontaminate-retry-'));
