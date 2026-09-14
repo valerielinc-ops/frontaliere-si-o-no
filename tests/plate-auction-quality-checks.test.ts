@@ -126,6 +126,35 @@ describe('checkPlateAuctionQuality', () => {
     const issues = checkPlateAuctionQuality([auction], undefined, NOW);
     expect(issues.filter((i) => i.code === 'source-changed')).toEqual([]);
   });
+
+  it('does not call an expired disappeared record a source failure', () => {
+    const previous = makeAuction({
+      auctionStatus: 'active',
+      endsAt: '2026-08-20T00:00:00.000Z',
+    });
+    const issues = checkPlateAuctionQuality([], new Map([[previous.id, previous]]), NOW);
+    expect(issues.filter((i) => i.code === 'source-disappeared')).toEqual([]);
+    expect(issues.some((i) => i.code === 'zero-row-anomaly')).toBe(true);
+  });
+
+  it('keeps a future disappeared record as a source failure', () => {
+    const previous = makeAuction({
+      auctionStatus: 'active',
+      endsAt: '2026-09-20T00:00:00.000Z',
+    });
+    const issues = checkPlateAuctionQuality([], new Map([[previous.id, previous]]), NOW);
+    expect(issues).toEqual(expect.arrayContaining([
+      expect.objectContaining({ id: previous.id, code: 'source-disappeared' }),
+    ]));
+  });
+
+  it('keeps a disappeared record without a deadline as a source failure', () => {
+    const previous = makeAuction({ auctionStatus: 'active', endsAt: undefined });
+    const issues = checkPlateAuctionQuality([], new Map([[previous.id, previous]]), NOW);
+    expect(issues).toEqual(expect.arrayContaining([
+      expect.objectContaining({ id: previous.id, code: 'source-disappeared' }),
+    ]));
+  });
 });
 
 describe('derivePlateAuctionDataConfidence', () => {

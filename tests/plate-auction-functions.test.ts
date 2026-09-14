@@ -83,7 +83,11 @@ describe('plate-auction Firestore batching', () => {
     expect(firestore.sourceSets.find((entry) => entry.id === 'gr')).toMatchObject({
       value: { status: 'degraded', errorCode: 'source_disappeared' },
     });
+    expect(firestore.sourceSets.find((entry) => entry.id === 'ti')).toMatchObject({
+      value: { status: 'blocked', rowCount: 0, errorCode: null },
+    });
     expect(result.summaries.gr).toMatchObject({ status: 'degraded', errorCode: 'source_disappeared' });
+    expect(result.summaries.ti).toMatchObject({ status: 'blocked', rowCount: 0 });
   });
 
   it('closes expired rows even when the upstream feed returns zero rows', async () => {

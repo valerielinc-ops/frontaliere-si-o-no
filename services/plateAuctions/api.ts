@@ -13,6 +13,7 @@ export const PLATE_AUCTION_API_SCHEMA = 1;
 export interface PlateAuctionSourceSnapshot extends PlateAuctionSourceEntry {
   lastFetchedAt?: string;
   lastSuccessAt?: string;
+  lastCheckedAt?: string;
   rowCount: number;
   errorCode?: string;
 }
@@ -149,6 +150,7 @@ function sanitizeSource(value: unknown): PlateAuctionSourceSnapshot | null {
     rowCount,
     ...(typeof value.lastFetchedAt === 'string' ? { lastFetchedAt: value.lastFetchedAt } : {}),
     ...(typeof value.lastSuccessAt === 'string' ? { lastSuccessAt: value.lastSuccessAt } : {}),
+    ...(typeof value.lastCheckedAt === 'string' ? { lastCheckedAt: value.lastCheckedAt } : {}),
     ...(typeof value.errorCode === 'string' ? { errorCode: value.errorCode } : {}),
     ...(typeof value.notes === 'string' ? { notes: value.notes } : {}),
   };

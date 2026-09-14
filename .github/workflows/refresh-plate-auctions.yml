@@ -1,0 +1,126 @@
+name: Refresh Plate Auctions
+
+on:
+  schedule:
+    # Offset from the Firebase collector so the static snapshot has a clean
+    # source window before the deploy rebuilds the SEO pages and sitemap.
+    - cron: "17 */6 * * *"
+  workflow_dispatch: {}
+
+concurrency:
+  group: refresh-plate-auctions
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  refresh-plate-auctions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Refresh every active public catalogue
+        run: node scripts/plate-auctions/ingest.mjs
+
+      - name: Fail closed on source health or snapshot drift
+        run: node scripts/plate-auctions/check-health.mjs
+
+      - name: Run plate-auction regression tests
+        run: >-
+          npx vitest run
+          tests/plate-auction-quality-checks.test.ts
+          tests/plate-auction-connectors.test.ts
+          tests/plate-auction-registry.test.ts
+          tests/plate-auction-functions-registry-parity.test.ts
+          tests/plate-auction-public-snapshot.test.ts
+          tests/plate-auction-pages.test.ts
+          tests/plate-auction-navigation.test.ts
+
+      - name: Check generated data diff
+        run: git diff --check
+
+      - name: Load push credentials from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Commit and push static snapshot
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -f public/data/plate-auctions.json
+          if git diff --cached --quiet; then
+            echo "No plate-auction snapshot changes detected."
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "🚘 Refresh Swiss plate-auction snapshot"
+            bash scripts/lib/git-push-with-retry.sh \
+              --regenerate-cmd 'node scripts/plate-auctions/ingest.mjs && node scripts/plate-auctions/check-health.mjs && git add -f public/data/plate-auctions.json'
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+            echo "expected_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Trigger static deploy and sitemap rebuild
+        id: deploy
+        if: steps.commit.outputs.has_changes == 'true'
+        env:
+          EXPECTED_SHA: ${{ steps.commit.outputs.expected_sha }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          deploy_token="${GITHUB_PAT:-${GH_TOKEN:-}}"
+          if [ -z "$deploy_token" ]; then
+            echo "::error::No deploy token available; refusing to record an undeployed plate-auction snapshot."
+            exit 1
+          fi
+          dispatch_output="$(mktemp)"
+          trap 'rm -f "$dispatch_output"' EXIT
+          GITHUB_PAT="$deploy_token" \
+            GITHUB_OUTPUT="$dispatch_output" \
+            EXPECTED_SHA="$EXPECTED_SHA" \
+            bash scripts/lib/trigger-deploy.sh
+          if ! grep -qx 'dispatch_sent=true' "$dispatch_output"; then
+            echo "::error::Deploy trigger returned without dispatch_sent=true; refusing a false-green sitemap update."
+            exit 1
+          fi
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
