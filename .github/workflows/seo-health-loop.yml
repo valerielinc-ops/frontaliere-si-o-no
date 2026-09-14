@@ -265,7 +265,7 @@ jobs:
           retention-days: 30
 
       - name: Report workflow failure
-        if: ${{ always() && (steps.health.outcome == 'failure' || steps.compat_reconcile.outcome == 'failure' || steps.compat_validation.outcome == 'failure' || steps.compat.outcome == 'failure' || steps.health_commit.outcome == 'failure' || steps.deploy.outcome == 'failure') }}
+        if: ${{ always() && inputs.dry_run != true && (steps.health.outcome == 'failure' || steps.compat_reconcile.outcome == 'failure' || steps.compat_validation.outcome == 'failure' || steps.compat.outcome == 'failure' || steps.health_commit.outcome == 'failure' || steps.deploy.outcome == 'failure') }}
         continue-on-error: true
         env:
           GH_REPO: ${{ github.repository }}
