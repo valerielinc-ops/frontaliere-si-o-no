@@ -44,6 +44,16 @@ describe('SELF_HEAL_SCRIPT_CONTENT', () => {
     expect(EARLY_BOOT_CONTENT.endsWith(SELF_HEAL_SCRIPT_CONTENT)).toBe(true);
   });
 
+  it('suppresses Safari IndexedDB object-store errors before the app mounts', () => {
+    expect(EARLY_BOOT_CONTENT).toMatch(/Object store cannot be found in the database/i);
+
+    new Function(EARLY_BOOT_CONTENT)();
+    const reason = new Error('InvalidStateError: Object store cannot be found in the database');
+    const event = Object.assign(new Event('unhandledrejection', { cancelable: true }), { reason });
+
+    expect(window.dispatchEvent(event)).toBe(false);
+  });
+
   it('reloads on a Safari-style link-time SyntaxError ("Importing binding name ... is not found")', async () => {
     const err = Object.assign(new SyntaxError("Importing binding name 'r' is not found."), {});
     window.dispatchEvent(Object.assign(new Event('error'), { error: err, message: err.message }));
