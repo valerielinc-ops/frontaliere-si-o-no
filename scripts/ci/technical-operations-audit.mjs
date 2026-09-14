@@ -451,18 +451,23 @@ function matchingParen(source, openingIndex) {
 function heredocOutputRanges(source) {
   const raw = String(source || '');
   const ranges = [];
-  const heredocRe = /(?:>>|>)\s*["']?\$GITHUB_OUTPUT["']?\s+<<-?\s*(?:(['"])([A-Za-z_][A-Za-z0-9_]*)\1|([A-Za-z_][A-Za-z0-9_]*))[^\r\n]*(?:\r?\n|$)/g;
-  for (const match of raw.matchAll(heredocRe)) {
-    const rangeStart = match.index ?? 0;
-    const bodyStart = rangeStart + match[0].length;
-    const delimiter = match[2] || match[3];
-    const indentation = match[0].includes('<<-') ? '[\\t]*' : '';
-    const terminatorRe = new RegExp(`^${indentation}${delimiter}[ \\t]*(?:\\r?\\n|$)`, 'm');
-    const terminator = raw.slice(bodyStart).match(terminatorRe);
-    ranges.push({
-      start: rangeStart,
-      end: terminator ? bodyStart + (terminator.index ?? 0) : raw.length,
-    });
+  const heredocRes = [
+    /(?:>>|>)\s*["']?\$GITHUB_OUTPUT["']?\s+<<-?\s*(?:(['"])([A-Za-z_][A-Za-z0-9_]*)\1|([A-Za-z_][A-Za-z0-9_]*))[^\r\n]*(?:\r?\n|$)/g,
+    /<<-?\s*(?:(['"])([A-Za-z_][A-Za-z0-9_]*)\1|([A-Za-z_][A-Za-z0-9_]*))\s+(?:>>|>)\s*["']?\$GITHUB_OUTPUT["']?[^\r\n]*(?:\r?\n|$)/g,
+  ];
+  for (const heredocRe of heredocRes) {
+    for (const match of raw.matchAll(heredocRe)) {
+      const rangeStart = match.index ?? 0;
+      const bodyStart = rangeStart + match[0].length;
+      const delimiter = match[2] || match[3] || match[5] || match[6];
+      const indentation = match[0].includes('<<-') ? '[\\t]*' : '';
+      const terminatorRe = new RegExp(`^${indentation}${delimiter}[ \\t]*(?:\\r?\\n|$)`, 'm');
+      const terminator = raw.slice(bodyStart).match(terminatorRe);
+      ranges.push({
+        start: rangeStart,
+        end: terminator ? bodyStart + (terminator.index ?? 0) : raw.length,
+      });
+    }
   }
   return ranges;
 }

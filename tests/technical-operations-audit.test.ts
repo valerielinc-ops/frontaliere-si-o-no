@@ -503,6 +503,27 @@ describe('technical operations audit', () => {
     expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([]);
   });
 
+  it('riconosce anche l’ordine heredoc seguito dalla redirezione verso GITHUB_OUTPUT', () => {
+    const source = [
+      'name: heredoc-output-reversed',
+      'on: [push]',
+      'jobs:',
+      '  check:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: producer',
+      '        id: generated',
+      '        run: |',
+      '          node --input-type=module - <<\'NODE\' >> "$GITHUB_OUTPUT"',
+      "          console.log('ready=true');",
+      '          NODE',
+      '      - name: consumer',
+      '        run: echo "${{ steps.generated.outputs.ready }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/heredoc-output-reversed.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([]);
+  });
+
   it('segue un helper importato da uno script first-party', () => {
     const files = new Map([
       ['/repo/scripts/pull.mjs', [
