@@ -19,6 +19,16 @@ const SCRIPTS = [
   { path: 'scripts/lib/push-locale-shard.sh', overrideVarPattern: /SHARD_SHRINK_GUARD_OVERRIDE_\$\(echo "\$loc" \| tr a-z A-Z\)/ },
 ];
 
+const SSH_TRANSPORT_SCRIPTS = [
+  'scripts/lib/push-section-shard.sh',
+  'scripts/lib/push-locale-shard.sh',
+  'scripts/lib/push-article-shard-incremental.sh',
+  'scripts/lib/compact-article-shard-history.sh',
+  'scripts/lib/deploy-it-pages-prep.sh',
+  '.github/workflows/rerender-article-hubs.yml',
+  'scripts/ci/prune-cdn-assets.mjs',
+];
+
 describe('shard push scripts — safety rail invariants (issue #4881)', () => {
   for (const { path, overrideVarPattern } of SCRIPTS) {
     describe(path, () => {
@@ -125,4 +135,15 @@ describe('scripts/lib/shard-git-helpers.sh — shape', () => {
   it('scrubs the token from the fallback push transcript', () => {
     expect(script).toMatch(/sed\s+"s\|\$SHARD_PUSH_TOKEN\|\*\*\*\|g"/);
   });
+});
+
+describe('SSH deploy paths — transport keepalive', () => {
+  for (const path of SSH_TRANSPORT_SCRIPTS) {
+    it(`${path} keeps long-running SSH operations alive`, () => {
+      const source = read(path);
+      expect(source).toMatch(/ServerAliveInterval=30/);
+      expect(source).toMatch(/ServerAliveCountMax=6/);
+      expect(source).toMatch(/TCPKeepAlive=yes/);
+    });
+  }
 });
