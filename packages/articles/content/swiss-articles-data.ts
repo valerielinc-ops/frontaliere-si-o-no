@@ -19117,6 +19117,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'permesso-c-nidvaldo-requisiti',
+    category: 'pratico',
+    date: '2026-09-14T00:24:26.273Z',
+    image: '/images/blog/permesso-c-nidvaldo-requisiti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

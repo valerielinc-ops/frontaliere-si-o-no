@@ -6373,6 +6373,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ps-chiede-cpi-su-f35.title': 'F-35, il PS chiede una Commissione parlamentare d\'inchiesta',
     'blog.article.ps-chiede-cpi-su-f35.excerpt': 'Il Partito socialista avvia l\'iter per una CPI sull\'acquisto dei caccia F-35, mirando a fare chiarezza su costi, procedure e trasparenza verso il Parlamento.',
     'blog.article.ps-chiede-cpi-su-f35.imageAlt': 'Palazzo federale a Berna, sede del Parlamento svizzero.',
+    'blog.article.permesso-c-nidvaldo-requisiti.title': 'Permesso C Canton Nidvaldo: requisiti e domanda',
+    'blog.article.permesso-c-nidvaldo-requisiti.excerpt': 'Guida completa al permesso di domicilio C nel Cantone di Nidvaldo: anni di residenza, criteri di integrazione e procedura.',
+    'blog.article.permesso-c-nidvaldo-requisiti.imageAlt': 'Edificio amministrativo nel Canton Nidvaldo',
 };
 
 export default blogMetaChIt;

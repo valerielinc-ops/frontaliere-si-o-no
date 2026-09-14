@@ -6373,6 +6373,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ps-chiede-cpi-su-f35.title': 'F-35, the SP calls for a Parliamentary Committee of Inquiry',
     'blog.article.ps-chiede-cpi-su-f35.excerpt': 'The Socialist Party launches the process for an ICC on the purchase of F-35 fighters, aiming to clarify costs, procedures and transparency towards Parliament.',
     'blog.article.ps-chiede-cpi-su-f35.imageAlt': 'Federal Palace in Bern, seat of the Swiss Parliament.',
+    'blog.article.permesso-c-nidvaldo-requisiti.title': 'Permit C Canton Nidvaldo: requirements and application',
+    'blog.article.permesso-c-nidvaldo-requisiti.excerpt': 'Complete guide to residence permit C in the Canton of Nidvaldo: years of residence, integration criteria and procedure.',
+    'blog.article.permesso-c-nidvaldo-requisiti.imageAlt': 'Administrative building in Canton Nidwalden',
 };
 
 export default blogMetaChEn;

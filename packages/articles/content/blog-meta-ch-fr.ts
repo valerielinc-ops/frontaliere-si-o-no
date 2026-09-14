@@ -6373,6 +6373,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ps-chiede-cpi-su-f35.title': 'F-35, le PS demande une commission d\'enquête parlementaire',
     'blog.article.ps-chiede-cpi-su-f35.excerpt': 'Le Parti socialiste entame le processus d\'une CPI sur l\'achat des chasseurs F-35, visant à clarifier les coûts, les procédures et la transparence envers le Parlement.',
     'blog.article.ps-chiede-cpi-su-f35.imageAlt': 'Palais fédéral à Berne, siège du Parlement suisse.',
+    'blog.article.permesso-c-nidvaldo-requisiti.title': 'Permis C canton Nidwald : exigences et demande',
+    'blog.article.permesso-c-nidvaldo-requisiti.excerpt': 'Guide complet du permis de séjour C dans le canton de Nidwald : années de résidence, critères d\'intégration et procédure.',
+    'blog.article.permesso-c-nidvaldo-requisiti.imageAlt': 'Bâtiment administratif dans le canton de Nidwald',
 };
 
 export default blogMetaChFr;
