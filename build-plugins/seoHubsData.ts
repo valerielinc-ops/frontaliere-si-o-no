@@ -67,7 +67,8 @@ export const JOBS_PAGE_SIZE = 100;
 // for IT/EN/DE/FR `companies/all/page-1`, blocking deploys on the
 // post-deploy validation gate. Doubling the page count (more page-N
 // URLs) is harmless — the BFS-depth audit allows up to depth 4 and
-// the hub navigator already links every page-N directly.
+// the long-archive navigator now links page ranges through bounded index
+// pages rather than placing every page-N URL on the parent HTML.
 export const COMPANIES_PAGE_SIZE = 100;
 export const ARTICLES_PAGE_SIZE = 100;
 
@@ -161,6 +162,49 @@ export function paginatedPath(basePath: string, page: number): string {
   return `${trimmed}/page-${page}/`;
 }
 
+/**
+ * Archives above this size use a two-level page navigator. Keeping the small
+ * archive path unchanged avoids adding an intermediate URL where the existing
+ * flat ladder is already bounded and readable.
+ */
+export const PAGINATION_INDEX_THRESHOLD = 25;
+
+/** Number of archive pages assigned to one pagination index page. */
+export function paginationIndexPageSize(totalPages: number): number {
+  return Math.max(1, Math.ceil(Math.sqrt(Math.max(1, Math.floor(totalPages)))));
+}
+
+/** Number of intermediate index pages needed for an archive. */
+export function paginationIndexCount(totalPages: number): number {
+  const normalizedTotal = Math.max(1, Math.floor(totalPages));
+  if (normalizedTotal <= PAGINATION_INDEX_THRESHOLD) return 0;
+  return Math.ceil(normalizedTotal / paginationIndexPageSize(normalizedTotal));
+}
+
+/** Inclusive archive-page range represented by one intermediate index page. */
+export function paginationIndexRange(totalPages: number, indexPage: number): { start: number; end: number } {
+  const normalizedTotal = Math.max(1, Math.floor(totalPages));
+  const indexCount = paginationIndexCount(normalizedTotal);
+  if (indexCount === 0) return { start: 1, end: normalizedTotal };
+  const normalizedIndex = Math.min(indexCount, Math.max(1, Math.floor(indexPage)));
+  const pageSize = paginationIndexPageSize(normalizedTotal);
+  const start = (normalizedIndex - 1) * pageSize + 1;
+  return { start, end: Math.min(normalizedIndex * pageSize, normalizedTotal) };
+}
+
+/** Canonical URL for an intermediate page-range index. */
+export function paginationIndexPath(basePath: string, indexPage: number): string {
+  const trimmed = basePath.endsWith('/') ? basePath.slice(0, -1) : basePath;
+  return `${trimmed}/page-index-${Math.max(1, Math.floor(indexPage))}/`;
+}
+
+/** Localized visible label for a page-range index link. */
+export function paginationIndexLabel(locale: HubLocale, start: number, end: number): string {
+  const word = { it: 'Pagina', en: 'Page', de: 'Seite', fr: 'Page' }[locale];
+  const plural = { it: 'Pagine', en: 'Pages', de: 'Seiten', fr: 'Pages' }[locale];
+  return start === end ? `${word} ${start}` : `${plural} ${start}–${end}`;
+}
+
 /** All canonical hub paths (page-1 only) used by router for staticOverlay match. */
 export function hubBasePaths(): readonly string[] {
   const out: string[] = [];
@@ -207,13 +251,18 @@ export function isSeoHubPath(pathname: string): boolean {
   for (const loc of HUB_LOCALES) {
     const s = HUB_SLUGS[loc];
     // Frontaliere hubs (jobs/sectors/companies/articles) + the svizzera
-    // article archive share the same base-or-/page-N/ matcher. The bare
-    // svizzera hub and individual articles are intentionally excluded — they
-    // route via the SPA blog tab, not as staticOverlay hub HTML.
+    // article archive share the same base-or-/page-N/ matcher. Page-range
+    // indexes are emitted only for non-article archives; keeping that
+    // distinction here prevents a route for an index file that cannot exist.
+    // The bare svizzera hub and individual articles are intentionally
+    // excluded — they route via the SPA blog tab, not as staticOverlay hub
+    // HTML.
     for (const base of [s.jobsAll, s.sectorsAll, s.companiesAll, s.articlesAll, svizzeraArchive[loc]]) {
       if (norm === base) return true;
       const trimmed = base.endsWith('/') ? base.slice(0, -1) : base;
-      if (new RegExp(`^${trimmed.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/page-\\d+/?$`).test(norm)) {
+      const isArticleArchive = base === s.articlesAll || base === svizzeraArchive[loc];
+      const pagePattern = isArticleArchive ? 'page-\\d+' : '(?:page-\\d+|page-index-\\d+)';
+      if (new RegExp(`^${trimmed.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/${pagePattern}/?$`).test(norm)) {
         return true;
       }
     }
