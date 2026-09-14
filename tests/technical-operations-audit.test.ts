@@ -203,6 +203,24 @@ describe('technical operations audit', () => {
     expect(findings.filter((item: any) => item.rule === 'workflow.data-write-without-check')).toHaveLength(1);
   });
 
+  it('mantiene il contesto di git add dopo continuazioni consecutive', () => {
+    const source = [
+      'name: continued-add-twice',
+      'on: [workflow_dispatch]',
+      'jobs:',
+      '  persist:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: commit',
+      '        run: |',
+      '          git add \\',
+      '            \\',
+      '            "data/result.json" && git commit -m result',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/continued-add-twice.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.data-write-without-check')).toHaveLength(1);
+  });
+
   it('mantiene il contesto di redirezione dopo una line-continuation', () => {
     const source = [
       'name: continued-redirect',

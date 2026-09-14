@@ -220,18 +220,30 @@ function shellOperationalText(run, { preserveQuotedWritePaths = false } = {}) {
   let quote = null;
   let quotePrefix = '';
   let quoteContent = '';
-  let logicalLine = '';
+  // This is the current shell command, not the current physical line. Keep it
+  // separate from the masked output so a quoted data path can still inherit
+  // the operational `git add`/redirection prefix across escaped newlines.
+  let logicalCommand = '';
+  let trailingBackslashes = 0;
 
   const append = (text) => {
     output.push(text);
     const parts = text.split('\n');
     line = parts.length > 1 ? parts.at(-1) : `${line}${text}`;
     for (const char of text) {
+      // GitHub's YAML parser normally gives us LF, but accepting CRLF here
+      // keeps the shell-context state independent of the source line ending.
+      if (char === '\r') continue;
       if (char === '\n') {
-        if (logicalLine.endsWith('\\')) logicalLine = logicalLine.slice(0, -1);
-        else logicalLine = '';
+        // A shell continuation is present only after an odd number of trailing
+        // backslashes. Remove the continuation slash but retain the command
+        // prefix while the next physical line is appended.
+        if (trailingBackslashes % 2 === 1) logicalCommand = logicalCommand.slice(0, -1);
+        else logicalCommand = '';
+        trailingBackslashes = 0;
       } else {
-        logicalLine += char;
+        logicalCommand += char;
+        trailingBackslashes = char === '\\' ? trailingBackslashes + 1 : 0;
       }
     }
   };
@@ -297,7 +309,7 @@ function shellOperationalText(run, { preserveQuotedWritePaths = false } = {}) {
       quote = char;
       singleQuoted = char === "'";
       doubleQuoted = char === '"';
-      quotePrefix = logicalLine;
+      quotePrefix = logicalCommand;
       quoteContent = '';
       mask(char);
       continue;
