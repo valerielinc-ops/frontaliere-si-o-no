@@ -98,6 +98,20 @@ jobs:
           # Stessa regex in scripts/ci/lib/constants.mjs — YAML `if:` non può
           # importarla; il drift fra le tre copie lo prende il guard `mirror bash` di
           # tests/redflag-important-marker.test.ts.
+          # Preflight esplicito del runner: un input vuoto non può matchare `a`, quindi
+          # exit 1 dimostra che `grep -P` ha compilato anche il verbo `(*UTF)`. Qualsiasi
+          # altro stato (opzione assente, verbo rifiutato o match inatteso) è un errore
+          # del guard, non «nessun finding».
+          if printf '%s' '' | grep -qP '(*UTF)a'; then
+            echo "::error::grep -P preflight inatteso: il pattern (*UTF)a ha matchato input vuoto."
+            exit 1
+          else
+            marker_probe_status=$?
+            if [ "$marker_probe_status" -ne 1 ]; then
+              echo "::error::grep -P non supporta il preflight (*UTF) (exit $marker_probe_status)."
+              exit 1
+            fi
+          fi
           if printf '%s' "$REVIEW_BODY" | grep -qP '(*UTF)^[^🟡🟢]*(?<!`)🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]'; then
             :
           else

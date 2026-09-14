@@ -1,6 +1,8 @@
 import { describe, it, expect } from 'vitest';
-import { execFileSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import { execFileSync, spawnSync } from 'node:child_process';
+import { chmodSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { REDFLAG_IMPORTANT_RE } from '../scripts/ci/lib/constants.mjs';
 
 // Locks the markdown-tolerant 🔴-Important detector shared by the JS auto-merge gate.
@@ -239,5 +241,43 @@ describe('REDFLAG_IMPORTANT_RE — le copie bash non possono divergere', () => {
       expect(REDFLAG_IMPORTANT_RE.test(line), `JS verdict for ${line}`).toBe(expected);
       expect(bashMatches(line), `bash verdict for ${line}`).toBe(expected);
     }
+  });
+});
+
+describe('pr-redflag-fixer — preflight esplicito del supporto PCRE (#8015)', () => {
+  const workflow = readFileSync(new URL('../.github/workflows/pr-redflag-fixer.yml', import.meta.url), 'utf8');
+
+  function preflightBlock(): string {
+    const start = workflow.indexOf("          if printf '%s' '' | grep -qP '(*UTF)a'; then");
+    const end = workflow.indexOf('          if printf \'%s\' "$REVIEW_BODY"', start);
+    expect(start, 'pr-redflag-fixer PCRE preflight not found').toBeGreaterThanOrEqual(0);
+    expect(end, 'pr-redflag-fixer marker guard not found after preflight').toBeGreaterThan(start);
+    return workflow.slice(start, end);
+  }
+
+  function runPreflight(grepStatus: number): { status: number | null; stdout: string } {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-redflag-fixer-pcre-preflight-'));
+    try {
+      const grep = join(dir, 'grep');
+      writeFileSync(grep, '#!/bin/sh\nexit "$FAKE_GREP_STATUS"\n');
+      chmodSync(grep, 0o755);
+      const result = spawnSync('bash', ['-c', `${preflightBlock()}\nprintf '%s\\n' PROBE_OK`], {
+        encoding: 'utf8',
+        env: {
+          ...process.env,
+          PATH: `${dir}:${process.env.PATH || ''}`,
+          FAKE_GREP_STATUS: String(grepStatus),
+        },
+      });
+      return { status: result.status, stdout: result.stdout };
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  }
+
+  it('accetta solo exit 1 dal probe negativo', () => {
+    expect(runPreflight(1)).toEqual({ status: 0, stdout: 'PROBE_OK\n' });
+    expect(runPreflight(0).status).toBe(1);
+    expect(runPreflight(2).status).toBe(1);
   });
 });
