@@ -191,7 +191,7 @@ describe('record-loop-fleet-evidence', () => {
           retryCount: 'github-run-attempt',
           quotaUnits: 'workflow-declaration',
           collisions: 'workflow-declaration',
-          gateBypass: 'result-or-declaration',
+          gateBypass: 'workflow-declaration',
         },
       });
     } finally {
@@ -216,6 +216,80 @@ describe('record-loop-fleet-evidence', () => {
         quotaUnits: null,
         collisions: null,
         operationalMetricsComplete: false,
+      });
+    } finally {
+      for (const name of names) {
+        if (previous[name] === undefined) delete process.env[name];
+        else process.env[name] = previous[name];
+      }
+    }
+  });
+
+  it('preserves explicit metric provenance from the nested result outcome', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-operational-metrics-provenance-'));
+    writeL1Evidence(dir);
+    const resultFile = path.join(dir, 'l1-result.json');
+    const result = JSON.parse(fs.readFileSync(resultFile, 'utf8'));
+    result.outcome = {
+      metrics: {
+        retryCount: 4,
+        quotaUnits: 2,
+        collisions: 1,
+        gateBypass: false,
+      },
+    };
+    fs.writeFileSync(resultFile, `${JSON.stringify(result, null, 2)}\n`);
+    const names = ['LOOP_FLEET_QUOTA_UNITS', 'LOOP_FLEET_COLLISIONS', 'LOOP_FLEET_GATE_BYPASS', 'GITHUB_RUN_ATTEMPT'];
+    const previous = Object.fromEntries(names.map((name) => [name, process.env[name]]));
+    delete process.env.LOOP_FLEET_QUOTA_UNITS;
+    delete process.env.LOOP_FLEET_COLLISIONS;
+    delete process.env.LOOP_FLEET_GATE_BYPASS;
+    process.env.GITHUB_RUN_ATTEMPT = '1';
+    try {
+      const recorded = recordLoopEvidence({ loopId: 'L1', reportDir: dir, now: NOW });
+      expect(recorded.health).toMatchObject({
+        retryCount: 4,
+        quotaUnits: 2,
+        collisions: 1,
+        gateBypass: false,
+        operationalMetricsComplete: true,
+        operationalMetricsSources: {
+          retryCount: 'result.outcome.metrics',
+          quotaUnits: 'result.outcome.metrics',
+          collisions: 'result.outcome.metrics',
+          gateBypass: 'result.outcome.metrics',
+        },
+      });
+    } finally {
+      for (const name of names) {
+        if (previous[name] === undefined) delete process.env[name];
+        else process.env[name] = previous[name];
+      }
+    }
+  });
+
+  it('fails closed when the workflow declares an invalid gate bypass value', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-operational-metrics-invalid-gate-'));
+    writeL1Evidence(dir);
+    const names = [
+      'LOOP_FLEET_STARTED_AT',
+      'LOOP_FLEET_QUOTA_UNITS',
+      'LOOP_FLEET_COLLISIONS',
+      'LOOP_FLEET_GATE_BYPASS',
+      'GITHUB_RUN_ATTEMPT',
+    ];
+    const previous = Object.fromEntries(names.map((name) => [name, process.env[name]]));
+    process.env.LOOP_FLEET_STARTED_AT = new Date(NOW.getTime() - 1_000).toISOString();
+    process.env.LOOP_FLEET_QUOTA_UNITS = '0';
+    process.env.LOOP_FLEET_COLLISIONS = '0';
+    process.env.LOOP_FLEET_GATE_BYPASS = '1';
+    process.env.GITHUB_RUN_ATTEMPT = '1';
+    try {
+      const recorded = recordLoopEvidence({ loopId: 'L1', reportDir: dir, now: NOW });
+      expect(recorded.health).toMatchObject({
+        gateBypass: null,
+        operationalMetricsComplete: false,
+        operationalMetricsSources: { gateBypass: 'invalid-declaration' },
       });
     } finally {
       for (const name of names) {

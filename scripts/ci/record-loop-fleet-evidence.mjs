@@ -239,6 +239,15 @@ function nonNegativeInteger(...values) {
   return values.find((value) => Number.isInteger(value) && value >= 0) ?? null;
 }
 
+function parseNonNegativeInteger(value) {
+  if (typeof value === 'string') {
+    const normalized = value.trim();
+    if (!/^\d+$/u.test(normalized)) return null;
+    return nonNegativeInteger(Number(normalized));
+  }
+  return nonNegativeInteger(value);
+}
+
 function envNonNegativeNumber(name) {
   if (!hasValue(process.env[name])) return null;
   const value = Number(process.env[name]);
@@ -253,8 +262,8 @@ function envNonNegativeInteger(name) {
 function booleanValue(...values) {
   for (const value of values) {
     if (typeof value === 'boolean') return value;
-    if (value === 'true') return true;
-    if (value === 'false') return false;
+    if (typeof value === 'string' && value.trim() === 'true') return true;
+    if (typeof value === 'string' && value.trim() === 'false') return false;
   }
   return null;
 }
@@ -270,74 +279,96 @@ function hasValue(value) {
   return value !== undefined && value !== null && value !== '';
 }
 
+function selectMetric(candidates, validator) {
+  for (const candidate of candidates) {
+    const value = validator(candidate.value);
+    if (value !== null) return { value, source: candidate.source };
+  }
+  return { value: null, source: null };
+}
+
+function selectBooleanMetric(candidates) {
+  for (const candidate of candidates) {
+    if (!hasValue(candidate.value)) continue;
+    const value = booleanValue(candidate.value);
+    if (value !== null) return { value, source: candidate.source, invalid: false };
+    return { value: null, source: 'invalid-declaration', invalid: true };
+  }
+  return { value: null, source: null, invalid: false };
+}
+
 function buildOperationalMetrics({ result, observation, decision, outcome, context, now }) {
   const resultMetrics = object(result?.metrics) ? result.metrics : null;
   const resultOutcome = object(result?.outcome) ? result.outcome : null;
   const resultOutcomeMetrics = object(resultOutcome?.metrics) ? resultOutcome.metrics : null;
   const outcomeMetrics = object(outcome?.metrics) ? outcome.metrics : resultOutcomeMetrics;
-  const explicitDuration = nonNegativeNumber(
-    result?.durationSeconds,
-    resultMetrics?.durationSeconds,
-    resultOutcomeMetrics?.durationSeconds,
-    outcomeMetrics?.durationSeconds,
-  );
+  const explicitDuration = selectMetric([
+    { value: result?.durationSeconds, source: 'result' },
+    { value: resultMetrics?.durationSeconds, source: 'result.metrics' },
+    { value: resultOutcomeMetrics?.durationSeconds, source: 'result.outcome.metrics' },
+    { value: outcomeMetrics?.durationSeconds, source: 'outcome.metrics' },
+  ], (value) => nonNegativeNumber(value));
   const startedAt = validIso(
     process.env.LOOP_FLEET_STARTED_AT,
     result?.startedAt,
     decision?.startedAt,
     observation?.observationWindow?.start,
   );
-  const durationSeconds = explicitDuration ?? (startedAt
+  const durationSeconds = explicitDuration.value ?? (startedAt
     ? Math.max(0, (now.getTime() - Date.parse(startedAt)) / 1_000)
     : null);
-  const runAttempt = nonNegativeInteger(Number(context.runAttempt));
-  const explicitRetryCount = nonNegativeInteger(
-    result?.retryCount,
-    resultMetrics?.retryCount,
-    outcomeMetrics?.retryCount,
-    envNonNegativeInteger('LOOP_FLEET_RETRY_COUNT'),
-  );
-  const retryCount = explicitRetryCount ?? (runAttempt === null ? null : Math.max(0, runAttempt - 1));
-  const quotaUnits = nonNegativeNumber(
-    result?.quotaUnits,
-    resultMetrics?.quotaUnits,
-    resultOutcomeMetrics?.quotaUnits,
-    outcomeMetrics?.quotaUnits,
-    envNonNegativeNumber('LOOP_FLEET_QUOTA_UNITS'),
-  );
-  const collisions = nonNegativeInteger(
-    result?.collisions,
-    result?.artifactCollisions,
-    resultMetrics?.collisions,
-    resultMetrics?.artifactCollisions,
-    resultOutcomeMetrics?.collisions,
-    resultOutcomeMetrics?.artifactCollisions,
-    outcomeMetrics?.collisions,
-    outcomeMetrics?.artifactCollisions,
-    envNonNegativeInteger('LOOP_FLEET_COLLISIONS'),
-  );
-  const explicitGateBypass = booleanValue(
-    result?.gateBypass,
-    resultMetrics?.gateBypass,
-    resultOutcome?.gateBypass,
-    outcome?.gateBypass,
-    process.env.LOOP_FLEET_GATE_BYPASS,
-  );
-  const gateBypass = explicitGateBypass ?? false;
+  const runAttempt = parseNonNegativeInteger(context.runAttempt);
+  const explicitRetryCount = selectMetric([
+    { value: result?.retryCount, source: 'result' },
+    { value: resultMetrics?.retryCount, source: 'result.metrics' },
+    { value: resultOutcomeMetrics?.retryCount, source: 'result.outcome.metrics' },
+    { value: outcomeMetrics?.retryCount, source: 'outcome.metrics' },
+    { value: envNonNegativeInteger('LOOP_FLEET_RETRY_COUNT'), source: 'workflow-declaration' },
+  ], (value) => nonNegativeInteger(value));
+  const retryCount = explicitRetryCount.value ?? (runAttempt === null ? null : Math.max(0, runAttempt - 1));
+  const quotaUnits = selectMetric([
+    { value: result?.quotaUnits, source: 'result' },
+    { value: resultMetrics?.quotaUnits, source: 'result.metrics' },
+    { value: resultOutcomeMetrics?.quotaUnits, source: 'result.outcome.metrics' },
+    { value: outcomeMetrics?.quotaUnits, source: 'outcome.metrics' },
+    { value: envNonNegativeNumber('LOOP_FLEET_QUOTA_UNITS'), source: 'workflow-declaration' },
+  ], (value) => nonNegativeNumber(value));
+  const collisions = selectMetric([
+    { value: result?.collisions, source: 'result' },
+    { value: result?.artifactCollisions, source: 'result.artifactCollisions' },
+    { value: resultMetrics?.collisions, source: 'result.metrics' },
+    { value: resultMetrics?.artifactCollisions, source: 'result.metrics.artifactCollisions' },
+    { value: resultOutcomeMetrics?.collisions, source: 'result.outcome.metrics' },
+    { value: resultOutcomeMetrics?.artifactCollisions, source: 'result.outcome.metrics.artifactCollisions' },
+    { value: outcomeMetrics?.collisions, source: 'outcome.metrics' },
+    { value: outcomeMetrics?.artifactCollisions, source: 'outcome.metrics.artifactCollisions' },
+    { value: envNonNegativeInteger('LOOP_FLEET_COLLISIONS'), source: 'workflow-declaration' },
+  ], (value) => nonNegativeInteger(value));
+  const gateBypassMetric = selectBooleanMetric([
+    { value: result?.gateBypass, source: 'result' },
+    { value: resultMetrics?.gateBypass, source: 'result.metrics' },
+    { value: resultOutcome?.gateBypass, source: 'result.outcome' },
+    { value: resultOutcomeMetrics?.gateBypass, source: 'result.outcome.metrics' },
+    { value: outcome?.gateBypass, source: 'outcome' },
+    { value: outcomeMetrics?.gateBypass, source: 'outcome.metrics' },
+    { value: process.env.LOOP_FLEET_GATE_BYPASS, source: 'workflow-declaration' },
+  ]);
+  const gateBypass = gateBypassMetric.invalid ? null : (gateBypassMetric.value ?? false);
   const sources = {
-    durationSeconds: explicitDuration !== null ? 'result' : (startedAt ? 'workflow-start' : null),
-    retryCount: explicitRetryCount !== null ? 'result-or-declaration' : (runAttempt === null ? null : 'github-run-attempt'),
-    quotaUnits: quotaUnits === null ? null : (hasValue(process.env.LOOP_FLEET_QUOTA_UNITS) && outcomeMetrics?.quotaUnits === undefined ? 'workflow-declaration' : 'result'),
-    collisions: collisions === null ? null : (hasValue(process.env.LOOP_FLEET_COLLISIONS) && outcomeMetrics?.artifactCollisions === undefined ? 'workflow-declaration' : 'result'),
-    gateBypass: explicitGateBypass === null ? 'recorder-contract' : 'result-or-declaration',
+    durationSeconds: explicitDuration.value !== null ? explicitDuration.source : (startedAt ? 'workflow-start' : null),
+    retryCount: explicitRetryCount.value !== null ? explicitRetryCount.source : (runAttempt === null ? null : 'github-run-attempt'),
+    quotaUnits: quotaUnits.value === null ? null : quotaUnits.source,
+    collisions: collisions.value === null ? null : collisions.source,
+    gateBypass: gateBypassMetric.invalid ? 'invalid-declaration' : (gateBypassMetric.value === null ? 'recorder-contract' : gateBypassMetric.source),
   };
-  const complete = [durationSeconds, retryCount, quotaUnits, collisions].every((value) => value !== null)
+  const complete = [durationSeconds, retryCount, quotaUnits.value, collisions.value].every((value) => value !== null)
+    && !gateBypassMetric.invalid
     && gateBypass === false;
   return {
     durationSeconds,
     retryCount,
-    quotaUnits,
-    collisions,
+    quotaUnits: quotaUnits.value,
+    collisions: collisions.value,
     gateBypass,
     operationalMetricsComplete: complete,
     operationalMetricsSources: sources,
