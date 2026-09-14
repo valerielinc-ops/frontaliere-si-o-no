@@ -6379,6 +6379,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.benzina-oggi-costo-confronto.title': 'Benzin kostet heute weniger als in den 80er Jahren',
     'blog.article.benzina-oggi-costo-confronto.excerpt': 'Der Benzinpreis liegt mit rund 2 CHF/Liter unter dem kaufkraftbereinigten Wert der 1980er Jahre (3,50 CHF) und ist günstiger als in vielen anderen Ländern.',
     'blog.article.benzina-oggi-costo-confronto.imageAlt': 'Schweizer Tankstelle mit Benzinpreis von etwa 2 CHF pro Liter',
+    'blog.article.consiglio-federale-decisioni-2026.title': 'Bundesratsbeschlüsse: Neuheiten und Abstimmungen 2026',
+    'blog.article.consiglio-federale-decisioni-2026.excerpt': 'Neueste Nachrichten und Projekte des Bundesrates: Von den Frauen im Freiwilligendienst zum Klimaschutz und zur Volksabstimmung.',
+    'blog.article.consiglio-federale-decisioni-2026.imageAlt': 'Bundeshaus in Bern Sitz des Bundesrates',
 };
 
 export default blogMetaChDe;
