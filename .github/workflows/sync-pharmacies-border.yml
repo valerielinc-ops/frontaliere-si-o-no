@@ -79,6 +79,7 @@ jobs:
           git commit -m "chore(data): refresh atomic cross-border pharmacy release"
           bash scripts/lib/git-push-with-retry.sh \
             --regenerate-cmd '
+              (
               duty_exit=0
               node scripts/sync-pharmacy-duties.mjs || duty_exit=$?
               case "$duty_exit" in
@@ -104,4 +105,5 @@ jobs:
                 return "$stage_exit"
               fi
               if [ "$duty_exit" -ne 0 ]; then echo "[pharmacy-retry] atomic finalizer completed after duty diagnostic exit=$duty_exit" ; fi
+              )
             '

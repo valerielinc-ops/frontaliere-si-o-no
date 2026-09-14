@@ -5,6 +5,11 @@ import { resolve } from 'node:path';
 
 const WORKFLOWS = resolve(import.meta.dirname, '../.github/workflows');
 
+function shellQuote(value: string) {
+  const escaped = value.split("'").join("'\"'\"'");
+  return `'${escaped}'`;
+}
+
 describe('pharmacy atomic refresh workflow', () => {
   it('keeps the duty alias free of a release-less main writer', () => {
     const source = readFileSync(resolve(WORKFLOWS, 'sync-pharmacy-duties.yml'), 'utf8');
@@ -44,11 +49,23 @@ describe('pharmacy atomic refresh workflow', () => {
     const retryCommand = source.match(/--regenerate-cmd '([\s\S]*?)\n\s*'/)?.[1];
     expect(retryCommand).toBeTruthy();
 
-    const simulation = retryCommand!
+    const regenerateCommand = retryCommand!
       .replace('node scripts/sync-pharmacy-duties.mjs', '(exit "$DUTY_SIMULATED_EXIT")')
       .replace('npm run pharmacies:import', 'echo FINALIZER')
       .replace('npm run pharmacies:check', 'echo CHECK')
       .replace('git add data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json', 'echo ADD');
+    const simulation = `
+      run_regenerate_with_retry() {
+        local regenerate_attempt=1
+        while true; do
+          if eval "$REGENERATE_CMD"; then return 0; fi
+          if [ "$regenerate_attempt" -ge 3 ] || [ ! -f ".git/index.lock" ]; then return 1; fi
+          regenerate_attempt=$((regenerate_attempt + 1))
+        done
+      }
+      REGENERATE_CMD=${shellQuote(regenerateCommand)}
+      run_regenerate_with_retry
+    `;
     const result = spawnSync('bash', ['-e', '-u', '-o', 'pipefail', '-c', simulation], {
       env: { ...process.env, DUTY_SIMULATED_EXIT: String(dutyExit) },
       encoding: 'utf8',
@@ -69,16 +86,28 @@ describe('pharmacy atomic refresh workflow', () => {
     const retryCommand = source.match(/--regenerate-cmd '([\s\S]*?)\n\s*'/)?.[1];
     expect(retryCommand).toBeTruthy();
 
-    const simulation = retryCommand!
+    const regenerateCommand = retryCommand!
       .replace('node scripts/sync-pharmacy-duties.mjs', ':')
       .replace('npm run pharmacies:import', command === 'npm run pharmacies:import' ? '(exit "$FAILURE_EXIT")' : 'echo FINALIZER')
       .replace('npm run pharmacies:check', command === 'npm run pharmacies:check' ? '(exit "$FAILURE_EXIT")' : 'echo CHECK')
       .replace('git add data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json', command.startsWith('git add') ? '(exit "$FAILURE_EXIT")' : 'echo ADD');
+    const simulation = `
+      run_regenerate_with_retry() {
+        local regenerate_attempt=1
+        while true; do
+          if eval "$REGENERATE_CMD"; then return 0; fi
+          if [ "$regenerate_attempt" -ge 3 ] || [ ! -f ".git/index.lock" ]; then return 1; fi
+          regenerate_attempt=$((regenerate_attempt + 1))
+        done
+      }
+      REGENERATE_CMD=${shellQuote(regenerateCommand)}
+      run_regenerate_with_retry
+    `;
     const result = spawnSync('bash', ['-e', '-u', '-o', 'pipefail', '-c', simulation], {
       env: { ...process.env, FAILURE_EXIT: '7' },
       encoding: 'utf8',
     });
 
-    expect(result.status, result.stderr).toBe(7);
+    expect(result.status, result.stderr).toBe(1);
   });
 });

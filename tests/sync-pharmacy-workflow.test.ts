@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { parse } from 'yaml';
 
 const WORKFLOW = readFileSync(
   resolve(import.meta.dirname, '../.github/workflows/sync-pharmacy-duties.yml'),
@@ -19,6 +20,17 @@ describe('sync-pharmacy-duties workflow', () => {
     expect(WORKFLOW).toContain('permissions:\n      contents: write\n    uses: ./.github/workflows/sync-pharmacies-border.yml');
     expect(WORKFLOW).not.toContain('git push');
     expect(WORKFLOW).not.toContain('node scripts/sync-pharmacy-duties.mjs');
+  });
+
+  it('keeps the scheduled cadence as a reusable workflow call without writer steps', () => {
+    const parsed = parse(WORKFLOW) as {
+      on?: { schedule?: Array<{ cron?: string }> };
+      jobs?: { sync?: { uses?: string; steps?: unknown[] } };
+    };
+
+    expect(parsed.on?.schedule).toEqual([{ cron: '*/15 * * * *' }]);
+    expect(parsed.jobs?.sync?.uses).toBe('./.github/workflows/sync-pharmacies-border.yml');
+    expect(parsed.jobs?.sync?.steps).toBeUndefined();
   });
 
   it('keeps retry and ruleset-bypass auth in the called writer', () => {
