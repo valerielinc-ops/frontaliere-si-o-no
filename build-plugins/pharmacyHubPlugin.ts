@@ -269,7 +269,11 @@ function renderCantonCard(card: PharmacyHubCantonCard, locale: PageLocale): stri
   const fetched = source?.sourceFetchedAt
     ? `<p style="${BODY_STYLE}"><strong>${esc(VERIFIED_ON_LABEL[locale])}:</strong> ${esc(formatDate(source.sourceFetchedAt, locale))}</p>`
     : '';
-  const notes = source?.notes ? `<p style="${BODY_STYLE}">${esc(source.notes)}</p>` : `<p style="${BODY_STYLE}">${esc(NO_SOURCE_NOTE[locale])}</p>`;
+  const notes = source?.notes
+    ? `<p style="${BODY_STYLE}">${esc(source.notes)}</p>`
+    : source
+      ? ''
+      : `<p style="${BODY_STYLE}">${esc(NO_SOURCE_NOTE[locale])}</p>`;
   const sourceLink = source
     ? `<p style="${BODY_STYLE}"><a href="${esc(source.officialSourceUrl)}" rel="nofollow noopener">${esc(SOURCE_LINK_LABEL[locale])} →</a></p>`
     : '';

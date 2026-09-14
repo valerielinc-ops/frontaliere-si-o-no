@@ -49,6 +49,23 @@ describe('pharmacyHubPlugin — buildPharmacyHubPage', () => {
     expect(html).not.toContain('href="https://www.ar.ch/');
   });
 
+  it('keeps a registry source link without showing the missing-source note when notes are absent', () => {
+    const source = getPharmacyHubCantonCards().find((card) => card.canton.code === 'TI')?.source;
+    expect(source).toBeDefined();
+    const originalNotes = source?.notes;
+    delete source?.notes;
+
+    try {
+      const { html } = buildPharmacyHubPage('it');
+      const ticinoCard = html.match(/<article[^>]*>[\s\S]*?<\/article>/g)?.find((card) => card.includes('>Ticino <'));
+      expect(ticinoCard).toBeDefined();
+      expect(ticinoCard).toContain('href="https://www.ofct.ch/farmacieturno/"');
+      expect(ticinoCard).not.toContain('Nessun URL di turno verificato nel registry');
+    } finally {
+      if (source) source.notes = originalNotes;
+    }
+  });
+
   it('robots is index,follow once the body clears MIN_INDEXABLE_WORDS', () => {
     const { html } = buildPharmacyHubPage('it');
     expect(html).toMatch(/<meta name=robots content="index, ?follow/);
