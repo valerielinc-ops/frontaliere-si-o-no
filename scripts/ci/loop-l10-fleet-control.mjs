@@ -377,9 +377,13 @@ function validateCanonicalHealthHistory(history, {
           rowOperationalMetricsComplete = false;
         }
       }
-      if (Object.hasOwn(row, 'operationalMetricsComplete')
-          && row.operationalMetricsComplete !== rowOperationalMetricsComplete) {
+      if (!Object.hasOwn(row, 'operationalMetricsComplete')) {
+        missingOperationalFields.add('operationalMetricsComplete');
+        operationalMetricsComplete = false;
+        rowOperationalMetricsComplete = false;
+      } else if (row.operationalMetricsComplete !== rowOperationalMetricsComplete) {
         rowIssues.push('operationalMetricsComplete does not match the persisted fields');
+        operationalMetricsComplete = false;
       }
       if (policy && Array.isArray(row.sourceRefs)
           && JSON.stringify(row.sourceRefs) !== JSON.stringify(policy.sourceRefs)) {

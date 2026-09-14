@@ -276,6 +276,32 @@ describe('L10 Engineering Learning / Fleet Control', () => {
     expect(verdict.issues.join(' ')).toContain('canonical health ledger omits operational fields');
   });
 
+  it('does not promote complete-looking legacy rows without the telemetry marker', () => {
+    const legacyComplete: any = canonicalHealthRow({
+      durationSeconds: 12,
+      retryCount: 1,
+      quotaUnits: 2,
+      collisions: 0,
+      gateBypass: false,
+    });
+    delete legacyComplete.operationalMetricsComplete;
+    const verdict = validateFleetControl({
+      registry: registry(),
+      quota: quotaHistory(),
+      health: healthHistory(legacyComplete),
+    }, { now: NOW });
+    expect(verdict.quality).toBe('partial');
+    expect(verdict.snapshot.health).toMatchObject({
+      operationalMetricsComplete: false,
+      operationalMetricsCompleteRuns: 0,
+      operationalMetricsIncompleteRuns: 1,
+      retries: null,
+      quotaUnits: null,
+      artifactCollisions: null,
+    });
+    expect(verdict.issues.join(' ')).toContain('operationalMetricsComplete');
+  });
+
   it('keeps a missing health ledger unmeasurable instead of counting zero successes', () => {
     const verdict = validateFleetControl({
       registry: registry(),
