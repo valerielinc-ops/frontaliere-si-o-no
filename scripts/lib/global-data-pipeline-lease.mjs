@@ -71,16 +71,20 @@ export function createJwtAssertion(credentials, scope = FIRESTORE_SCOPE) {
 
 /**
  * Decide the only safe local action from a Firestore lease snapshot.
- * Malformed or missing expiry is treated as expired, so a broken old record
- * cannot permanently block the pipeline. Ownership is still checked before a
- * release can delete anything.
+ * A present lease with a malformed or missing expiry is treated as busy: an
+ * unknown expiry must never grant takeover permission to a competing writer.
+ * Recovery is explicit through the owner's release path (or operator cleanup);
+ * ownership is still checked before a release can delete anything.
  */
 export function leaseDecision(current, owner, now = Date.now()) {
   if (!current || typeof current !== 'object') {
     return { action: 'acquire', reason: 'absent' };
   }
   const expiresAt = Date.parse(String(current.expiresAt || ''));
-  if (!Number.isFinite(expiresAt) || expiresAt <= now) {
+  if (!Number.isFinite(expiresAt)) {
+    return { action: 'busy', reason: 'malformed_expiry', expiresAt: null };
+  }
+  if (expiresAt <= now) {
     return { action: 'acquire', reason: 'expired', expiresAt };
   }
   if (String(current.owner || '') === String(owner || '')) {
