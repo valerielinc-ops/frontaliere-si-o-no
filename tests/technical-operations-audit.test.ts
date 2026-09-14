@@ -634,6 +634,66 @@ describe('technical operations audit', () => {
       .toContain('actions/checkout (build)');
   });
 
+  it('accetta un checkout runtime quando lo stesso step verifica prima il file', () => {
+    const source = [
+      'name: runtime-checkout-guarded',
+      'on: [push]',
+      'jobs:',
+      '  compare:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - uses: actions/checkout@v4',
+      '        with:',
+      '          path: build',
+      '      - name: run guarded tool',
+      '        working-directory: build',
+      '        run: |',
+      '          test -f scripts/generated.mjs',
+      '          node scripts/generated.mjs',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/runtime-checkout-guarded.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.script-reference')).toEqual([]);
+  });
+
+  it('non usa una verifica runtime posta dopo il comando come prova', () => {
+    const source = [
+      'name: runtime-checkout-after',
+      'on: [push]',
+      'jobs:',
+      '  compare:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - uses: actions/checkout@v4',
+      '        with:',
+      '          path: build',
+      '      - name: run unguarded tool',
+      '        working-directory: build',
+      '        run: |',
+      '          node scripts/generated.mjs',
+      '          test -f scripts/generated.mjs',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/runtime-checkout-after.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.script-reference'))
+      .toEqual([expect.objectContaining({ severity: 'warning' })]);
+  });
+
+  it('ignora un percorso di script citato soltanto in un commento shell', () => {
+    const source = [
+      'name: commented-script',
+      'on: [push]',
+      'jobs:',
+      '  check:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: documentation',
+      '        run: |',
+      '          # esempio: node scripts/does-not-run.mjs',
+      '          echo ready',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/commented-script.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.script-reference')).toEqual([]);
+  });
+
   it('non usa un file omonimo nella root per mascherare working-directory errato', () => {
     const source = [
       'name: cwd',

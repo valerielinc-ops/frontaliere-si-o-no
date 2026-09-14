@@ -240,6 +240,7 @@ jobs:
         run: |
           set -euo pipefail
           cd "$WORK"
+          test -f scripts/ci/pr-body-contract.mjs
 
           git config user.name "Valerie Linc"
           git config user.email "valerielinc@gmail.com"

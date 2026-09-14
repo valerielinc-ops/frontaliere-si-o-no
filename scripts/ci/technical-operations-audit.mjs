@@ -48,6 +48,7 @@ const OUTPUT_ACTIONS_FILE_RE = /\bappendActionsFile\s*\(\s*["']GITHUB_OUTPUT["']
 const LOCAL_MODULE_RE = /\b(?:from\s*|import\s*\(\s*|require\s*\(\s*)["'](\.{1,2}\/[^"']+)["']/g;
 const INVOKED_COMMAND_RE = /\b(?:node|bash|sh|tsx|bun|deno)\s+["']?((?:scripts|functions|tests|\.github\/actions|\.github\/scripts)\/[A-Za-z0-9_./-]+\.(?:mjs|cjs|js|ts|sh|yml|yaml))\b/g;
 const SCRIPT_DIR_COMMAND_RE = /\b(?:bash|sh|source|\.)\s+["']?\$\{SCRIPT_DIR\}\/([^"'\s]+)/g;
+const FILE_EXISTENCE_ASSERTION_RE = /(?:\btest\s+-f|\[\s+-f)\s+["']?((?:scripts|functions|tests|\.github\/actions|\.github\/scripts)\/[A-Za-z0-9_./-]+\.(?:mjs|cjs|js|ts|sh|yml|yaml))["']?/g;
 const MAX_OUTPUT_REFERENCE_FILES = 16;
 
 function isRecord(value) {
@@ -193,12 +194,43 @@ function localReusableWorkflowPath(value) {
   return value.split('@', 1)[0].slice(2);
 }
 
+function isShellComment(source, offset) {
+  const raw = String(source || '');
+  const lineStart = raw.lastIndexOf('\n', offset) + 1;
+  let quote = null;
+  let escaped = false;
+  for (let index = lineStart; index < offset; index += 1) {
+    const char = raw[index];
+    if (escaped) {
+      escaped = false;
+      continue;
+    }
+    if (quote === '"' && char === '\\') {
+      escaped = true;
+      continue;
+    }
+    if (quote) {
+      if (char === quote) quote = null;
+      continue;
+    }
+    if (char === '\'' || char === '"') {
+      quote = char;
+      continue;
+    }
+    if (char === '#') {
+      const previous = index === lineStart ? '' : raw[index - 1];
+      if (previous === '' || /\s/u.test(previous) || ';|&(){}<>'.includes(previous)) return true;
+    }
+  }
+  return false;
+}
+
 function extractCommandPaths(run) {
   const paths = [];
   const source = String(run || '');
   for (const match of source.matchAll(PATH_RE)) {
     const candidate = match[1].replace(/[),;:'"`]+$/g, '');
-    if (!candidate.includes('${{')) paths.push(candidate);
+    if (!candidate.includes('${{') && !isShellComment(source, match.index ?? 0)) paths.push(candidate);
   }
   return [...new Set(paths)];
 }
@@ -207,8 +239,15 @@ function extractLocalModulePaths(source) {
   return [...new Set([...String(source || '').matchAll(LOCAL_MODULE_RE)].map((match) => match[1]))];
 }
 
+function extractInvokedCommandReferences(source) {
+  return [...String(source || '').matchAll(INVOKED_COMMAND_RE)].map((match) => ({
+    path: match[1].replace(/[),;:'"`]+$/g, ''),
+    index: match.index ?? 0,
+  }));
+}
+
 function extractInvokedCommandPaths(source) {
-  return [...new Set([...String(source || '').matchAll(INVOKED_COMMAND_RE)].map((match) => match[1]))];
+  return [...new Set(extractInvokedCommandReferences(source).map((match) => match.path))];
 }
 
 function extractScriptDirCommands(source) {
@@ -217,6 +256,25 @@ function extractScriptDirCommands(source) {
 
 function extractDataPaths(run) {
   return [...new Set([...String(run || '').matchAll(DATA_PATH_RE)].map((match) => match[1]))];
+}
+
+/**
+ * Return literal files checked by the same shell step before it invokes a
+ * command. A dynamic checkout is not statically inspectable from the control
+ * checkout, but an explicit runtime `test -f` is a real, fail-closed proof of
+ * the file that the following command will execute. Variable-based checks are
+ * deliberately not accepted: the audit must not turn an unbounded loop into a
+ * claim about a particular script.
+ */
+function extractFileExistenceAssertions(run) {
+  const source = String(run || '');
+  const assertions = new Map();
+  for (const match of source.matchAll(FILE_EXISTENCE_ASSERTION_RE)) {
+    const lineStart = source.lastIndexOf('\n', match.index ?? 0) + 1;
+    if (/^\s*#/u.test(source.slice(lineStart, match.index ?? 0))) continue;
+    if (!assertions.has(match[1])) assertions.set(match[1], match.index ?? 0);
+  }
+  return assertions;
 }
 
 /**
@@ -1021,9 +1079,14 @@ function validateJobs(workflow, file, source, root, exists, readFile, knownWorkf
           readFile,
           followReferences: !dynamicDirectory && !runtimeCheckout,
         });
+        const runtimeFileAssertions = extractFileExistenceAssertions(rawStep.run);
+        const invokedCommandReferences = extractInvokedCommandReferences(rawStep.run);
         for (const candidate of extractCommandPaths(rawStep.run)) {
           const inWorkingDirectory = workingRoot !== null && exists(path.resolve(workingRoot, candidate));
-          if (!inWorkingDirectory) {
+          const invocation = invokedCommandReferences.find((reference) => reference.path === candidate);
+          const verifiedAtRuntime = runtimeFileAssertions.has(candidate)
+            && (!invocation || runtimeFileAssertions.get(candidate) < invocation.index);
+          if (!inWorkingDirectory && !verifiedAtRuntime) {
             const runtimeOnly = dynamicDirectory || runtimeCheckout;
             findings.push(finding(
               file,
