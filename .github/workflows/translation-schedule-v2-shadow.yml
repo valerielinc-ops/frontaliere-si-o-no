@@ -31,7 +31,6 @@ jobs:
       TRANSLATION_SHADOW_ENABLE_GENERATION: ${{ vars.TRANSLATION_SHADOW_ENABLE_GENERATION || '0' }}
       TRANSLATION_SHADOW_MAX_JOBS: '250'
       TRANSLATION_SHADOW_MAX_UNITS: ${{ inputs.max_units || '25' }}
-      TRANSLATION_SHADOW_REPORT_PATH: ${{ runner.temp }}/translation-scheduler-v2-report.json
     steps:
       - name: Check out source data and runtime
         uses: actions/checkout@v5
@@ -48,6 +47,8 @@ jobs:
         run: npm ci
 
       - name: Run bounded scheduler shadow cycle
+        env:
+          TRANSLATION_SHADOW_REPORT_PATH: ${{ runner.temp }}/translation-scheduler-v2-report.json
         run: |
           if [ "${{ inputs.enable_generation }}" = "true" ]; then
             export TRANSLATION_SHADOW_ENABLE_GENERATION=1
