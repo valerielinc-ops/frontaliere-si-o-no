@@ -202,18 +202,34 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-addetto-a-alle-vendite-m-w-d-br-landi-kolliken-landi-aarau-west-ag-kolliken",
-          "mitarbeiterin-mitarbeiter-verkauf-w-m-d-br-landi-kolliken-landi-aarau-west-ag-kolliken"
+          "mitarbeiterin-mitarbeiter-verkauf-w-m-d-br-landi-kolliken-landi-aarau-west-ag-kolliken",
+          "dipendenti-dipendenti-vendita-topshop-kolliken-m-f-d-landi-aarau-west-ag-kolliken",
+          "employee-employee-br-sale-topshop-kolliken-m-f-d-landi-aarau-west-ag-kolliken",
+          "mitarbeiterin-mitarbeiter-br-verkauf-topshop-kolliken-w-m-d-landi-aarau-west-ag-kolliken",
+          "employe-employe-br-vente-topshop-kolliken-h-f-d-landi-aarau-west-ag-kolliken",
+          "mitarbeiterin-collaboratore-trice-br-vendita-topshop-kolliken-m-w-d-landi-aarau-west-ag-kolliken"
         ],
         "en": [
-          "mitarbeiterin-mitarbeiter-verkauf-w-m-d-br-landi-kolliken-landi-aarau-west-ag-kolliken"
+          "mitarbeiterin-mitarbeiter-verkauf-w-m-d-br-landi-kolliken-landi-aarau-west-ag-kolliken",
+          "employee-employee-br-sale-topshop-kolliken-m-f-d-landi-aarau-west-ag-kolliken"
         ],
         "fr": [
-          "mitarbeiterin-mitarbeiter-verkauf-w-m-d-br-landi-kolliken-landi-aarau-west-ag-kolliken"
+          "mitarbeiterin-mitarbeiter-verkauf-w-m-d-br-landi-kolliken-landi-aarau-west-ag-kolliken",
+          "employe-employe-br-vente-topshop-kolliken-h-f-d-landi-aarau-west-ag-kolliken"
+        ],
+        "de": [
+          "mitarbeiterin-mitarbeiter-br-verkauf-topshop-kolliken-w-m-d-landi-aarau-west-ag-kolliken",
+          "mitarbeiterin-collaboratore-trice-br-vendita-topshop-kolliken-m-w-d-landi-aarau-west-ag-kolliken"
         ]
       },
       "previousSlugs": [
         "mitarbeiterin-addetto-a-alle-vendite-m-w-d-br-landi-kolliken-landi-aarau-west-ag-kolliken",
-        "mitarbeiterin-mitarbeiter-verkauf-w-m-d-br-landi-kolliken-landi-aarau-west-ag-kolliken"
+        "mitarbeiterin-mitarbeiter-verkauf-w-m-d-br-landi-kolliken-landi-aarau-west-ag-kolliken",
+        "dipendenti-dipendenti-vendita-topshop-kolliken-m-f-d-landi-aarau-west-ag-kolliken",
+        "employee-employee-br-sale-topshop-kolliken-m-f-d-landi-aarau-west-ag-kolliken",
+        "mitarbeiterin-mitarbeiter-br-verkauf-topshop-kolliken-w-m-d-landi-aarau-west-ag-kolliken",
+        "employe-employe-br-vente-topshop-kolliken-h-f-d-landi-aarau-west-ag-kolliken",
+        "mitarbeiterin-collaboratore-trice-br-vendita-topshop-kolliken-m-w-d-landi-aarau-west-ag-kolliken"
       ],
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -659,7 +675,8 @@
           "spontanbewerbung-landi-zola-ag-m-w-d-landi-zola-ag-illnau-effretikon"
         ],
         "it": [
-          "spontanbewerbung-landi-zola-ag-w-m-d-landi-zola-ag-illnau-effretikon"
+          "spontanbewerbung-landi-zola-ag-w-m-d-landi-zola-ag-illnau-effretikon",
+          "application-spontanee-landi-zola-ag-m-w-d-landi-zola-ag-illnau-effretikon"
         ],
         "fr": [
           "spontanbewerbung-landi-zola-ag-w-m-d-landi-zola-ag-illnau-effretikon"
@@ -667,7 +684,8 @@
       },
       "previousSlugs": [
         "spontanbewerbung-landi-zola-ag-w-m-d-landi-zola-ag-illnau-effretikon",
-        "spontanbewerbung-landi-zola-ag-m-w-d-landi-zola-ag-illnau-effretikon"
+        "spontanbewerbung-landi-zola-ag-m-w-d-landi-zola-ag-illnau-effretikon",
+        "application-spontanee-landi-zola-ag-m-w-d-landi-zola-ag-illnau-effretikon"
       ]
     },
     {
@@ -5781,7 +5799,7 @@
       "slugByLocale": {
         "it": "venditore-venditore-m-f-d-volg-bern-76eeab",
         "en": "seller-seller-m-f-d-volg-bern-76eeab",
-        "de": "verkauferin-verkaufer-m-w-d-volg-bern-pthavz",
+        "de": "verkauferin-verkaufer-m-w-d-volg-bern",
         "fr": "vendeur-vendeur-h-f-d-volg-bern-76eeab"
       },
       "crawledAt": "2026-09-13T13:56:51.990Z",
@@ -5798,12 +5816,14 @@
           "verkauferin-verkaufer-m-w-d-volg-bern"
         ],
         "de": [
-          "verkauferin-verkaufer-m-w-d-volg-bern"
+          "verkauferin-verkaufer-m-w-d-volg-bern",
+          "verkauferin-verkaufer-m-w-d-volg-bern-pthavz"
         ]
       },
       "previousSlugs": [
         "verkauferin-verkaufer-m-w-d-volg-bern",
-        "verkauferin-verkaufer-m-w-d-volg-malans-gr"
+        "verkauferin-verkaufer-m-w-d-volg-malans-gr",
+        "verkauferin-verkaufer-m-w-d-volg-bern-pthavz"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -7877,7 +7897,7 @@
       "slugByLocale": {
         "it": "venditore-venditore-m-f-d-volg-bern-159590",
         "en": "seller-seller-m-f-d-volg-bern-159590",
-        "de": "verkauferin-verkaufer-m-w-d-volg-bern-8skag2",
+        "de": "verkauferin-verkaufer-m-w-d-volg-bern",
         "fr": "vendeur-vendeur-h-f-d-volg-bern-159590"
       },
       "crawledAt": "2026-09-13T13:56:51.993Z",
@@ -7900,7 +7920,8 @@
       },
       "previousSlugs": [
         "verkauferin-verkaufer-m-w-d-volg-bern",
-        "verkauferin-verkaufer-m-w-d-volg-sevelen-sg"
+        "verkauferin-verkaufer-m-w-d-volg-sevelen-sg",
+        "verkauferin-verkaufer-m-w-d-volg-bern-8skag2"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -8791,7 +8812,7 @@
       "slugByLocale": {
         "it": "venditore-venditore-m-f-d-volg-bern",
         "en": "seller-seller-m-f-d-volg-bern",
-        "de": "verkauferin-verkaufer-m-w-d-volg-bern-opxpwh",
+        "de": "verkauferin-verkaufer-m-w-d-volg-bern",
         "fr": "vendeur-vendeur-h-f-d-volg-bern"
       },
       "crawledAt": "2026-09-13T13:56:51.995Z",
@@ -8814,7 +8835,8 @@
       },
       "previousSlugs": [
         "verkauferin-verkaufer-m-w-d-volg-bern",
-        "verkauferin-verkaufer-m-w-d-volg-rehetobel-ar"
+        "verkauferin-verkaufer-m-w-d-volg-rehetobel-ar",
+        "verkauferin-verkaufer-m-w-d-volg-bern-opxpwh"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -12444,7 +12466,8 @@
       "previousSlugsByLocale": {
         "it": [
           "specialista-di-pollame-specialista-di-pollame-ufa-ag-lyssach",
-          "geflugelspezialistin-geflugelspezialist-w-m-d-ufa-ag-lyssach"
+          "geflugelspezialistin-geflugelspezialist-w-m-d-ufa-ag-lyssach",
+          "geflugelspezialistin-geflugelspezialist-m-w-d-ufa-ag-lyssach"
         ],
         "en": [
           "geflugelspezialistin-geflugelspezialist-w-m-d-ufa-ag-lyssach"
@@ -12455,7 +12478,8 @@
       },
       "previousSlugs": [
         "specialista-di-pollame-specialista-di-pollame-ufa-ag-lyssach",
-        "geflugelspezialistin-geflugelspezialist-w-m-d-ufa-ag-lyssach"
+        "geflugelspezialistin-geflugelspezialist-w-m-d-ufa-ag-lyssach",
+        "geflugelspezialistin-geflugelspezialist-m-w-d-ufa-ag-lyssach"
       ]
     },
     {
@@ -13374,18 +13398,33 @@
       "previousSlugsByLocale": {
         "it": [
           "trade-employee-trade-employee-bristle-animals-f-m-d-anicom-ag-sursee",
-          "mitarbeiterin-mitarbeiter-handel-borstentiere-w-m-d-100-anicom-ag-seuzach"
+          "mitarbeiterin-mitarbeiter-handel-borstentiere-w-m-d-100-anicom-ag-seuzach",
+          "dipendente-commerciale-dipendente-commerciale-bristle-animali-m-f-d-anicom-ag-sursee",
+          "trade-employee-trade-employee-bristle-animals-m-f-d-anicom-ag-sursee",
+          "handelsmitarbeiterin-handelsmitarbeiter-borstentiere-w-m-d-anicom-ag-sursee",
+          "salaries-salaries-animaux-de-compagnie-h-f-d-anicom-ag-sursee",
+          "salaries-salaries-animaux-de-compagnie-f-m-d-anicom-ag-sursee"
         ],
         "en": [
-          "mitarbeiterin-mitarbeiter-handel-borstentiere-w-m-d-100-anicom-ag-seuzach"
+          "mitarbeiterin-mitarbeiter-handel-borstentiere-w-m-d-100-anicom-ag-seuzach",
+          "trade-employee-trade-employee-bristle-animals-m-f-d-anicom-ag-sursee"
         ],
         "fr": [
-          "mitarbeiterin-mitarbeiter-handel-borstentiere-w-m-d-100-anicom-ag-seuzach"
+          "mitarbeiterin-mitarbeiter-handel-borstentiere-w-m-d-100-anicom-ag-seuzach",
+          "salaries-salaries-animaux-de-compagnie-h-f-d-anicom-ag-sursee"
+        ],
+        "de": [
+          "handelsmitarbeiterin-handelsmitarbeiter-borstentiere-w-m-d-anicom-ag-sursee"
         ]
       },
       "previousSlugs": [
         "trade-employee-trade-employee-bristle-animals-f-m-d-anicom-ag-sursee",
-        "mitarbeiterin-mitarbeiter-handel-borstentiere-w-m-d-100-anicom-ag-seuzach"
+        "mitarbeiterin-mitarbeiter-handel-borstentiere-w-m-d-100-anicom-ag-seuzach",
+        "dipendente-commerciale-dipendente-commerciale-bristle-animali-m-f-d-anicom-ag-sursee",
+        "trade-employee-trade-employee-bristle-animals-m-f-d-anicom-ag-sursee",
+        "handelsmitarbeiterin-handelsmitarbeiter-borstentiere-w-m-d-anicom-ag-sursee",
+        "salaries-salaries-animaux-de-compagnie-h-f-d-anicom-ag-sursee",
+        "salaries-salaries-animaux-de-compagnie-f-m-d-anicom-ag-sursee"
       ]
     },
     {
@@ -23307,7 +23346,8 @@
       },
       "previousSlugs": [
         "muller-anlagenfuhrer-w-m-d-landi-sempach-emmen-genossenschaft-sempach"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Detailhandelsassistent/in EBA Landi",
@@ -38510,7 +38550,8 @@
       },
       "previousSlugs": [
         "lehrstelle-als-mullerin-muller-efz-w-m-d-ab-august-2026-landi-laupen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Gérante-adjointe / Gérant-adjoint (h/f/d)",
@@ -41216,7 +41257,7 @@
         "fr": "## Das interestert dich\n- Abwechslungreiche Aufgaben\n- Équipes familiales\n- Persönlicher Kundenkontakt\n- Digitales Lernen\n- Selbständiges\n- Administration Tätigkeiten\n- Kreative Warenpräsentationen\n- Umgang mit Lebensmitteln\n\n## Das apporte du mit\n- Zuverlässigkeit und Teamgeist\n- Freude an praktischer Arbeit\n- Gute Umgangsformen\n- Les communautésfähigkeit\n- Organisationsgeschick\n- Sekundarabschluss A/B pour EFZ\n- Sekundarabschluss B für EBA\nVolg Detailhandels AG\nRégion RH Nord\nLehrstelle Volg Dänikon\nHauptstrasse 36\nDänikon ZH\nVolg ist der Spezialist für Dorfläden und Kleinflächen in der Deutsch- und der Westschweiz. Wir leben Kundennähe – als nahe Einkaufsgelegenheit sowie im persönlichen Kontakt. Die Mitarbeitenden sind das Herz des Ladens und wir legen bruten Wert auf Individualität und Persönlichkeit. Deshalb heisst unser Devise \"frisch und fründlich\"."
       },
       "slugByLocale": {
-        "it": "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-danikon",
+        "it": "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-danikon",
         "en": "apprenticeship-as-a-retail-specialist-efz-lebensmittel-volg-danikon",
         "de": "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-danikon",
         "fr": "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-efz-lebensmittel-volg-danikon"
@@ -41228,7 +41269,8 @@
           "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-bauma",
           "apprenticeship-as-a-retail-specialist-efz-food-volg-danikon-96017b",
           "apprenticeship-as-retail-specialist-efz-food-volg-danikon",
-          "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-danikon"
+          "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-danikon",
+          "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-danikon"
         ],
         "en": [
           "apprenticeship-as-retail-specialist-efz-food-volg-danikon-96017b",
@@ -41251,7 +41293,8 @@
         "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-danikon-g37zxl",
         "apprenticeship-as-a-retail-specialist-efz-food-volg-danikon-96017b",
         "apprenticeship-as-retail-specialist-efz-food-volg-danikon",
-        "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-danikon"
+        "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-danikon",
+        "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-danikon"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -41382,7 +41425,7 @@
         "fr": "## Das interestert dich\n- Abwechslungreiche Aufgaben\n- Équipes familiales\n- Persönlicher Kundenkontakt\n- Digitales Lernen\n- Selbständiges\n- Administration Tätigkeiten\n- Kreative Warenpräsentationen\n- Umgang mit Lebensmitteln\n\n## Das apporte du mit\n- Zuverlässigkeit und Teamgeist\n- Freude an praktischer Arbeit\n- Gute Umgangsformen\n- Les communautésfähigkeit\n- Organisationsgeschick\n- Sekundarabschluss A/B pour EFZ\n- Sekundarabschluss B für EBA\nVolg Detailhandels AG\nRégion RH Nord\nLehrstelle Volg Maur\nRellikonstrasse 11\n8124 Maur\nVolg ist der Spezialist für Dorfläden und Kleinflächen in der Deutsch- und der Westschweiz. Wir leben Kundennähe – als nahe Einkaufsgelegenheit sowie im persönlichen Kontakt. Die Mitarbeitenden sind das Herz des Ladens und wir legen bruten Wert auf Individualität und Persönlichkeit. Deshalb heisst unser Devise \"frisch und fründlich\"."
       },
       "slugByLocale": {
-        "it": "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-maur",
+        "it": "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-maur",
         "en": "apprenticeship-as-a-retail-specialist-efz-lebensmittel-volg-maur",
         "de": "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-maur",
         "fr": "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-efz-lebensmittel-volg-maur"
@@ -41406,7 +41449,8 @@
       "salarySource": "reported",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-maur"
+          "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-maur",
+          "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-maur"
         ],
         "en": [
           "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-maur"
@@ -41416,7 +41460,8 @@
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-maur"
+        "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-maur",
+        "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-maur"
       ]
     },
     {
@@ -41532,7 +41577,7 @@
         "fr": "## Das interestert dich\n- Abwechslungreiche Aufgaben\n- Équipes familiales\n- Persönlicher Kundenkontakt\n- Digitales Lernen\n- Selbständiges\n- Administration Tätigkeiten\n- Kreative Warenpräsentationen\n- Umgang mit Lebensmitteln\n\n## Das apporte du mit\n- Zuverlässigkeit und Teamgeist\n- Freude an praktischer Arbeit\n- Gute Umgangsformen\n- Les communautésfähigkeit\n- Organisationsgeschick\n- Sekundarabschluss A/B pour EFZ\n- Sekundarabschluss B für EBA\nVolg Detailhandels AG\nRégion RH Nord\nLehrstelle Volg Gipf-Oberfrick\nLandstrasse 38\n5073 Gipf-Oberfrick\nVolg ist der Spezialist für Dorfläden und Kleinflächen in der Deutsch- und der Westschweiz. Wir leben Kundennähe – als nahe Einkaufsgelegenheit sowie im persönlichen Kontakt. Die Mitarbeitenden sind das Herz des Ladens und wir legen bruten Wert auf Individualität und Persönlichkeit. Deshalb heisst unser Devise \"frisch und fründlich\"."
       },
       "slugByLocale": {
-        "it": "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-gipf-oberfrick",
+        "it": "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-gipf-oberfrick",
         "en": "apprenticeship-as-a-retail-specialist-efz-lebensmittel-volg-gipf-oberfrick",
         "de": "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-gipf-oberfrick",
         "fr": "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-efz-lebensmittel-volg-gipf-oberfrick"
@@ -41556,7 +41601,8 @@
       "salarySource": "reported",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-gipf-oberfrick"
+          "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-gipf-oberfrick",
+          "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-gipf-oberfrick"
         ],
         "en": [
           "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-gipf-oberfrick"
@@ -41566,7 +41612,8 @@
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-gipf-oberfrick"
+        "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-gipf-oberfrick",
+        "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-gipf-oberfrick"
       ]
     },
     {

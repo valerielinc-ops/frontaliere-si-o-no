@@ -3678,7 +3678,8 @@
       "salarySource": "estimated",
       "salaryMin": 37200,
       "salaryMax": 56400,
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "id": "company-3vx5m8",
@@ -5134,7 +5135,8 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "id": "company-50j6nj",
@@ -5615,7 +5617,8 @@
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "salarySource": "estimated",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "id": "company-k6cen0",
