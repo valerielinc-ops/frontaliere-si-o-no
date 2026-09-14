@@ -372,10 +372,11 @@ jobs:
           expected_decision_digest=''
           expected_contract_digest=''
           while IFS= read -r binding; do
-            case "$binding" in
-              expected_decision_digest=sha256:[a-f0-9]*) expected_decision_digest="${binding#*=}" ;;
-              expected_contract_digest=sha256:[a-f0-9]*) expected_contract_digest="${binding#*=}" ;;
-            esac
+            if [[ "$binding" =~ ^expected_decision_digest=sha256:[a-f0-9]{64}$ ]]; then
+              expected_decision_digest="${binding#*=}"
+            elif [[ "$binding" =~ ^expected_contract_digest=sha256:[a-f0-9]{64}$ ]]; then
+              expected_contract_digest="${binding#*=}"
+            fi
           done < <(node scripts/translation-shadow-preflight-v2.mjs \
             --mode capture \
             --decision "$RUNNER_TEMP/translation-shadow-preflight-v2-decision.json" 2>/dev/null || true)

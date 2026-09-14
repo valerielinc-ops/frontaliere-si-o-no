@@ -238,9 +238,8 @@ describe('translation observability workflow', () => {
       expect(cascadeRun).toContain('--mode capture');
       expect(cascadeRun).toContain("expected_decision_digest=''");
       expect(cascadeRun).toContain("expected_contract_digest=''");
-      expect(cascadeRun).toContain('case "$binding" in');
-      expect(cascadeRun).toContain('expected_decision_digest=sha256:[a-f0-9]*) expected_decision_digest="${binding#*=}"');
-      expect(cascadeRun).toContain('expected_contract_digest=sha256:[a-f0-9]*) expected_contract_digest="${binding#*=}"');
+      expect(cascadeRun).toContain('if [[ "$binding" =~ ^expected_decision_digest=sha256:[a-f0-9]{64}$ ]]; then');
+      expect(cascadeRun).toContain('elif [[ "$binding" =~ ^expected_contract_digest=sha256:[a-f0-9]{64}$ ]]; then');
       expect(cascadeRun).toContain("printf 'expected_decision_digest=%s\\n' \"$expected_decision_digest\" >> \"$GITHUB_OUTPUT\"");
       expect(cascadeRun).toContain("printf 'expected_contract_digest=%s\\n' \"$expected_contract_digest\" >> \"$GITHUB_OUTPUT\"");
       expect(cascadeRun).toContain('>> "$GITHUB_OUTPUT"');
