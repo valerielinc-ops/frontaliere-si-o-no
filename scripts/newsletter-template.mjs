@@ -670,4 +670,14 @@ export function buildNewsletter(data) {
 </html>`;
 }
 
-export { FEATURED_TOOLS, FEATURED_TOOLS_I18N, utmUrl, escapeHtml, nlNormLocale };
+// Export the renderer for its regression observer (#7528): buildNewsletter
+// normalizes the locale first, so the raw unknown-locale branch must be
+// exercised directly to ensure the Italian description fallback remains.
+export {
+  FEATURED_TOOLS,
+  FEATURED_TOOLS_I18N,
+  utmUrl,
+  escapeHtml,
+  nlNormLocale,
+  renderAffiliatePartners,
+};
