@@ -161,6 +161,70 @@ describe('record-loop-fleet-evidence', () => {
       .toMatchObject({ loopId: 'L1', quality: 'partial', ok: false, issueCount: 1, warningCount: 2, sourceRefs: registry.loops.find((loop: any) => loop.loopId === 'L1').sourceRefs, outcome: { outcomeId: 'error-free-useful-session', status: 'partial', independent: false } });
   });
 
+  it('persists workflow operational telemetry with explicit zero declarations', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-operational-metrics-'));
+    writeL1Evidence(dir);
+    const names = [
+      'LOOP_FLEET_STARTED_AT',
+      'LOOP_FLEET_QUOTA_UNITS',
+      'LOOP_FLEET_COLLISIONS',
+      'LOOP_FLEET_GATE_BYPASS',
+      'GITHUB_RUN_ATTEMPT',
+    ];
+    const previous = Object.fromEntries(names.map((name) => [name, process.env[name]]));
+    process.env.LOOP_FLEET_STARTED_AT = new Date(NOW.getTime() - 2_500).toISOString();
+    process.env.LOOP_FLEET_QUOTA_UNITS = '0';
+    process.env.LOOP_FLEET_COLLISIONS = '0';
+    process.env.LOOP_FLEET_GATE_BYPASS = 'false';
+    process.env.GITHUB_RUN_ATTEMPT = '3';
+    try {
+      const result = recordLoopEvidence({ loopId: 'L1', reportDir: dir, now: NOW });
+      expect(result.health).toMatchObject({
+        durationSeconds: 2.5,
+        retryCount: 2,
+        quotaUnits: 0,
+        collisions: 0,
+        gateBypass: false,
+        operationalMetricsComplete: true,
+        operationalMetricsSources: {
+          durationSeconds: 'workflow-start',
+          retryCount: 'github-run-attempt',
+          quotaUnits: 'workflow-declaration',
+          collisions: 'workflow-declaration',
+          gateBypass: 'result-or-declaration',
+        },
+      });
+    } finally {
+      for (const name of names) {
+        if (previous[name] === undefined) delete process.env[name];
+        else process.env[name] = previous[name];
+      }
+    }
+  });
+
+  it('does not invent quota or collision metrics when the workflow declaration is absent', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-operational-metrics-missing-'));
+    writeL1Evidence(dir);
+    const names = ['LOOP_FLEET_STARTED_AT', 'LOOP_FLEET_QUOTA_UNITS', 'LOOP_FLEET_COLLISIONS'];
+    const previous = Object.fromEntries(names.map((name) => [name, process.env[name]]));
+    for (const name of names) delete process.env[name];
+    try {
+      const result = recordLoopEvidence({ loopId: 'L1', reportDir: dir, now: NOW });
+      expect(result.health).toMatchObject({
+        durationSeconds: 0,
+        retryCount: 0,
+        quotaUnits: null,
+        collisions: null,
+        operationalMetricsComplete: false,
+      });
+    } finally {
+      for (const name of names) {
+        if (previous[name] === undefined) delete process.env[name];
+        else process.env[name] = previous[name];
+      }
+    }
+  });
+
   it('validates a measured outcome against the loop-specific independent source contract', () => {
     const outcome = buildOutcome({
       outcomeId: 'error-free-useful-session',

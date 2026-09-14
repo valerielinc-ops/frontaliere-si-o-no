@@ -8,6 +8,8 @@
  * one canonical decision line, one health line and one canonical outcome
  * document. It never writes source, published data or external state. The
  * containing workflow uploads the directory as the durable run artifact.
+ * Workflow declarations for quota and collisions cover only the governed
+ * control-plane units; they are not provider-billing or commercial metrics.
  */
 import crypto from 'node:crypto';
 import fs from 'node:fs';
@@ -229,6 +231,34 @@ function finiteNumber(...values) {
   return values.find((value) => typeof value === 'number' && Number.isFinite(value)) ?? null;
 }
 
+function nonNegativeNumber(...values) {
+  return values.find((value) => typeof value === 'number' && Number.isFinite(value) && value >= 0) ?? null;
+}
+
+function nonNegativeInteger(...values) {
+  return values.find((value) => Number.isInteger(value) && value >= 0) ?? null;
+}
+
+function envNonNegativeNumber(name) {
+  if (!hasValue(process.env[name])) return null;
+  const value = Number(process.env[name]);
+  return Number.isFinite(value) && value >= 0 ? value : null;
+}
+
+function envNonNegativeInteger(name) {
+  const value = envNonNegativeNumber(name);
+  return Number.isInteger(value) ? value : null;
+}
+
+function booleanValue(...values) {
+  for (const value of values) {
+    if (typeof value === 'boolean') return value;
+    if (value === 'true') return true;
+    if (value === 'false') return false;
+  }
+  return null;
+}
+
 function validIso(...values) {
   for (const value of values) {
     if (typeof value === 'string' && Number.isFinite(Date.parse(value))) return new Date(value).toISOString();
@@ -238,6 +268,80 @@ function validIso(...values) {
 
 function hasValue(value) {
   return value !== undefined && value !== null && value !== '';
+}
+
+function buildOperationalMetrics({ result, observation, decision, outcome, context, now }) {
+  const resultMetrics = object(result?.metrics) ? result.metrics : null;
+  const resultOutcome = object(result?.outcome) ? result.outcome : null;
+  const resultOutcomeMetrics = object(resultOutcome?.metrics) ? resultOutcome.metrics : null;
+  const outcomeMetrics = object(outcome?.metrics) ? outcome.metrics : resultOutcomeMetrics;
+  const explicitDuration = nonNegativeNumber(
+    result?.durationSeconds,
+    resultMetrics?.durationSeconds,
+    resultOutcomeMetrics?.durationSeconds,
+    outcomeMetrics?.durationSeconds,
+  );
+  const startedAt = validIso(
+    process.env.LOOP_FLEET_STARTED_AT,
+    result?.startedAt,
+    decision?.startedAt,
+    observation?.observationWindow?.start,
+  );
+  const durationSeconds = explicitDuration ?? (startedAt
+    ? Math.max(0, (now.getTime() - Date.parse(startedAt)) / 1_000)
+    : null);
+  const runAttempt = nonNegativeInteger(Number(context.runAttempt));
+  const explicitRetryCount = nonNegativeInteger(
+    result?.retryCount,
+    resultMetrics?.retryCount,
+    outcomeMetrics?.retryCount,
+    envNonNegativeInteger('LOOP_FLEET_RETRY_COUNT'),
+  );
+  const retryCount = explicitRetryCount ?? (runAttempt === null ? null : Math.max(0, runAttempt - 1));
+  const quotaUnits = nonNegativeNumber(
+    result?.quotaUnits,
+    resultMetrics?.quotaUnits,
+    resultOutcomeMetrics?.quotaUnits,
+    outcomeMetrics?.quotaUnits,
+    envNonNegativeNumber('LOOP_FLEET_QUOTA_UNITS'),
+  );
+  const collisions = nonNegativeInteger(
+    result?.collisions,
+    result?.artifactCollisions,
+    resultMetrics?.collisions,
+    resultMetrics?.artifactCollisions,
+    resultOutcomeMetrics?.collisions,
+    resultOutcomeMetrics?.artifactCollisions,
+    outcomeMetrics?.collisions,
+    outcomeMetrics?.artifactCollisions,
+    envNonNegativeInteger('LOOP_FLEET_COLLISIONS'),
+  );
+  const explicitGateBypass = booleanValue(
+    result?.gateBypass,
+    resultMetrics?.gateBypass,
+    resultOutcome?.gateBypass,
+    outcome?.gateBypass,
+    process.env.LOOP_FLEET_GATE_BYPASS,
+  );
+  const gateBypass = explicitGateBypass ?? false;
+  const sources = {
+    durationSeconds: explicitDuration !== null ? 'result' : (startedAt ? 'workflow-start' : null),
+    retryCount: explicitRetryCount !== null ? 'result-or-declaration' : (runAttempt === null ? null : 'github-run-attempt'),
+    quotaUnits: quotaUnits === null ? null : (hasValue(process.env.LOOP_FLEET_QUOTA_UNITS) && outcomeMetrics?.quotaUnits === undefined ? 'workflow-declaration' : 'result'),
+    collisions: collisions === null ? null : (hasValue(process.env.LOOP_FLEET_COLLISIONS) && outcomeMetrics?.artifactCollisions === undefined ? 'workflow-declaration' : 'result'),
+    gateBypass: explicitGateBypass === null ? 'recorder-contract' : 'result-or-declaration',
+  };
+  const complete = [durationSeconds, retryCount, quotaUnits, collisions].every((value) => value !== null)
+    && gateBypass === false;
+  return {
+    durationSeconds,
+    retryCount,
+    quotaUnits,
+    collisions,
+    gateBypass,
+    operationalMetricsComplete: complete,
+    operationalMetricsSources: sources,
+  };
 }
 
 function findSourceTimestamp(value, depth = 0, seen = new Set()) {
@@ -417,6 +521,14 @@ export function recordLoopEvidence({
     && outcome.independent
     && outcome.missingFields.length === 0;
   const lifecycleEvents = buildCandidateLifecycleEvents({ policy, decision: decided, context, now });
+  const operationalMetrics = buildOperationalMetrics({
+    result,
+    observation: rawObserved,
+    decision: rawDecided,
+    outcome,
+    context,
+    now,
+  });
   const health = {
     recordType: 'health',
     schemaVersion: 1,
@@ -446,6 +558,7 @@ export function recordLoopEvidence({
     filesScanned: numberOrNull(result?.filesScanned),
     issued: result?.issued === true,
     actionsWritten: result?.actionsWritten === true,
+    ...operationalMetrics,
     evidence: {
       observation: `${prefix}-observation.json`,
       decision: `${prefix}-decision.json`,
