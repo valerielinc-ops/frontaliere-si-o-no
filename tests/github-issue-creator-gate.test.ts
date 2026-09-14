@@ -260,6 +260,26 @@ describe('github-issue-creator crawler-failure consecutive gate', () => {
     expect(ghCalls().some((args) => args[0] === 'issue' && args[1] === 'create')).toBe(false);
   });
 
+  it('tratta una listing riuscita ma vuota come zero duplicati (#8032)', async () => {
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') return '  \n\t';
+      if (args[0] === 'issue' && args[1] === 'create') return 'https://github.com/o/r/issues/102';
+      return '';
+    });
+
+    const res = await createGithubIssue({
+      title: 'CI Failure: Empty listing is safe',
+      description: 'GitHub returned a successful empty listing',
+      priority: 2,
+      labels: ['Bug'],
+      reopenWithinHours: 0,
+    } as any);
+
+    expect(res?.lookupFailed).not.toBe(true);
+    expect(res?.number).toBe(102);
+    expect(ghCalls().filter((args) => args[0] === 'issue' && args[1] === 'create')).toHaveLength(1);
+  });
+
   it('mantiene la issue OPEN canonica collegata alle gemelle scartate (#8032)', async () => {
     const older = {
       number: 1001,

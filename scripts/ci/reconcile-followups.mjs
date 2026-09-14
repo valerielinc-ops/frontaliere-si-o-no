@@ -529,22 +529,28 @@ const diskIo = {
   },
 };
 
+/**
+ * Parse the comments response while preserving the wrapper's outcome.
+ * `null` means that `gh` could not be invoked or returned unusable JSON;
+ * an empty successful stdout is a valid no-comments response.
+ */
+export function parseIssueCommentsResponse(raw) {
+  if (typeof raw !== 'string') return null;
+  if (!raw.trim()) return [];
+  try {
+    const comments = JSON.parse(raw).comments;
+    return Array.isArray(comments) ? comments : null;
+  } catch {
+    return null;
+  }
+}
+
 function readIssueComments(number) {
   if (issueCommentCache.has(number)) return issueCommentCache.get(number);
   const out = gh(['issue', 'view', String(number), ...repoArgs, '--json', 'comments'], { allowFail: true });
-  if (!out) {
-    issueCommentCache.set(number, null);
-    return null;
-  }
-  try {
-    const comments = JSON.parse(out).comments;
-    const result = Array.isArray(comments) ? comments : null;
-    issueCommentCache.set(number, result);
-    return result;
-  } catch {
-    issueCommentCache.set(number, null);
-    return null;
-  }
+  const result = parseIssueCommentsResponse(out);
+  issueCommentCache.set(number, result);
+  return result;
 }
 
 /**

@@ -266,7 +266,11 @@ function ghIssueList(state, extraArgs) {
   } catch {
     return null;
   }
-  if (!out) return null;
+  // `gh()` trims successful stdout, so `''` is a valid empty listing. Only
+  // null means that the command failed; treating blank success as an error
+  // would block every create even when GitHub proved there are zero matches.
+  if (typeof out !== 'string') return null;
+  if (!out.trim()) return [];
   try {
     const parsed = JSON.parse(out);
     return Array.isArray(parsed) ? parsed : null;
