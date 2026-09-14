@@ -9,7 +9,6 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { OFCT_REGIONS } from './lib/pharmacy-ticino-parser.mjs';
 import { buildPharmacyDuties } from './lib/pharmacy-ticino-duty-parser.mjs';
-import { buildPharmacyReleaseContract } from './import-pharmacies-border.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const REPO_ROOT = resolve(dirname(__filename), '..');
@@ -104,6 +103,10 @@ async function main() {
     _warnings: warnings,
   };
 
+  // This job only stages the newly fetched duty payload. The border job is
+  // the sole release finalizer: it pairs this payload with the catalogue and
+  // writes all three release-bearing snapshots in one commit.
+
   if (successfulRegions.length === 0) {
     await mkdir(dirname(STATUS_PATH), { recursive: true });
     if (!dryRun) await writeFile(STATUS_PATH, `${JSON.stringify(status, null, 2)}\n`, 'utf8');
@@ -112,7 +115,7 @@ async function main() {
     return;
   }
 
-  const output = {
+  const dutyOutput = {
     _source: 'https://www.ofct.ch/farmacieturno/',
     _sourceRegions: OFCT_REGIONS.map((region) => region.url),
     _fetchedAt: attemptedAt,
@@ -123,15 +126,9 @@ async function main() {
     _successfulRegions: successfulRegions,
     duties,
   };
-  output._release = buildPharmacyReleaseContract({
-    catalogue: pharmacyData,
-    duties: output,
-    evaluatedAt: attemptedAt,
-  });
-  status._release = output._release;
   if (!dryRun) {
     await mkdir(dirname(DATA_PATH), { recursive: true });
-    await writeFile(DATA_PATH, `${JSON.stringify(output, null, 2)}\n`, 'utf8');
+    await writeFile(DATA_PATH, `${JSON.stringify(dutyOutput, null, 2)}\n`, 'utf8');
     await writeFile(STATUS_PATH, `${JSON.stringify(status, null, 2)}\n`, 'utf8');
   }
   console.log(`[import-pharmacy-duties-ticino] ${dryRun ? 'dry-run parsed' : 'wrote'} ${duties.length} intervals from ${successfulRegions.length}/${OFCT_REGIONS.length} regions`);

@@ -54,9 +54,9 @@ jobs:
       - name: Load push credentials from Remote Config
         run: node scripts/load-rc-env.mjs
 
-      - name: Fetch and validate Ticino duty schedules
+      - name: Fetch and stage Ticino duty schedules
         run: node scripts/sync-pharmacy-duties.mjs
-      - name: Commit changed duty snapshots
+      - name: Commit staged duty payload for border finalization
         run: |
           set -euo pipefail
           if git diff --quiet -- data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json; then
@@ -66,6 +66,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json
-          git commit -m "chore(data): refresh Ticino pharmacy duties"
+          git commit -m "chore(data): stage Ticino pharmacy duties"
           bash scripts/lib/configure-main-push-auth.sh
           git push origin HEAD:main

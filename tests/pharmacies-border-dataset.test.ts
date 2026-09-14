@@ -5,6 +5,7 @@ import { join } from 'node:path';
 import ticino from '../data/pharmacies-ticino-complete.json';
 import italy from '../data/pharmacies-italy-border.json';
 import duties from '../data/pharmacy-duties-ticino.json';
+import dutyStatus from '../data/pharmacy-duties-ticino-status.json';
 import sources from '../data/pharmacy-border-sources.json';
 import { validateBorderSources, validateBorderSnapshot } from '../scripts/check-pharmacy-border-data.mjs';
 import { validatePharmacyList } from '../services/pharmacies/types';
@@ -33,7 +34,7 @@ describe('cross-border pharmacy datasets', () => {
     expect(swiss.every((pharmacy) => pharmacy.country === 'CH' && pharmacy.canton === 'Ticino')).toBe(true);
     expect(italian.every((pharmacy) => pharmacy.country === 'IT' && ['CO', 'VA', 'VB'].includes(pharmacy.province || ''))).toBe(true);
     expect(JSON.stringify([...swiss, ...italian])).not.toMatch(/[ÃÂ`¿\u0096]/);
-    expect(validateBorderSnapshot({ ticino, italy, duties })).toEqual([]);
+    expect(validateBorderSnapshot({ ticino, italy, duties, status: dutyStatus, verifyRelease: true })).toEqual([]);
   });
 
   it('keeps global identity unique and preserves every published duty reference', () => {

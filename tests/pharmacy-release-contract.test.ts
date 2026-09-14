@@ -3,11 +3,16 @@ import { describe, expect, it } from 'vitest';
 import catalogueJson from '../data/pharmacies-ticino-complete.json';
 import dutiesJson from '../data/pharmacy-duties-ticino.json';
 import {
+  buildAtomicPharmacySnapshots,
   buildPharmacyReleaseContract,
+  buildTicinoCatalogueSnapshot,
+  verifyPharmacyReleaseContract,
 } from '../scripts/import-pharmacies-border.mjs';
+import { publicDutiesForPharmacy } from '../components/pages/PharmacyDirectory';
 import {
   getPharmacyReleaseEvaluation,
   publicDutiesForRegion,
+  verifyPharmacyReleaseIntegrity,
 } from '../services/pharmacies/duties';
 import {
   PHARMACY_RELEASE_REGION_KEYS,
@@ -115,6 +120,33 @@ describe('pharmacy atomic release contract', () => {
     expect(changedRelease.releaseId).not.toBe(pair.release.releaseId);
   });
 
+  it('publishes catalogue, duties, and status atomically across refresh cycles', () => {
+    const first = buildAtomicPharmacySnapshots({
+      catalogue: makeCatalogue({ _fetchedAt: '2026-09-14T10:00:00.000Z' }),
+      duties: makeDuties({ _fetchedAt: '2026-09-14T11:00:00.000Z' }),
+      status: { _attemptedAt: '2026-09-14T11:00:00.000Z', _errors: [] },
+      evaluatedAt: '2026-09-14T11:00:00.000Z',
+    });
+    const second = buildAtomicPharmacySnapshots({
+      catalogue: makeCatalogue({ _fetchedAt: '2026-09-15T10:00:00.000Z', pharmacies: [{ id: 'new-catalogue-record' }] }),
+      duties: makeDuties({
+        _fetchedAt: '2026-09-15T11:00:00.000Z',
+        duties: BASE_DUTIES.map((duty) => ({ ...duty, fetchedAt: '2026-09-15T11:00:00.000Z', verifiedAt: '2026-09-15T11:00:00.000Z' })),
+      }),
+      status: { _attemptedAt: '2026-09-15T11:00:00.000Z', _errors: [] },
+      evaluatedAt: '2026-09-15T11:00:00.000Z',
+    });
+
+    expect(first.catalogue._release.releaseId).toBe(first.duties._release.releaseId);
+    expect(first.duties._release.releaseId).toBe(first.status._release.releaseId);
+    expect(second.catalogue._release.releaseId).toBe(second.duties._release.releaseId);
+    expect(second.duties._release.releaseId).toBe(second.status._release.releaseId);
+    expect(second.catalogue._release.releaseId).not.toBe(first.catalogue._release.releaseId);
+    expect(second.catalogue._release.snapshots.catalogue.sha256).not.toBe(first.catalogue._release.snapshots.catalogue.sha256);
+    expect(second.duties._release.snapshots.duties.sha256).not.toBe(first.duties._release.snapshots.duties.sha256);
+    expect(verifyPharmacyReleaseContract({ catalogue: second.catalogue, duties: second.duties })).toEqual([]);
+  });
+
   it('exposes the checked-in release as fresh and limited to the four OFCT regions', () => {
     const catalogue = catalogueJson as unknown as PharmacyCatalogueDataset;
     const duties = dutiesJson as unknown as PharmacyDutiesDataset;
@@ -164,6 +196,62 @@ describe('pharmacy atomic release contract', () => {
     expect(publicDutiesForRegion(staleDataset, 'Mendrisiotto', NOW, staleCatalogue)).toEqual([]);
   });
 
+  it('recomputes payload hashes at runtime and fails closed after tampering', () => {
+    const pair = makePair();
+    const tamperedCatalogue = {
+      ...pair.catalogue,
+      pharmacies: [{ id: 'tampered-after-publish' }],
+    } as PharmacyCatalogueDataset;
+
+    expect(verifyPharmacyReleaseContract({ catalogue: tamperedCatalogue, duties: pair.duties })).toEqual(expect.arrayContaining([
+      expect.stringContaining('catalogue releaseId does not match the payload digest'),
+    ]));
+    expect(verifyPharmacyReleaseIntegrity(pair.duties, tamperedCatalogue)).toEqual(expect.arrayContaining([
+      expect.stringContaining('catalogue releaseId does not match the payload digest'),
+    ]));
+    expect(getPharmacyReleaseEvaluation(pair.duties, NOW, tamperedCatalogue)).toMatchObject({
+      state: 'conflicting',
+      publishable: false,
+      releaseId: null,
+    });
+    expect(publicDutiesForRegion(pair.duties, 'Mendrisiotto', NOW, tamperedCatalogue)).toEqual([]);
+  });
+
+  it('keeps a below-floor PDF fallback on its old timestamp and marks it partial or stale', () => {
+    const previousPharmacies = Array.from({ length: 200 }, (_, index) => ({ id: `previous-${index}` }));
+    const previous = makeCatalogue({
+      _fetchedAt: '2026-09-13T10:00:00.000Z',
+      pharmacies: previousPharmacies,
+    });
+    const fallback = buildTicinoCatalogueSnapshot({
+      parsed: { rows: [], warnings: ['fixture parse warning'] },
+      previous,
+      fetchedAt: '2026-09-14T10:00:00.000Z',
+    });
+
+    expect(fallback._fetchedAt).toBe(previous._fetchedAt);
+    expect(fallback._preserved).toBe(true);
+    expect(fallback._errors).toEqual(expect.arrayContaining([
+      expect.stringContaining('previous snapshot preserved'),
+    ]));
+    expect(buildPharmacyReleaseContract({
+      catalogue: fallback,
+      duties: makeDuties(),
+      evaluatedAt: '2026-09-14T12:00:00.000Z',
+    }).state).toBe('partial');
+
+    const staleFallback = buildTicinoCatalogueSnapshot({
+      parsed: { rows: [], warnings: [] },
+      previous: { ...previous, _fetchedAt: '2026-07-01T10:00:00.000Z' },
+      fetchedAt: '2026-09-14T10:00:00.000Z',
+    });
+    expect(buildPharmacyReleaseContract({
+      catalogue: staleFallback,
+      duties: makeDuties(),
+      evaluatedAt: '2026-09-14T12:00:00.000Z',
+    }).state).toBe('stale');
+  });
+
   it('marks a preserved region partial, blocks only that region, and keeps existing expiry behavior', () => {
     const preserved = makePair({}, {
       _preservedRegions: ['luganese'],
@@ -203,5 +291,30 @@ describe('pharmacy atomic release contract', () => {
         : duty),
     });
     expect(getPharmacyReleaseEvaluation(conflicting.duties, NOW, conflicting.catalogue).regions.mendrisiotto.state).toBe('conflicting');
+  });
+
+  it('uses the public fail-closed filter for pharmacy badges and detail intervals', () => {
+    const pair = makePair();
+    const pharmacyId = 'pharmacy-mendrisiotto';
+    const coverageName = 'Mendrisiotto';
+    expect(publicDutiesForPharmacy(pair.duties, pharmacyId, coverageName, NOW, pair.catalogue)).toHaveLength(1);
+
+    const changedCatalogue = { ...makeCatalogue({ pharmacies: [{ id: 'tampered' }] }), _release: buildPharmacyReleaseContract({
+      catalogue: makeCatalogue({ pharmacies: [{ id: 'tampered' }] }),
+      duties: pair.duties,
+      evaluatedAt: DUTIES_FETCHED_AT,
+    }) } as PharmacyCatalogueDataset;
+    expect(publicDutiesForPharmacy(pair.duties, pharmacyId, coverageName, NOW, changedCatalogue)).toEqual([]);
+
+    const staleDuties = makeDuties({
+      _fetchedAt: '2026-09-10T00:00:00.000Z',
+      duties: BASE_DUTIES.map((duty) => ({ ...duty, fetchedAt: '2026-09-10T00:00:00.000Z' })),
+    });
+    const staleRelease = buildPharmacyReleaseContract({ catalogue: makeCatalogue(), duties: staleDuties, evaluatedAt: '2026-09-10T00:00:00.000Z' });
+    const staleCatalogue = { ...makeCatalogue(), _release: staleRelease } as PharmacyCatalogueDataset;
+    expect(publicDutiesForPharmacy({ ...staleDuties, _release: staleRelease } as PharmacyDutiesDataset, pharmacyId, coverageName, NOW, staleCatalogue)).toEqual([]);
+
+    const preserved = makePair({}, { _preservedRegions: ['mendrisiotto'] });
+    expect(publicDutiesForPharmacy(preserved.duties, pharmacyId, coverageName, NOW, preserved.catalogue)).toEqual([]);
   });
 });

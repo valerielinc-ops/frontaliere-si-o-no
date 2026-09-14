@@ -49,20 +49,20 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
       - name: Load push credentials from Remote Config
         run: node scripts/load-rc-env.mjs
-      - name: Import official border catalogues
+      - name: Import and finalize official border catalogue release
         run: npm run pharmacies:import
       - name: Validate border catalogue
         run: npm run pharmacies:check
-      - name: Commit changed catalogue snapshots
+      - name: Commit atomic catalogue-duty-status snapshots
         run: |
           set -euo pipefail
-          if git diff --quiet -- data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json; then
+          if git diff --quiet -- data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json; then
             echo "No cross-border pharmacy data changes."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json
-          git commit -m "chore(data): refresh cross-border pharmacy catalogue"
+          git add data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json
+          git commit -m "chore(data): refresh atomic cross-border pharmacy release"
           bash scripts/lib/configure-main-push-auth.sh
           git push origin HEAD:main

@@ -168,6 +168,8 @@ export interface PharmacyCatalogueDataset {
   _pharmacyCount?: number;
   _errors: string[];
   _warnings?: string[];
+  /** True when the last suspicious refresh preserved this catalogue payload. */
+  _preserved?: boolean;
   _release: PharmacyReleaseContract;
   pharmacies: Pharmacy[];
 }

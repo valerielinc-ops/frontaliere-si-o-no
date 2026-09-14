@@ -40,6 +40,7 @@ const TICINO_CURRENT_PATH = resolve(DATA_DIR, 'pharmacies-ticino.json');
 const TICINO_OUTPUT_PATH = resolve(DATA_DIR, 'pharmacies-ticino-complete.json');
 const ITALY_OUTPUT_PATH = resolve(DATA_DIR, 'pharmacies-italy-border.json');
 const DUTIES_PATH = resolve(DATA_DIR, 'pharmacy-duties-ticino.json');
+const DUTIES_STATUS_PATH = resolve(DATA_DIR, 'pharmacy-duties-ticino-status.json');
 const USER_AGENT = 'FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/bot)';
 const CATALOGUE_SNAPSHOT_PATH = 'data/pharmacies-ticino-complete.json';
 const DUTIES_SNAPSHOT_PATH = 'data/pharmacy-duties-ticino.json';
@@ -113,9 +114,10 @@ function buildRegionReleaseStatus(region, duties, sourceErrors, preservedRegions
   };
 }
 
-function aggregateReleaseState(catalogueFreshness, dutiesFreshness, regions) {
+function aggregateReleaseState(catalogueFreshness, dutiesFreshness, regions, cataloguePreserved) {
   if (catalogueFreshness === 'unknown' || dutiesFreshness === 'unknown') return 'unknown';
   if (catalogueFreshness === 'stale' || dutiesFreshness === 'stale') return 'stale';
+  if (cataloguePreserved) return 'partial';
   const states = Object.values(regions).map((region) => region.state);
   if (states.includes('conflicting')) return 'conflicting';
   if (states.every((state) => state === 'not_published')) return 'not_published';
@@ -129,6 +131,10 @@ function aggregateReleaseState(catalogueFreshness, dutiesFreshness, regions) {
  * the complete JSON payload except this metadata block, avoiding a circular
  * hash while making any catalogue/duty data change produce a new releaseId.
  */
+function releaseIdForSnapshots(snapshots) {
+  return `pharmacy-v1-${createHash('sha256').update(canonicalJson(snapshots)).digest('hex')}`;
+}
+
 export function buildPharmacyReleaseContract({ catalogue, duties, evaluatedAt }) {
   const catalogueFetchedAt = typeof catalogue?._fetchedAt === 'string' ? catalogue._fetchedAt : null;
   const dutiesFetchedAt = typeof duties?._fetchedAt === 'string' ? duties._fetchedAt : null;
@@ -139,7 +145,7 @@ export function buildPharmacyReleaseContract({ catalogue, duties, evaluatedAt })
     catalogue: { path: CATALOGUE_SNAPSHOT_PATH, sha256: catalogueSha256, fetchedAt: catalogueFetchedAt },
     duties: { path: DUTIES_SNAPSHOT_PATH, sha256: dutiesSha256, fetchedAt: dutiesFetchedAt },
   };
-  const releaseId = `pharmacy-v1-${createHash('sha256').update(canonicalJson(snapshots)).digest('hex')}`;
+  const releaseId = releaseIdForSnapshots(snapshots);
   const preservedRegions = new Set(Array.isArray(duties?._preservedRegions) ? duties._preservedRegions : []);
   const sourceErrors = Array.isArray(duties?._errors) ? duties._errors : [];
   const dutiesList = Array.isArray(duties?.duties) ? duties.duties : [];
@@ -158,9 +164,69 @@ export function buildPharmacyReleaseContract({ catalogue, duties, evaluatedAt })
       regions: OFCT_REGIONS.map((region) => region.key),
     },
     timezone: PHARMACY_TIME_ZONE,
-    state: aggregateReleaseState(catalogueFreshness, dutiesFreshness, regions),
+    state: aggregateReleaseState(catalogueFreshness, dutiesFreshness, regions, catalogue?._preserved === true),
     snapshots,
     regions,
+  };
+}
+
+/**
+ * Recomputes both payload hashes and the release digest from the files that
+ * would be published. Metadata is deliberately excluded from each payload
+ * hash, while the release digest covers the exact two snapshot descriptors.
+ */
+export function verifyPharmacyReleaseContract({ catalogue, duties }) {
+  const errors = [];
+  const catalogueRelease = catalogue?._release;
+  const dutiesRelease = duties?._release;
+  if (!catalogueRelease || typeof catalogueRelease !== 'object') errors.push('catalogue release metadata is missing');
+  if (!dutiesRelease || typeof dutiesRelease !== 'object') errors.push('duties release metadata is missing');
+  if (errors.length > 0) return errors;
+
+  const catalogueFetchedAt = typeof catalogue?._fetchedAt === 'string' ? catalogue._fetchedAt : null;
+  const dutiesFetchedAt = typeof duties?._fetchedAt === 'string' ? duties._fetchedAt : null;
+  const expectedSnapshots = {
+    catalogue: {
+      path: CATALOGUE_SNAPSHOT_PATH,
+      sha256: pharmacySnapshotSha256(catalogue),
+      fetchedAt: catalogueFetchedAt,
+    },
+    duties: {
+      path: DUTIES_SNAPSHOT_PATH,
+      sha256: pharmacySnapshotSha256(duties),
+      fetchedAt: dutiesFetchedAt,
+    },
+  };
+  const expectedReleaseId = releaseIdForSnapshots(expectedSnapshots);
+  for (const [label, release] of [['catalogue', catalogueRelease], ['duties', dutiesRelease]]) {
+    if (release.releaseId !== expectedReleaseId) {
+      errors.push(`${label} releaseId does not match the payload digest`);
+    }
+    try {
+      if (canonicalJson(release.snapshots) !== canonicalJson(expectedSnapshots)) {
+        errors.push(`${label} snapshot hashes or timestamps do not match the payloads`);
+      }
+    } catch {
+      errors.push(`${label} release snapshot metadata is not canonical`);
+    }
+  }
+  if (catalogueRelease.releaseId !== dutiesRelease.releaseId) {
+    errors.push('catalogue and duties releaseId values differ');
+  }
+  return errors;
+}
+
+/**
+ * The border refresh is the final writer: it pairs the newly built catalogue
+ * with the duty snapshot and status file before either is published. All
+ * three files receive the same immutable release object.
+ */
+export function buildAtomicPharmacySnapshots({ catalogue, duties, status = {}, evaluatedAt }) {
+  const release = buildPharmacyReleaseContract({ catalogue, duties, evaluatedAt });
+  return {
+    catalogue: { ...catalogue, _release: release },
+    duties: { ...duties, _release: release },
+    status: { ...status, _release: release },
   };
 }
 
@@ -179,6 +245,15 @@ const noTicinoPdf = process.argv.includes('--no-ticino-pdf');
 
 async function readJsonFile(filePath) {
   return JSON.parse(await readFile(resolve(filePath), 'utf8'));
+}
+
+async function readOptionalJsonFile(filePath, fallback) {
+  try {
+    return await readJsonFile(filePath);
+  } catch (error) {
+    if (error && typeof error === 'object' && error.code === 'ENOENT') return fallback;
+    throw error;
+  }
 }
 
 async function readPreviousSnapshot(filePath, label) {
@@ -347,6 +422,54 @@ function assertBorderRecords(records) {
   }
 }
 
+/**
+ * Builds the Ticino catalogue payload before release metadata is attached.
+ * A suspicious PDF parse keeps the previous payload and its last successful
+ * `_fetchedAt`; the explicit marker makes the resulting release partial (or
+ * stale when that preserved timestamp has aged out).
+ */
+export function buildTicinoCatalogueSnapshot({ parsed, previous, fetchedAt, osmElements = [], requiredIds = [] }) {
+  const rows = Array.isArray(parsed?.rows) ? parsed.rows : [];
+  const warnings = Array.isArray(parsed?.warnings) ? [...parsed.warnings] : [];
+  const previousPharmacies = Array.isArray(previous?.pharmacies) ? previous.pharmacies : [];
+  const preserved = rows.length < BORDER_MINIMUMS.ticino;
+  let pharmacies;
+  let publishedFetchedAt = fetchedAt;
+  let errors = [];
+
+  if (preserved) {
+    warnings.push(`PDF parse produced ${rows.length} records; preserving the previous ${previousPharmacies.length}-record dataset`);
+    pharmacies = previousPharmacies;
+    publishedFetchedAt = typeof previous?._fetchedAt === 'string' ? previous._fetchedAt : null;
+    errors = ['Ticino catalogue refresh was not published; previous snapshot preserved'];
+  } else {
+    pharmacies = buildTicinoCompleteRecords(rows, {
+      previous: previousPharmacies,
+      fetchedAt,
+      osmElements,
+      requiredIds,
+    });
+  }
+
+  if (pharmacies.length < BORDER_MINIMUMS.ticino) {
+    throw new Error(`Ticino import produced only ${pharmacies.length} records; refusing to publish a truncated dataset (minimum ${BORDER_MINIMUMS.ticino})`);
+  }
+
+  return {
+    _source: TICINO_PHARMACY_PDF_URL,
+    _sourceRegions: previous?._sourceRegions || [],
+    _sourcePublishedAt: previous?._sourcePublishedAt || '2026-01-15',
+    _fetchedAt: publishedFetchedAt,
+    _userAgent: USER_AGENT,
+    _pharmacyCount: pharmacies.length,
+    _errors: errors,
+    _warnings: warnings,
+    _scope: { country: 'CH', canton: 'Ticino' },
+    ...(preserved ? { _preserved: true } : {}),
+    pharmacies,
+  };
+}
+
 async function main() {
   const [italy, osm, ticinoInput, previous, previousItaly, dutiesSnapshot] = await Promise.all([
     readItalyInput(),
@@ -356,26 +479,18 @@ async function main() {
     readPreviousItaly(),
     readDutySnapshot(),
   ]);
+  const statusSnapshot = await readOptionalJsonFile(DUTIES_STATUS_PATH, {});
   const dutyPharmacyIds = [...new Set(dutiesSnapshot.duties.map((duty) => duty?.pharmacyId).filter(Boolean))];
 
   const ticinoParsed = parseTicinoPdfText(ticinoInput.text);
-  const ticinoWarnings = [...ticinoParsed.warnings];
-  let ticinoPharmacies;
-  if (ticinoParsed.rows.length >= BORDER_MINIMUMS.ticino) {
-    ticinoPharmacies = buildTicinoCompleteRecords(ticinoParsed.rows, {
-      previous: previous.pharmacies || [],
-      fetchedAt,
-      osmElements: osm.elements,
-      requiredIds: dutyPharmacyIds,
-    });
-  } else {
-    ticinoWarnings.push(`PDF parse produced ${ticinoParsed.rows.length} records; preserving the previous ${previous.pharmacies?.length || 0}-record dataset`);
-    ticinoPharmacies = previous.pharmacies || [];
-  }
-
-  if (ticinoPharmacies.length < BORDER_MINIMUMS.ticino) {
-    throw new Error(`Ticino import produced only ${ticinoPharmacies.length} records; refusing to publish a truncated dataset (minimum ${BORDER_MINIMUMS.ticino})`);
-  }
+  const ticinoOutput = buildTicinoCatalogueSnapshot({
+    parsed: ticinoParsed,
+    previous,
+    fetchedAt,
+    osmElements: osm.elements,
+    requiredIds: dutyPharmacyIds,
+  });
+  const ticinoPharmacies = ticinoOutput.pharmacies;
 
   const italianPharmacies = buildItalianBorderRecords(italy.records, {
     fetchedAt,
@@ -395,24 +510,15 @@ async function main() {
   }
   assertBorderRecords([...ticinoPharmacies, ...italianPharmacies]);
 
-  const ticinoOutput = {
-    _source: TICINO_PHARMACY_PDF_URL,
-    _sourceRegions: previous._sourceRegions || [],
-    _sourcePublishedAt: '2026-01-15',
-    _fetchedAt: fetchedAt,
-    _userAgent: USER_AGENT,
-    _pharmacyCount: ticinoPharmacies.length,
-    _errors: [],
-    _warnings: ticinoWarnings,
-    _scope: { country: 'CH', canton: 'Ticino' },
-    pharmacies: ticinoPharmacies,
-  };
-  ticinoOutput._release = buildPharmacyReleaseContract({
+  const atomic = buildAtomicPharmacySnapshots({
     catalogue: ticinoOutput,
     duties: dutiesSnapshot,
+    status: statusSnapshot,
     evaluatedAt: fetchedAt,
   });
-  await writeJson(TICINO_OUTPUT_PATH, ticinoOutput);
+  await writeJson(TICINO_OUTPUT_PATH, atomic.catalogue);
+  await writeJson(DUTIES_PATH, atomic.duties);
+  await writeJson(DUTIES_STATUS_PATH, atomic.status);
   await writeJson(ITALY_OUTPUT_PATH, {
     _source: ITALY_PHARMACY_DATASET_PAGE,
     _sourceDownloadUrl: italy.downloadUrl,

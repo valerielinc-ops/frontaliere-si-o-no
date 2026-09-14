@@ -1,4 +1,6 @@
+import { sha256 } from '@noble/hashes/sha256';
 import catalogueJson from '../../data/pharmacies-ticino-complete.json';
+import dutiesJson from '../../data/pharmacy-duties-ticino.json';
 import {
   PHARMACY_RELEASE_REGION_KEYS,
   validatePharmacyReleaseContract,
@@ -19,7 +21,58 @@ export const PHARMACY_CATALOGUE_MAX_AGE_MS = 35 * DAY_MS;
 /** Matches the daily duty source with the existing two-run tolerance. */
 export const PHARMACY_DUTIES_MAX_AGE_MS = 2 * DAY_MS;
 
-const CURRENT_CATALOGUE = catalogueJson as unknown as PharmacyCatalogueDataset;
+function deepFreeze<T>(value: T): T {
+  if (value && typeof value === 'object' && !Object.isFrozen(value)) {
+    Object.freeze(value);
+    for (const child of Object.values(value as Record<string, unknown>)) deepFreeze(child);
+  }
+  return value;
+}
+
+const CURRENT_CATALOGUE = deepFreeze(catalogueJson as unknown as PharmacyCatalogueDataset);
+const CURRENT_DUTIES = deepFreeze(dutiesJson as unknown as PharmacyDutiesDataset);
+const CATALOGUE_SNAPSHOT_PATH = 'data/pharmacies-ticino-complete.json';
+const DUTIES_SNAPSHOT_PATH = 'data/pharmacy-duties-ticino.json';
+const IMMUTABLE_INTEGRITY_CACHE = new WeakMap<object, WeakMap<object, string[]>>();
+const IMMUTABLE_RELEASE_VALIDATION_CACHE = new WeakMap<object, string[]>();
+
+function compareCodePoint(left: string, right: string): number {
+  return left < right ? -1 : left > right ? 1 : 0;
+}
+
+function canonicalize(value: unknown): unknown {
+  if (value === null || typeof value === 'string' || typeof value === 'boolean') return value;
+  if (typeof value === 'number' && Number.isFinite(value)) return value;
+  if (Array.isArray(value)) return value.map(canonicalize);
+  if (value && typeof value === 'object' && Object.getPrototypeOf(value) === Object.prototype) {
+    return Object.fromEntries(
+      Object.keys(value).sort(compareCodePoint).map((key) => [key, canonicalize((value as Record<string, unknown>)[key])]),
+    );
+  }
+  throw new TypeError('Pharmacy release contains a non-canonical value');
+}
+
+function canonicalJson(value: unknown): string {
+  return JSON.stringify(canonicalize(value));
+}
+
+function sha256Hex(value: string): string {
+  return Array.from(sha256(new TextEncoder().encode(value)), (byte) => byte.toString(16).padStart(2, '0')).join('');
+}
+
+function snapshotPayload(snapshot: unknown): unknown {
+  if (!snapshot || typeof snapshot !== 'object' || Array.isArray(snapshot)) return snapshot;
+  const { _release: _ignoredRelease, ...payload } = snapshot as Record<string, unknown>;
+  return payload;
+}
+
+function pharmacySnapshotSha256(snapshot: unknown): string {
+  return sha256Hex(canonicalJson(snapshotPayload(snapshot) ?? null));
+}
+
+function releaseIdForSnapshots(snapshots: unknown): string {
+  return `pharmacy-v1-${sha256Hex(canonicalJson(snapshots))}`;
+}
 
 export interface PharmacyReleaseEvaluation {
   state: PharmacyReleaseState;
@@ -79,6 +132,82 @@ function contractSnapshotsMatch(left: PharmacyReleaseContract, right: PharmacyRe
     && left.scope.regions.every((region, index) => region === right.scope.regions[index]);
 }
 
+/**
+ * Recomputes the two payload hashes and the release digest in the browser
+ * bundle. The release block is excluded from its own payload hash, so a
+ * modified JSON payload cannot validate merely by repeating modified metadata.
+ */
+export function verifyPharmacyReleaseIntegrity(
+  dataset: PharmacyDutiesDataset,
+  catalogue: PharmacyCatalogueDataset,
+): string[] {
+  const expectedSnapshots = {
+    catalogue: {
+      path: CATALOGUE_SNAPSHOT_PATH,
+      sha256: pharmacySnapshotSha256(catalogue),
+      fetchedAt: typeof catalogue?._fetchedAt === 'string' ? catalogue._fetchedAt : null,
+    },
+    duties: {
+      path: DUTIES_SNAPSHOT_PATH,
+      sha256: pharmacySnapshotSha256(dataset),
+      fetchedAt: typeof dataset?._fetchedAt === 'string' ? dataset._fetchedAt : null,
+    },
+  };
+  const expectedReleaseId = releaseIdForSnapshots(expectedSnapshots);
+  const errors: string[] = [];
+  for (const [label, release] of [
+    ['catalogue', catalogue?._release],
+    ['duties', dataset?._release],
+  ] as const) {
+    if (release.releaseId !== expectedReleaseId) errors.push(`${label} releaseId does not match the payload digest`);
+    try {
+      if (canonicalJson(release.snapshots) !== canonicalJson(expectedSnapshots)) {
+        errors.push(`${label} snapshot hashes or timestamps do not match the payloads`);
+      }
+    } catch {
+      errors.push(`${label} release snapshot metadata is not canonical`);
+    }
+  }
+  if (catalogue._release.releaseId !== dataset._release.releaseId) {
+    errors.push('catalogue and duties releaseId values differ');
+  }
+  return errors;
+}
+
+function cachedIntegrityErrors(
+  dataset: PharmacyDutiesDataset,
+  catalogue: PharmacyCatalogueDataset,
+): string[] {
+  // These snapshots are read-only inputs. Freeze caller-provided pairs before
+  // caching so a later in-place mutation cannot invalidate the cached proof.
+  // A caller that needs a different payload must pass a new object, which is
+  // also how the importer and tests model a new release.
+  if (!Object.isFrozen(dataset) || !Object.isFrozen(catalogue)) {
+    deepFreeze(dataset);
+    deepFreeze(catalogue);
+  }
+  let byCatalogue = IMMUTABLE_INTEGRITY_CACHE.get(dataset);
+  if (!byCatalogue) {
+    byCatalogue = new WeakMap<object, string[]>();
+    IMMUTABLE_INTEGRITY_CACHE.set(dataset, byCatalogue);
+  }
+  const cached = byCatalogue.get(catalogue);
+  if (cached) return cached;
+  const errors = verifyPharmacyReleaseIntegrity(dataset, catalogue);
+  byCatalogue.set(catalogue, errors);
+  return errors;
+}
+
+function cachedReleaseValidation(contract: unknown): string[] {
+  if (!contract || typeof contract !== 'object') return validatePharmacyReleaseContract(contract);
+  if (!Object.isFrozen(contract)) return validatePharmacyReleaseContract(contract);
+  const cached = IMMUTABLE_RELEASE_VALIDATION_CACHE.get(contract);
+  if (cached) return cached;
+  const errors = validatePharmacyReleaseContract(contract);
+  IMMUTABLE_RELEASE_VALIDATION_CACHE.set(contract, errors);
+  return errors;
+}
+
 function regionState(
   base: PharmacyRegionReleaseStatus,
   duties: PharmacyDuty[],
@@ -115,8 +244,8 @@ export function getPharmacyReleaseEvaluation(
 ): PharmacyReleaseEvaluation {
   const dutyRelease = dataset?._release;
   const catalogueRelease = catalogue?._release;
-  const dutyErrors = validatePharmacyReleaseContract(dutyRelease);
-  const catalogueErrors = validatePharmacyReleaseContract(catalogueRelease);
+  const dutyErrors = cachedReleaseValidation(dutyRelease);
+  const catalogueErrors = cachedReleaseValidation(catalogueRelease);
   if (dutyErrors.length > 0 || catalogueErrors.length > 0 || !Array.isArray(dataset?.duties) || !Array.isArray(catalogue?.pharmacies)) {
     return {
       state: 'unknown',
@@ -128,6 +257,17 @@ export function getPharmacyReleaseEvaluation(
         ...(!Array.isArray(dataset?.duties) ? ['duties snapshot is invalid or missing'] : []),
         ...(!Array.isArray(catalogue?.pharmacies) ? ['catalogue snapshot is invalid or missing'] : []),
       ],
+      regions: unknownRegions(),
+    };
+  }
+
+  const integrityErrors = cachedIntegrityErrors(dataset, catalogue);
+  if (integrityErrors.length > 0) {
+    return {
+      state: 'conflicting',
+      releaseId: null,
+      publishable: false,
+      reasons: ['catalogue and duties release integrity verification failed', ...integrityErrors],
       regions: unknownRegions(),
     };
   }
@@ -169,6 +309,7 @@ export function getPharmacyReleaseEvaluation(
   if (!contractsMatch) state = 'conflicting';
   else if (catalogueFreshness === 'unknown' || dutyFreshness === 'unknown') state = 'unknown';
   else if (catalogueFreshness === 'stale' || dutyFreshness === 'stale') state = 'stale';
+  else if (catalogue._preserved === true) state = 'partial';
   else {
     const states = Object.values(regions).map((region) => region.state);
     if (states.includes('conflicting')) state = 'conflicting';
@@ -180,7 +321,7 @@ export function getPharmacyReleaseEvaluation(
   return {
     state,
     releaseId: dutyRelease.releaseId,
-    publishable: contractsMatch && catalogueFreshness === 'fresh' && dutyFreshness === 'fresh',
+    publishable: contractsMatch && catalogueFreshness === 'fresh' && dutyFreshness === 'fresh' && catalogue._preserved !== true,
     reasons,
     regions,
   };
