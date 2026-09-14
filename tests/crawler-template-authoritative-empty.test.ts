@@ -142,6 +142,29 @@ describe('standard crawler authoritative-empty policy', () => {
     expect(counts.lastFetchOutcome).toBe('feed_endpoint_unavailable');
   });
 
+  it('records an exhausted retry response in the exit-guard counters (#7854)', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'exhausted-retry-outcome-root-'));
+    try {
+      await runStandardCrawlerPipeline({
+        companyKey: COMPANY_KEY,
+        companyLabel: 'Exhausted Retry Test',
+        root,
+        fetchJobs: async () => {
+          throw Object.assign(new Error('HTTP 503'), {
+            status: 503,
+            retryBudgetExhausted: true,
+          });
+        },
+        isCompanyJob: () => true,
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+
+    const [, , counts] = mocks.registerCrawlerSummaryGuard.mock.calls.at(-1);
+    expect(counts.lastFetchOutcome).toBe('exhausted_retry');
+  });
+
   it('allows zero only when both the source validator and explicit opt-in agree', () => {
     const validator = vi.fn(() => true);
     expect(evaluateAuthoritativeSnapshot([], {

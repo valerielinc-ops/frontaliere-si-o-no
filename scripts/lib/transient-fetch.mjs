@@ -257,6 +257,23 @@ export function markRetryExhaustedError(error) {
 }
 
 /**
+ * Mark the final HTTP response returned after a retryable status exhausted its
+ * retry budget. Native `Response` objects are extensible; the defensive guard
+ * keeps a non-extensible test double from changing the fetch result into a
+ * throw at the marker boundary.
+ */
+function markRetryBudgetExhaustedResponse(response) {
+  if (!response || (typeof response !== 'object' && typeof response !== 'function')) return response;
+  try {
+    response.retryBudgetExhausted = true;
+  } catch {
+    // The native Response path is extensible; an exotic response cannot carry
+    // the advisory marker, but must still be returned unchanged.
+  }
+  return response;
+}
+
+/**
  * Run an async fetch operation with exponential backoff + jitter on transient
  * failures (429/5xx, network errors, timeouts). 4xx and other persistent
  * errors fail fast. Defaults: 3 retries → backoff 1s/2s/4s (+ jitter).
@@ -345,7 +362,10 @@ export async function fetchWithRetry(attemptFn, opts = {}) {
  *
  * Retryable HTTP statuses are surfaced as a thrown tagged error so the backoff
  * loop sees them; after the final attempt the real `Response` is returned so the
- * caller's own status handling runs unchanged.
+ * caller's own status handling runs unchanged. That terminal response is
+ * marked with `retryBudgetExhausted = true`, which lets crawler runners keep
+ * the existing slice instead of treating a transient vendor response as a
+ * persistent source failure. Persistent non-retryable responses are unmarked.
  *
  * Env overrides (shared with fetchWithRetry):
  *   JOBS_CRAWLER_RETRIES, JOBS_CRAWLER_RETRY_BASE_MS
@@ -397,8 +417,15 @@ export async function httpFetchWithRetry(url, options = {}, opts = {}) {
   ).catch((err) => {
     // If the last failure was a retryable HTTP status, hand the real Response
     // back so the caller's own `if (!res.ok)` logic runs unchanged instead of
-    // forcing every call site to special-case our thrown error.
-    if (err && err.retryable === true && err.response) return err.response;
+    // forcing every call site to special-case our thrown error. Preserve a
+    // second marker on the Response because the caller may construct a fresh
+    // domain error from its status before the crawler-level catch sees it.
+    if (err && err.retryable === true && err.response) {
+      if (err.retryExhausted === true) err.retryBudgetExhausted = true;
+      return err.retryExhausted === true
+        ? markRetryBudgetExhaustedResponse(err.response)
+        : err.response;
+    }
     throw err;
   });
 }

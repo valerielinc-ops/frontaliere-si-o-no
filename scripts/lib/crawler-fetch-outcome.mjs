@@ -38,6 +38,9 @@ export const CRAWLER_FETCH_OUTCOMES = new Set([
   // The crawler exhausted transport retries without observing the source.
   // This is distinct from selector drift: the parser never received a page.
   'connection_error',
+  // The source answered with retryable HTTP statuses until the response retry
+  // budget was exhausted. Unlike a connection error, the server was observed.
+  'exhausted_retry',
   // The expected feed host answered with a redirect/HTML maintenance page.
   // This is an upstream endpoint outage, not malformed XML or selector drift.
   'feed_endpoint_unavailable',
@@ -53,6 +56,7 @@ export const CRAWLER_FETCH_FAILURE_OUTCOMES = new Set([
   'anti_bot_block',
   'selector_miss',
   'connection_error',
+  'exhausted_retry',
   'feed_endpoint_unavailable',
 ]);
 
@@ -62,7 +66,7 @@ export const CRAWLER_FETCH_FAILURE_OUTCOMES = new Set([
  * reading it as evidence would let a typo (`selector-miss`) flip a verdict.
  *
  * @param {unknown} value
- * @returns {'ok'|'anti_bot_block'|'selector_miss'|'filtered_empty'|'connection_error'|'feed_endpoint_unavailable'|null}
+ * @returns {'ok'|'anti_bot_block'|'selector_miss'|'filtered_empty'|'connection_error'|'exhausted_retry'|'feed_endpoint_unavailable'|null}
  */
 export function normalizeFetchOutcome(value) {
   return typeof value === 'string' && CRAWLER_FETCH_OUTCOMES.has(value) ? value : null;

@@ -265,6 +265,7 @@ describe('httpFetchWithRetry', () => {
       .mockResolvedValueOnce(mkResponse(200)) as unknown as typeof fetch;
     const res = await httpFetchWithRetry('https://x.test', {}, { retryBaseMs: 0 });
     expect(res.status).toBe(200);
+    expect((res as Response & { retryBudgetExhausted?: boolean }).retryBudgetExhausted).toBeUndefined();
     expect(global.fetch).toHaveBeenCalledTimes(2);
   });
 
@@ -275,6 +276,7 @@ describe('httpFetchWithRetry', () => {
     const res = await httpFetchWithRetry('https://x.test', {}, { retries: 2, retryBaseMs: 0 });
     expect(res.status).toBe(503);
     expect(res.ok).toBe(false);
+    expect((res as Response & { retryBudgetExhausted?: boolean }).retryBudgetExhausted).toBe(true);
     expect(global.fetch).toHaveBeenCalledTimes(3); // 1 + 2 retries
   });
 
@@ -282,6 +284,7 @@ describe('httpFetchWithRetry', () => {
     global.fetch = vi.fn().mockResolvedValue(mkResponse(404)) as unknown as typeof fetch;
     const res = await httpFetchWithRetry('https://x.test', {}, { retryBaseMs: 0 });
     expect(res.status).toBe(404);
+    expect((res as Response & { retryBudgetExhausted?: boolean }).retryBudgetExhausted).toBeUndefined();
     expect(global.fetch).toHaveBeenCalledTimes(1);
   });
 
