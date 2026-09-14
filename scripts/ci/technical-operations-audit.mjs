@@ -43,6 +43,11 @@ const DATA_PATH_RE = /\b((?:data|public\/data)\/[A-Za-z0-9_./-]+\.(?:json|jsonl|
 const OUTPUT_RE = /(?:echo|printf)\s+["']?([A-Za-z_][A-Za-z0-9_-]*)(?:=|<<)/g;
 const OUTPUT_HELPER_CALL_RE = /\b(?:write_output|writeOutput|set_output|setOutput|emit_output|emitOutput)\s*\(\s*["']([A-Za-z_][A-Za-z0-9_-]*)["']/g;
 const OUTPUT_HELPER_SHELL_RE = /\b(?:write_output|writeOutput|set_output|setOutput|emit_output|emitOutput)\s+["']?([A-Za-z_][A-Za-z0-9_-]*)["']?/g;
+const OUTPUT_ACTIONS_FILE_RE = /\bappendActionsFile\s*\(\s*["']GITHUB_OUTPUT["']\s*,\s*["']([A-Za-z_][A-Za-z0-9_-]*)["']/g;
+const LOCAL_MODULE_RE = /\b(?:from\s*|import\s*\(\s*|require\s*\(\s*)["'](\.{1,2}\/[^"']+)["']/g;
+const INVOKED_COMMAND_RE = /\b(?:node|bash|sh|tsx|bun|deno)\s+["']?((?:scripts|functions|tests|\.github\/actions|\.github\/scripts)\/[A-Za-z0-9_./-]+\.(?:mjs|cjs|js|ts|sh|yml|yaml))\b/g;
+const SCRIPT_DIR_COMMAND_RE = /\b(?:bash|sh|source|\.)\s+["']?\$\{SCRIPT_DIR\}\/([^"'\s]+)/g;
+const MAX_OUTPUT_REFERENCE_FILES = 16;
 
 function isRecord(value) {
   return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
@@ -197,6 +202,18 @@ function extractCommandPaths(run) {
   return [...new Set(paths)];
 }
 
+function extractLocalModulePaths(source) {
+  return [...new Set([...String(source || '').matchAll(LOCAL_MODULE_RE)].map((match) => match[1]))];
+}
+
+function extractInvokedCommandPaths(source) {
+  return [...new Set([...String(source || '').matchAll(INVOKED_COMMAND_RE)].map((match) => match[1]))];
+}
+
+function extractScriptDirCommands(source) {
+  return [...new Set([...String(source || '').matchAll(SCRIPT_DIR_COMMAND_RE)].map((match) => match[1]))];
+}
+
 function extractDataPaths(run) {
   return [...new Set([...String(run || '').matchAll(DATA_PATH_RE)].map((match) => match[1]))];
 }
@@ -314,12 +331,159 @@ function shellOperationalText(run, { preserveQuotedWritePaths = false } = {}) {
   return output.join('');
 }
 
+function stringLiterals(source) {
+  const raw = String(source || '');
+  const literals = [];
+  let quote = null;
+  let start = -1;
+  let escaped = false;
+  let lineComment = false;
+  let blockComment = false;
+
+  for (let index = 0; index < raw.length; index += 1) {
+    const char = raw[index];
+    const next = raw[index + 1];
+    if (lineComment) {
+      if (char === '\n') lineComment = false;
+      continue;
+    }
+    if (blockComment) {
+      if (char === '*' && next === '/') {
+        blockComment = false;
+        index += 1;
+      }
+      continue;
+    }
+    if (quote) {
+      if (escaped) {
+        escaped = false;
+        continue;
+      }
+      if (char === '\\') {
+        escaped = true;
+        continue;
+      }
+      if (char === quote) {
+        literals.push(raw.slice(start, index));
+        quote = null;
+        start = -1;
+      }
+      continue;
+    }
+    if (char === '/' && next === '/') {
+      lineComment = true;
+      index += 1;
+      continue;
+    }
+    if (char === '/' && next === '*') {
+      blockComment = true;
+      index += 1;
+      continue;
+    }
+    if (char === '#') {
+      lineComment = true;
+      continue;
+    }
+    if (char === "'" || char === '"' || char === '`') {
+      quote = char;
+      start = index + 1;
+    }
+  }
+  return literals;
+}
+
+function literalOutputKeys(source) {
+  const keys = new Set();
+  const outputKeyRe = /(?:^|\r?\n|\\n|\\r\\n)([A-Za-z_][A-Za-z0-9_-]*)(?:=|<<)/g;
+  for (const literal of stringLiterals(source)) {
+    for (const match of literal.matchAll(outputKeyRe)) keys.add(match[1]);
+  }
+  return keys;
+}
+
+function matchingBrace(source, openingIndex) {
+  const raw = String(source || '');
+  let depth = 0;
+  let quote = null;
+  let escaped = false;
+  let lineComment = false;
+  let blockComment = false;
+  for (let index = openingIndex; index < raw.length; index += 1) {
+    const char = raw[index];
+    const next = raw[index + 1];
+    if (lineComment) {
+      if (char === '\n') lineComment = false;
+      continue;
+    }
+    if (blockComment) {
+      if (char === '*' && next === '/') {
+        blockComment = false;
+        index += 1;
+      }
+      continue;
+    }
+    if (quote) {
+      if (escaped) {
+        escaped = false;
+        continue;
+      }
+      if (char === '\\') {
+        escaped = true;
+        continue;
+      }
+      if (char === quote) quote = null;
+      continue;
+    }
+    if (char === '/' && next === '/') {
+      lineComment = true;
+      index += 1;
+      continue;
+    }
+    if (char === '/' && next === '*') {
+      blockComment = true;
+      index += 1;
+      continue;
+    }
+    if (char === "'" || char === '"' || char === '`') {
+      quote = char;
+      continue;
+    }
+    if (char === '{') depth += 1;
+    if (char === '}') {
+      depth -= 1;
+      if (depth === 0) return index;
+    }
+  }
+  return -1;
+}
+
+function objectEntryOutputKeys(source) {
+  const raw = String(source || '');
+  const keys = new Set();
+  const declarationRe = /\b(?:const|let|var)\s+([A-Za-z_$][A-Za-z0-9_$]*)\s*=\s*\{/g;
+  for (const declaration of raw.matchAll(declarationRe)) {
+    const variable = declaration[1];
+    const declarationStart = declaration.index ?? 0;
+    const openingIndex = raw.indexOf('{', declarationStart);
+    const closingIndex = matchingBrace(raw, openingIndex);
+    if (closingIndex < 0) continue;
+    const escapedVariable = variable.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    if (!new RegExp(`\\bObject\\.entries\\(\\s*${escapedVariable}\\s*\\)`).test(raw.slice(closingIndex + 1))) continue;
+    const body = raw.slice(openingIndex + 1, closingIndex);
+    for (const entry of body.matchAll(/(?:^|,)\s*([A-Za-z_][A-Za-z0-9_-]*)\s*:/gm)) keys.add(entry[1]);
+  }
+  return keys;
+}
+
 function outputKeysFromSource(source) {
   const raw = String(source || '');
-  if (!/\$GITHUB_OUTPUT\b|process\.env\.GITHUB_OUTPUT\b/.test(raw)) return new Set();
+  if (!/\$GITHUB_OUTPUT\b|(?:process|env)\.GITHUB_OUTPUT\b|appendActionsFile\s*\(\s*["']GITHUB_OUTPUT["']/.test(raw)) return new Set();
   const keys = new Set([...raw.matchAll(OUTPUT_RE)].map((match) => match[1]));
   for (const match of raw.matchAll(OUTPUT_HELPER_CALL_RE)) keys.add(match[1]);
   for (const match of raw.matchAll(OUTPUT_HELPER_SHELL_RE)) keys.add(match[1]);
+  for (const match of raw.matchAll(OUTPUT_ACTIONS_FILE_RE)) keys.add(match[1]);
+  for (const key of literalOutputKeys(raw)) keys.add(key);
+  for (const key of objectEntryOutputKeys(raw)) keys.add(key);
 
   // A workflow commonly delegates its output writer to a first-party script.
   // Follow only a statically-known output file (the literal env expression or
@@ -352,16 +516,38 @@ function stepOutputKeys(run, {
   const source = String(run || '');
   const keys = outputKeysFromSource(source);
   if (!followReferences || workingRoot === null) return keys;
-  for (const candidate of extractCommandPaths(source)) {
-    const absolute = path.resolve(workingRoot, candidate);
-    if (!exists(absolute)) continue;
+  const visited = new Set();
+  const visit = (absolute, depth) => {
+    if (depth > 4 || visited.size >= MAX_OUTPUT_REFERENCE_FILES || visited.has(absolute) || !exists(absolute)) return;
+    visited.add(absolute);
+    let delegated;
     try {
-      for (const key of outputKeysFromSource(readFile(absolute, 'utf8'))) keys.add(key);
+      delegated = readFile(absolute, 'utf8');
     } catch {
       // A runtime checkout or a permission failure is not proof of an output
       // contract. Leave the key unknown so the existing warning is retained.
+      return;
     }
-  }
+    const delegatedKeys = outputKeysFromSource(delegated);
+    for (const key of delegatedKeys) keys.add(key);
+    // Once a delegated writer exposes literal keys, traversing all of its
+    // dependencies adds cost without making the contract more certain. Keep
+    // following only when the current file is itself an output-aware wrapper.
+    if (delegatedKeys.size > 0) return;
+    for (const candidate of extractInvokedCommandPaths(delegated)) {
+      const commandPath = path.resolve(workingRoot, candidate);
+      if (exists(commandPath)) visit(commandPath, depth + 1);
+    }
+    for (const candidate of extractScriptDirCommands(delegated)) {
+      const commandPath = path.resolve(path.dirname(absolute), candidate);
+      if (exists(commandPath)) visit(commandPath, depth + 1);
+    }
+    for (const candidate of extractLocalModulePaths(delegated)) {
+      const modulePath = path.resolve(path.dirname(absolute), candidate);
+      if (exists(modulePath)) visit(modulePath, depth + 1);
+    }
+  };
+  for (const candidate of extractCommandPaths(source)) visit(path.resolve(workingRoot, candidate), 0);
   return keys;
 }
 

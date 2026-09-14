@@ -380,6 +380,101 @@ describe('technical operations audit', () => {
     expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([]);
   });
 
+  it('riconosce tutte le chiavi in template concatenati', () => {
+    const files = new Map([
+      ['/repo/scripts/check-health.mjs', [
+        "import { appendFileSync } from 'node:fs';",
+        'appendFileSync(process.env.GITHUB_OUTPUT, `first=ok\\nsecond=ok` + `third=ok`);',
+      ].join('\n')],
+    ]);
+    const source = [
+      'name: delegated-output-concatenated',
+      'on: [push]',
+      'jobs:',
+      '  check:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: producer',
+      '        id: health',
+      '        run: node scripts/check-health.mjs',
+      '      - name: consumer',
+      '        run: echo "${{ steps.health.outputs.third }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/delegated-output-concatenated.yml', source, {
+      root: '/repo',
+      exists: (candidate: string) => files.has(candidate),
+      readFile: (candidate: string) => files.get(candidate) || '',
+    });
+    expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([]);
+  });
+
+  it('riconosce le chiavi di una mappa passata a Object.entries', () => {
+    const files = new Map([
+      ['/repo/scripts/claim.mjs', [
+        'import { appendFileSync } from \'node:fs\';',
+        'const values = {',
+        '  claim_allowed: true,',
+        '  claim_token: result.token || \'\',',
+        '};',
+        'const lines = Object.entries(values).map(([name, value]) => `${name}=${value}`);',
+        'appendFileSync(process.env.GITHUB_OUTPUT, `${lines.join(\'\\n\')}\\n`);',
+      ].join('\n')],
+    ]);
+    const source = [
+      'name: delegated-output-object',
+      'on: [push]',
+      'jobs:',
+      '  check:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: producer',
+      '        id: claim',
+      '        run: node scripts/claim.mjs',
+      '      - name: consumer',
+      '        run: echo "${{ steps.claim.outputs.claim_token }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/delegated-output-object.yml', source, {
+      root: '/repo',
+      exists: (candidate: string) => files.has(candidate),
+      readFile: (candidate: string) => files.get(candidate) || '',
+    });
+    expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([]);
+  });
+
+  it('segue un helper importato da uno script first-party', () => {
+    const files = new Map([
+      ['/repo/scripts/pull.mjs', [
+        "import { emitSkip } from './lib/output.mjs';",
+        'emitSkip();',
+      ].join('\n')],
+      ['/repo/scripts/lib/output.mjs', [
+        "import { appendFileSync } from 'node:fs';",
+        'export function emitSkip() {',
+        "  appendFileSync(process.env.GITHUB_OUTPUT, 'nested=yes\\n');",
+        '}',
+      ].join('\n')],
+    ]);
+    const source = [
+      'name: delegated-output-import',
+      'on: [push]',
+      'jobs:',
+      '  check:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: producer',
+      '        id: health',
+      '        run: node scripts/pull.mjs',
+      '      - name: consumer',
+      '        run: echo "${{ steps.health.outputs.nested }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/delegated-output-import.yml', source, {
+      root: '/repo',
+      exists: (candidate: string) => files.has(candidate),
+      readFile: (candidate: string) => files.get(candidate) || '',
+    });
+    expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([]);
+  });
+
   it('mantiene separati gli scope tra job e verifica gli output needs dichiarati', () => {
     const source = [
       'name: scoped',
