@@ -6367,6 +6367,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.forum-economico-ambientale-osce-praga.title': '32. OSZE-Forum in Prag: Fokus auf Sicherheit und Technologie',
     'blog.article.forum-economico-ambientale-osce-praga.excerpt': 'Das 32. Wirtschafts- und Umweltforum der OSZE unter der Leitung des Schweizer Vorsitzes von 2026 wurde in Prag eröffnet.',
     'blog.article.forum-economico-ambientale-osce-praga.imageAlt': 'Konferenzsaal des OSCE Wirtschafts- und Umweltforums in Prag',
+    'blog.article.latte-e-agricoltura-svizzera-studi.title': 'Landwirtschaftsstudien: Niedriger Milchverdienst in der Schweiz',
+    'blog.article.latte-e-agricoltura-svizzera-studi.excerpt': 'Eine aktuelle Studie der FHNW zeigt, dass Milchproduzenten durchschnittlich 8,30 Franken pro Stunde verdienen, Raps hingegen 73,60 Franken.',
+    'blog.article.latte-e-agricoltura-svizzera-studi.imageAlt': 'Milchproduzenten und Schweizer Landwirtschaft laut FHNW-Studie',
 };
 
 export default blogMetaChDe;
