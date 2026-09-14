@@ -119,9 +119,6 @@ function parseOpt(name, fallback) {
   return fallback;
 }
 
-const DRY_RUN = parseFlag('--dry-run') || String(process.env.LOCAL_MT_DRY_RUN || '0') === '1';
-const MAX_JOBS = Number(parseOpt('--max-jobs', process.env.LOCAL_MT_MAX_JOBS)) || 2000;
-
 function readJson(filePath) {
   try {
     return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
@@ -227,7 +224,8 @@ export function missingSlots(job) {
  * @param {string} text
  * @returns {string}
  */
-export function masculineGermanTitle(text) {
+function masculineGermanTitleLegacy(text) {
+  // Normalize only explicit job-title gender forms.
   return String(text ?? '')
     .replace(/\b(\p{L}[\p{L}-]*?)mann\/\1in\b/giu, '$1mann')
     .replace(/\b(\p{L}[\p{L}-]*)frau(?:\/-?|[-_])mann\b/giu, '$1mann')
@@ -235,6 +233,37 @@ export function masculineGermanTitle(text) {
     .replace(/\b(\p{L}[\p{L}-]*)[/:*_]-?in(?:nen)?\b/giu, '$1')
     .replace(/\b(\p{L}[\p{L}-]*)\/\1in\b/giu, '$1')
     .replace(/\b(\p{L}[\p{L}-]*)\*([rR])\b/giu, (_match, stem, ending) => `${stem}${ending}`);
+}
+
+const GERMAN_GENDER_STEM_SUFFIX_RE = /(?:er|ent|ant|ist|eur|ier|olog|agog|arzt|ärzt|är|fach|kraft|person|meister|leiter|kolleg|student|koch|chef|coach|expert|and|at|or|wirt|ling)$/iu;
+
+function isLikelyGermanGenderStem(stem) {
+  const value = String(stem || '');
+  return value.length >= 3
+    && /^[-\p{L}]+$/u.test(value)
+    && GERMAN_GENDER_STEM_SUFFIX_RE.test(value);
+}
+
+/**
+ * Keep the broad legacy normalizer behind a small morphology guard. Slash
+ * forms are retained for compatibility with X/in; the ambiguous :in, *in and
+ * _in spellings must also look like a German occupational noun before they
+ * are collapsed.
+ */
+export function masculineGermanTitle(text) {
+  const skipped = [];
+  const guarded = String(text ?? '').replace(
+    /\b(\p{L}[\p{L}-]*)([/:*_])-?in(?:nen)?\b/giu,
+    (match, stem, separator) => {
+      if (separator === '/' || isLikelyGermanGenderStem(stem)) return match;
+      const token = 'QZSKIP' + skipped.length + 'QZ';
+      skipped.push([token, match]);
+      return token;
+    },
+  );
+  let normalized = masculineGermanTitleLegacy(guarded);
+  for (const [token, original] of skipped) normalized = normalized.replace(token, original);
+  return normalized;
 }
 
 function normalizeArgosText(text, from, field) {
@@ -546,6 +575,12 @@ function normalizeCompanyKey(value = '') {
 }
 
 async function main() {
+  // Parse CLI options only for direct execution. This module is imported by
+  // mark-mistranslated-jobs.mjs; its flags must not configure an imported
+  // mop-up phase, even when both entry points receive --dry-run.
+  const dryRun = parseFlag('--dry-run') || String(process.env.LOCAL_MT_DRY_RUN || '0') === '1';
+  const maxJobs = Number(parseOpt('--max-jobs', process.env.LOCAL_MT_MAX_JOBS)) || 2000;
+
   // Publish the run start (WRITE-ONCE) so that under the Argos-first ordering this
   // BULK pass (Phase 2a) — which runs BEFORE the cascade — establishes the shared
   // run clock. The cascade (Phase 2b) and the leftover mop-up (Phase 2c) then bound
@@ -575,7 +610,7 @@ async function main() {
 
   const sliceFiles = listSliceFileNames(BY_CRAWLER_DIR);
 
-  // Build the FULL candidate list first — no early exit on MAX_JOBS here. The
+  // Build the FULL candidate list first — no early exit on maxJobs here. The
   // old code capped mid-scan while walking sliceFiles alphabetically, so any
   // slice sorted after wherever the cap landed (e.g. postfinance.json,
   // richemont.json — both past position ~200/570) never got scanned, on any
@@ -618,7 +653,7 @@ async function main() {
     console.warn(`⚠️  [local-mt] ${TRAFFIC_SOURCE_PATH} missing/unreadable — ordering this pass oldest-first instead (still fair, just not traffic-weighted).`);
     popularity = {};
   }
-  const { selected: selectedJobs, stats } = orderMopupJobsByTraffic(candidates.map((c) => c.job), popularity, MAX_JOBS);
+  const { selected: selectedJobs, stats } = orderMopupJobsByTraffic(candidates.map((c) => c.job), popularity, maxJobs);
   for (const line of formatPriorityReport(stats, { freshCoverage: freshMeter.stats() })) console.log(line);
 
   const byJob = new Map(candidates.map((c) => [c.job, c]));
@@ -666,7 +701,7 @@ async function main() {
     return;
   }
 
-  if (DRY_RUN) {
+  if (dryRun) {
     console.log('🏁 [local-mt] Dry run — not invoking Python, not writing slices.');
     const sample = requests.slice(0, 5)
       .map((r) => `   ${r.from}->${r.to} [${(r.text || '').slice(0, 50)}…]`)
