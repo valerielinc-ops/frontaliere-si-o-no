@@ -144,4 +144,14 @@ describe('runtime reliability watchdog', () => {
     expect(publishWorkflow).toContain('gh workflow run runtime-reliability-watch.yml');
     expect(publishWorkflow).toContain('--ref main');
   });
+
+  it('retains the cooldown timestamp when a duplicate purge is skipped', () => {
+    const workflow = readFileSync(
+      new URL('../.github/workflows/runtime-reliability-watch.yml', import.meta.url),
+      'utf8',
+    );
+    expect(workflow).toContain('const sameFingerprint = previous.fingerprint === fingerprint;');
+    expect(workflow).toContain("const purgeSucceeded = first.repair?.action === 'purge'");
+    expect(workflow).toContain(': sameFingerprint ? previous.lastActionAt || null : null,');
+  });
 });
