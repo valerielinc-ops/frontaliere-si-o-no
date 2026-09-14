@@ -77,6 +77,16 @@ describe('plate-auction static pages', () => {
     expect(rendered.html).not.toContain('GR8');
   });
 
+  it('keeps a live row with an unparseable deadline consistent with the dynamic feed', () => {
+    const rootDir = fixtureRoot();
+    const snapshotPath = join(rootDir, 'public', 'data', 'plate-auctions.json');
+    const snapshot = JSON.parse(readFileSync(snapshotPath, 'utf8')) as { auctions: Array<Record<string, unknown>> };
+    snapshot.auctions[0].endsAt = 'not-a-date';
+    writeFileSync(snapshotPath, JSON.stringify(snapshot), 'utf8');
+    const rendered = renderPlateAuctionPage({ locale: 'it', view: 'hub', rootDir });
+    expect(rendered.html).toContain('GR8');
+  });
+
   it('emits the site hreflang locale codes for auction pages', () => {
     const rootDir = fixtureRoot();
     const rendered = renderPlateAuctionPage({ locale: 'fr', view: 'canton', canton: 'GR', rootDir });

@@ -41,7 +41,8 @@ function pathFor(locale: PlateLocale, view: 'hub' | 'rankings' | 'canton' | 'det
 function detailPathForRow(row: SnapshotRow, locale: PlateLocale): string { return pathFor(locale, 'detail', row.sourceKey || row.platePrefix, row.normalizedPlate); }
 function alternates(view: 'hub' | 'rankings' | 'canton' | 'detail', canton?: string, plate?: string): string { return LOCALES.map((locale) => `<link rel="alternate" hreflang="${locale}" href="${BASE_URL}${pathFor(locale, view, canton, plate)}">`).concat(`<link rel="alternate" hreflang="x-default" href="${BASE_URL}${pathFor('it', view, canton, plate)}">`).join('\n'); }
 function normalizeExpiredRow(row: SnapshotRow): SnapshotRow {
-  if (!['active', 'upcoming'].includes(row.auctionStatus) || !row.endsAt || Date.parse(row.endsAt) > Date.now()) return row;
+  const endsAt = row.endsAt ? Date.parse(row.endsAt) : Number.NaN;
+  if (!['active', 'upcoming'].includes(row.auctionStatus) || !Number.isFinite(endsAt) || endsAt > Date.now()) return row;
   return { ...row, auctionStatus: 'closed', closedAt: row.closedAt || row.endsAt, dataConfidence: row.dataConfidence === 'verified' ? 'partial' : row.dataConfidence };
 }
 function isCurrentRow(row: SnapshotRow): boolean {
