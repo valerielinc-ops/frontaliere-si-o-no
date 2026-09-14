@@ -40,7 +40,7 @@ const RAW = {
   so: ['Soletta', 'SO', 'https://so.ch/verwaltung/departement-des-innern/amt-fuer-strassenverkehr-und-schifffahrt/'],
   sz: ['Svitto', 'SZ', 'https://www.sz.ch/verwaltung/sicherheitsdepartement/strassenverkehrsamt.html/72-512-489-483-481'],
   tg: ['Turgovia', 'TG', 'https://strassenverkehrsamt.tg.ch/'],
-  ti: ['Ticino', 'TI', 'https://www4.ti.ch/di/sc/veicoli/asta-targhe', { parserVersion: 'discovery-1.1.0', rateLimit: 'da verificare dopo il ripristino della piattaforma', status: 'blocked' }],
+  ti: ['Ticino', 'TI', 'https://www.carieauktion.ti.ch/ecari-auktion/', { accessMethod: 'html-scrape', fetchFrequency: 'PT6H', parserVersion: '2.0.0', availableFields: ['sourceRecordId', 'plateNumber', 'listingType', 'vehicleType', 'startingPriceChf', 'minimumIncrementChf', 'currentBidChf', 'bidCount', 'endsAt', 'officialDetailUrl'], rateLimit: 'unpublished — collector capped at four fetches/day', termsOfUse: 'review source terms before increasing frequency', status: 'active' }],
   ur: ['Uri', 'UR', 'https://www.ur.ch/strassenverkehrsamt'],
   vd: ['Vaud', 'VD', 'https://www.vd.ch/themes/mobilite/automobile/plaques-dimmatriculation'],
   vs: ['Vallese', 'VS', 'https://ecari.vs.ch/ecari-auction/', { accessMethod: 'html-scrape', fetchFrequency: 'PT6H', parserVersion: '2.0.0', availableFields: ['sourceRecordId', 'plateNumber', 'listingType', 'vehicleType', 'startingPriceChf', 'minimumIncrementChf', 'currentBidChf', 'bidCount', 'endsAt', 'officialDetailUrl'], rateLimit: 'unpublished — collector capped at four fetches/day', termsOfUse: 'no separate terms page found; review manually before increasing frequency', status: 'active' }],
