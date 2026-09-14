@@ -13,6 +13,11 @@ describe('sanitizeBodyText', () => {
     expect(log).toHaveBeenCalledWith(expect.stringContaining('2 stray brace'));
   });
 
+  it('removes a stray closing brace from a translated low-quote sentence', () => {
+    expect(sanitizeBodyText('Deutsche Übersetzung „Zitat}" endet hier.'))
+      .toBe('Deutsche Übersetzung „Zitat" endet hier.');
+  });
+
   it('is wired into the object-object repair output before it is returned', () => {
     const source = readFileSync(
       new URL('../../scripts/repair-object-object-bodies.mjs', import.meta.url),
