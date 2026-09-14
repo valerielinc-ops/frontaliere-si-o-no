@@ -264,7 +264,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "service-operator-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "service-operator-srg-ssr-bern"
+      ]
     },
     {
       "id": "srg-ssr-a8ae3325568d",

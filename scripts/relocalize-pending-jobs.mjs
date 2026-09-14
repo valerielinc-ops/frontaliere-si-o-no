@@ -220,6 +220,7 @@ export function createObserverCompensatedClock(now = Date.now) {
 }
 
 const LEGACY_CLOCK = createObserverCompensatedClock();
+const readWallClockMs = () => Date.now();
 
 function writeThinkingArtifacts({
   enabled,
@@ -701,30 +702,36 @@ export function initialCascadeStopReason({
   return allCompaniesSkipped ? 'all companies skipped' : 'queue exhausted';
 }
 
-export function computeCascadeWindow({ nowMs, runStartMs, deadlineMs }) {
+export function computeCascadeWindow({ nowMs, runStartMs, deadlineMs, fallbackNowMs = null }) {
   const elapsedMs = nowMs - runStartMs;
-  if (!Number.isFinite(elapsedMs) || !Number.isFinite(deadlineMs) || deadlineMs < 0) {
+  if (!Number.isFinite(deadlineMs) || deadlineMs < 0 || !Number.isFinite(elapsedMs)) {
     return { startedAtMs: 0, windowMs: 0, stopReason: 'clock incoherent' };
+  }
+  if (elapsedMs < 0) {
+    const fallbackElapsedMs = fallbackNowMs === null ? NaN : fallbackNowMs - runStartMs;
+    if (!Number.isFinite(fallbackElapsedMs) || fallbackElapsedMs < 0) {
+      return { startedAtMs: 0, windowMs: Math.max(0, deadlineMs), stopReason: 'clock incoherent' };
+    }
+    const windowMs = Math.max(0, deadlineMs - fallbackElapsedMs);
+    return {
+      startedAtMs: fallbackElapsedMs,
+      windowMs,
+      stopReason: windowMs === 0 ? 'cascade deadline' : 'clock fallback',
+    };
   }
   const startedAtMs = Math.max(0, elapsedMs);
   const windowMs = Math.max(0, deadlineMs - startedAtMs);
   return {
     startedAtMs,
     windowMs,
-    stopReason: elapsedMs < 0
-      ? 'clock incoherent'
-      : windowMs === 0
-        ? 'cascade deadline'
-        : 'in progress',
+    stopReason: windowMs === 0 ? 'cascade deadline' : 'in progress',
   };
 }
 
 export function markCascadeFailure(phase) {
-  if (
-    phase?.stopReason === 'nothing to relocalize'
-    || phase?.stopReason === 'in progress'
-    || phase?.stopReason === 'cascade deadline'
-  ) {
+  if (!phase || typeof phase !== 'object') return phase;
+  phase.failed = true;
+  if (phase.stopReason === 'nothing to relocalize' || phase.stopReason === 'in progress') {
     phase.stopReason = 'failed';
   }
   return phase;
@@ -1479,6 +1486,8 @@ async function main() {
     jobsCleared: 0,
     companiesQueued: 0,
     stopReason: 'nothing to relocalize',
+    failed: false,
+    clockFallback: false,
   };
   try {
     await runRelocalization(phase);
@@ -1490,7 +1499,7 @@ async function main() {
     markCascadeFailure(phase);
     throw error;
   } finally {
-    phase.endedAtMs = LEGACY_CLOCK.now() - RUN_START_MS;
+    phase.endedAtMs = (phase.clockFallback ? readWallClockMs() : LEGACY_CLOCK.now()) - RUN_START_MS;
     recordRunPhase(phase, { replaceLast: phase.startedAtMs !== null });
   }
 }
@@ -1889,20 +1898,27 @@ export async function runRelocalization(phase) {
   let totalFixed = 0;
   let totalProcessed = 0;
   let consecutiveFailures = 0;
-  const startTime = LEGACY_CLOCK.now();
+  const observedStartTime = LEGACY_CLOCK.now();
+  const fallbackNowMs = readWallClockMs();
   // Published here, not at the bottom: from this instant the window is a known
   // fact, and a crash on the next line must not report it as unknown.
   const window = computeCascadeWindow({
-    nowMs: startTime,
+    nowMs: observedStartTime,
     runStartMs: RUN_START_MS,
     deadlineMs: CASCADE_LOCALIZATION_DEADLINE_MS,
+    fallbackNowMs,
   });
+  const usedClockFallback = observedStartTime < RUN_START_MS
+    && window.stopReason !== 'clock incoherent';
+  const cascadeNow = () => (usedClockFallback ? readWallClockMs() : LEGACY_CLOCK.now());
+  const startTime = usedClockFallback ? fallbackNowMs : observedStartTime;
   phase.startedAtMs = window.startedAtMs;
   phase.windowMs = window.windowMs;
   phase.stopReason = window.stopReason;
   // Keep the artifact's terminal reason in sync even when the run clock is
   // incoherent and the cascade returns before initialCascadeStopReason().
   cascadeStop = window.stopReason;
+  phase.clockFallback = usedClockFallback;
   recordRunPhase(phase);
   if (window.stopReason === 'clock incoherent') {
     console.log('⚠️  Run clock incoherent — stopping cascade without spending translation budget.');
@@ -1914,7 +1930,7 @@ export async function runRelocalization(phase) {
   cascadeStop = initialCascadeStopReason({
     windowStopReason: window.stopReason,
     allCompaniesSkipped: cascadeCompanyKeys.length === 0 && companyKeys.length > 0,
-    nowMs: LEGACY_CLOCK.now(),
+    nowMs: cascadeNow(),
     runStartMs: RUN_START_MS,
     cascadeDeadlineMs: CASCADE_LOCALIZATION_DEADLINE_MS,
     passStartMs: startTime,
@@ -1955,7 +1971,7 @@ export async function runRelocalization(phase) {
     // Argos mop-up + the always()-guarded commit/scatter/slug/deploy steps before
     // the 350min job timeout. (Was TIME_BUDGET_MS=320min, which left a 250–320min
     // window where late companies could still run — review #2205 🔴 round 2.)
-    const companyNowMs = LEGACY_CLOCK.now();
+    const companyNowMs = cascadeNow();
     const companyStopReason = cascadeStop === 'cascade deadline'
       ? 'cascade deadline'
       : cascadeStopReason({
@@ -2037,14 +2053,10 @@ export async function runRelocalization(phase) {
       // erediterebbe il braccio sbagliato e l'esperimento misurerebbe un mix.
       const thinkingArm = thinkingAb ? assignThinkingArm(key, thinkingSalt) : null;
       const armHandle = thinkingArm ? applyThinkingArm(thinkingArm, process.env) : null;
-      // Il tempo si legge da LEGACY_CLOCK, mai dall'orologio di sistema: dopo
-      // il punto di emissione dello shadow preflight vale l'orologio compensato,
-      // e un test in translation-shadow-preflight-v2.test.ts lo difende
-      // cercando il nome dell'altra funzione nel sorgente — quindi non va
-      // nominata nemmeno in un commento. Per questa misura la scelta e' anche
-      // piu' corretta: esclude il costo dell'osservatore invece di addebitarlo
-      // al crawler.
-      const companyStartedMs = LEGACY_CLOCK.now();
+      // Il tempo usa il clock compensato dopo il preflight; se quel clock e'
+      // incoerente, cascadeNow() resta ancorato al wall clock usato per il
+      // fallback della finestra e mantiene il budget coerente.
+      const companyStartedMs = cascadeNow();
       let servedCompanyKeys = new Set();
       let sterileCompanyKeys = new Set();
       try {
@@ -2055,7 +2067,7 @@ export async function runRelocalization(phase) {
       } finally {
         if (armHandle) armHandle.restore();
       }
-      const companyElapsedMs = LEGACY_CLOCK.now() - companyStartedMs;
+      const companyElapsedMs = cascadeNow() - companyStartedMs;
 
       // Save progress after each company: clear flags and write to disk
       const currentJobs = readJson(DATA_JOBS_PATH);
@@ -2202,7 +2214,7 @@ export async function runRelocalization(phase) {
   // Rate limits often clear partway through a run. Companies processed early
   // may have had failures that would succeed now. Only retry if we have time.
   const retryStartReason = cascadeStopReason({
-    nowMs: LEGACY_CLOCK.now(),
+    nowMs: cascadeNow(),
     runStartMs: RUN_START_MS,
     cascadeDeadlineMs: CASCADE_LOCALIZATION_DEADLINE_MS,
     passStartMs: startTime,
@@ -2242,7 +2254,7 @@ export async function runRelocalization(phase) {
         ), 0);
         const retryLabel = retryKeys.join(', ');
         const retryCompanyStopReason = cascadeStopReason({
-          nowMs: LEGACY_CLOCK.now(),
+          nowMs: cascadeNow(),
           runStartMs: RUN_START_MS,
           cascadeDeadlineMs: CASCADE_LOCALIZATION_DEADLINE_MS,
           passStartMs: startTime,
@@ -2267,7 +2279,7 @@ export async function runRelocalization(phase) {
           // la propria azienda e il gruppo condiviso.
           const retryArm = thinkingAb ? assignThinkingArm(key, thinkingSalt) : null;
           const retryHandle = retryArm ? applyThinkingArm(retryArm, process.env) : null;
-          const retryStartedMs = LEGACY_CLOCK.now();
+          const retryStartedMs = cascadeNow();
           let retryServedCompanyKeys = new Set();
           try {
             const retryCrawlerResult = await runSharedCrawler(retryKeys, count);
@@ -2275,7 +2287,7 @@ export async function runRelocalization(phase) {
           } finally {
             if (retryHandle) retryHandle.restore();
           }
-          const retryElapsedMs = LEGACY_CLOCK.now() - retryStartedMs;
+          const retryElapsedMs = cascadeNow() - retryStartedMs;
           const afterRetry = readJson(DATA_JOBS_PATH);
           // La riga si registra SEMPRE, anche quando il retry non fa passare
           // niente. Dentro un `if (cleared > 0)` un retry sterile — che il
@@ -2423,8 +2435,15 @@ export async function runRelocalization(phase) {
   }
   console.log('✅ Re-localization complete.');
   } catch (error) {
-    cascadeStop = 'failed';
-    if (phase) phase.stopReason = cascadeStop;
+    const terminalStopReason = cascadeStop === 'cascade deadline'
+      || phase?.stopReason === 'cascade deadline'
+      ? 'cascade deadline'
+      : 'failed';
+    cascadeStop = terminalStopReason;
+    if (phase) {
+      phase.failed = true;
+      phase.stopReason = terminalStopReason;
+    }
     throw error;
   } finally {
     if (thinkingAb) {

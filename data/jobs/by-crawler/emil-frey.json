@@ -3145,9 +3145,8 @@
       "requirementsByLocale": {},
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 4470,
-      "retranslationAttempts": 4,
+      "retranslationAttempts": 5,
       "firstSeenAt": "2026-08-21T21:38:48.025Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -3160,7 +3159,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "koordinator-in-flotten-emil-frey-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "koordinator-in-flotten-emil-frey-zurich"
+      ]
     },
     {
       "id": "emil-frey-7802f1d8f3bc",

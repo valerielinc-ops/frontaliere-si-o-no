@@ -42,6 +42,11 @@ const MAX_REPORT_BYTES = 64 * 1024;
 export const MAX_DISCOVERY_RUNS = 100;
 export const MAX_DISCOVERY_ARTIFACTS = 100;
 export const MAX_DISCOVERY_TOKENS = 32;
+// Keep the response cap above separate from the aggregate budget. A bounded
+// discovery window can consume one sentinel artifact per run and up to one
+// bounded report list per token.
+export const MAX_DISCOVERY_ARTIFACT_REFERENCES =
+  MAX_DISCOVERY_RUNS + MAX_DISCOVERY_TOKENS * MAX_DISCOVERY_ARTIFACTS;
 export const MAX_DISCOVERY_BYTES = 1024 * 1024;
 export const MAX_SCHEDULE_SELECTIONS = 2;
 
@@ -53,7 +58,9 @@ export function recordDiscoveredArtifactIds(seen, artifacts) {
     }
     seen.add(artifact.id);
   }
-  if (seen.size > MAX_DISCOVERY_ARTIFACTS) throw new TypeError('discovery artifact cap exceeded');
+  if (seen.size > MAX_DISCOVERY_ARTIFACT_REFERENCES) {
+    throw new TypeError('discovery artifact cap exceeded');
+  }
   return seen.size;
 }
 
@@ -350,12 +357,12 @@ export async function discoverCrawlerGenerationReconciliations({ client, now, ru
     const artifacts = assertList(await client.json(
       `/repos/${CALLER_REPOSITORY}/actions/runs/${runId}/artifacts?per_page=100`,
     ), 'artifacts', MAX_DISCOVERY_ARTIFACTS);
-    recordDiscoveredArtifactIds(artifactIds, artifacts);
     const exact = artifacts.filter((artifact) => safeArtifact(
       artifact,
       `crawler-generation-sentinel-${token}`,
     ) && String(artifact.workflow_run.id) === runId);
     if (exact.length !== 1) continue;
+    recordDiscoveredArtifactIds(artifactIds, exact);
     artifactBytes += exact[0].size_in_bytes;
     if (artifactBytes > MAX_DISCOVERY_BYTES) throw new TypeError('discovery byte cap exceeded');
     const sentinel = await downloadArtifactJson({
@@ -409,11 +416,11 @@ export async function discoverCrawlerGenerationReconciliations({ client, now, ru
     const reportArtifacts = assertList(await client.json(
       `/repos/${CALLER_REPOSITORY}/actions/artifacts?name=${encodeURIComponent(`crawler-generation-observer-${generationToken}`)}&per_page=100`,
     ), 'artifacts', MAX_DISCOVERY_ARTIFACTS);
-    recordDiscoveredArtifactIds(artifactIds, reportArtifacts);
     const exactReports = reportArtifacts.filter((artifact) => safeArtifact(
       artifact,
       `crawler-generation-observer-${generationToken}`,
     ));
+    recordDiscoveredArtifactIds(artifactIds, exactReports);
     const reportRecords = [];
     for (const artifact of exactReports) {
       artifactBytes += artifact.size_in_bytes;

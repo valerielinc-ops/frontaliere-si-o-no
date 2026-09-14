@@ -458,7 +458,8 @@
       },
       "streetAddress": "Via Industria 1",
       "firstSeenAt": "2026-09-01T14:18:46.369Z",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "title": "Senior IT Project Manager",
@@ -911,7 +912,8 @@
       },
       "streetAddress": "Via Industria 1",
       "firstSeenAt": "2026-08-31T17:18:54.604Z",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "title": "Cloud Security Architect",
@@ -1733,7 +1735,8 @@
       },
       "previousSlugs": [
         "senior-technical-business-analyst-cash-operations-payments-avaloq-bioggio"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Head of Reporting for Sales & Delivery",

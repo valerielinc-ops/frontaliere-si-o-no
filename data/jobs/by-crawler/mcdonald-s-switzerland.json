@@ -2663,19 +2663,19 @@
       "titleByLocale": {
         "de": "Besatzung",
         "it": "Crew",
-        "en": "Crew",
+        "en": "Crew member",
         "fr": "Équipage"
       },
       "slugByLocale": {
         "de": "besatzung-mcdonald-s-switzerland-winterthur",
         "it": "crew-mcdonalds-switzerland-winterthur-p8-319504-1",
         "fr": "crew-mcdonald-s-switzerland-winterthur",
-        "en": "crew-mcdonalds-switzerland-winterthur-p8-319504-1"
+        "en": "crew-member-mcdonald-s-switzerland-winterthur"
       },
       "descriptionByLocale": {
-        "de": "Offener Standort in einem McDonald's Restaurant in WINTERTHUR (ZH), Schweiz. Bewerben Sie sich über das offizielle McDonald's Switzerland Portal.",
+        "de": "Offene Lage im McDonald's Restaurant in WINTERTHUR (ZH), Schweiz. Bewerben Sie sich über das offizielle Portal McDonald's Schweiz.",
         "it": "Posizione aperta presso un ristorante McDonald's a WINTERTHUR (ZH), Svizzera. Candidati tramite il portale ufficiale McDonald's Switzerland.",
-        "en": "Open location at a McDonald's restaurant in WINTERTHUR (ZH), Switzerland. Apply through the official McDonald's Switzerland portal.",
+        "en": "Open location at McDonald's restaurant in WINTERTHUR (ZH), Switzerland. Apply through the official McDonald's Switzerland portal.",
         "fr": "Ouvert dans un restaurant McDonald's à WINTERTHUR (ZH), Suisse. Faites votre demande sur le portail officiel de McDonald's Suisse."
       },
       "previousSlugsByLocale": {
@@ -2685,8 +2685,7 @@
           "crew-mcdonalds-switzerland-winterthur-p8-319502-1"
         ],
         "en": [
-          "crew-mcdonalds-switzerland-winterthur-p8-319503-1",
-          "crew-member-mcdonald-s-switzerland-winterthur"
+          "crew-mcdonalds-switzerland-winterthur-p8-319503-1"
         ],
         "de": [
           "crew-mcdonalds-switzerland-winterthur-p8-319501-1",
@@ -2698,10 +2697,8 @@
         "crew-mcdonalds-switzerland-winterthur-p8-319501-1",
         "crew-mcdonalds-switzerland-winterthur-p8-319503-1",
         "crew-mcdonald-s-switzerland-winterthur",
-        "crew-mcdonalds-switzerland-winterthur-p8-319502-1",
-        "crew-member-mcdonald-s-switzerland-winterthur"
+        "crew-mcdonalds-switzerland-winterthur-p8-319502-1"
       ],
-      "needsRetranslation": true,
       "id": "mcdonald-s-switzerland-b49289703ae9",
       "salaryMin": 73500,
       "salaryMax": 111500,
