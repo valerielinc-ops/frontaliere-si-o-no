@@ -95,7 +95,7 @@ const DEFAULT_WINDOW_H = readDefaultWindowHours();
  * il motivo o si toglie la finestra.
  */
 const NARROWING_ALLOWLIST: Record<string, string> = {
-  '.github/workflows/post-deploy-validate-dist.yml:2391:6':
+  '.github/workflows/post-deploy-validate-dist.yml:2403:6':
     'validatore post-deploy: collassa il flap rosso→verde→rosso dentro UN ciclo di deploy (#928/#931/#937/#941). Passa anche --build-sha, quindi ha il guard anti-latenza #5539.',
   '.github/workflows/post-deploy-validate-live.yml:482:6':
     'stessa famiglia post-deploy del precedente: la ricaduta che conta è quella dentro il ciclo, non quella a giorni.',
