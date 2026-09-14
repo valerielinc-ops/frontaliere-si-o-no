@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-07T13:16:39.445Z",
+  "updatedAt": "2026-09-14T17:58:17.409Z",
   "entries": [
     {
       "date": "2026-06-08",
@@ -490,6 +490,40 @@
       },
       "errors": [],
       "warnings": []
+    },
+    {
+      "date": "2026-09-14",
+      "generatedAt": "2026-09-14T17:58:17.340Z",
+      "cls": null,
+      "gsc": {
+        "avgPosition": 8.33,
+        "clicksPerDay": 1837.6,
+        "ctrByBucket": {
+          "/job-board/": null,
+          "/calcola-stipendio/": 2.32,
+          "/articoli-frontaliere/": 2.9,
+          "/fisco/": null,
+          "/guida-frontaliere/": 2.4
+        }
+      },
+      "adsense": {
+        "currencyCode": "EUR",
+        "rpm": 5.22,
+        "desktopRpm": 3.34,
+        "revenuePerDay": 14.67,
+        "rpmCHF": 5.22,
+        "desktopRpmCHF": 3.34,
+        "revenuePerDayCHF": 14.67
+      },
+      "sourcesOk": {
+        "cls": false,
+        "gsc": true,
+        "adsense": true
+      },
+      "errors": [],
+      "warnings": [
+        "CLS non misurabile: posthog ingested < 500 events/day on 2 of 7 complete day(s) in the 7d window: 2026-09-07 (18), 2026-09-08 (18)"
+      ]
     }
   ]
 }

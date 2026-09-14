@@ -50,6 +50,11 @@ function runDecision({ tests, lastCid }: { tests: string; lastCid: string }): st
 }
 
 describe('stale-pr-rescuer — un errore PCRE non spegne le classi indipendenti (#8015)', () => {
+  it('usa capture jq in forma compatibile senza optional chaining', () => {
+    expect(WORKFLOW).toContain('try (capture("/actions/runs/(?<id>[0-9]+)").id) catch ""');
+    expect(WORKFLOW).not.toContain('capture("/actions/runs/(?<id>[0-9]+)")?.id');
+  });
+
   it('mantiene raggiungibile la Classe A quando il guard marker esce 2', () => {
     expect(runDecision({
       tests: 'success',

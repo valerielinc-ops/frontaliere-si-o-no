@@ -4,6 +4,10 @@ on:
   schedule:
     - cron: '23 4 * * *'
   workflow_dispatch:
+  workflow_call:
+    secrets:
+      FIREBASE_SERVICE_ACCOUNT_JSON:
+        required: true
 
 permissions:
   contents: write
@@ -49,20 +53,57 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
       - name: Load push credentials from Remote Config
         run: node scripts/load-rc-env.mjs
-      - name: Import official border catalogues
+      - name: Fetch and stage Ticino duties for atomic finalization
+        continue-on-error: true
+        env:
+          PHARMACY_DUTY_STAGE_DIR: ${{ runner.temp }}/pharmacy-duty-stage
+        run: node scripts/sync-pharmacy-duties.mjs
+      - name: Import and finalize official border catalogue release
+        env:
+          PHARMACY_DUTY_STAGE_DIR: ${{ runner.temp }}/pharmacy-duty-stage
         run: npm run pharmacies:import
       - name: Validate border catalogue
         run: npm run pharmacies:check
-      - name: Commit changed catalogue snapshots
+      - name: Commit atomic catalogue-duty-status snapshots
+        env:
+          PHARMACY_DUTY_STAGE_DIR: ${{ runner.temp }}/pharmacy-duty-stage
         run: |
           set -euo pipefail
-          if git diff --quiet -- data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json; then
+          if git diff --quiet -- data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json; then
             echo "No cross-border pharmacy data changes."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json
-          git commit -m "chore(data): refresh cross-border pharmacy catalogue"
-          bash scripts/lib/configure-main-push-auth.sh
-          git push origin HEAD:main
+          git add data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json
+          git commit -m "chore(data): refresh atomic cross-border pharmacy release"
+          bash scripts/lib/git-push-with-retry.sh \
+            --regenerate-cmd '
+              (
+              duty_exit=0
+              node scripts/sync-pharmacy-duties.mjs || duty_exit=$?
+              case "$duty_exit" in
+                0|1|2) echo "[pharmacy-retry] duty fetch diagnostic exit=$duty_exit; continuing to atomic finalizer" ;;
+                *) echo "[pharmacy-retry] unexpected duty fetch exit=$duty_exit" ; exit "$duty_exit" ;;
+              esac
+              npm run pharmacies:import
+              finalizer_exit=$?
+              if [ "$finalizer_exit" -ne 0 ]; then
+                echo "::error::[pharmacy-retry] pharmacies:import failed with exit=$finalizer_exit"
+                return "$finalizer_exit"
+              fi
+              npm run pharmacies:check
+              check_exit=$?
+              if [ "$check_exit" -ne 0 ]; then
+                echo "::error::[pharmacy-retry] pharmacies:check failed with exit=$check_exit"
+                return "$check_exit"
+              fi
+              git add data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json
+              stage_exit=$?
+              if [ "$stage_exit" -ne 0 ]; then
+                echo "::error::[pharmacy-retry] git add failed with exit=$stage_exit"
+                return "$stage_exit"
+              fi
+              if [ "$duty_exit" -ne 0 ]; then echo "[pharmacy-retry] atomic finalizer completed after duty diagnostic exit=$duty_exit" ; fi
+              )
+            '

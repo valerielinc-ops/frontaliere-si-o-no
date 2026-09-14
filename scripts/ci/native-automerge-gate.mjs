@@ -21,7 +21,10 @@ import {
   findTestOnlyApproval,
   TEST_REVIEW_MARKER,
 } from './review-test-policy.mjs';
+import { REVIEW_GATE_STEP_NAME } from './lib/vitestCheck.mjs';
 
+const TESTS_WORKFLOW_PATH = '.github/workflows/tests.yml';
+const TESTS_WORKFLOW_EVENT = 'pull_request';
 const NIT_MARKER_RE = /^[^\n🔴🟢]*(?<!`)🟡\s*\*{0,2}\s*Nit\s*\*{0,2}\s*[:—-]/mu;
 const FINDINGS_HEADING_RE = /^\s{0,3}#{1,3}\s+Findings\b[^\n]*$/i;
 const LGTM_HEADING_RE = /^\s{0,3}##\s+LGTM\s*$/m;
@@ -143,12 +146,186 @@ export function requiredVitestDecision(checkRuns, head) {
   return { allow: true, reason: `${VITEST_CHECK_NAME} success sulla HEAD` };
 }
 
+function latestRequiredVitestCheck(checkRuns, head) {
+  const runs = checkRuns.filter((check) => check?.name === VITEST_CHECK_NAME && check.head_sha === head);
+  return [...runs].sort(
+    (left, right) => Date.parse(left.completed_at || '') - Date.parse(right.completed_at || ''),
+  ).at(-1) || null;
+}
+
+function validTimestamp(value) {
+  const parsed = Date.parse(value || '');
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
+function validPositiveInteger(value) {
+  return Number.isSafeInteger(value) && value > 0;
+}
+
+function reviewIdKey(value) {
+  if (Number.isSafeInteger(value) && value > 0) return String(value);
+  return '';
+}
+
+/** Parse the only URL shape from which this gate may discover its job. */
+export function parseActionsJobUrl(value, repo) {
+  if (typeof value !== 'string' || typeof repo !== 'string' || !repo) return null;
+  let url;
+  try {
+    url = new URL(value);
+  } catch {
+    return null;
+  }
+  if (url.protocol !== 'https:' || url.hostname !== 'github.com') return null;
+  const match = url.pathname.match(
+    /^\/([^/]+\/[^/]+)\/actions\/runs\/(\d+)\/job\/(\d+)\/?$/u,
+  );
+  if (!match || match[1] !== repo) return null;
+  const runId = Number(match[2]);
+  const jobId = Number(match[3]);
+  if (!validPositiveInteger(runId) || !validPositiveInteger(jobId)) return null;
+  return { runId, jobId };
+}
+
+function parseActionsCheckRunUrl(value, repo) {
+  if (typeof value !== 'string' || typeof repo !== 'string' || !repo) return null;
+  let url;
+  try {
+    url = new URL(value);
+  } catch {
+    return null;
+  }
+  if (url.protocol !== 'https:' || url.hostname !== 'api.github.com') return null;
+  const match = url.pathname.match(
+    /^\/repos\/([^/]+\/[^/]+)\/check-runs\/(\d+)\/?$/u,
+  );
+  if (!match || match[1] !== repo) return null;
+  const checkRunId = Number(match[2]);
+  return validPositiveInteger(checkRunId) ? checkRunId : null;
+}
+
+/**
+ * Verify the structured proof used only for the outside-diff exception.
+ * Every layer is required: a green check or a green step alone is not proof.
+ */
+export function reviewGateEvidenceDecision({
+  evidence,
+  repo,
+  head,
+  review,
+} = {}) {
+  const deny = (reason) => ({ allow: false, reason });
+  if (!evidence || typeof evidence !== 'object' || Array.isArray(evidence)) {
+    return deny('prova review-gate strutturata assente');
+  }
+  if (typeof head !== 'string' || !/^[0-9a-f]{40}$/iu.test(head)) {
+    return deny('HEAD non verificabile per la prova review-gate');
+  }
+  const reviewId = reviewIdKey(review?.id);
+  if (!reviewId || evidence.reviewId !== reviewId) {
+    return deny('identità della review non verificabile nella prova review-gate');
+  }
+  if (!['COMMENTED', 'APPROVED'].includes(String(review.state || '').toUpperCase())) {
+    return deny('stato della review non approvabile nella prova review-gate');
+  }
+
+  const check = evidence.check;
+  const jobLocation = parseActionsJobUrl(check?.details_url, repo);
+  if (!jobLocation
+      || evidence.workflow?.id !== jobLocation.runId
+      || evidence.job?.id !== jobLocation.jobId) {
+    return deny('identità run/job del check non verificabile');
+  }
+  if (!check
+      || !validPositiveInteger(check.id)
+      || check.name !== VITEST_CHECK_NAME
+      || check.head_sha !== head
+      || check.status !== 'completed'
+      || check.conclusion !== 'success'
+      || validTimestamp(check.completed_at) === null) {
+    return deny('check vitest della prova review-gate non verificabile');
+  }
+
+  const workflow = evidence.workflow;
+  if (!workflow
+      || !validPositiveInteger(workflow.id)
+      || workflow.path !== TESTS_WORKFLOW_PATH
+      || workflow.event !== TESTS_WORKFLOW_EVENT
+      || workflow.status !== 'completed'
+      || workflow.conclusion !== 'success'
+      || workflow.head_sha !== head
+      || validTimestamp(workflow.run_started_at) === null
+      || validTimestamp(workflow.updated_at) === null) {
+    return deny('workflow tests della prova review-gate non verificabile');
+  }
+
+  const job = evidence.job;
+  const checkRunId = parseActionsCheckRunUrl(job?.check_run_url, repo);
+  if (!job
+      || !validPositiveInteger(job.id)
+      || job.run_id !== workflow.id
+      || job.name !== VITEST_CHECK_NAME
+      || job.status !== 'completed'
+      || job.conclusion !== 'success'
+      || job.head_sha !== head
+      || checkRunId !== check.id
+      || validTimestamp(job.started_at) === null
+      || validTimestamp(job.completed_at) === null
+      || !Array.isArray(job.steps)) {
+    return deny('job tests della prova review-gate non verificabile');
+  }
+
+  const steps = job.steps.filter((step) => step?.name === REVIEW_GATE_STEP_NAME);
+  if (steps.length !== 1) return deny('step review-gate assente o ambiguo');
+  const step = steps[0];
+  const reviewAt = reviewTimestamp(review);
+  const stepStartedAt = validTimestamp(step.started_at);
+  const stepCompletedAt = validTimestamp(step.completed_at);
+  const checkCompletedAt = validTimestamp(check.completed_at);
+  const jobStartedAt = validTimestamp(job.started_at);
+  const jobCompletedAt = validTimestamp(job.completed_at);
+  const workflowStartedAt = validTimestamp(workflow.run_started_at);
+  const workflowUpdatedAt = validTimestamp(workflow.updated_at);
+  if (step.status !== 'completed'
+      || step.conclusion !== 'success'
+      || reviewAt === null
+      || stepStartedAt === null
+      || stepCompletedAt === null
+      || checkCompletedAt === null
+      || jobStartedAt === null
+      || jobCompletedAt === null
+      || workflowStartedAt === null
+      || workflowUpdatedAt === null) {
+    return deny('step review-gate senza un verdetto temporale completo');
+  }
+  if (!(reviewAt <= stepStartedAt
+      && workflowStartedAt <= jobStartedAt
+      && jobStartedAt <= stepStartedAt
+      && stepStartedAt <= stepCompletedAt
+      && stepCompletedAt <= jobCompletedAt
+      && jobCompletedAt <= checkCompletedAt
+      && checkCompletedAt <= workflowUpdatedAt)) {
+    return deny('ordine temporale review-gate non verificabile');
+  }
+
+  return {
+    allow: true,
+    reason: 'step Require approving Claude review successivo alla review raw sulla stessa HEAD',
+    runId: workflow.id,
+    jobId: job.id,
+    checkId: check.id,
+    reviewId,
+  };
+}
+
 /** Pure decision function used by the workflow and deterministic tests. */
 export function evaluateNativeAutoMerge({
   pr,
   reviews,
   checkRuns,
   verifiedTestOnlyReview = null,
+  reviewGateEvidence = null,
+  repository = null,
 } = {}) {
   if (!pr || pr.state !== 'OPEN' || pr.isDraft !== false || pr.baseRefName !== 'main') {
     return { allow: false, reason: 'PR non aperta, draft o non basata su main' };
@@ -173,15 +350,31 @@ export function evaluateNativeAutoMerge({
   if (!review && !testOnlyApproval) {
     return { allow: false, reason: 'nessuna review bot verificabile' };
   }
-  if (review && !reviewIsApproved(review)) {
+  const reviewGateException = review && !reviewIsApproved(review)
+    ? reviewGateEvidenceDecision({
+      evidence: reviewGateEvidence,
+      repo: repository,
+      head: pr.headRefOid,
+      review,
+    })
+    : { allow: false, reason: 'review raw già approvante' };
+  if (review && !reviewIsApproved(review) && !reviewGateException.allow) {
     return { allow: false, reason: 'ultima review bot non è Important 0/Nit 0 + LGTM' };
   }
 
   const check = requiredVitestDecision(checkRuns, pr.headRefOid);
   if (!check.allow) return check;
+  if (reviewGateException.allow) {
+    const latestCheck = latestRequiredVitestCheck(checkRuns, pr.headRefOid);
+    if (!latestCheck || latestCheck.id !== reviewGateException.checkId) {
+      return { allow: false, reason: 'prova review-gate non legata al check vitest più recente' };
+    }
+  }
   const approval = review || verifiedTestOnlyReview;
   const reviewScope = testOnlyApproval
     ? 'tests-only review verificata sul current HEAD'
+    : reviewGateException.allow
+    ? 'review-gate outside-diff verificato sulla stessa HEAD'
     : review.commit_id === pr.headRefOid
     ? 'review exact-head'
     : 'LGTM carry-forward verificato dal check required';
@@ -208,6 +401,8 @@ export function revalidateNativeAutoMerge({
   reviews,
   checkRuns,
   verifiedTestOnlyReview = null,
+  reviewGateEvidence = null,
+  repository = null,
 } = {}) {
   if (!pr || !Object.hasOwn(pr, 'autoMergeRequest')) {
     return { allow: false, action: 'skip', reason: 'stato auto-merge non verificabile' };
@@ -217,6 +412,8 @@ export function revalidateNativeAutoMerge({
     reviews,
     checkRuns,
     verifiedTestOnlyReview,
+    reviewGateEvidence,
+    repository,
   });
   if (pr.autoMergeRequest !== null) {
     return {
@@ -314,6 +511,27 @@ function loadCheckRuns(repo, head) {
     .flatMap((page) => Array.isArray(page?.check_runs) ? page.check_runs : []);
 }
 
+function loadReviewGateEvidence(repo, head, checkRuns, review) {
+  if (!review || reviewIsApproved(review)) return null;
+  const checkDecision = requiredVitestDecision(checkRuns, head);
+  if (!checkDecision.allow) return null;
+  const check = latestRequiredVitestCheck(checkRuns, head);
+  const location = parseActionsJobUrl(check?.details_url, repo);
+  if (!check || !location || !reviewIdKey(review.id)) return null;
+  const workflow = ghJson([
+    'api', `repos/${repo}/actions/runs/${location.runId}`,
+  ]);
+  const job = ghJson([
+    'api', `repos/${repo}/actions/jobs/${location.jobId}`,
+  ]);
+  return {
+    reviewId: reviewIdKey(review.id),
+    check,
+    workflow,
+    job,
+  };
+}
+
 const DISABLE_AUTO_MERGE_MUTATION =
   'mutation($pullRequestId:ID!){disablePullRequestAutoMerge(input:{pullRequestId:$pullRequestId}){pullRequest{number autoMergeRequest{enabledAt}}}}';
 
@@ -358,6 +576,32 @@ export function nativeAutoMergeArgs({ repo, prNumber, headSha } = {}) {
   ];
 }
 
+/** GitHub returns this when a concurrent guard already enabled the request. */
+export function isAlreadyInProgressOutput(value) {
+  return /merge already in progress/i.test(String(value || ''));
+}
+
+function capturedErrorOutput(error) {
+  return [error?.stderr, error?.stdout]
+    .map((value) => Buffer.isBuffer(value) ? value.toString('utf8') : String(value || ''))
+    .filter(Boolean)
+    .join('\n');
+}
+
+/** Confirm that a concurrent opt-in achieved the intended state before going green. */
+function concurrentOptInSucceeded(repo, prNumber, expectedHead) {
+  try {
+    const observed = ghJson(['pr', 'view', prNumber, '--repo', repo, '--json',
+      'state,headRefOid,autoMergeRequest']);
+    if (observed.state === 'MERGED') return true;
+    return observed.state === 'OPEN'
+      && observed.headRefOid === expectedHead
+      && observed.autoMergeRequest !== null;
+  } catch {
+    return false;
+  }
+}
+
 function main() {
   const repo = process.argv[2] || process.env.REPOSITORY || process.env.GITHUB_REPOSITORY || '';
   const prNumber = process.argv[3] || process.env.PR_NUMBER || '';
@@ -382,10 +626,17 @@ function main() {
   let reviews;
   let checkRuns;
   let verifiedTestOnlyReview;
+  let reviewGateEvidence;
   try {
     reviews = loadReviews(repo, prNumber);
     checkRuns = loadCheckRuns(repo, pr.headRefOid);
     verifiedTestOnlyReview = loadVerifiedTestOnlyReview(repo, prNumber, pr.headRefOid, reviews);
+    reviewGateEvidence = loadReviewGateEvidence(
+      repo,
+      pr.headRefOid,
+      checkRuns,
+      latestBotReview(reviews),
+    );
   } catch (error) {
     if (hadAutoMerge) {
       revokeExistingAutoMerge(repo, pr, 'review/check non leggibili');
@@ -401,6 +652,8 @@ function main() {
     reviews,
     checkRuns,
     verifiedTestOnlyReview,
+    reviewGateEvidence,
+    repository: repo,
   });
   console.log(`Native auto-merge guard PR #${prNumber} HEAD=${pr.headRefOid}: ${decision.reason}`);
   if (decision.action === 'revoke') {
@@ -437,6 +690,7 @@ function main() {
   let finalReviews;
   let finalCheckRuns;
   let finalVerifiedTestOnlyReview;
+  let finalReviewGateEvidence;
   try {
     finalReviews = loadReviews(repo, prNumber);
     finalCheckRuns = loadCheckRuns(repo, current.headRefOid);
@@ -445,6 +699,12 @@ function main() {
       prNumber,
       current.headRefOid,
       finalReviews,
+    );
+    finalReviewGateEvidence = loadReviewGateEvidence(
+      repo,
+      current.headRefOid,
+      finalCheckRuns,
+      latestBotReview(finalReviews),
     );
   } catch (error) {
     if (current.autoMergeRequest !== null) {
@@ -461,6 +721,8 @@ function main() {
     reviews: finalReviews,
     checkRuns: finalCheckRuns,
     verifiedTestOnlyReview: finalVerifiedTestOnlyReview,
+    reviewGateEvidence: finalReviewGateEvidence,
+    repository: repo,
   });
   console.log(`Native auto-merge guard PR #${prNumber} final gate: ${finalDecision.reason}`);
   if (finalDecision.action === 'revoke') {
@@ -475,12 +737,19 @@ function main() {
   }
 
   try {
-    execFileSync('gh', nativeAutoMergeArgs({ repo, prNumber, headSha: pr.headRefOid }), {
+    const output = execFileSync('gh', nativeAutoMergeArgs({ repo, prNumber, headSha: pr.headRefOid }), {
       encoding: 'utf8',
-      stdio: 'inherit',
+      stdio: ['ignore', 'pipe', 'pipe'],
       env: { ...process.env },
     });
+    if (output) process.stdout.write(output);
   } catch (error) {
+    const details = capturedErrorOutput(error);
+    if (isAlreadyInProgressOutput(details)
+      && concurrentOptInSucceeded(repo, prNumber, pr.headRefOid)) {
+      console.log(`Native auto-merge guard: opt-in concorrente confermato per PR #${prNumber} sulla HEAD corrente`);
+      return;
+    }
     console.error(`::error::native auto-merge opt-in fallito: ${String(error).slice(0, 240)}`);
     process.exitCode = 1;
   }

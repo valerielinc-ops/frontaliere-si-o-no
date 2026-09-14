@@ -1,6 +1,11 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+import { fetchHtml } from '../functions/src/plateAuctionsCore.js';
 import { parseGrAuctionRows } from '../scripts/plate-auctions/connectors/gr.mjs';
+import { parseSgAuctionRows } from '../scripts/plate-auctions/connectors/sg.mjs';
+import { parseShAuctionRows } from '../scripts/plate-auctions/connectors/sh.mjs';
+import { parseSzAuctionRows } from '../scripts/plate-auctions/connectors/sz.mjs';
 import { parseTiAuctionRows } from '../scripts/plate-auctions/connectors/ti.mjs';
+import { parseTgAuctionRows } from '../scripts/plate-auctions/connectors/tg.mjs';
 import { parseZhAuctions } from '../scripts/plate-auctions/connectors/zh.mjs';
 import { validatePlateAuction } from '../services/plateAuctions/types';
 
@@ -31,7 +36,54 @@ const TI_SAMPLE = `
   <td class="closingTime">2026/09/14 20:00:00</td><td>3</td><td>offerente privato</td>
 </tr></tbody></table></div>`;
 
+const CARD_SAMPLE = `
+<div class="auction-grid"><div class="auctions">
+  <div>Auktionsende am 23.09.2026</div>
+  <a href="/de/auction/109715" class="auction-element-link">
+    <figure title="TG 13926"><figcaption>TG 13926</figcaption></figure>
+    <div class="auction-element-title"><img src="/bundles/auction/icons/car.svg" alt="Icon eines Autos"/></div>
+    <div class="auction-current-bid">CHF&nbsp;600</div>
+    <div class="auction-element-text"><div class="auction-number-bids">1 Gebot</div>
+      <div class="auction-ends-at-text">Endet am:</div><div>19:00:00</div>
+    </div>
+  </a>
+</div></div>`;
+
 describe('expanded plate-auction connectors', () => {
+  it('retries transient catalogue fetch failures before degrading a source', async () => {
+    const fetchMock = vi.spyOn(globalThis, 'fetch')
+      .mockRejectedValueOnce(new TypeError('temporary network reset'))
+      .mockResolvedValueOnce(new Response('<html>ok</html>', { status: 200 }));
+
+    try {
+      await expect(fetchHtml('https://example.test/catalogue', { retries: 1, retryDelayMs: 0 })).resolves.toBe('<html>ok</html>');
+      expect(fetchMock).toHaveBeenCalledTimes(2);
+    } finally {
+      fetchMock.mockRestore();
+    }
+  });
+
+  it('retries when the response body stream fails after headers arrive', async () => {
+    const firstResponse = {
+      ok: true,
+      text: vi.fn().mockRejectedValueOnce(new TypeError('temporary stream reset')),
+    } as unknown as Response;
+    const secondResponse = {
+      ok: true,
+      text: vi.fn().mockResolvedValue('<html>ok</html>'),
+    } as unknown as Response;
+    const fetchMock = vi.spyOn(globalThis, 'fetch')
+      .mockResolvedValueOnce(firstResponse)
+      .mockResolvedValueOnce(secondResponse);
+
+    try {
+      await expect(fetchHtml('https://example.test/catalogue', { retries: 1, retryDelayMs: 0 })).resolves.toBe('<html>ok</html>');
+      expect(fetchMock).toHaveBeenCalledTimes(2);
+    } finally {
+      fetchMock.mockRestore();
+    }
+  });
+
   it('parses the GR eCari full-width row and never exposes bidder text', () => {
     const [row] = parseGrAuctionRows(GR_SAMPLE, { fetchedAt: '2026-09-13T08:00:00.000Z' });
     expect(row).toMatchObject({
@@ -71,5 +123,23 @@ describe('expanded plate-auction connectors', () => {
     });
     expect(JSON.stringify(row)).not.toContain('offerente privato');
     expect(validatePlateAuction(row)).toEqual([]);
+  });
+
+  it('reuses the eCari parser for San Gallo and Svitto', () => {
+    const sgRows = parseSgAuctionRows(TI_SAMPLE.replaceAll('TI', 'SG'), { fetchedAt: '2026-09-14T08:00:00.000Z' });
+    const szRows = parseSzAuctionRows(TI_SAMPLE.replaceAll('TI', 'SZ'), { fetchedAt: '2026-09-14T08:00:00.000Z' });
+    expect(sgRows[0]).toMatchObject({ id: 'sg-1532', sourceKey: 'SG', normalizedPlate: 'SG13457' });
+    expect(szRows[0]).toMatchObject({ id: 'sz-1532', sourceKey: 'SZ', normalizedPlate: 'SZ13457' });
+    expect(validatePlateAuction(sgRows[0])).toEqual([]);
+    expect(validatePlateAuction(szRows[0])).toEqual([]);
+  });
+
+  it('parses the configurable card platforms for Sciaffusa and Turgovia', () => {
+    const shRows = parseShAuctionRows(CARD_SAMPLE.replaceAll('TG', 'SH'), { fetchedAt: '2026-09-14T08:00:00.000Z' });
+    const tgRows = parseTgAuctionRows(CARD_SAMPLE, { fetchedAt: '2026-09-14T08:00:00.000Z' });
+    expect(shRows[0]).toMatchObject({ id: 'sh-109715', sourceKey: 'SH', normalizedPlate: 'SH13926', endsAt: '2026-09-23T17:00:00.000Z' });
+    expect(tgRows[0]).toMatchObject({ id: 'tg-109715', sourceKey: 'TG', normalizedPlate: 'TG13926', endsAt: '2026-09-23T17:00:00.000Z' });
+    expect(validatePlateAuction(shRows[0])).toEqual([]);
+    expect(validatePlateAuction(tgRows[0])).toEqual([]);
   });
 });

@@ -85,6 +85,7 @@ import {
   createCrawlerGenerationRoster,
   validateCrawlerGenerationRoster,
 } from './lib/crawler-generation-contract.mjs';
+import { GLOBAL_DATA_PIPELINE_LEASE_BUSY_EXIT } from './lib/global-data-pipeline-lease.mjs';
 import { CORPUS_OBSERVER_FILES } from './ci/prepare-crawler-workflow-corpus-sync.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -164,6 +165,7 @@ const CRAWLER_GENERATION_RUNTIME_PATHS = Object.freeze([
   'scripts/lib/crawler-generation-contract.mjs',
   'scripts/lib/crawler-generation-receipt.mjs',
   'scripts/lib/crawler-generation-token.mjs',
+  'scripts/lib/global-data-pipeline-lease.mjs',
   'scripts/lib/job-match-key.mjs',
   'scripts/lib/job-url-key.mjs',
   'scripts/lib/locale-map-diff.mjs',
@@ -552,10 +554,22 @@ const CRAWLER_SHELL_PREAMBLE = Object.freeze(['set -uo pipefail', 'set +e', ''])
 // `Workflow Failure: <group>` issue for the run. Suppressing here therefore
 // consolidates the signal, it does not silence it.
 const GROUP_SHARED_PRECONDITION_EXIT = 43;
+const GLOBAL_LEASE_BUSY_EXIT = GLOBAL_DATA_PIPELINE_LEASE_BUSY_EXIT;
 // Fires the per-crawler failure reporter. Any non-zero commit exit still
-// reports EXCEPT the two systemic classes, which are not per-crawler signals.
+// reports EXCEPT the three systemic classes, which are not per-crawler signals.
 const PER_CRAWLER_REPORT_CONDITION = 'if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ]'
-  + ` && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne ${GROUP_SHARED_PRECONDITION_EXIT} ]; }; then`;
+  + ` && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne ${GROUP_SHARED_PRECONDITION_EXIT} ]`
+  + ` && [ "$git_commit_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ]; }; then`;
+
+function globalLeaseBusyNotice(slug, { propagate = false } = {}) {
+  return [
+    `if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq ${GLOBAL_LEASE_BUSY_EXIT} ]; then`,
+    `  echo "::warning::${slug}: global data-pipeline lease is busy (exit ${GLOBAL_LEASE_BUSY_EXIT}); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."`,
+    `  echo "⚠️ ${slug}: global data-pipeline lease busy (exit ${GLOBAL_LEASE_BUSY_EXIT}) — no data staged, no per-crawler issue filed" >> "\${GITHUB_STEP_SUMMARY:-/dev/null}"`,
+    ...(propagate ? [`  exit ${GLOBAL_LEASE_BUSY_EXIT}`] : []),
+    'fi',
+  ];
+}
 
 /**
  * Error annotation + step-summary breadcrumb emitted in place of the
@@ -617,8 +631,9 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
   work.push(`  echo "⚠️ ${crawler.slug}: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"`);
   work.push('  exit 0');
   work.push('fi');
+  work.push(...globalLeaseBusyNotice(crawler.slug, { propagate: true }));
   work.push(...sharedPreconditionNotice(crawler.slug, { propagate: true }));
-  work.push('if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then');
+  work.push(`if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ]; }; then`);
   work.push('  exit 1');
   work.push('fi');
   work.push('exit 0');
@@ -650,16 +665,17 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
     outer.push('if [ "$target_exit" -eq 124 ]; then');
     outer.push(`  crawler_failure_timeout_detail=${shellQuote(`\n**Causa:** timeout del target dopo ${timeoutMinutes} minuti (exit 124).`)}`);
     outer.push('fi');
-    // `-ne 43`: the work phase re-exits GROUP_SHARED_PRECONDITION_EXIT
-    // verbatim so this gate can drop the per-crawler report for a group-wide
-    // fault. The final `-ne 0` gate below is untouched: the step still fails.
-    outer.push(`if [ "$target_exit" -ne 0 ] && [ "$target_exit" -ne ${GROUP_SHARED_PRECONDITION_EXIT} ]; then`);
+    // `-ne 43`/`-ne 44`: the work phase re-exits the systemic commit outcomes
+    // verbatim so this gate can drop the per-crawler report. The final gate
+    // still fails for real errors, but treats a lease convoy as a retryable
+    // scheduling outcome.
+    outer.push(`if [ "$target_exit" -ne 0 ] && [ "$target_exit" -ne ${GROUP_SHARED_PRECONDITION_EXIT} ] && [ "$target_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ]; then`);
     outer.push(indentBlock(timeoutAwareRun.trimEnd(), 2));
     outer.push('fi');
     outer.push('');
   }
 
-  outer.push('if [ "$target_exit" -ne 0 ]; then');
+  outer.push(`if [ "$target_exit" -ne 0 ] && [ "$target_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ]; then`);
   outer.push('  exit 1');
   outer.push('fi');
   outer.push('exit 0');
@@ -784,6 +800,7 @@ export function buildCrawlerShellBody(crawler) {
       lines.push(`  echo "::warning::${crawler.slug}: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."`);
       lines.push(`  echo "⚠️ ${crawler.slug}: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"`);
       lines.push('fi');
+      lines.push(...globalLeaseBusyNotice(crawler.slug));
       lines.push(...sharedPreconditionNotice(crawler.slug));
       lines.push('');
       continue;
@@ -839,7 +856,7 @@ export function buildCrawlerShellBody(crawler) {
   // blocked the sweep from draining every sibling's recovered issue and made
   // real failures indistinguishable from herd noise. Real crawl/commit
   // failures (any other non-zero) still fail the step as before.
-  lines.push('if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then');
+  lines.push(`if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ]; }; then`);
   lines.push('  exit 1');
   lines.push('fi');
   lines.push('exit 0');
@@ -1048,6 +1065,11 @@ export function crawlerGenerationLedgerPersistenceRun() {
     '  echo "⚠️ crawler generation ledger: push contention loss (exit 42) — this cycle ledger entry was not committed; next scheduled cycle records its own state" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"',
     '  exit 0',
     'fi',
+    `if [ "$git_commit_exit" -eq ${GLOBAL_LEASE_BUSY_EXIT} ]; then`,
+    `  echo "::warning::crawler generation ledger: global data-pipeline lease is busy (exit ${GLOBAL_LEASE_BUSY_EXIT}); this cycle ledger entry was not committed and the next scheduled cycle records its own state."`,
+    `  echo "⚠️ crawler generation ledger: global data-pipeline lease busy (exit ${GLOBAL_LEASE_BUSY_EXIT}) — this cycle ledger entry was not committed" >> "\${GITHUB_STEP_SUMMARY:-/dev/null}"`,
+    '  exit 0',
+    'fi',
     'if [ "$git_commit_exit" -ne 0 ]; then',
     `  if [ "$git_commit_exit" -eq ${GROUP_SHARED_PRECONDITION_EXIT} ]; then`,
     `    echo "::error::crawler generation ledger: shared deferred-commit precondition failed (exit ${GROUP_SHARED_PRECONDITION_EXIT})"`,
@@ -1222,6 +1244,12 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
     ].join('\n'),
   });
 
+  // #7091 — refuse to start if the live cross-repo run of this same group is
+  // already in flight (see scripts/check-crawler-group-live-run.mjs for why
+  // this cannot be a `concurrency:` block instead). Must run after the RC
+  // load above so GITHUB_PAT_NANAKO is in $GITHUB_ENV.
+  steps.push(liveRunGuardStep(groupName));
+
   // OmniRoute (ON by default, RC kill-switch ENABLE_OMNIROUTE_FALLBACK='0')
   // — self-hosted local AI gateway, offered in ai-models.mjs's DEFAULT_CHAIN
   // as AI_MODELS.OMNIROUTE_AUTO. Since 2026-07-29 (AI_COMPETING_TIERS
@@ -1309,11 +1337,17 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
       '  echo "⚠️ group commit: push contention loss (exit 42) — crawl data was fine, group not failed" >> "$GITHUB_STEP_SUMMARY"',
       '  exit 0',
       'fi',
+      `if [ "$git_commit_exit" -eq ${GLOBAL_LEASE_BUSY_EXIT} ]; then`,
+      `  echo "::warning::group commit: global data-pipeline lease is busy (exit ${GLOBAL_LEASE_BUSY_EXIT}); no group data was staged and the next scheduled cycle will retry — group not failed (systemic class)."`,
+      `  echo "⚠️ group commit: global data-pipeline lease busy (exit ${GLOBAL_LEASE_BUSY_EXIT}) — group data not staged, group not failed" >> "$GITHUB_STEP_SUMMARY"`,
+      '  exit 0',
+      'fi',
       'exit "$git_commit_exit"',
     ].join('\n'),
   });
   steps.push(codexAuthBrokerCleanupStep());
   steps.push(...crawlerGenerationTerminalSteps(groupIndex, crawlerGenerationMembers(group)));
+  steps.push(liveRunLeaseReleaseStep(groupName));
 
   return {
     name: `Crawler Group ${String(groupIndex).padStart(2, '0')} (${group.members.length} crawlers)`,
@@ -1357,6 +1391,7 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
           CRAWLER_GENERATION_TOKEN: CRAWLER_GENERATION_TOKEN_EXPR,
           CRAWLER_GENERATION_RECEIPT_DIR: 'crawler-generation/receipts',
           CRAWLER_GROUP_COMMIT_DIR: 'crawler-generation/commit-batch',
+          DATA_PIPELINE_LEASE: '1',
         },
         steps,
       },
@@ -1496,6 +1531,33 @@ function logicRemoteConfigStep() {
   return { name: 'Load secrets from Remote Config', run: 'node scripts/load-rc-env.mjs' };
 }
 
+// #7091 — see scripts/check-crawler-group-live-run.mjs. Each entry point
+// checks the OTHER one: the generated (workflow_dispatch) side checks the
+// live corpus repo, the logic (workflow_call) side checks this repo's own
+// disabled manual entry point.
+function liveRunGuardStep(groupName) {
+  return {
+    name: 'Guard: refuse a concurrent run of the other entry point',
+    run: `node scripts/check-crawler-group-live-run.mjs ${groupName}.yml`,
+  };
+}
+
+function liveRunLeaseReleaseStep(groupName) {
+  return {
+    name: 'Release cross-entry crawler live-run lease',
+    if: "always() && env.CRAWLER_GROUP_LIVE_LEASE_OWNED == '1'",
+    'continue-on-error': true,
+    run: `node scripts/check-crawler-group-live-run.mjs ${groupName}.yml --release`,
+  };
+}
+
+function logicLiveRunGuardStep(groupName) {
+  return {
+    name: 'Guard: refuse a concurrent run of the other entry point',
+    run: `node scripts/check-crawler-group-live-run.mjs ${groupName}.yml --repo ${SITE_REPOSITORY} --token-env GITHUB_PAT`,
+  };
+}
+
 function logicWriteAuthStep(members) {
   return {
     name: 'Bootstrap write auth for frontaliere-si-o-no (GITHUB_PAT from Remote Config)',
@@ -1553,6 +1615,12 @@ export function buildCrawlerLogicWorkflow(generatedWorkflowText, {
 
   job.steps[rcAt] = logicRemoteConfigStep();
   job.steps.splice(rcAt + 1, 0, logicWriteAuthStep(members));
+
+  const guardAt = job.steps.findIndex(
+    (step) => step?.name === 'Guard: refuse a concurrent run of the other entry point',
+  );
+  if (guardAt < 0) throw new Error(`crawler-group-${nn}: live-run guard step missing`);
+  job.steps[guardAt] = logicLiveRunGuardStep(`crawler-group-${nn}`);
 
   for (const step of job.steps) {
     if (step?.uses?.startsWith('./.github/actions/')) {
@@ -1652,6 +1720,26 @@ function normalizedContractStep(step, side, fileName, members) {
       throw new Error(`${fileName}: undeclared write-auth bootstrap difference`);
     }
     return null;
+  }
+
+  if (copy?.name === 'Guard: refuse a concurrent run of the other entry point') {
+    const nn = /crawler-group-(\d{2})/.exec(fileName)?.[1];
+    const groupName = `crawler-group-${nn}`;
+    const expected = side === 'generated' ? liveRunGuardStep(groupName) : logicLiveRunGuardStep(groupName);
+    if (!nn || JSON.stringify(copy) !== JSON.stringify(expected)) {
+      throw new Error(`${fileName}: ${side} live-run guard drifted from its complete allowed form`);
+    }
+    return { name: copy.name };
+  }
+
+  if (copy?.name === 'Release cross-entry crawler live-run lease') {
+    const nn = /crawler-group-(\d{2})/.exec(fileName)?.[1];
+    const groupName = `crawler-group-${nn}`;
+    const expected = liveRunLeaseReleaseStep(groupName);
+    if (!nn || JSON.stringify(copy) !== JSON.stringify(expected)) {
+      throw new Error(`${fileName}: ${side} live-run lease release drifted from its complete allowed form`);
+    }
+    return copy;
   }
 
   const composite = /^valerielinc-ops\/frontaliere-si-o-no\/(\.github\/actions\/[^@]+)@main$/.exec(copy?.uses ?? '');
@@ -1840,6 +1928,28 @@ export function buildStandaloneCrossRepoWorkflow({
     run: 'true',
   };
   job.steps.splice(checkoutIndex, 1, primary, backoff, retry, reportCheckoutFailure, checkoutReady);
+
+  // A workflow rerun keeps the original run id and advances run_attempt. The
+  // recovery planner can authorize exactly one such successor, but only after
+  // the target has verified the immutable claim bound to its own head commit
+  // and workflow blob. Keep this guard in the standalone corpus artifact only:
+  // the reusable site logic is never itself the recovery target.
+  if (workflowFile === 'translate-pending.yml') {
+    const readyIndex = job.steps.findIndex((step) => step?.id === 'checkout');
+    job.steps.splice(readyIndex + 1, 0, {
+      name: 'Validate recovery successor claim',
+      if: "steps.checkout.outcome == 'success' && github.run_attempt > 1",
+      env: {
+        GITHUB_API_URL: '${{ github.api_url }}',
+        GITHUB_EVENT_NAME: '${{ github.event_name }}',
+        GITHUB_RUN_ATTEMPT: '${{ github.run_attempt }}',
+        GITHUB_RUN_ID: '${{ github.run_id }}',
+        GITHUB_SHA: '${{ github.sha }}',
+        GITHUB_TOKEN: '${{ github.token }}',
+      },
+      run: 'node scripts/ci/translate-recovery-successor-guard.mjs',
+    });
+  }
 
   const diagnosticFailureCondition =
     `failure() && (steps.${primaryId}.outcome == 'success' || steps.site_checkout_retry.outcome == 'success')`;

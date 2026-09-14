@@ -196,6 +196,7 @@ describe('related-search static job links', () => {
           { id: 'bold', title: '**Specialista nel commercio al dettaglio EFZ &quot;Progettazione di esperienze di acquisto&quot;**', company: 'Coop', location: 'Lenzburg', canton: 'AG', slug: 'bold' },
           { id: 'brand', title: 'Verkaufsberater:in ***delicatessa 40-60% (w/m/d)', company: 'Globus', location: 'Luzern', canton: 'LU', slug: 'brand' },
           { id: 'plain', title: 'Retail Specialist', company: 'ACME', location: 'Zürich', canton: 'ZH', slug: 'plain' },
+          { id: 'narrative', title: 'I need to see the current job data to understand the context and identify which job title needs translation. Let me check the job data files. The complete translation is: **Assistant Store Manager (m/w/d) 80-100% — Hägendorf** The translation breaks down as follows.', company: 'Lidl', location: 'Hägendorf', canton: 'SO', slug: 'narrative' },
         ],
         topCompanies: ['Coop'],
       } as any,
@@ -208,6 +209,8 @@ describe('related-search static job links', () => {
     const main = page.html.slice(page.html.indexOf('<main'));
     expect(main).not.toContain('**Specialista');
     expect(main).toContain('***delicatessa 40-60%');
+    expect(main).toContain('Assistant Store Manager (m/w/d) 80-100% — Hägendorf');
+    expect(main).not.toContain('I need to see the current job data');
   });
 });
 

@@ -65,7 +65,7 @@ function cell(rowHtml, className) {
 
 function parseLocality(value) {
   const match = String(value || '').match(/^(\d{4})\s+(.+)$/);
-  return match ? { postalCode: match[1], city: match[2].trim() } : { postalCode: '', city: String(value || '').trim() };
+  return match ? { postalCode: match[1], city: match[2].trim() } : null;
 }
 
 export function parsePharmacyDutyRows(html) {
@@ -92,6 +92,11 @@ export function parsePharmacyDutyRows(html) {
       continue;
     }
     const locality = parseLocality(localityText);
+    if (!locality) {
+      skipped += 1;
+      missingBoundary = true;
+      continue;
+    }
     try {
       const parsedRow = {
         dateText,
@@ -121,12 +126,22 @@ function makePharmacyId(name, city) {
 export function markDutyConflicts(duties) {
   const sorted = [...duties].sort((a, b) => Date.parse(a.startsAt) - Date.parse(b.startsAt));
   const conflicts = new Set();
-  for (let i = 1; i < sorted.length; i += 1) {
-    const previous = sorted[i - 1];
+  for (let i = 0; i < sorted.length; i += 1) {
     const current = sorted[i];
-    if (previous.coverageName === current.coverageName && Date.parse(current.startsAt) < Date.parse(previous.endsAt)) {
-      conflicts.add(previous.id);
-      conflicts.add(current.id);
+    const currentStarts = Date.parse(current.startsAt);
+    const currentEnds = Date.parse(current.endsAt);
+    if (!Number.isFinite(currentStarts) || !Number.isFinite(currentEnds)) continue;
+    for (let nextIndex = i + 1; nextIndex < sorted.length; nextIndex += 1) {
+      const next = sorted[nextIndex];
+      if (next.coverageName !== current.coverageName) continue;
+      const nextStarts = Date.parse(next.startsAt);
+      const nextEnds = Date.parse(next.endsAt);
+      if (!Number.isFinite(nextStarts) || !Number.isFinite(nextEnds)) continue;
+      if (nextStarts >= currentEnds) break;
+      if (currentStarts < nextEnds && nextStarts < currentEnds) {
+        conflicts.add(current.id);
+        conflicts.add(next.id);
+      }
     }
   }
   return duties.map((duty) => conflicts.has(duty.id) ? { ...duty, status: 'conflicting' } : duty);

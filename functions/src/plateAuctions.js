@@ -99,7 +99,99 @@ const CONNECTORS = {
       });
     },
   },
+  sg: {
+    canton: 'San Gallo',
+    plateCode: 'SG',
+    url: 'https://egov.stva.sg.ch/ecari-auction/ui/app/init',
+    parserVersion: '2.0.0',
+    parse(html, fetchedAt) {
+      return parseEcariSource(html, {
+        canton: 'San Gallo',
+        plateCode: 'SG',
+        officialAuctionUrl: 'https://egov.stva.sg.ch/ecari-auction/ui/app/init',
+        fetchedAt,
+      });
+    },
+  },
+  sz: {
+    canton: 'Svitto',
+    plateCode: 'SZ',
+    url: 'https://cariegov.sz.ch/ecari-auction/ui/app/init',
+    parserVersion: '2.0.0',
+    parse(html, fetchedAt) {
+      return parseEcariSource(html, {
+        canton: 'Svitto',
+        plateCode: 'SZ',
+        officialAuctionUrl: 'https://cariegov.sz.ch/ecari-auction/ui/app/init',
+        fetchedAt,
+      });
+    },
+  },
+  sh: {
+    canton: 'Sciaffusa',
+    plateCode: 'SH',
+    url: 'https://www.auktion-stva.sh.ch/',
+    parserVersion: '1.1.0',
+    parse(html, fetchedAt) {
+      return parseCardSource(html, {
+        canton: 'Sciaffusa',
+        plateCode: 'SH',
+        officialAuctionUrl: 'https://www.auktion-stva.sh.ch/',
+        detailBaseUrl: 'https://www.auktion-stva.sh.ch',
+        fetchedAt,
+      });
+    },
+  },
+  tg: {
+    canton: 'Turgovia',
+    plateCode: 'TG',
+    url: 'https://www.auktion.tg.ch/de/',
+    parserVersion: '1.1.0',
+    parse(html, fetchedAt) {
+      return parseCardSource(html, {
+        canton: 'Turgovia',
+        plateCode: 'TG',
+        officialAuctionUrl: 'https://www.auktion.tg.ch/de/',
+        detailBaseUrl: 'https://www.auktion.tg.ch',
+        fetchedAt,
+      });
+    },
+  },
 };
+
+const ECARI_TABS = [
+  ['tabContent1', 'active', 'auction', 'auction'],
+  ['tabContent2', 'upcoming', 'future-registration', 'future'],
+  ['tabContent3', 'active', 'fixed-price', 'fixed'],
+  ['tabContent4', 'upcoming', 'wanted', 'wanted'],
+];
+
+function parseEcariSource(html, { canton, plateCode, officialAuctionUrl, fetchedAt, tabs = ECARI_TABS }) {
+  return tabs.flatMap(([tabContentId, auctionStatus, listingType, idSuffix]) => parseEcariAuctionRows(
+    extractEcariTabSection(html, tabContentId),
+    {
+      canton,
+      plateCode,
+      officialAuctionUrl,
+      fetchedAt,
+      auctionStatus,
+      listingType,
+      idPrefix: idSuffix === 'auction' ? plateCode.toLowerCase() : `${plateCode.toLowerCase()}-${idSuffix}`,
+      detailUrlBuilder: () => officialAuctionUrl,
+    },
+  ));
+}
+
+function parseCardSource(html, { canton, plateCode, officialAuctionUrl, detailBaseUrl, fetchedAt }) {
+  return parseZhAuctionCards(html, {
+    fetchedAt,
+    officialAuctionUrl,
+    detailBaseUrl,
+    sourceKey: plateCode,
+    canton,
+    platePrefix: plateCode,
+  });
+}
 
 function timestampValue(value) {
   if (!value) return undefined;
@@ -171,7 +263,7 @@ function publicSource(value) {
   for (const key of allowed) {
     if (value[key] !== undefined && value[key] !== null) output[key] = value[key];
   }
-  for (const key of ['lastFetchedAt', 'lastSuccessAt']) {
+  for (const key of ['lastFetchedAt', 'lastSuccessAt', 'lastCheckedAt']) {
     const normalized = timestampValue(value[key]);
     if (normalized) output[key] = normalized;
   }
@@ -204,15 +296,35 @@ export async function getPublicPlateAuctionSnapshot(db = getAdminDb()) {
     // first deployment must not take the live catalogue down with it.
     console.warn('[getPublicPlateAuctionSnapshot:history]', error instanceof Error ? error.message : String(error));
   }
-  const auctions = auctionRows.map(publicAuction).filter(Boolean).map((auction) => {
+  const activeSourceCodes = new Set(Object.values(PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY)
+    .filter((source) => source.status === 'active')
+    .map((source) => source.plateCode));
+  const auctions = auctionRows.map(publicAuction).filter(Boolean)
+    .filter((auction) => activeSourceCodes.has(auction.sourceKey || auction.platePrefix))
+    .map((auction) => {
     const closed = closeExpiredObservation(auction, new Date());
     return closed ? publicAuction(closed) : auction;
   }).filter(Boolean);
-  const history = historyRows.map(publicAuction).filter(Boolean);
+  const history = historyRows.map(publicAuction).filter(Boolean)
+    .filter((auction) => activeSourceCodes.has(auction.sourceKey || auction.platePrefix));
   const sources = Object.fromEntries(Object.entries(PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY).map(([key, source]) => [key, { ...source, rowCount: 0 }]));
   for (const source of sourceRows) {
     const publicValue = publicSource(source);
-    if (publicValue) sources[source.id] = publicValue;
+    if (!publicValue) continue;
+    const registrySource = PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY[source.id];
+    if (registrySource && registrySource.status !== 'active') {
+      // A stale Firestore document must not resurrect a source that the
+      // registry has explicitly blocked or marked as having no public
+      // catalogue. Keep the last check timestamp, but publish the registry
+      // state and zero current rows immediately after deployment.
+      sources[source.id] = {
+        ...registrySource,
+        rowCount: 0,
+        ...(publicValue.lastCheckedAt ? { lastCheckedAt: publicValue.lastCheckedAt } : {}),
+      };
+    } else {
+      sources[source.id] = publicValue;
+    }
   }
   return {
     schema: PLATE_AUCTION_API_SCHEMA,
@@ -247,6 +359,7 @@ function sourceDocument(config, fetchedAt, patch = {}) {
     termsOfUse: 'review source terms before increasing frequency',
     owner: 'platform',
     lastFetchedAt: fetchedAt,
+    lastCheckedAt: fetchedAt,
     ...patch,
   };
 }
@@ -255,6 +368,7 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher = fetchH
   const fetchedAt = now.toISOString();
   const summaries = {};
   for (const [key, config] of Object.entries(CONNECTORS)) {
+    if (PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY[key]?.status !== 'active') continue;
     try {
       const html = await fetcher(config.url, { timeoutMs: 20000 });
       const parsedRows = config.parse(html, fetchedAt);
@@ -349,6 +463,23 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher = fetchH
       summaries[key] = { status: 'degraded', errorCode: 'fetch_failed' };
       console.error(`[refreshPlateAuctions:${key}]`, error instanceof Error ? error.message : String(error));
     }
+  }
+  // Keep the complete 26-canton matrix visible in the API, including sources
+  // that are known to be blocked or that do not publish a public auction
+  // catalogue. This is deliberately explicit: a missing connector is an
+  // implementation error, while a blocked/no-public source is a known state.
+  for (const [key, source] of Object.entries(PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY)) {
+    if (CONNECTORS[key] && source.status === 'active') continue;
+    const patch = source.status === 'active'
+      ? { status: 'degraded', errorCode: 'missing_connector' }
+      : { status: source.status, errorCode: null };
+    await db.collection(PLATE_AUCTION_SOURCE_COLLECTION).doc(key).set({
+      ...source,
+      rowCount: 0,
+      lastCheckedAt: fetchedAt,
+      ...patch,
+    }, { merge: true });
+    summaries[key] = { status: patch.status, rowCount: 0, ...(patch.errorCode ? { errorCode: patch.errorCode } : {}) };
   }
   return { fetchedAt, summaries };
 }

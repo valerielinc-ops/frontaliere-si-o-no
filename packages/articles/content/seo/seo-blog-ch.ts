@@ -83090,6 +83090,162 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-farmacie-turno-ticino-guida': {
+    title: 'Farmacie di turno in Ticino: guida a fonti e copertura',
+    description: 'Farmacie di turno in Ticino: guida a fonti e copertura: 207 record Ticino e 542 in CO, VA e VB; turni OFCT regionali. Non è copertura nazionale.',
+    keywords: 'farmacie di turno Ticino, OFCT, farmacia aperta, turni regionali, Mendrisiotto, Luganese, Bellinzonese',
+    ogTitle: 'Farmacie di turno in Ticino: guida a fonti e copertura',
+    ogDescription: 'Cataloghi farmacia per Ticino e confine italiano (207 e 542 record), con turni OFCT limitati a quattro aree. Fonti e timestamp chiari.',
+    canonicalPath: '/articoli-svizzera/farmacie-turno-ticino-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Farmacie di turno in Ticino: come leggere fonti e copertura",
+      "description": "Farmacie di turno in Ticino: guida a fonti e copertura: 207 record Ticino e 542 in CO, VA e VB; turni OFCT regionali. Non è copertura nazionale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/places/bellinzona.webp`,
+        "width": 1200,
+        "height": 563,
+        "caption": "Vista di Bellinzona in Ticino"
+      },
+      "datePublished": "2026-09-14T22:06:49+02:00",
+      "dateModified": "2026-09-14T22:06:49+02:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/farmacie-turno-ticino-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-farmacie-ticino-elenco-contatti': {
+    title: 'Farmacie in Ticino: elenco e contatti',
+    description: 'Farmacie in Ticino: elenco e contatti: 207 record Ticino e 542 in CO, VA e VB; turni OFCT regionali. Non è copertura nazionale.',
+    keywords: 'farmacie Ticino elenco, contatti farmacie Ticino, lista ufficiale farmacie, farmacia Lugano, farmacia Bellinzona',
+    ogTitle: 'Farmacie in Ticino: elenco e contatti',
+    ogDescription: 'Cataloghi farmacia per Ticino e confine italiano (207 e 542 record), con turni OFCT limitati a quattro aree. Fonti e timestamp chiari.',
+    canonicalPath: '/articoli-svizzera/farmacie-ticino-elenco-contatti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Farmacie in Ticino: elenco ufficiale e contatti",
+      "description": "Farmacie in Ticino: elenco e contatti: 207 record Ticino e 542 in CO, VA e VB; turni OFCT regionali. Non è copertura nazionale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "width": 1200,
+        "height": 563,
+        "caption": "Panorama di Lugano in Ticino"
+      },
+      "datePublished": "2026-09-14T22:06:49+02:00",
+      "dateModified": "2026-09-14T22:06:49+02:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/farmacie-ticino-elenco-contatti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-farmacie-confine-italia-como-varese-verbano': {
+    title: 'Farmacie al confine: Como, Varese e Verbano',
+    description: 'Farmacie al confine: Como, Varese e Verbano: 207 record Ticino e 542 in CO, VA e VB; turni OFCT regionali. Non è copertura nazionale.',
+    keywords: 'farmacie confine Italia Svizzera, farmacie Como, farmacie Varese, farmacie Verbano, farmacie Ticino',
+    ogTitle: 'Farmacie al confine: Como, Varese e Verbano',
+    ogDescription: 'Cataloghi farmacia per Ticino e confine italiano (207 e 542 record), con turni OFCT limitati a quattro aree. Fonti e timestamp chiari.',
+    canonicalPath: '/articoli-svizzera/farmacie-confine-italia-como-varese-verbano/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Farmacie al confine: il catalogo per Como, Varese e Verbano",
+      "description": "Farmacie al confine: Como, Varese e Verbano: 207 record Ticino e 542 in CO, VA e VB; turni OFCT regionali. Non è copertura nazionale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/places/mendrisio.webp`,
+        "width": 1200,
+        "height": 563,
+        "caption": "Paesaggio del Mendrisiotto vicino al confine"
+      },
+      "datePublished": "2026-09-14T22:06:50+02:00",
+      "dateModified": "2026-09-14T22:06:50+02:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/farmacie-confine-italia-como-varese-verbano/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-farmacia-aperta-turno-elenco': {
+    title: 'Farmacia aperta o di turno: come leggere l’elenco',
+    description: 'Farmacia aperta o di turno: come leggere l’elenco: 207 record Ticino e 542 in CO, VA e VB; turni OFCT regionali. Non è copertura nazionale.',
+    keywords: 'farmacia aperta Ticino, farmacia di turno, elenco farmacie, orari farmacia, OFCT',
+    ogTitle: 'Farmacia aperta o di turno: come leggere l’elenco',
+    ogDescription: 'Cataloghi farmacia per Ticino e confine italiano (207 e 542 record), con turni OFCT limitati a quattro aree. Fonti e timestamp chiari.',
+    canonicalPath: '/articoli-svizzera/farmacia-aperta-turno-elenco/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Farmacia aperta o di turno: come leggere l’elenco",
+      "description": "Farmacia aperta o di turno: come leggere l’elenco: 207 record Ticino e 542 in CO, VA e VB; turni OFCT regionali. Non è copertura nazionale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/places/castelgrande.webp`,
+        "width": 1200,
+        "height": 563,
+        "caption": "Castelgrande a Bellinzona, Ticino"
+      },
+      "datePublished": "2026-09-14T22:06:51+02:00",
+      "dateModified": "2026-09-14T22:06:51+02:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/farmacia-aperta-turno-elenco/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
