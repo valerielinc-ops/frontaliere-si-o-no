@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { CircleMarker, MapContainer, Marker, Popup, TileLayer, Tooltip } from 'react-leaflet';
+import L from 'leaflet';
 import type { LatLngBoundsExpression, LatLngExpression } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
@@ -11,10 +13,10 @@ import 'leaflet/dist/leaflet.css';
  * copy-pasted literally). Duplicated constants in ≥2 files drift, so they live
  * here once (AGENTS.md #6) and the callers keep only their own markers/dataset.
  *
- * Leaflet + react-leaflet are loaded dynamically on mount while the shell's
- * CSS is imported statically. The reserved box paints immediately at its
- * declared height, so the async load costs no layout shift (AGENTS.md #7 —
- * reserve space, never suppress).
+ * The Leaflet shell is synchronous once the client bundle is mounted: the
+ * reserved box paints immediately at its declared height, and live marker
+ * children cannot be stranded behind a loader that tests or a slow chunk may
+ * outlive (AGENTS.md #7 — reserve space, never suppress).
  */
 
 /** OSM raster tiles — one config for every map. */
@@ -35,41 +37,28 @@ export interface LeafletBundle {
   L: any;
 }
 
-let bundlePromise: Promise<LeafletBundle> | null = null;
+const leafletRuntime: any = L;
 
-/** Load react-leaflet + leaflet once, shared by every MapCanvas. */
-function loadLeaflet(): Promise<LeafletBundle> {
-  if (!bundlePromise) {
-    bundlePromise = Promise.all([
-      import('react-leaflet'),
-      import('leaflet'),
-    ]).then(([rl, leafletMod]) => {
-      const mod: any = leafletMod;
-      // Leaflet ships both a namespace and a default export depending on the build.
-      const L: any = typeof mod?.divIcon === 'function' ? mod : mod.default;
-      // Default marker icons resolve to bundler-relative URLs that break once
-      // hashed; patch them once, globally.
-      if (L?.Icon?.Default && !L.Icon.Default._patched) {
-        delete (L.Icon.Default.prototype as any)._getIconUrl;
-        L.Icon.Default.mergeOptions({
-          iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
-          iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
-          shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
-        });
-        L.Icon.Default._patched = true;
-      }
-      return {
-        MapContainer: rl.MapContainer,
-        TileLayer: rl.TileLayer,
-        Marker: rl.Marker,
-        Popup: rl.Popup,
-        CircleMarker: rl.CircleMarker,
-        Tooltip: rl.Tooltip,
-        L,
-      };
-    });
-  }
-  return bundlePromise;
+const leafletBundle: LeafletBundle = {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Popup,
+  CircleMarker,
+  Tooltip,
+  L: leafletRuntime,
+};
+
+// Default marker icons resolve to bundler-relative URLs that break once
+// hashed; patch them once, globally.
+if (leafletRuntime?.Icon?.Default && !leafletRuntime.Icon.Default._patched) {
+  delete (leafletRuntime.Icon.Default.prototype as any)._getIconUrl;
+  leafletRuntime.Icon.Default.mergeOptions({
+    iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
+    iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+  });
+  leafletRuntime.Icon.Default._patched = true;
 }
 
 export interface MapCanvasProps {
@@ -89,7 +78,7 @@ export interface MapCanvasProps {
    * toggle CSS `display`, so mounting both doubles the init cost (#4302).
    */
   active?: boolean;
-  /** Shown while leaflet loads, and while `active` is false. */
+  /** Shown while `active` is false. */
   placeholder?: React.ReactNode;
   ariaLabel?: string;
   tabIndex?: number;
@@ -114,20 +103,7 @@ export default function MapCanvas({
   tabIndex,
   children,
 }: MapCanvasProps) {
-  const [leaflet, setLeaflet] = useState<LeafletBundle | null>(null);
-
-  useEffect(() => {
-    if (!active) return;
-    let mounted = true;
-    loadLeaflet().then(bundle => {
-      if (mounted) setLeaflet(bundle);
-    });
-    return () => { mounted = false; };
-  }, [active]);
-
-  const ready = active && leaflet !== null;
-  // Capitalised locals: JSX cannot use a non-null-asserted member expression.
-  const { MapContainer, TileLayer } = (leaflet ?? {}) as LeafletBundle;
+  const ready = active;
 
   return (
     // `relative z-0` isolates Leaflet's high z-index panes from the page chrome.
@@ -136,7 +112,6 @@ export default function MapCanvas({
       style={{ height, minHeight }}
       aria-label={ariaLabel}
       tabIndex={tabIndex}
-      aria-busy={active && !ready ? true : undefined}
     >
       {ready ? (
         <MapContainer
@@ -147,7 +122,7 @@ export default function MapCanvas({
           className="h-full w-full"
         >
           <TileLayer attribution={OSM_ATTRIBUTION} url={OSM_TILE_URL} />
-          {typeof children === 'function' ? children(leaflet!) : children}
+          {typeof children === 'function' ? children(leafletBundle) : children}
         </MapContainer>
       ) : (
         placeholder

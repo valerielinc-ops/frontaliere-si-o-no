@@ -44,6 +44,7 @@ describe('MapCanvas is the single Leaflet shell', () => {
     const src = readFileSync(SHELL, 'utf8');
     expect(src).toContain("import 'leaflet/dist/leaflet.css';");
     expect(src).not.toContain("import('leaflet/dist/leaflet.css')");
+    expect(src).not.toContain('aria-busy');
   });
 
   it('only the shell mounts MapContainer / TileLayer', () => {
