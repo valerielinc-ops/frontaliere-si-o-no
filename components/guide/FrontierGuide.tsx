@@ -5,14 +5,15 @@ import IrpefAddizionaleValue from '@/components/shared/IrpefAddizionaleValue';
 import { useTranslation } from '../../services/i18n';
 import { PROVINCE_NAMES } from '../../services/provinceList';
 import { lazyRetry } from '@/services/lazyRetry';
-import MapCanvas from '@/components/shared/MapCanvas';
 import { requestSlot, releaseSlot, isActive, subscribe, POPUP_PRIORITY } from '@/services/popupQueue';
 // NaspiCalculator pulls Recharts (~vendor-charts ~150KB gzip). Lazy-load it so the
 // FrontierGuide chunk stays chart-free until the unemployment section is rendered.
 const NaspiCalculator = lazyRetry(() => import('@/components/calculator/NaspiCalculator'));
+// Keep the Leaflet shell out of the eager guide chunk; load it with the map tab.
+const LazyMapCanvas = lazyRetry(() => import('@/components/shared/MapCanvas'));
 // Shown inside the reserved map box while Leaflet loads — same height, no shift.
 const MAP_LOADING = (
- <div className="flex h-full w-full items-center justify-center"><span className="text-muted text-sm">Loading map…</span></div>
+ <div className="flex h-[500px] w-full items-center justify-center"><span className="text-muted text-sm">Loading map…</span></div>
 );
 import { MapPin, Clock, TrendingUp, Home, Car, ShoppingCart, FileText, AlertCircle, CheckCircle2, Info, ArrowRight, Building2, Landmark, Shield, Users, Navigation, Timer, BarChart3, Euro, Heart, Briefcase, Calendar, Mountain, GraduationCap, Baby, BookOpen, LifeBuoy, Search, Filter, Star, ExternalLink, Rocket, X, SmilePlus, Backpack } from 'lucide-react';
 import { Analytics } from '../../services/analytics';
@@ -1127,7 +1128,8 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <span className="text-body">{t('guide.legendBoth')}</span>
  </div>
  </div>
- <MapCanvas
+ <Suspense fallback={MAP_LOADING}>
+ <LazyMapCanvas
  center={[46.0, 9.2]}
  zoom={8}
  height="500px"
@@ -1179,7 +1181,8 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  </>
  );
  }}
- </MapCanvas>
+ </LazyMapCanvas>
+ </Suspense>
  </div>
 
  <div className="bg-warning-subtle border-2 border-warning-border rounded-2xl p-6">
@@ -1326,7 +1329,8 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <MapPin size={16} className="text-danger" />
  {t('guide.border.interactiveMap')}
  </h3>
- <MapCanvas
+ <Suspense fallback={MAP_LOADING}>
+ <LazyMapCanvas
  center={[45.87, 8.95]}
  zoom={10}
  height="500px"
@@ -1380,7 +1384,8 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  })}
  </>
  )}
- </MapCanvas>
+ </LazyMapCanvas>
+ </Suspense>
  <div className="mt-3 flex items-center justify-center gap-6 text-xs">
  <div className="flex items-center gap-2">
  <div className="w-3 h-3 rounded-full bg-danger-strong border-2 border-white"></div>

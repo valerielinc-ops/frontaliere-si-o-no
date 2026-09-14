@@ -19,6 +19,8 @@ import path from 'node:path';
 const ROOT = path.resolve(__dirname, '..');
 const COMPONENTS_DIR = path.join(ROOT, 'components');
 const SHELL = path.join(COMPONENTS_DIR, 'shared', 'MapCanvas.tsx');
+const FRONTIER_GUIDE = path.join(COMPONENTS_DIR, 'guide', 'FrontierGuide.tsx');
+const BORDER_MUNICIPALITIES_MAP = path.join(COMPONENTS_DIR, 'guide', 'BorderMunicipalitiesMap.tsx');
 
 function walk(dir: string, out: string[] = []): string[] {
   for (const entry of readdirSync(dir)) {
@@ -59,6 +61,17 @@ describe('MapCanvas is the single Leaflet shell', () => {
       .filter(({ src }) => src.includes('tile.openstreetmap.org'))
       .map(({ file }) => rel(file));
     expect(tileUsers).toEqual([rel(SHELL)]);
+  });
+
+  it('keeps the FrontierGuide map shell behind its lazy boundary', () => {
+    const src = readFileSync(FRONTIER_GUIDE, 'utf8');
+    expect(src).toContain("const LazyMapCanvas = lazyRetry(() => import('@/components/shared/MapCanvas'));");
+    expect(src).not.toContain("import MapCanvas from '@/components/shared/MapCanvas';");
+  });
+
+  it('gives the desktop border map an explicit h-full height', () => {
+    const src = readFileSync(BORDER_MUNICIPALITIES_MAP, 'utf8');
+    expect(src).toMatch(/height="100%"\s+minHeight=\{500\}/);
   });
 
   it('the shell reserves a height floor against CLS', () => {

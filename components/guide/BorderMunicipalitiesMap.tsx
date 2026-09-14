@@ -676,6 +676,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  <MapCanvas
  center={center}
  zoom={8}
+ height="100%"
  minHeight={500}
  active={isDesktopViewport === true}
  className="rounded-xl overflow-hidden border border-edge"
