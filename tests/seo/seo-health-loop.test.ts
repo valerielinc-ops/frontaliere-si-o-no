@@ -107,6 +107,7 @@ describe('SEO health contract', () => {
     expect(WORKFLOW_SOURCE).toContain('--in-place-resolver-cmd');
     expect(WORKFLOW_SOURCE).not.toContain("--in-place-resolver-cmd 'node scripts/lib/resolve-404-compat-conflict.mjs && git add -A'");
     expect(WORKFLOW_SOURCE).toContain('actions/upload-artifact@v6');
+    expect(WORKFLOW_SOURCE).toContain('if-no-files-found: error');
     expect(WORKFLOW_SOURCE).toContain('EXPECTED_SHA=');
     expect(WORKFLOW_SOURCE).toContain('No deploy token available');
     expect(WORKFLOW_SOURCE).toContain("dispatch_sent=true");
