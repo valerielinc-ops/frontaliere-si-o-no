@@ -6367,6 +6367,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.forum-economico-ambientale-osce-praga.title': '32e Forum de l\'OSCE à Prague : focus sur la sécurité et la technologie',
     'blog.article.forum-economico-ambientale-osce-praga.excerpt': 'Ouverture à Prague du 32e Forum économique et environnemental de l\'OSCE sous la direction de la Présidence suisse de 2026.',
     'blog.article.forum-economico-ambientale-osce-praga.imageAlt': 'Salle de conference du Forum economique et environnemental de l\'OSCE a Prague',
+    'blog.article.latte-e-agricoltura-svizzera-studi.title': 'Études agricoles : faibles gains pour le lait en Suisse',
+    'blog.article.latte-e-agricoltura-svizzera-studi.excerpt': 'Une étude récente de la FHNW révèle que les producteurs de lait gagnent en moyenne 8,30 francs de l\'heure, contre 73,60 francs pour le colza.',
+    'blog.article.latte-e-agricoltura-svizzera-studi.imageAlt': 'Producteurs de lait et agriculture suisse selon l\'etude de la FHNW',
 };
 
 export default blogMetaChFr;

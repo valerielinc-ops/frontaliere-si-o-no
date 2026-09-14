@@ -82661,6 +82661,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-latte-e-agricoltura-svizzera-studi': {
+    title: 'Studi agricoli: guadagni bassi per il latte in Svizzera',
+    description: 'Studio FHNW sui redditi agricoli in Svizzera: produttori di latte a 8.30 franchi all\'ora contro i 73.60 della colza. Dati e aumenti necessari. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, studi, agricoli, guadagni, bassi',
+    ogTitle: 'Guadagni agricoltura in Svizzera: latte a 8.30 franchi l\'ora',
+    ogDescription: 'Un\'analisi approfondita basata sullo studio della FHNW svela i dati sui redditi orari degli agricoltori svizzeri, evidenziando il divario tra la produzione lattiera e le colture vegetali come la colza.',
+    canonicalPath: '/articoli-svizzera/latte-e-agricoltura-svizzera-studi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Studi agricoli: guadagni bassi per il latte in Svizzera",
+      "description": "Studio FHNW sui redditi agricoli in Svizzera: produttori di latte a 8.30 franchi all'ora contro i 73.60 della colza. Dati e aumenti necessari. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/latte-e-agricoltura-svizzera-studi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Produttori di latte e agricoltura in Svizzera secondo lo studio FHNW"
+      },
+      "datePublished": "2026-09-14T00:08:47+00:00",
+      "dateModified": "2026-09-14T00:08:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/latte-e-agricoltura-svizzera-studi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
