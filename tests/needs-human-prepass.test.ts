@@ -340,6 +340,36 @@ describe('registro di DECISIONS.md — incondizionata vs condizionata (i casi re
     expect(REGISTRY.length).toBeGreaterThan(10);
   });
 
+  it('continua a leggere le righe della tabella dopo una sezione Markdown successiva', () => {
+    const registry = [
+      '## Decisioni del proprietario già prese',
+      '',
+      '| Data | Decisione | Fonte |',
+      '| --- | --- | --- |',
+      '| 2026-09-14 | **SÌ, procedi** con #8041 | audit |',
+      '',
+      '## Note',
+      '',
+      '| 2026-09-14 | **SÌ, procedi** con #8040 | audit |',
+    ].join('\n');
+
+    expect(parseDecisionRegistry(registry).map((row) => row.refs)).toEqual([[8041], [8040]]);
+  });
+
+  it('rifiuta una riga tabellare che il parser non riesce a riconoscere', () => {
+    const registry = [
+      '## Decisioni del proprietario già prese',
+      '',
+      '| Data | Decisione | Fonte |',
+      '| --- | --- | --- |',
+      '| 2026-09-14 | #8041 |',
+    ].join('\n');
+
+    expect(() => parseDecisionRegistry(registry)).toThrow(
+      /registro decisioni incompleto: riconosciute 0\/1 righe tabella/,
+    );
+  });
+
   it('#6280 (candidatura assistita): «SÌ, procedi» è un sì pieno → SBLOCCA', () => {
     expect(verdictFor(6280)).toBe('sblocca');
   });
