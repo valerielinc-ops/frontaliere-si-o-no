@@ -575,7 +575,7 @@ export async function exportL4({ configPath = null, snoozesPath = null, outputPa
   const firestore = client || new GoogleDataClient();
   const window = rollingWindow(now, DEFAULT_L4_WINDOW_HOURS);
   const fields = [
-    'active', 'paused', 'backfilled_from', 'backfilledFrom', 'consent_text', 'consentText',
+    'active', 'paused', 'backfilled_from', 'backfilledFrom', 'consent_given', 'consentGiven', 'consent_text', 'consentText',
     'consent_text_displayed', 'consentTextDisplayed', 'consent_act', 'consentAct',
     'consent_origin', 'consentOrigin', 'status', 'unsubscribed_at', 'unsubscribedAt',
     'resubscribed_at', 'resubscribedAt', 'last_site_visit_at', 'lastSiteVisitAt',
