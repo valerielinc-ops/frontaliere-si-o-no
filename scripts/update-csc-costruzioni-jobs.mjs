@@ -66,6 +66,7 @@ const CSC_ARTICLE_SCAN_CAP = 300000;
 // gitignored, CI-absent, cross-process-racy shared data/jobs.json (bug class
 // of #3775/#3768).
 const DATA_JOBS = crawlerScratchPathFor(CSC_KEY);
+const CSC_LIVE_STRUCTURE_SNAPSHOT = crawlerScratchPathFor(`${CSC_KEY}-live-structure`);
 const CSC_COMPANY_NAME = 'CSC Costruzioni SA';
 const CSC_HOST = 'csc-sa.ch';
 const CSC_CAREERS_URL = 'https://csc-sa.ch/lavoro-carriera-edilizia';
@@ -361,6 +362,41 @@ function extractPrimaryArticle(source) {
   return null;
 }
 
+function captureCscLiveStructureSnapshot(html, snapshotPath = CSC_LIVE_STRUCTURE_SNAPSHOT) {
+  try {
+    if (fs.existsSync(snapshotPath)) return;
+
+    const source = String(html || '');
+    const main = source.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i)?.[1] || '';
+    const article = extractPrimaryArticle(main);
+    if (!article) return;
+
+    const articleClasses = [...new Set(
+      readQuotedHtmlAttr(article.attrs, 'class').split(/\s+/).filter(Boolean),
+    )].sort();
+    const hasDataHistoryNodeId = /\bdata-history-node-id\s*=/i.test(article.attrs);
+    const jobPostingNodeCount = extractCscJobPostingNodes(source).length;
+    const snapshot = {
+      schemaVersion: 1,
+      capturedAt: new Date().toISOString(),
+      authoritativeEmpty: false,
+      articleClasses,
+      hasDataHistoryNodeId,
+      jobPostingNodeCount,
+    };
+
+    writeJsonAtomic(snapshotPath, snapshot);
+    console.log(
+      `🧭 CSC live structural snapshot captured at ${snapshotPath} `
+      + `(article classes=${articleClasses.join(',') || '(none)'}; `
+      + `data-history-node-id=${hasDataHistoryNodeId ? 'present' : 'absent'}; `
+      + `JobPosting nodes=${jobPostingNodeCount}).`,
+    );
+  } catch (error) {
+    console.warn(`⚠️ CSC live structural snapshot skipped: ${error.message}`);
+  }
+}
+
 /**
  * Accept only the primary `node--type-work-position` Drupal article inside
  * <main> — `extractPrimaryArticle` already scans all top-level siblings for
@@ -467,6 +503,12 @@ export async function verifyCscDetailUrls(urls, options = {}) {
     if (!detail) {
       throw new Error(`CSC detail invariant failed: ${candidate} did not return a canonical work-position page.`);
     }
+    captureCscLiveStructureSnapshot(
+      html,
+      options.structureSnapshotPath
+        || process.env.CSC_LIVE_STRUCTURE_SNAPSHOT_PATH
+        || CSC_LIVE_STRUCTURE_SNAPSHOT,
+    );
     const firstCandidate = identities.get(detail.identity);
     if (firstCandidate && firstCandidate !== candidate) {
       throw new Error(`CSC detail invariant failed: ${candidate} and ${firstCandidate} share semantic identity ${detail.identity}.`);
@@ -496,7 +538,11 @@ export async function fetchCscJobUrls(options = {}) {
     return discovery;
   }
 
-  const urls = await verifyCscDetailUrls(discovery.urls, { fetchImpl, timeoutMs });
+  const urls = await verifyCscDetailUrls(discovery.urls, {
+    fetchImpl,
+    timeoutMs,
+    structureSnapshotPath: options.structureSnapshotPath,
+  });
   console.log(`✅ Discovered and verified ${urls.length}/${discovery.urls.length} CSC job detail URLs`);
   return { urls, authoritativeEmpty: false };
 }

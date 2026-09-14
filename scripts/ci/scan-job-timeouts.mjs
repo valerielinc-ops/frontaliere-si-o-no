@@ -112,6 +112,7 @@ import { execFileSync } from 'node:child_process';
 import {
   createGithubIssue,
   commentOnGithubIssue,
+  isFailureReportingDisabled,
   searchSafePrefix,
 } from '../lib/github-issue-creator.mjs';
 // Il body di queste issue non deve MAI citare un path `.github/workflows/**`:
@@ -559,6 +560,11 @@ export async function main() {
   const emittedByTitle = new Map();
 
   async function emit({ title, description, labels, workflow, runUrl, jobCount }) {
+    if (isFailureReportingDisabled()) {
+      console.log(`[scan-job-timeouts] ENABLE_FAILURE_REPORT=false; skipping issue persistence for ${runUrl}`);
+      return;
+    }
+
     const already = emittedByTitle.get(title);
 
     // Every emission is atomic at run level, so the durable run URL proves that
