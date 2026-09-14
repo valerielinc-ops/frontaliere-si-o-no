@@ -118,3 +118,23 @@ export function slugMatchesTitle(slug, title, company, location, disambiguator =
   const union = slugTokens.size + titleTokens.size - intersection;
   return intersection / union >= 0.5;
 }
+
+/**
+ * Whether a source-locale slug needs refreshing after a declared brand
+ * relabel. The trigger is an explicit closed-list membership, not a generic
+ * comparison of crawler key and company: dedicated crawlers commonly use a
+ * key that differs from the employer label.
+ */
+export function slugNeedsBrandRefresh({
+  isBrandRelabelledKey,
+  currentSlug,
+  title,
+  company,
+  location = '',
+  disambiguator = '',
+}) {
+  if (!isBrandRelabelledKey) return false;
+  if (!String(title || '').trim() || !String(company || '').trim()) return false;
+  const canonical = buildSlug(title, company, location, disambiguator);
+  return Boolean(canonical) && canonical !== String(currentSlug || '').trim();
+}

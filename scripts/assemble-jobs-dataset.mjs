@@ -55,7 +55,7 @@ import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts, restoreExistingSlugIdentity } from './lib/crawler-template.mjs';
 import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities, addPreviousSlugForLocale, captureLostSlugs, DEFAULT_PREV_SLUG_CAP, stableSlugHash, appendSlugDisambiguator } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, swissCityFromLocationField, rescueSwissCityFromText, isTargetCanton, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
-import { getCantonDisplayName } from './lib/crawler-location-config.mjs';
+import { getCantonDisplayName, markLocationDerivedFromVacancyText } from './lib/crawler-location-config.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from './lib/swiss-locality-sentence-split.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
@@ -2450,11 +2450,13 @@ async function assembleJobs() {
       // No blocklist on primaryLoc: an explicit locality field naming "Rolle"
       // or "Fully" is a location the author typed on purpose. The blocklist
       // exists for free-text description scanning only.
-      const rescuedCity = swissCityFromLocationField(primaryLoc)
-        || rescueSwissCityFromText(haystack);
+      const cityFromLocalityField = swissCityFromLocationField(primaryLoc);
+      const cityFromVacancyText = cityFromLocalityField ? '' : rescueSwissCityFromText(haystack);
+      const rescuedCity = cityFromLocalityField || cityFromVacancyText;
       if (rescuedCity) {
         job.addressLocality = rescuedCity;
         job.location = rescuedCity;
+        if (cityFromVacancyText) markLocationDerivedFromVacancyText(job);
       }
       return true;
     }
