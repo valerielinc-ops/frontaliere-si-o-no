@@ -81,4 +81,14 @@ describe('sanitizeJobTitleForDisplay', () => {
       'Assistente vendite 80%',
     );
   });
+
+  it('keeps the observed marker families and matches German introductions', () => {
+    expect(sanitizeJobTitleForDisplay('Based on the context, **Pflegefachperson HF**')).toBe('Pflegefachperson HF');
+    expect(sanitizeJobTitleForDisplay('The title appears to be **Assistant Store Manager**')).toBe('Assistant Store Manager');
+    expect(sanitizeJobTitleForDisplay('Die Übersetzung: **Verkaufsberater:in**')).toBe('Verkaufsberater:in');
+  });
+
+  it('does not treat ordinary bold job wording as an AI narrative', () => {
+    expect(sanitizeJobTitleForDisplay('Translation **Project Manager**')).toBe('Translation Project Manager');
+  });
 });

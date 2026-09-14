@@ -13,10 +13,16 @@ const BOLD_SEGMENT_RE = /(?<!\*)\*\*([^*\n]{1,240})\*\*(?!\*)/g;
 // A title is recoverable when a narrative sentence structurally introduces
 // the following bold segment. This avoids length/suffix heuristics: the
 // explanation may be short, and the actual title may be the final value.
+// `\b` is deliberately avoided at the start of these expressions because
+// JavaScript word boundaries are ASCII-only (`Übersetzung` would not match).
 const NARRATIVE_TITLE_INTRODUCERS = [
-  /\b(?:translation|traduzione|traduction|übersetzung)\b[^:!?\n]{0,140}:\s*$/i,
-  /\b(?:the\s+)?title\b[^:!?\n]{0,140}:\s*$/i,
-  /\b(?:here(?:'s| is)|ecco|voici|hier ist)\b[^:!?\n]{0,140}:\s*$/i,
+  /(?:^|[^\p{L}\p{N}_])(?:translation|traduzione|traduction|übersetzung)[^:!?\n]*:\s*$/iu,
+  /(?:^|[^\p{L}\p{N}_])(?:the\s+)?title[^:!?\n]*:\s*$/iu,
+  /(?:^|[^\p{L}\p{N}_])(?:here(?:'s| is)|ecco|voici|hier ist)[^:!?\n]*:\s*$/iu,
+  /(?:^|[^\p{L}\p{N}_])(?:translation|traduzione|traduction|übersetzung)[^.!?\n]*(?:is|è|est|ist)\s*$/iu,
+  /(?:^|[^\p{L}\p{N}_])(?:the\s+)?title[^.!?\n]*(?:needs?|appears?|translated?)(?:\s+to\s+be)?\s*:?\s*$/iu,
+  /(?:^|[^\p{L}\p{N}_])based on[^.!?\n]*context[^.!?\n]*$/iu,
+  /(?:^|[^\p{L}\p{N}_])(?:i need to|let me|looking at|reading (?:the )?job files?|if you(?:'d| would) like me)[^.!?\n]*$/iu,
 ];
 
 /**
