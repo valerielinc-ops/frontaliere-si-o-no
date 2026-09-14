@@ -6,9 +6,12 @@ import path from 'node:path';
 import { buildPharmacyAliasBridge, buildPharmacyDirectoryPage, emitPharmacyAliasBridge, pharmacyPageDescriptors } from '../../build-plugins/pharmacyDirectoryPagesPlugin';
 import { buildPharmacyPath } from '../../services/pharmacies/paths';
 import { extractVisibleText } from '../../scripts/audit-text-html-ratio.mjs';
+import dutiesJson from '../../data/pharmacy-duties-ticino.json';
+import type { PharmacyDutiesDataset } from '../../services/pharmacies/types';
 
 const locales = ['it', 'en', 'de', 'fr'] as const;
 const tempRoots: string[] = [];
+const EMPTY_DUTY_DATASET = { ...dutiesJson, duties: [] } as unknown as PharmacyDutiesDataset;
 
 afterEach(() => {
   while (tempRoots.length > 0) fs.rmSync(tempRoots.pop()!, { recursive: true, force: true });
@@ -55,6 +58,38 @@ describe('pharmacy directory page matrix', () => {
     expect(page.indexable).toBe(false);
     expect(page.html).toContain('noindex,follow');
     expect(page.html).not.toContain('CollectionPage');
+  });
+
+  it('renders an explicit verified-duty fallback and disclaimer when the duty dataset is empty', () => {
+    const hub = pharmacyPageDescriptors().find((descriptor) => descriptor.kind === 'duty-hub');
+    const city = pharmacyPageDescriptors().find((descriptor) => descriptor.kind === 'duty-city' && descriptor.citySlug === 'lugano');
+    expect(hub).toBeDefined();
+    expect(city).toBeDefined();
+
+    for (const descriptor of [hub!, city!]) {
+      const page = buildPharmacyDirectoryPage(descriptor, 'it', '', EMPTY_DUTY_DATASET);
+      expect(page.html.toLocaleLowerCase()).toContain('nessun turno verificato');
+      expect(page.html).toContain('Verifica sempre telefonicamente con la farmacia prima di recarti sul posto: orari e turni possono cambiare.');
+      expect(page.html).not.toMatch(/<article\b/);
+    }
+  });
+
+  it('re-evaluates a static duty page at the injected interval boundary', () => {
+    const descriptor = pharmacyPageDescriptors().find((candidate) => candidate.kind === 'duty-hub');
+    const sample = dutiesJson.duties.find((duty) => duty.status === 'verified');
+    expect(descriptor).toBeDefined();
+    expect(sample).toBeDefined();
+    const dataset = {
+      ...dutiesJson,
+      duties: [{ ...sample!, startsAt: '2026-09-14T10:00:00.000Z', endsAt: '2026-09-14T12:00:00.000Z' }],
+    } as unknown as PharmacyDutiesDataset;
+
+    const before = buildPharmacyDirectoryPage(descriptor!, 'it', '', dataset, new Date('2026-09-14T11:00:00.000Z'));
+    const after = buildPharmacyDirectoryPage(descriptor!, 'it', '', dataset, new Date('2026-09-14T12:00:00.000Z'));
+    expect(before.html.toLocaleLowerCase()).not.toContain('nessun turno verificato');
+    expect(before.html).toMatch(/<article\b/);
+    expect(after.html.toLocaleLowerCase()).toContain('nessun turno verificato');
+    expect(after.html).not.toMatch(/<article\b/);
   });
 
   it('keeps every indexable directory page above the text-html ratio floor', () => {

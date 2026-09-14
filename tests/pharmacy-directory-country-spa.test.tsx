@@ -14,6 +14,7 @@ const provincePaths = {
 } as const;
 
 afterEach(cleanup);
+afterEach(() => vi.useRealTimers());
 
 describe('pharmacy country SPA route', () => {
   it.each(locales)('renders only the three province hubs and no 542-card listing (%s)', (locale) => {
@@ -27,5 +28,14 @@ describe('pharmacy country SPA route', () => {
     expect(container.querySelectorAll('article')).toHaveLength(0);
     expect(container.querySelector('#pharmacy-search')).toBeNull();
     expect(container.querySelector('#pharmacy-map-heading')).toBeNull();
+  });
+
+  it('shows the verified-duty fallback when the dataset has no active interval', () => {
+    vi.useFakeTimers({ now: new Date('2030-01-01T00:00:00.000Z') });
+    const { container } = render(<PharmacyDirectory page={{ kind: 'duty-hub', locale: 'it' }} />);
+
+    expect(screen.getByText('Nessun turno verificato per questa città o area nel dataset corrente.')).toBeInTheDocument();
+    expect(container.querySelectorAll('article')).toHaveLength(0);
+    expect(container.textContent).toContain('Verifica sempre telefonicamente con la farmacia prima di recarti sul posto: orari e turni possono cambiare.');
   });
 });

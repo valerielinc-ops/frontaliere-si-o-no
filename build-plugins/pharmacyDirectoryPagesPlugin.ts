@@ -20,7 +20,7 @@ import {
   pharmaciesForProvince,
 } from '../services/pharmacies/data';
 import { buildPharmacyPath, type PharmacyPageKind, type PharmacyPath } from '../services/pharmacies/paths';
-import { publicDutiesForRegion } from '../services/pharmacies/duties';
+import { currentDutyForRegion } from '../services/pharmacies/duties';
 import type { Locale } from '../services/i18n';
 import { safePharmacyUrl, type Pharmacy, type PharmacyDuty, type PharmacyDutiesDataset, type PharmacyFieldSource, type PharmacyUrlAlias } from '../services/pharmacies/types';
 import dutiesJson from '../data/pharmacy-duties-ticino.json';
@@ -87,7 +87,7 @@ type Copy = {
 const COPY: Record<Locale, Copy> = {
   it: {
     hubTitle: 'Farmacie in Ticino e al confine italiano: elenco e fonti', ticinoTitle: 'Farmacie in Ticino', italyTitle: 'Farmacie italiane al confine con il Ticino', italyAreaTitle: (area) => `Farmacie in provincia di ${area}`, countryDirectoryNote: 'Gli hub di provincia portano alle schede complete organizzate per località, con indirizzo, contatti, fonte e ultimo recupero quando pubblicati. Il conteggio indica le sedi presenti nel dataset corrente: non è una stima delle farmacie aperte né dei turni attivi. Per orari e disponibilità verifica sempre la fonte indicata. Le pagine provinciali permettono di filtrare l’elenco per località e aprire ogni scheda completa. Ogni scheda mantiene il collegamento alla fonte e, quando disponibile, alla data del recupero.', provinceCount: (count) => `${count} farmacie censite`, cityTitle: (city, country) => country === 'CH' ? `Farmacie a ${city}, Ticino` : `Farmacie a ${city}`, pharmacyTitle: (pharmacy) => `${pharmacy.name} — ${pharmacy.city}`, dutyHubTitle: 'Farmacie di turno in Ticino', dutyCityTitle: (city) => `Farmacia di turno: informazioni per ${city}`,
-    hubLede: 'Elenco verificato delle farmacie del Ticino e delle province italiane di Como, Varese e Verbano-Cusio-Ossola. Ogni scheda distingue anagrafica, orari, servizi, fonte e data dell’ultimo recupero.', ticinoLede: 'Anagrafica ufficiale delle farmacie aperte al pubblico in Ticino, integrata con l’elenco cantonale e con dati cartografici OSM quando la corrispondenza è certa.', italyLede: 'Anagrafica del Ministero della Salute italiano filtrata per le province di Como, Varese e Verbano-Cusio-Ossola. La presenza nell’elenco non significa apertura in questo momento.', areaLede: 'Sedi censite dal dataset ufficiale italiano per questa provincia. Orari, telefono e servizi sono mostrati solo quando una fonte secondaria tracciata li pubblica.', cityLede: 'Sedi censite nella località selezionata, con collegamento alla scheda individuale e alla fonte del dato. L’elenco riflette il dataset disponibile e non deduce aperture, turni o servizi non pubblicati. Ogni scheda collega la fonte e indica l’ultimo controllo quando disponibile; nomi, indirizzi e disponibilità possono cambiare tra un aggiornamento e l’altro. Per un’informazione urgente verifica la fonte e contatta direttamente la sede.', detailLede: 'Scheda della sede con indirizzo, contatti, coordinate, orari e servizi disponibili nella fonte indicata. Verifica sempre prima di partire. I campi mancanti restano indicati come non disponibili e non vengono stimati. La data di recupero aiuta a valutare l’attualità del dato.', dutyHubLede: 'Turni regionali pubblicati dall’Ordine dei Farmacisti del Cantone Ticino. Un turno regionale non implica apertura continua né sostituisce una conferma telefonica. Il dataset mostra soltanto intervalli pubblicati e non costruisce un calendario per sede. Le date sono quelle della fonte: controlla sempre prima di partire, perché la situazione può cambiare dopo l’ultimo recupero.', dutyCityLede: 'La città è collegata alla relativa area regionale di turno. La copertura non è una promessa di servizio per ogni comune: verifica farmacia e intervallo direttamente.', directoryHeading: 'Elenco farmacie', contactHeading: 'Contatti e posizione', hoursHeading: 'Orari pubblicati', servicesHeading: 'Servizi pubblicati', sourcesHeading: 'Fonti e aggiornamento', source: 'Fonte', checked: 'Recuperato il', address: 'Indirizzo', phone: 'Telefono', website: 'Sito web', hoursUnavailable: 'La fonte primaria non pubblica orari verificabili per questa sede.', servicesUnavailable: 'La fonte primaria non pubblica servizi verificabili per questa sede.', sourceOfficial: 'Fonte ufficiale', sourceOsm: 'Dati cartografici OpenStreetMap', sourceLink: 'Apri fonte', map: 'Posizione', openMap: 'Apri mappa OpenStreetMap', detail: 'Apri scheda completa', viewDuties: 'Vedi turni regionali', duties: 'Turni regionali', coverage: 'Area', interval: 'Intervallo', noDuty: 'Nessun intervallo verificato disponibile per questa area nel dataset corrente.', disclaimerHeading: 'Verifica prima di partire', disclaimer: 'Orari e turni possono cambiare. Chiama la farmacia o controlla la fonte indicata, soprattutto in caso di urgenza. I dati OSM sono contributi della comunità e vanno verificati.', osmNote: 'Orari, contatti o servizi derivati da OpenStreetMap sono indicati con la loro fonte e licenza ODbL; non rappresentano un turno ufficiale.', locarneseNote: 'Il Locarnese è incluso nell’anagrafica cantonale quando presente nell’elenco ufficiale; i turni pubblicati qui coprono soltanto le regioni OFCT disponibili nel dataset.',
+    hubLede: 'Elenco verificato delle farmacie del Ticino e delle province italiane di Como, Varese e Verbano-Cusio-Ossola. Ogni scheda distingue anagrafica, orari, servizi, fonte e data dell’ultimo recupero.', ticinoLede: 'Anagrafica ufficiale delle farmacie aperte al pubblico in Ticino, integrata con l’elenco cantonale e con dati cartografici OSM quando la corrispondenza è certa.', italyLede: 'Anagrafica del Ministero della Salute italiano filtrata per le province di Como, Varese e Verbano-Cusio-Ossola. La presenza nell’elenco non significa apertura in questo momento.', areaLede: 'Sedi censite dal dataset ufficiale italiano per questa provincia. Orari, telefono e servizi sono mostrati solo quando una fonte secondaria tracciata li pubblica.', cityLede: 'Sedi censite nella località selezionata, con collegamento alla scheda individuale e alla fonte del dato. L’elenco riflette il dataset disponibile e non deduce aperture, turni o servizi non pubblicati. Ogni scheda collega la fonte e indica l’ultimo controllo quando disponibile; nomi, indirizzi e disponibilità possono cambiare tra un aggiornamento e l’altro. Per un’informazione urgente verifica la fonte e contatta direttamente la sede.', detailLede: 'Scheda della sede con indirizzo, contatti, coordinate, orari e servizi disponibili nella fonte indicata. Verifica sempre prima di partire. I campi mancanti restano indicati come non disponibili e non vengono stimati. La data di recupero aiuta a valutare l’attualità del dato.', dutyHubLede: 'Turni regionali pubblicati dall’Ordine dei Farmacisti del Cantone Ticino. Un turno regionale non implica apertura continua né sostituisce una conferma telefonica. Il dataset mostra soltanto intervalli pubblicati e non costruisce un calendario per sede. Le date sono quelle della fonte: controlla sempre prima di partire, perché la situazione può cambiare dopo l’ultimo recupero.', dutyCityLede: 'La città è collegata alla relativa area regionale di turno. La copertura non è una promessa di servizio per ogni comune: verifica farmacia e intervallo direttamente.', directoryHeading: 'Elenco farmacie', contactHeading: 'Contatti e posizione', hoursHeading: 'Orari pubblicati', servicesHeading: 'Servizi pubblicati', sourcesHeading: 'Fonti e aggiornamento', source: 'Fonte', checked: 'Recuperato il', address: 'Indirizzo', phone: 'Telefono', website: 'Sito web', hoursUnavailable: 'La fonte primaria non pubblica orari verificabili per questa sede.', servicesUnavailable: 'La fonte primaria non pubblica servizi verificabili per questa sede.', sourceOfficial: 'Fonte ufficiale', sourceOsm: 'Dati cartografici OpenStreetMap', sourceLink: 'Apri fonte', map: 'Posizione', openMap: 'Apri mappa OpenStreetMap', detail: 'Apri scheda completa', viewDuties: 'Vedi turni regionali', duties: 'Turni regionali', coverage: 'Area', interval: 'Intervallo', noDuty: 'Nessun turno verificato per questa città o area nel dataset corrente.', disclaimerHeading: 'Verifica prima di partire', disclaimer: 'Verifica sempre telefonicamente con la farmacia prima di recarti sul posto: orari e turni possono cambiare. I dati OSM sono contributi della comunità e vanno verificati.', osmNote: 'Orari, contatti o servizi derivati da OpenStreetMap sono indicati con la loro fonte e licenza ODbL; non rappresentano un turno ufficiale.', locarneseNote: 'Il Locarnese è incluso nell’anagrafica cantonale quando presente nell’elenco ufficiale; i turni pubblicati qui coprono soltanto le regioni OFCT disponibili nel dataset.',
   },
   en: {
     hubTitle: 'Pharmacies in Ticino and across the Italian border: directory and sources', ticinoTitle: 'Pharmacies in Ticino', italyTitle: 'Italian pharmacies near the Ticino border', italyAreaTitle: (area) => `Pharmacies in ${area} province`, countryDirectoryNote: 'Each province hub leads to full location pages with address, contacts, source and latest retrieval when published. The count describes locations in the current dataset: it is not an estimate of pharmacies open now or of active duty schedules. Check the cited source for hours and availability. Province pages let you browse the directory by locality and open each full record. Each record keeps its source link and, when available, its retrieval date.', provinceCount: (count) => `${count} listed pharmacies`, cityTitle: (city, country) => country === 'CH' ? `Pharmacies in ${city}, Ticino` : `Pharmacies in ${city}`, pharmacyTitle: (pharmacy) => `${pharmacy.name} — ${pharmacy.city}`, dutyHubTitle: 'On-duty pharmacies in Ticino', dutyCityTitle: (city) => `On-duty pharmacy information for ${city}`,
@@ -446,11 +446,14 @@ function descriptorPath(descriptor: PageDescriptor, locale: Locale): PharmacyPat
   return cityPath(descriptor.country || 'CH', locale, descriptor.citySlug || '', descriptor.areaSlug);
 }
 
-function publicDutyRows(now = new Date()): PharmacyDuty[] {
-  return dutiesDataset.duties.filter((duty) => publicDutiesForRegion(dutiesDataset, duty.coverageName, now).some((candidate) => candidate.id === duty.id));
+function currentDutyRows(dataset: PharmacyDutiesDataset = dutiesDataset, now = new Date()): PharmacyDuty[] {
+  if (!Array.isArray(dataset.duties)) return [];
+  return [...new Set(dataset.duties.map((duty) => duty.coverageName))]
+    .map((coverageName) => currentDutyForRegion(dataset, coverageName, now))
+    .filter((duty): duty is PharmacyDuty => Boolean(duty));
 }
 
-function pagePharmacies(descriptor: PageDescriptor): Pharmacy[] {
+function pagePharmacies(descriptor: PageDescriptor, dataset: PharmacyDutiesDataset = dutiesDataset, now = new Date()): Pharmacy[] {
   if (descriptor.kind === 'hub') return BORDER_PHARMACIES;
   if (descriptor.kind === 'canton') return TICINO_PHARMACIES;
   if (descriptor.kind === 'country') return ITALY_BORDER_PHARMACIES;
@@ -461,29 +464,40 @@ function pagePharmacies(descriptor: PageDescriptor): Pharmacy[] {
       : pharmaciesForCity(descriptor.cityName || '');
   }
   if (descriptor.kind === 'duty-hub') {
-    return [...new Set(publicDutyRows().map((duty) => duty.pharmacyId))]
+    return [...new Set(currentDutyRows(dataset, now).map((duty) => duty.pharmacyId))]
       .map((id) => pharmacyById(id))
       .filter((pharmacy): pharmacy is Pharmacy => Boolean(pharmacy));
   }
   if (descriptor.kind === 'duty-city') {
     const ids = new Set(TICINO_PHARMACIES.filter((pharmacy) => pharmacy.city === descriptor.cityName).map((pharmacy) => pharmacy.id));
-    return publicDutyRows().filter((duty) => ids.has(duty.pharmacyId)).map((duty) => pharmacyById(duty.pharmacyId)).filter((pharmacy): pharmacy is Pharmacy => Boolean(pharmacy));
+    return currentDutyRows(dataset, now).filter((duty) => ids.has(duty.pharmacyId)).map((duty) => pharmacyById(duty.pharmacyId)).filter((pharmacy): pharmacy is Pharmacy => Boolean(pharmacy));
   }
   return [];
 }
 
-function renderBody(descriptor: PageDescriptor, locale: Locale, h1 = pageTitle(descriptor.kind, locale, descriptor)): string {
+function renderBody(
+  descriptor: PageDescriptor,
+  locale: Locale,
+  h1 = pageTitle(descriptor.kind, locale, descriptor),
+  dataset: PharmacyDutiesDataset = dutiesDataset,
+  now = new Date(),
+): string {
   const copy = COPY[locale];
+  const datasetDuties = Array.isArray(dataset.duties) ? dataset.duties : [];
   let sections = '';
   if (descriptor.kind === 'hub') {
     sections = `<section><h2 style="${H2_STYLE}">${esc(copy.directoryHeading)}</h2><p style="${BODY_STYLE}">${href({ kind: 'canton', locale }, copy.ticinoTitle)} · ${href({ kind: 'country', country: 'IT', locale }, copy.italyTitle)} · ${href({ kind: 'duty-hub', locale }, copy.duties)}</p><p style="${BODY_STYLE}">${ITALY_BORDER_PROVINCES.map((area) => href({ kind: 'area', country: 'IT', areaSlug: area.slug, locale }, area.name)).join(' · ')}</p><p style="${BODY_STYLE}">${esc(copy.locarneseNote)}</p></section>`;
   } else if (descriptor.kind === 'duty-hub') {
-    const regions = [...new Set(dutiesDataset.duties.map((duty) => duty.coverageName))];
-    sections = `<section><h2 style="${H2_STYLE}">${esc(copy.duties)}</h2><div class="s-XENO3U">${regions.map((region) => renderDuty(publicDutiesForRegion(dutiesDataset, region, new Date())[0], locale)).join('')}</div><p style="${BODY_STYLE}">${esc(copy.locarneseNote)}</p></section>`;
+    const currentRows = currentDutyRows(dataset, now);
+    const regions = [...new Set(currentRows.map((duty) => duty.coverageName))];
+    const dutyCards = regions.map((region) => renderDuty(currentDutyForRegion(dataset, region, now), locale)).join('');
+    sections = `<section><h2 style="${H2_STYLE}">${esc(copy.duties)}</h2>${regions.length > 0 ? `<div class="s-XENO3U">${dutyCards}</div>` : `<p style="${BODY_STYLE}">${esc(copy.noDuty)}</p>`}<p style="${BODY_STYLE}">${esc(copy.locarneseNote)}</p></section>`;
   } else if (descriptor.kind === 'duty-city') {
-    const region = TICINO_PHARMACIES.find((pharmacy) => pharmacy.city === descriptor.cityName && dutiesDataset.duties.some((duty) => duty.pharmacyId === pharmacy.id))?.id;
-    const coverage = region ? dutiesDataset.duties.find((duty) => duty.pharmacyId === region)?.coverageName : undefined;
-    sections = `<section><h2 style="${H2_STYLE}">${esc(copy.duties)}</h2>${esc(copy.dutyCityLede)}${coverage ? `<div class="s-XENO3U">${publicDutiesForRegion(dutiesDataset, coverage, new Date()).map((duty) => renderDuty(duty, locale)).join('')}</div>` : `<p style="${BODY_STYLE}">${esc(copy.noDuty)}</p>`}</section>`;
+    const region = TICINO_PHARMACIES.find((pharmacy) => pharmacy.city === descriptor.cityName && datasetDuties.some((duty) => duty.pharmacyId === pharmacy.id))?.id;
+    const coverage = region ? datasetDuties.find((duty) => duty.pharmacyId === region)?.coverageName : undefined;
+    const currentDuty = coverage ? currentDutyForRegion(dataset, coverage, now) : undefined;
+    const duties = currentDuty ? [currentDuty] : [];
+    sections = `<section><h2 style="${H2_STYLE}">${esc(copy.duties)}</h2>${esc(copy.dutyCityLede)}${duties.length > 0 ? `<div class="s-XENO3U">${duties.map((duty) => renderDuty(duty, locale)).join('')}</div>` : `<p style="${BODY_STYLE}">${esc(copy.noDuty)}</p>`}</section>`;
   } else if (descriptor.kind === 'country') {
     const provinces = ITALY_BORDER_PROVINCES.map((area) => {
       const count = pharmaciesForProvince(area.code).length;
@@ -498,7 +512,7 @@ function renderBody(descriptor: PageDescriptor, locale: Locale, h1 = pageTitle(d
     const parent = pharmacy.country === 'IT' ? cityPath('IT', locale, pharmacyCitySlug(pharmacy.city), ITALY_BORDER_PROVINCES.find((area) => area.code === pharmacy.province)?.slug) : cityPath('CH', locale, pharmacyCitySlug(pharmacy.city));
     sections = `<p style="${BODY_STYLE}">${href(parent, `${copy.directoryHeading}: ${pharmacy.city}`)}</p><section><h2 style="${H2_STYLE}">${esc(copy.contactHeading)}</h2><p style="${BODY_STYLE}"><strong>${esc(copy.address)}:</strong> ${esc(pharmacy.address)}, ${esc(pharmacy.postalCode)} ${esc(pharmacy.city)}</p>${pharmacy.phone ? `<p style="${BODY_STYLE}"><strong>${esc(copy.phone)}:</strong> <a href="tel:${esc(pharmacy.phone)}">${esc(pharmacy.phone)}</a></p>` : ''}${website ? `<p style="${BODY_STYLE}"><strong>${esc(copy.website)}:</strong> <a href="${esc(website)}" rel="nofollow noopener">${esc(website)}</a></p>` : ''}${maps ? `<p style="${BODY_STYLE}"><strong>${esc(copy.map)}:</strong> <a href="${esc(maps)}" rel="nofollow noopener">${esc(copy.openMap)}</a></p>` : ''}</section><section><h2 style="${H2_STYLE}">${esc(copy.hoursHeading)}</h2>${renderHours(pharmacy, locale)}</section><section><h2 style="${H2_STYLE}">${esc(copy.servicesHeading)}</h2>${renderServices(pharmacy, locale)}</section><section><h2 style="${H2_STYLE}">${esc(copy.sourcesHeading)}</h2>${sourceLine(pharmacy, locale)}<p style="${BODY_STYLE}">${esc(copy.osmNote)}</p></section>`;
   } else {
-    const pharmacies = pagePharmacies(descriptor);
+    const pharmacies = pagePharmacies(descriptor, dataset, now);
     sections = `<section><h2 style="${H2_STYLE}">${esc(copy.directoryHeading)}</h2><div class="s-XENO3U">${pharmacies.map((pharmacy) => renderPharmacyCard(pharmacy, locale)).join('')}</div>${descriptor.kind === 'city' && descriptor.country === 'CH' ? `<p style="${BODY_STYLE}">${href({ kind: 'duty-city', locale, citySlug: descriptor.citySlug }, copy.viewDuties)}</p>` : ''}</section>`;
   }
   return `<header><h1 style="${H1_STYLE}">${esc(h1)}</h1><p style="${LEDE_STYLE}">${esc(pageLede(descriptor.kind, locale))}</p></header>${sections}<section><h2 style="${H2_STYLE}">${esc(copy.disclaimerHeading)}</h2><p style="${BODY_STYLE}">${esc(copy.disclaimer)}</p></section>`;
@@ -532,13 +546,13 @@ function breadcrumbJsonLd(descriptor: PageDescriptor, locale: Locale): string {
   return JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: item.name, item: `${BASE_URL}${buildPharmacyPath(item.path, locale)}` })) });
 }
 
-function jsonLd(descriptor: PageDescriptor, locale: Locale): string[] {
+function jsonLd(descriptor: PageDescriptor, locale: Locale, dataset: PharmacyDutiesDataset = dutiesDataset, now = new Date()): string[] {
   const pathValue = descriptorPath(descriptor, locale);
   const title = pageTitle(descriptor.kind, locale, descriptor);
   if (descriptor.kind === 'pharmacy') return [detailJsonLd(descriptor.pharmacy!, locale), breadcrumbJsonLd(descriptor, locale)];
   if (descriptor.kind === 'duty-city') return [breadcrumbJsonLd(descriptor, locale)];
   if (descriptor.kind === 'country') return [countryCollectionJsonLd(pathValue, title), breadcrumbJsonLd(descriptor, locale)];
-  return [collectionJsonLd(pathValue, title, pagePharmacies(descriptor)), breadcrumbJsonLd(descriptor, locale)];
+  return [collectionJsonLd(pathValue, title, pagePharmacies(descriptor, dataset, now)), breadcrumbJsonLd(descriptor, locale)];
 }
 
 function hreflang(descriptor: PageDescriptor): string {
@@ -559,10 +573,19 @@ function descriptors(): PageDescriptor[] {
   ];
 }
 
-function buildPage(descriptor: PageDescriptor, locale: Locale, distDir: string) {
+function buildPage(
+  descriptor: PageDescriptor,
+  locale: Locale,
+  distDir: string,
+  dataset: PharmacyDutiesDataset = dutiesDataset,
+  // This is a build-time snapshot by design. The duty workflow checks known
+  // start/end transitions every 15 minutes and commits a status marker, so a
+  // static build is requested before its crawlable card can become stale.
+  now = new Date(),
+) {
   const title = pageTitle(descriptor.kind, locale, descriptor);
   const emittedTitle = shellTitle(descriptor, locale);
-  const body = renderBody(descriptor, locale, differentiateH1FromTitle(title, emittedTitle, locale));
+  const body = renderBody(descriptor, locale, differentiateH1FromTitle(title, emittedTitle, locale), dataset, now);
   const wordCount = countHtmlBodyWords(body);
   // City duty URLs are useful navigation aliases, but their body repeats the
   // regional OFCT schedule. Keep them crawlable for users without creating
@@ -575,7 +598,7 @@ function buildPage(descriptor: PageDescriptor, locale: Locale, distDir: string) 
     path: buildPharmacyPath(pathValue, locale),
     wordCount,
     indexable,
-    html: buildSeoPageHtml({ locale, title: emittedTitle, description, canonicalUrl: `${BASE_URL}${buildPharmacyPath(pathValue, locale)}`, hreflangHtml: hreflang(descriptor), robots: indexable ? 'index,follow' : 'noindex,follow', jsonLdScripts: jsonLd(descriptor, locale), bodyHtml, seoContentOutsideRoot: true, seoMainClass: 'seo-static-content', distDir }),
+    html: buildSeoPageHtml({ locale, title: emittedTitle, description, canonicalUrl: `${BASE_URL}${buildPharmacyPath(pathValue, locale)}`, hreflangHtml: hreflang(descriptor), robots: indexable ? 'index,follow' : 'noindex,follow', jsonLdScripts: jsonLd(descriptor, locale, dataset, now), bodyHtml, seoContentOutsideRoot: true, seoMainClass: 'seo-static-content', distDir }),
   };
 }
 
