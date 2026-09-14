@@ -498010,7 +498010,8 @@
     "slugByLocale": {
       "en": "medical-scientific-liaison-romandie-ticino-galderma-ch",
       "de": "medizinische-wissenschaftliche-verbindung-romandie-ticino-galderma-lausanne",
-      "fr": "liaison-scientifique-medicale-romandie-tessin-galderma-lausanne"
+      "fr": "liaison-scientifique-medicale-romandie-tessin-galderma-lausanne",
+      "it": "collegamento-medico-scientifico-romandie-ticino-galderma-lausanne"
     },
     "createdAt": "2026-08-13",
     "canton": "VD"
@@ -527559,7 +527560,7 @@
     "slugByLocale": {
       "de": "besatzung-mcdonald-s-switzerland-winterthur",
       "it": "crew-mcdonalds-switzerland-winterthur-p8-319504-1",
-      "en": "crew-mcdonalds-switzerland-winterthur-p8-319504-1",
+      "en": "crew-member-mcdonald-s-switzerland-winterthur",
       "fr": "crew-mcdonald-s-switzerland-winterthur"
     },
     "createdAt": "2026-08-16",
@@ -716560,7 +716561,9 @@
   "id|galenica.com|3135482": {
     "canonicalSlug": "galenica-galenica-ag-mobile-therapiebegleitung-parkinson-w-m-d-bern",
     "slugByLocale": {
-      "it": "galenica-galenica-ag-mobile-therapiebegleitung-parkinson-w-m-d-bern"
+      "it": "galenica-galenica-ag-mobile-therapiebegleitung-parkinson-w-m-d-bern",
+      "en": "therapy-support-for-the-patient-m-f-d-galenica-ag-galenica-bern",
+      "fr": "soutien-therapeutique-pour-le-patient-h-f-d-galenica-ag-galenica-bern"
     },
     "createdAt": "2026-09-14",
     "canton": "BE"
@@ -716656,5 +716659,15 @@
     },
     "createdAt": "2026-09-14",
     "canton": "AG"
+  },
+  "id|roche.wd3.myworkdayjobs.com|202608-121958": {
+    "canonicalSlug": "roche-basel-b67b04",
+    "slugByLocale": {
+      "en": "area-lead-roche-ch",
+      "it": "roche-basel-b67b04",
+      "fr": "zone-de-plomb-roche-basel"
+    },
+    "createdAt": "2026-09-14",
+    "canton": "BS"
   }
 }
