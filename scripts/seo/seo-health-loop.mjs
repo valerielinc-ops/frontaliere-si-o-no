@@ -63,7 +63,10 @@ const DEFAULT_ORIGIN = SITE_ORIGIN;
 const DEFAULT_SITEMAP = `${DEFAULT_ORIGIN}/sitemap.xml`;
 const DEFAULT_SAMPLE = 80;
 const DEFAULT_JOB_SAMPLE = 30;
-const DEFAULT_ERROR_SAMPLE = 12;
+// The Cloudflare path query is bounded at 10k rows. Probe a larger bounded
+// slice so ordinary traffic does not turn the long tail into a permanent
+// "unverified" finding, while keeping the cycle fetch budget authoritative.
+const DEFAULT_ERROR_SAMPLE = 100;
 const DEFAULT_FINDING_THRESHOLD = 2;
 const DEFAULT_TIMEOUT_MS = 15_000;
 const DEFAULT_MAX_SITEMAPS = 160;
