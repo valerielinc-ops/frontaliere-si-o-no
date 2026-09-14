@@ -84,7 +84,23 @@ shard_push_error_is_auth() {
   grep -qEi 'denied to (deploy key|user)|permission denied \(publickey\)|permission to .+ denied|repository not found|403 forbidden' "$1"
 }
 
-# shard_pat_push <push_dir> <shard_repo> <refspec> [label] [force]
+# shard_push_failure_reason <logfile>
+# Classifies the last SSH push failure for the PAT fallback's warning. Keep
+# this deliberately narrower than shard_push_error_is_auth: a generic git
+# access-rights tail is not proof of an auth failure, and a transport error
+# must never be reported as a broken deploy key (incident 2026-09-14).
+shard_push_failure_reason() {
+  local logfile="$1"
+  if shard_push_error_is_auth "$logfile"; then
+    printf '%s' 'deploy-key authentication/authorization failure'
+  elif grep -qEi 'closed by remote host|unexpected disconnect|remote end hung up|early EOF|connection (reset|timed out|refused)|failed to connect|could not resolve host|network is unreachable|sideband packet' "$logfile"; then
+    printf '%s' 'transient SSH transport failure'
+  else
+    printf '%s' 'unclassified SSH push failure'
+  fi
+}
+
+# shard_pat_push <push_dir> <shard_repo> <refspec> [label] [force] [reason]
 # Last-resort force-push over HTTPS authenticated with a PAT
 # ($SHARD_PUSH_PAT, else $GITHUB_PAT — the latter is hydrated from Firebase
 # Remote Config by scripts/load-rc-env.mjs in every deploy job). Exists because
@@ -100,8 +116,11 @@ shard_push_error_is_auth() {
 # forward being an ERROR rather than something to overwrite — that is
 # push-article-shard-incremental.sh, where a rejected push means a concurrent
 # full deploy moved the tip and the content has to be rebuilt on the new base.
+# [reason] is the classified SSH failure, used only to make the recovery
+# warning actionable without claiming that every PAT fallback means a broken
+# deploy key.
 shard_pat_push() {
-  local dir="$1" repo="$2" refspec="$3" label="${4:-shard}" force="${5:-1}"
+  local dir="$1" repo="$2" refspec="$3" label="${4:-shard}" force="${5:-1}" reason="${6:-unclassified SSH push failure}"
   # A plain string, not an array: `"${arr[@]}"` on an EMPTY array aborts under
   # `set -u` in bash 3.2 (still the default /bin/bash on macOS, where the test
   # suite runs). Unquoted expansion of a fixed, space-free flag is safe here.
@@ -120,7 +139,7 @@ shard_pat_push() {
   # masked automatically. Register it, then scrub it from this push's output.
   echo "::add-mask::$SHARD_PUSH_TOKEN"
   export SHARD_PUSH_TOKEN
-  echo "$label: retrying over HTTPS with a PAT (deploy-key push did not succeed)"
+  echo "$label: retrying over HTTPS with a PAT after $reason"
   out="$(mktemp)"
   # stderr (where git writes the whole push transcript) is captured for
   # scrubbing, then re-emitted on stderr — NOT folded into stdout, so this
@@ -135,7 +154,17 @@ shard_pat_push() {
   rm -f "$out"
   unset SHARD_PUSH_TOKEN
   if [ "$rc" -eq 0 ]; then
-    echo "::warning::$label: pushed via the PAT fallback — the deploy key for this shard is broken (never registered on the repo, read-only, revoked, or a shadowed secret). Fix the key; the fallback is a safety net, not the intended path."
+    case "$reason" in
+      deploy-key*)
+        echo "::warning::$label: pushed via the PAT fallback after $reason — fix or rotate the deploy key; the fallback is a safety net, not the intended path."
+        ;;
+      transient*)
+        echo "::warning::$label: pushed via the PAT fallback after $reason — the deploy key is not classified as broken; investigate recurring transport failures."
+        ;;
+      *)
+        echo "::warning::$label: pushed via the PAT fallback after $reason — inspect the SSH failure above; the deploy key is not automatically classified as broken."
+        ;;
+    esac
     return 0
   fi
   echo "::warning::$label: PAT fallback push also failed (rc=$rc)"
@@ -151,7 +180,7 @@ shard_pat_push() {
 # [label] is cosmetic only (prefixes the ::warning:: lines).
 shard_push_with_retry() {
   local dir="$1" repo="$2" refspec="$3" label="${4:-shard}"
-  local delay="${SHARD_PUSH_RETRY_DELAY:-5}" try out rc
+  local delay="${SHARD_PUSH_RETRY_DELAY:-5}" try out rc fallback_reason='unclassified SSH push failure'
   out="$(mktemp)"
   for try in 1 2 3; do
     # Capture stderr to classify the failure, then put it back on stderr — see
@@ -175,6 +204,7 @@ shard_push_with_retry() {
       rm -f "$out"
       return 0
     fi
+    fallback_reason="$(shard_push_failure_reason "$out")"
     if shard_push_error_is_auth "$out"; then
       echo "::warning::$label: deploy-key auth failure (not transient) — skipping the remaining SSH retries and falling back to a token push"
       break
@@ -185,7 +215,7 @@ shard_push_with_retry() {
     fi
   done
   rm -f "$out"
-  shard_pat_push "$dir" "$repo" "$refspec" "$label"
+  shard_pat_push "$dir" "$repo" "$refspec" "$label" 1 "$fallback_reason"
 }
 
 # shard_orphan_flatten_and_push <stage_dir> <shard_repo> <commit_message> [label]

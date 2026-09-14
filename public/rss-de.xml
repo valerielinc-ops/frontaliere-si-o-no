@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Nachrichten und Leitfaden für Grenzgänger im Tessin</description>
     <language>de</language>
-    <lastBuildDate>Mon, 14 Sep 2026 01:49:27 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 14 Sep 2026 10:26:13 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Deutsch</title>
@@ -17,6 +17,60 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-de.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Grenzgänger-Tagesbulletin – 14. September 2026: 168 neue Stellenangebote gestern</title>
+      <link>https://frontaliereticino.ch/de/grenzgaenger-artikel/grenzgaenger-tagesbulletin-2026-09-14/</link>
+      <description><![CDATA[Die Zahlen von heute, 14. September 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.]]></description>
+      <content:encoded><![CDATA[Guten Morgen — heute ist Montag, der 14. September 2026. Das ist das tägliche Bulletin für alle, die auf der einen Seite der Grenze wohnen und auf der anderen arbeiten: vier heute gemessene Zahlen — Staus an den Übergängen, Benzin, Wechselkurs und Arbeitsmarkt — jeweils mit Link zur Live-Seite.
+
+## Wartezeiten an der Grenze heute Morgen
+
+Heute Morgen läuft es: Von 141 überwachten Übergängen melden 80 keine Warteschlange, die längste Wartezeit beträgt nur **5 Minuten** (Porto Ceresio-Brusino).
+
+| Übergang | Wartezeit | Status |
+|---|---|---|
+| Porto Ceresio-Brusino | 5 Min. | stockend |
+| Chiasso-Strada | 4 Min. | flüssig |
+| Traforo del Gran San Bernardo | 4 Min. | flüssig |
+| Basel – Weil am Rhein, Freiburgerstrasse | 2 Min. | flüssig |
+| Inzlingen – Riehen | 2 Min. | flüssig |
+
+Der Verkehr ändert sich stündlich — der Live-Status jedes Übergangs steht auf der [Seite zur Wartezeit an der Grenze](/de/wartezeit-grenze/).
+## Benzin: Wo es heute am wenigsten kostet
+
+In 518 überwachten Grenzgemeinden lohnt sich das Tanken heute in 124 Fällen in der Schweiz und in 13 in Italien.
+
+| Gemeinde (IT) | Bleifrei, Tiefstpreis |
+|---|---|
+| Livigno (SO) | 1.568 €/L |
+| Veduggio con Colzano (MB) | 1.849 €/L |
+| Arcisate (VA) | 1.854 €/L |
+| Aprica (SO) | 1.919 €/L |
+| Gallarate (VA) | 2.004 €/L |
+
+📊 **Die richtige Seite für eine volle Tankfüllung.** In **Livigno** (SO) ist die Differenz heute **26.90 € pro 50-Liter-Tank** wert (1.568 €/L in Italien gegenüber 2.106 €/L an der nächsten Schweizer Tankstelle).
+
+Preise Gemeinde für Gemeinde, täglich aktualisiert: [Benzinpreise an der Grenze, heute](/de/benzinpreis-schweiz/heute/).
+## Wechselkurs Franken–Euro
+
+Ein Franken ist **1.0590 €** wert (Schluss 2026-09-13). Gegenüber dem Vortag verliert er 0.0003 €; über sieben Tage beträgt die Veränderung -0.0046 €.
+
+💡 Wer in Franken verdient und in Euro ausgibt, für den IST der Kurs ein Teil des Lohns: Bei 4.000 CHF ist ein Rappen Bewegung 40 € im Monat wert. Der [Nettolohn-Rechner](/de/gehalt-berechnen/) und der [Vergleich der Wechseldienste](/de/service-vergleich/chf-eur-wechselkurs/) rechnen Ihren Fall durch.
+## Arbeitsmarkt: die Zahlen von gestern
+
+Gestern kamen **168 neue Stellenangebote** in der Schweiz auf unser Job-Board; in den letzten sieben Tagen 8'211. Insgesamt sind **28'848** Anzeigen aktiv, von 835 Unternehmen.
+
+Nach Kanton, Branche und Stadt filtern: [Jobs im Tessin und in der Schweiz](/de/jobs-im-tessin/).
+
+## Wie dieses Bulletin entsteht
+
+Keine der Zahlen oben stammt aus einem Agentur-Feed — es ist unsere eigene Messung: mehrmals pro Stunde erfasste Warteschlangen an jedem Schweizer Grenzübergang, Kraftstoffpreise in den italienischen Grenzgemeinden und an nahen Schweizer Tankstellen, die offizielle tägliche CHF/EUR-Reihe und die Crawler unseres Job-Boards. Das Bulletin erscheint früh am Morgen, vor dem Pendlerverkehr; die Zahlen sind eine Momentaufnahme zum Zeitpunkt der Veröffentlichung, die verlinkten Seiten bleiben den ganzen Tag live.]]></content:encoded>
+      <pubDate>Mon, 14 Sep 2026 10:26:13 GMT</pubDate>
+      <dc:creator><![CDATA[Laura Bianchi]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/de/grenzgaenger-artikel/bollettino-frontaliere-2026-09-14</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/bollettino-frontaliere-2026-09-14.webp" medium="image"/>
+    </item>
     <item>
       <title>Medizinisches Cannabis im Tessin: Neuer Vorschlag</title>
       <link>https://frontaliereticino.ch/de/grenzgaenger-artikel/cannabis-therapeutica-ticino-proposta/</link>
@@ -2597,56 +2651,6 @@ Um einen vollständigen Überblick über die Verwaltung der Transportkosten zu e
       <guid isPermaLink="false">https://frontaliereticino.ch/de/grenzgaenger-artikel/tram-treno-lavori-ottobre</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/tram-treno-lavori-ottobre.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Pendlerstudent Tessin: Gebrauchs- UND SUPSI-LEITFADEN</title>
-      <link>https://frontaliereticino.ch/de/grenzgaenger-artikel/student-pendler-tessin-usi-supsi/</link>
-      <description><![CDATA[Leben als Pendler-Student zwischen Italien und dem Kanton Tessin: Einschreibung, Kosten und praktische Unterschiede zur Grenzarbeit.]]></description>
-      <content:encoded><![CDATA[## Auf einen Blick
-- In der Schweiz studieren mit Wohnsitz in Italien.
-- Einschreibung an den Universitäten USI und SUPSI.
-- Unterschiede zum Status als Arbeitnehmer.
-- Bewältigung des Grenzgängerpendelns.
-
-## Wichtige Fakten
-- **Was**: Status als studentischer Pendler.
-- Wann: Laufendes akademisches Jahr.
-- Wo: Kanton Tessin, USI und SUPSI.
-- Wer: In Italien wohnhafte Studierende.
-- Betrag: Variable Kosten für Unterkunft und Studiengebühren.
-
-Die Entscheidung, ein Universitätsstudium im Kanton Tessin zu beginnen und sich an der Università della Svizzera italiana (USI) oder der Fachhochschule der italienischen Schweiz (SUPSI) einzuschreiben, stellt für viele junge Menschen mit Wohnsitz in Italien einen wichtigen Schritt dar. Im Gegensatz zu Personen, die täglich die Grenzübergänge wie Brogeda oder Gaggiolo aus beruflichen Gründen passieren, bewegt sich der studentische Pendler in einem völlig anderen rechtlichen und administrativen Rahmen. Dieser sieht weder dieselben steuerlichen noch die gleichen sozialversicherungsrechtlichen Regeln vor, die für Angestellte gelten, welche der Quellensteuer unterliegen oder bei den Vorsorgeeinrichtungen versichert sind.
-
-### Dynamik des akademischen Pendelns
-Die täglichen oder wöchentlichen Fahrten zwischen den italienischen Grenzprovinzen und den Tessiner Universitätsstandorten erfordern eine sorgfältige logistische Organisation. Die Strassen- und Eisenbahnverbindungen, die die Lombardei mit dem Kanton Ticino verbinden, werden täglich von Tausenden von Personen genutzt, doch die für Arbeitnehmer mit dem Ausweis G geltenden Vergünstigungen gelten nicht automatisch für Studierende. Letztere müssen sich nämlich mit den Vorschriften bezüglich der Aufenthaltsbewilligungen für das Studium auseinandersetzen, die von den zuständigen Behörden wie der Sektion Bevölkerung des Kantons Tessin ausgestellt werden und den Aufenthalt auf Schweizer Gebiet zu Ausbildungszwecken regeln.
-
-Die finanzielle Planung eines Universitätsstudiums in der Schweiz erfordert zudem eine genaue Einschätzung der direkten Ausgaben, zu denen die Studiengebühren, die Kosten für den grenzüberschreitenden öffentlichen Verkehr und eventuelle Unterbringungskosten für diejenigen gehören, die sich dafür entscheiden, vorübergehend in der Nähe der Campus in Lugano, Mendrizio oder Bellinzona zu wohnen. Im Gegensatz zu Grenzgängern, die von speziellen Regelungen im Zusammenhang mit dem neuen Steuerabkommen und den entsprechenden Freibeträgen profitieren, müssen sich Studierende auf familiäre Ressourcen oder eventuelle Stipendien verlassen, die über institutionelle Ausschreibungen zur Verfügung gestellt werden.
-### Hauptunterschiede zur Grenzgängerarbeit
-Es ist von grundlegender Bedeutung, eine klare Trennlinie zwischen der Situation des studentischen Pendlers und der des klassischen Grenzgängers zu ziehen. Während Letzterer ein Einkommen aus unselbstständiger Erwerbstätigkeit bezieht, das nach den Kriterien des Doppelbesteuerungsabkommens und des neuen Abkommens zwischen Italien und der Schweiz besteuert wird, erzielt der Student kein Haupterwerbseinkommen aus einer Beschäftigung, die der ordentlichen Quellensteuer unterliegt.
-
-### Logistische und wohnsitzrechtliche Aspekte
-Wer sich dafür entscheidet, als Pendler zwischen Italien und dem Tessin zu verkehren, um Vorlesungen an der USI oder SUPSI zu besuchen, muss abwägen, ob er den zivilrechtlichen Wohnsitz in Italien beibehält oder eine Aufenthaltsbewilligung für das Studium in der Schweiz beantragt. Diese Wahl hat direkten Einfluss auf den Zugang zu Gesundheitsleistungen, die obligatorische Versicherungskdecdeckung sowie auf die Verwaltung von Ausweis- und Transitdokumenten. Sollte sich der Student für einen vorübergehenden Umzug ins Tessin entscheiden, entstehen spezifische Verpflichtungen im Zusammenhang mit der Ankunftsmeldung bei der Tessiner Wohngemeinde und dem Abschluss von Versicherungsverpolzen, die den Schweizer Standards entsprechen.
-
-### Wirtschaftliche Planung und Nebenkosten
-Die Lebenshaltungskosten im Kanton Tessin sind bekanntermaßen höher als in den italienischen Grenzregionen. Für einen studentischen Pendler schlägt sich diese Kluft nicht nur in den Verpflegungskosten und Lehrmaterialien nieder, sondern auch im Kauf von Abonnements für die lokalen und regionalen öffentlichen Verkehrsmittel. Eine sorgfältige Bewirtschaftung des Monatsbudgets muss die Schwankungen des Wechselkurses zwischen Euro und Schweizer Franken berücksichtigen, ein Faktor, der die Kaufkraft derjenigen beeinflusst, die Mittel in europäischer Währung erhalten, aber laufende Ausgaben in CHF bestreiten.
-
-## Nützliche Tools zum Schutz Ihres Nettolohns
-Um Wechselkursverluste zu reduzieren, vergleichen Sie [CHF-EUR-Wechseloptionen](nav:exchange) und [Banken für Grenzgänger](nav:banks).
-### Praktische Verwaltung und bürokratischer Aufwand
-Um die akademische Erfahrung zwischen Italien und der Schweiz reibungslos zu bewältigen, ist es ratsam, ab dem Zeitpunkt der Immatrikulation eine Reihe von Arbeitsschritten zu befolgen. Erkundigen Sie sich zunächst bei den Studentensekretariaten der USI oder SUPSI nach der Liste der Dokumente, die für die Zulassung und die Ausstellung der für die Erlangung der Aufenthaltsbewilligung zu Studienzwecken erforderlichen Unterlagen bei den zuständigen kantonalen Ämtern erforderlich sind. Es ist auch ratsam, die verfügbaren Transportmöglichkeiten im Voraus zu prüfen, um die Fahrzeiten von den Grenzübergängen zu den Universitätsstandorten zu optimieren.
-
-### Nützliche Tools und Ressourcen für den Pendler
-Bevor Sie Ihren Finanz- und Logistikplan erstellen, empfehlen wir Ihnen, die online verfügbaren Wirtschaftssimulationstools zu verwenden, um die Auswirkungen von Wechselkurs- und Transportkosten auf Ihr Monatsbudget genau abzuschätzen. Um die Verwaltung der täglichen Ausgaben zu vertiefen und die Lebenshaltungskosten zwischen den beiden Seiten der Grenze zu vergleichen, können Sie die Abschnitte konsultieren, die der wirtschaftlichen Analyse und den Unterstützungsdiensten für diejenigen gewidmet sind, die grenzüberschreitende Mobilität leben.
-
-### Berechnen und planen
-Um sich ein klares Bild von den Ausgaben zu machen und Ihre akademische oder berufliche Laufbahn im Tessin besser zu planen, nutzen Sie den offiziellen Taschenrechner auf dem Portal.
-
-[Calcolatore stipendio e imposte](nav:calculator)]]></content:encoded>
-      <pubDate>Mon, 07 Sep 2026 17:14:59 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/de/grenzgaenger-artikel/studente-pendolare-ticino-usi-supsi</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/studente-pendolare-ticino-usi-supsi.webp" medium="image"/>
     </item>
   </channel>
 </rss>
