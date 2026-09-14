@@ -6382,6 +6382,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.consiglio-federale-decisioni-2026.title': 'Bundesratsbeschlüsse: Neuheiten und Abstimmungen 2026',
     'blog.article.consiglio-federale-decisioni-2026.excerpt': 'Neueste Nachrichten und Projekte des Bundesrates: Von den Frauen im Freiwilligendienst zum Klimaschutz und zur Volksabstimmung.',
     'blog.article.consiglio-federale-decisioni-2026.imageAlt': 'Bundeshaus in Bern Sitz des Bundesrates',
+    'blog.article.naturalizzazione-nidvaldo-procedura.title': 'Einbürgerung in Nidwalden: Voraussetzungen und Verfahren',
+    'blog.article.naturalizzazione-nidvaldo-procedura.excerpt': 'Vollständiger Leitfaden zur ordentlichen Einbürgerung im Kanton Nidwalden: erforderliche Jahre, Tests, Gebühren und bürokratische Schritte.',
+    'blog.article.naturalizzazione-nidvaldo-procedura.imageAlt': 'Gemeindehaus im Kanton Nidwalden',
 };
 
 export default blogMetaChDe;
