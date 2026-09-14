@@ -10,6 +10,10 @@ import {
 
 const NOW = new Date('2026-09-12T12:00:00.000Z');
 const GUARDRAILS = ['persistent assignment', 'minimum sample', 'explicit expiry', 'no automatic price change'];
+const FLEET_LOOP_REGISTRY = JSON.parse(fs.readFileSync(
+  path.resolve('data/loop-fleet/loop-registry.json'),
+  'utf8',
+));
 
 function candidate(overrides: Record<string, unknown> = {}) {
   return {
@@ -81,8 +85,13 @@ function tempFiles(candidateValue: unknown = registry(), outcomeValue: unknown =
 }
 
 describe('L7 Experiment Allocator', () => {
+  it('rifiuta la validazione senza il registry della flotta', () => {
+    expect(() => validateExperimentAllocator({ registry: registry(), outcomes: outcomes() }, { now: NOW }))
+      .toThrow('L7 loop registry is required');
+  });
+
   it('accepts a sourced candidate registry and complete outcome ledger', () => {
-    const verdict = validateExperimentAllocator({ registry: registry(), outcomes: outcomes() }, { now: NOW });
+    const verdict = validateExperimentAllocator({ registry: registry(), outcomes: outcomes() }, { now: NOW, loopRegistry: FLEET_LOOP_REGISTRY });
     expect(verdict).toMatchObject({ ok: true, quality: 'observed' });
     expect(verdict.snapshot.outcomes).toMatchObject({ eligibleCohort: 300, persistentAssignments: 300 });
   });
@@ -95,7 +104,7 @@ describe('L7 Experiment Allocator', () => {
   });
 
   it('keeps canary allocation unmeasurable when the outcome ledger is absent', () => {
-    const verdict = validateExperimentAllocator({ registry: registry(), outcomes: null }, { now: NOW });
+    const verdict = validateExperimentAllocator({ registry: registry(), outcomes: null }, { now: NOW, loopRegistry: FLEET_LOOP_REGISTRY });
     expect(verdict).toMatchObject({ ok: false, quality: 'partial' });
     expect(verdict.snapshot.outcomes.eligibleCohort).toBeNull();
     expect(verdict.warnings.join(' ')).toContain('no independent');
@@ -105,7 +114,7 @@ describe('L7 Experiment Allocator', () => {
     const verdict = validateExperimentAllocator({
       registry: registry(),
       outcomes: outcomes({ independent: false }),
-    }, { now: NOW });
+    }, { now: NOW, loopRegistry: FLEET_LOOP_REGISTRY });
     expect(verdict.ok).toBe(false);
     expect(verdict.issues.join(' ')).toContain('independent must be explicitly true');
   });
@@ -169,7 +178,7 @@ describe('L7 Experiment Allocator', () => {
     const verdict = validateExperimentAllocator({
       registry: registry(),
       outcomes: outcomes({ exposures: 301, contaminatedAssignments: 301, guardrailBreaches: 301 }),
-    }, { now: NOW });
+    }, { now: NOW, loopRegistry: FLEET_LOOP_REGISTRY });
     expect(verdict.quality).toBe('partial');
     expect(verdict.reason).toContain('exposures exceeds outcomes.assignments');
   });
@@ -178,7 +187,7 @@ describe('L7 Experiment Allocator', () => {
     const verdict = validateExperimentAllocator({
       registry: registry(),
       outcomes: outcomes({ guardrailBreaches: 1, contaminatedAssignments: 1 }),
-    }, { now: NOW });
+    }, { now: NOW, loopRegistry: FLEET_LOOP_REGISTRY });
     expect(verdict).toMatchObject({ ok: false, quality: 'partial' });
     expect(verdict.issues.join(' ')).toContain('guardrailBreaches is non-zero');
     expect(verdict.issues.join(' ')).toContain('contaminatedAssignments is non-zero');
