@@ -1,4 +1,5 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+import { fetchHtml } from '../functions/src/plateAuctionsCore.js';
 import { parseGrAuctionRows } from '../scripts/plate-auctions/connectors/gr.mjs';
 import { parseSgAuctionRows } from '../scripts/plate-auctions/connectors/sg.mjs';
 import { parseShAuctionRows } from '../scripts/plate-auctions/connectors/sh.mjs';
@@ -49,6 +50,40 @@ const CARD_SAMPLE = `
 </div></div>`;
 
 describe('expanded plate-auction connectors', () => {
+  it('retries transient catalogue fetch failures before degrading a source', async () => {
+    const fetchMock = vi.spyOn(globalThis, 'fetch')
+      .mockRejectedValueOnce(new TypeError('temporary network reset'))
+      .mockResolvedValueOnce(new Response('<html>ok</html>', { status: 200 }));
+
+    try {
+      await expect(fetchHtml('https://example.test/catalogue', { retries: 1, retryDelayMs: 0 })).resolves.toBe('<html>ok</html>');
+      expect(fetchMock).toHaveBeenCalledTimes(2);
+    } finally {
+      fetchMock.mockRestore();
+    }
+  });
+
+  it('retries when the response body stream fails after headers arrive', async () => {
+    const firstResponse = {
+      ok: true,
+      text: vi.fn().mockRejectedValueOnce(new TypeError('temporary stream reset')),
+    } as unknown as Response;
+    const secondResponse = {
+      ok: true,
+      text: vi.fn().mockResolvedValue('<html>ok</html>'),
+    } as unknown as Response;
+    const fetchMock = vi.spyOn(globalThis, 'fetch')
+      .mockResolvedValueOnce(firstResponse)
+      .mockResolvedValueOnce(secondResponse);
+
+    try {
+      await expect(fetchHtml('https://example.test/catalogue', { retries: 1, retryDelayMs: 0 })).resolves.toBe('<html>ok</html>');
+      expect(fetchMock).toHaveBeenCalledTimes(2);
+    } finally {
+      fetchMock.mockRestore();
+    }
+  });
+
   it('parses the GR eCari full-width row and never exposes bidder text', () => {
     const [row] = parseGrAuctionRows(GR_SAMPLE, { fetchedAt: '2026-09-13T08:00:00.000Z' });
     expect(row).toMatchObject({
