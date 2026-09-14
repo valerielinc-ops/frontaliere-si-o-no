@@ -40,6 +40,12 @@ describe('MapCanvas is the single Leaflet shell', () => {
     expect(importers).toEqual([rel(SHELL)]);
   });
 
+  it('keeps the shell CSS import out of the async readiness gate', () => {
+    const src = readFileSync(SHELL, 'utf8');
+    expect(src).toContain("import 'leaflet/dist/leaflet.css';");
+    expect(src).not.toContain("import('leaflet/dist/leaflet.css')");
+  });
+
   it('only the shell mounts MapContainer / TileLayer', () => {
     const mounters = files
       .filter(({ src }) => /<MapContainer\b|<TileLayer\b/.test(src))

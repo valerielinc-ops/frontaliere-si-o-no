@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import type { LatLngBoundsExpression, LatLngExpression } from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 
 /**
  * Shared Leaflet shell.
@@ -10,9 +11,10 @@ import type { LatLngBoundsExpression, LatLngExpression } from 'leaflet';
  * copy-pasted literally). Duplicated constants in ≥2 files drift, so they live
  * here once (AGENTS.md #6) and the callers keep only their own markers/dataset.
  *
- * Leaflet + react-leaflet + the CSS are loaded dynamically on mount: the
- * reserved box paints immediately at its declared height, so the async load
- * costs no layout shift (AGENTS.md #7 — reserve space, never suppress).
+ * Leaflet + react-leaflet are loaded dynamically on mount while the shell's
+ * CSS is imported statically. The reserved box paints immediately at its
+ * declared height, so the async load costs no layout shift (AGENTS.md #7 —
+ * reserve space, never suppress).
  */
 
 /** OSM raster tiles — one config for every map. */
@@ -35,13 +37,12 @@ export interface LeafletBundle {
 
 let bundlePromise: Promise<LeafletBundle> | null = null;
 
-/** Load react-leaflet + leaflet + its CSS once, shared by every MapCanvas. */
+/** Load react-leaflet + leaflet once, shared by every MapCanvas. */
 function loadLeaflet(): Promise<LeafletBundle> {
   if (!bundlePromise) {
     bundlePromise = Promise.all([
       import('react-leaflet'),
       import('leaflet'),
-      import('leaflet/dist/leaflet.css'),
     ]).then(([rl, leafletMod]) => {
       const mod: any = leafletMod;
       // Leaflet ships both a namespace and a default export depending on the build.
