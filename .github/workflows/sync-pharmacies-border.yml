@@ -4,6 +4,10 @@ on:
   schedule:
     - cron: '23 4 * * *'
   workflow_dispatch:
+  workflow_call:
+    secrets:
+      FIREBASE_SERVICE_ACCOUNT_JSON:
+        required: true
 
 permissions:
   contents: write
@@ -49,7 +53,14 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
       - name: Load push credentials from Remote Config
         run: node scripts/load-rc-env.mjs
+      - name: Fetch and stage Ticino duties for atomic finalization
+        continue-on-error: true
+        env:
+          PHARMACY_DUTY_STAGE_DIR: ${{ runner.temp }}/pharmacy-duty-stage
+        run: node scripts/sync-pharmacy-duties.mjs
       - name: Import and finalize official border catalogue release
+        env:
+          PHARMACY_DUTY_STAGE_DIR: ${{ runner.temp }}/pharmacy-duty-stage
         run: npm run pharmacies:import
       - name: Validate border catalogue
         run: npm run pharmacies:check

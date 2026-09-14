@@ -9,6 +9,7 @@ import {
   verifyPharmacyReleaseContract,
 } from '../scripts/import-pharmacies-border.mjs';
 import { publicDutiesForPharmacy } from '../components/pages/PharmacyDirectory';
+import { validateBorderSnapshot } from '../scripts/check-pharmacy-border-data.mjs';
 import {
   getPharmacyReleaseEvaluation,
   publicDutiesForRegion,
@@ -215,6 +216,31 @@ describe('pharmacy atomic release contract', () => {
       releaseId: null,
     });
     expect(publicDutiesForRegion(pair.duties, 'Mendrisiotto', NOW, tamperedCatalogue)).toEqual([]);
+  });
+
+  it('binds aggregate and regional release state to the release digest', () => {
+    const pair = makePair();
+    const variants = [
+      ['aggregate state', { state: 'partial' }],
+      ['regional coverage', { regions: { ...pair.release.regions, mendrisiotto: { ...pair.release.regions.mendrisiotto, coverage: 'partial' } } }],
+      ['regional preservation', { regions: { ...pair.release.regions, mendrisiotto: { ...pair.release.regions.mendrisiotto, preserved: true } } }],
+      ['regional fetchedAt', { regions: { ...pair.release.regions, mendrisiotto: { ...pair.release.regions.mendrisiotto, fetchedAt: '2026-09-13T11:00:00.000Z' } } }],
+    ] as const;
+
+    for (const [label, changes] of variants) {
+      const tamperedCatalogue = {
+        ...pair.catalogue,
+        _release: { ...pair.release, ...changes },
+      } as PharmacyCatalogueDataset;
+      expect(verifyPharmacyReleaseIntegrity(pair.duties, tamperedCatalogue), label).toEqual(expect.arrayContaining([
+        expect.stringContaining('catalogue releaseId does not match the payload digest'),
+      ]));
+      expect(getPharmacyReleaseEvaluation(pair.duties, NOW, tamperedCatalogue), label).toMatchObject({
+        state: 'conflicting',
+        publishable: false,
+        releaseId: null,
+      });
+    }
   });
 
   it('keeps a below-floor PDF fallback on its old timestamp and marks it partial or stale', () => {

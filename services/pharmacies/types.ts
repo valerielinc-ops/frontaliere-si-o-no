@@ -6,6 +6,10 @@
  * stored in the registry itself, only source configuration (#6397).
  */
 
+import { validatePharmacyReleaseContract } from './release-contract-validator.mjs';
+
+export { validatePharmacyReleaseContract };
+
 export interface OpeningHours {
   dayOfWeek: 'monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday' | 'sunday';
   opens: string;
@@ -411,118 +415,6 @@ const DUTY_COVERAGE_TYPES: readonly PharmacyDutyCoverageType[] = ['city', 'distr
 const DUTY_TYPES: readonly PharmacyDutyType[] = ['day', 'night', 'weekend', 'holiday', '24h'];
 const DUTY_STATUSES: readonly PharmacyDutyStatus[] = ['verified', 'pending_review', 'expired', 'conflicting'];
 const DUTY_SOURCE_TYPES: readonly PharmacyDutySourceType[] = ['official', 'association', 'pharmacy', 'verified_partner'];
-const RELEASE_STATES: readonly PharmacyReleaseState[] = [
-  'unknown',
-  'fresh',
-  'stale',
-  'partial',
-  'conflicting',
-  'expired',
-  'not_published',
-];
-const RELEASE_FRESHNESS_STATES: readonly PharmacyReleaseFreshness[] = ['fresh', 'stale', 'unknown'];
-const RELEASE_COVERAGE_STATES: readonly PharmacyReleaseCoverage[] = ['covered', 'partial', 'not_published', 'unknown'];
-
-function isObject(value: unknown): value is Record<string, unknown> {
-  return typeof value === 'object' && value !== null && !Array.isArray(value);
-}
-
-function validateReleaseTimestamp(label: string, value: unknown, errors: string[]): void {
-  if (value !== null && (typeof value !== 'string' || !Number.isFinite(Date.parse(value)))) {
-    errors.push(`${label}: expected an ISO timestamp or null`);
-  }
-}
-
-function validateReleaseSnapshot(label: string, snapshot: unknown, errors: string[]): void {
-  if (!isObject(snapshot)) {
-    errors.push(`${label}: expected an object`);
-    return;
-  }
-  if (typeof snapshot.path !== 'string' || snapshot.path.trim() === '') {
-    errors.push(`${label}: missing or empty "path"`);
-  }
-  if (typeof snapshot.sha256 !== 'string' || !/^[a-f0-9]{64}$/.test(snapshot.sha256)) {
-    errors.push(`${label}: invalid "sha256"`);
-  }
-  validateReleaseTimestamp(`${label}.fetchedAt`, snapshot.fetchedAt, errors);
-}
-
-/** Validates the atomic catalogue+duties release metadata. */
-export function validatePharmacyReleaseContract(contract: unknown): string[] {
-  if (!isObject(contract)) return ['release: expected an object'];
-  const errors: string[] = [];
-
-  if (contract.version !== PHARMACY_RELEASE_CONTRACT_VERSION) {
-    errors.push(`release: unsupported version "${String(contract.version)}"`);
-  }
-  if (typeof contract.releaseId !== 'string' || !/^pharmacy-v1-[a-f0-9]{64}$/.test(contract.releaseId)) {
-    errors.push('release: invalid "releaseId"');
-  }
-  if (contract.timezone !== PHARMACY_RELEASE_TIMEZONE) {
-    errors.push(`release: timezone must be "${PHARMACY_RELEASE_TIMEZONE}"`);
-  }
-  if (typeof contract.state !== 'string' || !RELEASE_STATES.includes(contract.state as PharmacyReleaseState)) {
-    errors.push(`release: invalid state "${String(contract.state)}"`);
-  }
-
-  if (!isObject(contract.scope)) {
-    errors.push('release: missing "scope" object');
-  } else {
-    if (contract.scope.country !== 'CH') errors.push('release.scope: country must be "CH"');
-    if (contract.scope.canton !== 'Ticino') errors.push('release.scope: canton must be "Ticino"');
-    if (!Array.isArray(contract.scope.regions)) {
-      errors.push('release.scope: regions must be an array');
-    } else {
-      const regions = contract.scope.regions;
-      const expected = [...PHARMACY_RELEASE_REGION_KEYS];
-      const valid = regions.every((region) => typeof region === 'string' && expected.includes(region as PharmacyRegionKey));
-      if (!valid || regions.length !== expected.length || new Set(regions).size !== expected.length) {
-        errors.push(`release.scope: regions must be exactly ${expected.join(', ')}`);
-      }
-    }
-  }
-
-  if (!isObject(contract.snapshots)) {
-    errors.push('release: missing "snapshots" object');
-  } else {
-    validateReleaseSnapshot('release.snapshots.catalogue', contract.snapshots.catalogue, errors);
-    validateReleaseSnapshot('release.snapshots.duties', contract.snapshots.duties, errors);
-  }
-
-  if (!isObject(contract.regions)) {
-    errors.push('release: missing "regions" object');
-  } else {
-    const expected = [...PHARMACY_RELEASE_REGION_KEYS].sort();
-    const actual = Object.keys(contract.regions).sort();
-    if (actual.length !== expected.length || actual.some((key, index) => key !== expected[index])) {
-      errors.push(`release.regions: keys must be exactly ${expected.join(', ')}`);
-    }
-    for (const key of PHARMACY_RELEASE_REGION_KEYS) {
-      const region = contract.regions[key];
-      if (!isObject(region)) {
-        errors.push(`release.regions.${key}: missing region status`);
-        continue;
-      }
-      if (typeof region.name !== 'string' || region.name.trim() === '') errors.push(`release.regions.${key}: invalid "name"`);
-      if (typeof region.sourceUrl !== 'string' || region.sourceUrl.trim() === '') errors.push(`release.regions.${key}: invalid "sourceUrl"`);
-      if (!Number.isInteger(region.dutyCount) || (region.dutyCount as number) < 0) errors.push(`release.regions.${key}: invalid "dutyCount"`);
-      validateReleaseTimestamp(`release.regions.${key}.fetchedAt`, region.fetchedAt, errors);
-      if (typeof region.freshness !== 'string' || !RELEASE_FRESHNESS_STATES.includes(region.freshness as PharmacyReleaseFreshness)) {
-        errors.push(`release.regions.${key}: invalid "freshness"`);
-      }
-      if (typeof region.coverage !== 'string' || !RELEASE_COVERAGE_STATES.includes(region.coverage as PharmacyReleaseCoverage)) {
-        errors.push(`release.regions.${key}: invalid "coverage"`);
-      }
-      if (typeof region.state !== 'string' || !RELEASE_STATES.includes(region.state as PharmacyReleaseState)) {
-        errors.push(`release.regions.${key}: invalid "state"`);
-      }
-      if (typeof region.preserved !== 'boolean') errors.push(`release.regions.${key}: invalid "preserved"`);
-    }
-  }
-
-  return errors;
-}
-
 export function validatePharmacyDuty(index: number | string, entry: unknown): string[] {
   const errors: string[] = [];
   if (typeof entry !== 'object' || entry === null || Array.isArray(entry)) {

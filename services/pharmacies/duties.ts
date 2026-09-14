@@ -70,8 +70,14 @@ function pharmacySnapshotSha256(snapshot: unknown): string {
   return sha256Hex(canonicalJson(snapshotPayload(snapshot) ?? null));
 }
 
-function releaseIdForSnapshots(snapshots: unknown): string {
-  return `pharmacy-v1-${sha256Hex(canonicalJson(snapshots))}`;
+function releaseIdForContract(contract: Record<string, unknown>): string {
+  const { releaseId: _ignoredReleaseId, ...digestInput } = contract;
+  return `pharmacy-v1-${sha256Hex(canonicalJson(digestInput))}`;
+}
+
+function contractWithoutReleaseId(contract: PharmacyReleaseContract): Record<string, unknown> {
+  const { releaseId: _ignoredReleaseId, ...digestInput } = contract;
+  return digestInput;
 }
 
 export interface PharmacyReleaseEvaluation {
@@ -117,19 +123,12 @@ function unknownRegions(): Record<PharmacyRegionKey, PharmacyRegionReleaseStatus
 }
 
 function contractSnapshotsMatch(left: PharmacyReleaseContract, right: PharmacyReleaseContract): boolean {
-  return left.releaseId === right.releaseId
-    && left.version === right.version
-    && left.timezone === right.timezone
-    && left.snapshots.catalogue.path === right.snapshots.catalogue.path
-    && left.snapshots.catalogue.sha256 === right.snapshots.catalogue.sha256
-    && left.snapshots.catalogue.fetchedAt === right.snapshots.catalogue.fetchedAt
-    && left.snapshots.duties.path === right.snapshots.duties.path
-    && left.snapshots.duties.sha256 === right.snapshots.duties.sha256
-    && left.snapshots.duties.fetchedAt === right.snapshots.duties.fetchedAt
-    && left.scope.country === right.scope.country
-    && left.scope.canton === right.scope.canton
-    && left.scope.regions.length === right.scope.regions.length
-    && left.scope.regions.every((region, index) => region === right.scope.regions[index]);
+  try {
+    return left.releaseId === right.releaseId
+      && canonicalJson(contractWithoutReleaseId(left)) === canonicalJson(contractWithoutReleaseId(right));
+  } catch {
+    return false;
+  }
 }
 
 /**
@@ -141,6 +140,13 @@ export function verifyPharmacyReleaseIntegrity(
   dataset: PharmacyDutiesDataset,
   catalogue: PharmacyCatalogueDataset,
 ): string[] {
+  const catalogueRelease = catalogue?._release;
+  const dutiesRelease = dataset?._release;
+  const errors: string[] = [];
+  if (!catalogueRelease || typeof catalogueRelease !== 'object') errors.push('catalogue release metadata is missing');
+  if (!dutiesRelease || typeof dutiesRelease !== 'object') errors.push('duties release metadata is missing');
+  if (errors.length > 0) return errors;
+
   const expectedSnapshots = {
     catalogue: {
       path: CATALOGUE_SNAPSHOT_PATH,
@@ -153,12 +159,17 @@ export function verifyPharmacyReleaseIntegrity(
       fetchedAt: typeof dataset?._fetchedAt === 'string' ? dataset._fetchedAt : null,
     },
   };
-  const expectedReleaseId = releaseIdForSnapshots(expectedSnapshots);
-  const errors: string[] = [];
   for (const [label, release] of [
-    ['catalogue', catalogue?._release],
-    ['duties', dataset?._release],
+    ['catalogue', catalogueRelease],
+    ['duties', dutiesRelease],
   ] as const) {
+    let expectedReleaseId: string;
+    try {
+      expectedReleaseId = releaseIdForContract({ ...release, snapshots: expectedSnapshots });
+    } catch {
+      errors.push(`${label} release metadata is not canonical`);
+      continue;
+    }
     if (release.releaseId !== expectedReleaseId) errors.push(`${label} releaseId does not match the payload digest`);
     try {
       if (canonicalJson(release.snapshots) !== canonicalJson(expectedSnapshots)) {
@@ -170,6 +181,13 @@ export function verifyPharmacyReleaseIntegrity(
   }
   if (catalogue._release.releaseId !== dataset._release.releaseId) {
     errors.push('catalogue and duties releaseId values differ');
+  }
+  try {
+    if (canonicalJson(contractWithoutReleaseId(catalogueRelease)) !== canonicalJson(contractWithoutReleaseId(dutiesRelease))) {
+      errors.push('catalogue and duties release contract semantics differ');
+    }
+  } catch {
+    errors.push('catalogue and duties release contract is not canonical');
   }
   return errors;
 }

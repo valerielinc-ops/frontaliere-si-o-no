@@ -12,6 +12,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { BORDER_MINIMUMS, verifyPharmacyReleaseContract } from './import-pharmacies-border.mjs';
+import { validatePharmacyReleaseContract } from '../services/pharmacies/release-contract-validator.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const TICINO_PATH = path.join(ROOT, 'data', 'pharmacies-ticino-complete.json');
@@ -58,7 +59,12 @@ export function validateBorderSources(registry) {
 
 export function validateBorderSnapshot({ ticino, italy, duties, status, verifyRelease = false }) {
   const errors = [];
-  if (verifyRelease) errors.push(...verifyPharmacyReleaseContract({ catalogue: ticino, duties }));
+  if (verifyRelease) {
+    for (const [label, snapshot] of [['catalogue', ticino], ['duties', duties], ['duty status', status]]) {
+      errors.push(...validatePharmacyReleaseContract(snapshot?._release).map((error) => `${label}: ${error}`));
+    }
+    errors.push(...verifyPharmacyReleaseContract({ catalogue: ticino, duties, status }));
+  }
   if (verifyRelease && status !== undefined) {
     if (!status?._release?.releaseId) errors.push('duty status release metadata is missing');
     else if (status._release.releaseId !== ticino?._release?.releaseId) errors.push('duty status releaseId differs from the catalogue releaseId');

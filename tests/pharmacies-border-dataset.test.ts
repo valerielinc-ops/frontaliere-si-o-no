@@ -37,6 +37,30 @@ describe('cross-border pharmacy datasets', () => {
     expect(validateBorderSnapshot({ ticino, italy, duties, status: dutyStatus, verifyRelease: true })).toEqual([]);
   });
 
+  it('fails closed when release metadata is structurally invalid', () => {
+    const invalidTicino = {
+      ...ticino,
+      _release: { ...ticino._release, state: 'invented' },
+    };
+    expect(validateBorderSnapshot({ ticino: invalidTicino, italy, duties, status: dutyStatus, verifyRelease: true })).toEqual(expect.arrayContaining([
+      expect.stringContaining('catalogue: release: invalid state'),
+    ]));
+
+    const invalidStatus = {
+      ...dutyStatus,
+      _release: {
+        ...dutyStatus._release,
+        regions: {
+          ...dutyStatus._release.regions,
+          mendrisiotto: { ...dutyStatus._release.regions.mendrisiotto, coverage: 'partial' },
+        },
+      },
+    };
+    expect(validateBorderSnapshot({ ticino, italy, duties, status: invalidStatus, verifyRelease: true })).toEqual(expect.arrayContaining([
+      expect.stringContaining('duty status releaseId does not match the payload digest'),
+    ]));
+  });
+
   it('keeps global identity unique and preserves every published duty reference', () => {
     const all = [...swiss, ...italian];
     expect(new Set(all.map((pharmacy) => pharmacy.id)).size).toBe(all.length);

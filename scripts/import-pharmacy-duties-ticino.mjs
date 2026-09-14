@@ -14,7 +14,9 @@ const __filename = fileURLToPath(import.meta.url);
 const REPO_ROOT = resolve(dirname(__filename), '..');
 const DATA_PATH = resolve(REPO_ROOT, 'data/pharmacy-duties-ticino.json');
 const PHARMACY_PATH = resolve(REPO_ROOT, 'data/pharmacies-ticino-complete.json');
-const STATUS_PATH = resolve(REPO_ROOT, 'data/pharmacy-duties-ticino-status.json');
+const STAGE_DIR = process.env.PHARMACY_DUTY_STAGE_DIR ? resolve(process.env.PHARMACY_DUTY_STAGE_DIR) : null;
+const OUTPUT_DATA_PATH = STAGE_DIR ? resolve(STAGE_DIR, 'pharmacy-duties-ticino.json') : null;
+const OUTPUT_STATUS_PATH = STAGE_DIR ? resolve(STAGE_DIR, 'pharmacy-duties-ticino-status.json') : null;
 const USER_AGENT = 'FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/bot)';
 const CRAWL_DELAY_MS = 10_000;
 const timeoutMs = 15_000;
@@ -53,6 +55,11 @@ async function loadFixture(region) {
 
 async function main() {
   const dryRun = process.argv.includes('--dry-run');
+  if (!dryRun && !STAGE_DIR) {
+    console.error('[import-pharmacy-duties-ticino] blocked: PHARMACY_DUTY_STAGE_DIR is required; duties are finalized only by the atomic border job');
+    process.exitCode = 1;
+    return;
+  }
   const attemptedAt = new Date().toISOString();
   const previous = await readJson(DATA_PATH, { duties: [], _lastSuccessfulFetchAt: null });
   const pharmacyData = await readJson(PHARMACY_PATH, { pharmacies: [] });
@@ -99,6 +106,7 @@ async function main() {
     _lastSuccessfulFetchAt: successfulRegions.length > 0 ? attemptedAt : (previous._lastSuccessfulFetchAt || null),
     _successfulRegions: successfulRegions,
     _preservedRegions: preservedRegions,
+    _allRegionsFailed: successfulRegions.length === 0,
     _errors: errors,
     _warnings: warnings,
   };
@@ -108,9 +116,11 @@ async function main() {
   // writes all three release-bearing snapshots in one commit.
 
   if (successfulRegions.length === 0) {
-    await mkdir(dirname(STATUS_PATH), { recursive: true });
-    if (!dryRun) await writeFile(STATUS_PATH, `${JSON.stringify(status, null, 2)}\n`, 'utf8');
-    console.error(`[import-pharmacy-duties-ticino] blocked: all ${OFCT_REGIONS.length} region fetches failed; existing dataset preserved`);
+    if (!dryRun) {
+      await mkdir(dirname(OUTPUT_STATUS_PATH), { recursive: true });
+      await writeFile(OUTPUT_STATUS_PATH, `${JSON.stringify(status, null, 2)}\n`, 'utf8');
+    }
+    console.error(`[import-pharmacy-duties-ticino] blocked: all ${OFCT_REGIONS.length} region fetches failed; atomic finalizer must preserve the previous catalogue+duties pair`);
     process.exitCode = 1;
     return;
   }
@@ -124,14 +134,15 @@ async function main() {
     _warnings: warnings,
     _preservedRegions: preservedRegions,
     _successfulRegions: successfulRegions,
+    _allRegionsFailed: false,
     duties,
   };
   if (!dryRun) {
-    await mkdir(dirname(DATA_PATH), { recursive: true });
-    await writeFile(DATA_PATH, `${JSON.stringify(dutyOutput, null, 2)}\n`, 'utf8');
-    await writeFile(STATUS_PATH, `${JSON.stringify(status, null, 2)}\n`, 'utf8');
+    await mkdir(dirname(OUTPUT_DATA_PATH), { recursive: true });
+    await writeFile(OUTPUT_DATA_PATH, `${JSON.stringify(dutyOutput, null, 2)}\n`, 'utf8');
+    await writeFile(OUTPUT_STATUS_PATH, `${JSON.stringify(status, null, 2)}\n`, 'utf8');
   }
-  console.log(`[import-pharmacy-duties-ticino] ${dryRun ? 'dry-run parsed' : 'wrote'} ${duties.length} intervals from ${successfulRegions.length}/${OFCT_REGIONS.length} regions`);
+  console.log(`[import-pharmacy-duties-ticino] ${dryRun ? 'dry-run parsed' : 'staged'} ${duties.length} intervals from ${successfulRegions.length}/${OFCT_REGIONS.length} regions`);
   if (errors.length > 0) process.exitCode = 2;
 }
 
