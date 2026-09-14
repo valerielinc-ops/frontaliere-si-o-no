@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "lastRunAt": "2026-09-14T10:04:29.568Z",
+  "findings": {
+    "cloudflare-5xx-unverified|source:cloudflare-5xx-unverified": {
+      "code": "cloudflare-5xx-unverified",
+      "url": "source:cloudflare-5xx-unverified",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-09-14T10:04:29.568Z",
+      "lastSeenAt": "2026-09-14T10:04:29.568Z",
+      "detail": "count=49 sampled-out-or-unprobed; no live recovery asserted"
+    }
+  },
+  "cleanRuns": 0,
+  "lastActionable": false
+}
