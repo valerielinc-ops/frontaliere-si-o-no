@@ -12,6 +12,7 @@ import {
   buildDecision,
   buildObservation,
   validateActionClassAgainstPolicy,
+  validateLoopRegistry,
   loadLoopPolicyForRun,
 } from '../lib/loop-fleet-contract.mjs';
 import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
@@ -21,10 +22,7 @@ export const DEFAULT_CANDIDATES_PATH = path.join('data', 'experimental-candidate
 export const DEFAULT_OUTCOME_PATH = path.join('data', 'experiment-outcomes.json');
 export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
 export const DEFAULT_MAX_AGE_HOURS = 192;
-export const MINIMUM_SAMPLE = 200;
 export const MAX_CANDIDATES = 50;
-const DEFAULT_PRIMARY_METRIC = 'registered_outcome_per_eligible_cohort';
-const DEFAULT_GUARDRAILS = ['persistent assignment', 'minimum sample', 'explicit expiry', 'no automatic price change'];
 const LOCALES = new Set(['it', 'en', 'de', 'fr']);
 
 function finiteDate(value) {
@@ -113,6 +111,14 @@ function candidateAction(candidate, rowIssues = [], actionClass = null) {
   };
 }
 
+function requireL7Policy(loopRegistry) {
+  if (!loopRegistry) throw new Error('L7 loop registry is required for allocator validation');
+  const validated = validateLoopRegistry(loopRegistry);
+  const policy = validated.loops.find((loop) => loop.loopId === LOOP_ID);
+  if (!policy) throw new Error('L7 loop policy is missing from the loop registry');
+  return { registry: validated, policy };
+}
+
 /** Validate candidate provenance independently from any experiment outcome. */
 export function validateCandidateRegistry(registry, {
   now = new Date(),
@@ -199,9 +205,9 @@ function validateOutcomes(outcomes, {
   maxAgeHours,
   sourcePath,
   minimumSample,
-  primaryMetric = DEFAULT_PRIMARY_METRIC,
-  guardrails = DEFAULT_GUARDRAILS,
-  candidateTtlHours = 168,
+  primaryMetric,
+  guardrails,
+  candidateTtlHours,
 } = {}) {
   if (!object(outcomes)) {
     return {
@@ -374,20 +380,13 @@ export function validateExperimentAllocator({ registry, outcomes = null }, {
   sourcePath = DEFAULT_CANDIDATES_PATH,
   outcomePath = DEFAULT_OUTCOME_PATH,
   minimumSample,
-  loopRegistry = null,
+  loopRegistry,
 } = {}) {
-  const loopPolicy = Array.isArray(loopRegistry?.loops)
-    ? loopRegistry.loops.find((loop) => loop.loopId === LOOP_ID)
-    : null;
-  const registryMinimumSample = loopPolicy?.minimumSample;
-  const effectiveMinimumSample = registryMinimumSample === undefined
-    ? (minimumSample ?? MINIMUM_SAMPLE)
-    : (minimumSample === undefined
-      ? registryMinimumSample
-      : Math.max(registryMinimumSample, minimumSample));
-  const candidateActionClass = loopRegistry && loopPolicy
-    ? actionClassForPolicy(loopPolicy, 'candidate')
-    : null;
+  const { registry: validatedLoopRegistry, policy: loopPolicy } = requireL7Policy(loopRegistry);
+  const effectiveMinimumSample = minimumSample === undefined
+    ? loopPolicy.minimumSample
+    : Math.max(loopPolicy.minimumSample, minimumSample);
+  const candidateActionClass = actionClassForPolicy(loopPolicy, 'candidate');
   const candidateVerdict = validateCandidateRegistry(registry, {
     now,
     maxAgeHours,
@@ -399,25 +398,23 @@ export function validateExperimentAllocator({ registry, outcomes = null }, {
     maxAgeHours,
     sourcePath: outcomePath,
     minimumSample: effectiveMinimumSample,
-    primaryMetric: loopPolicy?.primaryMetric || DEFAULT_PRIMARY_METRIC,
-    guardrails: loopPolicy?.guardrails || DEFAULT_GUARDRAILS,
-    candidateTtlHours: loopPolicy?.lifecycle?.candidateTtlHours || 168,
+    primaryMetric: loopPolicy.primaryMetric,
+    guardrails: loopPolicy.guardrails,
+    candidateTtlHours: loopPolicy.lifecycle.candidateTtlHours,
   });
   const issues = [...candidateVerdict.issues, ...outcomeVerdict.issues];
   const warnings = [...candidateVerdict.warnings];
   let candidates = candidateVerdict.candidates;
-  if (loopRegistry) {
-    try {
-      const candidatePolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, candidateActionClass);
-      validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClassForPolicy(loopPolicy, 'needsReview'));
-      candidates = candidates.map((candidate) => ({
-        ...candidate,
-        autonomy: candidatePolicy.requiredAutonomy,
-      }));
-    } catch (error) {
-      candidates = [];
-      issues.push(`registry policy is not compatible with L7 actions: ${error.message}`);
-    }
+  try {
+    const candidatePolicy = validateActionClassAgainstPolicy(validatedLoopRegistry, LOOP_ID, candidateActionClass);
+    validateActionClassAgainstPolicy(validatedLoopRegistry, LOOP_ID, actionClassForPolicy(loopPolicy, 'needsReview'));
+    candidates = candidates.map((candidate) => ({
+      ...candidate,
+      autonomy: candidatePolicy.requiredAutonomy,
+    }));
+  } catch (error) {
+    candidates = [];
+    issues.push(`registry policy is not compatible with L7 actions: ${error.message}`);
   }
   if (!outcomes) warnings.push('no independent assignment/exposure/outcome ledger is available; no canary is authorized');
   const snapshot = {
