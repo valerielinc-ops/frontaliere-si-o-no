@@ -11738,6 +11738,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-veniano-lavorare-ticino.title': 'Wohnen in Veniano und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-veniano-lavorare-ticino.excerpt': 'Praktischer Leitfaden für diejenigen, die in Veniano leben und im Kanton Tessin arbeiten: Verbindungen, Quellensteuer, Vorsorge und Aspekte der Übertragung.',
     'blog.article.vivere-veniano-lavorare-ticino.imageAlt': 'Ansicht von Veniano nahe der Schweizer Grenze',
+    'blog.article.crisi-bally-caslano-licenziamenti.title': 'Bally-Krise in Caslano: weitere 25 Entlassungen im Tessin',
+    'blog.article.crisi-bally-caslano-licenziamenti.excerpt': 'Neues Massenentlassungsverfahren für Bally in Caslano: weitere 25 Verwaltungsangestellte in Gefahr. Die Finanzdaten und das Moratorium der Transliq AG.',
+    'blog.article.crisi-bally-caslano-licenziamenti.imageAlt': 'Bally Produktionsstatte in der Krise in Caslano Tessin',
 };
 
 export default blogMetaDe;
