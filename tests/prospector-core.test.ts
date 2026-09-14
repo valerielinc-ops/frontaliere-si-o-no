@@ -26,7 +26,14 @@ import { extractRuntimeDetailFields, listingEvidenceFields } from '../scripts/li
 import { extractApleonaDetailFields } from '../scripts/lib/apleona-schweiz-ag-job-parser.mjs';
 import { gradeJobLike, hasAnyJobSignal } from '../scripts/lib/job-like.mjs';
 import { commonUrlTemplate, crawlerKeyFor, detectPageLang, isExpectedSynthesisError } from '../scripts/lib/prospector/synthesize.mjs';
-import { evaluatePromotion, selectForPromotion, clampMinDays, findOpenPromotionPr, GATE_DEFAULTS } from '../scripts/lib/prospector/promotion-gate.mjs';
+import {
+  evaluatePromotion,
+  selectForPromotion,
+  summarizePromotionBlocks,
+  clampMinDays,
+  findOpenPromotionPr,
+  GATE_DEFAULTS,
+} from '../scripts/lib/prospector/promotion-gate.mjs';
 import { createSpecUrlPolicy, geographyFieldsForDecision, needsDetailEnrichment, templateToRegex } from '../scripts/lib/prospector/spec-crawler.mjs';
 import {
   constantPostalLocations,
@@ -1646,6 +1653,20 @@ describe('promotion gate', () => {
     const { promotable, capped } = selectForPromotion(many);
     expect(promotable).toHaveLength(GATE_DEFAULTS.maxPerRun);
     expect(capped).toBe(4);
+  });
+
+  it('separa i blocchi di stabilita dagli altri fallimenti del gate', () => {
+    const bad = graded(2, { crawlerKey: 'acme-bad' });
+    bad.validationHistory.at(-1).score = 0.5;
+    const candidates = [
+      graded(1),
+      graded(1, { crawlerKey: 'acme-two' }),
+      bad,
+    ];
+    const { blocked } = selectForPromotion(candidates);
+    expect(blocked.every((entry) => entry.checks)).toBe(true);
+    expect(summarizePromotionBlocks(blocked)).toEqual({ stabilityOnly: 2, other: 1 });
+    expect(summarizePromotionBlocks([{ checks: {} }])).toEqual({ stabilityOnly: 0, other: 1 });
   });
 
   it('ships the biggest inventory first', () => {
