@@ -195,6 +195,16 @@ describe('crawler generation PR B workflow wiring', () => {
         'utf8',
       )));
     }
+    for (const artifact of contract.artifacts) {
+      expect(
+        sha256(fs.readFileSync(`.github/corpus-workflows/${artifact.file}`, 'utf8')),
+        `${artifact.file}: artifact hash drift`,
+      ).toBe(artifact.artifactSha256);
+      expect(
+        sha256(fs.readFileSync(`.github/workflows/${artifact.sourceLogic}`, 'utf8')),
+        `${artifact.file}: source hash drift`,
+      ).toBe(artifact.sourceSha256);
+    }
     expect(contract.crawlerGeneration).toMatchObject({ mode: 'shadow', dispatchesTranslation: false });
   });
 
