@@ -6,7 +6,7 @@
  */
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { OFCT_REGIONS } from './lib/pharmacy-ticino-parser.mjs';
 import { buildPharmacyDuties } from './lib/pharmacy-ticino-duty-parser.mjs';
 
@@ -23,6 +23,22 @@ const sleep = (ms) => new Promise((resolvePromise) => setTimeout(resolvePromise,
 
 async function readJson(filePath, fallback) {
   try { return JSON.parse(await readFile(filePath, 'utf8')); } catch { return fallback; }
+}
+
+/**
+ * Keep a partial source failure non-destructive without preserving an
+ * impossible `verified` status after the interval has ended. The returned
+ * array is a copy so the previous snapshot remains untouched in memory.
+ */
+export function reclassifyPreservedDuties(duties, now = new Date()) {
+  if (!Array.isArray(duties)) return duties;
+  const nowMs = now instanceof Date ? now.getTime() : Date.parse(now);
+  if (!Number.isFinite(nowMs)) return duties;
+  return duties.map((duty) => {
+    const endsAtMs = Date.parse(duty?.endsAt);
+    if (!duty || duty.status !== 'verified' || !Number.isFinite(endsAtMs) || endsAtMs > nowMs) return duty;
+    return { ...duty, status: 'expired' };
+  });
 }
 
 async function fetchHtml(url) {
@@ -55,6 +71,7 @@ async function main() {
   const dryRun = process.argv.includes('--dry-run');
   const attemptedAt = new Date().toISOString();
   const previous = await readJson(DATA_PATH, { duties: [], _lastSuccessfulFetchAt: null });
+  const previousStatus = await readJson(STATUS_PATH, {});
   const pharmacyData = await readJson(PHARMACY_PATH, { pharmacies: [] });
   const pharmacyIds = new Set((pharmacyData.pharmacies || []).map((pharmacy) => pharmacy.id));
   const previousByRegion = new Map();
@@ -84,7 +101,7 @@ async function main() {
     } catch (error) {
       const message = `${region.key}: ${error instanceof Error ? error.message : String(error)}`;
       errors.push(message);
-      const preserved = previousByRegion.get(region.key) || [];
+      const preserved = reclassifyPreservedDuties(previousByRegion.get(region.key) || [], attemptedAt);
       if (preserved.length > 0) {
         duties.push(...preserved);
         preservedRegions.push(region.key);
@@ -97,6 +114,7 @@ async function main() {
     _source: 'https://www.ofct.ch/farmacieturno/',
     _attemptedAt: attemptedAt,
     _lastSuccessfulFetchAt: successfulRegions.length > 0 ? attemptedAt : (previous._lastSuccessfulFetchAt || null),
+    _lastStaticRefreshAt: successfulRegions.length > 0 ? attemptedAt : (previousStatus?._lastStaticRefreshAt || null),
     _successfulRegions: successfulRegions,
     _preservedRegions: preservedRegions,
     _errors: errors,
@@ -130,7 +148,9 @@ async function main() {
   if (errors.length > 0) process.exitCode = 2;
 }
 
-main().catch((error) => {
-  console.error('[import-pharmacy-duties-ticino] fatal:', error);
-  process.exitCode = 1;
-});
+if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+  main().catch((error) => {
+    console.error('[import-pharmacy-duties-ticino] fatal:', error);
+    process.exitCode = 1;
+  });
+}

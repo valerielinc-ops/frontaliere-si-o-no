@@ -3,6 +3,10 @@ name: sync-pharmacy-duties
 on:
   schedule:
     - cron: '17 4 * * *'
+    # The SSG duty cards are evaluated at build time. This lightweight cadence
+    # notices known start/end transitions and requests a rebuild without
+    # re-fetching OFCT between the full daily imports.
+    - cron: '*/15 * * * *'
   workflow_dispatch:
 
 permissions:
@@ -55,7 +59,11 @@ jobs:
         run: node scripts/load-rc-env.mjs
 
       - name: Fetch and validate Ticino duty schedules
+        if: ${{ github.event_name != 'schedule' || github.event.schedule == '17 4 * * *' }}
         run: node scripts/sync-pharmacy-duties.mjs
+      - name: Refresh static pages after a known duty boundary
+        if: ${{ github.event_name == 'schedule' && github.event.schedule != '17 4 * * *' }}
+        run: node scripts/refresh-pharmacy-duty-expiry.mjs
       - name: Commit changed duty snapshots
         run: |
           set -euo pipefail
@@ -70,5 +78,10 @@ jobs:
           # Duty snapshots can race with other generated-data writers on main.
           # Rebase and regenerate the snapshot on the fetched main tip so a
           # concurrent write never gets hidden behind a stale direct push.
+          if [ "${{ github.event_name }}" = "schedule" ] && [ "${{ github.event.schedule }}" != "17 4 * * *" ]; then
+            REGENERATE_CMD='node scripts/refresh-pharmacy-duty-expiry.mjs'
+          else
+            REGENERATE_CMD='node scripts/sync-pharmacy-duties.mjs'
+          fi
           bash scripts/lib/git-push-with-retry.sh \
-            --regenerate-cmd "node scripts/sync-pharmacy-duties.mjs && git add data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json"
+            --regenerate-cmd "${REGENERATE_CMD} && git add data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json"

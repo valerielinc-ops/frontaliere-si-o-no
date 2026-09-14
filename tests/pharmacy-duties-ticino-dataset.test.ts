@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import dataset from '../data/pharmacy-duties-ticino.json';
 import pharmacies from '../data/pharmacies-ticino-complete.json';
+import { reclassifyPreservedDuties } from '../scripts/import-pharmacy-duties-ticino.mjs';
 import { getRuntimeDutyState, publicDutiesForRegion } from '../services/pharmacies/duties';
 import { validatePharmacyDuty, validatePharmacyDutyList, validatePharmacyDutiesDataset, type PharmacyDutiesDataset } from '../services/pharmacies/types';
 
@@ -30,6 +31,22 @@ describe('Ticino duty dataset', () => {
     expect(validatePharmacyDuty(0, { ...sample, startsAt: '2026-09-14' }, now)).toContain('duty[0]: invalid startsAt');
     expect(validatePharmacyDuty(0, { ...sample, endsAt: '2026-09-13T12:00:00.000Z' }, now)).toContain('duty[0]: verified duty must not be expired');
     expect(validatePharmacyDuty(0, { ...sample, status: 'expired' }, now)).toContain('duty[0]: expired duty must have ended');
+  });
+
+  it('reclassifies only ended preserved verified intervals before validation', () => {
+    const now = new Date('2026-09-14T12:00:00.000Z');
+    const sample = typedDataset.duties.find((duty) => duty.status === 'verified');
+    expect(sample).toBeDefined();
+    const preserved = [
+      { ...sample, id: 'preserved-ended', endsAt: '2026-09-14T11:59:59.000Z', status: 'verified' as const },
+      { ...sample, id: 'preserved-active', endsAt: '2026-09-14T12:00:01.000Z', status: 'verified' as const },
+      { ...sample, id: 'preserved-pending', endsAt: '2026-09-14T11:00:00.000Z', status: 'pending_review' as const },
+    ];
+
+    const reclassified = reclassifyPreservedDuties(preserved, now);
+    expect(reclassified.map((duty) => duty.status)).toEqual(['expired', 'verified', 'pending_review']);
+    expect(preserved[0].status).toBe('verified');
+    expect(validatePharmacyDutyList(reclassified, now)).not.toContain(expect.stringContaining('verified duty must not be expired'));
   });
 
   it('requires overlapping same-area intervals to be explicitly conflicting', () => {

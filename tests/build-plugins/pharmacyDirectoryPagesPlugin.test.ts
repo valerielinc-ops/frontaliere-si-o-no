@@ -74,6 +74,24 @@ describe('pharmacy directory page matrix', () => {
     }
   });
 
+  it('re-evaluates a static duty page at the injected interval boundary', () => {
+    const descriptor = pharmacyPageDescriptors().find((candidate) => candidate.kind === 'duty-hub');
+    const sample = dutiesJson.duties.find((duty) => duty.status === 'verified');
+    expect(descriptor).toBeDefined();
+    expect(sample).toBeDefined();
+    const dataset = {
+      ...dutiesJson,
+      duties: [{ ...sample!, startsAt: '2026-09-14T10:00:00.000Z', endsAt: '2026-09-14T12:00:00.000Z' }],
+    } as unknown as PharmacyDutiesDataset;
+
+    const before = buildPharmacyDirectoryPage(descriptor!, 'it', '', dataset, new Date('2026-09-14T11:00:00.000Z'));
+    const after = buildPharmacyDirectoryPage(descriptor!, 'it', '', dataset, new Date('2026-09-14T12:00:00.000Z'));
+    expect(before.html.toLocaleLowerCase()).not.toContain('nessun turno verificato');
+    expect(before.html).toMatch(/<article\b/);
+    expect(after.html.toLocaleLowerCase()).toContain('nessun turno verificato');
+    expect(after.html).not.toMatch(/<article\b/);
+  });
+
   it('keeps every indexable directory page above the text-html ratio floor', () => {
     for (const locale of locales) {
       for (const descriptor of pharmacyPageDescriptors()) {

@@ -573,10 +573,18 @@ function descriptors(): PageDescriptor[] {
   ];
 }
 
-function buildPage(descriptor: PageDescriptor, locale: Locale, distDir: string, dataset: PharmacyDutiesDataset = dutiesDataset) {
+function buildPage(
+  descriptor: PageDescriptor,
+  locale: Locale,
+  distDir: string,
+  dataset: PharmacyDutiesDataset = dutiesDataset,
+  // This is a build-time snapshot by design. The duty workflow checks known
+  // start/end transitions every 15 minutes and commits a status marker, so a
+  // static build is requested before its crawlable card can become stale.
+  now = new Date(),
+) {
   const title = pageTitle(descriptor.kind, locale, descriptor);
   const emittedTitle = shellTitle(descriptor, locale);
-  const now = new Date();
   const body = renderBody(descriptor, locale, differentiateH1FromTitle(title, emittedTitle, locale), dataset, now);
   const wordCount = countHtmlBodyWords(body);
   // City duty URLs are useful navigation aliases, but their body repeats the
