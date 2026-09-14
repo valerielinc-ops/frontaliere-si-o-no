@@ -56,6 +56,11 @@ describe('one code verdict and selective body recovery', () => {
         expect(step.if).toContain('always()');
         continue;
       }
+      if (step.name === 'Classify cancelled run') {
+        expect(step.if).toContain('always()');
+        expect(step.if).toContain('cancelled()');
+        continue;
+      }
       if (step.if) expect(step.if).toContain("steps.body_contract.outcome != 'failure'");
     }
     expect(job.steps.some((step: { name?: string }) => step.name === 'Require approving Claude review')).toBe(true);

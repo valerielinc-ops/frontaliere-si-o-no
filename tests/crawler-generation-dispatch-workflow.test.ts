@@ -122,7 +122,12 @@ describe('crawler generation PR B workflow wiring', () => {
   it('keeps the current portable translation baseline and every generation group token/ref/hash-bound', () => {
     const base = execFileSync('git', ['show', `origin/main:${orchestratorPath}`], { encoding: 'utf8' });
     const current = fs.readFileSync(orchestratorPath, 'utf8');
-    expect(translateStep(current)).toEqual(translateStep(base));
+    const currentTranslate = translateStep(current);
+    const baseTranslate = translateStep(base);
+    expect(currentTranslate.name).toBe(baseTranslate.name);
+    expect(currentTranslate.if).toBe(baseTranslate.if);
+    expect(currentTranslate['continue-on-error']).toBe(baseTranslate['continue-on-error']);
+    expect(currentTranslate.run).toContain('gh workflow run translate-pending.yml');
     const portableTranslate = '.github/corpus-workflows/translate-pending.yml';
     const portableCurrent = YAML.parse(fs.readFileSync(portableTranslate, 'utf8'));
     expect(portableCurrent.concurrency).toEqual({
@@ -253,6 +258,18 @@ describe('crawler generation PR B workflow wiring', () => {
     expect(sentinel.run).toContain('scripts/crawler-generation-dispatch.mjs dispatch-sentinel');
     expect(sentinel.run).toContain('[ "$SHADOW_READY" != "true" ]');
     expect(sentinel.env.SHADOW_READY).toContain('steps.generation_wave.outputs.shadow_ready');
+    const checkpointUpload = steps.find((step: any) => step.name === 'Upload crawler generation dispatch checkpoint');
+    expect(checkpointUpload).toMatchObject({
+      if: 'always()',
+      'continue-on-error': true,
+      uses: 'actions/upload-artifact@v7',
+      with: {
+        path: '${{ runner.temp }}/crawler-generation-dispatch/',
+        'if-no-files-found': 'warn',
+        'retention-days': 14,
+      },
+    });
+    expect(checkpointUpload.with.name).toContain('${{ github.run_id }}-${{ github.run_attempt }}');
     expect(cleanup.if).toContain("steps.generation_wave.outputs.shadow_ready == 'true'");
     expect(cleanup.if).toContain("steps.generation_sentinel.outcome == 'success'");
     expect(cleanup.if).toContain("steps.generation_sentinel.outputs.accepted == 'true'");
@@ -263,6 +280,10 @@ describe('crawler generation PR B workflow wiring', () => {
     expect(failureReporter.run).toContain('scripts/lib/github-issue-creator.mjs');
     expect(failureReporter.run).toContain('--title "Workflow Failure: ${{ github.workflow }}"');
     expect(source).not.toContain('return_run_details');
+    expect(preflight.env.GENERATION_PREFLIGHT_OUTPUT).toBe('${{ runner.temp }}/crawler-generation-dispatch/preflight.json');
+    const translationDispatch = steps.find((step: any) => step.name === 'Dispatch translate-pending (frontaliere-articles)');
+    expect(translationDispatch.env.GENERATION_PREFLIGHT_READY).toContain('steps.generation_preflight.outputs.ready');
+    expect(translationDispatch.run).toContain('does not make the blocked crawler wave green');
     const sentinelValidation = YAML.parse(fs.readFileSync(observerPath, 'utf8'))
       .jobs.sentinel.steps.find((step: any) => step.name === 'Validate manual sentinel binding before checkout');
     expect(sentinelValidation.env.CORPUS_CODE_COMMIT).toBe('${{ github.sha }}');
@@ -282,6 +303,14 @@ describe('crawler generation PR B workflow wiring', () => {
     const closure = collectRelativeImportClosure(root, 'scripts/crawler-generation-dispatch.mjs');
     expect(closure).toContain('functions/src/githubApiHeaders.js');
     expect(closure.filter((runtimePath) => !isMaterialized(runtimePath))).toEqual([]);
+  });
+
+  it('rifiuta un contratto runtime che dichiara file assenti dal sorgente del sito', () => {
+    const contract = JSON.parse(fs.readFileSync('.github/corpus-workflows/contract.json', 'utf8'));
+    expect(contract.siteRuntimePaths).toContain('scripts/lib/global-data-pipeline-lease.mjs');
+    const missing = contract.siteRuntimePaths.filter((runtimePath: string) =>
+      !fs.existsSync(path.join(root, runtimePath)));
+    expect(missing).toEqual([]);
   });
 
   it('uses event-specific run identity, skips legacy events server-side and coalesces heavy work by probe token', () => {
