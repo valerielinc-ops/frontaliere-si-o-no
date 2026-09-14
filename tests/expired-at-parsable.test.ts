@@ -224,6 +224,26 @@ describe('audit-expired-at-parsable — the gate on a corrupt archive', () => {
       expect(checkout).not.toMatch(/filter\s*:/);
       expect(source).toContain('data/jobs/expired/by-crawler');
       expect(auditAt).toBeGreaterThan(setupStart);
+
+      const commitAt = source.indexOf('- name: Commit and push changed slices');
+      const convergenceAt = source.indexOf('- name: Verify persisted expired archive convergence');
+      const deployAt = source.indexOf('- name: Trigger deploy if data changed');
+      expect(commitAt).toBeGreaterThan(auditAt);
+      expect(convergenceAt).toBeGreaterThan(commitAt);
+      expect(deployAt).toBeGreaterThan(convergenceAt);
+      const convergence = source.slice(convergenceAt, deployAt);
+      expect(convergence).toContain('git fetch --no-tags origin main');
+      expect(convergence).toContain('steps.commit.outputs.final_commit');
+      expect(convergence).toContain('git merge-base --is-ancestor');
+      expect(convergence).toContain('git archive --format=tar');
+      expect(convergence).toContain('PERSISTED_SHA');
+      expect(convergence).toContain('VERIFY_ROOT');
+      expect(convergence).toContain("dir: path.join(process.env.VERIFY_ROOT, 'data/jobs/expired/by-crawler')");
+      expect(convergence).toContain('verifiedCommit: process.env.PERSISTED_SHA');
+      expect(convergence).toContain('sweepExpiredArchiveSlices');
+      expect(convergence).toContain('apply: false');
+      expect(convergence).toContain('filesChanged !== 0');
+      expect(convergence).toContain('crossSliceDuplicatesAfter !== 0');
     }
   });
 });
