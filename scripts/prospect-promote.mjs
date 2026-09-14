@@ -128,6 +128,11 @@ const maxPerRun = Number(arg('max', GATE_DEFAULTS.maxPerRun));
 // dire «gate ridotto a 1 giorno». Un input di workflow_dispatch non e'
 // validato, e una leva che mente su quanto ha allentato e' peggio di nessuna leva.
 const minDays = clampMinDays(arg('min-days', GATE_DEFAULTS.minDistinctDays));
+const minRuns = Math.min(GATE_DEFAULTS.minRuns, Math.max(1, minDays));
+const stabilityRequirement = `${minRuns} ${minRuns === 1 ? 'validazione buona' : 'validazioni buone'} su ${minDays} ${minDays === 1 ? 'giorno distinto' : 'giorni distinti'}`;
+const stabilityClaim = minRuns === 1 && minDays === 1
+  ? ''
+  : ' — la condizione che una singola run, per quanto buona, non puo\' soddisfare';
 const relaxed = minDays < GATE_DEFAULTS.minDistinctDays;
 if (relaxed) {
   console.log(`⚠️  GATE RIDOTTO: stabilita' richiesta ${minDays} giorno/i invece di ${GATE_DEFAULTS.minDistinctDays}.`);
@@ -235,7 +240,7 @@ if (reconciled.landed || reconciled.reopened) saveCandidates(store);
 const { promotable, blocked, capped } = selectForPromotion(
   byStatus(store, 'promoted'),
   { existingKeys: coverage.keys },
-  { maxPerRun, minDistinctDays: minDays, minRuns: Math.min(GATE_DEFAULTS.minRuns, Math.max(1, minDays)) },
+  { maxPerRun, minDistinctDays: minDays, minRuns },
 );
 
 const inFlight = openPromotionPr();
@@ -512,7 +517,7 @@ const companiesNote = companiesRegenerated
 
 const body = `## Implementato
 
-- **in questa PR** — ${shipped.length} crawler promossi dal prospector, per **${totalVacancies} annunci** di datori che non coprivamo. Ognuno ha superato il gate di \`scripts/lib/prospector/promotion-gate.mjs\`: qualita' >= ${GATE_DEFAULTS.minScore} contro la pagina ufficiale del datore, su almeno ${GATE_DEFAULTS.minSampled} pagine di dettaglio, con **${GATE_DEFAULTS.minRuns} validazioni buone su ${GATE_DEFAULTS.minDistinctDays} giorni distinti** — la condizione che una singola run, per quanto buona, non puo' soddisfare — e con almeno il ${Math.round(GATE_DEFAULTS.minJobLike * 100)}% delle pagine di dettaglio che **legge come un annuncio di lavoro** e non come contenuto promozionale o editoriale.
+- **in questa PR** — ${shipped.length} crawler promossi dal prospector, per **${totalVacancies} annunci** di datori che non coprivamo. Ognuno ha superato il gate di \`scripts/lib/prospector/promotion-gate.mjs\`: qualita' >= ${GATE_DEFAULTS.minScore} contro la pagina ufficiale del datore, su almeno ${GATE_DEFAULTS.minSampled} pagine di dettaglio, con **${stabilityRequirement}**${stabilityClaim} — e con almeno il ${Math.round(GATE_DEFAULTS.minJobLike * 100)}% delle pagine di dettaglio che **legge come un annuncio di lavoro** e non come contenuto promozionale o editoriale.
 ${bullets}${relaxedNote}
 - **in questa PR** — voci nel manifest${groupsRegenerated ? ' e gruppi di workflow rigenerati, quindi i crawler entrano nella schedulazione esistente' : ''}.${groupsRegenerated ? '' : `
 - **blocked: manca il permesso \`workflows\` sul token** — i gruppi non sono stati rigenerati, quindi questi crawler esistono ma non sono ancora schedulati. Basta un \`node scripts/generate-crawler-group-workflows.mjs\` da un'identita' che possa scrivere in \`.github/workflows/\`.`}${companiesNote}
@@ -521,7 +526,7 @@ ${bullets}${relaxedNote}
 
 - **by construction** — nessun parser scritto a mano: cio' che e' specifico del datore vive nella spec dichiarativa sotto \`data/prospector/crawlers/\`, e l'estrazione in produzione e' la stessa che il gate ha misurato.
 - **per scelta** — al massimo ${maxPerRun} crawler per giro. Una pipeline non presidiata che ne aggiunge dieci al giorno e' recuperabile, una che ne aggiunge quattrocento no.
-- **blocked: serve una run successiva** — ${blocked.length} candidati graduati non hanno superato il gate (${blockedSummary.stabilityOnly} solo per la stabilita' su due giorni; ${blockedSummary.other} per altre condizioni). Le cause dettagliate sono nel log dello stadio PROMOTE: solo il primo gruppo si risolve con una run successiva.
+- **blocked: serve una run successiva** — ${blocked.length} candidati graduati non hanno superato il gate (${blockedSummary.stabilityOnly} solo per la stabilita' richiesta da ${stabilityRequirement}; ${blockedSummary.other} per altre condizioni). Le cause dettagliate sono nel log dello stadio PROMOTE: solo il primo gruppo si risolve con una run successiva.
 `;
 
 // Il body sopra non cita mai i file `.github/workflows/**` che
