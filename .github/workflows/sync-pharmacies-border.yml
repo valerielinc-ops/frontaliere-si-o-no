@@ -65,6 +65,8 @@ jobs:
       - name: Validate border catalogue
         run: npm run pharmacies:check
       - name: Commit atomic catalogue-duty-status snapshots
+        env:
+          PHARMACY_DUTY_STAGE_DIR: ${{ runner.temp }}/pharmacy-duty-stage
         run: |
           set -euo pipefail
           if git diff --quiet -- data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json; then
@@ -75,5 +77,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json
           git commit -m "chore(data): refresh atomic cross-border pharmacy release"
-          bash scripts/lib/configure-main-push-auth.sh
-          git push origin HEAD:main
+          bash scripts/lib/git-push-with-retry.sh \
+            --regenerate-cmd "node scripts/sync-pharmacy-duties.mjs && npm run pharmacies:import && npm run pharmacies:check && git add data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json"

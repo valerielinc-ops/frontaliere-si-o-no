@@ -17,7 +17,7 @@ describe('pharmacy atomic refresh workflow', () => {
     const source = readFileSync(resolve(WORKFLOWS, 'sync-pharmacies-border.yml'), 'utf8');
     expect(source).toContain('workflow_call:');
     expect(source).toContain('continue-on-error: true');
-    expect(source.match(/PHARMACY_DUTY_STAGE_DIR/g)).toHaveLength(2);
+    expect(source.match(/PHARMACY_DUTY_STAGE_DIR/g)).toHaveLength(3);
     expect(source).toContain('run: npm run pharmacies:import');
     expect(source).toContain('git add data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json');
   });

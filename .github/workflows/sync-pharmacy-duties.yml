@@ -10,6 +10,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: sync-pharmacy-data
+  cancel-in-progress: false
+
 jobs:
   sync:
     uses: ./.github/workflows/sync-pharmacies-border.yml

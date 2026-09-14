@@ -219,7 +219,12 @@ export async function checkPostHogLiveness({
  *
  * Returns the payload so a caller can also persist/serialise it.
  */
-export function declareNotMeasurable(monitorName, verdict, { logger = console } = {}) {
+const defaultDiagnosticLogger = {
+  warn: (...args) => console.error(...args),
+  log: (...args) => console.error(...args),
+};
+
+export function declareNotMeasurable(monitorName, verdict, { logger = defaultDiagnosticLogger } = {}) {
   const bar = '='.repeat(70);
   const lines = [
     bar,
@@ -252,7 +257,7 @@ export function declareNotMeasurable(monitorName, verdict, { logger = console } 
 export async function abstainIfSourceDead(monitorName, opts = {}) {
   const verdict = await checkPostHogLiveness(opts);
   if (verdict.alive) return null;
-  return declareNotMeasurable(monitorName, verdict, { logger: opts.logger ?? console });
+  return declareNotMeasurable(monitorName, verdict, { logger: opts.logger ?? defaultDiagnosticLogger });
 }
 
 /**

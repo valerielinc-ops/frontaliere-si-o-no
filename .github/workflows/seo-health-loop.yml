@@ -27,6 +27,11 @@ on:
         required: false
         type: string
         default: '30'
+      error_sample:
+        description: 'Bounded Cloudflare 5xx path probe size'
+        required: false
+        type: string
+        default: '100'
 
 concurrency:
   group: seo-health-loop
@@ -86,6 +91,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HEALTH_SAMPLE: ${{ inputs.sample || '80' }}
           HEALTH_JOB_SAMPLE: ${{ inputs.job_sample || '30' }}
+          HEALTH_ERROR_SAMPLE: ${{ inputs.error_sample || '100' }}
           HEALTH_DRY_RUN: ${{ inputs.dry_run || false }}
         run: |
           set -euo pipefail
@@ -99,6 +105,9 @@ jobs:
             --auto-correction \
             --sample="$HEALTH_SAMPLE" \
             --job-sample="$HEALTH_JOB_SAMPLE" \
+            --error-sample="$HEALTH_ERROR_SAMPLE" \
+            --max-fetches=640 \
+            --cycle-budget-ms=1500000 \
             "${extra_args[@]}"
 
       - name: Reconcile 404 compatibility store
