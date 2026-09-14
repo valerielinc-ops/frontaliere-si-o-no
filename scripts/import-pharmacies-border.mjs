@@ -11,12 +11,16 @@
  * a complete Ticino catalogue with a suspiciously short PDF parse.
  */
 
+import { createHash } from 'node:crypto';
 import { execFile } from 'node:child_process';
 import { mkdir, readFile, writeFile, mkdtemp, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { dirname, resolve } from 'node:path';
 import { promisify } from 'node:util';
 import { fileURLToPath } from 'node:url';
+
+import { PHARMACY_TIME_ZONE } from '../services/pharmacies/time.mjs';
+import { canonicalJson } from './lib/canonical-json-digest.mjs';
 
 import {
   ITALY_BORDER_PROVINCES,
@@ -27,6 +31,7 @@ import {
   buildTicinoCompleteRecords,
   parseTicinoPdfText,
 } from './lib/pharmacy-border-parser.mjs';
+import { OFCT_REGIONS } from './lib/pharmacy-ticino-parser.mjs';
 
 const execFileAsync = promisify(execFile);
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -36,6 +41,11 @@ const TICINO_OUTPUT_PATH = resolve(DATA_DIR, 'pharmacies-ticino-complete.json');
 const ITALY_OUTPUT_PATH = resolve(DATA_DIR, 'pharmacies-italy-border.json');
 const DUTIES_PATH = resolve(DATA_DIR, 'pharmacy-duties-ticino.json');
 const USER_AGENT = 'FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/bot)';
+const CATALOGUE_SNAPSHOT_PATH = 'data/pharmacies-ticino-complete.json';
+const DUTIES_SNAPSHOT_PATH = 'data/pharmacy-duties-ticino.json';
+const DAY_MS = 24 * 60 * 60 * 1000;
+const CATALOGUE_MAX_AGE_MS = 35 * DAY_MS;
+const DUTIES_MAX_AGE_MS = 2 * DAY_MS;
 
 // Floors deliberately leave room below the current snapshots (207 Ticino;
 // 542 Italy: CO 193, VA 266, VB 83) while rejecting the partial feeds that
@@ -46,6 +56,113 @@ export const BORDER_MINIMUMS = Object.freeze({
   italy: 400,
   italyByProvince: Object.freeze({ CO: 150, VA: 200, VB: 50 }),
 });
+
+function snapshotPayload(snapshot) {
+  if (!snapshot || typeof snapshot !== 'object' || Array.isArray(snapshot)) return snapshot;
+  const { _release: _ignoredRelease, ...payload } = snapshot;
+  return payload;
+}
+
+export function pharmacySnapshotSha256(snapshot) {
+  return createHash('sha256')
+    .update(canonicalJson(snapshotPayload(snapshot) ?? null))
+    .digest('hex');
+}
+
+function freshnessFor(fetchedAt, evaluatedAt, maxAgeMs) {
+  const fetchedMs = typeof fetchedAt === 'string' ? Date.parse(fetchedAt) : NaN;
+  const evaluatedMs = typeof evaluatedAt === 'string' ? Date.parse(evaluatedAt) : NaN;
+  if (!Number.isFinite(fetchedMs) || !Number.isFinite(evaluatedMs)) return 'unknown';
+  const ageMs = evaluatedMs - fetchedMs;
+  return ageMs < 0 || ageMs > maxAgeMs ? 'stale' : 'fresh';
+}
+
+function oldestRegionFetch(duties) {
+  const timestamps = duties
+    .map((duty) => ({ value: duty?.fetchedAt, parsed: Date.parse(duty?.fetchedAt || '') }))
+    .filter((entry) => Number.isFinite(entry.parsed))
+    .sort((a, b) => a.parsed - b.parsed);
+  return timestamps[0]?.value || null;
+}
+
+function buildRegionReleaseStatus(region, duties, sourceErrors, preservedRegions, evaluatedAt) {
+  const regionDuties = duties.filter((duty) => duty?.coverageName === region.name);
+  const preserved = preservedRegions.has(region.key);
+  const regionError = sourceErrors.some((error) => String(error).startsWith(`${region.key}:`));
+  const fetchedAt = oldestRegionFetch(regionDuties);
+  const freshness = freshnessFor(fetchedAt, evaluatedAt, DUTIES_MAX_AGE_MS);
+  const coverage = preserved || regionError
+    ? 'partial'
+    : regionDuties.length > 0 ? 'covered' : 'not_published';
+  let state = 'fresh';
+  if (regionDuties.some((duty) => duty?.status === 'conflicting')) state = 'conflicting';
+  else if (regionDuties.length === 0) state = 'not_published';
+  else if (freshness === 'unknown') state = 'unknown';
+  else if (preserved || regionError) state = 'partial';
+  else if (freshness === 'stale') state = 'stale';
+  else if (regionDuties.every((duty) => Number.isFinite(Date.parse(duty.endsAt)) && Date.parse(duty.endsAt) <= Date.parse(evaluatedAt))) state = 'expired';
+  return {
+    name: region.name,
+    sourceUrl: region.url,
+    dutyCount: regionDuties.length,
+    fetchedAt,
+    freshness,
+    coverage,
+    state,
+    preserved,
+  };
+}
+
+function aggregateReleaseState(catalogueFreshness, dutiesFreshness, regions) {
+  if (catalogueFreshness === 'unknown' || dutiesFreshness === 'unknown') return 'unknown';
+  if (catalogueFreshness === 'stale' || dutiesFreshness === 'stale') return 'stale';
+  const states = Object.values(regions).map((region) => region.state);
+  if (states.includes('conflicting')) return 'conflicting';
+  if (states.every((state) => state === 'not_published')) return 'not_published';
+  if (states.every((state) => state === 'expired')) return 'expired';
+  if (states.some((state) => state !== 'fresh')) return 'partial';
+  return 'fresh';
+}
+
+/**
+ * Creates the same release metadata for the two snapshots. The hashes cover
+ * the complete JSON payload except this metadata block, avoiding a circular
+ * hash while making any catalogue/duty data change produce a new releaseId.
+ */
+export function buildPharmacyReleaseContract({ catalogue, duties, evaluatedAt }) {
+  const catalogueFetchedAt = typeof catalogue?._fetchedAt === 'string' ? catalogue._fetchedAt : null;
+  const dutiesFetchedAt = typeof duties?._fetchedAt === 'string' ? duties._fetchedAt : null;
+  const evaluationTime = evaluatedAt || dutiesFetchedAt || catalogueFetchedAt;
+  const catalogueSha256 = pharmacySnapshotSha256(catalogue);
+  const dutiesSha256 = pharmacySnapshotSha256(duties);
+  const snapshots = {
+    catalogue: { path: CATALOGUE_SNAPSHOT_PATH, sha256: catalogueSha256, fetchedAt: catalogueFetchedAt },
+    duties: { path: DUTIES_SNAPSHOT_PATH, sha256: dutiesSha256, fetchedAt: dutiesFetchedAt },
+  };
+  const releaseId = `pharmacy-v1-${createHash('sha256').update(canonicalJson(snapshots)).digest('hex')}`;
+  const preservedRegions = new Set(Array.isArray(duties?._preservedRegions) ? duties._preservedRegions : []);
+  const sourceErrors = Array.isArray(duties?._errors) ? duties._errors : [];
+  const dutiesList = Array.isArray(duties?.duties) ? duties.duties : [];
+  const regions = Object.fromEntries(OFCT_REGIONS.map((region) => [
+    region.key,
+    buildRegionReleaseStatus(region, dutiesList, sourceErrors, preservedRegions, evaluationTime),
+  ]));
+  const catalogueFreshness = freshnessFor(catalogueFetchedAt, evaluationTime, CATALOGUE_MAX_AGE_MS);
+  const dutiesFreshness = freshnessFor(dutiesFetchedAt, evaluationTime, DUTIES_MAX_AGE_MS);
+  return {
+    version: 1,
+    releaseId,
+    scope: {
+      country: 'CH',
+      canton: 'Ticino',
+      regions: OFCT_REGIONS.map((region) => region.key),
+    },
+    timezone: PHARMACY_TIME_ZONE,
+    state: aggregateReleaseState(catalogueFreshness, dutiesFreshness, regions),
+    snapshots,
+    regions,
+  };
+}
 
 function option(name) {
   const index = process.argv.indexOf(name);
@@ -191,11 +308,16 @@ export async function readPreviousItaly(filePath = ITALY_OUTPUT_PATH) {
   return (await readPreviousSnapshot(filePath, 'Italy')) || { pharmacies: [] };
 }
 
-export async function readDutyPharmacyIds(filePath = DUTIES_PATH) {
+export async function readDutySnapshot(filePath = DUTIES_PATH) {
   const dataset = await readJsonFile(filePath);
   if (!dataset || typeof dataset !== 'object' || !Array.isArray(dataset.duties)) {
     throw new Error('Ticino duties snapshot must contain a duties array');
   }
+  return dataset;
+}
+
+export async function readDutyPharmacyIds(filePath = DUTIES_PATH) {
+  const dataset = await readDutySnapshot(filePath);
   return [...new Set(dataset.duties.map((duty) => duty?.pharmacyId).filter(Boolean))];
 }
 
@@ -226,14 +348,15 @@ function assertBorderRecords(records) {
 }
 
 async function main() {
-  const [italy, osm, ticinoInput, previous, previousItaly, dutyPharmacyIds] = await Promise.all([
+  const [italy, osm, ticinoInput, previous, previousItaly, dutiesSnapshot] = await Promise.all([
     readItalyInput(),
     readOsmInput(),
     readTicinoPdfText(),
     readPreviousTicinoSnapshots(),
     readPreviousItaly(),
-    readDutyPharmacyIds(),
+    readDutySnapshot(),
   ]);
+  const dutyPharmacyIds = [...new Set(dutiesSnapshot.duties.map((duty) => duty?.pharmacyId).filter(Boolean))];
 
   const ticinoParsed = parseTicinoPdfText(ticinoInput.text);
   const ticinoWarnings = [...ticinoParsed.warnings];
@@ -272,7 +395,7 @@ async function main() {
   }
   assertBorderRecords([...ticinoPharmacies, ...italianPharmacies]);
 
-  await writeJson(TICINO_OUTPUT_PATH, {
+  const ticinoOutput = {
     _source: TICINO_PHARMACY_PDF_URL,
     _sourceRegions: previous._sourceRegions || [],
     _sourcePublishedAt: '2026-01-15',
@@ -283,7 +406,13 @@ async function main() {
     _warnings: ticinoWarnings,
     _scope: { country: 'CH', canton: 'Ticino' },
     pharmacies: ticinoPharmacies,
+  };
+  ticinoOutput._release = buildPharmacyReleaseContract({
+    catalogue: ticinoOutput,
+    duties: dutiesSnapshot,
+    evaluatedAt: fetchedAt,
   });
+  await writeJson(TICINO_OUTPUT_PATH, ticinoOutput);
   await writeJson(ITALY_OUTPUT_PATH, {
     _source: ITALY_PHARMACY_DATASET_PAGE,
     _sourceDownloadUrl: italy.downloadUrl,

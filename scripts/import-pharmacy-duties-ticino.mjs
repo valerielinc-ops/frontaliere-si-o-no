@@ -9,6 +9,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { OFCT_REGIONS } from './lib/pharmacy-ticino-parser.mjs';
 import { buildPharmacyDuties } from './lib/pharmacy-ticino-duty-parser.mjs';
+import { buildPharmacyReleaseContract } from './import-pharmacies-border.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const REPO_ROOT = resolve(dirname(__filename), '..');
@@ -119,8 +120,15 @@ async function main() {
     _errors: errors,
     _warnings: warnings,
     _preservedRegions: preservedRegions,
+    _successfulRegions: successfulRegions,
     duties,
   };
+  output._release = buildPharmacyReleaseContract({
+    catalogue: pharmacyData,
+    duties: output,
+    evaluatedAt: attemptedAt,
+  });
+  status._release = output._release;
   if (!dryRun) {
     await mkdir(dirname(DATA_PATH), { recursive: true });
     await writeFile(DATA_PATH, `${JSON.stringify(output, null, 2)}\n`, 'utf8');
