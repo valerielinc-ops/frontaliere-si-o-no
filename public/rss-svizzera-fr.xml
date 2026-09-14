@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides sur la Suisse : économie, travail, fiscalité et vie quotidienne</description>
     <language>fr</language>
-    <lastBuildDate>Mon, 14 Sep 2026 19:40:31 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 14 Sep 2026 20:06:51 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Suisse</title>
@@ -17,6 +17,194 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-fr.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Pharmacie ouverte ou de garde ? Comment lire le répertoire</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/pharmacie-ouverte-garde-repertoire/</link>
+      <description><![CDATA[La différence pratique entre trouver une pharmacie dans un répertoire, lire des horaires publiés et vérifier une garde OFCT. 207 entrées au Tessin et 542 entrées dans les provinces CO, VA et VB; gardes OFCT uniquement dans les quatre zones publiées.]]></description>
+      <content:encoded><![CDATA[## En bref
+- **Périmètre** : Tessin et provinces italiennes CO, VA et VB.
+- **Répertoire tessinois** : 207 entrées de la liste officielle.
+- **Répertoire italien** : 542 entrées filtrées sur les trois provinces frontalières.
+- **Garde vérifiée** : OFCT, uniquement Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli.
+
+La différence pratique entre trouver une pharmacie dans un répertoire, lire des horaires publiés et vérifier une garde OFCT.
+## Trois questions avant de partir
+Première question : la pharmacie figure-t-elle dans le répertoire d’adresses ? Deuxième : sa fiche publie-t-elle des horaires ? Troisième : une garde vérifiée existe-t-elle pour sa zone et l’intervalle indiqué ? Seule la troisième réponse concerne la garde ; les deux autres ne la remplacent pas.
+
+Ouvrir le parcours adapté, vérifier l’heure de téléchargement de l’instantané et la source indiquée, puis appeler la pharmacie. La page ne transforme pas automatiquement une entrée en pharmacie ouverte et n’étend pas les gardes aux provinces italiennes.
+
+## Répertoire, horaires et garde : trois données différentes
+- **répertoire**: La présence dans le répertoire signifie que la liste officielle contient l’entrée ; elle ne signifie pas que la pharmacie est ouverte maintenant.
+- **horaires d’ouverture**: Les horaires ne sont affichés que lorsque la page ou la source les publie ; ils ne sont pas déduits du répertoire ou de son horodatage.
+- **garde vérifiée**: Une garde vérifiée est un intervalle régional publié par l’OFCT ; ce n’est pas une ouverture continue. Vérifier par téléphone avant de se déplacer.
+## Périmètre, sources et horodatage
+Ce guide utilise des instantanés séparés : un répertoire d’adresses tessinois, un répertoire italien filtré et un jeu de données de gardes OFCT. Les sources ne sont pas fusionnées en un seul statut d’ouverture.
+
+- **Liste officielle des pharmacies du Tessin** : 207 entrées, téléchargées à 2026-09-14T10:03:57.824Z. [liste officielle](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
+- **Jeu de données italien officiel filtré sur les provinces CO, VA et VB** : 542 entrées, téléchargées à 2026-09-14T10:03:57.824Z. [jeu de données du ministère de la Santé](https://www.dati.salute.gov.it/it/dataset/farmacie/)
+- **Pages OFCT pour les gardes régionales** : zones Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, téléchargées à 2026-09-14T18:16:05.788Z. [source OFCT](https://www.ofct.ch/farmacieturno/)
+
+**Dernier téléchargement des instantanés**: répertoires 2026-09-14T10:03:57.824Z ; gardes 2026-09-14T18:16:05.788Z. L’horodatage indique quand l’instantané de la source a été téléchargé ; ce n’est pas un horaire d’ouverture et il ne prouve pas qu’une pharmacie est ouverte maintenant.
+
+Il ne s’agit pas d’une couverture nationale : le périmètre se limite au Tessin et aux provinces italiennes CO, VA et VB.
+Le Locarnese n’est pas encore inclus dans le parseur des gardes : nous n’en déduisons ni ne présentons aucune garde OFCT pour cette zone. Cela limite la donnée de garde, sans constituer une déclaration sur le répertoire cantonal.
+Aucune couverture de garde italienne n’est revendiquée : le répertoire italien est une liste d’adresses et ne prouve ni l’ouverture ni la garde d’une pharmacie.
+
+## Sources officielles et parcours utiles
+- [hub pharmacies](/fr/pharmacies/)
+- [répertoire du Tessin](/fr/pharmacies/ticino/)
+- [répertoire des provinces italiennes](/fr/pharmacies/italie/)
+- [pharmacies de garde](/fr/pharmacies-de-garde/)
+- **sources OFCT par zone**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/)
+
+Pour un cas précis, ouvrir le parcours local, lire la fiche disponible et contacter la pharmacie : un répertoire statique ne remplace pas une confirmation directe.]]></content:encoded>
+      <pubDate>Mon, 14 Sep 2026 20:06:51 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/farmacia-aperta-turno-elenco</guid>
+      <category>Notizie</category>
+      <media:content url="https://frontaliereticino.ch/images/places/castelgrande.webp" medium="image"/>
+    </item>
+    <item>
+      <title>Pharmacies à la frontière : Côme, Varèse et Verbano</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/pharmacies-frontiere-come-varese-verbano/</link>
+      <description><![CDATA[Comment utiliser le catalogue des pharmacies italiennes de la frontière avec le répertoire tessinois, sans transformer une adresse en promesse d’ouverture. 207 entrées au Tessin et 542 entrées dans les provinces CO, VA et VB; gardes OFCT uniquement dans les quatre zones publiées.]]></description>
+      <content:encoded><![CDATA[## En bref
+- **Périmètre** : Tessin et provinces italiennes CO, VA et VB.
+- **Répertoire tessinois** : 207 entrées de la liste officielle.
+- **Répertoire italien** : 542 entrées filtrées sur les trois provinces frontalières.
+- **Garde vérifiée** : OFCT, uniquement Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli.
+
+Comment utiliser le catalogue des pharmacies italiennes de la frontière avec le répertoire tessinois, sans transformer une adresse en promesse d’ouverture.
+## Le périmètre du catalogue italien
+Le jeu de données italien est filtré sur les provinces CO, VA et VB : Côme, Varèse et Verbano-Cusio-Ossola. L’instantané actuel contient 542 entrées. Il s’agit d’un répertoire de sites et de contacts publiés, pas d’une couverture italienne nationale ni d’une liste de gardes.
+
+Pour comparer les deux côtés de la frontière, utiliser les parcours du Tessin et de l’Italie et lire séparément la source de chaque répertoire. Pour l’ouverture ou la garde en Italie, vérifier auprès de la pharmacie et des autorités locales : ce guide ne revendique aucune garde italienne.
+
+## Répertoire, horaires et garde : trois données différentes
+- **répertoire**: La présence dans le répertoire signifie que la liste officielle contient l’entrée ; elle ne signifie pas que la pharmacie est ouverte maintenant.
+- **horaires d’ouverture**: Les horaires ne sont affichés que lorsque la page ou la source les publie ; ils ne sont pas déduits du répertoire ou de son horodatage.
+- **garde vérifiée**: Une garde vérifiée est un intervalle régional publié par l’OFCT ; ce n’est pas une ouverture continue. Vérifier par téléphone avant de se déplacer.
+## Périmètre, sources et horodatage
+Ce guide utilise des instantanés séparés : un répertoire d’adresses tessinois, un répertoire italien filtré et un jeu de données de gardes OFCT. Les sources ne sont pas fusionnées en un seul statut d’ouverture.
+
+- **Liste officielle des pharmacies du Tessin** : 207 entrées, téléchargées à 2026-09-14T10:03:57.824Z. [liste officielle](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
+- **Jeu de données italien officiel filtré sur les provinces CO, VA et VB** : 542 entrées, téléchargées à 2026-09-14T10:03:57.824Z. [jeu de données du ministère de la Santé](https://www.dati.salute.gov.it/it/dataset/farmacie/)
+- **Pages OFCT pour les gardes régionales** : zones Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, téléchargées à 2026-09-14T18:16:05.788Z. [source OFCT](https://www.ofct.ch/farmacieturno/)
+
+**Dernier téléchargement des instantanés**: répertoires 2026-09-14T10:03:57.824Z ; gardes 2026-09-14T18:16:05.788Z. L’horodatage indique quand l’instantané de la source a été téléchargé ; ce n’est pas un horaire d’ouverture et il ne prouve pas qu’une pharmacie est ouverte maintenant.
+
+Il ne s’agit pas d’une couverture nationale : le périmètre se limite au Tessin et aux provinces italiennes CO, VA et VB.
+Le Locarnese n’est pas encore inclus dans le parseur des gardes : nous n’en déduisons ni ne présentons aucune garde OFCT pour cette zone. Cela limite la donnée de garde, sans constituer une déclaration sur le répertoire cantonal.
+Aucune couverture de garde italienne n’est revendiquée : le répertoire italien est une liste d’adresses et ne prouve ni l’ouverture ni la garde d’une pharmacie.
+
+## Sources officielles et parcours utiles
+- [hub pharmacies](/fr/pharmacies/)
+- [répertoire du Tessin](/fr/pharmacies/ticino/)
+- [répertoire des provinces italiennes](/fr/pharmacies/italie/)
+- [pharmacies de garde](/fr/pharmacies-de-garde/)
+- **sources OFCT par zone**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/)
+
+Pour un cas précis, ouvrir le parcours local, lire la fiche disponible et contacter la pharmacie : un répertoire statique ne remplace pas une confirmation directe.]]></content:encoded>
+      <pubDate>Mon, 14 Sep 2026 20:06:50 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/farmacie-confine-italia-como-varese-verbano</guid>
+      <category>Notizie</category>
+      <media:content url="https://frontaliereticino.ch/images/places/mendrisio.webp" medium="image"/>
+    </item>
+    <item>
+      <title>Pharmacies de garde au Tessin : sources et couverture</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/guide-pharmacies-garde-tessin/</link>
+      <description><![CDATA[Ce guide indique où consulter les gardes des pharmacies au Tessin et comment comprendre leur couverture régionale. 207 entrées au Tessin et 542 entrées dans les provinces CO, VA et VB; gardes OFCT uniquement dans les quatre zones publiées.]]></description>
+      <content:encoded><![CDATA[## En bref
+- **Périmètre** : Tessin et provinces italiennes CO, VA et VB.
+- **Répertoire tessinois** : 207 entrées de la liste officielle.
+- **Répertoire italien** : 542 entrées filtrées sur les trois provinces frontalières.
+- **Garde vérifiée** : OFCT, uniquement Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli.
+
+Ce guide indique où consulter les gardes des pharmacies au Tessin et comment comprendre leur couverture régionale.
+## Ce que signifie « de garde » ici
+Les données de garde proviennent des pages officielles de l’association des pharmaciens du Tessin (OFCT). L’instantané utilisé ici couvre uniquement le Mendrisiotto, le Luganese, le Bellinzonese et Biasca e Valli. Le Locarnese n’est pas encore inclus dans le parseur des gardes : aucune couverture n’est déduite pour cette zone.
+
+Pour trouver une pharmacie ouverte maintenant, ouvrir la page de garde de la zone et vérifier l’intervalle indiqué. Le répertoire d’adresses et les horaires ordinaires sont des données différentes de la garde vérifiée.
+
+## Répertoire, horaires et garde : trois données différentes
+- **répertoire**: La présence dans le répertoire signifie que la liste officielle contient l’entrée ; elle ne signifie pas que la pharmacie est ouverte maintenant.
+- **horaires d’ouverture**: Les horaires ne sont affichés que lorsque la page ou la source les publie ; ils ne sont pas déduits du répertoire ou de son horodatage.
+- **garde vérifiée**: Une garde vérifiée est un intervalle régional publié par l’OFCT ; ce n’est pas une ouverture continue. Vérifier par téléphone avant de se déplacer.
+## Périmètre, sources et horodatage
+Ce guide utilise des instantanés séparés : un répertoire d’adresses tessinois, un répertoire italien filtré et un jeu de données de gardes OFCT. Les sources ne sont pas fusionnées en un seul statut d’ouverture.
+
+- **Liste officielle des pharmacies du Tessin** : 207 entrées, téléchargées à 2026-09-14T10:03:57.824Z. [liste officielle](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
+- **Jeu de données italien officiel filtré sur les provinces CO, VA et VB** : 542 entrées, téléchargées à 2026-09-14T10:03:57.824Z. [jeu de données du ministère de la Santé](https://www.dati.salute.gov.it/it/dataset/farmacie/)
+- **Pages OFCT pour les gardes régionales** : zones Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, téléchargées à 2026-09-14T18:16:05.788Z. [source OFCT](https://www.ofct.ch/farmacieturno/)
+
+**Dernier téléchargement des instantanés**: répertoires 2026-09-14T10:03:57.824Z ; gardes 2026-09-14T18:16:05.788Z. L’horodatage indique quand l’instantané de la source a été téléchargé ; ce n’est pas un horaire d’ouverture et il ne prouve pas qu’une pharmacie est ouverte maintenant.
+
+Il ne s’agit pas d’une couverture nationale : le périmètre se limite au Tessin et aux provinces italiennes CO, VA et VB.
+Le Locarnese n’est pas encore inclus dans le parseur des gardes : nous n’en déduisons ni ne présentons aucune garde OFCT pour cette zone. Cela limite la donnée de garde, sans constituer une déclaration sur le répertoire cantonal.
+Aucune couverture de garde italienne n’est revendiquée : le répertoire italien est une liste d’adresses et ne prouve ni l’ouverture ni la garde d’une pharmacie.
+
+## Sources officielles et parcours utiles
+- [hub pharmacies](/fr/pharmacies/)
+- [répertoire du Tessin](/fr/pharmacies/ticino/)
+- [répertoire des provinces italiennes](/fr/pharmacies/italie/)
+- [pharmacies de garde](/fr/pharmacies-de-garde/)
+- **sources OFCT par zone**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/)
+
+Pour un cas précis, ouvrir le parcours local, lire la fiche disponible et contacter la pharmacie : un répertoire statique ne remplace pas une confirmation directe.]]></content:encoded>
+      <pubDate>Mon, 14 Sep 2026 20:06:49 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/farmacie-turno-ticino-guida</guid>
+      <category>Notizie</category>
+      <media:content url="https://frontaliereticino.ch/images/places/bellinzona.webp" medium="image"/>
+    </item>
+    <item>
+      <title>Pharmacies au Tessin : répertoire et contacts</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/repertoire-pharmacies-tessin-contacts/</link>
+      <description><![CDATA[Un point de départ pour rechercher les pharmacies présentes dans le répertoire tessinois et ouvrir les fiches locales disponibles. 207 entrées au Tessin et 542 entrées dans les provinces CO, VA et VB; gardes OFCT uniquement dans les quatre zones publiées.]]></description>
+      <content:encoded><![CDATA[## En bref
+- **Périmètre** : Tessin et provinces italiennes CO, VA et VB.
+- **Répertoire tessinois** : 207 entrées de la liste officielle.
+- **Répertoire italien** : 542 entrées filtrées sur les trois provinces frontalières.
+- **Garde vérifiée** : OFCT, uniquement Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli.
+
+Un point de départ pour rechercher les pharmacies présentes dans le répertoire tessinois et ouvrir les fiches locales disponibles.
+## Ce que contient le répertoire
+Le répertoire tessinois provient de la liste cantonale officielle et l’instantané actuel contient 207 entrées. Une entrée aide à trouver les noms, adresses et contacts publiés ; elle ne prouve pas une ouverture en temps réel et ne remplace pas un appel.
+
+Pour une recherche pratique, ouvrir le parcours du Tessin, consulter la fiche et vérifier les informations effectivement publiées. Pour une garde, passer par la page OFCT : le répertoire n’est pas un service de garde.
+
+## Répertoire, horaires et garde : trois données différentes
+- **répertoire**: La présence dans le répertoire signifie que la liste officielle contient l’entrée ; elle ne signifie pas que la pharmacie est ouverte maintenant.
+- **horaires d’ouverture**: Les horaires ne sont affichés que lorsque la page ou la source les publie ; ils ne sont pas déduits du répertoire ou de son horodatage.
+- **garde vérifiée**: Une garde vérifiée est un intervalle régional publié par l’OFCT ; ce n’est pas une ouverture continue. Vérifier par téléphone avant de se déplacer.
+## Périmètre, sources et horodatage
+Ce guide utilise des instantanés séparés : un répertoire d’adresses tessinois, un répertoire italien filtré et un jeu de données de gardes OFCT. Les sources ne sont pas fusionnées en un seul statut d’ouverture.
+
+- **Liste officielle des pharmacies du Tessin** : 207 entrées, téléchargées à 2026-09-14T10:03:57.824Z. [liste officielle](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
+- **Jeu de données italien officiel filtré sur les provinces CO, VA et VB** : 542 entrées, téléchargées à 2026-09-14T10:03:57.824Z. [jeu de données du ministère de la Santé](https://www.dati.salute.gov.it/it/dataset/farmacie/)
+- **Pages OFCT pour les gardes régionales** : zones Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, téléchargées à 2026-09-14T18:16:05.788Z. [source OFCT](https://www.ofct.ch/farmacieturno/)
+
+**Dernier téléchargement des instantanés**: répertoires 2026-09-14T10:03:57.824Z ; gardes 2026-09-14T18:16:05.788Z. L’horodatage indique quand l’instantané de la source a été téléchargé ; ce n’est pas un horaire d’ouverture et il ne prouve pas qu’une pharmacie est ouverte maintenant.
+
+Il ne s’agit pas d’une couverture nationale : le périmètre se limite au Tessin et aux provinces italiennes CO, VA et VB.
+Le Locarnese n’est pas encore inclus dans le parseur des gardes : nous n’en déduisons ni ne présentons aucune garde OFCT pour cette zone. Cela limite la donnée de garde, sans constituer une déclaration sur le répertoire cantonal.
+Aucune couverture de garde italienne n’est revendiquée : le répertoire italien est une liste d’adresses et ne prouve ni l’ouverture ni la garde d’une pharmacie.
+
+## Sources officielles et parcours utiles
+- [hub pharmacies](/fr/pharmacies/)
+- [répertoire du Tessin](/fr/pharmacies/ticino/)
+- [répertoire des provinces italiennes](/fr/pharmacies/italie/)
+- [pharmacies de garde](/fr/pharmacies-de-garde/)
+- **sources OFCT par zone**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/)
+
+Pour un cas précis, ouvrir le parcours local, lire la fiche disponible et contacter la pharmacie : un répertoire statique ne remplace pas une confirmation directe.]]></content:encoded>
+      <pubDate>Mon, 14 Sep 2026 20:06:49 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/farmacie-ticino-elenco-contatti</guid>
+      <category>Notizie</category>
+      <media:content url="https://frontaliereticino.ch/images/places/lugano-view.webp" medium="image"/>
+    </item>
     <item>
       <title>Parce que les taux d&apos;intérêt en Suisse restent bas</title>
       <link>https://frontaliereticino.ch/fr/articles-suisse/parce-que-les-taux-d-interet-en-suisse-restent-bas/</link>
@@ -2211,211 +2399,6 @@ Depuis 2025, le canton du Jura introduit un système de réductions automatiques
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/premi-cassa-malati-canton-giura-riduzioni</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/premi-cassa-malati-canton-giura-riduzioni.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Lonza investit aux États-Unis : nouvelle usine pharmaceutique dans l&apos;Oregon</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/investissement-suisse-usa-lonza/</link>
-      <description><![CDATA[Le géant pharmaceutique suisse Lonza construira une nouvelle usine de production à Bend, dans l'Oregon, avec une achèvement prévu d'ici 2029.]]></description>
-      <content:encoded><![CDATA[## En bref
-- Lonza construira une nouvelle usine à Bend, en Oregon
-- Achèvement de la structure prévu d'ici 2029
-- Création initiale de plus de 80 nouveaux emplois
-- Investissement qualifié de significatif par le groupe pharmaceutique
-
-## Faits clés
-- **Quoi** : construction d'une nouvelle usine de production commerciale
-- Quand : achèvement prévu d'ici 2029
-- Où : Bend, Oregon, États-Unis
-- Qui : Lonza
-- Montant : non encore spécifié
-
-L'industrie pharmaceutique suisse renforce davantage sa présence et ses investissements aux États-Unis. Le groupe Lonza a officiellement annoncé la construction d'une nouvelle usine à Bend, dans l'État de l'Oregon. La structure sera dédiée à la production commerciale de dispersions de principes actifs par pulvérisation. Selon les informations communiquées par le groupe pharmaceutique suisse, l'achèvement des travaux est attendu d'ici 2029. L'opération financière a été qualifiée par la direction de l'entreprise d'investissement significatif, bien que le montant exact n'ait pas été divulgué dans le communiqué officiel de la société.
-
-### Détails de la technologie pharmaceutique
-
-Le projet industriel se concentre sur une technologie avancée capable d'améliorer significativement la solubilité et, par conséquent, la biodisponibilité des principes actifs peu solubles. Du point de vue du marché pharmaceutique mondial, la demande pour ces processus de production spécifiques enregistre une croissance constante, stimulée par la complexité croissante du développement des médicaments modernes. La nouvelle structure en Oregon permettra à Lonza de répondre rapidement à cette demande croissante, consolidant ainsi son positionnement technologique dans le secteur de la production pharmaceutique avancée à l'échelle internationale.
-# ## Impact sur l'emploi et les chaînes d'approvisionnement
-
-Le lancement de cet important projet industriel aux États-Unis conduira initialement à la création de plus de quatre-vingts nouveaux emplois hautement spécialisés dans la région de Bend. La décision stratégique d'étendre la capacité de production outre-mer répond à des logiques précises de proximité opérationnelle avec les clients importants et de renforcement de la résilience des chaînes d'approvisionnement régionales. Rapprocher la production des principaux marchés de débouchés permet à l'entreprise de réduire les risques liés à la logistique internationale et d'optimiser les délais de livraison pour l'industrie pharmaceutique locale.
-
-### Stratégie d'entreprise et leadership
-
-Le PDG Wolfgang Wienand a souligné l'importance stratégique de l'opération pour l'avenir du groupe suisse. L'investissement dans le siège de Bend reflète la ferme conviction que les États-Unis resteront une source majeure d'innovation pharmaceutique et un marché clé pour Lonza. Cette décision s'inscrit parfaitement dans la stratégie d'entreprise appelée One Lonza, qui vise à concentrer les investissements là où il est possible de générer une valeur économique maximale pour les clients et, en fin de compte, pour les patients. Le manager allemand, âgé de cinquante-quatre ans et au passé d'escrimeur de pointe, dirige la société rhénane depuis juillet 2024.
-
-## Outils utiles pour protéger votre net
-Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
-### Profil et histoire du groupe Lonza
-
-Fondée en 1897, Lonza possède une longue histoire industrielle enracinée en Suisse. La société est née à Gampel, dans le canton du Valais, sur les rives de la rivière Lonza, qui représente un affluent du Rhône. Au cours du XXe siècle, précisément en 1909, le siège a été transféré à Viège, toujours dans le canton du Valais. Par la suite, en 1974, la société a rejoint l'orbite d'Alusuisse, avant d'en sortir en 1999 et d'obtenir la cotation officielle en bourse. En 2002, le centre opérationnel principal du groupe a été déplacé à Bâle.
-
-### Position sur les marchés financiers suisses
-
-Aujourd'hui, Lonza représente l'une des réalités industrielles les plus importantes de la Confédération, pouvant compter sur une main-d' œuvre mondiale de vingt mille employés. Au cours de l'exercice 2025, la société a réalisé un chiffre d'affaires total de 6,5 milliards de francs suisses. Grâce à ces données économiques et à sa solidité, la société fait partie du SMI, l'indice boursier qui regroupe les vingt principales valeurs du marché financier suisse. Pour en savoir plus sur la gestion des finances d'entreprise, de la fiscalité et des investissements en Suisse, consultez le [calcolatore stipendio e imposte](nav:calculator).
-
-Découvrez les [offres d'emploi au Tessin](nav:jobs) mises à jour quotidiennement : plus de 4.000 postes.
-
-*Source: [swissinfo.ch](https://www.swissinfo.ch/ita/nuovo-investimento-svizzero-in-usa%2c-lonza-costruir%c3%a0-nuova-fabbrica/92037653)*]]></content:encoded>
-      <pubDate>Fri, 11 Sep 2026 00:33:25 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/investimento-svizzero-usa-lonza</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/investimento-svizzero-usa-lonza.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Impôts cantonaux Jura : taux, échelonnements et déductions 2024</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/impots-cantonaux-jura-taux-deductions/</link>
-      <description><![CDATA[Guide pratique du système fiscal du canton du Jura : structure à trois niveaux, multiplicateurs municipaux, déductions admises et portail officiel de déclaration.]]></description>
-      <content:encoded><![CDATA[## In breve
-- Il Cantone Giura applica imposte su tre livelli: federale, cantonale e comunale
-- Le aliquote cantonali sono progressive; i comuni applicano un moltiplicatore sull'imposta cantonale
-- Le deduzioni seguono principi federali con integrazioni cantonali specifiche
-- La dichiarazione si presenta online tramite il portale dell'amministrazione fiscale giurassiana
-
-## Fatti chiave
-- **Cosa**: Imposte cantonali e comunali nel Cantone Giura
-- Quando: Scadenza dichiarazione ordinaria 31 marzo (proroghe possibili)
-- Dove: Cantone Giura, Svizzera
-- Chi: Amministrazione fiscale cantonale del Giura (Service des contributions)
-- Importo: Aliquote progressive per scaglioni di reddito e sostanza; moltiplicatori comunali variabili
-
-Il sistema fiscale svizzero si articola su tre livelli: l'imposta federale diretta (IFD) gestita dall'AFC/ESTV, l'imposta cantonale e l'imposta comunale, entrambe di competenza delle amministrazioni cantonali. Nel Cantone Giura, come in tutti i cantoni, la legge fiscale cantonale definisce gli scaglioni di reddito e di sostanza, le aliquote base e le deduzioni ammesse. I comuni giurassiani applicano poi un moltiplicatore (coefficiente) sull'imposta cantonale netta per determinare l'imposta comunale dovuta.
-
-### Struttura a tre livelli e competenze
-L'IFD è identica per tutti i contribuenti svizzeri e viene calcolata sull'imponibile federale. L'imposta cantonale del Giura segue una tariffa progressiva per scaglioni: all'aumentare del reddito imponibile (o della sostanza imponibile) si applicano aliquote marginali crescenti. L'imposta comunale non ha tariffa propria: è il risultato dell'imposta cantonale moltiplicata per il coefficiente comunale, che ogni comune fissa annualmente. Questa architettura rende il carico fiscale finale diverso da comune a comune pur restando all'interno dello stesso cantone.
-
-La distinzione di competenze è rigida: AFC/ESTV gestisce IFD e IVA; le amministrazioni cantonali (nel Giura il Service des contributions) gestiscono imposte cantonali e comunali; UFAS/BSV si occupa di previdenza sociale (AVS/AI/LPP) e non fissa imposte; UST/BFS produce statistiche e non fissa aliquote.
-### Aliquote, scaglioni e moltiplicatori comunali
-Le aliquote cantonali del Giura sono pubblicate ogni anno nel tariffario ufficiale e si applicano per scaglioni di reddito netto imponibile (dopo deduzioni) e di sostanza netta imponibile. Non esiste un'aliquota unica: il sistema è progressivo a scaglioni, quindi la prima tranche di reddito è tassata all'aliquota più bassa, la tranche successiva all'aliquota superiore, e così via. L'imposta cantonale lorda che ne risulta viene poi ridotta degli eventuali abbuoni o crediti d'imposta cantonali per arrivare all'imposta cantonale netta.
-
-Su questa base netta si applica il moltiplicatore comunale. Ogni comune del Giura delibera annualmente il proprio coefficiente (es. 1,45; 1,60; 1,30 ecc.). L'imposta comunale = imposta cantonale netta × moltiplicatore comunale. La somma di imposta cantonale netta + imposta comunale costituisce l'imposta cantonale/comunale complessiva. A questa si aggiunge l'IFD per ottenere l'imposta totale dovuta.
-
-### Deduzioni ammesse: principi federali e specificità cantonali
-Le deduzioni seguono in larga misura i principi del diritto federale armonizzato (LIFD), ma il Cantone Giura può prevedere deduzioni supplementari o parametri propri (es. deduzioni per figli, per spese di guadagno, per premi LAMal/KVG, per versamenti nel pilastro 3a, per interessi passivi, per spese mediche eccedenti una franchigia). L'elenco preciso e gli importi massimi deducibili per l'anno d'imposta in corso sono indicati nelle istruzioni ufficiali della dichiarazione d'imposta giurassiana e sul portale dell'amministrazione fiscale.
-
-Un aspetto pratico rilevante: i contributi sociali trattenuti alla fonte (AVS/AI/IPG 5,3% a carico dipendente, AD/AC 1,1%, LAINF/LAA secondo settore, LPP sul salario coordinato con aliquote per fasce d'età) riducono il reddito lordo per determinare il reddito netto imponibile. I premi LAMal/KVG non sono contributi salariali né tasse, ma sono deducibili entro i limiti cantonali.
-
-## Outils utiles pour votre cas
-Pour vérifier votre scénario fiscal dans/hors des 20 km, utilisez le [calculateur de salaire net](nav:calculator) et le [guide déclaration fiscale](nav:tax-return).
-### Délais, procédure et portail en ligne
-La déclaration d'impôt ordinaire doit être déposée au plus tard le 31 mars de l'année suivant celle de l'impôt (sauf prorogations accordées sur demande à l'administration fiscale). Le canton du Jura met à disposition le portail officiel de déclaration électronique (e-tax/ déclaration en ligne), qui guide le contribuable pas à pas : importation des données pré-remplies (attestations de salaire, attestations bancaires, etc.), saisie manuelle des éléments manquants, calcul automatique de l'imposable et de la taxe estimée, envoi signé numériquement.
-
-Ceux qui ne reçoivent pas la déclaration pré-remplie ou préfèrent le papier peuvent demander les formulaires à l'administration fiscale. Après l'envoi, le bureau émet la taxation définitive avec la décision de taxation (Veranlagungsverfügung / décision de taxation). Contre cela, vous pouvez déposer une plainte dans les 30 jours auprès de l'autorité de recours compétente.
-
-### Outils utiles pour le contribuable
-Pour simuler l'impact du revenu, des déductions, de la commune de résidence et de la situation familiale, le calculateur salaire/impôt du site permet de comparer des scénarios. Qui doit coordonner IFD, cantonal/communal et prévoyance (AVS/LPP/pilier 3a) trouve dans le calculateur enveloppe paie une vue d'ensemble. Pour la déclaration proprement dite, le lien direct vers le portail e-tax du Jura est le canal le plus rapide.
-
-[Calcola la tua imposta stimata in Giura](nav:calculator)]]></content:encoded>
-      <pubDate>Thu, 10 Sep 2026 22:13:44 GMT</pubDate>
-      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/imposte-cantonali-giura-aliquote-deduzioni</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/imposte-cantonali-giura-aliquote-deduzioni.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Stefan Leist nommé directeur adjoint de l&apos;Administration fédérale des finances</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/stefan-leist-directeur-adjoint-aff-2026/</link>
-      <description><![CDATA[Karin Keller-Sutter nomme Stefan Leist directeur adjoint de l'aff à compter du 1er octobre 2026. Déjà à la tête de la division Politique financière depuis le 1er mars 2026.]]></description>
-      <content:encoded><![CDATA[## En bref
-- Karin Keller‑Sutter nomme Stefan Leist vice‑directeur de l'AFD à compter du 1er octobre 2026
-- Le Conseil fédéral informé lors de la séance du 9 septembre 2026
-- Leist dirige depuis le 1er mars 2026 la division Politique financière et péréquation
-
-## Faits clés
-- **Quoi** : Nomination au poste de vice‑directeur de l'Administration fédérale des finances
-- Quand : Entrée en fonction le 1er octobre 2026, décision le 9 septembre 2026
-- Où : Administration fédérale des finances, Berne
-- Qui : Stefan Leist, 45 ans, doctorat en économie politique
-- Important : Rôle clé pour la politique financière et la péréquation intercantonnale
-
-La conseillère fédérale Karin Keller‑Sutter, chef du Département fédéral des finances, a nommé Stefan Leist directeur adjoint de l'Administration fédérale des finances (AFF) avec effet au 1er octobre 2026. La décision a été communiquée au Conseil fédéral lors de la séance du 9 septembre 2026.
-
-### Parcours professionnel et compétences
-Stefan Leist, 45 ans, possède une expérience pluriannuelle au sein de l'Administration fédérale. Depuis le 1er mars 2026 il occupe déjà le poste de vice‑directeur de l'AFF et chef de la division Politique financière, péréquation financière et statistique financière. Diplômé en économie politique à l'Université de Berne, il a obtenu son doctorat en 2012, année où il a intégré le Secrétariat d'État à l'économie (SECO). Avant de rejoindre l'AFF, il a dirigé le secteur Analyse du marché du travail et politique sociale du SECO et a été chef adjoint de la Direction de la politique économique.
-
-### Le rôle de l'AFF dans le système fédéral
-L'Administration fédérale des finances est l'unité centrale pour la gestion des finances de la Confédération. Parmi ses principales missions figurent l'élaboration du budget fédéral, la gestion de la dette publique, la politique financière et la péréquation financière entre la Confédération et les cantons. La division dirigée par Leist s'occupe précisément de ces dossiers stratégiques, y compris la statistique financière qui alimente les décisions de politique fiscale au niveau national.
-### Implications pour la politique financière suisse
-La nomination de Leist intervient à un moment où la politique financière fédérale doit faire face à des défis structurels : le frein à l'endettement, la péréquation des ressources entre les cantons et l'évolution de l'impôt fédéral direct. La division Politique financière, péréquation financière et statistique financière qu'il dirige est le moteur analytique derrière les propositions que le Conseil fédéral soumet au Parlement pour le budget prévisionnel et les comptes rendus.
-
-### Continuité et signaux de l'intérieur
-Le fait que Leist était déjà vice-directeur de l'AFF depuis le 1er mars 2026 signale une continuité opérationnelle : la promotion au poste de directeur adjoint formalise un rôle qu'il exerce de facto depuis six mois. Son parcours à la SECO, où il a acquis des compétences sur le marché du travail et la politique économique, apporte à l'AFF une vision transversale qui lie les recettes fédérales, les dépenses sociales et les dynamiques d'emploi. Ce profil hybride est rare aux sommets de l'administration financière et pourrait renforcer la coordination entre le Département fédéral des finances et le Département fédéral de l'économie, de la formation et de la recherche.
-
-### Péréquation financière : le dossier chaud
-Parmi les dossiers les plus sensibles que la division de Leist gère, il y a la péréquation financière 2028-2035, actuellement en phase de préparation. Le mécanisme redistribue les ressources entre la Confédération et les cantons ainsi qu'entre les cantons riches et les cantons à moindre capacité fiscale. Tout ajustement des paramètres — puissance fiscale, indices de charge, compensation des cas de rigueur — a des effets directs sur les budgets cantonaux et, par ricochet, sur les impôts cantonaux et communaux que les citoyens et les entreprises paient. La continuité assurée par Leist, qui connaît les modèles statistiques UST/BFS à la base des calculs, réduit les risques de discontinuité technique dans le prochain cycle.
-
-## Outils utiles pour protéger votre net
-Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
-### Ce qui change pour ceux qui vivent et travaillent en Suisse
-La nomination ne modifie pas directement les taux ou les délais pour les contribuables. Cependant, la stabilité au sommet de l'aff est une condition nécessaire pour que les processus de devis, de compte de résultat et de péréquation respectent les délais constitutionnels. Des retards ou des incertitudes dans ces processus se répercutent sur les devis cantonaux et, en fin de compte, sur les impôts que les résidents — frontaliers compris — acquittent au niveau cantonal et communal.
-
-### Comment suivre les travaux de l'aff
-Les documents de politique financière, les rapports de péréquation et les statistiques financières sont publiés sur le site de l'aff et DE l'OFS/BFS. Ceux qui veulent surveiller l'impact des décisions fédérales sur leur canton peuvent consulter les devis cantonaux, généralement adoptés entre novembre et décembre pour l'année suivante. Pour estimer l'incidence de l'impôt fédéral direct et des impôts cantonaux/communaux sur votre revenu, il est utile de comparer les multiplicateurs communaux mis à jour.
-
-### Prochaines étapes
-- Vérifier le devis 2027 de son canton (publication automne 2026)
-- Consulter la statistique financière OFS/BFS pour comparer la capacité fiscale de votre commune
-- Utiliser le calculateur salaire/impôts pour simuler la charge fiscale globale
-
-[Calcola il tuo onere fiscale stimato](nav:calculator)
-
-*Source: [admin.ch](https://www.admin.ch/it/newnsb/sggEkCiBadFx)*]]></content:encoded>
-      <pubDate>Thu, 10 Sep 2026 05:17:54 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/stefan-leist-vicedirettore-aff-2026</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/stefan-leist-vicedirettore-aff-2026.webp" medium="image"/>
-    </item>
-    <item>
-      <title>F-35 : Amherd risque d&apos;être responsable des coûts supplémentaires</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/f-35-amherd-prescription-responsabilite/</link>
-      <description><![CDATA[CdG constate qu'Amherd était au courant des risques de coûts F-35 mois plus tôt. Prescription triennale arrivant à échéance, Wyssmann demande l'interruption.]]></description>
-      <content:encoded><![CDATA[## In breve
-- La CdG ha accertato che Amherd sapeva dei rischi di costi extra sugli F-35 mesi prima di informare il Consiglio federale
-- Nessun prezzo definitivo fu mai fissato per l'acquisto dei 36 jet
-- Il consigliere nazionale UDC Wyssmann chiede di bloccare la prescrizione per eventuali azioni di responsabilità
-- Il termine di tre anni per agire legalmente potrebbe scadere a breve
-
-## Fatti chiave
-- **Cosa**: Indagine della Commissione della gestione del Consiglio nazionale sull'acquisto degli F-35
-- Quando: Rapporto pubblicato di recente; prescrizione triennale in corso
-- Dove: Berna, livello federale
-- Chi: Ex consigliera federale Viola Amherd, CdG, consigliere nazionale Rémy Wyssmann (UDC), Consiglio federale
-- Importo: Non ancora specificato l'eventuale danno; precedente Bischof 112'500 franchi
-- Base legale: Art. 5 cpv. 3 ordinanza sulla legge sulla responsabilità
-
-### L'indagine della CdG e i suoi risultati
-La Commissione della gestione del Consiglio nazionale (CdG) ha concluso i propri accertamenti sulle modalità di acquisto dei 36 jet F-35. Secondo il rapporto, l'ex consigliera federale Viola Amherd era a conoscenza, già mesi prima di informare il Consiglio federale, del rischio di costi aggiuntivi. Inoltre, non è mai stato fissato un prezzo definitivo per la commessa. Amherd, attualmente a Oslo per i funerali del re di Norvegia Harald V, ha finora scelto il silenzio e non ha risposto alle richieste dei giornalisti.
-
-### Il dibattito sulla responsabilità legale
-A Berna il tema della responsabilità personale è al centro del dibattito politico. Il consigliere nazionale UDC Rémy Wyssmann aveva chiesto un anno fa che il Consiglio federale adottasse «tutte le misure» necessarie affinché eventuali pretese di responsabilità civile nei confronti di Amherd e dei funzionari coinvolti non cadessero in prescrizione. All'epoca il Consiglio federale aveva raccomandato di respingere la richiesta, sostenendo che non vi erano «sufficienti indizi concreti né per la presenza di un danno, né per un comportamento illecito». Tuttavia, aveva assicurato che le autorità competenti avrebbero valutato azioni legali qualora fossero emersi tali indizi.
-
-### Competenze e precedenti
-Secondo l'articolo 5, capoverso 3, dell'ordinanza sulla legge sulla responsabilità, la competenza per eventuali azioni legali contro Amherd spetta al Consiglio federale nel suo insieme; per i funzionari coinvolti, la responsabilità ricade sul Dipartimento della difesa. Un precedente storico è rappresentato dal caso del consigliere agli Stati Pirmin Bischof (Centro), che negli anni '90 fu ritenuto personalmente responsabile per il fallimento della Banca cantonale di Soletta e pagò 112'500 franchi. L'ex consigliere nazionale socialista Pierre-Alain Fridez ritiene l'indagine insufficiente e chiede l'istituzione di una commissione parlamentare d'inchiesta, estendendo l'approfondimento anche alla scelta del modello F-35.
-
-[Scopri come funziona il calcolo dell'imposta federale diretta](nav:calculator)
-### Implications pour la gestion des grands marchés fédéraux
-Les conclusions de la CdG soulèvent des questions structurelles sur la gestion des marchés de plusieurs milliards au niveau fédéral. Wyssmann a vivement critiqué la pratique : « Encore une fois, les contrats ne sont pas lus, mais les responsables continuent d'encaisser un salaire supérieur à 400 000 francs ». Il fait référence au salaire annuel brut d'un conseiller fédéral. Le parlementaire de Soleure étend cette inquiétude aux futurs contrats importants, tels que ceux avec l'UE : « Ces contrats n'ont-ils pas non plus été lus ? L'administration fédérale signe désormais des contrats comme d'autres personnes signent des abonnements en salle de sport ».
-
-### Le nœud de la prescription et les délais serrés
-L'avocat Wyssmann explique que le délai de prescription relative de trois ans commence au moment où l'on apprend pour la première fois qu'un préjudice a pu être causé. Ce délai est souvent prolongé par les tribunaux, mais « les trois ans pourraient donc expirer à tout moment ». La procédure pour interrompre la prescription serait simple : « Il suffirait d'un appel de cinq minutes avec Amherd, au cours duquel elle consentirait par écrit à renoncer à l'exception de prescription – sans aucune admission de culpabilité ». Jusqu'à présent, toutefois, rien n'indique que le Conseil fédéral ait entrepris cette démarche.
-
-### Ce que cela signifie pour les finances publiques et les contribuables
-S'il y a eu un préjudice juridiquement pertinent découlant de l'achat, et dans quelle mesure, reste à déterminer. Wyssmann précise que cela ne pourra être établi qu'une fois l'achat lui-même conclu. « Ensuite, tous les co-débiteurs solidaires et leurs parts de responsabilité respectives devront être identifiés. Pas seulement Amherd. Tous les impliqués », souligne-t-il. L'affaire touche directement la gestion des ressources publiques : un éventuel préjudice retomberait sur les caisses fédérales, alimentées par l'impôt fédéral direct et la TVA versés par les citoyens et les entreprises. La transparence sur les coûts définitifs des F-35, qui s'élèvent à plusieurs milliards de francs, devient donc un sujet d'intérêt fiscal national.
-
-[Comparez le coût de la vie entre les cantons](nav:cost-of-living)
-
-## Outils utiles pour votre cas
-Pour vérifier votre scénario fiscal dans/hors des 20 km, utilisez le [calculateur de salaire net](nav:calculator) et le [guide déclaration fiscale](nav:tax-return).
-...
-
-Pour un calcul précis du salaire net, utilisez notre [comparateur fiscal](nav:calculator) : comparez permis G et permis B avec toutes les déductions 2026.
-
-*Source: [tio.ch](https://www.tio.ch/svizzera/politica/1949060/federale-essere-amherd-consiglio-prescrizione-consigliera-viola-chiede-acquisto-f-35)*]]></content:encoded>
-      <pubDate>Thu, 10 Sep 2026 02:33:16 GMT</pubDate>
-      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/f-35-amherd-prescrizione-responsabilita</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/f-35-amherd-prescrizione-responsabilita.webp" medium="image"/>
     </item>
   </channel>
 </rss>

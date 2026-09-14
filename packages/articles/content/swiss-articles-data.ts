@@ -19198,6 +19198,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'farmacie-turno-ticino-guida',
+    category: 'pratico',
+    date: '2026-09-14T20:06:49.427Z',
+    image: '/images/places/bellinzona.webp',
+    hasCalculator: false,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'farmacie-ticino-elenco-contatti',
+    category: 'pratico',
+    date: '2026-09-14T20:06:49.755Z',
+    image: '/images/places/lugano-view.webp',
+    hasCalculator: false,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'farmacie-confine-italia-como-varese-verbano',
+    category: 'pratico',
+    date: '2026-09-14T20:06:50.699Z',
+    image: '/images/places/mendrisio.webp',
+    hasCalculator: false,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'farmacia-aperta-turno-elenco',
+    category: 'pratico',
+    date: '2026-09-14T20:06:51.005Z',
+    image: '/images/places/castelgrande.webp',
+    hasCalculator: false,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

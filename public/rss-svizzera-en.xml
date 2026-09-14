@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Mon, 14 Sep 2026 19:40:31 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 14 Sep 2026 20:06:51 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -17,6 +17,194 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Open or on duty? How to read the pharmacy directory</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/open-pharmacy-duty-directory-guide/</link>
+      <description><![CDATA[The practical difference between finding a pharmacy in a directory, reading published hours and checking OFCT duty information. 207 Ticino records and 542 records in provinces CO, VA and VB; OFCT duty only in the four published areas.]]></description>
+      <content:encoded><![CDATA[## In brief
+- **Perimeter**: Ticino and Italian provinces CO, VA and VB.
+- **Ticino directory**: 207 records from the official list.
+- **Italian directory**: 542 records filtered to the three border provinces.
+- **Verified duty**: OFCT, only Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli.
+
+The practical difference between finding a pharmacy in a directory, reading published hours and checking OFCT duty information.
+## Three questions before you travel
+First: does the pharmacy appear in the address directory? Second: does its record publish hours? Third: is there verified duty for its area and the stated interval? Only the third answer concerns duty; the other two do not replace it.
+
+Open the correct route, check the snapshot retrieval time and the named source, then call the pharmacy. The page does not automatically interpret a record as open now and does not extend duty coverage to the Italian provinces.
+
+## Directory, opening hours and duty: three different data points
+- **directory**: A directory record means that the official catalogue contains the entry; it does not mean that the pharmacy is open now.
+- **opening hours**: Opening hours are shown only when the page or source publishes them; they are not inferred from the directory or its timestamp.
+- **verified duty**: Verified duty means a regional interval published by OFCT; it is not the same as continuous opening. Check by phone before travelling.
+## Scope, sources and timestamp
+This guide uses separate snapshots: a Ticino address directory, a filtered Italian directory and an OFCT duty dataset. The sources are not merged into one opening status.
+
+- **Official Ticino pharmacy list**: 207 records, retrieved at 2026-09-14T10:03:57.824Z. [official list](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
+- **Official Italian dataset filtered to provinces CO, VA and VB**: 542 records, retrieved at 2026-09-14T10:03:57.824Z. [Ministry of Health dataset](https://www.dati.salute.gov.it/it/dataset/farmacie/)
+- **OFCT pages for regional duty coverage**: areas Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, retrieved at 2026-09-14T18:16:05.788Z. [OFCT source](https://www.ofct.ch/farmacieturno/)
+
+**Latest snapshot retrieval**: directories 2026-09-14T10:03:57.824Z; duty 2026-09-14T18:16:05.788Z. The timestamp records when the source snapshot was retrieved; it is not an opening time and does not prove that a pharmacy is open now.
+
+This is not nationwide coverage: the perimeter is limited to Ticino and the Italian provinces CO, VA and VB.
+Locarnese is not yet included in the duty parser: we do not infer or present an OFCT duty service for that area. This limits the duty data; it is not a statement about the cantonal directory.
+No Italian on-duty claim is made: the Italian catalogue is an address directory and does not prove that a pharmacy is open or on duty.
+
+## Official sources and useful routes
+- [pharmacy hub](/en/pharmacies/)
+- [Ticino directory](/en/pharmacies/ticino/)
+- [Italian provinces directory](/en/pharmacies/italy/)
+- [on-duty pharmacies](/en/on-duty-pharmacies/)
+- **OFCT sources by area**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/)
+
+For a specific case, open the local route, read the available record and contact the pharmacy: a static directory does not replace direct confirmation.]]></content:encoded>
+      <pubDate>Mon, 14 Sep 2026 20:06:51 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/farmacia-aperta-turno-elenco</guid>
+      <category>Notizie</category>
+      <media:content url="https://frontaliereticino.ch/images/places/castelgrande.webp" medium="image"/>
+    </item>
+    <item>
+      <title>Border pharmacies: Como, Varese and Verbano</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/border-pharmacies-como-varese-verbano/</link>
+      <description><![CDATA[How to use the Italian border pharmacy catalogue alongside the Ticino directory without turning an address record into an opening promise. 207 Ticino records and 542 records in provinces CO, VA and VB; OFCT duty only in the four published areas.]]></description>
+      <content:encoded><![CDATA[## In brief
+- **Perimeter**: Ticino and Italian provinces CO, VA and VB.
+- **Ticino directory**: 207 records from the official list.
+- **Italian directory**: 542 records filtered to the three border provinces.
+- **Verified duty**: OFCT, only Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli.
+
+How to use the Italian border pharmacy catalogue alongside the Ticino directory without turning an address record into an opening promise.
+## The Italian catalogue perimeter
+The Italian dataset is filtered to provinces CO, VA and VB: Como, Varese and Verbano-Cusio-Ossola. The current snapshot contains 542 records. It is a directory of published locations and contacts, not nationwide Italian coverage and not a duty list.
+
+To compare the two sides of the border, use the Ticino and Italy routes and read each catalogue’s source separately. For opening or duty information in Italy, check the pharmacy and local authorities: this guide makes no Italian on-duty claim.
+
+## Directory, opening hours and duty: three different data points
+- **directory**: A directory record means that the official catalogue contains the entry; it does not mean that the pharmacy is open now.
+- **opening hours**: Opening hours are shown only when the page or source publishes them; they are not inferred from the directory or its timestamp.
+- **verified duty**: Verified duty means a regional interval published by OFCT; it is not the same as continuous opening. Check by phone before travelling.
+## Scope, sources and timestamp
+This guide uses separate snapshots: a Ticino address directory, a filtered Italian directory and an OFCT duty dataset. The sources are not merged into one opening status.
+
+- **Official Ticino pharmacy list**: 207 records, retrieved at 2026-09-14T10:03:57.824Z. [official list](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
+- **Official Italian dataset filtered to provinces CO, VA and VB**: 542 records, retrieved at 2026-09-14T10:03:57.824Z. [Ministry of Health dataset](https://www.dati.salute.gov.it/it/dataset/farmacie/)
+- **OFCT pages for regional duty coverage**: areas Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, retrieved at 2026-09-14T18:16:05.788Z. [OFCT source](https://www.ofct.ch/farmacieturno/)
+
+**Latest snapshot retrieval**: directories 2026-09-14T10:03:57.824Z; duty 2026-09-14T18:16:05.788Z. The timestamp records when the source snapshot was retrieved; it is not an opening time and does not prove that a pharmacy is open now.
+
+This is not nationwide coverage: the perimeter is limited to Ticino and the Italian provinces CO, VA and VB.
+Locarnese is not yet included in the duty parser: we do not infer or present an OFCT duty service for that area. This limits the duty data; it is not a statement about the cantonal directory.
+No Italian on-duty claim is made: the Italian catalogue is an address directory and does not prove that a pharmacy is open or on duty.
+
+## Official sources and useful routes
+- [pharmacy hub](/en/pharmacies/)
+- [Ticino directory](/en/pharmacies/ticino/)
+- [Italian provinces directory](/en/pharmacies/italy/)
+- [on-duty pharmacies](/en/on-duty-pharmacies/)
+- **OFCT sources by area**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/)
+
+For a specific case, open the local route, read the available record and contact the pharmacy: a static directory does not replace direct confirmation.]]></content:encoded>
+      <pubDate>Mon, 14 Sep 2026 20:06:50 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/farmacie-confine-italia-como-varese-verbano</guid>
+      <category>Notizie</category>
+      <media:content url="https://frontaliereticino.ch/images/places/mendrisio.webp" medium="image"/>
+    </item>
+    <item>
+      <title>Ticino on-duty pharmacies: a guide to sources and coverage</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/ticino-on-duty-pharmacies-guide/</link>
+      <description><![CDATA[This guide explains where to read Ticino pharmacy duty information and how to interpret regional coverage correctly. 207 Ticino records and 542 records in provinces CO, VA and VB; OFCT duty only in the four published areas.]]></description>
+      <content:encoded><![CDATA[## In brief
+- **Perimeter**: Ticino and Italian provinces CO, VA and VB.
+- **Ticino directory**: 207 records from the official list.
+- **Italian directory**: 542 records filtered to the three border provinces.
+- **Verified duty**: OFCT, only Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli.
+
+This guide explains where to read Ticino pharmacy duty information and how to interpret regional coverage correctly.
+## What “on duty” means here
+The duty data comes from the official pages of the Ticino pharmacists’ association (OFCT). The snapshot used for this guide covers only Mendrisiotto, Luganese, Bellinzonese and Biasca e Valli. Locarnese is not yet included in the duty parser, so no coverage is inferred for that area.
+
+If you need a pharmacy open now, use the duty page for your area and check the stated interval. The address directory and ordinary opening hours are different surfaces from verified duty.
+
+## Directory, opening hours and duty: three different data points
+- **directory**: A directory record means that the official catalogue contains the entry; it does not mean that the pharmacy is open now.
+- **opening hours**: Opening hours are shown only when the page or source publishes them; they are not inferred from the directory or its timestamp.
+- **verified duty**: Verified duty means a regional interval published by OFCT; it is not the same as continuous opening. Check by phone before travelling.
+## Scope, sources and timestamp
+This guide uses separate snapshots: a Ticino address directory, a filtered Italian directory and an OFCT duty dataset. The sources are not merged into one opening status.
+
+- **Official Ticino pharmacy list**: 207 records, retrieved at 2026-09-14T10:03:57.824Z. [official list](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
+- **Official Italian dataset filtered to provinces CO, VA and VB**: 542 records, retrieved at 2026-09-14T10:03:57.824Z. [Ministry of Health dataset](https://www.dati.salute.gov.it/it/dataset/farmacie/)
+- **OFCT pages for regional duty coverage**: areas Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, retrieved at 2026-09-14T18:16:05.788Z. [OFCT source](https://www.ofct.ch/farmacieturno/)
+
+**Latest snapshot retrieval**: directories 2026-09-14T10:03:57.824Z; duty 2026-09-14T18:16:05.788Z. The timestamp records when the source snapshot was retrieved; it is not an opening time and does not prove that a pharmacy is open now.
+
+This is not nationwide coverage: the perimeter is limited to Ticino and the Italian provinces CO, VA and VB.
+Locarnese is not yet included in the duty parser: we do not infer or present an OFCT duty service for that area. This limits the duty data; it is not a statement about the cantonal directory.
+No Italian on-duty claim is made: the Italian catalogue is an address directory and does not prove that a pharmacy is open or on duty.
+
+## Official sources and useful routes
+- [pharmacy hub](/en/pharmacies/)
+- [Ticino directory](/en/pharmacies/ticino/)
+- [Italian provinces directory](/en/pharmacies/italy/)
+- [on-duty pharmacies](/en/on-duty-pharmacies/)
+- **OFCT sources by area**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/)
+
+For a specific case, open the local route, read the available record and contact the pharmacy: a static directory does not replace direct confirmation.]]></content:encoded>
+      <pubDate>Mon, 14 Sep 2026 20:06:49 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/farmacie-turno-ticino-guida</guid>
+      <category>Notizie</category>
+      <media:content url="https://frontaliereticino.ch/images/places/bellinzona.webp" medium="image"/>
+    </item>
+    <item>
+      <title>Pharmacies in Ticino: directory and contacts</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/ticino-pharmacy-directory-contacts/</link>
+      <description><![CDATA[A starting point for finding pharmacies present in the Ticino directory and opening the local records that are available. 207 Ticino records and 542 records in provinces CO, VA and VB; OFCT duty only in the four published areas.]]></description>
+      <content:encoded><![CDATA[## In brief
+- **Perimeter**: Ticino and Italian provinces CO, VA and VB.
+- **Ticino directory**: 207 records from the official list.
+- **Italian directory**: 542 records filtered to the three border provinces.
+- **Verified duty**: OFCT, only Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli.
+
+A starting point for finding pharmacies present in the Ticino directory and opening the local records that are available.
+## What the directory contains
+The Ticino directory comes from the official cantonal list and the current snapshot contains 207 records. A record helps with names, addresses and published contacts; it is not real-time proof of opening and does not replace a phone call.
+
+For a practical search, start with the Ticino route, open the pharmacy record and check which details are actually published. If you need duty information, move to the OFCT page: do not treat the directory as a duty service.
+
+## Directory, opening hours and duty: three different data points
+- **directory**: A directory record means that the official catalogue contains the entry; it does not mean that the pharmacy is open now.
+- **opening hours**: Opening hours are shown only when the page or source publishes them; they are not inferred from the directory or its timestamp.
+- **verified duty**: Verified duty means a regional interval published by OFCT; it is not the same as continuous opening. Check by phone before travelling.
+## Scope, sources and timestamp
+This guide uses separate snapshots: a Ticino address directory, a filtered Italian directory and an OFCT duty dataset. The sources are not merged into one opening status.
+
+- **Official Ticino pharmacy list**: 207 records, retrieved at 2026-09-14T10:03:57.824Z. [official list](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
+- **Official Italian dataset filtered to provinces CO, VA and VB**: 542 records, retrieved at 2026-09-14T10:03:57.824Z. [Ministry of Health dataset](https://www.dati.salute.gov.it/it/dataset/farmacie/)
+- **OFCT pages for regional duty coverage**: areas Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, retrieved at 2026-09-14T18:16:05.788Z. [OFCT source](https://www.ofct.ch/farmacieturno/)
+
+**Latest snapshot retrieval**: directories 2026-09-14T10:03:57.824Z; duty 2026-09-14T18:16:05.788Z. The timestamp records when the source snapshot was retrieved; it is not an opening time and does not prove that a pharmacy is open now.
+
+This is not nationwide coverage: the perimeter is limited to Ticino and the Italian provinces CO, VA and VB.
+Locarnese is not yet included in the duty parser: we do not infer or present an OFCT duty service for that area. This limits the duty data; it is not a statement about the cantonal directory.
+No Italian on-duty claim is made: the Italian catalogue is an address directory and does not prove that a pharmacy is open or on duty.
+
+## Official sources and useful routes
+- [pharmacy hub](/en/pharmacies/)
+- [Ticino directory](/en/pharmacies/ticino/)
+- [Italian provinces directory](/en/pharmacies/italy/)
+- [on-duty pharmacies](/en/on-duty-pharmacies/)
+- **OFCT sources by area**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/)
+
+For a specific case, open the local route, read the available record and contact the pharmacy: a static directory does not replace direct confirmation.]]></content:encoded>
+      <pubDate>Mon, 14 Sep 2026 20:06:49 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/farmacie-ticino-elenco-contatti</guid>
+      <category>Notizie</category>
+      <media:content url="https://frontaliereticino.ch/images/places/lugano-view.webp" medium="image"/>
+    </item>
     <item>
       <title>Why Interest Rates in Switzerland Remain Low</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/why-interest-rates-in-switzerland-remain-low/</link>
@@ -2273,200 +2461,6 @@ Practical 💡 tip: Combine high deductible + alternative model + cantonal subsi
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/premi-cassa-malati-canton-giura-riduzioni</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/premi-cassa-malati-canton-giura-riduzioni.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Lonza invests in the USA: new pharmaceutical plant in Oregon</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/swiss-investment-usa-lonza/</link>
-      <description><![CDATA[Swiss pharmaceutical giant Lonza will build a new manufacturing facility in Bend, Oregon, with completion expected by 2029.]]></description>
-      <content:encoded><![CDATA[## In brief
-- Lonza will build a new facility in Bend, Oregon
-- Completion of the structure is expected by 2029
-- Initial creation of over 80 new jobs
-- Investment defined as significant by the pharmaceutical group
-
-## Key facts
-- **What**: Construction of a new commercial manufacturing plant
-- When: Completion expected by 2029
-- Where: Bend, Oregon, United States
-- Who: Lonza
-- Amount: Amount not yet specified
-
-The Swiss pharmaceutical industry is further strengthening its presence and investments in the United States. The Lonza group has officially announced the construction of a new facility in Bend, in the state of Oregon. The facility will be dedicated to the commercial production of spray-dried active ingredient dispersions. According to what was communicated by the Swiss pharmaceutical company, the completion of the work is expected during the year 2029. The financial operation has been defined by company management as a significant investment, although the exact monetary amount was not disclosed in the official press release issued by the company.
-
-### Pharmaceutical technology details
-
-The industrial project focuses on advanced technology capable of significantly improving the solubility and, consequently, the bioavailability of active ingredients that are poorly soluble. From the perspective of the global pharmaceutical market, demand for these particular manufacturing processes is experiencing steady growth, driven by the increasing complexity in the development of modern medicines. The new facility in Oregon will allow Lonza to respond promptly to this growing demand, consolidating its technological positioning in the advanced pharmaceutical manufacturing sector on an international scale.
-### Employment impact and supply chains
-
-The launch of this major industrial project in the United States will initially lead to the creation of over eighty new highly skilled jobs in the Bend region. The strategic decision to expand production capacity overseas responds to precise logics of operational proximity to important customers and strengthening the resilience of regional supply chains. Bringing production closer to the main outlet markets allows the company to reduce the risks related to international logistics and optimise delivery times for the local pharmaceutical industry.
-
-### Corporate Strategy and Leadership
-
-Managing Director Wolfgang Wienand underlined the strategic importance of the transaction for the future of the Swiss group. The investment in the Bend headquarters reflects the firm belief that the United States will remain a leading source of pharmaceutical innovation and a key market for Lonza. This move fits perfectly into the company strategy called One Lonza, which aims to concentrate investments where it is possible to generate maximum economic value for customers and, ultimately, for patients. The German manager, fifty-four years old and with a past as a leading fencer, has been leading the Rhenish company since July 2024.
-
-## Recommended tools
-For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).
-### Profile and history of the Lonza group
-
-Founded in 1897, Lonza has a long industrial history rooted in Switzerland. The company was originally born in Gampel, in the Valais Canton, on the banks of the river Lonza, which represents a tributary of the Rhone. During the twentieth century, precisely in 1909, the headquarters were moved to Visp, also in the Valais Canton. Subsequently, in 1974, the company became part of Alusuisse's orbit, and then left it in 1999 and obtained an official listing on the stock exchange. In 2002 the group's main operational centre was moved to Basel.
-
-### Position in the Swiss financial markets
-
-Today Lonza is one of the most important industrial companies in the Confederation, with a global workforce of twenty thousand employees. During the 2025 financial year, the company recorded a total turnover of 6.5 billion Swiss francs. Thanks to these economic data and its solidity, the company is part of the SMI, the stock index that groups the twenty main securities of the Swiss financial market. To learn more about the management of corporate finances, taxation and investments in Switzerland, see [calcolatore stipendio e imposte](nav:calculator).
-
-*Source: [swissinfo.ch](https://www.swissinfo.ch/ita/nuovo-investimento-svizzero-in-usa%2c-lonza-costruir%c3%a0-nuova-fabbrica/92037653)*]]></content:encoded>
-      <pubDate>Fri, 11 Sep 2026 00:33:25 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/investimento-svizzero-usa-lonza</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/investimento-svizzero-usa-lonza.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Cantonal taxes Jura: rates, brackets and deductions 2024</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/jura-cantonal-tax-rates-deductions/</link>
-      <description><![CDATA[Practical guide to the tax system of the Canton of Jura: three-level structure, municipal multipliers, allowable deductions and official portal for the declaration.]]></description>
-      <content:encoded><![CDATA[## In breve
-- Il Cantone Giura applica imposte su tre livelli: federale, cantonale e comunale
-- Le aliquote cantonali sono progressive; i comuni applicano un moltiplicatore sull'imposta cantonale
-- Le deduzioni seguono principi federali con integrazioni cantonali specifiche
-- La dichiarazione si presenta online tramite il portale dell'amministrazione fiscale giurassiana
-
-## Fatti chiave
-- **Cosa**: Imposte cantonali e comunali nel Cantone Giura
-- Quando: Scadenza dichiarazione ordinaria 31 marzo (proroghe possibili)
-- Dove: Cantone Giura, Svizzera
-- Chi: Amministrazione fiscale cantonale del Giura (Service des contributions)
-- Importo: Aliquote progressive per scaglioni di reddito e sostanza; moltiplicatori comunali variabili
-
-Il sistema fiscale svizzero si articola su tre livelli: l'imposta federale diretta (IFD) gestita dall'AFC/ESTV, l'imposta cantonale e l'imposta comunale, entrambe di competenza delle amministrazioni cantonali. Nel Cantone Giura, come in tutti i cantoni, la legge fiscale cantonale definisce gli scaglioni di reddito e di sostanza, le aliquote base e le deduzioni ammesse. I comuni giurassiani applicano poi un moltiplicatore (coefficiente) sull'imposta cantonale netta per determinare l'imposta comunale dovuta.
-
-### Struttura a tre livelli e competenze
-L'IFD è identica per tutti i contribuenti svizzeri e viene calcolata sull'imponibile federale. L'imposta cantonale del Giura segue una tariffa progressiva per scaglioni: all'aumentare del reddito imponibile (o della sostanza imponibile) si applicano aliquote marginali crescenti. L'imposta comunale non ha tariffa propria: è il risultato dell'imposta cantonale moltiplicata per il coefficiente comunale, che ogni comune fissa annualmente. Questa architettura rende il carico fiscale finale diverso da comune a comune pur restando all'interno dello stesso cantone.
-
-La distinzione di competenze è rigida: AFC/ESTV gestisce IFD e IVA; le amministrazioni cantonali (nel Giura il Service des contributions) gestiscono imposte cantonali e comunali; UFAS/BSV si occupa di previdenza sociale (AVS/AI/LPP) e non fissa imposte; UST/BFS produce statistiche e non fissa aliquote.
-### Aliquote, scaglioni e moltiplicatori comunali
-Le aliquote cantonali del Giura sono pubblicate ogni anno nel tariffario ufficiale e si applicano per scaglioni di reddito netto imponibile (dopo deduzioni) e di sostanza netta imponibile. Non esiste un'aliquota unica: il sistema è progressivo a scaglioni, quindi la prima tranche di reddito è tassata all'aliquota più bassa, la tranche successiva all'aliquota superiore, e così via. L'imposta cantonale lorda che ne risulta viene poi ridotta degli eventuali abbuoni o crediti d'imposta cantonali per arrivare all'imposta cantonale netta.
-
-Su questa base netta si applica il moltiplicatore comunale. Ogni comune del Giura delibera annualmente il proprio coefficiente (es. 1,45; 1,60; 1,30 ecc.). L'imposta comunale = imposta cantonale netta × moltiplicatore comunale. La somma di imposta cantonale netta + imposta comunale costituisce l'imposta cantonale/comunale complessiva. A questa si aggiunge l'IFD per ottenere l'imposta totale dovuta.
-
-### Deduzioni ammesse: principi federali e specificità cantonali
-Le deduzioni seguono in larga misura i principi del diritto federale armonizzato (LIFD), ma il Cantone Giura può prevedere deduzioni supplementari o parametri propri (es. deduzioni per figli, per spese di guadagno, per premi LAMal/KVG, per versamenti nel pilastro 3a, per interessi passivi, per spese mediche eccedenti una franchigia). L'elenco preciso e gli importi massimi deducibili per l'anno d'imposta in corso sono indicati nelle istruzioni ufficiali della dichiarazione d'imposta giurassiana e sul portale dell'amministrazione fiscale.
-
-Un aspetto pratico rilevante: i contributi sociali trattenuti alla fonte (AVS/AI/IPG 5,3% a carico dipendente, AD/AC 1,1%, LAINF/LAA secondo settore, LPP sul salario coordinato con aliquote per fasce d'età) riducono il reddito lordo per determinare il reddito netto imponibile. I premi LAMal/KVG non sono contributi salariali né tasse, ma sono deducibili entro i limiti cantonali.
-
-## Useful tools for your case
-To verify your within/over 20 km tax scenario, use the [net salary calculator](nav:calculator) and the [tax return guide](nav:tax-return).
-### Deadlines, procedure and online portal
-The ordinary tax return must be submitted by 31 March of the year following the tax year (unless extensions are granted upon request to the tax administration). The Canton of Jura provides the official portal for electronic declaration (e-tax/online declaration), which guides the taxpayer step by step: import of pre-filled data (salary certificates, bank certificates, etc.), manual entry of missing items, automatic calculation of the taxable amount and estimated tax, sending digitally signed.
-
-Those who do not receive the pre-filled declaration or prefer paper can request the forms from the tax administration. After submission, the office issues the final taxation with the taxation decision (Veranlagungsverfügung/ décision de taxation). You can lodge a complaint with the competent appeal authority within 30 days.
-
-## # Taxpayer-friendly tools
-To simulate the impact of income, deductions, municipality of residence and family situation, the site's salary/tax calculator allows you to compare scenarios. Those who have to coordinate IFD, cantonal/municipal and social security (AVS/LPP/pillar 3a) find an overview in the payroll calculator. For the actual declaration, the direct link to the Jura e-tax portal is the fastest channel.
-
-[Calcola la tua imposta stimata in Giura](nav:calculator)]]></content:encoded>
-      <pubDate>Thu, 10 Sep 2026 22:13:44 GMT</pubDate>
-      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/imposte-cantonali-giura-aliquote-deduzioni</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/imposte-cantonali-giura-aliquote-deduzioni.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Stefan Leist appointed Deputy Director Federal Administration of Finance</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/stefan-leist-deputy-director-ffa-2026/</link>
-      <description><![CDATA[Karin Keller-Sutter appoints Stefan Leist as AFF Deputy Director from 1 October 2026. Already leading the Financial Policy Division since 1 March 2026.]]></description>
-      <content:encoded><![CDATA[## In brief
-- Federal Councilor Karin Keller‑Sutter appoints Stefan Leist as deputy director of the Federal Finance Administration (AFF) from 1 October 2026
-- The Federal Council was informed in the meeting of 9 September 2026
-- Leist has been leading the Financial Policy and Equalisation division since 1 March 2026
-
-## Key facts
-- **What**: Appointment as deputy director of the Federal Finance Administration
-- When: Takes office 1 October 2026, decision 9 September 2026
-- Where: Federal Finance Administration, Bern
-- Who: Stefan Leist, 45, PhD in political economy
-- Importance: Key role for financial policy and inter‑cantonal equalisation
-
-Federal Councilor Karin Keller‑Sutter, head of the Federal Department of Finance, appointed Stefan Leist as deputy director of the Federal Finance Administration (AFF) effective 1 October 2026. The decision was communicated to the Federal Council in the meeting of 9 September 2026.
-
-### Professional background and skills
-Stefan Leist, 45, has many years of experience within the Federal Administration. Since 1 March 2026 he has already held the position of deputy director of the AFF and head of the Financial Policy, Financial Equalisation and Financial Statistics division. He earned a degree in political economy at the University of Bern and obtained his PhD in 2012, the year he joined the State Secretariat for Economic Affairs (SECO). Before moving to the AFF, he headed the Labour Market Analysis and Social Policy unit at SECO and was deputy head of the Economic Policy Directorate.
-
-### The role of the AFF in the federal system
-The Federal Finance Administration is the central unit for managing the Confederation's finances. Its main tasks include preparing the federal budget, managing public debt, financial policy and financial equalisation between the Confederation and the cantons. The division led by Leist deals precisely with these strategic dossiers, including financial statistics that feed national fiscal policy decisions.
-### Implications for Swiss financial policy
-The appointment of Leist comes at a time when federal financial policy must confront structural challenges: the brake on indebtedness, the equalisation of resources among cantons and the evolution of the federal direct tax. The Financial Policy, Financial Equalisation and Financial Statistics division that he leads is the analytical engine behind the proposals that the Federal Council submits to Parliament for the budget and the final accounts.
-
-### Continuity and signals from within
-The fact that Leist was already deputy director of the AFF since 1 March 2026 signals operational continuity: the promotion to deputy director formalises a role that he has de facto exercised for six months. His career at SECO, where he acquired expertise on the labour market and economic policy, brings to the AFF a transversal vision that links federal revenues, social spending and employment dynamics. This hybrid profile is rare at the top of the financial administration and could strengthen coordination between the Federal Department of Finance and the Federal Department of Economic Affairs, Education and Research.
-
-### Financial equalisation: the hot dossier
-Among the most sensitive dossiers that Leist's division handles is the financial equalisation 2028‑2035, currently in preparation. The mechanism redistributes resources between the Confederation and the cantons and between wealthy cantons and cantons with lower fiscal capacity. Any adjustment of the parameters — fiscal power, burden indices, compensation for cases of rigidity — has direct effects on cantonal budgets and, by reflection, on cantonal and municipal taxes that citizens and businesses pay. The continuity guaranteed by Leist, who knows the UST/BFS statistical models underlying the calculations, reduces the risk of technical discontinuity in the next cycle.
-
-## Recommended tools
-For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).
-### What changes for those who live and work in Switzerland
-The appointment does not directly change rates or deadlines for taxpayers. However, stability at the top of the AFF is a necessary condition for the budget, final account and equalization processes to respect constitutional deadlines. Delays or uncertainties in these processes have an impact on cantonal estimates and, ultimately, on the taxes that residents — including border workers — pay at the cantonal and municipal levels.
-
-### How to follow the work of the AFF
-Financial policy documents, equalisation reports and financial statistics are published on the AFF and UST/BFS website. Those who want to monitor the impact of federal decisions on their canton can consult the cantonal estimates, usually adopted between November and December for the following year. To estimate the impact of direct federal tax and cantonal/municipal taxes on your income, it is useful to compare the updated municipal multipliers.
-
-### Next steps
-- Check the 2027 estimate of your canton (autumn 2026 publication)
-- Consult the UST/BFS financial statistics to compare the tax capacity of your municipality
-- Use the salary/tax calculator to simulate the overall tax burden
-
-[Calcola il tuo onere fiscale stimato](nav:calculator)
-
-*Source: [admin.ch](https://www.admin.ch/it/newnsb/sggEkCiBadFx)*]]></content:encoded>
-      <pubDate>Thu, 10 Sep 2026 05:17:54 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/stefan-leist-vicedirettore-aff-2026</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/stefan-leist-vicedirettore-aff-2026.webp" medium="image"/>
-    </item>
-    <item>
-      <title>F-35: Amherd Risks Liability for Extra Costs</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/f-35-amherd-statute-limitations-liability/</link>
-      <description><![CDATA[CdG ascertains that Amherd knew of the F-35 cost risks months earlier. Three-year prescription expiring, Wyssmann asks for an interruption.]]></description>
-      <content:encoded><![CDATA[## In brief
-- The CdG established that Amherd was aware of the risks of extra costs on the F-35s months before informing the Federal Council.
-- No final price was ever set for the purchase of the 36 jets.
-- UDC National Councillor Wyssmann is asking to block the statute of limitations for potential liability actions.
-- The three-year deadline to take legal action may expire soon.
-
-## Key facts
-- **What**: Investigation by the National Council's Committee of Administration regarding the purchase of the F-35s.
-- When: Report recently published; three-year statute of limitations is running.
-- Where: Bern, federal level.
-- Who: Former Federal Councillor Viola Amherd, CdG, National Councillor Rémy Wyssmann (UDC), Federal Council.
-- Amount: Potential damage not yet specified; previous Bischof case involved 112,500 francs.
-- Legal basis: Art. 5 para. 3 of the Ordinance on the Liability Act.
-
-### The CdG investigation and its findings
-The National Council's Committee of Administration (CdG) has concluded its investigations into the methods used to purchase the 36 F-35 jets. According to the report, former Federal Councillor Viola Amherd was aware, months before informing the Federal Council, of the risk of additional costs. Furthermore, a final price for the contract was never set. Amherd, currently in Oslo for the funeral of Norwegian King Harald V, has so far chosen silence and has not responded to journalists' requests.
-
-### The debate on legal liability
-In Bern, the issue of personal liability is at the center of political debate. UDC National Councillor Rémy Wyssmann had asked a year ago for the Federal Council to adopt 'all necessary measures' so that potential civil liability claims against Amherd and the officials involved would not fall under the statute of limitations. At the time, the Federal Council had recommended rejecting the request, arguing that there were 'no sufficient concrete indications either of the presence of damage, or of unlawful conduct.' However, it had assured that the competent authorities would evaluate legal actions should such indications emerge.
-
-### Jurisdiction and precedents
-According to Article 5, paragraph 3, of the Ordinance on the Liability Act, jurisdiction for potential legal actions against Amherd lies with the Federal Council as a whole; for the officials involved, liability falls under the Department of Defense. A historical precedent is represented by the case of Councillor of States Pirmin Bischof (Centre), who in the 1990s was held personally responsible for the failure of the Solothurn Cantonal Bank and paid 112,500 francs. Former Socialist National Councillor Pierre-Alain Fridez considers the investigation insufficient and calls for the establishment of a parliamentary committee of inquiry, extending the in-depth analysis to the choice of the F-35 model.
-
-[Discover how the calculation of the federal direct tax works](nav:calculator)
-...
-
-## Recommended tools
-For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).
-...
-
-For a precise net salary calculation, use our [tax comparator](nav:calculator): compare take-home pay between G and B permits with all 2026 deductions.
-
-*Source: [tio.ch](https://www.tio.ch/svizzera/politica/1949060/federale-essere-amherd-consiglio-prescrizione-consigliera-viola-chiede-acquisto-f-35)*]]></content:encoded>
-      <pubDate>Thu, 10 Sep 2026 02:33:16 GMT</pubDate>
-      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/f-35-amherd-prescrizione-responsabilita</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/f-35-amherd-prescrizione-responsabilita.webp" medium="image"/>
     </item>
   </channel>
 </rss>
