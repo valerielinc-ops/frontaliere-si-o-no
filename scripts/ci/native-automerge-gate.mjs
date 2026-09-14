@@ -2,9 +2,11 @@
  * Native auto-merge guard.
  *
  * GitHub's native auto-merge remains the merger. This helper is only the
- * fail-closed opt-in gate: it must see the latest reviewer-bot verdict on the
- * current HEAD and a completed required Vitest check before calling
- * `gh pr merge --auto`.
+ * fail-closed opt-in gate: it must see the latest approving reviewer-bot
+ * verdict and a completed required Vitest check on the current HEAD before
+ * calling `gh pr merge --auto`. The required check is the complete `tests`
+ * job, so its green result is the authority for the review gate's validated
+ * LGTM carry-forward when the review commit is older than the current HEAD.
  */
 import { execFileSync } from 'node:child_process';
 import { realpathSync } from 'node:fs';
@@ -43,17 +45,28 @@ function reviewTimestamp(review) {
   return timestamps.length > 0 ? Math.max(...timestamps) : null;
 }
 
-/** Return the latest reviewer-bot review that is anchored to `head`. */
-export function latestBotReviewOnHead(reviews, head) {
-  if (!Array.isArray(reviews) || typeof head !== 'string' || !head) return null;
+function latestBotReviewMatching(reviews, predicate) {
+  if (!Array.isArray(reviews) || typeof predicate !== 'function') return null;
   const candidates = flattenPages(reviews)
     .map((review, index) => ({ review, index, timestamp: reviewTimestamp(review) }))
-    .filter(({ review, timestamp }) => isReviewerBot(review?.user) && review?.commit_id === head
+    .filter(({ review, timestamp }) => isReviewerBot(review?.user) && predicate(review)
       && timestamp !== null)
     .sort((left, right) => left.timestamp - right.timestamp
       || (Number(left.review.id || left.index) || left.index)
         - (Number(right.review.id || right.index) || right.index));
   return candidates.at(-1)?.review || null;
+}
+
+/** Return the latest reviewer-bot review, regardless of the commit it names. */
+export function latestBotReview(reviews) {
+  if (!Array.isArray(reviews)) return null;
+  return latestBotReviewMatching(reviews, () => true);
+}
+
+/** Return the latest reviewer-bot review that is anchored to `head`. */
+export function latestBotReviewOnHead(reviews, head) {
+  if (typeof head !== 'string' || !head) return null;
+  return latestBotReviewMatching(reviews, (review) => review?.commit_id === head);
 }
 
 /** Require the explicit reviewer summary, rather than inferring zero findings. */
@@ -71,11 +84,16 @@ export function reviewHasLgtm(body) {
   return typeof body === 'string' && LGTM_HEADING_RE.test(body);
 }
 
-export function reviewIsApprovedOnHead(review, head) {
-  if (!review || review.commit_id !== head) return false;
+export function reviewIsApproved(review) {
+  if (!review || !/^[0-9a-f]{40}$/i.test(String(review.commit_id || ''))) return false;
   if (!isReviewerBot(review.user)) return false;
   if (!['APPROVED', 'COMMENTED'].includes(String(review.state || '').toUpperCase())) return false;
   return reviewHasZeroFindings(review.body) && reviewHasLgtm(review.body);
+}
+
+export function reviewIsApprovedOnHead(review, head) {
+  if (!review || review.commit_id !== head) return false;
+  return reviewIsApproved(review);
 }
 
 /** Select the newest completed required check; an active run always blocks. */
@@ -117,19 +135,26 @@ export function evaluateNativeAutoMerge({ pr, reviews, checkRuns } = {}) {
     return { allow: false, reason: 'native auto-merge già abilitato' };
   }
 
-  const review = latestBotReviewOnHead(reviews, pr.headRefOid);
+  // The required check is the complete `tests` job. Its review gate already
+  // applies the repository's fingerprint-based carry-forward policy, so the
+  // native helper must not reject a valid older LGTM merely because the PR
+  // received a data-only or otherwise review-preserving commit afterward.
+  const review = latestBotReview(reviews);
   if (!review) {
-    return { allow: false, reason: 'nessuna review bot con exact-head verificabile' };
+    return { allow: false, reason: 'nessuna review bot verificabile' };
   }
-  if (!reviewIsApprovedOnHead(review, pr.headRefOid)) {
-    return { allow: false, reason: 'ultima review bot exact-head non è Important 0/Nit 0 + LGTM' };
+  if (!reviewIsApproved(review)) {
+    return { allow: false, reason: 'ultima review bot non è Important 0/Nit 0 + LGTM' };
   }
 
   const check = requiredVitestDecision(checkRuns, pr.headRefOid);
   if (!check.allow) return check;
+  const reviewScope = review.commit_id === pr.headRefOid
+    ? 'review exact-head'
+    : 'LGTM carry-forward verificato dal check required';
   return {
     allow: true,
-    reason: `review exact-head ✔; ${check.reason}`,
+    reason: `${reviewScope} ✔; ${check.reason}`,
     reviewId: review.id,
   };
 }
@@ -140,8 +165,8 @@ export function evaluateNativeAutoMerge({ pr, reviews, checkRuns } = {}) {
  * persisted opt-in is not evidence that the new HEAD was reviewed or tested.
  *
  * `action` is deliberately explicit for the side-effecting CLI:
- *   - `enable`: no request exists and the exact-head gate passed;
- *   - `retain`: a request exists and the exact-head gate passed again;
+ *   - `enable`: no request exists and the review/check gate passed;
+ *   - `retain`: a request exists and the review/check gate passed again;
  *   - `revoke`: a request exists but the fresh gate failed;
  *   - `skip`: no request exists and the gate is not yet satisfied.
  */
@@ -302,7 +327,7 @@ function main() {
     checkRuns = loadCheckRuns(repo, pr.headRefOid);
   } catch (error) {
     if (hadAutoMerge) {
-      revokeExistingAutoMerge(repo, pr, 'review/check exact-head non leggibili');
+      revokeExistingAutoMerge(repo, pr, 'review/check non leggibili');
       return;
     }
     console.error(`::error::native auto-merge guard: lettura review/check fallita: ${String(error).slice(0, 240)}`);
@@ -319,7 +344,7 @@ function main() {
   if (!decision.allow) return;
 
   // Close the head race between the reads and the native opt-in. A new HEAD
-  // invalidates the exact-head review/check pair and must be re-evaluated.
+  // invalidates the review/check snapshot and must be re-evaluated.
   let current;
   try {
     current = ghJson(['pr', 'view', prNumber, '--repo', repo, '--json',
@@ -337,12 +362,12 @@ function main() {
     if (current.state === 'OPEN' && current.autoMergeRequest !== null) {
       revokeExistingAutoMerge(repo, current, 'HEAD o stato cambiato dopo il gate');
     }
-    return skip('HEAD/stato cambiato dopo i gate; serve una nuova review exact-head');
+    return skip('HEAD/stato cambiato dopo i gate; serve una nuova valutazione review/check');
   }
 
   // Review and checks can change without a HEAD change. Re-read them after
   // confirming the HEAD and immediately before the native opt-in; the first
-  // snapshot is not allowed to authorize a stale verdict.
+  // snapshot is not enough to authorize the opt-in.
   let finalReviews;
   let finalCheckRuns;
   try {
@@ -350,7 +375,7 @@ function main() {
     finalCheckRuns = loadCheckRuns(repo, current.headRefOid);
   } catch (error) {
     if (current.autoMergeRequest !== null) {
-      revokeExistingAutoMerge(repo, current, 'review/check exact-head non leggibili prima dell’opt-in');
+      revokeExistingAutoMerge(repo, current, 'review/check non leggibili prima dell’opt-in');
       return;
     }
     console.error(`::error::native auto-merge guard: rilettura review/check fallita: ${String(error).slice(0, 240)}`);
