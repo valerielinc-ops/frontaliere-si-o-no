@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { stripScriptsAndStyles } from './lib/crawler-template.mjs';
 import { extractMetaDescriptionRaw } from './lib/meta-description-extract.mjs';
+import { readAllAttr, readAttr, readMetaContent, scanStartTags } from './lib/html-attr.mjs';
 import { pathToFileURL } from 'node:url';
 
 /**
@@ -307,15 +308,6 @@ function hasMetaRefresh(html) {
   return /<meta[^>]*http-equiv\s*=\s*["']refresh["']/i.test(withoutNoscript);
 }
 
-// Read quoted and unquoted HTML attributes. Vite's minifier removes quotes
-// from single-token attributes, while URLs and descriptions are usually quoted.
-function readAttribute(attributes, name) {
-  const escapedName = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const match = attributes.match(new RegExp(`\\b${escapedName}\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s>]+))`, 'i'));
-  if (!match) return null;
-  return decodeHtmlEntities(match[1] ?? match[2] ?? match[3]).trim();
-}
-
 function decodeHtmlEntities(value) {
   return String(value || '')
     .replace(/&amp;/gi, '&')
@@ -326,20 +318,11 @@ function decodeHtmlEntities(value) {
     .replace(/&nbsp;/gi, ' ');
 }
 
-function extractMetaContent(html, key, attributeName = 'property') {
-  for (const match of html.matchAll(/<meta\b([^>]*)>/gi)) {
-    const attributes = match[1];
-    if (readAttribute(attributes, attributeName)?.toLowerCase() !== key.toLowerCase()) continue;
-    return readAttribute(attributes, 'content') || '';
-  }
-  return '';
-}
-
 function extractLinkByRel(html, expectedRel) {
-  for (const match of html.matchAll(/<link\b([^>]*)>/gi)) {
-    const rel = readAttribute(match[1], 'rel');
-    if (!rel?.split(/\s+/).some(token => token.toLowerCase() === expectedRel.toLowerCase())) continue;
-    return readAttribute(match[1], 'href') || '';
+  for (const { raw } of scanStartTags(html, 'link')) {
+    const rel = readAttr(raw, 'rel');
+    if (!rel.split(/\s+/).some(token => token.toLowerCase() === expectedRel.toLowerCase())) continue;
+    return readAttr(raw, 'href');
   }
   return '';
 }
@@ -398,12 +381,12 @@ function validateBestPracticeSeo(html, pagePath) {
     ['og:url', 'missingOgUrl'],
   ];
   for (const [key, type] of requiredOpenGraph) {
-    if (!extractMetaContent(html, key)) {
+    if (!readMetaContent(html, key)) {
       issues.push({ type, detail: `Missing meta property="${key}"` });
     }
   }
 
-  const ogUrl = extractMetaContent(html, 'og:url');
+  const ogUrl = readMetaContent(html, 'og:url');
   if (ogUrl) {
     try {
       const parsedOgUrl = new URL(ogUrl, pageUrl);
@@ -415,12 +398,12 @@ function validateBestPracticeSeo(html, pagePath) {
     }
   }
 
-  const twitterTags = [...html.matchAll(/<meta\b([^>]*)>/gi)]
-    .map(match => readAttribute(match[1], 'name')?.toLowerCase())
+  const twitterTags = scanStartTags(html, 'meta')
+    .map(({ raw }) => readAttr(raw, 'name').toLowerCase())
     .filter(name => name?.startsWith('twitter:'));
   if (twitterTags.length > 0) {
     for (const key of ['twitter:card', 'twitter:title', 'twitter:description', 'twitter:image']) {
-      if (!extractMetaContent(html, key, 'name')) {
+      if (!readMetaContent(html, key)) {
         issues.push({ type: 'partialTwitterCard', detail: `Missing meta name="${key}"` });
       }
     }
@@ -435,12 +418,11 @@ function validateBestPracticeSeo(html, pagePath) {
   }
 
   const contentHtml = stripScriptsAndStyles(html);
-  for (const match of contentHtml.matchAll(/<img\b([^>]*)>/gi)) {
-    const attributes = match[1];
-    const role = readAttribute(attributes, 'role')?.toLowerCase();
-    const ariaHidden = readAttribute(attributes, 'aria-hidden')?.toLowerCase();
-    if (role === 'presentation' || role === 'none' || ariaHidden === 'true') continue;
-    if (readAttribute(attributes, 'alt') === null) {
+  for (const { raw } of scanStartTags(contentHtml, 'img')) {
+    const role = readAttr(raw, 'role').toLowerCase().split(/\s+/);
+    const ariaHidden = readAttr(raw, 'aria-hidden').toLowerCase();
+    if (role.includes('presentation') || role.includes('none') || ariaHidden === 'true') continue;
+    if (readAllAttr(raw, 'alt').length === 0) {
       issues.push({ type: 'missingImageAlt', detail: 'Image has no alt attribute' });
     }
   }
@@ -725,7 +707,7 @@ function printErrorGroup(label, paths, limit) {
 function printWarningGroup(label, entries, limit) {
   console.log(`\u26a0\ufe0f ${entries.length} page-level advisory finding(s): ${label}`);
   for (const { path, detail } of entries.slice(0, limit)) {
-    console.log(`   /${path}: ${detail}`);
+    console.log(`   ${path === '/' ? '/' : `/${path}`}: ${detail}`);
   }
   if (entries.length > limit) console.log(`   ... and ${entries.length - limit} more`);
   console.log();
