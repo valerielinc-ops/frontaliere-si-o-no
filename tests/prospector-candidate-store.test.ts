@@ -80,6 +80,18 @@ describe('prospector candidate store — rejected tombstones (#6903)', () => {
     expect(store.candidates[key].name).toBe('Wrong source');
   });
 
+  it('does not reopen a rejected verdict through an ordinary status transition', () => {
+    const key = 'terminal.example';
+    const store = storeWith({
+      [key]: { key, status: 'rejected', rejectedAt: OLD, updatedAt: OLD, reason: 'terminal' },
+    });
+    const before = structuredClone(store.candidates[key]);
+
+    expect(setStatus(store, key, 'new', { name: 'Recovered' }, null)).toEqual(before);
+    expect(store.candidates[key]).toEqual(before);
+    expect(store.rejectedTombstones[key]).toEqual({ rejectedAt: OLD });
+  });
+
   it('persists legacy tombstones without carrying diagnostic payload', () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'prospector-candidate-store-'));
     const file = path.join(dir, 'candidates.json');

@@ -237,6 +237,14 @@ export function setStatus(store, key, status, patch = {}, ledgerFile = LEDGER_PA
   const c = store.candidates[key];
   if (!c) return null;
   const prev = c.status;
+  // A rejected verdict is terminal. Reopening it would make the compact
+  // tombstone ineffective; a future policy can add an explicit reopen API
+  // that removes the tombstone instead of treating an ordinary transition as
+  // permission to retry.
+  if (prev === 'rejected' && status !== 'rejected') {
+    rememberRejected(store, c);
+    return c;
+  }
   // `dead` and `rejected` are terminal verdicts a later stage may legitimately
   // set; everything else only moves forward, so a re-run cannot rewind a
   // candidate that already reached production.
