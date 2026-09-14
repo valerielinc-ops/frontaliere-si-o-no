@@ -635,8 +635,17 @@ function buildHomepageBreadcrumbJsonLd(locale: HpSeoLocale): string {
 }
 
 export function injectHomepageSeoContent(html: string, locale: HpSeoLocale): string {
- // Inject only once: skip if already present.
- if (html.includes('id="hp-seo-block"')) return html;
+ // Inject only once: skip if already present. An older incremental artifact
+ // can already carry the SEO block without the directory rail, so repair that
+ // specific missing sibling before returning instead of treating the marker
+ // as proof that the whole homepage contract is current.
+ if (html.includes('id="hp-seo-block"')) {
+  if (locale === 'it' && !html.includes('id="hp-directory-hubs"') && html.includes('</body>')) {
+   const directoryHubs = buildHomepageDirectoryHubsBlock(locale);
+   return html.replace('</body>', `${directoryHubs}\n</body>`);
+  }
+  return html;
+ }
  const block = collapsifySeoBlock(HOMEPAGE_SEO_BLOCK_HTML[locale] ?? HOMEPAGE_SEO_BLOCK_HTML.it);
  // Place the block before </body> so it sits as a sibling of #root and is
  // not touched by React hydration. Falls back to no-op if no </body>.
@@ -1182,8 +1191,9 @@ export function injectLocaleMainNav(html: string, locale: HpSeoLocale): string {
  * so removing the injection from the ratchet is what makes the test go red.
  */
 export function renderLocaleRootShell(html: string, locale: 'en' | 'de' | 'fr'): string {
-  let out = html.replace(/<aside id="hp-seo-block"[\s\S]*?<\/aside>\s*/i, '');
-  out = out.replace(/<script[^>]*\bid="hp-breadcrumb-ld"[^>]*>[\s\S]*?<\/script>\s*/i, '');
+ let out = html.replace(/<aside id="hp-seo-block"[\s\S]*?<\/aside>\s*/i, '');
+ out = out.replace(/<aside\b[^>]*\bid="hp-directory-hubs"[^>]*>[\s\S]*?<\/aside>\s*/i, '');
+ out = out.replace(/<script[^>]*\bid="hp-breadcrumb-ld"[^>]*>[\s\S]*?<\/script>\s*/i, '');
   out = injectHomepageSeoContent(out, locale);
   // Locale main nav — the one thing this shell cannot inherit from the IT root
   // it mirrors. Both ratchet branches end up carrying the ITALIAN pipe nav (or

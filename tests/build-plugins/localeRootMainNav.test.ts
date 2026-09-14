@@ -138,6 +138,22 @@ describe('locale-root SPA shells — internal links (#5428)', () => {
     expect(html).toContain(`href="${buildPlateAuctionPath({ locale: 'de', view: 'hub' })}"`);
   });
 
+  it('repairs the directory rail on an older IT artifact that already has the SEO block', () => {
+    const first = injectHomepageSeoContent(SHELL, 'it');
+    const older = first.replace(/<aside\b[^>]*\bid="hp-directory-hubs"[^>]*>[\s\S]*?<\/aside>\s*/i, '');
+    const repaired = injectHomepageSeoContent(older, 'it');
+    expect(repaired).toContain('id="hp-directory-hubs"');
+    expect(repaired.match(/id="hp-directory-hubs"/g)).toHaveLength(1);
+  });
+
+  it('strips the IT directory rail before creating a non-IT locale-root mirror', () => {
+    const italian = injectHomepageSeoContent(SHELL, 'it');
+    const localized = renderLocaleRootShell(italian, 'de');
+    expect(localized).not.toContain('id="hp-directory-hubs"');
+    expect(localized).toContain(`href="${PHARMACY_HUB_PATH.de}"`);
+    expect(localized).toContain(`href="${buildPlateAuctionPath({ locale: 'de', view: 'hub' })}"`);
+  });
+
   it.each(NON_IT_LOCALES)('does not add the cross-locale directory rail to /%s/', (locale) => {
     expect(injectHomepageSeoContent(SHELL, locale)).not.toContain('id="hp-directory-hubs"');
   });
