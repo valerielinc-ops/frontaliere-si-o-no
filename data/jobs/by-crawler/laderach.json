@@ -1107,11 +1107,13 @@
       "source": "Läderach Dedicated Parser",
       "crawledAt": "2026-09-13T13:55:59.480Z",
       "previousSlugs": [
-        "master-data-manager-laderach-bilten"
+        "master-data-manager-laderach-bilten",
+        "master-data-manager-laderach-schweiz-ag-bilten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "master-data-manager-laderach-bilten"
+          "master-data-manager-laderach-bilten",
+          "master-data-manager-laderach-schweiz-ag-bilten"
         ]
       },
       "needsRetranslation": true,
@@ -1259,10 +1261,6 @@
           "electricien-d-affaires-h-f-d-laderach-schweiz-ag-glarus"
         ]
       },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2190,
-      "retranslationAttempts": 6,
       "firstSeenAt": "2026-08-21T09:46:39.372Z",
       "salaryMin": 67000,
       "salaryMax": 90500,
