@@ -104,11 +104,27 @@ jobs:
         if: ${{ inputs.dry_run != true }}
         run: |
           set -euo pipefail
-          node --input-type=module <<'NODE'
+          git fetch --no-tags origin main
+          pushed_commit="${{ steps.commit.outputs.final_commit }}"
+          persisted_sha="$(git rev-parse origin/main)"
+          if [ -n "$pushed_commit" ] && ! git merge-base --is-ancestor "$pushed_commit" "$persisted_sha"; then
+            echo "::error::commit $pushed_commit is not reachable from origin/main $persisted_sha after the writer push"
+            exit 1
+          fi
+
+          verify_root="$(mktemp -d)"
+          trap 'rm -rf -- "$verify_root"' EXIT
+          git archive --format=tar "$persisted_sha" data/jobs/expired/by-crawler | tar -x -C "$verify_root"
+          PERSISTED_SHA="$persisted_sha" VERIFY_ROOT="$verify_root" node --input-type=module <<'NODE'
+          import path from 'node:path';
           import { sweepExpiredArchiveSlices } from './scripts/reconcile-crawler-company-ownership.mjs';
 
-          const report = sweepExpiredArchiveSlices({ apply: false });
+          const report = sweepExpiredArchiveSlices({
+            dir: path.join(process.env.VERIFY_ROOT, 'data/jobs/expired/by-crawler'),
+            apply: false,
+          });
           const summary = {
+            verifiedCommit: process.env.PERSISTED_SHA,
             filesScanned: report.filesScanned,
             filesChanged: report.filesChanged,
             capRefused: report.capRefused,
