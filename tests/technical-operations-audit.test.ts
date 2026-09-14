@@ -136,6 +136,21 @@ describe('technical operations audit', () => {
     expect(findings.filter((item: any) => item.rule === 'workflow.data-write-without-check')).toEqual([]);
   });
 
+  it('maschera una ricetta tra apici singoli prima di valutare una scrittura reale', () => {
+    const source = [
+      'name: quoted-recipe-before-write',
+      'on: [workflow_dispatch]',
+      'jobs:',
+      '  persist:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: write',
+      "        run: echo 'validate data/result.json before publishing' && git add data/result.json && git commit -m result",
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/quoted-recipe-before-write.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.data-write-without-check')).toHaveLength(1);
+  });
+
   it('mantiene il finding per una scrittura reale con path quotato', () => {
     const source = [
       'name: quoted-write',

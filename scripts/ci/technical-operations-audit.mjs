@@ -213,7 +213,6 @@ function shellOperationalText(run, { preserveQuotedWritePaths = false } = {}) {
   const source = String(run || '');
   const output = [];
   let line = '';
-  let singleQuoted = false;
   let doubleQuoted = false;
   let comment = false;
   let escaped = false;
@@ -271,7 +270,6 @@ function shellOperationalText(run, { preserveQuotedWritePaths = false } = {}) {
         else mask(quoteContent);
         mask(char);
         quote = null;
-        singleQuoted = false;
         doubleQuoted = false;
         escaped = false;
         quoteContent = '';
@@ -295,19 +293,13 @@ function shellOperationalText(run, { preserveQuotedWritePaths = false } = {}) {
       mask(char);
       continue;
     }
-    if (!doubleQuoted && char === "'") {
-      singleQuoted = !singleQuoted;
-      mask(char);
-      continue;
-    }
-    if (!singleQuoted && !doubleQuoted && char === '#') {
+    if (!doubleQuoted && char === '#') {
       comment = true;
       mask(char);
       continue;
     }
     if (char === "'" || char === '"') {
       quote = char;
-      singleQuoted = char === "'";
       doubleQuoted = char === '"';
       quotePrefix = logicalCommand;
       quoteContent = '';
