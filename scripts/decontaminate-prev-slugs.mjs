@@ -27,6 +27,9 @@
  * Usage:
  *   node scripts/decontaminate-prev-slugs.mjs            # dry-run report
  *   node scripts/decontaminate-prev-slugs.mjs --apply    # write changes
+ *
+ * The pure decontaminateJobs() helper is also used by the active-slice writer
+ * so confirmed same-slice contamination cannot regrow after a crawl write.
  */
 import fs from 'node:fs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
@@ -87,6 +90,84 @@ function removePlannedSlugs(job, plans) {
   }
 }
 
+function collectRedirectPlans(jobs, owners, { sourceEntry = null, ownerEntry = null } = {}) {
+  const plans = [];
+  for (const job of jobs) {
+    if (!job || typeof job !== 'object') continue;
+    for (const [locale, slugs] of Object.entries(job.previousSlugsByLocale || {})) {
+      if (!Array.isArray(slugs)) continue;
+      for (const slug of slugs) {
+        const { targetJob, redirected } = resolveRecoveryTarget(job, slug, owners);
+        if (!redirected) continue;
+        plans.push({
+          sourceEntry,
+          sourceJob: job,
+          targetEntry: ownerEntry?.get(targetJob) || sourceEntry,
+          targetJob,
+          locale,
+          slug,
+        });
+      }
+    }
+    if (Array.isArray(job.previousSlugs)) {
+      for (const slug of job.previousSlugs) {
+        const { targetJob, redirected } = resolveRecoveryTarget(job, slug, owners);
+        if (!redirected) continue;
+        plans.push({
+          sourceEntry,
+          sourceJob: job,
+          targetEntry: ownerEntry?.get(targetJob) || sourceEntry,
+          targetJob,
+          locale: null,
+          slug,
+        });
+      }
+    }
+  }
+  return plans;
+}
+
+/**
+ * Decontaminate one crawler slice already held in memory.
+ *
+ * This is the write-side form of the fleet pass below. It keeps the same
+ * first-owner semantics used for jobs sharing a slice, and only redirects a
+ * previous slug when its hash tail positively identifies another current job.
+ * Unknown tails stay untouched because they are not evidence of contamination.
+ *
+ * @param {object[]} jobs jobs about to be persisted in one crawler slice
+ * @returns {{moved: number, emptyLocaleBucketsPruned: number}}
+ */
+export function decontaminateJobs(jobs) {
+  if (!Array.isArray(jobs)) return { moved: 0, emptyLocaleBucketsPruned: 0 };
+
+  const owners = new Map();
+  for (const job of jobs) {
+    if (!job || typeof job !== 'object') continue;
+    const hash = stableSlugHash(job);
+    if (hash && !owners.has(hash)) owners.set(hash, job);
+  }
+
+  const plans = collectRedirectPlans(jobs, owners);
+
+  for (const plan of plans) applyAddition(plan);
+  const plansByJob = new Map();
+  for (const plan of plans) {
+    if (!plansByJob.has(plan.sourceJob)) plansByJob.set(plan.sourceJob, []);
+    plansByJob.get(plan.sourceJob).push(plan);
+  }
+  for (const [job, jobPlans] of plansByJob) removePlannedSlugs(job, jobPlans);
+
+  let emptyLocaleBucketsPruned = 0;
+  for (const job of jobs) {
+    if (job && typeof job === 'object') {
+      emptyLocaleBucketsPruned += pruneEmptyPreviousSlugLocaleBuckets(job);
+    }
+  }
+
+  return { moved: plans.length, emptyLocaleBucketsPruned };
+}
+
 /**
  * Process one or more crawler slices as a single ownership namespace.
  *
@@ -133,24 +214,10 @@ export function processFiles(filePaths, {
       if (hash && ownerEntry.get(owners.get(hash)) !== entry) owners.set(hash, job);
     }
 
-    for (const job of entry.slice.jobs) {
-      for (const [locale, slugs] of Object.entries(job.previousSlugsByLocale || {})) {
-        if (!Array.isArray(slugs)) continue;
-        for (const slug of slugs) {
-          const { targetJob, redirected } = resolveRecoveryTarget(job, slug, owners);
-          if (!redirected) continue;
-          plans.push({ sourceEntry: entry, sourceJob: job, targetEntry: ownerEntry.get(targetJob), targetJob, locale, slug });
-          stats.get(entry).moved++;
-        }
-      }
-      if (Array.isArray(job.previousSlugs)) {
-        for (const slug of job.previousSlugs) {
-          const { targetJob, redirected } = resolveRecoveryTarget(job, slug, owners);
-          if (!redirected) continue;
-          plans.push({ sourceEntry: entry, sourceJob: job, targetEntry: ownerEntry.get(targetJob), targetJob, locale: null, slug });
-          stats.get(entry).moved++;
-        }
-      }
+    const entryPlans = collectRedirectPlans(entry.slice.jobs, owners, { sourceEntry: entry, ownerEntry });
+    for (const plan of entryPlans) {
+      plans.push(plan);
+      stats.get(entry).moved++;
     }
   }
 

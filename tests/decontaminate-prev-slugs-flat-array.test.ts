@@ -204,4 +204,32 @@ describe('decontaminate-prev-slugs: flat previousSlugs redirect', () => {
       fs.rmSync(tmpFile, { force: true });
     }
   });
+
+  it('redirects confirmed hash-tail contamination in the in-memory writer payload', async () => {
+    const { decontaminateJobs } = await import('../scripts/decontaminate-prev-slugs.mjs');
+    const claimant = {
+      id: 'company-claimant',
+      url: 'https://jobs.example.com/posting/claimant',
+      previousSlugs: [] as string[],
+      previousSlugsByLocale: { en: [] as string[] },
+    };
+    const owner = {
+      id: 'company-owner',
+      url: 'https://jobs.example.com/posting/owner',
+      previousSlugs: [] as string[],
+    };
+    const ownerSlug = `owner-route-${stableSlugHash(owner)}`;
+    claimant.previousSlugs.push(ownerSlug);
+    claimant.previousSlugs.push('legacy-campus');
+    claimant.previousSlugsByLocale.en.push(ownerSlug);
+    claimant.previousSlugsByLocale.en.push('legacy-campus');
+
+    const result = decontaminateJobs([claimant, owner]);
+
+    expect(result).toEqual({ moved: 2, emptyLocaleBucketsPruned: 0 });
+    expect(claimant.previousSlugs).toEqual(['legacy-campus']);
+    expect(claimant.previousSlugsByLocale).toEqual({ en: ['legacy-campus'] });
+    expect(owner.previousSlugs).toEqual([ownerSlug]);
+    expect(owner.previousSlugsByLocale).toEqual({ en: [ownerSlug] });
+  });
 });
