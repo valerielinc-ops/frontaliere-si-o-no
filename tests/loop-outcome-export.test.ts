@@ -163,4 +163,36 @@ describe('read-only loop outcome exporters', () => {
       attachedJobs: 1,
     });
   });
+
+  it('keeps funnel and attachment metrics inside the attested profile cohort', () => {
+    const output = buildL9OutcomeLedger({
+      now: NOW,
+      profiles: {
+        _meta: { generatedAt: NOW.toISOString() },
+        profiles: [{ companyKey: 'demo' }],
+      },
+      publisherRows: [
+        row('publishers/in-cohort', { company: { companyKey: 'demo', name: 'Demo AG' } }),
+        row('publishers/out-of-cohort', { company: { companyKey: 'other', name: 'Other AG' } }),
+      ],
+      orderRows: [
+        row('orders/in-cohort-order', { publisherUid: 'in-cohort', status: 'active', amountChf: 299, currency: 'CHF' }),
+        row('orders/out-of-cohort-order', { publisherUid: 'out-of-cohort', status: 'active', amountChf: 499, currency: 'CHF' }),
+      ],
+      jobRows: [
+        row('publisher_jobs/in-cohort-job', { publisherUid: 'in-cohort', status: 'paid', tier: 'sponsored' }),
+        row('publisher_jobs/out-of-cohort-job', { publisherUid: 'out-of-cohort', status: 'paid', tier: 'sponsored', companyKey: 'other' }),
+      ],
+    });
+
+    expect(output).toMatchObject({
+      eligibleEmployerAccounts: 1,
+      checkoutStartAccounts: 1,
+      paidActivations: 1,
+      activeSubscriptions: 1,
+      attachedJobs: 1,
+      sponsoredProfiles: 1,
+      mrrRecognizedChf: 299,
+    });
+  });
 });

@@ -46,6 +46,16 @@ describe('loop fleet workflow contract', () => {
     }
   });
 
+  it('runs L9 only on its scheduled cadence or after a successful profile refresh', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-l9-employer-activation.yml'), 'utf8');
+    expect(source).toContain('workflow_run:');
+    expect(source).toContain('Refresh Employer Profiles');
+    expect(source).toContain("github.event.workflow_run.conclusion == 'success'");
+    expect(source).toContain("github.event.workflow_run.head_branch == 'main'");
+    expect(source).toContain("github.event_name == 'workflow_run' && 'main'");
+    expect(source).not.toMatch(/^\s+push:\s*$/mu);
+  });
+
   it('uploads lifecycle evidence for every loop', () => {
     for (const name of loopWorkflows) {
       const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
