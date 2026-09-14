@@ -522,12 +522,84 @@ const EVIDENCE_REQUIRED_LIFECYCLE_EVENTS = Object.freeze([
   'post_merge_verified',
 ]);
 
+function lifecycleEventTime(events, eventType) {
+  const event = [...events]
+    .filter((candidate) => candidate.eventType === eventType)
+    .sort((left, right) => Date.parse(left.occurredAt || '') - Date.parse(right.occurredAt || ''))
+    .find((candidate) => Number.isFinite(Date.parse(candidate.occurredAt || '')));
+  return event ? new Date(event.occurredAt).toISOString() : null;
+}
+
+function lifecycleDeadline(startAt, hours) {
+  const startMs = Date.parse(startAt || '');
+  return Number.isFinite(startMs) && Number.isInteger(hours) && hours > 0
+    ? new Date(startMs + hours * 3_600_000).toISOString()
+    : null;
+}
+
+function lifecycleDeadlineStatus({ deadlineAt, milestoneAt, nowMs }) {
+  if (!deadlineAt) return 'unmeasurable';
+  if (milestoneAt) return Date.parse(milestoneAt) <= Date.parse(deadlineAt) ? 'met' : 'late';
+  return nowMs > Date.parse(deadlineAt) ? 'overdue' : 'pending';
+}
+
+function lifecycleSlaSummary(events, now = new Date()) {
+  const candidateAt = lifecycleEventTime(events, 'candidate');
+  const ownerAssignedAt = lifecycleEventTime(events, 'owner_assigned');
+  const mergedAt = lifecycleEventTime(events, 'merged');
+  const postMergeVerifiedAt = lifecycleEventTime(events, 'post_merge_verified');
+  const rolledBackAt = lifecycleEventTime(events, 'rolled_back');
+  const inconclusiveAt = lifecycleEventTime(events, 'inconclusive');
+  const lifecycle = events.find((event) => event.lifecycle)?.lifecycle;
+  if (!lifecycle || !candidateAt) return null;
+  const nowMs = now instanceof Date ? now.getTime() : Date.parse(now || '');
+  const effectiveNowMs = Number.isFinite(nowMs) ? nowMs : Date.now();
+  const candidateResolutionAt = postMergeVerifiedAt || rolledBackAt || inconclusiveAt;
+  const candidateTtl = {
+    hours: lifecycle.candidateTtlHours,
+    deadlineAt: lifecycleDeadline(candidateAt, lifecycle.candidateTtlHours),
+    milestoneAt: candidateResolutionAt,
+  };
+  candidateTtl.status = lifecycleDeadlineStatus({ ...candidateTtl, nowMs: effectiveNowMs });
+  const ownerSla = {
+    hours: lifecycle.ownerSlaHours,
+    deadlineAt: lifecycleDeadline(candidateAt, lifecycle.ownerSlaHours),
+    milestoneAt: ownerAssignedAt,
+  };
+  ownerSla.status = lifecycleDeadlineStatus({ ...ownerSla, nowMs: effectiveNowMs });
+  const postMergeVerification = {
+    hours: lifecycle.postMergeVerificationHours,
+    deadlineAt: lifecycleDeadline(mergedAt, lifecycle.postMergeVerificationHours),
+    milestoneAt: postMergeVerifiedAt,
+  };
+  postMergeVerification.status = mergedAt
+    ? lifecycleDeadlineStatus({ ...postMergeVerification, nowMs: effectiveNowMs })
+    : 'not_started';
+  const checks = [candidateTtl, ownerSla, postMergeVerification];
+  const statuses = checks.map((check) => check.status);
+  const nextDeadlineAt = checks
+    .filter((check) => ['pending', 'overdue'].includes(check.status) && check.deadlineAt)
+    .map((check) => check.deadlineAt)
+    .sort((left, right) => Date.parse(left) - Date.parse(right))[0] || null;
+  return {
+    status: statuses.includes('overdue')
+      ? 'overdue'
+      : (statuses.includes('late')
+        ? 'late'
+        : (statuses.some((status) => ['pending', 'not_started'].includes(status)) ? 'pending' : 'met')),
+    candidateTtl,
+    ownerSla,
+    postMergeVerification,
+    nextDeadlineAt,
+  };
+}
+
 /**
  * Summarize lifecycle records without treating a set of event names as proof
  * of a coherent chain. This is intentionally read-only: it reports missing
  * evidence and contradictions for a separate observer or human owner.
  */
-export function summarizeLifecycleEvents(events = []) {
+export function summarizeLifecycleEvents(events = [], { now = new Date() } = {}) {
   const byCandidate = new Map();
   for (const event of events || []) {
     const candidateId = typeof event?.candidateId === 'string' && event.candidateId.trim()
@@ -586,6 +658,7 @@ export function summarizeLifecycleEvents(events = []) {
       terminalEventTypes,
       incoherent,
       complete: missing.length === 0 && incoherent.length === 0,
+      sla: lifecycleSlaSummary(candidateEvents, now),
       lastEvent: sorted.at(-1) ? {
         eventType: sorted.at(-1).eventType,
         occurredAt: sorted.at(-1).occurredAt,
