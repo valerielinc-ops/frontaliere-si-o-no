@@ -25,7 +25,7 @@ const shadowCascadeEnv = {
   SHADOW_WORKFLOW_BLOB_SHA: '${{ github.workflow_sha }}',
 };
 const expectedShadowHashes = {
-  cascadeRun: 'd111ba88beb2ff9af1eb4246f81fdf7d9e87c866e7e0061b055430dc59e176af',
+  cascadeRun: 'cc77455801f9f61f9499a358abe313a6b01e961a5aeb4b4a57237942d3cacf96',
   finalize: '557e7f3cdcb4fcedd01b4566776286bd45b61cd7e1a7c0a1484caa4b80ee5faa',
   upload: '0c184849503095b03f5d268617fed8cfac7aa8fd4e112a99ed3aa7a782dc9568',
 };

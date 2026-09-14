@@ -236,7 +236,13 @@ describe('translation observability workflow', () => {
       expect(cascadeRun).toContain('--shadow-preflight-v2-run-attempt "$SHADOW_RUN_ATTEMPT"');
       expect(cascadeRun).toContain('--shadow-preflight-v2-workflow-blob-sha "$SHADOW_WORKFLOW_BLOB_SHA"');
       expect(cascadeRun).toContain('--mode capture');
-      expect(cascadeRun).toContain('^expected_(decision|contract)_digest=sha256:[a-f0-9]{64}$');
+      expect(cascadeRun).toContain("expected_decision_digest=''");
+      expect(cascadeRun).toContain("expected_contract_digest=''");
+      expect(cascadeRun).toContain('case "$binding" in');
+      expect(cascadeRun).toContain('expected_decision_digest=sha256:[a-f0-9]*) expected_decision_digest="${binding#*=}"');
+      expect(cascadeRun).toContain('expected_contract_digest=sha256:[a-f0-9]*) expected_contract_digest="${binding#*=}"');
+      expect(cascadeRun).toContain("printf 'expected_decision_digest=%s\\n' \"$expected_decision_digest\" >> \"$GITHUB_OUTPUT\"");
+      expect(cascadeRun).toContain("printf 'expected_contract_digest=%s\\n' \"$expected_contract_digest\" >> \"$GITHUB_OUTPUT\"");
       expect(cascadeRun).toContain('>> "$GITHUB_OUTPUT"');
       expect(cascadeRun).toContain('legacy_status=$?');
       expect(cascadeRun).toContain('exit "$legacy_status"');
