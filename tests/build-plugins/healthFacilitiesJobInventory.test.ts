@@ -60,4 +60,16 @@ describe('health-facility visible inventory', () => {
     expect((html.match(/class="ft-infeed-ad/g) || []).length).toBe(2);
     expect((html.match(/"@type":"JobPosting"/g) || []).length).toBe(6);
   });
+
+  it('keeps a production-sized complete facility inventory under the finite weight ceiling', () => {
+    const root = fixtureRoot(411);
+    const facility = getHealthFacility('usz');
+    const snapshot = aggregateHealthFacilityJobs(root, Date.parse('2026-09-14T00:00:00.000Z')).get('usz');
+    if (!facility || !snapshot) throw new Error('USZ fixture did not aggregate');
+
+    const { html } = renderFacilityPage('it', facility, snapshot, '2026-09-14', root);
+    expect(Buffer.byteLength(html, 'utf8')).toBeLessThanOrEqual(640 * 1024);
+    expect((html.match(/<article /g) || []).length).toBe(411);
+    expect((html.match(/class="ft-infeed-ad/g) || []).length).toBe(12);
+  });
 });

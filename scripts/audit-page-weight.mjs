@@ -26,6 +26,7 @@ import {
 import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
 import { BLOG_SECTION_RX } from './lib/articleSections.mjs';
 import { HEALTH_FACILITIES_SECTION_RX } from './lib/healthFacilitiesSections.mjs';
+import { HEALTH_FACILITY_PAGE_BUDGET_BYTES } from './lib/pageWeightBudgets.mjs';
 import { insertBounded } from './lib/boundedTopN.mjs';
 
 // 215 KB cap (was 200 KB). The TI job-board landing
@@ -79,12 +80,6 @@ export const MAX_HTML_BYTES = 260 * 1024;
 const ITALIAN_STATIONS_INDEX_BUDGET = 900 * 1024;
 const ITALIAN_STATIONS_INDEX_RE =
   /(?:^|\/)(?:stazioni-italia|italienische-tankstellen|italian-stations|stations-italiennes)\//;
-// Explicit owner override (2026-09-14): facility pages expose the complete
-// active inventory for the named employer, rather than a six-card teaser.
-// The list is intentionally bounded by the 12 in-feed-ad cap and keeps the
-// first six JobPosting projections in JSON-LD. Keep a finite ceiling so a
-// future corpus jump still surfaces in this audit.
-const HEALTH_FACILITY_PAGE_BUDGET = 640 * 1024;
 // Explicit owner override (2026-09-11): company hubs and evergreen employer
 // profiles intentionally expose the complete active result set, including the
 // long tail of employer listings. Their size is therefore not a page-weight
@@ -96,7 +91,7 @@ function budgetForPath(relPath) {
   if (JOB_BOARD_COMPANY_HUB_PATH_RX.test(p) || EMPLOYER_PROFILE_PATH_RX.test(p)) {
     return Number.POSITIVE_INFINITY;
   }
-  if (HEALTH_FACILITIES_SECTION_RX.test(p)) return HEALTH_FACILITY_PAGE_BUDGET;
+  if (HEALTH_FACILITIES_SECTION_RX.test(p)) return HEALTH_FACILITY_PAGE_BUDGET_BYTES;
   return ITALIAN_STATIONS_INDEX_RE.test(p) ? ITALIAN_STATIONS_INDEX_BUDGET : MAX_HTML_BYTES;
 }
 

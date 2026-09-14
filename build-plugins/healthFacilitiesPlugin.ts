@@ -156,15 +156,6 @@ function boardLabel(locale: HealthFacilityLocale, cantonName: string): string {
   }
 }
 
-function jobsHeading(locale: HealthFacilityLocale): string {
-  return {
-    it: 'Tutte le offerte attive',
-    en: 'All active openings',
-    de: 'Alle offenen Stellen',
-    fr: 'Tous les postes ouverts',
-  }[locale];
-}
-
 function toJobCard(job: FacilityFeaturedJob): JobCardJob {
   return {
     title: job.title,
@@ -262,7 +253,7 @@ export function renderFacilityPage(
   const emptyHtml = `<p class="s-card" style="color:var(--color-subtle);font-size:14px;margin:0">${esc(copy.featuredEmpty)}</p>`;
   const listHtml = renderJobCardListHtml(cardItems, { locale, emptyStateHtml: emptyHtml });
   const boardHref = cantonJobBoardPath(locale, facility.canton);
-  const jobsSection = `<section class="mt-6"><h2 style="${headingStyle()}">${esc(jobsHeading(locale))}</h2>${listHtml}<p class="mt-3"><a href="${esc(boardHref)}" style="${LINK_ACCENT_STYLE};font-weight:700">${esc(copy.ctaJobsLabel)} →</a></p></section>`;
+  const jobsSection = `<section class="mt-6"><h2 style="${headingStyle()}">${esc(copy.featuredTitle)}</h2>${listHtml}<p class="mt-3"><a href="${esc(boardHref)}" style="${LINK_ACCENT_STYLE};font-weight:700">${esc(copy.ctaJobsLabel)} →</a></p></section>`;
 
   // Roles list.
   const rolesSection = roles.length > 0
