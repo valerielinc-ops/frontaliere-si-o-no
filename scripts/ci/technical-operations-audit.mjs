@@ -891,6 +891,10 @@ export function auditIssueRouting(summary) {
 function syncAuditIssueRouting(issueNumber, summary) {
   if (!issueNumber) return;
   const routing = auditIssueRouting(summary);
+  // Deduplicated issues return before createGithubIssue's normal label
+  // provisioning path. Provision the target label here too, otherwise the
+  // first warning-only recurrence can fail to leave the durable review route.
+  ensureLabelsExist([routing.add]);
   try {
     execFileSync('gh', [
       'issue', 'edit', String(issueNumber),
