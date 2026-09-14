@@ -8,6 +8,14 @@ const WORKFLOW = readFileSync(
 );
 
 describe('sync-pharmacy-duties workflow', () => {
+  it('runs daily, keeps sync failures visible and commits only the two snapshots', () => {
+    expect(WORKFLOW).toContain("cron: '17 4 * * *'");
+    expect(WORKFLOW).toContain('run: node scripts/sync-pharmacy-duties.mjs');
+    expect(WORKFLOW).not.toContain('sync-pharmacy-duties.mjs || true');
+    expect(WORKFLOW).toContain('git diff --quiet -- data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json');
+    expect(WORKFLOW).toContain('git add data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json');
+  });
+
   it('uses the shared rebase-retry path for concurrent main writers', () => {
     expect(WORKFLOW).toContain('bash scripts/lib/git-push-with-retry.sh');
     expect(WORKFLOW).toContain('--regenerate-cmd');

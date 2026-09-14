@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import dataset from '../data/pharmacy-duties-ticino.json';
 import pharmacies from '../data/pharmacies-ticino-complete.json';
 import { getRuntimeDutyState, publicDutiesForRegion } from '../services/pharmacies/duties';
-import { validatePharmacyDutiesDataset, type PharmacyDutiesDataset } from '../services/pharmacies/types';
+import { validatePharmacyDuty, validatePharmacyDutyList, validatePharmacyDutiesDataset, type PharmacyDutiesDataset } from '../services/pharmacies/types';
 
 const typedDataset = dataset as unknown as PharmacyDutiesDataset;
 
@@ -21,5 +21,24 @@ describe('Ticino duty dataset', () => {
     expect(getRuntimeDutyState(duty, beforeEnd).expired).toBe(false);
     expect(getRuntimeDutyState(duty, afterEnd)).toMatchObject({ expired: true, active: false, status: 'expired' });
     expect(publicDutiesForRegion(typedDataset, duty.coverageName, afterEnd).some((candidate) => candidate.id === duty.id)).toBe(false);
+  });
+
+  it('requires ISO instants and keeps verified/expired status aligned with the interval', () => {
+    const now = new Date('2026-09-14T12:00:00.000Z');
+    const sample = typedDataset.duties.find((duty) => duty.status === 'verified');
+    expect(sample).toBeDefined();
+    expect(validatePharmacyDuty(0, { ...sample, startsAt: '2026-09-14' }, now)).toContain('duty[0]: invalid startsAt');
+    expect(validatePharmacyDuty(0, { ...sample, endsAt: '2026-09-13T12:00:00.000Z' }, now)).toContain('duty[0]: verified duty must not be expired');
+    expect(validatePharmacyDuty(0, { ...sample, status: 'expired' }, now)).toContain('duty[0]: expired duty must have ended');
+  });
+
+  it('requires overlapping same-area intervals to be explicitly conflicting', () => {
+    const sample = typedDataset.duties[0];
+    const left = { ...sample, id: 'overlap-left', startsAt: '2026-09-08T06:00:00.000Z', endsAt: '2026-09-08T18:00:00.000Z', status: 'verified' as const };
+    const nested = { ...sample, id: 'overlap-nested', startsAt: '2026-09-08T10:00:00.000Z', endsAt: '2026-09-08T11:00:00.000Z', status: 'verified' as const };
+    const errors = validatePharmacyDutyList([left, nested], new Date('2026-09-14T12:00:00.000Z'));
+
+    expect(errors.some((error) => error.includes('overlapping coverage interval'))).toBe(true);
+    expect(validatePharmacyDutyList([{ ...left, status: 'conflicting' as const }, { ...nested, status: 'conflicting' as const }], new Date('2026-09-14T12:00:00.000Z'))).not.toContain(expect.stringContaining('overlapping coverage interval'));
   });
 });
