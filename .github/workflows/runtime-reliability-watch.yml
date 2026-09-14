@@ -7,7 +7,14 @@ name: Runtime reliability watchdog
 # re-probes before filing the issue.
 
 on:
-  push:
+  # A direct push is intentionally not a trigger. The Pages deploy publishes
+  # the CDN marker before the apex HTML marker, so a push-triggered probe can
+  # observe a valid rollout halfway through and report a false degradation.
+  # Run immediately after the deploy workflow reaches a terminal state, then
+  # keep the independent schedule as a backstop for drift between deploys.
+  workflow_run:
+    workflows: ["Publish to GitHub Pages (deploy + validate)"]
+    types: [completed]
     branches: [main]
   schedule:
     - cron: '*/15 * * * *'
