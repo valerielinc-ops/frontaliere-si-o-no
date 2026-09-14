@@ -129,6 +129,7 @@ function createRunnerVariant(source: string) {
     'orphan-fallback.mjs',
     'select-max-workers.mjs',
     'related-graph-scope.mjs',
+    'typecheck-sparse.mjs',
   ]) {
     fs.symlinkSync(path.join(ROOT, 'scripts/ci/lib', file), path.join(libDir, file));
   }
