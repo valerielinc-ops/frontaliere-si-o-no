@@ -858,21 +858,42 @@ const RUN_HISTORY_LIMIT = 100;
 
 const CRAWLER_GENERATION_SHADOW_PREFIX = 'crawler-generation-shadow-';
 
+/** Production crawler runs use the generation token as their branch name. */
+function isCrawlerGenerationShadowBranch(branch) {
+  if (typeof branch !== 'string' || !branch.startsWith(CRAWLER_GENERATION_SHADOW_PREFIX)) return false;
+  return isCrawlerGenerationToken(branch.slice(CRAWLER_GENERATION_SHADOW_PREFIX.length));
+}
+
 /**
- * Production crawler runs use the generation token as their branch name. Keep
- * the allowlist exact: querying every branch would mix pull requests and
- * unrelated manual runs into the recovery decision.
+ * Keep the allowlist exact: querying every branch would mix pull requests and
+ * unrelated manual runs into the recovery decision. `main` remains accepted
+ * for legacy/local runs, but is only a compatibility fallback (see the
+ * explicit ordering in `sortCrawlerRecoveryRuns`).
  */
 export function isCrawlerRecoveryBranch(branch) {
   if (branch === 'main') return true;
-  if (typeof branch !== 'string' || !branch.startsWith(CRAWLER_GENERATION_SHADOW_PREFIX)) return false;
-  return isCrawlerGenerationToken(branch.slice(CRAWLER_GENERATION_SHADOW_PREFIX.length));
+  return isCrawlerGenerationShadowBranch(branch);
 }
 
 /** Keep only branches that can carry a production crawler-group run. */
 export function filterCrawlerRecoveryRuns(runs) {
   if (!Array.isArray(runs)) return [];
   return runs.filter((run) => isCrawlerRecoveryBranch(run?.headBranch));
+}
+
+/**
+ * Put production generation-shadow runs before the legacy `main` fallback.
+ * A newer legacy run must not hide an older shadow run, because the shadow
+ * branch is the authoritative production population after consolidation.
+ */
+export function sortCrawlerRecoveryRuns(runs) {
+  if (!Array.isArray(runs)) return [];
+  return [...runs].sort((a, b) => (
+    Number(isCrawlerGenerationShadowBranch(b?.headBranch))
+      - Number(isCrawlerGenerationShadowBranch(a?.headBranch))
+    || Date.parse(b?.createdAt ?? '') - Date.parse(a?.createdAt ?? '')
+    || Number(b?.databaseId ?? 0) - Number(a?.databaseId ?? 0)
+  ));
 }
 
 /**
@@ -1010,14 +1031,15 @@ function recentCompletedRuns(workflowName, repo = REPO, token, options = {}) {
   } catch {
     return null;
   }
-  if (includeCrawlerShadowBranches) runs = filterCrawlerRecoveryRuns(runs);
-  // L'ordine di `gh run list` è già newest-first, ma la streak verde ne dipende in modo
-  // portante (un ordine invertito la calcolerebbe dal fondo della storia): riordinare
-  // esplicitamente costa nulla e toglie la dipendenza da un contratto non scritto.
+  const orderedRuns = includeCrawlerShadowBranches
+    ? sortCrawlerRecoveryRuns(filterCrawlerRecoveryRuns(runs))
+    : runs.slice()
+        // L'ordine di `gh run list` è già newest-first, ma la streak verde ne dipende in modo
+        // portante (un ordine invertito la calcolerebbe dal fondo della storia): riordinare
+        // esplicitamente costa nulla e toglie la dipendenza da un contratto non scritto.
+        .sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt));
   const completed = dropPhantomCancellations(
-    runs
-      .filter((r) => r.status === 'completed')
-      .sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt)),
+    orderedRuns.filter((r) => r.status === 'completed'),
     (databaseId) => hasNoTimeoutEvidence(databaseId, repo, token),
   );
   return completed.length ? completed : null;

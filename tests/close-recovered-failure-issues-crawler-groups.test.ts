@@ -32,6 +32,7 @@ import {
   findCrawlerGroupWorkflow,
   findCrawlerGroupWorkflowName,
   isCrawlerRecoveryBranch,
+  sortCrawlerRecoveryRuns,
 } from '../scripts/ci/close-recovered-failure-issues.mjs';
 
 describe('TITLE_RE — parses the three auto-generated failure-title prefixes', () => {
@@ -100,6 +101,25 @@ describe('crawler recovery run population', () => {
       { databaseId: 4, headBranch: 'crawler-generation-shadow-9001-0' },
     ];
     expect(filterCrawlerRecoveryRuns(runs).map((run) => run.databaseId)).toEqual([1, 2]);
+  });
+
+  it('prioritizes an older production shadow run over a newer main fallback', () => {
+    const runs = [
+      {
+        databaseId: 1,
+        conclusion: 'success',
+        createdAt: '2026-09-14T12:00:00Z',
+        headBranch: 'main',
+      },
+      {
+        databaseId: 2,
+        conclusion: 'failure',
+        createdAt: '2026-09-14T11:00:00Z',
+        headBranch: 'crawler-generation-shadow-9001-2',
+      },
+    ];
+    expect(sortCrawlerRecoveryRuns(filterCrawlerRecoveryRuns(runs)).map((run) => run.databaseId))
+      .toEqual([2, 1]);
   });
 
   it('drops -b main only for crawler recovery and requests headBranch for filtering', () => {

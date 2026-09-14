@@ -214,6 +214,71 @@ exec ${JSON.stringify(process.execPath)} "$@"
     }
   });
 
+  it.each([
+    [130, 43],
+    [128, 128],
+    [137, 137],
+  ])('handles receipt exit %d with the expected normalized exit %d', (receiptExit, expectedExit) => {
+    const { originDir, repoDir } = initClonePair();
+    const runnerTemp = mkdtempSync(join(tmpdir(), 'gcd-grouped-exit-'));
+    const shimDir = mkdtempSync(join(tmpdir(), 'gcd-node-shim-'));
+    try {
+      mkdirSync(join(repoDir, 'data/jobs/by-crawler'), { recursive: true });
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[{"id":"old"}]\n');
+      execFileSync('git', ['add', '.'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[{"id":"new"}]\n');
+      writeFileSync(
+        join(shimDir, 'node'),
+        `#!/bin/bash
+for arg in "$@"; do
+  case "$arg" in
+    */scripts/lib/crawler-generation-receipt.mjs)
+      for receiptArg in "$@"; do
+        if [ "$receiptArg" = "--defer-group-commit" ]; then
+          exit ${receiptExit}
+        fi
+      done
+      ;;
+  esac
+done
+exec ${JSON.stringify(process.execPath)} "$@"
+`,
+      );
+      chmodSync(join(shimDir, 'node'), 0o755);
+
+      const deferred = deferGroupCommit(
+        repoDir,
+        runnerTemp,
+        'a',
+        [],
+        GENERATION_TOKEN,
+        { PATH: `${shimDir}${delimiter}${process.env.PATH ?? ''}` },
+      );
+      const output = `${deferred.stdout}${deferred.stderr}`;
+      expect(deferred.status, output).toBe(expectedExit);
+      expect(output).toContain('could not persist its commit descriptor');
+      if (expectedExit === 43) {
+        expect(output).toContain('terminated by a signal');
+      } else {
+        expect(output).not.toContain('terminated by a signal');
+      }
+      expect(existsSync(join(
+        runnerTemp,
+        'crawler-generation',
+        'commit-batch',
+        'a.json',
+      ))).toBe(false);
+    } finally {
+      rmSync(shimDir, { recursive: true, force: true });
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+      rmSync(runnerTemp, { recursive: true, force: true });
+    }
+  });
+
   it('commits the deferred active+expired snapshots after a sibling rewrites the live paths', () => {
     const { originDir, repoDir } = initClonePair();
     const runnerTemp = mkdtempSync(join(tmpdir(), 'gcd-grouped-runner-'));
