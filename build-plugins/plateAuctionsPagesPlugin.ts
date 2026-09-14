@@ -122,9 +122,11 @@ export function renderPlateAuctionPage({ locale, view, canton, plate, rootDir, d
   if (view !== 'hub') {
     breadcrumbItems.push({ '@type': 'ListItem', position: 2, name: copy.title, item: `${BASE_URL}${pathFor(locale, 'hub')}` });
   }
-  if (view === 'rankings') {
-    breadcrumbItems.push({ '@type': 'ListItem', position: breadcrumbItems.length + 1, name: copy.rankings, item: `${BASE_URL}${pathFor(locale, 'rankings')}` });
-  } else if (view === 'detail' && canton) {
+  // The ranking/canton page is the current page, so it belongs only in the
+  // final item below. A canton crumb is a parent only for a detail page;
+  // otherwise adding it here would repeat the canonical URL and invalidate
+  // the breadcrumb chain for every index page.
+  if (view === 'detail' && canton) {
     breadcrumbItems.push({ '@type': 'ListItem', position: breadcrumbItems.length + 1, name: name || canton, item: `${BASE_URL}${pathFor(locale, 'canton', canton)}` });
   }
   breadcrumbItems.push({ '@type': 'ListItem', position: breadcrumbItems.length + 1, name: title, item: canonicalUrl });
