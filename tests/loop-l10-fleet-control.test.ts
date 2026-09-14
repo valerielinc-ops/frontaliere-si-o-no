@@ -3,11 +3,13 @@ import os from 'node:os';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
+  DEFAULT_HEALTH_PATH,
   EXPECTED_LOOP_IDS,
   runL10,
   validateFleetControl,
 } from '../scripts/ci/loop-l10-fleet-control.mjs';
 import {
+  buildOutcome,
   AUTONOMY_LEVELS,
   LOOP_STATES,
   QUALITY_STATES,
@@ -127,6 +129,63 @@ function healthRow(overrides: Record<string, unknown> = {}) {
   };
 }
 
+function canonicalHealthRow(overrides: Record<string, unknown> = {}) {
+  const loopRegistry = registry();
+  const policy = loopRegistry.loops.find((loop: { loopId: string }) => loop.loopId === 'L0')!;
+  const outcome = buildOutcome({
+    outcomeId: policy.outcome.outcomeId,
+    status: 'partial',
+    independent: false,
+    sourceRefs: policy.outcome.sourceRefs,
+    primaryMetric: policy.primaryMetric,
+    requiredFieldsPresent: [],
+    missingFields: ['generatedAt', 'numerator', 'denominator'],
+    reason: 'independent outcome is not available in the canonical health record',
+    recordedAt: NOW.toISOString(),
+  });
+  return {
+    recordType: 'health',
+    schemaVersion: 1,
+    recordId: 'health-1',
+    loopId: 'L0',
+    execution: {
+      loopId: 'L0',
+      runId: 'run-1',
+      runAttempt: '1',
+      sha: 'a'.repeat(40),
+      recordedAt: NOW.toISOString(),
+    },
+    recordedAt: NOW.toISOString(),
+    quality: 'partial',
+    ok: false,
+    evidenceComplete: true,
+    policyCompliant: true,
+    lifecycleCompliant: true,
+    lifecycle: policy.lifecycle,
+    sourceRefs: policy.sourceRefs,
+    policyErrors: [],
+    outcome,
+    outcomePolicyCompliant: true,
+    outcomeErrors: [],
+    decision: 'candidate',
+    actionClass: 'observe',
+    requiredAutonomy: 'A0',
+    maxAutonomy: 'A4',
+    issueCount: 1,
+    warningCount: 0,
+    candidateCount: 0,
+    issued: false,
+    actionsWritten: false,
+    evidence: {
+      observation: 'l0-observation.json',
+      decision: 'l0-decision.json',
+      result: 'l0-result.json',
+      outcome: 'loop-fleet-outcome.json',
+    },
+    ...overrides,
+  };
+}
+
 function quotaHistory(...rows: Record<string, unknown>[]) {
   return { records: rows.length ? rows : [quotaRow()], parseIssues: [], missing: false };
 }
@@ -148,6 +207,10 @@ function writeJsonl(dir: string, name: string, rows: unknown[]) {
 }
 
 describe('L10 Engineering Learning / Fleet Control', () => {
+  it('legge il percorso del ledger health canonico', () => {
+    expect(DEFAULT_HEALTH_PATH).toBe(path.join('data', 'loop-fleet', 'ledger', 'loop-health-history.jsonl'));
+  });
+
   it('accepts a complete registry, coherent quota record and verified execution', () => {
     const verdict = validateFleetControl({
       registry: registry(),
@@ -160,6 +223,26 @@ describe('L10 Engineering Learning / Fleet Control', () => {
       quota: { validRowCount: 1, currentQuota: 90 },
       health: { eligibleRuns: 1, verifiedDecisions: 1 },
     });
+  });
+
+  it('valida il formato health canonico senza promuoverlo a outcome completo', () => {
+    const verdict = validateFleetControl({
+      registry: registry(),
+      quota: quotaHistory(),
+      health: healthHistory(canonicalHealthRow()),
+    }, { now: NOW });
+    expect(verdict.quality).toBe('partial');
+    expect(verdict.snapshot.health).toMatchObject({
+      canonical: true,
+      rowCount: 1,
+      validRowCount: 1,
+      eligibleRuns: 1,
+      verifiedDecisions: 0,
+      retries: null,
+      quotaUnits: null,
+      artifactCollisions: null,
+    });
+    expect(verdict.issues.join(' ')).toContain('canonical health ledger omits operational fields');
   });
 
   it('keeps a missing health ledger unmeasurable instead of counting zero successes', () => {
