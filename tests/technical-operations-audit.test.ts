@@ -441,6 +441,47 @@ describe('technical operations audit', () => {
     expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([]);
   });
 
+  it('non tratta decoy letterali o mappe non passati al sink come output', () => {
+    const files = new Map([
+      ['/repo/scripts/decoys.mjs', [
+        "import { appendFileSync } from 'node:fs';",
+        "const decoy = 'decoy=yes\\n';",
+        'const values = {',
+        '  decoy_map: true,',
+        '};',
+        'const labels = Object.entries(values).map(([name, value]) => `${name}=${value}`);',
+        "appendFileSync(process.env.GITHUB_OUTPUT, 'real=yes\\n');",
+      ].join('\n')],
+    ]);
+    const source = [
+      'name: delegated-output-decoys',
+      'on: [push]',
+      'jobs:',
+      '  check:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: producer',
+      '        id: generated',
+      '        run: node scripts/decoys.mjs',
+      '      - name: consumer',
+      '        run: echo "${{ steps.generated.outputs.decoy }} ${{ steps.generated.outputs.decoy_map }} ${{ steps.generated.outputs.real }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/delegated-output-decoys.yml', source, {
+      root: '/repo',
+      exists: (candidate: string) => files.has(candidate),
+      readFile: (candidate: string) => files.get(candidate) || '',
+    });
+    const outputFindings = findings.filter((item: any) => item.rule === 'workflow.output-not-produced');
+    expect(outputFindings).toHaveLength(2);
+    expect(outputFindings.map((item: any) => item.message)).toEqual(expect.arrayContaining([
+      expect.stringContaining('decoy'),
+      expect.stringContaining('decoy_map'),
+    ]));
+    expect(outputFindings.map((item: any) => item.message)).not.toEqual(expect.arrayContaining([
+      expect.stringContaining('real'),
+    ]));
+  });
+
   it('segue un helper importato da uno script first-party', () => {
     const files = new Map([
       ['/repo/scripts/pull.mjs', [

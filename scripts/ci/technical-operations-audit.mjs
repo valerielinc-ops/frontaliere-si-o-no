@@ -364,7 +364,7 @@ function stringLiterals(source) {
         continue;
       }
       if (char === quote) {
-        literals.push(raw.slice(start, index));
+        literals.push({ value: raw.slice(start, index), start, end: index + 1 });
         quote = null;
         start = -1;
       }
@@ -392,11 +392,108 @@ function stringLiterals(source) {
   return literals;
 }
 
-function literalOutputKeys(source) {
+function matchingParen(source, openingIndex) {
+  const raw = String(source || '');
+  let depth = 0;
+  let quote = null;
+  let escaped = false;
+  let lineComment = false;
+  let blockComment = false;
+  for (let index = openingIndex; index < raw.length; index += 1) {
+    const char = raw[index];
+    const next = raw[index + 1];
+    if (lineComment) {
+      if (char === '\n') lineComment = false;
+      continue;
+    }
+    if (blockComment) {
+      if (char === '*' && next === '/') {
+        blockComment = false;
+        index += 1;
+      }
+      continue;
+    }
+    if (quote) {
+      if (escaped) {
+        escaped = false;
+        continue;
+      }
+      if (char === '\\') {
+        escaped = true;
+        continue;
+      }
+      if (char === quote) quote = null;
+      continue;
+    }
+    if (char === '/' && next === '/') {
+      lineComment = true;
+      index += 1;
+      continue;
+    }
+    if (char === '/' && next === '*') {
+      blockComment = true;
+      index += 1;
+      continue;
+    }
+    if (char === "'" || char === '"' || char === '`') {
+      quote = char;
+      continue;
+    }
+    if (char === '(') depth += 1;
+    if (char === ')') {
+      depth -= 1;
+      if (depth === 0) return index;
+    }
+  }
+  return -1;
+}
+
+function outputSinkRanges(source) {
+  const raw = String(source || '');
+  const outputVariables = new Set(['process.env.GITHUB_OUTPUT', 'env.GITHUB_OUTPUT']);
+  for (const match of raw.matchAll(/\b(?:const|let|var)\s+([A-Za-z_$][A-Za-z0-9_$]*)\s*=\s*process\.env\.GITHUB_OUTPUT\b/g)) {
+    outputVariables.add(match[1]);
+  }
+  const variableAlternation = [...outputVariables]
+    .map((value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+    .join('|');
+  const sinkRe = new RegExp(
+    '\\b(?:appendFileSync|writeFileSync)\\(\\s*(?:'
+      + variableAlternation
+      + ')\\s*,',
+    'g',
+  );
+  const ranges = [];
+  for (const match of raw.matchAll(sinkRe)) {
+    const openingIndex = raw.indexOf('(', match.index ?? 0);
+    const closingIndex = matchingParen(raw, openingIndex);
+    let rangeStart = match.index ?? 0;
+    if (closingIndex >= 0) {
+      const argument = raw.slice((match.index ?? 0) + match[0].length, closingIndex).trim();
+      const variableMatch = argument.match(/^([A-Za-z_$][A-Za-z0-9_$]*)$/);
+      if (variableMatch) {
+        const escapedVariable = variableMatch[1].replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const declarationRe = new RegExp(`\\b(?:const|let|var)\\s+${escapedVariable}\\s*=`, 'g');
+        for (const declaration of raw.slice(0, match.index ?? 0).matchAll(declarationRe)) {
+          rangeStart = declaration.index ?? rangeStart;
+        }
+      }
+    }
+    ranges.push({
+      start: rangeStart,
+      end: closingIndex >= 0 ? closingIndex + 1 : raw.length,
+    });
+  }
+  return ranges;
+}
+
+function literalOutputKeys(source, sinkRanges = outputSinkRanges(source)) {
   const keys = new Set();
   const outputKeyRe = /(?:^|\r?\n|\\n|\\r\\n)([A-Za-z_][A-Za-z0-9_-]*)(?:=|<<)/g;
   for (const literal of stringLiterals(source)) {
-    for (const match of literal.matchAll(outputKeyRe)) keys.add(match[1]);
+    const belongsToSink = sinkRanges.some(({ start, end }) => literal.start >= start && literal.start < end);
+    if (!belongsToSink) continue;
+    for (const match of literal.value.matchAll(outputKeyRe)) keys.add(match[1]);
   }
   return keys;
 }
@@ -457,9 +554,10 @@ function matchingBrace(source, openingIndex) {
   return -1;
 }
 
-function objectEntryOutputKeys(source) {
+function objectEntryOutputKeys(source, sinkRanges = outputSinkRanges(source)) {
   const raw = String(source || '');
   const keys = new Set();
+  if (sinkRanges.length === 0) return keys;
   const declarationRe = /\b(?:const|let|var)\s+([A-Za-z_$][A-Za-z0-9_$]*)\s*=\s*\{/g;
   for (const declaration of raw.matchAll(declarationRe)) {
     const variable = declaration[1];
@@ -468,7 +566,21 @@ function objectEntryOutputKeys(source) {
     const closingIndex = matchingBrace(raw, openingIndex);
     if (closingIndex < 0) continue;
     const escapedVariable = variable.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    if (!new RegExp(`\\bObject\\.entries\\(\\s*${escapedVariable}\\s*\\)`).test(raw.slice(closingIndex + 1))) continue;
+    const entriesRe = new RegExp(
+      `\\b(?:const|let|var)\\s+([A-Za-z_$][A-Za-z0-9_$]*)\\s*=\\s*Object\\.entries\\(\\s*${escapedVariable}\\s*\\)[^;]*;`,
+      'g',
+    );
+    const entries = [...raw.slice(closingIndex + 1).matchAll(entriesRe)];
+    const reachesOutputSink = entries.some((entry) => {
+      const derivedVariable = entry[1];
+      const entriesStart = closingIndex + 1 + (entry.index ?? 0);
+      const entriesEnd = entriesStart + entry[0].length;
+      return sinkRanges.some(({ start, end }) => {
+        if (start < entriesEnd) return false;
+        return new RegExp(`\\b${derivedVariable.replace(/[.*+?^${}()|[\\]\\]/g, '\\\\$&')}\\b`).test(raw.slice(start, end));
+      });
+    });
+    if (!reachesOutputSink) continue;
     const body = raw.slice(openingIndex + 1, closingIndex);
     for (const entry of body.matchAll(/(?:^|,)\s*([A-Za-z_][A-Za-z0-9_-]*)\s*:/gm)) keys.add(entry[1]);
   }
@@ -482,27 +594,19 @@ function outputKeysFromSource(source) {
   for (const match of raw.matchAll(OUTPUT_HELPER_CALL_RE)) keys.add(match[1]);
   for (const match of raw.matchAll(OUTPUT_HELPER_SHELL_RE)) keys.add(match[1]);
   for (const match of raw.matchAll(OUTPUT_ACTIONS_FILE_RE)) keys.add(match[1]);
-  for (const key of literalOutputKeys(raw)) keys.add(key);
-  for (const key of objectEntryOutputKeys(raw)) keys.add(key);
+  const sinkRanges = outputSinkRanges(raw);
+  for (const key of literalOutputKeys(raw, sinkRanges)) keys.add(key);
+  for (const key of objectEntryOutputKeys(raw, sinkRanges)) keys.add(key);
 
   // A workflow commonly delegates its output writer to a first-party script.
   // Follow only a statically-known output file (the literal env expression or
   // a variable assigned from it) and only literal output prefixes. This keeps
   // the audit conservative: dynamic keys remain unknown and still warn.
-  const outputVariables = new Set(['process.env.GITHUB_OUTPUT']);
-  for (const match of raw.matchAll(/\b(?:const|let|var)\s+([A-Za-z_$][A-Za-z0-9_$]*)\s*=\s*process\.env\.GITHUB_OUTPUT\b/g)) {
-    outputVariables.add(match[1]);
+  for (const { start, end } of sinkRanges) {
+    const sink = raw.slice(start, end);
+    const firstLiteralKey = sink.match(/(?:[`'\"])([A-Za-z_][A-Za-z0-9_-]*)(?:=|<<)/);
+    if (firstLiteralKey) keys.add(firstLiteralKey[1]);
   }
-  const variableAlternation = [...outputVariables]
-    .map((value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
-    .join('|');
-  const sinkRe = new RegExp(
-    '\\b(?:appendFileSync|writeFileSync)\\(\\s*(?:'
-      + variableAlternation
-      + ')\\s*,\\s*[`\'\"]([A-Za-z_][A-Za-z0-9_-]*)(?:=|<<)',
-    'g',
-  );
-  for (const match of raw.matchAll(sinkRe)) keys.add(match[1]);
   return keys;
 }
 
