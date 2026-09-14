@@ -133,6 +133,9 @@ describe('plate-auction static pages', () => {
     await closeBundle();
 
     const sitemap = readFileSync(join(rootDir, 'dist', 'sitemap-plate-auctions.xml'), 'utf8');
+    const sitemapLocs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+    expect(sitemapLocs).toHaveLength(4 * (2 + 26 + 41));
+    expect(new Set(sitemapLocs).size).toBe(sitemapLocs.length);
     const expectedDetailUrls = new Set<string>();
     for (const locale of ['it', 'en', 'de', 'fr'] as const) {
       const hubPath = buildPlateAuctionPath({ locale, view: 'hub' });

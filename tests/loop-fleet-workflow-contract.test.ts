@@ -30,6 +30,16 @@ describe('loop fleet workflow contract', () => {
     }
   });
 
+  it('starts every loop with explicit operational telemetry declarations', () => {
+    for (const name of loopWorkflows) {
+      const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
+      expect(source, name).toContain('LOOP_FLEET_STARTED_AT=');
+      expect(source, name).toContain('LOOP_FLEET_QUOTA_UNITS=0');
+      expect(source, name).toContain('LOOP_FLEET_COLLISIONS=0');
+      expect(source, name).toContain('LOOP_FLEET_GATE_BYPASS=false');
+    }
+  });
+
   it('gates the three repaired loops on a runner-local fail-closed outcome export', () => {
     const contracts = [
       ['loop-l3-job-quality.yml', 'l3-outcome.json', 'handoffIsNotApplication', 'validate_l3_outcome'],
@@ -113,6 +123,8 @@ describe('loop fleet workflow contract', () => {
   it('keeps the automatic ledger recovery probe bounded and unable to write repository content', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger-reconcile.yml'), 'utf8');
     expect(source).toContain("cron: '*/20 * * * *'");
+    expect(source).toContain('group: loop-fleet-ledger-reconcile');
+    expect(source).not.toContain('group: loop-fleet-durable-ledger');
     expect(source).toContain('actions: write');
     expect(source).toContain('contents: read');
     expect(source).not.toMatch(/contents:\s*write/u);

@@ -61,6 +61,15 @@ jobs:
           node-version: '22'
           cache: npm
 
+      - name: Start loop operational telemetry
+        run: |
+          {
+            echo "LOOP_FLEET_STARTED_AT=$(date -u +%Y-%m-%dT%H:%M:%S.%3NZ)"
+            echo 'LOOP_FLEET_QUOTA_UNITS=0'
+            echo 'LOOP_FLEET_COLLISIONS=0'
+            echo 'LOOP_FLEET_GATE_BYPASS=false'
+          } >> "$GITHUB_ENV"
+
       - name: Install audit dependencies
         run: npm ci --ignore-scripts
 
