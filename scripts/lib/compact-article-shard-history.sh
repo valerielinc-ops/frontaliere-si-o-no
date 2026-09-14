@@ -102,7 +102,7 @@ ARTICLE_SHARD_HISTORY_CAP="${ARTICLE_SHARD_HISTORY_CAP:-500}"
 
 keyfile="$RUNNER_TEMP/compact-shard_${section}_${loc}_key"
 printf '%s\n' "$key_val" > "$keyfile" && chmod 600 "$keyfile"
-export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
+export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=30 -o ServerAliveCountMax=6 -o TCPKeepAlive=yes"
 
 stage="$RUNNER_TEMP/compact-shard-$section-$loc"
 # Incident #4734 unfreed-staging-dir class (runner disk exhaustion) — cover

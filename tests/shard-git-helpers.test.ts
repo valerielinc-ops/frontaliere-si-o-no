@@ -272,6 +272,14 @@ describe('shard-git-helpers.sh (runtime, temp git fixtures)', () => {
           `shard_push_error_is_auth "${transientLog}" || echo TRANSIENT`,
       );
       expect(out.split('\n')).toEqual(['AUTH', 'TRANSIENT']);
+      const reasons = runHelperScript(
+        `shard_push_failure_reason "${authLog}"; echo; ` +
+          `shard_push_failure_reason "${transientLog}"`,
+      );
+      expect(reasons.split('\n')).toEqual([
+        'deploy-key authentication/authorization failure',
+        'transient SSH transport failure',
+      ]);
     });
 
     it('short-circuits the SSH retries on an auth refusal instead of burning all 3', () => {
@@ -370,6 +378,35 @@ describe('shard-git-helpers.sh (runtime, temp git fixtures)', () => {
       // itself — that IS the mechanism that hides it from the Actions log.
       expect(out).toContain('::add-mask::dummy-token');
       expect(out.replace(/::add-mask::.*\n?/g, '')).not.toContain('dummy-token');
+    }, 25_000);
+
+    it('recovers a torn SSH connection without falsely declaring the deploy key broken', () => {
+      const refused = rejectingRemote(
+        'pat-fallback-transport',
+        'send-pack: unexpected disconnect while reading sideband packet\nfatal: the remote end hung up unexpectedly',
+      );
+      const accepting = join(root, 'pat-fallback-transport-accepting.git');
+      sh(`git init -q --bare -b main "${accepting}"`);
+      const stage = stageWithCommit('pat-fallback-transport-stage');
+      sh(
+        `git -C "${stage}" config url."${refused}".insteadOf git@github.com:owner/frontaliere-uri-it.git`,
+      );
+      sh(
+        `git -C "${stage}" config url."${accepting}".insteadOf https://github.com/owner/frontaliere-uri-it.git`,
+      );
+
+      const out = execSync(
+        `env -u GITHUB_PAT SHARD_PUSH_PAT=dummy-token bash -c 'set -uo pipefail; source "${HELPERS}"; ` +
+          `SHARD_PUSH_RETRY_DELAY=0 shard_push_with_retry "${stage}" "git@github.com:owner/frontaliere-uri-it.git" main uri-it; echo "RC=$?"'`,
+        { encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe'], timeout: 20_000 },
+      );
+      expect(out).toMatch(/push attempt 1\/3 failed/);
+      expect(out).toMatch(/push attempt 2\/3 failed/);
+      expect(out).toMatch(/retrying over HTTPS with a PAT after transient SSH transport failure/);
+      expect(out).toMatch(/pushed via the PAT fallback after transient SSH transport failure/);
+      expect(out).not.toMatch(/deploy key for this shard is broken/);
+      expect(out).toContain('RC=0');
+      expect(sh(`git -C "${accepting}" rev-list --count main`)).toBe('1');
     }, 25_000);
   });
 });

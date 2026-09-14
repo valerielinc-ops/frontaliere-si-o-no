@@ -83,7 +83,9 @@ push_shard() {
   # GIT_SSH_COMMAND is exported for this locale's push. One locale per
   # invocation (the matrix runs each locale on its OWN runner), so the deploy
   # keys never clobber one another.
-  export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
+  # Keep long section pushes alive while GitHub is processing multi-GB packs;
+  # the PAT fallback still handles a remote that closes the transport.
+  export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=30 -o ServerAliveCountMax=6 -o TCPKeepAlive=yes"
   # Source-of-truth file count + the shard's last-published count, read
   # cheaply (no 2.5 GB clone) — a tiny .shard-filecount marker fetched
   # from raw.githubusercontent. Drive the gate off these so a PARTIAL

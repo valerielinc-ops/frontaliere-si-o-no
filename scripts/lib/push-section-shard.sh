@@ -141,7 +141,9 @@ push_section_shard() {
   stage="$RUNNER_TEMP/shard-$section-$loc"
   keyfile="$RUNNER_TEMP/shard_${section}_${loc}_key"
   printf '%s\n' "$key_val" > "$keyfile" && chmod 600 "$keyfile"
-  export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
+  # Keep long section pushes alive while GitHub is processing multi-GB packs;
+  # the PAT fallback still handles a remote that closes the transport.
+  export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=30 -o ServerAliveCountMax=6 -o TCPKeepAlive=yes"
 
   # Guarded build+push in ONE `set -e` subshell (see push-locale-shard.sh for
   # the full rationale: standalone subshell + captured $?; incremental
