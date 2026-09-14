@@ -550,8 +550,11 @@ const App: React.FC = () => {
  }
  }).catch((e) => { reportCaughtError(e, 'app.loadUserProfile'); });
  };
- if ('requestIdleCallback' in window) {
- requestIdleCallback(loadProfile, { timeout: 4000 });
+ const idleWindow = window as Window & {
+ requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
+ };
+ if (typeof idleWindow.requestIdleCallback === 'function') {
+ idleWindow.requestIdleCallback(loadProfile, { timeout: 4000 });
  } else {
  setTimeout(loadProfile, 2000);
  }
@@ -1394,8 +1397,11 @@ const App: React.FC = () => {
  if (authUser || !claimOneTapPrompt(window.sessionStorage)) return;
  promptOneTap().catch(() => {});
  };
- if ('requestIdleCallback' in window) {
- (window as any).requestIdleCallback(run, { timeout: 5000 });
+ const idleWindow = window as Window & {
+ requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
+ };
+ if (typeof idleWindow.requestIdleCallback === 'function') {
+ idleWindow.requestIdleCallback(run, { timeout: 5000 });
  } else {
  run();
  }

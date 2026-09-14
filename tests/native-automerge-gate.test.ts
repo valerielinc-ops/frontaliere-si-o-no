@@ -5,6 +5,7 @@ import {
   latestBotReview,
   latestBotReviewOnHead,
   nativeAutoMergeArgs,
+  isAlreadyInProgressOutput,
   requiredVitestDecision,
   revalidateNativeAutoMerge,
   reviewHasLgtm,
@@ -251,6 +252,11 @@ describe('native auto-merge gate (#8512)', () => {
     })).toThrow(/HEAD SHA/);
   });
 
+  it('recognizes a concurrent GitHub auto-merge opt-in without treating other failures as benign', () => {
+    expect(isAlreadyInProgressOutput('GraphQL: Merge already in progress (mergePullRequest)')).toBe(true);
+    expect(isAlreadyInProgressOutput('GraphQL: Pull request is not mergeable')).toBe(false);
+  });
+
   it('revalidates review and checks after the final HEAD read and before native opt-in', () => {
     const gateSource = readFileSync(new URL('../scripts/ci/native-automerge-gate.mjs', import.meta.url), 'utf8');
     const headRead = gateSource.indexOf('current = ghJson');
@@ -265,6 +271,8 @@ describe('native auto-merge gate (#8512)', () => {
     expect(finalGate).toBeGreaterThan(finalCheckRead);
     expect(nativeOptIn).toBeGreaterThan(finalGate);
     expect(gateSource).toContain("if (finalDecision.action === 'revoke')");
+    expect(gateSource).toContain('concurrentOptInSucceeded');
+    expect(gateSource).toContain("stdio: ['ignore', 'pipe', 'pipe']");
   });
 
   it('fails closed when the final same-HEAD snapshot gains a finding or check failure', () => {

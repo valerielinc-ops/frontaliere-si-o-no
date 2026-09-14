@@ -125,13 +125,20 @@ function createRunnerVariant(source: string) {
   ]) {
     fs.symlinkSync(path.join(ROOT, 'scripts/ci', file), path.join(ciDir, file));
   }
-  for (const file of [
+  for (const file of new Set([
     'orphan-fallback.mjs',
     'select-max-workers.mjs',
     'typecheck-sparse.mjs',
     'related-graph-scope.mjs',
-  ]) {
-    fs.symlinkSync(path.join(ROOT, 'scripts/ci/lib', file), path.join(libDir, file));
+    'typecheck-sparse.mjs',
+  ])) {
+    const target = path.join(libDir, file);
+    // The base branch historically carried this dependency twice. Keep the
+    // fixture safe across that merge state and across a retry in the same
+    // temp directory: the dependency roster is a set and each link is replaced
+    // atomically from the fixture's point of view.
+    fs.rmSync(target, { force: true });
+    fs.symlinkSync(path.join(ROOT, 'scripts/ci/lib', file), target);
   }
   return dir;
 }
