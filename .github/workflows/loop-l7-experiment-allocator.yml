@@ -95,7 +95,24 @@ jobs:
           REPORT_DIR: ${{ runner.temp }}/loop-fleet-l7
         run: |
           test -s "$REPORT_DIR/l7-outcome.json"
-          jq -e '(.loopId == "L7" and (.status | type) == "string" and (.independent | type) == "boolean" and (.metrics | type) == "object" and .safeToAct == false and .allocationPlan.persistent == true and .allocationPlan.boundedCanary.enabled == false and .trafficMutationAllowed == false and .priceMutationAllowed == false and .noAutomaticPriceChange == true)' "$REPORT_DIR/l7-outcome.json" >/dev/null
+          jq -e '(
+            .loopId == "L7"
+            and (.status | type) == "string"
+            and (.independent | type) == "boolean"
+            and (.metrics | type) == "object"
+            and (.ledger | type) == "object"
+            and (.ledger.status == "missing" or .ledger.status == "unverified" or .ledger.status == "verified")
+            and .allocationPlan.ledgerStatus == .ledger.status
+            and .allocationPlan.persistent == (.ledger.status == "verified")
+            and .ledger.persistent == (.ledger.status == "verified")
+            and .ledger.guardrails == (.ledger.status == "verified")
+            and .ledger.duration == (.ledger.status == "verified")
+            and .safeToAct == false
+            and .allocationPlan.boundedCanary.enabled == false
+            and .trafficMutationAllowed == false
+            and .priceMutationAllowed == false
+            and .noAutomaticPriceChange == true
+          )' "$REPORT_DIR/l7-outcome.json" >/dev/null
       - name: Record canonical L7 evidence
         if: always()
         env:

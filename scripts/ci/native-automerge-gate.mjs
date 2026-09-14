@@ -17,10 +17,15 @@ import {
   REDFLAG_IMPORTANT_RE,
   VITEST_CHECK_NAME,
 } from './lib/constants.mjs';
+import {
+  findTestOnlyApproval,
+  TEST_REVIEW_MARKER,
+} from './review-test-policy.mjs';
 
 const NIT_MARKER_RE = /^[^\n🔴🟢]*(?<!`)🟡\s*\*{0,2}\s*Nit\s*\*{0,2}\s*[:—-]/mu;
 const FINDINGS_HEADING_RE = /^\s{0,3}#{1,3}\s+Findings\b[^\n]*$/i;
 const LGTM_HEADING_RE = /^\s{0,3}##\s+LGTM\s*$/m;
+const TEST_ONLY_REVIEW_BOT_RE = /^(?:github-actions|frontaliere-automation)\[bot\]$/i;
 
 function flattenPages(value) {
   if (!Array.isArray(value)) return [];
@@ -96,6 +101,24 @@ export function reviewIsApprovedOnHead(review, head) {
   return reviewIsApproved(review);
 }
 
+/**
+ * Tests-only is a separate, narrower approval class. `github-actions[bot]`
+ * must never become a general reviewer identity: this branch is accepted only
+ * for the exact marker emitted by `review-test-policy.mjs`, with a clean
+ * structured verdict pinned to the current HEAD. The caller still has to pass
+ * the result of `findTestOnlyApproval`, which independently re-checks the
+ * complete PR file list before this pure decision function is called.
+ */
+function testOnlyReviewIsApproved(review, head) {
+  if (!review || review.commit_id !== head) return false;
+  if (review.user?.type !== 'Bot' || !TEST_ONLY_REVIEW_BOT_RE.test(review.user.login || '')) {
+    return false;
+  }
+  if (!String(review.body || '').includes(TEST_REVIEW_MARKER)) return false;
+  if (!['COMMENTED', 'APPROVED'].includes(String(review.state || '').toUpperCase())) return false;
+  return reviewHasZeroFindings(review.body) && reviewHasLgtm(review.body);
+}
+
 /** Select the newest completed required check; an active run always blocks. */
 export function requiredVitestDecision(checkRuns, head) {
   if (!Array.isArray(checkRuns) || typeof head !== 'string' || !head) {
@@ -121,7 +144,12 @@ export function requiredVitestDecision(checkRuns, head) {
 }
 
 /** Pure decision function used by the workflow and deterministic tests. */
-export function evaluateNativeAutoMerge({ pr, reviews, checkRuns } = {}) {
+export function evaluateNativeAutoMerge({
+  pr,
+  reviews,
+  checkRuns,
+  verifiedTestOnlyReview = null,
+} = {}) {
   if (!pr || pr.state !== 'OPEN' || pr.isDraft !== false || pr.baseRefName !== 'main') {
     return { allow: false, reason: 'PR non aperta, draft o non basata su main' };
   }
@@ -140,22 +168,27 @@ export function evaluateNativeAutoMerge({ pr, reviews, checkRuns } = {}) {
   // native helper must not reject a valid older LGTM merely because the PR
   // received a data-only or otherwise review-preserving commit afterward.
   const review = latestBotReview(reviews);
-  if (!review) {
+  const testOnlyApproval = !review
+    && testOnlyReviewIsApproved(verifiedTestOnlyReview, pr.headRefOid);
+  if (!review && !testOnlyApproval) {
     return { allow: false, reason: 'nessuna review bot verificabile' };
   }
-  if (!reviewIsApproved(review)) {
+  if (review && !reviewIsApproved(review)) {
     return { allow: false, reason: 'ultima review bot non è Important 0/Nit 0 + LGTM' };
   }
 
   const check = requiredVitestDecision(checkRuns, pr.headRefOid);
   if (!check.allow) return check;
-  const reviewScope = review.commit_id === pr.headRefOid
+  const approval = review || verifiedTestOnlyReview;
+  const reviewScope = testOnlyApproval
+    ? 'tests-only review verificata sul current HEAD'
+    : review.commit_id === pr.headRefOid
     ? 'review exact-head'
     : 'LGTM carry-forward verificato dal check required';
   return {
     allow: true,
     reason: `${reviewScope} ✔; ${check.reason}`,
-    reviewId: review.id,
+    reviewId: approval.id,
   };
 }
 
@@ -170,7 +203,12 @@ export function evaluateNativeAutoMerge({ pr, reviews, checkRuns } = {}) {
  *   - `revoke`: a request exists but the fresh gate failed;
  *   - `skip`: no request exists and the gate is not yet satisfied.
  */
-export function revalidateNativeAutoMerge({ pr, reviews, checkRuns } = {}) {
+export function revalidateNativeAutoMerge({
+  pr,
+  reviews,
+  checkRuns,
+  verifiedTestOnlyReview = null,
+} = {}) {
   if (!pr || !Object.hasOwn(pr, 'autoMergeRequest')) {
     return { allow: false, action: 'skip', reason: 'stato auto-merge non verificabile' };
   }
@@ -178,6 +216,7 @@ export function revalidateNativeAutoMerge({ pr, reviews, checkRuns } = {}) {
     pr: { ...pr, autoMergeRequest: null },
     reviews,
     checkRuns,
+    verifiedTestOnlyReview,
   });
   if (pr.autoMergeRequest !== null) {
     return {
@@ -197,6 +236,26 @@ function ghJson(args) {
     maxBuffer: 64 * 1024 * 1024,
     env: { ...process.env },
   }));
+}
+
+// `review-test-policy` needs both parsed GitHub responses and raw newline
+// output for the paginated REST file list. Keep this adapter local so the
+// native gate remains fail-closed without changing the shared gh helper.
+function ghForTestOnlyReview(args, options = {}) {
+  const output = execFileSync('gh', args, {
+    encoding: 'utf8',
+    maxBuffer: 64 * 1024 * 1024,
+    env: { ...process.env },
+  });
+  return options.json === false ? output : JSON.parse(output);
+}
+
+function loadVerifiedTestOnlyReview(repo, pr, head, reviews) {
+  return findTestOnlyApproval(reviews, head, {
+    ghFn: ghForTestOnlyReview,
+    repo,
+    pr,
+  });
 }
 
 const REVIEW_METADATA_QUERY = [
@@ -322,9 +381,11 @@ function main() {
 
   let reviews;
   let checkRuns;
+  let verifiedTestOnlyReview;
   try {
     reviews = loadReviews(repo, prNumber);
     checkRuns = loadCheckRuns(repo, pr.headRefOid);
+    verifiedTestOnlyReview = loadVerifiedTestOnlyReview(repo, prNumber, pr.headRefOid, reviews);
   } catch (error) {
     if (hadAutoMerge) {
       revokeExistingAutoMerge(repo, pr, 'review/check non leggibili');
@@ -335,7 +396,12 @@ function main() {
     return;
   }
 
-  const decision = revalidateNativeAutoMerge({ pr, reviews, checkRuns });
+  const decision = revalidateNativeAutoMerge({
+    pr,
+    reviews,
+    checkRuns,
+    verifiedTestOnlyReview,
+  });
   console.log(`Native auto-merge guard PR #${prNumber} HEAD=${pr.headRefOid}: ${decision.reason}`);
   if (decision.action === 'revoke') {
     revokeExistingAutoMerge(repo, pr, `fresh gate fallito: ${decision.reason}`);
@@ -370,9 +436,16 @@ function main() {
   // snapshot is not enough to authorize the opt-in.
   let finalReviews;
   let finalCheckRuns;
+  let finalVerifiedTestOnlyReview;
   try {
     finalReviews = loadReviews(repo, prNumber);
     finalCheckRuns = loadCheckRuns(repo, current.headRefOid);
+    finalVerifiedTestOnlyReview = loadVerifiedTestOnlyReview(
+      repo,
+      prNumber,
+      current.headRefOid,
+      finalReviews,
+    );
   } catch (error) {
     if (current.autoMergeRequest !== null) {
       revokeExistingAutoMerge(repo, current, 'review/check non leggibili prima dell’opt-in');
@@ -387,6 +460,7 @@ function main() {
     pr: current,
     reviews: finalReviews,
     checkRuns: finalCheckRuns,
+    verifiedTestOnlyReview: finalVerifiedTestOnlyReview,
   });
   console.log(`Native auto-merge guard PR #${prNumber} final gate: ${finalDecision.reason}`);
   if (finalDecision.action === 'revoke') {

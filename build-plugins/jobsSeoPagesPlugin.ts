@@ -10545,13 +10545,11 @@ ${staticAnalyticsHtml}
              locale: entry.locale as JobCardLocale,
            });
            // In-feed ad after every Nth card (never after the last one).
-           // `entry.key` is this page's canton (e.g. 'LU' for
-           // /cerca-lavoro-lucerna/, 'BASILEA' for the merged BS+BL
-           // /cerca-lavoro-basilea/) — passed through so the Lucerna in-feed
-           // A/B test (services/adsenseSlots.ts
+           // `entry.key` is this page's canton; it is passed through so the
+           // active Ticino treatment (services/adsenseSlots.ts
            // INFEED_AD_AB_TEST_SUPPRESSED_CANTONS) can suppress the manual
-           // slot on this specific canton's static index page without
-           // touching any other canton or any other listing surface.
+           // slot on that specific static index page without touching any
+           // other canton or any other listing surface.
              const adExperimentVariant = isInfeedAdExperimentSurface(entry.key)
                ? resolveInfeedAdVariant(entry.key, { active: STATIC_INFEED_AD_EXPERIMENT_ACTIVE })
                : undefined;
