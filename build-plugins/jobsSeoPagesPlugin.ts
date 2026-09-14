@@ -10632,8 +10632,8 @@ ${staticAnalyticsHtml}
      }
      // Phase 8(g) cathedral parity — bring every /cerca-lavoro-{canton}/
      // landing up to the TI hub's editorial richness: H2 definition block
-     // for AI extraction, deep-link archive navigator (one anchor per
-     // page-N), 4 frontaliere-context prose paragraphs, sources line, and
+     // for AI extraction, bounded page-range archive indexes, 4
+     // frontaliere-context prose paragraphs, sources line, and
      // a collapsible FAQ. Placed BELOW the data area per CLAUDE.md
      // non-negotiables #16/#17 (mobile-first, filler below content). The
      // helper is the same one used by staticPagesPlugin for TI byte
@@ -10649,10 +10649,11 @@ ${staticAnalyticsHtml}
        canton: entry.key,
        locale: entry.locale,
        display,
-       jobsCount: totalJobs,
-       totalPages: cantonTotalPages,
-       archiveBaseHref,
-     });
+      jobsCount: totalJobs,
+      totalPages: cantonTotalPages,
+      archiveNavigablePages: entry.key === AGGREGATE_KEY ? 1 : cantonTotalPages,
+      archiveBaseHref,
+    });
      // Mirror the staticPagesPlugin auto-`<p>`-wrap regex so plain-text
      // prose paragraphs (entries 3-6 in the non-TI helper output) become
      // proper paragraphs instead of leaking into a flat string. Block-level

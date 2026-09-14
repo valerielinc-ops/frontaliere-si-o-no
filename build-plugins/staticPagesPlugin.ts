@@ -4023,6 +4023,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // [H2, intro, archive-nav?, prose1..4, sources, faq] and we splice
  // the cathedral canton navigator between the archive navigator and
  // the prose because that navigator is unique to the TI hub.
+ const archiveNavigablePages = locale === 'it' ? jobsTotalPages : 1;
  const tiHubBlocks = buildCantonHubEditorial({
  canton: 'TI',
  locale: locale as ArchiveHubLocale,
@@ -4031,12 +4032,14 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // value is irrelevant for TI byte-identity.
  jobsCount: jobsTotalPages * JOBS_PAGE_SIZE,
  totalPages: jobsTotalPages,
+ archiveNavigablePages,
  archiveBaseHref: HUB_SLUGS[locale as ArchiveHubLocale]?.jobsAll ?? '/cerca-lavoro-ticino/tutti/',
  });
- // Push leading entries up to and including the archive navigator. With
- // jobsTotalPages > 1 that's [H2, intro, archive-nav]; with == 1 the
- // helper omits the navigator so [H2, intro].
- const leadingCount = jobsTotalPages > 1 ? 3 : 2;
+ // Push leading entries up to and including the archive navigator. The
+ // helper's navigable-page count is the source of truth here: non-IT static
+ // variants emit only the archive root, so their block order is [H2, intro]
+ // even when the underlying IT archive has multiple pages.
+ const leadingCount = archiveNavigablePages > 1 ? 3 : 2;
  for (const block of tiHubBlocks.slice(0, leadingCount)) editorialBlocks.push(block);
  // Cathedral canton navigator \u2014 closes the +909 sitemap-jobs.xml offenders
  // (audit-max-bfs-depth) by linking every cathedral canton hub + per-canton
