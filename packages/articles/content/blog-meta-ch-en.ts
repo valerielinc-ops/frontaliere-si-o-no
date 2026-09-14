@@ -6397,6 +6397,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.detenzione-48-ore-manifestazioni.title': '48-hour detention: the plan against troublemakers',
     'blog.article.detenzione-48-ore-manifestazioni.excerpt': 'After the events in Bern in 2023, the National Team approved the increase in pretrial detention to 48 hours and greater powers for the sic.',
     'blog.article.detenzione-48-ore-manifestazioni.imageAlt': 'The Federal Palace in Bern with protesters in the foreground, symbolizing the public security debate',
+    'blog.article.tassi-interesse-svizzera-bassi.title': 'Why Interest Rates in Switzerland Remain Low',
+    'blog.article.tassi-interesse-svizzera-bassi.excerpt': 'The SNB has maintained the rate at 0% for over a year; Swiss inflation at 0.8% in August; average 10-year mortgages at 1.9%; next revision on 24 September.',
+    'blog.article.tassi-interesse-svizzera-bassi.imageAlt': 'Realistic photo of a modern Swiss bank with the Swiss flag, illustrating the low interest rate context.',
 };
 
 export default blogMetaChEn;

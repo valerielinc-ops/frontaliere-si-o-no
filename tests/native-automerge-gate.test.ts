@@ -11,6 +11,7 @@ import {
   reviewIsApproved,
   reviewHasZeroFindings,
 } from '../scripts/ci/native-automerge-gate.mjs';
+import { TEST_REVIEW_MARKER } from '../scripts/ci/review-test-policy.mjs';
 
 const HEAD = 'a'.repeat(40);
 const OLD_HEAD = 'b'.repeat(40);
@@ -55,6 +56,21 @@ function vitest(overrides: Record<string, unknown> = {}) {
   };
 }
 
+function testsOnlyReview(
+  body = `${TEST_REVIEW_MARKER}\n## Findings (Important: 0, Nit: 0)\n\n## LGTM`,
+  overrides: Record<string, unknown> = {},
+) {
+  return {
+    id: 2,
+    user: { type: 'Bot', login: 'github-actions[bot]' },
+    state: 'COMMENTED',
+    body,
+    commit_id: HEAD,
+    submitted_at: '2026-09-13T12:00:00Z',
+    ...overrides,
+  };
+}
+
 describe('native auto-merge gate (#8512)', () => {
   it('allows an approving bot verdict plus a completed green current-head check', () => {
     const result = evaluateNativeAutoMerge({
@@ -71,6 +87,27 @@ describe('native auto-merge gate (#8512)', () => {
     expect(evaluateNativeAutoMerge({ pr: pr(), reviews: [], checkRuns: [vitest()] })).toMatchObject({
       allow: false,
     });
+  });
+
+  it('accepts tests-only approval only through the independently verified path', () => {
+    const result = evaluateNativeAutoMerge({
+      pr: pr(),
+      reviews: [],
+      checkRuns: [vitest()],
+      verifiedTestOnlyReview: testsOnlyReview(),
+    });
+
+    expect(result).toMatchObject({ allow: true, reviewId: 2 });
+    expect(result.reason).toMatch(/tests-only review verificata/i);
+  });
+
+  it('does not turn a github-actions review into a general approval', () => {
+    expect(reviewIsApproved(testsOnlyReview(TEST_REVIEW_MARKER + '\n## LGTM'))).toBe(false);
+    expect(evaluateNativeAutoMerge({
+      pr: pr(),
+      reviews: [testsOnlyReview(TEST_REVIEW_MARKER + '\n## LGTM')],
+      checkRuns: [vitest()],
+    }).allow).toBe(false);
   });
 
   it('carries a clean older LGTM forward when the complete current-head check is green', () => {
@@ -266,6 +303,8 @@ describe('native auto-merge workflow wiring (#8512)', () => {
     expect(workflow).toContain('workflows: [tests]');
     expect(workflow).toContain('NATIVE_AUTOMERGE_BOOTSTRAP_READY=false');
     expect(workflow).toContain('gate_tmp="$helper_dir/native-automerge-gate-check.mjs"');
+    expect(workflow).toContain('scripts/ci/review-test-policy.mjs?ref=main');
+    expect(workflow).toContain('scripts/ci/lib/fetchPrFiles.mjs?ref=main');
     expect(workflow).toContain('node --check "$gate_tmp"');
     expect(workflow).not.toContain('native-automerge-gate.mjs.tmp');
     expect(workflow).toContain("if: env.NATIVE_AUTOMERGE_BOOTSTRAP_READY == 'true'");
@@ -278,6 +317,8 @@ describe('native auto-merge workflow wiring (#8512)', () => {
     expect(retry).toContain('MAX_PR_SCAN: \'100\'');
     expect(retry).toContain('sort_by(.createdAt) | reverse | .[].number');
     expect(retry).toContain('gate_tmp="$helper_dir/native-automerge-gate-check.mjs"');
+    expect(retry).toContain('scripts/ci/review-test-policy.mjs?ref=main');
+    expect(retry).toContain('scripts/ci/lib/fetchPrFiles.mjs?ref=main');
     expect(retry).toContain('node --check "$gate_tmp"');
     expect(retry).not.toContain('native-automerge-gate.mjs.tmp');
     expect(retry).not.toContain('.[:$max][]');

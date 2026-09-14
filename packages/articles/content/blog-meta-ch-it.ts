@@ -6397,6 +6397,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.detenzione-48-ore-manifestazioni.title': 'Detenzione 48 ore: il piano contro i facinorosi',
     'blog.article.detenzione-48-ore-manifestazioni.excerpt': 'Dopo i fatti di Berna del 2023, il Nazionale ha approvato l\'aumento della detenzione preventiva a 48 ore e maggiori poteri per il SIC.',
     'blog.article.detenzione-48-ore-manifestazioni.imageAlt': 'Il Palazzo federale a Berna con manifestanti in primo piano, simbolo del dibattito sulla sicurezza pubblica',
+    'blog.article.tassi-interesse-svizzera-bassi.title': 'Perché i tassi di interesse in Svizzera restano bassi',
+    'blog.article.tassi-interesse-svizzera-bassi.excerpt': 'La BNS mantiene il tasso allo 0% da oltre un anno; inflazione svizzera allo 0,8% ad agosto; mutui a 10 anni medi all’1,9%; prossima revisione il 24 settembre.',
+    'blog.article.tassi-interesse-svizzera-bassi.imageAlt': 'Foto realistica di una banca svizzera moderna con la bandiera svizzera, che illustra il contesto di tassi di interesse bassi.',
 };
 
 export default blogMetaChIt;
