@@ -519,9 +519,13 @@ describe('AI channel history — persistenza diagnostica e trend fail-closed', (
     expect(workflow).toContain('git-push-with-retry.sh');
     expect(workflow).toContain('resolve_append_conflicts');
     expect(workflow).toContain('staged_paths');
-    expect(readFileSync(new URL('../data/ai-channel-history.jsonl', import.meta.url), 'utf8').trim()).toBe(
-      '{"_schema":"ai-channel-history.v1"}',
-    );
+    const historyLines = readFileSync(new URL('../data/ai-channel-history.jsonl', import.meta.url), 'utf8')
+      .trim()
+      .split('\n');
+    expect(historyLines[0]).toBe('{"_schema":"ai-channel-history.v1"}');
+    for (const line of historyLines.slice(1)) {
+      expect(() => JSON.parse(line)).not.toThrow();
+    }
     expect(execFileSync('git', ['ls-files', '--error-unmatch', 'data/ai-channel-history.jsonl'], {
       cwd: process.cwd(),
       encoding: 'utf8',
