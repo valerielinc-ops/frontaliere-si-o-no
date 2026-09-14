@@ -119,6 +119,32 @@ describe('L7 Experiment Allocator', () => {
     expect(verdict.issues.join(' ')).toContain('independent must be explicitly true');
   });
 
+  it('does not expose metadata from an untrustworthy ledger as persistent support', async () => {
+    const files = tempFiles(registry(), outcomes({ independent: false }));
+    const result = await runL7({
+      now: NOW,
+      candidatesPath: files.candidatesPath,
+      outcomePath: files.outcomePath,
+      reportDir: files.reportDir,
+      logger: { log() {} },
+    });
+    expect(result.outcome).toMatchObject({
+      status: 'partial',
+      independent: false,
+      evidenceStatus: 'unverified',
+      ledger: { status: 'unverified', persistent: false, guardrails: false, duration: false },
+      assignmentLedger: null,
+      preRegistration: null,
+      contaminationPolicy: null,
+      metrics: {
+        eligibleCohort: null,
+        assignments: null,
+        exposures: null,
+      },
+      allocationPlan: { persistent: false, ledgerStatus: 'unverified' },
+    });
+  });
+
   it('does not turn an empty eligible cohort into a measurable zero outcome', async () => {
     const files = tempFiles(registry(), outcomes({
       eligibleCohort: 0,
@@ -286,7 +312,7 @@ describe('L7 Experiment Allocator', () => {
     expect(verdict.issues.join(' ')).toContain('preRegistration.minimumSample must be at least 300');
   });
 
-  it('exports a persistent, bounded, review-only allocation plan with the outcome ledger', async () => {
+  it('does not claim persistent ledger support when the outcome source is absent', async () => {
     const files = tempFiles(registry(), null);
     const result = await runL7({
       now: NOW,
@@ -309,8 +335,21 @@ describe('L7 Experiment Allocator', () => {
       trafficMutationAllowed: false,
       priceMutationAllowed: false,
       noAutomaticPriceChange: true,
+      ledger: {
+        status: 'missing',
+        persistent: false,
+        guardrails: false,
+        duration: false,
+      },
       allocationPlan: {
-        persistent: true,
+        persistent: false,
+        ledgerStatus: 'missing',
+        persistenceSupported: false,
+        evidenceSupport: {
+          assignmentLedger: 'missing',
+          guardrails: 'missing',
+          duration: 'missing',
+        },
         assignmentMethod: 'stable-sha256',
         assignmentKey: 'experiment-session-id',
         boundedCanary: { enabled: false, maxExposure: 0, requiresReviewedApproval: true },
@@ -328,7 +367,40 @@ describe('L7 Experiment Allocator', () => {
       },
     });
     expect(JSON.parse(fs.readFileSync(path.join(files.reportDir, 'l7-outcome.json'), 'utf8')))
-      .toMatchObject({ loopId: 'L7', safeToAct: false, allocationPlan: { persistent: true } });
+      .toMatchObject({
+        loopId: 'L7',
+        safeToAct: false,
+        ledger: { status: 'missing', persistent: false },
+        allocationPlan: { persistent: false, ledgerStatus: 'missing' },
+      });
+  });
+
+  it('claims persistent ledger support only from a complete observed outcome source', async () => {
+    const files = tempFiles(registry(), outcomes());
+    const result = await runL7({
+      now: NOW,
+      candidatesPath: files.candidatesPath,
+      outcomePath: files.outcomePath,
+      reportDir: files.reportDir,
+      logger: { log() {} },
+    });
+    expect(result).toMatchObject({
+      verdict: { ok: true, quality: 'observed' },
+      outcome: {
+        independent: true,
+        evidenceStatus: 'verified',
+        ledger: { status: 'verified', persistent: true, guardrails: true, duration: true },
+        allocationPlan: {
+          persistent: true,
+          ledgerStatus: 'verified',
+          persistenceSupported: true,
+        },
+      },
+      allocationPlan: {
+        persistent: true,
+        ledgerStatus: 'verified',
+      },
+    });
   });
 
   it('takes the allocation contract from the registry instead of script defaults', async () => {
