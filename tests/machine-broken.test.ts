@@ -2,7 +2,7 @@ import { afterEach, describe, expect, it } from 'vitest';
 import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
-import { machineAdmission } from '../scripts/ci/lib/machine-broken.mjs';
+import { citedPaths, machineAdmission } from '../scripts/ci/lib/machine-broken.mjs';
 import { partitionMintedItems } from '../scripts/ci/gate-minted-followups.mjs';
 
 const dirs: string[] = [];
@@ -27,6 +27,31 @@ function completed(...conclusions: string[]) {
 }
 
 describe('ammissibilità degli item macchina', () => {
+  it('ignora i path dentro Original text e conserva solo quelli operativi', () => {
+    const body = [
+      '- Target file: `functions/src/lib/jobEmailRankingStore.js`',
+      '- Original text:',
+      '  Il gate citato usa `scripts/ci/lib/machine-broken.mjs`.',
+      '  - Suggested action: correggi `scripts/ci/lib/machine-broken.mjs`.',
+      '- Suggested action: sposta la logica in `functions/src/lib/jobEmailRankingStore.js`.',
+    ].join('\n');
+
+    expect(citedPaths(body)).toEqual(['functions/src/lib/jobEmailRankingStore.js']);
+    expect(machineAdmission(body)).toBe('not-machine');
+  });
+
+  it('riconosce i path machine nelle righe Target file e Suggested action', () => {
+    const body = [
+      '- Target file: `.github/workflows/issue-fix.yml`',
+      '- Suggested action: correggi `scripts/ci/needs-human-prepass.mjs`.',
+    ].join('\n');
+
+    expect(citedPaths(body)).toEqual([
+      '.github/workflows/issue-fix.yml',
+      'scripts/ci/needs-human-prepass.mjs',
+    ]);
+  });
+
   it('ammette un workflow citato direttamente con due failure consecutive', () => {
     const dir = workflowDir();
     expect(machineAdmission(item('.github/workflows/measure.yml'), {

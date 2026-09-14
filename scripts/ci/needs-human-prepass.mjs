@@ -290,22 +290,30 @@ export function parseDecisionRegistry(md = '') {
   const head = REGISTRY_HEADING_RE.exec(text);
   if (!head) return [];
   const rest = text.slice(head.index + head[0].length);
-  const end = /\n## /.exec(rest);
-  const table = end ? rest.slice(0, end.index) : rest;
 
   const rows = [];
-  for (const raw of table.split('\n')) {
+  let tableRowCount = 0;
+  let recognizedRowCount = 0;
+  for (const raw of rest.split('\n')) {
     const line = raw.trim();
     if (!line.startsWith('|')) continue;
     const cells = line.replace(/^\|/, '').replace(/\|$/, '').split('|').map((c) => c.trim());
-    if (cells.length < 3) continue;
+    if (cells.length < 3) {
+      tableRowCount += 1;
+      continue;
+    }
     const [date, decision, ...restCells] = cells;
     if (/^[-:\s]+$/.test(date) || date === 'Data') continue; // separatore / intestazione
+    tableRowCount += 1;
+    recognizedRowCount += 1;
     const source = restCells.join(' | ');
     const body = `${decision} | ${source}`;
     const refs = [...citedRefs(body)];
     if (!refs.length) continue; // una riga che non nomina nessuna issue non è agganciabile
     rows.push({ date, decision, source, refs, scope: registryRowScope(body), ...registryRowState(body) });
+  }
+  if (recognizedRowCount < tableRowCount) {
+    throw new Error(`registro decisioni incompleto: riconosciute ${recognizedRowCount}/${tableRowCount} righe tabella`);
   }
   return rows;
 }

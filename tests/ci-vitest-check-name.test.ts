@@ -121,6 +121,19 @@ describe('tests.yml dataset assembly predicate (#B4)', () => {
     expect(TESTS_YML).toContain('node scripts/ci/run-related-tests.mjs --select-only');
   });
 
+  it('vincola il consumer related alla decisione Assemble e fail-safe', () => {
+    const relatedStart = TESTS_YML.indexOf('- name: vitest related (PR diff)');
+    const nextStep = TESTS_YML.indexOf('\n      - name:', relatedStart + 1);
+    const related = TESTS_YML.slice(relatedStart, nextStep === -1 ? TESTS_YML.length : nextStep);
+
+    expect(related).toContain("ASSEMBLE_REQUIRED: ${{ steps.assemble.outputs.required || 'true' }}");
+    expect(related).toContain('case "$ASSEMBLE_REQUIRED" in');
+    expect(related).toContain('VITEST_DATASET_GROUP=independent');
+    expect(related).toContain('unexpected Assemble + migrate decision');
+    expect(related).toMatch(/true\)[\s\S]*node scripts\/ci\/run-related-tests\.mjs/);
+    expect(related).toMatch(/false\)[\s\S]*VITEST_DATASET_GROUP=independent/);
+  });
+
   /**
    * L'invariante che rende lo skip REALE invece che teorico.
    *

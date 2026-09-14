@@ -31,6 +31,11 @@ describe('issue-fix — il registro delle decisioni arriva al fixer', () => {
     expect(tier).toContain('DECISIONS_FILE="DECISIONS.md"');
     expect(tier).toContain('DECISIONS_MAX_BYTES=12288');
     expect(tier).toContain('if [ ! -f "$DECISIONS_FILE" ]');
+    expect(tier).toContain('if [ ! -s "$DECISIONS_FILE" ]');
+    expect(tier).toContain('decision registry empty');
+    expect(tier).toContain('node --input-type=module - "$DECISIONS_FILE"');
+    expect(tier).toContain('parseDecisionRegistry');
+    expect(tier).toContain('decision registry has no recognized rows');
     expect(tier).toContain('DECISIONS_BYTES=$(wc -c < "$DECISIONS_FILE")');
     expect(tier).toMatch(/if \[ "\$DECISIONS_BYTES" -gt "\$DECISIONS_MAX_BYTES" \]/);
 
@@ -40,6 +45,7 @@ describe('issue-fix — il registro delle decisioni arriva al fixer', () => {
     expect(outputStart).toBeGreaterThanOrEqual(0);
     expect(fileRead).toBeGreaterThan(outputStart);
     expect(outputEnd).toBeGreaterThan(fileRead);
+    expect(tier.indexOf('if [ ! -s "$DECISIONS_FILE" ]')).toBeLessThan(outputStart);
     const outputSink = tier.indexOf('} >> "$GITHUB_OUTPUT"', outputEnd);
     expect(outputSink).toBeGreaterThan(outputEnd);
 

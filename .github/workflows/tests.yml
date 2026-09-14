@@ -1498,8 +1498,13 @@ jobs:
         # FOREGROUND, dopo "Assemble + migrate": i test scelti dal grafo
         # possono leggere i dataset generati. Questo è l'unico invocatore di
         # Vitest del job PR; `run-related-tests.mjs` usa il related graph e un
-        # fallback conservativo quando il percorso non è rappresentabile.
+        # fallback conservativo quando il percorso non è rappresentabile. Il
+        # predicato Assemble è l'input del consumer: se dice `false`, il run
+        # resta attivo ma viene confinato ai test indipendenti; se manca,
+        # l'espressione applica il default fail-safe `true`, mentre un valore
+        # inatteso interrompe il consumer invece di usare output non assemblati.
         env:
+          ASSEMBLE_REQUIRED: ${{ steps.assemble.outputs.required || 'true' }}
           # Vitest 4's related graph can exceed Node's default 4GB heap in this
           # repository. Keep the graph bounded to one fork and leave headroom
           # on the hosted runner; this does not change the related-only scope.
@@ -1521,7 +1526,21 @@ jobs:
           VITEST_CACHE_DIR: node_modules/.vite-related
           CHANGED_PATHS_STATUS_FILE: changed-paths-status.txt
           VITEST_SKIP_CORPUS_WIDE: 'true'
-        run: node scripts/ci/run-related-tests.mjs --reporter=default --reporter=json --outputFile=shard-timing-related.json
+        run: |
+          set -euo pipefail
+          case "$ASSEMBLE_REQUIRED" in
+            true)
+              node scripts/ci/run-related-tests.mjs --reporter=default --reporter=json --outputFile=shard-timing-related.json
+              ;;
+            false)
+              VITEST_DATASET_GROUP=independent \
+                node scripts/ci/run-related-tests.mjs --reporter=default --reporter=json --outputFile=shard-timing-related.json
+              ;;
+            *)
+              echo "::error::unexpected Assemble + migrate decision: $ASSEMBLE_REQUIRED"
+              exit 1
+              ;;
+          esac
 
       # Collect the detached gate processes after the Vitest run. Each process
       # publishes an atomic status file; a missing status from a dead process is

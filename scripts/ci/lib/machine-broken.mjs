@@ -13,6 +13,7 @@ const MODULE_DIR = path.dirname(fileURLToPath(import.meta.url));
 const repositoryWorkflowDirectory = path.resolve(MODULE_DIR, '..', '..', '..', '.github', 'workflows');
 const workflowFilePattern = /\.ya?ml$/i;
 const MACHINE_ROOTS = ['scripts/ci', '.github/workflows'];
+const ACTIONABLE_PATH_LINE_RE = /^(?:-\s+)?(?:\*\*)?(?:Target file|Suggested action)(?:\*\*)?\s*:/i;
 const validRunConclusions = new Set([
   'success', 'failure', 'neutral', 'cancelled', 'skipped', 'timed_out',
   'action_required', 'stale', 'startup_failure',
@@ -25,7 +26,10 @@ function normalizePath(value) {
     .replace(/:L?\d+$/i, '');
 }
 
-/** Path citati nel testo, senza eventuali suffissi di riga. */
+/**
+ * Conserva solo i path nelle righe operative: `Original text` può ripetere
+ * materiale storico e non deve trasformare un item prodotto in uno macchina.
+ */
 export function citedPaths(text) {
   const out = [];
   const seen = new Set();
@@ -36,8 +40,12 @@ export function citedPaths(text) {
     seen.add(candidate);
     out.push(candidate);
   };
-  for (const match of String(text || '').matchAll(/`([^`\n]+)`/g)) add(match[1]);
-  for (const match of String(text || '').matchAll(/(?:^|[\s("'`])((?:\.\/)?(?:[A-Za-z0-9_.-]+\/)+[A-Za-z0-9_.-]+\/?(?::L?\d+)?)(?=$|[\s),;"'`])/gm)) {
+  const actionable = String(text || '')
+    .split('\n')
+    .filter((line) => ACTIONABLE_PATH_LINE_RE.test(line))
+    .join('\n');
+  for (const match of actionable.matchAll(/`([^`\n]+)`/g)) add(match[1]);
+  for (const match of actionable.matchAll(/(?:^|[\s("'`])((?:\.\/)?(?:[A-Za-z0-9_.-]+\/)+[A-Za-z0-9_.-]+\/?(?::L?\d+)?)(?=$|[\s),;"'`])/gm)) {
     add(match[1]);
   }
   return out;
