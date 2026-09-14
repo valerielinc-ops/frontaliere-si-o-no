@@ -254,7 +254,7 @@ describe('crawler-health-monitor — scheda fail-closed', () => {
 
   it('rifiuta una scheda mancante o vuota invece di degradare a stringa vuota', () => {
     expect(workflow).toContain('jq -er');
-    expect(workflow).toContain('type == \\"string\\" and length > 0');
+    expect(workflow).toContain('type == \\"string\\" and test(\\"[^[:space:]]\\")');
     expect(workflow).toContain('if [ -z "$scheda" ]');
     expect(workflow).toContain('Missing non-empty scheda');
     expect(workflow).not.toContain('.scheda // \\"\\"');

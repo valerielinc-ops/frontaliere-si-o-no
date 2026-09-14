@@ -308,7 +308,7 @@ export function findOpenPromotionPr(openPrs = [], prefix = 'prospector/promote-'
  * @param {Record<string, any>[]} candidates
  * @param {{ existingKeys?: Set<string> }} [ctx]
  * @param {Partial<typeof GATE_DEFAULTS>} [opts]
- * @returns {{ promotable: any[], blocked: { candidate: any, reasons: string[] }[], capped: number }}
+ * @returns {{ promotable: any[], blocked: { candidate: any, reasons: string[], checks: Record<string, boolean> }[], capped: number }}
  */
 export function selectForPromotion(candidates, ctx = {}, opts = {}) {
   const g = { ...GATE_DEFAULTS, ...opts };
@@ -317,9 +317,37 @@ export function selectForPromotion(candidates, ctx = {}, opts = {}) {
   for (const c of candidates) {
     const res = evaluatePromotion(c, ctx, opts);
     if (res.passed) promotable.push(c);
-    else blocked.push({ candidate: c, reasons: res.reasons });
+    else blocked.push({ candidate: c, reasons: res.reasons, checks: res.checks });
   }
   promotable.sort((a, b) => (b.vacancyCount || 0) - (a.vacancyCount || 0));
   const capped = Math.max(0, promotable.length - g.maxPerRun);
   return { promotable: promotable.slice(0, g.maxPerRun), blocked, capped };
+}
+
+/**
+ * Separate candidates waiting only for the two-day stability window from
+ * candidates failing any other production condition. The distinction keeps
+ * the PROMOTE log actionable: the first group needs another validation run,
+ * while the second group needs a concrete data or gate diagnosis.
+ *
+ * Missing check details are deliberately classified as `other`, so an
+ * incomplete audit record cannot be mistaken for a stability-only block.
+ *
+ * @param {{ checks?: Record<string, boolean> }[]} blocked
+ * @returns {{ stabilityOnly: number, other: number }}
+ */
+export function summarizePromotionBlocks(blocked = []) {
+  let stabilityOnly = 0;
+  let other = 0;
+  for (const item of blocked) {
+    const failedChecks = Object.entries(item?.checks || {})
+      .filter(([, passed]) => passed === false)
+      .map(([name]) => name);
+    if (failedChecks.length > 0 && failedChecks.every((name) => name === 'runs' || name === 'days')) {
+      stabilityOnly += 1;
+    } else {
+      other += 1;
+    }
+  }
+  return { stabilityOnly, other };
 }

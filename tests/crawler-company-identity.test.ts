@@ -350,6 +350,24 @@ describe('il registro si rigenera a ogni promozione, non a mano', () => {
     expect(promoteSrc).toContain('const companiesNote = companiesRegenerated');
   });
 
+  it('il corpo rende effettive le soglie del gate ridotto', () => {
+    // Con `--min-days=1` il selettore usa una validazione su un giorno: il
+    // body non deve continuare a descriverla come una soglia su due giorni ne'
+    // sostenere che una singola run non possa soddisfarla.
+    expect(promoteSrc).toContain('const minRuns = Math.min(GATE_DEFAULTS.minRuns, Math.max(1, minDays));');
+    expect(promoteSrc).toContain('{ maxPerRun, minDistinctDays: minDays, minRuns },');
+    expect(promoteSrc).toContain('const stabilityRequirement =');
+    expect(promoteSrc).toContain('const stabilityClaim = minRuns === 1 && minDays === 1');
+
+    const bodyStart = at(promoteSrc, 'const body = `## Implementato');
+    const nonImpl = promoteSrc.indexOf('## Non implementato (ancora)', bodyStart);
+    const implementato = promoteSrc.slice(bodyStart, nonImpl);
+    const nonImplementato = promoteSrc.slice(nonImpl);
+    expect(implementato).toContain('con **${stabilityRequirement}**${stabilityClaim}');
+    expect(nonImplementato).toContain('stabilita\' richiesta da ${stabilityRequirement}');
+    expect(nonImplementato).not.toContain("stabilita' su due giorni");
+  });
+
   it('il generatore scrive in modo atomico: mai un JSON troncato su disco', () => {
     // `data/crawler-companies-auto.json` e' importato a build time da
     // `TicinoCompanies`: un file scritto a meta' non e' un dato sbagliato, e'

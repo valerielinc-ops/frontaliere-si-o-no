@@ -384,6 +384,33 @@ describe('standard crawler authoritative-empty policy', () => {
     expect(mocks.writeSummaryCrawlerSlice).not.toHaveBeenCalled();
   });
 
+  it('allows exactly the source-loss quota, but not a larger drop', async () => {
+    mocks.readExistingCrawlerJobs.mockReturnValueOnce(
+      Array.from({ length: 5 }, (_, index) => ({
+        id: `test-old-${index}`,
+        slug: `old-job-${index}`,
+        companyKey: COMPANY_KEY,
+      })),
+    );
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'missing-detail-url-boundary-root-'));
+    try {
+      await runStandardCrawlerPipeline({
+        companyKey: COMPANY_KEY,
+        companyLabel: 'Missing Detail URL Boundary Test',
+        root,
+        fetchJobs: async () => ({
+          jobs: [{ id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job' }],
+          missingDetailUrlCount: 2,
+        }),
+        isCompanyJob: () => true,
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+
+    expect(mocks.mergePreserveLocaleData).toHaveBeenCalled();
+  });
+
   it('does not claim an authoritative empty snapshot on a run that published jobs', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'authoritative-empty-root-'));
     try {
