@@ -525,8 +525,10 @@ const EVIDENCE_REQUIRED_LIFECYCLE_EVENTS = Object.freeze([
 function lifecycleEventTime(events, eventType) {
   const event = [...events]
     .filter((candidate) => candidate.eventType === eventType)
-    .sort((left, right) => Date.parse(left.occurredAt || '') - Date.parse(right.occurredAt || ''))
-    .find((candidate) => Number.isFinite(Date.parse(candidate.occurredAt || '')));
+    .map((candidate, index) => ({ candidate, index, time: Date.parse(candidate.occurredAt || '') }))
+    .filter(({ time }) => Number.isFinite(time))
+    .sort((left, right) => left.time - right.time || left.index - right.index)
+    .at(0)?.candidate;
   return event ? new Date(event.occurredAt).toISOString() : null;
 }
 
@@ -540,10 +542,10 @@ function lifecycleDeadline(startAt, hours) {
 function lifecycleDeadlineStatus({ deadlineAt, milestoneAt, nowMs }) {
   if (!deadlineAt) return 'unmeasurable';
   if (milestoneAt) return Date.parse(milestoneAt) <= Date.parse(deadlineAt) ? 'met' : 'late';
-  return nowMs > Date.parse(deadlineAt) ? 'overdue' : 'pending';
+  return nowMs >= Date.parse(deadlineAt) ? 'overdue' : 'pending';
 }
 
-function lifecycleSlaSummary(events, now = new Date()) {
+function lifecycleSlaSummary(events, now = new Date(), { coherent = true } = {}) {
   const candidateAt = lifecycleEventTime(events, 'candidate');
   const ownerAssignedAt = lifecycleEventTime(events, 'owner_assigned');
   const mergedAt = lifecycleEventTime(events, 'merged');
@@ -582,14 +584,45 @@ function lifecycleSlaSummary(events, now = new Date()) {
     .map((check) => check.deadlineAt)
     .sort((left, right) => Date.parse(left) - Date.parse(right))[0] || null;
   return {
+    status: !coherent
+      ? 'unmeasurable'
+      : (statuses.includes('overdue')
+        ? 'overdue'
+        : (statuses.includes('late')
+          ? 'late'
+          : (statuses.some((status) => ['pending', 'not_started'].includes(status)) ? 'pending' : 'met'))),
+    coherent,
+    candidateTtl,
+    ownerSla,
+    postMergeVerification,
+    nextDeadlineAt,
+  };
+}
+
+function summarizeFleetSla(candidates) {
+  const slas = candidates.map((candidate) => candidate.sla).filter(Boolean);
+  if (!slas.length) return null;
+  const statuses = slas.map((sla) => sla.status);
+  const pending = statuses.filter((status) => status === 'pending').length;
+  const notStarted = slas.reduce((count, sla) => count + (sla.postMergeVerification.status === 'not_started' ? 1 : 0), 0);
+  const nextDeadlineAt = slas
+    .map((sla) => sla.nextDeadlineAt)
+    .filter(Boolean)
+    .sort((left, right) => Date.parse(left) - Date.parse(right))[0] || null;
+  return {
     status: statuses.includes('overdue')
       ? 'overdue'
       : (statuses.includes('late')
         ? 'late'
-        : (statuses.some((status) => ['pending', 'not_started'].includes(status)) ? 'pending' : 'met')),
-    candidateTtl,
-    ownerSla,
-    postMergeVerification,
+        : (statuses.includes('pending')
+          ? 'pending'
+          : (statuses.includes('unmeasurable') ? 'unmeasurable' : 'met'))),
+    candidateCount: slas.length,
+    overdueCount: statuses.filter((status) => status === 'overdue').length,
+    lateCount: statuses.filter((status) => status === 'late').length,
+    pendingCount: pending,
+    notStartedCount: notStarted,
+    unmeasurableCount: statuses.filter((status) => status === 'unmeasurable').length,
     nextDeadlineAt,
   };
 }
@@ -644,7 +677,12 @@ export function summarizeLifecycleEvents(events = [], { now = new Date() } = {})
       !sourceConsistent ? 'sourceRecordId changes across the candidate chain' : null,
       ...missingEvidence.map((eventType) => `${eventType} has no artifactOrPr reference`),
     ].filter(Boolean);
-    const sorted = [...candidateEvents].sort((left, right) => Date.parse(left.occurredAt) - Date.parse(right.occurredAt));
+    const sla = lifecycleSlaSummary(candidateEvents, now, { coherent: incoherent.length === 0 });
+    const sorted = candidateEvents
+      .map((event, index) => ({ event, index, time: Date.parse(event.occurredAt || '') }))
+      .sort((left, right) => (Number.isFinite(left.time) ? left.time : Number.POSITIVE_INFINITY)
+        - (Number.isFinite(right.time) ? right.time : Number.POSITIVE_INFINITY)
+        || left.index - right.index);
     return {
       candidateId,
       owner: owners[0] || candidateEvents[0]?.owner || null,
@@ -658,16 +696,19 @@ export function summarizeLifecycleEvents(events = [], { now = new Date() } = {})
       terminalEventTypes,
       incoherent,
       complete: missing.length === 0 && incoherent.length === 0,
-      sla: lifecycleSlaSummary(candidateEvents, now),
+      sla,
       lastEvent: sorted.at(-1) ? {
-        eventType: sorted.at(-1).eventType,
-        occurredAt: sorted.at(-1).occurredAt,
+        eventType: sorted.at(-1).event.eventType,
+        occurredAt: sorted.at(-1).event.occurredAt,
       } : null,
     };
   });
-  const last = [...(events || [])]
-    .sort((left, right) => Date.parse(left.occurredAt) - Date.parse(right.occurredAt))
-    .at(-1);
+  const last = (events || [])
+    .map((event, index) => ({ event, index, time: Date.parse(event.occurredAt || '') }))
+    .sort((left, right) => (Number.isFinite(left.time) ? left.time : Number.POSITIVE_INFINITY)
+      - (Number.isFinite(right.time) ? right.time : Number.POSITIVE_INFINITY)
+      || left.index - right.index)
+    .at(-1)?.event;
   const state = candidates.length === 0
     ? 'no_candidate'
     : (candidates.some((candidate) => candidate.terminalEventTypes.includes('inconclusive'))
@@ -683,6 +724,7 @@ export function summarizeLifecycleEvents(events = [], { now = new Date() } = {})
     eventCount: (events || []).length,
     candidateCount: candidates.length,
     complete: candidates.length ? candidates.every((candidate) => candidate.complete) : null,
+    sla: summarizeFleetSla(candidates),
     state,
     lastEvent: last ? { eventType: last.eventType, occurredAt: last.occurredAt } : null,
     candidates,
