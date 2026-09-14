@@ -9,7 +9,13 @@
     "(/stipendio-svizzera-*, /de/lohn-schweiz-*) hanno uno scheletro di heading",
     "diverso e formano coorti proprie, quindi non entrano nell'etichetta di questa.",
     "Rinfrescare con il comando in `command`, poi ri-eseguire",
-    "npx vitest run tests/information-gain-metric.test.ts."
+    "npx vitest run tests/information-gain-metric.test.ts.",
+    "`templates` copre le chiavi di identita-template `<locale>:~<skeletonHash>` (issue #7382).",
+    "Per quelle non esistono slug da cui ri-derivare l'etichetta: l'etichetta di una coorte che",
+    "collide MUOVE col bucket campionato, ed e' esattamente il motivo per cui la chiave e' lo",
+    "skeletonHash. La prova e' quindi l'opposto: le etichette OSSERVATE in run diverse, che",
+    "devono risolvere tutte alla stessa riga d'inventario, e nessuna delle quali risolve senza",
+    "lo hash."
   ],
   "extractedAt": "2026-09-05",
   "command": "curl -s https://frontaliereticino.ch/<sitemap> | tr '<' '\\n<' | grep -o 'https://frontaliereticino.ch/[a-z0-9/-]*' | sed 's|https://frontaliereticino.ch/||' | sort -u",
@@ -51,6 +57,519 @@
         "/vivere-in-austria-lavorare-in-svizzera/koblach/",
         "/vivere-in-austria-lavorare-in-svizzera/lustenau/",
         "/vivere-in-austria-lavorare-in-svizzera/nenzing/"
+      ]
+    }
+  ],
+  "templates": [
+    {
+      "inventoryKey": "it:~2b6ed2",
+      "sitemap": "sitemap-salary-hub.xml",
+      "observedMedianIgsPct": 0,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "it:/calcola-stipendio/~2b6ed2"
+        },
+        {
+          "run": "campione live, 2026-09-05",
+          "label": "it:/calcola-stipendio/stipendio-netto-~2b6ed2"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "it:~a3b2e0",
+      "sitemap": "sitemap-salary-hub.xml",
+      "observedMedianIgsPct": 0,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "it:/calcola-stipendio/~a3b2e0"
+        },
+        {
+          "run": "campione live, 2026-09-05",
+          "label": "it:/calcola-stipendio/stipendio-netto-~a3b2e0"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "it:~3f7fd0",
+      "sitemap": "sitemap-salary-hub.xml",
+      "observedMedianIgsPct": 1.96,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "it:/calcola-stipendio/~3f7fd0"
+        },
+        {
+          "run": "campione live, 2026-09-05",
+          "label": "it:/calcola-stipendio/stipendio-netto-~3f7fd0"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "it:~7b14aa",
+      "sitemap": "sitemap-salary-hub.xml",
+      "observedMedianIgsPct": 4,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "it:/calcola-stipendio/~7b14aa"
+        },
+        {
+          "run": "campione live, 2026-09-05",
+          "label": "it:/calcola-stipendio/stipendio-netto-~7b14aa"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "en:~a6e437",
+      "sitemap": "sitemap-salary-hub.xml",
+      "observedMedianIgsPct": 0,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "en:/en/calculate-salary/~a6e437"
+        },
+        {
+          "run": "campione live, 2026-09-05",
+          "label": "en:/en/calculate-salary/net-salary-~a6e437"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "en:~342e59",
+      "sitemap": "sitemap-salary-hub.xml",
+      "observedMedianIgsPct": 0,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "en:/en/calculate-salary/~342e59"
+        },
+        {
+          "run": "campione live, 2026-09-05",
+          "label": "en:/en/calculate-salary/net-salary-~342e59"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "en:~2b88cc",
+      "sitemap": "sitemap-salary-hub.xml",
+      "observedMedianIgsPct": 0,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "en:/en/calculate-salary/~2b88cc"
+        },
+        {
+          "run": "campione live, 2026-09-05",
+          "label": "en:/en/calculate-salary/net-salary-~2b88cc"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "en:~cf366d",
+      "sitemap": "sitemap-salary-hub.xml",
+      "observedMedianIgsPct": 0,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "en:/en/calculate-salary/~cf366d"
+        },
+        {
+          "run": "campione live, 2026-09-05",
+          "label": "en:/en/calculate-salary/net-salary-~cf366d"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "en:~d152c1",
+      "sitemap": "sitemap-salary-hub.xml",
+      "observedMedianIgsPct": 0,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "en:/en/calculate-salary/~d152c1"
+        },
+        {
+          "run": "campione live, 2026-09-05",
+          "label": "en:/en/calculate-salary/net-salary-~d152c1"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "en:~679ffe",
+      "sitemap": "sitemap-salary-hub.xml",
+      "observedMedianIgsPct": 0,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "en:/en/calculate-salary/~679ffe"
+        },
+        {
+          "run": "campione live, 2026-09-05",
+          "label": "en:/en/calculate-salary/net-salary-~679ffe"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "de:~985308",
+      "sitemap": "sitemap-salary-hub.xml",
+      "observedMedianIgsPct": 0,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "de:/de/gehalt-berechnen/~985308"
+        },
+        {
+          "run": "campione live, 2026-09-05",
+          "label": "de:/de/gehalt-berechnen/nettogehalt-~985308"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "de:~714897",
+      "sitemap": "sitemap-salary-hub.xml",
+      "observedMedianIgsPct": 0,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "de:/de/gehalt-berechnen/~714897"
+        },
+        {
+          "run": "campione live, 2026-09-05",
+          "label": "de:/de/gehalt-berechnen/nettogehalt-~714897"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "de:~783bb1",
+      "sitemap": "sitemap-salary-hub.xml",
+      "observedMedianIgsPct": 0,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "de:/de/gehalt-berechnen/~783bb1"
+        },
+        {
+          "run": "campione live, 2026-09-05",
+          "label": "de:/de/gehalt-berechnen/nettogehalt-~783bb1"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "de:~b2e7e8",
+      "sitemap": "sitemap-salary-hub.xml",
+      "observedMedianIgsPct": 2.33,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "de:/de/gehalt-berechnen/~b2e7e8"
+        },
+        {
+          "run": "campione live, 2026-09-05",
+          "label": "de:/de/gehalt-berechnen/nettogehalt-~b2e7e8"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "de:~36928d",
+      "sitemap": "sitemap-salary-hub.xml",
+      "observedMedianIgsPct": 2.38,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "de:/de/gehalt-berechnen/~36928d"
+        },
+        {
+          "run": "campione live, 2026-09-05",
+          "label": "de:/de/gehalt-berechnen/nettogehalt-~36928d"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "de:~17eee5",
+      "sitemap": "sitemap-salary-hub.xml",
+      "observedMedianIgsPct": 2.38,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "de:/de/gehalt-berechnen/~17eee5"
+        },
+        {
+          "run": "campione live, 2026-09-05",
+          "label": "de:/de/gehalt-berechnen/nettogehalt-~17eee5"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "fr:~784d75",
+      "sitemap": "sitemap-salary-hub.xml",
+      "observedMedianIgsPct": 0,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "fr:/fr/calculer-salaire/~784d75"
+        },
+        {
+          "run": "campione live, 2026-09-05",
+          "label": "fr:/fr/calculer-salaire/salaire-net-~784d75"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "fr:~be8ee8",
+      "sitemap": "sitemap-salary-hub.xml",
+      "observedMedianIgsPct": 0,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "fr:/fr/calculer-salaire/~be8ee8"
+        },
+        {
+          "run": "campione live, 2026-09-05",
+          "label": "fr:/fr/calculer-salaire/salaire-net-~be8ee8"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "fr:~57819b",
+      "sitemap": "sitemap-salary-hub.xml",
+      "observedMedianIgsPct": 0,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "fr:/fr/calculer-salaire/~57819b"
+        },
+        {
+          "run": "campione live, 2026-09-05",
+          "label": "fr:/fr/calculer-salaire/salaire-net-~57819b"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "fr:~219c8c",
+      "sitemap": "sitemap-salary-hub.xml",
+      "observedMedianIgsPct": 1.35,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "fr:/fr/calculer-salaire/~219c8c"
+        },
+        {
+          "run": "campione live, 2026-09-05",
+          "label": "fr:/fr/calculer-salaire/salaire-net-~219c8c"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "fr:~3b291e",
+      "sitemap": "sitemap-salary-hub.xml",
+      "observedMedianIgsPct": 2.63,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "fr:/fr/calculer-salaire/~3b291e"
+        },
+        {
+          "run": "campione live, 2026-09-05",
+          "label": "fr:/fr/calculer-salaire/salaire-net-~3b291e"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "fr:~15498b",
+      "sitemap": "sitemap-salary-hub.xml",
+      "observedMedianIgsPct": 2.7,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "fr:/fr/calculer-salaire/~15498b"
+        },
+        {
+          "run": "campione live, 2026-09-05",
+          "label": "fr:/fr/calculer-salaire/salaire-net-~15498b"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "it:~1fd95f",
+      "sitemap": "sitemap-border-wait.xml",
+      "observedMedianIgsPct": 0,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "it:/guida-frontaliere/tempi-attesa-dogana/~1fd95f"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "en:~bdfe66",
+      "sitemap": "sitemap-border-wait.xml",
+      "observedMedianIgsPct": 0,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "en:/en/~bdfe66"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "de:~4c9404",
+      "sitemap": "sitemap-border-wait.xml",
+      "observedMedianIgsPct": 0,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "de:/de/~4c9404"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "fr:~9706c6",
+      "sitemap": "sitemap-border-wait.xml",
+      "observedMedianIgsPct": 0,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "fr:/fr/~9706c6"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "it:~d7cd89",
+      "sitemap": "sitemap-health-premiums.xml",
+      "observedMedianIgsPct": 2.6,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "it:/premi-cassa-malati/~d7cd89"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "en:~74bc5f",
+      "sitemap": "sitemap-health-premiums.xml",
+      "observedMedianIgsPct": 2.7,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "en:/en/health-insurance-premiums/~74bc5f"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "de:~4dd667",
+      "sitemap": "sitemap-health-premiums.xml",
+      "observedMedianIgsPct": 2.7,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "de:/de/krankenkassenpraemien/~4dd667"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "fr:~80ed15",
+      "sitemap": "sitemap-health-premiums.xml",
+      "observedMedianIgsPct": 2.56,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "fr:/fr/primes-assurance-maladie/~80ed15"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "it:~23cba1",
+      "sitemap": "sitemap-weekly-employers.xml",
+      "observedMedianIgsPct": 2.75,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "it:/aziende-che-assumono/~23cba1"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "fr:~4b8304",
+      "sitemap": "sitemap-weekly-employers.xml",
+      "observedMedianIgsPct": 2.8,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "fr:/fr/entreprises-recrutent/~4b8304"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "de:~3b9ffd",
+      "sitemap": "sitemap-weekly-employers.xml",
+      "observedMedianIgsPct": 4.63,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "de:/de/unternehmen-einstellen/"
+        },
+        {
+          "run": "campione live, 2026-09-05",
+          "label": "de:/de/unternehmen-einstellen/~3b9ffd"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "en:~a17e23",
+      "sitemap": "sitemap-weekly-employers.xml",
+      "observedMedianIgsPct": 4.85,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "en:/en/companies-hiring/"
+        },
+        {
+          "run": "campione live, 2026-09-05",
+          "label": "en:/en/companies-hiring/~a17e23"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "it:~1164d6",
+      "sitemap": "sitemap-profession-cantons.xml",
+      "observedMedianIgsPct": 2.94,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "it:/lavoro-~1164d6"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "en:~896cea",
+      "sitemap": "sitemap-profession-cantons.xml",
+      "observedMedianIgsPct": 3.13,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "en:/en/~896cea"
+        },
+        {
+          "run": "campione live, 2026-09-05",
+          "label": "en:/en/jobs-~896cea"
+        }
+      ]
+    },
+    {
+      "inventoryKey": "de:~7fd413",
+      "sitemap": "sitemap-profession-cantons.xml",
+      "observedMedianIgsPct": 4.29,
+      "observedLabels": [
+        {
+          "run": "33460354951 (gate su dist, 2026-09-01)",
+          "label": "de:/de/~7fd413"
+        },
+        {
+          "run": "campione live, 2026-09-05",
+          "label": "de:/de/arbeit-~7fd413"
+        }
       ]
     }
   ]
