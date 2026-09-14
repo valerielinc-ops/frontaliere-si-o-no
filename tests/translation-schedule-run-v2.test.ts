@@ -34,7 +34,7 @@ function createRepositories() {
     + 'The position combines ownership, careful documentation, and practical problem solving.';
   writeFileSync(join(dataDirectory, 'example-crawler.json'), `${JSON.stringify({
     crawlerKey: 'example-crawler',
-    assembledAt: '2026-09-01T00:00:00.000Z',
+    assembledAt: new Date().toISOString(),
     jobs: [{
       id: 'job-1',
       url: 'https://jobs.example.test/positions/job-1/',
@@ -117,5 +117,24 @@ describe('translation scheduler v2 runtime wiring', () => {
     expect(git(one, 'ls-remote', '--refs', remote, report.stateRef)).toContain(report.state.after);
     expect(git(one, 'ls-tree', '-r', '--name-only', report.state.after))
       .toContain('v2/scheduler/');
+  });
+
+  it('returns an empty report when the live queue has no pending units', async () => {
+    const { one } = createRepositories();
+    const slicePath = join(one, 'data/jobs/by-crawler/example-crawler.json');
+    const slice = JSON.parse(readFileSync(slicePath, 'utf8'));
+    slice.jobs = [];
+    writeFileSync(slicePath, `${JSON.stringify(slice, null, 2)}\n`);
+
+    const report = await runTranslationScheduleV2({
+      repository: one,
+      logger: { log() {} },
+    });
+
+    expect(report).toMatchObject({
+      status: 'empty',
+      scheduler: { selectedJobs: 0, selectedUnits: 0 },
+      state: { reserved: false, settled: false },
+    });
   });
 });
