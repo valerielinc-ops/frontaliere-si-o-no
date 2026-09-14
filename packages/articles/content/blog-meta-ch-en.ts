@@ -6394,6 +6394,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.transpa-reg-quadri-rinvio-1-ottobre.title': 'TranspaReg: Frames request deferral for cyber risk',
     'blog.article.transpa-reg-quadri-rinvio-1-ottobre.excerpt': 'National Councillor Lorenzo Quadri asks to suspend the entry into force on 1 October, citing the case of Liechtenstein.',
     'blog.article.transpa-reg-quadri-rinvio-1-ottobre.imageAlt': 'Server room with blue LED lights symbolizing cybersecurity and financial transparency in Switzerland.',
+    'blog.article.detenzione-48-ore-manifestazioni.title': '48-hour detention: the plan against troublemakers',
+    'blog.article.detenzione-48-ore-manifestazioni.excerpt': 'After the events in Bern in 2023, the National Team approved the increase in pretrial detention to 48 hours and greater powers for the sic.',
+    'blog.article.detenzione-48-ore-manifestazioni.imageAlt': 'The Federal Palace in Bern with protesters in the foreground, symbolizing the public security debate',
 };
 
 export default blogMetaChEn;

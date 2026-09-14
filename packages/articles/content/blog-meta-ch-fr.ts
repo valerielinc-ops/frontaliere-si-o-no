@@ -6394,6 +6394,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.transpa-reg-quadri-rinvio-1-ottobre.title': 'TranspaReg : Cadres demande un renvoi pour risque informatique',
     'blog.article.transpa-reg-quadri-rinvio-1-ottobre.excerpt': 'Le Conseiller national Lorenzo Quadri demande de suspendre l\'entrée en vigueur au 1er octobre, citant le cas du Liechtenstein.',
     'blog.article.transpa-reg-quadri-rinvio-1-ottobre.imageAlt': 'Salle serveurs avec des lumières LED bleues symbolisant la cybersécurité et la transparence financière en Suisse.',
+    'blog.article.detenzione-48-ore-manifestazioni.title': 'Détention 48 heures : le plan contre les voyous',
+    'blog.article.detenzione-48-ore-manifestazioni.excerpt': 'Après les événements de Berne de 2023, le National a approuvé l\'augmentation de la détention préventive à 48 heures et des pouvoirs accrus pour le SRC.',
+    'blog.article.detenzione-48-ore-manifestazioni.imageAlt': 'Le Palais fédéral à Berne avec des manifestants au premier plan, symbole du débat sur la sécurité publique',
 };
 
 export default blogMetaChFr;

@@ -6394,6 +6394,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.transpa-reg-quadri-rinvio-1-ottobre.title': 'TranspaReg: Kader bittet um Vertagung wegen Cyber-Risiko',
     'blog.article.transpa-reg-quadri-rinvio-1-ottobre.excerpt': 'Nationalrat Lorenzo Quadri beantragt unter Berufung auf den Fall Liechtenstein, das Inkrafttreten auf den 1. Oktober auszusetzen.',
     'blog.article.transpa-reg-quadri-rinvio-1-ottobre.imageAlt': 'Serverraum mit blauen LED-Lichtern, der Cybersicherheit und finanzielle Transparenz in der Schweiz symbolisiert.',
+    'blog.article.detenzione-48-ore-manifestazioni.title': '48 Stunden Haft: Der Plan gegen die Peiniger',
+    'blog.article.detenzione-48-ore-manifestazioni.excerpt': 'Nach den Ereignissen von Bern 2023 genehmigte der Nationalrat die Erhöhung der Untersuchungshaft auf 48 Stunden und erhöhte Befugnisse für den NDB.',
+    'blog.article.detenzione-48-ore-manifestazioni.imageAlt': 'Der Bundespalast in Bern mit Demonstranten im Vordergrund, Symbol der Debatte über die öffentliche Sicherheit',
 };
 
 export default blogMetaChDe;
