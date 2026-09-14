@@ -26,6 +26,7 @@ import {
 import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
 import { BLOG_SECTION_RX } from './lib/articleSections.mjs';
 import { HEALTH_FACILITIES_SECTION_RX } from './lib/healthFacilitiesSections.mjs';
+import { HEALTH_FACILITY_PAGE_BUDGET_BYTES } from './lib/pageWeightBudgets.mjs';
 import { insertBounded } from './lib/boundedTopN.mjs';
 
 // 215 KB cap (was 200 KB). The TI job-board landing
@@ -90,6 +91,7 @@ function budgetForPath(relPath) {
   if (JOB_BOARD_COMPANY_HUB_PATH_RX.test(p) || EMPLOYER_PROFILE_PATH_RX.test(p)) {
     return Number.POSITIVE_INFINITY;
   }
+  if (HEALTH_FACILITIES_SECTION_RX.test(p)) return HEALTH_FACILITY_PAGE_BUDGET_BYTES;
   return ITALIAN_STATIONS_INDEX_RE.test(p) ? ITALIAN_STATIONS_INDEX_BUDGET : MAX_HTML_BYTES;
 }
 

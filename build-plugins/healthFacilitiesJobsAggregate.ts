@@ -8,8 +8,8 @@
  * the name/geo matching lives once in the generator) and computes a snapshot:
  * live job count, healthcare-role mix + median salary (via the SAME
  * classifier + median helper the generator used), 30-day freshness, top
- * roles, top featured jobs (for the SPA job cards) and a JobPosting-ready
- * projection of the featured jobs.
+ * roles, the complete ranked job inventory (for the static job cards) and a
+ * JobPosting-ready projection of the first featured jobs.
  *
  * Module-level cache keyed by rootDir — the ~150 MB jobs.json is parsed once
  * per build (loadJobsJson is itself cached; this caches the per-facility
@@ -56,7 +56,7 @@ interface JobRecord {
   category?: string;
 }
 
-/** A featured job projected for the SPA job card + JobPosting schema. */
+/** A live facility job projected for a card + the bounded schema projection. */
 export interface FacilityFeaturedJob {
   readonly id: string;
   readonly title: string;
@@ -95,6 +95,9 @@ export interface FacilitySnapshot {
   readonly fresh30Count: number;
   readonly medianSalaryChf: number | null;
   readonly roleCounts: Readonly<Record<HealthcareRole, number>>;
+  /** All valid live jobs, ordered with healthcare and featured roles first. */
+  readonly jobs: readonly FacilityFeaturedJob[];
+  /** First six jobs kept for the bounded JobPosting JSON-LD projection. */
   readonly featured: readonly FacilityFeaturedJob[];
 }
 
@@ -189,12 +192,10 @@ function buildSnapshot(
     if (aFeat !== bFeat) return bFeat - aFeat;
     return firstParsableMs(b.postedDate, b.firstSeenAt) - firstParsableMs(a.postedDate, a.firstSeenAt);
   });
-  const featured: FacilityFeaturedJob[] = [];
-  for (const job of ranked) {
-    if (featured.length >= 6) break;
-    const f = toFeatured(job, now);
-    if (f) featured.push(f);
-  }
+  const allJobs = ranked
+    .map((job) => toFeatured(job, now))
+    .filter((job): job is FacilityFeaturedJob => job !== null);
+  const featured = allJobs.slice(0, 6);
 
   return {
     slug: facility.slug,
@@ -203,6 +204,7 @@ function buildSnapshot(
     fresh30Count: fresh30,
     medianSalaryChf: median,
     roleCounts,
+    jobs: allJobs,
     featured,
   };
 }
