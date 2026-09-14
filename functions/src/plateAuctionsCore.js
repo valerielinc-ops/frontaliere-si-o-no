@@ -232,21 +232,36 @@ export function parseZhAuctionCards(
   return auctions;
 }
 
-export async function fetchHtml(url, { timeoutMs = 20000, userAgent } = {}) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const response = await fetch(url, {
-      redirect: 'follow',
-      headers: {
-        Accept: 'text/html,application/xhtml+xml',
-        'User-Agent': userAgent || process.env.JOBS_CRAWLER_USER_AGENT || 'FrontaliereTicinoBot/1.0',
-      },
-      signal: controller.signal,
-    });
-    if (!response.ok) throw new Error(`HTTP ${response.status} from ${url}`);
-    return response.text();
-  } finally {
-    clearTimeout(timer);
+export async function fetchHtml(url, { timeoutMs = 20000, userAgent, retries = 2, retryDelayMs = 750 } = {}) {
+  const maxRetries = Number.isInteger(retries) && retries >= 0 ? retries : 2;
+  let lastError;
+
+  for (let attempt = 0; attempt <= maxRetries; attempt += 1) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const response = await fetch(url, {
+        redirect: 'follow',
+        headers: {
+          Accept: 'text/html,application/xhtml+xml',
+          'User-Agent': userAgent || process.env.JOBS_CRAWLER_USER_AGENT || 'FrontaliereTicinoBot/1.0',
+        },
+        signal: controller.signal,
+      });
+      if (!response.ok) {
+        const error = new Error(`HTTP ${response.status} from ${url}`);
+        error.retryable = response.status === 408 || response.status === 425 || response.status === 429 || response.status >= 500;
+        throw error;
+      }
+      return await response.text();
+    } catch (error) {
+      lastError = error;
+      if (attempt >= maxRetries || error?.retryable === false) throw error;
+      await new Promise((resolve) => setTimeout(resolve, retryDelayMs * (2 ** attempt)));
+    } finally {
+      clearTimeout(timer);
+    }
   }
+
+  throw lastError;
 }
