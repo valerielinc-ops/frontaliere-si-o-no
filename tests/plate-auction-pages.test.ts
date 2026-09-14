@@ -76,6 +76,13 @@ describe('plate-auction static pages', () => {
     expect(rendered.html).not.toContain('GR8');
   });
 
+  it('emits the site hreflang locale codes for auction pages', () => {
+    const rootDir = fixtureRoot();
+    const rendered = renderPlateAuctionPage({ locale: 'fr', view: 'canton', canton: 'GR', rootDir });
+    const hreflangs = [...rendered.html.matchAll(/hreflang=["']?([^"'\s>]+)["']?/g)].map((match) => match[1]);
+    expect(hreflangs).toEqual(['it', 'en', 'de', 'fr', 'x-default']);
+  });
+
   it('links every sitemap detail URL from static locale hubs', async () => {
     const rootDir = fixtureRoot({ auctionCount: 41, withDist: true });
     const closeBundle = plateAuctionsPagesPlugin(rootDir).closeBundle;
