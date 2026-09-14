@@ -874,8 +874,12 @@ export async function runSeoHealthLoop({
     : await reportIssueIfNeeded(report);
   report.exitCode = actionable.length ? 1 : 0;
 
+  // A dry-run must remain ephemeral, but its report is still the observable
+  // output consumed by the workflow artifact upload.  Persist only that
+  // report; state and history remain untouched so a dry-run cannot advance a
+  // finding streak or influence the next automatic correction.
+  writeJsonAtomic(report.reportPath, report);
   if (!opts.dryRun) {
-    writeJsonAtomic(report.reportPath, report);
     writeJsonAtomic(statePath, nextState);
     fs.mkdirSync(path.dirname(historyPath), { recursive: true });
     const historyEntry = {

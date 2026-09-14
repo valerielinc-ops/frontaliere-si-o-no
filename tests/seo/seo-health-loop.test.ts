@@ -1,4 +1,4 @@
-import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import { existsSync, mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
@@ -107,6 +107,7 @@ describe('SEO health contract', () => {
     expect(WORKFLOW_SOURCE).toContain('--in-place-resolver-cmd');
     expect(WORKFLOW_SOURCE).not.toContain("--in-place-resolver-cmd 'node scripts/lib/resolve-404-compat-conflict.mjs && git add -A'");
     expect(WORKFLOW_SOURCE).toContain('actions/upload-artifact@v6');
+    expect(WORKFLOW_SOURCE).toContain('if-no-files-found: error');
     expect(WORKFLOW_SOURCE).toContain('EXPECTED_SHA=');
     expect(WORKFLOW_SOURCE).toContain('No deploy token available');
     expect(WORKFLOW_SOURCE).toContain("dispatch_sent=true");
@@ -168,32 +169,40 @@ describe('SEO health live runner', () => {
     ]);
     expect(graph.findings.map((finding) => finding.code)).toContain('sitemap-no-trailing-slash');
 
-    const report = await runSeoHealthLoop({
-      options: {
-        origin: ORIGIN,
-        sitemap,
-        sample: 10,
-        jobSample: 10,
-        strictSources: true,
-        dryRun: true,
-        reportDir: '/tmp/seo-health-test/reports',
-        statePath: '/tmp/seo-health-test/state.json',
-        historyPath: '/tmp/seo-health-test/history.jsonl',
-      },
-      fetchImpl,
-      collectAnalytics: false,
-      root: '/tmp/seo-health-test',
-      now: new Date('2026-09-13T00:00:00Z'),
-    });
-    expect(report.pageAudit.sampledCount).toBe(3);
-    expect(report.findings.observed.map((finding) => finding.code)).toEqual(expect.arrayContaining([
-      'sitemap-no-trailing-slash',
-      'canonical-mismatch',
-      'sitemap-noindex',
-      'source-unavailable',
-    ]));
-    expect(report.findings.actionable).toHaveLength(0);
-    expect(report.issue).toMatchObject({ skipped: 'dry-run' });
+    const root = mkdtempSync(join(tmpdir(), 'seo-health-dry-run-'));
+    try {
+      const report = await runSeoHealthLoop({
+        options: {
+          origin: ORIGIN,
+          sitemap,
+          sample: 10,
+          jobSample: 10,
+          strictSources: true,
+          dryRun: true,
+          reportDir: join(root, 'reports'),
+          statePath: join(root, 'state.json'),
+          historyPath: join(root, 'history.jsonl'),
+        },
+        fetchImpl,
+        collectAnalytics: false,
+        root,
+        now: new Date('2026-09-13T00:00:00Z'),
+      });
+      expect(report.pageAudit.sampledCount).toBe(3);
+      expect(report.findings.observed.map((finding) => finding.code)).toEqual(expect.arrayContaining([
+        'sitemap-no-trailing-slash',
+        'canonical-mismatch',
+        'sitemap-noindex',
+        'source-unavailable',
+      ]));
+      expect(report.findings.actionable).toHaveLength(0);
+      expect(report.issue).toMatchObject({ skipped: 'dry-run' });
+      expect(readFileSync(join(root, 'reports', 'latest.json'), 'utf8')).toContain('"dryRun": true');
+      expect(existsSync(join(root, 'state.json'))).toBe(false);
+      expect(existsSync(join(root, 'history.jsonl'))).toBe(false);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
   });
 
   it('surfaces a sitemap graph truncated exactly at the configured cap', async () => {
