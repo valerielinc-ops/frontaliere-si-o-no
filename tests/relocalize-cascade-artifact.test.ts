@@ -145,9 +145,13 @@ describe('cascade company artifact', () => {
     markCascadeFailure(initial);
 
     expect(terminal.stopReason).toBe('queue exhausted');
-    expect(deadline.stopReason).toBe('failed');
+    expect(terminal.failed).toBe(true);
+    expect(deadline.stopReason).toBe('cascade deadline');
+    expect(deadline.failed).toBe(true);
     expect(active.stopReason).toBe('failed');
+    expect(active.failed).toBe(true);
     expect(initial.stopReason).toBe('failed');
+    expect(initial.failed).toBe(true);
   });
 
   it('clamps exhausted windows and labels an incoherent run clock separately', async () => {

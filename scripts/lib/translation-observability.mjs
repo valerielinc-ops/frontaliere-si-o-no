@@ -478,6 +478,8 @@ export function summarizeRunPhases(phases) {
       // bulk pass without showing that it was entitled to run that long.
       budgetMs: finiteOrNull(phase.budgetMs),
       stopReason: typeof phase.stopReason === 'string' ? phase.stopReason : null,
+      failed: phase.failed === true,
+      clockFallback: phase.clockFallback === true,
     }));
   if (clean.length === 0) return null;
   const cascadeIndex = phases.findIndex((phase) => phase?.name === 'cascade');
@@ -507,6 +509,8 @@ export function summarizeRunPhases(phases) {
       jobsCleared,
       companiesQueued: finiteOrNull(recorded?.companiesQueued),
       stopReason: typeof recorded?.stopReason === 'string' ? recorded.stopReason : null,
+      failed: recorded?.failed === true,
+      clockFallback: recorded?.clockFallback === true,
       // The only figure comparable across runs: a run given 38 minutes and one
       // given 2 cannot be compared on jobs alone, and dividing by the NOMINAL
       // deadline instead of the granted window is what produced the bogus
