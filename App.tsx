@@ -458,13 +458,32 @@ const App: React.FC = () => {
  useLayoutEffect(() => {
    const staticMains = document.querySelectorAll<HTMLElement>('main.seo-static-content, main.cluster-seo-prose');
    for (const staticMain of staticMains) {
+     // A plate-auction fallback is owned by the plate-auction route only. If
+     // navigation lands on another static overlay, the old main can still be
+     // present for one render while the route state and the DOM settle; never
+     // reveal that stale snapshot alongside the destination page.
+     const isPlateAuctionStatic = staticMain.classList.contains('plate-auction-static');
+     if (isPlateAuctionStatic && activeTab !== 'plate-auctions') {
+       staticMain.style.setProperty('display', 'none', 'important');
+       continue;
+     }
+     // Plate-auction pages have a real interactive equivalent. Keep their
+     // crawl-facing snapshot visible until the page validates the live feed;
+     // this prevents a failed API request from replacing useful static data
+     // with an empty error shell. PlateAuctionsPage completes the handshake
+     // after a schema-valid snapshot and hides this sibling synchronously.
+     if (isPlateAuctionStatic
+       && !document.documentElement.hasAttribute('data-plate-auctions-live')) {
+       staticMain.style.removeProperty('display');
+       continue;
+     }
      if (staticOverlay) {
        staticMain.style.removeProperty('display');
      } else {
        staticMain.style.setProperty('display', 'none', 'important');
      }
    }
- }, [staticOverlay]);
+ }, [activeTab, staticOverlay]);
 
  // Static sub-nav deduplication: build plugins (staticPagesPlugin via
  // `renderHubChromeSplit`) ship a server-rendered `<nav class="seo-hub-subnav">`

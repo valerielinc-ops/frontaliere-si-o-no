@@ -27,11 +27,16 @@
  * Usage:
  *   node scripts/decontaminate-prev-slugs.mjs            # dry-run report
  *   node scripts/decontaminate-prev-slugs.mjs --apply    # write changes
+ *
+ * The decontaminateEntries() helper is also used by the active-slice writer
+ * with the existing fleet as its owner index, so confirmed cross-file and
+ * same-slice contamination cannot regrow after a crawl write.
  */
 import fs from 'node:fs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { stableSlugHash } from './lib/dedicated-crawler-common.mjs';
 import { pruneEmptyPreviousSlugLocaleBuckets } from './lib/dedicated-crawler-common.mjs';
 import { addPreviousSlugForLocale, promotePreviousSlugToLegacy } from './lib/dedicated-crawler-common.mjs';
@@ -87,29 +92,75 @@ function removePlannedSlugs(job, plans) {
   }
 }
 
+function collectRedirectPlans(jobs, owners, { sourceEntry = null, ownerEntry = null } = {}) {
+  const plans = [];
+  for (const job of jobs) {
+    if (!job || typeof job !== 'object') continue;
+    for (const [locale, slugs] of Object.entries(job.previousSlugsByLocale || {})) {
+      if (!Array.isArray(slugs)) continue;
+      for (const slug of slugs) {
+        const { targetJob, redirected } = resolveRecoveryTarget(job, slug, owners);
+        if (!redirected) continue;
+        plans.push({
+          sourceEntry,
+          sourceJob: job,
+          targetEntry: ownerEntry?.get(targetJob) || sourceEntry,
+          targetJob,
+          locale,
+          slug,
+        });
+      }
+    }
+    if (Array.isArray(job.previousSlugs)) {
+      for (const slug of job.previousSlugs) {
+        const { targetJob, redirected } = resolveRecoveryTarget(job, slug, owners);
+        if (!redirected) continue;
+        plans.push({
+          sourceEntry,
+          sourceJob: job,
+          targetEntry: ownerEntry?.get(targetJob) || sourceEntry,
+          targetJob,
+          locale: null,
+          slug,
+        });
+      }
+    }
+  }
+  return plans;
+}
+
 /**
- * Process one or more crawler slices as a single ownership namespace.
+ * Decontaminate selected crawler slices against one complete fleet index.
  *
- * Cross-file redirects are written to their target slice before any claimant
- * removal. If a later write fails, the old route therefore still exists on
- * the claimant and a retry can safely finish the move; successful earlier
- * files are already idempotent. Hashes with more than one global record are
- * deliberately not used for cross-file routing, while same-file resolution
- * retains the historical first-owner behavior.
+ * `entries` supplies every slice used to resolve a hash tail; `sourceEntries`
+ * selects the slices whose previous-slug claims are scanned and removed. The
+ * writer uses one fresh source entry plus the existing fleet, which closes the
+ * cross-file regrowth gap without rewriting unrelated claimants in each crawl.
+ * Cross-file targets are persisted before source removal, so a failed target
+ * write leaves the old route recoverable for a retry.
+ *
+ * @param {{filePath:string|null, slice:{jobs:object[]}}[]} entries complete owner namespace
+ * @param {{sourceEntries?:object[], apply?:boolean, writeSlice?:Function}} [options]
+ * @returns {{moved:number, emptyLocaleBucketsPruned:number, affected:object[]}}
  */
-export function processFiles(filePaths, {
+export function decontaminateEntries(entries, {
+  sourceEntries = entries,
   apply = APPLY,
   writeSlice = (filePath, slice) => writeJsonAtomic(filePath, slice),
 } = {}) {
-  const entries = filePaths.map((filePath) => ({
-    filePath,
-    slice: JSON.parse(fs.readFileSync(filePath, 'utf8')),
-  })).filter((entry) => Array.isArray(entry.slice.jobs));
+  const validEntries = (Array.isArray(entries) ? entries : [])
+    .filter((entry) => Array.isArray(entry?.slice?.jobs));
+  const validSet = new Set(validEntries);
+  const sourceSet = new Set(
+    (Array.isArray(sourceEntries) ? sourceEntries : validEntries)
+      .filter((entry) => validSet.has(entry)),
+  );
   const ownerEntry = new WeakMap();
   const globalOwners = new Map();
 
-  for (const entry of entries) {
+  for (const entry of validEntries) {
     for (const job of entry.slice.jobs) {
+      if (!job || typeof job !== 'object') continue;
       ownerEntry.set(job, entry);
       const hash = stableSlugHash(job);
       if (!hash) continue;
@@ -122,35 +173,23 @@ export function processFiles(filePaths, {
     [...globalOwners].filter(([, jobs]) => jobs.length === 1).map(([hash, jobs]) => [hash, jobs[0]]),
   );
   const plans = [];
-  const stats = new Map(entries.map((entry) => [entry, { moved: 0, emptyLocaleBucketsPruned: 0 }]));
+  const stats = new Map(validEntries.map((entry) => [entry, { moved: 0, emptyLocaleBucketsPruned: 0 }]));
 
-  for (const entry of entries) {
+  for (const entry of validEntries) {
+    if (!sourceSet.has(entry)) continue;
     const owners = new Map(globallyUnique);
     for (const job of entry.slice.jobs) {
+      if (!job || typeof job !== 'object') continue;
       const hash = stableSlugHash(job);
       if (hash && !owners.has(hash)) owners.set(hash, job);
       // A same-slice owner is stronger than a unique global fallback.
       if (hash && ownerEntry.get(owners.get(hash)) !== entry) owners.set(hash, job);
     }
 
-    for (const job of entry.slice.jobs) {
-      for (const [locale, slugs] of Object.entries(job.previousSlugsByLocale || {})) {
-        if (!Array.isArray(slugs)) continue;
-        for (const slug of slugs) {
-          const { targetJob, redirected } = resolveRecoveryTarget(job, slug, owners);
-          if (!redirected) continue;
-          plans.push({ sourceEntry: entry, sourceJob: job, targetEntry: ownerEntry.get(targetJob), targetJob, locale, slug });
-          stats.get(entry).moved++;
-        }
-      }
-      if (Array.isArray(job.previousSlugs)) {
-        for (const slug of job.previousSlugs) {
-          const { targetJob, redirected } = resolveRecoveryTarget(job, slug, owners);
-          if (!redirected) continue;
-          plans.push({ sourceEntry: entry, sourceJob: job, targetEntry: ownerEntry.get(targetJob), targetJob, locale: null, slug });
-          stats.get(entry).moved++;
-        }
-      }
+    const entryPlans = collectRedirectPlans(entry.slice.jobs, owners, { sourceEntry: entry, ownerEntry });
+    for (const plan of entryPlans) {
+      plans.push(plan);
+      stats.get(entry).moved++;
     }
   }
 
@@ -173,22 +212,27 @@ export function processFiles(filePaths, {
   }
   for (const [job, jobPlans] of plansByJob) removePlannedSlugs(job, jobPlans);
 
-  for (const entry of entries) {
+  for (const entry of validEntries) {
+    if (!sourceSet.has(entry)) continue;
     for (const job of entry.slice.jobs) {
+      if (!job || typeof job !== 'object') continue;
       stats.get(entry).emptyLocaleBucketsPruned += pruneEmptyPreviousSlugLocaleBuckets(job);
     }
   }
 
-  const changedEntries = entries.filter((entry) => (
-    stats.get(entry).moved > 0
-    || stats.get(entry).emptyLocaleBucketsPruned > 0
-    || crossFilePlans.some((plan) => plan.targetEntry === entry)
+  const sourceChangedEntries = validEntries.filter((entry) => (
+    sourceSet.has(entry)
+    && (stats.get(entry).moved > 0 || stats.get(entry).emptyLocaleBucketsPruned > 0)
+  ));
+  const crossFileTargets = new Set(crossFilePlans.map((plan) => plan.targetEntry));
+  const changedEntries = validEntries.filter((entry) => (
+    sourceChangedEntries.includes(entry) || crossFileTargets.has(entry)
   ));
   if (apply) {
     // This pass intentionally drops claimant entries. Disable the preservation
-    // guard only for each final atomic slice write; target-first additions
-    // above remain protected by the normal writer.
-    for (const entry of changedEntries.sort((a, b) => a.filePath.localeCompare(b.filePath))) {
+    // guard only for final source writes; target-first additions remain
+    // protected by the normal writer and are already persisted above.
+    for (const entry of sourceChangedEntries.sort((a, b) => String(a.filePath).localeCompare(String(b.filePath)))) {
       withGuardOff(() => writeSlice(entry.filePath, entry.slice, { phase: 'final' }));
     }
   }
@@ -199,6 +243,45 @@ export function processFiles(filePaths, {
     emptyLocaleBucketsPruned: affected.reduce((sum, entry) => sum + entry.emptyLocaleBucketsPruned, 0),
     affected,
   };
+}
+
+/**
+ * Decontaminate one crawler slice already held in memory.
+ *
+ * This is the write-side form of the fleet pass below. It keeps the same
+ * first-owner semantics used for jobs sharing a slice, and only redirects a
+ * previous slug when its hash tail positively identifies another current job.
+ * Unknown tails stay untouched because they are not evidence of contamination.
+ *
+ * @param {object[]} jobs jobs about to be persisted in one crawler slice
+ * @returns {{moved: number, emptyLocaleBucketsPruned: number}}
+ */
+export function decontaminateJobs(jobs) {
+  if (!Array.isArray(jobs)) return { moved: 0, emptyLocaleBucketsPruned: 0 };
+  const entry = { filePath: null, slice: { jobs } };
+  const result = decontaminateEntries([entry], { sourceEntries: [entry], apply: false });
+  return {
+    moved: result.moved,
+    emptyLocaleBucketsPruned: result.emptyLocaleBucketsPruned,
+  };
+}
+
+/**
+ * Process one or more crawler slices as a single ownership namespace.
+ *
+ * Cross-file redirects are written to their target slice before any claimant
+ * removal. If a later write fails, the old route therefore still exists on
+ * the claimant and a retry can safely finish the move; successful earlier
+ * files are already idempotent. Hashes with more than one global record are
+ * deliberately not used for cross-file routing, while same-file resolution
+ * retains the historical first-owner behavior.
+ */
+export function processFiles(filePaths, options = {}) {
+  const entries = filePaths.map((filePath) => ({
+    filePath,
+    slice: JSON.parse(fs.readFileSync(filePath, 'utf8')),
+  })).filter((entry) => Array.isArray(entry.slice.jobs));
+  return decontaminateEntries(entries, options);
 }
 
 export function processFile(filePath, options) {
@@ -219,15 +302,6 @@ function main() {
   if (!APPLY && result.affected.length > 0) console.log('Re-run with --apply to write.');
 }
 
-const isMain = (() => {
-  try {
-    return import.meta.url === `file://${process.argv[1]}`
-      || import.meta.url === new URL(`file://${process.argv[1]}`).href;
-  } catch {
-    return false;
-  }
-})();
-
-if (isMain) {
+if (isInvokedDirectly(import.meta.url)) {
   main();
 }

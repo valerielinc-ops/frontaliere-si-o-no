@@ -51,21 +51,6 @@ jobs:
         uses: actions/checkout@v5
         with:
           fetch-depth: 1
-          # Keep the production checkout small.  The runner reads public HTTP
-          # sitemaps and committed monitor state; the compat prune uses the
-          # shared resolver and canton registry, not the multi-GB job payload.
-          sparse-checkout: |
-            /*
-            !/public/images/
-            !/public/data/
-            !/data/jobs/
-            !/data/translation-cache/
-            !/packages/articles/content/
-            !/data/jobs-snapshots-history/
-            !/data/jobs-crawler-summaries/
-            !/data/orphan-enriched-data/
-            !/data/jobs-ai-cache.json
-          sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
         uses: actions/setup-node@v5

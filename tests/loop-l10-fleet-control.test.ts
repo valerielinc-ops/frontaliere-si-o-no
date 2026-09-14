@@ -57,6 +57,29 @@ function registry(overrides: Record<string, unknown> = {}) {
           retry: 'lock+retry',
         }
         : { healthy: 'observe', needsReview: 'follow-up' },
+      ...(loopId === 'L7'
+        ? {
+          allocationPolicy: {
+            persistent: true,
+            assignmentMethod: 'stable-sha256',
+            assignmentKey: 'experiment-session-id',
+            boundedCanary: {
+              enabled: false,
+              maxExposure: 0,
+              requiresReviewedApproval: true,
+            },
+            contaminationPolicy: {
+              controlled: true,
+              key: 'experiment-session-id',
+              rejectReassignment: true,
+              rejectCrossCandidateExposure: true,
+            },
+            trafficMutationAllowed: false,
+            priceMutationAllowed: false,
+            noAutomaticPriceChange: true,
+          },
+        }
+        : {}),
       guardrails: ['never bypass a gate'],
       lifecycle: {
         candidateTtlHours: 24,

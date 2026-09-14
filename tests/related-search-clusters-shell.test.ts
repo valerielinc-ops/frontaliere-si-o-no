@@ -182,6 +182,35 @@ describe('localized city joiner in headline (issue #4397)', () => {
   }
 });
 
+describe('related-search static job links', () => {
+  it('removes whole-title markdown wrappers without corrupting a real triple-star brand', () => {
+    const distDir = makeDist();
+    const page = renderClusterPage({
+      distDir,
+      dateStamp: '2026-09-14',
+      ctx: {
+        candidate: { slug: 'ricerca-retail-lenzburg', locale: 'it', jobCount: 3, sampleTerms: ['retail Lenzburg'], editorialCollision: null },
+        keyword: 'retail',
+        city: 'Lenzburg',
+        matchingJobs: [
+          { id: 'bold', title: '**Specialista nel commercio al dettaglio EFZ &quot;Progettazione di esperienze di acquisto&quot;**', company: 'Coop', location: 'Lenzburg', canton: 'AG', slug: 'bold' },
+          { id: 'brand', title: 'Verkaufsberater:in ***delicatessa 40-60% (w/m/d)', company: 'Globus', location: 'Luzern', canton: 'LU', slug: 'brand' },
+          { id: 'plain', title: 'Retail Specialist', company: 'ACME', location: 'Zürich', canton: 'ZH', slug: 'plain' },
+        ],
+        topCompanies: ['Coop'],
+      } as any,
+      enriched: undefined,
+      hreflang: [],
+      related: [],
+    });
+
+    expect(page.html).toContain('Specialista nel commercio al dettaglio EFZ');
+    const main = page.html.slice(page.html.indexOf('<main'));
+    expect(main).not.toContain('**Specialista');
+    expect(main).toContain('***delicatessa 40-60%');
+  });
+});
+
 describe('related search cluster SEO shell', () => {
   it('keeps the full SEO shell, indexation tags, SPA assets, and crawl links', () => {
     const distDir = makeDist();

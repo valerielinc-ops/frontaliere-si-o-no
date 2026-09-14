@@ -25,7 +25,7 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { parseDocument } from 'yaml';
-import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { createGithubIssue, ensureLabelsExist } from '../lib/github-issue-creator.mjs';
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 export const WORKFLOW_DIR_NAME = path.join('.github', 'workflows');
@@ -43,6 +43,11 @@ const DATA_PATH_RE = /\b((?:data|public\/data)\/[A-Za-z0-9_./-]+\.(?:json|jsonl|
 const OUTPUT_RE = /(?:echo|printf)\s+["']?([A-Za-z_][A-Za-z0-9_-]*)(?:=|<<)/g;
 const OUTPUT_HELPER_CALL_RE = /\b(?:write_output|writeOutput|set_output|setOutput|emit_output|emitOutput)\s*\(\s*["']([A-Za-z_][A-Za-z0-9_-]*)["']/g;
 const OUTPUT_HELPER_SHELL_RE = /\b(?:write_output|writeOutput|set_output|setOutput|emit_output|emitOutput)\s+["']?([A-Za-z_][A-Za-z0-9_-]*)["']?/g;
+const OUTPUT_ACTIONS_FILE_RE = /\bappendActionsFile\s*\(\s*["']GITHUB_OUTPUT["']\s*,\s*["']([A-Za-z_][A-Za-z0-9_-]*)["']/g;
+const LOCAL_MODULE_RE = /\b(?:from\s*|import\s*\(\s*|require\s*\(\s*)["'](\.{1,2}\/[^"']+)["']/g;
+const INVOKED_COMMAND_RE = /\b(?:node|bash|sh|tsx|bun|deno)\s+["']?((?:scripts|functions|tests|\.github\/actions|\.github\/scripts)\/[A-Za-z0-9_./-]+\.(?:mjs|cjs|js|ts|sh|yml|yaml))\b/g;
+const SCRIPT_DIR_COMMAND_RE = /\b(?:bash|sh|source|\.)\s+["']?\$\{SCRIPT_DIR\}\/([^"'\s]+)/g;
+const MAX_OUTPUT_REFERENCE_FILES = 16;
 
 function isRecord(value) {
   return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
@@ -197,6 +202,18 @@ function extractCommandPaths(run) {
   return [...new Set(paths)];
 }
 
+function extractLocalModulePaths(source) {
+  return [...new Set([...String(source || '').matchAll(LOCAL_MODULE_RE)].map((match) => match[1]))];
+}
+
+function extractInvokedCommandPaths(source) {
+  return [...new Set([...String(source || '').matchAll(INVOKED_COMMAND_RE)].map((match) => match[1]))];
+}
+
+function extractScriptDirCommands(source) {
+  return [...new Set([...String(source || '').matchAll(SCRIPT_DIR_COMMAND_RE)].map((match) => match[1]))];
+}
+
 function extractDataPaths(run) {
   return [...new Set([...String(run || '').matchAll(DATA_PATH_RE)].map((match) => match[1]))];
 }
@@ -314,18 +331,150 @@ function shellOperationalText(run, { preserveQuotedWritePaths = false } = {}) {
   return output.join('');
 }
 
-function outputKeysFromSource(source) {
+function stringLiterals(source) {
   const raw = String(source || '');
-  if (!/\$GITHUB_OUTPUT\b|process\.env\.GITHUB_OUTPUT\b/.test(raw)) return new Set();
-  const keys = new Set([...raw.matchAll(OUTPUT_RE)].map((match) => match[1]));
-  for (const match of raw.matchAll(OUTPUT_HELPER_CALL_RE)) keys.add(match[1]);
-  for (const match of raw.matchAll(OUTPUT_HELPER_SHELL_RE)) keys.add(match[1]);
+  const literals = [];
+  let quote = null;
+  let start = -1;
+  let escaped = false;
+  let lineComment = false;
+  let blockComment = false;
 
-  // A workflow commonly delegates its output writer to a first-party script.
-  // Follow only a statically-known output file (the literal env expression or
-  // a variable assigned from it) and only literal output prefixes. This keeps
-  // the audit conservative: dynamic keys remain unknown and still warn.
-  const outputVariables = new Set(['process.env.GITHUB_OUTPUT']);
+  for (let index = 0; index < raw.length; index += 1) {
+    const char = raw[index];
+    const next = raw[index + 1];
+    if (lineComment) {
+      if (char === '\n') lineComment = false;
+      continue;
+    }
+    if (blockComment) {
+      if (char === '*' && next === '/') {
+        blockComment = false;
+        index += 1;
+      }
+      continue;
+    }
+    if (quote) {
+      if (escaped) {
+        escaped = false;
+        continue;
+      }
+      if (char === '\\') {
+        escaped = true;
+        continue;
+      }
+      if (char === quote) {
+        literals.push({ value: raw.slice(start, index), start, end: index + 1 });
+        quote = null;
+        start = -1;
+      }
+      continue;
+    }
+    if (char === '/' && next === '/') {
+      lineComment = true;
+      index += 1;
+      continue;
+    }
+    if (char === '/' && next === '*') {
+      blockComment = true;
+      index += 1;
+      continue;
+    }
+    if (char === '#') {
+      lineComment = true;
+      continue;
+    }
+    if (char === "'" || char === '"' || char === '`') {
+      quote = char;
+      start = index + 1;
+    }
+  }
+  return literals;
+}
+
+function matchingParen(source, openingIndex) {
+  const raw = String(source || '');
+  let depth = 0;
+  let quote = null;
+  let escaped = false;
+  let lineComment = false;
+  let blockComment = false;
+  for (let index = openingIndex; index < raw.length; index += 1) {
+    const char = raw[index];
+    const next = raw[index + 1];
+    if (lineComment) {
+      if (char === '\n') lineComment = false;
+      continue;
+    }
+    if (blockComment) {
+      if (char === '*' && next === '/') {
+        blockComment = false;
+        index += 1;
+      }
+      continue;
+    }
+    if (quote) {
+      if (escaped) {
+        escaped = false;
+        continue;
+      }
+      if (char === '\\') {
+        escaped = true;
+        continue;
+      }
+      if (char === quote) quote = null;
+      continue;
+    }
+    if (char === '/' && next === '/') {
+      lineComment = true;
+      index += 1;
+      continue;
+    }
+    if (char === '/' && next === '*') {
+      blockComment = true;
+      index += 1;
+      continue;
+    }
+    if (char === "'" || char === '"' || char === '`') {
+      quote = char;
+      continue;
+    }
+    if (char === '(') depth += 1;
+    if (char === ')') {
+      depth -= 1;
+      if (depth === 0) return index;
+    }
+  }
+  return -1;
+}
+
+function heredocOutputRanges(source) {
+  const raw = String(source || '');
+  const ranges = [];
+  const heredocRes = [
+    /(?:>>|>)\s*["']?\$GITHUB_OUTPUT["']?\s+<<-?\s*(?:(['"])([A-Za-z_][A-Za-z0-9_]*)\1|([A-Za-z_][A-Za-z0-9_]*))[^\r\n]*(?:\r?\n|$)/g,
+    /<<-?\s*(?:(['"])([A-Za-z_][A-Za-z0-9_]*)\1|([A-Za-z_][A-Za-z0-9_]*))\s+(?:>>|>)\s*["']?\$GITHUB_OUTPUT["']?[^\r\n]*(?:\r?\n|$)/g,
+  ];
+  for (const heredocRe of heredocRes) {
+    for (const match of raw.matchAll(heredocRe)) {
+      const rangeStart = match.index ?? 0;
+      const bodyStart = rangeStart + match[0].length;
+      const delimiter = match[2] || match[3] || match[5] || match[6];
+      const indentation = match[0].includes('<<-') ? '[\\t]*' : '';
+      const terminatorRe = new RegExp(`^${indentation}${delimiter}[ \\t]*(?:\\r?\\n|$)`, 'm');
+      const terminator = raw.slice(bodyStart).match(terminatorRe);
+      ranges.push({
+        start: rangeStart,
+        end: terminator ? bodyStart + (terminator.index ?? 0) : raw.length,
+      });
+    }
+  }
+  return ranges;
+}
+
+function outputSinkRanges(source) {
+  const raw = String(source || '');
+  const outputVariables = new Set(['process.env.GITHUB_OUTPUT', 'env.GITHUB_OUTPUT']);
   for (const match of raw.matchAll(/\b(?:const|let|var)\s+([A-Za-z_$][A-Za-z0-9_$]*)\s*=\s*process\.env\.GITHUB_OUTPUT\b/g)) {
     outputVariables.add(match[1]);
   }
@@ -335,10 +484,153 @@ function outputKeysFromSource(source) {
   const sinkRe = new RegExp(
     '\\b(?:appendFileSync|writeFileSync)\\(\\s*(?:'
       + variableAlternation
-      + ')\\s*,\\s*[`\'\"]([A-Za-z_][A-Za-z0-9_-]*)(?:=|<<)',
+      + ')\\s*,',
     'g',
   );
-  for (const match of raw.matchAll(sinkRe)) keys.add(match[1]);
+  const ranges = [];
+  for (const match of raw.matchAll(sinkRe)) {
+    const openingIndex = raw.indexOf('(', match.index ?? 0);
+    const closingIndex = matchingParen(raw, openingIndex);
+    let rangeStart = match.index ?? 0;
+    if (closingIndex >= 0) {
+      const argument = raw.slice((match.index ?? 0) + match[0].length, closingIndex).trim();
+      const variableMatch = argument.match(/^([A-Za-z_$][A-Za-z0-9_$]*)$/);
+      if (variableMatch) {
+        const escapedVariable = variableMatch[1].replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const declarationRe = new RegExp(`\\b(?:const|let|var)\\s+${escapedVariable}\\s*=`, 'g');
+        for (const declaration of raw.slice(0, match.index ?? 0).matchAll(declarationRe)) {
+          rangeStart = declaration.index ?? rangeStart;
+        }
+      }
+    }
+    ranges.push({
+      start: rangeStart,
+      end: closingIndex >= 0 ? closingIndex + 1 : raw.length,
+    });
+  }
+  return [...ranges, ...heredocOutputRanges(raw)];
+}
+
+function literalOutputKeys(source, sinkRanges = outputSinkRanges(source)) {
+  const keys = new Set();
+  const outputKeyRe = /(?:^|\r?\n|\\n|\\r\\n)([A-Za-z_][A-Za-z0-9_-]*)(?:=|<<)/g;
+  for (const literal of stringLiterals(source)) {
+    const belongsToSink = sinkRanges.some(({ start, end }) => literal.start >= start && literal.start < end);
+    if (!belongsToSink) continue;
+    for (const match of literal.value.matchAll(outputKeyRe)) keys.add(match[1]);
+  }
+  return keys;
+}
+
+function matchingBrace(source, openingIndex) {
+  const raw = String(source || '');
+  let depth = 0;
+  let quote = null;
+  let escaped = false;
+  let lineComment = false;
+  let blockComment = false;
+  for (let index = openingIndex; index < raw.length; index += 1) {
+    const char = raw[index];
+    const next = raw[index + 1];
+    if (lineComment) {
+      if (char === '\n') lineComment = false;
+      continue;
+    }
+    if (blockComment) {
+      if (char === '*' && next === '/') {
+        blockComment = false;
+        index += 1;
+      }
+      continue;
+    }
+    if (quote) {
+      if (escaped) {
+        escaped = false;
+        continue;
+      }
+      if (char === '\\') {
+        escaped = true;
+        continue;
+      }
+      if (char === quote) quote = null;
+      continue;
+    }
+    if (char === '/' && next === '/') {
+      lineComment = true;
+      index += 1;
+      continue;
+    }
+    if (char === '/' && next === '*') {
+      blockComment = true;
+      index += 1;
+      continue;
+    }
+    if (char === "'" || char === '"' || char === '`') {
+      quote = char;
+      continue;
+    }
+    if (char === '{') depth += 1;
+    if (char === '}') {
+      depth -= 1;
+      if (depth === 0) return index;
+    }
+  }
+  return -1;
+}
+
+function objectEntryOutputKeys(source, sinkRanges = outputSinkRanges(source)) {
+  const raw = String(source || '');
+  const keys = new Set();
+  if (sinkRanges.length === 0) return keys;
+  const declarationRe = /\b(?:const|let|var)\s+([A-Za-z_$][A-Za-z0-9_$]*)\s*=\s*\{/g;
+  for (const declaration of raw.matchAll(declarationRe)) {
+    const variable = declaration[1];
+    const declarationStart = declaration.index ?? 0;
+    const openingIndex = raw.indexOf('{', declarationStart);
+    const closingIndex = matchingBrace(raw, openingIndex);
+    if (closingIndex < 0) continue;
+    const escapedVariable = variable.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const entriesRe = new RegExp(
+      `\\b(?:const|let|var)\\s+([A-Za-z_$][A-Za-z0-9_$]*)\\s*=\\s*Object\\.entries\\(\\s*${escapedVariable}\\s*\\)[^;]*;`,
+      'g',
+    );
+    const entries = [...raw.slice(closingIndex + 1).matchAll(entriesRe)];
+    const reachesOutputSink = entries.some((entry) => {
+      const derivedVariable = entry[1];
+      const entriesStart = closingIndex + 1 + (entry.index ?? 0);
+      const entriesEnd = entriesStart + entry[0].length;
+      return sinkRanges.some(({ start, end }) => {
+        if (start < entriesEnd) return false;
+        return new RegExp(`\\b${derivedVariable.replace(/[.*+?^${}()|[\\]\\]/g, '\\\\$&')}\\b`).test(raw.slice(start, end));
+      });
+    });
+    if (!reachesOutputSink) continue;
+    const body = raw.slice(openingIndex + 1, closingIndex);
+    for (const entry of body.matchAll(/(?:^|,)\s*([A-Za-z_][A-Za-z0-9_-]*)\s*:/gm)) keys.add(entry[1]);
+  }
+  return keys;
+}
+
+function outputKeysFromSource(source) {
+  const raw = String(source || '');
+  if (!/\$GITHUB_OUTPUT\b|(?:process|env)\.GITHUB_OUTPUT\b|appendActionsFile\s*\(\s*["']GITHUB_OUTPUT["']/.test(raw)) return new Set();
+  const keys = new Set([...raw.matchAll(OUTPUT_RE)].map((match) => match[1]));
+  for (const match of raw.matchAll(OUTPUT_HELPER_CALL_RE)) keys.add(match[1]);
+  for (const match of raw.matchAll(OUTPUT_HELPER_SHELL_RE)) keys.add(match[1]);
+  for (const match of raw.matchAll(OUTPUT_ACTIONS_FILE_RE)) keys.add(match[1]);
+  const sinkRanges = outputSinkRanges(raw);
+  for (const key of literalOutputKeys(raw, sinkRanges)) keys.add(key);
+  for (const key of objectEntryOutputKeys(raw, sinkRanges)) keys.add(key);
+
+  // A workflow commonly delegates its output writer to a first-party script.
+  // Follow only a statically-known output file (the literal env expression or
+  // a variable assigned from it) and only literal output prefixes. This keeps
+  // the audit conservative: dynamic keys remain unknown and still warn.
+  for (const { start, end } of sinkRanges) {
+    const sink = raw.slice(start, end);
+    const firstLiteralKey = sink.match(/(?:[`'\"])([A-Za-z_][A-Za-z0-9_-]*)(?:=|<<)/);
+    if (firstLiteralKey) keys.add(firstLiteralKey[1]);
+  }
   return keys;
 }
 
@@ -352,16 +644,38 @@ function stepOutputKeys(run, {
   const source = String(run || '');
   const keys = outputKeysFromSource(source);
   if (!followReferences || workingRoot === null) return keys;
-  for (const candidate of extractCommandPaths(source)) {
-    const absolute = path.resolve(workingRoot, candidate);
-    if (!exists(absolute)) continue;
+  const visited = new Set();
+  const visit = (absolute, depth) => {
+    if (depth > 4 || visited.size >= MAX_OUTPUT_REFERENCE_FILES || visited.has(absolute) || !exists(absolute)) return;
+    visited.add(absolute);
+    let delegated;
     try {
-      for (const key of outputKeysFromSource(readFile(absolute, 'utf8'))) keys.add(key);
+      delegated = readFile(absolute, 'utf8');
     } catch {
       // A runtime checkout or a permission failure is not proof of an output
       // contract. Leave the key unknown so the existing warning is retained.
+      return;
     }
-  }
+    const delegatedKeys = outputKeysFromSource(delegated);
+    for (const key of delegatedKeys) keys.add(key);
+    // Once a delegated writer exposes literal keys, traversing all of its
+    // dependencies adds cost without making the contract more certain. Keep
+    // following only when the current file is itself an output-aware wrapper.
+    if (delegatedKeys.size > 0) return;
+    for (const candidate of extractInvokedCommandPaths(delegated)) {
+      const commandPath = path.resolve(workingRoot, candidate);
+      if (exists(commandPath)) visit(commandPath, depth + 1);
+    }
+    for (const candidate of extractScriptDirCommands(delegated)) {
+      const commandPath = path.resolve(path.dirname(absolute), candidate);
+      if (exists(commandPath)) visit(commandPath, depth + 1);
+    }
+    for (const candidate of extractLocalModulePaths(delegated)) {
+      const modulePath = path.resolve(path.dirname(absolute), candidate);
+      if (exists(modulePath)) visit(modulePath, depth + 1);
+    }
+  };
+  for (const candidate of extractCommandPaths(source)) visit(path.resolve(workingRoot, candidate), 0);
   return keys;
 }
 
@@ -857,6 +1171,60 @@ export function summarize(report) {
   return summary;
 }
 
+/**
+ * Keep the L11 issue route proportional to the evidence actually observed.
+ *
+ * Errors are deterministic defects that the bounded issue-fix path may inspect
+ * and propose through a PR. Warnings are intentionally ambiguous signals: they
+ * remain visible and durable, but must not consume fixer quota or be presented
+ * as an approved remediation candidate. The separate review label also makes a
+ * warning-only recurrence distinguishable from a fixable one without using the
+ * `needs-human` label, which has its own rescue/sweep semantics.
+ */
+export function auditIssueRouting(summary) {
+  const provenError = Number(summary?.error || 0) > 0;
+  return {
+    labels: [
+      'operations-audit',
+      provenError ? 'agent:fix-queued' : 'operations-audit-review',
+      'agent:no-age-out',
+    ],
+    add: provenError ? 'agent:fix-queued' : 'operations-audit-review',
+    remove: provenError ? 'operations-audit-review' : 'agent:fix-queued',
+    route: provenError ? 'bounded-fix-queue' : 'review-only',
+  };
+}
+
+/**
+ * Synchronise routing labels on both a newly-created issue and a deduplicated
+ * recurrence. `createGithubIssue` applies labels on creation, but intentionally
+ * does not mutate arbitrary labels on an existing twin; without this explicit
+ * reconciliation, a warning-only tracker could remain stuck in `agent:fix-queued`
+ * forever after the audit became warning-only.
+ */
+function syncAuditIssueRouting(issueNumber, summary) {
+  if (!issueNumber) return;
+  const routing = auditIssueRouting(summary);
+  try {
+    // Deduplicated issues return before createGithubIssue's normal label
+    // provisioning path. Provision the target label here too, otherwise the
+    // first warning-only recurrence can fail to leave the durable review route.
+    ensureLabelsExist([routing.add]);
+    execFileSync('gh', [
+      'issue', 'edit', String(issueNumber),
+      '--add-label', routing.add,
+      '--remove-label', routing.remove,
+      ...(process.env.GH_REPO ? ['--repo', process.env.GH_REPO] : []),
+    ], { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'inherit'] });
+    console.log(`Issue audit #${issueNumber}: routing=${routing.route}`);
+  } catch (error) {
+    // The issue itself is already persisted by createGithubIssue. A label-sync
+    // failure must stay visible, but must not turn a successful evidence write
+    // into a false audit failure; the next recurrence retries idempotently.
+    console.error(`Impossibile sincronizzare il routing dell'issue audit #${issueNumber}: ${error.message}`);
+  }
+}
+
 function compactFindings(findings) {
   const groups = new Map();
   for (const item of findings) {
@@ -928,16 +1296,17 @@ async function main() {
       '### Azione del supervisore',
       '',
       '- Questo report è stato prodotto senza modificare workflow o dati.',
-      '- Gli errori provati sono candidati a issue-fix/PR; i warning restano da confermare con una prova runtime.',
+      `- Routing: **${auditIssueRouting(summary).route}** — gli errori provati possono entrare nell’issue-fix bounded; i warning restano da confermare con una prova runtime.`,
       '- Un dato non osservabile resta `unmeasurable`, non viene trasformato in zero.',
       runUrl ? `- Run: ${runUrl}` : '',
     ].filter(Boolean).join('\n');
+    const routing = auditIssueRouting(summary);
     try {
       const result = await createGithubIssue({
         title: DEFAULT_ISSUE_TITLE,
         description,
         priority: summary.error > 0 ? 2 : 3,
-        labels: ['operations-audit', 'agent:fix-queued', 'agent:no-age-out'],
+        labels: routing.labels,
         workflow: 'technical-operations-supervisor',
         signals: {
           comando: 'node scripts/ci/technical-operations-audit.mjs --issue --strict',
@@ -945,6 +1314,7 @@ async function main() {
         },
       });
       issuePersisted = Boolean(result?.persisted);
+      if (issuePersisted) syncAuditIssueRouting(result.number, summary);
       console.log(issuePersisted ? `Issue audit persistita: #${result.number || '?'}\n` : 'Issue audit non persistita.\n');
     } catch (error) {
       console.error(`Impossibile persistere l'issue audit: ${error.message}`);

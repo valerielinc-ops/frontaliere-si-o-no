@@ -12,6 +12,7 @@ const GR_PARTIAL_FEED = `
 function fakeFirestore(previousRows: Record<string, unknown>[]) {
   const deletes: string[] = [];
   const sourceSets: Array<{ id: string; value: Record<string, unknown> }> = [];
+  const writes: Array<{ collection: string; id: string; value: Record<string, unknown> }> = [];
   const rowDocs = previousRows.map((row) => ({ id: String(row.id), data: () => row }));
   const collection = (name: string) => ({
     doc(id: string) {
@@ -23,8 +24,8 @@ function fakeFirestore(previousRows: Record<string, unknown>[]) {
         },
       };
     },
-    where() {
-      return { limit: () => ({ get: async () => ({ docs: rowDocs }) }) };
+    where(field: string, _operator: string, value: unknown) {
+      return { limit: () => ({ get: async () => ({ docs: rowDocs.filter((doc) => doc.data()[field] === value) }) }) };
     },
     limit() {
       return { get: async () => ({ docs: [] }) };
@@ -35,7 +36,9 @@ function fakeFirestore(previousRows: Record<string, unknown>[]) {
       collection,
       batch() {
         return {
-          set() {},
+          set(ref: { collection: string; id: string }, value: Record<string, unknown>) {
+            writes.push({ collection: ref.collection, id: ref.id, value });
+          },
           delete(ref: { collection: string; id: string }) {
             if (ref.collection === PLATE_AUCTION_COLLECTION) deletes.push(ref.id);
           },
@@ -45,6 +48,7 @@ function fakeFirestore(previousRows: Record<string, unknown>[]) {
     },
     deletes,
     sourceSets,
+    writes,
   };
 }
 
@@ -80,5 +84,24 @@ describe('plate-auction Firestore batching', () => {
       value: { status: 'degraded', errorCode: 'source_disappeared' },
     });
     expect(result.summaries.gr).toMatchObject({ status: 'degraded', errorCode: 'source_disappeared' });
+  });
+
+  it('closes expired rows even when the upstream feed returns zero rows', async () => {
+    const firestore = fakeFirestore([{
+      id: 'gr-expired', sourceKey: 'GR', canton: 'Grigioni', platePrefix: 'GR', normalizedPlate: 'GR2',
+      auctionStatus: 'active', currentBidChf: 1200, endsAt: '2026-09-13T11:00:00.000Z',
+      sourceFetchedAt: '2026-09-13T10:00:00.000Z', lastVerifiedAt: '2026-09-13T10:00:00.000Z',
+      dataConfidence: 'partial',
+    }]);
+    const result = await refreshPlateAuctions({
+      db: firestore.db as never,
+      fetcher: async () => '',
+      now: new Date('2026-09-13T12:00:00.000Z'),
+    });
+    expect(result.summaries.gr).toMatchObject({ status: 'degraded', rowCount: 0, closedExpired: 1 });
+    expect(firestore.writes).toEqual(expect.arrayContaining([
+      expect.objectContaining({ collection: PLATE_AUCTION_COLLECTION, id: 'gr-expired', value: expect.objectContaining({ auctionStatus: 'closed', closedAt: '2026-09-13T11:00:00.000Z' }) }),
+      expect.objectContaining({ collection: 'plate_auctions_history', id: expect.stringContaining('gr-expired-'), value: expect.objectContaining({ auctionStatus: 'closed' }) }),
+    ]));
   });
 });

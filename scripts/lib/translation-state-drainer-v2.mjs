@@ -7,6 +7,10 @@ import { promisify } from 'node:util';
 import { reduceTranslationDerivedPatchBatchV2 } from './translation-derived-reducer-v2.mjs';
 import { validateTranslationDerivedPatchV2 } from './translation-derived-patch-v2.mjs';
 import {
+  createEmptyTranslationMemoryV2,
+  invalidateTranslationCandidateV2,
+} from './content-addressed-translation-memory-v2.mjs';
+import {
   MAX_TRANSLATION_STATE_BATCH_V2,
   TRANSLATION_STATE_QUEUE_CONFLICT_CODE_V2,
   validateTranslationSlicePathV2,
@@ -22,6 +26,7 @@ export const MAX_TRANSLATION_MAIN_CAS_ATTEMPTS_V2 = 8;
 export const TRANSLATION_MAIN_GIT_TIMEOUT_MS_V2 = 30_000;
 
 const MAIN_REF_PATTERN = /^refs\/heads\/[A-Za-z0-9][A-Za-z0-9._/-]{0,127}$/;
+const MEMORY_INVALIDATION_OUTCOMES = new Set(['rejected_candidate', 'stale_source']);
 
 function createGitRunner(repository) {
   return async (args, options = {}) => {
@@ -259,6 +264,26 @@ function canRequeueAcknowledgment(outcome) {
   ].includes(outcome);
 }
 
+function invalidateMemoryCandidate(patch, outcome) {
+  if (!MEMORY_INVALIDATION_OUTCOMES.has(outcome)) return null;
+  const memory = {
+    ...createEmptyTranslationMemoryV2(),
+    records: [{ identity: patch.identity, candidates: [patch.candidate] }],
+  };
+  const reasonCode = patch.candidate.applicability === 'invalidated'
+    ? patch.candidate.invalidationReason
+    : `reducer_${outcome}`;
+  const invalidated = invalidateTranslationCandidateV2(memory, {
+    candidateId: patch.candidate.candidateId,
+    identityKey: patch.identity.key,
+    reasonCode,
+  });
+  return {
+    candidate: invalidated.records[0].candidates[0],
+    identity: invalidated.records[0].identity,
+  };
+}
+
 export function createTranslationStateDrainerV2(options) {
   if (options === null || typeof options !== 'object' || Array.isArray(options)) {
     throw new TypeError('translation drainer options must be an object');
@@ -301,15 +326,22 @@ export function createTranslationStateDrainerV2(options) {
 
   async function acknowledge(patches, slicePath, outcomes, mainCommit, publishedCommit, intentHash) {
     await onStage('beforeAck', { outcomes, mainCommit, publishedCommit, intentHash });
+    const memoryInvalidations = patches.flatMap((patch, index) => {
+      const invalidation = invalidateMemoryCandidate(patch, outcomes[index]);
+      return invalidation === null ? [] : [invalidation];
+    });
     try {
-      await stateStore.acknowledgeBatch(patches.map((patch, index) => ({
-        patch,
-        slicePath,
-        outcome: outcomes[index],
-        mainCommit,
-        publishedCommit,
-        intentHash,
-      })));
+      await stateStore.acknowledgeBatch(
+        patches.map((patch, index) => ({
+          patch,
+          slicePath,
+          outcome: outcomes[index],
+          mainCommit,
+          publishedCommit,
+          intentHash,
+        })),
+        { memoryInvalidations },
+      );
       return true;
     } catch (error) {
       if (error?.code === TRANSLATION_STATE_QUEUE_CONFLICT_CODE_V2) return false;

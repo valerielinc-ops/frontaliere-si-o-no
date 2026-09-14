@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { describe, expect, it, vi } from 'vitest';
 import {
   CDN_ORIGIN,
@@ -129,5 +130,18 @@ describe('runtime reliability watchdog', () => {
     expect(result.ok).toBe(true);
     expect(calls).toHaveLength(5); // two markers + cached/fresh for one asset
     expect(calls.some((url) => url.includes('ft_reliability='))).toBe(true);
+  });
+
+  it('dispatches an immediate watchdog after a completed Pages/live publish tail', () => {
+    const publishWorkflow = readFileSync(
+      new URL('../.github/workflows/deploy-publish.yml', import.meta.url),
+      'utf8',
+    );
+    expect(publishWorkflow).toContain('runtime-watchdog:');
+    expect(publishWorkflow).toContain('needs: [deploy, validate-dist, validate-live, publish]');
+    expect(publishWorkflow).toMatch(/if:\s*>-\s*\n\s*\$\{\{ always\(\)/);
+    expect(publishWorkflow).toContain('actions: write  # workflow_dispatch is the explicit chained trigger');
+    expect(publishWorkflow).toContain('gh workflow run runtime-reliability-watch.yml');
+    expect(publishWorkflow).toContain('--ref main');
   });
 });

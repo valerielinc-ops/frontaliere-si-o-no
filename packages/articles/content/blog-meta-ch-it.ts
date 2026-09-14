@@ -6391,6 +6391,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.votazione-scuola-qualita-berna-2026.title': 'Scuola qualità a Berna: il voto è fissato al 2026',
     'blog.article.votazione-scuola-qualita-berna-2026.excerpt': 'L\'iniziativa per inserire un mandato costituzionale sulla scuola sarà sottoposta agli elettori il 27 settembre 2026.',
     'blog.article.votazione-scuola-qualita-berna-2026.imageAlt': 'Aula scolastica vuota in attesa della votazione sulla qualità dell\'insegnamento nel Cantone Berna',
+    'blog.article.transpa-reg-quadri-rinvio-1-ottobre.title': 'TranspaReg: Quadri chiede rinvio per rischio informatico',
+    'blog.article.transpa-reg-quadri-rinvio-1-ottobre.excerpt': 'Il Consigliere nazionale Lorenzo Quadri chiede di sospendere l\'entrata in vigore al 1° ottobre, citando il caso Liechtenstein.',
+    'blog.article.transpa-reg-quadri-rinvio-1-ottobre.imageAlt': 'Server room con luci LED blu che simboleggia la sicurezza informatica e la trasparenza finanziaria in Svizzera.',
+    'blog.article.detenzione-48-ore-manifestazioni.title': 'Detenzione 48 ore: il piano contro i facinorosi',
+    'blog.article.detenzione-48-ore-manifestazioni.excerpt': 'Dopo i fatti di Berna del 2023, il Nazionale ha approvato l\'aumento della detenzione preventiva a 48 ore e maggiori poteri per il SIC.',
+    'blog.article.detenzione-48-ore-manifestazioni.imageAlt': 'Il Palazzo federale a Berna con manifestanti in primo piano, simbolo del dibattito sulla sicurezza pubblica',
 };
 
 export default blogMetaChIt;

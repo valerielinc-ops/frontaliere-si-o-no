@@ -40,6 +40,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { denylistKey, loadRestoreDenylist } from './backfill-prev-slugs-from-loss-events.mjs';
 import { DEFAULT_PREV_SLUG_CAP, LOCALES, stableSlugHash } from './lib/dedicated-crawler-common.mjs';
@@ -553,16 +554,7 @@ async function main() {
   console.log(`  ${OUT}  (input for scripts/backfill-prev-slugs-from-loss-events.mjs)`);
 }
 
-const isMain = (() => {
-  try {
-    return import.meta.url === `file://${process.argv[1]}`
-      || import.meta.url === new URL(`file://${process.argv[1]}`).href;
-  } catch {
-    return false;
-  }
-})();
-
-if (isMain) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((err) => {
     console.error(err);
     process.exit(1);

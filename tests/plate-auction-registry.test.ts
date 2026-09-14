@@ -57,12 +57,13 @@ describe('plate-auction sources registry schema', () => {
     }
   });
 
-  it('verified public catalogues are active and TI remains explicitly blocked', () => {
+  it('verified public catalogues are active, including the restored TI eCari source', () => {
     expect(registry.sources.vs.status).toBe('active');
     expect(registry.sources.vs.accessMethod).toBe('html-scrape');
     expect(registry.sources.gr.status).toBe('active');
     expect(registry.sources.zh.status).toBe('active');
-    expect(registry.sources.ti.status).toBe('blocked');
+    expect(registry.sources.ti.status).toBe('active');
+    expect(registry.sources.ti.officialUrl).toBe('https://www.carieauktion.ti.ch/ecari-auktion/');
   });
 
   it('rejects an entry missing a required field', () => {
