@@ -15,6 +15,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import {
   actionAutonomy,
+  actionClassForPolicy,
   appendJsonlSerialized,
   buildDecision,
   buildLifecycleEvent,
@@ -157,7 +158,7 @@ function buildTechnicalAuditRecords({ report, reportPath, policy, now }) {
   const quality = !summaryValid
     ? 'unmeasurable'
     : (summary.error === 0 && summary.warning === 0 ? 'observed' : 'partial');
-  const actionClass = quality === 'observed' ? 'observe' : 'issue';
+  const actionClass = actionClassForPolicy(policy, quality === 'observed' ? 'healthy' : 'needsReview');
   const sourceSnapshot = {
     source: 'technical-operations-audit',
     path: relativePath(reportPath),
@@ -407,7 +408,8 @@ export function recordLoopEvidence({
     .map((check) => check.error);
   const policyCompliant = policyErrors.length === 0;
   const quality = result?.quality || observed?.quality || 'unmeasurable';
-  const actionClass = decided?.actionClass || observed?.actionClass || 'issue';
+  const actionClass = decided?.actionClass || observed?.actionClass
+    || actionClassForPolicy(policy, 'needsReview');
   const autonomy = (() => {
     try { return actionAutonomy(actionClass, registry.actionAutonomy); } catch { return null; }
   })();

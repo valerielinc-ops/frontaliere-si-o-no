@@ -8,6 +8,7 @@ import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 import {
+  actionClassForPolicy,
   buildDecision,
   buildObservation,
   loadLoopPolicyForRun,
@@ -213,7 +214,7 @@ export async function runL1({
       reason: error.message,
     });
   }
-  const actionClass = verdict.ok ? 'observe' : 'issue+suspend-canary';
+  const actionClass = actionClassForPolicy(loopPolicy, verdict.ok ? 'healthy' : 'needsReview');
   const actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
 
   const measurable = verdict.quality === 'observed' || verdict.quality === 'zero';

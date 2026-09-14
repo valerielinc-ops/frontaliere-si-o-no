@@ -8,6 +8,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
+  actionClassForPolicy,
   buildDecision,
   buildObservation,
   validateActionClassAgainstPolicy,
@@ -106,14 +107,14 @@ function buildAllocationPlan({ registry, policy, now }) {
   };
 }
 
-function candidateAction(candidate, rowIssues = []) {
+function candidateAction(candidate, rowIssues = [], actionClass = null) {
   return {
     candidateId: candidate.id ?? null,
     keyword: text(candidate.keyword) ? candidate.keyword.trim() : null,
     locale: LOCALES.has(candidate.locale) ? candidate.locale : null,
     sources: Array.isArray(candidate.sources) ? candidate.sources.slice(0, 10) : [],
     issueCodes: rowIssues,
-    actionClass: 'candidate',
+    ...(text(actionClass) ? { actionClass: actionClass.trim() } : {}),
     action: 'candidate-only: register persistent assignment, bounded exposure, guardrails and expiry before any canary',
     reversible: true,
     appliesToTraffic: false,
@@ -126,6 +127,7 @@ export function validateCandidateRegistry(registry, {
   now = new Date(),
   maxAgeHours = DEFAULT_MAX_AGE_HOURS,
   sourcePath = DEFAULT_CANDIDATES_PATH,
+  actionClass = null,
 } = {}) {
   const issues = [];
   const warnings = [];
@@ -172,7 +174,7 @@ export function validateCandidateRegistry(registry, {
       continue;
     }
     validCandidateCount += 1;
-    candidates.push(candidateAction(candidate));
+    candidates.push(candidateAction(candidate, [], actionClass));
   }
   let ageHours = null;
   if (generatedAt) {
@@ -383,10 +385,18 @@ export function validateExperimentAllocator({ registry, outcomes = null }, {
   minimumSample = MINIMUM_SAMPLE,
   loopRegistry = null,
 } = {}) {
-  const candidateVerdict = validateCandidateRegistry(registry, { now, maxAgeHours, sourcePath });
   const loopPolicy = Array.isArray(loopRegistry?.loops)
     ? loopRegistry.loops.find((loop) => loop.loopId === LOOP_ID)
     : null;
+  const candidateActionClass = loopRegistry && loopPolicy
+    ? actionClassForPolicy(loopPolicy, 'candidate')
+    : null;
+  const candidateVerdict = validateCandidateRegistry(registry, {
+    now,
+    maxAgeHours,
+    sourcePath,
+    actionClass: candidateActionClass,
+  });
   const outcomeVerdict = validateOutcomes(outcomes, {
     now,
     maxAgeHours,
@@ -401,8 +411,8 @@ export function validateExperimentAllocator({ registry, outcomes = null }, {
   let candidates = candidateVerdict.candidates;
   if (loopRegistry) {
     try {
-      const candidatePolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, 'candidate');
-      validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, 'candidate+stop+issue');
+      const candidatePolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, candidateActionClass);
+      validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClassForPolicy(loopPolicy, 'needsReview'));
       candidates = candidates.map((candidate) => ({
         ...candidate,
         autonomy: candidatePolicy.requiredAutonomy,
@@ -559,7 +569,7 @@ function writeReports(reportDir, verdict, observation, decision) {
   return files.map(([name]) => path.join(dir, name));
 }
 
-function writeActions(reportDir, verdict, now, loopRegistry) {
+function writeActions(reportDir, verdict, now, loopRegistry, loopPolicy) {
   if (!reportDir || verdict.ok || !loopRegistry) return null;
   const file = path.join(path.resolve(reportDir), 'l7-actions.json');
   const outcomes = verdict.snapshot?.outcomes;
@@ -568,9 +578,10 @@ function writeActions(reportDir, verdict, now, loopRegistry) {
   const actions = [];
   if ((integer(guardrailBreaches) && guardrailBreaches > 0)
       || (integer(contaminatedAssignments) && contaminatedAssignments > 0)) {
+    const guardrailActionClass = actionClassForPolicy(loopPolicy, 'guardrail');
     actions.push({
-      actionClass: 'stop',
-      autonomy: validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, 'stop').requiredAutonomy,
+      actionClass: guardrailActionClass,
+      autonomy: validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, guardrailActionClass).requiredAutonomy,
       action: 'recommend stopping the affected bounded canary pending guardrail and contamination review',
       reversible: true,
       appliesToTraffic: false,
@@ -659,7 +670,9 @@ export async function runL7({
   } catch (error) {
     verdict = baseVerdict({ sourcePath: candidatesPath, now, quality: 'unmeasurable', ok: false, reason: error.message });
   }
-  const actionClass = verdict.ok ? 'observe' : 'candidate+stop+issue';
+  const actionClass = verdict.ok
+    ? actionClassForPolicy(loopPolicy, 'healthy')
+    : actionClassForPolicy(loopPolicy, 'needsReview');
   const actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
   verdict = {
     ...verdict,
@@ -672,6 +685,7 @@ export async function runL7({
         actionClass,
         requiredAutonomy: actionPolicy.requiredAutonomy,
         actionClasses: loopPolicy.actionClasses,
+        actionPolicy: loopPolicy.actionPolicy,
       },
     },
   };
@@ -718,7 +732,7 @@ export async function runL7({
   const files = writeReports(reportDir, verdict, observation, decision);
   let actionsWritten = false;
   if (apply && reportDir) {
-    const actionFile = writeActions(reportDir, verdict, now, loopRegistry);
+    const actionFile = writeActions(reportDir, verdict, now, loopRegistry, loopPolicy);
     actionsWritten = Boolean(actionFile);
     if (actionFile) files.push(actionFile);
   }

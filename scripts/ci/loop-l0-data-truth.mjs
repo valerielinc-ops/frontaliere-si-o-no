@@ -8,6 +8,7 @@ import { ARTICLES_API_BASE } from '../lib/articles-api-base.mjs';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 import {
+  actionClassForPolicy,
   buildDecision,
   buildObservation,
   loadLoopPolicyForRun,
@@ -220,7 +221,7 @@ export async function runL0({
       reason: error.message,
     });
   }
-  const actionClass = verdict.ok ? 'observe' : 'issue+quarantine';
+  const actionClass = actionClassForPolicy(loopPolicy, verdict.ok ? 'healthy' : 'needsReview');
   const actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
   const measurable = verdict.quality !== 'unmeasurable' && verdict.quality !== 'partial' && verdict.quality !== 'missing';
   const generatedAt = finiteDate(verdict.manifest?.generatedAt);

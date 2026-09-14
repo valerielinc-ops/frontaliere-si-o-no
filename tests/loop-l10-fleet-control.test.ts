@@ -48,6 +48,15 @@ function registry(overrides: Record<string, unknown> = {}) {
       actionClasses: loopId === 'L10'
         ? ['observe', 'follow-up', 'route', 'lock', 'retry']
         : ['observe', 'follow-up'],
+      actionPolicy: loopId === 'L10'
+        ? {
+          healthy: 'observe',
+          needsReview: 'route+lock+retry+follow-up',
+          missingHealth: 'route',
+          repair: 'follow-up',
+          retry: 'lock+retry',
+        }
+        : { healthy: 'observe', needsReview: 'follow-up' },
       guardrails: ['never bypass a gate'],
       lifecycle: {
         candidateTtlHours: 24,
