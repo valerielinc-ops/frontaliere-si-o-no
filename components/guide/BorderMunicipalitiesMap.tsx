@@ -9,10 +9,10 @@ import { borderCrossings } from '@/data/borderCrossings';
 import { MUNICIPALITIES, findMunicipality, type Municipality } from '@/data/municipalities';
 import { calculateMunicipalityTaxImpact, type MunicipalityTaxResult } from '@/services/calculationService';
 import { useExchangeRate } from '@/services/exchangeRateService';
-import { MapContainer, TileLayer, CircleMarker, Popup } from 'react-leaflet';
+import { CircleMarker, Popup } from 'react-leaflet';
+import MapCanvas from '@/components/shared/MapCanvas';
 import { MapPin, Filter, Info, AlertTriangle, TrendingDown, TrendingUp, ArrowUpDown, Award, DollarSign, Building2, Navigation, ChevronUp, ChevronDown, SlidersHorizontal } from 'lucide-react';
 import { MAP_COLORS } from '@/services/mapColors';
-import 'leaflet/dist/leaflet.css';
 import { fetchBorderWaitCurrent, effectiveWaitMinutes, type BorderWaitCurrentSnapshot } from '@/services/borderWaitCurrentService';
 import { fmtMinutes, minutesSince } from '@/services/borderWaitFormat';
 import { slugifyCrossingName } from '@/services/borderCrossingSlug';
@@ -67,12 +67,12 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  const deferredCompareMunicipality = useDeferredValue(compareMunicipality);
  // INP (#4302, field p75 856ms on /guida-frontaliere/mappa-confine/): the
  // mobile (`lg:hidden`) and desktop (`hidden lg:grid`) layouts below each
- // render their OWN <MapContainer>, and Tailwind's responsive classes only
+ // render their OWN map, and Tailwind's responsive classes only
  // toggle CSS `display` — both React-Leaflet map instances (tile layer +
  // every CircleMarker) mounted unconditionally, doubling the real init cost
  // for a map that is only ever visible on one of them. Mount only the one
- // matching the active viewport; the wrapper divs keep their fixed
- // min-height either way, so this does not reintroduce CLS.
+ // matching the active viewport via MapCanvas `active`; the reserved box
+ // keeps its min-height either way, so this does not reintroduce CLS.
  const isDesktopViewport = useMediaQuery('(min-width: 1024px)');
  // Prefill salary from user profile
  useEffect(() => {
@@ -271,13 +271,13 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  </div>
 
  {/* MAP — immediately visible on mobile */}
- <div className="rounded-xl overflow-hidden border border-edge h-[55vh] min-h-[320px]">
- {isDesktopViewport === false && (
- <MapContainer center={center} zoom={8} className="h-full w-full" scrollWheelZoom={true}>
- <TileLayer
- attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
- url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
- />
+ <MapCanvas
+ center={center}
+ zoom={8}
+ height="55vh"
+ active={isDesktopViewport === false}
+ className="rounded-xl overflow-hidden border border-edge"
+ >
  {borderCrossingsWithLiveWait.map(({ bc, liveMinutes, liveAgoMinutes }, i) => (
  <CircleMarker
  key={`bc-${i}`}
@@ -324,9 +324,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  </Popup>
  </CircleMarker>
  ))}
- </MapContainer>
- )}
- </div>
+ </MapCanvas>
 
  {/* Selected municipality card (mobile) */}
  {selectedMunicipality && (
@@ -675,13 +673,13 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  {/* Right column: map & selected detail */}
  <div className="space-y-4">
  {/* Map */}
- <div className="rounded-xl overflow-hidden border border-edge h-full min-h-[500px]">
- {isDesktopViewport === true && (
- <MapContainer center={center} zoom={8} className="h-full w-full" scrollWheelZoom={true}>
- <TileLayer
- attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
- url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
- />
+ <MapCanvas
+ center={center}
+ zoom={8}
+ minHeight={500}
+ active={isDesktopViewport === true}
+ className="rounded-xl overflow-hidden border border-edge"
+ >
  {borderCrossingsWithLiveWait.map(({ bc, liveMinutes, liveAgoMinutes }, i) => (
  <CircleMarker
  key={`bc-${i}`}
@@ -728,9 +726,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  </Popup>
  </CircleMarker>
  ))}
- </MapContainer>
- )}
- </div>
+ </MapCanvas>
 
  {/* Selected municipality detail card */}
  {selectedMunicipality && (
