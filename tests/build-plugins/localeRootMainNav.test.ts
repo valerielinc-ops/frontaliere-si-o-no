@@ -42,6 +42,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
+import fs from 'node:fs';
 
 import {
   injectHomepageSeoContent,
@@ -126,6 +127,15 @@ describe('locale-root SPA shells — internal links (#5428)', () => {
     for (const locale of ['it', ...NON_IT_LOCALES] as const) {
       expect(html).toContain(`href="${buildPlateAuctionPath({ locale, view: 'hub' })}"`);
     }
+  });
+
+  it('keeps the root rail when the real Vite template has a styled root and hidden h1', () => {
+    const template = fs.readFileSync(new URL('../../index.html', import.meta.url), 'utf8');
+    expect(template).toContain('<div id="root" style="min-height:100vh">');
+    expect(template).toContain('position:absolute;left:-9999px');
+    const html = injectHomepageSeoContent(template, 'it');
+    expect(html).toContain('id="hp-directory-hubs"');
+    expect(html).toContain(`href="${buildPlateAuctionPath({ locale: 'de', view: 'hub' })}"`);
   });
 
   it.each(NON_IT_LOCALES)('does not add the cross-locale directory rail to /%s/', (locale) => {
