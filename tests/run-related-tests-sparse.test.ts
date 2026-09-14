@@ -21,6 +21,7 @@ import { describe, it, expect } from 'vitest';
  */
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = fs.readFileSync(path.join(ROOT, 'scripts/ci/run-related-tests.mjs'), 'utf-8');
+const SPARSE_SENTINELS = fs.readFileSync(path.join(ROOT, 'scripts/ci/lib/typecheck-sparse.mjs'), 'utf-8');
 const RUNNER = path.join(ROOT, 'scripts/ci/run-related-tests.mjs');
 
 function runFromMissingCheckout(args = [], extraEnv = {}) {
@@ -66,8 +67,9 @@ describe('run-related-tests — il selettore sopravvive a un worktree sparse', (
     expect(SRC).toContain('the selection may be incomplete');
     expect(SRC).toContain('process.exit(2)');
     expect(SRC).toContain('requires a full checkout');
-    expect(SRC).toContain('data/blog-articles-data.ts');
-    expect(SRC).toContain('public/.nojekyll');
+    expect(SRC).toContain("from './lib/typecheck-sparse.mjs'");
+    expect(SPARSE_SENTINELS).toContain('data/blog-articles-data.ts');
+    expect(SPARSE_SENTINELS).toContain('public/.nojekyll');
   });
 
   it('su un checkout completo il comportamento è invariato', () => {
@@ -75,6 +77,7 @@ describe('run-related-tests — il selettore sopravvive a un worktree sparse', (
     // l'albero è intero, nessun file è illeggibile e il runner seleziona
     // esattamente quello che selezionava prima.
     expect(SRC).toMatch(/const unreadable = \[\];/);
+    expect(SRC).toContain('missingFullCheckoutArtifacts()');
   });
 
   it('blocca una run reale anche quando la diff non produce candidati', () => {

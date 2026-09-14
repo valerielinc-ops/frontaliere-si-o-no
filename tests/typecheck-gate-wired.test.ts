@@ -29,11 +29,12 @@ const VITEST_JOB_NAME = 'vitest (unit + integration)';
 const TYPECHECK_JOB_NAME = 'typecheck (tsc --noEmit)';
 
 // Il gate gira sotto il sampler di memoria (follow-up #6573,
-// `scripts/ci/sample-mem-during.sh -- npm run typecheck:gate`): il prefisso
-// e' opzionale nella regex cosi' il contratto resta vero sia con sia senza il
-// wrapper, ma continua a pretendere che `npm run typecheck:gate` sia
-// realmente invocato.
-const GATE_RUN_RE = /run:\s+(?:bash scripts\/ci\/sample-mem-during\.sh -- )?npm run typecheck:gate/;
+// `scripts/ci/sample-mem-during.sh -- npm run typecheck:gate`). `tests.yml`
+// lo lancia oggi dentro il wrapper `start_gate tsc` per raccogliere in fondo
+// al job i cancelli indipendenti; conserva anche la forma diretta per non
+// rendere il contratto dipendente da una sola strategia di scheduling.
+const GATE_RUN_RE =
+  /(?:run:\s+(?:bash scripts\/ci\/sample-mem-during\.sh -- )?npm run typecheck:gate|start_gate\s+tsc\s+['"][^\n'"]*\bnpm run typecheck:gate['"])/;
 
 const pkg = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8')) as {
   scripts: Record<string, string>;
