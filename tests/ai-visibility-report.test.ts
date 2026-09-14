@@ -1,8 +1,14 @@
+import { spawnSync } from 'node:child_process';
+import { chmodSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, it, vi, afterEach } from 'vitest';
 
 import {
   OPENROUTER_MAX_REQUESTS,
   applyPlatformAnswer,
+  citedHosts,
   fetchWithRetry,
   findCompetitorMentions,
   findSiteMention,
@@ -64,6 +70,32 @@ const openRouterAnswer = (url: string) => new Response(JSON.stringify({
     },
   }],
 }), { status: 200 });
+
+describe('script entry point', () => {
+  it('runs when dynamically imported by an npm bin wrapper', () => {
+    const tempRoot = mkdtempSync(join(tmpdir(), 'ai-visibility-wrapper-'));
+    const binDir = join(tempRoot, 'node_modules', '.bin');
+    const wrapperPath = join(binDir, 'aivis');
+    const scriptPath = fileURLToPath(new URL('../scripts/check-ai-visibility.mjs', import.meta.url));
+    mkdirSync(binDir, { recursive: true });
+    writeFileSync(wrapperPath, `#!/usr/bin/env node\nimport(${JSON.stringify(scriptPath)});\n`);
+    chmodSync(wrapperPath, 0o755);
+
+    try {
+      const result = spawnSync(process.execPath, [wrapperPath, '--dry-run'], {
+        cwd: tempRoot,
+        encoding: 'utf8',
+      });
+
+      expect(result.error).toBeUndefined();
+      expect(result.status).toBe(0);
+      expect(result.stdout).toContain('📋 DRY RUN');
+      expect(result.stdout).toContain('Queries: 20');
+    } finally {
+      rmSync(tempRoot, { recursive: true, force: true });
+    }
+  });
+});
 
 describe('unreachable platforms are not a visibility signal', () => {
   it('lists a query nobody could check apart from the misses', () => {
@@ -260,6 +292,14 @@ describe('competitor matching is bounded to the host', () => {
     )).toEqual([]);
   });
 
+  it('does not treat a dotted non-domain token as a bare host', () => {
+    expect(citedHosts('', ['art.3.OAMal'])).toEqual([]);
+  });
+
+  it('leaves explicit-scheme URLs outside the bare-host suffix filter', () => {
+    expect(citedHosts('', ['https://example.OAMal/path'])).toEqual(['example.oamal']);
+  });
+
   it('still books a competitor cited by URL or as a bare Gemini host', () => {
     expect(findCompetitorMentions('Fonte: https://www.comparis.ch/krankenkassen', []))
       .toEqual(['comparis.ch']);
@@ -363,10 +403,22 @@ describe('OpenRouter spend cap and response shape', () => {
     expect(fetchMock.mock.calls.length).toBeLessThanOrEqual(OPENROUTER_MAX_REQUESTS);
   });
 
-  it('records an unrecognised response as unchecked, never as a miss', async () => {
+  it('counts string content, even when empty, but no citation key as a measured zero', async () => {
     vi.stubEnv('OPENROUTER_API_KEY', 'sk-or-test');
     vi.spyOn(globalThis, 'fetch').mockImplementation(async () => new Response(JSON.stringify({
-      choices: [{ message: { content: 'Ecco alcune risorse.' } }],
+      choices: [{ message: { content: '' } }],
+    }), { status: 200 }));
+
+    const result = { platforms: {} as Record<string, unknown>, citedByAny: false, citedUrls: [], competitorsCited: [] };
+    applyPlatformAnswer(result, 'openrouter', await queryOpenRouter('costo vita Ticino'));
+
+    expect(result.platforms.openrouter).toMatchObject({ checked: true, cited: false });
+  });
+
+  it('records a response without content or citation keys as unchecked', async () => {
+    vi.stubEnv('OPENROUTER_API_KEY', 'sk-or-test');
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async () => new Response(JSON.stringify({
+      choices: [{}],
     }), { status: 200 }));
 
     const result = { platforms: {} as Record<string, unknown>, citedByAny: false, citedUrls: [], competitorsCited: [] };
