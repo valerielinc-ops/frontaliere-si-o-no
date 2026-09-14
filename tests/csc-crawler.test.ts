@@ -1,6 +1,7 @@
 import fs from 'node:fs';
+import { tmpdir } from 'node:os';
 import path from 'node:path';
-import { describe, expect, it, vi } from 'vitest';
+import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
 import {
   buildCscAdapterConfig,
   canonicalCscDetailUrl,
@@ -23,6 +24,19 @@ const fixture = JSON.parse(
   fs.readFileSync(path.resolve(import.meta.dirname, 'fixtures', 'csc-careers-pages.json'), 'utf8'),
 ) as CscFixture;
 const careersUrl = 'https://csc-sa.ch/lavoro-carriera-edilizia';
+const testScratchRoot = fs.mkdtempSync(path.join(tmpdir(), 'csc-crawler-test-'));
+const testSnapshotPath = path.join(testScratchRoot, 'live-structure.json');
+const previousSnapshotPath = process.env.CSC_LIVE_STRUCTURE_SNAPSHOT_PATH;
+
+beforeAll(() => {
+  process.env.CSC_LIVE_STRUCTURE_SNAPSHOT_PATH = testSnapshotPath;
+});
+
+afterAll(() => {
+  if (previousSnapshotPath === undefined) delete process.env.CSC_LIVE_STRUCTURE_SNAPSHOT_PATH;
+  else process.env.CSC_LIVE_STRUCTURE_SNAPSHOT_PATH = previousSnapshotPath;
+  fs.rmSync(testScratchRoot, { recursive: true, force: true });
+});
 
 function htmlResponse(url: string, html: string, status = 200) {
   return {
@@ -72,6 +86,73 @@ describe('CSC authoritative Drupal discovery', () => {
       'drupal-node:321',
       'drupal-node:322',
     ]);
+  });
+
+  it('captures the first live-shaped detail structure without storing vacancy text', async () => {
+    const scratchRoot = fs.mkdtempSync(path.join(tmpdir(), 'csc-live-structure-'));
+    const snapshotPath = path.join(scratchRoot, 'structure.json');
+    const log = vi.spyOn(console, 'log').mockImplementation(() => {});
+
+    try {
+      await expect(fetchCscJobUrls({
+        fetchImpl: fixtureFetch(),
+        timeoutMs: 1000,
+        structureSnapshotPath: snapshotPath,
+      })).resolves.toMatchObject({ authoritativeEmpty: false });
+
+      expect(fs.existsSync(snapshotPath)).toBe(true);
+      const snapshot = JSON.parse(fs.readFileSync(snapshotPath, 'utf8'));
+      expect(snapshot).toMatchObject({
+        schemaVersion: 1,
+        authoritativeEmpty: false,
+        articleClasses: ['node', 'node--type-work-position'],
+        hasDataHistoryNodeId: true,
+        jobPostingNodeCount: 1,
+      });
+      expect(snapshot).not.toHaveProperty('title');
+      expect(snapshot).not.toHaveProperty('description');
+      expect(snapshot).not.toHaveProperty('url');
+      expect(log).toHaveBeenCalledWith(expect.stringContaining('CSC live structural snapshot captured'));
+
+      const firstSnapshot = fs.readFileSync(snapshotPath, 'utf8');
+      const changedArticle = fixture.details[0].html.replace(
+        'class="node node--type-work-position"',
+        'class="node node--type-work-position changed-structure"',
+      );
+      await fetchCscJobUrls({
+        fetchImpl: fixtureFetch({
+          [fixture.details[0].url]: htmlResponse(fixture.details[0].url, changedArticle),
+        }),
+        timeoutMs: 1000,
+        structureSnapshotPath: snapshotPath,
+      });
+      expect(fs.readFileSync(snapshotPath, 'utf8')).toBe(firstSnapshot);
+    } finally {
+      log.mockRestore();
+      fs.rmSync(scratchRoot, { recursive: true, force: true });
+    }
+  });
+
+  it('does not block discovery when the audit artifact cannot be written', async () => {
+    const scratchRoot = fs.mkdtempSync(path.join(tmpdir(), 'csc-live-structure-'));
+    const blockerPath = path.join(scratchRoot, 'not-a-directory');
+    fs.writeFileSync(blockerPath, 'blocker');
+    const log = vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+    try {
+      await expect(fetchCscJobUrls({
+        fetchImpl: fixtureFetch(),
+        timeoutMs: 1000,
+        structureSnapshotPath: path.join(blockerPath, 'structure.json'),
+      })).resolves.toMatchObject({
+        urls: fixture.details.map((detail) => detail.url),
+        authoritativeEmpty: false,
+      });
+      expect(log).toHaveBeenCalledWith(expect.stringContaining('CSC live structural snapshot skipped'));
+    } finally {
+      log.mockRestore();
+      fs.rmSync(scratchRoot, { recursive: true, force: true });
+    }
   });
 
   it('accepts the live-shaped explicit empty state without probing details', async () => {

@@ -113,6 +113,10 @@ scripts/lib/escape-regexp.mjs
 # corpus-side generator from failing before main().
 scripts/lib/resolve-output-path.mjs
 scripts/lib/int-from-env.mjs
+# Added 2026-09-14: create-article.mjs imports this top-level sanitizer; the
+# corpus already carries its generator-side twin, so the transport must carry
+# the site source at the same relative path.
+scripts/lib/sanitize-body-braces.mjs
 
 # --- !rewired: reachable by import, deliberately NOT moved -------------------
 #
