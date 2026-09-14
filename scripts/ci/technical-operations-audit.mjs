@@ -201,6 +201,49 @@ function extractDataPaths(run) {
   return [...new Set([...String(run || '').matchAll(DATA_PATH_RE)].map((match) => match[1]))];
 }
 
+/**
+ * Remove shell string contents before looking for operational commands.
+ * Workflow steps often print a copy/paste recipe containing `git add` and a
+ * data path; those words are documentation, not a write performed by the
+ * step. Preserve newlines so finding line numbers remain stable. The caller
+ * still falls back to the raw paths when an actual write uses a quoted path.
+ */
+function shellOperationalText(run) {
+  const source = String(run || '');
+  let singleQuoted = false;
+  let doubleQuoted = false;
+  let comment = false;
+  let escaped = false;
+  return [...source].map((char) => {
+    if (comment) {
+      if (char === '\n') comment = false;
+      return char === '\n' ? '\n' : ' ';
+    }
+    if (escaped) {
+      escaped = false;
+      return char === '\n' ? '\n' : ' ';
+    }
+    if (doubleQuoted && char === '\\') {
+      escaped = true;
+      return ' ';
+    }
+    if (!doubleQuoted && char === "'") {
+      singleQuoted = !singleQuoted;
+      return ' ';
+    }
+    if (!singleQuoted && !doubleQuoted && char === '#') {
+      comment = true;
+      return ' ';
+    }
+    if (!singleQuoted && char === '"') {
+      doubleQuoted = !doubleQuoted;
+      return ' ';
+    }
+    if (singleQuoted || doubleQuoted) return char === '\n' ? '\n' : ' ';
+    return char;
+  }).join('');
+}
+
 function outputKeysFromSource(source) {
   const raw = String(source || '');
   if (!/\$GITHUB_OUTPUT\b|process\.env\.GITHUB_OUTPUT\b/.test(raw)) return new Set();
@@ -611,9 +654,11 @@ function validateJobs(workflow, file, source, root, exists, readFile, knownWorkf
             ));
           }
         }
-        const dataPaths = extractDataPaths(rawStep.run);
-        const writesData = /\bgit\s+(?:add|commit)\b|(?:>>|>)\s*["']?(?:data|public\/data)\//i.test(rawStep.run);
-        const hasValidation = /\b(?:validat(?:e|ion)|audit|check|assert|test|strict|quality|schema|diff)\b/i.test(rawStep.run);
+        const operationalRun = shellOperationalText(rawStep.run);
+        const operationalDataPaths = extractDataPaths(operationalRun);
+        const dataPaths = operationalDataPaths.length ? operationalDataPaths : extractDataPaths(rawStep.run);
+        const writesData = /\bgit\s+(?:add|commit)\b|(?:>>|>)\s*["']?(?:data|public\/data)\//i.test(operationalRun);
+        const hasValidation = /\b(?:validat(?:e|ion)|audit|check|assert|test|strict|quality|schema|diff)\b/i.test(operationalRun);
         if (writesData && dataPaths.length > 0 && !hasValidation) {
           for (const dataPath of dataPaths) findings.push(finding(file, 'workflow.data-write-without-check', 'warning', `scrittura di ${dataPath} senza validazione visibile nello step; verificare completezza/timestamp/schema prima del commit`, stepLine, rawStep.run.trim().slice(0, 300)));
         }

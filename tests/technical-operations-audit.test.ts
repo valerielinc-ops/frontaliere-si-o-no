@@ -120,6 +120,37 @@ describe('technical operations audit', () => {
     ]));
   });
 
+  it('non classifica una ricetta stampata come scrittura dati reale', () => {
+    const source = [
+      'name: recipe',
+      'on: [workflow_dispatch]',
+      'jobs:',
+      '  baseline:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: instructions',
+      '        # A comment may mention a quoted command without executing it.',
+      '        run: echo "Download the artifact, then git add data/result.json and git commit"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/recipe.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.data-write-without-check')).toEqual([]);
+  });
+
+  it('mantiene il finding per una scrittura reale con path quotato', () => {
+    const source = [
+      'name: quoted-write',
+      'on: [workflow_dispatch]',
+      'jobs:',
+      '  persist:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: commit',
+      '        run: git add "data/result.json" && git commit -m result',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/quoted-write.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.data-write-without-check')).toHaveLength(1);
+  });
+
   it('accetta queue:max come estensione supportata da GitHub Actions', () => {
     const source = [
       'name: queue-extension',
