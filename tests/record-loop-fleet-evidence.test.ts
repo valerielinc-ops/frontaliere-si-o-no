@@ -212,7 +212,7 @@ describe('record-loop-fleet-evidence', () => {
       const result = recordLoopEvidence({ loopId: 'L1', reportDir: dir, now: NOW });
       expect(result.health).toMatchObject({
         durationSeconds: 0,
-        retryCount: 0,
+        retryCount: null,
         quotaUnits: null,
         collisions: null,
         operationalMetricsComplete: false,

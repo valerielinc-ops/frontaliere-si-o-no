@@ -76,7 +76,7 @@ function runContext(loopId, now) {
     ref: text(process.env.GITHUB_REF),
     sha: text(process.env.GITHUB_SHA),
     runId: text(process.env.GITHUB_RUN_ID) || 'local',
-    runAttempt: text(process.env.GITHUB_RUN_ATTEMPT) || '1',
+    runAttempt: text(process.env.GITHUB_RUN_ATTEMPT),
     recordedAt: now.toISOString(),
   };
 }
@@ -255,8 +255,8 @@ function envNonNegativeNumber(name) {
 }
 
 function envNonNegativeInteger(name) {
-  const value = envNonNegativeNumber(name);
-  return Number.isInteger(value) ? value : null;
+  if (!hasValue(process.env[name])) return null;
+  return parseNonNegativeInteger(process.env[name]);
 }
 
 function booleanValue(...values) {
