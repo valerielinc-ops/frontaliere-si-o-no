@@ -24,6 +24,8 @@ const CompanyFollowPopup = lazyRetry(() => import('@/components/community/Compan
 import CompanyFollowPlaceholder from '@/components/community/CompanyFollowPlaceholder';
 const JobMatchAlertCta = lazyRetry(() => import('@/components/community/JobMatchAlertCta'));
 const JobBoardFilterAlertCta = lazyRetry(() => import('@/components/community/JobBoardFilterAlertCta'));
+const AssistedApplicationOffer = lazyRetry(() => import('@/components/community/AssistedApplicationOffer'));
+const AssistedApplicationUpload = lazyRetry(() => import('@/components/community/AssistedApplicationUpload'));
 const SavedJobsAlertNudge = lazyRetry(() => import('@/components/community/SavedJobsAlertNudge'));
 const SaveSignInPromptModal = lazyRetry(() => import('@/components/community/SaveSignInPromptModal'));
 const ArticleRailAdStack = lazyRetry(() => import('@/components/shared/ArticleRailAdStack'));
@@ -182,6 +184,14 @@ import {
  type Inline as JobDescInline,
 } from '@/build-plugins/shared/jobDescription/parser';
 import { useAuthGateHeadlineVariant } from '@/services/authGateExperiment';
+import {
+ trackAssistedApplicationEvent,
+ useAssistedApplicationVariant,
+} from '@/services/assistedApplicationExperiment';
+import {
+ createAssistedApplicationCheckout,
+ ensureAssistedApplicationAuth,
+} from '@/services/assistedApplicationCheckout';
 import { useNewsletterAutologinInFlight } from '@/hooks/useNewsletterAutologinInFlight';
 import { useJobAlertEligibility } from '@/hooks/useJobAlertEligibility';
 import {
@@ -2178,6 +2188,25 @@ function readCurrentPageViewPath(): string {
  return `${window.location.pathname}${window.location.search}${window.location.hash}`;
 }
 
+function readAssistedApplicationOrderId(): string | null {
+ if (typeof window === 'undefined') return null;
+ const value = new URLSearchParams(window.location.search).get('assisted_application_order_id');
+ return value && /^[A-Za-z0-9_-]{1,200}$/.test(value) ? value : null;
+}
+
+function isExternalApplicationJob(job: JobListing): boolean {
+ const mode = (job as { applyMode?: string }).applyMode;
+ return mode !== 'in_house' && mode !== 'forward_email';
+}
+
+function assistedApplicationJobContext(job: JobListing, variant: 'control' | 'assisted_application') {
+ return {
+  variant,
+  jobId: String(job.id),
+  companyId: String(job.companyKey || job.company || 'unknown'),
+ };
+}
+
 const JobBoard: React.FC<JobBoardProps> = ({
  onPostJob,
  initialJobSlug,
@@ -2197,6 +2226,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const { t } = useTranslation();
  const [locale] = useLocale();
  const { headline: gateHeadline } = useAuthGateHeadlineVariant(locale, t('jobBoard.gate.title'));
+ const {
+  variant: assistedApplicationVariant,
+  ready: assistedApplicationVariantReady,
+ } = useAssistedApplicationVariant();
  // Hold the detail skeleton (not the auth gate) while a newsletter autologin is
  // exchanging — the visitor is about to be signed in; flashing the gate is noise.
  const newsletterAutologinInFlight = useNewsletterAutologinInFlight();
@@ -2362,6 +2395,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // gets feedback, and the click stops being dead because the page genuinely
  // responded.
  const [appliedJobId, setAppliedJobId] = useState<string | null>(null);
+ const [assistedApplicationJob, setAssistedApplicationJob] = useState<JobListing | null>(null);
+ const [assistedCheckoutBusy, setAssistedCheckoutBusy] = useState(false);
+ const [assistedCheckoutError, setAssistedCheckoutError] = useState<string | null>(null);
  const [jobDetailPromptCategory, setJobDetailPromptCategory] = useState<string | null>(null);
  useEffect(() => {
  isLinkedInSignInAvailable().then(setLinkedInAvailable).catch(() => {});
@@ -3407,6 +3443,18 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const isJobDetailView = selectedJob !== null;
  const userEmail = authUser?.email || null;
  const userId = authUser?.uid || null;
+ const assistedApplicationOrderId = readAssistedApplicationOrderId();
+ const assistedExposureKeysRef = useRef(new Set<string>());
+ useEffect(() => {
+  if (!assistedApplicationVariantReady || !selectedJob || !isExternalApplicationJob(selectedJob)) return;
+  const exposureKey = `${selectedJob.id}:${assistedApplicationVariant}`;
+  if (assistedExposureKeysRef.current.has(exposureKey)) return;
+  assistedExposureKeysRef.current.add(exposureKey);
+  trackAssistedApplicationEvent(
+   'experiment_assigned',
+   assistedApplicationJobContext(selectedJob, assistedApplicationVariant),
+  );
+ }, [assistedApplicationVariant, assistedApplicationVariantReady, selectedJob]);
  const appliedAlertSurfaceVisible = Boolean(
   appliedJobId && selectedJob && appliedJobId === selectedJob.id,
  );
@@ -6471,9 +6519,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onJobRouteChange?.(undefined);
  };
 
- const trackPublisherApplySignals = (job: JobListing, contentType: string): string => {
- const eventId = createPublisherApplyEventId();
- const referralUrl = buildReferralUrl(job);
+  const trackPublisherApplySignals = (
+  job: JobListing,
+  contentType: string,
+  options: { deferExternalHandoff?: boolean } = {},
+  ): string => {
+  const eventId = createPublisherApplyEventId();
+  const referralUrl = buildReferralUrl(job);
  Analytics.trackEvent('select_content', {
  content_type: contentType,
  item_id: `${job.company}_${job.title}`,
@@ -6484,8 +6536,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  is_sponsored: job.featured ? 'sponsored' : 'free',
  emission_id: eventId,
  });
- const mode = (job as { applyMode?: string }).applyMode;
- if (mode !== 'in_house' && mode !== 'forward_email') {
+  if (isExternalApplicationJob(job) && !options.deferExternalHandoff) {
   Analytics.trackJobApplyHandoff(job, referralUrl, {
    surface: contentType,
    emissionId: eventId,
@@ -6494,29 +6545,109 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return eventId;
  };
 
- const handleApply = (job: JobListing) => {
- const eventId = trackPublisherApplySignals(job, 'job_board_apply');
- // In-house / forward-email publisher ads apply via the on-page
+ const redirectExternalApplication = (job: JobListing, surface: string, trackHandoff: boolean) => {
+  const applyDestination = buildReferralUrl(job);
+  if (!applyDestination) return;
+  if (trackHandoff) {
+   Analytics.trackJobApplyHandoff(job, applyDestination, {
+    surface,
+    emissionId: createPublisherApplyEventId(),
+   });
+  }
+  trackAssistedApplicationEvent(
+   'external_apply_redirected',
+   { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface },
+  );
+  window.open(applyDestination, '_blank', 'noopener,noreferrer');
+  // Mutate the page in the same tick as the hand-off — the confirmation is the
+  // user-visible receipt AND the DOM change that makes this click non-dead.
+  setAppliedJobId(job.id);
+ };
+
+ const handleAssistedExternal = () => {
+  const job = assistedApplicationJob;
+  if (!job) return;
+  trackAssistedApplicationEvent(
+   'assisted_application_choose_external',
+   assistedApplicationJobContext(job, assistedApplicationVariant),
+  );
+  setAssistedApplicationJob(null);
+  setAssistedCheckoutError(null);
+  redirectExternalApplication(job, 'assisted_application_offer', true);
+ };
+
+ const handleAssistedPaid = async () => {
+  const job = assistedApplicationJob;
+  if (!job || assistedCheckoutBusy) return;
+  setAssistedCheckoutBusy(true);
+  setAssistedCheckoutError(null);
+  trackAssistedApplicationEvent(
+   'assisted_application_choose_paid',
+   assistedApplicationJobContext(job, assistedApplicationVariant),
+  );
+  trackAssistedApplicationEvent(
+   'checkout_started',
+   { ...assistedApplicationJobContext(job, assistedApplicationVariant), price_eur_cents: 99 },
+  );
+  try {
+   const user = authUser?.getIdToken ? authUser : await ensureAssistedApplicationAuth();
+   if (!user?.getIdToken) throw new Error('assisted_application_auth_required');
+   const currentPath = `${window.location.origin}${window.location.pathname}`;
+   const result = await createAssistedApplicationCheckout({
+    jobId: String(job.id),
+    companyId: String(job.companyKey || job.company || 'unknown'),
+    jobUrl: String(job.url || job.applyUrl || ''),
+    companyName: String(job.company || ''),
+    jobTitle: sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title),
+    experimentVariant: assistedApplicationVariant,
+    successUrl: currentPath,
+    cancelUrl: currentPath,
+   }, user);
+   window.location.assign(result.url);
+  } catch (error) {
+   setAssistedCheckoutBusy(false);
+   setAssistedCheckoutError(t('jobBoard.assisted.checkoutError'));
+   trackAssistedApplicationEvent(
+    'checkout_failed',
+    { ...assistedApplicationJobContext(job, assistedApplicationVariant), reason: 'session_creation_failed' },
+   );
+   if ((error as { message?: string })?.message === 'assisted_application_auth_required') onRequireAuth?.();
+  }
+ };
+
+ const handleApply = (job: JobListing, surface = 'job_board_apply') => {
+  const isExternal = isExternalApplicationJob(job);
+  const eventId = trackPublisherApplySignals(
+   job,
+   surface,
+   isExternal && assistedApplicationVariant === 'assisted_application'
+    ? { deferExternalHandoff: true }
+    : undefined,
+  );
+  // In-house / forward-email publisher ads apply via the on-page
  // PublisherApplyForm (#candidatura), NOT an external URL. For these,
  // applyUrl/url point back at the ad's own /lavoro/<slug> page, so opening
  // job.url in a new tab just re-shows the listing ("returns to the ad"
  // bug). Scroll to the in-page form instead.
  const mode = (job as { applyMode?: string }).applyMode;
  if (mode === 'in_house' || mode === 'forward_email') {
- trackPublisherApplyClick(job as { publisherJobId?: string | null }, { eventId: eventId });
- document.getElementById('candidatura')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
- return;
+  trackPublisherApplyClick(job as { publisherJobId?: string | null }, { eventId: eventId });
+  document.getElementById('candidatura')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  return;
  }
  // External publisher ads: count the apply click too (session-debounced, so it
  // never double-counts with the header logo/title links). No-op for crawled jobs.
  trackPublisherApplyClick(job as { publisherJobId?: string | null }, { eventId: eventId });
- const applyDestination = buildReferralUrl(job);
- if (applyDestination) {
- window.open(applyDestination, '_blank', 'noopener,noreferrer');
- // Mutate the page in the same tick as the hand-off — the confirmation is the
- // user-visible receipt AND the DOM change that makes this click non-dead.
- setAppliedJobId(job.id);
+ if (assistedApplicationVariant === 'assisted_application') {
+  trackAssistedApplicationEvent(
+   'job_apply_click',
+   { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface },
+  );
+  setAssistedCheckoutError(null);
+  setAssistedApplicationJob(job);
+  return;
  }
+ redirectExternalApplication(job, surface, false);
  };
 
  const handleShare = async (job: JobListing) => {
@@ -6838,6 +6969,27 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </Suspense>
  ) : null;
 
+ const assistedApplicationOfferJsx = assistedApplicationJob ? (
+  <Suspense fallback={null}>
+   <AssistedApplicationOffer
+    jobId={String(assistedApplicationJob.id)}
+    companyId={String(assistedApplicationJob.companyKey || assistedApplicationJob.company || 'unknown')}
+    companyName={assistedApplicationJob.company}
+    jobTitle={sanitizeJobTitle(assistedApplicationJob.titleByLocale?.[locale] ?? assistedApplicationJob.title)}
+    variant={assistedApplicationVariant}
+    onChooseExternal={handleAssistedExternal}
+    onChoosePaid={handleAssistedPaid}
+    onClose={() => {
+     setAssistedApplicationJob(null);
+     setAssistedCheckoutBusy(false);
+     setAssistedCheckoutError(null);
+    }}
+    paidLoading={assistedCheckoutBusy}
+    error={assistedCheckoutError}
+   />
+  </Suspense>
+ ) : null;
+
  const authGateModalJsx = authGateOpen ? (
  <div className="fixed inset-0 z-[90] flex items-center justify-center p-4" onClick={(e) => { if (e.target === e.currentTarget) { authUnlockCandidateRef.current = null; setAuthGateOpen(false); releaseSlot('job-auth-gate'); setPendingJob(null); setAuthError(null); } }}>
  <div aria-hidden="true" className="absolute inset-0 bg-black/45 backdrop-blur-sm" />
@@ -7005,6 +7157,18 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  </div>
  );
+
+ if (assistedApplicationOrderId) {
+  return (
+   <Suspense fallback={<div className="mx-auto max-w-2xl px-4 py-12 text-center text-sm text-subtle">{t('jobBoard.assisted.loading')}</div>}>
+    <AssistedApplicationUpload
+     orderId={assistedApplicationOrderId}
+     authUser={authUser}
+     onRequireAuth={onRequireAuth}
+    />
+   </Suspense>
+  );
+ }
 
  if (jobsLoading) {
  // Expired job pages with seeded data: render the expired view immediately
@@ -8705,9 +8869,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Publisher / sponsored ad: a paid submission carries a `publisherJobId`. Used
  // to gate the per-job "Avvisami per questo annuncio" CTA (specificJobId alert).
  const isPublisherAd = Boolean((selectedJob as { publisherJobId?: string | null }).publisherJobId);
- const scrollToCandidatura = () => {
- document.getElementById('candidatura')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
- };
  const detailPageUrl = `${PUBLIC_SITE_URL}${buildJobPath(selectedJob)}`;
  const companySearchSlug = buildCompanySearchSlug(selectedJob.company, selectedJob.companyKey, locale);
  const detailJobCanton = resolveJobCanton(selectedJob);
@@ -8873,6 +9034,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  {authPendingNoticeJsx}
 
+ {assistedApplicationOfferJsx}
+
  <article className="hybrid-ab-root">
  <header className="hybrid-ab-hero">
  <h1 className="hybrid-ab-title">
@@ -8937,18 +9100,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  />
  </div>
  ) : (
- <a
+ <button
+  type="button"
  className="hybrid-ab-cta"
- href={applyUrl}
- target="_blank"
- rel="nofollow noopener noreferrer"
- onClick={() => {
- const eventId = trackPublisherApplySignals(selectedJob, 'job_board_apply');
- trackPublisherApplyClick(selectedJob as { publisherJobId?: string | null }, { eventId: eventId });
- }}
+ onClick={() => handleApply(selectedJob)}
  >
  {t('jobBoard.apply')}
- </a>
+ </button>
  )}
 
  {!(selectedJob as unknown as { publisherJobId?: string }).publisherJobId && (
@@ -9027,6 +9185,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  {authPendingNoticeJsx}
 
+ {assistedApplicationOfferJsx}
+
  {/* 3-column rail grid: left rail | content | right rail. 180px rails at xl
      (1280–1399), widening to 300px at xlw (≥1400) to host the ArticleRailAd
      half-page creatives — same full-height side-rail layout as the article
@@ -9049,9 +9209,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  target={isInHouseApply ? undefined : '_blank'}
  rel="nofollow noopener noreferrer"
  onClick={(e) => {
- if (isInHouseApply) { e.preventDefault(); scrollToCandidatura(); }
- const eventId = trackPublisherApplySignals(selectedJob, 'job_board_apply_header_logo');
- trackPublisherApplyClick(selectedJob as { publisherJobId?: string | null }, { eventId: eventId });
+  e.preventDefault();
+  handleApply(selectedJob, 'job_board_apply_header_logo');
  }}
  aria-label={`${t('jobBoard.apply')} ${selectedJob.company}`}
  className="w-14 h-14 sm:w-20 sm:h-20 rounded-xl bg-surface/90 flex items-center justify-center overflow-hidden border border-edge shrink-0 shadow-sm transition-transform hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-info"
@@ -9077,9 +9236,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  target={isInHouseApply ? undefined : '_blank'}
  rel="nofollow noopener noreferrer"
  onClick={(e) => {
- if (isInHouseApply) { e.preventDefault(); scrollToCandidatura(); }
- const eventId = trackPublisherApplySignals(selectedJob, 'job_board_apply_header_title');
- trackPublisherApplyClick(selectedJob as { publisherJobId?: string | null }, { eventId: eventId });
+  e.preventDefault();
+  handleApply(selectedJob, 'job_board_apply_header_title');
  }}
  className="hover:underline decoration-2 underline-offset-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
  >

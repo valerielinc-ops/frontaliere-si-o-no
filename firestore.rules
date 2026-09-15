@@ -770,6 +770,58 @@ service cloud.firestore {
       allow delete: if false;
     }
 
+    // Assisted-application orders (#6405/#6406). The order is created and
+    // paid by the server-side checkout/webhook only. The browser can read its
+    // own order and, after payment, record consent and candidate fields; the
+    // payment identity and job metadata are frozen by the affected-key guard.
+    match /assisted_applications/{orderId} {
+      allow get: if isSiteAdmin()
+        || (isSignedIn() && request.auth.uid == resource.data.userId);
+      allow list: if false;
+      allow create: if false;
+      allow update: if isSignedIn()
+        && request.auth.uid == resource.data.userId
+        && resource.data.paymentStatus == 'paid'
+        && resource.data.orderId == orderId
+        && request.resource.data.userId == resource.data.userId
+        && request.resource.data.orderId == orderId
+        && request.resource.data.paymentStatus == resource.data.paymentStatus
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+          'applicantName', 'applicantEmail', 'applicantPhone',
+          'cvStorageKey', 'coverLetterStorageKey',
+          'consentVersion', 'consentedAt', 'submissionStatus', 'submittedAt', 'updatedAt',
+        ])
+        && request.resource.data.consentVersion == 'assisted-application-v1'
+        && request.resource.data.consentedAt is timestamp
+        && (resource.data.consentVersion == null
+          || (request.resource.data.consentVersion == resource.data.consentVersion
+            && request.resource.data.consentedAt == resource.data.consentedAt))
+        && (request.resource.data.applicantName == null
+          || request.resource.data.applicantName is string)
+        && (request.resource.data.applicantEmail == null
+          || request.resource.data.applicantEmail is string)
+        && (request.resource.data.applicantPhone == null
+          || request.resource.data.applicantPhone is string)
+        && (request.resource.data.cvStorageKey == null
+          || request.resource.data.cvStorageKey is string)
+        && (request.resource.data.cvStorageKey == null
+          || request.resource.data.cvStorageKey.matches('^assisted-application-uploads/' + orderId + '/[A-Za-z0-9._-]+$'))
+        && (request.resource.data.coverLetterStorageKey == null
+          || request.resource.data.coverLetterStorageKey is string)
+        && (request.resource.data.coverLetterStorageKey == null
+          || request.resource.data.coverLetterStorageKey.matches('^assisted-application-uploads/' + orderId + '/[A-Za-z0-9._-]+$'))
+        && (request.resource.data.submittedAt == null
+          || request.resource.data.submittedAt is timestamp)
+        && (request.resource.data.submittedAt == resource.data.submittedAt
+          || (resource.data.submissionStatus == 'awaiting_upload'
+            && request.resource.data.submissionStatus == 'ready_for_manual_submission'
+            && request.resource.data.submittedAt is timestamp))
+        && (request.resource.data.submissionStatus == resource.data.submissionStatus
+          || (resource.data.submissionStatus == 'awaiting_upload'
+            && request.resource.data.submissionStatus == 'ready_for_manual_submission'));
+      allow delete: if false;
+    }
+
     // Per-ad analytics counters (views, apply clicks). Public increment like
     // job_views/article_views; owner reads aggregates in the dashboard.
     match /publisher_job_events/{jobId} {
