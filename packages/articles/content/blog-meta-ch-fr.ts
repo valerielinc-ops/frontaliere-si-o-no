@@ -6432,6 +6432,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.premi-lamal-politica-responsabilita.title': 'Augmentations des primes LAMal : la politique repousse les responsabilités',
     'blog.article.premi-lamal-politica-responsabilita.excerpt': 'Les augmentations annuelles des primes LAMal sont ponctuelles, la politique rebondissant sur les responsabilités entre la Confédération et les cantons. Le coût conditionne la qualité de vie des familles suisses.',
     'blog.article.premi-lamal-politica-responsabilita.imageAlt': 'Vue panoramique de Lugano symbolisant l\'économie suisse et les défis financiers, notamment les coûts de la santé.',
+    'blog.article.formazione-adulta-reddito-svizzera.title': 'La formation des adultes augmente les revenus de 50 %',
+    'blog.article.formazione-adulta-reddito-svizzera.excerpt': 'Etude OFS : obtenir un diplôme secondaire II à l\'âge adulte conduit à +50% de revenu et d\'emploi à 80%',
+    'blog.article.formazione-adulta-reddito-svizzera.imageAlt': 'Formation adultes avec vue sur les Alpes suisses',
 };
 
 export default blogMetaChFr;

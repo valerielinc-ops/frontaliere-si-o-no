@@ -72,6 +72,8 @@ export interface BorderCrossing {
  */
 const TI_POLCA_SOURCE_NAME = 'Dipartimento del territorio – Canton Ticino';
 const TI_POLCA_SOURCE_URL = 'https://www.ti.ch/webcam';
+const SITG_CAMERA_SOURCE_NAME = 'SITG / Canton Genève – INFOMOB_CAMERA';
+const SITG_CAMERA_SOURCE_URL = 'https://sitg.ge.ch/donnees/infomob-camera';
 
 export const borderCrossings: BorderCrossing[] = [
  // COMO - TICINO
@@ -2163,6 +2165,16 @@ export const borderCrossings: BorderCrossing[] = [
  customsPresent: true,
  hours: '24h',
  tips: 'border.tips.bardonnex',
+ webcams: [
+  {
+   label: 'SITG INFOMOB – Bardonnex (douane)',
+   imageUrl: 'https://app2.ge.ch/tercameras/CAM_14.jpg',
+   sourceName: SITG_CAMERA_SOURCE_NAME,
+   sourceUrl: SITG_CAMERA_SOURCE_URL,
+   refreshIntervalMs: 60000,
+   license: 'Immagine pubblicata dal dataset ufficiale INFOMOB del SITG',
+  },
+ ],
  },
  {
  name: 'Ferney-Voltaire / Grand-Saconnex',
@@ -2177,6 +2189,16 @@ export const borderCrossings: BorderCrossing[] = [
  customsPresent: true,
  hours: '24h',
  tips: 'border.tips.ferneyVoltaire',
+ webcams: [
+  {
+   label: 'SITG INFOMOB – Aéroport / Grand-Saconnex',
+   imageUrl: 'https://app2.ge.ch/tercameras/CAM_4.jpg',
+   sourceName: SITG_CAMERA_SOURCE_NAME,
+   sourceUrl: SITG_CAMERA_SOURCE_URL,
+   refreshIntervalMs: 60000,
+   license: 'Immagine pubblicata dal dataset ufficiale INFOMOB del SITG',
+  },
+ ],
  },
  {
  name: 'Meyrin / CERN',
@@ -2191,6 +2213,16 @@ export const borderCrossings: BorderCrossing[] = [
  customsPresent: true,
  hours: 'border.hours.unspecified',
  tips: 'border.tips.meyrinCern',
+ webcams: [
+  {
+   label: 'SITG INFOMOB – Meyrin',
+   imageUrl: 'https://app2.ge.ch/tercameras/CAM_6.jpg',
+   sourceName: SITG_CAMERA_SOURCE_NAME,
+   sourceUrl: SITG_CAMERA_SOURCE_URL,
+   refreshIntervalMs: 60000,
+   license: 'Immagine pubblicata dal dataset ufficiale INFOMOB del SITG',
+  },
+ ],
  },
  {
  name: 'Thônex-Vallard (Autoroute Blanche)',
@@ -2233,6 +2265,16 @@ export const borderCrossings: BorderCrossing[] = [
  customsPresent: true,
  hours: '24h',
  tips: 'border.tips.perly',
+ webcams: [
+  {
+   label: 'SITG INFOMOB – Perly',
+   imageUrl: 'https://app2.ge.ch/tercameras/CAM_12.jpg',
+   sourceName: SITG_CAMERA_SOURCE_NAME,
+   sourceUrl: SITG_CAMERA_SOURCE_URL,
+   refreshIntervalMs: 60000,
+   license: 'Immagine pubblicata dal dataset ufficiale INFOMOB del SITG',
+  },
+ ],
  },
  {
  name: 'Anières',
@@ -2523,4 +2565,3 @@ for (const c of borderCrossings) {
  if (entry.morning) c.avgWaitMorning = entry.morning;
  if (entry.evening) c.avgWaitEvening = entry.evening;
 }
-

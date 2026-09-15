@@ -2,69 +2,134 @@
 /**
  * download-missing-company-logos.mjs
  *
- * Downloads logos for companies in known-company-slugs.json that are NOT yet
- * in company-logos-manifest.json, using Google's favicon API with domain
- * guessing from the employer key.
+ * Mirrors verified icons for the companies reported by the canonical logo
+ * audit. Acquisition may use Google's favicon proxy, but only with a domain
+ * identified as the employer's official domain; the runtime never references
+ * Google. A grey-globe response, an HTML page, and an HTTP error are all
+ * rejected.
  *
- * Domain guessing (tried in order until a non-grey-globe result):
- *   1. {key}.ch / {key}.com
- *   2. {stripped-key}.ch / {stripped-key}.com  (after removing -ag, -svizzera etc)
- *   3. {first-word}.ch / {first-word}.com
+ * Legacy mode (known-company-slugs.json + latest history) remains available:
  *
- * Grey globe: Google returns exactly 726 bytes at sz=128 when no favicon found.
- * Those are silently skipped and the next domain candidate is tried.
- *
- * Usage:
+ *   node scripts/download-missing-company-logos.mjs --from-audit
+ *   node scripts/download-missing-company-logos.mjs --from-audit --dry-run
+ *   node scripts/download-missing-company-logos.mjs --from-audit --force
  *   node scripts/download-missing-company-logos.mjs
- *   node scripts/download-missing-company-logos.mjs --dry-run
- *   node scripts/download-missing-company-logos.mjs --force   # re-download all
  */
 
-import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
+import { mkdir, readFile, readdir, unlink, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { isGreyGlobe, LOGO_BOT_USER_AGENT } from './lib/google-favicon.mjs';
+import {
+  fetchVerifiedLogo,
+  MAX_LOGO_BODY_BYTES,
+} from './lib/company-logo-audit.mjs';
 
 const ROOT = path.resolve(process.cwd());
 const MANIFEST_PATH = path.join(ROOT, 'data', 'company-logos-manifest.json');
 const KNOWN_SLUGS_PATH = path.join(ROOT, 'data', 'known-company-slugs.json');
 const HISTORY_DIR = path.join(ROOT, 'data', 'jobs-snapshots-history');
 const OUT_DIR = path.join(ROOT, 'public', 'images', 'brands');
+const DEFAULT_AUDIT_REPORT = path.join(ROOT, 'data', 'company-logos-missing.json');
+const DEFAULT_JOBS_FILES = [
+  path.join(ROOT, 'data', 'jobs.json'),
+  path.join(ROOT, 'public', 'data', 'jobs.json'),
+];
 
 const FETCH_TIMEOUT_MS = 10_000;
 const CONCURRENCY = 6;
 
-const MIME_EXT = {
-  'image/png': 'png',
-  'image/jpeg': 'jpg',
-  'image/jpg': 'jpg',
-  'image/gif': 'gif',
-  'image/svg+xml': 'svg',
-  'image/webp': 'webp',
-  'image/x-icon': 'ico',
-  'image/vnd.microsoft.icon': 'ico',
+// These are publishing platforms, not the employer's brand domains. A
+// companyDomain on one of them must not be sent to Google as the logo source.
+const ATS_HOST_MARKERS = [
+  'allibo.com',
+  'altamiraweb.com',
+  'apps.be.ch',
+  'arca24.careers',
+  'careers.softgarden.de',
+  'softgarden.de',
+  'csod.com',
+  'concludis.de',
+  'dualoo.com',
+  'greenhouse.io',
+  'icims.com',
+  'intervieweb.it',
+  'jobcloud.ch',
+  'jobs.ch',
+  'jobup.ch',
+  'jobalino.ch',
+  'myworkdayjobs.com',
+  'ncoreplat.com',
+  'oraclecloud.com',
+  'personio.',
+  'prospective.ch',
+  'refline.ch',
+  'reflinejobs.io',
+  'recruitee.com',
+  'recruitingapp-',
+  'salesforce-sites.com',
+  'smartrecruiters.com',
+  'solique.ch',
+  'successfactors.',
+  'talent-soft.com',
+  'talentics.ai',
+  'teamtailor.com',
+  'umantis.com',
+  'workable.com',
+  'zohorecruit.com',
+];
+
+// Names with a crawler/ATS key that does not identify the corporate domain.
+const DOMAIN_OVERRIDES = {
+  'amina-bank': ['amina.ch'],
+  'apleona-schweiz-ag': ['apleona.com'],
+  'badrutts-palace': ['badruttspalace.com'],
+  'cippatrasporti': ['cippatrasporti.ch', 'cippa.ch'],
+  'ferrovia-retica': ['rhb.ch'],
+  'fisiocare-sagl': ['fisiocare.ch', 'fisiocare.com'],
+  'gmo': ['gmo.ch'],
+  'gz-dielsdorf': ['gzdielsdorf.ch'],
+  'elettra-1938': ['elettra1938.ch', 'elettra.ch'],
+  'impresa-pizzarotti': ['pizzarotti.it'],
+  'jsafrasarasin': ['jsafrasarasin.ch', 'jsafrasarasin.com'],
+  'kanton-aargau': ['ag.ch'],
+  'lonza': ['lonza.com'],
+  'michaelpage': ['michaelpage.ch', 'michaelpage.com'],
+  'matterhorn-gotthard-bahn': ['mgb.ch'],
+  'recruitingapp-1154': ['sgkb.ch'],
 };
 
-function detectExtFromBytes(buf) {
-  if (!buf || buf.length < 8) return null;
-  const s = buf.subarray(0, 8);
-  if (s[0] === 0x89 && s[1] === 0x50) return 'png';
-  if (s[0] === 0xff && s[1] === 0xd8) return 'jpg';
-  if (s[0] === 0x47 && s[1] === 0x49) return 'gif';
-  if (s[0] === 0x52 && s[1] === 0x49) return 'webp';
-  if (s[0] === 0x00 && s[1] === 0x00 && s[2] === 0x01 && s[3] === 0x00) return 'ico';
-  const head = buf.subarray(0, 256).toString('utf8').trimStart().toLowerCase();
-  if (head.startsWith('<svg') || head.startsWith('<?xml')) return 'svg';
-  return null;
-}
-
-function slugify(value) {
+function slugify(value = '') {
   return String(value || '')
     .toLowerCase()
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
+}
+
+function normalizeDomain(value) {
+  let raw = String(value || '').trim().toLowerCase();
+  if (!raw) return '';
+  try {
+    raw = new URL(/^[a-z][a-z\d+.-]*:\/\//i.test(raw) ? raw : `https://${raw}`).hostname;
+  } catch {
+    return '';
+  }
+  return raw.replace(/^www\./, '').replace(/\.$/, '');
+}
+
+function isAtsDomain(domain) {
+  const value = normalizeDomain(domain);
+  return !value
+    || value === 'frontaliereticino.ch'
+    || ATS_HOST_MARKERS.some((marker) => value === marker || value.endsWith(`.${marker}`) || value.includes(marker));
+}
+
+function addUnique(list, seen, value) {
+  const domain = normalizeDomain(value);
+  if (!domain || seen.has(domain)) return;
+  seen.add(domain);
+  list.push(domain);
 }
 
 const STRIP_SUFFIXES = [
@@ -77,39 +142,36 @@ const STRIP_SUFFIXES = [
 ];
 
 function stripSuffixes(slug) {
-  let s = slug;
+  let value = slug;
   let changed = true;
   while (changed) {
     changed = false;
-    for (const sfx of STRIP_SUFFIXES) {
-      if (s.endsWith(sfx) && s.length > sfx.length) {
-        s = s.slice(0, -sfx.length);
+    for (const suffix of STRIP_SUFFIXES) {
+      if (value.endsWith(suffix) && value.length > suffix.length) {
+        value = value.slice(0, -suffix.length);
         changed = true;
         break;
       }
     }
   }
-  return s || slug;
+  return value || slug;
 }
 
-// Manual overrides for companies where the slug doesn't hint at the right domain
-const DOMAIN_OVERRIDES = {
-  'badrutts-palace': ['badruttspalace.com'],
-  'ferrovia-retica': ['rhb.ch'],
-  'impresa-pizzarotti': ['pizzarotti.it'],
-  'lonza': ['lonza.com'],
-  'matterhorn-gotthard-bahn': ['mgb.ch'],
-};
+function domainCandidates(key, metadata = {}) {
+  const candidates = [];
+  const seen = new Set();
+  const add = (value) => addUnique(candidates, seen, value);
 
-function domainCandidates(key) {
-  if (DOMAIN_OVERRIDES[key]) return DOMAIN_OVERRIDES[key];
+  for (const domain of DOMAIN_OVERRIDES[key] || []) add(domain);
+  for (const domain of metadata.companyDomains || []) {
+    if (!isAtsDomain(domain)) add(domain);
+  }
+  for (const domain of metadata.urlHosts || []) {
+    if (!isAtsDomain(domain)) add(domain);
+  }
+
   const stripped = stripSuffixes(key);
   const firstWord = key.split('-')[0];
-  const seen = new Set();
-  const candidates = [];
-  const add = (d) => { if (d && d.length > 1 && !seen.has(d)) { seen.add(d); candidates.push(d); } };
-
-  // Swiss (.ch) first, then .com — favour local TLD for Ticino context
   add(`${key}.ch`);
   add(`${key}.com`);
   if (stripped !== key) {
@@ -123,42 +185,227 @@ function domainCandidates(key) {
   return candidates;
 }
 
-async function fetchTimeout(url) {
-  const ctrl = new AbortController();
-  const t = setTimeout(() => ctrl.abort(), FETCH_TIMEOUT_MS);
+function extractJobs(value, sourcePath) {
+  if (Array.isArray(value)) return value;
+  if (value && Array.isArray(value.jobs)) return value.jobs;
+  throw new Error(`Expected an array or { jobs: [] } in ${sourcePath}`);
+}
+
+async function readJson(file, fallback = null) {
   try {
-    return await fetch(url, {
-      headers: {
-        'User-Agent': LOGO_BOT_USER_AGENT,
-        Accept: 'image/*,*/*;q=0.8',
-      },
-      redirect: 'follow',
-      signal: ctrl.signal,
-    });
-  } finally {
-    clearTimeout(t);
+    return JSON.parse(await readFile(file, 'utf8'));
+  } catch (error) {
+    if (fallback !== null && (error.code === 'ENOENT' || error instanceof SyntaxError)) return fallback;
+    throw error;
   }
 }
 
-async function tryGFavicon(domain) {
+function jobKey(job) {
+  return String(job?.companyKey || '').trim() || slugify(job?.company || job?.employer || '');
+}
+
+function metadataFromJobs(jobs) {
+  const metadata = new Map();
+  for (const job of jobs) {
+    const key = jobKey(job);
+    if (!key) continue;
+    const current = metadata.get(key) || {
+      names: new Set(),
+      companyDomains: new Set(),
+      urlHosts: new Set(),
+    };
+    const name = String(job.company || job.employer || '').trim();
+    if (name) current.names.add(name);
+    const companyDomain = normalizeDomain(job.companyDomain);
+    if (companyDomain) current.companyDomains.add(companyDomain);
+    try {
+      const host = normalizeDomain(new URL(job.url).hostname);
+      if (host) current.urlHosts.add(host);
+    } catch { /* a malformed job URL is irrelevant to logo source selection */ }
+    metadata.set(key, current);
+  }
+  return metadata;
+}
+
+async function loadAuditTargets(reportPath, jobsPath) {
+  if (!existsSync(reportPath)) {
+    throw new Error(`Audit report not found: ${reportPath}. Run the canonical logo audit first.`);
+  }
+  const report = await readJson(reportPath);
+  const entries = report.affectedCompanies || report.companies || [];
+  if (!Array.isArray(entries)) throw new Error(`Audit report has no company list: ${reportPath}`);
+
+  let jobs = [];
+  if (jobsPath && existsSync(jobsPath)) {
+    jobs = extractJobs(await readJson(jobsPath), jobsPath);
+  } else {
+    const candidate = DEFAULT_JOBS_FILES.find((file) => existsSync(file));
+    if (candidate) jobs = extractJobs(await readJson(candidate), candidate);
+    else console.warn('[download-missing] Canonical jobs file not found; using report names and manual domains only.');
+  }
+  const metadata = metadataFromJobs(jobs);
+  const targets = [];
+  const seen = new Set();
+  for (const entry of entries) {
+    const key = String(entry?.companyKey || '').trim();
+    if (!key || seen.has(key)) continue;
+    // The report is refreshed from changing crawler data. If a stale report
+    // still contains a company with no current job, do not guess a logo for a
+    // name that has already left the canonical population.
+    if (jobs.length > 0 && !metadata.has(key)) continue;
+    seen.add(key);
+    const current = metadata.get(key) || {
+      names: new Set(),
+      companyDomains: new Set(),
+      urlHosts: new Set(),
+    };
+    if (entry.companyName) current.names.add(String(entry.companyName));
+    targets.push({
+      key,
+      name: [...current.names][0] || entry.companyName || key,
+      metadata: current,
+      manifestAliases: [key],
+      status: entry.status || 'missing',
+    });
+  }
+  return targets;
+}
+
+async function loadLegacyTargets() {
+  const companySlugs = await readJson(KNOWN_SLUGS_PATH);
+  const metadata = new Map();
+  const urlToKey = new Map();
+  if (existsSync(HISTORY_DIR)) {
+    const files = (await readdir(HISTORY_DIR)).filter((file) => file.endsWith('.json')).sort().reverse();
+    if (files.length > 0) {
+      const snapshot = await readJson(path.join(HISTORY_DIR, files[0]), { jobs: [] });
+      const snapshotJobs = snapshot.jobs || [];
+      const snapshotMetadata = metadataFromJobs(snapshotJobs);
+      for (const [key, value] of snapshotMetadata) metadata.set(key, value);
+      for (const job of snapshotJobs) {
+        const key = jobKey(job);
+        const urlSlug = slugify(job?.company || job?.employer || '');
+        if (key && urlSlug && !urlToKey.has(urlSlug)) urlToKey.set(urlSlug, key);
+      }
+    }
+  }
+
+  const targets = [];
+  const seen = new Set();
+  for (const urlSlug of companySlugs) {
+    const slug = String(urlSlug || '').trim();
+    const key = urlToKey.get(slug) || slug;
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    const current = metadata.get(key) || { names: new Set(), companyDomains: new Set(), urlHosts: new Set() };
+    targets.push({
+      key,
+      name: [...current.names][0] || key,
+      metadata: current,
+      manifestAliases: [key, slug],
+      status: 'missing',
+    });
+  }
+  return targets;
+}
+
+async function readImageUrl(url, source, sourceDomain, accept = 'image/*,*/*;q=0.8') {
+  const response = await fetchVerifiedLogo(url, {
+    timeoutMs: FETCH_TIMEOUT_MS,
+    accept,
+  });
+  if (response.status !== 'valid') return null;
+  if (!response.body || response.body.length > MAX_LOGO_BODY_BYTES) return null;
+  return {
+    buf: response.body,
+    ext: response.extension,
+    size: response.bytes,
+    contentType: response.contentType,
+    source,
+    sourceDomain,
+    url: response.url || source,
+  };
+}
+
+async function tryDirectFavicon(domain) {
+  const urls = [`https://${domain}/favicon.ico`];
+  if (!domain.startsWith('www.')) urls.push(`https://www.${domain}/favicon.ico`);
+  for (const url of urls) {
+    try {
+      const result = await readImageUrl(url, 'official-favicon', domain);
+      if (result) return result;
+    } catch { /* try the next official URL */ }
+  }
+  return null;
+}
+
+function extractIconLinks(html, baseUrl) {
+  const links = [];
+  const seen = new Set();
+  for (const tag of html.match(/<link\b[^>]*>/gi) || []) {
+    const rel = tag.match(/\brel\s*=\s*["']([^"']+)["']/i)?.[1] || '';
+    if (!/(?:^|\s)(?:icon|shortcut|apple-touch-icon)(?:\s|$)/i.test(rel)) continue;
+    const href = tag.match(/\bhref\s*=\s*["']([^"']+)["']/i)?.[1];
+    if (!href) continue;
+    try {
+      const absolute = new URL(href, baseUrl).href;
+      if (!/^https?:$/i.test(new URL(absolute).protocol) || seen.has(absolute)) continue;
+      seen.add(absolute);
+      links.push(absolute);
+    } catch { /* ignore malformed markup */ }
+  }
+  return links.slice(0, 8);
+}
+
+async function tryHtmlIcon(domain) {
+  const pageUrl = `https://${domain}/`;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+  try {
+    const response = await fetch(pageUrl, {
+      headers: {
+        Accept: 'text/html,application/xhtml+xml;q=0.9,*/*;q=0.5',
+        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoLogoBot/1.0)',
+      },
+      redirect: 'follow',
+      signal: controller.signal,
+    });
+    if (!response.ok) return null;
+    const length = Number(response.headers.get('content-length') || 0);
+    if (length > MAX_LOGO_BODY_BYTES) return null;
+    const html = await response.text();
+    if (html.length > MAX_LOGO_BODY_BYTES) return null;
+    for (const url of extractIconLinks(html, response.url || pageUrl)) {
+      try {
+        const result = await readImageUrl(url, 'official-html-icon', domain);
+        if (result) return result;
+      } catch { /* try the next declared icon */ }
+    }
+  } catch { /* Google/favicon fallback may still work */ }
+  finally {
+    clearTimeout(timer);
+  }
+  return null;
+}
+
+async function tryGoogleFavicon(domain) {
   const url = `https://www.google.com/s2/favicons?domain=${encodeURIComponent(domain)}&sz=128`;
   try {
-    const res = await fetchTimeout(url);
-    if (!res.ok) return null;
-    const buf = Buffer.from(await res.arrayBuffer());
-    if (buf.length === 0 || isGreyGlobe(buf)) return null;
-    const ct = (res.headers.get('content-type') || '').split(';')[0].trim().toLowerCase();
-    const ext = MIME_EXT[ct] || detectExtFromBytes(buf) || 'png';
-    return { buf, ext, domain, size: buf.length };
+    return await readImageUrl(url, 'google-favicon-proxy', domain);
   } catch {
     return null;
   }
 }
 
-async function downloadForKey(key) {
-  for (const domain of domainCandidates(key)) {
-    const result = await tryGFavicon(domain);
-    if (result) return result;
+async function downloadForKey(key, metadata) {
+  const domains = domainCandidates(key, metadata);
+  for (const domain of domains) {
+    const google = await tryGoogleFavicon(domain);
+    if (google) return google;
+    const declared = await tryHtmlIcon(domain);
+    if (declared) return declared;
+    const direct = await tryDirectFavicon(domain);
+    if (direct) return direct;
   }
   return null;
 }
@@ -168,99 +415,110 @@ async function runConcurrent(items, worker, concurrency) {
   let cursor = 0;
   await Promise.all(Array.from({ length: concurrency }, async () => {
     while (cursor < items.length) {
-      const i = cursor++;
-      results[i] = await worker(items[i]);
+      const index = cursor++;
+      results[index] = await worker(items[index]);
     }
   }));
   return results;
 }
 
-async function main() {
-  const args = process.argv.slice(2);
-  const dryRun = args.includes('--dry-run');
-  const force = args.includes('--force');
+async function removeStaleVariants(safeKey, keepFilename) {
+  for (const filename of await readdir(OUT_DIR)) {
+    if (!filename.startsWith(`${safeKey}.`) || filename === keepFilename) continue;
+    await unlink(path.join(OUT_DIR, filename)).catch(() => {});
+  }
+}
 
-  const [manifestRaw, slugsRaw] = await Promise.all([
+function parseArgs(argv) {
+  const options = {
+    dryRun: false,
+    force: false,
+    fromAudit: false,
+    reportPath: process.env.COMPANY_LOGO_AUDIT_REPORT
+      ? path.resolve(ROOT, process.env.COMPANY_LOGO_AUDIT_REPORT)
+      : DEFAULT_AUDIT_REPORT,
+    jobsPath: process.env.COMPANY_LOGO_AUDIT_JOBS_FILE
+      ? path.resolve(ROOT, process.env.COMPANY_LOGO_AUDIT_JOBS_FILE)
+      : null,
+  };
+  for (let i = 0; i < argv.length; i += 1) {
+    if (argv[i] === '--dry-run') options.dryRun = true;
+    else if (argv[i] === '--force') options.force = true;
+    else if (argv[i] === '--from-audit') options.fromAudit = true;
+    else if (argv[i] === '--report' && argv[i + 1]) options.reportPath = path.resolve(ROOT, argv[++i]);
+    else if (argv[i] === '--jobs-file' && argv[i + 1]) options.jobsPath = path.resolve(ROOT, argv[++i]);
+  }
+  return options;
+}
+
+async function main() {
+  const options = parseArgs(process.argv.slice(2));
+  const [manifestRaw, targets] = await Promise.all([
     readFile(MANIFEST_PATH, 'utf8').catch(() => '{}'),
-    readFile(KNOWN_SLUGS_PATH, 'utf8'),
+    options.fromAudit
+      ? loadAuditTargets(options.reportPath, options.jobsPath)
+      : loadLegacyTargets(),
   ]);
   const manifest = JSON.parse(manifestRaw);
-  const companySlugs = JSON.parse(slugsRaw);
+  const toDownload = targets.filter(({ key, manifestAliases = [key] }) => (
+    options.force || !manifestAliases.some((alias) => manifest[alias])
+  ));
 
-  // Build URL slug → employerKey and employerKey → name from latest snapshot
-  const urlToKey = new Map();
-  const keyToName = new Map();
-  if (existsSync(HISTORY_DIR)) {
-    const files = (await readdir(HISTORY_DIR)).filter((f) => f.endsWith('.json')).sort().reverse();
-    if (files.length > 0) {
-      const snap = JSON.parse(await readFile(path.join(HISTORY_DIR, files[0]), 'utf8'));
-      for (const job of (snap.jobs || [])) {
-        if (!job.employer || !job.employerKey) continue;
-        const urlSlug = slugify(job.employer);
-        if (!urlToKey.has(urlSlug)) urlToKey.set(urlSlug, job.employerKey);
-        if (!keyToName.has(job.employerKey)) keyToName.set(job.employerKey, job.employer);
-      }
-    }
-  }
+  console.log(`[download-missing] Mode: ${options.fromAudit ? 'canonical audit' : 'legacy known slugs'}`);
+  console.log(`[download-missing] Targets: ${targets.length}`);
+  console.log(`[download-missing] Already in manifest: ${targets.length - toDownload.length}`);
+  console.log(`[download-missing] To download: ${toDownload.length}${options.dryRun ? ' (DRY RUN)' : ''}`);
 
-  // Collect unique employer keys that still need a logo
-  // Deduplicate: multiple URL slugs may map to the same employer key
-  const seenKeys = new Set();
-  const toDownload = [];
-  for (const urlSlug of companySlugs) {
-    const key = urlToKey.get(urlSlug) ?? urlSlug;
-    if (seenKeys.has(key)) continue;
-    seenKeys.add(key);
-    if (!force && (manifest[key] || manifest[urlSlug])) continue;
-    toDownload.push({ key, name: keyToName.get(key) ?? urlSlug });
-  }
-
-  const alreadyHave = [...seenKeys].filter((k) => manifest[k]).length;
-  console.log(`[download-missing] Company slugs: ${companySlugs.length} → unique keys: ${seenKeys.size}`);
-  console.log(`[download-missing] Already in manifest: ${alreadyHave} / ${seenKeys.size}`);
-  console.log(`[download-missing] To download: ${toDownload.length}${dryRun ? ' (DRY RUN)' : ''}`);
-
-  if (dryRun) {
-    for (const { key, name } of toDownload) {
-      console.log(`  ${key} ("${name}") → ${domainCandidates(key).join(', ')}`);
+  if (options.dryRun) {
+    for (const { key, name, metadata, status } of toDownload) {
+      console.log(`  ${key} [${status}] ("${name}") → ${domainCandidates(key, metadata).join(', ')}`);
     }
     return;
   }
 
   await mkdir(OUT_DIR, { recursive: true });
-
-  let downloaded = 0, failed = 0;
-  const results = await runConcurrent(toDownload, async ({ key, name }) => {
-    const result = await downloadForKey(key);
+  let downloaded = 0;
+  let failed = 0;
+  const results = await runConcurrent(toDownload, async ({ key, name, metadata, status }) => {
+    const result = await downloadForKey(key, metadata);
     if (!result) {
-      process.stdout.write(`  ✗ ${key}\n`);
-      failed++;
+      failed += 1;
+      process.stdout.write(`  ✗ ${key} [${status}] — no verified official icon\n`);
       return { key, name, status: 'failed' };
     }
-    const filename = `${key}.${result.ext}`;
+    const safeKey = slugify(key) || key;
+    const filename = `${safeKey}.${result.ext}`;
     await writeFile(path.join(OUT_DIR, filename), result.buf);
+    await removeStaleVariants(safeKey, filename);
     const publicPath = `/images/brands/${filename}`;
     manifest[key] = publicPath;
-    downloaded++;
-    process.stdout.write(`  ✓ ${key} (${result.domain}, ${result.size}B)\n`);
-    return { key, name, status: 'downloaded', domain: result.domain, path: publicPath };
+    downloaded += 1;
+    process.stdout.write(`  ✓ ${key} (${result.sourceDomain}, ${result.source}, ${result.size}B)\n`);
+    return {
+      key,
+      name,
+      status: 'downloaded',
+      source: result.source,
+      sourceDomain: result.sourceDomain,
+      path: publicPath,
+    };
   }, CONCURRENCY);
 
   const sorted = Object.fromEntries(Object.entries(manifest).sort(([a], [b]) => a.localeCompare(b)));
-  await writeFile(MANIFEST_PATH, JSON.stringify(sorted, null, 2) + '\n');
+  await writeFile(MANIFEST_PATH, `${JSON.stringify(sorted, null, 2)}\n`);
 
   console.log(`\n[download-missing] Done. downloaded=${downloaded} failed=${failed}`);
   console.log(`[download-missing] Manifest: ${MANIFEST_PATH}`);
-
   if (failed > 0) {
-    console.log('\nNo logo found (no matching domain):');
-    for (const r of results.filter((r) => r.status === 'failed')) {
-      console.log(`  ✗ ${r.key} ("${r.name}")`);
+    console.log('\nNo verified logo found:');
+    for (const result of results.filter((item) => item.status === 'failed')) {
+      console.log(`  ✗ ${result.key} ("${result.name}")`);
     }
+    if (options.fromAudit) process.exitCode = 1;
   }
 }
 
-main().catch((err) => {
-  console.error('[download-missing-company-logos] Fatal:', err);
+main().catch((error) => {
+  console.error('[download-missing-company-logos] Fatal:', error);
   process.exit(1);
 });

@@ -44,6 +44,7 @@ import {
   buildAiSearchMarkdown,
   buildBackfillPrompt,
   validateBackfillPayload,
+  MAX_KEY_FACTS,
 } from './lib/ai-search-template.mjs';
 import { resolveGitAddPath } from './lib/resolve-git-add-path.mjs';
 import {
@@ -142,6 +143,39 @@ const BODY_KEY_RX = /'blog\.article\.([^']+)\.(body\d+|faq)'\s*:\s*'((?:[^'\\]|\
  */
 function unescapeTsString(value) {
   return sharedUnescapeTsString(value, tsStringEscapesWithNewlineAs('\n'));
+}
+
+// Stricter retry prompt (used after first validation failure). It keeps the
+// optional, source-backed key-facts contract from ai-search-template.mjs and
+// uses that helper's cap so the retry cannot drift back to the old 3-12 rule.
+const RETRY_SYSTEM_PROMPTS = Object.freeze({
+  it: `Sei un editor SEO. Devi restituire JSON valido con QUESTA forma esatta:
+{"tldr":["bullet1","bullet2","bullet3"],"keyFacts":[{"term":"Cosa","value":"..."},{"term":"Quando","value":"..."}]}
+REGOLE FERREE:
+- Il campo "tldr" è OBBLIGATORIO, deve essere un array di 3-5 stringhe non vuote
+- Il campo "keyFacts" è OBBLIGATORIO, deve essere un array di 0-${MAX_KEY_FACTS} oggetti {term,value} con soli fatti presenti nella fonte; se sono disponibili solo 0-2 fatti, restituisci solo quelli (anche [])
+- Niente markdown, niente recinti tripli "json", niente testo prima o dopo il JSON
+- Niente caratteri di controllo (no \\n letterali nelle stringhe — usa testo continuo)`,
+  en: `You are an SEO editor. Return valid JSON with EXACTLY this shape:
+{"tldr":["bullet1","bullet2","bullet3"],"keyFacts":[{"term":"What","value":"..."},{"term":"When","value":"..."}]}
+HARD RULES:
+- "tldr" is REQUIRED, must be an array of 3-5 non-empty strings
+- "keyFacts" is REQUIRED, must be an array of 0-${MAX_KEY_FACTS} objects {term,value} containing only facts present in the source; when only 0-2 facts are available, return only those (including [])
+- No markdown, no triple-backtick json fences, no text before or after the JSON`,
+  de: `Du bist ein SEO-Editor. Gib gültiges JSON mit GENAU dieser Struktur zurück:
+{"tldr":["punkt1","punkt2","punkt3"],"keyFacts":[{"term":"Was","value":"..."},{"term":"Wann","value":"..."}]}
+PFLICHTREGELN:
+- "tldr" ist PFLICHT: Array mit 3-5 nicht leeren Strings
+- "keyFacts" ist PFLICHT: Array mit 0-${MAX_KEY_FACTS} {term,value}-Objekten, die nur in der Quelle belegte Fakten enthalten; wenn nur 0-2 Fakten verfügbar sind, gib nur diese zurück (auch [])`,
+  fr: `Tu es un éditeur SEO. Renvoie du JSON valide avec EXACTEMENT cette structure:
+{"tldr":["point1","point2","point3"],"keyFacts":[{"term":"Quoi","value":"..."},{"term":"Quand","value":"..."}]}
+RÈGLES STRICTES:
+- "tldr" est OBLIGATOIRE: tableau de 3-5 chaînes non vides
+- "keyFacts" est OBLIGATOIRE: tableau de 0-${MAX_KEY_FACTS} objets {term,value} contenant uniquement des faits présents dans la source ; si seulement 0-2 faits sont disponibles, renvoie uniquement ceux-ci (même [])`,
+});
+
+export function buildRetrySystemPrompt(locale) {
+  return RETRY_SYSTEM_PROMPTS[locale] || RETRY_SYSTEM_PROMPTS.it;
 }
 
 /** Re-escape a string for embedding in a single-quoted TS literal. */
@@ -352,35 +386,6 @@ async function runLocaleBackfill(locale, callLLM, AI_MODELS) {
   };
   const systemPrompt = systemPrompts[locale] || systemPrompts.it;
 
-  // Stricter retry prompt (used after first validation failure). Forces the
-  // model to follow the exact JSON shape with concrete required fields. This
-  // recovered ~70% of "tldr undefined" failures in benchmark.
-  const retrySystemPrompts = {
-    it: `Sei un editor SEO. Devi restituire JSON valido con QUESTA forma esatta:
-{"tldr":["bullet1","bullet2","bullet3"],"keyFacts":[{"term":"Cosa","value":"..."},{"term":"Quando","value":"..."},{"term":"Dove","value":"..."}]}
-REGOLE FERREE:
-- Il campo "tldr" è OBBLIGATORIO, deve essere un array di 3-5 stringhe non vuote
-- Il campo "keyFacts" è OBBLIGATORIO, deve essere un array di 3-12 oggetti {term,value}
-- Niente markdown, niente recinti tripli "json", niente testo prima o dopo il JSON
-- Niente caratteri di controllo (no \\n letterali nelle stringhe — usa testo continuo)`,
-    en: `You are an SEO editor. Return valid JSON with EXACTLY this shape:
-{"tldr":["bullet1","bullet2","bullet3"],"keyFacts":[{"term":"What","value":"..."},{"term":"When","value":"..."},{"term":"Where","value":"..."}]}
-HARD RULES:
-- "tldr" is REQUIRED, must be an array of 3-5 non-empty strings
-- "keyFacts" is REQUIRED, must be an array of 3-12 {term,value} objects
-- No markdown, no triple-backtick json fences, no text before or after the JSON`,
-    de: `Du bist ein SEO-Editor. Gib gültiges JSON mit GENAU dieser Struktur zurück:
-{"tldr":["punkt1","punkt2","punkt3"],"keyFacts":[{"term":"Was","value":"..."},{"term":"Wann","value":"..."}]}
-PFLICHTREGELN:
-- "tldr" ist PFLICHT: Array mit 3-5 nicht leeren Strings
-- "keyFacts" ist PFLICHT: Array mit 3-12 {term,value} Objekten`,
-    fr: `Tu es un éditeur SEO. Renvoie du JSON valide avec EXACTEMENT cette structure:
-{"tldr":["point1","point2","point3"],"keyFacts":[{"term":"Quoi","value":"..."},{"term":"Quand","value":"..."}]}
-RÈGLES STRICTES:
-- "tldr" est OBLIGATOIRE: tableau de 3-5 chaînes non vides
-- "keyFacts" est OBLIGATOIRE: tableau de 3-12 objets {term,value}`,
-  };
-
   // Failure tracking — written to data/backfill-failures-{locale}.json so a
   // future --retry-failures run (or manual triage) can target the survivors.
   const failuresPath = failuresPathFor(locale);
@@ -395,7 +400,7 @@ RÈGLES STRICTES:
     const prompt = buildBackfillPrompt({ title: titleGuess, fullBody, locale });
     const sys = attempt === 0
       ? systemPrompt
-      : (retrySystemPrompts[locale] || retrySystemPrompts.it);
+      : buildRetrySystemPrompt(locale);
     const raw = await callLLM(
       [
         { role: 'system', content: sys },

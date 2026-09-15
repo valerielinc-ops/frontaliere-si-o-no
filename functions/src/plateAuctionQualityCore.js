@@ -121,7 +121,11 @@ function checkDuplicatePlates(auctions) {
   const byPlate = new Map();
   for (const auction of auctions) {
     if (!ACTIVE_STATUSES.has(auction.auctionStatus)) continue;
-    const key = `${auction.canton}:${auction.normalizedPlate}`;
+    // A canton can legitimately publish the same number in separate vehicle
+    // catalogues (notably BS cars and motorcycles). Keep the duplicate check
+    // scoped to the same vehicle category; the public route disambiguates the
+    // categories as well.
+    const key = `${auction.canton}:${auction.normalizedPlate}:${auction.vehicleType || 'car'}`;
     const group = byPlate.get(key) || [];
     group.push(auction);
     byPlate.set(key, group);

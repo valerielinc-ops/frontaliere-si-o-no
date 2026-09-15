@@ -68,7 +68,7 @@ describe('plate-auction sources registry schema', () => {
     expect(Object.entries(registry.sources)
       .filter(([, entry]) => entry.status === 'active')
       .map(([key]) => key)
-      .sort()).toEqual(['ag', 'ar', 'be', 'bl', 'fr', 'gr', 'nw', 'ow', 'sg', 'sh', 'so', 'sz', 'tg', 'ti', 'vd', 'vs', 'zh']);
+      .sort()).toEqual(['ag', 'ai', 'ar', 'be', 'bl', 'bs', 'fr', 'gl', 'gr', 'lu', 'nw', 'ow', 'sg', 'sh', 'so', 'sz', 'tg', 'ti', 'ur', 'vd', 'vs', 'zh']);
   });
 
   it('keeps live public catalogues active and Ricardo catalogues blocked', () => {
@@ -81,7 +81,15 @@ describe('plate-auction sources registry schema', () => {
     expect(registry.sources.ne.status).toBe('blocked');
     expect(registry.sources.ge.status).toBe('blocked');
     expect(registry.sources.ju.status).toBe('blocked');
-    expect(registry.sources.bs.status).toBe('no-public-auction');
+    expect(registry.sources.ai.status).toBe('active');
+    expect(registry.sources.ai.accessMethod).toBe('pdf');
+    expect(registry.sources.bs.status).toBe('active');
+    expect(registry.sources.bs.accessMethod).toBe('pdf');
+    expect(registry.sources.gl.status).toBe('active');
+    expect(registry.sources.gl.accessMethod).toBe('json-api');
+    expect(registry.sources.lu.status).toBe('active');
+    expect(registry.sources.ur.status).toBe('active');
+    expect(registry.sources.zg.status).toBe('no-public-auction');
   });
 
   it('rejects an entry missing a required field', () => {

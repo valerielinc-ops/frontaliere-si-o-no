@@ -8,8 +8,10 @@ in questo momento, di turno o disponibile per uno specifico servizio.
 
 ## Perimetro operativo
 
-Il perimetro geografico ammesso è limitato a Ticino CH (`CH-TI`) e alle
-province italiane `CO/VA/VB`:
+Il perimetro dei dati pubblicabili resta limitato a Ticino CH (`CH-TI`) e alle
+province italiane `CO/VA/VB`. Il registry delle fonti ha invece una mappa di
+ingresso per tutti i 26 cantoni svizzeri: questa estensione geografica serve a
+documentare discovery e gap, non ad attivare dati o turni per gli altri cantoni.
 
 | Codice | Area | Paese | Uso previsto |
 | --- | --- | --- | --- |
@@ -22,6 +24,12 @@ province italiane `CO/VA/VB`:
 italiani, altre province, le parafarmacie o sedi fuori perimetro, salvo una
 decisione documentata che modifichi questa policy.
 
+La matrice delle fonti cantonali, con URL, stato e metodo di accesso, è in
+[`docs/data-sources/pharmacy-cantons.md`](data-sources/pharmacy-cantons.md).
+Un cantone presente nella matrice non è per questo incluso nel dataset
+pubblicabile: finché non esiste un connector/dataset verificato, il suo stato
+resta `unverified`.
+
 Il filtro territoriale usa i campi di paese e provincia/cantone della fonte.
 Un record con provincia assente, non riconciliabile o ambiguamente localizzato
 non viene attribuito a `CO`, `VA` o `VB` per deduzione dal nome della città, dal
@@ -31,10 +39,16 @@ aggiornata.
 
 Per l'anagrafica completa del Ticino la pipeline usa la lista cantonale PDF
 `Lista_Farmacie.pdf`, che comprende le sedi del cantone anche nel Locarnese. Per
-i turni, invece, la fonte OFCT attualmente rende compatibili le regioni
-Mendrisiotto, Luganese, Bellinzonese e Biasca e Valli; il turno del Locarnese
-resta non pubblicato finché non esiste un feed compatibile. Non si deduce quindi
-un turno da una sede presente nell'anagrafica.
+i turni usa le quattro pagine regionali OFCT più la fonte associativa regionale
+`https://www.farmacielocarnese.ch/`, registrata in
+`sources.ticino.regionalSources.locarnese` come `active`, `html-scrape` e `P1D`.
+Il parser Locarnese emette un intervallo soltanto quando Farmacia e Località
+risolvono un'unica identità nel catalogo cantonale; righe ambigue o senza
+match restano escluse e bloccano la pubblicazione della regione. La fonte
+Locarnese non fornisce un'anagrafica completa: non si copiano da lì indirizzi,
+telefoni o altri campi di sede e non si deduce un turno dalla sola anagrafica.
+Il perimetro resta limitato alle cinque regioni di turno del Ticino, non a una
+copertura nazionale dei cantoni svizzeri.
 
 Directory, orari, turni e stato aperta/chiusa sono prodotti distinti. Una
 farmacia presente nell'anagrafica italiana è una sede censita come aperta al
@@ -43,14 +57,26 @@ pubblico dalla fonte ministeriale, non una farmacia dichiarata aperta ora.
 ## Registro e gerarchia delle fonti
 
 Ogni fonte usata dalla pipeline deve essere riconducibile a una giurisdizione
-(`CH-TI`, `IT-CO`, `IT-VA`, `IT-VB`) e registrare almeno URL, tipo, metodo di
-accesso, frequenza dichiarata, fuso orario, stato e note di verifica. Le entry
-possono vivere in `data/pharmacy-sources-registry.json` e seguono gli stati
-`unverified`, `active`, `blocked` e `degraded`.
+(`CH-<canton>`, `CH-TI/<regione>`, `IT-CO`, `IT-VA`, `IT-VB`) e registrare almeno
+URL, tipo, metodo di accesso, frequenza dichiarata, fuso orario, stato e note
+di verifica. Le fonti regionali del Ticino vivono nel blocco
+`regionalSources` dell'entry cantonale `ticino`; ciò estende il contratto delle
+fonti senza aggiungere cantoni alla mappa nazionale.
+Le entry possono vivere in `data/pharmacy-sources-registry.json` e seguono gli
+stati `unverified`, `active`, `blocked` e `degraded`.
 
 Una fonte entra in `active` solo dopo una verifica documentata. Una fonte
 `unverified` non abilita la pubblicazione automatica dei campi che dovrebbe
-fornire.
+fornire. `blocked` richiede un accesso effettivamente negato; `degraded`
+richiede un problema di stabilità o qualità documentato. La sola presenza di
+un URL, anche se raggiungibile, non rende una fonte `active` e non dimostra un
+turno live.
+
+`officialSourceUrl` è il link alla fonte di riferimento. Non è un
+`sourceFetchedAt`, non è un `PharmacyDuty` e non può essere usato per dedurre
+giorno, orario, farmacia di turno o stato `aperta ora`. Per una distinzione
+operativa tra link di fonte e turno live, vedere la [mappa cantonale delle
+fonti](data-sources/pharmacy-cantons.md#link-di-fonte-e-turno-live-non-sono-la-stessa-cosa).
 
 La gerarchia è questa:
 
@@ -64,14 +90,21 @@ La gerarchia è questa:
 
 ### Ticino (`CH-TI`)
 
-- Fonte primaria per i turni e per l'anagrafica compatibile:
+- Fonte primaria per le quattro regioni OFCT e per l'anagrafica compatibile:
   [Ordine dei Farmacisti del Cantone Ticino — farmacie di turno](https://www.ofct.ch/farmacieturno/),
   con pagine regionali HTML server-rendered.
 - Il sito OFCT dichiara `crawl-delay: 10`; il connettore deve rispettarlo e
   mantenere un User-Agent identificabile.
-- Il dominio separato del Locarnese (`farmacielocarnese.ch`) non viene trattato
-  come fonte equivalente finché non fornisce i campi necessari a una scheda
-  completa. Un suo dato non va fuso silenziosamente con l'anagrafica OFCT.
+- Fonte associativa regionale attiva per gli intervalli del Locarnese:
+  [farmacielocarnese.ch](https://www.farmacielocarnese.ch/), con
+  `accessMethod: "html-scrape"`, `fetchFrequency: "P1D"`, fuso
+  `Europe/Zurich` e `status: "active"`. Il parser dedicato legge la tabella
+  server-rendered e richiede il matching univoco con il catalogo cantonale
+  prima di emettere un turno.
+- Il dominio Locarnese pubblica intervalli e località, non un'anagrafica
+  completa: i dati di turno non vengono usati per inventare o sovrascrivere
+  indirizzi, telefoni o altre proprietà della sede. Un match mancante o
+  ambiguo è fail-closed e non rende la regione pubblicabile.
 
 ### Italia (`IT-CO`, `IT-VA`, `IT-VB`): fonte primaria open data
 
@@ -156,6 +189,7 @@ Ogni record o dataset pubblicato deve conservare una provenienza leggibile e
 riutilizzabile:
 
 - `sourceUrl` identifica la pagina o il file da cui proviene il dato;
+- `officialSourceUrl` identifica il punto di ingresso registrato nel registry;
 - `sourceType` distingue almeno fonte ufficiale e fonte associativa;
 - `fetchedAt` (o `_fetchedAt` a livello dataset) è l'istante dell'ultimo
   recupero riuscito, in ISO 8601 UTC;
@@ -163,6 +197,9 @@ riutilizzabile:
   fonte e resta distinta dal momento in cui noi abbiamo scaricato il file;
 - `lastVerifiedAt` indica una verifica umana o di validazione, non va
   automaticamente riscritto a ogni fetch;
+- `sourceFetchedAt` indica l'ultimo recupero riuscito da un connector per la
+  fonte del registry; resta assente finché quel connector non esiste o non ha
+  prodotto un fetch verificato;
 - `generatedAt` indica la generazione del dataset o della pagina, non
   l'aggiornamento della farmacia alla fonte.
 
@@ -182,16 +219,21 @@ sostituito con la data di build, con la data odierna o con una stima.
   attributo della fonte, non una garanzia di stato in tempo reale. La pipeline
   deve registrare ogni fetch riuscito e non rinnovare il timestamp in caso di
   errore.
-- I turni Ticino restano soggetti al fetch giornaliero della fonte OFCT. Un
+- I turni Ticino restano soggetti al fetch giornaliero delle fonti regionali
+  registrate (OFCT e Locarnese). Un
   fetch fallito conserva l'ultimo record valido solo fino alla scadenza già
   dichiarata; non prolunga `endsAt` e non mantiene un turno come attivo oltre
   tale istante.
+- Le frequenze `P1D` e `P30D` nel registry cantonale descrivono il ritmo da
+  valutare per il futuro aggiornamento della fonte; per le entry `unverified`
+  non sono una prova che un fetch sia già avvenuto. Senza `sourceFetchedAt`, la
+  mappa offre solo orientamento alla fonte e nessun dato di turno.
 - OSM non introduce uno SLA sanitario o di apertura. Ogni campo
   arricchito deve avere una propria verifica di freschezza; se la freschezza o
   il timestamp non sono dimostrabili, il campo viene omesso.
 
-La dashboard di salute deve distinguere almeno: copertura delle quattro
-giurisdizioni, numero di record per giurisdizione, età dell'ultimo fetch,
+La dashboard di salute deve distinguere almeno: copertura delle cinque regioni
+di turno del Ticino, numero di record per regione, età dell'ultimo fetch,
 errori di recupero, record fuori perimetro, collisioni di identità e campi
 secondari privi di provenienza. Un'area senza record verificati è una copertura
 non disponibile, non uno zero da riempire con dati stimati.
@@ -236,6 +278,12 @@ timestamp del recupero. Le pagine distinguono esplicitamente:
 - "orario/servizio/telefono pubblicato da una fonte secondaria";
 - "turno o stato corrente", solo quando esiste una fonte che lo espone e la
   verifica è valida.
+
+La hub nazionale `/farmacie/` può mostrare un link del registry e il suo stato
+per ciascun cantone. Quel link è navigazionale: la hub non lo presenta come un
+calendario live e non pubblica nomi, date o fasce orarie dedotte dalla pagina
+collegata. Un turno compare solo dopo il normale percorso connector, validatori
+e controllo di freschezza.
 
 Il sito non promette elenco nazionale italiano, completezza delle province
 oltre `CO`/`VA`/`VB`, orari, servizi, telefono, reperibilità o apertura in

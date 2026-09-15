@@ -9,6 +9,7 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readAttr } from './lib/html-attr.mjs';
+import { fetchVerifiedLogo } from './lib/company-logo-audit.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -35,14 +36,9 @@ function domainFromUrl(url) {
 }
 
 async function fetchBuf(url, maxBytes = 2_000_000) {
-  const ctrl = new AbortController();
-  const timer = setTimeout(() => ctrl.abort(), TIMEOUT_MS);
-  try {
-    const res = await fetch(url, { signal: ctrl.signal, headers: { 'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicino/1.0)' } });
-    if (!res.ok) return null;
-    const buf = Buffer.from(await res.arrayBuffer());
-    return buf.length > 0 && buf.length < maxBytes ? buf : null;
-  } catch { return null; } finally { clearTimeout(timer); }
+  const result = await fetchVerifiedLogo(url, { timeoutMs: TIMEOUT_MS });
+  if (result.status !== 'valid' || !result.body) return null;
+  return result.body.length > 0 && result.body.length < maxBytes ? result.body : null;
 }
 
 async function fetchText(url) {

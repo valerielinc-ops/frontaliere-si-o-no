@@ -6432,6 +6432,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-lamal-politica-responsabilita.title': 'KVG-Prämienerhöhungen: Politik prallt Verantwortung ab',
     'blog.article.premi-lamal-politica-responsabilita.excerpt': 'Die jährlichen Erhöhungen der KVG-Prämien erfolgen pünktlich, wobei die Politik die Verantwortlichkeiten zwischen Bund und Kantonen aufhebt. Die Kosten beeinflussen die Lebensqualität der Schweizer Familien.',
     'blog.article.premi-lamal-politica-responsabilita.imageAlt': 'Panoramablick auf Lugano, der die Schweizer Wirtschaft und finanzielle Herausforderungen, insbesondere die Gesundheitskosten, symbolisiert.',
+    'blog.article.formazione-adulta-reddito-svizzera.title': 'Erwachsenenbildung erhöht das Einkommen um 50 %',
+    'blog.article.formazione-adulta-reddito-svizzera.excerpt': 'UST-Studie: Der Erwerb eines Sekundarabschlusses II im Erwachsenenalter führt zu +50% Einkommen und 80% Beschäftigung',
+    'blog.article.formazione-adulta-reddito-svizzera.imageAlt': 'Erwachsenenbildung mit Blick auf Schweizer Alpen',
 };
 
 export default blogMetaChDe;

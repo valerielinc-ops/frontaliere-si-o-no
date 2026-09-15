@@ -28,11 +28,15 @@ export interface TrafficData {
  waitTimeMinutes?: number;
  status?: TrafficStatus;
  lastUpdate: Date;
- source: 'tomtom' | 'google-maps' | 'here' | 'webcam' | 'mock' | 'firestore';
+ source: 'tomtom' | 'google-maps' | 'google-routes' | 'here' | 'mapbox' | 'geoapify' | 'openrouteservice' | 'graphhopper' | 'stadia' | 'traffic-mesh' | 'official+webcam' | 'official' | 'webcam' | 'mock' | 'firestore';
  /** Traffic delay on the ≈500 m approach road on the Italian side (set by scheduled function) */
  approachMinutes?: number;
  /** Total estimated crossing time: approach delay + border queue (set by scheduled function) */
  totalCrossingMinutes?: number;
+ officialSources?: string;
+ officialLastUpdate?: string;
+ officialQueueKm?: number;
+ dataQuality?: string;
 }
 
 export type TrafficStatus = 'green' | 'yellow' | 'red';
@@ -108,7 +112,7 @@ const BORDER_CROSSINGS: BorderCrossingCoordinates[] = centralizedCrossings
  .map(c => ({ name: c.name }));
 
 export function hasLiveTrafficData(data: TrafficData[]): boolean {
- return data.some(item => item.source === 'firestore' || item.source === 'tomtom' || item.source === 'google-maps' || item.source === 'here' || item.source === 'webcam');
+ return data.some(item => item.source !== 'mock');
 }
 
 class TrafficService {

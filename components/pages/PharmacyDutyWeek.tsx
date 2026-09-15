@@ -3,6 +3,7 @@ import { ExternalLink } from 'lucide-react';
 import {
   buildDutyWeekModel,
   currentDutyWeekStart,
+  formatDutyDateTime,
 } from '@/services/pharmacies/dutyWeek';
 import {
   pharmacyById,
@@ -26,58 +27,68 @@ type DutyWeekCopy = {
   source: string;
   fetched: string;
   interval: string;
+  date: string;
+  hours: string;
+  pharmacy: string;
   verify: string;
-  notCovered: string;
   swiss: string;
 };
 
 const COPY: Record<Locale, DutyWeekCopy> = {
   it: {
     title: (weekStart) => `Farmacie di turno in Ticino: settimana del ${weekStart}`,
-    lede: 'Calendario settimanale delle sole aree OFCT con intervalli verificati. Non è una copertura di tutti i cantoni né delle farmacie italiane di confine.',
-    coverage: 'Questa edizione copre quattro aree OFCT: Mendrisiotto, Luganese, Bellinzonese e Biasca e Valli.',
+    lede: 'Calendario settimanale delle aree ticinesi con intervalli verificati. Non è una copertura di tutti i cantoni né delle farmacie italiane di confine.',
+    coverage: 'Questa edizione copre cinque regioni ticinesi: Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli e Locarnese.',
     unavailable: 'Questa settimana non supera il controllo di pubblicazione: il contenuto resta visibile per trasparenza ma non è una fonte valida per un turno attivo.',
-    source: 'Fonte ufficiale',
+    source: 'Fonte verificata',
     fetched: 'Ultimo recupero',
     interval: 'Intervallo',
+    date: 'Data',
+    hours: 'Orario',
+    pharmacy: 'Farmacia',
     verify: 'Turni e orari possono cambiare. Chiama sempre la farmacia o controlla la fonte ufficiale prima di partire, soprattutto in caso di urgenza.',
-    notCovered: 'Non coperto in questa edizione: Locarnese, gli altri cantoni svizzeri e le province italiane di confine.',
     swiss: 'Svizzera · Ticino',
   },
   en: {
     title: (weekStart) => `On-duty pharmacies in Ticino: week of ${weekStart}`,
-    lede: 'Weekly schedule for the OFCT areas with verified intervals only. This is not coverage for every Swiss canton or for Italian border pharmacies.',
-    coverage: 'This edition covers four OFCT areas: Mendrisiotto, Luganese, Bellinzonese and Biasca e Valli.',
+    lede: 'Weekly schedule for Ticino areas with verified intervals only. This is not coverage for every Swiss canton or for Italian border pharmacies.',
+    coverage: 'This edition covers five Ticino regions: Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli and Locarnese.',
     unavailable: 'This week did not pass the publication check: it remains visible for transparency but is not a valid source for an active duty.',
-    source: 'Official source',
+    source: 'Verified source',
     fetched: 'Last retrieved',
     interval: 'Interval',
+    date: 'Date',
+    hours: 'Hours',
+    pharmacy: 'Pharmacy',
     verify: 'Duties and opening hours can change. Always call the pharmacy or check the official source before travelling, especially in an emergency.',
-    notCovered: 'Not covered in this edition: Locarnese, the other Swiss cantons and the Italian border provinces.',
     swiss: 'Switzerland · Ticino',
   },
   de: {
     title: (weekStart) => `Notdienst-Apotheken im Tessin: Woche ab ${weekStart}`,
-    lede: 'Wochenplan nur für OFCT-Gebiete mit verifizierten Zeiträumen. Dies ist keine Abdeckung aller Schweizer Kantone oder der italienischen Grenzapotheken.',
-    coverage: 'Diese Ausgabe deckt vier OFCT-Gebiete ab: Mendrisiotto, Luganese, Bellinzonese sowie Biasca e Valli.',
+    lede: 'Wochenplan nur für Tessiner Gebiete mit verifizierten Zeiträumen. Dies ist keine Abdeckung aller Schweizer Kantone oder der italienischen Grenzapotheken.',
+    coverage: 'Diese Ausgabe deckt fünf Tessiner Regionen ab: Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli und Locarnese.',
     unavailable: 'Diese Woche hat die Veröffentlichungskontrolle nicht bestanden: Sie bleibt aus Transparenzgründen sichtbar, ist aber keine gültige Quelle für einen aktiven Notdienst.',
-    source: 'Offizielle Quelle',
+    source: 'Verifizierte Quelle',
     fetched: 'Letzter Abruf',
     interval: 'Zeitraum',
+    date: 'Datum',
+    hours: 'Uhrzeit',
+    pharmacy: 'Apotheke',
     verify: 'Notdienste und Öffnungszeiten können sich ändern. Vor der Fahrt immer telefonisch oder bei der offiziellen Quelle prüfen, besonders im Notfall.',
-    notCovered: 'In dieser Ausgabe nicht abgedeckt: Locarnese, die übrigen Schweizer Kantone und die italienischen Grenzprovinzen.',
     swiss: 'Schweiz · Tessin',
   },
   fr: {
     title: (weekStart) => `Pharmacies de garde au Tessin : semaine du ${weekStart}`,
-    lede: 'Planning hebdomadaire limité aux zones OFCT dont les intervalles sont vérifiés. Il ne couvre pas tous les cantons suisses ni les pharmacies italiennes de la frontière.',
-    coverage: 'Cette édition couvre quatre zones OFCT : Mendrisiotto, Luganese, Bellinzonese et Biasca e Valli.',
+    lede: 'Planning hebdomadaire limité aux zones tessinoises dont les intervalles sont vérifiés. Il ne couvre pas tous les cantons suisses ni les pharmacies italiennes de la frontière.',
+    coverage: 'Cette édition couvre cinq régions tessinoises : Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli et Locarnese.',
     unavailable: 'Cette semaine n’a pas passé le contrôle de publication : elle reste visible par transparence mais ne constitue pas une source valide pour une garde active.',
-    source: 'Source officielle',
+    source: 'Source vérifiée',
     fetched: 'Dernière collecte',
     interval: 'Intervalle',
+    date: 'Date',
+    hours: 'Horaires',
+    pharmacy: 'Pharmacie',
     verify: 'Les gardes et les horaires peuvent changer. Appelez toujours la pharmacie ou consultez la source officielle avant de partir, surtout en cas d’urgence.',
-    notCovered: 'Non couvert dans cette édition : Locarnese, les autres cantons suisses et les provinces italiennes frontalières.',
     swiss: 'Suisse · Tessin',
   },
 };
@@ -130,18 +141,15 @@ export default function PharmacyDutyWeek({ page }: { page: PharmacyPath }) {
     <div className="grid gap-5 md:grid-cols-2">
       {model.regions.map((region) => <section key={region.key} className="rounded-2xl border border-edge bg-surface p-5 shadow-sm" aria-labelledby={`duty-week-${region.key}`}>
         <h2 id={`duty-week-${region.key}`} className="font-display text-xl font-bold text-heading">{region.name}</h2>
-        {region.duties.length > 0 ? <ul className="mt-4 space-y-4">{region.duties.map((duty) => {
+        {region.duties.length > 0 ? <div className="mt-4 overflow-x-auto"><table className="w-full min-w-[34rem] border-collapse text-left text-sm leading-6 text-body"><thead className="border-y border-edge text-xs uppercase tracking-wide text-muted"><tr><th className="py-2 pr-3 font-semibold">{copy.date}</th><th className="py-2 pr-3 font-semibold">{copy.hours}</th><th className="py-2 pr-3 font-semibold">{copy.pharmacy}</th><th className="py-2 font-semibold">{copy.source}</th></tr></thead><tbody>{region.duties.map((duty) => {
           const pharmacy = pharmacyById(duty.pharmacyId);
-          return <li key={duty.id} className="border-t border-edge pt-3 text-sm leading-6 text-body">
-            <p className="font-semibold text-heading">{pharmacy ? <a className="text-link underline" href={buildPharmacyPath(detailPath(pharmacy, locale), locale)}>{pharmacy.name}</a> : duty.pharmacyId}</p>
-            <p><strong>{copy.interval}:</strong> {formatDate(duty.startsAt, locale)} – {formatDate(duty.endsAt, locale)}</p>
-            <a className="inline-flex items-center gap-1 text-link underline" href={duty.sourceUrl || DUTY_SOURCE} rel="nofollow noopener">{copy.source}<ExternalLink aria-hidden="true" className="h-3.5 w-3.5" /></a>
-          </li>;
-        })}</ul> : <p className="mt-4 rounded-xl border border-edge bg-surface-alt p-4 text-sm text-muted">{copy.unavailable}</p>}
+          const startsAt = formatDutyDateTime(duty.startsAt);
+          const endsAt = formatDutyDateTime(duty.endsAt);
+          return <tr key={duty.id} className="border-b border-edge align-top"><td className="py-3 pr-3 whitespace-nowrap">{startsAt.slice(0, 10)}</td><td className="py-3 pr-3 whitespace-nowrap">{startsAt.slice(11)} – {endsAt}</td><td className="py-3 pr-3 font-semibold text-heading">{pharmacy ? <a className="text-link underline" href={buildPharmacyPath(detailPath(pharmacy, locale), locale)}>{pharmacy.name}</a> : duty.pharmacyId}</td><td className="py-3"><a className="inline-flex items-center gap-1 text-link underline" href={duty.sourceUrl || DUTY_SOURCE} rel="nofollow noopener">{copy.source}<ExternalLink aria-hidden="true" className="h-3.5 w-3.5" /></a></td></tr>;
+        })}</tbody></table></div> : <p className="mt-4 rounded-xl border border-edge bg-surface-alt p-4 text-sm text-muted">{copy.unavailable}</p>}
       </section>)}
     </div>
 
-    <p className="text-sm leading-6 text-muted">{copy.notCovered}</p>
     <aside className="rounded-2xl border border-accent/30 bg-accent-subtle p-5 text-sm leading-6 text-body"><strong className="text-heading">{copy.source}</strong><p className="mt-2 text-muted">{copy.verify}</p></aside>
   </div>;
 }
