@@ -28,7 +28,7 @@
 
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
-import { isGreyGlobe } from './lib/google-favicon.mjs';
+import { fetchVerifiedLogo } from './lib/company-logo-audit.mjs';
 
 // ── Config ────────────────────────────────────────────────────────────────────
 
@@ -74,54 +74,6 @@ const PROVIDER_DOMAIN_MAP = {
   'aldi-mobile-ch':     'aldisuisse.ch',
 };
 
-// ── MIME → extension map ──────────────────────────────────────────────────────
-
-const MIME_EXT = {
-  'image/png': 'png',
-  'image/jpeg': 'jpg',
-  'image/jpg': 'jpg',
-  'image/gif': 'gif',
-  'image/svg+xml': 'svg',
-  'image/webp': 'webp',
-  'image/x-icon': 'ico',
-  'image/vnd.microsoft.icon': 'ico',
-};
-
-// ── Helpers ───────────────────────────────────────────────────────────────────
-
-/** Detect image format from magic bytes as a fallback when Content-Type is missing/wrong. */
-function detectExtFromBytes(buf) {
-  if (!buf || buf.length < 8) return null;
-  const sig = buf.subarray(0, 8);
-  if (sig[0] === 0x89 && sig[1] === 0x50 && sig[2] === 0x4e && sig[3] === 0x47) return 'png';
-  if (sig[0] === 0xff && sig[1] === 0xd8 && sig[2] === 0xff) return 'jpg';
-  if (sig[0] === 0x47 && sig[1] === 0x49 && sig[2] === 0x46) return 'gif';
-  if (sig[0] === 0x52 && sig[1] === 0x49 && sig[2] === 0x46 && sig[3] === 0x46) return 'webp';
-  if (sig[0] === 0x00 && sig[1] === 0x00 && sig[2] === 0x01 && sig[3] === 0x00) return 'ico';
-  const head = buf.subarray(0, 256).toString('utf8').trimStart().toLowerCase();
-  if (head.startsWith('<svg') || head.startsWith('<?xml')) return 'svg';
-  return null;
-}
-
-/** fetch() wrapped with a timeout AbortController. */
-async function fetchWithTimeout(url) {
-  const ctrl = new AbortController();
-  const t = setTimeout(() => ctrl.abort(), FETCH_TIMEOUT_MS);
-  try {
-    return await fetch(url, {
-      headers: {
-        'User-Agent':
-          'Mozilla/5.0 (compatible; FrontaliereTicinoLogoFetch/1.0; +https://frontaliereticino.ch)',
-        Accept: 'image/*,*/*;q=0.8',
-      },
-      redirect: 'follow',
-      signal: ctrl.signal,
-    });
-  } finally {
-    clearTimeout(t);
-  }
-}
-
 /** Run up to `concurrency` async workers over `items`. */
 async function runConcurrent(items, worker, concurrency) {
   const results = new Array(items.length);
@@ -143,13 +95,13 @@ async function runConcurrent(items, worker, concurrency) {
  * or throw on non-2xx / empty body.
  */
 async function tryFetch(url) {
-  const res = await fetchWithTimeout(url);
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const buf = Buffer.from(await res.arrayBuffer());
-  if (buf.length === 0) throw new Error('empty body');
-  const ct = (res.headers.get('content-type') || '').split(';')[0].trim().toLowerCase();
-  const ext = MIME_EXT[ct] || detectExtFromBytes(buf) || 'png';
-  return { buf, ext, contentType: ct };
+  const result = await fetchVerifiedLogo(url, { timeoutMs: FETCH_TIMEOUT_MS });
+  if (result.status !== 'valid') {
+    const error = new Error(result.reason || 'invalid logo response');
+    error.reason = result.reason;
+    throw error;
+  }
+  return { buf: result.body, ext: result.extension, contentType: result.contentType };
 }
 
 /**
@@ -173,14 +125,6 @@ async function downloadOne({ slug, domain }) {
   if (!result) {
     try {
       const r = await tryFetch(faviconUrl);
-      // Reject grey-globe (Google's generic "no favicon found" response)
-      if (isGreyGlobe(r.buf)) {
-        return {
-          slug,
-          status: 'failed',
-          error: `clearbit: ${primaryError} | google-favicon: grey-globe`,
-        };
-      }
       result = r;
     } catch (fallbackErr) {
       return {

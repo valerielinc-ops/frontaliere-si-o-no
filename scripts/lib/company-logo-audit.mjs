@@ -9,7 +9,7 @@
 import { existsSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
-import { isGreyGlobe } from './google-favicon.mjs';
+import { isGreyGlobe, LOGO_BOT_USER_AGENT } from './google-favicon.mjs';
 
 export const DEFAULT_ASSET_BASE_URL = 'https://cdn.frontaliereticino.ch';
 export const DEFAULT_FETCH_TIMEOUT_MS = 8_000;
@@ -91,30 +91,39 @@ export function classifyLogoReference(resolved) {
   return { kind: 'invalid', reference: value };
 }
 
-function bodyLooksLikeImage(body) {
+const MIME_EXT = {
+  'image/png': 'png',
+  'image/jpeg': 'jpg',
+  'image/jpg': 'jpg',
+  'image/gif': 'gif',
+  'image/svg+xml': 'svg',
+  'image/webp': 'webp',
+  'image/x-icon': 'ico',
+  'image/vnd.microsoft.icon': 'ico',
+};
+
+function detectImageFormat(body) {
   if (!body || body.length < 4) return false;
   const sig = body.subarray(0, 8);
-  if (sig[0] === 0x89 && sig[1] === 0x50 && sig[2] === 0x4e && sig[3] === 0x47) return true;
-  if (sig[0] === 0xff && sig[1] === 0xd8) return true;
-  if (sig[0] === 0x47 && sig[1] === 0x49 && sig[2] === 0x46) return true;
-  if (sig[0] === 0x52 && sig[1] === 0x49 && sig[2] === 0x46 && sig[3] === 0x46) return true;
-  if (sig[0] === 0x00 && sig[1] === 0x00 && sig[2] === 0x01 && sig[3] === 0x00) return true;
+  if (sig[0] === 0x89 && sig[1] === 0x50 && sig[2] === 0x4e && sig[3] === 0x47) return 'png';
+  if (sig[0] === 0xff && sig[1] === 0xd8) return 'jpg';
+  if (sig[0] === 0x47 && sig[1] === 0x49 && sig[2] === 0x46) return 'gif';
+  if (sig[0] === 0x52 && sig[1] === 0x49 && sig[2] === 0x46 && sig[3] === 0x46) return 'webp';
+  if (sig[0] === 0x00 && sig[1] === 0x00 && sig[2] === 0x01 && sig[3] === 0x00) return 'ico';
   const head = body.subarray(0, 512).toString('utf8').trimStart().toLowerCase();
-  return head.startsWith('<svg') || head.startsWith('<?xml');
+  return head.startsWith('<svg') || head.startsWith('<?xml') ? 'svg' : null;
 }
 
-function buildCheckUrl(reference, assetBaseUrl) {
-  if (reference.kind === 'local') {
-    const base = trimTrailingSlash(assetBaseUrl);
-    if (!base) return null;
-    return `${base}${reference.reference}`;
-  }
-  return reference.reference;
+export function detectLogoExtension(body, contentType = '') {
+  const format = detectImageFormat(body);
+  if (!format) return null;
+  return MIME_EXT[String(contentType || '').split(';')[0].trim().toLowerCase()] || format;
 }
 
 async function fetchLogo(url, {
   fetchImpl = globalThis.fetch,
   timeoutMs = DEFAULT_FETCH_TIMEOUT_MS,
+  accept = 'image/*,*/*;q=0.8',
 } = {}) {
   if (typeof fetchImpl !== 'function') throw new Error('fetch is not available');
   const controller = new AbortController();
@@ -124,18 +133,72 @@ async function fetchLogo(url, {
       method: 'GET',
       redirect: 'follow',
       headers: {
-        Accept: 'image/*,*/*;q=0.8',
-        Range: `bytes=0-${MAX_LOGO_BODY_BYTES - 1}`,
-        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoLogoBot/1.0)',
+        Accept: accept,
+        'User-Agent': LOGO_BOT_USER_AGENT,
       },
       signal: controller.signal,
     });
     const contentType = String(response.headers?.get?.('content-type') || '').split(';')[0].trim();
+    if (!response.ok) return { response, contentType, body: null };
+    const contentLength = Number(response.headers?.get?.('content-length') || 0);
+    if (contentLength > MAX_LOGO_BODY_BYTES) return { response, contentType, body: null };
     const body = Buffer.from(await response.arrayBuffer());
     return { response, contentType, body };
   } finally {
     clearTimeout(timer);
   }
+}
+
+/**
+ * Fetch and validate an image, returning its bytes for downloaders or a
+ * structured failure for probes. Validation is signature-based: MIME alone
+ * is not trusted because job/ATS endpoints occasionally label HTML as an
+ * image.
+ */
+export async function fetchVerifiedLogo(url, options = {}) {
+  try {
+    const { response, contentType, body } = await fetchLogo(url, options);
+    if (!response.ok) {
+      return { status: 'broken', reason: `http-${response.status}`, statusCode: response.status, contentType };
+    }
+    if (!body || body.length === 0) {
+      return { status: 'broken', reason: 'empty-body', statusCode: response.status, contentType };
+    }
+    if (body.length > MAX_LOGO_BODY_BYTES) {
+      return { status: 'broken', reason: 'body-too-large', statusCode: response.status, contentType };
+    }
+    if (isGreyGlobe(body)) {
+      return { status: 'broken', reason: 'grey-globe', statusCode: response.status, contentType };
+    }
+    const extension = detectLogoExtension(body, contentType);
+    if (!extension) {
+      return { status: 'broken', reason: 'not-an-image', statusCode: response.status, contentType };
+    }
+    return {
+      status: 'valid',
+      body,
+      extension,
+      bytes: body.length,
+      statusCode: response.status,
+      contentType,
+      url: response.url || url,
+    };
+  } catch (error) {
+    return {
+      status: 'broken',
+      reason: error?.name === 'AbortError' ? 'timeout' : String(error?.message || error),
+      statusCode: 0,
+    };
+  }
+}
+
+function buildCheckUrl(reference, assetBaseUrl) {
+  if (reference.kind === 'local') {
+    const base = trimTrailingSlash(assetBaseUrl);
+    if (!base) return null;
+    return `${base}${reference.reference}`;
+  }
+  return reference.reference;
 }
 
 export async function validateLogoReference(reference, options = {}) {
@@ -156,32 +219,18 @@ export async function validateLogoReference(reference, options = {}) {
   }
 
   try {
-    const { response, contentType, body } = await fetchLogo(url, options);
-    if (!response.ok) {
-      return { status: 'broken', reference: value, url, reason: `http-${response.status}`, statusCode: response.status };
-    }
-    if (isGreyGlobe(body)) {
-      return { status: 'broken', reference: value, url, reason: 'grey-globe', statusCode: response.status };
-    }
-    if (!bodyLooksLikeImage(body)) {
-      return { status: 'broken', reference: value, url, reason: 'not-an-image', statusCode: response.status, contentType };
-    }
+    const result = await fetchVerifiedLogo(url, options);
+    if (result.status !== 'valid') return { ...result, reference: value, url };
     return {
       status: 'valid',
       reference: value,
       url,
-      statusCode: response.status,
-      contentType,
-      bytes: body.length,
+      statusCode: result.statusCode,
+      contentType: result.contentType,
+      bytes: result.bytes,
     };
   } catch (error) {
-    return {
-      status: 'broken',
-      reference: value,
-      url,
-      reason: error?.name === 'AbortError' ? 'timeout' : String(error?.message || error),
-      statusCode: 0,
-    };
+    return { status: 'broken', reference: value, url, reason: String(error?.message || error), statusCode: 0 };
   }
 }
 

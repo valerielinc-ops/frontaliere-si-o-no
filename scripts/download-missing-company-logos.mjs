@@ -19,7 +19,10 @@
 import { existsSync } from 'node:fs';
 import { mkdir, readFile, readdir, unlink, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { isGreyGlobe, LOGO_BOT_USER_AGENT } from './lib/google-favicon.mjs';
+import {
+  fetchVerifiedLogo,
+  MAX_LOGO_BODY_BYTES,
+} from './lib/company-logo-audit.mjs';
 
 const ROOT = path.resolve(process.cwd());
 const MANIFEST_PATH = path.join(ROOT, 'data', 'company-logos-manifest.json');
@@ -33,19 +36,7 @@ const DEFAULT_JOBS_FILES = [
 ];
 
 const FETCH_TIMEOUT_MS = 10_000;
-const MAX_BODY_BYTES = 2 * 1024 * 1024;
 const CONCURRENCY = 6;
-
-const MIME_EXT = {
-  'image/png': 'png',
-  'image/jpeg': 'jpg',
-  'image/jpg': 'jpg',
-  'image/gif': 'gif',
-  'image/svg+xml': 'svg',
-  'image/webp': 'webp',
-  'image/x-icon': 'ico',
-  'image/vnd.microsoft.icon': 'ico',
-};
 
 // These are publishing platforms, not the employer's brand domains. A
 // companyDomain on one of them must not be sent to Google as the logo source.
@@ -318,49 +309,22 @@ async function loadLegacyTargets() {
   return targets;
 }
 
-function detectExtFromBytes(buf) {
-  if (!buf || buf.length < 4) return null;
-  const sig = buf.subarray(0, 8);
-  if (sig[0] === 0x89 && sig[1] === 0x50 && sig[2] === 0x4e && sig[3] === 0x47) return 'png';
-  if (sig[0] === 0xff && sig[1] === 0xd8) return 'jpg';
-  if (sig[0] === 0x47 && sig[1] === 0x49 && sig[2] === 0x46) return 'gif';
-  if (sig[0] === 0x52 && sig[1] === 0x49 && sig[2] === 0x46 && sig[3] === 0x46) return 'webp';
-  if (sig[0] === 0x00 && sig[1] === 0x00 && sig[2] === 0x01 && sig[3] === 0x00) return 'ico';
-  const head = buf.subarray(0, 512).toString('utf8').trimStart().toLowerCase();
-  if (head.startsWith('<svg') || head.startsWith('<?xml')) return 'svg';
-  return null;
-}
-
-function looksLikeImage(buf) {
-  // Do not trust a server that labels an HTML error page as image/x-icon.
-  // A valid signature is required for every saved asset.
-  return Boolean(detectExtFromBytes(buf));
-}
-
-async function fetchTimeout(url, accept = 'image/*,*/*;q=0.8') {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
-  try {
-    return await fetch(url, {
-      headers: { 'User-Agent': LOGO_BOT_USER_AGENT, Accept: accept },
-      redirect: 'follow',
-      signal: controller.signal,
-    });
-  } finally {
-    clearTimeout(timer);
-  }
-}
-
-async function readImageResponse(response, source, sourceDomain) {
-  if (!response.ok) return null;
-  const length = Number(response.headers.get('content-length') || 0);
-  if (length > MAX_BODY_BYTES) return null;
-  const buf = Buffer.from(await response.arrayBuffer());
-  if (buf.length === 0 || buf.length > MAX_BODY_BYTES) return null;
-  const contentType = (response.headers.get('content-type') || '').split(';')[0].trim().toLowerCase();
-  if (isGreyGlobe(buf) || !looksLikeImage(buf)) return null;
-  const ext = MIME_EXT[contentType] || detectExtFromBytes(buf) || 'png';
-  return { buf, ext, size: buf.length, contentType, source, sourceDomain, url: response.url || source };
+async function readImageUrl(url, source, sourceDomain, accept = 'image/*,*/*;q=0.8') {
+  const response = await fetchVerifiedLogo(url, {
+    timeoutMs: FETCH_TIMEOUT_MS,
+    accept,
+  });
+  if (response.status !== 'valid') return null;
+  if (!response.body || response.body.length > MAX_LOGO_BODY_BYTES) return null;
+  return {
+    buf: response.body,
+    ext: response.extension,
+    size: response.bytes,
+    contentType: response.contentType,
+    source,
+    sourceDomain,
+    url: response.url || source,
+  };
 }
 
 async function tryDirectFavicon(domain) {
@@ -368,7 +332,7 @@ async function tryDirectFavicon(domain) {
   if (!domain.startsWith('www.')) urls.push(`https://www.${domain}/favicon.ico`);
   for (const url of urls) {
     try {
-      const result = await readImageResponse(await fetchTimeout(url), 'official-favicon', domain);
+      const result = await readImageUrl(url, 'official-favicon', domain);
       if (result) return result;
     } catch { /* try the next official URL */ }
   }
@@ -395,27 +359,39 @@ function extractIconLinks(html, baseUrl) {
 
 async function tryHtmlIcon(domain) {
   const pageUrl = `https://${domain}/`;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
   try {
-    const response = await fetchTimeout(pageUrl, 'text/html,application/xhtml+xml;q=0.9,*/*;q=0.5');
+    const response = await fetch(pageUrl, {
+      headers: {
+        Accept: 'text/html,application/xhtml+xml;q=0.9,*/*;q=0.5',
+        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoLogoBot/1.0)',
+      },
+      redirect: 'follow',
+      signal: controller.signal,
+    });
     if (!response.ok) return null;
     const length = Number(response.headers.get('content-length') || 0);
-    if (length > MAX_BODY_BYTES) return null;
+    if (length > MAX_LOGO_BODY_BYTES) return null;
     const html = await response.text();
-    if (html.length > MAX_BODY_BYTES) return null;
+    if (html.length > MAX_LOGO_BODY_BYTES) return null;
     for (const url of extractIconLinks(html, response.url || pageUrl)) {
       try {
-        const result = await readImageResponse(await fetchTimeout(url), 'official-html-icon', domain);
+        const result = await readImageUrl(url, 'official-html-icon', domain);
         if (result) return result;
       } catch { /* try the next declared icon */ }
     }
   } catch { /* Google/favicon fallback may still work */ }
+  finally {
+    clearTimeout(timer);
+  }
   return null;
 }
 
 async function tryGoogleFavicon(domain) {
   const url = `https://www.google.com/s2/favicons?domain=${encodeURIComponent(domain)}&sz=128`;
   try {
-    return await readImageResponse(await fetchTimeout(url), 'google-favicon-proxy', domain);
+    return await readImageUrl(url, 'google-favicon-proxy', domain);
   } catch {
     return null;
   }
