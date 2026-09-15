@@ -14,6 +14,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { resolveCompanyLogoUrl } from '../services/jobDataNormalization.ts';
+import { positiveIntFromEnv } from './lib/int-from-env.mjs';
 import {
   auditCompanyLogos,
   DEFAULT_ASSET_BASE_URL,
@@ -35,12 +36,12 @@ async function main() {
   const loaded = await loadCanonicalJobs({
     root: ROOT,
     file: process.env.COMPANY_LOGO_AUDIT_JOBS_FILE || undefined,
-    minJobs: Number(process.env.COMPANY_LOGO_AUDIT_MIN_JOBS || 1),
+    minJobs: positiveIntFromEnv('COMPANY_LOGO_AUDIT_MIN_JOBS', 1),
   });
   const audit = await auditCompanyLogos(loaded.jobs, {
     resolveLogo: resolveCompanyLogoUrl,
     assetBaseUrl: process.env.COMPANY_LOGO_AUDIT_ASSET_BASE_URL || DEFAULT_ASSET_BASE_URL,
-    timeoutMs: Number(process.env.COMPANY_LOGO_AUDIT_TIMEOUT_MS || 8_000),
+    timeoutMs: positiveIntFromEnv('COMPANY_LOGO_AUDIT_TIMEOUT_MS', 8_000),
   });
   const brokenReferences = audit.references
     .filter((reference) => reference.status === 'broken')
