@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ukbb",
-  "assembledAt": "2026-09-13T13:51:41.414Z",
+  "assembledAt": "2026-09-15T01:05:20.946Z",
   "jobs": [
     {
       "id": "ukbb-aee72ac31fe8",
@@ -1430,79 +1430,6 @@
           "@type": "QuantitativeValue",
           "minValue": 119000,
           "maxValue": 166000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ukbb-a1ceaa91ed01",
-      "slug": "terminkoordinator-in-neuropadiatrie-80-universitats-kinderspital-beider-basel-basel",
-      "slugByLocale": {
-        "it": "terminkoordinator-in-neuropadiatrie-80-universitats-kinderspital-beider-basel-basel",
-        "en": "terminkoordinator-in-neuropadiatrie-80-universitats-kinderspital-beider-basel-basel",
-        "de": "terminkoordinator-in-neuropadiatrie-80-ukbb-basel",
-        "fr": "terminkoordinator-in-neuropadiatrie-80-universitats-kinderspital-beider-basel-basel"
-      },
-      "company": "Universitäts-Kinderspital beider Basel",
-      "companyKey": "ukbb",
-      "companyDomain": "ukbb.ch",
-      "title": "Terminkoordinator*in Neuropädiatrie 80%",
-      "titleByLocale": {
-        "it": "coordinatore di appuntamenti neuropediatria 80%",
-        "en": "appointment coordinator neuropediatrics 80%",
-        "de": "Terminkoordinator*in Neuropädiatrie 80%",
-        "fr": "Coordonnateur de rendez-vous* en neuropédiatrie 80%"
-      },
-      "description": "• Sie nehmen Anmeldungen und Zuweisungen entgegen, bearbeiten diese selbstständig und sorgen für eine strukturierte sowie effiziente Weiterverarbeitung.\n\n• Sie koordinieren die Sprechstunden der Ärzteschaft, vergeben Termine, koordinieren Terminänderungen und stellen eine optimale Terminplanung sicher.\n\n• Als zentrale Ansprechperson für Patient*innen, Eltern sowie interne und externe Zuweisende erteilen Sie Auskünfte und gewährleisten eine reibungslose Kommunikation zwischen allen beteiligten Stellen.\n\n• Sie unterstützen die Teamleiterin in administrativen und organisatorischen Belangen und übernehmen vielfältige administrative Aufgaben.\n\n• Sie bringen sich aktiv in die Optimierung bestehender Prozesse und Abläufe ein und tragen zur kontinuierlichen Weiterentwicklung der Organisation bei.",
-      "descriptionByLocale": {
-        "it": "• Accettano registrazioni e incarichi, li elaborano in modo indipendente e garantiscono un'ulteriore elaborazione strutturata ed efficiente.\n\n• Coordinano le ore di ufficio della professione medica, assegnano appuntamenti, coordinano le modifiche degli appuntamenti e garantiscono una pianificazione ottimale degli appuntamenti.\n\n• Come persona di contatto centrale per i pazienti, i genitori e gli arbitri interni ed esterni, fornisce informazioni e assicura una comunicazione fluida tra tutti gli organismi partecipanti.\n\n• Sostengono il team leader in questioni amministrative e organizzative e assumono una vasta gamma di compiti amministrativi.\n\n• Essi sono attivamente coinvolti nell'ottimizzazione dei processi e dei processi esistenti e contribuiscono allo sviluppo continuo dell'organizzazione.",
-        "en": "• They accept registrations and assignments, process them independently and ensure structured and efficient further processing.\n\n• They coordinate the office hours of the medical profession, assign appointments, coordinate appointment changes and ensure optimal appointment planning.\n\n• As a central contact person for patients, parents and internal and external referees, you provide information and ensure smooth communication between all participating bodies.\n\n• They support the team leader in administrative and organizational matters and take on a wide range of administrative tasks.\n\n• They are actively involved in the optimization of existing processes and processes and contribute to the continuous development of the organization.",
-        "de": "• Sie nehmen Anmeldungen und Zuweisungen entgegen, bearbeiten diese selbstständig und sorgen für eine strukturierte sowie effiziente Weiterverarbeitung.\n\n• Sie koordinieren die Sprechstunden der Ärzteschaft, vergeben Termine, koordinieren Terminänderungen und stellen eine optimale Terminplanung sicher.\n\n• Als zentrale Ansprechperson für Patient*innen, Eltern sowie interne und externe Zuweisende erteilen Sie Auskünfte und gewährleisten eine reibungslose Kommunikation zwischen allen beteiligten Stellen.\n\n• Sie unterstützen die Teamleiterin in administrativen und organisatorischen Belangen und übernehmen vielfältige administrative Aufgaben.\n\n• Sie bringen sich aktiv in die Optimierung bestehender Prozesse und Abläufe ein und tragen zur kontinuierlichen Weiterentwicklung der Organisation bei.",
-        "fr": "• Ils acceptent les inscriptions et les cessions, les traitent de manière indépendante et assurent un traitement plus poussé structuré et efficace.\n\n• Ils coordonnent les heures de bureau de la profession médicale, attribuent des rendez-vous, coordonnent les changements de rendez-vous et assurent une planification optimale des rendez-vous.\n\n• En tant que personne-ressource centrale pour les patients, les parents et les arbitres internes et externes, vous fournissez des informations et assurez une communication harmonieuse entre tous les organismes participants.\n\n• Ils soutiennent le chef d'équipe dans les domaines administratif et organisationnel et assument un large éventail de tâches administratives.\n\n• Ils participent activement à l'optimisation des processus et processus existants et contribuent au développement continu de l'organisation."
-      },
-      "needsRetranslation": false,
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://jobs.ukbb.ch/jobs/terminkoordinator-in-neuropaediatrie-80/4ca06ae6-0aa8-4f7a-bbda-d9ffa1c41fcc",
-      "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:51:24.761Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4056",
-      "streetAddress": "Spitalstrasse 33",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-18",
-      "applyUrl": "https://jobs.ukbb.ch/jobs/terminkoordinator-in-neuropaediatrie-80/4ca06ae6-0aa8-4f7a-bbda-d9ffa1c41fcc",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "terminkoordinator-in-neuropadiatrie-80-ukbb-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "terminkoordinator-in-neuropadiatrie-80-ukbb-basel"
-        ]
-      },
-      "firstSeenAt": "2026-08-18T22:14:15.439Z",
-      "salaryMin": 70400,
-      "salaryMax": 98400,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 70400,
-          "maxValue": 98400,
           "unitText": "YEAR"
         }
       }

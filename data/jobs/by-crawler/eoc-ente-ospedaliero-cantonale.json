@@ -1,6 +1,6 @@
 {
   "crawlerKey": "eoc-ente-ospedaliero-cantonale",
-  "assembledAt": "2026-09-13T14:08:00.566Z",
+  "assembledAt": "2026-09-15T00:15:26.613Z",
   "jobs": [
     {
       "id": "company-4333hy",
@@ -11154,7 +11154,7 @@
       "firstSeenAt": "2026-05-21T11:53:54.295Z",
       "slugByLocale": {
         "it": "tirocinio-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "stage-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio-fef0d4",
+        "en": "stage-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio",
         "de": "praktikum-vor-der-supsi-ausbildung-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "stage-de-formation-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio"
       },
@@ -11195,8 +11195,7 @@
         "vor-supsi-ausbildungs-praktikum-eoc-ente-ospedaliero-cantonale-novaggio",
         "pre-supsi-ausbildungs-praktikum-eoc-ente-ospedaliero-cantonale-novaggio",
         "pre-supsi-praktikum-eoc-ente-ospedaliero-cantonale-novaggio",
-        "stage-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio-fef0d4",
-        "stage-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio"
+        "stage-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio-fef0d4"
       ],
       "country": "CH",
       "previousSlugsByLocale": {
@@ -11204,8 +11203,7 @@
           "stadio-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-bellinzona-uil1ss"
         ],
         "en": [
-          "stage-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio-fef0d4",
-          "stage-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio"
+          "stage-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio-fef0d4"
         ]
       },
       "salarySource": "estimated",
@@ -14447,11 +14445,36 @@
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "it": [
-          "assistente-di-farmacia-80-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "assistente-di-farmacia-80-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "assistente-di-farmacia-60-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "pharmacy-assistant-60-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "apotheker-60-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "assistant-en-pharmacie-60-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "assistente-di-farmacia-60-eoc-bellinzona-uilr3r",
+          "assistente-di-farmacia-60-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-uilr3r",
+          "assistente-di-cura-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "parto-assistente-eoc-ente-ospedaliero-cantonale-bellinzona"
+        ],
+        "en": [
+          "pharmacy-assistant-60-eoc-ente-ospedaliero-cantonale-bellinzona"
+        ],
+        "de": [
+          "apotheker-60-eoc-ente-ospedaliero-cantonale-bellinzona"
+        ],
+        "fr": [
+          "assistant-en-pharmacie-60-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "previousSlugs": [
-        "assistente-di-farmacia-80-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "assistente-di-farmacia-80-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "assistente-di-farmacia-60-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "pharmacy-assistant-60-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "apotheker-60-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "assistant-en-pharmacie-60-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "assistente-di-farmacia-60-eoc-bellinzona-uilr3r",
+        "assistente-di-farmacia-60-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-uilr3r",
+        "assistente-di-cura-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "parto-assistente-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "salaryMin": 56400,
       "salaryMax": 78800,
@@ -16413,191 +16436,6 @@
       "streetAddress": "Viale Officina 3",
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "country": "CH",
-      "salarySource": "estimated"
-    },
-    {
-      "id": "company-uilr3r",
-      "slug": "assistente-di-farmacia-60-eoc-ente-ospedaliero-cantonale-bellinzona",
-      "company": "EOC – Ente Ospedaliero Cantonale",
-      "title": "Assistente di farmacia (60%)",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "Assistente di farmacia - Ausschreibung L’EOC l’ospedale multisito del Ticino è presente con i suoi istituti sull'intero territorio cantonale per un totale di 1’000 posti letto. L’organizzazione permette di combinare efficacemente approccio locale e visione d'insieme, garantendo alla popolazione un'offerta ospedaliera globale e di prossimità, indipendentemente dal luogo in cui sono richiesti i servizi. Grazie all’impegno e alla competenza degli oltre 6’500 collaboratori e alla loro attenzione verso la relazione umana, l’EOC assicura un’assistenza sanitaria di qualità prendendosi cura di oltre 41'000 pazienti degenti all’anno e fornendo oltre 600'000 consulti ambulatoriali. Per completare il team del Servizio di Farmacia (settore farmacia pubblica) dell'Istituto Scienze Farmacologiche della Svizzera Italiana (ISFSI) presso l'Ospedale Regionale di Bellinzona e Valli, sede Bellinzona, cerchiamo un/a Assistente di farmacia (60%) Profilo: Siamo alla ricerca di un’assistente di farmacia per una sostituzione per congedo di maternità della durata di 6 mesi. La persona che stiamo cercando sa ascoltare attivamente i propri interlocutori, assicurando una consulenza adeguata e una manipolazione dei farmaci secondo le direttive e disposizioni vigenti. Sa agire rapidamente con le proprie conoscenze e capacità tecniche interagendo con i diversi servizi dell’ospedale; mantenendo relazioni efficaci ed efficienti con i diversi interlocutori. Risponde alle sollecitazioni con flessibilità e competenza. Si impegna alla propria costante formazione professionale. Crede, come noi, nell’importanza di mettere il paziente e la sua famiglia al centro di tutte le nostre attenzioni.\n• Requisiti necessari: attestato federale di capacità (AFC) quale assistente di farmacia o titolo equivalente; padronanza della lingua italiana e buona conoscenza del tedesco o del francese; buone competenze informatiche; buone capacità organizzative, relazionali e comunicative. Data d'entrata: 1. ottobre 2026 - 31 marzo 2027. Inoltro candidature e informazioni: Le candidature complete di curriculum vitae, lettera di motivazione, copie dei certificati di studio e di lavoro, dovranno pervenire entro il 31 luglio 2026 esclusivamente in formato elettronico tramite il sito www.eoc.ch . Le candidature inviate per posta o per posta elettronica non saranno prese in considerazione, così come quelle non conformi ai requisiti richiesti. Ulteriori informazioni possono essere richieste alla signora Marina Privitera-Beltraminelli, responsabile della farmacia aperta al pubblico OSG (+41(0)91 811 88 81).",
-      "requirements": [
-        "Requisiti necessari:",
-        "padronanza della lingua italiana e buona conoscenza del tedesco o del francese;"
-      ],
-      "featured": false,
-      "postedDate": "2026-07-03",
-      "url": "https://recruitingapp-2761.umantis.com/Vacancies/2745/Description/4",
-      "source": "Company Careers Crawler",
-      "companyKey": "eoc-ente-ospedaliero-cantonale",
-      "companyDomain": "eoc.ch",
-      "crawledAt": "2026-07-16T11:26:28.448Z",
-      "firstSeenAt": "2026-07-03T11:40:34.875Z",
-      "titleByLocale": {
-        "it": "Assistente di farmacia (60%)",
-        "en": "Pharmacy Assistant (60%)",
-        "de": "Apotheker (60%)",
-        "fr": "Assistant en pharmacie (60 %)"
-      },
-      "descriptionByLocale": {
-        "it": "Assistente di farmacia - Ausschreibung L’EOC l’ospedale multisito del Ticino è presente con i suoi istituti sull'intero territorio cantonale per un totale di 1’000 posti letto. L’organizzazione permette di combinare efficacemente approccio locale e visione d'insieme, garantendo alla popolazione un'offerta ospedaliera globale e di prossimità, indipendentemente dal luogo in cui sono richiesti i servizi. Grazie all’impegno e alla competenza degli oltre 6’500 collaboratori e alla loro attenzione verso la relazione umana, l’EOC assicura un’assistenza sanitaria di qualità prendendosi cura di oltre 41'000 pazienti degenti all’anno e fornendo oltre 600'000 consulti ambulatoriali. Per completare il team del Servizio di Farmacia (settore farmacia pubblica) dell'Istituto Scienze Farmacologiche della Svizzera Italiana (ISFSI) presso l'Ospedale Regionale di Bellinzona e Valli, sede Bellinzona, cerchiamo un/a Assistente di farmacia (60%) Profilo: Siamo alla ricerca di un’assistente di farmacia per una sostituzione per congedo di maternità della durata di 6 mesi. La persona che stiamo cercando sa ascoltare attivamente i propri interlocutori, assicurando una consulenza adeguata e una manipolazione dei farmaci secondo le direttive e disposizioni vigenti. Sa agire rapidamente con le proprie conoscenze e capacità tecniche interagendo con i diversi servizi dell’ospedale; mantenendo relazioni efficaci ed efficienti con i diversi interlocutori. Risponde alle sollecitazioni con flessibilità e competenza. Si impegna alla propria costante formazione professionale. Crede, come noi, nell’importanza di mettere il paziente e la sua famiglia al centro di tutte le nostre attenzioni.\n• Requisiti necessari: attestato federale di capacità (AFC) quale assistente di farmacia o titolo equivalente; padronanza della lingua italiana e buona conoscenza del tedesco o del francese; buone competenze informatiche; buone capacità organizzative, relazionali e comunicative. Data d'entrata: 1. ottobre 2026 - 31 marzo 2027. Inoltro candidature e informazioni: Le candidature complete di curriculum vitae, lettera di motivazione, copie dei certificati di studio e di lavoro, dovranno pervenire entro il 31 luglio 2026 esclusivamente in formato elettronico tramite il sito www.eoc.ch . Le candidature inviate per posta o per posta elettronica non saranno prese in considerazione, così come quelle non conformi ai requisiti richiesti. Ulteriori informazioni possono essere richieste alla signora Marina Privitera-Beltraminelli, responsabile della farmacia aperta al pubblico OSG (+41(0)91 811 88 81).",
-        "en": "A pharmacy assistant - Ausschreibung L’EOC the multisite hospital of Ticino is present with its institutes on the entire cantonal territory for a total of 1’000 beds. The organization allows to effectively combine local approach and overall vision, ensuring the population a global and proximity hospital offer, regardless of where the services are required. Thanks to the commitment and expertise of over 6,500 employees and their attention to the human relationship, the EOC ensures quality health care by taking care of over 41, 000 patients who are deceased a year and providing over 600,000 outpatients. To complete the team of the Pharmacy Service (public pharmacy sector) of the Institute for Pharmacological Sciences of Italian Switzerland (ISFSI) at the Regional Hospital of Bellinzona and Valli, Bellinzona, we look for a pharmacy Assistant (60%) Profile: We are looking for a pharmacy assistant for a 6 month maternity leave replacement. The person we are looking for can actively listen to their interlocutors, ensuring adequate advice and drug manipulation according to the directives and regulations in force. He can act quickly with his own knowledge and technical skills interacting with the different services of the hospital; maintaining effective and efficient relations with the different interlocutors. Responds to stresses with flexibility and competence. It is committed to its constant vocational training. He believes, like us, in the importance of putting the patient and his family at the center of all our attentions.\n• Requirements: Federal certificate of ability (AFC) as an assistant to pharmacy or equivalent title; mastery of the Italian language and good knowledge of German or French; good computer skills; good organizational, relational and communicative skills. Date of entry: 1. October 2026 - 31 March 2027. Applications and information: Comprehensive application of curriculum vitae, letter of motivation, copies of certificates of study and work, will be sent by 31 July 2026 exclusively in electronic format via www.eoc.ch . Applications sent by mail or by e-mail will not be considered, as well as those that do not meet the requirements. Additional information can be requested by Mrs Marina Privitera-Beltraminelli, head of the pharmacy open to the public OSG (+41(0)91 811 88 81).",
-        "de": "Eine Apothekenassistentin - Ausschreibung L'EOC Das Tessiner Mehrspeisekrankenhaus ist mit seinen Instituten auf dem gesamten Kantonsgebiet für insgesamt 1'000 Betten vertreten. Die Organisation ermöglicht es, den lokalen Ansatz und die Gesamtvision effektiv zu kombinieren und der Bevölkerung ein globales und nahe gelegenes Krankenhausangebot zu gewährleisten, unabhängig davon, wo die Dienstleistungen erforderlich sind. Dank des Engagements und der Expertise von über 6.500 Mitarbeitern und ihrer Aufmerksamkeit für die menschliche Beziehung gewährleistet das EOC eine qualitativ hochwertige Gesundheitsversorgung, indem es über 40.000 Patienten betreut, die jährlich verstorben sind, und über 600.000 ambulante Patienten versorgt. Um das Team des Apothekendienstes (öffentlicher Apothekensektor) des Instituts für Pharmakologische Wissenschaften der Italienischen Schweiz (ISFSI) im Regionalkrankenhaus Bellinzona und Valli, Bellinzona, zu vervollständigen, suchen wir einen Apothekenassistenten (60%) Profil: Wir suchen einen Apothekenassistenten für einen 6-monatigen Mutterschaftsurlaub Ersatz. Die gesuchte Person kann ihren Gesprächspartnern aktiv zuhören und eine angemessene Beratung und Drogenmanipulation gemäß den geltenden Richtlinien und Vorschriften sicherstellen. Er kann schnell mit seinem eigenen Wissen und seinen technischen Fähigkeiten handeln und mit den verschiedenen Diensten des Krankenhauses interagieren; Aufrechterhaltung effektiver und effizienter Beziehungen zu den verschiedenen Gesprächspartnern. Reagiert auf Stress mit Flexibilität und Kompetenz. Sie setzt sich für ihre ständige berufliche Ausbildung ein. Er glaubt wie wir daran, dass es wichtig ist, den Patienten und seine Familie in den Mittelpunkt unserer Aufmerksamkeit zu stellen.\n• Voraussetzungen: Eidgenössisches Befähigungszeugnis (AFC) als Assistent der Apotheke oder eines gleichwertigen Titels; Beherrschung der italienischen Sprache und gute Deutsch- oder Französischkenntnisse; gute Computerkenntnisse; gute organisatorische, relationale und kommunikative Fähigkeiten. Datum der Einreise: 1. Oktober 2026 - 31. März 2027. Bewerbungen und Informationen: Umfassende Bewerbung des Lebenslaufs, Motivationsschreiben, Kopien von Studien- und Arbeitszeugnissen werden bis zum 31. Juli 2026 ausschließlich in elektronischer Form über www.eoc.ch gesendet. Anträge, die per Post oder E-Mail verschickt werden, werden nicht berücksichtigt, ebenso wie solche, die die Anforderungen nicht erfüllen. Weitere Informationen können von Frau Marina Privitera-Beltraminelli, Leiterin der für die Öffentlichkeit zugänglichen Apotheke OSG (+41(0)91 811 88 81), angefordert werden.",
-        "fr": "Un assistant de pharmacie - Ausschreibung L-EOC l'hôpital multisite du Tessin est présent avec ses instituts sur l'ensemble du territoire cantonal pour un total de 1.000 lits. L'organisation permet de combiner efficacement l'approche locale et la vision globale, en assurant à la population une offre hospitalière globale et de proximité, peu importe où les services sont requis. Grâce à l'engagement et à l'expertise de plus de 6 500 employés et à leur attention sur la relation humaine, le COE assure des soins de qualité en prenant soin de plus de 41 000 patients décédés chaque année et en fournissant plus de 600 000 consultations externes. Pour compléter l'équipe du Service Pharmacie (secteur Pharmacie publique) de l'Institut des Sciences Pharmacologiques de Suisse italienne (ISFSI) à l'Hôpital Régional de Bellinzona et de Valli, Bellinzona, nous recherchons une assistante en pharmacie (60%) Profil : Nous recherchons une assistante en pharmacie pour un congé de maternité de 6 mois. La personne que nous recherchons peut écouter activement ses interlocuteurs, en assurant des conseils adéquats et la manipulation de drogues conformément aux directives et règlements en vigueur. Il peut agir rapidement avec ses propres connaissances et compétences techniques en interaction avec les différents services de l'hôpital; maintenir des relations efficaces et efficientes avec les différents interlocuteurs. Répond au stress avec flexibilité et compétence. Elle est attachée à sa formation professionnelle permanente. Il croit, comme nous, à l'importance de placer le patient et sa famille au centre de toutes nos attentions.\n• Exigences : Certificat fédéral d'aptitude (AFC) comme assistant à la pharmacie ou titre équivalent; maîtrise de la langue italienne et bonne connaissance de l'allemand ou du français; bonnes compétences en informatique; bonnes compétences organisationnelles, relationnelles et communicatives. Date d'entrée: 1. octobre 2026 - 31 mars 2027. Applications et informations: application complète du curriculum vitae, lettre de motivation, copies des certificats d'études et de travail, sera envoyé au plus tard le 31 juillet 2026 exclusivement sous forme électronique via www.eoc.ch . Les demandes envoyées par la poste ou par courriel ne seront pas prises en considération, ainsi que celles qui ne satisfont pas aux exigences. Des informations complémentaires peuvent être demandées par Mme Marina Privitera-Beltraminelli, directrice de la pharmacie ouverte au public OSG (+41(0)91 811 88 81)."
-      },
-      "slugByLocale": {
-        "it": "assistente-di-farmacia-60-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "pharmacy-assistant-60-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "apotheker-60-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "assistant-en-pharmacie-60-eoc-ente-ospedaliero-cantonale-bellinzona"
-      },
-      "requirementsByLocale": {
-        "it": [
-          "Requisiti necessari:",
-          "padronanza della lingua italiana e buona conoscenza del tedesco o del francese;"
-        ],
-        "en": [],
-        "de": [],
-        "fr": []
-      },
-      "previousSlugs": [
-        "assistente-di-farmacia-60-eoc-bellinzona-uilr3r",
-        "assistente-di-farmacia-60-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-uilr3r",
-        "assistente-di-cura-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "parto-assistente-eoc-ente-ospedaliero-cantonale-bellinzona"
-      ],
-      "sourceLang": "it",
-      "previousSlugsByLocale": {
-        "it": [
-          "assistente-di-farmacia-60-eoc-bellinzona-uilr3r",
-          "assistente-di-farmacia-60-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-uilr3r",
-          "parto-assistente-eoc-ente-ospedaliero-cantonale-bellinzona"
-        ],
-        "en": [
-          "assistente-di-farmacia-60-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-uilr3r"
-        ],
-        "de": [
-          "assistente-di-farmacia-60-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-uilr3r"
-        ],
-        "fr": [
-          "assistente-di-farmacia-60-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-uilr3r"
-        ]
-      },
-      "salaryMin": 51300,
-      "salaryMax": 90000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51300,
-          "maxValue": 90000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Viale Officina 3",
-      "postalCode": "6500",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "country": "CH",
-      "salarySource": "estimated"
-    },
-    {
-      "id": "company-uilr23",
-      "slug": "infermiere-a-specializzato-a-in-anestesia-80-100-eoc-ente-ospedaliero-cantonale-locarno",
-      "company": "EOC – Ente Ospedaliero Cantonale",
-      "title": "Infermiere/a specializzato/a in anestesia (80-100%)",
-      "location": "Locarno",
-      "canton": "TI",
-      "category": "health",
-      "contract": "temporary",
-      "currency": "CHF",
-      "description": "Infermiere/a specializzato/a in anestesia - Ausschreibung L’EOC l’ospedale multisito del Ticino è presente con i suoi istituti sull'intero territorio cantonale per un totale di 1’000 posti letto. L’organizzazione permette di combinare efficacemente approccio locale e visione d'insieme, garantendo alla popolazione un'offerta ospedaliera globale e di prossimità, indipendentemente dal luogo in cui sono richiesti i servizi. Grazie all’impegno e alla competenza degli oltre 6’500 collaboratori e alla loro attenzione verso la relazione umana, l’EOC assicura un’assistenza sanitaria di qualità prendendosi cura di oltre 41'000 pazienti degenti all’anno e fornendo oltre 600'000 consulti ambulatoriali. Per completare il team del servizio infermieristico dell'Ospedale Regionale di Locarno La Carità cerchiamo un/a Infermiere/a specializzato/a in anestesia (80-100%) Profilo: La persona che cerchiamo si occuperà di garantire un’assistenza infermieristica specialistica in anestesia ai pazienti sottoposti a interventi principalmente di chirurgia generale, chirurgia viscerale, ortopedia-traumatologia e urologia, collaborando attivamente con il medico anestesista nelle diverse fasi del percorso perioperatorio. Sarà coinvolto/a nella preparazione, gestione e monitoraggio dei pazienti prima, durante e dopo l’anestesia, contribuendo a garantire elevati standard di sicurezza e qualità delle cure. Al collaboratore/trice impiegato/a nel servizio è richiesto un importante spirito di adattamento e flessibilità nella gestione di situazioni cliniche pianificate e complesse, caratterizzate da una rapida evoluzione. Dispone di solide competenze cliniche e tecniche nell’ambito anestesiologico, sa valutare le priorità e prendere decisioni in modo tempestivo e appropriato, mantenendo la calma anche in contesti ad alta intensità assistenziale e nelle situazioni d’urgenza. Il/la candidato/a ideale è sensibile alle dinamiche interpersonali, contribuisce attivamente al lavoro di squadra e mantiene un atteggiamento positivo anche sotto pressione. Come noi, crede nell’importanza di mettere il paziente e la sua famiglia al centro di tutte le nostre attenzioni e condivide i valori e la missione dell’Ente Ospedaliero Cantonale, identificandosi appieno in essi.\n• Requisiti necessari: diploma di infermiere/a esperto/a in cure di anestesia dipl. SPD SSS (o titolo equivalente riconosciuto); flessibilità, capacità di adattamento e precisione; competenze relazionali e comunicative; propensione a lavorare in team multidisciplinari; oltre alla lingua italiana, costituirà titolo preferenziale la conoscenza di un’altra lingua nazionale; conoscenza dei principali mezzi informatici (pacchetto Office). Data d'entrata: da convenire. Le candidature complete di curriculum vitae, lettera di motivazione, copie dei certificati di studio e di lavoro, dovranno pervenire entro il 15 luglio 2026 unicamente tramite la piattaforma elettronica disponibile su www.eoc.ch . Le candidature che giungeranno oltre la data i",
-      "requirements": [
-        "Requisiti necessari:",
-        "oltre alla lingua italiana, costituirà titolo preferenziale la conoscenza di un’altra lingua nazionale;"
-      ],
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "url": "https://recruitingapp-2761.umantis.com/Vacancies/2727/Description/4",
-      "source": "Company Careers Crawler",
-      "companyKey": "eoc-ente-ospedaliero-cantonale",
-      "companyDomain": "eoc.ch",
-      "crawledAt": "2026-07-15T22:22:02.017Z",
-      "firstSeenAt": "2026-06-15T14:49:24.609Z",
-      "titleByLocale": {
-        "it": "Infermiere/a specializzato/a in anestesia (80-100%)",
-        "en": "Anaesthesia nurse practitioner (80-100%)",
-        "de": "Spezialisierte Krankenschwestern (80-100%)",
-        "fr": "Infirmière praticienne en anesthésie (80-100 %)"
-      },
-      "descriptionByLocale": {
-        "it": "Infermiere/a specializzato/a in anestesia - Ausschreibung L’EOC l’ospedale multisito del Ticino è presente con i suoi istituti sull'intero territorio cantonale per un totale di 1’000 posti letto. L’organizzazione permette di combinare efficacemente approccio locale e visione d'insieme, garantendo alla popolazione un'offerta ospedaliera globale e di prossimità, indipendentemente dal luogo in cui sono richiesti i servizi. Grazie all’impegno e alla competenza degli oltre 6’500 collaboratori e alla loro attenzione verso la relazione umana, l’EOC assicura un’assistenza sanitaria di qualità prendendosi cura di oltre 41'000 pazienti degenti all’anno e fornendo oltre 600'000 consulti ambulatoriali. Per completare il team del servizio infermieristico dell'Ospedale Regionale di Locarno La Carità cerchiamo un/a Infermiere/a specializzato/a in anestesia (80-100%) Profilo: La persona che cerchiamo si occuperà di garantire un’assistenza infermieristica specialistica in anestesia ai pazienti sottoposti a interventi principalmente di chirurgia generale, chirurgia viscerale, ortopedia-traumatologia e urologia, collaborando attivamente con il medico anestesista nelle diverse fasi del percorso perioperatorio. Sarà coinvolto/a nella preparazione, gestione e monitoraggio dei pazienti prima, durante e dopo l’anestesia, contribuendo a garantire elevati standard di sicurezza e qualità delle cure. Al collaboratore/trice impiegato/a nel servizio è richiesto un importante spirito di adattamento e flessibilità nella gestione di situazioni cliniche pianificate e complesse, caratterizzate da una rapida evoluzione. Dispone di solide competenze cliniche e tecniche nell’ambito anestesiologico, sa valutare le priorità e prendere decisioni in modo tempestivo e appropriato, mantenendo la calma anche in contesti ad alta intensità assistenziale e nelle situazioni d’urgenza. Il/la candidato/a ideale è sensibile alle dinamiche interpersonali, contribuisce attivamente al lavoro di squadra e mantiene un atteggiamento positivo anche sotto pressione. Come noi, crede nell’importanza di mettere il paziente e la sua famiglia al centro di tutte le nostre attenzioni e condivide i valori e la missione dell’Ente Ospedaliero Cantonale, identificandosi appieno in essi.\n• Requisiti necessari: diploma di infermiere/a esperto/a in cure di anestesia dipl. SPD SSS (o titolo equivalente riconosciuto); flessibilità, capacità di adattamento e precisione; competenze relazionali e comunicative; propensione a lavorare in team multidisciplinari; oltre alla lingua italiana, costituirà titolo preferenziale la conoscenza di un’altra lingua nazionale; conoscenza dei principali mezzi informatici (pacchetto Office). Data d'entrata: da convenire. Le candidature complete di curriculum vitae, lettera di motivazione, copie dei certificati di studio e di lavoro, dovranno pervenire entro il 15 luglio 2026 unicamente tramite la piattaforma elettronica disponibile su www.eoc.ch . Le candidature che giungeranno oltre la data i",
-        "en": "Nurse specialized in anesthesia - Ausschreibung The EOC, the multi-site hospital in Ticino, is present with its institutes throughout the entire cantonal territory for a total of 1,000 beds. The organization allows us to effectively combine a local approach and an overall vision, guaranteeing the population a global and local hospital offer, regardless of the place where the services are required. Thanks to the commitment and expertise of over 6,500 collaborators and their attention to human relationships, the EOC ensures quality healthcare by taking care of over 41,000 inpatients per year and providing over 600,000 outpatient consultations. To complete the team of the nursing service of the Regional Hospital of Locarno La Carità we are looking for a nurse specialized in anesthesia (80-100%) Profile: The person we are looking for will be responsible for guaranteeing specialized nursing care in anesthesia for patients undergoing operations mainly in general surgery, visceral surgery, orthopaedics-traumatology and urology, actively collaborating with the anesthesiologist in the different phases of the perioperative process. You will be involved in the preparation, management and monitoring of patients before, during and after anesthesia, helping to ensure high standards of safety and quality of care. The collaborator employed in the service is required to have an important spirit of adaptation and flexibility in the management of planned and complex clinical situations, characterized by rapid evolution. He has solid clinical and technical skills in the anesthetic field, knows how to evaluate priorities and make decisions in a timely and appropriate manner, maintaining calm even in high-intensity care contexts and in emergency situations. The ideal candidate is sensitive to interpersonal dynamics, actively contributes to teamwork and maintains a positive attitude even under pressure. Like us, he believes in the importance of putting the patient and his family at the center of all our attention and shares the values ​​and mission of the Cantonal Hospital Authority, fully identifying with them.\n• Necessary requirements: diploma of nurse expert in anesthesia care dipl. SPD SSS (or recognized equivalent qualification); flexibility, adaptability and precision; relational and communication skills; propensity to work in multidisciplinary teams; in addition to the Italian language, knowledge of another national language will be an advantage; knowledge of the main IT tools (Office package). Entry date: to be agreed. Applications complete with curriculum vitae, letter of motivation, copies of study and work certificates, must be received by 15 July 2026 only via the electronic platform available on www.eoc.ch. Applications arriving after date i",
-        "de": "Krankenschwester mit Spezialisierung auf Anästhesie - Ausschreibung Das EOC, das Multistandortspital im Tessin, ist mit seinen Instituten im gesamten Kantonsgebiet mit insgesamt 1.000 Betten vertreten. Die Organisation ermöglicht es uns, einen lokalen Ansatz und eine Gesamtvision effektiv zu kombinieren und der Bevölkerung ein globales und lokales Krankenhausangebot zu garantieren, unabhängig vom Ort, an dem die Leistungen benötigt werden. Dank des Engagements und der Fachkompetenz von über 6.500 Mitarbeitern und ihrer Aufmerksamkeit für menschliche Beziehungen gewährleistet das EOC eine qualitativ hochwertige Gesundheitsversorgung, indem es jährlich über 41.000 stationäre Patienten betreut und über 600.000 ambulante Konsultationen durchführt. Um das Team des Pflegedienstes des Regionalkrankenhauses La Carità von Locarno zu vervollständigen, suchen wir eine auf Anästhesie spezialisierte Krankenschwester (80-100 %). Profil: Die von uns gesuchte Person ist für die Gewährleistung einer spezialisierten Pflege in Anästhesie für Patienten verantwortlich, die sich hauptsächlich Operationen in den Bereichen Allgemeinchirurgie, Viszeralchirurgie, Orthopädie-Traumatologie und Urologie unterziehen, und arbeitet in den verschiedenen Phasen der perioperativen Phase aktiv mit dem Anästhesisten zusammen Prozess. Sie sind an der Vorbereitung, Betreuung und Überwachung von Patienten vor, während und nach der Anästhesie beteiligt und tragen so dazu bei, hohe Standards an Sicherheit und Qualität der Pflege zu gewährleisten. Der im Dienst beschäftigte Mitarbeiter muss über einen ausgeprägten Anpassungsgeist und Flexibilität bei der Bewältigung geplanter und komplexer klinischer Situationen verfügen, die durch schnelle Entwicklung gekennzeichnet sind. Er verfügt über solide klinische und technische Fähigkeiten im Anästhesiebereich, weiß, wie man Prioritäten einschätzt und Entscheidungen rechtzeitig und angemessen trifft, wobei er auch in hochintensiven Pflegekontexten und in Notfallsituationen Ruhe bewahrt. Der ideale Kandidat ist sensibel für zwischenmenschliche Dynamiken, trägt aktiv zur Teamarbeit bei und behält auch unter Druck eine positive Einstellung. Wie wir glaubt er daran, wie wichtig es ist, den Patienten und seine Familie in den Mittelpunkt unserer Aufmerksamkeit zu stellen, und teilt die Werte und den Auftrag der kantonalen Krankenhausverwaltung und identifiziert sich voll und ganz mit ihnen.\n• Notwendige Voraussetzungen: Diplom als Pflegefachkraft für Anästhesiepflege Dipl.-Ing. SPD SSS (oder anerkannter gleichwertiger Abschluss); Flexibilität, Anpassungsfähigkeit und Präzision; Beziehungs- und Kommunikationsfähigkeiten; Neigung zur Arbeit in multidisziplinären Teams; zusätzlich zur italienischen Sprache sind Kenntnisse einer weiteren Landessprache von Vorteil; Kenntnisse der wichtigsten IT-Tools (Office-Paket). Eintrittsdatum: nach Vereinbarung. Bewerbungen mit Lebenslauf, Motivationsschreiben, Kopien der Studien- und Arbeitszeugnisse können bis zum 15. Juli 2026 ausschliesslich über die elektronische Plattform www.eoc.ch eingereicht werden. Bewerbungen, die nach dem Datum i eingehen",
-        "fr": "Infirmière spécialisée en anesthésie - Ausschreibung L'EOC, l'hôpital multisite du Tessin, est présent avec ses instituts sur tout le territoire cantonal pour un total de 1000 lits. L'organisation permet d'allier efficacement une approche locale et une vision globale, garantissant à la population une offre hospitalière globale et locale, quel que soit le lieu où les services sont requis. Grâce à l'engagement et à l'expertise de plus de 6 500 collaborateurs et à leur souci des relations humaines, l'EOC assure des soins de qualité en prenant en charge plus de 41 000 patients hospitalisés par an et en assurant plus de 600 000 consultations ambulatoires. Pour compléter l'équipe du service de soins infirmiers de l'Hôpital Régional de Locarno La Carità, nous recherchons une infirmière spécialisée en anesthésie (80-100%) Profil : La personne que nous recherchons sera chargée de garantir des soins infirmiers spécialisés en anesthésie pour les patients subissant des opérations principalement en chirurgie générale, chirurgie viscérale, orthopédie-traumatologie et urologie, en collaborant activement avec l'anesthésiste dans les différentes phases du processus périopératoire. Vous participerez à la préparation, à la gestion et au suivi des patients avant, pendant et après l'anesthésie, contribuant ainsi à garantir des normes élevées de sécurité et de qualité des soins. Le collaborateur employé dans le service doit avoir un esprit d'adaptation et de flexibilité important dans la gestion de situations cliniques planifiées et complexes, caractérisées par une évolution rapide. Il possède de solides compétences cliniques et techniques dans le domaine de l'anesthésie, sait évaluer les priorités et prendre des décisions de manière opportune et appropriée, en gardant son calme même dans des contextes de soins de haute intensité et dans des situations d'urgence. Le candidat idéal est sensible à la dynamique interpersonnelle, contribue activement au travail d'équipe et maintient une attitude positive même sous pression. Comme nous, il croit en l'importance de mettre le patient et sa famille au centre de toutes nos attentions et partage les valeurs et la mission de l'Autorité hospitalière cantonale en s'identifiant pleinement à elles.\n• Conditions nécessaires : diplôme d'infirmière experte en soins d'anesthésie dipl. SPD SSS (ou qualification équivalente reconnue) ; flexibilité, adaptabilité et précision; compétences relationnelles et de communication; propension à travailler en équipes multidisciplinaires; en plus de la langue italienne, la connaissance d'une autre langue nationale sera un avantage ; connaissance des principaux outils informatiques (package Office). Date d'entrée : à convenir. Les candidatures complètes avec curriculum vitae, lettre de motivation, copies des attestations d'études et de travail, doivent être reçues au plus tard le 15 juillet 2026 uniquement via la plateforme électronique disponible sur www.eoc.ch. Les candidatures arrivant après la date i"
-      },
-      "slugByLocale": {
-        "it": "infermiere-a-specializzato-a-in-anestesia-80-100-eoc-ente-ospedaliero-cantonale-locarno",
-        "en": "anaesthesia-nurse-practitioner-80-100-eoc-ente-ospedaliero-cantonale-locarno",
-        "de": "spezialisierte-krankenschwestern-80-100-eoc-ente-ospedaliero-cantonale-locarno",
-        "fr": "infirmiere-praticienne-en-anesthesie-80-100-eoc-ente-ospedaliero-cantonale-locarno"
-      },
-      "requirementsByLocale": {
-        "it": [
-          "Requisiti necessari:",
-          "oltre alla lingua italiana, costituirà titolo preferenziale la conoscenza di un’altra lingua nazionale;"
-        ],
-        "en": [],
-        "de": [],
-        "fr": []
-      },
-      "previousSlugs": [
-        "infermiere-a-specializzato-a-in-anestesia-80-100-eoc-locarno-uilr23",
-        "infermiere-a-specializzato-a-in-anestesia-80-100-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-po-uilr23"
-      ],
-      "sourceLang": "it",
-      "previousSlugsByLocale": {
-        "it": [
-          "infermiere-a-specializzato-a-in-anestesia-80-100-eoc-locarno-uilr23",
-          "infermiere-a-specializzato-a-in-anestesia-80-100-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-po-uilr23"
-        ],
-        "en": [
-          "infermiere-a-specializzato-a-in-anestesia-80-100-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-po-uilr23"
-        ],
-        "de": [
-          "infermiere-a-specializzato-a-in-anestesia-80-100-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-po-uilr23"
-        ],
-        "fr": [
-          "infermiere-a-specializzato-a-in-anestesia-80-100-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-po-uilr23"
-        ]
-      },
-      "salaryMin": 70500,
-      "salaryMax": 98500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 70500,
-          "maxValue": 98500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "",
-      "postalCode": "6600",
-      "addressLocality": "Locarno",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",

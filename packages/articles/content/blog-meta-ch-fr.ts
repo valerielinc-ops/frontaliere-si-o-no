@@ -6426,6 +6426,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.consiglio-nazionale-cartella-sanitaria.title': 'Nouveau dossier médical électronique : OK DU Conseil national',
     'blog.article.consiglio-nazionale-cartella-sanitaria.excerpt': 'La loi pour le nouveau dossier médical électronique en Suisse a été approuvée. Il remplacera l\'infrastructure précédente d\'ici 2030.',
     'blog.article.consiglio-nazionale-cartella-sanitaria.imageAlt': 'Nouveau dossier sanitaire électronique approuvé en Suisse',
+    'blog.article.ssr-risparmi-270-milioni-2029.title': 'SSR : 270 millions à économiser d\'ici 2029',
+    'blog.article.ssr-risparmi-270-milioni-2029.excerpt': 'La SSR lance le projet Enavant pour couper 270 millions de francs d\'ici 2029, avec 80 millions d\'ici 2027. Réduction de 20% des dirigeants et arrêt de la Ligue des Champions.',
+    'blog.article.ssr-risparmi-270-milioni-2029.imageAlt': 'Bâtiment du Parlement suisse à Berne, siège des décisions fédérales.',
+    'blog.article.premi-lamal-politica-responsabilita.title': 'Augmentations des primes LAMal : la politique repousse les responsabilités',
+    'blog.article.premi-lamal-politica-responsabilita.excerpt': 'Les augmentations annuelles des primes LAMal sont ponctuelles, la politique rebondissant sur les responsabilités entre la Confédération et les cantons. Le coût conditionne la qualité de vie des familles suisses.',
+    'blog.article.premi-lamal-politica-responsabilita.imageAlt': 'Vue panoramique de Lugano symbolisant l\'économie suisse et les défis financiers, notamment les coûts de la santé.',
 };
 
 export default blogMetaChFr;
