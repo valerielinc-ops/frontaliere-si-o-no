@@ -28,7 +28,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { loadLoopPolicy } from '../lib/loop-fleet-contract.mjs';
 
 export const LOOP_ID = 'L6';
 export const DEFAULT_LEDGER_PATH = path.join('data', 'editorial-factuality-verdicts.jsonl');
@@ -61,8 +60,23 @@ function hoursBetween(later, earlier) {
   return (later.getTime() - earlier.getTime()) / 3_600_000;
 }
 
+function readJson(filePath, label) {
+  const absolute = path.resolve(filePath);
+  if (!fs.existsSync(absolute)) throw new Error(`${label} is missing: ${filePath}`);
+  try {
+    return JSON.parse(fs.readFileSync(absolute, 'utf8'));
+  } catch (error) {
+    throw new Error(`${label} is invalid JSON: ${error.message}`);
+  }
+}
+
 function readL6Policy(registryPath) {
-  return loadLoopPolicy(registryPath, LOOP_ID).policy;
+  const registry = readJson(registryPath, 'loop fleet registry');
+  const policy = Array.isArray(registry.loops)
+    ? registry.loops.find((loop) => loop?.loopId === LOOP_ID)
+    : null;
+  if (!isObject(policy)) throw new Error('L6 policy is missing from the loop fleet registry');
+  return policy;
 }
 
 function policySourceRefs(policy) {
