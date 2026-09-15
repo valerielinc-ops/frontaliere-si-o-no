@@ -69,6 +69,8 @@ import { getAdminDb } from './src/newsletterResendWebhookCore.js';
 import { handleCreatePublisherCheckout, handleAttachPublisherJob, handleStripeWebhook, handleCreateBillingPortal, handleArchivePublisherAd, handleRestorePublisherAd } from './src/stripePublisherCore.js';
 import { handleCreateReaderCheckout, handleClaimReaderCheckout, handleCreateReaderBillingPortal } from './src/stripeReaderCore.js';
 import { handleCreateConsultingCheckout, handleConsultingDetailsSubmitted } from './src/consultingCore.js';
+import { handleCreateAssistedApplicationCheckout } from './src/assistedApplicationCheckout.js';
+import { purgeExpiredAssistedApplicationFiles } from './src/assistedApplicationRetention.js';
 import { reapStalePendingPayments } from './src/publisherPendingReapCore.js';
 import { onDocumentCreated, onDocumentWritten } from 'firebase-functions/v2/firestore';
 import * as functionsV1 from 'firebase-functions/v1';
@@ -1774,6 +1776,36 @@ export const createConsultingCheckout = onRequest(
   },
 );
 
+// One-off assisted-application payment. The request is authenticated so the
+// resulting order can be owner-gated for the post-payment CV upload; the price
+// and payment state are still controlled exclusively by the server/webhook.
+export const createAssistedApplicationCheckout = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 30,
+    cors: [
+      'https://frontaliereticino.ch',
+      'https://www.frontaliereticino.ch',
+      'https://frontaliere-ticino.web.app',
+      'https://frontaliere-ticino.firebaseapp.com',
+      /^http:\/\/localhost(:\d+)?$/,
+    ],
+  },
+  async (req, res) => {
+    try {
+      const { status, body } = await handleCreateAssistedApplicationCheckout(req);
+      res.status(status).json(body);
+    } catch (error) {
+      console.error(
+        '[createAssistedApplicationCheckout]',
+        error instanceof Error ? error.message : String(error),
+      );
+      res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
 // Fires when the client's intake-form update lands on consulting_orders
 // (detailsSubmitted false → true, gated by firestore.rules) — emails both
 // the customer and the internal inbox via the shared cascade. onDocumentWritten
@@ -2051,6 +2083,26 @@ export const purgePublisherApplications = onSchedule(
  console.error('[purgePublisherApplications]', error instanceof Error ? error.message : String(error));
  }
  },
+);
+
+// GDPR retention for the paid assisted-application CVs. The 90-day window is
+// the same application-retention window already stated in the site's privacy
+// policy; an explicit future talent-pool consent is preserved by the core job.
+export const purgeAssistedApplicationFiles = onSchedule(
+  { region: 'europe-west6', schedule: 'every 24 hours', timeZone: 'Europe/Zurich' },
+  async () => {
+    try {
+      const result = await purgeExpiredAssistedApplicationFiles();
+      if (result.purged > 0 || result.failed > 0) {
+        console.log('[purgeAssistedApplicationFiles]', result);
+      }
+    } catch (error) {
+      console.error(
+        '[purgeAssistedApplicationFiles]',
+        error instanceof Error ? error.message : String(error),
+      );
+    }
+  },
 );
 
 // Retention: remind publishers whose paid ad renews within 3 days, daily.
