@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-09-15T10:05:20.378Z",
+  "updatedAt": "2026-09-15T10:05:48.921Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -157516,12 +157516,12 @@
     },
     "accor.com": {
       "key": "accor.com",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.793Z",
-      "updatedAt": "2026-08-25T04:42:45.099Z",
+      "updatedAt": "2026-09-15T10:05:48.574Z",
       "name": "Ibis Budget",
       "domain": "accor.com",
       "city": "",
@@ -157571,7 +157571,8 @@
         }
       ],
       "promotionPr": "6439",
-      "promotionBranch": "prospector/promote-2026-08-25"
+      "promotionBranch": "prospector/promote-2026-08-25",
+      "promotedAt": "2026-09-15T10:05:48.574Z"
     },
     "malcanton.ch": {
       "key": "malcanton.ch",
@@ -231697,12 +231698,12 @@
     },
     "recruitingapp-2765@umantis.com": {
       "key": "recruitingapp-2765@umantis.com",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-22T04:28:47.146Z",
-      "updatedAt": "2026-08-25T04:42:45.099Z",
+      "updatedAt": "2026-09-15T10:05:48.896Z",
       "name": "Apleona Schweiz AG",
       "tenantHost": "recruitingapp-2765.umantis.com",
       "platform": "umantis.com",
@@ -231801,7 +231802,8 @@
         }
       ],
       "promotionPr": "6439",
-      "promotionBranch": "prospector/promote-2026-08-25"
+      "promotionBranch": "prospector/promote-2026-08-25",
+      "promotedAt": "2026-09-15T10:05:48.896Z"
     },
     "recruitingapp-2690@umantis.com": {
       "key": "recruitingapp-2690@umantis.com",
