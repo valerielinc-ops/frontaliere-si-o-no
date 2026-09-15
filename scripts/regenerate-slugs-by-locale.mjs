@@ -45,6 +45,7 @@ import {
 import { applyDeclaredBrandRelabel, declaredBrandLabels } from './lib/crawler-brand-relabel.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { hasUsableJobId } from './lib/job-match-key.mjs';
+import { decontaminateSliceDirectory } from './decontaminate-prev-slugs.mjs';
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
@@ -291,6 +292,15 @@ async function main() {
       console.log(`  ✅ ${crawlerKey}`);
       writeJson(slicePath, sliceData);
     }
+  }
+
+  // This script is another direct slice writer in the canonical translation
+  // workflow. Slug regeneration can capture a bridge while it changes the
+  // active slug, so perform the same fleet-wide ownership pass before its
+  // phase is committed.
+  const ownership = decontaminateSliceDirectory(BY_CRAWLER_DIR, { apply: true });
+  if (ownership.moved > 0 || ownership.emptyLocaleBucketsPruned > 0) {
+    console.log(`🧭 prev-slug ownership: redirected ${ownership.moved} slug(s), pruned ${ownership.emptyLocaleBucketsPruned} empty locale bucket(s) across ${ownership.affected.length} slice(s).`);
   }
 
   console.log(`\n📊 Slug regeneration complete: ${totalFixed} locale slugs fixed across ${slicesChanged} slices (${totalJobs} total jobs)`);
