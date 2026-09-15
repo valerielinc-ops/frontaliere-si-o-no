@@ -88,16 +88,32 @@ jobs:
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
+          set -euo pipefail
           if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
-            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set"
-            exit 1
+            echo "::warning::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set; recording an explicitly unavailable telemetry outcome"
+            echo 'LOOP_FLEET_L1_EXPORT_UNAVAILABLE=1' >> "$GITHUB_ENV"
+            exit 0
           fi
           printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
           chmod 600 /tmp/firebase-sa.json
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
       - name: Export fresh L1 telemetry
-        if: github.event_name != 'pull_request'
-        run: node scripts/ci/export-loop-outcomes.mjs --loop L1 --input data/error-triage-baseline.json --out "$RUNNER_TEMP/error-triage-baseline.json"
+        if: always() && github.event_name != 'pull_request'
+        run: |
+          set -euo pipefail
+          output_path="$RUNNER_TEMP/error-triage-baseline.json"
+          if [ "${LOOP_FLEET_L1_EXPORT_UNAVAILABLE:-0}" = '1' ]; then
+            node scripts/ci/export-loop-outcomes.mjs --loop L1 --unavailable --out "$output_path" --reason 'Firebase read-only credentials unavailable'
+            exit 0
+          fi
+          set +e
+          node scripts/ci/export-loop-outcomes.mjs --loop L1 --input data/error-triage-baseline.json --out "$output_path"
+          export_code=$?
+          set -e
+          if [ "$export_code" -ne 0 ]; then
+            echo '::warning::L1 live telemetry export failed; recording an explicitly unavailable outcome'
+            node scripts/ci/export-loop-outcomes.mjs --loop L1 --unavailable --out "$output_path" --reason 'live PostHog telemetry export failed'
+          fi
       - name: Audit reliability telemetry
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

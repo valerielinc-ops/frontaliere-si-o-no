@@ -127,16 +127,32 @@ jobs:
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
+          set -euo pipefail
           if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
-            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set"
-            exit 1
+            echo "::warning::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set; recording an explicitly unavailable alert outcome"
+            echo 'LOOP_FLEET_L4_EXPORT_UNAVAILABLE=1' >> "$GITHUB_ENV"
+            exit 0
           fi
           printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
           chmod 600 /tmp/firebase-sa.json
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
       - name: Export fresh L4 outcomes
-        if: github.event_name != 'pull_request'
-        run: node scripts/ci/export-loop-outcomes.mjs --loop L4 --config data/alert-config.json --snoozes data/alert-snoozes.json --out "$RUNNER_TEMP/alert-outcomes.json"
+        if: always() && github.event_name != 'pull_request'
+        run: |
+          set -euo pipefail
+          output_path="$RUNNER_TEMP/alert-outcomes.json"
+          if [ "${LOOP_FLEET_L4_EXPORT_UNAVAILABLE:-0}" = '1' ]; then
+            node scripts/ci/export-loop-outcomes.mjs --loop L4 --unavailable --out "$output_path" --reason 'Firebase read-only credentials unavailable'
+            exit 0
+          fi
+          set +e
+          node scripts/ci/export-loop-outcomes.mjs --loop L4 --config data/alert-config.json --snoozes data/alert-snoozes.json --out "$output_path"
+          export_code=$?
+          set -e
+          if [ "$export_code" -ne 0 ]; then
+            echo '::warning::L4 live alert-delivery export failed; recording an explicitly unavailable outcome'
+            node scripts/ci/export-loop-outcomes.mjs --loop L4 --unavailable --out "$output_path" --reason 'live Firestore alert-delivery export failed'
+          fi
       - name: Audit alert to return
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

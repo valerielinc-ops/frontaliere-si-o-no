@@ -73,6 +73,24 @@ describe('loop fleet workflow contract', () => {
     }
   });
 
+  it('keeps read-only credential outages observable and fail-closed', () => {
+    const contracts = [
+      ['loop-l1-reliability.yml', 'LOOP_FLEET_L1_EXPORT_UNAVAILABLE=1', '--loop L1 --unavailable'],
+      ['loop-l2-demand-utility.yml', 'LOOP_FLEET_L2_EXPORT_UNAVAILABLE=1', 'export-l2-demand-outcomes.mjs --unavailable'],
+      ['loop-l3-job-quality.yml', 'LOOP_FLEET_L3_EXPORT_UNAVAILABLE=1', '--loop L3 --unavailable'],
+      ['loop-l4-alert-return.yml', 'LOOP_FLEET_L4_EXPORT_UNAVAILABLE=1', '--loop L4 --unavailable'],
+      ['loop-l5-decision-moments.yml', 'LOOP_FLEET_L5_EXPORT_UNAVAILABLE=1', '--loop L5 --unavailable'],
+      ['loop-l7-experiment-allocator.yml', 'LOOP_FLEET_L7_EXPORT_UNAVAILABLE=1', 'export-l7-experiment-outcomes.mjs --unavailable'],
+    ];
+    for (const [name, unavailableFlag, fallbackCommand] of contracts) {
+      const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
+      expect(source, name).toContain(unavailableFlag);
+      expect(source, name).toContain(fallbackCommand);
+      expect(source, name).toContain('if: always()');
+      expect(source, name).toContain('exit 0');
+    }
+  });
+
   it('fa leggere L10 dal ledger health canonico', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'loop-l10-fleet-control.yml'), 'utf8');
     expect(source).toContain('data/loop-fleet/ledger/loop-health-history.jsonl');
