@@ -11761,6 +11761,11 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mendrisio-melano-progetto-meme-risanamento-fonico.title': 'Mendrisio-Melano, MeMe-Projekt zur Reduzierung des Autobahnlärms',
     'blog.article.mendrisio-melano-progetto-meme-risanamento-fonico.excerpt': 'Das Bundesamt für Strassen (Astra) hat den Entwurf für das Projekt MeMe, einen umfassenden Sanierungsplan für den Autobahnabschnitt A2 zwischen Mendrisio und Melano, veröffentlicht.',
     'blog.article.mendrisio-melano-progetto-meme-risanamento-fonico.imageAlt': 'Autobahnabschnitt A2 zwischen Mendrisio und Melano',
+    'blog.article.bollettino-frontaliere-2026-09-15.title': 'Grenzgänger-Tagesbulletin – 15. September 2026: 38 neue Stellenangebote gestern',
+    'blog.article.bollettino-frontaliere-2026-09-15.excerpt': 'Die Zahlen von heute, 15. September 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-09-15.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 15. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-09-15.seoDescription': 'Grenzgänger-Bulletin vom 15. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-09-15.ogDescription': 'Die Zahlen vom 15. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
 };
 
 export default blogMetaDe;
