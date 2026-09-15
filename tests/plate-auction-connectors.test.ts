@@ -3,7 +3,12 @@ import { fetchHtml } from '../functions/src/plateAuctionsCore.js';
 import { parseGrAuctionRows } from '../scripts/plate-auctions/connectors/gr.mjs';
 import { parseSgAuctionRows } from '../scripts/plate-auctions/connectors/sg.mjs';
 import { parseShAuctionRows } from '../scripts/plate-auctions/connectors/sh.mjs';
-import { parseSzAuctionRows } from '../scripts/plate-auctions/connectors/sz.mjs';
+import {
+  fetchSzPlateAuctions,
+  parseSzAuctionRows,
+  SZ_AUCTION_URL,
+  SZ_PUBLIC_API_RELAY_URL,
+} from '../scripts/plate-auctions/connectors/sz.mjs';
 import { parseTiAuctionRows } from '../scripts/plate-auctions/connectors/ti.mjs';
 import { parseTgAuctionRows } from '../scripts/plate-auctions/connectors/tg.mjs';
 import { parseZhAuctions } from '../scripts/plate-auctions/connectors/zh.mjs';
@@ -132,6 +137,59 @@ describe('expanded plate-auction connectors', () => {
     expect(szRows[0]).toMatchObject({ id: 'sz-1532', sourceKey: 'SZ', normalizedPlate: 'SZ13457' });
     expect(validatePlateAuction(sgRows[0])).toEqual([]);
     expect(validatePlateAuction(szRows[0])).toEqual([]);
+  });
+
+  it('uses only a fresh healthy public API relay when SZ blocks CI egress', async () => {
+    const previousRelay = process.env.PLATE_AUCTION_ENABLE_API_RELAY;
+    process.env.PLATE_AUCTION_ENABLE_API_RELAY = '1';
+    const fetcher = vi.fn(async ({ officialAuctionUrl }: { officialAuctionUrl: string }) => {
+      if (officialAuctionUrl === SZ_AUCTION_URL) throw new TypeError('fetch failed');
+      throw new Error(`unexpected direct fetch: ${officialAuctionUrl}`);
+    });
+    const apiResponse = JSON.stringify({
+      sources: {
+        sz: {
+          status: 'active',
+          rowCount: 1,
+          lastSuccessAt: '2026-09-15T08:00:00.000Z',
+        },
+      },
+      auctions: [{
+        id: 'sz-42',
+        sourceKey: 'SZ',
+        normalizedPlate: 'SZ42',
+        officialAuctionUrl: 'https://cariegov.sz.ch/ecari-auction/ui/app/init?locale=de_ch',
+        sourceFetchedAt: '2026-09-15T08:00:00.000Z',
+        lastVerifiedAt: '2026-09-15T08:00:00.000Z',
+      }],
+    });
+    const originalFetch = globalThis.fetch;
+    globalThis.fetch = vi.fn(async (url: string | URL) => {
+      expect(String(url)).toBe(SZ_PUBLIC_API_RELAY_URL);
+      return new Response(apiResponse, { status: 200 });
+    }) as typeof fetch;
+
+    try {
+      const rows = await fetchSzPlateAuctions({
+        fetcher,
+        now: new Date('2026-09-15T09:00:00.000Z'),
+      });
+      expect(rows).toHaveLength(1);
+      expect(rows[0]).toMatchObject({
+        id: 'sz-42',
+        sourceKey: 'SZ',
+        officialAuctionUrl: SZ_AUCTION_URL,
+      });
+      expect(fetcher).toHaveBeenCalledWith({
+        canton: 'Svitto',
+        plateCode: 'SZ',
+        officialAuctionUrl: SZ_AUCTION_URL,
+      });
+    } finally {
+      globalThis.fetch = originalFetch;
+      if (previousRelay === undefined) delete process.env.PLATE_AUCTION_ENABLE_API_RELAY;
+      else process.env.PLATE_AUCTION_ENABLE_API_RELAY = previousRelay;
+    }
   });
 
   it('parses the configurable card platforms for Sciaffusa and Turgovia', () => {
