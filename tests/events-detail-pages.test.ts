@@ -11,6 +11,7 @@ import path from 'node:path';
 import { slugifyEvent, slugifyLegacyEvent, disambiguateEventSlug, OTHER_EVENTS_COMUNE_KEY, RESERVED_EVENTS_SEGMENT_RE, EVENT_SLUG_MAX_LENGTH } from '../scripts/lib/events-utils.mjs';
 import {
   eventLd,
+  cleanEventText,
   pathForEventDetail,
   renderEventDetailPage,
   renderHubPage,
@@ -324,6 +325,54 @@ describe('renderEventDetailPage', () => {
     expect(page.html).toContain(`"sameAs":["${EVENT.url}"]`);
     expect(page.html).toContain('"@type":"BreadcrumbList"');
     expect(page.html).toContain('"@type":"FAQPage"');
+  });
+  it('cleans escaped crawler HTML in visible copy and Event JSON-LD', () => {
+    const markedUpEvent = {
+      ...EVENT,
+      id: 'myswitzerland:queen',
+      title: 'The Music of QUEEN - Live',
+      description: '&lt;b&gt;The Music of Queen Live Valentin Findling bringt die Magie von Freddie Mercury auf Europas Bühnen&lt;/b&gt;',
+    };
+    const markedUpPage = renderEventDetailPage({
+      locale: 'fr',
+      event: markedUpEvent as never,
+      comune: 'Basel',
+      eventSlug: slugifyEvent(markedUpEvent),
+      sameComuneEvents: [markedUpEvent] as never,
+      dateStamp: '2026-06-30',
+      distDir,
+      detailHref: (() => null) as never,
+    });
+    expect(cleanEventText('<p><b>Queen &amp; Friends</b><br>Live</p>')).toBe('Queen & Friends Live');
+    expect(markedUpPage.html).toContain('The Music of Queen Live Valentin Findling');
+    expect(markedUpPage.html).not.toContain('&lt;b&gt;');
+    expect(markedUpPage.html).not.toContain('<b>');
+    expect(markedUpPage.html).toContain('"description":"The Music of Queen Live Valentin Findling');
+  });
+  it('uses the art-directed hero and one contextual AdSense slot on indexable details', () => {
+    expect(page.html).toContain('ev-hero-backdrop');
+    expect(page.html).toContain('ev-hero-surface');
+    expect(page.html).toContain('prefers-reduced-motion:reduce');
+    expect(page.html.match(/data-ad-slot=["']?1982411173/g)).toHaveLength(1);
+    expect(page.html.match(/data-ad-slot=["']?5196931137/g)).toHaveLength(1);
+  });
+  it('does not add manual slots to the noindex past-event bridge', () => {
+    const pastPage = renderEventDetailPage({
+      locale: 'it',
+      event: EVENT as never,
+      comune: 'Lugano',
+      eventSlug: slugifyEvent(EVENT),
+      sameComuneEvents: [EVENT] as never,
+      dateStamp: '2026-06-30',
+      distDir,
+      detailHref: (() => null) as never,
+      isPast: true,
+    });
+    expect(pastPage.html).toContain('noindex,follow');
+    expect(pastPage.html).not.toContain('data-ad-slot=1982411173');
+    expect(pastPage.html).not.toContain('data-ad-slot="1982411173"');
+    expect(pastPage.html).not.toContain('data-ad-slot=5196931137');
+    expect(pastPage.html).not.toContain('data-ad-slot="5196931137"');
   });
   it('links the source as a nofollow official-site CTA and lists other events in the comune', () => {
     expect(page.html).toContain(EVENT.url);
