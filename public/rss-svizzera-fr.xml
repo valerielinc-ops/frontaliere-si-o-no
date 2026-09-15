@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides sur la Suisse : économie, travail, fiscalité et vie quotidienne</description>
     <language>fr</language>
-    <lastBuildDate>Tue, 15 Sep 2026 08:04:36 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 15 Sep 2026 09:37:46 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Suisse</title>
@@ -17,6 +17,89 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-fr.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Pharmacies de garde en Suisse et à la frontière italienne : sources par canton</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/pharmacies-garde-suisse-frontiere-italienne/</link>
+      <description><![CDATA[Un guide pour vérifier la source à jour dans le bon canton, sans inventer de calendrier ni transformer un lien en promesse d’ouverture. 207 entrées au Tessin et 542 entrées dans les provinces CO, VA et VB; gardes régionales vérifiées dans les cinq zones tessinoises.]]></description>
+      <content:encoded><![CDATA[## En bref
+- **Périmètre** : Tessin et provinces italiennes CO, VA et VB.
+- **Répertoire tessinois** : 207 entrées de la liste officielle.
+- **Répertoire italien** : 542 entrées filtrées sur les trois provinces frontalières.
+- **Garde vérifiée** : sources régionales pour Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese.
+
+Un guide pour vérifier la source à jour dans le bon canton, sans inventer de calendrier ni transformer un lien en promesse d’ouverture.
+## Ce qui est vérifié et ce qui ne l’est pas
+Les données de garde vérifiées publiées par notre jeu de données concernent cinq régions tessinoises : le Mendrisiotto, le Luganese, le Bellinzonese, Biasca e Valli et le Locarnese. Pour le Locarnese, la source est celle d’une association régionale ; pour les autres cantons, nous proposons des liens officiels navigables lorsqu’ils sont disponibles, mais aucun roster unique, aucune couverture active ni horaire déduit.
+
+Ouvrir la source cantonale ou provinciale avant le déplacement, suivre ses indications publiées et appeler la pharmacie. Lorsqu’une source n’expose aucun flux ni roster public, le guide le dit au lieu de combler le manque par des suppositions.
+
+## Répertoire, horaires et garde : trois données différentes
+- **répertoire**: La présence dans le répertoire signifie que la liste officielle contient l’entrée ; elle ne signifie pas que la pharmacie est ouverte maintenant.
+- **horaires d’ouverture**: Les horaires ne sont affichés que lorsque la page ou la source les publie ; ils ne sont pas déduits du répertoire ou de son horodatage.
+- **garde vérifiée**: Une garde vérifiée est un intervalle régional publié par l’OFCT ou la source associative pertinente ; ce n’est pas une ouverture continue. Vérifier par téléphone avant de se déplacer.
+## Périmètre, sources et horodatage
+Ce guide utilise des instantanés séparés : un répertoire d’adresses tessinois, un répertoire italien filtré et un jeu de données de gardes régionales (OFCT et source de l’association du Locarnese). Les sources ne sont pas fusionnées en un seul statut d’ouverture.
+
+- **Liste officielle des pharmacies du Tessin** : 207 entrées, téléchargées à 2026-09-14T10:03:57.824Z. [liste officielle](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
+- **Jeu de données italien officiel filtré sur les provinces CO, VA et VB** : 542 entrées, téléchargées à 2026-09-14T10:03:57.824Z. [jeu de données du ministère de la Santé](https://www.dati.salute.gov.it/it/dataset/farmacie/)
+- **Sources régionales pour les gardes tessinoises** : zones Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese, téléchargées à 2026-09-15T09:40:29.571Z. [source OFCT](https://www.ofct.ch/farmacieturno/)
+
+**Dernier téléchargement des instantanés**: répertoires 2026-09-14T10:03:57.824Z ; gardes 2026-09-15T09:40:29.571Z. L’horodatage indique quand l’instantané de la source a été téléchargé ; ce n’est pas un horaire d’ouverture et il ne prouve pas qu’une pharmacie est ouverte maintenant.
+
+Il ne s’agit pas d’une couverture nationale : le périmètre se limite au Tessin et aux provinces italiennes CO, VA et VB.
+Le Locarnese est inclus comme cinquième région de garde via la source de l’association régionale farmacielocarnese.ch. Son intervalle n’est publié qu’après une correspondance unique avec le répertoire cantonal ; la source ne remplace pas le répertoire.
+Pour le Locarnese : source de l’association régionale [farmacielocarnese.ch](https://www.farmacielocarnese.ch/) ; le parseur ne publie l’intervalle qu’après une correspondance unique de Farmacia et de la localité avec le répertoire cantonal et ne copie aucune adresse depuis la source.
+Aucune couverture de garde italienne n’est revendiquée : le répertoire italien est une liste d’adresses et ne prouve ni l’ouverture ni la garde d’une pharmacie.
+
+## Sources officielles et parcours utiles
+- [hub pharmacies](/fr/pharmacies/)
+- [répertoire du Tessin](/fr/pharmacies/ticino/)
+- [répertoire des provinces italiennes](/fr/pharmacies/italie/)
+- [pharmacies de garde](/fr/pharmacies-de-garde/)
+- **sources régionales par zone**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/), [Locarnese](https://www.farmacielocarnese.ch/)
+
+Pour un cas précis, ouvrir le parcours local, lire la fiche disponible et contacter la pharmacie : un répertoire statique ne remplace pas une confirmation directe.
+
+## Suisse : vérifier la source à jour par canton
+Voici des liens officiels navigables ou de sociétés cantonales de pharmaciens. Ouvrez-les au moment du besoin : ils peuvent proposer une recherche, un plan du jour, un contact ou un avis, mais ce guide ne les transforme pas en calendrier unique et ne promet ni horaire ni pharmacie ouverte.
+
+- [ZH — Zürich](https://www.notfall-apotheken-zh.ch/)
+- [BE — Bern](https://apobern.ch/dienstleistungen/notfalldienst/)
+- [LU — Luzern](https://www.apoluzern.ch/apotheken/notfalldienst)
+- [UR — Uri](https://www.ur.ch/dienstleistungen/3677)
+- [SZ — Schwyz](https://www.sz.ch/gesundheit-soziales/gesundheit/notfall.html/)
+- [ZG — Zug](https://www.zg.ch/behoerden/gesundheit/medizinische-versorgung/notfall)
+- [SO — Solothurn](https://avso.ch/notfalldienst-apotheken/)
+- [BS — Basel-Stadt](https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt)
+- [AG — Aargau](https://apotheken-aargau.ch/notfall/)
+- [TG — Thurgau](https://www.apotheken-thurgau.ch/pikettdienst/)
+- [GR — Graubünden](https://notfall.apotheke-chur.ch/)
+- [VS — Valais](https://www.pharmavalais.ch/pharmacie-valais/pharmacie-garde-51.html)
+- [FR — Fribourg](https://www.pharmaciesfribourg.ch/fr/prestations-et-conseils/pharmacie-de-garde)
+- [NE — Neuchâtel](https://www.onp.ch/Service-de-garde)
+- [JU — Jura](https://www.jura.ch/fr/Autorites/Administration/CHA/SIC/Urgences/Numeros-d-urgence-Urgence.html)
+- [VD — Vaud](https://garde.svph.ch)
+- [GE — Genève](https://pharmageneve.swiss/pharmacie-de-garde/)
+
+Pour le Tessin, nous publions des données de garde vérifiées pour les cinq régions du Mendrisiotto, du Luganese, du Bellinzonese, de Biasca e Valli et du Locarnese ; aucune couverture n’est déduite pour une autre zone.
+
+Pour SZ (Schwyz), le lien navigable ci-dessus est disponible, mais ce guide ne le traite pas comme un roster public ou un flux de garde : aucune couverture active ni horaire n’est revendiqué.
+
+OW (Obwald), NW (Nidwald), GL (Glaris), AR (Appenzell Rhodes-Extérieures), AI (Appenzell Rhodes-Intérieures), BL (Bâle-Campagne), SH (Schaffhouse) et SG (Saint-Gall) : ce guide ne représente aucun roster public ni flux vérifié. Aucune couverture active n’est revendiquée ; contacter la pharmacie ou l’autorité sanitaire cantonale locale. En cas d’urgence médicale, appeler le 144.
+
+## Frontière italienne (CO, VA, VB) : consulter directement les sources locales. Les documents peuvent changer ou expirer ; aucune garde ni horaire n’est déduit de leur présence.
+- [ATS Insubria](https://www.ats-insubria.it/farmacie)
+- [Varese (portale turni Federfarma Lombardia)](https://www.turnifarmacie.it/)
+- [Verbano-Cusio-Ossola (documento turni)](https://www.aslvco.it/wp-content/uploads/2026/03/3017434.pdf) — document annuel, édition 2026 : vérifier la version courante avant utilisation
+- [Farmacia Aperta](https://farmacia-aperta.eu/)
+
+Farmacia Aperta est un lien externe d’orientation, pas une source officielle ni une preuve d’ouverture ou de garde.]]></content:encoded>
+      <pubDate>Tue, 15 Sep 2026 09:37:46 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/farmacie-turno-svizzera-confine-italiano</guid>
+      <category>Notizie</category>
+      <media:content url="https://frontaliereticino.ch/images/places/lugano-view.webp" medium="image"/>
+    </item>
     <item>
       <title>La formation des adultes augmente les revenus de 50 %</title>
       <link>https://frontaliereticino.ch/fr/articles-suisse/formation-adultes-revenu-suisse/</link>
@@ -256,12 +339,12 @@ Alors que le Parlement poursuit ses travaux sur les grands dossiers de la légis
     <item>
       <title>Pharmacie ouverte ou de garde ? Comment lire le répertoire</title>
       <link>https://frontaliereticino.ch/fr/articles-suisse/pharmacie-ouverte-garde-repertoire/</link>
-      <description><![CDATA[La différence pratique entre trouver une pharmacie dans un répertoire, lire des horaires publiés et vérifier une garde OFCT. 207 entrées au Tessin et 542 entrées dans les provinces CO, VA et VB; gardes OFCT uniquement dans les quatre zones publiées.]]></description>
+      <description><![CDATA[La différence pratique entre trouver une pharmacie dans un répertoire, lire des horaires publiés et vérifier une garde OFCT. 207 entrées au Tessin et 542 entrées dans les provinces CO, VA et VB; gardes régionales vérifiées dans les cinq zones tessinoises.]]></description>
       <content:encoded><![CDATA[## En bref
 - **Périmètre** : Tessin et provinces italiennes CO, VA et VB.
 - **Répertoire tessinois** : 207 entrées de la liste officielle.
 - **Répertoire italien** : 542 entrées filtrées sur les trois provinces frontalières.
-- **Garde vérifiée** : OFCT, uniquement Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli.
+- **Garde vérifiée** : sources régionales pour Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese.
 
 La différence pratique entre trouver une pharmacie dans un répertoire, lire des horaires publiés et vérifier une garde OFCT.
 ## Trois questions avant de partir
@@ -272,18 +355,19 @@ Ouvrir le parcours adapté, vérifier l’heure de téléchargement de l’insta
 ## Répertoire, horaires et garde : trois données différentes
 - **répertoire**: La présence dans le répertoire signifie que la liste officielle contient l’entrée ; elle ne signifie pas que la pharmacie est ouverte maintenant.
 - **horaires d’ouverture**: Les horaires ne sont affichés que lorsque la page ou la source les publie ; ils ne sont pas déduits du répertoire ou de son horodatage.
-- **garde vérifiée**: Une garde vérifiée est un intervalle régional publié par l’OFCT ; ce n’est pas une ouverture continue. Vérifier par téléphone avant de se déplacer.
+- **garde vérifiée**: Une garde vérifiée est un intervalle régional publié par l’OFCT ou la source associative pertinente ; ce n’est pas une ouverture continue. Vérifier par téléphone avant de se déplacer.
 ## Périmètre, sources et horodatage
-Ce guide utilise des instantanés séparés : un répertoire d’adresses tessinois, un répertoire italien filtré et un jeu de données de gardes OFCT. Les sources ne sont pas fusionnées en un seul statut d’ouverture.
+Ce guide utilise des instantanés séparés : un répertoire d’adresses tessinois, un répertoire italien filtré et un jeu de données de gardes régionales (OFCT et source de l’association du Locarnese). Les sources ne sont pas fusionnées en un seul statut d’ouverture.
 
 - **Liste officielle des pharmacies du Tessin** : 207 entrées, téléchargées à 2026-09-14T10:03:57.824Z. [liste officielle](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
 - **Jeu de données italien officiel filtré sur les provinces CO, VA et VB** : 542 entrées, téléchargées à 2026-09-14T10:03:57.824Z. [jeu de données du ministère de la Santé](https://www.dati.salute.gov.it/it/dataset/farmacie/)
-- **Pages OFCT pour les gardes régionales** : zones Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, téléchargées à 2026-09-14T18:16:05.788Z. [source OFCT](https://www.ofct.ch/farmacieturno/)
+- **Sources régionales pour les gardes tessinoises** : zones Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese, téléchargées à 2026-09-15T09:40:29.571Z. [source OFCT](https://www.ofct.ch/farmacieturno/)
 
-**Dernier téléchargement des instantanés**: répertoires 2026-09-14T10:03:57.824Z ; gardes 2026-09-14T18:16:05.788Z. L’horodatage indique quand l’instantané de la source a été téléchargé ; ce n’est pas un horaire d’ouverture et il ne prouve pas qu’une pharmacie est ouverte maintenant.
+**Dernier téléchargement des instantanés**: répertoires 2026-09-14T10:03:57.824Z ; gardes 2026-09-15T09:40:29.571Z. L’horodatage indique quand l’instantané de la source a été téléchargé ; ce n’est pas un horaire d’ouverture et il ne prouve pas qu’une pharmacie est ouverte maintenant.
 
 Il ne s’agit pas d’une couverture nationale : le périmètre se limite au Tessin et aux provinces italiennes CO, VA et VB.
-Le Locarnese n’est pas encore inclus dans le parseur des gardes : nous n’en déduisons ni ne présentons aucune garde OFCT pour cette zone. Cela limite la donnée de garde, sans constituer une déclaration sur le répertoire cantonal.
+Le Locarnese est inclus comme cinquième région de garde via la source de l’association régionale farmacielocarnese.ch. Son intervalle n’est publié qu’après une correspondance unique avec le répertoire cantonal ; la source ne remplace pas le répertoire.
+Pour le Locarnese : source de l’association régionale [farmacielocarnese.ch](https://www.farmacielocarnese.ch/) ; le parseur ne publie l’intervalle qu’après une correspondance unique de Farmacia et de la localité avec le répertoire cantonal et ne copie aucune adresse depuis la source.
 Aucune couverture de garde italienne n’est revendiquée : le répertoire italien est une liste d’adresses et ne prouve ni l’ouverture ni la garde d’une pharmacie.
 
 ## Sources officielles et parcours utiles
@@ -291,7 +375,7 @@ Aucune couverture de garde italienne n’est revendiquée : le répertoire itali
 - [répertoire du Tessin](/fr/pharmacies/ticino/)
 - [répertoire des provinces italiennes](/fr/pharmacies/italie/)
 - [pharmacies de garde](/fr/pharmacies-de-garde/)
-- **sources OFCT par zone**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/)
+- **sources régionales par zone**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/), [Locarnese](https://www.farmacielocarnese.ch/)
 
 Pour un cas précis, ouvrir le parcours local, lire la fiche disponible et contacter la pharmacie : un répertoire statique ne remplace pas une confirmation directe.]]></content:encoded>
       <pubDate>Mon, 14 Sep 2026 20:06:51 GMT</pubDate>
@@ -303,12 +387,12 @@ Pour un cas précis, ouvrir le parcours local, lire la fiche disponible et conta
     <item>
       <title>Pharmacies à la frontière : Côme, Varèse et Verbano</title>
       <link>https://frontaliereticino.ch/fr/articles-suisse/pharmacies-frontiere-come-varese-verbano/</link>
-      <description><![CDATA[Comment utiliser le catalogue des pharmacies italiennes de la frontière avec le répertoire tessinois, sans transformer une adresse en promesse d’ouverture. 207 entrées au Tessin et 542 entrées dans les provinces CO, VA et VB; gardes OFCT uniquement dans les quatre zones publiées.]]></description>
+      <description><![CDATA[Comment utiliser le catalogue des pharmacies italiennes de la frontière avec le répertoire tessinois, sans transformer une adresse en promesse d’ouverture. 207 entrées au Tessin et 542 entrées dans les provinces CO, VA et VB; gardes régionales vérifiées dans les cinq zones tessinoises.]]></description>
       <content:encoded><![CDATA[## En bref
 - **Périmètre** : Tessin et provinces italiennes CO, VA et VB.
 - **Répertoire tessinois** : 207 entrées de la liste officielle.
 - **Répertoire italien** : 542 entrées filtrées sur les trois provinces frontalières.
-- **Garde vérifiée** : OFCT, uniquement Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli.
+- **Garde vérifiée** : sources régionales pour Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese.
 
 Comment utiliser le catalogue des pharmacies italiennes de la frontière avec le répertoire tessinois, sans transformer une adresse en promesse d’ouverture.
 ## Le périmètre du catalogue italien
@@ -319,18 +403,19 @@ Pour comparer les deux côtés de la frontière, utiliser les parcours du Tessin
 ## Répertoire, horaires et garde : trois données différentes
 - **répertoire**: La présence dans le répertoire signifie que la liste officielle contient l’entrée ; elle ne signifie pas que la pharmacie est ouverte maintenant.
 - **horaires d’ouverture**: Les horaires ne sont affichés que lorsque la page ou la source les publie ; ils ne sont pas déduits du répertoire ou de son horodatage.
-- **garde vérifiée**: Une garde vérifiée est un intervalle régional publié par l’OFCT ; ce n’est pas une ouverture continue. Vérifier par téléphone avant de se déplacer.
+- **garde vérifiée**: Une garde vérifiée est un intervalle régional publié par l’OFCT ou la source associative pertinente ; ce n’est pas une ouverture continue. Vérifier par téléphone avant de se déplacer.
 ## Périmètre, sources et horodatage
-Ce guide utilise des instantanés séparés : un répertoire d’adresses tessinois, un répertoire italien filtré et un jeu de données de gardes OFCT. Les sources ne sont pas fusionnées en un seul statut d’ouverture.
+Ce guide utilise des instantanés séparés : un répertoire d’adresses tessinois, un répertoire italien filtré et un jeu de données de gardes régionales (OFCT et source de l’association du Locarnese). Les sources ne sont pas fusionnées en un seul statut d’ouverture.
 
 - **Liste officielle des pharmacies du Tessin** : 207 entrées, téléchargées à 2026-09-14T10:03:57.824Z. [liste officielle](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
 - **Jeu de données italien officiel filtré sur les provinces CO, VA et VB** : 542 entrées, téléchargées à 2026-09-14T10:03:57.824Z. [jeu de données du ministère de la Santé](https://www.dati.salute.gov.it/it/dataset/farmacie/)
-- **Pages OFCT pour les gardes régionales** : zones Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, téléchargées à 2026-09-14T18:16:05.788Z. [source OFCT](https://www.ofct.ch/farmacieturno/)
+- **Sources régionales pour les gardes tessinoises** : zones Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese, téléchargées à 2026-09-15T09:40:29.571Z. [source OFCT](https://www.ofct.ch/farmacieturno/)
 
-**Dernier téléchargement des instantanés**: répertoires 2026-09-14T10:03:57.824Z ; gardes 2026-09-14T18:16:05.788Z. L’horodatage indique quand l’instantané de la source a été téléchargé ; ce n’est pas un horaire d’ouverture et il ne prouve pas qu’une pharmacie est ouverte maintenant.
+**Dernier téléchargement des instantanés**: répertoires 2026-09-14T10:03:57.824Z ; gardes 2026-09-15T09:40:29.571Z. L’horodatage indique quand l’instantané de la source a été téléchargé ; ce n’est pas un horaire d’ouverture et il ne prouve pas qu’une pharmacie est ouverte maintenant.
 
 Il ne s’agit pas d’une couverture nationale : le périmètre se limite au Tessin et aux provinces italiennes CO, VA et VB.
-Le Locarnese n’est pas encore inclus dans le parseur des gardes : nous n’en déduisons ni ne présentons aucune garde OFCT pour cette zone. Cela limite la donnée de garde, sans constituer une déclaration sur le répertoire cantonal.
+Le Locarnese est inclus comme cinquième région de garde via la source de l’association régionale farmacielocarnese.ch. Son intervalle n’est publié qu’après une correspondance unique avec le répertoire cantonal ; la source ne remplace pas le répertoire.
+Pour le Locarnese : source de l’association régionale [farmacielocarnese.ch](https://www.farmacielocarnese.ch/) ; le parseur ne publie l’intervalle qu’après une correspondance unique de Farmacia et de la localité avec le répertoire cantonal et ne copie aucune adresse depuis la source.
 Aucune couverture de garde italienne n’est revendiquée : le répertoire italien est une liste d’adresses et ne prouve ni l’ouverture ni la garde d’une pharmacie.
 
 ## Sources officielles et parcours utiles
@@ -338,7 +423,7 @@ Aucune couverture de garde italienne n’est revendiquée : le répertoire itali
 - [répertoire du Tessin](/fr/pharmacies/ticino/)
 - [répertoire des provinces italiennes](/fr/pharmacies/italie/)
 - [pharmacies de garde](/fr/pharmacies-de-garde/)
-- **sources OFCT par zone**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/)
+- **sources régionales par zone**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/), [Locarnese](https://www.farmacielocarnese.ch/)
 
 Pour un cas précis, ouvrir le parcours local, lire la fiche disponible et contacter la pharmacie : un répertoire statique ne remplace pas une confirmation directe.]]></content:encoded>
       <pubDate>Mon, 14 Sep 2026 20:06:50 GMT</pubDate>
@@ -350,34 +435,35 @@ Pour un cas précis, ouvrir le parcours local, lire la fiche disponible et conta
     <item>
       <title>Pharmacies de garde au Tessin : sources et couverture</title>
       <link>https://frontaliereticino.ch/fr/articles-suisse/guide-pharmacies-garde-tessin/</link>
-      <description><![CDATA[Ce guide indique où consulter les gardes des pharmacies au Tessin et comment comprendre leur couverture régionale. 207 entrées au Tessin et 542 entrées dans les provinces CO, VA et VB; gardes OFCT uniquement dans les quatre zones publiées.]]></description>
+      <description><![CDATA[Ce guide indique où consulter les gardes des pharmacies au Tessin et comment comprendre leur couverture régionale. 207 entrées au Tessin et 542 entrées dans les provinces CO, VA et VB; gardes régionales vérifiées dans les cinq zones tessinoises.]]></description>
       <content:encoded><![CDATA[## En bref
 - **Périmètre** : Tessin et provinces italiennes CO, VA et VB.
 - **Répertoire tessinois** : 207 entrées de la liste officielle.
 - **Répertoire italien** : 542 entrées filtrées sur les trois provinces frontalières.
-- **Garde vérifiée** : OFCT, uniquement Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli.
+- **Garde vérifiée** : sources régionales pour Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese.
 
 Ce guide indique où consulter les gardes des pharmacies au Tessin et comment comprendre leur couverture régionale.
 ## Ce que signifie « de garde » ici
-Les données de garde proviennent des pages officielles de l’association des pharmaciens du Tessin (OFCT). L’instantané utilisé ici couvre uniquement le Mendrisiotto, le Luganese, le Bellinzonese et Biasca e Valli. Le Locarnese n’est pas encore inclus dans le parseur des gardes : aucune couverture n’est déduite pour cette zone.
+Les données de garde combinent les pages officielles de l’association des pharmaciens du Tessin (OFCT) et la source de l’association régionale du Locarnese. L’instantané utilisé ici couvre les cinq régions tessinoises : le Mendrisiotto, le Luganese, le Bellinzonese, Biasca e Valli et le Locarnese.
 
 Pour trouver une pharmacie ouverte maintenant, ouvrir la page de garde de la zone et vérifier l’intervalle indiqué. Le répertoire d’adresses et les horaires ordinaires sont des données différentes de la garde vérifiée.
 
 ## Répertoire, horaires et garde : trois données différentes
 - **répertoire**: La présence dans le répertoire signifie que la liste officielle contient l’entrée ; elle ne signifie pas que la pharmacie est ouverte maintenant.
 - **horaires d’ouverture**: Les horaires ne sont affichés que lorsque la page ou la source les publie ; ils ne sont pas déduits du répertoire ou de son horodatage.
-- **garde vérifiée**: Une garde vérifiée est un intervalle régional publié par l’OFCT ; ce n’est pas une ouverture continue. Vérifier par téléphone avant de se déplacer.
+- **garde vérifiée**: Une garde vérifiée est un intervalle régional publié par l’OFCT ou la source associative pertinente ; ce n’est pas une ouverture continue. Vérifier par téléphone avant de se déplacer.
 ## Périmètre, sources et horodatage
-Ce guide utilise des instantanés séparés : un répertoire d’adresses tessinois, un répertoire italien filtré et un jeu de données de gardes OFCT. Les sources ne sont pas fusionnées en un seul statut d’ouverture.
+Ce guide utilise des instantanés séparés : un répertoire d’adresses tessinois, un répertoire italien filtré et un jeu de données de gardes régionales (OFCT et source de l’association du Locarnese). Les sources ne sont pas fusionnées en un seul statut d’ouverture.
 
 - **Liste officielle des pharmacies du Tessin** : 207 entrées, téléchargées à 2026-09-14T10:03:57.824Z. [liste officielle](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
 - **Jeu de données italien officiel filtré sur les provinces CO, VA et VB** : 542 entrées, téléchargées à 2026-09-14T10:03:57.824Z. [jeu de données du ministère de la Santé](https://www.dati.salute.gov.it/it/dataset/farmacie/)
-- **Pages OFCT pour les gardes régionales** : zones Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, téléchargées à 2026-09-14T18:16:05.788Z. [source OFCT](https://www.ofct.ch/farmacieturno/)
+- **Sources régionales pour les gardes tessinoises** : zones Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese, téléchargées à 2026-09-15T09:40:29.571Z. [source OFCT](https://www.ofct.ch/farmacieturno/)
 
-**Dernier téléchargement des instantanés**: répertoires 2026-09-14T10:03:57.824Z ; gardes 2026-09-14T18:16:05.788Z. L’horodatage indique quand l’instantané de la source a été téléchargé ; ce n’est pas un horaire d’ouverture et il ne prouve pas qu’une pharmacie est ouverte maintenant.
+**Dernier téléchargement des instantanés**: répertoires 2026-09-14T10:03:57.824Z ; gardes 2026-09-15T09:40:29.571Z. L’horodatage indique quand l’instantané de la source a été téléchargé ; ce n’est pas un horaire d’ouverture et il ne prouve pas qu’une pharmacie est ouverte maintenant.
 
 Il ne s’agit pas d’une couverture nationale : le périmètre se limite au Tessin et aux provinces italiennes CO, VA et VB.
-Le Locarnese n’est pas encore inclus dans le parseur des gardes : nous n’en déduisons ni ne présentons aucune garde OFCT pour cette zone. Cela limite la donnée de garde, sans constituer une déclaration sur le répertoire cantonal.
+Le Locarnese est inclus comme cinquième région de garde via la source de l’association régionale farmacielocarnese.ch. Son intervalle n’est publié qu’après une correspondance unique avec le répertoire cantonal ; la source ne remplace pas le répertoire.
+Pour le Locarnese : source de l’association régionale [farmacielocarnese.ch](https://www.farmacielocarnese.ch/) ; le parseur ne publie l’intervalle qu’après une correspondance unique de Farmacia et de la localité avec le répertoire cantonal et ne copie aucune adresse depuis la source.
 Aucune couverture de garde italienne n’est revendiquée : le répertoire italien est une liste d’adresses et ne prouve ni l’ouverture ni la garde d’une pharmacie.
 
 ## Sources officielles et parcours utiles
@@ -385,7 +471,7 @@ Aucune couverture de garde italienne n’est revendiquée : le répertoire itali
 - [répertoire du Tessin](/fr/pharmacies/ticino/)
 - [répertoire des provinces italiennes](/fr/pharmacies/italie/)
 - [pharmacies de garde](/fr/pharmacies-de-garde/)
-- **sources OFCT par zone**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/)
+- **sources régionales par zone**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/), [Locarnese](https://www.farmacielocarnese.ch/)
 
 Pour un cas précis, ouvrir le parcours local, lire la fiche disponible et contacter la pharmacie : un répertoire statique ne remplace pas une confirmation directe.]]></content:encoded>
       <pubDate>Mon, 14 Sep 2026 20:06:49 GMT</pubDate>
@@ -397,34 +483,35 @@ Pour un cas précis, ouvrir le parcours local, lire la fiche disponible et conta
     <item>
       <title>Pharmacies au Tessin : répertoire et contacts</title>
       <link>https://frontaliereticino.ch/fr/articles-suisse/repertoire-pharmacies-tessin-contacts/</link>
-      <description><![CDATA[Un point de départ pour rechercher les pharmacies présentes dans le répertoire tessinois et ouvrir les fiches locales disponibles. 207 entrées au Tessin et 542 entrées dans les provinces CO, VA et VB; gardes OFCT uniquement dans les quatre zones publiées.]]></description>
+      <description><![CDATA[Un point de départ pour rechercher les pharmacies présentes dans le répertoire tessinois et ouvrir les fiches locales disponibles. 207 entrées au Tessin et 542 entrées dans les provinces CO, VA et VB; gardes régionales vérifiées dans les cinq zones tessinoises.]]></description>
       <content:encoded><![CDATA[## En bref
 - **Périmètre** : Tessin et provinces italiennes CO, VA et VB.
 - **Répertoire tessinois** : 207 entrées de la liste officielle.
 - **Répertoire italien** : 542 entrées filtrées sur les trois provinces frontalières.
-- **Garde vérifiée** : OFCT, uniquement Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli.
+- **Garde vérifiée** : sources régionales pour Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese.
 
 Un point de départ pour rechercher les pharmacies présentes dans le répertoire tessinois et ouvrir les fiches locales disponibles.
 ## Ce que contient le répertoire
 Le répertoire tessinois provient de la liste cantonale officielle et l’instantané actuel contient 207 entrées. Une entrée aide à trouver les noms, adresses et contacts publiés ; elle ne prouve pas une ouverture en temps réel et ne remplace pas un appel.
 
-Pour une recherche pratique, ouvrir le parcours du Tessin, consulter la fiche et vérifier les informations effectivement publiées. Pour une garde, passer par la page OFCT : le répertoire n’est pas un service de garde.
+Pour une recherche pratique, ouvrir le parcours du Tessin, consulter la fiche et vérifier les informations effectivement publiées. Pour une garde, passer par la source régionale concernée : le répertoire n’est pas un service de garde.
 
 ## Répertoire, horaires et garde : trois données différentes
 - **répertoire**: La présence dans le répertoire signifie que la liste officielle contient l’entrée ; elle ne signifie pas que la pharmacie est ouverte maintenant.
 - **horaires d’ouverture**: Les horaires ne sont affichés que lorsque la page ou la source les publie ; ils ne sont pas déduits du répertoire ou de son horodatage.
-- **garde vérifiée**: Une garde vérifiée est un intervalle régional publié par l’OFCT ; ce n’est pas une ouverture continue. Vérifier par téléphone avant de se déplacer.
+- **garde vérifiée**: Une garde vérifiée est un intervalle régional publié par l’OFCT ou la source associative pertinente ; ce n’est pas une ouverture continue. Vérifier par téléphone avant de se déplacer.
 ## Périmètre, sources et horodatage
-Ce guide utilise des instantanés séparés : un répertoire d’adresses tessinois, un répertoire italien filtré et un jeu de données de gardes OFCT. Les sources ne sont pas fusionnées en un seul statut d’ouverture.
+Ce guide utilise des instantanés séparés : un répertoire d’adresses tessinois, un répertoire italien filtré et un jeu de données de gardes régionales (OFCT et source de l’association du Locarnese). Les sources ne sont pas fusionnées en un seul statut d’ouverture.
 
 - **Liste officielle des pharmacies du Tessin** : 207 entrées, téléchargées à 2026-09-14T10:03:57.824Z. [liste officielle](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
 - **Jeu de données italien officiel filtré sur les provinces CO, VA et VB** : 542 entrées, téléchargées à 2026-09-14T10:03:57.824Z. [jeu de données du ministère de la Santé](https://www.dati.salute.gov.it/it/dataset/farmacie/)
-- **Pages OFCT pour les gardes régionales** : zones Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, téléchargées à 2026-09-14T18:16:05.788Z. [source OFCT](https://www.ofct.ch/farmacieturno/)
+- **Sources régionales pour les gardes tessinoises** : zones Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese, téléchargées à 2026-09-15T09:40:29.571Z. [source OFCT](https://www.ofct.ch/farmacieturno/)
 
-**Dernier téléchargement des instantanés**: répertoires 2026-09-14T10:03:57.824Z ; gardes 2026-09-14T18:16:05.788Z. L’horodatage indique quand l’instantané de la source a été téléchargé ; ce n’est pas un horaire d’ouverture et il ne prouve pas qu’une pharmacie est ouverte maintenant.
+**Dernier téléchargement des instantanés**: répertoires 2026-09-14T10:03:57.824Z ; gardes 2026-09-15T09:40:29.571Z. L’horodatage indique quand l’instantané de la source a été téléchargé ; ce n’est pas un horaire d’ouverture et il ne prouve pas qu’une pharmacie est ouverte maintenant.
 
 Il ne s’agit pas d’une couverture nationale : le périmètre se limite au Tessin et aux provinces italiennes CO, VA et VB.
-Le Locarnese n’est pas encore inclus dans le parseur des gardes : nous n’en déduisons ni ne présentons aucune garde OFCT pour cette zone. Cela limite la donnée de garde, sans constituer une déclaration sur le répertoire cantonal.
+Le Locarnese est inclus comme cinquième région de garde via la source de l’association régionale farmacielocarnese.ch. Son intervalle n’est publié qu’après une correspondance unique avec le répertoire cantonal ; la source ne remplace pas le répertoire.
+Pour le Locarnese : source de l’association régionale [farmacielocarnese.ch](https://www.farmacielocarnese.ch/) ; le parseur ne publie l’intervalle qu’après une correspondance unique de Farmacia et de la localité avec le répertoire cantonal et ne copie aucune adresse depuis la source.
 Aucune couverture de garde italienne n’est revendiquée : le répertoire italien est une liste d’adresses et ne prouve ni l’ouverture ni la garde d’une pharmacie.
 
 ## Sources officielles et parcours utiles
@@ -432,7 +519,7 @@ Aucune couverture de garde italienne n’est revendiquée : le répertoire itali
 - [répertoire du Tessin](/fr/pharmacies/ticino/)
 - [répertoire des provinces italiennes](/fr/pharmacies/italie/)
 - [pharmacies de garde](/fr/pharmacies-de-garde/)
-- **sources OFCT par zone**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/)
+- **sources régionales par zone**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/), [Locarnese](https://www.farmacielocarnese.ch/)
 
 Pour un cas précis, ouvrir le parcours local, lire la fiche disponible et contacter la pharmacie : un répertoire statique ne remplace pas une confirmation directe.]]></content:encoded>
       <pubDate>Mon, 14 Sep 2026 20:06:49 GMT</pubDate>
@@ -2244,53 +2331,6 @@ Pour analyser en détail l'impact des coûts fixes, des retenues sociales et des
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/finanze-ospedali-svizzera-2025</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/finanze-ospedali-svizzera-2025.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Economiesuisse : Silvan Wildhaber est le nouveau président</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/economiesuisse-silvan-wildhaber-est-le-nouveau-president/</link>
-      <description><![CDATA[Passage de la présidence à Economiesuisse : Silvan Wildhaber succède à Christoph Mäder avec un soutien total aux accords bilatéraux III.]]></description>
-      <content:encoded><![CDATA[## En bref
-- Passation de la présidence d'Economiesuisse
-- Silvan Wildhaber succède à Christoph Mäder
-- Soutien total aux accords bilatéraux III
-
-## Faits clés
-- **Quoi**: Changement à la présidence d'Economiesuisse
-- Quand: Aujourd'hui
-- Lieu: Berne
-- Qui: Silvan Wildhaber et Christoph Mäder
-- Montant: 100000 entreprises représentées
-
-(Keystone-ATS) La passation de pouvoir s'est déroulée à Berne lors de la Journée de l'économie organisée par l'association qui représente les entreprises helvétiques. Economiesuisse a un nouveau numéro un: après deux mandats de trois ans, Christoph Mäder a cédé aujourd'hui la présidence à son successeur Silvan Wildhaber. Durant l'assemblée annuelle de l'organisme, selon les communications d'Economiesuisse elle-même, le nouveau président a mis en évidence le contexte international. Une guerre commerciale et douanière fait rage autour de nous, a affirmé M. Wildhaber dans son discours à l'assemblée annuelle, soulignant que pour une petite économie ouverte comme la Suisse, cela représente un défi énorme. Le St-Gallois de 48 ans a ajouté qu'il faut saisir chaque opportunité pour améliorer les relations commerciales, confirmant son engagement de toutes ses forces en faveur des nouveaux accords de libre-échange avec la Malaisie et le Mercosur, ainsi que des accords bilatéraux III. L'entrepreneur a ensuite souligné l'importance de convaincre la population de la valeur ajoutée d'une économie forte. Les entreprises et leurs collaborateurs créent jour après jour la prospérité du pays, offrant une contribution indispensable. Le président sortant Mäder a quant à lui pointé du doigt la stagnation des conditions-cadres, souhaitant que la Suisse démontre à nouveau la volonté de figurer parmi les pays les plus prospères, dotés des meilleures opportunités de formation, des systèmes de prévoyance les plus durables, d'un approvisionnement énergétique stable et du plus grand nombre d'accords de libre-échange.
-
-### Les détails de l'assemblée et les nominations
-Le président de la Confédération Guy Parmelin est également intervenu lors de la Journée de l'économie, soulignant l'importance de la diversification dans la politique économique extérieure face aux incertitudes mondiales, de même que le président de la direction générale de la Banque nationale suisse (BNS) Martin Schlegel, qui a parlé du rôle de son institution pour garantir la stabilité en cette période mondiale difficile. L'assemblée a élu seize nouveaux membres du comité, dont quatre entrent également au comité directeur. Parmi eux figure Giorgio Pradelli, président désigné de l'Association suisse des banquiers (ASB), qui assumera la vice-présidence d'Economiesuisse. La nomination du nouveau président Silvan Wildhaber avait en revanche déjà eu lieu le 16 mars par le comité. L'organisation regroupe 100 associations professionnelles, 20 chambres de commerce cantonales et plusieurs entreprises individuelles, représentant environ 100'000 entreprises de toutes les branches qui emploient deux millions de personnes. Avec des moyens importants, l'organisation cherche à influencer la politique suisse, en particulier lors des élections fédérales, bien que pas toujours avec succès, comme l'ont démontré certaines défaites récentes, dont le 'oui' du peuple helvétique à la 13e rente AVS. Dans ce contexte, il convient également de mentionner l'Union suisse des arts et métiers, qui représente aussi les entreprises mais se montre historiquement plus orientée vers les petites et moyennes entreprises qu'Economiesuisse, traditionnellement proche des grandes multinationales et d'une économie fortement intégrée à l'échelle mondiale.
-### Les priorités économiques et la confrontation entre organisations
-
-Les déclarations faites lors de la journée de l'économie d'Economiesuisse mettent en lumière les divergences et la complexité qui caractérisent le tissu entrepreneurial suisse. D'un côté, il y a la position d'Economiesuisse, axée sur la défense des intérêts des grandes multinationales et sur l'intégration mondiale par le soutien inconditionnel aux accords de libre-échange avec la Malaisie et le Mercosur ainsi qu'aux accords bilatéraux III. De l'autre côté opère l'Union suisse des arts et métiers, dirigée par le conseiller aux États Fabio Regazzi, qui représente les petites et moyennes entreprises helvétiques. Cette distinction structurelle fait que les positions des deux organismes ne coïncident pas toujours sur des sujets cruciaux de politique économique et fédérale.
-
-### Le contexte politique et institutionnel suisse
-
-L'action d'Economiesuisse vise à influencer le débat politique et les décisions à Berne grâce à des moyens financiers et organisationnels importants, bien que les résultats électoraux et les votations populaires ne confirment pas toujours les lignes promues par l'association. Un exemple emblématique cité dans le débat récent est représenté par le vote populaire favorable à la 13e rente AVS, qui a marqué une défaite pour les positions soutenues par les grands groupes économiques. Les réflexions exprimées par l'ancien président Christoph Mäder soulignent l'inquiétude face au blocage des conditions-cadres, en particulier en ce qui concerne la nécessité de réformes structurelles dans les secteurs de la formation, de la prévoyance, de l'énergie et des accords commerciaux internationaux. L'intervention du conseiller fédéral Guy Parmelin a en outre réaffirmé la nécessité d'une politique économique extérieure diversifiée pour faire face aux tensions douanières et aux guerres commerciales mondiales qui menacent les économies ouvertes comme celle de la Suisse. La présence de personnalités de premier plan du monde financier et institutionnel, comme le président de la direction générale de la BNS Martin Schlegel, confirme l'attention portée à la stabilité globale du système économique national en cette période de transition et de défis internationaux accrus.
-
-## Outils utiles pour la planification
-Pour estimer votre stratégie retraite, utilisez le [planificateur retraite](nav:pension) et le [simulateur 3e pilier](nav:pillar3).
-### Analyse des opportunités et outils d'approfondissement économique
-
-Pour ceux qui vivent et travaillent en Suisse, suivre l'évolution des relations commerciales internationales, des accords bilatéraux et des dynamiques économiques promus par des organisations comme Economiesuisse offre une clé de lecture fondamentale pour comprendre les perspectives d'emploi et de croissance du pays. Les décisions prises au niveau fédéral concernant les traités de libre-échange et les conditions-cadres pour les entreprises ont une incidence directe sur le climat économique général, la stabilité de l'approvisionnement énergétique et la compétitivité des entreprises suisses sur les marchés mondiaux.
-
-### Vérifications et outils utiles pour les résidents
-
-Alors que les grandes associations économiques discutent des stratégies pour l'avenir de la Suisse et du positionnement international des entreprises, les travailleurs et les résidents peuvent analyser l'impact de la dynamique économique et salariale sur leur situation financière grâce à des outils dédiés. Pour évaluer votre situation économique, comprendre l'évolution du coût de la vie ou analyser les perspectives liées au marché du travail suisse, vous pouvez consulter des ressources spécifiques et actualisées.
-
-Pour approfondir l'impact des politiques économiques fédérales et mieux planifier votre situation financière et de prévoyance en Suisse, découvrez le [calcolatore stipendio e imposte](nav:calculator) disponible sur le portail.
-
-*Source: [swissinfo.ch](https://www.swissinfo.ch/ita/economiesuisse%3a-entra-in-carica-presidente%2c-%22100%25-per-i-bilaterali%22/92043221)*]]></content:encoded>
-      <pubDate>Sat, 12 Sep 2026 00:43:56 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/economiesuisse-silvan-wildhaber</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/economiesuisse-silvan-wildhaber.webp" medium="image"/>
     </item>
   </channel>
 </rss>

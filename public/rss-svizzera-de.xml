@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Nachrichten und Leitfäden zur Schweiz: Wirtschaft, Arbeit, Steuern und Alltag</description>
     <language>de</language>
-    <lastBuildDate>Tue, 15 Sep 2026 08:04:36 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 15 Sep 2026 09:37:46 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Schweiz</title>
@@ -17,6 +17,89 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-de.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Notdienst-Apotheken in der Schweiz und an der italienischen Grenze: Quellen je Kanton</title>
+      <link>https://frontaliereticino.ch/de/schweiz-artikel/notdienst-apotheken-schweiz-italienische-grenze/</link>
+      <description><![CDATA[Ein Leitfaden zur Prüfung der aktuellen Quelle im richtigen Kanton, ohne Kalender zu erfinden oder einen Link als Öffnungszusage zu lesen. 207 Einträge im Tessin und 542 Einträge in den Provinzen CO, VA und VB; regionaler Notdienst in den fünf Tessiner Gebieten bestätigt.]]></description>
+      <content:encoded><![CDATA[## Kurz erklärt
+- **Umfang**: Tessin und italienische Provinzen CO, VA und VB.
+- **Tessiner Verzeichnis**: 207 Einträge aus der offiziellen Liste.
+- **Italienisches Verzeichnis**: 542 auf die drei Grenzprovinzen gefilterte Einträge.
+- **Bestätigter Notdienst**: regionale Quellen für Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese.
+
+Ein Leitfaden zur Prüfung der aktuellen Quelle im richtigen Kanton, ohne Kalender zu erfinden oder einen Link als Öffnungszusage zu lesen.
+## Was bestätigt ist und was nicht
+Die bestätigten Notdienst-Daten unseres Datensatzes betreffen fünf Tessiner Regionen: Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli und Locarnese. Für das Locarnese wird eine regionale Verbandsquelle genutzt; für andere Kantone nennen wir verfügbare aufrufbare offizielle Links, veröffentlichen aber kein einheitliches Verzeichnis, keine aktive Abdeckung und keine abgeleiteten Öffnungszeiten.
+
+Vor der Fahrt die kantonale oder provinziale Quelle öffnen, ihren veröffentlichten Anweisungen folgen und die Apotheke anrufen. Wenn eine Quelle keinen öffentlichen Feed oder kein Verzeichnis bietet, benennt der Leitfaden dies statt die Lücke mit Annahmen zu füllen.
+
+## Verzeichnis, Öffnungszeiten und Notdienst: drei verschiedene Angaben
+- **Verzeichnis**: Ein Eintrag bedeutet, dass die offizielle Liste die Apotheke führt; daraus folgt nicht, dass sie jetzt geöffnet ist.
+- **Öffnungszeiten**: Öffnungszeiten werden nur angezeigt, wenn die Seite oder Quelle sie veröffentlicht; sie werden nicht aus Verzeichnis oder Zeitstempel abgeleitet.
+- **bestätigter Notdienst**: Ein bestätigter Notdienst ist ein von der OFCT oder der zuständigen Verbandsquelle veröffentlichtes regionales Zeitintervall; er bedeutet keine durchgehende Öffnung. Vor der Fahrt telefonisch prüfen.
+## Geltungsbereich, Quellen und Zeitstempel
+Dieser Leitfaden nutzt getrennte Snapshots: ein Tessiner Adressverzeichnis, ein gefiltertes italienisches Verzeichnis und einen regionalen Notdienst-Datensatz (OFCT und die Verbandsquelle des Locarnese). Die Quellen werden nicht zu einem einzigen Öffnungsstatus zusammengeführt.
+
+- **Offizielle Apothekenliste des Tessins**: 207 Einträge, abgerufen um 2026-09-14T10:03:57.824Z. [offizielle Liste](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
+- **Offizieller italienischer Datensatz, gefiltert auf CO, VA und VB**: 542 Einträge, abgerufen um 2026-09-14T10:03:57.824Z. [Datensatz des Gesundheitsministeriums](https://www.dati.salute.gov.it/it/dataset/farmacie/)
+- **Regionale Quellen für Tessiner Notdienste**: Gebiete Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese, abgerufen um 2026-09-15T09:40:29.571Z. [OFCT-Quelle](https://www.ofct.ch/farmacieturno/)
+
+**Letzter Abruf der Snapshots**: Verzeichnisse 2026-09-14T10:03:57.824Z; Notdienst 2026-09-15T09:40:29.571Z. Der Zeitstempel bezeichnet den Abruf des Quellen-Snapshots; er ist keine Öffnungszeit und beweist nicht, dass eine Apotheke jetzt geöffnet ist.
+
+Dies ist keine landesweite Abdeckung: Der Umfang beschränkt sich auf das Tessin und die italienischen Provinzen CO, VA und VB.
+Das Locarnese ist als fünfte Notdienstregion über die regionale Verbandsquelle farmacielocarnese.ch enthalten. Das Intervall wird erst nach einem eindeutigen Abgleich mit dem kantonalen Verzeichnis veröffentlicht; die Quelle ersetzt das Verzeichnis nicht.
+Für Locarnese: regionale Verbandsquelle [farmacielocarnese.ch](https://www.farmacielocarnese.ch/); der Parser veröffentlicht ein Intervall erst nach einem eindeutigen Abgleich von Farmacia und Ort mit dem kantonalen Verzeichnis und übernimmt keine Adresse aus der Quelle.
+Für Italien wird kein Notdienst-Anspruch gemacht: Das italienische Verzeichnis ist eine Adressliste und beweist weder Öffnung noch Notdienst.
+
+## Offizielle Quellen und nützliche Wege
+- [Apotheken-Hub](/de/apotheken/)
+- [Verzeichnis Tessin](/de/apotheken/ticino/)
+- [Verzeichnis italienische Provinzen](/de/apotheken/italien/)
+- [Notdienst-Apotheken](/de/notdienst-apotheken/)
+- **regionale Quellen nach Gebiet**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/), [Locarnese](https://www.farmacielocarnese.ch/)
+
+Für einen konkreten Fall den lokalen Weg öffnen, den verfügbaren Eintrag lesen und die Apotheke kontaktieren: Ein statisches Verzeichnis ersetzt keine direkte Bestätigung.
+
+## Schweiz: aktuelle Quelle je Kanton prüfen
+Dies sind aufrufbare offizielle Links oder Links kantonaler Apothekerverbände. Bei Bedarf direkt öffnen: Sie können Suche, Tagesplan, Kontakt oder Hinweis bieten; dieser Leitfaden macht daraus keinen einheitlichen Kalender und verspricht keine Öffnungszeit oder geöffnete Apotheke.
+
+- [ZH — Zürich](https://www.notfall-apotheken-zh.ch/)
+- [BE — Bern](https://apobern.ch/dienstleistungen/notfalldienst/)
+- [LU — Luzern](https://www.apoluzern.ch/apotheken/notfalldienst)
+- [UR — Uri](https://www.ur.ch/dienstleistungen/3677)
+- [SZ — Schwyz](https://www.sz.ch/gesundheit-soziales/gesundheit/notfall.html/)
+- [ZG — Zug](https://www.zg.ch/behoerden/gesundheit/medizinische-versorgung/notfall)
+- [SO — Solothurn](https://avso.ch/notfalldienst-apotheken/)
+- [BS — Basel-Stadt](https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt)
+- [AG — Aargau](https://apotheken-aargau.ch/notfall/)
+- [TG — Thurgau](https://www.apotheken-thurgau.ch/pikettdienst/)
+- [GR — Graubünden](https://notfall.apotheke-chur.ch/)
+- [VS — Valais](https://www.pharmavalais.ch/pharmacie-valais/pharmacie-garde-51.html)
+- [FR — Fribourg](https://www.pharmaciesfribourg.ch/fr/prestations-et-conseils/pharmacie-de-garde)
+- [NE — Neuchâtel](https://www.onp.ch/Service-de-garde)
+- [JU — Jura](https://www.jura.ch/fr/Autorites/Administration/CHA/SIC/Urgences/Numeros-d-urgence-Urgence.html)
+- [VD — Vaud](https://garde.svph.ch)
+- [GE — Genève](https://pharmageneve.swiss/pharmacie-de-garde/)
+
+Für das Tessin veröffentlichen wir bestätigte Notdienst-Daten für die fünf Regionen Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli und Locarnese; für jedes andere Gebiet wird keine Abdeckung abgeleitet.
+
+Für SZ (Schwyz) ist der aufrufbare Link oben vorhanden, aber dieser Leitfaden behandelt ihn nicht als öffentliches Verzeichnis oder Notdienst-Feed: Es wird weder aktive Abdeckung noch Öffnungszeit behauptet.
+
+OW (Obwalden), NW (Nidwalden), GL (Glarus), AR (Appenzell Ausserrhoden), AI (Appenzell Innerrhoden), BL (Basel-Landschaft), SH (Schaffhausen) und SG (St. Gallen): Dieser Leitfaden bildet kein öffentliches Verzeichnis und keinen bestätigten Feed ab. Es wird keine aktive Abdeckung behauptet; lokale Apotheke oder kantonale Gesundheitsbehörde kontaktieren. Bei einem medizinischen Notfall 144 anrufen.
+
+## Italienische Grenze (CO, VA, VB): lokale Quellen direkt prüfen. Dokumente können sich ändern oder ablaufen; aus ihrem Vorhandensein wird kein Notdienst und keine Öffnungszeit abgeleitet.
+- [ATS Insubria](https://www.ats-insubria.it/farmacie)
+- [Varese (portale turni Federfarma Lombardia)](https://www.turnifarmacie.it/)
+- [Verbano-Cusio-Ossola (documento turni)](https://www.aslvco.it/wp-content/uploads/2026/03/3017434.pdf) — Jahresdokument, Ausgabe 2026: vor der Nutzung die aktuelle Version prüfen
+- [Farmacia Aperta](https://farmacia-aperta.eu/)
+
+Farmacia Aperta ist ein externer Orientierungslink, keine offizielle Quelle und kein Nachweis für Öffnung oder Notdienst.]]></content:encoded>
+      <pubDate>Tue, 15 Sep 2026 09:37:46 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/farmacie-turno-svizzera-confine-italiano</guid>
+      <category>Notizie</category>
+      <media:content url="https://frontaliereticino.ch/images/places/lugano-view.webp" medium="image"/>
+    </item>
     <item>
       <title>Erwachsenenbildung erhöht das Einkommen um 50 %</title>
       <link>https://frontaliereticino.ch/de/schweiz-artikel/bildung-erwachsene-einkommen-schweiz/</link>
@@ -277,12 +360,12 @@ Während das Parlament seine Arbeit an den großen Dossiers der Legislaturperiod
     <item>
       <title>Apotheke geöffnet oder Notdienst? Das Verzeichnis richtig lesen</title>
       <link>https://frontaliereticino.ch/de/schweiz-artikel/apotheke-geoeffnet-notdienst-verzeichnis/</link>
-      <description><![CDATA[Der praktische Unterschied zwischen einem Verzeichniseintrag, veröffentlichten Öffnungszeiten und OFCT-Notdienstangaben. 207 Einträge im Tessin und 542 Einträge in den Provinzen CO, VA und VB; OFCT-Notdienst nur in den vier veröffentlichten Gebieten.]]></description>
+      <description><![CDATA[Der praktische Unterschied zwischen einem Verzeichniseintrag, veröffentlichten Öffnungszeiten und OFCT-Notdienstangaben. 207 Einträge im Tessin und 542 Einträge in den Provinzen CO, VA und VB; regionaler Notdienst in den fünf Tessiner Gebieten bestätigt.]]></description>
       <content:encoded><![CDATA[## Kurz erklärt
 - **Umfang**: Tessin und italienische Provinzen CO, VA und VB.
 - **Tessiner Verzeichnis**: 207 Einträge aus der offiziellen Liste.
 - **Italienisches Verzeichnis**: 542 auf die drei Grenzprovinzen gefilterte Einträge.
-- **Bestätigter Notdienst**: OFCT, nur Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli.
+- **Bestätigter Notdienst**: regionale Quellen für Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese.
 
 Der praktische Unterschied zwischen einem Verzeichniseintrag, veröffentlichten Öffnungszeiten und OFCT-Notdienstangaben.
 ## Drei Fragen vor der Fahrt
@@ -293,18 +376,19 @@ Den passenden Weg öffnen, Abrufzeitpunkt und Quelle des Snapshots prüfen und a
 ## Verzeichnis, Öffnungszeiten und Notdienst: drei verschiedene Angaben
 - **Verzeichnis**: Ein Eintrag bedeutet, dass die offizielle Liste die Apotheke führt; daraus folgt nicht, dass sie jetzt geöffnet ist.
 - **Öffnungszeiten**: Öffnungszeiten werden nur angezeigt, wenn die Seite oder Quelle sie veröffentlicht; sie werden nicht aus Verzeichnis oder Zeitstempel abgeleitet.
-- **bestätigter Notdienst**: Ein bestätigter Notdienst ist ein von der OFCT veröffentlichtes regionales Zeitintervall; er bedeutet keine durchgehende Öffnung. Vor der Fahrt telefonisch prüfen.
+- **bestätigter Notdienst**: Ein bestätigter Notdienst ist ein von der OFCT oder der zuständigen Verbandsquelle veröffentlichtes regionales Zeitintervall; er bedeutet keine durchgehende Öffnung. Vor der Fahrt telefonisch prüfen.
 ## Geltungsbereich, Quellen und Zeitstempel
-Dieser Leitfaden nutzt getrennte Snapshots: ein Tessiner Adressverzeichnis, ein gefiltertes italienisches Verzeichnis und einen OFCT-Notdienst-Datensatz. Die Quellen werden nicht zu einem einzigen Öffnungsstatus zusammengeführt.
+Dieser Leitfaden nutzt getrennte Snapshots: ein Tessiner Adressverzeichnis, ein gefiltertes italienisches Verzeichnis und einen regionalen Notdienst-Datensatz (OFCT und die Verbandsquelle des Locarnese). Die Quellen werden nicht zu einem einzigen Öffnungsstatus zusammengeführt.
 
 - **Offizielle Apothekenliste des Tessins**: 207 Einträge, abgerufen um 2026-09-14T10:03:57.824Z. [offizielle Liste](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
 - **Offizieller italienischer Datensatz, gefiltert auf CO, VA und VB**: 542 Einträge, abgerufen um 2026-09-14T10:03:57.824Z. [Datensatz des Gesundheitsministeriums](https://www.dati.salute.gov.it/it/dataset/farmacie/)
-- **OFCT-Seiten für regionale Notdienste**: Gebiete Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, abgerufen um 2026-09-14T18:16:05.788Z. [OFCT-Quelle](https://www.ofct.ch/farmacieturno/)
+- **Regionale Quellen für Tessiner Notdienste**: Gebiete Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese, abgerufen um 2026-09-15T09:40:29.571Z. [OFCT-Quelle](https://www.ofct.ch/farmacieturno/)
 
-**Letzter Abruf der Snapshots**: Verzeichnisse 2026-09-14T10:03:57.824Z; Notdienst 2026-09-14T18:16:05.788Z. Der Zeitstempel bezeichnet den Abruf des Quellen-Snapshots; er ist keine Öffnungszeit und beweist nicht, dass eine Apotheke jetzt geöffnet ist.
+**Letzter Abruf der Snapshots**: Verzeichnisse 2026-09-14T10:03:57.824Z; Notdienst 2026-09-15T09:40:29.571Z. Der Zeitstempel bezeichnet den Abruf des Quellen-Snapshots; er ist keine Öffnungszeit und beweist nicht, dass eine Apotheke jetzt geöffnet ist.
 
 Dies ist keine landesweite Abdeckung: Der Umfang beschränkt sich auf das Tessin und die italienischen Provinzen CO, VA und VB.
-Das Locarnese ist noch nicht im Notdienst-Parser enthalten: Für dieses Gebiet wird kein OFCT-Notdienst abgeleitet oder dargestellt. Das begrenzt die Notdienst-Daten, sagt aber nichts über das kantonale Verzeichnis aus.
+Das Locarnese ist als fünfte Notdienstregion über die regionale Verbandsquelle farmacielocarnese.ch enthalten. Das Intervall wird erst nach einem eindeutigen Abgleich mit dem kantonalen Verzeichnis veröffentlicht; die Quelle ersetzt das Verzeichnis nicht.
+Für Locarnese: regionale Verbandsquelle [farmacielocarnese.ch](https://www.farmacielocarnese.ch/); der Parser veröffentlicht ein Intervall erst nach einem eindeutigen Abgleich von Farmacia und Ort mit dem kantonalen Verzeichnis und übernimmt keine Adresse aus der Quelle.
 Für Italien wird kein Notdienst-Anspruch gemacht: Das italienische Verzeichnis ist eine Adressliste und beweist weder Öffnung noch Notdienst.
 
 ## Offizielle Quellen und nützliche Wege
@@ -312,7 +396,7 @@ Für Italien wird kein Notdienst-Anspruch gemacht: Das italienische Verzeichnis 
 - [Verzeichnis Tessin](/de/apotheken/ticino/)
 - [Verzeichnis italienische Provinzen](/de/apotheken/italien/)
 - [Notdienst-Apotheken](/de/notdienst-apotheken/)
-- **OFCT-Quellen nach Gebiet**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/)
+- **regionale Quellen nach Gebiet**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/), [Locarnese](https://www.farmacielocarnese.ch/)
 
 Für einen konkreten Fall den lokalen Weg öffnen, den verfügbaren Eintrag lesen und die Apotheke kontaktieren: Ein statisches Verzeichnis ersetzt keine direkte Bestätigung.]]></content:encoded>
       <pubDate>Mon, 14 Sep 2026 20:06:51 GMT</pubDate>
@@ -324,12 +408,12 @@ Für einen konkreten Fall den lokalen Weg öffnen, den verfügbaren Eintrag lese
     <item>
       <title>Grenzapotheken: Como, Varese und Verbano</title>
       <link>https://frontaliereticino.ch/de/schweiz-artikel/grenzapotheken-como-varese-verbano/</link>
-      <description><![CDATA[Wie das italienische Grenzapotheken-Verzeichnis zusammen mit dem Tessiner Verzeichnis genutzt wird, ohne einen Adresseneintrag als Öffnungszusage zu verstehen. 207 Einträge im Tessin und 542 Einträge in den Provinzen CO, VA und VB; OFCT-Notdienst nur in den vier veröffentlichten Gebieten.]]></description>
+      <description><![CDATA[Wie das italienische Grenzapotheken-Verzeichnis zusammen mit dem Tessiner Verzeichnis genutzt wird, ohne einen Adresseneintrag als Öffnungszusage zu verstehen. 207 Einträge im Tessin und 542 Einträge in den Provinzen CO, VA und VB; regionaler Notdienst in den fünf Tessiner Gebieten bestätigt.]]></description>
       <content:encoded><![CDATA[## Kurz erklärt
 - **Umfang**: Tessin und italienische Provinzen CO, VA und VB.
 - **Tessiner Verzeichnis**: 207 Einträge aus der offiziellen Liste.
 - **Italienisches Verzeichnis**: 542 auf die drei Grenzprovinzen gefilterte Einträge.
-- **Bestätigter Notdienst**: OFCT, nur Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli.
+- **Bestätigter Notdienst**: regionale Quellen für Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese.
 
 Wie das italienische Grenzapotheken-Verzeichnis zusammen mit dem Tessiner Verzeichnis genutzt wird, ohne einen Adresseneintrag als Öffnungszusage zu verstehen.
 ## Der italienische Katalogumfang
@@ -340,18 +424,19 @@ Für den Vergleich beider Grenzseiten die Tessin- und Italien-Wege öffnen und d
 ## Verzeichnis, Öffnungszeiten und Notdienst: drei verschiedene Angaben
 - **Verzeichnis**: Ein Eintrag bedeutet, dass die offizielle Liste die Apotheke führt; daraus folgt nicht, dass sie jetzt geöffnet ist.
 - **Öffnungszeiten**: Öffnungszeiten werden nur angezeigt, wenn die Seite oder Quelle sie veröffentlicht; sie werden nicht aus Verzeichnis oder Zeitstempel abgeleitet.
-- **bestätigter Notdienst**: Ein bestätigter Notdienst ist ein von der OFCT veröffentlichtes regionales Zeitintervall; er bedeutet keine durchgehende Öffnung. Vor der Fahrt telefonisch prüfen.
+- **bestätigter Notdienst**: Ein bestätigter Notdienst ist ein von der OFCT oder der zuständigen Verbandsquelle veröffentlichtes regionales Zeitintervall; er bedeutet keine durchgehende Öffnung. Vor der Fahrt telefonisch prüfen.
 ## Geltungsbereich, Quellen und Zeitstempel
-Dieser Leitfaden nutzt getrennte Snapshots: ein Tessiner Adressverzeichnis, ein gefiltertes italienisches Verzeichnis und einen OFCT-Notdienst-Datensatz. Die Quellen werden nicht zu einem einzigen Öffnungsstatus zusammengeführt.
+Dieser Leitfaden nutzt getrennte Snapshots: ein Tessiner Adressverzeichnis, ein gefiltertes italienisches Verzeichnis und einen regionalen Notdienst-Datensatz (OFCT und die Verbandsquelle des Locarnese). Die Quellen werden nicht zu einem einzigen Öffnungsstatus zusammengeführt.
 
 - **Offizielle Apothekenliste des Tessins**: 207 Einträge, abgerufen um 2026-09-14T10:03:57.824Z. [offizielle Liste](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
 - **Offizieller italienischer Datensatz, gefiltert auf CO, VA und VB**: 542 Einträge, abgerufen um 2026-09-14T10:03:57.824Z. [Datensatz des Gesundheitsministeriums](https://www.dati.salute.gov.it/it/dataset/farmacie/)
-- **OFCT-Seiten für regionale Notdienste**: Gebiete Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, abgerufen um 2026-09-14T18:16:05.788Z. [OFCT-Quelle](https://www.ofct.ch/farmacieturno/)
+- **Regionale Quellen für Tessiner Notdienste**: Gebiete Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese, abgerufen um 2026-09-15T09:40:29.571Z. [OFCT-Quelle](https://www.ofct.ch/farmacieturno/)
 
-**Letzter Abruf der Snapshots**: Verzeichnisse 2026-09-14T10:03:57.824Z; Notdienst 2026-09-14T18:16:05.788Z. Der Zeitstempel bezeichnet den Abruf des Quellen-Snapshots; er ist keine Öffnungszeit und beweist nicht, dass eine Apotheke jetzt geöffnet ist.
+**Letzter Abruf der Snapshots**: Verzeichnisse 2026-09-14T10:03:57.824Z; Notdienst 2026-09-15T09:40:29.571Z. Der Zeitstempel bezeichnet den Abruf des Quellen-Snapshots; er ist keine Öffnungszeit und beweist nicht, dass eine Apotheke jetzt geöffnet ist.
 
 Dies ist keine landesweite Abdeckung: Der Umfang beschränkt sich auf das Tessin und die italienischen Provinzen CO, VA und VB.
-Das Locarnese ist noch nicht im Notdienst-Parser enthalten: Für dieses Gebiet wird kein OFCT-Notdienst abgeleitet oder dargestellt. Das begrenzt die Notdienst-Daten, sagt aber nichts über das kantonale Verzeichnis aus.
+Das Locarnese ist als fünfte Notdienstregion über die regionale Verbandsquelle farmacielocarnese.ch enthalten. Das Intervall wird erst nach einem eindeutigen Abgleich mit dem kantonalen Verzeichnis veröffentlicht; die Quelle ersetzt das Verzeichnis nicht.
+Für Locarnese: regionale Verbandsquelle [farmacielocarnese.ch](https://www.farmacielocarnese.ch/); der Parser veröffentlicht ein Intervall erst nach einem eindeutigen Abgleich von Farmacia und Ort mit dem kantonalen Verzeichnis und übernimmt keine Adresse aus der Quelle.
 Für Italien wird kein Notdienst-Anspruch gemacht: Das italienische Verzeichnis ist eine Adressliste und beweist weder Öffnung noch Notdienst.
 
 ## Offizielle Quellen und nützliche Wege
@@ -359,7 +444,7 @@ Für Italien wird kein Notdienst-Anspruch gemacht: Das italienische Verzeichnis 
 - [Verzeichnis Tessin](/de/apotheken/ticino/)
 - [Verzeichnis italienische Provinzen](/de/apotheken/italien/)
 - [Notdienst-Apotheken](/de/notdienst-apotheken/)
-- **OFCT-Quellen nach Gebiet**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/)
+- **regionale Quellen nach Gebiet**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/), [Locarnese](https://www.farmacielocarnese.ch/)
 
 Für einen konkreten Fall den lokalen Weg öffnen, den verfügbaren Eintrag lesen und die Apotheke kontaktieren: Ein statisches Verzeichnis ersetzt keine direkte Bestätigung.]]></content:encoded>
       <pubDate>Mon, 14 Sep 2026 20:06:50 GMT</pubDate>
@@ -371,34 +456,35 @@ Für einen konkreten Fall den lokalen Weg öffnen, den verfügbaren Eintrag lese
     <item>
       <title>Notdienst-Apotheken im Tessin: Quellen und Abdeckung</title>
       <link>https://frontaliereticino.ch/de/schweiz-artikel/notdienst-apotheken-tessin-leitfaden/</link>
-      <description><![CDATA[Dieser Leitfaden erklärt, wo der Tessiner Apotheken-Notdienst veröffentlicht wird und wie die regionale Abdeckung zu lesen ist. 207 Einträge im Tessin und 542 Einträge in den Provinzen CO, VA und VB; OFCT-Notdienst nur in den vier veröffentlichten Gebieten.]]></description>
+      <description><![CDATA[Dieser Leitfaden erklärt, wo der Tessiner Apotheken-Notdienst veröffentlicht wird und wie die regionale Abdeckung zu lesen ist. 207 Einträge im Tessin und 542 Einträge in den Provinzen CO, VA und VB; regionaler Notdienst in den fünf Tessiner Gebieten bestätigt.]]></description>
       <content:encoded><![CDATA[## Kurz erklärt
 - **Umfang**: Tessin und italienische Provinzen CO, VA und VB.
 - **Tessiner Verzeichnis**: 207 Einträge aus der offiziellen Liste.
 - **Italienisches Verzeichnis**: 542 auf die drei Grenzprovinzen gefilterte Einträge.
-- **Bestätigter Notdienst**: OFCT, nur Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli.
+- **Bestätigter Notdienst**: regionale Quellen für Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese.
 
 Dieser Leitfaden erklärt, wo der Tessiner Apotheken-Notdienst veröffentlicht wird und wie die regionale Abdeckung zu lesen ist.
 ## Was „Notdienst“ hier bedeutet
-Die Notdienst-Daten stammen aus den offiziellen Seiten des Tessiner Apothekerverbands (OFCT). Der für diesen Leitfaden verwendete Snapshot umfasst nur Mendrisiotto, Luganese, Bellinzonese sowie Biasca e Valli. Das Locarnese ist noch nicht im Notdienst-Parser enthalten; für dieses Gebiet wird keine Abdeckung abgeleitet.
+Die Notdienst-Daten verbinden die offiziellen Seiten des Tessiner Apothekerverbands (OFCT) mit der regionalen Verbandsquelle des Locarnese. Der für diesen Leitfaden verwendete Snapshot umfasst die fünf Tessiner Regionen Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli und Locarnese.
 
 Wenn eine jetzt geöffnete Apotheke gesucht wird, die Notdienstseite des Gebiets öffnen und das angegebene Intervall prüfen. Adressverzeichnis und normale Öffnungszeiten sind andere Daten als der bestätigte Notdienst.
 
 ## Verzeichnis, Öffnungszeiten und Notdienst: drei verschiedene Angaben
 - **Verzeichnis**: Ein Eintrag bedeutet, dass die offizielle Liste die Apotheke führt; daraus folgt nicht, dass sie jetzt geöffnet ist.
 - **Öffnungszeiten**: Öffnungszeiten werden nur angezeigt, wenn die Seite oder Quelle sie veröffentlicht; sie werden nicht aus Verzeichnis oder Zeitstempel abgeleitet.
-- **bestätigter Notdienst**: Ein bestätigter Notdienst ist ein von der OFCT veröffentlichtes regionales Zeitintervall; er bedeutet keine durchgehende Öffnung. Vor der Fahrt telefonisch prüfen.
+- **bestätigter Notdienst**: Ein bestätigter Notdienst ist ein von der OFCT oder der zuständigen Verbandsquelle veröffentlichtes regionales Zeitintervall; er bedeutet keine durchgehende Öffnung. Vor der Fahrt telefonisch prüfen.
 ## Geltungsbereich, Quellen und Zeitstempel
-Dieser Leitfaden nutzt getrennte Snapshots: ein Tessiner Adressverzeichnis, ein gefiltertes italienisches Verzeichnis und einen OFCT-Notdienst-Datensatz. Die Quellen werden nicht zu einem einzigen Öffnungsstatus zusammengeführt.
+Dieser Leitfaden nutzt getrennte Snapshots: ein Tessiner Adressverzeichnis, ein gefiltertes italienisches Verzeichnis und einen regionalen Notdienst-Datensatz (OFCT und die Verbandsquelle des Locarnese). Die Quellen werden nicht zu einem einzigen Öffnungsstatus zusammengeführt.
 
 - **Offizielle Apothekenliste des Tessins**: 207 Einträge, abgerufen um 2026-09-14T10:03:57.824Z. [offizielle Liste](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
 - **Offizieller italienischer Datensatz, gefiltert auf CO, VA und VB**: 542 Einträge, abgerufen um 2026-09-14T10:03:57.824Z. [Datensatz des Gesundheitsministeriums](https://www.dati.salute.gov.it/it/dataset/farmacie/)
-- **OFCT-Seiten für regionale Notdienste**: Gebiete Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, abgerufen um 2026-09-14T18:16:05.788Z. [OFCT-Quelle](https://www.ofct.ch/farmacieturno/)
+- **Regionale Quellen für Tessiner Notdienste**: Gebiete Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese, abgerufen um 2026-09-15T09:40:29.571Z. [OFCT-Quelle](https://www.ofct.ch/farmacieturno/)
 
-**Letzter Abruf der Snapshots**: Verzeichnisse 2026-09-14T10:03:57.824Z; Notdienst 2026-09-14T18:16:05.788Z. Der Zeitstempel bezeichnet den Abruf des Quellen-Snapshots; er ist keine Öffnungszeit und beweist nicht, dass eine Apotheke jetzt geöffnet ist.
+**Letzter Abruf der Snapshots**: Verzeichnisse 2026-09-14T10:03:57.824Z; Notdienst 2026-09-15T09:40:29.571Z. Der Zeitstempel bezeichnet den Abruf des Quellen-Snapshots; er ist keine Öffnungszeit und beweist nicht, dass eine Apotheke jetzt geöffnet ist.
 
 Dies ist keine landesweite Abdeckung: Der Umfang beschränkt sich auf das Tessin und die italienischen Provinzen CO, VA und VB.
-Das Locarnese ist noch nicht im Notdienst-Parser enthalten: Für dieses Gebiet wird kein OFCT-Notdienst abgeleitet oder dargestellt. Das begrenzt die Notdienst-Daten, sagt aber nichts über das kantonale Verzeichnis aus.
+Das Locarnese ist als fünfte Notdienstregion über die regionale Verbandsquelle farmacielocarnese.ch enthalten. Das Intervall wird erst nach einem eindeutigen Abgleich mit dem kantonalen Verzeichnis veröffentlicht; die Quelle ersetzt das Verzeichnis nicht.
+Für Locarnese: regionale Verbandsquelle [farmacielocarnese.ch](https://www.farmacielocarnese.ch/); der Parser veröffentlicht ein Intervall erst nach einem eindeutigen Abgleich von Farmacia und Ort mit dem kantonalen Verzeichnis und übernimmt keine Adresse aus der Quelle.
 Für Italien wird kein Notdienst-Anspruch gemacht: Das italienische Verzeichnis ist eine Adressliste und beweist weder Öffnung noch Notdienst.
 
 ## Offizielle Quellen und nützliche Wege
@@ -406,7 +492,7 @@ Für Italien wird kein Notdienst-Anspruch gemacht: Das italienische Verzeichnis 
 - [Verzeichnis Tessin](/de/apotheken/ticino/)
 - [Verzeichnis italienische Provinzen](/de/apotheken/italien/)
 - [Notdienst-Apotheken](/de/notdienst-apotheken/)
-- **OFCT-Quellen nach Gebiet**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/)
+- **regionale Quellen nach Gebiet**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/), [Locarnese](https://www.farmacielocarnese.ch/)
 
 Für einen konkreten Fall den lokalen Weg öffnen, den verfügbaren Eintrag lesen und die Apotheke kontaktieren: Ein statisches Verzeichnis ersetzt keine direkte Bestätigung.]]></content:encoded>
       <pubDate>Mon, 14 Sep 2026 20:06:49 GMT</pubDate>
@@ -418,34 +504,35 @@ Für einen konkreten Fall den lokalen Weg öffnen, den verfügbaren Eintrag lese
     <item>
       <title>Apotheken im Tessin: Verzeichnis und Kontakte</title>
       <link>https://frontaliereticino.ch/de/schweiz-artikel/apotheken-tessin-verzeichnis-kontakte/</link>
-      <description><![CDATA[Ein Ausgangspunkt für die Suche nach Apotheken im Tessiner Verzeichnis und für den Aufruf der verfügbaren lokalen Einträge. 207 Einträge im Tessin und 542 Einträge in den Provinzen CO, VA und VB; OFCT-Notdienst nur in den vier veröffentlichten Gebieten.]]></description>
+      <description><![CDATA[Ein Ausgangspunkt für die Suche nach Apotheken im Tessiner Verzeichnis und für den Aufruf der verfügbaren lokalen Einträge. 207 Einträge im Tessin und 542 Einträge in den Provinzen CO, VA und VB; regionaler Notdienst in den fünf Tessiner Gebieten bestätigt.]]></description>
       <content:encoded><![CDATA[## Kurz erklärt
 - **Umfang**: Tessin und italienische Provinzen CO, VA und VB.
 - **Tessiner Verzeichnis**: 207 Einträge aus der offiziellen Liste.
 - **Italienisches Verzeichnis**: 542 auf die drei Grenzprovinzen gefilterte Einträge.
-- **Bestätigter Notdienst**: OFCT, nur Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli.
+- **Bestätigter Notdienst**: regionale Quellen für Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese.
 
 Ein Ausgangspunkt für die Suche nach Apotheken im Tessiner Verzeichnis und für den Aufruf der verfügbaren lokalen Einträge.
 ## Was das Verzeichnis enthält
 Das Tessiner Verzeichnis basiert auf der offiziellen kantonalen Liste; der aktuelle Snapshot enthält 207 Einträge. Ein Eintrag hilft bei Namen, Adressen und veröffentlichten Kontakten, beweist aber keine aktuelle Öffnung und ersetzt keinen Anruf.
 
-Für die Suche zuerst den Tessin-Weg öffnen, den Apothekeneintrag lesen und die tatsächlich veröffentlichten Angaben prüfen. Für Notdienstinformationen zur OFCT-Seite wechseln: Das Verzeichnis ist kein Notdienst.
+Für die Suche zuerst den Tessin-Weg öffnen, den Apothekeneintrag lesen und die tatsächlich veröffentlichten Angaben prüfen. Für Notdienstinformationen zur zuständigen regionalen Quelle wechseln: Das Verzeichnis ist kein Notdienst.
 
 ## Verzeichnis, Öffnungszeiten und Notdienst: drei verschiedene Angaben
 - **Verzeichnis**: Ein Eintrag bedeutet, dass die offizielle Liste die Apotheke führt; daraus folgt nicht, dass sie jetzt geöffnet ist.
 - **Öffnungszeiten**: Öffnungszeiten werden nur angezeigt, wenn die Seite oder Quelle sie veröffentlicht; sie werden nicht aus Verzeichnis oder Zeitstempel abgeleitet.
-- **bestätigter Notdienst**: Ein bestätigter Notdienst ist ein von der OFCT veröffentlichtes regionales Zeitintervall; er bedeutet keine durchgehende Öffnung. Vor der Fahrt telefonisch prüfen.
+- **bestätigter Notdienst**: Ein bestätigter Notdienst ist ein von der OFCT oder der zuständigen Verbandsquelle veröffentlichtes regionales Zeitintervall; er bedeutet keine durchgehende Öffnung. Vor der Fahrt telefonisch prüfen.
 ## Geltungsbereich, Quellen und Zeitstempel
-Dieser Leitfaden nutzt getrennte Snapshots: ein Tessiner Adressverzeichnis, ein gefiltertes italienisches Verzeichnis und einen OFCT-Notdienst-Datensatz. Die Quellen werden nicht zu einem einzigen Öffnungsstatus zusammengeführt.
+Dieser Leitfaden nutzt getrennte Snapshots: ein Tessiner Adressverzeichnis, ein gefiltertes italienisches Verzeichnis und einen regionalen Notdienst-Datensatz (OFCT und die Verbandsquelle des Locarnese). Die Quellen werden nicht zu einem einzigen Öffnungsstatus zusammengeführt.
 
 - **Offizielle Apothekenliste des Tessins**: 207 Einträge, abgerufen um 2026-09-14T10:03:57.824Z. [offizielle Liste](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
 - **Offizieller italienischer Datensatz, gefiltert auf CO, VA und VB**: 542 Einträge, abgerufen um 2026-09-14T10:03:57.824Z. [Datensatz des Gesundheitsministeriums](https://www.dati.salute.gov.it/it/dataset/farmacie/)
-- **OFCT-Seiten für regionale Notdienste**: Gebiete Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, abgerufen um 2026-09-14T18:16:05.788Z. [OFCT-Quelle](https://www.ofct.ch/farmacieturno/)
+- **Regionale Quellen für Tessiner Notdienste**: Gebiete Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese, abgerufen um 2026-09-15T09:40:29.571Z. [OFCT-Quelle](https://www.ofct.ch/farmacieturno/)
 
-**Letzter Abruf der Snapshots**: Verzeichnisse 2026-09-14T10:03:57.824Z; Notdienst 2026-09-14T18:16:05.788Z. Der Zeitstempel bezeichnet den Abruf des Quellen-Snapshots; er ist keine Öffnungszeit und beweist nicht, dass eine Apotheke jetzt geöffnet ist.
+**Letzter Abruf der Snapshots**: Verzeichnisse 2026-09-14T10:03:57.824Z; Notdienst 2026-09-15T09:40:29.571Z. Der Zeitstempel bezeichnet den Abruf des Quellen-Snapshots; er ist keine Öffnungszeit und beweist nicht, dass eine Apotheke jetzt geöffnet ist.
 
 Dies ist keine landesweite Abdeckung: Der Umfang beschränkt sich auf das Tessin und die italienischen Provinzen CO, VA und VB.
-Das Locarnese ist noch nicht im Notdienst-Parser enthalten: Für dieses Gebiet wird kein OFCT-Notdienst abgeleitet oder dargestellt. Das begrenzt die Notdienst-Daten, sagt aber nichts über das kantonale Verzeichnis aus.
+Das Locarnese ist als fünfte Notdienstregion über die regionale Verbandsquelle farmacielocarnese.ch enthalten. Das Intervall wird erst nach einem eindeutigen Abgleich mit dem kantonalen Verzeichnis veröffentlicht; die Quelle ersetzt das Verzeichnis nicht.
+Für Locarnese: regionale Verbandsquelle [farmacielocarnese.ch](https://www.farmacielocarnese.ch/); der Parser veröffentlicht ein Intervall erst nach einem eindeutigen Abgleich von Farmacia und Ort mit dem kantonalen Verzeichnis und übernimmt keine Adresse aus der Quelle.
 Für Italien wird kein Notdienst-Anspruch gemacht: Das italienische Verzeichnis ist eine Adressliste und beweist weder Öffnung noch Notdienst.
 
 ## Offizielle Quellen und nützliche Wege
@@ -453,7 +540,7 @@ Für Italien wird kein Notdienst-Anspruch gemacht: Das italienische Verzeichnis 
 - [Verzeichnis Tessin](/de/apotheken/ticino/)
 - [Verzeichnis italienische Provinzen](/de/apotheken/italien/)
 - [Notdienst-Apotheken](/de/notdienst-apotheken/)
-- **OFCT-Quellen nach Gebiet**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/)
+- **regionale Quellen nach Gebiet**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/), [Locarnese](https://www.farmacielocarnese.ch/)
 
 Für einen konkreten Fall den lokalen Weg öffnen, den verfügbaren Eintrag lesen und die Apotheke kontaktieren: Ein statisches Verzeichnis ersetzt keine direkte Bestätigung.]]></content:encoded>
       <pubDate>Mon, 14 Sep 2026 20:06:49 GMT</pubDate>
@@ -2339,53 +2426,6 @@ Um die Auswirkungen von Fixkosten, Sozialabzügen und Alltagsausgaben in der Sch
       <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/finanze-ospedali-svizzera-2025</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/finanze-ospedali-svizzera-2025.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Economiesuisse: Silvan Wildhaber wird neuer Präsident</title>
-      <link>https://frontaliereticino.ch/de/schweiz-artikel/economiesuisse-silvan-wildhaber-wird-neuer-prasident/</link>
-      <description><![CDATA[Übergang des Vorsitzes zu Economiesuisse: Silvan Wildhaber tritt die Nachfolge von Christoph Mäder mit voller Unterstützung der Bilateralen III an.]]></description>
-      <content:encoded><![CDATA[## Auf einen Blick
-- Übergabe des Präsidiums bei Economiesuisse
-- Silvan Wildhaber folgt auf Christoph Mäder
-- Volle Unterstützung für die Bilateralen III
-
-## Hauptfakten
-- **Was**: Wechsel an der Spitze von Economiesuisse
-- Wann: Heute
-- Wo: Bern
-- Wer: Silvan Wildhaber und Christoph Mäder
-- Betrag: 100'000 vertretene Unternehmen
-
-(Keystone-SDA) Der Stabwechsel fand in Bern anlässlich des Tag der Wirtschaft statt, der von dem Verband organisiert wurde, welcher die Schweizer Unternehmen vertritt. Economiesuisse hat eine neue Nummer eins: Nach zwei dreijährigen Mandaten hat Christoph Mäder heute das Präsidium an seinen Nachfolger Silvan Wildhaber übergeben. Während der Jahresversammlung des Gremiums, so die Mitteilungen von Economiesuisse selbst, hob der neue Präsident den internationalen Kontext hervor. Um uns herum wüte ein Handels- und Zollkrieg, sagte Wildhaber in seiner Rede vor der Jahresversammlung, und betonte, dass dies für eine kleine, offene Volkswirtschaft wie die Schweiz eine enorme Herausforderung darstelle. Der 48-Jährige fügte hinzu, dass jede Gelegenheit genutzt werden müsse, um die Handelsbeziehungen zu verbessern, und bestätigte das Engagement mit allen Kräften zugunsten der neuen Freihandelsabkommen mit Malaysia und dem Mercosur sowie der Bilateralen III. Der Ostschweizer Unternehmer betonte sodann, wie wichtig es sei, die Bevölkerung vom Mehrwert einer starken Wirtschaft zu überzeugen. Die Unternehmen und ihre Mitarbeitenden schafften Tag für Tag den Wohlstand des Landes und leisteten einen unverzichtbaren Beitrag. Der abtretende Mäder hingegen richtete den Zeigefinger gegen den Stillstand der Rahmenbedingungen und äusserte die Hoffnung, dass die Schweiz wieder den Willen zeige, zu den wohlhabendsten Ländern zu gehören, mit den besten Bildungschancen, den nachhaltigsten Vorsorgesystemen, einer stabilen Energieversorgung und den meisten Freihandelsabkommen.
-
-### Details zur Versammlung und zu den Ernennungen
-An dem Tag der Wirtschaft sprachen auch Bundespräsident Guy Parmelin, der angesichts globaler Ungewissheiten die Bedeutung der Diversifizierung in der Aussenwirtschaftspolitik betonte, sowie der Präsident der Generaldirektion der Schweizerischen Nationalbank (SNB), Martin Schlegel, der über die Rolle seines Instituts bei der Gewährleistung von Stabilität in einer anspruchsvollen globalen Zeit sprach. Die Versammlung wählte sechzehn neue Ausschussmitglieder, von denen vier auch in den Vorstand einziehen. Unter ihnen befindet sich Giorgio Pradelli, designierter Präsident der Schweizerischen Bankiervereinigung (SBV), der die Vizepräsidentschaft von Economiesuisse übernehmen wird. Die Ernennung des neuen Präsidenten Wildhaber war hingegen bereits am 16. März durch den Ausschuss erfolgt. Die Organisation vereint 100 Branchenverbände, 20 Kantonale Handelskammern und verschiedene Einzelunternehmen und vertritt rund 100'000 Unternehmen aller Branchen, die zwei Millionen Menschen beschäftigen. Mit starken Mitteln versucht die Organisation, die Politik in der Schweiz zu beeinflussen, insbesondere bei eidgenössischen Wahlen, wenn auch nicht immer mit Erfolg, wie einige jüngere Niederlagen zeigen, darunter das Ja des Schweizer Volkes zur 13. AHV. In diesem Zusammenhang ist auch der Schweizerische Gewerbeverband zu nennen, der ebenfalls Unternehmen vertritt, aber im Vergleich zu Economiesuisse, die traditionell Grosskonzernen und einer stark global integrierten Wirtschaft nahesteht, historisch stärker auf kleine und mittlere Unternehmen ausgerichtet ist.
-### Die wirtschaftlichen Prioritäten und der Vergleich zwischen Organisationen
-
-Die Erklärungen, die während des Wirtschaftstages von Economiesuisse hervorgegangen sind, beleuchten die Divergenzen und Komplexitäten, die das Schweizer Unternehmertum prägen. Auf der einen Seite steht die Position von Economiesuisse, die sich auf die Verteidigung der Interessen grosser multinationaler Konzerne und auf die globale Integration durch bedingungslose Unterstützung von Freihandelsabkommen mit Malaysia und dem Mercosur sowie den Bilateralen III konzentriert. Auf der anderen Seite agiert der Schweizerische Gewerbeverband, angeführt von Ständerat Fabio Regazzi, der die kleinen und mittleren Schweizer Unternehmen vertritt. Diese strukturelle Unterscheidung führt dazu, dass die Positionen der beiden Organisationen bei entscheidenden Themen der Wirtschafts- und Bundespolitik nicht immer übereinstimmen.
-
-### Der schweizerische politische und institutionelle Kontext
-
-Das Vorgehen von Economiesuisse zielt darauf ab, die politische Debatte und die Entscheidungen in Bern mit grossen finanziellen und organisatorischen Mitteln zu beeinflussen, obwohl Wahlergebnisse und Volksabstimmungen die vom Verband geförderten Linien nicht immer bestätigen. Ein im jüngsten Diskurs zitiertes bezeichnendes Beispiel ist die Volksabstimmung zugunsten der 13. AHV, die eine Niederlage für die von den grossen Wirtschaftsgruppen unterstützten Positionen darstellte. Die Überlegungen des ehemaligen Präsidenten Christoph Mäder verdeutlichen die Besorgnis über die Blockierung der Rahmendaten, insbesondere im Hinblick auf die Notwendigkeit struktureller Reformen in den Bereichen Bildung, Vorsorge, Energie und internationale Handelsabkommen. Die Rede von Bundesrat Guy Parmelin bekräftigte zudem die Notwendigkeit einer diversifizierten Aussenwirtschaftspolitik, um den Zollkonflikten und globalen Handelsriegen zu begegnen, die offene Volkswirtschaften wie die Schweizer gefährden. Die Anwesenheit prominenter Persönlichkeiten aus der Finanz- und Institutionenwelt, wie des SNB-Präsidenten Martin Schlegel, bestätigt das Augenmerk auf die Gesamtstabilität des nationalen Wirtschaftssystems in einer Zeit des Wandels und erhöhter internationaler Herausforderungen.
-
-## Nützliche Tools zum Schutz Ihres Nettolohns
-Um Wechselkursverluste zu reduzieren, vergleichen Sie [CHF-EUR-Wechseloptionen](nav:exchange) und [Banken für Grenzgänger](nav:banks).
-### Opportunitätsanalyse und Werkzeuge zur wirtschaftlichen Vertiefung
-
-Für diejenigen, die in der Schweiz leben und arbeiten, bietet die Beobachtung der Entwicklung der internationalen Handelsbeziehungen, der bilateralen Abkommen und der wirtschaftlichen Dynamik, die von Organisationen wie Economiesuisse gefördert werden, einen grundlegenden Leseschlüssel, um die Beschäftigungs- und Wachstumsaussichten des Landes zu verstehen. Entscheidungen auf Bundesebene über Freihandelsabkommen und Rahmenbedingungen für Unternehmen wirken sich direkt auf das allgemeine Wirtschaftsklima, die Stabilität der Energieversorgung und die Wettbewerbsfähigkeit der Schweizer Unternehmen auf den Weltmärkten aus.
-
-### Nützliche Überprüfungen und Tools für Anwohner
-
-Während die grossen Wirtschaftsverbände Strategien für die Zukunft der Schweiz und die internationale Positionierung der Unternehmen diskutieren, können Arbeitnehmer und Anwohner die Auswirkungen der Wirtschafts- und Lohndynamik auf ihre finanzielle Situation mit speziellen Instrumenten analysieren. Um Ihre wirtschaftliche Lage zu beurteilen, die Entwicklung der Lebenshaltungskosten zu verstehen oder die Aussichten für den Schweizer Arbeitsmarkt zu analysieren, können Sie auf spezifische und aktuelle Ressourcen zurückgreifen.
-
-Um mehr über die Auswirkungen der eidgenössischen Wirtschaftspolitik zu erfahren und Ihre Finanz- und Vorsorgesituation in der Schweiz besser zu planen, entdecken Sie den auf dem Portal verfügbaren [calcolatore stipendio e imposte](nav:calculator).
-
-*Quelle: [swissinfo.ch](https://www.swissinfo.ch/ita/economiesuisse%3a-entra-in-carica-presidente%2c-%22100%25-per-i-bilaterali%22/92043221)*]]></content:encoded>
-      <pubDate>Sat, 12 Sep 2026 00:43:56 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/economiesuisse-silvan-wildhaber</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/economiesuisse-silvan-wildhaber.webp" medium="image"/>
     </item>
   </channel>
 </rss>

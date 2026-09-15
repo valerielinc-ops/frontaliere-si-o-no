@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Tue, 15 Sep 2026 08:04:36 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 15 Sep 2026 09:37:46 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -17,6 +17,89 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>On-duty pharmacies in Switzerland and the Italian border: sources by canton</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/on-duty-pharmacies-switzerland-italian-border/</link>
+      <description><![CDATA[A guide to checking the current source in the right canton, without inventing calendars or turning a link into an opening promise. 207 Ticino records and 542 records in provinces CO, VA and VB; regional duty verified in the five Ticino areas.]]></description>
+      <content:encoded><![CDATA[## In brief
+- **Perimeter**: Ticino and Italian provinces CO, VA and VB.
+- **Ticino directory**: 207 records from the official list.
+- **Italian directory**: 542 records filtered to the three border provinces.
+- **Verified duty**: regional sources for Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese.
+
+A guide to checking the current source in the right canton, without inventing calendars or turning a link into an opening promise.
+## What is verified and what is not
+The verified duty data published by our dataset concerns five Ticino regions: Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli and Locarnese. Locarnese uses a regional association source; for other cantons we provide navigable official links where available, but publish no unified roster, active coverage or inferred hours.
+
+Open the cantonal or provincial source before travelling, follow its published instructions and call the pharmacy. Where a source exposes no public feed or roster, the guide says so rather than filling the gap with assumptions.
+
+## Directory, opening hours and duty: three different data points
+- **directory**: A directory record means that the official catalogue contains the entry; it does not mean that the pharmacy is open now.
+- **opening hours**: Opening hours are shown only when the page or source publishes them; they are not inferred from the directory or its timestamp.
+- **verified duty**: Verified duty means a regional interval published by OFCT or the relevant association source; it is not the same as continuous opening. Check by phone before travelling.
+## Scope, sources and timestamp
+This guide uses separate snapshots: a Ticino address directory, a filtered Italian directory and a regional duty dataset (OFCT and the Locarnese association source). The sources are not merged into one opening status.
+
+- **Official Ticino pharmacy list**: 207 records, retrieved at 2026-09-14T10:03:57.824Z. [official list](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
+- **Official Italian dataset filtered to provinces CO, VA and VB**: 542 records, retrieved at 2026-09-14T10:03:57.824Z. [Ministry of Health dataset](https://www.dati.salute.gov.it/it/dataset/farmacie/)
+- **Regional sources for Ticino duty coverage**: areas Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese, retrieved at 2026-09-15T09:40:29.571Z. [OFCT source](https://www.ofct.ch/farmacieturno/)
+
+**Latest snapshot retrieval**: directories 2026-09-14T10:03:57.824Z; duty 2026-09-15T09:40:29.571Z. The timestamp records when the source snapshot was retrieved; it is not an opening time and does not prove that a pharmacy is open now.
+
+This is not nationwide coverage: the perimeter is limited to Ticino and the Italian provinces CO, VA and VB.
+Locarnese is included as the fifth duty region through the regional association source farmacielocarnese.ch. Its interval is published only after a unique match with the cantonal directory; the source does not replace the directory.
+For Locarnese: regional association source [farmacielocarnese.ch](https://www.farmacielocarnese.ch/); the parser publishes an interval only after a unique Farmacia-and-locality match with the cantonal directory and copies no address from the source.
+No Italian on-duty claim is made: the Italian catalogue is an address directory and does not prove that a pharmacy is open or on duty.
+
+## Official sources and useful routes
+- [pharmacy hub](/en/pharmacies/)
+- [Ticino directory](/en/pharmacies/ticino/)
+- [Italian provinces directory](/en/pharmacies/italy/)
+- [on-duty pharmacies](/en/on-duty-pharmacies/)
+- **regional sources by area**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/), [Locarnese](https://www.farmacielocarnese.ch/)
+
+For a specific case, open the local route, read the available record and contact the pharmacy: a static directory does not replace direct confirmation.
+
+## Switzerland: how to check the current source by canton
+These are navigable official or cantonal pharmacists’ association links. Open them when needed: they may offer a search, daily plan, contact or notice, but this guide does not turn them into one calendar and does not promise an opening time or an open pharmacy.
+
+- [ZH — Zürich](https://www.notfall-apotheken-zh.ch/)
+- [BE — Bern](https://apobern.ch/dienstleistungen/notfalldienst/)
+- [LU — Luzern](https://www.apoluzern.ch/apotheken/notfalldienst)
+- [UR — Uri](https://www.ur.ch/dienstleistungen/3677)
+- [SZ — Schwyz](https://www.sz.ch/gesundheit-soziales/gesundheit/notfall.html/)
+- [ZG — Zug](https://www.zg.ch/behoerden/gesundheit/medizinische-versorgung/notfall)
+- [SO — Solothurn](https://avso.ch/notfalldienst-apotheken/)
+- [BS — Basel-Stadt](https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt)
+- [AG — Aargau](https://apotheken-aargau.ch/notfall/)
+- [TG — Thurgau](https://www.apotheken-thurgau.ch/pikettdienst/)
+- [GR — Graubünden](https://notfall.apotheke-chur.ch/)
+- [VS — Valais](https://www.pharmavalais.ch/pharmacie-valais/pharmacie-garde-51.html)
+- [FR — Fribourg](https://www.pharmaciesfribourg.ch/fr/prestations-et-conseils/pharmacie-de-garde)
+- [NE — Neuchâtel](https://www.onp.ch/Service-de-garde)
+- [JU — Jura](https://www.jura.ch/fr/Autorites/Administration/CHA/SIC/Urgences/Numeros-d-urgence-Urgence.html)
+- [VD — Vaud](https://garde.svph.ch)
+- [GE — Genève](https://pharmageneve.swiss/pharmacie-de-garde/)
+
+For Ticino, we publish verified duty data for the five regions Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli and Locarnese; we infer no coverage for any other area.
+
+For SZ (Schwyz), the navigable link above is available, but this guide does not treat it as a public roster or duty feed: we make no active-coverage or hours claim.
+
+OW (Obwalden), NW (Nidwalden), GL (Glarus), AR (Appenzell Ausserrhoden), AI (Appenzell Innerrhoden), BL (Basel-Landschaft), SH (Schaffhausen) and SG (St. Gallen): this guide represents no public roster or verified feed. We make no active-coverage claim; contact the local pharmacy or cantonal health authority. For a medical emergency, call 144.
+
+## Italian border (CO, VA, VB): consult the local sources directly. Documents may change or expire; we infer no duty or opening time from their presence.
+- [ATS Insubria](https://www.ats-insubria.it/farmacie)
+- [Varese (portale turni Federfarma Lombardia)](https://www.turnifarmacie.it/)
+- [Verbano-Cusio-Ossola (documento turni)](https://www.aslvco.it/wp-content/uploads/2026/03/3017434.pdf) — annual document, edition 2026: check the current version before use
+- [Farmacia Aperta](https://farmacia-aperta.eu/)
+
+Farmacia Aperta is an external orientation link, not an official source or evidence of opening or duty.]]></content:encoded>
+      <pubDate>Tue, 15 Sep 2026 09:37:46 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/farmacie-turno-svizzera-confine-italiano</guid>
+      <category>Notizie</category>
+      <media:content url="https://frontaliereticino.ch/images/places/lugano-view.webp" medium="image"/>
+    </item>
     <item>
       <title>Adult education increases income 50%</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/adult-education-income-switzerland/</link>
@@ -273,12 +356,12 @@ As Parliament continues its work on the legislature's major dossiers, citizens a
     <item>
       <title>Open or on duty? How to read the pharmacy directory</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/open-pharmacy-duty-directory-guide/</link>
-      <description><![CDATA[The practical difference between finding a pharmacy in a directory, reading published hours and checking OFCT duty information. 207 Ticino records and 542 records in provinces CO, VA and VB; OFCT duty only in the four published areas.]]></description>
+      <description><![CDATA[The practical difference between finding a pharmacy in a directory, reading published hours and checking OFCT duty information. 207 Ticino records and 542 records in provinces CO, VA and VB; regional duty verified in the five Ticino areas.]]></description>
       <content:encoded><![CDATA[## In brief
 - **Perimeter**: Ticino and Italian provinces CO, VA and VB.
 - **Ticino directory**: 207 records from the official list.
 - **Italian directory**: 542 records filtered to the three border provinces.
-- **Verified duty**: OFCT, only Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli.
+- **Verified duty**: regional sources for Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese.
 
 The practical difference between finding a pharmacy in a directory, reading published hours and checking OFCT duty information.
 ## Three questions before you travel
@@ -289,18 +372,19 @@ Open the correct route, check the snapshot retrieval time and the named source, 
 ## Directory, opening hours and duty: three different data points
 - **directory**: A directory record means that the official catalogue contains the entry; it does not mean that the pharmacy is open now.
 - **opening hours**: Opening hours are shown only when the page or source publishes them; they are not inferred from the directory or its timestamp.
-- **verified duty**: Verified duty means a regional interval published by OFCT; it is not the same as continuous opening. Check by phone before travelling.
+- **verified duty**: Verified duty means a regional interval published by OFCT or the relevant association source; it is not the same as continuous opening. Check by phone before travelling.
 ## Scope, sources and timestamp
-This guide uses separate snapshots: a Ticino address directory, a filtered Italian directory and an OFCT duty dataset. The sources are not merged into one opening status.
+This guide uses separate snapshots: a Ticino address directory, a filtered Italian directory and a regional duty dataset (OFCT and the Locarnese association source). The sources are not merged into one opening status.
 
 - **Official Ticino pharmacy list**: 207 records, retrieved at 2026-09-14T10:03:57.824Z. [official list](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
 - **Official Italian dataset filtered to provinces CO, VA and VB**: 542 records, retrieved at 2026-09-14T10:03:57.824Z. [Ministry of Health dataset](https://www.dati.salute.gov.it/it/dataset/farmacie/)
-- **OFCT pages for regional duty coverage**: areas Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, retrieved at 2026-09-14T18:16:05.788Z. [OFCT source](https://www.ofct.ch/farmacieturno/)
+- **Regional sources for Ticino duty coverage**: areas Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese, retrieved at 2026-09-15T09:40:29.571Z. [OFCT source](https://www.ofct.ch/farmacieturno/)
 
-**Latest snapshot retrieval**: directories 2026-09-14T10:03:57.824Z; duty 2026-09-14T18:16:05.788Z. The timestamp records when the source snapshot was retrieved; it is not an opening time and does not prove that a pharmacy is open now.
+**Latest snapshot retrieval**: directories 2026-09-14T10:03:57.824Z; duty 2026-09-15T09:40:29.571Z. The timestamp records when the source snapshot was retrieved; it is not an opening time and does not prove that a pharmacy is open now.
 
 This is not nationwide coverage: the perimeter is limited to Ticino and the Italian provinces CO, VA and VB.
-Locarnese is not yet included in the duty parser: we do not infer or present an OFCT duty service for that area. This limits the duty data; it is not a statement about the cantonal directory.
+Locarnese is included as the fifth duty region through the regional association source farmacielocarnese.ch. Its interval is published only after a unique match with the cantonal directory; the source does not replace the directory.
+For Locarnese: regional association source [farmacielocarnese.ch](https://www.farmacielocarnese.ch/); the parser publishes an interval only after a unique Farmacia-and-locality match with the cantonal directory and copies no address from the source.
 No Italian on-duty claim is made: the Italian catalogue is an address directory and does not prove that a pharmacy is open or on duty.
 
 ## Official sources and useful routes
@@ -308,7 +392,7 @@ No Italian on-duty claim is made: the Italian catalogue is an address directory 
 - [Ticino directory](/en/pharmacies/ticino/)
 - [Italian provinces directory](/en/pharmacies/italy/)
 - [on-duty pharmacies](/en/on-duty-pharmacies/)
-- **OFCT sources by area**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/)
+- **regional sources by area**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/), [Locarnese](https://www.farmacielocarnese.ch/)
 
 For a specific case, open the local route, read the available record and contact the pharmacy: a static directory does not replace direct confirmation.]]></content:encoded>
       <pubDate>Mon, 14 Sep 2026 20:06:51 GMT</pubDate>
@@ -320,12 +404,12 @@ For a specific case, open the local route, read the available record and contact
     <item>
       <title>Border pharmacies: Como, Varese and Verbano</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/border-pharmacies-como-varese-verbano/</link>
-      <description><![CDATA[How to use the Italian border pharmacy catalogue alongside the Ticino directory without turning an address record into an opening promise. 207 Ticino records and 542 records in provinces CO, VA and VB; OFCT duty only in the four published areas.]]></description>
+      <description><![CDATA[How to use the Italian border pharmacy catalogue alongside the Ticino directory without turning an address record into an opening promise. 207 Ticino records and 542 records in provinces CO, VA and VB; regional duty verified in the five Ticino areas.]]></description>
       <content:encoded><![CDATA[## In brief
 - **Perimeter**: Ticino and Italian provinces CO, VA and VB.
 - **Ticino directory**: 207 records from the official list.
 - **Italian directory**: 542 records filtered to the three border provinces.
-- **Verified duty**: OFCT, only Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli.
+- **Verified duty**: regional sources for Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese.
 
 How to use the Italian border pharmacy catalogue alongside the Ticino directory without turning an address record into an opening promise.
 ## The Italian catalogue perimeter
@@ -336,18 +420,19 @@ To compare the two sides of the border, use the Ticino and Italy routes and read
 ## Directory, opening hours and duty: three different data points
 - **directory**: A directory record means that the official catalogue contains the entry; it does not mean that the pharmacy is open now.
 - **opening hours**: Opening hours are shown only when the page or source publishes them; they are not inferred from the directory or its timestamp.
-- **verified duty**: Verified duty means a regional interval published by OFCT; it is not the same as continuous opening. Check by phone before travelling.
+- **verified duty**: Verified duty means a regional interval published by OFCT or the relevant association source; it is not the same as continuous opening. Check by phone before travelling.
 ## Scope, sources and timestamp
-This guide uses separate snapshots: a Ticino address directory, a filtered Italian directory and an OFCT duty dataset. The sources are not merged into one opening status.
+This guide uses separate snapshots: a Ticino address directory, a filtered Italian directory and a regional duty dataset (OFCT and the Locarnese association source). The sources are not merged into one opening status.
 
 - **Official Ticino pharmacy list**: 207 records, retrieved at 2026-09-14T10:03:57.824Z. [official list](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
 - **Official Italian dataset filtered to provinces CO, VA and VB**: 542 records, retrieved at 2026-09-14T10:03:57.824Z. [Ministry of Health dataset](https://www.dati.salute.gov.it/it/dataset/farmacie/)
-- **OFCT pages for regional duty coverage**: areas Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, retrieved at 2026-09-14T18:16:05.788Z. [OFCT source](https://www.ofct.ch/farmacieturno/)
+- **Regional sources for Ticino duty coverage**: areas Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese, retrieved at 2026-09-15T09:40:29.571Z. [OFCT source](https://www.ofct.ch/farmacieturno/)
 
-**Latest snapshot retrieval**: directories 2026-09-14T10:03:57.824Z; duty 2026-09-14T18:16:05.788Z. The timestamp records when the source snapshot was retrieved; it is not an opening time and does not prove that a pharmacy is open now.
+**Latest snapshot retrieval**: directories 2026-09-14T10:03:57.824Z; duty 2026-09-15T09:40:29.571Z. The timestamp records when the source snapshot was retrieved; it is not an opening time and does not prove that a pharmacy is open now.
 
 This is not nationwide coverage: the perimeter is limited to Ticino and the Italian provinces CO, VA and VB.
-Locarnese is not yet included in the duty parser: we do not infer or present an OFCT duty service for that area. This limits the duty data; it is not a statement about the cantonal directory.
+Locarnese is included as the fifth duty region through the regional association source farmacielocarnese.ch. Its interval is published only after a unique match with the cantonal directory; the source does not replace the directory.
+For Locarnese: regional association source [farmacielocarnese.ch](https://www.farmacielocarnese.ch/); the parser publishes an interval only after a unique Farmacia-and-locality match with the cantonal directory and copies no address from the source.
 No Italian on-duty claim is made: the Italian catalogue is an address directory and does not prove that a pharmacy is open or on duty.
 
 ## Official sources and useful routes
@@ -355,7 +440,7 @@ No Italian on-duty claim is made: the Italian catalogue is an address directory 
 - [Ticino directory](/en/pharmacies/ticino/)
 - [Italian provinces directory](/en/pharmacies/italy/)
 - [on-duty pharmacies](/en/on-duty-pharmacies/)
-- **OFCT sources by area**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/)
+- **regional sources by area**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/), [Locarnese](https://www.farmacielocarnese.ch/)
 
 For a specific case, open the local route, read the available record and contact the pharmacy: a static directory does not replace direct confirmation.]]></content:encoded>
       <pubDate>Mon, 14 Sep 2026 20:06:50 GMT</pubDate>
@@ -367,34 +452,35 @@ For a specific case, open the local route, read the available record and contact
     <item>
       <title>Ticino on-duty pharmacies: a guide to sources and coverage</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/ticino-on-duty-pharmacies-guide/</link>
-      <description><![CDATA[This guide explains where to read Ticino pharmacy duty information and how to interpret regional coverage correctly. 207 Ticino records and 542 records in provinces CO, VA and VB; OFCT duty only in the four published areas.]]></description>
+      <description><![CDATA[This guide explains where to read Ticino pharmacy duty information and how to interpret regional coverage correctly. 207 Ticino records and 542 records in provinces CO, VA and VB; regional duty verified in the five Ticino areas.]]></description>
       <content:encoded><![CDATA[## In brief
 - **Perimeter**: Ticino and Italian provinces CO, VA and VB.
 - **Ticino directory**: 207 records from the official list.
 - **Italian directory**: 542 records filtered to the three border provinces.
-- **Verified duty**: OFCT, only Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli.
+- **Verified duty**: regional sources for Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese.
 
 This guide explains where to read Ticino pharmacy duty information and how to interpret regional coverage correctly.
 ## What “on duty” means here
-The duty data comes from the official pages of the Ticino pharmacists’ association (OFCT). The snapshot used for this guide covers only Mendrisiotto, Luganese, Bellinzonese and Biasca e Valli. Locarnese is not yet included in the duty parser, so no coverage is inferred for that area.
+The duty data combines the official pages of the Ticino pharmacists’ association (OFCT) and the regional association source for Locarnese. The snapshot used for this guide covers the five Ticino regions: Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli and Locarnese.
 
 If you need a pharmacy open now, use the duty page for your area and check the stated interval. The address directory and ordinary opening hours are different surfaces from verified duty.
 
 ## Directory, opening hours and duty: three different data points
 - **directory**: A directory record means that the official catalogue contains the entry; it does not mean that the pharmacy is open now.
 - **opening hours**: Opening hours are shown only when the page or source publishes them; they are not inferred from the directory or its timestamp.
-- **verified duty**: Verified duty means a regional interval published by OFCT; it is not the same as continuous opening. Check by phone before travelling.
+- **verified duty**: Verified duty means a regional interval published by OFCT or the relevant association source; it is not the same as continuous opening. Check by phone before travelling.
 ## Scope, sources and timestamp
-This guide uses separate snapshots: a Ticino address directory, a filtered Italian directory and an OFCT duty dataset. The sources are not merged into one opening status.
+This guide uses separate snapshots: a Ticino address directory, a filtered Italian directory and a regional duty dataset (OFCT and the Locarnese association source). The sources are not merged into one opening status.
 
 - **Official Ticino pharmacy list**: 207 records, retrieved at 2026-09-14T10:03:57.824Z. [official list](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
 - **Official Italian dataset filtered to provinces CO, VA and VB**: 542 records, retrieved at 2026-09-14T10:03:57.824Z. [Ministry of Health dataset](https://www.dati.salute.gov.it/it/dataset/farmacie/)
-- **OFCT pages for regional duty coverage**: areas Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, retrieved at 2026-09-14T18:16:05.788Z. [OFCT source](https://www.ofct.ch/farmacieturno/)
+- **Regional sources for Ticino duty coverage**: areas Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese, retrieved at 2026-09-15T09:40:29.571Z. [OFCT source](https://www.ofct.ch/farmacieturno/)
 
-**Latest snapshot retrieval**: directories 2026-09-14T10:03:57.824Z; duty 2026-09-14T18:16:05.788Z. The timestamp records when the source snapshot was retrieved; it is not an opening time and does not prove that a pharmacy is open now.
+**Latest snapshot retrieval**: directories 2026-09-14T10:03:57.824Z; duty 2026-09-15T09:40:29.571Z. The timestamp records when the source snapshot was retrieved; it is not an opening time and does not prove that a pharmacy is open now.
 
 This is not nationwide coverage: the perimeter is limited to Ticino and the Italian provinces CO, VA and VB.
-Locarnese is not yet included in the duty parser: we do not infer or present an OFCT duty service for that area. This limits the duty data; it is not a statement about the cantonal directory.
+Locarnese is included as the fifth duty region through the regional association source farmacielocarnese.ch. Its interval is published only after a unique match with the cantonal directory; the source does not replace the directory.
+For Locarnese: regional association source [farmacielocarnese.ch](https://www.farmacielocarnese.ch/); the parser publishes an interval only after a unique Farmacia-and-locality match with the cantonal directory and copies no address from the source.
 No Italian on-duty claim is made: the Italian catalogue is an address directory and does not prove that a pharmacy is open or on duty.
 
 ## Official sources and useful routes
@@ -402,7 +488,7 @@ No Italian on-duty claim is made: the Italian catalogue is an address directory 
 - [Ticino directory](/en/pharmacies/ticino/)
 - [Italian provinces directory](/en/pharmacies/italy/)
 - [on-duty pharmacies](/en/on-duty-pharmacies/)
-- **OFCT sources by area**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/)
+- **regional sources by area**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/), [Locarnese](https://www.farmacielocarnese.ch/)
 
 For a specific case, open the local route, read the available record and contact the pharmacy: a static directory does not replace direct confirmation.]]></content:encoded>
       <pubDate>Mon, 14 Sep 2026 20:06:49 GMT</pubDate>
@@ -414,34 +500,35 @@ For a specific case, open the local route, read the available record and contact
     <item>
       <title>Pharmacies in Ticino: directory and contacts</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/ticino-pharmacy-directory-contacts/</link>
-      <description><![CDATA[A starting point for finding pharmacies present in the Ticino directory and opening the local records that are available. 207 Ticino records and 542 records in provinces CO, VA and VB; OFCT duty only in the four published areas.]]></description>
+      <description><![CDATA[A starting point for finding pharmacies present in the Ticino directory and opening the local records that are available. 207 Ticino records and 542 records in provinces CO, VA and VB; regional duty verified in the five Ticino areas.]]></description>
       <content:encoded><![CDATA[## In brief
 - **Perimeter**: Ticino and Italian provinces CO, VA and VB.
 - **Ticino directory**: 207 records from the official list.
 - **Italian directory**: 542 records filtered to the three border provinces.
-- **Verified duty**: OFCT, only Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli.
+- **Verified duty**: regional sources for Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese.
 
 A starting point for finding pharmacies present in the Ticino directory and opening the local records that are available.
 ## What the directory contains
 The Ticino directory comes from the official cantonal list and the current snapshot contains 207 records. A record helps with names, addresses and published contacts; it is not real-time proof of opening and does not replace a phone call.
 
-For a practical search, start with the Ticino route, open the pharmacy record and check which details are actually published. If you need duty information, move to the OFCT page: do not treat the directory as a duty service.
+For a practical search, start with the Ticino route, open the pharmacy record and check which details are actually published. If you need duty information, move to the relevant regional source: do not treat the directory as a duty service.
 
 ## Directory, opening hours and duty: three different data points
 - **directory**: A directory record means that the official catalogue contains the entry; it does not mean that the pharmacy is open now.
 - **opening hours**: Opening hours are shown only when the page or source publishes them; they are not inferred from the directory or its timestamp.
-- **verified duty**: Verified duty means a regional interval published by OFCT; it is not the same as continuous opening. Check by phone before travelling.
+- **verified duty**: Verified duty means a regional interval published by OFCT or the relevant association source; it is not the same as continuous opening. Check by phone before travelling.
 ## Scope, sources and timestamp
-This guide uses separate snapshots: a Ticino address directory, a filtered Italian directory and an OFCT duty dataset. The sources are not merged into one opening status.
+This guide uses separate snapshots: a Ticino address directory, a filtered Italian directory and a regional duty dataset (OFCT and the Locarnese association source). The sources are not merged into one opening status.
 
 - **Official Ticino pharmacy list**: 207 records, retrieved at 2026-09-14T10:03:57.824Z. [official list](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
 - **Official Italian dataset filtered to provinces CO, VA and VB**: 542 records, retrieved at 2026-09-14T10:03:57.824Z. [Ministry of Health dataset](https://www.dati.salute.gov.it/it/dataset/farmacie/)
-- **OFCT pages for regional duty coverage**: areas Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, retrieved at 2026-09-14T18:16:05.788Z. [OFCT source](https://www.ofct.ch/farmacieturno/)
+- **Regional sources for Ticino duty coverage**: areas Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese, retrieved at 2026-09-15T09:40:29.571Z. [OFCT source](https://www.ofct.ch/farmacieturno/)
 
-**Latest snapshot retrieval**: directories 2026-09-14T10:03:57.824Z; duty 2026-09-14T18:16:05.788Z. The timestamp records when the source snapshot was retrieved; it is not an opening time and does not prove that a pharmacy is open now.
+**Latest snapshot retrieval**: directories 2026-09-14T10:03:57.824Z; duty 2026-09-15T09:40:29.571Z. The timestamp records when the source snapshot was retrieved; it is not an opening time and does not prove that a pharmacy is open now.
 
 This is not nationwide coverage: the perimeter is limited to Ticino and the Italian provinces CO, VA and VB.
-Locarnese is not yet included in the duty parser: we do not infer or present an OFCT duty service for that area. This limits the duty data; it is not a statement about the cantonal directory.
+Locarnese is included as the fifth duty region through the regional association source farmacielocarnese.ch. Its interval is published only after a unique match with the cantonal directory; the source does not replace the directory.
+For Locarnese: regional association source [farmacielocarnese.ch](https://www.farmacielocarnese.ch/); the parser publishes an interval only after a unique Farmacia-and-locality match with the cantonal directory and copies no address from the source.
 No Italian on-duty claim is made: the Italian catalogue is an address directory and does not prove that a pharmacy is open or on duty.
 
 ## Official sources and useful routes
@@ -449,7 +536,7 @@ No Italian on-duty claim is made: the Italian catalogue is an address directory 
 - [Ticino directory](/en/pharmacies/ticino/)
 - [Italian provinces directory](/en/pharmacies/italy/)
 - [on-duty pharmacies](/en/on-duty-pharmacies/)
-- **OFCT sources by area**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/)
+- **regional sources by area**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/), [Locarnese](https://www.farmacielocarnese.ch/)
 
 For a specific case, open the local route, read the available record and contact the pharmacy: a static directory does not replace direct confirmation.]]></content:encoded>
       <pubDate>Mon, 14 Sep 2026 20:06:49 GMT</pubDate>
@@ -2322,53 +2409,6 @@ To analyse in detail the impact of fixed costs, social deductions and expenses r
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/finanze-ospedali-svizzera-2025</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/finanze-ospedali-svizzera-2025.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Economiesuisse: Silvan Wildhaber is the new president</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/economiesuisse-silvan-wildhaber-is-the-new-president/</link>
-      <description><![CDATA[Passage of presidency to Economiesuisse: Silvan Wildhaber succeeds Christoph Mäder with full support for bilateral agreements III.]]></description>
-      <content:encoded><![CDATA[## In brief
-- Change of presidency at Economiesuisse
-- Silvan Wildhaber succeeds Christoph Mäder
-- Full support for the bilateral III agreements
-
-## Key facts
-- **What**: Change of leadership at the presidency of Economiesuisse
-- When: Today
-- Where: Bern
-- Who: Silvan Wildhaber and Christoph Mäder
-- Amount: 100,000 companies represented
-
-(Keystone-ATS) The handover took place in Bern during the economy day organized by the association representing Swiss businesses. Economiesuisse has a new leader: after two three-year terms, Christoph Mäder today handed over the presidency to his successor Silvan Wildhaber. During the body's annual general meeting, according to communications from Economiesuisse itself, the new president highlighted the international context. A trade and customs war is raging around us, Wildhaber stated in his speech to the annual assembly, emphasizing that for a small open economy like Switzerland this represents a massive challenge. The 48-year-old added that every opportunity must be seized to improve trade relations, confirming a full commitment to the new free trade agreements with Malaysia and Mercosur, as well as the bilateral III agreements. The entrepreneur from St. Gallen then highlighted the importance of convincing the population of the added value of a strong economy. Companies and their employees create the country's prosperity day after day, offering an indispensable contribution. The outgoing Mäder instead pointed the finger at the stalemate in framework conditions, expressing the hope that Switzerland will once again demonstrate the will to be among the most prosperous countries, with the best educational opportunities, the most sustainable welfare systems, a stable energy supply, and the greatest number of free trade agreements.
-
-### Assembly details and appointments
-Swiss President Guy Parmelin also spoke at the economy day, emphasizing the importance of diversification in foreign economic policy given global uncertainties, as well as the Chairman of the Governing Board of the Swiss National Bank (SNB) Martin Schlegel, who spoke about his institution's role in guaranteeing stability during a challenging global moment. The assembly elected sixteen new committee members, four of whom also join the steering committee. Among them is Giorgio Pradelli, designated president of the Swiss Bankers Association (SBA), who will assume the vice-presidency of Economiesuisse. The appointment of the new president Wildhaber had instead already taken place on March 16 by the committee. The organization brings together 100 trade associations, 20 cantonal chambers of commerce, and various individual enterprises, representing approximately 100,000 companies from all sectors employing two million people. With substantial resources, the organization seeks to politically influence Switzerland, particularly in federal elections, although not always successfully, as demonstrated by some recent defeats including the Swiss people's vote in favor of the 13th AHV pension. In this context, mention should also be made of the Swiss Trade Association, which also represents businesses but is historically more oriented towards small and medium-sized enterprises compared to Economiesuisse, which is traditionally close to large multinationals and a heavily globally integrated economy.
-### Economic priorities and the comparison between organizations
-
-The statements that emerged during the Economiesuisse Economy Day highlight the divergences and complexities that characterize the Swiss entrepreneurial fabric. On the one hand, there is the position of Economiesuisse, focused on defending the interests of large multinationals and global integration through unconditional support for free trade agreements with Malaysia and Mercosur, as well as the bilateral III agreements. On the other hand, the Swiss Arts and Crafts Union operates, led by Council of States member Fabio Regazzi, which represents Swiss small and medium-sized enterprises. This structural distinction means that the positions of the two bodies do not always coincide on crucial issues of economic and federal policy.
-
-### The Swiss political and institutional context
-
-Economiesuisse's action aims to influence the political debate and decisions in Bern with ample financial and organizational resources, although electoral results and popular votes do not always confirm the lines promoted by the association. An emblematic example cited in the recent debate is represented by the popular vote in favor of the thirteenth AVS, which marked a defeat for the positions supported by large economic groups. The reflections expressed by former president Christoph Mäder highlight concern over the blocking of framework conditions, with particular reference to the need for structural reforms in the sectors of education, social security, energy, and international trade agreements. Furthermore, the speech by Confederation President Guy Parmelin reiterated the need for a diversified foreign economic policy to cope with tariff tensions and global trade wars that threaten open economies like Switzerland's. The presence of prominent figures from the financial and institutional world, such as SNB Governing Board President Martin Schlegel, confirms the attention placed on the overall stability of the national economic system in a moment of transition and heightened international challenges.
-
-## Useful planning tools
-To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
-### Opportunity analysis and economic insight tools
-
-For those who live and work in Switzerland, following the evolution of international trade relations, bilateral agreements and economic dynamics promoted by organisations such as Economiesuisse offers a key to understanding the country's employment and growth prospects. Decisions taken at federal level regarding free trade agreements and framework conditions for companies directly affect the overall economic climate, the stability of energy supply and the competitiveness of Swiss companies in global markets.
-
-### Useful checks and tools for residents
-
-While large economic associations discuss strategies for the future of Switzerland and the international positioning of companies, workers and residents can analyse the impact of economic and wage dynamics on their financial situation through dedicated tools. To assess your economic position, understand the trend in the cost of living or analyse the prospects related to the Swiss labour market, you can consult specific and up-to-date resources.
-
-To deepen the impact of federal economic policies and better plan your financial and social security situation in Switzerland, discover the [calcolatore stipendio e imposte](nav:calculator) available on the portal.
-
-*Source: [swissinfo.ch](https://www.swissinfo.ch/ita/economiesuisse%3a-entra-in-carica-presidente%2c-%22100%25-per-i-bilaterali%22/92043221)*]]></content:encoded>
-      <pubDate>Sat, 12 Sep 2026 00:43:56 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/economiesuisse-silvan-wildhaber</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/economiesuisse-silvan-wildhaber.webp" medium="image"/>
     </item>
   </channel>
 </rss>
