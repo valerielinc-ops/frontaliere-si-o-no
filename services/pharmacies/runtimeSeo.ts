@@ -2,17 +2,28 @@ import type { Locale } from '../i18n';
 import type { SEOMetadata } from '../seoService';
 import {
   ITALY_CITY_BY_PROVINCE_AND_SLUG,
+  ITALY_BORDER_PROVINCES,
   ITALY_PROVINCE_BY_SLUG,
+  BORDER_PHARMACIES,
+  ITALY_BORDER_PHARMACIES,
   TICINO_CITY_BY_SLUG,
+  TICINO_PHARMACIES,
+  pharmacyById,
   pharmacyBySlug,
   pharmacyCitySlug,
+  pharmaciesForCity,
+  pharmaciesForProvince,
   provinceSlugForPharmacy,
 } from './data';
 import { buildPharmacyPath, type PharmacyPath } from './paths';
 import { buildDutyWeekModel } from './dutyWeek';
-import type { PharmacyCatalogueDataset, PharmacyDutiesDataset } from './types';
+import { currentDutyForRegion } from './duties';
+import { buildPharmacyTitle } from './title';
+import { safePharmacyUrl, type Pharmacy, type PharmacyCatalogueDataset, type PharmacyDutiesDataset } from './types';
 import dutiesJson from '../../data/pharmacy-duties-ticino.json';
 import completeTicinoJson from '../../data/pharmacies-ticino-complete.json';
+
+const BASE_URL = 'https://frontaliereticino.ch';
 
 type PharmacyRuntimeSeoMetadata = SEOMetadata & {
   robots: 'index,follow' | 'noindex,follow';
@@ -92,7 +103,26 @@ function pharmacyCityName(path: PharmacyPath): string | null {
   return TICINO_CITY_BY_SLUG.get(path.citySlug) || null;
 }
 
-function pharmacyRuntimeTitle(path: PharmacyPath, locale: Locale): { title: string; resolved: boolean } {
+function pharmacyPathForRecord(pharmacy: Pharmacy, locale: Locale): PharmacyPath {
+  return pharmacy.country === 'IT'
+    ? {
+      kind: 'pharmacy',
+      country: 'IT',
+      areaSlug: provinceSlugForPharmacy(pharmacy),
+      citySlug: pharmacyCitySlug(pharmacy.city),
+      pharmacySlug: pharmacy.slug,
+      locale,
+    }
+    : {
+      kind: 'pharmacy',
+      country: 'CH',
+      citySlug: pharmacyCitySlug(pharmacy.city),
+      pharmacySlug: pharmacy.slug,
+      locale,
+    };
+}
+
+function pharmacyRuntimeTitle(path: PharmacyPath, locale: Locale): { title: string; resolved: boolean; pharmacy?: Pharmacy } {
   const copy = RUNTIME_PHARMACY_COPY[locale];
   if (path.kind === 'hub') return { title: copy.hubTitle, resolved: true };
   if (path.kind === 'canton') return { title: copy.cantonTitle, resolved: true };
@@ -131,10 +161,151 @@ function pharmacyRuntimeTitle(path: PharmacyPath, locale: Locale): { title: stri
       && pharmacyCitySlug(pharmacy!.city) === path.citySlug
       && (expectedCountry !== 'IT' || provinceSlugForPharmacy(pharmacy!) === path.areaSlug);
     return matchesRoute
-      ? { title: `${pharmacy!.name} — ${pharmacy!.city}`, resolved: true }
+      ? { title: buildPharmacyTitle(pharmacy!, BORDER_PHARMACIES), resolved: true, pharmacy }
       : { title: expectedCountry === 'IT' ? copy.italyTitle : copy.cantonTitle, resolved: false };
   }
   return { title: copy.hubTitle, resolved: false };
+}
+
+function pharmaciesForCollection(path: PharmacyPath): Pharmacy[] | null {
+  if (path.kind === 'hub') return BORDER_PHARMACIES;
+  if (path.kind === 'canton') return TICINO_PHARMACIES;
+  if (path.kind === 'country' && path.country === 'IT') return ITALY_BORDER_PHARMACIES;
+  if (path.kind === 'area' && path.areaSlug) {
+    const province = ITALY_PROVINCE_BY_SLUG.get(path.areaSlug);
+    return province ? pharmaciesForProvince(province.code) : null;
+  }
+  if (path.kind === 'city') {
+    const city = pharmacyCityName(path);
+    if (!city) return null;
+    if (path.country === 'IT' && path.areaSlug) {
+      const province = ITALY_PROVINCE_BY_SLUG.get(path.areaSlug);
+      return province
+        ? ITALY_BORDER_PHARMACIES.filter((pharmacy) => pharmacy.province === province.code && pharmacy.city === city)
+        : null;
+    }
+    return pharmaciesForCity(city);
+  }
+  if (path.kind === 'duty-hub') {
+    const duties = Array.isArray(RUNTIME_PHARMACY_DUTIES.duties) ? RUNTIME_PHARMACY_DUTIES.duties : [];
+    const regions = [...new Set(duties.map((duty) => duty.coverageName))];
+    return regions
+      .map((region) => currentDutyForRegion(RUNTIME_PHARMACY_DUTIES, region))
+      .filter((duty): duty is NonNullable<typeof duty> => Boolean(duty))
+      .map((duty) => pharmacyById(duty.pharmacyId))
+      .filter((pharmacy): pharmacy is Pharmacy => Boolean(pharmacy));
+  }
+  return null;
+}
+
+const MAX_COLLECTION_SCHEMA_ITEMS = 10;
+
+function pharmacyDetailStructuredData(pharmacy: Pharmacy, locale: Locale): Record<string, any> {
+  const path = pharmacyPathForRecord(pharmacy, locale);
+  const website = safePharmacyUrl(pharmacy.website);
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Pharmacy',
+    name: pharmacy.name,
+    url: `${BASE_URL}${buildPharmacyPath(path, locale)}`,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: pharmacy.address,
+      postalCode: pharmacy.postalCode,
+      addressLocality: pharmacy.city,
+      addressCountry: pharmacy.country,
+    },
+    ...(pharmacy.phone ? { telephone: pharmacy.phone } : {}),
+    ...(website ? { sameAs: website } : {}),
+    ...(pharmacy.latitude !== undefined && pharmacy.longitude !== undefined
+      ? { geo: { '@type': 'GeoCoordinates', latitude: pharmacy.latitude, longitude: pharmacy.longitude } }
+      : {}),
+    ...(pharmacy.openingHours?.length
+      ? {
+        openingHoursSpecification: pharmacy.openingHours.map((hour) => ({
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: `https://schema.org/${hour.dayOfWeek.charAt(0).toUpperCase()}${hour.dayOfWeek.slice(1)}`,
+          opens: hour.opens,
+          closes: hour.closes,
+        })),
+      }
+      : {}),
+  };
+}
+
+function collectionStructuredData(path: PharmacyPath, title: string, pharmacies: Pharmacy[]): Record<string, any> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: title,
+    url: `${BASE_URL}${buildPharmacyPath(path, path.locale)}`,
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: pharmacies.length,
+      itemListElement: pharmacies.slice(0, MAX_COLLECTION_SCHEMA_ITEMS).map((pharmacy, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: pharmacy.name,
+        url: `${BASE_URL}${buildPharmacyPath(pharmacyPathForRecord(pharmacy, path.locale), path.locale)}`,
+      })),
+    },
+  };
+}
+
+function countryCollectionStructuredData(path: PharmacyPath, title: string): Record<string, any> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: title,
+    url: `${BASE_URL}${buildPharmacyPath(path, path.locale)}`,
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: ITALY_BORDER_PROVINCES.length,
+      itemListElement: ITALY_BORDER_PROVINCES.map((province, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: province.name,
+        url: `${BASE_URL}${buildPharmacyPath({ kind: 'area', country: 'IT', areaSlug: province.slug, locale: path.locale }, path.locale)}`,
+      })),
+    },
+  };
+}
+
+function dutyWeekStructuredData(path: PharmacyPath, title: string, model: ReturnType<typeof buildDutyWeekModel>): Record<string, any> | undefined {
+  if (!model.indexable) return undefined;
+  const duties = model.regions.flatMap((region) => region.duties);
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: title,
+    url: `${BASE_URL}${buildPharmacyPath(path, path.locale)}`,
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: duties.length,
+      itemListElement: duties.slice(0, MAX_COLLECTION_SCHEMA_ITEMS).flatMap((duty, index) => {
+        const pharmacy = pharmacyById(duty.pharmacyId);
+        return pharmacy
+          ? [{
+            '@type': 'ListItem',
+            position: index + 1,
+            name: `${pharmacy.name} — ${duty.coverageName}`,
+            url: `${BASE_URL}${buildPharmacyPath(pharmacyPathForRecord(pharmacy, path.locale), path.locale)}`,
+          }]
+          : [];
+      }),
+    },
+  };
+}
+
+function pharmacyBreadcrumbStructuredData(path: PharmacyPath, title: string): Record<string, any> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Farmacie', item: `${BASE_URL}${buildPharmacyPath({ kind: 'hub', locale: path.locale }, path.locale)}` },
+      { '@type': 'ListItem', position: 2, name: title, item: `${BASE_URL}${buildPharmacyPath(path, path.locale)}` },
+    ],
+  };
 }
 
 /**
@@ -153,7 +324,7 @@ export function resolvePharmacySeoMetadata(
 ): PharmacyRuntimeSeoMetadata {
   const locale = path.locale;
   const copy = RUNTIME_PHARMACY_COPY[locale];
-  const { title, resolved } = pharmacyRuntimeTitle(path, locale);
+  const { title, resolved, pharmacy } = pharmacyRuntimeTitle(path, locale);
   const model = path.kind === 'duty-week' && path.weekStart
     ? buildDutyWeekModel(options.duties ?? RUNTIME_PHARMACY_DUTIES, path.weekStart, {
       now: options.now,
@@ -165,6 +336,20 @@ export function resolvePharmacySeoMetadata(
     ? copy.dutyWeekDescription
     : `${title}. ${copy.directoryDescription}`;
   const canonicalPath = buildPharmacyPath(path, locale);
+  const collectionPharmacies = pharmaciesForCollection(path);
+  const primaryStructuredData = pharmacy
+    ? pharmacyDetailStructuredData(pharmacy, locale)
+    : model
+      ? dutyWeekStructuredData(path, title, model)
+      : collectionPharmacies
+        ? path.kind === 'country'
+          ? countryCollectionStructuredData(path, title)
+          : collectionStructuredData(path, title, collectionPharmacies)
+        : undefined;
+  const breadcrumb = resolved ? pharmacyBreadcrumbStructuredData(path, title) : undefined;
+  const structuredData = primaryStructuredData && breadcrumb
+    ? [primaryStructuredData, breadcrumb]
+    : primaryStructuredData || breadcrumb;
   return {
     title,
     description,
@@ -173,5 +358,6 @@ export function resolvePharmacySeoMetadata(
     ogDescription: description,
     canonicalPath,
     robots: indexable ? 'index,follow' : 'noindex,follow',
+    ...(structuredData ? { structuredData } : {}),
   };
 }

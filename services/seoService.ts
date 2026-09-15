@@ -1672,6 +1672,7 @@ export async function updateMetaTags(section: string): Promise<void> {
  // route-derived, so a soft navigation to an EN/DE/FR pharmacy page must not
  // leave the previous page's head in place while that locale chunk loads.
  const { route, locale: pathLocale } = parsePath(window.location.pathname);
+ removeStalePharmacyStructuredData();
  const pharmacyMetadata = route.pharmacyPath
  ? (await loadPharmacyRuntimeSeo()).resolvePharmacySeoMetadata(route.pharmacyPath)
  : null;
@@ -1961,7 +1962,16 @@ export async function updateMetaTags(section: string): Promise<void> {
 
  // Update structured data if provided, always include breadcrumbs
  const breadcrumbs = buildBreadcrumbs(sectionKey, route, locale, hasLocalizedTitle ? localizedTitle : undefined);
- if (jobSeo?.structuredData) {
+ if (pharmacyMetadata) {
+ // Pharmacy schemas are route-specific. The resolver also supplies the
+ // matching BreadcrumbList; an invalid route deliberately supplies neither.
+ const pharmacyStructuredData = pharmacyMetadata.structuredData;
+ if (pharmacyStructuredData) {
+  updateStructuredData(pharmacyStructuredData);
+ } else {
+  updateStructuredData([]);
+ }
+ } else if (jobSeo?.structuredData) {
  // jobSeo.structuredData is the JobPosting schema alone, or [JobPosting, FAQPage]
  // when resolveJobSeoBySlug built a job-specific FAQ (see jobPostingFaq.ts).
  const jobStructuredDataItems = Array.isArray(jobSeo.structuredData)
@@ -2144,6 +2154,37 @@ function updateCanonicalLink(url: string): void {
  }
 
  canonical.href = url;
+}
+
+const PHARMACY_SCHEMA_PATH = /\/(?:farmacie|pharmacies|apotheken)(?:\/|$)/i;
+
+function includesPharmacySchemaPath(value: unknown): boolean {
+ return typeof value === 'string' && PHARMACY_SCHEMA_PATH.test(value);
+}
+
+function isPharmacyStructuredData(value: unknown): boolean {
+ if (!value || typeof value !== 'object' || Array.isArray(value)) return false;
+ const schema = value as Record<string, any>;
+ const rawType = schema['@type'];
+ const types = Array.isArray(rawType) ? rawType : [rawType];
+ if (types.includes('Pharmacy')) return true;
+ if (types.includes('CollectionPage')) {
+  return includesPharmacySchemaPath(schema.url)
+   || includesPharmacySchemaPath(JSON.stringify(schema.mainEntity || ''));
+ }
+ if (types.includes('BreadcrumbList')) {
+  return includesPharmacySchemaPath(JSON.stringify(schema.itemListElement || ''));
+ }
+ return false;
+}
+
+/** Remove static pharmacy schemas that belong to the route before navigation. */
+function removeStalePharmacyStructuredData(): void {
+ document.querySelectorAll('script[type="application/ld+json"]').forEach((el) => {
+  try {
+   if (isPharmacyStructuredData(JSON.parse(el.textContent || ''))) el.remove();
+  } catch { /* malformed JSON-LD is not ours to preserve across a route change */ }
+ });
 }
 
 /**
