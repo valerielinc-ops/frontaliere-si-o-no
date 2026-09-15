@@ -55,4 +55,18 @@ describe('assisted application checkout client idempotency', () => {
 
     expect(requestBodyAt(0).requestKey).not.toBe(requestBodyAt(1).requestKey);
   });
+
+  it('keeps the request key stable when locale and return path change', async () => {
+    const user = { uid: 'user-client-locale', getIdToken: vi.fn(async () => 'good-token') };
+
+    await createAssistedApplicationCheckout(input, user);
+    await createAssistedApplicationCheckout({
+      ...input,
+      jobTitle: 'Sviluppatore software',
+      successUrl: 'https://frontaliereticino.ch/it/lavoro/job-client-1',
+      cancelUrl: 'https://frontaliereticino.ch/it/lavoro/job-client-1',
+    }, user);
+
+    expect(requestBodyAt(1).requestKey).toBe(requestBodyAt(0).requestKey);
+  });
 });

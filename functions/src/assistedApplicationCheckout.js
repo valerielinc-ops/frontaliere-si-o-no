@@ -56,6 +56,28 @@ function sha256(value) {
   return createHash('sha256').update(value).digest('hex');
 }
 
+function canonicalCheckoutOrder(order) {
+  return {
+    jobId: order.jobId,
+    companyId: order.companyId,
+    jobUrl: order.jobUrl,
+    companyName: order.companyName,
+    experimentVariant: order.experimentVariant,
+  };
+}
+
+function payloadHashFor(order) {
+  return sha256(JSON.stringify({
+    version: 2,
+    order: canonicalCheckoutOrder(order),
+  }));
+}
+
+function sameCanonicalCheckoutOrder(left, right) {
+  return JSON.stringify(canonicalCheckoutOrder(left))
+    === JSON.stringify(canonicalCheckoutOrder(right));
+}
+
 function metadataForOrder(order, userId) {
   return {
     product: ASSISTED_APPLICATION_PRODUCT,
@@ -75,6 +97,7 @@ function checkoutAttemptFor(value) {
 }
 
 function isTerminalCheckoutOrder(order) {
+  if (order?.paymentStatus === 'paid') return false;
   return order?.checkoutSessionStatus === 'expired'
     || order?.checkoutSessionStatus === 'failed'
     || order?.paymentStatus === 'failed'
@@ -149,7 +172,7 @@ export async function handleCreateAssistedApplicationCheckout(req) {
     return { status: 400, body: { ok: false, error: 'invalid_redirect_urls' } };
   }
 
-  const payloadHash = sha256(JSON.stringify({ order, successUrl, cancelUrl }));
+  const payloadHash = payloadHashFor(order);
   const requestKeyHash = sha256(`${userId}:${requestKey}`);
   const firestore = db();
   const requestRef = firestore
@@ -160,6 +183,7 @@ export async function handleCreateAssistedApplicationCheckout(req) {
   let orderRef = null;
   let checkoutAttempt = 1;
   let stripeRequestKey = requestKeyHash;
+  let paidOrderResumeId = null;
 
   try {
     await firestore.runTransaction(async (transaction) => {
@@ -169,20 +193,31 @@ export async function handleCreateAssistedApplicationCheckout(req) {
         if (
           existingRecord.userId !== userId
           || existingRecord.requestKeyHash !== requestKeyHash
-          || existingRecord.payloadHash !== payloadHash
           || !existingRecord.orderId
         ) {
           throw new AssistedApplicationRequestConflictError();
         }
-
         const existingOrderRef = orderCollection.doc(existingRecord.orderId);
         const existingOrderSnapshot = await transaction.get(existingOrderRef);
         const existingOrder = existingOrderSnapshot.exists ? existingOrderSnapshot.data() || {} : null;
+        if (
+          !existingOrderSnapshot.exists
+          || !sameCanonicalCheckoutOrder(existingOrder, order)
+        ) {
+          throw new AssistedApplicationRequestConflictError();
+        }
         if (existingOrderSnapshot.exists && !isTerminalCheckoutOrder(existingOrder)) {
-          requestRecord = existingRecord;
+          requestRecord = { ...existingRecord, payloadHash };
           orderRef = existingOrderRef;
           checkoutAttempt = checkoutAttemptFor(existingRecord.checkoutAttempt);
           stripeRequestKey = stripeRequestKeyFor(existingRecord, requestKeyHash, checkoutAttempt);
+          paidOrderResumeId = existingOrder.paymentStatus === 'paid' ? existingRecord.orderId : null;
+          if (existingRecord.payloadHash !== payloadHash) {
+            transaction.set(requestRef, {
+              payloadHash,
+              updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+            }, { merge: true });
+          }
           return;
         }
 
@@ -191,6 +226,7 @@ export async function handleCreateAssistedApplicationCheckout(req) {
         stripeRequestKey = stripeRequestKeyFor(null, requestKeyHash, checkoutAttempt);
         requestRecord = {
           ...existingRecord,
+          payloadHash,
           orderId: orderRef.id,
           checkoutAttempt,
           stripeRequestKey,
@@ -232,6 +268,17 @@ export async function handleCreateAssistedApplicationCheckout(req) {
       return { status: 409, body: { ok: false, error: 'assisted_application_request_conflict' } };
     }
     throw error;
+  }
+
+  if (paidOrderResumeId) {
+    return {
+      status: 200,
+      body: {
+        ok: true,
+        url: appendOrderId(successUrl, paidOrderResumeId),
+        orderId: paidOrderResumeId,
+      },
+    };
   }
 
   if (

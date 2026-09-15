@@ -180,6 +180,43 @@ describe('handleCreateAssistedApplicationCheckout', () => {
     expect(Object.keys(store.assisted_application_checkout_requests)).toHaveLength(1);
   });
 
+  it('returns the upload resume URL when the persisted order is already paid', async () => {
+    const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
+
+    const first = await handleCreateAssistedApplicationCheckout(request());
+    store.assisted_applications[first.body.orderId].paymentStatus = 'paid';
+    store.assisted_applications[first.body.orderId].submissionStatus = 'awaiting_upload';
+    const resumed = await handleCreateAssistedApplicationCheckout(request());
+
+    expect(resumed).toEqual({
+      status: 200,
+      body: {
+        ok: true,
+        url: 'https://frontaliereticino.ch/lavoro/job-42?assisted_application_order_id=order-1',
+        orderId: 'order-1',
+      },
+    });
+    expect(stripeCheckoutSessionsCreate).toHaveBeenCalledTimes(1);
+  });
+
+  it('keeps a retry idempotent when only localized title and return paths change', async () => {
+    const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
+
+    const first = await handleCreateAssistedApplicationCheckout(request());
+    const resumed = await handleCreateAssistedApplicationCheckout(request({
+      body: {
+        ...request().body,
+        jobTitle: 'Sviluppatore software',
+        successUrl: 'https://frontaliereticino.ch/it/lavoro/job-42',
+        cancelUrl: 'https://frontaliereticino.ch/it/lavoro/job-42',
+      },
+    }));
+
+    expect(resumed).toEqual(first);
+    expect(stripeCheckoutSessionsCreate).toHaveBeenCalledTimes(1);
+    expect(Object.keys(store.assisted_application_checkout_requests)).toHaveLength(1);
+  });
+
   it('rotates the checkout attempt after Stripe reports the saved session expired', async () => {
     const {
       handleCreateAssistedApplicationCheckout,

@@ -18,7 +18,8 @@ export interface AssistedApplicationCheckoutResult {
   orderId: string;
 }
 
-const REQUEST_KEY_STORAGE_PREFIX = 'frontaliere_assisted_application_checkout_v1';
+const REQUEST_KEY_STORAGE_PREFIX = 'frontaliere_assisted_application_checkout_v2';
+const LEGACY_REQUEST_KEY_STORAGE_PREFIX = 'frontaliere_assisted_application_checkout_v1';
 const REQUEST_KEY_RE = /^[A-Za-z0-9_-]{16,128}$/;
 const requestKeyMemory = new Map<string, string>();
 
@@ -31,10 +32,29 @@ function newRequestKey(): string {
   return `assisted-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 14)}`;
 }
 
+function canonicalRequestIdentity(input: AssistedApplicationCheckoutInput): string {
+  // Job title and redirect URLs are presentation details: locale changes and
+  // returning through a different route must not fork an already-paid order.
+  // Keep the same immutable identity as the server-side checkout ledger.
+  return JSON.stringify({
+    jobId: input.jobId,
+    companyId: input.companyId,
+    jobUrl: input.jobUrl,
+    companyName: input.companyName,
+    experimentVariant: input.experimentVariant,
+  });
+}
+
 function requestKeyStorageKey(input: AssistedApplicationCheckoutInput, user: { uid?: string }): string {
   const uid = encodeURIComponent(user.uid || 'anonymous');
+  const identity = encodeURIComponent(canonicalRequestIdentity(input));
+  return `${REQUEST_KEY_STORAGE_PREFIX}:${uid}:${identity}`;
+}
+
+function legacyRequestKeyStorageKey(input: AssistedApplicationCheckoutInput, user: { uid?: string }): string {
+  const uid = encodeURIComponent(user.uid || 'anonymous');
   const jobId = encodeURIComponent(input.jobId);
-  return `${REQUEST_KEY_STORAGE_PREFIX}:${uid}:${jobId}`;
+  return `${LEGACY_REQUEST_KEY_STORAGE_PREFIX}:${uid}:${jobId}`;
 }
 
 function persistentRequestKey(
@@ -60,6 +80,12 @@ function persistentRequestKey(
     if (REQUEST_KEY_RE.test(stored)) {
       requestKeyMemory.set(storageKey, stored);
       return stored;
+    }
+    const legacyStored = window.localStorage.getItem(legacyRequestKeyStorageKey(input, user)) || '';
+    if (REQUEST_KEY_RE.test(legacyStored)) {
+      requestKeyMemory.set(storageKey, legacyStored);
+      window.localStorage.setItem(storageKey, legacyStored);
+      return legacyStored;
     }
   } catch {
     // Generate a key below when localStorage is unavailable.

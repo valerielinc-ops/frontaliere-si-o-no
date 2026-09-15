@@ -21,18 +21,38 @@ function docRef(id: string) {
 const firestore = Object.assign(
   () => ({
     collection: () => ({
-      where: () => ({
-        limit: () => ({
+      where: (field: string, _operator: string, cutoff: { millis: number }) => {
+        let cursorId: string | null = null;
+        let pageSize = Number.POSITIVE_INFINITY;
+        const query = {
+          orderBy: () => query,
+          startAfter: (cursor: { id?: string }) => {
+            cursorId = cursor?.id || null;
+            return query;
+          },
+          limit: (value: number) => {
+            pageSize = value;
+            return query;
+          },
           async get() {
-            const docs = Object.keys(orders).map((id) => ({
+            const ids = Object.keys(orders)
+              .filter((id) => {
+                const value = orders[id][field] as { toMillis?: () => number } | undefined;
+                return typeof value?.toMillis === 'function' && value.toMillis() < cutoff.millis;
+              })
+              .sort();
+            const startIndex = cursorId ? Math.max(ids.indexOf(cursorId) + 1, 0) : 0;
+            const page = ids.slice(startIndex, startIndex + pageSize);
+            const docs = page.map((id) => ({
               id,
               data: () => orders[id],
               ref: docRef(id),
             }));
             return { docs, empty: docs.length === 0 };
           },
-        }),
-      }),
+        };
+        return query;
+      },
     }),
   }),
   {
@@ -160,5 +180,34 @@ describe('purgeExpiredAssistedApplicationFiles', () => {
       'assisted-application-uploads/unsafe_nested/../other.pdf',
       { ignoreNotFound: true },
     );
+  });
+
+  it('skips already purged records and paginates past the first 500 candidates', async () => {
+    orders = {
+      already_purged: {
+        submissionStatus: 'ready_for_manual_submission',
+        submittedAt: { toMillis: () => NOW - 100 * DAY },
+        retentionPurgedAt: '__server_timestamp__',
+        cvStorageKey: 'assisted-application-uploads/already_purged/cv.pdf',
+      },
+    };
+    for (let index = 0; index < 500; index += 1) {
+      const id = `expired_${String(index).padStart(3, '0')}`;
+      orders[id] = {
+        submissionStatus: 'ready_for_manual_submission',
+        submittedAt: { toMillis: () => NOW - 100 * DAY },
+        cvStorageKey: `assisted-application-uploads/${id}/cv.pdf`,
+      };
+    }
+
+    const { purgeExpiredAssistedApplicationFiles } = await load();
+    const result = await purgeExpiredAssistedApplicationFiles(90, NOW);
+
+    expect(result.purged).toBe(500);
+    expect(orders.already_purged.cvStorageKey).toBe(
+      'assisted-application-uploads/already_purged/cv.pdf',
+    );
+    expect(orders.expired_499.cvStorageKey).toBeNull();
+    expect(deleteFileMock).toHaveBeenCalledTimes(500);
   });
 });

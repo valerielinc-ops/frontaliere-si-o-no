@@ -13,6 +13,7 @@ export const ASSISTED_APPLICATION_RETENTION_DAYS = 90;
 
 const ASSISTED_APPLICATIONS_COLLECTION = 'assisted_applications';
 const ASSISTED_STORAGE_PREFIX = 'assisted-application-uploads/';
+const RETENTION_PAGE_SIZE = 500;
 const STORAGE_BUCKET =
   process.env.FIREBASE_STORAGE_BUCKET ||
   process.env.STORAGE_BUCKET ||
@@ -44,11 +45,24 @@ function storageKeyForOrder(orderId, value) {
   return /^[A-Za-z0-9._-]+$/.test(fileName) ? key : null;
 }
 
-function candidateDocs(collection, field, cutoff) {
-  return collection
-    .where(field, '<', cutoff)
-    .limit(500)
-    .get();
+async function candidateDocs(collection, field, cutoff) {
+  const candidates = [];
+  let cursor = null;
+
+  while (true) {
+    let query = collection.where(field, '<', cutoff).orderBy(field);
+    if (cursor) query = query.startAfter(cursor);
+    const snapshot = await query.limit(RETENTION_PAGE_SIZE).get();
+    const docs = snapshot.docs || [];
+    candidates.push(...docs.filter((doc) => doc.data()?.retentionPurgedAt == null));
+    if (docs.length < RETENTION_PAGE_SIZE) break;
+
+    const nextCursor = docs[docs.length - 1];
+    if (!nextCursor || nextCursor.id === cursor?.id) break;
+    cursor = nextCursor;
+  }
+
+  return candidates;
 }
 
 /**
@@ -68,7 +82,7 @@ export async function purgeExpiredAssistedApplicationFiles(
   const cutoffMillis = nowMs - retentionDays * 86400000;
   const cutoff = admin.firestore.Timestamp.fromMillis(cutoffMillis);
   const collection = firestore.collection(ASSISTED_APPLICATIONS_COLLECTION);
-  const [submittedSnapshot, refundedSnapshot, uploadedSnapshot] = await Promise.all([
+  const [submittedDocs, refundedDocs, uploadedDocs] = await Promise.all([
     candidateDocs(collection, 'submittedAt', cutoff),
     candidateDocs(collection, 'refundedAt', cutoff),
     candidateDocs(collection, 'cvUploadedAt', cutoff),
@@ -76,9 +90,9 @@ export async function purgeExpiredAssistedApplicationFiles(
 
   const candidates = new Map();
   for (const snapshot of [
-    ...(submittedSnapshot.docs || []),
-    ...(refundedSnapshot.docs || []),
-    ...(uploadedSnapshot.docs || []),
+    ...submittedDocs,
+    ...refundedDocs,
+    ...uploadedDocs,
   ]) {
     candidates.set(snapshot.id, snapshot);
   }
