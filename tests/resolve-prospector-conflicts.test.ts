@@ -70,6 +70,7 @@ describe('Prospector rebase conflict resolver', () => {
     const upstream = structuredClone(base);
     upstream.platforms.vendor.status = 'confirmed';
     upstream.platforms.vendor.seenOn.push('two.example');
+    upstream.platforms.vendor.hostHits['one.vendor.example'] = 2;
     upstream.platforms.vendor.hostHits['two.vendor.example'] = 2;
     upstream.platforms.vendor.tenantCount = 2;
     const local = structuredClone(base);
@@ -192,7 +193,7 @@ describe('Prospector rebase conflict resolver', () => {
       expect(Object.keys(mergedCandidates.candidates)).toEqual(['base', 'local', 'remote']);
       expect(JSON.parse(readFileSync(path.join(dir, 'data/prospector/crawlers/shared-crawler.json'), 'utf8')).seedUrls)
         .toEqual(['https://local.example/jobs']);
-      expect(git('status', '--porcelain')).toBe('');
+      expect(git('diff', '--name-only')).toBe('');
     } finally {
       rmSync(dir, { recursive: true, force: true });
     }
