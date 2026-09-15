@@ -37,6 +37,7 @@ import {
  type JobAlertCreatePayload,
 } from '@/services/newsletterSubscribers';
 import { GLOBAL_EMAIL_OPT_OUT_FIELDS } from '@/services/emailSuppression.mjs';
+import { ADVERTISING_REACTIVATED_AT_FIELD } from '@/services/communicationChannels';
 import { getLocale, type Locale } from '@/services/i18n';
 import { resilientImport } from '@/services/resilientImport';
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
@@ -683,7 +684,9 @@ async function authSetAdvertisingOptOut(email: string, enabled: boolean): Promis
  advertising_opt_out: !enabled,
  advertising_opt_out_updated_at: serverTimestamp(),
  ...(enabled ? {
-  advertising_reactivated_at: serverTimestamp(),
+  // This marker is consumed only by the advertising sender. It must remain
+  // separate from `status`, which is the newsletter channel's state.
+  [ADVERTISING_REACTIVATED_AT_FIELD]: serverTimestamp(),
   // Restoring this opt-out-controlled category lifts the global block without
   // changing the individual state of the remaining channels.
   all_email_opted_out: false,
@@ -1949,6 +1952,11 @@ export function SubscriptionPreferencesController({
   */
  const handleToggleAds = async () => {
  const next = !adsEnabled;
+ // This is an advertising-only choice. The writers record
+ // `advertising_reactivated_at` when `next` is true; they deliberately do not
+ // call the newsletter re-subscribe path, so a newsletter/stop-all state stays
+ // in force for newsletter, JobAlert, brief and digest. The publisher-blast
+ // predicate is the only sender allowed to consume that marker.
  setAdsEnabled(next);
  setSavingAds(true);
  setErrorMsg('');

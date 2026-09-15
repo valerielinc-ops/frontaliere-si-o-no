@@ -512,6 +512,17 @@ describe('SubscriptionPreferencesController — auth-mode source check', () => {
  expect(src).toMatch(/deleteJobAlert\(/);
  });
 
+ it('keeps advertising reactivation scoped to the advertising sender', () => {
+  const start = src.indexOf('const handleToggleAds');
+  const end = src.indexOf('const handleStopAll', start);
+  const toggle = src.slice(start, end);
+  expect(toggle).toContain('advertising_reactivated_at');
+  expect(toggle).toContain('setAdvertisingEnabled(email, token, next)');
+  expect(toggle).toContain('authSetAdvertisingOptOut(email, next)');
+  expect(toggle).not.toContain('authToggleNewsletter(email, next)');
+  expect(src).toContain("status: 'unsubscribed'` alone");
+ });
+
  it('source contains auth-mode Firestore helpers', () => {
  expect(src).toMatch(/authLoadFullStatus/);
  expect(src).toMatch(/authToggleNewsletter/);
