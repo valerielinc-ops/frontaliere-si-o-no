@@ -176355,7 +176355,9 @@
     "createdAt": "2026-06-24",
     "slugByLocale": {
       "fr": "chef-d-equipe-cybersecurite-stadler-rail-bussnang",
-      "de": "teamleader-cyber-security-stadler-rail-ch"
+      "de": "teamleader-cyber-security-stadler-rail-ch",
+      "it": "responsabile-team-cyber-security-stadler-rail-bussnang",
+      "en": "cyber-security-team-leader-stadler-rail-bussnang"
     }
   },
   "id|stadlerrail.com|1356425055": {
@@ -176526,7 +176528,9 @@
     "canton": "ZH",
     "createdAt": "2026-06-30",
     "slugByLocale": {
-      "en": "abteilungsleiter-in-rams-stadler-rail-ch"
+      "en": "abteilungsleiter-in-rams-stadler-rail-ch",
+      "it": "capo-divisione-capo-della-rams-stadler-rail-wallisellen",
+      "fr": "chef-de-division-chef-de-la-rams-stadler-rail-wallisellen"
     }
   },
   "id|stadlerrail.com|1358956455": {
@@ -668350,7 +668354,8 @@
   "id|six-group.com|1427975933": {
     "canonicalSlug": "specialist-cash-related-c-a-80-100-six-group-olten",
     "slugByLocale": {
-      "de": "specialist-cash-related-c-a-80-100-six-group-olten"
+      "de": "specialist-cash-related-c-a-80-100-six-group-olten",
+      "it": "contanti-specialistici-correlati-c-a-80-100-six-group-olten"
     },
     "createdAt": "2026-09-08",
     "canton": "SO"
@@ -720941,7 +720946,9 @@
   "id|epfl.ch|1165382855": {
     "canonicalSlug": "system-administrator-devops-engineer-epfl-lausanne",
     "slugByLocale": {
-      "fr": "system-administrator-devops-engineer-epfl-lausanne"
+      "fr": "system-administrator-devops-engineer-epfl-lausanne",
+      "it": "amministratore-di-sistema-dev-ops-epfl-lausanne",
+      "de": "systemadministrator-dev-ops-epfl-lausanne"
     },
     "createdAt": "2026-09-14",
     "canton": "VD"
@@ -723890,6 +723897,14 @@
       "en": "customer-service-provider-a-80-100-helsana-zurigo",
       "de": "kundenbetreuerin-a-80-100-helsana-worblaufen-homeoffice",
       "fr": "fournisseur-de-services-a-la-clientele-a-80-100-helsana-zurigo"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|six-group.com|1436066033": {
+    "canonicalSlug": "senior-iam-business-analyst-80-100-six-group-zurich",
+    "slugByLocale": {
+      "en": "senior-iam-business-analyst-80-100-six-group-zurich"
     },
     "createdAt": "2026-09-15",
     "canton": "ZH"

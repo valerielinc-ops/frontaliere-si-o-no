@@ -4093,10 +4093,10 @@
       "companyDomain": "emmi.com",
       "title": "Restaurationsspezialist:in ChäsChäuer Bern Zytglogge (befristet auf 3 Monate)",
       "titleByLocale": {
-        "it": "Specialista di ristorazione ChäsChäuer Berna Zytglogge (limitato a 3 mesi)",
-        "en": "Catering Specialist Cheese Dairy Bern Clock Tower (fixed-term for 3 months)",
+        "it": "Specialista in restaurazione ChäsChäuer Bern Zytglogge (limitato a 3 mesi)",
+        "en": "Restoration specialist ChäsChäuer Bern Zytglogge (fixed-term for 3 months)",
         "de": "Restaurationsspezialist:in ChäsChäuer Bern Zytglogge (befristet auf 3 Monate)",
-        "fr": "Spécialiste en restauration ChäsChäuer Berne Zytglogge (limité à 3 mois)"
+        "fr": "Spécialiste en restauration ChäsChäuer Bern Zytglogge (limité à 3 mois)"
       },
       "description": "• Du bist verantwortlich für die Bewirtung und Betreuung von Gästen in unserem ChäsChäuer.\n\n• Du bewirtest und betreust Gruppenevents sowie private Anlässe und Degustationen im ChäsChäuer.\n\n• Du arbeitest teils im Verkaufsladen Chäsbueb mit und bedienst die Registrierkasse und berätst unsere Kunden.\n\n• Die einwandfreie Qualität unserer Produkte steht bei uns an erster Stelle – durch regelmässige Reinigungsarbeiten sowie die Einhaltung der strengen Hygienemassnahmen trägst du aktiv dazu bei.\n\n• Abgeschlossene Berufsausbildung als Restaurationsfachfrau/-mann EFZ mit einschlägiger Berufserfahrung in der Gastronomie.\n\n• Deine aufgestellte Persönlichkeit mit hoher Kundenorientierung erleichtert dir deinen Arbeitsalltag.\n\n• Erfahrung im Umgang mit Lebensmitteln und Leidenschaft für Käse.\n\n• Idealerweise erste Erfahrung im Verkauf/Detailhandel.\n\n• Verhandlungssichere Deutschkenntnisse runden dein Profil ab.",
       "descriptionByLocale": {
@@ -4156,7 +4156,6 @@
           "restaurationsspezialist-in-chaschauer-bern-zytglogge-befristet-auf-3-monate-emmi-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-21T23:21:56.587Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -4171,7 +4170,9 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 913
     },
     {
       "id": "emmi-c2443f0bf68b",
@@ -6567,7 +6568,6 @@
           "account-manager-emmi-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-26T10:04:39.011Z",
       "salaryMin": 96000,
       "salaryMax": 146000,
@@ -6581,8 +6581,7 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "emmi-631000150475",
@@ -7658,7 +7657,6 @@
           "senior-brand-manager-emmi-caffe-latte-emmi-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-02T23:10:39.201Z",
       "salaryMin": 96000,
       "salaryMax": 146000,
@@ -7672,8 +7670,7 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "emmi-43090d433347",
