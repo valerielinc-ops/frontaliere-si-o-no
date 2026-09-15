@@ -35085,6 +35085,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'mendrisio-melano-progetto-meme-risanamento-fonico',
+ category: 'novita',
+ date: '2026-09-15T02:42:05.181Z',
+ image: '/images/blog/mendrisio-melano-progetto-meme-risanamento-fonico.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
