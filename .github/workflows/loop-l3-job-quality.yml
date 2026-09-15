@@ -91,16 +91,32 @@ jobs:
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
+          set -euo pipefail
           if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
-            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set"
-            exit 1
+            echo "::warning::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set; recording an explicitly unavailable apply-handoff outcome"
+            echo 'LOOP_FLEET_L3_EXPORT_UNAVAILABLE=1' >> "$GITHUB_ENV"
+            exit 0
           fi
           printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
           chmod 600 "$RUNNER_TEMP/firebase-sa.json"
           echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
       - name: Export fresh L3 apply-handoff outcome
-        if: github.event_name != 'pull_request'
-        run: node scripts/ci/export-loop-outcomes.mjs --loop L3 --out "$RUNNER_TEMP/job-apply-outcome-baseline.json"
+        if: always() && github.event_name != 'pull_request'
+        run: |
+          set -euo pipefail
+          output_path="$RUNNER_TEMP/job-apply-outcome-baseline.json"
+          if [ "${LOOP_FLEET_L3_EXPORT_UNAVAILABLE:-0}" = '1' ]; then
+            node scripts/ci/export-loop-outcomes.mjs --loop L3 --unavailable --out "$output_path" --reason 'Firebase read-only credentials unavailable'
+            exit 0
+          fi
+          set +e
+          node scripts/ci/export-loop-outcomes.mjs --loop L3 --out "$output_path"
+          export_code=$?
+          set -e
+          if [ "$export_code" -ne 0 ]; then
+            echo '::warning::L3 live apply-handoff export failed; recording an explicitly unavailable outcome'
+            node scripts/ci/export-loop-outcomes.mjs --loop L3 --unavailable --out "$output_path" --reason 'live GA4 apply-handoff export failed'
+          fi
       - name: Audit job quality to apply
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
