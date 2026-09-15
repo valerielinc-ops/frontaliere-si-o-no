@@ -40,6 +40,8 @@ import { registrableDomain, normalizeHost, sameOrg } from './registrable.mjs';
  * @property {Record<string, number>} pathHits     first DETAIL url segment -> times seen
  * @property {string[]} listingPaths                 listing paths learned from our own adapters
  * @property {number} tenantCount
+ * @property {string} [lastExpandedAt]               last enumeration attempt
+ * @property {number} [expansionAttempts]            number of enumeration attempts
  * @property {string} discoveredAt
  * @property {string} [note]
  */
@@ -236,10 +238,28 @@ export function matchPlatform(registry, host) {
 }
 
 /**
+ * Remember an enumeration attempt, including an empty or failed one. The
+ * rotation must account for attempts rather than only successful discoveries,
+ * otherwise one platform that returns no tenants would monopolise the budget.
+ *
+ * @param {Platform} platform
+ * @param {string} [at]
+ * @returns {Platform}
+ */
+export function recordExpansionAttempt(platform, at = new Date().toISOString()) {
+  platform.lastExpandedAt = at;
+  platform.expansionAttempts = (Number(platform.expansionAttempts) || 0) + 1;
+  return platform;
+}
+
+/**
  * Platforms worth spending enumeration budget on, best first.
  *
- * Ranked by employers-seen then tenants-known: a vendor five employers already
- * use is likelier to have a deep tenant list than one seen twice.
+ * Ranked by expansion recency first, then by employers-seen and tenants-known.
+ * A high-signal vendor still wins ties, but a static ranking would spend every
+ * nightly budget on the same two platforms forever. Entries never attempted
+ * yet are deliberately first; after the first full pass the oldest attempt
+ * rotates back to the front.
  *
  * @param {ReturnType<typeof loadRegistry>} registry
  * @returns {Platform[]}
@@ -249,7 +269,17 @@ export function enumerablePlatforms(registry) {
     .filter((p) => p.status === 'confirmed' || p.status === 'supported')
     // A shared host has no tenants to enumerate — it is crawled as one source.
     .filter((p) => p.tenantShape === 'subdomain' || p.tenantShape === 'mixed' || p.tenantShape === 'unknown')
-    .sort((a, b) => (b.seenOn.length - a.seenOn.length) || (b.tenantCount - a.tenantCount));
+    .sort((a, b) => {
+      const aAt = Date.parse(a.lastExpandedAt || '');
+      const bAt = Date.parse(b.lastExpandedAt || '');
+      const aNever = !Number.isFinite(aAt);
+      const bNever = !Number.isFinite(bAt);
+      if (aNever !== bNever) return Number(bNever) - Number(aNever);
+      if (!aNever && aAt !== bAt) return aAt - bAt;
+      return (b.seenOn.length - a.seenOn.length)
+        || (b.tenantCount - a.tenantCount)
+        || a.domain.localeCompare(b.domain);
+    });
 }
 
 /**
