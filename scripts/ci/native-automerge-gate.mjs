@@ -33,6 +33,9 @@ const LGTM_HEADING_RE = /^\s{0,3}##\s+LGTM\s*$/m;
 const TEST_ONLY_REVIEW_BOT_RE = /^(?:github-actions|frontaliere-automation)\[bot\]$/i;
 const CODEX_FALLBACK_REVIEWER_RE = /^github-actions\[bot\]$/i;
 const CODEX_FALLBACK_REVIEW_MARKER = '<!-- CODEX_FALLBACK_REVIEW -->';
+const MAX_TRANSIENT_GH_READ_ATTEMPTS = 3;
+const TRANSIENT_GH_READ_RETRY_DELAYS_MS = Object.freeze([250, 750]);
+const TRANSIENT_GH_READ_ERROR_RE = /(?:\bHTTP\s+5\d{2}\b|\b5\d{2}\s+(?:bad gateway|service unavailable|gateway timeout)\b|service unavailable|bad gateway|gateway timeout|timed?\s*out|ECONNRESET|ETIMEDOUT|EAI_AGAIN)/iu;
 
 function flattenPages(value) {
   if (!Array.isArray(value)) return [];
@@ -464,23 +467,77 @@ export function revalidateNativeAutoMerge({
 }
 
 function ghJson(args) {
-  return JSON.parse(execFileSync('gh', args, {
+  return JSON.parse(withTransientGithubReadRetry(() => ghRaw(args)));
+}
+
+function ghRaw(args) {
+  return execFileSync('gh', args, {
     encoding: 'utf8',
     maxBuffer: 64 * 1024 * 1024,
     env: { ...process.env },
-  }));
+  });
+}
+
+function sleepForTransientReadRetry(delayMs) {
+  if (!Number.isFinite(delayMs) || delayMs <= 0) return;
+  const wait = new Int32Array(new SharedArrayBuffer(4));
+  Atomics.wait(wait, 0, 0, delayMs);
+}
+
+function transientGithubErrorText(error) {
+  return [error?.message, error?.stderr, error?.stdout]
+    .map((value) => String(value || ''))
+    .filter(Boolean)
+    .join('\n');
+}
+
+export function isTransientGithubReadError(error) {
+  return TRANSIENT_GH_READ_ERROR_RE.test(transientGithubErrorText(error));
+}
+
+/** Retry only idempotent GitHub reads; mutations remain single-attempt and fail closed. */
+export function withTransientGithubReadRetry(operation, {
+  attemptLimit = MAX_TRANSIENT_GH_READ_ATTEMPTS,
+  delaysMs = TRANSIENT_GH_READ_RETRY_DELAYS_MS,
+  sleep = sleepForTransientReadRetry,
+} = {}) {
+  if (typeof operation !== 'function') throw new TypeError('read retry operation must be a function');
+  const attempts = Number.isSafeInteger(attemptLimit) && attemptLimit > 0
+    ? attemptLimit
+    : MAX_TRANSIENT_GH_READ_ATTEMPTS;
+  const delays = Array.isArray(delaysMs) ? delaysMs : TRANSIENT_GH_READ_RETRY_DELAYS_MS;
+  const wait = typeof sleep === 'function' ? sleep : sleepForTransientReadRetry;
+
+  for (let attempt = 0; attempt < attempts; attempt += 1) {
+    try {
+      return operation();
+    } catch (error) {
+      if (attempt + 1 >= attempts || !isTransientGithubReadError(error)) throw error;
+      const delayMs = Number(delays[attempt]);
+      if (Number.isFinite(delayMs) && delayMs > 0) wait(delayMs);
+    }
+  }
+  throw new Error('read retry exhausted without an attempt');
+}
+
+function ghJsonOnce(args) {
+  return JSON.parse(ghRaw(args));
 }
 
 // `review-test-policy` needs both parsed GitHub responses and raw newline
 // output for the paginated REST file list. Keep this adapter local so the
 // native gate remains fail-closed without changing the shared gh helper.
-function ghForTestOnlyReview(args, options = {}) {
+function ghForTestOnlyReviewOnce(args, options = {}) {
   const output = execFileSync('gh', args, {
     encoding: 'utf8',
     maxBuffer: 64 * 1024 * 1024,
     env: { ...process.env },
   });
   return options.json === false ? output : JSON.parse(output);
+}
+
+function ghForTestOnlyReview(args, options = {}) {
+  return withTransientGithubReadRetry(() => ghForTestOnlyReviewOnce(args, options));
 }
 
 function loadVerifiedTestOnlyReview(repo, pr, head, reviews) {
@@ -573,7 +630,7 @@ const DISABLE_AUTO_MERGE_MUTATION =
 
 function disableNativeAutoMerge(repo, pr) {
   if (!pr?.id) throw new Error('node ID della PR mancante');
-  const response = ghJson([
+  const response = ghJsonOnce([
     'api', 'graphql',
     '-f', `query=${DISABLE_AUTO_MERGE_MUTATION}`,
     '-F', `pullRequestId=${pr.id}`,
