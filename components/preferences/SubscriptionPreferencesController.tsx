@@ -38,6 +38,7 @@ import {
 } from '@/services/newsletterSubscribers';
 import { GLOBAL_EMAIL_OPT_OUT_FIELDS } from '@/services/emailSuppression.mjs';
 import { ADVERTISING_REACTIVATED_AT_FIELD } from '@/services/communicationChannels';
+import { isAdvertisingSuppressed } from '@/services/publisherBlastMatch.mjs';
 import { getLocale, type Locale } from '@/services/i18n';
 import { resilientImport } from '@/services/resilientImport';
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
@@ -566,7 +567,7 @@ async function authLoadFullStatus(email: string): Promise<{
  dailyBriefTier: typeof data.daily_brief_tier === 'number' ? data.daily_brief_tier : null,
  // The activation marker is optional for legacy rows; only an explicit
  // category opt-out disables advertising.
- advertisingEnabled: data.consent_advertising !== false && data.advertising_opt_out !== true,
+ advertisingEnabled: !isAdvertisingSuppressed(data),
  };
  }
 
@@ -1950,9 +1951,9 @@ export function SubscriptionPreferencesController({
   */
  const handleToggleAds = async () => {
  // An advertising reactivation is valid only from a resolved, explicit OFF
- // state. During an unresolved preference load, do not infer an ON action from
- // `undefined`/other falsy values; the backend remains the authority for the
- // advertising-only marker and leaves newsletter/stop-all state untouched.
+ // state. The sender-side predicate consumes the same advertising-only marker
+ // and leaves newsletter/stop-all state untouched, so the UI and blast agree
+ // on exactly which channel this ON action can restore.
  const next = adsEnabled === false;
  // This is an advertising-only choice. The writers record
  // `advertising_reactivated_at` when `next` is true; they deliberately do not

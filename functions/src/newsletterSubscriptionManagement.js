@@ -43,8 +43,8 @@ import { ensureAdminApp, getAdminDb } from './newsletterResendWebhookCore.js';
 import { t, htmlLang, normalizeLocale } from './emailI18n.js';
 import { resolveSubscriberLocale } from './lib/subscriberLocale.js';
 import { forensicsFields } from './lib/requestForensics.js';
-import { isNewsletterOptOutBinding, toEpochMillis } from './lib/newsletterOptOut.js';
-import { isCrossChannelStop, isTransactionalHardBlock } from './lib/emailSuppression.js';
+import { isNewsletterOptOutBinding, newsletterOptOutMillis, toEpochMillis } from './lib/newsletterOptOut.js';
+import { isAddressSuppressed, isCrossChannelStop, isTransactionalHardBlock } from './lib/emailSuppression.js';
 import {
  CONFIRMATION_LINK_PROOF,
  hasConfirmationProof,
@@ -68,6 +68,8 @@ import {
 
 const BASE_URL = 'https://frontaliereticino.ch';
 const REGISTRATION_TERMS_VERSION = '2026-09-15.1';
+const ADVERTISING_OPT_OUT_FIELD = 'advertising_opt_out';
+const ADVERTISING_REACTIVATED_AT_FIELD = 'advertising_reactivated_at';
 // Kept in this Functions bundle because it cannot import the TypeScript
 // register. Keep these strings byte-identical to consentDisplayText(
 // 'communicationsOptIn', locale) in services/consentTexts.ts.
@@ -110,6 +112,34 @@ async function mintNewsletterAuthToken(normalizedEmail) {
 
 function normalizeEmail(value) {
  return String(value || '').trim().toLowerCase();
+}
+
+/**
+ * Keep the preference-centre response aligned with the publisher sender. An
+ * existing stop is still binding unless the reader explicitly reactivated
+ * advertising after it; the marker is purpose-specific and cannot lift hard
+ * address suppression or any other channel's stop.
+ */
+function hasAdvertisingReactivation(data) {
+ if (!data || typeof data !== 'object') return false;
+ if (isAddressSuppressed(data.status) || data[ADVERTISING_OPT_OUT_FIELD] !== false) return false;
+ if (!isCrossChannelStop(data)) return false;
+ const optOutAt = newsletterOptOutMillis(data);
+ const explicitReactivationAt = toEpochMillis(data[ADVERTISING_REACTIVATED_AT_FIELD]);
+ if (explicitReactivationAt != null) {
+  return optOutAt == null || explicitReactivationAt > optOutAt;
+ }
+ const advertisingChoiceAt = toEpochMillis(data.advertising_opt_out_updated_at);
+ return optOutAt != null && advertisingChoiceAt != null && advertisingChoiceAt > optOutAt;
+}
+
+function isAdvertisingPreferenceEnabled(data) {
+ if (!data || typeof data !== 'object') return false;
+ if (isAddressSuppressed(data.status)
+  || data.consent_advertising === false
+  || data[ADVERTISING_OPT_OUT_FIELD] === true) return false;
+ if (!isCrossChannelStop(data)) return true;
+ return hasAdvertisingReactivation(data);
 }
 
 /**
@@ -917,7 +947,10 @@ export async function handleSubscriptionManagement({ action, email, token, local
  // preference centre writes `advertising_opt_out` (and the false marker) as a
  // hard deny, matching the audience matcher; absence means enabled.
  // Reported positively so the page never has to invert it.
- advertisingEnabled: data.consent_advertising !== false && data.advertising_opt_out !== true,
+ // The UI must expose the same effective state the advertising sender uses.
+ // A global stop stays visible as OFF until this category is explicitly
+ // reactivated; that marker does not alter any other channel.
+ advertisingEnabled: isAdvertisingPreferenceEnabled(data),
  };
  }
 

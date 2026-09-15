@@ -638,3 +638,85 @@ describe('handleSubscriptionManagement — get_full_status (issue #4298 follow-u
     expect(result.json.alerts[0].id).toBe('alert-live');
   });
 });
+
+describe('handleSubscriptionManagement — advertising status follows sender suppression', () => {
+  it('reports advertising off for a global stop without an advertising reactivation', async () => {
+    const db = createFakeDb({
+      newsletter_subscribers: {
+        [TEST_EMAIL]: {
+          status: 'unsubscribed',
+          isActive: false,
+          all_email_opted_out: true,
+          consent_advertising: true,
+          advertising_opt_out: false,
+        },
+      },
+    });
+
+    const result = await handleSubscriptionManagement({
+      action: 'get_full_status',
+      email: TEST_EMAIL,
+      token: VALID_TOKEN,
+      locale: 'it',
+      secret: TEST_SECRET,
+      db: db as any,
+    });
+
+    expect(result.status).toBe(200);
+    expect(result.json.newsletter.advertisingEnabled).toBe(false);
+  });
+
+  it('reports advertising on only after an explicit later reactivation', async () => {
+    const db = createFakeDb({
+      newsletter_subscribers: {
+        [TEST_EMAIL]: {
+          status: 'unsubscribed',
+          isActive: false,
+          all_email_opted_out: true,
+          unsubscribed_at: '2026-09-01T00:00:00.000Z',
+          consent_advertising: true,
+          advertising_opt_out: false,
+          advertising_reactivated_at: '2026-09-02T00:00:00.000Z',
+        },
+      },
+    });
+
+    const result = await handleSubscriptionManagement({
+      action: 'get_full_status',
+      email: TEST_EMAIL,
+      token: VALID_TOKEN,
+      locale: 'it',
+      secret: TEST_SECRET,
+      db: db as any,
+    });
+
+    expect(result.status).toBe(200);
+    expect(result.json.newsletter.advertisingEnabled).toBe(true);
+  });
+
+  it('keeps hard address suppression authoritative over the marker', async () => {
+    const db = createFakeDb({
+      newsletter_subscribers: {
+        [TEST_EMAIL]: {
+          status: 'bounced',
+          all_email_opted_out: true,
+          consent_advertising: true,
+          advertising_opt_out: false,
+          advertising_reactivated_at: '2026-09-02T00:00:00.000Z',
+        },
+      },
+    });
+
+    const result = await handleSubscriptionManagement({
+      action: 'get_full_status',
+      email: TEST_EMAIL,
+      token: VALID_TOKEN,
+      locale: 'it',
+      secret: TEST_SECRET,
+      db: db as any,
+    });
+
+    expect(result.status).toBe(200);
+    expect(result.json.newsletter.advertisingEnabled).toBe(false);
+  });
+});

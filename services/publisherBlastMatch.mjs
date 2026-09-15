@@ -169,9 +169,11 @@ export function isAdvertisingSuppressed(sub) {
   // only permitted exception is an explicit, strictly newer advertising
   // reactivation. A global stop stays present for every other sender; this
   // purpose-specific reader is the only one allowed to consume the marker.
-  const crossChannelStop = isCrossChannelStop(sub);
-  if (!crossChannelStop) return false;
-  return !isAdvertisingReactivation(sub);
+  // Evaluate the explicit purpose-specific reactivation first. This is the
+  // only path that may turn an already-recorded cross-channel stop into an
+  // advertising send; every other sender continues to read that stop as-is.
+  if (isAdvertisingReactivation(sub)) return false;
+  return isCrossChannelStop(sub);
 }
 
 function norm(s) {

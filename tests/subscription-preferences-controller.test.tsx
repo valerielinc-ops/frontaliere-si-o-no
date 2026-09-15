@@ -530,6 +530,11 @@ describe('SubscriptionPreferencesController — auth-mode source check', () => {
   expect(writer).not.toMatch(/global_email_opted_out:\s*false/);
  });
 
+ it('uses the sender suppression predicate for the displayed advertising state', () => {
+  expect(src).toContain("import { isAdvertisingSuppressed } from '@/services/publisherBlastMatch.mjs';");
+  expect(src).toContain('advertisingEnabled: !isAdvertisingSuppressed(data)');
+ });
+
  it('source contains auth-mode Firestore helpers', () => {
  expect(src).toMatch(/authLoadFullStatus/);
  expect(src).toMatch(/authToggleNewsletter/);
