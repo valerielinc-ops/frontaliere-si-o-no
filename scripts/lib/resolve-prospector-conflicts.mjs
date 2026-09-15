@@ -30,7 +30,10 @@ export const PROSPECTOR_PATHS = Object.freeze({
 const MISSING = Symbol('missing');
 const CRAWLER_PATH = /^data\/prospector\/crawlers\/[^/]+\.json$/;
 const CANDIDATE_STATUS_RANK = Object.freeze({
-  rejected: 0,
+  // `rejected` is a terminal candidate verdict. It must beat every live
+  // status when two runs were based on the same candidate, otherwise a stale
+  // local snapshot could resurrect a record that the other run tombstoned.
+  rejected: 10,
   dead: 1,
   new: 2,
   resolved: 3,
@@ -74,7 +77,7 @@ function newest(...values) {
   return values
     .filter((value) => value !== null && value !== undefined && value !== '')
     .map(String)
-    .sort()
+    .sort(compareTemporal)
     .at(-1) || null;
 }
 
@@ -82,8 +85,15 @@ function oldest(...values) {
   return values
     .filter((value) => value !== null && value !== undefined && value !== '')
     .map(String)
-    .sort()
+    .sort(compareTemporal)
     .at(0) || null;
+}
+
+function compareTemporal(a, b) {
+  const aMs = Date.parse(a);
+  const bMs = Date.parse(b);
+  if (Number.isFinite(aMs) && Number.isFinite(bMs)) return aMs - bMs;
+  return a.localeCompare(b);
 }
 
 function unionArray(...arrays) {
@@ -145,6 +155,9 @@ function mergeUnknownObject(base, upstream, local) {
       hasOwn(upstreamObject, key) ? upstreamObject[key] : MISSING,
       hasOwn(localObject, key) ? localObject[key] : MISSING,
       (upstreamValue, localValue, baseValue) => {
+        if (Array.isArray(upstreamValue) && Array.isArray(localValue)) {
+          return unionArray(upstreamValue, localValue);
+        }
         if (isObject(upstreamValue) && isObject(localValue)) {
           return mergeUnknownObject(baseValue, upstreamValue, localValue);
         }
@@ -244,6 +257,7 @@ function documentMeta(base, upstream, local, known) {
       hasOwn(upstreamObject, key) ? upstreamObject[key] : MISSING,
       hasOwn(localObject, key) ? localObject[key] : MISSING,
       (upstreamValue, localValue, baseValue) => {
+        if (Array.isArray(upstreamValue) && Array.isArray(localValue)) return unionArray(upstreamValue, localValue);
         if (isObject(upstreamValue) && isObject(localValue)) return mergeUnknownObject(baseValue, upstreamValue, localValue);
         return clone(localValue);
       },
@@ -295,7 +309,18 @@ function mergeValidationDocument(base, upstream, local) {
 }
 
 function channelEntryKey(entry) {
-  return entry?.at ? String(entry.at) : JSON.stringify(canonical(entry));
+  if (!entry?.at) return JSON.stringify(canonical(entry));
+  // `at` is normally unique, but two workers can observe the same
+  // millisecond. Include the measured payload so a coincident timestamp does
+  // not collapse two different channel observations.
+  return JSON.stringify([
+    entry.at,
+    entry.collection,
+    entry.totalPages,
+    entry.pagesRead,
+    entry.employers,
+    entry.outage,
+  ]);
 }
 
 function mergeChannelHealth(base, upstream, local) {
@@ -312,7 +337,34 @@ function mergeChannelHealth(base, upstream, local) {
 }
 
 function mergeCrawlerDocument(base, upstream, local) {
-  return mergeThreeWay(base, upstream, local, (_upstream, localValue) => clone(localValue));
+  return mergeThreeWay(base, upstream, local, (upstreamValue, localValue) => {
+    const merged = { ...clone(upstreamValue), ...clone(localValue) };
+    for (const field of new Set([...Object.keys(upstreamValue), ...Object.keys(localValue)])) {
+      if (isObject(upstreamValue[field]) && isObject(localValue[field])) {
+        merged[field] = mergeUnknownObject({}, upstreamValue[field], localValue[field]);
+      }
+    }
+    for (const field of ['seedUrls', 'allowedDetailOrigins', 'sampleTitles']) {
+      if (Array.isArray(upstreamValue[field]) || Array.isArray(localValue[field])) {
+        merged[field] = unionArray(upstreamValue[field], localValue[field]);
+      }
+    }
+    if (upstreamValue.detailTemplate !== undefined || localValue.detailTemplate !== undefined) {
+      const templates = unionArray(
+        Array.isArray(upstreamValue.detailTemplate) ? upstreamValue.detailTemplate : [upstreamValue.detailTemplate],
+        Array.isArray(localValue.detailTemplate) ? localValue.detailTemplate : [localValue.detailTemplate],
+      ).filter(Boolean);
+      merged.detailTemplate = templates.length <= 1 ? templates[0] : templates;
+    }
+    if (upstreamValue.sampleVacancyCount !== undefined || localValue.sampleVacancyCount !== undefined) {
+      merged.sampleVacancyCount = Math.max(Number(upstreamValue.sampleVacancyCount) || 0, Number(localValue.sampleVacancyCount) || 0);
+    }
+    if (upstreamValue.detailEnrichment !== undefined || localValue.detailEnrichment !== undefined) {
+      merged.detailEnrichment = Boolean(upstreamValue.detailEnrichment || localValue.detailEnrichment);
+    }
+    if (upstreamValue.learnedAt || localValue.learnedAt) merged.learnedAt = newest(upstreamValue.learnedAt, localValue.learnedAt);
+    return merged;
+  });
 }
 
 function ensureShape(target, value) {

@@ -48,6 +48,25 @@ describe('Prospector rebase conflict resolver', () => {
     expect(merged.updatedAt).toBe(local.updatedAt);
   });
 
+  it('mantiene il rifiuto terminale contro una snapshot locale più vecchia', () => {
+    const base: any = {
+      version: 2,
+      updatedAt: iso(0),
+      candidates: { shared: { key: 'shared', status: 'traced', sources: ['seco'] } },
+      rejectedTombstones: {},
+    };
+    const upstream = structuredClone(base);
+    upstream.candidates.shared.status = 'rejected';
+    upstream.candidates.shared.reason = 'nessun annuncio';
+    upstream.rejectedTombstones.shared = { rejectedAt: iso(1000) };
+    const local = structuredClone(base);
+    local.candidates.shared.status = 'production';
+
+    const merged = mergeProspectorPath('data/prospector/candidates.json', base, upstream, local) as typeof base;
+    expect(merged.candidates.shared.status).toBe('rejected');
+    expect(merged.rejectedTombstones.shared.rejectedAt).toBe(iso(1000));
+  });
+
   it('fonde registry e conteggi senza sommare due volte le stesse osservazioni', () => {
     const base = {
       version: 1,
@@ -163,6 +182,7 @@ describe('Prospector rebase conflict resolver', () => {
       companyHost: 'shared.example',
       mode: 'template',
       seedUrls: [seedUrl],
+      detailTemplate: seedUrl.includes('upstream') ? '/upstream/*' : '/local/*',
     });
 
     try {
@@ -192,7 +212,9 @@ describe('Prospector rebase conflict resolver', () => {
       const mergedCandidates = JSON.parse(readFileSync(path.join(dir, 'data/prospector/candidates.json'), 'utf8'));
       expect(Object.keys(mergedCandidates.candidates)).toEqual(['base', 'local', 'remote']);
       expect(JSON.parse(readFileSync(path.join(dir, 'data/prospector/crawlers/shared-crawler.json'), 'utf8')).seedUrls)
-        .toEqual(['https://local.example/jobs']);
+        .toEqual(['https://upstream.example/jobs', 'https://local.example/jobs']);
+      expect(JSON.parse(readFileSync(path.join(dir, 'data/prospector/crawlers/shared-crawler.json'), 'utf8')).detailTemplate)
+        .toEqual(['/upstream/*', '/local/*']);
       expect(git('diff', '--name-only')).toBe('');
     } finally {
       rmSync(dir, { recursive: true, force: true });
