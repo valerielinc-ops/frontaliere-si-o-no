@@ -250,13 +250,55 @@ async function evalDeadClicksReduction() {
   };
 }
 
-// #4304 — error rate, 30d, target < 1%. Counts persons touched by
-// app_error/exception/$exception over persons touched by $pageview. Neither
-// app_error nor exception/$exception carries an ad_blocker property (only
-// the separate resource_load_error event does — services/analytics.ts), so
-// this cannot be ad-blocker-filtered in HogQL; the measured rate may include
-// some ad-blocker-triggered noise. Tolerance is accepted per the goal's own
-// spec rather than blocking the check on an unavailable dimension.
+// #4304/#7312 — error rate, 30d, target < 1%. The PostHog primary counts all
+// app_error/exception/$exception persons. The GA4 fallback is narrower because
+// GA4 retains historical self-healed module-link noise; its filter keeps only
+// actionable error types and mirrors the proven non-actionable classes from
+// scripts/lib/error-issue-sync.mjs. Neither provider exposes an ad_blocker
+// dimension on these events, so that separate noise remains tolerated by the
+// goal rather than hidden behind an unavailable filter.
+export const GA4_ERROR_RATE_EVENT_NAMES = Object.freeze(['app_error', 'exception']);
+export const GA4_ERROR_RATE_ACTIONABLE_TYPES = Object.freeze([
+  'error_boundary',
+  'api_error',
+  'unhandled_error',
+]);
+export const GA4_ERROR_RATE_NON_ACTIONABLE_MESSAGE_FILTERS = Object.freeze([
+  { value: 'Importing a module script failed', matchType: 'CONTAINS' },
+  { value: 'does not provide', matchType: 'CONTAINS' },
+  { value: 'import not found', matchType: 'CONTAINS' },
+  { value: 'indirect export', matchType: 'CONTAINS' },
+  { value: 'Importing binding name', matchType: 'CONTAINS' },
+  { value: 'Script error.', matchType: 'EXACT' },
+  { value: 'Error: Script error.', matchType: 'EXACT' },
+  { value: 'auth/network-request-failed', matchType: 'CONTAINS' },
+  { value: "Unexpected token '?'", matchType: 'CONTAINS' },
+  { value: 'Unexpected token "?"', matchType: 'CONTAINS' },
+  { value: 'NotReadableError: The I/O read operation failed', matchType: 'CONTAINS' },
+]);
+
+function ga4NotStringFilter(fieldName, { value, matchType }) {
+  return {
+    notExpression: {
+      filter: { fieldName, stringFilter: { value, matchType } },
+    },
+  };
+}
+
+/**
+ * GA4 fallback filter for #7312. Raw telemetry stays available in GA4; only
+ * the goal's person-level numerator removes known recovery/environment noise.
+ */
+export function buildErrorRateGa4Filter() {
+  return ga4AndFilter(
+    ga4EventNameFilter(GA4_ERROR_RATE_EVENT_NAMES),
+    { filter: { fieldName: 'customEvent:error_type', inListFilter: { values: GA4_ERROR_RATE_ACTIONABLE_TYPES } } },
+    ...GA4_ERROR_RATE_NON_ACTIONABLE_MESSAGE_FILTERS.map((entry) => (
+      ga4NotStringFilter('customEvent:error_message', entry)
+    )),
+  );
+}
+
 async function evalErrorRate() {
   const [errorPersons, pageviewPersons] = await hogqlRow(`
     SELECT
@@ -294,11 +336,14 @@ async function evalErrorRate() {
 // primary query — disclosed in the detail string, not hidden. page_view is
 // GA4's own automatically-collected pageview event, the direct analogue of
 // PostHog's $pageview.
-async function evalErrorRateGa4() {
-  const token = await getGoogleAccessToken();
+export async function evalErrorRateGa4({ tokenImpl = getGoogleAccessToken, runReportImpl = ga4RunReport } = {}) {
+  const token = await tokenImpl();
   const [errorUsers, pageviewUsers] = await Promise.all([
-    ga4DistinctUsersForEvents(token, ['app_error', 'exception'], 30),
-    ga4DistinctUsersForEvents(token, ['page_view'], 30),
+    ga4DistinctUsersForEvents(token, GA4_ERROR_RATE_EVENT_NAMES, 30, {
+      dimensionFilter: buildErrorRateGa4Filter(),
+      runReportImpl,
+    }),
+    ga4DistinctUsersForEvents(token, ['page_view'], 30, { runReportImpl }),
   ]);
   const rate = pageviewUsers > 0 ? errorUsers / pageviewUsers : null;
   if (rate === null) {
@@ -306,15 +351,15 @@ async function evalErrorRateGa4() {
       passed: false,
       unmeasurable: true,
       value: { rate: null, errorPersons: errorUsers, pageviewPersons: pageviewUsers },
-      targetDescription: '< 1% (persone con errori / persone con page_view, 30gg, fallback GA4)',
+      targetDescription: '< 1% (persone con errori azionabili / persone con page_view, 30gg, fallback GA4)',
       detail: 'risposta GA4 vuota (0 pageview users) — riprovo al prossimo run',
     };
   }
   return {
     passed: rate < 0.01,
     value: { rate, errorPersons: errorUsers, pageviewPersons: pageviewUsers },
-    targetDescription: '< 1% (persone con app_error|exception / persone con page_view, 30gg, fallback GA4)',
-    detail: `${errorUsers}/${pageviewUsers} = ${fmtPct(rate)} [GA4 fallback — PostHog non misurabile; non include $exception nativo PostHog, nessun equivalente GA4]`,
+    targetDescription: '< 1% (persone con errori azionabili / persone con page_view, 30gg, fallback GA4)',
+    detail: `${errorUsers}/${pageviewUsers} = ${fmtPct(rate)} [GA4 fallback — PostHog non misurabile; app_error|exception, tipi azionabili, classi self-healed note escluse; non include $exception nativo PostHog]`,
   };
 }
 

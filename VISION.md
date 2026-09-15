@@ -73,6 +73,21 @@ Crescono insieme o non crescono: contenuto scadente = traffico che non torna.
   più valore per token: fix piccole con scheda > run esplorativi. La frugalità
   si ottiene per architettura (meno invocazioni), mai tagliando i turni sotto
   la soglia che tronca il lavoro.
+
+  **Misura #7267 (2026-09-15).** Ho ricalcolato la prima finestra Opus
+  comparabile dopo il cambio del 2026-09-03, dal **2026-09-03 al 2026-09-09**,
+  prendendo dai log solo le righe `CLAUDE_USAGE` effettivamente emesse:
+  **49 righe**, di cui **38 `parsed=true`** e **11 `parsed=false`** (queste
+  ultime non sono zeri e non entrano nell'aggregato). La stessa estrazione dà
+  **mean $3,8880**, **median $2,6682**, **$147,7422** complessivi e
+  **94,4% cache-read** su input+cache-create+cache-read; il baseline Sonnet 5
+  era mean **$0,8220**, median **$0,5070**, **94,1%**. Sono equivalenti di
+  listino, non una fattura: la finestra ha solo 38 run Claude reali su quattro
+  workflow, perché le altre run erano Codex-primary, skip o non parsabili.
+  **Decisione: per scelta** manteniamo `claude-opus-5 --effort medium` già
+  deciso il 2026-09-03: il dato segnala un costo equivalente più alto, ma non
+  esiste ancora un controllo Sonnet matched né una misura di qualità che
+  giustifichi un rollback; il confronto va ripetuto su coorti omogenee.
 - **D5 — Un'issue grande si scorpora, non si parcheggia.** Lo stadio di
   decomposizione (ISSUES.md → «Stadio di decomposizione») è il percorso di
   default per tutto ciò che non sta in un run — comprese le decisioni di
