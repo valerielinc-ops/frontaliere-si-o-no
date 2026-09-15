@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-09-15T17:48:03.974Z",
+  "updatedAt": "2026-09-15T17:48:37.699Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -195472,13 +195472,13 @@
     },
     "vereinaklosters.ch": {
       "key": "vereinaklosters.ch",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "osm",
         "web"
       ],
       "firstSeenAt": "2026-08-22T04:08:25.758Z",
-      "updatedAt": "2026-09-15T17:47:14.923Z",
+      "updatedAt": "2026-09-15T17:48:37.676Z",
       "name": "Vereina",
       "domain": "vereinaklosters.ch",
       "city": "Klosters",
@@ -195628,7 +195628,9 @@
           "jobLikeRate": 1,
           "logoFound": true
         }
-      ]
+      ],
+      "promotionPr": "8786",
+      "promotionBranch": "prospector/promote-2026-09-15"
     },
     "silvretta.ch": {
       "key": "silvretta.ch",
