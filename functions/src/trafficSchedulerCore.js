@@ -256,7 +256,8 @@ export async function getHereMapsRouteTravelTimes(originLat, originLng, destLat,
 /**
  * Calls TomTom Traffic Flow API for a given point.
  * Returns speed ratio (currentSpeed/freeFlowSpeed): 1.0 = free, 0.0 = standstill.
- * Uses tile-based endpoint (50k/day free quota).
+ * Uses the tile-based endpoint. Flow requests have their own monthly guard,
+ * separate from TomTom Routing, so a routing cap cannot hide flow usage.
  *
  * @param {number} lat
  * @param {number} lng

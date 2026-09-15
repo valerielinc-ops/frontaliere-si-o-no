@@ -78,7 +78,7 @@ export const RC_TO_ENV = {
   GRAPHHOPPER_API_KEY:         ['GRAPHHOPPER_API_KEY'],
   OPENROUTESERVICE_API_KEY:    ['OPENROUTESERVICE_API_KEY'],
   STADIA_API_KEY:              ['STADIA_API_KEY'],
-  // Swiss DATEX2 traffic situations require an OpenTransportData API token.
+  // Swiss ASTRA OCIT-C traffic-light snippets require an OpenTransportData API token.
   // The public French/Italian/operator feeds below do not require credentials.
   OPENTRANSPORTDATA_API_KEY:   ['OPENTRANSPORTDATA_API_KEY'],
   OPENTRANSPORTDATA_QUOTA:     ['OPENTRANSPORTDATA_QUOTA'],
