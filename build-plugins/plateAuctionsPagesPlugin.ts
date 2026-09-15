@@ -16,6 +16,7 @@ import { inlineScriptJson } from './shared/inlineJsonScript';
 import { adSlotHtml } from './lib/adSlotHtml';
 import { shouldPlaceInfeedAd } from '../services/adsenseSlots';
 import { buildSitemapIndexXml, discoverSitemapFiles } from './sitemapAliasPlugin';
+import { SITEMAP_SHARD_CAP, padShardIndex } from '../scripts/lib/sitemap-limits.mjs';
 import { buildPlateAuctionPath, allPlateAuctionCantonCodes } from '../services/plateAuctions/paths';
 import type { PlateVehicleType } from '../services/plateAuctions/types';
 
@@ -63,6 +64,15 @@ function latestVerifiedFinalRows(rows: SnapshotRow[]): SnapshotRow[] {
   }
   return [...latest.values()];
 }
+function detailRowsForSnapshot(snapshot: Snapshot, currentRows: SnapshotRow[]): SnapshotRow[] {
+  const rowsByPath = new Map<string, SnapshotRow>();
+  for (const row of [...currentRows, ...(snapshot.history || []).map(normalizeExpiredRow)]) {
+    if (row.dataConfidence === 'conflicting' || !row.normalizedPlate) continue;
+    const path = detailPathForRow(row, 'it');
+    if (!rowsByPath.has(path)) rowsByPath.set(path, row);
+  }
+  return [...rowsByPath.values()];
+}
 function tableRows(rows: SnapshotRow[], locale: PlateLocale, copy: typeof COPY.it): string {
   if (rows.length === 0) return `<p>${esc(copy.noData)}</p>`;
   const headers = {
@@ -85,6 +95,7 @@ function tableRows(rows: SnapshotRow[], locale: PlateLocale, copy: typeof COPY.i
 function unlistedDetailLinks(rows: SnapshotRow[], locale: PlateLocale, listedRows: SnapshotRow[]): string {
   const listedPaths = new Set(listedRows.map((row) => detailPathForRow(row, locale)));
   return rows.map((row) => {
+    if (row.dataConfidence === 'conflicting') return '';
     const href = detailPathForRow(row, locale);
     if (listedPaths.has(href)) return '';
     listedPaths.add(href);
@@ -96,8 +107,9 @@ export function renderPlateAuctionPage({ locale, view, canton, plate, vehicleTyp
   const copy = COPY[locale];
   const snapshot = readSnapshot(rootDir);
   const auctionRows = (snapshot.auctions || []).map(normalizeExpiredRow);
+  const detailRows = detailRowsForSnapshot(snapshot, auctionRows);
   const detailRow = view === 'detail'
-    ? auctionRows.find((row) => row.dataConfidence !== 'conflicting' && row.normalizedPlate.toLowerCase() === String(plate || '').toLowerCase() && (!canton || row.sourceKey === canton || row.platePrefix === canton) && (vehicleType ? row.vehicleType === vehicleType : (row.vehicleType || 'car') === 'car'))
+    ? detailRows.find((row) => row.normalizedPlate.toLowerCase() === String(plate || '').toLowerCase() && (!canton || row.sourceKey === canton || row.platePrefix === canton) && (vehicleType ? (row.vehicleType || 'car') === vehicleType : (row.vehicleType || 'car') === 'car'))
     : undefined;
   const rankingRows = latestVerifiedFinalRows(snapshot.history?.length ? snapshot.history : snapshot.auctions || []);
   const candidateRows = (view === 'rankings' ? rankingRows : auctionRows)
@@ -131,7 +143,7 @@ export function renderPlateAuctionPage({ locale, view, canton, plate, vehicleTyp
   // page without changing the canonical title or structured-data name.
   const h1 = differentiateH1FromTitle(title, title, locale);
   const breadcrumbParent = view === 'hub' ? '' : ` / <a href="${esc(parentPath)}" style="${LINK_ACCENT_STYLE}">${esc(parentLabel || copy.current)}</a>`;
-  const topAdHtml = view === 'detail' ? '' : `<section class="ft-plate-auction-top-ad" aria-label="advertisement">${adSlotHtml('JOBDETAIL_TOP_BANNER')}</section>`;
+  const topAdHtml = `<section class="ft-plate-auction-top-ad" aria-label="advertisement">${adSlotHtml('JOBDETAIL_TOP_BANNER')}</section>`;
   const body = `<main><nav aria-label="breadcrumb"><a href="${esc(pathFor(locale, 'hub'))}" style="${LINK_ACCENT_STYLE}">Home</a>${breadcrumbParent} / <span>${esc(title)}</span></nav><div data-plate-auctions-static="true" data-generated-at="${esc(snapshot.generatedAt || '')}"><h1 style="${H1_STYLE}">${esc(h1)}</h1><p style="${LEDE_STYLE}">${esc(description)}</p><p>${esc(copy.context)}</p>${topAdHtml}<p><a href="${esc(pathFor(locale, 'hub'))}" style="${LINK_ACCENT_STYLE}">${esc(copy.current)}</a> · <a href="${esc(pathFor(locale, 'rankings'))}" style="${LINK_ACCENT_STYLE}">${esc(copy.rankings)}</a></p><section><h2 style="${H2_STYLE}">${esc(view === 'rankings' ? copy.rankings : view === 'detail' ? copy.detail : copy.current)}</h2>${tableRows(rows, locale, copy)}${detailLinks ? `<h3 style="${H2_STYLE}">${esc(copy.allListings)}</h3><ul>${detailLinks}</ul>` : ''}</section><section><h2 style="${H2_STYLE}">${esc(canton ? copy.method : copy.sources)}</h2><p>${esc(canton && sourceRows.find((source) => source.plateCode === canton)?.status === 'not-discovered' ? copy.notDiscovered : copy.context)}</p>${canton || view === 'detail' ? '' : `<ul>${links}</ul>`}</section></div></main>`;
   // buildSeoPageHtml owns the single outer <main> in outside-root mode. Keep
   // this page-specific string as inner content so React mounts only its lite
@@ -152,13 +164,8 @@ export function renderPlateAuctionPage({ locale, view, canton, plate, vehicleTyp
   }
   breadcrumbItems.push({ '@type': 'ListItem', position: breadcrumbItems.length + 1, name: title, item: canonicalUrl });
   const breadcrumbJsonLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: breadcrumbItems });
-  // Individual auction records are ephemeral data pages. The hub and canton
-  // catalogues are the indexable landing pages; detail records remain linked
-  // and crawlable for users, but must not dilute the index with near-identical
-  // numeric variants that the information-gain audit correctly treats as
-  // mail-merge pages.
-  const robots = view === 'detail' ? 'noindex,follow' : 'index,follow';
-  return { urlPath: urlPath.replace(/^\//, '').replace(/\/$/, ''), html: buildSeoPageHtml({ locale, title, description, canonicalUrl, hreflangHtml: alternates(view, canton, detailRow?.normalizedPlate || plate, detailRow?.vehicleType || vehicleType), bodyHtml: staticBody, jsonLdScripts: [jsonLd, breadcrumbJsonLd], robots, distDir, seoContentOutsideRoot: true, disableAutoAds: view === 'detail', seoMainClass: 'seo-static-content plate-auction-static' }) };
+  const robots = 'index,follow';
+  return { urlPath: urlPath.replace(/^\//, '').replace(/\/$/, ''), html: buildSeoPageHtml({ locale, title, description, canonicalUrl, hreflangHtml: alternates(view, canton, detailRow?.normalizedPlate || plate, detailRow?.vehicleType || vehicleType), bodyHtml: staticBody, jsonLdScripts: [jsonLd, breadcrumbJsonLd], robots, distDir, seoContentOutsideRoot: true, seoMainClass: 'seo-static-content plate-auction-static' }) };
 }
 
 export function plateAuctionsPagesPlugin(rootDir: string): Plugin {
@@ -166,6 +173,9 @@ export function plateAuctionsPagesPlugin(rootDir: string): Plugin {
     if (process.env.SKIP_PLATE_AUCTION_PAGES === '1') return;
     const distDir = np.join(rootDir, 'dist');
     if (!fs.existsSync(distDir)) return;
+    const snapshot = readSnapshot(rootDir);
+    const auctionRows = (snapshot.auctions || []).map(normalizeExpiredRow);
+    const detailRows = detailRowsForSnapshot(snapshot, auctionRows);
     let written = 0;
     for (const locale of LOCALES) {
       for (const view of ['hub', 'rankings'] as const) {
@@ -176,13 +186,19 @@ export function plateAuctionsPagesPlugin(rootDir: string): Plugin {
         const rendered = renderPlateAuctionPage({ locale, view: 'canton', canton, rootDir, distDir });
         const out = np.join(distDir, rendered.urlPath, 'index.html'); fs.mkdirSync(np.dirname(out), { recursive: true }); fs.writeFileSync(out, rendered.html, 'utf8'); written++;
       }
+      for (const row of detailRows) {
+        const rendered = renderPlateAuctionPage({ locale, view: 'detail', canton: row.sourceKey || row.platePrefix, plate: row.normalizedPlate, vehicleType: row.vehicleType, rootDir, distDir });
+        const out = np.join(distDir, rendered.urlPath, 'index.html'); fs.mkdirSync(np.dirname(out), { recursive: true }); fs.writeFileSync(out, rendered.html, 'utf8'); written++;
+      }
     }
-    // Detail records are deliberately noindex and are not in the sitemap. Do
-    // not materialize one HTML file per ephemeral catalogue row: the live SPA
-    // resolves those URLs from the same public snapshot, while hub/canton
-    // landing pages above remain static for crawlers and first paint.
-    const sitemap = LOCALES.flatMap((locale) => [pathFor(locale, 'hub'), pathFor(locale, 'rankings'), ...allPlateAuctionCantonCodes().map((code) => pathFor(locale, 'canton', code))]).map((url) => `<url><loc>${BASE_URL}${esc(url)}</loc><changefreq>daily</changefreq></url>`).join('');
-    fs.writeFileSync(np.join(distDir, 'sitemap-plate-auctions.xml'), `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${sitemap}</urlset>\n`, 'utf8');
+    const sitemapUrls = LOCALES.flatMap((locale) => [pathFor(locale, 'hub'), pathFor(locale, 'rankings'), ...allPlateAuctionCantonCodes().map((code) => pathFor(locale, 'canton', code)), ...detailRows.map((row) => detailPathForRow(row, locale))]);
+    const sitemapShardCount = Math.max(1, Math.ceil(sitemapUrls.length / SITEMAP_SHARD_CAP));
+    for (let shardIndex = 0; shardIndex < sitemapShardCount; shardIndex++) {
+      const shardUrls = sitemapUrls.slice(shardIndex * SITEMAP_SHARD_CAP, (shardIndex + 1) * SITEMAP_SHARD_CAP);
+      const shardBody = shardUrls.map((url) => `<url><loc>${BASE_URL}${esc(url)}</loc><changefreq>daily</changefreq></url>`).join('');
+      const fileName = sitemapShardCount === 1 ? 'sitemap-plate-auctions.xml' : `sitemap-plate-auctions-${padShardIndex(shardIndex + 1)}.xml`;
+      fs.writeFileSync(np.join(distDir, fileName), `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${shardBody}</urlset>\n`, 'utf8');
+    }
     // sitemapAliasPlugin is a core post-hook and this emitter lives in the
     // later SEO list. Refresh the index here as well so the new shard is not
     // omitted when Rollup orders two post closeBundle hooks by declaration.
