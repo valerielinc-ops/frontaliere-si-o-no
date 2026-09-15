@@ -3,11 +3,37 @@ import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { describe, expect, it } from 'vitest';
+import { aggregateClaudeUsage, parseClaudeUsageLine } from '../scripts/ci/claude-usage-summary.mjs';
 
 const ROOT = new URL('..', import.meta.url).pathname;
 const SCRIPT = join(ROOT, 'scripts/ci/claude-usage-summary.mjs');
 
 describe('claude usage summary', () => {
+  it('aggrega solo le righe parsed=true e calcola la mediana/cache-read share', () => {
+    const lines = [
+      'CLAUDE_USAGE workflow="needs-human" parsed=true input=10 output=5 cache_create=20 cache_read=70 total_tokens=105 cost_usd=1.0000 turns=1 duration_ms=2',
+      'CLAUDE_USAGE workflow="post-merge" parsed=true input=30 output=15 cache_create=10 cache_read=50 total_tokens=105 cost_usd=3.0000 turns=2 duration_ms=4',
+      'CLAUDE_USAGE workflow="skipped" parsed=false input=0 output=0 cache_create=0 cache_read=0 total_tokens=0 cost_usd=0.0000 turns=1 duration_ms=0',
+    ];
+
+    expect(parseClaudeUsageLine(lines[0])).toMatchObject({ workflow: 'needs-human', parsed: true, costUsd: 1 });
+    expect(aggregateClaudeUsage(lines)).toMatchObject({
+      lines: 3,
+      parsedRuns: 2,
+      unparsedLines: 1,
+      totalCostUsd: 4,
+      meanCostUsd: 2,
+      medianCostUsd: 2,
+      cacheReadShare: 120 / 190,
+      totals: { input: 40, output: 20, cacheCreate: 30, cacheRead: 120, totalTokens: 210 },
+      byWorkflow: {
+        'needs-human': { parsedRuns: 1, totalCostUsd: 1 },
+        'post-merge': { parsedRuns: 1, totalCostUsd: 3 },
+        skipped: { parsedRuns: 0, totalCostUsd: 0 },
+      },
+    });
+  });
+
   it('resta best-effort quando i numeri dell execution file sono malformati', () => {
     const dir = mkdtempSync(join(tmpdir(), 'claude-usage-summary-'));
     const executionFile = join(dir, 'execution.json');
