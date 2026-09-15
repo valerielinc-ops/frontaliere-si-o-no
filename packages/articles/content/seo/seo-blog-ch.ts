@@ -83324,6 +83324,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ssr-risparmi-270-milioni-2029': {
+    title: 'SSR: 270 milioni da risparmiare entro il 2029 | Frontaliere Ticino',
+    description: 'La SSR lancia il progetto Enavant per risparmiare 270 milioni CHF entro il 2029. Tagli al personale dirigenziale, meno posti di lavoro a SRF e stop',
+    keywords: 'frontalieri, ticino, svizzera, italia, milioni, risparmiare, entro, avvia',
+    ogTitle: 'SSR: 270 milioni di franchi da risparmiare entro il 2029',
+    ogDescription: 'La Società svizzera di radiotelevisione (SSR) ha annunciato il piano di trasformazione aziendale Enavant, che prevede risparmi per 270 milioni di franchi entro il 2029. Tra le misure: riduzione del 20% dei dirigenti, 38 posti di lavoro in meno a SRF',
+    canonicalPath: '/articoli-svizzera/ssr-risparmi-270-milioni-2029/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "SSR: 270 milioni da risparmiare entro il 2029",
+      "description": "La SSR lancia il progetto Enavant per risparmiare 270 milioni CHF entro il 2029. Tagli al personale dirigenziale, meno posti di lavoro a SRF e stop",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ssr-risparmi-270-milioni-2029.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo del Parlamento svizzero a Berna, sede delle decisioni federali."
+      },
+      "datePublished": "2026-09-15T01:03:03+00:00",
+      "dateModified": "2026-09-15T01:03:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ssr-risparmi-270-milioni-2029/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

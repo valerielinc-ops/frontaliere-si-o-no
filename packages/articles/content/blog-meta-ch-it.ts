@@ -6426,6 +6426,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.consiglio-nazionale-cartella-sanitaria.title': 'Nuova cartella sanitaria elettronica: ok del Consiglio nazionale',
     'blog.article.consiglio-nazionale-cartella-sanitaria.excerpt': 'Approvata la legge per la nuova cartella sanitaria elettronica in Svizzera. Sostituirà la precedente infrastruttura entro il 2030.',
     'blog.article.consiglio-nazionale-cartella-sanitaria.imageAlt': 'Nuova cartella sanitaria elettronica approvata in Svizzera',
+    'blog.article.ssr-risparmi-270-milioni-2029.title': 'SSR: 270 milioni da risparmiare entro il 2029',
+    'blog.article.ssr-risparmi-270-milioni-2029.excerpt': 'La SSR avvia il progetto Enavant per tagliare 270 milioni di franchi entro il 2029, con 80 milioni entro il 2027. Riduzione del 20% dei dirigenti e stop alla Champions League.',
+    'blog.article.ssr-risparmi-270-milioni-2029.imageAlt': 'Palazzo del Parlamento svizzero a Berna, sede delle decisioni federali.',
 };
 
 export default blogMetaChIt;
