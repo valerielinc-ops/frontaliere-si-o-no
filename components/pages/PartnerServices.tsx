@@ -11,6 +11,7 @@ import { ExternalLink, Sparkles } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { getAllPartners, buildAffiliateLinkHref, partnerRelAttr, type AffiliatePartner } from '@/services/affiliateService';
 import { Analytics } from '@/services/analytics';
+import { AFFILIATE_CONTEXTUAL_CAMPAIGN } from '@/services/affiliateExperiment.mjs';
 
 const CATEGORIES = [
  { key: 'exchange', labelKey: 'partners.category.finance', emoji: '💱', contexts: ['exchange', 'banks'] },
@@ -21,7 +22,7 @@ const CATEGORIES = [
 
 const PartnerServiceCard: React.FC<{ partner: AffiliatePartner; position: string }> = ({ partner, position }) => {
  const { t } = useTranslation();
- const attribution = { surface: 'web', position, campaign: 'g4-contextual', variant: 'v1' } as const;
+ const attribution = { surface: 'web', position, campaign: AFFILIATE_CONTEXTUAL_CAMPAIGN, variant: 'v1' } as const;
  const href = buildAffiliateLinkHref(partner, attribution);
 
  const handleClick = () => {

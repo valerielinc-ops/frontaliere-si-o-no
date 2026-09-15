@@ -9,7 +9,7 @@
  *  - health context is populated (comparator + SSG premi pages surface)
  *  - Partnerize deeplinks carry a per-placement `pubref` (#7346)
  */
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import {
   PARTNERS,
   getPartnersForContext,
@@ -22,6 +22,11 @@ import {
   sanitizePubref,
   PUBREF_MAX_LEN,
 } from '../services/affiliateService';
+import {
+  AFFILIATE_CONTEXTUAL_CAMPAIGN,
+  G4_EXPERIMENT_SESSION_ID_KEY,
+  G4_EXPERIMENT_VARIANT_KEY,
+} from '../services/affiliateExperiment.mjs';
 import { WISE_REFERRAL_URL, EXCHANGE_REFERRAL_PARTNERS } from '../services/exchangePartners';
 
 describe('affiliateService config gates', () => {
@@ -52,13 +57,13 @@ describe('affiliateService config gates', () => {
     const href = resolveGoHref('wise', 'https://example.test/fallback', {
       surface: 'web',
       position: 'banks-comparison-1',
-      campaign: 'g4-contextual',
+      campaign: AFFILIATE_CONTEXTUAL_CAMPAIGN,
       variant: 'v1',
     });
     const url = new URL(href);
     expect(url.pathname).toBe('/go/wise/');
     expect(url.searchParams.get('pos')).toContain('banks-comparison-1');
-    expect(url.searchParams.get('utm_campaign')).toBe('g4-contextual');
+    expect(url.searchParams.get('utm_campaign')).toBe(AFFILIATE_CONTEXTUAL_CAMPAIGN);
     expect(resolveGoHref('disabled-or-unknown', 'https://example.test/fallback')).toBe(
       'https://example.test/fallback',
     );
@@ -69,6 +74,25 @@ describe('affiliateService config gates', () => {
     expect(resolveAffiliateExperimentVariant('jobs', 'web')).toBe('control');
     // Node/SSR has no session bucket, so the safe fallback is explicit control.
     expect(resolveAffiliateExperimentVariant('banks', 'web')).toBe('control');
+  });
+
+  it('uses one stable session assignment across the approved contexts', () => {
+    const values = new Map([[G4_EXPERIMENT_SESSION_ID_KEY, 'test-session']]);
+    vi.stubGlobal('window', {
+      sessionStorage: {
+        getItem: (key: string) => values.get(key) ?? null,
+        setItem: (key: string, value: string) => values.set(key, value),
+      },
+    });
+    try {
+      const exchangeVariant = resolveAffiliateExperimentVariant('exchange', 'web');
+      expect(resolveAffiliateExperimentVariant('banks', 'web')).toBe(exchangeVariant);
+      expect(values.get(G4_EXPERIMENT_VARIANT_KEY)).toBe(exchangeVariant);
+      expect(values.has('g4-affiliate-variant-exchange')).toBe(false);
+      expect(values.has('g4-affiliate-variant-banks')).toBe(false);
+    } finally {
+      vi.unstubAllGlobals();
+    }
   });
 
   it('marks paid programs sponsored and institutional links plain', () => {

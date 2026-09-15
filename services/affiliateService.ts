@@ -32,6 +32,13 @@ import {
  PUBREF_INVALID_RE as PUBREF_INVALID_RE_RUNTIME,
  PUBREF_MAX_LEN as PUBREF_MAX_LEN_RUNTIME,
 } from '../functions/src/lib/affiliateLinks.js';
+import { sha256 } from '@noble/hashes/sha256';
+import {
+ G4_EXPERIMENT_ID,
+ G4_EXPERIMENT_SESSION_ID_KEY,
+ G4_EXPERIMENT_VARIANT_KEY,
+ isG4ExperimentContext,
+} from './affiliateExperiment.mjs';
 
 export type ComparatorContext =
  | 'exchange'
@@ -91,6 +98,8 @@ export interface AffiliateLinkAttribution {
  campaign: string;
  /** Experiment variant; defaults to `control`. */
  variant?: string;
+ /** Explicit experiment id; omitted for generic affiliate clicks. */
+ experimentId?: string;
  /** Existing email contracts may provide their already-observed `pos` shape. */
  placement?: string;
  /** Optional categorical acquisition source, never recipient data. */
@@ -103,24 +112,40 @@ export interface AffiliateLinkAttribution {
 
 export type AffiliateExperimentVariant = 'control' | 'benefit';
 
+function createExperimentSessionId(): string {
+ const browserCrypto = globalThis.crypto;
+ if (browserCrypto?.randomUUID) return browserCrypto.randomUUID();
+ if (browserCrypto?.getRandomValues) {
+  return Array.from(browserCrypto.getRandomValues(new Uint32Array(4)), (value) => value.toString(16)).join('');
+ }
+ return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
+}
+
+function assignExperimentVariant(sessionId: string): AffiliateExperimentVariant {
+ const digest = sha256(new TextEncoder().encode(`${G4_EXPERIMENT_ID}:${sessionId}`));
+ return (digest[0] & 1) === 0 ? 'control' : 'benefit';
+}
+
 /**
  * Bounded G4 experiment: only hydrated exchange/banks recommendations may be
- * assigned a treatment. Session storage keeps the variant stable without
- * putting an account, email, or device identifier in the attribution URL.
+ * assigned a treatment. One session-wide storage bucket keeps both approved
+ * contexts on the same assignment; stable SHA-256 follows the L7 registry.
  */
 export function resolveAffiliateExperimentVariant(
  context: ComparatorContext,
  surface: string,
 ): AffiliateExperimentVariant {
- if (surface !== 'web' || (context !== 'exchange' && context !== 'banks')) return 'control';
+ if (!isG4ExperimentContext(context, surface)) return 'control';
  if (typeof window === 'undefined') return 'control';
 
- const storageKey = `g4-affiliate-variant-${context}`;
  try {
- const stored = window.sessionStorage.getItem(storageKey);
+ const storage = window.sessionStorage;
+ const stored = storage.getItem(G4_EXPERIMENT_VARIANT_KEY);
  if (stored === 'control' || stored === 'benefit') return stored;
- const assigned: AffiliateExperimentVariant = Math.random() < 0.5 ? 'control' : 'benefit';
- window.sessionStorage.setItem(storageKey, assigned);
+ const sessionId = storage.getItem(G4_EXPERIMENT_SESSION_ID_KEY) || createExperimentSessionId();
+ storage.setItem(G4_EXPERIMENT_SESSION_ID_KEY, sessionId);
+ const assigned = assignExperimentVariant(sessionId);
+ storage.setItem(G4_EXPERIMENT_VARIANT_KEY, assigned);
  return assigned;
  } catch {
  return 'control';

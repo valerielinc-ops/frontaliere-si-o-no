@@ -26,6 +26,7 @@ import { resolveArticleAdDensity, inlineSlotIndex, STANDARD_ARTICLE_AD_DENSITY, 
 import { collectArticleBodySegments, countArticleBodyChars, countArticleBodyWords } from '@/services/articleBodySegments';
 import { isAdStraddleBlock, isListBlock, isTableBlock, LIST_ITEM_RE, TABLE_SEPARATOR_RE } from '@/services/adPlacement';
 import { CDN_BLOG_BASE } from '@/services/seo/blogImageCdn';
+import { AFFILIATE_CONTEXTUAL_CAMPAIGN } from '@/services/affiliateExperiment.mjs';
 
 // Re-export the parser predicates for the focused renderer tests and existing
 // callers; the implementation lives in the shared, JSX-free module so the
@@ -2175,7 +2176,7 @@ function BlogArticles({
 
  /** Compact vertical card for desktop side rails */
  const SideRailCard: FC<{ partner: AffiliatePartner; idx: number }> = ({ partner, idx }) => {
- const attribution = { surface: 'web', position: `article-rail-${article.category}-${idx + 1}`, campaign: 'g4-contextual', variant: 'v1' } as const;
+ const attribution = { surface: 'web', position: `article-rail-${article.category}-${idx + 1}`, campaign: AFFILIATE_CONTEXTUAL_CAMPAIGN, variant: 'v1' } as const;
  const href = buildAffiliateLinkHref(partner, attribution);
  const handleAffClick = () => {
  Analytics.trackExternalLink(href, `affiliate_${partner.id}`);
