@@ -18,6 +18,19 @@ describe('global data pipeline lease', () => {
     }, 'run-a', NOW).action).toBe('acquire');
   });
 
+  it('blocca il takeover quando un lease presente ha una scadenza malformata', () => {
+    for (const expiresAt of [undefined, null, '', 'not-a-timestamp']) {
+      expect(leaseDecision({
+        owner: 'run-b',
+        expiresAt,
+      }, 'run-a', NOW)).toMatchObject({
+        action: 'busy',
+        reason: 'malformed_expiry',
+        expiresAt: null,
+      });
+    }
+  });
+
   it('rinnova solo il proprio lease e blocca un writer ancora attivo', () => {
     const current = { owner: 'run-a', expiresAt: '2026-09-14T12:10:00.000Z' };
     expect(leaseDecision(current, 'run-a', NOW)).toMatchObject({ action: 'renew' });
@@ -32,6 +45,7 @@ describe('global data pipeline lease', () => {
     expect(shell).toContain('global-data-pipeline-lease.mjs');
     expect(shell).toContain('global_data_pipeline_lease_cleanup');
     expect(shell).toContain('trap global_data_pipeline_lease_cleanup EXIT');
+    expect(shell).toContain('node "$lease_script" release');
     expect(shell).toContain('global data-pipeline lease remained busy after the bounded wait');
   });
 });
