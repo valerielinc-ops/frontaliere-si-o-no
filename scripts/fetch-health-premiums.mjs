@@ -156,6 +156,19 @@ const BASE_FRANCHISE_BY_AGE_CLASS = {
 // Cantons with commune-level detail
 const COMMUNE_DETAIL_CANTONS = ['TI', 'GR', 'VS'];
 
+// These are deliberately conservative lower bounds for the output produced by
+// the canonical BAG + Priminfo sources.  The last three yearly snapshots in
+// the repository contain 322 commune blocks, 25 canton blocks and 20 entries
+// per ranking.  A smaller response is a truncation/error, not a usable
+// snapshot; the cross-field checks below still require exact commune coverage.
+export const HEALTH_PREMIUMS_VALIDATION_MINIMUMS = Object.freeze({
+  communesTotal: 300,
+  communesPerDetailCanton: 50,
+  premiumBlocks: 320,
+  cantonPremiumBlocks: 20,
+  rankingEntries: 20,
+});
+
 // ── CSV parser (no dependencies) ──
 export const PREMIUM_CSV_REQUIRED_HEADERS = [
   'Altersklasse',
@@ -793,6 +806,28 @@ function hasValidPremiumBlock(value) {
   return insurers.length > 0 && insurers.every(hasValidInsurerPremium);
 }
 
+function hasValidCommuneEntry(value) {
+  return isPlainObject(value) &&
+    typeof value.name === 'string' && value.name.trim() === value.name && value.name.length > 0 &&
+    Number.isInteger(value.bfsNr) && value.bfsNr > 0 &&
+    typeof value.plz === 'string' && value.plz.trim() === value.plz && value.plz.length > 0 &&
+    Number.isInteger(value.region) && value.region >= 1 && value.region <= 3;
+}
+
+function communePremiumKey(commune) {
+  return `${commune.plz}-${commune.name}`;
+}
+
+function standardPremiumsForBlock(block) {
+  return Object.values(block.insurers)
+    .map((models) => models.standard)
+    .filter(hasPositivePremium);
+}
+
+function roundedAverage(values) {
+  return Math.round((values.reduce((sum, value) => sum + value, 0) / values.length) * 100) / 100;
+}
+
 /**
  * Validate the on-disk snapshot contract before any producer write.
  *
@@ -836,34 +871,172 @@ export function assertHealthPremiumsSnapshot(snapshot, { expectedYear, requireLu
     insurerIds.add(id);
   }
 
-  if (!isPlainObject(snapshot.communes) || Object.keys(snapshot.communes).length === 0) {
+  if (!isPlainObject(snapshot.communes)) {
     throw new Error('Refusing to write health-premiums snapshot: communes is missing or malformed');
   }
+  const communeCantonKeys = Object.keys(snapshot.communes);
+  const expectedCommuneCantonKeys = new Set(COMMUNE_DETAIL_CANTONS);
+  if (communeCantonKeys.length !== expectedCommuneCantonKeys.size ||
+      communeCantonKeys.some((canton) => !expectedCommuneCantonKeys.has(canton))) {
+    throw new Error(
+      `Refusing to write health-premiums snapshot: communes must contain exactly ${COMMUNE_DETAIL_CANTONS.join(', ')}`,
+    );
+  }
 
-  if (!isPlainObject(snapshot.premiums) || Object.keys(snapshot.premiums).length === 0) {
+  const communeByKey = new Map();
+  const communeByBfsNr = new Map();
+  let communeCount = 0;
+  for (const canton of COMMUNE_DETAIL_CANTONS) {
+    const communes = snapshot.communes[canton];
+    if (!Array.isArray(communes) || communes.length < HEALTH_PREMIUMS_VALIDATION_MINIMUMS.communesPerDetailCanton) {
+      throw new Error(
+        `Refusing to write health-premiums snapshot: ${canton} communes must contain at least ` +
+        `${HEALTH_PREMIUMS_VALIDATION_MINIMUMS.communesPerDetailCanton} entries`,
+      );
+    }
+    for (const commune of communes) {
+      if (!hasValidCommuneEntry(commune)) {
+        throw new Error(`Refusing to write health-premiums snapshot: ${canton} commune entry has unexpected shape`);
+      }
+      const key = communePremiumKey(commune);
+      if (communeByKey.has(key)) {
+        throw new Error(`Refusing to write health-premiums snapshot: duplicate commune key ${key}`);
+      }
+      if (communeByBfsNr.has(commune.bfsNr)) {
+        throw new Error(`Refusing to write health-premiums snapshot: duplicate commune bfsNr ${commune.bfsNr}`);
+      }
+      const indexed = { ...commune, canton, key };
+      communeByKey.set(key, indexed);
+      communeByBfsNr.set(commune.bfsNr, indexed);
+      communeCount += 1;
+    }
+  }
+  if (communeCount < HEALTH_PREMIUMS_VALIDATION_MINIMUMS.communesTotal) {
+    throw new Error(
+      `Refusing to write health-premiums snapshot: communes must contain at least ` +
+      `${HEALTH_PREMIUMS_VALIDATION_MINIMUMS.communesTotal} entries, got ${communeCount}`,
+    );
+  }
+
+  if (!isPlainObject(snapshot.premiums)) {
     throw new Error('Refusing to write health-premiums snapshot: premiums is empty or malformed');
   }
   const premiumEntries = Object.entries(snapshot.premiums);
-  const invalidPremiumKey = premiumEntries.find(([, block]) => !hasValidPremiumBlock(block))?.[0];
-  if (invalidPremiumKey !== undefined) {
-    throw new Error(`Refusing to write health-premiums snapshot: premium block ${invalidPremiumKey} is empty or malformed`);
+  if (premiumEntries.length < HEALTH_PREMIUMS_VALIDATION_MINIMUMS.premiumBlocks) {
+    throw new Error(
+      `Refusing to write health-premiums snapshot: premiums must contain at least ` +
+      `${HEALTH_PREMIUMS_VALIDATION_MINIMUMS.premiumBlocks} blocks, got ${premiumEntries.length}`,
+    );
   }
-  if (premiumEntries.length === 0) {
-    throw new Error('Refusing to write health-premiums snapshot: no premium block has usable insurer values');
+
+  const detailPremiumEntries = [];
+  let cantonPremiumBlockCount = 0;
+  const referencedInsurerIds = new Set();
+  for (const [key, block] of premiumEntries) {
+    if (!isPlainObject(block) || (block.type !== undefined && block.type !== 'canton')) {
+      throw new Error(`Refusing to write health-premiums snapshot: premium block ${key} has unexpected shape`);
+    }
+    if (!hasValidPremiumBlock(block)) {
+      throw new Error(`Refusing to write health-premiums snapshot: premium block ${key} is empty or malformed`);
+    }
+    for (const insurerId of Object.keys(block.insurers)) {
+      if (!insurerIds.has(insurerId)) {
+        throw new Error(`Refusing to write health-premiums snapshot: premium block ${key} references unknown insurer ${insurerId}`);
+      }
+      referencedInsurerIds.add(insurerId);
+    }
+
+    if (block.type === 'canton') {
+      cantonPremiumBlockCount += 1;
+      if (typeof block.canton !== 'string' || block.canton.trim() === '' ||
+          (block.region !== null && block.region !== undefined) ||
+          (block.bfsNr !== undefined && (!Number.isInteger(block.bfsNr) || block.bfsNr <= 0))) {
+        throw new Error(`Refusing to write health-premiums snapshot: canton premium block ${key} has unexpected shape`);
+      }
+      continue;
+    }
+
+    const commune = communeByKey.get(key);
+    if (!commune) {
+      throw new Error(`Refusing to write health-premiums snapshot: premium block ${key} has no matching commune`);
+    }
+    if (block.canton !== commune.canton || block.region !== commune.region || block.bfsNr !== commune.bfsNr) {
+      throw new Error(`Refusing to write health-premiums snapshot: premium block ${key} disagrees with commune metadata`);
+    }
+    detailPremiumEntries.push([key, block]);
+  }
+
+  if (cantonPremiumBlockCount < HEALTH_PREMIUMS_VALIDATION_MINIMUMS.cantonPremiumBlocks) {
+    throw new Error(
+      `Refusing to write health-premiums snapshot: canton premium blocks must contain at least ` +
+      `${HEALTH_PREMIUMS_VALIDATION_MINIMUMS.cantonPremiumBlocks}, got ${cantonPremiumBlockCount}`,
+    );
+  }
+  if (detailPremiumEntries.length !== communeCount) {
+    throw new Error(
+      `Refusing to write health-premiums snapshot: premium blocks cover ${detailPremiumEntries.length} ` +
+      `communes, expected ${communeCount}`,
+    );
+  }
+  for (const [key] of communeByKey) {
+    const block = snapshot.premiums[key];
+    if (!isPlainObject(block) || block.type === 'canton') {
+      throw new Error(`Refusing to write health-premiums snapshot: commune ${key} has no detail premium block`);
+    }
+  }
+  const orphanInsurerId = [...insurerIds].find((id) => !referencedInsurerIds.has(id));
+  if (orphanInsurerId !== undefined) {
+    throw new Error(`Refusing to write health-premiums snapshot: insurer ${orphanInsurerId} has no premium block`);
   }
   if (requireLugano && !hasValidPremiumBlock(snapshot.premiums['6823-Lugano'])) {
     throw new Error('Refusing to write health-premiums snapshot: current-year Lugano premium block is missing or empty');
   }
 
   if (!isPlainObject(snapshot.rankings) ||
-      !Array.isArray(snapshot.rankings.cheapest) || snapshot.rankings.cheapest.length === 0 ||
-      !Array.isArray(snapshot.rankings.mostExpensive) || snapshot.rankings.mostExpensive.length === 0) {
-    throw new Error('Refusing to write health-premiums snapshot: rankings are empty or malformed');
+      !Array.isArray(snapshot.rankings.cheapest) ||
+      !Array.isArray(snapshot.rankings.mostExpensive) ||
+      snapshot.rankings.cheapest.length !== HEALTH_PREMIUMS_VALIDATION_MINIMUMS.rankingEntries ||
+      snapshot.rankings.mostExpensive.length !== HEALTH_PREMIUMS_VALIDATION_MINIMUMS.rankingEntries) {
+    throw new Error(
+      `Refusing to write health-premiums snapshot: each ranking must contain exactly ` +
+      `${HEALTH_PREMIUMS_VALIDATION_MINIMUMS.rankingEntries} entries`,
+    );
   }
-  for (const ranking of [...snapshot.rankings.cheapest, ...snapshot.rankings.mostExpensive]) {
-    if (!isPlainObject(ranking) || typeof ranking.municipality !== 'string' || ranking.municipality.trim() === '' ||
-        !hasPositivePremium(ranking.avgPremium) || !Number.isInteger(ranking.numInsurers) || ranking.numInsurers < 1) {
-      throw new Error('Refusing to write health-premiums snapshot: ranking entry has unexpected shape');
+
+  const rankedMunicipalities = new Set();
+  for (const [rankingName, rankings, direction] of [
+    ['cheapest', snapshot.rankings.cheapest, 'asc'],
+    ['mostExpensive', snapshot.rankings.mostExpensive, 'desc'],
+  ]) {
+    for (let index = 0; index < rankings.length; index += 1) {
+      const ranking = rankings[index];
+      if (!isPlainObject(ranking) || typeof ranking.municipality !== 'string' || ranking.municipality.trim() === '' ||
+          typeof ranking.canton !== 'string' || ranking.canton.trim() === '' || !Number.isInteger(ranking.bfsNr) || ranking.bfsNr <= 0 ||
+          !hasPositivePremium(ranking.avgPremium) || !Number.isInteger(ranking.numInsurers) || ranking.numInsurers < 1 ||
+          ranking.numInsurers > insurerIds.size) {
+        throw new Error(`Refusing to write health-premiums snapshot: ${rankingName} ranking entry has unexpected shape`);
+      }
+      if (rankedMunicipalities.has(ranking.municipality)) {
+        throw new Error(`Refusing to write health-premiums snapshot: duplicate ranked municipality ${ranking.municipality}`);
+      }
+      rankedMunicipalities.add(ranking.municipality);
+
+      const commune = communeByKey.get(ranking.municipality);
+      const block = snapshot.premiums[ranking.municipality];
+      if (!commune || !isPlainObject(block) || block.type === 'canton' ||
+          block.canton !== ranking.canton || block.bfsNr !== ranking.bfsNr) {
+        throw new Error(`Refusing to write health-premiums snapshot: ${rankingName} ranking entry has no matching commune premium`);
+      }
+      const standardPremiums = standardPremiumsForBlock(block);
+      if (ranking.numInsurers !== standardPremiums.length ||
+          Math.abs(ranking.avgPremium - roundedAverage(standardPremiums)) > 0.01) {
+        throw new Error(`Refusing to write health-premiums snapshot: ${rankingName} ranking entry disagrees with premium block`);
+      }
+      const previous = rankings[index - 1];
+      if (previous && ((direction === 'asc' && ranking.avgPremium < previous.avgPremium) ||
+          (direction === 'desc' && ranking.avgPremium > previous.avgPremium))) {
+        throw new Error(`Refusing to write health-premiums snapshot: ${rankingName} ranking is not sorted`);
+      }
     }
   }
 
