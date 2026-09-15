@@ -31,7 +31,7 @@ import { INDEXNOW_KEY, HOST, KEY_LOCATION } from './lib/indexnow-submit.mjs';
 // `CORE_SITEMAPS` is also consumed by the Google submitter. The pharmacy hub
 // is an IndexNow surface emitted only at build time, so keep its inclusion
 // local to the IndexNow flow rather than widening the shared Google list.
-// Keep the blog sitemap visible to source-level SEO contracts; it is supplied
+// Keep 'sitemap-blog.xml' visible to source-level SEO contracts; it is supplied
 // by CORE_SITEMAPS at runtime together with the other published sub-sitemaps.
 export const INDEXNOW_SITEMAPS = [...CORE_SITEMAPS, 'sitemap-farmacie.xml'];
 
