@@ -5,6 +5,7 @@ import statusJson from '../data/pharmacy-duties-italy-status.json';
 import {
   buildAtomicItalyDutySnapshots,
   ITALY_DUTY_RELEASE_MAX_AGE_MS,
+  evaluateItalyDutyRelease,
 } from '../services/pharmacies/italyRelease';
 import {
   buildItalyDutyWeekModel,
@@ -17,18 +18,18 @@ const WEEK = '2026-09-14';
 const FETCHED_AT = '2026-09-15T11:30:00.000Z';
 
 const PROVINCES = [
-  { code: 'CO', pharmacyId: 'it-msal-2166', sourceUrl: 'https://www.comune.merone.co.it/novita/comunicati_stampa/novita_138.html', hour: '08:00' },
-  { code: 'VA', pharmacyId: 'it-msal-3930', sourceUrl: 'https://comune.marchirolo.varese.it/Dettaglionews?IDNews=400586', hour: '09:00' },
-  { code: 'VB', pharmacyId: 'it-msal-17425', sourceUrl: 'https://www.aslvco.it/wp-content/uploads/2025/12/2968938.pdf?x88295=', hour: '10:00' },
+  { code: 'CO', pharmacyId: 'it-msal-2166', sourceKey: 'como-ats-2026-2027', coverageName: 'Como', sourceUrl: 'https://www.comune.merone.co.it/novita/comunicati_stampa/novita_138.html', hour: '08:00' },
+  { code: 'VA', pharmacyId: 'it-msal-3930', sourceKey: 'varese-ats-2026-2027', coverageName: 'Varese', sourceUrl: 'https://comune.marchirolo.varese.it/Dettaglionews?IDNews=400586', hour: '09:00' },
+  { code: 'VB', pharmacyId: 'it-msal-17425', sourceKey: 'vco-asl-2026', coverageName: 'Verbano-Cusio-Ossola', sourceUrl: 'https://www.aslvco.it/wp-content/uploads/2025/12/2968938.pdf?x88295=', hour: '10:00' },
 ] as const;
 
 function freshSnapshots(fetchedAt = FETCHED_AT): { duties: ItalyDutySnapshot; status: ItalyDutySnapshot } {
-  const rows = PROVINCES.map(({ code, pharmacyId, sourceUrl, hour }) => ({
+  const rows = PROVINCES.map(({ code, pharmacyId, coverageName, sourceUrl, hour }) => ({
     id: `italy-test-${code.toLowerCase()}`,
     pharmacyId,
     province: code,
     coverageType: 'province',
-    coverageName: `${code} provincial duty calendar`,
+    coverageName,
     startsAt: `2026-09-14T${hour}:00+02:00`,
     endsAt: `2026-09-14T${hour === '08:00' ? '16:00' : hour === '09:00' ? '17:00' : '18:00'}:00+02:00`,
     dutyType: 'day',
@@ -38,9 +39,9 @@ function freshSnapshots(fetchedAt = FETCHED_AT): { duties: ItalyDutySnapshot; st
     fetchedAt,
     verifiedAt: fetchedAt,
   }));
-  const provinces = Object.fromEntries(PROVINCES.map(({ code, sourceUrl }) => [code, {
+  const provinces = Object.fromEntries(PROVINCES.map(({ code, sourceKey, sourceUrl }) => [code, {
     province: code,
-    sourceKey: `test-${code.toLowerCase()}`,
+    sourceKey,
     sourceUrl,
     fetchedAt,
     dutyCount: 1,
@@ -100,6 +101,75 @@ describe('Italian duty week read model', () => {
     expect(model.provinces.flatMap((province) => province.duties)).toHaveLength(3);
     expect(model.provinces.every((province) => province.sourceUrl?.startsWith('https://'))).toBe(true);
     expect(formatItalyDutyDateTime(model.provinces[0].duties[0].startsAt)).toBe('14.09.2026 08:00');
+  });
+
+  it('fails closed when a duty row crosses a catalogue province or official source boundary', () => {
+    const snapshots = freshSnapshots();
+    const rows = snapshots.duties.duties as Array<Record<string, unknown>>;
+    const identityTampered = buildAtomicItalyDutySnapshots({
+      duties: { ...snapshots.duties, duties: [{ ...rows[0], pharmacyId: 'it-msal-3930' }, ...rows.slice(1)] },
+      status: snapshots.status,
+      evaluatedAt: FETCHED_AT,
+    });
+    const identityEvaluation = evaluateItalyDutyRelease({
+      duties: identityTampered.duties,
+      status: identityTampered.status,
+      now: NOW,
+    });
+    expect(identityEvaluation.publishable).toBe(false);
+    expect(identityEvaluation.reasons).toContain('Italy duties snapshot contains invalid entries');
+
+    const sourceTampered = buildAtomicItalyDutySnapshots({
+      duties: {
+        ...snapshots.duties,
+        duties: [{ ...rows[0], coverageName: 'Varese', sourceUrl: PROVINCES[1].sourceUrl }, ...rows.slice(1)],
+      },
+      status: snapshots.status,
+      evaluatedAt: FETCHED_AT,
+    });
+    const sourceEvaluation = evaluateItalyDutyRelease({
+      duties: sourceTampered.duties,
+      status: sourceTampered.status,
+      now: NOW,
+    });
+    expect(sourceEvaluation.publishable).toBe(false);
+    expect(sourceEvaluation.reasons).toContain('Italy duties snapshot contains invalid entries');
+  });
+
+  it('fails closed when a province status carries source errors or malformed diagnostics', () => {
+    const snapshots = freshSnapshots();
+    const provinces = snapshots.status._provinces as Record<string, Record<string, unknown>>;
+    const withProvinceError = buildAtomicItalyDutySnapshots({
+      duties: snapshots.duties,
+      status: {
+        ...snapshots.status,
+        _provinces: { ...provinces, CO: { ...provinces.CO, errors: ['calendar parse failed'] } },
+      },
+      evaluatedAt: FETCHED_AT,
+    });
+    const errorEvaluation = evaluateItalyDutyRelease({
+      duties: withProvinceError.duties,
+      status: withProvinceError.status,
+      now: NOW,
+    });
+    expect(errorEvaluation.publishable).toBe(false);
+    expect(errorEvaluation.reasons).toContain('Italy status snapshot contains invalid province entries');
+
+    const malformed = buildAtomicItalyDutySnapshots({
+      duties: snapshots.duties,
+      status: {
+        ...snapshots.status,
+        _provinces: { ...provinces, VA: { ...provinces.VA, errors: 'not-an-array' } },
+      },
+      evaluatedAt: FETCHED_AT,
+    });
+    const malformedEvaluation = evaluateItalyDutyRelease({
+      duties: malformed.duties,
+      status: malformed.status,
+      now: NOW,
+    });
+    expect(malformedEvaluation.publishable).toBe(false);
+    expect(malformedEvaluation.reasons).toContain('Italy status snapshot contains invalid province entries');
   });
 
   it('expires the Italy release after the 72-hour Europe/Rome freshness window', () => {
