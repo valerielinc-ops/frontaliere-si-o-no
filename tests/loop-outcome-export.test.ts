@@ -4,6 +4,10 @@ import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   buildL1TelemetryExport,
+  buildUnavailableL1TelemetryExport,
+  buildUnavailableL3OutcomeExport,
+  buildUnavailableL4OutcomeExport,
+  buildUnavailableL5DecisionMomentExport,
   buildL3OutcomeExport,
   buildL4OutcomeLedger,
   buildL5DecisionMomentExport,
@@ -76,6 +80,37 @@ describe('read-only loop outcome exporters', () => {
       usefulSessions: 18595,
       errorFreeUsefulSessions: 7738,
       _meta: { issue: 4304, generatedAt: NOW.toISOString() },
+    });
+  });
+
+  it('emits explicit unavailable L1/L3/L4 placeholders instead of failing before evidence recording', () => {
+    expect(buildUnavailableL1TelemetryExport({ generatedAt: NOW.toISOString() })).toMatchObject({
+      generatedAt: NOW.toISOString(),
+      usefulSessions: null,
+      errorFreeUsefulSessions: null,
+      independent: false,
+      export: { readOnly: true, unavailable: true, mutationsPerformed: false },
+    });
+    expect(buildUnavailableL3OutcomeExport({ generatedAt: NOW.toISOString() })).toMatchObject({
+      generatedAt: NOW.toISOString(),
+      eligibleJobSessions: null,
+      validHandoffs: null,
+      applications: null,
+      independent: false,
+      export: { handoffIsNotApplication: true, publishedDataUntouched: true, unavailable: true },
+    });
+    expect(buildUnavailableL4OutcomeExport({ generatedAt: NOW.toISOString() })).toMatchObject({
+      generatedAt: NOW.toISOString(),
+      eligibleConsentedUsers: null,
+      returningUsers7d: null,
+      independent: false,
+      export: { externalDeliveryUntouched: true, unavailable: true, mutationsPerformed: false },
+    });
+    expect(buildUnavailableL5DecisionMomentExport({ generatedAt: NOW.toISOString(), reason: 'test outage' })).toMatchObject({
+      generatedAt: NOW.toISOString(),
+      independent: false,
+      export: { readOnly: true, unavailable: true, publishedDataUntouched: true },
+      _meta: { reason: 'test outage' },
     });
   });
 
