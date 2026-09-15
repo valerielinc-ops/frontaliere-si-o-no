@@ -1,3 +1,6 @@
+import { readFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, it, vi } from 'vitest';
 import { fetchHtml } from '../functions/src/plateAuctionsCore.js';
 import { parseGrAuctionRows } from '../scripts/plate-auctions/connectors/gr.mjs';
@@ -12,7 +15,10 @@ import {
 import { parseTiAuctionRows } from '../scripts/plate-auctions/connectors/ti.mjs';
 import { parseTgAuctionRows } from '../scripts/plate-auctions/connectors/tg.mjs';
 import { parseZhAuctions } from '../scripts/plate-auctions/connectors/zh.mjs';
+import { parseExpandedCard, parseExpandedEcari } from '../scripts/plate-auctions/connectors/expanded.mjs';
 import { validatePlateAuction } from '../services/plateAuctions/types';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const GR_SAMPLE = `
 <div id="tabContent1">
@@ -53,6 +59,9 @@ const CARD_SAMPLE = `
     </div>
   </a>
 </div></div>`;
+
+const EXPANDED_ECARI_SAMPLE = readFileSync(join(__dirname, 'fixtures/expanded-ecari-auction-sample.html'), 'utf8');
+const EXPANDED_CARD_SAMPLE = readFileSync(join(__dirname, 'fixtures/expanded-card-auction-sample.html'), 'utf8');
 
 describe('expanded plate-auction connectors', () => {
   it('retries transient catalogue fetch failures before degrading a source', async () => {
@@ -199,5 +208,34 @@ describe('expanded plate-auction connectors', () => {
     expect(tgRows[0]).toMatchObject({ id: 'tg-109715', sourceKey: 'TG', normalizedPlate: 'TG13926', endsAt: '2026-09-23T17:00:00.000Z' });
     expect(validatePlateAuction(shRows[0])).toEqual([]);
     expect(validatePlateAuction(tgRows[0])).toEqual([]);
+  });
+
+  it('reuses the eCari contract for all newly verified public catalogues', () => {
+    for (const sourceKey of ['ar', 'bl', 'fr', 'nw', 'ow', 'so']) {
+      const [row] = parseExpandedEcari(sourceKey, EXPANDED_ECARI_SAMPLE, { fetchedAt: '2026-09-15T08:00:00.000Z' });
+      expect(row, sourceKey).toMatchObject({
+        id: `${sourceKey}-1768`,
+        sourceKey: sourceKey.toUpperCase(),
+        plateNumber: '691',
+        currentBidChf: 950,
+        officialDetailUrl: expect.stringContaining('/ui/app/details/app?id=1768'),
+      });
+      expect(JSON.stringify(row)).not.toContain('private bidder omitted');
+      expect(validatePlateAuction(row), sourceKey).toEqual([]);
+    }
+  });
+
+  it('reuses the card contract for AG, BE and VD after the portal migrations', () => {
+    for (const sourceKey of ['ag', 'be', 'vd']) {
+      const [row] = parseExpandedCard(sourceKey, EXPANDED_CARD_SAMPLE.replaceAll('AG', sourceKey.toUpperCase()), { fetchedAt: '2026-09-15T08:00:00.000Z' });
+      expect(row, sourceKey).toMatchObject({
+        id: `${sourceKey}-1768`,
+        sourceKey: sourceKey.toUpperCase(),
+        normalizedPlate: `${sourceKey.toUpperCase()}691`,
+        currentBidChf: 950,
+        officialDetailUrl: 'https://www.' + (sourceKey === 'vd' ? 'encheres-vd.ch' : sourceKey === 'ag' ? 'auktion-ag.ch' : 'auktion-be.ch') + '/de/auction/1768',
+      });
+      expect(validatePlateAuction(row), sourceKey).toEqual([]);
+    }
   });
 });
