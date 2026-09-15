@@ -40,6 +40,25 @@ import {
   rawCompanySlug,
 } from '../build-plugins/shared/companyProfileSlug.mjs';
 import { isJobBoardSectorHubPath } from '../build-plugins/shared/jobSectorSlugs.mjs';
+import {
+  D18_J0,
+  D18_LIMIT_STATE,
+  D18_METRICS,
+  D18_METRIC_VERSION,
+  D18_POSTHOG_CAVEAT,
+  D18_SCHEMA_VERSION,
+  buildCompositeMetric,
+  buildCoverageMatrix,
+  buildD18SourceRegimes,
+  deriveD18Windows,
+  isWithinD18Window,
+  metricFromObservation,
+  metricValue,
+  normalizeD18Window,
+  sha256 as d18Sha256,
+  stableJson as d18StableJson,
+  validateD18Payload,
+} from './lib/employer-insights-cumulative-contract.mjs';
 
 export const INSIGHTS_SCHEMA_VERSION = 2;
 export const DELIVERY_UNAVAILABLE = 'non disponibile';
@@ -373,10 +392,15 @@ function normalizeEventRow(source) {
   const sessionsValue = field(source, 'sessions', 12) ?? field(source, 'distinctSessions', 12);
   const viewsValue = field(source, 'views', 13);
   const clicksValue = field(source, 'clicks', 14);
+  const visitorIds = read(['visitorIds', 'visitor_ids', 'identifiers'], undefined);
+  const normalizedVisitorIds = Array.isArray(visitorIds)
+    ? visitorIds.map(normalizeText).filter(Boolean)
+    : [normalizeText(read(['visitorId', 'visitor_id', 'distinctId', 'distinct_id', 'personId', 'person_id'], undefined))].filter(Boolean);
+  const sponsoredValue = read(['isSponsored', 'is_sponsored', 'sponsored'], undefined);
   return {
     emissionId: normalizeText(read(['emissionId', 'emission_id', 'actionId', 'action_id'], 15)),
     event: eventName,
-    timestamp: toIso(read(['timestamp', 'occurredAt', 'createdAt'], 16)),
+    timestamp: toIso(read(['timestamp', 'occurredAt', 'createdAt'], Array.isArray(source) ? 16 : undefined)),
     week: normalizeWeek(read(['week', 'wk'], 2)),
     path: normalizeText(read(['path', '$pathname', 'pathname'], 3)),
     jobSlug: normalizeText(read(['jobSlug', 'job_slug', 'slug'], 4)),
@@ -385,11 +409,26 @@ function normalizeEventRow(source) {
     employerKey: normalizeText(read(['employerKey', 'employer_key', 'companyKey', 'company_key'], 7)),
     itemId: normalizeText(read(['itemId', 'item_id'], 8)),
     contentType: normalizeText(read(['contentType', 'content_type'], 9)),
+    companyName: normalizeText(read(['companyName', 'company_name', 'employerName', 'employer_name'], undefined)),
+    title: normalizeText(read(['title', 'jobTitle', 'job_title'], undefined)),
+    status: normalizeText(read(['status'], undefined)),
     views: viewsValue == null || viewsValue === '' ? null : Math.max(0, numberOr(viewsValue, 0)),
     clicks: clicksValue == null || clicksValue === '' ? null : Math.max(0, numberOr(clicksValue, 0)),
     observed: Math.max(0, numberOr(observedValue, 1)),
     persons: Math.max(0, numberOr(personsValue, 0)),
     sessions: Math.max(0, numberOr(sessionsValue, 0)),
+    pageTemplate: normalizeText(read(['pageTemplate', 'page_template'], Array.isArray(source) ? 27 : undefined)),
+    locale: normalizeText(read(['locale', 'language'], undefined)).toLowerCase(),
+    visitorIds: normalizedVisitorIds,
+    isSponsored: typeof sponsoredValue === 'boolean'
+      ? sponsoredValue
+      : ['true', '1', 'yes'].includes(normalizeText(sponsoredValue).toLowerCase())
+        ? true
+        : ['false', '0', 'no'].includes(normalizeText(sponsoredValue).toLowerCase())
+          ? false
+          : null,
+    statusAtEvent: normalizeText(read(['statusAtEvent', 'status_at_event', 'eventStatus'], undefined)),
+    currentStatus: normalizeText(read(['currentStatus', 'current_status'], undefined)),
   };
 }
 
@@ -411,6 +450,12 @@ function eventSignature(row) {
     sessions: row.sessions,
     views: row.views,
     clicks: row.clicks,
+    pageTemplate: row.pageTemplate,
+    locale: row.locale,
+    visitorIds: row.visitorIds,
+    isSponsored: row.isSponsored,
+    statusAtEvent: row.statusAtEvent,
+    currentStatus: row.currentStatus,
   });
 }
 
@@ -445,11 +490,12 @@ export function collapseTechnicalDuplicates(inputRows = []) {
   const rows = inputRows.map(normalizeEventRow);
   const keptByKey = new Map();
   const kept = [];
+  const removedRows = [];
   let rawObserved = 0;
   let observed = 0;
   let removed = 0;
   let dedupUnavailable = 0;
-  for (const row of rows) {
+  for (const [sourceIndex, row] of rows.entries()) {
     const count = Math.max(0, numberOr(row.observed, 1));
     rawObserved += count;
     const dedupKey = row.emissionId ? `emission:${row.emissionId}` : '';
@@ -463,22 +509,33 @@ export function collapseTechnicalDuplicates(inputRows = []) {
     const candidate = { ...row, observed: retained };
     const existing = keptByKey.get(dedupKey);
     if (!existing) {
-      const entry = { row: candidate, index: kept.length };
+      const entry = { row: candidate, index: kept.length, sourceIndex, rows: [{ row, count, sourceIndex }], total: count };
       keptByKey.set(dedupKey, entry);
       kept.push(candidate);
       observed += retained;
-      removed += Math.max(0, count - retained);
       continue;
     }
 
-    removed += count;
+    existing.rows.push({ row, count, sourceIndex });
+    existing.total += count;
     if (compareTechnicalDuplicateRows(candidate, existing.row) > 0) {
       kept[existing.index] = candidate;
       observed += retained - existing.row.observed;
       existing.row = candidate;
+      existing.sourceIndex = sourceIndex;
     }
   }
-  return { rows: kept, rawObserved, observed, removed, dedupUnavailable };
+  for (const group of keptByKey.values()) {
+    const removedAmount = Math.max(0, group.total - group.row.observed);
+    removed += removedAmount;
+    for (const item of group.rows) {
+      const amount = item.sourceIndex === group.sourceIndex
+        ? Math.max(0, item.count - group.row.observed)
+        : item.count;
+      if (amount > 0) removedRows.push({ ...item.row, observed: amount });
+    }
+  }
+  return { rows: kept, rawObserved, observed, removed, removedRows, dedupUnavailable };
 }
 
 function pathSegments(pathname) {
@@ -537,8 +594,34 @@ function resolveJobAlias(catalog, alias, companyKey = null) {
   return result;
 }
 
+function historicalEventIdentity(row, catalog, companyResult, route, companyKeyOverride = null) {
+  if (companyResult?.ambiguous) return null;
+  const explicitCompanyAlias = row.employerKey || (route?.kind === 'company' ? route.alias : '');
+  const companyKey = companyResult?.value || companyKeyOverride || normalizeAlias(explicitCompanyAlias);
+  if (!companyKey) return null;
+  const jobId = normalizeText(row.jobId || row.providerId)
+    || (row.jobSlug ? `historical:${companyKey}:${normalizeAlias(row.jobSlug)}` : null);
+  if (!jobId) return { scope: 'company', companyKey, row, historicalOnly: true };
+  const slug = normalizeText(row.jobSlug) || jobId;
+  const companyName = row.companyName || catalog.companyNameByKey.get(companyKey) || companyKey;
+  const historicalJob = {
+    id: jobId,
+    companyKey,
+    company: companyName,
+    title: row.title || slug,
+    slug,
+    slugByLocale: row.locale ? { [row.locale]: slug } : {},
+    previousSlugs: [],
+    statusAtEvent: row.statusAtEvent || row.status || 'unknown',
+    currentStatus: 'non piu a catalogo',
+    status: 'removed',
+    historicalOnly: true,
+  };
+  return { scope: 'job', job: historicalJob, row, historicalOnly: true };
+}
+
 /** Resolve one event without a company-name substring fallback. */
-export function resolveEventIdentity(sourceRow, catalog) {
+export function resolveEventIdentity(sourceRow, catalog, { allowHistorical = false } = {}) {
   const row = normalizeEventRow(sourceRow);
   const route = routeIdentity(row.path);
   const jobIdResult = resolveJobById(catalog, row.jobId) || resolveJobById(catalog, row.providerId);
@@ -555,6 +638,25 @@ export function resolveEventIdentity(sourceRow, catalog) {
     : null;
   const companyKey = companyResult?.value || null;
   if (explicitJobAliases.length) {
+    const missingStableId = normalizeText(row.jobId || row.providerId);
+    if (allowHistorical && missingStableId) {
+      const aliasCompanies = new Set();
+      let ambiguousAlias = Boolean(companyResult?.ambiguous);
+      if (!companyResult && !explicitCompanyAlias) {
+        for (const explicitJobAlias of explicitJobAliases) {
+          const aliasResult = resolveJobAlias(catalog, explicitJobAlias);
+          if (aliasResult?.ambiguous) {
+            ambiguousAlias = true;
+            break;
+          }
+          const aliasJob = aliasResult?.value ? catalog.jobsById.get(aliasResult.value) : null;
+          if (aliasJob?.companyKey) aliasCompanies.add(aliasJob.companyKey);
+        }
+      }
+      if (ambiguousAlias || aliasCompanies.size > 1) return { residual: 'ambiguous_job_alias', row };
+      const historical = historicalEventIdentity(row, catalog, companyResult, route, aliasCompanies.size === 1 ? [...aliasCompanies][0] : null);
+      if (historical) return historical;
+    }
     let ambiguousJobAlias = false;
     for (const explicitJobAlias of explicitJobAliases) {
       const jobResult = resolveJobAlias(catalog, explicitJobAlias, companyKey);
@@ -563,23 +665,39 @@ export function resolveEventIdentity(sourceRow, catalog) {
     }
     if (ambiguousJobAlias) return { residual: 'ambiguous_job_alias', row };
     if (companyResult?.ambiguous) return { residual: 'ambiguous_company_alias', row };
-    if (companyKey) return { scope: 'company', companyKey, row, identityFallback: 'explicit_company_alias' };
-    return { residual: 'unknown_job_alias', row };
+    if (companyKey) {
+      return allowHistorical
+        ? historicalEventIdentity(row, catalog, companyResult, route) || { scope: 'company', companyKey, row, identityFallback: 'explicit_company_alias' }
+        : { scope: 'company', companyKey, row, identityFallback: 'explicit_company_alias' };
+    }
+    return allowHistorical
+      ? historicalEventIdentity(row, catalog, companyResult, route) || { residual: 'unknown_job_alias', row }
+      : { residual: 'unknown_job_alias', row };
   }
 
   if (row.jobId || row.providerId) {
     if (companyResult?.ambiguous) return { residual: 'ambiguous_company_alias', row };
-    if (companyKey) return { scope: 'company', companyKey, row, identityFallback: 'explicit_company_alias' };
-    return { residual: 'unknown_job_id', row };
+    if (companyKey) {
+      return allowHistorical
+        ? historicalEventIdentity(row, catalog, companyResult, route) || { scope: 'company', companyKey, row, identityFallback: 'explicit_company_alias' }
+        : { scope: 'company', companyKey, row, identityFallback: 'explicit_company_alias' };
+    }
+    return allowHistorical
+      ? historicalEventIdentity(row, catalog, companyResult, route) || { residual: 'unknown_job_id', row }
+      : { residual: 'unknown_job_id', row };
   }
 
   if (explicitCompanyAlias) {
     if (companyResult?.ambiguous) return { residual: 'ambiguous_company_alias', row };
     if (companyKey) return { scope: 'company', companyKey, row };
-    return { residual: 'unknown_company_alias', row };
+    return allowHistorical
+      ? historicalEventIdentity(row, catalog, companyResult, route) || { residual: 'unknown_company_alias', row }
+      : { residual: 'unknown_company_alias', row };
   }
 
-  return { residual: 'unidentified_event', row };
+  return allowHistorical
+    ? historicalEventIdentity(row, catalog, companyResult, route) || { residual: 'unidentified_event', row }
+    : { residual: 'unidentified_event', row };
 }
 
 function isPageview(row) {
@@ -1092,6 +1210,1136 @@ export function buildInsightsDocuments({
   }
   docs.sort((a, b) => b.totals.views - a.totals.views || a.companyKey.localeCompare(b.companyKey));
   return docs;
+}
+
+const D18_SURFACE_UNITS = Object.freeze({
+  adViews: 'events',
+  listExposures: 'events',
+  profileVisits: 'events',
+  outboundClicks: 'events',
+  candidateButtonClicks: 'events',
+  identifiableUniqueVisitors: 'identifiers',
+});
+
+function d18EmptyStats() {
+  return {
+    counts: Object.fromEntries(D18_METRICS.map((metric) => [metric, 0])),
+    present: new Set(),
+    identifiers: new Set(),
+  };
+}
+
+function d18BucketState() {
+  return { historical: d18EmptyStats(), current: d18EmptyStats() };
+}
+
+function d18AddStats(stats, surface, amount, row) {
+  if (!surface || !D18_METRICS.includes(surface)) return;
+  stats.counts[surface] += Math.max(0, numberOr(amount, 0));
+  stats.present.add(surface);
+  for (const identifier of row.visitorIds || []) stats.identifiers.add(identifier);
+}
+
+function d18StateFor(map, key, create) {
+  if (!map.has(key)) map.set(key, create());
+  return map.get(key);
+}
+
+function d18BucketStats(map, key) {
+  return d18StateFor(map, key || 'unknown', d18BucketState);
+}
+
+function d18CompanyState(companyKey, companyName) {
+  return {
+    companyKey,
+    companyName,
+    phases: { historical: d18EmptyStats(), current: d18EmptyStats() },
+    ads: new Map(),
+    byLocale: new Map(),
+    byStatus: new Map(),
+    bySponsored: new Map(),
+    residuals: Object.create(null),
+  };
+}
+
+function d18AdState(job) {
+  return {
+    job,
+    phases: { historical: d18EmptyStats(), current: d18EmptyStats() },
+    locales: new Set(),
+    statusesAtEvent: new Set(),
+    sponsored: new Set(),
+  };
+}
+
+function d18PhaseWindow(requestedWindow, from, to, fallback = requestedWindow) {
+  const start = Math.max(Date.parse(requestedWindow.from), Date.parse(from));
+  const end = Math.min(Date.parse(requestedWindow.to), Date.parse(to));
+  if (!Number.isFinite(start) || !Number.isFinite(end) || start >= end) return fallback;
+  return normalizeD18Window({
+    from: new Date(start).toISOString(),
+    to: new Date(end).toISOString(),
+    timezone: 'Europe/Zurich',
+  });
+}
+
+function d18Surface(row) {
+  const event = normalizeText(row.event).toLowerCase();
+  if (event === 'ad_impression' || event === 'ad_impression_view') return 'listExposures';
+  if (event === 'outbound_click' || event === 'external_click' || event === 'ats_click') return 'outboundClicks';
+  if (event === 'job_apply' || (event === 'select_content' && APPLY_CONTENT_TYPES.has(row.contentType)) || event === 'applyclicks') return 'candidateButtonClicks';
+  if (isPageview(row)) {
+    if (row.pageTemplate === 'jobs_company' || row.pageTemplate === 'company_profile') return 'profileVisits';
+    if (row.pageTemplate === 'jobs_index' || row.pageTemplate === 'jobs_search') return null;
+    if (row.pageTemplate === 'job_detail') return 'adViews';
+  }
+  return null;
+}
+
+function d18SourceUnavailable(meta) {
+  if (!meta || Object.keys(meta).length === 0) return true;
+  const coverage = meta.sourceCoverage || meta.coverage || meta;
+  if (!coverage || typeof coverage !== 'object' || ![
+    'queried',
+    'status',
+    'coverageStart',
+    'coverageEnd',
+    'completeThrough',
+  ].some((field) => Object.prototype.hasOwnProperty.call(coverage, field))) return true;
+  const status = meta.status || coverage.status;
+  return meta.available === false
+    || coverage.available === false
+    || meta.queried === false
+    || coverage.queried === false
+    || status === 'non disponibile'
+    || status === 'sorgente non disponibile';
+}
+
+function d18SourcePartial(meta) {
+  if (d18SourceUnavailable(meta)) return false;
+  const coverage = meta?.sourceCoverage || meta?.coverage || meta || {};
+  return coverage.truncated === true
+    || coverage.status === 'parziale'
+    || meta?.status === 'parziale'
+    || !coverage.completeThrough;
+}
+
+function d18SourceUnavailableReason(meta, surface = null) {
+  const coverage = meta?.sourceCoverage || meta?.coverage || meta || {};
+  return meta?.unavailableReason
+    || coverage.unavailableReason
+    || (surface === 'identifiableUniqueVisitors'
+      ? 'GA4 non espone un identificatore visitatore utilizzabile per una union esatta'
+      : null)
+    || 'sorgente non interrogata o non disponibile';
+}
+
+function d18SurfaceLedger() {
+  return Object.fromEntries(D18_METRICS.map((surface) => [surface, {
+    unit: surface === 'identifiableUniqueVisitors' ? 'identifiers' : 'events',
+    rawObserved: 0,
+    observed: 0,
+    attributed: 0,
+    residuals: Object.create(null),
+    residualTotal: 0,
+    technicalDuplicatesRemoved: 0,
+    invariant: false,
+    rawInvariant: false,
+  }]));
+}
+
+function d18SurfaceAmount(ledger, surface, key, amount) {
+  if (!surface || !ledger[surface]) return;
+  ledger[surface][key] += Math.max(0, numberOr(amount, 0));
+}
+
+function d18ResidualAdd(map, reason, amount) {
+  if (!reason) return;
+  map[reason] = (map[reason] || 0) + Math.max(0, numberOr(amount, 0));
+}
+
+function d18RowLocale(row, job) {
+  const explicit = normalizeText(row.locale).toLowerCase();
+  if (explicit) return explicit;
+  const slug = normalizeAlias(row.jobSlug);
+  for (const [locale, localizedSlug] of Object.entries(job?.slugByLocale || {})) {
+    if (slug && slug === normalizeAlias(localizedSlug)) return locale;
+  }
+  return 'unknown';
+}
+
+function d18StatusAtEvent(row, job) {
+  if (row.statusAtEvent) return normalizeText(row.statusAtEvent);
+  const timestamp = Date.parse(row.timestamp);
+  const history = Array.isArray(job?.statusHistory) ? job.statusHistory
+    .map((entry) => ({ status: normalizeText(entry?.status), at: Date.parse(entry?.at || entry?.timestamp || '') }))
+    .filter((entry) => entry.status && Number.isFinite(entry.at) && (!Number.isFinite(timestamp) || entry.at <= timestamp))
+    .sort((left, right) => right.at - left.at) : [];
+  return normalizeText(history[0]?.status || row.status || job?.statusAtEvent || 'unknown') || 'unknown';
+}
+
+function d18CurrentStatus(row, job) {
+  return normalizeText(job?.currentStatus || row.currentStatus || job?.status || 'unknown') || 'unknown';
+}
+
+function d18SponsoredClass(row) {
+  if (row.isSponsored === true) return 'sponsored';
+  if (row.isSponsored === false) return 'free';
+  return 'unknown';
+}
+
+function d18RegisterEvent(state, phase, row, resolved, surface, amount) {
+  const job = resolved.job || null;
+  const companyKey = job?.companyKey || resolved.companyKey;
+  if (!companyKey) return;
+  const root = state.phases[phase];
+  d18AddStats(root, surface, amount, row);
+
+  const locale = d18RowLocale(row, job);
+  const statusAtEvent = d18StatusAtEvent(row, job);
+  const sponsored = d18SponsoredClass(row);
+  d18AddStats(d18BucketStats(state.byLocale, locale)[phase], surface, amount, row);
+  d18AddStats(d18BucketStats(state.byStatus, statusAtEvent)[phase], surface, amount, row);
+  d18AddStats(d18BucketStats(state.bySponsored, sponsored)[phase], surface, amount, row);
+
+  if (!job) return;
+  const ad = d18StateFor(state.ads, job.id, () => d18AdState(job));
+  d18AddStats(ad.phases[phase], surface, amount, row);
+  ad.locales.add(locale);
+  ad.statusesAtEvent.add(statusAtEvent);
+  ad.sponsored.add(sponsored);
+}
+
+function d18AggregateSourceRows(inputRows, {
+  source,
+  phase,
+  requestedWindow,
+  catalog,
+  identityFrom,
+  sourceMeta,
+} = {}) {
+  const normalized = (inputRows || []).map(normalizeEventRow);
+  const invalidTimestampRows = normalized.filter((row) => !row.timestamp);
+  const outsideWindowRows = normalized.filter((row) => row.timestamp && !isWithinD18Window(row.timestamp, requestedWindow));
+  const windowRows = normalized.filter((row) => row.timestamp && isWithinD18Window(row.timestamp, requestedWindow));
+  const invalidTimestampDeduped = collapseTechnicalDuplicates(invalidTimestampRows);
+  const deduped = collapseTechnicalDuplicates(windowRows);
+  const surfaceLedger = d18SurfaceLedger();
+  const addRawSurface = (row, amount) => d18SurfaceAmount(surfaceLedger, d18Surface(row), 'rawObserved', amount);
+  for (const row of [...invalidTimestampRows, ...windowRows]) addRawSurface(row, row.observed);
+  for (const row of [...(invalidTimestampDeduped.removedRows || []), ...(deduped.removedRows || [])]) {
+    d18SurfaceAmount(surfaceLedger, d18Surface(row), 'technicalDuplicatesRemoved', row.observed);
+  }
+  const aggregate = {
+    rawObserved: deduped.rawObserved + invalidTimestampDeduped.rawObserved,
+    observed: deduped.observed + invalidTimestampDeduped.observed,
+    attributed: 0,
+    residuals: residualLedger(),
+    diagnosticResiduals: residualLedger(),
+    residualTotal: 0,
+    technicalDuplicatesRemoved: deduped.removed + invalidTimestampDeduped.removed,
+    states: new Map(),
+    sourceUnavailable: d18SourceUnavailable(sourceMeta),
+    sourcePartial: d18SourcePartial(sourceMeta) || source === 'posthog',
+    sourceUnavailableReason: d18SourceUnavailableReason(sourceMeta),
+    uniqueRawIdentifiers: new Set(),
+    uniqueAttributedIdentifiers: new Set(),
+    surfaceLedger,
+  };
+  for (const row of [...invalidTimestampRows, ...windowRows]) {
+    for (const identifier of row.visitorIds || []) aggregate.uniqueRawIdentifiers.add(identifier);
+  }
+
+  const recordResidual = (row, reason, amount, { reconcile = true } = {}) => {
+    d18ResidualAdd(reconcile ? aggregate.residuals : aggregate.diagnosticResiduals, reason, amount);
+    const surface = d18Surface(row);
+    if (reconcile) {
+      d18SurfaceAmount(surfaceLedger, surface, 'observed', amount);
+      if (surface && surfaceLedger[surface]) {
+        surfaceLedger[surface].residuals[reason] = (surfaceLedger[surface].residuals[reason] || 0) + amount;
+      }
+    }
+    const companyResult = row.employerKey ? resolveUnique(catalog.companyAliasToKeys, row.employerKey) : null;
+    if (!companyResult || companyResult.ambiguous || !companyResult.value) return;
+    const state = d18StateFor(aggregate.states, companyResult.value, () => d18CompanyState(
+      companyResult.value,
+      catalog.companyNameByKey.get(companyResult.value) || companyResult.value,
+    ));
+    const key = `${source}:${reason}`;
+    state.residuals[key] = {
+      source,
+      reason,
+      count: (state.residuals[key]?.count || 0) + amount,
+    };
+  };
+  for (const row of invalidTimestampDeduped.rows) {
+    recordResidual(
+      row,
+      aggregate.sourceUnavailable ? 'source_unavailable' : 'invalid_timestamp',
+      Math.max(0, numberOr(row.observed, 1)),
+    );
+  }
+  for (const row of outsideWindowRows) {
+    recordResidual(row, 'outside_requested_window', Math.max(0, numberOr(row.observed, 1)), { reconcile: false });
+  }
+  for (const row of deduped.rows) {
+    const amount = Math.max(0, numberOr(row.observed, 1));
+    if (aggregate.sourceUnavailable) {
+      recordResidual(row, 'source_unavailable', amount);
+      continue;
+    }
+    const timestamp = Date.parse(row.timestamp);
+    if (!identityFrom) {
+      recordResidual(row, 'identity_not_proven', amount);
+      continue;
+    }
+    if (!Number.isFinite(timestamp) || timestamp < Date.parse(identityFrom)) {
+      recordResidual(row, 'historical_route_unresolved', amount);
+      continue;
+    }
+    const surface = d18Surface(row);
+    if (!surface) {
+      const hasIdentityHint = Boolean(row.jobSlug || row.jobId || row.providerId || row.employerKey || row.path);
+      recordResidual(row, hasIdentityHint ? 'unsupported_event' : 'unidentified_event', amount);
+      continue;
+    }
+    const resolved = resolveEventIdentity(row, catalog, { allowHistorical: true });
+    if (resolved.residual) {
+      recordResidual(row, resolved.residual, amount);
+      continue;
+    }
+    if (!resolved.job && (surface === 'adViews' || surface === 'listExposures')) {
+      recordResidual(row, 'unknown_job_alias', amount);
+      continue;
+    }
+    const companyKey = resolved.job?.companyKey || resolved.companyKey;
+    if (!companyKey) {
+      recordResidual(row, 'unidentified_event', amount);
+      continue;
+    }
+    const state = d18StateFor(aggregate.states, companyKey, () => d18CompanyState(
+      companyKey,
+      resolved.job?.company || catalog.companyNameByKey.get(companyKey) || companyKey,
+    ));
+    for (const identifier of row.visitorIds || []) aggregate.uniqueAttributedIdentifiers.add(identifier);
+    d18SurfaceAmount(surfaceLedger, surface, 'observed', amount);
+    d18SurfaceAmount(surfaceLedger, surface, 'attributed', amount);
+    aggregate.attributed += amount;
+    d18RegisterEvent(state, phase, row, resolved, surface, amount);
+  }
+  const uniqueLedger = surfaceLedger.identifiableUniqueVisitors;
+  uniqueLedger.rawObserved = aggregate.uniqueRawIdentifiers.size;
+  uniqueLedger.observed = uniqueLedger.rawObserved;
+  uniqueLedger.attributed = aggregate.uniqueAttributedIdentifiers.size;
+  const uniqueResidualIdentifiers = [...aggregate.uniqueRawIdentifiers]
+    .filter((identifier) => !aggregate.uniqueAttributedIdentifiers.has(identifier));
+  uniqueLedger.residualTotal = uniqueResidualIdentifiers.length;
+  if (uniqueResidualIdentifiers.length) uniqueLedger.residuals.unattributed_identifier = uniqueResidualIdentifiers.length;
+  uniqueLedger.invariant = uniqueLedger.attributed + uniqueLedger.residualTotal === uniqueLedger.observed;
+  uniqueLedger.rawInvariant = uniqueLedger.rawObserved === uniqueLedger.attributed + uniqueLedger.residualTotal + uniqueLedger.technicalDuplicatesRemoved;
+  aggregate.residualTotal = Object.values(aggregate.residuals).reduce((sum, value) => sum + value, 0);
+  for (const ledger of Object.values(surfaceLedger)) {
+    ledger.residualTotal = Object.values(ledger.residuals).reduce((sum, value) => sum + value, 0);
+    ledger.invariant = ledger.attributed + ledger.residualTotal === ledger.observed;
+    ledger.rawInvariant = ledger.rawObserved === ledger.attributed + ledger.residualTotal + ledger.technicalDuplicatesRemoved;
+  }
+  aggregate.invariant = aggregate.attributed + aggregate.residualTotal === aggregate.observed;
+  aggregate.rawInvariant = aggregate.rawObserved === aggregate.attributed + aggregate.residualTotal + aggregate.technicalDuplicatesRemoved;
+  return aggregate;
+}
+
+function d18SourceMetric(stats, surface, {
+  source,
+  window,
+  sourceMeta,
+  snapshotId,
+  dedupeRemoved = 0,
+} = {}) {
+  const rawCoverage = sourceMeta?.sourceCoverage || sourceMeta?.coverage || sourceMeta || {};
+  const suppliedDenominator = sourceMeta?.denominator || {
+    value: null,
+    unit: D18_SURFACE_UNITS[surface],
+    source,
+    window,
+    status: source === 'posthog' ? 'non provato' : 'non disponibile',
+  };
+  const querySucceeded = !d18SourceUnavailable(sourceMeta);
+  const denominator = source === 'posthog'
+    ? {
+      ...suppliedDenominator,
+      value: null,
+      status: 'non provato',
+      source: 'posthog',
+      window,
+      reason: suppliedDenominator.reason || D18_POSTHOG_CAVEAT,
+    }
+    : querySucceeded
+      ? suppliedDenominator
+      : { ...suppliedDenominator, value: null, status: 'non disponibile', source, window };
+  const truncated = rawCoverage.truncated === true
+    || rawCoverage.status === 'parziale'
+    || sourceMeta?.status === 'parziale'
+    || source === 'posthog'
+    || !rawCoverage.completeThrough;
+  const present = stats?.present?.has(surface)
+    || surface === 'identifiableUniqueVisitors' && stats?.identifiers?.size > 0;
+  const rowsReturned = rawCoverage.rowsReturned ?? rawCoverage.returnedRows;
+  const completeEmpty = !truncated
+    && rowsReturned !== null
+    && rowsReturned !== undefined
+    && rawCoverage.totalRows !== null
+    && rawCoverage.totalRows !== undefined
+    && Number(rowsReturned) === 0
+    && Number(rawCoverage.totalRows) === 0;
+  const fieldPresent = present || completeEmpty || truncated;
+  const value = surface === 'identifiableUniqueVisitors'
+    ? (present || completeEmpty ? stats?.identifiers?.size || 0 : null)
+    : (present || completeEmpty ? stats.counts[surface] : null);
+  return metricFromObservation({
+    value,
+    fieldPresent,
+    querySucceeded,
+    complete: !truncated,
+    truncated,
+    unit: D18_SURFACE_UNITS[surface],
+    source,
+    window,
+    denominator,
+    coverage: {
+      ...rawCoverage,
+      snapshotId: rawCoverage.snapshotId || snapshotId,
+      truncated,
+      coverageStart: rawCoverage.coverageStart || null,
+      coverageEnd: rawCoverage.coverageEnd || null,
+      completeThrough: rawCoverage.completeThrough || null,
+      rowsReturned: rawCoverage.rowsReturned ?? rawCoverage.returnedRows ?? null,
+      totalRows: rawCoverage.totalRows ?? null,
+      pages: rawCoverage.pages ?? null,
+      queried: querySucceeded && rawCoverage.queried !== false,
+      status: querySucceeded ? rawCoverage.status || (truncated ? 'parziale' : 'observed') : 'sorgente non disponibile',
+      unavailableReason: !fieldPresent
+        ? d18SourceUnavailableReason(sourceMeta, surface)
+        : querySucceeded ? rawCoverage.unavailableReason || null : d18SourceUnavailableReason(sourceMeta, surface),
+    },
+    identity: surface === 'identifiableUniqueVisitors'
+      ? { method: 'union of explicit identifiers', key: 'companyKey+window', precision: 'identifier' }
+      : { method: 'explicit catalog identity', key: 'companyKey', precision: 'event' },
+    dedupe: {
+      method: 'emission_id',
+      removed: dedupeRemoved,
+      unit: 'events',
+      status: dedupeRemoved > 0 ? 'observed' : 'dedup non disponibile',
+    },
+  });
+}
+
+function d18MetricsForStats(historicalStats, currentStats, {
+  requestedWindow,
+  historicalWindow,
+  currentWindow,
+  ga4Source,
+  posthogSource,
+  snapshotId,
+  historicalDedupeRemoved = 0,
+  currentDedupeRemoved = 0,
+} = {}) {
+  return Object.fromEntries(D18_METRICS.map((surface) => [surface, buildCompositeMetric({
+    window: requestedWindow,
+    unit: D18_SURFACE_UNITS[surface],
+    historicalBackup: d18SourceMetric(historicalStats, surface, {
+      source: 'posthog',
+      window: historicalWindow,
+      sourceMeta: posthogSource,
+      snapshotId,
+      dedupeRemoved: historicalDedupeRemoved,
+    }),
+    currentPrimary: d18SourceMetric(currentStats, surface, {
+      source: 'ga4',
+      window: currentWindow,
+      sourceMeta: ga4Source,
+      snapshotId,
+      dedupeRemoved: currentDedupeRemoved,
+    }),
+    dedupe: {
+      method: 'per_source_emission_id',
+      removed: historicalDedupeRemoved + currentDedupeRemoved,
+      unit: 'events',
+      status: historicalDedupeRemoved + currentDedupeRemoved > 0 ? 'observed' : 'declared',
+    },
+  })]));
+}
+
+function d18DirectMetricsForStats(stats, {
+  source,
+  window,
+  sourceMeta,
+  snapshotId,
+  dedupeRemoved = 0,
+} = {}) {
+  return Object.fromEntries(D18_METRICS.map((surface) => [surface, d18SourceMetric(stats, surface, {
+    source,
+    window,
+    sourceMeta,
+    snapshotId,
+    dedupeRemoved,
+  })]));
+}
+
+function d18ApplicationsMetric(value, {
+  unit = 'applications',
+  source = 'firestore:applications',
+  window,
+  snapshotId,
+  sourceMeta,
+  unavailable = false,
+  identity = { method: 'applicationId', key: 'applicationId', precision: 'document' },
+} = {}) {
+  const coverage = sourceMeta?.sourceCoverage || sourceMeta?.coverage || {};
+  if (unavailable || d18SourceUnavailable(sourceMeta)) {
+    return metricValue({
+      value: null,
+      unit,
+      source,
+      window,
+      status: 'sorgente non disponibile',
+      denominator: { value: null, unit, source, window, status: 'non disponibile' },
+      coverage: {
+        ...coverage,
+        snapshotId,
+        coverageEnd: coverage.coverageEnd || null,
+        truncated: null,
+        queried: false,
+        status: 'sorgente non disponibile',
+        unavailableReason: d18SourceUnavailableReason(sourceMeta),
+      },
+      identity,
+    });
+  }
+  const hasValue = value !== null && value !== undefined;
+  const truncated = coverage.truncated === true
+    || coverage.status === 'parziale'
+    || sourceMeta?.status === 'parziale'
+    || !coverage.completeThrough;
+  const status = truncated
+    ? 'parziale'
+    : !hasValue ? 'non disponibile' : Number(value) === 0 ? 'zero osservato' : 'observed';
+  return metricValue({
+    value: hasValue ? value : null,
+    unit,
+    source,
+    window,
+    status,
+    denominator: { value: truncated ? null : hasValue ? value : null, unit, source, window, status: truncated ? 'non provato' : 'provato' },
+    coverage: {
+      ...coverage,
+      snapshotId,
+      coverageEnd: coverage.coverageEnd || null,
+      truncated,
+      completeThrough: truncated ? null : coverage.completeThrough || null,
+    },
+    identity,
+  });
+}
+
+function d18ApplicationSurfaceLedger() {
+  return Object.fromEntries(['submitted', 'forwarded', 'delivered', 'failed'].map((surface) => [surface, {
+    rawObserved: 0,
+    observed: 0,
+    attributed: 0,
+    residuals: Object.create(null),
+    residualTotal: 0,
+    technicalDuplicatesRemoved: 0,
+    invariant: false,
+    rawInvariant: false,
+  }]));
+}
+
+function d18AggregateApplications(records, deliveryRecords, { window, catalog, applicationsSource } = {}) {
+  const byCompany = new Map();
+  const residuals = residualLedger();
+  const diagnosticResiduals = residualLedger();
+  const supplied = Array.isArray(records);
+  const seen = new Set();
+  const surfaceLedger = d18ApplicationSurfaceLedger();
+  const deliveries = new Map((deliveryRecords || []).map((record) => [normalizeText(record?.applicationId || record?.id), record]));
+  const addRaw = (surface, amount) => d18SurfaceAmount(surfaceLedger, surface, 'rawObserved', amount);
+  const addObserved = (surface, amount) => d18SurfaceAmount(surfaceLedger, surface, 'observed', amount);
+  const addResidual = (surface, reason, amount) => {
+    addObserved(surface, amount);
+    if (surface && surfaceLedger[surface]) surfaceLedger[surface].residuals[reason] = (surfaceLedger[surface].residuals[reason] || 0) + amount;
+    d18ResidualAdd(residuals, reason, amount);
+  };
+  for (const record of records || []) {
+    const applicationId = normalizeText(record?.applicationId || record?.id);
+    const timestamp = toIso(record?.createdAt || record?.submittedAt);
+    if (!timestamp) {
+      addRaw('submitted', 1);
+      addResidual('submitted', 'invalid_timestamp', 1);
+      continue;
+    }
+    if (!isWithinD18Window(timestamp, window)) {
+      d18ResidualAdd(diagnosticResiduals, 'outside_requested_window', 1);
+      continue;
+    }
+    const applicationDelivery = record?.deliveryReceipt || record?.delivery || deliveries.get(applicationId);
+    const failure = record?.failureReceipt || record?.failure;
+    const deliveryMatches = applicationDelivery
+      && normalizeText(applicationDelivery.applicationId || applicationDelivery.id) === applicationId;
+    const failureMatches = failure
+      && normalizeText(failure.applicationId || failure.id) === applicationId;
+    const forwardedAt = toIso(record?.forwardedAt);
+    const fields = {
+      submitted: 1,
+      forwarded: forwardedAt && isWithinD18Window(forwardedAt, window) ? 1 : 0,
+      delivered: deliveryMatches ? 1 : 0,
+      failed: failureMatches ? 1 : 0,
+    };
+    for (const [surface, amount] of Object.entries(fields)) addRaw(surface, amount);
+    if (seen.has(applicationId) && applicationId) {
+      d18ResidualAdd(residuals, 'technical_duplicate_application', 1);
+      for (const [surface, amount] of Object.entries(fields)) {
+        d18SurfaceAmount(surfaceLedger, surface, 'technicalDuplicatesRemoved', amount);
+      }
+      continue;
+    }
+    if (applicationId) seen.add(applicationId);
+    if (!applicationId) {
+      for (const [surface, amount] of Object.entries(fields)) if (amount) addResidual(surface, 'application_without_id', amount);
+      continue;
+    }
+    const jobResult = resolveJobById(catalog, record?.jobId || record?.publisherJobId)
+      || resolveUnique(catalog.jobAliasToIds, record?.jobSlug || record?.slug);
+    const job = jobResult?.job || (jobResult?.value ? catalog.jobsById.get(jobResult.value) : null);
+    if (!job) {
+      for (const [surface, amount] of Object.entries(fields)) if (amount) addResidual(surface, 'unknown_application_job', amount);
+      continue;
+    }
+    for (const [surface, amount] of Object.entries(fields)) {
+      if (!amount) continue;
+      addObserved(surface, amount);
+      d18SurfaceAmount(surfaceLedger, surface, 'attributed', amount);
+    }
+    const state = d18StateFor(byCompany, job.companyKey, () => new Map());
+    const stats = state.get(job.id) || { submitted: 0, forwarded: 0, delivered: 0, failed: 0, undelivered: 0 };
+    stats.submitted += fields.submitted;
+    stats.forwarded += fields.forwarded;
+    stats.delivered += fields.delivered;
+    stats.failed += fields.failed;
+    if (fields.forwarded && !deliveryMatches && !failureMatches) stats.undelivered += 1;
+    state.set(job.id, stats);
+  }
+  for (const ledger of Object.values(surfaceLedger)) {
+    ledger.residualTotal = Object.values(ledger.residuals).reduce((sum, value) => sum + value, 0);
+    ledger.invariant = ledger.attributed + ledger.residualTotal === ledger.observed;
+    ledger.rawInvariant = ledger.rawObserved === ledger.attributed + ledger.residualTotal + ledger.technicalDuplicatesRemoved;
+  }
+  const rawObserved = Object.values(surfaceLedger).reduce((sum, ledger) => sum + ledger.rawObserved, 0);
+  const observed = Object.values(surfaceLedger).reduce((sum, ledger) => sum + ledger.observed, 0);
+  const attributed = Object.values(surfaceLedger).reduce((sum, ledger) => sum + ledger.attributed, 0);
+  const residualTotal = Object.values(surfaceLedger).reduce((sum, ledger) => sum + ledger.residualTotal, 0);
+  const technicalDuplicatesRemoved = Object.values(surfaceLedger).reduce((sum, ledger) => sum + ledger.technicalDuplicatesRemoved, 0);
+  return {
+    byCompany,
+    residuals,
+    diagnosticResiduals,
+    supplied,
+    sourceUnavailable: d18SourceUnavailable(applicationsSource),
+    surfaceLedger,
+    rawObserved,
+    observed,
+    attributed,
+    residualTotal,
+    technicalDuplicatesRemoved,
+    invariant: attributed + residualTotal === observed,
+    rawInvariant: rawObserved === attributed + residualTotal + technicalDuplicatesRemoved,
+  };
+}
+
+function d18ApplicationMetricsForJob(jobStats, {
+  window,
+  snapshotId,
+  applicationsSource,
+  deliverySource,
+  supplied,
+} = {}) {
+  const stats = jobStats || { submitted: 0, forwarded: 0, delivered: 0, failed: 0, undelivered: 0 };
+  const submitted = supplied ? d18ApplicationsMetric(stats.submitted, { window, snapshotId, sourceMeta: applicationsSource }) : d18ApplicationsMetric(null, { window, snapshotId, sourceMeta: applicationsSource, unavailable: true });
+  const forwarded = supplied ? d18ApplicationsMetric(stats.forwarded, { window, snapshotId, sourceMeta: applicationsSource }) : d18ApplicationsMetric(null, { window, snapshotId, sourceMeta: applicationsSource, unavailable: true });
+  const delivered = stats.delivered > 0
+    ? d18ApplicationsMetric(stats.delivered, { source: 'provider:delivery', window, snapshotId, sourceMeta: deliverySource })
+    : d18ApplicationsMetric(null, { source: 'provider:delivery', window, snapshotId, sourceMeta: deliverySource, unavailable: true });
+  if (stats.undelivered > 0 && delivered.value !== null) delivered.status = 'parziale';
+  const failed = stats.failed > 0
+    ? d18ApplicationsMetric(stats.failed, { source: 'provider:delivery', window, snapshotId, sourceMeta: deliverySource })
+    : d18ApplicationsMetric(null, { source: 'provider:delivery', window, snapshotId, sourceMeta: deliverySource, unavailable: true });
+  return { submitted, forwarded, delivered, failed };
+}
+
+function d18ResidualMetric(count, source, window, snapshotId, unitOverride = null) {
+  const unit = unitOverride || (source === 'firestore:applications' ? 'records' : 'events');
+  return metricValue({
+    value: count,
+    unit,
+    source,
+    window,
+    status: count === 0 ? 'zero osservato' : 'observed',
+    denominator: { value: count, unit, source, window, status: 'provato' },
+    coverage: {
+      snapshotId,
+      coverageStart: window.from,
+      coverageEnd: window.to,
+      completeThrough: window.to,
+      truncated: false,
+      rowsReturned: null,
+      totalRows: null,
+      pages: null,
+    },
+    identity: { method: 'residual-ledger', key: null, precision: 'unidentified' },
+    dedupe: { method: 'emission_id', removed: 0, unit, status: 'declared' },
+  });
+}
+
+function d18SerializeReconciliation(aggregate, source, window, snapshotId, surfaces = D18_METRICS) {
+  const defaultUnit = source === 'firestore:applications' ? 'records' : 'events';
+  const metric = (value, unit = defaultUnit) => {
+    if (aggregate?.sourceUnavailable) {
+      return metricValue({
+        value: null,
+        unit,
+        source,
+        window,
+        status: 'sorgente non disponibile',
+        denominator: { value: null, unit, source, window, status: 'non disponibile' },
+        coverage: {
+          snapshotId,
+          coverageStart: null,
+          coverageEnd: null,
+          completeThrough: null,
+          truncated: null,
+          queried: false,
+          status: 'sorgente non disponibile',
+          unavailableReason: aggregate?.sourceUnavailableReason || 'sorgente non interrogata o non disponibile',
+        },
+        identity: { method: 'reconciliation-ledger', key: null, precision: 'non disponibile' },
+      });
+    }
+    const partial = aggregate?.sourcePartial === true;
+    return metricValue({
+      value: partial && Number(value) === 0 ? null : value,
+      unit,
+      source,
+      window,
+      status: partial ? 'parziale' : Number(value) === 0 ? 'zero osservato' : 'observed',
+      denominator: {
+        value: partial ? null : value,
+        unit,
+        source,
+        window,
+        status: partial ? 'non provato' : 'provato',
+      },
+      coverage: {
+        snapshotId,
+        coverageStart: partial ? null : window.from,
+        coverageEnd: partial ? null : window.to,
+        completeThrough: partial ? null : window.to,
+        truncated: partial,
+      },
+      identity: { method: 'reconciliation-ledger', key: null, precision: partial ? 'parziale' : 'event' },
+      dedupe: { method: 'emission_id', removed: 0, unit, status: 'declared' },
+    });
+  };
+  const bySurface = Object.fromEntries(surfaces.map((surface) => {
+    const ledger = aggregate?.surfaceLedger?.[surface] || {
+      rawObserved: 0,
+      observed: 0,
+      attributed: 0,
+      residualTotal: 0,
+      technicalDuplicatesRemoved: 0,
+      invariant: true,
+      rawInvariant: true,
+      residuals: {},
+    };
+    return [surface, {
+      rawObserved: metric(ledger.rawObserved, ledger.unit || defaultUnit),
+      observed: metric(ledger.observed, ledger.unit || defaultUnit),
+      attributed: metric(ledger.attributed, ledger.unit || defaultUnit),
+      residualTotal: metric(ledger.residualTotal, ledger.unit || defaultUnit),
+      technicalDuplicatesRemoved: metric(ledger.technicalDuplicatesRemoved, ledger.unit || defaultUnit),
+      invariant: ledger.invariant,
+      rawInvariant: ledger.rawInvariant,
+      residuals: Object.fromEntries(Object.entries(ledger.residuals || {}).map(([reason, count]) => [reason, metric(count, ledger.unit || defaultUnit)])),
+    }];
+  }));
+  return {
+    rawObserved: metric(aggregate?.rawObserved || 0),
+    observed: metric(aggregate?.observed || 0),
+    attributed: metric(aggregate?.attributed || 0),
+    residualTotal: metric(aggregate?.residualTotal || 0),
+    technicalDuplicatesRemoved: metric(aggregate?.technicalDuplicatesRemoved || 0),
+    invariant: aggregate?.invariant === true,
+    rawInvariant: aggregate?.rawInvariant === true,
+    bySurface,
+  };
+}
+
+function d18MergeResiduals(target, aggregate, source) {
+  const residuals = { ...(aggregate?.residuals || {}) };
+  for (const [reason, count] of Object.entries(aggregate?.diagnosticResiduals || {})) {
+    residuals[reason] = (residuals[reason] || 0) + count;
+  }
+  for (const [reason, count] of Object.entries(residuals)) {
+    const key = `${source}:${reason}`;
+    target[key] = { source, reason, count: (target[key]?.count || 0) + count };
+  }
+  if (aggregate?.technicalDuplicatesRemoved) {
+    const key = `${source}:technical_duplicate`;
+    target[key] = { source, reason: 'technical_duplicate', count: (target[key]?.count || 0) + aggregate.technicalDuplicatesRemoved };
+  }
+}
+
+function d18SerializeCompany(state, {
+  requestedWindow,
+  historicalWindow,
+  currentWindow,
+  ga4Source,
+  posthogSource,
+  applicationsSource,
+  deliverySource,
+  snapshotId,
+  historicalDedupeRemoved,
+  currentDedupeRemoved,
+  applicationEvidence,
+} = {}) {
+  const metrics = d18MetricsForStats(state.phases.historical, state.phases.current, {
+    requestedWindow,
+    historicalWindow,
+    currentWindow,
+    ga4Source,
+    posthogSource,
+    snapshotId,
+    historicalDedupeRemoved,
+    currentDedupeRemoved,
+  });
+  const appByJob = applicationEvidence?.byCompany?.get(state.companyKey) || new Map();
+  const companyApplicationStats = { submitted: 0, forwarded: 0, delivered: 0, failed: 0, undelivered: 0 };
+  if (applicationEvidence?.supplied) {
+    for (const jobStats of appByJob.values()) {
+      for (const key of ['submitted', 'forwarded', 'delivered', 'failed', 'undelivered']) companyApplicationStats[key] += jobStats[key] || 0;
+    }
+  }
+  const companyApplications = d18ApplicationMetricsForJob(
+    applicationEvidence?.supplied ? companyApplicationStats : null,
+    {
+      window: requestedWindow,
+      snapshotId,
+      applicationsSource,
+      deliverySource,
+      supplied: applicationEvidence?.supplied === true,
+    },
+  );
+  const ads = [...state.ads.values()].sort((left, right) => left.job.id.localeCompare(right.job.id)).map((ad) => {
+    const adMetrics = d18MetricsForStats(ad.phases.historical, ad.phases.current, {
+      requestedWindow,
+      historicalWindow,
+      currentWindow,
+      ga4Source,
+      posthogSource,
+      snapshotId,
+      historicalDedupeRemoved,
+      currentDedupeRemoved,
+    });
+    return {
+      jobId: ad.job.id,
+      canonicalSlug: canonicalJobSlug(ad.job),
+      aliases: [...jobAliases(ad.job)].sort(),
+      title: normalizeText(ad.job.title) || canonicalJobSlug(ad.job),
+      statusAtEvent: ad.statusesAtEvent.size === 1 ? [...ad.statusesAtEvent][0] : ad.statusesAtEvent.size ? 'ambiguous' : 'unknown',
+      currentStatus: d18CurrentStatus({}, ad.job),
+      locale: ad.locales.size === 1 ? [...ad.locales][0] : ad.locales.size ? 'mixed' : 'unknown',
+      metrics: {
+        ...adMetrics,
+        applications: d18ApplicationMetricsForJob(appByJob.get(ad.job.id), {
+          window: requestedWindow,
+          snapshotId,
+          applicationsSource,
+          deliverySource,
+          supplied: applicationEvidence?.supplied === true,
+        }),
+      },
+    };
+  });
+  const serializeBuckets = (map, key) => [...map.entries()].sort(([left], [right]) => left.localeCompare(right)).map(([bucket, stats]) => ({
+    [key]: bucket,
+    metrics: d18MetricsForStats(stats.historical, stats.current, {
+      requestedWindow,
+      historicalWindow,
+      currentWindow,
+      ga4Source,
+      posthogSource,
+      snapshotId,
+      historicalDedupeRemoved,
+      currentDedupeRemoved,
+    }),
+  }));
+  return {
+    companyKey: state.companyKey,
+    companyName: state.companyName,
+    metrics,
+    applications: companyApplications,
+    byRegime: {
+      historicalBackup: d18DirectMetricsForStats(state.phases.historical, {
+        source: 'posthog',
+        window: historicalWindow,
+        sourceMeta: posthogSource,
+        snapshotId,
+        dedupeRemoved: historicalDedupeRemoved,
+      }),
+      currentPrimary: d18DirectMetricsForStats(state.phases.current, {
+        source: 'ga4',
+        window: currentWindow,
+        sourceMeta: ga4Source,
+        snapshotId,
+        dedupeRemoved: currentDedupeRemoved,
+      }),
+    },
+    byAd: ads,
+    byLocale: serializeBuckets(state.byLocale, 'locale'),
+    byStatus: serializeBuckets(state.byStatus, 'status'),
+    bySponsored: serializeBuckets(state.bySponsored, 'class'),
+    residuals: Object.values(state.residuals).sort((left, right) => `${left.source}:${left.reason}`.localeCompare(`${right.source}:${right.reason}`)).map((entry) => ({
+      reason: entry.reason,
+      count: d18ResidualMetric(entry.count, entry.source, requestedWindow, snapshotId),
+    })),
+  };
+}
+
+/** Build D18 from frozen rows and source manifests; no provider access/write occurs here. */
+export function buildCumulativeInsightsPayload({
+  requestedWindow,
+  generatedAt,
+  catalog,
+  ga4Rows = [],
+  posthogRows = [],
+  ga4Source = {},
+  posthogSource = {},
+  applicationsSource = {},
+  deliverySource = {},
+  applicationRecords = undefined,
+  deliveryRecords = [],
+  dailyCoverage = [],
+  snapshotId: requestedSnapshotId = null,
+  queryHash: requestedQueryHash = null,
+  catalogSha = null,
+  buildSha = BUILD_SHA,
+  sourceSnapshot = null,
+  validate = true,
+} = {}) {
+  const window = normalizeD18Window(requestedWindow, { kind: 'cumulative' });
+  if (!generatedAt || !Number.isFinite(Date.parse(generatedAt))) throw new Error('D18 generatedAt is required and must be explicit');
+  if (!catalog) throw new Error('D18 identity catalog is required');
+  const windows = deriveD18Windows(window);
+  const j0Time = Date.parse(D18_J0);
+  const rawIdentityFrom = ga4Source?.identityCoverage?.firstCompleteIdentityAt;
+  const parsedIdentityFrom = Date.parse(rawIdentityFrom || '');
+  const identityFrom = Number.isFinite(parsedIdentityFrom)
+    ? new Date(Math.max(j0Time, parsedIdentityFrom)).toISOString()
+    : null;
+  const historicalWindow = d18PhaseWindow(window, window.from, D18_J0);
+  const currentWindow = d18PhaseWindow(window, identityFrom || D18_J0, window.to);
+  const snapshotId = String(requestedSnapshotId || d18Sha256(d18StableJson({
+    window,
+    ga4: ga4Source?.snapshotId || ga4Source?.sourceSnapshot || null,
+    posthog: posthogSource?.snapshotId || posthogSource?.sourceSnapshot || null,
+  })));
+  const historicalActive = Date.parse(window.from) < Math.min(Date.parse(window.to), j0Time);
+  const currentStartTime = identityFrom ? Date.parse(identityFrom) : j0Time;
+  const currentActive = Date.parse(window.to) > Math.max(Date.parse(window.from), currentStartTime);
+  const historical = d18AggregateSourceRows(historicalActive ? posthogRows : [], {
+    source: 'posthog',
+    phase: 'historical',
+    requestedWindow: historicalWindow,
+    catalog,
+    identityFrom: window.from,
+    sourceMeta: posthogSource,
+  });
+  const current = d18AggregateSourceRows(currentActive ? ga4Rows : [], {
+    source: 'ga4',
+    phase: 'current',
+    requestedWindow: window,
+    catalog,
+    identityFrom,
+    sourceMeta: ga4Source,
+  });
+  const states = new Map();
+  const mergeState = (aggregate) => {
+    for (const [companyKey, incoming] of aggregate.states.entries()) {
+      const state = d18StateFor(states, companyKey, () => d18CompanyState(companyKey, incoming.companyName));
+      for (const phase of ['historical', 'current']) {
+        for (const metric of D18_METRICS) {
+          state.phases[phase].counts[metric] += incoming.phases[phase].counts[metric];
+          if (incoming.phases[phase].present.has(metric)) state.phases[phase].present.add(metric);
+          for (const identifier of incoming.phases[phase].identifiers) state.phases[phase].identifiers.add(identifier);
+        }
+      }
+      for (const [jobId, incomingAd] of incoming.ads.entries()) {
+        const ad = d18StateFor(state.ads, jobId, () => d18AdState(incomingAd.job));
+        for (const phase of ['historical', 'current']) {
+          for (const metric of D18_METRICS) {
+            ad.phases[phase].counts[metric] += incomingAd.phases[phase].counts[metric];
+            if (incomingAd.phases[phase].present.has(metric)) ad.phases[phase].present.add(metric);
+            for (const identifier of incomingAd.phases[phase].identifiers) ad.phases[phase].identifiers.add(identifier);
+          }
+        }
+        for (const value of incomingAd.locales) ad.locales.add(value);
+        for (const value of incomingAd.statusesAtEvent) ad.statusesAtEvent.add(value);
+        for (const value of incomingAd.sponsored) ad.sponsored.add(value);
+      }
+      const mergeBuckets = (target, incomingMap) => {
+        for (const [bucket, incomingStats] of incomingMap.entries()) {
+          const bucketState = d18BucketStats(target, bucket);
+          for (const phase of ['historical', 'current']) {
+            for (const metric of D18_METRICS) {
+              bucketState[phase].counts[metric] += incomingStats[phase].counts[metric];
+              if (incomingStats[phase].present.has(metric)) bucketState[phase].present.add(metric);
+              for (const identifier of incomingStats[phase].identifiers) bucketState[phase].identifiers.add(identifier);
+            }
+          }
+        }
+      };
+      mergeBuckets(state.byLocale, incoming.byLocale);
+      mergeBuckets(state.byStatus, incoming.byStatus);
+      mergeBuckets(state.bySponsored, incoming.bySponsored);
+      for (const [key, entry] of Object.entries(incoming.residuals)) {
+        state.residuals[key] = {
+          source: entry.source,
+          reason: entry.reason,
+          count: (state.residuals[key]?.count || 0) + entry.count,
+        };
+      }
+    }
+  };
+  mergeState(historical);
+  mergeState(current);
+  for (const [companyKey, companyName] of catalog.companyNameByKey.entries()) {
+    d18StateFor(states, companyKey, () => d18CompanyState(companyKey, companyName));
+  }
+  const applicationEvidence = d18AggregateApplications(applicationRecords, deliveryRecords, {
+    window,
+    catalog,
+    applicationsSource,
+  });
+  for (const [companyKey, byJob] of applicationEvidence.byCompany.entries()) {
+    const state = d18StateFor(states, companyKey, () => d18CompanyState(companyKey, catalog.companyNameByKey.get(companyKey) || companyKey));
+    for (const jobId of byJob.keys()) {
+      const job = catalog.jobsById.get(jobId);
+      if (job) d18StateFor(state.ads, jobId, () => d18AdState(job));
+    }
+  }
+  const residualMap = {};
+  d18MergeResiduals(residualMap, historical, 'posthog');
+  d18MergeResiduals(residualMap, current, 'ga4');
+  for (const [reason, count] of Object.entries(applicationEvidence.residuals)) {
+    const key = `firestore:applications:${reason}`;
+    residualMap[key] = { source: 'firestore:applications', reason, count };
+  }
+  for (const [reason, count] of Object.entries(applicationEvidence.diagnosticResiduals || {})) {
+    const key = `firestore:applications:${reason}`;
+    residualMap[key] = { source: 'firestore:applications', reason, count: (residualMap[key]?.count || 0) + count };
+  }
+  const regimes = buildD18SourceRegimes({
+    requestedWindow: window,
+    snapshotId,
+    ga4: ga4Source,
+    posthog: posthogSource,
+    applications: applicationsSource,
+    delivery: deliverySource,
+  });
+  const globalHistorical = d18EmptyStats();
+  const globalCurrent = d18EmptyStats();
+  for (const metric of D18_METRICS) {
+    globalHistorical.counts[metric] = [...historical.states.values()].reduce((sum, state) => sum + state.phases.historical.counts[metric], 0);
+    globalCurrent.counts[metric] = [...current.states.values()].reduce((sum, state) => sum + state.phases.current.counts[metric], 0);
+    if ([...historical.states.values()].some((state) => state.phases.historical.present.has(metric))) globalHistorical.present.add(metric);
+    if ([...current.states.values()].some((state) => state.phases.current.present.has(metric))) globalCurrent.present.add(metric);
+  }
+  for (const state of historical.states.values()) for (const id of state.phases.historical.identifiers) globalHistorical.identifiers.add(id);
+  for (const state of current.states.values()) for (const id of state.phases.current.identifiers) globalCurrent.identifiers.add(id);
+  const periodMetrics = d18MetricsForStats(globalHistorical, globalCurrent, {
+    requestedWindow: window,
+    historicalWindow,
+    currentWindow,
+    ga4Source,
+    posthogSource,
+    snapshotId,
+    historicalDedupeRemoved: historical.technicalDuplicatesRemoved,
+    currentDedupeRemoved: current.technicalDuplicatesRemoved,
+  });
+  const companies = [...states.values()].sort((left, right) => left.companyKey.localeCompare(right.companyKey)).map((state) => d18SerializeCompany(state, {
+    requestedWindow: window,
+    historicalWindow,
+    currentWindow,
+    ga4Source,
+    posthogSource,
+    applicationsSource,
+    deliverySource,
+    snapshotId,
+    historicalDedupeRemoved: historical.technicalDuplicatesRemoved,
+    currentDedupeRemoved: current.technicalDuplicatesRemoved,
+    applicationEvidence,
+  }));
+  const sourceQueryHashes = {
+    ga4: ga4Source?.queryHash || ga4Source?.sourceCoverage?.queryHash || ga4Source?.coverage?.queryHash || null,
+    posthog: posthogSource?.queryHash || posthogSource?.sourceCoverage?.queryHash || posthogSource?.coverage?.queryHash || null,
+  };
+  const queryHash = requestedQueryHash || (Object.values(sourceQueryHashes).every((value) => typeof value === 'string' && value)
+    ? d18Sha256(d18StableJson({ requestedWindow: window, ...sourceQueryHashes }))
+    : null);
+  const payload = {
+    schemaVersion: D18_SCHEMA_VERSION,
+    metricVersion: D18_METRIC_VERSION,
+    snapshotId,
+    generatedAt,
+    requestedWindow: window,
+    cutoff: window.to,
+    windows,
+    sourceRegimes: regimes,
+    coverageMatrix: buildCoverageMatrix({ requestedWindow: window, daily: dailyCoverage }),
+    periodTotal: { ...periodMetrics.adViews, metrics: periodMetrics },
+    companies,
+    globalResiduals: Object.values(residualMap).sort((left, right) => `${left.source}:${left.reason}`.localeCompare(`${right.source}:${right.reason}`)).map((entry) => ({
+      reason: entry.reason,
+      count: d18ResidualMetric(entry.count, entry.source, window, snapshotId),
+    })),
+    reconciliation: {
+      ga4: d18SerializeReconciliation(current, 'ga4', window, snapshotId),
+      posthog: d18SerializeReconciliation(historical, 'posthog', window, snapshotId),
+      applications: d18SerializeReconciliation(
+        applicationEvidence,
+        'firestore:applications',
+        window,
+        snapshotId,
+        ['submitted', 'forwarded', 'delivered', 'failed'],
+      ),
+    },
+    provenance: {
+      snapshotId,
+      queryHash,
+      catalogSha: catalogSha || catalog.identityCatalogSha || null,
+      buildSha: buildSha || null,
+      sourceSnapshot: sourceSnapshot || {
+        ga4: ga4Source?.sourceSnapshot || ga4Source?.snapshotId || ga4Source?.sourceCoverage?.snapshotId || ga4Source?.coverage?.snapshotId || null,
+        posthog: posthogSource?.sourceSnapshot || posthogSource?.snapshotId || posthogSource?.sourceCoverage?.snapshotId || posthogSource?.coverage?.snapshotId || null,
+        applications: applicationsSource?.sourceSnapshot || applicationsSource?.snapshotId || applicationsSource?.sourceCoverage?.snapshotId || applicationsSource?.coverage?.snapshotId || null,
+        delivery: deliverySource?.sourceSnapshot || deliverySource?.snapshotId || deliverySource?.sourceCoverage?.snapshotId || deliverySource?.coverage?.snapshotId || null,
+      },
+      limitState: D18_LIMIT_STATE,
+    },
+  };
+  if (validate) {
+    const validation = validateD18Payload(payload);
+    if (!validation.ok) throw new Error(`invalid D18 payload: ${validation.errors.join('; ')}`);
+  }
+  return payload;
 }
 
 async function hogql(query) {
