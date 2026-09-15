@@ -73,11 +73,14 @@ describe('prospector candidate store — rejected tombstones (#6903)', () => {
       reason: 'la pagina appartiene a un altro datore',
       rejectedAt: OLD,
     }, null);
+    const { updatedAt, rejectedAt } = store.candidates[key];
 
     expect(store.rejectedTombstones[key]).toEqual({ rejectedAt: OLD });
     expect(upsertCandidate(store, { key, name: 'Rediscovered name' }, 'osm')).toEqual({ key, created: false });
     expect(store.candidates[key].status).toBe('rejected');
     expect(store.candidates[key].name).toBe('Wrong source');
+    expect(store.candidates[key].updatedAt).toBe(updatedAt);
+    expect(store.candidates[key].rejectedAt).toBe(rejectedAt);
   });
 
   it('does not reopen a rejected verdict through an ordinary status transition', () => {
