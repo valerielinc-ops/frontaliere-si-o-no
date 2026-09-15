@@ -12,7 +12,7 @@ installDomReconciliationGuard();
 
 // Auto-reload once when a deploy replaces JS/CSS chunks while user has stale index.html.
 // Vite fires this event before the error reaches React ErrorBoundary.
-window.addEventListener('vite:preloadError', (_event) => {
+window.addEventListener('vite:preloadError', (event) => {
  const key = '_deployReload';
  const last = sessionStorage.getItem(key);
  // Allow one reload per 5-minute window to prevent infinite loops
@@ -20,7 +20,9 @@ window.addEventListener('vite:preloadError', (_event) => {
  sessionStorage.setItem(key, String(Date.now()));
  // Bust the HTTP cache (not just CacheStorage) before reloading — a stale-but-200
  // preloaded chunk would otherwise be re-served from the disk cache (#3097).
- void bustAssetHttpCache().finally(() => window.location.reload());
+ const preloadError = (event as Event & { payload?: unknown }).payload;
+ const preloadMessage = preloadError instanceof Error ? preloadError.message : String(preloadError || '');
+ void bustAssetHttpCache(preloadMessage).finally(() => window.location.reload());
  }
 });
 

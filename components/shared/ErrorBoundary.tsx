@@ -417,7 +417,7 @@ export class ErrorBoundary extends Component<Props, State> {
  // Bust the HTTP cache (not just CacheStorage) before reloading. If the user
  // landed here via a version-skew (#3097), a plain reload re-serves the same
  // stale chunk and leaves them stuck; cache:'reload' refetches a fresh set.
- void bustAssetHttpCache().finally(() => window.location.reload());
+   void bustAssetHttpCache(this.state.errorMessage).finally(() => window.location.reload());
  }}
  className="flex items-center gap-2 px-6 py-3 bg-accent hover:bg-accent-hover text-on-accent rounded-xl font-bold transition-colors"
  >
@@ -535,7 +535,7 @@ export class SilentErrorBoundary extends Component<SilentBoundaryProps, SilentBo
  // redundant fetch, while a true positive stops the widget from re-throwing
  // the identical parse error on every subsequent SPA navigation this session.
  if (isChunkLoadError(error) || isVersionSkewError(error) || isModuleParseError(error)) {
- void bustAssetHttpCache();
+ void bustAssetHttpCache(error?.message || '');
  }
  }
 

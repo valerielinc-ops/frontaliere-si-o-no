@@ -350,6 +350,26 @@ const BUST_TIMEOUT_MS = 4000;
 const RESOURCE_TIMING_BUFFER_SIZE = 1000;
 
 /**
+ * URL shapes emitted by browsers in a failed dynamic-import message. Keep these
+ * sources here so the pre-module early-boot mirror can embed the exact same
+ * extraction rule at build time. The absolute form matters for the CDN; the
+ * path form covers same-origin builds and browsers that report a relative URL.
+ */
+export const ASSET_URL_PATTERN_SOURCE = String.raw`https?:\/\/[^\s"'<>]+\/assets\/[^\s"'<>]+?\.(?:js|css)(?:\?[^\s"'<>]*)?`;
+export const ASSET_PATH_PATTERN_SOURCE = String.raw`\/assets\/[^\s"'<>]+?\.(?:js|css)(?:\?[^\s"'<>]*)?`;
+const ASSET_URL_PATTERN = new RegExp(ASSET_URL_PATTERN_SOURCE, 'i');
+const ASSET_PATH_PATTERN = new RegExp(ASSET_PATH_PATTERN_SOURCE, 'i');
+
+function extractAssetUrl(message: string | undefined): string {
+  if (!message) return '';
+  const match = ASSET_URL_PATTERN.exec(message) || ASSET_PATH_PATTERN.exec(message);
+  // Browser error strings can end the URL with prose punctuation. Do not let
+  // that punctuation turn an otherwise valid cache-bust request into a second
+  // (and guaranteed-to-fail) URL.
+  return match?.[0]?.replace(/[),.;!?]+$/, '') || '';
+}
+
+/**
  * Overwrite the STALE entries the skewed chunks occupy in the browser's HTTP
  * disk cache, so the subsequent reload loads a consistent, current chunk set.
  *
@@ -364,11 +384,17 @@ const RESOURCE_TIMING_BUFFER_SIZE = 1000;
  * persistent HTTP cache). `fetch(url, { cache: 'reload' })` bypasses the HTTP
  * cache AND replaces the stored entry with current bytes, breaking the skew.
  *
+ * `failedResourceOrMessage` is the original browser error/message when one is
+ * available. Native dynamic imports create no DOM node, and a failed request
+ * can already have been evicted from Resource Timing, so the failing URL must
+ * be added explicitly; otherwise the negative/stale HTTP-cache entry survives
+ * the reload and the same `NewsFeed.js` 404 repeats.
+ *
  * Best-effort and time-boxed: every refetch swallows its own error and the whole
  * batch races a {@link BUST_TIMEOUT_MS} timer, so recovery never hangs. Resolves
  * once the cache has been refreshed (or the timer fires); the caller then reloads.
  */
-export async function bustAssetHttpCache(): Promise<void> {
+export async function bustAssetHttpCache(failedResourceOrMessage?: string): Promise<void> {
   if (typeof window === 'undefined' || typeof fetch !== 'function') return;
 
   try {
@@ -380,24 +406,28 @@ export async function bustAssetHttpCache(): Promise<void> {
   }
 
   let urls: string[] = [];
+  const failedAssetUrl = extractAssetUrl(failedResourceOrMessage);
+  if (failedAssetUrl) urls.push(failedAssetUrl);
   try {
     const entries =
       typeof performance !== 'undefined' && typeof performance.getEntriesByType === 'function'
         ? performance.getEntriesByType('resource')
         : [];
-    urls = entries
-      .map((e) => (e as PerformanceResourceTiming).name)
-      .filter((u) => /\/assets\/.+\.(?:js|css)(?:\?|$)/.test(u));
+    urls.push(
+      ...entries
+        .map((e) => (e as PerformanceResourceTiming).name)
+        .filter((u) => /\/assets\/.+\.(?:js|css)(?:\?|$)/.test(u)),
+    );
   } catch {
     /* Resource Timing unavailable — the DOM scan below still runs. */
   }
   // Second, INDEPENDENT enumeration path — always unioned with Resource Timing
   // (not just when it comes back empty), so a partial eviction that dropped
   // only SOME entries still recovers the ones still present as DOM nodes. Note
-  // this cannot cover chunks loaded via dynamic import(): a native ES module
-  // dynamic import never leaves a <script>/<link> element in the DOM, so an
-  // evicted Resource Timing entry for one is unrecoverable by this path — the
-  // buffer-size raise above is the actual mitigation for that case.
+  // A native ES module dynamic import never leaves a <script>/<link> element in
+  // the DOM. The explicit URL above covers the failing import even when its
+  // Resource Timing entry was evicted; the buffer-size raise remains a
+  // defensive backstop for later recovery calls without an error message.
   if (typeof document !== 'undefined') {
     try {
       document
@@ -484,7 +514,7 @@ export async function recoverFromStaleChunk(reason: string): Promise<boolean> {
   }
   // The skew lives in the HTTP cache, which `caches.delete()` does not touch —
   // bust it so the reload loads current bytes rather than the same stale set.
-  await bustAssetHttpCache();
+  await bustAssetHttpCache(reason);
   window.location.reload();
   return true;
 }
@@ -552,6 +582,10 @@ export async function resilientImport<T>(
         /* cache eviction is best-effort */
       }
     }
+    // CacheStorage does not evict the browser's HTTP cache. Refresh the exact
+    // failed dynamic-import URL before retrying, even when Resource Timing has
+    // already evicted the request and no DOM node represents it.
+    await bustAssetHttpCache((err as Error)?.message || '');
     // Retry once after cache clear.
     try {
       return await attempt();
@@ -564,7 +598,7 @@ export async function resilientImport<T>(
           // Bust the HTTP cache before reloading: a stale-but-200 chunk (HTML
           // served for a purged name, or a skewed dependency) would otherwise be
           // re-served from the disk cache and the reload wasted.
-          await bustAssetHttpCache();
+          await bustAssetHttpCache(signature);
           window.location.reload();
         }
       }
