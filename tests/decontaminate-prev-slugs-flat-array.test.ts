@@ -124,6 +124,39 @@ describe('decontaminate-prev-slugs: flat previousSlugs redirect', () => {
     }
   });
 
+  it('uses the canonical slice predicate for a complete active-directory pass', async () => {
+    const { decontaminateSliceDirectory } = await import('../scripts/decontaminate-prev-slugs.mjs');
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'decontaminate-directory-'));
+    const claimantFile = path.join(tmpDir, 'claimant.json');
+    const ownerFile = path.join(tmpDir, 'owner.json');
+    const scratchFile = path.join(tmpDir, 'owner.json.cleanup-tmp.json');
+    const claimant = {
+      id: 'directory-claimant',
+      url: 'https://claimant.example/jobs/directory-claimant',
+      previousSlugs: [] as string[],
+    };
+    const owner = {
+      id: 'directory-owner',
+      url: 'https://owner.example/jobs/directory-owner',
+      previousSlugs: [] as string[],
+    };
+    const ownerSlug = `directory-owner-route-${stableSlugHash(owner)}`;
+    claimant.previousSlugs.push(ownerSlug);
+    fs.writeFileSync(claimantFile, JSON.stringify({ jobs: [claimant] }));
+    fs.writeFileSync(ownerFile, JSON.stringify({ jobs: [owner] }));
+    fs.writeFileSync(scratchFile, JSON.stringify({ jobs: [{ previousSlugs: ['not-read'] }] }));
+
+    try {
+      expect(decontaminateSliceDirectory(tmpDir, { apply: true })).toMatchObject({ moved: 1 });
+      expect(JSON.parse(fs.readFileSync(claimantFile, 'utf8')).jobs[0].previousSlugs).toEqual([]);
+      expect(JSON.parse(fs.readFileSync(ownerFile, 'utf8')).jobs[0].previousSlugs).toEqual([ownerSlug]);
+      expect(JSON.parse(fs.readFileSync(scratchFile, 'utf8')).jobs[0].previousSlugs).toEqual(['not-read']);
+      expect(decontaminateSliceDirectory(tmpDir, { apply: false }).affected).toEqual([]);
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    }
+  });
+
   it('scans expired raw-array slices without changing their on-disk shape', async () => {
     const { listCrawlerSlicePaths, processFiles } = await import('../scripts/decontaminate-prev-slugs.mjs');
     const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'decontaminate-expired-array-'));
