@@ -633,6 +633,7 @@ jobs:
             # Several related tests read this root file at runtime rather than
             # importing it, so the dependency is invisible to the graph.
             /firestore.rules
+            /storage.rules
             /.gitignore
             /.npmrc
             /package-lock.json
