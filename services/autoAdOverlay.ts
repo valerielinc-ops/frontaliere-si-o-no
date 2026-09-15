@@ -120,7 +120,12 @@ function startObserving(): void {
  if (bodyObserver || typeof document === 'undefined' || !document.body) return;
 
  bodyObserver = new MutationObserver(scheduleRefresh);
- bodyObserver.observe(document.body, { childList: true, subtree: true });
+ bodyObserver.observe(document.body, {
+ childList: true,
+ subtree: true,
+ attributes: true,
+ attributeFilter: ['class', 'id', 'name', 'style'],
+ });
  if (typeof ResizeObserver !== 'undefined') {
  resizeObserver = new ResizeObserver(scheduleRefresh);
  }

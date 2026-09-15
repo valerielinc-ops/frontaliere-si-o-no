@@ -1,9 +1,10 @@
 // @vitest-environment jsdom
 
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
  MAX_AUTO_AD_OVERLAY_CLEARANCE_PX,
  measureAutoAdOverlayClearance,
+ subscribeToAutoAdOverlay,
 } from '@/services/autoAdOverlay';
 
 function setViewport(width: number, height: number): void {
@@ -57,5 +58,42 @@ describe('autoAdOverlay', () => {
  addAutoAd('fixed', { top: 740, bottom: 800, width: 180, height: 60 });
 
  expect(measureAutoAdOverlayClearance()).toBe(0);
+ });
+
+ it('refreshes when an existing candidate becomes a fixed bottom anchor', async () => {
+ setViewport(390, 800);
+ const element = addAutoAd('static', { top: 740, bottom: 800, width: 390, height: 60 });
+ const requestAnimationFrame = vi
+ .spyOn(window, 'requestAnimationFrame')
+ .mockImplementation((callback) => {
+  return window.setTimeout(() => callback(0), 0);
+ });
+ const listener = vi.fn();
+ const unsubscribe = subscribeToAutoAdOverlay(listener);
+
+ await new Promise<void>((resolve) => window.setTimeout(resolve, 0));
+ expect(listener).toHaveBeenLastCalledWith(0);
+ Object.defineProperty(element, 'getBoundingClientRect', {
+  configurable: true,
+  value: () => ({
+  top: 740,
+  bottom: 800,
+  width: 390,
+  height: 60,
+  left: 0,
+  right: 390,
+  x: 0,
+  y: 740,
+  toJSON: () => ({}),
+  }),
+ });
+ element.style.position = 'fixed';
+
+ await new Promise<void>((resolve) => window.setTimeout(resolve, 0));
+ await new Promise<void>((resolve) => window.setTimeout(resolve, 0));
+
+ expect(listener).toHaveBeenLastCalledWith(60);
+ expect(requestAnimationFrame).toHaveBeenCalled();
+ unsubscribe();
  });
 });
