@@ -24,12 +24,13 @@ export type PharmacyCountry = 'CH' | 'IT';
 
 export const PHARMACY_RELEASE_CONTRACT_VERSION = 1 as const;
 export const PHARMACY_RELEASE_TIMEZONE = 'Europe/Zurich' as const;
-/** The release scope is deliberately limited to the four OFCT regions we verify. */
+/** The release scope is deliberately limited to verified Ticino duty regions. */
 export const PHARMACY_RELEASE_REGION_KEYS = [
   'mendrisiotto',
   'luganese',
   'bellinzonese',
   'biasca-e-valli',
+  'locarnese',
 ] as const;
 
 export type PharmacyRegionKey = typeof PHARMACY_RELEASE_REGION_KEYS[number];
@@ -195,8 +196,8 @@ export type PharmacySourceAccessMethod = 'html-scrape' | 'json-api' | 'pdf' | 'r
 
 export type PharmacySourceStatus = 'unverified' | 'active' | 'blocked' | 'degraded';
 
-export interface PharmacySourceEntry {
-  canton: string;
+/** Shared source contract used by canton entries and regional duty feeds. */
+export interface PharmacySourceConfig {
   officialSourceUrl: string;
   accessMethod: PharmacySourceAccessMethod;
   fetchFrequency: string;
@@ -210,6 +211,12 @@ export interface PharmacySourceEntry {
   lastVerifiedAt?: string;
   /** ISO date/time of the most recent successful fetch from `officialSourceUrl` by a connector. Optional: unset until a connector exists for this canton. */
   sourceFetchedAt?: string;
+}
+
+export interface PharmacySourceEntry extends PharmacySourceConfig {
+  canton: string;
+  /** Additional regional feeds belonging to this canton, such as Locarnese duties. */
+  regionalSources?: Record<string, PharmacySourceConfig>;
   /** Canonical checked-in anagraphic snapshot when duties and identity use separate feeds. */
   anagraficaPath?: string;
   /** Official source URL for the canonical anagraphic snapshot. */
@@ -244,8 +251,7 @@ export const PHARMACY_DUTY_HUB_PATH: Readonly<Record<'it' | 'en' | 'de' | 'fr', 
   fr: '/fr/pharmacies-de-garde/',
 });
 
-const REQUIRED_STRING_FIELDS: readonly (keyof PharmacySourceEntry)[] = [
-  'canton',
+const REQUIRED_SOURCE_CONFIG_FIELDS: readonly (keyof PharmacySourceConfig)[] = [
   'officialSourceUrl',
   'accessMethod',
   'fetchFrequency',
@@ -288,7 +294,11 @@ export function validatePharmacySourceEntry(key: string, entry: unknown): string
   }
   const e = entry as Record<string, unknown>;
 
-  for (const field of REQUIRED_STRING_FIELDS) {
+  if (typeof e.canton !== 'string' || e.canton.trim() === '') {
+    errors.push(`${key}: missing or empty required field "canton"`);
+  }
+
+  for (const field of REQUIRED_SOURCE_CONFIG_FIELDS) {
     if (typeof e[field] !== 'string' || (e[field] as string).trim() === '') {
       errors.push(`${key}: missing or empty required field "${field}"`);
     }
@@ -306,6 +316,44 @@ export function validatePharmacySourceEntry(key: string, entry: unknown): string
     errors.push(`${key}: invalid status "${e.status}"`);
   }
 
+  if (e.regionalSources !== undefined) {
+    if (typeof e.regionalSources !== 'object' || e.regionalSources === null || Array.isArray(e.regionalSources)) {
+      errors.push(`${key}: "regionalSources" must be an object`);
+    } else {
+      for (const [regionKey, regionalSource] of Object.entries(e.regionalSources as Record<string, unknown>)) {
+        if (!regionKey.trim()) {
+          errors.push(`${key}.regionalSources: region key must not be empty`);
+          continue;
+        }
+        errors.push(...validatePharmacySourceConfig(`${key}.regionalSources.${regionKey}`, regionalSource));
+      }
+    }
+  }
+
+  return errors;
+}
+
+function validatePharmacySourceConfig(key: string, entry: unknown): string[] {
+  const errors: string[] = [];
+  if (typeof entry !== 'object' || entry === null || Array.isArray(entry)) {
+    return [`${key}: entry is not an object`];
+  }
+  const e = entry as Record<string, unknown>;
+
+  for (const field of REQUIRED_SOURCE_CONFIG_FIELDS) {
+    if (typeof e[field] !== 'string' || (e[field] as string).trim() === '') {
+      errors.push(`${key}: missing or empty required field "${field}"`);
+    }
+  }
+  if (typeof e.accessMethod === 'string' && !ACCESS_METHODS.includes(e.accessMethod as PharmacySourceAccessMethod)) {
+    errors.push(`${key}: invalid accessMethod "${e.accessMethod}"`);
+  }
+  if (typeof e.sourceType === 'string' && !SOURCE_TYPES.includes(e.sourceType as PharmacySourceType)) {
+    errors.push(`${key}: invalid sourceType "${e.sourceType}"`);
+  }
+  if (typeof e.status === 'string' && !SOURCE_STATUSES.includes(e.status as PharmacySourceStatus)) {
+    errors.push(`${key}: invalid status "${e.status}"`);
+  }
   return errors;
 }
 

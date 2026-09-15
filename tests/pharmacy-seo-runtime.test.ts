@@ -3,6 +3,7 @@ import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vite
 import ticino from '../data/pharmacies-ticino-complete.json';
 import dutiesJson from '../data/pharmacy-duties-ticino.json';
 import completeTicinoJson from '../data/pharmacies-ticino-complete.json';
+import { buildAtomicPharmacySnapshots } from '../scripts/import-pharmacies-border.mjs';
 import { buildPharmacyPath } from '../services/pharmacies/paths';
 import { BORDER_PHARMACIES, pharmacyCitySlug } from '../services/pharmacies/data';
 import { buildPharmacyTitle } from '../services/pharmacies/title';
@@ -43,6 +44,10 @@ function weeklyPath(): string {
   return buildPharmacyPath({ kind: 'duty-week', locale: 'it', weekStart: '2026-09-14' });
 }
 
+function dutyHubPath(): string {
+  return buildPharmacyPath({ kind: 'duty-hub', locale: 'it' });
+}
+
 function addJsonLd(schema: Record<string, unknown>, dynamic = false): void {
   const script = document.createElement('script');
   script.type = 'application/ld+json';
@@ -66,10 +71,55 @@ function addStaticCitySchemas(citySlug: string): Record<string, any>[] {
 }
 
 describe('pharmacy SEO after SPA navigation', () => {
+  it('indexes the duty hub only when the complete fresh release is ready', () => {
+    const now = new Date('2026-09-15T12:00:00.000Z');
+    const ready = pharmacySeoRuntime.resolvePharmacySeoMetadata(
+      { kind: 'duty-hub', locale: 'it' },
+      { now, duties, catalogue },
+    );
+    expect(ready.robots).toBe('index,follow');
+    expect(JSON.stringify(ready.structuredData)).toContain('"ItemList"');
+
+    const tamperedDuties = {
+      ...duties,
+      _release: { ...duties._release, state: 'partial' as const },
+    } as PharmacyDutiesDataset;
+    const stale = pharmacySeoRuntime.resolvePharmacySeoMetadata(
+      { kind: 'duty-hub', locale: 'it' },
+      { now, duties: tamperedDuties, catalogue },
+    );
+    expect(stale.robots).toBe('noindex,follow');
+    expect(stale.structuredData).toBeUndefined();
+
+    const empty = pharmacySeoRuntime.resolvePharmacySeoMetadata(
+      { kind: 'duty-hub', locale: 'it' },
+      { now, duties: { ...duties, duties: [] } as PharmacyDutiesDataset, catalogue },
+    );
+    expect(empty.robots).toBe('noindex,follow');
+    expect(empty.structuredData).toBeUndefined();
+    expect(dutyHubPath()).toBe('/farmacie-di-turno/');
+  });
+
   it('keeps stale, tampered and unsupported weekly models noindex', () => {
+    const staleFetchedAt = '2026-09-13T00:00:00.000Z';
+    const staleDuties = {
+      ...duties,
+      _fetchedAt: staleFetchedAt,
+      _lastSuccessfulFetchAt: staleFetchedAt,
+      duties: duties.duties.map((duty) => ({
+        ...duty,
+        fetchedAt: staleFetchedAt,
+        verifiedAt: staleFetchedAt,
+      })),
+    } as PharmacyDutiesDataset;
+    const stalePair = buildAtomicPharmacySnapshots({
+      catalogue,
+      duties: staleDuties,
+      evaluatedAt: '2026-09-16T12:00:00.000Z',
+    });
     const stale = pharmacySeoRuntime.resolvePharmacySeoMetadata(
       { kind: 'duty-week', locale: 'it', weekStart: '2026-09-14' },
-      { now: new Date('2026-09-16T12:00:00.000Z'), duties, catalogue },
+      { now: new Date('2026-09-16T12:00:00.000Z'), duties: stalePair.duties, catalogue: stalePair.catalogue },
     );
     const tamperedDuties = {
       ...duties,
@@ -90,6 +140,18 @@ describe('pharmacy SEO after SPA navigation', () => {
     expect(stale.structuredData).toBeUndefined();
     expect(tampered.structuredData).toBeUndefined();
     expect(unsupported.structuredData).toBeUndefined();
+  });
+
+  it.each([
+    ['it', 'regioni ticinesi'],
+    ['en', 'Ticino areas'],
+    ['de', 'Tessiner Regionen'],
+    ['fr', 'régions tessinoises'],
+  ] as const)('describes all Ticino duty regions in the weekly metadata for %s', (locale, phrase) => {
+    const metadata = pharmacySeoRuntime.resolvePharmacySeoMetadata({ kind: 'duty-week', locale, weekStart: '2026-09-14' });
+
+    expect(metadata.description).toContain(phrase);
+    expect(metadata.description).not.toMatch(/OFCT/i);
   });
 
   it.each([
@@ -239,7 +301,7 @@ describe('pharmacy SEO after SPA navigation', () => {
   });
 
   it('keeps a stale weekly route noindex during the actual metadata update', async () => {
-    vi.useFakeTimers({ now: new Date('2026-09-16T12:00:00.000Z') });
+    vi.useFakeTimers({ now: new Date('2026-09-17T12:00:00.000Z') });
     window.history.replaceState({}, '', weeklyPath());
 
     await seo.updateMetaTags('pharmacy-duty-week');

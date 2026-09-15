@@ -47,14 +47,16 @@ describe('AI Search prompt block', () => {
     expect(AI_SEARCH_PROMPT_BLOCK_IT).toMatch(/NON inventare/);
   });
 
-  it('allows source-backed terms beyond the common key-fact examples', () => {
-    expect(AI_SEARCH_PROMPT_BLOCK_IT).toContain('3-8 coppie');
+  it('allows only available source-backed facts without a minimum count', () => {
+    expect(AI_SEARCH_PROMPT_BLOCK_IT).toContain('up to 8');
+    expect(AI_SEARCH_PROMPT_BLOCK_IT).not.toContain('3-8 coppie');
     expect(AI_SEARCH_PROMPT_BLOCK_IT).not.toContain('5-8 coppie');
     expect(AI_SEARCH_PROMPT_BLOCK_IT).toMatch(/dalla fonte/);
     expect(AI_SEARCH_PROMPT_BLOCK_IT).toMatch(/qualsiasi termine utile/i);
     expect(AI_SEARCH_PROMPT_BLOCK_IT).toMatch(/Scadenza.*Requisiti/);
     expect(AI_SEARCH_PROMPT_BLOCK_IT).toMatch(/campi assenti/i);
     expect(AI_SEARCH_PROMPT_BLOCK_IT).toMatch(/niente placeholder/i);
+    expect(AI_SEARCH_PROMPT_BLOCK_IT).toMatch(/meno di tre fatti utili/i);
   });
 
   it('is injected into scripts/create-article.mjs', () => {
@@ -68,6 +70,18 @@ describe('AI Search prompt block', () => {
     // body1 spec must mention In breve + Fatti chiave so the model emits them
     expect(src).toMatch(/## In breve/);
     expect(src).toMatch(/## Fatti chiave/);
+  });
+
+  it('keeps the executable prompt source-backed and optional', () => {
+    const src = readFileSync(
+      resolve(__dirname, '..', 'scripts', 'create-article.mjs'),
+      'utf-8',
+    );
+    expect(src).toContain('sole coppie termine→valore disponibili, up to 8: usa solo fatti presenti nella fonte, anche se sono meno di tre; ometti i campi assenti, senza placeholder');
+    expect(src).not.toContain('3-8 coppie');
+    expect(src).not.toContain('5-8 coppie');
+    expect(src).not.toContain('Scrivi "non ancora specificato"');
+    expect(src).not.toContain('scrivi "non ancora specificato", "in fase di definizione"');
   });
 });
 
@@ -102,10 +116,24 @@ describe('buildAiSearchMarkdown()', () => {
     expect(() => buildAiSearchMarkdown({ tldr: ['only one'], keyFacts })).toThrow();
   });
 
-  it('rejects too-short key-facts', () => {
+  it('accepts zero to two source-backed key facts', () => {
+    for (const count of [0, 1, 2]) {
+      expect(() =>
+        buildAiSearchMarkdown({ tldr, keyFacts: keyFacts.slice(0, count) }),
+      ).not.toThrow();
+    }
+  });
+
+  it('rejects more than eight key facts', () => {
     expect(() =>
-      buildAiSearchMarkdown({ tldr, keyFacts: [{ term: 'a', value: 'b' }] }),
-    ).toThrow();
+      buildAiSearchMarkdown({
+        tldr,
+        keyFacts: Array.from({ length: 9 }, (_, index) => ({
+          term: `Fatto ${index + 1}`,
+          value: 'valore',
+        })),
+      }),
+    ).toThrow(/0-8/);
   });
 
   it('produces locale-specific headings', () => {
@@ -189,11 +217,13 @@ describe('buildBackfillPrompt()', () => {
       fullBody: 'Body content here.',
       locale: 'it',
     });
-    expect(prompt).toContain('3-8 coppie');
+    expect(prompt).toContain('up to 8');
+    expect(prompt).not.toContain('3-8 coppie');
     expect(prompt).not.toContain('5-8 coppie');
     expect(prompt).toMatch(/dati presenti nell'articolo/i);
     expect(prompt).toMatch(/campi assenti/i);
     expect(prompt).toMatch(/niente placeholder/i);
+    expect(prompt).toMatch(/anche se sono meno di tre/i);
   });
 });
 
@@ -215,13 +245,27 @@ describe('validateBackfillPayload()', () => {
     expect(() => validateBackfillPayload({ keyFacts: valid.keyFacts })).toThrow();
   });
 
-  it('rejects too few key facts', () => {
-    expect(() =>
-      validateBackfillPayload({
-        tldr: valid.tldr,
-        keyFacts: [{ term: 'Cosa', value: 'x' }],
-      }),
-    ).toThrow();
+  it('accepts zero to two source-backed key facts', () => {
+    for (const count of [0, 1, 2]) {
+      expect(() =>
+        validateBackfillPayload({
+          tldr: valid.tldr,
+          keyFacts: valid.keyFacts.slice(0, count),
+        }),
+      ).not.toThrow();
+    }
+  });
+
+  it('caps runaway key facts at the shared upper bound', () => {
+    const payload = {
+      tldr: valid.tldr,
+      keyFacts: Array.from({ length: 9 }, (_, index) => ({
+        term: `Fatto ${index + 1}`,
+        value: 'valore',
+      })),
+    };
+    expect(() => validateBackfillPayload(payload)).not.toThrow();
+    expect(payload.keyFacts).toHaveLength(8);
   });
 
   it('rejects non-string tldr bullets', () => {

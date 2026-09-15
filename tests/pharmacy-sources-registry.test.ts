@@ -28,8 +28,9 @@ const ASSOCIATION_CANTON_KEYS = new Set([
  * the #6173 pharmacy/pharmacy-duty MVP). The registry maps the complete
  * `SWISS_CANTONS` geography to source configuration; every entry must carry
  * the full source-config shape so a future connector has a common contract
- * to read. Ticino is the only active source after the #6398 network
- * verification of `ofct.ch` (see `docs/data-sources/farmacie-turno-ticino.md`).
+ * to read. Ticino is the only active canton entry after the #6398 network
+ * verification of `ofct.ch`; its Locarnese regional duty feed is registered
+ * below the canton entry (see `docs/data-sources/farmacie-turno-ticino.md`).
  */
 describe('pharmacy sources registry schema', () => {
   it('passes full-registry validation with zero errors', () => {
@@ -56,6 +57,24 @@ describe('pharmacy sources registry schema', () => {
   it('ticino is "active" with html-scrape access, verified against ofct.ch (#6398)', () => {
     expect(registry.sources.ticino.status).toBe('active');
     expect(registry.sources.ticino.accessMethod).toBe('html-scrape');
+  });
+
+  it('registers Locarnese as an active regional duty source, not a 27th canton', () => {
+    const source = registry.sources.ticino.regionalSources?.locarnese;
+
+    expect(Object.keys(registry.sources)).toHaveLength(26);
+    expect(source).toMatchObject({
+      officialSourceUrl: 'https://www.farmacielocarnese.ch/',
+      accessMethod: 'html-scrape',
+      fetchFrequency: 'P1D',
+      timezone: 'Europe/Zurich',
+      sourceType: 'association',
+      status: 'active',
+    });
+    expect(source?.lastVerifiedAt).toBe('2026-09-15T00:00:00.000Z');
+    expect(source?.sourceFetchedAt).toBe('2026-09-15T09:40:29.571Z');
+    expect(source?.notes).toContain('unica identità');
+    expect(source?.notes).toContain("non pubblica un'anagrafica completa");
   });
 
   it('keeps non-Ticino sources unverified until a connector or dataset exists', () => {
@@ -90,6 +109,18 @@ describe('pharmacy sources registry schema', () => {
     const invalid = { ...registry.sources.ticino, sourceType: 'bogus' };
     const errors = validatePharmacySourceEntry('ticino', invalid);
     expect(errors.some((e) => e.includes('sourceType'))).toBe(true);
+  });
+
+  it('rejects invalid metadata for a regional source', () => {
+    const locarnese = registry.sources.ticino.regionalSources!.locarnese;
+    const invalid = {
+      ...registry.sources.ticino,
+      regionalSources: {
+        locarnese: { ...locarnese, status: 'bogus' },
+      },
+    };
+    const errors = validatePharmacySourceEntry('ticino', invalid);
+    expect(errors).toContain('ticino.regionalSources.locarnese: invalid status "bogus"');
   });
 
   it('rejects a registry with no sources', () => {

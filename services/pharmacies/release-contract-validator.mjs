@@ -5,6 +5,7 @@ const PHARMACY_RELEASE_REGION_KEYS = [
   'luganese',
   'bellinzonese',
   'biasca-e-valli',
+  'locarnese',
 ];
 const RELEASE_STATES = [
   'unknown',
