@@ -19243,6 +19243,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'consiglio-nazionale-cartella-sanitaria',
+    category: 'novita',
+    date: '2026-09-15T00:26:33.055Z',
+    image: '/images/blog/consiglio-nazionale-cartella-sanitaria.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

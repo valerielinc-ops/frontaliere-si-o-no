@@ -6423,6 +6423,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cartella-sanitaria-mercosur-parlamento.title': 'The National Team\'s yes to the electronic health record',
     'blog.article.cartella-sanitaria-mercosur-parlamento.excerpt': 'The electronic health record, the Mercosur agreement and the Swiss agriculture funds have been approved in Parliament.',
     'blog.article.cartella-sanitaria-mercosur-parlamento.imageAlt': 'The Federal Palace in Bern during federal parliamentary health debates',
+    'blog.article.consiglio-nazionale-cartella-sanitaria.title': 'New electronic health record: ok from the National Council',
+    'blog.article.consiglio-nazionale-cartella-sanitaria.excerpt': 'The law for the new electronic health record in Switzerland has been approved. It will replace the previous infrastructure by 2030.',
+    'blog.article.consiglio-nazionale-cartella-sanitaria.imageAlt': 'New electronic health record approved in Switzerland',
 };
 
 export default blogMetaChEn;

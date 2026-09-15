@@ -6423,6 +6423,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cartella-sanitaria-mercosur-parlamento.title': 'Das Ja des Nationalen zur elektronischen Krankenakte',
     'blog.article.cartella-sanitaria-mercosur-parlamento.excerpt': 'Verabschiedung des elektronischen Gesundheitsdossiers, des Mercosur-Abkommens und der Fonds für die Schweizer Landwirtschaft im Parlament.',
     'blog.article.cartella-sanitaria-mercosur-parlamento.imageAlt': 'Das Bundeshaus in Bern während der parlamentarischen Gesundheitsdebatten',
+    'blog.article.consiglio-nazionale-cartella-sanitaria.title': 'Neues elektronisches Gesundheitsdossier: OK des Nationalrates',
+    'blog.article.consiglio-nazionale-cartella-sanitaria.excerpt': 'Verabschiedung des Gesetzes für das neue elektronische Gesundheitsdossier in der Schweiz. Er wird die bisherige Infrastruktur bis 2030 ersetzen.',
+    'blog.article.consiglio-nazionale-cartella-sanitaria.imageAlt': 'Neues elektronisches Patientendossier in der Schweiz',
 };
 
 export default blogMetaChDe;
