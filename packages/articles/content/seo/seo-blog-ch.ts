@@ -5205,16 +5205,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-dati-tasse-frontalieri-italia': {
-    title: 'Pasticcio dati e tasse dei vecchi frontalieri: \'Si faccia piena luce\'',
+    title: 'Dati e tasse dei vecchi frontalieri: cosa è successo',
     description: 'Dati salariali di migliaia di vecchi frontalieri trasmessi per errore nelle precompilate italiane. Chiarimenti richiesti da Molteni e Grammatica.',
     keywords: 'frontalieri, ticino, svizzera, italia, pasticcio, dati, tasse, vecchi',
-    ogTitle: 'Pasticcio dati e tasse dei vecchi frontalieri: \'Non basta parlare di errore, si faccia piena luce\'',
+    ogTitle: 'Dati e tasse dei vecchi frontalieri: cosa è successo',
     ogDescription: 'Dati salariali di migliaia di vecchi frontalieri trasmessi per errore nelle precompilate italiane. Chiarimenti richiesti da Molteni e Grammatica.',
     canonicalPath: '/articoli-svizzera/dati-tasse-frontalieri-italia/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Pasticcio dati e tasse dei vecchi frontalieri: 'Si faccia piena luce'",
+      "headline": "Dati e tasse dei vecchi frontalieri: cosa è successo",
       "description": "Dati salariali di migliaia di vecchi frontalieri trasmessi per errore nelle precompilate italiane. Chiarimenti richiesti da Molteni e Grammatica.",
       "image": {
         "@type": "ImageObject",
@@ -5400,16 +5400,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-frontaliere-doppia-imposizione-credito-imposta': {
-    title: 'Frontaliere: come evitare la doppia tassazione con il credito d\'imposta',
+    title: 'Credito d\'imposta e doppia tassazione: guida',
     description: 'Guida completa per i frontalieri su come funziona il meccanismo del credito d\'imposta per evitare la doppia tassazione. Dati aggiornati 2026 per frontalieri in',
     keywords: 'frontalieri, ticino, svizzera, italia, evitare, doppia, tassazione, credito',
-    ogTitle: 'Frontaliere: come evitare la doppia tassazione con il credito d\'imposta',
+    ogTitle: 'Credito d\'imposta e doppia tassazione: guida',
     ogDescription: 'Guida completa per i frontalieri su come funziona il meccanismo del credito d\'imposta per evitare la doppia tassazione.',
     canonicalPath: '/articoli-svizzera/frontaliere-doppia-imposizione-credito-imposta/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Frontaliere: come evitare la doppia tassazione con il credito d'imposta",
+      "headline": "Credito d'imposta e doppia tassazione: guida",
       "description": "Guida completa per i frontalieri su come funziona il meccanismo del credito d'imposta per evitare la doppia tassazione. Dati aggiornati 2026 per frontalieri in",
       "image": {
         "@type": "ImageObject",
@@ -8091,16 +8091,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-frontaliere-assicurazione-auto-confronto': {
-    title: 'Assicurazione auto per frontalieri: Svizzera vs Italia, confronto pratico',
+    title: 'Assicurazione auto frontalieri: Svizzera o Italia?',
     description: 'Confronto dettagliato assicurazione auto svizzera e italiana per frontalieri: coperture, costi, sinistri, consigli pratici. Dati aggiornati 2026 per frontalieri',
     keywords: 'frontalieri, ticino, svizzera, italia, assicurazione, auto, confronto, pratico',
-    ogTitle: 'Assicurazione auto per frontalieri: Svizzera vs Italia, confronto pratico',
+    ogTitle: 'Assicurazione auto frontalieri: Svizzera o Italia?',
     ogDescription: 'Analisi differenze assicurazione auto Svizzera e Italia per frontalieri: coperture, costi, sinistri, consigli.',
     canonicalPath: '/articoli-svizzera/frontaliere-assicurazione-auto-confronto/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Assicurazione auto per frontalieri: Svizzera vs Italia, confronto pratico",
+      "headline": "Assicurazione auto frontalieri: Svizzera o Italia?",
       "description": "Confronto dettagliato assicurazione auto svizzera e italiana per frontalieri: coperture, costi, sinistri, consigli pratici. Dati aggiornati 2026 per frontalieri",
       "image": {
         "@type": "ImageObject",
@@ -10821,16 +10821,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-frontaliere-licenziamento-diritti-2026': {
-    title: 'Licenziamento frontalieri 2026: termini e diritti',
+    title: 'Licenziamento frontalieri 2026: diritti e preavviso',
     description: 'Scopri i diritti dei lavoratori frontalieri in caso di licenziamento nel 2026, con termini di preavviso e indennità previsti. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, licenziamento, termini, diritti, scopri',
-    ogTitle: 'Licenziamento del lavoratore frontaliero nel 2026: termini di preavviso, indennità e diritti',
+    ogTitle: 'Licenziamento frontalieri 2026: diritti e preavviso',
     ogDescription: 'Scopri i diritti dei lavoratori frontalieri in caso di licenziamento nel 2026, con termini di preavviso e indennità previsti.',
     canonicalPath: '/articoli-svizzera/frontaliere-licenziamento-diritti-2026/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Licenziamento frontalieri 2026: termini e diritti",
+      "headline": "Licenziamento frontalieri 2026: diritti e preavviso",
       "description": "Scopri i diritti dei lavoratori frontalieri in caso di licenziamento nel 2026, con termini di preavviso e indennità previsti. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
@@ -10899,16 +10899,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-frontaliere-pensionamento-anticipato-2026-oltre-20km': {
-    title: 'Pensionamento anticipato per frontalieri: impatto su AVS e secondo pilastro',
+    title: 'Pensionamento anticipato frontalieri: AVS e LPP',
     description: 'Scopri come il pensionamento anticipato influenzerà l\'AVS e il secondo pilastro per i frontalieri che vivono oltre 20 km dal confine. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, pensionamento, anticipato, impatto, secondo',
-    ogTitle: 'Pensionamento anticipato per frontalieri: impatto su AVS e secondo pilastro',
+    ogTitle: 'Pensionamento anticipato frontalieri: AVS e LPP',
     ogDescription: 'Scopri come il pensionamento anticipato influenzerà l\'AVS e il secondo pilastro per i frontalieri che vivono oltre 20 km dal confine.',
     canonicalPath: '/articoli-svizzera/frontaliere-pensionamento-anticipato-2026-oltre-20km/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Pensionamento anticipato per frontalieri: impatto su AVS e secondo pilastro",
+      "headline": "Pensionamento anticipato frontalieri: AVS e LPP",
       "description": "Scopri come il pensionamento anticipato influenzerà l'AVS e il secondo pilastro per i frontalieri che vivono oltre 20 km dal confine. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
@@ -12888,16 +12888,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-frontaliere-credito-imposta-2026-famiglia-con-figli': {
-    title: 'Credito d\'imposta per frontalieri: calcolo, limiti e dichiarazione italiana',
+    title: 'Credito d\'imposta frontalieri 2026: guida pratica',
     description: 'Impostazione del credito d\'imposta per le famiglie con figli frontalieri in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.',
     keywords: 'frontalieri, ticino, svizzera, italia, credito, imposta, calcolo, limiti',
-    ogTitle: 'Credito d\'imposta per frontalieri nel 2026: calcolo, limiti e compilazione della dichiarazione italiana.',
+    ogTitle: 'Credito d\'imposta frontalieri 2026: guida pratica',
     ogDescription: 'Impostazione del credito d\'imposta per le famiglie con figli frontalieri in Svizzera.',
     canonicalPath: '/articoli-svizzera/frontaliere-credito-imposta-2026-famiglia-con-figli/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Credito d'imposta per frontalieri: calcolo, limiti e dichiarazione italiana",
+      "headline": "Credito d'imposta frontalieri 2026: guida pratica",
       "description": "Impostazione del credito d'imposta per le famiglie con figli frontalieri in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
@@ -14487,16 +14487,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-quadro-rw-2026-chi-dichiara-conto-svizzero': {
-    title: 'Chi deve dichiarare il conto svizzero nel 2026',
+    title: 'Quadro RW 2026: conto svizzero, chi dichiara',
     description: 'Il Quadro RW 2026 prevede che i frontalieri debbano dichiarare i conti svizzeri. Chi deve dichiarare e chi no?. Dati aggiornati 2026 per frontalieri in Ticino.',
     keywords: 'frontalieri, ticino, svizzera, italia, deve, dichiarare, conto, svizzero',
-    ogTitle: 'Quadro RW 2026: chi deve dichiarare il conto svizzero (e chi no) - CambiaValute.ch',
+    ogTitle: 'Quadro RW 2026: conto svizzero, chi dichiara',
     ogDescription: 'Il Quadro RW 2026 prevede che i frontalieri debbano dichiarare i conti svizzeri. Chi deve dichiarare e chi no?',
     canonicalPath: '/articoli-svizzera/quadro-rw-2026-chi-dichiara-conto-svizzero/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Chi deve dichiarare il conto svizzero nel 2026",
+      "headline": "Quadro RW 2026: conto svizzero, chi dichiara",
       "description": "Il Quadro RW 2026 prevede che i frontalieri debbano dichiarare i conti svizzeri. Chi deve dichiarare e chi no?. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
@@ -17802,16 +17802,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-parrucchieri-frontaliere-ticino': {
-    title: 'Lavorare come parrucchiera in Ticino: stipendio, requisiti e riconoscimento del titolo',
+    title: 'Parrucchiera in Ticino da frontaliere: guida',
     description: 'I requisiti per lavorare come parrucchiera in Ticino da frontaliere, il salario medio, il riconoscimento del titolo di studio e il permesso G. Dati aggiornati',
     keywords: 'frontalieri, ticino, svizzera, italia, lavorare, parrucchiera, stipendio, requisiti',
-    ogTitle: 'Lavorare come parrucchiera in Ticino da frontaliere: stipendio medio, requisiti, riconoscimento del titolo di studio e permesso G',
+    ogTitle: 'Parrucchiera in Ticino da frontaliere: guida',
     ogDescription: 'I requisiti per lavorare come parrucchiera in Ticino da frontaliere, il salario medio, il riconoscimento del titolo di studio e il permesso G.',
     canonicalPath: '/articoli-svizzera/parrucchieri-frontaliere-ticino/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Lavorare come parrucchiera in Ticino: stipendio, requisiti e riconoscimento del titolo",
+      "headline": "Parrucchiera in Ticino da frontaliere: guida",
       "description": "I requisiti per lavorare come parrucchiera in Ticino da frontaliere, il salario medio, il riconoscimento del titolo di studio e il permesso G. Dati aggiornati",
       "image": {
         "@type": "ImageObject",
