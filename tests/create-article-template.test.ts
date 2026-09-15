@@ -69,6 +69,17 @@ describe('AI Search prompt block', () => {
     expect(src).toMatch(/## In breve/);
     expect(src).toMatch(/## Fatti chiave/);
   });
+
+  it('keeps the executable prompt source-backed and optional', () => {
+    const src = readFileSync(
+      resolve(__dirname, '..', 'scripts', 'create-article.mjs'),
+      'utf-8',
+    );
+    expect(src).toContain('3-8 coppie termine→valore: solo fatti presenti nella fonte; ometti i campi assenti, senza placeholder');
+    expect(src).not.toContain('5-8 coppie');
+    expect(src).not.toContain('Scrivi "non ancora specificato"');
+    expect(src).not.toContain('scrivi "non ancora specificato", "in fase di definizione"');
+  });
 });
 
 describe('buildAiSearchMarkdown()', () => {
