@@ -645,6 +645,12 @@ describe('self-learning schema-incompatibility discovery (per-model, not per-pro
   const prevFetch = globalThis.fetch;
 
   const testSchema = { name: 'test_schema', schema: { type: 'object', properties: { a: { type: 'string' } } } };
+  const githubCatalogResponse = () => ({
+    ok: true,
+    status: 200,
+    headers: { get: () => null },
+    text: async () => JSON.stringify({ models: [{ id: 'openai/gpt-4o-mini' }] }),
+  }) as unknown as Response;
 
   beforeEach(() => {
     vi.resetModules();
@@ -665,21 +671,27 @@ describe('self-learning schema-incompatibility discovery (per-model, not per-pro
     const store: Record<string, { models?: Record<string, unknown> }> = {};
     mockFirestore(store);
     process.env.AI_MODELS_FORCE_CHAIN = 'gpt-4o-mini';
-    globalThis.fetch = (async () => ({
-      ok: false,
-      status: 400,
-      text: async () => JSON.stringify({
-        error: {
-          message: 'Invalid schema for response_format: model does not support response format json_schema',
-          code: 'invalid_request',
-        },
-      }),
-    })) as unknown as typeof fetch;
+    globalThis.fetch = (async (url: string) => {
+      if (url.endsWith('/catalog/models')) return githubCatalogResponse();
+      return {
+        ok: false,
+        status: 400,
+        text: async () => JSON.stringify({
+          error: {
+            message: 'Invalid schema for response_format: model does not support response format json_schema',
+            code: 'invalid_request',
+          },
+        }),
+      } as unknown as Response;
+    }) as unknown as typeof fetch;
 
     const mod = await import('../scripts/lib/ai-models.mjs');
     await mod.initScoreStore();
     await expect(
-      mod.callLLM([{ role: 'user', content: 'hi' }], { maxRetriesPerModel: 1, jsonSchema: testSchema }),
+      mod.callLLM([{ role: 'user', content: 'hi' }], {
+        maxRetriesPerModel: 1,
+        jsonSchema: testSchema,
+      }),
     ).rejects.toThrow('All AI models failed');
 
     const persisted = store._all.models as Record<string, { schemaIncompatible?: boolean }>;
@@ -694,18 +706,24 @@ describe('self-learning schema-incompatibility discovery (per-model, not per-pro
     const store: Record<string, { models?: Record<string, unknown> }> = {};
     mockFirestore(store);
     process.env.AI_MODELS_FORCE_CHAIN = 'gpt-4o-mini';
-    globalThis.fetch = (async () => ({
-      ok: false,
-      status: 400,
-      text: async () => JSON.stringify({
-        error: { message: "Unsupported parameter: 'max_tokens' is not supported with this model.", code: 'unsupported_parameter' },
-      }),
-    })) as unknown as typeof fetch;
+    globalThis.fetch = (async (url: string) => {
+      if (url.endsWith('/catalog/models')) return githubCatalogResponse();
+      return {
+        ok: false,
+        status: 400,
+        text: async () => JSON.stringify({
+          error: { message: "Unsupported parameter: 'max_tokens' is not supported with this model.", code: 'unsupported_parameter' },
+        }),
+      } as unknown as Response;
+    }) as unknown as typeof fetch;
 
     const mod = await import('../scripts/lib/ai-models.mjs');
     await mod.initScoreStore();
     await expect(
-      mod.callLLM([{ role: 'user', content: 'hi' }], { maxRetriesPerModel: 1, jsonSchema: testSchema }),
+      mod.callLLM([{ role: 'user', content: 'hi' }], {
+        maxRetriesPerModel: 1,
+        jsonSchema: testSchema,
+      }),
     ).rejects.toThrow('All AI models failed');
 
     const persisted = store._all.models as Record<string, { schemaIncompatible?: boolean }> | undefined;
