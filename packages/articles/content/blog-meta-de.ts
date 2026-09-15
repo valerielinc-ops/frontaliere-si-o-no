@@ -11755,6 +11755,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.premi-cassa-malati-2027-ticino.title': 'Krankenkassenprämien 2027 im Tessin: Anfrage an die Regierung',
     'blog.article.premi-cassa-malati-2027-ticino.excerpt': 'Die Grossräte Censi und Genini stellen dem Regierungsrat eine Anfrage zu den Krankenkassenprämien 2027 und den geschätzten Steigerungen im Tessin.',
     'blog.article.premi-cassa-malati-2027-ticino.imageAlt': 'Regierungsgebaeude in Bellinzona und Panoramablick im Tessin',
+    'blog.article.stipendi-como-lombardia-2024.title': 'Durchschnittslohn in Como und der Lombardei: Die Daten für 2024',
+    'blog.article.stipendi-como-lombardia-2024.excerpt': 'Im Jahr 2024 steigt der durchschnittliche Jahreslohn in der Lombardei auf 30.384,07 Euro, aber fast die Hälfte der Arbeitnehmer übersteigt nicht 25.000 Euro.',
+    'blog.article.stipendi-como-lombardia-2024.imageAlt': 'Durchschnittsgehälter und Löhne in der Lombardei und Como',
 };
 
 export default blogMetaDe;
