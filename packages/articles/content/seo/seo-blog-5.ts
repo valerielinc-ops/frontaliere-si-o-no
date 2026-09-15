@@ -90670,6 +90670,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-stipendi-como-lombardia-2024': {
+    title: 'Stipendio medio a Como e in Lombardia: i dati del 2024',
+    description: 'Scopri i dati del rapporto UIL Lombardia sulle retribuzioni nel 2024: stipendio medio a 30.384 euro, disuguaglianze, giovani e divario di genere.',
+    keywords: 'frontalieri, ticino, svizzera, italia, stipendio, medio, como, lombardia',
+    ogTitle: 'Stipendio medio a Como e in Lombardia nel 2024',
+    ogDescription: 'Analisi dettagliata del mercato del lavoro in Lombardia nel 2024 basata sui dati dell\'Osservatorio INPS e sul rapporto UIL Lombardia. Scopri i dati su stipendi medi, giovani under 35, divario di genere e differenze territoriali e settoriali.',
+    canonicalPath: '/articoli-frontaliere/stipendi-como-lombardia-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stipendio medio a Como e in Lombardia: i dati del 2024",
+      "description": "Scopri i dati del rapporto UIL Lombardia sulle retribuzioni nel 2024: stipendio medio a 30.384 euro, disuguaglianze, giovani e divario di genere.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/stipendi-como-lombardia-2024.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stipendi medi e retribuzioni in Lombardia e Como"
+      },
+      "datePublished": "2026-09-15T00:15:58+00:00",
+      "dateModified": "2026-09-15T00:15:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stipendi-como-lombardia-2024/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

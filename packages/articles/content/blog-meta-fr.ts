@@ -11758,6 +11758,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.premi-cassa-malati-2027-ticino.title': 'Primes caisse-maladie 2027 au Tessin : question au gouvernement',
     'blog.article.premi-cassa-malati-2027-ticino.excerpt': 'Les grands conseillers Censi et Genini soumettent une question au Conseil d\'État sur les primes de la caisse-maladie 2027 et sur les estimations d\'augmentation au Tessin.',
     'blog.article.premi-cassa-malati-2027-ticino.imageAlt': 'Batiment du gouvernement a Bellinzona et vue panoramique au Tessin',
+    'blog.article.stipendi-como-lombardia-2024.title': 'Salaire moyen à Côme et en Lombardie : les données de 2024',
+    'blog.article.stipendi-como-lombardia-2024.excerpt': 'En 2024, le salaire annuel moyen en Lombardie s\'élève à 30 384,07 euros, mais près de la moitié des travailleurs ne dépasse pas 25 000 euros.',
+    'blog.article.stipendi-como-lombardia-2024.imageAlt': 'Salaires moyens et rémunérations en Lombardie et à Côme (Como)',
 };
 
 export default blogMetaFr;
