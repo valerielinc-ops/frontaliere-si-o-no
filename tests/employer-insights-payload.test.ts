@@ -243,6 +243,27 @@ describe('employer insights payload UI', () => {
     expect(windowLabel(window, 'en')).toMatch(/Jan 1.*Sep 8.*2026/);
   });
 
+  it('explains the GA4 processing lag when the report window ends before generation', () => {
+    const settledPayload = {
+      ...basePayload,
+      source: 'ga4',
+      generatedAt: '2026-09-15T10:06:26.286Z',
+      window: { ...window, to: '2026-09-14T00:00:00.000Z', kind: 'ga4-settled-days:30' },
+    };
+    const expectedNotices = {
+      it: 'Google Analytics può impiegare fino a 48 ore',
+      en: 'Google Analytics can take up to 48 hours',
+      de: 'Google Analytics kann bis zu 48 Stunden',
+      fr: 'Google Analytics peut nécessiter jusqu’à 48 heures',
+    } as const;
+
+    for (const [locale, notice] of Object.entries(expectedNotices) as Array<[Locale, string]>) {
+      expect(render(settledPayload, locale)).toContain(notice);
+    }
+    expect(render({ ...settledPayload, source: 'posthog' })).not.toContain(expectedNotices.it);
+    expect(render({ ...settledPayload, generatedAt: settledPayload.window.to })).not.toContain(expectedNotices.it);
+  });
+
   it('keeps observed numbers when timezone is absent but the window is present', () => {
     const html = render({
       ...basePayload,
