@@ -23,6 +23,7 @@ import {
   describeMissingWebcamState,
   // @ts-expect-error — plain .mjs, no type declarations
 } from '../scripts/check-border-data-health.mjs';
+import { borderCrossings } from '../data/borderCrossings';
 
 const MIN = 60 * 1000;
 const HOUR = 60 * MIN;
@@ -194,6 +195,25 @@ describe('collectWebcamUrls', () => {
     const map = collectWebcamUrls(crossings);
     expect(map.get('https://x/small.jpg')!.minBytes).toBe(4000);
     expect(map.get('https://x/a.gif')!.minBytes).toBeUndefined();
+  });
+
+  it('keeps the compact SITG camera family below the generic floor', () => {
+    const sitg = [...collectWebcamUrls(borderCrossings).values()].filter(({ url }) =>
+      url.startsWith('https://app2.ge.ch/tercameras/'),
+    );
+
+    expect(sitg).toHaveLength(4);
+    expect(sitg.every(({ minBytes }) => minBytes === 1500)).toBe(true);
+    expect(
+      sitg.every(({ minBytes }) =>
+        !evaluateWebcamResult({ ok: true, status: 200, bytes: 5 * 1024 }, minBytes).broken,
+      ),
+    ).toBe(true);
+    expect(
+      sitg.every(({ minBytes }) =>
+        evaluateWebcamResult({ ok: true, status: 200, bytes: 117 }, minBytes).broken,
+      ),
+    ).toBe(true);
   });
 });
 
