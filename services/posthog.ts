@@ -12,6 +12,10 @@
 
 import { createExceptionFilter, installRawStackRecorder } from './posthog-error-filter';
 import { isLikelyBot } from './botPatterns';
+import {
+ POSTHOG_SESSION_REPLAY_SAMPLE_RATE,
+ createPostHogQuotaFilter,
+} from './posthogQuota';
 
 const POSTHOG_KEY = 'phc_u8jsgXxFQNB6WcQt9JBcdj9tJrR4NsMws3nQoKdigjbT';
 const POSTHOG_HOST = 'https://t.frontaliereticino.ch';
@@ -42,13 +46,18 @@ async function ensurePostHog(): Promise<any> {
  capture_pageview: false, // We handle page_view manually via analytics.ts
  capture_pageleave: true,
  autocapture: false, // Explicit events only, reduces noise
- // Sample 30% of sessions for replay to stay under free-tier 5k/mo cap
- session_recording: { sampleRate: 0.3 },
+ // Sample 5% of sessions for replay to stay under the free-tier 5k/mo cap.
+ session_recording: { sampleRate: POSTHOG_SESSION_REPLAY_SAMPLE_RATE },
+ // Keep a deterministic 10% session cohort for PostHog product analytics.
+ // GA4 still receives the complete event stream through analytics.ts.
  // Filter benign noise from exception tracking so real errors stay visible.
  // Patterns + rationale: services/posthog-error-filter.ts. The minimal
  // event shape in posthog-error-filter is a subset of posthog-js's
  // CaptureResult — cast at the boundary so the helper stays SDK-free.
- before_send: createExceptionFilter() as unknown as (event: any) => any,
+ before_send: [
+ createExceptionFilter() as unknown as (event: any) => any,
+ createPostHogQuotaFilter() as unknown as (event: any) => any,
+ ],
  // Performance
  loaded: (ph) => { _posthog = ph; },
  });
