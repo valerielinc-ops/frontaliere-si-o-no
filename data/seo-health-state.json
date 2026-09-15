@@ -1,16 +1,24 @@
 {
   "schemaVersion": 1,
-  "lastRunAt": "2026-09-15T09:32:15.240Z",
+  "lastRunAt": "2026-09-15T20:54:07.456Z",
   "findings": {
-    "cloudflare-5xx-unverified|source:cloudflare-5xx-unverified": {
-      "code": "cloudflare-5xx-unverified",
-      "url": "source:cloudflare-5xx-unverified",
-      "consecutiveRuns": 2,
-      "firstSeenAt": "2026-09-14T10:04:29.568Z",
-      "lastSeenAt": "2026-09-15T09:32:15.240Z",
-      "detail": "count=30 sampled-out-or-unprobed; no live recovery asserted"
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-vacanti-schattdorf/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-vacanti-schattdorf/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-09-15T20:54:07.456Z",
+      "lastSeenAt": "2026-09-15T20:54:07.456Z",
+      "detail": "edge=503 count=2 live=503 surface=apex-pages"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-san-gallo/young-manager-genossenschaft-migros-ostschweiz-gossau/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-san-gallo/young-manager-genossenschaft-migros-ostschweiz-gossau/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-09-15T20:54:07.456Z",
+      "lastSeenAt": "2026-09-15T20:54:07.456Z",
+      "detail": "edge=503 count=1 live=503 surface=apex-pages"
     }
   },
   "cleanRuns": 0,
-  "lastActionable": true
+  "lastActionable": false
 }
