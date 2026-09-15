@@ -20,7 +20,7 @@
  */
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
-import { isGreyGlobe } from './lib/google-favicon.mjs';
+import { fetchVerifiedLogo } from './lib/company-logo-audit.mjs';
 
 const ROOT = path.resolve(process.cwd());
 const SOURCE_TS = path.join(ROOT, 'services', 'jobDataNormalization.ts');
@@ -34,31 +34,6 @@ const AUDIT_PAGE = path.join(AUDIT_DIR, 'logos-audit.html');
 
 const FETCH_TIMEOUT_MS = 12_000;
 const CONCURRENCY = 8;
-
-const MIME_EXT = {
-  'image/png': 'png',
-  'image/jpeg': 'jpg',
-  'image/jpg': 'jpg',
-  'image/gif': 'gif',
-  'image/svg+xml': 'svg',
-  'image/webp': 'webp',
-  'image/x-icon': 'ico',
-  'image/vnd.microsoft.icon': 'ico',
-};
-
-function detectExtFromBytes(buf) {
-  if (!buf || buf.length < 8) return null;
-  const sig = buf.subarray(0, 8);
-  if (sig[0] === 0x89 && sig[1] === 0x50 && sig[2] === 0x4e && sig[3] === 0x47) return 'png';
-  if (sig[0] === 0xff && sig[1] === 0xd8 && sig[2] === 0xff) return 'jpg';
-  if (sig[0] === 0x47 && sig[1] === 0x49 && sig[2] === 0x46) return 'gif';
-  if (sig[0] === 0x52 && sig[1] === 0x49 && sig[2] === 0x46 && sig[3] === 0x46) return 'webp';
-  if (sig[0] === 0x00 && sig[1] === 0x00 && sig[2] === 0x01 && sig[3] === 0x00) return 'ico';
-  // SVG/XML
-  const head = buf.subarray(0, 256).toString('utf8').trimStart().toLowerCase();
-  if (head.startsWith('<svg') || head.startsWith('<?xml')) return 'svg';
-  return null;
-}
 
 async function parseLogos() {
   const ts = await readFile(SOURCE_TS, 'utf8');
@@ -109,38 +84,19 @@ async function parseLogos() {
   return entries;
 }
 
-async function fetchWithTimeout(url) {
-  const ctrl = new AbortController();
-  const t = setTimeout(() => ctrl.abort(), FETCH_TIMEOUT_MS);
-  try {
-    return await fetch(url, {
-      headers: {
-        'User-Agent':
-          'Mozilla/5.0 (compatible; FrontaliereTicinoLogoFetch/1.0; +https://frontaliereticino.ch)',
-        Accept: 'image/*,*/*;q=0.8',
-      },
-      redirect: 'follow',
-      signal: ctrl.signal,
-    });
-  } finally {
-    clearTimeout(t);
-  }
-}
-
 async function tryFetchAndSave(entry, url, sourceLabel) {
-  const res = await fetchWithTimeout(url);
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const buf = Buffer.from(await res.arrayBuffer());
-  if (buf.length === 0) throw new Error('empty body');
-  const ct = (res.headers.get('content-type') || '').split(';')[0].trim().toLowerCase();
-  const ext = MIME_EXT[ct] || detectExtFromBytes(buf) || 'png';
-  // Google's generic "grey globe" favicon is byte-identical across domains.
-  const greyGlobe = sourceLabel === 'google-favicon' && isGreyGlobe(buf);
+  const result = await fetchVerifiedLogo(url, { timeoutMs: FETCH_TIMEOUT_MS });
+  if (result.status !== 'valid') {
+    const error = new Error(result.reason || 'invalid logo response');
+    error.reason = result.reason;
+    throw error;
+  }
+  const { body: buf, extension: ext, contentType: ct } = result;
   const dest = path.join(OUT_DIR, `${entry.slug}.${ext}`);
   await writeFile(dest, buf);
   return {
     ...entry,
-    status: greyGlobe ? 'grey-globe' : 'downloaded',
+    status: 'downloaded',
     path: `/images/brands/${entry.slug}.${ext}`,
     size: buf.length,
     contentType: ct,
@@ -170,6 +126,13 @@ async function downloadOne(entry) {
         const r = await tryFetchAndSave(entry, fallbackUrl, 'google-favicon');
         return { ...r, fellBackFrom: entry.kind, primaryError: String(primaryErr?.message || primaryErr) };
       } catch (fallbackErr) {
+        if (fallbackErr?.reason === 'grey-globe') {
+          return {
+            ...entry,
+            status: 'grey-globe',
+            error: `primary: ${primaryErr?.message || primaryErr} | google-favicon: grey-globe`,
+          };
+        }
         return {
           ...entry,
           status: 'failed',

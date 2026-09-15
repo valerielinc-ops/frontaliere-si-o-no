@@ -17,7 +17,7 @@
  * `services/jobDataNormalization.ts`), so a probe against it would always
  * read as "no logo" regardless of the real answer.
  */
-import { isGreyGlobe, LOGO_BOT_USER_AGENT } from '../google-favicon.mjs';
+import { validateLogoReference } from '../company-logo-audit.mjs';
 
 const FETCH_TIMEOUT_MS = 10_000;
 
@@ -30,22 +30,15 @@ export async function probeCompanyLogo(host) {
   if (!domain) return { found: false, reason: 'nessun dominio' };
 
   const url = `https://www.google.com/s2/favicons?domain=${encodeURIComponent(domain)}&sz=128`;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      redirect: 'follow',
-      headers: { 'User-Agent': LOGO_BOT_USER_AGENT },
-    });
-    if (!res.ok) return { found: false, domain, reason: `http ${res.status}` };
-    const buf = Buffer.from(await res.arrayBuffer());
-    if (buf.length === 0) return { found: false, domain, reason: 'risposta vuota' };
-    if (isGreyGlobe(buf)) return { found: false, domain, reason: 'grey-globe (dominio senza favicon)' };
-    return { found: true, domain, size: buf.length };
-  } catch (err) {
-    return { found: false, domain, reason: err?.name === 'AbortError' ? 'timeout' : String(err?.message || err) };
-  } finally {
-    clearTimeout(timer);
+  const result = await validateLogoReference(
+    { kind: 'external', reference: url },
+    { timeoutMs: FETCH_TIMEOUT_MS },
+  );
+  if (result.status !== 'valid') {
+    const reason = result.reason === 'grey-globe'
+      ? 'grey-globe (dominio senza favicon)'
+      : result.reason || 'logo non verificato';
+    return { found: false, domain, reason };
   }
+  return { found: true, domain, size: result.bytes };
 }

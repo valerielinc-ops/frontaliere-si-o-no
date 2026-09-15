@@ -173,6 +173,17 @@ describe('jobDataNormalization', () => {
     expect(logo).toBeTruthy();
   });
 
+  it('serves the mirrored Kanton Aargau logo instead of the retired external favicon', () => {
+    const logo = resolveCompanyLogoUrl({
+      company: 'Kanton Aargau',
+      companyKey: 'kanton-aargau',
+      companyDomain: 'ag.ch',
+      url: 'https://www.ag.ch/de/stellenangebote',
+    });
+
+    expect(logo).toBe('/images/brands/kanton-aargau.png');
+  });
+
   it('returns null (never a gFavicon grey globe) for an unknown company with a host', () => {
     // Non-curated, non-identity-matched company. The domain branch used to
     // return gFavicon(host); it now returns null so the SPA / static renderer

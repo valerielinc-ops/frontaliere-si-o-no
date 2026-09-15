@@ -1,10 +1,9 @@
 name: Verify Company Logos (weekly)
 
-# Probes every unique companyLogo URL referenced in data/jobs.json and
-# data/jobs/by-crawler/*.json and writes broken ones to
-# data/company-logos-broken.json. Follow-up fix: replace broken ones with
-# the local /icons/company-placeholder.svg (handled at render time by
-# services/logoService.ts::handleCompanyLogoError).
+# Assembles the canonical dataset, resolves every effective logo through the
+# same resolver used by the renderers, and probes the resulting local and
+# external references. Writes broken ones to data/company-logos-broken.json;
+# the companion audit workflow opens the actionable issue.
 #
 # Runs every Sunday 04:00 UTC.
 
@@ -21,6 +20,10 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    env:
+      # Keep the guard active for the initial run and for rebase retries.
+      COMPANY_LOGO_AUDIT_MIN_JOBS: '1000'
+      COMPANY_LOGO_AUDIT_ASSET_BASE_URL: https://cdn.frontaliereticino.ch
     steps:
       - uses: actions/checkout@v5
         with:
@@ -53,8 +56,11 @@ jobs:
       - name: Load push credentials from Remote Config
         run: node scripts/load-rc-env.mjs
 
+      - name: Assemble canonical jobs dataset
+        run: node scripts/assemble-jobs-dataset.mjs --no-summaries
+
       - name: Verify company logos
-        run: node scripts/verify-company-logos.mjs
+        run: npx tsx scripts/verify-company-logos.mjs
 
       - name: Commit + push broken-logos report
         run: |
@@ -72,7 +78,7 @@ jobs:
           # pushes. On rebase conflict, regenerate the broken-logos report
           # against the rebased base.
           bash scripts/lib/git-push-with-retry.sh \
-            --regenerate-cmd "node scripts/verify-company-logos.mjs || true; git add data/company-logos-broken.json"
+            --regenerate-cmd "npx tsx scripts/verify-company-logos.mjs; git add data/company-logos-broken.json"
 
       - name: Report failure to GitHub Issues
         if: failure()
