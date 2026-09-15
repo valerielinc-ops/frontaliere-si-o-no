@@ -74,7 +74,15 @@ describe('plate-auction static pages', () => {
     const rendered = renderPlateAuctionPage({ locale: 'en', view: 'detail', canton: 'GR', plate: 'GR7', rootDir });
     expect(rendered.urlPath).toBe('en/swiss-plate-auctions/graubunden-gr/gr7');
     expect(rendered.html).toContain('No public row is available right now.');
+    expect(rendered.html).toContain('noindex,follow');
     expect(rendered.html).not.toContain('GR8');
+  });
+
+  it('keeps individual auction records crawlable but out of the index', () => {
+    const rootDir = fixtureRoot();
+    const rendered = renderPlateAuctionPage({ locale: 'it', view: 'detail', canton: 'GR', plate: 'GR8', rootDir });
+    expect(rendered.html).toContain('noindex,follow');
+    expect(rendered.html).toContain('GR8');
   });
 
   it('keeps a live row with an unparseable deadline consistent with the dynamic feed', () => {
@@ -134,7 +142,7 @@ describe('plate-auction static pages', () => {
 
     const sitemap = readFileSync(join(rootDir, 'dist', 'sitemap-plate-auctions.xml'), 'utf8');
     const sitemapLocs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
-    expect(sitemapLocs).toHaveLength(4 * (2 + 26 + 41));
+    expect(sitemapLocs).toHaveLength(4 * (2 + 26));
     expect(new Set(sitemapLocs).size).toBe(sitemapLocs.length);
     const expectedDetailUrls = new Set<string>();
     for (const locale of ['it', 'en', 'de', 'fr'] as const) {
@@ -148,7 +156,7 @@ describe('plate-auction static pages', () => {
           const detailPath = buildPlateAuctionPath({ locale, view: 'detail', canton: group.sourceKey, plate: `${group.platePrefix}${index + 8}` });
           const detailUrl = `https://frontaliereticino.ch${detailPath}`;
           expectedDetailUrls.add(detailUrl);
-          expect(sitemap).toContain(`<loc>${detailUrl}</loc>`);
+          expect(sitemap).not.toContain(`<loc>${detailUrl}</loc>`);
           expect(canton).toContain(`href="${detailPath}"`);
         }
       }
