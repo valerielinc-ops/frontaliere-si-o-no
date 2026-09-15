@@ -35,6 +35,15 @@ export const GLOBAL_DATA_PIPELINE_LEASE_BUSY_EXIT = 44;
 export const GOOGLE_TOKEN_URL = 'https://oauth2.googleapis.com/token';
 export const FIRESTORE_SCOPE = 'https://www.googleapis.com/auth/datastore';
 
+/**
+ * Firestore transaction writes use a resource name, not the REST endpoint URL.
+ * Keep this separate from the request URL because the two forms are both used
+ * by the REST API and are not interchangeable.
+ */
+export function firestoreDocumentName(projectId, leaseDoc = GLOBAL_DATA_PIPELINE_LEASE_DOC) {
+  return `projects/${projectId}/databases/(default)/documents/${leaseDoc}`;
+}
+
 const REQUEST_TIMEOUT_MS = 15_000;
 const TRANSACTION_ATTEMPTS = 4;
 
@@ -294,7 +303,7 @@ async function transact({
       return { acquired: false, released: false, busy: false, notOwner: current.exists };
     }
 
-    const documentName = baseUrl + '/' + leaseDoc;
+    const documentName = firestoreDocumentName(projectId, leaseDoc);
     const precondition = current.exists
       ? { currentDocument: { updateTime: current.updateTime } }
       : { currentDocument: { exists: false } };

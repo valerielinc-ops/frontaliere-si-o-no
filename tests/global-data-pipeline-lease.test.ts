@@ -4,6 +4,7 @@ import {
   GLOBAL_DATA_PIPELINE_LEASE_BUSY_EXIT,
   GLOBAL_DATA_PIPELINE_LEASE_POLL_MS,
   GLOBAL_DATA_PIPELINE_LEASE_WAIT_MS,
+  firestoreDocumentName,
   leaseDecision,
 } from '../scripts/lib/global-data-pipeline-lease.mjs';
 
@@ -47,5 +48,12 @@ describe('global data pipeline lease', () => {
     expect(shell).toContain('trap global_data_pipeline_lease_cleanup EXIT');
     expect(shell).toContain('node "$lease_script" release');
     expect(shell).toContain('global data-pipeline lease remained busy after the bounded wait');
+  });
+
+  it('usa il resource name Firestore nei write di transazione, non l URL REST', () => {
+    expect(firestoreDocumentName('frontaliere-ticino')).toBe(
+      'projects/frontaliere-ticino/databases/(default)/documents/ci_leases/jobs-data-pipeline',
+    );
+    expect(firestoreDocumentName('frontaliere-ticino')).not.toContain('https://');
   });
 });
