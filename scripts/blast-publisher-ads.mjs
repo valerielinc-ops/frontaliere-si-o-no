@@ -31,7 +31,11 @@
  * (load-rc-env.mjs in CI, or env).
  */
 
-import { isAdvertisingSuppressed, matchSubscribersForAd } from '../services/publisherBlastMatch.mjs';
+import {
+  isAdvertisingReactivation,
+  isAdvertisingSuppressed,
+  matchSubscribersForAd,
+} from '../services/publisherBlastMatch.mjs';
 import { isCrossChannelStop } from '../services/emailSuppression.mjs';
 import { OWNER_EMAIL, isCanaryJob } from './lib/canaryAd.mjs';
 import { buildBlastEmail } from '../services/publisherBlastEmail.mjs';
@@ -87,7 +91,7 @@ async function main() {
     // matcher. A row with that stop may proceed to the matcher only when it
     // carries the explicit advertising reactivation marker; the matcher then
     // verifies its timestamp and still blocks hard/global suppression.
-    if (isCrossChannelStop(subscriber) && subscriber?.advertising_opt_out !== false) return false;
+    if (isCrossChannelStop(subscriber) && !isAdvertisingReactivation(subscriber)) return false;
     return !isAdvertisingSuppressed(subscriber);
   });
   console.log(`[blast] ${ads.length} ad(s), ${subscribers.length} subscribers. mode=${SEND ? 'SEND' : 'DRY-RUN'}`);
