@@ -65,6 +65,28 @@ async function retryImport<T>(factory: () => Promise<T>, label: string): Promise
  }
 }
 
+type PharmacyRuntimeSeoModule = typeof import('./pharmacies/runtimeSeo');
+
+let pharmacyRuntimeSeoPromise: Promise<PharmacyRuntimeSeoModule> | null = null;
+
+/**
+ * Keep the pharmacy resolver and its snapshot dependencies out of the
+ * generic SEO entry chunk. A pharmacy route is the only caller of this
+ * loader, so non-pharmacy navigations never fetch or parse those snapshots.
+ */
+function loadPharmacyRuntimeSeo(): Promise<PharmacyRuntimeSeoModule> {
+ if (!pharmacyRuntimeSeoPromise) {
+  pharmacyRuntimeSeoPromise = retryImport(
+   () => import('./pharmacies/runtimeSeo'),
+   'pharmacy',
+  );
+  pharmacyRuntimeSeoPromise.catch(() => {
+   pharmacyRuntimeSeoPromise = null;
+  });
+ }
+ return pharmacyRuntimeSeoPromise;
+}
+
 export interface SEOMetadata {
  title: string;
  description: string;
@@ -1646,18 +1668,23 @@ export async function updateMetaTags(section: string): Promise<void> {
  // If the non-IT locale chunk hasn't loaded yet, t() falls back to Italian.
  // Preserve the correct static HTML metadata until the chunk arrives.
  const currentLocale = getLocale();
- if (currentLocale !== 'it' && !isLocaleChunkLoaded(currentLocale)) {
+ // Parse before the locale-chunk guard: pharmacy metadata is local and
+ // route-derived, so a soft navigation to an EN/DE/FR pharmacy page must not
+ // leave the previous page's head in place while that locale chunk loads.
+ const { route, locale: pathLocale } = parsePath(window.location.pathname);
+ const pharmacyMetadata = route.pharmacyPath
+ ? (await loadPharmacyRuntimeSeo()).resolvePharmacySeoMetadata(route.pharmacyPath)
+ : null;
+ if (!pharmacyMetadata && currentLocale !== 'it' && !isLocaleChunkLoaded(currentLocale)) {
  return;
  }
 
  loadSerpExperimentState();
  const sectionKey = section.startsWith('jobboard-') ? 'jobboard' : section;
- const metadata = await getSeoEntry(sectionKey);
 
- // Build locale-aware canonical path from current URL
- const { route, locale: pathLocale } = parsePath(window.location.pathname);
+ const metadata = pharmacyMetadata ?? await getSeoEntry(sectionKey);
  if (getLocale() !== pathLocale) {
- setLocale(pathLocale);
+  setLocale(pathLocale);
  }
  const locale = pathLocale;
  // hreflang/<html lang> sync (Issue 204): force-sync the document language
@@ -1731,7 +1758,9 @@ export async function updateMetaTags(section: string): Promise<void> {
  const hasLocalizedImageAlt = isBlogArticle && localizedImageAlt !== `blog.article.${blogArticleId}.imageAlt`;
 
  const isDialectPage = section === 'dialetto';
- const localizedSeoContent = resolveLocalizedSeoContent(sectionKey, metadata, locale, route.jobBoardCanton);
+ const localizedSeoContent = pharmacyMetadata
+ ? pharmacyMetadata
+ : resolveLocalizedSeoContent(sectionKey, metadata, locale, route.jobBoardCanton);
  const dialectTitleByLocale: Record<Locale, string> = {
  it: 'Dialetto Ticinese | 64 Espressioni e Proverbi | Frontaliere Ticino',
  en: 'Ticinese Dialect | 64 Expressions and Proverbs | Frontaliere Ticino',
@@ -1836,7 +1865,7 @@ export async function updateMetaTags(section: string): Promise<void> {
  })();
  const robotsDirective = hasFilterQuery
  ? 'noindex, follow'
- : ROBOTS_INDEX_ENHANCED_CONTENT;
+ : pharmacyMetadata?.robots ?? ROBOTS_INDEX_ENHANCED_CONTENT;
  updateOrCreateMetaTag('name', 'robots', robotsDirective);
 
  // Update Open Graph tags (used by Bing, Facebook, LinkedIn)
