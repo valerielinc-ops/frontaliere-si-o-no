@@ -93,6 +93,18 @@ jobs:
         with:
           node-version: '22'
 
+      - name: Reap stale deploy build lock
+        # deploy.yml gives each locale build a 360-minute timeout. This
+        # bounded reaper is a backstop for the rare runner/API wedge where the
+        # in-progress run survives that timeout and blocks every newer main
+        # commit under pages-build-run. It never touches queued runs or the
+        # publish half, and it fails closed when job evidence is unavailable.
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          STALE_BUILD_MINUTES: '390'
+        run: node scripts/ci/reap-stale-deploy-build.mjs
+
       - name: Unwedge the pages-deploy queue (cancel runs stuck at the environment gate)
         # Prima del check, non dopo: la lag si misura dall'ultimo deploy RIUSCITO,
         # che una cancellazione non fa avanzare — quindi sbloccare qui non
