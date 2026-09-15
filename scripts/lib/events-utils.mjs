@@ -17,6 +17,7 @@
 import { readFileSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { decode as decodeHtmlEntities } from 'html-entities';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import CANTON_URL_SLUGS from '../../data/canton-url-slugs.json' with { type: 'json' };
 import { MUNICIPALITIES } from '../../data/municipalities.ts';
@@ -338,54 +339,17 @@ export function normalizeText(value) {
     .trim();
 }
 
-const EVENT_ENTITY_RE = /&(#x[\da-f]+|#\d+|[a-z][a-z\d]+);/gi;
-const EVENT_NAMED_ENTITIES = {
-  amp: '&',
-  apos: "'",
-  bull: '•',
-  copy: '©',
-  hellip: '…',
-  laquo: '«',
-  ldquo: '“',
-  lt: '<',
-  lsquo: '‘',
-  mdash: '—',
-  middot: '·',
-  nbsp: ' ',
-  ndash: '–',
-  quot: '"',
-  raquo: '»',
-  rdquo: '”',
-  reg: '®',
-  rsquo: '’',
-  trade: '™',
-  gt: '>',
-};
-
-function decodeEventEntity(_match, entity) {
-  const normalized = entity.toLowerCase();
-  if (normalized.startsWith('#x')) {
-    const codePoint = Number.parseInt(normalized.slice(2), 16);
-    return Number.isInteger(codePoint) && codePoint >= 0 && codePoint <= 0x10ffff ? String.fromCodePoint(codePoint) : ' ';
-  }
-  if (normalized.startsWith('#')) {
-    const codePoint = Number.parseInt(normalized.slice(1), 10);
-    return Number.isInteger(codePoint) && codePoint >= 0 && codePoint <= 0x10ffff ? String.fromCodePoint(codePoint) : ' ';
-  }
-  return EVENT_NAMED_ENTITIES[normalized] ?? _match;
-}
-
 /** Safe plain-text boundary for crawler fields that may contain rich HTML.
  * Keeps the event source data usable by crawlers and static renderers alike,
  * including escaped tags such as `&lt;b&gt;...&lt;/b&gt;`. */
 export function cleanEventText(value) {
   if (typeof value !== 'string') return '';
-  return value
+  const withoutRawTags = value
     .replace(/<!--[\s\S]*?-->/g, ' ')
     .replace(/<(script|style|noscript|template)\b[^>]*>[\s\S]*?<\/\1>/gi, ' ')
     .replace(/<br\s*\/?\s*>/gi, ' ')
-    .replace(/<\/?[a-z][^>]*>/gi, ' ')
-    .replace(EVENT_ENTITY_RE, decodeEventEntity)
+    .replace(/<\/?[a-z][^>]*>/gi, ' ');
+  return decodeHtmlEntities(withoutRawTags, { level: 'html5', scope: 'body' })
     .replace(/<\/?[a-z][^>]*>/gi, ' ')
     .replace(/\s+/g, ' ')
     .trim();

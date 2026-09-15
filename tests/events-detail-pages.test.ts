@@ -344,6 +344,7 @@ describe('renderEventDetailPage', () => {
       detailHref: (() => null) as never,
     });
     expect(cleanEventText('<p><b>Queen &amp; Friends</b><br>Live</p>')).toBe('Queen & Friends Live');
+    expect(cleanEventText('Un &eacute;vénement &NotEqualTilde;')).toBe('Un événement ≂̸');
     expect(markedUpPage.html).toContain('The Music of Queen Live Valentin Findling');
     expect(markedUpPage.html).not.toContain('&lt;b&gt;');
     expect(markedUpPage.html).not.toContain('<b>');
