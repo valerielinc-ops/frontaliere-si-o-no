@@ -56,6 +56,8 @@ describe('record-loop-fleet-evidence', () => {
     expect(actionClassForPolicy(registry.loops.find((loop: any) => loop.loopId === 'L0'), 'needsReview')).toBe('issue+quarantine');
     expect(registry.loops.find((loop: any) => loop.loopId === 'L7')?.actionPolicy)
       .toEqual({ healthy: 'observe', needsReview: 'candidate+stop+issue', guardrail: 'stop', candidate: 'candidate' });
+    expect(registry.loops.find((loop: any) => loop.loopId === 'L7')?.policyRequirements)
+      .toEqual(['allocation']);
     expect(registry.loops.find((loop: any) => loop.loopId === 'L7')?.allocationPolicy)
       .toMatchObject({
         persistent: true,
@@ -120,6 +122,18 @@ describe('record-loop-fleet-evidence', () => {
         : loop),
     };
     expect(() => validateLoopRegistry(invalid)).toThrow(/L7\.allocationPolicy\.trafficMutationAllowed must be false/);
+  });
+
+  it('requires a declared policy requirement before accepting an allocation policy', () => {
+    const invalid = {
+      ...registry,
+      loops: registry.loops.map((loop: any) => {
+        if (loop.loopId !== 'L7') return loop;
+        const { allocationPolicy, ...withoutAllocation } = loop;
+        return { ...withoutAllocation };
+      }),
+    };
+    expect(() => validateLoopRegistry(invalid)).toThrow(/L7\.allocationPolicy is required by policyRequirements/);
   });
 
   it('writes one canonical line per ledger and is idempotent for a rerun', () => {
