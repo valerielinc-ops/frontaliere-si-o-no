@@ -1057,14 +1057,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sap-produktion-consultant-stadler-rail-ch",
-        "sap-produktion-consulente-stadler-rail-bussnang",
         "consulente-sap-hr-it-stadler-rail-bussnang",
         "sap-hr-it-consultant-stadler-rail-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sap-produktion-consultant-stadler-rail-ch",
-          "sap-produktion-consulente-stadler-rail-bussnang",
           "consulente-sap-hr-it-stadler-rail-bussnang",
           "sap-hr-it-consultant-stadler-rail-ch"
         ],
@@ -1872,10 +1870,10 @@
     },
     {
       "id": "stadler-rail-6de49652998d",
-      "slug": "teamleader-cyber-security-stadler-rail-ch",
+      "slug": "responsabile-team-cyber-security-stadler-rail-bussnang",
       "slugByLocale": {
-        "it": "teamleader-cyber-security-stadler-rail-ch",
-        "en": "teamleader-cyber-security-stadler-rail-ch",
+        "it": "responsabile-team-cyber-security-stadler-rail-bussnang",
+        "en": "cyber-security-team-leader-stadler-rail-bussnang",
         "de": "teamleader-cyber-security-stadler-rail-ch",
         "fr": "chef-d-equipe-cybersecurite-stadler-rail-bussnang"
       },
@@ -1931,7 +1929,18 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleader-cyber-security-stadler-rail-ch"
+        ],
+        "en": [
+          "teamleader-cyber-security-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleader-cyber-security-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-3856481f52ee",
@@ -4053,12 +4062,12 @@
     },
     {
       "id": "stadler-rail-959019271c79",
-      "slug": "abteilungsleiter-in-rams-stadler-rail-ch",
+      "slug": "capo-divisione-capo-della-rams-stadler-rail-wallisellen",
       "slugByLocale": {
-        "it": "abteilungsleiter-in-rams-stadler-rail-ch",
+        "it": "capo-divisione-capo-della-rams-stadler-rail-wallisellen",
         "en": "abteilungsleiter-in-rams-stadler-rail-ch",
         "de": "abteilungsleiter-in-rams-stadler-rail-ch",
-        "fr": "abteilungsleiter-in-rams-stadler-rail-ch"
+        "fr": "chef-de-division-chef-de-la-rams-stadler-rail-wallisellen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -4114,7 +4123,18 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "abteilungsleiter-in-rams-stadler-rail-ch"
+        ],
+        "fr": [
+          "abteilungsleiter-in-rams-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "abteilungsleiter-in-rams-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-849ac676fc3c",
