@@ -46,8 +46,8 @@
     "snapshots": {
       "catalogue": {
         "path": "data/pharmacies-ticino-complete.json",
-        "sha256": "a4736357d77210acc91ca0a62d9ac424275d86208669402fd16e29c5e9f3b402",
-        "fetchedAt": "2026-09-14T10:03:57.824Z"
+        "sha256": "7066e6f29b869b3acd1383fcd597573101c29e1e09d0ffc84998316da8712854",
+        "fetchedAt": "2026-09-15T09:34:10.515Z"
       },
       "duties": {
         "path": "data/pharmacy-duties-ticino.json",
@@ -107,6 +107,6 @@
         "preserved": false
       }
     },
-    "releaseId": "pharmacy-v1-3622f1c087a07133e5d463f4f523b3b095ea69f73a2f1292232d63f9615d4e39"
+    "releaseId": "pharmacy-v1-18a6bb441ee3b40321276015e402a6a6d2377778a1d73ad1c8db1ad409cdb276"
   }
 }
