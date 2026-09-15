@@ -2,11 +2,13 @@
  * Native auto-merge guard.
  *
  * GitHub's native auto-merge remains the merger. This helper is only the
- * fail-closed opt-in gate: it must see the latest approving reviewer-bot
- * verdict and a completed required Vitest check on the current HEAD before
- * calling `gh pr merge --auto`. The required check is the complete `tests`
- * job, so its green result is the authority for the review gate's validated
- * LGTM carry-forward when the review commit is older than the current HEAD.
+ * fail-closed opt-in gate: it must see the latest approving
+ * Claude/frontaliere reviewer-bot verdict (or an explicitly marked Codex
+ * fallback with structured review-gate evidence) and a completed required
+ * Vitest check on the current HEAD before calling `gh pr merge --auto`. The
+ * required check is the complete `tests` job, so its green result is the
+ * authority for the review gate's validated LGTM carry-forward when the
+ * review commit is older than the current HEAD.
  */
 import { execFileSync } from 'node:child_process';
 import { realpathSync } from 'node:fs';
@@ -29,6 +31,8 @@ const NIT_MARKER_RE = /^[^\n🔴🟢]*(?<!`)🟡\s*\*{0,2}\s*Nit\s*\*{0,2}\s*[:�
 const FINDINGS_HEADING_RE = /^\s{0,3}#{1,3}\s+Findings\b[^\n]*$/i;
 const LGTM_HEADING_RE = /^\s{0,3}##\s+LGTM\s*$/m;
 const TEST_ONLY_REVIEW_BOT_RE = /^(?:github-actions|frontaliere-automation)\[bot\]$/i;
+const CODEX_FALLBACK_REVIEWER_RE = /^github-actions\[bot\]$/i;
+const CODEX_FALLBACK_REVIEW_MARKER = '<!-- CODEX_FALLBACK_REVIEW -->';
 
 function flattenPages(value) {
   if (!Array.isArray(value)) return [];
@@ -53,16 +57,43 @@ function reviewTimestamp(review) {
   return timestamps.length > 0 ? Math.max(...timestamps) : null;
 }
 
-function latestBotReviewMatching(reviews, predicate) {
+function latestReviewMatching(reviews, predicate) {
   if (!Array.isArray(reviews) || typeof predicate !== 'function') return null;
   const candidates = flattenPages(reviews)
     .map((review, index) => ({ review, index, timestamp: reviewTimestamp(review) }))
-    .filter(({ review, timestamp }) => isReviewerBot(review?.user) && predicate(review)
+    .filter(({ review, timestamp }) => predicate(review)
       && timestamp !== null)
     .sort((left, right) => left.timestamp - right.timestamp
       || (Number(left.review.id || left.index) || left.index)
         - (Number(right.review.id || right.index) || right.index));
   return candidates.at(-1)?.review || null;
+}
+
+function latestBotReviewMatching(reviews, predicate) {
+  if (typeof predicate !== 'function') return null;
+  return latestReviewMatching(reviews, (review) => isReviewerBot(review?.user)
+    && predicate(review));
+}
+
+/**
+ * The Codex fallback is not a raw reviewer. It may enter only the structured
+ * review-gate evidence path, with the exact marker emitted by `tests.yml` and
+ * an exact current HEAD. Keep this identity narrower than the normal
+ * Claude/frontaliere reviewer allowlist.
+ */
+function isCodexFallbackReviewOnHead(review, head) {
+  return typeof head === 'string'
+    && /^[0-9a-f]{40}$/iu.test(head)
+    && review?.user?.type === 'Bot'
+    && CODEX_FALLBACK_REVIEWER_RE.test(review.user.login || '')
+    && review.commit_id === head
+    && String(review.body || '').includes(CODEX_FALLBACK_REVIEW_MARKER);
+}
+
+/** Select a normal reviewer or the explicitly marked Codex evidence candidate. */
+function latestReviewGateCandidate(reviews, head) {
+  return latestReviewMatching(reviews, (review) => isReviewerBot(review?.user)
+    || isCodexFallbackReviewOnHead(review, head));
 }
 
 /** Return the latest reviewer-bot review, regardless of the commit it names. */
@@ -207,6 +238,8 @@ function parseActionsCheckRunUrl(value, repo) {
 /**
  * Verify the structured proof used only for the outside-diff exception.
  * Every layer is required: a green check or a green step alone is not proof.
+ * The review identity is also checked here so an ordinary Actions review
+ * cannot reach this exception without the exact Codex fallback marker.
  */
 export function reviewGateEvidenceDecision({
   evidence,
@@ -220,6 +253,9 @@ export function reviewGateEvidenceDecision({
   }
   if (typeof head !== 'string' || !/^[0-9a-f]{40}$/iu.test(head)) {
     return deny('HEAD non verificabile per la prova review-gate');
+  }
+  if (!isReviewerBot(review?.user) && !isCodexFallbackReviewOnHead(review, head)) {
+    return deny('identità review non autorizzata per la prova review-gate');
   }
   const reviewId = reviewIdKey(review?.id);
   if (!reviewId || evidence.reviewId !== reviewId) {
@@ -344,7 +380,7 @@ export function evaluateNativeAutoMerge({
   // applies the repository's fingerprint-based carry-forward policy, so the
   // native helper must not reject a valid older LGTM merely because the PR
   // received a data-only or otherwise review-preserving commit afterward.
-  const review = latestBotReview(reviews);
+  const review = latestReviewGateCandidate(reviews, pr.headRefOid);
   const testOnlyApproval = !review
     && testOnlyReviewIsApproved(verifiedTestOnlyReview, pr.headRefOid);
   if (!review && !testOnlyApproval) {
@@ -635,7 +671,7 @@ function main() {
       repo,
       pr.headRefOid,
       checkRuns,
-      latestBotReview(reviews),
+      latestReviewGateCandidate(reviews, pr.headRefOid),
     );
   } catch (error) {
     if (hadAutoMerge) {
@@ -704,7 +740,7 @@ function main() {
       repo,
       current.headRefOid,
       finalCheckRuns,
-      latestBotReview(finalReviews),
+      latestReviewGateCandidate(finalReviews, current.headRefOid),
     );
   } catch (error) {
     if (current.autoMergeRequest !== null) {
