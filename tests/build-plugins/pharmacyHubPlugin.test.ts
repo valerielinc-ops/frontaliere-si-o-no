@@ -33,20 +33,28 @@ describe('pharmacyHubPlugin — buildPharmacyHubPage', () => {
     expect(html).not.toMatch(/farmacia\s+[A-Z][a-zà-ü]+\s+è\s+di\s+turno/i);
   });
 
-  it('represents all 26 Swiss cantons without fabricating missing source links', () => {
+  it('represents all 26 Swiss cantons and renders verified registry source links', () => {
     expect(SWISS_CANTONS).toHaveLength(26);
     const cards = getPharmacyHubCantonCards();
     expect(cards).toHaveLength(26);
+    expect(cards.every((card) => card.source)).toBe(true);
     expect(cards.find((card) => card.canton.code === 'TI')?.source?.officialSourceUrl)
       .toBe('https://www.ofct.ch/farmacieturno/');
-    expect(cards.find((card) => card.canton.code === 'AG')?.source).toBeUndefined();
+    expect(cards.find((card) => card.canton.code === 'AG')?.source?.officialSourceUrl)
+      .toBe('https://apotheken-aargau.ch/notfall/');
 
     const { html } = buildPharmacyHubPage('it');
     for (const canton of SWISS_CANTONS) expect(html).toContain(canton.names.it);
     expect(html).toContain('Corridoio italiano di confine');
     expect(html).toContain('/farmacie/italia/');
     expect(html).toContain('https://www.dati.salute.gov.it/it/dataset/farmacie/');
-    expect(html).not.toContain('href="https://www.ar.ch/');
+    expect(html).toContain('https://apotheken-aargau.ch/notfall/');
+  });
+
+  it.each(['en', 'de', 'fr'] as const)('keeps discovery notes localized for locale %s', (locale) => {
+    const { html } = buildPharmacyHubPage(locale);
+    expect(html).not.toContain('Fonte associativa');
+    expect(html).not.toContain('senza connettore');
   });
 
   it('keeps a registry source link without showing the missing-source note when notes are absent', () => {
