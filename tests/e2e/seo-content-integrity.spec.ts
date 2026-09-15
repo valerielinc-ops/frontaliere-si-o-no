@@ -8,6 +8,7 @@ const SEO_URLS = [
   '/aziende-che-assumono/ticino/settimana-corrente/',
   '/premi-cassa-malati/',
   '/farmacie/',
+  '/aste-targhe-svizzera/',
 ];
 
 for (const url of SEO_URLS) {
