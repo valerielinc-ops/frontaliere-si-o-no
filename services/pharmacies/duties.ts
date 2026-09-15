@@ -3,6 +3,8 @@ import catalogueJson from '../../data/pharmacies-ticino-complete.json';
 import dutiesJson from '../../data/pharmacy-duties-ticino.json';
 import {
   PHARMACY_RELEASE_REGION_KEYS,
+  validatePharmacyDutyList,
+  validatePharmacyList,
   validatePharmacyReleaseContract,
   type PharmacyCatalogueDataset,
   type PharmacyDuty,
@@ -264,7 +266,18 @@ export function getPharmacyReleaseEvaluation(
   const catalogueRelease = catalogue?._release;
   const dutyErrors = cachedReleaseValidation(dutyRelease);
   const catalogueErrors = cachedReleaseValidation(catalogueRelease);
-  if (dutyErrors.length > 0 || catalogueErrors.length > 0 || !Array.isArray(dataset?.duties) || !Array.isArray(catalogue?.pharmacies)) {
+  const dutiesArrayInvalid = !Array.isArray(dataset?.duties);
+  const catalogueArrayInvalid = !Array.isArray(catalogue?.pharmacies);
+  // Expiry is part of the runtime state machine below. Structural validation
+  // must still accept an interval exactly crossing the evaluation boundary.
+  const dutyEntryErrors = validatePharmacyDutyList(dataset?.duties, now, { checkTemporalState: false });
+  const catalogueEntryErrors = validatePharmacyList(catalogue?.pharmacies);
+  if (
+    dutyErrors.length > 0
+    || catalogueErrors.length > 0
+    || dutyEntryErrors.length > 0
+    || catalogueEntryErrors.length > 0
+  ) {
     return {
       state: 'unknown',
       releaseId: null,
@@ -272,8 +285,8 @@ export function getPharmacyReleaseEvaluation(
       reasons: [
         ...(dutyErrors.length > 0 ? ['duties release contract is invalid or missing'] : []),
         ...(catalogueErrors.length > 0 ? ['catalogue release contract is invalid or missing'] : []),
-        ...(!Array.isArray(dataset?.duties) ? ['duties snapshot is invalid or missing'] : []),
-        ...(!Array.isArray(catalogue?.pharmacies) ? ['catalogue snapshot is invalid or missing'] : []),
+        ...(dutiesArrayInvalid ? ['duties snapshot is invalid or missing'] : dutyEntryErrors.length > 0 ? ['duties snapshot contains invalid entries'] : []),
+        ...(catalogueArrayInvalid ? ['catalogue snapshot is invalid or missing'] : catalogueEntryErrors.length > 0 ? ['catalogue snapshot contains invalid entries'] : []),
       ],
       regions: unknownRegions(),
     };

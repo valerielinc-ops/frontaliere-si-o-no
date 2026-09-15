@@ -21,6 +21,20 @@ const REGIONS = [
 const CATALOGUE_FETCHED_AT = '2026-09-14T10:00:00.000Z';
 const DUTIES_FETCHED_AT = '2026-09-14T11:00:00.000Z';
 
+const BASE_PHARMACY = {
+  id: 'pharmacy-1',
+  name: 'Farmacia di test',
+  slug: 'farmacia-di-test',
+  address: 'Via Test 1',
+  postalCode: '6900',
+  city: 'Lugano',
+  canton: 'Ticino',
+  country: 'CH',
+  sourceUrl: 'https://catalogue.test/pharmacy-1',
+  sourceType: 'official',
+  lastVerifiedAt: CATALOGUE_FETCHED_AT,
+} as const;
+
 function duty(region: (typeof REGIONS)[number], index: number): PharmacyDuty {
   const day = String(15 + index).padStart(2, '0');
   return {
@@ -46,7 +60,7 @@ function makeCatalogue(overrides: Record<string, unknown> = {}): PharmacyCatalog
     _source: 'https://catalogue.test/',
     _fetchedAt: CATALOGUE_FETCHED_AT,
     _errors: [],
-    pharmacies: [{ id: 'pharmacy-1' }],
+    pharmacies: [BASE_PHARMACY],
     ...overrides,
   } as unknown as PharmacyCatalogueDataset;
 }
@@ -146,12 +160,12 @@ describe('weekly pharmacy duty read model', () => {
 
   it('marks release conflicts and unresolved catalogue identities non-indexable', () => {
     const pair = makePair();
-    const differentPair = makePair({ pharmacies: [{ id: 'different-pharmacy' }] });
+    const differentPair = makePair({ pharmacies: [{ ...BASE_PHARMACY, id: 'different-pharmacy', slug: 'different-pharmacy' }] });
     const conflict = build({ duties: pair.duties, catalogue: differentPair.catalogue });
     expect(conflict.status).toBe('conflicting');
     expect(conflict.indexable).toBe(false);
 
-    const unresolvedPair = makePair({ pharmacies: [{ id: 'different-pharmacy' }] });
+    const unresolvedPair = makePair({ pharmacies: [{ ...BASE_PHARMACY, id: 'different-pharmacy', slug: 'different-pharmacy' }] });
     const unresolved = build(unresolvedPair);
     expect(unresolved.status).toBe('partial');
     expect(unresolved.unresolvedPharmacyIds).toEqual(['pharmacy-1']);
@@ -170,7 +184,7 @@ describe('weekly pharmacy duty read model', () => {
     const earlyMonday = {
       ...BASE_DUTIES[0],
       startsAt: '2026-09-13T22:15:00.000Z',
-      endsAt: '2026-09-13T22:45:00.000Z',
+      endsAt: '2026-09-14T14:00:00.000Z',
     };
     const nextEarlyMonday = {
       ...BASE_DUTIES[1],
@@ -230,6 +244,21 @@ describe('weekly pharmacy duty read model', () => {
 
     expect(model.indexable).toBe(false);
     expect(model.missingRegions).toEqual(REGIONS.map((region) => region.name));
+  });
+
+  it.each([
+    ['duties', { duties: [null] }, {}],
+    ['pharmacies', {}, { pharmacies: [null] }],
+    ['incomplete duty', { duties: [{ id: 'incomplete-duty' }] }, {}],
+    ['incomplete pharmacy', {}, { pharmacies: [{ id: 'incomplete-pharmacy' }] }],
+  ] as const)('fails closed without dereferencing an invalid %s entry', (_label, dutiesOverrides, catalogueOverrides) => {
+    const pair = makePair(catalogueOverrides, dutiesOverrides);
+    const model = build(pair);
+
+    expect(model.status).toBe('unknown');
+    expect(model.indexable).toBe(false);
+    expect(model.unresolvedPharmacyIds).toEqual([]);
+    expect(model.reason).toContain('invalid entries');
   });
 
   it('marks an empty completed week expired', () => {
