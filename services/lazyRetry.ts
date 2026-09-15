@@ -10,7 +10,8 @@ import {
  * Retry wrapper for React.lazy dynamic imports.
  * When a chunk fails to load (e.g., deploy replaced hashed chunks while user
  * had old entry module cached), this utility:
- * 1. Clears all Service Worker caches
+ * 1. Clears all Service Worker caches and explicitly refreshes the failed asset
+ *    URL (the native dynamic-import request is not a DOM node)
  * 2. Retries the import twice (immediate + 2s delay)
  * 3. If retries fail, reloads the page to fetch the new entry module
  *    (which references new chunk hashes that exist on the server)
@@ -108,8 +109,11 @@ export function lazyRetry<T extends React.ComponentType<any>>(
  })).catch(() => {});
  };
 
- // Retry 1: clear caches and retry immediately
+ // Retry 1: clear caches, refresh the exact failed URL, and retry immediately.
+ // CacheStorage does not evict the browser's HTTP cache, and native dynamic
+ // imports do not leave a DOM node for bustAssetHttpCache() to discover.
  return clearCaches()
+ .then(() => bustAssetHttpCache(err?.message || ''))
  .then(() => load())
  .then(result => { trackRetry('success', err?.message || ''); return result; })
  .catch(() =>
@@ -144,7 +148,7 @@ export function lazyRetry<T extends React.ComponentType<any>>(
  // chunk (SPA-fallback HTML for a .js, or a cached module the retries kept
  // re-linking) would otherwise be re-served from the disk cache and this one
  // reload wasted (#3097).
- void bustAssetHttpCache().finally(() => window.location.reload());
+ void bustAssetHttpCache(err?.message || '').finally(() => window.location.reload());
  // Reject to satisfy the type, though reload will prevent this from running
  reject(err);
  });

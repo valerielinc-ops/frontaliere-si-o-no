@@ -55,7 +55,7 @@ async function retryImport<T>(factory: () => Promise<T>, label: string): Promise
  const names = await caches.keys();
  await Promise.all(names.map(n => caches.delete(n)));
  }
- await bustAssetHttpCache();
+ await bustAssetHttpCache((err as Error)?.message || '');
  try {
  return await factory();
  } catch (retryErr) {
