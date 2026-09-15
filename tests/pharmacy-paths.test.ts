@@ -14,6 +14,7 @@ describe('pharmacy canonical paths', () => {
         { kind: 'city' as const, citySlug: 'lugano', locale },
         { kind: 'duty-hub' as const, locale },
         { kind: 'duty-city' as const, citySlug: 'lugano', locale },
+        { kind: 'duty-week' as const, weekStart: '2026-09-14', locale },
       ]) {
         expect(parsePharmacyPath(buildPharmacyPath(path, locale))).toEqual(path);
       }
@@ -22,6 +23,11 @@ describe('pharmacy canonical paths', () => {
 
   it('rejects a non-Ticino city slug', () => {
     expect(parsePharmacyPath('/farmacie/ticino/zurigo/')).toBeNull();
+  });
+
+  it('rejects invalid weekly dates and keeps them on the duty hub', () => {
+    expect(parsePharmacyPath('/farmacie-di-turno/settimana/2026-09-15/')).toBeNull();
+    expect(buildPharmacyPath({ kind: 'duty-week', locale: 'it', weekStart: '2026-09-15' })).toBe('/farmacie-di-turno/');
   });
 
   it('round-trips Swiss and Italian pharmacy detail URLs', () => {

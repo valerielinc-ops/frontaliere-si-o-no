@@ -20,14 +20,18 @@ import {
   pharmaciesForProvince,
 } from '../services/pharmacies/data';
 import { buildPharmacyPath, type PharmacyPageKind, type PharmacyPath } from '../services/pharmacies/paths';
+import { publicDutiesForRegion } from '../services/pharmacies/duties';
+import { buildDutyWeekModel, currentDutyWeekStart, DUTY_WEEK_SOURCE_URL, type DutyWeekModel } from '../services/pharmacies/dutyWeek';
 import { currentDutyForRegion } from '../services/pharmacies/duties';
 import type { Locale } from '../services/i18n';
-import { safePharmacyUrl, type Pharmacy, type PharmacyDuty, type PharmacyDutiesDataset, type PharmacyFieldSource, type PharmacyUrlAlias } from '../services/pharmacies/types';
+import { safePharmacyUrl, type Pharmacy, type PharmacyCatalogueDataset, type PharmacyDuty, type PharmacyDutiesDataset, type PharmacyFieldSource, type PharmacyUrlAlias } from '../services/pharmacies/types';
 import dutiesJson from '../data/pharmacy-duties-ticino.json';
+import completeTicinoJson from '../data/pharmacies-ticino-complete.json';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 
 const LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'];
 const dutiesDataset = dutiesJson as PharmacyDutiesDataset;
+const completeTicinoSnapshot = completeTicinoJson as unknown as PharmacyCatalogueDataset;
 const dutySource = 'https://www.ofct.ch/farmacieturno/';
 const osmLicense = 'OpenStreetMap contributors, ODbL 1.0';
 const PHARMACY_TITLE_DUPLICATES = new Set(
@@ -35,6 +39,65 @@ const PHARMACY_TITLE_DUPLICATES = new Set(
     .map((pharmacy) => `${pharmacy.name}\u0000${pharmacy.city}`)
     .filter((key, index, keys) => keys.indexOf(key) !== index),
 );
+
+type DutyWeekCopy = {
+  title: (weekStart: string) => string;
+  lede: string;
+  coverage: string;
+  unavailable: string;
+  source: string;
+  fetched: string;
+  interval: string;
+  verify: string;
+  notCovered: string;
+};
+
+const DUTY_WEEK_COPY: Record<Locale, DutyWeekCopy> = {
+  it: {
+    title: (weekStart) => `Farmacie di turno in Ticino: settimana del ${weekStart}`,
+    lede: 'Calendario settimanale delle sole aree OFCT con intervalli verificati. Non è una copertura di tutti i cantoni né delle farmacie italiane di confine.',
+    coverage: 'Questa edizione copre quattro aree OFCT: Mendrisiotto, Luganese, Bellinzonese e Biasca e Valli.',
+    unavailable: 'Questa settimana non supera il controllo di pubblicazione: il contenuto resta visibile per trasparenza ma non è una fonte valida per un turno attivo.',
+    source: 'Fonte ufficiale',
+    fetched: 'Ultimo recupero',
+    interval: 'Intervallo',
+    verify: 'Turni e orari possono cambiare. Chiama sempre la farmacia o controlla la fonte ufficiale prima di partire, soprattutto in caso di urgenza.',
+    notCovered: 'Non coperto in questa edizione: Locarnese, gli altri cantoni svizzeri e le province italiane di confine.',
+  },
+  en: {
+    title: (weekStart) => `On-duty pharmacies in Ticino: week of ${weekStart}`,
+    lede: 'Weekly schedule for the OFCT areas with verified intervals only. This is not coverage for every Swiss canton or for Italian border pharmacies.',
+    coverage: 'This edition covers four OFCT areas: Mendrisiotto, Luganese, Bellinzonese and Biasca e Valli.',
+    unavailable: 'This week did not pass the publication check: it remains visible for transparency but is not a valid source for an active duty.',
+    source: 'Official source',
+    fetched: 'Last retrieved',
+    interval: 'Interval',
+    verify: 'Duties and opening hours can change. Always call the pharmacy or check the official source before travelling, especially in an emergency.',
+    notCovered: 'Not covered in this edition: Locarnese, the other Swiss cantons and the Italian border provinces.',
+  },
+  de: {
+    title: (weekStart) => `Notdienst-Apotheken im Tessin: Woche ab ${weekStart}`,
+    lede: 'Wochenplan nur für OFCT-Gebiete mit verifizierten Zeiträumen. Dies ist keine Abdeckung aller Schweizer Kantone oder der italienischen Grenzapotheken.',
+    coverage: 'Diese Ausgabe deckt vier OFCT-Gebiete ab: Mendrisiotto, Luganese, Bellinzonese sowie Biasca e Valli.',
+    unavailable: 'Diese Woche hat die Veröffentlichungskontrolle nicht bestanden: Sie bleibt aus Transparenzgründen sichtbar, ist aber keine gültige Quelle für einen aktiven Notdienst.',
+    source: 'Offizielle Quelle',
+    fetched: 'Letzter Abruf',
+    interval: 'Zeitraum',
+    verify: 'Notdienste und Öffnungszeiten können sich ändern. Vor der Fahrt immer telefonisch oder bei der offiziellen Quelle prüfen, besonders im Notfall.',
+    notCovered: 'In dieser Ausgabe nicht abgedeckt: Locarnese, die übrigen Schweizer Kantone und die italienischen Grenzprovinzen.',
+  },
+  fr: {
+    title: (weekStart) => `Pharmacies de garde au Tessin : semaine du ${weekStart}`,
+    lede: 'Planning hebdomadaire limité aux zones OFCT dont les intervalles sont vérifiés. Il ne couvre pas tous les cantons suisses ni les pharmacies italiennes de la frontière.',
+    coverage: 'Cette édition couvre quatre zones OFCT : Mendrisiotto, Luganese, Bellinzonese et Biasca e Valli.',
+    unavailable: 'Cette semaine n’a pas passé le contrôle de publication : elle reste visible par transparence mais ne constitue pas une source valide pour une garde active.',
+    source: 'Source officielle',
+    fetched: 'Dernière collecte',
+    interval: 'Intervalle',
+    verify: 'Les gardes et les horaires peuvent changer. Appelez toujours la pharmacie ou consultez la source officielle avant de partir, surtout en cas d’urgence.',
+    notCovered: 'Non couvert dans cette édition : Locarnese, les autres cantons suisses et les provinces italiennes frontalières.',
+  },
+};
 
 type Copy = {
   hubTitle: string;
@@ -283,6 +346,71 @@ function renderDuty(duty: PharmacyDuty | undefined, locale: Locale): string {
   return `<article class="${CARD_CLASS}"><h3 style="${H3_STYLE}">${esc(pharmacy?.name || duty.pharmacyId)}</h3><p style="${BODY_STYLE}"><strong>${esc(copy.coverage)}:</strong> ${esc(duty.coverageName)}<br><strong>${esc(copy.interval)}:</strong> ${esc(formatDate(duty.startsAt, locale))} – ${esc(formatDate(duty.endsAt, locale))}<br><strong>${esc(copy.checked)}:</strong> ${esc(formatDate(duty.fetchedAt, locale))}</p>${pharmacy ? `<p style="${BODY_STYLE}">${esc(pharmacy.address)}, ${esc(pharmacy.postalCode)} ${esc(pharmacy.city)}${pharmacy.phone ? ` · <a href="tel:${esc(pharmacy.phone)}">${esc(pharmacy.phone)}</a>` : ''}</p>` : ''}<p style="${BODY_STYLE}"><a href="${esc(duty.sourceUrl || dutySource)}" rel="nofollow noopener">${esc(copy.sourceLink)}</a></p></article>`;
 }
 
+function dutyWeekModel(descriptor: PageDescriptor, dataset: PharmacyDutiesDataset = dutiesDataset, now = new Date()): DutyWeekModel {
+  return buildDutyWeekModel(dataset, descriptor.weekStart || '', {
+    catalogue: completeTicinoSnapshot,
+    now,
+  });
+}
+
+function dutyWeekDateRange(model: DutyWeekModel, locale: Locale): string {
+  if (!model.weekEnd) return model.weekStart;
+  const formatter = new Intl.DateTimeFormat(locale === 'it' ? 'it-CH' : locale, {
+    dateStyle: 'medium',
+    timeZone: 'Europe/Zurich',
+  });
+  const end = new Date(`${model.weekEnd}T00:00:00+01:00`);
+  return `${model.weekStart} – ${formatter.format(end)}`;
+}
+
+function renderDutyWeek(
+  descriptor: PageDescriptor,
+  locale: Locale,
+  h1 = pageTitle(descriptor.kind, locale, descriptor),
+  dataset: PharmacyDutiesDataset = dutiesDataset,
+  now = new Date(),
+): string {
+  const copy = DUTY_WEEK_COPY[locale];
+  const model = dutyWeekModel(descriptor, dataset, now);
+  const status = model.indexable
+    ? `<p style="${LEDE_STYLE}">${esc(copy.coverage)}</p>`
+    : `<aside style="${BODY_STYLE}"><strong>${esc(copy.unavailable)}</strong><br>${esc(model.reason)}</aside>`;
+  const regions = model.regions.map((region) => {
+    const rows = region.duties.length > 0
+      ? region.duties.map((duty) => {
+        const pharmacy = pharmacyById(duty.pharmacyId);
+        const link = pharmacy ? ` <a href="${esc(buildPharmacyPath(pharmacyPath(pharmacy, locale), locale))}">${esc(pharmacy.name)}</a>` : esc(duty.pharmacyId);
+        return `<li><strong>${link}</strong> — ${esc(copy.interval)}: ${esc(formatDate(duty.startsAt, locale))} – ${esc(formatDate(duty.endsAt, locale))}<br><a href="${esc(duty.sourceUrl || DUTY_WEEK_SOURCE_URL)}" rel="nofollow noopener">${esc(copy.source)}</a></li>`;
+      }).join('')
+      : `<li>${esc(copy.unavailable)}</li>`;
+    return `<section><h2 style="${H2_STYLE}">${esc(region.name)}</h2><ul style="${BODY_STYLE}">${rows}</ul></section>`;
+  }).join('');
+  const source = model.sourceUrl || DUTY_WEEK_SOURCE_URL;
+  const fetched = model.fetchedAt ? formatDate(model.fetchedAt, locale) : copy.unavailable;
+  return `<header><h1 style="${H1_STYLE}">${esc(h1)}</h1><p style="${LEDE_STYLE}">${esc(copy.lede)}</p><p style="${BODY_STYLE}"><strong>${esc(copy.interval)}:</strong> ${esc(dutyWeekDateRange(model, locale))}<br><strong>${esc(copy.fetched)}:</strong> ${esc(fetched)}<br><strong>${esc(copy.source)}:</strong> <a href="${esc(source)}" rel="nofollow noopener">${esc(source)}</a></p>${status}</header>${regions}<p style="${BODY_STYLE}">${esc(copy.notCovered)}</p><section><h2 style="${H2_STYLE}">${esc(COPY[locale].disclaimerHeading)}</h2><p style="${BODY_STYLE}">${esc(copy.verify)}</p></section>`;
+}
+
+function dutyWeekCollectionJsonLd(pathValue: PharmacyPath, title: string, model: DutyWeekModel): string {
+  const duties = model.regions.flatMap((region) => region.duties);
+  const itemListElement = duties.slice(0, MAX_COLLECTION_SCHEMA_ITEMS).flatMap((duty, index) => {
+    const pharmacy = pharmacyById(duty.pharmacyId);
+    if (!pharmacy) return [];
+    return [{
+      '@type': 'ListItem',
+      position: index + 1,
+      name: `${pharmacy.name} — ${duty.coverageName}`,
+      url: `${BASE_URL}${buildPharmacyPath(pharmacyPath(pharmacy, pathValue.locale), pathValue.locale)}`,
+    }];
+  });
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: title,
+    url: `${BASE_URL}${buildPharmacyPath(pathValue, pathValue.locale)}`,
+    mainEntity: { '@type': 'ItemList', numberOfItems: duties.length, itemListElement },
+  });
+}
+
 function detailJsonLd(pharmacy: Pharmacy, locale: Locale): string {
   const pathValue = pharmacyPath(pharmacy, locale);
   const website = safePharmacyUrl(pharmacy.website);
@@ -343,6 +471,7 @@ function pageTitle(kind: PharmacyPageKind, locale: Locale, descriptor: PageDescr
   if (kind === 'area') return copy.italyAreaTitle(descriptor.areaName || descriptor.areaSlug || '');
   if (kind === 'duty-hub') return copy.dutyHubTitle;
   if (kind === 'duty-city') return copy.dutyCityTitle(descriptor.cityName || '');
+  if (kind === 'duty-week') return DUTY_WEEK_COPY[locale].title(descriptor.weekStart || '');
   if (kind === 'pharmacy') return pharmacyTitle(descriptor.pharmacy!);
   return copy.cityTitle(descriptor.cityName || '', descriptor.country || 'CH');
 }
@@ -398,10 +527,12 @@ function pageLede(kind: PharmacyPageKind, locale: Locale): string {
         : kind === 'area'
           ? copy.areaLede
           : kind === 'duty-hub'
-            ? copy.dutyHubLede
-            : kind === 'duty-city'
-              ? copy.dutyCityLede
-              : kind === 'pharmacy'
+      ? copy.dutyHubLede
+      : kind === 'duty-city'
+        ? copy.dutyCityLede
+        : kind === 'duty-week'
+          ? DUTY_WEEK_COPY[locale].lede
+          : kind === 'pharmacy'
                 ? copy.detailLede
                 : copy.cityLede;
   const supplement = RATIO_QUALITY_COPY[locale][kind];
@@ -437,12 +568,14 @@ interface PageDescriptor {
   citySlug?: string;
   cityName?: string;
   pharmacy?: Pharmacy;
+  weekStart?: string;
 }
 
 function descriptorPath(descriptor: PageDescriptor, locale: Locale): PharmacyPath {
   if (descriptor.kind === 'hub' || descriptor.kind === 'canton' || descriptor.kind === 'country' || descriptor.kind === 'duty-hub') return { kind: descriptor.kind, locale, country: descriptor.country };
   if (descriptor.kind === 'pharmacy') return pharmacyPath(descriptor.pharmacy!, locale);
   if (descriptor.kind === 'duty-city') return { kind: 'duty-city', locale, citySlug: descriptor.citySlug };
+  if (descriptor.kind === 'duty-week') return { kind: 'duty-week', locale, weekStart: descriptor.weekStart };
   return cityPath(descriptor.country || 'CH', locale, descriptor.citySlug || '', descriptor.areaSlug);
 }
 
@@ -483,6 +616,7 @@ function renderBody(
   now = new Date(),
 ): string {
   const copy = COPY[locale];
+  if (descriptor.kind === 'duty-week') return renderDutyWeek(descriptor, locale, h1, dataset, now);
   const datasetDuties = Array.isArray(dataset.duties) ? dataset.duties : [];
   let sections = '';
   if (descriptor.kind === 'hub') {
@@ -542,6 +676,7 @@ function breadcrumbJsonLd(descriptor: PageDescriptor, locale: Locale): string {
     }
     if (descriptor.kind === 'city' || descriptor.kind === 'duty-city') items.push({ name: descriptor.cityName || '', path: descriptorPath(descriptor, locale) });
     if (descriptor.kind === 'duty-hub') items.push({ name: COPY[locale].duties, path: descriptorPath(descriptor, locale) });
+    if (descriptor.kind === 'duty-week') items.push({ name: pageTitle(descriptor.kind, locale, descriptor), path: descriptorPath(descriptor, locale) });
   }
   return JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: item.name, item: `${BASE_URL}${buildPharmacyPath(item.path, locale)}` })) });
 }
@@ -551,6 +686,12 @@ function jsonLd(descriptor: PageDescriptor, locale: Locale, dataset: PharmacyDut
   const title = pageTitle(descriptor.kind, locale, descriptor);
   if (descriptor.kind === 'pharmacy') return [detailJsonLd(descriptor.pharmacy!, locale), breadcrumbJsonLd(descriptor, locale)];
   if (descriptor.kind === 'duty-city') return [breadcrumbJsonLd(descriptor, locale)];
+  if (descriptor.kind === 'duty-week') {
+    const model = dutyWeekModel(descriptor, dataset, now);
+    return model.indexable
+      ? [dutyWeekCollectionJsonLd(pathValue, title, model), breadcrumbJsonLd(descriptor, locale)]
+      : [breadcrumbJsonLd(descriptor, locale)];
+  }
   if (descriptor.kind === 'country') return [countryCollectionJsonLd(pathValue, title), breadcrumbJsonLd(descriptor, locale)];
   return [collectionJsonLd(pathValue, title, pagePharmacies(descriptor, dataset, now)), breadcrumbJsonLd(descriptor, locale)];
 }
@@ -564,6 +705,7 @@ function descriptors(): PageDescriptor[] {
     { kind: 'hub' },
     { kind: 'canton', country: 'CH' },
     { kind: 'duty-hub' },
+    { kind: 'duty-week', weekStart: currentDutyWeekStart(new Date()) },
     { kind: 'country', country: 'IT' },
     ...ITALY_BORDER_PROVINCES.map((area) => ({ kind: 'area' as const, country: 'IT' as const, areaSlug: area.slug, areaName: area.name })),
     ...TICINO_CITIES.map((city) => ({ kind: 'city' as const, country: 'CH' as const, citySlug: city.slug, cityName: city.name })),
@@ -590,7 +732,10 @@ function buildPage(
   // City duty URLs are useful navigation aliases, but their body repeats the
   // regional OFCT schedule. Keep them crawlable for users without creating
   // duplicate indexable pages or an ItemList with a different visible scope.
-  const indexable = descriptor.kind !== 'duty-city' && wordCount >= MIN_INDEXABLE_WORDS;
+  const dutyWeek = descriptor.kind === 'duty-week' ? dutyWeekModel(descriptor, dataset, now) : null;
+  const indexable = descriptor.kind === 'duty-week'
+    ? Boolean(dutyWeek?.indexable && wordCount >= MIN_INDEXABLE_WORDS)
+    : descriptor.kind !== 'duty-city' && wordCount >= MIN_INDEXABLE_WORDS;
   const pathValue = descriptorPath(descriptor, locale);
   const description = pageDescription(descriptor, locale);
   const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable })}`;
