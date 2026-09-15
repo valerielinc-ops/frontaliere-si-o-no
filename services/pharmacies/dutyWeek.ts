@@ -1,6 +1,12 @@
 import catalogueJson from '../../data/pharmacies-ticino-complete.json';
 import { getPharmacyReleaseEvaluation } from './duties';
-import type { PharmacyCatalogueDataset, PharmacyDuty, PharmacyDutiesDataset } from './types';
+import {
+  validatePharmacyDutyList,
+  validatePharmacyList,
+  type PharmacyCatalogueDataset,
+  type PharmacyDuty,
+  type PharmacyDutiesDataset,
+} from './types';
 
 export const DUTY_WEEK_TIMEZONE = 'Europe/Zurich';
 export const DUTY_WEEK_SOURCE_URL = 'https://www.ofct.ch/farmacieturno/';
@@ -197,6 +203,22 @@ function uniqueSorted(values: string[]): string[] {
   return [...new Set(values)].sort();
 }
 
+const DUTY_LIFECYCLE_VALIDATION_MESSAGES = [
+  'verified duty must not be expired',
+  'expired duty must have ended',
+] as const;
+
+/**
+ * The weekly page can render a historical week, so expiry is evaluated by
+ * this read model rather than by the structural snapshot validator. Keep all
+ * schema, URL, timestamp and overlap errors while ignoring only those two
+ * clock-relative lifecycle diagnostics.
+ */
+function validateDutyEntriesForWeeklyModel(value: unknown, now: Date): string[] {
+  return validatePharmacyDutyList(value, now)
+    .filter((error) => !DUTY_LIFECYCLE_VALIDATION_MESSAGES.some((message) => error.endsWith(message)));
+}
+
 /**
  * Builds the dated read model used by both the static page and the SPA.
  * A model is indexable only when catalogue and duty snapshots are the same
@@ -216,13 +238,25 @@ export function buildDutyWeekModel(
   const record = recordOf(dataset);
   const sourceUrl = typeof record._source === 'string' && record._source.trim() ? record._source : null;
   const fetchedAt = typeof record._fetchedAt === 'string' && record._fetchedAt.trim() ? record._fetchedAt : null;
-  const effectiveCatalogue = options.catalogue ?? DEFAULT_PHARMACY_CATALOGUE;
-  const evaluation = getPharmacyReleaseEvaluation(dataset, now, effectiveCatalogue);
-  const releaseId = evaluation.releaseId;
+  // Preserve an explicitly supplied null/malformed catalogue as invalid data;
+  // only an omitted option uses the checked-in build snapshot.
+  const effectiveCatalogue: unknown = options.catalogue === undefined
+    ? DEFAULT_PHARMACY_CATALOGUE
+    : options.catalogue;
+  // Validate before the release evaluator: its region aggregation assumes
+  // typed entries and must never receive null/incomplete runtime records.
+  const dutyEntryErrors = validateDutyEntriesForWeeklyModel(record.duties, now);
+  const catalogueEntryErrors = validatePharmacyList(recordOf(effectiveCatalogue).pharmacies);
+  const evaluation = dutyEntryErrors.length === 0 && catalogueEntryErrors.length === 0
+    ? getPharmacyReleaseEvaluation(dataset, now, effectiveCatalogue as PharmacyCatalogueDataset)
+    : null;
+  const releaseId = evaluation?.releaseId ?? null;
   const timezone = snapshotTimezone(dataset);
-  const duties = Array.isArray(record.duties) ? record.duties as PharmacyDuty[] : [];
-  const cataloguePharmacyIds = Array.isArray(effectiveCatalogue.pharmacies)
-    ? new Set(effectiveCatalogue.pharmacies.map((pharmacy) => pharmacy.id))
+  const duties = dutyEntryErrors.length === 0 && Array.isArray(record.duties)
+    ? record.duties as PharmacyDuty[]
+    : [];
+  const cataloguePharmacyIds = catalogueEntryErrors.length === 0 && Array.isArray(recordOf(effectiveCatalogue).pharmacies)
+    ? new Set((recordOf(effectiveCatalogue).pharmacies as PharmacyCatalogueDataset['pharmacies']).map((pharmacy) => pharmacy.id))
     : undefined;
   const regions = DUTY_WEEK_REGIONS.map((region) => ({
     key: region.key,
@@ -242,9 +276,16 @@ export function buildDutyWeekModel(
       .filter((duty) => !cataloguePharmacyIds.has(duty.pharmacyId))
       .map((duty) => duty.pharmacyId)))
     : [];
-  const reasons: string[] = [...evaluation.reasons];
-  let status: DutyWeekStatus = evaluation.state === 'fresh' ? 'ready' : evaluation.state;
-  if (!evaluation.publishable && evaluation.reasons.length === 0) {
+  const reasons: string[] = [
+    ...(evaluation?.reasons ?? []),
+    ...(dutyEntryErrors.length > 0 ? ['duties snapshot contains invalid entries'] : []),
+    ...(catalogueEntryErrors.length > 0 ? ['catalogue snapshot contains invalid entries'] : []),
+  ];
+  let status: DutyWeekStatus = evaluation?.state === 'fresh' ? 'ready' : evaluation?.state ?? 'unknown';
+  const preserveFailClosedStatus = (fallback: DutyWeekStatus): DutyWeekStatus => (
+    status === 'conflicting' || status === 'unknown' || status === 'not_published' ? status : fallback
+  );
+  if (evaluation && !evaluation.publishable && evaluation.reasons.length === 0) {
     reasons.push('catalogue and duties release is not publishable');
   }
 
@@ -266,18 +307,18 @@ export function buildDutyWeekModel(
   const parsedFetchedAt = fetchedAt ? Date.parse(fetchedAt) : NaN;
   const maxAgeMs = options.maxAgeMs ?? DUTY_WEEK_MAX_AGE_MS;
   if (!Number.isFinite(parsedFetchedAt)) {
-    status = status === 'conflicting' || status === 'not_published' ? status : 'stale';
+    status = preserveFailClosedStatus('stale');
     reasons.push('duty snapshot has no valid fetch timestamp');
   } else if (parsedFetchedAt < now.getTime() - maxAgeMs) {
-    status = status === 'conflicting' || status === 'not_published' ? status : 'stale';
+    status = preserveFailClosedStatus('stale');
     reasons.push('duty snapshot is older than the freshness SLA');
   }
   if (Array.isArray(record._errors) && record._errors.length > 0) {
-    status = status === 'conflicting' || status === 'not_published' ? status : 'partial';
+    status = preserveFailClosedStatus('partial');
     reasons.push('one or more duty regions failed to refresh');
   }
   if (Array.isArray(record._preservedRegions) && record._preservedRegions.length > 0) {
-    status = status === 'conflicting' || status === 'not_published' ? status : 'partial';
+    status = preserveFailClosedStatus('partial');
     reasons.push('one or more duty regions use preserved data');
   }
   if (overlappingUnverified.length > 0) {
@@ -285,20 +326,24 @@ export function buildDutyWeekModel(
     reasons.push('the week contains pending or conflicting duty intervals');
   }
   if (missingRegions.length > 0) {
-    status = status === 'conflicting' || status === 'not_published' ? status : 'partial';
+    status = preserveFailClosedStatus('partial');
     reasons.push(`missing verified intervals: ${missingRegions.join(', ')}`);
   }
   if (unresolvedPharmacyIds.length > 0) {
-    status = status === 'conflicting' || status === 'not_published' ? status : 'partial';
+    status = preserveFailClosedStatus('partial');
     reasons.push(`unresolved pharmacy ids: ${unresolvedPharmacyIds.join(', ')}`);
   }
-  if (start && weekEndDate && weekEndDate.getTime() <= now.getTime() && missingRegions.length === DUTY_WEEK_REGIONS.length) {
+  if (start && weekEndDate
+    && weekEndDate.getTime() <= now.getTime()
+    && missingRegions.length === DUTY_WEEK_REGIONS.length
+    && status !== 'unknown'
+    && status !== 'conflicting') {
     status = 'expired';
     reasons.push('the requested week has expired and has no verified intervals');
   }
 
-  const indexable = evaluation.publishable
-    && evaluation.state === 'fresh'
+  const indexable = Boolean(evaluation?.publishable)
+    && evaluation?.state === 'fresh'
     && status === 'ready'
     && regions.every((region) => region.duties.length > 0);
   return {

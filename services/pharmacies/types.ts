@@ -431,7 +431,17 @@ function parseDutyTimestamp(value: unknown): number {
   return Number.isFinite(timestamp) ? timestamp : NaN;
 }
 
-export function validatePharmacyDuty(index: number | string, entry: unknown, now: Date = new Date()): string[] {
+export interface PharmacyDutyValidationOptions {
+  /** Runtime read models compute expiry themselves at their evaluation boundary. */
+  checkTemporalState?: boolean;
+}
+
+export function validatePharmacyDuty(
+  index: number | string,
+  entry: unknown,
+  now: Date = new Date(),
+  options: PharmacyDutyValidationOptions = {},
+): string[] {
   const errors: string[] = [];
   if (typeof entry !== 'object' || entry === null || Array.isArray(entry)) {
     return [`duty[${index}]: entry is not an object`];
@@ -471,19 +481,23 @@ export function validatePharmacyDuty(index: number | string, entry: unknown, now
     errors.push(`duty[${index}]: verified duty must include verifiedAt`);
   }
   const nowMs = now instanceof Date ? now.getTime() : NaN;
-  if (Number.isFinite(ends) && Number.isFinite(nowMs)) {
+  if (options.checkTemporalState !== false && Number.isFinite(ends) && Number.isFinite(nowMs)) {
     if (e.status === 'verified' && ends <= nowMs) errors.push(`duty[${index}]: verified duty must not be expired`);
     if (e.status === 'expired' && ends > nowMs) errors.push(`duty[${index}]: expired duty must have ended`);
   }
   return errors;
 }
 
-export function validatePharmacyDutyList(duties: unknown, now: Date = new Date()): string[] {
+export function validatePharmacyDutyList(
+  duties: unknown,
+  now: Date = new Date(),
+  options: PharmacyDutyValidationOptions = {},
+): string[] {
   if (!Array.isArray(duties)) return ['duties: expected an array'];
   const errors: string[] = [];
   const seenIds = new Set<string>();
   duties.forEach((entry, index) => {
-    errors.push(...validatePharmacyDuty(index, entry, now));
+    errors.push(...validatePharmacyDuty(index, entry, now, options));
     const id = (entry as Record<string, unknown> | null)?.id;
     if (typeof id === 'string' && id) {
       if (seenIds.has(id)) errors.push(`duty[${index}]: duplicate id "${id}"`);
