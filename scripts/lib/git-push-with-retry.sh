@@ -172,9 +172,21 @@ run_regenerate_with_retry() {
 # conflict (for example, an untracked file would be overwritten), because
 # there is no safe generic resolution for that case.
 restore_stashed_wip() {
-  if git stash pop; then
+  local stash_output
+  stash_output="$(mktemp)"
+  if git stash pop >"$stash_output" 2>&1; then
+    cat "$stash_output"
+    rm -f -- "$stash_output"
     return 0
   fi
+
+  cat "$stash_output"
+  if grep -qiE 'untracked (working tree )?files? would be overwritten|could not restore untracked|would be overwritten by checkout' "$stash_output"; then
+    rm -f -- "$stash_output"
+    echo "::error::Stashed working tree includes an untracked path that could not be restored; stash left in stack"
+    return 1
+  fi
+  rm -f -- "$stash_output"
 
   local conflicted
   conflicted="$(git diff --name-only --diff-filter=U || true)"
