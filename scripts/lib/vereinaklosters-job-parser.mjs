@@ -24,6 +24,8 @@ export const VEREINAKLOSTERS_COMPANY_NAME = 'Vereina';
 export const VEREINAKLOSTERS_COMPANY_DOMAIN = 'hotelcareer.ch';
 
 const CAREER_URL = 'https://www.hotelcareer.ch/jobs/hotel-vereina-52746';
+const VEREINAKLOSTERS_PATH = '/jobs/hotel-vereina-52746';
+const MIN_DESCRIPTION_WORDS = 50;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -33,6 +35,18 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+function isVereinaListingUrl(rawUrl = '') {
+  try {
+    const url = new URL(rawUrl);
+    const host = url.hostname.toLowerCase();
+    return (host === VEREINAKLOSTERS_COMPANY_DOMAIN || host.endsWith(`.${VEREINAKLOSTERS_COMPANY_DOMAIN}`))
+      && (url.pathname.toLowerCase() === VEREINAKLOSTERS_PATH
+        || url.pathname.toLowerCase().startsWith(`${VEREINAKLOSTERS_PATH}/`));
+  } catch {
+    return false;
+  }
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -54,7 +68,7 @@ export function isVereinaklostersJob(job) {
     key === VEREINAKLOSTERS_KEY ||
     key.startsWith('vereinaklosters-') ||
     company.includes('vereina') ||
-    url.includes('hotelcareer.ch')
+    isVereinaListingUrl(url)
   );
 }
 
@@ -146,12 +160,13 @@ export async function fetchAllVereinaklostersJobs() {
     const { location, canton } = geography;
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
-    if (!descriptionText) continue;
+    if (descriptionText.split(/\s+/).filter(Boolean).length < MIN_DESCRIPTION_WORDS) continue;
     // The detail URL is the vacancy identity: falling back to the listing page
     // would give every posting the same `url`, `applyUrl` and `id` hash.
     if (!listing.url) continue;
     const publicUrl = listing.url;
     const employmentType = detectEmploymentType(listing.timeType || title);
+    const postedDate = normalizeSpace(listing.postedAt || listing.postedDate || '');
 
     const sourceLang = detectLang(descriptionText || title, 'de');
     const jobSlug = slugify(`${title} ${location} vereinaklosters ch`);
@@ -192,7 +207,7 @@ export async function fetchAllVereinaklostersJobs() {
       sector: 'Altro', // TODO: Set appropriate sector
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      ...(postedDate ? { postedDate } : {}),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

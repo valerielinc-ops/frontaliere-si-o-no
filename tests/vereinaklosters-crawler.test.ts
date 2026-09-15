@@ -25,7 +25,11 @@ describe('Vereina crawler parser', () => {
     });
 
     it('matches by URL domain', () => {
-      expect(isVereinaklostersJob({ url: 'https://hotelcareer.ch/jobs/123' })).toBe(true);
+      expect(isVereinaklostersJob({ url: 'https://hotelcareer.ch/jobs/hotel-vereina-52746/123' })).toBe(true);
+    });
+
+    it('rejects unrelated HotelCareer listings', () => {
+      expect(isVereinaklostersJob({ url: 'https://hotelcareer.ch/jobs/other-hotel-123' })).toBe(false);
     });
 
     it('rejects unrelated jobs', () => {
