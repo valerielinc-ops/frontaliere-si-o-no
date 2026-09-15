@@ -1,13 +1,9 @@
 import type { Locale } from '@/services/i18n';
+import { PLATE_AUCTION_BASE_BY_LOCALE } from '../../scripts/lib/plateAuctionSections.mjs';
 
 export type PlateAuctionPageView = 'hub' | 'canton' | 'detail' | 'rankings';
 
-const BASE_BY_LOCALE: Record<Locale, string> = {
-  it: 'aste-targhe-svizzera',
-  en: 'swiss-plate-auctions',
-  de: 'schweizer-nummernschildauktionen',
-  fr: 'encheres-plaques-suisses',
-};
+const BASE_BY_LOCALE = PLATE_AUCTION_BASE_BY_LOCALE as Record<Locale, string>;
 
 const CANTON_SLUGS: Record<string, Record<Locale, string>> = {
   AG: { it: 'argovia-ag', en: 'aargau-ag', de: 'aargau-ag', fr: 'argovie-ag' },
