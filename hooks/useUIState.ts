@@ -124,8 +124,11 @@ export function useUIState(activeTab: ActiveTab): UIState {
  import('@/services/webVitals').then(m => m.initWebVitals()).catch(() => {});
  import('@/services/clarity').then(m => m.initClarity()).catch(() => {});
  };
- if ('requestIdleCallback' in window) {
- (window as any).requestIdleCallback(run, { timeout: 3000 });
+ const idleWindow = window as Window & {
+ requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
+ };
+ if (typeof idleWindow.requestIdleCallback === 'function') {
+ idleWindow.requestIdleCallback(run, { timeout: 3000 });
  } else {
  run();
  }

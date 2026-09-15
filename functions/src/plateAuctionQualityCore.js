@@ -121,7 +121,11 @@ function checkDuplicatePlates(auctions) {
   const byPlate = new Map();
   for (const auction of auctions) {
     if (!ACTIVE_STATUSES.has(auction.auctionStatus)) continue;
-    const key = `${auction.canton}:${auction.normalizedPlate}`;
+    // A canton can legitimately publish the same number in separate vehicle
+    // catalogues (notably BS cars and motorcycles). Keep the duplicate check
+    // scoped to the same vehicle category; the public route disambiguates the
+    // categories as well.
+    const key = `${auction.canton}:${auction.normalizedPlate}:${auction.vehicleType || 'car'}`;
     const group = byPlate.get(key) || [];
     group.push(auction);
     byPlate.set(key, group);
@@ -146,10 +150,17 @@ function checkSourceChanged(auction, previous) {
   return [issue(auction.id, 'source-changed', `${auction.id}: source identity changed between fetches (was ${previous.canton}/${previous.normalizedPlate}/${previous.officialAuctionUrl}, now ${auction.canton}/${auction.normalizedPlate}/${auction.officialAuctionUrl})`)];
 }
 
-function checkDisappearedSources(auctions, previousById) {
+function checkDisappearedSources(auctions, previousById, now) {
   const currentIds = new Set(auctions.map((auction) => auction.id));
   return [...previousById.values()]
-    .filter((previous) => ACTIVE_STATUSES.has(previous.auctionStatus) && !currentIds.has(previous.id))
+    .filter((previous) => {
+      if (!ACTIVE_STATUSES.has(previous.auctionStatus) || currentIds.has(previous.id)) return false;
+      // Once the official deadline has passed, a missing row is an expected
+      // lifecycle transition. `closeExpiredObservation` will archive it; it
+      // must not be mistaken for a broken or truncated upstream catalogue.
+      const endsAt = Date.parse(previous.endsAt || '');
+      return !Number.isFinite(endsAt) || endsAt > now.getTime();
+    })
     .map((previous) => issue(previous.id, 'source-disappeared', `${previous.id}: active source record disappeared from the next fetch`));
 }
 
@@ -167,7 +178,7 @@ export function checkPlateAuctionQuality(auctions, previousById, now = new Date(
     issues.push(...checkMissingFinal(auction));
     if (previousById) issues.push(...checkSourceChanged(auction, previousById.get(auction.id)));
   }
-  if (previousById) issues.push(...checkDisappearedSources(auctions, previousById));
+  if (previousById) issues.push(...checkDisappearedSources(auctions, previousById, now));
   return issues;
 }
 

@@ -4,14 +4,37 @@ import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   buildL1TelemetryExport,
+  buildL3OutcomeExport,
   buildL4OutcomeLedger,
+  buildL5DecisionMomentExport,
+  buildL5DecisionMomentQuery,
+  buildL7ExperimentLedger,
+  buildL7ExperimentLedgerQuery,
   buildL9OutcomeLedger,
+  exportL3,
   exportL4,
+  exportL5,
+  exportL7,
   GoogleDataClient,
 } from '../scripts/ci/export-loop-outcomes.mjs';
 
 const NOW = new Date('2026-09-12T12:00:00.000Z');
 const ROOT = 'projects/test/databases/(default)/documents';
+const L7_POLICY = JSON.parse(fs.readFileSync(
+  path.resolve('data/loop-fleet/loop-registry.json'),
+  'utf8',
+)).loops.find((loop: any) => loop.loopId === 'L7');
+
+function postHogClient() {
+  return {
+    remoteConfig: async () => ({
+      parameters: {
+        SERVER_POSTHOG_PERSONAL_API_KEY: { defaultValue: { value: 'test-key' } },
+        SERVER_POSTHOG_PROJECT_ID: { defaultValue: { value: 'test-project' } },
+      },
+    }),
+  };
+}
 
 function row(path: string, data: Record<string, unknown>) {
   return { name: `${ROOT}/${path}`, data };
@@ -53,6 +76,151 @@ describe('read-only loop outcome exporters', () => {
       usefulSessions: 18595,
       errorFreeUsefulSessions: 7738,
       _meta: { issue: 4304, generatedAt: NOW.toISOString() },
+    });
+  });
+
+  it('builds an independent, read-only L5 decision-moment outcome', () => {
+    const output = buildL5DecisionMomentExport({
+      eligibleDecisionSessions: 120,
+      nextUsefulActions: 45,
+      generatedAt: NOW.toISOString(),
+      telemetryWindow: { start: '2026-09-04T00:00:00.000Z', end: '2026-09-12T00:00:00.000Z' },
+    });
+    expect(output).toMatchObject({
+      independent: true,
+      eligibleDecisionSessions: 120,
+      nextUsefulActions: 45,
+      evidence: {
+        sourceRefs: ['decision-surfaces', 'posthog'],
+        sessionJoin: 'properties.$session_id',
+        eventContract: {
+          completionEvent: 'decision_moment_completed',
+          nextActionEvent: 'decision_moment_next_action',
+        },
+      },
+      export: {
+        readOnly: true,
+        publishedDataUntouched: true,
+        noDarkPatterns: true,
+        noUnsupportedTimingPromise: true,
+        noInvasivePersonalization: true,
+      },
+    });
+  });
+
+  it('exports L5 counts from a bounded PostHog session join without writing source data', async () => {
+    const calls: Array<{ query: string; config: Record<string, string> }> = [];
+    const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l5-export-test-'));
+    const output = await exportL5({
+      now: NOW,
+      days: 8,
+      outputPath: path.join(outputDir, 'outcomes.json'),
+      client: {
+        remoteConfig: async () => ({
+          parameters: {
+            SERVER_POSTHOG_PERSONAL_API_KEY: { defaultValue: { value: 'test-key' } },
+            SERVER_POSTHOG_PROJECT_ID: { defaultValue: { value: '123' } },
+            SERVER_POSTHOG_HOST: { defaultValue: { value: 'https://posthog.test' } },
+          },
+        }),
+      } as any,
+      posthogRunner: async (query: string, config: Record<string, string>) => {
+        calls.push({ query, config });
+        return { columns: ['eligibleDecisionSessions', 'nextUsefulActions'], results: [[120, 45]] };
+      },
+    });
+
+    expect(calls).toHaveLength(1);
+    expect(calls[0].query).toContain("event = 'decision_moment_completed'");
+    expect(calls[0].query).toContain("event = 'decision_moment_next_action'");
+    expect(calls[0].query).toContain('GROUP BY properties.$session_id');
+    expect(calls[0].query).toContain('2026-09-04T00:00:00.000Z');
+    expect(calls[0].query).toContain('2026-09-12T00:00:00.000Z');
+    expect(calls[0].config).toMatchObject({ apiKey: 'test-key', projectId: '123', host: 'https://posthog.test' });
+    expect(output).toMatchObject({
+      independent: true,
+      eligibleDecisionSessions: 120,
+      nextUsefulActions: 45,
+      telemetryWindow: { start: '2026-09-04T00:00:00.000Z', end: '2026-09-12T00:00:00.000Z' },
+    });
+    expect(JSON.parse(fs.readFileSync(path.join(outputDir, 'outcomes.json'), 'utf8'))).toMatchObject({
+      independent: true,
+      export: { publishedDataUntouched: true },
+    });
+  });
+
+  it('exports L3 from exact settled GA4 event-session counts without inventing applications', async () => {
+    const calls: Array<{ url: string; init: RequestInit }> = [];
+    const client = {
+      request: async (url: string, init: RequestInit) => {
+        calls.push({ url, init });
+        const body = JSON.parse(String(init.body));
+        const eventName = body.dimensionFilter.filter.stringFilter.value;
+        return {
+          rows: [{ metricValues: [{ value: eventName === 'job_qualified_session' ? '120' : '90' }] }],
+        };
+      },
+    };
+    const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l3-export-test-'));
+    const outputPath = path.join(outputDir, 'outcomes.json');
+    const output = await exportL3({
+      now: NOW,
+      days: 4,
+      outputPath,
+      propertyId: 'properties/524485296',
+      client: client as any,
+    });
+
+    expect(output).toMatchObject({
+      generatedAt: NOW.toISOString(),
+      independent: true,
+      eligibleJobSessions: 120,
+      validHandoffs: 90,
+      evidence: {
+        sourceRefs: ['job-crawler-summaries', 'application-handoff'],
+        settledWindow: true,
+        eventFilters: {
+          eligibleJobSessions: 'job_qualified_session',
+          validHandoffs: 'job_apply_handoff',
+        },
+      },
+      export: {
+        handoffIsNotApplication: true,
+        applicationSubmissionSource: 'not available from site telemetry',
+        publishedDataUntouched: true,
+        readOnly: true,
+      },
+    });
+    expect(output).not.toHaveProperty('applications');
+    expect(JSON.parse(fs.readFileSync(outputPath, 'utf8'))).toEqual(output);
+    expect(calls).toHaveLength(2);
+    for (const call of calls) {
+      expect(call.url).toBe('https://analyticsdata.googleapis.com/v1beta/properties/524485296:runReport');
+      const body = JSON.parse(String(call.init.body));
+      expect(body).toMatchObject({
+        dateRanges: [{ startDate: '2026-09-07', endDate: '2026-09-10' }],
+        metrics: [{ name: 'sessions' }],
+        dimensionFilter: {
+          filter: {
+            fieldName: 'eventName',
+            stringFilter: { matchType: 'EXACT' },
+          },
+        },
+      });
+    }
+  });
+
+  it('keeps the L3 builder honest when the source has no submitted-application field', () => {
+    expect(buildL3OutcomeExport({
+      generatedAt: NOW.toISOString(),
+      eligibleJobSessions: 0,
+      validHandoffs: 0,
+      telemetryWindow: { startDate: '2026-09-07', endDate: '2026-09-10' },
+    })).toMatchObject({
+      independent: true,
+      eligibleJobSessions: 0,
+      validHandoffs: 0,
+      export: { handoffIsNotApplication: true, publishedDataUntouched: true },
     });
   });
 
@@ -163,6 +331,184 @@ describe('read-only loop outcome exporters', () => {
         },
       },
     });
+  });
+
+  it('exports the L5 completed-task to next-useful-action contract', async () => {
+    const query = buildL5DecisionMomentQuery({
+      start: '2026-09-05T12:00:00.000Z',
+      end: NOW.toISOString(),
+    });
+    expect(query).toContain("event = 'decision_moment_completed'");
+    expect(query).toContain("event = 'decision_moment_next_action'");
+    expect(query).toContain('count() AS eligibleDecisionSessions');
+    expect(query).toContain('countIf(nextUsefulActions > 0) AS nextUsefulActions');
+    expect(query).toContain('GROUP BY properties.$session_id');
+    expect(query).toContain('HAVING completedTasks > 0');
+
+    const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l5-export-test-'));
+    const calls: string[] = [];
+    const output = await (exportL5 as any)({
+      now: NOW,
+      outputPath: path.join(outputDir, 'outcomes.json'),
+      client: postHogClient() as any,
+      posthogRunner: async (query: string, config: any) => {
+        calls.push(query);
+        expect(config).toMatchObject({ apiKey: 'test-key', projectId: 'test-project' });
+        return { columns: ['eligibleDecisionSessions', 'nextUsefulActions'], results: [[123, 7]] };
+      },
+    });
+
+    expect(calls).toHaveLength(1);
+    expect(output).toMatchObject({
+      loopId: 'L5',
+      independent: true,
+      eligibleDecisionSessions: 123,
+      nextUsefulActions: 7,
+      evidence: {
+        sourceRefs: ['decision-surfaces', 'posthog'],
+      },
+    });
+    expect(JSON.parse(fs.readFileSync(path.join(outputDir, 'outcomes.json'), 'utf8'))).toEqual(output);
+    expect(() => buildL5DecisionMomentExport({
+      eligibleDecisionSessions: 1,
+      nextUsefulActions: 2,
+      generatedAt: NOW,
+    })).toThrow('nextUsefulActions greater than eligibleDecisionSessions');
+  });
+
+  it('keeps the L7 ledger fail-closed when canonical experiment evidence is absent or unsafe', async () => {
+    const query = buildL7ExperimentLedgerQuery({
+      start: '2026-09-05T12:00:00.000Z',
+      end: NOW.toISOString(),
+    });
+    expect(query).toContain("event IN ('experiment_assignment', 'experiment_exposure', 'experiment_outcome', 'experiment_guardrail')");
+    expect(query).toContain("properties.loop_id = 'L7'");
+    expect(query).toContain("properties.assignment_method = 'stable-sha256'");
+    expect(query).toContain('invalidAssignmentRecords');
+    expect(query).toContain('invalidOutcomeRecords');
+    expect(query).toContain('invalidExpiryRecords');
+    expect(query).toContain('completeAssignmentSessions');
+    expect(query).toContain('assignmentRecords > 0 AND exposureRecords > 0 AND invalidExposureRecords = 0');
+    expect(query).toContain('assignmentRecords > 0 AND outcomeRecords > 0 AND invalidOutcomeRecords = 0');
+    expect(query).toContain('assignmentRecords > 0 AND guardrailRecords > 0 AND invalidGuardrailRecords = 0');
+    expect(query).toContain('toDateTime(if(match(properties.expires_at');
+    expect(query).toContain('match(properties.expires_at');
+    expect(query).toContain('addHours(timestamp, 168)');
+
+    const twelveHourQuery = buildL7ExperimentLedgerQuery({
+      start: '2026-09-05T12:00:00.000Z',
+      end: NOW.toISOString(),
+      policy: { ...L7_POLICY, lifecycle: { ...L7_POLICY.lifecycle, candidateTtlHours: 12 } },
+    } as any);
+    expect(twelveHourQuery).toContain('addHours(timestamp, 12)');
+
+    const completeAggregate = {
+      sourceEventCount: 1200,
+      eligibleCohort: 250,
+      assignments: 250,
+      exposures: 250,
+      completeAssignmentSessions: 250,
+      primaryOutcomes: 40,
+      guardrailBreaches: 0,
+      persistentAssignments: 250,
+      contaminatedAssignments: 0,
+      assignmentContract: 250,
+      exposureContract: 250,
+      outcomeContract: 250,
+      guardrailContract: 250,
+      contaminationContract: 250,
+      expiryContract: 250,
+      firstSeenAt: '2026-09-05T12:00:00.000Z',
+      lastSeenAt: NOW.toISOString(),
+    };
+    const complete = buildL7ExperimentLedger({
+      aggregate: completeAggregate,
+      generatedAt: NOW,
+      telemetryWindow: { start: '2026-09-05T12:00:00.000Z', end: NOW.toISOString() },
+      policy: L7_POLICY,
+    } as any);
+    expect(complete).toMatchObject({
+      loopId: 'L7',
+      status: 'observed',
+      independent: true,
+      sourceEventCount: 1200,
+      eligibleCohort: 250,
+      assignments: 250,
+      exposures: 250,
+      completeAssignmentSessions: 250,
+      primaryOutcomes: 40,
+      assignmentLedger: { persistent: true, method: 'stable-sha256', key: 'experiment-session-id' },
+      contaminationPolicy: { controlled: true },
+      evidence: { status: 'verified', sourceRefs: ['experiment-assignment-exposure-outcome'] },
+    });
+
+    const missing = buildL7ExperimentLedger({
+      aggregate: { sourceEventCount: 0 },
+      generatedAt: NOW,
+      telemetryWindow: { start: '2026-09-05T12:00:00.000Z', end: NOW.toISOString() },
+      policy: L7_POLICY,
+    } as any);
+    expect(missing).toMatchObject({
+      status: 'missing',
+      independent: false,
+      eligibleCohort: null,
+      assignments: null,
+      primaryOutcomes: null,
+      evidence: { status: 'missing' },
+      reason: 'no canonical L7 experiment ledger events were observed; allocation remains disabled',
+    });
+
+    const breached = buildL7ExperimentLedger({
+      aggregate: { ...completeAggregate, guardrailBreaches: 1 },
+      generatedAt: NOW,
+      telemetryWindow: { start: '2026-09-05T12:00:00.000Z', end: NOW.toISOString() },
+      policy: L7_POLICY,
+    } as any);
+    expect(breached).toMatchObject({ status: 'unverified', independent: false, evidence: { status: 'unverified' } });
+
+    const maskedInvalidRecord = buildL7ExperimentLedger({
+      aggregate: { ...completeAggregate, exposureContract: 249 },
+      generatedAt: NOW,
+      telemetryWindow: { start: '2026-09-05T12:00:00.000Z', end: NOW.toISOString() },
+      policy: L7_POLICY,
+    } as any);
+    expect(maskedInvalidRecord).toMatchObject({ status: 'unverified', independent: false });
+
+    const disjointContracts = buildL7ExperimentLedger({
+      aggregate: {
+        ...completeAggregate,
+        completeAssignmentSessions: 249,
+        exposureContract: 250,
+        outcomeContract: 250,
+        guardrailContract: 250,
+      },
+      generatedAt: NOW,
+      telemetryWindow: { start: '2026-09-05T12:00:00.000Z', end: NOW.toISOString() },
+      policy: L7_POLICY,
+    } as any);
+    expect(disjointContracts).toMatchObject({ status: 'unverified', independent: false });
+
+    const expiredAssignment = buildL7ExperimentLedger({
+      aggregate: { ...completeAggregate, expiryContract: 249 },
+      generatedAt: NOW,
+      telemetryWindow: { start: '2026-09-05T12:00:00.000Z', end: NOW.toISOString() },
+      policy: L7_POLICY,
+    } as any);
+    expect(expiredAssignment).toMatchObject({ status: 'unverified', independent: false });
+
+    const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l7-export-test-'));
+    const output = await (exportL7 as any)({
+      now: NOW,
+      outputPath: path.join(outputDir, 'outcomes.json'),
+      client: postHogClient() as any,
+      policy: L7_POLICY,
+      posthogRunner: async () => ({
+        columns: Object.keys(completeAggregate),
+        results: [Object.values(completeAggregate)],
+      }),
+    });
+    expect(output).toMatchObject({ loopId: 'L7', status: 'observed', independent: true });
+    expect(JSON.parse(fs.readFileSync(path.join(outputDir, 'outcomes.json'), 'utf8'))).toEqual(output);
   });
 
   it('projects the affirmative consent field used by the live backfill predicate', async () => {

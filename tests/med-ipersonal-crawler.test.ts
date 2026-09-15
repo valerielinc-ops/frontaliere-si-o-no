@@ -93,8 +93,8 @@ describe('iPersonal AG crawler parser', () => {
       expect(slugify('Ingénieur qualité')).toBe('ingenieur-qualite');
     });
 
-    it('builds slug with company suffix inline', () => {
-      expect(slugify('Developer med-ipersonal ch')).toBe('developer-med-ipersonal-ch');
+    it('builds slug with declared company suffix inline', () => {
+      expect(slugify(`Developer ${MED_IPERSONAL_COMPANY_NAME} ch`)).toBe('developer-ipersonal-ag-ch');
     });
 
     it('respects max length', () => {

@@ -23,6 +23,7 @@ import { listCorpusWideTests } from './corpus-wide-tests.mjs';
 import { shouldAssembleForRelatedTests } from './dataset-dependent-tests.mjs';
 import { shouldSkipFullSuiteFallback } from './lib/orphan-fallback.mjs';
 import { selectMaxWorkers } from './lib/select-max-workers.mjs';
+import { missingFullCheckoutArtifacts } from './lib/typecheck-sparse.mjs';
 import { GRAPH_IGNORED_RE, GRAPH_SOURCE_RE, isGraphSourceFile } from './lib/related-graph-scope.mjs';
 
 const changedPathFile = process.env.CHANGED_PATHS_FILE || 'changed-paths.txt';
@@ -72,14 +73,6 @@ const corpusWideTests = skipCorpusWide ? new Set(listCorpusWideTests()) : new Se
 // sentinels; a local sparse worktree does not. Keep `--select-only` and the
 // local dry-run seam usable for inspecting the graph, but never let a real
 // Vitest invocation turn missing artifacts into application regressions.
-const REQUIRED_FULL_CHECKOUT_ARTIFACTS = Object.freeze([
-  'data/blog-articles-data.ts',
-  'data/swiss-articles-data.ts',
-  'public/.nojekyll',
-]);
-function missingFullCheckoutArtifacts() {
-  return REQUIRED_FULL_CHECKOUT_ARTIFACTS.filter((relative) => !existsSync(relative));
-}
 function requireFullCheckoutForVerdict() {
   const missing = missingFullCheckoutArtifacts();
   const localInspection = selectionOnly
@@ -89,6 +82,12 @@ function requireFullCheckoutForVerdict() {
   console.error(`  Artefacts mancanti: ${missing.join(', ')}`);
   console.error('  È un problema di ambiente, non di codice: esegui il comando in CI o da un checkout PIENO con data/ e public/ materializzati.');
   process.exit(2);
+}
+
+function rejectDryRunInCi() {
+  if (process.env.VITEST_RELATED_DRY_RUN !== 'true' || process.env.GITHUB_ACTIONS !== 'true') return;
+  console.error('VITEST_RELATED_DRY_RUN non è consentito in GitHub Actions: esecuzione bloccante annullata.');
+  process.exit(1);
 }
 // These dependencies are wired by Vitest/configuration or executed through a
 // path string, so no static import edge can reliably reach their consumers.
@@ -314,6 +313,7 @@ const candidates = [...new Set(changed.filter((file) =>
     && (sourceRe.test(file) || githubAssetRe.test(file) || testFixtureRe.test(file))
     && !alwaysExcludedTests.has(file)))];
 const forceFull = changedStatus !== 'complete';
+rejectDryRunInCi();
 requireFullCheckoutForVerdict();
 if (candidates.length === 0 && !forceFull) {
   console.log('No existing source/test files in the diff → related-only run has no tests.');
@@ -326,6 +326,7 @@ function changedAssetsFromDiff() {
     process.env.GITHUB_BASE_REF ? `origin/${process.env.GITHUB_BASE_REF}` : null,
     'origin/main',
   ].filter(Boolean))];
+  let lastError = null;
   for (const ref of refs) {
     let base;
     try {
@@ -333,7 +334,8 @@ function changedAssetsFromDiff() {
         encoding: 'utf8',
         stdio: ['ignore', 'pipe', 'ignore'],
       }).trim();
-    } catch {
+    } catch (error) {
+      lastError = error;
       continue;
     }
     try {
@@ -351,9 +353,13 @@ function changedAssetsFromDiff() {
         }
       }
       return assets;
-    } catch {
-      return [];
+    } catch (error) {
+      lastError = error;
+      continue;
     }
+  }
+  if (lastError) {
+    console.warn(`Unable to inspect changed related-test assets from any base ref: ${lastError.message || lastError}`);
   }
   return [];
 }
@@ -449,10 +455,6 @@ if (tests.length === 0) process.exit(0);
 // Se trapelasse nel job bloccante, fallire esplicitamente e' piu' sicuro che
 // uscire 0 senza eseguire un solo test, indistinguibile da una selezione vuota.
 if (process.env.VITEST_RELATED_DRY_RUN === 'true') {
-  if (process.env.GITHUB_ACTIONS === 'true') {
-    console.error('VITEST_RELATED_DRY_RUN non e\' consentito in GitHub Actions: esecuzione bloccante annullata.');
-    process.exit(1);
-  }
   process.exit(0);
 }
 

@@ -55,7 +55,7 @@ import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts, restoreExistingSlugIdentity } from './lib/crawler-template.mjs';
 import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities, addPreviousSlugForLocale, captureLostSlugs, DEFAULT_PREV_SLUG_CAP, stableSlugHash, appendSlugDisambiguator } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, swissCityFromLocationField, rescueSwissCityFromText, isTargetCanton, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
-import { getCantonDisplayName } from './lib/crawler-location-config.mjs';
+import { getCantonDisplayName, markLocationDerivedFromVacancyText } from './lib/crawler-location-config.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from './lib/swiss-locality-sentence-split.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
@@ -68,6 +68,8 @@ import { archiveRemovedJobsToSlice, collapseDuplicateRouteEntries, normalizeExpi
 import { loadSourceHostOwnership, dropForeignOwnedVacancies } from './lib/crawler-source-hosts.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 import { detailDropSummaryFields } from './lib/crawler-detail-drop.mjs';
+import { decontaminateEntries } from './decontaminate-prev-slugs.mjs';
+import { extractNarrativeJobTitle } from './lib/job-title-normalization.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -307,8 +309,10 @@ export function sanitizeJobCompanyField(rawValue, fallback = '') {
 }
 
 /**
- * Strip a markdown bold wrapper that the translation pipeline left around a
- * WHOLE job title: `**Partner Comercial de Recursos Humanos**` → the title.
+ * Strip a markdown wrapper or recover the title from the specific AI
+ * translation narrative shape left by the translation pipeline:
+ * `**Partner Comercial de Recursos Humanos**` → the title, and
+ * `I need to ... **Translated title** ...` → the translated title.
  *
  * Deliberately the narrowest rule that fixes the observed defect, because
  * asterisks in a job title are usually REAL CONTENT and removing them
@@ -329,6 +333,8 @@ export function sanitizeJobCompanyField(rawValue, fallback = '') {
 export function sanitizeJobTitleField(rawValue) {
   const s = String(rawValue ?? '');
   const t = s.trim();
+  const narrative = extractNarrativeJobTitle(t);
+  if (narrative) return narrative;
   if (t.length < 5 || !t.startsWith('**') || !t.endsWith('**')) return s;
   const inner = t.slice(2, -2).trim();
   if (!inner || inner.includes('*')) return s;
@@ -2055,6 +2061,27 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
     jobs: finalJobs,
   };
   writeJson(slicePath, payload);
+  // A normal atomic write must run first so its anti-loss guard can preserve
+  // any history the fresh payload would otherwise drop. The ownership pass is
+  // intentionally second: removing a confirmed foreign route before that
+  // guard runs would make the guard recapture the same contamination onto the
+  // claimant. Include every existing slice in the owner index so the writer
+  // covers cross-file owners as well as the current payload's same-file ones.
+  // The fresh payload is the only source entry: unrelated claimant slices are
+  // not rewritten by every crawler run, while a target slice is written first
+  // by decontaminateEntries before the claimant's deliberate guard-off write.
+  const fleetEntries = listSliceFilePaths(JOBS_SLICES_DIR)
+    .filter((filePath) => filePath !== slicePath)
+    .map((filePath) => ({ filePath, slice: readJson(filePath, null) }))
+    .filter((entry) => Array.isArray(entry.slice?.jobs));
+  const currentEntry = { filePath: slicePath, slice: payload };
+  const ownership = decontaminateEntries(
+    [...fleetEntries, currentEntry],
+    { sourceEntries: [currentEntry], apply: true },
+  );
+  if (ownership.moved > 0 || ownership.emptyLocaleBucketsPruned > 0) {
+    console.log(`  🧭 prev-slug ownership: redirected ${ownership.moved} confirmed foreign route(s), pruned ${ownership.emptyLocaleBucketsPruned} empty locale bucket(s)`);
+  }
   const hardeningSuffix = hardened.updated > 0 ? `, salary hardened ${hardened.updated}` : '';
   console.log(`📂 Wrote jobs slice: data/jobs/by-crawler/${crawlerKey}.json (${finalJobs.length} jobs${hardeningSuffix})`);
 }
@@ -2428,11 +2455,13 @@ async function assembleJobs() {
       // No blocklist on primaryLoc: an explicit locality field naming "Rolle"
       // or "Fully" is a location the author typed on purpose. The blocklist
       // exists for free-text description scanning only.
-      const rescuedCity = swissCityFromLocationField(primaryLoc)
-        || rescueSwissCityFromText(haystack);
+      const cityFromLocalityField = swissCityFromLocationField(primaryLoc);
+      const cityFromVacancyText = cityFromLocalityField ? '' : rescueSwissCityFromText(haystack);
+      const rescuedCity = cityFromLocalityField || cityFromVacancyText;
       if (rescuedCity) {
         job.addressLocality = rescuedCity;
         job.location = rescuedCity;
+        if (cityFromVacancyText) markLocationDerivedFromVacancyText(job);
       }
       return true;
     }

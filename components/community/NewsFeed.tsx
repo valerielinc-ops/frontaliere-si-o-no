@@ -86,8 +86,11 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ onNavigate }) => {
  });
  };
  // Same requestIdleCallback-with-fallback pattern already used in App.tsx.
- if ('requestIdleCallback' in window) {
- (window as any).requestIdleCallback(run, { timeout: 4000 });
+ const idleWindow = window as Window & {
+ requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
+ };
+ if (typeof idleWindow.requestIdleCallback === 'function') {
+ idleWindow.requestIdleCallback(run, { timeout: 4000 });
  } else {
  window.setTimeout(run, 2000);
  }

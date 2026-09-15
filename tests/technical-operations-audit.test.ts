@@ -1,8 +1,11 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 // @ts-expect-error — il supervisore è uno script ESM zero-dependency applicativo
 import {
   auditWorkflowFiles,
   auditWorkflowText,
+  auditIssueRouting,
   cronError,
   normalizeTriggers,
   renderMarkdown,
@@ -21,6 +24,21 @@ describe('technical operations audit', () => {
     expect(cronError('0 5 * *')).toMatch(/5 campi/);
     expect(cronError('60 5 * * *')).toMatch(/fuori intervallo/);
     expect(cronError('0 5 ? * *')).toMatch(/non valido/);
+  });
+
+  it('instrada solo gli errori provati verso il fixer bounded', () => {
+    expect(auditIssueRouting({ error: 1, warning: 4 })).toEqual({
+      labels: ['operations-audit', 'agent:fix-queued', 'agent:no-age-out'],
+      add: 'agent:fix-queued',
+      remove: 'operations-audit-review',
+      route: 'bounded-fix-queue',
+    });
+    expect(auditIssueRouting({ error: 0, warning: 26 })).toEqual({
+      labels: ['operations-audit', 'operations-audit-review', 'agent:no-age-out'],
+      add: 'operations-audit-review',
+      remove: 'agent:fix-queued',
+      route: 'review-only',
+    });
   });
 
   it('rifiuta chiavi step non supportate da GitHub Actions', () => {
@@ -364,6 +382,191 @@ describe('technical operations audit', () => {
     expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([]);
   });
 
+  it('riconosce tutte le chiavi in template concatenati', () => {
+    const files = new Map([
+      ['/repo/scripts/check-health.mjs', [
+        "import { appendFileSync } from 'node:fs';",
+        'appendFileSync(process.env.GITHUB_OUTPUT, `first=ok\\nsecond=ok` + `third=ok`);',
+      ].join('\n')],
+    ]);
+    const source = [
+      'name: delegated-output-concatenated',
+      'on: [push]',
+      'jobs:',
+      '  check:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: producer',
+      '        id: health',
+      '        run: node scripts/check-health.mjs',
+      '      - name: consumer',
+      '        run: echo "${{ steps.health.outputs.third }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/delegated-output-concatenated.yml', source, {
+      root: '/repo',
+      exists: (candidate: string) => files.has(candidate),
+      readFile: (candidate: string) => files.get(candidate) || '',
+    });
+    expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([]);
+  });
+
+  it('riconosce le chiavi di una mappa passata a Object.entries', () => {
+    const files = new Map([
+      ['/repo/scripts/claim.mjs', [
+        'import { appendFileSync } from \'node:fs\';',
+        'const values = {',
+        '  claim_allowed: true,',
+        '  claim_token: result.token || \'\',',
+        '};',
+        'const lines = Object.entries(values).map(([name, value]) => `${name}=${value}`);',
+        'appendFileSync(process.env.GITHUB_OUTPUT, `${lines.join(\'\\n\')}\\n`);',
+      ].join('\n')],
+    ]);
+    const source = [
+      'name: delegated-output-object',
+      'on: [push]',
+      'jobs:',
+      '  check:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: producer',
+      '        id: claim',
+      '        run: node scripts/claim.mjs',
+      '      - name: consumer',
+      '        run: echo "${{ steps.claim.outputs.claim_token }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/delegated-output-object.yml', source, {
+      root: '/repo',
+      exists: (candidate: string) => files.has(candidate),
+      readFile: (candidate: string) => files.get(candidate) || '',
+    });
+    expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([]);
+  });
+
+  it('non tratta decoy letterali o mappe non passati al sink come output', () => {
+    const files = new Map([
+      ['/repo/scripts/decoys.mjs', [
+        "import { appendFileSync } from 'node:fs';",
+        "const decoy = 'decoy=yes\\n';",
+        'const values = {',
+        '  decoy_map: true,',
+        '};',
+        'const labels = Object.entries(values).map(([name, value]) => `${name}=${value}`);',
+        "appendFileSync(process.env.GITHUB_OUTPUT, 'real=yes\\n');",
+      ].join('\n')],
+    ]);
+    const source = [
+      'name: delegated-output-decoys',
+      'on: [push]',
+      'jobs:',
+      '  check:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: producer',
+      '        id: generated',
+      '        run: node scripts/decoys.mjs',
+      '      - name: consumer',
+      '        run: echo "${{ steps.generated.outputs.decoy }} ${{ steps.generated.outputs.decoy_map }} ${{ steps.generated.outputs.real }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/delegated-output-decoys.yml', source, {
+      root: '/repo',
+      exists: (candidate: string) => files.has(candidate),
+      readFile: (candidate: string) => files.get(candidate) || '',
+    });
+    const outputFindings = findings.filter((item: any) => item.rule === 'workflow.output-not-produced');
+    expect(outputFindings).toHaveLength(2);
+    expect(outputFindings.map((item: any) => item.message)).toEqual(expect.arrayContaining([
+      expect.stringContaining('decoy'),
+      expect.stringContaining('decoy_map'),
+    ]));
+    expect(outputFindings.map((item: any) => item.message)).not.toEqual(expect.arrayContaining([
+      expect.stringContaining('real'),
+    ]));
+  });
+
+  it('riconosce gli output prodotti da un heredoc shell diretto verso GITHUB_OUTPUT', () => {
+    const source = [
+      'name: heredoc-output',
+      'on: [push]',
+      'jobs:',
+      '  check:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: producer',
+      '        id: generated',
+      '        run: |',
+      '          node --input-type=module - "$CTX_DIR/issue.json" >> "$GITHUB_OUTPUT" <<\'NODE\'',
+      "          console.log('ready=true');",
+      '          NODE',
+      '      - name: consumer',
+      '        run: echo "${{ steps.generated.outputs.ready }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/heredoc-output.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([]);
+  });
+
+  it('riconosce anche l’ordine heredoc seguito dalla redirezione verso GITHUB_OUTPUT', () => {
+    const source = [
+      'name: heredoc-output-reversed',
+      'on: [push]',
+      'jobs:',
+      '  check:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: producer',
+      '        id: generated',
+      '        run: |',
+      '          node --input-type=module - <<\'NODE\' >> "$GITHUB_OUTPUT"',
+      "          console.log('ready=true');",
+      '          NODE',
+      '      - name: consumer',
+      '        run: echo "${{ steps.generated.outputs.ready }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/heredoc-output-reversed.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([]);
+  });
+
+  it('riconosce gli output digest sempre emessi dal preflight shadow reale', () => {
+    const file = '.github/workflows/translate-pending-logic.yml';
+    const source = fs.readFileSync(path.resolve(file), 'utf8');
+    const findings = auditWorkflowText(file, source, { root: process.cwd() });
+    expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([]);
+  });
+
+  it('segue un helper importato da uno script first-party', () => {
+    const files = new Map([
+      ['/repo/scripts/pull.mjs', [
+        "import { emitSkip } from './lib/output.mjs';",
+        'emitSkip();',
+      ].join('\n')],
+      ['/repo/scripts/lib/output.mjs', [
+        "import { appendFileSync } from 'node:fs';",
+        'export function emitSkip() {',
+        "  appendFileSync(process.env.GITHUB_OUTPUT, 'nested=yes\\n');",
+        '}',
+      ].join('\n')],
+    ]);
+    const source = [
+      'name: delegated-output-import',
+      'on: [push]',
+      'jobs:',
+      '  check:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: producer',
+      '        id: health',
+      '        run: node scripts/pull.mjs',
+      '      - name: consumer',
+      '        run: echo "${{ steps.health.outputs.nested }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/delegated-output-import.yml', source, {
+      root: '/repo',
+      exists: (candidate: string) => files.has(candidate),
+      readFile: (candidate: string) => files.get(candidate) || '',
+    });
+    expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([]);
+  });
+
   it('mantiene separati gli scope tra job e verifica gli output needs dichiarati', () => {
     const source = [
       'name: scoped',
@@ -440,6 +643,160 @@ describe('technical operations audit', () => {
       .toContain('actions/checkout (build)');
   });
 
+  it('accetta un checkout runtime quando lo stesso step verifica prima il file', () => {
+    const source = [
+      'name: runtime-checkout-guarded',
+      'on: [push]',
+      'jobs:',
+      '  compare:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - uses: actions/checkout@v4',
+      '        with:',
+      '          path: build',
+      '      - name: run guarded tool',
+      '        working-directory: build',
+      '        run: |',
+      '          test -f scripts/generated.mjs',
+      '          node scripts/generated.mjs',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/runtime-checkout-guarded.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.script-reference')).toEqual([]);
+  });
+
+  it('non usa una verifica runtime posta dopo il comando come prova', () => {
+    const source = [
+      'name: runtime-checkout-after',
+      'on: [push]',
+      'jobs:',
+      '  compare:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - uses: actions/checkout@v4',
+      '        with:',
+      '          path: build',
+      '      - name: run unguarded tool',
+      '        working-directory: build',
+      '        run: |',
+      '          node scripts/generated.mjs',
+      '          test -f scripts/generated.mjs',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/runtime-checkout-after.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.script-reference'))
+      .toEqual([expect.objectContaining({ severity: 'warning' })]);
+  });
+
+  it('ignora un percorso di script citato soltanto in un commento shell', () => {
+    const source = [
+      'name: commented-script',
+      'on: [push]',
+      'jobs:',
+      '  check:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: documentation',
+      '        run: |',
+      '          # esempio: node scripts/does-not-run.mjs',
+      '          echo ready',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/commented-script.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.script-reference')).toEqual([]);
+  });
+
+  it('non considera una ricetta quotata come assertion runtime', () => {
+    const source = [
+      'name: quoted-runtime-assertion',
+      'on: [push]',
+      'jobs:',
+      '  compare:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - uses: actions/checkout@v4',
+      '        with:',
+      '          path: build',
+      '      - name: run unguarded tool',
+      '        working-directory: build',
+      '        run: |',
+      '          echo "test -f scripts/generated.mjs"',
+      "          printf '%s\\n' 'test -f scripts/generated.mjs'",
+      '          node scripts/generated.mjs',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/quoted-runtime-assertion.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.script-reference'))
+      .toEqual([expect.objectContaining({ severity: 'warning' })]);
+  });
+
+  it('non accetta una assertion con fallback che assorbe il fallimento', () => {
+    const source = [
+      'name: swallowed-runtime-assertion',
+      'on: [push]',
+      'jobs:',
+      '  compare:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - uses: actions/checkout@v4',
+      '        with:',
+      '          path: build',
+      '      - name: run unguarded tool',
+      '        working-directory: build',
+      '        run: |',
+      '          test -f scripts/generated.mjs || true',
+      '          node scripts/generated.mjs',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/swallowed-runtime-assertion.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.script-reference'))
+      .toEqual([expect.objectContaining({ severity: 'warning' })]);
+  });
+
+  it('lega una assertion condizionale solo al ramo then', () => {
+    const source = [
+      'name: conditional-runtime-assertion',
+      'on: [push]',
+      'jobs:',
+      '  compare:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - uses: actions/checkout@v4',
+      '        with:',
+      '          path: build',
+      '      - name: run guarded tool',
+      '        working-directory: build',
+      '        run: |',
+      '          if test -f "scripts/generated.mjs"; then',
+      '            node scripts/generated.mjs',
+      '          else',
+      '            echo missing',
+      '          fi',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/conditional-runtime-assertion.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.script-reference')).toEqual([]);
+  });
+
+  it('non estende una assertion condizionale al ramo else', () => {
+    const source = [
+      'name: conditional-runtime-assertion-else',
+      'on: [push]',
+      'jobs:',
+      '  compare:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - uses: actions/checkout@v4',
+      '        with:',
+      '          path: build',
+      '      - name: run unguarded tool',
+      '        working-directory: build',
+      '        run: |',
+      '          if test -f scripts/generated.mjs; then',
+      '            node scripts/generated.mjs',
+      '          else',
+      '            node scripts/generated.mjs',
+      '          fi',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/conditional-runtime-assertion-else.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.script-reference'))
+      .toEqual([expect.objectContaining({ severity: 'warning' })]);
+  });
+
   it('non usa un file omonimo nella root per mascherare working-directory errato', () => {
     const source = [
       'name: cwd',
@@ -483,7 +840,7 @@ describe('technical operations audit', () => {
     expect(report.filesScanned).toBeGreaterThanOrEqual(200);
     expect(report.workflowNames.length).toBeGreaterThanOrEqual(200);
     expect(report.findings.every((item: any) => item.file.endsWith('.yml') || item.file.endsWith('.yaml'))).toBe(true);
-  });
+  }, 30_000);
 
   it('renderizza conteggi e severità nel report', () => {
     const report = {

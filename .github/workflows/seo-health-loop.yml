@@ -27,6 +27,11 @@ on:
         required: false
         type: string
         default: '30'
+      error_sample:
+        description: 'Bounded Cloudflare 5xx path probe size'
+        required: false
+        type: string
+        default: '100'
 
 concurrency:
   group: seo-health-loop
@@ -46,21 +51,6 @@ jobs:
         uses: actions/checkout@v5
         with:
           fetch-depth: 1
-          # Keep the production checkout small.  The runner reads public HTTP
-          # sitemaps and committed monitor state; the compat prune uses the
-          # shared resolver and canton registry, not the multi-GB job payload.
-          sparse-checkout: |
-            /*
-            !/public/images/
-            !/public/data/
-            !/data/jobs/
-            !/data/translation-cache/
-            !/packages/articles/content/
-            !/data/jobs-snapshots-history/
-            !/data/jobs-crawler-summaries/
-            !/data/orphan-enriched-data/
-            !/data/jobs-ai-cache.json
-          sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
@@ -101,6 +91,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HEALTH_SAMPLE: ${{ inputs.sample || '80' }}
           HEALTH_JOB_SAMPLE: ${{ inputs.job_sample || '30' }}
+          HEALTH_ERROR_SAMPLE: ${{ inputs.error_sample || '100' }}
           HEALTH_DRY_RUN: ${{ inputs.dry_run || false }}
         run: |
           set -euo pipefail
@@ -114,6 +105,9 @@ jobs:
             --auto-correction \
             --sample="$HEALTH_SAMPLE" \
             --job-sample="$HEALTH_JOB_SAMPLE" \
+            --error-sample="$HEALTH_ERROR_SAMPLE" \
+            --max-fetches=640 \
+            --cycle-budget-ms=1500000 \
             "${extra_args[@]}"
 
       - name: Reconcile 404 compatibility store
@@ -261,11 +255,11 @@ jobs:
         with:
           name: seo-health-${{ github.run_id }}
           path: data/seo-health/latest.json
-          if-no-files-found: warn
+          if-no-files-found: error
           retention-days: 30
 
       - name: Report workflow failure
-        if: ${{ always() && (steps.health.outcome == 'failure' || steps.compat_reconcile.outcome == 'failure' || steps.compat_validation.outcome == 'failure' || steps.compat.outcome == 'failure' || steps.health_commit.outcome == 'failure' || steps.deploy.outcome == 'failure') }}
+        if: ${{ always() && inputs.dry_run != true && (steps.health.outcome == 'failure' || steps.compat_reconcile.outcome == 'failure' || steps.compat_validation.outcome == 'failure' || steps.compat.outcome == 'failure' || steps.health_commit.outcome == 'failure' || steps.deploy.outcome == 'failure') }}
         continue-on-error: true
         env:
           GH_REPO: ${{ github.repository }}

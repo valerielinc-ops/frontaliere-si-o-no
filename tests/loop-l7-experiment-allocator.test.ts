@@ -10,6 +10,10 @@ import {
 
 const NOW = new Date('2026-09-12T12:00:00.000Z');
 const GUARDRAILS = ['persistent assignment', 'minimum sample', 'explicit expiry', 'no automatic price change'];
+const FLEET_LOOP_REGISTRY = JSON.parse(fs.readFileSync(
+  path.resolve('data/loop-fleet/loop-registry.json'),
+  'utf8',
+));
 
 function candidate(overrides: Record<string, unknown> = {}) {
   return {
@@ -81,8 +85,13 @@ function tempFiles(candidateValue: unknown = registry(), outcomeValue: unknown =
 }
 
 describe('L7 Experiment Allocator', () => {
+  it('rifiuta la validazione senza il registry della flotta', () => {
+    expect(() => validateExperimentAllocator({ registry: registry(), outcomes: outcomes() }, { now: NOW }))
+      .toThrow('L7 loop registry is required');
+  });
+
   it('accepts a sourced candidate registry and complete outcome ledger', () => {
-    const verdict = validateExperimentAllocator({ registry: registry(), outcomes: outcomes() }, { now: NOW });
+    const verdict = validateExperimentAllocator({ registry: registry(), outcomes: outcomes() }, { now: NOW, loopRegistry: FLEET_LOOP_REGISTRY });
     expect(verdict).toMatchObject({ ok: true, quality: 'observed' });
     expect(verdict.snapshot.outcomes).toMatchObject({ eligibleCohort: 300, persistentAssignments: 300 });
   });
@@ -95,7 +104,7 @@ describe('L7 Experiment Allocator', () => {
   });
 
   it('keeps canary allocation unmeasurable when the outcome ledger is absent', () => {
-    const verdict = validateExperimentAllocator({ registry: registry(), outcomes: null }, { now: NOW });
+    const verdict = validateExperimentAllocator({ registry: registry(), outcomes: null }, { now: NOW, loopRegistry: FLEET_LOOP_REGISTRY });
     expect(verdict).toMatchObject({ ok: false, quality: 'partial' });
     expect(verdict.snapshot.outcomes.eligibleCohort).toBeNull();
     expect(verdict.warnings.join(' ')).toContain('no independent');
@@ -105,9 +114,35 @@ describe('L7 Experiment Allocator', () => {
     const verdict = validateExperimentAllocator({
       registry: registry(),
       outcomes: outcomes({ independent: false }),
-    }, { now: NOW });
+    }, { now: NOW, loopRegistry: FLEET_LOOP_REGISTRY });
     expect(verdict.ok).toBe(false);
     expect(verdict.issues.join(' ')).toContain('independent must be explicitly true');
+  });
+
+  it('does not expose metadata from an untrustworthy ledger as persistent support', async () => {
+    const files = tempFiles(registry(), outcomes({ independent: false }));
+    const result = await runL7({
+      now: NOW,
+      candidatesPath: files.candidatesPath,
+      outcomePath: files.outcomePath,
+      reportDir: files.reportDir,
+      logger: { log() {} },
+    });
+    expect(result.outcome).toMatchObject({
+      status: 'partial',
+      independent: false,
+      evidenceStatus: 'unverified',
+      ledger: { status: 'unverified', persistent: false, guardrails: false, duration: false },
+      assignmentLedger: null,
+      preRegistration: null,
+      contaminationPolicy: null,
+      metrics: {
+        eligibleCohort: null,
+        assignments: null,
+        exposures: null,
+      },
+      allocationPlan: { persistent: false, ledgerStatus: 'unverified' },
+    });
   });
 
   it('does not turn an empty eligible cohort into a measurable zero outcome', async () => {
@@ -169,7 +204,7 @@ describe('L7 Experiment Allocator', () => {
     const verdict = validateExperimentAllocator({
       registry: registry(),
       outcomes: outcomes({ exposures: 301, contaminatedAssignments: 301, guardrailBreaches: 301 }),
-    }, { now: NOW });
+    }, { now: NOW, loopRegistry: FLEET_LOOP_REGISTRY });
     expect(verdict.quality).toBe('partial');
     expect(verdict.reason).toContain('exposures exceeds outcomes.assignments');
   });
@@ -178,7 +213,7 @@ describe('L7 Experiment Allocator', () => {
     const verdict = validateExperimentAllocator({
       registry: registry(),
       outcomes: outcomes({ guardrailBreaches: 1, contaminatedAssignments: 1 }),
-    }, { now: NOW });
+    }, { now: NOW, loopRegistry: FLEET_LOOP_REGISTRY });
     expect(verdict).toMatchObject({ ok: false, quality: 'partial' });
     expect(verdict.issues.join(' ')).toContain('guardrailBreaches is non-zero');
     expect(verdict.issues.join(' ')).toContain('contaminatedAssignments is non-zero');
@@ -242,7 +277,42 @@ describe('L7 Experiment Allocator', () => {
     expect(result.verdict.snapshot.registry.actionPolicy).toEqual(l7.actionPolicy);
   });
 
-  it('exports a persistent, bounded, review-only allocation plan with the outcome ledger', async () => {
+  it('uses the registry minimum sample when no strengthening override is supplied', async () => {
+    const files = tempFiles(registry(), null);
+    const loopRegistry = JSON.parse(fs.readFileSync('data/loop-fleet/loop-registry.json', 'utf8'));
+    const l7 = loopRegistry.loops.find((loop: { loopId: string }) => loop.loopId === 'L7');
+    l7.minimumSample = 80;
+    const registryPath = path.join(files.dir, 'loop-registry.json');
+    fs.writeFileSync(registryPath, `${JSON.stringify(loopRegistry, null, 2)}\n`);
+
+    const result = await runL7({
+      now: NOW,
+      candidatesPath: files.candidatesPath,
+      outcomePath: files.outcomePath,
+      registryPath,
+      reportDir: files.reportDir,
+      logger: { log() {} },
+    });
+
+    expect(result.allocationPlan.preRegistration.minimumSample).toBe(80);
+  });
+
+  it('keeps a stronger direct minimum-sample override above the registry floor', () => {
+    const loopRegistry = JSON.parse(fs.readFileSync('data/loop-fleet/loop-registry.json', 'utf8'));
+    const l7 = loopRegistry.loops.find((loop: { loopId: string }) => loop.loopId === 'L7');
+    l7.minimumSample = 80;
+
+    const verdict = validateExperimentAllocator({ registry: registry(), outcomes: outcomes() }, {
+      now: NOW,
+      minimumSample: 300,
+      loopRegistry,
+    });
+
+    expect(verdict.ok).toBe(false);
+    expect(verdict.issues.join(' ')).toContain('preRegistration.minimumSample must be at least 300');
+  });
+
+  it('does not claim persistent ledger support when the outcome source is absent', async () => {
     const files = tempFiles(registry(), null);
     const result = await runL7({
       now: NOW,
@@ -265,8 +335,21 @@ describe('L7 Experiment Allocator', () => {
       trafficMutationAllowed: false,
       priceMutationAllowed: false,
       noAutomaticPriceChange: true,
+      ledger: {
+        status: 'missing',
+        persistent: false,
+        guardrails: false,
+        duration: false,
+      },
       allocationPlan: {
-        persistent: true,
+        persistent: false,
+        ledgerStatus: 'missing',
+        persistenceSupported: false,
+        evidenceSupport: {
+          assignmentLedger: 'missing',
+          guardrails: 'missing',
+          duration: 'missing',
+        },
         assignmentMethod: 'stable-sha256',
         assignmentKey: 'experiment-session-id',
         boundedCanary: { enabled: false, maxExposure: 0, requiresReviewedApproval: true },
@@ -284,7 +367,66 @@ describe('L7 Experiment Allocator', () => {
       },
     });
     expect(JSON.parse(fs.readFileSync(path.join(files.reportDir, 'l7-outcome.json'), 'utf8')))
-      .toMatchObject({ loopId: 'L7', safeToAct: false, allocationPlan: { persistent: true } });
+      .toMatchObject({
+        loopId: 'L7',
+        safeToAct: false,
+        ledger: { status: 'missing', persistent: false },
+        allocationPlan: { persistent: false, ledgerStatus: 'missing' },
+      });
+  });
+
+  it('claims persistent ledger support only from a complete observed outcome source', async () => {
+    const files = tempFiles(registry(), outcomes());
+    const result = await runL7({
+      now: NOW,
+      candidatesPath: files.candidatesPath,
+      outcomePath: files.outcomePath,
+      reportDir: files.reportDir,
+      logger: { log() {} },
+    });
+    expect(result).toMatchObject({
+      verdict: { ok: true, quality: 'observed' },
+      outcome: {
+        independent: true,
+        evidenceStatus: 'verified',
+        ledger: { status: 'verified', persistent: true, guardrails: true, duration: true },
+        allocationPlan: {
+          persistent: true,
+          ledgerStatus: 'verified',
+          persistenceSupported: true,
+        },
+      },
+      allocationPlan: {
+        persistent: true,
+        ledgerStatus: 'verified',
+      },
+    });
+  });
+
+  it('takes the allocation contract from the registry instead of script defaults', async () => {
+    const files = tempFiles(registry(), null);
+    const loopRegistry = JSON.parse(fs.readFileSync('data/loop-fleet/loop-registry.json', 'utf8'));
+    const l7 = loopRegistry.loops.find((loop: { loopId: string }) => loop.loopId === 'L7');
+    l7.allocationPolicy.assignmentMethod = 'stable-sha256-test';
+    l7.allocationPolicy.assignmentKey = 'registered-experiment-key';
+    l7.allocationPolicy.contaminationPolicy.key = 'registered-experiment-key';
+    const registryPath = path.join(files.dir, 'loop-registry.json');
+    fs.writeFileSync(registryPath, `${JSON.stringify(loopRegistry, null, 2)}\n`);
+
+    const result = await runL7({
+      now: NOW,
+      candidatesPath: files.candidatesPath,
+      outcomePath: files.outcomePath,
+      registryPath,
+      reportDir: files.reportDir,
+      logger: { log() {} },
+    });
+
+    expect(result.allocationPlan).toMatchObject({
+      assignmentMethod: 'stable-sha256-test',
+      assignmentKey: 'registered-experiment-key',
+      contaminationPolicy: { key: 'registered-experiment-key' },
+    });
   });
 
   it('keeps the allocation seed deterministic for the same registry snapshot', async () => {

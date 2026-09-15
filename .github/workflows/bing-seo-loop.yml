@@ -1,0 +1,175 @@
+name: Bing SEO closed loop
+
+# The site-side loop owns the HTML contract and the six IndexNow remediation
+# URLs. Article copy is fixed by the companion workflow in the publisher
+# repository; the two loops meet only through the live HTTP surface.
+on:
+  schedule:
+    - cron: '35 4 * * *'
+  workflow_dispatch:
+    inputs:
+      apply_fixes:
+        description: 'Open a PR for deterministic source corrections'
+        required: false
+        default: true
+        type: boolean
+      submit_indexnow:
+        description: 'Stream the six URLs Bing reported as missing'
+        required: false
+        default: true
+        type: boolean
+      dry_run:
+        description: 'Preview IndexNow URLs without POSTing'
+        required: false
+        default: false
+        type: boolean
+
+concurrency:
+  group: bing-seo-loop
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+          sparse-checkout: |
+            index.html
+            build-plugins/staticPagesPlugin.ts
+            scripts/seo/
+            scripts/lib/indexnow-submit.mjs
+            scripts/submit-indexnow.js
+            scripts/submit-indexnow-batch.mjs
+            scripts/submit-indexnow-remediation.mjs
+            scripts/load-rc-env.mjs
+            scripts/ci/pr-body-check-gate.mjs
+            .github/workflows/submit-indexnow-batch.yml
+            package.json
+            package-lock.json
+            vitest.config.ts
+            tsconfig.json
+            tests/seo/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          set -euo pipefail
+          if [ -n "${FIREBASE_SERVICE_ACCOUNT_JSON:-}" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "::warning::Remote Config non disponibile; il loop potrà solo verificare e non aprire PR."
+          fi
+
+      - name: Load secrets from Remote Config
+        continue-on-error: true
+        run: node scripts/load-rc-env.mjs
+
+      - name: Check deterministic source contract
+        id: source
+        continue-on-error: true
+        run: node scripts/seo/bing-seo-live-loop.mjs --check-source
+
+      - name: Run targeted regression test
+        run: npx vitest run tests/seo/bing-seo-live-loop.test.ts --reporter=dot
+
+      - name: Audit production HTML
+        id: audit
+        continue-on-error: true
+        run: node scripts/seo/bing-seo-live-loop.mjs --audit-live --report "$RUNNER_TEMP/bing-seo-live-report.json"
+
+      - name: Upload live report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: bing-seo-live-report
+          path: $RUNNER_TEMP/bing-seo-live-report.json
+          if-no-files-found: warn
+
+      - name: Open PR for deterministic H1 source repair
+        if: ${{ github.event_name == 'schedule' || inputs.apply_fixes == true }}
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          branch='automation/bing-seo-h1'
+          if git ls-remote --exit-code --heads origin "$branch" >/dev/null 2>&1; then
+            git fetch origin "$branch"
+            git switch --create "$branch" --track "origin/$branch"
+            git rebase origin/main
+          else
+            git switch --create "$branch" origin/main
+          fi
+          node scripts/seo/bing-seo-live-loop.mjs --apply-fixes
+          if git diff --quiet; then
+            echo 'Nessuna correzione H1 da proporre.'
+            exit 0
+          fi
+          token="${GITHUB_PAT:-}"
+          if [ -z "$token" ]; then
+            echo '::error::GITHUB_PAT non disponibile da Remote Config; rifiuto il push/PR con GITHUB_TOKEN per non disattivare i workflow downstream.'
+            exit 1
+          fi
+          export GH_TOKEN="$token"
+          git remote set-url origin "https://x-access-token:$token@github.com/$GITHUB_REPOSITORY.git"
+          git config user.name 'frontaliere-automation[bot]'
+          git config user.email 'frontaliere-automation[bot]@users.noreply.github.com'
+          git add index.html build-plugins/staticPagesPlugin.ts
+          git commit -m 'fix(seo): expose and localize homepage H1'
+          git push origin "HEAD:$branch"
+          pr_count="$(gh pr list --repo "$GITHUB_REPOSITORY" --state open --head "$branch" --json number --jq 'length')"
+          if [ "$pr_count" = '0' ]; then
+            body="$RUNNER_TEMP/bing-seo-h1-pr-body.md"
+            cat > "$body" <<'EOF'
+          ## Implementato
+          - Rende l’H1 della homepage visibile nel markup server-rendered e localizza il testo nei root /en/, /de/ e /fr/, chiudendo il finding Bing senza aggiungere H1 duplicati.
+          - Aggiunge il controllo live di status, canonical, lunghezza title, H1 e IndexNow, con test deterministico e PR automatica ripetibile.
+
+          ## Non implementato (ancora)
+          - Nessuno: per scelta, nessun residuo in questa PR.
+          EOF
+            node scripts/ci/pr-body-check-gate.mjs --body-file "$body"
+            gh pr create --repo "$GITHUB_REPOSITORY" --base main --head "$branch" \
+              --title 'fix(seo): expose and localize homepage H1' --body-file "$body"
+            gh pr edit --repo "$GITHUB_REPOSITORY" "$branch" --add-label agent:autofix
+          fi
+
+      - name: Stream IndexNow remediation URLs
+        env:
+          INPUT_SUBMIT: ${{ github.event_name == 'schedule' && 'true' || inputs.submit_indexnow }}
+          INPUT_DRY_RUN: ${{ inputs.dry_run || 'false' }}
+        run: |
+          set -euo pipefail
+          if [ "$INPUT_SUBMIT" != 'true' ]; then
+            echo 'IndexNow disabilitato da input.'
+            exit 0
+          fi
+          if [ "$INPUT_DRY_RUN" = 'true' ]; then
+            node scripts/submit-indexnow-remediation.mjs --dry-run
+          else
+            node scripts/submit-indexnow-remediation.mjs
+          fi
+
+      - name: Report unresolved live findings
+        if: steps.audit.outcome == 'failure'
+        run: echo "::warning::La superficie live ha ancora finding; il report è allegato e il ciclo successivo riverificherà dopo il deploy delle PR."

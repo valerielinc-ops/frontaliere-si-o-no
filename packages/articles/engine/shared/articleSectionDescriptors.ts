@@ -45,6 +45,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { ARTICLE_SECTION_CORE } from './articleSectionCore.mjs';
 import { CANONICAL_OVERRIDE_FILES } from './canonicalOverrideFiles.mjs';
+// @ts-ignore The site symlink can make tsc resolve this shared source from
+// build-plugins/shared, where this engine-local sibling is not visible at the
+// link path; Node/Vite resolve the realpath correctly at runtime.
+import { findAllSeoEntryMatches } from './seo-entry.mjs';
 
 function isMissingPathError(error: unknown): boolean {
  return (error as NodeJS.ErrnoException).code === 'ENOENT';
@@ -114,12 +118,12 @@ export const ARTICLE_SECTION_DESCRIPTORS: OgSection[] = [
  * `blogKeyToArticleId` below). One literal regex, not two copies that could
  * silently diverge if the `blog-` key convention ever changed.
  */
-export function extractBlogEntryPositions(source: string): Array<{ key: string; start: number }> {
- const keyRx = /'(blog-[^']+)':\s*\{/g;
- const out: Array<{ key: string; start: number }> = [];
- let m: RegExpExecArray | null;
- while ((m = keyRx.exec(source)) !== null) out.push({ key: m[1], start: m.index });
- return out;
+export function extractBlogEntryPositions(source: string): Array<{ key: string; start: number; end: number }> {
+ return findAllSeoEntryMatches(source).map(({ id, index, closeIdx }) => ({
+  key: 'blog-' + id,
+  start: index,
+  end: closeIdx + 1,
+ }));
 }
 
 /** `'blog-<slug>'` -> `<slug>` (the `articleId` shape `renderArticlePages` uses everywhere: `onlyArticleId`, body filenames, write-loop filter). */

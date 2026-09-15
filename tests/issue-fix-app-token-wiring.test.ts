@@ -321,7 +321,7 @@ describe('secrets: USO autorizzato ≠ ROTAZIONE (review round 2, #6333)', () =>
 
   it('ISSUES.md dice di USARE una credenziale disponibile, non più di abortire', () => {
     expect(issues).toContain('I segreti CI SONO');
-    expect(issues).toMatch(/richiede una credenziale va \*\*IMPLEMENTATO\*\*/);
+    expect(issues).toContain('Implementa i fix che li richiedono;');
     expect(issues).not.toContain('Fix richiede credenziali/segreti non in CI → documenta + termina.');
   });
 

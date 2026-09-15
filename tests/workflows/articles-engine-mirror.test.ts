@@ -188,6 +188,15 @@ describe('the articles engine has an automatic transport to the corpus (#4974)',
       'the run must verify the engine materialised before mirroring it',
     ).toBe(true);
   });
+
+  it('preflighta l’albero engine con manifest e swap atomico prima dello staging', () => {
+    expect(live).toContain('source_manifest="$RUNNER_TEMP/engine-source-manifest.txt"');
+    expect(live).toContain('source_tree_sha="$(git rev-parse HEAD:packages/articles/engine)"');
+    expect(live).toContain('manifest "$stage_dir/engine" > "$stage_dir/engine-manifest.txt"');
+    expect(live).toContain('diff -u "$source_manifest" "$stage_dir/engine-manifest.txt"');
+    expect(live).toContain('refusing to fan out a partial mirror');
+    expect(live).toContain('mv "$stage_dir/engine" "$work/engine"');
+  });
 });
 
 /**

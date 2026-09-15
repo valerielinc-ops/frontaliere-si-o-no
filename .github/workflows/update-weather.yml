@@ -34,16 +34,13 @@ jobs:
             /*
             !/public/images/
             !/data/jobs/
-            !/data/seo-404-compat/
             !/data/translation-cache/
-            !/data/all-known-job-slugs/
-            !/data/orphan-enriched-data/
             !/docs/
             !/public/data/
             !/data/related-search-candidates.json
             !/data/cf-hot-404s.json
-            !/data/jobs-ai-cache.json
             !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
             !/data/url-first-seen.json
             !/data/jobs-snapshots-history/
             !/data/slug-registry.json
@@ -107,20 +104,8 @@ jobs:
 
           git commit -m "🌦️ Refresh weather snapshot (council)"
 
-          # Rebase-retry loop (max 5 attempts)
-          bash scripts/lib/configure-main-push-auth.sh
-          for attempt in 1 2 3 4 5; do
-            if git push origin HEAD:main; then
-              echo "push ok on attempt $attempt"
-              exit 0
-            fi
-            echo "push failed (attempt $attempt), rebasing..."
-            git fetch origin main || true  # tolerate transient net failure; rebase below will signal staleness
-            git rebase origin/main || { git rebase --abort; sleep 2; continue; }
-            sleep $((attempt * 2))
-          done
-          echo "::warning::push failed after 5 attempts — leaving snapshot uncommitted"
-          exit 0
+          bash scripts/lib/git-push-with-retry.sh \
+            --regenerate-cmd "NODE_ENV=production npx --no-install tsx scripts/update-weather.ts && git add data/weather-snapshot.json"
 
       - name: Report failure to GitHub Issues
         if: failure()

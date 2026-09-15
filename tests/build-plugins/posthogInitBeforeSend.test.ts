@@ -1,5 +1,12 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { POSTHOG_INIT_CONTENT } from '../../build-plugins/constants.ts';
+import {
+  POSTHOG_INIT_CONTENT,
+} from '../../build-plugins/constants.ts';
+import {
+  POSTHOG_EVENT_SAMPLE_RATE,
+  POSTHOG_SESSION_REPLAY_SAMPLE_RATE,
+  shouldCapturePostHogEvent,
+} from '../../services/posthogQuota.ts';
 
 /**
  * Issue #3406/#3407: POSTHOG_INIT_CONTENT (the plain-JS PostHog init snippet
@@ -85,6 +92,30 @@ describe('POSTHOG_INIT_CONTENT before_send (issue #3406/#3407)', () => {
   it('passes through non-exception events unchanged', () => {
     const event = { event: '$pageview', properties: {} };
     expect(beforeSend(event)).toBe(event);
+  });
+
+  it('keeps replay snapshots and identity events outside analytics sampling', () => {
+    const snapshot = { event: '$snapshot', properties: { $session_id: 'sampled-out' } };
+    const identify = { event: '$identify', properties: { $session_id: 'sampled-out' } };
+
+    expect(beforeSend(snapshot)).toBe(snapshot);
+    expect(beforeSend(identify)).toBe(identify);
+  });
+
+  it('matches the SPA sampler for deterministic session decisions', () => {
+    for (let i = 0; i < 40; i += 1) {
+      const event = { event: 'custom_event', properties: { $session_id: `parity-${i}` } };
+      expect(Boolean(beforeSend(event))).toBe(
+        shouldCapturePostHogEvent(event, POSTHOG_EVENT_SAMPLE_RATE),
+      );
+    }
+  });
+
+  it('embeds the same quota limits in the static initializer', () => {
+    expect(POSTHOG_INIT_CONTENT).toContain(
+      `session_recording:{sampleRate:${POSTHOG_SESSION_REPLAY_SAMPLE_RATE}}`,
+    );
+    expect(POSTHOG_INIT_CONTENT).toContain(`>=${POSTHOG_EVENT_SAMPLE_RATE}`);
   });
 
   it('drops a benign "Script error." exception (#3406)', () => {

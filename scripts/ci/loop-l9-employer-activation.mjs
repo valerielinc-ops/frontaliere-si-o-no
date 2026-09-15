@@ -554,6 +554,7 @@ function writeReports(reportDir, verdict, observation, decision) {
   fs.mkdirSync(dir, { recursive: true });
   const files = [
     ['l9-observation.json', observation],
+    ['l9-outcome.json', observation.outcome],
     ['l9-decision.json', decision],
     ['l9-report.md', reportMarkdown(verdict, observation, decision)],
   ];
@@ -644,7 +645,7 @@ export async function runL9({
   outcomePath = DEFAULT_OUTCOME_PATH,
   registryPath = DEFAULT_REGISTRY_PATH,
   maxAgeHours = DEFAULT_MAX_AGE_HOURS,
-  minimumSample = MINIMUM_SAMPLE,
+  minimumSample,
   issue = false,
   apply = false,
   reportDir = null,
@@ -750,19 +751,28 @@ export async function runL9({
     quality: verdict.quality,
     recordedAt: now.toISOString(),
   });
-  observation.outcome = buildValidatedLoopOutcome({
-    registry: loopRegistry,
+  observation.outcome = {
+    ...buildValidatedLoopOutcome({
+      registry: loopRegistry,
+      loopId: LOOP_ID,
+      quality: verdict.quality,
+      independent: verdict.ok,
+      numerator: verdict.ok ? outcomes.paidActivations : null,
+      denominator: verdict.ok ? outcomes.eligibleEmployerAccounts : null,
+      observedAt: finiteDate(outcomes.generatedAt)?.toISOString() || null,
+      reason: verdict.ok
+        ? 'employer profile inventory and the independent funnel/subscription ledger agree'
+        : `paid employer outcome is ${verdict.quality}; inventory is not treated as revenue`,
+      now,
+    }),
     loopId: LOOP_ID,
-    quality: verdict.quality,
-    independent: verdict.ok,
-    numerator: verdict.ok ? outcomes.paidActivations : null,
-    denominator: verdict.ok ? outcomes.eligibleEmployerAccounts : null,
-    observedAt: finiteDate(outcomes.generatedAt)?.toISOString() || null,
-    reason: verdict.ok
-      ? 'employer profile inventory and the independent funnel/subscription ledger agree'
-      : `paid employer outcome is ${verdict.quality}; inventory is not treated as revenue`,
-    now,
-  });
+    safeToAct: false,
+    realOutreachSent: false,
+    inventoryUntouched: true,
+    subscriptionStateUntouched: true,
+    pricesUntouched: true,
+    recipientsUntouched: true,
+  };
   const decision = buildDecision({
     loopId: LOOP_ID,
     goal: loopPolicy.goal,
@@ -809,9 +819,12 @@ function parseArgs(argv) {
     return index === -1 ? fallback : argv[index + 1] || fallback;
   };
   const maxAgeHours = Number(valueAfter('--max-age-hours', DEFAULT_MAX_AGE_HOURS));
-  const minimumSample = Number(valueAfter('--minimum-sample', MINIMUM_SAMPLE));
+  const minimumSampleIndex = argv.indexOf('--minimum-sample');
+  const minimumSample = minimumSampleIndex === -1 ? undefined : Number(argv[minimumSampleIndex + 1]);
   if (!Number.isFinite(maxAgeHours) || maxAgeHours <= 0) throw new Error('--max-age-hours must be a finite positive number');
-  if (!Number.isInteger(minimumSample) || minimumSample < 1) throw new Error('--minimum-sample must be a positive integer');
+  if (minimumSample !== undefined && (!Number.isInteger(minimumSample) || minimumSample < 1)) {
+    throw new Error('--minimum-sample must be a positive integer');
+  }
   return {
     json: argv.includes('--json'),
     issue: argv.includes('--issue'),

@@ -54,8 +54,11 @@ import {
   scoreCohorts,
   resolveInventoryEntry,
   MIN_COHORT_PAGES,
+  skeletonHashHex,
+  isFamilyWideMeasure,
 } from './lib/informationGain.mjs';
 import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
+import { isPlateAuctionSectionPath } from './lib/plateAuctionSections.mjs';
 
 /**
  * Median share of page-specific prose a gated cohort must clear.
@@ -110,7 +113,9 @@ const REGRESSION_TOLERANCE_PCT = 1.5;
  * Values measured on the production sample of 2026-08-24 (see the calibration
  * note above for the method).
  *
- * KEYS ARE FAMILY STEMS, not whatever label one run printed. Resolution is by
+ * KEYS COME IN TWO FORMS, and which one a cohort needs is not a choice.
+ *
+ * FAMILY STEMS, not whatever label one run printed. Resolution is by
  * prefix relation (`resolveInventoryEntry`): a label that EXTENDS a key
  * resolves to it, a label that TRUNCATES one does not. Recording the label a
  * narrow sample bucket produced (`…-100000-chf-`) instead of the family stem
@@ -130,6 +135,15 @@ const REGRESSION_TOLERANCE_PCT = 1.5;
  * on alternate runs. Adding a line here without adding its emitted slugs to the
  * fixture fails that test on purpose (issue #7383): the first two keys had never
  * been measured against a real slug, only against synthetic pairs.
+ *
+ * TEMPLATE IDENTITIES `<locale>:~<skeletonHash>`, for every cohort whose label
+ * carries the `~` anti-collision suffix. For those the stem is not usable as a
+ * key — prefix resolution is refused on a `~` label by design, and equality
+ * would pin a stem that moves with the sampled bucket — so the key is the hash
+ * of the masked `<h1>`, i.e. the template itself. That is what made the 37
+ * cohorts of #6975 inventoriable at all (#7382); the rationale in full is on
+ * `resolveInventoryEntry`, and the emitted-label evidence for each key is in
+ * the same fixture, under `templates`.
  */
 const KNOWN_LOW_GAIN_COHORTS = new Map([
   // Salary landings built from one BFS row each: the row IS the page, and the
@@ -154,6 +168,105 @@ const KNOWN_LOW_GAIN_COHORTS = new Map([
   // cohort means finding a genuinely per-comune fact that we do not have yet,
   // not rewording what is there.
   ['it:/vivere-in-austria-lavorare-in-svizzera/', 4.2],
+
+  // ── Le 37 coorti del 2026-09-01, run 33460354951 (issue #6975 → #7382) ────
+  //
+  // Cinque famiglie, 22 + 4 + 4 + 4 + 3, che coprono TUTTI gli offender di
+  // quella run: la tabella per coorte sta in `docs/INFORMATION-GAIN.md`
+  // («I 37 offender del 2026-09-01, scomposti»). Il valore di ogni riga è la
+  // mediana che quella run ha MISURATO su quella coorte, non una stima: sta in
+  // `topOffenders[].metric` dell'artifact `audit-reports-33460354951-1`.
+  //
+  // PERCHÉ SONO CHIAVI `<locale>:~<hash>` E NON TRONCHI DI FAMIGLIA.
+  // Perché per queste coorti il tronco NON è una chiave. Ognuna porta il
+  // suffisso anti-collisione `~`, e `resolveInventoryEntry` rifiuta di
+  // proposito la relazione di prefisso su un'etichetta che lo contiene (due
+  // template distinti ridotti alla stessa stringa non devono condividere una
+  // baseline). Resta l'uguaglianza — ma la parte PRIMA del `~` è il prefisso
+  // comune dei path CAMPIONATI, e quello si muove: la stessa coorte di
+  // calcolatori si chiamava `it:/calcola-stipendio/~2b6ed2` nella run del
+  // 2026-09-01 e `it:/calcola-stipendio/stipendio-netto-~2b6ed2` nella misura
+  // del 2026-09-05. Stesso template, due etichette, e né un tronco né
+  // un'uguaglianza le coprono entrambe. Non erano fuori dall'inventario per
+  // scelta: erano non-inventariabili. Lo `skeletonHash` è l'identità che non si
+  // muove — verificata identica nelle due misure su tutte e 22 le coorti dei
+  // calcolatori e su quelle di premi, aziende-settimanali e landing professione,
+  // a cavallo del cambio di etichetta di #7332.
+  //
+  // NON È UN RILASSAMENTO (AGENTS.md #1): il floor 5 % non si tocca, ogni riga
+  // registra il valore misurato e una discesa oltre REGRESSION_TOLERANCE_PCT
+  // resta rossa. L'inventario può solo scendere: la riga si toglie quando
+  // `recoveredCohorts` dice che quella coorte è risalita sopra il floor.
+  //
+  // Calcolatori di stipendio netto — 22 coorti (`/calcola-stipendio/`,
+  // `/en/calculate-salary/`, `/de/gehalt-berechnen/`, `/fr/calculer-salaire/`),
+  // una per combinazione RAL × figli × stato civile × regime frontaliero. Il
+  // payload per pagina è NUMERICO (lo stipendio netto calcolato) e i numeri
+  // sono mascherati a `#` per costruzione — è la maschera n. 1, quella senza
+  // cui la metrica premierebbe il mail-merge. La prosa attorno è davvero una
+  // sola: alzarle vuol dire dare a ogni combinazione una frase che le sorelle
+  // non hanno, non riscrivere quella che c'è. Non sono istanze di #6328, che è
+  // prosa a template fisso attorno a una riga BFS.
+  ['it:~2b6ed2', 0],
+  ['it:~a3b2e0', 0],
+  ['it:~3f7fd0', 1.96],
+  ['it:~7b14aa', 4],
+  ['en:~a6e437', 0],
+  ['en:~342e59', 0],
+  ['en:~2b88cc', 0],
+  ['en:~cf366d', 0],
+  ['en:~d152c1', 0],
+  ['en:~679ffe', 0],
+  ['de:~985308', 0],
+  ['de:~714897', 0],
+  ['de:~783bb1', 0],
+  ['de:~b2e7e8', 2.33],
+  ['de:~36928d', 2.38],
+  ['de:~17eee5', 2.38],
+  ['fr:~784d75', 0],
+  ['fr:~be8ee8', 0],
+  ['fr:~57819b', 0],
+  ['fr:~219c8c', 1.35],
+  ['fr:~3b291e', 2.63],
+  ['fr:~15498b', 2.7],
+  //
+  // Tempi di attesa alla dogana — 4 coorti, un valico per pagina, 13-18
+  // segmenti in tutto. Stessa forma: il payload è il numero di minuti di coda,
+  // mascherato come sopra, e il resto è l'unica spiegazione di come funziona
+  // quel valico, vera identicamente per tutti. Misurate quando la famiglia
+  // stava sotto `/guida-frontaliere/tempi-attesa-dogana/`; oggi le sitemap
+  // servono `/traffico-dogane/`. La chiave sopravvive al rename di proposito:
+  // è l'identità del template (`<h1>` mascherato), non il path.
+  ['it:~1fd95f', 0],
+  ['en:~bdfe66', 0],
+  ['de:~4c9404', 0],
+  ['fr:~9706c6', 0],
+  //
+  // Premi cassa malati — 4 coorti, un cantone × una fascia d'età, con il premio
+  // mensile come payload.
+  ['it:~d7cd89', 2.6],
+  ['en:~74bc5f', 2.7],
+  ['de:~4dd667', 2.7],
+  ['fr:~80ed15', 2.56],
+  //
+  // Aziende che assumono, settimanali — 4 coorti, una città × una settimana; il
+  // payload è il conteggio di posizioni aperte. Le righe `de`/`en` portano lo
+  // `skeletonHash` misurato il 2026-09-05: nella run del 2026-09-01 quelle due
+  // etichette non collidevano ancora e il report non ne stampava il suffisso,
+  // ma il template — e quindi la chiave — è lo stesso, ed è quello che le altre
+  // due locali della famiglia confermano riga per riga.
+  ['it:~23cba1', 2.75],
+  ['fr:~4b8304', 2.8],
+  ['de:~3b9ffd', 4.63],
+  ['en:~a17e23', 4.85],
+  //
+  // Landing professione × cantone flat-slug — 3 coorti (`it:/lavoro-`,
+  // `en:/en/jobs-`, `de:/de/arbeit-`), una professione in un cantone. È la
+  // famiglia che #7332 ha reso leggibile in tutti i locali; la `fr`
+  // corrispondente sta SOPRA il floor, e per questo non è qui.
+  ['it:~1164d6', 2.94],
+  ['en:~896cea', 3.13],
+  ['de:~7fd413', 4.29],
 ]);
 
 /** @returns {import('./lib/audit-runner.mjs').Auditor} */
@@ -189,7 +302,13 @@ function createAuditor({ dist = DEFAULT_DIST, sampleRate = 1 } = {}) {
       // already treat them as a distinct, unmeasured category; scoring them
       // here mixes two page kinds with unrelated prose expectations into the
       // same cohort and floods it with false "below-floor" offenders.
+      // Plate-auction pages have the same property: their differentiating
+      // payload is a public record (plate, price, bids and closing date), and
+      // the information-gain metric masks those numeric fields by design.
+      // Keep this vertical out of the editorial near-duplicate gate rather
+      // than adding each newly emitted canton/plate cohort to its inventory.
       if (JOB_BOARD_SECTION_RX.test(relPath)) return;
+      if (isPlateAuctionSectionPath(relPath)) return;
       fingerprints.push(fingerprintPage(relPath, html));
     },
     report() {
@@ -204,7 +323,7 @@ function createAuditor({ dist = DEFAULT_DIST, sampleRate = 1 } = {}) {
       for (const cohort of gated) {
         // Prefix relation, not equality: the label depends on WHICH pages the
         // rotating sample bucket drew, the inventory key does not (issue #7384).
-        const known = resolveInventoryEntry(KNOWN_LOW_GAIN_COHORTS, cohort.label);
+        const known = resolveInventoryEntry(KNOWN_LOW_GAIN_COHORTS, cohort.label, skeletonHashHex(cohort.skeletonHash));
         if (known === null) {
           if (cohort.medianIgs < MEDIAN_IGS_FLOOR_PCT) {
             offenders.push({ ...cohort, reason: 'below-floor', recordedMedian: null, inventoryKey: null });
@@ -218,7 +337,10 @@ function createAuditor({ dist = DEFAULT_DIST, sampleRate = 1 } = {}) {
             recordedMedian: known.value,
             inventoryKey: known.key,
           });
-        } else if (cohort.medianIgs >= MEDIAN_IGS_FLOOR_PCT && known.key === cohort.label) {
+        } else if (
+          cohort.medianIgs >= MEDIAN_IGS_FLOOR_PCT &&
+          isFamilyWideMeasure(known.key, cohort.label, { fullCohortCoverage: sampleRate === 1 })
+        ) {
           // La risoluzione per prefisso è ASIMMETRICA di proposito. Verso il
           // basso un campione basta: una sotto-famiglia sotto la baseline è di
           // per sé la prova che qualcosa è peggiorato, e il ratchet può solo
@@ -230,7 +352,8 @@ function createAuditor({ dist = DEFAULT_DIST, sampleRate = 1 } = {}) {
           // tornerebbe a lampeggiare col numero di run, cioè esattamente il
           // difetto che #7384 chiude. Solo un'etichetta UGUALE alla chiave —
           // una run che ha misurato la famiglia per intero — è prova di
-          // recupero family-wide.
+          // recupero family-wide. Una chiave-template passa solo su un audit
+          // full-dist (`sampleRate === 1`), mai su un campione rotante.
           recovered.push({ ...cohort, recordedMedian: known.value, inventoryKey: known.key });
         }
       }
@@ -282,13 +405,13 @@ function createAuditor({ dist = DEFAULT_DIST, sampleRate = 1 } = {}) {
             // KNOWN_LOW_GAIN_COHORTS without guessing which label will come
             // back next run (issue #6975).
             // Same 6 hex chars as the `~` anti-collision suffix that `scoreCohorts`
-        // appends to a colliding label, so `en:/en/~896cea` can be matched
-        // against this field literally instead of by prefix.
-        skeletonHash: c.skeletonHash.toString(16).slice(0, 6),
+            // appends to a colliding label, so `en:/en/~896cea` can be matched
+            // against this field literally instead of by prefix.
+            skeletonHash: skeletonHashHex(c.skeletonHash),
             // The inventory line this cohort resolved to, or null. Printed so a
             // run's verdict shows WHICH key answered for a sample-dependent
             // label instead of leaving it to be re-derived (issue #7384).
-            inventoryKey: resolveInventoryEntry(KNOWN_LOW_GAIN_COHORTS, c.label)?.key ?? null,
+            inventoryKey: resolveInventoryEntry(KNOWN_LOW_GAIN_COHORTS, c.label, skeletonHashHex(c.skeletonHash))?.key ?? null,
             pages: c.pages,
             medianIgs: Number(c.medianIgs.toFixed(2)),
             meanIgs: Number(c.meanIgs.toFixed(2)),

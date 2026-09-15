@@ -1157,6 +1157,185 @@ input[type=number] { -moz-appearance: textfield; }
   .ev-loc { @apply mt-6 overflow-hidden rounded-lg border border-edge bg-surface shadow-stripe-sm; }
   .ev-locmap { @apply aspect-video w-full overflow-hidden bg-surface-raised; }
   .ev-loc-h { @apply flex items-center gap-2 font-display text-lg font-bold text-heading; }
+
+  /* Event detail art direction. The mirrored flyer stays contained at its
+     native ratio; the tonal backdrop fills the wide stage without becoming
+     part of the meaningful image or its alt text. */
+  .ev-wrap3 { max-width: 70rem; }
+  .ev-hero {
+    position: relative;
+    border-radius: 1rem;
+    background: var(--_surface-inverted);
+    box-shadow: 0 24px 60px color-mix(in srgb, var(--_heading) 24%, transparent);
+  }
+  .ev-hero-stage {
+    position: relative;
+    isolation: isolate;
+    aspect-ratio: 16 / 9;
+    min-height: 12rem;
+    overflow: hidden;
+    background: var(--_surface-inverted);
+  }
+  .ev-hero-backdrop {
+    position: absolute;
+    inset: -1rem;
+    width: calc(100% + 2rem);
+    height: calc(100% + 2rem);
+    object-fit: cover;
+    filter: blur(18px) saturate(1.12);
+    opacity: .44;
+    transform: scale(1.06);
+  }
+  .ev-hero-surface {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: clamp(.75rem, 3vw, 2rem);
+    background: color-mix(in srgb, var(--_surface-inverted) 38%, transparent);
+  }
+  .ev-heroimg {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: .75rem;
+    filter: drop-shadow(0 18px 28px color-mix(in srgb, var(--_heading) 32%, transparent));
+  }
+  .ev-hero-caption {
+    position: absolute;
+    inset: auto 0 0;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: .4rem 1rem;
+    padding: .75rem clamp(.75rem, 3vw, 1.5rem);
+    color: var(--_on-accent);
+    font-size: .75rem;
+    font-weight: 600;
+    line-height: 1.4;
+    background: color-mix(in srgb, var(--_surface-inverted) 88%, transparent);
+  }
+  .ev-hero-caption-kicker {
+    color: color-mix(in srgb, var(--_on-accent) 72%, transparent);
+    font-size: .6875rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+  .ev-head {
+    margin-top: clamp(1rem, 2.5vw, 2rem);
+    border-radius: 1rem;
+    box-shadow: 0 16px 36px color-mix(in srgb, var(--_heading) 12%, transparent);
+    animation: ev-head-in .58s cubic-bezier(.16, 1, .3, 1) 80ms both;
+  }
+  .ev-head-top { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
+  .ev-h1 { max-width: 20ch; text-wrap: balance; letter-spacing: -.03em; }
+  .ev-head .ev-lede,
+  .ev-head .ev-p-sm3,
+  .ev-copy .ev-lede,
+  .ev-copy .ev-p { max-width: 72ch; }
+  .ev-head .ev-p-sm3 {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--_edge);
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--_muted);
+  }
+  .ev-dl { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
+  .ev-metric {
+    border-radius: .875rem;
+    box-shadow: 0 8px 20px color-mix(in srgb, var(--_heading) 8%, transparent);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .ev-metric:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px color-mix(in srgb, var(--_heading) 13%, transparent);
+  }
+  .ev-dl .ev-metric:first-child {
+    grid-column: 1 / -1;
+    padding: 1.25rem 1.35rem;
+    border-color: transparent;
+    background: var(--_surface-inverted);
+  }
+  .ev-dl .ev-metric:first-child .ev-metric-t { color: color-mix(in srgb, var(--_on-accent) 72%, transparent); }
+  .ev-dl .ev-metric:first-child .ev-metric-v { font-size: clamp(1.75rem, 4vw, 2.75rem); color: var(--_on-accent); }
+  .ev-dl .ev-metric { animation: ev-rise .48s cubic-bezier(.16, 1, .3, 1) both; }
+  .ev-dl .ev-metric:nth-child(1) { animation-delay: 160ms; }
+  .ev-dl .ev-metric:nth-child(2) { animation-delay: 210ms; }
+  .ev-dl .ev-metric:nth-child(3) { animation-delay: 260ms; }
+  .ev-dl .ev-metric:nth-child(4) { animation-delay: 310ms; }
+  .ev-dl .ev-metric:nth-child(5) { animation-delay: 360ms; }
+  .ev-dl .ev-metric:nth-child(6) { animation-delay: 410ms; }
+  .ev-loc {
+    border-radius: 1rem;
+    box-shadow: 0 14px 32px color-mix(in srgb, var(--_heading) 11%, transparent);
+  }
+  .ev-cta { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: .75rem; }
+  .ev-cta > a {
+    min-height: 3rem;
+    justify-content: center;
+    text-align: center;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .ev-cta > a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px color-mix(in srgb, var(--_heading) 12%, transparent);
+  }
+  .ev-copy {
+    margin-top: clamp(2.5rem, 5vw, 4rem);
+    padding: clamp(1.25rem, 4vw, 2rem);
+    border: 1px solid var(--_edge);
+    border-radius: 1rem;
+    background: var(--_surface-alt);
+  }
+  .ev-panel {
+    border-radius: 1rem;
+    box-shadow: 0 12px 28px color-mix(in srgb, var(--_heading) 9%, transparent);
+  }
+  .ev-ad {
+    min-height: 260px;
+    margin: clamp(2rem, 5vw, 3.5rem) 0;
+    padding: 1rem 0;
+    text-align: center;
+    border-top: 1px solid var(--_edge);
+    border-bottom: 1px solid var(--_edge);
+  }
+  .ev-ad-label {
+    margin: 0 0 .5rem;
+    color: var(--_muted);
+    font-size: .6875rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+  .ev-ad ins { display: block; width: 100%; min-height: 220px; }
+  @media (min-width: 640px) {
+    .ev-featured .ev-grid > .ev-card:first-child { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); align-items: stretch; }
+    .ev-featured .ev-grid > .ev-card:first-child .ev-media { aspect-ratio: auto; height: 100%; min-height: 220px; }
+    .ev-featured .ev-grid > .ev-card:first-child h3 { font-size: 1.375rem; line-height: 1.3; }
+  }
+  @media (max-width: 639px) {
+    .ev-cta { grid-template-columns: 1fr; }
+    .ev-dl { grid-template-columns: 1fr; }
+    .ev-dl .ev-metric:first-child { grid-column: auto; }
+  }
+  @keyframes ev-head-in { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+  @media (prefers-reduced-motion: reduce) {
+    .ev-card,
+    .ev-in,
+    .ev-hero,
+    .ev-head,
+    .ev-dl .ev-metric { animation: none; opacity: 1; transform: none; filter: none; }
+    .ev-metric:hover,
+    .ev-cta > a:hover { transform: none; box-shadow: none; }
+  }
 }
 
 /* Lift a `fixed` bottom-anchored toast/banner above the mobile bottom nav
@@ -1171,8 +1350,15 @@ input[type=number] { -moz-appearance: textfield; }
    JobAlertStickyBanner and the JobAlertForm toast. */
 /* env() carries a `0px` fallback: if safe-area-inset-bottom were undefined the
    calc() would be invalid and `bottom` would collapse to `auto` — re-triggering
-   the exact off-screen failure this class fixes. The comma fallback is plain,
-   valid CSS here (the earlier Tailwind-arbitrary-value scanning caveat does not
-   apply to a hand-written rule in this stylesheet). */
-.above-mobile-nav { bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px)); }
-@media (min-width: 768px) { .above-mobile-nav { bottom: 1rem; } }
+   the exact off-screen failure this class fixes. The prompt shell adds the
+   measured height of a fixed Auto Ads anchor through this custom property; the
+   ad itself remains untouched and continues to serve. */
+.above-mobile-nav {
+  bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px) + var(--bottom-prompt-ad-clearance, 0px));
+  transition: bottom 180ms ease-out;
+}
+@media (min-width: 768px) {
+  .above-mobile-nav {
+    bottom: calc(1rem + var(--bottom-prompt-ad-clearance, 0px));
+  }
+}

@@ -458,13 +458,32 @@ const App: React.FC = () => {
  useLayoutEffect(() => {
    const staticMains = document.querySelectorAll<HTMLElement>('main.seo-static-content, main.cluster-seo-prose');
    for (const staticMain of staticMains) {
+     // A plate-auction fallback is owned by the plate-auction route only. If
+     // navigation lands on another static overlay, the old main can still be
+     // present for one render while the route state and the DOM settle; never
+     // reveal that stale snapshot alongside the destination page.
+     const isPlateAuctionStatic = staticMain.classList.contains('plate-auction-static');
+     if (isPlateAuctionStatic && activeTab !== 'plate-auctions') {
+       staticMain.style.setProperty('display', 'none', 'important');
+       continue;
+     }
+     // Plate-auction pages have a real interactive equivalent. Keep their
+     // crawl-facing snapshot visible until the page validates the live feed;
+     // this prevents a failed API request from replacing useful static data
+     // with an empty error shell. PlateAuctionsPage completes the handshake
+     // after a schema-valid snapshot and hides this sibling synchronously.
+     if (isPlateAuctionStatic
+       && !document.documentElement.hasAttribute('data-plate-auctions-live')) {
+       staticMain.style.removeProperty('display');
+       continue;
+     }
      if (staticOverlay) {
        staticMain.style.removeProperty('display');
      } else {
        staticMain.style.setProperty('display', 'none', 'important');
      }
    }
- }, [staticOverlay]);
+ }, [activeTab, staticOverlay]);
 
  // Static sub-nav deduplication: build plugins (staticPagesPlugin via
  // `renderHubChromeSplit`) ship a server-rendered `<nav class="seo-hub-subnav">`
@@ -531,8 +550,11 @@ const App: React.FC = () => {
  }
  }).catch((e) => { reportCaughtError(e, 'app.loadUserProfile'); });
  };
- if ('requestIdleCallback' in window) {
- requestIdleCallback(loadProfile, { timeout: 4000 });
+ const idleWindow = window as Window & {
+ requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
+ };
+ if (typeof idleWindow.requestIdleCallback === 'function') {
+ idleWindow.requestIdleCallback(loadProfile, { timeout: 4000 });
  } else {
  setTimeout(loadProfile, 2000);
  }
@@ -1375,8 +1397,11 @@ const App: React.FC = () => {
  if (authUser || !claimOneTapPrompt(window.sessionStorage)) return;
  promptOneTap().catch(() => {});
  };
- if ('requestIdleCallback' in window) {
- (window as any).requestIdleCallback(run, { timeout: 5000 });
+ const idleWindow = window as Window & {
+ requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
+ };
+ if (typeof idleWindow.requestIdleCallback === 'function') {
+ idleWindow.requestIdleCallback(run, { timeout: 5000 });
  } else {
  run();
  }
@@ -2441,20 +2466,6 @@ const App: React.FC = () => {
  )}
  </a>
 
- <a
- href={buildPath({ activeTab: 'plate-auctions' })}
- role="tab" aria-selected={activeTab === 'plate-auctions'}
- onClick={(e) => { e.preventDefault(); handleTabChange('plate-auctions'); }}
- onMouseEnter={() => prefetchTab('plate-auctions')}
- aria-label={t('nav.plateAuctions')}
- className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 min-h-[44px] text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${activeTab === 'plate-auctions' ? 'text-accent' : 'text-tab-inactive-text hover:text-strong'}`}
- >
- <Gavel size={16} aria-hidden="true" />
- <span className="hidden xl:inline whitespace-nowrap">{t('nav.plateAuctions')}</span>
- {activeTab === 'plate-auctions' && (
- <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent rounded-full animate-fade-in" />
- )}
- </a>
  </div>
 
  {/* Actions — slim on mobile (search + locale + hamburger), full on md+ */}
@@ -3316,6 +3327,16 @@ const App: React.FC = () => {
  </a>
  </li>
  )}
+ <li>
+ <a
+ href={buildPath({ activeTab: 'plate-auctions' })}
+ data-testid="footer-plate-auctions-link"
+ className="inline-flex items-center gap-1 text-xs text-subtle hover:text-accent transition-colors no-underline"
+ >
+ <Gavel className="w-3.5 h-3.5" aria-hidden="true" />
+ {t('nav.plateAuctions')}
+ </a>
+ </li>
  {!killSwitches.healthPremiums && (
  <li>
  <a
@@ -3968,7 +3989,7 @@ const App: React.FC = () => {
  <CommunicationsConsentBanner email={authEmail} />
  {/* Mobile Bottom Navigation Bar */}
  <nav aria-label="Navigazione mobile" className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-surface/95 border-t border-edge/50 pb-[env(safe-area-inset-bottom,0px)]">
- <div className="grid grid-cols-7 h-14">
+ <div className="grid grid-cols-6 h-14">
  {([
  { tab: 'calculator' as const, icon: Calculator, label: t('nav.simulator.mobile') },
  { tab: 'confronti' as const, icon: Layers, label: t('nav.confronti.mobile') },
@@ -3976,7 +3997,6 @@ const App: React.FC = () => {
  { tab: 'guida' as const, icon: BookOpen, label: t('nav.guida.mobile') },
  { tab: 'vita' as const, icon: Home, label: t('nav.vita.mobile') },
  { tab: 'stats' as const, icon: BarChart2, label: t('nav.stats.mobile') },
- { tab: 'plate-auctions' as const, icon: Gavel, label: t('nav.plateAuctions.mobile') },
  ] as const).map(({ tab, icon: Icon, label }) => {
  const isActive = activeTab === tab;
  return (

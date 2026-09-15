@@ -1,9 +1,16 @@
+import { execFileSync } from 'node:child_process';
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
 // The script is pure ESM (.mjs); main() is gated on process.argv[1], so
 // importing it is side-effect-free — same pattern as
 // tests/scripts/revenue-monitor.test.ts.
 import * as reportModule from '../../scripts/adsense-format-ab-report.mjs';
+
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const {
   ADSENSE_ACCOUNT,
   CANTON_PAGE_PATHS,
@@ -28,6 +35,7 @@ const {
   fetchGa4WebVitalsRatings,
   buildMarkdown,
   buildHistoryEntry,
+  readHistorySummary,
   findExperiment,
   experimentFromArgs,
   classifyWindow,
@@ -55,6 +63,7 @@ const {
   fetchGa4WebVitalsRatings: (token: string, experiment?: any) => Promise<any>;
   buildMarkdown: (report: any, history?: any) => string;
   buildHistoryEntry: (report: any) => Record<string, unknown>;
+  readHistorySummary: (experiment?: any, historyFile?: string) => any;
   findExperiment: (id: string) => any | null;
   experimentFromArgs: (args: string[]) => any;
   classifyWindow: (experiment: any, window: { start: string; end: string }) => string;
@@ -66,21 +75,35 @@ afterEach(() => {
 });
 
 describe('adsense-format-ab-report / identifiers', () => {
+  it('loads the TypeScript slot registry through Node ESM, as the scheduled workflow does', () => {
+    const output = execFileSync(
+      process.execPath,
+      [
+        '--input-type=module',
+        '-e',
+        "const m = await import('./services/adsenseSlots.ts'); if (m.AD_CLIENT !== 'ca-pub-8628054934855353') throw new Error('slot registry not loaded'); console.log('loaded');",
+      ],
+      { cwd: REPO_ROOT, encoding: 'utf8' },
+    );
+    expect(output.trim()).toBe('loaded');
+  });
+
   it('derives the AdSense account resource name from AD_CLIENT (no second hardcoded literal)', () => {
     expect(ADSENSE_ACCOUNT).toBe('accounts/pub-8628054934855353');
   });
 
-  it('keeps the legacy pair as the default experiment', () => {
-    expect(CONTROL_CHANNEL).toBe('frontaliereticino.ch/cerca-lavoro-basilea');
-    expect(TREATMENT_CHANNEL).toBe('frontaliereticino.ch/cerca-lavoro-lucerna');
-    expect(CANTON_PAGE_PATHS).toEqual({ control: '/cerca-lavoro-basilea/', treatment: '/cerca-lavoro-lucerna/' });
-    expect(DEFAULT_EXPERIMENT.id).toBe('basilea-lucerna');
+  it('keeps the active high-volume pair as the default experiment', () => {
+    expect(CONTROL_CHANNEL).toBe('https://frontaliereticino.ch/cerca-lavoro-svizzera/');
+    expect(TREATMENT_CHANNEL).toBe('https://frontaliereticino.ch/cerca-lavoro-ticino/');
+    expect(CANTON_PAGE_PATHS).toEqual({ control: '/cerca-lavoro-svizzera/', treatment: '/cerca-lavoro-ticino/' });
+    expect(DEFAULT_EXPERIMENT.id).toBe('svizzera-ticino');
   });
 
-  it('defines a separate exact-PAGE_URL experiment for Svizzera control vs Ticino treatment', () => {
-    expect(EXPERIMENTS.map((experiment) => experiment.id)).toEqual(['basilea-lucerna', 'svizzera-ticino']);
+  it('defines the exact-PAGE_URL experiment and its cumulative publication target', () => {
+    expect(EXPERIMENTS.map((experiment) => experiment.id)).toEqual(['svizzera-ticino']);
     const experiment = findExperiment('svizzera-ticino');
     expect(experiment).toMatchObject({
+      targetPageviewsPerSide: 4000,
       adsenseDimension: 'PAGE_URL',
       control: {
         label: 'Svizzera',
@@ -97,8 +120,39 @@ describe('adsense-format-ab-report / identifiers', () => {
 
   it('selects an experiment from either CLI syntax and rejects unknown ids', () => {
     expect(experimentFromArgs(['--experiment', 'svizzera-ticino']).id).toBe('svizzera-ticino');
-    expect(experimentFromArgs(['--experiment=basilea-lucerna']).id).toBe('basilea-lucerna');
+    expect(() => experimentFromArgs(['--experiment=basilea-lucerna'])).toThrow(/Esperimento sconosciuto/);
     expect(() => experimentFromArgs(['--experiment=unknown'])).toThrow(/Esperimento sconosciuto/);
+  });
+
+  it('counts only explicitly post-treatment rows and never inherits the active default', () => {
+    const dir = mkdtempSync(path.join(tmpdir(), 'adsense-format-ab-history-'));
+    const historyFile = path.join(dir, 'history.jsonl');
+    writeFileSync(historyFile, [
+      JSON.stringify({ control: { pageViews: 165 }, treatment: { pageViews: 114 } }),
+      JSON.stringify({ experimentId: 'svizzera-ticino', windowPhase: 'pre-treatment', control: { pageViews: 100 }, treatment: { pageViews: 200 } }),
+      JSON.stringify({ experimentId: 'svizzera-ticino', windowPhase: 'mixed', control: { pageViews: 300 }, treatment: { pageViews: 400 } }),
+      JSON.stringify({ experimentId: 'svizzera-ticino', windowPhase: 'post-treatment', control: { pageViews: 10 }, treatment: { pageViews: 20 } }),
+    ].join('\n') + '\n');
+
+    try {
+      expect(readHistorySummary(DEFAULT_EXPERIMENT, historyFile)).toEqual({
+        weeksWithData: 1,
+        cumulativePageViews: { control: 10, treatment: 20 },
+      });
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('keeps every checked-in history row explicitly attributed', () => {
+    const entries = readFileSync(path.resolve(REPO_ROOT, 'data/adsense-format-ab-history.jsonl'), 'utf8')
+      .trim()
+      .split('\n')
+      .map((line) => JSON.parse(line));
+
+    expect(entries.length).toBeGreaterThanOrEqual(3);
+    expect(entries.every((entry) => typeof entry.experimentId === 'string' && entry.experimentId.length > 0)).toBe(true);
+    expect(entries.slice(0, 2).map((entry) => entry.experimentId)).toEqual(['basilea-lucerna', 'basilea-lucerna']);
   });
 
   it('classifies pre, mixed and clean post-treatment reporting windows', () => {
@@ -221,7 +275,7 @@ describe('adsense-format-ab-report / postHogTrickleHasAnyData()', () => {
 });
 
 describe('adsense-format-ab-report / fetchChannelReport()', () => {
-  it('picks the control and treatment rows by channel name and computes earnings-per-pageview', async () => {
+  it('picks the active control and treatment rows by exact page URL and computes earnings-per-pageview', async () => {
     const fetchMock = vi.fn().mockResolvedValue({
       ok: true,
       status: 200,
@@ -249,7 +303,7 @@ describe('adsense-format-ab-report / fetchChannelReport()', () => {
     expect(fetchMock).toHaveBeenCalledTimes(1);
     const [url] = fetchMock.mock.calls[0];
     expect(url).toContain(ADSENSE_ACCOUNT);
-    expect(url).toContain('dimensions=URL_CHANNEL_NAME');
+    expect(url).toContain('dimensions=PAGE_URL');
   });
 
   it('uses PAGE_URL and exact canonical hub URLs for the Svizzera/Ticino experiment', async () => {
@@ -386,15 +440,34 @@ describe('adsense-format-ab-report / buildMarkdown()', () => {
     },
     warnings: [],
   };
+  const targetReachedHistory = { weeksWithData: 3, cumulativePageViews: { control: 4000, treatment: 4000 } };
+
+  it('publishes one compact progress row until both cumulative sides reach the target', () => {
+    const md = buildMarkdown(baseReport, { weeksWithData: 2, cumulativePageViews: { control: 165, treatment: 114 } });
+
+    expect(md).toContain('campione 165/4000 controllo · 114/4000 trattamento — nessuna lettura');
+    expect(md.split('\n').length).toBeLessThanOrEqual(6);
+    expect(md).not.toContain('| Metrica |');
+    expect(md).not.toContain('## Engagement');
+    expect(md).not.toContain('## Core Web Vitals');
+  });
+
+  it('restores the full report once both cumulative sides reach the target', () => {
+    const md = buildMarkdown(baseReport, targetReachedHistory);
+
+    expect(md).toContain('| Metrica |');
+    expect(md).toContain('## Engagement (GA4) — guardrail');
+    expect(md).toContain('## Core Web Vitals — guardrail (LCP / INP / CLS)');
+  });
 
   it('always includes the small-sample disclaimer — this script must never claim statistical significance', () => {
-    const md = buildMarkdown(baseReport, { weeksWithData: 0, cumulativePageViews: { control: 0, treatment: 0 } });
+    const md = buildMarkdown(baseReport, targetReachedHistory);
     expect(md).toContain('NON è un test di significatività statistica');
-    expect(md).toContain('può includere sotto-URL');
+    expect(md).toContain('i sotto-URL sono esclusi');
   });
 
   it('renders the configured treatment description instead of the treatment data object', () => {
-    const md = buildMarkdown(baseReport, { weeksWithData: 0, cumulativePageViews: { control: 0, treatment: 0 } });
+    const md = buildMarkdown(baseReport, targetReachedHistory);
     expect(md).toContain('**Trattamento osservato:** manual in-feed slot suppressed; Auto Ads and CMP unchanged.');
     expect(md).not.toContain('[object Object]');
   });
@@ -402,13 +475,13 @@ describe('adsense-format-ab-report / buildMarkdown()', () => {
   it('prints the configured threshold when either weekly sample is small', () => {
     const md = buildMarkdown(
       { ...baseReport, control: { ...baseReport.control, pageViews: SMALL_SAMPLE_PAGEVIEWS - 1 } },
-      { weeksWithData: 0, cumulativePageViews: { control: 0, treatment: 0 } },
+      targetReachedHistory,
     );
     expect(md).toContain(`${SMALL_SAMPLE_PAGEVIEWS} pageview/settimana`);
   });
 
   it('states explicitly (never silently) when CWV is not measurable on any of the three sources', () => {
-    const md = buildMarkdown(baseReport, { weeksWithData: 0, cumulativePageViews: { control: 0, treatment: 0 } });
+    const md = buildMarkdown(baseReport, targetReachedHistory);
     expect(md).toContain('CWV non misurabile per queste pagine questa settimana');
     // The reason for each of the three sources is surfaced, not just the verdict.
     expect(md).toContain('metric_name');
@@ -423,7 +496,7 @@ describe('adsense-format-ab-report / buildMarkdown()', () => {
         posthog: { control: { LCP: { n: 3, p75: 3435 }, INP: { n: 1, p75: 1952 }, CLS: { n: 1, p75: 0.892 } }, treatment: { LCP: { n: 6, p75: 1122 }, INP: { n: 3, p75: 6372 }, CLS: { n: 1, p75: 0.005 } } },
       },
     };
-    const md = buildMarkdown(report, { weeksWithData: 0, cumulativePageViews: { control: 0, treatment: 0 } });
+    const md = buildMarkdown(report, targetReachedHistory);
     expect(md).not.toContain('CWV non misurabile per queste pagine questa settimana');
     expect(md).toContain(`finestra di fallback ${POSTHOG_CWV_WINDOW_DAYS} giorni`);
     for (const m of CWV_METRICS) expect(md).toContain(m);
@@ -431,7 +504,7 @@ describe('adsense-format-ab-report / buildMarkdown()', () => {
   });
 
   it('surfaces the engagement guardrail hypothesis and table', () => {
-    const md = buildMarkdown(baseReport, { weeksWithData: 0, cumulativePageViews: { control: 0, treatment: 0 } });
+    const md = buildMarkdown(baseReport, targetReachedHistory);
     expect(md).toContain('NON deve peggiorare l\'engagement');
     expect(md).toContain('Bounce rate');
     expect(md).toContain('46.6%'); // engagementRatePct delta
@@ -441,7 +514,7 @@ describe('adsense-format-ab-report / buildMarkdown()', () => {
     const experiment = findExperiment('svizzera-ticino');
     const md = buildMarkdown(
       { ...baseReport, experiment, currencyCode: 'EUR' },
-      { weeksWithData: 0, cumulativePageViews: { control: 0, treatment: 0 } },
+      targetReachedHistory,
     );
     expect(md).toContain('Svizzera (controllo) vs Ticino (trattamento)');
     expect(md).toContain('AdSense `PAGE_URL`');
@@ -453,12 +526,12 @@ describe('adsense-format-ab-report / buildMarkdown()', () => {
   });
 
   it('flags missing AdSense data with a warning instead of rendering a fabricated table', () => {
-    const md = buildMarkdown({ ...baseReport, control: null, treatment: null }, { weeksWithData: 0, cumulativePageViews: { control: 0, treatment: 0 } });
+    const md = buildMarkdown({ ...baseReport, control: null, treatment: null }, targetReachedHistory);
     expect(md).toContain('Dati AdSense mancanti o incompleti');
   });
 
   it('renders the Warning section when warnings are present', () => {
-    const md = buildMarkdown({ ...baseReport, warnings: ['AdSense fetch failed: boom'] }, { weeksWithData: 0, cumulativePageViews: { control: 0, treatment: 0 } });
+    const md = buildMarkdown({ ...baseReport, warnings: ['AdSense fetch failed: boom'] }, targetReachedHistory);
     expect(md).toContain('## Warning');
     expect(md).toContain('AdSense fetch failed: boom');
   });
@@ -477,8 +550,8 @@ describe('adsense-format-ab-report / buildHistoryEntry()', () => {
     };
     const entry = buildHistoryEntry(report);
     const parsed = JSON.parse(JSON.stringify(entry));
-    expect(parsed.experimentId).toBe('basilea-lucerna');
-    expect(parsed.adsenseDimension).toBe('URL_CHANNEL_NAME');
+    expect(parsed.experimentId).toBe('svizzera-ticino');
+    expect(parsed.adsenseDimension).toBe('PAGE_URL');
     expect(parsed.control.channel).toBe(CONTROL_CHANNEL);
     expect(parsed.treatment.channel).toBe(TREATMENT_CHANNEL);
     expect(parsed.deltas.rpmPct).toBe(-3.4);

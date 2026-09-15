@@ -13,6 +13,7 @@ import {
   latestFixRunOutcomeEntryFromComments,
   NON_RETRYABLE,
   isAgeOutEligible,
+  isPinnedOutsideDrainerQueue,
   isSettlingPromotion,
 } from '../scripts/ci/followup-drainer.mjs';
 
@@ -163,5 +164,31 @@ describe('isAgeOutEligible (drain del ratchet follow-up)', () => {
     expect(isAgeOutEligible(iss(['agent:no-age-out'], 365, 365), opts)).toBe(false);
     // resta chiudibile senza la label, stessa età/inattività
     expect(isAgeOutEligible(iss([], 365, 365), opts)).toBe(true);
+  });
+});
+
+describe('isPinnedOutsideDrainerQueue (route L11 bounded)', () => {
+  const issue = (labels: string[]) => ({ labels: labels.map((name) => ({ name })) });
+
+  it('lascia passare solo il route L11 per errore provato', () => {
+    expect(isPinnedOutsideDrainerQueue(issue([
+      'operations-audit', 'agent:fix-queued', 'agent:no-age-out',
+    ]))).toBe(false);
+  });
+
+  it('mantiene il veto su warning-only anche se resta una vecchia queue label', () => {
+    expect(isPinnedOutsideDrainerQueue(issue([
+      'operations-audit', 'operations-audit-review', 'agent:fix-queued', 'agent:no-age-out',
+    ]))).toBe(true);
+  });
+
+  it('mantiene il veto esplicito keep-open', () => {
+    expect(isPinnedOutsideDrainerQueue(issue([
+      'operations-audit', 'agent:fix-queued', 'agent:no-age-out', 'keep-open',
+    ]))).toBe(true);
+  });
+
+  it('mantiene il veto per un tracker permanente non L11', () => {
+    expect(isPinnedOutsideDrainerQueue(issue(['agent:no-age-out', 'agent:fix-queued']))).toBe(true);
   });
 });

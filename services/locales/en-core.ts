@@ -838,6 +838,7 @@ const enCore: Record<string, string> = {
  'jobAlert.cardTitleActive': 'Your job alerts',
  'jobAlert.cardDescriptionActive': 'Manage or add new custom alerts.',
  'jobAlert.stickyBannerText': 'We\'ll notify you when jobs like these open up.',
+ 'jobAlert.stickyBannerCta': 'Create free alert',
  'jobAlert.stickyBannerAria': 'Invitation to subscribe to job alerts',
  'jobAlert.endCardTitle': 'You\'ve seen every job',
  'jobAlert.endCardTitleWithKeyword': 'You\'ve seen every "{keyword}" job',

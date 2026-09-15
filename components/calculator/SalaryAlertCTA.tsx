@@ -146,6 +146,7 @@ export const SalaryAlertCTA: React.FC<Props> = ({ netMonthlyCHF }) => {
       section: 'calculator_results',
       label: 'salary_alert_accept',
     });
+    Analytics.trackDecisionMomentNextAction('calculator', 'salary_alert');
     Analytics.trackFunnelStep('salary_alert_accept', {
       funnel: 'salary_alert',
       authed: Boolean(user?.uid),

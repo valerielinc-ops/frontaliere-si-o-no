@@ -127,7 +127,7 @@ fi
 
 keyfile="$RUNNER_TEMP/article-shard_${section}_${loc}_key"
 printf '%s\n' "$key_val" > "$keyfile" && chmod 600 "$keyfile"
-export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
+export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=30 -o ServerAliveCountMax=6 -o TCPKeepAlive=yes"
 
 stage="$RUNNER_TEMP/article-shard-$section-$loc"
 # Incident #4734 was an unfreed-staging-dir class (runner disk exhaustion) —

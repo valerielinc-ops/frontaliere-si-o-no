@@ -26,9 +26,9 @@ import type fsT from 'node:fs';
 import type npT from 'node:path';
 import type { ArticleLocale as HubLocale } from '../siteShell';
 // @ts-ignore The site symlink can make tsc resolve this shared source from
-// build-plugins/shared, where the root-relative import appears outside the repo;
-// Node/Vite resolve the realpath correctly at runtime.
-import { parseSlugRegistry } from '../../../../scripts/lib/article-slug-registry.mjs';
+// build-plugins/shared, where this engine-local sibling is not visible at the
+// link path; Node/Vite resolve the realpath correctly at runtime.
+import { parseArticleUrlSlugs } from './articleReaderSource.mjs';
 
 /**
  * Read article slugs from blog-meta-{lang}.ts. Each line keyed
@@ -167,12 +167,17 @@ export function readBlogUrlSlugs(
 ): Record<string, Record<HubLocale, string>> {
   const file = np.resolve(rootDir, slugDataFile);
   const out: Record<string, Record<HubLocale, string>> = {};
+  let src: string;
   try {
     if (!fs.existsSync(file)) return out;
-    const parsed = parseSlugRegistry(fs.readFileSync(file, 'utf-8'), slugConst) as Record<string, Record<HubLocale, string>>;
-    Object.assign(out, parsed);
+    src = fs.readFileSync(file, 'utf-8');
   } catch (err) {
     console.warn(`[seo-hubs] failed to read ${slugConst} from ${slugDataFile}`, err);
+    return out;
   }
+  // Keep filesystem absence/read failures backward-compatible, but do not
+  // swallow a parser contract or grammar error: a partial slug registry would
+  // otherwise render a superficially valid page with missing localized URLs.
+  Object.assign(out, parseArticleUrlSlugs(src, slugConst));
   return out;
 }

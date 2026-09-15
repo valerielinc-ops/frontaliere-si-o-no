@@ -53,6 +53,10 @@
 #        A receipt process killed by a signal reports the conventional shell
 #        status 128+signal; defer mode normalizes that status to 43 for the
 #        same shared-precondition carve-out while keeping the outer step red.
+#   44 — GLOBAL_DATA_PIPELINE_LEASE_BUSY: the bounded cross-repository writer
+#        queue stayed occupied. Grouped callers return this to the generated
+#        workflow as a retryable systemic outcome; sequential callers stop
+#        cleanly without pretending that data was committed.
 # ─────────────────────────────────────────────────────────────────────────────
 set -euo pipefail
 
@@ -1381,6 +1385,43 @@ ensure_git_auth() {
   bash "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/configure-main-push-auth.sh"
 }
 
+# GitHub concurrency groups cannot serialize the site and corpus repositories
+# together. The generated crawler groups and translate-pending therefore opt
+# into one Firestore-backed lease. Keep acquisition outside the isolated
+# plumbing function: the lease covers every retry and every remote push, while
+# the EXIT trap releases it on all normal failure/success paths.
+GLOBAL_DATA_PIPELINE_LEASE_ACQUIRED=0
+global_data_pipeline_lease_acquire() {
+  [ "${DATA_PIPELINE_LEASE:-0}" = "1" ] || return 0
+  local lease_script
+  local lease_status
+  lease_script="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/global-data-pipeline-lease.mjs"
+  if node "$lease_script" acquire; then
+    GLOBAL_DATA_PIPELINE_LEASE_ACQUIRED=1
+    return 0
+  else
+    lease_status=$?
+  fi
+  if [ "$lease_status" -eq 44 ]; then
+    echo "::warning::global data pipeline lease remained busy after the bounded wait; this writer staged nothing and will retry on the next scheduled run"
+  fi
+  return "$lease_status"
+}
+
+global_data_pipeline_lease_cleanup() {
+  local exit_status=$?
+  if [ "${GLOBAL_DATA_PIPELINE_LEASE_ACQUIRED:-0}" = "1" ]; then
+    local lease_script
+    lease_script="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/global-data-pipeline-lease.mjs"
+    if ! node "$lease_script" release; then
+      echo "::warning::global data pipeline lease release failed; the lease expires automatically"
+    fi
+    GLOBAL_DATA_PIPELINE_LEASE_ACQUIRED=0
+  fi
+  return "$exit_status"
+}
+trap global_data_pipeline_lease_cleanup EXIT
+
 # `git fetch` inside the retry loop below is otherwise unguarded under
 # `set -e` — a transient network blip (e.g. "Connection reset by peer" under
 # ~24 concurrent crawler-group jobs) kills the whole script instantly instead
@@ -1476,7 +1517,15 @@ for (const entry of [...readLedger(remotePath), ...readLedger(localPath)]) {
   merged.set(entry.digest, entry);
 }
 const lines = [...merged.values()].map((entry) => JSON.stringify(entry));
-fs.writeFileSync(outputPath, lines.length > 0 ? `${lines.join('\n')}\n` : '', 'utf8');
+if (lines.length > 0) {
+  fs.writeFileSync(outputPath, `${lines.join('\n')}\n`, 'utf8');
+} else {
+  // An absent ledger and an empty ledger are both read as an empty history,
+  // but only the former preserves the append-only contract when no record was
+  // ever written. Do not manufacture a zero-byte tracked file from a merge
+  // of two absent/empty inputs.
+  fs.rmSync(outputPath, { force: true });
+}
 NODE
 }
 
@@ -1619,6 +1668,18 @@ commit_isolated_from_worktree() {
         fi
         local_blob="$(git hash-object -w -- "$f")"
         base_blob="$(git rev-parse -q --verify "${base_sha}:${f}" 2>/dev/null || true)"
+      fi
+
+      # A finalizer always appends a JSONL record before the ledger reaches
+      # this step. If an explicit --extra-only caller nevertheless presents a
+      # brand-new zero-byte ledger, treat it like the absent path instead of
+      # publishing a durable empty file that changes the history shape.
+      if [ "$f" = "data/crawler-generation-ledger.jsonl" ] \
+        && [ "$GROUP_BATCH" != true ] \
+        && [ -f "$f" ] && [ ! -s "$f" ] \
+        && [ -z "$remote_blob" ] && [ -z "$base_blob" ]; then
+        echo "ℹ️ crawler generation ledger is empty and absent from origin/main — preserving absence"
+        continue
       fi
 
       # A missing remote path is not automatically a writable empty slot.
@@ -1813,13 +1874,24 @@ commit_isolated_from_worktree() {
 }
 
 if [ "$GROUPED_ISOLATED" = true ]; then
-  # `|| _commit_result=$?` (not a bare call + separate `$?` capture) is
-  # LOAD-BEARING under `set -e` (L31): a bare simple command's non-zero
-  # return trips errexit immediately, skipping every line after it —
-  # including the `_commit_result=$?` capture and the soft-fail mapping
-  # below, so the script would exit 42 unconditionally regardless of
-  # caller type. Attaching `||` puts the call in a tested context, which
-  # `set -e` exempts (PR #4191 round-1 review).
+  # Both non-zero results are captured through `||` rather than a bare call:
+  # under `set -e` (L31), errexit would skip the coordination mapping below.
+  _lease_result=0
+  global_data_pipeline_lease_acquire || _lease_result=$?
+  if [ "$_lease_result" -eq 44 ]; then
+    if [ "$GROUP_BATCH" = true ] || [ -n "${JOBS_SLICE_FILE:-}" ]; then
+      # Group-batch/per-crawler callers return the coordination class to their
+      # generated workflow, which can keep the run green without filing a
+      # per-crawler issue. Sequential writers must continue the job: no data
+      # was staged, and a later commit phase or the next scheduled run retries.
+      exit 44
+    fi
+    echo "⚠️ Sequential writer: global data-pipeline lease remained busy after the bounded wait — no data staged; continuing so a later phase or the next scheduled run can retry"
+    exit 0
+  fi
+  if [ "$_lease_result" -ne 0 ]; then
+    exit "$_lease_result"
+  fi
   _commit_result=0
   commit_isolated_from_worktree || _commit_result=$?
   # Sequential callers (JOBS_SLICE_FILE unset — e.g. translate-pending.yml,
@@ -1835,6 +1907,7 @@ if [ "$GROUPED_ISOLATED" = true ]; then
   exit "$_commit_result"
 fi
 
+global_data_pipeline_lease_acquire
 while true; do
 
 # ── 3. Sync with remote (stash → rebase → pop → merge if needed) ──────────

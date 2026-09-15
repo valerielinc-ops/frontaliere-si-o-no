@@ -65,7 +65,17 @@ function cell(rowHtml, className) {
 
 function parseLocality(value) {
   const match = String(value || '').match(/^(\d{4})\s+(.+)$/);
-  return match ? { postalCode: match[1], city: match[2].trim() } : { postalCode: '', city: String(value || '').trim() };
+  return match ? { postalCode: match[1], city: match[2].trim() } : null;
+}
+
+function isHttpsUrl(value) {
+  if (typeof value !== 'string' || !value.trim()) return false;
+  try {
+    const url = new URL(value.trim());
+    return url.protocol === 'https:' && Boolean(url.hostname);
+  } catch {
+    return false;
+  }
 }
 
 export function parsePharmacyDutyRows(html) {
@@ -92,6 +102,11 @@ export function parsePharmacyDutyRows(html) {
       continue;
     }
     const locality = parseLocality(localityText);
+    if (!locality) {
+      skipped += 1;
+      missingBoundary = true;
+      continue;
+    }
     try {
       const parsedRow = {
         dateText,
@@ -121,12 +136,22 @@ function makePharmacyId(name, city) {
 export function markDutyConflicts(duties) {
   const sorted = [...duties].sort((a, b) => Date.parse(a.startsAt) - Date.parse(b.startsAt));
   const conflicts = new Set();
-  for (let i = 1; i < sorted.length; i += 1) {
-    const previous = sorted[i - 1];
+  for (let i = 0; i < sorted.length; i += 1) {
     const current = sorted[i];
-    if (previous.coverageName === current.coverageName && Date.parse(current.startsAt) < Date.parse(previous.endsAt)) {
-      conflicts.add(previous.id);
-      conflicts.add(current.id);
+    const currentStarts = Date.parse(current.startsAt);
+    const currentEnds = Date.parse(current.endsAt);
+    if (!Number.isFinite(currentStarts) || !Number.isFinite(currentEnds)) continue;
+    for (let nextIndex = i + 1; nextIndex < sorted.length; nextIndex += 1) {
+      const next = sorted[nextIndex];
+      if (next.coverageName !== current.coverageName) continue;
+      const nextStarts = Date.parse(next.startsAt);
+      const nextEnds = Date.parse(next.endsAt);
+      if (!Number.isFinite(nextStarts) || !Number.isFinite(nextEnds)) continue;
+      if (nextStarts >= currentEnds) break;
+      if (currentStarts < nextEnds && nextStarts < currentEnds) {
+        conflicts.add(current.id);
+        conflicts.add(next.id);
+      }
     }
   }
   return duties.map((duty) => conflicts.has(duty.id) ? { ...duty, status: 'conflicting' } : duty);
@@ -136,7 +161,27 @@ export function buildPharmacyDuties(html, region, fetchedAt, pharmacyIds = new S
   const parsed = parsePharmacyDutyRows(html);
   const warnings = [...parsed.warnings];
   const duties = [];
-  const rows = [...parsed.rows].sort((a, b) => Date.parse(a.startsAt) - Date.parse(b.startsAt));
+  const regionKey = typeof region?.key === 'string' && region.key.trim() ? region.key : 'unknown-region';
+  if (!region || typeof region.name !== 'string' || !region.name.trim() || !isHttpsUrl(region.url)) {
+    warnings.push(`${regionKey}: invalid duty source; no Ticino duty intervals emitted`);
+    return { duties, skipped: parsed.skipped, warnings };
+  }
+  const fetchedAtMs = Date.parse(fetchedAt);
+  if (!Number.isFinite(fetchedAtMs)) {
+    warnings.push('invalid fetchedAt; no Ticino duty intervals emitted');
+    return { duties, skipped: parsed.skipped, warnings };
+  }
+
+  // Boundary markers belong to the source order. Sorting first could pair a
+  // row with a later boundary across an out-of-order source gap.
+  const rows = parsed.rows;
+  const nonChronological = rows.some((row, index) => index > 0
+    && Date.parse(row.startsAt) <= Date.parse(rows[index - 1].startsAt));
+  if (nonChronological) {
+    warnings.push(`${region.key}: source rows are not chronological; no duty intervals emitted`);
+    return { duties, skipped: parsed.skipped, warnings };
+  }
+
   for (let index = 0; index < rows.length - 1; index += 1) {
     const row = rows[index];
     const next = rows[index + 1];
@@ -150,7 +195,7 @@ export function buildPharmacyDuties(html, region, fetchedAt, pharmacyIds = new S
     }
     const pharmacyId = makePharmacyId(row.name, row.city);
     const endsAt = next.startsAt;
-    const isExpired = Date.parse(endsAt) <= Date.parse(fetchedAt);
+    const isExpired = Date.parse(endsAt) <= fetchedAtMs;
     duties.push({
       id: `ti-duty-${region.key}-${row.startsAt}-${pharmacyId}`.replace(/[^a-zA-Z0-9_-]/g, '-'),
       pharmacyId,
