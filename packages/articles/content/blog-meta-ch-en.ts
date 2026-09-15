@@ -6420,6 +6420,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.farmacia-aperta-turno-elenco.imageAlt': 'Castelgrande in Bellinzona, Ticino',
     'blog.article.farmacia-aperta-turno-elenco.seoDescription': 'Ticino and CO/VA/VB pharmacy directories: regional OFCT duty and clear data limits. Not nationwide coverage.',
     'blog.article.farmacia-aperta-turno-elenco.ogDescription': 'Ticino and CO/VA/VB pharmacy directories: 207 Ticino records and 542 records in provinces CO, VA and VB; sources, timestamps and limits are explicit.',
+    'blog.article.cartella-sanitaria-mercosur-parlamento.title': 'The National Team\'s yes to the electronic health record',
+    'blog.article.cartella-sanitaria-mercosur-parlamento.excerpt': 'The electronic health record, the Mercosur agreement and the Swiss agriculture funds have been approved in Parliament.',
+    'blog.article.cartella-sanitaria-mercosur-parlamento.imageAlt': 'The Federal Palace in Bern during federal parliamentary health debates',
 };
 
 export default blogMetaChEn;

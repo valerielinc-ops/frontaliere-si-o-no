@@ -6420,6 +6420,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.farmacia-aperta-turno-elenco.imageAlt': 'Castelgrande in Bellinzona, Tessin',
     'blog.article.farmacia-aperta-turno-elenco.seoDescription': 'Apotheken im Tessin und CO/VA/VB: regionaler OFCT-Notdienst und klare Datengrenzen. Keine landesweite Abdeckung.',
     'blog.article.farmacia-aperta-turno-elenco.ogDescription': 'Apothekenverzeichnisse Tessin und CO/VA/VB: 207 Einträge im Tessin und 542 Einträge in den Provinzen CO, VA und VB; Quellen, Zeitstempel und Grenzen sind klar.',
+    'blog.article.cartella-sanitaria-mercosur-parlamento.title': 'Das Ja des Nationalen zur elektronischen Krankenakte',
+    'blog.article.cartella-sanitaria-mercosur-parlamento.excerpt': 'Verabschiedung des elektronischen Gesundheitsdossiers, des Mercosur-Abkommens und der Fonds für die Schweizer Landwirtschaft im Parlament.',
+    'blog.article.cartella-sanitaria-mercosur-parlamento.imageAlt': 'Das Bundeshaus in Bern während der parlamentarischen Gesundheitsdebatten',
 };
 
 export default blogMetaChDe;
