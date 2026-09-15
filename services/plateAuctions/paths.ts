@@ -1,4 +1,5 @@
 import type { Locale } from '@/services/i18n';
+import type { PlateVehicleType } from './types';
 import { PLATE_AUCTION_BASE_BY_LOCALE } from '../../scripts/lib/plateAuctionSections.mjs';
 
 export type PlateAuctionPageView = 'hub' | 'canton' | 'detail' | 'rankings';
@@ -41,6 +42,25 @@ export interface PlateAuctionPath {
   view: PlateAuctionPageView;
   canton?: string;
   plate?: string;
+  vehicleType?: PlateVehicleType;
+}
+
+const VEHICLE_DETAIL_SUFFIXES: Readonly<Record<Exclude<PlateVehicleType, 'car'>, string>> = {
+  motorcycle: '-moto',
+  trailer: '-rimorchio',
+  other: '-altro',
+};
+
+function detailPlateSegment(plate: string, vehicleType?: PlateVehicleType): string {
+  const suffix = vehicleType && vehicleType !== 'car' ? VEHICLE_DETAIL_SUFFIXES[vehicleType] : '';
+  return `${plate.toLowerCase()}${suffix || ''}`;
+}
+
+function parseDetailPlateSegment(segment: string): { plate: string; vehicleType?: PlateVehicleType } {
+  for (const [vehicleType, suffix] of Object.entries(VEHICLE_DETAIL_SUFFIXES) as Array<[Exclude<PlateVehicleType, 'car'>, string]>) {
+    if (segment.endsWith(suffix)) return { plate: segment.slice(0, -suffix.length).toUpperCase(), vehicleType };
+  }
+  return { plate: segment.toUpperCase() };
 }
 
 function localeAndParts(pathname: string): { locale: Locale; parts: string[] } | null {
@@ -74,17 +94,19 @@ export function buildPlateAuctionPath({
   view = 'hub',
   canton,
   plate,
+  vehicleType,
 }: {
   locale: Locale;
   view?: PlateAuctionPageView;
   canton?: string;
   plate?: string;
+  vehicleType?: PlateVehicleType;
 }): string {
   const base = plateAuctionBasePath(locale);
   if (view === 'rankings') return `${base}/${RANKING_SEGMENT[locale]}/`;
   if (!canton) return `${base}/`;
   const cantonSlug = cantonAuctionSlug(canton, locale) || canton.toLowerCase();
-  return `${base}/${cantonSlug}${view === 'detail' && plate ? `/${encodeURIComponent(plate.toLowerCase())}` : ''}/`;
+  return `${base}/${cantonSlug}${view === 'detail' && plate ? `/${encodeURIComponent(detailPlateSegment(plate, vehicleType))}` : ''}/`;
 }
 
 export function parsePlateAuctionPath(pathname: string): PlateAuctionPath | null {
@@ -95,7 +117,7 @@ export function parsePlateAuctionPath(pathname: string): PlateAuctionPath | null
   if (rest[0] === RANKING_SEGMENT[parsed.locale]) return { locale: parsed.locale, view: 'rankings' };
   const canton = cantonCodeFromAuctionSlug(rest[0]);
   if (!canton) return null;
-  if (rest[1]) return { locale: parsed.locale, view: 'detail', canton, plate: rest[1].toUpperCase() };
+  if (rest[1]) return { locale: parsed.locale, view: 'detail', canton, ...parseDetailPlateSegment(rest[1]) };
   return { locale: parsed.locale, view: 'canton', canton };
 }
 

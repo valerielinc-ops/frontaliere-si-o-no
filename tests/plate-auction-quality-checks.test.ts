@@ -52,6 +52,13 @@ describe('checkPlateAuctionQuality', () => {
     expect(issues.filter((i) => i.code === 'duplicate-plate')).toEqual([]);
   });
 
+  it('allows the same number in separate vehicle catalogues', () => {
+    const car = makeAuction({ id: 'bs-car-186', canton: 'Basilea Città', platePrefix: 'BS', plateNumber: '186', normalizedPlate: 'BS186', vehicleType: 'car' });
+    const motorcycle = makeAuction({ id: 'bs-motorcycle-186', canton: 'Basilea Città', platePrefix: 'BS', plateNumber: '186', normalizedPlate: 'BS186', vehicleType: 'motorcycle' });
+    const issues = checkPlateAuctionQuality([car, motorcycle], undefined, NOW);
+    expect(issues.filter((i) => i.code === 'duplicate-plate')).toEqual([]);
+  });
+
   it('flags a final price lower than the current bid', () => {
     const auction = makeAuction({ currentBidChf: 500, finalPriceChf: 200 });
     const issues = checkPlateAuctionQuality([auction], undefined, NOW);

@@ -2,7 +2,15 @@ import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it, vi } from 'vitest';
-import { fetchHtml } from '../functions/src/plateAuctionsCore.js';
+import {
+  extractPdfUrl,
+  fetchHtml,
+  parseAiFixedPricePdfText,
+  parseBsFixedPricePdfText,
+  parseGlFixedPriceJson,
+  parseLuFixedPricePdfText,
+  parseUrFixedPricePdfText,
+} from '../functions/src/plateAuctionsCore.js';
 import { parseGrAuctionRows } from '../scripts/plate-auctions/connectors/gr.mjs';
 import { parseSgAuctionRows } from '../scripts/plate-auctions/connectors/sg.mjs';
 import { parseShAuctionRows } from '../scripts/plate-auctions/connectors/sh.mjs';
@@ -64,6 +72,12 @@ const EXPANDED_ECARI_SAMPLE = readFileSync(join(__dirname, 'fixtures/expanded-ec
 const EXPANDED_CARD_SAMPLE = readFileSync(join(__dirname, 'fixtures/expanded-card-auction-sample.html'), 'utf8');
 
 describe('expanded plate-auction connectors', () => {
+  it('does not substitute an unrelated PDF when a configured pattern misses', () => {
+    const html = '<a href="/cars.pdf">Cars</a><a href="/motorcycles.pdf">Motorcycles</a>';
+    expect(extractPdfUrl(html, { baseUrl: 'https://example.test/source', pattern: /trailer\.pdf/i })).toBeUndefined();
+    expect(extractPdfUrl(html, { baseUrl: 'https://example.test/source' })).toBe('https://example.test/cars.pdf');
+  });
+
   it('retries transient catalogue fetch failures before degrading a source', async () => {
     const fetchMock = vi.spyOn(globalThis, 'fetch')
       .mockRejectedValueOnce(new TypeError('temporary network reset'))
@@ -237,5 +251,31 @@ describe('expanded plate-auction connectors', () => {
       });
       expect(validatePlateAuction(row), sourceKey).toEqual([]);
     }
+  });
+
+  it('parses the five newly covered official fixed-price catalogues without auction fields', () => {
+    const options = {
+      officialUrl: 'https://example.test/official',
+      officialDetailUrl: 'https://example.test/source.pdf',
+      fetchedAt: '2026-09-15T08:00:00.000Z',
+    };
+    const ai = parseAiFixedPricePdfText('Fr. 2000 2674 3854 Fr. 1200 5367 | 6394 Fr. 300 10310', options);
+    const aiMotorcycle = parseAiFixedPricePdfText('Fr. 200 153 204 249', { ...options, vehicleType: 'motorcycle' });
+    const bs = parseBsFixedPricePdfText('BS 186 4,000.00 Nein Siehe Hinweis 1 BS 213 4,000.00 Ja', options);
+    const gl = parseGlFixedPriceJson({ data: [{ id: 1523, number: 3681, price: 800, available: 1, deleted: 0, registered: 0, platetype: 'car_long_plate' }] }, options);
+    const lu = parseLuFixedPricePdfText({ pages: [
+      'Wunschkontrollschilder Motorwagen; an Lager\nHochformat\nFr 1’000.- Fr 800.- Fr 800.- Fr 600.-\n21 694 30 129 58 139 65 032',
+      'Wunschkontrollschilder Motorrad; an Lager\nFr 200.- Fr 150.- Fr 150.-\n4 157 7 389 9 723',
+    ] }, options);
+    const ur = parseUrFixedPricePdfText("UR 2296 50 x 11 cm 1'000.--SFr. UR 3086 50 x 11 cm 700.--SFr.", options);
+    for (const [sourceKey, rows] of [['AI', ai], ['BS', bs], ['GL', gl], ['LU', lu], ['UR', ur]] as const) {
+      expect(rows.length, sourceKey).toBeGreaterThan(0);
+      expect(rows.every((row) => row.sourceKey === sourceKey && row.listingType === 'fixed-price')).toBe(true);
+      expect(rows.every((row) => row.bidCount === undefined && row.currentBidChf === undefined)).toBe(true);
+      expect(rows.every((row) => validatePlateAuction(row).length === 0)).toBe(true);
+    }
+    expect(lu.find((row) => row.vehicleType === 'motorcycle')).toMatchObject({ startingPriceChf: 200 });
+    expect(aiMotorcycle[0]).toMatchObject({ id: 'ai-motorcycle-153', vehicleType: 'motorcycle', startingPriceChf: 200 });
+    expect(ur.find((row) => row.plateNumber === '3086')).toMatchObject({ startingPriceChf: 700 });
   });
 });
