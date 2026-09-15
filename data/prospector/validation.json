@@ -1,13 +1,162 @@
 {
-  "generatedAt": "2026-09-15T17:48:03.948Z",
-  "tally": {
-    "good": 46,
-    "weak": 8,
-    "bad": 2,
-    "insufficient": 2
-  },
-  "promotedVacancies": 679,
+  "generatedAt": "2026-09-15T19:43:41.609Z",
   "reports": [
+    {
+      "companyKey": "1a-hunkeler",
+      "vacancyCount": 1,
+      "sampled": 1,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 1,
+      "detailDistinctRate": 1,
+      "locationSourceRate": 1,
+      "distinctRate": 1,
+      "jobLikeRate": 1,
+      "score": 1,
+      "verdict": "good",
+      "problems": [],
+      "samples": [
+        {
+          "url": "https://www.1a-hunkeler.ch/menschen/offene-stellen/detail/fenster-monteur",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": true,
+          "words": 455,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "duties",
+            "offer",
+            "workplace"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1j40o11"
+        }
+      ],
+      "companyName": "1a-hunkeler",
+      "companyHost": "1a-hunkeler.ch",
+      "platform": null,
+      "mode": "jsonld",
+      "runErrors": [],
+      "logoFound": true
+    },
+    {
+      "companyKey": "aenova-group",
+      "vacancyCount": 10,
+      "sampled": 3,
+      "reachableRate": 1,
+      "titleMatchRate": 0.317,
+      "contentfulRate": 0,
+      "detailDistinctRate": 1,
+      "locationSourceRate": 0,
+      "distinctRate": 1,
+      "jobLikeRate": 0,
+      "score": 0.477,
+      "verdict": "bad",
+      "problems": [
+        "i titoli estratti non corrispondono alla pagina ufficiale",
+        "pagine di dettaglio senza testo: probabile render lato client",
+        "100% delle pagine di dettaglio non legge come annuncio di lavoro: probabile contenuto promozionale o editoriale"
+      ],
+      "samples": [
+        {
+          "url": "https://aenova-group.onlyfy.jobs/it/job/rptrq26fdwizrll4rc8neqqr8a4e6w9",
+          "reachable": true,
+          "titleMatch": 0.4444444444444444,
+          "contentful": false,
+          "sourceBackedLocation": false,
+          "words": 15,
+          "status": 200,
+          "jobLike": false,
+          "jobSignals": [
+            "gender-tag"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1v6vdm1"
+        },
+        {
+          "url": "https://aenova-group.onlyfy.jobs/it/job/rbdokxxmzjhs6my5zhzzkapu7f1ko6m",
+          "reachable": true,
+          "titleMatch": 0.2222222222222222,
+          "contentful": false,
+          "sourceBackedLocation": false,
+          "words": 13,
+          "status": 200,
+          "jobLike": false,
+          "jobSignals": [
+            "gender-tag"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1sivsvr"
+        },
+        {
+          "url": "https://aenova-group.onlyfy.jobs/it/job/k5xgy900tq86rth7uihk75kpi0x4f7t",
+          "reachable": true,
+          "titleMatch": 0.2857142857142857,
+          "contentful": false,
+          "sourceBackedLocation": false,
+          "words": 13,
+          "status": 200,
+          "jobLike": false,
+          "jobSignals": [
+            "gender-tag"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "s6qu7x"
+        }
+      ],
+      "companyName": "Aenova Group",
+      "companyHost": "aenova-group.onlyfy.jobs",
+      "platform": "onlyfy.jobs",
+      "mode": "template",
+      "runErrors": [],
+      "logoFound": false
+    },
+    {
+      "companyKey": "apply",
+      "vacancyCount": 1,
+      "sampled": 1,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 1,
+      "detailDistinctRate": 1,
+      "locationSourceRate": 1,
+      "distinctRate": 1,
+      "jobLikeRate": 1,
+      "score": 1,
+      "verdict": "good",
+      "problems": [],
+      "samples": [
+        {
+          "url": "https://apply.refline.ch/968123/1468/pub/de/index.html",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": true,
+          "words": 321,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "duties",
+            "offer"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1j0a44o"
+        }
+      ],
+      "companyName": "LEITpuls AG",
+      "companyHost": "apply.refline.ch",
+      "platform": "refline.ch",
+      "mode": "jsonld",
+      "runErrors": [],
+      "logoFound": true
+    },
     {
       "companyKey": "bankslm",
       "vacancyCount": 3,
@@ -83,6 +232,93 @@
       ],
       "companyName": "Bank SLM AG",
       "companyHost": "karriere.bankslm.ch",
+      "platform": null,
+      "mode": "template",
+      "runErrors": [],
+      "logoFound": false
+    },
+    {
+      "companyKey": "barockjob",
+      "vacancyCount": 22,
+      "sampled": 3,
+      "reachableRate": 1,
+      "titleMatchRate": 0.611,
+      "contentfulRate": 1,
+      "detailDistinctRate": 1,
+      "locationSourceRate": 1,
+      "distinctRate": 0.682,
+      "jobLikeRate": 1,
+      "score": 0.857,
+      "verdict": "good",
+      "problems": [],
+      "samples": [
+        {
+          "url": "https://barockjob.ch/jobs/2026/08/28/abteilungsleiter-werkzeug/",
+          "reachable": true,
+          "titleMatch": 0.5,
+          "contentful": true,
+          "sourceBackedLocation": true,
+          "words": 317,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "requirements",
+            "duties",
+            "offer",
+            "hr"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1qef663"
+        },
+        {
+          "url": "https://barockjob.ch/jobs/2026/08/10/anlagen-und-apparatebauer-in-oder-metallbauer-in-fuer-den-bereich-spezialprojekte-80-100/",
+          "reachable": true,
+          "titleMatch": 0.6666666666666666,
+          "contentful": true,
+          "sourceBackedLocation": true,
+          "words": 332,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "requirements",
+            "duties",
+            "offer",
+            "hr"
+          ],
+          "notJobSignals": [
+            "promo"
+          ],
+          "bodySignature": "1wuonmp"
+        },
+        {
+          "url": "https://barockjob.ch/jobs/2026/07/30/automatiker-mit-schwerpunkt-bildverarbeitung-80-100/",
+          "reachable": true,
+          "titleMatch": 0.6666666666666666,
+          "contentful": true,
+          "sourceBackedLocation": true,
+          "words": 313,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "requirements",
+            "duties",
+            "offer",
+            "hr"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1gplg7c"
+        }
+      ],
+      "companyName": "Barock Job AG",
+      "companyHost": "barockjob.ch",
       "platform": null,
       "mode": "template",
       "runErrors": [],
@@ -172,6 +408,85 @@
       "companyName": "Baumont AG",
       "companyHost": "baumont.ch",
       "platform": null,
+      "mode": "template",
+      "runErrors": [],
+      "logoFound": true
+    },
+    {
+      "companyKey": "bodmer-chur",
+      "vacancyCount": 3,
+      "sampled": 3,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 0.667,
+      "detailDistinctRate": 1,
+      "locationSourceRate": 0.667,
+      "distinctRate": 1,
+      "jobLikeRate": 1,
+      "score": 0.943,
+      "verdict": "good",
+      "problems": [],
+      "samples": [
+        {
+          "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/12719590-assistent-in-gesundheit-und-soziales-ags-eba-chur-gr-im-bodmer",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": true,
+          "words": 581,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "requirements",
+            "duties",
+            "offer",
+            "workplace"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1shlj7u"
+        },
+        {
+          "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/12719593-koch-koechin-efz-chur-gr-im-bodmer",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": false,
+          "sourceBackedLocation": false,
+          "words": 429,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "requirements",
+            "offer",
+            "workplace"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "av9wrn"
+        },
+        {
+          "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/12719589-fachmann-frau-gesundheit-fage-efz-chur-gr-im-bodmer",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": true,
+          "words": 562,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "requirements",
+            "duties",
+            "offer",
+            "workplace"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "k6bzqi"
+        }
+      ],
+      "companyName": "Café Restaurant Alterssiedlung Bodmer",
+      "companyHost": "yousty.ch",
+      "platform": "yousty.ch",
       "mode": "template",
       "runErrors": [],
       "logoFound": true
@@ -304,6 +619,359 @@
       "logoFound": true
     },
     {
+      "companyKey": "cargogrischa",
+      "vacancyCount": 2,
+      "sampled": 2,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 1,
+      "detailDistinctRate": 1,
+      "locationSourceRate": 0,
+      "distinctRate": 0.5,
+      "jobLikeRate": 1,
+      "score": 0.958,
+      "verdict": "good",
+      "problems": [],
+      "samples": [
+        {
+          "url": "https://cargogrischa.ch/jobs/chauffeur-kat-ce-m-w/",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 298,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "duties",
+            "offer",
+            "gender-tag"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1x5u9ov"
+        },
+        {
+          "url": "https://cargogrischa.ch/jobs/chauffeur-kat-b-e-m-w/",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 295,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "duties",
+            "offer",
+            "gender-tag"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1ncaxeh"
+        }
+      ],
+      "companyName": "Cargo Grischa",
+      "companyHost": "cargogrischa.ch",
+      "platform": null,
+      "mode": "template",
+      "runErrors": [],
+      "logoFound": true
+    },
+    {
+      "companyKey": "chmedia",
+      "vacancyCount": 1,
+      "sampled": 1,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 1,
+      "detailDistinctRate": 1,
+      "locationSourceRate": 1,
+      "distinctRate": 1,
+      "jobLikeRate": 1,
+      "score": 1,
+      "verdict": "good",
+      "problems": [],
+      "samples": [
+        {
+          "url": "https://chmedia.recruitee.com/o/initiativbewerbung/c/new",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": true,
+          "words": 357,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1egezo5"
+        }
+      ],
+      "companyName": "CH Media",
+      "companyHost": "chmedia.recruitee.com",
+      "platform": "recruitee.com",
+      "mode": "jsonld",
+      "runErrors": [],
+      "logoFound": false
+    },
+    {
+      "companyKey": "chronos-personalberatung",
+      "vacancyCount": 22,
+      "sampled": 3,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 1,
+      "detailDistinctRate": 1,
+      "locationSourceRate": 0,
+      "distinctRate": 1,
+      "jobLikeRate": 1,
+      "score": 1,
+      "verdict": "good",
+      "problems": [],
+      "samples": [
+        {
+          "url": "https://chronos-personalberatung.ch/jobdetail/sachbearbeiter-import-m-w-d-100/",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 653,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "workload",
+            "duties",
+            "gender-tag"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "4efhbl"
+        },
+        {
+          "url": "https://chronos-personalberatung.ch/jobdetail/gebietsverkaufsleiter-hlk-und-filtrationstechnik-m-w/",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 703,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "duties",
+            "gender-tag"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "rf7x2b"
+        },
+        {
+          "url": "https://chronos-personalberatung.ch/jobdetail/anlagen-oder-maschinenfuehrer-4-schichtmodell-100-m-w-d/",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 746,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "pay",
+            "workload",
+            "duties",
+            "gender-tag"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "eyoryz"
+        }
+      ],
+      "companyName": "CHRONOS Personalberatung GmbH",
+      "companyHost": "chronos-personalberatung.ch",
+      "platform": null,
+      "mode": "template",
+      "runErrors": [],
+      "logoFound": true
+    },
+    {
+      "companyKey": "cudos",
+      "vacancyCount": 4,
+      "sampled": 3,
+      "reachableRate": 1,
+      "titleMatchRate": 0.188,
+      "contentfulRate": 1,
+      "detailDistinctRate": 1,
+      "locationSourceRate": 0,
+      "distinctRate": 1,
+      "jobLikeRate": 1,
+      "score": 0.758,
+      "verdict": "good",
+      "problems": [
+        "i titoli estratti non corrispondono alla pagina ufficiale"
+      ],
+      "samples": [
+        {
+          "url": "https://cudos.ch/de/jobs/junior-software-engineer-cudos-trail/",
+          "reachable": true,
+          "titleMatch": 0.17647058823529413,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 473,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "requirements",
+            "offer",
+            "gender-tag",
+            "workplace"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1rt9os8"
+        },
+        {
+          "url": "https://cudos.ch/de/jobs/senior-software-engineer-c-sharp/",
+          "reachable": true,
+          "titleMatch": 0.17647058823529413,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 491,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "requirements",
+            "offer",
+            "gender-tag"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1s76t0f"
+        },
+        {
+          "url": "https://cudos.ch/de/jobs/senior-software-engineer-c/",
+          "reachable": true,
+          "titleMatch": 0.21052631578947367,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 476,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "requirements",
+            "offer",
+            "gender-tag"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1yato11"
+        }
+      ],
+      "companyName": "Cudos AG",
+      "companyHost": "cudos.ch",
+      "platform": null,
+      "mode": "template",
+      "runErrors": [],
+      "logoFound": true
+    },
+    {
+      "companyKey": "dq-solutions",
+      "vacancyCount": 13,
+      "sampled": 3,
+      "reachableRate": 1,
+      "titleMatchRate": 0,
+      "contentfulRate": 1,
+      "detailDistinctRate": 1,
+      "locationSourceRate": 1,
+      "distinctRate": 0.077,
+      "jobLikeRate": 1,
+      "score": 0.624,
+      "verdict": "weak",
+      "problems": [
+        "titoli ripetuti: il selettore ha agganciato un elemento ricorrente",
+        "i titoli estratti non corrispondono alla pagina ufficiale"
+      ],
+      "samples": [
+        {
+          "url": "https://www.dq-solutions.ch/de/unternehmen/stellenangebote/stellenangebote-abacus-detailseite?publicationId=9af63370-0c92-e0b8-3746-c44a55210c05",
+          "reachable": true,
+          "titleMatch": 0,
+          "contentful": true,
+          "sourceBackedLocation": true,
+          "words": 1292,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "duties",
+            "offer",
+            "gender-tag"
+          ],
+          "notJobSignals": [
+            "stay",
+            "promo",
+            "ecommerce"
+          ],
+          "bodySignature": "185f2e6"
+        },
+        {
+          "url": "https://www.dq-solutions.ch/de/unternehmen/stellenangebote/stellenangebote-abacus-detailseite?publicationId=9d956e7b-b821-5808-c0b6-f00c00c8b7cb",
+          "reachable": true,
+          "titleMatch": 0,
+          "contentful": true,
+          "sourceBackedLocation": true,
+          "words": 1313,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "requirements",
+            "duties",
+            "offer",
+            "gender-tag"
+          ],
+          "notJobSignals": [
+            "stay",
+            "promo",
+            "ecommerce"
+          ],
+          "bodySignature": "1ekfz5o"
+        },
+        {
+          "url": "https://www.dq-solutions.ch/de/unternehmen/stellenangebote/stellenangebote-abacus-detailseite?publicationId=9780476e-65f9-7ace-329a-b0c8eccea947",
+          "reachable": true,
+          "titleMatch": 0,
+          "contentful": true,
+          "sourceBackedLocation": true,
+          "words": 1081,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "duties",
+            "offer"
+          ],
+          "notJobSignals": [
+            "stay",
+            "promo",
+            "ecommerce"
+          ],
+          "bodySignature": "9iq55s"
+        }
+      ],
+      "companyName": "DQ Solutions",
+      "companyHost": "dq-solutions.ch",
+      "platform": null,
+      "mode": "template",
+      "runErrors": [],
+      "logoFound": true
+    },
+    {
       "companyKey": "elan-personal",
       "vacancyCount": 15,
       "sampled": 3,
@@ -379,150 +1047,8 @@
       "logoFound": false
     },
     {
-      "companyKey": "parmag",
-      "vacancyCount": 20,
-      "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 1,
-      "distinctRate": 0.55,
-      "jobLikeRate": 1,
-      "score": 0.962,
-      "verdict": "good",
-      "problems": [
-        "titoli ripetuti: il selettore ha agganciato un elemento ricorrente"
-      ],
-      "samples": [
-        {
-          "url": "https://parmag.ch/stellen/387?view=joblisting",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 2312,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "pay",
-            "workload",
-            "offer",
-            "gender-tag"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "1bi4vin"
-        },
-        {
-          "url": "https://parmag.ch/stellen/371?view=joblisting",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 2308,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "pay",
-            "offer",
-            "gender-tag"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "zs7z8v"
-        },
-        {
-          "url": "https://parmag.ch/stellen/353?view=joblisting",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 2314,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "pay",
-            "requirements",
-            "offer"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "ynksbf"
-        }
-      ],
-      "companyName": "ParMag AG",
-      "companyHost": "parmag.ch",
-      "platform": null,
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": true
-    },
-    {
-      "companyKey": "rero-ag",
-      "vacancyCount": 2,
-      "sampled": 2,
-      "reachableRate": 1,
-      "titleMatchRate": 0.095,
-      "contentfulRate": 1,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 0,
-      "distinctRate": 1,
-      "jobLikeRate": 1,
-      "score": 0.731,
-      "verdict": "weak",
-      "problems": [
-        "i titoli estratti non corrispondono alla pagina ufficiale"
-      ],
-      "samples": [
-        {
-          "url": "https://www.rero-ag.ch/karriere/oberflaechenbeschichter-in-eba",
-          "reachable": true,
-          "titleMatch": 0.09090909090909091,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 225,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "duties"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "1vyfjmr"
-        },
-        {
-          "url": "https://www.rero-ag.ch/karriere/oberflaechenbeschichter-in-efz",
-          "reachable": true,
-          "titleMatch": 0.1,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 243,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "duties"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "4bfg2w"
-        }
-      ],
-      "companyName": "rero-ag",
-      "companyHost": "rero-ag.ch",
-      "platform": null,
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": true
-    },
-    {
-      "companyKey": "skan",
-      "vacancyCount": 14,
+      "companyKey": "engadinerhof",
+      "vacancyCount": 3,
       "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
@@ -536,12 +1062,281 @@
       "problems": [],
       "samples": [
         {
-          "url": "https://jobs.skan.com/job/Allschwil-Team-Lead-ICT-Engineering-&amp;-Operations/1361640957/",
+          "url": "https://www.engadinerhof.com/jobs/rezeptionist-in-m-w-d/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
           "sourceBackedLocation": false,
-          "words": 1228,
+          "words": 423,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "requirements",
+            "duties",
+            "offer",
+            "gender-tag"
+          ],
+          "notJobSignals": [
+            "booking",
+            "stay",
+            "checkin"
+          ],
+          "bodySignature": "17pcakn"
+        },
+        {
+          "url": "https://www.engadinerhof.com/jobs/sous-chef-m-w-d/",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 382,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "requirements",
+            "duties",
+            "offer",
+            "gender-tag"
+          ],
+          "notJobSignals": [
+            "booking",
+            "stay",
+            "board",
+            "checkin"
+          ],
+          "bodySignature": "s89ifc"
+        },
+        {
+          "url": "https://www.engadinerhof.com/jobs/front-office-manager-in/",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 370,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "requirements",
+            "duties",
+            "offer",
+            "gender-tag"
+          ],
+          "notJobSignals": [
+            "booking",
+            "stay",
+            "checkin"
+          ],
+          "bodySignature": "1c5rlb6"
+        }
+      ],
+      "companyName": "Engadinerhof",
+      "companyHost": "engadinerhof.com",
+      "platform": null,
+      "mode": "template",
+      "runErrors": [],
+      "logoFound": false
+    },
+    {
+      "companyKey": "engadinerpost",
+      "vacancyCount": 3,
+      "sampled": 3,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 0,
+      "detailDistinctRate": 1,
+      "locationSourceRate": 0.333,
+      "distinctRate": 1,
+      "jobLikeRate": 1,
+      "score": 0.83,
+      "verdict": "good",
+      "problems": [
+        "pagine di dettaglio senza testo: probabile render lato client"
+      ],
+      "samples": [
+        {
+          "url": "https://www.engadinerpost.ch/marktplatz/job/1018",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": false,
+          "sourceBackedLocation": false,
+          "words": 332,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "workload",
+            "contract",
+            "requirements",
+            "gender-tag",
+            "workplace"
+          ],
+          "notJobSignals": [
+            "stay"
+          ],
+          "bodySignature": "1yjlbh1"
+        },
+        {
+          "url": "https://www.engadinerpost.ch/marktplatz/job/1019",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": false,
+          "sourceBackedLocation": true,
+          "words": 206,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "workload",
+            "contract",
+            "gender-tag"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1n6a35n"
+        },
+        {
+          "url": "https://www.engadinerpost.ch/marktplatz/job/1020",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": false,
+          "sourceBackedLocation": false,
+          "words": 400,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "offer",
+            "workplace"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1mxs3cc"
+        }
+      ],
+      "companyName": "Engadiner Post",
+      "companyHost": "engadinerpost.ch",
+      "platform": null,
+      "mode": "template",
+      "runErrors": [],
+      "logoFound": true
+    },
+    {
+      "companyKey": "evojob",
+      "vacancyCount": 2,
+      "sampled": 2,
+      "reachableRate": 1,
+      "titleMatchRate": 0.51,
+      "contentfulRate": 1,
+      "detailDistinctRate": 1,
+      "locationSourceRate": 0.5,
+      "distinctRate": 1,
+      "jobLikeRate": 1,
+      "score": 0.854,
+      "verdict": "good",
+      "problems": [],
+      "samples": [
+        {
+          "url": "https://evojob.ch/job/kalkulator-in-tiefbau-80-100/",
+          "reachable": true,
+          "titleMatch": 0.47368421052631576,
+          "contentful": true,
+          "sourceBackedLocation": true,
+          "words": 402,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "requirements",
+            "duties",
+            "workplace"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "5czomx"
+        },
+        {
+          "url": "https://evojob.ch/job/technischer-berater-planer/",
+          "reachable": true,
+          "titleMatch": 0.5454545454545454,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 457,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "requirements",
+            "duties",
+            "workplace"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1worpcp"
+        }
+      ],
+      "companyName": "Evojob GmbH",
+      "companyHost": "evojob.ch",
+      "platform": null,
+      "mode": "template",
+      "runErrors": [],
+      "logoFound": true
+    },
+    {
+      "companyKey": "fr",
+      "vacancyCount": 0,
+      "sampled": 0,
+      "reachableRate": 0,
+      "titleMatchRate": 0,
+      "contentfulRate": 0,
+      "detailDistinctRate": 0,
+      "locationSourceRate": 0,
+      "distinctRate": 0,
+      "jobLikeRate": null,
+      "score": 0,
+      "verdict": "insufficient",
+      "problems": [],
+      "samples": [],
+      "companyName": "Schweizerhof",
+      "companyHost": "fr.hotelcareer.ch",
+      "platform": "hotelcareer.ch",
+      "mode": "template",
+      "runErrors": [
+        "https://fr.hotelcareer.ch/emploi/hotel-schweizerhof-sils-maria-4011: HTTP 403"
+      ],
+      "logoFound": true
+    },
+    {
+      "companyKey": "gewerbe-treuhand",
+      "vacancyCount": 2,
+      "sampled": 2,
+      "reachableRate": 1,
+      "titleMatchRate": 0.9,
+      "contentfulRate": 0,
+      "detailDistinctRate": 1,
+      "locationSourceRate": 0,
+      "distinctRate": 1,
+      "jobLikeRate": 1,
+      "score": 0.8,
+      "verdict": "good",
+      "problems": [
+        "pagine di dettaglio senza testo: probabile render lato client"
+      ],
+      "samples": [
+        {
+          "url": "https://www.gewerbe-treuhand.ch/de/job/1712/mandatsleiter-in-treuhand",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": false,
+          "sourceBackedLocation": false,
+          "words": 494,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -551,15 +1346,15 @@
             "offer"
           ],
           "notJobSignals": [],
-          "bodySignature": "rtt0wa"
+          "bodySignature": "1er3xnu"
         },
         {
-          "url": "https://jobs.skan.com/job/Allschwil-Apprenticeship-in-2027-Logistician-EFZ/1365456457/",
+          "url": "https://www.gewerbe-treuhand.ch/de/job/1001/berater-in-treuhand-luzern",
           "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
+          "titleMatch": 0.8,
+          "contentful": false,
           "sourceBackedLocation": false,
-          "words": 1030,
+          "words": 512,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -569,34 +1364,510 @@
             "offer"
           ],
           "notJobSignals": [],
-          "bodySignature": "1966qhe"
+          "bodySignature": "hqh6xu"
+        }
+      ],
+      "companyName": "gewerbe-treuhand",
+      "companyHost": "gewerbe-treuhand.ch",
+      "platform": null,
+      "mode": "template",
+      "runErrors": [],
+      "logoFound": true
+    },
+    {
+      "companyKey": "graubuenden",
+      "vacancyCount": 0,
+      "sampled": 0,
+      "reachableRate": 0,
+      "titleMatchRate": 0,
+      "contentfulRate": 0,
+      "detailDistinctRate": 0,
+      "locationSourceRate": 0,
+      "distinctRate": 0,
+      "jobLikeRate": null,
+      "score": 0,
+      "verdict": "insufficient",
+      "problems": [],
+      "samples": [],
+      "companyName": "Talmuseum Samnaun",
+      "companyHost": "graubuenden.ch",
+      "platform": null,
+      "mode": "template",
+      "runErrors": [],
+      "logoFound": true
+    },
+    {
+      "companyKey": "guggerbach",
+      "vacancyCount": 5,
+      "sampled": 3,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 1,
+      "detailDistinctRate": 1,
+      "locationSourceRate": 0.667,
+      "distinctRate": 1,
+      "jobLikeRate": 1,
+      "score": 1,
+      "verdict": "good",
+      "problems": [],
+      "samples": [
+        {
+          "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/selbstaendige-coiffeuse-coiffeur",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": true,
+          "words": 334,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "duties",
+            "offer"
+          ],
+          "notJobSignals": [
+            "stay"
+          ],
+          "bodySignature": "1q4276u"
         },
         {
-          "url": "https://jobs.skan.com/job/Allschwil-Senior-ICT-System-Engineer-Technical-Project-Lead-%28mwd%29/1370336957/",
+          "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/offene-stelle-pflegehelferin",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": true,
+          "words": 370,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "duties",
+            "offer"
+          ],
+          "notJobSignals": [
+            "stay"
+          ],
+          "bodySignature": "w58xk4"
+        },
+        {
+          "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/offene-stelle-servicemitarbeiterin",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
           "sourceBackedLocation": false,
-          "words": 1307,
+          "words": 361,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "duties",
+            "offer"
+          ],
+          "notJobSignals": [
+            "stay"
+          ],
+          "bodySignature": "14zvfhu"
+        }
+      ],
+      "companyName": "Bistro Guggerzyt",
+      "companyHost": "guggerbach.ch",
+      "platform": null,
+      "mode": "template",
+      "runErrors": [],
+      "logoFound": true
+    },
+    {
+      "companyKey": "itskanal",
+      "vacancyCount": 1,
+      "sampled": 1,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 1,
+      "detailDistinctRate": 1,
+      "locationSourceRate": 0,
+      "distinctRate": 1,
+      "jobLikeRate": 1,
+      "score": 1,
+      "verdict": "good",
+      "problems": [],
+      "samples": [
+        {
+          "url": "https://itskanal.softgarden.io/job/64727406?l=de",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 375,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "requirements",
+            "offer",
+            "gender-tag"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1gt0y09"
+        }
+      ],
+      "companyName": "ITS Kanal Services AG",
+      "companyHost": "itskanal.softgarden.io",
+      "platform": "softgarden.io",
+      "mode": "jsonld",
+      "runErrors": [],
+      "logoFound": false
+    },
+    {
+      "companyKey": "jobs",
+      "vacancyCount": 1,
+      "sampled": 1,
+      "reachableRate": 1,
+      "titleMatchRate": 0,
+      "contentfulRate": 1,
+      "detailDistinctRate": 1,
+      "locationSourceRate": 1,
+      "distinctRate": 1,
+      "jobLikeRate": 1,
+      "score": 0.703,
+      "verdict": "weak",
+      "problems": [
+        "i titoli estratti non corrispondono alla pagina ufficiale"
+      ],
+      "samples": [
+        {
+          "url": "https://jobs.hangl.ch/",
+          "reachable": true,
+          "titleMatch": 0,
+          "contentful": true,
+          "sourceBackedLocation": true,
+          "words": 20599,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
             "apply",
             "cv",
+            "workload",
+            "requirements",
+            "duties",
+            "offer",
+            "gender-tag",
+            "workplace"
+          ],
+          "notJobSignals": [
+            "booking",
+            "stay",
+            "board",
+            "promo",
+            "checkin",
+            "amenities"
+          ],
+          "bodySignature": "1kydfyr"
+        }
+      ],
+      "companyName": "Smart-Hotel",
+      "companyHost": "jobs.hangl.ch",
+      "platform": "hangl.ch",
+      "mode": "jsonld",
+      "runErrors": [],
+      "logoFound": true
+    },
+    {
+      "companyKey": "join",
+      "vacancyCount": 20,
+      "sampled": 3,
+      "reachableRate": 1,
+      "titleMatchRate": 0.793,
+      "contentfulRate": 1,
+      "detailDistinctRate": 1,
+      "locationSourceRate": 0.667,
+      "distinctRate": 1,
+      "jobLikeRate": 1,
+      "score": 0.938,
+      "verdict": "good",
+      "problems": [],
+      "samples": [
+        {
+          "url": "https://join.sfs.com/ch/de/offene-stellen/automatiker-in-instandhaltung-(m-w-d).html",
+          "reachable": true,
+          "titleMatch": 0.7777777777777778,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 328,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "requirements",
             "duties",
             "offer",
             "gender-tag"
           ],
           "notJobSignals": [],
-          "bodySignature": "1lxeu6k"
+          "bodySignature": "2nlhaj"
+        },
+        {
+          "url": "https://join.sfs.com/ch/de/offene-stellen/filialleiter-in-handwerkstadt-(m-w-d)-2.html",
+          "reachable": true,
+          "titleMatch": 0.7,
+          "contentful": true,
+          "sourceBackedLocation": true,
+          "words": 368,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "requirements",
+            "duties",
+            "offer",
+            "gender-tag"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1k2f84z"
+        },
+        {
+          "url": "https://join.sfs.com/ch/de/offene-stellen/kunststofftechnologe-in-f%C3%BCr-verfahrenstechnik-spritzgiessen-(m-w-d).html",
+          "reachable": true,
+          "titleMatch": 0.9,
+          "contentful": true,
+          "sourceBackedLocation": true,
+          "words": 396,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "requirements",
+            "duties",
+            "offer",
+            "gender-tag"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1gcxhs4"
         }
       ],
-      "companyName": "Skan AG",
-      "companyHost": "jobs.skan.com",
-      "platform": null,
+      "companyName": "SFS HandwerkStadt Chur",
+      "companyHost": "join.sfs.com",
+      "platform": "sfs.com",
+      "mode": "template",
+      "runErrors": [],
+      "logoFound": true
+    },
+    {
+      "companyKey": "kind",
+      "vacancyCount": 309,
+      "sampled": 3,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 1,
+      "detailDistinctRate": 1,
+      "locationSourceRate": 0,
+      "distinctRate": 1,
+      "jobLikeRate": 1,
+      "score": 1,
+      "verdict": "good",
+      "problems": [],
+      "samples": [
+        {
+          "url": "https://kind.softgarden.io/job/67393282/H%C3%B6rakustiker-f%C3%BCr-Duisburg-Zentrum-w-m-d-?jobDbPVId=284677482&amp;l=de",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 302,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "requirements",
+            "duties",
+            "offer",
+            "gender-tag"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "h06cy9"
+        },
+        {
+          "url": "https://kind.softgarden.io/job/61220052/H%C3%B6rakustiker-f%C3%BCr-Wiesloch-w-m-d-?jobDbPVId=284182065&amp;l=de",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 302,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "requirements",
+            "duties",
+            "offer",
+            "gender-tag"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "u6wcb"
+        },
+        {
+          "url": "https://kind.softgarden.io/job/45757712/H%C3%B6rakustiker-f%C3%BCr-Poing-w-m-d-?jobDbPVId=282244980&amp;l=de",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 304,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "requirements",
+            "duties",
+            "offer",
+            "gender-tag"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "7xvfi8"
+        }
+      ],
+      "companyName": "KIND Hörgeräte",
+      "companyHost": "kind.softgarden.io",
+      "platform": "softgarden.io",
       "mode": "template",
       "runErrors": [],
       "logoFound": false
+    },
+    {
+      "companyKey": "margna",
+      "vacancyCount": 1,
+      "sampled": 1,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 1,
+      "detailDistinctRate": 1,
+      "locationSourceRate": 1,
+      "distinctRate": 1,
+      "jobLikeRate": 0,
+      "score": 0.85,
+      "verdict": "good",
+      "problems": [
+        "100% delle pagine di dettaglio non legge come annuncio di lavoro: probabile contenuto promozionale o editoriale"
+      ],
+      "samples": [
+        {
+          "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/11543097-hotel-kommunikationsfachmann-frau-efz-sils-im-engadin-segl-gr-parkhotel-margna",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": true,
+          "words": 620,
+          "status": 200,
+          "jobLike": false,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "duties",
+            "offer",
+            "workplace"
+          ],
+          "notJobSignals": [
+            "booking",
+            "stay",
+            "board",
+            "promo",
+            "checkin"
+          ],
+          "bodySignature": "jcdo4k"
+        }
+      ],
+      "companyName": "Parkhotel Margna Sils",
+      "companyHost": "yousty.ch",
+      "platform": "yousty.ch",
+      "mode": "jsonld",
+      "runErrors": [],
+      "logoFound": true
+    },
+    {
+      "companyKey": "medimeo",
+      "vacancyCount": 10,
+      "sampled": 3,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 1,
+      "detailDistinctRate": 1,
+      "locationSourceRate": 0.667,
+      "distinctRate": 1,
+      "jobLikeRate": 1,
+      "score": 1,
+      "verdict": "good",
+      "problems": [],
+      "samples": [
+        {
+          "url": "https://medimeo.ch/job/fachaerztin-allgemeine-innere-medizin-hausarzt-40-100-menschlich-modern-familienfreundlich-3454/",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": true,
+          "words": 1252,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1c4nrea"
+        },
+        {
+          "url": "https://medimeo.ch/job/oberaerztin-oberarzt-gynaekologie-geburtshilfe-3451/",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": true,
+          "words": 1151,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "requirements"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1y54szh"
+        },
+        {
+          "url": "https://medimeo.ch/job/standortleiter-hausarztmedizin-facharzt-allgemeine-innere-medizin-80-100-uebernehmen-sie-einen-standort-mit-enormer-patientennachfrage-3445/",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 1346,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "requirements"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "v8c05k"
+        }
+      ],
+      "companyName": "Medimeo AG",
+      "companyHost": "medimeo.ch",
+      "platform": null,
+      "mode": "template",
+      "runErrors": [],
+      "logoFound": true
     },
     {
       "companyKey": "mendrisio",
@@ -646,6 +1917,47 @@
       "companyHost": "mendrisio.ch",
       "platform": null,
       "mode": "template",
+      "runErrors": [],
+      "logoFound": true
+    },
+    {
+      "companyKey": "menzlisport",
+      "vacancyCount": 1,
+      "sampled": 1,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 1,
+      "detailDistinctRate": 1,
+      "locationSourceRate": 0,
+      "distinctRate": 1,
+      "jobLikeRate": 1,
+      "score": 1,
+      "verdict": "good",
+      "problems": [],
+      "samples": [
+        {
+          "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/9421948-detailhandelsfachmann-frau-efz-gestalten-von-einkaufserlebnissen-sportartikel-ilanz-gr-menzli-sport-ag",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 515,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workplace"
+          ],
+          "notJobSignals": [
+            "amenities"
+          ],
+          "bodySignature": "wnm25t"
+        }
+      ],
+      "companyName": "Intersport",
+      "companyHost": "yousty.ch",
+      "platform": "yousty.ch",
+      "mode": "jsonld",
       "runErrors": [],
       "logoFound": true
     },
@@ -899,6 +2211,89 @@
       "logoFound": true
     },
     {
+      "companyKey": "parmag",
+      "vacancyCount": 20,
+      "sampled": 3,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 1,
+      "detailDistinctRate": 1,
+      "locationSourceRate": 1,
+      "distinctRate": 0.55,
+      "jobLikeRate": 1,
+      "score": 0.962,
+      "verdict": "good",
+      "problems": [
+        "titoli ripetuti: il selettore ha agganciato un elemento ricorrente"
+      ],
+      "samples": [
+        {
+          "url": "https://parmag.ch/stellen/387?view=joblisting",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": true,
+          "words": 2312,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "pay",
+            "workload",
+            "offer",
+            "gender-tag"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1bi4vin"
+        },
+        {
+          "url": "https://parmag.ch/stellen/371?view=joblisting",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": true,
+          "words": 2308,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "pay",
+            "offer",
+            "gender-tag"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "zs7z8v"
+        },
+        {
+          "url": "https://parmag.ch/stellen/353?view=joblisting",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": true,
+          "words": 2314,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "pay",
+            "requirements",
+            "offer"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "ynksbf"
+        }
+      ],
+      "companyName": "ParMag AG",
+      "companyHost": "parmag.ch",
+      "platform": null,
+      "mode": "template",
+      "runErrors": [],
+      "logoFound": true
+    },
+    {
       "companyKey": "physioswiss",
       "vacancyCount": 9,
       "sampled": 3,
@@ -1089,171 +2484,6 @@
       "mode": "template",
       "runErrors": [],
       "logoFound": true
-    },
-    {
-      "companyKey": "bodmer-chur",
-      "vacancyCount": 3,
-      "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 0.667,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 0.667,
-      "distinctRate": 1,
-      "jobLikeRate": 1,
-      "score": 0.943,
-      "verdict": "good",
-      "problems": [],
-      "samples": [
-        {
-          "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/12719590-assistent-in-gesundheit-und-soziales-ags-eba-chur-gr-im-bodmer",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 581,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "requirements",
-            "duties",
-            "offer",
-            "workplace"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "1shlj7u"
-        },
-        {
-          "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/12719593-koch-koechin-efz-chur-gr-im-bodmer",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": false,
-          "sourceBackedLocation": false,
-          "words": 429,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "requirements",
-            "offer",
-            "workplace"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "av9wrn"
-        },
-        {
-          "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/12719589-fachmann-frau-gesundheit-fage-efz-chur-gr-im-bodmer",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 562,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "requirements",
-            "duties",
-            "offer",
-            "workplace"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "k6bzqi"
-        }
-      ],
-      "companyName": "Café Restaurant Alterssiedlung Bodmer",
-      "companyHost": "yousty.ch",
-      "platform": "yousty.ch",
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": true
-    },
-    {
-      "companyKey": "kind",
-      "vacancyCount": 309,
-      "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 0,
-      "distinctRate": 1,
-      "jobLikeRate": 1,
-      "score": 1,
-      "verdict": "good",
-      "problems": [],
-      "samples": [
-        {
-          "url": "https://kind.softgarden.io/job/67393282/H%C3%B6rakustiker-f%C3%BCr-Duisburg-Zentrum-w-m-d-?jobDbPVId=284677482&amp;l=de",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 302,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "workload",
-            "requirements",
-            "duties",
-            "offer",
-            "gender-tag"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "h06cy9"
-        },
-        {
-          "url": "https://kind.softgarden.io/job/61220052/H%C3%B6rakustiker-f%C3%BCr-Wiesloch-w-m-d-?jobDbPVId=284182065&amp;l=de",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 302,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "workload",
-            "requirements",
-            "duties",
-            "offer",
-            "gender-tag"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "u6wcb"
-        },
-        {
-          "url": "https://kind.softgarden.io/job/45757712/H%C3%B6rakustiker-f%C3%BCr-Poing-w-m-d-?jobDbPVId=282244980&amp;l=de",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 304,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "workload",
-            "requirements",
-            "duties",
-            "offer",
-            "gender-tag"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "7xvfi8"
-        }
-      ],
-      "companyName": "KIND Hörgeräte",
-      "companyHost": "kind.softgarden.io",
-      "platform": "softgarden.io",
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": false
     },
     {
       "companyKey": "recruitingapp-2678",
@@ -1746,632 +2976,61 @@
       "logoFound": true
     },
     {
-      "companyKey": "engadinerhof",
-      "vacancyCount": 3,
-      "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 0,
-      "distinctRate": 1,
-      "jobLikeRate": 1,
-      "score": 1,
-      "verdict": "good",
-      "problems": [],
-      "samples": [
-        {
-          "url": "https://www.engadinerhof.com/jobs/rezeptionist-in-m-w-d/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 423,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "workload",
-            "requirements",
-            "duties",
-            "offer",
-            "gender-tag"
-          ],
-          "notJobSignals": [
-            "booking",
-            "stay",
-            "checkin"
-          ],
-          "bodySignature": "17pcakn"
-        },
-        {
-          "url": "https://www.engadinerhof.com/jobs/sous-chef-m-w-d/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 382,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "workload",
-            "requirements",
-            "duties",
-            "offer",
-            "gender-tag"
-          ],
-          "notJobSignals": [
-            "booking",
-            "stay",
-            "board",
-            "checkin"
-          ],
-          "bodySignature": "s89ifc"
-        },
-        {
-          "url": "https://www.engadinerhof.com/jobs/front-office-manager-in/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 370,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "workload",
-            "requirements",
-            "duties",
-            "offer",
-            "gender-tag"
-          ],
-          "notJobSignals": [
-            "booking",
-            "stay",
-            "checkin"
-          ],
-          "bodySignature": "1c5rlb6"
-        }
-      ],
-      "companyName": "Engadinerhof",
-      "companyHost": "engadinerhof.com",
-      "platform": null,
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": false
-    },
-    {
-      "companyKey": "graubuenden",
-      "vacancyCount": 0,
-      "sampled": 0,
-      "reachableRate": 0,
-      "titleMatchRate": 0,
-      "contentfulRate": 0,
-      "detailDistinctRate": 0,
-      "locationSourceRate": 0,
-      "distinctRate": 0,
-      "jobLikeRate": null,
-      "score": 0,
-      "verdict": "insufficient",
-      "problems": [],
-      "samples": [],
-      "companyName": "Talmuseum Samnaun",
-      "companyHost": "graubuenden.ch",
-      "platform": null,
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": true
-    },
-    {
-      "companyKey": "guggerbach",
-      "vacancyCount": 5,
-      "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 0.667,
-      "distinctRate": 1,
-      "jobLikeRate": 1,
-      "score": 1,
-      "verdict": "good",
-      "problems": [],
-      "samples": [
-        {
-          "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/selbstaendige-coiffeuse-coiffeur",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 334,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "duties",
-            "offer"
-          ],
-          "notJobSignals": [
-            "stay"
-          ],
-          "bodySignature": "1q4276u"
-        },
-        {
-          "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/offene-stelle-pflegehelferin",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 370,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "workload",
-            "duties",
-            "offer"
-          ],
-          "notJobSignals": [
-            "stay"
-          ],
-          "bodySignature": "w58xk4"
-        },
-        {
-          "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/offene-stelle-servicemitarbeiterin",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 361,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "workload",
-            "duties",
-            "offer"
-          ],
-          "notJobSignals": [
-            "stay"
-          ],
-          "bodySignature": "14zvfhu"
-        }
-      ],
-      "companyName": "Bistro Guggerzyt",
-      "companyHost": "guggerbach.ch",
-      "platform": null,
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": true
-    },
-    {
-      "companyKey": "menzlisport",
-      "vacancyCount": 1,
-      "sampled": 1,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 0,
-      "distinctRate": 1,
-      "jobLikeRate": 1,
-      "score": 1,
-      "verdict": "good",
-      "problems": [],
-      "samples": [
-        {
-          "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/9421948-detailhandelsfachmann-frau-efz-gestalten-von-einkaufserlebnissen-sportartikel-ilanz-gr-menzli-sport-ag",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 515,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "workplace"
-          ],
-          "notJobSignals": [
-            "amenities"
-          ],
-          "bodySignature": "wnm25t"
-        }
-      ],
-      "companyName": "Intersport",
-      "companyHost": "yousty.ch",
-      "platform": "yousty.ch",
-      "mode": "jsonld",
-      "runErrors": [],
-      "logoFound": true
-    },
-    {
-      "companyKey": "1a-hunkeler",
-      "vacancyCount": 1,
-      "sampled": 1,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 1,
-      "distinctRate": 1,
-      "jobLikeRate": 1,
-      "score": 1,
-      "verdict": "good",
-      "problems": [],
-      "samples": [
-        {
-          "url": "https://www.1a-hunkeler.ch/menschen/offene-stellen/detail/fenster-monteur",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 455,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "workload",
-            "duties",
-            "offer",
-            "workplace"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "1j40o11"
-        }
-      ],
-      "companyName": "1a-hunkeler",
-      "companyHost": "1a-hunkeler.ch",
-      "platform": null,
-      "mode": "jsonld",
-      "runErrors": [],
-      "logoFound": true
-    },
-    {
-      "companyKey": "chmedia",
-      "vacancyCount": 1,
-      "sampled": 1,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 1,
-      "distinctRate": 1,
-      "jobLikeRate": 1,
-      "score": 1,
-      "verdict": "good",
-      "problems": [],
-      "samples": [
-        {
-          "url": "https://chmedia.recruitee.com/o/initiativbewerbung/c/new",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 357,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "1egezo5"
-        }
-      ],
-      "companyName": "CH Media",
-      "companyHost": "chmedia.recruitee.com",
-      "platform": "recruitee.com",
-      "mode": "jsonld",
-      "runErrors": [],
-      "logoFound": false
-    },
-    {
-      "companyKey": "evojob",
+      "companyKey": "rero-ag",
       "vacancyCount": 2,
       "sampled": 2,
       "reachableRate": 1,
-      "titleMatchRate": 0.51,
-      "contentfulRate": 1,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 0.5,
-      "distinctRate": 1,
-      "jobLikeRate": 1,
-      "score": 0.854,
-      "verdict": "good",
-      "problems": [],
-      "samples": [
-        {
-          "url": "https://evojob.ch/job/kalkulator-in-tiefbau-80-100/",
-          "reachable": true,
-          "titleMatch": 0.47368421052631576,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 402,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "workload",
-            "requirements",
-            "duties",
-            "workplace"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "5czomx"
-        },
-        {
-          "url": "https://evojob.ch/job/technischer-berater-planer/",
-          "reachable": true,
-          "titleMatch": 0.5454545454545454,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 457,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "workload",
-            "requirements",
-            "duties",
-            "workplace"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "1worpcp"
-        }
-      ],
-      "companyName": "Evojob GmbH",
-      "companyHost": "evojob.ch",
-      "platform": null,
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": true
-    },
-    {
-      "companyKey": "itskanal",
-      "vacancyCount": 1,
-      "sampled": 1,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
+      "titleMatchRate": 0.095,
       "contentfulRate": 1,
       "detailDistinctRate": 1,
       "locationSourceRate": 0,
       "distinctRate": 1,
       "jobLikeRate": 1,
-      "score": 1,
-      "verdict": "good",
-      "problems": [],
-      "samples": [
-        {
-          "url": "https://itskanal.softgarden.io/job/64727406?l=de",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 375,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "workload",
-            "requirements",
-            "offer",
-            "gender-tag"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "1gt0y09"
-        }
-      ],
-      "companyName": "ITS Kanal Services AG",
-      "companyHost": "itskanal.softgarden.io",
-      "platform": "softgarden.io",
-      "mode": "jsonld",
-      "runErrors": [],
-      "logoFound": false
-    },
-    {
-      "companyKey": "medimeo",
-      "vacancyCount": 10,
-      "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 0.667,
-      "distinctRate": 1,
-      "jobLikeRate": 1,
-      "score": 1,
-      "verdict": "good",
-      "problems": [],
-      "samples": [
-        {
-          "url": "https://medimeo.ch/job/fachaerztin-allgemeine-innere-medizin-hausarzt-40-100-menschlich-modern-familienfreundlich-3454/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 1252,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "workload"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "1c4nrea"
-        },
-        {
-          "url": "https://medimeo.ch/job/oberaerztin-oberarzt-gynaekologie-geburtshilfe-3451/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 1149,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "workload",
-            "requirements"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "ptnwks"
-        },
-        {
-          "url": "https://medimeo.ch/job/standortleiter-hausarztmedizin-facharzt-allgemeine-innere-medizin-80-100-uebernehmen-sie-einen-standort-mit-enormer-patientennachfrage-3445/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 1346,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "workload",
-            "requirements"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "v8c05k"
-        }
-      ],
-      "companyName": "Medimeo AG",
-      "companyHost": "medimeo.ch",
-      "platform": null,
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": true
-    },
-    {
-      "companyKey": "seiro",
-      "vacancyCount": 10,
-      "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 0.451,
-      "contentfulRate": 1,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 1,
-      "distinctRate": 1,
-      "jobLikeRate": 1,
-      "score": 0.837,
-      "verdict": "good",
+      "score": 0.731,
+      "verdict": "weak",
       "problems": [
         "i titoli estratti non corrispondono alla pagina ufficiale"
       ],
       "samples": [
         {
-          "url": "https://seiro.ch/jobs/facharztin-facharzt-psychiatrie-und-psychosomatik-aadorf-3162-a",
+          "url": "https://www.rero-ag.ch/karriere/oberflaechenbeschichter-in-eba",
           "reachable": true,
-          "titleMatch": 0.46153846153846156,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 542,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "workload",
-            "hr"
-          ],
-          "notJobSignals": [
-            "checkin"
-          ],
-          "bodySignature": "19nhxcw"
-        },
-        {
-          "url": "https://seiro.ch/jobs/facharztin-facharzt-innere-medizin-hausarztpraxis-altdorf-826-b",
-          "reachable": true,
-          "titleMatch": 0.46153846153846156,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 540,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "workload",
-            "contract",
-            "hr"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "mdoqfc"
-        },
-        {
-          "url": "https://seiro.ch/jobs/facharztin-facharzt-alterspsychiatrie-region-emmental-3194-b",
-          "reachable": true,
-          "titleMatch": 0.42857142857142855,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 527,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "workload",
-            "hr"
-          ],
-          "notJobSignals": [
-            "checkin"
-          ],
-          "bodySignature": "ng1a5e"
-        }
-      ],
-      "companyName": "SEIRO GmbH",
-      "companyHost": "seiro.ch",
-      "platform": null,
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": true
-    },
-    {
-      "companyKey": "star-job",
-      "vacancyCount": 1,
-      "sampled": 1,
-      "reachableRate": 1,
-      "titleMatchRate": 0,
-      "contentfulRate": 1,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 0,
-      "distinctRate": 0,
-      "jobLikeRate": 0,
-      "score": 0.468,
-      "verdict": "bad",
-      "problems": [
-        "i titoli estratti non corrispondono alla pagina ufficiale",
-        "100% delle pagine di dettaglio non legge come annuncio di lavoro: probabile contenuto promozionale o editoriale"
-      ],
-      "samples": [
-        {
-          "url": "https://star-job.com/royal-kids-international-school_0/",
-          "reachable": true,
-          "titleMatch": 0,
+          "titleMatch": 0.09090909090909091,
           "contentful": true,
           "sourceBackedLocation": false,
-          "words": 706,
+          "words": 225,
           "status": 200,
-          "jobLike": false,
-          "jobSignals": [],
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "duties"
+          ],
           "notJobSignals": [],
-          "bodySignature": "yqbhbu"
+          "bodySignature": "roaa9q"
+        },
+        {
+          "url": "https://www.rero-ag.ch/karriere/oberflaechenbeschichter-in-efz",
+          "reachable": true,
+          "titleMatch": 0.1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 243,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "duties"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1vcludp"
         }
       ],
-      "companyName": "Star Job AG",
-      "companyHost": "star-job.com",
+      "companyName": "rero-ag",
+      "companyHost": "rero-ag.ch",
       "platform": null,
-      "mode": "jsonld",
+      "mode": "template",
       "runErrors": [],
       "logoFound": true
     },
@@ -2464,374 +3123,86 @@
       "logoFound": true
     },
     {
-      "companyKey": "cargogrischa",
-      "vacancyCount": 2,
-      "sampled": 2,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 0,
-      "distinctRate": 0.5,
-      "jobLikeRate": 1,
-      "score": 0.958,
-      "verdict": "good",
-      "problems": [],
-      "samples": [
-        {
-          "url": "https://cargogrischa.ch/jobs/chauffeur-kat-ce-m-w/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 298,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "duties",
-            "offer",
-            "gender-tag"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "1x5u9ov"
-        },
-        {
-          "url": "https://cargogrischa.ch/jobs/chauffeur-kat-b-e-m-w/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 295,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "duties",
-            "offer",
-            "gender-tag"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "1ncaxeh"
-        }
-      ],
-      "companyName": "Cargo Grischa",
-      "companyHost": "cargogrischa.ch",
-      "platform": null,
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": true
-    },
-    {
-      "companyKey": "cudos",
-      "vacancyCount": 4,
+      "companyKey": "seiro",
+      "vacancyCount": 10,
       "sampled": 3,
       "reachableRate": 1,
-      "titleMatchRate": 0.188,
+      "titleMatchRate": 0.397,
       "contentfulRate": 1,
       "detailDistinctRate": 1,
-      "locationSourceRate": 0,
+      "locationSourceRate": 1,
       "distinctRate": 1,
       "jobLikeRate": 1,
-      "score": 0.758,
+      "score": 0.821,
       "verdict": "good",
       "problems": [
         "i titoli estratti non corrispondono alla pagina ufficiale"
       ],
       "samples": [
         {
-          "url": "https://cudos.ch/de/jobs/junior-software-engineer-cudos-trail/",
+          "url": "https://seiro.ch/jobs/hausarztin-hausarzt-innere-medizin-davos-2113-b",
           "reachable": true,
-          "titleMatch": 0.17647058823529413,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 473,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "workload",
-            "requirements",
-            "offer",
-            "gender-tag",
-            "workplace"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "1rt9os8"
-        },
-        {
-          "url": "https://cudos.ch/de/jobs/senior-software-engineer-c-sharp/",
-          "reachable": true,
-          "titleMatch": 0.17647058823529413,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 491,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "workload",
-            "requirements",
-            "offer",
-            "gender-tag"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "1s76t0f"
-        },
-        {
-          "url": "https://cudos.ch/de/jobs/senior-software-engineer-c/",
-          "reachable": true,
-          "titleMatch": 0.21052631578947367,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 476,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "workload",
-            "requirements",
-            "offer",
-            "gender-tag"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "1yato11"
-        }
-      ],
-      "companyName": "Cudos AG",
-      "companyHost": "cudos.ch",
-      "platform": null,
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": true
-    },
-    {
-      "companyKey": "engadinerpost",
-      "vacancyCount": 3,
-      "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 0,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 0.333,
-      "distinctRate": 1,
-      "jobLikeRate": 1,
-      "score": 0.83,
-      "verdict": "good",
-      "problems": [
-        "pagine di dettaglio senza testo: probabile render lato client"
-      ],
-      "samples": [
-        {
-          "url": "https://www.engadinerpost.ch/marktplatz/job/1018",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": false,
-          "sourceBackedLocation": false,
-          "words": 332,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "workload",
-            "contract",
-            "requirements",
-            "gender-tag",
-            "workplace"
-          ],
-          "notJobSignals": [
-            "stay"
-          ],
-          "bodySignature": "1yjlbh1"
-        },
-        {
-          "url": "https://www.engadinerpost.ch/marktplatz/job/1019",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": false,
-          "sourceBackedLocation": true,
-          "words": 206,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "workload",
-            "contract",
-            "gender-tag"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "1n6a35n"
-        },
-        {
-          "url": "https://www.engadinerpost.ch/marktplatz/job/1020",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": false,
-          "sourceBackedLocation": false,
-          "words": 400,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "workload",
-            "offer",
-            "workplace"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "1mxs3cc"
-        }
-      ],
-      "companyName": "Engadiner Post",
-      "companyHost": "engadinerpost.ch",
-      "platform": null,
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": true
-    },
-    {
-      "companyKey": "fr",
-      "vacancyCount": 1,
-      "sampled": 1,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 0,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 1,
-      "distinctRate": 1,
-      "jobLikeRate": 1,
-      "score": 0.83,
-      "verdict": "good",
-      "problems": [
-        "pagine di dettaglio senza testo: probabile render lato client"
-      ],
-      "samples": [
-        {
-          "url": "https://fr.hotelcareer.ch/emploi/yourcareergroup-schweiz-gmbh-42198",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": false,
-          "sourceBackedLocation": true,
-          "words": 609,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "workload",
-            "offer",
-            "gender-tag"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "188t005"
-        }
-      ],
-      "companyName": "Schweizerhof",
-      "companyHost": "fr.hotelcareer.ch",
-      "platform": "hotelcareer.ch",
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": true
-    },
-    {
-      "companyKey": "jobs",
-      "vacancyCount": 1,
-      "sampled": 1,
-      "reachableRate": 1,
-      "titleMatchRate": 0,
-      "contentfulRate": 1,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 1,
-      "distinctRate": 1,
-      "jobLikeRate": 1,
-      "score": 0.703,
-      "verdict": "weak",
-      "problems": [
-        "i titoli estratti non corrispondono alla pagina ufficiale"
-      ],
-      "samples": [
-        {
-          "url": "https://jobs.hangl.ch/",
-          "reachable": true,
-          "titleMatch": 0,
+          "titleMatch": 0.3333333333333333,
           "contentful": true,
           "sourceBackedLocation": true,
-          "words": 20599,
+          "words": 660,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
             "apply",
             "cv",
             "workload",
-            "requirements",
-            "duties",
-            "offer",
-            "gender-tag",
-            "workplace"
+            "hr"
           ],
           "notJobSignals": [
-            "booking",
-            "stay",
-            "board",
-            "promo",
-            "checkin",
-            "amenities"
-          ],
-          "bodySignature": "1kydfyr"
-        }
-      ],
-      "companyName": "Smart-Hotel",
-      "companyHost": "jobs.hangl.ch",
-      "platform": "hangl.ch",
-      "mode": "jsonld",
-      "runErrors": [],
-      "logoFound": true
-    },
-    {
-      "companyKey": "margna",
-      "vacancyCount": 1,
-      "sampled": 1,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 1,
-      "distinctRate": 1,
-      "jobLikeRate": 0,
-      "score": 0.85,
-      "verdict": "good",
-      "problems": [
-        "100% delle pagine di dettaglio non legge come annuncio di lavoro: probabile contenuto promozionale o editoriale"
-      ],
-      "samples": [
-        {
-          "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/11543097-hotel-kommunikationsfachmann-frau-efz-sils-im-engadin-segl-gr-parkhotel-margna",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 620,
-          "status": 200,
-          "jobLike": false,
-          "jobSignals": [
-            "apply",
-            "workload",
-            "duties",
-            "offer",
-            "workplace"
-          ],
-          "notJobSignals": [
-            "booking",
-            "stay",
-            "board",
-            "promo",
             "checkin"
           ],
-          "bodySignature": "jcdo4k"
+          "bodySignature": "170amql"
+        },
+        {
+          "url": "https://seiro.ch/jobs/hautarztin-hautarzt-dermatologie-klinikgruppe-aargau-3483-b",
+          "reachable": true,
+          "titleMatch": 0.42857142857142855,
+          "contentful": true,
+          "sourceBackedLocation": true,
+          "words": 579,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "requirements",
+            "hr"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "aiasnr"
+        },
+        {
+          "url": "https://seiro.ch/jobs/facharztin-facharzt-alterspsychiatrie-region-emmental-3194-b",
+          "reachable": true,
+          "titleMatch": 0.42857142857142855,
+          "contentful": true,
+          "sourceBackedLocation": true,
+          "words": 527,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "hr"
+          ],
+          "notJobSignals": [
+            "checkin"
+          ],
+          "bodySignature": "ng1a5e"
         }
       ],
-      "companyName": "Parkhotel Margna Sils",
-      "companyHost": "yousty.ch",
-      "platform": "yousty.ch",
-      "mode": "jsonld",
+      "companyName": "SEIRO GmbH",
+      "companyHost": "seiro.ch",
+      "platform": null,
+      "mode": "template",
       "runErrors": [],
       "logoFound": true
     },
@@ -2920,6 +3291,84 @@
       "logoFound": true
     },
     {
+      "companyKey": "skan",
+      "vacancyCount": 14,
+      "sampled": 3,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 1,
+      "detailDistinctRate": 1,
+      "locationSourceRate": 0,
+      "distinctRate": 1,
+      "jobLikeRate": 1,
+      "score": 1,
+      "verdict": "good",
+      "problems": [],
+      "samples": [
+        {
+          "url": "https://jobs.skan.com/job/Allschwil-Team-Lead-ICT-Engineering-&amp;-Operations/1361640957/",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 1228,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "duties",
+            "offer"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "rtt0wa"
+        },
+        {
+          "url": "https://jobs.skan.com/job/Allschwil-Apprenticeship-in-2027-Logistician-EFZ/1365456457/",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 1030,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "duties",
+            "offer"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1966qhe"
+        },
+        {
+          "url": "https://jobs.skan.com/job/Allschwil-Senior-ICT-System-Engineer-Technical-Project-Lead-%28mwd%29/1370336957/",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 1307,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "duties",
+            "offer",
+            "gender-tag"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1lxeu6k"
+        }
+      ],
+      "companyName": "Skan AG",
+      "companyHost": "jobs.skan.com",
+      "platform": null,
+      "mode": "template",
+      "runErrors": [],
+      "logoFound": false
+    },
+    {
       "companyKey": "sta",
       "vacancyCount": 20,
       "sampled": 3,
@@ -2991,6 +3440,30 @@
       "platform": null,
       "mode": "template",
       "runErrors": [],
+      "logoFound": true
+    },
+    {
+      "companyKey": "star-job",
+      "vacancyCount": 0,
+      "sampled": 0,
+      "reachableRate": 0,
+      "titleMatchRate": 0,
+      "contentfulRate": 0,
+      "detailDistinctRate": 0,
+      "locationSourceRate": 0,
+      "distinctRate": 0,
+      "jobLikeRate": null,
+      "score": 0,
+      "verdict": "insufficient",
+      "problems": [],
+      "samples": [],
+      "companyName": "Star Job AG",
+      "companyHost": "star-job.com",
+      "platform": null,
+      "mode": "jsonld",
+      "runErrors": [
+        "https://star-job.com/royal-kids-international-school_0/: HTTP 0"
+      ],
       "logoFound": true
     },
     {
@@ -3189,70 +3662,26 @@
     },
     {
       "companyKey": "vereinaklosters",
-      "vacancyCount": 2,
-      "sampled": 2,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 1,
-      "distinctRate": 1,
-      "jobLikeRate": 1,
-      "score": 1,
-      "verdict": "good",
+      "vacancyCount": 0,
+      "sampled": 0,
+      "reachableRate": 0,
+      "titleMatchRate": 0,
+      "contentfulRate": 0,
+      "detailDistinctRate": 0,
+      "locationSourceRate": 0,
+      "distinctRate": 0,
+      "jobLikeRate": null,
+      "score": 0,
+      "verdict": "insufficient",
       "problems": [],
-      "samples": [
-        {
-          "url": "https://www.hotelcareer.ch/jobs/hotel-vereina-52746/chef-de-rang-3635441?rltr=comp",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 396,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "workload",
-            "contract",
-            "requirements",
-            "duties",
-            "offer",
-            "gender-tag"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "151gg6o"
-        },
-        {
-          "url": "https://www.hotelcareer.ch/jobs/hotel-vereina-52746/zimmerm%C3%A4dchen-roomboy-2833525?rltr=comp",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 352,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "workload",
-            "requirements",
-            "duties",
-            "offer",
-            "gender-tag"
-          ],
-          "notJobSignals": [
-            "stay"
-          ],
-          "bodySignature": "1tx4uux"
-        }
-      ],
+      "samples": [],
       "companyName": "Vereina",
       "companyHost": "hotelcareer.ch",
       "platform": "hotelcareer.ch",
       "mode": "template",
-      "runErrors": [],
+      "runErrors": [
+        "https://www.hotelcareer.ch/jobs/hotel-vereina-52746: HTTP 403"
+      ],
       "logoFound": true
     },
     {
@@ -3473,520 +3902,13 @@
       "mode": "template",
       "runErrors": [],
       "logoFound": true
-    },
-    {
-      "companyKey": "dq-solutions",
-      "vacancyCount": 13,
-      "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 0,
-      "contentfulRate": 1,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 1,
-      "distinctRate": 0.077,
-      "jobLikeRate": 1,
-      "score": 0.624,
-      "verdict": "weak",
-      "problems": [
-        "titoli ripetuti: il selettore ha agganciato un elemento ricorrente",
-        "i titoli estratti non corrispondono alla pagina ufficiale"
-      ],
-      "samples": [
-        {
-          "url": "https://www.dq-solutions.ch/de/unternehmen/stellenangebote/stellenangebote-abacus-detailseite?publicationId=9af63370-0c92-e0b8-3746-c44a55210c05",
-          "reachable": true,
-          "titleMatch": 0,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 1292,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "workload",
-            "duties",
-            "offer",
-            "gender-tag"
-          ],
-          "notJobSignals": [
-            "stay",
-            "promo",
-            "ecommerce"
-          ],
-          "bodySignature": "185f2e6"
-        },
-        {
-          "url": "https://www.dq-solutions.ch/de/unternehmen/stellenangebote/stellenangebote-abacus-detailseite?publicationId=9d956e7b-b821-5808-c0b6-f00c00c8b7cb",
-          "reachable": true,
-          "titleMatch": 0,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 1313,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "workload",
-            "requirements",
-            "duties",
-            "offer",
-            "gender-tag"
-          ],
-          "notJobSignals": [
-            "stay",
-            "promo",
-            "ecommerce"
-          ],
-          "bodySignature": "1ekfz5o"
-        },
-        {
-          "url": "https://www.dq-solutions.ch/de/unternehmen/stellenangebote/stellenangebote-abacus-detailseite?publicationId=9780476e-65f9-7ace-329a-b0c8eccea947",
-          "reachable": true,
-          "titleMatch": 0,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 1081,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "workload",
-            "duties",
-            "offer"
-          ],
-          "notJobSignals": [
-            "stay",
-            "promo",
-            "ecommerce"
-          ],
-          "bodySignature": "9iq55s"
-        }
-      ],
-      "companyName": "DQ Solutions",
-      "companyHost": "dq-solutions.ch",
-      "platform": null,
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": true
-    },
-    {
-      "companyKey": "join",
-      "vacancyCount": 20,
-      "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 0.793,
-      "contentfulRate": 1,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 0.667,
-      "distinctRate": 1,
-      "jobLikeRate": 1,
-      "score": 0.938,
-      "verdict": "good",
-      "problems": [],
-      "samples": [
-        {
-          "url": "https://join.sfs.com/ch/de/offene-stellen/automatiker-in-instandhaltung-(m-w-d).html",
-          "reachable": true,
-          "titleMatch": 0.7777777777777778,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 328,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "workload",
-            "requirements",
-            "duties",
-            "offer",
-            "gender-tag"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "2nlhaj"
-        },
-        {
-          "url": "https://join.sfs.com/ch/de/offene-stellen/filialleiter-in-handwerkstadt-(m-w-d)-2.html",
-          "reachable": true,
-          "titleMatch": 0.7,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 368,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "workload",
-            "requirements",
-            "duties",
-            "offer",
-            "gender-tag"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "1k2f84z"
-        },
-        {
-          "url": "https://join.sfs.com/ch/de/offene-stellen/kunststofftechnologe-in-f%C3%BCr-verfahrenstechnik-spritzgiessen-(m-w-d).html",
-          "reachable": true,
-          "titleMatch": 0.9,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 396,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "workload",
-            "requirements",
-            "duties",
-            "offer",
-            "gender-tag"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "1gcxhs4"
-        }
-      ],
-      "companyName": "SFS HandwerkStadt Chur",
-      "companyHost": "join.sfs.com",
-      "platform": "sfs.com",
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": true
-    },
-    {
-      "companyKey": "aenova-group",
-      "vacancyCount": 10,
-      "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 0.317,
-      "contentfulRate": 0,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 0,
-      "distinctRate": 1,
-      "jobLikeRate": 0,
-      "score": 0.477,
-      "verdict": "bad",
-      "problems": [
-        "i titoli estratti non corrispondono alla pagina ufficiale",
-        "pagine di dettaglio senza testo: probabile render lato client",
-        "100% delle pagine di dettaglio non legge come annuncio di lavoro: probabile contenuto promozionale o editoriale"
-      ],
-      "samples": [
-        {
-          "url": "https://aenova-group.onlyfy.jobs/it/job/rptrq26fdwizrll4rc8neqqr8a4e6w9",
-          "reachable": true,
-          "titleMatch": 0.4444444444444444,
-          "contentful": false,
-          "sourceBackedLocation": false,
-          "words": 15,
-          "status": 200,
-          "jobLike": false,
-          "jobSignals": [
-            "gender-tag"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "1v6vdm1"
-        },
-        {
-          "url": "https://aenova-group.onlyfy.jobs/it/job/rbdokxxmzjhs6my5zhzzkapu7f1ko6m",
-          "reachable": true,
-          "titleMatch": 0.2222222222222222,
-          "contentful": false,
-          "sourceBackedLocation": false,
-          "words": 13,
-          "status": 200,
-          "jobLike": false,
-          "jobSignals": [
-            "gender-tag"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "1sivsvr"
-        },
-        {
-          "url": "https://aenova-group.onlyfy.jobs/it/job/k5xgy900tq86rth7uihk75kpi0x4f7t",
-          "reachable": true,
-          "titleMatch": 0.2857142857142857,
-          "contentful": false,
-          "sourceBackedLocation": false,
-          "words": 13,
-          "status": 200,
-          "jobLike": false,
-          "jobSignals": [
-            "gender-tag"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "s6qu7x"
-        }
-      ],
-      "companyName": "Aenova Group",
-      "companyHost": "aenova-group.onlyfy.jobs",
-      "platform": "onlyfy.jobs",
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": false
-    },
-    {
-      "companyKey": "apply",
-      "vacancyCount": 1,
-      "sampled": 1,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 1,
-      "distinctRate": 1,
-      "jobLikeRate": 1,
-      "score": 1,
-      "verdict": "good",
-      "problems": [],
-      "samples": [
-        {
-          "url": "https://apply.refline.ch/968123/1468/pub/de/index.html",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 321,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "workload",
-            "duties",
-            "offer"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "1j0a44o"
-        }
-      ],
-      "companyName": "LEITpuls AG",
-      "companyHost": "apply.refline.ch",
-      "platform": "refline.ch",
-      "mode": "jsonld",
-      "runErrors": [],
-      "logoFound": true
-    },
-    {
-      "companyKey": "barockjob",
-      "vacancyCount": 22,
-      "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 0.611,
-      "contentfulRate": 1,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 1,
-      "distinctRate": 0.682,
-      "jobLikeRate": 1,
-      "score": 0.857,
-      "verdict": "good",
-      "problems": [],
-      "samples": [
-        {
-          "url": "https://barockjob.ch/jobs/2026/08/28/abteilungsleiter-werkzeug/",
-          "reachable": true,
-          "titleMatch": 0.5,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 317,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "requirements",
-            "duties",
-            "offer",
-            "hr"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "1qef663"
-        },
-        {
-          "url": "https://barockjob.ch/jobs/2026/08/10/anlagen-und-apparatebauer-in-oder-metallbauer-in-fuer-den-bereich-spezialprojekte-80-100/",
-          "reachable": true,
-          "titleMatch": 0.6666666666666666,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 332,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "workload",
-            "requirements",
-            "duties",
-            "offer",
-            "hr"
-          ],
-          "notJobSignals": [
-            "promo"
-          ],
-          "bodySignature": "1wuonmp"
-        },
-        {
-          "url": "https://barockjob.ch/jobs/2026/07/30/automatiker-mit-schwerpunkt-bildverarbeitung-80-100/",
-          "reachable": true,
-          "titleMatch": 0.6666666666666666,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 313,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "workload",
-            "requirements",
-            "duties",
-            "offer",
-            "hr"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "1gplg7c"
-        }
-      ],
-      "companyName": "Barock Job AG",
-      "companyHost": "barockjob.ch",
-      "platform": null,
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": false
-    },
-    {
-      "companyKey": "chronos-personalberatung",
-      "vacancyCount": 22,
-      "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 0,
-      "distinctRate": 1,
-      "jobLikeRate": 1,
-      "score": 1,
-      "verdict": "good",
-      "problems": [],
-      "samples": [
-        {
-          "url": "https://chronos-personalberatung.ch/jobdetail/sachbearbeiter-import-m-w-d-100/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 653,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "workload",
-            "duties",
-            "gender-tag"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "4efhbl"
-        },
-        {
-          "url": "https://chronos-personalberatung.ch/jobdetail/gebietsverkaufsleiter-hlk-und-filtrationstechnik-m-w/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 703,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "duties",
-            "gender-tag"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "rf7x2b"
-        },
-        {
-          "url": "https://chronos-personalberatung.ch/jobdetail/anlagen-oder-maschinenfuehrer-4-schichtmodell-100-m-w-d/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 746,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "pay",
-            "workload",
-            "duties",
-            "gender-tag"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "eyoryz"
-        }
-      ],
-      "companyName": "CHRONOS Personalberatung GmbH",
-      "companyHost": "chronos-personalberatung.ch",
-      "platform": null,
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": true
-    },
-    {
-      "companyKey": "gewerbe-treuhand",
-      "vacancyCount": 2,
-      "sampled": 2,
-      "reachableRate": 1,
-      "titleMatchRate": 0.9,
-      "contentfulRate": 0,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 0,
-      "distinctRate": 1,
-      "jobLikeRate": 1,
-      "score": 0.8,
-      "verdict": "good",
-      "problems": [
-        "pagine di dettaglio senza testo: probabile render lato client"
-      ],
-      "samples": [
-        {
-          "url": "https://www.gewerbe-treuhand.ch/de/job/1712/mandatsleiter-in-treuhand",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": false,
-          "sourceBackedLocation": false,
-          "words": 494,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "duties",
-            "offer"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "1er3xnu"
-        },
-        {
-          "url": "https://www.gewerbe-treuhand.ch/de/job/1001/berater-in-treuhand-luzern",
-          "reachable": true,
-          "titleMatch": 0.8,
-          "contentful": false,
-          "sourceBackedLocation": false,
-          "words": 512,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "duties",
-            "offer"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "hqh6xu"
-        }
-      ],
-      "companyName": "gewerbe-treuhand",
-      "companyHost": "gewerbe-treuhand.ch",
-      "platform": null,
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": true
     }
-  ]
+  ],
+  "tally": {
+    "good": 44,
+    "weak": 8,
+    "bad": 1,
+    "insufficient": 5
+  },
+  "promotedVacancies": 676
 }
