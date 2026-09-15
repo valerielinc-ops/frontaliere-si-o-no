@@ -13,6 +13,8 @@ on:
       - 'data/decision-moment-outcomes.json'
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l5-decision-moments.mjs'
+      - 'scripts/ci/export-loop-outcomes.mjs'
+      - 'scripts/lib/posthog-client.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
@@ -27,6 +29,8 @@ on:
       - 'data/decision-moment-outcomes.json'
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l5-decision-moments.mjs'
+      - 'scripts/ci/export-loop-outcomes.mjs'
+      - 'scripts/lib/posthog-client.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
@@ -65,9 +69,11 @@ jobs:
             /data/decision-moment-outcomes.json
             /data/loop-fleet/loop-registry.json
             /scripts/ci/loop-l5-decision-moments.mjs
+            /scripts/ci/export-loop-outcomes.mjs
             /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /scripts/lib/loop-fleet-outcome.mjs
+            /scripts/lib/posthog-client.mjs
             /scripts/lib/github-issue-creator.mjs
             /.github/workflows/loop-l5-decision-moments.yml
           sparse-checkout-cone-mode: false
@@ -83,6 +89,21 @@ jobs:
             echo 'LOOP_FLEET_COLLISIONS=0'
             echo 'LOOP_FLEET_GATE_BYPASS=false'
           } >> "$GITHUB_ENV"
+      - name: Prepare read-only Firebase credentials
+        if: github.event_name != 'pull_request'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          chmod 600 /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+      - name: Export fresh L5 outcomes
+        if: github.event_name != 'pull_request'
+        run: node scripts/ci/export-loop-outcomes.mjs --loop L5 --out "$RUNNER_TEMP/decision-moment-outcomes.json"
       - name: Audit decision moments
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -91,7 +112,9 @@ jobs:
         run: |
           set -o pipefail
           mkdir -p "$REPORT_DIR"
-          args=(--json --apply --report-dir "$REPORT_DIR" --fuel data/fuel-prices.json --border data/border-wait-current.json --pharmacies data/pharmacies-ticino-complete.json --duties data/pharmacy-duties-ticino.json --outcomes data/decision-moment-outcomes.json --registry data/loop-fleet/loop-registry.json)
+          outcomes_path=data/decision-moment-outcomes.json
+          if [ "${{ github.event_name }}" != "pull_request" ]; then outcomes_path="$RUNNER_TEMP/decision-moment-outcomes.json"; fi
+          args=(--json --apply --report-dir "$REPORT_DIR" --fuel data/fuel-prices.json --border data/border-wait-current.json --pharmacies data/pharmacies-ticino-complete.json --duties data/pharmacy-duties-ticino.json --outcomes "$outcomes_path" --registry data/loop-fleet/loop-registry.json)
           if [ "$ISSUE_ENABLED" = "true" ]; then
             args+=(--issue --strict)
           else
