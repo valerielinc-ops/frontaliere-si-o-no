@@ -491,15 +491,21 @@ function buildDecisionMomentOutcome({ source, verdict, policy, registry, now }) 
       : `decision-moment outcome is ${status}; no bridge or freshness claim is authorized`,
     now,
   });
+  // Keep the normalized artifact fail-closed as well as its numerator and
+  // denominator. The raw export remains available in the verdict snapshot,
+  // but a zero/under-floor cohort must not look like a measured 0% metric to
+  // consumers that read the outcome directly.
+  const reportedEligibleDecisionSessions = measured ? eligibleDecisionSessions : null;
+  const reportedNextUsefulActions = measured ? nextUsefulActions : null;
   return {
     ...outcome,
     loopId: LOOP_ID,
     generatedAt: generatedAt?.toISOString() || null,
-    eligibleDecisionSessions,
-    nextUsefulActions,
+    eligibleDecisionSessions: reportedEligibleDecisionSessions,
+    nextUsefulActions: reportedNextUsefulActions,
     metrics: {
-      eligibleDecisionSessions,
-      nextUsefulActions,
+      eligibleDecisionSessions: reportedEligibleDecisionSessions,
+      nextUsefulActions: reportedNextUsefulActions,
     },
     evidence: outcomeSnapshot.evidence || {
       status: 'missing',
