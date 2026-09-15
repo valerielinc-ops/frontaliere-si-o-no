@@ -19,9 +19,8 @@ import {
   buildTrafficProviderChain,
   classifyProviderError,
   getTrafficSegmentTravelTimes,
-  providerBudget,
-  providerPeriod,
-  reserveTrafficProviderBudget,
+  providerBudgetExhaustedError,
+  reserveTrafficProviderRequest,
 } from './trafficProviderMesh.js';
 
 // Re-export so callers that previously imported from this module keep working.
@@ -32,34 +31,9 @@ const TOMTOM_CALCULATE_ROUTE_URL = 'https://api.tomtom.com/routing/1/calculateRo
 const HERE_ROUTER_URL = 'https://router.hereapi.com/v8/routes';
 const TT_FLOW_URL = 'https://api.tomtom.com/traffic/services/4/flowSegmentData/relative0';
 const MAX_FLOW_DELAY_MIN = 45;
-// HERE "Time Aware Routing" has a paid meter after its free allowance. Each
-// crossing costs 2 transactions (crossing segment + approach segment), so the
-// scheduler reserves the whole run before issuing requests and hard-caps the
-// local monthly budget below the advertised free tier. Override via the
-// HERE_MONTHLY_BUDGET env var.
-// `Number(process.env.X || 4500)` metteva l'alternativa DENTRO `Number`: una
-// variabile presente ma non numerica dava `NaN`, e `NaN` come tetto di spesa
-// significa nessun tetto — `usage >= NaN` e' falso, quindi la garanzia «non
-// paghiamo mai» sarebbe evaporata in silenzio (issue #7344).
-//
-// Il predicato e' quello di `scripts/lib/int-from-env.mjs`, ma qui e' scritto
-// a mano DELIBERATAMENTE: `functions/` e' un artefatto di deploy separato
-// (`firebase deploy --only functions` carica solo questa cartella), quindi un
-// import verso `scripts/` risolverebbe in locale e romperebbe in produzione.
-const HERE_MONTHLY_BUDGET = (() => {
-  const raw = process.env.HERE_MONTHLY_BUDGET;
-  if (raw === undefined || raw === null || String(raw).trim() === '') return 4500;
-  const trimmed = String(raw).trim();
-  const n = Number(trimmed);
-  // Anche la FORMA conta: `Number('0x10')` fa 16 e `Number('1e3')` fa 1000, due
-  // interi >= 0 che passavano di qui senza avviso e cambiavano il tetto di
-  // spesa senza dirlo (issue #7701, item 3). Solo notazione decimale.
-  if (!/^[+-]?\d+$/.test(trimmed) || !Number.isInteger(n) || n < 0) {
-    console.warn(`[traffic-scheduler] HERE_MONTHLY_BUDGET=${JSON.stringify(String(raw))} non e' un intero decimale >= 0 — uso 4500`);
-    return 4500;
-  }
-  return n;
-})();
+// HERE "Time Aware Routing" has a paid meter after its free allowance. The
+// per-request guard in trafficProviderMesh.js now reserves each transaction
+// immediately before fetch, with both daily and monthly ceilings.
 const WEBCAM_QUEUE_MIN_WAIT_MIN = 8;
 const WEBCAM_CLEAR_HIGH_WAIT_MIN = 30;
 const WEBCAM_CLEAR_APPROACH_MAX_MIN = 5;
@@ -105,16 +79,11 @@ export function estimateWaitFromCongestion(congestionScore) {
 /**
  * Pick the live-routing provider by preference order.
  *
- * TomTom is preferred over HERE (#2180): HERE bills every routing call as a
- * "Time Aware Routing" transaction and the scheduled demand (~21k/month) is
- * ~4.6× HERE's 4,500/month free tier, so HERE exhausts ~day 6 and the run
- * already falls back to TomTom for the rest of the month — i.e. TomTom already
- * serves the large majority of the month. TomTom's free tier (2,500 req/day ≈
- * 75k/month) comfortably covers full demand and is unmetered here, so making it
- * primary keeps live routing consistent ALL month at $0 and stops the real
- * monthly HERE overage (6,350/4,500 billed in 2026-06). HERE stays as the
- * fallback when no TomTom key is configured (its budget guard below still
- * caps any spend). Google Maps is the last resort.
+ * TomTom is preferred over HERE (#2180): HERE has a smaller free allowance for
+ * traffic-aware routing, while each provider is now guarded by its own atomic
+ * Firestore quota ledger. The chain can therefore use TomTom first and rotate
+ * to HERE, Google, or static routing only while each provider remains below its
+ * configured safe cap. Google Maps is the last resort.
  *
  * @param {{hereApiKey?:string, tomtomApiKey?:string, googleApiKey?:string}} keys
  * @returns {'tomtom'|'here'|'google-maps'|null}
@@ -168,7 +137,8 @@ export function isTomTomAccountExhausted(message = '') {
  * @param {string} apiKey
  * @returns {Promise<{durationNormalSec: number, durationTrafficSec: number}>}
  */
-export async function getGoogleDistanceMatrix(originLat, originLng, destLat, destLng, apiKey) {
+export async function getGoogleDistanceMatrix(originLat, originLng, destLat, destLng, apiKey, options = {}) {
+ await reserveRequestIfNeeded(options, 'google-maps');
  const url = `${GOOGLE_DISTANCE_MATRIX_URL}` +
  `?origins=${originLat},${originLng}` +
  `&destinations=${destLat},${destLng}` +
@@ -209,7 +179,8 @@ export async function getGoogleDistanceMatrix(originLat, originLng, destLat, des
  * @param {string} apiKey
  * @returns {Promise<{durationNormalSec: number, durationTrafficSec: number}>}
  */
-export async function getTomTomRouteTravelTimes(originLat, originLng, destLat, destLng, apiKey) {
+export async function getTomTomRouteTravelTimes(originLat, originLng, destLat, destLng, apiKey, options = {}) {
+ await reserveRequestIfNeeded(options, 'tomtom', 'route');
  const routePlanningLocations = `${originLat},${originLng}:${destLat},${destLng}`;
  const params = new URLSearchParams({
  key: apiKey,
@@ -258,7 +229,8 @@ export async function getTomTomRouteTravelTimes(originLat, originLng, destLat, d
  * @param {string} apiKey
  * @returns {Promise<{durationNormalSec: number, durationTrafficSec: number}>}
  */
-export async function getHereMapsRouteTravelTimes(originLat, originLng, destLat, destLng, apiKey) {
+export async function getHereMapsRouteTravelTimes(originLat, originLng, destLat, destLng, apiKey, options = {}) {
+ await reserveRequestIfNeeded(options, 'here');
  const params = new URLSearchParams({
  apikey: apiKey,
  origin: `${originLat},${originLng}`,
@@ -291,7 +263,8 @@ export async function getHereMapsRouteTravelTimes(originLat, originLng, destLat,
  * @param {string} apiKey
  * @returns {Promise<{ratio: number, confidence: number, currentSpeed: number, freeFlowSpeed: number}>}
  */
-export async function getTomTomFlowSegmentData(lat, lng, apiKey) {
+export async function getTomTomFlowSegmentData(lat, lng, apiKey, options = {}) {
+ await reserveRequestIfNeeded(options, 'tomtom', 'flow');
  const url = `${TT_FLOW_URL}/16/json?key=${apiKey}&point=${lat},${lng}&unit=KMPH`;
  const res = await fetch(url);
  if (!res.ok) throw new Error(`TomTom Flow HTTP ${res.status}`);
@@ -309,13 +282,13 @@ export async function getTomTomFlowSegmentData(lat, lng, apiKey) {
 async function getSegmentTravelTimes(originLat, originLng, destLat, destLng, options) {
  const provider = options.providerOverride ?? resolveTrafficProvider(options);
  if (provider === 'here') {
- return getHereMapsRouteTravelTimes(originLat, originLng, destLat, destLng, options.hereApiKey);
+ return getHereMapsRouteTravelTimes(originLat, originLng, destLat, destLng, options.hereApiKey, options);
  }
  if (provider === 'tomtom') {
- return getTomTomRouteTravelTimes(originLat, originLng, destLat, destLng, options.tomtomApiKey);
+ return getTomTomRouteTravelTimes(originLat, originLng, destLat, destLng, options.tomtomApiKey, options);
  }
  if (provider === 'google-maps') {
- return getGoogleDistanceMatrix(originLat, originLng, destLat, destLng, options.googleApiKey);
+ return getGoogleDistanceMatrix(originLat, originLng, destLat, destLng, options.googleApiKey, options);
  }
  if (provider && provider !== 'tomtom' && provider !== 'here' && provider !== 'google-maps') {
   return getTrafficSegmentTravelTimes(provider, originLat, originLng, destLat, destLng, options);
@@ -348,6 +321,18 @@ export function applyWebcamTrafficSanity(waitTimeMinutes, approachMinutes, webca
 
 function providerIdFromEntry(entry) {
  return typeof entry === 'string' ? entry : entry?.id;
+}
+
+async function reserveRequestIfNeeded(options, providerId, operation = 'route') {
+ const reserveRequest = options?.providerRuntime?.reserveRequest;
+ if (typeof reserveRequest !== 'function') return;
+ const result = await reserveRequest(providerId, operation);
+ if (result === false || result?.allowed === false) {
+ const error = providerBudgetExhaustedError(providerId, result?.budget, result?.period);
+ error.reason = result?.reason ?? 'quota';
+ error.retryAfterMs = result?.retryAfterMs;
+ throw error;
+ }
 }
 
 function finiteNonNegative(value) {
@@ -479,7 +464,7 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
   && options.tomtomApiKey
   && waitTimeMinutes < 5) {
  try {
- const flow = await getTomTomFlowSegmentData(crossing.lat, crossing.lng, options.tomtomApiKey);
+ const flow = await getTomTomFlowSegmentData(crossing.lat, crossing.lng, options.tomtomApiKey, options);
  if (flow.ratio < 0.3 && flow.confidence > 0.5) {
  waitTimeMinutes = Math.round((1 - flow.ratio) * MAX_FLOW_DELAY_MIN);
  console.log(`🚦 Flow override for ${crossing.name}: ratio=${flow.ratio.toFixed(2)} → ${waitTimeMinutes} min`);
@@ -599,7 +584,7 @@ export function ensureAdminApp() {
  return admin;
 }
 
-// ─── HERE monthly budget guard ─────────────────────────────────
+// ─── Legacy HERE budget helpers ─────────────────────────────────
 
 /**
  * Pure budget-decision logic (no I/O — unit-testable).
@@ -623,8 +608,8 @@ export function computeHereBudgetDecision({ storedMonth, storedCount, month, cal
 }
 
 /**
- * Atomically reserves `callsThisRun` HERE transactions against the current
- * calendar month's budget (Firestore doc `meta/hereTransactionBudget`).
+ * Backward-compatible wrapper for callers outside the scheduler. Production
+ * collection uses the per-request guard in trafficProviderMesh.js instead.
  *
  * Returns `{ allowed, count, month }`. When `allowed` is false the caller MUST
  * NOT issue HERE requests this run — the free-tier budget is exhausted. The
@@ -635,79 +620,47 @@ export function computeHereBudgetDecision({ storedMonth, storedCount, month, cal
  * @returns {Promise<{ allowed: boolean, count: number, month: string }>}
  */
 export async function reserveHereTransactionBudget(callsThisRun) {
- const adm = ensureAdminApp();
- const db = adm.firestore();
- const ref = db.collection('meta').doc('hereTransactionBudget');
- // Calendar month in Europe/Rome (en-CA gives YYYY-MM-DD → slice to YYYY-MM).
- const month = new Date()
- .toLocaleDateString('en-CA', { timeZone: 'Europe/Rome', year: 'numeric', month: '2-digit', day: '2-digit' })
- .slice(0, 7);
-
- return db.runTransaction(async (tx) => {
- const snap = await tx.get(ref);
- const data = snap.exists ? snap.data() : {};
- const { allowed, count } = computeHereBudgetDecision({
- storedMonth: data.month,
- storedCount: data.count,
- month,
- callsThisRun,
- budget: HERE_MONTHLY_BUDGET,
- });
-
- if (allowed) {
- tx.set(ref, { month, count, updatedAt: adm.firestore.Timestamp.now() });
- }
- return { allowed, count, month };
- });
+ const reservation = await reserveTrafficProviderRequest('here', 'route', callsThisRun);
+ const monthly = reservation.periods?.find((item) => item.period.length === 7);
+ return {
+  ...reservation,
+  count: monthly?.count ?? 0,
+  month: monthly?.period,
+ };
 }
 
-function createProviderMeshRuntime(providerChain, callsThisRun) {
+function createProviderMeshRuntime(providerChain) {
  const disabled = new Set();
- const reservations = new Map();
-
- const ensureProvider = async (providerId) => {
-  if (disabled.has(providerId)) return false;
-  if (reservations.has(providerId)) return reservations.get(providerId);
-
-  const promise = (async () => {
-   try {
-    // HERE keeps its historical/reconciled document name. All other providers
-    // use the generic provider-period document in trafficProviderMesh.js.
-    const reservation = providerId === 'here'
-     ? await reserveHereTransactionBudget(callsThisRun)
-     : await reserveTrafficProviderBudget(providerId, callsThisRun);
-    if (!reservation?.allowed) {
-     disabled.add(providerId);
-     const budget = reservation?.budget ?? providerBudget(providerId);
-     const period = reservation?.period ?? providerPeriod(providerId);
-     console.warn(`🛑 ${providerId} local budget reached (${budget}/${period}) — rotating provider`);
-     return false;
-    }
-    return true;
-   } catch (error) {
-    // A failed budget transaction cannot prove that a paid request is safe.
-    // Fail closed and let the chain try a different provider or webcam.
+ const reserveRequest = async (providerId, operation = 'route') => {
+  if (disabled.has(providerId)) return { allowed: false, reason: 'disabled' };
+  try {
+   const reservation = await reserveTrafficProviderRequest(providerId, operation);
+   if (!reservation?.allowed) {
     disabled.add(providerId);
-    console.warn(`🛑 ${providerId} budget reservation failed — rotating provider: ${error.message}`);
-    return false;
+    console.warn(
+     `🛑 ${providerId}/${operation} quota guard blocked the request (${reservation.reason ?? 'quota'}) — rotating provider`,
+    );
    }
-  })();
-  reservations.set(providerId, promise);
-  return promise;
+   return reservation;
+  } catch (error) {
+   // A failed quota transaction cannot prove that a paid request is safe.
+   // Fail closed and let the chain try another provider or webcam.
+   disabled.add(providerId);
+   console.warn(`🛑 ${providerId}/${operation} quota check failed — rotating provider: ${error.message}`);
+   return { allowed: false, reason: 'quota-check-failed' };
+  }
  };
 
- return { providerChain, disabled, reservations, ensureProvider };
+ const ensureProvider = async (providerId) => !disabled.has(providerId);
+ return { providerChain, disabled, reservations: new Map(), ensureProvider, reserveRequest };
 }
 
 async function runTrafficCollectionWithProviderMesh(options, providerChain) {
- const maxTomTomFlowCalls = providerChain.some((spec) => spec.id === 'tomtom') && options.tomtomApiKey
-  ? BORDER_CROSSINGS.length
-  : 0;
- const callsThisRun = BORDER_CROSSINGS.length * 2 + 1 + maxTomTomFlowCalls;
- // two route segments + one preflight, plus the worst-case TomTom Flow check
- // for every crossing. Reserving the upper bound keeps a late fallback from
- // spending outside the same provider cap.
- const runtime = createProviderMeshRuntime(providerChain, callsThisRun);
+ // Every actual route/flow request is reserved immediately before fetch. This
+ // is stricter than reserving a guessed whole-run upper bound: fallback calls,
+ // preflight calls and concurrent segment calls all consume the same atomic
+ // provider quota document.
+ const runtime = createProviderMeshRuntime(providerChain);
  const probe = BORDER_CROSSINGS[0];
  let selectedProvider = null;
 
@@ -723,7 +676,7 @@ async function runTrafficCollectionWithProviderMesh(options, providerChain) {
     probe.lng,
     probe.lat + 0.01,
     probe.lng,
-    { ...options, providerOverride: providerId },
+    { ...options, providerRuntime: runtime, providerOverride: providerId },
    );
    selectedProvider = providerId;
    break;
@@ -738,7 +691,13 @@ async function runTrafficCollectionWithProviderMesh(options, providerChain) {
    console.warn('📷 Provider mesh exhausted — falling back to webcam-only collection');
    return runWebcamOnlyCollection(options);
   }
-  return { collected: 0, errors: 0, skipped: 'traffic-provider-mesh-exhausted' };
+  const onlyProvider = providerChain.length === 1 ? providerChain[0]?.id : null;
+  const skipped = onlyProvider === 'here'
+   ? 'here-budget'
+   : onlyProvider === 'google-maps'
+    ? 'google-maps-unavailable'
+    : 'traffic-provider-mesh-exhausted';
+  return { collected: 0, errors: 0, skipped };
  }
 
  const selectedSpec = TRAFFIC_PROVIDER_SPECS[selectedProvider];
@@ -773,6 +732,27 @@ async function runTrafficCollectionWithProviderMesh(options, providerChain) {
  if (results.length > 0) await saveTrafficToFirestore(results);
  console.log(`✅ Provider-mesh collection done – ${results.length} OK, ${errors} errors`);
  return { collected: results.length, errors };
+}
+
+/**
+ * Collect through one quota-guarded mesh for every configured provider.
+ * Every real request is reserved by the provider runtime immediately before
+ * fetch; direct adapter callers can still opt into the same guard by passing
+ * `providerRuntime` in their options.
+ */
+export async function runTrafficCollection(options = {}) {
+ const enableWebcam = !!options.enableWebcam;
+ console.log(`📷 Webcam analysis: ${enableWebcam ? 'enabled' : 'disabled'}`);
+ const providerChain = buildTrafficProviderChain(options);
+ if (!providerChain.length) {
+  if (enableWebcam) {
+   console.warn('⚠️ No routing API key set — falling back to webcam-only collection');
+   return runWebcamOnlyCollection(options);
+  }
+  console.warn('⚠️ No routing provider configured — skipping traffic collection');
+  return { collected: 0, errors: 0, skipped: 'no-provider' };
+ }
+ return runTrafficCollectionWithProviderMesh(options, providerChain);
 }
 
 // ─── Firestore persistence ─────────────────────────────────────
@@ -939,223 +919,4 @@ export async function runWebcamOnlyCollection(options = {}) {
 
  console.log(`✅ Webcam-only collection done – ${results.length} OK, ${errors} errors`);
  return { collected: results.length, errors, source: 'webcam-only' };
-}
-
-// ─── Main entry point ─────────────────────────────────────────
-
-/**
- * Collects traffic data for all active border crossings and persists it to Firestore.
- * This is the single entry point called by all three onSchedule functions.
- *
- * When no live routing datum is available for the run (HERE monthly free-tier
- * budget exhausted, or no routing key configured) and webcam analysis is enabled
- * (options.enableWebcam), the run falls back to runWebcamOnlyCollection so the
- * road-facing cameras still refresh the snapshot instead of freezing it. When
- * webcam analysis is disabled the original skip-and-return-0 behavior is kept.
- * If TomTom is the resolved provider but its account has run out of prepaid
- * credits (HTTP 403 InsufficientFunds), a preflight check falls back to HERE
- * or Google Maps for the rest of the run instead of failing every crossing.
- * If Google Maps ends up as the resolved provider (the last-resort fallback)
- * and its own preflight call fails (e.g. legacy Distance Matrix API disabled),
- * the run degrades to webcam-only (or a clean skip) instead of reporting a
- * near-total per-crossing failure.
- *
- * @param {{ [key: string]: any }} options
- * @returns {Promise<{collected: number, errors: number}>}
- */
-export async function runTrafficCollection(options = {}) {
- const { hereApiKey, tomtomApiKey, googleApiKey } = options;
- const enableWebcam = !!options.enableWebcam;
- console.log(`📷 Webcam analysis: ${enableWebcam ? 'enabled' : 'disabled'}`);
- const providerChain = buildTrafficProviderChain(options);
- const usesExtendedMesh = providerChain.some(
-  (spec) => !['tomtom', 'here', 'google-maps'].includes(spec.id),
- );
- if (usesExtendedMesh) {
-  return runTrafficCollectionWithProviderMesh(options, providerChain);
- }
- let provider = resolveTrafficProvider({ hereApiKey, tomtomApiKey, googleApiKey });
- // Options forwarded to the per-crossing routing loop. May be rewritten (HERE
- // key dropped) when falling back to TomTom so resolveTrafficProvider inside
- // the loop resolves to 'tomtom' instead of 'here'.
- let effectiveOptions = options;
- if (!provider) {
- if (enableWebcam) {
- console.warn('⚠️ No routing API key set — falling back to webcam-only collection');
- return runWebcamOnlyCollection(options);
- }
- console.warn('⚠️ No routing API key set (HERE_API_KEY, TOMTOM_API_KEY, or GOOGLE_MAPS_API_KEY) – skipping traffic collection');
- return { collected: 0, errors: 0 };
- }
-
- // HERE bills every routing call as a "Time Aware Routing" transaction. Reserve
- // this run's calls against the monthly free-tier budget before issuing any —
- // if the month is exhausted, skip the run entirely so we never get billed.
- // Other providers (TomTom/Google) have their own free tiers and are unmetered here.
- // Extracted so the TomTom-exhaustion fallback below (which can also land on
- // 'here') reserves against the same budget instead of billing untracked (#4747).
- const tryReserveHereBudget = async () => {
- const callsThisRun = BORDER_CROSSINGS.length * 2; // crossing + approach segment per crossing
- try {
- return await reserveHereTransactionBudget(callsThisRun);
- } catch (err) {
- // Budget bookkeeping is a backstop, not the primary control (the cron is
- // also throttled). On a transient Firestore error, proceed rather than
- // freeze live data — the next run re-checks.
- console.warn(`⚠️ HERE budget check failed (${err.message}) — proceeding without reservation`);
- return null;
- }
- };
- if (provider === 'here') {
- const budget = await tryReserveHereBudget();
- if (budget && !budget.allowed) {
- console.warn(
- `🛑 HERE monthly budget reached (${budget.count}/${HERE_MONTHLY_BUDGET} transactions for ${budget.month}) ` +
- `— skipping routing to stay in the free tier.`,
- );
- // Prefer real live routing over webcam-only/mock: TomTom's free tier
- // (2,500 req/day) dwarfs HERE's exhausted monthly allowance and is
- // UNMETERED in this module. Switch the effective provider to TomTom and
- // run the SAME per-crossing routing loop. We've already skipped the HERE
- // reservation above, so the HERE counter is NOT charged for this run.
- // Dropping hereApiKey makes resolveTrafficProvider resolve to 'tomtom'
- // inside fetchCrossingTraffic/getSegmentTravelTimes.
- if (tomtomApiKey) {
- console.log('🔁 HERE budget exhausted — falling back to TomTom (free tier) for live routing');
- provider = 'tomtom';
- const { hereApiKey: _droppedHereKey, ...rest } = options;
- effectiveOptions = rest;
- // Fall through to the normal per-crossing routing loop with provider='tomtom'.
- } else if (enableWebcam) {
- // No TomTom key: don't freeze the snapshot for a whole month — the free
- // webcams can still refresh the CV-capable crossings while routing is paused.
- console.warn('📷 HERE budget exhausted — falling back to webcam-only collection');
- return runWebcamOnlyCollection(options);
- } else {
- console.warn('Live data keeps the last snapshot (webcam disabled).');
- return { collected: 0, errors: 0, skipped: 'here-budget' };
- }
- }
- if (budget && budget.allowed) {
- console.log(`💳 HERE budget: ${budget.count}/${HERE_MONTHLY_BUDGET} transactions reserved for ${budget.month}`);
- }
- }
-
- // TomTom's HTTP 403 "InsufficientFunds" error is account-wide (the prepaid
- // credit balance is empty), not per-crossing — running the full batch loop
- // against a doomed key just burns the run's 10-minute timeout collecting
- // nothing (#4743). A single cheap preflight call catches this up front and
- // falls back to the next configured provider (HERE, then Google Maps) so
- // this run still gets real live routing data instead of degrading straight
- // to webcam-only/mock. Mirrors the HERE-budget-exhausted → TomTom fallback
- // above, in the opposite direction.
- if (provider === 'tomtom') {
- const probe = BORDER_CROSSINGS[0];
- try {
- await getTomTomRouteTravelTimes(probe.lat, probe.lng, probe.lat + 0.01, probe.lng, tomtomApiKey);
- } catch (err) {
- if (isTomTomAccountExhausted(err.message)) {
- const fallbackProvider = hereApiKey ? 'here' : googleApiKey ? 'google-maps' : null;
- if (fallbackProvider) {
- console.warn(
- `🛑 TomTom account exhausted (${err.message}) — falling back to ${fallbackProvider} for this run`,
- );
- provider = fallbackProvider;
- const { tomtomApiKey: _droppedTomTomKey, ...rest } = effectiveOptions;
- effectiveOptions = rest;
- // Falling back to HERE still bills "Time Aware Routing" transactions —
- // reserve against the same monthly budget as the initially-resolved-here
- // path above, or this run bills untracked (#4747).
- if (provider === 'here') {
- const budget = await tryReserveHereBudget();
- if (budget && !budget.allowed) {
- console.warn(
- `🛑 HERE monthly budget also reached (${budget.count}/${HERE_MONTHLY_BUDGET} transactions for ${budget.month}) ` +
- `— TomTom is exhausted too, so HERE is not a safe fallback this run.`,
- );
- if (googleApiKey) {
- console.log('🔁 Falling back to Google Maps for this run');
- provider = 'google-maps';
- const { hereApiKey: _droppedHereKey, ...rest2 } = effectiveOptions;
- effectiveOptions = rest2;
- } else if (enableWebcam) {
- console.warn('📷 No further routing fallback — falling back to webcam-only collection');
- return runWebcamOnlyCollection(options);
- } else {
- console.warn('Live data keeps the last snapshot (webcam disabled).');
- return { collected: 0, errors: 0, skipped: 'here-budget' };
- }
- } else if (budget && budget.allowed) {
- console.log(`💳 HERE budget: ${budget.count}/${HERE_MONTHLY_BUDGET} transactions reserved for ${budget.month}`);
- }
- }
- } else {
- console.warn(`🛑 TomTom account exhausted (${err.message}) — no fallback routing key configured`);
- }
- }
- // Any other preflight error (transient network blip) is ignored — the
- // per-crossing loop below already tolerates per-request failures.
- }
- }
-
- // Google Maps is the last-resort fallback (TomTom exhausted, HERE budget
- // exhausted or unconfigured) with no further routing provider to try. Unlike
- // the TomTom preflight above, a broken Google Maps key/API is NOT transient:
- // the legacy Distance Matrix API can be disabled project-wide, in which case
- // EVERY subsequent call fails identically with REQUEST_DENIED (#4768: 135/141
- // crossings failed this way in one run, exit code 1). A single cheap preflight
- // call catches this before the full per-crossing loop, so a broken Google Maps
- // fallback degrades gracefully to webcam-only (or a clean skip) instead of
- // burning the run and reporting a near-total failure.
- if (provider === 'google-maps') {
- const probe = BORDER_CROSSINGS[0];
- try {
- await getGoogleDistanceMatrix(probe.lat, probe.lng, probe.lat + 0.01, probe.lng, googleApiKey);
- } catch (err) {
- console.warn(`🛑 Google Maps routing unavailable (${err.message}) — no further routing fallback`);
- if (enableWebcam) {
- console.warn('📷 Falling back to webcam-only collection');
- return runWebcamOnlyCollection(options);
- }
- console.warn('Live data keeps the last snapshot (webcam disabled).');
- return { collected: 0, errors: 0, skipped: 'google-maps-unavailable' };
- }
- }
-
- console.log(`🚦 Starting traffic collection for ${BORDER_CROSSINGS.length} crossings via ${provider}…`);
-
- const results = [];
- let errors = 0;
-
- // Process in provider-aware batches to stay below default QPS limits.
- const BATCH_SIZE = provider === 'tomtom' ? 2 : 5;
- const BATCH_DELAY_MS = provider === 'tomtom' ? 1000 : 200;
- for (let i = 0; i < BORDER_CROSSINGS.length; i += BATCH_SIZE) {
- const chunk = BORDER_CROSSINGS.slice(i, i + BATCH_SIZE);
- const settled = await Promise.allSettled(
- chunk.map(c => fetchCrossingTraffic(c, effectiveOptions)),
- );
-
- for (let j = 0; j < settled.length; j++) {
- const res = settled[j];
- if (res.status === 'fulfilled') {
- results.push(res.value);
- } else {
- console.error(`❌ ${chunk[j].name}: ${res.reason?.message}`);
- errors++;
- }
- }
-
- // Brief pause between chunks to avoid bursting API quota.
- if (i + BATCH_SIZE < BORDER_CROSSINGS.length) {
- await new Promise(r => setTimeout(r, BATCH_DELAY_MS));
- }
- }
-
- if (results.length > 0) {
- await saveTrafficToFirestore(results);
- }
-
- console.log(`✅ Collection done – ${results.length} OK, ${errors} errors`);
- return { collected: results.length, errors };
 }

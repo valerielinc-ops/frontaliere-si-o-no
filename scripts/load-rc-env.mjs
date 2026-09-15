@@ -81,16 +81,22 @@ export const RC_TO_ENV = {
   // Swiss DATEX2 traffic situations require an OpenTransportData API token.
   // The public French/Italian/operator feeds below do not require credentials.
   OPENTRANSPORTDATA_API_KEY:   ['OPENTRANSPORTDATA_API_KEY'],
+  OPENTRANSPORTDATA_QUOTA:     ['OPENTRANSPORTDATA_QUOTA'],
   // Conservative, server-side quota ceilings. A missing value falls back to
   // the safe defaults in functions/src/trafficProviderMesh.js.
   TOMTOM_DAILY_BUDGET:         ['TOMTOM_DAILY_BUDGET'],
+  TOMTOM_ROUTING_MONTHLY_BUDGET: ['TOMTOM_ROUTING_MONTHLY_BUDGET'],
+  TOMTOM_FLOW_MONTHLY_BUDGET:  ['TOMTOM_FLOW_MONTHLY_BUDGET'],
+  HERE_DAILY_BUDGET:           ['HERE_DAILY_BUDGET'],
   HERE_MONTHLY_BUDGET:         ['HERE_MONTHLY_BUDGET'],
+  GOOGLE_MONTHLY_BUDGET:       ['GOOGLE_MONTHLY_BUDGET'],
   GOOGLE_ROUTES_MONTHLY_BUDGET: ['GOOGLE_ROUTES_MONTHLY_BUDGET'],
   GOOGLE_MAPS_MONTHLY_BUDGET:  ['GOOGLE_MAPS_MONTHLY_BUDGET'],
   MAPBOX_MONTHLY_BUDGET:       ['MAPBOX_MONTHLY_BUDGET'],
   GEOAPIFY_DAILY_BUDGET:       ['GEOAPIFY_DAILY_BUDGET'],
   GRAPHHOPPER_DAILY_BUDGET:    ['GRAPHHOPPER_DAILY_BUDGET'],
   OPENROUTESERVICE_DAILY_BUDGET: ['OPENROUTESERVICE_DAILY_BUDGET'],
+  STADIA_MONTHLY_CREDITS:      ['STADIA_MONTHLY_CREDITS'],
   STADIA_DAILY_BUDGET:         ['STADIA_DAILY_BUDGET'],
   // HERE Cost Management Usage API (OAuth access key) — reconciles the routing
   // budget counter with real billed usage. Server-only, never client-visible.

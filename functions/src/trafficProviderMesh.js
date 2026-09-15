@@ -14,9 +14,17 @@ const GOOGLE_ROUTES_URL = 'https://routes.googleapis.com/directions/v2:computeRo
 const MAPBOX_DIRECTIONS_URL = 'https://api.mapbox.com/directions/v5/mapbox/driving-traffic';
 const GEOAPIFY_ROUTING_URL = 'https://api.geoapify.com/v1/routing';
 const GRAPHHOPPER_ROUTING_URL = 'https://graphhopper.com/api/1/route';
-const OPENROUTESERVICE_ROUTING_URL = 'https://api.openrouteservice.org/v2/directions/driving-car';
+const OPENROUTESERVICE_ROUTING_URL = 'https://api.heigit.org/openrouteservice/v2/directions/driving-car';
 const STADIA_ROUTING_URL = 'https://api.stadiamaps.com/route/v1/driving';
 const REQUEST_TIMEOUT_MS = 12_000;
+
+function quotaLimit({ period, quotaScope, documentId = null, budgetEnv, defaultBudget, safeMaximum = defaultBudget }) {
+  return Object.freeze({ period, quotaScope, documentId, budgetEnv, defaultBudget, safeMaximum });
+}
+
+function quotaOperation({ unitCost = 1, limits, rateLimit = null }) {
+  return Object.freeze({ unitCost, limits: Object.freeze(limits), rateLimit });
+}
 
 /**
  * Default caps are deliberately below the commonly advertised free quotas.
@@ -27,9 +35,27 @@ export const TRAFFIC_PROVIDER_SPECS = Object.freeze({
   tomtom: Object.freeze({
     id: 'tomtom',
     key: 'tomtomApiKey',
-    budgetEnv: 'TOMTOM_DAILY_BUDGET',
-    defaultBudget: 2000,
-    period: 'day',
+    budgetScope: 'tomtom',
+    quotas: Object.freeze({
+      route: quotaOperation({
+        limits: [quotaLimit({
+          period: 'month',
+          quotaScope: 'tomtom-routing',
+          budgetEnv: 'TOMTOM_ROUTING_MONTHLY_BUDGET',
+          defaultBudget: 18_000,
+          safeMaximum: 20_000,
+        })],
+      }),
+      flow: quotaOperation({
+        limits: [quotaLimit({
+          period: 'month',
+          quotaScope: 'tomtom-flow',
+          budgetEnv: 'TOMTOM_FLOW_MONTHLY_BUDGET',
+          defaultBudget: 18_000,
+          safeMaximum: 20_000,
+        })],
+      }),
+    }),
     batchSize: 2,
     batchDelayMs: 1000,
     trafficAware: true,
@@ -37,20 +63,49 @@ export const TRAFFIC_PROVIDER_SPECS = Object.freeze({
   here: Object.freeze({
     id: 'here',
     key: 'hereApiKey',
-    budgetEnv: 'HERE_MONTHLY_BUDGET',
-    defaultBudget: 4500,
-    period: 'month',
-    batchSize: 5,
-    batchDelayMs: 200,
+    quotas: Object.freeze({
+      route: quotaOperation({
+        limits: [
+          quotaLimit({
+            period: 'day',
+            quotaScope: 'here-daily',
+            budgetEnv: 'HERE_DAILY_BUDGET',
+            defaultBudget: 900,
+            safeMaximum: 1_000,
+          }),
+          quotaLimit({
+            period: 'month',
+            quotaScope: 'here-monthly',
+            // Keep reading/writing the document reconciled by
+            // scripts/reconcile-here-usage.mjs. The generic quota fields are
+            // compatible with its legacy `month` field via the read fallback.
+            documentId: 'hereTransactionBudget',
+            budgetEnv: 'HERE_MONTHLY_BUDGET',
+            defaultBudget: 4_000,
+            safeMaximum: 4_500,
+          }),
+        ],
+      }),
+    }),
+    batchSize: 4,
+    batchDelayMs: 1000,
     trafficAware: true,
   }),
   'google-routes': Object.freeze({
     id: 'google-routes',
     key: 'googleRoutesApiKey',
     budgetScope: 'google',
-    budgetEnv: 'GOOGLE_ROUTES_MONTHLY_BUDGET',
-    defaultBudget: 9000,
-    period: 'month',
+    quotas: Object.freeze({
+      route: quotaOperation({
+        limits: [quotaLimit({
+          period: 'month',
+          quotaScope: 'google',
+          budgetEnv: 'GOOGLE_MONTHLY_BUDGET',
+          defaultBudget: 4_500,
+          safeMaximum: 5_000,
+        })],
+      }),
+    }),
     batchSize: 5,
     batchDelayMs: 250,
     trafficAware: true,
@@ -58,9 +113,17 @@ export const TRAFFIC_PROVIDER_SPECS = Object.freeze({
   mapbox: Object.freeze({
     id: 'mapbox',
     key: 'mapboxAccessToken',
-    budgetEnv: 'MAPBOX_MONTHLY_BUDGET',
-    defaultBudget: 5000,
-    period: 'month',
+    quotas: Object.freeze({
+      route: quotaOperation({
+        limits: [quotaLimit({
+          period: 'month',
+          quotaScope: 'mapbox',
+          budgetEnv: 'MAPBOX_MONTHLY_BUDGET',
+          defaultBudget: 5_000,
+          safeMaximum: 100_000,
+        })],
+      }),
+    }),
     batchSize: 5,
     batchDelayMs: 250,
     trafficAware: true,
@@ -68,9 +131,17 @@ export const TRAFFIC_PROVIDER_SPECS = Object.freeze({
   geoapify: Object.freeze({
     id: 'geoapify',
     key: 'geoapifyApiKey',
-    budgetEnv: 'GEOAPIFY_DAILY_BUDGET',
-    defaultBudget: 2500,
-    period: 'day',
+    quotas: Object.freeze({
+      route: quotaOperation({
+        limits: [quotaLimit({
+          period: 'day',
+          quotaScope: 'geoapify',
+          budgetEnv: 'GEOAPIFY_DAILY_BUDGET',
+          defaultBudget: 2_500,
+          safeMaximum: 3_000,
+        })],
+      }),
+    }),
     batchSize: 5,
     batchDelayMs: 250,
     trafficAware: true,
@@ -78,9 +149,17 @@ export const TRAFFIC_PROVIDER_SPECS = Object.freeze({
   openrouteservice: Object.freeze({
     id: 'openrouteservice',
     key: 'openrouteserviceApiKey',
-    budgetEnv: 'OPENROUTESERVICE_DAILY_BUDGET',
-    defaultBudget: 1500,
-    period: 'day',
+    quotas: Object.freeze({
+      route: quotaOperation({
+        limits: [quotaLimit({
+          period: 'day',
+          quotaScope: 'openrouteservice',
+          budgetEnv: 'OPENROUTESERVICE_DAILY_BUDGET',
+          defaultBudget: 1_500,
+          safeMaximum: 2_000,
+        })],
+      }),
+    }),
     batchSize: 5,
     batchDelayMs: 250,
     trafficAware: false,
@@ -88,9 +167,17 @@ export const TRAFFIC_PROVIDER_SPECS = Object.freeze({
   graphhopper: Object.freeze({
     id: 'graphhopper',
     key: 'graphhopperApiKey',
-    budgetEnv: 'GRAPHHOPPER_DAILY_BUDGET',
-    defaultBudget: 400,
-    period: 'day',
+    quotas: Object.freeze({
+      route: quotaOperation({
+        limits: [quotaLimit({
+          period: 'day',
+          quotaScope: 'graphhopper',
+          budgetEnv: 'GRAPHHOPPER_DAILY_BUDGET',
+          defaultBudget: 450,
+          safeMaximum: 500,
+        })],
+      }),
+    }),
     batchSize: 3,
     batchDelayMs: 500,
     trafficAware: false,
@@ -98,9 +185,18 @@ export const TRAFFIC_PROVIDER_SPECS = Object.freeze({
   stadia: Object.freeze({
     id: 'stadia',
     key: 'stadiaApiKey',
-    budgetEnv: 'STADIA_DAILY_BUDGET',
-    defaultBudget: 800,
-    period: 'day',
+    quotas: Object.freeze({
+      route: quotaOperation({
+        unitCost: 20,
+        limits: [quotaLimit({
+          period: 'month',
+          quotaScope: 'stadia',
+          budgetEnv: 'STADIA_MONTHLY_CREDITS',
+          defaultBudget: 180_000,
+          safeMaximum: 200_000,
+        })],
+      }),
+    }),
     batchSize: 5,
     batchDelayMs: 250,
     trafficAware: false,
@@ -109,11 +205,41 @@ export const TRAFFIC_PROVIDER_SPECS = Object.freeze({
     id: 'google-maps',
     key: 'googleApiKey',
     budgetScope: 'google',
-    budgetEnv: 'GOOGLE_MAPS_MONTHLY_BUDGET',
-    defaultBudget: 9000,
-    period: 'month',
+    quotas: Object.freeze({
+      route: quotaOperation({
+        limits: [quotaLimit({
+          period: 'month',
+          quotaScope: 'google',
+          budgetEnv: 'GOOGLE_MONTHLY_BUDGET',
+          defaultBudget: 4_500,
+          safeMaximum: 5_000,
+        })],
+      }),
+    }),
     batchSize: 5,
     batchDelayMs: 250,
+    trafficAware: true,
+  }),
+  opentransportdata: Object.freeze({
+    id: 'opentransportdata',
+    key: 'opentransportdataApiKey',
+    quotas: Object.freeze({
+      'traffic-lights': quotaOperation({
+        limits: [quotaLimit({
+          // The API Manager exposes this quota without a reset period and
+          // documents a manual ASTRA reset. Keep the local ledger lifetime
+          // scoped until the owner explicitly resets it.
+          period: 'lifetime',
+          quotaScope: 'opentransportdata-traffic-lights',
+          budgetEnv: 'OPENTRANSPORTDATA_QUOTA',
+          defaultBudget: 234_000,
+          safeMaximum: 260_000,
+        })],
+        rateLimit: { maxPerMinute: 5, minIntervalMs: 12_500 },
+      }),
+    }),
+    batchSize: 1,
+    batchDelayMs: 12_500,
     trafficAware: true,
   }),
 });
@@ -147,16 +273,41 @@ export function parseProviderBudget(value, fallback) {
 }
 
 export function providerBudget(providerId, env = process.env) {
-  const spec = TRAFFIC_PROVIDER_SPECS[providerId];
-  if (!spec) throw new Error(`Unknown traffic provider: ${providerId}`);
-  return parseProviderBudget(env[spec.budgetEnv], spec.defaultBudget);
+  return providerQuotaDefinition(providerId, 'route', env).limits[0].budget;
 }
 
 export function providerPeriod(providerId, date = new Date()) {
+  return providerQuotaDefinition(providerId, 'route').limits[0].periodKey(date);
+}
+
+function periodKey(period, date = new Date()) {
+  const iso = date.toISOString();
+  if (period === 'lifetime') return 'all-time';
+  if (period === 'month') return iso.slice(0, 7);
+  if (period === 'six-month') {
+    const half = Number(iso.slice(5, 7)) <= 6 ? 'H1' : 'H2';
+    return `${iso.slice(0, 4)}-${half}`;
+  }
+  return iso.slice(0, 10);
+}
+
+export function providerQuotaDefinition(providerId, operation = 'route', env = process.env) {
   const spec = TRAFFIC_PROVIDER_SPECS[providerId];
   if (!spec) throw new Error(`Unknown traffic provider: ${providerId}`);
-  const iso = date.toISOString();
-  return spec.period === 'month' ? iso.slice(0, 7) : iso.slice(0, 10);
+  const selected = spec.quotas?.[operation] ?? spec.quotas?.route;
+  if (!selected) throw new Error(`Unknown ${providerId} quota operation: ${operation}`);
+  return {
+    unitCost: selected.unitCost ?? 1,
+    rateLimit: selected.rateLimit ?? null,
+    limits: selected.limits.map((limit) => ({
+      ...limit,
+      budget: Math.min(
+        parseProviderBudget(env[limit.budgetEnv], limit.defaultBudget),
+        limit.safeMaximum ?? Number.MAX_SAFE_INTEGER,
+      ),
+      periodKey: (date) => periodKey(limit.period, date),
+    })),
+  };
 }
 
 /** Pure atomic budget decision; safe to use in tests and transaction code. */
@@ -186,36 +337,106 @@ function ensureAdminApp() {
  * is fail-closed: the caller must rotate to another provider or webcam.
  */
 export async function reserveTrafficProviderBudget(providerId, callsThisRun, now = new Date()) {
+  return reserveTrafficProviderRequest(providerId, 'route', callsThisRun, now);
+}
+
+/**
+ * Atomically reserves the smallest unit that is about to be sent to a provider.
+ * Every actual route/flow request uses this guard immediately before fetch.
+ * Firestore is the shared state because scheduled runs and manual dispatches
+ * can overlap on different runners.
+ */
+export async function reserveTrafficProviderRequest(providerId, operation = 'route', units = null, now = new Date()) {
   const spec = TRAFFIC_PROVIDER_SPECS[providerId];
   if (!spec) throw new Error(`Unknown traffic provider: ${providerId}`);
+  const quota = providerQuotaDefinition(providerId, operation);
+  const requestedUnits = units === null ? quota.unitCost : Number(units);
+  if (!Number.isSafeInteger(requestedUnits) || requestedUnits <= 0) {
+    return { allowed: false, reason: 'invalid-units', provider: providerId, operation };
+  }
   const adm = ensureAdminApp();
   const db = adm.firestore();
-  const period = providerPeriod(providerId, now);
-  const budget = providerBudget(providerId);
-  const budgetScope = spec.budgetScope ?? providerId;
-  const ref = db.collection('meta').doc(`trafficProviderBudget-${budgetScope}`);
+  const quotaRefs = quota.limits.map((limit) => ({
+    limit,
+    ref: db.collection('meta').doc(limit.documentId ?? `trafficProviderQuota-${limit.quotaScope}`),
+  }));
+  const rateRef = quota.rateLimit
+    ? db.collection('meta').doc(`trafficProviderRate-${providerId}-${operation}`)
+    : null;
 
   return db.runTransaction(async (tx) => {
-    const snap = await tx.get(ref);
-    const data = snap.exists ? snap.data() : {};
-    const decision = computeProviderBudgetDecision({
-      storedPeriod: data.period,
-      storedCount: data.count,
-      period,
-      callsThisRun,
-      budget,
-    });
-    if (decision.allowed) {
-      tx.set(ref, {
-        provider: providerId,
-        budgetScope,
+    const snapshots = [];
+    for (const item of quotaRefs) snapshots.push({ ...item, snap: await tx.get(item.ref) });
+    const rateSnap = rateRef ? await tx.get(rateRef) : null;
+    const decisions = snapshots.map(({ limit, snap }) => {
+      const period = periodKey(limit.period, now);
+      const data = snap.exists ? snap.data() : {};
+      return {
+        limit,
         period,
-        count: decision.count,
-        budget,
-        updatedAt: adm.firestore.Timestamp.now(),
-      });
+        decision: computeProviderBudgetDecision({
+          // `month` keeps compatibility with the pre-mesh HERE document while
+          // the new quota docs use the neutral `period` field.
+          storedPeriod: data.period ?? data.month,
+          storedCount: data.count,
+          period,
+          callsThisRun: requestedUnits,
+          budget: limit.budget,
+        }),
+      };
+    });
+    const lastRequestAtMs = Number(rateSnap?.exists ? rateSnap.data()?.lastRequestAtMs : 0);
+    const nowMs = now.getTime();
+    const minIntervalMs = quota.rateLimit?.minIntervalMs ?? 0;
+    if (minIntervalMs > 0 && Number.isFinite(lastRequestAtMs) && lastRequestAtMs > 0
+      && nowMs - lastRequestAtMs < minIntervalMs) {
+      return {
+        allowed: false,
+        reason: 'rate-limit',
+        provider: providerId,
+        operation,
+        retryAfterMs: minIntervalMs - (nowMs - lastRequestAtMs),
+      };
     }
-    return { ...decision, provider: providerId, period, budget };
+    const failed = decisions.find((item) => !item.decision.allowed);
+    if (failed) {
+      return {
+        allowed: false,
+        reason: 'quota',
+        provider: providerId,
+        operation,
+        period: failed.period,
+        budget: failed.limit.budget,
+        count: failed.decision.count,
+      };
+    }
+    const updatedAt = adm.firestore.Timestamp.now();
+    for (const [index, item] of decisions.entries()) {
+      tx.set(quotaRefs[index].ref, {
+        provider: providerId,
+        operation,
+        period: item.period,
+        ...(quotaRefs[index].limit.documentId ? { month: item.period } : {}),
+        count: item.decision.count,
+        budget: item.limit.budget,
+        units: 'provider-defined',
+        updatedAt,
+      }, { merge: true });
+    }
+    if (rateRef) tx.set(rateRef, {
+      provider: providerId,
+      operation,
+      lastRequestAtMs: nowMs,
+      minIntervalMs,
+      updatedAt,
+    });
+    return {
+      allowed: true,
+      provider: providerId,
+      operation,
+      units: requestedUnits,
+      periods: decisions.map((item) => ({ period: item.period, count: item.decision.count, budget: item.limit.budget })),
+    };
   });
 }
 
@@ -265,6 +486,18 @@ async function requestJson(url, init = {}, fetchImpl = globalThis.fetch) {
   return response.json();
 }
 
+async function reserveRequestIfNeeded(options, providerId, operation = 'route') {
+  const reserveRequest = options?.providerRuntime?.reserveRequest;
+  if (typeof reserveRequest !== 'function') return;
+  const result = await reserveRequest(providerId, operation);
+  if (result === false || result?.allowed === false) {
+    const error = providerBudgetExhaustedError(providerId, result?.budget, result?.period);
+    error.reason = result?.reason ?? 'quota';
+    error.retryAfterMs = result?.retryAfterMs;
+    throw error;
+  }
+}
+
 function durationSeconds(value) {
   if (typeof value === 'number' && Number.isFinite(value)) return value;
   if (typeof value !== 'string') return null;
@@ -282,7 +515,8 @@ function normaliseTimes(durationTrafficSec, durationNormalSec = durationTrafficS
   };
 }
 
-async function getGoogleRoutesTimes(originLat, originLng, destLat, destLng, apiKey, fetchImpl) {
+async function getGoogleRoutesTimes(originLat, originLng, destLat, destLng, apiKey, fetchImpl, options = {}) {
+  await reserveRequestIfNeeded(options, 'google-routes');
   const data = await requestJson(GOOGLE_ROUTES_URL, {
     method: 'POST',
     headers: {
@@ -305,7 +539,8 @@ async function getGoogleRoutesTimes(originLat, originLng, destLat, destLng, apiK
   return normaliseTimes(traffic, normal);
 }
 
-async function getMapboxTimes(originLat, originLng, destLat, destLng, token, fetchImpl) {
+async function getMapboxTimes(originLat, originLng, destLat, destLng, token, fetchImpl, options = {}) {
+  await reserveRequestIfNeeded(options, 'mapbox');
   const coordinates = `${originLng},${originLat};${destLng},${destLat}`;
   const params = new URLSearchParams({
     access_token: token,
@@ -321,7 +556,8 @@ async function getMapboxTimes(originLat, originLng, destLat, destLng, token, fet
   return normaliseTimes(traffic, normal);
 }
 
-async function getGeoapifyTimes(originLat, originLng, destLat, destLng, apiKey, fetchImpl) {
+async function getGeoapifyTimes(originLat, originLng, destLat, destLng, apiKey, fetchImpl, options = {}) {
+  await reserveRequestIfNeeded(options, 'geoapify');
   const params = new URLSearchParams({
     waypoints: `${originLat},${originLng}|${destLat},${destLng}`,
     mode: 'drive',
@@ -336,7 +572,8 @@ async function getGeoapifyTimes(originLat, originLng, destLat, destLng, apiKey, 
   return normaliseTimes(traffic, normal);
 }
 
-async function getGraphhopperTimes(originLat, originLng, destLat, destLng, apiKey, fetchImpl) {
+async function getGraphhopperTimes(originLat, originLng, destLat, destLng, apiKey, fetchImpl, options = {}) {
+  await reserveRequestIfNeeded(options, 'graphhopper');
   const params = new URLSearchParams({
     point: `${originLat},${originLng}`,
     vehicle: 'car',
@@ -352,7 +589,8 @@ async function getGraphhopperTimes(originLat, originLng, destLat, destLng, apiKe
   return normaliseTimes(seconds, seconds);
 }
 
-async function getOpenRouteServiceTimes(originLat, originLng, destLat, destLng, apiKey, fetchImpl) {
+async function getOpenRouteServiceTimes(originLat, originLng, destLat, destLng, apiKey, fetchImpl, options = {}) {
+  await reserveRequestIfNeeded(options, 'openrouteservice');
   const data = await requestJson(OPENROUTESERVICE_ROUTING_URL, {
     method: 'POST',
     headers: {
@@ -370,7 +608,8 @@ async function getOpenRouteServiceTimes(originLat, originLng, destLat, destLng, 
   return normaliseTimes(seconds, seconds);
 }
 
-async function getStadiaTimes(originLat, originLng, destLat, destLng, apiKey, fetchImpl) {
+async function getStadiaTimes(originLat, originLng, destLat, destLng, apiKey, fetchImpl, options = {}) {
+  await reserveRequestIfNeeded(options, 'stadia');
   const coordinates = `${originLng},${originLat};${destLng},${destLat}`;
   const params = new URLSearchParams({ api_key: apiKey, overview: 'false' });
   const data = await requestJson(`${STADIA_ROUTING_URL}/${coordinates}?${params}`, {}, fetchImpl);
@@ -390,17 +629,17 @@ export async function getTrafficSegmentTravelTimes(providerId, originLat, origin
   const fetchImpl = options.fetchImpl ?? globalThis.fetch;
   switch (providerId) {
     case 'google-routes':
-      return getGoogleRoutesTimes(originLat, originLng, destLat, destLng, apiKey, fetchImpl);
+      return getGoogleRoutesTimes(originLat, originLng, destLat, destLng, apiKey, fetchImpl, options);
     case 'mapbox':
-      return getMapboxTimes(originLat, originLng, destLat, destLng, apiKey, fetchImpl);
+      return getMapboxTimes(originLat, originLng, destLat, destLng, apiKey, fetchImpl, options);
     case 'geoapify':
-      return getGeoapifyTimes(originLat, originLng, destLat, destLng, apiKey, fetchImpl);
+      return getGeoapifyTimes(originLat, originLng, destLat, destLng, apiKey, fetchImpl, options);
     case 'openrouteservice':
-      return getOpenRouteServiceTimes(originLat, originLng, destLat, destLng, apiKey, fetchImpl);
+      return getOpenRouteServiceTimes(originLat, originLng, destLat, destLng, apiKey, fetchImpl, options);
     case 'graphhopper':
-      return getGraphhopperTimes(originLat, originLng, destLat, destLng, apiKey, fetchImpl);
+      return getGraphhopperTimes(originLat, originLng, destLat, destLng, apiKey, fetchImpl, options);
     case 'stadia':
-      return getStadiaTimes(originLat, originLng, destLat, destLng, apiKey, fetchImpl);
+      return getStadiaTimes(originLat, originLng, destLat, destLng, apiKey, fetchImpl, options);
     default:
       throw new Error(`${providerId}: adapter is implemented in trafficSchedulerCore.js`);
   }

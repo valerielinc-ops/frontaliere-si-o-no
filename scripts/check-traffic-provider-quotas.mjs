@@ -9,7 +9,7 @@
  * request: the scheduler's already-budgeted preflight is the route health check.
  */
 
-import { TRAFFIC_PROVIDER_SPECS, buildTrafficProviderChain, providerBudget, providerPeriod } from '../functions/src/trafficProviderMesh.js';
+import { buildTrafficProviderChain, providerQuotaDefinition } from '../functions/src/trafficProviderMesh.js';
 
 const jsonOutput = process.argv.includes('--json');
 
@@ -62,23 +62,41 @@ function configuredProviderReport() {
     graphhopperApiKey: process.env.GRAPHHOPPER_API_KEY,
     stadiaApiKey: process.env.STADIA_API_KEY,
     googleApiKey: process.env.GOOGLE_MAPS_API_KEY,
-  }).map((spec) => ({
-    id: spec.id,
-    configured: true,
-    localBudget: providerBudget(spec.id),
-    period: providerPeriod(spec.id),
-    usageApi: spec.id === 'mapbox' ? 'dashboard-only' : 'not-polled-without-billable-probe',
-    rotation: 'on-429-or-account-limit',
-  }));
+  }).map((spec) => providerReport(spec.id));
 }
+
+function providerReport(providerId, operation = 'route') {
+  const quota = providerQuotaDefinition(providerId, operation);
+  return {
+    id: providerId,
+    operation,
+    configured: true,
+    unitCost: quota.unitCost,
+    limits: quota.limits.map((limit) => ({
+      period: limit.period,
+      currentPeriod: limit.periodKey(new Date()),
+      localBudget: limit.budget,
+      scope: limit.quotaScope,
+    })),
+    rateLimit: quota.rateLimit,
+    usageApi: providerId === 'mapbox' ? 'dashboard-only' : 'not-polled-without-billable-probe',
+    rotation: 'on-429-or-account-limit-or-local-quota',
+  };
+}
+
+const officialTraffic = has(process.env.OPENTRANSPORTDATA_API_KEY)
+  ? providerReport('opentransportdata', 'traffic-lights')
+  : { id: 'opentransportdata', configured: false, operation: 'traffic-lights', status: 'skipped' };
 
 const report = {
   generatedAt: new Date().toISOString(),
   mapbox: await checkMapbox(),
   configuredProviders: configuredProviderReport(),
+  officialTraffic,
   guarantees: {
     noRouteProbe: true,
-    budgetReservation: 'Firestore transaction before each provider run',
+    budgetReservation: 'Firestore transaction immediately before each provider request; fail-closed on check errors',
+    rateLimit: 'OpenTransportData traffic-lights: Firestore interval guard at 12.5 seconds (<=5/minute)',
     mapboxUsage: 'official usage API unavailable; dashboard remains authoritative',
   },
 };
@@ -89,8 +107,15 @@ if (jsonOutput) {
   console.log(`Traffic provider health — ${report.generatedAt}`);
   console.log(`Mapbox token: ${report.mapbox.status}; usage API: dashboard-only; guard: Firestore budget`);
   for (const provider of report.configuredProviders) {
-    console.log(`${provider.id}: configured; cap=${provider.localBudget}/${provider.period}; rotation=${provider.rotation}`);
+    const caps = provider.limits.map((limit) => `${limit.localBudget}/${limit.currentPeriod}`).join(',');
+    console.log(`${provider.id}/${provider.operation}: configured; cap=${caps}; rotation=${provider.rotation}`);
   }
+  console.log(
+    `opentransportdata/traffic-lights: ${report.officialTraffic.configured ? 'configured' : 'skipped'}; ` +
+    (report.officialTraffic.configured
+      ? `cap=${report.officialTraffic.limits[0].localBudget}/${report.officialTraffic.limits[0].currentPeriod}; rate<=5/min`
+      : 'missing token'),
+  );
   if (!report.configuredProviders.length) console.log('No provider key loaded from Remote Config.');
 }
 

@@ -4,6 +4,7 @@ import {
   computeProviderBudgetDecision,
   getTrafficSegmentTravelTimes,
   parseProviderBudget,
+  providerQuotaDefinition,
   TRAFFIC_PROVIDER_ORDER,
 } from '../functions/src/trafficProviderMesh.js';
 import { lambert93ToWgs84 } from '../scripts/lib/official-traffic-sources.mjs';
@@ -34,6 +35,23 @@ describe('traffic provider mesh', () => {
     expect(parseProviderBudget('1e3', 12)).toBe(12);
     expect(parseProviderBudget('-1', 12)).toBe(12);
     expect(parseProviderBudget('1000', 12)).toBe(1000);
+  });
+
+  it('clamps every provider cap to a conservative free-tier ceiling', () => {
+    expect(providerQuotaDefinition('tomtom', 'route', {
+      TOMTOM_ROUTING_MONTHLY_BUDGET: '999999',
+    }).limits[0].budget).toBe(20_000);
+    expect(providerQuotaDefinition('here', 'route', {
+      HERE_DAILY_BUDGET: '999999',
+      HERE_MONTHLY_BUDGET: '999999',
+    }).limits.map((limit) => limit.budget)).toEqual([1_000, 4_500]);
+    expect(providerQuotaDefinition('opentransportdata', 'traffic-lights', {
+      OPENTRANSPORTDATA_QUOTA: '999999',
+    })).toMatchObject({
+      limits: [{ budget: 260_000 }],
+      rateLimit: { maxPerMinute: 5, minIntervalMs: 12_500 },
+    });
+    expect(providerQuotaDefinition('stadia').unitCost).toBe(20);
   });
 
   it('rejects an atomic reservation that would cross the cap', () => {
@@ -90,6 +108,26 @@ describe('traffic provider mesh', () => {
     )).resolves.toEqual({ durationNormalSec: 240, durationTrafficSec: 600 });
     expect(String(fetchMock.mock.calls[0][0])).toContain('driving-traffic');
     expect(String(fetchMock.mock.calls[0][0])).not.toContain('secret-token');
+  });
+
+  it('checks the reservation before any non-legacy provider fetch', async () => {
+    const fetchMock = vi.fn();
+    const reserveRequest = vi.fn().mockResolvedValue({ allowed: false, reason: 'quota' });
+
+    await expect(getTrafficSegmentTravelTimes(
+      'mapbox',
+      45.8,
+      9.0,
+      45.81,
+      9.01,
+      {
+        mapboxAccessToken: 'mapbox-public',
+        fetchImpl: fetchMock,
+        providerRuntime: { reserveRequest },
+      },
+    )).rejects.toMatchObject({ code: 'TRAFFIC_PROVIDER_BUDGET_EXHAUSTED' });
+    expect(reserveRequest).toHaveBeenCalledWith('mapbox', 'route');
+    expect(fetchMock).not.toHaveBeenCalled();
   });
 
   it('supports static openrouteservice geometry as an honest zero-delay fallback', async () => {
