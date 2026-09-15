@@ -1,4 +1,4 @@
-import { createHash } from 'node:crypto';
+import { sha256 } from '@noble/hashes/sha256';
 
 export const ITALY_DUTY_RELEASE_VERSION = 1 as const;
 export const ITALY_DUTY_RELEASE_TIMEZONE = 'Europe/Rome' as const;
@@ -34,18 +34,24 @@ export interface ItalyDutyRelease {
 type JsonValue = null | boolean | number | string | JsonValue[] | { [key: string]: JsonValue };
 type Snapshot = Record<string, unknown> & { _release?: unknown; _fetchedAt?: unknown };
 
+function compareCodePoint(left: string, right: string): number {
+  return left < right ? -1 : left > right ? 1 : 0;
+}
+
 function canonicalize(value: unknown): JsonValue {
-  if (value === null || typeof value === 'boolean' || typeof value === 'string') return value;
+  if (value === null) return null;
+  if (typeof value === 'boolean' || typeof value === 'string') return value;
   if (typeof value === 'number') {
     if (!Number.isFinite(value)) throw new Error('release payload contains a non-finite number');
     return value;
   }
   if (Array.isArray(value)) return value.map(canonicalize);
   if (typeof value === 'object') {
-    return Object.fromEntries(Object.entries(value as Record<string, unknown>)
+    const entries = Object.entries(value as Record<string, unknown>)
       .filter(([, entry]) => entry !== undefined)
-      .sort(([left], [right]) => left.localeCompare(right))
-      .map(([key, entry]) => [key, canonicalize(entry)])) as { [key: string]: JsonValue };
+      .sort(([left], [right]) => compareCodePoint(left, right))
+      .map(([key, entry]) => [key, canonicalize(entry)] as [string, JsonValue]);
+    return Object.fromEntries(entries) as { [key: string]: JsonValue };
   }
   throw new Error(`release payload contains unsupported value ${typeof value}`);
 }
@@ -55,7 +61,7 @@ export function canonicalItalyDutyJson(value: unknown): string {
 }
 
 export function sha256ItalyDutyPayload(value: unknown): string {
-  return createHash('sha256').update(canonicalItalyDutyJson(value)).digest('hex');
+  return Array.from(sha256(new TextEncoder().encode(canonicalItalyDutyJson(value))), (byte) => byte.toString(16).padStart(2, '0')).join('');
 }
 
 function payloadWithoutRelease(snapshot: Snapshot): Record<string, unknown> {
@@ -219,10 +225,18 @@ export function verifyItalyDutyRelease({ duties, status }: { duties: Snapshot; s
 
   const expectedDutiesHash = sha256ItalyDutyPayload(payloadWithoutRelease(duties));
   const expectedStatusHash = sha256ItalyDutyPayload(payloadWithoutRelease(status));
-  if (dutiesRelease.snapshots && isRecord(dutiesRelease.snapshots.duties)
-    && dutiesRelease.snapshots.duties.sha256 !== expectedDutiesHash) errors.push('duties payload hash mismatch');
-  if (dutiesRelease.snapshots && isRecord(dutiesRelease.snapshots.status)
-    && dutiesRelease.snapshots.status.sha256 !== expectedStatusHash) errors.push('status payload hash mismatch');
+  const dutiesReleaseSnapshots = isRecord(dutiesRelease.snapshots) ? dutiesRelease.snapshots : {};
+  const statusReleaseSnapshots = isRecord(statusRelease.snapshots) ? statusRelease.snapshots : {};
+  const dutiesSnapshot = isRecord(dutiesReleaseSnapshots.duties) ? dutiesReleaseSnapshots.duties : null;
+  const statusSnapshot = isRecord(dutiesReleaseSnapshots.status) ? dutiesReleaseSnapshots.status : null;
+  const statusDutiesSnapshot = isRecord(statusReleaseSnapshots.duties) ? statusReleaseSnapshots.duties : null;
+  const statusStatusSnapshot = isRecord(statusReleaseSnapshots.status) ? statusReleaseSnapshots.status : null;
+  if (dutiesSnapshot?.sha256 !== expectedDutiesHash || statusDutiesSnapshot?.sha256 !== expectedDutiesHash) {
+    errors.push('duties payload hash mismatch');
+  }
+  if (statusSnapshot?.sha256 !== expectedStatusHash || statusStatusSnapshot?.sha256 !== expectedStatusHash) {
+    errors.push('status payload hash mismatch');
+  }
 
   const evaluatedAt = typeof dutiesRelease.evaluatedAt === 'string' ? dutiesRelease.evaluatedAt : '';
   if (evaluatedAt) {
@@ -230,6 +244,9 @@ export function verifyItalyDutyRelease({ duties, status }: { duties: Snapshot; s
     if (expected.releaseId !== dutiesRelease.releaseId) errors.push('releaseId does not match the release contract');
     if (canonicalItalyDutyJson({ ...expected, releaseId: undefined }) !== canonicalItalyDutyJson({ ...dutiesRelease, releaseId: undefined })) {
       errors.push('release metadata does not match the payload contract');
+    }
+    if (canonicalItalyDutyJson({ ...expected, releaseId: undefined }) !== canonicalItalyDutyJson({ ...statusRelease, releaseId: undefined })) {
+      errors.push('status release metadata does not match the payload contract');
     }
   }
   return errors;

@@ -16,6 +16,7 @@ const REPO_ROOT = resolve(__filename, '..', '..');
 const DEFAULT_DUTIES_PATH = resolve(REPO_ROOT, 'data/pharmacy-duties-italy.json');
 const DEFAULT_STATUS_PATH = resolve(REPO_ROOT, 'data/pharmacy-duties-italy-status.json');
 const DEFAULT_SOURCES_PATH = resolve(REPO_ROOT, 'data/pharmacy-duties-italy-sources.json');
+const DEFAULT_CATALOGUE_PATH = resolve(REPO_ROOT, 'data/pharmacies-italy-border.json');
 
 function argumentValue(prefix, fallback) {
   const argument = process.argv.find((value) => value.startsWith(prefix));
@@ -36,20 +37,60 @@ function checkFreshness(timestamp, now, maxAgeHours = ITALY_DUTY_MAX_AGE_HOURS) 
   return ageHours >= -1 && ageHours <= maxAgeHours;
 }
 
-export function checkItalyDutyData({ duties, status, sources, now = new Date() }) {
+function sameHttpsHost(left, right) {
+  try {
+    const leftUrl = new URL(left);
+    const rightUrl = new URL(right);
+    return leftUrl.protocol === 'https:' && rightUrl.protocol === 'https:'
+      && leftUrl.hostname === rightUrl.hostname;
+  } catch {
+    return false;
+  }
+}
+
+export function checkItalyDutyData({ duties, status, sources, catalogue, now = new Date() }) {
   const errors = [];
   const sourceList = Array.isArray(sources?.sources) ? sources.sources : [];
   const sourceByProvince = new Map();
+  const expectedProvinces = [...ITALY_DUTY_PROVINCES];
+  const sourceTimezone = sources?._timezone ?? sources?.timezone;
+  const sourceScope = sources?._scope ?? sources?.scope;
+  if (sourceTimezone !== ITALY_DUTY_TIMEZONE) errors.push(`source registry timezone must be ${ITALY_DUTY_TIMEZONE}`);
+  if (sourceScope?.country !== 'IT'
+    || JSON.stringify(sourceScope?.provinces) !== JSON.stringify(expectedProvinces)) {
+    errors.push('source registry scope must be IT/CO,VA,VB');
+  }
+  if (sourceList.length !== expectedProvinces.length) errors.push('source registry must contain exactly one source per province');
   for (const source of sourceList) {
     if (!ITALY_DUTY_PROVINCES.includes(source?.province)) errors.push(`source ${source?.key || '<unknown>'}: unsupported province`);
     if (source?.sourceType !== 'official' || !/^https:\/\//i.test(source?.officialSourceUrl || '')) {
       errors.push(`source ${source?.key || '<unknown>'}: source must be official HTTPS`);
+    }
+    if (!/^https:\/\//i.test(source?.rawUrl || '')) {
+      errors.push(`source ${source?.key || '<unknown>'}: rawUrl must be official HTTPS`);
+    }
+    if (!sameHttpsHost(source?.officialSourceUrl, source?.rawUrl)) {
+      errors.push(`source ${source?.key || '<unknown>'}: rawUrl host must match the official source host`);
+    }
+    if (!Number.isInteger(source?.minimumCalendarDays) || source.minimumCalendarDays < 300) {
+      errors.push(`source ${source?.key || '<unknown>'}: minimumCalendarDays must be at least 300`);
+    }
+    if (typeof source?.validFrom !== 'string' || typeof source?.validTo !== 'string'
+      || source.validFrom > source.validTo) {
+      errors.push(`source ${source?.key || '<unknown>'}: validity window is missing or inverted`);
+    }
+    if (/farmacia[-_ ]aperta/i.test(JSON.stringify({ officialSourceUrl: source?.officialSourceUrl, rawUrl: source?.rawUrl }))) {
+      errors.push(`source ${source?.key || '<unknown>'}: Farmacia Aperta cannot be a duty source`);
     }
     if (sourceByProvince.has(source?.province)) errors.push(`source: duplicate province ${source?.province}`);
     sourceByProvince.set(source?.province, source);
   }
   for (const province of ITALY_DUTY_PROVINCES) {
     if (!sourceByProvince.has(province)) errors.push(`source: missing province ${province}`);
+  }
+  if (sources?.thirdPartyLinkOut?.policy !== 'link-out-only'
+    || !/^https:\/\//i.test(sources?.thirdPartyLinkOut?.url || '')) {
+    errors.push('thirdPartyLinkOut must be an HTTPS link-out-only entry');
   }
 
   if (duties?._timezone !== ITALY_DUTY_TIMEZONE || status?._timezone !== ITALY_DUTY_TIMEZONE) {
@@ -71,6 +112,8 @@ export function checkItalyDutyData({ duties, status, sources, now = new Date() }
     if (entry.state !== 'fresh' || entry.freshness !== 'fresh' || entry.coverage !== 'covered') {
       errors.push(`status.${province}: source is not fresh and covered`);
     }
+    if (!Array.isArray(entry.errors)) errors.push(`status.${province}: errors must be an array`);
+    if (!Array.isArray(entry.warnings)) errors.push(`status.${province}: warnings must be an array`);
     if (!checkFreshness(entry.fetchedAt, now)) errors.push(`status.${province}: fetchedAt is stale`);
     if (!Number.isInteger(entry.dutyCount) || entry.dutyCount < 1) errors.push(`status.${province}: no duty rows`);
     if (Array.isArray(entry.errors) && entry.errors.length > 0) errors.push(`status.${province}: source errors present`);
@@ -78,11 +121,33 @@ export function checkItalyDutyData({ duties, status, sources, now = new Date() }
   if (Array.isArray(status?._errors) && status._errors.length > 0) errors.push('status: errors present');
   if (Array.isArray(duties?._errors) && duties._errors.length > 0) errors.push('duties: errors present');
 
+  const catalogueRows = Array.isArray(catalogue?.pharmacies) ? catalogue.pharmacies : null;
+  if (!catalogueRows) errors.push('catalogue: missing Italian Ministry snapshot');
+  const catalogueById = new Map();
+  for (const pharmacy of catalogueRows || []) {
+    const records = catalogueById.get(pharmacy?.id) || [];
+    records.push(pharmacy);
+    catalogueById.set(pharmacy?.id, records);
+  }
+
   const seen = new Set();
   for (const [index, duty] of (Array.isArray(duties?.duties) ? duties.duties : []).entries()) {
     if (!ITALY_DUTY_PROVINCES.includes(duty?.province)) errors.push(`duties[${index}]: missing or ambiguous province`);
     if (!duty?.pharmacyId || duty?.sourceType !== 'official' || !/^https:\/\//i.test(duty?.sourceUrl || '')) {
       errors.push(`duties[${index}]: missing official identity/source`);
+    }
+    const source = sourceByProvince.get(duty?.province);
+    if (source && duty.sourceUrl !== source.officialSourceUrl) errors.push(`duties[${index}]: sourceUrl does not match the province source`);
+    if (source && duty.coverageName !== source.name) errors.push(`duties[${index}]: coverageName does not match the province source`);
+    const identities = catalogueById.get(duty?.pharmacyId) || [];
+    if (identities.length !== 1 || identities[0]?.country !== 'IT') {
+      errors.push(`duties[${index}]: pharmacyId is missing or ambiguous in the Ministry catalogue`);
+    } else if (identities[0].province !== duty.province) {
+      errors.push(`duties[${index}]: pharmacyId province does not match duty province`);
+    }
+    if (duty.status !== 'verified' || !isIso(duty.verifiedAt)) errors.push(`duties[${index}]: duty is not verified`);
+    if (sources?.thirdPartyLinkOut?.url && duty.sourceUrl === sources.thirdPartyLinkOut.url) {
+      errors.push(`duties[${index}]: third-party link-out was used as a duty source`);
     }
     if (!isIso(duty?.startsAt) || !isIso(duty?.endsAt) || Date.parse(duty.endsAt) <= Date.parse(duty.startsAt)) {
       errors.push(`duties[${index}]: invalid interval`);
@@ -103,10 +168,11 @@ async function main() {
   const duties = await readJson(argumentValue('--duties=', DEFAULT_DUTIES_PATH));
   const status = await readJson(argumentValue('--status=', DEFAULT_STATUS_PATH));
   const sources = await readJson(argumentValue('--sources=', DEFAULT_SOURCES_PATH));
+  const catalogue = await readJson(argumentValue('--catalogue=', DEFAULT_CATALOGUE_PATH));
   const nowValue = argumentValue('--now=', null);
   const now = nowValue ? new Date(nowValue) : new Date();
   if (!Number.isFinite(now.getTime())) throw new Error(`invalid --now value ${nowValue}`);
-  const errors = checkItalyDutyData({ duties, status, sources, now });
+  const errors = checkItalyDutyData({ duties, status, sources, catalogue, now });
   if (errors.length > 0) {
     for (const error of errors) console.error(`[check-pharmacy-duties-italy] ${error}`);
     process.exitCode = 1;

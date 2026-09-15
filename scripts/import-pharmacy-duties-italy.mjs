@@ -84,7 +84,10 @@ function pdfToText(bytes, source) {
 }
 
 async function loadSourceText(source, fixtureDir) {
-  if (fixtureDir) return readFile(resolve(fixtureDir, `${source.key}.txt`), 'utf8');
+  if (fixtureDir) {
+    const fixturePath = source.fixturePath || source.key;
+    return readFile(resolve(fixtureDir, fixturePath, 'source.txt'), 'utf8');
+  }
   return pdfToText(await fetchPdfBytes(source), source);
 }
 
@@ -98,6 +101,7 @@ function sourceStatus(source, parsed, fetchedAt) {
     sourceUrl: source.officialSourceUrl,
     fetchedAt,
     dutyCount: parsed.duties.length,
+    observedDutyCount: parsed.observedDuties?.length || parsed.duties.length,
     freshness: parsed.freshness,
     coverage: parsed.coverage,
     state,
@@ -144,7 +148,9 @@ async function writeJson(filePath, value) {
 }
 
 export async function importItalyPharmacyDuties({
-  fixtureDir = process.env.PHARMACY_ITALY_DUTY_FIXTURE_DIR || null,
+  fixtureDir = process.env.PHARMACY_DUTY_ITALY_FIXTURE_DIR
+    || process.env.PHARMACY_ITALY_DUTY_FIXTURE_DIR
+    || null,
   attemptedAt = new Date().toISOString(),
   write = true,
 } = {}) {
@@ -176,6 +182,7 @@ export async function importItalyPharmacyDuties({
         sourceUrl: source.officialSourceUrl,
         fetchedAt: attemptedAt,
         dutyCount: 0,
+        observedDutyCount: 0,
         freshness: 'unknown',
         coverage: 'not_published',
         state: 'not_published',
@@ -203,7 +210,8 @@ export async function importItalyPharmacyDuties({
 async function main() {
   const dryRun = process.argv.includes('--dry-run');
   const fixtureDir = argumentValue('--fixtures=') || undefined;
-  const result = await importItalyPharmacyDuties({ fixtureDir, write: !dryRun });
+  const attemptedAt = argumentValue('--at=') || process.env.PHARMACY_ITALY_DUTY_FETCHED_AT || undefined;
+  const result = await importItalyPharmacyDuties({ fixtureDir, attemptedAt, write: !dryRun });
   console.log(JSON.stringify({
     releaseId: result.release.releaseId,
     state: result.release.state,

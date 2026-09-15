@@ -5,7 +5,7 @@
     "varese-ats-2026-2027",
     "vco-asl-2026"
   ],
-  "_fetchedAt": "2026-09-15T11:02:54.143Z",
+  "_fetchedAt": "2026-09-15T11:30:00.000Z",
   "_asOf": "2026-09-15",
   "_timezone": "Europe/Rome",
   "_scope": {
@@ -16,180 +16,21 @@
       "VB"
     ]
   },
-  "_errors": [],
-  "_warnings": [],
-  "duties": [
-    {
-      "id": "it-duty-como-ats-2026-2027-20260905-it-msal-2088",
-      "pharmacyId": "it-msal-2088",
-      "province": "CO",
-      "coverageType": "province",
-      "coverageName": "Como",
-      "startsAt": "2026-09-05T06:30:00.000Z",
-      "endsAt": "2026-09-06T06:30:00.000Z",
-      "dutyType": "24h",
-      "status": "verified",
-      "sourceUrl": "https://www.comune.merone.co.it/novita/comunicati_stampa/novita_138.html",
-      "sourceType": "official",
-      "fetchedAt": "2026-09-15T11:02:54.143Z",
-      "verifiedAt": "2026-09-15T11:02:54.143Z"
-    },
-    {
-      "id": "it-duty-como-ats-2026-2027-20260905-it-msal-2098",
-      "pharmacyId": "it-msal-2098",
-      "province": "CO",
-      "coverageType": "province",
-      "coverageName": "Como",
-      "startsAt": "2026-09-05T06:30:00.000Z",
-      "endsAt": "2026-09-06T06:30:00.000Z",
-      "dutyType": "24h",
-      "status": "verified",
-      "sourceUrl": "https://www.comune.merone.co.it/novita/comunicati_stampa/novita_138.html",
-      "sourceType": "official",
-      "fetchedAt": "2026-09-15T11:02:54.143Z",
-      "verifiedAt": "2026-09-15T11:02:54.143Z"
-    },
-    {
-      "id": "it-duty-como-ats-2026-2027-20260915-it-msal-2192",
-      "pharmacyId": "it-msal-2192",
-      "province": "CO",
-      "coverageType": "province",
-      "coverageName": "Como",
-      "startsAt": "2026-09-15T06:30:00.000Z",
-      "endsAt": "2026-09-16T06:30:00.000Z",
-      "dutyType": "24h",
-      "status": "verified",
-      "sourceUrl": "https://www.comune.merone.co.it/novita/comunicati_stampa/novita_138.html",
-      "sourceType": "official",
-      "fetchedAt": "2026-09-15T11:02:54.143Z",
-      "verifiedAt": "2026-09-15T11:02:54.143Z"
-    },
-    {
-      "id": "it-duty-como-ats-2026-2027-20260916-it-msal-2166",
-      "pharmacyId": "it-msal-2166",
-      "province": "CO",
-      "coverageType": "province",
-      "coverageName": "Como",
-      "startsAt": "2026-09-16T06:30:00.000Z",
-      "endsAt": "2026-09-17T06:30:00.000Z",
-      "dutyType": "24h",
-      "status": "verified",
-      "sourceUrl": "https://www.comune.merone.co.it/novita/comunicati_stampa/novita_138.html",
-      "sourceType": "official",
-      "fetchedAt": "2026-09-15T11:02:54.143Z",
-      "verifiedAt": "2026-09-15T11:02:54.143Z"
-    },
-    {
-      "id": "it-duty-varese-ats-2026-2027-20260914-it-msal-3921",
-      "pharmacyId": "it-msal-3921",
-      "province": "VA",
-      "coverageType": "province",
-      "coverageName": "Varese",
-      "startsAt": "2026-09-14T06:30:00.000Z",
-      "endsAt": "2026-09-15T06:30:00.000Z",
-      "dutyType": "24h",
-      "status": "verified",
-      "sourceUrl": "https://comune.marchirolo.varese.it/Dettaglionews?IDNews=400586",
-      "sourceType": "official",
-      "fetchedAt": "2026-09-15T11:02:54.143Z",
-      "verifiedAt": "2026-09-15T11:02:54.143Z"
-    },
-    {
-      "id": "it-duty-varese-ats-2026-2027-20260915-it-msal-18425",
-      "pharmacyId": "it-msal-18425",
-      "province": "VA",
-      "coverageType": "province",
-      "coverageName": "Varese",
-      "startsAt": "2026-09-15T06:30:00.000Z",
-      "endsAt": "2026-09-16T06:30:00.000Z",
-      "dutyType": "24h",
-      "status": "verified",
-      "sourceUrl": "https://comune.marchirolo.varese.it/Dettaglionews?IDNews=400586",
-      "sourceType": "official",
-      "fetchedAt": "2026-09-15T11:02:54.143Z",
-      "verifiedAt": "2026-09-15T11:02:54.143Z"
-    },
-    {
-      "id": "it-duty-varese-ats-2026-2027-20260915-it-msal-3863",
-      "pharmacyId": "it-msal-3863",
-      "province": "VA",
-      "coverageType": "province",
-      "coverageName": "Varese",
-      "startsAt": "2026-09-15T06:30:00.000Z",
-      "endsAt": "2026-09-16T06:30:00.000Z",
-      "dutyType": "24h",
-      "status": "verified",
-      "sourceUrl": "https://comune.marchirolo.varese.it/Dettaglionews?IDNews=400586",
-      "sourceType": "official",
-      "fetchedAt": "2026-09-15T11:02:54.143Z",
-      "verifiedAt": "2026-09-15T11:02:54.143Z"
-    },
-    {
-      "id": "it-duty-vco-asl-2026-20260102-it-msal-1007",
-      "pharmacyId": "it-msal-1007",
-      "province": "VB",
-      "coverageType": "province",
-      "coverageName": "Verbano-Cusio-Ossola",
-      "startsAt": "2026-01-02T07:30:00.000Z",
-      "endsAt": "2026-01-03T07:30:00.000Z",
-      "dutyType": "24h",
-      "status": "verified",
-      "sourceUrl": "https://www.aslvco.it/wp-content/uploads/2025/12/2968938.pdf?x88295=",
-      "sourceType": "official",
-      "fetchedAt": "2026-09-15T11:02:54.143Z",
-      "verifiedAt": "2026-09-15T11:02:54.143Z"
-    },
-    {
-      "id": "it-duty-vco-asl-2026-20260208-it-msal-1005",
-      "pharmacyId": "it-msal-1005",
-      "province": "VB",
-      "coverageType": "province",
-      "coverageName": "Verbano-Cusio-Ossola",
-      "startsAt": "2026-02-08T07:30:00.000Z",
-      "endsAt": "2026-02-09T07:30:00.000Z",
-      "dutyType": "24h",
-      "status": "verified",
-      "sourceUrl": "https://www.aslvco.it/wp-content/uploads/2025/12/2968938.pdf?x88295=",
-      "sourceType": "official",
-      "fetchedAt": "2026-09-15T11:02:54.143Z",
-      "verifiedAt": "2026-09-15T11:02:54.143Z"
-    },
-    {
-      "id": "it-duty-vco-asl-2026-20260316-it-msal-1009",
-      "pharmacyId": "it-msal-1009",
-      "province": "VB",
-      "coverageType": "province",
-      "coverageName": "Verbano-Cusio-Ossola",
-      "startsAt": "2026-03-16T07:30:00.000Z",
-      "endsAt": "2026-03-17T07:30:00.000Z",
-      "dutyType": "24h",
-      "status": "verified",
-      "sourceUrl": "https://www.aslvco.it/wp-content/uploads/2025/12/2968938.pdf?x88295=",
-      "sourceType": "official",
-      "fetchedAt": "2026-09-15T11:02:54.143Z",
-      "verifiedAt": "2026-09-15T11:02:54.143Z"
-    },
-    {
-      "id": "it-duty-vco-asl-2026-20260419-it-msal-1020",
-      "pharmacyId": "it-msal-1020",
-      "province": "VB",
-      "coverageType": "province",
-      "coverageName": "Verbano-Cusio-Ossola",
-      "startsAt": "2026-04-19T06:30:00.000Z",
-      "endsAt": "2026-04-20T06:30:00.000Z",
-      "dutyType": "24h",
-      "status": "verified",
-      "sourceUrl": "https://www.aslvco.it/wp-content/uploads/2025/12/2968938.pdf?x88295=",
-      "sourceType": "official",
-      "fetchedAt": "2026-09-15T11:02:54.143Z",
-      "verifiedAt": "2026-09-15T11:02:54.143Z"
-    }
+  "_errors": [
+    "como-ats-2026-2027: official calendar coverage is incomplete: 3/300 distinct calendar days",
+    "como-ats-2026-2027: zero unambiguous duty rows resolved against the Ministry catalogue",
+    "varese-ats-2026-2027: official calendar coverage is incomplete: 2/300 distinct calendar days",
+    "varese-ats-2026-2027: zero unambiguous duty rows resolved against the Ministry catalogue",
+    "vco-asl-2026: official calendar coverage is incomplete: 4/300 distinct calendar days",
+    "vco-asl-2026: zero unambiguous duty rows resolved against the Ministry catalogue"
   ],
+  "_warnings": [],
+  "duties": [],
   "_release": {
     "version": 1,
     "timezone": "Europe/Rome",
-    "state": "fresh",
-    "evaluatedAt": "2026-09-15T11:02:54.143Z",
+    "state": "not_published",
+    "evaluatedAt": "2026-09-15T11:30:00.000Z",
     "scope": {
       "country": "IT",
       "provinces": [
@@ -201,13 +42,13 @@
     "snapshots": {
       "duties": {
         "path": "data/pharmacy-duties-italy.json",
-        "sha256": "16ea282cdfdfa8ee769836db4b9374f02cabc5c6bd25333df548ed760f598418",
-        "fetchedAt": "2026-09-15T11:02:54.143Z"
+        "sha256": "fa1ef4d552e615934b5ae43823b76ac5f30e3dccf89f2c79b0b6b4937630a2e9",
+        "fetchedAt": "2026-09-15T11:30:00.000Z"
       },
       "status": {
         "path": "data/pharmacy-duties-italy-status.json",
-        "sha256": "b32d624ddae59effaf4c58aea66e72d65b7701651a7be088d9e1de7ec0b75908",
-        "fetchedAt": "2026-09-15T11:02:54.143Z"
+        "sha256": "cd29bbd8f2fc3fd99872e185cef556bf6ba6c0579b13bd4de141d7d2675b5ec8",
+        "fetchedAt": "2026-09-15T11:30:00.000Z"
       }
     },
     "provinces": {
@@ -215,39 +56,51 @@
         "province": "CO",
         "sourceKey": "como-ats-2026-2027",
         "sourceUrl": "https://www.comune.merone.co.it/novita/comunicati_stampa/novita_138.html",
-        "fetchedAt": "2026-09-15T11:02:54.143Z",
-        "dutyCount": 4,
+        "fetchedAt": "2026-09-15T11:30:00.000Z",
+        "dutyCount": 0,
+        "observedDutyCount": 4,
         "freshness": "fresh",
-        "coverage": "covered",
-        "state": "fresh",
-        "errors": [],
+        "coverage": "partial",
+        "state": "partial",
+        "errors": [
+          "official calendar coverage is incomplete: 3/300 distinct calendar days",
+          "zero unambiguous duty rows resolved against the Ministry catalogue"
+        ],
         "warnings": []
       },
       "VA": {
         "province": "VA",
         "sourceKey": "varese-ats-2026-2027",
         "sourceUrl": "https://comune.marchirolo.varese.it/Dettaglionews?IDNews=400586",
-        "fetchedAt": "2026-09-15T11:02:54.143Z",
-        "dutyCount": 3,
+        "fetchedAt": "2026-09-15T11:30:00.000Z",
+        "dutyCount": 0,
+        "observedDutyCount": 3,
         "freshness": "fresh",
-        "coverage": "covered",
-        "state": "fresh",
-        "errors": [],
+        "coverage": "partial",
+        "state": "partial",
+        "errors": [
+          "official calendar coverage is incomplete: 2/300 distinct calendar days",
+          "zero unambiguous duty rows resolved against the Ministry catalogue"
+        ],
         "warnings": []
       },
       "VB": {
         "province": "VB",
         "sourceKey": "vco-asl-2026",
         "sourceUrl": "https://www.aslvco.it/wp-content/uploads/2025/12/2968938.pdf?x88295=",
-        "fetchedAt": "2026-09-15T11:02:54.143Z",
-        "dutyCount": 4,
+        "fetchedAt": "2026-09-15T11:30:00.000Z",
+        "dutyCount": 0,
+        "observedDutyCount": 4,
         "freshness": "fresh",
-        "coverage": "covered",
-        "state": "fresh",
-        "errors": [],
+        "coverage": "partial",
+        "state": "partial",
+        "errors": [
+          "official calendar coverage is incomplete: 4/300 distinct calendar days",
+          "zero unambiguous duty rows resolved against the Ministry catalogue"
+        ],
         "warnings": []
       }
     },
-    "releaseId": "pharmacy-italy-v1-7a1b52b4daeb6fe6148e69ef7fea5f0c6170d97d8550e0a81c7527920ac32fe7"
+    "releaseId": "pharmacy-italy-v1-b928e2ce7f4cbecfe1db511024b0d3c8b5a36f955b21a544b87b64f2fa68d539"
   }
 }

@@ -387,7 +387,8 @@ function sourceFreshness(source, fetchedAt, asOf) {
 function sourceValidity(source, asOf) {
   const date = new Date(asOf);
   if (!Number.isFinite(date.getTime())) return false;
-  const asOfDate = date.toISOString().slice(0, 10);
+  const parts = dateTimeParts(date);
+  const asOfDate = `${parts.year}-${String(parts.month).padStart(2, '0')}-${String(parts.day).padStart(2, '0')}`;
   return (!source.validFrom || asOfDate >= source.validFrom) && (!source.validTo || asOfDate <= source.validTo);
 }
 
@@ -406,16 +407,16 @@ export function parseItalyDutySource(rawText, source, {
 
   if (!validOfficialSource(source)) {
     errors.push('invalid official source definition');
-    return { duties: [], warnings, errors, records: [], province: null, freshness: 'unknown', coverage: 'not_published' };
+    return { duties: [], observedDuties: [], warnings, errors, records: [], province: null, freshness: 'unknown', coverage: 'not_published' };
   }
   const provinceResult = resolveItalyDutyProvince(rawText, source.province);
   if (provinceResult.error) {
     errors.push(provinceResult.error);
-    return { duties: [], warnings, errors, records: [], province: null, freshness: 'unknown', coverage: 'not_published' };
+    return { duties: [], observedDuties: [], warnings, errors, records: [], province: null, freshness: 'unknown', coverage: 'not_published' };
   }
   if (!isIsoTimestamp(fetchedAt)) {
     errors.push('invalid fetchedAt timestamp');
-    return { duties: [], warnings, errors, records: [], province: provinceResult.province, freshness: 'unknown', coverage: 'not_published' };
+    return { duties: [], observedDuties: [], warnings, errors, records: [], province: provinceResult.province, freshness: 'unknown', coverage: 'not_published' };
   }
   if (!sourceValidity(source, asOf)) {
     errors.push('official calendar is outside its declared validity window');
@@ -432,7 +433,16 @@ export function parseItalyDutySource(rawText, source, {
 
   const freshness = sourceFreshness(source, fetchedAt, asOf);
   if (freshness === 'stale') errors.push('official source fetch is stale');
-  let duties = recordsToDuties(records, source, provinceResult.province, fetchedAt, catalogue, warnings);
+  const dedupedRecords = dedupeRecords(records);
+  const observedDuties = recordsToDuties(dedupedRecords, source, provinceResult.province, fetchedAt, catalogue, warnings);
+  const observedCalendarDays = new Set(dedupedRecords.map((record) => record.date.year + '-' + String(record.date.month).padStart(2, '0') + '-' + String(record.date.day).padStart(2, '0'))).size;
+  const minimumCalendarDays = Number(source.minimumCalendarDays || 0);
+  let incompleteCalendar = false;
+  if (Number.isInteger(minimumCalendarDays) && minimumCalendarDays > 0 && observedCalendarDays < minimumCalendarDays) {
+    incompleteCalendar = true;
+    errors.push('official calendar coverage is incomplete: ' + observedCalendarDays + '/' + minimumCalendarDays + ' distinct calendar days');
+  }
+  let duties = observedDuties;
   // A malformed, unresolved, or ambiguous row invalidates the whole
   // provincial feed. Keeping the other rows would make a partial official
   // calendar look complete to the release checker.
@@ -441,11 +451,12 @@ export function parseItalyDutySource(rawText, source, {
     errors.push(...fatalWarnings.map((warning) => `source row is not publishable: ${warning}`));
   }
   if (errors.length > 0) duties = [];
-  const coverage = duties.length > 0 ? 'covered' : 'not_published';
+  const coverage = duties.length > 0 ? 'covered' : incompleteCalendar ? 'partial' : 'not_published';
   if (coverage !== 'covered') errors.push('zero unambiguous duty rows resolved against the Ministry catalogue');
 
   return {
     duties,
+    observedDuties,
     warnings,
     errors,
     records,
@@ -471,7 +482,7 @@ function canonicalize(value) {
   if (value && typeof value === 'object') {
     return Object.fromEntries(Object.entries(value)
       .filter(([, entry]) => entry !== undefined)
-      .sort(([left], [right]) => left.localeCompare(right))
+      .sort(([left], [right]) => left < right ? -1 : left > right ? 1 : 0)
       .map(([key, entry]) => [key, canonicalize(entry)]));
   }
   throw new Error(`release payload contains unsupported value ${typeof value}`);
@@ -573,7 +584,23 @@ export function verifyItalyReleaseSnapshots({ duties, status }) {
   if (canonicalItalyDutyJson({ ...dutiesRelease, releaseId: undefined }) !== canonicalItalyDutyJson({ ...expected, releaseId: undefined })) {
     errors.push('release metadata does not match the payload contract');
   }
-  if (dutiesRelease.snapshots?.duties?.sha256 !== sha256ItalyDutyPayload(withoutRelease(duties))) errors.push('duties payload hash mismatch');
-  if (dutiesRelease.snapshots?.status?.sha256 !== sha256ItalyDutyPayload(withoutRelease(status))) errors.push('status payload hash mismatch');
+  const expectedDutiesHash = sha256ItalyDutyPayload(withoutRelease(duties));
+  const expectedStatusHash = sha256ItalyDutyPayload(withoutRelease(status));
+  if (dutiesRelease.snapshots?.duties?.sha256 !== expectedDutiesHash
+    || statusRelease.snapshots?.duties?.sha256 !== expectedDutiesHash) {
+    errors.push('duties payload hash mismatch');
+  }
+  if (dutiesRelease.snapshots?.status?.sha256 !== expectedStatusHash
+    || statusRelease.snapshots?.status?.sha256 !== expectedStatusHash) {
+    errors.push('status payload hash mismatch');
+  }
+  if (canonicalItalyDutyJson({ ...dutiesRelease, releaseId: undefined })
+    !== canonicalItalyDutyJson({ ...statusRelease, releaseId: undefined })) {
+    errors.push('release metadata differs between duties and status');
+  }
+  if (canonicalItalyDutyJson({ ...expected, releaseId: undefined })
+    !== canonicalItalyDutyJson({ ...statusRelease, releaseId: undefined })) {
+    errors.push('status release metadata does not match the payload contract');
+  }
   return errors;
 }
