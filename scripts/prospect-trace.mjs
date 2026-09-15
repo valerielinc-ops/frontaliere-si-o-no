@@ -31,6 +31,7 @@ import { registrableDomain } from './lib/prospector/registrable.mjs';
 import { mapPool } from './lib/prospector/polite-fetch.mjs';
 import { CONCURRENCY } from './lib/prospector/config.mjs';
 import { assertKnownFlags } from './lib/prospector/cli-flags.mjs';
+import { prioritizeTraceCandidates } from './lib/prospector/trace-priority.mjs';
 
 const argv = process.argv.slice(2);
 // `--dry-run` e' riconosciuto letteralmente: un refuso (`--dryrun`, `-n`) non
@@ -49,18 +50,15 @@ const registry = loadRegistry();
 
 const queue = onlyKey
   ? [store.candidates[onlyKey]].filter(Boolean)
-  : byStatus(store, 'new')
-    .filter((c) => !onlySource || (c.sources || []).includes(onlySource))
-    // Two-key ordering, both about return on crawl budget:
-    //   1. a candidate that already carries a domain costs ~2 requests to
-    //      trace; one that needs name-to-domain guessing costs up to 10 and
-    //      fails most of the time (measured: 87 of 104 dead candidates in the
-    //      first SECO batch died at domain resolution, not at the careers page).
-    //   2. within each group, employers with live ads first — their vacancies
-    //      are the ones we would publish today.
-    .sort((a, b) => (Number(Boolean(b.domain)) - Number(Boolean(a.domain)))
-      || ((b.adCount || 0) - (a.adCount || 0)))
-    .slice(0, limit);
+  : prioritizeTraceCandidates(
+    // Live demand comes first: the previous domain-first ordering put the
+    // 24k-domain OSM backlog ahead of 13k SECO employers with active ads. That
+    // maximised cheap traces, but delayed the companies most likely to publish
+    // a vacancy now. The helper keeps domain-known candidates cheap within
+    // each demand bucket and serves ties oldest-first.
+    byStatus(store, 'new').filter((c) => !onlySource || (c.sources || []).includes(onlySource)),
+    limit,
+  );
 
 console.log('═══ Prospector · TRACE ═══');
 console.log(`in coda: ${queue.length} candidati (di ${byStatus(store, 'new').length} nuovi)\n`);

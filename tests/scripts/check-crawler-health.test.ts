@@ -1201,11 +1201,12 @@ describe('nextCrawlerState — aborted runs are not "returned 0 jobs" (#7461 & a
   it('reports a crash exit code as itself, not as a bail-out', () => {
     const { reason } = nextCrawlerState(
       brokenEligiblePrev,
-      { ...abortedObs(0), exitCode: 1 },
+      { ...abortedObs(0), abortKind: 'crash', exitCode: 1 },
       NOW_ISO,
       NOW_MS,
     );
     expect(reason).toMatch(/exitCode=1/);
+    expect(reason).toMatch(/crawler crashed before publishing/);
   });
 
   it('keeps saying "returned 0 jobs" for a zero the pipeline really published', () => {
