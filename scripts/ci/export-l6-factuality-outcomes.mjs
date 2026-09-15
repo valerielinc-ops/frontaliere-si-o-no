@@ -163,8 +163,11 @@ export function validateEditorialFactualityLedger(ledgerText, {
     ? new Date(Math.max(...records.map((record) => Date.parse(record.reviewedAt))))
     : null;
   const latestAgeHours = latest ? hoursBetween(now, latest) : null;
+  const staleRecords = records.filter((record) => hoursBetween(now, new Date(record.reviewedAt)) > maxAgeHours);
   if (!records.length) issues.push('editorial factuality ledger has no valid records');
-  if (latest && latestAgeHours > maxAgeHours) issues.push(`editorial factuality ledger is ${latestAgeHours.toFixed(1)}h old (max ${maxAgeHours}h)`);
+  if (staleRecords.length) {
+    issues.push(`editorial factuality ledger has ${staleRecords.length} valid stale record(s) (max ${maxAgeHours}h)`);
+  }
   if (latest && latestAgeHours < -0.0834) issues.push('latest editorial factuality review is in the future');
   if (records.length && records.every((record) => record.verdict === 'supported')) {
     warnings.push('editorial ledger contains no confirmed defect; this is a valid zero-defect sample only when fresh and independently evidenced');
@@ -174,7 +177,7 @@ export function validateEditorialFactualityLedger(ledgerText, {
   const reopenedDefects = records.filter((record) => record.verdict === 'reopened').length;
   const quality = !records.length
     ? 'unmeasurable'
-    : (latestAgeHours > maxAgeHours ? 'stale' : (issues.length ? 'partial' : 'observed'));
+    : (staleRecords.length ? 'stale' : (issues.length ? 'partial' : 'observed'));
   return {
     quality,
     independent: quality === 'observed',

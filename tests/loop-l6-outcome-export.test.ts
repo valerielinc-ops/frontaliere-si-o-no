@@ -58,6 +58,16 @@ describe('read-only L6 editorial factuality outcome exporter', () => {
     expect(verdict.issues.join(' ')).toMatch(/model|duplicate|localeVerified/);
   });
 
+  it('keeps the outcome non-measurable when any valid review is stale', () => {
+    const verdict = validateEditorialFactualityLedger([
+      JSON.stringify(review({ articleId: 'stale-article', reviewedAt: '2026-09-13T00:00:00.000Z' })),
+      JSON.stringify(review({ articleId: 'fresh-article', reviewedAt: '2026-09-15T10:00:00.000Z', verdict: 'supported' })),
+    ].join('\n'), { now: NOW, maxAgeHours: 36 });
+    expect(verdict).toMatchObject({ quality: 'stale', independent: false });
+    expect(verdict.snapshot).toMatchObject({ reviewedArticles: 2, latestReviewedAt: '2026-09-15T10:00:00.000Z' });
+    expect(verdict.issues.join(' ')).toMatch(/stale/);
+  });
+
   it('never exposes measurements from an invalid or missing ledger', () => {
     const outcome = buildL6FactualityOutcome({
       verdict: { quality: 'partial', independent: false, snapshot: { reviewedArticles: 12, confirmedDefects: 3, externallyVerifiedDefects: 3, reopenedDefects: 0 }, invalidRecords: [{}] },
