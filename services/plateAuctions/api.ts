@@ -20,6 +20,8 @@ export interface PlateAuctionSourceSnapshot extends PlateAuctionSourceEntry {
 
 export interface PlateAuctionApiSnapshot {
   schema: typeof PLATE_AUCTION_API_SCHEMA;
+  /** The server fails closed instead of returning a silently truncated page. */
+  complete: boolean;
   generatedAt: string;
   sources: Record<string, PlateAuctionSourceSnapshot>;
   auctions: PlateAuction[];
@@ -230,6 +232,7 @@ export function parsePlateAuctionApiSnapshot(value: unknown): PlateAuctionApiSna
   if (!isRecord(value) || value.schema !== PLATE_AUCTION_API_SCHEMA || typeof value.generatedAt !== 'string') {
     throw new Error('Invalid plate-auction API schema');
   }
+  if (value.complete === false) throw new Error('Incomplete plate-auction snapshot');
   const auctions = Array.isArray(value.auctions)
     ? value.auctions.map(sanitizePublicPlateAuction).filter((item): item is PlateAuction => item !== null)
     : [];
@@ -253,7 +256,7 @@ export function parsePlateAuctionApiSnapshot(value: unknown): PlateAuctionApiSna
       && typeof auction.finalPriceVerifiedAt === 'string').length,
     cantonsWithData: new Set(auctions.map((auction) => auction.sourceKey || auction.platePrefix)).size,
   };
-  return { schema: PLATE_AUCTION_API_SCHEMA, generatedAt: value.generatedAt, sources, auctions, ...(history ? { history } : {}), counts };
+  return { schema: PLATE_AUCTION_API_SCHEMA, complete: true, generatedAt: value.generatedAt, sources, auctions, ...(history ? { history } : {}), counts };
 }
 
 export async function fetchPlateAuctionSnapshot(): Promise<PlateAuctionApiSnapshot> {

@@ -20,6 +20,13 @@ import { fetchZhPlateAuctions } from './connectors/zh.mjs';
 import { fetchTiPlateAuctions } from './connectors/ti.mjs';
 import { fetchExpandedCard, fetchExpandedEcari } from './connectors/expanded.mjs';
 import {
+  fetchAiFixedPrice,
+  fetchBsFixedPrice,
+  fetchGlFixedPrice,
+  fetchLuFixedPrice,
+  fetchUrFixedPrice,
+} from './connectors/fixed-price.mjs';
+import {
   checkPlateAuctionQuality,
   derivePlateAuctionDataConfidence,
 } from '../../functions/src/plateAuctionQualityCore.js';
@@ -28,11 +35,15 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const DEFAULT_OUTPUT = resolve(__dirname, '../../public/data/plate-auctions.json');
 export const FETCHERS = {
   ag: () => fetchExpandedCard('ag'),
+  ai: fetchAiFixedPrice,
   ar: () => fetchExpandedEcari('ar'),
   be: () => fetchExpandedCard('be'),
   bl: () => fetchExpandedEcari('bl'),
+  bs: fetchBsFixedPrice,
   fr: () => fetchExpandedEcari('fr'),
+  gl: fetchGlFixedPrice,
   gr: fetchGrPlateAuctions,
+  lu: fetchLuFixedPrice,
   nw: () => fetchExpandedEcari('nw'),
   ow: () => fetchExpandedEcari('ow'),
   sg: fetchSgPlateAuctions,
@@ -41,6 +52,7 @@ export const FETCHERS = {
   sz: fetchSzPlateAuctions,
   tg: fetchTgPlateAuctions,
   ti: fetchTiPlateAuctions,
+  ur: fetchUrFixedPrice,
   vd: () => fetchExpandedCard('vd'),
   vs: fetchVsPlateAuctions,
   zh: fetchZhPlateAuctions,
@@ -213,6 +225,7 @@ export async function collectPlateAuctions({
     && typeof row.finalPriceVerifiedAt === 'string').length;
   return {
     schema: 1,
+    complete: true,
     generatedAt: now.toISOString(),
     sources,
     auctions: outputAuctions,

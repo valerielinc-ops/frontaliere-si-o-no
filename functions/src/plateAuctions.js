@@ -1,8 +1,17 @@
 import {
   buildEcariDetailUrl,
   extractEcariTabSection,
+  extractPdfUrl,
+  fetchJson,
   fetchHtml,
+  fetchPdfText,
+  FIXED_PRICE_SOURCE_CONFIGS,
+  parseAiFixedPricePdfText,
+  parseBsFixedPricePdfText,
+  parseGlFixedPriceJson,
+  parseLuFixedPricePdfText,
   parseEcariAuctionRows,
+  parseUrFixedPricePdfText,
   parseZhAuctionCards,
   SWISSSIGN_RSA_TLS_OV_ICA_2022_1,
 } from './plateAuctionsCore.js';
@@ -18,6 +27,8 @@ export const PLATE_AUCTION_COLLECTION = 'plate_auctions_current';
 export const PLATE_AUCTION_HISTORY_COLLECTION = 'plate_auctions_history';
 export const PLATE_AUCTION_SOURCE_COLLECTION = 'plate_auction_sources';
 export const PLATE_AUCTION_API_SCHEMA = 1;
+const PLATE_AUCTION_PAGE_SIZE = 1000;
+const PLATE_AUCTION_MAX_ROWS = 100000;
 
 function makeEcariConnector({ canton, plateCode, url, parserVersion = '2.0.0' }) {
   return {
@@ -54,6 +65,59 @@ function makeCardConnector({ canton, plateCode, url, detailBaseUrl, parserVersio
   };
 }
 
+function makeFixedPriceConnector({ sourceKey, parse }) {
+  const source = FIXED_PRICE_SOURCE_CONFIGS[sourceKey];
+  if (!source) throw new Error(`Missing fixed-price source config: ${sourceKey}`);
+  return {
+    canton: source.canton,
+    plateCode: source.plateCode,
+    url: source.url || source.pageUrl,
+    parserVersion: source.parserVersion,
+    async fetchSource({ fetchedAt, injectedFetcher } = {}) {
+      if (source.kind === 'json') {
+        const payload = injectedFetcher
+          ? await injectedFetcher(source.url, { responseType: 'json', timeoutMs: 20000 })
+          : await fetchJson(source.url);
+        return parse(payload, {
+          canton: source.canton,
+          plateCode: source.plateCode,
+          officialUrl: source.officialUrl,
+          officialDetailUrl: source.url,
+          fetchedAt,
+        });
+      }
+      const pageHtml = injectedFetcher
+        ? await injectedFetcher(source.pageUrl, { responseType: 'html', timeoutMs: 20000 })
+        : await fetchHtml(source.pageUrl);
+      const variants = source.pdfVariants || [{
+        fallbackPdfUrl: source.fallbackPdfUrl,
+        pdfUrlPattern: source.pdfUrlPattern,
+      }];
+      const rows = [];
+      for (const variant of variants) {
+        const pdfUrl = variant.pdfUrlPattern
+          ? extractPdfUrl(pageHtml, {
+            baseUrl: source.pageUrl,
+            pattern: variant.pdfUrlPattern,
+          }) || variant.fallbackPdfUrl
+          : variant.fallbackPdfUrl;
+        const pdf = injectedFetcher
+          ? await injectedFetcher(pdfUrl, { responseType: 'pdf-text', timeoutMs: 30000 })
+          : await fetchPdfText(pdfUrl);
+        rows.push(...parse(pdf, {
+          canton: source.canton,
+          plateCode: source.plateCode,
+          officialUrl: source.officialUrl,
+          officialDetailUrl: pdfUrl,
+          fetchedAt,
+          ...(variant.vehicleType ? { vehicleType: variant.vehicleType } : {}),
+        }));
+      }
+      return rows;
+    },
+  };
+}
+
 const CONNECTORS = {
   ag: makeCardConnector({
     canton: 'Argovia',
@@ -61,6 +125,7 @@ const CONNECTORS = {
     url: 'https://www.auktion-ag.ch',
     detailBaseUrl: 'https://www.auktion-ag.ch',
   }),
+  ai: makeFixedPriceConnector({ sourceKey: 'ai', parse: parseAiFixedPricePdfText }),
   ar: makeEcariConnector({ canton: 'Appenzello Esterno', plateCode: 'AR', url: 'https://eauktion.ar.ch/ecari-auction/ui/app/init' }),
   be: makeCardConnector({
     canton: 'Berna',
@@ -69,7 +134,9 @@ const CONNECTORS = {
     detailBaseUrl: 'https://www.auktion-be.ch',
   }),
   bl: makeEcariConnector({ canton: 'Basilea Campagna', plateCode: 'BL', url: 'https://eauktion.bl.ch/ecari-auction/ui/app/init' }),
+  bs: makeFixedPriceConnector({ sourceKey: 'bs', parse: parseBsFixedPricePdfText }),
   fr: makeEcariConnector({ canton: 'Friburgo', plateCode: 'FR', url: 'https://appls.ocn.ch/ecari-auction/ui/app/init?locale=fr_ch' }),
+  gl: makeFixedPriceConnector({ sourceKey: 'gl', parse: parseGlFixedPriceJson }),
   gr: {
     canton: 'Grigioni',
     plateCode: 'GR',
@@ -147,6 +214,8 @@ const CONNECTORS = {
       }));
     },
   },
+  lu: makeFixedPriceConnector({ sourceKey: 'lu', parse: parseLuFixedPricePdfText }),
+  ur: makeFixedPriceConnector({ sourceKey: 'ur', parse: parseUrFixedPricePdfText }),
   zh: {
     canton: 'Zurigo',
     plateCode: 'ZH',
@@ -335,15 +404,72 @@ function publicSource(value) {
   return output;
 }
 
-async function readCollection(db, collection, limit) {
-  const snapshot = await db.collection(collection).limit(limit).get();
-  return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+async function readPaginatedDocuments({ firstQuery, nextQuery, pageSize, maxRows = PLATE_AUCTION_MAX_ROWS, label }) {
+  const documents = [];
+  let query = firstQuery;
+  while (true) {
+    const snapshot = await query.get();
+    const pageDocuments = Array.isArray(snapshot?.docs) ? snapshot.docs : [];
+    if (documents.length + pageDocuments.length > maxRows) {
+      throw new Error(`${label} pagination limit`);
+    }
+    documents.push(...pageDocuments);
+    if (pageDocuments.length < pageSize) return documents;
+    const lastDocument = pageDocuments[pageDocuments.length - 1];
+    if (!lastDocument || typeof nextQuery !== 'function') {
+      throw new Error(`${label} pagination unavailable`);
+    }
+    query = nextQuery(lastDocument);
+  }
+}
+
+async function readCollection(db, collection, { pageSize = PLATE_AUCTION_PAGE_SIZE, maxRows = PLATE_AUCTION_MAX_ROWS } = {}) {
+  const collectionRef = db.collection(collection);
+  if (typeof collectionRef.orderBy !== 'function') {
+    const snapshot = await collectionRef.limit(maxRows).get();
+    if (Array.isArray(snapshot?.docs) && snapshot.docs.length >= maxRows) {
+      throw new Error(`${collection} pagination unavailable`);
+    }
+    return (snapshot.docs || []).map((doc) => ({ id: doc.id, ...doc.data() }));
+  }
+  const ordered = collectionRef.orderBy('__name__');
+  const documents = await readPaginatedDocuments({
+    firstQuery: ordered.limit(pageSize),
+    nextQuery: (lastDocument) => ordered.startAfter(lastDocument).limit(pageSize),
+    pageSize,
+    maxRows,
+    label: collection,
+  });
+  return documents.map((doc) => ({ id: doc.id, ...doc.data() }));
+}
+
+async function readSourceRows(db, sourceKey) {
+  const collectionRef = db.collection(PLATE_AUCTION_COLLECTION);
+  const filtered = collectionRef.where('sourceKey', '==', sourceKey);
+  if (typeof filtered.orderBy !== 'function') {
+    const snapshot = await filtered.limit(PLATE_AUCTION_MAX_ROWS).get();
+    if (Array.isArray(snapshot?.docs) && snapshot.docs.length >= PLATE_AUCTION_MAX_ROWS) {
+      throw new Error(`plate-auctions:${sourceKey} pagination unavailable`);
+    }
+    return snapshot.docs || [];
+  }
+  const ordered = filtered.orderBy('__name__');
+  return readPaginatedDocuments({
+    firstQuery: ordered.limit(PLATE_AUCTION_PAGE_SIZE),
+    nextQuery: (lastDocument) => ordered.startAfter(lastDocument).limit(PLATE_AUCTION_PAGE_SIZE),
+    pageSize: PLATE_AUCTION_PAGE_SIZE,
+    maxRows: PLATE_AUCTION_MAX_ROWS,
+    label: `plate-auctions:${sourceKey}`,
+  });
 }
 
 export async function getPublicPlateAuctionSnapshot(db = getAdminDb()) {
   const [auctionRows, sourceRows] = await Promise.all([
-    readCollection(db, PLATE_AUCTION_COLLECTION, 2500),
-    readCollection(db, PLATE_AUCTION_SOURCE_COLLECTION, 50),
+    // Basel-Stadt publishes a large official fixed-price catalogue. Read all
+    // pages and fail closed above the defensive cap instead of silently
+    // truncating the public snapshot.
+    readCollection(db, PLATE_AUCTION_COLLECTION),
+    readCollection(db, PLATE_AUCTION_SOURCE_COLLECTION, { pageSize: 50, maxRows: 50 }),
   ]);
   let historyRows = [];
   try {
@@ -389,6 +515,7 @@ export async function getPublicPlateAuctionSnapshot(db = getAdminDb()) {
   }
   return {
     schema: PLATE_AUCTION_API_SCHEMA,
+    complete: true,
     generatedAt: new Date().toISOString(),
     sources,
     auctions,
@@ -427,19 +554,23 @@ function sourceDocument(sourceKey, config, fetchedAt, patch = {}) {
   };
 }
 
-export async function refreshPlateAuctions({ db = getAdminDb(), fetcher = fetchHtml, now = new Date() } = {}) {
+/**
+ * @param {{db?: any, fetcher?: (url: string, options?: Record<string, unknown>) => Promise<any>, now?: Date}} options
+ */
+export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = new Date() } = {}) {
   const fetchedAt = now.toISOString();
   const summaries = {};
   for (const [key, config] of Object.entries(CONNECTORS)) {
     if (PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY[key]?.status !== 'active') continue;
     try {
-      const html = await fetcher(config.url, {
-        timeoutMs: 20000,
-        ...(key === 'fr' ? { ca: SWISSSIGN_RSA_TLS_OV_ICA_2022_1 } : {}),
-      });
-      const parsedRows = config.parse(html, fetchedAt);
+      const parsedRows = typeof config.fetchSource === 'function'
+        ? await config.fetchSource({ fetchedAt, injectedFetcher: fetcher })
+        : config.parse(await (fetcher || fetchHtml)(config.url, {
+          timeoutMs: 20000,
+          ...(key === 'fr' ? { ca: SWISSSIGN_RSA_TLS_OV_ICA_2022_1 } : {}),
+        }), fetchedAt);
       const sourceRef = db.collection(PLATE_AUCTION_SOURCE_COLLECTION).doc(key);
-      const previous = await db.collection(PLATE_AUCTION_COLLECTION).where('sourceKey', '==', config.plateCode).limit(2500).get();
+      const previous = { docs: await readSourceRows(db, config.plateCode) };
       const previousById = new Map(previous.docs.map((doc) => [doc.id, { id: doc.id, ...doc.data() }]));
       if (parsedRows.length === 0) {
         // An empty upstream response is degraded, but it must not leave a
