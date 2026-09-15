@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import {
   auditHtml,
   auditLive,
+  checkSource,
   parseHtmlContract,
 } from '../../scripts/seo/bing-seo-live-loop.mjs';
 import {
@@ -38,6 +39,17 @@ describe('Bing SEO live contract', () => {
       .toContain('homepage-h1-hidden');
   });
 
+  it('flags an empty homepage H1 as missing', () => {
+    const html = [
+      '<title>Frontaliere Ticino</title>',
+      '<link rel="canonical" href="https://frontaliereticino.ch/">',
+      '<h1>   </h1>',
+    ].join('');
+
+    expect(auditHtml(URL, html, { homepage: true }).findings.map((item) => item.code))
+      .toContain('homepage-h1-missing');
+  });
+
   it('flags title overflow and canonical drift', () => {
     const html = [
       '<title>',
@@ -55,6 +67,10 @@ describe('Bing SEO live contract', () => {
     expect(new Set(BING_INDEXNOW_REMEDIATION_URLS).size).toBe(BING_INDEXNOW_REMEDIATION_URLS.length);
     expect(BING_TITLE_MAX_CHARS).toBe(66);
     expect(parseHtmlContract('<h1>ok</h1>').h1s).toHaveLength(1);
+  });
+
+  it('keeps the automated workflow fail-closed for owner auth and manual submit false', () => {
+    expect(checkSource()).toEqual({ ok: true, findings: [] });
   });
 
   it('accepts a canonical after redirect and reports a stale IndexNow URL as warning', async () => {

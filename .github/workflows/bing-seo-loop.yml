@@ -109,8 +109,6 @@ jobs:
 
       - name: Open PR for deterministic H1 source repair
         if: ${{ github.event_name == 'schedule' || inputs.apply_fixes == true }}
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
           git fetch origin main
@@ -127,9 +125,9 @@ jobs:
             echo 'Nessuna correzione H1 da proporre.'
             exit 0
           fi
-          token="${GITHUB_PAT:-$GH_TOKEN}"
+          token="${GITHUB_PAT:-}"
           if [ -z "$token" ]; then
-            echo '::error::Manca un token owner per aprire la PR automatica.'
+            echo '::error::GITHUB_PAT non disponibile da Remote Config; rifiuto il push/PR con GITHUB_TOKEN per non disattivare i workflow downstream.'
             exit 1
           fi
           export GH_TOKEN="$token"
@@ -158,7 +156,7 @@ jobs:
 
       - name: Stream IndexNow remediation URLs
         env:
-          INPUT_SUBMIT: ${{ inputs.submit_indexnow || 'true' }}
+          INPUT_SUBMIT: ${{ github.event_name == 'schedule' && 'true' || inputs.submit_indexnow }}
           INPUT_DRY_RUN: ${{ inputs.dry_run || 'false' }}
         run: |
           set -euo pipefail

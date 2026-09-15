@@ -128,6 +128,8 @@ export function auditHtml(
         url,
         'La homepage contiene ' + parsed.h1s.length + ' H1; il contratto richiede esattamente uno.',
       ));
+    } else if (!parsed.h1s[0].text) {
+      findings.push(finding('homepage-h1-missing', url, 'L’unico H1 della homepage è vuoto.'));
     } else if (parsed.h1s[0].hidden) {
       findings.push(finding(
         'homepage-h1-hidden',
@@ -239,6 +241,7 @@ export function checkSource({ repoRoot = REPO_ROOT } = {}) {
   const index = read('index.html');
   const staticPages = read('build-plugins/staticPagesPlugin.ts');
   const redirects = read('build-plugins/legacyRedirectsPlugin.ts');
+  const loopWorkflow = read('.github/workflows/bing-seo-loop.yml');
   if (!/<h1\s+id="homepage-static-h1">[^<]+<\/h1>/i.test(index)) {
     findings.push(sourceFinding(
       'homepage-h1-source',
@@ -266,6 +269,21 @@ export function checkSource({ repoRoot = REPO_ROOT } = {}) {
       'title-redirect-source',
       'build-plugins/legacyRedirectsPlugin.ts',
       'L’URL Bing francese storico deve raggiungere l’articolo canonico 2026.',
+    ));
+  }
+  if (loopWorkflow.includes('token="${GITHUB_PAT:-$GH_TOKEN}"')
+    || !loopWorkflow.includes('token="${GITHUB_PAT:-}"')) {
+    findings.push(sourceFinding(
+      'owner-token-required',
+      '.github/workflows/bing-seo-loop.yml',
+      'La PR automatica H1 deve fallire senza GITHUB_PAT e non usare GITHUB_TOKEN come fallback.',
+    ));
+  }
+  if (!loopWorkflow.includes("INPUT_SUBMIT: ${{ github.event_name == 'schedule' && 'true' || inputs.submit_indexnow }}")) {
+    findings.push(sourceFinding(
+      'indexnow-dispatch-input',
+      '.github/workflows/bing-seo-loop.yml',
+      'Il dispatch manuale deve conservare false per submit_indexnow; true è il default solo dello schedule.',
     ));
   }
 
