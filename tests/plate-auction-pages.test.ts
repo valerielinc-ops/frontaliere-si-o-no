@@ -87,6 +87,15 @@ describe('plate-auction static pages', () => {
     expect(rendered.html).toContain('id=rail-right-root');
   });
 
+  it('caps large canton catalogues before first paint', () => {
+    const rootDir = fixtureRoot({ auctionCount: 102 });
+    const rendered = renderPlateAuctionPage({ locale: 'de', view: 'canton', canton: 'GR', rootDir });
+
+    expect(Buffer.byteLength(rendered.html)).toBeLessThan(260 * 1024);
+    expect((rendered.html.match(/<tr>/g) || []).length).toBeLessThanOrEqual(106);
+    expect(rendered.html).not.toContain('Alle veröffentlichten Auktionen');
+  });
+
   it('renders a historical detail page with the same indexable ad surfaces', () => {
     const rootDir = fixtureRoot();
     const rendered = renderPlateAuctionPage({ locale: 'en', view: 'detail', canton: 'GR', plate: 'GR7', rootDir });

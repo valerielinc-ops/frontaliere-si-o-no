@@ -6,8 +6,11 @@
  * the HTTP contract, while the corpus owns editorial source strings.
  */
 
+import { SECTION_LEGACY_TI } from '../../build-plugins/shared/cantonResolvers.mjs';
+
 export const BING_SEO_BASE_URL = 'https://frontaliereticino.ch';
 export const BING_TITLE_MAX_CHARS = 66;
+const TI_JOB_BOARD_ROOT = `/${SECTION_LEGACY_TI.it}`;
 
 export const BING_TITLE_AUDIT_URLS = [
   '/articoli-svizzera/dati-tasse-frontalieri-italia/',
@@ -29,8 +32,8 @@ export const BING_TITLE_AUDIT_URLS = [
 ].map((path) => BING_SEO_BASE_URL + path);
 
 export const BING_INDEXNOW_REMEDIATION_URLS = [
-  BING_SEO_BASE_URL + '/cerca-lavoro-ticino/cuoca-cuoco-m-w-d-coop-ristorante-tenero-contra-ticino-wa2cmo/',
-  BING_SEO_BASE_URL + '/cerca-lavoro-ticino/montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-giubiasco/',
+  BING_SEO_BASE_URL + TI_JOB_BOARD_ROOT + '/cuoca-cuoco-m-w-d-coop-ristorante-tenero-contra-ticino-wa2cmo/',
+  BING_SEO_BASE_URL + TI_JOB_BOARD_ROOT + '/montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-giubiasco/',
   BING_SEO_BASE_URL + '/cerca-lavoro-vaud/100-cdd-atsso-hirslanden-klinik-lausanne/',
   BING_SEO_BASE_URL + '/cerca-lavoro-neuchatel/surveillant-e-en-magasin-neuchatel-jura-coop-renens-1-vy627n/',
   BING_SEO_BASE_URL + '/eventi/ticino/brissago/mutanti-mostra-fotografica-di-daniel-pittet-2026-09-01/',
