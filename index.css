@@ -1171,8 +1171,15 @@ input[type=number] { -moz-appearance: textfield; }
    JobAlertStickyBanner and the JobAlertForm toast. */
 /* env() carries a `0px` fallback: if safe-area-inset-bottom were undefined the
    calc() would be invalid and `bottom` would collapse to `auto` — re-triggering
-   the exact off-screen failure this class fixes. The comma fallback is plain,
-   valid CSS here (the earlier Tailwind-arbitrary-value scanning caveat does not
-   apply to a hand-written rule in this stylesheet). */
-.above-mobile-nav { bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px)); }
-@media (min-width: 768px) { .above-mobile-nav { bottom: 1rem; } }
+   the exact off-screen failure this class fixes. The prompt shell adds the
+   measured height of a fixed Auto Ads anchor through this custom property; the
+   ad itself remains untouched and continues to serve. */
+.above-mobile-nav {
+  bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px) + var(--bottom-prompt-ad-clearance, 0px));
+  transition: bottom 180ms ease-out;
+}
+@media (min-width: 768px) {
+  .above-mobile-nav {
+    bottom: calc(1rem + var(--bottom-prompt-ad-clearance, 0px));
+  }
+}

@@ -57,10 +57,14 @@
  * visibility, it was whether the prompt rendered AT ALL — so the answer is the
  * slot, not an IntersectionObserver.
  */
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState, type CSSProperties } from 'react';
 
 import { usePopupSlot } from '@/hooks/usePopupSlot';
 import { ABOVE_MOBILE_NAV_BOTTOM } from '@/components/shared/mobileNavClearance';
+import {
+ getAutoAdOverlayClearance,
+ subscribeToAutoAdOverlay,
+} from '@/services/autoAdOverlay';
 
 export interface BottomPromptShellProps {
   /** Queue id — unique per prompt, stable across renders. */
@@ -112,6 +116,14 @@ export interface BottomPromptShellProps {
  */
 export const BOTTOM_PROMPT_BASE_CLASS = `fixed ${ABOVE_MOBILE_NAV_BOTTOM} z-40 w-[calc(100%-2rem)] animate-slide-up`;
 
+function useAutoAdOverlayClearance(): number {
+ const [clearance, setClearance] = useState(getAutoAdOverlayClearance);
+
+ useEffect(() => subscribeToAutoAdOverlay(setClearance), []);
+
+ return clearance;
+}
+
 const ALIGN_CLASS: Record<'right' | 'center', string> = {
   right: 'right-4',
   center: 'left-1/2 -translate-x-1/2',
@@ -135,6 +147,7 @@ const BottomPromptShell: React.FC<BottomPromptShellProps> = ({
   children,
 }) => {
   const active = usePopupSlot(slotId, priority);
+  const autoAdClearance = useAutoAdOverlayClearance();
   // Keyed on the slot, not just "have we fired once": React reuses a component
   // instance when the same element type reappears in the same position, so a
   // shell whose `slotId` changed would otherwise inherit the previous prompt's
@@ -176,6 +189,7 @@ const BottomPromptShell: React.FC<BottomPromptShellProps> = ({
       aria-labelledby={ariaLabelledBy}
       data-bottom-prompt={slotId}
       className={`${BOTTOM_PROMPT_BASE_CLASS} ${ALIGN_CLASS[align]} ${WIDTH_CLASS[width]}`}
+      style={{ '--bottom-prompt-ad-clearance': `${autoAdClearance}px` } as CSSProperties}
     >
       {children}
     </div>

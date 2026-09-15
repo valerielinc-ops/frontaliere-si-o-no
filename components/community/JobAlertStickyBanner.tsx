@@ -94,25 +94,27 @@ export default function JobAlertStickyBanner({
  ariaLabel={t('jobAlert.stickyBannerAria') || 'Invito a iscriversi alle alert lavoro'}
  onShown={trackShown}
  >
- <div className="flex items-center gap-3 p-3 rounded-xl border border-accent-border bg-surface shadow-lg shadow-accent/20">
+ <div className="relative flex flex-col gap-3 p-3.5 pr-14 sm:flex-row sm:items-center sm:gap-3 sm:p-3 sm:pr-3 rounded-xl border border-accent-border bg-surface shadow-lg shadow-accent/20">
+ <div className="flex items-center gap-3 min-w-0">
  <span className="flex-shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-full bg-accent-subtle text-accent">
  <BellRing className="w-4 h-4" aria-hidden="true" />
  </span>
- <p className="flex-1 min-w-0 text-sm text-strong">
+ <p className="min-w-0 text-sm leading-snug text-strong">
  {t('jobAlert.stickyBannerText') || 'Ti avvisiamo quando escono offerte come queste.'}
  </p>
+ </div>
  <button
  type="button"
  onClick={handleOpen}
- className="flex-shrink-0 px-3 py-2 min-h-[44px] text-xs font-semibold rounded-lg bg-accent-strong text-on-accent hover:bg-accent-strong-hover transition-colors"
+ className="inline-flex w-full flex-shrink-0 items-center justify-center px-3 py-2.5 min-h-[48px] text-sm font-semibold rounded-lg bg-accent-strong text-on-accent hover:bg-accent-strong-hover active:bg-accent-strong-hover transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 sm:w-auto sm:min-h-[44px] sm:text-xs"
  >
- {t('jobAlert.cardCta') || 'Crea alert'}
+ {t('jobAlert.stickyBannerCta') || 'Crea alert gratis'}
  </button>
  <button
  type="button"
  onClick={handleDismiss}
  aria-label={t('common.close') || 'Chiudi'}
- className="flex-shrink-0 p-1 text-muted hover:text-strong transition-colors"
+ className="absolute right-1.5 top-1.5 inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full text-muted transition-colors hover:bg-surface-raised hover:text-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 sm:static sm:min-h-0 sm:min-w-0 sm:rounded-md sm:p-1"
  >
  <X className="w-4 h-4" aria-hidden="true" />
  </button>

@@ -878,6 +878,7 @@ const translations: Record<string, string> = {
  'jobAlert.cardTitleActive': 'Le tue alert lavoro',
  'jobAlert.cardDescriptionActive': 'Gestisci o aggiungi nuove alert personalizzate.',
  'jobAlert.stickyBannerText': 'Ti avvisiamo quando escono offerte come queste.',
+ 'jobAlert.stickyBannerCta': 'Crea alert gratis',
  'jobAlert.stickyBannerAria': 'Invito a iscriversi alle alert lavoro',
  'jobAlert.endCardTitle': 'Hai visto tutti i lavori',
  'jobAlert.endCardTitleWithKeyword': 'Hai visto tutti i lavori «{keyword}»',
