@@ -29,6 +29,20 @@ vi.mock('@/services/analyticsProxy', () => ({
 }));
 
 vi.mock('@/components/shared/ConsentNotice', () => ({ default: () => <span>consent notice</span> }));
+vi.mock('@/components/shared/EmailConsentCheckbox', () => ({
+  default: ({ id, checked, onChange }: {
+    id: string;
+    checked: boolean;
+    onChange: (checked: boolean) => void;
+  }) => (
+    <input
+      id={id}
+      type="checkbox"
+      checked={checked}
+      onChange={(event) => onChange(event.target.checked)}
+    />
+  ),
+}));
 vi.mock('@/components/shared/SocialSignInButtons', () => ({ default: () => null }));
 vi.mock('@/components/shared/EmailInput', () => ({
   validateEmailStrict: () => ({ valid: true }),
@@ -46,6 +60,7 @@ vi.mock('@/services/newsletterSubscribers', () => ({
   requestConfirmationEmail: (...args: unknown[]) => mocks.requestConfirmationEmail(...args),
 }));
 vi.mock('@/services/consentTexts', () => ({
+  UNIFIED_EMAIL_CONSENT_PURPOSE: 'unified_email_channels',
   consentProof: () => ({
     consentText: 'Formula di consenso',
     consentTextVersion: '2026-08-20.1',
@@ -110,47 +125,48 @@ describe('Stabio-Gaggiolo petition signing flow', () => {
 
   afterEach(() => cleanup());
 
-  it('restarts DOI confirmation for an authenticated address that previously opted out', async () => {
+  it('signs directly for an authenticated registration under the site terms', async () => {
     mocks.upsertNewsletterSubscriber.mockResolvedValue({
-      existed: false,
+      existed: true,
       id: 'worker@example.com',
-      status: 'pending',
+      status: 'confirmed',
       optedOut: false,
-      hadConfirmationProof: true,
+      hadConfirmationProof: false,
     });
+    mocks.signStabioDossoPetition.mockResolvedValue({ success: true, signed: true });
 
     render(<StabioDossoPetitionPage />);
-    fireEvent.click(screen.getByRole('checkbox'));
     fireEvent.click(screen.getByRole('button', { name: 'Invia la mia firma' }));
 
-    await waitFor(() => expect(mocks.upsertNewsletterSubscriber).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(mocks.signStabioDossoPetition).toHaveBeenCalledWith(
+      expect.objectContaining({ uid: 'auth-user-1' }),
+      'it',
+    ));
     const [, input] = mocks.upsertNewsletterSubscriber.mock.calls[0] as [unknown, Record<string, unknown>];
-    expect(input.reconsent).toBe(true);
-    expect(mocks.signStabioDossoPetition).not.toHaveBeenCalled();
-    expect(await screen.findByText('Controlla la tua posta')).toBeInTheDocument();
+    expect(input.reconsent).not.toBe(true);
+    expect(await screen.findByText('Firma registrata')).toBeInTheDocument();
   });
 
-  it('keeps the email DOI path open when a pending re-consent still reports an opt-out', async () => {
+  it('uses the email link only as the authentication step for an email registration', async () => {
     mocks.authUser = null;
     mocks.upsertNewsletterSubscriber.mockResolvedValue({
       existed: true,
       id: 'worker@example.com',
-      status: 'pending',
-      optedOut: true,
-      hadConfirmationProof: true,
+      status: 'confirmed',
+      optedOut: false,
+      hadConfirmationProof: false,
     });
 
     render(<StabioDossoPetitionPage />);
     fireEvent.change(screen.getByLabelText('Email'), { target: { value: 'worker@example.com' } });
-    fireEvent.click(screen.getByRole('checkbox'));
     fireEvent.click(screen.getByRole('button', { name: 'Invia il link' }));
 
     await waitFor(() => expect(mocks.upsertNewsletterSubscriber).toHaveBeenCalledTimes(1));
-    expect(mocks.requestConfirmationEmail).not.toHaveBeenCalled();
+    expect(mocks.requestConfirmationEmail).toHaveBeenCalledWith('worker@example.com', 'login');
     expect(await screen.findByText('Controlla la tua posta')).toBeInTheDocument();
   });
 
-  it('signs directly when the newsletter gate stays confirmed', async () => {
+  it('signs directly when the terms registration stays confirmed', async () => {
     mocks.upsertNewsletterSubscriber.mockResolvedValue({
       existed: true,
       id: 'worker@example.com',
@@ -161,7 +177,6 @@ describe('Stabio-Gaggiolo petition signing flow', () => {
     mocks.signStabioDossoPetition.mockResolvedValue({ success: true, signed: true });
 
     render(<StabioDossoPetitionPage />);
-    fireEvent.click(screen.getByRole('checkbox'));
     fireEvent.click(screen.getByRole('button', { name: 'Invia la mia firma' }));
 
     await waitFor(() => expect(mocks.signStabioDossoPetition).toHaveBeenCalledWith(

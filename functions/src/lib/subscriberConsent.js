@@ -1,14 +1,14 @@
 /**
- * subscriberConsent.js — the one place that answers "may we mail this person?"
- * from the RECORD of their consent rather than from the word in `status`.
+ * subscriberConsent.js — the one place that answers whether a row carries a
+ * durable double-opt-in proof. Ordinary communications do NOT use this proof
+ * as a delivery gate; their recipients are selected from the subscription
+ * relationship and the shared suppression predicates.
  *
  * Companion to `emailSuppression.js`, and deliberately separate from it: that
- * module is a vocabulary of `status` strings (who has opted OUT), this one is
- * the evidence that somebody ever opted IN. #5677 measured that the two
- * questions do not answer each other, and #5686 is what happens when one is
- * used as if it did — `scripts/send-newsletter.mjs` shipped a weekly campaign
- * to every non-excluded row, `pending` included, on the strength of a comment
- * claiming that "clicking a link auto-confirms them". No code ever did that.
+ * module owns the delivery stop conditions, while this one is the evidence
+ * used by the confirmation-request and audit paths. A missing proof
+ * is therefore not a reason for the ordinary newsletter, job-alert or
+ * third-party senders to drop an otherwise subscribed row.
  *
  * MOVED HERE from `services/subscriberConsent.mjs` by #5692, following that
  * file's own instruction: "If a Cloud Function ever needs this gate, move the
@@ -39,6 +39,13 @@ function readField(row, ...fields) {
  * by the Admin SDK path only; browser writes are guarded in firestore.rules.
  */
 export const CONFIRMATION_LINK_PROOF = 'confirmation_link';
+
+/**
+ * Purpose recorded by the shared communications checkbox. Keep this value in
+ * the canonical consent reader too: senders must not infer the saved-jobs
+ * channel from a generic confirmation stamp or from a profile default.
+ */
+export const UNIFIED_EMAIL_CONSENT_PURPOSE = 'unified_email_channels';
 
 /**
  * Whether an append-only event is the server-recorded double-opt-in click.
@@ -74,7 +81,7 @@ export function hasConfirmationStamp(row) {
 }
 
 /**
- * The recorded proof that this address may receive marketing mail.
+ * The recorded proof that this address completed the double opt-in.
  *
  * `confirmed_at` / `confirmedAt` are the durable proof anchor. For records
  * whose provenance is an authentication path, the anchor is valid only when
@@ -121,13 +128,11 @@ export function hasConfirmationStamp(row) {
  * documents have already confirmed, and a cycle that expired them would close
  * 848 real subscriptions.
  *
- * The marketing gate keys on this proof and never on the word. Blocking every
- * `pending` row instead would have silently dropped 535 people who had
- * confirmed (496 of them with the `confirm` event still in their event log)
- * along with the 561 who never did — which is also why `pending` must NOT be
- * added to `NEWSLETTER_EXCLUDED_STATUSES`: that Set is shared with the sunset
- * and win-back channels, whose whole purpose is reaching people the ordinary
- * campaigns no longer may.
+ * Delivery no longer keys ordinary communications on this proof. The
+ * confirmation-request readers still use it to distinguish a completed DOI
+ * from an unanswered request; `pending` must NOT be added to
+ * `NEWSLETTER_EXCLUDED_STATUSES`, because that set owns delivery suppression
+ * and not consent evidence.
  * @param {({doc?: object} & Record<string, unknown>) | null | undefined} row
  *   Either a raw Firestore row or a projection carrying the raw one on `.doc`;
  *   both spellings of the stamp are read on either level, and a caller may pass
@@ -156,4 +161,35 @@ export function hasConfirmationProof(row) {
     return false;
   }
   return true;
+}
+
+/**
+ * Compatibility predicate for callers that used to model a confirmation gate.
+ *
+ * There is deliberately no proof gate for base communications: neither legacy
+ * rows nor new registrations wait for `confirmed_at`. Callers still have to
+ * apply their channel's unsubscribe, explicit opt-out, hard suppression and
+ * cadence rules. Keeping this no-op export makes an accidental old import
+ * fail open rather than silently dropping the whole pending audience.
+ *
+ * @param {({doc?: object} & Record<string, unknown>) | null | undefined} row
+ * @returns {boolean}
+ */
+export function isBaseCommunicationsReady(_row) {
+  return true;
+}
+
+/**
+ * Whether the confirmed relationship came from the displayed, unified email
+ * choice. This enables recurring feature emails whose concrete content is
+ * determined later (for example a digest of jobs the person actually saved),
+ * while keeping historical channel-specific proof out of that audience.
+ *
+ * @param {({doc?: object} & Record<string, unknown>) | null | undefined} row
+ * @returns {boolean}
+ */
+export function hasUnifiedEmailConsent(row) {
+  if (!hasConfirmationProof(row)) return false;
+  return String(readField(row, 'consent_purpose', 'consentPurpose') || '').trim().toLowerCase()
+    === UNIFIED_EMAIL_CONSENT_PURPOSE;
 }

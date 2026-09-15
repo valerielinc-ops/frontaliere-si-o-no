@@ -19,6 +19,7 @@ import {
   planJobAlertConsentUpgrade,
   type UpgradeSkipReason,
 } from './jobAlertConsentUpgrade';
+import { isCrossChannelStop } from './emailSuppression.mjs';
 import { normalizeKeyword, stripKeywordEmoji } from './jobAlertKeyword';
 export { normalizeKeyword, stripKeywordEmoji } from './jobAlertKeyword';
 
@@ -81,6 +82,13 @@ export interface JobAlertConfig {
   /** Physical act that created this alert, when specialised. */
   consentAct?: string | null;
   /**
+   * Legacy consent metadata retained for old alert documents. New alerts are
+   * linked to the central terms-based email relationship; the relationship is
+   * active at registration and is blocked only by an explicit stop or address
+   * suppression.
+   */
+  emailConsent?: import('./newsletterSubscribers').UnifiedEmailConsentInput | null;
+  /**
    * Desired minimum monthly NET salary (CHF), prefilled from the calculator
    * simulation when the alert is created from the results view (issue #4469 —
    * "avvisami per offerte con netto ≥ X"). Stored as the user's salary
@@ -99,6 +107,8 @@ export interface JobAlert extends JobAlertConfig {
   createdAt: Date;
   lastMatchedAt: Date | null;
   matchCount: number;
+  /** Legacy flag retained when reading alert documents written by older code. */
+  requiresEmailConfirmation?: boolean;
 }
 
 // ── Constants ────────────────────────────────────────────────
@@ -248,6 +258,8 @@ function alertFromStoredData(
     minNetMonthlyCHF: normalizeMinNet(data.minNetMonthlyCHF),
     consentPurpose: data.consent_purpose ?? fallback.config.consentPurpose ?? null,
     consentAct: data.consent_act ?? fallback.config.consentAct ?? null,
+    requiresEmailConfirmation: data.requires_email_confirmation === true
+      || fallback.config.emailConsent != null,
     active: data.active !== false,
     createdAt,
     lastMatchedAt: data.lastMatchedAt ? dateFromAlertValue(data.lastMatchedAt, createdAt) : null,
@@ -310,6 +322,40 @@ export async function createAlert(
   } = await import('firebase/firestore');
 
   const normalizedEmail = normalizeEmail(email);
+  const subscriberRef = doc(db, SUBSCRIBERS_COLLECTION, normalizedEmail);
+  const emailSubscriberRef = doc(db, 'newsletter_subscribers', normalizedEmail);
+  // Every alert action also ensures the base newsletter + job-alert
+  // relationship exists. The terms-based registration is shared by the
+  // newsletter, job board and all one-tap alert surfaces; this service only
+  // adds the concrete alert criteria.
+  const { upsertUnifiedEmailSubscriber } = await import('./newsletterSubscribers');
+  await upsertUnifiedEmailSubscriber(db, {
+    ...(config.emailConsent || {
+      email: normalizedEmail,
+      source: config.specificCompanyKey ? 'company_follow' : 'job_alert',
+      sourceChannel: config.specificCompanyKey ? 'company_follow_unified' : 'job_gate',
+      sourcePage: typeof window !== 'undefined' ? window.location.pathname : null,
+      sourceComponent: 'jobAlertService',
+      sourceRouteFamily: 'job-alert',
+      jobContext: {
+        slug: config.sourceJobSlug || null,
+        title: config.sourceJobTitle || null,
+      },
+    }),
+    email: normalizedEmail,
+    userId,
+    locale: config.locale,
+  });
+  const latestSubscriber = await getDoc(emailSubscriberRef);
+  const latestSubscriberData = latestSubscriber.exists()
+    ? latestSubscriber.data() as Record<string, any>
+    : null;
+  // An explicit newsletter unsubscribe is an opt-out from ordinary email, so
+  // creating or reactivating a concrete job alert cannot bypass it. Internal
+  // lifecycle states remain separate; the shared predicate owns the stop rule.
+  if (isCrossChannelStop(latestSubscriberData)) {
+    throw new Error('job-alert/email-suppressed');
+  }
   const canonicalSpecificCompanyKey = config.specificCompanyKey
     ? companyAlertKey(config.specificCompanyKey)
     : null;
@@ -319,7 +365,6 @@ export async function createAlert(
     config,
     canonicalSpecificCompanyKey,
   );
-  const subscriberRef = doc(db, SUBSCRIBERS_COLLECTION, normalizedEmail);
   const alertsRef = collection(subscriberRef, ALERTS_SUBCOLLECTION);
   const deterministicRef = doc(alertsRef, `intent_${idempotencyKey}`);
   const deterministicSnap = await getDoc(deterministicRef);
@@ -690,6 +735,7 @@ export async function subscribeJobAlertOneTap(
   locale: 'it' | 'en' | 'de' | 'fr',
   source?: JobAlertSource,
   cantonCode?: string | null,
+  emailConsent?: import('./newsletterSubscribers').UnifiedEmailConsentInput | null,
 ): Promise<JobAlert> {
   const config: JobAlertConfig = {
     keywords: [stripKeywordEmoji(category)],
@@ -702,6 +748,7 @@ export async function subscribeJobAlertOneTap(
     sourceJobSlug: source?.slug ?? null,
     sourceJobUrl: source?.url ?? null,
     sourceJobTitle: source?.title ?? null,
+    emailConsent,
   };
   return createAlert(userId, email, config);
 }
@@ -751,9 +798,13 @@ export async function subscribeSalaryAlert(
     cantonCode?: string | null;
     minNetMonthlyCHF?: number | null;
     locale: 'it' | 'en' | 'de' | 'fr';
+    emailConsent?: import('./newsletterSubscribers').UnifiedEmailConsentInput | null;
   },
 ): Promise<JobAlert> {
-  return createAlert(userId, email, buildSalaryAlertConfig(opts));
+  return createAlert(userId, email, {
+    ...buildSalaryAlertConfig(opts),
+    emailConsent: opts.emailConsent,
+  });
 }
 
 /**
@@ -802,6 +853,7 @@ export async function subscribeCompanyAlert(
   company: { name: string; companyKey?: string | null },
   locale: 'it' | 'en' | 'de' | 'fr',
   source?: JobAlertSource,
+  emailConsent?: import('./newsletterSubscribers').UnifiedEmailConsentInput | null,
 ): Promise<JobAlert> {
   const key = companyAlertKey(company.name, company.companyKey || undefined);
   if (!key) throw new Error('subscribeCompanyAlert: empty company name.');
@@ -827,12 +879,13 @@ export async function subscribeCompanyAlert(
     sourceJobSlug: source?.slug ?? null,
     sourceJobUrl: source?.url ?? null,
     sourceJobTitle: source?.title ?? null,
+    emailConsent,
   };
   const alert = await createAlert(userId, email, config);
-  // The anonymous double-opt-in path leaves this marker on the newsletter
-  // subscriber until the alert is actually persisted. Do not clear it before
-  // the idempotent write resolves, otherwise an ambiguous response could lose
-  // the only retryable intent.
+  // The anonymous access path leaves this marker on the newsletter subscriber
+  // until the alert is actually persisted. Do not clear it before the
+  // idempotent write resolves, otherwise an ambiguous response could lose the
+  // only retryable intent.
   const db = await getDb();
   const { doc, getDoc, updateDoc } = await import('firebase/firestore');
   const subscriberRef = doc(db, 'newsletter_subscribers', normalizeEmail(email));
@@ -890,6 +943,7 @@ export async function subscribeJobAlertForJob(
   jobId: string,
   locale: 'it' | 'en' | 'de' | 'fr',
   source?: JobAlertSource,
+  emailConsent?: import('./newsletterSubscribers').UnifiedEmailConsentInput | null,
 ): Promise<JobAlert> {
   const config: JobAlertConfig = {
     keywords: [],
@@ -904,6 +958,7 @@ export async function subscribeJobAlertForJob(
     sourceJobSlug: source?.slug ?? null,
     sourceJobUrl: source?.url ?? null,
     sourceJobTitle: source?.title ?? null,
+    emailConsent,
   };
   return createAlert(userId, email, config);
 }

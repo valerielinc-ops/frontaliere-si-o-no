@@ -49,6 +49,7 @@ import { calculateEngagementScore } from '../../functions/src/lib/engagementScor
 import { SUNSET_MIN_SENDS, SUNSET_MIN_AGE_DAYS } from './subscriberSunset.mjs';
 import { toMillis } from './firestoreTimestamp.mjs';
 import { isNewsletterOptOutBinding } from '../../services/newsletterOptOut.mjs';
+import { isCrossChannelStop } from '../../services/emailSuppression.mjs';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
@@ -107,6 +108,12 @@ function firstSeenMillis(sub) {
  */
 export function classifyDormantWinback(sub, nowMs) {
   const status = norm(sub?.status);
+  // A global stop-all or hard address signal cannot be reopened by a
+  // lifecycle classifier. Keep this before engagement scoring and the
+  // reactivation branches so no win-back or re-probe can bypass it.
+  if (isCrossChannelStop(sub)) {
+    return { action: 'none', reason: 'global/address suppression — not a lifecycle candidate' };
+  }
   const { level } = calculateEngagementScore(sub);
 
   // Same first question as classifySunset, for the same reason: MAILABLE_STATUSES

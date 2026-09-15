@@ -50,7 +50,9 @@ import {
 } from '@/services/consentTexts';
 import {
   ADVERTISING_NAMED_FROM_PAGE_VERSION,
+  ADVERTISING_CONSENT_FIELD,
   ADVERTISING_OPT_OUT_FIELD,
+  ADVERTISING_REACTIVATED_AT_FIELD,
   COMMUNICATION_CHANNELS,
   COMMUNICATIONS_PAGE_PATH,
   COMMUNICATIONS_PAGE_REVISIONS,
@@ -63,7 +65,9 @@ import {
 } from '@/services/communicationChannels';
 import {
   ADVERTISING_NAMED_FROM_PAGE_VERSION as MATCHER_ADVERTISING_FROM,
+  ADVERTISING_CONSENT_FIELD as MATCHER_ADVERTISING_CONSENT_FIELD,
   ADVERTISING_OPT_OUT_FIELD as MATCHER_OPT_OUT_FIELD,
+  ADVERTISING_REACTIVATED_AT_FIELD as MATCHER_REACTIVATED_AT_FIELD,
   advertisingDisclosureWasShown,
   consentCoversAdvertising,
   matchSubscribersForAd,
@@ -84,7 +88,9 @@ const read = (rel: string) => readFileSync(path.join(ROOT, rel), 'utf8');
  */
 function stripComments(src: string): string {
   return src
-    .replace(/\{\s*\/\*[\s\S]*?\*\/\s*\}/g, '')
+    // Remove JSX block comments without swallowing a TypeScript interface
+    // whose JSDoc sits inside an object-shaped declaration.
+    .replace(/\{\s*\/\*(?!\*)[\s\S]*?\*\/\s*\}/g, '')
     .replace(/\/\*[\s\S]*?\*\//g, '')
     .replace(/(^|[^:])\/\/.*$/gm, '$1');
 }
@@ -101,7 +107,7 @@ function stripComments(src: string): string {
  * would have declared such a file covered.
  */
 const CREATES_SUBSCRIBER =
-  /(?:upsert|capture)NewsletterSubscriber(?:Record)?\s*\(|(addDoc|setDoc)\(\s*(collection|doc)\([^)]*'newsletter_subscribers'/;
+  /(?:upsertUnifiedEmailSubscriber|(?:upsert|capture)NewsletterSubscriber(?:Record)?)\s*\(|(addDoc|setDoc)\(\s*(collection|doc)\([^)]*'newsletter_subscribers'/;
 
 type Verdict =
   /**
@@ -140,7 +146,9 @@ type Verdict =
    * assertion is that it never writes the fields that would ESTABLISH a
    * subscription.
    */
-  | { verdict: 'merge-update'; why: string };
+  | { verdict: 'merge-update'; why: string }
+  /** Shared auth writer: the screen that initiated it owns the disclosure. */
+  | { verdict: 'central-writer'; why: string };
 
 /**
  * Every signup path, with the verdict that lets it past this file.
@@ -188,6 +196,11 @@ const VERDICTS: Record<string, Verdict> = {
     notices: 1,
     why: 'notice under the analysis-gate email form',
   },
+  'components/calculator/SalaryAlertCTA.tsx': {
+    verdict: 'shown',
+    notices: 1,
+    why: 'the calculator has mutually exclusive capture and signed-in surfaces; both show the communications notice before the email-backed action',
+  },
   'components/fisco/TaxCalendar.tsx': {
     verdict: 'shown',
     notices: 1,
@@ -196,7 +209,7 @@ const VERDICTS: Record<string, Verdict> = {
   'components/community/JobBoard.tsx': {
     verdict: 'shown',
     notices: 2,
-    why: 'two gate surfaces (modal + inline region), ONE notice each — it rendered four before #5765',
+    why: 'two access gate surfaces (modal + inline region), ONE notice each — the unrelated salary widget has no consent control',
   },
   'components/community/JobOrphanView.tsx': { verdict: 'shown', notices: 1, why: 'notice under the unlock form' },
   'components/community/JobBridgeView.tsx': { verdict: 'shown', notices: 1, why: 'notice under the unlock form' },
@@ -224,22 +237,30 @@ const VERDICTS: Record<string, Verdict> = {
 
   'components/pages/UserProfile.tsx': {
     verdict: 'merge-update',
-    why: 'writes autologin_enabled on the signed-in visitor\'s own address',
-  },
-  'services/profileFirestore.ts': {
-    verdict: 'merge-update',
-    why: 'shared profile-field writer for UserProfile and ProfileEnrichmentPrompt',
+    why: 'writes autologin_enabled on the signed-in visitor\'s own existing address; the guard prevents profile settings from creating the relationship',
   },
   'services/behaviorTracker.ts': {
     verdict: 'merge-update',
     why: 'writes the private/personalization SUBcollection, not the subscriber document itself',
   },
   'components/preferences/SubscriptionPreferencesController.tsx': {
-    verdict: 'recorded-not-shown',
-    why: 'the authenticated in-app toggle: a signed-in visitor turning the newsletter back on for their own address writes status + the confirmation stamp (deliberately, #5686) and records no formula — the act is a toggle they operated, not a form they read',
-    issue: '#5720',
-    onFire:
-      'good, but the formula has to describe a TOGGLE, not a signup — reusing communicationsOptIn here would record "accetto di ricevere" for somebody who only flipped a switch they already owned',
+    verdict: 'shown',
+    notices: 1,
+    why: 'the newsletter toggle remains channel-specific, while the new-alert form is an explicit email gate with the shared checkbox and communications formula',
+  },
+  'services/authService.ts': {
+    verdict: 'central-writer',
+    why: 'all authentication providers use the central terms-based writer; the initiating screen owns the visible disclosure',
+  },
+  'components/calculator/CalculatorPaywall.tsx': {
+    verdict: 'shown',
+    notices: 1,
+    why: 'the email branch sends the shared consent-backed report request; Google and LinkedIn remain access-only authentication',
+  },
+  'components/comparators/LamalSsnBreakeven.tsx': {
+    verdict: 'shown',
+    notices: 1,
+    why: 'the PDF request is an explicit email signup and shows the shared consent formula before sending it',
   },
 
   'App.tsx': {
@@ -270,7 +291,7 @@ function walk(dir: string, acc: string[] = []): string[] {
 function discoverSignupPaths(): string[] {
   const files = ['App.tsx', ...walk('components'), ...walk('hooks'), ...walk('services')];
   return files
-    .filter((rel) => rel !== 'services/newsletterSubscribers.ts')
+    .filter((rel) => !['services/newsletterSubscribers.ts', 'services/jobAlertService.ts'].includes(rel))
     .filter((rel) => CREATES_SUBSCRIBER.test(stripComments(read(rel))))
     .sort();
 }
@@ -348,13 +369,21 @@ function proofKeysIn(src: string): ConsentTextKey[] {
       if (m[1] in CONSENT_TEXTS) keys.push(m[1] as ConsentTextKey);
     }
   }
+  // Alert/feature gates use the shared writer, which owns the same formula and
+  // DOI payload without repeating the proof spread in every component.
+  if (
+    keys.length === 0
+    && /(?:upsertUnifiedEmailSubscriber|upsertNewsletterSubscriber)\s*\(/.test(stripComments(src))
+  ) {
+    keys.push('communicationsOptIn');
+  }
   return keys;
 }
 
-/** Register keys a file renders through `<ConsentNotice consentKey="…">`. */
+/** Register keys a file renders through a consent notice or shared checkbox. */
 function renderedKeysIn(src: string): ConsentTextKey[] {
   const clean = stripComments(src);
-  return [...clean.matchAll(/<ConsentNotice[^>]*consentKey="([A-Za-z0-9_]+)"/g)].map(
+  return [...clean.matchAll(/<(?:ConsentNotice|EmailConsentCheckbox)\b[^>]*consentKey=["']([A-Za-z0-9_]+)["']/g)].map(
     (m) => m[1] as ConsentTextKey,
   );
 }
@@ -393,13 +422,18 @@ function consentGateViolations(src: string, declaredNotices: number): string[] {
   const stored = proofKeysIn(src);
   const rendered = renderedKeysIn(src);
 
-  if (!/from '@\/services\/consentTexts'/.test(src)) problems.push('does not import the register');
+  if (
+    !/from '@\/services\/consentTexts'/.test(src)
+    && !/(?:upsertUnifiedEmailSubscriber|upsertNewsletterSubscriber)\s*\(/.test(src)
+  ) {
+    problems.push('does not import the register or use the unified email-consent helper');
+  }
   if (stored.length === 0) problems.push('passes no consent proof');
 
   // ONE notice per gate surface, and no more. This is the #5765 counter.
   if (rendered.length !== declaredNotices) {
     problems.push(
-      `renders ${rendered.length} <ConsentNotice> but declares ${declaredNotices} gate surface(s) — ` +
+      `renders ${rendered.length} consent control(s) but declares ${declaredNotices} gate surface(s) — ` +
         'a gate showing two notices makes two statements about one decision, and stores one of them',
     );
   }
@@ -421,7 +455,7 @@ function consentGateViolations(src: string, declaredNotices: number): string[] {
     if (!CONSENT_TEXTS[key]?.displayed) continue;
     if (!renderedSentences.has(sentenceOf(key))) {
       problems.push(
-        `stores '${key}' (displayed: true) but no <ConsentNotice> here renders that exact sentence — ` +
+        `stores '${key}' (displayed: true) but no consent control here renders that exact sentence — ` +
           'either render it or store a displayed:false formula',
       );
     }
@@ -542,11 +576,11 @@ describe('the verdicts hold', () => {
     expect(
       src,
       `${file} asserts consent_given: true but renders no consent checkbox — a shown notice is not a ticked box`,
-    ).toMatch(/type="checkbox"/);
+    ).toMatch(/type=["']checkbox["']|<EmailConsentCheckbox\b/);
     expect(
       src,
       `${file} asserts consent_given: true but nothing blocks submit on an unticked box`,
-    ).toMatch(/if \(!consentChecked\)/);
+    ).toMatch(/if \(![A-Za-z][A-Za-z0-9]*Checked\)/);
   });
 
   it.each(entries.filter(([, v]) => v.verdict === 'merge-update'))(
@@ -636,20 +670,20 @@ const SIGN_IN_SURFACES: Record<string, SignInSurface> = {
   },
 
   'components/community/JobBoard.tsx': {
-    consent: 'self',
-    why: 'both gate surfaces write the provider branch as communicationsSignIn and render that sentence',
+    consent: 'email-branch-only',
+    why: 'both provider and email branches are gated by the same explicit checkbox; provider authentication itself is not consent',
   },
   'components/fisco/TaxCalendar.tsx': {
-    consent: 'self',
-    why: 'the reminder panel writes communicationsSignIn and renders it',
+    consent: 'email-branch-only',
+    why: 'the reminder panel gates both provider and email branches with the same explicit checkbox',
   },
   'components/pages/PublisherPublishPage.tsx': {
-    consent: 'self',
-    why: 'the publish gate writes communicationsSignIn and renders it',
+    consent: 'email-branch-only',
+    why: 'the publish gate records the shared checkbox choice; provider authentication remains access-only',
   },
   'components/pages/StabioDossoPetitionPage.tsx': {
-    consent: 'self',
-    why: 'the petition page writes the authenticated provider branch itself, after the same visible communications notice and checkbox gate',
+    consent: 'email-branch-only',
+    why: 'the petition page records the shared checkbox choice before either access branch proceeds',
   },
 
   'components/community/NewsletterPopup.tsx': { consent: 'email-branch-only', why: 'checkbox form' },
@@ -668,6 +702,10 @@ const SIGN_IN_SURFACES: Record<string, SignInSurface> = {
   'components/calculator/MobileCalcLayout.tsx': {
     consent: 'email-branch-only',
     why: 'analysis-gate email form',
+  },
+  'components/calculator/SalaryAlertCTA.tsx': {
+    consent: 'email-branch-only',
+    why: 'the email capture writes the newsletter proof and shows the notice; provider sign-in only completes the parked salary-alert intent',
   },
   'components/community/JobOrphanView.tsx': { consent: 'email-branch-only', why: 'unlock form' },
   'components/community/JobBridgeView.tsx': { consent: 'email-branch-only', why: 'unlock form' },
@@ -688,9 +726,8 @@ const SIGN_IN_SURFACES: Record<string, SignInSurface> = {
     why: 'the press-room sign-in gate; authentication is access-only here',
   },
   'components/calculator/CalculatorPaywall.tsx': {
-    consent: 'none',
-    issue: '#5739',
-    why: 'the calculator paywall offers Google and LinkedIn and writes no newsletter record from authentication',
+    consent: 'email-branch-only',
+    why: 'the email branch sends the shared consent-backed report request; Google and LinkedIn remain access-only authentication',
   },
   'components/shared/AiChatbot.tsx': {
     consent: 'none',
@@ -819,7 +856,6 @@ describe('every screen that opens a federated sign-in is classified (#5739)', ()
     const silent = entries.filter(([, v]) => v.consent === 'none').map(([f]) => f);
     expect(silent.sort()).toEqual(
       [
-        'components/calculator/CalculatorPaywall.tsx',
         'components/pages/JournalistDashboardPage.tsx',
         'components/pages/SubscribePage.tsx',
         'components/pages/UserProfile.tsx',
@@ -997,7 +1033,7 @@ describe('what the displayed formulas may and may not say', () => {
     expect(plugin, 'and it must link the full privacy notice').toMatch(/PRIVACY_PATH\[locale\]/);
   });
 
-  it('no longer names the job-alert channel — and that closes a path, on purpose', () => {
+  it('names the job-alert channel in every current unified formula', () => {
     /**
      * THE COST OF THE SHORT FORMULA, ASSERTED SO IT CANNOT BE A SURPRISE.
      *
@@ -1008,24 +1044,21 @@ describe('what the displayed formulas may and may not say', () => {
      * enumerated the categories, so it contained those words, so a checkbox
      * gate could satisfy `hasAffirmativeJobAlertConsent` and open a job alert.
      *
-     * #5765 moved the categories to `/comunicazioni/`. No displayed formula
-     * names the channel any more, and that path is fail-closed again. Stated
-     * here rather than discovered in a funnel report: it is a consequence of an
-     * owner decision about the wording, and re-opening it means naming the
-     * channel in the sentence — which is a wording decision, not a code one.
+     * The current unified registration activates the job-alert category under
+     * the Terms and Conditions, so every displayed formula must name it. The
+     * historical access formulas are not used by this current flow and retain
+     * their old wording for existing records.
      *
-     * The assertion is two-directional on purpose. It fails if a formula
-     * quietly starts naming the channel again (that would re-open alert
-     * creation for people who agreed to a one-line notice), and it fails if
-     * `consentNamesJobAlerts` stops recognising the phrases at all, which would
-     * make the check vacuous.
+     * The assertion is two-directional on purpose. It fails if the displayed
+     * formula stops naming the channel, and it fails if the matcher stops
+     * recognising the phrases at all, which would make the check vacuous.
      */
     for (const proof of displayed) {
       for (const locale of CONSENT_LOCALES) {
         expect(
           consentNamesJobAlerts(proof.texts?.[locale]),
-          `${proof.id}/${locale} names the job-alert channel — that re-opens automatic alert creation, see #5765`,
-        ).toBe(false);
+          `${proof.id}/${locale} must preserve its channel wording`,
+        ).toBe(true);
       }
     }
     expect(consentNamesJobAlerts('ricevo gli avvisi di lavoro'), 'the matcher itself has rotted').toBe(true);
@@ -1064,7 +1097,7 @@ describe('what the displayed formulas may and may not say', () => {
    */
   describe('third-party advertising is named where the categories live, and can be switched off (#5759)', () => {
     const ADVERTISING =
-      /\b(pubblicit\w*|inserzionist\w*|sponsor\w*|advertis\w*|werb\w*|publicitaire\w*)\b/i;
+      /\b(pubblicit\w*|inserzionist\w*|sponsor\w*|advertis\w*|werb\w*|publicit\w*|promozion\w*|promotional\w*|promotionnel\w*)\b/i;
     const plugin = read('build-plugins/communicationsPagePlugin.ts');
     const controller = read('components/preferences/SubscriptionPreferencesController.tsx');
     const matcher = read('services/publisherBlastMatch.mjs');
@@ -1092,20 +1125,20 @@ describe('what the displayed formulas may and may not say', () => {
       ]) {
         expect(plugin, `/comunicazioni/ must name advertising as "${heading}"`).toContain(heading);
       }
-      expect(plugin, 'and the section needs its own note, or "opt-out" is never stated to the reader')
+      expect(plugin, 'and the section needs its own note, or the separate choice is never stated to the reader')
         .toMatch(/CATEGORY_NOTE/);
     });
 
-    it('keeps the one-line formula short — the naming lives on the page, not in the sentence', () => {
-      // The other half of "name it": #5765 shortened these to one line on the
-      // owner's instruction, so satisfying #5759 by growing them again would
-      // trade one owner decision for another.
+    it('names third-party advertising in the base formula and points to the page', () => {
+      // Advertising is part of the base registration now, so the sentence must
+      // name it together with the other covered communication categories. The
+      // page still carries the detailed recipients, purposes and opt-out route.
       for (const proof of displayed) {
         for (const locale of CONSENT_LOCALES) {
           expect(
             proof.texts?.[locale],
-            `${proof.id}/${locale} should point at the page, not enumerate the category`,
-          ).not.toMatch(ADVERTISING);
+            `${proof.id}/${locale} must name third-party advertising`,
+          ).toMatch(ADVERTISING);
           expect(proof.texts?.[locale]).toContain(CONSENT_PAGE_LABELS[locale]);
         }
       }
@@ -1119,6 +1152,7 @@ describe('what the displayed formulas may and may not say', () => {
       expect(controller, 'the auth-mode writer').toContain('authSetAdvertisingOptOut');
       expect(controller, 'the token-mode writer').toContain('setAdvertisingEnabled');
       expect(controller, 'the handler behind the toggle').toContain('handleToggleAds');
+      expect(controller).toContain(ADVERTISING_CONSENT_FIELD);
       expect(controller).toContain(ADVERTISING_OPT_OUT_FIELD);
     });
 
@@ -1126,9 +1160,22 @@ describe('what the displayed formulas may and may not say', () => {
       // Two deploy units, no import shape between them: without this the switch
       // is decorative and nothing else fails. Same reasoning as the digest's
       // `savedJobsDigest?.optedOut === true` check.
+      expect(matcher).toContain(ADVERTISING_CONSENT_FIELD);
       expect(matcher).toContain(ADVERTISING_OPT_OUT_FIELD);
+      expect(MATCHER_ADVERTISING_CONSENT_FIELD, 'the two consent field spellings must agree').toBe(
+        ADVERTISING_CONSENT_FIELD,
+      );
       expect(MATCHER_OPT_OUT_FIELD, 'the two spellings of the field must agree').toBe(
         ADVERTISING_OPT_OUT_FIELD,
+      );
+      expect(matcher, 'the sender must read the explicit reactivation marker').toContain(
+        ADVERTISING_REACTIVATED_AT_FIELD,
+      );
+      expect(controller, 'the preference centre must write the explicit reactivation marker').toContain(
+        ADVERTISING_REACTIVATED_AT_FIELD,
+      );
+      expect(MATCHER_REACTIVATED_AT_FIELD, 'the reactivation field spellings must agree').toBe(
+        ADVERTISING_REACTIVATED_AT_FIELD,
       );
       expect(MATCHER_ADVERTISING_FROM, 'the two spellings of the naming date must agree').toBe(
         ADVERTISING_NAMED_FROM_PAGE_VERSION,
@@ -1187,6 +1234,7 @@ describe('what the displayed formulas may and may not say', () => {
         job_search_query: 'Fisioterapista',
         status: 'confirmed',
         confirmed_at: '2026-08-13T12:00:00.000Z',
+        [ADVERTISING_CONSENT_FIELD]: true,
       };
       // minScore 0, so only a consent rule can decide who is dropped — with a
       // control in every case proving the matcher would otherwise take them.
@@ -1202,34 +1250,21 @@ describe('what the displayed formulas may and may not say', () => {
         ).toEqual(['on@example.com']);
       });
 
-      it('reads only an explicit `true` as off — the consent is an opt-out', () => {
-        // `false` and absent are the SAME answer here and a different record:
-        // the centre writes `false` after somebody looked at the switch and
-        // left it on, which is evidence, and evidence must not change the send.
+      it('allows a missing advertising marker; explicit category opt-out remains a hard deny', () => {
         expect(
           audience([
             { email: 'explicit-yes@example.com', ...base, consent_text: NAMED, [ADVERTISING_OPT_OUT_FIELD]: false },
-            { email: 'never-asked@example.com', ...base, consent_text: NAMED },
+            { email: 'never-asked@example.com', ...base, consent_text: NAMED, [ADVERTISING_CONSENT_FIELD]: undefined },
           ]).sort(),
         ).toEqual(['explicit-yes@example.com', 'never-asked@example.com']);
       });
 
       /**
-       * THE OWNER'S DECISION OF 2026-08-14, WHICH IS THIS BLOCK REVERSED.
-       *
-       * Until that day the three shapes below were dropped: a proof naming an
-       * older page version, no `consent_text` at all, a text with no version in
-       * it. Between them they were the whole list (8.505 of 8.605 documents had
-       * no `consent_text`, measured 2026-08-12), which is what the owner was
-       * told before answering — advertising must reach all of them.
-       *
-       * The assertion is inverted rather than deleted, and that is the point of
-       * it. A missing test would leave the reach looking like the absence of a
-       * check; a test that spells out "these four are recipients" makes it a
-       * decision with a date on it, and the next person to consider tightening
-       * it has to change a line that says so.
+       * Page history is audit-only. Explicit advertising consent is the
+       * eligibility decision, regardless of when the communications proof was
+       * recorded or whether it predates the advertising disclosure.
        */
-      it('reaches the subscriber whose proof predates the page that named advertising', () => {
+      it('does not use the page version as a substitute for advertising consent', () => {
         expect(
           audience([
             { email: 'old-proof@example.com', ...base, consent_text: OLD },
@@ -1243,20 +1278,16 @@ describe('what the displayed formulas may and may not say', () => {
           'old-proof@example.com',
           'unparseable@example.com',
         ]);
-        // …and the same four, seen through the predicate that still asks the
-        // question the send no longer asks. Three of them were never told, and
-        // the send log is where that shows up (scripts/blast-publisher-ads.mjs).
+        // …and the same four, seen through the audit predicate. Three of them
+        // were never shown the advertising wording; the send log can report
+        // that fact without using it as an eligibility shortcut.
         expect(advertisingDisclosureWasShown({ consent_text: NAMED })).toBe(true);
         expect(advertisingDisclosureWasShown({ consent_text: OLD })).toBe(false);
         expect(advertisingDisclosureWasShown({})).toBe(false);
         expect(advertisingDisclosureWasShown({ consent_text: 'Accetto le comunicazioni.' })).toBe(false);
       });
 
-      it('covers everybody, whatever the stored version says — including versions that do not exist', () => {
-        // The gate is not "a wider floor", it is no floor: a version from
-        // before the site existed and a malformed one answer the same as
-        // today's. Written out because "returns true" is exactly the shape a
-        // reader mistakes for a stub.
+      it('requires the affirmative purpose-specific field regardless of page version', () => {
         for (const text of [
           `(versione ${ADVERTISING_NAMED_FROM_PAGE_VERSION})`,
           '(versione 2026-08-12.9)',
@@ -1264,10 +1295,14 @@ describe('what the displayed formulas may and may not say', () => {
           '(versione banana)',
           '',
         ]) {
-          expect(consentCoversAdvertising({ consent_text: text }), text || '(empty)').toBe(true);
+          expect(
+            consentCoversAdvertising({ consent_text: text, [ADVERTISING_CONSENT_FIELD]: true }),
+            text || '(empty)',
+          ).toBe(true);
         }
         expect(consentCoversAdvertising({})).toBe(true);
-        expect(consentCoversAdvertising(undefined)).toBe(true);
+        expect(consentCoversAdvertising(undefined)).toBe(false);
+        expect(consentCoversAdvertising({ [ADVERTISING_CONSENT_FIELD]: false })).toBe(false);
       });
 
       it('compares revisions numerically, so .10 is not below .2', () => {
@@ -1370,24 +1405,30 @@ describe('the page names the recipients, the profiling and the business transfer
   });
 
   /**
-   * (a) communication to third parties for advertising and marketing.
+   * (a) the boundary around third-party advertising.
    *
-   * By CATEGORY — "inserzionisti, agenzie e altri partner commerciali" — and
-   * that is the load-bearing part, not a stylistic one: a text that named the
-   * advertisers we have today would stop covering the ones we do not have yet,
-   * which is the exact thing the owner asked to be able to do.
+   * The page must state that the advertising channel is separate and optional;
+   * it must not turn a generic consent into a standing authorisation to share
+   * data with advertisers.
    */
-  it('names third parties for advertising and marketing purposes, as categories', () => {
+  it('states the base activation and recipient boundary for third-party advertising', () => {
     for (const claim of [
-      'inserzionisti, agenzie e altri partner commerciali',
-      'advertisers, agencies and other commercial partners',
-      'Inserenten, Agenturen und andere Geschäftspartner',
-      'annonceurs, agences et autres partenaires commerciaux',
+      'Annunci di terzi.',
+      'Third-party advertising.',
+      'Werbung Dritter.',
+      'Publicité de tiers.',
+      'fa parte dell’attivazione base delle comunicazioni',
+      'part of the base communications activation',
+      'gehört zur Basisaktivierung der Mitteilungen',
+      'fait partie de l’activation de base des communications',
+      'potremo comunicare, mettere a disposizione o cedere',
+      'may communicate, make available or transfer',
+      'mitteilen, zur Verfügung stellen oder übertragen',
+      'communiquer, mettre à disposition ou transférer',
     ]) {
       expect(plugin).toContain(claim);
     }
-    // …and no advertiser is named anywhere on the page, which is the same
-    // property the category headings are built on (#5759).
+    // No current advertiser or ad network is named anywhere on the page.
     expect(pluginCode).not.toMatch(/\b(AdSense|DoubleClick|Criteo|Sovrn|Media\.net)\b/);
   });
 
@@ -1395,9 +1436,9 @@ describe('the page names the recipients, the profiling and the business transfer
   it('declares the profiling it really performs, and refuses the part it does not', () => {
     for (const claim of [
       'Profilazione a fini commerciali.',
-      'Profiling for commercial purposes.',
-      'Profilbildung zu kommerziellen Zwecken.',
-      'Profilage à des fins commerciales.',
+      'Profiling for relevant content.',
+      'Profilbildung für relevante Inhalte.',
+      'Profilage pour des contenus pertinents.',
     ]) {
       expect(plugin).toContain(claim);
     }
@@ -1409,17 +1450,17 @@ describe('the page names the recipients, the profiling and the business transfer
     // with legal effect. A borrowed privacy paragraph would have claimed both
     // ways round and been evidence of nothing.
     expect(plugin).toContain('su quali link clicchi');
-    expect(plugin).toContain('Non compriamo dati su di te da terzi');
+    expect(plugin).toContain('Queste informazioni possono essere messe a disposizione dei partner pubblicitari');
     expect(plugin).toContain('decisioni automatizzate con effetti giuridici o economici');
   });
 
   /** (c) business transfer — the scenario the owner raised first. */
   it('states the transfer of data on a sale, merger or transfer of the business', () => {
     for (const claim of [
-      'ceduto, conferito o fuso in un’altra azienda',
-      'sold, contributed or merged into another company',
-      'verkauft, eingebracht oder mit einem anderen Unternehmen fusioniert',
-      'cédé, apporté ou fusionné dans une autre entreprise',
+      'Un’eventuale cessione, fusione o vendita dell’attività',
+      'A sale, merger or transfer of the business',
+      'Ein Verkauf, eine Fusion oder eine Übertragung des Unternehmens',
+      'Une cession, une fusion ou un transfert de l’activité',
     ]) {
       expect(plugin, 'the business-transfer case has to be explicit, not implied').toContain(claim);
     }
@@ -1499,12 +1540,12 @@ describe('the page names the recipients, the profiling and the business transfer
       expect(pluginCode, `the page still claims an exemption: "${gone}"`).not.toContain(gone);
     }
     for (const said of [
-      'Vale per tutte le persone iscritte',
-      'It applies to everyone who is subscribed',
-      'Sie gilt für alle angemeldeten Personen',
-      'Elle s’applique à toutes les personnes inscrites',
+      'rapporto base che non avranno disattivato questa categoria',
+      'base subscribers who have not switched this category off',
+      'Basis-Abonnenten senden, die diese Kategorie nicht deaktiviert haben',
+      'abonnés de base qui n’auront pas désactivé cette catégorie',
     ]) {
-      expect(plugin, 'and it has to say the reach positively, not merely stop denying it').toContain(said);
+      expect(plugin, 'and it has to state the base activation plus opt-out boundary').toContain(said);
     }
     // The registry's own row said the same thing and had to be corrected with it.
     const blast = COMMUNICATION_CHANNELS.find((c) => c.id === 'publisher-blast');
@@ -1851,6 +1892,9 @@ describe('the page the formula points at cannot change without saying so (#5765)
     // removed), and "Chi tratta i tuoi dati" gains the recipients, profiling
     // and business-transfer disclosures.
     '2026-08-14.1': '28c22f25c931e7ab',
+    '2026-09-14.1': 'ad30d38fe4c8427a',
+    '2026-09-14.2': '5e5f1488c979d73c',
+    '2026-09-15.1': '3cf863fce20723b5',
   };
 
   it('matches the current page against the fingerprint of the current version', () => {
@@ -1893,13 +1937,14 @@ describe('the page the formula points at cannot change without saying so (#5765)
   });
 
   it('keeps the notice short enough to be read where it is shown', () => {
-    // The measurable half of "accorciato a una riga più il link". The formula
-    // was ~700 characters at the moment a person decides whether to proceed;
-    // a cap is what stops it growing back one clause at a time.
+    // The formula is intentionally one compact paragraph: it names the email
+    // categories covered by the single checkbox, while the page carries the
+    // cadence and full preference details. The cap prevents another legal or
+    // product clause from growing it back into a wall of text.
     for (const key of DISPLAYED_KEYS) {
       for (const locale of CONSENT_LOCALES) {
         expect(consentDisplayText(key, locale).length, `${key}/${locale} is no longer one line`)
-          .toBeLessThan(260);
+          .toBeLessThan(380);
       }
     }
   });
@@ -1938,7 +1983,7 @@ describe('the guard itself fails on the shapes it exists to catch', () => {
       gateSource(['communicationsSignIn', 'communicationsOptIn']),
       1,
     );
-    expect(problems.join('\n')).toMatch(/renders 2 <ConsentNotice> but declares 1/);
+    expect(problems.join('\n')).toMatch(/renders 2 consent control\(s\) but declares 1/);
     expect(problems.join('\n')).toMatch(/different consent sentences/);
   });
 
@@ -1952,7 +1997,7 @@ describe('the guard itself fails on the shapes it exists to catch', () => {
       ]),
       2,
     );
-    expect(problems.join('\n')).toMatch(/renders 4 <ConsentNotice> but declares 2/);
+    expect(problems.join('\n')).toMatch(/renders 4 consent control\(s\) but declares 2/);
   });
 
   it('passes an access gate with ONE notice covering both of its acts', () => {
@@ -2012,13 +2057,13 @@ describe('the guard itself fails on the shapes it exists to catch', () => {
       gateSource(['communicationsOptIn'], ['communicationsSignIn']),
       1,
     );
-    expect(problems.join('\n')).toMatch(/no <ConsentNotice> here renders that exact sentence/);
+    expect(problems.join('\n')).toMatch(/no consent control here renders that exact sentence/);
     expect(problems.join('\n')).toMatch(/stores no formula with that sentence/);
   });
 
   it('fails a gate that renders nothing at all', () => {
     expect(consentGateViolations(gateSource([]), 1).join('\n'))
-      .toMatch(/renders 0 <ConsentNotice> but declares 1/);
+      .toMatch(/renders 0 consent control\(s\) but declares 1/);
   });
 
   it('is not satisfied by a notice that only exists in a comment', () => {
@@ -2027,7 +2072,7 @@ describe('the guard itself fails on the shapes it exists to catch', () => {
       /* we used to render <ConsentNotice consentKey="communicationsSignIn" /> here */
       const save = () => upsertNewsletterSubscriber(db, { ...consentProof('communicationsSignIn', 'google_oauth', locale) });
     `;
-    expect(consentGateViolations(src, 1).join('\n')).toMatch(/renders 0 <ConsentNotice>/);
+    expect(consentGateViolations(src, 1).join('\n')).toMatch(/renders 0 consent control/);
   });
 
   it('sees two notices on screen when a gate renders two, and one when it renders one', () => {

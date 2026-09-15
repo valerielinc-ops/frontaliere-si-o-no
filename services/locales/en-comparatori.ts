@@ -523,6 +523,7 @@ const enComparatori: Record<string, string> = {
  'health.lamalSsn.emailSending': 'Sending\u2026',
  'health.lamalSsn.emailSuccess': 'Done! Check your inbox.',
  'health.lamalSsn.emailError': 'Sending failed. Check the email and try again.',
+ 'health.lamalSsn.consentRequired': 'Please select consent to receive the PDF and email communications.',
  'health.lamalSsn.disclaimer': 'Indicative estimates for information only, not advice. Verify premiums on priminfo.admin.ch and the rate with your region.',
  'health.subtitle': 'Compare LAMal health insurance premiums vs Italian SSN for cross-border workers',
  'health.warningTitle': 'Right of option',

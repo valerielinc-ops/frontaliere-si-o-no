@@ -868,8 +868,8 @@ export const newsletterSendConfirmation = onRequest(
  * evento dei webhook di consegna — e agisce SOLO sulla scrittura che porta la
  * conferma, mai su una vecchia: nessun ripescaggio a sorpresa, nessun ciclo.
  *
- * L'invio vero resta sendNewsletterWelcomeEmail, coi suoi gate (prova del
- * consenso, finestra 48h, soppressioni, kill switch RC) e il claim idempotente
+ * L'invio vero resta sendNewsletterWelcomeEmail, coi suoi controlli operativi
+ * (finestra 48h, soppressioni, kill switch RC) e il claim idempotente
  * che rende impossibile il doppio invio se anche il browser ce la fa.
  * `trigger: 'firestore_trigger'` lascia distinguibile in `welcome_trigger`
  * quante welcome sono state salvate da questa via.
@@ -945,7 +945,7 @@ export const newsletterSendWelcome = onRequest(
  try {
  const result = await sendNewsletterWelcomeEmail({ email, locale, trigger: 'presigned' });
  // Response is intentionally opaque: sent / skipped (already_sent,
- // not_confirmed, too_old, suppressed, disabled, ...) / subscriber not
+ // too_old, suppressed, disabled, ...) / subscriber not
  // found / missing secret all return the SAME 200 body, so this public
  // endpoint can't be used to probe an arbitrary address and learn
  // whether it's a recently-confirmed subscriber. Detailed outcome is
@@ -1934,36 +1934,48 @@ export const cleanupUserDataOnAccountDelete = functionsV1.runWith({ failurePolic
 });
 
 // Real-time counterpart of scripts/backfill-jobalerts-from-newsletter.mjs:
-// every newsletter_subscribers doc that carries job-search signal (or,
-// failing that, a location signal) gets a near-empty job_alert_subscribers
-// entry, instead of waiting for the next manual batch run. Shares its
-// decision logic with the batch script via jobAlertBackfillCore.js.
+// every terms-based registration gets the base newsletter + job-alert
+// relationship, instead of waiting for the next manual batch run. The alert
+// starts broad when no context is available and is refined by later searches,
+// visits and clicks. Shares its decision logic with the batch script via
+// jobAlertBackfillCore.js.
 //
 // onDocumentWritten (not onDocumentCreated): social sign-in flows
 // (services/authService.ts) write this doc twice, unsequenced — an
 // un-awaited auth-fields-only write races the full signal-carrying upsert,
 // and the bare write structurally tends to land first. A one-shot create
 // hook would see zero signal and skip the subscriber permanently once the
-// real signal arrives via a later merge. signalTierChanged gates the write
-// hook so it only does real work when eligibility actually flips, which
-// both catches the delayed signal and keeps routine engagement writes
-// (open/click tracking) a cheap no-op.
+// real signal arrives via a later merge. New documents carrying
+// registration_terms_accepted and its first write are always processed,
+// including registrations with no signal yet. signalTierChanged still gates
+// later enrichment writes (and the explicit registration marker is required
+// below), so routine engagement writes (open/click tracking) remain a cheap
+// no-op.
 export const backfillJobAlertOnNewsletterSignup = onDocumentWritten(
- { region: 'europe-west6', memory: '256MiB', document: 'newsletter_subscribers/{email}' },
+ { region: 'europe-west6', memory: '256MiB', retry: true, document: 'newsletter_subscribers/{email}' },
  async (event) => {
  const emailId = event.params.email;
  if (emailId === '_meta_') return;
  const after = event.data?.after;
  if (!after?.exists) return; // ignore deletes
  const afterData = after.data();
+ // A newsletter_subscribers document can also be created by profile sync,
+ // social auth or other non-registration flows. Only the explicit terms-based
+ // registration is allowed to manufacture the broad newsletter + JobAlert
+ // relationship; the historical migration remains an explicit batch action.
+ if (afterData?.registration_terms_accepted !== true) return;
  const beforeData = event.data?.before?.exists ? event.data.before.data() : null;
  const clearedAccountDeletion = beforeData
   && isAccountDeletedTombstone(beforeData)
   && !isAccountDeletedTombstone(afterData);
+ const created = !beforeData;
+ const registrationTermsAccepted = afterData?.registration_terms_accepted === true
+  && beforeData?.registration_terms_accepted !== true;
  // A fresh registration can reuse the old signal fields, so the tier itself
- // may not change. The cleared lifecycle marker is the second legitimate
- // eligibility edge; ordinary profile/engagement writes still remain no-ops.
- if (!signalTierChanged(beforeData, afterData) && !clearedAccountDeletion) return;
+ // may not change. The first registration-terms write and a cleared lifecycle
+ // marker are legitimate eligibility edges; ordinary profile/engagement writes
+ // still remain no-ops.
+ if (!created && !registrationTermsAccepted && !signalTierChanged(beforeData, afterData) && !clearedAccountDeletion) return;
  try {
  const result = await handleNewsletterSubscriberCreated(emailId, afterData);
  if (result.created) {
@@ -1974,6 +1986,7 @@ export const backfillJobAlertOnNewsletterSignup = onDocumentWritten(
  '[backfillJobAlertOnNewsletterSignup]',
  error instanceof Error ? error.message : String(error),
  );
+ throw error;
  }
  },
 );
@@ -1993,6 +2006,7 @@ export const backfillJobAlertOnPersonalizationSync = onDocumentWritten(
  {
  region: 'europe-west6',
  memory: '256MiB',
+ retry: true,
  document: 'newsletter_subscribers/{email}/private/personalization',
  },
  async (event) => {
@@ -2004,6 +2018,7 @@ export const backfillJobAlertOnPersonalizationSync = onDocumentWritten(
  const parentSnap = await getAdminDb().collection('newsletter_subscribers').doc(emailId).get();
  if (!parentSnap.exists) return;
  const parentData = parentSnap.data();
+ if (parentData?.registration_terms_accepted !== true) return;
  if (getSignalTier(parentData) !== 'none') return; // already resolved via flat fields
  const result = await handleNewsletterSubscriberCreated(emailId, parentData, {
  personalization: after.data(),
@@ -2016,6 +2031,7 @@ export const backfillJobAlertOnPersonalizationSync = onDocumentWritten(
  '[backfillJobAlertOnPersonalizationSync]',
  error instanceof Error ? error.message : String(error),
  );
+ throw error;
  }
  },
 );
