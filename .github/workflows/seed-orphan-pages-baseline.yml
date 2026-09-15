@@ -191,7 +191,9 @@ jobs:
           SANGALLO_SHARD_LIVE: ${{ vars.SANGALLO_SHARD_LIVE }}
           ARTICOLIFRONTALIERE_SHARD_LIVE: ${{ vars.ARTICOLIFRONTALIERE_SHARD_LIVE }}
           ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
-        run: bash scripts/lib/rehydrate-section-shards.sh
+        run: |
+          test -f scripts/lib/rehydrate-section-shards.sh
+          bash scripts/lib/rehydrate-section-shards.sh
 
       - name: Report full rehydrated dist/ size
         run: |
