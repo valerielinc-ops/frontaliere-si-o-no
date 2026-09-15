@@ -152,7 +152,10 @@ describe('loop fleet workflow contract', () => {
     expect(source).toContain('startswith("chore/loop-fleet-ledger-")');
     expect(source).toContain('source_orphan_branch=$(git ls-remote --heads origin');
     expect(source).toContain('ledger_branch="$open_branch"');
-    expect(source).toContain('branch="${source_orphan_branch}-retry-${GITHUB_RUN_ATTEMPT}"');
+    expect(source).toContain('orphan_recovery=\'true\'');
+    expect(source).toContain('ledger_branch="$base_branch"');
+    expect(source).toContain('&& [ "$orphan_recovery" != \'true\' ]; then');
+    expect(source).toContain('Recovering an orphan ledger branch that already contains this validated batch.');
     expect(source).toContain('git checkout -b "$branch" "origin/$ledger_branch"');
   });
 
