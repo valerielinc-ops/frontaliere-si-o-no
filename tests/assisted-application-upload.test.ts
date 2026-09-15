@@ -21,6 +21,9 @@ describe('assisted application post-payment upload', () => {
     expect(uploadSource).toContain('uploadBytes(');
     expect(uploadSource).toContain('assisted-application-uploads/${orderId}/');
     expect(uploadSource).not.toContain('getDownloadURL');
+    expect(uploadSource).toContain('MAX_PAYMENT_POLL_INTERVAL_MS');
+    expect(uploadSource).toContain('Math.min(pollDelayMs * 2, MAX_PAYMENT_POLL_INTERVAL_MS)');
+    expect(uploadSource).not.toContain('MAX_PAYMENT_POLLS');
   });
 
   it('allows only the server to create/pay an order and freezes payment identity for clients', () => {

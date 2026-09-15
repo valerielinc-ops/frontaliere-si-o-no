@@ -19,12 +19,17 @@ function makeDocRef(collectionName: string, id: string) {
 }
 
 function makeFirestore() {
-  return Object.assign(
-    () => ({
-      collection: (name: string) => ({
-        doc: (id?: string) => makeDocRef(name, id || `order-${++generatedOrderNumber}`),
-      }),
+  const database = () => ({
+    collection: (name: string) => ({
+      doc: (id?: string) => makeDocRef(name, id || `order-${++generatedOrderNumber}`),
     }),
+    runTransaction: async (callback: any) => callback({
+      get: (ref: any) => ref.get(),
+      set: (ref: any, data: Record<string, unknown>, options?: { merge?: boolean }) => ref.set(data, options),
+    }),
+  });
+  return Object.assign(
+    database,
     { FieldValue: { serverTimestamp: () => '__server_timestamp__' } },
   );
 }
@@ -79,6 +84,7 @@ function request(overrides: Record<string, unknown> = {}) {
       experimentVariant: 'assisted_application',
       successUrl: 'https://frontaliereticino.ch/lavoro/job-42',
       cancelUrl: 'https://frontaliereticino.ch/lavoro/job-42',
+      requestKey: 'assisted-request-key-42',
       amount: 1,
     },
     get: (name: string) => (name.toLowerCase() === 'authorization' ? 'Bearer good-token' : ''),
@@ -149,6 +155,8 @@ describe('handleCreateAssistedApplicationCheckout', () => {
       payment_intent_data: {
         metadata: expect.objectContaining({ product: 'assisted_application', orderId: 'order-1' }),
       },
+    }), expect.objectContaining({
+      idempotencyKey: expect.stringMatching(/^assisted-application:/),
     }));
     expect(store.assisted_applications['order-1']).toEqual(expect.objectContaining({
       orderId: 'order-1',
@@ -159,6 +167,32 @@ describe('handleCreateAssistedApplicationCheckout', () => {
       consentVersion: null,
       consentedAt: null,
     }));
+  });
+
+  it('reuses the persisted request key, order and Stripe session on a retry', async () => {
+    const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
+
+    const first = await handleCreateAssistedApplicationCheckout(request());
+    const second = await handleCreateAssistedApplicationCheckout(request());
+
+    expect(second).toEqual(first);
+    expect(stripeCheckoutSessionsCreate).toHaveBeenCalledTimes(1);
+    expect(Object.keys(store.assisted_application_checkout_requests)).toHaveLength(1);
+  });
+
+  it('rejects a reused request key when the checkout payload changes', async () => {
+    const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
+
+    await handleCreateAssistedApplicationCheckout(request());
+    const result = await handleCreateAssistedApplicationCheckout(request({
+      body: { ...request().body, jobId: 'job-other' },
+    }));
+
+    expect(result).toEqual({
+      status: 409,
+      body: { ok: false, error: 'assisted_application_request_conflict' },
+    });
+    expect(stripeCheckoutSessionsCreate).toHaveBeenCalledTimes(1);
   });
 
   it('rejects non-HTTPS job and redirect URLs before contacting Stripe', async () => {

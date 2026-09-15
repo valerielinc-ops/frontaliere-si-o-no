@@ -9,12 +9,70 @@ export interface AssistedApplicationCheckoutInput {
   experimentVariant: 'control' | 'assisted_application';
   successUrl: string;
   cancelUrl: string;
+  requestKey?: string;
 }
 
 export interface AssistedApplicationCheckoutResult {
   ok: true;
   url: string;
   orderId: string;
+}
+
+const REQUEST_KEY_STORAGE_PREFIX = 'frontaliere_assisted_application_checkout_v1';
+const REQUEST_KEY_RE = /^[A-Za-z0-9_-]{16,128}$/;
+const requestKeyMemory = new Map<string, string>();
+
+function newRequestKey(): string {
+  try {
+    if (typeof globalThis.crypto?.randomUUID === 'function') return `assisted-${globalThis.crypto.randomUUID()}`;
+  } catch {
+    // Fall through for older browsers or restricted storage contexts.
+  }
+  return `assisted-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 14)}`;
+}
+
+function requestKeyStorageKey(input: AssistedApplicationCheckoutInput, user: { uid?: string }): string {
+  const uid = encodeURIComponent(user.uid || 'anonymous');
+  const jobId = encodeURIComponent(input.jobId);
+  return `${REQUEST_KEY_STORAGE_PREFIX}:${uid}:${jobId}`;
+}
+
+function persistentRequestKey(
+  input: AssistedApplicationCheckoutInput,
+  user: { uid?: string },
+): string {
+  const storageKey = requestKeyStorageKey(input, user);
+  const supplied = typeof input.requestKey === 'string' ? input.requestKey.trim() : '';
+  if (REQUEST_KEY_RE.test(supplied)) {
+    requestKeyMemory.set(storageKey, supplied);
+    try {
+      window.localStorage.setItem(storageKey, supplied);
+    } catch {
+      // The in-memory copy still deduplicates retries in this page.
+    }
+    return supplied;
+  }
+
+  const inMemory = requestKeyMemory.get(storageKey);
+  if (inMemory && REQUEST_KEY_RE.test(inMemory)) return inMemory;
+  try {
+    const stored = window.localStorage.getItem(storageKey) || '';
+    if (REQUEST_KEY_RE.test(stored)) {
+      requestKeyMemory.set(storageKey, stored);
+      return stored;
+    }
+  } catch {
+    // Generate a key below when localStorage is unavailable.
+  }
+
+  const generated = newRequestKey();
+  requestKeyMemory.set(storageKey, generated);
+  try {
+    window.localStorage.setItem(storageKey, generated);
+  } catch {
+    // The in-memory copy still deduplicates retries in this page.
+  }
+  return generated;
 }
 
 /**
@@ -48,10 +106,12 @@ export async function ensureAssistedApplicationAuth(): Promise<any | null> {
 
 export async function createAssistedApplicationCheckout(
   input: AssistedApplicationCheckoutInput,
-  user: { getIdToken: () => Promise<string> },
+  user: { uid?: string; getIdToken: () => Promise<string> },
 ): Promise<AssistedApplicationCheckoutResult> {
   const token = await user.getIdToken();
   if (!token) throw new Error('assisted_application_auth_required');
+
+  const requestKey = persistentRequestKey(input, user);
 
   const response = await fetch(CREATE_ASSISTED_APPLICATION_CHECKOUT_URL, {
     method: 'POST',
@@ -59,7 +119,7 @@ export async function createAssistedApplicationCheckout(
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify(input),
+    body: JSON.stringify({ ...input, requestKey }),
   });
   const data = await response.json().catch(() => ({}));
   if (!response.ok || !data?.ok || !data?.url || !data?.orderId) {

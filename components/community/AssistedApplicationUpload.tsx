@@ -10,7 +10,7 @@ import {
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024;
 const POLL_INTERVAL_MS = 2000;
-const MAX_PAYMENT_POLLS = 15;
+const MAX_PAYMENT_POLL_INTERVAL_MS = 15000;
 
 interface AssistedApplicationOrder {
   orderId?: string;
@@ -149,20 +149,20 @@ export default function AssistedApplicationUpload({
     } catch {
       setStatus('error');
       setError(t('jobBoard.assisted.loadError'));
-      return true;
+      return false;
     }
   }, [readOrder, t]);
 
   useEffect(() => {
     let cancelled = false;
-    let attempts = 0;
+    let pollDelayMs = POLL_INTERVAL_MS;
     let timer: number | null = null;
 
     const poll = async () => {
       const settled = await refreshOrder();
-      if (cancelled || settled || attempts >= MAX_PAYMENT_POLLS) return;
-      attempts += 1;
-      timer = window.setTimeout(poll, POLL_INTERVAL_MS);
+      if (cancelled || settled) return;
+      timer = window.setTimeout(poll, pollDelayMs);
+      pollDelayMs = Math.min(pollDelayMs * 2, MAX_PAYMENT_POLL_INTERVAL_MS);
     };
 
     void poll();
