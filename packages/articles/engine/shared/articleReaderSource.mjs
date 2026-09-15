@@ -13,15 +13,65 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 const escapeRegex = (value) => String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 const SLUG_MAP_ENTRY_RE = /["']([^"']+)["']\s*:\s*\{([^{}]*)\}/g;
-const LOCALE_FIELD_RE = /(?:^|,)\s*(?:(it|en|de|fr)|["'](it|en|de|fr)["'])\s*:\s*["']([^"']*)["']/g;
+const LOCALE_FIELD_RE = /(?:\b(it|en|de|fr)\b|["'](it|en|de|fr)["'])\s*:\s*["']([^"']*)["']/g;
 
 function invalidArgument(name) {
   throw new TypeError('parseArticleUrlSlugs: ' + name + ' must be a non-empty string');
 }
 
+function skipTrivia(source, start = 0) {
+  let index = start;
+  while (index < source.length) {
+    if (/\s/.test(source[index])) {
+      index += 1;
+      continue;
+    }
+    if (source.startsWith('//', index)) {
+      const newline = source.indexOf('\n', index + 2);
+      index = newline === -1 ? source.length : newline + 1;
+      continue;
+    }
+    if (source.startsWith('/*', index)) {
+      const end = source.indexOf('*/', index + 2);
+      if (end === -1) return -1;
+      index = end + 2;
+      continue;
+    }
+    break;
+  }
+  return index;
+}
+
+function isTrivia(source) {
+  const end = skipTrivia(source);
+  return end >= 0 && end === source.length;
+}
+
+function isCommaAndTrivia(source) {
+  const comma = skipTrivia(source);
+  if (comma < 0 || source[comma] !== ',') return false;
+  const end = skipTrivia(source, comma + 1);
+  return end >= 0 && end === source.length;
+}
+
+function isOptionalTrailingCommaAndTrivia(source) {
+  const first = skipTrivia(source);
+  if (first < 0 || first === source.length) return first === source.length;
+  if (source[first] !== ',') return false;
+  const end = skipTrivia(source, first + 1);
+  return end >= 0 && end === source.length;
+}
+
 function parseLocalizedEntry(articleId, body) {
   const fields = {};
-  for (const match of body.matchAll(LOCALE_FIELD_RE)) {
+  const matches = [...body.matchAll(LOCALE_FIELD_RE)];
+  let previousEnd = 0;
+  for (const [index, match] of matches.entries()) {
+    const separator = body.slice(previousEnd, match.index);
+    const validSeparator = index === 0 ? isTrivia(separator) : isCommaAndTrivia(separator);
+    if (!validSeparator) {
+      throw new SyntaxError('parseArticleUrlSlugs: malformed locale map for ' + articleId);
+    }
     const locale = match[1] || match[2];
     if (Object.prototype.hasOwnProperty.call(fields, locale)) {
       throw new SyntaxError('parseArticleUrlSlugs: duplicate locale ' + locale + ' for ' + articleId);
@@ -30,6 +80,10 @@ function parseLocalizedEntry(articleId, body) {
       throw new SyntaxError('parseArticleUrlSlugs: empty locale ' + locale + ' for ' + articleId);
     }
     fields[locale] = match[3];
+    previousEnd = match.index + match[0].length;
+  }
+  if (!isOptionalTrailingCommaAndTrivia(body.slice(previousEnd))) {
+    throw new SyntaxError('parseArticleUrlSlugs: malformed locale map for ' + articleId);
   }
 
   const missing = LOCALES.filter((locale) => !Object.prototype.hasOwnProperty.call(fields, locale));
@@ -68,11 +122,25 @@ export function parseArticleUrlSlugs(source, slugConst) {
   }
 
   const out = {};
-  for (const match of block.matchAll(SLUG_MAP_ENTRY_RE)) {
+  const matches = [...block.matchAll(SLUG_MAP_ENTRY_RE)];
+  if (matches.length === 0) {
+    throw new SyntaxError('parseArticleUrlSlugs: empty or malformed slug map for ' + slugConst);
+  }
+  let previousEnd = 0;
+  for (const [index, match] of matches.entries()) {
+    const separator = block.slice(previousEnd, match.index);
+    const validSeparator = index === 0 ? isTrivia(separator) : isCommaAndTrivia(separator);
+    if (!validSeparator) {
+      throw new SyntaxError('parseArticleUrlSlugs: malformed slug map for ' + slugConst);
+    }
     if (Object.prototype.hasOwnProperty.call(out, match[1])) {
       throw new SyntaxError('parseArticleUrlSlugs: duplicate article id ' + match[1]);
     }
     out[match[1]] = parseLocalizedEntry(match[1], match[2]);
+    previousEnd = match.index + match[0].length;
+  }
+  if (!isOptionalTrailingCommaAndTrivia(block.slice(previousEnd))) {
+    throw new SyntaxError('parseArticleUrlSlugs: malformed slug map for ' + slugConst);
   }
   return out;
 }
