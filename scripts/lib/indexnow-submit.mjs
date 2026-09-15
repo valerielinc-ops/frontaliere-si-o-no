@@ -89,3 +89,35 @@ export async function submitIndexNowUrls(urls, { endpoints = INDEXNOW_ENDPOINTS 
   }
   return { submitted: clean.length, results };
 }
+
+/**
+ * Submit URLs in bounded, ordered chunks rather than one full sitemap-sized
+ * payload. The default is one URL per request for remediation loops, while a
+ * caller may raise batchSize for a small deploy delta. Keeping the pacing in
+ * this shared module makes the direct and scheduled callers obey the same
+ * retry/backoff contract.
+ */
+export async function submitIndexNowUrlsStreaming(
+  urls,
+  { endpoints = INDEXNOW_ENDPOINTS, batchSize = 1, delayMs = 750 } = {},
+) {
+  const clean = [...new Set((urls || []).map((u) => String(u || '').trim()).filter(Boolean))];
+  if (clean.length === 0) return { submitted: 0, batches: 0, results: [] };
+  if (!Number.isInteger(batchSize) || batchSize < 1) {
+    throw new TypeError('batchSize deve essere un intero positivo');
+  }
+
+  const batches = [];
+  for (let index = 0; index < clean.length; index += batchSize) {
+    batches.push(clean.slice(index, index + batchSize));
+  }
+
+  const results = [];
+  for (const endpoint of endpoints) {
+    for (let index = 0; index < batches.length; index += 1) {
+      results.push(await submitIndexNowBatch(endpoint, batches[index]));
+      if (index < batches.length - 1 && delayMs > 0) await sleep(delayMs);
+    }
+  }
+  return { submitted: clean.length, batches: batches.length, results };
+}

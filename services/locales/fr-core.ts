@@ -841,6 +841,7 @@ const frCore: Record<string, string> = {
  'jobAlert.cardTitleActive': 'Vos alertes emploi',
  'jobAlert.cardDescriptionActive': 'Gérez ou ajoutez de nouvelles alertes personnalisées.',
  'jobAlert.stickyBannerText': 'Nous vous prévenons dès que des offres similaires sont publiées.',
+ 'jobAlert.stickyBannerCta': 'Créer une alerte gratuite',
  'jobAlert.stickyBannerAria': 'Invitation à s\'abonner aux alertes emploi',
  'jobAlert.endCardTitle': 'Vous avez vu toutes les offres',
  'jobAlert.endCardTitleWithKeyword': 'Vous avez vu toutes les offres « {keyword} »',

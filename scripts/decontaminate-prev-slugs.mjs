@@ -313,6 +313,21 @@ export function processFiles(filePaths, options = {}) {
   return decontaminateEntries(entries, { ...options, writeSlice });
 }
 
+/**
+ * Run one ownership pass over every active object slice in a directory.
+ *
+ * This is the canonical post-write hook for workflows that update slices
+ * directly. Keeping directory discovery here makes those writers use the
+ * same slice predicate and cross-file owner index as the CLI observer.
+ *
+ * @param {string} directory active crawler-slice directory
+ * @param {{apply?:boolean, writeSlice?:Function}} [options]
+ * @returns {{moved:number, emptyLocaleBucketsPruned:number, affected:object[]}}
+ */
+export function decontaminateSliceDirectory(directory = ACTIVE_SLICES_DIR, options = {}) {
+  return processFiles(listSliceFilePaths(directory), options);
+}
+
 export function processFile(filePath, options) {
   const result = processFiles([filePath], options);
   if (result.affected.length === 0) return null;

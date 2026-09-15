@@ -150,6 +150,7 @@ export const ConsultingCTA: React.FC<Props> = ({ enabledOverride, placement = 'c
 
  const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
  event.preventDefault();
+ Analytics.trackDecisionMomentNextAction('calculator', 'consulting_cta');
  Analytics.trackCtaClick(cfg.ctaId, {
  targetUrl: TARGET_URL,
  component: 'ConsultingCTA',

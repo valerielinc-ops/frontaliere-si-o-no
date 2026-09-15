@@ -10,6 +10,8 @@ on:
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l1-reliability.mjs'
       - 'scripts/ci/export-loop-outcomes.mjs'
+      - 'scripts/lib/ga4-service-account.mjs'
+      - 'scripts/lib/analytics-settled-window.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/posthog-client.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
@@ -22,6 +24,8 @@ on:
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l1-reliability.mjs'
       - 'scripts/ci/export-loop-outcomes.mjs'
+      - 'scripts/lib/ga4-service-account.mjs'
+      - 'scripts/lib/analytics-settled-window.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/posthog-client.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
@@ -58,6 +62,8 @@ jobs:
             /data/loop-fleet/loop-registry.json
             /scripts/ci/loop-l1-reliability.mjs
             /scripts/ci/export-loop-outcomes.mjs
+            /scripts/lib/ga4-service-account.mjs
+            /scripts/lib/analytics-settled-window.mjs
             /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /scripts/lib/loop-fleet-outcome.mjs

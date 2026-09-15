@@ -26,6 +26,7 @@ vi.mock('@/services/analyticsProxy', () => ({
   Analytics: {
     trackCalculation: vi.fn(),
     trackFunnelStep: vi.fn(),
+    trackDecisionMomentCompleted: vi.fn(),
     trackUIInteraction: vi.fn(),
   },
   unlockAchievement: vi.fn(),

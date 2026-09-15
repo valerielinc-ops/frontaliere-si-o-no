@@ -28,17 +28,13 @@ import { safePharmacyUrl, type Pharmacy, type PharmacyCatalogueDataset, type Pha
 import dutiesJson from '../data/pharmacy-duties-ticino.json';
 import completeTicinoJson from '../data/pharmacies-ticino-complete.json';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
+import { buildPharmacyTitle } from '../services/pharmacies/title';
 
 const LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'];
 const dutiesDataset = dutiesJson as PharmacyDutiesDataset;
 const completeTicinoSnapshot = completeTicinoJson as unknown as PharmacyCatalogueDataset;
 const dutySource = 'https://www.ofct.ch/farmacieturno/';
 const osmLicense = 'OpenStreetMap contributors, ODbL 1.0';
-const PHARMACY_TITLE_DUPLICATES = new Set(
-  BORDER_PHARMACIES
-    .map((pharmacy) => `${pharmacy.name}\u0000${pharmacy.city}`)
-    .filter((key, index, keys) => keys.indexOf(key) !== index),
-);
 
 type DutyWeekCopy = {
   title: (weekStart: string) => string;
@@ -372,6 +368,13 @@ function renderPharmacyCard(pharmacy: Pharmacy, locale: Locale): string {
   return `<article class="${CARD_CLASS}"><h3 style="${H3_STYLE}"><a href="${esc(buildPharmacyPath(countryPath, locale))}">${esc(pharmacy.name)}</a></h3><p style="${BODY_STYLE}"><strong>${esc(copy.address)}:</strong> ${esc(pharmacy.address)}, ${href(cityUrl, `${pharmacy.postalCode} ${pharmacy.city}`)}${pharmacy.phone ? `<br><strong>${esc(copy.phone)}:</strong> <a href="tel:${esc(pharmacy.phone)}">${esc(pharmacy.phone)}</a>` : ''}</p>${badges.length ? `<p style="${BODY_STYLE}">${badges.map(esc).join(' · ')}</p>` : ''}${sourceLine(pharmacy, locale)}</article>`;
 }
 
+function renderCompactPharmacyListItem(pharmacy: Pharmacy, locale: Locale): string {
+  const copy = COPY[locale];
+  const detailPath = pharmacyPath(pharmacy, locale);
+  const source = '<a href="' + esc(pharmacy.sourceUrl) + '" rel="nofollow noopener">' + esc(copy.sourceLink) + '</a>';
+  return '<li><a href="' + esc(buildPharmacyPath(detailPath, locale)) + '">' + esc(pharmacy.name) + '</a> — ' + esc(pharmacy.address) + ', ' + esc(pharmacy.postalCode) + ' ' + esc(pharmacy.city) + ' · ' + source + '</li>';
+}
+
 function renderHours(pharmacy: Pharmacy, locale: Locale): string {
   const copy = COPY[locale];
   if (!pharmacy.openingHours?.length) return `<p style="${BODY_STYLE}">${esc(copy.hoursUnavailable)}</p>`;
@@ -517,48 +520,8 @@ function pageTitle(kind: PharmacyPageKind, locale: Locale, descriptor: PageDescr
   if (kind === 'duty-hub') return copy.dutyHubTitle;
   if (kind === 'duty-city') return copy.dutyCityTitle(descriptor.cityName || '');
   if (kind === 'duty-week') return DUTY_WEEK_COPY[locale].title(descriptor.weekStart || '');
-  if (kind === 'pharmacy') return pharmacyTitle(descriptor.pharmacy!);
+  if (kind === 'pharmacy') return buildPharmacyTitle(descriptor.pharmacy!, BORDER_PHARMACIES);
   return copy.cityTitle(descriptor.cityName || '', descriptor.country || 'CH');
-}
-
-function pharmacyTitleBase(pharmacy: Pharmacy, discriminator: string): string {
-  const citySuffix = ` — ${pharmacy.city}`;
-  // Keep the locality visible even when an official name is unusually long;
-  // otherwise two different cities sharing a long chain name collapse to the
-  // same truncated <title>. Reserve the optional discriminator as well so
-  // same-name/same-city records remain unique after shell compaction.
-  const nameBudget = Math.max(1, 52 - citySuffix.length - discriminator.length);
-  const name = pharmacy.name.length > nameBudget
-    ? `${pharmacy.name.slice(0, Math.max(1, nameBudget - 1)).replace(/[\s,:;–—-]+$/, '')}…`
-    : pharmacy.name;
-  return `${name}${citySuffix}${discriminator}`;
-}
-
-function pharmacyDiscriminator(pharmacy: Pharmacy): string {
-  if (!PHARMACY_TITLE_DUPLICATES.has(`${pharmacy.name}\u0000${pharmacy.city}`)) return '';
-  const compactAddress = pharmacy.address
-    .replace(/^(via|viale|piazza|corso|largo|vicolo|strada)\s+/i, '')
-    .replace(/[,.]/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
-  return ` · ${pharmacy.ministryId ? `#${pharmacy.ministryId}` : `${pharmacy.postalCode} ${compactAddress}`}`;
-}
-
-const pharmacyTitleGroups = new Map<string, string[]>();
-for (const pharmacy of BORDER_PHARMACIES) {
-  const title = pharmacyTitleBase(pharmacy, pharmacyDiscriminator(pharmacy));
-  pharmacyTitleGroups.set(title, [...(pharmacyTitleGroups.get(title) || []), pharmacy.id]);
-}
-const PHARMACY_TITLE_COLLISION_RANKS = new Map<string, number>();
-for (const ids of pharmacyTitleGroups.values()) {
-  if (ids.length < 2) continue;
-  ids.forEach((id, index) => PHARMACY_TITLE_COLLISION_RANKS.set(id, index + 1));
-}
-
-function pharmacyTitle(pharmacy: Pharmacy): string {
-  const rank = PHARMACY_TITLE_COLLISION_RANKS.get(pharmacy.id);
-  const discriminator = rank ? ` · #${rank}` : pharmacyDiscriminator(pharmacy);
-  return pharmacyTitleBase(pharmacy, discriminator);
 }
 
 function pageLede(kind: PharmacyPageKind, locale: Locale): string {
@@ -597,7 +560,7 @@ function shellTitle(descriptor: PageDescriptor, locale: Locale): string {
 function pageDescription(descriptor: PageDescriptor, locale: Locale): string {
   const copy = COPY[locale];
   if (descriptor.kind === 'pharmacy' && descriptor.pharmacy) {
-    return `${pharmacyTitle(descriptor.pharmacy)}: ${copy.detailLede}`;
+    return `${buildPharmacyTitle(descriptor.pharmacy, BORDER_PHARMACIES)}: ${copy.detailLede}`;
   }
   if (descriptor.kind === 'city' || descriptor.kind === 'area' || descriptor.kind === 'duty-city') {
     return `${descriptor.cityName || descriptor.areaName || ''}: ${pageLede(descriptor.kind, locale)}`;
@@ -736,7 +699,10 @@ function renderBody(
     sections = `<p style="${BODY_STYLE}">${href(parent, `${copy.directoryHeading}: ${pharmacy.city}`)}</p><section><h2 style="${H2_STYLE}">${esc(copy.contactHeading)}</h2><p style="${BODY_STYLE}"><strong>${esc(copy.address)}:</strong> ${esc(pharmacy.address)}, ${esc(pharmacy.postalCode)} ${esc(pharmacy.city)}</p>${pharmacy.phone ? `<p style="${BODY_STYLE}"><strong>${esc(copy.phone)}:</strong> <a href="tel:${esc(pharmacy.phone)}">${esc(pharmacy.phone)}</a></p>` : ''}${website ? `<p style="${BODY_STYLE}"><strong>${esc(copy.website)}:</strong> <a href="${esc(website)}" rel="nofollow noopener">${esc(website)}</a></p>` : ''}${maps ? `<p style="${BODY_STYLE}"><strong>${esc(copy.map)}:</strong> <a href="${esc(maps)}" rel="nofollow noopener">${esc(copy.openMap)}</a></p>` : ''}</section><section><h2 style="${H2_STYLE}">${esc(copy.hoursHeading)}</h2>${renderHours(pharmacy, locale)}</section><section><h2 style="${H2_STYLE}">${esc(copy.servicesHeading)}</h2>${renderServices(pharmacy, locale)}</section><section><h2 style="${H2_STYLE}">${esc(copy.sourcesHeading)}</h2>${sourceLine(pharmacy, locale)}<p style="${BODY_STYLE}">${esc(copy.osmNote)}</p></section>`;
   } else {
     const pharmacies = pagePharmacies(descriptor, dataset, now);
-    sections = `<section><h2 style="${H2_STYLE}">${esc(copy.directoryHeading)}</h2><div class="s-XENO3U">${pharmacies.map((pharmacy) => renderPharmacyCard(pharmacy, locale)).join('')}</div>${descriptor.kind === 'city' && descriptor.country === 'CH' ? `<p style="${BODY_STYLE}">${href({ kind: 'duty-city', locale, citySlug: descriptor.citySlug }, copy.viewDuties)}</p>` : ''}</section>`;
+    const directory = descriptor.kind === 'area'
+      ? '<ul style="' + BODY_STYLE + '">' + pharmacies.map((pharmacy) => renderCompactPharmacyListItem(pharmacy, locale)).join('') + '</ul>'
+      : `<div class="s-XENO3U">${pharmacies.map((pharmacy) => renderPharmacyCard(pharmacy, locale)).join('')}</div>`;
+    sections = `<section><h2 style="${H2_STYLE}">${esc(copy.directoryHeading)}</h2>${directory}${descriptor.kind === 'city' && descriptor.country === 'CH' ? `<p style="${BODY_STYLE}">${href({ kind: 'duty-city', locale, citySlug: descriptor.citySlug }, copy.viewDuties)}</p>` : ''}</section>`;
   }
   const faq = descriptor.kind === 'city' && descriptor.country === 'CH'
     ? renderCityFaq(locale, descriptor.cityName || '', pharmaciesForCity(descriptor.cityName || '').length)
@@ -773,10 +739,11 @@ function breadcrumbJsonLd(descriptor: PageDescriptor, locale: Locale): string {
   return JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: item.name, item: `${BASE_URL}${buildPharmacyPath(item.path, locale)}` })) });
 }
 
-function cityFaqJsonLd(locale: Locale, cityName: string, count: number): string {
+function cityFaqJsonLd(locale: Locale, pathValue: PharmacyPath, cityName: string, count: number): string {
   return JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    '@id': `${BASE_URL}${buildPharmacyPath(pathValue, locale)}#faq`,
     mainEntity: cityFaqItems(locale, cityName, count).map((item) => ({
       '@type': 'Question',
       name: item.question,
@@ -827,7 +794,7 @@ function jsonLd(
   if (descriptor.kind === 'city' && descriptor.country === 'CH') {
     const cityName = descriptor.cityName || '';
     const pharmacies = pharmaciesForCity(cityName);
-    return [collectionJsonLd(pathValue, title, pharmacies), cityFaqJsonLd(locale, cityName, pharmacies.length), breadcrumbJsonLd(descriptor, locale)];
+    return [collectionJsonLd(pathValue, title, pharmacies), cityFaqJsonLd(locale, pathValue, cityName, pharmacies.length), breadcrumbJsonLd(descriptor, locale)];
   }
   if (descriptor.kind === 'canton') return [cantonCollectionJsonLd(pathValue, title, cantonCityEntries(locale, emittedPaths)), breadcrumbJsonLd(descriptor, locale)];
   if (descriptor.kind === 'country') return [countryCollectionJsonLd(pathValue, title), breadcrumbJsonLd(descriptor, locale)];
