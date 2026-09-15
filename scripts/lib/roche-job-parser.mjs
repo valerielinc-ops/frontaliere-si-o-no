@@ -177,6 +177,7 @@ export async function fetchAllRocheJobs() {
   console.log(`  📋 Listings found: ${listings.length}`);
 
   const jobs = [];
+  let missingDetailUrlCount = 0;
   for (const listing of listings) {
     // TODO: Extract fields from each listing.
     // Adapt these field names to match the actual API response.
@@ -186,7 +187,12 @@ export async function fetchAllRocheJobs() {
     // Roche HQ is Basel (BS); fall back there if Workday omits the location.
     const location = listing.location || 'Basel';
     const canton = inferSwissTargetCanton(location) || 'BS';
-    const publicUrl = listing.url || CAREER_URL;
+    const publicUrl = String(listing.url || '').trim();
+    if (!publicUrl) {
+      missingDetailUrlCount += 1;
+      console.log(`  ⏭️  Skipped listing without detail URL: ${title}`);
+      continue;
+    }
 
     // Workday listing endpoint NEVER returns the job body — it must be fetched
     // from the per-job detail endpoint (jobPostingInfo.jobDescription). The
@@ -253,5 +259,6 @@ export async function fetchAllRocheJobs() {
   }
 
   console.log(`\n📋 Total Roche jobs discovered: ${jobs.length}`);
+  jobs.missingDetailUrlCount = missingDetailUrlCount;
   return jobs;
 }

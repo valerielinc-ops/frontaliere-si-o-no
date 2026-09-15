@@ -38,6 +38,8 @@
  * │ input_change │ Form input changed (debounced 2s) │
  * │ ui_interaction │ Structured UI interaction │
  * │ funnel_step │ Conversion funnel progression │
+ * │ decision_moment_completed │ Explicit decision-surface task completion │
+ * │ decision_moment_next_action │ Explicit next useful action after completion │
  * │ job_qualified_session │ One qualified job-detail session │
  * │ job_apply_handoff │ External application destination hand-off │
  * ├──────────────────────┼──────────────────────────────────────┤
@@ -129,6 +131,8 @@ export type AnalyticsJobApplySource = AnalyticsJobIdentitySource & {
 
 export const JOB_QUALIFIED_SESSION_EVENT = 'job_qualified_session';
 export const JOB_APPLY_HANDOFF_EVENT = 'job_apply_handoff';
+export const DECISION_MOMENT_COMPLETED_EVENT = 'decision_moment_completed';
+export const DECISION_MOMENT_NEXT_ACTION_EVENT = 'decision_moment_next_action';
 
 /**
  * Resolve the identity carried by job analytics from the canonical job fields.
@@ -1729,6 +1733,25 @@ export const Analytics = {
  cta_id: ctaId || `${page}.${section}.${component}.${action}`,
  details: details?.substring(0, 100),
  });
+ },
+
+ /**
+  * L5 decision-surface outcome contract. These fields are categorical only:
+  * no user-entered answers, labels or destination URLs are sent. The outcome
+  * exporter joins the two events by PostHog session id.
+  */
+ trackDecisionMomentCompleted: (surface: string, task: string) => {
+  log(DECISION_MOMENT_COMPLETED_EVENT, {
+   decision_surface: truncate(surface, 60),
+   task_id: truncate(task, 80),
+  });
+ },
+
+ trackDecisionMomentNextAction: (surface: string, action: string) => {
+  log(DECISION_MOMENT_NEXT_ACTION_EVENT, {
+   decision_surface: truncate(surface, 60),
+   action_id: truncate(action, 80),
+  });
  },
 
  /**

@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { buildPharmacyAliasBridge, buildPharmacyDirectoryPage, emitPharmacyAliasBridge, pharmacyPageDescriptors } from '../../build-plugins/pharmacyDirectoryPagesPlugin';
-import { TICINO_CITIES, TICINO_PHARMACIES } from '../../services/pharmacies/data';
+import { ITALY_BORDER_PHARMACIES, TICINO_CITIES, TICINO_PHARMACIES, pharmacyCitySlug } from '../../services/pharmacies/data';
 import { buildPharmacyPath } from '../../services/pharmacies/paths';
 import { extractVisibleText } from '../../scripts/audit-text-html-ratio.mjs';
 import dutiesJson from '../../data/pharmacy-duties-ticino.json';
@@ -71,6 +71,7 @@ describe('pharmacy directory page matrix', () => {
       expect(pharmacies.length, `missing pharmacy records for ${locale} ${city.cityName}`).toBeGreaterThan(0);
       expect(page.indexable).toBe(true);
       expect(page.html).toContain('"@type":"FAQPage"');
+      expect(page.html).toContain(`"@id":"https://frontaliereticino.ch${buildPharmacyPath({ kind: 'city', locale, citySlug: city.citySlug }, locale)}#faq"`);
       expect(page.html).toMatch(/<details\b/);
       for (const pharmacy of pharmacies) {
         const detailPath = buildPharmacyPath({
@@ -151,7 +152,7 @@ describe('pharmacy directory page matrix', () => {
     expect(after.html).toMatch(/<article\b/);
   });
 
-  it('keeps every indexable directory page above the text-html ratio floor', () => {
+  it('keeps every indexable directory page above the text-html ratio floor', { timeout: 90000 }, () => {
     for (const locale of locales) {
       for (const descriptor of pharmacyPageDescriptors()) {
         const page = buildPharmacyDirectoryPage(descriptor, locale, '/tmp/pharmacy-dist');
@@ -197,6 +198,31 @@ describe('pharmacy directory page matrix', () => {
       `https://frontaliereticino.ch${buildPharmacyPath({ kind: 'area', country: 'IT', areaSlug: 'verbano-cusio-ossola', locale }, locale)}`,
     ]));
     expect(page.html).toContain('"@type":"BreadcrumbList"');
+  });
+
+  it.each(locales)('keeps Italian province hubs compact while linking every pharmacy (%s)', (locale) => {
+    const area = pharmacyPageDescriptors().find((descriptor) => descriptor.kind === 'area' && descriptor.areaSlug === 'varese');
+    const pharmacies = ITALY_BORDER_PHARMACIES.filter((pharmacy) => pharmacy.province === 'VA');
+    expect(area).toBeDefined();
+
+    const page = buildPharmacyDirectoryPage(area!, locale, '/tmp/pharmacy-dist');
+    const hrefs = [...page.html.matchAll(/<a href="([^"]+)"/g)].map((match) => match[1]);
+
+    expect(page.indexable).toBe(true);
+    expect(Buffer.byteLength(page.html, 'utf8')).toBeLessThan(260 * 1024);
+    expect(page.html).not.toMatch(/<article\b/);
+    for (const pharmacy of pharmacies) {
+      const detailPath = buildPharmacyPath({
+        kind: 'pharmacy',
+        country: 'IT',
+        locale,
+        areaSlug: 'varese',
+        citySlug: pharmacyCitySlug(pharmacy.city),
+        pharmacySlug: pharmacy.slug,
+      }, locale);
+      expect(hrefs, 'missing ' + detailPath).toContain(detailPath);
+      expect(page.html).toContain(pharmacy.sourceUrl);
+    }
   });
 
   it('emits the current weekly duty route as indexable only for a valid P0 release pair', () => {

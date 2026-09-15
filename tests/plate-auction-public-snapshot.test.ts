@@ -57,21 +57,21 @@ describe("public plate-auction snapshot source gating", () => {
         auctions: [
           row(),
           row({
-            id: "ti-old",
-            sourceKey: "TI",
-            canton: "Ticino",
-            platePrefix: "TI",
+            id: "ne-old",
+            sourceKey: "NE",
+            canton: "Neuchâtel",
+            platePrefix: "NE",
             plateNumber: "1",
-            normalizedPlate: "TI1",
-            officialAuctionUrl: "https://www.carieauktion.ti.ch/ecari-auktion/",
+            normalizedPlate: "NE1",
+            officialAuctionUrl: "https://www.ricardo.ch/de/shop/ENCHERES-PLAQUES-NE/offers/",
           }),
         ],
         sources: [
           {
-            id: "ti",
-            canton: "Ticino",
-            plateCode: "TI",
-            officialUrl: "https://www.ti.ch/sportello/targhe",
+            id: "ne",
+            canton: "Neuchâtel",
+            plateCode: "NE",
+            officialUrl: "https://www.ricardo.ch/de/shop/ENCHERES-PLAQUES-NE/offers/",
             status: "degraded",
             rowCount: 1,
             errorCode: "source_disappeared",
@@ -83,10 +83,10 @@ describe("public plate-auction snapshot source gating", () => {
     expect(snapshot.auctions.map((auction) => auction.sourceKey)).toEqual([
       "ZH",
     ]);
-    expect(snapshot.sources.ti).toMatchObject({
+    expect(snapshot.sources.ne).toMatchObject({
       status: "blocked",
       rowCount: 0,
     });
-    expect(snapshot.sources.ti).not.toHaveProperty("errorCode");
+    expect(snapshot.sources.ne).not.toHaveProperty("errorCode");
   });
 });
