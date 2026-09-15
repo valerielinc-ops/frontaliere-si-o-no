@@ -556,13 +556,13 @@ const HOMEPAGE_SEO_META: Record<HpSeoLocale, {
  },
  de: {
   title: HOMEPAGE_SEO_TITLES.de,
-  description: 'Berechnen Sie Ihren Nettolohn in der Schweiz 2026: Quellensteuer, AHV/BVG, italienische IRPEF und das neue Abkommen.',
+  description: 'Berechnen Sie Ihren Nettolohn in der Schweiz 2026: Quellensteuer, AHV/BVG, italienische IRPEF, Krankenkasse und das neue Abkommen.',
   ogDescription: 'Schätzen Sie Ihren Schweizer Nettolohn als Grenzgänger: Quellensteuer, AHV/BVG, italienische IRPEF und das Abkommen 2026.',
   ogLocale: 'de_CH',
  },
  fr: {
   title: HOMEPAGE_SEO_TITLES.fr,
-  description: 'Calculez votre salaire net suisse 2026 : impôt à la source, AVS/LPP, IRPEF italienne et nouvel accord.',
+  description: 'Calculez votre salaire net suisse 2026 : impôt à la source, AVS/LPP, IRPEF italienne, assurance maladie et nouvel accord.',
   ogDescription: 'Estimez votre revenu net suisse de frontalier : impôt à la source, AVS/LPP, IRPEF italienne et accord fiscal 2026.',
   ogLocale: 'fr_CH',
  },
