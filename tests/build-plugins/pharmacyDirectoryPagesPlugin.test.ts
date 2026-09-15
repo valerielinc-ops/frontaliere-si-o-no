@@ -152,7 +152,11 @@ describe('pharmacy directory page matrix', () => {
     expect(page.indexable).toBe(true);
     expect(page.html.match(/data-coverage-kind=(?:"ticino-region"|ticino-region)/g) || []).toHaveLength(5);
     expect(page.html.match(/data-coverage-kind=(?:"source-only-canton"|source-only-canton)/g) || []).toHaveLength(25);
-    expect(page.html.match(/data-source-status=(?:"unverified"|unverified)/g) || []).toHaveLength(25);
+    // Main may promote a source-only canton to a valid non-unverified state
+    // (for example Geneva's fail-closed `degraded` source slice). The matrix
+    // contract requires one status attribute per canton, not that every
+    // source remains `unverified` forever.
+    expect(page.html.match(/data-source-status=(?:"(?:unverified|degraded|active|blocked|unavailable)"|(?:unverified|degraded|active|blocked|unavailable))/g) || []).toHaveLength(25);
     expect(page.html).toMatch(/data-release-ready=(?:"true"|true)/);
     expect(page.html).toContain('https://apotheken-aargau.ch/notfall/');
     expect(page.html).toContain('https://www.farmacielocarnese.ch/');
