@@ -330,29 +330,36 @@ function intervalOverlaps(cards) {
   }));
 }
 
-function dutyId(sourceKey, card, pharmacyId) {
-  return `ge-duty-${sourceKey}-${dateKey(card.start)}-${pharmacyId}`.replace(/[^a-zA-Z0-9_-]/g, '-');
+function dutyId(sourceKey, date, pharmacyId) {
+  return `ge-duty-${sourceKey}-${dateKey(date)}-${pharmacyId}`.replace(/[^a-zA-Z0-9_-]/g, '-');
 }
 
-function toObservedDuty(card, source, identity, fetchedAt) {
+function toObservedDuties(card, source, identity, fetchedAt) {
   if (!source) return null;
-  const startsAt = localDateTimeToGenevaIso(card.start, card.startTime);
-  const endsAt = localDateTimeToGenevaIso(card.end, card.endTime);
-  if (!startsAt || !endsAt || Date.parse(endsAt) <= Date.parse(startsAt)) return null;
-  return {
-    id: dutyId(source.key, card, identity.pharmacyId),
-    pharmacyId: identity.pharmacyId,
-    coverageType: 'canton',
-    coverageName: GENEVA_DUTY_RELEASE_COVERAGE_NAME,
-    startsAt,
-    endsAt,
-    dutyType: 'day',
-    status: 'verified',
-    sourceUrl: GENEVA_DUTY_RELEASE_SOURCE_URL,
-    sourceType: 'association',
-    fetchedAt,
-    verifiedAt: fetchedAt,
-  };
+  const duties = [];
+  const overnight = card.endTime <= card.startTime;
+  for (const key of dateKeysBetween(card.start, card.end)) {
+    const date = dateFromKey(key);
+    const endDate = overnight ? nextDate(date) : date;
+    const startsAt = localDateTimeToGenevaIso(date, card.startTime);
+    const endsAt = localDateTimeToGenevaIso(endDate, card.endTime);
+    if (!startsAt || !endsAt || Date.parse(endsAt) <= Date.parse(startsAt)) return null;
+    duties.push({
+      id: dutyId(source.key, date, identity.pharmacyId),
+      pharmacyId: identity.pharmacyId,
+      coverageType: 'canton',
+      coverageName: GENEVA_DUTY_RELEASE_COVERAGE_NAME,
+      startsAt,
+      endsAt,
+      dutyType: 'day',
+      status: 'verified',
+      sourceUrl: GENEVA_DUTY_RELEASE_SOURCE_URL,
+      sourceType: 'association',
+      fetchedAt,
+      verifiedAt: fetchedAt,
+    });
+  }
+  return duties;
 }
 
 /**
@@ -417,12 +424,12 @@ export function parseGenevaDutySource(rawHtml, registry, {
       }
       continue;
     }
-    const duty = toObservedDuty(card, source, identity, fetchedAt);
-    if (!duty) {
+    const duties = toObservedDuties(card, source, identity, fetchedAt);
+    if (!duties) {
       errors.push(`source card ${card.index} has an invalid ${GENEVA_DUTY_RELEASE_TIMEZONE} boundary`);
       continue;
     }
-    observedDuties.push(duty);
+    observedDuties.push(...duties);
   }
 
   const coverage = errors.length === 0 && days.size === GENEVA_DUTY_RELEASE_MINIMUM_CALENDAR_DAYS && !hasGap(days)
