@@ -93,9 +93,9 @@
       "timezone": "Europe/Zurich",
       "sourceType": "association",
       "owner": "platform",
-      "status": "unverified",
+      "status": "degraded",
       "lastVerifiedAt": "2026-09-15T00:00:00.000Z",
-      "notes": "Fonte associativa con pagina di ingresso per le farmacie di guardia; URL verificato nella ricognizione del 15 settembre 2026, ma senza connettore o calendario live nel sito."
+      "notes": "Fonte associativa allowlisted con parser e contratto GE dedicati; la pagina espone finestre 2026 parziali e una carta 24/7, quindi lo snapshot resta not_published senza righe operative finché calendario annuale e identità non sono verificati."
     },
     "glarus": {
       "canton": "Glarona",
