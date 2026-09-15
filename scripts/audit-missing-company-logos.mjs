@@ -123,13 +123,13 @@ async function main() {
 
   await mkdir(path.dirname(OUTPUT), { recursive: true });
   await writeFile(OUTPUT, `${JSON.stringify(payload, null, 2)}\n`);
-  console.log(
-    `[audit-missing-company-logos] ${payload.source.jobCount} annunci, ${payload.companiesTotal} aziende — `
-    + `missing: ${payload.missing} (${payload.missingJobCount}), `
-    + `broken: ${payload.broken} (${payload.brokenJobCount}), `
-    + `partial: ${payload.partial} (${payload.partialJobCount}), `
-    + `valid: ${payload.withLogo}. Scritto ${OUTPUT}`,
-  );
+  console.log([
+    `[audit-missing-company-logos] ${payload.source.jobCount} annunci, ${payload.companiesTotal} aziende —`,
+    `missing: ${payload.missing} (${payload.missingJobCount}),`,
+    `broken: ${payload.broken} (${payload.brokenJobCount}),`,
+    `partial: ${payload.partial} (${payload.partialJobCount}),`,
+    `valid: ${payload.withLogo}. Scritto ${OUTPUT}`,
+  ].join(' '));
 
   if (process.argv.includes('--report-issue')) await reportIssue(payload);
 }
