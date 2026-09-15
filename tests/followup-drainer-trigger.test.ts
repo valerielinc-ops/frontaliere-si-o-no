@@ -15,6 +15,12 @@ describe('followup-drainer trigger durability', () => {
     expect(WORKFLOW).toContain('cancel-in-progress: false');
   });
 
+  it('mantiene la misura storica #7581 nel contratto del mutex repo-scoped', () => {
+    expect(WORKFLOW).toMatch(/group:\s*followup-daily-\$\{\{\s*github\.repository\s*\}\}/);
+    expect(WORKFLOW).not.toMatch(/group:\s*followup-drainer(?:\s|$)/m);
+    expect(WORKFLOW).toContain('1,426/1,710 historical runs (83.4%)');
+  });
+
   it('propaga al drainer il fallback Codex già usato da issue-fix', () => {
     const drain = WORKFLOW.slice(WORKFLOW.indexOf('- name: Drain follow-up queue'));
     expect(drain).toContain("FOLLOWUP_CODEX_FALLBACK_MODE: '1'");

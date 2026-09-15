@@ -96,6 +96,14 @@ function currentAmount(auction: PlateAuction): number | undefined {
   return auction.currentBidChf ?? auction.startingPriceChf;
 }
 
+/** A live record with an elapsed official deadline is no longer current. */
+export function isPlateAuctionLive(auction: PlateAuction, now = new Date()): boolean {
+  if (!['active', 'upcoming'].includes(auction.auctionStatus)) return false;
+  if (!auction.endsAt) return true;
+  const endsAt = Date.parse(auction.endsAt);
+  return !Number.isFinite(endsAt) || endsAt > now.getTime();
+}
+
 function latestRecordById(auctions: readonly PlateAuction[]): PlateAuction[] {
   const latest = new Map<string, PlateAuction>();
   for (const auction of auctions) {
@@ -134,7 +142,7 @@ export function rankPlateAuctions(
     if (canton && auction.sourceKey !== canton && auction.platePrefix !== canton) return false;
     if (mode === 'final') {
       if (!isFinalVerified(auction)) return false;
-    } else if (!['active', 'upcoming'].includes(auction.auctionStatus)
+    } else if (!isPlateAuctionLive(auction, now)
       || auction.dataConfidence === 'conflicting'
       || currentAmount(auction) === undefined) {
       return false;

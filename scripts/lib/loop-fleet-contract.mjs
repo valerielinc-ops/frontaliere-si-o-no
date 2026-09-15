@@ -90,6 +90,30 @@ const LIFECYCLE_FIELDS = Object.freeze([
   'rollbackOwner',
 ]);
 
+const ALLOCATION_POLICY_FIELDS = Object.freeze([
+  'persistent',
+  'assignmentMethod',
+  'assignmentKey',
+  'boundedCanary',
+  'contaminationPolicy',
+  'trafficMutationAllowed',
+  'priceMutationAllowed',
+  'noAutomaticPriceChange',
+]);
+
+const BOUNDED_CANARY_FIELDS = Object.freeze([
+  'enabled',
+  'maxExposure',
+  'requiresReviewedApproval',
+]);
+
+const CONTAMINATION_POLICY_FIELDS = Object.freeze([
+  'controlled',
+  'key',
+  'rejectReassignment',
+  'rejectCrossCandidateExposure',
+]);
+
 function fail(message) {
   throw new TypeError(`loop-fleet contract: ${message}`);
 }
@@ -163,6 +187,78 @@ function requireLifecycle(value, name) {
     ownerSlaHours: requirePositiveInteger(value.ownerSlaHours, `${name}.ownerSlaHours`),
     postMergeVerificationHours: requirePositiveInteger(value.postMergeVerificationHours, `${name}.postMergeVerificationHours`),
     rollbackOwner: requireText(value.rollbackOwner, `${name}.rollbackOwner`),
+  };
+}
+
+function requireBoolean(value, name) {
+  if (typeof value !== 'boolean') fail(`${name} must be boolean`);
+  return value;
+}
+
+function rejectUnknownKeys(value, allowed, name) {
+  for (const key of Object.keys(value)) {
+    if (!allowed.includes(key)) fail(`${name}.${key} is not a supported field`);
+  }
+}
+
+function requireAllocationPolicy(value, name) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) fail(`${name} must be an object`);
+  rejectUnknownKeys(value, ALLOCATION_POLICY_FIELDS, name);
+  if (value.persistent !== true) fail(`${name}.persistent must be true`);
+  const boundedCanary = value.boundedCanary;
+  if (!boundedCanary || typeof boundedCanary !== 'object' || Array.isArray(boundedCanary)) {
+    fail(`${name}.boundedCanary must be an object`);
+  }
+  rejectUnknownKeys(boundedCanary, BOUNDED_CANARY_FIELDS, `${name}.boundedCanary`);
+  requireBoolean(boundedCanary.enabled, `${name}.boundedCanary.enabled`);
+  requirePositiveInteger(boundedCanary.maxExposure, `${name}.boundedCanary.maxExposure`, { allowZero: true });
+  requireBoolean(boundedCanary.requiresReviewedApproval, `${name}.boundedCanary.requiresReviewedApproval`);
+  // This runner only produces a reviewed plan. A registry change must not
+  // silently turn it into a live traffic mutator.
+  if (boundedCanary.enabled !== false) fail(`${name}.boundedCanary.enabled must be false until a reviewed canary executor exists`);
+  if (boundedCanary.maxExposure !== 0) fail(`${name}.boundedCanary.maxExposure must be 0 until a reviewed canary executor exists`);
+  if (boundedCanary.requiresReviewedApproval !== true) fail(`${name}.boundedCanary.requiresReviewedApproval must be true`);
+
+  const contaminationPolicy = value.contaminationPolicy;
+  if (!contaminationPolicy || typeof contaminationPolicy !== 'object' || Array.isArray(contaminationPolicy)) {
+    fail(`${name}.contaminationPolicy must be an object`);
+  }
+  rejectUnknownKeys(contaminationPolicy, CONTAMINATION_POLICY_FIELDS, `${name}.contaminationPolicy`);
+  requireBoolean(contaminationPolicy.controlled, `${name}.contaminationPolicy.controlled`);
+  requireBoolean(contaminationPolicy.rejectReassignment, `${name}.contaminationPolicy.rejectReassignment`);
+  requireBoolean(contaminationPolicy.rejectCrossCandidateExposure, `${name}.contaminationPolicy.rejectCrossCandidateExposure`);
+  if (contaminationPolicy.controlled !== true) fail(`${name}.contaminationPolicy.controlled must be true`);
+  if (contaminationPolicy.rejectReassignment !== true) fail(`${name}.contaminationPolicy.rejectReassignment must be true`);
+  if (contaminationPolicy.rejectCrossCandidateExposure !== true) fail(`${name}.contaminationPolicy.rejectCrossCandidateExposure must be true`);
+
+  const assignmentMethod = requireText(value.assignmentMethod, `${name}.assignmentMethod`);
+  const assignmentKey = requireText(value.assignmentKey, `${name}.assignmentKey`);
+  const contaminationKey = requireText(contaminationPolicy.key, `${name}.contaminationPolicy.key`);
+  if (contaminationKey !== assignmentKey) fail(`${name}.contaminationPolicy.key must match assignmentKey`);
+  requireBoolean(value.trafficMutationAllowed, `${name}.trafficMutationAllowed`);
+  requireBoolean(value.priceMutationAllowed, `${name}.priceMutationAllowed`);
+  requireBoolean(value.noAutomaticPriceChange, `${name}.noAutomaticPriceChange`);
+  if (value.trafficMutationAllowed !== false) fail(`${name}.trafficMutationAllowed must be false`);
+  if (value.priceMutationAllowed !== false) fail(`${name}.priceMutationAllowed must be false`);
+  if (value.noAutomaticPriceChange !== true) fail(`${name}.noAutomaticPriceChange must be true`);
+  return {
+    persistent: true,
+    assignmentMethod,
+    assignmentKey,
+    boundedCanary: {
+      enabled: false,
+      maxExposure: 0,
+      requiresReviewedApproval: true,
+    },
+    contaminationPolicy: {
+      controlled: true,
+      key: contaminationKey,
+      rejectReassignment: true,
+      rejectCrossCandidateExposure: true,
+    },
+    trafficMutationAllowed: false,
+    priceMutationAllowed: false,
+    noAutomaticPriceChange: true,
   };
 }
 
@@ -246,6 +342,9 @@ export function validateLoopRegistry(registry) {
     }
     const lifecycle = requireLifecycle(loop.lifecycle, `${id}.lifecycle`);
     const actionPolicy = requireActionPolicy(loop.actionPolicy, `${id}.actionPolicy`);
+    const allocationPolicy = id === 'L7'
+      ? requireAllocationPolicy(loop.allocationPolicy, `${id}.allocationPolicy`)
+      : (loop.allocationPolicy === undefined ? undefined : requireAllocationPolicy(loop.allocationPolicy, `${id}.allocationPolicy`));
     for (const actionClass of loop.actionClasses) {
       for (const part of actionClass.split('+').map((value) => value.trim()).filter(Boolean)) {
         declaredActionClasses.add(part);
@@ -257,6 +356,7 @@ export function validateLoopRegistry(registry) {
       outcome,
       lifecycle,
       actionPolicy,
+      ...(allocationPolicy ? { allocationPolicy } : {}),
     });
   }
   const actionAutonomyMap = registry.actionAutonomy;
@@ -522,12 +622,117 @@ const EVIDENCE_REQUIRED_LIFECYCLE_EVENTS = Object.freeze([
   'post_merge_verified',
 ]);
 
+function lifecycleEventTime(events, eventType) {
+  const event = [...events]
+    .filter((candidate) => candidate.eventType === eventType)
+    .map((candidate, index) => ({ candidate, index, time: Date.parse(candidate.occurredAt || '') }))
+    .filter(({ time }) => Number.isFinite(time))
+    .sort((left, right) => left.time - right.time || left.index - right.index)
+    .at(0)?.candidate;
+  return event ? new Date(event.occurredAt).toISOString() : null;
+}
+
+function lifecycleDeadline(startAt, hours) {
+  const startMs = Date.parse(startAt || '');
+  return Number.isFinite(startMs) && Number.isInteger(hours) && hours > 0
+    ? new Date(startMs + hours * 3_600_000).toISOString()
+    : null;
+}
+
+function lifecycleDeadlineStatus({ deadlineAt, milestoneAt, nowMs }) {
+  if (!deadlineAt) return 'unmeasurable';
+  if (milestoneAt) return Date.parse(milestoneAt) <= Date.parse(deadlineAt) ? 'met' : 'late';
+  return nowMs >= Date.parse(deadlineAt) ? 'overdue' : 'pending';
+}
+
+function lifecycleSlaSummary(events, now = new Date(), { coherent = true } = {}) {
+  const candidateAt = lifecycleEventTime(events, 'candidate');
+  const ownerAssignedAt = lifecycleEventTime(events, 'owner_assigned');
+  const mergedAt = lifecycleEventTime(events, 'merged');
+  const postMergeVerifiedAt = lifecycleEventTime(events, 'post_merge_verified');
+  const rolledBackAt = lifecycleEventTime(events, 'rolled_back');
+  const inconclusiveAt = lifecycleEventTime(events, 'inconclusive');
+  const lifecycle = events.find((event) => event.lifecycle)?.lifecycle;
+  if (!lifecycle || !candidateAt) return null;
+  const nowMs = now instanceof Date ? now.getTime() : Date.parse(now || '');
+  const effectiveNowMs = Number.isFinite(nowMs) ? nowMs : Date.now();
+  const candidateResolutionAt = postMergeVerifiedAt || rolledBackAt || inconclusiveAt;
+  const candidateTtl = {
+    hours: lifecycle.candidateTtlHours,
+    deadlineAt: lifecycleDeadline(candidateAt, lifecycle.candidateTtlHours),
+    milestoneAt: candidateResolutionAt,
+  };
+  candidateTtl.status = lifecycleDeadlineStatus({ ...candidateTtl, nowMs: effectiveNowMs });
+  const ownerSla = {
+    hours: lifecycle.ownerSlaHours,
+    deadlineAt: lifecycleDeadline(candidateAt, lifecycle.ownerSlaHours),
+    milestoneAt: ownerAssignedAt,
+  };
+  ownerSla.status = lifecycleDeadlineStatus({ ...ownerSla, nowMs: effectiveNowMs });
+  const postMergeVerification = {
+    hours: lifecycle.postMergeVerificationHours,
+    deadlineAt: lifecycleDeadline(mergedAt, lifecycle.postMergeVerificationHours),
+    milestoneAt: postMergeVerifiedAt,
+  };
+  postMergeVerification.status = mergedAt
+    ? lifecycleDeadlineStatus({ ...postMergeVerification, nowMs: effectiveNowMs })
+    : 'not_started';
+  const checks = [candidateTtl, ownerSla, postMergeVerification];
+  const statuses = checks.map((check) => check.status);
+  const nextDeadlineAt = checks
+    .filter((check) => ['pending', 'overdue'].includes(check.status) && check.deadlineAt)
+    .map((check) => check.deadlineAt)
+    .sort((left, right) => Date.parse(left) - Date.parse(right))[0] || null;
+  return {
+    status: !coherent
+      ? 'unmeasurable'
+      : (statuses.includes('overdue')
+        ? 'overdue'
+        : (statuses.includes('late')
+          ? 'late'
+          : (statuses.some((status) => ['pending', 'not_started'].includes(status)) ? 'pending' : 'met'))),
+    coherent,
+    candidateTtl,
+    ownerSla,
+    postMergeVerification,
+    nextDeadlineAt,
+  };
+}
+
+function summarizeFleetSla(candidates) {
+  const slas = candidates.map((candidate) => candidate.sla).filter(Boolean);
+  if (!slas.length) return null;
+  const statuses = slas.map((sla) => sla.status);
+  const pending = statuses.filter((status) => status === 'pending').length;
+  const notStarted = slas.reduce((count, sla) => count + (sla.postMergeVerification.status === 'not_started' ? 1 : 0), 0);
+  const nextDeadlineAt = slas
+    .map((sla) => sla.nextDeadlineAt)
+    .filter(Boolean)
+    .sort((left, right) => Date.parse(left) - Date.parse(right))[0] || null;
+  return {
+    status: statuses.includes('overdue')
+      ? 'overdue'
+      : (statuses.includes('late')
+        ? 'late'
+        : (statuses.includes('pending')
+          ? 'pending'
+          : (statuses.includes('unmeasurable') ? 'unmeasurable' : 'met'))),
+    candidateCount: slas.length,
+    overdueCount: statuses.filter((status) => status === 'overdue').length,
+    lateCount: statuses.filter((status) => status === 'late').length,
+    pendingCount: pending,
+    notStartedCount: notStarted,
+    unmeasurableCount: statuses.filter((status) => status === 'unmeasurable').length,
+    nextDeadlineAt,
+  };
+}
+
 /**
  * Summarize lifecycle records without treating a set of event names as proof
  * of a coherent chain. This is intentionally read-only: it reports missing
  * evidence and contradictions for a separate observer or human owner.
  */
-export function summarizeLifecycleEvents(events = []) {
+export function summarizeLifecycleEvents(events = [], { now = new Date() } = {}) {
   const byCandidate = new Map();
   for (const event of events || []) {
     const candidateId = typeof event?.candidateId === 'string' && event.candidateId.trim()
@@ -572,7 +777,12 @@ export function summarizeLifecycleEvents(events = []) {
       !sourceConsistent ? 'sourceRecordId changes across the candidate chain' : null,
       ...missingEvidence.map((eventType) => `${eventType} has no artifactOrPr reference`),
     ].filter(Boolean);
-    const sorted = [...candidateEvents].sort((left, right) => Date.parse(left.occurredAt) - Date.parse(right.occurredAt));
+    const sla = lifecycleSlaSummary(candidateEvents, now, { coherent: incoherent.length === 0 });
+    const sorted = candidateEvents
+      .map((event, index) => ({ event, index, time: Date.parse(event.occurredAt || '') }))
+      .sort((left, right) => (Number.isFinite(left.time) ? left.time : Number.POSITIVE_INFINITY)
+        - (Number.isFinite(right.time) ? right.time : Number.POSITIVE_INFINITY)
+        || left.index - right.index);
     return {
       candidateId,
       owner: owners[0] || candidateEvents[0]?.owner || null,
@@ -586,15 +796,19 @@ export function summarizeLifecycleEvents(events = []) {
       terminalEventTypes,
       incoherent,
       complete: missing.length === 0 && incoherent.length === 0,
+      sla,
       lastEvent: sorted.at(-1) ? {
-        eventType: sorted.at(-1).eventType,
-        occurredAt: sorted.at(-1).occurredAt,
+        eventType: sorted.at(-1).event.eventType,
+        occurredAt: sorted.at(-1).event.occurredAt,
       } : null,
     };
   });
-  const last = [...(events || [])]
-    .sort((left, right) => Date.parse(left.occurredAt) - Date.parse(right.occurredAt))
-    .at(-1);
+  const last = (events || [])
+    .map((event, index) => ({ event, index, time: Date.parse(event.occurredAt || '') }))
+    .sort((left, right) => (Number.isFinite(left.time) ? left.time : Number.POSITIVE_INFINITY)
+      - (Number.isFinite(right.time) ? right.time : Number.POSITIVE_INFINITY)
+      || left.index - right.index)
+    .at(-1)?.event;
   const state = candidates.length === 0
     ? 'no_candidate'
     : (candidates.some((candidate) => candidate.terminalEventTypes.includes('inconclusive'))
@@ -610,6 +824,7 @@ export function summarizeLifecycleEvents(events = []) {
     eventCount: (events || []).length,
     candidateCount: candidates.length,
     complete: candidates.length ? candidates.every((candidate) => candidate.complete) : null,
+    sla: summarizeFleetSla(candidates),
     state,
     lastEvent: last ? { eventType: last.eventType, occurredAt: last.occurredAt } : null,
     candidates,

@@ -555,6 +555,7 @@ jobs:
             # checkout, but its corpus target is otherwise excluded.
             /packages/articles/content/blog-body/*/assistente-ai-frontalieri.ts
             /packages/articles/content/blog-body-ch/de/naturalizzazione-canton-san-gallo-procedura.ts
+            /packages/articles/content/blog-body-ch/de/tassi-interesse-svizzera-bassi.ts
             # Type-only dependency imported by the SEO modules above; keep it
             # file-scoped so the article corpus remains excluded.
             /packages/articles/content/seo/seoMetadataType.ts
@@ -1498,8 +1499,13 @@ jobs:
         # FOREGROUND, dopo "Assemble + migrate": i test scelti dal grafo
         # possono leggere i dataset generati. Questo è l'unico invocatore di
         # Vitest del job PR; `run-related-tests.mjs` usa il related graph e un
-        # fallback conservativo quando il percorso non è rappresentabile.
+        # fallback conservativo quando il percorso non è rappresentabile. Il
+        # predicato Assemble è l'input del consumer: se dice `false`, il run
+        # resta attivo ma viene confinato ai test indipendenti; se manca,
+        # l'espressione applica il default fail-safe `true`, mentre un valore
+        # inatteso interrompe il consumer invece di usare output non assemblati.
         env:
+          ASSEMBLE_REQUIRED: ${{ steps.assemble.outputs.required || 'true' }}
           # Vitest 4's related graph can exceed Node's default 4GB heap in this
           # repository. Keep the graph bounded to one fork and leave headroom
           # on the hosted runner; this does not change the related-only scope.
@@ -1521,7 +1527,21 @@ jobs:
           VITEST_CACHE_DIR: node_modules/.vite-related
           CHANGED_PATHS_STATUS_FILE: changed-paths-status.txt
           VITEST_SKIP_CORPUS_WIDE: 'true'
-        run: node scripts/ci/run-related-tests.mjs --reporter=default --reporter=json --outputFile=shard-timing-related.json
+        run: |
+          set -euo pipefail
+          case "$ASSEMBLE_REQUIRED" in
+            true)
+              node scripts/ci/run-related-tests.mjs --reporter=default --reporter=json --outputFile=shard-timing-related.json
+              ;;
+            false)
+              VITEST_DATASET_GROUP=independent \
+                node scripts/ci/run-related-tests.mjs --reporter=default --reporter=json --outputFile=shard-timing-related.json
+              ;;
+            *)
+              echo "::error::unexpected Assemble + migrate decision: $ASSEMBLE_REQUIRED"
+              exit 1
+              ;;
+          esac
 
       # Collect the detached gate processes after the Vitest run. Each process
       # publishes an atomic status file; a missing status from a dead process is
@@ -1645,7 +1665,7 @@ jobs:
       - name: Report Vitest failures on PR
         # The two Vitest steps can fail independently; this step must still
         # run after either group fails and must never mask the original gate.
-        if: ${{ steps.body_contract.outcome != 'failure' && (always() && github.event_name == 'pull_request') }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (always() && !cancelled() && github.event_name == 'pull_request') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
@@ -2220,7 +2240,7 @@ jobs:
         #    has no `## LGTM` so it won't auto-merge, and it gets re-reviewed on
         #    the next push / by the rescuer once quota recovers. No false-green.
         # `set -uo pipefail` (NOT -e): grep in conditionals must not abort.
-        if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.body_contract.outcome != 'failure' && (always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
+        if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
@@ -2281,7 +2301,7 @@ jobs:
         # 429/action crash). Skipping here left the required check green with
         # zero bot reviews on HEAD (PR #7635): no LGTM, nothing red, auto-merge
         # parked forever. Fail this step when HEAD has no valid LGTM.
-        if: ${{ steps.body_contract.outcome != 'failure' && (always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
@@ -2302,7 +2322,7 @@ jobs:
       # percorso è stato saltato, trasformiamo l'assenza di verdetto in un
       # rosso reale. Il job non ha condizioni che possano saltarlo.
       - name: Fail when required review gate is skipped
-        if: ${{ steps.body_contract.outcome != 'failure' && (always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.review_gate.outcome == 'skipped') }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.review_gate.outcome == 'skipped') }}
         run: |
           echo "::error::Required review gate was skipped on a pull request; no approving review verdict was evaluated."
           exit 1
@@ -2335,6 +2355,30 @@ jobs:
         if: ${{ steps.body_contract.outcome != 'failure' && (always()) }}
         run: rm -f /tmp/firebase-sa.json
 
+      - name: Classify cancelled run
+        if: ${{ always() && cancelled() }}
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number || inputs.pr_number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          set +e
+          classification='cancelled_external'
+          if [ -n "${PR_NUMBER:-}" ] && current_sha="$(gh pr view "$PR_NUMBER" --repo "$REPO" --json headRefOid --jq .headRefOid 2>/dev/null)"; then
+            if [ -n "$current_sha" ] && [ "$current_sha" != "$HEAD_SHA" ]; then
+              classification='superseded'
+            fi
+          fi
+          {
+            echo '### tests run cancellata'
+            echo "- Classificazione: **$classification**"
+            echo "- HEAD osservata: \`${HEAD_SHA:0:12}\`"
+            echo '- Le fasi di report, remediation e review sono state saltate perché la run è stata cancellata.'
+          } >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          echo "::notice::tests run classified as $classification; no failure report or remediation was attempted"
+
       - name: Claude usage metrics
         # Solo se il fallback Claude è effettivamente girato: quando Codex
         # conclude il lavoro non c'è execution_file Claude da riassumere.
@@ -2352,7 +2396,7 @@ jobs:
       # `continue-on-error: true` è il fail-soft: il segnalatore non può
       # aggiungere un rosso al job che sta descrivendo, nemmeno crashando.
       - name: Explain the job verdict in the run summary
-        if: ${{ steps.body_contract.outcome != 'failure' && (always()) }}
+        if: ${{ steps.body_contract.outcome != 'failure' && (always() && !cancelled()) }}
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

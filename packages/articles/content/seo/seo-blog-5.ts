@@ -90592,6 +90592,201 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bollettino-frontaliere-2026-09-14': {
+    title: 'Bollettino del frontaliere – 14 settembre 2026: 168 nuovi annunci di lavoro ieri',
+    description: 'Bollettino frontalieri del 14 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    keywords: 'bollettino frontaliere, dogana, attesa dogana, code valichi ticino, prezzi benzina confine, cambio franco euro, lavoro svizzera, frontalieri ticino',
+    ogTitle: 'Bollettino del frontaliere – 14 settembre 2026: 168 nuovi annunci di lavoro ieri',
+    ogDescription: 'I numeri del 14 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/bollettino-frontaliere-2026-09-14',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bollettino del frontaliere – 14 settembre 2026: 168 nuovi annunci di lavoro ieri",
+      "description": "Bollettino frontalieri del 14 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bollettino-frontaliere-2026-09-14.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I numeri del giorno per i frontalieri – 14 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro"
+      },
+      "datePublished": "2026-09-14T10:26:13+00:00",
+      "dateModified": "2026-09-14T10:26:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bollettino-frontaliere-2026-09-14/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-premi-cassa-malati-2027-ticino': {
+    title: 'Premi cassa malati 2027 in Ticino: interrogazione al Governo',
+    description: 'Scopri l\'interrogazione dei granconsiglieri Censi e Genini al Consiglio di Stato sui premi cassa malati 2027 in Ticino e sulle stime di aumento. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, cassa, malati, interrogazione',
+    ogTitle: 'Premi cassa malati 2027 in Ticino: interrogazione al Governo',
+    ogDescription: 'I granconsiglieri Andrea Censi e Sem Genini interrogano il Consiglio di Stato sui premi cassa malati 2027 in Ticino, analizzando le stime di aumento e le misure di risparmio.',
+    canonicalPath: '/articoli-frontaliere/premi-cassa-malati-2027-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi cassa malati 2027 in Ticino: interrogazione al Governo",
+      "description": "Scopri l'interrogazione dei granconsiglieri Censi e Genini al Consiglio di Stato sui premi cassa malati 2027 in Ticino e sulle stime di aumento. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-cassa-malati-2027-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo del Governo a Bellinzona e vista panoramica in Ticino"
+      },
+      "datePublished": "2026-09-15T00:05:51+00:00",
+      "dateModified": "2026-09-15T00:05:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/premi-cassa-malati-2027-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-stipendi-como-lombardia-2024': {
+    title: 'Stipendio medio a Como e in Lombardia: i dati del 2024',
+    description: 'Scopri i dati del rapporto UIL Lombardia sulle retribuzioni nel 2024: stipendio medio a 30.384 euro, disuguaglianze, giovani e divario di genere.',
+    keywords: 'frontalieri, ticino, svizzera, italia, stipendio, medio, como, lombardia',
+    ogTitle: 'Stipendio medio a Como e in Lombardia nel 2024',
+    ogDescription: 'Analisi dettagliata del mercato del lavoro in Lombardia nel 2024 basata sui dati dell\'Osservatorio INPS e sul rapporto UIL Lombardia. Scopri i dati su stipendi medi, giovani under 35, divario di genere e differenze territoriali e settoriali.',
+    canonicalPath: '/articoli-frontaliere/stipendi-como-lombardia-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stipendio medio a Como e in Lombardia: i dati del 2024",
+      "description": "Scopri i dati del rapporto UIL Lombardia sulle retribuzioni nel 2024: stipendio medio a 30.384 euro, disuguaglianze, giovani e divario di genere.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/stipendi-como-lombardia-2024.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stipendi medi e retribuzioni in Lombardia e Como"
+      },
+      "datePublished": "2026-09-15T00:15:58+00:00",
+      "dateModified": "2026-09-15T00:15:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stipendi-como-lombardia-2024/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-mendrisio-melano-progetto-meme-risanamento-fonico': {
+    title: 'Mendrisio-Melano, progetto MeMe per ridurre il rumore dell\'autostrada',
+    description: 'L\'Ufficio federale delle strade (USTRA) ha pubblicato il disegno per il progetto MeMe, un piano di risanamento globale per il tratto dell\'autostrada A2',
+    keywords: 'frontalieri, ticino, svizzera, italia, mendrisio-melano, progetto, meme, ridurre',
+    ogTitle: 'Progetto MeMe per la riduzione del rumore dell\'autostrada A2',
+    ogDescription: 'L\'Ufficio federale delle strade (USTRA) ha pubblicato il disegno per il progetto MeMe, un piano di risanamento globale per il tratto dell\'autostrada A2 tra Mendrisio e Melano.',
+    canonicalPath: '/articoli-frontaliere/mendrisio-melano-progetto-meme-risanamento-fonico',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mendrisio-Melano, progetto MeMe per ridurre il rumore dell'autostrada",
+      "description": "L'Ufficio federale delle strade (USTRA) ha pubblicato il disegno per il progetto MeMe, un piano di risanamento globale per il tratto dell'autostrada A2",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mendrisio-melano-progetto-meme-risanamento-fonico.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Tratto autostradale A2 tra Mendrisio e Melano"
+      },
+      "datePublished": "2026-09-15T02:42:05+00:00",
+      "dateModified": "2026-09-15T02:42:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mendrisio-melano-progetto-meme-risanamento-fonico/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bollettino-frontaliere-2026-09-15': {
+    title: 'Bollettino del frontaliere – 15 settembre 2026: 38 nuovi annunci di lavoro ieri',
+    description: 'Bollettino frontalieri del 15 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    keywords: 'bollettino frontaliere, dogana, attesa dogana, code valichi ticino, prezzi benzina confine, cambio franco euro, lavoro svizzera, frontalieri ticino',
+    ogTitle: 'Bollettino del frontaliere – 15 settembre 2026: 38 nuovi annunci di lavoro ieri',
+    ogDescription: 'I numeri del 15 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/bollettino-frontaliere-2026-09-15',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bollettino del frontaliere – 15 settembre 2026: 38 nuovi annunci di lavoro ieri",
+      "description": "Bollettino frontalieri del 15 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bollettino-frontaliere-2026-09-15.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I numeri del giorno per i frontalieri – 15 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro"
+      },
+      "datePublished": "2026-09-15T09:52:10+00:00",
+      "dateModified": "2026-09-15T09:52:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/samuele-valente/#person",
+        "name": "Samuele Valente",
+        "url": "https://frontaliereticino.ch/autori/samuele-valente/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bollettino-frontaliere-2026-09-15/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

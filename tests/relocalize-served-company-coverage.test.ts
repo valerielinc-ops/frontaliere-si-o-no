@@ -37,6 +37,16 @@ describe('served company coverage observation', () => {
     expect([...served]).toEqual(['served-company']);
   });
 
+  it('keeps the fallback when the explicit sterile category is empty too', () => {
+    const served = servedCompanyKeysFromCrawlerResult({
+      localizationSterileCompanyKeys: [],
+      localizationCoveredCompanyKeys: [],
+      localizationAttemptedCompanyKeys: ['Attempted Company'],
+    });
+
+    expect([...served]).toEqual(['attempted-company']);
+  });
+
   it('supports legacy results by preferring non-empty covered keys over attempted keys', () => {
     const served = servedCompanyKeysFromCrawlerResult({
       localizationCoveredCompanyKeys: ['Covered Company'],

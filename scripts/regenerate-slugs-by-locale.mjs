@@ -40,9 +40,12 @@ import {
   isLikelyUntranslated,
   shortJobHash,
   slugMatchesTitle,
+  slugNeedsBrandRefresh,
 } from './lib/regenerate-slugs-helpers.mjs';
+import { applyDeclaredBrandRelabel, declaredBrandLabels } from './lib/crawler-brand-relabel.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { hasUsableJobId } from './lib/job-match-key.mjs';
+import { decontaminateSliceDirectory } from './decontaminate-prev-slugs.mjs';
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
@@ -104,6 +107,9 @@ async function main() {
   let totalDisambiguated = 0;
   let totalPinned = 0;
   let slicesChanged = 0;
+  let totalRelabelled = 0;
+  let totalSourceRefreshed = 0;
+  const brandLabels = declaredBrandLabels();
 
   for (const file of files) {
     const slicePath = path.join(BY_CRAWLER_DIR, file);
@@ -112,6 +118,14 @@ async function main() {
     if (jobs.length === 0) continue;
 
     let sliceChanged = false;
+    const brandRelabelledKey = brandLabels.has(file.replace(/\.json$/, ''));
+    if (brandRelabelledKey) {
+      const { relabelled } = applyDeclaredBrandRelabel(jobs, brandLabels);
+      if (relabelled > 0) {
+        totalRelabelled += relabelled;
+        sliceChanged = true;
+      }
+    }
 
     for (const job of jobs) {
       const sourceLang = job.sourceLang || 'it';
@@ -124,11 +138,18 @@ async function main() {
       totalJobs++;
 
       for (const locale of LOCALES) {
-        // Never touch the source-lang slug or the master slug
-        if (locale === sourceLang) continue;
-
         const title = (tbl[locale] || '').trim();
         const currentSlug = (sbl[locale] || '').trim();
+        const brandRefresh = slugNeedsBrandRefresh({
+          isBrandRelabelledKey: brandRelabelledKey,
+          currentSlug,
+          title,
+          company,
+          location,
+          disambiguator,
+        });
+        const sourceBrandRefresh = locale === sourceLang && brandRefresh;
+        if (locale === sourceLang && !sourceBrandRefresh) continue;
 
         // ── Registry pin ────────────────────────────────────────────────────
         // If this job is registered with a real translation for this locale,
@@ -136,7 +157,9 @@ async function main() {
         // (possibly re-translated) title below. Restore it when the current
         // slice drifted, preserving the drifted slug as a previousSlug bridge,
         // then skip title-based regeneration for this locale entirely.
-        const pinnedSlug = registryPinnedLocaleSlug(getRegisteredSlug(job, slugRegistry), locale, sourceLang);
+        const pinnedSlug = brandRefresh
+          ? null
+          : registryPinnedLocaleSlug(getRegisteredSlug(job, slugRegistry), locale, sourceLang);
         if (pinnedSlug) {
           // Defense-in-depth: the registry pin bypasses the cross-job
           // disambiguator the title-derivation path applies below, so surface a
@@ -174,10 +197,13 @@ async function main() {
         // Without this, an Italian title in the EN slot would overwrite a properly
         // translated English slug with an Italian-derived one.
         const sourceTitle = (tbl[sourceLang] || '').trim();
-        if (sourceTitle && isLikelyUntranslated(title, sourceTitle)) continue;
+        const slugEncodesTitle = Boolean(currentSlug)
+          && slugMatchesTitle(currentSlug, title, company, location, disambiguator);
+        const skipUntranslatedGuard = sourceBrandRefresh || (brandRefresh && slugEncodesTitle);
+        if (!skipUntranslatedGuard && sourceTitle && isLikelyUntranslated(title, sourceTitle)) continue;
 
         // If slug already matches title+company+location (+ disambiguator), skip
-        if (currentSlug && slugMatchesTitle(currentSlug, title, company, location, disambiguator)) continue;
+        if (!brandRefresh && slugEncodesTitle) continue;
 
         // Generate new slug from locale title, re-appending disambiguator
         let newSlug = buildSlug(title, company, location, disambiguator);
@@ -249,6 +275,7 @@ async function main() {
 
         sliceChanged = true;
         totalFixed++;
+        if (sourceBrandRefresh) totalSourceRefreshed++;
       }
     }
 
@@ -267,7 +294,22 @@ async function main() {
     }
   }
 
+  // This script is another direct slice writer in the canonical translation
+  // workflow. Slug regeneration can capture a bridge while it changes the
+  // active slug, so perform the same fleet-wide ownership pass before its
+  // phase is committed.
+  const ownership = decontaminateSliceDirectory(BY_CRAWLER_DIR, { apply: true });
+  if (ownership.moved > 0 || ownership.emptyLocaleBucketsPruned > 0) {
+    console.log(`🧭 prev-slug ownership: redirected ${ownership.moved} slug(s), pruned ${ownership.emptyLocaleBucketsPruned} empty locale bucket(s) across ${ownership.affected.length} slice(s).`);
+  }
+
   console.log(`\n📊 Slug regeneration complete: ${totalFixed} locale slugs fixed across ${slicesChanged} slices (${totalJobs} total jobs)`);
+  if (totalRelabelled > 0) {
+    console.log(`🏷️  Brand relabel: ${totalRelabelled} record riallineati all'etichetta dichiarata dal parser`);
+  }
+  if (totalSourceRefreshed > 0) {
+    console.log(`🔤 Source-locale: ${totalSourceRefreshed} slug riallineati dopo la rietichettatura`);
+  }
   if (totalPinned > 0) {
     console.log(`🔒 Registry pin: ${totalPinned} locale slug(s) restored to the immutable registry value (drift demoted to previousSlugs)`);
   }

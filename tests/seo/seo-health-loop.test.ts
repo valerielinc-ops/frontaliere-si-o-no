@@ -1,4 +1,4 @@
-import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import { existsSync, mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
@@ -17,7 +17,14 @@ import {
   parseSitemapUrlSet,
   sourceResult,
 } from '../../scripts/lib/seo-health-contract.mjs';
-import { fetchWithRetry, loadSitemapGraph, runSeoHealthLoop, summarizeCloudflareProbeCoverage } from '../../scripts/seo/seo-health-loop.mjs';
+import {
+  buildCycleIdentity,
+  createCycleBudget,
+  fetchWithRetry,
+  loadSitemapGraph,
+  runSeoHealthLoop,
+  summarizeCloudflareProbeCoverage,
+} from '../../scripts/seo/seo-health-loop.mjs';
 
 const ORIGIN = 'https://fixture.test';
 const NOSLASH_SOURCE = readFileSync(new URL('../../scripts/refresh-noslash-keep.mjs', import.meta.url), 'utf8');
@@ -59,6 +66,32 @@ describe('SEO health contract', () => {
   it('keeps deterministic samples stable regardless of input order', () => {
     const values = ['/a/', '/b/', '/c/', '/d/', '/e/'];
     expect(deterministicSample(values, 3, 'test')).toEqual(deterministicSample([...values].reverse(), 3, 'test'));
+  });
+
+  it('espone un lease serializzato e un budget bounded per ogni ciclo', async () => {
+    expect(buildCycleIdentity({
+      now: new Date('2026-09-13T00:00:00Z'),
+      workflow: 'SEO closed-loop health and recovery',
+      runId: '123',
+    })).toMatchObject({
+      idempotencyKey: 'run:123',
+      lease: {
+        cancelInProgress: false,
+        group: 'seo-health-loop',
+        mechanism: 'github-actions-concurrency',
+        state: 'serialised',
+      },
+    });
+    let calls = 0;
+    const budget = createCycleBudget(async () => {
+      calls += 1;
+      return response('https://fixture.test/', 200);
+    }, { maxFetches: 2, maxDurationMs: 60_000 });
+    await budget.fetch('https://fixture.test/one');
+    await budget.fetch('https://fixture.test/two');
+    await expect(budget.fetch('https://fixture.test/three')).rejects.toThrow('seo_cycle_budget_exhausted');
+    expect(calls).toBe(2);
+    expect(budget.snapshot()).toMatchObject({ maxFetches: 2, usedFetches: 2, exhausted: true });
   });
 
   it('emits distinct findings for status, canonical, noindex and JobPosting defects', () => {
@@ -107,6 +140,8 @@ describe('SEO health contract', () => {
     expect(WORKFLOW_SOURCE).toContain('--in-place-resolver-cmd');
     expect(WORKFLOW_SOURCE).not.toContain("--in-place-resolver-cmd 'node scripts/lib/resolve-404-compat-conflict.mjs && git add -A'");
     expect(WORKFLOW_SOURCE).toContain('actions/upload-artifact@v6');
+    expect(WORKFLOW_SOURCE).toContain('if-no-files-found: error');
+    expect(WORKFLOW_SOURCE).toContain('always() && inputs.dry_run != true && (steps.health.outcome');
     expect(WORKFLOW_SOURCE).toContain('EXPECTED_SHA=');
     expect(WORKFLOW_SOURCE).toContain('No deploy token available');
     expect(WORKFLOW_SOURCE).toContain("dispatch_sent=true");
@@ -168,32 +203,49 @@ describe('SEO health live runner', () => {
     ]);
     expect(graph.findings.map((finding) => finding.code)).toContain('sitemap-no-trailing-slash');
 
-    const report = await runSeoHealthLoop({
-      options: {
-        origin: ORIGIN,
-        sitemap,
-        sample: 10,
-        jobSample: 10,
-        strictSources: true,
-        dryRun: true,
-        reportDir: '/tmp/seo-health-test/reports',
-        statePath: '/tmp/seo-health-test/state.json',
-        historyPath: '/tmp/seo-health-test/history.jsonl',
-      },
-      fetchImpl,
-      collectAnalytics: false,
-      root: '/tmp/seo-health-test',
-      now: new Date('2026-09-13T00:00:00Z'),
-    });
-    expect(report.pageAudit.sampledCount).toBe(3);
-    expect(report.findings.observed.map((finding) => finding.code)).toEqual(expect.arrayContaining([
-      'sitemap-no-trailing-slash',
-      'canonical-mismatch',
-      'sitemap-noindex',
-      'source-unavailable',
-    ]));
-    expect(report.findings.actionable).toHaveLength(0);
-    expect(report.issue).toMatchObject({ skipped: 'dry-run' });
+    const root = mkdtempSync(join(tmpdir(), 'seo-health-dry-run-'));
+    const previousRunId = process.env.GITHUB_RUN_ID;
+    delete process.env.GITHUB_RUN_ID;
+    try {
+      const report = await runSeoHealthLoop({
+        options: {
+          origin: ORIGIN,
+          sitemap,
+          sample: 10,
+          jobSample: 10,
+          strictSources: true,
+          dryRun: true,
+          reportDir: join(root, 'reports'),
+          statePath: join(root, 'state.json'),
+          historyPath: join(root, 'history.jsonl'),
+        },
+        fetchImpl,
+        collectAnalytics: false,
+        root,
+        now: new Date('2026-09-13T00:00:00Z'),
+      });
+      expect(report.pageAudit.sampledCount).toBe(3);
+      expect(report.findings.observed.map((finding) => finding.code)).toEqual(expect.arrayContaining([
+        'sitemap-no-trailing-slash',
+        'canonical-mismatch',
+        'sitemap-noindex',
+        'source-unavailable',
+      ]));
+      expect(report.findings.actionable).toHaveLength(0);
+      expect(report.issue).toMatchObject({ skipped: 'dry-run' });
+      expect(report.cycle).toMatchObject({
+        idempotencyKey: expect.stringMatching(/^generated:/),
+        lease: { group: 'seo-health-loop', state: 'serialised' },
+        budget: { maxFetches: 640 },
+      });
+      expect(readFileSync(join(root, 'reports', 'latest.json'), 'utf8')).toContain('"dryRun": true');
+      expect(existsSync(join(root, 'state.json'))).toBe(false);
+      expect(existsSync(join(root, 'history.jsonl'))).toBe(false);
+    } finally {
+      if (previousRunId === undefined) delete process.env.GITHUB_RUN_ID;
+      else process.env.GITHUB_RUN_ID = previousRunId;
+      rmSync(root, { recursive: true, force: true });
+    }
   });
 
   it('surfaces a sitemap graph truncated exactly at the configured cap', async () => {

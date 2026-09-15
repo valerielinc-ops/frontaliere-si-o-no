@@ -90,6 +90,7 @@ const ACK_KEYS = [
   'schemaVersion',
   'slicePath',
 ];
+const MEMORY_INVALIDATION_KEYS = ['candidate', 'identity'];
 
 function queueConflict(message) {
   return Object.assign(new TypeError(message), {
@@ -663,6 +664,73 @@ async function parsePath(git, tip, path) {
   } catch {
     throw new TypeError(`translation state artifact ${path} is not JSON`);
   }
+}
+
+function validateMemoryInvalidation(value) {
+  assertTranslationPlainObjectV2(value, 'translation memory invalidation');
+  assertTranslationExactKeysV2(value, MEMORY_INVALIDATION_KEYS, 'translation memory invalidation');
+  const identity = validateTranslationUnitIdentityV2(value.identity);
+  const memory = validateTranslationMemoryV2({
+    schemaVersion: createEmptyTranslationMemoryV2().schemaVersion,
+    records: [{ identity, candidates: [value.candidate] }],
+  });
+  const candidate = memory.records[0].candidates[0];
+  if (candidate.applicability !== 'invalidated') {
+    throw new TypeError('translation memory invalidation requires an invalidated candidate');
+  }
+  return deepFreezeTranslationV2({ candidate, identity });
+}
+
+function validateMemoryInvalidations(rawInvalidations) {
+  if (!Array.isArray(rawInvalidations) || rawInvalidations.length > MAX_TRANSLATION_STATE_BATCH_V2) {
+    throw new TypeError('translation memory invalidation batch exceeds the bounded count');
+  }
+  const invalidations = rawInvalidations.map(validateMemoryInvalidation);
+  const keys = invalidations.map(({ identity, candidate }) => `${identity.key}:${candidate.candidateId}`);
+  if (new Set(keys).size !== keys.length) {
+    throw new TypeError('translation memory invalidation batch contains duplicates');
+  }
+  return invalidations;
+}
+
+function memoryCandidateInvariant(candidate) {
+  const { applicability, invalidationReason, ...invariant } = candidate;
+  return invariant;
+}
+
+async function replaceMemoryCandidate(git, tip, changes, invalidation) {
+  const path = memoryCandidatePath(invalidation.identity, invalidation.candidate);
+  const stored = await parsePath(git, tip, path);
+  if (stored === null) {
+    throw new TypeError('translation memory candidate to invalidate was not found');
+  }
+  const memory = validateTranslationMemoryV2(stored);
+  if (
+    memory.records.length !== 1
+    || memory.records[0].identity.key !== invalidation.identity.key
+    || memory.records[0].candidates.length !== 1
+  ) {
+    throw new TypeError('translation memory candidate shard has an invalid record boundary');
+  }
+  const current = memory.records[0].candidates[0];
+  if (current.candidateId !== invalidation.candidate.candidateId) {
+    throw new TypeError('translation memory candidate path does not match its candidate');
+  }
+  if (
+    canonicalTranslationJsonV2(memoryCandidateInvariant(current))
+    !== canonicalTranslationJsonV2(memoryCandidateInvariant(invalidation.candidate))
+  ) {
+    throw new TypeError('translation memory candidate immutable fields changed during invalidation');
+  }
+  if (canonicalTranslationJsonV2(current) === canonicalTranslationJsonV2(invalidation.candidate)) return false;
+  if (current.applicability === 'invalidated') {
+    throw queueConflict('translation memory candidate was invalidated with a different reason');
+  }
+  changes.push({
+    path,
+    content: candidateMemoryRecord(invalidation.identity, invalidation.candidate),
+  });
+  return true;
 }
 
 async function readAttemptJournal(git, pathLister, tip, attemptKey) {
@@ -1369,7 +1437,10 @@ export function createTranslationStateStoreV2(options) {
     }
   }
 
-  async function acknowledgeBatch(rawAcks) {
+  async function acknowledgeBatch(rawAcks, options = { memoryInvalidations: [] }) {
+    assertTranslationPlainObjectV2(options, 'translation acknowledgment options');
+    assertTranslationExactKeysV2(options, ['memoryInvalidations'], 'translation acknowledgment options');
+    const memoryInvalidations = validateMemoryInvalidations(options.memoryInvalidations);
     assertBatch(rawAcks, 'translation acknowledgment batch');
     const acknowledgments = rawAcks.map((ack) => {
       const patch = validateTranslationDerivedPatchV2(ack.patch);
@@ -1409,11 +1480,24 @@ export function createTranslationStateStoreV2(options) {
     if (new Set(acknowledgments.map(({ patch }) => patch.candidate.attemptKey)).size !== acknowledgments.length) {
       throw new TypeError('translation acknowledgment batch contains duplicate attempts');
     }
+    for (const invalidation of memoryInvalidations) {
+      const matching = acknowledgments.filter(({ patch, payload }) => (
+        patch.identity.key === invalidation.identity.key
+        && patch.candidate.candidateId === invalidation.candidate.candidateId
+        && ['rejected_candidate', 'stale_source'].includes(payload.outcome)
+      ));
+      if (matching.length !== 1) {
+        throw new TypeError('translation memory invalidation does not match a reducer acknowledgment');
+      }
+    }
 
     let committedReceipts = [];
     const transaction = await transact('translation-state-v2: acknowledge batch', async (tip) => {
       const changes = [];
       const receipts = [];
+      for (const invalidation of memoryInvalidations) {
+        await replaceMemoryCandidate(git, tip, changes, invalidation);
+      }
       for (const { patch, payload } of acknowledgments) {
         const queued = await parsePath(git, tip, queuePath(patch));
         const queueIndex = await parsePath(git, tip, queueIndexPath(patch));

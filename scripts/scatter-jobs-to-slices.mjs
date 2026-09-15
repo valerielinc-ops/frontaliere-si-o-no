@@ -16,10 +16,12 @@ import fs from 'node:fs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { addPreviousSlugForLocale, restoreLocaleSlug, DEFAULT_PREV_SLUG_CAP, LEGACY_PREV_SLUGS_CAP, LOCALES } from './lib/dedicated-crawler-common.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { localeMapsEqual } from './lib/locale-map-diff.mjs';
+import { decontaminateSliceDirectory } from './decontaminate-prev-slugs.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -316,17 +318,17 @@ function main() {
   } else {
     console.log('ℹ️  No changes to scatter back to per-crawler slices.');
   }
+
+  // Scatter writes slices directly after relocalize-pending-jobs has updated
+  // the assembled dataset. Re-index the complete active fleet now, before the
+  // translation workflow commits it, so a bridge captured by that pipeline
+  // cannot remain attached to a sibling job in another crawler slice.
+  const ownership = decontaminateSliceDirectory(SLICES_DIR, { apply: true });
+  if (ownership.moved > 0 || ownership.emptyLocaleBucketsPruned > 0) {
+    console.log(`🧭 prev-slug ownership: redirected ${ownership.moved} slug(s), pruned ${ownership.emptyLocaleBucketsPruned} empty locale bucket(s) across ${ownership.affected.length} slice(s).`);
+  }
 }
 
-const isMain = (() => {
-  try {
-    return import.meta.url === `file://${process.argv[1]}`
-      || import.meta.url === new URL(`file://${process.argv[1]}`).href;
-  } catch {
-    return false;
-  }
-})();
-
-if (isMain) {
+if (isInvokedDirectly(import.meta.url)) {
   main();
 }

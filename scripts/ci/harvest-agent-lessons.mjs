@@ -27,7 +27,10 @@ import { FIX_OUTCOME_RE } from './close-recovered-failure-issues.mjs';
 import { FALSE_POSITIVE_DECLARATION_RE } from './lib/false-positive-declaration.mjs';
 import { REVIEWER_BOT_LOGIN_RE } from './lib/constants.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
+import { hasEnumeratedItems } from './followup-resolution-match.mjs';
 import { isAggregateForAnalytics } from './check-issue-already-resolved.mjs';
+
+export { hasEnumeratedItems };
 
 const WINDOW_DAYS = intFromEnv('WINDOW_DAYS', 14);
 const THRESHOLD = intFromEnv('THRESHOLD', 3);
@@ -473,64 +476,6 @@ export function tallyFindings(prs, { bucketOf = bucketFinding } = {}) {
 //      never be pre-empted by a content-token matcher.
 // Same feedback-loop class as the reconcile-bot / pre-flight-deterministic skips in
 // the outcome loop below: don't count burn that no safe gate could have prevented.
-function stripFencedBlocks(text) {
-  const lines = String(text || '').split('\n');
-  const out = [];
-  let fence = null;
-  let fenceStart = -1;
-
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
-    const match = /^([ \t]*)(`{3,}|~{3,})/.exec(line);
-    if (fence) {
-      const closes = match
-        && match[2][0] === fence.char
-        && match[2].length >= fence.length
-        && match[1].length >= fence.indent;
-      if (closes) fence = null;
-      continue;
-    }
-    if (match) {
-      fence = { char: match[2][0], length: match[2].length, indent: match[1].length };
-      fenceStart = i;
-      continue;
-    }
-    out.push(line);
-  }
-
-  return fence ? [...out, ...lines.slice(fenceStart)].join('\n') : out.join('\n');
-}
-
-export function hasEnumeratedItems(body) {
-  const b = stripFencedBlocks(body);
-  const numberedSections = (b.match(/^#{2,3}[ \t]*(?:Item[ \t]*)?(?!\d{4}\b)\d+[ \t]*[.)—–]/gim) || []).length;
-  if (numberedSections >= 2) return true;
-  const lines = b.split('\n');
-  const orderedBoldItems = lines.reduce((count, line, index) => {
-    const match = /^[ \t]*\d+[.)][ \t]+(.*)$/.exec(line);
-    return count + (match && isBoldTitleLead(match[1], lines, index + 1) ? 1 : 0);
-  }, 0);
-  if (orderedBoldItems >= 2) return true;
-  const boldLeadBullets = lines.reduce((count, line, index) => {
-    const match = /^[-*][ \t]+(?:\[[ xX]\][ \t]*)?(.*)$/.exec(line);
-    return count + (match && isBoldTitleLead(match[1], lines, index + 1) ? 1 : 0);
-  }, 0);
-  return boldLeadBullets >= 2;
-}
-
-function isBoldTitleLead(rest, lines = [], start = 0) {
-  const bold = /^\*\*(?![ \t])(?:[^*]|\*(?!\*))+\*\*/;
-  let candidate = String(rest || '');
-  if (bold.test(candidate)) return true;
-  for (let i = start; i < lines.length; i++) {
-    const line = lines[i];
-    if (/^[ \t]*(?:\d+[.)]|[-*])[ \t]+/.test(line)) break;
-    candidate += '\n' + line;
-    if (bold.test(candidate)) return true;
-  }
-  return false;
-}
-
 // Pure → unit-tested. `labels` is an array of label-name strings.
 export function isAvoidableAlreadyFixed(title, labels, body = '') {
   const names = Array.isArray(labels) ? labels : [];

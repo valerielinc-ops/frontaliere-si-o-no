@@ -55,6 +55,7 @@ const NUMBER_ENV_FALLBACK_PATTERN = /Number\(\s*process\s*\.\s*env\s*(?:\.\s*[A-
 
 const GATE_SOURCE_PATH_RE = /\.(?:mjs|cjs|js|ts|tsx|ya?ml)$/;
 const JAVASCRIPT_SOURCE_PATH_RE = /\.(?:mjs|cjs|js|ts|tsx)$/;
+const YAML_SOURCE_PATH_RE = /\.ya?ml$/i;
 
 /** A raw env number is only dangerous when it controls a bounded operation. */
 const RAW_NUMBER_ENV_ASSIGNMENT_RE =
@@ -128,6 +129,52 @@ function stripCommentsForNumberEnvGate(source) {
     } else if (c === "'" || c === '"' || c === '`') {
       quote = c;
       out += c;
+    } else {
+      out += c;
+    }
+  }
+  return out;
+}
+
+/**
+ * Remove YAML comments without treating an apostrophe in a plain scalar as a
+ * quote. YAML uses `#` for comments, while prose such as `it's` is valid plain
+ * text and must not hide the code that follows it on the same line.
+ */
+function stripYamlCommentsForNumberEnvGate(source) {
+  let out = '';
+  let quote = '';
+
+  const quoteStartsScalar = (index) => {
+    let previous = index - 1;
+    while (previous >= 0 && /\s/.test(source[previous])) previous--;
+    return previous < 0 || ':?,[{-'.includes(source[previous]);
+  };
+
+  for (let i = 0; i < source.length; i++) {
+    const c = source[i];
+    const next = source[i + 1];
+
+    if (quote === "'") {
+      out += c;
+      if (c === "'" && next === "'") out += source[++i];
+      else if (c === "'") quote = '';
+      continue;
+    }
+
+    if (quote === '"') {
+      out += c;
+      if (c === '\\' && i + 1 < source.length) out += source[++i];
+      else if (c === '"') quote = '';
+      continue;
+    }
+
+    if ((c === "'" || c === '"') && quoteStartsScalar(i)) {
+      quote = c;
+      out += c;
+    } else if (c === '#' && (i === 0 || /\s/.test(source[i - 1]))) {
+      out += ' '.repeat(source.length - i);
+      break;
     } else {
       out += c;
     }
@@ -379,11 +426,13 @@ export function findRawNumberEnvBoundViolations(source, file = '<fixture>') {
  * La riga contiene il costrutto vietato in CODICE (non in un commento)?
  * Pura → testabile.
  */
-export function lineHasNumberEnvFallback(line) {
+export function lineHasNumberEnvFallback(line, file = '<fixture>') {
   const s = String(line ?? '');
   const trimmed = s.trimStart();
   if (trimmed.startsWith('*') || trimmed.startsWith('//') || trimmed.startsWith('#')) return false;
-  const code = s.split('//')[0];
+  const code = YAML_SOURCE_PATH_RE.test(String(file))
+    ? stripYamlCommentsForNumberEnvGate(s)
+    : s.split('//')[0];
   return NUMBER_ENV_FALLBACK_PATTERN.test(code);
 }
 
@@ -437,7 +486,7 @@ function gitGrepLines() {
   if (!hits.some((h) => {
     if (!h.startsWith(`${CANARY_FILE}:`)) return false;
     const content = h.replace(/^[^:]+:\d+:/, '');
-    return lineHasNumberEnvFallback(content);
+    return lineHasNumberEnvFallback(content, CANARY_FILE);
   })) {
     throw new Error(
       `check-number-env-fallback: il controllo positivo non ha trovato il costrutto in ${CANARY_FILE}, `
@@ -469,7 +518,7 @@ export function findViolations() {
     // l'esenzione il gate sarebbe rosso per sempre, il che lo renderebbe
     // inutile — la sua correttezza e' pinnata da tests/int-from-env.test.ts.
     if (file === 'scripts/ci/check-number-env-fallback.mjs') continue;
-    if (lineHasNumberEnvFallback(content)) violations.push({ file, line: Number(lineno), content: content.trim() });
+    if (lineHasNumberEnvFallback(content, file)) violations.push({ file, line: Number(lineno), content: content.trim() });
   }
 
   for (const file of rawCandidateFiles) {

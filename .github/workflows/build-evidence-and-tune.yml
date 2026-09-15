@@ -86,32 +86,8 @@ jobs:
             echo "No evidence changes to commit"
             exit 0
           fi
-          bash scripts/lib/configure-main-push-auth.sh
           git commit -m "chore(evidence): refresh $(date -u +%Y-%m-%d)"
-          # Retry-on-rebase loop — same pattern as #794/#804/#805/#806.
-          # Concurrent producers on main (crawlers + scheduled refreshers
-          # + post-merge auto-commits) regularly out-race a single push;
-          # mirror the loop already proven elsewhere.
-          MAX_ATTEMPTS=5
-          BACKOFF_BASE=3
-          attempt=1
-          while [ "$attempt" -le "$MAX_ATTEMPTS" ]; do
-            if git push origin HEAD:main; then
-              echo "✅ Pushed evidence refresh."
-              exit 0
-            fi
-            echo "⚠️ Push rejected (attempt $attempt/$MAX_ATTEMPTS) — fetch + rebase, then retry…"
-            git fetch origin main || true
-            if ! git -c rebase.autoStash=true rebase origin/main; then
-              echo "⚠️ Rebase conflict on evidence data files — aborting and resetting."
-              git rebase --abort || true
-              exit 1
-            fi
-            sleep $((BACKOFF_BASE * attempt))
-            attempt=$((attempt + 1))
-          done
-          echo "❌ Push failed after $MAX_ATTEMPTS attempts — leaving evidence uncommitted."
-          exit 1
+          bash scripts/lib/git-push-with-retry.sh
 
       - name: Report failure to GitHub Issues
         if: failure()
@@ -143,16 +119,13 @@ jobs:
             /*
             !/public/images/
             !/data/jobs/
-            !/data/seo-404-compat/
             !/data/translation-cache/
             !/packages/articles/content/
-            !/data/all-known-job-slugs/
-            !/data/orphan-enriched-data/
             !/public/data/
             !/data/related-search-candidates.json
             !/data/cf-hot-404s.json
-            !/data/jobs-ai-cache.json
             !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
             !/data/url-first-seen.json
             !/data/jobs-snapshots-history/
             !/data/slug-registry.json
@@ -196,28 +169,7 @@ jobs:
             exit 0
           fi
           git commit -m "chore(tune): quota update $(date -u +%Y-%m-%d)"
-          bash scripts/lib/configure-main-push-auth.sh
-          # Retry-on-rebase loop — same as the build-evidence job above.
-          MAX_ATTEMPTS=5
-          BACKOFF_BASE=3
-          attempt=1
-          while [ "$attempt" -le "$MAX_ATTEMPTS" ]; do
-            if git push origin HEAD:main; then
-              echo "✅ Pushed tune state."
-              exit 0
-            fi
-            echo "⚠️ Push rejected (attempt $attempt/$MAX_ATTEMPTS) — fetch + rebase, then retry…"
-            git fetch origin main || true
-            if ! git -c rebase.autoStash=true rebase origin/main; then
-              echo "⚠️ Rebase conflict on quota state files — aborting and resetting."
-              git rebase --abort || true
-              exit 1
-            fi
-            sleep $((BACKOFF_BASE * attempt))
-            attempt=$((attempt + 1))
-          done
-          echo "❌ Push failed after $MAX_ATTEMPTS attempts — leaving tune uncommitted."
-          exit 1
+          bash scripts/lib/git-push-with-retry.sh
 
       - name: Report failure to GitHub Issues
         if: failure()

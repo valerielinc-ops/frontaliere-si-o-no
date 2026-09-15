@@ -82934,6 +82934,513 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-votazione-scuola-qualita-berna-2026': {
+    title: 'Scuola qualità a Berna: il voto è fissato al 2026',
+    description: 'Il 27 settembre 2026 i bernesi voteranno sull\'iniziativa per un mandato costituzionale sulla qualità della scuola. Promossa dagli insegnanti, opposta',
+    keywords: 'frontalieri, ticino, svizzera, italia, scuola, qualità, berna, voto',
+    ogTitle: 'Scuola qualità a Berna: il voto è fissato al 2026',
+    ogDescription: 'L\'Associazione cantonale degli insegnanti promuove un\'iniziativa per inserire un mandato sulla qualità della scuola nella Costituzione bernese. La consultazione popolare avverrà il 27 settembre 2026, con forti opposizioni da parte del Governo',
+    canonicalPath: '/articoli-svizzera/votazione-scuola-qualita-berna-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scuola qualità a Berna: il voto è fissato al 2026",
+      "description": "Il 27 settembre 2026 i bernesi voteranno sull'iniziativa per un mandato costituzionale sulla qualità della scuola. Promossa dagli insegnanti, opposta",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/votazione-scuola-qualita-berna-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aula scolastica vuota in attesa della votazione sulla qualità dell'insegnamento nel Cantone Berna"
+      },
+      "datePublished": "2026-09-14T10:07:20+00:00",
+      "dateModified": "2026-09-14T10:07:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/votazione-scuola-qualita-berna-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-transpa-reg-quadri-rinvio-1-ottobre': {
+    title: 'TranspaReg: Quadri chiede rinvio per rischio informatico',
+    description: 'Quadri chiede di sospendere la TranspaReg al 1° ottobre per rischio informatico. Cita il caso Liechtenstein e propone sistemi decentralizzati per gli ADE.',
+    keywords: 'frontalieri, ticino, svizzera, italia, transpareg, quadri, chiede, rinvio',
+    ogTitle: 'TranspaReg: Quadri chiede rinvio per rischio informatico',
+    ogDescription: 'Il Consigliere nazionale Lorenzo Quadri chiede di sospendere la TranspaReg al 1° ottobre. Il timore è un attacco informatico ai dati di 500\'000 entità, come avvenuto nel Liechtenstein con 31\'000 aziende. Quadri propone sistemi decentralizzati',
+    canonicalPath: '/articoli-svizzera/transpa-reg-quadri-rinvio-1-ottobre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "TranspaReg: Quadri chiede rinvio per rischio informatico",
+      "description": "Quadri chiede di sospendere la TranspaReg al 1° ottobre per rischio informatico. Cita il caso Liechtenstein e propone sistemi decentralizzati per gli ADE.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/transpa-reg-quadri-rinvio-1-ottobre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Server room con luci LED blu che simboleggia la sicurezza informatica e la trasparenza finanziaria in Svizzera."
+      },
+      "datePublished": "2026-09-14T11:57:32+00:00",
+      "dateModified": "2026-09-14T11:57:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/transpa-reg-quadri-rinvio-1-ottobre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-detenzione-48-ore-manifestazioni': {
+    title: 'Detenzione 48 ore: il piano contro i facinorosi',
+    description: 'Dopo le violenze a Berna, il Parlamento svizzero discute l\'aumento della detenzione preventiva a 48 ore e nuovi poteri di sorveglianza per il SIC.',
+    keywords: 'frontalieri, ticino, svizzera, italia, detenzione, piano, contro, facinorosi',
+    ogTitle: 'Detenzione 48 ore: il piano contro i facinorosi',
+    ogDescription: 'Il Consiglio nazionale ha approvato l\'allungamento della detenzione preventiva a 48 ore e maggiori poteri per il SIC dopo i disordini di Berna. Gli organizzatori di manifestazioni rischiano di dover pagare i costi di sicurezza. Il Consiglio',
+    canonicalPath: '/articoli-svizzera/detenzione-48-ore-manifestazioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Detenzione 48 ore: il piano contro i facinorosi",
+      "description": "Dopo le violenze a Berna, il Parlamento svizzero discute l'aumento della detenzione preventiva a 48 ore e nuovi poteri di sorveglianza per il SIC.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/detenzione-48-ore-manifestazioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Palazzo federale a Berna con manifestanti in primo piano, simbolo del dibattito sulla sicurezza pubblica"
+      },
+      "datePublished": "2026-09-14T12:38:56+00:00",
+      "dateModified": "2026-09-14T12:38:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/detenzione-48-ore-manifestazioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tassi-interesse-svizzera-bassi': {
+    title: 'Perché i tassi di interesse in Svizzera restano bassi',
+    description: 'La BNS lascia il tasso allo 0% da oltre un anno, inflazione svizzera allo 0,8% ad agosto e mutui a 10 anni medi all’1,9%. Scopri cosa significa per famiglie',
+    keywords: 'frontalieri, ticino, svizzera, italia, perché, tassi, interesse, restano',
+    ogTitle: 'Perché i tassi di interesse in Svizzera restano bassi',
+    ogDescription: 'Analisi della decisione della Banca nazionale svizzera di mantenere il tasso di riferimento allo 0% nonostante i rialzi negli USA e in Europa. Impatto su mutui, risparmi e potere d\'acquisto, con dati aggiornati ad agosto e prossima revisione il 24',
+    canonicalPath: '/articoli-svizzera/tassi-interesse-svizzera-bassi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Perché i tassi di interesse in Svizzera restano bassi",
+      "description": "La BNS lascia il tasso allo 0% da oltre un anno, inflazione svizzera allo 0,8% ad agosto e mutui a 10 anni medi all’1,9%. Scopri cosa significa per famiglie",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tassi-interesse-svizzera-bassi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Foto realistica di una banca svizzera moderna con la bandiera svizzera, che illustra il contesto di tassi di interesse bassi."
+      },
+      "datePublished": "2026-09-14T19:40:31+00:00",
+      "dateModified": "2026-09-14T19:40:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tassi-interesse-svizzera-bassi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-farmacie-turno-ticino-guida': {
+    title: 'Farmacie di turno in Ticino: guida a fonti e copertura',
+    description: 'Farmacie di turno in Ticino: guida a fonti e copertura: 207 record Ticino e 542 in CO, VA e VB; turni OFCT regionali. Non è copertura nazionale.',
+    keywords: 'farmacie di turno Ticino, OFCT, farmacia aperta, turni regionali, Mendrisiotto, Luganese, Bellinzonese',
+    ogTitle: 'Farmacie di turno in Ticino: guida a fonti e copertura',
+    ogDescription: 'Cataloghi farmacia per Ticino e confine italiano (207 e 542 record), con turni OFCT limitati a quattro aree. Fonti e timestamp chiari.',
+    canonicalPath: '/articoli-svizzera/farmacie-turno-ticino-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Farmacie di turno in Ticino: come leggere fonti e copertura",
+      "description": "Farmacie di turno in Ticino: guida a fonti e copertura: 207 record Ticino e 542 in CO, VA e VB; turni OFCT regionali. Non è copertura nazionale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/places/bellinzona.webp`,
+        "width": 1200,
+        "height": 563,
+        "caption": "Vista di Bellinzona in Ticino"
+      },
+      "datePublished": "2026-09-14T22:06:49+02:00",
+      "dateModified": "2026-09-14T22:06:49+02:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/farmacie-turno-ticino-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-farmacie-ticino-elenco-contatti': {
+    title: 'Farmacie in Ticino: elenco e contatti',
+    description: 'Farmacie in Ticino: elenco e contatti: 207 record Ticino e 542 in CO, VA e VB; turni OFCT regionali. Non è copertura nazionale.',
+    keywords: 'farmacie Ticino elenco, contatti farmacie Ticino, lista ufficiale farmacie, farmacia Lugano, farmacia Bellinzona',
+    ogTitle: 'Farmacie in Ticino: elenco e contatti',
+    ogDescription: 'Cataloghi farmacia per Ticino e confine italiano (207 e 542 record), con turni OFCT limitati a quattro aree. Fonti e timestamp chiari.',
+    canonicalPath: '/articoli-svizzera/farmacie-ticino-elenco-contatti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Farmacie in Ticino: elenco ufficiale e contatti",
+      "description": "Farmacie in Ticino: elenco e contatti: 207 record Ticino e 542 in CO, VA e VB; turni OFCT regionali. Non è copertura nazionale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "width": 1200,
+        "height": 563,
+        "caption": "Panorama di Lugano in Ticino"
+      },
+      "datePublished": "2026-09-14T22:06:49+02:00",
+      "dateModified": "2026-09-14T22:06:49+02:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/farmacie-ticino-elenco-contatti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-farmacie-confine-italia-como-varese-verbano': {
+    title: 'Farmacie al confine: Como, Varese e Verbano',
+    description: 'Farmacie al confine: Como, Varese e Verbano: 207 record Ticino e 542 in CO, VA e VB; turni OFCT regionali. Non è copertura nazionale.',
+    keywords: 'farmacie confine Italia Svizzera, farmacie Como, farmacie Varese, farmacie Verbano, farmacie Ticino',
+    ogTitle: 'Farmacie al confine: Como, Varese e Verbano',
+    ogDescription: 'Cataloghi farmacia per Ticino e confine italiano (207 e 542 record), con turni OFCT limitati a quattro aree. Fonti e timestamp chiari.',
+    canonicalPath: '/articoli-svizzera/farmacie-confine-italia-como-varese-verbano/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Farmacie al confine: il catalogo per Como, Varese e Verbano",
+      "description": "Farmacie al confine: Como, Varese e Verbano: 207 record Ticino e 542 in CO, VA e VB; turni OFCT regionali. Non è copertura nazionale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/places/mendrisio.webp`,
+        "width": 1200,
+        "height": 563,
+        "caption": "Paesaggio del Mendrisiotto vicino al confine"
+      },
+      "datePublished": "2026-09-14T22:06:50+02:00",
+      "dateModified": "2026-09-14T22:06:50+02:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/farmacie-confine-italia-como-varese-verbano/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-farmacia-aperta-turno-elenco': {
+    title: 'Farmacia aperta o di turno: come leggere l’elenco',
+    description: 'Farmacia aperta o di turno: come leggere l’elenco: 207 record Ticino e 542 in CO, VA e VB; turni OFCT regionali. Non è copertura nazionale.',
+    keywords: 'farmacia aperta Ticino, farmacia di turno, elenco farmacie, orari farmacia, OFCT',
+    ogTitle: 'Farmacia aperta o di turno: come leggere l’elenco',
+    ogDescription: 'Cataloghi farmacia per Ticino e confine italiano (207 e 542 record), con turni OFCT limitati a quattro aree. Fonti e timestamp chiari.',
+    canonicalPath: '/articoli-svizzera/farmacia-aperta-turno-elenco/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Farmacia aperta o di turno: come leggere l’elenco",
+      "description": "Farmacia aperta o di turno: come leggere l’elenco: 207 record Ticino e 542 in CO, VA e VB; turni OFCT regionali. Non è copertura nazionale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/places/castelgrande.webp`,
+        "width": 1200,
+        "height": 563,
+        "caption": "Castelgrande a Bellinzona, Ticino"
+      },
+      "datePublished": "2026-09-14T22:06:51+02:00",
+      "dateModified": "2026-09-14T22:06:51+02:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/farmacia-aperta-turno-elenco/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cartella-sanitaria-mercosur-parlamento': {
+    title: 'Il sì del Nazionale alla cartella sanitaria elettronica',
+    description: 'Approvata la cartella sanitaria elettronica e l\'accordo Mercosur in Parlamento. Scopri tutti i dettagli sulle nuove misure per la sanità e l\'economia.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nazionale, alla, cartella, sanitaria',
+    ogTitle: 'Il sì del Nazionale alla cartella sanitaria elettronica e Mercosur',
+    ogDescription: 'Il Parlamento svizzero approva la cartella sanitaria elettronica automatica e gratuita per i residenti, l\'accordo di libero scambio Mercosur con 517 milioni per l\'agricoltura e le nuove misure sui farmaci generici.',
+    canonicalPath: '/articoli-svizzera/cartella-sanitaria-mercosur-parlamento/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il sì del Nazionale alla cartella sanitaria elettronica",
+      "description": "Approvata la cartella sanitaria elettronica e l'accordo Mercosur in Parlamento. Scopri tutti i dettagli sulle nuove misure per la sanità e l'economia.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cartella-sanitaria-mercosur-parlamento.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Palazzo federale a Berna durante i dibattiti parlamentari federali sulla sanità"
+      },
+      "datePublished": "2026-09-15T00:10:32+00:00",
+      "dateModified": "2026-09-15T00:10:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cartella-sanitaria-mercosur-parlamento/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-consiglio-nazionale-cartella-sanitaria': {
+    title: 'Nuova cartella sanitaria elettronica: ok del Consiglio nazionale',
+    description: 'Approvata la legge per la cartella sanitaria elettronica in Svizzera. Sostituirà la vecchia versione entro il 2030 con gestione automatica e gratuita.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuova, cartella, sanitaria, elettronica',
+    ogTitle: 'Nuova cartella sanitaria elettronica: ok dal Consiglio nazionale',
+    ogDescription: 'Il Consiglio nazionale ha approvato la nuova legge per la cartella sanitaria elettronica. Sostituirà il vecchio sistema entro il 2030 con apertura automatica per i residenti.',
+    canonicalPath: '/articoli-svizzera/consiglio-nazionale-cartella-sanitaria/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuova cartella sanitaria elettronica: ok del Consiglio nazionale",
+      "description": "Approvata la legge per la cartella sanitaria elettronica in Svizzera. Sostituirà la vecchia versione entro il 2030 con gestione automatica e gratuita.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/consiglio-nazionale-cartella-sanitaria.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Nuova cartella sanitaria elettronica approvata in Svizzera"
+      },
+      "datePublished": "2026-09-15T00:26:33+00:00",
+      "dateModified": "2026-09-15T00:26:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/consiglio-nazionale-cartella-sanitaria/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ssr-risparmi-270-milioni-2029': {
+    title: 'SSR: 270 milioni da risparmiare entro il 2029 | Frontaliere Ticino',
+    description: 'La SSR lancia il progetto Enavant per risparmiare 270 milioni CHF entro il 2029. Tagli al personale dirigenziale, meno posti di lavoro a SRF e stop',
+    keywords: 'frontalieri, ticino, svizzera, italia, milioni, risparmiare, entro, avvia',
+    ogTitle: 'SSR: 270 milioni di franchi da risparmiare entro il 2029',
+    ogDescription: 'La Società svizzera di radiotelevisione (SSR) ha annunciato il piano di trasformazione aziendale Enavant, che prevede risparmi per 270 milioni di franchi entro il 2029. Tra le misure: riduzione del 20% dei dirigenti, 38 posti di lavoro in meno a SRF',
+    canonicalPath: '/articoli-svizzera/ssr-risparmi-270-milioni-2029/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "SSR: 270 milioni da risparmiare entro il 2029",
+      "description": "La SSR lancia il progetto Enavant per risparmiare 270 milioni CHF entro il 2029. Tagli al personale dirigenziale, meno posti di lavoro a SRF e stop",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ssr-risparmi-270-milioni-2029.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo del Parlamento svizzero a Berna, sede delle decisioni federali."
+      },
+      "datePublished": "2026-09-15T01:03:03+00:00",
+      "dateModified": "2026-09-15T01:03:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ssr-risparmi-270-milioni-2029/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-premi-lamal-politica-responsabilita': {
+    title: 'Aumenti premi LAMal: la politica rimbalza responsabilità',
+    description: 'Gli aumenti dei premi LAMal in Svizzera continuano, con la politica che rimbalza le responsabilità. Si propone la deducibilità fiscale integrale per alleggerire',
+    keywords: 'frontalieri, ticino, svizzera, italia, aumenti, premi, lamal, politica',
+    ogTitle: 'Premi LAMal: politica e responsabilità degli aumenti in Svizzera',
+    ogDescription: 'Gli aumenti annuali dei premi dell\'assicurazione malattia obbligatoria in Svizzera mettono sotto pressione le famiglie. L\'articolo analizza il \'rimbalzo istituzionale\' delle responsabilità e propone la deducibilità fiscale integrale dei premi',
+    canonicalPath: '/articoli-svizzera/premi-lamal-politica-responsabilita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aumenti premi LAMal: la politica rimbalza responsabilità",
+      "description": "Gli aumenti dei premi LAMal in Svizzera continuano, con la politica che rimbalza le responsabilità. Si propone la deducibilità fiscale integrale per alleggerire",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-lamal-politica-responsabilita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano che simboleggia l'economia e le sfide finanziarie svizzere, in particolare i costi sanitari."
+      },
+      "datePublished": "2026-09-15T01:18:20+00:00",
+      "dateModified": "2026-09-15T01:18:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-lamal-politica-responsabilita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-formazione-adulta-reddito-svizzera': {
+    title: 'Formazione adulta aumenta reddito 50% | Frontaliere Ticino',
+    description: 'Studio UST: formazione secondaria II in età adulta aumenta reddito del 50% e occupazione all\'80%. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, formazione, adulta, aumenta, reddito',
+    ogTitle: 'Formazione adulta reddito Svizzera +50%',
+    ogDescription: 'Studio UST: conseguire titolo secondario II in età adulta porta a +50% di reddito mensile e aumenta l\'occupazione all\'80%, dimezzando la quota NEET',
+    canonicalPath: '/articoli-svizzera/formazione-adulta-reddito-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Formazione adulta aumenta reddito 50%",
+      "description": "Studio UST: formazione secondaria II in età adulta aumenta reddito del 50% e occupazione all'80%. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/formazione-adulta-reddito-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Formazione in età adulta con vista sulle Alpi svizzere"
+      },
+      "datePublished": "2026-09-15T08:04:36+00:00",
+      "dateModified": "2026-09-15T08:04:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/formazione-adulta-reddito-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

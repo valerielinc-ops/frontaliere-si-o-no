@@ -104,6 +104,7 @@ import {
   eventStableId,
   resolveComuneNationwide,
   mirrorEventImage,
+  cleanEventText,
   parsePriceText,
   loadEventTitleTranslationCache,
   saveEventTitleTranslationCache,
@@ -271,8 +272,7 @@ export function summarizeOccurrences(occurrences) {
 }
 
 function cleanText(value) {
-  if (typeof value !== 'string') return '';
-  return value.replace(/\s+/g, ' ').trim();
+  return cleanEventText(value);
 }
 
 function text(el) {

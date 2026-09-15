@@ -301,6 +301,12 @@ describe('source-detail fidelity checks', () => {
     expect(sourceLocationMatches('Genève', 'Carouge, Genève')).toBe(false);
     expect(sourceLocationMatches('Zürich', 'Uster, Zürich')).toBe(false);
     expect(sourceLocationMatches('Carouge', 'Carouge La Praille')).toBe(true);
+    // Davos Platz and Davos Glaris are aliases for the BFS municipality Davos,
+    // not distinct communes. The parent mapping must remain symmetric and must
+    // not turn the neighbouring municipality Klosters into Davos.
+    expect(sourceLocationMatches('Davos', 'Davos Platz')).toBe(true);
+    expect(sourceLocationMatches('Davos Glaris', 'Davos')).toBe(true);
+    expect(sourceLocationMatches('Klosters', 'Davos Platz')).toBe(false);
     // Neither side resolves: no municipality, no match.
     expect(sourceLocationMatches('Madrid', 'Madrid Shared Services')).toBe(false);
     expect(sourceLocationMatches('Campus', 'Zürich, Region Zürich')).toBe(false);
@@ -424,6 +430,87 @@ describe('source-detail fidelity checks', () => {
       expect(result.locationMismatch, sourceLocation).toBe(true);
       expect(result.locationInconclusive, sourceLocation).toBe(false);
     }
+  });
+
+  it('marks description-only corroboration as circular for text-derived jobs', () => {
+    const result = compareSourceDetail(
+      {
+        addressLocality: 'Horgen',
+        locationDerivedFrom: 'vacancy-text',
+        sourceLang: 'de',
+        description: 'Ausführliche Stellenbeschreibung '.repeat(20),
+      },
+      {
+        title: 'Sozialarbeiter/in',
+        location: 'Dietikon',
+        description: `Unser Team in Horgen sucht Verstärkung. ${'Ausführliche Stellenbeschreibung '.repeat(20)}`,
+      },
+      { locationEvidence: 'jsonld' },
+    );
+
+    expect(result.locationAuthority).toBe('circular');
+    expect(result.locationMismatch).toBe(false);
+    expect(result.locationChecked).toBe(false);
+    expect(result.locationInconclusive).toBe(true);
+  });
+
+  it('still accepts an independent title corroboration for a text-derived job', () => {
+    const result = compareSourceDetail(
+      {
+        addressLocality: 'Horgen',
+        locationDerivedFrom: 'vacancy-text',
+        sourceLang: 'de',
+        description: 'Ausführliche Stellenbeschreibung '.repeat(20),
+      },
+      {
+        title: 'Sozialarbeiter/in im kjz Horgen',
+        location: 'Dietikon',
+        description: 'Unser Team in Horgen sucht Verstärkung.',
+      },
+      { locationEvidence: 'jsonld' },
+    );
+
+    expect(result.locationAuthority).toBe('source-corroborated');
+    expect(result.locationMismatch).toBe(false);
+  });
+
+  it('keeps a real mismatch when a text-derived locality is never named independently', () => {
+    const result = compareSourceDetail(
+      {
+        addressLocality: 'Horgen',
+        locationDerivedFrom: 'vacancy-text',
+        sourceLang: 'de',
+        description: 'Ausführliche Stellenbeschreibung '.repeat(20),
+      },
+      {
+        title: 'Sozialarbeiter/in',
+        location: 'Dietikon',
+        description: 'Ausführliche Stellenbeschreibung '.repeat(20),
+      },
+      { locationEvidence: 'jsonld' },
+    );
+
+    expect(result.locationAuthority).toBe('source-detail');
+    expect(result.locationMismatch).toBe(true);
+  });
+
+  it('leaves description corroboration enabled for a structured-field job', () => {
+    const result = compareSourceDetail(
+      {
+        addressLocality: 'Horgen',
+        sourceLang: 'de',
+        description: 'Ausführliche Stellenbeschreibung '.repeat(20),
+      },
+      {
+        title: 'Sozialarbeiter/in',
+        location: 'Dietikon',
+        description: 'Unser Team in Horgen sucht Verstärkung.',
+      },
+      { locationEvidence: 'jsonld' },
+    );
+
+    expect(result.locationAuthority).toBe('source-corroborated');
+    expect(result.locationMismatch).toBe(false);
   });
 
   it('treats non-toponym source labels as inconclusive without dropping foreign places', () => {
@@ -1709,6 +1796,35 @@ describe('source-detail observation counters (#7714)', () => {
     expect(formatSourceDetailObservationLines(summary)).toContain(
       '  evidence gate: JSON-LD 1→1, DOM/label 1→1',
     );
+  });
+
+  it('keeps circular corroboration visible as an inconclusive observation', () => {
+    const report = { fixture: { total: 1, issues: [], severity: 'OK' as const } };
+    const summary = applySourceDetailResults(report, [{
+      crawlerKey: 'fixture',
+      url: 'https://example.test/fixture',
+      sourceLocation: 'Bern',
+      publishedLocation: 'Lugano',
+      locationChecked: false,
+      locationInconclusive: true,
+      locationAuthority: 'circular',
+      locationEvidence: 'jsonld',
+      sourceDescriptionLength: 400,
+      publishedDescriptionLength: 400,
+      descriptionMismatch: false,
+    }], 1);
+
+    expect(summary).toMatchObject({
+      inconclusiveLocationObservations: 1,
+      circularCorroborationObservations: 1,
+    });
+    expect(formatSourceDetailObservationLines(summary)).toContain(
+      '  circular corroboration: 1 (inconclusive)',
+    );
+    expect(report.fixture.issues[0]).toMatchObject({
+      type: 'source-detail-unobserved',
+      circularCorroborationObservations: 1,
+    });
   });
 
   it('reports the share over the authoritative checks, not over the fetched pages', () => {

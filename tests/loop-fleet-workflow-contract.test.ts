@@ -30,9 +30,20 @@ describe('loop fleet workflow contract', () => {
     }
   });
 
-  it('gates the three repaired loops on a runner-local fail-closed outcome export', () => {
+  it('starts every loop with explicit operational telemetry declarations', () => {
+    for (const name of loopWorkflows) {
+      const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
+      expect(source, name).toContain('LOOP_FLEET_STARTED_AT=');
+      expect(source, name).toContain('LOOP_FLEET_QUOTA_UNITS=0');
+      expect(source, name).toContain('LOOP_FLEET_COLLISIONS=0');
+      expect(source, name).toContain('LOOP_FLEET_GATE_BYPASS=false');
+    }
+  });
+
+  it('gates repaired loops on a runner-local fail-closed outcome export', () => {
     const contracts = [
       ['loop-l3-job-quality.yml', 'l3-outcome.json', 'handoffIsNotApplication', 'validate_l3_outcome'],
+      ['loop-l5-decision-moments.yml', 'l5-outcome.json', 'publishedDataUntouched', 'validate_l5_outcome'],
       ['loop-l8-revenue-attribution.yml', 'l8-outcome.json', 'externalCommercialStateUntouched', 'validate_l8_outcome'],
       ['loop-l10-fleet-control.yml', 'l10-outcome.json', 'ledgerWriteMode', 'validate_l10_outcome'],
     ];
@@ -44,6 +55,28 @@ describe('loop fleet workflow contract', () => {
       expect(source, name).toContain(`id: ${validatorId}`);
       expect(source, name).toContain(`steps.${validatorId}.outcome == 'success'`);
     }
+  });
+
+  it('refreshes L5 and L7 evidence from PostHog without committing source exports', () => {
+    const contracts = [
+      ['loop-l5-decision-moments.yml', 'scripts/ci/export-loop-outcomes.mjs', 'Export fresh L5 outcomes', '$RUNNER_TEMP/decision-moment-outcomes.json'],
+      ['loop-l7-experiment-allocator.yml', 'scripts/ci/export-l7-experiment-outcomes.mjs', 'Export fresh L7 outcomes', '$RUNNER_TEMP/experiment-outcomes.json'],
+    ];
+    for (const [name, exporter, step, outputPath] of contracts) {
+      const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
+      expect(source, name).toContain(exporter);
+      expect(source, name).toContain('scripts/lib/posthog-client.mjs');
+      expect(source, name).toContain(step);
+      expect(source, name).toContain(outputPath);
+      expect(source, name).toContain('outcomes_path=');
+      expect(source, name).toContain("if: github.event_name != 'pull_request'");
+    }
+  });
+
+  it('fa leggere L10 dal ledger health canonico', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-l10-fleet-control.yml'), 'utf8');
+    expect(source).toContain('data/loop-fleet/ledger/loop-health-history.jsonl');
+    expect(source).not.toContain('data/loop-health-history.jsonl');
   });
 
   it('uploads lifecycle evidence for every loop', () => {
@@ -104,9 +137,33 @@ describe('loop fleet workflow contract', () => {
     expect(source).toContain('GitHub PR API did not accept the ledger PR update after 3 attempts');
   });
 
+  it('descrive le PR ledger cumulative senza attribuirle a un solo loop', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8');
+    expect(source).toContain('Latest immutable batch:');
+    expect(source).toContain('This PR can accumulate multiple validated batches while it is open');
+    expect(source).toContain('for the latest ${SOURCE_LOOP} batch');
+    expect(source).toContain('--title "chore(loop-fleet): persist durable evidence batches"');
+  });
+
+  it('ritrova branch ledger suffissati e limita il lookup alle PR con base main', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8');
+    expect(source).toContain('--json number,headRefName,baseRefName');
+    expect(source).toContain('.baseRefName == "main"');
+    expect(source).toContain('startswith("chore/loop-fleet-ledger-")');
+    expect(source).toContain('source_orphan_branch=$(git ls-remote --heads origin');
+    expect(source).toContain('ledger_branch="$open_branch"');
+    expect(source).toContain('orphan_recovery=\'true\'');
+    expect(source).toContain('ledger_branch="$base_branch"');
+    expect(source).toContain('&& [ "$orphan_recovery" != \'true\' ]; then');
+    expect(source).toContain('Recovering an orphan ledger branch that already contains this validated batch.');
+    expect(source).toContain('git checkout -b "$branch" "origin/$ledger_branch"');
+  });
+
   it('keeps the automatic ledger recovery probe bounded and unable to write repository content', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger-reconcile.yml'), 'utf8');
     expect(source).toContain("cron: '*/20 * * * *'");
+    expect(source).toContain('group: loop-fleet-ledger-reconcile');
+    expect(source).not.toContain('group: loop-fleet-durable-ledger');
     expect(source).toContain('actions: write');
     expect(source).toContain('contents: read');
     expect(source).not.toMatch(/contents:\s*write/u);

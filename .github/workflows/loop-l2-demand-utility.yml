@@ -8,8 +8,13 @@ on:
     paths:
       - 'data/gsc-orphan-queries-clusters.json'
       - 'data/loop-fleet/loop-registry.json'
+      - 'scripts/ci/export-l2-demand-outcomes.mjs'
+      - 'scripts/ci/export-loop-outcomes.mjs'
+      - 'scripts/lib/ga4-service-account.mjs'
+      - 'scripts/lib/analytics-settled-window.mjs'
       - 'scripts/ci/loop-l2-demand-utility.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
+      - 'scripts/lib/posthog-client.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
@@ -18,8 +23,13 @@ on:
     paths:
       - 'data/gsc-orphan-queries-clusters.json'
       - 'data/loop-fleet/loop-registry.json'
+      - 'scripts/ci/export-l2-demand-outcomes.mjs'
+      - 'scripts/ci/export-loop-outcomes.mjs'
+      - 'scripts/lib/ga4-service-account.mjs'
+      - 'scripts/lib/analytics-settled-window.mjs'
       - 'scripts/ci/loop-l2-demand-utility.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
+      - 'scripts/lib/posthog-client.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
@@ -52,8 +62,13 @@ jobs:
           sparse-checkout: |
             /data/gsc-orphan-queries-clusters.json
             /data/loop-fleet/loop-registry.json
+            /scripts/ci/export-l2-demand-outcomes.mjs
+            /scripts/ci/export-loop-outcomes.mjs
+            /scripts/lib/ga4-service-account.mjs
+            /scripts/lib/analytics-settled-window.mjs
             /scripts/ci/loop-l2-demand-utility.mjs
             /scripts/ci/record-loop-fleet-evidence.mjs
+            /scripts/lib/posthog-client.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /scripts/lib/loop-fleet-outcome.mjs
             /scripts/lib/github-issue-creator.mjs
@@ -63,15 +78,56 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version: '22'
+      - name: Start loop operational telemetry
+        run: |
+          {
+            echo "LOOP_FLEET_STARTED_AT=$(date -u +%Y-%m-%dT%H:%M:%S.%3NZ)"
+            echo 'LOOP_FLEET_QUOTA_UNITS=0'
+            echo 'LOOP_FLEET_COLLISIONS=0'
+            echo 'LOOP_FLEET_GATE_BYPASS=false'
+          } >> "$GITHUB_ENV"
+      - name: Prepare read-only Firebase credentials
+        if: github.event_name != 'pull_request'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo '::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set; cannot resolve read-only PostHog configuration'
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
+          chmod 600 "$RUNNER_TEMP/firebase-sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
+      - name: Export read-only L2 demand outcome
+        if: always()
+        env:
+          WORKFLOW_EVENT: ${{ github.event_name }}
+          OUTCOME_PATH: ${{ runner.temp }}/loop-fleet-l2/demand-outcomes.json
+        run: |
+          set -o pipefail
+          mkdir -p "$(dirname "$OUTCOME_PATH")"
+          if [ "$WORKFLOW_EVENT" = 'pull_request' ]; then
+            node scripts/ci/export-l2-demand-outcomes.mjs --unavailable --input data/gsc-orphan-queries-clusters.json --out "$OUTCOME_PATH"
+            exit 0
+          fi
+          set +e
+          node scripts/ci/export-l2-demand-outcomes.mjs --json --input data/gsc-orphan-queries-clusters.json --days 8 --out "$OUTCOME_PATH" | tee "$RUNNER_TEMP/loop-fleet-l2/export-cli-output.log" | tee -a "$GITHUB_STEP_SUMMARY"
+          export_code=${PIPESTATUS[0]}
+          set -e
+          if [ "$export_code" -ne 0 ]; then
+            echo '::warning::L2 live outcome export failed; recording an explicitly unavailable outcome so utility remains fail-closed'
+            node scripts/ci/export-l2-demand-outcomes.mjs --unavailable --input data/gsc-orphan-queries-clusters.json --out "$OUTCOME_PATH" --reason 'PostHog/GSC live join failed'
+          fi
       - name: Audit demand to utility
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_ENABLED: ${{ github.event_name == 'schedule' || github.event_name == 'push' || inputs.issue == true }}
           REPORT_DIR: ${{ runner.temp }}/loop-fleet-l2
+          OUTCOME_PATH: ${{ runner.temp }}/loop-fleet-l2/demand-outcomes.json
         run: |
           set -o pipefail
           mkdir -p "$REPORT_DIR"
-          args=(--json --apply --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json --source data/gsc-orphan-queries-clusters.json)
+          args=(--json --apply --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json --source "$OUTCOME_PATH")
           if [ "$ISSUE_ENABLED" = "true" ]; then
             args+=(--issue --strict)
           else
@@ -86,8 +142,16 @@ jobs:
           elif [ "$run_code" -ne 0 ]; then
             exit "$run_code"
           fi
-      - name: Record canonical L2 evidence
+      - name: Validate runner-local L2 outcome export
         if: always()
+        id: validate_l2_outcome
+        env:
+          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l2
+        run: |
+          test -s "$REPORT_DIR/l2-outcome.json"
+          jq -e '(.loopId == "L2" and (.status | type) == "string" and (.independent | type) == "boolean" and (.metrics | type) == "object" and .safeToAct == false and .publishedDataUntouched == true and .noThinPages == true and .noKeywordStuffing == true and .sourceRequired == true)' "$REPORT_DIR/l2-outcome.json" >/dev/null
+      - name: Record canonical L2 evidence
+        if: ${{ always() && steps.validate_l2_outcome.outcome == 'success' }}
         env:
           REPORT_DIR: ${{ runner.temp }}/loop-fleet-l2
         run: node scripts/ci/record-loop-fleet-evidence.mjs --loop L2 --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json

@@ -133,6 +133,10 @@ const CLOSING_REFERENCE_WINDOW_MS = 5 * 60 * 1000;
 // gets a fresh issue with a fresh discussion.
 const DEFAULT_REOPEN_WITHIN_HOURS = 30 * 24; // 720h
 
+export function isFailureReportingDisabled() {
+  return process.env.ENABLE_FAILURE_REPORT === 'false';
+}
+
 /**
  * Run `gh` with explicit args. Returns trimmed stdout, or null on failure.
  * stderr is forwarded for visibility (workflow logs will show the actual error).
@@ -171,7 +175,7 @@ function repoFlag() {
   return process.env.GH_REPO ? ['--repo', process.env.GH_REPO] : [];
 }
 
-function ensureLabelsExist(labels) {
+export function ensureLabelsExist(labels) {
   // Best-effort: try to create each label. `gh label create` errors if it
   // exists, which is fine — we proceed.
   for (const name of labels) {
@@ -840,7 +844,7 @@ function setIssuePriorityLabel(issueNumber, targetPriorityLabel, extraAdd = []) 
  * @param {{ workflow?: string, runUrl?: string }} [ctx]
  */
 export function resolveGithubIssue(titlePrefix, { workflow, runUrl } = {}) {
-  if (process.env.ENABLE_FAILURE_REPORT === 'false') {
+  if (isFailureReportingDisabled()) {
     console.log('[github-issue-creator] ENABLE_FAILURE_REPORT=false, skipping resolve');
     return null;
   }
@@ -894,7 +898,7 @@ export function resolveGithubIssue(titlePrefix, { workflow, runUrl } = {}) {
  * @param {string} body
  */
 export function commentOnGithubIssue(issueNumber, body) {
-  if (process.env.ENABLE_FAILURE_REPORT === 'false') {
+  if (isFailureReportingDisabled()) {
     console.log('[github-issue-creator] ENABLE_FAILURE_REPORT=false, skipping comment');
     return false;
   }
@@ -1016,7 +1020,7 @@ export async function createGithubIssue({
   // don't have a free-form project field; the workflow name is preserved
   // in the body for grouping instead).
 } = {}) {
-  if (process.env.ENABLE_FAILURE_REPORT === 'false') {
+  if (isFailureReportingDisabled()) {
     console.log('[github-issue-creator] ENABLE_FAILURE_REPORT=false, skipping');
     return null;
   }

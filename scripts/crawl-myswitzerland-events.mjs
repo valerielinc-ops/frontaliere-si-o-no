@@ -68,6 +68,7 @@ import {
   resolveComuneNationwide,
   resolveItalianFrontierComuni,
   mirrorEventImage,
+  cleanEventText,
   loadEventTitleTranslationCache,
   saveEventTitleTranslationCache,
   enrichEventsWithLocaleFallbackTranslations,
@@ -312,8 +313,7 @@ export function extractDateInfo(hit) {
 }
 
 function cleanText(value) {
-  if (typeof value !== 'string') return '';
-  return value.replace(/\s+/g, ' ').trim();
+  return cleanEventText(value);
 }
 
 function extractGeo(hit) {

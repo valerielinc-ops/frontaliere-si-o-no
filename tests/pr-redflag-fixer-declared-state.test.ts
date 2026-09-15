@@ -124,6 +124,14 @@ describe('the autonomous fixers read declared states before contradicting them (
     ).not.toMatch(/["']\.\/scripts\/lib\/pr-body-sections-check\.mjs["']/);
   });
 
+  it.each(FIXERS)('%s keeps the main prefetch complete before a possible push', (file) => {
+    const p = prompt(file);
+    expect(
+      p,
+      `${file}: the fallback fetch must not create a shallow repository before the fixer pushes.`,
+    ).not.toMatch(/git fetch[^\n]*--depth=1[^\n]*origin main/i);
+  });
+
   it.each(FIXERS)('%s reuses the four helpers by name instead of a second parser', (file) => {
     const p = prompt(file);
     expect(p, `${file}: the prompt no longer points at ${HELPER_MODULE}.`).toContain(HELPER_MODULE);
@@ -167,6 +175,15 @@ describe('the autonomous fixers read declared states before contradicting them (
     expect(p, `${file}: an unnumbered chained PR is not called an open violation.`).toMatch(
       /PR concatenata[^\n]*senza[^\n]*#N[^\n]*(?:non chiude|lavoro aperto)/i,
     );
+  });
+
+  it.each(FIXERS)('%s teaches the English owner-decision alias', (file) => {
+    expect(prompt(file), `${file}: missing the English owner-decision state alias.`)
+      .toMatch(/blocked:\s*owner decision/i);
+  });
+
+  it('issue-fix checks any cited origin PR, not only follow-up-shaped citations', () => {
+    expect(prompt('issue-fix.yml')).toContain('qualunque PR citata come origine');
   });
 
   it('pr-redflag-fixer does not veto current work merely because it is tracked', () => {

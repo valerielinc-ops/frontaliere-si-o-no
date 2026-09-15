@@ -16,6 +16,11 @@ import {
   buildAlertFunnelGa4Filter,
   checkAlertCtaSurfaceDimension,
   evalAlertFunnelConversionGa4,
+  GA4_ERROR_RATE_EVENT_NAMES,
+  GA4_ERROR_RATE_ACTIONABLE_TYPES,
+  GA4_ERROR_RATE_NON_ACTIONABLE_MESSAGE_FILTERS,
+  buildErrorRateGa4Filter,
+  evalErrorRateGa4,
 } from '../scripts/campaign-goal-check.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -526,6 +531,50 @@ describe('alert funnel surface attribution (#7763/#7764)', () => {
     });
     expect(runReportImpl.mock.calls[4][1].dimensionFilter).not.toEqual({
       filter: { fieldName: 'eventName', inListFilter: { values: ALERT_FUNNEL_EVENT_NAMES } },
+    });
+  });
+});
+
+describe('error-rate GA4 fallback (#7312)', () => {
+  it('keeps the event/type allowlist and mirrors the known self-healed classes', () => {
+    const filter = buildErrorRateGa4Filter();
+    expect(GA4_ERROR_RATE_EVENT_NAMES).toEqual(['app_error', 'exception']);
+    expect(GA4_ERROR_RATE_ACTIONABLE_TYPES).toEqual(['error_boundary', 'api_error', 'unhandled_error']);
+    expect(filter.andGroup.expressions).toContainEqual({
+      filter: { fieldName: 'eventName', inListFilter: { values: GA4_ERROR_RATE_EVENT_NAMES } },
+    });
+    expect(filter.andGroup.expressions).toContainEqual({
+      filter: { fieldName: 'customEvent:error_type', inListFilter: { values: GA4_ERROR_RATE_ACTIONABLE_TYPES } },
+    });
+    for (const entry of GA4_ERROR_RATE_NON_ACTIONABLE_MESSAGE_FILTERS) {
+      expect(filter.andGroup.expressions).toContainEqual({
+        notExpression: { filter: { fieldName: 'customEvent:error_message', stringFilter: entry } },
+      });
+    }
+  });
+
+  it('applies the filtered person numerator without a network call in the regression', async () => {
+    const runReportImpl = vi.fn()
+      .mockResolvedValueOnce({ rows: [{ metricValues: [{ value: '9' }] }] })
+      .mockResolvedValueOnce({ rows: [{ metricValues: [{ value: '1000' }] }] });
+
+    const result = await evalErrorRateGa4({
+      tokenImpl: async () => 'token',
+      runReportImpl,
+    });
+
+    expect(result.passed).toBe(true);
+    expect(result.value).toMatchObject({ errorPersons: 9, pageviewPersons: 1000, rate: 0.009 });
+    expect(runReportImpl).toHaveBeenCalledTimes(2);
+    expect(runReportImpl.mock.calls[0][1]).toMatchObject({
+      dimensions: [],
+      metrics: ['totalUsers'],
+      dimensionFilter: buildErrorRateGa4Filter(),
+      windowDays: 30,
+    });
+    expect(runReportImpl.mock.calls[1][1]).toMatchObject({
+      dimensionFilter: { filter: { fieldName: 'eventName', inListFilter: { values: ['page_view'] } } },
+      windowDays: 30,
     });
   });
 });

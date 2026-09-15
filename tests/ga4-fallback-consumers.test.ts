@@ -14,12 +14,17 @@ const response = (json: unknown) => ({
   text: async () => '',
 });
 
-describe('fallback GA4 dei monitor PostHog', () => {
+describe('fallback GA4 dei monitor PostHog (#6948)', () => {
   it('provisiona le dimensioni web_vitals prima di interrogarle', () => {
     const analyticsReport = readFileSync(resolve(import.meta.dirname, '../scripts/analytics-report.mjs'), 'utf8');
     for (const parameter of ['metric_name', 'metric_value', 'metric_rating']) {
       expect(analyticsReport, parameter).toContain(`parameterName: '${parameter}'`);
     }
+  });
+
+  it('non sporca lo stdout dei consumer JSON con la diagnostica auth', () => {
+    const helper = readFileSync(resolve(import.meta.dirname, '../scripts/lib/ga4-service-account.mjs'), 'utf8');
+    expect(helper).toContain('logInfo = console.error');
   });
 
   it('usa una finestra assestata di esattamente N giornate', () => {
@@ -31,11 +36,13 @@ describe('fallback GA4 dei monitor PostHog', () => {
 
   it('rende verificabile il percorso auth di ogni consumer migrato', () => {
     const root = resolve(import.meta.dirname, '..');
-    const migrated = [
+    const conditionalFallback = [
       'scripts/posthog-error-issue-sync.mjs',
       'scripts/cwv-monitor-check.mjs',
       'scripts/profession-keyword-opportunities.mjs',
       'scripts/revenue-monitor.mjs',
+    ];
+    const independentGa4Mirror = [
       'scripts/build-evidence-index.mjs',
       'scripts/fetch-article-performance.mjs',
       'scripts/fetch-thin-page-promotions.mjs',
@@ -45,7 +52,12 @@ describe('fallback GA4 dei monitor PostHog', () => {
       'scripts/funnel-metrics-snapshot.mjs',
       'scripts/lib/source-liveness.mjs',
     ];
-    for (const file of migrated) {
+    for (const file of conditionalFallback) {
+      const source = readFileSync(resolve(root, file), 'utf8');
+      expect(source, file).toMatch(/checkPostHogLiveness\(/);
+      expect(source, file).toMatch(/getServiceAccountToken\(/);
+    }
+    for (const file of independentGa4Mirror) {
       expect(readFileSync(resolve(root, file), 'utf8'), file).toMatch(/getServiceAccountToken\(/);
     }
     for (const file of byConstruction) {

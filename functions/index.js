@@ -2087,9 +2087,10 @@ export const reapPublisherPendingPayments = onSchedule(
  },
 );
 
-// Public-source collector for GR/VS/ZH. A source that returns zero rows or
-// errors is marked degraded and never purges the previous Firestore snapshot;
-// this avoids publishing a false empty market during an upstream outage.
+// Public-source collector for every configured plate-auction canton. A source
+// that returns zero rows or errors is marked degraded and never purges the
+// previous Firestore snapshot; this avoids publishing a false empty market
+// during an upstream outage while keeping the full 26-canton health matrix.
 export const refreshPlateAuctions = onSchedule(
  { region: 'europe-west6', schedule: 'every 6 hours', timeZone: 'Europe/Zurich' },
  async () => {

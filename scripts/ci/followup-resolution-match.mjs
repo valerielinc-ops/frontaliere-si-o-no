@@ -83,9 +83,75 @@ export function isDailyBucketTitle(title = '') {
 // Markdown masking in this pure module so those callers cannot drift.
 export const AGGREGATE_ITEM_COUNT_RE = /\b(\d+)\s+items?\s+(?:deferred|deferit[oi])\b/i;
 export const AGGREGATE_KEYWORD_RE = /\b(?:sweep|batch|bulk)\b/i;
+const AGGREGATE_HEADING_ITEM_RE = /^#{2,3}[ \t]*(?:Item[ \t]*)?(?!\d{4}\b)\d+[ \t]*[.)—–]/gim;
 
 export function maskInlineCodeSpans(text) {
   return String(text || '').replace(/(`+)([^`\n]*?)\1/g, (span) => span.replace(/[^\n]/g, ' '));
+}
+
+/** Remove fenced Markdown blocks before classifying issue enumerations. */
+export function stripFencedBlocks(text) {
+  const lines = String(text || '').split('\n');
+  const out = [];
+  let fence = null;
+  let fenceStart = -1;
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const match = /^([ \t]*)(`{3,}|~{3,})/.exec(line);
+    if (fence) {
+      const closes = match
+        && match[2][0] === fence.char
+        && match[2].length >= fence.length
+        && match[1].length >= fence.indent;
+      if (closes) fence = null;
+      continue;
+    }
+    if (match) {
+      fence = { char: match[2][0], length: match[2].length, indent: match[1].length };
+      fenceStart = i;
+      continue;
+    }
+    out.push(line);
+  }
+
+  return fence ? [...out, ...lines.slice(fenceStart)].join('\n') : out.join('\n');
+}
+
+/** Count the shared h2/h3 item grammar used by aggregate routing. */
+export function countAggregateHeadingItems(body) {
+  const b = stripFencedBlocks(body);
+  return (b.match(AGGREGATE_HEADING_ITEM_RE) || []).length;
+}
+
+function isBoldTitleLead(rest, lines = [], start = 0) {
+  const bold = /^\*\*(?![ \t])(?:[^*]|\*(?!\*))+\*\*/;
+  let candidate = String(rest || '');
+  if (bold.test(candidate)) return true;
+  for (let i = start; i < lines.length; i++) {
+    const line = lines[i];
+    if (/^[ \t]*(?:\d+[.)]|[-*])[ \t]+/.test(line)) break;
+    candidate += '\n' + line;
+    if (bold.test(candidate)) return true;
+  }
+  return false;
+}
+
+/** Detect at least two real, Markdown-style issue items. */
+export function hasEnumeratedItems(body) {
+  const b = stripFencedBlocks(body);
+  if (countAggregateHeadingItems(b) >= 2) return true;
+  const lines = b.split('\n');
+  const orderedBoldItems = lines.reduce((count, line, index) => {
+    const match = /^[ \t]*\d+[.)][ \t]+(.*)$/.exec(line);
+    return count + (match && isBoldTitleLead(match[1], lines, index + 1) ? 1 : 0);
+  }, 0);
+  if (orderedBoldItems >= 2) return true;
+  const boldLeadBullets = lines.reduce((count, line, index) => {
+    const match = /^[-*][ \t]+(?:\[[ xX]\][ \t]*)?(.*)$/.exec(line);
+    return count + (match && isBoldTitleLead(match[1], lines, index + 1) ? 1 : 0);
+  }, 0);
+  return boldLeadBullets >= 2;
 }
 
 /**

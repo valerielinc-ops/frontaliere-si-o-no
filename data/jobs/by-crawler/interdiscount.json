@@ -330,7 +330,7 @@
         "it": "I need to see the actual job title you want translated. Please provide the complete job title that currently shows as German (de) that needs to be fully translated to Italian (it).",
         "en": "Retail Specialist EFZ \"Designing Shopping Experiences",
         "de": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-        "fr": "I need to find the job title you're referring to and translate it to French. Let me search for this job title in the data files. Found the job. Here's the fully translated French title: **Spécialiste en vente au détail EFZ**"
+        "fr": "Spécialiste en vente au détail EFZ"
       },
       "description": "## Deine Aufgaben\n- Du lernst kompetente Kundenberatung und verkaufst unsere Produkte mit viel Freude.\n- Du führst engagierte Beratungs- und Verkaufsgespräche.\n- Du nimmst Bestellungen und Reparaturaufträge unserer Kundinnen und Kunden entgegen.\n- Du hilfst beim Bearbeiten von Wareneingang und Retouren mit.\n- Du unterstützt bei Inventuren sowie beim Aufräumen von Laden und Lager.\n\n## Das bringst du mit\n- Freude im Umgang mit Kundinnen und Kunden.\n- Kommunikationsfähigkeit, Zuverlässigkeit und Hilfsbereitschaft.\n- Begeisterung für die neusten Techniktrends.\n- Bereitschaft Verantwortung zu übernehmen.\n- Schulabschluss mit guten Leistungen.\n\n## Das bieten wir dir\n- Dynamisches und unternehmerisches Arbeitsumfeld\n- Du-Kultur und \"offene Türen\"\n- Möglichkeit auf Berufsmatur oder Zusatzlehre\n- Unterstützung durch professionelle Lernbegleitung\n- Chance auf Weiterbeschäftigung und Karriere\n- 6 Wochen Ferien\n- Grosszügige Personalrabatte in verschiedenen Coop-Formaten\n- ÖV-Beitrag an GA\n- Gutschein im Wert von CHF 500.- als Anteil für ein Notebook, Tablet oder Zubehör\nBirger Hogrefe\nHR Berufsbildung\nUnseren Kundinnen und Kunden bieten wir von Interdiscount das beste Einkaufserlebnis in der Schweiz. Und dir einen genialen Berufseinstieg in ein dynamisches Arbeitsumfeld voller Entwicklungsmöglichkeiten.",
       "descriptionByLocale": {
@@ -7070,7 +7070,7 @@
       "companyDomain": "jobs.interdiscount.ch",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
       "titleByLocale": {
-        "it": "I need to see the current job data to understand the context and identify which job title needs translation to Italian. Let me check the job data files: Looking at the modified files, I can see several job crawler files have been updated. Let me examine one of them to find the job title that needs translation: The title you're asking about appears to be a German job title that needs complete Italian translation. Based on the context of retail/shopping experience design, here's the complete Italian translation: **Specialista nel commercio al dettaglio EFZ \"Progettazione di esperienze di acquisto\"** However, if you'd like me to locate and fix this in the actual job data file, please let me know which specific file or job entry contains this title, and I can update it directly.",
+        "it": "Specialista nel commercio al dettaglio EFZ \"Progettazione di esperienze di acquisto\"",
         "en": "I need to see the actual job title that needs translation. Let me check the modified files to find the job entry. Reading the modified job files to locate the German title that needs translation to English. Looking at the git status, I can see several job files have been modified. Let me check one of them to find the German title you're referring to. Could you either: 1. Point me to the specific file and job entry, or 2. Provide the exact German title you need translated? Once I locate it, I'll provide a complete English translation.",
         "de": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
         "fr": "I need to see the actual job title to translate it. Could you provide the German job title that needs to be translated to French? Once you share it, I can give you the complete French translation."
@@ -9310,7 +9310,7 @@
         "it": "I'll check the current state of the translation cache to see what's there and help you get the correct Italian translation. Looking at the git status, I can see `data/translation-cache/pemsa.json` has been modified. Let me examine it to find the job title and verify the translation. Specialista nella vendita al dettaglio",
         "en": "Retail specialist",
         "de": "Detailhandelsfachfrau:mann",
-        "fr": "I need to find and update the job title translation in the repository. Let me search for this German job title. Searching for the job title in the data files. The fully translated French title is: **Spécialiste du commerce de détail** However, if you need me to locate and update this in a specific file, please provide the file path or more context about where this job title appears in the repository."
+        "fr": "Spécialiste du commerce de détail"
       },
       "description": "## Deine Aufgaben\n- Du lernst den Verkaufsalltag in der Filiale kennen.\n- Du stellst Fragen, bist motiviert und neugierig.\n\n## Das bringst du mit\n- Du bist begeistert von neusten Techniktrends.\n- Du interessierst dich für eine Berufslehre bei uns.\n- Du bist mindestens 13 Jahre alt.\n\n## Das bieten wir dir\n- Dynamisches und unternehmerisches Arbeitsumfeld\n- Du-Kultur und \"offene Türen\"\n- Möglichkeit auf Berufsmatur oder Zusatzlehre\n- Unterstützung durch professionelle Lernbegleitung\n- Chance auf Weiterbeschäftigung und Karriere\n- 6 Wochen Ferien\n- Grosszügige Personalrabatte in verschiedenen Coop-Formaten\n- ÖV-Beitrag an GA\n- Gutschein im Wert von CHF 500.- als Anteil für ein Notebook, Tablet oder Zubehör\nLea Helena Bucher\nHR Berufsbildung\nDu willst einen ersten Einblick in den Berufsalltag erhalten? Entdecke im Schnuppertag die Welt von Interdiscount.",
       "descriptionByLocale": {
@@ -10130,7 +10130,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "firstSeenAt": "2026-08-17T09:52:40.138Z",
       "salaryMin": 68500,
@@ -24361,7 +24360,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "firstSeenAt": "2026-08-17T09:52:40.135Z",
       "salaryMin": 68500,

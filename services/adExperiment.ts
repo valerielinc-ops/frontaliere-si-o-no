@@ -15,11 +15,11 @@ export const INFEED_AD_VARIANTS = Object.freeze({
   treatment: 'auto_ads_only',
 } as const);
 
-/** The only treatment surfaces in the current URL-level comparison. */
-export const INFEED_AD_TREATMENT_CANTONS: ReadonlySet<string> = new Set(['LU', 'TI']);
+/** The only treatment surface in the current URL-level comparison. */
+export const INFEED_AD_TREATMENT_CANTONS: ReadonlySet<string> = new Set(['TI']);
 
-/** Canton URL groups included in the two measured control/treatment pairs. */
-export const INFEED_AD_EXPERIMENT_SURFACE_CANTONS: ReadonlySet<string> = new Set(['BASILEA', 'LU', 'TI']);
+/** Canton URL groups in the active comparison; its national control has no canton key. */
+export const INFEED_AD_EXPERIMENT_SURFACE_CANTONS: ReadonlySet<string> = new Set(['TI']);
 
 export type InfeedAdVariant = (typeof INFEED_AD_VARIANTS)[keyof typeof INFEED_AD_VARIANTS];
 

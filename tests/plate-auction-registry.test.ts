@@ -9,8 +9,8 @@ import {
 /**
  * Schema guard for `data/plate-auction-sources-registry.json` (#6355, prereq
  * for the #4854 plate-auction connectors). The registry is complete for all
- * 26 cantons: discovery status is explicit, and only sources with a verified
- * public catalogue are activated.
+ * 26 cantons: every source has a resolved operational state, and only sources
+ * with a verified public catalogue are activated.
  */
 describe('plate-auction sources registry schema', () => {
   it('passes full-registry validation with zero errors', () => {
@@ -57,12 +57,39 @@ describe('plate-auction sources registry schema', () => {
     }
   });
 
-  it('verified public catalogues are active and TI remains explicitly blocked', () => {
+  it('has no unresolved or degraded source in the published registry', () => {
+    const unresolved = Object.entries(registry.sources)
+      .filter(([, entry]) => ['unverified', 'not-discovered', 'degraded'].includes(entry.status));
+    expect(unresolved).toEqual([]);
+    expect(Object.keys(registry.sources)).toHaveLength(26);
+  });
+
+  it('activates exactly the catalogues covered by a stable connector', () => {
+    expect(Object.entries(registry.sources)
+      .filter(([, entry]) => entry.status === 'active')
+      .map(([key]) => key)
+      .sort()).toEqual(['ag', 'ai', 'ar', 'be', 'bl', 'bs', 'fr', 'gl', 'gr', 'lu', 'nw', 'ow', 'sg', 'sh', 'so', 'sz', 'tg', 'ti', 'ur', 'vd', 'vs', 'zh']);
+  });
+
+  it('keeps live public catalogues active and Ricardo catalogues blocked', () => {
     expect(registry.sources.vs.status).toBe('active');
     expect(registry.sources.vs.accessMethod).toBe('html-scrape');
     expect(registry.sources.gr.status).toBe('active');
     expect(registry.sources.zh.status).toBe('active');
-    expect(registry.sources.ti.status).toBe('blocked');
+    expect(registry.sources.ti.status).toBe('active');
+    expect(registry.sources.ti.officialUrl).toBe('https://www.carieauktion.ti.ch/ecari-auktion/');
+    expect(registry.sources.ne.status).toBe('blocked');
+    expect(registry.sources.ge.status).toBe('blocked');
+    expect(registry.sources.ju.status).toBe('blocked');
+    expect(registry.sources.ai.status).toBe('active');
+    expect(registry.sources.ai.accessMethod).toBe('pdf');
+    expect(registry.sources.bs.status).toBe('active');
+    expect(registry.sources.bs.accessMethod).toBe('pdf');
+    expect(registry.sources.gl.status).toBe('active');
+    expect(registry.sources.gl.accessMethod).toBe('json-api');
+    expect(registry.sources.lu.status).toBe('active');
+    expect(registry.sources.ur.status).toBe('active');
+    expect(registry.sources.zg.status).toBe('no-public-auction');
   });
 
   it('rejects an entry missing a required field', () => {
