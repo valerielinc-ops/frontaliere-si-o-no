@@ -2,6 +2,7 @@
 import { cleanup, render, screen, within } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import PharmacyDirectory from '../components/pages/PharmacyDirectory';
+import { TICINO_CITIES } from '../services/pharmacies/data';
 
 vi.mock('@/components/pharmacies/PharmacyMap', () => ({ default: () => null }));
 
@@ -41,6 +42,17 @@ describe('pharmacy country SPA route', () => {
     expect(matrix?.querySelectorAll('[data-coverage-kind="ticino-region"] [data-duty-id]')).toHaveLength(0);
     expect(matrix?.querySelectorAll('[data-coverage-kind="ticino-region"] time')).toHaveLength(0);
     expect(matrix?.querySelectorAll('[data-coverage-kind="source-only-canton"]')).toHaveLength(25);
+    expect(container.textContent).toContain('Verifica sempre telefonicamente con la farmacia prima di recarti sul posto: orari e turni possono cambiare.');
+  });
+
+  it('keeps duty-city pages city-scoped with the legacy card fallback', () => {
+    vi.useFakeTimers({ now: new Date('2030-01-01T00:00:00.000Z') });
+    const city = TICINO_CITIES[0];
+    const { container } = render(<PharmacyDirectory page={{ kind: 'duty-city', locale: 'it', citySlug: city.slug }} />);
+
+    expect(screen.getByText('Nessun turno verificato per questa città o area nel dataset corrente.')).toBeInTheDocument();
+    expect(container.querySelector('[data-coverage-matrix="true"]')).toBeNull();
+    expect(container.querySelectorAll('article')).toHaveLength(0);
     expect(container.textContent).toContain('Verifica sempre telefonicamente con la farmacia prima di recarti sul posto: orari e turni possono cambiare.');
   });
 });
