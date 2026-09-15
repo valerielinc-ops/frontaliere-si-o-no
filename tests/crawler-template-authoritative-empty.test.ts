@@ -87,6 +87,7 @@ vi.mock('../scripts/lib/slug-truncate.mjs', () => ({
 
 import {
   evaluateAuthoritativeSnapshot,
+  exitCrawlerOnError,
   runStandardCrawlerPipeline,
 } from '../scripts/lib/crawler-template.mjs';
 
@@ -184,6 +185,7 @@ describe('standard crawler authoritative-empty policy', () => {
 
     const [, , counts] = mocks.registerCrawlerSummaryGuard.mock.calls.at(-1);
     expect(counts.lastFetchOutcome).toBe('feed_endpoint_unavailable');
+    expect(counts.abortKind).toBe('connection-level-fetch');
   });
 
   it('records an exhausted retry response in the exit-guard counters (#7854)', async () => {
@@ -207,6 +209,29 @@ describe('standard crawler authoritative-empty policy', () => {
 
     const [, , counts] = mocks.registerCrawlerSummaryGuard.mock.calls.at(-1);
     expect(counts.lastFetchOutcome).toBe('exhausted_retry');
+    expect(counts.abortKind).toBe('connection-level-fetch');
+  });
+
+  it('marks custom-main soft exits as connection-level fetch failures (#7784)', () => {
+    const exit = vi.spyOn(process, 'exit').mockImplementation(((code?: number) => {
+      throw new Error(`exit:${code}`);
+    }) as never);
+    try {
+      expect(() => exitCrawlerOnError(
+        Object.assign(new Error('feed unavailable'), { feedEndpointUnavailable: true }),
+        'Custom-main feed test',
+      )).toThrow('exit:0');
+      expect(mocks.markCrawlerSummaryAbortKind).toHaveBeenCalledWith('connection-level-fetch');
+
+      mocks.markCrawlerSummaryAbortKind.mockClear();
+      expect(() => exitCrawlerOnError(
+        Object.assign(new Error('HTTP 503'), { status: 503, retryBudgetExhausted: true }),
+        'Custom-main retry test',
+      )).toThrow('exit:0');
+      expect(mocks.markCrawlerSummaryAbortKind).toHaveBeenCalledWith('connection-level-fetch');
+    } finally {
+      exit.mockRestore();
+    }
   });
 
   it('allows zero only when both the source validator and explicit opt-in agree', () => {

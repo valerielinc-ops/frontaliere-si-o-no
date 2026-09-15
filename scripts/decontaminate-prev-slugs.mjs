@@ -28,12 +28,13 @@
  *   node scripts/decontaminate-prev-slugs.mjs            # dry-run report
  *   node scripts/decontaminate-prev-slugs.mjs --apply    # write changes
  *
- * The decontaminateEntries() helper is also used by the active-slice writer
- * with the existing fleet as its owner index, so confirmed cross-file and
+ * The CLI scans both active object slices and expired raw-array slices. The
+ * decontaminateEntries() helper is also used by the active-slice writer with
+ * the existing fleet as its owner index, so confirmed cross-file and
  * same-slice contamination cannot regrow after a crawl write.
  */
 import fs from 'node:fs';
-import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
+import { listSliceFilePaths } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
@@ -46,8 +47,19 @@ import { withGuardOff } from './lib/slug-preservation-guard.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const BY_CRAWLER_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
+const ACTIVE_SLICES_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
+const EXPIRED_SLICES_DIR = path.join(ROOT, 'data', 'jobs', 'expired', 'by-crawler');
+const CRAWLER_SLICE_DIRS = [ACTIVE_SLICES_DIR, EXPIRED_SLICES_DIR];
 const APPLY = process.argv.includes('--apply');
+
+/**
+ * The same ownership pass applies to active and expired crawler slices.
+ * Keeping the directory list here prevents the CLI from silently reverting to
+ * an active-only audit when a new archive writer is added.
+ */
+export function listCrawlerSlicePaths(directories = CRAWLER_SLICE_DIRS) {
+  return directories.flatMap((dir) => listSliceFilePaths(dir)).sort();
+}
 
 function applyAddition(action) {
   if (action.locale !== null) {
@@ -277,11 +289,28 @@ export function decontaminateJobs(jobs) {
  * retains the historical first-owner behavior.
  */
 export function processFiles(filePaths, options = {}) {
-  const entries = filePaths.map((filePath) => ({
-    filePath,
-    slice: JSON.parse(fs.readFileSync(filePath, 'utf8')),
-  })).filter((entry) => Array.isArray(entry.slice.jobs));
-  return decontaminateEntries(entries, options);
+  const payloadKinds = new Map();
+  const entries = filePaths.map((filePath) => {
+    const payload = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    if (Array.isArray(payload)) {
+      payloadKinds.set(filePath, 'array');
+      return { filePath, slice: { jobs: payload } };
+    }
+    payloadKinds.set(filePath, 'object');
+    return { filePath, slice: payload };
+  }).filter((entry) => Array.isArray(entry.slice?.jobs));
+
+  // Active slices are object payloads; expired slices are raw job arrays. The
+  // ownership helper works on one normalized in-memory shape, then this writer
+  // restores the on-disk shape so the maintenance pass never rewrites an
+  // expired archive into an active-slice envelope.
+  const writeSlice = typeof options.writeSlice === 'function'
+    ? options.writeSlice
+    : (filePath, slice) => writeJsonAtomic(
+      filePath,
+      payloadKinds.get(filePath) === 'array' ? slice.jobs : slice,
+    );
+  return decontaminateEntries(entries, { ...options, writeSlice });
 }
 
 export function processFile(filePath, options) {
@@ -292,7 +321,7 @@ export function processFile(filePath, options) {
 }
 
 function main() {
-  const filePaths = listSliceFileNames(BY_CRAWLER_DIR).map((name) => path.join(BY_CRAWLER_DIR, name));
+  const filePaths = listCrawlerSlicePaths();
   const result = processFiles(filePaths);
   for (const entry of result.affected) {
     console.log(`${path.basename(entry.filePath)}: ${entry.moved} moved, ${entry.emptyLocaleBucketsPruned} empty locale bucket(s) pruned`);

@@ -183,6 +183,40 @@ describe('issue #6759 reconciliation', () => {
     expect(untouched.collapsed).toBe(0);
   });
 
+  it('collapses the hoch-health previous-slug collision without an allowlist', () => {
+    const sharedHistory = 'praktikum-zusatzmodul-a-hebamme-80-100-kssg-ch';
+    const older = {
+      companyKey: 'hoch-health',
+      slug: 'case-manager-in-gestione-del-paziente-centrale-80-100-hoch-health',
+      expiredAt: '2026-09-04T00:00:00.000Z',
+      slugByLocale: {
+        it: 'case-manager-in-gestione-del-paziente-centrale-80-100-hoch-health',
+        de: 'case-manager-in-zentrales-patientenmanagement-80-100-hoch-health',
+      },
+      previousSlugs: [sharedHistory],
+      previousSlugsByLocale: { it: [sharedHistory], de: [sharedHistory] },
+    };
+    const newer = {
+      companyKey: 'hoch-health',
+      slug: 'case-manager-gestione-centrale-dei-pazienti-80-100-kssg-hoch-festanstellung',
+      expiredAt: '2026-09-15T00:00:00.000Z',
+      slugByLocale: {
+        it: 'case-manager-gestione-centrale-dei-pazienti-80-100-kssg-hoch-festanstellung',
+        de: 'case-manager-zentrales-patientenmanagement-80-100-kssg-hoch-festanstellung',
+      },
+      previousSlugs: [sharedHistory],
+      previousSlugsByLocale: { it: [sharedHistory], de: [sharedHistory] },
+    };
+
+    const result = collapseDuplicateRouteEntries([older, newer], { source: 'test/hoch-health' });
+
+    expect(result.collapsed).toBe(1);
+    expect(result.entries).toHaveLength(1);
+    const routes = localeRouteKeys(result.entries[0]);
+    expect(routes.has(`it:${sharedHistory}`)).toBe(true);
+    expect(routes.has(`de:${sharedHistory}`)).toBe(true);
+  });
+
   it('audits previous-route overlap across distinct slices, without cross-company false positives', () => {
     const make = (companyKey: string, slug: string, file: string) => ({
       file,
