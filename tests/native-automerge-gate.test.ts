@@ -19,6 +19,7 @@ import { TEST_REVIEW_MARKER } from '../scripts/ci/review-test-policy.mjs';
 const HEAD = 'a'.repeat(40);
 const OLD_HEAD = 'b'.repeat(40);
 const CLEAN_BODY = '## Findings (Important: 0, Nit: 0)\n\n## LGTM';
+const CODEX_FALLBACK_REVIEW = '<!-- CODEX_FALLBACK_REVIEW -->';
 
 function review(
   body: string,
@@ -124,6 +125,21 @@ const OUTSIDE_FINDINGS_BODY = [
   '`scripts/other.mjs:L18`: 🔴 Important: other parser is unsafe.',
 ].join('\n');
 
+function codexFallbackReview(
+  body = `${CODEX_FALLBACK_REVIEW}\n${OUTSIDE_FINDINGS_BODY}`,
+  overrides: Record<string, unknown> = {},
+) {
+  return {
+    id: 3,
+    user: { type: 'Bot', login: 'github-actions[bot]' },
+    state: 'COMMENTED',
+    body,
+    commit_id: HEAD,
+    submitted_at: '2026-09-13T12:00:00Z',
+    ...overrides,
+  };
+}
+
 describe('native auto-merge gate (#8512)', () => {
   it('allows an approving bot verdict plus a completed green current-head check', () => {
     const result = evaluateNativeAutoMerge({
@@ -148,6 +164,69 @@ describe('native auto-merge gate (#8512)', () => {
 
     expect(result.allow).toBe(true);
     expect(result.reason).toMatch(/outside-diff/i);
+  });
+
+  it('allows a marked github-actions Codex fallback only with structured review-gate proof', () => {
+    const rawReview = codexFallbackReview();
+    const evidence = reviewGateEvidenceFor(String(rawReview.id));
+    expect(latestBotReview([rawReview])).toBeNull();
+    expect(reviewIsApproved(rawReview)).toBe(false);
+    const result = evaluateNativeAutoMerge({
+      pr: pr(),
+      reviews: [rawReview],
+      checkRuns: [evidence.check],
+      reviewGateEvidence: evidence,
+      repository: 'valerielinc-ops/frontaliere-si-o-no',
+    });
+
+    expect(result.allow).toBe(true);
+    expect(result.reason).toMatch(/outside-diff/i);
+  });
+
+  it.each([
+    ['exact fallback marker', OUTSIDE_FINDINGS_BODY, reviewGateEvidenceFor('3')],
+    ['structured review-gate evidence', `${CODEX_FALLBACK_REVIEW}\n${OUTSIDE_FINDINGS_BODY}`, null],
+  ])('rejects a Codex fallback without %s', (_label, body, evidence) => {
+    const rawReview = codexFallbackReview(body);
+    expect(evaluateNativeAutoMerge({
+      pr: pr(),
+      reviews: [rawReview],
+      checkRuns: [evidence?.check || vitest()],
+      reviewGateEvidence: evidence,
+      repository: 'valerielinc-ops/frontaliere-si-o-no',
+    })).toMatchObject({ allow: false });
+  });
+
+  it('rejects a marked Codex fallback anchored to an older HEAD', () => {
+    const staleReview = codexFallbackReview(undefined, { commit_id: OLD_HEAD });
+    const evidence = reviewGateEvidenceFor(String(staleReview.id));
+
+    expect(evaluateNativeAutoMerge({
+      pr: pr(),
+      reviews: [staleReview],
+      checkRuns: [evidence.check],
+      reviewGateEvidence: evidence,
+      repository: 'valerielinc-ops/frontaliere-si-o-no',
+    })).toMatchObject({ allow: false });
+  });
+
+  it('rejects an ordinary github-actions review even when structured proof is supplied', () => {
+    const ordinaryReview = codexFallbackReview(CLEAN_BODY);
+    const evidence = reviewGateEvidenceFor(String(ordinaryReview.id));
+
+    expect(reviewGateEvidenceDecision({
+      evidence,
+      repo: 'valerielinc-ops/frontaliere-si-o-no',
+      head: HEAD,
+      review: ordinaryReview,
+    })).toMatchObject({ allow: false });
+    expect(evaluateNativeAutoMerge({
+      pr: pr(),
+      reviews: [ordinaryReview],
+      checkRuns: [evidence.check],
+      reviewGateEvidence: evidence,
+      repository: 'valerielinc-ops/frontaliere-si-o-no',
+    })).toMatchObject({ allow: false });
   });
 
   it('rejects an outside-diff-looking review without structured proof', () => {
