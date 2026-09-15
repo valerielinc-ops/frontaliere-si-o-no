@@ -47,14 +47,16 @@ describe('AI Search prompt block', () => {
     expect(AI_SEARCH_PROMPT_BLOCK_IT).toMatch(/NON inventare/);
   });
 
-  it('allows source-backed terms beyond the common key-fact examples', () => {
-    expect(AI_SEARCH_PROMPT_BLOCK_IT).toContain('3-8 coppie');
+  it('allows only available source-backed facts without a minimum count', () => {
+    expect(AI_SEARCH_PROMPT_BLOCK_IT).toContain('up to 8');
+    expect(AI_SEARCH_PROMPT_BLOCK_IT).not.toContain('3-8 coppie');
     expect(AI_SEARCH_PROMPT_BLOCK_IT).not.toContain('5-8 coppie');
     expect(AI_SEARCH_PROMPT_BLOCK_IT).toMatch(/dalla fonte/);
     expect(AI_SEARCH_PROMPT_BLOCK_IT).toMatch(/qualsiasi termine utile/i);
     expect(AI_SEARCH_PROMPT_BLOCK_IT).toMatch(/Scadenza.*Requisiti/);
     expect(AI_SEARCH_PROMPT_BLOCK_IT).toMatch(/campi assenti/i);
     expect(AI_SEARCH_PROMPT_BLOCK_IT).toMatch(/niente placeholder/i);
+    expect(AI_SEARCH_PROMPT_BLOCK_IT).toMatch(/meno di tre fatti utili/i);
   });
 
   it('is injected into scripts/create-article.mjs', () => {
@@ -75,7 +77,8 @@ describe('AI Search prompt block', () => {
       resolve(__dirname, '..', 'scripts', 'create-article.mjs'),
       'utf-8',
     );
-    expect(src).toContain('3-8 coppie termine→valore: solo fatti presenti nella fonte; ometti i campi assenti, senza placeholder');
+    expect(src).toContain('sole coppie termine→valore disponibili, up to 8: usa solo fatti presenti nella fonte, anche se sono meno di tre; ometti i campi assenti, senza placeholder');
+    expect(src).not.toContain('3-8 coppie');
     expect(src).not.toContain('5-8 coppie');
     expect(src).not.toContain('Scrivi "non ancora specificato"');
     expect(src).not.toContain('scrivi "non ancora specificato", "in fase di definizione"');
@@ -200,11 +203,13 @@ describe('buildBackfillPrompt()', () => {
       fullBody: 'Body content here.',
       locale: 'it',
     });
-    expect(prompt).toContain('3-8 coppie');
+    expect(prompt).toContain('up to 8');
+    expect(prompt).not.toContain('3-8 coppie');
     expect(prompt).not.toContain('5-8 coppie');
     expect(prompt).toMatch(/dati presenti nell'articolo/i);
     expect(prompt).toMatch(/campi assenti/i);
     expect(prompt).toMatch(/niente placeholder/i);
+    expect(prompt).toMatch(/anche se sono meno di tre/i);
   });
 });
 

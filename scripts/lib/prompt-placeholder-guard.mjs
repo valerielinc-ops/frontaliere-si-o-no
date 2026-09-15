@@ -143,7 +143,7 @@ export const SCHEMA_PLACEHOLDER_LITERALS = Object.freeze([
   'max 125 chars',
   "Titolo giornalistico con keyword (OBBLIGATORIO ≤ 60 caratteri totali, target 50-55. Il suffisso ' | Frontaliere Ticino' viene aggiunto automaticamente — NON includerlo nel title)",
   'Sottotitolo con dati concreti DALLA FONTE (max 160 chars)',
-  "Inizia con '## In breve' (3-4 bullet TL;DR ≤80 char) + '## Fatti chiave' (3-8 coppie termine→valore: solo fatti presenti nella fonte; ometti i campi assenti, senza placeholder). Poi il LEAD: FATTI dalla fonte (chi, cosa, dove, quando, perché). Solo cronaca verificabile. 300-400 parole (escluse TL;DR/Fatti chiave). Min 1 ### sotto-sezione.",
+  "Inizia con '## In breve' (3-4 bullet TL;DR ≤80 char) + '## Fatti chiave' (sole coppie termine→valore disponibili, up to 8: usa solo fatti presenti nella fonte, anche se sono meno di tre; ometti i campi assenti, senza placeholder). Poi il LEAD: FATTI dalla fonte (chi, cosa, dove, quando, perché). Solo cronaca verificabile. 300-400 parole (escluse TL;DR/Fatti chiave). Min 1 ### sotto-sezione.",
   'Analisi pratica: implicazioni, confronti, scenari. Contenuto DIVERSO da body1. 300-400 parole. Min 1 ### sotto-sezione.',
   'Azione: procedura step-by-step, scadenze, strumenti + CTA finale. NON riassumere body1/body2. 300-400 parole.',
   "Domanda frequente 1 basata sui fatti dell'articolo?",
