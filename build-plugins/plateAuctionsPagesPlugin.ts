@@ -13,6 +13,8 @@ import { BASE_URL } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { differentiateH1FromTitle, esc, H1_STYLE, H2_STYLE, LEDE_STYLE, LINK_ACCENT_STYLE } from './shared/seoContentTokens';
 import { inlineScriptJson } from './shared/inlineJsonScript';
+import { adSlotHtml } from './lib/adSlotHtml';
+import { shouldPlaceInfeedAd } from '../services/adsenseSlots';
 import { buildSitemapIndexXml, discoverSitemapFiles } from './sitemapAliasPlugin';
 import { buildPlateAuctionPath, allPlateAuctionCantonCodes } from '../services/plateAuctions/paths';
 import type { PlateVehicleType } from '../services/plateAuctions/types';
@@ -39,6 +41,7 @@ function readSnapshot(rootDir: string): Snapshot {
 function formatMoney(value: number | undefined, locale: PlateLocale): string { return typeof value === 'number' ? new Intl.NumberFormat(locale === 'it' ? 'it-CH' : locale === 'de' ? 'de-CH' : locale === 'fr' ? 'fr-CH' : 'en-CH', { style: 'currency', currency: 'CHF', maximumFractionDigits: 0 }).format(value) : '—'; }
 function formatDate(value: string | undefined, locale: PlateLocale): string { if (!value) return '—'; const date = new Date(value); return Number.isNaN(date.getTime()) ? '—' : new Intl.DateTimeFormat(locale === 'it' ? 'it-CH' : locale === 'de' ? 'de-CH' : locale === 'fr' ? 'fr-CH' : 'en-CH', { dateStyle: 'medium', timeZone: 'Europe/Zurich' }).format(date); }
 function listingTypeLabel(value: string | undefined, locale: PlateLocale): string { if (value === 'fixed-price') return locale === 'it' ? 'Prezzo fisso' : locale === 'de' ? 'Festpreis' : locale === 'fr' ? 'Prix fixe' : 'Fixed price'; if (value === 'wanted') return locale === 'it' ? 'Ricerca' : locale === 'de' ? 'Gesucht' : locale === 'fr' ? 'Recherche' : 'Wanted'; return locale === 'it' ? 'Asta' : locale === 'de' ? 'Auktion' : locale === 'fr' ? 'Enchère' : 'Auction'; }
+function vehicleTypeLabel(value: PlateVehicleType | undefined, locale: PlateLocale): string { if (value === 'motorcycle') return locale === 'it' ? 'Moto' : locale === 'de' ? 'Motorrad' : locale === 'fr' ? 'Moto' : 'Motorcycle'; if (value === 'trailer') return locale === 'it' ? 'Rimorchio' : locale === 'de' ? 'Anhänger' : locale === 'fr' ? 'Remorque' : 'Trailer'; if (value === 'other') return locale === 'it' ? 'Altro' : locale === 'de' ? 'Andere' : locale === 'fr' ? 'Autre' : 'Other'; return locale === 'it' ? 'Auto' : locale === 'de' ? 'Auto' : locale === 'fr' ? 'Auto' : 'Car'; }
 function pathFor(locale: PlateLocale, view: 'hub' | 'rankings' | 'canton' | 'detail', canton?: string, plate?: string, vehicleType?: PlateVehicleType): string { return buildPlateAuctionPath({ locale, view, canton, plate, vehicleType }); }
 function detailPathForRow(row: SnapshotRow, locale: PlateLocale): string { return pathFor(locale, 'detail', row.sourceKey || row.platePrefix, row.normalizedPlate, row.vehicleType); }
 function alternates(view: 'hub' | 'rankings' | 'canton' | 'detail', canton?: string, plate?: string, vehicleType?: PlateVehicleType): string { return LOCALES.map((locale) => `<link rel="alternate" hreflang="${locale}" href="${BASE_URL}${pathFor(locale, view, canton, plate, vehicleType)}">`).concat(`<link rel="alternate" hreflang="x-default" href="${BASE_URL}${pathFor('it', view, canton, plate, vehicleType)}">`).join('\n'); }
@@ -62,7 +65,22 @@ function latestVerifiedFinalRows(rows: SnapshotRow[]): SnapshotRow[] {
 }
 function tableRows(rows: SnapshotRow[], locale: PlateLocale, copy: typeof COPY.it): string {
   if (rows.length === 0) return `<p>${esc(copy.noData)}</p>`;
-  return `<table><thead><tr><th>${esc(locale === 'it' ? 'Targa' : locale === 'de' ? 'Kontrollschild' : locale === 'fr' ? 'Plaque' : 'Plate')}</th><th>${esc(locale === 'it' ? 'Tipo' : locale === 'de' ? 'Typ' : locale === 'fr' ? 'Type' : 'Type')}</th><th>${esc(locale === 'it' ? 'Prezzo' : locale === 'de' ? 'Preis' : locale === 'fr' ? 'Prix' : 'Price')}</th><th>${esc(locale === 'it' ? 'Offerte' : locale === 'de' ? 'Gebote' : locale === 'fr' ? 'Offres' : 'Bids')}</th><th>${esc(locale === 'it' ? 'Scadenza' : locale === 'de' ? 'Ende' : locale === 'fr' ? 'Fin' : 'Ends')}</th></tr></thead><tbody>${rows.map((row) => { const href = detailPathForRow(row, locale); return `<tr><td><a href="${esc(href)}" style="${LINK_ACCENT_STYLE}">${esc(row.normalizedPlate)}</a></td><td>${esc(listingTypeLabel(row.listingType, locale))}</td><td>${esc(formatMoney(row.finalPriceChf ?? row.currentBidChf ?? row.startingPriceChf, locale))}</td><td>${row.bidCount ?? '—'}</td><td>${esc(formatDate(row.endsAt || row.closedAt, locale))}</td></tr>`; }).join('')}</tbody></table>`;
+  const headers = {
+    plate: locale === 'it' ? 'Targa' : locale === 'de' ? 'Kontrollschild' : locale === 'fr' ? 'Plaque' : 'Plate',
+    vehicle: locale === 'it' ? 'Veicolo' : locale === 'de' ? 'Fahrzeug' : locale === 'fr' ? 'Véhicule' : 'Vehicle',
+    type: locale === 'it' ? 'Tipo' : locale === 'de' ? 'Typ' : locale === 'fr' ? 'Type' : 'Type',
+    price: locale === 'it' ? 'Prezzo' : locale === 'de' ? 'Preis' : locale === 'fr' ? 'Prix' : 'Price',
+    bids: locale === 'it' ? 'Offerte' : locale === 'de' ? 'Gebote' : locale === 'fr' ? 'Offres' : 'Bids',
+    ends: locale === 'it' ? 'Scadenza' : locale === 'de' ? 'Ende' : locale === 'fr' ? 'Fin' : 'Ends',
+  };
+  const body = rows.map((row, index) => {
+    const href = detailPathForRow(row, locale);
+    const adRow = index + 1 < rows.length && shouldPlaceInfeedAd(index + 1)
+      ? `<tr class="ft-infeed-ad" role="presentation"><td colspan="6">${adSlotHtml('JOBLIST_INFEED_DESKTOP')}</td></tr>`
+      : '';
+    return `<tr><td><a href="${esc(href)}" style="${LINK_ACCENT_STYLE}">${esc(row.normalizedPlate)}</a></td><td>${esc(vehicleTypeLabel(row.vehicleType, locale))}</td><td>${esc(listingTypeLabel(row.listingType, locale))}</td><td>${esc(formatMoney(row.finalPriceChf ?? row.currentBidChf ?? row.startingPriceChf, locale))}</td><td>${row.bidCount ?? '—'}</td><td>${esc(formatDate(row.endsAt || row.closedAt, locale))}</td></tr>${adRow}`;
+  }).join('');
+  return `<table><thead><tr><th>${esc(headers.plate)}</th><th>${esc(headers.vehicle)}</th><th>${esc(headers.type)}</th><th>${esc(headers.price)}</th><th>${esc(headers.bids)}</th><th>${esc(headers.ends)}</th></tr></thead><tbody>${body}</tbody></table>`;
 }
 function unlistedDetailLinks(rows: SnapshotRow[], locale: PlateLocale, listedRows: SnapshotRow[]): string {
   const listedPaths = new Set(listedRows.map((row) => detailPathForRow(row, locale)));
@@ -113,7 +131,8 @@ export function renderPlateAuctionPage({ locale, view, canton, plate, vehicleTyp
   // page without changing the canonical title or structured-data name.
   const h1 = differentiateH1FromTitle(title, title, locale);
   const breadcrumbParent = view === 'hub' ? '' : ` / <a href="${esc(parentPath)}" style="${LINK_ACCENT_STYLE}">${esc(parentLabel || copy.current)}</a>`;
-  const body = `<main><nav aria-label="breadcrumb"><a href="${esc(pathFor(locale, 'hub'))}" style="${LINK_ACCENT_STYLE}">Home</a>${breadcrumbParent} / <span>${esc(title)}</span></nav><div data-plate-auctions-static="true" data-generated-at="${esc(snapshot.generatedAt || '')}"><h1 style="${H1_STYLE}">${esc(h1)}</h1><p style="${LEDE_STYLE}">${esc(description)}</p><p>${esc(copy.context)}</p><p><a href="${esc(pathFor(locale, 'hub'))}" style="${LINK_ACCENT_STYLE}">${esc(copy.current)}</a> · <a href="${esc(pathFor(locale, 'rankings'))}" style="${LINK_ACCENT_STYLE}">${esc(copy.rankings)}</a></p><section><h2 style="${H2_STYLE}">${esc(view === 'rankings' ? copy.rankings : view === 'detail' ? copy.detail : copy.current)}</h2>${tableRows(rows, locale, copy)}${detailLinks ? `<h3 style="${H2_STYLE}">${esc(copy.allListings)}</h3><ul>${detailLinks}</ul>` : ''}</section><section><h2 style="${H2_STYLE}">${esc(canton ? copy.method : copy.sources)}</h2><p>${esc(canton && sourceRows.find((source) => source.plateCode === canton)?.status === 'not-discovered' ? copy.notDiscovered : copy.context)}</p>${canton || view === 'detail' ? '' : `<ul>${links}</ul>`}</section></div></main>`;
+  const topAdHtml = view === 'detail' ? '' : `<section class="ft-plate-auction-top-ad" aria-label="advertisement">${adSlotHtml('JOBDETAIL_TOP_BANNER')}</section>`;
+  const body = `<main><nav aria-label="breadcrumb"><a href="${esc(pathFor(locale, 'hub'))}" style="${LINK_ACCENT_STYLE}">Home</a>${breadcrumbParent} / <span>${esc(title)}</span></nav><div data-plate-auctions-static="true" data-generated-at="${esc(snapshot.generatedAt || '')}"><h1 style="${H1_STYLE}">${esc(h1)}</h1><p style="${LEDE_STYLE}">${esc(description)}</p><p>${esc(copy.context)}</p>${topAdHtml}<p><a href="${esc(pathFor(locale, 'hub'))}" style="${LINK_ACCENT_STYLE}">${esc(copy.current)}</a> · <a href="${esc(pathFor(locale, 'rankings'))}" style="${LINK_ACCENT_STYLE}">${esc(copy.rankings)}</a></p><section><h2 style="${H2_STYLE}">${esc(view === 'rankings' ? copy.rankings : view === 'detail' ? copy.detail : copy.current)}</h2>${tableRows(rows, locale, copy)}${detailLinks ? `<h3 style="${H2_STYLE}">${esc(copy.allListings)}</h3><ul>${detailLinks}</ul>` : ''}</section><section><h2 style="${H2_STYLE}">${esc(canton ? copy.method : copy.sources)}</h2><p>${esc(canton && sourceRows.find((source) => source.plateCode === canton)?.status === 'not-discovered' ? copy.notDiscovered : copy.context)}</p>${canton || view === 'detail' ? '' : `<ul>${links}</ul>`}</section></div></main>`;
   // buildSeoPageHtml owns the single outer <main> in outside-root mode. Keep
   // this page-specific string as inner content so React mounts only its lite
   // chrome in #root and cannot replace the crawler-facing table.
@@ -139,7 +158,7 @@ export function renderPlateAuctionPage({ locale, view, canton, plate, vehicleTyp
   // numeric variants that the information-gain audit correctly treats as
   // mail-merge pages.
   const robots = view === 'detail' ? 'noindex,follow' : 'index,follow';
-  return { urlPath: urlPath.replace(/^\//, '').replace(/\/$/, ''), html: buildSeoPageHtml({ locale, title, description, canonicalUrl, hreflangHtml: alternates(view, canton, detailRow?.normalizedPlate || plate, detailRow?.vehicleType || vehicleType), bodyHtml: staticBody, jsonLdScripts: [jsonLd, breadcrumbJsonLd], robots, distDir, seoContentOutsideRoot: true, seoMainClass: 'seo-static-content plate-auction-static' }) };
+  return { urlPath: urlPath.replace(/^\//, '').replace(/\/$/, ''), html: buildSeoPageHtml({ locale, title, description, canonicalUrl, hreflangHtml: alternates(view, canton, detailRow?.normalizedPlate || plate, detailRow?.vehicleType || vehicleType), bodyHtml: staticBody, jsonLdScripts: [jsonLd, breadcrumbJsonLd], robots, distDir, seoContentOutsideRoot: true, disableAutoAds: view === 'detail', seoMainClass: 'seo-static-content plate-auction-static' }) };
 }
 
 export function plateAuctionsPagesPlugin(rootDir: string): Plugin {

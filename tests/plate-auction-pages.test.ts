@@ -4,6 +4,7 @@ import { tmpdir } from 'node:os';
 import { afterEach, describe, expect, it } from 'vitest';
 import { plateAuctionsPagesPlugin, renderPlateAuctionPage } from '../build-plugins/plateAuctionsPagesPlugin';
 import { buildPlateAuctionPath } from '../services/plateAuctions/paths';
+import { AD_SLOTS } from '../services/adsenseSlots';
 
 const tempDirs: string[] = [];
 const FULL_FIXTURE_GROUPS = [
@@ -69,12 +70,32 @@ describe('plate-auction static pages', () => {
     expect(rendered.html).not.toContain('<main><nav');
   });
 
+  it('emits vehicle type and the shared top/in-feed ad slots in static pages', () => {
+    const rootDir = fixtureRoot({ auctionCount: 5 });
+    const snapshotPath = join(rootDir, 'public', 'data', 'plate-auctions.json');
+    const snapshot = JSON.parse(readFileSync(snapshotPath, 'utf8')) as { auctions: Array<Record<string, unknown>> };
+    snapshot.auctions[0].vehicleType = 'motorcycle';
+    writeFileSync(snapshotPath, JSON.stringify(snapshot), 'utf8');
+
+    const rendered = renderPlateAuctionPage({ locale: 'it', view: 'hub', rootDir });
+    expect(rendered.html).toContain('Moto');
+    expect(rendered.html).toContain('ft-plate-auction-top-ad');
+    expect(rendered.html).toContain(`data-ad-slot=${AD_SLOTS.JOBDETAIL_TOP_BANNER.slot}`);
+    expect(rendered.html).toContain('ft-infeed-ad');
+    expect(rendered.html).toContain(`data-ad-slot=${AD_SLOTS.JOBLIST_INFEED_DESKTOP.slot}`);
+    expect(rendered.html).toContain('id=rail-left-root');
+    expect(rendered.html).toContain('id=rail-right-root');
+  });
+
   it('renders an empty, explicit detail page when a historical URL has no live row', () => {
     const rootDir = fixtureRoot();
     const rendered = renderPlateAuctionPage({ locale: 'en', view: 'detail', canton: 'GR', plate: 'GR7', rootDir });
     expect(rendered.urlPath).toBe('en/swiss-plate-auctions/graubunden-gr/gr7');
     expect(rendered.html).toContain('No public row is available right now.');
     expect(rendered.html).toContain('noindex,follow');
+    expect(rendered.html).not.toContain('ft-plate-auction-top-ad');
+    expect(rendered.html).not.toContain('id=rail-left-root');
+    expect(rendered.html).not.toContain('id=rail-right-root');
     expect(rendered.html).not.toContain('GR8');
   });
 
