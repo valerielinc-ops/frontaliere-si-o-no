@@ -4,6 +4,7 @@ import {
   buildItalyDutyWeekModel,
   currentItalyDutyWeekStart,
   formatItalyDutyDateTime,
+  type ItalyDutySourceRegistry,
   type ItalyDutyWeekModel,
 } from '@/services/pharmacies/italyDuty';
 import { pharmacyById, pharmacyCitySlug, provinceSlugForPharmacy } from '@/services/pharmacies/data';
@@ -156,9 +157,10 @@ export interface PharmacyItalyDutyWeekProps {
   now?: Date;
   duties?: ItalyDutySnapshot;
   status?: ItalyDutySnapshot;
+  sources?: ItalyDutySourceRegistry;
 }
 
-export default function PharmacyItalyDutyWeek({ page, now, duties, status }: PharmacyItalyDutyWeekProps) {
+export default function PharmacyItalyDutyWeek({ page, now, duties, status, sources }: PharmacyItalyDutyWeekProps) {
   const locale = page.locale;
   const copy = COPY[locale];
   const model = buildItalyDutyWeekModel({
@@ -166,6 +168,7 @@ export default function PharmacyItalyDutyWeek({ page, now, duties, status }: Pha
     weekStart: page.weekStart || currentItalyDutyWeekStart(now),
     duties,
     status,
+    sources,
   });
   const hubPath = buildPharmacyPath({ kind: 'italy-duty-hub', country: 'IT', locale }, locale);
   const swissDutyPath = buildPharmacyPath({ kind: 'duty-hub', locale }, locale);
@@ -192,13 +195,13 @@ export default function PharmacyItalyDutyWeek({ page, now, duties, status }: Pha
             <h2 className="font-display text-xl font-bold text-heading">{province.name}</h2>
             <p className={`text-xs font-semibold uppercase tracking-wide ${model.publishable ? 'text-emerald-700' : 'text-amber-800'}`}>{model.publishable ? copy.published : copy.notPublished}</p>
           </div>
-          {model.publishable && province.sourceUrl && <a className="inline-flex items-center gap-1 text-sm font-semibold text-link underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" href={province.sourceUrl} rel="nofollow noopener">{copy.openSource}<ExternalLink aria-hidden="true" className="h-3.5 w-3.5" /></a>}
+          {province.sourceUrl && <a className="inline-flex items-center gap-1 text-sm font-semibold text-link underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" href={province.sourceUrl} rel="nofollow noopener">{copy.openSource}<ExternalLink aria-hidden="true" className="h-3.5 w-3.5" /></a>}
         </header>
         {model.indexable && province.duties.length > 0
           ? <div className="mt-4 space-y-3"><p className="text-xs text-muted"><strong>{copy.fetched}:</strong> {province.fetchedAt ? <time dateTime={province.fetchedAt}>{province.fetchedAt}</time> : '—'}</p><div className="overflow-x-auto"><table className="w-full min-w-[34rem] border-collapse text-left text-sm leading-6 text-body"><thead className="border-y border-edge text-xs uppercase tracking-wide text-muted"><tr><th className="py-2 pr-3 font-semibold">{copy.date}</th><th className="py-2 pr-3 font-semibold">{copy.hours}</th><th className="py-2 pr-3 font-semibold">{copy.pharmacy}</th><th className="py-2 font-semibold">{copy.source}</th></tr></thead><tbody>{province.duties.map((duty) => {
             const pharmacy = pharmacyById(duty.pharmacyId);
             const path = detailPath(duty.pharmacyId, locale);
-            return <tr key={duty.id} className="border-b border-edge align-top" data-duty-id={duty.id} data-duty-country="IT"><td className="py-3 pr-3 whitespace-nowrap">{formatItalyDutyDateTime(duty.startsAt).slice(0, 10)}</td><td className="py-3 pr-3 whitespace-nowrap"><time dateTime={duty.startsAt}>{formatItalyDutyDateTime(duty.startsAt).slice(11)}</time> – <time dateTime={duty.endsAt}>{formatItalyDutyDateTime(duty.endsAt)}</time></td><td className="py-3 pr-3 font-semibold text-heading">{pharmacy && path ? <a className="text-link underline" href={buildPharmacyPath(path, locale)}>{pharmacy.name}</a> : duty.pharmacyId}</td><td className="py-3"><a className="inline-flex items-center gap-1 text-link underline" href={duty.sourceUrl} rel="nofollow noopener">{copy.source}<ExternalLink aria-hidden="true" className="h-3.5 w-3.5" /></a></td></tr>;
+            return <tr key={duty.id} className="border-b border-edge align-top" data-duty-id={duty.id} data-duty-country="IT"><td className="py-3 pr-3 whitespace-nowrap">{formatItalyDutyDateTime(duty.startsAt).slice(0, 10)}</td><td className="py-3 pr-3 whitespace-nowrap"><time dateTime={duty.startsAt}>{formatItalyDutyDateTime(duty.startsAt).slice(11)}</time> – <time dateTime={duty.endsAt}>{formatItalyDutyDateTime(duty.endsAt)}</time></td><td className="py-3 pr-3 font-semibold text-heading">{pharmacy && path ? <a className="text-link underline" href={buildPharmacyPath(path, locale)}>{pharmacy.name}</a> : duty.pharmacyId}</td><td className="py-3"><a className="inline-flex items-center gap-1 text-link underline" href={province.sourceUrl || duty.sourceUrl} rel="nofollow noopener">{copy.source}<ExternalLink aria-hidden="true" className="h-3.5 w-3.5" /></a></td></tr>;
           })}</tbody></table></div></div>
           : <p className="mt-4 rounded-xl border border-edge bg-surface-alt p-4 text-sm text-muted">{model.indexable || model.publishable ? copy.noIntervals : copy.noOperationalData}</p>}
       </section>)}
