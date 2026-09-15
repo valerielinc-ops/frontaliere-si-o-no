@@ -89,15 +89,23 @@ jobs:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
           if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
-            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set"
-            exit 1
+            echo 'L9 Firestore export unavailable: FIREBASE_SERVICE_ACCOUNT_JSON is not set; continuing as unmeasurable.' | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 0
           fi
-          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
-          chmod 600 /tmp/firebase-sa.json
-          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
+          chmod 600 "$RUNNER_TEMP/firebase-sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
       - name: Export fresh L9 outcomes
         if: github.event_name != 'pull_request'
-        run: node scripts/ci/export-loop-outcomes.mjs --loop L9 --profiles data/employer-profiles.json --out "$RUNNER_TEMP/employer-funnel-outcomes.json"
+        run: |
+          set +e
+          node scripts/ci/export-loop-outcomes.mjs --loop L9 --profiles data/employer-profiles.json --out "$RUNNER_TEMP/employer-funnel-outcomes.json"
+          export_code=$?
+          set -e
+          if [ "$export_code" -ne 0 ]; then
+            rm -f "$RUNNER_TEMP/employer-funnel-outcomes.json"
+            echo 'L9 Firestore export failed; continuing with an explicitly unmeasurable outcome.' | tee -a "$GITHUB_STEP_SUMMARY"
+          fi
       - name: Audit employer activation
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -128,8 +136,16 @@ jobs:
           elif [ "$run_code" -ne 0 ]; then
             exit "$run_code"
           fi
-      - name: Record canonical L9 evidence
+      - name: Validate runner-local L9 outcome export
+        id: validate_l9_outcome
         if: always()
+        env:
+          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l9
+        run: |
+          test -s "$REPORT_DIR/l9-outcome.json"
+          jq -e '(.loopId == "L9" and (.status | type) == "string" and (.independent | type) == "boolean" and (.safeToAct == false) and (.realOutreachSent == false) and (.inventoryUntouched == true) and (.subscriptionStateUntouched == true) and (.pricesUntouched == true) and (.recipientsUntouched == true))' "$REPORT_DIR/l9-outcome.json" >/dev/null
+      - name: Record canonical L9 evidence
+        if: ${{ always() && steps.validate_l9_outcome.outcome == 'success' }}
         env:
           REPORT_DIR: ${{ runner.temp }}/loop-fleet-l9
         run: node scripts/ci/record-loop-fleet-evidence.mjs --loop L9 --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json

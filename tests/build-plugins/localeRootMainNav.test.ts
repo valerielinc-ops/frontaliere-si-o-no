@@ -52,7 +52,7 @@ import {
 } from '../../build-plugins/staticPagesPlugin';
 import { SITE_MAP_PAGE_DIR } from '../../build-plugins/shared/siteMapPageDir';
 import { buildFaqHubPath } from '../../data/faq-hub/routes';
-import { PHARMACY_HUB_PATH } from '../../services/pharmacies/types';
+import { PHARMACY_DUTY_HUB_PATH, PHARMACY_HUB_PATH } from '../../services/pharmacies/types';
 import { COMMUNICATIONS_PAGE_PATH } from '../../services/communicationChannels';
 import { buildPlateAuctionPath } from '../../services/plateAuctions/paths';
 
@@ -96,9 +96,20 @@ describe('locale-root SPA shells — internal links (#5428)', () => {
     expect(html).toContain(`href="${PHARMACY_HUB_PATH[locale]}"`);
   });
 
+  it.each(NON_IT_LOCALES)('/%s/ links its own verified-duty hub', (locale) => {
+    const html = renderLocaleRoot(locale);
+    expect(html).toContain(`href="${PHARMACY_DUTY_HUB_PATH[locale]}"`);
+  });
+
   it.each(['it', ...NON_IT_LOCALES] as const)('%s homepage nav keeps the canonical pharmacy hub path', (locale) => {
     expect(NAV_LABELS[locale]).toEqual(
       expect.arrayContaining([{ href: PHARMACY_HUB_PATH[locale], label: expect.any(String) }]),
+    );
+  });
+
+  it.each(['it', ...NON_IT_LOCALES] as const)('%s homepage nav keeps the canonical verified-duty hub path', (locale) => {
+    expect(NAV_LABELS[locale]).toEqual(
+      expect.arrayContaining([{ href: PHARMACY_DUTY_HUB_PATH[locale], label: expect.any(String) }]),
     );
   });
 
@@ -124,6 +135,7 @@ describe('locale-root SPA shells — internal links (#5428)', () => {
     const html = injectHomepageSeoContent(SHELL, 'it');
     expect(html).toContain('id="hp-directory-hubs"');
     expect(html).toContain(`href="${PHARMACY_HUB_PATH.it}"`);
+    expect(html).toContain(`href="${PHARMACY_DUTY_HUB_PATH.it}"`);
     for (const locale of ['it', ...NON_IT_LOCALES] as const) {
       expect(html).toContain(`href="${buildPlateAuctionPath({ locale, view: 'hub' })}"`);
     }

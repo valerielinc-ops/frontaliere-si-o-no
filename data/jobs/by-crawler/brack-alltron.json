@@ -1369,7 +1369,25 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "logistica-agent-brack-alltron-ag-willisau",
+          "logistics-agent-brack-alltron-willisau",
+          "logistique-agent-brack-alltron-ag-willisau"
+        ],
+        "de": [
+          "logistics-agent-brack-alltron-willisau"
+        ],
+        "fr": [
+          "logistique-agent-brack-alltron-ag-willisau"
+        ]
+      },
+      "previousSlugs": [
+        "logistica-agent-brack-alltron-ag-willisau",
+        "logistics-agent-brack-alltron-willisau",
+        "logistique-agent-brack-alltron-ag-willisau"
+      ]
     },
     {
       "id": "brack-alltron-1e04096ddf95",
