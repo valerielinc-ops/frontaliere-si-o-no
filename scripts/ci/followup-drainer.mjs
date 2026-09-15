@@ -1684,7 +1684,7 @@ export function isPinnedOutsideDrainerQueue(iss) {
     && labels.includes(LBL_QUEUED)
     && !labels.includes(LBL_OPERATIONS_AUDIT_REVIEW)
     && pins.size === 1
-    && pins.has('agent:no-age-out');
+    && pins.has(LBL_NO_AGE_OUT);
   return pins.size > 0 && !auditFixQueued;
 }
 
