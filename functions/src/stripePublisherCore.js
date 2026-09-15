@@ -1072,6 +1072,16 @@ export async function handleStripeWebhook(req) {
     return { status: 200, body: { received: true } };
   }
 
+  // Assisted-application one-off payments (#6405). This is deliberately a
+  // separate dynamic dispatch: the signed project-wide webhook remains the
+  // only payment-confirmation path, while publisher handling below stays
+  // unaware of the candidate-upload order collection.
+  const { handleAssistedApplicationWebhookEvent } = await import('./assistedApplicationCheckout.js');
+  if (await handleAssistedApplicationWebhookEvent(event, { db, ts })) {
+    await eventRef.set({ type: event.type, processedAt: ts });
+    return { status: 200, body: { received: true } };
+  }
+
   // Sub-statuses that mean the ad must come down.
   const DEAD_SUB_STATUSES = new Set(['canceled', 'unpaid', 'incomplete_expired']);
 

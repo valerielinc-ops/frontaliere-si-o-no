@@ -18,6 +18,21 @@ service firebase.storage {
       allow read: if false;
     }
 
+    // CVs for the paid assisted-application flow. Both the payment and the
+    // explicit mandate are looked up server-side in Firestore; a client cannot
+    // upload to a pending order or read another person's CV.
+    match /assisted-application-uploads/{orderId}/{file} {
+      allow create: if request.auth != null
+        && firestore.get(/databases/(default)/documents/assisted_applications/$(orderId)).data.userId == request.auth.uid
+        && firestore.get(/databases/(default)/documents/assisted_applications/$(orderId)).data.paymentStatus == 'paid'
+        && firestore.get(/databases/(default)/documents/assisted_applications/$(orderId)).data.consentVersion == 'assisted-application-v1'
+        && firestore.get(/databases/(default)/documents/assisted_applications/$(orderId)).data.consentedAt is timestamp
+        && request.resource.size < 5 * 1024 * 1024
+        && request.resource.contentType.matches('^(application/pdf|application/msword|application/vnd.openxmlformats-officedocument.wordprocessingml.document)$');
+      allow read: if false;
+      allow update, delete: if false;
+    }
+
     // Journalist hero-image uploads for draft/queued articles (see
     // firestore.rules `journalist_articles`). Only the owning journalist may
     // write or read their own path; the publish pipeline reads via the Admin
