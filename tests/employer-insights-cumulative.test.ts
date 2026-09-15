@@ -299,6 +299,15 @@ describe('D18 cumulativo — finestre e due regimi', () => {
     expect(adMetric(result, 'adViews')).toMatchObject({ parts: { currentPrimary: { value: 2 } } });
     expect(adMetric(result, 'listExposures')).toMatchObject({ parts: { currentPrimary: { value: 3 } } });
     expect(adMetric(result, 'adViews').parts.currentPrimary.value).not.toBe(5);
+
+    const arrayResult = await buildD18({
+      ga4Rows: [[
+        '', 'page_view', '2026-W37', '/offerte-di-lavoro/role-it/', 'role-it', '', '', 'acme', '', '',
+        1, 0, 0, 1, 0, 'emission-array', '2026-09-09T10:00:00.000Z',
+        'page_view', '2026-W37', '/offerte-di-lavoro/role-it/', 'role-it', '', '', 'acme', '', '', '', 'cursor-event-key',
+      ]],
+    });
+    expect(currentMetric(arrayResult, 'adViews')).toMatchObject({ value: 1 });
   });
 
   it('D18-T10 tiene profileVisits distinto da adViews', async () => {

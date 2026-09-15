@@ -417,7 +417,7 @@ function normalizeEventRow(source) {
     observed: Math.max(0, numberOr(observedValue, 1)),
     persons: Math.max(0, numberOr(personsValue, 0)),
     sessions: Math.max(0, numberOr(sessionsValue, 0)),
-    pageTemplate: normalizeText(read(['pageTemplate', 'page_template'], Array.isArray(source) ? 27 : undefined)),
+    pageTemplate: normalizeText(read(['pageTemplate', 'page_template'], undefined)),
     locale: normalizeText(read(['locale', 'language'], undefined)).toLowerCase(),
     visitorIds: normalizedVisitorIds,
     isSponsored: typeof sponsoredValue === 'boolean'
@@ -1289,9 +1289,12 @@ function d18Surface(row) {
   if (event === 'outbound_click' || event === 'external_click' || event === 'ats_click') return 'outboundClicks';
   if (event === 'job_apply' || (event === 'select_content' && APPLY_CONTENT_TYPES.has(row.contentType)) || event === 'applyclicks') return 'candidateButtonClicks';
   if (isPageview(row)) {
-    if (row.pageTemplate === 'jobs_company' || row.pageTemplate === 'company_profile') return 'profileVisits';
-    if (row.pageTemplate === 'jobs_index' || row.pageTemplate === 'jobs_search') return null;
-    if (row.pageTemplate === 'job_detail') return 'adViews';
+    const route = routeIdentity(row.path);
+    const routeTemplate = { company: 'company_profile', job: 'job_detail' }[route?.kind] || '';
+    const pageTemplate = normalizeText(row.pageTemplate) || routeTemplate;
+    if (pageTemplate === 'jobs_company' || pageTemplate === 'company_profile') return 'profileVisits';
+    if (pageTemplate === 'jobs_index' || pageTemplate === 'jobs_search') return null;
+    if (pageTemplate === 'job_detail') return 'adViews';
   }
   return null;
 }
