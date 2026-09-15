@@ -9,6 +9,7 @@ import { formatItalyDutyDateTime } from '@/services/pharmacies/italyDuty';
 import { pharmacyById, pharmacyCitySlug, provinceSlugForPharmacy } from '@/services/pharmacies/data';
 import { buildPharmacyPath } from '@/services/pharmacies/paths';
 import type { Locale } from '@/services/i18n';
+import type { ItalyDutySourceRegistry } from '@/services/pharmacies/italyDuty';
 import type { ItalyDutySnapshot } from '@/services/pharmacies/italyRelease';
 import type {
   PharmacyCatalogueDataset,
@@ -25,6 +26,7 @@ export interface PharmacyDutyCoverageMatrixProps {
   registry?: PharmacySourcesRegistry;
   italyDuties?: ItalyDutySnapshot;
   italyStatus?: ItalyDutySnapshot;
+  italySources?: ItalyDutySourceRegistry;
 }
 
 function pharmacyHref(pharmacyId: string, locale: Locale): string | null {
@@ -63,8 +65,9 @@ export default function PharmacyDutyCoverageMatrix({
   registry,
   italyDuties,
   italyStatus,
+  italySources,
 }: PharmacyDutyCoverageMatrixProps) {
-  const matrix = useMemo(() => buildDutyCoverageMatrix({ locale, now, weekStart, duties, catalogue, registry, italyDuties, italyStatus }), [catalogue, duties, italyDuties, italyStatus, locale, now, registry, weekStart]);
+  const matrix = useMemo(() => buildDutyCoverageMatrix({ locale, now, weekStart, duties, catalogue, registry, italyDuties, italyStatus, italySources }), [catalogue, duties, italyDuties, italySources, italyStatus, locale, now, registry, weekStart]);
   const copy = getDutyCoverageMatrixCopy(locale);
 
   return <section className="space-y-6" aria-labelledby="pharmacy-duty-coverage-matrix-heading" data-coverage-matrix="true" data-release-ready={String(matrix.releaseReady)} data-italy-release-ready={String(matrix.italy.publishable)} data-italy-indexable={String(matrix.italy.indexable)} data-italy-release-state={matrix.italy.state}>
@@ -115,7 +118,7 @@ export default function PharmacyDutyCoverageMatrix({
                 <h4 className="font-display text-lg font-bold text-heading">{province.name}</h4>
                 <p className={`text-xs font-semibold uppercase tracking-wide ${matrix.italy.publishable ? 'text-emerald-700' : 'text-amber-800'}`}>{matrix.italy.publishable ? copy.italyPublishedLabel : copy.italyNotPublishedLabel}</p>
               </div>
-              {matrix.italy.publishable && province.sourceUrl && <a className="text-sm font-semibold text-link underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" href={province.sourceUrl} rel="nofollow noopener">{copy.openOfficialSource}<span aria-hidden="true"> ↗</span></a>}
+              {province.sourceUrl && <a className="text-sm font-semibold text-link underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" href={province.sourceUrl} rel="nofollow noopener">{copy.openOfficialSource}<span aria-hidden="true"> ↗</span></a>}
             </div>
           </header>
           {matrix.italy.indexable && province.duties.length > 0

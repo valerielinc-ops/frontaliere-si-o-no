@@ -67,7 +67,7 @@ describe('pharmacy country SPA route', () => {
     expect(hubRoot?.querySelectorAll('[data-duty-country="IT"]')).toHaveLength(0);
     expect(hubRoot?.querySelectorAll('time')).toHaveLength(0);
     expect(hubRoot?.querySelectorAll('[data-italy-duty-published]')).toHaveLength(0);
-    expect(hubRoot?.querySelectorAll('a[href^="https://"]')).toHaveLength(0);
+    expect(hubRoot?.querySelectorAll('a[href^="https://"]')).toHaveLength(3);
 
     cleanup();
     const week = render(<PharmacyDirectory page={{ kind: 'italy-duty-week', country: 'IT', locale, weekStart: '2026-09-14' }} />);
@@ -76,5 +76,6 @@ describe('pharmacy country SPA route', () => {
     expect(weekRoot?.querySelectorAll('[data-italy-duty-province]')).toHaveLength(3);
     expect(weekRoot?.querySelectorAll('[data-duty-country="IT"]')).toHaveLength(0);
     expect(weekRoot?.querySelectorAll('time')).toHaveLength(0);
+    expect(weekRoot?.querySelectorAll('a[href^="https://"]')).toHaveLength(3);
   });
 });

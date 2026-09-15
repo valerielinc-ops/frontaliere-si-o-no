@@ -1,6 +1,7 @@
 // @vitest-environment jsdom
 import { cleanup, render } from '@testing-library/react';
 import { afterEach, describe, expect, it } from 'vitest';
+import PharmacyItalyDutyWeek from '../components/pages/PharmacyItalyDutyWeek';
 import PharmacyDutyCoverageMatrix from '../components/pharmacies/PharmacyDutyCoverageMatrix';
 import dutiesJson from '../data/pharmacy-duties-ticino.json';
 import italyDutiesJson from '../data/pharmacy-duties-italy.json';
@@ -49,7 +50,7 @@ describe('PharmacyDutyCoverageMatrix', () => {
     });
   });
 
-  it('does not expose Italian source links or duty markers for a partial release', () => {
+  it('keeps Italian official sources visible without duty markers for a partial release', () => {
     const partialDuties = {
       ...italyDutiesJson,
       _release: { ...italyDutiesJson._release, state: 'partial' },
@@ -68,6 +69,20 @@ describe('PharmacyDutyCoverageMatrix', () => {
     expect(root?.querySelectorAll('[data-coverage-kind="italy-province"] [data-duty-id]')).toHaveLength(0);
     expect(root?.querySelectorAll('[data-coverage-kind="italy-province"] time')).toHaveLength(0);
     expect(root?.querySelectorAll('[data-coverage-kind="italy-province"] [data-italy-duty-published]')).toHaveLength(0);
-    expect(root?.querySelectorAll('[data-coverage-kind="italy-province"] a[href^="https://"]')).toHaveLength(0);
+    expect(root?.querySelectorAll('[data-coverage-kind="italy-province"] a[href^="https://"]')).toHaveLength(3);
+  });
+
+  it('renders an Italian duty week as source-only while the checked-in release is not published', () => {
+    const { container } = render(<PharmacyItalyDutyWeek page={{ kind: 'italy-duty-week', country: 'IT', locale: 'it', weekStart: '2026-09-14' }} now={now} />);
+    const root = container.querySelector('[data-italy-duty-week="true"]');
+
+    expect(root).toHaveAttribute('data-italy-release-state', 'not_published');
+    expect(root).toHaveAttribute('data-italy-publishable', 'false');
+    expect(root).toHaveAttribute('data-italy-indexable', 'false');
+    expect(root?.querySelectorAll('[data-italy-duty-province]')).toHaveLength(3);
+    expect(root?.querySelectorAll('[data-italy-duty-province] a[href^="https://"]')).toHaveLength(3);
+    expect(root?.querySelectorAll('[data-italy-duty-province] [data-duty-id]')).toHaveLength(0);
+    expect(root?.querySelectorAll('[data-italy-duty-province] time')).toHaveLength(0);
+    expect(root?.querySelectorAll('[data-italy-duty-province] [data-italy-duty-published]')).toHaveLength(0);
   });
 });

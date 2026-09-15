@@ -1,4 +1,5 @@
 import italyDutiesJson from '../../data/pharmacy-duties-italy.json';
+import italySourcesJson from '../../data/pharmacy-duties-italy-sources.json';
 import italyStatusJson from '../../data/pharmacy-duties-italy-status.json';
 import italyCatalogueJson from '../../data/pharmacies-italy-border.json';
 import { formatDutyDateTimeInTimezone } from './dutyWeek';
@@ -21,14 +22,30 @@ export const ITALY_DUTY_PROVINCES = Object.freeze([
   { code: 'VA', name: 'Varese' },
   { code: 'VB', name: 'Verbano-Cusio-Ossola' },
 ] as const);
+const ITALY_DUTY_PROVINCE_CODES = ITALY_DUTY_PROVINCES.map(({ code }) => code);
 
 const DEFAULT_DUTIES = italyDutiesJson as unknown as ItalyDutySnapshot;
+const DEFAULT_SOURCES = italySourcesJson as unknown as ItalyDutySourceRegistry;
 const DEFAULT_STATUS = italyStatusJson as unknown as ItalyDutySnapshot;
 const DEFAULT_PHARMACY_IDS = new Set(italyCatalogueJson.pharmacies.map((pharmacy) => pharmacy.id));
+
+export interface ItalyDutySourceRegistry {
+  timezone?: unknown;
+  scope?: unknown;
+  sources?: unknown;
+}
+
+export interface ItalyDutyProvinceSourceOnly {
+  readonly code: ItalyDutyProvince;
+  readonly name: string;
+  readonly sourceKey: string | null;
+  readonly sourceUrl: string | null;
+}
 
 export interface ItalyDutyWeekProvince {
   code: ItalyDutyProvince;
   name: string;
+  sourceKey: string | null;
   state: ItalyDutyReleaseState;
   freshness: ItalyDutyProvinceFreshness;
   coverage: ItalyDutyProvinceCoverage;
@@ -48,6 +65,7 @@ export interface ItalyDutyWeekModel {
   publishable: boolean;
   indexable: boolean;
   provinces: readonly ItalyDutyWeekProvince[];
+  sourceOnly: readonly ItalyDutyProvinceSourceOnly[];
   unresolvedPharmacyIds: readonly string[];
   reason: string;
 }
@@ -57,6 +75,7 @@ export interface BuildItalyDutyWeekOptions {
   weekStart?: string;
   duties?: ItalyDutySnapshot;
   status?: ItalyDutySnapshot;
+  sources?: ItalyDutySourceRegistry;
   maxAgeMs?: number;
   pharmacyIds?: ReadonlySet<string>;
 }
@@ -85,6 +104,92 @@ function recordOf(value: unknown): Record<string, unknown> {
   return value && typeof value === 'object' && !Array.isArray(value)
     ? value as Record<string, unknown>
     : {};
+}
+
+interface ItalyDutySourceEntry {
+  key: string;
+  name: string;
+  province: ItalyDutyProvince;
+  sourceUrl: string;
+}
+
+interface ItalyDutySourceContract {
+  byProvince: Map<ItalyDutyProvince, ItalyDutySourceEntry>;
+  reasons: string[];
+  complete: boolean;
+}
+
+function stringValue(value: unknown): string | null {
+  return typeof value === 'string' && value.trim() ? value.trim() : null;
+}
+
+function httpsUrl(value: unknown): string | null {
+  const candidate = stringValue(value);
+  if (!candidate) return null;
+  try {
+    const url = new URL(candidate);
+    return url.protocol === 'https:' ? candidate : null;
+  } catch {
+    return null;
+  }
+}
+
+function hasExactItalyScope(value: unknown): boolean {
+  const scope = recordOf(value);
+  const provinces = scope.provinces;
+  return scope.country === 'IT'
+    && Array.isArray(provinces)
+    && provinces.length === ITALY_DUTY_PROVINCE_CODES.length
+    && new Set(provinces).size === ITALY_DUTY_PROVINCE_CODES.length
+    && ITALY_DUTY_PROVINCE_CODES.every((province) => provinces.includes(province));
+}
+
+function buildItalyDutySourceContract(value: ItalyDutySourceRegistry): ItalyDutySourceContract {
+  const registry = recordOf(value);
+  const reasons: string[] = [];
+  const byProvince = new Map<ItalyDutyProvince, ItalyDutySourceEntry>();
+  const ambiguousProvinces = new Set<ItalyDutyProvince>();
+  const seenKeys = new Set<string>();
+
+  if (registry.timezone !== ITALY_DUTY_WEEK_TIMEZONE) reasons.push('Italy source registry timezone is invalid');
+  if (!hasExactItalyScope(registry.scope)) reasons.push('Italy source registry scope is invalid');
+
+  const entries = Array.isArray(registry.sources) ? registry.sources : [];
+  if (entries.length !== ITALY_DUTY_PROVINCE_CODES.length) reasons.push('Italy source registry does not cover exactly three provinces');
+
+  for (const rawEntry of entries) {
+    const entry = recordOf(rawEntry);
+    const province = stringValue(entry.province) as ItalyDutyProvince | null;
+    const key = stringValue(entry.key);
+    const name = stringValue(entry.name);
+    const sourceUrl = httpsUrl(entry.officialSourceUrl);
+    if (!province || !ITALY_DUTY_PROVINCE_CODES.includes(province)) {
+      reasons.push('Italy source registry contains an invalid province');
+      continue;
+    }
+    if (!key || !name || entry.sourceType !== 'official' || !sourceUrl) {
+      reasons.push(`${province}: Italy source registry entry is incomplete`);
+      continue;
+    }
+    if (byProvince.has(province)) {
+      ambiguousProvinces.add(province);
+      reasons.push(`${province}: Italy source registry province is ambiguous`);
+    }
+    if (seenKeys.has(key)) reasons.push(`${province}: Italy source registry key is duplicated`);
+    seenKeys.add(key);
+    byProvince.set(province, { key, name, province, sourceUrl });
+  }
+
+  for (const province of ambiguousProvinces) byProvince.delete(province);
+  for (const province of ITALY_DUTY_PROVINCE_CODES) {
+    if (!byProvince.has(province)) reasons.push(`${province}: Italy source registry entry is missing`);
+  }
+
+  return {
+    byProvince,
+    reasons: [...new Set(reasons)],
+    complete: reasons.length === 0 && ITALY_DUTY_PROVINCE_CODES.every((province) => byProvince.has(province)),
+  };
 }
 
 function zonedDateTimeParts(value: Date): ZonedDateTimeParts {
@@ -187,12 +292,24 @@ export function buildItalyDutyWeekModel(options: BuildItalyDutyWeekOptions = {})
   const end = weekEnd ? zonedMidnight(weekEnd) : null;
   const duties = options.duties ?? DEFAULT_DUTIES;
   const status = options.status ?? DEFAULT_STATUS;
+  const sourceContract = buildItalyDutySourceContract(options.sources ?? DEFAULT_SOURCES);
   const evaluation = evaluateItalyDutyRelease({
     duties,
     status,
     now,
     maxAgeMs: options.maxAgeMs ?? ITALY_DUTY_RELEASE_MAX_AGE_MS,
   });
+  const statusEntries = recordOf(recordOf(status)._provinces);
+  const sourceIdentityReasons = ITALY_DUTY_PROVINCE_CODES.flatMap((province) => {
+    const source = sourceContract.byProvince.get(province);
+    if (!source) return [];
+    const entry = recordOf(statusEntries[province]);
+    if (entry.province !== province) return [`${province}: province status identity is missing or invalid`];
+    if (stringValue(entry.sourceKey) !== source.key) return [`${province}: status source identity does not match the registry`];
+    if (httpsUrl(entry.sourceUrl) !== source.sourceUrl) return [`${province}: status source URL does not match the registry`];
+    return [];
+  });
+  const sourceReady = sourceContract.complete && sourceIdentityReasons.length === 0;
   const rawRows = recordOf(duties).duties;
   const validRows = evaluation.publishable && Array.isArray(rawRows) ? rawRows as PharmacyDuty[] : [];
   const weekRows = start && end
@@ -204,25 +321,33 @@ export function buildItalyDutyWeekModel(options: BuildItalyDutyWeekOptions = {})
   const unresolvedPharmacyIds = uniqueSorted(weekRows
     .filter((duty) => !pharmacyIds.has(duty.pharmacyId))
     .map((duty) => duty.pharmacyId));
-  const publishable = evaluation.publishable && unresolvedPharmacyIds.length === 0;
-  const reasons = [...evaluation.reasons];
+  const publishable = evaluation.publishable && sourceReady && unresolvedPharmacyIds.length === 0;
+  const reasons = [...evaluation.reasons, ...sourceContract.reasons, ...sourceIdentityReasons];
   if (!start || !end) reasons.push('weekStart must be an ISO Monday');
   if (unresolvedPharmacyIds.length > 0) reasons.push(`unresolved Italian pharmacy ids: ${unresolvedPharmacyIds.join(', ')}`);
 
   const provinces = ITALY_DUTY_PROVINCES.map(({ code, name }) => {
     const province = evaluation.provinces[code];
+    const source = sourceContract.byProvince.get(code);
     return {
       code,
-      name,
+      name: source?.name ?? name,
+      sourceKey: source?.key ?? null,
       state: province.state,
       freshness: province.freshness,
       coverage: province.coverage,
       dutyCount: province.dutyCount,
-      sourceUrl: publishable ? province.sourceUrl : null,
+      sourceUrl: source?.sourceUrl ?? null,
       fetchedAt: province.fetchedAt,
       duties: publishable ? weekRows.filter((duty) => duty.province === code) : [],
     };
   });
+  const sourceOnly = provinces.map(({ code, name, sourceKey, sourceUrl }) => ({
+    code,
+    name,
+    sourceKey,
+    sourceUrl,
+  }));
   const missingProvinces = provinces.filter((province) => province.duties.length === 0).map((province) => province.code);
   const indexable = publishable && Boolean(start && end) && missingProvinces.length === 0;
   if (publishable && missingProvinces.length > 0) reasons.push(`missing verified intervals: ${missingProvinces.join(', ')}`);
@@ -234,10 +359,11 @@ export function buildItalyDutyWeekModel(options: BuildItalyDutyWeekOptions = {})
     timezone: ITALY_DUTY_WEEK_TIMEZONE,
     releaseId: evaluation.releaseId,
     fetchedAt: evaluation.fetchedAt,
-    state: evaluation.state,
+    state: evaluation.state === 'fresh' && !sourceReady ? 'conflicting' : evaluation.state,
     publishable,
     indexable,
     provinces,
+    sourceOnly,
     unresolvedPharmacyIds,
     reason: reasons.length > 0
       ? [...new Set(reasons)].join('; ')
