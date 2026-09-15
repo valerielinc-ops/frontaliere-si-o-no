@@ -186,6 +186,12 @@ describe('#5684 point 1 — every recurring channel has a switch in the preferen
     expect(controllerSrc).toContain('consent_advertising');
     expect(controllerSrc).toContain('advertising_opt_out');
     expect(controllerSrc).toContain('advertising_reactivated_at');
+    const adSenderSrc = read('scripts/blast-publisher-ads.mjs');
+    expect(adSenderSrc).toContain('isAdvertisingSuppressed');
+    // The canonical predicate owns the newsletter-stop exception; a second
+    // raw isCrossChannelStop() in the script would suppress explicitly
+    // reactivated advertising again.
+    expect(adSenderSrc).not.toContain('isCrossChannelStop');
     // …and the audience filter is where it is applied, not merely mentioned.
     expect(matchSubscribersForAd(
       { title: 'x', locations: [] },

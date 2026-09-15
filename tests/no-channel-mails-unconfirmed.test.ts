@@ -243,7 +243,13 @@ describe('the verdicts hold', () => {
     const src = stripComments(read(file));
     expect(src, `${file} must not reintroduce the former confirmation gate`).not.toMatch(CALLS_GATE);
     const hasLocalOrDelegatedSuppression = /isCrossChannelStop\s*\(|isNewsletterExcluded\s*\(|isNewsletterOptOutBinding\s*\(|isJobAlertExcluded\s*\(/.test(src)
-      || Boolean(LIFECYCLE_SUPPRESSION_DELEGATES[file]?.test(src));
+      || Boolean(LIFECYCLE_SUPPRESSION_DELEGATES[file]?.test(src))
+      // The advertising blast has a purpose-specific predicate because its
+      // explicit reactivation may coexist with a newsletter stop. That
+      // predicate delegates to `isCrossChannelStop()` inside the canonical
+      // matcher, so the top-level sender must not duplicate the cross-channel
+      // gate and accidentally erase the reactivation exception.
+      || (file === 'scripts/blast-publisher-ads.mjs' && src.includes('isAdvertisingSuppressed('));
     expect(hasLocalOrDelegatedSuppression, `${file} must keep at least one central/channel suppression check`).toBe(true);
   });
 

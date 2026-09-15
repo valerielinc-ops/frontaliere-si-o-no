@@ -32,11 +32,9 @@
  */
 
 import {
-  isAdvertisingReactivation,
   isAdvertisingSuppressed,
   matchSubscribersForAd,
 } from '../services/publisherBlastMatch.mjs';
-import { isCrossChannelStop } from '../services/emailSuppression.mjs';
 import { OWNER_EMAIL, isCanaryJob } from './lib/canaryAd.mjs';
 import { buildBlastEmail } from '../services/publisherBlastEmail.mjs';
 import { slugifyPublisher, truncatePublisherSlug, distinctLocations } from './lib/publisherJobProjection.mjs';
@@ -83,17 +81,11 @@ async function main() {
 
   const subsSnap = await db.collection('newsletter_subscribers').get();
   const subscribers = subsSnap.docs.filter((d) => d.id !== '_meta_').map((d) => d.data());
-  // Keep the advertising-specific hard/global stop at this sender boundary
-  // too. A later explicit advertising reactivation may lift a newsletter stop
-  // for this category only; it never re-enables the other senders.
-  const sendableSubscribers = subscribers.filter((subscriber) => {
-    // Apply the canonical cross-channel stop before the advertising-specific
-    // matcher. A row with that stop may proceed to the matcher only when it
-    // carries the explicit advertising reactivation marker; the matcher then
-    // verifies its timestamp and still blocks hard/global suppression.
-    if (isCrossChannelStop(subscriber) && !isAdvertisingReactivation(subscriber)) return false;
-    return !isAdvertisingSuppressed(subscriber);
-  });
+  // Use one canonical predicate at the sender boundary. It applies hard/global
+  // suppression and the category opt-out, while preserving the explicit
+  // advertising-only reactivation exception without re-enabling newsletter,
+  // JobAlert, brief or digest delivery.
+  const sendableSubscribers = subscribers.filter((subscriber) => !isAdvertisingSuppressed(subscriber));
   console.log(`[blast] ${ads.length} ad(s), ${subscribers.length} subscribers. mode=${SEND ? 'SEND' : 'DRY-RUN'}`);
 
   if (SEND) {
