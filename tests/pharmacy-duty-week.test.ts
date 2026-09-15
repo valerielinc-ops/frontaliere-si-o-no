@@ -16,6 +16,7 @@ const REGIONS = [
   { key: 'luganese', name: 'Luganese', url: 'https://www.ofct.ch/luganese/' },
   { key: 'bellinzonese', name: 'Bellinzonese', url: 'https://www.ofct.ch/bellinzonese/' },
   { key: 'biasca-e-valli', name: 'Biasca e Valli', url: 'https://www.ofct.ch/biasca-e-valli/' },
+  { key: 'locarnese', name: 'Locarnese', url: 'https://www.farmacielocarnese.ch/' },
 ] as const;
 
 const CATALOGUE_FETCHED_AT = '2026-09-14T10:00:00.000Z';
@@ -107,7 +108,7 @@ function build(pair: { catalogue: PharmacyCatalogueDataset; duties: PharmacyDuti
 }
 
 describe('weekly pharmacy duty read model', () => {
-  it('is ready only with four verified OFCT regions and one valid P0 release', () => {
+  it('is ready only with five verified Ticino regions and one valid P0 release', () => {
     const pair = makePair();
     const model = build(pair);
 
@@ -145,8 +146,8 @@ describe('weekly pharmacy duty read model', () => {
     expect(model.indexable).toBe(false);
   });
 
-  it('marks missing or preserved OFCT regions partial', () => {
-    const withoutRegion = makePair({}, { duties: BASE_DUTIES.slice(0, 3) });
+  it('marks missing or preserved Ticino regions partial', () => {
+    const withoutRegion = makePair({}, { duties: BASE_DUTIES.filter((duty) => duty.coverageName !== 'Biasca e Valli') });
     const missing = build(withoutRegion);
     expect(missing.status).toBe('partial');
     expect(missing.missingRegions).toEqual(['Biasca e Valli']);

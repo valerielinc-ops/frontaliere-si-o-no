@@ -19,6 +19,7 @@ export const DUTY_WEEK_REGIONS = Object.freeze([
   { key: 'luganese', name: 'Luganese' },
   { key: 'bellinzonese', name: 'Bellinzonese' },
   { key: 'biasca-e-valli', name: 'Biasca e Valli' },
+  { key: 'locarnese', name: 'Locarnese' },
 ] as const);
 
 export type DutyWeekStatus = 'ready' | 'stale' | 'partial' | 'unknown' | 'conflicting' | 'expired' | 'not_published';
@@ -114,6 +115,14 @@ function zonedDateTimeParts(value: Date): ZonedDateTimeParts {
     minute: Number(parts.find((part) => part.type === 'minute')?.value),
     second: Number(parts.find((part) => part.type === 'second')?.value),
   };
+}
+
+/** Stable server-rendered duty label: DD.MM.YYYY HH:mm in Europe/Zurich. */
+export function formatDutyDateTime(iso: string): string {
+  const date = new Date(iso);
+  if (!Number.isFinite(date.getTime())) return iso;
+  const { year, month, day, hour, minute } = zonedDateTimeParts(date);
+  return `${String(day).padStart(2, '0')}.${String(month).padStart(2, '0')}.${year} ${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}`;
 }
 
 /** Resolves a calendar date to midnight in Europe/Zurich, including DST. */
@@ -222,7 +231,7 @@ function validateDutyEntriesForWeeklyModel(value: unknown, now: Date): string[] 
 /**
  * Builds the dated read model used by both the static page and the SPA.
  * A model is indexable only when catalogue and duty snapshots are the same
- * release, all four declared OFCT areas have verified intervals, and the
+ * release, all declared Ticino regions have verified intervals, and the
  * source fetch is fresh. Missing/old/preserved/conflicting data remains
  * inspectable but is explicitly non-indexable.
  */
@@ -269,7 +278,9 @@ export function buildDutyWeekModel(
   }));
   const missingRegions = regions.filter((region) => region.duties.length === 0).map((region) => region.name);
   const overlappingUnverified = start && weekEndDate
-    ? duties.filter((duty) => dutyIntersectsWeek(duty, start, weekEndDate) && duty.status !== 'verified')
+    ? duties.filter((duty) => dutyIntersectsWeek(duty, start, weekEndDate)
+      && duty.status !== 'verified'
+      && Date.parse(duty.endsAt) > now.getTime())
     : [];
   const unresolvedPharmacyIds = cataloguePharmacyIds
     ? uniqueSorted(regions.flatMap((region) => region.duties

@@ -24,12 +24,13 @@ export type PharmacyCountry = 'CH' | 'IT';
 
 export const PHARMACY_RELEASE_CONTRACT_VERSION = 1 as const;
 export const PHARMACY_RELEASE_TIMEZONE = 'Europe/Zurich' as const;
-/** The release scope is deliberately limited to the four OFCT regions we verify. */
+/** The release scope is deliberately limited to verified Ticino duty regions. */
 export const PHARMACY_RELEASE_REGION_KEYS = [
   'mendrisiotto',
   'luganese',
   'bellinzonese',
   'biasca-e-valli',
+  'locarnese',
 ] as const;
 
 export type PharmacyRegionKey = typeof PHARMACY_RELEASE_REGION_KEYS[number];

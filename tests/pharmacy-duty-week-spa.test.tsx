@@ -6,7 +6,7 @@ import PharmacyDirectory from '../components/pages/PharmacyDirectory';
 afterEach(cleanup);
 
 describe('pharmacy duty week SPA route', () => {
-  it('renders the declared OFCT regions and the source disclaimer', () => {
+  it('renders the five declared Ticino regions in duty tables and the source disclaimer', () => {
     render(<PharmacyDirectory page={{ kind: 'duty-week', locale: 'it', weekStart: '2026-09-14' }} />);
 
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Farmacie di turno in Ticino');
@@ -14,7 +14,9 @@ describe('pharmacy duty week SPA route', () => {
     expect(screen.getByRole('heading', { name: 'Luganese' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Bellinzonese' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Biasca e Valli' })).toBeInTheDocument();
-    expect(screen.getByText(/Non coperto in questa edizione/)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Locarnese' })).toBeInTheDocument();
+    expect(screen.getAllByRole('table')).toHaveLength(5);
+    expect(screen.queryByText(/Locarnese, gli altri cantoni/)).not.toBeInTheDocument();
     expect(screen.getByRole('link', { name: /ofct\.ch/ })).toHaveAttribute('href', 'https://www.ofct.ch/farmacieturno/');
   });
 });
