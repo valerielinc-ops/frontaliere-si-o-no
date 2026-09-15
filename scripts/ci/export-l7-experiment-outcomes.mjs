@@ -353,8 +353,7 @@ export async function exportL7({
   if (!text(outputPath)) throw new Error('--out is required');
   const policy = readL7Policy(registryPath);
   const window = completeUtcWindow(now, days);
-  const firestore = client || new GoogleDataClient();
-  const posthogConfig = config || await resolvePostHogConfig(firestore);
+  const posthogConfig = config || await resolvePostHogConfig(client || new GoogleDataClient());
   const counts = await fetchL7ExperimentCounts({
     posthogRunner,
     config: posthogConfig,
