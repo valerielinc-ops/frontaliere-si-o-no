@@ -2166,6 +2166,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'cartella-sanitaria-mercosur-parlamento': { it: 'cartella-sanitaria-mercosur-parlamento', en: 'health-record-mercosur-parliament', de: 'gesundheitsakte-mercosur-parlament', fr: 'dossier-sante-mercosur-parlement' },
  'consiglio-nazionale-cartella-sanitaria': { it: 'consiglio-nazionale-cartella-sanitaria', en: 'national-council-electronic-health-record', de: 'nationalrat-elektronische-gesundheitsakte', fr: 'conseil-national-dossier-sante-electronique' },
  'ssr-risparmi-270-milioni-2029': { it: 'ssr-risparmi-270-milioni-2029', en: 'ssr-savings-270-million-2029', de: 'ssr-einsparungen-270-millionen-2029', fr: 'ssr-economies-270-millions-2029' },
+ 'premi-lamal-politica-responsabilita': { it: 'premi-lamal-politica-responsabilita', en: 'lamal-premiums-politics-responsibility', de: 'kvg-praemien-politik-verantwortung', fr: 'primes-lamal-politique-responsabilite' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

@@ -83363,6 +83363,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-premi-lamal-politica-responsabilita': {
+    title: 'Aumenti premi LAMal: la politica rimbalza responsabilità',
+    description: 'Gli aumenti dei premi LAMal in Svizzera continuano, con la politica che rimbalza le responsabilità. Si propone la deducibilità fiscale integrale per alleggerire',
+    keywords: 'frontalieri, ticino, svizzera, italia, aumenti, premi, lamal, politica',
+    ogTitle: 'Premi LAMal: politica e responsabilità degli aumenti in Svizzera',
+    ogDescription: 'Gli aumenti annuali dei premi dell\'assicurazione malattia obbligatoria in Svizzera mettono sotto pressione le famiglie. L\'articolo analizza il \'rimbalzo istituzionale\' delle responsabilità e propone la deducibilità fiscale integrale dei premi',
+    canonicalPath: '/articoli-svizzera/premi-lamal-politica-responsabilita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aumenti premi LAMal: la politica rimbalza responsabilità",
+      "description": "Gli aumenti dei premi LAMal in Svizzera continuano, con la politica che rimbalza le responsabilità. Si propone la deducibilità fiscale integrale per alleggerire",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-lamal-politica-responsabilita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano che simboleggia l'economia e le sfide finanziarie svizzere, in particolare i costi sanitari."
+      },
+      "datePublished": "2026-09-15T01:18:20+00:00",
+      "dateModified": "2026-09-15T01:18:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-lamal-politica-responsabilita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

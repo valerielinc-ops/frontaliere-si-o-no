@@ -6429,6 +6429,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ssr-risparmi-270-milioni-2029.title': 'SRG: 270 Millionen bis 2029 einzusparen',
     'blog.article.ssr-risparmi-270-milioni-2029.excerpt': 'Die SRG startet das Projekt Enavant, um bis 2029 270 Millionen Franken und bis 2027 80 Millionen Franken einzusparen. Reduzierung der Führungskräfte um 20% und Stopp der Champions League.',
     'blog.article.ssr-risparmi-270-milioni-2029.imageAlt': 'Schweizer Parlamentsgebäude in Bern, Sitz der Bundesentscheidungen.',
+    'blog.article.premi-lamal-politica-responsabilita.title': 'KVG-Prämienerhöhungen: Politik prallt Verantwortung ab',
+    'blog.article.premi-lamal-politica-responsabilita.excerpt': 'Die jährlichen Erhöhungen der KVG-Prämien erfolgen pünktlich, wobei die Politik die Verantwortlichkeiten zwischen Bund und Kantonen aufhebt. Die Kosten beeinflussen die Lebensqualität der Schweizer Familien.',
+    'blog.article.premi-lamal-politica-responsabilita.imageAlt': 'Panoramablick auf Lugano, der die Schweizer Wirtschaft und finanzielle Herausforderungen, insbesondere die Gesundheitskosten, symbolisiert.',
 };
 
 export default blogMetaChDe;
