@@ -1,83 +1,5 @@
 [
   {
-    "timestamp": "2026-08-26T08:19:13.065Z",
-    "label": "after",
-    "total": 30917,
-    "needsRetranslation": 15018,
-    "suppressed": 49,
-    "incomplete": 16194,
-    "complete": 14723,
-    "slotsPresent": 14723,
-    "flaggedAmongSlotsPresent": 0,
-    "verifiedTranslated": 14723,
-    "sourceCopyExcused": 709,
-    "languageVerified": null,
-    "missingByLocale": {
-      "it": 4209,
-      "en": 3898,
-      "de": 3704,
-      "fr": 4049
-    },
-    "queueAge": {
-      "count": 15018,
-      "withTimestamp": 15018,
-      "oldestAgeDays": 134.9,
-      "p50AgeDays": 15.9,
-      "p90AgeDays": 57.4,
-      "buckets": {
-        "0-7d": 5511,
-        "7-30d": 5611,
-        "30-90d": 3354,
-        "90-180d": 542,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "topPending": [
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 3068
-      },
-      {
-        "company": "Marché Restaurants Schweiz AG",
-        "pending": 1964
-      },
-      {
-        "company": "Roche",
-        "pending": 710
-      },
-      {
-        "company": "Société coopérative Migros Vaud",
-        "pending": 427
-      },
-      {
-        "company": "VOLG",
-        "pending": 311
-      },
-      {
-        "company": "Zurich Insurance (sede Ticino)",
-        "pending": 294
-      },
-      {
-        "company": "Confederazione Svizzera",
-        "pending": 271
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 266
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 240
-      },
-      {
-        "company": "BKW",
-        "pending": 230
-      }
-    ]
-  },
-  {
     "timestamp": "2026-08-26T16:28:54.024Z",
     "label": "before",
     "total": 30909,
@@ -17421,6 +17343,107 @@
       {
         "company": "Coop Genossenschaft",
         "pending": 440
+      },
+      {
+        "company": "Sulzer",
+        "pending": 162
+      },
+      {
+        "company": "PEMSA",
+        "pending": 129
+      },
+      {
+        "company": "Swiss Re",
+        "pending": 128
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 104
+      },
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 87
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 72
+      },
+      {
+        "company": "JUMBO",
+        "pending": 65
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-15T05:24:34.955Z",
+    "label": "after",
+    "total": 32334,
+    "needsRetranslation": 4774,
+    "suppressed": 172,
+    "incomplete": 5230,
+    "complete": 27104,
+    "slotsPresent": 27104,
+    "flaggedAmongSlotsPresent": 23,
+    "verifiedTranslated": 27081,
+    "sourceCopyExcused": 439,
+    "slotsPresentByLength": 32215,
+    "languageVerified": 27954,
+    "missingByLocale": {
+      "it": 70,
+      "en": 59,
+      "de": 66,
+      "fr": 76
+    },
+    "queueAge": {
+      "count": 4774,
+      "withTimestamp": 4774,
+      "oldestAgeDays": 154.8,
+      "p50AgeDays": 14.5,
+      "p90AgeDays": 74.7,
+      "buckets": {
+        "0-1d": 4,
+        "1-2d": 16,
+        "2-7d": 1588,
+        "0-7d": 1608,
+        "7-30d": 1510,
+        "30-90d": 1290,
+        "90-180d": 366,
+        "180d+": 0
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": {
+      "count": 41,
+      "withTimestamp": 41,
+      "oldestAgeDays": 127.3,
+      "p50AgeDays": 45.2,
+      "p90AgeDays": 90.6,
+      "buckets": {
+        "0-1d": 0,
+        "1-2d": 0,
+        "2-7d": 0,
+        "0-7d": 0,
+        "7-30d": 15,
+        "30-90d": 21,
+        "90-180d": 5,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "STA Personal AG",
+        "pending": 1183
+      },
+      {
+        "company": "Roche",
+        "pending": 450
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 429
       },
       {
         "company": "Sulzer",
