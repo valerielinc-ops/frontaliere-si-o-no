@@ -255,10 +255,11 @@ jobs:
 
           body="$RUNNER_TEMP/loop-fleet-ledger-pr-body.md"
           cat > "$body" <<EOF
-          Auto-generated from immutable run [${SOURCE_RUN_ID}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}) for ${SOURCE_LOOP}.
+          Auto-generated ledger PR. Latest immutable batch: [${SOURCE_RUN_ID}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}) for ${SOURCE_LOOP}.
+          This PR can accumulate multiple validated batches while it is open; earlier batches remain preserved in the durable ledger diff.
 
           ## Implementato
-          - Appended the validated observation, decision, health and lifecycle records for ${SOURCE_LOOP} to the durable JSONL ledger; duplicate record IDs are idempotent and conflicting duplicates fail closed.
+          - Appended the validated observation, decision, health and lifecycle records for the latest ${SOURCE_LOOP} batch to the durable JSONL ledger; duplicate record IDs are idempotent and conflicting duplicates fail closed.
           - Preserved the independent-outcome status, registry autonomy ceiling, source references and lifecycle evidence from the source artifact.
 
           ## Non implementato (ancora)
@@ -284,7 +285,7 @@ jobs:
               --repo "$GITHUB_REPOSITORY" \
               --base main \
               --head "$branch" \
-              --title "chore(loop-fleet): persist ${SOURCE_LOOP} durable evidence" \
+              --title "chore(loop-fleet): persist durable evidence batches" \
               --body-file "$body"
           fi
 

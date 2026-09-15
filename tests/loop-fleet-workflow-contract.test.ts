@@ -137,6 +137,14 @@ describe('loop fleet workflow contract', () => {
     expect(source).toContain('GitHub PR API did not accept the ledger PR update after 3 attempts');
   });
 
+  it('descrive le PR ledger cumulative senza attribuirle a un solo loop', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8');
+    expect(source).toContain('Latest immutable batch:');
+    expect(source).toContain('This PR can accumulate multiple validated batches while it is open');
+    expect(source).toContain('for the latest ${SOURCE_LOOP} batch');
+    expect(source).toContain('--title "chore(loop-fleet): persist durable evidence batches"');
+  });
+
   it('keeps the automatic ledger recovery probe bounded and unable to write repository content', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger-reconcile.yml'), 'utf8');
     expect(source).toContain("cron: '*/20 * * * *'");
