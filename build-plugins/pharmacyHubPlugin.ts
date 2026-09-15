@@ -16,7 +16,7 @@
  * `active` after the #6398 network verification, the honest addition was
  * "the source is confirmed scrapeable", not a fabricated duty listing.
  *
- * The visible promise to the reader is therefore: link to the OFFICIAL
+ * The visible promise to the reader is therefore: link to the registered
  * source they can check right now, and be plain about which cantons that
  * link exists for yet.
  *
@@ -88,17 +88,17 @@ const H1: Record<PageLocale, string> = {
 };
 
 const DESCRIPTION: Record<PageLocale, string> = {
-  it: 'Lo stato della copertura, cantone per cantone, delle fonti ufficiali sulle farmacie di turno in Svizzera: quali sono verificate e dove trovare l’informazione oggi stesso.',
-  en: 'Canton-by-canton coverage status of the official sources for on-duty pharmacies in Switzerland: which are verified, and where to find the information today.',
-  de: 'Der kantonale Abdeckungsstatus der offiziellen Quellen für Notfall-Apotheken in der Schweiz: welche verifiziert sind und wo Sie die Information schon heute finden.',
-  fr: 'L’état de la couverture, canton par canton, des sources officielles sur les pharmacies de garde en Suisse : lesquelles sont vérifiées et où trouver l’information dès aujourd’hui.',
+  it: 'Lo stato della copertura, cantone per cantone, delle fonti di riferimento sulle farmacie di turno in Svizzera: quali sono verificate e dove trovare l’informazione oggi stesso.',
+  en: 'Canton-by-canton coverage status of the reference sources for on-duty pharmacies in Switzerland: which are verified, and where to find the information today.',
+  de: 'Der kantonale Abdeckungsstatus der Referenzquellen für Notfall-Apotheken in der Schweiz: welche verifiziert sind und wo Sie die Information schon heute finden.',
+  fr: 'L’état de la couverture, canton par canton, des sources de référence sur les pharmacies de garde en Suisse : lesquelles sont vérifiées et où trouver l’information dès aujourd’hui.',
 };
 
 const LEDE: Record<PageLocale, string> = {
-  it: 'Questa pagina non pubblica turni: mostra tutti i 26 cantoni svizzeri, indica dove una fonte ufficiale è stata verificata e collega il corridoio italiano già coperto dall’anagrafica, senza trasformare l’assenza di dati in un turno.',
-  en: 'This page does not publish duty schedules: it shows all 26 Swiss cantons, identifies where an official source has been verified and links the Italian border corridor already covered by the directory, without turning missing data into a duty schedule.',
-  de: 'Diese Seite veröffentlicht keine Dienstpläne: Sie zeigt alle 26 Schweizer Kantone, weist verifizierte offizielle Quellen aus und verlinkt den bereits vom Verzeichnis erfassten italienischen Grenzkorridor, ohne fehlende Daten in einen Dienstplan umzuwandeln.',
-  fr: 'Cette page ne publie pas de plannings de garde : elle présente les 26 cantons suisses, indique les sources officielles vérifiées et relie le corridor italien déjà couvert par le répertoire, sans transformer l’absence de données en garde.',
+  it: 'Questa pagina non pubblica turni: mostra tutti i 26 cantoni svizzeri, indica dove una fonte di riferimento è stata verificata e collega il corridoio italiano già coperto dall’anagrafica, senza trasformare l’assenza di dati in un turno.',
+  en: 'This page does not publish duty schedules: it shows all 26 Swiss cantons, identifies where a reference source has been verified and links the Italian border corridor already covered by the directory, without turning missing data into a duty schedule.',
+  de: 'Diese Seite veröffentlicht keine Dienstpläne: Sie zeigt alle 26 Schweizer Kantone, weist verifizierte Referenzquellen aus und verlinkt den bereits vom Verzeichnis erfassten italienischen Grenzkorridor, ohne fehlende Daten in einen Dienstplan umzuwandeln.',
+  fr: 'Cette page ne publie pas de plannings de garde : elle présente les 26 cantons suisses, indique les sources de référence vérifiées et relie le corridor italien déjà couvert par le répertoire, sans transformer l’absence de données en garde.',
 };
 
 const STATUS_LABEL: Record<PharmacySourceStatus, Record<PageLocale, string>> = {
@@ -166,10 +166,10 @@ function coverageIntro(count: number, total: number, locale: PageLocale): string
     }[locale];
   }
   return {
-    it: `${count} su ${total} cantoni ha una fonte ufficiale verificata come leggibile in modo automatico. Gli altri mostrano che la fonte non è ancora collegata, senza un link dedotto.`,
-    en: `${count} of ${total} cantons has an official source verified as machine-readable. The others show that no source is connected yet, without an inferred link.`,
-    de: `${count} von ${total} Kantonen verfügt über eine offizielle Quelle, die als maschinenlesbar verifiziert wurde. Bei den übrigen wird die noch fehlende Anbindung ohne abgeleiteten Link angezeigt.`,
-    fr: `${count} canton(s) sur ${total} dispose(nt) d’une source officielle vérifiée comme lisible automatiquement. Pour les autres, l’absence de source reliée est indiquée sans lien déduit.`,
+    it: `${count} su ${total} cantoni ha una fonte verificata come leggibile in modo automatico. Gli altri mostrano che la fonte non è ancora collegata, senza un link dedotto.`,
+    en: `${count} of ${total} cantons has a source verified as machine-readable. The others show that no source is connected yet, without an inferred link.`,
+    de: `${count} von ${total} Kantonen verfügt über eine Quelle, die als maschinenlesbar verifiziert wurde. Bei den übrigen wird die noch fehlende Anbindung ohne abgeleiteten Link angezeigt.`,
+    fr: `${count} canton(s) sur ${total} dispose(nt) d’une source vérifiée comme lisible automatiquement. Pour les autres, l’absence de source reliée est indiquée sans lien déduit.`,
   }[locale];
 }
 
@@ -199,6 +199,20 @@ const SOURCE_LINK_LABEL: Record<PageLocale, string> = {
   en: 'Official source',
   de: 'Offizielle Quelle',
   fr: 'Source officielle',
+};
+
+const ASSOCIATION_SOURCE_LINK_LABEL: Record<PageLocale, string> = {
+  it: 'Fonte associativa',
+  en: 'Association source',
+  de: 'Verbandsquelle',
+  fr: 'Source associative',
+};
+
+const SOURCE_NOTE: Record<PageLocale, string> = {
+  it: 'Il link identifica la fonte di riferimento; non è un calendario live e non attiva da solo un connettore di turni.',
+  en: 'This link identifies the reference source; it is not a live duty calendar and does not by itself activate a duty connector.',
+  de: 'Dieser Link bezeichnet die Referenzquelle; er ist kein Live-Dienstplan und aktiviert allein keinen Dienstplan-Connector.',
+  fr: 'Ce lien identifie la source de référence ; il ne s’agit pas d’un planning de garde en direct et n’active pas à lui seul un connecteur.',
 };
 
 const BORDER_HEADING: Record<PageLocale, string> = {
@@ -269,13 +283,16 @@ function renderCantonCard(card: PharmacyHubCantonCard, locale: PageLocale): stri
   const fetched = source?.sourceFetchedAt
     ? `<p style="${BODY_STYLE}"><strong>${esc(VERIFIED_ON_LABEL[locale])}:</strong> ${esc(formatDate(source.sourceFetchedAt, locale))}</p>`
     : '';
-  const notes = source?.notes
-    ? `<p style="${BODY_STYLE}">${esc(source.notes)}</p>`
-    : source
-      ? ''
-      : `<p style="${BODY_STYLE}">${esc(NO_SOURCE_NOTE[locale])}</p>`;
+  // Discovery notes remain in the registry/docs; the card uses localized
+  // copy so Italian audit notes do not leak into EN/DE/FR pages.
+  const notes = source
+    ? `<p style="${BODY_STYLE}">${esc(SOURCE_NOTE[locale])}</p>`
+    : `<p style="${BODY_STYLE}">${esc(NO_SOURCE_NOTE[locale])}</p>`;
+  const sourceLinkLabel = source?.sourceType === 'association'
+    ? ASSOCIATION_SOURCE_LINK_LABEL[locale]
+    : SOURCE_LINK_LABEL[locale];
   const sourceLink = source
-    ? `<p style="${BODY_STYLE}"><a href="${esc(source.officialSourceUrl)}" rel="nofollow noopener">${esc(SOURCE_LINK_LABEL[locale])} →</a></p>`
+    ? `<p style="${BODY_STYLE}"><a href="${esc(source.officialSourceUrl)}" rel="nofollow noopener">${esc(sourceLinkLabel)} →</a></p>`
     : '';
   return `
       <article class="${CARD_CLASS}">

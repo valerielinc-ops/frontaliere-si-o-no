@@ -5,14 +5,31 @@ import {
   validatePharmacySourcesRegistry,
   validatePharmacySourceEntry,
 } from '../services/pharmacies/types';
+import { SWISS_CANTONS } from '../services/pharmacies/swissCantons';
+
+const ASSOCIATION_CANTON_KEYS = new Set([
+  'aargau',
+  'bern',
+  'fribourg',
+  'geneva',
+  'graubunden',
+  'jura',
+  'lucerne',
+  'neuchatel',
+  'solothurn',
+  'thurgau',
+  'vaud',
+  'valais',
+  'zurich',
+]);
 
 /**
  * Schema guard for `data/pharmacy-sources-registry.json` (#6397, prereq for
- * the #6173 pharmacy/pharmacy-duty MVP). Fase 1 populates Ticino as
- * source config; every entry must carry the full source-config shape so a
- * future connector has a common contract to read. Ticino moved from
- * `unverified` to `active` after the #6398 network verification of
- * `ofct.ch` (see `docs/data-sources/farmacie-turno-ticino.md`).
+ * the #6173 pharmacy/pharmacy-duty MVP). The registry maps the complete
+ * `SWISS_CANTONS` geography to source configuration; every entry must carry
+ * the full source-config shape so a future connector has a common contract
+ * to read. Ticino is the only active source after the #6398 network
+ * verification of `ofct.ch` (see `docs/data-sources/farmacie-turno-ticino.md`).
  */
 describe('pharmacy sources registry schema', () => {
   it('passes full-registry validation with zero errors', () => {
@@ -20,14 +37,41 @@ describe('pharmacy sources registry schema', () => {
     expect(errors).toEqual([]);
   });
 
-  it('covers exactly the Fase 1 canton: Ticino', () => {
-    const cantons = Object.values(registry.sources).map((s) => s.canton).sort();
-    expect(cantons).toEqual(['Ticino']);
+  it('covers exactly all 26 canton keys and codes from SWISS_CANTONS', () => {
+    const registryKeys = Object.keys(registry.sources).sort();
+    const cantonKeys = SWISS_CANTONS.map((canton) => canton.key).sort();
+
+    expect(SWISS_CANTONS).toHaveLength(26);
+    expect(new Set(SWISS_CANTONS.map((canton) => canton.code)).size).toBe(26);
+    expect(registryKeys).toEqual(cantonKeys);
+
+    for (const canton of SWISS_CANTONS) {
+      const source = registry.sources[canton.key];
+      expect(source.canton).toBe(canton.names.it);
+      expect(source.officialSourceUrl).toMatch(/^https:\/\//);
+      expect(source.lastVerifiedAt).toMatch(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.000Z$/);
+    }
   });
 
   it('ticino is "active" with html-scrape access, verified against ofct.ch (#6398)', () => {
     expect(registry.sources.ticino.status).toBe('active');
     expect(registry.sources.ticino.accessMethod).toBe('html-scrape');
+  });
+
+  it('keeps non-Ticino sources unverified until a connector or dataset exists', () => {
+    for (const canton of SWISS_CANTONS.filter((candidate) => candidate.code !== 'TI')) {
+      const source = registry.sources[canton.key];
+      expect(source.status).not.toBe('active');
+      expect(source.sourceFetchedAt).toBeUndefined();
+    }
+  });
+
+  it('marks associative and institutional discovery sources explicitly', () => {
+    for (const canton of SWISS_CANTONS.filter((candidate) => candidate.code !== 'TI')) {
+      const source = registry.sources[canton.key];
+      expect(source.status).toBe('unverified');
+      expect(source.sourceType).toBe(ASSOCIATION_CANTON_KEYS.has(canton.key) ? 'association' : 'official');
+    }
   });
 
   it('rejects an entry missing a required field', () => {
