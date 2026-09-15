@@ -53,7 +53,7 @@ import {
   type FuelDailyLocale,
   type FuelType,
 } from '../../build-plugins/fuelDailyData';
-import { MAX_HTML_BYTES } from '../../scripts/audit-page-weight.mjs';
+import { createAuditor, MAX_HTML_BYTES } from '../../scripts/audit-page-weight.mjs';
 
 // ── Synthetic leaves ──────────────────────────────────────────────
 
@@ -309,6 +309,19 @@ describe('fuel-station index pagination — Italian station pages stay within th
       const bytes = Buffer.byteLength(pages[path]!, 'utf8');
       expect(bytes, `${path} is over the page-weight budget`).toBeLessThanOrEqual(MAX_HTML_BYTES);
     }
+  });
+
+  it('passes every generated page through the production page-weight auditor', () => {
+    const audit = createAuditor();
+    for (const pagePath of pagePaths) {
+      audit.collect(`${process.cwd()}/dist${pagePath}index.html`, pages[pagePath]!);
+    }
+
+    const result = audit.report();
+    expect(result.extra.scanned).toBe(pagePaths.length);
+    expect(result.threshold).toEqual({ metric: 'bytes', value: MAX_HTML_BYTES, comparator: '<=' });
+    expect(result.passed, result.humanSummary).toBe(true);
+    expect(result.offenders).toEqual([]);
   });
 
   it('links every Italian station leaf exactly once across the page ladder', () => {
