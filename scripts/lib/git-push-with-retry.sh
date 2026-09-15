@@ -30,8 +30,12 @@
 #     --stash-dirty instead when a LATER step in the same job still needs
 #     files a mid-job checkpoint commit didn't stage (e.g. crawl-events.yml's
 #     persist-caches step runs before the tio-agenda per-source slice gets
-#     committed) — this stashes the leftover state before rebasing and pops
-#     it back right after, instead of discarding it.
+#     committed) — this stashes the leftover state before rebasing and restores
+#     it right after, instead of discarding it. If the rebase changed one of
+#     those same generated paths, restoration keeps the stashed working-tree
+#     version: preserving the caller's dirty state is the contract of this
+#     opt-in mode, and failing the whole writer on a recoverable stash conflict
+#     loses the already-created commit.
 #   - On rebase conflict, in priority order:
 #       1. If --in-place-resolver-cmd is provided: run it INSIDE the rebase
 #          (no abort). The command is expected to resolve all conflicts and
@@ -158,6 +162,46 @@ run_regenerate_with_retry() {
   done
 }
 
+# Restore the WIP saved by --stash-dirty. A build can update the same tracked
+# generated file on origin/main while this commit is being rebased; plain
+# `git stash pop` then leaves an unmerged path and returns 1 even though the
+# caller explicitly asked us to preserve the WIP. In this mode the stashed
+# version is authoritative for conflicted paths: the later job steps need the
+# files produced by this run, while those files remain outside the history
+# commit being pushed. Keep the stash if the conflict is not a normal path
+# conflict (for example, an untracked file would be overwritten), because
+# there is no safe generic resolution for that case.
+restore_stashed_wip() {
+  if git stash pop; then
+    return 0
+  fi
+
+  local conflicted
+  conflicted="$(git diff --name-only --diff-filter=U || true)"
+  if [ -z "$conflicted" ]; then
+    echo "::error::Failed to restore stashed working tree; no resolvable unmerged paths were reported, stash left in stack"
+    return 1
+  fi
+
+  echo "::warning::Stash restoration conflicted on generated paths; keeping the stashed version for: $(printf '%s' "$conflicted" | tr '\n' ' ')"
+  while IFS= read -r path; do
+    [ -n "$path" ] || continue
+    git checkout --theirs -- "$path"
+    git add -- "$path"
+    # `git stash pop` normally restores WIP as an unstaged change. The add
+    # above is required to clear the unmerged index entry; reset the path back
+    # to HEAD so generated output keeps that same later-step contract.
+    git reset --quiet HEAD -- "$path"
+  done <<< "$conflicted"
+
+  if [ -n "$(git diff --name-only --diff-filter=U || true)" ]; then
+    echo "::error::Failed to resolve every stashed working-tree conflict; stash left in stack"
+    return 1
+  fi
+  git stash drop
+  echo "Stashed working tree restored after resolving generated-file conflicts"
+}
+
 # --no-verify: skip the .githooks/pre-push sibling-patterns gate. Every caller
 # of this helper is a data-refresh workflow pushing generated content to main —
 # not a pre-PR dev push, which is what the gate exists for (issue #3809).
@@ -241,10 +285,7 @@ until git push --no-verify origin "HEAD:${BRANCH}"; do
     fi
   elif [ "$stashed" = "1" ]; then
     # Rebase succeeded cleanly — restore the leftover state for later steps.
-    if ! git stash pop; then
-      echo "::error::Rebase succeeded but restoring stashed changes failed (conflict with rebased tree); stash left in stack for manual recovery"
-      exit 1
-    fi
+    restore_stashed_wip || exit 1
   fi
   attempt=$((attempt + 1))
   # Cap the linear-backoff base at 12s (not the total sleep) so late attempts
