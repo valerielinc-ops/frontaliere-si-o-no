@@ -47,6 +47,12 @@ on:
       - 'public/data/border-wait-current.json'
       - 'data/border-wait-history/**'
       - 'data/build-history/**'
+      # The SEO health loop persists evidence/state with an App-token push,
+      # but those files are not part of the dist.  Keep recovery state from
+      # consuming a full Pages build slot; a compat-shard change still stays
+      # deploy-bound through its own path.
+      - 'data/seo-health-state.json'
+      - 'data/seo-health/**'
       - 'data/border-wait-averages.json'
       - 'data/weather-snapshot.json'
       - '*.md'

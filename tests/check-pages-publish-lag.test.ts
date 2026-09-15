@@ -42,8 +42,24 @@ describe('parsePathsIgnore', () => {
     const deployYmlPath = path.resolve(__dirname, '../.github/workflows/deploy.yml');
     const globs = parsePathsIgnore(fs.readFileSync(deployYmlPath, 'utf8'));
     expect(globs).toEqual(
-      expect.arrayContaining(['data/weather-snapshot.json', 'docs/**', '.github/**', 'tests/**', '.claude/**']),
+      expect.arrayContaining([
+        'data/weather-snapshot.json',
+        'data/seo-health-state.json',
+        'data/seo-health/**',
+        'docs/**',
+        '.github/**',
+        'tests/**',
+        '.claude/**',
+      ]),
     );
+  });
+
+  it('keeps health evidence writes out of the dist deploy trigger', () => {
+    const deployYmlPath = path.resolve(__dirname, '../.github/workflows/deploy.yml');
+    const globs = parsePathsIgnore(fs.readFileSync(deployYmlPath, 'utf8'));
+    expect(isIgnoredPath('data/seo-health-state.json', globs)).toBe(true);
+    expect(isIgnoredPath('data/seo-health/history.jsonl', globs)).toBe(true);
+    expect(isIgnoredPath('data/seo-404-compat/it.json', globs)).toBe(false);
   });
 });
 
