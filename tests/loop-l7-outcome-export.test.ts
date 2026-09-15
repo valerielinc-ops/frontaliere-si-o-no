@@ -70,7 +70,12 @@ describe('read-only L7 experiment outcome exporter', () => {
       contaminatedAssignments: 0,
       variants: { control: 120, benefit: 120 },
     });
-    expect(query).toContain('GROUP BY $session_id');
+    expect(query).toContain('GROUP BY properties.$session_id');
+    expect(query).toContain('properties.$session_id IS NOT NULL');
+    expect(query).toContain('properties.$session_id != \'\'');
+    expect(query).toContain('mismatchedOutcomeEvents');
+    expect(query).toContain("properties.variant = 'control'");
+    expect(query).toContain("properties.variant = 'benefit'");
     expect(query).toContain("event = 'affiliate_experiment_exposure'");
     expect(query).toContain("event = 'affiliate_click'");
     expect(query).toContain("properties.campaign = 'g4-contextual'");
@@ -170,7 +175,7 @@ describe('read-only L7 experiment outcome exporter', () => {
       experimentId: 'g4-affiliate-contextual',
       exposureEvent: 'affiliate_experiment_exposure',
       outcomeEvent: 'affiliate_click',
-      sessionJoin: '$session_id',
+      sessionJoin: 'properties.$session_id',
       contexts: ['exchange', 'banks'],
       variants: ['control', 'benefit'],
     });

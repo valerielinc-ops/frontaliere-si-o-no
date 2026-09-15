@@ -6,7 +6,7 @@
  * The current bounded experiment is G4 affiliate contextual recommendations.
  * Assignment is stable for an experiment session in sessionStorage and the
  * exposure/click evidence is persisted by PostHog. This exporter joins only
- * categorical events on `$session_id`; it never reads email, URL, identity,
+ * categorical events on `properties.$session_id`; it never reads email, URL, identity,
  * partner revenue, or any user-level payload and never mutates traffic, price,
  * inventory, or Remote Config.
  */
@@ -27,7 +27,7 @@ export const L7_EXPERIMENT_EVENT_CONTRACT = Object.freeze({
   surface: 'web',
   contexts: Object.freeze(['exchange', 'banks']),
   variants: Object.freeze(['control', 'benefit']),
-  sessionJoin: '$session_id',
+  sessionJoin: 'properties.$session_id',
   exposureVariantProperty: 'variant',
   outcomeVariantProperty: 'variant',
 });
@@ -286,7 +286,7 @@ export function buildUnavailableL7ExperimentOutcome({ policy = {}, now = new Dat
   };
 }
 
-/** Query only categorical G4 experiment events and aggregate by session. */
+/** Query only categorical G4 experiment events and aggregate by non-empty session. */
 export async function fetchL7ExperimentCounts({
   posthogRunner = runHogQL,
   config,
@@ -300,27 +300,50 @@ export async function fetchL7ExperimentCounts({
     SELECT count() AS eligibleCohort,
       countIf(assignmentEvents > 0) AS assignments,
       countIf(assignmentEvents > 0) AS exposures,
-      countIf(outcomeEvents > 0) AS primaryOutcomes,
-      countIf(controlAssignments > 0) AS controlSessions,
-      countIf(benefitAssignments > 0) AS benefitSessions,
-      countIf(controlAssignments > 0 AND benefitAssignments > 0) AS contaminatedAssignments,
-      countIf(controlAssignments > 0 AND benefitAssignments > 0) AS guardrailBreaches,
-      countIf((controlAssignments > 0) != (benefitAssignments > 0)) AS persistentAssignments
+      countIf((assignedVariant IN ('control', 'benefit')) AND mismatchedOutcomeEvents = 0 AND matchingOutcomeEvents > 0) AS primaryOutcomes,
+      countIf(assignedVariant = 'control' AND mismatchedOutcomeEvents = 0) AS controlSessions,
+      countIf(assignedVariant = 'benefit' AND mismatchedOutcomeEvents = 0) AS benefitSessions,
+      countIf(assignedVariant = 'contaminated' OR mismatchedOutcomeEvents > 0) AS contaminatedAssignments,
+      countIf(assignedVariant = 'contaminated' OR mismatchedOutcomeEvents > 0) AS guardrailBreaches,
+      countIf(assignedVariant IN ('control', 'benefit') AND mismatchedOutcomeEvents = 0) AS persistentAssignments
     FROM (
-      SELECT ${eventContract.sessionJoin},
-        countIf(event = '${eventContract.exposureEvent}') AS assignmentEvents,
-        countIf(event = '${eventContract.exposureEvent}' AND properties.${eventContract.exposureVariantProperty} = 'control') AS controlAssignments,
-        countIf(event = '${eventContract.exposureEvent}' AND properties.${eventContract.exposureVariantProperty} = 'benefit') AS benefitAssignments,
-        countIf(event = '${eventContract.outcomeEvent}') AS outcomeEvents
-      FROM events
-      WHERE timestamp >= '${start}' AND timestamp < '${end}'
-        AND event IN ('${eventContract.exposureEvent}', '${eventContract.outcomeEvent}')
-        AND properties.surface = '${eventContract.surface}'
-        AND properties.campaign = '${eventContract.campaign}'
-        AND properties.context IN (${contexts})
-        AND properties.variant IN (${variants})
-      GROUP BY ${eventContract.sessionJoin}
-      HAVING assignmentEvents > 0
+      SELECT *,
+        if(assignedVariant = 'control', controlOutcomeEvents,
+          if(assignedVariant = 'benefit', benefitOutcomeEvents, 0)) AS matchingOutcomeEvents,
+        if(assignedVariant = 'control', benefitOutcomeEvents + unknownOutcomeEvents,
+          if(assignedVariant = 'benefit', controlOutcomeEvents + unknownOutcomeEvents, 0)) AS mismatchedOutcomeEvents
+      FROM (
+        SELECT *,
+          multiIf(
+            controlAssignments > 0 AND benefitAssignments = 0, 'control',
+            benefitAssignments > 0 AND controlAssignments = 0, 'benefit',
+            'contaminated'
+          ) AS assignedVariant
+        FROM (
+          SELECT ${eventContract.sessionJoin},
+            countIf(event = '${eventContract.exposureEvent}') AS assignmentEvents,
+            countIf(event = '${eventContract.exposureEvent}' AND properties.${eventContract.exposureVariantProperty} = 'control') AS controlAssignments,
+            countIf(event = '${eventContract.exposureEvent}' AND properties.${eventContract.exposureVariantProperty} = 'benefit') AS benefitAssignments,
+            countIf(event = '${eventContract.outcomeEvent}') AS outcomeEvents,
+            countIf(event = '${eventContract.outcomeEvent}' AND properties.${eventContract.outcomeVariantProperty} = 'control') AS controlOutcomeEvents,
+            countIf(event = '${eventContract.outcomeEvent}' AND properties.${eventContract.outcomeVariantProperty} = 'benefit') AS benefitOutcomeEvents,
+            countIf(event = '${eventContract.outcomeEvent}' AND (properties.${eventContract.outcomeVariantProperty} IS NULL OR properties.${eventContract.outcomeVariantProperty} NOT IN (${variants}))) AS unknownOutcomeEvents
+          FROM events
+          WHERE timestamp >= '${start}' AND timestamp < '${end}'
+            AND event IN ('${eventContract.exposureEvent}', '${eventContract.outcomeEvent}')
+            AND properties.surface = '${eventContract.surface}'
+            AND properties.campaign = '${eventContract.campaign}'
+            AND properties.context IN (${contexts})
+            AND properties.${eventContract.sessionJoin.replace('properties.', '')} IS NOT NULL
+            AND properties.${eventContract.sessionJoin.replace('properties.', '')} != ''
+            AND (
+              event = '${eventContract.outcomeEvent}'
+              OR properties.${eventContract.exposureVariantProperty} IN (${variants})
+            )
+          GROUP BY ${eventContract.sessionJoin}
+          HAVING assignmentEvents > 0
+        )
+      )
     )`;
   const response = await posthogRunner(query, config);
   const counts = {
