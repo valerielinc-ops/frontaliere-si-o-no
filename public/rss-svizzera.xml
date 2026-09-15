@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Notizie e guide sulla Svizzera: economia, lavoro, fisco e vita quotidiana</description>
     <language>it</language>
-    <lastBuildDate>Tue, 15 Sep 2026 08:04:36 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 15 Sep 2026 09:37:46 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Svizzera</title>
@@ -17,6 +17,89 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Farmacie di turno in Svizzera e confine italiano: fonti per cantone</title>
+      <link>https://frontaliereticino.ch/articoli-svizzera/farmacie-turno-svizzera-confine-italiano/</link>
+      <description><![CDATA[Una guida per verificare la fonte aggiornata nel cantone giusto, senza inventare calendari né trasformare un link in una promessa di apertura. 207 record Ticino e 542 nelle province CO, VA e VB; turni regionali verificati nelle cinque aree ticinesi.]]></description>
+      <content:encoded><![CDATA[## In breve
+- **Ambito**: Ticino e province italiane CO, VA e VB.
+- **Catalogo Ticino**: 207 record dalla lista ufficiale.
+- **Catalogo italiano**: 542 record filtrati sulle tre province di confine.
+- **Turni verificati**: fonti regionali per Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese.
+
+Una guida per verificare la fonte aggiornata nel cantone giusto, senza inventare calendari né trasformare un link in una promessa di apertura.
+## Che cosa è verificato e che cosa no
+Il dato di turno verificato pubblicato dal nostro dataset riguarda cinque regioni ticinesi: Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli e Locarnese. Per il Locarnese la fonte è associativa regionale; per gli altri cantoni proponiamo link ufficiali navigabili quando disponibili, ma non pubblichiamo un roster unificato, una copertura attiva o orari dedotti.
+
+Apri la fonte del cantone o della provincia prima di spostarti, segui le istruzioni che pubblica e chiama la farmacia. Se una fonte non espone un feed o un roster pubblico, la guida lo dice invece di colmare il vuoto con supposizioni.
+
+## Catalogo, orari e turno: tre dati diversi
+- **catalogo**: La presenza nell’elenco indica una voce del catalogo ufficiale, non che la farmacia sia aperta ora.
+- **orari di apertura**: Gli orari compaiono solo quando la pagina o la fonte li pubblica; non vengono dedotti dal catalogo né dal timestamp.
+- **turno verificato**: Un turno verificato è un intervallo regionale pubblicato dall’OFCT o dalla fonte associativa pertinente; non equivale a un’apertura continua. Prima di partire, verifica sempre per telefono.
+## Perimetro, fonti e timestamp
+Questa guida usa snapshot separati: un catalogo anagrafico ticinese, un catalogo italiano filtrato e un dataset di turni regionali (OFCT e fonte associativa del Locarnese). Le fonti non vengono fuse in un unico stato di apertura.
+
+- **Elenco ufficiale delle farmacie del Ticino**: 207 record, recuperati alle 2026-09-14T10:03:57.824Z. [lista ufficiale](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
+- **Dataset ufficiale italiano filtrato sulle province CO, VA e VB**: 542 record, recuperati alle 2026-09-14T10:03:57.824Z. [dataset del Ministero della Salute](https://www.dati.salute.gov.it/it/dataset/farmacie/)
+- **Fonti regionali per i turni del Ticino**: aree Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese, recuperate alle 2026-09-15T09:40:29.571Z. [fonte OFCT](https://www.ofct.ch/farmacieturno/)
+
+**Ultimo recupero degli snapshot**: cataloghi 2026-09-14T10:03:57.824Z; turni 2026-09-15T09:40:29.571Z. Il timestamp indica quando è stato recuperato lo snapshot della fonte; non indica l’orario di apertura e non dimostra che una sede sia aperta in questo momento.
+
+Questa non è una copertura nazionale: il perimetro è limitato al Ticino e alle province italiane CO, VA e VB.
+Il Locarnese è incluso come quinta regione di turno tramite la fonte associativa regionale farmacielocarnese.ch. Il suo intervallo viene pubblicato solo dopo un matching univoco con il catalogo cantonale; la fonte non sostituisce l’anagrafica.
+Per il Locarnese: fonte associativa regionale [farmacielocarnese.ch](https://www.farmacielocarnese.ch/); il parser pubblica l’intervallo solo dopo il matching univoco di Farmacia e Località con il catalogo cantonale e non copia indirizzi dalla fonte.
+Per l’Italia non viene fatto alcun claim di turno: il catalogo italiano è anagrafico e non prova una farmacia aperta o di turno.
+
+## Fonti ufficiali e percorsi utili
+- [hub farmacie](/farmacie/)
+- [elenco Ticino](/farmacie/ticino/)
+- [elenco province italiane](/farmacie/italia/)
+- [farmacie di turno](/farmacie-di-turno/)
+- **fonti regionali per area**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/), [Locarnese](https://www.farmacielocarnese.ch/)
+
+Per un caso concreto, apri il percorso locale, controlla la scheda disponibile e contatta la farmacia: un elenco statico non sostituisce la verifica diretta.
+
+## Svizzera: come verificare la fonte aggiornata per cantone
+Questi sono link ufficiali navigabili o di associazioni cantonali. Aprili al momento della necessità: possono offrire ricerca, piano del giorno, contatto o un avviso, ma questa guida non li trasforma in un calendario unico né promette un orario o una farmacia aperta.
+
+- [ZH — Zürich](https://www.notfall-apotheken-zh.ch/)
+- [BE — Bern](https://apobern.ch/dienstleistungen/notfalldienst/)
+- [LU — Luzern](https://www.apoluzern.ch/apotheken/notfalldienst)
+- [UR — Uri](https://www.ur.ch/dienstleistungen/3677)
+- [SZ — Schwyz](https://www.sz.ch/gesundheit-soziales/gesundheit/notfall.html/)
+- [ZG — Zug](https://www.zg.ch/behoerden/gesundheit/medizinische-versorgung/notfall)
+- [SO — Solothurn](https://avso.ch/notfalldienst-apotheken/)
+- [BS — Basel-Stadt](https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt)
+- [AG — Aargau](https://apotheken-aargau.ch/notfall/)
+- [TG — Thurgau](https://www.apotheken-thurgau.ch/pikettdienst/)
+- [GR — Graubünden](https://notfall.apotheke-chur.ch/)
+- [VS — Valais](https://www.pharmavalais.ch/pharmacie-valais/pharmacie-garde-51.html)
+- [FR — Fribourg](https://www.pharmaciesfribourg.ch/fr/prestations-et-conseils/pharmacie-de-garde)
+- [NE — Neuchâtel](https://www.onp.ch/Service-de-garde)
+- [JU — Jura](https://www.jura.ch/fr/Autorites/Administration/CHA/SIC/Urgences/Numeros-d-urgence-Urgence.html)
+- [VD — Vaud](https://garde.svph.ch)
+- [GE — Genève](https://pharmageneve.swiss/pharmacie-de-garde/)
+
+Per il Ticino pubblichiamo dati di turno verificati per le cinque regioni Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli e Locarnese; per ogni altra area non deduciamo copertura.
+
+Per SZ (Svitto) è disponibile il link navigabile qui sopra, ma in questa guida non lo trattiamo come roster pubblico o feed di turno: non dichiariamo copertura attiva né orari.
+
+OW (Obvaldo), NW (Nidvaldo), GL (Glarona), AR (Appenzello Esterno), AI (Appenzello Interno), BL (Basilea Campagna), SH (Sciaffusa) e SG (San Gallo): in questa guida non è rappresentato un roster pubblico o un feed verificato. Non dichiariamo copertura attiva; contatta la farmacia o l’autorità sanitaria locale. In un’emergenza medica chiama il 144.
+
+## Confine italiano (CO, VA, VB): consulta direttamente le fonti locali. I documenti possono cambiare o scadere; non inferiamo un turno o un orario dalla loro presenza.
+- [ATS Insubria](https://www.ats-insubria.it/farmacie)
+- [Varese (portale turni Federfarma Lombardia)](https://www.turnifarmacie.it/)
+- [Verbano-Cusio-Ossola (documento turni)](https://www.aslvco.it/wp-content/uploads/2026/03/3017434.pdf) — documento annuale, edizione 2026: verifica la versione corrente prima dell’uso
+- [Farmacia Aperta](https://farmacia-aperta.eu/)
+
+Farmacia Aperta è un link-out esterno di orientamento, non una fonte ufficiale né una prova di apertura o turno.]]></content:encoded>
+      <pubDate>Tue, 15 Sep 2026 09:37:46 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/farmacie-turno-svizzera-confine-italiano</guid>
+      <category>Notizie</category>
+      <media:content url="https://frontaliereticino.ch/images/places/lugano-view.webp" medium="image"/>
+    </item>
     <item>
       <title>Formazione adulta aumenta reddito 50%</title>
       <link>https://frontaliereticino.ch/articoli-svizzera/formazione-adulta-reddito-svizzera/</link>
@@ -279,12 +362,12 @@ Mentre il Parlamento prosegue i lavori sui grandi dossier della legislatura, i c
     <item>
       <title>Farmacia aperta o di turno: come leggere l’elenco</title>
       <link>https://frontaliereticino.ch/articoli-svizzera/farmacia-aperta-turno-elenco/</link>
-      <description><![CDATA[La differenza pratica tra trovare una farmacia nel catalogo, leggere un orario pubblicato e verificare un turno OFCT. 207 record Ticino e 542 nelle province CO, VA e VB; turni OFCT solo nelle quattro aree pubblicate.]]></description>
+      <description><![CDATA[La differenza pratica tra trovare una farmacia nel catalogo, leggere un orario pubblicato e verificare un turno OFCT. 207 record Ticino e 542 nelle province CO, VA e VB; turni regionali verificati nelle cinque aree ticinesi.]]></description>
       <content:encoded><![CDATA[## In breve
 - **Ambito**: Ticino e province italiane CO, VA e VB.
 - **Catalogo Ticino**: 207 record dalla lista ufficiale.
 - **Catalogo italiano**: 542 record filtrati sulle tre province di confine.
-- **Turni verificati**: OFCT, solo Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli.
+- **Turni verificati**: fonti regionali per Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese.
 
 La differenza pratica tra trovare una farmacia nel catalogo, leggere un orario pubblicato e verificare un turno OFCT.
 ## Tre domande prima di partire
@@ -295,18 +378,19 @@ Apri il percorso corretto, controlla la data di recupero dello snapshot e la fon
 ## Catalogo, orari e turno: tre dati diversi
 - **catalogo**: La presenza nell’elenco indica una voce del catalogo ufficiale, non che la farmacia sia aperta ora.
 - **orari di apertura**: Gli orari compaiono solo quando la pagina o la fonte li pubblica; non vengono dedotti dal catalogo né dal timestamp.
-- **turno verificato**: Un turno verificato è un intervallo regionale pubblicato dall’OFCT; non equivale a un’apertura continua. Prima di partire, verifica sempre per telefono.
+- **turno verificato**: Un turno verificato è un intervallo regionale pubblicato dall’OFCT o dalla fonte associativa pertinente; non equivale a un’apertura continua. Prima di partire, verifica sempre per telefono.
 ## Perimetro, fonti e timestamp
-Questa guida usa snapshot separati: un catalogo anagrafico ticinese, un catalogo italiano filtrato e un dataset di turni OFCT. Le fonti non vengono fuse in un unico stato di apertura.
+Questa guida usa snapshot separati: un catalogo anagrafico ticinese, un catalogo italiano filtrato e un dataset di turni regionali (OFCT e fonte associativa del Locarnese). Le fonti non vengono fuse in un unico stato di apertura.
 
 - **Elenco ufficiale delle farmacie del Ticino**: 207 record, recuperati alle 2026-09-14T10:03:57.824Z. [lista ufficiale](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
 - **Dataset ufficiale italiano filtrato sulle province CO, VA e VB**: 542 record, recuperati alle 2026-09-14T10:03:57.824Z. [dataset del Ministero della Salute](https://www.dati.salute.gov.it/it/dataset/farmacie/)
-- **Pagine OFCT per i turni regionali**: aree Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, recuperate alle 2026-09-14T18:16:05.788Z. [fonte OFCT](https://www.ofct.ch/farmacieturno/)
+- **Fonti regionali per i turni del Ticino**: aree Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese, recuperate alle 2026-09-15T09:40:29.571Z. [fonte OFCT](https://www.ofct.ch/farmacieturno/)
 
-**Ultimo recupero degli snapshot**: cataloghi 2026-09-14T10:03:57.824Z; turni 2026-09-14T18:16:05.788Z. Il timestamp indica quando è stato recuperato lo snapshot della fonte; non indica l’orario di apertura e non dimostra che una sede sia aperta in questo momento.
+**Ultimo recupero degli snapshot**: cataloghi 2026-09-14T10:03:57.824Z; turni 2026-09-15T09:40:29.571Z. Il timestamp indica quando è stato recuperato lo snapshot della fonte; non indica l’orario di apertura e non dimostra che una sede sia aperta in questo momento.
 
 Questa non è una copertura nazionale: il perimetro è limitato al Ticino e alle province italiane CO, VA e VB.
-Il Locarnese non è ancora incluso nel parser dei turni: non deduciamo né presentiamo un turno OFCT per quell’area. È una limitazione del dato di turno, non una dichiarazione sull’anagrafica cantonale.
+Il Locarnese è incluso come quinta regione di turno tramite la fonte associativa regionale farmacielocarnese.ch. Il suo intervallo viene pubblicato solo dopo un matching univoco con il catalogo cantonale; la fonte non sostituisce l’anagrafica.
+Per il Locarnese: fonte associativa regionale [farmacielocarnese.ch](https://www.farmacielocarnese.ch/); il parser pubblica l’intervallo solo dopo il matching univoco di Farmacia e Località con il catalogo cantonale e non copia indirizzi dalla fonte.
 Per l’Italia non viene fatto alcun claim di turno: il catalogo italiano è anagrafico e non prova una farmacia aperta o di turno.
 
 ## Fonti ufficiali e percorsi utili
@@ -314,7 +398,7 @@ Per l’Italia non viene fatto alcun claim di turno: il catalogo italiano è ana
 - [elenco Ticino](/farmacie/ticino/)
 - [elenco province italiane](/farmacie/italia/)
 - [farmacie di turno](/farmacie-di-turno/)
-- **fonti OFCT per area**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/)
+- **fonti regionali per area**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/), [Locarnese](https://www.farmacielocarnese.ch/)
 
 Per un caso concreto, apri il percorso locale, controlla la scheda disponibile e contatta la farmacia: un elenco statico non sostituisce la verifica diretta.]]></content:encoded>
       <pubDate>Mon, 14 Sep 2026 20:06:51 GMT</pubDate>
@@ -326,12 +410,12 @@ Per un caso concreto, apri il percorso locale, controlla la scheda disponibile e
     <item>
       <title>Farmacie al confine: Como, Varese e Verbano</title>
       <link>https://frontaliereticino.ch/articoli-svizzera/farmacie-confine-italia-como-varese-verbano/</link>
-      <description><![CDATA[Come usare il catalogo delle farmacie italiane di confine insieme all’elenco ticinese, senza trasformare un’anagrafica in una promessa di apertura. 207 record Ticino e 542 nelle province CO, VA e VB; turni OFCT solo nelle quattro aree pubblicate.]]></description>
+      <description><![CDATA[Come usare il catalogo delle farmacie italiane di confine insieme all’elenco ticinese, senza trasformare un’anagrafica in una promessa di apertura. 207 record Ticino e 542 nelle province CO, VA e VB; turni regionali verificati nelle cinque aree ticinesi.]]></description>
       <content:encoded><![CDATA[## In breve
 - **Ambito**: Ticino e province italiane CO, VA e VB.
 - **Catalogo Ticino**: 207 record dalla lista ufficiale.
 - **Catalogo italiano**: 542 record filtrati sulle tre province di confine.
-- **Turni verificati**: OFCT, solo Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli.
+- **Turni verificati**: fonti regionali per Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese.
 
 Come usare il catalogo delle farmacie italiane di confine insieme all’elenco ticinese, senza trasformare un’anagrafica in una promessa di apertura.
 ## Il perimetro italiano del catalogo
@@ -342,18 +426,19 @@ Per confrontare le due sponde, usa i percorsi Ticino e Italia e leggi separatame
 ## Catalogo, orari e turno: tre dati diversi
 - **catalogo**: La presenza nell’elenco indica una voce del catalogo ufficiale, non che la farmacia sia aperta ora.
 - **orari di apertura**: Gli orari compaiono solo quando la pagina o la fonte li pubblica; non vengono dedotti dal catalogo né dal timestamp.
-- **turno verificato**: Un turno verificato è un intervallo regionale pubblicato dall’OFCT; non equivale a un’apertura continua. Prima di partire, verifica sempre per telefono.
+- **turno verificato**: Un turno verificato è un intervallo regionale pubblicato dall’OFCT o dalla fonte associativa pertinente; non equivale a un’apertura continua. Prima di partire, verifica sempre per telefono.
 ## Perimetro, fonti e timestamp
-Questa guida usa snapshot separati: un catalogo anagrafico ticinese, un catalogo italiano filtrato e un dataset di turni OFCT. Le fonti non vengono fuse in un unico stato di apertura.
+Questa guida usa snapshot separati: un catalogo anagrafico ticinese, un catalogo italiano filtrato e un dataset di turni regionali (OFCT e fonte associativa del Locarnese). Le fonti non vengono fuse in un unico stato di apertura.
 
 - **Elenco ufficiale delle farmacie del Ticino**: 207 record, recuperati alle 2026-09-14T10:03:57.824Z. [lista ufficiale](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
 - **Dataset ufficiale italiano filtrato sulle province CO, VA e VB**: 542 record, recuperati alle 2026-09-14T10:03:57.824Z. [dataset del Ministero della Salute](https://www.dati.salute.gov.it/it/dataset/farmacie/)
-- **Pagine OFCT per i turni regionali**: aree Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, recuperate alle 2026-09-14T18:16:05.788Z. [fonte OFCT](https://www.ofct.ch/farmacieturno/)
+- **Fonti regionali per i turni del Ticino**: aree Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese, recuperate alle 2026-09-15T09:40:29.571Z. [fonte OFCT](https://www.ofct.ch/farmacieturno/)
 
-**Ultimo recupero degli snapshot**: cataloghi 2026-09-14T10:03:57.824Z; turni 2026-09-14T18:16:05.788Z. Il timestamp indica quando è stato recuperato lo snapshot della fonte; non indica l’orario di apertura e non dimostra che una sede sia aperta in questo momento.
+**Ultimo recupero degli snapshot**: cataloghi 2026-09-14T10:03:57.824Z; turni 2026-09-15T09:40:29.571Z. Il timestamp indica quando è stato recuperato lo snapshot della fonte; non indica l’orario di apertura e non dimostra che una sede sia aperta in questo momento.
 
 Questa non è una copertura nazionale: il perimetro è limitato al Ticino e alle province italiane CO, VA e VB.
-Il Locarnese non è ancora incluso nel parser dei turni: non deduciamo né presentiamo un turno OFCT per quell’area. È una limitazione del dato di turno, non una dichiarazione sull’anagrafica cantonale.
+Il Locarnese è incluso come quinta regione di turno tramite la fonte associativa regionale farmacielocarnese.ch. Il suo intervallo viene pubblicato solo dopo un matching univoco con il catalogo cantonale; la fonte non sostituisce l’anagrafica.
+Per il Locarnese: fonte associativa regionale [farmacielocarnese.ch](https://www.farmacielocarnese.ch/); il parser pubblica l’intervallo solo dopo il matching univoco di Farmacia e Località con il catalogo cantonale e non copia indirizzi dalla fonte.
 Per l’Italia non viene fatto alcun claim di turno: il catalogo italiano è anagrafico e non prova una farmacia aperta o di turno.
 
 ## Fonti ufficiali e percorsi utili
@@ -361,7 +446,7 @@ Per l’Italia non viene fatto alcun claim di turno: il catalogo italiano è ana
 - [elenco Ticino](/farmacie/ticino/)
 - [elenco province italiane](/farmacie/italia/)
 - [farmacie di turno](/farmacie-di-turno/)
-- **fonti OFCT per area**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/)
+- **fonti regionali per area**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/), [Locarnese](https://www.farmacielocarnese.ch/)
 
 Per un caso concreto, apri il percorso locale, controlla la scheda disponibile e contatta la farmacia: un elenco statico non sostituisce la verifica diretta.]]></content:encoded>
       <pubDate>Mon, 14 Sep 2026 20:06:50 GMT</pubDate>
@@ -373,34 +458,35 @@ Per un caso concreto, apri il percorso locale, controlla la scheda disponibile e
     <item>
       <title>Farmacie di turno in Ticino: guida a fonti e copertura</title>
       <link>https://frontaliereticino.ch/articoli-svizzera/farmacie-turno-ticino-guida/</link>
-      <description><![CDATA[Questa guida spiega dove leggere i turni di farmacia del Ticino e come interpretare correttamente una copertura regionale. 207 record Ticino e 542 nelle province CO, VA e VB; turni OFCT solo nelle quattro aree pubblicate.]]></description>
+      <description><![CDATA[Questa guida spiega dove leggere i turni di farmacia del Ticino e come interpretare correttamente una copertura regionale. 207 record Ticino e 542 nelle province CO, VA e VB; turni regionali verificati nelle cinque aree ticinesi.]]></description>
       <content:encoded><![CDATA[## In breve
 - **Ambito**: Ticino e province italiane CO, VA e VB.
 - **Catalogo Ticino**: 207 record dalla lista ufficiale.
 - **Catalogo italiano**: 542 record filtrati sulle tre province di confine.
-- **Turni verificati**: OFCT, solo Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli.
+- **Turni verificati**: fonti regionali per Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese.
 
 Questa guida spiega dove leggere i turni di farmacia del Ticino e come interpretare correttamente una copertura regionale.
 ## Che cosa significa “di turno” qui
-Il dato di turno arriva dalle pagine ufficiali dell’Ordine dei farmacisti del Cantone Ticino (OFCT). Lo snapshot pubblicato per questa guida copre soltanto Mendrisiotto, Luganese, Bellinzonese e Biasca e Valli. Il Locarnese non è ancora incluso nel parser dei turni: per questa area non viene fatta alcuna deduzione.
+Il dato di turno combina le pagine ufficiali dell’Ordine dei farmacisti del Cantone Ticino (OFCT) e la fonte associativa regionale del Locarnese. Lo snapshot pubblicato per questa guida copre le cinque regioni ticinesi: Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli e Locarnese.
 
 Se cerchi una farmacia aperta adesso, usa la pagina di turno della tua area e verifica l’intervallo indicato. Il catalogo anagrafico e gli orari ordinari sono superfici diverse dal turno verificato.
 
 ## Catalogo, orari e turno: tre dati diversi
 - **catalogo**: La presenza nell’elenco indica una voce del catalogo ufficiale, non che la farmacia sia aperta ora.
 - **orari di apertura**: Gli orari compaiono solo quando la pagina o la fonte li pubblica; non vengono dedotti dal catalogo né dal timestamp.
-- **turno verificato**: Un turno verificato è un intervallo regionale pubblicato dall’OFCT; non equivale a un’apertura continua. Prima di partire, verifica sempre per telefono.
+- **turno verificato**: Un turno verificato è un intervallo regionale pubblicato dall’OFCT o dalla fonte associativa pertinente; non equivale a un’apertura continua. Prima di partire, verifica sempre per telefono.
 ## Perimetro, fonti e timestamp
-Questa guida usa snapshot separati: un catalogo anagrafico ticinese, un catalogo italiano filtrato e un dataset di turni OFCT. Le fonti non vengono fuse in un unico stato di apertura.
+Questa guida usa snapshot separati: un catalogo anagrafico ticinese, un catalogo italiano filtrato e un dataset di turni regionali (OFCT e fonte associativa del Locarnese). Le fonti non vengono fuse in un unico stato di apertura.
 
 - **Elenco ufficiale delle farmacie del Ticino**: 207 record, recuperati alle 2026-09-14T10:03:57.824Z. [lista ufficiale](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
 - **Dataset ufficiale italiano filtrato sulle province CO, VA e VB**: 542 record, recuperati alle 2026-09-14T10:03:57.824Z. [dataset del Ministero della Salute](https://www.dati.salute.gov.it/it/dataset/farmacie/)
-- **Pagine OFCT per i turni regionali**: aree Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, recuperate alle 2026-09-14T18:16:05.788Z. [fonte OFCT](https://www.ofct.ch/farmacieturno/)
+- **Fonti regionali per i turni del Ticino**: aree Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese, recuperate alle 2026-09-15T09:40:29.571Z. [fonte OFCT](https://www.ofct.ch/farmacieturno/)
 
-**Ultimo recupero degli snapshot**: cataloghi 2026-09-14T10:03:57.824Z; turni 2026-09-14T18:16:05.788Z. Il timestamp indica quando è stato recuperato lo snapshot della fonte; non indica l’orario di apertura e non dimostra che una sede sia aperta in questo momento.
+**Ultimo recupero degli snapshot**: cataloghi 2026-09-14T10:03:57.824Z; turni 2026-09-15T09:40:29.571Z. Il timestamp indica quando è stato recuperato lo snapshot della fonte; non indica l’orario di apertura e non dimostra che una sede sia aperta in questo momento.
 
 Questa non è una copertura nazionale: il perimetro è limitato al Ticino e alle province italiane CO, VA e VB.
-Il Locarnese non è ancora incluso nel parser dei turni: non deduciamo né presentiamo un turno OFCT per quell’area. È una limitazione del dato di turno, non una dichiarazione sull’anagrafica cantonale.
+Il Locarnese è incluso come quinta regione di turno tramite la fonte associativa regionale farmacielocarnese.ch. Il suo intervallo viene pubblicato solo dopo un matching univoco con il catalogo cantonale; la fonte non sostituisce l’anagrafica.
+Per il Locarnese: fonte associativa regionale [farmacielocarnese.ch](https://www.farmacielocarnese.ch/); il parser pubblica l’intervallo solo dopo il matching univoco di Farmacia e Località con il catalogo cantonale e non copia indirizzi dalla fonte.
 Per l’Italia non viene fatto alcun claim di turno: il catalogo italiano è anagrafico e non prova una farmacia aperta o di turno.
 
 ## Fonti ufficiali e percorsi utili
@@ -408,7 +494,7 @@ Per l’Italia non viene fatto alcun claim di turno: il catalogo italiano è ana
 - [elenco Ticino](/farmacie/ticino/)
 - [elenco province italiane](/farmacie/italia/)
 - [farmacie di turno](/farmacie-di-turno/)
-- **fonti OFCT per area**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/)
+- **fonti regionali per area**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/), [Locarnese](https://www.farmacielocarnese.ch/)
 
 Per un caso concreto, apri il percorso locale, controlla la scheda disponibile e contatta la farmacia: un elenco statico non sostituisce la verifica diretta.]]></content:encoded>
       <pubDate>Mon, 14 Sep 2026 20:06:49 GMT</pubDate>
@@ -420,34 +506,35 @@ Per un caso concreto, apri il percorso locale, controlla la scheda disponibile e
     <item>
       <title>Farmacie in Ticino: elenco e contatti</title>
       <link>https://frontaliereticino.ch/articoli-svizzera/farmacie-ticino-elenco-contatti/</link>
-      <description><![CDATA[Un punto di partenza per cercare le farmacie presenti nel catalogo ticinese e raggiungere le schede locali disponibili. 207 record Ticino e 542 nelle province CO, VA e VB; turni OFCT solo nelle quattro aree pubblicate.]]></description>
+      <description><![CDATA[Un punto di partenza per cercare le farmacie presenti nel catalogo ticinese e raggiungere le schede locali disponibili. 207 record Ticino e 542 nelle province CO, VA e VB; turni regionali verificati nelle cinque aree ticinesi.]]></description>
       <content:encoded><![CDATA[## In breve
 - **Ambito**: Ticino e province italiane CO, VA e VB.
 - **Catalogo Ticino**: 207 record dalla lista ufficiale.
 - **Catalogo italiano**: 542 record filtrati sulle tre province di confine.
-- **Turni verificati**: OFCT, solo Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli.
+- **Turni verificati**: fonti regionali per Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese.
 
 Un punto di partenza per cercare le farmacie presenti nel catalogo ticinese e raggiungere le schede locali disponibili.
 ## Che cosa contiene l’elenco
 Il catalogo Ticino deriva dalla lista ufficiale del Cantone e, nello snapshot corrente, contiene 207 record. Un record serve per orientarsi tra nomi, indirizzi e contatti pubblicati; non è una conferma di apertura in tempo reale e non sostituisce la telefonata.
 
-Per una ricerca pratica, parti dal percorso Ticino, usa la scheda della farmacia e controlla quali informazioni sono effettivamente pubblicate. Se ti serve un turno, passa alla pagina OFCT: non confondere il catalogo con il servizio di turno.
+Per una ricerca pratica, parti dal percorso Ticino, usa la scheda della farmacia e controlla quali informazioni sono effettivamente pubblicate. Se ti serve un turno, passa alla fonte regionale pertinente: non confondere il catalogo con il servizio di turno.
 
 ## Catalogo, orari e turno: tre dati diversi
 - **catalogo**: La presenza nell’elenco indica una voce del catalogo ufficiale, non che la farmacia sia aperta ora.
 - **orari di apertura**: Gli orari compaiono solo quando la pagina o la fonte li pubblica; non vengono dedotti dal catalogo né dal timestamp.
-- **turno verificato**: Un turno verificato è un intervallo regionale pubblicato dall’OFCT; non equivale a un’apertura continua. Prima di partire, verifica sempre per telefono.
+- **turno verificato**: Un turno verificato è un intervallo regionale pubblicato dall’OFCT o dalla fonte associativa pertinente; non equivale a un’apertura continua. Prima di partire, verifica sempre per telefono.
 ## Perimetro, fonti e timestamp
-Questa guida usa snapshot separati: un catalogo anagrafico ticinese, un catalogo italiano filtrato e un dataset di turni OFCT. Le fonti non vengono fuse in un unico stato di apertura.
+Questa guida usa snapshot separati: un catalogo anagrafico ticinese, un catalogo italiano filtrato e un dataset di turni regionali (OFCT e fonte associativa del Locarnese). Le fonti non vengono fuse in un unico stato di apertura.
 
 - **Elenco ufficiale delle farmacie del Ticino**: 207 record, recuperati alle 2026-09-14T10:03:57.824Z. [lista ufficiale](https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf)
 - **Dataset ufficiale italiano filtrato sulle province CO, VA e VB**: 542 record, recuperati alle 2026-09-14T10:03:57.824Z. [dataset del Ministero della Salute](https://www.dati.salute.gov.it/it/dataset/farmacie/)
-- **Pagine OFCT per i turni regionali**: aree Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, recuperate alle 2026-09-14T18:16:05.788Z. [fonte OFCT](https://www.ofct.ch/farmacieturno/)
+- **Fonti regionali per i turni del Ticino**: aree Mendrisiotto, Luganese, Bellinzonese, Biasca e Valli, Locarnese, recuperate alle 2026-09-15T09:40:29.571Z. [fonte OFCT](https://www.ofct.ch/farmacieturno/)
 
-**Ultimo recupero degli snapshot**: cataloghi 2026-09-14T10:03:57.824Z; turni 2026-09-14T18:16:05.788Z. Il timestamp indica quando è stato recuperato lo snapshot della fonte; non indica l’orario di apertura e non dimostra che una sede sia aperta in questo momento.
+**Ultimo recupero degli snapshot**: cataloghi 2026-09-14T10:03:57.824Z; turni 2026-09-15T09:40:29.571Z. Il timestamp indica quando è stato recuperato lo snapshot della fonte; non indica l’orario di apertura e non dimostra che una sede sia aperta in questo momento.
 
 Questa non è una copertura nazionale: il perimetro è limitato al Ticino e alle province italiane CO, VA e VB.
-Il Locarnese non è ancora incluso nel parser dei turni: non deduciamo né presentiamo un turno OFCT per quell’area. È una limitazione del dato di turno, non una dichiarazione sull’anagrafica cantonale.
+Il Locarnese è incluso come quinta regione di turno tramite la fonte associativa regionale farmacielocarnese.ch. Il suo intervallo viene pubblicato solo dopo un matching univoco con il catalogo cantonale; la fonte non sostituisce l’anagrafica.
+Per il Locarnese: fonte associativa regionale [farmacielocarnese.ch](https://www.farmacielocarnese.ch/); il parser pubblica l’intervallo solo dopo il matching univoco di Farmacia e Località con il catalogo cantonale e non copia indirizzi dalla fonte.
 Per l’Italia non viene fatto alcun claim di turno: il catalogo italiano è anagrafico e non prova una farmacia aperta o di turno.
 
 ## Fonti ufficiali e percorsi utili
@@ -455,7 +542,7 @@ Per l’Italia non viene fatto alcun claim di turno: il catalogo italiano è ana
 - [elenco Ticino](/farmacie/ticino/)
 - [elenco province italiane](/farmacie/italia/)
 - [farmacie di turno](/farmacie-di-turno/)
-- **fonti OFCT per area**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/)
+- **fonti regionali per area**: [Mendrisiotto](https://www.ofct.ch/mendrisiotto/), [Luganese](https://www.ofct.ch/luganese/), [Bellinzonese](https://www.ofct.ch/bellinzonese/), [Biasca e Valli](https://www.ofct.ch/biasca-e-valli/), [Locarnese](https://www.farmacielocarnese.ch/)
 
 Per un caso concreto, apri il percorso locale, controlla la scheda disponibile e contatta la farmacia: un elenco statico non sostituisce la verifica diretta.]]></content:encoded>
       <pubDate>Mon, 14 Sep 2026 20:06:49 GMT</pubDate>
@@ -2379,53 +2466,6 @@ Per analizzare in modo dettagliato l'impatto dei costi fissi, delle trattenute s
       <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/finanze-ospedali-svizzera-2025</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/finanze-ospedali-svizzera-2025.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Economiesuisse: Silvan Wildhaber è il nuovo presidente</title>
-      <link>https://frontaliereticino.ch/articoli-svizzera/economiesuisse-silvan-wildhaber/</link>
-      <description><![CDATA[Passaggio di presidenza a Economiesuisse: Silvan Wildhaber succede a Christoph Mäder con un sostegno totale agli accordi bilaterali III.]]></description>
-      <content:encoded><![CDATA[## In breve
-- Passaggio di presidenza a Economiesuisse
-- Subentra Silvan Wildhaber a Christoph Mäder
-- Sostegno totale agli accordi bilaterali III
-
-## Fatti chiave
-- **Cosa**: Avvicendamento alla presidenza di Economiesuisse
-- Quando: Oggi
-- Dove: Berna
-- Chi: Silvan Wildhaber e Christoph Mäder
-- Importo: 100000 aziende rappresentate
-
-(Keystone-ATS) Il passaggio di consegne è avvenuto a Berna in occasione della giornata dell'economia organizzata dall'associazione che rappresenta le imprese elvetiche. Economiesuisse ha un nuovo numero uno: dopo due mandati di tre anni Christoph Mäder ha oggi ceduto la presidenza al suo successore Silvan Wildhaber. Durante l'assemblea annuale dell'organismo, stando alle comunicazioni della stessa Economiesuisse, il nuovo presidente ha evidenziato il contesto internazionale. Intorno a noi imperversa una guerra commerciale e doganale, ha affermato Wildhaber nel suo discorso all'assemblea annuale, sottolineando che per una piccola economia aperta come la Svizzera ciò rappresenta una sfida enorme. Il 48enne ha aggiunto che bisogna cogliere ogni opportunità per migliorare le relazioni commerciali, confermando l'impegno con tutte le forze a favore dei nuovi accordi di libero scambio con la Malesia e il Mercosur, nonché degli accordi bilaterali III. L'imprenditore sangallese ha poi evidenziato l'importanza di convincere la popolazione del valore aggiunto di un'economia forte. Le imprese e i loro collaboratori creano giorno dopo giorno il benessere del paese, offrendo un contributo indispensabile. L'uscente Mäder ha invece puntato il dito contro lo stallo delle condizioni quadro, auspicando che la Svizzera torni a dimostrare la volontà di essere tra i paesi più prosperi, con le migliori opportunità formative, i sistemi previdenziali più sostenibili, un approvvigionamento energetico stabile e il maggior numero di accordi di libero scambio.
-
-### I dettagli dell'assemblea e le nomine
-Alla giornata dell'economia sono intervenuti anche il presidente della Confederazione Guy Parmelin, che ha sottolineato l'importanza della diversificazione nella politica economica estera viste le incertezze mondiali, come pure il presidente della direzione generale della Banca nazionale svizzera (BNS) Martin Schlegel, che ha parlato del ruolo del suo istituto nel garantire stabilità in un momento globale impegnativo. L'assemblea ha eletto sedici nuovi membri di comitato, quattro dei quali entrano anche nel comitato direttivo. Tra di essi figura Giorgio Pradelli, presidente designato dell'Associazione svizzera dei banchieri (ASB), che assumerà la vicepresidenza di Economiesuisse. La nomina del nuovo presidente Wildhaber era invece già avvenuta il 16 marzo per opera del comitato. L'organizzazione riunisce 100 associazioni di categoria, 20 camere di commercio cantonali e diverse imprese individuali, rappresentando circa 100'000 aziende di tutti i rami che impiegano due milioni di persone. Con ampi mezzi l'organizzazione cerca di influenzare politicamente la Svizzera, in particolare nelle elezioni federali, sebbene non sempre con successo, come dimostrato da alcune sconfitte recenti tra cui il sì del popolo elvetico alla tredicesima AVS. In questo contesto va ricordata anche l'Unione svizzera delle arti e mestieri, che pure rappresenta le imprese ma risulta storicamente più orientata alle piccole e medie imprese rispetto a Economiesuisse, tradizionalmente vicina alle grandi multinazionali e a un'economia fortemente integrata a livello globale.
-### Le priorità economiche e il confronto tra organizzazioni
-
-Le dichiarazioni emerse durante la giornata dell'economia di Economiesuisse mettono in luce le divergenze e le complessità che caratterizzano il tessuto imprenditoriale svizzero. Da un lato vi è la posizione di Economiesuisse, focalizzata sulla difesa degli interessi delle grandi multinazionali e sull'integrazione globale attraverso il sostegno incondizionato agli accordi di libero scambio con la Malesia e il Mercosur e agli accordi bilaterali III. Dall'altro lato opera l'Unione svizzera delle arti e mestieri, guidata dal consigliere agli stati Fabio Regazzi, che rappresenta le piccole e medie imprese elvetiche. Questa distinzione strutturale comporta che le posizioni dei due organismi non sempre coincidono su temi cruciali di politica economica e federale.
-
-### Il contesto politico e istituzionale elvetico
-
-L'azione di Economiesuisse mira a influenzare il dibattito politico e le decisioni a Berna con ampi mezzi finanziari e organizzativi, sebbene i risultati elettorali e le votazioni popolari non sempre confermino le linee promosse dall'associazione. Un esempio emblematico citato nel dibattito recente è rappresentato dal voto popolare favorevole alla tredicesima AVS, che ha segnato una sconfitta per le posizioni sostenute dai grandi gruppi economici. Le riflessioni espresse dall'ex presidente Christoph Mäder evidenziano la preoccupazione per il blocco delle condizioni quadro, con particolare riferimento alla necessità di riforme strutturali nei settori della formazione, della previdenza, dell'energia e degli accordi commerciali internazionali. L'intervento del presidente della Confederazione Guy Parmelin ha inoltre ribadito la necessità di una politica economica estera diversificata per fare fronte alle tensioni doganali e alle guerre commerciali globali che minacciano le economie aperte come quella svizzera. La presenza di figure di spicco del mondo finanziario e istituzionale, come il presidente della direzione generale della BNS Martin Schlegel, conferma l'attenzione posta sulla stabilità complessiva del sistema economico nazionale in un momento di transizione e di accresciute sfide internazionali.
-
-## Tool utili per la pianificazione
-Per stimare la strategia previdenziale, prova il [pianificatore pensionistico](nav:pension) e il [simulatore 3° pilastro](nav:pillar3).
-### Analisi delle opportunità e strumenti di approfondimento economico
-
-Per chi vive e lavora in Svizzera, seguire l'evoluzione delle relazioni commerciali internazionali, degli accordi bilaterali e delle dinamiche economiche promosse da organizzazioni come Economiesuisse offre una chiave di lettura fondamentale per comprendere le prospettive occupazionali e di crescita del paese. Le decisioni prese a livello federale in merito ai trattati di libero scambio e alle condizioni quadro per le aziende incidono direttamente sul clima economico generale, sulla stabilità dell'approvvigionamento energetico e sulla competitività delle imprese elvetiche sui mercati globali.
-
-### Verifiche e strumenti utili per i residenti
-
-Mentre le grandi associazioni economiche discutono delle strategie per il futuro della Svizzera e del posizionamento internazionale delle aziende, i lavoratori e i residenti possono analizzare l'impatto delle dinamiche economiche e salariali sulla propria situazione finanziaria attraverso strumenti dedicati. Per valutare la propria posizione economica, comprendere l'andamento del costo della vita o analizzare le prospettive legate al mercato del lavoro elvetico, è possibile consultare risorse specifiche e aggiornate.
-
-Per approfondire l'impatto delle politiche economiche federali e pianificare al meglio la propria situazione finanziaria e previdenziale in Svizzera, scopri il [calcolatore stipendio e imposte](nav:calculator) disponibile sul portale.
-
-*Fonte: [swissinfo.ch](https://www.swissinfo.ch/ita/economiesuisse%3a-entra-in-carica-presidente%2c-%22100%25-per-i-bilaterali%22/92043221)*]]></content:encoded>
-      <pubDate>Sat, 12 Sep 2026 00:43:56 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/economiesuisse-silvan-wildhaber</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/economiesuisse-silvan-wildhaber.webp" medium="image"/>
     </item>
   </channel>
 </rss>
