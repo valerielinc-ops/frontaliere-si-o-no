@@ -188,6 +188,7 @@ export function buildL7ExperimentOutcome({
     && metadata.assignmentLedger.key !== null
     && metadata.contaminationPolicy.controlled
     && metadata.contaminationPolicy.key !== null;
+  const quality = independent ? 'observed' : 'partial';
   const values = completeCounts ? {
     eligibleCohort: counts.eligibleCohort,
     assignments: counts.assignments,
@@ -209,10 +210,15 @@ export function buildL7ExperimentOutcome({
   const end = finiteDate(telemetryWindow?.end);
   const durationDays = start && end && end > start ? (end.getTime() - start.getTime()) / DAY_MS : null;
   return {
+    schemaVersion: 1,
+    loopId: 'L7',
+    status: quality,
+    quality,
     generatedAt: now.toISOString(),
     independent,
     ...values,
     durationDays,
+    metrics: { ...values, durationDays },
     variants: isObject(counts?.variants) ? counts.variants : {},
     evidence: {
       source: independent
@@ -222,6 +228,7 @@ export function buildL7ExperimentOutcome({
       sessionJoin: eventContract.sessionJoin,
       eventContract: { ...eventContract, contexts: [...eventContract.contexts], variants: [...eventContract.variants] },
       assignmentPersistence: 'sessionStorage assignment joined to persisted PostHog $session_id exposure events',
+      status: independent ? 'verified' : 'unverified',
     },
     preRegistration: metadata.preRegistration,
     assignmentLedger: metadata.assignmentLedger,
@@ -245,11 +252,18 @@ export function buildL7ExperimentOutcome({
       purpose: 'Fresh assignment/exposure/outcome ledger for Loop L7',
       telemetryWindow,
     },
+    reason: independent
+      ? 'explicit PostHog session-level experiment outcome satisfies the registered L7 contract'
+      : 'PostHog experiment outcome is incomplete; allocation remains disabled',
   };
 }
 
 export function buildUnavailableL7ExperimentOutcome({ policy = {}, now = new Date(), eventContract = L7_EXPERIMENT_EVENT_CONTRACT } = {}) {
   return {
+    schemaVersion: 1,
+    loopId: 'L7',
+    status: 'unmeasurable',
+    quality: 'unmeasurable',
     generatedAt: now.toISOString(),
     independent: false,
     eligibleCohort: null,
@@ -260,6 +274,16 @@ export function buildUnavailableL7ExperimentOutcome({ policy = {}, now = new Dat
     persistentAssignments: null,
     contaminatedAssignments: null,
     durationDays: null,
+    metrics: {
+      eligibleCohort: null,
+      assignments: null,
+      exposures: null,
+      primaryOutcomes: null,
+      guardrailBreaches: null,
+      persistentAssignments: null,
+      contaminatedAssignments: null,
+      durationDays: null,
+    },
     variants: {},
     evidence: {
       source: 'PostHog HogQL, read-only experiment export unavailable',
@@ -283,6 +307,7 @@ export function buildUnavailableL7ExperimentOutcome({ policy = {}, now = new Dat
       source: 'PostHog HogQL, read-only experiment export unavailable',
       purpose: 'Explicit fail-closed placeholder; never a measured outcome',
     },
+    reason: 'L7 experiment outcome export unavailable; allocation remains disabled',
   };
 }
 

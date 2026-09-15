@@ -99,11 +99,16 @@ describe('read-only L7 experiment outcome exporter', () => {
       telemetryWindow: WINDOW,
     });
     expect(outcome).toMatchObject({
+      schemaVersion: 1,
+      loopId: 'L7',
+      status: 'observed',
+      quality: 'observed',
       generatedAt: NOW.toISOString(),
       independent: true,
       eligibleCohort: 240,
       primaryOutcomes: 38,
       durationDays: 8,
+      metrics: { eligibleCohort: 240, primaryOutcomes: 38, durationDays: 8 },
       preRegistration: {
         outcomeId: 'registered-experiment-outcome',
         primaryMetric: 'registered_outcome_per_eligible_cohort',
@@ -137,6 +142,9 @@ describe('read-only L7 experiment outcome exporter', () => {
 
     const unavailable = buildUnavailableL7ExperimentOutcome({ policy: POLICY, now: NOW });
     expect(unavailable).toMatchObject({
+      loopId: 'L7',
+      status: 'unmeasurable',
+      quality: 'unmeasurable',
       independent: false,
       eligibleCohort: null,
       primaryOutcomes: null,

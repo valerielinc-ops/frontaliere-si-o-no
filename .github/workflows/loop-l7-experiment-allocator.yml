@@ -96,18 +96,13 @@ jobs:
           printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
           chmod 600 "$RUNNER_TEMP/firebase-sa.json"
           echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
-      - name: Export read-only L7 experiment outcome
-        if: always()
+      - name: Export fresh L7 outcomes
+        if: github.event_name != 'pull_request'
         env:
-          WORKFLOW_EVENT: ${{ github.event_name }}
-          OUTCOME_PATH: ${{ runner.temp }}/loop-fleet-l7/experiment-outcomes.json
+          OUTCOME_PATH: ${{ runner.temp }}/experiment-outcomes.json
         run: |
           set -o pipefail
-          mkdir -p "$(dirname "$OUTCOME_PATH")"
-          if [ "$WORKFLOW_EVENT" = 'pull_request' ]; then
-            node scripts/ci/export-l7-experiment-outcomes.mjs --unavailable --out "$OUTCOME_PATH" --registry data/loop-fleet/loop-registry.json
-            exit 0
-          fi
+          mkdir -p "$(dirname "$OUTCOME_PATH")" "$RUNNER_TEMP/loop-fleet-l7"
           set +e
           node scripts/ci/export-l7-experiment-outcomes.mjs --days 8 --json --out "$OUTCOME_PATH" --registry data/loop-fleet/loop-registry.json | tee "$RUNNER_TEMP/loop-fleet-l7/export-cli-output.log" | tee -a "$GITHUB_STEP_SUMMARY"
           export_code=${PIPESTATUS[0]}
@@ -116,6 +111,9 @@ jobs:
             echo '::warning::L7 live outcome export failed; recording an explicitly unavailable outcome so the allocator remains fail-closed'
             node scripts/ci/export-l7-experiment-outcomes.mjs --unavailable --out "$OUTCOME_PATH" --registry data/loop-fleet/loop-registry.json
           fi
+      - name: Prepare unavailable L7 outcomes for pull request
+        if: github.event_name == 'pull_request'
+        run: node scripts/ci/export-l7-experiment-outcomes.mjs --unavailable --out "$RUNNER_TEMP/experiment-outcomes.json" --registry data/loop-fleet/loop-registry.json
       - name: Audit experiment allocation
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -124,7 +122,8 @@ jobs:
         run: |
           set -o pipefail
           mkdir -p "$REPORT_DIR"
-          args=(--json --apply --report-dir "$REPORT_DIR" --candidates data/experimental-candidates.json --outcomes "$REPORT_DIR/experiment-outcomes.json" --registry data/loop-fleet/loop-registry.json)
+          outcomes_path="$RUNNER_TEMP/experiment-outcomes.json"
+          args=(--json --apply --report-dir "$REPORT_DIR" --candidates data/experimental-candidates.json --outcomes "$outcomes_path" --registry data/loop-fleet/loop-registry.json)
           if [ "$ISSUE_ENABLED" = "true" ]; then
             args+=(--issue --strict)
           else

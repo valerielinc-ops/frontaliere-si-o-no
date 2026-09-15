@@ -281,6 +281,7 @@ export const POSTHOG_MONITORS = [
   { path: 'scripts/build-employer-insights.mjs', guarded: false, emits: 'scheduled employer-insights snapshot (GA4/PostHog source)' },
   { path: 'scripts/ci/export-loop-outcomes.mjs', guarded: false, emits: 'scheduled L1/L4/L5/L7/L9 outcome ledgers (source evidence)' },
   { path: 'scripts/ci/export-l7-experiment-outcomes.mjs', guarded: false, emits: 'scheduled L7 experiment outcome ledger (source evidence)' },
+  { path: 'scripts/ci/export-l2-demand-outcomes.mjs', guarded: false, emits: 'scheduled L2 demand/utility outcome ledger (source evidence)' },
   { path: 'scripts/ci/export-l8-affiliate-outcomes.mjs', guarded: false, emits: 'scheduled L8 affiliate attribution outcome ledger (source evidence)' },
   { path: 'scripts/funnel-metrics-snapshot.mjs', guarded: false, emits: 'comments on tracker issues #886/#855/#888/#857' },
   { path: 'scripts/build-evidence-index.mjs', guarded: true, emits: 'data/evidence-index.json (drives thin-page filtering)' },
