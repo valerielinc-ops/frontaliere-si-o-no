@@ -79,6 +79,76 @@ describe('read-only loop outcome exporters', () => {
     });
   });
 
+  it('builds an independent, read-only L5 decision-moment outcome', () => {
+    const output = buildL5DecisionMomentExport({
+      eligibleDecisionSessions: 120,
+      nextUsefulActions: 45,
+      generatedAt: NOW.toISOString(),
+      telemetryWindow: { start: '2026-09-04T00:00:00.000Z', end: '2026-09-12T00:00:00.000Z' },
+    });
+    expect(output).toMatchObject({
+      independent: true,
+      eligibleDecisionSessions: 120,
+      nextUsefulActions: 45,
+      evidence: {
+        sourceRefs: ['decision-surfaces', 'posthog'],
+        sessionJoin: 'properties.$session_id',
+        eventContract: {
+          completionEvent: 'decision_moment_completed',
+          nextActionEvent: 'decision_moment_next_action',
+        },
+      },
+      export: {
+        readOnly: true,
+        publishedDataUntouched: true,
+        noDarkPatterns: true,
+        noUnsupportedTimingPromise: true,
+        noInvasivePersonalization: true,
+      },
+    });
+  });
+
+  it('exports L5 counts from a bounded PostHog session join without writing source data', async () => {
+    const calls: Array<{ query: string; config: Record<string, string> }> = [];
+    const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l5-export-test-'));
+    const output = await exportL5({
+      now: NOW,
+      days: 8,
+      outputPath: path.join(outputDir, 'outcomes.json'),
+      client: {
+        remoteConfig: async () => ({
+          parameters: {
+            SERVER_POSTHOG_PERSONAL_API_KEY: { defaultValue: { value: 'test-key' } },
+            SERVER_POSTHOG_PROJECT_ID: { defaultValue: { value: '123' } },
+            SERVER_POSTHOG_HOST: { defaultValue: { value: 'https://posthog.test' } },
+          },
+        }),
+      } as any,
+      posthogRunner: async (query: string, config: Record<string, string>) => {
+        calls.push({ query, config });
+        return { columns: ['eligibleDecisionSessions', 'nextUsefulActions'], results: [[120, 45]] };
+      },
+    });
+
+    expect(calls).toHaveLength(1);
+    expect(calls[0].query).toContain("event = 'decision_moment_completed'");
+    expect(calls[0].query).toContain("event = 'decision_moment_next_action'");
+    expect(calls[0].query).toContain('GROUP BY properties.$session_id');
+    expect(calls[0].query).toContain('2026-09-04T00:00:00.000Z');
+    expect(calls[0].query).toContain('2026-09-12T00:00:00.000Z');
+    expect(calls[0].config).toMatchObject({ apiKey: 'test-key', projectId: '123', host: 'https://posthog.test' });
+    expect(output).toMatchObject({
+      independent: true,
+      eligibleDecisionSessions: 120,
+      nextUsefulActions: 45,
+      telemetryWindow: { start: '2026-09-04T00:00:00.000Z', end: '2026-09-12T00:00:00.000Z' },
+    });
+    expect(JSON.parse(fs.readFileSync(path.join(outputDir, 'outcomes.json'), 'utf8'))).toMatchObject({
+      independent: true,
+      export: { publishedDataUntouched: true },
+    });
+  });
+
   it('exports L3 from exact settled GA4 event-session counts without inventing applications', async () => {
     const calls: Array<{ url: string; init: RequestInit }> = [];
     const client = {
@@ -268,16 +338,12 @@ describe('read-only loop outcome exporters', () => {
       start: '2026-09-05T12:00:00.000Z',
       end: NOW.toISOString(),
     });
-    expect(query).toContain("properties.step = 'simulation_complete'");
-    expect(query).toContain("properties.step = 'compare'");
-    expect(query).toContain("properties.cta_id LIKE 'calculator%'");
-    expect(query).toContain('countIf(completionRecords > 0) AS eligibleDecisionSessions');
-    expect(query).toContain('countIf(completionRecords > 0 AND nextUsefulAt > completedAt)');
-    expect(query).toContain('countIf(event = \'simulation_complete\'');
-    expect(query).toContain('minIf(timestamp');
-    expect(query).toContain('maxIf(timestamp');
-    expect(query).toContain('nextUsefulAt > completedAt');
-    expect(query).toContain('GROUP BY $session_id');
+    expect(query).toContain("event = 'decision_moment_completed'");
+    expect(query).toContain("event = 'decision_moment_next_action'");
+    expect(query).toContain('count() AS eligibleDecisionSessions');
+    expect(query).toContain('countIf(nextUsefulActions > 0) AS nextUsefulActions');
+    expect(query).toContain('GROUP BY properties.$session_id');
+    expect(query).toContain('HAVING completedTasks > 0');
 
     const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l5-export-test-'));
     const calls: string[] = [];
