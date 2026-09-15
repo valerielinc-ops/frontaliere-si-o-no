@@ -1,8 +1,11 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 // @ts-expect-error — plain .mjs CI script, no type declarations
 import {
   PROMPT_SCALAR_LIMIT,
   promptBlocks,
+  validateLoopFleetWorkflowText,
   validateWorkflowText,
 } from '../scripts/ci/validate-modified-workflows.mjs';
 
@@ -57,5 +60,76 @@ describe('validate-modified-workflows', () => {
     expect(body.length).toBeLessThan(PROMPT_SCALAR_LIMIT);
     expect(indented.length).toBeGreaterThan(PROMPT_SCALAR_LIMIT);
     expect(validateWorkflowText('.github/workflows/issue-fix.yml', workflow)).toEqual([]);
+  });
+
+  it('allows the bounded ledger branch and PR path', () => {
+    const workflow = [
+      'permissions:',
+      '  contents: read',
+      '  issues: write',
+      'steps:',
+      '  - run: git push -u origin "$branch"',
+      '  - run: gh pr create --base main',
+      '  - run: rm -rf "$RUNNER_TEMP/ledger"',
+    ].join('\n');
+
+    expect(validateLoopFleetWorkflowText('.github/workflows/loop-fleet-ledger.yml', workflow)).toEqual([]);
+  });
+
+  it('blocks direct main/force pushes, deploys, sends and commercial writes', () => {
+    const workflow = [
+      'permissions:',
+      '  contents: write',
+      'steps:',
+      '  - run: git push --force origin main',
+      '  - run: gh pr merge 123 --squash',
+      '  - run: firebase deploy',
+      '  - run: send-email --consent-required',
+      '  - run: update price from source.json',
+    ].join('\n');
+
+    expect(validateLoopFleetWorkflowText('.github/workflows/loop-l7-experiment-allocator.yml', workflow).map(({ rule }) => rule))
+      .toEqual(expect.arrayContaining([
+        'writable-repository-permission',
+        'direct-main-or-force-push',
+        'manual-merge',
+        'production-deploy',
+        'communication-send',
+        'commercial-mutation',
+      ]));
+  });
+
+  it('scans only run scalars and stops before the next step key', () => {
+    const workflow = [
+      'steps:',
+      '  - name: Describe',
+      '    description: update revenue display text',
+      '    run: |',
+      '      echo "read-only check"',
+      '    env:',
+      '      NOTE: update price in a future human review',
+    ].join('\n');
+
+    expect(validateLoopFleetWorkflowText('.github/workflows/loop-l8-revenue-attribution.yml', workflow)).toEqual([]);
+  });
+
+  it('covers a future numeric loop workflow such as L11', () => {
+    expect(validateLoopFleetWorkflowText('nested/loop-l11-technical-operations.yml', 'steps:\n  - run: gh pr merge 123'))
+      .toEqual(expect.arrayContaining([
+        expect.objectContaining({ rule: 'manual-merge' }),
+      ]));
+  });
+
+  it('keeps the canonical fleet workflows inside the deny-list boundary', () => {
+    const workflowDir = '.github/workflows';
+    const files = fs.readdirSync(workflowDir)
+      .filter((name) => /^(?:loop-l\d+-|loop-fleet-|technical-operations-supervisor\.yml$)/u.test(name))
+      .filter((name) => /\.ya?ml$/u.test(name));
+    const findings = files.flatMap((name) => validateLoopFleetWorkflowText(
+      path.join(workflowDir, name),
+      fs.readFileSync(path.join(workflowDir, name), 'utf8'),
+    ));
+    expect(files.length).toBeGreaterThan(10);
+    expect(findings).toEqual([]);
   });
 });
