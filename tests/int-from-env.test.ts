@@ -90,6 +90,21 @@ describe('check-number-env-fallback — il gate che impedisce il rientro', () =>
     expect(lineHasNumberEnvFallback('const a = 1; // Number(process.env.X || 8000)')).toBe(false);
   });
 
+  it('tratta # come commento YAML senza confondere l apostrofo della prosa con una stringa', () => {
+    expect(lineHasNumberEnvFallback(
+      "description: it's a note # Number(process.env.X || 8000)",
+      'fixture.yml',
+    )).toBe(false);
+    expect(lineHasNumberEnvFallback(
+      'run: Number(process.env.X || 8000) # commento YAML',
+      'fixture.yaml',
+    )).toBe(true);
+    expect(lineHasNumberEnvFallback(
+      'description: https://example.test/#anchor # Number(process.env.X || 8000)',
+      'fixture.yml',
+    )).toBe(false);
+  });
+
   it('riconosce il Number(process.env.X) grezzo solo quando governa un bound locale', () => {
     const cases = [
       `const limit = Number(process.env["LIMIT"]);\nitems.slice(0, limit);`,
@@ -99,6 +114,50 @@ describe('check-number-env-fallback — il gate che impedisce il rientro', () =>
     for (const source of cases) {
       expect(findRawNumberEnvBoundViolations(source, 'fixture.mjs')).toHaveLength(1);
     }
+  });
+
+  it('non scambia una variabile shadowed in una funzione annidata per il bound env esterno (#8031)', () => {
+    const source = `const limit = Number(process.env.LIMIT);
+function render() {
+  const limit = 50;
+  return items.slice(0, limit);
+}`;
+    expect(findRawNumberEnvBoundViolations(source, 'fixture.mjs')).toEqual([]);
+  });
+
+  it('non lascia che uno shadowing in un blocco chiuso oscuri il bound esterno (#8031)', () => {
+    const source = `const limit = Number(process.env.LIMIT);
+function render() {
+  { const limit = 50; }
+  return items.slice(0, limit);
+}`;
+    expect(findRawNumberEnvBoundViolations(source, 'fixture.mjs')).toHaveLength(1);
+  });
+
+  it('riconosce lo shadowing var nella funzione che contiene il bound (#8031)', () => {
+    const source = `const limit = Number(process.env.LIMIT);
+function render() {
+  var limit = 50;
+  return items.slice(0, limit);
+}`;
+    expect(findRawNumberEnvBoundViolations(source, 'fixture.mjs')).toEqual([]);
+  });
+
+  it('non lascia che un var in una funzione discendente oscuri il bound esterno (#8031)', () => {
+    const source = `const limit = Number(process.env.LIMIT);
+function render() {
+  function nested() { var limit = 50; }
+  return items.slice(0, limit);
+}`;
+    expect(findRawNumberEnvBoundViolations(source, 'fixture.mjs')).toHaveLength(1);
+  });
+
+  it('mantiene il bound quando la funzione annidata chiude davvero sull env esterno (#8031)', () => {
+    const source = `const limit = Number(process.env.LIMIT);
+function render() {
+  return items.slice(0, limit);
+}`;
+    expect(findRawNumberEnvBoundViolations(source, 'fixture.mjs')).toHaveLength(1);
   });
 
   it('non segnala il campione frazionario di audit-dist-multi né un fallback esplicito', () => {

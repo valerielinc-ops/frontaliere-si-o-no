@@ -124,6 +124,109 @@ describe('decontaminate-prev-slugs: flat previousSlugs redirect', () => {
     }
   });
 
+  it('scans expired raw-array slices without changing their on-disk shape', async () => {
+    const { listCrawlerSlicePaths, processFiles } = await import('../scripts/decontaminate-prev-slugs.mjs');
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'decontaminate-expired-array-'));
+    const activeDir = path.join(tmpDir, 'active');
+    const expiredDir = path.join(tmpDir, 'expired', 'by-crawler');
+    fs.mkdirSync(activeDir, { recursive: true });
+    fs.mkdirSync(expiredDir, { recursive: true });
+
+    const activeFile = path.join(activeDir, 'claimant.json');
+    const expiredFile = path.join(expiredDir, 'owner.json');
+    const owner = {
+      id: 'expired-owner',
+      url: 'https://owner.example/jobs/expired-owner',
+      previousSlugs: [] as string[],
+    };
+    const claimant = {
+      id: 'active-claimant',
+      url: 'https://claimant.example/jobs/active-claimant',
+      previousSlugs: [] as string[],
+    };
+    const ownerSlug = `expired-owner-route-${stableSlugHash(owner)}`;
+    claimant.previousSlugs.push(ownerSlug);
+    fs.writeFileSync(activeFile, JSON.stringify({ crawlerKey: 'claimant', jobs: [claimant] }));
+    fs.writeFileSync(expiredFile, JSON.stringify([owner]));
+
+    try {
+      expect(listCrawlerSlicePaths([activeDir, expiredDir])).toEqual([activeFile, expiredFile].sort());
+      expect(processFiles([activeFile, expiredFile], { apply: true }).moved).toBe(1);
+
+      const activePayload = JSON.parse(fs.readFileSync(activeFile, 'utf8'));
+      const expiredPayload = JSON.parse(fs.readFileSync(expiredFile, 'utf8'));
+      expect(Array.isArray(expiredPayload)).toBe(true);
+      expect(activePayload.jobs[0].previousSlugs).not.toContain(ownerSlug);
+      expect(expiredPayload[0].previousSlugs).toContain(ownerSlug);
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    }
+  });
+
+  it('routes a fresh writer payload to a unique owner already present in the fleet', async () => {
+    const { decontaminateEntries } = await import('../scripts/decontaminate-prev-slugs.mjs');
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'decontaminate-writer-fleet-'));
+    const claimantFile = path.join(tmpDir, 'a-claimant.json');
+    const ownerFile = path.join(tmpDir, 'z-owner.json');
+    const owner = {
+      id: 'owner',
+      url: 'https://owner.example/jobs/owner',
+      previousSlugs: [] as string[],
+    };
+    const ownerSlug = `owner-route-${stableSlugHash(owner)}`;
+    const claimant = {
+      id: 'claimant',
+      url: 'https://claimant.example/jobs/claimant',
+      previousSlugs: [ownerSlug],
+    };
+    const claimantEntry = { filePath: claimantFile, slice: { jobs: [claimant] } };
+    const ownerEntry = { filePath: ownerFile, slice: { jobs: [owner] } };
+    const writes: Array<{ filePath: string; phase: string }> = [];
+
+    try {
+      const result = decontaminateEntries([claimantEntry, ownerEntry], {
+        sourceEntries: [claimantEntry],
+        apply: true,
+        writeSlice: (filePath: string, slice: unknown, context: { phase: string }) => {
+          writes.push({ filePath, phase: context.phase });
+          fs.writeFileSync(filePath, JSON.stringify(slice));
+        },
+      });
+
+      expect(result.moved).toBe(1);
+      expect(writes).toEqual([
+        { filePath: ownerFile, phase: 'cross-file-target' },
+        { filePath: claimantFile, phase: 'final' },
+      ]);
+      expect(JSON.parse(fs.readFileSync(claimantFile, 'utf8')).jobs[0].previousSlugs)
+        .toEqual([]);
+      expect(JSON.parse(fs.readFileSync(ownerFile, 'utf8')).jobs[0].previousSlugs)
+        .toEqual([ownerSlug]);
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    }
+  });
+
+  it('skips malformed jobs while building the fleet ownership index', async () => {
+    const { decontaminateEntries } = await import('../scripts/decontaminate-prev-slugs.mjs');
+    const validJob = {
+      id: 'valid-job',
+      url: 'https://jobs.example.com/posting/valid',
+      previousSlugs: [] as string[],
+    };
+    const entry = {
+      filePath: null,
+      slice: { jobs: [null, 'malformed', validJob] as unknown[] },
+    };
+
+    const result = decontaminateEntries([entry], {
+      sourceEntries: [entry],
+      apply: false,
+    });
+
+    expect(result).toMatchObject({ moved: 0, emptyLocaleBucketsPruned: 0, affected: [] });
+  });
+
   it('keeps the claimant route recoverable when a final write fails, then converges on retry', async () => {
     const { processFiles } = await import('../scripts/decontaminate-prev-slugs.mjs');
     const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'decontaminate-retry-'));
@@ -203,5 +306,33 @@ describe('decontaminate-prev-slugs: flat previousSlugs redirect', () => {
     } finally {
       fs.rmSync(tmpFile, { force: true });
     }
+  });
+
+  it('redirects confirmed hash-tail contamination in the in-memory writer payload', async () => {
+    const { decontaminateJobs } = await import('../scripts/decontaminate-prev-slugs.mjs');
+    const claimant = {
+      id: 'company-claimant',
+      url: 'https://jobs.example.com/posting/claimant',
+      previousSlugs: [] as string[],
+      previousSlugsByLocale: { en: [] as string[] },
+    };
+    const owner = {
+      id: 'company-owner',
+      url: 'https://jobs.example.com/posting/owner',
+      previousSlugs: [] as string[],
+    };
+    const ownerSlug = `owner-route-${stableSlugHash(owner)}`;
+    claimant.previousSlugs.push(ownerSlug);
+    claimant.previousSlugs.push('legacy-campus');
+    claimant.previousSlugsByLocale.en.push(ownerSlug);
+    claimant.previousSlugsByLocale.en.push('legacy-campus');
+
+    const result = decontaminateJobs([claimant, owner]);
+
+    expect(result).toEqual({ moved: 2, emptyLocaleBucketsPruned: 0 });
+    expect(claimant.previousSlugs).toEqual(['legacy-campus']);
+    expect(claimant.previousSlugsByLocale).toEqual({ en: ['legacy-campus'] });
+    expect(owner.previousSlugs).toEqual([ownerSlug]);
+    expect(owner.previousSlugsByLocale).toEqual({ en: [ownerSlug] });
   });
 });

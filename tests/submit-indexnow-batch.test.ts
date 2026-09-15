@@ -12,10 +12,19 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { extractAlternateUrls, extractUrls, getUrlsFromSitemaps } from '../scripts/submit-indexnow-batch.mjs';
+import {
+  extractAlternateUrls,
+  extractUrls,
+  getUrlsFromSitemaps,
+  SUB_SITEMAPS,
+} from '../scripts/submit-indexnow-batch.mjs';
+import {
+  extractUrls as extractPostDeployUrls,
+  INDEXNOW_SITEMAPS,
+} from '../scripts/submit-indexnow.js';
 
 // A fresh Response per call: a Response body is single-use, so reusing one
-// object across the 7 sub-sitemap fetches would throw on the 2nd read and
+// object across the sub-sitemap fetches would throw on the 2nd read and
 // trip fetchSitemapXml's retry/sleep path (slow test, wrong branch).
 const xmlResponder = (body: string) =>
   vi.fn().mockImplementation(() =>
@@ -54,6 +63,32 @@ describe('extractUrls (happy path, XML fixture)', () => {
     const count = extractUrls('<?xml version="1.0"?><urlset></urlset>', urls);
     expect(count).toBe(0);
     expect(urls.size).toBe(0);
+  });
+});
+
+describe('pharmacy sitemap coverage', () => {
+  it('keeps sitemap-farmacie.xml in both IndexNow collectors', () => {
+    expect(INDEXNOW_SITEMAPS).toContain('sitemap-farmacie.xml');
+    expect(SUB_SITEMAPS).toContain('sitemap-farmacie.xml');
+  });
+
+  it('extracts the pharmacy surface URLs in the post-deploy collector', () => {
+    const urls = new Set<string>();
+    const pharmacyXml = `<urlset>
+      <url><loc>https://frontaliereticino.ch/farmacie/</loc></url>
+      <url><loc>https://frontaliereticino.ch/en/pharmacies/</loc></url>
+      <url><loc>https://frontaliereticino.ch/de/apotheken/</loc></url>
+      <url><loc>https://frontaliereticino.ch/fr/pharmacies/</loc></url>
+    </urlset>`;
+
+    extractPostDeployUrls(pharmacyXml, urls);
+
+    expect([...urls].sort()).toEqual([
+      'https://frontaliereticino.ch/de/apotheken/',
+      'https://frontaliereticino.ch/en/pharmacies/',
+      'https://frontaliereticino.ch/farmacie/',
+      'https://frontaliereticino.ch/fr/pharmacies/',
+    ]);
   });
 });
 
@@ -105,6 +140,28 @@ describe('getUrlsFromSitemaps (live mode branches)', () => {
     expect(urls).toContain('https://frontaliereticino.ch/lavoro');
     expect(urls).toContain('https://frontaliereticino.ch/');
     expect([...urls]).toEqual([...urls].sort());
+  });
+
+  it('fetches and includes sitemap-farmacie.xml without submitting anything', async () => {
+    const pharmacyXml = '<urlset><url><loc>https://frontaliereticino.ch/farmacie/</loc></url></urlset>';
+    const fetchMock = vi.fn().mockImplementation((input: string) => new Response(
+      input.endsWith('/sitemap-farmacie.xml')
+        ? pharmacyXml
+        : '<urlset></urlset>',
+      { status: 200, headers: { 'Content-Type': 'application/xml' } },
+    ));
+    vi.stubGlobal('fetch', fetchMock);
+    vi.spyOn(console, 'log').mockImplementation(() => {});
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+    const urls = await getUrlsFromSitemaps();
+
+    expect(fetchMock).toHaveBeenCalledWith(
+      expect.stringContaining('/sitemap-farmacie.xml'),
+      expect.any(Object),
+    );
+    expect(urls).toContain('https://frontaliereticino.ch/farmacie/');
+    expect(fetchMock.mock.calls.every(([input]) => !String(input).includes('/indexnow'))).toBe(true);
   });
 
   it('unions the EN/DE/FR alternates from the public/ registry even when the live sitemaps carry none (issue #3474)', async () => {

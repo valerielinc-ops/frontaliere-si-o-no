@@ -5,9 +5,10 @@
  *
  * The loop recorder owns candidate/owner_assigned. This script is a separate,
  * read-only observer for the GitHub evidence that can prove pr_opened,
- * tests_passed, review_approved, merged and post_merge_verified. It never
- * infers a lifecycle event from a local decision and never writes GitHub state.
- * A separate reviewed PR step may persist the emitted events.
+ * tests_passed, review_approved, merged, post_merge_verified and explicitly
+ * marked rollback/inconclusive outcomes. It never infers a lifecycle event
+ * from a local decision and never writes GitHub state. A separate reviewed PR
+ * step may persist the emitted events.
  */
 import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process';
@@ -29,6 +30,13 @@ const OBSERVED_EVENT_TYPES = Object.freeze([
   'merged',
   'post_merge_verified',
 ]);
+const EXPLICIT_TERMINAL_EVENT_TYPES = Object.freeze([
+  'rollback_requested',
+  'rolled_back',
+  'inconclusive',
+]);
+const TRUSTED_COMMENT_ASSOCIATIONS = new Set(['OWNER', 'MEMBER', 'COLLABORATOR']);
+const TERMINAL_MARKER_RE = /<!--\s*loop-fleet-lifecycle:\s*(rollback_requested|rolled_back|inconclusive)\s+candidate=([A-Za-z0-9._:-]+)\s*-->/iu;
 const POST_MERGE_WORKFLOWS = Object.freeze(new Set([
   'Loop fleet status',
   'Loop fleet ledger audit',
@@ -236,6 +244,45 @@ export function postMergeEvidence(pr, postMergeRuns, now = new Date()) {
   };
 }
 
+/**
+ * Read an explicit terminal lifecycle marker from a trusted PR comment.
+ *
+ * GitHub does not expose a timestamp for adding a label in the PR view, and a
+ * PR state alone cannot prove rollback or inconclusive. The marker is thus a
+ * deliberate, auditable input: it must be in a comment with a valid URL,
+ * timestamp, a repository collaborator association and the exact candidate
+ * ID. Missing, cross-candidate or mutually exclusive comments remain
+ * unobserved.
+ */
+export function explicitTerminalEvidence(pr, candidateId, now = new Date()) {
+  if (!text(candidateId)) return {};
+  const comments = Array.isArray(pr?.comments) ? pr.comments : [];
+  const candidates = comments
+    .map((comment) => {
+      const marker = (text(comment?.body) || '').match(TERMINAL_MARKER_RE);
+      if (!marker) return null;
+      const eventType = marker[1].toLowerCase();
+      if (marker[2] !== candidateId) return null;
+      const occurredAt = iso(comment?.createdAt || comment?.created_at);
+      const authorAssociation = String(comment?.authorAssociation || comment?.author_association || '').toUpperCase();
+      const artifactOrPr = text(comment?.url || comment?.html_url);
+      if (!EXPLICIT_TERMINAL_EVENT_TYPES.includes(eventType)
+          || !occurredAt
+          || !validPastTimestamp(occurredAt, now)
+          || !artifactOrPr
+          || !TRUSTED_COMMENT_ASSOCIATIONS.has(authorAssociation)) {
+        return null;
+      }
+      return { eventType, occurredAt, artifactOrPr };
+    })
+    .filter(Boolean)
+    .sort((left, right) => Date.parse(left.occurredAt) - Date.parse(right.occurredAt));
+  const byType = new Map();
+  for (const evidence of candidates) byType.set(evidence.eventType, evidence);
+  if (byType.has('rolled_back') && byType.has('inconclusive')) return {};
+  return Object.fromEntries(byType);
+}
+
 function candidateRecords(registry, lifecycleEvents) {
   const candidates = [];
   const seen = new Set();
@@ -314,7 +361,9 @@ function observedRecordId(eventType, candidateId, pr, evidence) {
 }
 
 function buildObservedEvent({ candidate, eventType, pr, evidence, execution, now }) {
-  if (!OBSERVED_EVENT_TYPES.includes(eventType)) throw new Error(`unsupported observed event ${eventType}`);
+  if (!OBSERVED_EVENT_TYPES.includes(eventType) && !EXPLICIT_TERMINAL_EVENT_TYPES.includes(eventType)) {
+    throw new Error(`unsupported observed event ${eventType}`);
+  }
   if (!text(evidence?.artifactOrPr) || !validPastTimestamp(evidence.occurredAt, now)) return null;
   const event = buildLifecycleEvent({
     eventType,
@@ -344,7 +393,8 @@ function prEvidence(pr) {
 /**
  * Reconstruct only independently observable downstream events. The returned
  * `events` contains new records; existing candidate events are never copied or
- * rewritten, and rollback/inconclusive events are never invented here.
+ * rewritten. Rollback/inconclusive events are emitted only from an explicit,
+ * trusted comment marker.
  */
 export function observeLifecycle({
   registry,
@@ -390,6 +440,10 @@ export function observeLifecycle({
       ['merged', mergeEvidence(pr, now)],
       ['post_merge_verified', postMergeEvidence(pr, postMergeRuns, now)],
     ];
+    const terminalEvidence = explicitTerminalEvidence(pr, candidate.candidateId, now);
+    for (const eventType of EXPLICIT_TERMINAL_EVENT_TYPES) {
+      available.push([eventType, terminalEvidence[eventType] || null]);
+    }
     const newlyObserved = [];
     for (const [eventType, evidence] of available) {
       if (!evidence || existing.get(candidate.candidateId)?.has(eventType)) continue;
@@ -441,7 +495,7 @@ export function collectGitHubEvidence() {
     .filter(isFleetLedgerPr)
     .map((pr) => ghJson([
       'pr', 'view', String(pr.number),
-      '--json', 'number,url,title,state,baseRefName,headRefName,headRefOid,createdAt,updatedAt,mergedAt,mergeCommit,body,commits,reviews,statusCheckRollup',
+      '--json', 'number,url,title,state,baseRefName,headRefName,headRefOid,createdAt,updatedAt,mergedAt,mergeCommit,body,commits,comments,reviews,statusCheckRollup',
     ]));
   const workflows = ['loop-fleet-status.yml', 'loop-fleet-ledger-audit.yml'];
   const postMergeRuns = workflows.flatMap((workflow) => {

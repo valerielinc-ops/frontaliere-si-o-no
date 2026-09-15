@@ -40,6 +40,8 @@ import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { TYPES_ACCEPT_IN_LANGUAGE_LIST } from '../services/seo/inlanguage-whitelist.data.mjs';
 import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
+import { HEALTH_FACILITIES_SECTION_RX } from './lib/healthFacilitiesSections.mjs';
+import { HEALTH_FACILITY_PAGE_BUDGET_BYTES } from './lib/pageWeightBudgets.mjs';
 import {
   JOB_BOARD_COMPANY_HUB_PATH_RX,
   JOB_BOARD_SECTION_RX,
@@ -91,26 +93,20 @@ const DUP_MAX_REPORTED = 20;
 const DUP_LOCALE_PREFIXES = /** @type {const} */ (['en', 'de', 'fr']);
 
 // audit-page-weight constants. `MAX_HTML_BYTES` is IMPORTED (see the import
-// block above), not re-declared: "kept in lock-step" by comment is what left
-// this script stale at 200 KB while the active gate had already moved to 215
-// (issue #4209(b)), i.e. a budget that silently stopped matching the gate it
-// mirrors. One declaration cannot drift (issue #7330).
-// Per-path budget override — mirrors scripts/audit-page-weight.mjs (the active
-// gate). The Italian-fuel-stations index pages deliberately link every border
-// station inline for the orphan-elimination contract (#1241); per explicit user
-// override (2026-06-03) they get a raised budget, the global cap is unchanged.
-const PW_ITALIAN_STATIONS_INDEX_BUDGET = 900 * 1024;
-const PW_ITALIAN_STATIONS_INDEX_RE =
-  /(?:^|\/)(?:stazioni-italia|italienische-tankstellen|italian-stations|stations-italiennes)\//;
+// block above), not re-declared: one declaration cannot drift (issue #7330).
 // Keep in lock-step with audit-page-weight.mjs: the complete company-hub and
 // employer-profile result sets are explicit owner-approved page-weight
 // exceptions, while image dimension/loading validation remains enforced.
+// Facility pages have the same complete-inventory contract, with a finite
+// The shared facility budget has a finite ceiling so future corpus growth
+// remains visible to the audit.
 function pwBudgetForPath(relPath) {
   const p = '/' + String(relPath).replace(/\\/g, '/').replace(/^dist\//, '').replace(/index\.html$/, '');
   if (JOB_BOARD_COMPANY_HUB_PATH_RX.test(p) || EMPLOYER_PROFILE_PATH_RX.test(p)) {
     return Number.POSITIVE_INFINITY;
   }
-  return PW_ITALIAN_STATIONS_INDEX_RE.test(p) ? PW_ITALIAN_STATIONS_INDEX_BUDGET : MAX_HTML_BYTES;
+  if (HEALTH_FACILITIES_SECTION_RX.test(p)) return HEALTH_FACILITY_PAGE_BUDGET_BYTES;
+  return MAX_HTML_BYTES;
 }
 
 // audit-hreflang constants.

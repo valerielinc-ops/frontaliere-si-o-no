@@ -55,6 +55,7 @@ const NUMBER_ENV_FALLBACK_PATTERN = /Number\(\s*process\s*\.\s*env\s*(?:\.\s*[A-
 
 const GATE_SOURCE_PATH_RE = /\.(?:mjs|cjs|js|ts|tsx|ya?ml)$/;
 const JAVASCRIPT_SOURCE_PATH_RE = /\.(?:mjs|cjs|js|ts|tsx)$/;
+const YAML_SOURCE_PATH_RE = /\.ya?ml$/i;
 
 /** A raw env number is only dangerous when it controls a bounded operation. */
 const RAW_NUMBER_ENV_ASSIGNMENT_RE =
@@ -135,49 +136,256 @@ function stripCommentsForNumberEnvGate(source) {
   return out;
 }
 
+/**
+ * Remove YAML comments without treating an apostrophe in a plain scalar as a
+ * quote. YAML uses `#` for comments, while prose such as `it's` is valid plain
+ * text and must not hide the code that follows it on the same line.
+ */
+function stripYamlCommentsForNumberEnvGate(source) {
+  let out = '';
+  let quote = '';
+
+  const quoteStartsScalar = (index) => {
+    let previous = index - 1;
+    while (previous >= 0 && /\s/.test(source[previous])) previous--;
+    return previous < 0 || ':?,[{-'.includes(source[previous]);
+  };
+
+  for (let i = 0; i < source.length; i++) {
+    const c = source[i];
+    const next = source[i + 1];
+
+    if (quote === "'") {
+      out += c;
+      if (c === "'" && next === "'") out += source[++i];
+      else if (c === "'") quote = '';
+      continue;
+    }
+
+    if (quote === '"') {
+      out += c;
+      if (c === '\\' && i + 1 < source.length) out += source[++i];
+      else if (c === '"') quote = '';
+      continue;
+    }
+
+    if ((c === "'" || c === '"') && quoteStartsScalar(i)) {
+      quote = c;
+      out += c;
+    } else if (c === '#' && (i === 0 || /\s/.test(source[i - 1]))) {
+      out += ' '.repeat(source.length - i);
+      break;
+    } else {
+      out += c;
+    }
+  }
+  return out;
+}
+
 function escapeNumericEnvIdentifier(value) {
   return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-function containingNumericEnvBlock(source, index) {
+/**
+ * Locate brace-delimited regions while ignoring quoted strings and regex
+ * literals. The ranges are only a lexical approximation, but they are enough
+ * to keep a nested shadowing declaration from being mistaken for a use of an
+ * outer env-bound variable.
+ */
+function numericEnvBraceRanges(source) {
+  const ranges = [];
   const stack = [];
   let quote = '';
-  for (let i = 0; i < index; i++) {
+  let regex = false;
+  let regexClass = false;
+
+  for (let i = 0; i < source.length; i++) {
     const c = source[i];
+    const next = source[i + 1];
+
+    if (regex) {
+      if (c === '\\' && i + 1 < source.length) i++;
+      else if (c === '[') regexClass = true;
+      else if (c === ']') regexClass = false;
+      else if (c === '/' && !regexClass) regex = false;
+      continue;
+    }
+
     if (quote) {
-      if (c === '\\') i++;
+      if (c === '\\' && i + 1 < source.length) i++;
       else if (c === quote) quote = '';
       continue;
     }
-    if (c === "'" || c === '"' || c === '`') {
+
+    if (c === '/' && next !== '/' && next !== '*' && isRegexLiteralStart(source, i)) {
+      regex = true;
+      regexClass = false;
+    } else if (c === "'" || c === '"' || c === '`') {
       quote = c;
     } else if (c === '{') {
       stack.push(i);
-    } else if (c === '}') {
-      stack.pop();
+    } else if (c === '}' && stack.length > 0) {
+      const open = stack.pop();
+      ranges.push({ start: open + 1, end: i, open });
     }
   }
-  if (stack.length === 0) return [0, source.length];
 
-  const start = stack[stack.length - 1] + 1;
-  let depth = 1;
-  quote = '';
-  for (let i = start; i < source.length; i++) {
+  // Preserve the old fail-safe for an unterminated region: scope it to the
+  // remainder of the file instead of widening it to an unrelated prefix.
+  for (const open of stack) ranges.push({ start: open + 1, end: source.length, open });
+  return ranges;
+}
+
+function containingNumericEnvBlock(source, index, ranges = numericEnvBraceRanges(source)) {
+  const containing = ranges
+    .filter(({ start, end }) => start <= index && index <= end)
+    .sort((a, b) => b.start - a.start)[0];
+  return containing ? [containing.start, containing.end] : [0, source.length];
+}
+
+/** Mask strings and regex bodies before looking for lexical declarations. */
+function maskNumericEnvLiterals(source) {
+  let out = '';
+  let quote = '';
+  let regex = false;
+  let regexClass = false;
+
+  for (let i = 0; i < source.length; i++) {
     const c = source[i];
-    if (quote) {
-      if (c === '\\') i++;
-      else if (c === quote) quote = '';
+    const next = source[i + 1];
+
+    if (regex) {
+      if (c === '\\' && i + 1 < source.length) {
+        out += '  ';
+        i++;
+      } else if (c === '[') {
+        regexClass = true;
+        out += ' ';
+      } else if (c === ']') {
+        regexClass = false;
+        out += ' ';
+      } else if (c === '/' && !regexClass) {
+        regex = false;
+        out += ' ';
+      } else {
+        out += c === '\n' ? '\n' : ' ';
+      }
       continue;
     }
-    if (c === "'" || c === '"' || c === '`') {
+
+    if (quote) {
+      if (c === '\\' && i + 1 < source.length) {
+        out += '  ';
+        i++;
+      } else if (c === quote) {
+        quote = '';
+        out += ' ';
+      } else {
+        out += c === '\n' ? '\n' : ' ';
+      }
+      continue;
+    }
+
+    if (c === '/' && next !== '/' && next !== '*' && isRegexLiteralStart(source, i)) {
+      regex = true;
+      regexClass = false;
+      out += ' ';
+    } else if (c === "'" || c === '"' || c === '`') {
       quote = c;
-    } else if (c === '{') {
-      depth++;
-    } else if (c === '}' && --depth === 0) {
-      return [start, i];
+      out += ' ';
+    } else {
+      out += c;
     }
   }
-  return [start, source.length];
+  return out;
+}
+
+function maskDescendantScopes(maskedCode, range, usageIndex, ranges) {
+  const start = range.start;
+  const end = Math.min(range.end, usageIndex);
+  const chars = maskedCode.slice(start, end).split('');
+  for (const descendant of ranges) {
+    if (descendant.start <= start || descendant.start >= end) continue;
+    const descendantEnd = Math.min(descendant.end, usageIndex);
+    for (let index = descendant.start; index < descendantEnd; index++) {
+      const local = index - start;
+      if (chars[local] !== '\n') chars[local] = ' ';
+    }
+  }
+  return chars.join('');
+}
+
+function isFunctionBodyHeader(maskedCode, range) {
+  const header = maskedCode.slice(Math.max(0, range.open - 300), range.open);
+  return (
+    /\bfunction(?:\s+[A-Za-z_$][A-Za-z0-9_$]*)?\s*\([^)]*\)\s*$/.test(header)
+    || /(?:\([^)]*\)|\b[A-Za-z_$][A-Za-z0-9_$]*)\s*=>\s*$/.test(header)
+  );
+}
+
+function maskNestedFunctionScopes(maskedCode, range, usageIndex, ranges) {
+  const start = range.start;
+  const end = Math.min(range.end, usageIndex);
+  const chars = maskedCode.slice(start, end).split('');
+  for (const descendant of ranges) {
+    if (
+      descendant.start <= start
+      || descendant.start >= end
+      || !isFunctionBodyHeader(maskedCode, descendant)
+    ) continue;
+    const descendantEnd = Math.min(descendant.end, usageIndex);
+    for (let index = descendant.start; index < descendantEnd; index++) {
+      const local = index - start;
+      if (chars[local] !== '\n') chars[local] = ' ';
+    }
+  }
+  return chars.join('');
+}
+
+function shadowingBindingBeforeUse(maskedCode, range, variable, usageIndex, ranges) {
+  const escaped = escapeNumericEnvIdentifier(variable);
+  const header = maskedCode.slice(Math.max(0, range.open - 300), range.open);
+  const beforeUse = maskDescendantScopes(maskedCode, range, usageIndex, ranges);
+  const lexicalDeclaration = new RegExp(`\\b(?:const|let|class|function)\\s+${escaped}\\b`);
+  if (lexicalDeclaration.test(beforeUse)) return true;
+
+  const unmaskedBeforeUse = isFunctionBodyHeader(maskedCode, range)
+    ? maskNestedFunctionScopes(maskedCode, range, usageIndex, ranges)
+    : maskedCode.slice(range.start, usageIndex);
+  // `var` is function-scoped, so count it only when this range is a function
+  // body. A `var` in an ordinary nested block redeclares the same binding.
+  if (isFunctionBodyHeader(maskedCode, range) && new RegExp(`\\bvar\\s+${escaped}\\b`).test(unmaskedBeforeUse)) return true;
+
+  const parameterPatterns = [
+    new RegExp(`\\bfunction(?:\\s+[A-Za-z_$][A-Za-z0-9_$]*)?\\s*\\([^)]*\\b${escaped}\\b[^)]*\\)\\s*$`),
+    new RegExp(`(?:\\([^)]*\\b${escaped}\\b[^)]*\\)|\\b${escaped}\\b)\\s*=>\\s*$`),
+    new RegExp(`\\bcatch\\s*\\([^)]*\\b${escaped}\\b[^)]*\\)\\s*$`),
+  ];
+  return parameterPatterns.some((pattern) => pattern.test(header));
+}
+
+function boundUseIsUnshadowed(code, maskedCode, ranges, variable, scopeStart, scopeEnd) {
+  const escaped = escapeNumericEnvIdentifier(variable);
+  const scope = code.slice(scopeStart, scopeEnd);
+  const patterns = [
+    new RegExp(`\\.\\s*slice\\s*\\([^)]*\\b${escaped}\\b`, 'g'),
+    new RegExp(`\\bfor\\s*\\([^)]*\\b${escaped}\\b[^)]*\\)`, 'g'),
+    new RegExp(`\\bconcurrency\\b\\s*[:=]\\s*\\b${escaped}\\b`, 'gi'),
+  ];
+
+  for (const pattern of patterns) {
+    for (const match of scope.matchAll(pattern)) {
+      const usageIndex = scopeStart + (match.index ?? 0);
+      const shadowed = ranges.some((range) => (
+        range.start > scopeStart
+        && range.start <= usageIndex
+        && usageIndex < range.end
+        && shadowingBindingBeforeUse(maskedCode, range, variable, usageIndex, ranges)
+      ));
+      if (!shadowed) return true;
+    }
+  }
+  return false;
 }
 
 /**
@@ -189,19 +397,22 @@ function containingNumericEnvBlock(source, index) {
 export function findRawNumberEnvBoundViolations(source, file = '<fixture>') {
   if (!JAVASCRIPT_SOURCE_PATH_RE.test(String(file))) return [];
   const code = stripCommentsForNumberEnvGate(String(source ?? ''));
+  const maskedCode = maskNumericEnvLiterals(code);
+  const braceRanges = numericEnvBraceRanges(code);
   const violations = [];
   let match;
 
   while ((match = RAW_NUMBER_ENV_ASSIGNMENT_RE.exec(code))) {
     const variable = match[1];
-    const escaped = escapeNumericEnvIdentifier(variable);
-    const [scopeStart, scopeEnd] = containingNumericEnvBlock(code, match.index);
-    const compactNumericEnvScope = code.slice(scopeStart, scopeEnd).replace(/\s+/g, ' ');
-    const usedAsBound = [
-      new RegExp(`\\.\\s*slice\\s*\\([^)]*\\b${escaped}\\b`),
-      new RegExp(`\\bfor\\s*\\([^)]*\\b${escaped}\\b[^)]*\\)`),
-      new RegExp(`\\bconcurrency\\b\\s*[:=]\\s*\\b${escaped}\\b`, 'i'),
-    ].some((pattern) => pattern.test(compactNumericEnvScope));
+    const [scopeStart, scopeEnd] = containingNumericEnvBlock(code, match.index, braceRanges);
+    const usedAsBound = boundUseIsUnshadowed(
+      code,
+      maskedCode,
+      braceRanges,
+      variable,
+      scopeStart,
+      scopeEnd,
+    );
 
     if (!usedAsBound) continue;
     const line = code.slice(0, match.index).split('\n').length;
@@ -215,11 +426,13 @@ export function findRawNumberEnvBoundViolations(source, file = '<fixture>') {
  * La riga contiene il costrutto vietato in CODICE (non in un commento)?
  * Pura → testabile.
  */
-export function lineHasNumberEnvFallback(line) {
+export function lineHasNumberEnvFallback(line, file = '<fixture>') {
   const s = String(line ?? '');
   const trimmed = s.trimStart();
   if (trimmed.startsWith('*') || trimmed.startsWith('//') || trimmed.startsWith('#')) return false;
-  const code = s.split('//')[0];
+  const code = YAML_SOURCE_PATH_RE.test(String(file))
+    ? stripYamlCommentsForNumberEnvGate(s)
+    : s.split('//')[0];
   return NUMBER_ENV_FALLBACK_PATTERN.test(code);
 }
 
@@ -273,7 +486,7 @@ function gitGrepLines() {
   if (!hits.some((h) => {
     if (!h.startsWith(`${CANARY_FILE}:`)) return false;
     const content = h.replace(/^[^:]+:\d+:/, '');
-    return lineHasNumberEnvFallback(content);
+    return lineHasNumberEnvFallback(content, CANARY_FILE);
   })) {
     throw new Error(
       `check-number-env-fallback: il controllo positivo non ha trovato il costrutto in ${CANARY_FILE}, `
@@ -305,7 +518,7 @@ export function findViolations() {
     // l'esenzione il gate sarebbe rosso per sempre, il che lo renderebbe
     // inutile — la sua correttezza e' pinnata da tests/int-from-env.test.ts.
     if (file === 'scripts/ci/check-number-env-fallback.mjs') continue;
-    if (lineHasNumberEnvFallback(content)) violations.push({ file, line: Number(lineno), content: content.trim() });
+    if (lineHasNumberEnvFallback(content, file)) violations.push({ file, line: Number(lineno), content: content.trim() });
   }
 
   for (const file of rawCandidateFiles) {

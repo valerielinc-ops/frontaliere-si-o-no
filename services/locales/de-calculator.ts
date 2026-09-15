@@ -450,6 +450,13 @@ const deCalculator: Record<string, string> = {
  'results.salaryAlert.error': 'Der Alert konnte nicht erstellt werden. Bitte versuche es erneut.',
  'results.salaryAlert.successTitle': 'Alert aktiv ✓',
  'results.salaryAlert.successBody': 'Wir melden uns per E-Mail, sobald Tessiner Stellen mit Nettolohn ≥ {amount} erscheinen.',
+ 'results.salaryAlert.capture.title': 'Diesen Alert in wenigen Sekunden speichern',
+ 'results.salaryAlert.capture.body': 'Mit Google oder LinkedIn fortfahren oder einen sicheren Anmeldelink per E-Mail erhalten. Der Alert wird nach der Anmeldung aktiviert.',
+ 'results.salaryAlert.capture.or': 'oder per E-Mail',
+ 'results.salaryAlert.capture.emailLabel': 'Deine E-Mail-Adresse',
+ 'results.salaryAlert.capture.emailCta': 'Anmeldelink senden',
+ 'results.salaryAlert.capture.checkEmailTitle': 'Prüfe deine E-Mail',
+ 'results.salaryAlert.capture.checkEmailBody': 'Wir haben dir einen Link geschickt. Öffne ihn, um dich anzumelden und diesen Lohn-Alert automatisch zu aktivieren.',
 
  // Multi-canton net comparison (#4471)
  'results.cantonCompare.title': 'Derselbe Job in anderen Kantonen',

@@ -25,7 +25,8 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { parseDocument } from 'yaml';
-import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { createGithubIssue, ensureLabelsExist } from '../lib/github-issue-creator.mjs';
+import { auditLoopFleetBindings } from './loop-fleet-registry-audit.mjs';
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 export const WORKFLOW_DIR_NAME = path.join('.github', 'workflows');
@@ -40,7 +41,15 @@ const WORKFLOW_RUN_TYPES = new Set(['completed', 'requested', 'in_progress']);
 const STEP_ID_RE = /^[A-Za-z_][A-Za-z0-9_-]*$/;
 const PATH_RE = /\b((?:scripts|functions|tests|\.github\/actions|\.github\/scripts)\/[A-Za-z0-9_./-]+\.(?:mjs|cjs|js|ts|sh|yml|yaml))\b/g;
 const DATA_PATH_RE = /\b((?:data|public\/data)\/[A-Za-z0-9_./-]+\.(?:json|jsonl|csv|ts))\b/g;
-const OUTPUT_RE = /(?:echo|printf)\s+["']?([A-Za-z_][A-Za-z0-9_-]*)=/g;
+const OUTPUT_RE = /(?:echo|printf)\s+["']?([A-Za-z_][A-Za-z0-9_-]*)(?:=|<<)/g;
+const OUTPUT_HELPER_CALL_RE = /\b(?:write_output|writeOutput|set_output|setOutput|emit_output|emitOutput)\s*\(\s*["']([A-Za-z_][A-Za-z0-9_-]*)["']/g;
+const OUTPUT_HELPER_SHELL_RE = /\b(?:write_output|writeOutput|set_output|setOutput|emit_output|emitOutput)\s+["']?([A-Za-z_][A-Za-z0-9_-]*)["']?/g;
+const OUTPUT_ACTIONS_FILE_RE = /\bappendActionsFile\s*\(\s*["']GITHUB_OUTPUT["']\s*,\s*["']([A-Za-z_][A-Za-z0-9_-]*)["']/g;
+const LOCAL_MODULE_RE = /\b(?:from\s*|import\s*\(\s*|require\s*\(\s*)["'](\.{1,2}\/[^"']+)["']/g;
+const INVOKED_COMMAND_RE = /\b(?:node|bash|sh|tsx|bun|deno)\s+["']?((?:scripts|functions|tests|\.github\/actions|\.github\/scripts)\/[A-Za-z0-9_./-]+\.(?:mjs|cjs|js|ts|sh|yml|yaml))\b/g;
+const SCRIPT_DIR_COMMAND_RE = /\b(?:bash|sh|source|\.)\s+["']?\$\{SCRIPT_DIR\}\/([^"'\s]+)/g;
+const FILE_EXISTENCE_PATH_RE = /^(?:scripts|functions|tests|\.github\/actions|\.github\/scripts)\/[A-Za-z0-9_./-]+\.(?:mjs|cjs|js|ts|sh|yml|yaml)$/;
+const MAX_OUTPUT_REFERENCE_FILES = 16;
 
 function isRecord(value) {
   return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
@@ -185,23 +194,770 @@ function localReusableWorkflowPath(value) {
   return value.split('@', 1)[0].slice(2);
 }
 
+function isShellComment(source, offset) {
+  const raw = String(source || '');
+  const lineStart = raw.lastIndexOf('\n', offset) + 1;
+  let quote = null;
+  let escaped = false;
+  for (let index = lineStart; index < offset; index += 1) {
+    const char = raw[index];
+    if (escaped) {
+      escaped = false;
+      continue;
+    }
+    if (quote === '"' && char === '\\') {
+      escaped = true;
+      continue;
+    }
+    if (quote) {
+      if (char === quote) quote = null;
+      continue;
+    }
+    if (char === '\'' || char === '"') {
+      quote = char;
+      continue;
+    }
+    if (char === '#') {
+      const previous = index === lineStart ? '' : raw[index - 1];
+      if (previous === '' || /\s/u.test(previous) || ';|&(){}<>'.includes(previous)) return true;
+    }
+  }
+  return false;
+}
+
 function extractCommandPaths(run) {
   const paths = [];
   const source = String(run || '');
   for (const match of source.matchAll(PATH_RE)) {
     const candidate = match[1].replace(/[),;:'"`]+$/g, '');
-    if (!candidate.includes('${{')) paths.push(candidate);
+    if (!candidate.includes('${{') && !isShellComment(source, match.index ?? 0)) paths.push(candidate);
   }
   return [...new Set(paths)];
+}
+
+function extractLocalModulePaths(source) {
+  return [...new Set([...String(source || '').matchAll(LOCAL_MODULE_RE)].map((match) => match[1]))];
+}
+
+function extractInvokedCommandReferences(source) {
+  return [...String(source || '').matchAll(INVOKED_COMMAND_RE)].map((match) => ({
+    path: match[1].replace(/[),;:'"`]+$/g, ''),
+    index: match.index ?? 0,
+  }));
+}
+
+function extractInvokedCommandPaths(source) {
+  return [...new Set(extractInvokedCommandReferences(source).map((match) => match.path))];
+}
+
+function extractScriptDirCommands(source) {
+  return [...new Set([...String(source || '').matchAll(SCRIPT_DIR_COMMAND_RE)].map((match) => match[1]))];
 }
 
 function extractDataPaths(run) {
   return [...new Set([...String(run || '').matchAll(DATA_PATH_RE)].map((match) => match[1]))];
 }
 
-function stepOutputKeys(run) {
-  if (!/\$GITHUB_OUTPUT\b/.test(String(run || ''))) return new Set();
-  return new Set([...String(run).matchAll(OUTPUT_RE)].map((match) => match[1]));
+const SHELL_KEYWORDS = new Set(['case', 'do', 'done', 'elif', 'else', 'esac', 'fi', 'for', 'if', 'in', 'then', 'until', 'while']);
+const SHELL_COMMENT_PRECEDERS = new Set([';', '&', '|', '(', ')', '{', '}', '<', '>']);
+const SHELL_OPERATORS = [';&', ';;&', '||', '&&', '|&', ';;', '>>', '<<', '>&', '<&', '>|', ';', '|', '&', '(', ')', '{', '}', '<', '>'];
+
+function shellTokens(source) {
+  const raw = String(source || '');
+  const tokens = [];
+  let value = '';
+  let start = -1;
+  let unquoted = false;
+  let quote = null;
+  let escaped = false;
+  let comment = false;
+
+  const append = (char, isUnquoted, index) => {
+    if (start < 0) start = index;
+    value += char;
+    if (isUnquoted) unquoted = true;
+  };
+  const flush = (end) => {
+    if (start < 0) return;
+    tokens.push({
+      type: 'word',
+      value,
+      start,
+      end,
+      quotedOnly: !unquoted,
+    });
+    value = '';
+    start = -1;
+    unquoted = false;
+  };
+  const operatorAt = (index) => SHELL_OPERATORS.find((operator) => raw.startsWith(operator, index)) || null;
+
+  for (let index = 0; index < raw.length; index += 1) {
+    const char = raw[index];
+    if (comment) {
+      if (char === '\n') comment = false;
+      continue;
+    }
+    if (quote) {
+      if (quote === '"' && escaped) {
+        append(char, false, index);
+        escaped = false;
+        continue;
+      }
+      if (quote === '"' && char === '\\') {
+        append(char, false, index);
+        escaped = true;
+        continue;
+      }
+      if (char === quote) {
+        quote = null;
+        continue;
+      }
+      append(char, false, index);
+      continue;
+    }
+    if (escaped) {
+      if (char !== '\n') append(char, true, index);
+      escaped = false;
+      continue;
+    }
+    if (char === '\\') {
+      if (start < 0) start = index;
+      escaped = true;
+      unquoted = true;
+      continue;
+    }
+    if (char === '\'' || char === '"') {
+      if (start < 0) start = index;
+      quote = char;
+      continue;
+    }
+    if (char === '#'
+      && start < 0
+      && (index === 0 || /\s/u.test(raw[index - 1]) || SHELL_COMMENT_PRECEDERS.has(raw[index - 1]))) {
+      comment = true;
+      continue;
+    }
+    if (char === '\n') {
+      flush(index);
+      tokens.push({ type: 'operator', value: '\n', start: index, end: index + 1 });
+      continue;
+    }
+    if (/\s/u.test(char)) {
+      flush(index);
+      continue;
+    }
+    const operator = operatorAt(index);
+    if (operator) {
+      flush(index);
+      tokens.push({ type: 'operator', value: operator, start: index, end: index + operator.length });
+      index += operator.length - 1;
+      continue;
+    }
+    append(char, true, index);
+  }
+  if (escaped) append('\\', true, raw.length - 1);
+  flush(raw.length);
+  return tokens;
+}
+
+function parseShellCommands(source) {
+  const tokens = shellTokens(source);
+  const commands = [];
+  const keywordTokens = [];
+  let segment = [];
+  let operatorBefore = null;
+
+  const flush = (operatorAfter = null) => {
+    if (segment.length === 0) return;
+    const prefixKeywords = [];
+    let commandIndex = -1;
+    for (let index = 0; index < segment.length; index += 1) {
+      const token = segment[index];
+      if (commandIndex < 0 && token.type === 'word' && !token.quotedOnly && SHELL_KEYWORDS.has(token.value)) {
+        prefixKeywords.push(token.value);
+        keywordTokens.push(token);
+        continue;
+      }
+      if (commandIndex < 0 && token.type === 'word') {
+        commandIndex = index;
+      }
+    }
+    if (commandIndex >= 0) {
+      const commandToken = segment[commandIndex];
+      commands.push({
+        name: commandToken.value,
+        nameToken: commandToken,
+        args: segment.slice(commandIndex + 1),
+        start: commandToken.start,
+        end: segment.at(-1).end,
+        operatorBefore,
+        operatorAfter,
+        prefixKeywords,
+      });
+    }
+    segment = [];
+    operatorBefore = operatorAfter;
+  };
+
+  for (const token of tokens) {
+    if (token.type === 'operator') flush(token.value);
+    else segment.push(token);
+  }
+  flush();
+  return { tokens, commands, keywordTokens };
+}
+
+function shellConditionalBranches(parsed) {
+  const branches = [];
+  const stack = [];
+  for (const token of parsed.keywordTokens) {
+    if (token.value === 'if') {
+      const branch = { conditionStart: token, then: null, bodyEnd: null };
+      stack.push({ branches: [branch], current: branch });
+      branches.push(branch);
+    } else if (token.value === 'elif') {
+      const block = stack.at(-1);
+      if (!block) continue;
+      if (block.current.then && !block.current.bodyEnd) block.current.bodyEnd = token;
+      const branch = { conditionStart: token, then: null, bodyEnd: null };
+      block.branches.push(branch);
+      block.current = branch;
+      branches.push(branch);
+    } else if (token.value === 'then') {
+      const block = stack.at(-1);
+      if (block && !block.current.then) block.current.then = token;
+    } else if (token.value === 'else') {
+      const block = stack.at(-1);
+      if (block && block.current.then && !block.current.bodyEnd) block.current.bodyEnd = token;
+    } else if (token.value === 'fi') {
+      const block = stack.pop();
+      if (block && block.current.then && !block.current.bodyEnd) block.current.bodyEnd = token;
+    }
+  }
+  return branches.filter((branch) => branch.then && branch.bodyEnd);
+}
+
+function fileExistencePath(command) {
+  if (command.nameToken.quotedOnly) return null;
+  const values = command.args.map((token) => token.value);
+  const path = command.name === 'test' && values.length === 2 && values[0] === '-f'
+    ? values[1]
+    : command.name === '[' && values.length === 3 && values[0] === '-f' && values[2] === ']'
+      ? values[1]
+      : null;
+  return path && FILE_EXISTENCE_PATH_RE.test(path) ? path : null;
+}
+
+function hasShellOperator(parsed, start, end, value) {
+  return parsed.tokens.some((token) => token.type === 'operator'
+    && token.value === value
+    && token.start >= start
+    && token.end <= end);
+}
+
+/**
+ * Return literal files checked by the same shell step before it invokes a
+ * command. A dynamic checkout is not statically inspectable from the control
+ * checkout, but an explicit runtime `test -f` is a real, fail-closed proof of
+ * the file that the following command will execute. Variable-based checks are
+ * deliberately not accepted: the audit must not turn an unbounded loop into a
+ * claim about a particular script.
+ */
+function extractFileExistenceAssertions(run) {
+  const parsed = parseShellCommands(run);
+  const branches = shellConditionalBranches(parsed);
+  const assertions = new Map();
+  const addAssertion = (path, assertion) => {
+    const current = assertions.get(path) || [];
+    current.push(assertion);
+    assertions.set(path, current);
+  };
+  for (const command of parsed.commands) {
+    const path = fileExistencePath(command);
+    if (!path || command.prefixKeywords.includes('!')) continue;
+    const conditionBranch = branches
+      .filter((branch) => command.start > branch.conditionStart.end
+        && command.end <= branch.then.start)
+      .sort((left, right) => right.conditionStart.start - left.conditionStart.start)[0];
+    if (conditionBranch) {
+      if (hasShellOperator(parsed, command.end, conditionBranch.then.start, '||')) continue;
+      addAssertion(path, {
+        index: command.start,
+        scope: { start: conditionBranch.then.end, end: conditionBranch.bodyEnd.start },
+      });
+      continue;
+    }
+    // GitHub's default bash shell is fail-fast. Only a complete command
+    // followed by a command-list boundary is accepted here; constructs such
+    // as `test -f file || true` are intentionally not proof of execution.
+    if (command.prefixKeywords.length === 0
+      && (command.operatorAfter === null || ['\n', ';', ')', '}'].includes(command.operatorAfter))) {
+      addAssertion(path, { index: command.start, scope: null });
+    }
+  }
+  return assertions;
+}
+
+/**
+ * Remove shell string contents before looking for operational commands.
+ * Workflow steps often print a copy/paste recipe containing `git add` and a
+ * data path; those words are documentation, not a write performed by the
+ * step. Preserve newlines so finding line numbers remain stable. When enabled,
+ * preserve a quoted data path only after an operational `git add` or shell
+ * redirection, so real quoted writes remain visible without reviving recipes.
+ */
+function shellOperationalText(run, { preserveQuotedWritePaths = false } = {}) {
+  const source = String(run || '');
+  const output = [];
+  let line = '';
+  let doubleQuoted = false;
+  let comment = false;
+  let escaped = false;
+  let quote = null;
+  let quotePrefix = '';
+  let quoteContent = '';
+  // This is the current shell command, not the current physical line. Keep it
+  // separate from the masked output so a quoted data path can still inherit
+  // the operational `git add`/redirection prefix across escaped newlines.
+  let logicalCommand = '';
+  let trailingBackslashes = 0;
+
+  const append = (text) => {
+    output.push(text);
+    const parts = text.split('\n');
+    line = parts.length > 1 ? parts.at(-1) : `${line}${text}`;
+    for (const char of text) {
+      // GitHub's YAML parser normally gives us LF, but accepting CRLF here
+      // keeps the shell-context state independent of the source line ending.
+      if (char === '\r') continue;
+      if (char === '\n') {
+        // A shell continuation is present only after an odd number of trailing
+        // backslashes. Remove the continuation slash but retain the command
+        // prefix while the next physical line is appended.
+        if (trailingBackslashes % 2 === 1) logicalCommand = logicalCommand.slice(0, -1);
+        else logicalCommand = '';
+        trailingBackslashes = 0;
+      } else {
+        logicalCommand += char;
+        trailingBackslashes = char === '\\' ? trailingBackslashes + 1 : 0;
+      }
+    }
+  };
+  const mask = (text) => append([...text].map((char) => char === '\n' ? '\n' : ' ').join(''));
+  const quotedPathIsOperational = (content) => {
+    if (!preserveQuotedWritePaths || !/^((?:data|public\/data)\/[A-Za-z0-9_./-]+\.(?:json|jsonl|csv|ts))$/i.test(content)) return false;
+    const command = quotePrefix.split(/&&|\|\||[;|]/).at(-1) || '';
+    return /\bgit\s+add\b[^\n]*$|(?:>>|>)\s*$/i.test(command);
+  };
+
+  for (const char of source) {
+    if (quote) {
+      if (doubleQuoted && escaped) {
+        quoteContent += char;
+        escaped = false;
+        continue;
+      }
+      if (doubleQuoted && char === '\\') {
+        quoteContent += char;
+        escaped = true;
+        continue;
+      }
+      if (char === quote) {
+        if (quotedPathIsOperational(quoteContent)) append(quoteContent);
+        else mask(quoteContent);
+        mask(char);
+        quote = null;
+        doubleQuoted = false;
+        escaped = false;
+        quoteContent = '';
+        continue;
+      }
+      quoteContent += char;
+      continue;
+    }
+    if (comment) {
+      if (char === '\n') comment = false;
+      mask(char);
+      continue;
+    }
+    if (escaped) {
+      escaped = false;
+      mask(char);
+      continue;
+    }
+    if (doubleQuoted && char === '\\') {
+      escaped = true;
+      mask(char);
+      continue;
+    }
+    if (!doubleQuoted && char === '#') {
+      comment = true;
+      mask(char);
+      continue;
+    }
+    if (char === "'" || char === '"') {
+      quote = char;
+      doubleQuoted = char === '"';
+      quotePrefix = logicalCommand;
+      quoteContent = '';
+      mask(char);
+      continue;
+    }
+    append(char);
+  }
+  if (quoteContent) {
+    mask(quoteContent);
+  }
+  return output.join('');
+}
+
+function stringLiterals(source) {
+  const raw = String(source || '');
+  const literals = [];
+  let quote = null;
+  let start = -1;
+  let escaped = false;
+  let lineComment = false;
+  let blockComment = false;
+
+  for (let index = 0; index < raw.length; index += 1) {
+    const char = raw[index];
+    const next = raw[index + 1];
+    if (lineComment) {
+      if (char === '\n') lineComment = false;
+      continue;
+    }
+    if (blockComment) {
+      if (char === '*' && next === '/') {
+        blockComment = false;
+        index += 1;
+      }
+      continue;
+    }
+    if (quote) {
+      if (escaped) {
+        escaped = false;
+        continue;
+      }
+      if (char === '\\') {
+        escaped = true;
+        continue;
+      }
+      if (char === quote) {
+        literals.push({ value: raw.slice(start, index), start, end: index + 1 });
+        quote = null;
+        start = -1;
+      }
+      continue;
+    }
+    if (char === '/' && next === '/') {
+      lineComment = true;
+      index += 1;
+      continue;
+    }
+    if (char === '/' && next === '*') {
+      blockComment = true;
+      index += 1;
+      continue;
+    }
+    if (char === '#') {
+      lineComment = true;
+      continue;
+    }
+    if (char === "'" || char === '"' || char === '`') {
+      quote = char;
+      start = index + 1;
+    }
+  }
+  return literals;
+}
+
+function matchingParen(source, openingIndex) {
+  const raw = String(source || '');
+  let depth = 0;
+  let quote = null;
+  let escaped = false;
+  let lineComment = false;
+  let blockComment = false;
+  for (let index = openingIndex; index < raw.length; index += 1) {
+    const char = raw[index];
+    const next = raw[index + 1];
+    if (lineComment) {
+      if (char === '\n') lineComment = false;
+      continue;
+    }
+    if (blockComment) {
+      if (char === '*' && next === '/') {
+        blockComment = false;
+        index += 1;
+      }
+      continue;
+    }
+    if (quote) {
+      if (escaped) {
+        escaped = false;
+        continue;
+      }
+      if (char === '\\') {
+        escaped = true;
+        continue;
+      }
+      if (char === quote) quote = null;
+      continue;
+    }
+    if (char === '/' && next === '/') {
+      lineComment = true;
+      index += 1;
+      continue;
+    }
+    if (char === '/' && next === '*') {
+      blockComment = true;
+      index += 1;
+      continue;
+    }
+    if (char === "'" || char === '"' || char === '`') {
+      quote = char;
+      continue;
+    }
+    if (char === '(') depth += 1;
+    if (char === ')') {
+      depth -= 1;
+      if (depth === 0) return index;
+    }
+  }
+  return -1;
+}
+
+function heredocOutputRanges(source) {
+  const raw = String(source || '');
+  const ranges = [];
+  const heredocRes = [
+    /(?:>>|>)\s*["']?\$GITHUB_OUTPUT["']?\s+<<-?\s*(?:(['"])([A-Za-z_][A-Za-z0-9_]*)\1|([A-Za-z_][A-Za-z0-9_]*))[^\r\n]*(?:\r?\n|$)/g,
+    /<<-?\s*(?:(['"])([A-Za-z_][A-Za-z0-9_]*)\1|([A-Za-z_][A-Za-z0-9_]*))\s+(?:>>|>)\s*["']?\$GITHUB_OUTPUT["']?[^\r\n]*(?:\r?\n|$)/g,
+  ];
+  for (const heredocRe of heredocRes) {
+    for (const match of raw.matchAll(heredocRe)) {
+      const rangeStart = match.index ?? 0;
+      const bodyStart = rangeStart + match[0].length;
+      const delimiter = match[2] || match[3] || match[5] || match[6];
+      const indentation = match[0].includes('<<-') ? '[\\t]*' : '';
+      const terminatorRe = new RegExp(`^${indentation}${delimiter}[ \\t]*(?:\\r?\\n|$)`, 'm');
+      const terminator = raw.slice(bodyStart).match(terminatorRe);
+      ranges.push({
+        start: rangeStart,
+        end: terminator ? bodyStart + (terminator.index ?? 0) : raw.length,
+      });
+    }
+  }
+  return ranges;
+}
+
+function outputSinkRanges(source) {
+  const raw = String(source || '');
+  const outputVariables = new Set(['process.env.GITHUB_OUTPUT', 'env.GITHUB_OUTPUT']);
+  for (const match of raw.matchAll(/\b(?:const|let|var)\s+([A-Za-z_$][A-Za-z0-9_$]*)\s*=\s*process\.env\.GITHUB_OUTPUT\b/g)) {
+    outputVariables.add(match[1]);
+  }
+  const variableAlternation = [...outputVariables]
+    .map((value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+    .join('|');
+  const sinkRe = new RegExp(
+    '\\b(?:appendFileSync|writeFileSync)\\(\\s*(?:'
+      + variableAlternation
+      + ')\\s*,',
+    'g',
+  );
+  const ranges = [];
+  for (const match of raw.matchAll(sinkRe)) {
+    const openingIndex = raw.indexOf('(', match.index ?? 0);
+    const closingIndex = matchingParen(raw, openingIndex);
+    let rangeStart = match.index ?? 0;
+    if (closingIndex >= 0) {
+      const argument = raw.slice((match.index ?? 0) + match[0].length, closingIndex).trim();
+      const variableMatch = argument.match(/^([A-Za-z_$][A-Za-z0-9_$]*)$/);
+      if (variableMatch) {
+        const escapedVariable = variableMatch[1].replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const declarationRe = new RegExp(`\\b(?:const|let|var)\\s+${escapedVariable}\\s*=`, 'g');
+        for (const declaration of raw.slice(0, match.index ?? 0).matchAll(declarationRe)) {
+          rangeStart = declaration.index ?? rangeStart;
+        }
+      }
+    }
+    ranges.push({
+      start: rangeStart,
+      end: closingIndex >= 0 ? closingIndex + 1 : raw.length,
+    });
+  }
+  return [...ranges, ...heredocOutputRanges(raw)];
+}
+
+function literalOutputKeys(source, sinkRanges = outputSinkRanges(source)) {
+  const keys = new Set();
+  const outputKeyRe = /(?:^|\r?\n|\\n|\\r\\n)([A-Za-z_][A-Za-z0-9_-]*)(?:=|<<)/g;
+  for (const literal of stringLiterals(source)) {
+    const belongsToSink = sinkRanges.some(({ start, end }) => literal.start >= start && literal.start < end);
+    if (!belongsToSink) continue;
+    for (const match of literal.value.matchAll(outputKeyRe)) keys.add(match[1]);
+  }
+  return keys;
+}
+
+function matchingBrace(source, openingIndex) {
+  const raw = String(source || '');
+  let depth = 0;
+  let quote = null;
+  let escaped = false;
+  let lineComment = false;
+  let blockComment = false;
+  for (let index = openingIndex; index < raw.length; index += 1) {
+    const char = raw[index];
+    const next = raw[index + 1];
+    if (lineComment) {
+      if (char === '\n') lineComment = false;
+      continue;
+    }
+    if (blockComment) {
+      if (char === '*' && next === '/') {
+        blockComment = false;
+        index += 1;
+      }
+      continue;
+    }
+    if (quote) {
+      if (escaped) {
+        escaped = false;
+        continue;
+      }
+      if (char === '\\') {
+        escaped = true;
+        continue;
+      }
+      if (char === quote) quote = null;
+      continue;
+    }
+    if (char === '/' && next === '/') {
+      lineComment = true;
+      index += 1;
+      continue;
+    }
+    if (char === '/' && next === '*') {
+      blockComment = true;
+      index += 1;
+      continue;
+    }
+    if (char === "'" || char === '"' || char === '`') {
+      quote = char;
+      continue;
+    }
+    if (char === '{') depth += 1;
+    if (char === '}') {
+      depth -= 1;
+      if (depth === 0) return index;
+    }
+  }
+  return -1;
+}
+
+function objectEntryOutputKeys(source, sinkRanges = outputSinkRanges(source)) {
+  const raw = String(source || '');
+  const keys = new Set();
+  if (sinkRanges.length === 0) return keys;
+  const declarationRe = /\b(?:const|let|var)\s+([A-Za-z_$][A-Za-z0-9_$]*)\s*=\s*\{/g;
+  for (const declaration of raw.matchAll(declarationRe)) {
+    const variable = declaration[1];
+    const declarationStart = declaration.index ?? 0;
+    const openingIndex = raw.indexOf('{', declarationStart);
+    const closingIndex = matchingBrace(raw, openingIndex);
+    if (closingIndex < 0) continue;
+    const escapedVariable = variable.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const entriesRe = new RegExp(
+      `\\b(?:const|let|var)\\s+([A-Za-z_$][A-Za-z0-9_$]*)\\s*=\\s*Object\\.entries\\(\\s*${escapedVariable}\\s*\\)[^;]*;`,
+      'g',
+    );
+    const entries = [...raw.slice(closingIndex + 1).matchAll(entriesRe)];
+    const reachesOutputSink = entries.some((entry) => {
+      const derivedVariable = entry[1];
+      const entriesStart = closingIndex + 1 + (entry.index ?? 0);
+      const entriesEnd = entriesStart + entry[0].length;
+      return sinkRanges.some(({ start, end }) => {
+        if (start < entriesEnd) return false;
+        return new RegExp(`\\b${derivedVariable.replace(/[.*+?^${}()|[\\]\\]/g, '\\\\$&')}\\b`).test(raw.slice(start, end));
+      });
+    });
+    if (!reachesOutputSink) continue;
+    const body = raw.slice(openingIndex + 1, closingIndex);
+    for (const entry of body.matchAll(/(?:^|,)\s*([A-Za-z_][A-Za-z0-9_-]*)\s*:/gm)) keys.add(entry[1]);
+  }
+  return keys;
+}
+
+function outputKeysFromSource(source) {
+  const raw = String(source || '');
+  if (!/\$GITHUB_OUTPUT\b|(?:process|env)\.GITHUB_OUTPUT\b|appendActionsFile\s*\(\s*["']GITHUB_OUTPUT["']/.test(raw)) return new Set();
+  const keys = new Set([...raw.matchAll(OUTPUT_RE)].map((match) => match[1]));
+  for (const match of raw.matchAll(OUTPUT_HELPER_CALL_RE)) keys.add(match[1]);
+  for (const match of raw.matchAll(OUTPUT_HELPER_SHELL_RE)) keys.add(match[1]);
+  for (const match of raw.matchAll(OUTPUT_ACTIONS_FILE_RE)) keys.add(match[1]);
+  const sinkRanges = outputSinkRanges(raw);
+  for (const key of literalOutputKeys(raw, sinkRanges)) keys.add(key);
+  for (const key of objectEntryOutputKeys(raw, sinkRanges)) keys.add(key);
+
+  // A workflow commonly delegates its output writer to a first-party script.
+  // Follow only a statically-known output file (the literal env expression or
+  // a variable assigned from it) and only literal output prefixes. This keeps
+  // the audit conservative: dynamic keys remain unknown and still warn.
+  for (const { start, end } of sinkRanges) {
+    const sink = raw.slice(start, end);
+    const firstLiteralKey = sink.match(/(?:[`'\"])([A-Za-z_][A-Za-z0-9_-]*)(?:=|<<)/);
+    if (firstLiteralKey) keys.add(firstLiteralKey[1]);
+  }
+  return keys;
+}
+
+function stepOutputKeys(run, {
+  root = ROOT,
+  workingRoot = root,
+  exists = fs.existsSync,
+  readFile = fs.readFileSync,
+  followReferences = true,
+} = {}) {
+  const source = String(run || '');
+  const keys = outputKeysFromSource(source);
+  if (!followReferences || workingRoot === null) return keys;
+  const visited = new Set();
+  const visit = (absolute, depth) => {
+    if (depth > 4 || visited.size >= MAX_OUTPUT_REFERENCE_FILES || visited.has(absolute) || !exists(absolute)) return;
+    visited.add(absolute);
+    let delegated;
+    try {
+      delegated = readFile(absolute, 'utf8');
+    } catch {
+      // A runtime checkout or a permission failure is not proof of an output
+      // contract. Leave the key unknown so the existing warning is retained.
+      return;
+    }
+    const delegatedKeys = outputKeysFromSource(delegated);
+    for (const key of delegatedKeys) keys.add(key);
+    // Once a delegated writer exposes literal keys, traversing all of its
+    // dependencies adds cost without making the contract more certain. Keep
+    // following only when the current file is itself an output-aware wrapper.
+    if (delegatedKeys.size > 0) return;
+    for (const candidate of extractInvokedCommandPaths(delegated)) {
+      const commandPath = path.resolve(workingRoot, candidate);
+      if (exists(commandPath)) visit(commandPath, depth + 1);
+    }
+    for (const candidate of extractScriptDirCommands(delegated)) {
+      const commandPath = path.resolve(path.dirname(absolute), candidate);
+      if (exists(commandPath)) visit(commandPath, depth + 1);
+    }
+    for (const candidate of extractLocalModulePaths(delegated)) {
+      const modulePath = path.resolve(path.dirname(absolute), candidate);
+      if (exists(modulePath)) visit(modulePath, depth + 1);
+    }
+  };
+  for (const candidate of extractCommandPaths(source)) visit(path.resolve(workingRoot, candidate), 0);
+  return keys;
 }
 
 function expressionIsInComment(source, offset) {
@@ -455,7 +1211,7 @@ function validateWorkflowLevel(workflow, file, source, findings) {
   }
 }
 
-function validateJobs(workflow, file, source, root, exists, knownWorkflowNames, findings, reusableWorkflowOutputs) {
+function validateJobs(workflow, file, source, root, exists, readFile, knownWorkflowNames, findings, reusableWorkflowOutputs) {
   const jobs = isRecord(workflow.jobs) ? workflow.jobs : {};
   const jobNames = new Set(Object.keys(jobs));
   const inputNames = inputDefinitions(normalizeTriggers(workflow.on));
@@ -532,14 +1288,32 @@ function validateJobs(workflow, file, source, root, exists, knownWorkflowNames, 
       if (hasUses && rawStep.uses.startsWith('./') && !localReferenceExists(root, rawStep.uses, '.', exists)) {
         findings.push(finding(file, 'workflow.local-action', 'error', `local action non trovata: ${rawStep.uses}`, stepLine));
       }
+      let outputKeys = new Set();
       if (hasRun) {
         const workingRoot = staticWorkingDirectory(root, rawStep['working-directory']);
         const dynamicDirectory = workingRoot === null
           || /\b(?:cd|pushd)\s+["']?\$(?:\{)?[A-Za-z_][A-Za-z0-9_]*(?:\})?|\bgit\s+clone\b/i.test(rawStep.run);
         const runtimeCheckout = checkoutPathForWorkingDirectory(root, workingRoot, checkoutPaths);
+        outputKeys = stepOutputKeys(rawStep.run, {
+          root,
+          workingRoot,
+          exists,
+          readFile,
+          followReferences: !dynamicDirectory && !runtimeCheckout,
+        });
+        const runtimeFileAssertions = extractFileExistenceAssertions(rawStep.run);
+        const invokedCommandReferences = extractInvokedCommandReferences(rawStep.run);
         for (const candidate of extractCommandPaths(rawStep.run)) {
           const inWorkingDirectory = workingRoot !== null && exists(path.resolve(workingRoot, candidate));
-          if (!inWorkingDirectory) {
+          const invocations = invokedCommandReferences.filter((reference) => reference.path === candidate);
+          const assertions = runtimeFileAssertions.get(candidate) || [];
+          const verifiedAtRuntime = assertions.length > 0
+            && (invocations.length === 0 || invocations.every((invocation) => assertions.some((assertion) => {
+              if (assertion.index >= invocation.index) return false;
+              return assertion.scope === null
+                || (invocation.index > assertion.scope.start && invocation.index < assertion.scope.end);
+            })));
+          if (!inWorkingDirectory && !verifiedAtRuntime) {
             const runtimeOnly = dynamicDirectory || runtimeCheckout;
             findings.push(finding(
               file,
@@ -555,9 +1329,11 @@ function validateJobs(workflow, file, source, root, exists, knownWorkflowNames, 
             ));
           }
         }
-        const dataPaths = extractDataPaths(rawStep.run);
-        const writesData = /\bgit\s+(?:add|commit)\b|(?:>>|>)\s*["']?(?:data|public\/data)\//i.test(rawStep.run);
-        const hasValidation = /\b(?:validat(?:e|ion)|audit|check|assert|test|strict|quality|schema|diff)\b/i.test(rawStep.run);
+        const operationalRun = shellOperationalText(rawStep.run, { preserveQuotedWritePaths: true });
+        const operationalDataPaths = extractDataPaths(operationalRun);
+        const dataPaths = operationalDataPaths;
+        const writesData = /\bgit\s+(?:add|commit)\b|(?:>>|>)\s*(?:\\\r?\n\s*)*["']?(?:data|public\/data)\//i.test(operationalRun);
+        const hasValidation = /\b(?:validat(?:e|ion)|audit|check|assert|test|strict|quality|schema|diff)\b/i.test(operationalRun);
         if (writesData && dataPaths.length > 0 && !hasValidation) {
           for (const dataPath of dataPaths) findings.push(finding(file, 'workflow.data-write-without-check', 'warning', `scrittura di ${dataPath} senza validazione visibile nello step; verificare completezza/timestamp/schema prima del commit`, stepLine, rawStep.run.trim().slice(0, 300)));
         }
@@ -571,7 +1347,7 @@ function validateJobs(workflow, file, source, root, exists, knownWorkflowNames, 
         } else {
           idsForJob.add(rawStep.id);
           outputsForJob.set(rawStep.id, hasRun
-            ? { keys: stepOutputKeys(rawStep.run), known: true }
+            ? { keys: outputKeys, known: true }
             : { keys: new Set(), known: false });
         }
       }
@@ -598,6 +1374,7 @@ function validateJobs(workflow, file, source, root, exists, knownWorkflowNames, 
 export function auditWorkflowText(file, source, {
   root = ROOT,
   exists = fs.existsSync,
+  readFile = fs.readFileSync,
   knownWorkflowNames = new Set(),
   reusableWorkflowOutputs = new Map(),
 } = {}) {
@@ -623,7 +1400,7 @@ export function auditWorkflowText(file, source, {
   validateTriggers(triggers, knownWorkflowNames, file, source, findings);
   const inputNames = validateInputs(triggers, file, source, findings);
   validatePermissions(workflow, file, source, findings);
-  validateJobs(workflow, file, source, root, exists, knownWorkflowNames, findings, reusableWorkflowOutputs);
+  validateJobs(workflow, file, source, root, exists, readFile, knownWorkflowNames, findings, reusableWorkflowOutputs);
   void inputNames;
   return dedupeFindings(findings);
 }
@@ -685,6 +1462,60 @@ export function summarize(report) {
   return summary;
 }
 
+/**
+ * Keep the L11 issue route proportional to the evidence actually observed.
+ *
+ * Errors are deterministic defects that the bounded issue-fix path may inspect
+ * and propose through a PR. Warnings are intentionally ambiguous signals: they
+ * remain visible and durable, but must not consume fixer quota or be presented
+ * as an approved remediation candidate. The separate review label also makes a
+ * warning-only recurrence distinguishable from a fixable one without using the
+ * `needs-human` label, which has its own rescue/sweep semantics.
+ */
+export function auditIssueRouting(summary) {
+  const provenError = Number(summary?.error || 0) > 0;
+  return {
+    labels: [
+      'operations-audit',
+      provenError ? 'agent:fix-queued' : 'operations-audit-review',
+      'agent:no-age-out',
+    ],
+    add: provenError ? 'agent:fix-queued' : 'operations-audit-review',
+    remove: provenError ? 'operations-audit-review' : 'agent:fix-queued',
+    route: provenError ? 'bounded-fix-queue' : 'review-only',
+  };
+}
+
+/**
+ * Synchronise routing labels on both a newly-created issue and a deduplicated
+ * recurrence. `createGithubIssue` applies labels on creation, but intentionally
+ * does not mutate arbitrary labels on an existing twin; without this explicit
+ * reconciliation, a warning-only tracker could remain stuck in `agent:fix-queued`
+ * forever after the audit became warning-only.
+ */
+function syncAuditIssueRouting(issueNumber, summary) {
+  if (!issueNumber) return;
+  const routing = auditIssueRouting(summary);
+  try {
+    // Deduplicated issues return before createGithubIssue's normal label
+    // provisioning path. Provision the target label here too, otherwise the
+    // first warning-only recurrence can fail to leave the durable review route.
+    ensureLabelsExist([routing.add]);
+    execFileSync('gh', [
+      'issue', 'edit', String(issueNumber),
+      '--add-label', routing.add,
+      '--remove-label', routing.remove,
+      ...(process.env.GH_REPO ? ['--repo', process.env.GH_REPO] : []),
+    ], { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'inherit'] });
+    console.log(`Issue audit #${issueNumber}: routing=${routing.route}`);
+  } catch (error) {
+    // The issue itself is already persisted by createGithubIssue. A label-sync
+    // failure must stay visible, but must not turn a successful evidence write
+    // into a false audit failure; the next recurrence retries idempotently.
+    console.error(`Impossibile sincronizzare il routing dell'issue audit #${issueNumber}: ${error.message}`);
+  }
+}
+
 function compactFindings(findings) {
   const groups = new Map();
   for (const item of findings) {
@@ -707,6 +1538,7 @@ export function renderMarkdown(report, { maxFindings = 240, compact = true } = {
     '## Technical operations audit',
     '',
     `- Workflow scansionati: **${report.filesScanned}**`,
+    `- Binding registry flotta: **${report.registry?.loopsScanned ?? 'n/d'} loop**`,
     `- Errori: **${summary.error}** · warning: **${summary.warning}** · totale: **${summary.total}**`,
     `- Commit osservato: \`${report.commit || 'sconosciuto'}\``,
     `- Generato: ${report.generatedAt}`,
@@ -735,7 +1567,18 @@ function setOutput(name, value) {
 
 async function main() {
   const argv = process.argv.slice(2);
-  const report = auditWorkflowFiles(ROOT);
+  const workflowReport = auditWorkflowFiles(ROOT);
+  const registryReport = auditLoopFleetBindings({ root: ROOT });
+  const report = {
+    ...workflowReport,
+    registry: {
+      path: registryReport.registryPath,
+      loopsScanned: registryReport.loopsScanned,
+      loopIds: registryReport.loopIds,
+    },
+    findings: dedupeFindings([...workflowReport.findings, ...registryReport.findings])
+      .sort((left, right) => left.file.localeCompare(right.file) || left.line - right.line || left.rule.localeCompare(right.rule)),
+  };
   const summary = summarize(report);
   const reportPath = cliValue(argv, '--report');
   if (reportPath) {
@@ -756,16 +1599,17 @@ async function main() {
       '### Azione del supervisore',
       '',
       '- Questo report è stato prodotto senza modificare workflow o dati.',
-      '- Gli errori provati sono candidati a issue-fix/PR; i warning restano da confermare con una prova runtime.',
+      `- Routing: **${auditIssueRouting(summary).route}** — gli errori provati possono entrare nell’issue-fix bounded; i warning restano da confermare con una prova runtime.`,
       '- Un dato non osservabile resta `unmeasurable`, non viene trasformato in zero.',
       runUrl ? `- Run: ${runUrl}` : '',
     ].filter(Boolean).join('\n');
+    const routing = auditIssueRouting(summary);
     try {
       const result = await createGithubIssue({
         title: DEFAULT_ISSUE_TITLE,
         description,
         priority: summary.error > 0 ? 2 : 3,
-        labels: ['operations-audit', 'agent:fix-queued', 'agent:no-age-out'],
+        labels: routing.labels,
         workflow: 'technical-operations-supervisor',
         signals: {
           comando: 'node scripts/ci/technical-operations-audit.mjs --issue --strict',
@@ -773,6 +1617,7 @@ async function main() {
         },
       });
       issuePersisted = Boolean(result?.persisted);
+      if (issuePersisted) syncAuditIssueRouting(result.number, summary);
       console.log(issuePersisted ? `Issue audit persistita: #${result.number || '?'}\n` : 'Issue audit non persistita.\n');
     } catch (error) {
       console.error(`Impossibile persistere l'issue audit: ${error.message}`);

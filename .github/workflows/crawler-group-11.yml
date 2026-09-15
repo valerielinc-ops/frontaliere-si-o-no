@@ -78,6 +78,7 @@ jobs:
       CRAWLER_GENERATION_TOKEN: ${{ inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}
       CRAWLER_GENERATION_RECEIPT_DIR: crawler-generation/receipts
       CRAWLER_GROUP_COMMIT_DIR: crawler-generation/commit-batch
+      DATA_PIPELINE_LEASE: "1"
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -109,6 +110,8 @@ jobs:
         run: |-
           node scripts/load-rc-env.mjs
           echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"
+      - name: "Guard: refuse a concurrent run of the other entry point"
+        run: node scripts/check-crawler-group-live-run.mjs crawler-group-11.yml
       - uses: ./.github/actions/setup-omniroute
       - id: setup_claude_haiku_fallback
         uses: ./.github/actions/setup-claude-haiku-fallback
@@ -159,7 +162,7 @@ jobs:
           fi
 
           # ---- rehab-basel: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run rehab-basel" \
               --description "## Crawler fallito
@@ -174,12 +177,16 @@ jobs:
             echo "::warning::rehab-basel: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ rehab-basel: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::rehab-basel: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ rehab-basel: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::rehab-basel: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ rehab-basel: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -194,9 +201,9 @@ jobs:
           mv "$status_tmp" "$status_file"
           exit "$crawler_exit"' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
-            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
-            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           fi
           launcher_pid=$!
           printf '%s\n' "$launcher_pid" > "$pid_path"
@@ -245,7 +252,7 @@ jobs:
           fi
 
           # ---- luks: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run luks" \
               --description "## Crawler fallito
@@ -260,12 +267,16 @@ jobs:
             echo "::warning::luks: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ luks: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::luks: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ luks: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::luks: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ luks: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -280,9 +291,9 @@ jobs:
           mv "$status_tmp" "$status_file"
           exit "$crawler_exit"' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
-            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
-            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           fi
           launcher_pid=$!
           printf '%s\n' "$launcher_pid" > "$pid_path"
@@ -331,7 +342,7 @@ jobs:
           fi
 
           # ---- swiss-re: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run swiss-re" \
               --description "## Crawler fallito
@@ -346,12 +357,16 @@ jobs:
             echo "::warning::swiss-re: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ swiss-re: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::swiss-re: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ swiss-re: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::swiss-re: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ swiss-re: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -366,9 +381,9 @@ jobs:
           mv "$status_tmp" "$status_file"
           exit "$crawler_exit"' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
-            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
-            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           fi
           launcher_pid=$!
           printf '%s\n' "$launcher_pid" > "$pid_path"
@@ -417,7 +432,7 @@ jobs:
           fi
 
           # ---- spitex-ch: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run spitex-ch" \
               --description "## Crawler fallito
@@ -432,12 +447,16 @@ jobs:
             echo "::warning::spitex-ch: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ spitex-ch: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::spitex-ch: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ spitex-ch: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::spitex-ch: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ spitex-ch: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -452,9 +471,9 @@ jobs:
           mv "$status_tmp" "$status_file"
           exit "$crawler_exit"' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
-            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
-            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           fi
           launcher_pid=$!
           printf '%s\n' "$launcher_pid" > "$pid_path"
@@ -503,7 +522,7 @@ jobs:
           fi
 
           # ---- pictet: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run pictet" \
               --description "## Crawler fallito
@@ -518,12 +537,16 @@ jobs:
             echo "::warning::pictet: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ pictet: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::pictet: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ pictet: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::pictet: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ pictet: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -538,9 +561,9 @@ jobs:
           mv "$status_tmp" "$status_file"
           exit "$crawler_exit"' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
-            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
-            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           fi
           launcher_pid=$!
           printf '%s\n' "$launcher_pid" > "$pid_path"
@@ -589,7 +612,7 @@ jobs:
           fi
 
           # ---- nord-anglia: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run nord-anglia" \
               --description "## Crawler fallito
@@ -604,12 +627,16 @@ jobs:
             echo "::warning::nord-anglia: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ nord-anglia: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::nord-anglia: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ nord-anglia: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::nord-anglia: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ nord-anglia: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -624,9 +651,9 @@ jobs:
           mv "$status_tmp" "$status_file"
           exit "$crawler_exit"' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
-            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
-            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           fi
           launcher_pid=$!
           printf '%s\n' "$launcher_pid" > "$pid_path"
@@ -675,7 +702,7 @@ jobs:
           fi
 
           # ---- spital-thurgau: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run spital-thurgau" \
               --description "## Crawler fallito
@@ -690,12 +717,16 @@ jobs:
             echo "::warning::spital-thurgau: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ spital-thurgau: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::spital-thurgau: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ spital-thurgau: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::spital-thurgau: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ spital-thurgau: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -710,9 +741,9 @@ jobs:
           mv "$status_tmp" "$status_file"
           exit "$crawler_exit"' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
-            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
-            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           fi
           launcher_pid=$!
           printf '%s\n' "$launcher_pid" > "$pid_path"
@@ -762,7 +793,7 @@ jobs:
           fi
 
           # ---- klinik-siloah: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run klinik-siloah" \
               --description "## Crawler fallito
@@ -777,12 +808,16 @@ jobs:
             echo "::warning::klinik-siloah: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ klinik-siloah: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::klinik-siloah: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ klinik-siloah: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::klinik-siloah: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ klinik-siloah: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -797,9 +832,9 @@ jobs:
           mv "$status_tmp" "$status_file"
           exit "$crawler_exit"' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
-            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
-            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           fi
           launcher_pid=$!
           printf '%s\n' "$launcher_pid" > "$pid_path"
@@ -848,7 +883,7 @@ jobs:
           fi
 
           # ---- tecan: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run tecan" \
               --description "## Crawler fallito
@@ -863,12 +898,16 @@ jobs:
             echo "::warning::tecan: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ tecan: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::tecan: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ tecan: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::tecan: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ tecan: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -883,9 +922,9 @@ jobs:
           mv "$status_tmp" "$status_file"
           exit "$crawler_exit"' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
-            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
-            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           fi
           launcher_pid=$!
           printf '%s\n' "$launcher_pid" > "$pid_path"
@@ -934,7 +973,7 @@ jobs:
           fi
 
           # ---- tsmg: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run tsmg" \
               --description "## Crawler fallito
@@ -949,12 +988,16 @@ jobs:
             echo "::warning::tsmg: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ tsmg: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::tsmg: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ tsmg: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::tsmg: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ tsmg: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -969,9 +1012,9 @@ jobs:
           mv "$status_tmp" "$status_file"
           exit "$crawler_exit"' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
-            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
-            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           fi
           launcher_pid=$!
           printf '%s\n' "$launcher_pid" > "$pid_path"
@@ -1020,7 +1063,7 @@ jobs:
           fi
 
           # ---- novelis: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run novelis" \
               --description "## Crawler fallito
@@ -1035,12 +1078,16 @@ jobs:
             echo "::warning::novelis: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ novelis: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::novelis: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ novelis: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::novelis: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ novelis: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -1055,9 +1102,9 @@ jobs:
           mv "$status_tmp" "$status_file"
           exit "$crawler_exit"' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
-            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
-            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           fi
           launcher_pid=$!
           printf '%s\n' "$launcher_pid" > "$pid_path"
@@ -1106,7 +1153,7 @@ jobs:
           fi
 
           # ---- hornbach: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run hornbach" \
               --description "## Crawler fallito
@@ -1121,12 +1168,16 @@ jobs:
             echo "::warning::hornbach: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ hornbach: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::hornbach: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ hornbach: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::hornbach: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ hornbach: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -1141,9 +1192,9 @@ jobs:
           mv "$status_tmp" "$status_file"
           exit "$crawler_exit"' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
-            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
-            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           fi
           launcher_pid=$!
           printf '%s\n' "$launcher_pid" > "$pid_path"
@@ -1192,7 +1243,7 @@ jobs:
           fi
 
           # ---- michel-gruppe: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run michel-gruppe" \
               --description "## Crawler fallito
@@ -1207,12 +1258,16 @@ jobs:
             echo "::warning::michel-gruppe: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ michel-gruppe: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::michel-gruppe: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ michel-gruppe: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::michel-gruppe: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ michel-gruppe: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -1227,9 +1282,9 @@ jobs:
           mv "$status_tmp" "$status_file"
           exit "$crawler_exit"' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
-            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
-            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           fi
           launcher_pid=$!
           printf '%s\n' "$launcher_pid" > "$pid_path"
@@ -1278,7 +1333,7 @@ jobs:
           fi
 
           # ---- tpl-lugano: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run tpl-lugano" \
               --description "## Crawler fallito
@@ -1293,12 +1348,16 @@ jobs:
             echo "::warning::tpl-lugano: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ tpl-lugano: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::tpl-lugano: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ tpl-lugano: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::tpl-lugano: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ tpl-lugano: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -1313,9 +1372,9 @@ jobs:
           mv "$status_tmp" "$status_file"
           exit "$crawler_exit"' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
-            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
-            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           fi
           launcher_pid=$!
           printf '%s\n' "$launcher_pid" > "$pid_path"
@@ -1364,7 +1423,7 @@ jobs:
           fi
 
           # ---- jysk: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run jysk" \
               --description "## Crawler fallito
@@ -1379,12 +1438,16 @@ jobs:
             echo "::warning::jysk: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ jysk: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::jysk: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ jysk: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::jysk: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ jysk: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -1399,9 +1462,9 @@ jobs:
           mv "$status_tmp" "$status_file"
           exit "$crawler_exit"' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
-            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
-            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           fi
           launcher_pid=$!
           printf '%s\n' "$launcher_pid" > "$pid_path"
@@ -1450,7 +1513,7 @@ jobs:
           fi
 
           # ---- hess-carrosserie: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run hess-carrosserie" \
               --description "## Crawler fallito
@@ -1465,12 +1528,16 @@ jobs:
             echo "::warning::hess-carrosserie: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ hess-carrosserie: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::hess-carrosserie: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ hess-carrosserie: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::hess-carrosserie: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ hess-carrosserie: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -1485,9 +1552,9 @@ jobs:
           mv "$status_tmp" "$status_file"
           exit "$crawler_exit"' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
-            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
-            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           fi
           launcher_pid=$!
           printf '%s\n' "$launcher_pid" > "$pid_path"
@@ -1536,7 +1603,7 @@ jobs:
           fi
 
           # ---- hilcona: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run hilcona" \
               --description "## Crawler fallito
@@ -1551,12 +1618,16 @@ jobs:
             echo "::warning::hilcona: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ hilcona: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::hilcona: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ hilcona: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::hilcona: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ hilcona: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -1571,9 +1642,9 @@ jobs:
           mv "$status_tmp" "$status_file"
           exit "$crawler_exit"' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
-            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
-            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           fi
           launcher_pid=$!
           printf '%s\n' "$launcher_pid" > "$pid_path"
@@ -1622,7 +1693,7 @@ jobs:
           fi
 
           # ---- msc-cargo: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run msc-cargo" \
               --description "## Crawler fallito
@@ -1637,12 +1708,16 @@ jobs:
             echo "::warning::msc-cargo: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ msc-cargo: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::msc-cargo: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ msc-cargo: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::msc-cargo: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ msc-cargo: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -1657,9 +1732,9 @@ jobs:
           mv "$status_tmp" "$status_file"
           exit "$crawler_exit"' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
-            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
-            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           fi
           launcher_pid=$!
           printf '%s\n' "$launcher_pid" > "$pid_path"
@@ -1708,7 +1783,7 @@ jobs:
           fi
 
           # ---- crr-suva-sion: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run crr-suva-sion" \
               --description "## Crawler fallito
@@ -1723,12 +1798,16 @@ jobs:
             echo "::warning::crr-suva-sion: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ crr-suva-sion: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::crr-suva-sion: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ crr-suva-sion: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::crr-suva-sion: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ crr-suva-sion: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -1743,9 +1822,9 @@ jobs:
           mv "$status_tmp" "$status_file"
           exit "$crawler_exit"' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
-            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
-            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           fi
           launcher_pid=$!
           printf '%s\n' "$launcher_pid" > "$pid_path"
@@ -1794,7 +1873,7 @@ jobs:
           fi
 
           # ---- clienia-ag: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run clienia-ag" \
               --description "## Crawler fallito
@@ -1809,12 +1888,16 @@ jobs:
             echo "::warning::clienia-ag: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ clienia-ag: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::clienia-ag: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ clienia-ag: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::clienia-ag: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ clienia-ag: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -1829,9 +1912,9 @@ jobs:
           mv "$status_tmp" "$status_file"
           exit "$crawler_exit"' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
-            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
-            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           fi
           launcher_pid=$!
           printf '%s\n' "$launcher_pid" > "$pid_path"
@@ -1880,7 +1963,7 @@ jobs:
           fi
 
           # ---- cnp: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run cnp" \
               --description "## Crawler fallito
@@ -1895,12 +1978,16 @@ jobs:
             echo "::warning::cnp: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ cnp: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::cnp: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ cnp: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::cnp: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ cnp: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -1915,9 +2002,9 @@ jobs:
           mv "$status_tmp" "$status_file"
           exit "$crawler_exit"' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
-            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
-            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           fi
           launcher_pid=$!
           printf '%s\n' "$launcher_pid" > "$pid_path"
@@ -1967,7 +2054,7 @@ jobs:
           fi
 
           # ---- igs-bern: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run igs-bern" \
               --description "## Crawler fallito
@@ -1982,12 +2069,16 @@ jobs:
             echo "::warning::igs-bern: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ igs-bern: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::igs-bern: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ igs-bern: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::igs-bern: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ igs-bern: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -2002,9 +2093,9 @@ jobs:
           mv "$status_tmp" "$status_file"
           exit "$crawler_exit"' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
-            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
-            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           fi
           launcher_pid=$!
           printf '%s\n' "$launcher_pid" > "$pid_path"
@@ -2053,7 +2144,7 @@ jobs:
           fi
 
           # ---- axpo: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run axpo" \
               --description "## Crawler fallito
@@ -2068,12 +2159,16 @@ jobs:
             echo "::warning::axpo: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ axpo: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::axpo: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ axpo: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::axpo: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ axpo: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -2088,9 +2183,9 @@ jobs:
           mv "$status_tmp" "$status_file"
           exit "$crawler_exit"' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
-            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
-            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           fi
           launcher_pid=$!
           printf '%s\n' "$launcher_pid" > "$pid_path"
@@ -2139,7 +2234,7 @@ jobs:
           fi
 
           # ---- ardentis: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run ardentis" \
               --description "## Crawler fallito
@@ -2154,12 +2249,16 @@ jobs:
             echo "::warning::ardentis: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ ardentis: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::ardentis: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ ardentis: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::ardentis: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ ardentis: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -2174,9 +2273,9 @@ jobs:
           mv "$status_tmp" "$status_file"
           exit "$crawler_exit"' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
-            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
-            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           fi
           launcher_pid=$!
           printf '%s\n' "$launcher_pid" > "$pid_path"
@@ -2225,7 +2324,7 @@ jobs:
           fi
 
           # ---- amag: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run amag" \
               --description "## Crawler fallito
@@ -2240,12 +2339,16 @@ jobs:
             echo "::warning::amag: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ amag: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::amag: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ amag: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::amag: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ amag: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -2260,9 +2363,9 @@ jobs:
           mv "$status_tmp" "$status_file"
           exit "$crawler_exit"' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
-            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
-            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           fi
           launcher_pid=$!
           printf '%s\n' "$launcher_pid" > "$pid_path"
@@ -2311,7 +2414,7 @@ jobs:
           fi
 
           # ---- a-plus-plus-group: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run a-plus-plus-group" \
               --description "## Crawler fallito
@@ -2326,12 +2429,16 @@ jobs:
             echo "::warning::a-plus-plus-group: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ a-plus-plus-group: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::a-plus-plus-group: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ a-plus-plus-group: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::a-plus-plus-group: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ a-plus-plus-group: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -2346,9 +2453,9 @@ jobs:
           mv "$status_tmp" "$status_file"
           exit "$crawler_exit"' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
-            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
-            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           fi
           launcher_pid=$!
           printf '%s\n' "$launcher_pid" > "$pid_path"
@@ -2397,7 +2504,7 @@ jobs:
           fi
 
           # ---- stellenpartner: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run stellenpartner" \
               --description "## Crawler fallito
@@ -2412,12 +2519,16 @@ jobs:
             echo "::warning::stellenpartner: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ stellenpartner: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::stellenpartner: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ stellenpartner: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::stellenpartner: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ stellenpartner: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -2432,21 +2543,32 @@ jobs:
           mv "$status_tmp" "$status_file"
           exit "$crawler_exit"' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
-            nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
-            nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           fi
           launcher_pid=$!
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Run rehab-basel
         id: crawler-rehab-basel
         if: always()
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-rehab-basel'].outcome }}
         run: |-
           set -uo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-11"
           status_file="$state_dir/rehab-basel.status"
           pid_file="$state_dir/rehab-basel.pid"
           log_file="$state_dir/rehab-basel.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::rehab-basel: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::rehab-basel: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
           deadline=$((SECONDS + 340 * 60))
           while [ ! -s "$status_file" ]; do
             if [ "$SECONDS" -ge "$deadline" ]; then
@@ -2455,6 +2577,10 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::rehab-basel: invalid detached crawler PID: $pid"
+                exit 1
+              fi
               if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
                 sleep 1
                 if [ ! -s "$status_file" ]; then
@@ -2480,12 +2606,23 @@ jobs:
       - name: Run luks
         id: crawler-luks
         if: always()
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-luks'].outcome }}
         run: |-
           set -uo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-11"
           status_file="$state_dir/luks.status"
           pid_file="$state_dir/luks.pid"
           log_file="$state_dir/luks.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::luks: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::luks: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
           deadline=$((SECONDS + 340 * 60))
           while [ ! -s "$status_file" ]; do
             if [ "$SECONDS" -ge "$deadline" ]; then
@@ -2494,6 +2631,10 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::luks: invalid detached crawler PID: $pid"
+                exit 1
+              fi
               if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
                 sleep 1
                 if [ ! -s "$status_file" ]; then
@@ -2519,12 +2660,23 @@ jobs:
       - name: Run swiss-re
         id: crawler-swiss-re
         if: always()
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-swiss-re'].outcome }}
         run: |-
           set -uo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-11"
           status_file="$state_dir/swiss-re.status"
           pid_file="$state_dir/swiss-re.pid"
           log_file="$state_dir/swiss-re.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::swiss-re: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::swiss-re: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
           deadline=$((SECONDS + 340 * 60))
           while [ ! -s "$status_file" ]; do
             if [ "$SECONDS" -ge "$deadline" ]; then
@@ -2533,6 +2685,10 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::swiss-re: invalid detached crawler PID: $pid"
+                exit 1
+              fi
               if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
                 sleep 1
                 if [ ! -s "$status_file" ]; then
@@ -2558,12 +2714,23 @@ jobs:
       - name: Run spitex-ch
         id: crawler-spitex-ch
         if: always()
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-spitex-ch'].outcome }}
         run: |-
           set -uo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-11"
           status_file="$state_dir/spitex-ch.status"
           pid_file="$state_dir/spitex-ch.pid"
           log_file="$state_dir/spitex-ch.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::spitex-ch: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::spitex-ch: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
           deadline=$((SECONDS + 340 * 60))
           while [ ! -s "$status_file" ]; do
             if [ "$SECONDS" -ge "$deadline" ]; then
@@ -2572,6 +2739,10 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::spitex-ch: invalid detached crawler PID: $pid"
+                exit 1
+              fi
               if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
                 sleep 1
                 if [ ! -s "$status_file" ]; then
@@ -2597,12 +2768,23 @@ jobs:
       - name: Run pictet
         id: crawler-pictet
         if: always()
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-pictet'].outcome }}
         run: |-
           set -uo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-11"
           status_file="$state_dir/pictet.status"
           pid_file="$state_dir/pictet.pid"
           log_file="$state_dir/pictet.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::pictet: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::pictet: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
           deadline=$((SECONDS + 340 * 60))
           while [ ! -s "$status_file" ]; do
             if [ "$SECONDS" -ge "$deadline" ]; then
@@ -2611,6 +2793,10 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::pictet: invalid detached crawler PID: $pid"
+                exit 1
+              fi
               if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
                 sleep 1
                 if [ ! -s "$status_file" ]; then
@@ -2636,12 +2822,23 @@ jobs:
       - name: Run nord-anglia
         id: crawler-nord-anglia
         if: always()
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-nord-anglia'].outcome }}
         run: |-
           set -uo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-11"
           status_file="$state_dir/nord-anglia.status"
           pid_file="$state_dir/nord-anglia.pid"
           log_file="$state_dir/nord-anglia.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::nord-anglia: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::nord-anglia: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
           deadline=$((SECONDS + 340 * 60))
           while [ ! -s "$status_file" ]; do
             if [ "$SECONDS" -ge "$deadline" ]; then
@@ -2650,6 +2847,10 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::nord-anglia: invalid detached crawler PID: $pid"
+                exit 1
+              fi
               if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
                 sleep 1
                 if [ ! -s "$status_file" ]; then
@@ -2675,12 +2876,23 @@ jobs:
       - name: Run spital-thurgau
         id: crawler-spital-thurgau
         if: always()
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-spital-thurgau'].outcome }}
         run: |-
           set -uo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-11"
           status_file="$state_dir/spital-thurgau.status"
           pid_file="$state_dir/spital-thurgau.pid"
           log_file="$state_dir/spital-thurgau.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::spital-thurgau: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::spital-thurgau: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
           deadline=$((SECONDS + 340 * 60))
           while [ ! -s "$status_file" ]; do
             if [ "$SECONDS" -ge "$deadline" ]; then
@@ -2689,6 +2901,10 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::spital-thurgau: invalid detached crawler PID: $pid"
+                exit 1
+              fi
               if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
                 sleep 1
                 if [ ! -s "$status_file" ]; then
@@ -2714,12 +2930,23 @@ jobs:
       - name: Run klinik-siloah
         id: crawler-klinik-siloah
         if: always()
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-klinik-siloah'].outcome }}
         run: |-
           set -uo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-11"
           status_file="$state_dir/klinik-siloah.status"
           pid_file="$state_dir/klinik-siloah.pid"
           log_file="$state_dir/klinik-siloah.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::klinik-siloah: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::klinik-siloah: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
           deadline=$((SECONDS + 340 * 60))
           while [ ! -s "$status_file" ]; do
             if [ "$SECONDS" -ge "$deadline" ]; then
@@ -2728,6 +2955,10 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::klinik-siloah: invalid detached crawler PID: $pid"
+                exit 1
+              fi
               if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
                 sleep 1
                 if [ ! -s "$status_file" ]; then
@@ -2753,12 +2984,23 @@ jobs:
       - name: Run tecan
         id: crawler-tecan
         if: always()
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-tecan'].outcome }}
         run: |-
           set -uo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-11"
           status_file="$state_dir/tecan.status"
           pid_file="$state_dir/tecan.pid"
           log_file="$state_dir/tecan.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::tecan: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::tecan: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
           deadline=$((SECONDS + 340 * 60))
           while [ ! -s "$status_file" ]; do
             if [ "$SECONDS" -ge "$deadline" ]; then
@@ -2767,6 +3009,10 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::tecan: invalid detached crawler PID: $pid"
+                exit 1
+              fi
               if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
                 sleep 1
                 if [ ! -s "$status_file" ]; then
@@ -2792,12 +3038,23 @@ jobs:
       - name: Run tsmg
         id: crawler-tsmg
         if: always()
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-tsmg'].outcome }}
         run: |-
           set -uo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-11"
           status_file="$state_dir/tsmg.status"
           pid_file="$state_dir/tsmg.pid"
           log_file="$state_dir/tsmg.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::tsmg: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::tsmg: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
           deadline=$((SECONDS + 340 * 60))
           while [ ! -s "$status_file" ]; do
             if [ "$SECONDS" -ge "$deadline" ]; then
@@ -2806,6 +3063,10 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::tsmg: invalid detached crawler PID: $pid"
+                exit 1
+              fi
               if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
                 sleep 1
                 if [ ! -s "$status_file" ]; then
@@ -2831,12 +3092,23 @@ jobs:
       - name: Run novelis
         id: crawler-novelis
         if: always()
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-novelis'].outcome }}
         run: |-
           set -uo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-11"
           status_file="$state_dir/novelis.status"
           pid_file="$state_dir/novelis.pid"
           log_file="$state_dir/novelis.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::novelis: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::novelis: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
           deadline=$((SECONDS + 340 * 60))
           while [ ! -s "$status_file" ]; do
             if [ "$SECONDS" -ge "$deadline" ]; then
@@ -2845,6 +3117,10 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::novelis: invalid detached crawler PID: $pid"
+                exit 1
+              fi
               if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
                 sleep 1
                 if [ ! -s "$status_file" ]; then
@@ -2870,12 +3146,23 @@ jobs:
       - name: Run hornbach
         id: crawler-hornbach
         if: always()
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-hornbach'].outcome }}
         run: |-
           set -uo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-11"
           status_file="$state_dir/hornbach.status"
           pid_file="$state_dir/hornbach.pid"
           log_file="$state_dir/hornbach.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::hornbach: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::hornbach: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
           deadline=$((SECONDS + 340 * 60))
           while [ ! -s "$status_file" ]; do
             if [ "$SECONDS" -ge "$deadline" ]; then
@@ -2884,6 +3171,10 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::hornbach: invalid detached crawler PID: $pid"
+                exit 1
+              fi
               if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
                 sleep 1
                 if [ ! -s "$status_file" ]; then
@@ -2909,12 +3200,23 @@ jobs:
       - name: Run michel-gruppe
         id: crawler-michel-gruppe
         if: always()
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-michel-gruppe'].outcome }}
         run: |-
           set -uo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-11"
           status_file="$state_dir/michel-gruppe.status"
           pid_file="$state_dir/michel-gruppe.pid"
           log_file="$state_dir/michel-gruppe.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::michel-gruppe: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::michel-gruppe: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
           deadline=$((SECONDS + 340 * 60))
           while [ ! -s "$status_file" ]; do
             if [ "$SECONDS" -ge "$deadline" ]; then
@@ -2923,6 +3225,10 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::michel-gruppe: invalid detached crawler PID: $pid"
+                exit 1
+              fi
               if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
                 sleep 1
                 if [ ! -s "$status_file" ]; then
@@ -2948,12 +3254,23 @@ jobs:
       - name: Run tpl-lugano
         id: crawler-tpl-lugano
         if: always()
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-tpl-lugano'].outcome }}
         run: |-
           set -uo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-11"
           status_file="$state_dir/tpl-lugano.status"
           pid_file="$state_dir/tpl-lugano.pid"
           log_file="$state_dir/tpl-lugano.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::tpl-lugano: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::tpl-lugano: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
           deadline=$((SECONDS + 340 * 60))
           while [ ! -s "$status_file" ]; do
             if [ "$SECONDS" -ge "$deadline" ]; then
@@ -2962,6 +3279,10 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::tpl-lugano: invalid detached crawler PID: $pid"
+                exit 1
+              fi
               if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
                 sleep 1
                 if [ ! -s "$status_file" ]; then
@@ -2987,12 +3308,23 @@ jobs:
       - name: Run jysk
         id: crawler-jysk
         if: always()
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-jysk'].outcome }}
         run: |-
           set -uo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-11"
           status_file="$state_dir/jysk.status"
           pid_file="$state_dir/jysk.pid"
           log_file="$state_dir/jysk.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::jysk: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::jysk: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
           deadline=$((SECONDS + 340 * 60))
           while [ ! -s "$status_file" ]; do
             if [ "$SECONDS" -ge "$deadline" ]; then
@@ -3001,6 +3333,10 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::jysk: invalid detached crawler PID: $pid"
+                exit 1
+              fi
               if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
                 sleep 1
                 if [ ! -s "$status_file" ]; then
@@ -3026,12 +3362,23 @@ jobs:
       - name: Run hess-carrosserie
         id: crawler-hess-carrosserie
         if: always()
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-hess-carrosserie'].outcome }}
         run: |-
           set -uo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-11"
           status_file="$state_dir/hess-carrosserie.status"
           pid_file="$state_dir/hess-carrosserie.pid"
           log_file="$state_dir/hess-carrosserie.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::hess-carrosserie: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::hess-carrosserie: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
           deadline=$((SECONDS + 340 * 60))
           while [ ! -s "$status_file" ]; do
             if [ "$SECONDS" -ge "$deadline" ]; then
@@ -3040,6 +3387,10 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::hess-carrosserie: invalid detached crawler PID: $pid"
+                exit 1
+              fi
               if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
                 sleep 1
                 if [ ! -s "$status_file" ]; then
@@ -3065,12 +3416,23 @@ jobs:
       - name: Run hilcona
         id: crawler-hilcona
         if: always()
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-hilcona'].outcome }}
         run: |-
           set -uo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-11"
           status_file="$state_dir/hilcona.status"
           pid_file="$state_dir/hilcona.pid"
           log_file="$state_dir/hilcona.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::hilcona: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::hilcona: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
           deadline=$((SECONDS + 340 * 60))
           while [ ! -s "$status_file" ]; do
             if [ "$SECONDS" -ge "$deadline" ]; then
@@ -3079,6 +3441,10 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::hilcona: invalid detached crawler PID: $pid"
+                exit 1
+              fi
               if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
                 sleep 1
                 if [ ! -s "$status_file" ]; then
@@ -3104,12 +3470,23 @@ jobs:
       - name: Run msc-cargo
         id: crawler-msc-cargo
         if: always()
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-msc-cargo'].outcome }}
         run: |-
           set -uo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-11"
           status_file="$state_dir/msc-cargo.status"
           pid_file="$state_dir/msc-cargo.pid"
           log_file="$state_dir/msc-cargo.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::msc-cargo: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::msc-cargo: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
           deadline=$((SECONDS + 340 * 60))
           while [ ! -s "$status_file" ]; do
             if [ "$SECONDS" -ge "$deadline" ]; then
@@ -3118,6 +3495,10 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::msc-cargo: invalid detached crawler PID: $pid"
+                exit 1
+              fi
               if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
                 sleep 1
                 if [ ! -s "$status_file" ]; then
@@ -3143,12 +3524,23 @@ jobs:
       - name: Run crr-suva-sion
         id: crawler-crr-suva-sion
         if: always()
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-crr-suva-sion'].outcome }}
         run: |-
           set -uo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-11"
           status_file="$state_dir/crr-suva-sion.status"
           pid_file="$state_dir/crr-suva-sion.pid"
           log_file="$state_dir/crr-suva-sion.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::crr-suva-sion: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::crr-suva-sion: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
           deadline=$((SECONDS + 340 * 60))
           while [ ! -s "$status_file" ]; do
             if [ "$SECONDS" -ge "$deadline" ]; then
@@ -3157,6 +3549,10 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::crr-suva-sion: invalid detached crawler PID: $pid"
+                exit 1
+              fi
               if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
                 sleep 1
                 if [ ! -s "$status_file" ]; then
@@ -3182,12 +3578,23 @@ jobs:
       - name: Run clienia-ag
         id: crawler-clienia-ag
         if: always()
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-clienia-ag'].outcome }}
         run: |-
           set -uo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-11"
           status_file="$state_dir/clienia-ag.status"
           pid_file="$state_dir/clienia-ag.pid"
           log_file="$state_dir/clienia-ag.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::clienia-ag: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::clienia-ag: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
           deadline=$((SECONDS + 340 * 60))
           while [ ! -s "$status_file" ]; do
             if [ "$SECONDS" -ge "$deadline" ]; then
@@ -3196,6 +3603,10 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::clienia-ag: invalid detached crawler PID: $pid"
+                exit 1
+              fi
               if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
                 sleep 1
                 if [ ! -s "$status_file" ]; then
@@ -3221,12 +3632,23 @@ jobs:
       - name: Run cnp
         id: crawler-cnp
         if: always()
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-cnp'].outcome }}
         run: |-
           set -uo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-11"
           status_file="$state_dir/cnp.status"
           pid_file="$state_dir/cnp.pid"
           log_file="$state_dir/cnp.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::cnp: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::cnp: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
           deadline=$((SECONDS + 340 * 60))
           while [ ! -s "$status_file" ]; do
             if [ "$SECONDS" -ge "$deadline" ]; then
@@ -3235,6 +3657,10 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::cnp: invalid detached crawler PID: $pid"
+                exit 1
+              fi
               if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
                 sleep 1
                 if [ ! -s "$status_file" ]; then
@@ -3260,12 +3686,23 @@ jobs:
       - name: Run igs-bern
         id: crawler-igs-bern
         if: always()
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-igs-bern'].outcome }}
         run: |-
           set -uo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-11"
           status_file="$state_dir/igs-bern.status"
           pid_file="$state_dir/igs-bern.pid"
           log_file="$state_dir/igs-bern.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::igs-bern: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::igs-bern: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
           deadline=$((SECONDS + 340 * 60))
           while [ ! -s "$status_file" ]; do
             if [ "$SECONDS" -ge "$deadline" ]; then
@@ -3274,6 +3711,10 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::igs-bern: invalid detached crawler PID: $pid"
+                exit 1
+              fi
               if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
                 sleep 1
                 if [ ! -s "$status_file" ]; then
@@ -3299,12 +3740,23 @@ jobs:
       - name: Run axpo
         id: crawler-axpo
         if: always()
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-axpo'].outcome }}
         run: |-
           set -uo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-11"
           status_file="$state_dir/axpo.status"
           pid_file="$state_dir/axpo.pid"
           log_file="$state_dir/axpo.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::axpo: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::axpo: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
           deadline=$((SECONDS + 340 * 60))
           while [ ! -s "$status_file" ]; do
             if [ "$SECONDS" -ge "$deadline" ]; then
@@ -3313,6 +3765,10 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::axpo: invalid detached crawler PID: $pid"
+                exit 1
+              fi
               if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
                 sleep 1
                 if [ ! -s "$status_file" ]; then
@@ -3338,12 +3794,23 @@ jobs:
       - name: Run ardentis
         id: crawler-ardentis
         if: always()
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-ardentis'].outcome }}
         run: |-
           set -uo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-11"
           status_file="$state_dir/ardentis.status"
           pid_file="$state_dir/ardentis.pid"
           log_file="$state_dir/ardentis.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::ardentis: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::ardentis: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
           deadline=$((SECONDS + 340 * 60))
           while [ ! -s "$status_file" ]; do
             if [ "$SECONDS" -ge "$deadline" ]; then
@@ -3352,6 +3819,10 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::ardentis: invalid detached crawler PID: $pid"
+                exit 1
+              fi
               if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
                 sleep 1
                 if [ ! -s "$status_file" ]; then
@@ -3377,12 +3848,23 @@ jobs:
       - name: Run amag
         id: crawler-amag
         if: always()
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-amag'].outcome }}
         run: |-
           set -uo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-11"
           status_file="$state_dir/amag.status"
           pid_file="$state_dir/amag.pid"
           log_file="$state_dir/amag.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::amag: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::amag: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
           deadline=$((SECONDS + 340 * 60))
           while [ ! -s "$status_file" ]; do
             if [ "$SECONDS" -ge "$deadline" ]; then
@@ -3391,6 +3873,10 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::amag: invalid detached crawler PID: $pid"
+                exit 1
+              fi
               if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
                 sleep 1
                 if [ ! -s "$status_file" ]; then
@@ -3416,12 +3902,23 @@ jobs:
       - name: Run a-plus-plus-group
         id: crawler-a-plus-plus-group
         if: always()
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-a-plus-plus-group'].outcome }}
         run: |-
           set -uo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-11"
           status_file="$state_dir/a-plus-plus-group.status"
           pid_file="$state_dir/a-plus-plus-group.pid"
           log_file="$state_dir/a-plus-plus-group.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::a-plus-plus-group: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::a-plus-plus-group: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
           deadline=$((SECONDS + 340 * 60))
           while [ ! -s "$status_file" ]; do
             if [ "$SECONDS" -ge "$deadline" ]; then
@@ -3430,6 +3927,10 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::a-plus-plus-group: invalid detached crawler PID: $pid"
+                exit 1
+              fi
               if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
                 sleep 1
                 if [ ! -s "$status_file" ]; then
@@ -3455,12 +3956,23 @@ jobs:
       - name: Run stellenpartner
         id: crawler-stellenpartner
         if: always()
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-stellenpartner'].outcome }}
         run: |-
           set -uo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-11"
           status_file="$state_dir/stellenpartner.status"
           pid_file="$state_dir/stellenpartner.pid"
           log_file="$state_dir/stellenpartner.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::stellenpartner: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::stellenpartner: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
           deadline=$((SECONDS + 340 * 60))
           while [ ! -s "$status_file" ]; do
             if [ "$SECONDS" -ge "$deadline" ]; then
@@ -3469,6 +3981,10 @@ jobs:
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::stellenpartner: invalid detached crawler PID: $pid"
+                exit 1
+              fi
               if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
                 sleep 1
                 if [ ! -s "$status_file" ]; then
@@ -3500,6 +4016,11 @@ jobs:
           if [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::group commit: push lost the ref race after all retries (contention) on the final aggregated commit. Cycle lost, self-heals next scheduled run — group not failed (systemic class)."
             echo "⚠️ group commit: push contention loss (exit 42) — crawl data was fine, group not failed" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          if [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::group commit: global data-pipeline lease is busy (exit 44); no group data was staged and the next scheduled cycle will retry — group not failed (systemic class)."
+            echo "⚠️ group commit: global data-pipeline lease busy (exit 44) — group data not staged, group not failed" >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
           exit "$git_commit_exit"
@@ -3547,6 +4068,11 @@ jobs:
             echo "⚠️ crawler generation ledger: push contention loss (exit 42) — this cycle ledger entry was not committed; next scheduled cycle records its own state" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 0
           fi
+          if [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::crawler generation ledger: global data-pipeline lease is busy (exit 44); this cycle ledger entry was not committed and the next scheduled cycle records its own state."
+            echo "⚠️ crawler generation ledger: global data-pipeline lease busy (exit 44) — this cycle ledger entry was not committed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 0
+          fi
           if [ "$git_commit_exit" -ne 0 ]; then
             if [ "$git_commit_exit" -eq 43 ]; then
               echo "::error::crawler generation ledger: shared deferred-commit precondition failed (exit 43)"
@@ -3567,3 +4093,7 @@ jobs:
           if-no-files-found: error
           overwrite: true
           retention-days: 14
+      - name: Release cross-entry crawler live-run lease
+        if: always() && env.CRAWLER_GROUP_LIVE_LEASE_OWNED == '1'
+        continue-on-error: true
+        run: node scripts/check-crawler-group-live-run.mjs crawler-group-11.yml --release

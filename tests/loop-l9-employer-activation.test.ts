@@ -200,8 +200,43 @@ describe('L9 Employer Supply → Paid Activation', () => {
     expect(issues).toHaveLength(1);
     expect(JSON.parse(fs.readFileSync(path.join(reportDir, 'l9-actions.json'), 'utf8')))
       .toMatchObject({ realOutreachSent: false, inventoryUntouched: true, pricesUntouched: true });
+    expect(JSON.parse(fs.readFileSync(path.join(reportDir, 'l9-outcome.json'), 'utf8')))
+      .toMatchObject({ loopId: 'L9', safeToAct: false, realOutreachSent: false, inventoryUntouched: true, subscriptionStateUntouched: true, pricesUntouched: true });
     expect(JSON.parse(fs.readFileSync(path.join(reportDir, 'l9-result.json'), 'utf8')))
       .toMatchObject({ ok: false, issued: true, actionsWritten: true, outcomeLedgerMissing: true, profileInventoryComplete: true });
+  });
+
+  it('keeps a partial ledger in the safe draft-only path', async () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l9-test-'));
+    const profilesPath = writeJson(dir, 'profiles.json', profiles());
+    const outcomePath = writeJson(dir, 'outcomes.json', outcomes({ eligibleEmployerAccounts: 3 }));
+    const reportDir = path.join(dir, 'report');
+    const result = await runL9({
+      now: NOW,
+      profilesPath,
+      outcomePath,
+      reportDir,
+      apply: true,
+      logger: { log() {} },
+    });
+
+    expect(result).toMatchObject({ issued: false, actionsWritten: true, verdict: { ok: false, quality: 'partial' } });
+    expect(JSON.parse(fs.readFileSync(path.join(reportDir, 'l9-actions.json'), 'utf8')))
+      .toMatchObject({ realOutreachSent: false, inventoryUntouched: true, subscriptionStateUntouched: true, pricesUntouched: true });
+    expect(JSON.parse(fs.readFileSync(path.join(reportDir, 'l9-result.json'), 'utf8')))
+      .toMatchObject({
+        ok: false,
+        quality: 'partial',
+        issued: false,
+        actionsWritten: true,
+        safeDraftOnly: true,
+        realOutreachSent: false,
+        inventoryUntouched: true,
+        subscriptionStateUntouched: true,
+        pricesUntouched: true,
+        outcomeLedgerMissing: false,
+        profileInventoryComplete: true,
+      });
   });
 
   it('does not persist a result when issue creation fails', async () => {

@@ -96,8 +96,22 @@ export function recordRunPhase(entry, { replaceLast = false } = {}) {
     if (replaceLast && phases[lastIndex]?.name === entry.name) {
       phases[lastIndex] = entry;
     } else {
-      if (phases.length >= MAX_RUN_PHASES) return;
-      phases.push(entry);
+      let existingIndex = -1;
+      for (let index = phases.length - 1; index >= 0; index -= 1) {
+        if (phases[index]?.name === entry.name) {
+          existingIndex = index;
+          break;
+        }
+      }
+      if (existingIndex >= 0) {
+        // A phase is a singleton in one translate run. An early return can
+        // arrive after another process already recorded the same phase, so
+        // appending here would make the collector count one run twice.
+        phases[existingIndex] = entry;
+      } else {
+        if (phases.length >= MAX_RUN_PHASES) return;
+        phases.push(entry);
+      }
     }
     fs.writeFileSync(RUN_PHASES_PATH, JSON.stringify(phases), 'utf-8');
   } catch {

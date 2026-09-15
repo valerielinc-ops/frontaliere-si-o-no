@@ -25,7 +25,7 @@ const shadowCascadeEnv = {
   SHADOW_WORKFLOW_BLOB_SHA: '${{ github.workflow_sha }}',
 };
 const expectedShadowHashes = {
-  cascadeRun: 'd111ba88beb2ff9af1eb4246f81fdf7d9e87c866e7e0061b055430dc59e176af',
+  cascadeRun: '32dac0d952132cfd66c261cf4c4cd3c45b99dc2ba019fbb0a0f0d01a745a4718',
   finalize: '557e7f3cdcb4fcedd01b4566776286bd45b61cd7e1a7c0a1484caa4b80ee5faa',
   upload: '0c184849503095b03f5d268617fed8cfac7aa8fd4e112a99ed3aa7a782dc9568',
 };
@@ -122,7 +122,12 @@ describe('crawler generation PR B workflow wiring', () => {
   it('keeps the current portable translation baseline and every generation group token/ref/hash-bound', () => {
     const base = execFileSync('git', ['show', `origin/main:${orchestratorPath}`], { encoding: 'utf8' });
     const current = fs.readFileSync(orchestratorPath, 'utf8');
-    expect(translateStep(current)).toEqual(translateStep(base));
+    const currentTranslate = translateStep(current);
+    const baseTranslate = translateStep(base);
+    expect(currentTranslate.name).toBe(baseTranslate.name);
+    expect(currentTranslate.if).toBe(baseTranslate.if);
+    expect(currentTranslate['continue-on-error']).toBe(baseTranslate['continue-on-error']);
+    expect(currentTranslate.run).toContain('gh workflow run translate-pending.yml');
     const portableTranslate = '.github/corpus-workflows/translate-pending.yml';
     const portableCurrent = YAML.parse(fs.readFileSync(portableTranslate, 'utf8'));
     expect(portableCurrent.concurrency).toEqual({
@@ -195,7 +200,39 @@ describe('crawler generation PR B workflow wiring', () => {
         'utf8',
       )));
     }
+    for (const artifact of contract.artifacts) {
+      expect(
+        sha256(fs.readFileSync(`.github/corpus-workflows/${artifact.file}`, 'utf8')),
+        `${artifact.file}: artifact hash drift`,
+      ).toBe(artifact.artifactSha256);
+      expect(
+        sha256(fs.readFileSync(`.github/workflows/${artifact.sourceLogic}`, 'utf8')),
+        `${artifact.file}: source hash drift`,
+      ).toBe(artifact.sourceSha256);
+    }
     expect(contract.crawlerGeneration).toMatchObject({ mode: 'shadow', dispatchesTranslation: false });
+  });
+
+  it('carica le righe A/B subito dopo il cascade, prima del mop-up lungo', () => {
+    const sourceTranslate = YAML.parse(fs.readFileSync(
+      '.github/workflows/translate-pending-logic.yml',
+      'utf8',
+    ));
+    const portableTranslate = YAML.parse(fs.readFileSync(
+      '.github/corpus-workflows/translate-pending.yml',
+      'utf8',
+    ));
+    for (const document of [sourceTranslate, portableTranslate]) {
+      const steps = document.jobs.translate.steps;
+      const cascade = findUniqueStep(steps, 'Phase 2b: Translate pending jobs (cascade top-up)');
+      const thinkingUpload = findUniqueStep(steps, 'Upload thinking A/B rows');
+      const mopUp = findUniqueStep(steps, 'Phase 2c mop-up: local MT (Argos Translate, in-process)');
+      expect(thinkingUpload.index).toBe(cascade.index + 1);
+      expect(thinkingUpload.index).toBeLessThan(mopUp.index);
+      expect(thinkingUpload.step.if).toContain('always()');
+      expect(thinkingUpload.step.with.path).toBe('${{ runner.temp }}/translation-thinking-ab.json');
+      expect(thinkingUpload.step.with['if-no-files-found']).toBe('warn');
+    }
   });
 
   it('wires checkpointed generation dispatch and an always-run sentinel without return_run_details', () => {
@@ -221,6 +258,18 @@ describe('crawler generation PR B workflow wiring', () => {
     expect(sentinel.run).toContain('scripts/crawler-generation-dispatch.mjs dispatch-sentinel');
     expect(sentinel.run).toContain('[ "$SHADOW_READY" != "true" ]');
     expect(sentinel.env.SHADOW_READY).toContain('steps.generation_wave.outputs.shadow_ready');
+    const checkpointUpload = steps.find((step: any) => step.name === 'Upload crawler generation dispatch checkpoint');
+    expect(checkpointUpload).toMatchObject({
+      if: 'always()',
+      'continue-on-error': true,
+      uses: 'actions/upload-artifact@v7',
+      with: {
+        path: '${{ runner.temp }}/crawler-generation-dispatch/',
+        'if-no-files-found': 'warn',
+        'retention-days': 14,
+      },
+    });
+    expect(checkpointUpload.with.name).toContain('${{ github.run_id }}-${{ github.run_attempt }}');
     expect(cleanup.if).toContain("steps.generation_wave.outputs.shadow_ready == 'true'");
     expect(cleanup.if).toContain("steps.generation_sentinel.outcome == 'success'");
     expect(cleanup.if).toContain("steps.generation_sentinel.outputs.accepted == 'true'");
@@ -231,6 +280,10 @@ describe('crawler generation PR B workflow wiring', () => {
     expect(failureReporter.run).toContain('scripts/lib/github-issue-creator.mjs');
     expect(failureReporter.run).toContain('--title "Workflow Failure: ${{ github.workflow }}"');
     expect(source).not.toContain('return_run_details');
+    expect(preflight.env.GENERATION_PREFLIGHT_OUTPUT).toBe('${{ runner.temp }}/crawler-generation-dispatch/preflight.json');
+    const translationDispatch = steps.find((step: any) => step.name === 'Dispatch translate-pending (frontaliere-articles)');
+    expect(translationDispatch.env.GENERATION_PREFLIGHT_READY).toContain('steps.generation_preflight.outputs.ready');
+    expect(translationDispatch.run).toContain('does not make the blocked crawler wave green');
     const sentinelValidation = YAML.parse(fs.readFileSync(observerPath, 'utf8'))
       .jobs.sentinel.steps.find((step: any) => step.name === 'Validate manual sentinel binding before checkout');
     expect(sentinelValidation.env.CORPUS_CODE_COMMIT).toBe('${{ github.sha }}');
@@ -250,6 +303,14 @@ describe('crawler generation PR B workflow wiring', () => {
     const closure = collectRelativeImportClosure(root, 'scripts/crawler-generation-dispatch.mjs');
     expect(closure).toContain('functions/src/githubApiHeaders.js');
     expect(closure.filter((runtimePath) => !isMaterialized(runtimePath))).toEqual([]);
+  });
+
+  it('rifiuta un contratto runtime che dichiara file assenti dal sorgente del sito', () => {
+    const contract = JSON.parse(fs.readFileSync('.github/corpus-workflows/contract.json', 'utf8'));
+    expect(contract.siteRuntimePaths).toContain('scripts/lib/global-data-pipeline-lease.mjs');
+    const missing = contract.siteRuntimePaths.filter((runtimePath: string) =>
+      !fs.existsSync(path.join(root, runtimePath)));
+    expect(missing).toEqual([]);
   });
 
   it('uses event-specific run identity, skips legacy events server-side and coalesces heavy work by probe token', () => {

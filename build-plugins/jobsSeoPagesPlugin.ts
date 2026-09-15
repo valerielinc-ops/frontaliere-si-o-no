@@ -32,7 +32,7 @@ import { inlineScriptJson } from './shared/inlineJsonScript';
 import { buildJobPostingFaqPairs, type BuildJobPostingFaqOptions } from './shared/jobPostingFaq';
 import { hostFromUrl } from './shared/hostFromUrl';
 import { dedupeUrlsetXmlByLoc } from './shared/sitemapUrlsetDedupe';
-import { stripLiteralMarkdown as stripLiteralMarkdownFromTitle } from './shared/stripLiteralMarkdown';
+import { sanitizeJobTitleForDisplay as stripLiteralMarkdownFromTitle } from './shared/stripLiteralMarkdown';
 import { minifyHtml } from './shared/htmlMinify';
 import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
 import { expiredJobSlugVariants } from './shared/expiredSlugVariants';
@@ -10545,13 +10545,11 @@ ${staticAnalyticsHtml}
              locale: entry.locale as JobCardLocale,
            });
            // In-feed ad after every Nth card (never after the last one).
-           // `entry.key` is this page's canton (e.g. 'LU' for
-           // /cerca-lavoro-lucerna/, 'BASILEA' for the merged BS+BL
-           // /cerca-lavoro-basilea/) — passed through so the Lucerna in-feed
-           // A/B test (services/adsenseSlots.ts
+           // `entry.key` is this page's canton; it is passed through so the
+           // active Ticino treatment (services/adsenseSlots.ts
            // INFEED_AD_AB_TEST_SUPPRESSED_CANTONS) can suppress the manual
-           // slot on this specific canton's static index page without
-           // touching any other canton or any other listing surface.
+           // slot on that specific static index page without touching any
+           // other canton or any other listing surface.
              const adExperimentVariant = isInfeedAdExperimentSurface(entry.key)
                ? resolveInfeedAdVariant(entry.key, { active: STATIC_INFEED_AD_EXPERIMENT_ACTIVE })
                : undefined;
@@ -10632,8 +10630,8 @@ ${staticAnalyticsHtml}
      }
      // Phase 8(g) cathedral parity — bring every /cerca-lavoro-{canton}/
      // landing up to the TI hub's editorial richness: H2 definition block
-     // for AI extraction, deep-link archive navigator (one anchor per
-     // page-N), 4 frontaliere-context prose paragraphs, sources line, and
+     // for AI extraction, bounded page-range archive indexes, 4
+     // frontaliere-context prose paragraphs, sources line, and
      // a collapsible FAQ. Placed BELOW the data area per CLAUDE.md
      // non-negotiables #16/#17 (mobile-first, filler below content). The
      // helper is the same one used by staticPagesPlugin for TI byte
@@ -10649,10 +10647,11 @@ ${staticAnalyticsHtml}
        canton: entry.key,
        locale: entry.locale,
        display,
-       jobsCount: totalJobs,
-       totalPages: cantonTotalPages,
-       archiveBaseHref,
-     });
+      jobsCount: totalJobs,
+      totalPages: cantonTotalPages,
+      archiveNavigablePages: entry.key === AGGREGATE_KEY ? 1 : cantonTotalPages,
+      archiveBaseHref,
+    });
      // Mirror the staticPagesPlugin auto-`<p>`-wrap regex so plain-text
      // prose paragraphs (entries 3-6 in the non-TI helper output) become
      // proper paragraphs instead of leaking into a flat string. Block-level

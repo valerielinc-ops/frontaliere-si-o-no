@@ -143,6 +143,11 @@ jobs:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |
+          node scripts/ci/validate-generated-data.mjs \
+            --kind parser-proposals \
+            --file data/jobs-crawler-parser-proposals.json
+          node scripts/validate-jobs-crawler-keys.mjs
+
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 

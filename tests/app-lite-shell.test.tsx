@@ -293,4 +293,23 @@ describe('App lite-shell (staticOverlay) rendering', () => {
       'static fallback must be hidden when SPA route takes over'
     ).toBe('none');
   });
+
+  it('does not reveal a stale plate-auction fallback on another static route', () => {
+    const stalePlateMain = document.createElement('main');
+    stalePlateMain.className = 'seo-static-content plate-auction-static';
+    stalePlateMain.innerHTML = '<h1>Stale auction snapshot</h1>';
+    document.body.appendChild(stalePlateMain);
+
+    mockParsePath.mockImplementation(() => ({
+      route: { activeTab: 'stats' as const, staticOverlay: true },
+      locale: 'it' as const,
+    }));
+
+    render(<App />);
+
+    expect(
+      stalePlateMain.style.display,
+      'a plate-auction fallback must stay hidden when the active route is another static overlay',
+    ).toBe('none');
+  });
 });

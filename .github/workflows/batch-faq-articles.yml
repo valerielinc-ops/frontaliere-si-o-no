@@ -48,25 +48,6 @@ jobs:
         uses: actions/checkout@v5
         with:
           fetch-depth: 0
-          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
-          sparse-checkout: |
-            /*
-            !/public/images/
-            !/data/seo-404-compat/
-            !/data/translation-cache/
-            !/data/all-known-job-slugs/
-            !/data/orphan-enriched-data/
-            !/data/related-search-candidates.json
-            !/data/cf-hot-404s.json
-            !/data/dist-size-history.jsonl
-            !/data/jobs-stats-history.json
-            !/data/url-first-seen.json
-            !/data/jobs-snapshots-history/
-            !/data/slug-registry.json
-            !/data/evidence-index.json
-            !/data/health-premiums/
-            !/data/jobs-crawler-summaries/
-          sparse-checkout-cone-mode: false
         # Tetto Checkout (classe #5145/#5144/#5162): senza, un fetch degenere
         # consuma l'intero budget e il job muore `cancelled` — stato invisibile
         # agli `if: failure()`, il buco che scan-job-timeouts.mjs tappa solo a
@@ -198,33 +179,12 @@ jobs:
           MODIFIED=${{ steps.count.outputs.modified_count }}
           git commit -m "❓ Auto-generated FAQ for ${MODIFIED} blog articles"
 
-          # L'unset NON e' ridondante: `actions/checkout` (senza
-          # `persist-credentials: false`) lascia
-          #   http.https://github.com/.extraheader = AUTHORIZATION: basic <GITHUB_TOKEN>
-          # che ha la PRECEDENZA sullo `x-access-token:` qui sotto. Senza
-          # toglierlo il push si autentica come GITHUB_TOKEN e il commit su main
-          # NON ri-triggera il deploy — che e' l'unica ragione per cui questo
-          # step conia il token della App (vedi il commento piu' sopra). Il
-          # fallimento e' silenzioso: il push riesce, e manca solo il deploy.
-          # Stessa causa e stesso rimedio in issue-fix.yml, pr-redflag-fixer.yml
-          # e prospector-loop.yml.
-          git config --unset-all "http.https://github.com/.extraheader" || true
-
-          # Push with retry (handles concurrent pushes from other workflows)
-          REMOTE_URL="https://x-access-token:${APP_TOKEN:-$GITHUB_PAT}@github.com/${{ github.repository }}.git"
-          for attempt in 1 2 3; do
-            if git push "$REMOTE_URL" HEAD:main; then
-              echo "✅ Changes committed and pushed to main"
-              exit 0
-            fi
-            echo "⚠️  Push attempt $attempt failed — rebasing..."
-            # Abort a conflicting rebase so the next attempt starts clean
-            # instead of wedging on "unmerged files".
-            git pull --rebase origin main || { git rebase --abort 2>/dev/null || true; }
-            sleep 3
-          done
-          echo "❌ Push failed after 3 attempts"
-          exit 1
+          # The shared helper removes checkout's ambient GITHUB_TOKEN
+          # extraheader, selects the App/PAT identity and fails closed when a
+          # concurrent main writer cannot be reconciled. FAQ output is
+          # intentionally not regenerated after a conflict: AI generation is
+          # nondeterministic, so losing the local commit must remain visible.
+          bash scripts/lib/git-push-with-retry.sh --max-attempts 3
 
       - name: Trigger deploy
         if: steps.count.outputs.modified_count != '0'

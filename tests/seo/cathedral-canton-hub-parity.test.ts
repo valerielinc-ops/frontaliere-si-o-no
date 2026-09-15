@@ -53,22 +53,16 @@ describe('Phase 8(g) — canton hub editorial parity with TI', () => {
     expect(blocks[1]).toContain(`<strong>${(5914).toLocaleString('de-CH')}</strong>`);
     expect(blocks[1]).not.toMatch(/oltre 1\.500/);
     // Archive navigator is a single <details> collapsible. For long archives
-    // (> 25 pages) the paginator emits head pages 1..20 + ellipsis + tail
-    // pages (N-4)..N to stay under the 200 KB audit:page-weight budget.
-    // Crawler reach is preserved by sequential prev/next/first/last links
-    // on each `/tutti/page-N/` page itself. Small archives (cathedral
-    // cantons with ≤ 25 pages) still emit every page anchor.
+    // (> 25 pages) it emits bounded page-range indexes; each index owns a
+    // complete range of archive-page links. Small archives (cathedral
+    // cantons with ≤ 25 pages) still emit every page anchor directly.
     expect(blocks[2].startsWith('<details ')).toBe(true);
     expect(blocks[2]).toMatch(/Sfoglia tutto l'archivio offerte per pagina \(304 pagine\)/);
     expect(blocks[2]).toMatch(/Pagina&nbsp;1/);
-    expect(blocks[2]).toMatch(/Pagina&nbsp;304/);
-    // Head pages 1..20 + tail pages 300..304 must be present; middle pages
-    // (e.g. Pagina 150) must NOT be present in the truncated paginator.
-    expect(blocks[2]).toMatch(/Pagina&nbsp;20/);
-    expect(blocks[2]).toMatch(/Pagina&nbsp;300/);
-    expect(blocks[2]).not.toMatch(/Pagina&nbsp;150[^0-9]/);
-    // Ellipsis separator between head and tail (non-link span).
-    expect(blocks[2]).toMatch(/aria-hidden="true"[^>]*>…</);
+    expect(blocks[2]).toMatch(/Pagine 1–18/);
+    expect(blocks[2]).toMatch(/Pagine 289–304/);
+    // The page-1 bridge no longer embeds a direct middle-page URL.
+    expect(blocks[2]).not.toContain('/cerca-lavoro-ticino/tutti/page-150/');
     // Prose paragraph 1 mentions the canonical canton labels.
     expect(blocks[3]).toMatch(/offerte lavoro Ticino/);
     expect(blocks[3]).toMatch(/oltre 100 aziende ticinesi/);

@@ -465,6 +465,7 @@ describe('local-mt mop-up (Argos tier) — the third writer uses the same exit p
       ['Mitarbeiter*in Dispensation', 'Mitarbeiter Dispensation'],
       ['Projektingenieur/-in Leittechnik', 'Projektingenieur Leittechnik'],
       ['Leiter/-in Rechnungswesen', 'Leiter Rechnungswesen'],
+      ['Praktikant_in Logistica', 'Praktikant Logistica'],
       ['Technische*r Sterilisationsassistent*in AEMP', 'Technischer Sterilisationsassistent AEMP'],
       ['TECHNISCHE*R STERILISATIONSASSISTENT*IN AEMP', 'TECHNISCHER STERILISATIONSASSISTENT AEMP'],
       ['Fachfrau/-mann Gesundheit', 'Fachmann Gesundheit'],
@@ -486,6 +487,16 @@ describe('local-mt mop-up (Argos tier) — the third writer uses the same exit p
         id: 'r0', text: source, from: 'de', to: 'it',
       });
       expect(request.text).toBe(expected);
+    }
+  });
+
+  it('collapses plural gender forms through the conservative guard', () => {
+    for (const [source, expected] of [
+      ['Mitarbeiter*innen Dispensation', 'Mitarbeiter Dispensation'],
+      ['Leiter/-innen Rechnungswesen', 'Leiter Rechnungswesen'],
+      ['Kolleg:innen im Team', 'Kolleg im Team'],
+    ]) {
+      expect(mopup.masculineGermanTitle(source)).toBe(expected);
     }
   });
 
@@ -577,6 +588,17 @@ describe('local-mt mop-up (Argos tier) — the third writer uses the same exit p
       'orderMopupJobsByTraffic',
       'shouldApplyMopupWrite',
     ]);
+  });
+
+  it('keeps mop-up CLI flag evaluation inside the direct entrypoint', () => {
+    const source = fs.readFileSync(
+      path.join(process.cwd(), 'scripts/local-mt-mopup.mjs'),
+      'utf8',
+    );
+    expect(source).not.toMatch(/const DRY_RUN\s*=\s*parseFlag/);
+    expect(source).not.toMatch(/const MAX_JOBS\s*=\s*Number\(parseOpt/);
+    expect(source).toMatch(/async function main\(\) \{\s*\/\/ Parse CLI options[\s\S]*const dryRun = parseFlag/);
+    expect(source).toMatch(/const maxJobs = Number\(parseOpt\('--max-jobs'/);
   });
 });
 

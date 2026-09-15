@@ -24,6 +24,9 @@ const OBSERVED_EVENT_TYPES = new Set([
   'review_approved',
   'merged',
   'post_merge_verified',
+  'rollback_requested',
+  'rolled_back',
+  'inconclusive',
 ]);
 const SHA_RE = /^[0-9a-f]{40}$/iu;
 

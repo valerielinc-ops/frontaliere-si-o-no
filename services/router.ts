@@ -69,7 +69,7 @@ import { isChCantonSnapshotPath, parseChCantonSnapshotPath } from '../build-plug
 import { parseChCantonEmployersPath } from '../build-plugins/weeklyEmployersChCantonPathsData';
 import { isSectionPagePath, parseSectionPagePath } from '../build-plugins/sectionPagesPathsData';
 import { isFiscalHubPath, parseFiscalHubPath, parseFiscalMunicipalityPath } from '../build-plugins/fiscalMunicipalityData';
-import { buildPharmacyPath, parsePharmacyPath, type PharmacyPath } from './pharmacies/paths';
+import { buildPharmacyPath, parsePharmacyRoute, type PharmacyPath } from './pharmacies/routePaths';
 import { buildPlateAuctionPath, parsePlateAuctionPath } from './plateAuctions/paths';
 import {
   isFrenchBorderMunicipalityHubPath,
@@ -2454,13 +2454,13 @@ export function parsePath(pathname: string): ParseResult {
 
  // Pharmacy coverage hub — /farmacie/ + locale twins (#6399). Source of
  // truth for the four paths: services/pharmacies/types.ts
- // PHARMACY_HUB_PATH, which build-plugins/pharmacyHubPlugin.ts emits from.
+ // PHARMACY_HUB_PATH, which build-plugins/pharmacyDirectoryPagesPlugin.ts emits from.
  // Without staticOverlay the SPA would treat the URL as unknown on
  // hydrate, hide `main.seo-static-content` and render NotFoundSuggestions
  // over a page that exists. Routed to `vita` for back-nav: daily-life
  // services is the closest existing tab family.
  {
-   const pharmacyPath = parsePharmacyPath(pathname);
+   const pharmacyPath = parsePharmacyRoute(pathname);
    if (pharmacyPath) {
      return { route: { activeTab: 'vita', pharmacyPath, staticOverlay: false }, locale: pharmacyPath.locale };
    }
@@ -3762,6 +3762,7 @@ export function buildAllLocalePaths(route: AppRoute): Record<Locale, string> {
 }
 
 export function getSeoSection(route: AppRoute): string {
+ if (route.pharmacyPath) return `pharmacy-${route.pharmacyPath.kind}`;
  switch (route.activeTab) {
  case 'calculator': {
  if (route.seoLanding) return `landing-${route.seoLanding}`;
@@ -4013,6 +4014,9 @@ export function updatePathForLocale(newLocale: Locale): void {
  return;
  }
  let nextRoute = route;
+ if (route.pharmacyPath) {
+ nextRoute = { ...route, pharmacyPath: { ...route.pharmacyPath, locale: newLocale } };
+ }
  // When switching locale from a root path on the homepage, navigate to the new locale's root
  if (isLocaleRoot(currentPath) && isDefaultHome(route)) {
  const newRoot = newLocale === 'it' ? '/' : `/${newLocale}/`;

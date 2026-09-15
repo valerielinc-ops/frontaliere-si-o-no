@@ -26,6 +26,7 @@ import {
   enumerateJunkRetirements,
   junkRetirementWrites,
   loadPreviouslyEmittedClusterKeys,
+  prepareRetirementGuardInputs,
   retiredManifestWrites,
   restoredKeywordLandingPaths,
   restoredRetiredLandingPaths,
@@ -357,6 +358,54 @@ describe('assertRetirementsDisjointFromPlan — a withdrawal never lands on a li
     expect(() => assertRetirementsDisjointFromPlan(RETIREMENTS, LIVE_PLAN)).not.toThrow();
     expect(() => assertRetirementsDisjointFromPlan([], LIVE_PLAN)).not.toThrow();
     expect(() => assertRetirementsDisjointFromPlan(RETIREMENTS, [])).not.toThrow();
+  });
+});
+
+describe('prepareRetirementGuardInputs — shard ownership and normalisation (issue #7869)', () => {
+  const IT_RETIREMENT = {
+    locale: 'it' as const,
+    slug: 'ricerca-cookie-bern',
+    keyword: 'cookie',
+    paths: ['/cerca-lavoro-ticino/ricerca-cookie-bern/'],
+  };
+  const EN_RETIREMENT = {
+    locale: 'en' as const,
+    slug: 'search-cookie-bern',
+    keyword: 'cookie',
+    paths: ['/en/find-jobs-ticino/search-cookie-bern/'],
+  };
+
+  it('normalises the complete plan but guards only the owned locale', () => {
+    const inputs = prepareRetirementGuardInputs(
+      [IT_RETIREMENT, EN_RETIREMENT],
+      [
+        'https://frontaliereticino.ch/cerca-lavoro-ticino/ricerca-cookie-bern/?utm=source',
+        '/en/find-jobs-ticino/search-cookie-bern/',
+      ],
+      (locale) => locale === 'it',
+    );
+
+    expect(inputs.normalizedPlannedPaths).toEqual([
+      '/cerca-lavoro-ticino/ricerca-cookie-bern',
+      '/en/find-jobs-ticino/search-cookie-bern',
+    ]);
+    expect(inputs.guardPlannedPaths).toEqual([
+      '/cerca-lavoro-ticino/ricerca-cookie-bern',
+    ]);
+    expect(inputs.guardRetirements).toEqual([IT_RETIREMENT]);
+  });
+
+  it('does not fail for a collision on a locale this shard cannot write', () => {
+    const inputs = prepareRetirementGuardInputs(
+      [EN_RETIREMENT],
+      ['/en/find-jobs-ticino/search-cookie-bern/'],
+      (locale) => locale === 'it',
+    );
+
+    expect(() => assertRetirementsDisjointFromPlan(
+      inputs.guardRetirements,
+      inputs.guardPlannedPaths,
+    )).not.toThrow();
   });
 });
 

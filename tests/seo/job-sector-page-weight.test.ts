@@ -1,22 +1,23 @@
 /**
- * Regression gate for the 200 KB `audit:page-weight` budget on sector
+ * Regression gate for the 260 KB `audit:page-weight` budget on sector
  * landing pages (e.g. `/cerca-lavoro-ticino/case-anziani/index.html`).
  *
- * Before the fix, popular sectors emitted up to 50 JobPosting cards each.
+ * Before the fix, popular sectors emitted only the first 30 cards even when
+ * the page announced a larger inventory.
  * Each card carries a logo (often a deterministic initials data URI of
  * ~600 bytes), Tailwind class strings, inline SVG icons, and chip markup —
- * roughly 1.5 KB per card. At 50 cards the page topped 219 KB, breaking
- * the CI gate. The fix caps embedded jobs at `MAX_EMBEDDED_JOBS = 30`
- * and adds a build-time assertion in `jobSectorPagesPlugin.ts`.
+ * roughly 1.5 KB per card. The fix renders the complete matching set and
+ * keeps a build-time assertion in `jobSectorPagesPlugin.ts` aligned with the
+ * site's 260 KB page-weight gate.
  *
  * This test exercises the pure HTML builder (`buildSectorLandingHtml`)
  * directly with a worst-case synthetic input: every sector × every locale,
- * fed exactly `MAX_EMBEDDED_JOBS` jobs whose strings are sized to the
+ * fed exactly 100 jobs whose strings are sized to the
  * heaviest realistic profile (long titles, long company names, long
  * locations, distinct slugs, salary set so the salary chip renders).
  *
- * Asserts every emitted page lands strictly under 195 KB (5 KB safety
- * margin under the 200 KB audit budget).
+ * Asserts every emitted page lands strictly under 260 KB, matching the
+ * current global audit budget.
  */
 
 import { describe, it, expect } from 'vitest';
@@ -34,14 +35,8 @@ import { resolve } from 'node:path';
 
 const LOCALES: ReadonlyArray<JobBoardLocale> = ['it', 'en', 'de', 'fr'];
 
-// 5 KB safety margin under the 200 KB audit:page-weight budget.
-const HARD_BUDGET_BYTES = 195 * 1024;
-
-// Mirror the production cap. If the plugin lifts MAX_EMBEDDED_JOBS we want
-// this test to lift in lockstep — but the constant is local to the plugin
-// (not exported) on purpose so accidental edits get caught by the CI gate
-// itself. The number here is the upper bound the test exercises.
-const MAX_EMBEDDED_JOBS = 30;
+const HARD_BUDGET_BYTES = 260 * 1024;
+const REPRESENTATIVE_FULL_LIST = 100;
 
 /**
  * Build a single synthetic job sized to the heaviest realistic profile a
@@ -112,7 +107,7 @@ describe('SEO — job-sector landing page weight gate', () => {
 
   // Generate the heaviest realistic input once and reuse across iterations.
   const heavyJobs: SectorCountableJob[] = Array.from(
-    { length: MAX_EMBEDDED_JOBS },
+    { length: REPRESENTATIVE_FULL_LIST },
     (_, i) => makeHeavyJob(i + 1),
   );
 
@@ -121,7 +116,7 @@ describe('SEO — job-sector landing page weight gate', () => {
   for (const sector of SECTOR_HUB_KEYS) {
     for (const locale of LOCALES) {
       const path = buildSectorHubPath(locale, sector);
-      it(`${path} stays strictly under ${HARD_BUDGET_BYTES / 1024} KB with ${MAX_EMBEDDED_JOBS} embedded jobs`, () => {
+      it(`${path} stays strictly under ${HARD_BUDGET_BYTES / 1024} KB with ${REPRESENTATIVE_FULL_LIST} embedded jobs`, () => {
         const html = buildSectorLandingHtml({
           sector,
           locale,
@@ -146,30 +141,15 @@ describe('SEO — job-sector landing page weight gate', () => {
     }
   }
 
-  it('rejects a hypothetical 50-job page (sanity check the gate would catch a regression)', () => {
-    // Build with 50 jobs — pre-fix behaviour. Confirms the test would have
-    // caught the original Apr 2026 regression. We assert the page is
-    // measurably heavier; we do NOT assert it crosses the budget here
-    // because the budget delta depends on per-card size (and we don't
-    // want this assertion to flake on small template tweaks). The real
-    // gate is the per-(sector, locale) loop above + the build-time
-    // throw inside jobSectorPagesPlugin.
+  it('renders every item passed to the complete-list builder', () => {
+    // This is the regression that matters: the headline/count may be larger
+    // than the first visible sample, but the builder must not truncate the
+    // input before producing cards or ItemList JSON-LD.
     const fiftyJobs: SectorCountableJob[] = Array.from(
       { length: 50 },
       (_, i) => makeHeavyJob(i + 1),
     );
-    const html30 = buildSectorLandingHtml({
-      sector: 'case-anziani',
-      locale: 'it',
-      matchingJobs: heavyJobs,
-      count: 999,
-      year: 2026,
-      dateStamp: '2026-04-28',
-      sectorProseData,
-      entryJs: 'index-DEADBEEF.js',
-      entryCss: 'index-DEADBEEF.css',
-    });
-    const html50 = buildSectorLandingHtml({
+    const html = buildSectorLandingHtml({
       sector: 'case-anziani',
       locale: 'it',
       matchingJobs: fiftyJobs,
@@ -180,10 +160,7 @@ describe('SEO — job-sector landing page weight gate', () => {
       entryJs: 'index-DEADBEEF.js',
       entryCss: 'index-DEADBEEF.css',
     });
-    const bytes30 = Buffer.byteLength(html30, 'utf-8');
-    const bytes50 = Buffer.byteLength(html50, 'utf-8');
-    // Each extra heavy card is at least ~1 KB. 20 extra cards must add
-    // at least 15 KB to the page weight.
-    expect(bytes50 - bytes30).toBeGreaterThan(15 * 1024);
+    expect((html.match(/<article class="jc-card/g) || []).length).toBe(50);
+    expect(html).toContain('"numberOfItems":50');
   });
 });

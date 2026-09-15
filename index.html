@@ -1163,7 +1163,7 @@
       window.addEventListener('unhandledrejection', function(e) {
         var r = e.reason;
         var m = r instanceof Error ? r.message : String(r || '');
-        if (m.indexOf('IDBDatabase') !== -1 || m.indexOf('IndexedDB') !== -1 || m.indexOf('Indexed Database') !== -1) {
+        if (m.indexOf('IDBDatabase') !== -1 || m.indexOf('IndexedDB') !== -1 || m.indexOf('Indexed Database') !== -1 || m.indexOf('Object store cannot be found in the database') !== -1) {
           e.preventDefault();
         }
       });

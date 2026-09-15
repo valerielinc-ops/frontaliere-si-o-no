@@ -9,6 +9,7 @@ const { createGithubIssueMock, commentOnGithubIssueMock, execFileSyncMock } = vi
 vi.mock('../scripts/lib/github-issue-creator.mjs', () => ({
   createGithubIssue: createGithubIssueMock,
   commentOnGithubIssue: commentOnGithubIssueMock,
+  isFailureReportingDisabled: () => process.env.ENABLE_FAILURE_REPORT === 'false',
   searchSafePrefix: (title: string) => String(title).slice(0, 60),
 }));
 
@@ -42,7 +43,10 @@ describe('scan-job-timeouts — conserva lo stato restituito dal creator (#8032)
     delete process.env.GH_REPO;
   });
 
-  it('non commenta una issue CLOSED su una seconda run con lo stesso titolo', async () => {
+  it.each([
+    ['CLOSED', { number: 42, title: 'CI Failure: Lighthouse CI', state: 'CLOSED', persisted: true }],
+    ['senza stato', { number: 42, title: 'CI Failure: Lighthouse CI', persisted: true }],
+  ])('non commenta una issue %s su una seconda run con lo stesso titolo', async (_stateLabel, firstIssue) => {
     execFileSyncMock.mockImplementation((_cmd: string, args: string[]) => {
       if (args[0] === 'api') {
         const endpoint = String(args[1]);
@@ -77,7 +81,7 @@ describe('scan-job-timeouts — conserva lo stato restituito dal creator (#8032)
       return '';
     });
     createGithubIssueMock
-      .mockResolvedValueOnce({ number: 42, title: 'CI Failure: Lighthouse CI', state: 'CLOSED', persisted: true })
+      .mockResolvedValueOnce(firstIssue)
       .mockResolvedValueOnce({ number: 43, title: 'CI Failure: Lighthouse CI', state: 'OPEN', persisted: true });
 
     const { main } = await import('../scripts/ci/scan-job-timeouts.mjs');
@@ -85,5 +89,77 @@ describe('scan-job-timeouts — conserva lo stato restituito dal creator (#8032)
 
     expect(createGithubIssueMock).toHaveBeenCalledTimes(2);
     expect(commentOnGithubIssueMock).not.toHaveBeenCalled();
+  });
+
+  it('treats the kill-switch as a clean no-op instead of a failed persistence', async () => {
+    process.env.ENABLE_FAILURE_REPORT = 'false';
+    execFileSyncMock.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'api') {
+        const endpoint = String(args[1]);
+        if (endpoint.includes('actions/runs?status=cancelled')) {
+          return JSON.stringify({ total_count: 1, workflow_runs: [runs[0]] });
+        }
+        if (endpoint.includes('actions/runs?status=failure')) {
+          return JSON.stringify({ total_count: 0, workflow_runs: [] });
+        }
+        if (endpoint.includes('/actions/runs/1/jobs')) {
+          return JSON.stringify({ jobs: [{
+            name: 'lighthouse-1',
+            conclusion: 'cancelled',
+            check_run_url: 'https://api.github.com/repos/o/r/check-runs/1',
+          }] });
+        }
+        if (endpoint.endsWith('/annotations')) {
+          return JSON.stringify([[{
+            message: 'The job exceeded the maximum execution time of 45 minutes.',
+          }]]);
+        }
+        return '{}';
+      }
+      if (args[0] === 'issue' && args[1] === 'list') return '[]';
+      throw new Error(`unexpected write while kill-switch is active: ${args.join(' ')}`);
+    });
+    createGithubIssueMock.mockImplementation(() => {
+      throw new Error('createGithubIssue must not be called when reporting is disabled');
+    });
+
+    const { main } = await import('../scripts/ci/scan-job-timeouts.mjs');
+    await expect(main()).resolves.toBeUndefined();
+    expect(createGithubIssueMock).not.toHaveBeenCalled();
+    expect(commentOnGithubIssueMock).not.toHaveBeenCalled();
+  });
+
+  it('still fails when reporting is enabled but the GitHub write is not confirmed', async () => {
+    createGithubIssueMock.mockResolvedValue({ number: 42, persisted: false });
+    execFileSyncMock.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'api') {
+        const endpoint = String(args[1]);
+        if (endpoint.includes('actions/runs?status=cancelled')) {
+          return JSON.stringify({ total_count: 1, workflow_runs: [runs[0]] });
+        }
+        if (endpoint.includes('actions/runs?status=failure')) {
+          return JSON.stringify({ total_count: 0, workflow_runs: [] });
+        }
+        if (endpoint.includes('/actions/runs/1/jobs')) {
+          return JSON.stringify({ jobs: [{
+            name: 'lighthouse-1',
+            conclusion: 'cancelled',
+            check_run_url: 'https://api.github.com/repos/o/r/check-runs/1',
+          }] });
+        }
+        if (endpoint.endsWith('/annotations')) {
+          return JSON.stringify([[{
+            message: 'The job exceeded the maximum execution time of 45 minutes.',
+          }]]);
+        }
+        return '{}';
+      }
+      if (args[0] === 'issue' && args[1] === 'list') return '[]';
+      return '';
+    });
+
+    const { main } = await import('../scripts/ci/scan-job-timeouts.mjs');
+    await expect(main()).rejects.toThrow(/failed to persist/);
+    expect(createGithubIssueMock).toHaveBeenCalledTimes(1);
   });
 });

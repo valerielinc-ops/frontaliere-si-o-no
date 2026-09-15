@@ -112,6 +112,7 @@ permissions:
 
 env:
   NODE_OPTIONS: '--disable-warning=DEP0040 --disable-warning=DEP0169 --max-old-space-size=12288'
+  DATA_PIPELINE_LEASE: '1'
   # Every translation consumer must use the one run-wide clock. The initializer
   # below verifies the marker before any soft-failing phase can run.
   TRANSLATE_RUN_CLOCK_REQUIRED: '1'
@@ -210,12 +211,12 @@ jobs:
           echo "🧹 Running housekeeping (no slug hardening — deferred to Phase 3)..."
           for slice in data/jobs/by-crawler/*.json; do
             [ -f "$slice" ] || continue
-            JOBS_SLICE_FILE="$slice" node scripts/cleanup-jobs.mjs || true
+            JOBS_SLICE_FILE="$slice" node scripts/cleanup-jobs.mjs
           done
           echo "✅ Housekeeping complete"
 
       - name: Commit housekeeping
-        if: always() && steps.checkout.outcome == 'success' && steps.hk.outputs.run == 'true' && inputs.dry_run != true
+        if: success() && steps.checkout.outcome == 'success' && steps.hk.outputs.run == 'true' && inputs.dry_run != true
         run: bash scripts/lib/git-commit-data.sh --slice-only "🧹 Housekeeping — prune expired + validate URLs"
 
       # ── Phase 2: Translate pending jobs (ARGOS-FIRST) ────────────────────
@@ -368,14 +369,41 @@ jobs:
           node scripts/relocalize-pending-jobs.mjs "${ARGS[@]}"
           legacy_status=$?
           set -e
+          expected_decision_digest=''
+          expected_contract_digest=''
           while IFS= read -r binding; do
-            if [[ "$binding" =~ ^expected_(decision|contract)_digest=sha256:[a-f0-9]{64}$ ]]; then
-              echo "$binding" >> "$GITHUB_OUTPUT"
+            if [[ "$binding" =~ ^expected_decision_digest=sha256:[a-f0-9]{64}$ ]]; then
+              expected_decision_digest="${binding#*=}"
+            elif [[ "$binding" =~ ^expected_contract_digest=sha256:[a-f0-9]{64}$ ]]; then
+              expected_contract_digest="${binding#*=}"
             fi
           done < <(node scripts/translation-shadow-preflight-v2.mjs \
             --mode capture \
             --decision "$RUNNER_TEMP/translation-shadow-preflight-v2-decision.json" 2>/dev/null || true)
+          # Emit both declared step outputs on every path. An empty value is
+          # intentionally still an unbound proof and the observer keeps it
+          # missing/unmeasurable; the explicit keys make the conditional
+          # producer visible to the workflow contract audit.
+          printf 'expected_decision_digest=%s\n' "$expected_decision_digest" >> "$GITHUB_OUTPUT"
+          printf 'expected_contract_digest=%s\n' "$expected_contract_digest" >> "$GITHUB_OUTPUT"
           exit "$legacy_status"
+
+      # Upload the cascade measurement before the long mop-up/title phases.
+      # relocalize-pending-jobs.mjs flushes this file in its finally block, but
+      # a job timeout can terminate the runner before the end-of-job upload.
+      # Keeping the same artifact name preserves the existing run-level lookup.
+      - name: Upload thinking A/B rows
+        if: always() && inputs.skip_translate != true
+        continue-on-error: true
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: translation-thinking-ab-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/translation-thinking-ab.json
+          retention-days: 30
+          # `warn` e non `error`: l'esperimento e' opt-in e una run con la repo
+          # var a '0' non produce il file. Un upload rosso direbbe che qualcosa
+          # si e' rotto quando invece l'esperimento e' semplicemente spento.
+          if-no-files-found: warn
 
       - name: Scatter changes back to per-crawler slices
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
@@ -562,19 +590,6 @@ jobs:
       - name: Roll up translation observability history
         if: always() && steps.translation_observability_before.outputs.ready == 'true' && inputs.dry_run != true
         run: node scripts/rollup-translation-observability.mjs "$RUNNER_TEMP/translation-observability.json" data/translation-observability-history.json
-
-      - name: Upload thinking A/B rows
-        if: always() && inputs.skip_translate != true
-        continue-on-error: true
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
-        with:
-          name: translation-thinking-ab-${{ github.run_id }}-${{ github.run_attempt }}
-          path: ${{ runner.temp }}/translation-thinking-ab.json
-          retention-days: 30
-          # `warn` e non `error`: l'esperimento e' opt-in e una run con la repo
-          # var a '0' non produce il file. Un upload rosso direbbe che qualcosa
-          # si e' rotto quando invece l'esperimento e' semplicemente spento.
-          if-no-files-found: warn
 
       - name: Upload cascade company rows
         if: always() && inputs.skip_translate != true

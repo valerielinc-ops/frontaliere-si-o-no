@@ -36453,12 +36453,17 @@
         {
           "query": "frontaliere ticino offerte di lavoro",
           "clicks": 0,
-          "impressions": 39
+          "impressions": 55
         },
         {
           "query": "lavoro ingegneri svizzera",
           "clicks": 0,
-          "impressions": 10
+          "impressions": 12
+        },
+        {
+          "query": "ingegnere svizzera lavoro",
+          "clicks": 0,
+          "impressions": 9
         },
         {
           "query": "lavoro in svizzera per italiani",
@@ -36471,7 +36476,7 @@
           "impressions": 7
         },
         {
-          "query": "ingegnere svizzera lavoro",
+          "query": "svizzera lavoro ingegnere",
           "clicks": 0,
           "impressions": 7
         },
@@ -36481,24 +36486,19 @@
           "impressions": 6
         },
         {
-          "query": "svizzera lavoro ingegnere",
+          "query": "ingegnere svizzera lavoro",
           "clicks": 0,
           "impressions": 6
         },
         {
-          "query": "ingegnere svizzera lavoro",
-          "clicks": 0,
-          "impressions": 5
-        },
-        {
           "query": "lavorare in svizzera ingegnere",
           "clicks": 0,
-          "impressions": 5
+          "impressions": 6
         },
         {
           "query": "lavoro ingegneri svizzera",
           "clicks": 0,
-          "impressions": 5
+          "impressions": 6
         },
         {
           "query": "offerte di lavoro canton ticino",
@@ -36507,6 +36507,11 @@
         },
         {
           "query": "offerte lavoro svizzera per italiani",
+          "clicks": 0,
+          "impressions": 5
+        },
+        {
+          "query": "lavorare in svizzera ingegnere",
           "clicks": 0,
           "impressions": 5
         },
@@ -36531,11 +36536,6 @@
           "impressions": 4
         },
         {
-          "query": "lavorare in svizzera ingegnere",
-          "clicks": 0,
-          "impressions": 4
-        },
-        {
           "query": "lavoro ingegnere svizzera",
           "clicks": 0,
           "impressions": 4
@@ -36551,7 +36551,7 @@
           "impressions": 3
         }
       ],
-      "totalImpressions": 207,
+      "totalImpressions": 232,
       "totalClicks": 3,
       "topQuery": "frontaliere ticino offerte di lavoro",
       "title": "Ingegneri",
@@ -39982,10 +39982,10 @@
         "fr": "lehrstelle-kauffrau-mann-efz-arbeitsort-steinhausen-paraplegie-nottwil"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/lehrstelle-kauffrau-mann-efz-arbeitsort-steinhausen-paraplegie-nottwil",
-        "en": "/en/find-jobs-ticino/lehrstelle-kauffrau-mann-efz-arbeitsort-steinhausen-paraplegie-nottwil",
-        "de": "/de/jobs-im-tessin/lehrstelle-kauffrau-mann-efz-arbeitsort-steinhausen-paraplegie-nottwil",
-        "fr": "/fr/trouver-emploi-tessin/lehrstelle-kauffrau-mann-efz-arbeitsort-steinhausen-paraplegie-nottwil"
+        "it": "/cerca-lavoro-zugo/lehrstelle-kauffrau-mann-efz-arbeitsort-steinhausen-paraplegie-nottwil",
+        "en": "/en/find-jobs-zug/lehrstelle-kauffrau-mann-efz-arbeitsort-steinhausen-paraplegie-nottwil",
+        "de": "/de/jobs-in-zug/lehrstelle-kauffrau-mann-efz-arbeitsort-steinhausen-paraplegie-nottwil",
+        "fr": "/fr/trouver-emploi-zoug/lehrstelle-kauffrau-mann-efz-arbeitsort-steinhausen-paraplegie-nottwil"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -41406,6 +41406,16 @@
           "impressions": 1
         },
         {
+          "query": "agence de recrutement logistique vevey",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "agence interim transport vevey",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "emploi transport et logistique vaud",
           "clicks": 0,
           "impressions": 1
@@ -41426,7 +41436,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 23,
+      "totalImpressions": 25,
       "totalClicks": 0,
       "topQuery": "logistique jura",
       "title": "Logistique",
@@ -48552,6 +48562,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "opticiens-m-w-d-fielmann-group-st-gallen",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-saint-gall/opticiens-m-w-d-fielmann-group-st-gallen/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-saint-gall/opticiens-m-w-d-fielmann-group-st-gallen/"
+      },
+      "queries": [
+        {
+          "query": "fielmann offres",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "fielmann offres",
+      "title": "Opticiens fielmann group st gallen",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "opticiens-m-w-d-fielmann-group-st-gallen",
+        "en": "opticiens-m-w-d-fielmann-group-st-gallen",
+        "de": "opticiens-m-w-d-fielmann-group-st-gallen",
+        "fr": "opticiens-m-w-d-fielmann-group-st-gallen"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-san-gallo/opticiens-m-w-d-fielmann-group-st-gallen",
+        "en": "/en/find-jobs-st-gallen/opticiens-m-w-d-fielmann-group-st-gallen",
+        "de": "/de/jobs-im-st-gallen/opticiens-m-w-d-fielmann-group-st-gallen",
+        "fr": "/fr/trouver-emploi-saint-gall/opticiens-m-w-d-fielmann-group-st-gallen"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -59034,10 +59101,10 @@
         "fr": "conseiller-commercial-a-garden-jumbo-division-der-coop-genossenschaft-schwyz"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-svitto/sales-advisor-in-garden-jumbo-division-der-coop-genossenschaft-schwyz",
-        "en": "/en/find-jobs-schwyz/sales-advisor-in-garden-jumbo-division-der-coop-genossenschaft-schwyz",
-        "de": "/de/jobs-in-schwyz/sales-advisor-in-garden-jumbo-division-der-coop-genossenschaft-schwyz",
-        "fr": "/fr/trouver-emploi-schwytz/sales-advisor-in-garden-jumbo-division-der-coop-genossenschaft-schwyz"
+        "it": "/cerca-lavoro-san-gallo/sales-advisor-in-garden-jumbo-division-der-coop-genossenschaft-schwyz",
+        "en": "/en/find-jobs-st-gallen/sales-advisor-in-garden-jumbo-division-der-coop-genossenschaft-schwyz",
+        "de": "/de/jobs-in-st-gallen/sales-advisor-in-garden-jumbo-division-der-coop-genossenschaft-schwyz",
+        "fr": "/fr/trouver-emploi-saint-gall/sales-advisor-in-garden-jumbo-division-der-coop-genossenschaft-schwyz"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -68698,10 +68765,10 @@
         "fr": "stv-filialleiter-in-denner-luzern"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/stv-filialleiter-in-denner-luzern",
-        "en": "/en/find-jobs-lucerne/stv-filialleiter-in-denner-luzern",
-        "de": "/de/jobs-in-luzern/stv-filialleiter-in-denner-luzern",
-        "fr": "/fr/trouver-emploi-lucerne/stv-filialleiter-in-denner-luzern"
+        "it": "/cerca-lavoro-zurigo/stv-filialleiter-in-denner-luzern",
+        "en": "/en/find-jobs-zurich/stv-filialleiter-in-denner-luzern",
+        "de": "/de/jobs-in-zurich/stv-filialleiter-in-denner-luzern",
+        "fr": "/fr/trouver-emploi-zurich/stv-filialleiter-in-denner-luzern"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -77239,10 +77306,10 @@
         "fr": "venditore-a-alimentari-bevande-coop-genossenschaft-schwyz"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-svitto/venditore-a-alimentari-bevande-coop-genossenschaft-schwyz",
-        "en": "/en/find-jobs-schwyz/venditore-a-alimentari-bevande-coop-genossenschaft-schwyz",
+        "it": "/cerca-lavoro-zurigo/venditore-a-alimentari-bevande-coop-genossenschaft-schwyz",
+        "en": "/en/find-jobs-zurich/venditore-a-alimentari-bevande-coop-genossenschaft-schwyz",
         "de": "/de/jobs-im-zurich/venditore-a-alimentari-bevande-coop-genossenschaft-schwyz",
-        "fr": "/fr/trouver-emploi-schwytz/venditore-a-alimentari-bevande-coop-genossenschaft-schwyz"
+        "fr": "/fr/trouver-emploi-zurich/venditore-a-alimentari-bevande-coop-genossenschaft-schwyz"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

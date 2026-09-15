@@ -8,9 +8,11 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
+  actionClassForPolicy,
   buildDecision,
   buildObservation,
   validateActionClassAgainstPolicy,
+  validateLoopRegistry,
   loadLoopPolicyForRun,
 } from '../lib/loop-fleet-contract.mjs';
 import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
@@ -20,12 +22,7 @@ export const DEFAULT_CANDIDATES_PATH = path.join('data', 'experimental-candidate
 export const DEFAULT_OUTCOME_PATH = path.join('data', 'experiment-outcomes.json');
 export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
 export const DEFAULT_MAX_AGE_HOURS = 192;
-export const MINIMUM_SAMPLE = 200;
 export const MAX_CANDIDATES = 50;
-const DEFAULT_PRIMARY_METRIC = 'registered_outcome_per_eligible_cohort';
-const DEFAULT_GUARDRAILS = ['persistent assignment', 'minimum sample', 'explicit expiry', 'no automatic price change'];
-const DEFAULT_ASSIGNMENT_METHOD = 'stable-sha256';
-const DEFAULT_ASSIGNMENT_KEY = 'experiment-session-id';
 const LOCALES = new Set(['it', 'en', 'de', 'fr']);
 
 function finiteDate(value) {
@@ -57,6 +54,12 @@ function object(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
 }
 
+function outcomeLedgerStatus(outcomesSnapshot) {
+  if (!object(outcomesSnapshot) || outcomesSnapshot.missing) return 'missing';
+  if (outcomesSnapshot.quality === 'observed' && outcomesSnapshot.independent === true) return 'verified';
+  return 'unverified';
+}
+
 function baseVerdict({ sourcePath, now, quality, ok, reason, issues = [], warnings = [], snapshot = null, candidates = [] }) {
   return { loopId: LOOP_ID, sourcePath, checkedAt: now.toISOString(), ok, quality, reason, issues, warnings, snapshot, candidates };
 }
@@ -67,7 +70,9 @@ function summarizeIssues(issues, quality) {
   return issues.length > 12 ? `${visible}; (+${issues.length - 12} further findings in the report)` : visible;
 }
 
-function buildAllocationPlan({ registry, policy, now }) {
+function buildAllocationPlan({ registry, policy, now, ledgerStatus = 'missing' }) {
+  const allocationPolicy = policy?.allocationPolicy;
+  if (!allocationPolicy) throw new Error('L7 allocationPolicy is missing from the validated loop registry');
   const candidateIds = (Array.isArray(registry?.candidates) ? registry.candidates : [])
     .map((candidate) => text(candidate?.id) ? candidate.id.trim() : null)
     .filter(Boolean)
@@ -75,18 +80,22 @@ function buildAllocationPlan({ registry, policy, now }) {
   const basis = [LOOP_ID, registry?.generatedAt || 'missing-generated-at', ...candidateIds].join('|');
   const seed = crypto.createHash('sha256').update(basis).digest('hex').slice(0, 24);
   const expiresAt = new Date(now.getTime() + (policy.lifecycle?.candidateTtlHours || 168) * 3_600_000).toISOString();
+  const ledgerVerified = ledgerStatus === 'verified';
   return {
     schemaVersion: 1,
-    assignmentMethod: DEFAULT_ASSIGNMENT_METHOD,
-    assignmentKey: DEFAULT_ASSIGNMENT_KEY,
+    persistent: ledgerVerified,
+    assignmentMethod: allocationPolicy.assignmentMethod,
+    assignmentKey: allocationPolicy.assignmentKey,
     seed,
     candidateIds,
-    persistent: true,
-    boundedCanary: {
-      enabled: false,
-      maxExposure: 0,
-      requiresReviewedApproval: true,
+    ledgerStatus,
+    persistenceSupported: ledgerVerified,
+    evidenceSupport: {
+      assignmentLedger: ledgerStatus,
+      guardrails: ledgerStatus,
+      duration: ledgerStatus,
     },
+    boundedCanary: { ...allocationPolicy.boundedCanary },
     preRegistration: {
       outcomeId: policy.outcome.outcomeId,
       primaryMetric: policy.primaryMetric,
@@ -94,26 +103,21 @@ function buildAllocationPlan({ registry, policy, now }) {
       guardrails: [...policy.guardrails],
       expiresAt,
     },
-    contaminationPolicy: {
-      controlled: true,
-      key: DEFAULT_ASSIGNMENT_KEY,
-      rejectReassignment: true,
-      rejectCrossCandidateExposure: true,
-    },
-    trafficMutationAllowed: false,
-    priceMutationAllowed: false,
-    noAutomaticPriceChange: true,
+    contaminationPolicy: { ...allocationPolicy.contaminationPolicy },
+    trafficMutationAllowed: allocationPolicy.trafficMutationAllowed,
+    priceMutationAllowed: allocationPolicy.priceMutationAllowed,
+    noAutomaticPriceChange: allocationPolicy.noAutomaticPriceChange,
   };
 }
 
-function candidateAction(candidate, rowIssues = []) {
+function candidateAction(candidate, rowIssues = [], actionClass = null) {
   return {
     candidateId: candidate.id ?? null,
     keyword: text(candidate.keyword) ? candidate.keyword.trim() : null,
     locale: LOCALES.has(candidate.locale) ? candidate.locale : null,
     sources: Array.isArray(candidate.sources) ? candidate.sources.slice(0, 10) : [],
     issueCodes: rowIssues,
-    actionClass: 'candidate',
+    ...(text(actionClass) ? { actionClass: actionClass.trim() } : {}),
     action: 'candidate-only: register persistent assignment, bounded exposure, guardrails and expiry before any canary',
     reversible: true,
     appliesToTraffic: false,
@@ -121,11 +125,20 @@ function candidateAction(candidate, rowIssues = []) {
   };
 }
 
+function requireL7Policy(loopRegistry) {
+  if (!loopRegistry) throw new Error('L7 loop registry is required for allocator validation');
+  const validated = validateLoopRegistry(loopRegistry);
+  const policy = validated.loops.find((loop) => loop.loopId === LOOP_ID);
+  if (!policy) throw new Error('L7 loop policy is missing from the loop registry');
+  return { registry: validated, policy };
+}
+
 /** Validate candidate provenance independently from any experiment outcome. */
 export function validateCandidateRegistry(registry, {
   now = new Date(),
   maxAgeHours = DEFAULT_MAX_AGE_HOURS,
   sourcePath = DEFAULT_CANDIDATES_PATH,
+  actionClass = null,
 } = {}) {
   const issues = [];
   const warnings = [];
@@ -172,7 +185,7 @@ export function validateCandidateRegistry(registry, {
       continue;
     }
     validCandidateCount += 1;
-    candidates.push(candidateAction(candidate));
+    candidates.push(candidateAction(candidate, [], actionClass));
   }
   let ageHours = null;
   if (generatedAt) {
@@ -206,9 +219,9 @@ function validateOutcomes(outcomes, {
   maxAgeHours,
   sourcePath,
   minimumSample,
-  primaryMetric = DEFAULT_PRIMARY_METRIC,
-  guardrails = DEFAULT_GUARDRAILS,
-  candidateTtlHours = 168,
+  primaryMetric,
+  guardrails,
+  candidateTtlHours,
 } = {}) {
   if (!object(outcomes)) {
     return {
@@ -380,37 +393,42 @@ export function validateExperimentAllocator({ registry, outcomes = null }, {
   maxAgeHours = DEFAULT_MAX_AGE_HOURS,
   sourcePath = DEFAULT_CANDIDATES_PATH,
   outcomePath = DEFAULT_OUTCOME_PATH,
-  minimumSample = MINIMUM_SAMPLE,
-  loopRegistry = null,
+  minimumSample,
+  loopRegistry,
 } = {}) {
-  const candidateVerdict = validateCandidateRegistry(registry, { now, maxAgeHours, sourcePath });
-  const loopPolicy = Array.isArray(loopRegistry?.loops)
-    ? loopRegistry.loops.find((loop) => loop.loopId === LOOP_ID)
-    : null;
+  const { registry: validatedLoopRegistry, policy: loopPolicy } = requireL7Policy(loopRegistry);
+  const effectiveMinimumSample = minimumSample === undefined
+    ? loopPolicy.minimumSample
+    : Math.max(loopPolicy.minimumSample, minimumSample);
+  const candidateActionClass = actionClassForPolicy(loopPolicy, 'candidate');
+  const candidateVerdict = validateCandidateRegistry(registry, {
+    now,
+    maxAgeHours,
+    sourcePath,
+    actionClass: candidateActionClass,
+  });
   const outcomeVerdict = validateOutcomes(outcomes, {
     now,
     maxAgeHours,
     sourcePath: outcomePath,
-    minimumSample,
-    primaryMetric: loopPolicy?.primaryMetric || DEFAULT_PRIMARY_METRIC,
-    guardrails: loopPolicy?.guardrails || DEFAULT_GUARDRAILS,
-    candidateTtlHours: loopPolicy?.lifecycle?.candidateTtlHours || 168,
+    minimumSample: effectiveMinimumSample,
+    primaryMetric: loopPolicy.primaryMetric,
+    guardrails: loopPolicy.guardrails,
+    candidateTtlHours: loopPolicy.lifecycle.candidateTtlHours,
   });
   const issues = [...candidateVerdict.issues, ...outcomeVerdict.issues];
   const warnings = [...candidateVerdict.warnings];
   let candidates = candidateVerdict.candidates;
-  if (loopRegistry) {
-    try {
-      const candidatePolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, 'candidate');
-      validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, 'candidate+stop+issue');
-      candidates = candidates.map((candidate) => ({
-        ...candidate,
-        autonomy: candidatePolicy.requiredAutonomy,
-      }));
-    } catch (error) {
-      candidates = [];
-      issues.push(`registry policy is not compatible with L7 actions: ${error.message}`);
-    }
+  try {
+    const candidatePolicy = validateActionClassAgainstPolicy(validatedLoopRegistry, LOOP_ID, candidateActionClass);
+    validateActionClassAgainstPolicy(validatedLoopRegistry, LOOP_ID, actionClassForPolicy(loopPolicy, 'needsReview'));
+    candidates = candidates.map((candidate) => ({
+      ...candidate,
+      autonomy: candidatePolicy.requiredAutonomy,
+    }));
+  } catch (error) {
+    candidates = [];
+    issues.push(`registry policy is not compatible with L7 actions: ${error.message}`);
   }
   if (!outcomes) warnings.push('no independent assignment/exposure/outcome ledger is available; no canary is authorized');
   const snapshot = {
@@ -483,6 +501,7 @@ function buildExperimentOutcome({ source, verdict, policy, registry, plan, now }
     contaminatedAssignments: integer(outcomeSnapshot.contaminatedAssignments) ? outcomeSnapshot.contaminatedAssignments : null,
   };
   const explicitIndependent = source?.independent === true;
+  const ledgerStatus = outcomeLedgerStatus(outcomeSnapshot);
   const metadataComplete = Boolean(
     outcomeSnapshot.preRegistration
       && outcomeSnapshot.assignmentLedger
@@ -492,6 +511,9 @@ function buildExperimentOutcome({ source, verdict, policy, registry, plan, now }
     && explicitIndependent
     && metadataComplete
     && Object.values(values).every((value) => value !== null);
+  const reportedValues = measured
+    ? values
+    : Object.fromEntries(Object.keys(values).map((name) => [name, null]));
   const status = measured
     ? 'observed'
     : (outcomeSnapshot.quality === 'stale'
@@ -502,8 +524,8 @@ function buildExperimentOutcome({ source, verdict, policy, registry, plan, now }
     loopId: LOOP_ID,
     quality: status,
     independent: measured,
-    numerator: values.primaryOutcomes,
-    denominator: values.eligibleCohort,
+    numerator: reportedValues.primaryOutcomes,
+    denominator: reportedValues.eligibleCohort,
     observedAt: generatedAt?.toISOString() || null,
     reason: measured
       ? 'explicit independent experiment ledger with persistent assignment, guardrails and expiry'
@@ -514,28 +536,30 @@ function buildExperimentOutcome({ source, verdict, policy, registry, plan, now }
     ...outcome,
     loopId: LOOP_ID,
     generatedAt: generatedAt?.toISOString() || null,
-    eligibleCohort: values.eligibleCohort,
-    assignments: values.assignments,
-    exposures: values.exposures,
-    primaryOutcomes: values.primaryOutcomes,
-    guardrailBreaches: values.guardrailBreaches,
-    persistentAssignments: values.persistentAssignments,
-    contaminatedAssignments: values.contaminatedAssignments,
-    metrics: values,
+    eligibleCohort: reportedValues.eligibleCohort,
+    assignments: reportedValues.assignments,
+    exposures: reportedValues.exposures,
+    primaryOutcomes: reportedValues.primaryOutcomes,
+    guardrailBreaches: reportedValues.guardrailBreaches,
+    persistentAssignments: reportedValues.persistentAssignments,
+    contaminatedAssignments: reportedValues.contaminatedAssignments,
+    metrics: reportedValues,
     evidence: outcomeSnapshot.evidence || {
       status: 'missing',
       sourcePath: outcomeSnapshot.path,
       sourceRefs: policy.outcome.sourceRefs,
     },
-    evidenceStatus: outcomeSnapshot.missing ? 'missing' : (outcome.independent ? 'verified' : 'unverified'),
+    evidenceStatus: ledgerStatus,
     sourcePath: outcomeSnapshot.path,
-    preRegistration: outcomeSnapshot.preRegistration || plan.preRegistration,
-    assignmentLedger: outcomeSnapshot.assignmentLedger || {
-      persistent: plan.persistent,
-      method: plan.assignmentMethod,
-      key: plan.assignmentKey,
+    preRegistration: measured ? outcomeSnapshot.preRegistration : null,
+    assignmentLedger: measured ? outcomeSnapshot.assignmentLedger : null,
+    contaminationPolicy: measured ? outcomeSnapshot.contaminationPolicy : null,
+    ledger: {
+      status: measured ? 'verified' : ledgerStatus,
+      persistent: measured,
+      guardrails: measured,
+      duration: measured,
     },
-    contaminationPolicy: outcomeSnapshot.contaminationPolicy || plan.contaminationPolicy,
     allocationPlan: plan,
     safeToAct: false,
     appliesToTraffic: false,
@@ -559,7 +583,7 @@ function writeReports(reportDir, verdict, observation, decision) {
   return files.map(([name]) => path.join(dir, name));
 }
 
-function writeActions(reportDir, verdict, now, loopRegistry) {
+function writeActions(reportDir, verdict, now, loopRegistry, loopPolicy) {
   if (!reportDir || verdict.ok || !loopRegistry) return null;
   const file = path.join(path.resolve(reportDir), 'l7-actions.json');
   const outcomes = verdict.snapshot?.outcomes;
@@ -568,9 +592,10 @@ function writeActions(reportDir, verdict, now, loopRegistry) {
   const actions = [];
   if ((integer(guardrailBreaches) && guardrailBreaches > 0)
       || (integer(contaminatedAssignments) && contaminatedAssignments > 0)) {
+    const guardrailActionClass = actionClassForPolicy(loopPolicy, 'guardrail');
     actions.push({
-      actionClass: 'stop',
-      autonomy: validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, 'stop').requiredAutonomy,
+      actionClass: guardrailActionClass,
+      autonomy: validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, guardrailActionClass).requiredAutonomy,
       action: 'recommend stopping the affected bounded canary pending guardrail and contamination review',
       reversible: true,
       appliesToTraffic: false,
@@ -627,7 +652,9 @@ export async function runL7({
   outcomePath = DEFAULT_OUTCOME_PATH,
   registryPath = DEFAULT_REGISTRY_PATH,
   maxAgeHours = DEFAULT_MAX_AGE_HOURS,
-  minimumSample = MINIMUM_SAMPLE,
+  // Undefined lets the validated registry set the floor; an explicit value
+  // is treated by loadLoopPolicyForRun as a strengthening override only.
+  minimumSample,
   issue = false,
   apply = false,
   reportDir = null,
@@ -659,7 +686,9 @@ export async function runL7({
   } catch (error) {
     verdict = baseVerdict({ sourcePath: candidatesPath, now, quality: 'unmeasurable', ok: false, reason: error.message });
   }
-  const actionClass = verdict.ok ? 'observe' : 'candidate+stop+issue';
+  const actionClass = verdict.ok
+    ? actionClassForPolicy(loopPolicy, 'healthy')
+    : actionClassForPolicy(loopPolicy, 'needsReview');
   const actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
   verdict = {
     ...verdict,
@@ -672,10 +701,16 @@ export async function runL7({
         actionClass,
         requiredAutonomy: actionPolicy.requiredAutonomy,
         actionClasses: loopPolicy.actionClasses,
+        actionPolicy: loopPolicy.actionPolicy,
       },
     },
   };
-  const allocationPlan = buildAllocationPlan({ registry: sourceRegistry, policy: loopPolicy, now });
+  const allocationPlan = buildAllocationPlan({
+    registry: sourceRegistry,
+    policy: loopPolicy,
+    now,
+    ledgerStatus: outcomeLedgerStatus(verdict.snapshot?.outcomes),
+  });
   const outcome = buildExperimentOutcome({ source: sourceOutcomes, verdict, policy: loopPolicy, registry: loopRegistry, plan: allocationPlan, now });
   const measurable = verdict.quality === 'observed' && verdict.ok;
   const generatedAt = finiteDate(verdict.snapshot?.outcomes?.generatedAt);
@@ -718,7 +753,7 @@ export async function runL7({
   const files = writeReports(reportDir, verdict, observation, decision);
   let actionsWritten = false;
   if (apply && reportDir) {
-    const actionFile = writeActions(reportDir, verdict, now, loopRegistry);
+    const actionFile = writeActions(reportDir, verdict, now, loopRegistry, loopPolicy);
     actionsWritten = Boolean(actionFile);
     if (actionFile) files.push(actionFile);
   }
@@ -748,9 +783,14 @@ function parseArgs(argv) {
     return index === -1 ? fallback : argv[index + 1] || fallback;
   };
   const maxAgeHours = Number(valueAfter('--max-age-hours', DEFAULT_MAX_AGE_HOURS));
-  const minimumSample = Number(valueAfter('--minimum-sample', MINIMUM_SAMPLE));
+  // Keep omission distinct from an override so a registry value below the
+  // legacy compatibility constant is still authoritative.
+  const minimumSampleIndex = argv.indexOf('--minimum-sample');
+  const minimumSample = minimumSampleIndex === -1 ? undefined : Number(argv[minimumSampleIndex + 1]);
   if (!Number.isFinite(maxAgeHours) || maxAgeHours <= 0) throw new Error('--max-age-hours must be a finite positive number');
-  if (!Number.isInteger(minimumSample) || minimumSample < 1) throw new Error('--minimum-sample must be a positive integer');
+  if (minimumSample !== undefined && (!Number.isInteger(minimumSample) || minimumSample < 1)) {
+    throw new Error('--minimum-sample must be a positive integer');
+  }
   return {
     json: argv.includes('--json'),
     issue: argv.includes('--issue'),

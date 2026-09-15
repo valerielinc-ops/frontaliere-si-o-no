@@ -77,7 +77,6 @@ jobs:
             !/data/all-known-job-slugs/
             !/data/orphan-enriched-data/
             !/docs/
-            !/public/data/
             !/data/related-search-candidates.json
             !/data/cf-hot-404s.json
             !/data/jobs-ai-cache.json
@@ -192,7 +191,9 @@ jobs:
           SANGALLO_SHARD_LIVE: ${{ vars.SANGALLO_SHARD_LIVE }}
           ARTICOLIFRONTALIERE_SHARD_LIVE: ${{ vars.ARTICOLIFRONTALIERE_SHARD_LIVE }}
           ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
-        run: bash scripts/lib/rehydrate-section-shards.sh
+        run: |
+          test -f scripts/lib/rehydrate-section-shards.sh
+          bash scripts/lib/rehydrate-section-shards.sh
 
       - name: Report full rehydrated dist/ size
         run: |
@@ -210,6 +211,9 @@ jobs:
       - name: Generate orphan-pages baseline (rate v2)
         run: |
           node scripts/audit-orphan-pages-in-sitemaps.mjs --rebaseline
+          node scripts/ci/validate-generated-data.mjs \
+            --kind orphan-pages \
+            --file data/orphan-pages-baseline.json
           echo ""
           echo "==== baseline preview (head) ===="
           head -40 data/orphan-pages-baseline.json

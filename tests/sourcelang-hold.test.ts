@@ -18,6 +18,7 @@ import path from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 
 import { hardenJobLocaleFields } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { holdSourceLang } from '../scripts/lib/job-locale-utils.mjs';
 
 const tmpFiles: string[] = [];
 
@@ -91,5 +92,26 @@ describe('sourceLang hold guard', () => {
   it('accepts a weak detection when no sourceLang is stored yet', () => {
     const out = harden(baseJob(WEAK_TEXT));
     expect(out.sourceLang).toBe('en');
+  });
+
+  it('normalizes a stored regional locale before applying the hold', () => {
+    const out = harden(baseJob(WEAK_TEXT, 'IT-CH'));
+    expect(out.sourceLang).toBe('it');
+    expect((out.titleByLocale as Record<string, string>).it).toBe(
+      'Posizioni di dottorandi',
+    );
+  });
+
+  it('uses the caller fallback when the text is empty', () => {
+    expect(holdSourceLang({ sourceLang: 'de' }, '', 'it')).toBe('it');
+  });
+
+  it('relocalize-pending-jobs imports the shared source-language threshold', () => {
+    const source = fs.readFileSync(
+      new URL('../scripts/relocalize-pending-jobs.mjs', import.meta.url),
+      'utf8',
+    );
+    expect(source).toContain('SOURCE_LANG_HOLD_CONFIDENCE');
+    expect(source).not.toMatch(/detected\.confidence\s*>=\s*0\.65/);
   });
 });

@@ -1,6 +1,6 @@
 /**
  * Plate-auction domain types — shared contract between the per-canton
- * connectors (Grigioni/Vallese/Zurigo, with Ticino explicitly blocked) and the pages/classifiche that read
+ * connectors (GR/SG/SH/SZ/TG/VS/ZH; TI kept for parser compatibility) and the pages/classifiche that read
  * `data/plate-auction-sources-registry.json`. See #4854 → "Modello dati" for
  * the origin of `PlateAuction`; no auction data (prices, plates, winners) is
  * stored in the registry itself, only source configuration.

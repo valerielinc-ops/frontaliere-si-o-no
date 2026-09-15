@@ -8,6 +8,7 @@ import {
   buildSmnClinicFetchResult,
   suggestDirectoryLabels,
 } from '../scripts/lib/smn-clinic-job-parser.mjs';
+import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
 import {
   matchesHopitalDeMoutierPosting,
 } from '../scripts/lib/hopital-de-moutier-job-parser.mjs';
@@ -422,6 +423,44 @@ describe('createSmnClinicParser zero-match evidence', () => {
 
     expect(result.jobs).toEqual([]);
     expect(result.fetchOutcome).toBe('selector_miss');
+    expect(isAuthoritativeEmptySnapshot(result.jobs)).toBe(false);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('stamps a proven zero when the complete directory keeps the clinic department active', async () => {
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(jsonResponse({
+        totalFound: 1,
+        content: [posting({
+          department: { label: 'Réseau de l’Arc' },
+          customField: [{ fieldLabel: 'Department', valueLabel: 'Réseau de l’Arc' }],
+          location: { city: 'Genève', country: 'ch' },
+        })],
+      }))
+      .mockResolvedValueOnce(jsonResponse({
+        totalFound: 1,
+        content: [{ id: 'cdf', label: 'Clinique Générale Ste-Anne', archived: false }],
+      }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const parser = createSmnClinicParser({
+      companyKey: 'clinique-generale-ste-anne',
+      companyName: 'Clinique Générale Ste-Anne',
+      clinicCode: 'CDF',
+      companyDomain: 'swissmedical.net',
+      defaultCanton: 'FR',
+      defaultCity: 'Fribourg',
+      defaultPostalCode: '1700',
+      defaultSourceLang: 'fr',
+      lang: 'fr',
+    });
+
+    const result = await parser.fetchAllJobs();
+
+    expect(result.jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(result.jobs)).toBe(true);
+    expect(result.jobs.authoritativeEmptyEvidence).toContain('complete department directory');
+    expect(result.fetchOutcome).toBe('ok');
     expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 });

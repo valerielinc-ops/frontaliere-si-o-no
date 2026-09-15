@@ -1,13 +1,40 @@
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   buildL1TelemetryExport,
+  buildL3OutcomeExport,
   buildL4OutcomeLedger,
+  buildL5DecisionMomentExport,
+  buildL5DecisionMomentQuery,
+  buildL7ExperimentLedger,
+  buildL7ExperimentLedgerQuery,
   buildL9OutcomeLedger,
+  exportL3,
+  exportL4,
+  exportL5,
+  exportL7,
   GoogleDataClient,
 } from '../scripts/ci/export-loop-outcomes.mjs';
 
 const NOW = new Date('2026-09-12T12:00:00.000Z');
 const ROOT = 'projects/test/databases/(default)/documents';
+const L7_POLICY = JSON.parse(fs.readFileSync(
+  path.resolve('data/loop-fleet/loop-registry.json'),
+  'utf8',
+)).loops.find((loop: any) => loop.loopId === 'L7');
+
+function postHogClient() {
+  return {
+    remoteConfig: async () => ({
+      parameters: {
+        SERVER_POSTHOG_PERSONAL_API_KEY: { defaultValue: { value: 'test-key' } },
+        SERVER_POSTHOG_PROJECT_ID: { defaultValue: { value: 'test-project' } },
+      },
+    }),
+  };
+}
 
 function row(path: string, data: Record<string, unknown>) {
   return { name: `${ROOT}/${path}`, data };
@@ -52,6 +79,81 @@ describe('read-only loop outcome exporters', () => {
     });
   });
 
+  it('exports L3 from exact settled GA4 event-session counts without inventing applications', async () => {
+    const calls: Array<{ url: string; init: RequestInit }> = [];
+    const client = {
+      request: async (url: string, init: RequestInit) => {
+        calls.push({ url, init });
+        const body = JSON.parse(String(init.body));
+        const eventName = body.dimensionFilter.filter.stringFilter.value;
+        return {
+          rows: [{ metricValues: [{ value: eventName === 'job_qualified_session' ? '120' : '90' }] }],
+        };
+      },
+    };
+    const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l3-export-test-'));
+    const outputPath = path.join(outputDir, 'outcomes.json');
+    const output = await exportL3({
+      now: NOW,
+      days: 4,
+      outputPath,
+      propertyId: 'properties/524485296',
+      client: client as any,
+    });
+
+    expect(output).toMatchObject({
+      generatedAt: NOW.toISOString(),
+      independent: true,
+      eligibleJobSessions: 120,
+      validHandoffs: 90,
+      evidence: {
+        sourceRefs: ['job-crawler-summaries', 'application-handoff'],
+        settledWindow: true,
+        eventFilters: {
+          eligibleJobSessions: 'job_qualified_session',
+          validHandoffs: 'job_apply_handoff',
+        },
+      },
+      export: {
+        handoffIsNotApplication: true,
+        applicationSubmissionSource: 'not available from site telemetry',
+        publishedDataUntouched: true,
+        readOnly: true,
+      },
+    });
+    expect(output).not.toHaveProperty('applications');
+    expect(JSON.parse(fs.readFileSync(outputPath, 'utf8'))).toEqual(output);
+    expect(calls).toHaveLength(2);
+    for (const call of calls) {
+      expect(call.url).toBe('https://analyticsdata.googleapis.com/v1beta/properties/524485296:runReport');
+      const body = JSON.parse(String(call.init.body));
+      expect(body).toMatchObject({
+        dateRanges: [{ startDate: '2026-09-07', endDate: '2026-09-10' }],
+        metrics: [{ name: 'sessions' }],
+        dimensionFilter: {
+          filter: {
+            fieldName: 'eventName',
+            stringFilter: { matchType: 'EXACT' },
+          },
+        },
+      });
+    }
+  });
+
+  it('keeps the L3 builder honest when the source has no submitted-application field', () => {
+    expect(buildL3OutcomeExport({
+      generatedAt: NOW.toISOString(),
+      eligibleJobSessions: 0,
+      validHandoffs: 0,
+      telemetryWindow: { startDate: '2026-09-07', endDate: '2026-09-10' },
+    })).toMatchObject({
+      independent: true,
+      eligibleJobSessions: 0,
+      validHandoffs: 0,
+      export: { handoffIsNotApplication: true, publishedDataUntouched: true },
+    });
+  });
+
   it('counts only consented, attributable L4 deliveries and records the guardrails', () => {
     const output = buildL4OutcomeLedger({
       now: NOW,
@@ -92,6 +194,11 @@ describe('read-only loop outcome exporters', () => {
         deduplicationChecked: true,
         quietHoursChecked: true,
         externalDeliveryUntouched: true,
+        unattributedDeliveryReasons: {
+          missingAlertId: 0,
+          missingSentAt: 0,
+          noConsentedAlert: 0,
+        },
       },
     });
   });
@@ -112,6 +219,287 @@ describe('read-only loop outcome exporters', () => {
       deduplicationChecked: false,
       quietHoursChecked: false,
       unattributedDeliveries: 1,
+      unattributedDeliveryReasons: {
+        missingAlertId: 1,
+        missingSentAt: 0,
+        noConsentedAlert: 0,
+      },
+    });
+  });
+
+  it('attributes a consented historical delivery after the alert is no longer active', () => {
+    const output = buildL4OutcomeLedger({
+      now: NOW,
+      alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: false })],
+      jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {})],
+      deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
+        campaign_id: 'a1',
+        sent_at: '2026-09-12T09:00:00.000Z',
+        scheduled_for: '2026-09-12T08:45:00.000Z',
+        send_time_source: 'personal',
+        delivered_at: '2026-09-12T09:01:00.000Z',
+      })],
+      predicates: {
+        evaluateJobAlertConsent: () => ({ allowed: true, reason: 'explicit-alert' }),
+        isCrossChannelStop: () => true,
+        isJobAlertExcluded: () => true,
+      },
+    });
+
+    expect(output).toMatchObject({
+      eligibleConsentedUsers: 0,
+      deliveredAlerts: 1,
+      export: {
+        consentChecked: true,
+        deduplicationChecked: true,
+        unattributedDeliveries: 0,
+        unattributedDeliveryReasons: {
+          missingAlertId: 0,
+          missingSentAt: 0,
+          noConsentedAlert: 0,
+        },
+      },
+    });
+  });
+
+  it('exports the L5 completed-task to next-useful-action contract', async () => {
+    const query = buildL5DecisionMomentQuery({
+      start: '2026-09-05T12:00:00.000Z',
+      end: NOW.toISOString(),
+    });
+    expect(query).toContain("properties.step = 'simulation_complete'");
+    expect(query).toContain("properties.step = 'compare'");
+    expect(query).toContain("properties.cta_id LIKE 'calculator%'");
+    expect(query).toContain('countIf(completionRecords > 0) AS eligibleDecisionSessions');
+    expect(query).toContain('countIf(completionRecords > 0 AND nextUsefulAt > completedAt)');
+    expect(query).toContain('countIf(event = \'simulation_complete\'');
+    expect(query).toContain('minIf(timestamp');
+    expect(query).toContain('maxIf(timestamp');
+    expect(query).toContain('nextUsefulAt > completedAt');
+    expect(query).toContain('GROUP BY $session_id');
+
+    const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l5-export-test-'));
+    const calls: string[] = [];
+    const output = await (exportL5 as any)({
+      now: NOW,
+      outputPath: path.join(outputDir, 'outcomes.json'),
+      client: postHogClient() as any,
+      posthogRunner: async (query: string, config: any) => {
+        calls.push(query);
+        expect(config).toMatchObject({ apiKey: 'test-key', projectId: 'test-project' });
+        return { columns: ['eligibleDecisionSessions', 'nextUsefulActions'], results: [[123, 7]] };
+      },
+    });
+
+    expect(calls).toHaveLength(1);
+    expect(output).toMatchObject({
+      loopId: 'L5',
+      independent: true,
+      eligibleDecisionSessions: 123,
+      nextUsefulActions: 7,
+      evidence: {
+        sourceRefs: ['decision-surfaces', 'posthog'],
+      },
+    });
+    expect(JSON.parse(fs.readFileSync(path.join(outputDir, 'outcomes.json'), 'utf8'))).toEqual(output);
+    expect(() => buildL5DecisionMomentExport({
+      eligibleDecisionSessions: 1,
+      nextUsefulActions: 2,
+      generatedAt: NOW,
+    })).toThrow('nextUsefulActions greater than eligibleDecisionSessions');
+  });
+
+  it('keeps the L7 ledger fail-closed when canonical experiment evidence is absent or unsafe', async () => {
+    const query = buildL7ExperimentLedgerQuery({
+      start: '2026-09-05T12:00:00.000Z',
+      end: NOW.toISOString(),
+    });
+    expect(query).toContain("event IN ('experiment_assignment', 'experiment_exposure', 'experiment_outcome', 'experiment_guardrail')");
+    expect(query).toContain("properties.loop_id = 'L7'");
+    expect(query).toContain("properties.assignment_method = 'stable-sha256'");
+    expect(query).toContain('invalidAssignmentRecords');
+    expect(query).toContain('invalidOutcomeRecords');
+    expect(query).toContain('invalidExpiryRecords');
+    expect(query).toContain('completeAssignmentSessions');
+    expect(query).toContain('assignmentRecords > 0 AND exposureRecords > 0 AND invalidExposureRecords = 0');
+    expect(query).toContain('assignmentRecords > 0 AND outcomeRecords > 0 AND invalidOutcomeRecords = 0');
+    expect(query).toContain('assignmentRecords > 0 AND guardrailRecords > 0 AND invalidGuardrailRecords = 0');
+    expect(query).toContain('toDateTime(if(match(properties.expires_at');
+    expect(query).toContain('match(properties.expires_at');
+    expect(query).toContain('addHours(timestamp, 168)');
+
+    const twelveHourQuery = buildL7ExperimentLedgerQuery({
+      start: '2026-09-05T12:00:00.000Z',
+      end: NOW.toISOString(),
+      policy: { ...L7_POLICY, lifecycle: { ...L7_POLICY.lifecycle, candidateTtlHours: 12 } },
+    } as any);
+    expect(twelveHourQuery).toContain('addHours(timestamp, 12)');
+
+    const completeAggregate = {
+      sourceEventCount: 1200,
+      eligibleCohort: 250,
+      assignments: 250,
+      exposures: 250,
+      completeAssignmentSessions: 250,
+      primaryOutcomes: 40,
+      guardrailBreaches: 0,
+      persistentAssignments: 250,
+      contaminatedAssignments: 0,
+      assignmentContract: 250,
+      exposureContract: 250,
+      outcomeContract: 250,
+      guardrailContract: 250,
+      contaminationContract: 250,
+      expiryContract: 250,
+      firstSeenAt: '2026-09-05T12:00:00.000Z',
+      lastSeenAt: NOW.toISOString(),
+    };
+    const complete = buildL7ExperimentLedger({
+      aggregate: completeAggregate,
+      generatedAt: NOW,
+      telemetryWindow: { start: '2026-09-05T12:00:00.000Z', end: NOW.toISOString() },
+      policy: L7_POLICY,
+    } as any);
+    expect(complete).toMatchObject({
+      loopId: 'L7',
+      status: 'observed',
+      independent: true,
+      sourceEventCount: 1200,
+      eligibleCohort: 250,
+      assignments: 250,
+      exposures: 250,
+      completeAssignmentSessions: 250,
+      primaryOutcomes: 40,
+      assignmentLedger: { persistent: true, method: 'stable-sha256', key: 'experiment-session-id' },
+      contaminationPolicy: { controlled: true },
+      evidence: { status: 'verified', sourceRefs: ['experiment-assignment-exposure-outcome'] },
+    });
+
+    const missing = buildL7ExperimentLedger({
+      aggregate: { sourceEventCount: 0 },
+      generatedAt: NOW,
+      telemetryWindow: { start: '2026-09-05T12:00:00.000Z', end: NOW.toISOString() },
+      policy: L7_POLICY,
+    } as any);
+    expect(missing).toMatchObject({
+      status: 'missing',
+      independent: false,
+      eligibleCohort: null,
+      assignments: null,
+      primaryOutcomes: null,
+      evidence: { status: 'missing' },
+      reason: 'no canonical L7 experiment ledger events were observed; allocation remains disabled',
+    });
+
+    const breached = buildL7ExperimentLedger({
+      aggregate: { ...completeAggregate, guardrailBreaches: 1 },
+      generatedAt: NOW,
+      telemetryWindow: { start: '2026-09-05T12:00:00.000Z', end: NOW.toISOString() },
+      policy: L7_POLICY,
+    } as any);
+    expect(breached).toMatchObject({ status: 'unverified', independent: false, evidence: { status: 'unverified' } });
+
+    const maskedInvalidRecord = buildL7ExperimentLedger({
+      aggregate: { ...completeAggregate, exposureContract: 249 },
+      generatedAt: NOW,
+      telemetryWindow: { start: '2026-09-05T12:00:00.000Z', end: NOW.toISOString() },
+      policy: L7_POLICY,
+    } as any);
+    expect(maskedInvalidRecord).toMatchObject({ status: 'unverified', independent: false });
+
+    const disjointContracts = buildL7ExperimentLedger({
+      aggregate: {
+        ...completeAggregate,
+        completeAssignmentSessions: 249,
+        exposureContract: 250,
+        outcomeContract: 250,
+        guardrailContract: 250,
+      },
+      generatedAt: NOW,
+      telemetryWindow: { start: '2026-09-05T12:00:00.000Z', end: NOW.toISOString() },
+      policy: L7_POLICY,
+    } as any);
+    expect(disjointContracts).toMatchObject({ status: 'unverified', independent: false });
+
+    const expiredAssignment = buildL7ExperimentLedger({
+      aggregate: { ...completeAggregate, expiryContract: 249 },
+      generatedAt: NOW,
+      telemetryWindow: { start: '2026-09-05T12:00:00.000Z', end: NOW.toISOString() },
+      policy: L7_POLICY,
+    } as any);
+    expect(expiredAssignment).toMatchObject({ status: 'unverified', independent: false });
+
+    const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l7-export-test-'));
+    const output = await (exportL7 as any)({
+      now: NOW,
+      outputPath: path.join(outputDir, 'outcomes.json'),
+      client: postHogClient() as any,
+      policy: L7_POLICY,
+      posthogRunner: async () => ({
+        columns: Object.keys(completeAggregate),
+        results: [Object.values(completeAggregate)],
+      }),
+    });
+    expect(output).toMatchObject({ loopId: 'L7', status: 'observed', independent: true });
+    expect(JSON.parse(fs.readFileSync(path.join(outputDir, 'outcomes.json'), 'utf8'))).toEqual(output);
+  });
+
+  it('projects the affirmative consent field used by the live backfill predicate', async () => {
+    const calls: Array<Record<string, unknown>> = [];
+    const rows = {
+      alerts: [row('job_alert_subscribers/user@example.test/alerts/a1', {
+        active: true,
+        backfilled_from: 'newsletter_subscribers',
+      })],
+      jobs: [row('job_alert_subscribers/user@example.test', { status: 'confirmed' })],
+      newsletters: [row('newsletter_subscribers/user@example.test', {
+        consent_given: true,
+        consent_text_displayed: true,
+        consent_act: 'typed_email_submit',
+        consent_text: 'Chiedo di ricevere gli avvisi di lavoro quotidiani.',
+      })],
+      deliveries: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
+        campaign_id: 'a1',
+        sent_at: '2026-09-12T09:00:00.000Z',
+        scheduled_for: '2026-09-12T08:45:00.000Z',
+        send_time_source: 'personal',
+        delivered_at: '2026-09-12T09:01:00.000Z',
+      })],
+      events: [],
+    };
+    const client = {
+      runQuery: async (query: Record<string, unknown>) => {
+        calls.push(query);
+        const source = query.collectionId === 'alerts' ? rows.alerts
+          : query.collectionId === 'job_alert_subscribers' ? rows.jobs
+            : query.collectionId === 'newsletter_subscribers' ? rows.newsletters
+              : query.collectionId === 'campaign_deliveries' ? rows.deliveries
+                : rows.events;
+        const fieldPaths = new Set(Array.isArray(query.fieldPaths) ? query.fieldPaths : []);
+        return source.map((sourceRow) => ({
+          ...sourceRow,
+          data: Object.fromEntries(Object.entries(sourceRow.data).filter(([field]) => fieldPaths.has(field))),
+        }));
+      },
+    };
+    const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l4-export-test-'));
+    const output = await exportL4({
+      now: NOW,
+      outputPath: path.join(outputDir, 'outcomes.json'),
+      client: client as any,
+    });
+
+    expect(calls.find((query) => query.collectionId === 'newsletter_subscribers')?.fieldPaths)
+      .toContain('consent_given');
+    expect(output).toMatchObject({
+      eligibleConsentedUsers: 1,
+      deliveredAlerts: 1,
+      export: {
+        consentChecked: true,
+        deduplicationChecked: true,
+        unattributedDeliveries: 0,
+      },
     });
   });
 
@@ -142,6 +530,25 @@ describe('read-only loop outcome exporters', () => {
         pricesUntouched: true,
         outreachSent: false,
       },
+    });
+  });
+
+  it('does not promote a paid inventory job into a paid activation without an active order', () => {
+    const output = buildL9OutcomeLedger({
+      now: NOW,
+      profiles: {
+        _meta: { generatedAt: NOW.toISOString() },
+        profiles: [{ companyKey: 'demo' }],
+      },
+      publisherRows: [row('publishers/p1', { company: { companyKey: 'demo', name: 'Demo AG' } })],
+      jobRows: [row('publisher_jobs/j1', { publisherUid: 'p1', status: 'paid', tier: 'sponsored', companyKey: 'demo' })],
+    });
+
+    expect(output).toMatchObject({
+      eligibleEmployerAccounts: 1,
+      paidActivations: 0,
+      activeSubscriptions: 0,
+      attachedJobs: 1,
     });
   });
 });

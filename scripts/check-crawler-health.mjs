@@ -66,12 +66,16 @@
  *
  * Fetch outcome (issue #7897): a summary slice MAY report `lastFetchOutcome`,
  * the run's own verdict on WHY it ended up empty — `ok`, `anti_bot_block`,
- * `selector_miss` or `filtered_empty`. It answers on the FIRST observation the
+ * `selector_miss`, `filtered_empty`, `connection_error` or
+ * `exhausted_retry` or `feed_endpoint_unavailable`. It answers on the FIRST
+ * observation the
  * question the empty-streak gate can only guess at after three days, and even
  * then only as "0 jobs, cause unknown": a source that refused the fetch, a
  * parser whose selectors stopped matching, and a source that is legitimately
- * quiet all publish the same `total: 0`. `selector_miss`/`anti_bot_block` are
- * a proof of breakage, so they flag `broken` immediately and NAME the cause;
+ * quiet all publish the same `total: 0`. `selector_miss`/`anti_bot_block`,
+ * `connection_error`, `exhausted_retry` and `feed_endpoint_unavailable` are
+ * proof of a broken refresh, so they flag `broken` immediately and NAME the
+ * cause;
  * `filtered_empty` is the same evidence as the `discovered > 0, written === 0`
  * signal above and clears the streak. Like `discovered`/`written`, the field is
  * OPTIONAL: a slice without it — every historical slice included — is read
@@ -79,15 +83,22 @@
  * report it today (via `runStandardCrawlerPipeline`); instrumenting the rest of
  * the fleet is incremental, per-crawler work (each has its own fetch/parse
  * boundary).
+ *
+ * Early-exit cause (issue #7784): a guard slice MAY report `abortKind` as
+ * `no-jobs-parsed`, `connection-level-fetch` or `crash`. `exitCode: 0` alone
+ * cannot distinguish a fail-closed no-jobs bail-out from a transport failure;
+ * the explicit class keeps the monitor's triage at the right layer.
  */
 
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { isSliceFile } from './lib/crawler-slice-files.mjs';
 import { buildScheda } from './lib/monitor-scheda.mjs';
 import {
   CRAWLER_FETCH_FAILURE_OUTCOMES,
+  normalizeAbortKind,
   normalizeFetchOutcome,
 } from './lib/crawler-fetch-outcome.mjs';
 import { detailDropFromSummary, detailDropAdvisoryReason } from './lib/crawler-detail-drop.mjs';
@@ -965,6 +976,9 @@ async function inspectCrawler(slug) {
   const lastFetchOutcome = normalizeFetchOutcome(
     summary && typeof summary === 'object' ? summary.lastFetchOutcome : null,
   );
+  const abortKind = normalizeAbortKind(
+    summary && typeof summary === 'object' ? summary.abortKind : null,
+  );
   const earlyExit = summary && typeof summary === 'object' && summary.earlyExit === true;
   // Separates a deliberate bail-out (0) from a crash (non-zero) — different
   // triage, and the guard already records it. `null` when absent: "unknown" is
@@ -1009,6 +1023,7 @@ async function inspectCrawler(slug) {
     detailDrop,
     authoritativeEmpty,
     lastFetchOutcome,
+    abortKind,
     earlyExit,
     exitCode,
   };
@@ -1100,6 +1115,9 @@ function corpusObservationFromPayloads(slug, data, summary) {
   const lastFetchOutcome = normalizeFetchOutcome(
     summary && typeof summary === 'object' ? summary.lastFetchOutcome : null,
   );
+  const abortKind = normalizeAbortKind(
+    summary && typeof summary === 'object' ? summary.abortKind : null,
+  );
   // Same guard-slice marker as `inspectCrawler` above: the corpus republishes
   // whatever slice the crawler wrote, exit-guard placeholders included — and
   // for cross-repo crawlers the corpus observation is usually the one that
@@ -1123,6 +1141,7 @@ function corpusObservationFromPayloads(slug, data, summary) {
     detailDrop,
     authoritativeEmpty,
     lastFetchOutcome,
+    abortKind,
     earlyExit,
     exitCode,
   };
@@ -1222,6 +1241,7 @@ const OBSERVATION_DIAGNOSTIC_FIELDS = [
   'authoritativeEmpty',
   'authoritativeEmptySnapshot',
   'lastFetchOutcome',
+  'abortKind',
   'earlyExit',
   'exitCode',
   'detailDrop',
@@ -1359,18 +1379,21 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
   // `null` → every branch below behaves exactly as it did before the field
   // existed, which is what keeps historical slices readable without a backfill.
   const fetchOutcome = normalizeFetchOutcome(observation.lastFetchOutcome);
+  const abortKind = normalizeAbortKind(observation.abortKind);
   // Same evidence as the #5945 filtered-empty counts, stated directly instead
   // of derived: the run fetched and parsed fine, its own filter kept nothing.
   const filteredEmptyOutcome = fetchOutcome === 'filtered_empty' && lastObservedJobs === 0;
   // A PROVEN break, on the run's own report. Waiting three days to say "0 jobs"
   // adds nothing here: the cause is already known and named.
   const fetchFailed =
-    CRAWLER_FETCH_FAILURE_OUTCOMES.has(fetchOutcome) && lastObservedJobs === 0;
+    (CRAWLER_FETCH_FAILURE_OUTCOMES.has(fetchOutcome) || abortKind === 'connection-level-fetch') &&
+    lastObservedJobs === 0;
 
   // A proven fetch failure cancels every empty-ok signal, including a manual
   // EMPTY_OK_CRAWLERS entry. Those signals all mean "this zero is not evidence
-  // of breakage"; `anti_bot_block`/`selector_miss` are evidence of breakage, on
-  // the run's own report. Letting the allowlist win would mask exactly the case
+  // of breakage"; `anti_bot_block`/`selector_miss` plus the explicit transport
+  // and endpoint outcomes are evidence of breakage, on the run's own report.
+  // Letting the allowlist win would mask exactly the case
   // #6496 is about — a listed source that has actually died — and would also
   // reset the streak that must keep growing while it stays broken. Same
   // reasoning as `abortedRun` below, one step earlier in the pipeline.
@@ -1508,9 +1531,19 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
     // and the reason can send triage to the right layer instead of the parser
     // by default.
     status = 'broken';
-    reason = fetchOutcome === 'anti_bot_block'
-      ? 'run reported lastFetchOutcome=anti_bot_block with 0 jobs — the source refused the fetch (WAF/anti-bot/IP reputation) and the selectors were never exercised; look at the fetch transport, not at the parser'
-      : 'run reported lastFetchOutcome=selector_miss with 0 jobs — the fetch succeeded and the parser matched nothing it used to match (selector/label drift); look at the parser config, the source is reachable';
+    if (abortKind === 'connection-level-fetch') {
+      reason = 'run reported abortKind=connection-level-fetch with 0 jobs — the crawler could not reach the source after retries and proxy fallback; look at crawler egress/transport, not at selectors';
+    } else if (fetchOutcome === 'anti_bot_block') {
+      reason = 'run reported lastFetchOutcome=anti_bot_block with 0 jobs — the source refused the fetch (WAF/anti-bot/IP reputation) and the selectors were never exercised; look at the fetch transport, not at the parser';
+    } else if (fetchOutcome === 'selector_miss') {
+      reason = 'run reported lastFetchOutcome=selector_miss with 0 jobs — the fetch succeeded and the parser matched nothing it used to match (selector/label drift); look at the parser config, the source is reachable';
+    } else if (fetchOutcome === 'connection_error') {
+      reason = 'run reported lastFetchOutcome=connection_error with 0 jobs — retries and proxy fallback never observed the source; look at crawler egress/transport, not at selectors';
+    } else if (fetchOutcome === 'exhausted_retry') {
+      reason = 'run reported lastFetchOutcome=exhausted_retry with 0 jobs — the source returned retryable HTTP responses until the response retry budget was exhausted; look at the source transport, not at selectors';
+    } else {
+      reason = 'run reported lastFetchOutcome=feed_endpoint_unavailable with 0 jobs — the expected feed host answered with a redirect or HTML document; look at the vendor endpoint, not at XML selectors';
+    }
   } else if (lastObservedJobs === 0 && emptyOk) {
     status = 'healthy';
     reason = null;
@@ -1521,6 +1554,11 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
     // SOURCE and it sends triage to the parser selectors or to retiring the
     // crawler; when the run aborted, both are the wrong place to look and the
     // source is usually still full. Say what actually happened instead.
+    const abortKindDiagnosis = abortKind === 'no-jobs-parsed'
+      ? 'the crawler reached a fail-closed no-jobs bail-out before publishing'
+      : abortKind === 'crash'
+        ? 'the crawler crashed before publishing'
+        : 'the early-exit cause was not reported';
     reason = pipelineDroppedAll && !abortedRun
       // The parser worked — it handed `parsed` jobs to the pipeline and the
       // published slice still came out empty. Naming it "returned 0 jobs"
@@ -1533,7 +1571,7 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
       // neither, and defaulting it to 0 would assert a clean bail-out on a
       // crash — the same substitution of a placeholder for evidence this whole
       // change exists to stop.
-      ? `${consecutiveEmptyRuns} consecutive runs aborted before publishing a result (exit guard, last exitCode=${observation.exitCode ?? 'unknown'}) — the source was NOT observed empty and the previous slice is still live; look for the crawler's own bail-out, not for a dead selector`
+      ? `${consecutiveEmptyRuns} consecutive runs aborted before publishing a result (abortKind=${abortKind ?? 'unknown'}, exit guard, last exitCode=${observation.exitCode ?? 'unknown'}) — ${abortKindDiagnosis}; the source was NOT observed empty and the previous slice is still live; look for the crawler's own bail-out, not for a dead selector`
       : `${consecutiveEmptyRuns} consecutive runs returned 0 jobs`;
   } else if (lastObservedJobs === 0 && !lastSuccessfulRunAt && !hadPriorState) {
     // First time we see this crawler AND it's empty AND we have no history.
@@ -1569,6 +1607,7 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
       _pipelineDroppedAll: pipelineDroppedAll,
       _authoritativeEmptySnapshot: authoritativeEmpty,
       _lastObservedFetchOutcome: fetchOutcome,
+      _lastObservedAbortKind: abortKind,
       _abortedRun: abortedRun,
     },
     reason,
@@ -1759,16 +1798,7 @@ export function buildHealthScheda(issue) {
   });
 }
 
-const isMain = (() => {
-  try {
-    return import.meta.url === `file://${process.argv[1]}` ||
-      import.meta.url.endsWith(path.basename(process.argv[1] || ''));
-  } catch {
-    return false;
-  }
-})();
-
-if (isMain) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((err) => {
     console.error('[health] Fatal error:', err);
     process.exit(2);

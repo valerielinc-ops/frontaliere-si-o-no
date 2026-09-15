@@ -8,6 +8,8 @@
  * one canonical decision line, one health line and one canonical outcome
  * document. It never writes source, published data or external state. The
  * containing workflow uploads the directory as the durable run artifact.
+ * Workflow declarations for quota and collisions cover only the governed
+ * control-plane units; they are not provider-billing or commercial metrics.
  */
 import crypto from 'node:crypto';
 import fs from 'node:fs';
@@ -15,6 +17,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import {
   actionAutonomy,
+  actionClassForPolicy,
   appendJsonlSerialized,
   buildDecision,
   buildLifecycleEvent,
@@ -73,7 +76,7 @@ function runContext(loopId, now) {
     ref: text(process.env.GITHUB_REF),
     sha: text(process.env.GITHUB_SHA),
     runId: text(process.env.GITHUB_RUN_ID) || 'local',
-    runAttempt: text(process.env.GITHUB_RUN_ATTEMPT) || '1',
+    runAttempt: text(process.env.GITHUB_RUN_ATTEMPT),
     recordedAt: now.toISOString(),
   };
 }
@@ -157,7 +160,7 @@ function buildTechnicalAuditRecords({ report, reportPath, policy, now }) {
   const quality = !summaryValid
     ? 'unmeasurable'
     : (summary.error === 0 && summary.warning === 0 ? 'observed' : 'partial');
-  const actionClass = quality === 'observed' ? 'observe' : 'issue';
+  const actionClass = actionClassForPolicy(policy, quality === 'observed' ? 'healthy' : 'needsReview');
   const sourceSnapshot = {
     source: 'technical-operations-audit',
     path: relativePath(reportPath),
@@ -228,6 +231,43 @@ function finiteNumber(...values) {
   return values.find((value) => typeof value === 'number' && Number.isFinite(value)) ?? null;
 }
 
+function nonNegativeNumber(...values) {
+  return values.find((value) => typeof value === 'number' && Number.isFinite(value) && value >= 0) ?? null;
+}
+
+function nonNegativeInteger(...values) {
+  return values.find((value) => Number.isInteger(value) && value >= 0) ?? null;
+}
+
+function parseNonNegativeInteger(value) {
+  if (typeof value === 'string') {
+    const normalized = value.trim();
+    if (!/^\d+$/u.test(normalized)) return null;
+    return nonNegativeInteger(Number(normalized));
+  }
+  return nonNegativeInteger(value);
+}
+
+function envNonNegativeNumber(name) {
+  if (!hasValue(process.env[name])) return null;
+  const value = Number(process.env[name]);
+  return Number.isFinite(value) && value >= 0 ? value : null;
+}
+
+function envNonNegativeInteger(name) {
+  if (!hasValue(process.env[name])) return null;
+  return parseNonNegativeInteger(process.env[name]);
+}
+
+function booleanValue(...values) {
+  for (const value of values) {
+    if (typeof value === 'boolean') return value;
+    if (typeof value === 'string' && value.trim() === 'true') return true;
+    if (typeof value === 'string' && value.trim() === 'false') return false;
+  }
+  return null;
+}
+
 function validIso(...values) {
   for (const value of values) {
     if (typeof value === 'string' && Number.isFinite(Date.parse(value))) return new Date(value).toISOString();
@@ -237,6 +277,102 @@ function validIso(...values) {
 
 function hasValue(value) {
   return value !== undefined && value !== null && value !== '';
+}
+
+function selectMetric(candidates, validator) {
+  for (const candidate of candidates) {
+    const value = validator(candidate.value);
+    if (value !== null) return { value, source: candidate.source };
+  }
+  return { value: null, source: null };
+}
+
+function selectBooleanMetric(candidates) {
+  for (const candidate of candidates) {
+    if (!hasValue(candidate.value)) continue;
+    const value = booleanValue(candidate.value);
+    if (value !== null) return { value, source: candidate.source, invalid: false };
+    return { value: null, source: 'invalid-declaration', invalid: true };
+  }
+  return { value: null, source: null, invalid: false };
+}
+
+function buildOperationalMetrics({ result, observation, decision, outcome, context, now }) {
+  const resultMetrics = object(result?.metrics) ? result.metrics : null;
+  const resultOutcome = object(result?.outcome) ? result.outcome : null;
+  const resultOutcomeMetrics = object(resultOutcome?.metrics) ? resultOutcome.metrics : null;
+  const outcomeMetrics = object(outcome?.metrics) ? outcome.metrics : resultOutcomeMetrics;
+  const explicitDuration = selectMetric([
+    { value: result?.durationSeconds, source: 'result' },
+    { value: resultMetrics?.durationSeconds, source: 'result.metrics' },
+    { value: resultOutcomeMetrics?.durationSeconds, source: 'result.outcome.metrics' },
+    { value: outcomeMetrics?.durationSeconds, source: 'outcome.metrics' },
+  ], (value) => nonNegativeNumber(value));
+  const startedAt = validIso(
+    process.env.LOOP_FLEET_STARTED_AT,
+    result?.startedAt,
+    decision?.startedAt,
+    observation?.observationWindow?.start,
+  );
+  const durationSeconds = explicitDuration.value ?? (startedAt
+    ? Math.max(0, (now.getTime() - Date.parse(startedAt)) / 1_000)
+    : null);
+  const runAttempt = parseNonNegativeInteger(context.runAttempt);
+  const explicitRetryCount = selectMetric([
+    { value: result?.retryCount, source: 'result' },
+    { value: resultMetrics?.retryCount, source: 'result.metrics' },
+    { value: resultOutcomeMetrics?.retryCount, source: 'result.outcome.metrics' },
+    { value: outcomeMetrics?.retryCount, source: 'outcome.metrics' },
+    { value: envNonNegativeInteger('LOOP_FLEET_RETRY_COUNT'), source: 'workflow-declaration' },
+  ], (value) => nonNegativeInteger(value));
+  const retryCount = explicitRetryCount.value ?? (runAttempt === null ? null : Math.max(0, runAttempt - 1));
+  const quotaUnits = selectMetric([
+    { value: result?.quotaUnits, source: 'result' },
+    { value: resultMetrics?.quotaUnits, source: 'result.metrics' },
+    { value: resultOutcomeMetrics?.quotaUnits, source: 'result.outcome.metrics' },
+    { value: outcomeMetrics?.quotaUnits, source: 'outcome.metrics' },
+    { value: envNonNegativeNumber('LOOP_FLEET_QUOTA_UNITS'), source: 'workflow-declaration' },
+  ], (value) => nonNegativeNumber(value));
+  const collisions = selectMetric([
+    { value: result?.collisions, source: 'result' },
+    { value: result?.artifactCollisions, source: 'result.artifactCollisions' },
+    { value: resultMetrics?.collisions, source: 'result.metrics' },
+    { value: resultMetrics?.artifactCollisions, source: 'result.metrics.artifactCollisions' },
+    { value: resultOutcomeMetrics?.collisions, source: 'result.outcome.metrics' },
+    { value: resultOutcomeMetrics?.artifactCollisions, source: 'result.outcome.metrics.artifactCollisions' },
+    { value: outcomeMetrics?.collisions, source: 'outcome.metrics' },
+    { value: outcomeMetrics?.artifactCollisions, source: 'outcome.metrics.artifactCollisions' },
+    { value: envNonNegativeInteger('LOOP_FLEET_COLLISIONS'), source: 'workflow-declaration' },
+  ], (value) => nonNegativeInteger(value));
+  const gateBypassMetric = selectBooleanMetric([
+    { value: result?.gateBypass, source: 'result' },
+    { value: resultMetrics?.gateBypass, source: 'result.metrics' },
+    { value: resultOutcome?.gateBypass, source: 'result.outcome' },
+    { value: resultOutcomeMetrics?.gateBypass, source: 'result.outcome.metrics' },
+    { value: outcome?.gateBypass, source: 'outcome' },
+    { value: outcomeMetrics?.gateBypass, source: 'outcome.metrics' },
+    { value: process.env.LOOP_FLEET_GATE_BYPASS, source: 'workflow-declaration' },
+  ]);
+  const gateBypass = gateBypassMetric.invalid ? null : (gateBypassMetric.value ?? false);
+  const sources = {
+    durationSeconds: explicitDuration.value !== null ? explicitDuration.source : (startedAt ? 'workflow-start' : null),
+    retryCount: explicitRetryCount.value !== null ? explicitRetryCount.source : (runAttempt === null ? null : 'github-run-attempt'),
+    quotaUnits: quotaUnits.value === null ? null : quotaUnits.source,
+    collisions: collisions.value === null ? null : collisions.source,
+    gateBypass: gateBypassMetric.invalid ? 'invalid-declaration' : (gateBypassMetric.value === null ? 'recorder-contract' : gateBypassMetric.source),
+  };
+  const complete = [durationSeconds, retryCount, quotaUnits.value, collisions.value].every((value) => value !== null)
+    && !gateBypassMetric.invalid
+    && gateBypass === false;
+  return {
+    durationSeconds,
+    retryCount,
+    quotaUnits: quotaUnits.value,
+    collisions: collisions.value,
+    gateBypass,
+    operationalMetricsComplete: complete,
+    operationalMetricsSources: sources,
+  };
 }
 
 function findSourceTimestamp(value, depth = 0, seen = new Set()) {
@@ -407,7 +543,8 @@ export function recordLoopEvidence({
     .map((check) => check.error);
   const policyCompliant = policyErrors.length === 0;
   const quality = result?.quality || observed?.quality || 'unmeasurable';
-  const actionClass = decided?.actionClass || observed?.actionClass || 'issue';
+  const actionClass = decided?.actionClass || observed?.actionClass
+    || actionClassForPolicy(policy, 'needsReview');
   const autonomy = (() => {
     try { return actionAutonomy(actionClass, registry.actionAutonomy); } catch { return null; }
   })();
@@ -415,6 +552,14 @@ export function recordLoopEvidence({
     && outcome.independent
     && outcome.missingFields.length === 0;
   const lifecycleEvents = buildCandidateLifecycleEvents({ policy, decision: decided, context, now });
+  const operationalMetrics = buildOperationalMetrics({
+    result,
+    observation: rawObserved,
+    decision: rawDecided,
+    outcome,
+    context,
+    now,
+  });
   const health = {
     recordType: 'health',
     schemaVersion: 1,
@@ -444,6 +589,7 @@ export function recordLoopEvidence({
     filesScanned: numberOrNull(result?.filesScanned),
     issued: result?.issued === true,
     actionsWritten: result?.actionsWritten === true,
+    ...operationalMetrics,
     evidence: {
       observation: `${prefix}-observation.json`,
       decision: `${prefix}-decision.json`,

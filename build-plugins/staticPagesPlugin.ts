@@ -28,7 +28,7 @@ import { DATA_CONTROLLER_NAME, DATA_CONTROLLER_EMAIL } from '../functions/src/li
 // Node ESM.
 import { renderArticleHubCards, renderArticleHubGridBlock } from '../packages/articles/engine/articlesHubCards.ts';
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
-import { normalizeStructuredData } from '../services/seo/schema-normalizers';
+import { normalizeArticleStructuredData, normalizeStructuredData } from '../services/seo/schema-normalizers';
 import { ORGANIZATION_LD_JSON } from '../services/seo/organizationLd';
 import { GLOSSARY_TERM_DEFINITIONS, truncateForMetaDescription } from '../services/seo/glossaryTermDefinitions';
 import { unescapeTsString as sharedUnescapeTsString, tsStringEscapesWithNewlineAs, repairLegacyDoubleEscapedBreaks } from '../scripts/lib/unescape-ts-string.mjs';
@@ -65,7 +65,9 @@ import { parseSlugRegistry } from '../scripts/lib/article-slug-registry.mjs';
 // pill was the reason the DE FAQ hub — alone among the four locales — stayed
 // buried and its 103 entries sat at BFS depth 5 (issue #5428).
 import { buildFaqHubPath } from '../data/faq-hub/routes';
-import { PHARMACY_HUB_PATH } from '../services/pharmacies/types';
+import { PHARMACY_DUTY_HUB_PATH, PHARMACY_HUB_PATH } from '../services/pharmacies/types';
+import { COMMUNICATIONS_PAGE_PATH } from '../services/communicationChannels';
+import { buildPlateAuctionPath } from '../services/plateAuctions/paths';
 // Same story, same rail, the other eleven pills: the guide/fisco hrefs below
 // were hand-copied literals that had drifted from `services/routeSlugs.data.ts`
 // on EN and DE. Derived now from SLUG_TABLES, one module for the four copies
@@ -632,9 +634,18 @@ function buildHomepageBreadcrumbJsonLd(locale: HpSeoLocale): string {
  });
 }
 
-function injectHomepageSeoContent(html: string, locale: HpSeoLocale): string {
- // Inject only once: skip if already present.
- if (html.includes('id="hp-seo-block"')) return html;
+export function injectHomepageSeoContent(html: string, locale: HpSeoLocale): string {
+ // Inject only once: skip if already present. An older incremental artifact
+ // can already carry the SEO block without the directory rail, so repair that
+ // specific missing sibling before returning instead of treating the marker
+ // as proof that the whole homepage contract is current.
+ if (html.includes('id="hp-seo-block"')) {
+  if (locale === 'it' && !html.includes('id="hp-directory-hubs"') && html.includes('</body>')) {
+   const directoryHubs = buildHomepageDirectoryHubsBlock(locale);
+   return html.replace('</body>', `${directoryHubs}\n</body>`);
+  }
+  return html;
+ }
  const block = collapsifySeoBlock(HOMEPAGE_SEO_BLOCK_HTML[locale] ?? HOMEPAGE_SEO_BLOCK_HTML.it);
  // Place the block before </body> so it sits as a sibling of #root and is
  // not touched by React hydration. Falls back to no-op if no </body>.
@@ -648,6 +659,7 @@ function injectHomepageSeoContent(html: string, locale: HpSeoLocale): string {
  // 81-anchor bridge here; the canton hubs remain reachable at depth 2
  // via the language switcher → locale home → canton hub.
  const relatedGuides = buildHomepageRelatedGuidesBlock(locale);
+ const directoryHubs = buildHomepageDirectoryHubsBlock(locale);
  // tests/seo/breadcrumb-coverage.test.ts requires every non-noindex dist/
  // page to carry a BreadcrumbList JSON-LD block. The locale-root mirrors
  // (/en/, /de/, /fr/) are NOT in that test's exempt list (only bare
@@ -659,7 +671,7 @@ function injectHomepageSeoContent(html: string, locale: HpSeoLocale): string {
  const breadcrumbScript = html.includes('id="hp-breadcrumb-ld"')
   ? ''
   : `<script type="application/ld+json" id="hp-breadcrumb-ld">${buildHomepageBreadcrumbJsonLd(locale)}</script>\n`;
- return html.replace('</body>', `${block}\n${breadcrumbScript}${langSwitch}\n${relatedGuides}\n${cantonNav}\n</body>`);
+ return html.replace('</body>', `${block}\n${breadcrumbScript}${langSwitch}\n${relatedGuides}\n${directoryHubs}\n${cantonNav}\n</body>`);
 }
 
 /**
@@ -999,8 +1011,30 @@ function buildHomepageRelatedGuidesBlock(locale: HpSeoLocale): string {
  return `<aside class="s-Q1eQm9" id="hp-related-guides" aria-labelledby="hpRelatedGuidesTitle"><h2 class="s-WrrqHM" id="hpRelatedGuidesTitle">${heading}</h2><nav class="s-G8-GwP" aria-label="${heading}">${anchors}</nav></aside>`;
 }
 
+// The IT root is the crawl entry point for the static BFS audit. Locale roots
+// already receive their own locale main nav below, but the root homepage used
+// to receive only the editorial rail: pharmacy and plate-auction hubs were
+// therefore absent from the first static hop even though NAV_LABELS declared
+// them. Keep this small, visible directory rail separate from the editorial
+// guides so the root-to-hub links cannot disappear when guide content changes.
+const HOMEPAGE_DIRECTORY_LINKS: ReadonlyArray<{ href: string; label: string }> = [
+ { href: PHARMACY_HUB_PATH.it, label: 'Farmacie e turni' },
+ { href: PHARMACY_DUTY_HUB_PATH.it, label: 'Farmacie di turno' },
+ { href: buildPlateAuctionPath({ locale: 'it', view: 'hub' }), label: 'Aste targhe' },
+ { href: buildPlateAuctionPath({ locale: 'en', view: 'hub' }), label: 'Plate auctions' },
+ { href: buildPlateAuctionPath({ locale: 'de', view: 'hub' }), label: 'Kontrollschildauktionen' },
+ { href: buildPlateAuctionPath({ locale: 'fr', view: 'hub' }), label: 'Enchères de plaques' },
+];
+
+function buildHomepageDirectoryHubsBlock(locale: HpSeoLocale): string {
+ if (locale !== 'it') return '';
+ const heading = 'Farmacie e dati utili';
+ const anchors = renderPillAnchors(HOMEPAGE_DIRECTORY_LINKS, 500);
+ return `<aside class="s-Q1eQm9" id="hp-directory-hubs" aria-labelledby="hpDirectoryHubsTitle"><h2 class="s-WrrqHM" id="hpDirectoryHubsTitle">${heading}</h2><nav class="s-G8-GwP" aria-label="${heading}">${anchors}</nav></aside>`;
+}
+
 // ── Locale main nav (crawlable) ─────────────────────────────────────
-// The 17-anchor pipe nav that every buildPage() artifact ships (see
+// The locale-aware pipe nav shipped with generated static artifacts (see
 // `navHtml` in the page builder). Hoisted to module scope — it is no
 // longer buildPage()-private, because the locale-root SPA shells need the
 // SAME table and CLAUDE.md non-negotiable #6 forbids a second copy of it.
@@ -1023,6 +1057,8 @@ export const NAV_LABELS: Readonly<Record<HpSeoLocale, ReadonlyArray<{ href: stri
  { href: '/', label: 'Simulatore Fiscale' },
  { href: '/compara-servizi/', label: 'Confronta Servizi' },
  { href: PHARMACY_HUB_PATH.it, label: 'Farmacie e turni' },
+ { href: PHARMACY_DUTY_HUB_PATH.it, label: 'Farmacie di turno' },
+ { href: buildPlateAuctionPath({ locale: 'it', view: 'hub' }), label: 'Aste targhe' },
  { href: '/tasse-e-pensione/', label: 'Tasse e Pensione' },
  { href: '/guida-frontaliere/', label: 'Guida Frontaliere' },
  { href: '/domande-frequenti-frontalieri/', label: 'FAQ' },
@@ -1034,6 +1070,7 @@ export const NAV_LABELS: Readonly<Record<HpSeoLocale, ReadonlyArray<{ href: stri
  { href: '/correzioni/', label: 'Correzioni' },
  { href: '/metodologia/', label: 'Metodologia' },
  { href: '/contattaci/', label: 'Contattaci' },
+ { href: COMMUNICATIONS_PAGE_PATH.it, label: 'Comunicazioni' },
  { href: '/privacy/', label: 'Privacy' },
  { href: '/about/', label: 'About' },
  { href: '/contact/', label: 'Contact' },
@@ -1043,6 +1080,8 @@ export const NAV_LABELS: Readonly<Record<HpSeoLocale, ReadonlyArray<{ href: stri
  { href: '/en/', label: 'Tax Simulator' },
  { href: '/en/service-comparison/', label: 'Compare Services' },
  { href: PHARMACY_HUB_PATH.en, label: 'Pharmacies and duties' },
+ { href: PHARMACY_DUTY_HUB_PATH.en, label: 'On-duty pharmacies' },
+ { href: buildPlateAuctionPath({ locale: 'en', view: 'hub' }), label: 'Plate auctions' },
  { href: '/en/taxes-and-pension/', label: 'Taxes & Pensions' },
  { href: '/en/cross-border-guide/', label: 'Cross-Border Guide' },
  { href: '/en/cross-border-faq/', label: 'FAQ' },
@@ -1052,12 +1091,15 @@ export const NAV_LABELS: Readonly<Record<HpSeoLocale, ReadonlyArray<{ href: stri
  { href: '/en/site-map/', label: 'Site Map' },
  { href: '/about/', label: 'About Us' },
  { href: '/contact/', label: 'Contact Us' },
+ { href: COMMUNICATIONS_PAGE_PATH.en, label: 'Communications' },
  { href: '/privacy-policy/', label: 'Privacy Policy' },
  ]),
  de: Object.freeze([
  { href: '/de/', label: 'Steuersimulator' },
  { href: '/de/service-vergleich/', label: 'Dienste Vergleichen' },
  { href: PHARMACY_HUB_PATH.de, label: 'Apotheken und Notdienst' },
+ { href: PHARMACY_DUTY_HUB_PATH.de, label: 'Notdienst-Apotheken' },
+ { href: buildPlateAuctionPath({ locale: 'de', view: 'hub' }), label: 'Kontrollschildauktionen' },
  { href: '/de/grenzgaenger-besteuerung-leitfaden-2026/', label: 'Steuern & Vorsorge' },
  { href: '/de/grenzgaenger-ratgeber/', label: 'Grenzgänger-Leitfaden' },
  { href: '/de/grenzgaenger-faq/', label: 'FAQ' },
@@ -1067,12 +1109,15 @@ export const NAV_LABELS: Readonly<Record<HpSeoLocale, ReadonlyArray<{ href: stri
  { href: '/de/seitenplan/', label: 'Seitenplan' },
  { href: '/about/', label: 'About' },
  { href: '/contact/', label: 'Contact' },
+ { href: COMMUNICATIONS_PAGE_PATH.de, label: 'Mitteilungen' },
  { href: '/privacy-policy/', label: 'Privacy Policy' },
  ]),
  fr: Object.freeze([
  { href: '/fr/', label: 'Simulateur Fiscal' },
  { href: '/fr/comparaison-services/', label: 'Comparer les Services' },
  { href: PHARMACY_HUB_PATH.fr, label: 'Pharmacies et gardes' },
+ { href: PHARMACY_DUTY_HUB_PATH.fr, label: 'Pharmacies de garde' },
+ { href: buildPlateAuctionPath({ locale: 'fr', view: 'hub' }), label: 'Enchères de plaques' },
  { href: '/fr/impots-et-retraite/', label: 'Impôts & Retraite' },
  { href: '/fr/guide-frontalier/', label: 'Guide Frontalier' },
  { href: '/fr/faq-frontaliers/', label: 'FAQ' },
@@ -1082,6 +1127,7 @@ export const NAV_LABELS: Readonly<Record<HpSeoLocale, ReadonlyArray<{ href: stri
  { href: '/fr/plan-du-site/', label: 'Plan du Site' },
  { href: '/about/', label: 'About' },
  { href: '/contact/', label: 'Contact' },
+ { href: COMMUNICATIONS_PAGE_PATH.fr, label: 'Communications' },
  { href: '/privacy-policy/', label: 'Privacy Policy' },
  ]),
 };
@@ -1150,8 +1196,9 @@ export function injectLocaleMainNav(html: string, locale: HpSeoLocale): string {
  * so removing the injection from the ratchet is what makes the test go red.
  */
 export function renderLocaleRootShell(html: string, locale: 'en' | 'de' | 'fr'): string {
-  let out = html.replace(/<aside id="hp-seo-block"[\s\S]*?<\/aside>\s*/i, '');
-  out = out.replace(/<script[^>]*\bid="hp-breadcrumb-ld"[^>]*>[\s\S]*?<\/script>\s*/i, '');
+ let out = html.replace(/<aside id="hp-seo-block"[\s\S]*?<\/aside>\s*/i, '');
+ out = out.replace(/<aside\b[^>]*\bid="hp-directory-hubs"[^>]*>[\s\S]*?<\/aside>\s*/i, '');
+ out = out.replace(/<script[^>]*\bid="hp-breadcrumb-ld"[^>]*>[\s\S]*?<\/script>\s*/i, '');
   out = injectHomepageSeoContent(out, locale);
   // Locale main nav — the one thing this shell cannot inherit from the IT root
   // it mirrors. Both ratchet branches end up carrying the ITALIAN pipe nav (or
@@ -2450,7 +2497,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  parsed = parsed.filter((item: Record<string, unknown>) => String(item['@type'] || '') !== 'WebPage');
  }
  }
- parsed = normalizeStructuredData(parsed);
+ parsed = normalizeArticleStructuredData(normalizeStructuredData(parsed));
  // Cap oversized ItemList payloads. The auto-generated blog ItemList
  // (services/seo/seo-pages.ts:blog) grows by ~1 entry per published
  // article and now exceeds 900 items — that single inline JSON-LD
@@ -4013,6 +4060,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // [H2, intro, archive-nav?, prose1..4, sources, faq] and we splice
  // the cathedral canton navigator between the archive navigator and
  // the prose because that navigator is unique to the TI hub.
+ const archiveNavigablePages = locale === 'it' ? jobsTotalPages : 1;
  const tiHubBlocks = buildCantonHubEditorial({
  canton: 'TI',
  locale: locale as ArchiveHubLocale,
@@ -4021,12 +4069,14 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // value is irrelevant for TI byte-identity.
  jobsCount: jobsTotalPages * JOBS_PAGE_SIZE,
  totalPages: jobsTotalPages,
+ archiveNavigablePages,
  archiveBaseHref: HUB_SLUGS[locale as ArchiveHubLocale]?.jobsAll ?? '/cerca-lavoro-ticino/tutti/',
  });
- // Push leading entries up to and including the archive navigator. With
- // jobsTotalPages > 1 that's [H2, intro, archive-nav]; with == 1 the
- // helper omits the navigator so [H2, intro].
- const leadingCount = jobsTotalPages > 1 ? 3 : 2;
+ // Push leading entries up to and including the archive navigator. The
+ // helper's navigable-page count is the source of truth here: non-IT static
+ // variants emit only the archive root, so their block order is [H2, intro]
+ // even when the underlying IT archive has multiple pages.
+ const leadingCount = archiveNavigablePages > 1 ? 3 : 2;
  for (const block of tiHubBlocks.slice(0, leadingCount)) editorialBlocks.push(block);
  // Cathedral canton navigator \u2014 closes the +909 sitemap-jobs.xml offenders
  // (audit-max-bfs-depth) by linking every cathedral canton hub + per-canton

@@ -18,6 +18,9 @@ const mocks = vi.hoisted(() => ({
   validateDedicatedLocaleCoverage: vi.fn(() => undefined),
   writeJobsCrawlerSliceVerified: vi.fn(async () => ({ written: true, shrinkAccepted: false })),
   writeSummaryCrawlerSlice: vi.fn(() => undefined),
+  registerCrawlerSummaryGuard: vi.fn(),
+  markCrawlerSummaryAbortKind: vi.fn(),
+  isConnectionLevelFetchError: vi.fn(() => false),
 }));
 
 vi.mock('../scripts/jobs-url-helper.mjs', () => ({
@@ -43,7 +46,8 @@ vi.mock('../scripts/assemble-jobs-dataset.mjs', () => ({
   writeJobsCrawlerSlice: vi.fn(),
   writeJobsCrawlerSliceVerified: mocks.writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice: mocks.writeSummaryCrawlerSlice,
-  registerCrawlerSummaryGuard: vi.fn(),
+  registerCrawlerSummaryGuard: mocks.registerCrawlerSummaryGuard,
+  markCrawlerSummaryAbortKind: mocks.markCrawlerSummaryAbortKind,
   assembleJobsDataset: mocks.assembleJobsDataset,
   readExistingCrawlerJobs: mocks.readExistingCrawlerJobs,
 }));
@@ -64,7 +68,7 @@ vi.mock('../scripts/lib/transient-fetch.mjs', () => ({
   RETRYABLE_STATUS: new Set([500, 502, 503, 504]),
   WAF_IP_BLOCK_STATUS: new Set([403]),
   isTransientFetchError: vi.fn(() => false),
-  isConnectionLevelFetchError: vi.fn(() => false),
+  isConnectionLevelFetchError: mocks.isConnectionLevelFetchError,
   fetchWithRetry: vi.fn(),
 }));
 
@@ -83,6 +87,7 @@ vi.mock('../scripts/lib/slug-truncate.mjs', () => ({
 
 import {
   evaluateAuthoritativeSnapshot,
+  exitCrawlerOnError,
   runStandardCrawlerPipeline,
 } from '../scripts/lib/crawler-template.mjs';
 
@@ -95,6 +100,140 @@ afterEach(() => {
 });
 
 describe('standard crawler authoritative-empty policy', () => {
+  it('records a connection bail-out in the exit-guard counters (#8376)', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'connection-outcome-root-'));
+    mocks.isConnectionLevelFetchError.mockReturnValueOnce(true);
+    try {
+      await runStandardCrawlerPipeline({
+        companyKey: COMPANY_KEY,
+        companyLabel: 'Connection Outcome Test',
+        root,
+        fetchJobs: async () => {
+          throw new TypeError('fetch failed');
+        },
+        isCompanyJob: () => true,
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+
+    const [, , counts] = mocks.registerCrawlerSummaryGuard.mock.calls.at(-1);
+    expect(counts.lastFetchOutcome).toBe('connection_error');
+    expect(counts.abortKind).toBe('connection-level-fetch');
+  });
+
+  it('classifies an exhausted anti-bot fence as a connection bail-out (#7784)', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'anti-bot-abort-root-'));
+    try {
+      await runStandardCrawlerPipeline({
+        companyKey: COMPANY_KEY,
+        companyLabel: 'Anti-Bot Abort Test',
+        root,
+        fetchJobs: async () => {
+          throw Object.assign(new Error('HTTP 403 after all anti-bot fallbacks'), {
+            antiBotExhausted: true,
+          });
+        },
+        isCompanyJob: () => true,
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+
+    const [, , counts] = mocks.registerCrawlerSummaryGuard.mock.calls.at(-1);
+    expect(counts.lastFetchOutcome).toBe('connection_error');
+    expect(counts.abortKind).toBe('connection-level-fetch');
+  });
+
+  it('pins the fail-closed no-jobs bail-out in the exit-guard counters (#7784)', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'no-jobs-abort-root-'));
+    try {
+      await runStandardCrawlerPipeline({
+        companyKey: COMPANY_KEY,
+        companyLabel: 'No Jobs Abort Test',
+        root,
+        fetchJobs: async () => [],
+        isCompanyJob: () => true,
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+
+    const [, , counts] = mocks.registerCrawlerSummaryGuard.mock.calls.at(-1);
+    expect(counts.abortKind).toBe('no-jobs-parsed');
+  });
+
+  it('records an unavailable feed endpoint in the exit-guard counters (#8375)', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'feed-outcome-root-'));
+    try {
+      await runStandardCrawlerPipeline({
+        companyKey: COMPANY_KEY,
+        companyLabel: 'Feed Outcome Test',
+        root,
+        fetchJobs: async () => {
+          const error = new Error('feed redirected to the vendor homepage') as Error & {
+            feedEndpointUnavailable?: boolean;
+          };
+          error.feedEndpointUnavailable = true;
+          throw error;
+        },
+        isCompanyJob: () => true,
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+
+    const [, , counts] = mocks.registerCrawlerSummaryGuard.mock.calls.at(-1);
+    expect(counts.lastFetchOutcome).toBe('feed_endpoint_unavailable');
+    expect(counts.abortKind).toBe('connection-level-fetch');
+  });
+
+  it('records an exhausted retry response in the exit-guard counters (#7854)', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'exhausted-retry-outcome-root-'));
+    try {
+      await runStandardCrawlerPipeline({
+        companyKey: COMPANY_KEY,
+        companyLabel: 'Exhausted Retry Test',
+        root,
+        fetchJobs: async () => {
+          throw Object.assign(new Error('HTTP 503'), {
+            status: 503,
+            retryBudgetExhausted: true,
+          });
+        },
+        isCompanyJob: () => true,
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+
+    const [, , counts] = mocks.registerCrawlerSummaryGuard.mock.calls.at(-1);
+    expect(counts.lastFetchOutcome).toBe('exhausted_retry');
+    expect(counts.abortKind).toBe('connection-level-fetch');
+  });
+
+  it('marks custom-main soft exits as connection-level fetch failures (#7784)', () => {
+    const exit = vi.spyOn(process, 'exit').mockImplementation(((code?: number) => {
+      throw new Error(`exit:${code}`);
+    }) as never);
+    try {
+      expect(() => exitCrawlerOnError(
+        Object.assign(new Error('feed unavailable'), { feedEndpointUnavailable: true }),
+        'Custom-main feed test',
+      )).toThrow('exit:0');
+      expect(mocks.markCrawlerSummaryAbortKind).toHaveBeenCalledWith('connection-level-fetch');
+
+      mocks.markCrawlerSummaryAbortKind.mockClear();
+      expect(() => exitCrawlerOnError(
+        Object.assign(new Error('HTTP 503'), { status: 503, retryBudgetExhausted: true }),
+        'Custom-main retry test',
+      )).toThrow('exit:0');
+      expect(mocks.markCrawlerSummaryAbortKind).toHaveBeenCalledWith('connection-level-fetch');
+    } finally {
+      exit.mockRestore();
+    }
+  });
+
   it('allows zero only when both the source validator and explicit opt-in agree', () => {
     const validator = vi.fn(() => true);
     expect(evaluateAuthoritativeSnapshot([], {
@@ -268,6 +407,33 @@ describe('standard crawler authoritative-empty policy', () => {
     expect(mocks.mergePreserveLocaleData).not.toHaveBeenCalled();
     expect(mocks.writeJobsCrawlerSliceVerified).not.toHaveBeenCalled();
     expect(mocks.writeSummaryCrawlerSlice).not.toHaveBeenCalled();
+  });
+
+  it('allows exactly the source-loss quota, but not a larger drop', async () => {
+    mocks.readExistingCrawlerJobs.mockReturnValueOnce(
+      Array.from({ length: 5 }, (_, index) => ({
+        id: `test-old-${index}`,
+        slug: `old-job-${index}`,
+        companyKey: COMPANY_KEY,
+      })),
+    );
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'missing-detail-url-boundary-root-'));
+    try {
+      await runStandardCrawlerPipeline({
+        companyKey: COMPANY_KEY,
+        companyLabel: 'Missing Detail URL Boundary Test',
+        root,
+        fetchJobs: async () => ({
+          jobs: [{ id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job' }],
+          missingDetailUrlCount: 2,
+        }),
+        isCompanyJob: () => true,
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+
+    expect(mocks.mergePreserveLocaleData).toHaveBeenCalled();
   });
 
   it('does not claim an authoritative empty snapshot on a run that published jobs', async () => {

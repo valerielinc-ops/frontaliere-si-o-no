@@ -46,6 +46,7 @@ interface Observation {
   freshnessSource: 'summary' | 'by-crawler' | 'mtime' | 'none';
   generatedAt: string | null;
   assembledAt: string | null;
+  abortKind?: 'no-jobs-parsed' | 'connection-level-fetch' | 'crash' | null;
 }
 
 /** Convenience builder mirroring `inspectCrawler` output. */
@@ -1131,6 +1132,7 @@ describe('nextCrawlerState — aborted runs are not "returned 0 jobs" (#7461 & a
       written: 0,
       earlyExit: true,
       exitCode: 0,
+      abortKind: 'no-jobs-parsed',
     };
   }
 
@@ -1160,7 +1162,25 @@ describe('nextCrawlerState — aborted runs are not "returned 0 jobs" (#7461 & a
     const { reason } = nextCrawlerState(brokenEligiblePrev, abortedObs(0), NOW_ISO, NOW_MS);
     expect(reason).not.toMatch(/returned 0 jobs/);
     expect(reason).toMatch(/aborted before publishing/);
+    expect(reason).toMatch(/abortKind=no-jobs-parsed/);
     expect(reason).toMatch(/exitCode=0/);
+  });
+
+  it('distinguishes a fail-closed no-jobs bail-out from a connection fetch failure (#7784)', () => {
+    const noJobs = nextCrawlerState(brokenEligiblePrev, abortedObs(0), NOW_ISO, NOW_MS);
+    expect(noJobs.reason).toContain('abortKind=no-jobs-parsed');
+    expect(noJobs.reason).toMatch(/fail-closed no-jobs bail-out/);
+
+    const connection = nextCrawlerState(
+      undefined,
+      { ...abortedObs(0), abortKind: 'connection-level-fetch' },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(connection.status).toBe('broken');
+    expect(connection.reason).toContain('abortKind=connection-level-fetch');
+    expect(connection.reason).toMatch(/crawler egress\/transport/);
+    expect(connection.state._lastObservedAbortKind).toBe('connection-level-fetch');
   });
 
   it('never reports a missing exitCode as a clean bail-out', () => {
@@ -1181,11 +1201,12 @@ describe('nextCrawlerState — aborted runs are not "returned 0 jobs" (#7461 & a
   it('reports a crash exit code as itself, not as a bail-out', () => {
     const { reason } = nextCrawlerState(
       brokenEligiblePrev,
-      { ...abortedObs(0), exitCode: 1 },
+      { ...abortedObs(0), abortKind: 'crash', exitCode: 1 },
       NOW_ISO,
       NOW_MS,
     );
     expect(reason).toMatch(/exitCode=1/);
+    expect(reason).toMatch(/crawler crashed before publishing/);
   });
 
   it('keeps saying "returned 0 jobs" for a zero the pipeline really published', () => {
@@ -1269,6 +1290,23 @@ describe('nextCrawlerState — self-reported fetch outcome (#7897)', () => {
     expect(reason).toContain('selector_miss');
     expect(reason).toMatch(/parser config/);
     expect(state._lastObservedFetchOutcome).toBe('selector_miss');
+  });
+
+  it.each([
+    ['connection_error', /crawler egress\/transport/],
+    ['exhausted_retry', /source transport/],
+    ['feed_endpoint_unavailable', /vendor endpoint/],
+  ])('flags %s immediately with layer-specific triage', (outcome, expectedReason) => {
+    const { status, reason, state } = nextCrawlerState(
+      undefined,
+      obsWithOutcome(0, outcome),
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('broken');
+    expect(reason).toContain(`lastFetchOutcome=${outcome}`);
+    expect(reason).toMatch(expectedReason);
+    expect(state._lastObservedFetchOutcome).toBe(outcome);
   });
 
   it('treats filtered_empty as healthy and clears a broken-eligible streak', () => {

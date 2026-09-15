@@ -31,6 +31,7 @@ import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { extractBodies, escapeForTS, unescapeFromTS, BODY_DIRS } from './lib/blog-body-io.mjs';
 import { maskNavLinks } from './lib/article-free-mt.mjs';
 import { freeTranslateWithRetry, balanceMarkdownMarkers } from './lib/free-translate.mjs';
+import { sanitizeBodyText } from './lib/sanitize-body-braces.mjs';
 
 const MARKER = '[object Object]';
 const BODY_KEYS = ['body1', 'body2', 'body3'];
@@ -208,7 +209,7 @@ async function repairField({ dir, locale, id, key, src, itSrc }) {
     return t.size > 0 && ![...t].some((x) => coreTargets.has(x));
   });
 
-  const next = [core, ...keep].join('\n\n');
+  const next = sanitizeBodyText([core, ...keep].join('\n\n'));
   if (next.includes(MARKER)) throw new Error('marker survived repair');
   if (next.trim().split(/\s+/).length < 50) throw new Error('repaired body under 50 words');
   return next;

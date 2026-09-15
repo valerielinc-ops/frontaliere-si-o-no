@@ -27,6 +27,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { isDeepStrictEqual } from 'node:util';
 import { fileURLToPath } from 'node:url';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import MUNICIPALITY_DATA from '../data/canton-municipalities.json' with { type: 'json' };
 import {
   snapshotJobSlugs,
@@ -1038,14 +1039,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-const isInvokedDirectly = (() => {
-  try {
-    return import.meta.url === `file://${process.argv[1]}`;
-  } catch {
-    return false;
-  }
-})();
-
-if (isInvokedDirectly) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((err) => exitCrawlerOnError(err, 'Lidl'));
 }

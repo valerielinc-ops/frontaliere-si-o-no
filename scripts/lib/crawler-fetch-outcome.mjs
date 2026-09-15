@@ -35,6 +35,15 @@ export const CRAWLER_FETCH_OUTCOMES = new Set([
   // …) dropped all of them. Not a failure — the same evidence as a
   // `discovered > 0, written === 0` slice (#5945), stated directly.
   'filtered_empty',
+  // The crawler exhausted transport retries without observing the source.
+  // This is distinct from selector drift: the parser never received a page.
+  'connection_error',
+  // The source answered with retryable HTTP statuses until the response retry
+  // budget was exhausted. Unlike a connection error, the server was observed.
+  'exhausted_retry',
+  // The expected feed host answered with a redirect/HTML maintenance page.
+  // This is an upstream endpoint outage, not malformed XML or selector drift.
+  'feed_endpoint_unavailable',
 ]);
 
 /**
@@ -43,7 +52,20 @@ export const CRAWLER_FETCH_OUTCOMES = new Set([
  * `ok` and `filtered_empty` are the opposite claim: they assert the zero is
  * legitimate.
  */
-export const CRAWLER_FETCH_FAILURE_OUTCOMES = new Set(['anti_bot_block', 'selector_miss']);
+export const CRAWLER_FETCH_FAILURE_OUTCOMES = new Set([
+  'anti_bot_block',
+  'selector_miss',
+  'connection_error',
+  'exhausted_retry',
+  'feed_endpoint_unavailable',
+]);
+
+/** Causes recorded by the process-exit summary guard for an early run. */
+export const CRAWLER_ABORT_KINDS = new Set([
+  'no-jobs-parsed',
+  'connection-level-fetch',
+  'crash',
+]);
 
 /**
  * Read a slice's (or parser's) self-reported outcome, or `null` when it is
@@ -51,8 +73,18 @@ export const CRAWLER_FETCH_FAILURE_OUTCOMES = new Set(['anti_bot_block', 'select
  * reading it as evidence would let a typo (`selector-miss`) flip a verdict.
  *
  * @param {unknown} value
- * @returns {'ok'|'anti_bot_block'|'selector_miss'|'filtered_empty'|null}
+ * @returns {'ok'|'anti_bot_block'|'selector_miss'|'filtered_empty'|'connection_error'|'exhausted_retry'|'feed_endpoint_unavailable'|null}
  */
 export function normalizeFetchOutcome(value) {
   return typeof value === 'string' && CRAWLER_FETCH_OUTCOMES.has(value) ? value : null;
+}
+
+/**
+ * Read an early-exit cause, or `null` when the producer did not report one.
+ *
+ * @param {unknown} value
+ * @returns {'no-jobs-parsed'|'connection-level-fetch'|'crash'|null}
+ */
+export function normalizeAbortKind(value) {
+  return typeof value === 'string' && CRAWLER_ABORT_KINDS.has(value) ? value : null;
 }

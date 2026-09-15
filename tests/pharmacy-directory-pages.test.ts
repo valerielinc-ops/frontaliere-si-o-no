@@ -2,9 +2,10 @@ import { afterEach, describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { pharmacyDirectoryPagesPlugin } from '../build-plugins/pharmacyDirectoryPagesPlugin';
+import { buildPharmacyDirectoryPage, pharmacyDirectoryPagesPlugin, pharmacyPageDescriptors, pharmacyUrlAliasDescriptors } from '../build-plugins/pharmacyDirectoryPagesPlugin';
 import { AD_SLOTS } from '../services/adsenseSlots';
-import { TICINO_CITIES } from '../services/pharmacies/data';
+import dutiesJson from '../data/pharmacy-duties-ticino.json';
+import type { PharmacyDutiesDataset } from '../services/pharmacies/types';
 
 const tempRoots: string[] = [];
 
@@ -38,18 +39,36 @@ function routeForPageFile(file: string): string {
 }
 
 function robotsOf(html: string): string {
-  return /<meta name=robots content="([^"]+)"/.exec(html)?.[1] ?? '';
+  return /<meta name=["']?robots["']? content=["']?((?:no)?index,\s*follow)/i.exec(html)?.[1] ?? '';
 }
 
 describe('pharmacy directory static pages', () => {
-  it('keeps below-floor routes out of the sitemap at the source boundary', () => {
-    const source = fs.readFileSync(
-      path.resolve(__dirname, '..', 'build-plugins', 'pharmacyDirectoryPagesPlugin.ts'),
-      'utf8',
+  it('keeps duty-week model indexability fail-closed and tied to the sitemap', async () => {
+    const root = makeTempRoot();
+    await runCloseBundle(root);
+
+    const descriptor = pharmacyPageDescriptors().find((candidate) => candidate.kind === 'duty-week');
+    expect(descriptor).toBeDefined();
+    const now = new Date('2026-09-14T19:00:00.000Z');
+    const valid = buildPharmacyDirectoryPage(descriptor!, 'it', root, dutiesJson as unknown as PharmacyDutiesDataset, now);
+    expect(valid.indexable).toBe(true);
+    expect(robotsOf(valid.html).replace(/\s+/g, '')).toBe('index,follow');
+    expect(valid.html).toContain('"@type":"ItemList"');
+
+    const sitemap = fs.readFileSync(path.join(root, 'dist', 'sitemap-farmacie.xml'), 'utf8');
+    const sitemapRoutes = new Set(
+      [...sitemap.matchAll(/<loc>[^<]+<\/loc>/g)].map((match) => new URL(match[0].slice(5, -6)).pathname),
     );
-    expect(source).toMatch(/if \(built\.wordCount >= MIN_INDEXABLE_WORDS\) urls\.push\(built\.path\);/);
-    expect(source).toContain('let excludedNoindexRoutes = 0;');
-    expect(source).toContain('else excludedNoindexRoutes += 1;');
+    expect(sitemapRoutes.has(valid.path)).toBe(true);
+
+    const tampered = {
+      ...dutiesJson,
+      _release: { ...dutiesJson._release, state: 'partial' },
+    } as unknown as PharmacyDutiesDataset;
+    const guarded = buildPharmacyDirectoryPage(descriptor!, 'it', root, tampered, now);
+    expect(guarded.indexable).toBe(false);
+    expect(robotsOf(guarded.html).replace(/\s+/g, '')).toBe('noindex,follow');
+    expect(guarded.html).not.toContain('"@type":"ItemList"');
   });
 
   it('keeps HTML, robots, sitemap and end-of-content ads on one indexability contract', async () => {
@@ -58,7 +77,7 @@ describe('pharmacy directory static pages', () => {
 
     const distDir = path.join(root, 'dist');
     const pages = pageFiles(distDir);
-    const expectedPageCount = 4 * (3 + 2 * TICINO_CITIES.length);
+    const expectedPageCount = 4 * pharmacyPageDescriptors().length + pharmacyUrlAliasDescriptors().length;
     expect(pages).toHaveLength(expectedPageCount);
 
     const sitemap = fs.readFileSync(path.join(distDir, 'sitemap-farmacie.xml'), 'utf8');
@@ -74,13 +93,14 @@ describe('pharmacy directory static pages', () => {
     for (const file of pages) {
       const html = fs.readFileSync(path.join(distDir, file), 'utf8');
       const robots = robotsOf(html);
+      const normalizedRobots = robots.replace(/\s+/g, '').toLowerCase();
       const route = routeForPageFile(file);
-      if (robots.startsWith('index, follow')) {
+      if (normalizedRobots === 'index,follow') {
         indexableCount += 1;
         expect(sitemapRoutes.has(route), route).toBe(true);
         expect(html).toContain(`data-ad-slot=${AD_SLOTS.SSG_END_MULTIPLEX.slot}`);
       } else {
-        expect(robots.startsWith('noindex, follow'), `${file} robots=${robots}`).toBe(true);
+        expect(normalizedRobots, `${file} robots=${robots}`).toBe('noindex,follow');
         noindexCount += 1;
         expect(sitemapRoutes.has(route), `${route} must not be sitemapped`).toBe(false);
         expect(html).not.toContain(`data-ad-slot=${AD_SLOTS.SSG_END_MULTIPLEX.slot}`);

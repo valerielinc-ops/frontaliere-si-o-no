@@ -142,6 +142,27 @@ describe('salaryProfessionCanton — render', () => {
       expect(html).toContain(buildProfessionCantonPath(locale, 'ZH', 'infermiere'));
     }
   });
+
+  it('recovers a real title when the source field contains an AI translation narrative', () => {
+    const pollutedSnapshot: ProfessionJobsSnapshot = {
+      ...SNAP,
+      featured: [{
+        ...FEATURED,
+        titleByLocale: {
+          ...FEATURED.titleByLocale,
+          it: 'I need to see the current job data and verify the employer details before I can provide a complete Italian translation: **Assistente vendite 80%** However, the translation breaks down because the source context does not include enough information about the employer or location.',
+        },
+      }],
+    };
+    const { html } = renderSalaryProfessionCantonPage({
+      locale: 'it', cantonKey: 'ZH', id: 'infermiere', preset: PRESET, snapshot: pollutedSnapshot, distDir: '',
+    });
+
+    expect(html).toContain('Assistente vendite 80%');
+    expect(html).not.toContain('I need to see the current job data');
+    expect(html).not.toContain('translation breaks down');
+    expect(html).not.toContain('**');
+  });
 });
 
 describe('professionCantonLandings — job-intent → salary-intent cross-link (plan §4.2)', () => {

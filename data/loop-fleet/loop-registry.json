@@ -90,6 +90,10 @@
       "minimumSample": 1,
       "maxAutonomy": "A4",
       "actionClasses": ["observe", "issue", "quarantine", "block-publication"],
+      "actionPolicy": {
+        "healthy": "observe",
+        "needsReview": "issue+quarantine"
+      },
       "guardrails": [
         "missing or stale data is never emitted as zero",
         "site and corpus communicate only over HTTP",
@@ -118,6 +122,10 @@
       "minimumSample": 100,
       "maxAutonomy": "A2",
       "actionClasses": ["observe", "issue", "pr", "suspend-canary"],
+      "actionPolicy": {
+        "healthy": "observe",
+        "needsReview": "issue+suspend-canary"
+      },
       "guardrails": ["one anomaly is not a rollback", "Auto Ads stays enabled"],
       "lifecycle": {
         "candidateTtlHours": 24,
@@ -142,6 +150,11 @@
       "minimumSample": 1000,
       "maxAutonomy": "A2",
       "actionClasses": ["observe", "candidate", "issue", "pr"],
+      "actionPolicy": {
+        "withCandidates": "candidate+issue",
+        "needsReview": "issue",
+        "candidate": "candidate"
+      },
       "guardrails": ["no thin pages", "no keyword stuffing", "source required"],
       "lifecycle": {
         "candidateTtlHours": 168,
@@ -166,6 +179,11 @@
       "minimumSample": 100,
       "maxAutonomy": "A4",
       "actionClasses": ["observe", "quarantine", "candidate", "issue", "pr"],
+      "actionPolicy": {
+        "withCandidates": "quarantine+candidate+issue",
+        "needsReview": "issue",
+        "candidate": "quarantine+pr"
+      },
       "guardrails": ["handoff is not an application submission", "never invent apply events"],
       "lifecycle": {
         "candidateTtlHours": 24,
@@ -190,6 +208,11 @@
       "minimumSample": 100,
       "maxAutonomy": "A4",
       "actionClasses": ["observe", "suppress", "defer", "issue"],
+      "actionPolicy": {
+        "healthy": "observe",
+        "needsReview": "suppress+defer+issue",
+        "candidate": "suppress+defer"
+      },
       "guardrails": ["consent is purpose-specific", "idempotent delivery", "quiet hours"],
       "lifecycle": {
         "candidateTtlHours": 24,
@@ -214,6 +237,12 @@
       "minimumSample": 100,
       "maxAutonomy": "A3",
       "actionClasses": ["observe", "candidate", "canary", "stop", "stale-label", "issue", "recommend"],
+      "actionPolicy": {
+        "healthy": "observe",
+        "needsReview": "stale-label+candidate+issue",
+        "staleLabel": "stale-label",
+        "candidate": "candidate"
+      },
       "guardrails": ["no dark patterns", "no unsupported timing promise", "no invasive personalization"],
       "lifecycle": {
         "candidateTtlHours": 168,
@@ -238,6 +267,11 @@
       "minimumSample": 1,
       "maxAutonomy": "A2",
       "actionClasses": ["observe", "quarantine", "candidate", "issue", "pr", "lesson"],
+      "actionPolicy": {
+        "healthy": "observe",
+        "needsReview": "quarantine+candidate+issue",
+        "candidate": "candidate"
+      },
       "guardrails": ["model output is not the oracle", "source and locale must agree"],
       "lifecycle": {
         "candidateTtlHours": 24,
@@ -262,7 +296,32 @@
       "minimumSample": 200,
       "maxAutonomy": "A3",
       "actionClasses": ["observe", "candidate", "canary", "stop", "issue", "recommend"],
+      "actionPolicy": {
+        "healthy": "observe",
+        "needsReview": "candidate+stop+issue",
+        "guardrail": "stop",
+        "candidate": "candidate"
+      },
       "guardrails": ["persistent assignment", "minimum sample", "explicit expiry", "no automatic price change"],
+      "allocationPolicy": {
+        "persistent": true,
+        "assignmentMethod": "stable-sha256",
+        "assignmentKey": "experiment-session-id",
+        "boundedCanary": {
+          "enabled": false,
+          "maxExposure": 0,
+          "requiresReviewedApproval": true
+        },
+        "contaminationPolicy": {
+          "controlled": true,
+          "key": "experiment-session-id",
+          "rejectReassignment": true,
+          "rejectCrossCandidateExposure": true
+        },
+        "trafficMutationAllowed": false,
+        "priceMutationAllowed": false,
+        "noAutomaticPriceChange": true
+      },
       "lifecycle": {
         "candidateTtlHours": 168,
         "ownerSlaHours": 48,
@@ -287,6 +346,12 @@
       "minimumSample": 100,
       "maxAutonomy": "A2",
       "actionClasses": ["observe", "reconcile", "issue", "recommend"],
+      "actionPolicy": {
+        "healthy": "observe",
+        "needsReview": "reconcile+issue",
+        "recommend": "recommend",
+        "reconcile": "reconcile"
+      },
       "guardrails": ["missing export is unmeasurable", "approved differs from pending/reversed", "Auto Ads stays enabled"],
       "lifecycle": {
         "candidateTtlHours": 168,
@@ -311,6 +376,12 @@
       "minimumSample": 20,
       "maxAutonomy": "A2",
       "actionClasses": ["observe", "candidate", "pr", "draft-outreach"],
+      "actionPolicy": {
+        "healthy": "observe",
+        "needsReview": "candidate+pr+draft-outreach",
+        "pr": "pr",
+        "draftOutreach": "draft-outreach"
+      },
       "guardrails": ["no real outreach without approval", "inventory is not revenue", "no automatic price change"],
       "lifecycle": {
         "candidateTtlHours": 168,
@@ -335,6 +406,13 @@
       "minimumSample": 1,
       "maxAutonomy": "A4",
       "actionClasses": ["observe", "route", "lock", "retry", "follow-up"],
+      "actionPolicy": {
+        "healthy": "observe",
+        "needsReview": "route+lock+retry+follow-up",
+        "missingHealth": "route",
+        "repair": "follow-up",
+        "retry": "lock+retry"
+      },
       "guardrails": ["one writer per artifact", "bounded queues", "never bypass a gate"],
       "lifecycle": {
         "candidateTtlHours": 24,
@@ -359,6 +437,10 @@
       "minimumSample": 1,
       "maxAutonomy": "A2",
       "actionClasses": ["observe", "issue", "pr", "block-proven-defect"],
+      "actionPolicy": {
+        "healthy": "observe",
+        "needsReview": "issue"
+      },
       "guardrails": ["ambiguous findings stay observe-only", "no error-to-warning downgrade", "no auto-merge of uncertain fixes"],
       "lifecycle": {
         "candidateTtlHours": 72,

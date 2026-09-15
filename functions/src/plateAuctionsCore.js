@@ -136,16 +136,28 @@ export function parseEcariAuctionRows(
   return auctions;
 }
 
-function parseZhDate(value) {
+function parseZhDate(value, fallbackDate) {
   const match = String(value || '').match(/(\d{1,2})\.(\d{1,2})\.(\d{4}),?\s+(\d{1,2}):(\d{2})(?::(\d{2}))?/);
-  if (!match) return undefined;
+  if (match) {
+    return zurichLocalToUtcIso(
+      Number(match[3]),
+      Number(match[2]),
+      Number(match[1]),
+      Number(match[4]),
+      Number(match[5]),
+      Number(match[6] || 0),
+    );
+  }
+  const timeOnly = String(value || '').trim().match(/^(\d{1,2}):(\d{2})(?::(\d{2}))?$/);
+  const dateMatch = String(fallbackDate || '').match(/(\d{1,2})\.(\d{1,2})\.(\d{4})/);
+  if (!timeOnly || !dateMatch) return undefined;
   return zurichLocalToUtcIso(
-    Number(match[3]),
-    Number(match[2]),
-    Number(match[1]),
-    Number(match[4]),
-    Number(match[5]),
-    Number(match[6] || 0),
+    Number(dateMatch[3]),
+    Number(dateMatch[2]),
+    Number(dateMatch[1]),
+    Number(timeOnly[1]),
+    Number(timeOnly[2]),
+    Number(timeOnly[3] || 0),
   );
 }
 
@@ -170,30 +182,37 @@ export function parseZhAuctionCards(
     officialAuctionUrl = 'https://www.auktion.stva.zh.ch/de/?plate_sub_type=&plate_type=car',
     detailBaseUrl = 'https://www.auktion.stva.zh.ch',
     auctionStatus = 'active',
+    sourceKey = 'ZH',
+    canton = 'Zurigo',
+    platePrefix = 'ZH',
   } = {},
 ) {
   const auctions = [];
+  const normalizedSourceKey = String(sourceKey || platePrefix || '').toUpperCase();
+  const normalizedPlatePrefix = String(platePrefix || sourceKey || '').toUpperCase();
+  const escapedPlatePrefix = normalizedPlatePrefix.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const cardRe = /<a\s+href="([^"]*\/auction\/[^"?#]+)"\s+class="auction-element-link"[\s\S]*?<\/a>/gi;
   let cardMatch;
   while ((cardMatch = cardRe.exec(String(html || ''))) !== null) {
     const block = cardMatch[0];
-    const plate = block.match(/<figure\s+title="ZH\s+([^"<]+)"/i)?.[1]
-      || block.match(/<figcaption[^>]*>\s*ZH\s+([^<]+)</i)?.[1];
+    const plate = block.match(new RegExp(`<figure\\s+title="${escapedPlatePrefix}\\s+([^"<]+)"`, 'i'))?.[1]
+      || block.match(new RegExp(`<figcaption[^>]*>\\s*${escapedPlatePrefix}\\s+([^<]+)`, 'i'))?.[1];
     const sourceRecordId = cardMatch[1].match(/\/auction\/([^/?#]+)/i)?.[1];
     if (!plate || !sourceRecordId) continue;
     const currentBidChf = parseZhMoney(block.match(/class="auction-current-bid"[^>]*>([\s\S]*?)<\/div>/i)?.[1]);
     const bidCount = numericText(block.match(/class="auction-number-bids"[^>]*>([\s\S]*?)<\/div>/i)?.[1]);
-    const endsAt = parseZhDate(block.match(/class="auction-ends-at-text"[\s\S]*?<\/div>\s*<div>([\s\S]*?)<\/div>/i)?.[1]);
+    const fallbackEndDate = [...String(html || '').slice(0, cardMatch.index).matchAll(/Auktionsende\s+am\s+(\d{1,2}\.\d{1,2}\.\d{4})/gi)].at(-1)?.[1];
+    const endsAt = parseZhDate(block.match(/class="auction-ends-at-text"[\s\S]*?<\/div>\s*<div>([\s\S]*?)<\/div>/i)?.[1], fallbackEndDate);
     const detailUrl = new URL(cardMatch[1], detailBaseUrl).toString();
     const normalizedNumber = String(plate).replace(/\s+/g, '').toUpperCase();
     auctions.push({
-      id: `zh-${sourceRecordId}`,
-      sourceKey: 'ZH',
+      id: `${normalizedSourceKey.toLowerCase()}-${sourceRecordId}`,
+      sourceKey: normalizedSourceKey,
       sourceRecordId,
-      canton: 'Zurigo',
-      platePrefix: 'ZH',
+      canton,
+      platePrefix: normalizedPlatePrefix,
       plateNumber: normalizedNumber,
-      normalizedPlate: `ZH${normalizedNumber}`,
+      normalizedPlate: `${normalizedPlatePrefix}${normalizedNumber}`,
       listingType: 'auction',
       vehicleType: parseZhVehicleType(block),
       auctionStatus,
@@ -213,21 +232,36 @@ export function parseZhAuctionCards(
   return auctions;
 }
 
-export async function fetchHtml(url, { timeoutMs = 20000, userAgent } = {}) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const response = await fetch(url, {
-      redirect: 'follow',
-      headers: {
-        Accept: 'text/html,application/xhtml+xml',
-        'User-Agent': userAgent || process.env.JOBS_CRAWLER_USER_AGENT || 'FrontaliereTicinoBot/1.0',
-      },
-      signal: controller.signal,
-    });
-    if (!response.ok) throw new Error(`HTTP ${response.status} from ${url}`);
-    return response.text();
-  } finally {
-    clearTimeout(timer);
+export async function fetchHtml(url, { timeoutMs = 20000, userAgent, retries = 2, retryDelayMs = 750 } = {}) {
+  const maxRetries = Number.isInteger(retries) && retries >= 0 ? retries : 2;
+  let lastError;
+
+  for (let attempt = 0; attempt <= maxRetries; attempt += 1) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const response = await fetch(url, {
+        redirect: 'follow',
+        headers: {
+          Accept: 'text/html,application/xhtml+xml',
+          'User-Agent': userAgent || process.env.JOBS_CRAWLER_USER_AGENT || 'FrontaliereTicinoBot/1.0',
+        },
+        signal: controller.signal,
+      });
+      if (!response.ok) {
+        const error = new Error(`HTTP ${response.status} from ${url}`);
+        error.retryable = response.status === 408 || response.status === 425 || response.status === 429 || response.status >= 500;
+        throw error;
+      }
+      return await response.text();
+    } catch (error) {
+      lastError = error;
+      if (attempt >= maxRetries || error?.retryable === false) throw error;
+      await new Promise((resolve) => setTimeout(resolve, retryDelayMs * (2 ** attempt)));
+    } finally {
+      clearTimeout(timer);
+    }
   }
+
+  throw lastError;
 }

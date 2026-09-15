@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kulm-hotel",
-  "assembledAt": "2026-09-13T13:56:36.986Z",
+  "assembledAt": "2026-09-14T16:03:16.048Z",
   "jobs": [
     {
       "id": "kulm-hotel-6d5358fd2a15",
@@ -33,7 +33,7 @@
       "url": "https://careers.kulm.com/en/vacancies/708",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-13T13:56:29.206Z",
+      "crawledAt": "2026-09-14T16:02:09.488Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -60,7 +60,11 @@
         "fiorista-m-w-d-kulm-hotel-st-moritz-pontresina",
         "florist-m-w-d-kulm-hotel-st-moritz",
         "fleuriste-m-w-d-kulm-hotel-st-moritz-pontresina",
-        "tecnico-m-w-d-kulm-hotel-st-moritz-pontresina"
+        "tecnico-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "driver-m-w-d-kulm-hotel-st-moritz",
+        "driver-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "pilote-h-f-d-kulm-hotel-st-moritz-pontresina",
+        "fahrer-m-w-d-kulm-hotel-st-moritz-pontresina"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -70,15 +74,24 @@
           "fiorista-m-w-d-kulm-hotel-st-moritz-pontresina",
           "florist-m-w-d-kulm-hotel-st-moritz",
           "fleuriste-m-w-d-kulm-hotel-st-moritz-pontresina",
-          "tecnico-m-w-d-kulm-hotel-st-moritz-pontresina"
+          "tecnico-m-w-d-kulm-hotel-st-moritz-pontresina",
+          "driver-m-w-d-kulm-hotel-st-moritz",
+          "driver-m-w-d-kulm-hotel-st-moritz-pontresina",
+          "pilote-h-f-d-kulm-hotel-st-moritz-pontresina",
+          "fahrer-m-w-d-kulm-hotel-st-moritz-pontresina"
         ],
         "de": [
           "technician-m-w-d-kulm-hotel-st-moritz",
-          "florist-m-w-d-kulm-hotel-st-moritz"
+          "florist-m-w-d-kulm-hotel-st-moritz",
+          "driver-m-w-d-kulm-hotel-st-moritz-pontresina"
         ],
         "fr": [
           "technician-m-w-d-kulm-hotel-st-moritz",
-          "florist-m-w-d-kulm-hotel-st-moritz-pontresina"
+          "florist-m-w-d-kulm-hotel-st-moritz-pontresina",
+          "pilote-h-f-d-kulm-hotel-st-moritz-pontresina"
+        ],
+        "en": [
+          "driver-m-w-d-kulm-hotel-st-moritz"
         ]
       },
       "firstSeenAt": "2026-07-29T11:39:18.612Z",
@@ -127,7 +140,7 @@
       "url": "https://careers.kulm.com/en/vacancies/723",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-13T13:56:29.063Z",
+      "crawledAt": "2026-09-14T16:02:09.303Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -150,8 +163,7 @@
       "previousSlugsByLocale": {
         "it": [
           "sous-chef-must-have-fluent-in-italian-start-immediately-m-w-d-kulm-hotel-st-moritz",
-          "sous-chef-main-kitchen-16-gaultmillau-points-m-w-d-kulm-hotel-st-moritz",
-          "sous-chef-deve-avere-fluente-in-italiano-iniziare-immediatamente-m-f-d-kulm-hotel-st-moritz-pontresina"
+          "sous-chef-main-kitchen-16-gaultmillau-points-m-w-d-kulm-hotel-st-moritz"
         ],
         "de": [
           "sous-chef-must-have-fluent-in-italian-start-immediately-m-w-d-kulm-hotel-st-moritz"
@@ -162,11 +174,9 @@
       },
       "previousSlugs": [
         "sous-chef-must-have-fluent-in-italian-start-immediately-m-w-d-kulm-hotel-st-moritz",
-        "sous-chef-main-kitchen-16-gaultmillau-points-m-w-d-kulm-hotel-st-moritz",
-        "sous-chef-deve-avere-fluente-in-italiano-iniziare-immediatamente-m-f-d-kulm-hotel-st-moritz-pontresina"
+        "sous-chef-main-kitchen-16-gaultmillau-points-m-w-d-kulm-hotel-st-moritz"
       ],
       "firstSeenAt": "2026-08-24T10:10:40.981Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -212,7 +222,7 @@
       "url": "https://careers.kulm.com/en/vacancies/719",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-13T13:56:28.109Z",
+      "crawledAt": "2026-09-14T16:02:08.332Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -234,14 +244,12 @@
       "pensum": "100%",
       "previousSlugs": [
         "events-planning-manager-m-w-d-kulm-hotel-st-moritz",
-        "senior-events-planning-manager-m-w-d-kulm-hotel-st-moritz",
-        "gestione-della-pianificazione-degli-eventi-m-f-d-kulm-hotel-st-moritz-st-moritz-2f5977"
+        "senior-events-planning-manager-m-w-d-kulm-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "events-planning-manager-m-w-d-kulm-hotel-st-moritz",
-          "senior-events-planning-manager-m-w-d-kulm-hotel-st-moritz",
-          "gestione-della-pianificazione-degli-eventi-m-f-d-kulm-hotel-st-moritz-st-moritz-2f5977"
+          "senior-events-planning-manager-m-w-d-kulm-hotel-st-moritz"
         ],
         "de": [
           "events-planning-manager-m-w-d-kulm-hotel-st-moritz"
@@ -251,7 +259,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T22:01:56.519Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -297,7 +304,7 @@
       "url": "https://careers.kulm.com/en/vacancies/712",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-13T13:56:27.159Z",
+      "crawledAt": "2026-09-14T16:02:07.387Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -321,14 +328,12 @@
         "fr": [
           "agent-de-reservation-m-p-d-kulm-hotel-st-moritz-st-moritz-fc52eb",
           "agent-de-reservation-m-w-d-kulm-hotel-st-moritz-st-moritz-fc52eb",
-          "reservations-agent-m-w-d-kulm-hotel-st-moritz",
-          "agent-de-reservation-m-w-d-kulm-hotel-st-moritz-st-moritz"
+          "reservations-agent-m-w-d-kulm-hotel-st-moritz"
         ],
         "it": [
           "reservations-agent-m-w-d-kulm-hotel-st-moritz",
           "agente-di-prenotazione-m-w-d-kulm-hotel-st-moritz-st-moritz",
-          "agent-de-reservation-m-w-d-kulm-hotel-st-moritz-st-moritz-f77a9c",
-          "prenotazione-agente-m-w-d-kulm-hotel-st-moritz-st-moritz"
+          "agent-de-reservation-m-w-d-kulm-hotel-st-moritz-st-moritz-f77a9c"
         ],
         "de": [
           "reservations-agent-m-w-d-kulm-hotel-st-moritz"
@@ -339,12 +344,9 @@
         "agente-di-prenotazione-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "agent-de-reservation-m-p-d-kulm-hotel-st-moritz-st-moritz-fc52eb",
         "agent-de-reservation-m-w-d-kulm-hotel-st-moritz-st-moritz-fc52eb",
-        "agent-de-reservation-m-w-d-kulm-hotel-st-moritz-st-moritz-f77a9c",
-        "agent-de-reservation-m-w-d-kulm-hotel-st-moritz-st-moritz",
-        "prenotazione-agente-m-w-d-kulm-hotel-st-moritz-st-moritz"
+        "agent-de-reservation-m-w-d-kulm-hotel-st-moritz-st-moritz-f77a9c"
       ],
       "firstSeenAt": "2026-07-29T11:39:14.690Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -390,7 +392,7 @@
       "url": "https://careers.kulm.com/en/vacancies/725",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-13T13:56:26.220Z",
+      "crawledAt": "2026-09-14T16:02:06.407Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -411,13 +413,11 @@
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
       "previousSlugs": [
-        "pastry-talent-demi-chef-de-partie-patisserie-m-w-d-kulm-hotel-st-moritz",
-        "pasticceria-talent-demi-chef-de-partie-patisserie-m-f-d-kulm-hotel-st-moritz-pontresina"
+        "pastry-talent-demi-chef-de-partie-patisserie-m-w-d-kulm-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pastry-talent-demi-chef-de-partie-patisserie-m-w-d-kulm-hotel-st-moritz",
-          "pasticceria-talent-demi-chef-de-partie-patisserie-m-f-d-kulm-hotel-st-moritz-pontresina"
+          "pastry-talent-demi-chef-de-partie-patisserie-m-w-d-kulm-hotel-st-moritz"
         ],
         "en": [
           "pastry-talent-demi-chef-de-partie-patisserie-m-w-d-kulm-hotel-st-moritz"
@@ -427,7 +427,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T23:01:11.741Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -473,7 +472,7 @@
       "url": "https://careers.kulm.com/en/vacancies/696",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-13T13:56:25.274Z",
+      "crawledAt": "2026-09-14T16:02:05.453Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -495,13 +494,11 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "en": [
-          "luxury-housekeeping-specialist-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz",
-          "room-attendant-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz"
+          "luxury-housekeeping-specialist-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz"
         ],
         "it": [
           "room-attendant-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz",
-          "luxury-housekeeping-specialist-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz",
-          "partecipante-in-camera-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz-st-moritz"
+          "luxury-housekeeping-specialist-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz"
         ],
         "fr": [
           "room-attendant-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz"
@@ -509,11 +506,9 @@
       },
       "previousSlugs": [
         "room-attendant-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz",
-        "luxury-housekeeping-specialist-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz",
-        "partecipante-in-camera-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz-st-moritz"
+        "luxury-housekeeping-specialist-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz"
       ],
       "firstSeenAt": "2026-09-09T13:49:53.587Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -559,7 +554,7 @@
       "url": "https://careers.kulm.com/en/vacancies/697",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:56:24.331Z",
+      "crawledAt": "2026-09-14T16:02:04.482Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -583,15 +578,13 @@
         "laundry-employee-m-w-d-kulm-hotel-st-moritz",
         "servizio-lavanderia-m-w-d-kulm-hotel-st-moritz-st-moritz-6d5f17",
         "wascherei-mitarbeiter-m-w-d-kulm-hotel-st-moritz-st-moritz",
-        "laundry-employee-washer-m-w-d-kulm-hotel-st-moritz",
-        "servizio-lavanderia-m-w-d-kulm-hotel-st-moritz-st-moritz"
+        "laundry-employee-washer-m-w-d-kulm-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "laundry-employee-m-w-d-kulm-hotel-st-moritz",
           "servizio-lavanderia-m-w-d-kulm-hotel-st-moritz-st-moritz-6d5f17",
-          "laundry-employee-washer-m-w-d-kulm-hotel-st-moritz",
-          "servizio-lavanderia-m-w-d-kulm-hotel-st-moritz-st-moritz"
+          "laundry-employee-washer-m-w-d-kulm-hotel-st-moritz"
         ],
         "de": [
           "laundry-employee-m-w-d-kulm-hotel-st-moritz",
@@ -602,7 +595,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T12:06:59.610Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -648,7 +640,7 @@
       "url": "https://careers.kulm.com/en/vacancies/690",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-13T13:56:23.399Z",
+      "crawledAt": "2026-09-14T16:02:03.529Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -670,24 +662,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "fr": [
-          "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz",
-          "lave-linge-presse-repassage-tournant-m-m-j-kulm-hotel-st-moritz-st-moritz-67749c"
+          "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz"
         ],
         "it": [
-          "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz",
-          "servizio-lavanderia-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz-st-moritz-67749c"
+          "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz"
         ],
         "de": [
           "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz"
         ]
       },
       "previousSlugs": [
-        "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz",
-        "lave-linge-presse-repassage-tournant-m-m-j-kulm-hotel-st-moritz-st-moritz-67749c",
-        "servizio-lavanderia-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz-st-moritz-67749c"
+        "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz"
       ],
       "firstSeenAt": "2026-07-14T12:06:58.597Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -717,7 +704,7 @@
       "title": "Ice Master/ Ice Technician (m/w/d)",
       "titleByLocale": {
         "it": "Maestro di ghiaccio / Tecnico di ghiaccio (m/f/d)",
-        "en": "Ice Master/ Ice Technician (m/w/d)",
+        "en": "Ice Master/Ice Technician (m/f/d)",
         "de": "Ice Master/ Ice Techniker (m/w/d)",
         "fr": "Ice Master/ Ice Technicien (m/w/d)"
       },
@@ -733,7 +720,7 @@
       "url": "https://careers.kulm.com/en/vacancies/722",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:56:22.450Z",
+      "crawledAt": "2026-09-14T16:02:02.583Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -754,17 +741,14 @@
       "department": "Kulm Hotel",
       "pensum": "100%",
       "previousSlugs": [
-        "ice-master-ice-technician-m-w-d-kulm-hotel-st-moritz",
-        "maestro-di-ghiaccio-tecnico-di-ghiaccio-m-f-d-kulm-hotel-st-moritz-st-moritz-bcedfc"
+        "ice-master-ice-technician-m-w-d-kulm-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ice-master-ice-technician-m-w-d-kulm-hotel-st-moritz",
-          "maestro-di-ghiaccio-tecnico-di-ghiaccio-m-f-d-kulm-hotel-st-moritz-st-moritz-bcedfc"
+          "ice-master-ice-technician-m-w-d-kulm-hotel-st-moritz"
         ]
       },
       "firstSeenAt": "2026-08-20T21:44:18.167Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -810,7 +794,7 @@
       "url": "https://careers.kulm.com/en/vacancies/678",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-13T13:56:21.515Z",
+      "crawledAt": "2026-09-14T16:02:01.613Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -845,8 +829,7 @@
         "housekeeping-director-m-w-d-kulm-hotel-st-moritz",
         "housekeeping-direktor-m-w-d-kulm-hotel-st-moritz-st",
         "directeur-du-menage-m-w-d-kulm-hotel-st-moritz-st-moritz",
-        "directeur-du-menage-m-m-j-kulm-hotel-st-moritz-st-moritz",
-        "supervisore-di-pulizia-m-w-d-kulm-hotel-st-moritz-pontresina"
+        "directeur-du-menage-m-m-j-kulm-hotel-st-moritz-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -855,8 +838,7 @@
           "housekeeping-director-m-w-d-kulm-hotel-st-moritz",
           "housekeeping-direktor-m-w-d-kulm-hotel-st-moritz-st",
           "directeur-du-menage-m-w-d-kulm-hotel-st-moritz-st-moritz",
-          "directeur-du-menage-m-m-j-kulm-hotel-st-moritz-st-moritz",
-          "supervisore-di-pulizia-m-w-d-kulm-hotel-st-moritz-pontresina"
+          "directeur-du-menage-m-m-j-kulm-hotel-st-moritz-st-moritz"
         ],
         "en": [
           "housekeeping-director-m-w-d-kulm-hotel-st-moritz"
@@ -872,7 +854,6 @@
         ]
       },
       "firstSeenAt": "2026-06-05T22:23:49.839Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -918,7 +899,7 @@
       "url": "https://careers.kulm.com/en/vacancies/689",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:56:20.583Z",
+      "crawledAt": "2026-09-14T16:02:00.659Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -942,16 +923,14 @@
         "assistant-front-office-manager-m-w-d-kulm-hotel-st-moritz",
         "directeur-adjoint-de-la-liaison-m-m-j-kulm-hotel-st-moritz-st-moritz",
         "assistant-event-manager-m-w-d-kulm-hotel-st-moritz",
-        "front-office-agent-m-w-d-kulm-hotel-st-moritz",
-        "agente-di-ufficio-anteriore-m-w-d-kulm-hotel-st-moritz-st-moritz-223128"
+        "front-office-agent-m-w-d-kulm-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-front-office-manager-m-w-d-kulm-hotel-st-moritz",
           "directeur-adjoint-de-la-liaison-m-m-j-kulm-hotel-st-moritz-st-moritz",
           "assistant-event-manager-m-w-d-kulm-hotel-st-moritz",
-          "front-office-agent-m-w-d-kulm-hotel-st-moritz",
-          "agente-di-ufficio-anteriore-m-w-d-kulm-hotel-st-moritz-st-moritz-223128"
+          "front-office-agent-m-w-d-kulm-hotel-st-moritz"
         ],
         "en": [
           "assistant-event-manager-m-w-d-kulm-hotel-st-moritz"
@@ -965,7 +944,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:19:00.177Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -981,93 +959,10 @@
       }
     },
     {
-      "id": "kulm-hotel-6c750ad2f08d",
-      "slug": "assistente-amministrativo-f-b-m-f-d-kulm-hotel-st-moritz-st-moritz-c88615",
-      "slugByLocale": {
-        "it": "assistente-amministrativo-f-b-m-f-d-kulm-hotel-st-moritz-st-moritz-c88615",
-        "en": "f-b-administrative-assistant-m-w-d-kulm-hotel-st-moritz",
-        "de": "f-b-administrative-assistent-m-w-d-kulm-hotel-st-moritz-st-moritz",
-        "fr": "assistant-administratif-f-b-h-f-d-kulm-hotel-st-moritz-st-moritz-c88615"
-      },
-      "company": "Kulm Hotel St. Moritz",
-      "companyKey": "kulm-hotel",
-      "companyDomain": "kulm.com",
-      "title": "F&B Administrative Assistant (m/w/d)",
-      "titleByLocale": {
-        "it": "Assistente amministrativo F&B (m/f/d)",
-        "en": "F&B Administrative Assistant (m/w/d)",
-        "de": "F&B Administrative Assistent (m/w/d)",
-        "fr": "F&B Administrative Assistant (m/w/d)"
-      },
-      "description": "F&B Administrative Assistant (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Unbefristet / Permanent. Stellenantritt: 2026-12-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us: In this versatile key position, you are the “Enabler” of our entire F&B division. You bridge the gap between administrative precision, cutting-edge hospitality technology, and front-of-house operations. You ensure that technical processes run flawlessly in the background while proactively supporting the F&B management in their daily business.Your Mission - Where Culinary Delight meets Logistics:\n• Reservation Management: You are the primary point of contact for reservations (on-site, phone, email) via our software for all hotel outlets.\n\n• Menu Design & Coordination: In close collaboration with the kitchen, marketing, and restaurant management, you coordinate and update our menus via “Ai-web-to-print.”\n\n• Daily Operations: During the season, you create daily half-board menus, staff menus, and buffet labeling using “Ai-web-to-print” and “Viewneo.”\n\n• Guest Experiences: You process individual guest requests for aperitifs or birthdays, ensuring that \"extra touch\" that defines our service.\n\n• Amenity Management: Coordinate guest amenities with the Front Office and Room Service, including payment processing via “Saferpay” and “Opera.”\n\n• Front-Line Support: When needed, you actively support our team directly in service, staying close to our guests.\n\n• Quality Ambassador: You ensure compliance with the highest standards (LQA and Forbes Travel Guide) and professionally handle guest feedback and complaints.\n\n• Administrative Excellence: Preparation of corporate invoices and general correspondence (office share approx. 80–90%). | This is you:\n• Foundation: Completed hotel or commercial apprenticeship, as well as professional experience in a similar role, ideally within the luxury hospitality industry.\n\n• Linguistic Excellence: Business fluent in German and English (written and spoken). Italian is a significant asset.\n\n• IT Proficiency: Confident handling of MS Office and hotel systems (e.g., Opera Cloud).\n\n• Personality: You are an organizational talent with absolute reliability and discretion. You remain calm and solution-oriented, even under high pressure.\n\n• Host Mindset: You communicate at the highest service level, possess a poised appearance, and apply a “hands-on” mentality when it counts.\nWhy the Kulm Group? We offer you a workplace where tradition meets innovation. You will have the freedom to actively shape processes and benefit from the attractive perks of one of Switzerland's most renowned hotel groups.Ready to shape the F&B world of tomorrow? We look forward to receiving your application! | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
-      "descriptionByLocale": {
-        "it": "F&B admin Assistant (m/f/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Unbefristet / Permanent. Stellenantritt: 2026-12-01.\n\nLe persone a 1800m sul livello del mare stanno modellando il Luxury Mountain Travel. La nostra comunità dinamica e internazionale offre ai nostri ospiti smart Luxury per un'esperienza di vacanza inimitabile. Come membro del gruppo Luxury Kulm fai parte della chiave del nostro successo. Insieme, rendiamo ogni soggiorno profondamente ispiratore, unico e distintivo. E come tale, abbracciamo la nostra cultura: lusso sobrio, ispirazione e un'esperienza di vita. Insieme, facciamo in modo che accada. Questa è la tua occasione per essere un membro della nostra cultura di modellazione: | Questo è ciò che ti muovi con noi: In questa versatile posizione chiave, sei il “Enabler” della nostra intera divisione F&B. È possibile colmare il divario tra la precisione amministrativa, la tecnologia di ospitalità all'avanguardia e le operazioni frontali di casa. Assicurarsi che i processi tecnici funzionino in modo impeccabile in background, supportando in modo proattivo la gestione F&B nella loro attività quotidiana. La vostra missione - Dove la luce culinaria incontra la logistica:\n• Gestione della prenotazione: Lei è il punto di contatto principale per le prenotazioni (in loco, telefono, e-mail) tramite il nostro software per tutte le uscite dell'hotel.\n\n• Menu Design & Coordinamento: In stretta collaborazione con la cucina, il marketing e la gestione del ristorante, coordina e aggiorna i nostri menu tramite “Ai-web-to-print”.\n\n• Operazioni giornaliere: Durante la stagione, si creano menu di mezza pensione giornalieri, menu del personale, e l'etichettatura a buffet utilizzando “Ai-web-to-print” e “Viewneo”.\n\n• Esperienze ospiti: Elabori richieste individuali di aperitivi o compleanni, assicurando che \"extra touch\" che definisce il nostro servizio.\n\n• Gestione delle modifiche: Coordinare i servizi degli ospiti con il servizio di reception e in camera, compresa l'elaborazione dei pagamenti tramite “Saferpay” e “Opera”.\n\n• Supporto Front Line: Quando necessario, supporti attivamente il nostro team direttamente in servizio, rimanendo vicino ai nostri ospiti.\n\n• Ambasciatore di qualità: Garantisci il rispetto dei più elevati standard (LQA e Forbes Travel Guide) e gestisci professionalmente feedback e reclami degli ospiti.\n\n• Eccellenza amministrativa: preparazione delle fatture aziendali e corrispondenza generale (parte ufficio ca. 80–90%). Questo sei tu:\n• Fondazione: Completato hotel o apprendistato commerciale, nonché esperienza professionale in un ruolo simile, idealmente all'interno del settore dell'ospitalità di lusso.\n\n• Eccellenza linguistica: Business fluent in tedesco e inglese (scritto e parlato). L'italiano è una risorsa significativa.\n\n• Proficienza IT: gestione sicura dei sistemi MS Office e hotel (ad esempio, Opera Cloud).\n\n• Personalità: Lei è un talento organizzativo con assoluta affidabilità e discrezione. Rimanete calmi e orientati alla soluzione, anche sotto alta pressione.\n\n• Host Mindset: Lei comunica al più alto livello di servizio, possiede un aspetto in posa, e applica una mentalità “hands-on” quando conta.\nPerché il gruppo Kulm? Vi offriamo un posto di lavoro dove la tradizione incontra l'innovazione. Avrete la libertà di plasmare attivamente i processi e di beneficiare degli attraenti vantaggi di uno dei gruppi alberghieri più rinomati della Svizzera. Pronto a plasmare il mondo F&B di domani? Non vediamo l'ora di ricevere la vostra applicazione! A Kulm Group, i nostri dipendenti sono il cuore del nostro successo. Offriamo interessanti opportunità di sviluppo, sistemazioni confortevoli, pasti convenienti nel ristorante del personale, e numerosi vantaggi.",
-        "en": "F&B Administrative Assistant (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Unbefristet / Permanent. Stellenantritt: 2026-12-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us: In this versatile key position, you are the “Enabler” of our entire F&B division. You bridge the gap between administrative precision, cutting-edge hospitality technology, and front-of-house operations. You ensure that technical processes run flawlessly in the background while proactively supporting the F&B management in their daily business.Your Mission - Where Culinary Delight meets Logistics:\n• Reservation Management: You are the primary point of contact for reservations (on-site, phone, email) via our software for all hotel outlets.\n\n• Menu Design & Coordination: In close collaboration with the kitchen, marketing, and restaurant management, you coordinate and update our menus via “Ai-web-to-print.”\n\n• Daily Operations: During the season, you create daily half-board menus, staff menus, and buffet labeling using “Ai-web-to-print” and “Viewneo.”\n\n• Guest Experiences: You process individual guest requests for aperitifs or birthdays, ensuring that \"extra touch\" that defines our service.\n\n• Amenity Management: Coordinate guest amenities with the Front Office and Room Service, including payment processing via “Saferpay” and “Opera.”\n\n• Front-Line Support: When needed, you actively support our team directly in service, staying close to our guests.\n\n• Quality Ambassador: You ensure compliance with the highest standards (LQA and Forbes Travel Guide) and professionally handle guest feedback and complaints.\n\n• Administrative Excellence: Preparation of corporate invoices and general correspondence (office share approx. 80–90%). | This is you:\n• Foundation: Completed hotel or commercial apprenticeship, as well as professional experience in a similar role, ideally within the luxury hospitality industry.\n\n• Linguistic Excellence: Business fluent in German and English (written and spoken). Italian is a significant asset.\n\n• IT Proficiency: Confident handling of MS Office and hotel systems (e.g., Opera Cloud).\n\n• Personality: You are an organizational talent with absolute reliability and discretion. You remain calm and solution-oriented, even under high pressure.\n\n• Host Mindset: You communicate at the highest service level, possess a poised appearance, and apply a “hands-on” mentality when it counts.\nWhy the Kulm Group? We offer you a workplace where tradition meets innovation. You will have the freedom to actively shape processes and benefit from the attractive perks of one of Switzerland's most renowned hotel groups.Ready to shape the F&B world of tomorrow? We look forward to receiving your application! | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
-        "de": "F&B Verwaltungsassistent (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Unbefristet / Permanent. Stellenantritt: 2026-12-01.\n\nMenschen auf 1800m Höhe prägen das Luxury Mountain Travel. Unsere dynamische und internationale Gemeinschaft bietet unseren Gästen smarten Luxus für ein unnachahmliches Urlaubserlebnis. Als Mitglied der Luxury Kulm Group sind Sie Teil des Schlüssels zu unserem Erfolg. Gemeinsam machen wir jeden Aufenthalt zutiefst inspirierend, einzigartig und unverwechselbar. Und als solche nehmen wir unsere Kultur an: dezenten Luxus, Inspiration und eine Lebenserfahrung. Gemeinsam machen wir es möglich. Dies ist Ihre Chance, ein Mitglied unserer gestaltenden Kultur zu sein: | Dies ist, was Sie mit uns bewegen: In dieser vielseitigen Schlüsselposition sind Sie der „Enabler unserer gesamten F&B-Division. Sie schließen die Lücke zwischen administrativer Präzision, modernster Hospitality-Technologie und Front-of-House-Operationen. Sie sorgen dafür, dass technische Prozesse einwandfrei im Hintergrund ablaufen und unterstützen das F&B-Management proaktiv im Tagesgeschäft. Ihre Mission - Wo kulinarische Freude auf Logistik trifft:\n• Reservierungsmanagement: Sie sind der primäre Ansprechpartner für Reservierungen (vor Ort, Telefon, E-Mail) über unsere Software für alle Hotelfilialen.\n\n• Menü Design & Koordination: In enger Zusammenarbeit mit Küche, Marketing und Restaurantmanagement koordinieren und aktualisieren Sie unsere Menüs über „Ai-web-to-print.\n\n• Tägliche Operationen: Während der Saison erstellen Sie tägliche Halbpension-Menüs, Personalmenüs und Buffet-Kennzeichnung mit \"Ai-web-to-print\" und \"Viewneo\".\n\n• Gästeerlebnisse: Sie bearbeiten individuelle Gästeanfragen für Aperitifs oder Geburtstage und stellen sicher, dass \"zusätzliche Berührung\" unseren Service definiert.\n\n• Amenity Management: Koordinieren Sie die Annehmlichkeiten der Gäste mit dem Front Office und dem Room Service, einschließlich der Zahlungsabwicklung über \"Saferpay\" und \"Opera\".\n\n• Front-Line-Support: Bei Bedarf unterstützen Sie unser Team aktiv direkt im Service und bleiben in der Nähe unserer Gäste.\n\n• Qualitätsbotschafter: Sie stellen die Einhaltung der höchsten Standards (LQA und Forbes Travel Guide) sicher und behandeln Gästefeedback und Beschwerden professionell.\n\n• Administrative Excellence: Erstellung von Unternehmensrechnungen und allgemeine Korrespondenz (Büroanteil ca. 80-90%). | Das sind Sie:\n• Gründung: Abgeschlossene Hotel- oder kaufmännische Ausbildung sowie Berufserfahrung in einer ähnlichen Rolle, idealerweise in der Luxushotellerie.\n\n• Linguistische Exzellenz: Business fließend in Deutsch und Englisch (geschrieben und gesprochen). Italienisch ist ein wichtiges Kapital.\n\n• IT Proficiency: Vertrauensvoller Umgang mit MS Office und Hotelsystemen (z.B. Opera Cloud).\n\n• Persönlichkeit: Sie sind ein Organisationstalent mit absoluter Zuverlässigkeit und Diskretion. Sie bleiben ruhig und lösungsorientiert, auch unter hohem Druck.\n\n• Host Mindset: Sie kommunizieren auf höchstem Serviceniveau, haben ein ausgeglichenes Aussehen und wenden eine \"Hands-on\" -Mentalität an, wenn es darauf ankommt.\nWarum die Kulm Group? Wir bieten Ihnen einen Arbeitsplatz, an dem Tradition auf Innovation trifft. Sie haben die Freiheit, Prozesse aktiv zu gestalten und von den attraktiven Vorteilen einer der renommiertesten Hotelgruppen der Schweiz zu profitieren. Bereit, die F&B-Welt von morgen zu gestalten? Wir freuen uns auf Ihre Bewerbung! | Benefits: Bei der Kulm Group stehen unsere Mitarbeiter im Mittelpunkt unseres Erfolgs. Wir bieten attraktive Entwicklungsmöglichkeiten, komfortable Unterkünfte, erschwingliche Mahlzeiten im Personalrestaurant und zahlreiche Vergünstigungen.",
-        "fr": "Assistant administratif F&B (h/f/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Unbefristet / Permanent. Stellenantritt: 2026-12-01.\n\nLes gens à 1800m d'altitude façonnent le Luxury Mountain Travel. Notre communauté dynamique et internationale offre à nos clients un luxe intelligent pour une expérience de vacances inimitable. En tant que membre du groupe Luxury Kulm, vous faites partie de la clé de notre succès. Ensemble, nous rendons chaque séjour profondément inspirant, unique et distinctif. Et en tant que tel, nous acceptons notre culture: luxe sous-estimé, inspiration et expérience de vie. Ensemble, nous y parvenons. C'est votre chance d'être membre de notre culture de façonnage: C'est ce que vous déménagez avec nous: Dans cette position-clé versatile, vous êtes l'Enabler de toute notre division F&B. Vous comblerez l'écart entre la précision administrative, la technologie d'accueil de pointe et les opérations de première main. Vous veillez à ce que les processus techniques fonctionnent parfaitement en arrière-plan tout en appuyant de façon proactive la gestion des F&B dans leurs activités quotidiennes. Votre mission - Où le délice culinaire rencontre la logistique:\n• Gestion des réservations: Vous êtes le point de contact principal pour les réservations (sur place, téléphone, e-mail) via notre logiciel pour tous les points de vente d'hôtel.\n\n• Menu Conception et coordination: En étroite collaboration avec la direction de la cuisine, du marketing et de la restauration, vous coordonnez et mettez à jour nos menus via le site web à imprimer.\n\n• Opérations quotidiennes: Pendant la saison, vous créez des menus quotidiens de demi-pension, des menus de personnel et des étiquettes de buffet à l'aide d'Ai-web-to-print.\n\n• Expériences clients: Vous traitez les demandes individuelles d'apéritifs ou d'anniversaires, en veillant à ce que \"extra touch\" qui définit notre service.\n\n• Amenity Management: Coordonner les équipements pour les clients avec le service de réception et de chambre, y compris le traitement des paiements via\n\n• Assistance de première ligne: Au besoin, vous soutenez activement notre équipe directement en service, en restant près de nos invités.\n\n• Ambassadrice de la qualité: Vous assurez le respect des normes les plus élevées (LQA et Forbes Travel Guide) et traitez professionnellement les commentaires et les plaintes des clients.\n\n• Excellence administrative: Préparation des factures corporatives et de la correspondance générale (part de bureau environ 80 à 90%). C'est vous:\n• Fondation: Apprentissage hôtelier ou commercial complété, ainsi que l'expérience professionnelle dans un rôle similaire, idéalement dans l'industrie hôtelière de luxe.\n\n• Excellence linguistique: les affaires parlent couramment l'allemand et l'anglais (écrit et parlé). L'italien est un atout important.\n\n• Compétence en TI: Gestion fiable des systèmes MS Office et hôtelier (par exemple Opera Cloud).\n\n• Personnalité: Vous êtes un talent organisationnel avec une fiabilité et une discrétion absolues. Vous restez calme et orienté vers la solution, même sous haute pression.\n\n• Host Mindset: Vous communiquez au plus haut niveau de service, vous avez une apparence poisée, et vous appliquez une mentalité « mains sur mains » quand elle compte.\nPourquoi le groupe Kulm? Nous vous proposons un lieu de travail où la tradition rencontre l'innovation. Vous aurez la liberté de façonner activement les processus et de bénéficier des avantages de l'un des groupes hôteliers les plus renommés de Suisse. Prêt à façonner le monde F&B de demain? Nous sommes impatients de recevoir votre candidature! Avantages: Chez Kulm Group, nos employés sont au cœur de notre succès. Nous offrons des possibilités de développement attrayantes, des logements confortables, des repas abordables dans le restaurant du personnel, et de nombreux avantages."
-      },
-      "location": "St. Moritz",
-      "canton": "GR",
-      "url": "https://careers.kulm.com/en/vacancies/729",
-      "source": "Kulm Hotel St. Moritz Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-13T13:56:19.641Z",
-      "addressLocality": "St. Moritz",
-      "postalCode": "7500",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Food & Beverage",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "contractType": "indefinite",
-      "experienceLevel": "junior",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-12-01",
-      "applyUrl": "https://careers.kulm.com/en/vacancies/729",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Kulm Hotel",
-      "pensum": "100%",
-      "previousSlugs": [
-        "f-b-administrative-assistant-m-w-d-kulm-hotel-st-moritz",
-        "assistente-amministrativo-f-b-m-f-d-kulm-hotel-st-moritz-st-moritz-c88615"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "f-b-administrative-assistant-m-w-d-kulm-hotel-st-moritz",
-          "assistente-amministrativo-f-b-m-f-d-kulm-hotel-st-moritz-st-moritz-c88615"
-        ],
-        "de": [
-          "f-b-administrative-assistant-m-w-d-kulm-hotel-st-moritz"
-        ],
-        "fr": [
-          "f-b-administrative-assistant-m-w-d-kulm-hotel-st-moritz"
-        ]
-      },
-      "firstSeenAt": "2026-09-09T23:06:57.957Z",
-      "needsRetranslation": true,
-      "salaryMin": 58000,
-      "salaryMax": 79000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 79000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "kulm-hotel-fe14f6cf94b1",
       "slug": "responsabile-executive-housekeeping-m-w-d-kulm-hotel-st-moritz-pontresina",
       "slugByLocale": {
-        "it": "responsabile-executive-housekeeping-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "it": "direttore-esecutivo-della-pulizia-m-f-d-kulm-hotel-st-moritz-pontresina",
         "en": "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz",
         "de": "geschaftsfuhrer-der-hauswirtschaft-m-w-d-kulm-hotel-st-moritz-pontresina",
         "fr": "directeur-executif-du-menage-m-m-j-kulm-hotel-st-moritz-pontresina"
@@ -1094,7 +989,7 @@
       "url": "https://careers.kulm.com/en/vacancies/679",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-13T13:56:18.711Z",
+      "crawledAt": "2026-09-14T16:01:59.683Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -1115,15 +1010,11 @@
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
       "previousSlugs": [
-        "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz",
-        "direttore-esecutivo-della-pulizia-m-f-d-kulm-hotel-st-moritz-pontresina",
-        "responsabile-executive-housekeeping-m-w-d-kulm-hotel-st-moritz-pontresina"
+        "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz",
-          "direttore-esecutivo-della-pulizia-m-f-d-kulm-hotel-st-moritz-pontresina",
-          "responsabile-executive-housekeeping-m-w-d-kulm-hotel-st-moritz-pontresina"
+          "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz"
         ],
         "de": [
           "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz"
@@ -1158,24 +1049,24 @@
       "companyDomain": "kulm.com",
       "title": "Executive Assistant Manager - Rooms Division (m/w/d)",
       "titleByLocale": {
-        "it": "Executive Assistant Manager - Rooms Division (m/w/d)",
-        "en": "Executive Assistant Manager - Rooms Division (m/w/d)",
+        "it": "Executive Assistant Manager - Room Division (m/f/d)",
+        "en": "Executive Assistant Manager - Rooms Division (m/f/d)",
         "de": "Executive Assistant Manager - Zimmerbereich (m/w/d)",
         "fr": "Assistant exécutif - Division des chambres (h/f/d)"
       },
       "description": "Executive Assistant Manager - Rooms Division (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Unbefristet / Permanent. Stellenantritt: 2026-08-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us: Working in direct collaboration with the General Management, you bear overall responsibility for the Rooms Division and act as the driving force for quality and innovation:\n• Strategic Leadership: You lead and inspire a team of approximately 80–120 employees through your direct reports (Front Office, Concierge, Reservations, Housekeeping, and Laundry).\n\n• Guest Journey & Quality: You are responsible for the seamless implementation of Forbes and 5-star excellence standards. You don’t just analyze guest feedback; you transform it into tangible service innovations.\n\n• Commercial Mindset: In close coordination with Revenue Management, Sales, and Marketing, you optimize occupancy and ADR. You are responsible for budget planning, forecasting, and cost control (labor and operating expenses) with a focus on maximum profitability.\n\n• Process Pioneer: You drive digital transformation and optimize internal SOPs to minimize friction and maximize the time dedicated to the guest.\n\n• Training: Constant training and continuous development of the teams.\n\n• Host Mentality: You maintain a strong presence in the lobby, cultivate relationships with our discerning regular guests, and master complex complaint management with composure and charm. | This is you: We are seeking an established leadership personality who thrives on complexity and views excellence as a way of life.\n• Experience: You have completed a degree or vocational training in luxury hospitality and possess several years of leadership experience in a comparable position within the international 5-star hotel industry.\n\n• Linguistic Proficiency: You are business fluent in both German and English. Due to our location and team structure, Italian is considered a very significant advantage.\n\n• Coach & Mentor: You lead through inspiration rather than hierarchy. You find joy in developing talent and coaching fellow managers.\n\n• Digital Affinity: You are confident in using modern PMS systems and have a passion for co-designing efficient digital processes.\n\n• Demeanor: You embody the values of the Kulm Hotel—discreet, precise, resilient, and always acting as a natural role model.\nWhy the Kulm Group?\n• Creative Freedom: A position of absolute trust with direct reporting to the General Manager and the opportunity to significantly shape the future of our properties, both humanly and professionally.\n\n• Appreciation: An environment that values your experience in people management and gives you the space to establish modern, world-class leadership approaches.\n\n• Exclusivity: Working at one of the world’s premier addresses within a team that places a high value on cohesion and mutual support. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
       "descriptionByLocale": {
-        "it": "Executive Assistant Manager - Rooms Division (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Unbefristet / Permanent. Stellenantritt: 2026-08-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us: Working in direct collaboration with the General Management, you bear overall responsibility for the Rooms Division and act as the driving force for quality and innovation:\n• Strategic Leadership: You lead and inspire a team of approximately 80–120 employees through your direct reports (Front Office, Concierge, Reservations, Housekeeping, and Laundry).\n\n• Guest Journey & Quality: You are responsible for the seamless implementation of Forbes and 5-star excellence standards. You don’t just analyze guest feedback; you transform it into tangible service innovations.\n\n• Commercial Mindset: In close coordination with Revenue Management, Sales, and Marketing, you optimize occupancy and ADR. You are responsible for budget planning, forecasting, and cost control (labor and operating expenses) with a focus on maximum profitability.\n\n• Process Pioneer: You drive digital transformation and optimize internal SOPs to minimize friction and maximize the time dedicated to the guest.\n\n• Training: Constant training and continuous development of the teams.\n\n• Host Mentality: You maintain a strong presence in the lobby, cultivate relationships with our discerning regular guests, and master complex complaint management with composure and charm. | This is you: We are seeking an established leadership personality who thrives on complexity and views excellence as a way of life.\n• Experience: You have completed a degree or vocational training in luxury hospitality and possess several years of leadership experience in a comparable position within the international 5-star hotel industry.\n\n• Linguistic Proficiency: You are business fluent in both German and English. Due to our location and team structure, Italian is considered a very significant advantage.\n\n• Coach & Mentor: You lead through inspiration rather than hierarchy. You find joy in developing talent and coaching fellow managers.\n\n• Digital Affinity: You are confident in using modern PMS systems and have a passion for co-designing efficient digital processes.\n\n• Demeanor: You embody the values of the Kulm Hotel—discreet, precise, resilient, and always acting as a natural role model.\nWhy the Kulm Group?\n• Creative Freedom: A position of absolute trust with direct reporting to the General Manager and the opportunity to significantly shape the future of our properties, both humanly and professionally.\n\n• Appreciation: An environment that values your experience in people management and gives you the space to establish modern, world-class leadership approaches.\n\n• Exclusivity: Working at one of the world’s premier addresses within a team that places a high value on cohesion and mutual support. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
-        "en": "Description\nExecutive Assistant Manager - Rooms Division (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Unbefristet / Permanent. Stellenantritt: 2026-08-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture:\n\nResponsibilities\nWorking in direct collaboration with the General Management, you bear overall responsibility for the Rooms Division and act as the driving force for quality and innovation:\n- Strategic Leadership: You lead and inspire a team of approximately 80–120 employees through your direct reports (Front Office, Concierge, Reservations, Housekeeping, and Laundry).\n- Guest Journey & Quality: You are responsible for the seamless implementation of Forbes and 5-star excellence standards. You don’t just analyze guest feedback; you transform it into tangible service innovations.\n- Commercial Mindset: In close coordination with Revenue Management, Sales, and Marketing, you optimize occupancy and ADR. You are responsible for budget planning, forecasting, and cost control (labor and operating expenses) with a focus on maximum profitability.\n- Process Pioneer: You drive digital transformation and optimize internal SOPs to minimize friction and maximize the time dedicated to the guest.\n- Training: Constant training and continuous development of the teams.\n- Host Mentality: You maintain a strong presence in the lobby, cultivate relationships with our discerning regular guests, and master complex complaint management with composure and charm.\n\nRequirements\nThis is you: We are seeking an established leadership personality who thrives on complexity and views excellence as a way of life.\n- Experience: You have completed a degree or vocational training in luxury hospitality and possess several years of leadership experience in a comparable position within the international 5-star hotel industry.\n- Linguistic Proficiency: You are business fluent in both German and English. Due to our location and team structure, Italian is considered a very significant advantage.\n- Coach & Mentor: You lead through inspiration rather than hierarchy. You find joy in developing talent and coaching fellow managers.\n- Digital Affinity: You are confident in using modern PMS systems and have a passion for co-designing efficient digital processes.\n- Demeanor: You embody the values of the Kulm Hotel—discreet, precise, resilient, and always acting as a natural role model.\n\nWhat we offer\nWhy the Kulm Group?\n- Creative Freedom: A position of absolute trust with direct reporting to the General Manager and the opportunity to significantly shape the future of our properties, both humanly and professionally.\n- Appreciation: An environment that values your experience in people management and gives you the space to establish modern, world-class leadership approaches.\n- Exclusivity: Working at one of the world’s premier addresses within a team that places a high value on cohesion and mutual support.\n\nBenefits\nAt Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
-        "de": "Beschreibung Executive Assistant Manager - Zimmer Abteilung (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Unbefristet / Permanent. Stellenan tritt: 2026-08-01.\n\nDie Menschen auf 1800m Meereshöhe prägen das Luxury Mountain Travel. Unsere dynamische und internationale Gemeinschaft bietet unseren Gästen smart Luxury für ein unnachahmliches Urlaubserlebnis. Als Mitglied der Luxury Kulm Group sind Sie Teil des Schlüssels zu unserem Erfolg. Gemeinsam machen wir jeden Aufenthalt zutiefst inspirierend, einzigartig und unverwechselbar. Und als solcher nehmen wir unsere Kultur an: ungesättigter Luxus, Inspiration und ein Lebenserlebnis. Gemeinsam machen wir es möglich. Dies ist Ihre Chance, Mitglied unserer Gestaltungskultur zu sein:\n\nVerantwortung In direkter Zusammenarbeit mit der Geschäftsführung tragen Sie die Gesamtverantwortung für die Zimmerabteilung und sind die treibende Kraft für Qualität und Innovation: - Strategische Führung: Sie führen und begeistern ein Team von rund 80–120 Mitarbeitern durch Ihre direkten Berichte (Front Office, Concierge, Reservations, Housekeeping, and Laundry). - Gästereise & Qualität: Sie sind verantwortlich für die nahtlose Umsetzung von Forbes und 5-Sterne-Excellence-Standards. Sie analysieren nicht nur Gästefeedback, sondern verwandeln es in greifbare Serviceinnovationen.\n\n- Commercial Mindset: In enger Abstimmung mit Revenue Management, Sales und Marketing optimieren Sie die Belegung und ADR. Sie sind verantwortlich für die Budgetplanung, Prognose und Kostenkontrolle (Arbeits- und Betriebskosten) mit einem Fokus auf maximale Profitabilität. - Process Pioneer: Sie treiben die digitale Transformation voran und optimieren interne SOPs, um Reibung zu minimieren und die Zeit für den Gast zu maximieren. - Training: Ständiges Training und kontinuierliche Entwicklung der Teams.\n\n- Gastgeber Mentalität: Sie pflegen eine starke Präsenz in der Lobby, pflegen Beziehungen zu unseren anspruchsvollen Stammgästen und beherrschen komplexes Beschwerdemanagement mit Gelassenheit und Charme.\n\nVoraussetzungen Das sind Sie: Wir suchen eine etablierte Führungspersönlichkeit, die auf Komplexität gedeiht und Exzellenz als Lebensart betrachtet. - Erfahrung: Sie haben ein Studium oder eine Berufsausbildung in Luxus-Gastfreundschaft absolviert und verfügen über mehrere Jahre Führungserfahrung in einer vergleichbaren Position innerhalb der internationalen 5-Sterne-Hotelbranche. - Sprachkompetenz: Sie sind geschäftsführend sowohl in Deutsch als auch in Englisch. Aufgrund unserer Standort- und Teamstruktur gilt Italienisch als sehr wesentlicher Vorteil. - Coach & Mentor: Sie führen durch Inspiration statt Hierarchie.\n\nSie finden Freude an der Entwicklung von Talenten und Coaching-Mitarbeitern. - Digital Affinity: Sie sind zuversichtlich, moderne PMS-Systeme zu nutzen und haben die Leidenschaft für die Co-Designing effizienter digitaler Prozesse. - Demenor: Sie verkörpern die Werte des Kulm Hotels – diskreet, präzise, belastbar und immer als natürliches Vorbild.\n\nWas wir bieten Warum die Kulm-Gruppe? - Kreative Freiheit: Eine Position des absoluten Vertrauens mit direkter Berichterstattung an den General Manager und der Möglichkeit, die Zukunft unserer Immobilien sowohl menschlich als auch professionell maßgeblich zu gestalten. - Wertschätzung: Ein Umfeld, das Ihre Erfahrung im Personalmanagement schätzt und Ihnen den Raum gibt, moderne, weltklasse Führungsansätze zu etablieren. - Exklusivität: In einem der Welt zu arbeiten, setzt sich in einem Team mit führenden Adressen zusammen, das einen hohen Wert auf Zusammenhalt und gegenseitige Unterstützung legt.\n\nVorteile Bei der Kulm Gruppe sind unsere Mitarbeiter das Herzstück unseres Erfolgs. Wir bieten attraktive Entwicklungsmöglichkeiten, komfortable Unterkünfte, günstige Mahlzeiten im Personalrestaurant und zahlreiche Vorteile.",
-        "fr": "Description Assistant exécutif - Division des chambres (h/f/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Unbefristet / Permanent. Stellenantritt: 2026-08-01.\n\nNotre communauté dynamique et internationale offre à nos clients un luxe intelligent pour une expérience de vacances inoubliable. En tant que membre du groupe de luxe Kulm, vous faites partie de la clé de notre succès. Ensemble, nous faisons de chaque séjour une source d'inspiration profonde, unique et distinctive. Et en tant que telle, nous acceptons notre culture: luxe sous-estimé, inspiration et expérience de vie. Ensemble, nous faisons en sorte que cela se produise.\n\nResponsabilités En collaboration directe avec la Direction générale, vous assumez la responsabilité globale de la Division des salles et vous êtes le moteur de la qualité et de l'innovation: - Leadership stratégique: Vous dirigez et inspirez une équipe d'environ 80 à 120 employés par l'entremise de vos rapports directs (Bureau de Front, concierge, Réservations, Ménage et Blanchisserie). - Voyage invité & Qualité: Vous êtes responsable de la mise en oeuvre transparente des normes Forbes et 5 étoiles d'excellence.\n\n- Commercial Mindset: En étroite coordination avec la Gestion des Revenus, les Ventes et le Marketing, vous optimisez l'occupation et l'ADR. Vous êtes responsable de la planification budgétaire, de la prévision et du contrôle des coûts (dépenses de travail et d'exploitation) avec un accent sur la rentabilité maximale. - Process Pioneer: Vous conduisez la transformation numérique et optimisez les SOP internes pour minimiser les frictions et maximiser le temps consacré aux invités. - Formation: Formation constante et développement continu des équipes.\n\n- Mentalité d'hôte: Vous gardez une forte présence dans le hall, cultivez des relations avec nos clients réguliers éclairés et maîtrisez la gestion complexe des plaintes avec consistance et charme.\n\nExigences Ceci est vous: Nous recherchons une personnalité de leadership établie qui prospère sur la complexité et voit l'excellence comme un mode de vie. - Expérience: Vous avez complété un diplôme ou une formation professionnelle en hospitalité de luxe et avez plusieurs années d'expérience de leadership dans une position comparable dans l'industrie hôtelière internationale 5 étoiles. - Compétence linguistique: Vous êtes une entreprise couramment en allemand et en anglais.\n\nVous trouvez la joie de développer des talents et d'entraîner vos collègues gestionnaires. - affinité numérique: Vous êtes confiant dans l'utilisation de systèmes PMS modernes et avez une passion pour la co-conception de processus numériques efficaces. - Défaut: Vous incarnez les valeurs de l'hôtel Kulm – discret, précis, résistant et toujours agissant comme un modèle naturel.\n\nCe que nous offrons Pourquoi le Groupe Kulm? - Creative Freedom: Une position de confiance absolue avec un rapport direct au Directeur Général et la possibilité de façonner de façon significative l'avenir de nos propriétés, tant humainement que professionnellement. - Appréciation: Un environnement qui valorise votre expérience dans la gestion des personnes et vous donne l'espace pour établir des approches de leadership modernes et de classe mondiale. - Exclusivité: Travailler dans l'un des mondes, les premiers s'adressent au sein d'une équipe qui accorde une grande valeur à la cohésion et au soutien mutuel.\n\nAvantages Chez Kulm Group, nos employés sont au cœur de notre succès. Nous offrons des possibilités de développement attrayantes, des hébergements confortables, des repas abordables dans le restaurant du personnel et de nombreux avantages."
+        "it": "Executive Assistant Manager - Divisione Sale (m/f/d)\n\nKulm Hotel St. Moritz, St. Moritz (Engadin, Grigioni)\n\nColorazione: 100% Vertrag: Unbefristet / Permanent Stellenantritt: 2026-08-01\n\nChi siamo\n\nLa nostra comunità dinamica e internazionale offre ai nostri ospiti un lusso intelligente per un'esperienza di vacanza inimitabile. Come membro del Gruppo Luxury Kulm, fai parte della chiave del nostro successo. Insieme, rendiamo ogni soggiorno profondamente stimolante, unico e distintivo. E come tale, abbracciamo la nostra cultura: lusso sobrio, ispirazione e un'esperienza di vita. Insieme, facciamo che accada. Questa è la vostra occasione per essere un membro della nostra cultura di formazione:\n\nResponsabilità\n\nLavorando in diretta collaborazione con la Direzione Generale, si assume la responsabilità generale della Divisione Camere e funge da motore per la qualità e l'innovazione:\n\n- Leadership strategica: guidate e ispirate un team di circa 80.120 dipendenti attraverso i vostri rapporti diretti (Ufficio di ricerca, Concierge, Prenotazioni, Housekeeping e Lavanderia). - Viaggio e Qualità degli Ospiti: siete responsabili della perfetta implementazione degli standard di eccellenza di Forbes e 5 stelle. Non si analizzano solo i feedback degli ospiti; si trasformano in innovazioni tangibili dei servizi. - Mindset commerciale: in stretta collaborazione con Revenue Management, Vendite e Marketing, si ottimizza l'occupazione e ADR.\n\nSiete responsabili della pianificazione del budget, della previsione e del controllo dei costi (spese di lavoro e di lavoro) con un focus sulla massima redditività. - Processo Pioner: Guidate la trasformazione digitale e ottimizzate le SOP interne per ridurre al minimo l'attrito e massimizzare il tempo dedicato all'ospite. - Formazione: formazione costante e sviluppo continuo dei team. - Mentalità ospitante: Si mantiene una forte presenza nella lobby, coltivare rapporti con i nostri ospiti abituali discreti e gestire la denuncia con cura e fascino.\n\nRequisiti\n\nCerchiamo una personalità leader consolidata che prosperi sulla complessità e consideri l'eccellenza come uno stile di vita.\n\n- Esperienza: hai completato una laurea o una formazione professionale in un'ospitalità di lusso e hai diversi anni di esperienza di leadership in una posizione comparabile nell'industria alberghiera internazionale a 5 stelle. - Proficienza linguistica: sei fluente sia in tedesco che in inglese. Grazie alla nostra posizione e alla struttura di gruppo, l'italiano è considerato un vantaggio molto significativo. - Coach & Mentor: Conduci attraverso l'ispirazione piuttosto che la gerarchia. Trovi gioia nello sviluppo di talenti e compagni di formazione.\n\n- Affinità digitale: Lei è fiducioso nell'utilizzo dei moderni sistemi PMS e ha la passione per la co-progettazione di processi digitali efficienti. - Demetraggio: Lei incarna i valori del Kulm Hotel.discreet, preciso, resiliente, e sempre agendo come un modello di ruolo naturale.\n\nPerché il Gruppo Kulm?\n\n- Libertà creativa: una posizione di assoluta fiducia con la diretta segnalazione al Direttore Generale e l'opportunità di plasmare in modo significativo il futuro delle nostre proprietà, sia umanamente che professionalmente. - Apprezia: Un ambiente che valorizza la tua esperienza nella gestione delle persone e ti dà lo spazio per stabilire approcci di leadership moderni e di livello mondiale. - Esclusività: Lavorare in uno dei indirizzi del kicker mondiale all'interno di un team che attribuisce un alto valore alla coesione e al sostegno reciproco.\n\nPrestazioni\n\nAl Kulm Group, i nostri dipendenti sono il cuore del nostro successo. Offriamo interessanti opportunità di sviluppo, alloggi confortevoli, pasti a prezzi accessibili nel ristorante del personale, e numerosi vantaggi.",
+        "en": "Executive Assistant Manager - Rooms Division (m/w/d)\n\nKulm Hotel St. Moritz, St. Moritz (Engadin, Graubünden)\n\nPensum: 100%\nVertrag: Unbefristet / Permanent\nStellenantritt: 2026-08-01\n\nAbout Us\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture:\n\nResponsibilities\n\nWorking in direct collaboration with the General Management, you bear overall responsibility for the Rooms Division and act as the driving force for quality and innovation:\n\n- Strategic Leadership: You lead and inspire a team of approximately 80–120 employees through your direct reports (Front Office, Concierge, Reservations, Housekeeping, and Laundry).\n- Guest Journey & Quality: You are responsible for the seamless implementation of Forbes and 5-star excellence standards. You don't just analyze guest feedback; you transform it into tangible service innovations.\n- Commercial Mindset: In close coordination with Revenue Management, Sales, and Marketing, you optimize occupancy and ADR. You are responsible for budget planning, forecasting, and cost control (labor and operating expenses) with a focus on maximum profitability.\n- Process Pioneer: You drive digital transformation and optimize internal SOPs to minimize friction and maximize the time dedicated to the guest.\n- Training: Constant training and continuous development of the teams.\n- Host Mentality: You maintain a strong presence in the lobby, cultivate relationships with our discerning regular guests, and master complex complaint management with composure and charm.\n\nRequirements\n\nWe are seeking an established leadership personality who thrives on complexity and views excellence as a way of life.\n\n- Experience: You have completed a degree or vocational training in luxury hospitality and possess several years of leadership experience in a comparable position within the international 5-star hotel industry.\n- Linguistic Proficiency: You are business fluent in both German and English. Due to our location and team structure, Italian is considered a very significant advantage.\n- Coach & Mentor: You lead through inspiration rather than hierarchy. You find joy in developing talent and coaching fellow managers.\n- Digital Affinity: You are confident in using modern PMS systems and have a passion for co-designing efficient digital processes.\n- Demeanor: You embody the values of the Kulm Hotel—discreet, precise, resilient, and always acting as a natural role model.\n\nWhy the Kulm Group?\n\n- Creative Freedom: A position of absolute trust with direct reporting to the General Manager and the opportunity to significantly shape the future of our properties, both humanly and professionally.\n- Appreciation: An environment that values your experience in people management and gives you the space to establish modern, world-class leadership approaches.\n- Exclusivity: Working at one of the world's premier addresses within a team that places a high value on cohesion and mutual support.\n\nBenefits\n\nAt Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
+        "de": "Executive Assistant Manager - Zimmerbereich (m/w/d)\n\nKulm Hotel St. Moritz, St. Moritz (Engadin, Graubünden)\n\nPensum: 100% Tief: unbefristet / Permanenter Joban-Gritt: 2026-08-01\n\nÜber uns\n\nDie Menschen auf 1800 m Meereshöhe prägen das Luxury Mountain Travel. Unsere dynamische und internationale Gemeinschaft bietet unseren Gästen smart Luxury für ein unnachahmliches Urlaubserlebnis. Als Mitglied der Luxury Kulm Group sind Sie Teil des Schlüssels zu unserem Erfolg. Gemeinsam machen wir jeden Aufenthalt zutiefst inspirierend, einzigartig und unverwechselbar. Und als solcher nehmen wir unsere Kultur an: ungesättigter Luxus, Inspiration und ein Lebenserlebnis. Gemeinsam machen wir es möglich. Dies ist Ihre Chance, Mitglied unserer Gestaltungskultur zu sein:\n\nZuständigkeiten\n\nIn direkter Zusammenarbeit mit der Geschäftsführung tragen Sie die Gesamtverantwortung für die Abteilung Raum und sind die treibende Kraft für Qualität und Innovation:\n\n- Strategische Führung: Sie führen und inspirieren ein Team von rund 80–120 Mitarbeitern durch Ihre direkten Berichte (Front Office, Concierge, Reservations, Housekeeping, and Laundry). - Gästereise & Qualität: Sie sind verantwortlich für die nahtlose Umsetzung von Forbes und 5-Sterne-Excellence-Standards. Sie analysieren nicht nur Gästefeedback, Sie verwandeln es in greifbare Serviceinnovationen. - Commercial Mindset: In enger Abstimmung mit Revenue Management, Sales und Marketing optimieren Sie die Belegung und ADR.\n\nSie sind verantwortlich für Budgetplanung, Prognose und Kostenkontrolle (Arbeits- und Betriebskosten) mit einem Fokus auf maximale Profitabilität. - Prozesspionier: Sie treiben die digitale Transformation voran und optimieren interne SOPs, um Reibung zu minimieren und die Zeit für den Gast zu maximieren. - Training: Ständiges Training und kontinuierliche Entwicklung der Teams. - Host Mentality: Sie pflegen eine starke Präsenz in der Lobby, pflegen Beziehungen zu unseren anspruchsvollen Stammgästen und meistern komplexes Beschwerdemanagement mit Gelassenheit und Charme.\n\nAnforderungen\n\nWir suchen eine etablierte Führungspersönlichkeit, die von Komplexität lebt und Exzellenz als Lebensart betrachtet.\n\n- Erfahrung: Sie haben ein Studium oder eine Berufsausbildung in Luxus-Gastfreundschaft abgeschlossen und verfügen über mehrere Jahre Führungserfahrung in einer vergleichbaren Position innerhalb der internationalen 5-Sterne-Hotelindustrie. - Sprachkompetenz: Sie sind geschäftsführend in Deutsch und Englisch. Aufgrund unserer Lage und Teamstruktur gilt Italienisch als ein sehr wesentlicher Vorteil. - Coach & Mentor: Sie führen durch Inspiration und nicht Hierarchie. Sie finden Freude an der Entwicklung von Talenten und Coaching-Mitarbeitern.\n\n- Digital Affinity: Sie sind zuversichtlich, moderne PMS-Systeme zu nutzen und haben eine Leidenschaft für die Co-Designing effiziente digitale Prozesse. - Verhalten: Sie verkörpern die Werte des Kulm Hotels – discreet, präzise, belastbar, und immer als natürliches Vorbild.\n\nWarum die Kulm-Gruppe?\n\n- Creative Freedom: Eine Position des absoluten Vertrauens mit direkter Berichterstattung an den General Manager und der Möglichkeit, die Zukunft unserer Immobilien sowohl menschlich als auch professionell maßgeblich zu gestalten. - Wertschätzung: Ein Umfeld, das Ihre Erfahrung im People Management schätzt und Ihnen den Raum gibt, moderne, weltklasse Führungsansätze zu etablieren. - Exklusivität: Arbeiten an einer der weltweit führenden Adressen innerhalb eines Teams, das einen hohen Wert auf Zusammenhalt und gegenseitige Unterstützung legt.\n\nVorteile\n\nBei der Kulm Group sind unsere Mitarbeiter das Herzstück unseres Erfolgs. Wir bieten attraktive Entwicklungsmöglichkeiten, komfortable Unterkünfte, günstige Mahlzeiten im Personalrestaurant und zahlreiche Vorteile.",
+        "fr": "Assistant exécutif - Division des chambres (h/f/d)\n\nHôtel Kulm St. Moritz, St. Moritz (Engadine, Graubünden)\n\nPensum: 100% Vertrag: Unbefristet / Permanent Stellenantritt: 2026-08-01\n\nÀ propos de nous\n\nNotre communauté dynamique et internationale offre à nos clients un luxe intelligent pour une expérience de vacances inoubliable. En tant que membre du groupe de luxe Kulm, vous faites partie de la clé de notre succès. Ensemble, nous faisons de chaque séjour une source d'inspiration profonde, unique et distinctive. Et en tant que telle, nous acceptons notre culture: luxe sous-estimé, inspiration et expérience de vie. Ensemble, nous faisons cela. C'est votre chance de faire partie de notre culture de façonnage:\n\nResponsabilités\n\nEn collaboration directe avec la Direction générale, vous assumez la responsabilité générale de la Division des salles et vous êtes le moteur de la qualité et de l'innovation:\n\n- Leadership stratégique: vous dirigez et inspirez une équipe d'environ 80 à 120 employés à travers vos rapports directs (Bureau Front, concierge, Réservations, Ménage et Blanchisserie). - Voyage d'invité & Qualité: Vous êtes responsable de la mise en œuvre sans faille des normes d'excellence Forbes et 5 étoiles. Vous n'analysez pas seulement les commentaires des clients; vous les transformez en innovations de service tangibles. - Mindset Commercial: En étroite coordination avec la Gestion des Revenus, Ventes et Marketing, vous optimisez l'occupation et le ADR.\n\nVous êtes responsable de la planification budgétaire, des prévisions et du contrôle des coûts (dépenses de travail et d'exploitation) en mettant l'accent sur la rentabilité maximale. - Process Pioneer: Vous conduisez la transformation numérique et optimisez les SOP internes pour minimiser les frictions et maximiser le temps consacré aux invités. - Formation: Formation continue et développement continu des équipes. - Mentalité de l'hôte: Vous maintenez une forte présence dans le lobby, cultivez des relations avec nos clients réguliers avisés et maîtrisez la gestion complexe des plaintes avec consistance et charme.\n\nBesoins\n\nNous recherchons une personnalité de leadership établie qui prospère sur la complexité et considère l'excellence comme un mode de vie.\n\n- Expérience: vous avez suivi un diplôme ou une formation professionnelle en hospitalité de luxe et avez plusieurs années d'expérience de leadership dans une position comparable dans l'industrie hôtelière internationale 5 étoiles. - Compétence linguistique: vous êtes un business parlant à la fois allemand et anglais. En raison de notre emplacement et de notre structure d'équipe, l'italien est considéré comme un avantage très important. - Coach & Mentor: Vous dirigez par l'inspiration plutôt que la hiérarchie.\n\n- affinité numérique: Vous êtes confiant dans l'utilisation de systèmes modernes de PMS et avez une passion pour la co-conception de processus numériques efficaces. - Déontologie: Vous incarnez les valeurs de l'hôtel Kulm – discret, précis, résilient et toujours agissant comme modèle naturel.\n\nPourquoi le groupe Kulm?\n\n- Liberté créative: Une position de confiance absolue avec un rapport direct au Directeur général et la possibilité de façonner de façon significative l'avenir de nos propriétés, tant humainement que professionnellement. - Appréciation: Un environnement qui valorise votre expérience dans la gestion des personnes et vous donne l'espace pour établir des approches de leadership modernes et de classe mondiale. - Exclusivité: Travailler dans l'un des premiers établissements du monde s'adresse à une équipe qui accorde une grande valeur à la cohésion et au soutien mutuel.\n\nAvantages\n\nChez Kulm Group, nos collaborateurs sont au cœur de notre succès. Nous offrons des possibilités de développement attrayantes, des hébergements confortables, des repas abordables dans le restaurant du personnel et de nombreux avantages."
       },
       "location": "St. Moritz",
       "canton": "GR",
       "url": "https://careers.kulm.com/en/vacancies/636",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-13T13:56:17.780Z",
+      "crawledAt": "2026-09-14T16:01:58.666Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -1198,8 +1089,7 @@
       "previousSlugsByLocale": {
         "it": [
           "assistente-esecutivo-manager-rooms-division-m-w-d-kulm-hotel-st-moritz-st-moritz",
-          "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz",
-          "executive-assistant-manager-divisione-camere-m-w-d-kulm-hotel-st-moritz-st-moritz"
+          "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz"
         ],
         "fr": [
           "gestionnaire-adjoint-executif-division-des-salles-m-m-j-kulm-hotel-st-moritz-st-moritz"
@@ -1208,10 +1098,8 @@
       "previousSlugs": [
         "assistente-esecutivo-manager-rooms-division-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "gestionnaire-adjoint-executif-division-des-salles-m-m-j-kulm-hotel-st-moritz-st-moritz",
-        "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz",
-        "executive-assistant-manager-divisione-camere-m-w-d-kulm-hotel-st-moritz-st-moritz"
+        "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-27T23:33:49.949Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -1233,7 +1121,7 @@
       "slugByLocale": {
         "it": "responsabile-vendite-eventi-m-f-d-kulm-hotel-st-moritz-st-moritz",
         "en": "sales-and-event-manager-m-w-d-kulm-hotel-st-moritz",
-        "de": "event-sales-manager-m-w-d-kulm-hotel-st-moritz",
+        "de": "eventverkaufsleiter-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "fr": "event-sales-manager-m-w-d-kulm-hotel-st-moritz"
       },
       "company": "Kulm Hotel St. Moritz",
@@ -1242,8 +1130,8 @@
       "title": "Event Sales Manager (m/w/d)",
       "titleByLocale": {
         "it": "Responsabile vendite eventi (m/f/d)",
-        "en": "Event Sales Manager (m/w/d)",
-        "de": "Event Sales Manager (m/w/d)",
+        "en": "Event Sales Manager (m/f/d)",
+        "de": "Event-Verkaufsleiter (m/w/d)",
         "fr": "Event Sales Manager (m/w/d)"
       },
       "description": "Event Sales Manager (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Unbefristet / Permanent. Stellenantritt: 2026-09-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | Your Impact and Responsibilities: Are you a proactive sales professional with a passion for luxury hospitality? Do you thrive on forging strong client relationships, driving commercial growth, and shaping bespoke experiences in iconic destinations?As we continue transforming our Events organization across Kulm Hotel St. Moritz and Grand Hotel Kronenhof Pontresina, we are looking for a commercially driven Event Sales Manager to join our Brand & Commercial Team.This is not a traditional operational planning role—it is a strategic, business-development-focused position where you own the client’s commercial journey from pitch to contract.\n• Proactive Business Development: Identify and secure new luxury MICE, corporate, and high-end social event opportunities across both iconic properties, with a focus on growing shoulder-period business.\n\n• End-to-End Sales Ownership: Lead the complete sales cycle from initial inquiry to contract negotiation and signature, ensuring maximum conversion and revenue optimization.\n\n• Relationship & Account Management: Build and nurture long-term strategic relationships with agencies, corporate clients, and event planners to drive repeat business.\n\n• Client Experience & Site Inspections: Host inspiring site visits, craft bespoke event concepts tailored to both luxury brands, and act as a trusted commercial advisor.\n\n• Cross-Functional Collaboration: Partner closely with Revenue, Marketing, Sales, and Hotel Operations to ensure a seamless commercial handover for flawless execution on-site. | This is You:\n• Experience: 5+ years of proven success in Event Sales, MICE Sales, or Luxury Hospitality Sales.\n\n• Education: Bachelor’s degree in business, hospitality, or a related commercial field.\n\n• Mindset: A proactive, commercially driven sales hunter who excels at networking, negotiation, and building genuine long-term relationships.\n\n• Tech & Tool Savvy: Solid experience with hotel PMS, CRM, event management systems, and MS Office 365.\n\n• Languages: Professional fluency in both German and English (written and spoken) is required.\n\n• Bridge Builder: Ability to align commercial targets with operational realities while maintaining high standards of client satisfaction.\nWhat we Offer:\n• Shape the Future: Play a key role in building and evolving the strategic Events organization for two of Switzerland’s finest luxury heritage hotels.\n\n• Flexibility & Balance: Flexible working hours, primary office at Kulm Hotel St. Moritz, and an established Work from Home policy.\n\n• Culture: A collaborative, dynamic environment within our Brand & Commercial Team, supporting your personal and professional growth.\nReady to shape the Future of Events at Kulm Group?We look forward to receiving your application! Please submit your CV and certificates. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
@@ -1258,7 +1146,7 @@
       "url": "https://careers.kulm.com/en/vacancies/710",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-13T13:56:16.850Z",
+      "crawledAt": "2026-09-14T16:01:57.698Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -1286,21 +1174,19 @@
         "responsabile-vendite-eventi-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "directeur-des-ventes-d-evenements-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "event-sales-manager-m-w-d-kulm-hotel-st-moritz",
-        "eventverkaufsleiter-m-w-d-kulm-hotel-st-moritz-st-moritz",
-        "responsabile-vendite-eventi-m-f-d-kulm-hotel-st-moritz-st-moritz"
+        "event-verkaufsleiter-m-w-d-kulm-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sales-and-event-manager-m-w-d-kulm-hotel-st-moritz",
           "gestione-vendite-e-eventi-m-w-d-kulm-hotel-st-moritz-st-moritz-cc4cde",
           "responsabile-vendite-eventi-m-w-d-kulm-hotel-st-moritz-st-moritz",
-          "event-sales-manager-m-w-d-kulm-hotel-st-moritz",
-          "responsabile-vendite-eventi-m-f-d-kulm-hotel-st-moritz-st-moritz"
+          "event-sales-manager-m-w-d-kulm-hotel-st-moritz"
         ],
         "de": [
           "sales-and-event-manager-m-w-d-kulm-hotel-st-moritz",
-          "eventverkaufsleiter-m-w-d-kulm-hotel-st-moritz-st-moritz",
-          "event-sales-manager-m-w-d-kulm-hotel-st-moritz"
+          "event-sales-manager-m-w-d-kulm-hotel-st-moritz",
+          "event-verkaufsleiter-m-w-d-kulm-hotel-st-moritz"
         ],
         "fr": [
           "sales-and-event-manager-m-w-d-kulm-hotel-st-moritz",
@@ -1309,7 +1195,6 @@
           "directeur-des-ventes-d-evenements-m-w-d-kulm-hotel-st-moritz-st-moritz"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-28T11:48:56.512Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -1321,85 +1206,6 @@
           "@type": "QuantitativeValue",
           "minValue": 79000,
           "maxValue": 120000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "kulm-hotel-e3ce06026d5a",
-      "slug": "driver-m-w-d-kulm-hotel-st-moritz",
-      "slugByLocale": {
-        "it": "driver-m-w-d-kulm-hotel-st-moritz",
-        "en": "driver-m-w-d-kulm-hotel-st-moritz",
-        "de": "driver-m-w-d-kulm-hotel-st-moritz-pontresina",
-        "fr": "pilote-h-f-d-kulm-hotel-st-moritz-pontresina"
-      },
-      "company": "Kulm Hotel St. Moritz",
-      "companyKey": "kulm-hotel",
-      "companyDomain": "kulm.com",
-      "title": "Driver (m/w/d)",
-      "titleByLocale": {
-        "it": "Driver (m/f/d)",
-        "en": "Driver (m/f/d)",
-        "de": "Driver (m/w/d)",
-        "fr": "Pilote (h/f/d)"
-      },
-      "description": "Driver (m/w/d) — Kulm Hotel St. Moritz (Grand Hotel Kronenhof), Pontresina (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-12-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us:\n• Warm welcome for our guests: With your natural friendliness and charisma, you make every guest feel at home from the very first moment.\n\n• Valet parking: You park our guests' vehicles in the underground garage and manage garage logistics, always with attention to detail and order.\n\n• Guest transfers: Whether it’s from the ski lift or to the restaurant, you handle guest transfers with the hotel shuttle, ensuring a safe and pleasant ride.\n\n• Guest services: loading/ unloading the guests luggage and handling small errands as needed. | This is you:\n• Natural Friendliness and Charisma: You can almost anticipate the needs of our discerning guests and make every effort to ensure their stay is as pleasant as possible.\n\n• Groomed Appearance and Excellent Manners: You represent our hotel with style, impressing with professional politeness and an elegant demeanor.\n\n• Team Spirit and Flexibility: You enjoy working in a dynamic team, quickly adapting to various demands, always with a smile.\n\n• Valid Driver's License: Of course, you have a valid driver's license and feel comfortable maneuvering in tight parking spaces and on the road.\n\n• Language Skills: Ideally, you speak German and English, with additional languages (particularly Italian) being a welcome advantage. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
-      "descriptionByLocale": {
-        "it": "Driver (m/f/d) — Kulm Hotel St. Moritz (Grand Hotel Kronenhof), Pontresina (Engadin, Grigioni). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-09-01.\n\nLe persone a 1800 metri sul livello del mare stanno modellando il Luxury Mountain Travel. La nostra comunità dinamica e internazionale offre ai nostri ospiti smart Luxury per un'esperienza di vacanza inimitabile. Come membro del gruppo Luxury Kulm fai parte della chiave del nostro successo. Insieme, rendiamo ogni soggiorno profondamente ispiratore, unico e distintivo. E come tale, abbracciamo la nostra cultura: lusso sobrio, ispirazione e un'esperienza di vita. Insieme, facciamo in modo che accada. Questa è la tua occasione per essere membro della nostra cultura di modellazione: | Questo è ciò che ti muovi con noi:\n• Accoglienza calorosa per i nostri ospiti: Con la vostra naturale cordialità e carisma, fate sentire tutti gli ospiti a casa fin dal primo momento.\n\n• Valet parking: parcheggiare i veicoli dei nostri ospiti nel garage sotterraneo e gestire la logistica del garage, sempre con attenzione ai dettagli e ordine.\n\n• Trasferimenti per gli ospiti: Che si tratti dell'impianto di risalita o del ristorante, gestisci i trasferimenti per gli ospiti con la navetta dell'hotel, assicurando un viaggio sicuro e piacevole.\n\n• Servizi per gli ospiti: carico/scarico dei bagagli degli ospiti e gestione di piccole commissioni secondo le necessità. # Questo sei tu:\n• L'Amico Naturale e la Charisma: Si può quasi anticipare le esigenze dei nostri ospiti discernenti e fare ogni sforzo per garantire il loro soggiorno è il più piacevole possibile.\n\n• Aspetto Groomed e Eccellente Manners: Tu rappresenti il nostro hotel con stile, impressionando con cortesia professionale e un elegante demeanor.\n\n• Team Spirit e Flessibilità: Ti piace lavorare in una squadra dinamica, adattando rapidamente alle varie esigenze, sempre con un sorriso.\n\n• Valida patente di guida: Naturalmente, hai una patente valida e ti senti comoda manovra in spazi di parcheggio stretti e sulla strada.\n\n• Competenze linguistiche: Idealmente, si parla tedesco e inglese, con lingue aggiuntive (in particolare italiano) che sono un vantaggio di benvenuto. A Kulm Group, i nostri dipendenti sono il cuore del nostro successo. Offriamo interessanti opportunità di sviluppo, sistemazioni confortevoli, pasti convenienti nel ristorante del personale, e numerosi vantaggi.",
-        "en": "Driver (m/w/d) — Kulm Hotel St. Moritz (Grand Hotel Kronenhof), Pontresina (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-09-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us:\n• Warm welcome for our guests: With your natural friendliness and charisma, you make every guest feel at home from the very first moment.\n\n• Valet parking: You park our guests' vehicles in the underground garage and manage garage logistics, always with attention to detail and order.\n\n• Guest transfers: Whether it’s from the ski lift or to the restaurant, you handle guest transfers with the hotel shuttle, ensuring a safe and pleasant ride.\n\n• Guest services: loading/ unloading the guests luggage and handling small errands as needed. | This is you:\n• Natural Friendliness and Charisma: You can almost anticipate the needs of our discerning guests and make every effort to ensure their stay is as pleasant as possible.\n\n• Groomed Appearance and Excellent Manners: You represent our hotel with style, impressing with professional politeness and an elegant demeanor.\n\n• Team Spirit and Flexibility: You enjoy working in a dynamic team, quickly adapting to various demands, always with a smile.\n\n• Valid Driver's License: Of course, you have a valid driver's license and feel comfortable maneuvering in tight parking spaces and on the road.\n\n• Language Skills: Ideally, you speak German and English, with additional languages (particularly Italian) being a welcome advantage. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
-        "de": "Driver (m/w/d) — Kulm Hotel St. Moritz (Grand Hotel Kronenhof), Pontresina (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-12-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us:\n• Warm welcome for our guests: With your natural friendliness and charisma, you make every guest feel at home from the very first moment.\n\n• Valet parking: You park our guests' vehicles in the underground garage and manage garage logistics, always with attention to detail and order.\n\n• Guest transfers: Whether it’s from the ski lift or to the restaurant, you handle guest transfers with the hotel shuttle, ensuring a safe and pleasant ride.\n\n• Guest services: loading/ unloading the guests luggage and handling small errands as needed. | This is you:\n• Natural Friendliness and Charisma: You can almost anticipate the needs of our discerning guests and make every effort to ensure their stay is as pleasant as possible.\n\n• Groomed Appearance and Excellent Manners: You represent our hotel with style, impressing with professional politeness and an elegant demeanor.\n\n• Team Spirit and Flexibility: You enjoy working in a dynamic team, quickly adapting to various demands, always with a smile.\n\n• Valid Driver's License: Of course, you have a valid driver's license and feel comfortable maneuvering in tight parking spaces and on the road.\n\n• Language Skills: Ideally, you speak German and English, with additional languages (particularly Italian) being a welcome advantage. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
-        "fr": "Conducteur (h/f/d) — Kulm Hotel St. Moritz (Grand Hôtel Kronenhof), Pontresina (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonnelle / Saisonnier. Stellenantritt: 2026-09-01.\n\nLes gens à 1800m d'altitude façonnent le Luxury Mountain Travel. Notre communauté dynamique et internationale offre à nos clients un luxe intelligent pour une expérience de vacances inimitable. En tant que membre du groupe Luxury Kulm, vous faites partie de la clé de notre succès. Ensemble, nous rendons chaque séjour profondément inspirant, unique et distinctif. Et en tant que tel, nous acceptons notre culture: luxe sous-estimé, inspiration et expérience de vie. Ensemble, nous y parvenons. C'est votre chance d'être membre de notre culture de façonnage: C'est ce que vous emménagez avec nous:\n• Accueil chaleureux pour nos invités: Avec votre convivialité naturelle et votre charisme, chaque invité se sent chez lui dès le premier moment.\n\n• Stationnement: Vous garez les véhicules de nos clients dans le garage souterrain et gérez la logistique du garage, toujours avec attention au détail et à la commande.\n\n• Transferts des clients: Qu'il s'agisse de l'ascenseur ou du restaurant, vous gérez les transferts des clients avec la navette de l'hôtel, assurant un trajet sûr et agréable.\n\n• Services aux clients: chargement/déchargement des bagages des clients et manutention de petites courses au besoin. - Oui. C'est vous:\n• Amabilité naturelle et Charisme: Vous pouvez presque anticiper les besoins de nos clients éclairés et faire tout votre possible pour que leur séjour soit aussi agréable que possible.\n\n• Apparence groomed et Excellent Manners: Vous représentez notre hôtel avec style, impressionnant avec politesse professionnelle et un comportement élégant.\n\n• Esprit d'équipe et flexibilité: Vous aimez travailler dans une équipe dynamique, s'adapter rapidement à diverses exigences, toujours avec un sourire.\n\n• Permis de conduire valide: Bien sûr, vous avez un permis de conduire valide et vous sentez à l'aise dans des espaces de stationnement serrés et sur la route.\n\n• Compétences linguistiques: Idéalement, vous parlez l'allemand et l'anglais, avec d'autres langues (surtout l'italien) étant un avantage bienvenu. Avantages: Chez Kulm Group, nos employés sont au cœur de notre succès. Nous offrons des possibilités de développement attrayantes, des hébergements confortables, des repas abordables dans le restaurant du personnel, et de nombreux avantages."
-      },
-      "location": "Pontresina",
-      "canton": "GR",
-      "url": "https://careers.kulm.com/en/vacancies/718",
-      "source": "Kulm Hotel St. Moritz Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:56:15.914Z",
-      "addressLocality": "Pontresina",
-      "postalCode": "7504",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Servizi Generali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "contractType": "seasonal",
-      "experienceLevel": "mid",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-01",
-      "applyUrl": "https://careers.kulm.com/en/vacancies/718",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Grand Hotel Kronenhof",
-      "pensum": "100%",
-      "previousSlugs": [
-        "fahrer-m-w-d-kulm-hotel-st-moritz-pontresina",
-        "driver-m-w-d-kulm-hotel-st-moritz-pontresina"
-      ],
-      "previousSlugsByLocale": {
-        "de": [
-          "fahrer-m-w-d-kulm-hotel-st-moritz-pontresina"
-        ],
-        "fr": [
-          "driver-m-w-d-kulm-hotel-st-moritz-pontresina"
-        ]
-      },
-      "firstSeenAt": "2026-08-11T22:01:54.606Z",
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
           "unitText": "YEAR"
         }
       }
@@ -1435,7 +1241,7 @@
       "url": "https://careers.kulm.com/en/vacancies/726",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-13T13:56:14.976Z",
+      "crawledAt": "2026-09-14T16:01:56.739Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -1456,7 +1262,6 @@
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
       "firstSeenAt": "2026-09-04T23:01:01.310Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -1469,7 +1274,30 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "testa-di-partito-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina",
+          "head-of-party-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina",
+          "parteichef-intermetier-m-w-d-kulm-hotel-st-moritz-pontresina",
+          "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz"
+        ],
+        "en": [
+          "head-of-party-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina"
+        ],
+        "de": [
+          "parteichef-intermetier-m-w-d-kulm-hotel-st-moritz-pontresina"
+        ],
+        "fr": [
+          "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz"
+        ]
+      },
+      "previousSlugs": [
+        "testa-di-partito-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina",
+        "head-of-party-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina",
+        "parteichef-intermetier-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz"
+      ]
     },
     {
       "id": "kulm-hotel-9d02174bb4ef",
@@ -1502,7 +1330,7 @@
       "url": "https://careers.kulm.com/en/vacancies/717",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-13T13:56:14.044Z",
+      "crawledAt": "2026-09-14T16:01:55.775Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -1523,7 +1351,6 @@
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
       "firstSeenAt": "2026-08-05T22:29:25.104Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -1569,7 +1396,7 @@
       "url": "https://careers.kulm.com/en/vacancies/682",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-13T13:56:13.105Z",
+      "crawledAt": "2026-09-14T16:01:54.804Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -1592,13 +1419,11 @@
       "previousSlugsByLocale": {
         "fr": [
           "commis-de-rang-assistant-waiter-m-w-d-kulm-hotel-st-moritz",
-          "commis-de-rang-m-w-d-kulm-hotel-st-moritz",
-          "commissaire-de-rang-assistant-serveur-m-m-j-kulm-hotel-st-moritz-pontresina"
+          "commis-de-rang-m-w-d-kulm-hotel-st-moritz"
         ],
         "it": [
           "commis-de-rang-assistant-waiter-m-w-d-kulm-hotel-st-moritz",
-          "commis-de-rang-m-w-d-kulm-hotel-st-moritz",
-          "commis-di-sala-assistente-cameriere-m-f-d-kulm-hotel-st-moritz-pontresina"
+          "commis-de-rang-m-w-d-kulm-hotel-st-moritz"
         ],
         "de": [
           "commis-de-rang-assistant-waiter-m-w-d-kulm-hotel-st-moritz"
@@ -1615,12 +1440,9 @@
         "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz",
         "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "commis-de-rang-assistant-waiter-m-w-d-kulm-hotel-st-moritz",
-        "commis-de-rang-m-w-d-kulm-hotel-st-moritz",
-        "commissaire-de-rang-assistant-serveur-m-m-j-kulm-hotel-st-moritz-pontresina",
-        "commis-di-sala-assistente-cameriere-m-f-d-kulm-hotel-st-moritz-pontresina"
+        "commis-de-rang-m-w-d-kulm-hotel-st-moritz"
       ],
       "firstSeenAt": "2026-07-02T22:34:26.552Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1666,7 +1488,7 @@
       "url": "https://careers.kulm.com/en/vacancies/698",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-13T13:56:12.168Z",
+      "crawledAt": "2026-09-14T16:01:53.836Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -1687,13 +1509,11 @@
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
       "previousSlugs": [
-        "commis-de-cuisine-patisserie-m-w-d-kulm-hotel-st-moritz",
-        "commissione-di-cuisine-patisserie-m-w-d-kulm-hotel-st-moritz-pontresina"
+        "commis-de-cuisine-patisserie-m-w-d-kulm-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "commis-de-cuisine-patisserie-m-w-d-kulm-hotel-st-moritz",
-          "commissione-di-cuisine-patisserie-m-w-d-kulm-hotel-st-moritz-pontresina"
+          "commis-de-cuisine-patisserie-m-w-d-kulm-hotel-st-moritz"
         ],
         "en": [
           "commis-de-cuisine-patisserie-m-w-d-kulm-hotel-st-moritz"
@@ -1703,7 +1523,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:56:11.549Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -1749,7 +1568,7 @@
       "url": "https://careers.kulm.com/en/vacancies/699",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-13T13:56:11.231Z",
+      "crawledAt": "2026-09-14T16:01:52.854Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -1770,13 +1589,11 @@
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
       "previousSlugs": [
-        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz",
-        "commissione-di-cuisine-m-w-d-kulm-hotel-st-moritz-pontresina"
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz",
-          "commissione-di-cuisine-m-w-d-kulm-hotel-st-moritz-pontresina"
+          "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz"
         ],
         "de": [
           "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz"
@@ -1831,7 +1648,7 @@
       "url": "https://careers.kulm.com/en/vacancies/716",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-13T13:56:10.294Z",
+      "crawledAt": "2026-09-14T16:01:51.761Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -1854,15 +1671,13 @@
       "previousSlugs": [
         "chef-de-rang-m-w-d-kulm-hotel-st-moritz",
         "chef-de-rang-m-f-d-kulm-hotel-st-moritz-st-moritz",
-        "chef-de-rang-immediate-start-m-w-d-kulm-hotel-st-moritz",
-        "chef-de-rang-partenza-immediata-m-w-d-kulm-hotel-st-moritz-pontresina"
+        "chef-de-rang-immediate-start-m-w-d-kulm-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-de-rang-m-w-d-kulm-hotel-st-moritz",
           "chef-de-rang-m-f-d-kulm-hotel-st-moritz-st-moritz",
-          "chef-de-rang-immediate-start-m-w-d-kulm-hotel-st-moritz",
-          "chef-de-rang-partenza-immediata-m-w-d-kulm-hotel-st-moritz-pontresina"
+          "chef-de-rang-immediate-start-m-w-d-kulm-hotel-st-moritz"
         ],
         "de": [
           "chef-de-rang-immediate-start-m-w-d-kulm-hotel-st-moritz"
@@ -1882,155 +1697,6 @@
           "@type": "QuantitativeValue",
           "minValue": 57500,
           "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "kulm-hotel-1b62e0fb3faf",
-      "slug": "testa-di-partito-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina",
-      "slugByLocale": {
-        "it": "testa-di-partito-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina",
-        "en": "head-of-party-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina",
-        "de": "parteichef-intermetier-m-w-d-kulm-hotel-st-moritz-pontresina",
-        "fr": "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz"
-      },
-      "company": "Kulm Hotel St. Moritz",
-      "companyKey": "kulm-hotel",
-      "companyDomain": "kulm.com",
-      "title": "Chef de Partie - Entremetier (m/w/d)",
-      "titleByLocale": {
-        "it": "Testa di partito - Intermetier (m/f/d)",
-        "en": "Head of Party - Intermetier (m/f/d)",
-        "de": "Parteichef - Intermetier (m/w/d)",
-        "fr": "Chef de Partie - Entremetier (m/w/d)"
-      },
-      "description": "Chef de Partie - Entremetier (m/w/d) — Kulm Hotel St. Moritz (Grand Hotel Kronenhof), Pontresina (Engadin, Graubünden). Pensum: 100%. Vertrag: 10-Monats-Stelle / 10-month contract. Stellenantritt: 2026-10-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | Your mission: To strengthen our kitchen team, we are looking for a passionate Chef de Partie – Entremetier (f/m/d) who delivers top quality to the plate with passion and precision.Your Role\n• Section Ownership: You lead the entremetier section independently, preparing vegetable, purée, grain, and side dish creations as well as sauces and soups to the highest standard (16 GaultMillau points).\n\n• Flawless Mise en Place: You organise your section with structure, precision, and a sharp eye for detail – from selecting premium, preferably regional produce through to the final pass during service.\n\n• Creative Input: You actively contribute your own ideas for seasonal menu adjustments and innovative culinary techniques to the kitchen brigade.\n\n• Quality & Efficiency: You ensure smooth service flow at the pass and maintain exemplary hygiene and HACCP standards.\n\n• Team Spirit & Mentorship: You provide inspiring leadership to Commis de Cuisine and apprentices on your section, fostering a respectful and encouraging work environment. | This is you:\n• Solid Foundation: Completed professional chef training and several years of experience in fine dining or luxury gastronomy.\n\n• Passion for Produce: Deep knowledge of vegetables, mushrooms, garnishes, and cooking techniques, paired with a strong commitment to freshness and quality.\n\n• Precision under Pressure: A calm demeanor, composure, and sharp focus, even during peak service hours.\n\n• Personality: High personal standards of quality, a true team-player mindset, resilience, and a genuine passion for high-end gastronomy.\n\n• Languages: Italian, plus good knowledge of English or German.\nWhat You Can Expect from Us\n• Shape World-Class Gastronomy: Work within one of the most prestigious kitchen brigades in the Swiss Alps.\n\n• Room for Growth: Tailored professional development opportunities and career advancement prospects within the Kulm Group.\n\n• Attractive Living Environment: Work and live in the breathtaking mountain landscape of the Engadin, featuring attractive staff benefits, employee accommodation, and exclusive discounts.\nStart Date: Promptly, by mutual agreement. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
-      "descriptionByLocale": {
-        "it": "Capo del partito - Entremetier (m/f/d) — Kulm Hotel St. Moritz (Grand Hotel Kronenhof), Pontresina (Engadin, Grigioni). 100%. Vertrag: 10-Monats-Stelle / 10-Month contratto. Stellenantritt: 2026-10-01.\n\nLe persone a 1800m sul livello del mare stanno modellando il Luxury Mountain Travel. La nostra comunità dinamica e internazionale offre ai nostri ospiti smart Luxury per un'esperienza di vacanza inimitabile. Come membro del gruppo Luxury Kulm fai parte della chiave del nostro successo. Insieme, rendiamo ogni soggiorno ispirazione profonda, unica e distintiva. E come tale, abbracciamo la nostra cultura: lusso sobrio, ispirazione e un'esperienza di vita. Insieme, lo rendiamo felice. Questa è la tua possibilità di essere un membro della nostra cultura di modellazione:\n• ProprietÃ Sezione: Si guida la sezione entremetier in modo indipendente, la preparazione di verdure, purè, grano, e creazioni di piatti laterali, così come salse e minestre al piÃ1 alto standard (16 punti GaultMillau).\n\n• Flawless Placement: Si organizza la vostra sezione con struttura, precisione e un occhio affilato per i dettagli – dalla selezione premium, preferibilmente la produzione regionale fino al passaggio finale durante il servizio.\n\n• Creative Input: Contribuisci attivamente le tue idee per aggiustamenti di menu stagionali e tecniche essenziali innovative alla brigata di cucina.\n\n• Qualità & Efficienza: Garantisci un flusso di servizio fluido al passaggio e mantieni elevati standard di igiene e HACCP.\n\n• Team Spirit & Mentorship: Tu fornisci una guida stimolante al Cooking Clerk e agli apprendisti sulla tua sezione, promuovendo un ambiente di lavoro rispettoso e incoraggiante. Questo sei tu:\n• Solid Foundation: Completata la formazione professionale di chef e diversi anni di esperienza nella gastronomia raffinata o di lusso.\n\n• Passione per il produttore: profonda conoscenza di verdure, funghi, guarnizioni e tecniche di cottura, abbinato ad un forte impegno per la freschezza e la qualità.\n\n• Precisione sotto pressione: un demeanore calmo, composizione e fuoco affilato, anche durante le ore di servizio di punta.\n\n• Personalità: elevati standard personali di qualità, un vero e proprio team-player mindset, resilienza e una vera passione per la gastronomia di fascia alta.\n\n• Lingue: italiano, più buona conoscenza dell'inglese o del tedesco.\nCosa puoi aspettarti da noi\n• Forma Gastronomia di prima classe: lavorare all'interno di una delle più prestigiose brigate di cucina delle Alpi svizzere.\n\n• Sala per la crescita: opportunità di sviluppo professionale su misura e prospettive di avanzamento di carriera all'interno del Gruppo Kulm.\n\n• Attraente Ambiente Vivente: Lavorare e vivere nel paesaggio rompicante dell'Engadina, con interessanti benefici per il personale, alloggio per i dipendenti e sconti esclusivi.\nData di inizio: Promptly, di comune accordo. A Kulm Group, i nostri dipendenti sono il cuore del nostro successo. Offriamo interessanti opportunità di sviluppo, sistemazioni confortevoli, pasti convenienti nel ristorante del personale, e numerosi vantaggi.",
-        "en": "Head of Party - Entremetier (m/f/d) — Kulm Hotel St. Moritz (Grand Hotel Kronenhof), Pontresina (Engadin, Graubünden). Thought: 100%. Vertrag: 10-Monats-Stelle / 10-Month contract. Stellenantritt: 2026-10-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deep inspiration, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happy. This is your chance to be a member of our shaping culture:\n• Section Ownership: You lead the entremetier section independently, preparing vegetable, purée, grain, and side dish creations as well as sauces and soups to the highest standard (16 GaultMillau points).\n\n• Flawless Placement: You organize your section with structure, precision, and a sharp eye for detail – from selecting premium, preferably regional production through to the final pass during service.\n\n• Creative Input: You actively contribute your own ideas for seasonal menu adjustments and innovative essential techniques to the kitchen brigade.\n\n• Quality & Efficiency: You ensure smooth service flow at the pass and maintain exemplary hygiene and HACCP standards.\n\n• Team Spirit & Mentorship: You provide inspiring leadership to Cooking Clerk and apprentices on your section, fostering a respectful and encouraging work environment. This is you:\n• Solid Foundation: Completed professional chef training and several years of experience in fine dining or luxury gastronomy.\n\n• Passion for Produce: Deep knowledge of vegetables, mushrooms, garnishes, and cooking techniques, paired with a strong commitment to freshness and quality.\n\n• Precision under Pressure: A calm demeanor, composition, and sharp focus, even during peak service hours.\n\n• Personality: High personal standards of quality, a true team-player mindset, resilience, and a genuine passion for high-end gastronomy.\n\n• Languages: Italian, more good knowledge of English or German.\nWhat You Can Expect from Us\n• Shape World-Class Gastronomy: Work within one of the most prestigious kitchen brigades in the Swiss Alps.\n\n• Room for Growth: Tailored professional development opportunities and career advancement prospects within the Kulm Group.\n\n• Attractive Living Environment: Work and live in the breakmaking mountain landscape of the Engadin, featuring attractive staff benefits, employee accommodation, and exclusive discounts.\nStart Date: Promptly, by mutual agreement. At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
-        "de": "Parteichef - Entremetier (m/w/d) - Kulm Hotel St. Moritz (Grand Hotel Kronenhof), Pontresina (Engadin, Graubünden). Gedanke: 100%. Vertrag: 10-Monats-Stelle / 10-Monats-Vertrag. Stellenantritt: 2026-10-01.\n\nMenschen auf 1800m Höhe prägen das Luxury Mountain Travel. Unsere dynamische und internationale Gemeinschaft bietet unseren Gästen smarten Luxus für ein unnachahmliches Urlaubserlebnis. Als Mitglied der Luxury Kulm Group sind Sie Teil des Schlüssels zu unserem Erfolg. Zusammen machen wir jeden Aufenthalt tiefe Inspiration, einzigartig und unverwechselbar. Und als solche nehmen wir unsere Kultur an: dezenten Luxus, Inspiration und eine Lebenserfahrung. Gemeinsam machen wir es glücklich. Dies ist Ihre Chance, ein Mitglied unserer gestaltenden Kultur zu sein:\n• Sektionsbesitz: Sie führen die Entremetier-Sektion unabhängig voneinander und bereiten Gemüse-, Pür-, Getreide- und Beilagenkreationen sowie Saucen und Suppen auf höchstem Niveau vor (16 GaultMillau-Punkte).\n\n• Makellose Platzierung: Sie organisieren Ihre Sektion mit Struktur, Präzision und einem scharfen Auge fürs Detail – von der Auswahl der Premium-, vorzugsweise regionalen Produktion bis hin zum endgültigen Pass während des Service.\n\n• Kreativer Input: Sie bringen Ihre eigenen Ideen für saisonale Menüanpassungen und innovative Essential-Techniken aktiv in die Küchenbrigade ein.\n\n• Qualität & Effizienz: Sie sorgen für einen reibungslosen Serviceablauf am Pass und halten vorbildliche Hygiene- und HACCP-Standards ein.\n\n• Team Spirit & Mentorship: Sie bieten eine inspirierende Führung für Cooking Clerk und Auszubildende in Ihrer Sektion und fördern ein respektvolles und ermutigendes Arbeitsumfeld. Das sind Sie:\n• Solide Grundlage: Abgeschlossene professionelle Kochausbildung und mehrjährige Erfahrung in der gehobenen Küche oder Luxus-Gastronomie.\n\n• Leidenschaft für Produkte: Tiefes Wissen über Gemüse, Pilze, Beilagen und Kochtechniken, gepaart mit einem starken Engagement für Frische und Qualität.\n\n• Präzision unter Druck: Ein ruhiges Verhalten, Komposition und scharfe Fokussierung, auch während der Hauptdienstzeiten.\n\n• Persönlichkeit: Hohe persönliche Qualitätsstandards, eine echte Teamplayer-Mentalität, Widerstandsfähigkeit und eine echte Leidenschaft für High-End-Gastronomie.\n\n• Sprachen: Italienisch, mehr gute Englisch- oder Deutschkenntnisse.\nWas Sie von uns erwarten können\n• Weltklasse-Gastronomie gestalten: Arbeiten in einer der renommiertesten Küchenbrigaden der Schweizer Alpen.\n\n• Raum für Wachstum: Maßgeschneiderte berufliche Entwicklungsmöglichkeiten und Karriereperspektiven innerhalb der Kulm-Gruppe.\n\n• Attraktives Wohnumfeld: Arbeiten und leben Sie in der bahnbrechenden Berglandschaft des Engadin mit attraktiven Personalleistungen, Mitarbeiterunterkünften und exklusiven Rabatten.\nStartdatum: Sofort, im gegenseitigen Einvernehmen. Bei der Kulm Group sind unsere Mitarbeiter das Herzstück unseres Erfolgs. Wir bieten attraktive Entwicklungsmöglichkeiten, komfortable Unterkünfte, erschwingliche Mahlzeiten im Personalrestaurant und zahlreiche Vergünstigungen.",
-        "fr": "Chef de Partie - Entremetier (m/w/d) — Kulm Hotel St. Moritz (Grand Hotel Kronenhof), Pontresina (Engadin, Graubünden). Pensum: 100%. Vertrag: 10-Monats-Stelle / 10-month contract. Stellenantritt: 2026-10-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | Your mission: To strengthen our kitchen team, we are looking for a passionate Chef de Partie – Entremetier (f/m/d) who delivers top quality to the plate with passion and precision.Your Role\n• Section Ownership: You lead the entremetier section independently, preparing vegetable, purée, grain, and side dish creations as well as sauces and soups to the highest standard (16 GaultMillau points).\n\n• Flawless Mise en Place: You organise your section with structure, precision, and a sharp eye for detail – from selecting premium, preferably regional produce through to the final pass during service.\n\n• Creative Input: You actively contribute your own ideas for seasonal menu adjustments and innovative culinary techniques to the kitchen brigade.\n\n• Quality & Efficiency: You ensure smooth service flow at the pass and maintain exemplary hygiene and HACCP standards.\n\n• Team Spirit & Mentorship: You provide inspiring leadership to Commis de Cuisine and apprentices on your section, fostering a respectful and encouraging work environment. | This is you:\n• Solid Foundation: Completed professional chef training and several years of experience in fine dining or luxury gastronomy.\n\n• Passion for Produce: Deep knowledge of vegetables, mushrooms, garnishes, and cooking techniques, paired with a strong commitment to freshness and quality.\n\n• Precision under Pressure: A calm demeanor, composure, and sharp focus, even during peak service hours.\n\n• Personality: High personal standards of quality, a true team-player mindset, resilience, and a genuine passion for high-end gastronomy.\n\n• Languages: Italian, plus good knowledge of English or German.\nWhat You Can Expect from Us\n• Shape World-Class Gastronomy: Work within one of the most prestigious kitchen brigades in the Swiss Alps.\n\n• Room for Growth: Tailored professional development opportunities and career advancement prospects within the Kulm Group.\n\n• Attractive Living Environment: Work and live in the breathtaking mountain landscape of the Engadin, featuring attractive staff benefits, employee accommodation, and exclusive discounts.\nStart Date: Promptly, by mutual agreement. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks."
-      },
-      "location": "Pontresina",
-      "canton": "GR",
-      "url": "https://careers.kulm.com/en/vacancies/728",
-      "source": "Kulm Hotel St. Moritz Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-13T13:56:09.361Z",
-      "addressLocality": "Pontresina",
-      "postalCode": "7504",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Cucina",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "contractType": "10-months",
-      "experienceLevel": "senior",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-10-01",
-      "applyUrl": "https://careers.kulm.com/en/vacancies/728",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Grand Hotel Kronenhof",
-      "pensum": "100%",
-      "previousSlugs": [
-        "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz",
-        "testa-di-partito-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz",
-          "testa-di-partito-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina"
-        ],
-        "en": [
-          "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz"
-        ],
-        "de": [
-          "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz"
-        ]
-      },
-      "firstSeenAt": "2026-09-07T15:10:16.519Z",
-      "needsRetranslation": true,
-      "salaryMin": 83500,
-      "salaryMax": 105000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 105000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "kulm-hotel-b0323c56b8c5",
-      "slug": "chasseur-m-w-d-kulm-hotel-st-moritz",
-      "slugByLocale": {
-        "it": "chasseur-m-w-d-kulm-hotel-st-moritz",
-        "en": "chasseur-m-w-d-kulm-hotel-st-moritz",
-        "de": "fahrgestell-m-w-d-kulm-hotel-st-moritz-st-moritz",
-        "fr": "chasseur-m-w-d-kulm-hotel-st-moritz"
-      },
-      "company": "Kulm Hotel St. Moritz",
-      "companyKey": "kulm-hotel",
-      "companyDomain": "kulm.com",
-      "title": "Chasseur (m/w/d)",
-      "titleByLocale": {
-        "it": "Chasseur (m/f/d)",
-        "en": "Chasseur (m/w/d)",
-        "de": "Fahrgestell (m/w/d)",
-        "fr": "Chasseur (h/f/d)"
-      },
-      "description": "Chasseur (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-12-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us:\n• First Impression: Providing a warm, professional welcome to our guests upon arrival and ensuring the hotel entrance maintains a pristine appearance.\n\n• Concierge Support & Guest Errands: Fulfilling personalized guest requests with precision—from sourcing specific international newspapers, boutique purchases, and luxury items to delivering special deliveries directly to rooms.\n\n• Mail & Internal Logistics: Managing the daily distribution of internal and external mail, guest parcels, and priority correspondence across the property.\n\n• Luggage & Sports Service: Proactive assistance with luggage handling and professional oversight of the cloakroom and ski cellar.\n\n• Vehicle Care: Providing manual car wash and cleaning services upon request or as needed. | This is you:\n• Passionate Host: A proactive, charismatic personality with flawless manners, high discretion, and a keen eye for detail.\n\n• Resourceful \"Can-Do\" Mindset: A true problem-solver who enjoys being on the move, taking initiative, and going the \"extra mile\" for our guests.\n\n• Resilient Team Player: Physically fit, highly reliable, and comfortable working in a fast-paced luxury hotel environment.\n\n• Multilingual: Conversational German and English are required; Italian language skills are a significant advantage.\nWhat we offer\n• Elite Hospitality Experience: Work alongside a world-class Les Clefs d'Or Concierge team in one of the most prestigious grand hotels in the Swiss Alps.\n\n• Growth: Tailored development opportunities within the Kulm Group.\n\n• Engadin Lifestyle: Excellent staff benefits, subsidized meals, and employee accommodation in St. Moritz.\nStart Date: circa 01.12. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
-      "descriptionByLocale": {
-        "it": "Chasseur (m/f/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Grigioni). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-12-01.\n\nLe persone a 1800m sul livello del mare stanno modellando il Luxury Mountain Travel. La nostra comunità dinamica e internazionale offre ai nostri ospiti smart Luxury per un'esperienza di vacanza inimitabile. Come membro del gruppo Luxury Kulm fai parte della chiave del nostro successo. Insieme, rendiamo ogni soggiorno profondamente ispiratore, unico e distintivo. E come tale, abbracciamo la nostra cultura: lusso sobrio, ispirazione e un'esperienza di vita. Insieme, facciamo in modo che accada. Questa è la tua occasione per essere un membro della nostra cultura di modellazione: | Questo è ciò che ti muovi con noi:\n• Prima impressione: fornire un caloroso benvenuto professionale ai nostri ospiti all'arrivo e garantire l'ingresso dell'hotel mantiene un aspetto incontaminato.\n\n• Concierge Support & Guest Errands: soddisfare le richieste personalizzate degli ospiti con precisione, dal sourcing di specifici giornali internazionali, acquisti di boutique e articoli di lusso per fornire consegne speciali direttamente alle camere.\n\n• Mail & Internal Logistics: Gestire la distribuzione quotidiana di posta interna ed esterna, pacchi ospiti e corrispondenza prioritaria in tutta la struttura.\n\n• Servizio Bagagli & Sport: assistenza attiva con gestione bagagli e supervisione professionale del guardaroba e della cantina.\n\n• Cura del veicolo: Fornire servizi di lavaggio e pulizia manuali su richiesta o secondo necessità. # Questo sei tu:\n• Appassionato: Una personalità proattiva e carismatica con modi impeccabili, ad alta discrezione, e un occhio attento per i dettagli.\n\n• Mindset \"Can-Do\" ricco di risorse: un vero problem-solver che gode di essere in movimento, prendere iniziativa, e andare il \"extra mile\" per i nostri ospiti.\n\n• Resilient Team Player: Fisicamente in forma, altamente affidabile e confortevole lavorando in un ambiente di hotel di lusso veloce.\n\n• Poliglotta: Tedesco conversazionale e inglese sono necessari; le competenze linguistiche italiane sono un vantaggio significativo.\nCosa offriamo\n• Elite Hospitality Experience: lavorare insieme a un team di livello mondiale Les Clefs d'Or Concierge in uno dei più prestigiosi hotel delle Alpi svizzere.\n\n• Crescita: opportunità di sviluppo su misura all'interno del Gruppo Kulm.\n\n• Engadin Lifestyle: Ottime prestazioni del personale, pasti sovvenzionati e alloggio dei dipendenti a St. Moritz.\nData di inizio: circa 01.12. | Vantaggi: A Kulm Group, i nostri dipendenti sono il cuore del nostro successo. Offriamo interessanti opportunità di sviluppo, sistemazioni confortevoli, pasti convenienti nel ristorante del personale, e numerosi vantaggi.",
-        "en": "Chasseur (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-12-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us:\n• First Impression: Providing a warm, professional welcome to our guests upon arrival and ensuring the hotel entrance maintains a pristine appearance.\n\n• Concierge Support & Guest Errands: Fulfilling personalized guest requests with precision—from sourcing specific international newspapers, boutique purchases, and luxury items to delivering special deliveries directly to rooms.\n\n• Mail & Internal Logistics: Managing the daily distribution of internal and external mail, guest parcels, and priority correspondence across the property.\n\n• Luggage & Sports Service: Proactive assistance with luggage handling and professional oversight of the cloakroom and ski cellar.\n\n• Vehicle Care: Providing manual car wash and cleaning services upon request or as needed. | This is you:\n• Passionate Host: A proactive, charismatic personality with flawless manners, high discretion, and a keen eye for detail.\n\n• Resourceful \"Can-Do\" Mindset: A true problem-solver who enjoys being on the move, taking initiative, and going the \"extra mile\" for our guests.\n\n• Resilient Team Player: Physically fit, highly reliable, and comfortable working in a fast-paced luxury hotel environment.\n\n• Multilingual: Conversational German and English are required; Italian language skills are a significant advantage.\nWhat we offer\n• Elite Hospitality Experience: Work alongside a world-class Les Clefs d'Or Concierge team in one of the most prestigious grand hotels in the Swiss Alps.\n\n• Growth: Tailored development opportunities within the Kulm Group.\n\n• Engadin Lifestyle: Excellent staff benefits, subsidized meals, and employee accommodation in St. Moritz.\nStart Date: circa 01.12. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
-        "de": "Chasseur (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-12-01.\n\nMenschen auf 1800m Höhe prägen das Luxury Mountain Travel. Unsere dynamische und internationale Gemeinschaft bietet unseren Gästen smarten Luxus für ein unnachahmliches Urlaubserlebnis. Als Mitglied der Luxury Kulm Group sind Sie Teil des Schlüssels zu unserem Erfolg. Gemeinsam machen wir jeden Aufenthalt zutiefst inspirierend, einzigartig und unverwechselbar. Und als solche nehmen wir unsere Kultur an: dezenten Luxus, Inspiration und eine Lebenserfahrung. Gemeinsam machen wir es möglich. Dies ist Ihre Chance, ein Mitglied unserer gestaltenden Kultur zu sein: | Dies ist, was Sie mit uns bewegen:\n• Erster Eindruck: Wir heißen unsere Gäste bei der Ankunft herzlich und professionell willkommen und sorgen dafür, dass der Hoteleingang ein unberührtes Aussehen behält.\n\n• Concierge Support & Guest Besorgungen: Persönliche Gästewünsche präzise erfüllen – von der Beschaffung spezifischer internationaler Zeitungen, Boutique-Einkäufen und Luxusartikeln bis hin zur Lieferung spezieller Lieferungen direkt in die Zimmer.\n\n• Mail & interne Logistik: Verwaltung der täglichen Verteilung von internen und externen Post, Gästepaketen und vorrangiger Korrespondenz im gesamten Eigentum.\n\n• Gepäck & Sport Service: Proaktive Unterstützung beim Gepäckumschlag und professionelle Aufsicht über die Garderobe und den Skikeller.\n\n• Fahrzeugpflege: Bereitstellung manueller Wasch- und Reinigungsdienste auf Anfrage oder nach Bedarf. | Das sind Sie:\n• Leidenschaftlicher Gastgeber: Eine proaktive, charismatische Persönlichkeit mit makellosen Manieren, hoher Diskretion und einem scharfen Auge für Details.\n\n• Einfallsreiches \"Can-Do\" Mindset: Ein echter Problemlöser, der gerne unterwegs ist, Initiative ergreift und die \"Extrameile\" für unsere Gäste geht.\n\n• Resilienter Teamplayer: Körperlich fit, sehr zuverlässig und komfortabel in einer schnelllebigen Luxushotelumgebung.\n\n• Mehrsprachig: Konversationelles Deutsch und Englisch sind erforderlich; Italienischkenntnisse sind ein wesentlicher Vorteil.\nWas wir anbieten\n• Elite Hospitality Experience: Arbeiten Sie mit einem erstklassigen Les Clefs d'Or Concierge-Team in einem der renommiertesten Grand Hotels der Schweizer Alpen.\n\n• Wachstum: Maßgeschneiderte Entwicklungsmöglichkeiten innerhalb der Kulm-Gruppe.\n\n• Engadin Lifestyle: Ausgezeichnete Mitarbeiterleistungen, subventionierte Mahlzeiten und Mitarbeiterunterkunft in St. Moritz.\nStartdatum: circa 01.12. | Benefits: Bei der Kulm Group stehen unsere Mitarbeiter im Mittelpunkt unseres Erfolgs. Wir bieten attraktive Entwicklungsmöglichkeiten, komfortable Unterkünfte, erschwingliche Mahlzeiten im Personalrestaurant und zahlreiche Vergünstigungen.",
-        "fr": "Chasseur (h/f/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonnelle / Saisonnier. Stellenantritt: 2026-12-01.\n\nLes gens à 1800m d'altitude façonnent le Luxury Mountain Travel. Notre communauté dynamique et internationale offre à nos clients un luxe intelligent pour une expérience de vacances inimitable. En tant que membre du groupe Luxury Kulm, vous faites partie de la clé de notre succès. Ensemble, nous rendons chaque séjour profondément inspirant, unique et distinctif. Et en tant que tel, nous acceptons notre culture: luxe sous-estimé, inspiration et expérience de vie. Ensemble, nous y parvenons. C'est votre chance d'être membre de notre culture de façonnage: C'est ce que vous déménagez avec nous:\n• Première impression: offrir un accueil chaleureux et professionnel à nos invités à l'arrivée et assurer l'entrée de l'hôtel maintient une apparence intacte.\n\n• Concierge Support & Guest Errands: Remplir avec précision les demandes personnalisées des clients, de l'approvisionnement de journaux internationaux spécifiques, achats de boutiques et articles de luxe à la livraison de produits spéciaux directement aux chambres.\n\n• Mail & Internal Logistics: Gestion de la distribution quotidienne du courrier interne et externe, des colis clients et de la correspondance prioritaire à travers la propriété.\n\n• Service Bagage & Sports: Assistance proactive pour la manutention des bagages et la supervision professionnelle du vestiaire et de la cave à ski.\n\n• Entretien du véhicule: Fournir des services de lavage et de nettoyage manuels sur demande ou au besoin. Autres C'est vous:\n• Hôte passionné: Une personnalité proactive et charismatique avec des manières impeccables, une grande discrétion et un regard attentif pour le détail.\n\n• Mindset « Can-Do » plein de ressources: un vrai problème-solveur qui aime être en mouvement, prendre des initiatives, et aller le « mille supplémentaire » pour nos invités.\n\n• Résilient Team Player: Adapté physiquement, hautement fiable et confortable dans un environnement hôtelier de luxe rapide.\n\n• Multilingue: L'allemand et l'anglais sont requis; les compétences en langue italienne sont un avantage important.\nCe que nous offrons\n• Elite Hospitality Experience: Travaillez aux côtés d'une équipe de calibre mondial Les Clefs d'Or Concierge dans l'un des plus prestigieux grands hôtels des Alpes suisses.\n\n• Croissance: Possibilités de développement adaptées au sein du groupe Kulm.\n\n• Engadin Lifestyle: Excellents avantages sociaux, repas subventionnés et logement des employés à St. Moritz.\nDate de début: vers le 01.12. Nous offrons des possibilités de développement attrayantes, des logements confortables, des repas abordables dans le restaurant du personnel, et de nombreux avantages."
-      },
-      "location": "St. Moritz",
-      "canton": "GR",
-      "url": "https://careers.kulm.com/en/vacancies/700",
-      "source": "Kulm Hotel St. Moritz Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-13T13:56:08.408Z",
-      "addressLocality": "St. Moritz",
-      "postalCode": "7500",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ospitalità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "contractType": "seasonal",
-      "experienceLevel": "mid",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-12-01",
-      "applyUrl": "https://careers.kulm.com/en/vacancies/700",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Kulm Hotel",
-      "pensum": "100%",
-      "firstSeenAt": "2026-09-09T23:06:46.164Z",
-      "salaryMin": 62000,
-      "salaryMax": 78000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 78000,
           "unitText": "YEAR"
         }
       }

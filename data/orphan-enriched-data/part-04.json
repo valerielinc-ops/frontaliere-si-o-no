@@ -23201,6 +23201,11 @@
           "impressions": 2
         },
         {
+          "query": "sì",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
           "query": "train driver jobs",
           "clicks": 0,
           "impressions": 2
@@ -23269,14 +23274,9 @@
           "query": "kierowca",
           "clicks": 0,
           "impressions": 1
-        },
-        {
-          "query": "kierowca ciężarówki",
-          "clicks": 0,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 69,
+      "totalImpressions": 74,
       "totalClicks": 2,
       "topQuery": "corporate driver in zurich",
       "title": "Drivers",
@@ -23355,10 +23355,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "drogist-in-80-manor-ag-spreitenbach",
+        "it": "manor-drogist-in-80-spreitenbach-drogistin-80",
+        "fr": "drogiste-dans-80-manor-ag-spreitenbach-drogistin-80",
         "en": "drogist-in-80-manor-ag-spreitenbach",
-        "de": "drogist-in-80-manor-ag-spreitenbach",
-        "fr": "drogist-in-80-manor-ag-spreitenbach"
+        "de": "drogist-bei-80-manor-ag-spreitenbach"
       },
       "localePaths": {
         "it": "/cerca-lavoro-argovia/drogist-in-80-manor-ag-spreitenbach",
@@ -23372,6 +23372,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -50928,9 +50929,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "psychologue-scolaire-80-stadt-zurich-zurich",
-        "en": "psychologue-scolaire-80-stadt-zurich-zurich",
-        "de": "psychologue-scolaire-80-stadt-zurich-zurich",
+        "it": "psicologo-scolastico-80-stadt-zurich-zurich",
+        "en": "school-psychologist-80-stadt-zurich-zurich",
+        "de": "schulpsycholog-in-80-stadt-zuerich-zurigo-51556",
         "fr": "psychologue-scolaire-80-stadt-zurich-zurich"
       },
       "localePaths": {
@@ -50945,6 +50946,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]

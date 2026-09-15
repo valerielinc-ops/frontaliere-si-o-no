@@ -8,7 +8,7 @@ on:
     paths:
       - 'data/loop-fleet/loop-registry.json'
       - 'data/quota-history.jsonl'
-      - 'data/loop-health-history.jsonl'
+      - 'data/loop-fleet/ledger/loop-health-history.jsonl'
       - 'scripts/ci/loop-l10-fleet-control.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/ci/technical-operations-audit.mjs'
@@ -21,7 +21,7 @@ on:
     paths:
       - 'data/loop-fleet/loop-registry.json'
       - 'data/quota-history.jsonl'
-      - 'data/loop-health-history.jsonl'
+      - 'data/loop-fleet/ledger/loop-health-history.jsonl'
       - 'scripts/ci/loop-l10-fleet-control.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/ci/technical-operations-audit.mjs'
@@ -58,7 +58,7 @@ jobs:
           sparse-checkout: |
             /data/loop-fleet/loop-registry.json
             /data/quota-history.jsonl
-            /data/loop-health-history.jsonl
+            /data/loop-fleet/ledger/loop-health-history.jsonl
             /scripts/ci/loop-l10-fleet-control.mjs
             /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/lib/loop-fleet-contract.mjs
@@ -70,6 +70,14 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version: '22'
+      - name: Start loop operational telemetry
+        run: |
+          {
+            echo "LOOP_FLEET_STARTED_AT=$(date -u +%Y-%m-%dT%H:%M:%S.%3NZ)"
+            echo 'LOOP_FLEET_QUOTA_UNITS=0'
+            echo 'LOOP_FLEET_COLLISIONS=0'
+            echo 'LOOP_FLEET_GATE_BYPASS=false'
+          } >> "$GITHUB_ENV"
       - name: Audit loop operations
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -78,7 +86,7 @@ jobs:
         run: |
           set -o pipefail
           mkdir -p "$REPORT_DIR"
-          args=(--json --apply --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json --quota data/quota-history.jsonl --health data/loop-health-history.jsonl)
+          args=(--json --apply --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json --quota data/quota-history.jsonl --health data/loop-fleet/ledger/loop-health-history.jsonl)
           if [ "$ISSUE_ENABLED" = "true" ]; then
             args+=(--issue --strict)
           else

@@ -211,6 +211,11 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
           '  echo "⚠️ group commit: push contention loss (exit 42) — crawl data was fine, group not failed" >> "$GITHUB_STEP_SUMMARY"',
           '  exit 0',
           'fi',
+          'if [ "$git_commit_exit" -eq 44 ]; then',
+          '  echo "::warning::group commit: global data-pipeline lease is busy (exit 44); no group data was staged and the next scheduled cycle will retry — group not failed (systemic class)."',
+          '  echo "⚠️ group commit: global data-pipeline lease busy (exit 44) — group data not staged, group not failed" >> "$GITHUB_STEP_SUMMARY"',
+          '  exit 0',
+          'fi',
           'exit "$git_commit_exit"',
         ].join('\n'),
       });
@@ -246,6 +251,15 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
         uses: 'actions/upload-artifact@v7',
         with: { overwrite: true, 'retention-days': 14 },
       });
+      const release = stepByName(job.steps, 'Release cross-entry crawler live-run lease');
+      expect(release).toMatchObject({
+        if: "always() && env.CRAWLER_GROUP_LIVE_LEASE_OWNED == '1'",
+        'continue-on-error': true,
+        run: `node scripts/check-crawler-group-live-run.mjs crawler-group-${group}.yml --release`,
+      });
+      expect(job.steps.indexOf(release)).toBeGreaterThan(
+        job.steps.findIndex((step: any) => step.name === 'Upload crawler generation manifest (shadow)'),
+      );
 
       const portableText = fs.readFileSync(path.join(PORTABLE, `crawler-group-${group}.yml`), 'utf8');
       const portable = YAML.parse(portableText);
@@ -272,7 +286,9 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       expect(portableProducers).toHaveLength(results.generationRoster.groups[group].length + 1);
       expect(portableProducers.every((step: any) =>
         !Object.prototype.hasOwnProperty.call(step.env ?? {}, 'CRAWLER_GENERATION_TOKEN'))).toBe(true);
-      expect(portableJob.steps.at(-1).with['retention-days']).toBe(14);
+      expect(portableJob.steps.at(-1).name).toBe('Release cross-entry crawler live-run lease');
+      expect(stepByName(portableJob.steps, 'Upload crawler generation manifest (shadow)').with['retention-days'])
+        .toBe(14);
     }
   }, 30_000);
 

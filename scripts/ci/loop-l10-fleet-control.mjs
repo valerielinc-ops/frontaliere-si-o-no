@@ -16,17 +16,20 @@ import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 import {
+  actionClassForPolicy,
   buildDecision,
   buildObservation,
   loadLoopPolicyForRun,
+  QUALITY_STATES,
   validateActionClassAgainstPolicy,
+  validateOutcomeAgainstPolicy,
   validateLoopRegistry,
 } from '../lib/loop-fleet-contract.mjs';
 
 export const LOOP_ID = 'L10';
 export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
 export const DEFAULT_QUOTA_PATH = path.join('data', 'quota-history.jsonl');
-export const DEFAULT_HEALTH_PATH = path.join('data', 'loop-health-history.jsonl');
+export const DEFAULT_HEALTH_PATH = path.join('data', 'loop-fleet', 'ledger', 'loop-health-history.jsonl');
 export const DEFAULT_MAX_AGE_HOURS = 48;
 export const MINIMUM_SAMPLE = 1;
 export const EXPECTED_LOOP_IDS = Object.freeze(Array.from({ length: 12 }, (_, index) => `L${index}`));
@@ -248,7 +251,213 @@ function validateQuotaHistory(history, { now, maxAgeHours, sourcePath }) {
   };
 }
 
-function validateHealthHistory(history, { now, maxAgeHours, sourcePath, loopIds, minimumSample }) {
+function isCanonicalHealthRecord(row) {
+  return object(row) && row.recordType === 'health' && object(row.execution);
+}
+
+function canonicalEvidencePaths(row) {
+  if (!object(row.evidence)) return [];
+  return Object.values(row.evidence).filter((value) => text(value));
+}
+
+function validateCanonicalHealthHistory(history, {
+  now,
+  maxAgeHours,
+  sourcePath,
+  loopIds,
+  minimumSample,
+  registry,
+}) {
+  const records = Array.isArray(history?.records) ? history.records : [];
+  const issues = Array.isArray(history?.parseIssues) ? [...history.parseIssues] : [];
+  const warnings = [];
+  const knownLoops = new Set(loopIds);
+  const policies = new Map();
+  try {
+    for (const policy of validateLoopRegistry(registry).loops) policies.set(policy.loopId, policy);
+  } catch (error) {
+    issues.push(`canonical health registry cannot be validated: ${error.message}`);
+  }
+  const seenRuns = new Set();
+  let latest = null;
+  let validRowCount = 0;
+  let eligibleRuns = 0;
+  let verifiedDecisions = 0;
+  let successfulRuns = 0;
+  let failedRuns = 0;
+  let retries = 0;
+  let quotaUnits = 0;
+  let artifactCollisions = 0;
+  let completeOperationalRuns = 0;
+  let incompleteOperationalRuns = 0;
+  const missingOperationalFields = new Set();
+  let operationalMetricsComplete = true;
+
+  for (const [index, row] of records.entries()) {
+    const prefix = `canonicalHealth[${index}]`;
+    const rowIssues = [];
+    let rowOperationalMetricsComplete = true;
+    const execution = object(row?.execution) ? row.execution : null;
+    const policy = policies.get(row?.loopId);
+    if (!object(row)) {
+      rowIssues.push('row is not an object');
+    } else {
+      if (row.schemaVersion !== 1) rowIssues.push('schemaVersion must be 1');
+      if (!text(row.recordId)) rowIssues.push('recordId is missing');
+      if (!knownLoops.has(row.loopId)) rowIssues.push(`loopId is not registered: ${String(row.loopId)}`);
+      if (!execution) rowIssues.push('execution identity is missing');
+      if (execution && execution.loopId !== row.loopId) rowIssues.push('execution.loopId does not match loopId');
+      if (execution && !text(execution.runId)) rowIssues.push('execution.runId is missing');
+      if (execution && !/^[0-9a-f]{40}$/iu.test(String(execution.sha || ''))) rowIssues.push('execution.sha is missing or not a full commit SHA');
+      const runKey = execution && text(execution.runId)
+        ? `${execution.runId}:${text(execution.runAttempt) || '1'}`
+        : null;
+      if (runKey && seenRuns.has(runKey)) rowIssues.push(`duplicate execution ${runKey}`);
+      if (runKey) seenRuns.add(runKey);
+      const stamp = finiteDate(row.recordedAt);
+      if (!stamp) rowIssues.push('recordedAt is missing or invalid');
+      if (stamp && stamp.getTime() > now.getTime() + CLOCK_SKEW_HOURS * 3_600_000) rowIssues.push('recordedAt is in the future');
+      if (stamp && (!latest || stamp.getTime() > latest.stamp.getTime())) latest = { stamp, row };
+      if (!QUALITY_STATES.includes(row.quality)) rowIssues.push('quality is missing or unsupported');
+      for (const field of ['ok', 'evidenceComplete', 'policyCompliant', 'lifecycleCompliant', 'outcomePolicyCompliant', 'issued', 'actionsWritten']) {
+        if (typeof row[field] !== 'boolean') rowIssues.push(`${field} must be boolean`);
+      }
+      for (const field of ['policyErrors', 'outcomeErrors', 'sourceRefs']) {
+        if (!Array.isArray(row[field])) rowIssues.push(`${field} must be an array`);
+      }
+      if (!object(row.lifecycle)) rowIssues.push('lifecycle is missing');
+      else if (policy && ['candidateTtlHours', 'ownerSlaHours', 'postMergeVerificationHours', 'rollbackOwner']
+        .some((field) => row.lifecycle[field] !== policy.lifecycle[field])) {
+        rowIssues.push('lifecycle metadata does not match the registry');
+      }
+      if (!text(row.actionClass)) rowIssues.push('actionClass is missing');
+      else {
+        try {
+          const actionPolicy = validateActionClassAgainstPolicy(registry, row.loopId, row.actionClass);
+          if (row.requiredAutonomy !== actionPolicy.requiredAutonomy) rowIssues.push('requiredAutonomy does not match actionClass policy');
+          if (row.maxAutonomy !== actionPolicy.maxAutonomy) rowIssues.push('maxAutonomy does not match registry');
+        } catch (error) {
+          rowIssues.push(error.message);
+        }
+      }
+      if (!object(row.outcome)) rowIssues.push('outcome is missing');
+      else {
+        try {
+          validateOutcomeAgainstPolicy(registry, row.loopId, row.outcome);
+        } catch (error) {
+          rowIssues.push(`outcome violates registry: ${error.message}`);
+        }
+      }
+      if (canonicalEvidencePaths(row).length === 0) rowIssues.push('evidence contains no artifact path');
+
+      for (const field of ['durationSeconds', 'retryCount', 'quotaUnits', 'collisions', 'gateBypass']) {
+        if (!Object.hasOwn(row, field)) {
+          missingOperationalFields.add(field);
+          operationalMetricsComplete = false;
+          rowOperationalMetricsComplete = false;
+        } else if (field === 'durationSeconds' && !finiteNumber(row[field])) {
+          rowIssues.push('durationSeconds is not a non-negative number');
+          operationalMetricsComplete = false;
+          rowOperationalMetricsComplete = false;
+        } else if (field === 'retryCount' && !integer(row[field])) {
+          rowIssues.push('retryCount is not a non-negative integer');
+          operationalMetricsComplete = false;
+          rowOperationalMetricsComplete = false;
+        } else if (field === 'quotaUnits' && !finiteNumber(row[field])) {
+          rowIssues.push('quotaUnits is not a non-negative number');
+          operationalMetricsComplete = false;
+          rowOperationalMetricsComplete = false;
+        } else if (field === 'collisions' && !integer(row[field])) {
+          rowIssues.push('collisions is not a non-negative integer');
+          operationalMetricsComplete = false;
+          rowOperationalMetricsComplete = false;
+        } else if (field === 'gateBypass' && row[field] !== false) {
+          rowIssues.push('gateBypass must remain false');
+          operationalMetricsComplete = false;
+          rowOperationalMetricsComplete = false;
+        }
+      }
+      if (!Object.hasOwn(row, 'operationalMetricsComplete')) {
+        missingOperationalFields.add('operationalMetricsComplete');
+        operationalMetricsComplete = false;
+        rowOperationalMetricsComplete = false;
+      } else if (row.operationalMetricsComplete !== rowOperationalMetricsComplete) {
+        rowIssues.push('operationalMetricsComplete does not match the persisted fields');
+        operationalMetricsComplete = false;
+      }
+      if (policy && Array.isArray(row.sourceRefs)
+          && JSON.stringify(row.sourceRefs) !== JSON.stringify(policy.sourceRefs)) {
+        rowIssues.push('sourceRefs do not match the registry');
+      }
+      for (const field of ['issueCount', 'warningCount', 'candidateCount']) {
+        if (row[field] !== null && row[field] !== undefined && !integer(row[field])) {
+          rowIssues.push(`${field} is not a non-negative integer or null`);
+        }
+      }
+    }
+    if (rowIssues.length) {
+      issues.push(`${prefix}: ${rowIssues.join(', ')}`);
+    } else {
+      validRowCount += 1;
+      eligibleRuns += 1;
+      if (row.ok === true) {
+        successfulRuns += 1;
+        verifiedDecisions += 1;
+      } else {
+        failedRuns += 1;
+      }
+      if (rowOperationalMetricsComplete) {
+        completeOperationalRuns += 1;
+        retries += row.retryCount;
+        quotaUnits += row.quotaUnits;
+        artifactCollisions += row.collisions;
+      } else incompleteOperationalRuns += 1;
+    }
+  }
+
+  if (!records.length) issues.push('loop health history has no records');
+  if (missingOperationalFields.size) {
+    issues.push(`canonical health ledger omits operational fields: ${[...missingOperationalFields].join(', ')}; complete fleet control remains partial`);
+  }
+  if (eligibleRuns > 0 && eligibleRuns < minimumSample) {
+    issues.push(`eligible loop runs are below minimum sample (${eligibleRuns} < ${minimumSample})`);
+  }
+  const ageHours = latest ? hoursBetween(now, latest.stamp) : null;
+  if (latest && ageHours < -CLOCK_SKEW_HOURS) issues.push('latest canonical health record is in the future');
+  if (latest && ageHours > maxAgeHours) issues.push(`latest canonical health record is ${ageHours.toFixed(1)}h old (max ${maxAgeHours}h)`);
+  const quality = !records.length ? 'unmeasurable'
+    : (ageHours !== null && ageHours > maxAgeHours ? 'stale' : (issues.length ? 'partial' : 'observed'));
+  return {
+    quality,
+    issues,
+    warnings,
+    snapshot: {
+      path: sourcePath,
+      missing: false,
+      canonical: true,
+      rowCount: records.length,
+      validRowCount,
+      invalidRowCount: records.length - validRowCount,
+      latestAt: latest?.stamp.toISOString() || null,
+      ageHours: ageHours === null ? null : Number(ageHours.toFixed(3)),
+      eligibleRuns,
+      verifiedDecisions,
+      successfulRuns,
+      failedRuns,
+      timeoutRuns: 0,
+      skippedRuns: 0,
+      retries: operationalMetricsComplete ? retries : null,
+      quotaUnits: operationalMetricsComplete ? Number(quotaUnits.toFixed(3)) : null,
+      artifactCollisions: operationalMetricsComplete ? artifactCollisions : null,
+      operationalMetricsComplete: records.length > 0 && operationalMetricsComplete,
+      operationalMetricsCompleteRuns: completeOperationalRuns,
+      operationalMetricsIncompleteRuns: incompleteOperationalRuns,
+      quality,
+    },
+  };
+}
+
+function validateHealthHistory(history, { now, maxAgeHours, sourcePath, loopIds, minimumSample, registry }) {
   if (!history || history.missing) {
     return {
       quality: 'unmeasurable',
@@ -258,6 +467,25 @@ function validateHealthHistory(history, { now, maxAgeHours, sourcePath, loopIds,
     };
   }
   const records = Array.isArray(history.records) ? history.records : [];
+  const canonicalRows = records.filter(isCanonicalHealthRecord).length;
+  if (canonicalRows === records.length && canonicalRows > 0) {
+    return validateCanonicalHealthHistory(history, {
+      now,
+      maxAgeHours,
+      sourcePath,
+      loopIds,
+      minimumSample,
+      registry,
+    });
+  }
+  if (canonicalRows > 0) {
+    return {
+      quality: 'partial',
+      issues: ['health ledger mixes canonical and legacy row schemas; refusing to combine them'],
+      warnings: [],
+      snapshot: { ...emptyHealthSnapshot(sourcePath), missing: false, schema: 'mixed', quality: 'partial' },
+    };
+  }
   const issues = Array.isArray(history.parseIssues) ? [...history.parseIssues] : [];
   const warnings = [];
   const knownLoops = new Set(loopIds);
@@ -369,7 +597,20 @@ export function validateFleetControl({ registry, quota, health = null }, {
   quotaPath = DEFAULT_QUOTA_PATH,
   healthPath = DEFAULT_HEALTH_PATH,
   minimumSample = MINIMUM_SAMPLE,
+  candidateActionClasses = null,
 } = {}) {
+  const resolvedActionClasses = candidateActionClasses || (() => {
+    try {
+      const policy = validateLoopRegistry(registry).loops.find((loop) => loop.loopId === LOOP_ID);
+      return policy ? {
+        missingHealth: actionClassForPolicy(policy, 'missingHealth'),
+        repair: actionClassForPolicy(policy, 'repair'),
+        retry: actionClassForPolicy(policy, 'retry'),
+      } : null;
+    } catch {
+      return null;
+    }
+  })();
   const registryVerdict = validateRegistry(registry, registryPath);
   const quotaVerdict = validateQuotaHistory(quota, { now, maxAgeHours, sourcePath: quotaPath });
   const healthVerdict = validateHealthHistory(health, {
@@ -378,6 +619,7 @@ export function validateFleetControl({ registry, quota, health = null }, {
     sourcePath: healthPath,
     loopIds: registryVerdict.snapshot?.loopIds || EXPECTED_LOOP_IDS,
     minimumSample,
+    registry,
   });
   const issues = [...registryVerdict.issues, ...quotaVerdict.issues, ...healthVerdict.issues];
   const warnings = [...registryVerdict.warnings, ...quotaVerdict.warnings, ...healthVerdict.warnings];
@@ -395,7 +637,7 @@ export function validateFleetControl({ registry, quota, health = null }, {
   const candidates = [];
   if (healthVerdict.quality === 'unmeasurable') {
     candidates.push({
-      actionClass: 'route',
+      ...(resolvedActionClasses?.missingHealth ? { actionClass: resolvedActionClasses.missingHealth } : {}),
       action: 'route every loop producer to append a health row with runId, status, verified decision, artifacts, retries and quota usage',
       reversible: true,
       externalMutation: false,
@@ -404,7 +646,7 @@ export function validateFleetControl({ registry, quota, health = null }, {
   }
   if (registryVerdict.quality !== 'observed' || quotaVerdict.quality !== 'observed' || healthVerdict.quality === 'partial') {
     candidates.push({
-      actionClass: 'follow-up',
+      ...(resolvedActionClasses?.repair ? { actionClass: resolvedActionClasses.repair } : {}),
       action: 'prepare a reviewed PR to repair registry, quota or health schema/cardinality; never bypass a failing gate',
       reversible: true,
       externalMutation: false,
@@ -413,7 +655,7 @@ export function validateFleetControl({ registry, quota, health = null }, {
   }
   if ((healthVerdict.snapshot?.artifactCollisions || 0) > 0 || (healthVerdict.snapshot?.retries || 0) > 0 || healthVerdict.quality !== 'observed') {
     candidates.push({
-      actionClass: 'lock+retry',
+      ...(resolvedActionClasses?.retry ? { actionClass: resolvedActionClasses.retry } : {}),
       action: 'apply a runner-local per-artifact lock, bounded queue and capped retry policy before another write; leave gates enforced',
       reversible: true,
       externalMutation: false,
@@ -547,11 +789,11 @@ function writeReports(reportDir, verdict, observation, decision) {
   return files.map(([name]) => path.join(dir, name));
 }
 
-function writeActions(reportDir, verdict, now, registry) {
+function writeActions(reportDir, verdict, now, registry, loopPolicy) {
   if (!reportDir || verdict.ok) return null;
   if (!registry) return null;
   const actions = verdict.candidates.map((candidate) => {
-    const actionClass = candidate.actionClass || 'follow-up';
+    const actionClass = candidate.actionClass || actionClassForPolicy(loopPolicy, 'repair');
     const policy = validateActionClassAgainstPolicy(registry, LOOP_ID, actionClass);
     return {
       ...candidate,
@@ -615,7 +857,7 @@ export async function runL10({
   quotaPath = DEFAULT_QUOTA_PATH,
   healthPath = DEFAULT_HEALTH_PATH,
   maxAgeHours = DEFAULT_MAX_AGE_HOURS,
-  minimumSample = MINIMUM_SAMPLE,
+  minimumSample,
   issue = false,
   apply = false,
   reportDir = null,
@@ -627,6 +869,11 @@ export async function runL10({
     policy: loopPolicy,
     minimumSample: policyMinimumSample,
   } = loadLoopPolicyForRun(registryPath, LOOP_ID, minimumSample);
+  const candidateActionClasses = {
+    missingHealth: actionClassForPolicy(loopPolicy, 'missingHealth'),
+    repair: actionClassForPolicy(loopPolicy, 'repair'),
+    retry: actionClassForPolicy(loopPolicy, 'retry'),
+  };
   let verdict;
   try {
     const quota = readJsonl(quotaPath, 'quota history');
@@ -638,6 +885,7 @@ export async function runL10({
       quotaPath,
       healthPath,
       minimumSample: policyMinimumSample,
+      candidateActionClasses,
     });
   } catch (error) {
     verdict = baseVerdict({
@@ -653,7 +901,7 @@ export async function runL10({
         health: emptyHealthSnapshot(healthPath),
       },
       candidates: [{
-        actionClass: 'follow-up',
+        actionClass: candidateActionClasses.repair,
         action: 'prepare a reviewed PR to restore or repair the fleet control inputs; preserve all gates',
         reversible: true,
         externalMutation: false,
@@ -661,7 +909,7 @@ export async function runL10({
       }],
     });
   }
-  const actionClass = verdict.ok ? 'observe' : 'route+lock+retry+follow-up';
+  const actionClass = actionClassForPolicy(loopPolicy, verdict.ok ? 'healthy' : 'needsReview');
   const actionPolicy = validateActionClassAgainstPolicy(loopRegistry, LOOP_ID, actionClass);
   verdict = {
     ...verdict,
@@ -725,7 +973,7 @@ export async function runL10({
   const files = writeReports(reportDir, verdict, observation, decision);
   let actionsWritten = false;
   if (apply && reportDir) {
-    const actionFile = writeActions(reportDir, verdict, now, loopRegistry);
+    const actionFile = writeActions(reportDir, verdict, now, loopRegistry, loopPolicy);
     actionsWritten = Boolean(actionFile);
     if (actionFile) files.push(actionFile);
   }
@@ -752,9 +1000,12 @@ function parseArgs(argv) {
     return index === -1 ? fallback : argv[index + 1] || fallback;
   };
   const maxAgeHours = Number(valueAfter('--max-age-hours', DEFAULT_MAX_AGE_HOURS));
-  const minimumSample = Number(valueAfter('--minimum-sample', MINIMUM_SAMPLE));
+  const minimumSampleIndex = argv.indexOf('--minimum-sample');
+  const minimumSample = minimumSampleIndex === -1 ? undefined : Number(argv[minimumSampleIndex + 1]);
   if (!Number.isFinite(maxAgeHours) || maxAgeHours <= 0) throw new Error('--max-age-hours must be a finite positive number');
-  if (!Number.isInteger(minimumSample) || minimumSample < 1) throw new Error('--minimum-sample must be a positive integer');
+  if (minimumSample !== undefined && (!Number.isInteger(minimumSample) || minimumSample < 1)) {
+    throw new Error('--minimum-sample must be a positive integer');
+  }
   return {
     json: argv.includes('--json'),
     issue: argv.includes('--issue'),

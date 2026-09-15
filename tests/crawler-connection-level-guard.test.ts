@@ -86,7 +86,7 @@ describe('runStandardCrawlerPipeline — connection-level fetch guard', () => {
     ).resolves.toBeUndefined();
   });
 
-  it('preserves existing jobs when the feed endpoint redirected off its own host (#7853)', async () => {
+  it('preserves existing jobs when a feed endpoint is unavailable', async () => {
     const root = makeRoot();
     await expect(
       runStandardCrawlerPipeline({
@@ -94,7 +94,30 @@ describe('runStandardCrawlerPipeline — connection-level fetch guard', () => {
         companyLabel: 'Test Co',
         isCompanyJob: () => false,
         fetchJobs: async () => {
-          throw new FeedEndpointUnavailableError('[test-co] feed endpoint redirected off feed.test');
+          throw new FeedEndpointUnavailableError('feed redirected off its own host');
+        },
+        root,
+      }),
+    ).resolves.toBeUndefined();
+  });
+
+  it('preserves existing jobs when a retryable HTTP response exhausted its retry budget', async () => {
+    // httpFetchWithRetry returns the final 429/5xx Response so parsers can keep
+    // their status handling. A parser that turns that marked Response into a
+    // domain error must still get the same soft-exit as the other transient
+    // guards; a persistent 4xx has no marker and remains loud below.
+    const root = makeRoot();
+    const err = Object.assign(new Error('HTTP 429'), {
+      status: 429,
+      retryBudgetExhausted: true,
+    });
+    await expect(
+      runStandardCrawlerPipeline({
+        companyKey: 'test-co',
+        companyLabel: 'Test Co',
+        isCompanyJob: () => false,
+        fetchJobs: async () => {
+          throw err;
         },
         root,
       }),
@@ -102,46 +125,30 @@ describe('runStandardCrawlerPipeline — connection-level fetch guard', () => {
   });
 });
 
-describe('feed-endpoint-guard (#7853)', () => {
-  it('flags a response that came back from another host', () => {
-    expect(() =>
-      assertFeedEndpointHost(
-        'nord-anglia',
-        'careers.nordangliaeducation.com',
-        'https://www.nordangliaeducation.com/careers',
-      ),
-    ).toThrow(/redirected off careers\.nordangliaeducation\.com to www\.nordangliaeducation\.com/);
+describe('feed-endpoint-guard', () => {
+  it('flags a response redirected away from the expected host', () => {
+    expect(() => assertFeedEndpointHost(
+      'nord-anglia',
+      'careers.nordangliaeducation.com',
+      'https://www.nordangliaeducation.com/careers',
+    )).toThrow(/redirected off careers\.nordangliaeducation\.com to www\.nordangliaeducation\.com/);
   });
 
-  it('accepts the feed host and tolerates a Response without a URL', () => {
-    expect(() =>
-      assertFeedEndpointHost(
-        'nord-anglia',
-        'careers.nordangliaeducation.com',
-        'https://careers.nordangliaeducation.com/services/rss/job/',
-      ),
-    ).not.toThrow();
-    expect(() =>
-      assertFeedEndpointHost('nord-anglia', 'careers.nordangliaeducation.com', ''),
-    ).not.toThrow();
+  it('flags an HTML maintenance page but leaves malformed XML to the XML parser', () => {
+    expect(() => assertFeedBodyLooksLikeXml(
+      'nord-anglia',
+      'careers.nordangliaeducation.com',
+      '<!DOCTYPE html><html><body>careers unavailable</body></html>',
+    )).toThrow(/answered with an HTML document/);
+    expect(() => assertFeedBodyLooksLikeXml(
+      'nord-anglia',
+      'careers.nordangliaeducation.com',
+      '<?xml version="1.0"?><rss><channel>',
+    )).not.toThrow();
   });
 
-  it('flags an HTML document served in place of the feed, but not malformed XML', () => {
-    expect(() =>
-      assertFeedBodyLooksLikeXml(
-        'careers',
-        'careers.orior.ch',
-        '<!DOCTYPE html><html><body>&nope</body></html>',
-      ),
-    ).toThrow(/answered with an HTML document/);
-    expect(() =>
-      assertFeedBodyLooksLikeXml('careers', 'careers.orior.ch', '<?xml version="1.0"?><rss><channel>'),
-    ).not.toThrow();
-  });
-
-  it('marks its errors as soft-exitable for the crawler pipeline', () => {
-    const err = new FeedEndpointUnavailableError('boom');
-    expect(err.feedEndpointUnavailable).toBe(true);
+  it('marks endpoint errors as soft-exitable', () => {
+    expect(new FeedEndpointUnavailableError('unavailable').feedEndpointUnavailable).toBe(true);
   });
 });
 
@@ -158,16 +165,14 @@ describe('exitCrawlerOnError — custom-main terminal catch', () => {
     expect(exit).toHaveBeenCalledWith(0);
   });
 
-  it('exits 0 (soft, preserve) when the feed endpoint is unavailable (#7853)', () => {
+  it('exits 0 (soft, preserve) when the feed endpoint is unavailable', () => {
     const exit = vi.spyOn(process, 'exit').mockImplementation(((code?: number) => {
       throw new Error(`exit:${code}`);
     }) as never);
-    expect(() =>
-      exitCrawlerOnError(
-        new FeedEndpointUnavailableError('[test-co] feed endpoint redirected off feed.test'),
-        'Test Co',
-      ),
-    ).toThrow('exit:0');
+    expect(() => exitCrawlerOnError(
+      new FeedEndpointUnavailableError('feed unavailable'),
+      'Test Co',
+    )).toThrow('exit:0');
     expect(exit).toHaveBeenCalledWith(0);
   });
 
@@ -179,5 +184,17 @@ describe('exitCrawlerOnError — custom-main terminal catch', () => {
     httpErr.status = 403;
     expect(() => exitCrawlerOnError(httpErr, 'Test Co')).toThrow('exit:1');
     expect(exit).toHaveBeenCalledWith(1);
+  });
+
+  it('exits 0 (soft, preserve) on a retry-budget-exhausted HTTP error', () => {
+    const exit = vi.spyOn(process, 'exit').mockImplementation(((code?: number) => {
+      throw new Error(`exit:${code}`);
+    }) as never);
+    const httpErr = Object.assign(new Error('HTTP 429'), {
+      status: 429,
+      retryBudgetExhausted: true,
+    });
+    expect(() => exitCrawlerOnError(httpErr, 'Test Co')).toThrow('exit:0');
+    expect(exit).toHaveBeenCalledWith(0);
   });
 });

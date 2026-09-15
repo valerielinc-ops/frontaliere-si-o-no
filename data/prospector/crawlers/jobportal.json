@@ -1,0 +1,19 @@
+{
+  "companyKey": "jobportal",
+  "companyName": "csl-immobilien",
+  "companyHost": "app.jobportal.abaservices.ch",
+  "platform": "abaservices.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/56de7637-9acc-1793-19a5-22930895d5a7?jp=ABACUS"
+  ],
+  "detailTemplate": "/job-advertisement/cslimmobilien/56de7637-9acc-1793-19a5-22930895d5a7",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Sachbearbeiter*in BETA Zürich"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-09-14T09:43:44.180Z"
+}

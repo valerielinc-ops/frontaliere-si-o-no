@@ -3,7 +3,9 @@ name: Loop fleet ledger reconcile
 # Recupera gli eventi workflow_run persi o ritardati. Il job è un probe bounded:
 # scarica artifact immutabili e può soltanto dispatchare il bridge revisionato.
 # Non ha permessi contents/pull-requests e non scrive branch, main o superfici
-# pubblicate.
+# pubblicate. Usa un gruppo di concorrenza separato dal bridge: altrimenti un
+# burst di workflow_run può occupare anche l'unica coda pending del probe e
+# impedire al backstop di osservare proprio gli eventi persi.
 on:
   schedule:
     - cron: '*/20 * * * *'
@@ -20,7 +22,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: loop-fleet-durable-ledger
+  group: loop-fleet-ledger-reconcile
   cancel-in-progress: false
 
 jobs:

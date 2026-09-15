@@ -53,12 +53,86 @@ describe('loop fleet status', () => {
     });
   });
 
+  it('computes lifecycle TTL and owner SLA from trusted event timestamps', () => {
+    const lifecycle = registry.loops.find((row: any) => row.loopId === 'L1').lifecycle;
+    const event = (eventType: string, occurredAt: string) => ({
+      eventType,
+      candidateId: 'lf-decision-sla-check',
+      owner: 'CTO / Reliability',
+      sourceRecordId: 'lf-decision-sla-check',
+      lifecycle,
+      occurredAt,
+    });
+    const summary = summarizeLifecycleEvents([
+      event('candidate', '2026-09-12T12:00:00.000Z'),
+      event('owner_assigned', '2026-09-12T12:00:01.000Z'),
+    ], { now: new Date('2026-09-14T13:00:00.000Z') });
+
+    expect(summary.candidates[0]).toMatchObject({
+      complete: false,
+      sla: {
+        status: 'overdue',
+        coherent: true,
+        candidateTtl: {
+          hours: 24,
+          deadlineAt: '2026-09-13T12:00:00.000Z',
+          status: 'overdue',
+        },
+        ownerSla: {
+          hours: 24,
+          deadlineAt: '2026-09-13T12:00:00.000Z',
+          status: 'met',
+        },
+        postMergeVerification: {
+          status: 'not_started',
+          deadlineAt: null,
+        },
+      },
+    });
+    expect(summary.sla).toMatchObject({
+      status: 'overdue',
+      candidateCount: 1,
+      overdueCount: 1,
+      pendingCount: 0,
+      nextDeadlineAt: '2026-09-13T12:00:00.000Z',
+    });
+  });
+
+  it('treats the exact SLA boundary as overdue and ignores invalid timestamps', () => {
+    const lifecycle = registry.loops.find((row: any) => row.loopId === 'L1').lifecycle;
+    const event = (eventType: string, occurredAt: string) => ({
+      eventType,
+      candidateId: 'lf-decision-sla-boundary',
+      owner: 'CTO / Reliability',
+      sourceRecordId: 'lf-decision-sla-boundary',
+      lifecycle,
+      occurredAt,
+    });
+    const summary = summarizeLifecycleEvents([
+      event('candidate', 'invalid'),
+      event('candidate', '2026-09-12T12:00:00.000Z'),
+      event('owner_assigned', '2026-09-12T12:00:01.000Z'),
+    ], { now: new Date('2026-09-13T12:00:00.000Z') });
+
+    expect(summary).toMatchObject({
+      sla: { status: 'unmeasurable' },
+      candidates: [{
+        sla: {
+          status: 'unmeasurable',
+          coherent: false,
+          candidateTtl: { status: 'overdue' },
+        },
+      }],
+    });
+  });
+
   it('does not mark a present event set verified when order, owner or evidence is incoherent', () => {
     const base = (eventType: string, occurredAt: string, overrides: Record<string, unknown> = {}) => ({
       eventType,
       candidateId: 'lf-decision-coherent-check',
       owner: 'CTO / Reliability',
       sourceRecordId: 'lf-decision-coherent-check',
+      lifecycle: registry.loops.find((row: any) => row.loopId === 'L1').lifecycle,
       occurredAt,
       artifactOrPr: `evidence://${eventType}`,
       ...overrides,
@@ -80,6 +154,7 @@ describe('loop fleet status', () => {
       duplicateEventTypes: ['candidate'],
       missingEvidence: ['post_merge_verified'],
       complete: false,
+      sla: { status: 'unmeasurable', coherent: false },
     }] });
   });
 
@@ -120,8 +195,9 @@ describe('loop fleet status', () => {
       sourceRefs: registry.loops.find((row: any) => row.loopId === 'L0').sourceRefs,
       policyCompliant: true,
       lifecycleCompliant: true,
-      issue: null,
+      issue: 'operational telemetry incomplete: durationSeconds, retryCount, quotaUnits, collisions, gateBypass',
       missingOutcome: null,
+      nextHumanAction: 'restore complete operational telemetry and rerun the loop',
     });
     expect(rows.find((row: any) => row.loopId === 'L1')).toMatchObject({
       quality: 'unmeasurable',
@@ -196,7 +272,7 @@ describe('loop fleet status', () => {
     expect(rows.find((row: any) => row.loopId === 'L0')).toMatchObject({
       policyCompliant: false,
       missingOutcome: 'independent outcome not recorded',
-      nextHumanAction: 'restore or attach the independent source and rerun the loop',
+      nextHumanAction: 'validate or attach the independent outcome before changing exposure',
     });
   });
 
@@ -219,6 +295,12 @@ describe('loop fleet status', () => {
       lifecycleCompliant: true,
       actionClass: 'observe',
       requiredAutonomy: 'A0',
+      durationSeconds: 1.25,
+      retryCount: 0,
+      quotaUnits: 0,
+      collisions: 0,
+      gateBypass: false,
+      operationalMetricsComplete: true,
       outcome: {
         outcomeId: 'fresh-complete-published-data',
         status: 'observed',
@@ -244,6 +326,63 @@ describe('loop fleet status', () => {
       outcome: { outcomeId: 'fresh-complete-published-data', status: 'observed' },
       missingOutcome: null,
       ledgerLastRun: { id: '77', headSha: 'a'.repeat(40) },
+      operationalMetrics: {
+        durationSeconds: 1.25,
+        retryCount: 0,
+        quotaUnits: 0,
+        collisions: 0,
+        gateBypass: false,
+        complete: true,
+      },
+    });
+  });
+
+  it('espone la telemetria mancante senza promuovere un ledger legacy', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-status-legacy-health-'));
+    const ledgerDir = path.join(root, 'ledger');
+    fs.mkdirSync(ledgerDir);
+    fs.writeFileSync(path.join(ledgerDir, 'loop-health-history.jsonl'), `${JSON.stringify({
+      recordType: 'health',
+      schemaVersion: 1,
+      recordId: 'health-legacy',
+      loopId: 'L0',
+      execution: { runId: '78', sha: 'b'.repeat(40) },
+      recordedAt: '2026-09-12T12:00:00.000Z',
+      quality: 'partial',
+      ok: false,
+      evidenceComplete: true,
+      policyCompliant: true,
+      outcomePolicyCompliant: true,
+      lifecycleCompliant: true,
+      actionClass: 'observe',
+      requiredAutonomy: 'A0',
+      outcome: {
+        outcomeId: 'fresh-complete-published-data',
+        status: 'partial',
+        independent: false,
+        sourceRefs: ['manifest-api-corpus'],
+        primaryMetric: 'fresh_complete_manifest_rate',
+        numerator: null,
+        denominator: null,
+        requiredFieldsPresent: [],
+        missingFields: ['generatedAt', 'numerator', 'denominator'],
+        reason: 'legacy fixture',
+        recordedAt: '2026-09-12T12:00:00.000Z',
+      },
+    })}\n`);
+
+    const rows = collectStatus({
+      ledgerDir,
+      ghRun: () => ({ run: null, error: 'no completed run found' }),
+      download: () => ({ evidence: null, error: 'not called' }),
+    });
+    expect(rows.find((row: any) => row.loopId === 'L0')).toMatchObject({
+      operationalMetrics: {
+        complete: false,
+        durationSeconds: null,
+        missing: ['durationSeconds', 'retryCount', 'quotaUnits', 'collisions', 'gateBypass'],
+      },
+      nextHumanAction: 'validate or attach the independent outcome before changing exposure',
     });
   });
 

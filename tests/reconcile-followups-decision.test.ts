@@ -16,8 +16,19 @@ import {
   decideReconcileAction,
   isReconcileFlagComment,
   isStrongAutoCloseEvidence,
+  parseIssueCommentsResponse,
   reconcileDailyItems,
 } from '../scripts/ci/reconcile-followups.mjs';
+
+describe('alreadyCommented — esito vuoto riuscito distinto dall’errore (#8034)', () => {
+  it('tratta stdout vuoto/whitespace come lista commenti vuota, ma null come errore', () => {
+    expect(parseIssueCommentsResponse('')).toEqual([]);
+    expect(parseIssueCommentsResponse(' \n\t ')).toEqual([]);
+    expect(parseIssueCommentsResponse('{"comments":[]}')).toEqual([]);
+    expect(parseIssueCommentsResponse(null)).toBeNull();
+    expect(parseIssueCommentsResponse('not-json')).toBeNull();
+  });
+});
 
 describe('isAggregateTitle — multi-item follow-ups never auto-close', () => {
   it('flags N≥2 "item(s)" titles as aggregate', () => {

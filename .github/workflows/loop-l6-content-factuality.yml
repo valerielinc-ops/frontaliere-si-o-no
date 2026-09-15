@@ -7,8 +7,9 @@ on:
     branches: [main]
     paths:
       - 'data/quality-alerts-history.jsonl'
-      - 'data/content-factuality-outcomes.json'
+      - 'data/editorial-factuality-verdicts.jsonl'
       - 'data/loop-fleet/loop-registry.json'
+      - 'scripts/ci/export-l6-factuality-outcomes.mjs'
       - 'scripts/ci/loop-l6-content-factuality.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
@@ -18,8 +19,9 @@ on:
   pull_request:
     paths:
       - 'data/quality-alerts-history.jsonl'
-      - 'data/content-factuality-outcomes.json'
+      - 'data/editorial-factuality-verdicts.jsonl'
       - 'data/loop-fleet/loop-registry.json'
+      - 'scripts/ci/export-l6-factuality-outcomes.mjs'
       - 'scripts/ci/loop-l6-content-factuality.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
@@ -53,8 +55,9 @@ jobs:
           fetch-depth: 1
           sparse-checkout: |
             /data/quality-alerts-history.jsonl
-            /data/content-factuality-outcomes.json
+            /data/editorial-factuality-verdicts.jsonl
             /data/loop-fleet/loop-registry.json
+            /scripts/ci/export-l6-factuality-outcomes.mjs
             /scripts/ci/loop-l6-content-factuality.mjs
             /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/lib/loop-fleet-contract.mjs
@@ -66,6 +69,34 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version: '22'
+      - name: Start loop operational telemetry
+        run: |
+          {
+            echo "LOOP_FLEET_STARTED_AT=$(date -u +%Y-%m-%dT%H:%M:%S.%3NZ)"
+            echo 'LOOP_FLEET_QUOTA_UNITS=0'
+            echo 'LOOP_FLEET_COLLISIONS=0'
+            echo 'LOOP_FLEET_GATE_BYPASS=false'
+          } >> "$GITHUB_ENV"
+      - name: Export read-only L6 editorial outcome
+        if: always()
+        env:
+          WORKFLOW_EVENT: ${{ github.event_name }}
+          OUTCOME_PATH: ${{ runner.temp }}/loop-fleet-l6/content-factuality-outcomes.json
+        run: |
+          set -o pipefail
+          mkdir -p "$(dirname "$OUTCOME_PATH")"
+          if [ "$WORKFLOW_EVENT" = 'pull_request' ]; then
+            node scripts/ci/export-l6-factuality-outcomes.mjs --unavailable --out "$OUTCOME_PATH" --registry data/loop-fleet/loop-registry.json
+            exit 0
+          fi
+          set +e
+          node scripts/ci/export-l6-factuality-outcomes.mjs --json --ledger data/editorial-factuality-verdicts.jsonl --out "$OUTCOME_PATH" --registry data/loop-fleet/loop-registry.json | tee "$RUNNER_TEMP/loop-fleet-l6/export-cli-output.log" | tee -a "$GITHUB_STEP_SUMMARY"
+          export_code=${PIPESTATUS[0]}
+          set -e
+          if [ "$export_code" -ne 0 ]; then
+            echo '::warning::L6 editorial outcome export failed; recording an explicitly unavailable outcome so factuality remains fail-closed'
+            node scripts/ci/export-l6-factuality-outcomes.mjs --unavailable --out "$OUTCOME_PATH" --registry data/loop-fleet/loop-registry.json
+          fi
       - name: Audit content learning and factuality
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -74,7 +105,7 @@ jobs:
         run: |
           set -o pipefail
           mkdir -p "$REPORT_DIR"
-          args=(--json --apply --report-dir "$REPORT_DIR" --history data/quality-alerts-history.jsonl --outcomes data/content-factuality-outcomes.json --registry data/loop-fleet/loop-registry.json)
+          args=(--json --apply --report-dir "$REPORT_DIR" --history data/quality-alerts-history.jsonl --outcomes "$REPORT_DIR/content-factuality-outcomes.json" --registry data/loop-fleet/loop-registry.json)
           if [ "$ISSUE_ENABLED" = "true" ]; then
             args+=(--issue --strict)
           else
@@ -91,13 +122,23 @@ jobs:
           fi
       - name: Validate runner-local L6 outcome export
         if: always()
+        id: validate_l6_outcome
         env:
           REPORT_DIR: ${{ runner.temp }}/loop-fleet-l6
         run: |
           test -s "$REPORT_DIR/l6-outcome.json"
-          jq -e '(.loopId == "L6" and (.status | type) == "string" and (.independent | type) == "boolean" and (.metrics | type) == "object" and .safeToAct == false and .generatorIsNotOracle == true and .publishedContentUntouched == true)' "$REPORT_DIR/l6-outcome.json" >/dev/null
+          jq -e '(
+            .loopId == "L6"
+            and (.status | type) == "string"
+            and (.independent | type) == "boolean"
+            and (.metrics | type) == "object"
+            and (if .status == "observed" then (.independent == true and .evidenceStatus == "verified") else true end)
+            and .safeToAct == false
+            and .generatorIsNotOracle == true
+            and .publishedContentUntouched == true
+          )' "$REPORT_DIR/l6-outcome.json" >/dev/null
       - name: Record canonical L6 evidence
-        if: always()
+        if: ${{ always() && steps.validate_l6_outcome.outcome == 'success' }}
         env:
           REPORT_DIR: ${{ runner.temp }}/loop-fleet-l6
         run: node scripts/ci/record-loop-fleet-evidence.mjs --loop L6 --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json

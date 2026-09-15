@@ -36,10 +36,10 @@ export async function fetchRetry(url, options = {}, retries = 2, timeoutMs = 0) 
   }
 }
 
-// logInfo/logError default to console; callers with their own gated logger
-// (e.g. analytics-report.mjs's --json-aware log()) can inject theirs so
-// output-suppression behavior is preserved.
-export async function getServiceAccountToken(scopes, { logInfo = console.log, logError = console.error } = {}) {
+// Diagnostics default to stderr so callers that emit JSON/CSV on stdout stay
+// machine-readable. Callers with their own gated logger (e.g.
+// analytics-report.mjs's --json-aware log()) can still inject theirs.
+export async function getServiceAccountToken(scopes, { logInfo = console.error, logError = console.error } = {}) {
   if (!process.env.GOOGLE_APPLICATION_CREDENTIALS && !process.env.FIREBASE_SERVICE_ACCOUNT_JSON) return null;
   try {
     const { GoogleAuth } = await import('google-auth-library');

@@ -2,6 +2,17 @@ import { describe, expect, it } from 'vitest';
 import { buildPlateAuctionPath, parsePlateAuctionPath } from '../services/plateAuctions/paths';
 
 describe('plate-auction localized routing', () => {
+  it.each([
+    ['it', '/aste-targhe-svizzera/'],
+    ['en', '/en/swiss-plate-auctions/'],
+    ['de', '/de/schweizer-nummernschildauktionen/'],
+    ['fr', '/fr/encheres-plaques-suisses/'],
+  ] as const)('builds the canonical %s hub path', (locale, expectedPath) => {
+    const path = buildPlateAuctionPath({ locale, view: 'hub' });
+    expect(path).toBe(expectedPath);
+    expect(parsePlateAuctionPath(path)).toEqual({ locale, view: 'hub' });
+  });
+
   it('round-trips a canton detail route', () => {
     const path = buildPlateAuctionPath({ locale: 'it', view: 'detail', canton: 'ZH', plate: 'ZH626' });
     expect(path).toBe('/aste-targhe-svizzera/zurigo-zh/zh626/');

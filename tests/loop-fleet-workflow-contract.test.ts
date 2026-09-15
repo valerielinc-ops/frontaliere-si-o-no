@@ -30,6 +30,16 @@ describe('loop fleet workflow contract', () => {
     }
   });
 
+  it('starts every loop with explicit operational telemetry declarations', () => {
+    for (const name of loopWorkflows) {
+      const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
+      expect(source, name).toContain('LOOP_FLEET_STARTED_AT=');
+      expect(source, name).toContain('LOOP_FLEET_QUOTA_UNITS=0');
+      expect(source, name).toContain('LOOP_FLEET_COLLISIONS=0');
+      expect(source, name).toContain('LOOP_FLEET_GATE_BYPASS=false');
+    }
+  });
+
   it('gates the three repaired loops on a runner-local fail-closed outcome export', () => {
     const contracts = [
       ['loop-l3-job-quality.yml', 'l3-outcome.json', 'handoffIsNotApplication', 'validate_l3_outcome'],
@@ -44,6 +54,28 @@ describe('loop fleet workflow contract', () => {
       expect(source, name).toContain(`id: ${validatorId}`);
       expect(source, name).toContain(`steps.${validatorId}.outcome == 'success'`);
     }
+  });
+
+  it('refreshes L5 and L7 evidence from PostHog without committing source exports', () => {
+    const contracts = [
+      ['loop-l5-decision-moments.yml', 'Export fresh L5 outcomes', '$RUNNER_TEMP/decision-moment-outcomes.json'],
+      ['loop-l7-experiment-allocator.yml', 'Export fresh L7 outcomes', '$RUNNER_TEMP/experiment-outcomes.json'],
+    ];
+    for (const [name, step, outputPath] of contracts) {
+      const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
+      expect(source, name).toContain('scripts/ci/export-loop-outcomes.mjs');
+      expect(source, name).toContain('scripts/lib/posthog-client.mjs');
+      expect(source, name).toContain(step);
+      expect(source, name).toContain(outputPath);
+      expect(source, name).toContain('outcomes_path=');
+      expect(source, name).toContain("if: github.event_name != 'pull_request'");
+    }
+  });
+
+  it('fa leggere L10 dal ledger health canonico', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-l10-fleet-control.yml'), 'utf8');
+    expect(source).toContain('data/loop-fleet/ledger/loop-health-history.jsonl');
+    expect(source).not.toContain('data/loop-health-history.jsonl');
   });
 
   it('uploads lifecycle evidence for every loop', () => {
@@ -70,12 +102,21 @@ describe('loop fleet workflow contract', () => {
     expect(source).not.toMatch(/issues:\s*write|contents:\s*write|pull-requests:\s*write/u);
   });
 
+  it('creates the ledger-audit report directory before tee writes its log', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger-audit.yml'), 'utf8');
+    const directorySetup = source.indexOf('mkdir -p "$REPORT_DIR"');
+    const stdoutPipe = source.indexOf('tee "$REPORT_DIR/stdout.txt"');
+    expect(directorySetup).toBeGreaterThanOrEqual(0);
+    expect(stdoutPipe).toBeGreaterThan(directorySetup);
+  });
+
   it('keeps the detached typecheck PID alive until its status is published', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'tests.yml'), 'utf8');
     expect(source).toContain('setsid --wait bash "$script"');
     expect(source).toContain('gate_wait_limit=300');
     expect(source).toContain('launcher_gone_reported=0');
     expect(source).not.toContain('for retry in 1 2 3 4 5');
+    expect(source).toContain("printf '%s\\n' \"\$!\" > \"\$state_dir/\$label.pid\"");
   });
 
   it('persists only through a reviewed branch and PR', () => {
@@ -98,6 +139,8 @@ describe('loop fleet workflow contract', () => {
   it('keeps the automatic ledger recovery probe bounded and unable to write repository content', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger-reconcile.yml'), 'utf8');
     expect(source).toContain("cron: '*/20 * * * *'");
+    expect(source).toContain('group: loop-fleet-ledger-reconcile');
+    expect(source).not.toContain('group: loop-fleet-durable-ledger');
     expect(source).toContain('actions: write');
     expect(source).toContain('contents: read');
     expect(source).not.toMatch(/contents:\s*write/u);

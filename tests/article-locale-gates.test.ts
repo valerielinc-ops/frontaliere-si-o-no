@@ -342,6 +342,15 @@ describe('extractNumericFacts', () => {
     expect([...extractNumericFacts('a wage of 6,000 Swiss francs', 'en').amt]).toContain(6000);
   });
 
+  it('keeps fixed-precision exchange rates intact across locale punctuation', () => {
+    const italian = 'Un franco vale 1,0590 € e il giorno dopo vale 1,0580 €.';
+    const english = 'One franc buys €1.0590 and the next day it buys €1.0580.';
+
+    expect([...extractNumericFacts(italian, 'it').amt].sort()).toEqual([1.058, 1.059]);
+    expect([...extractNumericFacts(english, 'en').amt].sort()).toEqual([1.058, 1.059]);
+    expect(checkTranslationNumericConsistency(italian, english, 'en')).toEqual([]);
+  });
+
   it('folds scale words so a budget survives translation', () => {
     expect([...extractNumericFacts('un debito di 140 milioni di franchi', 'it').amt]).toContain(140e6);
     expect([...extractNumericFacts('a debt of CHF 140 million', 'en').amt]).toContain(140e6);
