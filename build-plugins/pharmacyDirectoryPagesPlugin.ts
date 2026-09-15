@@ -166,6 +166,51 @@ const COPY: Record<Locale, Copy> = {
   },
 };
 
+interface CityFaqItem {
+  question: string;
+  answer: string;
+}
+
+function cityFaqItems(locale: Locale, cityName: string, count: number): CityFaqItem[] {
+  if (locale === 'it') {
+    return [
+      { question: 'Quante farmacie sono censite a ' + cityName + '?', answer: 'Il dataset corrente riporta ' + count + ' ' + (count === 1 ? 'sede' : 'sedi') + ' per ' + cityName + '. Il conteggio descrive le registrazioni pubblicate e può cambiare con il prossimo aggiornamento.' },
+      { question: 'Gli orari mostrano se una farmacia è aperta adesso?', answer: 'No. La pagina non deduce l’apertura attuale né un turno dai dati anagrafici. Controlla la fonte della scheda e chiama la sede prima di partire.' },
+      { question: 'Come posso verificare una scheda?', answer: 'Apri la scheda della farmacia e usa il collegamento alla fonte e la data dell’ultimo recupero. I campi opzionali sono mostrati solo quando presenti nel dataset; per un’urgenza serve una conferma diretta.' },
+    ];
+  }
+  if (locale === 'en') {
+    return [
+      { question: 'How many pharmacies are listed in ' + cityName + '?', answer: 'The current dataset lists ' + count + ' ' + (count === 1 ? 'location' : 'locations') + ' in ' + cityName + '. This count describes published records and may change with the next update.' },
+      { question: 'Do the hours show whether a pharmacy is open now?', answer: 'No. This page does not infer current opening or duty status from directory records. Check the source on the pharmacy page and call before travelling.' },
+      { question: 'How can I verify a pharmacy record?', answer: 'Open the pharmacy page and use its source link and latest retrieval date. Optional fields are shown only when present in the dataset; urgent needs require direct confirmation.' },
+    ];
+  }
+  if (locale === 'de') {
+    return [
+      { question: 'Wie viele Apotheken sind in ' + cityName + ' gelistet?', answer: 'Der aktuelle Datensatz enthält ' + count + ' ' + (count === 1 ? 'Standort' : 'Standorte') + ' in ' + cityName + '. Die Zahl beschreibt veröffentlichte Einträge und kann sich mit der nächsten Aktualisierung ändern.' },
+      { question: 'Zeigen die Öffnungszeiten, ob eine Apotheke jetzt geöffnet ist?', answer: 'Nein. Diese Seite leitet die aktuelle Öffnung oder einen Notdienst nicht aus den Verzeichniseinträgen ab. Bitte Quelle prüfen und vor der Fahrt anrufen.' },
+      { question: 'Wie kann ich einen Apothekeneintrag prüfen?', answer: 'Öffne die Apothekenseite und nutze den Quellenlink sowie das Datum des letzten Abrufs. Optionale Felder erscheinen nur, wenn sie im Datensatz vorhanden sind; bei dringenden Anliegen direkt bestätigen.' },
+    ];
+  }
+  return [
+    { question: 'Combien de pharmacies sont recensées à ' + cityName + ' ?', answer: 'Le jeu de données actuel recense ' + count + ' ' + (count === 1 ? 'site' : 'sites') + ' à ' + cityName + '. Ce nombre décrit les fiches publiées et peut changer lors de la prochaine mise à jour.' },
+    { question: 'Les horaires indiquent-ils si une pharmacie est ouverte maintenant ?', answer: 'Non. Cette page ne déduit pas l’ouverture actuelle ni une garde à partir des données du répertoire. Consultez la source de la fiche et appelez avant de partir.' },
+    { question: 'Comment vérifier une fiche de pharmacie ?', answer: 'Ouvrez la fiche et utilisez son lien source ainsi que la date de dernière collecte. Les champs optionnels apparaissent uniquement lorsqu’ils sont présents dans le jeu de données; en cas d’urgence, confirmez directement.' },
+  ];
+}
+
+function cityFaqHeading(locale: Locale): string {
+  return locale === 'it' ? 'Domande frequenti' : locale === 'en' ? 'Frequently asked questions' : locale === 'de' ? 'Häufige Fragen' : 'Questions fréquentes';
+}
+
+function renderCityFaq(locale: Locale, cityName: string, count: number): string {
+  const itemsHtml = cityFaqItems(locale, cityName, count)
+    .map((item) => '<details style="' + BODY_STYLE + '"><summary>' + esc(item.question) + '</summary><p style="' + BODY_STYLE + '">' + esc(item.answer) + '</p></details>')
+    .join('');
+  return '<section aria-label="' + esc(cityFaqHeading(locale)) + '"><h2 style="' + H2_STYLE + '">' + esc(cityFaqHeading(locale)) + '</h2>' + itemsHtml + '</section>';
+}
+
 // These short explanations keep indexable directory templates substantive
 // even when a locality has only one or two verified records. They describe
 // the data boundary; they are not filler and never invent pharmacy facts.
@@ -579,6 +624,46 @@ function descriptorPath(descriptor: PageDescriptor, locale: Locale): PharmacyPat
   return cityPath(descriptor.country || 'CH', locale, descriptor.citySlug || '', descriptor.areaSlug);
 }
 
+interface CantonCityEntry {
+  name: string;
+  count: number;
+  path: PharmacyPath;
+}
+
+function emittedPathsForLocale(locale: Locale, allDescriptors: PageDescriptor[] = descriptors()): ReadonlySet<string> {
+  return new Set(allDescriptors.map((descriptor) => buildPharmacyPath(descriptorPath(descriptor, locale), locale)));
+}
+
+function cantonCityEntries(locale: Locale, emittedPaths: ReadonlySet<string> = emittedPathsForLocale(locale)): CantonCityEntry[] {
+  return TICINO_CITIES
+    .map((city) => ({
+      name: city.name,
+      count: pharmaciesForCity(city.name).length,
+      path: { kind: 'city' as const, locale, citySlug: city.slug },
+    }))
+    .filter((entry) => emittedPaths.has(buildPharmacyPath(entry.path, locale)));
+}
+
+function missingCantonCityPaths(locale: Locale, emittedPaths: ReadonlySet<string>): string[] {
+  return TICINO_CITIES
+    .map((city) => buildPharmacyPath({ kind: 'city', locale, citySlug: city.slug }, locale))
+    .filter((cityPath) => !emittedPaths.has(cityPath));
+}
+
+function cantonSourceSummary(locale: Locale): string {
+  const copy = COPY[locale];
+  const sourceUrls = [...new Set(TICINO_PHARMACIES.map((pharmacy) => pharmacy.sourceUrl))];
+  const latest = TICINO_PHARMACIES
+    .map((pharmacy) => pharmacy.lastVerifiedAt)
+    .sort()
+    .at(-1);
+  const sources = sourceUrls
+    .map((sourceUrl) => `<a href="${esc(sourceUrl)}" rel="nofollow noopener">${esc(copy.sourceLink)}</a>`)
+    .join(' · ');
+  const verified = latest ? '<br><strong>' + esc(copy.checked) + ':</strong> ' + esc(formatDate(latest, locale)) : '';
+  return '<p style="' + BODY_STYLE + '"><strong>' + esc(copy.sourcesHeading) + ':</strong> ' + sources + verified + '</p>';
+}
+
 function currentDutyRows(dataset: PharmacyDutiesDataset = dutiesDataset, now = new Date()): PharmacyDuty[] {
   if (!Array.isArray(dataset.duties)) return [];
   return [...new Set(dataset.duties.map((duty) => duty.coverageName))]
@@ -614,6 +699,7 @@ function renderBody(
   h1 = pageTitle(descriptor.kind, locale, descriptor),
   dataset: PharmacyDutiesDataset = dutiesDataset,
   now = new Date(),
+  emittedPaths: ReadonlySet<string> = emittedPathsForLocale(locale),
 ): string {
   const copy = COPY[locale];
   if (descriptor.kind === 'duty-week') return renderDutyWeek(descriptor, locale, h1, dataset, now);
@@ -632,6 +718,9 @@ function renderBody(
     const currentDuty = coverage ? currentDutyForRegion(dataset, coverage, now) : undefined;
     const duties = currentDuty ? [currentDuty] : [];
     sections = `<section><h2 style="${H2_STYLE}">${esc(copy.duties)}</h2>${esc(copy.dutyCityLede)}${duties.length > 0 ? `<div class="s-XENO3U">${duties.map((duty) => renderDuty(duty, locale)).join('')}</div>` : `<p style="${BODY_STYLE}">${esc(copy.noDuty)}</p>`}</section>`;
+  } else if (descriptor.kind === 'canton') {
+    const cities = cantonCityEntries(locale, emittedPaths);
+    sections = '<section><h2 style="' + H2_STYLE + '">' + esc(copy.directoryHeading) + '</h2><nav aria-label="' + esc(copy.directoryHeading) + '"><ul style="' + BODY_STYLE + '">' + cities.map((city) => '<li>' + href(city.path, city.name) + ' — ' + esc(copy.provinceCount(city.count)) + '</li>').join('') + '</ul></nav>' + cantonSourceSummary(locale) + '<p style="' + BODY_STYLE + '">' + esc(copy.locarneseNote) + '</p></section>';
   } else if (descriptor.kind === 'country') {
     const provinces = ITALY_BORDER_PROVINCES.map((area) => {
       const count = pharmaciesForProvince(area.code).length;
@@ -649,7 +738,10 @@ function renderBody(
     const pharmacies = pagePharmacies(descriptor, dataset, now);
     sections = `<section><h2 style="${H2_STYLE}">${esc(copy.directoryHeading)}</h2><div class="s-XENO3U">${pharmacies.map((pharmacy) => renderPharmacyCard(pharmacy, locale)).join('')}</div>${descriptor.kind === 'city' && descriptor.country === 'CH' ? `<p style="${BODY_STYLE}">${href({ kind: 'duty-city', locale, citySlug: descriptor.citySlug }, copy.viewDuties)}</p>` : ''}</section>`;
   }
-  return `<header><h1 style="${H1_STYLE}">${esc(h1)}</h1><p style="${LEDE_STYLE}">${esc(pageLede(descriptor.kind, locale))}</p></header>${sections}<section><h2 style="${H2_STYLE}">${esc(copy.disclaimerHeading)}</h2><p style="${BODY_STYLE}">${esc(copy.disclaimer)}</p></section>`;
+  const faq = descriptor.kind === 'city' && descriptor.country === 'CH'
+    ? renderCityFaq(locale, descriptor.cityName || '', pharmaciesForCity(descriptor.cityName || '').length)
+    : '';
+  return `<header><h1 style="${H1_STYLE}">${esc(h1)}</h1><p style="${LEDE_STYLE}">${esc(pageLede(descriptor.kind, locale))}</p></header>${sections}${faq}<section><h2 style="${H2_STYLE}">${esc(copy.disclaimerHeading)}</h2><p style="${BODY_STYLE}">${esc(copy.disclaimer)}</p></section>`;
 }
 
 function breadcrumbJsonLd(descriptor: PageDescriptor, locale: Locale): string {
@@ -681,7 +773,47 @@ function breadcrumbJsonLd(descriptor: PageDescriptor, locale: Locale): string {
   return JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: item.name, item: `${BASE_URL}${buildPharmacyPath(item.path, locale)}` })) });
 }
 
-function jsonLd(descriptor: PageDescriptor, locale: Locale, dataset: PharmacyDutiesDataset = dutiesDataset, now = new Date()): string[] {
+function cityFaqJsonLd(locale: Locale, cityName: string, count: number): string {
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: cityFaqItems(locale, cityName, count).map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  });
+}
+
+function cantonCollectionJsonLd(pathValue: PharmacyPath, title: string, cities: CantonCityEntry[]): string {
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: title,
+    url: BASE_URL + buildPharmacyPath(pathValue, pathValue.locale),
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: cities.length,
+      itemListElement: cities.map((city, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: city.name,
+        url: BASE_URL + buildPharmacyPath(city.path, city.path.locale),
+      })),
+    },
+  });
+}
+
+function jsonLd(
+  descriptor: PageDescriptor,
+  locale: Locale,
+  dataset: PharmacyDutiesDataset = dutiesDataset,
+  now = new Date(),
+  emittedPaths: ReadonlySet<string> = emittedPathsForLocale(locale),
+): string[] {
   const pathValue = descriptorPath(descriptor, locale);
   const title = pageTitle(descriptor.kind, locale, descriptor);
   if (descriptor.kind === 'pharmacy') return [detailJsonLd(descriptor.pharmacy!, locale), breadcrumbJsonLd(descriptor, locale)];
@@ -692,6 +824,12 @@ function jsonLd(descriptor: PageDescriptor, locale: Locale, dataset: PharmacyDut
       ? [dutyWeekCollectionJsonLd(pathValue, title, model), breadcrumbJsonLd(descriptor, locale)]
       : [breadcrumbJsonLd(descriptor, locale)];
   }
+  if (descriptor.kind === 'city' && descriptor.country === 'CH') {
+    const cityName = descriptor.cityName || '';
+    const pharmacies = pharmaciesForCity(cityName);
+    return [collectionJsonLd(pathValue, title, pharmacies), cityFaqJsonLd(locale, cityName, pharmacies.length), breadcrumbJsonLd(descriptor, locale)];
+  }
+  if (descriptor.kind === 'canton') return [cantonCollectionJsonLd(pathValue, title, cantonCityEntries(locale, emittedPaths)), breadcrumbJsonLd(descriptor, locale)];
   if (descriptor.kind === 'country') return [countryCollectionJsonLd(pathValue, title), breadcrumbJsonLd(descriptor, locale)];
   return [collectionJsonLd(pathValue, title, pagePharmacies(descriptor, dataset, now)), breadcrumbJsonLd(descriptor, locale)];
 }
@@ -724,10 +862,11 @@ function buildPage(
   // start/end transitions every 15 minutes and commits a status marker, so a
   // static build is requested before its crawlable card can become stale.
   now = new Date(),
+  emittedPaths: ReadonlySet<string> = emittedPathsForLocale(locale),
 ) {
   const title = pageTitle(descriptor.kind, locale, descriptor);
   const emittedTitle = shellTitle(descriptor, locale);
-  const body = renderBody(descriptor, locale, differentiateH1FromTitle(title, emittedTitle, locale), dataset, now);
+  const body = renderBody(descriptor, locale, differentiateH1FromTitle(title, emittedTitle, locale), dataset, now, emittedPaths);
   const wordCount = countHtmlBodyWords(body);
   // City duty URLs are useful navigation aliases, but their body repeats the
   // regional OFCT schedule. Keep them crawlable for users without creating
@@ -743,7 +882,7 @@ function buildPage(
     path: buildPharmacyPath(pathValue, locale),
     wordCount,
     indexable,
-    html: buildSeoPageHtml({ locale, title: emittedTitle, description, canonicalUrl: `${BASE_URL}${buildPharmacyPath(pathValue, locale)}`, hreflangHtml: hreflang(descriptor), robots: indexable ? 'index,follow' : 'noindex,follow', jsonLdScripts: jsonLd(descriptor, locale, dataset, now), bodyHtml, seoContentOutsideRoot: true, seoMainClass: 'seo-static-content', distDir }),
+    html: buildSeoPageHtml({ locale, title: emittedTitle, description, canonicalUrl: `${BASE_URL}${buildPharmacyPath(pathValue, locale)}`, hreflangHtml: hreflang(descriptor), robots: indexable ? 'index,follow' : 'noindex,follow', jsonLdScripts: jsonLd(descriptor, locale, dataset, now, emittedPaths), bodyHtml, seoContentOutsideRoot: true, seoMainClass: 'seo-static-content', distDir }),
   };
 }
 
@@ -757,10 +896,19 @@ export function pharmacyDirectoryPagesPlugin(rootDir: string): Plugin {
       const collector = new WriteCollector({ distDir, pluginName: 'pharmacyDirectoryPagesPlugin' });
       const urls: string[] = [];
       const allDescriptors = descriptors();
+      const emittedPathsByLocale = new Map<Locale, ReadonlySet<string>>();
+      for (const locale of LOCALES) {
+        const emittedPaths = emittedPathsForLocale(locale, allDescriptors);
+        const missing = missingCantonCityPaths(locale, emittedPaths);
+        if (missing.length > 0) {
+          throw new Error(`Ticino canton page has ${missing.length} city links without an emitted destination (${locale}): ${missing.slice(0, 5).join(', ')}`);
+        }
+        emittedPathsByLocale.set(locale, emittedPaths);
+      }
       let excludedNoindexRoutes = 0;
       for (const locale of LOCALES) {
         for (const descriptor of allDescriptors) {
-          const built = buildPage(descriptor, locale, distDir);
+          const built = buildPage(descriptor, locale, distDir, dutiesDataset, new Date(), emittedPathsByLocale.get(locale)!);
           collector.add(path.join(distDir, `${built.path.replace(/^\/+/, '').replace(/\/+$/, '')}/index.html`), built.html);
           // The IT/main shard owns the shared sitemap and must list every
           // locale URL, even though its collector writes only its own pages.
