@@ -18,6 +18,7 @@ on:
       - 'data/loop-fleet/loop-registry.json'
       - 'data/loop-fleet/ledger/**'
       - 'scripts/ci/loop-fleet-status.mjs'
+      - 'scripts/lib/loop-fleet-contract.mjs'
       - '.github/workflows/loop-fleet-status.yml'
 
 permissions:

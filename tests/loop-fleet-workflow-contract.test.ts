@@ -118,6 +118,7 @@ describe('loop fleet workflow contract', () => {
     expect(source).toContain('actions: read');
     expect(source).toContain('--strict');
     expect(source).toContain('inputs.strict');
+    expect(source).toContain("- 'scripts/lib/loop-fleet-contract.mjs'");
     expect(source).not.toMatch(/issues:\s*write|contents:\s*write|pull-requests:\s*write/u);
   });
 
