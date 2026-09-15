@@ -4,6 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { buildPharmacyDirectoryPage, pharmacyDirectoryPagesPlugin, pharmacyPageDescriptors, pharmacyUrlAliasDescriptors } from '../build-plugins/pharmacyDirectoryPagesPlugin';
 import { AD_SLOTS } from '../services/adsenseSlots';
+import catalogueJson from '../data/pharmacies-ticino-complete.json';
 import dutiesJson from '../data/pharmacy-duties-ticino.json';
 import type { PharmacyDutiesDataset } from '../services/pharmacies/types';
 
@@ -48,27 +49,45 @@ describe('pharmacy directory static pages', () => {
     await runCloseBundle(root);
 
     const descriptor = pharmacyPageDescriptors().find((candidate) => candidate.kind === 'duty-week');
+    const hubDescriptor = pharmacyPageDescriptors().find((candidate) => candidate.kind === 'duty-hub');
     expect(descriptor).toBeDefined();
-    const now = new Date('2026-09-14T19:00:00.000Z');
-    const valid = buildPharmacyDirectoryPage(descriptor!, 'it', root, dutiesJson as unknown as PharmacyDutiesDataset, now);
+    expect(hubDescriptor).toBeDefined();
+    const now = new Date(Math.max(Date.parse(dutiesJson._fetchedAt), Date.parse(catalogueJson._fetchedAt)) + 60_000);
+    const current = buildPharmacyDirectoryPage(descriptor!, 'it', root, dutiesJson as unknown as PharmacyDutiesDataset, now);
+    const nextWeek = new Date(`${descriptor!.weekStart}T00:00:00Z`);
+    nextWeek.setUTCDate(nextWeek.getUTCDate() + 7);
+    const validDescriptor = { ...descriptor!, weekStart: nextWeek.toISOString().slice(0, 10) };
+    const valid = buildPharmacyDirectoryPage(validDescriptor, 'it', root, dutiesJson as unknown as PharmacyDutiesDataset, now);
     expect(valid.indexable).toBe(true);
     expect(robotsOf(valid.html).replace(/\s+/g, '')).toBe('index,follow');
     expect(valid.html).toContain('"@type":"ItemList"');
+
+    const hub = buildPharmacyDirectoryPage(hubDescriptor!, 'it', root, dutiesJson as unknown as PharmacyDutiesDataset, now);
+    expect(hub.indexable).toBe(true);
+    expect(robotsOf(hub.html).replace(/\s+/g, '')).toBe('index,follow');
+    expect(hub.html).toContain('"@type":"ItemList"');
 
     const sitemap = fs.readFileSync(path.join(root, 'dist', 'sitemap-farmacie.xml'), 'utf8');
     const sitemapRoutes = new Set(
       [...sitemap.matchAll(/<loc>[^<]+<\/loc>/g)].map((match) => new URL(match[0].slice(5, -6)).pathname),
     );
-    expect(sitemapRoutes.has(valid.path)).toBe(true);
+    expect(sitemapRoutes.has(current.path)).toBe(current.indexable);
+    expect(sitemapRoutes.has(hub.path)).toBe(true);
 
     const tampered = {
       ...dutiesJson,
       _release: { ...dutiesJson._release, state: 'partial' },
     } as unknown as PharmacyDutiesDataset;
-    const guarded = buildPharmacyDirectoryPage(descriptor!, 'it', root, tampered, now);
+    const guarded = buildPharmacyDirectoryPage(validDescriptor, 'it', root, tampered, now);
     expect(guarded.indexable).toBe(false);
     expect(robotsOf(guarded.html).replace(/\s+/g, '')).toBe('noindex,follow');
     expect(guarded.html).not.toContain('"@type":"ItemList"');
+
+    const guardedHub = buildPharmacyDirectoryPage(hubDescriptor!, 'it', root, tampered, now);
+    expect(guardedHub.indexable).toBe(false);
+    expect(robotsOf(guardedHub.html).replace(/\s+/g, '')).toBe('noindex,follow');
+    expect(guardedHub.html).not.toContain('"@type":"CollectionPage"');
+    expect(guardedHub.html).not.toContain('"@type":"ItemList"');
   });
 
   it('keeps HTML, robots, sitemap and end-of-content ads on one indexability contract', async () => {

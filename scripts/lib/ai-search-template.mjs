@@ -24,6 +24,7 @@
 // ── Markdown markers (used to detect existing AI-search optimization) ──
 export const TLDR_HEADING_MARKER = '## In breve';
 export const KEY_FACTS_HEADING_MARKER = '## Fatti chiave';
+export const MAX_KEY_FACTS = 8;
 
 const TLDR_MARKERS_BY_LOCALE = {
   it: '## In breve',
@@ -75,7 +76,7 @@ export function hasAiSearchOptimization(body1) {
  *
  * @param {object} params
  * @param {string[]} params.tldr — 3-4 short bullet points (≤80 chars each)
- * @param {Array<{term: string, value: string}>} params.keyFacts — 3-8 facts
+ * @param {Array<{term: string, value: string}>} params.keyFacts — available facts, up to 8
  * @param {'it'|'en'|'de'|'fr'} [params.locale='it']
  * @returns {string} markdown block ending with `\n\n`
  */
@@ -83,8 +84,8 @@ export function buildAiSearchMarkdown({ tldr, keyFacts, locale = 'it' }) {
   if (!Array.isArray(tldr) || tldr.length < 2) {
     throw new Error('buildAiSearchMarkdown: tldr must be an array of ≥2 bullets');
   }
-  if (!Array.isArray(keyFacts) || keyFacts.length < 3) {
-    throw new Error('buildAiSearchMarkdown: keyFacts must be an array of ≥3 entries');
+  if (!Array.isArray(keyFacts) || keyFacts.length > MAX_KEY_FACTS) {
+    throw new Error(`buildAiSearchMarkdown: keyFacts must be an array of 0-${MAX_KEY_FACTS} entries`);
   }
   const tldrHeading = getTldrHeading(locale);
   const keyFactsHeading = getKeyFactsHeading(locale);
@@ -125,10 +126,10 @@ OGNI articolo DEVE includere all'inizio di body1, PRIMA del lead giornalistico:
    - <punto chiave 2>
    - <punto chiave 3>
 
-2) FATTI CHIAVE — sezione "## Fatti chiave" con 3-8 coppie termine→valore dalla fonte:
+2) FATTI CHIAVE — sezione "## Fatti chiave" con le sole coppie termine→valore disponibili (up to 8) dalla fonte:
    ## Fatti chiave
    Usa qualsiasi termine utile presente nella fonte (ad es. Cosa, Quando, Dove, Chi, Importo, Scadenza o Requisiti).
-   Ometti i campi assenti; niente placeholder.
+   Se la fonte contiene meno di tre fatti utili, usa solo quelli disponibili. Ometti i campi assenti; niente placeholder.
 
 DOPO queste due sezioni, prosegui con il lead giornalistico normale di body1.
 Le sezioni TL;DR + Fatti chiave NON contano verso il minimo parole di body1.
@@ -154,7 +155,7 @@ ${langInstr}
 
 Dato il seguente articolo, estrai:
 1) Un TL;DR (3-4 bullet, max 80 caratteri ciascuno) — i punti chiave più importanti.
-2) Una lista di "Fatti chiave" (3-8 coppie {term, value}) — dati presenti nell'articolo: cosa, quando, dove, chi, importo, scadenza, ecc.; ometti i campi assenti.
+2) Una lista di "Fatti chiave" (sole coppie {term, value} disponibili, up to 8) — dati presenti nell'articolo: cosa, quando, dove, chi, importo, scadenza, ecc.; anche se sono meno di tre, ometti i campi assenti.
 
 REGOLE:
 - Ogni fatto DEVE essere presente nel testo dell'articolo. NON inventare nulla.
@@ -196,15 +197,15 @@ export function validateBackfillPayload(payload) {
   // factual pieces routinely generate 13-27 keyFacts and verbose 7-bullet
   // tldrs; capping here recovers ~30 articles per backfill run.
   if (Array.isArray(obj.tldr) && obj.tldr.length > 6) obj.tldr.length = 6;
-  if (Array.isArray(obj.keyFacts) && obj.keyFacts.length > 12) obj.keyFacts.length = 12;
+  if (Array.isArray(obj.keyFacts) && obj.keyFacts.length > MAX_KEY_FACTS) obj.keyFacts.length = MAX_KEY_FACTS;
   if (!Array.isArray(tldr) || tldr.length < 2) {
     throw new Error(`validateBackfillPayload: tldr must be an array of 2-6 strings, got ${Array.isArray(tldr) ? tldr.length : typeof tldr}`);
   }
   if (!tldr.every((b) => typeof b === 'string' && b.length > 0 && b.length <= 200)) {
     throw new Error('validateBackfillPayload: every tldr bullet must be a non-empty string ≤200 chars');
   }
-  if (!Array.isArray(keyFacts) || keyFacts.length < 3) {
-    throw new Error(`validateBackfillPayload: keyFacts must be an array of 3-12 entries, got ${Array.isArray(keyFacts) ? keyFacts.length : typeof keyFacts}`);
+  if (!Array.isArray(keyFacts)) {
+    throw new Error(`validateBackfillPayload: keyFacts must be an array of 0-${MAX_KEY_FACTS} entries, got ${typeof keyFacts}`);
   }
   for (const kf of keyFacts) {
     if (!kf || typeof kf !== 'object') {
@@ -224,6 +225,7 @@ export function validateBackfillPayload(payload) {
 export default {
   TLDR_HEADING_MARKER,
   KEY_FACTS_HEADING_MARKER,
+  MAX_KEY_FACTS,
   getTldrHeading,
   getKeyFactsHeading,
   hasAiSearchOptimization,

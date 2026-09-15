@@ -32,7 +32,7 @@ import {
   buildTicinoCompleteRecords,
   parseTicinoPdfText,
 } from './lib/pharmacy-border-parser.mjs';
-import { OFCT_REGIONS } from './lib/pharmacy-ticino-parser.mjs';
+import { TICINO_DUTY_REGIONS } from './lib/pharmacy-duty-regions.mjs';
 
 const execFileAsync = promisify(execFile);
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -162,7 +162,7 @@ export function buildPharmacyReleaseContract({ catalogue, duties, evaluatedAt })
   const preservedRegions = new Set(Array.isArray(duties?._preservedRegions) ? duties._preservedRegions : []);
   const sourceErrors = Array.isArray(duties?._errors) ? duties._errors : [];
   const dutiesList = Array.isArray(duties?.duties) ? duties.duties : [];
-  const regions = Object.fromEntries(OFCT_REGIONS.map((region) => [
+  const regions = Object.fromEntries(TICINO_DUTY_REGIONS.map((region) => [
     region.key,
     buildRegionReleaseStatus(region, dutiesList, sourceErrors, preservedRegions, evaluationTime),
   ]));
@@ -173,7 +173,7 @@ export function buildPharmacyReleaseContract({ catalogue, duties, evaluatedAt })
     scope: {
       country: 'CH',
       canton: 'Ticino',
-      regions: OFCT_REGIONS.map((region) => region.key),
+      regions: TICINO_DUTY_REGIONS.map((region) => region.key),
     },
     timezone: PHARMACY_TIME_ZONE,
     state: aggregateReleaseState(catalogueFreshness, dutiesFreshness, regions, catalogue?._preserved === true),
