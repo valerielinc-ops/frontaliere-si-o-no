@@ -167,7 +167,7 @@ function workflowCommandSource(source) {
     if (!run) continue;
     const runIndent = run[1].length;
     const value = run[2].trim();
-    if (value === '' || /^[|>][+-]?\d*$/u.test(value)) {
+    if (value === '' || /^[|>][+-]?\d*(?:\s+#.*)?$/u.test(value)) {
       blockIndent = runIndent;
       blockContentIndent = null;
     }

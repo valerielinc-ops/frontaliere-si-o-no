@@ -111,6 +111,19 @@ describe('validate-modified-workflows', () => {
     expect(findings.find(({ rule }) => rule === 'direct-main-or-force-push')).toMatchObject({ line: 2 });
   });
 
+  it('keeps multiline run blocks after a YAML header comment', () => {
+    const workflow = [
+      'steps:',
+      '  - run: | # comment after the scalar header',
+      '      gh pr merge 123 --squash',
+      '  - run: > # folded scalar header comment',
+      '      firebase deploy',
+    ].join('\n');
+
+    expect(validateLoopFleetWorkflowText('.github/workflows/loop-l11-technical-operations.yml', workflow).map(({ rule }) => rule))
+      .toEqual(expect.arrayContaining(['manual-merge', 'production-deploy']));
+  });
+
   it('scans only run scalars and stops before the next step key', () => {
     const workflow = [
       'steps:',
