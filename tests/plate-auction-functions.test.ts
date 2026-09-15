@@ -84,10 +84,16 @@ describe('plate-auction Firestore batching', () => {
       value: { status: 'degraded', errorCode: 'source_disappeared' },
     });
     expect(firestore.sourceSets.find((entry) => entry.id === 'ti')).toMatchObject({
-      value: { status: 'blocked', rowCount: 0, errorCode: null },
+      value: { status: 'degraded', rowCount: 0, errorCode: 'zero_rows' },
     });
     expect(result.summaries.gr).toMatchObject({ status: 'degraded', errorCode: 'source_disappeared' });
-    expect(result.summaries.ti).toMatchObject({ status: 'blocked', rowCount: 0 });
+    expect(result.summaries.ti).toMatchObject({ status: 'degraded', rowCount: 0 });
+    const agMetadata = firestore.sourceSets.find((entry) => entry.id === 'ag')?.value;
+    expect(agMetadata).toMatchObject({
+      officialUrl: 'https://www.auktion-ag.ch',
+      parserVersion: '1.1.0',
+    });
+    expect(agMetadata?.availableFields).not.toContain('startingPriceChf');
   });
 
   it('closes expired rows even when the upstream feed returns zero rows', async () => {

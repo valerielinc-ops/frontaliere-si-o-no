@@ -46,6 +46,7 @@ if (!existsSync(outputPath)) {
     );
   }
   if (snapshot) {
+    const auctions = Array.isArray(snapshot.auctions) ? snapshot.auctions : [];
     const sourceKeys = Object.keys(snapshot.sources || {}).sort();
     const expectedKeys = Object.keys(registry.sources).sort();
     if (JSON.stringify(sourceKeys) !== JSON.stringify(expectedKeys))
@@ -55,9 +56,18 @@ if (!existsSync(outputPath)) {
 
     for (const [key, source] of Object.entries(registry.sources)) {
       const actual = snapshot.sources?.[key];
-      if (!actual) continue;
+      const sourceRows = auctions.filter((row) => String(row.sourceKey || row.platePrefix || '').toLowerCase() === key);
+      const actualRowCount = sourceRows.length;
+      if (!actual) {
+        errors.push(`${key}: snapshot source entry is missing`);
+        continue;
+      }
+      if (actual.status !== source.status)
+        errors.push(`${key}: snapshot status ${actual.status} does not match registry status ${source.status}`);
       if (forbiddenStatuses.has(actual.status))
         errors.push(`${key}: snapshot status ${actual.status}`);
+      if (typeof actual.rowCount !== "number" || actual.rowCount !== actualRowCount)
+        errors.push(`${key}: rowCount ${actual.rowCount} does not match ${actualRowCount} snapshot rows`);
       if (source.status === "active") {
         if (actual.status !== "active")
           errors.push(
@@ -68,14 +78,15 @@ if (!existsSync(outputPath)) {
           typeof actual.lastSuccessAt !== "string"
         )
           errors.push(`${key}: missing successful fetch timestamps`);
-        if (typeof actual.rowCount !== "number" || actual.rowCount < 1)
+        if (actualRowCount < 1)
           errors.push(`${key}: active source returned no rows`);
+      } else if (actualRowCount > 0) {
+        errors.push(`${key}: non-active source has ${actualRowCount} snapshot rows`);
       }
       if (typeof actual.lastCheckedAt !== "string")
         errors.push(`${key}: missing lastCheckedAt`);
     }
 
-    const auctions = Array.isArray(snapshot.auctions) ? snapshot.auctions : [];
     const expectedCounts = {
       active: auctions.filter((row) => row.auctionStatus === "active").length,
       upcoming: auctions.filter((row) => row.auctionStatus === "upcoming")

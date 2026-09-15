@@ -17,6 +17,8 @@ import { fetchSzPlateAuctions } from './connectors/sz.mjs';
 import { fetchTgPlateAuctions } from './connectors/tg.mjs';
 import { fetchVsPlateAuctions } from './connectors/vs.mjs';
 import { fetchZhPlateAuctions } from './connectors/zh.mjs';
+import { fetchTiPlateAuctions } from './connectors/ti.mjs';
+import { fetchExpandedCard, fetchExpandedEcari } from './connectors/expanded.mjs';
 import {
   checkPlateAuctionQuality,
   derivePlateAuctionDataConfidence,
@@ -25,11 +27,21 @@ import {
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DEFAULT_OUTPUT = resolve(__dirname, '../../public/data/plate-auctions.json');
 export const FETCHERS = {
+  ag: () => fetchExpandedCard('ag'),
+  ar: () => fetchExpandedEcari('ar'),
+  be: () => fetchExpandedCard('be'),
+  bl: () => fetchExpandedEcari('bl'),
+  fr: () => fetchExpandedEcari('fr'),
   gr: fetchGrPlateAuctions,
+  nw: () => fetchExpandedEcari('nw'),
+  ow: () => fetchExpandedEcari('ow'),
   sg: fetchSgPlateAuctions,
   sh: fetchShPlateAuctions,
+  so: () => fetchExpandedEcari('so'),
   sz: fetchSzPlateAuctions,
   tg: fetchTgPlateAuctions,
+  ti: fetchTiPlateAuctions,
+  vd: () => fetchExpandedCard('vd'),
   vs: fetchVsPlateAuctions,
   zh: fetchZhPlateAuctions,
 };

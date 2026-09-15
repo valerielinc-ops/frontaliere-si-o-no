@@ -5,6 +5,7 @@
  * snapshot and the deployed collector share the exact same implementation.
  */
 import {
+  buildEcariDetailUrl,
   extractEcariTabSection,
   fetchHtml,
   parseEcariAuctionRows,
@@ -39,7 +40,7 @@ export function parseEcariCantonAuctions(
         idSuffix === "auction"
           ? plateCode.toLowerCase()
           : `${plateCode.toLowerCase()}-${idSuffix}`,
-      detailUrlBuilder: () => officialAuctionUrl,
+      detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl(officialAuctionUrl, sourceRecordId),
     }),
   );
 }

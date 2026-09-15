@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /** Grigioni eAuction/eCari connector. */
 import {
+  buildEcariDetailUrl,
   extractEcariTabSection,
   fetchHtml,
   parseEcariAuctionRows,
@@ -27,7 +28,7 @@ export function parseGrAuctionRows(html, { fetchedAt = new Date().toISOString() 
       auctionStatus,
       listingType,
       idPrefix,
-      detailUrlBuilder: () => GR_AUCTION_URL,
+      detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl(GR_AUCTION_URL, sourceRecordId),
     },
   ));
 }

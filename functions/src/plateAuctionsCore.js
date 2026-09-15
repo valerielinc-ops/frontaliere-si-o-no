@@ -1,4 +1,12 @@
 import { createHash } from 'node:crypto';
+import { readFileSync } from 'node:fs';
+import https from 'node:https';
+import tls from 'node:tls';
+
+export const SWISSSIGN_RSA_TLS_OV_ICA_2022_1 = readFileSync(
+  new URL('./certs/swisssign-rsa-tls-ov-ica-2022-1.pem', import.meta.url),
+  'utf8',
+);
 
 /**
  * Pure parsers shared by the scheduled collector and the local connector
@@ -37,6 +45,27 @@ export function parseEcariDate(value) {
   const match = String(value || '').trim().match(ECARI_DATE_RE);
   if (!match) return undefined;
   return zurichLocalToUtcIso(...match.slice(1).map(Number));
+}
+
+export function buildEcariDetailUrl(officialAuctionUrl, sourceRecordId) {
+  if (!officialAuctionUrl || !sourceRecordId) return undefined;
+  try {
+    const url = new URL(officialAuctionUrl);
+    const pathname = url.pathname.replace(/\/+$/, '');
+    const uiIndex = pathname.toLowerCase().indexOf('/ui/app');
+    const auctionRoot = uiIndex >= 0
+      ? pathname.slice(0, uiIndex)
+      : pathname.match(/^(.*\/ecari(?:-auction|-auktion))$/i)?.[1];
+    if (!auctionRoot) return officialAuctionUrl;
+    const locale = url.searchParams.get('locale');
+    url.pathname = `${auctionRoot}/ui/app/details/app`;
+    url.search = '';
+    url.searchParams.set('id', String(sourceRecordId));
+    if (locale) url.searchParams.set('locale', locale);
+    return url.toString();
+  } catch {
+    return officialAuctionUrl;
+  }
 }
 
 export function extractEcariTabSection(html, tabContentId) {
@@ -100,7 +129,7 @@ export function parseEcariAuctionRows(
     const sourceRecordId = String(sourceId);
     const detailUrl = typeof detailUrlBuilder === 'function'
       ? detailUrlBuilder(sourceRecordId)
-      : undefined;
+      : buildEcariDetailUrl(officialAuctionUrl, sourceRecordId);
 
     const record = {
       id: `${idPrefix}-${sourceRecordId}`,
@@ -232,7 +261,51 @@ export function parseZhAuctionCards(
   return auctions;
 }
 
-export async function fetchHtml(url, { timeoutMs = 20000, userAgent, retries = 2, retryDelayMs = 750 } = {}) {
+function fetchHttpsText(url, { timeoutMs, userAgent, ca, redirectsRemaining = 4 } = {}) {
+  return new Promise((resolve, reject) => {
+    const request = https.request(url, {
+      method: 'GET',
+      headers: {
+        Accept: 'text/html,application/xhtml+xml',
+        'User-Agent': userAgent || process.env.JOBS_CRAWLER_USER_AGENT || 'FrontaliereTicinoBot/1.0',
+      },
+      ca: [...tls.rootCertificates, ca].join('\n'),
+    }, (response) => {
+      const chunks = [];
+      response.setEncoding('utf8');
+      response.on('data', (chunk) => chunks.push(chunk));
+      response.on('error', reject);
+      response.on('end', () => {
+        const status = response.statusCode || 0;
+        if (status >= 300 && status < 400 && response.headers.location && redirectsRemaining > 0) {
+          resolve(fetchHttpsText(new URL(response.headers.location, url), {
+            timeoutMs,
+            userAgent,
+            ca,
+            redirectsRemaining: redirectsRemaining - 1,
+          }));
+          return;
+        }
+        if (status < 200 || status >= 300) {
+          const error = new Error(`HTTP ${status} from ${url}`);
+          error.retryable = status === 408 || status === 425 || status === 429 || status >= 500;
+          reject(error);
+          return;
+        }
+        resolve(chunks.join(''));
+      });
+    });
+    request.setTimeout(timeoutMs, () => {
+      const error = new Error(`Timeout fetching ${url}`);
+      error.retryable = true;
+      request.destroy(error);
+    });
+    request.on('error', reject);
+    request.end();
+  });
+}
+
+export async function fetchHtml(url, { timeoutMs = 20000, userAgent, retries = 2, retryDelayMs = 750, ca } = {}) {
   const maxRetries = Number.isInteger(retries) && retries >= 0 ? retries : 2;
   let lastError;
 
@@ -240,6 +313,7 @@ export async function fetchHtml(url, { timeoutMs = 20000, userAgent, retries = 2
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeoutMs);
     try {
+      if (ca) return await fetchHttpsText(url, { timeoutMs, userAgent, ca });
       const response = await fetch(url, {
         redirect: 'follow',
         headers: {
