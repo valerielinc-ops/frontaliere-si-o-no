@@ -6426,6 +6426,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.consiglio-nazionale-cartella-sanitaria.title': 'New electronic health record: ok from the National Council',
     'blog.article.consiglio-nazionale-cartella-sanitaria.excerpt': 'The law for the new electronic health record in Switzerland has been approved. It will replace the previous infrastructure by 2030.',
     'blog.article.consiglio-nazionale-cartella-sanitaria.imageAlt': 'New electronic health record approved in Switzerland',
+    'blog.article.ssr-risparmi-270-milioni-2029.title': 'SRG: 270 million to be saved by 2029',
+    'blog.article.ssr-risparmi-270-milioni-2029.excerpt': 'The SRG starts the Enavant project to cut 270 million francs by 2029, with 80 million by 2027. 20% reduction in managers and stop in the Champions League.',
+    'blog.article.ssr-risparmi-270-milioni-2029.imageAlt': 'Swiss Parliament building in Bern, seat of federal decisions.',
 };
 
 export default blogMetaChEn;

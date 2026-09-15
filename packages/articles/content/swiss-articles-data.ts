@@ -19252,6 +19252,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ssr-risparmi-270-milioni-2029',
+    category: 'fiscale',
+    date: '2026-09-15T01:03:03.056Z',
+    image: '/images/blog/ssr-risparmi-270-milioni-2029.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
