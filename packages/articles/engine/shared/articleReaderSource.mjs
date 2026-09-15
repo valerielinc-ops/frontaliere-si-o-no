@@ -19,6 +19,54 @@ function invalidArgument(name) {
   throw new TypeError('parseArticleUrlSlugs: ' + name + ' must be a non-empty string');
 }
 
+function maskComments(source) {
+  const chars = source.split('');
+  let quote = null;
+  for (let index = 0; index < source.length; index += 1) {
+    const char = source[index];
+    if (quote) {
+      if (char === '\\') {
+        index += 1;
+      } else if (char === quote) {
+        quote = null;
+      }
+      continue;
+    }
+    if (char === "'" || char === '"' || char === '`') {
+      quote = char;
+      continue;
+    }
+    if (char === '/' && source[index + 1] === '/') {
+      chars[index] = ' ';
+      chars[index + 1] = ' ';
+      index += 2;
+      while (index < source.length && source[index] !== '\n' && source[index] !== '\r') {
+        chars[index] = ' ';
+        index += 1;
+      }
+      index -= 1;
+      continue;
+    }
+    if (char === '/' && source[index + 1] === '*') {
+      chars[index] = ' ';
+      chars[index + 1] = ' ';
+      index += 2;
+      while (index < source.length) {
+        if (source[index] === '*' && source[index + 1] === '/') {
+          chars[index] = ' ';
+          chars[index + 1] = ' ';
+          index += 2;
+          break;
+        }
+        if (source[index] !== '\n' && source[index] !== '\r') chars[index] = ' ';
+        index += 1;
+      }
+      index -= 1;
+    }
+  }
+  return chars.join('');
+}
+
 function skipTrivia(source, start = 0) {
   let index = start;
   while (index < source.length) {
@@ -110,7 +158,7 @@ function parseLocalizedEntry(articleId, body) {
 export function parseArticleUrlSlugs(source, slugConst) {
   if (typeof source !== 'string' || source.trim().length === 0) invalidArgument('source');
   if (typeof slugConst !== 'string' || slugConst.trim().length === 0) invalidArgument('slugConst');
-  const declaration = source.match(
+  const declaration = maskComments(source).match(
     new RegExp('\\bconst\\s+' + escapeRegex(slugConst) + '(?:\\s*:\\s*[^=\\n]+)?\\s*=\\s*\\{([\\s\\S]*?)\\}\\s*;', 'm'),
   );
   if (!declaration) {

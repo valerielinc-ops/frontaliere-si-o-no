@@ -96,11 +96,17 @@ describe('parseArticleUrlSlugs', () => {
   it('rejects comment-only maps and top-level content outside the entry grammar', () => {
     expect(() => parseArticleUrlSlugs(`const BLOG_SLUGS = {
       /* generated registry is empty */
-    };`, 'BLOG_SLUGS')).toThrow(/empty or malformed slug map/i);
+    };`, 'BLOG_SLUGS')).toThrow(/empty(?: or malformed)? slug map/i);
     expect(() => parseArticleUrlSlugs(`const BLOG_SLUGS = {
       'article': { it: 'it', en: 'en', de: 'de', fr: 'fr' },
       malformed: true,
     };`, 'BLOG_SLUGS')).toThrow(/malformed slug map/i);
+  });
+
+  it('does not treat a complete entry inside a comment as a slug registry row', () => {
+    expect(() => parseArticleUrlSlugs(`const BLOG_SLUGS = {
+      // 'stale': { it: 'it', en: 'en', de: 'de', fr: 'fr' },
+    };`, 'BLOG_SLUGS')).toThrow(/empty(?: or malformed)? slug map/i);
   });
 });
 
