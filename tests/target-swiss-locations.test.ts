@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   GRIGIONI_MUNICIPALITIES,
+  canonicalSwissCityName,
   inferAnyCanton,
   inferSwissTargetCanton,
   isCantonRelevant,
@@ -33,6 +34,11 @@ describe('target swiss locations', () => {
   it('keeps legacy locality aliases used by job boards after municipal mergers', () => {
     expect(isTicinoRelevant('Giubiasco, CH')).toBe(true);
     expect(inferSwissTargetCanton('Coira, Switzerland')).toBe('GR');
+  });
+
+  it('canonicalizes Davos sub-localities to their BFS municipality parent', () => {
+    expect(canonicalSwissCityName('Davos Platz')).toBe('Davos');
+    expect(canonicalSwissCityName('Davos Glaris')).toBe('Davos');
   });
 
   it('uses ambiguous raw municipality names once the canton disambiguates them', () => {

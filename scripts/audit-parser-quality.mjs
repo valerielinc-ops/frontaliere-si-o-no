@@ -443,7 +443,8 @@ function isUsableSourceLocation(value, context = {}) {
 function swissMunicipalityKey(value) {
   const text = plainText(value);
   if (!text || isCantonOnlyLabel(text)) return '';
-  return findSwissCityInText(text);
+  const found = findSwissCityInText(text);
+  return found ? normalizePlace(canonicalSwissCityName(found)) : '';
 }
 
 /**

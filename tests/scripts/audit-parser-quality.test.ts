@@ -301,6 +301,12 @@ describe('source-detail fidelity checks', () => {
     expect(sourceLocationMatches('Genève', 'Carouge, Genève')).toBe(false);
     expect(sourceLocationMatches('Zürich', 'Uster, Zürich')).toBe(false);
     expect(sourceLocationMatches('Carouge', 'Carouge La Praille')).toBe(true);
+    // Davos Platz and Davos Glaris are aliases for the BFS municipality Davos,
+    // not distinct communes. The parent mapping must remain symmetric and must
+    // not turn the neighbouring municipality Klosters into Davos.
+    expect(sourceLocationMatches('Davos', 'Davos Platz')).toBe(true);
+    expect(sourceLocationMatches('Davos Glaris', 'Davos')).toBe(true);
+    expect(sourceLocationMatches('Klosters', 'Davos Platz')).toBe(false);
     // Neither side resolves: no municipality, no match.
     expect(sourceLocationMatches('Madrid', 'Madrid Shared Services')).toBe(false);
     expect(sourceLocationMatches('Campus', 'Zürich, Region Zürich')).toBe(false);
