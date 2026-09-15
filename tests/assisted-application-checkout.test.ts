@@ -230,6 +230,50 @@ describe('handleCreateAssistedApplicationCheckout', () => {
     }));
   });
 
+  it('rotates after a terminal failed Checkout session instead of reusing its URL', async () => {
+    const {
+      handleCreateAssistedApplicationCheckout,
+      handleAssistedApplicationWebhookEvent,
+    } = await loadCheckout();
+
+    const first = await handleCreateAssistedApplicationCheckout(request());
+    await handleAssistedApplicationWebhookEvent({
+      type: 'checkout.session.async_payment_failed',
+      data: {
+        object: {
+          id: 'cs_assisted_1',
+          amount_total: 99,
+          currency: 'eur',
+          metadata: { product: 'assisted_application', orderId: first.body.orderId },
+        },
+      },
+    }, { db: firestore, ts: '__webhook_timestamp__' });
+
+    stripeCheckoutSessionsCreate.mockImplementationOnce(async () => ({
+      id: 'cs_assisted_2',
+      url: 'https://checkout.stripe.com/cs_assisted_2',
+    }));
+    const second = await handleCreateAssistedApplicationCheckout(request());
+
+    expect(second.body).toEqual({
+      ok: true,
+      url: 'https://checkout.stripe.com/cs_assisted_2',
+      orderId: 'order-2',
+    });
+    expect(stripeCheckoutSessionsCreate).toHaveBeenCalledTimes(2);
+    expect(stripeCheckoutSessionsCreate.mock.calls[1][1].idempotencyKey)
+      .not.toBe(stripeCheckoutSessionsCreate.mock.calls[0][1].idempotencyKey);
+    expect(store.assisted_applications['order-1']).toEqual(expect.objectContaining({
+      paymentStatus: 'failed',
+      checkoutSessionStatus: 'failed',
+    }));
+    expect(store.assisted_applications['order-2']).toEqual(expect.objectContaining({
+      paymentStatus: 'pending',
+      checkoutSessionStatus: 'open',
+      checkoutAttempt: 2,
+    }));
+  });
+
   it('rejects a reused request key when the checkout payload changes', async () => {
     const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
 

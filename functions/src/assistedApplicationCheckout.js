@@ -74,9 +74,13 @@ function checkoutAttemptFor(value) {
   return Number.isSafeInteger(result) && result > 0 ? result : 1;
 }
 
-function isExpiredCheckoutOrder(order) {
+function isTerminalCheckoutOrder(order) {
   return order?.checkoutSessionStatus === 'expired'
-    || order?.paymentFailureReason === 'checkout_session_expired';
+    || order?.checkoutSessionStatus === 'failed'
+    || order?.paymentStatus === 'failed'
+    || order?.paymentFailureReason === 'checkout_session_expired'
+    || order?.paymentFailureReason === 'payment_not_confirmed'
+    || order?.paymentFailureReason === 'amount_or_currency_missing_or_mismatch';
 }
 
 function stripeRequestKeyFor(requestRecord, requestKeyHash, checkoutAttempt) {
@@ -174,7 +178,7 @@ export async function handleCreateAssistedApplicationCheckout(req) {
         const existingOrderRef = orderCollection.doc(existingRecord.orderId);
         const existingOrderSnapshot = await transaction.get(existingOrderRef);
         const existingOrder = existingOrderSnapshot.exists ? existingOrderSnapshot.data() || {} : null;
-        if (existingOrderSnapshot.exists && !isExpiredCheckoutOrder(existingOrder)) {
+        if (existingOrderSnapshot.exists && !isTerminalCheckoutOrder(existingOrder)) {
           requestRecord = existingRecord;
           orderRef = existingOrderRef;
           checkoutAttempt = checkoutAttemptFor(existingRecord.checkoutAttempt);

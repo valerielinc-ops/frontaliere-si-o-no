@@ -6109,7 +6109,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [inlineAuthGateVisible]);
 
  const openDetail = (job: JobListing) => {
- if (!authResolved) return;
+  if (!authResolved) return;
  // Always navigate to the detail page — the inline auth gate handles
  // unauthenticated users with a blurred preview + sign-in form,
  // giving more context than a modal popup and boosting conversion.
@@ -6615,6 +6615,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
   }
  };
 
+ // A treatment click can happen on a list card while auth is still resolving.
+ // Keep the selected job queued and route it as soon as the detail host is
+ // allowed to open; otherwise the list has no offer mount and the click looks
+ // like a dead CTA.
+ useEffect(() => {
+  if (!assistedApplicationJob || isJobDetailView || !authResolved) return;
+  openDetail(assistedApplicationJob);
+ }, [assistedApplicationJob, authResolved, isJobDetailView]);
+
  const handleApply = (job: JobListing, surface = 'job_board_apply') => {
   const isExternal = isExternalApplicationJob(job);
   const eventId = trackPublisherApplySignals(
@@ -6646,7 +6655,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
   // List/card surfaces do not render the offer host themselves. Route those
   // clicks through the detail render, where `assistedApplicationOfferJsx` is
   // mounted, so the treatment CTA never becomes an invisible state update.
-  if (!isJobDetailView && !authResolved) return;
   setAssistedCheckoutError(null);
   setAssistedApplicationJob(job);
   if (!isJobDetailView) openDetail(job);

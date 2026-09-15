@@ -15,7 +15,10 @@ describe('assisted application JobBoard handoff', () => {
     const handleApply = jobBoardSource.slice(start, end);
 
     expect(handleApply).toMatch(
-      /if \(!isJobDetailView && !authResolved\) return;[\s\S]*setAssistedApplicationJob\(job\);[\s\S]*if \(!isJobDetailView\) openDetail\(job\);/,
+      /setAssistedApplicationJob\(job\);[\s\S]*if \(!isJobDetailView\) openDetail\(job\);/,
+    );
+    expect(jobBoardSource).toMatch(
+      /if \(!assistedApplicationJob \|\| isJobDetailView \|\| !authResolved\) return;[\s\S]*openDetail\(assistedApplicationJob\);/,
     );
   });
 
