@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Read-only outcome exporters for the three site-only loop ledgers.
+ * Read-only outcome exporters for the site-only loop ledgers.
  *
  * The script deliberately uses Google REST APIs and the native Node runtime:
  * the loop workflows are sparse checkouts and must not install dependencies.
@@ -12,8 +12,14 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { runHogQL } from '../lib/posthog-client.mjs';
+import {
+  DEFAULT_GA4_PROPERTY_ID,
+  GA4_READONLY_SCOPE,
+  ga4DateRange,
+} from '../lib/ga4-service-account.mjs';
 
 export const DEFAULT_L1_WINDOW_DAYS = 4;
+export const DEFAULT_L3_WINDOW_DAYS = 4;
 export const DEFAULT_L4_WINDOW_HOURS = 30;
 export const DEFAULT_L9_WINDOW_HOURS = 240;
 
@@ -89,12 +95,12 @@ function readServiceAccount() {
   return account;
 }
 
-function authJwt(serviceAccount) {
+function authJwt(serviceAccount, scope = 'https://www.googleapis.com/auth/cloud-platform') {
   const now = Math.floor(Date.now() / 1000);
   const header = encodeBase64Url(JSON.stringify({ alg: 'RS256', typ: 'JWT' }));
   const payload = encodeBase64Url(JSON.stringify({
     iss: serviceAccount.client_email,
-    scope: 'https://www.googleapis.com/auth/cloud-platform',
+    scope,
     aud: 'https://oauth2.googleapis.com/token',
     iat: now,
     exp: now + 3600,
@@ -144,9 +150,14 @@ async function responseText(response) {
 
 /** Minimal authenticated Google REST client used by the sparse workflows. */
 export class GoogleDataClient {
-  constructor({ serviceAccount = readServiceAccount(), fetchImpl = fetch } = {}) {
+  constructor({
+    serviceAccount = readServiceAccount(),
+    fetchImpl = fetch,
+    oauthScope = 'https://www.googleapis.com/auth/cloud-platform',
+  } = {}) {
     this.serviceAccount = serviceAccount;
     this.fetchImpl = fetchImpl;
+    this.oauthScope = oauthScope;
     this.token = null;
     this.tokenPromise = null;
   }
@@ -160,7 +171,7 @@ export class GoogleDataClient {
           headers: { 'content-type': 'application/x-www-form-urlencoded' },
           body: new URLSearchParams({
             grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
-            assertion: authJwt(this.serviceAccount),
+            assertion: authJwt(this.serviceAccount, this.oauthScope),
           }),
         });
         const body = await response.json().catch(() => ({}));
@@ -389,6 +400,105 @@ export async function exportL1({ inputPath, outputPath, now = new Date(), days =
   fs.mkdirSync(path.dirname(path.resolve(outputPath)), { recursive: true });
   fs.writeFileSync(path.resolve(outputPath), `${JSON.stringify(telemetry, null, 2)}\n`);
   return telemetry;
+}
+
+function normalizeGa4PropertyId(raw) {
+  const value = raw || process.env.GA4_PROPERTY_ID || DEFAULT_GA4_PROPERTY_ID;
+  return value.startsWith('properties/') ? value : `properties/${value}`;
+}
+
+function ga4EventSessionsBody({ eventName, startDate, endDate }) {
+  return {
+    dateRanges: [{ startDate, endDate }],
+    metrics: [{ name: 'sessions' }],
+    dimensionFilter: {
+      filter: {
+        fieldName: 'eventName',
+        stringFilter: { value: eventName, matchType: 'EXACT' },
+      },
+    },
+    limit: 1,
+  };
+}
+
+function nonNegativeCount(value, label) {
+  const parsed = typeof value === 'number' ? value : Number(value);
+  if (!Number.isInteger(parsed) || parsed < 0) throw new Error(`GA4 returned invalid ${label}`);
+  return parsed;
+}
+
+/**
+ * Read one exact GA4 event-session count. The event emitter validates the
+ * destination before recording `job_apply_handoff`; this exporter preserves
+ * that event as a handoff and never upgrades it to an application submission.
+ */
+export async function fetchL3EventSessions({ client, eventName, startDate, endDate, propertyId } = {}) {
+  const data = await client.request(
+    `https://analyticsdata.googleapis.com/v1beta/${normalizeGa4PropertyId(propertyId)}:runReport`,
+    {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(ga4EventSessionsBody({ eventName, startDate, endDate })),
+    },
+  );
+  const value = data?.rows?.[0]?.metricValues?.[0]?.value ?? 0;
+  return nonNegativeCount(value, `sessions for ${eventName}`);
+}
+
+export function buildL3OutcomeExport({
+  eligibleJobSessions,
+  validHandoffs,
+  generatedAt,
+  telemetryWindow,
+} = {}) {
+  return {
+    generatedAt,
+    independent: true,
+    eligibleJobSessions,
+    validHandoffs,
+    telemetryWindow,
+    evidence: {
+      source: 'GA4 Data API exact event-session export joined with L3 crawler summaries',
+      sourceRefs: ['job-crawler-summaries', 'application-handoff'],
+      sessionMetric: 'distinct GA4 sessions',
+      eventFilters: {
+        eligibleJobSessions: 'job_qualified_session',
+        validHandoffs: 'job_apply_handoff',
+      },
+      settledWindow: true,
+    },
+    export: {
+      schemaVersion: 1,
+      sourceRefs: ['ga4.job_qualified_session', 'ga4.job_apply_handoff'],
+      handoffIsNotApplication: true,
+      applicationSubmissionSource: 'not available from site telemetry',
+      publishedDataUntouched: true,
+      readOnly: true,
+    },
+  };
+}
+
+/**
+ * Export L3's independent outcome from GA4 without writing GA4, Firestore,
+ * job records or published corpus data. The two event counts are queried
+ * independently with exact event filters and a two-day settled window.
+ */
+export async function exportL3({ outputPath, now = new Date(), days = DEFAULT_L3_WINDOW_DAYS, propertyId = null, client = null } = {}) {
+  const analytics = client || new GoogleDataClient({ oauthScope: GA4_READONLY_SCOPE });
+  const range = ga4DateRange(days, 2, now);
+  const [eligibleJobSessions, validHandoffs] = await Promise.all([
+    fetchL3EventSessions({ client: analytics, eventName: 'job_qualified_session', ...range, propertyId }),
+    fetchL3EventSessions({ client: analytics, eventName: 'job_apply_handoff', ...range, propertyId }),
+  ]);
+  const outcome = buildL3OutcomeExport({
+    eligibleJobSessions,
+    validHandoffs,
+    generatedAt: now.toISOString(),
+    telemetryWindow: { ...range, lagDays: 2, source: 'GA4 settled calendar dates' },
+  });
+  fs.mkdirSync(path.dirname(path.resolve(outputPath)), { recursive: true });
+  fs.writeFileSync(path.resolve(outputPath), `${JSON.stringify(outcome, null, 2)}\n`);
+  return outcome;
 }
 
 function eventSet(rows) {
@@ -783,12 +893,22 @@ function valueAfter(argv, name, fallback = null) {
 export async function main({ argv = process.argv.slice(2) } = {}) {
   const loop = valueAfter(argv, '--loop');
   const outputPath = valueAfter(argv, '--out');
-  if (!['L1', 'L4', 'L9'].includes(loop)) throw new Error('--loop must be L1, L4 or L9');
+  if (!['L1', 'L3', 'L4', 'L9'].includes(loop)) throw new Error('--loop must be L1, L3, L4 or L9');
   if (!outputPath) throw new Error('--out is required');
   const now = new Date();
   if (loop === 'L1') {
     const inputPath = valueAfter(argv, '--input', valueAfter(argv, '--telemetry', 'data/error-triage-baseline.json'));
     return exportL1({ inputPath, outputPath, now });
+  }
+  if (loop === 'L3') {
+    const days = Number(valueAfter(argv, '--days', DEFAULT_L3_WINDOW_DAYS));
+    if (!Number.isInteger(days) || days < 1) throw new Error('--days must be a positive integer');
+    return exportL3({
+      outputPath,
+      now,
+      days,
+      propertyId: valueAfter(argv, '--property', null),
+    });
   }
   if (loop === 'L4') {
     return exportL4({

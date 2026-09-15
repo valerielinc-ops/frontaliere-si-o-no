@@ -10,7 +10,10 @@ on:
       - 'data/job-apply-outcome-baseline.json'
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l3-job-quality.mjs'
+      - 'scripts/ci/export-loop-outcomes.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
+      - 'scripts/lib/analytics-settled-window.mjs'
+      - 'scripts/lib/ga4-service-account.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
@@ -21,7 +24,10 @@ on:
       - 'data/job-apply-outcome-baseline.json'
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l3-job-quality.mjs'
+      - 'scripts/ci/export-loop-outcomes.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
+      - 'scripts/lib/analytics-settled-window.mjs'
+      - 'scripts/lib/ga4-service-account.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
@@ -56,7 +62,10 @@ jobs:
             /data/job-apply-outcome-baseline.json
             /data/loop-fleet/loop-registry.json
             /scripts/ci/loop-l3-job-quality.mjs
+            /scripts/ci/export-loop-outcomes.mjs
             /scripts/ci/record-loop-fleet-evidence.mjs
+            /scripts/lib/analytics-settled-window.mjs
+            /scripts/lib/ga4-service-account.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /scripts/lib/loop-fleet-outcome.mjs
             /scripts/lib/github-issue-creator.mjs
@@ -74,6 +83,21 @@ jobs:
             echo 'LOOP_FLEET_COLLISIONS=0'
             echo 'LOOP_FLEET_GATE_BYPASS=false'
           } >> "$GITHUB_ENV"
+      - name: Prepare read-only Firebase credentials
+        if: github.event_name != 'pull_request'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
+          chmod 600 "$RUNNER_TEMP/firebase-sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
+      - name: Export fresh L3 apply-handoff outcome
+        if: github.event_name != 'pull_request'
+        run: node scripts/ci/export-loop-outcomes.mjs --loop L3 --out "$RUNNER_TEMP/job-apply-outcome-baseline.json"
       - name: Audit job quality to apply
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -82,7 +106,9 @@ jobs:
         run: |
           set -o pipefail
           mkdir -p "$REPORT_DIR"
-          args=(--json --apply --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json --summary-dir data/jobs-crawler-summaries/by-crawler --outcomes data/job-apply-outcome-baseline.json)
+          outcome_path=data/job-apply-outcome-baseline.json
+          if [ "${{ github.event_name }}" != "pull_request" ]; then outcome_path="$RUNNER_TEMP/job-apply-outcome-baseline.json"; fi
+          args=(--json --apply --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json --summary-dir data/jobs-crawler-summaries/by-crawler --outcomes "$outcome_path")
           if [ "$ISSUE_ENABLED" = "true" ]; then
             args+=(--issue --strict)
           else
