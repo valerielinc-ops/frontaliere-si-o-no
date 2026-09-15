@@ -18,8 +18,9 @@ import {
   findArticlesNeedingBackfill,
   replaceBody1,
   listItBodyFiles,
+  buildRetrySystemPrompt,
 } from '../scripts/backfill-ai-search-optimization.mjs';
-import { hasAiSearchOptimization } from '../scripts/lib/ai-search-template.mjs';
+import { hasAiSearchOptimization, MAX_KEY_FACTS } from '../scripts/lib/ai-search-template.mjs';
 
 const SAMPLE_BODY_FILE_NO_OPT = `const bodyFoo: Record<string, string> = {
     'blog.article.foo.body1': 'Lead originale senza TL;DR.',
@@ -30,6 +31,21 @@ const SAMPLE_BODY_FILE_NO_OPT = `const bodyFoo: Record<string, string> = {
 
 export default bodyFoo;
 `;
+
+describe('buildRetrySystemPrompt()', () => {
+  it('keeps source-backed facts optional within the shared cap for every locale', () => {
+    for (const locale of ['it', 'en', 'de', 'fr']) {
+      const prompt = buildRetrySystemPrompt(locale);
+      expect(prompt).toContain(`0-${MAX_KEY_FACTS}`);
+      expect(prompt).toContain('0-2');
+      expect(prompt).not.toContain('3-12');
+    }
+  });
+
+  it('falls back to the Italian retry prompt for an unknown locale', () => {
+    expect(buildRetrySystemPrompt('unknown')).toBe(buildRetrySystemPrompt('it'));
+  });
+});
 
 const SAMPLE_BODY_FILE_WITH_OPT = `const bodyBar: Record<string, string> = {
     'blog.article.bar.body1': '## In breve\\n- punto 1\\n- punto 2\\n- punto 3\\n\\n## Fatti chiave\\n- **Cosa**: x\\n- **Quando**: y\\n- **Dove**: z\\n\\nLead vero dell\\'articolo.',

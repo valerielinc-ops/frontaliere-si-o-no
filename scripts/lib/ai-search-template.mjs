@@ -24,7 +24,7 @@
 // ── Markdown markers (used to detect existing AI-search optimization) ──
 export const TLDR_HEADING_MARKER = '## In breve';
 export const KEY_FACTS_HEADING_MARKER = '## Fatti chiave';
-const MAX_KEY_FACTS = 8;
+export const MAX_KEY_FACTS = 8;
 
 const TLDR_MARKERS_BY_LOCALE = {
   it: '## In breve',
@@ -225,6 +225,7 @@ export function validateBackfillPayload(payload) {
 export default {
   TLDR_HEADING_MARKER,
   KEY_FACTS_HEADING_MARKER,
+  MAX_KEY_FACTS,
   getTldrHeading,
   getKeyFactsHeading,
   hasAiSearchOptimization,
