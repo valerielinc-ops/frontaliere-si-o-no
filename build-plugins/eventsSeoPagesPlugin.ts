@@ -3078,18 +3078,31 @@ function renderLocationCard(event: SiteEvent, comune: string, dc: DetailCopy, ma
 
 function renderEventHero(event: SiteEvent, title: string, category: string, when: string, place: string): string {
   const hasEventImage = Boolean(event.imageUrl && event.imageUrl.startsWith('/'));
+  // MySwitzerland currently exposes a 222×222 catalogue thumbnail. Keep it as
+  // a soft colour cue in the backdrop, but never enlarge it into the
+  // meaningful foreground: crisp, site-owned typography is the honest fallback
+  // until the source provides a larger rendition.
+  const usesTypographicPoster = event.sourceKey === 'myswitzerland' && hasEventImage;
   const imageSrc = hasEventImage ? event.imageUrl! : catalogImagePath(event.category);
   const imageAlt = hasEventImage ? title : category;
   const venueOrPlace = event.venue || place;
+  const eventMeta = `${when}${event.startTime ? ` · ${event.startTime}` : ''} · ${venueOrPlace}`;
+  const foreground = usesTypographicPoster
+    ? `<div class="ev-hero-poster" role="img" aria-label="${esc(title)}">
+        <span class="ev-hero-poster-kicker" aria-hidden="true">${esc(category)}</span>
+        <strong class="ev-hero-poster-title" aria-hidden="true">${esc(title)}</strong>
+        <span class="ev-hero-poster-meta" aria-hidden="true">${esc(eventMeta)}</span>
+      </div>`
+    : `<img class="ev-heroimg" src="${esc(imageSrc)}" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async" alt="${esc(imageAlt)}">`;
   return `<figure class="ev-in ev-hero">
-    <div class="ev-hero-stage">
+    <div class="ev-hero-stage" data-hero-mode="${usesTypographicPoster ? 'poster' : 'image'}">
       <img class="ev-hero-backdrop" src="${esc(imageSrc)}" width="1200" height="675" loading="lazy" decoding="async" alt="" aria-hidden="true">
       <div class="ev-hero-surface">
-        <img class="ev-heroimg" src="${esc(imageSrc)}" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async" alt="${esc(imageAlt)}">
+        ${foreground}
       </div>
       <figcaption class="ev-hero-caption">
         <span class="ev-hero-caption-kicker">${esc(category)}</span>
-        <span>${esc(when)}${event.startTime ? ` · ${esc(event.startTime)}` : ''} · ${esc(venueOrPlace)}</span>
+        <span>${esc(eventMeta)}</span>
       </figcaption>
     </div>
   </figure>`;
@@ -3141,9 +3154,10 @@ export function renderEventDetailPage(params: {
   const visual = categoryVisual(event.category);
   // `imageUrl` only ever holds a mirrored site-relative path — see the same
   // guard in `renderEventCard`/`mirroredEventImageObject`. The hero keeps a
-  // square source flyer contained in a 16:9 stage instead of stretching it to
-  // the old `object-cover` banner, with a restrained tonal backdrop filling
-  // the surrounding space.
+  // source flyer contained in a 16:9 stage instead of stretching it to the
+  // old `object-cover` banner. Known 222×222 MySwitzerland thumbnails become
+  // a crisp typographic poster in the foreground, with the source image only
+  // supplying the restrained tonal backdrop.
   const heroImage = renderEventHero(event, title, cat, when, displayComune);
   const inlineAdMarker = '<!-- EVENT_INLINE_AD -->';
 
