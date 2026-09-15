@@ -1,8 +1,10 @@
 import {
+  buildEcariDetailUrl,
   extractEcariTabSection,
   fetchHtml,
   parseEcariAuctionRows,
   parseZhAuctionCards,
+  SWISSSIGN_RSA_TLS_OV_ICA_2022_1,
 } from './plateAuctionsCore.js';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY } from './plateAuctionSourceRegistry.js';
@@ -17,7 +19,57 @@ export const PLATE_AUCTION_HISTORY_COLLECTION = 'plate_auctions_history';
 export const PLATE_AUCTION_SOURCE_COLLECTION = 'plate_auction_sources';
 export const PLATE_AUCTION_API_SCHEMA = 1;
 
+function makeEcariConnector({ canton, plateCode, url, parserVersion = '2.0.0' }) {
+  return {
+    canton,
+    plateCode,
+    url,
+    parserVersion,
+    parse(html, fetchedAt) {
+      return parseEcariSource(html, {
+        canton,
+        plateCode,
+        officialAuctionUrl: url,
+        fetchedAt,
+      });
+    },
+  };
+}
+
+function makeCardConnector({ canton, plateCode, url, detailBaseUrl, parserVersion = '1.1.0' }) {
+  return {
+    canton,
+    plateCode,
+    url,
+    parserVersion,
+    parse(html, fetchedAt) {
+      return parseCardSource(html, {
+        canton,
+        plateCode,
+        officialAuctionUrl: url,
+        detailBaseUrl,
+        fetchedAt,
+      });
+    },
+  };
+}
+
 const CONNECTORS = {
+  ag: makeCardConnector({
+    canton: 'Argovia',
+    plateCode: 'AG',
+    url: 'https://www.auktion-ag.ch',
+    detailBaseUrl: 'https://www.auktion-ag.ch',
+  }),
+  ar: makeEcariConnector({ canton: 'Appenzello Esterno', plateCode: 'AR', url: 'https://eauktion.ar.ch/ecari-auction/ui/app/init' }),
+  be: makeCardConnector({
+    canton: 'Berna',
+    plateCode: 'BE',
+    url: 'https://www.auktion-be.ch/de/',
+    detailBaseUrl: 'https://www.auktion-be.ch',
+  }),
+  bl: makeEcariConnector({ canton: 'Basilea Campagna', plateCode: 'BL', url: 'https://eauktion.bl.ch/ecari-auction/ui/app/init' }),
+  fr: makeEcariConnector({ canton: 'Friburgo', plateCode: 'FR', url: 'https://appls.ocn.ch/ecari-auction/ui/app/init?locale=fr_ch' }),
   gr: {
     canton: 'Grigioni',
     plateCode: 'GR',
@@ -37,10 +89,13 @@ const CONNECTORS = {
         auctionStatus,
         listingType,
         idPrefix,
-        detailUrlBuilder: () => 'https://eauktion.gr.ch/',
+        detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl('https://eauktion.gr.ch/', sourceRecordId),
       }));
     },
   },
+  nw: makeEcariConnector({ canton: 'Nidvaldo', plateCode: 'NW', url: 'https://ecarinwprod.ilz.info/ecari-auction/' }),
+  ow: makeEcariConnector({ canton: 'Obvaldo', plateCode: 'OW', url: 'https://ecariowprod.ilz.info/ecari-auction/' }),
+  so: makeEcariConnector({ canton: 'Soletta', plateCode: 'SO', url: 'https://eauktion.so.ch/ecari-auction' }),
   vs: {
     canton: 'Vallese',
     plateCode: 'VS',
@@ -59,10 +114,16 @@ const CONNECTORS = {
         auctionStatus: status,
         listingType,
         idPrefix,
-        detailUrlBuilder: () => 'https://ecari.vs.ch/ecari-auction/',
+        detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl('https://ecari.vs.ch/ecari-auction/', sourceRecordId),
       }));
     },
   },
+  vd: makeCardConnector({
+    canton: 'Vaud',
+    plateCode: 'VD',
+    url: 'https://www.encheres-vd.ch/de/',
+    detailBaseUrl: 'https://www.encheres-vd.ch',
+  }),
   ti: {
     canton: 'Ticino',
     plateCode: 'TI',
@@ -82,7 +143,7 @@ const CONNECTORS = {
         auctionStatus,
         listingType,
         idPrefix,
-        detailUrlBuilder: () => 'https://www.carieauktion.ti.ch/ecari-auktion/',
+        detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl('https://www.carieauktion.ti.ch/ecari-auktion/', sourceRecordId),
       }));
     },
   },
@@ -177,7 +238,7 @@ function parseEcariSource(html, { canton, plateCode, officialAuctionUrl, fetched
       auctionStatus,
       listingType,
       idPrefix: idSuffix === 'auction' ? plateCode.toLowerCase() : `${plateCode.toLowerCase()}-${idSuffix}`,
-      detailUrlBuilder: () => officialAuctionUrl,
+      detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl(officialAuctionUrl, sourceRecordId),
     },
   ));
 }
@@ -345,19 +406,21 @@ export async function getPublicPlateAuctionSnapshot(db = getAdminDb()) {
   };
 }
 
-function sourceDocument(config, fetchedAt, patch = {}) {
+function sourceDocument(sourceKey, config, fetchedAt, patch = {}) {
+  const registrySource = PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY[sourceKey] || {};
   return {
-    canton: config.canton,
-    plateCode: config.plateCode,
-    officialUrl: config.url,
-    accessMethod: 'html-scrape',
-    fetchFrequency: 'PT6H',
-    timezone: 'Europe/Zurich',
-    parserVersion: config.parserVersion,
-    availableFields: ['sourceRecordId', 'plateNumber', 'listingType', 'vehicleType', 'startingPriceChf', 'minimumIncrementChf', 'currentBidChf', 'bidCount', 'endsAt', 'officialDetailUrl'],
-    rateLimit: 'collector capped at four fetches/day',
-    termsOfUse: 'review source terms before increasing frequency',
-    owner: 'platform',
+    canton: registrySource.canton || config.canton,
+    plateCode: registrySource.plateCode || config.plateCode,
+    officialUrl: registrySource.officialUrl || config.url,
+    accessMethod: registrySource.accessMethod || 'html-scrape',
+    fetchFrequency: registrySource.fetchFrequency || 'PT6H',
+    timezone: registrySource.timezone || 'Europe/Zurich',
+    parserVersion: registrySource.parserVersion || config.parserVersion,
+    availableFields: registrySource.availableFields || [],
+    rateLimit: registrySource.rateLimit || 'collector capped at four fetches/day',
+    termsOfUse: registrySource.termsOfUse || 'review source terms before increasing frequency',
+    owner: registrySource.owner || 'platform',
+    ...(registrySource.notes ? { notes: registrySource.notes } : {}),
     lastFetchedAt: fetchedAt,
     lastCheckedAt: fetchedAt,
     ...patch,
@@ -370,7 +433,10 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher = fetchH
   for (const [key, config] of Object.entries(CONNECTORS)) {
     if (PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY[key]?.status !== 'active') continue;
     try {
-      const html = await fetcher(config.url, { timeoutMs: 20000 });
+      const html = await fetcher(config.url, {
+        timeoutMs: 20000,
+        ...(key === 'fr' ? { ca: SWISSSIGN_RSA_TLS_OV_ICA_2022_1 } : {}),
+      });
       const parsedRows = config.parse(html, fetchedAt);
       const sourceRef = db.collection(PLATE_AUCTION_SOURCE_COLLECTION).doc(key);
       const previous = await db.collection(PLATE_AUCTION_COLLECTION).where('sourceKey', '==', config.plateCode).limit(2500).get();
@@ -395,7 +461,7 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher = fetchH
           }
           await batch.commit();
         }
-        await sourceRef.set(sourceDocument(config, fetchedAt, { status: 'degraded', rowCount: 0, errorCode: 'zero_rows' }), { merge: true });
+        await sourceRef.set(sourceDocument(key, config, fetchedAt, { status: 'degraded', rowCount: 0, errorCode: 'zero_rows' }), { merge: true });
         summaries[key] = { status: 'degraded', rowCount: 0, closedExpired: writes.length / 2 };
         continue;
       }
@@ -456,10 +522,10 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher = fetchH
       const sourcePatch = sourceDisappeared
         ? { status: 'degraded', rowCount: rows.length, errorCode: 'source_disappeared' }
         : { status: 'active', rowCount: rows.length, lastSuccessAt: fetchedAt, errorCode: null };
-      await sourceRef.set(sourceDocument(config, fetchedAt, sourcePatch), { merge: true });
+      await sourceRef.set(sourceDocument(key, config, fetchedAt, sourcePatch), { merge: true });
       summaries[key] = { status: sourcePatch.status, rowCount: rows.length, ...(sourceDisappeared ? { errorCode: 'source_disappeared' } : {}) };
     } catch (error) {
-      await db.collection(PLATE_AUCTION_SOURCE_COLLECTION).doc(key).set(sourceDocument(config, fetchedAt, { status: 'degraded', errorCode: 'fetch_failed', errorMessage: error instanceof Error ? error.message.slice(0, 180) : 'unknown_error' }), { merge: true });
+      await db.collection(PLATE_AUCTION_SOURCE_COLLECTION).doc(key).set(sourceDocument(key, config, fetchedAt, { status: 'degraded', errorCode: 'fetch_failed', errorMessage: error instanceof Error ? error.message.slice(0, 180) : 'unknown_error' }), { merge: true });
       summaries[key] = { status: 'degraded', errorCode: 'fetch_failed' };
       console.error(`[refreshPlateAuctions:${key}]`, error instanceof Error ? error.message : String(error));
     }

@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /** Ticino eCari connector. The institutional page points to this public portal. */
 import {
+  buildEcariDetailUrl,
   extractEcariTabSection,
   fetchHtml,
   parseEcariAuctionRows,
@@ -31,7 +32,7 @@ export function parseTiAuctionRows(html, { fetchedAt = new Date().toISOString() 
       auctionStatus,
       listingType,
       idPrefix,
-      detailUrlBuilder: () => TI_AUCTION_URL,
+      detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl(TI_AUCTION_URL, sourceRecordId),
     }),
   );
 }
