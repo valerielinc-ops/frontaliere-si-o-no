@@ -78,6 +78,17 @@ function sameCanonicalCheckoutOrder(left, right) {
     === JSON.stringify(canonicalCheckoutOrder(right));
 }
 
+function shouldIgnoreAssistedApplicationWebhook(currentOrder, sessionId) {
+  if (!currentOrder) return false;
+  const currentSessionId = boundedString(
+    currentOrder.stripeCheckoutSessionId || currentOrder.stripeSessionId,
+    200,
+  );
+  if (currentSessionId && sessionId && currentSessionId !== sessionId) return true;
+  if (currentOrder.submissionStatus === 'ready_for_manual_submission') return true;
+  return ['paid', 'failed', 'refunded'].includes(currentOrder.paymentStatus);
+}
+
 function metadataForOrder(order, userId) {
   return {
     product: ASSISTED_APPLICATION_PRODUCT,
@@ -397,6 +408,13 @@ export async function handleAssistedApplicationWebhookEvent(event, { db: dbFn, t
     ...(paymentFailureReason ? { paymentFailureReason } : {}),
   };
 
-  await dbFn().collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId).set(update, { merge: true });
+  const firestore = dbFn();
+  const orderRef = firestore.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
+  await firestore.runTransaction(async (transaction) => {
+    const currentSnapshot = await transaction.get(orderRef);
+    const currentOrder = currentSnapshot.exists ? currentSnapshot.data() || {} : null;
+    if (shouldIgnoreAssistedApplicationWebhook(currentOrder, obj.id)) return;
+    transaction.set(orderRef, update, { merge: true });
+  });
   return true;
 }

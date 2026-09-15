@@ -366,6 +366,71 @@ describe('handleAssistedApplicationWebhookEvent', () => {
     }));
   });
 
+  it('preserves a paid order when a stale failure event arrives later', async () => {
+    const {
+      handleCreateAssistedApplicationCheckout,
+      handleAssistedApplicationWebhookEvent,
+    } = await loadCheckout();
+    await handleCreateAssistedApplicationCheckout(request());
+
+    await handleAssistedApplicationWebhookEvent({
+      type: 'checkout.session.completed',
+      data: {
+        object: {
+          id: 'cs_assisted_1',
+          amount_total: 99,
+          currency: 'eur',
+          payment_status: 'paid',
+          metadata: { product: 'assisted_application', orderId: 'order-1' },
+        },
+      },
+    }, { db: firestore, ts: '__paid_timestamp__' });
+    await handleAssistedApplicationWebhookEvent({
+      type: 'checkout.session.expired',
+      data: {
+        object: {
+          id: 'cs_assisted_1',
+          metadata: { product: 'assisted_application', orderId: 'order-1' },
+        },
+      },
+    }, { db: firestore, ts: '__stale_timestamp__' });
+
+    expect(store.assisted_applications['order-1']).toEqual(expect.objectContaining({
+      paymentStatus: 'paid',
+      submissionStatus: 'awaiting_upload',
+      paidAt: '__paid_timestamp__',
+      updatedAt: '__paid_timestamp__',
+    }));
+  });
+
+  it('ignores an event for a session different from the persisted checkout attempt', async () => {
+    const {
+      handleCreateAssistedApplicationCheckout,
+      handleAssistedApplicationWebhookEvent,
+    } = await loadCheckout();
+    await handleCreateAssistedApplicationCheckout(request());
+
+    await handleAssistedApplicationWebhookEvent({
+      type: 'checkout.session.completed',
+      data: {
+        object: {
+          id: 'cs_stale_session',
+          amount_total: 99,
+          currency: 'eur',
+          payment_status: 'paid',
+          metadata: { product: 'assisted_application', orderId: 'order-1' },
+        },
+      },
+    }, { db: firestore, ts: '__stale_timestamp__' });
+
+    expect(store.assisted_applications['order-1']).toEqual(expect.objectContaining({
+      paymentStatus: 'pending',
+      submissionStatus: 'awaiting_payment',
+      stripeCheckoutSessionId: 'cs_assisted_1',
+    }));
+    expect(store.assisted_applications['order-1'].stripeSessionId).toBeUndefined();
+  });
+
   it('does not promote a completed session whose Stripe payment is not paid', async () => {
     const { handleAssistedApplicationWebhookEvent } = await loadCheckout();
 
