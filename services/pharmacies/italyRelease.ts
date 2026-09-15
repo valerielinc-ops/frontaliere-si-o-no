@@ -320,6 +320,11 @@ function httpsUrl(value: unknown): string | null {
   }
 }
 
+function isItalyDutyProvince(value: unknown): value is ItalyDutyProvince {
+  return typeof value === 'string'
+    && ITALY_DUTY_RELEASE_PROVINCES.includes(value as ItalyDutyProvince);
+}
+
 function catalogueRecords(catalogue: unknown): Record<string, unknown>[] {
   const raw = isRecord(catalogue) ? catalogue.pharmacies : catalogue;
   return Array.isArray(raw) ? raw.filter(isRecord) : [];
@@ -327,9 +332,28 @@ function catalogueRecords(catalogue: unknown): Record<string, unknown>[] {
 
 function buildItalyDutySourceRegistry(sources: unknown): ItalyDutySourceRegistry {
   const raw = isRecord(sources) ? sources.sources : sources;
-  const entries = Array.isArray(raw) ? raw : [];
   const byProvince = new Map<ItalyDutyProvince, ItalyDutySourceDescriptor>();
   const errors: string[] = [];
+  if (!isRecord(sources)) {
+    errors.push('source registry: expected an object');
+    return { byProvince, errors };
+  }
+  if (sources.version !== ITALY_DUTY_RELEASE_VERSION) errors.push('source registry: unsupported version');
+  if (sources.timezone !== ITALY_DUTY_RELEASE_TIMEZONE) errors.push(`source registry timezone must be ${ITALY_DUTY_RELEASE_TIMEZONE}`);
+  const scope = sources.scope;
+  const expectedProvinces = [...ITALY_DUTY_RELEASE_PROVINCES];
+  if (!isRecord(scope)
+    || scope.country !== 'IT'
+    || !Array.isArray(scope.provinces)
+    || scope.provinces.length !== expectedProvinces.length
+    || scope.provinces.some((province, index) => province !== expectedProvinces[index])) {
+    errors.push('source registry scope must be IT/CO,VA,VB');
+  }
+  if (!Array.isArray(raw)) {
+    errors.push('source registry: sources must be an array');
+    return { byProvince, errors };
+  }
+  const entries = raw;
 
   entries.forEach((entry, index) => {
     if (!isRecord(entry)) {
@@ -425,8 +449,8 @@ function validateItalyDutyRows(
   const records = catalogueRecords(catalogue);
   rows.forEach((row, index) => {
     if (!isRecord(row)) return;
-    const province = row.province as ItalyDutyProvince;
-    if (!ITALY_DUTY_RELEASE_PROVINCES.includes(province)) {
+    const province = isItalyDutyProvince(row.province) ? row.province : null;
+    if (!province) {
       errors.push(`duty[${index}]: invalid Italian province`);
     }
     if (row.coverageType !== 'province') errors.push(`duty[${index}]: Italian duty must use province coverage`);
@@ -442,9 +466,9 @@ function validateItalyDutyRows(
       }
     }
 
-    const source = sources.byProvince.get(province);
+    const source = province ? sources.byProvince.get(province) : undefined;
     if (!source) {
-      errors.push(`duty[${index}]: no unique official source is registered for ${province}`);
+      errors.push(`duty[${index}]: no unique official source is registered for ${province || 'unknown'}`);
     } else {
       if (row.coverageName !== source.name) errors.push(`duty[${index}]: coverageName does not match the official province source`);
       if (row.sourceUrl !== source.officialSourceUrl) errors.push(`duty[${index}]: sourceUrl does not match the official province source`);

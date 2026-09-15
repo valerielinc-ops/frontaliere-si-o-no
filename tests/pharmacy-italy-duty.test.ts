@@ -2,6 +2,7 @@
 import { describe, expect, it } from 'vitest';
 import dutiesJson from '../data/pharmacy-duties-italy.json';
 import statusJson from '../data/pharmacy-duties-italy-status.json';
+import sourcesJson from '../data/pharmacy-duties-italy-sources.json';
 import {
   buildAtomicItalyDutySnapshots,
   ITALY_DUTY_RELEASE_MAX_AGE_MS,
@@ -121,21 +122,37 @@ describe('Italian duty week read model', () => {
     expect(identityEvaluation.reasons).toContain('Italy duties snapshot contains invalid entries');
     expect(isItalyDutyReleasePublishable(identityTampered)).toBe(false);
 
-    const sourceTampered = buildAtomicItalyDutySnapshots({
-      duties: {
-        ...snapshots.duties,
-        duties: [{ ...rows[0], coverageName: 'Varese', sourceUrl: PROVINCES[1].sourceUrl }, ...rows.slice(1)],
-      },
+    const sourceTamperingCases = [
+      { coverageName: 'Varese' },
+      { sourceUrl: PROVINCES[1].sourceUrl },
+      { sourceType: 'association' },
+    ];
+    for (const changes of sourceTamperingCases) {
+      const sourceTampered = buildAtomicItalyDutySnapshots({
+        duties: { ...snapshots.duties, duties: [{ ...rows[0], ...changes }, ...rows.slice(1)] },
+        status: snapshots.status,
+        evaluatedAt: FETCHED_AT,
+      });
+      const sourceEvaluation = evaluateItalyDutyRelease({
+        duties: sourceTampered.duties,
+        status: sourceTampered.status,
+        now: NOW,
+      });
+      expect(sourceEvaluation.publishable).toBe(false);
+      expect(sourceEvaluation.reasons).toContain('Italy duties snapshot contains invalid entries');
+    }
+
+    const invalidProvince = buildAtomicItalyDutySnapshots({
+      duties: { ...snapshots.duties, duties: [{ ...rows[0], province: 42 }, ...rows.slice(1)] },
       status: snapshots.status,
       evaluatedAt: FETCHED_AT,
     });
-    const sourceEvaluation = evaluateItalyDutyRelease({
-      duties: sourceTampered.duties,
-      status: sourceTampered.status,
+    expect(() => evaluateItalyDutyRelease({
+      duties: invalidProvince.duties,
+      status: invalidProvince.status,
       now: NOW,
-    });
-    expect(sourceEvaluation.publishable).toBe(false);
-    expect(sourceEvaluation.reasons).toContain('Italy duties snapshot contains invalid entries');
+    })).not.toThrow();
+    expect(evaluateItalyDutyRelease({ duties: invalidProvince.duties, status: invalidProvince.status, now: NOW }).publishable).toBe(false);
   });
 
   it('fails closed when a province status carries source errors or malformed diagnostics', () => {
@@ -172,6 +189,42 @@ describe('Italian duty week read model', () => {
     });
     expect(malformedEvaluation.publishable).toBe(false);
     expect(malformedEvaluation.reasons).toContain('Italy status snapshot contains invalid province entries');
+
+    const sourceIdentityTampered = buildAtomicItalyDutySnapshots({
+      duties: snapshots.duties,
+      status: {
+        ...snapshots.status,
+        _provinces: { ...provinces, CO: { ...provinces.CO, sourceKey: PROVINCES[1].sourceKey } },
+      },
+      evaluatedAt: FETCHED_AT,
+    });
+    const sourceIdentityEvaluation = evaluateItalyDutyRelease({
+      duties: sourceIdentityTampered.duties,
+      status: sourceIdentityTampered.status,
+      now: NOW,
+    });
+    expect(sourceIdentityEvaluation.publishable).toBe(false);
+    expect(sourceIdentityEvaluation.reasons).toContain('Italy status snapshot contains invalid province entries');
+  });
+
+  it('fails closed when the Italy source registry envelope is malformed', () => {
+    const snapshots = freshSnapshots();
+    const malformedRegistries = [
+      { ...sourcesJson, version: 2 },
+      { ...sourcesJson, timezone: 'Europe/Zurich' },
+      { ...sourcesJson, scope: { ...sourcesJson.scope, country: 'CH' } },
+      { ...sourcesJson, sources: sourcesJson.sources.slice(1) },
+    ];
+    for (const sources of malformedRegistries) {
+      const evaluation = evaluateItalyDutyRelease({
+        duties: snapshots.duties,
+        status: snapshots.status,
+        now: NOW,
+        sources,
+      });
+      expect(evaluation.publishable).toBe(false);
+      expect(evaluation.reasons).toContain('Italy duty source registry is invalid');
+    }
   });
 
   it('fails closed when global diagnostics or the all-sources flag are malformed', () => {
