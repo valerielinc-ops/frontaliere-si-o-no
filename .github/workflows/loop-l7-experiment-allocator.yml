@@ -68,6 +68,7 @@ jobs:
             /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /scripts/lib/loop-fleet-outcome.mjs
+            /scripts/lib/posthog-client.mjs
             /scripts/lib/github-issue-creator.mjs
             /.github/workflows/loop-l7-experiment-allocator.yml
           sparse-checkout-cone-mode: false

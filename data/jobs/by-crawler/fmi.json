@@ -2843,7 +2843,12 @@
         "assistente-a-perioperatorio-a-poa-60-100-spitaler-fmi-ag-unterseen",
         "perioperative-assistant-poa-60-100-spitaler-fmi-ag-unterseen",
         "perioperative-r-assistent-in-poa-60-100-fmi-unterseen",
-        "assistant-perioperatoire-poa-60-100-spitaler-fmi-ag-unterseen"
+        "assistant-perioperatoire-poa-60-100-spitaler-fmi-ag-unterseen",
+        "segretario-medico-ortopedia-30-spitaler-fmi-ag-unterseen",
+        "medical-secretary-orthopaedics-30-spitaler-fmi-ag-unterseen",
+        "arztsekretar-in-orthopadie-30-fmi-unterseen",
+        "secretaire-medical-orthopedique-30-spitaler-fmi-ag-unterseen",
+        "arztsekretar-in-orthopala-30-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2852,19 +2857,27 @@
           "assistente-a-perioperatorio-a-poa-60-100-spitaler-fmi-ag-unterseen",
           "perioperative-assistant-poa-60-100-spitaler-fmi-ag-unterseen",
           "perioperative-r-assistent-in-poa-60-100-fmi-unterseen",
-          "assistant-perioperatoire-poa-60-100-spitaler-fmi-ag-unterseen"
+          "assistant-perioperatoire-poa-60-100-spitaler-fmi-ag-unterseen",
+          "segretario-medico-ortopedia-30-spitaler-fmi-ag-unterseen",
+          "medical-secretary-orthopaedics-30-spitaler-fmi-ag-unterseen",
+          "arztsekretar-in-orthopadie-30-fmi-unterseen",
+          "secretaire-medical-orthopedique-30-spitaler-fmi-ag-unterseen",
+          "arztsekretar-in-orthopala-30-spitaler-fmi-ag-unterseen"
         ],
         "en": [
           "assistant-physician-80-100-spitaler-fmi-ag-unterseen",
           "assistenzarztin-assistenzarzt-80-100-fmi-unterseen-2",
-          "perioperative-assistant-poa-60-100-spitaler-fmi-ag-unterseen"
+          "perioperative-assistant-poa-60-100-spitaler-fmi-ag-unterseen",
+          "medical-secretary-orthopaedics-30-spitaler-fmi-ag-unterseen"
         ],
         "de": [
-          "perioperative-r-assistent-in-poa-60-100-fmi-unterseen"
+          "perioperative-r-assistent-in-poa-60-100-fmi-unterseen",
+          "arztsekretar-in-orthopadie-30-fmi-unterseen"
         ],
         "fr": [
           "assistenzarztin-assistenzarzt-80-100-fmi-unterseen-2",
-          "assistant-perioperatoire-poa-60-100-spitaler-fmi-ag-unterseen"
+          "assistant-perioperatoire-poa-60-100-spitaler-fmi-ag-unterseen",
+          "secretaire-medical-orthopedique-30-spitaler-fmi-ag-unterseen"
         ]
       },
       "firstSeenAt": "2026-05-19T22:14:28.074Z",
@@ -3568,18 +3581,31 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachperson-hf-40-80-fmi-unterseen",
-        "pflegefachperson-hf-40-80-spitaler-fmi-ag-unterseen"
+        "pflegefachperson-hf-40-80-spitaler-fmi-ag-unterseen",
+        "pflegefachperson-hf-o-sozialpadagogin-sozialpadagoge-hf-50-65-spitaler-fmi-ag-unterseen",
+        "nurse-hf-or-social-pedagogue-social-pedagogue-hf-50-65-spitaler-fmi-ag-unterseen",
+        "pflegefachperson-hf-oder-sozialpadagogin-sozialpadagoge-hf-50-65-fmi-unterseen",
+        "infirmiere-hf-ou-pedagogue-sociale-pedagogue-sociale-hf-50-65-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-hf-40-80-fmi-unterseen",
-          "pflegefachperson-hf-40-80-spitaler-fmi-ag-unterseen"
+          "pflegefachperson-hf-40-80-spitaler-fmi-ag-unterseen",
+          "pflegefachperson-hf-o-sozialpadagogin-sozialpadagoge-hf-50-65-spitaler-fmi-ag-unterseen",
+          "nurse-hf-or-social-pedagogue-social-pedagogue-hf-50-65-spitaler-fmi-ag-unterseen",
+          "pflegefachperson-hf-oder-sozialpadagogin-sozialpadagoge-hf-50-65-fmi-unterseen",
+          "infirmiere-hf-ou-pedagogue-sociale-pedagogue-sociale-hf-50-65-spitaler-fmi-ag-unterseen"
         ],
         "en": [
-          "pflegefachperson-hf-40-80-spitaler-fmi-ag-unterseen"
+          "pflegefachperson-hf-40-80-spitaler-fmi-ag-unterseen",
+          "nurse-hf-or-social-pedagogue-social-pedagogue-hf-50-65-spitaler-fmi-ag-unterseen"
         ],
         "fr": [
-          "pflegefachperson-hf-40-80-spitaler-fmi-ag-unterseen"
+          "pflegefachperson-hf-40-80-spitaler-fmi-ag-unterseen",
+          "infirmiere-hf-ou-pedagogue-sociale-pedagogue-sociale-hf-50-65-spitaler-fmi-ag-unterseen"
+        ],
+        "de": [
+          "pflegefachperson-hf-oder-sozialpadagogin-sozialpadagoge-hf-50-65-fmi-unterseen"
         ]
       },
       "firstSeenAt": "2026-07-07T22:15:44.353Z",

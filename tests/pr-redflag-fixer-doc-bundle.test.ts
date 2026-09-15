@@ -52,7 +52,8 @@ describe('pr-redflag-fixer prefetches its binding document sections', () => {
     expect(result.stdout).toContain('Mai abbassare quality threshold/test tolerance');
     expect(result.stdout).toContain('Git identity canonica');
 
-    expect(run).toContain('git fetch --no-tags --depth=1 origin main:refs/remotes/origin/main');
+    expect(run).toContain('git fetch --no-tags origin main:refs/remotes/origin/main');
+    expect(run).not.toContain('--depth=1');
     expect(run).toContain('git show "origin/main:$doc"');
     expect(run).toContain('REDFLAG_DOC_ROOT="$OUT/canonical-docs"');
     expect(run).toContain('node scripts/ci/redflag-doc-sections.mjs');

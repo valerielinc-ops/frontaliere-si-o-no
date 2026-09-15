@@ -56,6 +56,22 @@ describe('loop fleet workflow contract', () => {
     }
   });
 
+  it('refreshes L5 and L7 evidence from PostHog without committing source exports', () => {
+    const contracts = [
+      ['loop-l5-decision-moments.yml', 'Export fresh L5 outcomes', '$RUNNER_TEMP/decision-moment-outcomes.json'],
+      ['loop-l7-experiment-allocator.yml', 'Export fresh L7 outcomes', '$RUNNER_TEMP/experiment-outcomes.json'],
+    ];
+    for (const [name, step, outputPath] of contracts) {
+      const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
+      expect(source, name).toContain('scripts/ci/export-loop-outcomes.mjs');
+      expect(source, name).toContain('scripts/lib/posthog-client.mjs');
+      expect(source, name).toContain(step);
+      expect(source, name).toContain(outputPath);
+      expect(source, name).toContain('outcomes_path=');
+      expect(source, name).toContain("if: github.event_name != 'pull_request'");
+    }
+  });
+
   it('fa leggere L10 dal ledger health canonico', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'loop-l10-fleet-control.yml'), 'utf8');
     expect(source).toContain('data/loop-fleet/ledger/loop-health-history.jsonl');

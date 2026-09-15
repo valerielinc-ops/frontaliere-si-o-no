@@ -83,6 +83,12 @@ function requireFullCheckoutForVerdict() {
   console.error('  È un problema di ambiente, non di codice: esegui il comando in CI o da un checkout PIENO con data/ e public/ materializzati.');
   process.exit(2);
 }
+
+function rejectDryRunInCi() {
+  if (process.env.VITEST_RELATED_DRY_RUN !== 'true' || process.env.GITHUB_ACTIONS !== 'true') return;
+  console.error('VITEST_RELATED_DRY_RUN non è consentito in GitHub Actions: esecuzione bloccante annullata.');
+  process.exit(1);
+}
 // These dependencies are wired by Vitest/configuration or executed through a
 // path string, so no static import edge can reliably reach their consumers.
 const importRe = /(?:import\s+(?:[^'";]*?\s+from\s+)?|export\s+[^'";]*?\s+from\s+|import\s*\(|require\s*\()(['"])([^'"]+)\1/g;
@@ -307,6 +313,7 @@ const candidates = [...new Set(changed.filter((file) =>
     && (sourceRe.test(file) || githubAssetRe.test(file) || testFixtureRe.test(file))
     && !alwaysExcludedTests.has(file)))];
 const forceFull = changedStatus !== 'complete';
+rejectDryRunInCi();
 requireFullCheckoutForVerdict();
 if (candidates.length === 0 && !forceFull) {
   console.log('No existing source/test files in the diff → related-only run has no tests.');
@@ -319,6 +326,7 @@ function changedAssetsFromDiff() {
     process.env.GITHUB_BASE_REF ? `origin/${process.env.GITHUB_BASE_REF}` : null,
     'origin/main',
   ].filter(Boolean))];
+  let lastError = null;
   for (const ref of refs) {
     let base;
     try {
@@ -326,7 +334,8 @@ function changedAssetsFromDiff() {
         encoding: 'utf8',
         stdio: ['ignore', 'pipe', 'ignore'],
       }).trim();
-    } catch {
+    } catch (error) {
+      lastError = error;
       continue;
     }
     try {
@@ -344,9 +353,13 @@ function changedAssetsFromDiff() {
         }
       }
       return assets;
-    } catch {
-      return [];
+    } catch (error) {
+      lastError = error;
+      continue;
     }
+  }
+  if (lastError) {
+    console.warn(`Unable to inspect changed related-test assets from any base ref: ${lastError.message || lastError}`);
   }
   return [];
 }
@@ -442,10 +455,6 @@ if (tests.length === 0) process.exit(0);
 // Se trapelasse nel job bloccante, fallire esplicitamente e' piu' sicuro che
 // uscire 0 senza eseguire un solo test, indistinguibile da una selezione vuota.
 if (process.env.VITEST_RELATED_DRY_RUN === 'true') {
-  if (process.env.GITHUB_ACTIONS === 'true') {
-    console.error('VITEST_RELATED_DRY_RUN non e\' consentito in GitHub Actions: esecuzione bloccante annullata.');
-    process.exit(1);
-  }
   process.exit(0);
 }
 
