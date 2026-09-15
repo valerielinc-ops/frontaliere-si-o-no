@@ -246,14 +246,17 @@ describe('pharmacy directory page matrix', () => {
     expect(page.html).toContain('Luganese');
     expect(page.html).toContain('Bellinzonese');
     expect(page.html).toContain('Biasca e Valli');
-    expect(page.html).toContain('Non coperto in questa edizione');
+    expect(page.html).toContain('Locarnese');
+    expect(page.html).toContain('<table');
+    expect(page.html).toMatch(/\d{2}\.\d{2}\.\d{4}/);
+    expect(page.html).not.toContain('Non coperto in questa edizione');
     expect(page.html).toContain('"@type":"ItemList"');
 
     const tampered = {
       ...dutiesJson,
       _release: { ...dutiesJson._release, state: 'partial' },
     } as unknown as PharmacyDutiesDataset;
-    const tamperedPage = buildPharmacyDirectoryPage(descriptor!, 'it', '/tmp/pharmacy-dist', tampered, now);
+    const tamperedPage = buildPharmacyDirectoryPage(validDescriptor, 'it', '/tmp/pharmacy-dist', tampered, now);
     expect(tamperedPage.indexable).toBe(false);
     expect(tamperedPage.html).toContain('noindex,follow');
     expect(tamperedPage.html).not.toContain('"@type":"ItemList"');

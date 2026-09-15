@@ -1,13 +1,14 @@
 #!/usr/bin/env node
 /**
- * Polite daily importer for the four server-rendered OFCT duty tables.
- * Locarnese is deliberately not included: its separate site has no complete
- * anagraphic table, so publishing a pharmacy identity there would be unsafe.
+ * Polite daily importer for the server-rendered Ticino duty tables.
+ * Locarnese rows are emitted only after a unique match to the current Ticino
+ * catalogue; its source never supplies an anagraphic to copy into this file.
  */
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { OFCT_REGIONS } from './lib/pharmacy-ticino-parser.mjs';
+import { TICINO_DUTY_REGIONS } from './lib/pharmacy-duty-regions.mjs';
+import { buildLocarnesePharmacyDuties } from './lib/pharmacy-locarnese-parser.mjs';
 import { buildPharmacyDuties } from './lib/pharmacy-ticino-duty-parser.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -19,7 +20,7 @@ const OUTPUT_DATA_PATH = STAGE_DIR ? resolve(STAGE_DIR, 'pharmacy-duties-ticino.
 const OUTPUT_STATUS_PATH = STAGE_DIR ? resolve(STAGE_DIR, 'pharmacy-duties-ticino-status.json') : null;
 const STATUS_PATH = resolve(REPO_ROOT, 'data/pharmacy-duties-ticino-status.json');
 const DUTY_SOURCE = 'https://www.ofct.ch/farmacieturno/';
-const DUTY_SOURCE_REGIONS = Object.freeze(OFCT_REGIONS.map((region) => region.url));
+export const DUTY_SOURCE_REGIONS = Object.freeze(TICINO_DUTY_REGIONS.map((region) => region.url));
 const USER_AGENT = 'FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/bot)';
 const CRAWL_DELAY_MS = 10_000;
 const timeoutMs = 15_000;
@@ -44,6 +45,18 @@ export function reclassifyPreservedDuties(duties, now = new Date()) {
     if (!duty || duty.status !== 'verified' || !Number.isFinite(endsAtMs) || endsAtMs > nowMs) return duty;
     return { ...duty, status: 'expired' };
   });
+}
+
+/**
+ * A parser result with skipped source rows is a partial table, not a fresh
+ * regional snapshot. Keep the check shared by all Ticino parsers so a source
+ * drift cannot publish the intervals that happened to remain parseable.
+ */
+export function assertCompleteDutyResult(result, region) {
+  if (result?.skipped > 0) {
+    throw new Error(`${region.key}: parser skipped ${result.skipped} malformed duty row(s); refusing partial region`);
+  }
+  return result;
 }
 
 function previousFetchedAt(previous) {
@@ -149,7 +162,7 @@ async function main() {
   const pharmacyIds = new Set((pharmacyData.pharmacies || []).map((pharmacy) => pharmacy.id));
   const previousByRegion = new Map();
   for (const duty of previous.duties || []) {
-    const region = OFCT_REGIONS.find((candidate) => candidate.name === duty.coverageName);
+    const region = TICINO_DUTY_REGIONS.find((candidate) => candidate.name === duty.coverageName);
     if (region) previousByRegion.set(region.key, [...(previousByRegion.get(region.key) || []), duty]);
   }
 
@@ -159,14 +172,20 @@ async function main() {
   const preservedRegions = [];
   const successfulRegions = [];
 
-  for (let index = 0; index < OFCT_REGIONS.length; index += 1) {
-    const region = OFCT_REGIONS[index];
+  for (let index = 0; index < TICINO_DUTY_REGIONS.length; index += 1) {
+    const region = TICINO_DUTY_REGIONS[index];
     if (index > 0 && !process.env.PHARMACY_DUTY_FIXTURE_DIR) await sleep(CRAWL_DELAY_MS);
     let html;
     try {
       html = await loadFixture(region);
       if (html === null) html = await fetchHtml(region.url);
-      const result = buildPharmacyDuties(html, region, attemptedAt, pharmacyIds);
+      const result = region.key === 'locarnese'
+        ? buildLocarnesePharmacyDuties(html, region, attemptedAt, pharmacyData.pharmacies || [])
+        : buildPharmacyDuties(html, region, attemptedAt, pharmacyIds);
+      assertCompleteDutyResult(result, region);
+      if (result.unresolved?.length) {
+        throw new Error(`${result.unresolved.length} Locarnese row(s) have no unique Ticino catalogue identity`);
+      }
       if (result.duties.length === 0) throw new Error(result.warnings.join('; ') || 'zero duty intervals parsed');
       duties.push(...result.duties);
       successfulRegions.push(region.key);
@@ -202,7 +221,7 @@ async function main() {
       await mkdir(dirname(OUTPUT_STATUS_PATH), { recursive: true });
       await writeFile(OUTPUT_STATUS_PATH, `${JSON.stringify(status, null, 2)}\n`, 'utf8');
     }
-    console.error(`[import-pharmacy-duties-ticino] blocked: all ${OFCT_REGIONS.length} region fetches failed; atomic finalizer must preserve the previous catalogue+duties pair`);
+    console.error(`[import-pharmacy-duties-ticino] blocked: all ${TICINO_DUTY_REGIONS.length} region fetches failed; atomic finalizer must preserve the previous catalogue+duties pair`);
     process.exitCode = 1;
     return;
   }
@@ -220,7 +239,7 @@ async function main() {
     await writeFile(OUTPUT_DATA_PATH, `${JSON.stringify(dutyOutput, null, 2)}\n`, 'utf8');
     await writeFile(OUTPUT_STATUS_PATH, `${JSON.stringify(status, null, 2)}\n`, 'utf8');
   }
-  console.log(`[import-pharmacy-duties-ticino] ${dryRun ? 'dry-run parsed' : 'staged'} ${duties.length} intervals from ${successfulRegions.length}/${OFCT_REGIONS.length} regions`);
+  console.log(`[import-pharmacy-duties-ticino] ${dryRun ? 'dry-run parsed' : 'staged'} ${duties.length} intervals from ${successfulRegions.length}/${TICINO_DUTY_REGIONS.length} regions`);
   if (errors.length > 0) process.exitCode = 2;
 }
 
