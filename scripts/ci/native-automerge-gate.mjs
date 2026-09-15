@@ -466,16 +466,16 @@ export function revalidateNativeAutoMerge({
   };
 }
 
+function ghJson(args) {
+  return JSON.parse(withTransientGithubReadRetry(() => ghRaw(args)));
+}
+
 function ghRaw(args) {
   return execFileSync('gh', args, {
     encoding: 'utf8',
     maxBuffer: 64 * 1024 * 1024,
     env: { ...process.env },
   });
-}
-
-function ghJson(args) {
-  return JSON.parse(withTransientGithubReadRetry(() => ghRaw(args)));
 }
 
 function sleepForTransientReadRetry(delayMs) {
@@ -486,7 +486,7 @@ function sleepForTransientReadRetry(delayMs) {
 
 function transientGithubErrorText(error) {
   return [error?.message, error?.stderr, error?.stdout]
-    .map((value) => Buffer.isBuffer(value) ? value.toString('utf8') : String(value || ''))
+    .map((value) => String(value || ''))
     .filter(Boolean)
     .join('\n');
 }
@@ -497,13 +497,13 @@ export function isTransientGithubReadError(error) {
 
 /** Retry only idempotent GitHub reads; mutations remain single-attempt and fail closed. */
 export function withTransientGithubReadRetry(operation, {
-  maxAttempts = MAX_TRANSIENT_GH_READ_ATTEMPTS,
+  attemptLimit = MAX_TRANSIENT_GH_READ_ATTEMPTS,
   delaysMs = TRANSIENT_GH_READ_RETRY_DELAYS_MS,
   sleep = sleepForTransientReadRetry,
 } = {}) {
   if (typeof operation !== 'function') throw new TypeError('read retry operation must be a function');
-  const attempts = Number.isSafeInteger(maxAttempts) && maxAttempts > 0
-    ? maxAttempts
+  const attempts = Number.isSafeInteger(attemptLimit) && attemptLimit > 0
+    ? attemptLimit
     : MAX_TRANSIENT_GH_READ_ATTEMPTS;
   const delays = Array.isArray(delaysMs) ? delaysMs : TRANSIENT_GH_READ_RETRY_DELAYS_MS;
   const wait = typeof sleep === 'function' ? sleep : sleepForTransientReadRetry;
@@ -527,9 +527,17 @@ function ghJsonOnce(args) {
 // `review-test-policy` needs both parsed GitHub responses and raw newline
 // output for the paginated REST file list. Keep this adapter local so the
 // native gate remains fail-closed without changing the shared gh helper.
-function ghForTestOnlyReview(args, options = {}) {
-  const output = withTransientGithubReadRetry(() => ghRaw(args));
+function ghForTestOnlyReviewOnce(args, options = {}) {
+  const output = execFileSync('gh', args, {
+    encoding: 'utf8',
+    maxBuffer: 64 * 1024 * 1024,
+    env: { ...process.env },
+  });
   return options.json === false ? output : JSON.parse(output);
+}
+
+function ghForTestOnlyReview(args, options = {}) {
+  return withTransientGithubReadRetry(() => ghForTestOnlyReviewOnce(args, options));
 }
 
 function loadVerifiedTestOnlyReview(repo, pr, head, reviews) {
