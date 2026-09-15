@@ -200,6 +200,37 @@ function gh(args, { json = true, allowFail = false } = {}) {
 }
 
 /**
+ * `gh api --paginate --jq '.jobs[]?'` emits one JSON object per line, rather
+ * than one JSON document containing all pages. Parse the stream explicitly so
+ * a second Actions page cannot either make `JSON.parse` fail or disappear
+ * before currentAttemptJobSteps selects the matching attempt.
+ *
+ * @param {string} raw newline-delimited JSON objects
+ * @returns {Array<Record<string, unknown>>}
+ */
+export function parsePaginatedJobLines(raw) {
+  if (typeof raw !== 'string' || raw.trim() === '') return [];
+  const jobs = [];
+  for (const [index, line] of raw.split(/\r?\n/).entries()) {
+    const trimmed = line.trim();
+    if (!trimmed) continue;
+    let job;
+    try {
+      job = JSON.parse(trimmed);
+    } catch (error) {
+      throw new SyntaxError(`pr-autorebase: invalid paginated job JSON on line ${index + 1}`, {
+        cause: error,
+      });
+    }
+    if (!job || Array.isArray(job) || typeof job !== 'object') {
+      throw new TypeError(`pr-autorebase: paginated job line ${index + 1} is not an object`);
+    }
+    jobs.push(job);
+  }
+  return jobs;
+}
+
+/**
  * `git merge-tree --write-tree` fra `origin/main` e una head, che è l'ORACOLO
  * giusto per «questa PR è in conflitto?».
  *
@@ -619,7 +650,10 @@ function vitestJobSteps(head) {
     return [];
   }
   const out = pollUntil({
-    read: () => gh(['api', `repos/${REPO}/actions/runs/${ref.runId}/jobs?filter=latest&per_page=100`, '--paginate', '--jq', '.jobs']),
+    read: () => parsePaginatedJobLines(gh(
+      ['api', `repos/${REPO}/actions/runs/${ref.runId}/jobs?filter=latest&per_page=100`, '--paginate', '--jq', '.jobs[]?'],
+      { json: false },
+    )),
     ready: (jobs) => Array.isArray(jobs) && jobs.some(
       (job) => String(job?.id) === ref.jobId && vitestJobIsConcluded(job),
     ),
