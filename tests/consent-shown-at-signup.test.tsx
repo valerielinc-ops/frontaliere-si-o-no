@@ -52,6 +52,7 @@ import {
   ADVERTISING_NAMED_FROM_PAGE_VERSION,
   ADVERTISING_CONSENT_FIELD,
   ADVERTISING_OPT_OUT_FIELD,
+  ADVERTISING_REACTIVATED_AT_FIELD,
   COMMUNICATION_CHANNELS,
   COMMUNICATIONS_PAGE_PATH,
   COMMUNICATIONS_PAGE_REVISIONS,
@@ -66,6 +67,7 @@ import {
   ADVERTISING_NAMED_FROM_PAGE_VERSION as MATCHER_ADVERTISING_FROM,
   ADVERTISING_CONSENT_FIELD as MATCHER_ADVERTISING_CONSENT_FIELD,
   ADVERTISING_OPT_OUT_FIELD as MATCHER_OPT_OUT_FIELD,
+  ADVERTISING_REACTIVATED_AT_FIELD as MATCHER_REACTIVATED_AT_FIELD,
   advertisingDisclosureWasShown,
   consentCoversAdvertising,
   matchSubscribersForAd,
@@ -1165,6 +1167,15 @@ describe('what the displayed formulas may and may not say', () => {
       );
       expect(MATCHER_OPT_OUT_FIELD, 'the two spellings of the field must agree').toBe(
         ADVERTISING_OPT_OUT_FIELD,
+      );
+      expect(matcher, 'the sender must read the explicit reactivation marker').toContain(
+        ADVERTISING_REACTIVATED_AT_FIELD,
+      );
+      expect(controller, 'the preference centre must write the explicit reactivation marker').toContain(
+        ADVERTISING_REACTIVATED_AT_FIELD,
+      );
+      expect(MATCHER_REACTIVATED_AT_FIELD, 'the reactivation field spellings must agree').toBe(
+        ADVERTISING_REACTIVATED_AT_FIELD,
       );
       expect(MATCHER_ADVERTISING_FROM, 'the two spellings of the naming date must agree').toBe(
         ADVERTISING_NAMED_FROM_PAGE_VERSION,

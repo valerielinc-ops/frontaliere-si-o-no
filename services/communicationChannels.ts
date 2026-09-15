@@ -68,11 +68,13 @@
  *
  * A current registration writes `ADVERTISING_CONSENT_FIELD` as the activation
  * marker. The preference centre can turn it off and writes the legacy
- * `ADVERTISING_OPT_OUT_FIELD` as a hard deny. Absence is false for historical
- * records, so the matcher cannot manufacture an advertising audience during
- * the migration. The matcher, the authenticated preference writer and the
- * token endpoint all read/write the same fields; the tests keep those deploy
- * units aligned.
+ * `ADVERTISING_OPT_OUT_FIELD` as a hard deny. An explicit advertising-only
+ * reactivation writes `ADVERTISING_REACTIVATED_AT_FIELD`; it may lift an older
+ * newsletter/stop-all state for this channel only, while the newsletter status
+ * remains untouched. Absence is false for historical records, so the matcher
+ * cannot manufacture an advertising audience during the migration. The
+ * matcher, the authenticated preference writer and the token endpoint all
+ * read/write the same fields; the tests keep those deploy units aligned.
  *
  * The channel itself stays `suspended`. Naming it documents the capability,
  * but the registry may never claim `live` for a workflow disabled at the
@@ -137,6 +139,14 @@ export const ADVERTISING_OPT_OUT_FIELD = 'advertising_opt_out';
  * its absence is not a delivery gate for an existing subscriber.
  */
 export const ADVERTISING_CONSENT_FIELD = 'consent_advertising';
+
+/**
+ * Explicit advertising-only reactivation marker. It is deliberately separate
+ * from `status`: the latter remains the newsletter channel's state, so turning
+ * ads back on cannot accidentally re-enable newsletter, JobAlert or digest
+ * delivery after a stop-all.
+ */
+export const ADVERTISING_REACTIVATED_AT_FIELD = 'advertising_reactivated_at';
 
 /**
  * The first page version whose text named third-party advertising.

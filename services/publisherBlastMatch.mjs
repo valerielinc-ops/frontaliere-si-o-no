@@ -18,7 +18,6 @@ import {
   isCrossChannelStop,
 } from './emailSuppression.mjs';
 import {
-  isNewsletterOptOutBinding,
   newsletterOptOutMillis,
   toEpochMillis,
 } from './newsletterOptOut.mjs';
@@ -44,6 +43,8 @@ import {
 export const ADVERTISING_OPT_OUT_FIELD = 'advertising_opt_out';
 /** Activation marker written by a current base registration. */
 export const ADVERTISING_CONSENT_FIELD = 'consent_advertising';
+/** Explicit advertising-only reactivation marker written by the preference centre. */
+export const ADVERTISING_REACTIVATED_AT_FIELD = 'advertising_reactivated_at';
 export const ADVERTISING_NAMED_FROM_PAGE_VERSION = '2026-08-13.2';
 
 /** `YYYY-MM-DD.N` → comparable parts. `null` when the string is not a version. */
@@ -115,15 +116,39 @@ export function isAdvertisingOptedOut(sub) {
 
 /**
  * An explicit advertising reactivation may lift the newsletter stop for this
- * category only. The timestamp ordering prevents an older `false` value from
- * resurrecting advertising after a later stop-all action; the other senders
- * continue to apply the newsletter/global stop unchanged.
+ * category only. The dedicated marker is written only by the preference-centre
+ * ON action, and its timestamp ordering prevents an older `false` value from
+ * resurrecting advertising after a later stop-all action. The fallback keeps
+ * rows written by the previous implementation readable; those rows still
+ * require both timestamps. The other senders continue to apply the
+ * newsletter/global stop unchanged.
  */
 function advertisingReactivationSupersedesNewsletterOptOut(sub) {
   if (sub?.[ADVERTISING_OPT_OUT_FIELD] !== false) return false;
   const optOutAt = newsletterOptOutMillis(sub);
+  const explicitReactivationAt = toEpochMillis(sub?.[ADVERTISING_REACTIVATED_AT_FIELD]);
+  if (explicitReactivationAt != null) {
+    // A legacy row may carry `status: 'unsubscribed'` without either spelling
+    // of the historical stamp. The explicit, authenticated advertising ON
+    // action is still enough to reactivate this category; it does not touch
+    // the newsletter status or any other sender's predicate.
+    return optOutAt == null || explicitReactivationAt > optOutAt;
+  }
   const advertisingChoiceAt = toEpochMillis(sub?.advertising_opt_out_updated_at);
   return optOutAt != null && advertisingChoiceAt != null && advertisingChoiceAt > optOutAt;
+}
+
+/**
+ * Whether advertising has an explicit, sender-specific reactivation that may
+ * coexist with a newsletter/stop-all state. Hard address suppression and the
+ * explicit global stop always win, so this cannot become a bypass for either.
+ */
+export function isAdvertisingReactivation(sub) {
+  if (!sub || typeof sub !== 'object') return false;
+  if (isAddressSuppressed(sub.status) || isAddressSuppressed(sub.doc?.status)
+    || isGlobalEmailOptOut(sub) || isAdvertisingOptedOut(sub)) return false;
+  if (!isCrossChannelStop(sub)) return false;
+  return advertisingReactivationSupersedesNewsletterOptOut(sub);
 }
 
 /**
@@ -143,9 +168,7 @@ export function isAdvertisingSuppressed(sub) {
   // only permitted exception is an explicit, strictly newer advertising
   // reactivation; it is evaluated below rather than treating a missing proof
   // or marker as a delivery gate.
-  if (isCrossChannelStop(sub)) {
-    return !advertisingReactivationSupersedesNewsletterOptOut(sub);
-  }
+  if (isCrossChannelStop(sub)) return !isAdvertisingReactivation(sub);
   return false;
 }
 

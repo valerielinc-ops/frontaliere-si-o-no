@@ -1104,7 +1104,9 @@ export async function handleSubscriptionManagement({ action, email, token, local
  //
  // Scoped to this channel alone, like every other control in the centre:
  // `advertising_opt_out` stops the paid-ad blast and touches neither the
- // newsletter nor the brief nor the alerts.
+ // newsletter nor the brief nor the alerts. When turned back on after a
+ // stop-all, `status: 'unsubscribed'` stays in place and only the advertising
+ // sender may consume the explicit reactivation marker below.
  if (action === 'set_advertising_opt_out') {
  const desired = advertisingEnabled === true || advertisingEnabled === 'true' || advertisingEnabled === '1';
  // Same asymmetry as `toggle_newsletter_subscription` (#5711): switching a
@@ -1133,6 +1135,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  advertising_opt_out: !desired,
  advertising_opt_out_updated_at: admin.firestore.FieldValue.serverTimestamp(),
   ...(desired ? {
+   advertising_reactivated_at: admin.firestore.FieldValue.serverTimestamp(),
    // Enabling this channel is an explicit choice after a global stop. It does
    // not reactivate any other channel whose own state is still off/paused.
    all_email_opted_out: false,

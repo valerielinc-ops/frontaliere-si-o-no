@@ -179,6 +179,43 @@ describe('handleSubscriptionManagement', () => {
       .toBe('all_email_unsubscribed');
   });
 
+  it('records advertising-only reactivation without restoring newsletter state', async () => {
+    const db = createFakeDb({
+      newsletter_subscribers: {
+        [TEST_EMAIL]: {
+          status: 'unsubscribed',
+          isActive: false,
+          unsubscribed_at: '2026-09-01T00:00:00.000Z',
+        },
+      },
+    });
+
+    const result = await handleSubscriptionManagement({
+      action: 'set_advertising_opt_out',
+      email: TEST_EMAIL,
+      token: VALID_TOKEN,
+      locale: 'it',
+      secret: TEST_SECRET,
+      method: 'POST',
+      advertisingEnabled: true,
+      db: db as any,
+    });
+
+    expect(result.status).toBe(200);
+    const subscriberSet = db.__sets.find((s) => s.collection === 'newsletter_subscribers');
+    expect(subscriberSet!.data).toMatchObject({
+      consent_advertising: true,
+      advertising_opt_out: false,
+      all_email_opted_out: false,
+      global_email_opt_out: false,
+      advertising_reactivated_at: expect.anything(),
+    });
+    // `status` is intentionally absent from this merge: newsletter and the
+    // other channels remain stopped while the advertising sender consumes the
+    // purpose-specific marker.
+    expect(subscriberSet!.data).not.toHaveProperty('status');
+  });
+
   it('does not let a GET turn a newsletter unsubscribe into a global stop', async () => {
     const db = createFakeDb({
       newsletter_subscribers: {

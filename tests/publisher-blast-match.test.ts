@@ -253,7 +253,19 @@ describe('matchSubscribersForAd', () => {
           advertising_opt_out: false,
           advertising_opt_out_updated_at: '2026-09-02T00:00:00.000Z',
         },
-      ]).sort()).toEqual(['ads-on@example.com', 'control@example.com']);
+        {
+          email: 'ads-on-legacy-status-only@example.com',
+          ...strongMatch,
+          ...ANCIENT,
+          status: 'unsubscribed',
+          advertising_opt_out: false,
+          advertising_reactivated_at: '2026-09-02T00:00:00.000Z',
+        },
+      ]).sort()).toEqual([
+        'ads-on-legacy-status-only@example.com',
+        'ads-on@example.com',
+        'control@example.com',
+      ]);
     });
 
     it('a hard suppression still stops it — bounced, complained, suppressed', () => {

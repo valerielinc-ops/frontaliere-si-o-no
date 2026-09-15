@@ -651,6 +651,10 @@ async function authSetBriefFrequency(email: string, frequency: DailyBriefFrequen
  *
  * The purpose-specific field is written in both directions. An absent field is
  * never interpreted as consent; the legacy opt-out is retained as a hard deny.
+ * Turning this category back on writes an explicit reactivation marker. It
+ * intentionally leaves `status: 'unsubscribed'` alone: that status belongs to
+ * the newsletter, while the advertising sender handles this one-channel
+ * reactivation without re-enabling JobAlert, brief or digest delivery.
  */
 async function authSetAdvertisingOptOut(email: string, enabled: boolean): Promise<void> {
  const { getFirestore, doc, getDoc, setDoc, addDoc, collection, serverTimestamp } =
@@ -679,6 +683,7 @@ async function authSetAdvertisingOptOut(email: string, enabled: boolean): Promis
  advertising_opt_out: !enabled,
  advertising_opt_out_updated_at: serverTimestamp(),
  ...(enabled ? {
+  advertising_reactivated_at: serverTimestamp(),
   // Restoring this opt-out-controlled category lifts the global block without
   // changing the individual state of the remaining channels.
   all_email_opted_out: false,
