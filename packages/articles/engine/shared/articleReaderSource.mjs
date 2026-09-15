@@ -54,8 +54,8 @@ function parseLocalizedEntry(articleId, body) {
  * @returns {Record<string, Record<string, string>>}
  */
 export function parseArticleUrlSlugs(source, slugConst) {
-  if (typeof source !== 'string') invalidArgument('source');
-  if (typeof slugConst !== 'string' || slugConst.length === 0) invalidArgument('slugConst');
+  if (typeof source !== 'string' || source.trim().length === 0) invalidArgument('source');
+  if (typeof slugConst !== 'string' || slugConst.trim().length === 0) invalidArgument('slugConst');
   const declaration = source.match(
     new RegExp('\\bconst\\s+' + escapeRegex(slugConst) + '(?:\\s*:\\s*[^=\\n]+)?\\s*=\\s*\\{([\\s\\S]*?)\\}\\s*;', 'm'),
   );

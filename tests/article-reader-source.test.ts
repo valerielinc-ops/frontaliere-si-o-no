@@ -40,6 +40,12 @@ describe('parseArticleUrlSlugs', () => {
     expect(() => parseArticleUrlSlugs(REORDERED_SOURCE, '')).toThrow(TypeError);
   });
 
+  it('rejects empty or whitespace-only source and constant names', () => {
+    expect(() => parseArticleUrlSlugs('', 'BLOG_SLUGS')).toThrow(/source.*non-empty string/i);
+    expect(() => parseArticleUrlSlugs(' \n\t', 'BLOG_SLUGS')).toThrow(/source.*non-empty string/i);
+    expect(() => parseArticleUrlSlugs(REORDERED_SOURCE, '   ')).toThrow(/slugConst.*non-empty string/i);
+  });
+
   it('signals a slug entry whose locale map is partial', () => {
     const partial = REORDERED_SOURCE.replace("fr: 'article-1-fr',", '');
     expect(() => parseArticleUrlSlugs(partial, 'BLOG_SLUGS')).toThrow(/article-1.*fr/i);
