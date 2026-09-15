@@ -182,6 +182,31 @@ function reconcileOpenPromotions(store) {
 }
 
 /**
+ * Il push data-only passa deliberatamente dal PAT, ma una successiva PR può
+ * dover aggiornare `.github/workflows/**` e richiede quindi il token App.
+ * Ripristina l'identità originale prima che il percorso di promozione usi
+ * `git push origin <branch>`.
+ */
+function restorePromotionAppRemote() {
+  const appToken = process.env.APP_TOKEN;
+  const identity = String(process.env.WORKFLOWS_PUSH_IDENTITY || '').trim().toLowerCase();
+  if (!appToken || identity !== 'app') return;
+  const origin = execFileSync('git', ['remote', 'get-url', 'origin'], {
+    cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'],
+  }).toString().trim();
+  const match = origin.match(/github\.com[/:]([^/]+\/[^/]+?)(?:\.git)?$/);
+  if (!match) throw new Error('origin GitHub non riconoscibile dopo il push PAT');
+  try {
+    execFileSync('git', ['config', '--local', '--unset-all', 'http.https://github.com/.extraheader'], {
+      cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'],
+    });
+  } catch { /* il retry helper l'ha già rimosso */ }
+  execFileSync('git', ['remote', 'set-url', 'origin', `https://x-access-token:${appToken}@github.com/${match[1]}.git`], {
+    cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'],
+  });
+}
+
+/**
  * Rende durevole una riconciliazione anche quando questo giro non apre una PR.
  *
  * La riconciliazione modifica main, non il branch di una PR: se si limita a
@@ -212,6 +237,7 @@ function persistReconciledPromotionState(store, reconciled) {
       cwd: ROOT,
       stdio: ['ignore', 'pipe', 'pipe'],
     });
+    restorePromotionAppRemote();
     console.log(`stato riconciliato scritto su ${baseBranch}: ${reconciled.landed} production, ${reconciled.reopened} ricandidati.`);
     return true;
   } catch (err) {

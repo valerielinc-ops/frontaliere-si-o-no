@@ -112,5 +112,8 @@ describe('cablaggio: capacità letta e identità che pusha non possono divergere
     expect(reconciliationPath).toContain('persistReconciledPromotionState(store, reconciled)');
     expect(reconciliationPath).toContain('process.exit(1)');
     expect(promote).toContain('prospector: riconcilia');
+    expect(promote).toContain('restorePromotionAppRemote();');
+    expect(promote).toContain('WORKFLOWS_PUSH_IDENTITY');
+    expect(promote).toContain("identity !== 'app'");
   });
 });
