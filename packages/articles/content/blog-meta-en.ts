@@ -11759,6 +11759,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.stipendi-como-lombardia-2024.title': 'Average salary in Como and Lombardy: 2024 data',
     'blog.article.stipendi-como-lombardia-2024.excerpt': 'In 2024 the average annual salary in Lombardy rises to 30,384.07 euros, but almost half of the workers do not exceed 25,000 euros.',
     'blog.article.stipendi-como-lombardia-2024.imageAlt': 'Average salaries and wages in Lombardy and Como',
+    'blog.article.mendrisio-melano-progetto-meme-risanamento-fonico.title': 'Mendrisio-Melano, MeMe project to reduce highway noise',
+    'blog.article.mendrisio-melano-progetto-meme-risanamento-fonico.excerpt': 'The Federal Office of Roads (USTRA) has published the design for the MeMe project, a comprehensive rehabilitation plan for the stretch of the A2 motorway between Mendrisio and Melano.',
+    'blog.article.mendrisio-melano-progetto-meme-risanamento-fonico.imageAlt': 'A2 highway section between Mendrisio and Melano',
 };
 
 export default blogMetaEn;
