@@ -36,10 +36,10 @@ const HOWTO_CALCULATOR = {
 
 const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  calculator: {
- title: 'Frontalieri Svizzera 2026 — Calcolo Stipendio Netto, Tasse, Guida',
+    title: 'Frontalieri Svizzera 2026: calcolo netto',
  description: 'Frontalieri in Svizzera 2026: calcola il netto, confronta permessi G/B, guida fiscale Nuovo Accordo, LAMal, dogana. Simulatore ufficiale per nuovi e vecchi frontalieri.',
  keywords: 'frontalieri svizzera, frontalieri ticino, simulazione tasse nuovi frontalieri, vecchi frontalieri calcolo, calcolo tasse frontalieri, simulazione netto frontalieri, imposta alla fonte ticino, stipendio frontaliere svizzera, calcolo tasse frontalieri oltre 20 km, nuovo accordo frontalieri 2026',
- ogTitle: 'Frontalieri Svizzera 2026 — Calcolo Netto, Tasse, Permessi, Guida',
+    ogTitle: 'Frontalieri Svizzera 2026: calcolo netto',
  ogDescription: 'La risorsa di riferimento per frontalieri in Svizzera: calcolo stipendio netto 2026, Nuovo Accordo fiscale, confronto permesso G/B, LAMal, dogana, oltre 700 articoli.',
  canonicalPath: '/',
  structuredData: [
@@ -599,10 +599,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  calcolatore: {
  // A.3 — primary target keyword "calcolo stipendio netto svizzera" (vol 390).
  // See docs/seo-semrush-growth-plan.md Task A.3.
- title: 'Calcolo Stipendio Netto Svizzera 2026 — Simulatore Frontalieri',
+ title: 'Calcolo stipendio netto Svizzera 2026',
  description: 'Calcola lo stipendio netto da frontaliere in Svizzera: imposta alla fonte, AVS, LPP, IRPEF e franchigia di 10.000 €. Simulatore gratuito aggiornato al 2026.',
  keywords: 'calcolo stipendio netto svizzera, calcolo stipendio frontaliere, simulatore stipendio netto, busta paga frontaliere, confronto ral svizzera italia, calcolatore imposte alla fonte 2026, etax ticino 2026, imposta alla fonte ticino, bonus frontaliere, congedo parentale frontaliere, permesso g vs b',
- ogTitle: 'Calcolo Stipendio Netto Svizzera 2026 — Simulatore Frontalieri',
+ ogTitle: 'Calcolo stipendio netto Svizzera 2026',
  ogDescription: 'Simula lo stipendio netto da frontaliere con imposta alla fonte, contributi AVS/LPP, IRPEF e franchigia di 10.000 €. Calcolo gratuito aggiornato al 2026.',
  canonicalPath: '/calcola-stipendio/',
  structuredData: [
