@@ -12,12 +12,16 @@ vi.doUnmock('@/services/seoService');
 vi.doUnmock('../services/seoService');
 
 let seo: typeof import('../services/seoService');
+let pharmacySeoRuntime: typeof import('../services/pharmacies/runtimeSeo');
 
 const duties = dutiesJson as PharmacyDutiesDataset;
 const catalogue = completeTicinoJson as unknown as PharmacyCatalogueDataset;
 
 beforeAll(async () => {
-  seo = await import('../services/seoService');
+  [seo, pharmacySeoRuntime] = await Promise.all([
+    import('../services/seoService'),
+    import('../services/pharmacies/runtimeSeo'),
+  ]);
 });
 
 beforeEach(() => {
@@ -37,7 +41,7 @@ function weeklyPath(): string {
 
 describe('pharmacy SEO after SPA navigation', () => {
   it('keeps stale, tampered and unsupported weekly models noindex', () => {
-    const stale = seo.resolvePharmacySeoMetadata(
+    const stale = pharmacySeoRuntime.resolvePharmacySeoMetadata(
       { kind: 'duty-week', locale: 'it', weekStart: '2026-09-14' },
       { now: new Date('2026-09-16T12:00:00.000Z'), duties, catalogue },
     );
@@ -45,11 +49,11 @@ describe('pharmacy SEO after SPA navigation', () => {
       ...duties,
       _release: { ...duties._release, state: 'partial' as const },
     } as PharmacyDutiesDataset;
-    const tampered = seo.resolvePharmacySeoMetadata(
+    const tampered = pharmacySeoRuntime.resolvePharmacySeoMetadata(
       { kind: 'duty-week', locale: 'it', weekStart: '2026-09-14' },
       { now: new Date('2026-09-14T12:00:00.000Z'), duties: tamperedDuties, catalogue },
     );
-    const unsupported = seo.resolvePharmacySeoMetadata(
+    const unsupported = pharmacySeoRuntime.resolvePharmacySeoMetadata(
       { kind: 'duty-week', locale: 'it', weekStart: '2026-09-15' },
       { now: new Date('2026-09-14T12:00:00.000Z'), duties, catalogue },
     );
