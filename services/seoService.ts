@@ -68,6 +68,7 @@ async function retryImport<T>(factory: () => Promise<T>, label: string): Promise
 type PharmacyRuntimeSeoModule = typeof import('./pharmacies/runtimeSeo');
 
 let pharmacyRuntimeSeoPromise: Promise<PharmacyRuntimeSeoModule> | null = null;
+let seoUpdateEpoch = 0;
 
 /**
  * Keep the pharmacy resolver and its snapshot dependencies out of the
@@ -1665,16 +1666,22 @@ function isLocaleChunkLoaded(locale: Locale): boolean {
  * Uses the i18n router to build locale-aware canonical and hreflang URLs.
  */
 export async function updateMetaTags(section: string): Promise<void> {
+ const updateEpoch = ++seoUpdateEpoch;
+ const pathnameSnapshot = window.location.pathname;
  // If the non-IT locale chunk hasn't loaded yet, t() falls back to Italian.
  // Preserve the correct static HTML metadata until the chunk arrives.
  const currentLocale = getLocale();
  // Parse before the locale-chunk guard: pharmacy metadata is local and
  // route-derived, so a soft navigation to an EN/DE/FR pharmacy page must not
  // leave the previous page's head in place while that locale chunk loads.
- const { route, locale: pathLocale } = parsePath(window.location.pathname);
- const pharmacyMetadata = route.pharmacyPath
- ? (await loadPharmacyRuntimeSeo()).resolvePharmacySeoMetadata(route.pharmacyPath)
- : null;
+ const { route, locale: pathLocale } = parsePath(pathnameSnapshot);
+ removeStalePharmacyStructuredData();
+ let pharmacyMetadata: ReturnType<PharmacyRuntimeSeoModule['resolvePharmacySeoMetadata']> | null = null;
+ if (route.pharmacyPath) {
+  const pharmacyRuntimeSeo = await loadPharmacyRuntimeSeo();
+  if (updateEpoch !== seoUpdateEpoch || window.location.pathname !== pathnameSnapshot) return;
+  pharmacyMetadata = pharmacyRuntimeSeo.resolvePharmacySeoMetadata(route.pharmacyPath);
+ }
  if (!pharmacyMetadata && currentLocale !== 'it' && !isLocaleChunkLoaded(currentLocale)) {
  return;
  }
@@ -1683,6 +1690,7 @@ export async function updateMetaTags(section: string): Promise<void> {
  const sectionKey = section.startsWith('jobboard-') ? 'jobboard' : section;
 
  const metadata = pharmacyMetadata ?? await getSeoEntry(sectionKey);
+ if (updateEpoch !== seoUpdateEpoch || window.location.pathname !== pathnameSnapshot) return;
  if (getLocale() !== pathLocale) {
   setLocale(pathLocale);
  }
@@ -1705,20 +1713,19 @@ export async function updateMetaTags(section: string): Promise<void> {
  ? window.location.pathname
  : buildPath(route, locale);
  const canonicalLocalePath = withTrailingSlashPath(localePath);
- const pathnameSnapshot = window.location.pathname;
  const isJobDetailPage = section.startsWith('jobboard-') && Boolean(route.jobSlug);
  const isBlogArticle = section.startsWith('blog-');
  const blogArticleId = isBlogArticle ? section.slice(5) : '';
  const jobSeo = isJobDetailPage && route.jobSlug
  ? await resolveJobSeoBySlug(route.jobSlug, locale, canonicalLocalePath)
  : null;
- if (window.location.pathname !== pathnameSnapshot) return;
+ if (updateEpoch !== seoUpdateEpoch || window.location.pathname !== pathnameSnapshot) return;
  // Awaited here, with the other pre-write loads, so the article:author derivation
  // below stays synchronous (see services/seo/articleAuthorUrl.ts).
  const articleAuthorRegistry: ArticleAuthorRegistry | undefined = isBlogArticle
  ? await loadArticleAuthorRegistry()
  : undefined;
- if (window.location.pathname !== pathnameSnapshot) return;
+ if (updateEpoch !== seoUpdateEpoch || window.location.pathname !== pathnameSnapshot) return;
 
  // FRO: Expired job soft-landing pages — preserve static HTML metadata.
  // When the SPA loads on an expired job URL, the build plugin already injected
@@ -1961,7 +1968,16 @@ export async function updateMetaTags(section: string): Promise<void> {
 
  // Update structured data if provided, always include breadcrumbs
  const breadcrumbs = buildBreadcrumbs(sectionKey, route, locale, hasLocalizedTitle ? localizedTitle : undefined);
- if (jobSeo?.structuredData) {
+ if (pharmacyMetadata) {
+ // Pharmacy schemas are route-specific. The resolver also supplies the
+ // matching BreadcrumbList; an invalid route deliberately supplies neither.
+ const pharmacyStructuredData = pharmacyMetadata.structuredData;
+ if (pharmacyStructuredData) {
+  updateStructuredData(pharmacyStructuredData);
+ } else {
+  updateStructuredData([]);
+ }
+ } else if (jobSeo?.structuredData) {
  // jobSeo.structuredData is the JobPosting schema alone, or [JobPosting, FAQPage]
  // when resolveJobSeoBySlug built a job-specific FAQ (see jobPostingFaq.ts).
  const jobStructuredDataItems = Array.isArray(jobSeo.structuredData)
@@ -2146,6 +2162,40 @@ function updateCanonicalLink(url: string): void {
  canonical.href = url;
 }
 
+const PHARMACY_SCHEMA_PATH = /\/(?:farmacie|pharmacies|apotheken)(?:\/|$)/i;
+
+function includesPharmacySchemaPath(value: unknown): boolean {
+ return typeof value === 'string' && PHARMACY_SCHEMA_PATH.test(value);
+}
+
+function isPharmacyStructuredData(value: unknown): boolean {
+ if (!value || typeof value !== 'object' || Array.isArray(value)) return false;
+ const schema = value as Record<string, any>;
+ const rawType = schema['@type'];
+ const types = Array.isArray(rawType) ? rawType : [rawType];
+ if (types.includes('Pharmacy')) return true;
+ if (types.includes('CollectionPage')) {
+  return includesPharmacySchemaPath(schema.url)
+   || includesPharmacySchemaPath(JSON.stringify(schema.mainEntity || ''));
+ }
+ if (types.includes('BreadcrumbList')) {
+  return includesPharmacySchemaPath(JSON.stringify(schema.itemListElement || ''));
+ }
+ if (types.includes('FAQPage')) {
+  return includesPharmacySchemaPath(schema['@id']);
+ }
+ return false;
+}
+
+/** Remove static pharmacy schemas that belong to the route before navigation. */
+function removeStalePharmacyStructuredData(): void {
+ document.querySelectorAll('script[type="application/ld+json"]').forEach((el) => {
+  try {
+   if (isPharmacyStructuredData(JSON.parse(el.textContent || ''))) el.remove();
+  } catch { /* malformed JSON-LD is not ours to preserve across a route change */ }
+ });
+}
+
 /**
  * Update structured data (JSON-LD)
  */
@@ -2201,6 +2251,8 @@ export function applyNotFoundSeo(path: string): void {
    && document.querySelector('main.seo-static-content')) {
    return;
  }
+
+ removeStalePharmacyStructuredData();
 
  const notFoundTitle = 'Pagina non trovata — Frontaliere Ticino';
 
