@@ -19261,6 +19261,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'premi-lamal-politica-responsabilita',
+    category: 'fiscale',
+    date: '2026-09-15T01:18:20.031Z',
+    image: '/images/blog/premi-lamal-politica-responsabilita.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

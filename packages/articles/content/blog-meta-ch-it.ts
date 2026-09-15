@@ -6429,6 +6429,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ssr-risparmi-270-milioni-2029.title': 'SSR: 270 milioni da risparmiare entro il 2029',
     'blog.article.ssr-risparmi-270-milioni-2029.excerpt': 'La SSR avvia il progetto Enavant per tagliare 270 milioni di franchi entro il 2029, con 80 milioni entro il 2027. Riduzione del 20% dei dirigenti e stop alla Champions League.',
     'blog.article.ssr-risparmi-270-milioni-2029.imageAlt': 'Palazzo del Parlamento svizzero a Berna, sede delle decisioni federali.',
+    'blog.article.premi-lamal-politica-responsabilita.title': 'Aumenti premi LAMal: la politica rimbalza responsabilità',
+    'blog.article.premi-lamal-politica-responsabilita.excerpt': 'Gli aumenti annuali dei premi LAMal sono puntuali, con la politica che rimbalza le responsabilità tra Confederazione e Cantoni. Il costo condiziona la qualità di vita delle famiglie svizzere.',
+    'blog.article.premi-lamal-politica-responsabilita.imageAlt': 'Vista panoramica di Lugano che simboleggia l\'economia e le sfide finanziarie svizzere, in particolare i costi sanitari.',
 };
 
 export default blogMetaChIt;
