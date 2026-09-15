@@ -148,7 +148,15 @@ describe('L5 Decision Moments', () => {
     const source = tempSource(outcomes({ eligibleDecisionSessions: 0, nextUsefulActions: 0 }));
     const result = await runL5({ now: NOW, fuelPath: source.files.fuel, borderPath: source.files.border, pharmacyPath: source.files.pharmacies, dutyPath: source.files.duties, outcomePath: source.files.outcomes, logger: { log() {} } });
     expect(result.verdict.quality).toBe('zero');
-    expect(result.outcome).toMatchObject({ status: 'partial', independent: false });
+    expect(result.outcome).toMatchObject({
+      status: 'partial',
+      independent: false,
+      numerator: null,
+      denominator: null,
+      eligibleDecisionSessions: null,
+      nextUsefulActions: null,
+      metrics: { eligibleDecisionSessions: null, nextUsefulActions: null },
+    });
     expect(result.observation.numerator).toBeNull();
     expect(result.observation.denominator).toBeNull();
   });
