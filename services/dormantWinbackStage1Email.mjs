@@ -15,7 +15,7 @@
  * Pure + dependency-light so it is unit testable. Table-based inline-styled
  * HTML for email-client compatibility.
  */
-import { makeAuthenticatedActionUrl, makeOneClickUnsubscribeUrl, makePreferencesUrl } from './newsletterUrls.mjs';
+import { makeOneClickUnsubscribeUrl, makePreferencesUrl } from './newsletterUrls.mjs';
 import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
 
 // Canonical prod domain (no www) — matches BASE_URL in send-newsletter.mjs /
@@ -106,7 +106,10 @@ function escapeHtml(s) {
 export function buildDormantWinbackStage1Email({ email, locale = 'it', articles = [] }) {
   const l = norm(locale);
   const s = COPY[l];
-  const footerUnsubUrl = makeAuthenticatedActionUrl('unsubscribe', email);
+  // Use the same scoped-token endpoint for the body footer and the
+  // List-Unsubscribe header, so this unsubscribe is graded as the primary
+  // email-token path instead of an autologin fallback.
+  const footerUnsubUrl = makeOneClickUnsubscribeUrl(email);
   // Header List-Unsubscribe uses the dedicated one-click endpoint (RFC 8058) —
   // proxied straight to the Cloud Function, bypassing the SPA's `ac` requirement.
   const unsubscribeUrl = makeOneClickUnsubscribeUrl(email);

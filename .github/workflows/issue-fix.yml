@@ -48,8 +48,10 @@ on:
 # ogni run avrebbe invece una chiave propria.
 #
 # A limitare la parallelizzazione torna a essere un numero tarabile da un umano:
-# `FOLLOWUP_MAX_INFLIGHT_FIX` in `scripts/ci/followup-drainer.mjs` (default 1),
-# che conta le run in volo e promuove al massimo N. Il drainer clampa quel numero
+# `FOLLOWUP_MAX_INFLIGHT_FIX` in `scripts/ci/followup-drainer.mjs` (default 5),
+# cap bounded anche per il pool remoto; il workflow drainer configura 7 slot,
+# mentre il default resta 5 per esecuzioni manuali/locali.
+# Il drainer conta le run in volo e promuove al massimo N. Il drainer clampa quel numero
 # a `fixQueueDepth()`, che legge il `group:` qui sotto: finché la chiave è
 # per-issue il clamp non morde, e se qualcuno la rende di nuovo costante il cap
 # torna automaticamente a 1 invece di ricreare gli sfratti.
@@ -69,6 +71,7 @@ concurrency:
 
 permissions:
   contents: write
+  actions: read
   pull-requests: write
   issues: write
   id-token: write
@@ -163,42 +166,53 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: node scripts/ci/mint-app-token.mjs
 
-      # PRIMA di `npm ci`: quando la quota è esaurita questo gate chiude il job
-      # in ~15s invece che dopo ~3min di install. Lo script usa solo builtin Node
-      # + `gh` (nessuna dipendenza da node_modules), esattamente come gli altri
-      # pre-flight, quindi può girare qui senza vincoli d'ordine.
-      - name: Pre-flight — quota backoff gate (zero-Claude, pre-npm)
+      # Prima di `npm ci`, rileva il beacon della quota Claude per telemetria.
+      # Non blocca il run: Codex e' il provider primario e Claude e' il fallback.
+      - name: Pre-flight — quota telemetry (Codex primary, pre-npm)
         id: quota
-        # PROCEED-SAFE, stesso contratto degli altri pre-flight: lo script è
-        # totale (cattura i propri throw → quota_blocked=false) e
-        # continue-on-error è belt-and-suspenders — un guasto infra lascia
-        # l'output non impostato → i gate a valle valutano true → il fixer gira
-        # invariato. L'unico modo per saltare Claude è un `quota_blocked=true`
-        # ESPLICITO (beacon con scadenza futura), mai un errore.
+        # Il beacon è best-effort e resta telemetria: un guasto infra non deve
+        # sopprimere il run, e la quota Claude non salta Codex.
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           CODEX_FALLBACK_MODE: '1'
+          QUOTA_FLOOR_REQUIRED: '1'
+          QUOTA_FLOOR_KIND: issue-fix
+          QUOTA_FLOOR_LEDGER_ISSUE: '8306'
+          QUOTA_FLOOR_SUBJECT: issue-${{ github.event.issue.number }}
         # STRUCTURAL fix per l'escalation misurata sul tracker #1951 (failure-rate
         # issue-fix acceso da ≥7 report settimanali consecutivi). Scaricando i log
         # di TUTTE e 61 le run fallite della finestra 7gg (2026-07-29 → 08-05):
         # 60 sono HTTP 429 (quota Max settimanale esaurita) con num_turns=1 e
-        # $0 di costo — Claude non ha MAI eseguito — 1 è un 529 transiente, e
+        # $0 di costo — il provider Claude non ha MAI eseguito — 1 è un 529 transiente, e
         # ZERO sono error_max_turns / push falliti / timeout. Di quelle 61, **49
         # (80%) sono cadute dentro una finestra di rate-limit già aperta da un
         # fallimento precedente**: deterministicamente prevedibili, perché il
         # payload del 429 dichiara `resetsAt`. Questo gate legge il beacon
         # `<!-- QUOTA_RESETS_AT: … -->` lasciato dalla run precedente sulle issue
         # in coda e, se la finestra è ancora aperta, ri-accoda questa issue SENZA
-        # consumare un tentativo e salta ogni step Claude. Rationale completo e
+        # consumare un tentativo e senza bloccare l'esecuzione Codex-primary. Rationale completo e
         # catena assorbente (429 → park → age-out close) in
         # scripts/ci/claude-rate-limit.mjs.
         run: node scripts/ci/check-quota-backoff.mjs
 
+      - name: Enforce shared quota-floor lease (fail-closed)
+        if: always()
+        env:
+          QUOTA_FLOOR_ADMIT: ${{ steps.quota.outputs.quota_floor_admit }}
+          QUOTA_FLOOR_REASON: ${{ steps.quota.outputs.quota_floor_reason }}
+        run: |
+          set -euo pipefail
+          if [ "${QUOTA_FLOOR_ADMIT:-false}" != 'true' ]; then
+            echo "::error::Issue-fix fermo prima del provider: quota-floor lease non disponibile (${QUOTA_FLOOR_REASON:-telemetria assente})."
+            exit 1
+          fi
+          echo "Quota-floor lease issue-fix acquisito/verificato: ${QUOTA_FLOOR_REASON:-ok}."
+
       - name: Install dependencies
-        if: steps.quota.outputs.quota_blocked != 'true'
+        if: steps.quota.outputs.quota_floor_admit == 'true'
         run: npm ci
 
       # DECISIONE DEL PROPRIETARIO, 2026-08-24 (registro in DECISIONS.md): l'uso dei
@@ -220,7 +234,7 @@ jobs:
       # log. Un fixer che crede di avere le credenziali e non le ha spende un run
       # intero per scoprirlo al primo uso.
       - name: Firebase SA per Remote Config (decisione 2026-08-24)
-        if: steps.quota.outputs.quota_blocked != 'true'
+        if: always()
         continue-on-error: true
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
@@ -234,7 +248,7 @@ jobs:
 
       - name: Load secrets from Remote Config (decisione 2026-08-24)
         id: rc_env
-        if: steps.quota.outputs.quota_blocked != 'true'
+        if: always()
         continue-on-error: true
         run: |
           node scripts/load-rc-env.mjs
@@ -243,7 +257,7 @@ jobs:
 
       - name: Pre-flight — already-resolved gate (zero-Claude)
         id: preflight
-        if: steps.quota.outputs.quota_blocked != 'true'
+        if: always()
         # PROCEED-SAFE: a gate failure must NEVER strand the issue. The script is total
         # (catches its own throws → emits already_resolved=false), but continue-on-error is
         # belt-and-suspenders: any infra fault (node/npm) leaves the output unset → the
@@ -295,7 +309,7 @@ jobs:
         # FAIL-CLOSED: `mint-app-token.mjs` scrive APP_TOKEN_WORKFLOWS su OGNI cammino di
         # uscita, e una variabile non scritta è comunque `!= 'true'` → il guard gira. Non
         # esiste un modo di arrivare a «capacità concessa» senza che l'API l'abbia detto.
-        if: env.APP_TOKEN_WORKFLOWS != 'true' && steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true'
+        if: env.APP_TOKEN_WORKFLOWS != 'true' && steps.preflight.outputs.already_resolved != 'true'
         # PROCEED-SAFE, same contract as `preflight` above: the script is total (catches
         # its own throws → emits workflows_blocked=false), continue-on-error is
         # belt-and-suspenders so an infra fault never strands the issue.
@@ -323,15 +337,16 @@ jobs:
 
       - name: Pre-flight — in-progress claim gate (zero-Claude, mutex)
         id: claim
-        if: steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true'
-        # PROCEED-SAFE, same contract as `preflight`/`scope_guard` above: the script is
-        # total (catches its own throws → emits in_flight=false), continue-on-error is
-        # belt-and-suspenders so an infra fault never strands the issue.
-        continue-on-error: true
+        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true'
+        # FAIL-CLOSED: the script emits `in_flight=true` on a GitHub/API/parse
+        # fault. A runner failure is also allowed to fail this job rather than
+        # letting an unreadable mutex reach the fixer.
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
+          CLAIM_ACTION: acquire
+          CLAIM_OWNER: remote
         # STRUCTURAL fix per #4788/#4793: due sessioni (una interattiva locale, una questo
         # fixer autonomo) hanno lavorato la STESSA issue in parallelo → due PR competitive,
         # merge in conflitto. L'unica difesa esistente era un controllo prompt-level DENTRO
@@ -347,7 +362,7 @@ jobs:
 
       - name: Load issue group context (B19, zero-Claude)
         id: group
-        if: steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -460,7 +475,7 @@ jobs:
 
       - name: Determine fix tier
         id: tier
-        if: steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
@@ -518,6 +533,21 @@ jobs:
             echo "::error::decision registry missing: $DECISIONS_FILE"
             exit 1
           fi
+          if [ ! -s "$DECISIONS_FILE" ]; then
+            echo "::error::decision registry empty: $DECISIONS_FILE"
+            exit 1
+          fi
+          node --input-type=module - "$DECISIONS_FILE" <<'NODE'
+          import fs from 'node:fs';
+          import { parseDecisionRegistry } from './scripts/ci/needs-human-prepass.mjs';
+
+          const file = process.argv[2];
+          const rows = parseDecisionRegistry(fs.readFileSync(file, 'utf8'));
+          if (!rows.length) {
+            console.error(`decision registry has no recognized rows: ${file}`);
+            process.exit(1);
+          }
+          NODE
           DECISIONS_BYTES=$(wc -c < "$DECISIONS_FILE")
           if [ "$DECISIONS_BYTES" -gt "$DECISIONS_MAX_BYTES" ]; then
             echo "::error::decision registry too large: $DECISIONS_BYTES bytes > $DECISIONS_MAX_BYTES-byte cap"
@@ -560,8 +590,12 @@ jobs:
           # niente annotazione, solo il banner generico). Stesso testo, calcolato
           # in bash invece che nell'espressione: il prompt lo legge da un output.
           if [ "${APP_TOKEN_WORKFLOWS:-}" = "true" ]; then
+            # This text intentionally contains literal backticks and shell-like
+            # fragments that must be passed through to Claude unchanged.
+            # shellcheck disable=SC2016
             GUARD_TEXT='il push di questo run usa il token della GitHub App, e la risposta API del conio ha CONFERMATO `permissions.workflows == write` (letto, non dedotto dalla presenza del token): modificare file in `.github/workflows/**` è consentito e il `git push` passa. Trattali come qualunque altro file — non auto-bloccarti su quel path.'
           else
+            # shellcheck disable=SC2016
             GUARD_TEXT='il push di questo run NON ha lo scope `workflows`: o non esiste un token App, o il token è stato coniato ma il permesso `workflows` non risulta concesso sulla installazione (verificato leggendo `permissions` dalla risposta API). Dai path target estratti dal body: se il fix richiederebbe di modificare file in `.github/workflows/**` → il `git push` fallirebbe sempre (push di workflow rifiutato senza scope `workflows`) → niente PR. Allora NON implementare: posta un commento col diff/azione proposta + "blocco scope `workflows`: serve la GitHub App abilitata o mano umana" e TERMINA SUBITO.'
           fi
           {
@@ -571,6 +605,8 @@ jobs:
           } >> "$GITHUB_OUTPUT"
           # Stessa mossa, testo statico (nessun ternario): anche questo pezzo
           # viveva inline nel prompt e contribuiva al totale del blocco.
+          # This prompt fragment is deliberately a literal single-quoted value.
+          # shellcheck disable=SC2016
           SECRETS_NOTE='**I SEGRETI CI SONO** (decisione del proprietario del 2026-08-24, registro in DECISIONS.md): questo run carica Remote Config prima di partire, quindi `CF_API_TOKEN`, `POSTHOG_*`, `GEMINI_API_KEY`, `GITHUB_PAT` e gli altri ~90 parametri sono in `process.env`. Un fix che richiede una credenziale va IMPLEMENTATO, non documentato: `blocked-secrets` non è più un verdetto strutturale e va usato SOLO se leggi la variabile e la trovi davvero vuota — in quel caso dillo con il nome esatto della variabile mancante, perché è un difetto della mappa `RC_TO_ENV`, non un limite di capacità. Resta valido il freno sulle **repo-setting/branch-protection/admin-API** (es. `gh api .../branches/main/protection` → 403): là il PAT c'\''è ma il permesso è un'\''altra cosa, e vale ancora `blocked-admin-settings`. Razionale invariato: fare il fix completo per poi scoprire il blocco al push spreca ~1M token/run (vedi #983), quindi le capability si valutano a turno 1 — solo che ora la risposta sui segreti è «sì».'
           {
             echo "secrets_note<<SECRETS_NOTE_EOF"
@@ -580,8 +616,9 @@ jobs:
           if echo "$body" | grep -qiE 'crawler|parser|build-plugin|\.github/workflows/|test gate|validator|migrator' \
              || echo "$body" | grep -qiE 'scripts/[a-z0-9_./-]*(backfill|migrate|assemble|sitemap|canonical|slug|structured-data|seo|index)' \
              || echo "$body" | grep -qiE 'seo-[a-z0-9]|audit-dist|validate-dist'; then
-            echo "tier=high" >> "$GITHUB_OUTPUT"
-            echo "model=claude-opus-5" >> "$GITHUB_OUTPUT"
+            {
+              echo "tier=high"
+              echo "model=claude-opus-5"
             # 40->50 (misurato 06-12): 44 run/7gg morti error_max_turns a
             # num_turns=41 (es. run 27386343034) = run opus intera bruciata,
             # 0 PR, issue ri-accodata -> retry = doppio burn. Il cap esiste
@@ -590,10 +627,12 @@ jobs:
             # 50->70 (2026-07-17, owner): bump fleet-wide di tutti i cap Claude
             # dopo l'ennesimo error_max_turns (pr-review-loop tier high, run
             # 29556645538) — stessa regola: cap sopra il p99, mai budget.
-            echo "max_turns=70" >> "$GITHUB_OUTPUT"
+              echo "max_turns=70"
+            } >> "$GITHUB_OUTPUT"
           else
-            echo "tier=normal" >> "$GITHUB_OUTPUT"
-            echo "model=claude-opus-5" >> "$GITHUB_OUTPUT"
+            {
+              echo "tier=normal"
+              echo "model=claude-opus-5"
             # 30->40 (misurato 2026-06-12 post-#1919): 3 run tier=normal morti
             # error_max_turns al cap nella sola finestra 06:00-07:30Z (run
             # 27397873962/27399888568/27400421268, follow-up #1918/#1931) —
@@ -601,43 +640,14 @@ jobs:
             # 7gg aveva mostrato solo morti opus (bias). Stessa regola: cap
             # anti-runaway sopra il p99 dei run sani, non budget di lavoro.
             # 40->55 (2026-07-17, owner): bump fleet-wide, vedi tier high sopra.
-            echo "max_turns=55" >> "$GITHUB_OUTPUT"
+              echo "max_turns=55"
+            } >> "$GITHUB_OUTPUT"
           fi
           echo "Fix tier: $(grep tier= "$GITHUB_OUTPUT" | head -1)"
-          # Aggregate detection (deterministic, da titolo "N item deferred", N>=2).
-          # Il parsing dei singoli item dal body è freeform/fragile → ci basiamo
-          # sul COUNT nel titolo (affidabile) per attivare il circuit-breaker
-          # one-item nel prompt (R3-A): il prompt-only R2-A non sempre teneva
-          # (#1172 error_max_turns post-merge). is_aggregate guida l'istruzione
-          # forte "fixa 1 item poi STOP".
-          # `items?` (not just `item`): il titolo è LLM-generated dal template
-          # FOLLOWUP.md; per N>=2 il fraseggio naturale è il plurale "2 items
-          # deferred". Senza la `s?` opzionale il match fallisce → is_aggregate
-          # falso negativo → circuit-breaker one-item no-op → error_max_turns su
-          # aggregate (#1172-class, ~2M token). Cfr. #1201 item 1.
-          N=$(printf '%s' "$body" | grep -oiE '[0-9]+ items? deferred' | head -1 | grep -oE '^[0-9]+' || true)
-          # Fallback SWEEP/BATCH (2026-06-14): le issue "sweep" multi-target NON
-          # usano il fraseggio "N items deferred" del template FOLLOWUP.md →
-          # is_aggregate=false → circuit-breaker one-item MUTO → il fixer tenta
-          # tutti i target e muore error_max_turns ANCHE a cap 50 (osservato
-          # #1826 "Sweep: ~30 ... crawlers": 7 run bruciati, fu-attempt:2). Una
-          # sweep e' multi-item by-definition: la cura e' decomposizione (fixa 1,
-          # deferisci il resto), non un cap piu' alto. Cattura la keyword
-          # sweep|batch|bulk + un conteggio ~?N di target plurali tipici; senza
-          # conteggio leggibile tratta come aggregate minimo (N=2). I target-noun
-          # sono ancorati (no match su "30 seconds"/"0 jobs" → niente falsi
-          # positivi su issue single, verificato sui titoli reali del backlog).
-          if [ -z "${N:-}" ] && printf '%s' "$body" | grep -qiE '\b(sweep|batch|bulk)\b'; then
-            N=$(printf '%s' "$body" | grep -oiE '~?[0-9]+ +([a-z*-]+ +)?(crawler|file|page|parser|script|adapter|component|endpoint|workflow|job|company|landing)s?' | head -1 | grep -oE '[0-9]+' | head -1 || true)
-            N=${N:-2}
-          fi
-          if [ "${N:-0}" -ge 2 ] 2>/dev/null; then
-            echo "is_aggregate=true" >> "$GITHUB_OUTPUT"
-            echo "agg_count=${N}" >> "$GITHUB_OUTPUT"
-          else
-            echo "is_aggregate=false" >> "$GITHUB_OUTPUT"
-            echo "agg_count=0" >> "$GITHUB_OUTPUT"
-          fi
+          # Aggregate detection belongs to the shared Node predicate. Keeping
+          # it out of this YAML prevents a fourth shell rule from drifting away
+          # from `isAggregate()` and makes API failure fail conservative.
+          node scripts/ci/detect-aggregate.mjs
           # Daily buckets are aggregates even when their current count is 1. The
           # fixer must select exactly the first stable open FU item; it never receives
           # permission to work the whole bucket or to group it with another issue.
@@ -653,7 +663,6 @@ jobs:
           console.log(`daily_key=${info?.dailyKey || ''}`);
           console.log(`selected_item_id=${open?.id || ''}`);
           console.log(`is_aggregate=true`);
-          console.log(`agg_count=${items.length}`);
           NODE
           else
             echo "is_daily_bucket=false" >> "$GITHUB_OUTPUT"
@@ -685,7 +694,7 @@ jobs:
 
       - name: Closing keyword for the PR body (zero-Claude)
         id: closing
-        if: steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
@@ -757,7 +766,7 @@ jobs:
 
       - name: Compose PR body contract for the prompt (zero-Claude)
         id: body_contract
-        if: steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         # PERCHÉ QUESTA PROSA NON STA PIÙ NELLO SCALARE `prompt:`. Oltre un
         # certo peso GitHub accetta il file ma lo rende con `jobs: []`: il
         # fixer smette di girare senza un rosso. Il testo qui sotto è
@@ -805,7 +814,7 @@ jobs:
 
       - name: Check for resumable WIP branch (zero-Claude)
         id: resume
-        if: steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         # Problem A (#4337, confermato via GitHub API + run log): prima di questo
         # fix commit+push+PR accadevano SOLO alla fine del flusso (dopo il gate
         # test) — se `--max-turns` si esauriva PRIMA, il container CI moriva e
@@ -831,7 +840,7 @@ jobs:
           fi
 
       - name: Configure git identity
-        if: steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           APP_TOKEN: ${{ env.APP_TOKEN }}
           APP_TOKEN_WORKFLOWS: ${{ env.APP_TOKEN_WORKFLOWS }}
@@ -877,18 +886,32 @@ jobs:
           fi
 
       - name: Setup Headroom compression proxy
-        if: steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         uses: ./.github/actions/setup-headroom
 
       - name: Install deterministic PR body gate
-        if: steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          ISSUE: ${{ github.event.issue.number }}
         run: |
           set -euo pipefail
           gate_dir="$RUNNER_TEMP/pr-body-gate-bin"
           mkdir -p "$gate_dir"
+          status_file="$RUNNER_TEMP/pr-body-gate-status"
+          : > "$status_file"
+          baseline_file="$RUNNER_TEMP/pr-body-gate-existing-prs"
+          : > "$baseline_file"
+          gh pr list --repo "$REPO" --head "fix/issue-$ISSUE" --state all \
+            --json number --jq '.[].number' > "$baseline_file"
           ln -sf "$GITHUB_WORKSPACE/scripts/gh-pr-body-check.mjs" "$gate_dir/gh"
           echo "$gate_dir" >> "$GITHUB_PATH"
-          echo "PR_BODY_GATE_BIN=$gate_dir" >> "$GITHUB_ENV"
+          {
+            echo "PR_BODY_GATE_BIN=$gate_dir"
+            echo "PR_BODY_GATE_STATUS_FILE=$status_file"
+            echo "PR_BODY_GATE_BASELINE_FILE=$baseline_file"
+          } >> "$GITHUB_ENV"
 
       - name: Run Claude fix
         # Tetto sullo step (classe #7310). Il cap del job è 360min e in pratica
@@ -900,7 +923,7 @@ jobs:
         # perdono la coda per girare.
         timeout-minutes: 120
         id: claude_review
-        if: steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         # Non far fallire il job sull'exit non-zero della CLI: lo step finale
         # `Classify outcome` decide il colore in base al LAVORO reale (PR aperta
         # per la issue), non al subtype della CLI. Un `error_max_turns` DOPO che
@@ -925,7 +948,6 @@ jobs:
           ISSUE_GROUP_LABEL: ${{ steps.group.outputs.group_label }}
           ISSUE_GROUP_NUMBERS: ${{ steps.group.outputs.group_numbers }}
         with:
-          preflight_blocked: ${{ steps.quota.outputs.codex_fallback }}
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # L'IDENTITÀ DI PUSH DEL FIXER. Senza questo input la action ne conia uno suo
@@ -990,7 +1012,7 @@ jobs:
 
             - **Stati già dichiarati nei residui (leggi PRIMA di implementare):** se la issue nasce da una PR (follow-up, `Addresses`/`da PR #N` nel body), leggi il body di quella PR e classificane i residui. In quest'ordine:
               1. `gh pr view <N> --json body -q .body > /tmp/pr-body.md`.
-              2. `git fetch --no-tags --depth=1 origin main`, poi recupera **sia** `scripts/lib/pr-body-sections-check.mjs` **sia** `scripts/ci/lib/false-positive-declaration.mjs` mantenendo la STESSA struttura relativa: `mkdir -p /tmp/s/lib /tmp/s/ci/lib && git show FETCH_HEAD:scripts/lib/pr-body-sections-check.mjs > /tmp/s/lib/pr-body-sections-check.mjs && git show FETCH_HEAD:scripts/ci/lib/false-positive-declaration.mjs > /tmp/s/ci/lib/false-positive-declaration.mjs` — il primo importa il secondo con un percorso relativo, quindi appiattirli in un file solo rompe l'import (`ERR_MODULE_NOT_FOUND`). **Il modulo va risolto da `main`, MAI dal checkout corrente:** col `resume=true` del passo 1 questo container è su un branch `fix/issue-*` che può essere nato PRIMA di #5916, dove `bulletState` non è esportato (o il file non c'è) e l'import muore quando i turni di diagnosi sono già spesi.
+              2. `git fetch --no-tags origin main`, poi recupera **sia** `scripts/lib/pr-body-sections-check.mjs` **sia** `scripts/ci/lib/false-positive-declaration.mjs` mantenendo la STESSA struttura relativa: `mkdir -p /tmp/s/lib /tmp/s/ci/lib && git show FETCH_HEAD:scripts/lib/pr-body-sections-check.mjs > /tmp/s/lib/pr-body-sections-check.mjs && git show FETCH_HEAD:scripts/ci/lib/false-positive-declaration.mjs > /tmp/s/ci/lib/false-positive-declaration.mjs` — il primo importa il secondo con un percorso relativo, quindi appiattirli in un file solo rompe l'import (`ERR_MODULE_NOT_FOUND`). **Il modulo va risolto da `main`, MAI dal checkout corrente:** col `resume=true` del passo 1 questo container è su un branch `fix/issue-*` che può essere nato PRIMA di #5916, dove `bulletState` non è esportato (o il file non c'è) e l'import muore quando i turni di diagnosi sono già spesi.
               3. importa `file:///tmp/s/lib/pr-body-sections-check.mjs` ed esegui `extractSection(body, NON_IMPL_ANCORA_RE)` → `sectionBullets(sezione)` → `bulletState(bullet)`. **NON scrivere un secondo parser** né una regex tua: `NON_IMPL_ANCORA_RE` è l'header canonico che `extractSection` pretende come argomento, `sectionBullets` applica `stripNonContent` — senza di lui gli ESEMPI di tassonomia dentro un blocco fenced del body vengono letti come stati dichiarati — e `scripts/ci/followup-has-candidates.mjs` giudica con le stesse funzioni: riscriverle a mano le fa divergere in silenzio.
               **Quali stati CHIUDONO un item — `blocked:` NON è monolitico.** La lista canonica è `CLOSING_STATES` di `followup-has-candidates.mjs`: chiudono `in questa PR`, `PR concatenata #N`, `per scelta`, `by construction` e `blocked: decisione del proprietario`. I primi due sono lavoro già tracciato, gli ultimi tre un NO motivato. NON chiude `blocked-technical`, cioè ogni altro `blocked: <causa>`, che resta lavoro dovuto e va trattato normalmente; e `PR concatenata` senza il `#N` non chiude: è lavoro aperto. Leggi la CAUSA, non il prefisso.
               **Due controlli prima di onorare il veto.** `bulletState` vince sull'occorrenza più a SINISTRA: verifica sul testo del bullet che (a) le parole dello stato non stiano dentro una negazione — «il floor non è a 3 per scelta ma per un limite dell'API, il fix vero arriva in questa PR» viene classificato `by-choice` mentre dichiara l'opposto — e che (b) il MOTIVO venga DOPO lo stato. Una menzione nuda di `per scelta` o `by construction`, senza motivo, non è una chiusura: l'item resta aperto. Il veto vale solo per il bullet che copre il TEMA dell'item, mai per uno che gli somiglia.
@@ -998,7 +1020,7 @@ jobs:
 
             **Daily bucket:** se il titolo usa il protocollo daily, lavora SOLO l'item selezionato `${{ steps.tier.outputs.selected_item_id }}` (primo `State: open`); mai `Closes`.
 
-            **Follow-up aggregata multi-item — is_aggregate=${{ steps.tier.outputs.is_aggregate }} (count=${{ steps.tier.outputs.agg_count }}):** se `is_aggregate=true` questa issue ha ${{ steps.tier.outputs.agg_count }} item distinti e tentarli TUTTI in un run sfora il turn budget → `error_max_turns` → 0 PR, ~2M token persi (osservato #1095/#1101/#1172). **REGOLA FERREA (circuit-breaker):** fixa **ESATTAMENTE UN item** poi FERMATI (per una issue *sweep/batch* "item" = UN singolo target/file: es. "~30 crawlers" → fixa 1 crawler, deferisci gli altri 29). Procedura: (a) capability guard **PER-ITEM** — salta gli item che toccano `.github/workflows/**`/admin/secret (NON abortire l'intera issue), (b) scegli il PRIMO item in-capability a massimo valore funnel, (c) implementa SOLO quello, (d) **appena la PR per quell'unico item è aperta → STOP IMMEDIATO, non iniziare un secondo item** (anche se hai turni residui), (e) elenca tutti gli altri item in `## Non implementato (ancora)`, ognuno con lo STATO LETTERALE del passo 9 (per un item deferito a un ciclo successivo: `blocked: <causa>` se sospeso su una causa esterna, altrimenti `PR concatenata #N` quando il numero esiste). **Due errori di stato che non convergono mai, in direzioni opposte:** un item che hai saltato perché uno stato CHIUDENTE della PR d'origine lo copre va ri-elencato con QUELLO stato (`per scelta` / `by construction` / `blocked: decisione del proprietario`) — riscritto come `blocked: <causa tecnica>` viene riaperto da `followup-has-candidates.mjs` a ogni ciclo, per sempre; e viceversa non dare MAI uno stato chiudente a un item che stai solo rimandando, perché lo toglie dalla coda e il ciclo lo perde. → `post-merge-followup` li ri-accoda come nuova follow-up (re-queue esistente; ogni ciclo chiude ≥1 item → converge). Se `is_aggregate=false`: issue singola, comportamento invariato (capability guard whole-issue come sopra). Razionale: il budget di turni basta per 1 item con margine; 2+ item lo bruciano.
+            **Follow-up aggregata multi-item — is_aggregate=${{ steps.tier.outputs.is_aggregate }}:** se `is_aggregate=true` questa issue contiene più item distinti e tentarli TUTTI in un run sfora il turn budget → `error_max_turns` → 0 PR, ~2M token persi (osservato #1095/#1101/#1172). **REGOLA FERREA (circuit-breaker):** fixa **ESATTAMENTE UN item** poi FERMATI (per una issue *sweep/batch* "item" = UN singolo target/file: es. "~30 crawlers" → fixa 1 crawler, deferisci gli altri 29). Procedura: (a) capability guard **PER-ITEM** — salta gli item che toccano `.github/workflows/**`/admin/secret (NON abortire l'intera issue), (b) scegli il PRIMO item in-capability a massimo valore funnel, (c) implementa SOLO quello, (d) **appena la PR per quell'unico item è aperta → STOP IMMEDIATO, non iniziare un secondo item** (anche se hai turni residui), (e) elenca tutti gli altri item in `## Non implementato (ancora)`, ognuno con lo STATO LETTERALE del passo 9 (per un item deferito a un ciclo successivo: `blocked: <causa>` se sospeso su una causa esterna, altrimenti `PR concatenata #N` quando il numero esiste). **Due errori di stato che non convergono mai, in direzioni opposte:** un item che hai saltato perché uno stato CHIUDENTE della PR d'origine lo copre va ri-elencato con QUELLO stato (`per scelta` / `by construction` / `blocked: decisione del proprietario`) — riscritto come `blocked: <causa tecnica>` viene riaperto da `followup-has-candidates.mjs` a ogni ciclo, per sempre; e viceversa non dare MAI uno stato chiudente a un item che stai solo rimandando, perché lo toglie dalla coda e il ciclo lo perde. → `post-merge-followup` li ri-accoda come nuova follow-up (re-queue esistente; ogni ciclo chiude ≥1 item → converge). Se `is_aggregate=false`: issue singola, comportamento invariato (capability guard whole-issue come sopra). Razionale: il budget di turni basta per 1 item con margine; 2+ item lo bruciano.
 
             **Fix flow (vedi ISSUES.md):**
             1. Branch isolato — **resume-aware** (`resume=${{ steps.resume.outputs.resume }}`): se `resume=false`, `git checkout -b fix/issue-$ISSUE_NUMBER` (fresh, come sempre). Se `resume=true` esiste già un branch `fix/issue-$ISSUE_NUMBER` su origin (lasciato da un run precedente morto per max-turns DOPO il checkpoint WIP, vedi step 4) — fai `git fetch origin fix/issue-$ISSUE_NUMBER && git checkout fix/issue-$ISSUE_NUMBER` invece di ricreare da zero. Ispeziona cosa c'è già (`git log --oneline origin/main..HEAD --stat`): se il diff è pertinente alla issue corrente, CONTINUA da lì (non ridiagnosticare/rifare il lavoro già presente). Se il diff sembra stale/scollegato dal body della issue attuale → `git reset --hard origin/main` e riparti pulito — usa giudizio, non è un automatismo cieco.
@@ -1053,7 +1075,7 @@ jobs:
         # c'era lavoro da salvare). Best-effort in senso stretto: qualunque
         # fallimento è un warning, mai un job rosso — un salvataggio mancato non
         # deve trasformare un run terminato in un run fallito.
-        if: always() && steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: always() && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -1126,9 +1148,85 @@ jobs:
             echo "::warning::wip-salvage: push di $BRANCH fallito — il lavoro resta solo nel container e andrà perso."
           fi
 
+      - name: Verify best-effort PR writes (zero-Claude)
+        # Il wrapper mantiene best-effort il lavoro già eseguito, ma registra
+        # una scrittura remota fallita. In quel caso il job non può classificare
+        # un'assenza di PR come terminale legittimo: verifica il branch e fallisce
+        # se la consegna non esiste.
+        if: always() && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          ISSUE: ${{ github.event.issue.number }}
+          CLAUDE_OUTCOME: ${{ steps.claude_review.outcome }}
+        run: |
+          set -euo pipefail
+          BRANCH="fix/issue-$ISSUE"
+          status_file="${PR_BODY_GATE_STATUS_FILE:-}"
+          baseline_file="${PR_BODY_GATE_BASELINE_FILE:-}"
+          claude_outcome="${CLAUDE_OUTCOME:-}"
+          if [ -z "$status_file" ] || [ ! -s "$status_file" ]; then
+            if [ "$claude_outcome" = "failure" ]; then
+              echo "::error::gh-pr-body-check ha fallito senza poter registrare lo stato della delivery."
+              exit 1
+            fi
+            exit 0
+          fi
+          if ! grep -Fxq 'best-effort-failed' "$status_file"; then
+            exit 0
+          fi
+          if [ -z "$baseline_file" ] || [ ! -r "$baseline_file" ]; then
+            echo "::error::baseline delle PR sul branch $BRANCH non disponibile: delivery non verificabile."
+            exit 1
+          fi
+
+          CANDIDATES=$(gh pr list --repo "$REPO" --head "$BRANCH" --state all --json number,state,createdAt \
+            --jq '[.[] | select(.state=="OPEN" or .state=="MERGED")] | sort_by(.createdAt) | reverse | .[].number') || {
+            echo "::error::gh pr list non ha potuto verificare la consegna su $BRANCH."
+            exit 1
+          }
+          PR=$(while IFS= read -r candidate; do
+            [ -z "$candidate" ] && continue
+            if grep -Fxq "$candidate" "$baseline_file"; then
+              continue
+            fi
+            printf '%s\n' "$candidate"
+            break
+          done <<< "$CANDIDATES")
+          if [ -n "${PR:-}" ]; then
+            echo "best-effort PR write verificata: nuova #$PR su $BRANCH."
+            exit 0
+          fi
+          echo "::error::gh-pr-body-check ha registrato una scrittura remota fallita e non esiste una nuova PR su $BRANCH."
+          exit 1
+
+      - name: Mark autonomous PR provenance (zero-Claude)
+        # `fix/*` identifies the deterministic fixer path. Persist the same
+        # provenance label explicitly so downstream reviewer/fixer jobs do not
+        # have to guess from the owner author alone. The local `/fix-issue`
+        # command applies this label after its own PR creation.
+        if: always() && steps.claim.outputs.claim_acquired == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          ISSUE: ${{ github.event.issue.number }}
+        run: |
+          set -uo pipefail
+          PR=$(gh pr list --repo "$REPO" --head "fix/issue-$ISSUE" --state open --json number,createdAt \
+            --jq 'sort_by(.createdAt) | last | .number // empty' 2>/dev/null || true)
+          if [ -z "${PR:-}" ]; then
+            echo "provenance: nessuna PR aperta su fix/issue-$ISSUE da marcare."
+            exit 0
+          fi
+          gh label create agent:autofix --repo "$REPO" --color 1d76db \
+            --description 'PR prodotta dal loop autonomo issue-fix' --force >/dev/null 2>&1 || true
+          gh pr edit "$PR" --repo "$REPO" --add-label agent:autofix
+          echo "provenance: PR #$PR marcata agent:autofix."
+
       - name: Claude usage metrics
-        # Skip when the pre-flight short-circuited (Claude never ran → no execution file).
-        if: always() && steps.quota.outputs.quota_blocked != 'true' && steps.claude_review.outputs.fallback_used != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        # Run only when the Claude fallback actually ran and produced an execution file.
+        if: always() && steps.claude_review.outputs.claude_used == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         # Exact token/cost for this run (replaces estimates). Writes a table to
         # the run Step Summary + a grep-able CLAUDE_USAGE line to the log.
         # Best-effort: never fails the job.
@@ -1159,7 +1257,7 @@ jobs:
         # Gli altri failure (5xx transienti, crash infra) restano SENZA marker →
         # legittimamente ri-tentabili dal rescue. Nessuna falsa escalation.
         # Best-effort, mai fa fallire il job.
-        if: always() && steps.quota.outputs.quota_blocked != 'true' && steps.claude_review.outputs.fallback_used != 'true' && steps.claude_review.outcome == 'failure' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: always() && steps.claude_review.outputs.claude_used == 'true' && steps.claude_review.outcome == 'failure' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
@@ -1181,19 +1279,31 @@ jobs:
         # marker prompt on main yet posted none). This backstop guarantees the
         # lessons-harvester always has a queryable marker: pr-created if this run
         # opened a PR on fix/issue-<N>, else a coarse no-pr-unspecified. It never
-        # overwrites the agent's own granular marker. Best-effort: never fails.
-        if: always() && steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        # overwrites a granular marker from the CURRENT run. Historical markers
+        # must not suppress telemetry for this run. Best-effort: never fails.
+        if: always() && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
           ISSUE: ${{ github.event.issue.number }}
         run: |
           set -uo pipefail
-          HAS=$(gh issue view "$ISSUE" --json comments --jq '[.comments[].body | select(test("<!-- FIX_OUTCOME:"))] | length' 2>/dev/null || echo 0)
-          if [ "${HAS:-0}" != "0" ]; then
-            echo "FIX_OUTCOME marker already present (agent-posted) — no backstop needed."
+          RUN_STARTED_AT=$(gh api "repos/$REPO/actions/runs/$GITHUB_RUN_ID" \
+            --jq '.run_started_at // .created_at' 2>/dev/null || true)
+          if [ -z "${RUN_STARTED_AT:-}" ]; then
+            echo "::warning::RUN_STARTED_AT non disponibile: backstop non emesso."
             exit 0
           fi
-          PR=$(gh pr list --head "fix/issue-$ISSUE" --state open --json number --jq '.[0].number // empty' 2>/dev/null || true)
+          COMMENTS=$(gh issue view "$ISSUE" --json comments 2>/dev/null || echo '{"comments":[]}')
+          HAS=$(printf '%s\n' "$COMMENTS" | jq -r --arg started "$RUN_STARTED_AT" \
+            '[.comments[] | select((.createdAt // "") >= $started) | select((.body // "") | test("<!-- FIX_OUTCOME:"))] | length' \
+            2>/dev/null || echo 0)
+          if [ "${HAS:-0}" != "0" ]; then
+            echo "FIX_OUTCOME marker already present in this run — no backstop needed."
+            exit 0
+          fi
+          PR=$(gh pr list --head "fix/issue-$ISSUE" --state open --json number,createdAt \
+            --jq 'sort_by(.createdAt) | last | .number // empty' 2>/dev/null || true)
           if [ -n "${PR:-}" ]; then OUT=pr-created; else OUT=no-pr-unspecified; fi
           echo "FIX_OUTCOME issue=$ISSUE outcome=$OUT (deterministic backstop)"
           gh issue comment "$ISSUE" --body "$(printf '<!-- FIX_OUTCOME: %s -->\n_Outcome rilevato dal post-step deterministico (telemetria lessons-harvester)._' "$OUT")" || true
@@ -1215,7 +1325,7 @@ jobs:
       # passa comunque dal reviewer (cfr. #2514 / #2288 — disambigua intenzionale
       # vs crash, colore != gate).
       - name: Classify outcome (work-done, not CLI exit)
-        if: always() && steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: always() && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE: ${{ github.event.issue.number }}
@@ -1223,8 +1333,8 @@ jobs:
         run: |
           set -uo pipefail
           # PR aperta o gia' mergiata sul branch di questa issue (head esatto).
-          PR_STATE=$(gh pr list --head "fix/issue-$ISSUE" --state all --json number,state \
-            --jq '[.[] | select(.state=="OPEN" or .state=="MERGED")] | .[0].number // empty' 2>/dev/null || true)
+          PR_STATE=$(gh pr list --head "fix/issue-$ISSUE" --state all --json number,state,createdAt \
+            --jq '[.[] | select(.state=="OPEN" or .state=="MERGED")] | sort_by(.createdAt) | last | .number // empty' 2>/dev/null || true)
           echo "issue=$ISSUE pr(head fix/issue-$ISSUE, open|merged)=${PR_STATE:-<none>} claude=$CLAUDE_OUTCOME"
           if [ -n "${PR_STATE:-}" ]; then
             echo "✓ PR #$PR_STATE esiste (open/merged) per la issue → run SUCCESS. Job verde anche se la CLI e' uscita '$CLAUDE_OUTCOME' (false-failure: lavoro consegnato)."
@@ -1255,15 +1365,31 @@ jobs:
         # Symmetric to the claim step above: runs on EVERY terminal path (success,
         # blocked-workflows-scope, already-resolved, error_max_turns, infra fail) so a
         # dead/failed run never leaves `agent:in-progress` stuck forever. Gated on
-        # `steps.claim.outcome != 'skipped'` (this run must have actually executed the
-        # claim step — i.e. wasn't itself short-circuited by an earlier gate) AND
-        # `in_flight != 'true'` (this run was the one that ADDED the label, not a run
-        # that saw it already there and deferred to someone else's claim). Never removes
-        # a claim this run didn't set.
-        if: always() && steps.quota.outputs.quota_blocked != 'true' && steps.claim.outcome != 'skipped' && steps.claim.outputs.in_flight != 'true'
+        # `claim_acquired=true` is stronger than `in_flight=false`: it proves
+        # this run wrote and re-read the remote-owned claim. Never remove a
+        # local claim, a contended claim, or a claim that this run did not own.
+        if: always() && steps.claim.outputs.claim_acquired == 'true'
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE: ${{ github.event.issue.number }}
-        run: |
-          gh issue edit "$ISSUE" --remove-label agent:in-progress 2>/dev/null || true
-          echo "Released agent:in-progress claim on issue #$ISSUE (best-effort)."
+          GH_REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          CLAIM_ACTION: release
+          CLAIM_OWNER: remote
+        run: node scripts/ci/claim-issue-in-flight.mjs
+
+      - name: Release issue-fix quota-floor lease (zero-Claude)
+        # A contending run may reuse a reservation owned by another run. Only
+        # release a lease that this run actually acquired or already owns.
+        if: always() && steps.quota.outputs.quota_floor_lease_owned == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          QUOTA_FLOOR_REQUIRED: '1'
+          QUOTA_FLOOR_ACTION: release
+          QUOTA_FLOOR_KIND: issue-fix
+          QUOTA_FLOOR_LEDGER_ISSUE: '8306'
+          QUOTA_FLOOR_SUBJECT: issue-${{ github.event.issue.number }}
+          QUOTA_FLOOR_OWNER: ${{ steps.quota.outputs.quota_floor_lease_owner }}
+        run: node scripts/ci/check-quota-backoff.mjs

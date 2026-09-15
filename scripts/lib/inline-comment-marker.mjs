@@ -82,11 +82,11 @@ function isQuoteStart(line, index) {
   return !(previous && /[\p{L}\p{N}_]/u.test(previous));
 }
 
-function isRegexLiteralStart(line, index) {
+export function isRegexLiteralStart(line, index) {
   const prefix = line.slice(0, index).trimEnd();
   const previous = prefix.at(-1) || '';
   if (!previous) return true;
-  if (previous === '<' && /[\p{L}\p{N}]/u.test(line[index + 1] || '')) return false;
+  if (previous === '<' && line[index - 1] === '<' && /[\p{L}\p{N}]/u.test(line[index + 1] || '')) return false;
   if (/(?:\+\+|--)$/.test(prefix)) return false;
   if (/[=([{,:;!&|?+\-*%^~<>]/.test(previous)) return true;
   return /\b(?:case|delete|do|else|in|instanceof|of|return|throw|typeof|void|yield|await)\s*$/u.test(prefix);

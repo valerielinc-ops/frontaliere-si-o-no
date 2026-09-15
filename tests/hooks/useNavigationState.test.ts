@@ -58,7 +58,7 @@ vi.mock('@/services/analyticsProxy', () => ({
 }));
 
 import { useNavigationState } from '@/hooks/useNavigationState';
-import { pushRoute, parseHashToPath, parsePath, resolveBlogSlug, learnRuntimeBlogSlugs } from '@/services/router';
+import { pushRoute, parseHashToPath, parsePath, resolveBlogSlug, learnRuntimeBlogSlugs, getSeoSection } from '@/services/router';
 import { adoptRuntimeArticle } from '@/services/runtimeArticleResolution';
 import { prefetchTab } from '@/services/prefetch';
 import { updateMetaTags, trackSectionView } from '@/hooks/seoHelpers';
@@ -203,6 +203,26 @@ describe('useNavigationState', () => {
       expect(result.current.suppressNextRouteSyncForTabRef.current).toBeNull();
       expect(result.current.fiscoSubTab).toBe('pension');
     });
+  });
+
+  it('updates SEO when navigating to a pharmacy route in the SPA', () => {
+    const { result } = renderHook(() => useNavigationState());
+    const pharmacyRoute = {
+      activeTab: 'vita' as const,
+      pharmacyPath: { kind: 'hub' as const, locale: 'it' as const },
+      staticOverlay: false,
+    };
+    vi.mocked(parsePath).mockReturnValue({ route: pharmacyRoute, locale: 'it' } as never);
+    vi.mocked(getSeoSection).mockReturnValue('pharmacy-hub');
+
+    act(() => {
+      window.history.pushState({}, '', '/farmacie/');
+      window.dispatchEvent(new PopStateEvent('popstate'));
+    });
+
+    expect(result.current.pharmacyPath).toEqual(pharmacyRoute.pharmacyPath);
+    expect(updateMetaTags).toHaveBeenCalledWith('pharmacy-hub');
+    expect(trackSectionView).toHaveBeenCalledWith('pharmacy-hub');
   });
 
   // Regression: legacy-redirect useEffect must not drop ?ne=…&ac=… autologin

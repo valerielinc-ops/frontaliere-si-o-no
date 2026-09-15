@@ -19,6 +19,12 @@
 # GitHub Actions outputs (via $GITHUB_OUTPUT):
 #   has_changes=true|false   — whether any data files were modified
 #
+# Optional translation-pipeline mode:
+#   TRANSLATION_STATS_AFTER_TREE=1 — materialise the private-index candidate
+#   tree, run `log-translation-stats.mjs after` against those slices, and stage
+#   the resulting history blob before commit-tree. This deliberately does not
+#   advance the checkout ref or worktree.
+#
 # Exit codes:
 #   0  — success (committed+pushed, or nothing to commit)
 #   1  — push still failing after retries for a NON-contention reason
@@ -47,6 +53,10 @@
 #        A receipt process killed by a signal reports the conventional shell
 #        status 128+signal; defer mode normalizes that status to 43 for the
 #        same shared-precondition carve-out while keeping the outer step red.
+#   44 — GLOBAL_DATA_PIPELINE_LEASE_BUSY: the bounded cross-repository writer
+#        queue stayed occupied. Grouped callers return this to the generated
+#        workflow as a retryable systemic outcome; sequential callers stop
+#        cleanly without pretending that data was committed.
 # ─────────────────────────────────────────────────────────────────────────────
 set -euo pipefail
 
@@ -580,7 +590,7 @@ if [ "${CRAWLER_GROUP_DEFER_COMMIT:-0}" = "1" ]; then
   CRAWLER_GROUP_COMMIT_MESSAGE="$COMMIT_MSG" \
     node "$(dirname "$0")/crawler-generation-receipt.mjs" --defer-group-commit "${RESOLVED_FILES[@]}" \
     || descriptor_exit=$?
-  if [ "$descriptor_exit" -ge 128 ]; then
+  if [ "$descriptor_exit" -eq 143 ] || [ "$descriptor_exit" -eq 130 ]; then
     echo "⚠️ crawler group defer receipt was terminated by a signal (exit ${descriptor_exit}) — classifying as shared precondition (exit 43)"
     descriptor_exit=43
   fi
@@ -1375,6 +1385,43 @@ ensure_git_auth() {
   bash "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/configure-main-push-auth.sh"
 }
 
+# GitHub concurrency groups cannot serialize the site and corpus repositories
+# together. The generated crawler groups and translate-pending therefore opt
+# into one Firestore-backed lease. Keep acquisition outside the isolated
+# plumbing function: the lease covers every retry and every remote push, while
+# the EXIT trap releases it on all normal failure/success paths.
+GLOBAL_DATA_PIPELINE_LEASE_ACQUIRED=0
+global_data_pipeline_lease_acquire() {
+  [ "${DATA_PIPELINE_LEASE:-0}" = "1" ] || return 0
+  local lease_script
+  local lease_status
+  lease_script="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/global-data-pipeline-lease.mjs"
+  if node "$lease_script" acquire; then
+    GLOBAL_DATA_PIPELINE_LEASE_ACQUIRED=1
+    return 0
+  else
+    lease_status=$?
+  fi
+  if [ "$lease_status" -eq 44 ]; then
+    echo "::warning::global data pipeline lease remained busy after the bounded wait; this writer staged nothing and will retry on the next scheduled run"
+  fi
+  return "$lease_status"
+}
+
+global_data_pipeline_lease_cleanup() {
+  local exit_status=$?
+  if [ "${GLOBAL_DATA_PIPELINE_LEASE_ACQUIRED:-0}" = "1" ]; then
+    local lease_script
+    lease_script="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/global-data-pipeline-lease.mjs"
+    if ! node "$lease_script" release; then
+      echo "::warning::global data pipeline lease release failed; the lease expires automatically"
+    fi
+    GLOBAL_DATA_PIPELINE_LEASE_ACQUIRED=0
+  fi
+  return "$exit_status"
+}
+trap global_data_pipeline_lease_cleanup EXIT
+
 # `git fetch` inside the retry loop below is otherwise unguarded under
 # `set -e` — a transient network blip (e.g. "Connection reset by peer" under
 # ~24 concurrent crawler-group jobs) kills the whole script instantly instead
@@ -1472,6 +1519,49 @@ for (const entry of [...readLedger(remotePath), ...readLedger(localPath)]) {
 const lines = [...merged.values()].map((entry) => JSON.stringify(entry));
 fs.writeFileSync(outputPath, lines.length > 0 ? `${lines.join('\n')}\n` : '', 'utf8');
 NODE
+}
+
+append_translation_stats_to_index() {
+  local tmp_index="$1"
+  local tree_sha="$2"
+  local stats_root stats_file stats_blob
+
+  stats_root="$(mktemp -d /tmp/translation-stats-tree.XXXXXX)"
+  stats_file="$stats_root/data/translation-stats-history.json"
+  mkdir -p "$stats_root/data/jobs/by-crawler"
+
+  if git cat-file -e "$tree_sha:data/jobs/by-crawler" 2>/dev/null; then
+    if ! git archive --format=tar "$tree_sha" data/jobs/by-crawler | tar -xf - -C "$stats_root"; then
+      echo "❌ translation stats: could not materialise candidate crawler slices"
+      rm -rf "$stats_root"
+      return 1
+    fi
+  fi
+
+  if git cat-file -e "$tree_sha:data/translation-stats-history.json" 2>/dev/null; then
+    if ! git cat-file blob "$tree_sha:data/translation-stats-history.json" > "$stats_file"; then
+      echo "❌ translation stats: could not read the candidate history blob"
+      rm -rf "$stats_root"
+      return 1
+    fi
+  else
+    printf '[]\n' > "$stats_file"
+  fi
+
+  if ! TRANSLATION_STATS_ROOT="$stats_root" node scripts/log-translation-stats.mjs after; then
+    echo "❌ translation stats: after snapshot failed on the candidate tree"
+    rm -rf "$stats_root"
+    return 1
+  fi
+
+  if [ ! -f "$stats_file" ]; then
+    echo "❌ translation stats: after snapshot did not write $stats_file"
+    rm -rf "$stats_root"
+    return 1
+  fi
+  stats_blob="$(git hash-object -w -- "$stats_file")"
+  GIT_INDEX_FILE="$tmp_index" git update-index --add --cacheinfo "100644,${stats_blob},data/translation-stats-history.json"
+  rm -rf "$stats_root"
 }
 
 commit_isolated_from_worktree() {
@@ -1698,6 +1788,13 @@ commit_isolated_from_worktree() {
     done
 
     new_tree="$(GIT_INDEX_FILE="$tmp_index" git write-tree)"
+    if [ "${TRANSLATION_STATS_AFTER_TREE:-0}" = "1" ]; then
+      # The snapshot must happen after the remote refresh and every 3-way merge,
+      # but before this exact index becomes the pushed commit. On a retry the
+      # candidate is rebuilt and measured again against the newer remote tree.
+      append_translation_stats_to_index "$tmp_index" "$new_tree" || return 1
+      new_tree="$(GIT_INDEX_FILE="$tmp_index" git write-tree)"
+    fi
     if [ "$new_tree" = "$remote_tree" ]; then
       emit_crawler_generation_receipt "noop" "$remote_sha" "$remote_sha"
       echo "ℹ️ No effective changes for this crawler's files vs origin/main — nothing to commit"
@@ -1757,13 +1854,24 @@ commit_isolated_from_worktree() {
 }
 
 if [ "$GROUPED_ISOLATED" = true ]; then
-  # `|| _commit_result=$?` (not a bare call + separate `$?` capture) is
-  # LOAD-BEARING under `set -e` (L31): a bare simple command's non-zero
-  # return trips errexit immediately, skipping every line after it —
-  # including the `_commit_result=$?` capture and the soft-fail mapping
-  # below, so the script would exit 42 unconditionally regardless of
-  # caller type. Attaching `||` puts the call in a tested context, which
-  # `set -e` exempts (PR #4191 round-1 review).
+  # Both non-zero results are captured through `||` rather than a bare call:
+  # under `set -e` (L31), errexit would skip the coordination mapping below.
+  _lease_result=0
+  global_data_pipeline_lease_acquire || _lease_result=$?
+  if [ "$_lease_result" -eq 44 ]; then
+    if [ "$GROUP_BATCH" = true ] || [ -n "${JOBS_SLICE_FILE:-}" ]; then
+      # Group-batch/per-crawler callers return the coordination class to their
+      # generated workflow, which can keep the run green without filing a
+      # per-crawler issue. Sequential writers must continue the job: no data
+      # was staged, and a later commit phase or the next scheduled run retries.
+      exit 44
+    fi
+    echo "⚠️ Sequential writer: global data-pipeline lease remained busy after the bounded wait — no data staged; continuing so a later phase or the next scheduled run can retry"
+    exit 0
+  fi
+  if [ "$_lease_result" -ne 0 ]; then
+    exit "$_lease_result"
+  fi
   _commit_result=0
   commit_isolated_from_worktree || _commit_result=$?
   # Sequential callers (JOBS_SLICE_FILE unset — e.g. translate-pending.yml,
@@ -1779,6 +1887,7 @@ if [ "$GROUPED_ISOLATED" = true ]; then
   exit "$_commit_result"
 fi
 
+global_data_pipeline_lease_acquire
 while true; do
 
 # ── 3. Sync with remote (stash → rebase → pop → merge if needed) ──────────

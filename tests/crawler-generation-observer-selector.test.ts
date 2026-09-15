@@ -1,10 +1,14 @@
 import { describe, expect, it } from 'vitest';
 import {
   MAX_DISCOVERY_ARTIFACTS,
+  MAX_DISCOVERY_ARTIFACT_REFERENCES,
   MAX_DISCOVERY_BYTES,
+  MAX_DISCOVERY_RUNS,
   MAX_DISCOVERY_TOKENS,
   MAX_SCHEDULE_SELECTIONS,
   crawlerGenerationSentinelDiscoveryPath,
+  generationDispatchRef,
+  generationSentinelName,
   recordDiscoveredArtifactIds,
   selectLatestCrawlerGenerationObserverReport,
   selectCrawlerGenerationReconciliations,
@@ -87,6 +91,13 @@ function reportOwner(runId = 95_001, event = 'schedule') {
 }
 
 describe('crawler generation scheduled selector', () => {
+  it('does not manufacture refs or display names for an invalid token', () => {
+    expect(generationDispatchRef(null)).toBeNull();
+    expect(generationDispatchRef('null')).toBeNull();
+    expect(generationSentinelName(null)).toBeNull();
+    expect(generationSentinelName('null')).toBeNull();
+  });
+
   it('binds sentinel and report owners to exact static name, dynamic title and event-specific ref', () => {
     const sentinel = {
       ...reportOwner(90_001, 'workflow_dispatch'),
@@ -208,6 +219,9 @@ describe('crawler generation scheduled selector', () => {
   });
 
   it('exports closed caps for bounded discovery and output', () => {
+    expect(MAX_DISCOVERY_ARTIFACT_REFERENCES).toBe(
+      MAX_DISCOVERY_RUNS + MAX_DISCOVERY_TOKENS * MAX_DISCOVERY_ARTIFACTS,
+    );
     expect(MAX_DISCOVERY_TOKENS).toBe(32);
     expect(MAX_DISCOVERY_ARTIFACTS).toBe(100);
     expect(MAX_DISCOVERY_BYTES).toBe(1024 * 1024);
@@ -237,5 +251,21 @@ describe('crawler generation scheduled selector', () => {
       sentinelCreatedAt: new Date(NOW - 12 * 24 * 60 * 60 * 1000).toISOString(),
     }));
     expect(selectCrawlerGenerationReconciliations({ now: NOW, candidates: aged })).toHaveLength(2);
+  });
+
+  it('accepts the bounded sentinel and report references seen in the live window', () => {
+    const seen = new Set<number>();
+    expect(recordDiscoveredArtifactIds(
+      seen,
+      Array.from({ length: 26 }, (_, index) => ({ id: index + 1 })),
+    )).toBe(26);
+    expect(recordDiscoveredArtifactIds(
+      seen,
+      Array.from({ length: 96 }, (_, index) => ({ id: 1_000 + index })),
+    )).toBe(122);
+    expect(() => recordDiscoveredArtifactIds(
+      new Set(Array.from({ length: MAX_DISCOVERY_ARTIFACT_REFERENCES }, (_, index) => index + 1)),
+      [{ id: MAX_DISCOVERY_ARTIFACT_REFERENCES + 1 }],
+    )).toThrow(/discovery artifact cap exceeded/);
   });
 });

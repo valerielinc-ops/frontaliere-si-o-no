@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kispi-sg",
-  "assembledAt": "2026-09-09T23:13:20.497Z",
+  "assembledAt": "2026-09-13T14:02:33.484Z",
   "jobs": [
     {
       "id": "kispi-sg-f71361122f0c",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/376/Application/CheckLogin/1?lang=ger",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:13:10.736Z",
+      "crawledAt": "2026-09-13T14:02:27.560Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -93,6 +93,83 @@
       }
     },
     {
+      "id": "kispi-sg-d917cf443acc",
+      "slug": "dottorato-di-ricerca-in-medicina-100-ostschweizer-kinderspital-st-gallen",
+      "slugByLocale": {
+        "it": "dottorato-di-ricerca-in-medicina-100-ostschweizer-kinderspital-st-gallen",
+        "en": "phd-student-in-medicine-100-ostschweizer-kinderspital-st-gallen",
+        "de": "phd-student-in-medicine-100-kispi-sg-st-gallen",
+        "fr": "doctorant-en-medecine-100-ostschweizer-kinderspital-st-gallen"
+      },
+      "company": "Ostschweizer Kinderspital",
+      "companyKey": "kispi-sg",
+      "companyDomain": "kispisg.ch",
+      "title": "PhD student in medicine (100%)",
+      "titleByLocale": {
+        "it": "Dottorato di ricerca in medicina (100%)",
+        "en": "PhD student in medicine (100%)",
+        "de": "PhD student in medicine (100%)",
+        "fr": "Doctorant en médecine (100%)"
+      },
+      "description": "Wir suchen:\nSie. Zurück zur Übersicht As of January 2027 or by agreement, we are looking for PhD student in medicine (100%).",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando:\nTu. A partire dal gennaio 2027 o d'accordo, stiamo cercando uno studente di dottorato in medicina (100%).",
+        "en": "We are looking for:\nYou. As of January 2027 or by agreement, we are looking for PhD student in medicine (100%).",
+        "de": "Wir suchen:\nSie. Zurück zur Übersicht As of January 2027 or by agreement, we are looking for PhD student in medicine (100%).",
+        "fr": "Nous cherchons:\nToi. En janvier 2027 ou d'un commun accord, nous recherchons un doctorant en médecine (100%)."
+      },
+      "needsRetranslation": true,
+      "location": "St. Gallen",
+      "canton": "SG",
+      "url": "https://recruitingapp-2979.umantis.com/Vacancies/808/Application/CheckLogin/1?lang=ger",
+      "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-13T14:02:26.615Z",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9006",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-10",
+      "applyUrl": "https://recruitingapp-2979.umantis.com/Vacancies/808/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "phd-student-in-medicine-100-kispi-sg-st-gallen",
+        "dottorato-di-ricerca-in-medicina-100-ostschweizer-kinderspital-st-gallen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-student-in-medicine-100-kispi-sg-st-gallen",
+          "dottorato-di-ricerca-in-medicina-100-ostschweizer-kinderspital-st-gallen"
+        ],
+        "fr": [
+          "phd-student-in-medicine-100-kispi-sg-st-gallen"
+        ]
+      },
+      "firstSeenAt": "2026-09-10T23:18:11.287Z",
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "kispi-sg-33eb27a3ffcd",
       "slug": "infermiere-a-per-cure-palliative-pediatriche-e-advanced-care-40-60-ostschweizer-kinderspital-st-gallen",
       "slugByLocale": {
@@ -124,7 +201,7 @@
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/775/Application/CheckLogin/1?lang=ger",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:13:09.843Z",
+      "crawledAt": "2026-09-13T14:02:25.685Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -197,7 +274,7 @@
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/660/Application/CheckLogin/1?lang=ger",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:13:08.923Z",
+      "crawledAt": "2026-09-13T14:02:24.754Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -223,7 +300,6 @@
       },
       "previousSlugs": [
         "oberassistenzarztin-arzt-oder-oberarztin-arzt-padiatrische-nephrologie-40-80-kispi-sg-st",
-        "oberassistenzarztin-arzt-oder-oberarztin-arzt-padiatrische-nephrologie-40-80-ostschweizer-kinderspital-st-gallen",
         "primario-riabilitazione-e-intervento-pediatrico-80-100-ostschweizer-kinderspital-st-gallen",
         "senior-physician-pediatric-rehabilitation-and-intervention-80-100-ostschweizer-kinderspital-st-gallen",
         "oberarztin-oberarzt-padiatrische-rehabilitation-und-intervention-80-100-kispi-sg-st-gallen",
@@ -235,6 +311,7 @@
         "senior-physician-pediatric-endocrinology-diabetology-70-ostschweizer-kinderspital-st-gallen",
         "oberarztin-oberarzt-padiatrische-endokrinologie-diabetologie-70-kispi-sg-st-gallen",
         "medecin-chef-fe-endocrinologie-diabetologie-pediatrique-70-ostschweizer-kinderspital-st-gallen",
+        "oberassistenzarztin-arzt-oder-oberarztin-arzt-padiatrische-nephrologie-40-80-ostschweizer-kinderspital-st-gallen",
         "medico-assistente-capo-o-primario-di-nefrologia-pediatrica-40-80-ostschweizer-kinderspital-st-gallen"
       ],
       "previousSlugsByLocale": {
@@ -259,9 +336,10 @@
           "senior-physician-pediatric-endocrinology-diabetology-70-ostschweizer-kinderspital-st-gallen"
         ],
         "de": [
-          "oberassistenzarztin-arzt-oder-oberarztin-arzt-padiatrische-nephrologie-40-80-ostschweizer-kinderspital-st-gallen",
           "oberarztin-oberarzt-padiatrische-rehabilitation-und-intervention-80-100-kispi-sg-st-gallen",
-          "oberarztin-oberarzt-padiatrische-endokrinologie-diabetologie-70-kispi-sg-st-gallen"
+          "oberarztin-oberarzt-padiatrische-endokrinologie-diabetologie-70-kispi-sg-st-gallen",
+          "oberassistenzarztin-arzt-oder-oberarztin-arzt-padiatrische-nephrologie-40-80-ostschweizer-kinderspital-st-gallen",
+          "oberassistenzarztin-arzt-oder-oberarztin-arzt-padiatrische-nephrologie-40-80-kispi-sg-st"
         ],
         "fr": [
           "oberassistenzarztin-arzt-oder-oberarztin-arzt-padiatrische-nephrologie-40-80-kispi-sg-st",
@@ -315,7 +393,7 @@
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/749/Application/CheckLogin/1?lang=ger",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:13:08.027Z",
+      "crawledAt": "2026-09-13T14:02:23.795Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -398,7 +476,7 @@
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/802/Application/CheckLogin/1?lang=ger",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:13:07.116Z",
+      "crawledAt": "2026-09-13T14:02:22.843Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -479,7 +557,7 @@
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/759/Application/CheckLogin/1?lang=ger",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:13:06.159Z",
+      "crawledAt": "2026-09-13T14:02:21.898Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -579,7 +657,7 @@
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/788/Application/CheckLogin/1?lang=ger",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:13:05.261Z",
+      "crawledAt": "2026-09-13T14:02:20.934Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -674,7 +752,7 @@
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/803/Application/CheckLogin/1?lang=ger",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:13:04.366Z",
+      "crawledAt": "2026-09-13T14:02:19.976Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -706,7 +784,8 @@
           "fellow-ausbildungs-stelle-interdisziplinare-kinder-notfallmedizin-50-100-ostschweizer-kinderspital-st-gallen"
         ],
         "de": [
-          "fellow-ausbildungs-stelle-interdisziplinare-kinder-notfallmedizin-50-100-ostschweizer-kinderspital-st-gallen"
+          "fellow-ausbildungs-stelle-interdisziplinare-kinder-notfallmedizin-50-100-ostschweizer-kinderspital-st-gallen",
+          "fellow-ausbildungs-stelle-interdisziplinare-kinder-notfallmedizin-50-100-kispi-sg-st"
         ],
         "fr": [
           "fellow-ausbildungs-stelle-interdisziplinare-kinder-notfallmedizin-50-100-ostschweizer-kinderspital-st-gallen"
@@ -759,7 +838,7 @@
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/794/Application/CheckLogin/1?lang=ger",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:13:03.426Z",
+      "crawledAt": "2026-09-13T14:02:19.038Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -793,7 +872,8 @@
         ],
         "de": [
           "fachexperte-in-infektionspravention-und-spitalhygiene-60-80-kispi-sg-st-gallen",
-          "fachexperte-in-infektionspravention-60-80-ostschweizer-kinderspital-st-gallen"
+          "fachexperte-in-infektionspravention-60-80-ostschweizer-kinderspital-st-gallen",
+          "fachexperte-in-infektionspravention-60-80-kispi-sg-st-gallen"
         ]
       },
       "firstSeenAt": "2026-07-03T11:29:40.624Z",
@@ -842,7 +922,7 @@
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/649/Application/CheckLogin/1?lang=ger",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:13:02.534Z",
+      "crawledAt": "2026-09-13T14:02:18.065Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -923,7 +1003,7 @@
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/806/Application/CheckLogin/1?lang=ger",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:13:01.594Z",
+      "crawledAt": "2026-09-13T14:02:17.116Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -954,6 +1034,10 @@
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-oder-dipl-experten-expertin-notfallpflege-60-100-ostschweizer-kinderspital-st-gallen"
+        ],
+        "de": [
+          "dipl-pflegefachperson-hf-fh-oder-dipl-experten-expertin-notfallpflege-60-100-ostschweizer-kinderspital-st-gallen",
+          "dipl-pflegefachperson-hf-fh-oder-dipl-experten-expertin-notfallpflege-60-100-kispi-sg-st"
         ],
         "fr": [
           "dipl-pflegefachperson-hf-fh-oder-dipl-experten-expertin-notfallpflege-60-100-ostschweizer-kinderspital-st-gallen"
@@ -1005,7 +1089,7 @@
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/764/Application/CheckLogin/1?lang=ger",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:13:00.672Z",
+      "crawledAt": "2026-09-13T14:02:16.139Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1087,7 +1171,7 @@
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/364/Application/CheckLogin/1?lang=ger",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:12:59.747Z",
+      "crawledAt": "2026-09-13T14:02:15.140Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1187,7 +1271,7 @@
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/730/Application/CheckLogin/1?lang=ger",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:12:58.768Z",
+      "crawledAt": "2026-09-13T14:02:14.188Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1269,7 +1353,7 @@
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/805/Application/CheckLogin/1?lang=ger",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:12:57.855Z",
+      "crawledAt": "2026-09-13T14:02:13.407Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1288,12 +1372,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "arztsekretar-in-60-ostschweizer-kinderspital-st-gallen",
-        "arztsekretar-in-60-70-ostschweizer-kinderspital-st-gallen",
         "arztsekretar-in-60-70-kispi-sg-st-gallen",
         "medical-secretary-60-ostschweizer-kinderspital-st-gallen",
         "secretaire-medical-e-60-ostschweizer-kinderspital-st-gallen",
         "secretaire-medicale-60-ostschweizer-kinderspital-st-gallen",
         "segretaria-medica-60-ostschweizer-kinderspital-st-gallen",
+        "arztsekretar-in-60-70-ostschweizer-kinderspital-st-gallen",
         "segreteria-medica-60-70-ostschweizer-kinderspital-st-gallen"
       ],
       "previousSlugsByLocale": {
@@ -1310,7 +1394,8 @@
           "arztsekretar-in-60-70-kispi-sg-st-gallen"
         ],
         "de": [
-          "arztsekretar-in-60-70-ostschweizer-kinderspital-st-gallen"
+          "arztsekretar-in-60-70-ostschweizer-kinderspital-st-gallen",
+          "arztsekretar-in-60-70-kispi-sg-st-gallen"
         ],
         "fr": [
           "arztsekretar-in-60-70-kispi-sg-st-gallen"

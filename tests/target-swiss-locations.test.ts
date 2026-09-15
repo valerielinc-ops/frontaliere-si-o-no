@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import {
   GRIGIONI_MUNICIPALITIES,
+  canonicalSwissCityName,
+  inferAnyCanton,
   inferSwissTargetCanton,
   isCantonRelevant,
   isGrigioniRelevant,
@@ -34,6 +36,11 @@ describe('target swiss locations', () => {
     expect(inferSwissTargetCanton('Coira, Switzerland')).toBe('GR');
   });
 
+  it('canonicalizes Davos sub-localities to their BFS municipality parent', () => {
+    expect(canonicalSwissCityName('Davos Platz')).toBe('Davos');
+    expect(canonicalSwissCityName('Davos Glaris')).toBe('Davos');
+  });
+
   it('uses ambiguous raw municipality names once the canton disambiguates them', () => {
     expect(isKnownSwissMunicipalityInCanton('Court', 'BE')).toBe(true);
     expect(isKnownSwissMunicipalityInCanton('Sâles', 'FR')).toBe(true);
@@ -46,6 +53,22 @@ describe('target swiss locations', () => {
     // Zurich (ZH) and Geneva (GE) are now targets. Assert non-CH locations instead.
     expect(isTargetSwissLocation('Milan, IT')).toBe(false);
     expect(inferSwissTargetCanton('Tokyo, JP')).toBe('');
+  });
+
+  it('honors explicit parenthesized canton codes before same-name city aliases', () => {
+    expect(inferSwissTargetCanton('Buchs (AG)')).toBe('AG');
+    expect(inferSwissTargetCanton('Reinach (AG)')).toBe('AG');
+    expect(inferAnyCanton('Buchs (AG)')).toBe('AG');
+  });
+
+  it('prefers a full canton name over a shorter alias from another canton', () => {
+    expect(inferSwissTargetCanton('Stein Appenzell Ausserrhoden')).toBe('AR');
+    expect(inferAnyCanton('Stein Appenzell Ausserrhoden')).toBe('AR');
+  });
+
+  it('prefers an explicit canton name over a city alias from another canton', () => {
+    expect(inferSwissTargetCanton('Reinach, Aargau')).toBe('AG');
+    expect(inferAnyCanton('Reinach, Aargau')).toBe('AG');
   });
 
   // ── VS (Valais/Wallis) canton matching ──

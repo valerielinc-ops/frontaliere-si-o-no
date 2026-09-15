@@ -463,6 +463,13 @@ describe('generateFuelStationPages() — Ticino only', () => {
     expect(sample).toMatch(/Recensione editoriale della stazione/);
   });
 
+  it('uses the stated 6 L/100 km commute assumption for monthly context', () => {
+    const sample = pages['/prezzi-benzina/chiasso/stazioni/eni-via-compolongo/'];
+    expect(sample).toContain('106 litri');
+    expect(sample).not.toContain('200 litri');
+    expect(sample).not.toContain('4 pieni × prezzo');
+  });
+
   it('every page links back to the zone hub', () => {
     for (const [path, html] of Object.entries(pages)) {
       const zoneMatch = path.match(/\/(chiasso|mendrisio|lugano|bellinzona|locarno)\//);
@@ -502,6 +509,33 @@ describe('generateFuelStationPages() — Ticino only', () => {
   it('respects MAX_FUEL_STATION_PAGES_PER_BUILD cap', () => {
     const capped = generateFuelStationPages({ dataset: DATASET, today, maxPages: 3 });
     expect(Object.keys(capped).length).toBe(3);
+  });
+
+  it('keeps the final station across all locales and fuels under the default matrix cap', () => {
+    const contexts = Array.from({ length: 256 }, (_, index) => ({
+      station: {
+        ...DATASET.municipalities[0].swiss.nearbyStations[0],
+        id: `cap-${index}`,
+        name: `Cap station ${index}`,
+        brand: 'TEST',
+        address: `Via Cap ${index}, 6830 Chiasso`,
+      },
+      zone: 'chiasso' as const,
+      city: 'Chiasso',
+      slug: `cap-station-${index}`,
+      brandDisplay: 'Test',
+      streetDisplay: `Via Cap ${index}`,
+      prices: { diesel: 1.95, benzina: 1.8 },
+    }));
+    const pages = generateFuelStationPages({ dataset: DATASET, today, contexts: contexts as never });
+    const finalStationPages = Object.keys(pages).filter((path) => path.includes('/cap-station-255/'));
+    expect(Object.keys(pages)).toHaveLength(2048);
+    expect(finalStationPages).toHaveLength(8);
+
+    const grownContexts = [...contexts, { ...contexts[0], slug: 'cap-station-256' }];
+    const grownPages = generateFuelStationPages({ dataset: DATASET, today, contexts: grownContexts as never });
+    expect(Object.keys(grownPages)).toHaveLength(2056);
+    expect(Object.keys(grownPages).filter((path) => path.includes('/cap-station-256/'))).toHaveLength(8);
   });
 });
 

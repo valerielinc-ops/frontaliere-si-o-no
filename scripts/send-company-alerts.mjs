@@ -119,6 +119,7 @@ import { makeAlertUnsubscribeUrl, makeAllAlertsUnsubscribeUrl, BASE_URL } from '
 import { FIRESTORE_BATCH_SIZE } from './lib/firestore-batch.mjs';
 import { isImmediateCompanyAlert, IMMEDIATE_FREQUENCY } from './lib/company-alert-routing.mjs';
 import { companyAlertQuarantineReason } from './lib/company-alert-routing.mjs';
+import { evaluateJobAlertConsent } from '../functions/src/jobAlertBackfillCore.js';
 /**
  * `/aziende-seguite/` per locale — ONE literal segment for every language, like
  * `/aziende/` in services/companyAlertEmail.mjs.
@@ -412,7 +413,8 @@ export function hasDeferredCompanyAlertWork(alerts) {
   return (alerts || []).some((alert) => {
     const ledger = normalizeDeliveryLedger(alert?.deliveryLedger);
     if (isDeferredExhausted(alert)) return false;
-    return Object.values(ledger).some((entry) => entry.state === DELIVERY_STATES.DEFERRED);
+    return deferredStateForAlert(alert) === DELIVERY_STATES.DEFERRED
+      || Object.values(ledger).some((entry) => entry.state === DELIVERY_STATES.DEFERRED);
   });
 }
 
@@ -421,8 +423,51 @@ function deferredStateForAlert(alert) {
 }
 
 function deferredAttemptsForAlert(alert) {
-  const storedAttempts = Number(alert?.deliveryDeferredAttempts);
-  return Number.isInteger(storedAttempts) && storedAttempts > 0 ? storedAttempts : 0;
+  return positiveAttempts(alert?.deliveryDeferredAttempts);
+}
+
+function positiveAttempts(value) {
+  const attempts = Number(value);
+  return Number.isInteger(attempts) && attempts > 0 ? attempts : 0;
+}
+
+function mergeCoalescedDeliveryLedger(priorLedger, writeLedger) {
+  // One run can coalesce an alert-level terminal write with a throughput write
+  // for the same job. The latter is derived from the pre-write snapshot and
+  // must never downgrade the terminal evidence or its attempt count.
+  const merged = { ...priorLedger };
+  for (const [key, candidate] of Object.entries(writeLedger || {})) {
+    const previous = merged[key];
+    if (!previous) {
+      merged[key] = candidate;
+      continue;
+    }
+
+    const attempts = Math.max(
+      positiveAttempts(previous.attempts),
+      positiveAttempts(candidate.attempts),
+    );
+    const previousExhausted = previous.state === DELIVERY_STATES.DEFERRED_EXHAUSTED;
+    const candidateExhausted = candidate.state === DELIVERY_STATES.DEFERRED_EXHAUSTED;
+    if (previousExhausted || candidateExhausted) {
+      const terminalEntry = previousExhausted ? previous : candidate;
+      merged[key] = {
+        ...previous,
+        ...candidate,
+        state: DELIVERY_STATES.DEFERRED_EXHAUSTED,
+        ...(attempts > 0 ? { attempts } : {}),
+        ...(terminalEntry.reason ? { reason: terminalEntry.reason } : {}),
+      };
+      continue;
+    }
+
+    merged[key] = {
+      ...previous,
+      ...candidate,
+      ...(attempts > 0 ? { attempts } : {}),
+    };
+  }
+  return merged;
 }
 
 function isDeferredExhausted(alert) {
@@ -564,7 +609,8 @@ export function buildRecipientSections(
  * Consent/suppression deferrals count at alert level, because they can happen
  * with no current job key (or with a different job key on each run). The
  * throughput reasons (`per-run-cap` and `card-cap`) remain per-job: they are
- * allocator outcomes, not another attempt to resolve consent.
+ * allocator outcomes, not another attempt to resolve consent, and therefore
+ * do not consume the deferred failure budget.
  *
  * @param {object[]} sections
  * @param {number} nowMs
@@ -584,9 +630,7 @@ export function planDeferredDeliveryWrites(sections, nowMs, reason) {
           if (!key) continue;
           const previous = deliveryLedger[key];
           if (previous?.state === DELIVERY_STATES.DEFERRED_EXHAUSTED) continue;
-          const attempts = previous?.state === DELIVERY_STATES.DEFERRED
-            ? (Number(previous.attempts) || 0) + 1
-            : 1;
+          const attempts = positiveAttempts(previous?.attempts);
           const state = attempts >= DEFERRED_MAX_ATTEMPTS
             ? DELIVERY_STATES.DEFERRED_EXHAUSTED
             : DELIVERY_STATES.DEFERRED;
@@ -595,7 +639,7 @@ export function planDeferredDeliveryWrites(sections, nowMs, reason) {
             [job],
             nowMs,
             state,
-            { reason: normalizedReason, attempts },
+            attempts > 0 ? { reason: normalizedReason, attempts } : { reason: normalizedReason },
           );
         }
         return {
@@ -624,12 +668,16 @@ export function planDeferredDeliveryWrites(sections, nowMs, reason) {
         if (!key) continue;
         const previous = deliveryLedger[key];
         if (previous?.state === DELIVERY_STATES.DEFERRED_EXHAUSTED) continue;
+        const attemptsForJob = Math.max(attempts, positiveAttempts(previous?.attempts) + 1);
+        const stateForJob = attemptsForJob >= DEFERRED_MAX_ATTEMPTS
+          ? DELIVERY_STATES.DEFERRED_EXHAUSTED
+          : state;
         deliveryLedger = mergeDeliveryLedger(
           deliveryLedger,
           [job],
           nowMs,
-          state,
-          { reason: normalizedReason, attempts },
+          stateForJob,
+          { reason: normalizedReason, attempts: attemptsForJob },
         );
       }
       return {
@@ -643,7 +691,7 @@ export function planDeferredDeliveryWrites(sections, nowMs, reason) {
     });
 }
 
-function coalesceDeliveryWrites(writes) {
+export function coalesceDeliveryWrites(writes) {
   const byRef = new Map();
   for (const write of writes || []) {
     if (!write?.ref) continue;
@@ -656,8 +704,12 @@ function coalesceDeliveryWrites(writes) {
       });
       continue;
     }
-    prior.deliveryLedger = { ...prior.deliveryLedger, ...write.deliveryLedger };
+    const priorHasAlertLevelAttempt = deferredAttemptsForAlert(prior) > 0;
     const writeAttempts = deferredAttemptsForAlert(write);
+    prior.deliveryLedger = mergeCoalescedDeliveryLedger(
+      prior.deliveryLedger,
+      write.deliveryLedger,
+    );
     if (writeAttempts > 0) {
       prior.deliveryDeferredAttempts = Math.max(
         deferredAttemptsForAlert(prior),
@@ -670,7 +722,11 @@ function coalesceDeliveryWrites(writes) {
         ? DELIVERY_STATES.DEFERRED_EXHAUSTED
         : (writeState || priorState);
     }
-    prior.reason = write.reason || prior.reason;
+    // Throughput deferrals are per-job and must not replace the reason attached
+    // to the alert-level attempt counter when both writes target one alert.
+    if (write.reason && (writeAttempts > 0 || !priorHasAlertLevelAttempt)) {
+      prior.reason = write.reason;
+    }
     prior.at = Math.max(prior.at || 0, write.at || 0);
   }
   return [...byRef.values()];
@@ -688,7 +744,7 @@ function coalesceDeliveryWrites(writes) {
  * @param {boolean} dryRun
  * @returns {Promise<number>}
  */
-async function persistDeferredDeliveryWrites(db, writes, dryRun) {
+export async function persistDeferredDeliveryWrites(db, writes, dryRun) {
   const coalesced = coalesceDeliveryWrites(writes);
   if (coalesced.length === 0) return 0;
   if (dryRun) {
@@ -719,7 +775,16 @@ async function persistDeferredDeliveryWrites(db, writes, dryRun) {
           // this plan was built. Never let a stale deferred write downgrade a
           // retry-blocking state and reopen a duplicate-send race.
           if (deliveryEntryBlocksRetry(current[key], write.at)) continue;
-          next[key] = entry;
+          const attempts = Math.max(
+            positiveAttempts(current[key]?.attempts),
+            positiveAttempts(entry.attempts),
+          );
+          const nextEntry = attempts > 0 ? { ...entry, attempts } : entry;
+          if (nextEntry.state === DELIVERY_STATES.DEFERRED
+            && attempts >= DEFERRED_MAX_ATTEMPTS) {
+            nextEntry.state = DELIVERY_STATES.DEFERRED_EXHAUSTED;
+          }
+          next[key] = nextEntry;
         }
         const update = {
           deliveryLedger: next,
@@ -1314,6 +1379,7 @@ async function main() {
   // `active`; missing/pending/unknown is DEFERRED, never fail-open.
   const emailsInScope = [...new Set(alerts.map((a) => String(a.email || '').toLowerCase()))];
   const consentByEmail = new Map();
+  const newsletterProfiles = new Map();
   const LOOKUP_CHUNK_SIZE = 200;
   for (let i = 0; i < emailsInScope.length; i += LOOKUP_CHUNK_SIZE) {
     const chunk = emailsInScope.slice(i, i + LOOKUP_CHUNK_SIZE);
@@ -1325,6 +1391,7 @@ async function main() {
       const snaps = await db.getAll(...refs);
       chunk.forEach((e, idx) => {
         const [nlDoc, jaDoc] = snaps.slice(idx * 2, idx * 2 + 2);
+        if (nlDoc?.exists) newsletterProfiles.set(e, nlDoc.data() || {});
         consentByEmail.set(e, classifyRecipientConsent(
           nlDoc && { exists: nlDoc.exists, data: nlDoc.data() || {} },
           jaDoc && { exists: jaDoc.exists, data: jaDoc.data() || {} },
@@ -1371,6 +1438,28 @@ async function main() {
     await persistDeferredDeliveryWrites(db, deferredDeliveryWrites, DRY_RUN);
     console.log('   No recipient has a verified sendable consent state — nothing to send.');
     return;
+  }
+
+  // The immediate sender must enforce the same consent boundary as the daily
+  // digest. A historical backfill can be switched to `immediate` by later
+  // writes, so filtering only the digest would leave a second delivery path.
+  // Missing newsletter data fails closed for inferred alerts.
+  const blockedBackfillReasons = {};
+  const beforeBackfillConsentFilter = alerts.length;
+  alerts = alerts.filter((alert) => {
+    const emailKey = String(alert.email || '').toLowerCase();
+    const verdict = evaluateJobAlertConsent({
+      alert,
+      subscriber: newsletterProfiles.get(emailKey) || null,
+    });
+    if (!verdict.allowed) {
+      blockedBackfillReasons[verdict.reason] = (blockedBackfillReasons[verdict.reason] || 0) + 1;
+      return false;
+    }
+    return true;
+  });
+  if (alerts.length !== beforeBackfillConsentFilter) {
+    console.log(`   🔐 Job-alert consent gate: ${beforeBackfillConsentFilter - alerts.length} inferred alert(s) skipped — ${JSON.stringify(blockedBackfillReasons)}`);
   }
 
   // ── ONE EMAIL PER RECIPIENT ──────────────────────────────────────────────
@@ -1433,6 +1522,11 @@ async function main() {
     // job triggered the send.
     const locale = headline.locale;
     const autologinCode = generateAutologinCode(recipient);
+    const companyAlertUtm = {
+      utmSource: COMPANY_ALERT_TEMPLATE_ID,
+      utmMedium: 'email',
+      utmCampaign: `alert_${headline.alert.id}`,
+    };
     // Two decorators, one perimeter (#5725). Both add the campaign parameters;
     // only `wrapJobUrl` can add the `ne`/`ac` autologin pair, and only because
     // it says why. The shared builder is fail-closed: anything it does not
@@ -1441,7 +1535,7 @@ async function main() {
     // default, which is the change.
     const wrapUrl = (raw) => makeAuthenticatedUrl(raw, recipient, {
       autologinCode,
-      utmMedium: 'email',
+      ...companyAlertUtm,
       preserveExistingUtmMedium: true,
     });
     // A job DETAIL page is not public: components/community/JobBoard.tsx swaps
@@ -1449,7 +1543,7 @@ async function main() {
     // HUB above is, and loses the credential.
     const wrapJobUrl = (raw) => makeAuthenticatedUrl(raw, recipient, {
       autologinCode,
-      utmMedium: 'email',
+      ...companyAlertUtm,
       preserveExistingUtmMedium: true,
       sessionGated:
         'job detail page — components/community/JobBoard.tsx renders the sign-in gate '

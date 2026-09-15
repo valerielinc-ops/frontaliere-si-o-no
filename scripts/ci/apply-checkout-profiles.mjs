@@ -8,7 +8,7 @@
  * solo le righe nuove e si VERIFICA dopo, confrontando gli alberi YAML parsati,
  * che l'unica differenza siano le chiavi aggiunte.
  *
- *   node scripts/ci/apply-checkout-profiles.mjs [--dry-run] [--only <file.yml>]
+ *   node scripts/ci/apply-checkout-profiles.mjs [--dry-run|--check] [--only <file.yml>]
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -17,12 +17,67 @@ import { analyzeWorkflow, TREE_MB, ROOT } from './checkout-profile-analyzer.mjs'
 
 const WF_DIR = path.join(ROOT, '.github/workflows');
 const DRY = process.argv.includes('--dry-run');
+const CHECK = process.argv.includes('--check');
 const ONLY = process.argv.includes('--only') ? process.argv[process.argv.indexOf('--only') + 1] : null;
 const MARK = '# checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs';
 
+// `data/blog-articles-data.ts` is a symlink into the article package. A
+// typecheck profile must carry both names: Git checks out the symlink at the
+// first path, while the compiler resolves its target at the second one.
+export const TYPECHECK_REQUIRED_SPARSE_PATHS = [
+  '/data/blog-articles-data.ts',
+  '/packages/articles/content/blog-articles-data.ts',
+];
+
 /** Righe dei pattern sparse per una lista di bucket da escludere. */
-export function sparsePatterns(exclude) {
-  return ['/*', ...exclude.map((id) => '!/' + id)];
+export function sparsePatterns(exclude, include = []) {
+  return ['/*', ...exclude.map((id) => '!/' + id), ...include];
+}
+
+function sparsePatternMatches(pattern, target) {
+  const normalized = pattern.replace(/^!\/?/, '').replace(/^\//, '');
+  if (normalized === '*' || normalized === '') return true;
+  if (normalized.endsWith('/')) return target.startsWith(normalized);
+  if (normalized.includes('*')) {
+    const re = new RegExp(`^${normalized.split('*').map((p) => p.replace(/[.*+?^${}()|[\\]\\]/g, '\\$&')).join('.*')}$`);
+    return re.test(target);
+  }
+  return target === normalized || target.startsWith(normalized + '/');
+}
+
+function sparseIncludesPath(raw, target) {
+  let included = false;
+  for (const line of String(raw ?? '').split('\n')) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('#')) continue;
+    const excluded = trimmed.startsWith('!');
+    if (!sparsePatternMatches(trimmed, target)) continue;
+    included = !excluded;
+  }
+  return included;
+}
+
+/**
+ * Verifica i checkout sparsi dei job che lanciano `typecheck:gate`.
+ * Un checkout pieno (nessuna chiave sparse-checkout) è sicuro per costruzione;
+ * un profilo sparse deve invece includere il link e il suo target del corpus.
+ */
+export function missingTypecheckSparsePaths(text, file = 'workflow.yml') {
+  let doc;
+  try { doc = YAML.parse(text, { logLevel: 'silent' }); } catch { return []; }
+  const missing = [];
+  for (const [jobId, job] of Object.entries(doc?.jobs ?? {})) {
+    if (!JSON.stringify(job).includes('typecheck:gate') && !JSON.stringify(job).includes('check-typecheck-baseline.mjs')) continue;
+    for (const step of job?.steps ?? []) {
+      if (typeof step?.uses !== 'string' || !step.uses.startsWith('actions/checkout@')) continue;
+      const sparse = step?.with?.['sparse-checkout'];
+      if (sparse === undefined) continue;
+      for (const target of TYPECHECK_REQUIRED_SPARSE_PATHS) {
+        if (!sparseIncludesPath(sparse, target.slice(1))) missing.push(`${file}:${jobId}:${target}`);
+      }
+    }
+  }
+  return missing;
 }
 
 /**
@@ -175,7 +230,9 @@ export function computeProfiledText(workflowPath, npmScripts) {
   let text = before, jobsPatched = 0, savedMb = 0;
   for (const job of analysis.jobs) {
     if (!job.hasCheckout) continue;
-    const r = patchJobCheckout(text, job.jobId, job.exclude.length ? sparsePatterns(job.exclude) : []);
+    const runsTypecheck = [...(job.entries ?? []), ...(job.closure ?? [])].includes('scripts/ci/check-typecheck-baseline.mjs');
+    const include = runsTypecheck && job.exclude.length ? TYPECHECK_REQUIRED_SPARSE_PATHS : [];
+    const r = patchJobCheckout(text, job.jobId, job.exclude.length ? sparsePatterns(job.exclude, include) : []);
     if (r.status === 'manual') { manual.push(job.jobId); continue; }
     if (r.status === 'multi') { multi.push(job.jobId); continue; }
     if (r.status !== 'patched') continue;
@@ -203,6 +260,7 @@ function main() {
   const manual = [];
   const multiStep = [];
   const failures = [];
+  const typecheckMissing = [];
   for (const f of files) {
     const full = path.join(WF_DIR, f);
     let r;
@@ -210,17 +268,21 @@ function main() {
     catch (e) { failures.push(`${f}: ${e.message}`); continue; }
     for (const j of r.manual) manual.push(`${f}:${j}`);
     for (const j of r.multi) multiStep.push(`${f}:${j}`);
+    typecheckMissing.push(...missingTypecheckSparsePaths(r.text, f));
     jobsPatched += r.jobsPatched; savedMbTot += r.savedMb;
     if (r.text === r.before) { skipped++; continue; }
-    if (!DRY) fs.writeFileSync(full, r.text);
+    if (!DRY && !CHECK) fs.writeFileSync(full, r.text);
     changed++;
   }
 
-  console.log(`${DRY ? '[dry-run] ' : ''}workflow modificati: ${changed} | invariati: ${skipped} | job con sparse: ${jobsPatched}`);
+  console.log(`${DRY || CHECK ? `[${CHECK ? 'check' : 'dry-run'}] ` : ''}workflow modificati: ${changed} | invariati: ${skipped} | job con sparse: ${jobsPatched}`);
   console.log(`peso escluso in media per job: ${(savedMbTot / Math.max(1, jobsPatched)).toFixed(0)} MB su ${TREE_MB} MB`);
   if (manual.length) console.log(`sparse scritto a mano, lasciato com'e': ${manual.length} → ${manual.join(', ')}`);
   if (multiStep.length) console.log(`piu' di un checkout nel job, saltato: ${multiStep.length} → ${multiStep.join(', ')}`);
+  console.log(`percorsi typecheck sparse mancanti: ${typecheckMissing.length}`);
+  if (typecheckMissing.length) for (const x of typecheckMissing) console.error(`   ${x}`);
   if (failures.length) { console.error(`\n⚠️  ${failures.length} file NON modificati per verifica fallita:`); for (const x of failures) console.error('   ' + x); process.exitCode = 1; }
+  if (CHECK && typecheckMissing.length) process.exitCode = 1;
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) main();

@@ -349,9 +349,12 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  jobContext: newsletterJobContext,
  locationInterest: newsletterJobContext.location,
  sectorInterest: newsletterJobContext.category,
- isActive: false,
- status: 'pending',
- // #5678: record the formula in force at this gate. `pending`, so the text
+        isActive: false,
+        status: 'pending',
+        // A typed address starts a fresh DOI cycle after an old opt-out; it
+        // does not itself prove renewed consent.
+        reconsent: true,
+        // #5678: record the formula in force at this gate. `pending`, so the text
  // states that the subscription waits for the confirmation link.
  // #5712/#5718: the notice under the unlock form is the stored string.
  ...consentProof('communicationsOptIn', 'email_submit', locale),

@@ -44,7 +44,7 @@ export function normalizeHost(raw = '') {
   if (h.includes('://')) {
     try { h = new URL(h).hostname; } catch { /* not a URL, treat as bare host */ }
   }
-  h = canonicalJobHost(h.split('/')[0].split(':')[0]);
+  h = canonicalJobHost(h.split(/[\\/]/)[0].split(':')[0]);
   return h.replace(/^www\d?\./, '');
 }
 

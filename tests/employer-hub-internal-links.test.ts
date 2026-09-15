@@ -47,7 +47,11 @@ import {
 import { companyHubUrl } from '@/services/companyAlertEmail.mjs';
 import { canonicalCompanyProfileSlug } from '../build-plugins/shared/companyProfileSlug.mjs';
 import { employerTitleCandidates } from '../build-plugins/employerProfilePagesPlugin';
-import { buildEmployerLinkItems } from '../build-plugins/employerProfilePagesLinksPlugin';
+import {
+  buildEmployerLinkItems,
+  localePathKey,
+  nonEmptyEmployerLabel,
+} from '../build-plugins/employerProfilePagesLinksPlugin';
 import { BRIDGE_FLOOR, MIN_ACTIVE_JOBS } from '../build-plugins/shared/employerProfileConfig.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -295,13 +299,16 @@ describe('every runtime job surface hands the reader to the hub (mossa 1)', () =
     expect(board).toContain('onClickCapture={openCompanyFilter}');
   });
 
-  it('canton company pages expose the complete filtered set through the shared card renderer', () => {
+  it('company pages bound repeated payloads while preserving live totals', () => {
     const plugin = readRepoFile('build-plugins/jobsSeoPagesPlugin.ts');
 
-    expect(plugin).toContain('const cappedJobs = sortedJobs;');
-    expect(plugin).not.toContain('COMPANY_CANTON_JOB_CAP');
-    expect(plugin).toContain('const jobListHtml = jobCardListBody(companyJobs, locale);');
-    expect(plugin).toContain('const openRolesListHtml = jobCardListBody(companyJobs, locale);');
+    expect(plugin).toContain('const cappedJobs = sortedJobs.slice(0, COMPANY_JOB_PAYLOAD_CAP);');
+    expect(plugin).toContain('numberOfItems: cappedJobs.length,');
+    expect(plugin).toContain('const jobListHtml = jobCardListBody(listedCompanyJobs, locale);');
+    expect(plugin).toContain('const openRolesListHtml = jobCardListBody(listedCompanyJobs, locale);');
+    expect(plugin).toContain('const listHtml = jobCardListBody(cappedJobs, locale);');
+    expect(plugin).toContain('value: companyJobs.length,');
+    expect(plugin).not.toContain('COMPANY_CANTON_ITEMLIST_JOB_CAP');
     expect(plugin).toContain('const jobCardListBody = (jobs: ReadonlyArray<any>, locale:');
     expect(plugin).toContain('shouldPlaceInfeedAd(i + 1)');
   });
@@ -371,6 +378,55 @@ describe('every active ad links its employer hub (mossa 2)', () => {
       },
     ]);
     expect(links.it).toEqual([{ href: '/aziende/indexable/', label: 'Indexable' }]);
+  });
+
+  it('deduplicates by locale and path, rejects empty labels, and sorts ties by href', () => {
+    expect(nonEmptyEmployerLabel('  Acme  ')).toBe(true);
+    expect(nonEmptyEmployerLabel('   ')).toBe(false);
+    expect(localePathKey('it', '/aziende/acme/')).toBe('it\u001f/aziende/acme/');
+
+    const links = buildEmployerLinkItems([
+      {
+        locale: 'it',
+        path: '/aziende/zeta/',
+        label: 'Zeta',
+        indexable: true,
+        companyKey: 'zeta',
+      },
+      {
+        locale: 'it',
+        path: '/aziende/acme/',
+        label: '  Acme  ',
+        indexable: true,
+        companyKey: 'acme',
+      },
+      {
+        locale: 'it',
+        path: '/aziende/acme/',
+        label: 'Acme (duplicate)',
+        indexable: true,
+        companyKey: 'acme-alias',
+      },
+      {
+        locale: 'it',
+        path: '/aziende/empty/',
+        label: ' ',
+        indexable: true,
+        companyKey: 'empty',
+      },
+      {
+        locale: 'it',
+        path: '/aziende/alpha/',
+        label: 'Acme',
+        indexable: true,
+        companyKey: 'alpha',
+      },
+    ]);
+    expect(links.it).toEqual([
+      { href: '/aziende/acme/', label: 'Acme' },
+      { href: '/aziende/alpha/', label: 'Acme' },
+      { href: '/aziende/zeta/', label: 'Zeta' },
+    ]);
   });
 
   it('takes the emitted paths from the build signal, never from an ordering assumption', () => {

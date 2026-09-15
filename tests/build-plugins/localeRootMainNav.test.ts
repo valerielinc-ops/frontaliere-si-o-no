@@ -42,15 +42,19 @@
  */
 
 import { describe, it, expect } from 'vitest';
+import fs from 'node:fs';
 
 import {
+  injectHomepageSeoContent,
   injectLocaleMainNav,
   NAV_LABELS,
   renderLocaleRootShell,
 } from '../../build-plugins/staticPagesPlugin';
 import { SITE_MAP_PAGE_DIR } from '../../build-plugins/shared/siteMapPageDir';
 import { buildFaqHubPath } from '../../data/faq-hub/routes';
-import { PHARMACY_HUB_PATH } from '../../services/pharmacies/types';
+import { PHARMACY_DUTY_HUB_PATH, PHARMACY_HUB_PATH } from '../../services/pharmacies/types';
+import { COMMUNICATIONS_PAGE_PATH } from '../../services/communicationChannels';
+import { buildPlateAuctionPath } from '../../services/plateAuctions/paths';
 
 /** Minimal stand-in for the mirrored IT root the ratchet starts from. */
 const SHELL = '<html lang="it"><body><div id="root"><main id="main-content"></main></div></body></html>';
@@ -92,10 +96,83 @@ describe('locale-root SPA shells — internal links (#5428)', () => {
     expect(html).toContain(`href="${PHARMACY_HUB_PATH[locale]}"`);
   });
 
+  it.each(NON_IT_LOCALES)('/%s/ links its own verified-duty hub', (locale) => {
+    const html = renderLocaleRoot(locale);
+    expect(html).toContain(`href="${PHARMACY_DUTY_HUB_PATH[locale]}"`);
+  });
+
   it.each(['it', ...NON_IT_LOCALES] as const)('%s homepage nav keeps the canonical pharmacy hub path', (locale) => {
     expect(NAV_LABELS[locale]).toEqual(
       expect.arrayContaining([{ href: PHARMACY_HUB_PATH[locale], label: expect.any(String) }]),
     );
+  });
+
+  it.each(['it', ...NON_IT_LOCALES] as const)('%s homepage nav keeps the canonical verified-duty hub path', (locale) => {
+    expect(NAV_LABELS[locale]).toEqual(
+      expect.arrayContaining([{ href: PHARMACY_DUTY_HUB_PATH[locale], label: expect.any(String) }]),
+    );
+  });
+
+  it.each(['it', ...NON_IT_LOCALES] as const)('%s homepage nav links its communications page', (locale) => {
+    expect(NAV_LABELS[locale]).toEqual(
+      expect.arrayContaining([{ href: COMMUNICATIONS_PAGE_PATH[locale], label: expect.any(String) }]),
+    );
+  });
+
+  it.each(['it', ...NON_IT_LOCALES] as const)('%s homepage nav links its plate-auction hub from the canonical path builder', (locale) => {
+    const href = buildPlateAuctionPath({ locale, view: 'hub' });
+    expect(NAV_LABELS[locale]).toEqual(
+      expect.arrayContaining([{ href, label: expect.any(String) }]),
+    );
+  });
+
+  it.each(['it', ...NON_IT_LOCALES] as const)('%s static navigation emits its plate-auction hub href', (locale) => {
+    const html = locale === 'it' ? injectLocaleMainNav(SHELL, locale) : renderLocaleRoot(locale);
+    expect(html).toContain(`href="${buildPlateAuctionPath({ locale, view: 'hub' })}"`);
+  });
+
+  it('the IT homepage exposes the pharmacy hub and every locale plate-auction hub from the static root', () => {
+    const html = injectHomepageSeoContent(SHELL, 'it');
+    expect(html).toContain('id="hp-directory-hubs"');
+    expect(html).toContain(`href="${PHARMACY_HUB_PATH.it}"`);
+    expect(html).toContain(`href="${PHARMACY_DUTY_HUB_PATH.it}"`);
+    for (const locale of ['it', ...NON_IT_LOCALES] as const) {
+      expect(html).toContain(`href="${buildPlateAuctionPath({ locale, view: 'hub' })}"`);
+    }
+  });
+
+  it('keeps the root rail when the real Vite template has a styled root and hidden h1', () => {
+    const template = fs.readFileSync(new URL('../../index.html', import.meta.url), 'utf8');
+    expect(template).toContain('<div id="root" style="min-height:100vh">');
+    expect(template).toContain('position:absolute;left:-9999px');
+    const html = injectHomepageSeoContent(template, 'it');
+    expect(html).toContain('id="hp-directory-hubs"');
+    expect(html).toContain(`href="${buildPlateAuctionPath({ locale: 'de', view: 'hub' })}"`);
+  });
+
+  it('repairs the directory rail on an older IT artifact that already has the SEO block', () => {
+    const first = injectHomepageSeoContent(SHELL, 'it');
+    const older = first.replace(/<aside\b[^>]*\bid="hp-directory-hubs"[^>]*>[\s\S]*?<\/aside>\s*/i, '');
+    const repaired = injectHomepageSeoContent(older, 'it');
+    expect(repaired).toContain('id="hp-directory-hubs"');
+    expect(repaired.match(/id="hp-directory-hubs"/g)).toHaveLength(1);
+  });
+
+  it('strips the IT directory rail before creating a non-IT locale-root mirror', () => {
+    const italian = injectHomepageSeoContent(SHELL, 'it');
+    const localized = renderLocaleRootShell(italian, 'de');
+    expect(localized).not.toContain('id="hp-directory-hubs"');
+    expect(localized).toContain(`href="${PHARMACY_HUB_PATH.de}"`);
+    expect(localized).toContain(`href="${buildPlateAuctionPath({ locale: 'de', view: 'hub' })}"`);
+  });
+
+  it.each(NON_IT_LOCALES)('does not add the cross-locale directory rail to /%s/', (locale) => {
+    expect(injectHomepageSeoContent(SHELL, locale)).not.toContain('id="hp-directory-hubs"');
+  });
+
+  it.each(NON_IT_LOCALES)('/%s/ emits a static anchor to its communications page', (locale) => {
+    const html = renderLocaleRoot(locale);
+    expect(html).toContain(`href="${COMMUNICATIONS_PAGE_PATH[locale]}"`);
   });
 
   // The DE slug is called out on its own because it is the one that had

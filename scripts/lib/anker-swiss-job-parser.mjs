@@ -186,6 +186,7 @@ export async function fetchAllAnkerSwissJobs() {
     // would give every posting the same `url`, `applyUrl` and `id` hash.
     if (!listing.url) continue;
     const publicUrl = listing.url;
+    const employmentType = detectEmploymentType(listing.timeType || title);
 
     const sourceLang = detectLang(descriptionText || title, 'de');
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
@@ -222,8 +223,8 @@ export async function fetchAllAnkerSwissJobs() {
       ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
       ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
       category: detectCategory(title),
-      contract: 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || title),
+      contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType,
       experienceLevel: detectExperienceLevel(title),
       sector: 'Altro', // TODO: Set appropriate sector
       currency: 'CHF',

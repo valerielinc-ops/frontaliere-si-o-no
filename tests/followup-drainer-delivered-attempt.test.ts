@@ -34,6 +34,9 @@ import {
   lastLabelEventAt,
   lastFixPromotion,
   latestFixOutcomeEntryFromComments,
+  linkedPullRequestNumbers,
+  mergeAfterFixOutcomeAt,
+  selectLatestMergedFixPr,
   crawlerFixDecision,
   DELIVERED,
   NON_RETRYABLE,
@@ -41,6 +44,18 @@ import {
 } from '../scripts/ci/followup-drainer.mjs';
 
 const T = (min: number) => Date.UTC(2026, 8, 7, 0, min, 0);
+
+describe('mergeAfterFixOutcomeAt — una PR vecchia non qualifica un retry', () => {
+  it('accetta solo un merge successivo al verdetto corrente', () => {
+    expect(mergeAfterFixOutcomeAt(T(25), T(20))).toBe(T(25));
+    expect(mergeAfterFixOutcomeAt(T(20), T(20))).toBeNull();
+    expect(mergeAfterFixOutcomeAt(T(15), T(20))).toBeNull();
+  });
+
+  it('fallisce chiuso se il timestamp del verdetto non è leggibile', () => {
+    expect(mergeAfterFixOutcomeAt(T(25), null)).toBeNull();
+  });
+});
 
 describe('isDeliveredThisRun — la consegna va scopata alla run corrente', () => {
   it('promozione, poi marker, poi merge: e\' la consegna di QUESTA run', () => {
@@ -144,6 +159,41 @@ describe('latestFixOutcomeEntryFromComments — il verdetto porta il suo timesta
   });
 });
 
+describe('ricerca della PR consegnata — collegamento all\'issue, non nome del branch', () => {
+  it('estrae solo le PR dai cross-reference della timeline e deduplica i numeri', () => {
+    const events = [
+      [{ event: 'cross-referenced', source: { issue: {
+        number: 7908,
+        pull_request: {},
+        repository: { full_name: 'valerielinc-ops/frontaliere-si-o-no' },
+      } } }],
+      { event: 'referenced', source: { issue: { number: 99, pull_request: {} } } },
+      { event: 'cross-referenced', source: { issue: {
+        number: 7908,
+        pull_request: {},
+        repository: { full_name: 'valerielinc-ops/frontaliere-si-o-no' },
+      } } },
+      { event: 'cross-referenced', source: { issue: { number: 7909 } } },
+      { event: 'cross-referenced', source: { issue: {
+        number: 1416,
+        pull_request: {},
+        repository: { full_name: 'nanakokyobashi-rgb/frontaliere-articles' },
+      } } },
+    ];
+    expect(linkedPullRequestNumbers(events)).toEqual([7908, 1416]);
+    expect(linkedPullRequestNumbers(events, 'valerielinc-ops/frontaliere-si-o-no')).toEqual([7908]);
+  });
+
+  it('sceglie il merge piu\' recente anche quando l\'head e\' rinominato', () => {
+    expect(selectLatestMergedFixPr([
+      { mergedAt: '2026-09-07T06:50:44Z', headRefName: 'fix/issue-8066-old' },
+      { mergedAt: '2026-09-08T06:50:44Z', headRefName: 'manual-fix-8066' },
+    ])).toEqual({
+      mergedAt: Date.parse('2026-09-08T06:50:44Z'),
+    });
+  });
+});
+
 describe('crawlerFixDecision — stesso ramo nel gemello crawler (AGENTS.md #6, la classe non il file)', () => {
   const old = 40; // > ORPHAN_MIN_AGE_MIN: quando il RESCUE guarda, la PR e' gia' mergiata
 
@@ -207,15 +257,28 @@ describe('il cablaggio del ramo DELIVERED non si scollega in silenzio', () => {
 
   it('il rescue queue-managed ha il ramo, ed è qualificato da isDeliveredThisRun', () => {
     const stuck = src.slice(src.indexOf('for (const iss of stuckFix) {'));
+    const queue = src.slice(
+      src.indexOf('for (const iss of stuckFix) {'),
+      src.indexOf('for (const iss of crawlerFix) {'),
+    );
     const branch = /if \(outcome && DELIVERED\.has\(outcome\)\) \{([\s\S]*?)\n {4}\}/.exec(stuck);
     expect(branch, 'il rescue queue-managed deve avere il ramo DELIVERED').toBeTruthy();
     // Il re-queue gratuito deve passare dal gate sulla run corrente, e le due
     // letture devono venire dal merge REALE e dalla promozione — non
     // dall'assenza di PR aperte, che è ciò che sbagliava.
     expect(branch![1]).toMatch(/isDeliveredThisRun\(\{/);
-    expect(branch![1]).toMatch(/mergedAt = mergedFixPrAt\(/);
-    expect(branch![1]).toMatch(/promotion = fixPromotion\(/);
+    expect(queue).toMatch(/const mergedAt = outcome === 'pr-created' \? mergedFixPrAt\(/);
     expect(branch![1]).toMatch(/promotedAt: promotion\.at/);
+  });
+
+  it('il rescue queue-managed scarta i marker della promozione precedente', () => {
+    const start = src.indexOf('for (const iss of stuckFix) {');
+    const end = src.indexOf('for (const iss of crawlerFix) {', start);
+    const queue = src.slice(start, end);
+    expect(queue).toMatch(/const rawOutcome = outcomeEntry\.outcome/);
+    expect(queue).toMatch(/const promotion = !hasPR && rawOutcome !== null/);
+    expect(queue).toMatch(/const outcome = outcomeForCurrentPromotion\(\{/);
+    expect(queue).toMatch(/promotedAt: promotion\.at/);
   });
 
   it('il gemello crawler riceve le stesse tre letture, o il buco si riapre da quel lato', () => {
@@ -223,5 +286,48 @@ describe('il cablaggio del ramo DELIVERED non si scollega in silenzio', () => {
     expect(crawler).toMatch(/outcomeAt: entry\.at/);
     expect(crawler).toMatch(/mergedAt = delivered \? mergedFixPrAt\(/);
     expect(crawler).toMatch(/promotedAt: promotion\.at/);
+  });
+
+  it('triage-sweep non rimuove agent:fix-queued quando aggiunge agent:fix', () => {
+    const triage = readFileSync(new URL('../scripts/ci/triage-sweep.mjs', import.meta.url), 'utf8');
+    const directRoutes = [...triage.matchAll(/--add-label', 'agent:fix'[\s\S]{0,160}?\);/g)];
+    expect(directRoutes).toHaveLength(2);
+    for (const route of directRoutes) {
+      expect(route[0]).not.toContain("--remove-label', 'agent:fix-queued'");
+    }
+  });
+
+  it('la lookup usa il repository della timeline e conserva il fallback storico', () => {
+    expect(src).toMatch(/linkedPullRequestNumbers\(raw, REPO\)/);
+    expect(src).toContain('timeline?per_page=100');
+    expect(src).toContain("'--head', `fix/issue-${num}`");
+    expect(src).toMatch(/'--json',\s*'mergedAt'/);
+  });
+});
+
+describe('il checkpoint WIP parcheggiato viene salvato prima dell age-out', () => {
+  const src = readFileSync(new URL('../scripts/ci/followup-drainer.mjs', import.meta.url), 'utf8');
+
+  it('ri-accoda i parked con branch live e difende anche la chiusura', () => {
+    const run = src.slice(src.indexOf('export function runDrain()'));
+    const ageOutAt = run.indexOf('// --- AGE-OUT CLOSE:');
+    expect(ageOutAt).toBeGreaterThanOrEqual(0);
+    const preAgeOut = run.slice(0, ageOutAt);
+    expect(preAgeOut).toMatch(/const parkedForWip = listIssues\(LBL_PARKED\)/);
+    expect(preAgeOut).toMatch(/const parkedWipOrder = rotateForScan\(parkedForWip/);
+    expect(preAgeOut).toMatch(/PARKED_WIP_MAX_PER_RUN/);
+    expect(preAgeOut).toMatch(/budget\.take\(`#\$\{iss\.number\} \(parked-wip\)/);
+    expect(preAgeOut).toMatch(/isRecoverableQueueManaged/);
+    expect(preAgeOut).toMatch(/const recoverable = recoverableFixBranch\(iss\.number\)/);
+    expect(preAgeOut).toMatch(/recoverable\?\.state === 'unknown'/);
+    expect(preAgeOut).toMatch(/RE-QUEUE PARKED-WIP/);
+    expect(preAgeOut).toMatch(/add = \[LBL_QUEUED/);
+    expect(preAgeOut).toMatch(/remove = \[LBL_PARKED, 'needs-human'/);
+
+    const parentAt = run.indexOf('// --- PARENT-CLOSE:');
+    const ageOut = run.slice(ageOutAt, parentAt);
+    expect(ageOut).toMatch(/const liveWip = recoverableFixBranch\(iss\.number\)/);
+    expect(ageOut).toMatch(/liveWip\?\.state === 'unknown'/);
+    expect(ageOut).toMatch(/AGE-OUT skip #\$\{iss\.number\}: checkpoint WIP live/);
   });
 });

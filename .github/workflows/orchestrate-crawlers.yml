@@ -192,6 +192,7 @@ jobs:
         id: generation_preflight
         env:
           GITHUB_API_URL: ${{ github.api_url }}
+          GENERATION_PREFLIGHT_OUTPUT: ${{ runner.temp }}/crawler-generation-dispatch/preflight.json
         run: >-
           node scripts/crawler-generation-dispatch.mjs preflight
           --contract .github/corpus-workflows/contract.json
@@ -199,6 +200,8 @@ jobs:
 
       - name: Dispatch crawler generation wave
         id: generation_wave
+        # ready is the authoritative transport decision. reasons and warnings
+        # are diagnostics and may be non-blocking; never gate on their length.
         if: steps.generation_preflight.outputs.ready == 'true'
         env:
           GITHUB_API_URL: ${{ github.api_url }}
@@ -243,6 +246,16 @@ jobs:
             --runner-temp "$RUNNER_TEMP" \
             --checkpoint "$CHECKPOINT"
 
+      - name: Upload crawler generation dispatch checkpoint
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: crawler-generation-dispatch-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/crawler-generation-dispatch/
+          if-no-files-found: warn
+          retention-days: 14
+
       - name: Cleanup accepted crawler generation ref
         if: >-
           always()
@@ -278,7 +291,13 @@ jobs:
       - name: Dispatch translate-pending (frontaliere-articles)
         if: always()
         continue-on-error: true
+        env:
+          GENERATION_PREFLIGHT_READY: ${{ steps.generation_preflight.outputs.ready || 'false' }}
+          GENERATION_PREFLIGHT_MODE: ${{ steps.generation_preflight.outputs.dispatch_mode || 'unknown' }}
         run: |
+          if [ "$GENERATION_PREFLIGHT_READY" != "true" ]; then
+            echo "::warning::crawler generation preflight is $GENERATION_PREFLIGHT_MODE; translate-pending is only the safety-net dispatch and does not make the blocked crawler wave green."
+          fi
           if [ -z "${GITHUB_PAT_NANAKO:-}" ]; then
             echo "ℹ️ GITHUB_PAT_NANAKO not loaded — skipping the translate-pending cross-repo dispatch (its 5 daily crons remain the safety net)."
             exit 0

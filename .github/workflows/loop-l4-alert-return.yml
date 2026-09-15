@@ -1,0 +1,171 @@
+name: Loop L4 alert to return
+
+on:
+  schedule:
+    - cron: '11 9 * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'data/alert-config.json'
+      - 'data/alert-snoozes.json'
+      - 'data/alert-outcomes.json'
+      - 'data/loop-fleet/loop-registry.json'
+      - 'scripts/ci/loop-l4-alert-return.mjs'
+      - 'scripts/ci/export-loop-outcomes.mjs'
+      - 'scripts/ci/record-loop-fleet-evidence.mjs'
+      - 'scripts/lib/posthog-client.mjs'
+      - 'functions/src/jobAlertBackfillCore.js'
+      - 'functions/src/lib/emailSuppression.js'
+      - 'functions/src/lib/newsletterOptOut.js'
+      - 'functions/src/lib/subscriberPersonalization.js'
+      - 'functions/src/lib/jobBoardUrlCanton.js'
+      - 'functions/src/lib/cantonUrlSlugs.json'
+      - 'functions/src/lib/subscriberLocale.js'
+      - 'functions/src/emailI18n.js'
+      - 'functions/src/lib/returnVisit.js'
+      - 'functions/src/lib/syntheticClicks.js'
+      - 'functions/src/lib/emailScannerRanges.js'
+      - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/loop-fleet-outcome.mjs'
+      - 'scripts/lib/github-issue-creator.mjs'
+      - '.github/workflows/loop-l4-alert-return.yml'
+  pull_request:
+    paths:
+      - 'data/alert-config.json'
+      - 'data/alert-snoozes.json'
+      - 'data/alert-outcomes.json'
+      - 'data/loop-fleet/loop-registry.json'
+      - 'scripts/ci/loop-l4-alert-return.mjs'
+      - 'scripts/ci/export-loop-outcomes.mjs'
+      - 'scripts/ci/record-loop-fleet-evidence.mjs'
+      - 'scripts/lib/posthog-client.mjs'
+      - 'functions/src/jobAlertBackfillCore.js'
+      - 'functions/src/lib/emailSuppression.js'
+      - 'functions/src/lib/newsletterOptOut.js'
+      - 'functions/src/lib/subscriberPersonalization.js'
+      - 'functions/src/lib/jobBoardUrlCanton.js'
+      - 'functions/src/lib/cantonUrlSlugs.json'
+      - 'functions/src/lib/subscriberLocale.js'
+      - 'functions/src/emailI18n.js'
+      - 'functions/src/lib/returnVisit.js'
+      - 'functions/src/lib/syntheticClicks.js'
+      - 'functions/src/lib/emailScannerRanges.js'
+      - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/loop-fleet-outcome.mjs'
+      - 'scripts/lib/github-issue-creator.mjs'
+      - '.github/workflows/loop-l4-alert-return.yml'
+  workflow_dispatch:
+    inputs:
+      issue:
+        description: 'Create/update one deduplicated issue when alert return evidence is not safe'
+        required: false
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: loop-l4-alert-return
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout alert inputs
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            /data/alert-config.json
+            /data/alert-snoozes.json
+            /data/alert-outcomes.json
+            /data/loop-fleet/loop-registry.json
+            /scripts/ci/loop-l4-alert-return.mjs
+            /scripts/ci/export-loop-outcomes.mjs
+            /scripts/ci/record-loop-fleet-evidence.mjs
+            /scripts/lib/loop-fleet-contract.mjs
+            /scripts/lib/loop-fleet-outcome.mjs
+            /scripts/lib/github-issue-creator.mjs
+            /scripts/lib/posthog-client.mjs
+            /functions/src/jobAlertBackfillCore.js
+            /functions/src/lib/emailSuppression.js
+            /functions/src/lib/newsletterOptOut.js
+            /functions/src/lib/subscriberPersonalization.js
+            /functions/src/lib/jobBoardUrlCanton.js
+            /functions/src/lib/cantonUrlSlugs.json
+            /functions/src/lib/subscriberLocale.js
+            /functions/src/emailI18n.js
+            /functions/src/lib/returnVisit.js
+            /functions/src/lib/syntheticClicks.js
+            /functions/src/lib/emailScannerRanges.js
+            /.github/workflows/loop-l4-alert-return.yml
+          sparse-checkout-cone-mode: false
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Start loop operational telemetry
+        run: |
+          {
+            echo "LOOP_FLEET_STARTED_AT=$(date -u +%Y-%m-%dT%H:%M:%S.%3NZ)"
+            echo 'LOOP_FLEET_QUOTA_UNITS=0'
+            echo 'LOOP_FLEET_COLLISIONS=0'
+            echo 'LOOP_FLEET_GATE_BYPASS=false'
+          } >> "$GITHUB_ENV"
+      - name: Prepare read-only Firebase credentials
+        if: github.event_name != 'pull_request'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          chmod 600 /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+      - name: Export fresh L4 outcomes
+        if: github.event_name != 'pull_request'
+        run: node scripts/ci/export-loop-outcomes.mjs --loop L4 --config data/alert-config.json --snoozes data/alert-snoozes.json --out "$RUNNER_TEMP/alert-outcomes.json"
+      - name: Audit alert to return
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_ENABLED: ${{ github.event_name == 'schedule' || github.event_name == 'push' || inputs.issue == true }}
+          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l4
+        run: |
+          set -o pipefail
+          mkdir -p "$REPORT_DIR"
+          outcomes_path=data/alert-outcomes.json
+          if [ "${{ github.event_name }}" != "pull_request" ]; then outcomes_path="$RUNNER_TEMP/alert-outcomes.json"; fi
+          args=(--json --apply --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json --config data/alert-config.json --snoozes data/alert-snoozes.json --outcomes "$outcomes_path")
+          if [ "$ISSUE_ENABLED" = "true" ]; then
+            args+=(--issue --strict)
+          else
+            args+=(--dry-run)
+          fi
+          set +e
+          node scripts/ci/loop-l4-alert-return.mjs "${args[@]}" | tee "$REPORT_DIR/cli-output.log" | tee -a "$GITHUB_STEP_SUMMARY"
+          run_code=${PIPESTATUS[0]}
+          set -e
+          if [ "$run_code" -ne 0 ] && jq -e '(.issued == true and .ok == false)' "$REPORT_DIR/l4-result.json" >/dev/null 2>&1; then
+            echo 'L4 finding persisted; only reversible suppress/defer recommendations were produced and no message was sent.' | tee -a "$GITHUB_STEP_SUMMARY"
+          elif [ "$run_code" -ne 0 ]; then
+            exit "$run_code"
+          fi
+      - name: Record canonical L4 evidence
+        if: always()
+        env:
+          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l4
+        run: node scripts/ci/record-loop-fleet-evidence.mjs --loop L4 --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json
+      - name: Upload L4 observation and actions
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: loop-l4-alert-return-${{ github.run_id }}
+          path: ${{ runner.temp }}/loop-fleet-l4/
+          retention-days: 90
+          if-no-files-found: error

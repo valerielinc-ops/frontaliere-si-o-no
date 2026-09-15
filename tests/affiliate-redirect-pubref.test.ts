@@ -8,7 +8,7 @@
  */
 import { describe, it, expect } from 'vitest';
 import { buildRedirectPage } from '../build-plugins/affiliateRedirectPlugin';
-import { PARTNERS, isPartnerizeUrl, sanitizePubref } from '../services/affiliateService';
+import { PARTNERS, isPartnerizeUrl, PUBREF_ALLOWED_RE, sanitizePubref } from '../services/affiliateService';
 
 const wise = PARTNERS.find((p) => p.id === 'wise')!;
 
@@ -129,6 +129,8 @@ describe('affiliate redirect pubref', () => {
 
     expect(rewrittenSlot2).toBe(sanitizePubref(slot2));
     expect(rewrittenSlot2).toMatch(/-[a-z0-9]{7}$/);
+    expect(PUBREF_ALLOWED_RE.test(rewrittenSlot2!)).toBe(true);
+    expect(html).toContain(JSON.stringify(PUBREF_ALLOWED_RE.source));
     expect(rewrittenSlot2).not.toBe(rewrittenSlot3);
   });
 
@@ -147,5 +149,21 @@ describe('affiliate redirect pubref', () => {
       expect(calls).toBe(2);
       expect(href).toContain('pubref=late-dom-slot');
     }
+  });
+
+  it('stops retrying when the visible link never appears', () => {
+    const html = buildRedirectPage(wise);
+    let calls = 0;
+    rewrittenUrl(html, {
+      readyState: 'complete',
+      search: '?pos=missing-link-slot',
+      getElementById: () => {
+        calls += 1;
+        return null;
+      },
+    });
+
+    expect(calls).toBe(3);
+    expect(html).toContain('patchAttempts<3');
   });
 });

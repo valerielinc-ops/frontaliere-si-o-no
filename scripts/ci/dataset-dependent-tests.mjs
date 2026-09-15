@@ -692,6 +692,9 @@ const toPosixRel = (f) => path.relative(ROOT, f).split(path.sep).join('/');
  * una selezione vuota per non guardare nemmeno il risultato.
  */
 function isDatasetDependentTestPath(file) {
+  if (typeof file !== 'string' || file.trim() === '') {
+    throw new TypeError('dataset selection contains an invalid test path');
+  }
   if (testFilesByRelPath === null) {
     testFilesByRelPath = new Map(listTestFiles().map((f) => [toPosixRel(f), f]));
   }

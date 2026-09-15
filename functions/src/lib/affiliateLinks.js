@@ -13,6 +13,8 @@ const BASE_URL = 'https://frontaliereticino.ch';
 
 /** Keep the network-facing reference to the documented-safe alphanumeric/hyphen alphabet. */
 export const PUBREF_INVALID_RE = /[^a-z0-9-]+/g;
+/** Positive postcondition shared by runtime and the inline /go/ redirect. */
+export const PUBREF_ALLOWED_RE = /^[a-z0-9-]+$/;
 /** UTM identifiers keep the existing underscore-compatible campaign contract. */
 const TOKEN_INVALID_RE = /[^a-z0-9_-]+/g;
 /** Network-facing publisher-reference cap; keep it explicit and observable. */
@@ -47,11 +49,13 @@ function capAffiliateToken(normalized, hashSeparator) {
 }
 
 /**
- * Convert an attribution identifier to the network-safe alphabet.
+ * Convert an attribution identifier to the UTM-safe alphabet.
  *
  * Attribution inputs are identifiers chosen by the product, never recipient
  * data. If a caller accidentally hands us an email/token-like value, omit it
- * instead of laundering it into a plausible-looking slug.
+ * instead of laundering it into a plausible-looking slug. UTM values may keep
+ * underscores; `safeAffiliateToken()` callers that build a network pubref
+ * must pass the result through `sanitizeAffiliatePubref()`.
  */
 export function safeAffiliateToken(raw, fallback = '') {
   const normalized = normaliseAffiliateToken(raw, TOKEN_INVALID_RE);
@@ -61,7 +65,9 @@ export function safeAffiliateToken(raw, fallback = '') {
 /** Normalise one Partnerize publisher reference. */
 export function sanitizeAffiliatePubref(raw) {
   const normalized = normaliseAffiliateToken(raw, PUBREF_INVALID_RE);
-  return normalized ? capAffiliateToken(normalized, '-') : '';
+  if (!normalized) return '';
+  const capped = capAffiliateToken(normalized, '-');
+  return PUBREF_ALLOWED_RE.test(capped) ? capped : '';
 }
 
 /**

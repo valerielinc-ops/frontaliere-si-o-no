@@ -9,9 +9,9 @@
  *   between deploys. The cron-scheduled traffic collector writes fresh
  *   per-crossing wait-times to the Firestore `trafficCurrent` collection
  *   every 15 minutes during commuter peaks. This script bridges the gap:
- *   on first JS run it asks Firestore (via the public REST endpoint) for
- *   the latest snapshot and overwrites the rendered numbers in place. It
- *   refreshes every 15 minutes while visible and resumes when the tab returns.
+ *   on first JS run it asks a read-only Cloud Function for the latest snapshot
+ *   and overwrites the rendered numbers in place. It refreshes every 15 minutes
+ *   while visible and resumes when the tab returns.
  *
  * Design constraints:
  *   - No Firebase SDK — keeps payload tiny (the firebase chunk is ~570 KB
@@ -24,8 +24,8 @@
  *   - Silent failure: on any error the pre-rendered values stay; we only
  *     emit a single `console.warn` for debugging.
  *
- * Doc shape on Firestore (written by `functions/src/trafficSchedulerCore.js
- * #saveTrafficToFirestore`):
+ * Response shape from `functions/src/publicTrafficCurrent.js` (which reads the
+ * same Firestore documents through Admin SDK):
  *   trafficCurrent/{slug} = {
  *     crossingName, waitTimeMinutes, approachMinutes, totalCrossingMinutes,
  *     status: 'green'|'yellow'|'red', source, lastUpdate (Timestamp),
@@ -57,11 +57,6 @@
  *   class `bw-live`; field text is replaced.
  */
 
-// Public, non-secret Firebase Web API key (same value baked into
-// services/firebase.ts; obfuscated on the client only to discourage casual
-// scraping — it is exposed in every Firestore REST request anyway).
-const FIREBASE_PUBLIC_API_KEY = 'AIzaSyCxbA2_3BiBOjZryR5LOXCf_c2-Sgg7YSc';
-const FIREBASE_PROJECT_ID = 'frontaliere-ticino';
 
 /**
  * The IIFE payload. Kept as a single template string so the build plugin can
@@ -70,7 +65,7 @@ const FIREBASE_PROJECT_ID = 'frontaliere-ticino';
  */
 const RAW_HYDRATION_JS = `
 (function(){
-var K="${FIREBASE_PUBLIC_API_KEY}",P="${FIREBASE_PROJECT_ID}",U="https://firestore.googleapis.com/v1/projects/"+P+"/databases/(default)/documents/trafficCurrent?key="+K+"&pageSize=200",S=7200000,R=900000,L=(document.documentElement.lang||"it").slice(0,2),T=null,B=0;
+var U="https://europe-west6-frontaliere-ticino.cloudfunctions.net/getTrafficCurrent",S=7200000,R=900000,L=(document.documentElement.lang||"it").slice(0,2),T=null,B=0;
  L=/^(it|en|de|fr)$/.test(L)?L:"it";
  var C={it:{live:"live (Firestore, agg. ",offline:"snapshot — dato live non disponibile",stale:"snapshot — lettura live non disponibile",na:"non disponibile",g:"Scorrevole",y:"Moderata",r:"Lunga"},en:{live:"live (Firestore, upd. ",offline:"snapshot — live data unavailable",stale:"snapshot — no fresh live reading",na:"unavailable",g:"Free-flowing",y:"Moderate",r:"Long"},de:{live:"live (Firestore, akt. ",offline:"Snapshot — Live-Daten nicht verfügbar",stale:"Snapshot — keine aktuelle Live-Messung",na:"nicht verfügbar",g:"Fliessend",y:"Moderat",r:"Lang"},fr:{live:"live (Firestore, maj. ",offline:"instantané — données live indisponibles",stale:"instantané — aucune mesure live récente",na:"indisponible",g:"Fluide",y:"Modérée",r:"Longue"}}[L]||null;
 function w(m){try{console.warn("[bw-hydrate] "+m)}catch(e){}}
@@ -81,7 +76,7 @@ function clock(x){var d=new Date(x);return ("0"+d.getHours()).slice(-2)+":"+("0"
 function stat(x){return x==="green"?C.g:x==="yellow"?C.y:x==="red"?C.r:"—"}
  function set(el,d){var f=el.querySelectorAll("[data-bw-field]"),missing=!d;for(var i=0;i<f.length;i++){var a=f[i],k=a.getAttribute("data-bw-field"),v=k==="waitTimeMinutes"?d&&d.wait:d&&d.total!=null?d.total:d&&d.wait;if(missing){a.textContent=k==="source"||k==="status"||k==="waitTimeMinutes"||k==="totalCrossingMinutes"?C.na:"—";continue}if(k==="waitTimeMinutes"||k==="totalCrossingMinutes")a.textContent=v!=null?v+" min":C.na;else if(k==="status")a.textContent=stat(d.status);else if(k==="lastUpdate")a.textContent=clock(d.lastUpdate);else if(k==="source"){var m={};try{m=JSON.parse(a.getAttribute("data-bw-source-labels")||"{}")}catch(e){}a.textContent=d.source?m[d.source]||d.source:C.na}}el.setAttribute("data-bw-hydrated","true");el.setAttribute("data-bw-data-state",missing?"unavailable":"live");if(el.classList)el.classList.toggle("bw-live",!missing)}
 function badge(kind,x){var b=document.querySelector("[data-bw-live-badge]");if(!b)return;b.textContent=kind==="live"?C.live+clock(x)+")":kind==="stale"?C.stale:C.offline;b.setAttribute("data-bw-live",kind==="live"?"true":"false");b.setAttribute("data-bw-fetch-state",kind)}
-function pages(){var all=[],token="",count=0;function one(){var u=U+(token?"&pageToken="+encodeURIComponent(token):"");return fetch(u,{credentials:"omit",mode:"cors"}).then(function(r){if(!r.ok)throw Error("HTTP "+r.status);return r.json()}).then(function(j){if(!j||!Array.isArray(j.documents))throw Error("invalid trafficCurrent");all=all.concat(j.documents);token=j.nextPageToken||"";if(token&&++count<10)return one();if(token)throw Error("trafficCurrent pagination limit");return all})}return one()}
+function pages(){return fetch(U,{credentials:"omit",mode:"cors"}).then(function(r){if(!r.ok)throw Error("HTTP "+r.status);return r.json()}).then(function(j){if(!j||!Array.isArray(j.documents))throw Error("invalid trafficCurrent");return j.documents})}
  function run(){if(typeof fetch!=="function"||T||document.hidden)return;T=true;pages().then(function(docs){var now=Date.now(),fresh=0,latest=0,map={};for(var i=0;i<docs.length;i++){var d=docs[i],f=d.fields||{},lu=t(f.lastUpdate);if(!lu||now-lu>S)continue;var q=d.name||"",slug=q.split("/").pop();map[slug]={wait:n(f.waitTimeMinutes),total:n(f.totalCrossingMinutes),status:s(f.status),source:s(f.source),lastUpdate:lu};if(lu>latest)latest=lu}var els=document.querySelectorAll("[data-bw-crossing]");for(var k=0;k<els.length;k++){var e=els[k],v=map[e.getAttribute("data-bw-crossing")];set(e,v);if(v)fresh++}if(fresh&&latest)badge("live",latest);else badge("stale");B=Date.now();T=false;clearTimeout(window.__bwTimer);window.__bwTimer=setTimeout(run,R)}).catch(function(e){T=false;badge("offline");w(String(e&&e.message||e));clearTimeout(window.__bwTimer);window.__bwTimer=setTimeout(run,R)})}
 document.addEventListener("visibilitychange",function(){if(!document.hidden&&Date.now()-B>=R)run()});document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-bw-picker-go]");if(b){var p=b.parentNode.parentNode.querySelector("[data-bw-picker-select]");if(p&&p.value)location.href=p.value}});if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",run);else run()
 })();

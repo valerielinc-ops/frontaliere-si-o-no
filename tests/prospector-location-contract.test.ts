@@ -25,7 +25,10 @@ vi.mock('../scripts/lib/prospector/polite-fetch.mjs', async (importOriginal) => 
 import { fetchAllAccorJobs } from '../scripts/lib/accor-job-parser.mjs';
 import { fetchAllMabetexJobs } from '../scripts/lib/mabetex-job-parser.mjs';
 import { fetchAllProtonJobs } from '../scripts/lib/proton-job-parser.mjs';
-import { runSpecInProduction } from '../scripts/lib/prospector/spec-crawler.mjs';
+import {
+  geographyFieldsForDecision,
+  runSpecInProduction,
+} from '../scripts/lib/prospector/spec-crawler.mjs';
 import { runSpec, synthesizeSpec } from '../scripts/lib/prospector/synthesize.mjs';
 import { gradeExtraction, gradeVacancy } from '../scripts/lib/prospector/validate.mjs';
 import { dedupeByIdentityPreservingMarks } from '../scripts/lib/job-mark-persistence.mjs';
@@ -138,6 +141,34 @@ describe('prospector location and identity contract', () => {
         { ...base, addressRegion: 'VD' },
       ])).toHaveLength(2);
     });
+
+    it('keeps country context on unrecognised foreign regions', () => {
+      const newYork = {
+        location: 'Geneva', addressLocality: 'Geneva', addressRegion: 'NY', addressCountry: '',
+      };
+      const ontario = {
+        location: 'Toronto', addressLocality: 'Toronto', addressRegion: 'ON', addressCountry: '',
+      };
+      expect(locationEvidenceKey(newYork)).toContain('\u0000unknown:ny\u0000');
+      expect(dedupeLocationCandidates([newYork, ontario])).toHaveLength(2);
+    });
+
+    it('rejects a nested candidate array instead of selecting it as winner', () => {
+      const valid = { location: 'Bellinzona', addressLocality: 'Bellinzona', addressRegion: 'TI' };
+      expect(dedupeLocationCandidates([[valid], valid] as any[])).toEqual([valid]);
+    });
+
+    it('does not persist the diagnostic duplicate trace with selected geography', () => {
+      const fields = geographyFieldsForDecision({
+        geography: { location: 'Bellinzona', canton: 'TI' },
+        candidate: {
+          location: 'Bellinzona', addressLocality: 'Bellinzona', addressRegion: 'TI',
+          duplicateCandidates: [{ location: 'Bellinzona' }],
+        },
+      });
+      expect(fields).toMatchObject({ location: 'Bellinzona', canton: 'TI', addressCountry: 'CH' });
+      expect(fields).not.toHaveProperty('duplicateCandidates');
+    });
   });
 
   it('closes the spec dispatcher when collection fails after an earlier seed', async () => {
@@ -160,6 +191,28 @@ describe('prospector location and identity contract', () => {
     }
   });
 
+  it('warns when dispatcher cleanup fails without masking a successful run', async () => {
+    const close = vi.spyOn(Agent.prototype, 'close').mockRejectedValue(new Error('dispatcher close failed'));
+    const warning = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    politeFetch.mockResolvedValue({ ok: true, status: 200, body: '<html></html>', url: SEED_URL, host: 'careers.accor.com' });
+
+    try {
+      await expect(runSpecInProduction({
+        companyKey: 'example',
+        companyName: 'Example',
+        mode: 'jsonld',
+        seedUrls: [SEED_URL],
+      } as any)).resolves.toEqual([]);
+      expect(warning).toHaveBeenCalledWith(
+        expect.stringContaining('dispatcher cleanup failed'),
+        expect.objectContaining({ message: 'dispatcher close failed' }),
+      );
+    } finally {
+      warning.mockRestore();
+      close.mockRestore();
+    }
+  });
+
   it('keeps stable URL identity and slug while using source-backed geography', async () => {
     fetchHtml.mockImplementation(async (url: string) => isAccorSeed(url)
       ? LISTING_HTML
@@ -168,7 +221,9 @@ describe('prospector location and identity contract', () => {
     const [job] = await fetchAllAccorJobs({ fetchImpl: fixtureFetch });
 
     expect(job.id).toBe(`accor-${createHash('sha1').update(JOB_URL).digest('hex').slice(0, 12)}`);
-    expect(job.slug).toBe('sales-executive-accor-ch');
+    const slugDisambiguator = createHash('sha1').update(JOB_URL).digest('hex').slice(0, 8);
+    expect(job.slug).toBe(`sales-executive-ibis-budget-chiasso-${slugDisambiguator}`);
+    expect(job.slugDisambiguator).toBe(slugDisambiguator);
     expect(job).toMatchObject({ url: JOB_URL, location: 'Chiasso', canton: 'TI' });
     for (const seed of [SEED_URL, SECOND_SEED_URL]) {
       expect(politeFetch).toHaveBeenCalledWith(seed, expect.objectContaining({
@@ -245,7 +300,7 @@ describe('prospector location and identity contract', () => {
 
     await expect(fetchAllAccorJobs({ fetchImpl: fixtureFetch })).resolves.toEqual([]);
     expect(warning).toHaveBeenCalledWith(expect.stringContaining('scartati 1/1 annunci'));
-    expect(warning).toHaveBeenCalledWith(expect.stringContaining('source-backed'));
+    expect(warning).toHaveBeenCalledWith(expect.stringContaining('localita svizzera source-backed'));
     warning.mockRestore();
   });
 
@@ -348,7 +403,7 @@ describe('prospector location and identity contract', () => {
     const warning = vi.spyOn(console, 'warn').mockImplementation(() => {});
 
     await expect(runSpecInProduction(spec as any)).resolves.toEqual([]);
-    expect(warning).toHaveBeenCalledWith(expect.stringContaining('source-backed'));
+    expect(warning).toHaveBeenCalledWith(expect.stringContaining('localita svizzera source-backed'));
     warning.mockRestore();
   });
 

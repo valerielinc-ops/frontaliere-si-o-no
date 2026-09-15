@@ -1,4 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
+import { mkdtempSync, writeFileSync } from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 
 // The script is pure ESM (.mjs). Its JSDoc-inferred exported types are too
 // strict for the mock-driven tests below (fetchPostHogCls's options are typed
@@ -14,6 +17,7 @@ const {
   buildHistoryEntry,
   compare,
   fetchPostHogCls,
+  loadLatestPosthogBaseline,
   renderMarkdown,
 } = revenueMonitorModule as unknown as {
   BASELINE: { period: string };
@@ -23,6 +27,7 @@ const {
   buildHistoryEntry: (current: any, rows: Array<{ metric: string; verdict: string }>, dateStr: string) => Record<string, unknown>;
   compare: (current: number | null, baseline: number | null, opts?: { higherIsBetter?: boolean }) => { delta: number | null; deltaPct: number | null; verdict: string };
   fetchPostHogCls: (opts: { apiKey: string | null; projectId: string | null; host?: string; fetchImpl?: unknown }) => Promise<{ clsP75Mobile: number | null; clsP75Desktop: number | null } | null>;
+  loadLatestPosthogBaseline: (file: string, source: string, options?: { now?: Date; maxAgeDays?: number }) => any;
   renderMarkdown: (rows: unknown[], current: any, baseline?: any) => string;
 };
 
@@ -59,6 +64,11 @@ describe('revenue-monitor / compare()', () => {
     expect(compare(null, 100).verdict).toBe('⚪ n/a');
     expect(compare(100, null).verdict).toBe('⚪ n/a');
   });
+
+  it('treats non-finite metric values as unavailable', () => {
+    expect(compare(Number.NaN, 100).verdict).toBe('⚪ n/a');
+    expect(compare(100, Number.POSITIVE_INFINITY).verdict).toBe('⚪ n/a');
+  });
 });
 
 describe('revenue-monitor / bucketCtrFromRows()', () => {
@@ -92,6 +102,25 @@ describe('revenue-monitor / bucketCtrFromRows()', () => {
 });
 
 describe('revenue-monitor / buildComparisonRows() CLS + CTR', () => {
+  it('uses the AdSense API currency code in current metric labels', () => {
+    const rows = buildComparisonRows({
+      adsense: {
+        currencyCode: 'EUR',
+        revenuePerDay: 1.2,
+        rpm: 4.5,
+        desktopRpm: 5.1,
+        authGateImpressions7d: 12,
+      },
+      gsc: null,
+      posthog: null,
+    });
+    expect(rows.map((row: any) => row.metric)).toEqual(expect.arrayContaining([
+      'AdSense revenue / day (EUR)',
+      'AdSense RPM (EUR)',
+      'AdSense desktop RPM (EUR)',
+    ]));
+  });
+
   it('includes PostHog CLS rows when posthog data present', () => {
     const current = {
       adsense: null,
@@ -265,6 +294,27 @@ describe('revenue-monitor / buildHistoryEntry()', () => {
     expect(parsed.posthog.source).toBe('ga4-fallback');
   });
 
+  it('persists canonical currency-neutral AdSense fields with the legacy aliases', () => {
+    const current = {
+      adsense: {
+        currencyCode: 'EUR',
+        revenuePerDay: 1.1,
+        rpm: 3.2,
+        desktopRpm: 4.4,
+        authGateImpressions7d: 5,
+      },
+      gsc: null,
+      posthog: null,
+    };
+    const entry = buildHistoryEntry(current, buildComparisonRows(current), '2026-09-13');
+    expect(entry.adsense).toMatchObject({
+      currencyCode: 'EUR',
+      revenuePerDay: 1.1,
+      rpm: 3.2,
+      desktopRpm: 4.4,
+    });
+  });
+
   it('non confronta CLS quando la sorgente corrente differisce dal baseline', () => {
     const current = {
       adsense: null,
@@ -301,6 +351,27 @@ describe('revenue-monitor / buildHistoryEntry()', () => {
     const clsMobile = rows.find((r: any) => r.metric === 'CLS p75 mobile');
 
     expect(clsMobile!.verdict).toBe('🔴 regressed hard');
+  });
+
+  it('non confronta un valore CLS GA4 storico nullo', () => {
+    const rows = buildComparisonRows(
+      { adsense: null, gsc: null, posthog: { clsP75Mobile: 0.62, clsP75Desktop: 0.2, source: 'ga4-fallback' } },
+      { ...BASELINE, posthogGa4: { clsP75Mobile: null, clsP75Desktop: 0.17, source: 'ga4-fallback' } },
+    );
+    expect(rows.find((r: any) => r.metric === 'CLS p75 mobile')).toMatchObject({
+      verdict: '⚪ source baseline unavailable',
+      delta: null,
+      deltaPct: null,
+    });
+  });
+
+  it('mostra la data del baseline GA4 nella colonna del report', () => {
+    const current = { adsense: null, gsc: null, posthog: { clsP75Mobile: 0.5, clsP75Desktop: 0.17, source: 'ga4-fallback' } };
+    const rows = buildComparisonRows(current, {
+      ...BASELINE,
+      posthogGa4: { clsP75Mobile: 0.4, clsP75Desktop: 0.16, source: 'ga4-fallback', baselineDate: '2026-09-01' },
+    });
+    expect(renderMarkdown(rows, current)).toContain('0.4 (2026-09-01)');
   });
 
   it('nulls out sections whose source data is missing', () => {
@@ -345,5 +416,36 @@ describe('revenue-monitor / buildHistoryEntry()', () => {
     const rows = buildComparisonRows(current);
     const entry = buildHistoryEntry(current, rows, '2026-07-06');
     expect(entry.regressions).toContain('CLS p75 mobile');
+  });
+});
+
+describe('revenue-monitor / loadLatestPosthogBaseline()', () => {
+  it('ancora alla prima entry recente e scarta una entry oltre la recency', () => {
+    const dir = mkdtempSync(path.join(os.tmpdir(), 'revenue-monitor-baseline-'));
+    const file = path.join(dir, 'history.jsonl');
+    writeFileSync(file, [
+      JSON.stringify({ date: '2026-09-05', posthog: { clsP75Mobile: 0.7, clsP75Desktop: 0.3, source: 'ga4-fallback' } }),
+      JSON.stringify({ date: '2026-08-20', posthog: { clsP75Mobile: 0.4, clsP75Desktop: 0.16, source: 'ga4-fallback' } }),
+      JSON.stringify({ date: '2026-07-01', posthog: { clsP75Mobile: 0.2, clsP75Desktop: 0.1, source: 'ga4-fallback' } }),
+    ].join('\n'));
+
+    const baseline = loadLatestPosthogBaseline(file, 'ga4-fallback', {
+      now: new Date('2026-09-11T12:00:00Z'),
+    });
+    expect(baseline).toMatchObject({
+      clsP75Mobile: 0.4,
+      clsP75Desktop: 0.16,
+      baselineDate: '2026-08-20',
+    });
+  });
+
+  it('non usa una sorgente che ha superato la finestra massima', () => {
+    const dir = mkdtempSync(path.join(os.tmpdir(), 'revenue-monitor-baseline-stale-'));
+    const file = path.join(dir, 'history.jsonl');
+    writeFileSync(file, JSON.stringify({
+      date: '2026-07-01',
+      posthog: { clsP75Mobile: 0.4, clsP75Desktop: 0.16, source: 'ga4-fallback' },
+    }));
+    expect(loadLatestPosthogBaseline(file, 'ga4-fallback', { now: new Date('2026-09-11T12:00:00Z') })).toBeNull();
   });
 });

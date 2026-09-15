@@ -118,6 +118,7 @@ function getAllRoutes(): { route: AppRoute; label: string }[] {
     'tassazione-hub',
     'correzioni',
     'metodologia',
+    'petition',
   ];
   for (const tab of standalones) {
     routes.push({ route: { activeTab: tab }, label: tab });
@@ -472,6 +473,13 @@ describe('SEO Completeness — every page has proper SEO setup', () => {
       // by staticPagesPlugin from its `canonicalPath`. The SPA runtime
       // resolves all locales of this page via the `holidays` key.
       'holidaysDe',
+      // The petition has one SPA route key; these locale-specific metadata
+      // entries are consumed by staticPagesPlugin for the three localized
+      // static HTML variants, so they are intentionally not returned by the
+      // locale-agnostic getSeoSection(route) helper.
+      'petitionEn',
+      'petitionDe',
+      'petitionFr',
     ]);
 
     for (const key of Object.keys(SEO_METADATA)) {

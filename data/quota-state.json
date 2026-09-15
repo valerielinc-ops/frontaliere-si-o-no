@@ -2,88 +2,8 @@
   "version": 1,
   "runCounter": 1340,
   "currentQuota": 90,
-  "lastTune": "2026-09-10T08:44:42.814Z",
+  "lastTune": "2026-09-14T09:41:01.635Z",
   "history": [
-    {
-      "tunedAt": "2026-05-29T07:56:16.148Z",
-      "prevQuota": 80,
-      "newQuota": 80,
-      "decision": "hold",
-      "reason": "insufficient sample proven=37 discovery=12",
-      "provenWinRate": 0.8108,
-      "discoveryWinRate": 0.5833,
-      "ratio": null,
-      "samples": {
-        "proven": {
-          "winners": 30,
-          "total": 37
-        },
-        "discovery": {
-          "winners": 7,
-          "total": 12
-        }
-      }
-    },
-    {
-      "tunedAt": "2026-05-30T06:46:07.843Z",
-      "prevQuota": 80,
-      "newQuota": 80,
-      "decision": "hold",
-      "reason": "insufficient sample proven=42 discovery=12",
-      "provenWinRate": 0.8095,
-      "discoveryWinRate": 0.5833,
-      "ratio": null,
-      "samples": {
-        "proven": {
-          "winners": 34,
-          "total": 42
-        },
-        "discovery": {
-          "winners": 7,
-          "total": 12
-        }
-      }
-    },
-    {
-      "tunedAt": "2026-05-31T07:46:56.655Z",
-      "prevQuota": 80,
-      "newQuota": 80,
-      "decision": "hold",
-      "reason": "insufficient sample proven=45 discovery=12",
-      "provenWinRate": 0.8222,
-      "discoveryWinRate": 0.5833,
-      "ratio": null,
-      "samples": {
-        "proven": {
-          "winners": 37,
-          "total": 45
-        },
-        "discovery": {
-          "winners": 7,
-          "total": 12
-        }
-      }
-    },
-    {
-      "tunedAt": "2026-06-01T09:28:21.742Z",
-      "prevQuota": 80,
-      "newQuota": 80,
-      "decision": "hold",
-      "reason": "insufficient sample proven=47 discovery=12",
-      "provenWinRate": 0.8085,
-      "discoveryWinRate": 0.5833,
-      "ratio": null,
-      "samples": {
-        "proven": {
-          "winners": 38,
-          "total": 47
-        },
-        "discovery": {
-          "winners": 7,
-          "total": 12
-        }
-      }
-    },
     {
       "tunedAt": "2026-06-02T08:30:31.657Z",
       "prevQuota": 80,
@@ -2001,6 +1921,86 @@
         "discovery": {
           "winners": 11,
           "total": 19
+        }
+      }
+    },
+    {
+      "tunedAt": "2026-09-11T08:39:57.777Z",
+      "prevQuota": 90,
+      "newQuota": 90,
+      "decision": "hold",
+      "reason": "ratio=0.82",
+      "provenWinRate": 0.7879,
+      "discoveryWinRate": 0.6471,
+      "ratio": 0.8213,
+      "samples": {
+        "proven": {
+          "winners": 26,
+          "total": 33
+        },
+        "discovery": {
+          "winners": 11,
+          "total": 17
+        }
+      }
+    },
+    {
+      "tunedAt": "2026-09-12T08:27:40.304Z",
+      "prevQuota": 90,
+      "newQuota": 90,
+      "decision": "hold",
+      "reason": "ratio=0.82",
+      "provenWinRate": 0.8125,
+      "discoveryWinRate": 0.6667,
+      "ratio": 0.8205,
+      "samples": {
+        "proven": {
+          "winners": 26,
+          "total": 32
+        },
+        "discovery": {
+          "winners": 10,
+          "total": 15
+        }
+      }
+    },
+    {
+      "tunedAt": "2026-09-13T08:59:51.580Z",
+      "prevQuota": 90,
+      "newQuota": 90,
+      "decision": "hold",
+      "reason": "insufficient sample proven=29 discovery=13",
+      "provenWinRate": 0.7931,
+      "discoveryWinRate": 0.6923,
+      "ratio": null,
+      "samples": {
+        "proven": {
+          "winners": 23,
+          "total": 29
+        },
+        "discovery": {
+          "winners": 9,
+          "total": 13
+        }
+      }
+    },
+    {
+      "tunedAt": "2026-09-14T09:41:01.635Z",
+      "prevQuota": 90,
+      "newQuota": 90,
+      "decision": "hold",
+      "reason": "insufficient sample proven=26 discovery=12",
+      "provenWinRate": 0.7692,
+      "discoveryWinRate": 0.6667,
+      "ratio": null,
+      "samples": {
+        "proven": {
+          "winners": 20,
+          "total": 26
+        },
+        "discovery": {
+          "winners": 8,
+          "total": 12
         }
       }
     }

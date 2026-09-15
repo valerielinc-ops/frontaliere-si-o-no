@@ -6,10 +6,15 @@
  * the real Codex/sub-agent worktree when the payload stays at the launch root.
  */
 import { describe, it, expect } from 'vitest';
-import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
+import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { resolveHookTargetCwd } from '../scripts/ci/lib/hook-target-cwd.mjs';
+import {
+  describeHookTargetCwdFailure,
+  resolveHookTargetCwd,
+  resolveHookTargetCwdDetails,
+} from '../scripts/ci/lib/hook-target-cwd.mjs';
 
 describe('resolveHookTargetCwd', () => {
   it('returns the directory when payload.cwd exists on disk', () => {
@@ -34,6 +39,41 @@ describe('resolveHookTargetCwd', () => {
     } finally {
       rmSync(tracked, { recursive: true, force: true });
       rmSync(worktree, { recursive: true, force: true });
+    }
+  });
+
+  it('retains a non-repository literal cd as an explicit failure', () => {
+    const tracked = mkdtempSync(join(tmpdir(), 'hook-target-cwd-tracked-'));
+    const outsideRepo = mkdtempSync(join(tmpdir(), 'hook-target-cwd-outside-'));
+    try {
+      const resolution = resolveHookTargetCwdDetails(
+        { cwd: tracked },
+        `cd "${outsideRepo}" && gh pr create --title x`,
+      );
+      expect(resolution.cwd).toBe(outsideRepo);
+      expect(resolution.error).toEqual({ kind: 'non-repository', path: outsideRepo });
+      expect(describeHookTargetCwdFailure(resolution)).toContain('non appartiene');
+    } finally {
+      rmSync(tracked, { recursive: true, force: true });
+      rmSync(outsideRepo, { recursive: true, force: true });
+    }
+  });
+
+  it('rejects a relative cd that resolves to a nested different worktree', () => {
+    const tracked = mkdtempSync(join(tmpdir(), 'hook-target-cwd-tracked-'));
+    const foreign = join(tracked, 'foreign-worktree');
+    mkdirSync(foreign);
+    execFileSync('git', ['init', '-q', tracked], { stdio: 'ignore' });
+    execFileSync('git', ['init', '-q', foreign], { stdio: 'ignore' });
+    try {
+      const command = 'cd foreign-worktree && gh pr create --title x';
+      const resolution = resolveHookTargetCwdDetails({ cwd: tracked }, command);
+      expect(resolution.cwd).toBeUndefined();
+      expect(resolution.error).toEqual({ kind: 'different-worktree', path: foreign });
+      expect(resolveHookTargetCwd({ cwd: tracked }, command)).toBeUndefined();
+      expect(describeHookTargetCwdFailure(resolution)).toContain('worktree diverso');
+    } finally {
+      rmSync(tracked, { recursive: true, force: true });
     }
   });
 

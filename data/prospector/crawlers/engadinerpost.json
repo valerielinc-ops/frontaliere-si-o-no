@@ -1,0 +1,22 @@
+{
+  "companyKey": "engadinerpost",
+  "companyName": "Engadiner Post",
+  "companyHost": "engadinerpost.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.engadinerpost.ch/marktplatz"
+  ],
+  "detailTemplate": "/marktplatz/job/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Corporate Communications Manager:in m/w/d 100%",
+    "Mitarbeiter/-in Housekeeping",
+    "Gerichtsschreiber/-in 80/100%"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-11T09:06:32.824Z"
+}

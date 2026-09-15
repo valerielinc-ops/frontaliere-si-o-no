@@ -5,6 +5,13 @@ import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 import { TITLE_RE } from '../../scripts/ci/close-recovered-failure-issues.mjs';
+import {
+  MAX_DISCOVERY_ARTIFACTS,
+  MAX_DISCOVERY_ARTIFACT_REFERENCES,
+  MAX_DISCOVERY_RUNS,
+  MAX_DISCOVERY_TOKENS,
+  recordDiscoveredArtifactIds,
+} from '../../scripts/ci/crawler-generation-observer-selector.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const WORKFLOWS = path.join(ROOT, '.github/workflows');
@@ -21,6 +28,32 @@ function sha256(text) {
 function occurrences(text, pattern) {
   return [...text.matchAll(pattern)].length;
 }
+
+test('il budget cumulativo dell observer copre le liste bounded della finestra', () => {
+  assert.equal(
+    MAX_DISCOVERY_ARTIFACT_REFERENCES,
+    MAX_DISCOVERY_RUNS + MAX_DISCOVERY_TOKENS * MAX_DISCOVERY_ARTIFACTS,
+  );
+
+  const seen = new Set();
+  recordDiscoveredArtifactIds(
+    seen,
+    Array.from({ length: 26 }, (_, index) => ({ id: index + 1 })),
+  );
+  recordDiscoveredArtifactIds(
+    seen,
+    Array.from({ length: 96 }, (_, index) => ({ id: 1_000 + index })),
+  );
+  assert.equal(seen.size, 122);
+
+  assert.throws(
+    () => recordDiscoveredArtifactIds(
+      new Set(Array.from({ length: MAX_DISCOVERY_ARTIFACT_REFERENCES }, (_, index) => index + 1)),
+      [{ id: MAX_DISCOVERY_ARTIFACT_REFERENCES + 1 }],
+    ),
+    /discovery artifact cap exceeded/,
+  );
+});
 
 function crawlerIdsFromArtifact(text) {
   const lines = text.split(/\r?\n/);
@@ -41,49 +74,69 @@ function crawlerIdsFromArtifact(text) {
     }
 
     let crawlerId = '';
-    let background = false;
     for (const line of fields) {
       if (!line.startsWith(fieldIndent) || line.startsWith(`${fieldIndent}  `)) continue;
-      const id = /^\s*id:\s*crawler-([a-z0-9-]+)\s*$/.exec(line);
+      const id = /^\s*id:\s*crawler-launch-([a-z0-9-]+)\s*$/.exec(line);
       if (id) crawlerId = id[1];
-      if (/^\s*background:\s*true\s*$/.test(line)) background = true;
     }
-    if (crawlerId && background) crawlerIds.push(crawlerId);
+    if (crawlerId) crawlerIds.push(crawlerId);
   }
 
   return crawlerIds;
 }
 
-test('il parser del roster tollera field-order e ignora wait o campi annidati non-background', () => {
+function expectedCrawlerEntriesFromArtifact(text) {
+  const match = /^\s+CRAWLER_GENERATION_EXPECTED_CRAWLERS:\s+'([^']+)'$/m.exec(text);
+  assert.ok(match, 'roster atteso del finalizer non trovato');
+  return JSON.parse(match[1]);
+}
+
+test('il parser del roster tollera field-order e ignora risultati o campi annidati', () => {
   const workflow = [
+    '      - name: Launch coop',
+    '        id: crawler-launch-coop',
+    '        if: success()',
+    '        run: echo coop',
     '      - name: Run coop',
     '        id: crawler-coop',
-    '        if: success()',
-    '        background: true',
-    '        run: echo coop',
-    '      - name: Run alfa',
-    '        background: true',
+    '        if: always()',
+    '        run: echo result',
+    '      - name: Launch alfa',
     '        continue-on-error: false',
-    '        id: crawler-alfa',
+    '        id: crawler-launch-alfa',
     '        run: echo alfa',
     '      - name: Ignore nested shell text',
     '        run: |-',
     '          id: crawler-fake',
-    '          background: true',
-    '      - name: Wait',
-    '        id: crawler-generation-wait',
-    '        wait-all: true',
+    '          id: crawler-launch-fake',
   ].join('\n');
   assert.deepEqual(crawlerIdsFromArtifact(workflow), ['coop', 'alfa']);
 });
 
 test('il parser del roster conserva il formato corrente minimale', () => {
   const workflow = [
-    '      - name: Run coop',
-    '        id: crawler-coop',
-    '        background: true',
+    '      - name: Launch coop',
+    '        id: crawler-launch-coop',
   ].join('\n');
   assert.deepEqual(crawlerIdsFromArtifact(workflow), ['coop']);
+});
+
+test('crawler group 07 usa gli stessi id canonici in step, expected roster e artifacts.members', () => {
+  const artifact = CONTRACT.artifacts.find((entry) => entry.file === 'crawler-group-07.yml');
+  assert.ok(artifact);
+  const workflow = readFileSync(path.join(WORKFLOWS, artifact.file), 'utf8');
+  const stepIds = crawlerIdsFromArtifact(workflow);
+  const expected = expectedCrawlerEntriesFromArtifact(workflow);
+  const expectedIds = expected.map((entry) => entry.crawlerId);
+
+  assert.deepEqual([...new Set(stepIds)].sort(), [...new Set(expectedIds)].sort());
+  assert.deepEqual([...new Set(stepIds)].sort(), [...new Set(artifact.members)].sort());
+  assert.equal(expected.find((entry) => entry.crawlerId === 'guess-europe')?.primarySlice,
+    'data/jobs/by-crawler/guess-europe.json');
+  assert.equal(expected.find((entry) => entry.crawlerId === 'vf-international-the-north-face-timberland')?.primarySlice,
+    'data/jobs/by-crawler/vf-international-the-north-face-timberland.json');
+  assert.equal(expected.some((entry) => entry.crawlerId === 'guess'), false);
+  assert.equal(expected.some((entry) => entry.crawlerId === 'vf'), false);
 });
 
 test('il contratto censisce 23 gruppi + translate-pending e tutti i crawler unici', () => {
@@ -238,7 +291,7 @@ test('il retry e limitato al checkout sparse pre-logica, con backoff', () => {
 
     const checkoutRetryAt = text.indexOf('id: site_checkout_retry');
     const checkoutReadyAt = text.indexOf('id: checkout');
-    const firstCrawlerAt = text.search(/^\s+background: true$/m);
+    const firstCrawlerAt = text.search(/^\s+id: crawler-launch-/m);
     const firstTranslatePhaseAt = text.search(/^\s+- name: (?:"?Phase|Check if housekeeping)/m);
     const firstLogicAt = firstCrawlerAt >= 0 ? firstCrawlerAt : firstTranslatePhaseAt;
     assert.ok(
@@ -273,7 +326,7 @@ test('il reporter diagnostico usa identita e workflow standalone corpus richiudi
     assert.doesNotMatch(text, /workflow-file: .*logic\.yml/);
     assert.doesNotMatch(text, /repo: valerielinc-ops\/frontaliere-si-o-no/);
     const reporterAt = text.indexOf('uses: ./.github/actions/report-failure');
-    const firstCrawlerAt = text.indexOf('background: true');
+    const firstCrawlerAt = text.indexOf('id: crawler-launch-');
     if (artifact.members.length > 0) {
       assert.ok(reporterAt < firstCrawlerAt, `${artifact.file}: reporter setup dopo la logica crawler`);
       assert.match(text, /name: Report shared setup failure to GitHub Issues/);
@@ -295,7 +348,7 @@ test('nessun artifact usa codeload/reusable cross-repo o replica la logica dopo 
     const crawlerIds = crawlerIdsFromArtifact(text);
     assert.deepEqual(crawlerIds, artifact.members, `${artifact.file}: roster diverso dal contratto`);
     assert.equal(new Set(crawlerIds).size, crawlerIds.length, `${artifact.file}: crawler duplicato`);
-    assert.equal(occurrences(text, /^\s+background: true$/gm), artifact.members.length);
+    assert.equal(occurrences(text, /^\s+id: crawler-launch-[a-z0-9-]+$/gm), artifact.members.length);
 
     // Un solo job runnable: il secondo tentativo e un secondo checkout nello
     // stesso job, non un job `_retry` che rilancia crawl/push gia avvenuti.

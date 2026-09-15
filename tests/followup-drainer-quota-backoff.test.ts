@@ -22,6 +22,7 @@ import {
   NON_RETRYABLE,
   ZERO_WORK,
   isAgeOutEligible,
+  quotaPromotionDecision,
 } from '../scripts/ci/followup-drainer.mjs';
 import { formatRateLimitComment, maxQuotaResetsAt } from '../scripts/ci/claude-rate-limit.mjs';
 import { beaconCandidates, quotaFallbackDecision } from '../scripts/ci/check-quota-backoff.mjs';
@@ -200,5 +201,19 @@ describe('quota preflight projection — Codex fallback is opt-in and non-mutati
       .toEqual({ active: false, quotaBlocked: false, codexFallback: false });
     expect(quotaFallbackDecision({ resetsAt: null, nowSec, codexFallbackMode: true }))
       .toEqual({ active: false, quotaBlocked: false, codexFallback: false });
+  });
+});
+
+describe('quota drainer — stesso contratto provider del fixer', () => {
+  const nowSec = 1_800_000_000;
+
+  it('senza fallback mantiene il backoff storico', () => {
+    expect(quotaPromotionDecision(nowSec + 600, { nowSec, codexFallbackMode: false }))
+      .toEqual({ active: true, quotaBlocked: true, codexFallback: false });
+  });
+
+  it('con Codex fallback non congela le promozioni sulla beacon Claude', () => {
+    expect(quotaPromotionDecision(nowSec + 600, { nowSec, codexFallbackMode: true }))
+      .toEqual({ active: true, quotaBlocked: false, codexFallback: true });
   });
 });

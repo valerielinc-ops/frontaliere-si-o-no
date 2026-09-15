@@ -25,8 +25,8 @@ interface BorderCrossingCoordinates {
 
 export interface TrafficData {
  crossingName: string;
- waitTimeMinutes: number;
- status: 'green' | 'yellow' | 'red';
+ waitTimeMinutes?: number;
+ status?: TrafficStatus;
  lastUpdate: Date;
  source: 'tomtom' | 'google-maps' | 'here' | 'webcam' | 'mock' | 'firestore';
  /** Traffic delay on the ≈500 m approach road on the Italian side (set by scheduled function) */
@@ -34,6 +34,8 @@ export interface TrafficData {
  /** Total estimated crossing time: approach delay + border queue (set by scheduled function) */
  totalCrossingMinutes?: number;
 }
+
+export type TrafficStatus = 'green' | 'yellow' | 'red';
 
 /** Shape of the committed snapshot consumed as the non-live fallback. */
 interface BorderWaitSnapshotEntry {
@@ -50,6 +52,51 @@ interface BorderWaitSnapshot {
 }
 
 const BORDER_WAIT_SNAPSHOT = borderWaitCurrent as BorderWaitSnapshot;
+
+const TRAFFIC_STATUSES: readonly TrafficStatus[] = ['green', 'yellow', 'red'];
+
+function finiteNumber(value: unknown): number | undefined {
+ return typeof value === 'number' && Number.isFinite(value) ? value : undefined;
+}
+
+function normalizedTrafficStatus(value: unknown): TrafficStatus | undefined {
+ return typeof value === 'string' && TRAFFIC_STATUSES.includes(value as TrafficStatus)
+  ? value as TrafficStatus
+  : undefined;
+}
+
+/** Total crossing time wins, while preserving a missing reading as missing. */
+export function effectiveTrafficWaitMinutes(
+ data: Pick<TrafficData, 'waitTimeMinutes' | 'totalCrossingMinutes'> | null | undefined,
+): number | null {
+ for (const value of [data?.totalCrossingMinutes, data?.waitTimeMinutes]) {
+  const minutes = finiteNumber(value);
+  if (minutes !== undefined) return minutes;
+ }
+ return null;
+}
+
+/** Build one honest snapshot fallback without inventing status or collapsing fields. */
+export function buildFallbackTrafficData(
+ crossingName: string,
+ entry: BorderWaitSnapshotEntry | undefined,
+ snapshotUpdate?: string,
+): TrafficData | null {
+ const waitTimeMinutes = finiteNumber(entry?.waitTimeMinutes);
+ const totalCrossingMinutes = finiteNumber(entry?.totalCrossingMinutes);
+ if (waitTimeMinutes === undefined && totalCrossingMinutes === undefined) return null;
+
+ const status = normalizedTrafficStatus(entry?.status);
+ return {
+  crossingName,
+  ...(waitTimeMinutes === undefined ? {} : { waitTimeMinutes }),
+  ...(status === undefined ? {} : { status }),
+  lastUpdate: new Date(entry?.lastUpdate ?? snapshotUpdate ?? Date.now()),
+  source: 'mock',
+  approachMinutes: entry?.approachMinutes,
+  ...(totalCrossingMinutes === undefined ? {} : { totalCrossingMinutes }),
+ };
+}
 
 // trafficLevel undefined just means "no historical trafficLevel label
 // assigned yet" (e.g. non-Ticino borders added later), NOT 'closed' — see
@@ -74,12 +121,12 @@ class TrafficService {
  if (!Array.isArray(parsed?.data) || typeof parsed.timestamp !== 'number') return null;
  if ((Date.now() - parsed.timestamp) >= TRAFFIC_LS_TTL_MS) return null;
  return (parsed.data as Array<{
- crossingName: string; waitTimeMinutes: number; status: string;
+ crossingName: string; waitTimeMinutes?: number; status?: string;
  lastUpdateMs: number; source: string; approachMinutes?: number; totalCrossingMinutes?: number;
  }>).map(d => ({
  crossingName: d.crossingName,
  waitTimeMinutes: d.waitTimeMinutes,
- status: d.status as TrafficData['status'],
+ status: d.status as TrafficStatus | undefined,
  lastUpdate: new Date(d.lastUpdateMs),
  source: d.source as TrafficData['source'],
  approachMinutes: d.approachMinutes,
@@ -174,19 +221,23 @@ class TrafficService {
  return;
  }
 
- if (!Number.isFinite(lastUpdate.getTime()) || typeof d.waitTimeMinutes !== 'number' || !['green', 'yellow', 'red'].includes(d.status)) {
+ const waitTimeMinutes = finiteNumber(d.waitTimeMinutes);
+ const totalCrossingMinutes = finiteNumber(d.totalCrossingMinutes);
+ if (!Number.isFinite(lastUpdate.getTime()) || (waitTimeMinutes === undefined && totalCrossingMinutes === undefined)) {
  console.warn(`[trafficService] Incomplete traffic reading for Firestore doc ${docSnap.id}`);
  return;
  }
 
+ const status = normalizedTrafficStatus(d.status);
+
  results.push({
- crossingName: d.crossingName,
- waitTimeMinutes: d.waitTimeMinutes,
- status: d.status as TrafficData['status'],
- lastUpdate,
- source: 'firestore',
- approachMinutes: d.approachMinutes,
- totalCrossingMinutes: d.totalCrossingMinutes,
+  crossingName: d.crossingName,
+  ...(waitTimeMinutes === undefined ? {} : { waitTimeMinutes }),
+  ...(status === undefined ? {} : { status }),
+  lastUpdate,
+  source: 'firestore',
+  approachMinutes: d.approachMinutes,
+  ...(totalCrossingMinutes === undefined ? {} : { totalCrossingMinutes }),
  });
  });
 
@@ -219,26 +270,11 @@ class TrafficService {
  const perCrossing = BORDER_WAIT_SNAPSHOT.perCrossing ?? {};
  const snapshotUpdate = BORDER_WAIT_SNAPSHOT.updatedAt;
  return BORDER_CROSSINGS.flatMap(({ name }) => {
- const entry = perCrossing[slugifyCrossingName(name)];
- // La precedenza dichiarata in tutta la catena e' totalCrossingMinutes ->
- // waitTimeMinutes (vedi effectiveWait() in borderWaitComparison.ts):
- // scartare qui sul solo waitTimeMinutes faceva sparire dal fallback le
- // entry che portano solo il totale, che sono letture valide.
- const fallbackWait = typeof entry?.totalCrossingMinutes === 'number'
-   ? entry.totalCrossingMinutes
-   : entry?.waitTimeMinutes;
- if (!entry || typeof fallbackWait !== 'number') return [];
- return {
- crossingName: name,
- waitTimeMinutes: fallbackWait,
- status: (entry?.status as TrafficData['status']) ?? 'green',
- lastUpdate: new Date(entry?.lastUpdate ?? snapshotUpdate ?? Date.now()),
- source: 'mock',
- approachMinutes: entry?.approachMinutes,
- totalCrossingMinutes: entry?.totalCrossingMinutes,
-  };
+  const entry = perCrossing[slugifyCrossingName(name)];
+ const fallback = buildFallbackTrafficData(name, entry, snapshotUpdate);
+ return fallback ? [fallback] : [];
  });
- }
+}
 
  /**
  * Clears the localStorage cache so the next `getTrafficData()` call re-reads

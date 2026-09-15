@@ -212,7 +212,7 @@ jobs:
       - name: Setup Headroom compression proxy
         uses: ./.github/actions/setup-headroom
 
-      - name: Pre-flight — Claude quota beacon for Codex fallback
+      - name: Pre-flight — Claude quota telemetry (Codex primary)
         id: quota
         continue-on-error: true
         env:
@@ -235,7 +235,6 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
         with:
-          preflight_blocked: ${{ steps.quota.outputs.codex_fallback }}
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # Obbligatorio accanto a claude_code_oauth_token: senza,
@@ -293,7 +292,7 @@ jobs:
             - Bash e' allowlisted per binario ma NON accetta comandi composti: niente `cd ... && ...`, niente redirect `> file`, niente `xargs -I{}`. Un comando per invocazione (causa di #3679).
 
       - name: Claude usage metrics
-        if: always() && steps.verify.outputs.fallback_used != 'true'
+        if: always() && steps.verify.outputs.claude_used == 'true'
         run: node scripts/ci/claude-usage-summary.mjs "${{ steps.verify.outputs.execution_file }}" "crawler-content-plausibility-audit"
 
       - name: Report failure to GitHub Issues

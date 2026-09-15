@@ -13,8 +13,10 @@ import {
   validateCrawlerGenerationRoster,
 } from '../scripts/lib/crawler-generation-contract.mjs';
 import {
+  CRAWLER_GENERATION_PORTABLE_TOKEN_EXPR as PORTABLE_GENERATION_TOKEN_EXPR,
   CRAWLER_GENERATION_TOKEN_EXPR as GENERATION_TOKEN_EXPR,
   assertCrawlerLogicParity,
+  crawlerGenerationLedgerPersistenceRun,
   checkGeneratedArtifacts,
   generate,
   generateCrossRepoExecutionArtifacts,
@@ -178,6 +180,7 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       const generated = results[index].content;
       const logic = fs.readFileSync(path.join(WORKFLOWS, `crawler-group-${group}-logic.yml`), 'utf8');
       expect(() => assertCrawlerLogicParity(generated, logic, `crawler-group-${group}-logic.yml`)).not.toThrow();
+      expect(YAML.parse(logic).name).toBe(`Crawler Group ${group} logic (reusable workflow)`);
 
       const job = jobFrom(logic);
       expect(YAML.parse(logic).on.workflow_call.inputs.generation_token)
@@ -185,15 +188,17 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       expect(job.env.CRAWLER_GENERATION_TOKEN).toBe(GENERATION_TOKEN_EXPR);
       expect(job.env.CRAWLER_GENERATION_RECEIPT_DIR)
         .toBe('crawler-generation/receipts');
-      const background = job.steps.filter((step: any) => step.background === true);
-      expect(background).toHaveLength(results.generationRoster.groups[group].length);
-      expect(background.every((step: any) =>
+      const launchers = job.steps.filter((step: any) => step.id?.startsWith('crawler-launch-'));
+      const resultsByCrawler = job.steps.filter((step: any) => step.id?.startsWith('crawler-')
+        && !step.id.startsWith('crawler-launch-')
+        && !step.id.startsWith('crawler-generation-'));
+      expect(launchers).toHaveLength(results.generationRoster.groups[group].length);
+      expect(resultsByCrawler).toHaveLength(launchers.length);
+      expect(launchers.every((step: any) =>
         !Object.prototype.hasOwnProperty.call(step.env ?? {}, 'CRAWLER_GENERATION_RECEIPT_DIR'))).toBe(true);
-      expect(background.every((step: any) =>
+      expect(launchers.every((step: any) =>
         !Object.prototype.hasOwnProperty.call(step.env ?? {}, 'CRAWLER_GENERATION_TOKEN'))).toBe(true);
-      expect(stepByName(job.steps, 'Wait for all crawlers in this group')).toEqual({
-        name: 'Wait for all crawlers in this group', 'wait-all': true,
-      });
+      expect(resultsByCrawler.every((step: any) => step.if === 'always()')).toBe(true);
       expect(stepByName(job.steps, 'Commit crawler group data atomically')).toEqual({
         name: 'Commit crawler group data atomically',
         if: 'always()',
@@ -204,6 +209,11 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
           'if [ "$git_commit_exit" -eq 42 ]; then',
           '  echo "::warning::group commit: push lost the ref race after all retries (contention) on the final aggregated commit. Cycle lost, self-heals next scheduled run — group not failed (systemic class)."',
           '  echo "⚠️ group commit: push contention loss (exit 42) — crawl data was fine, group not failed" >> "$GITHUB_STEP_SUMMARY"',
+          '  exit 0',
+          'fi',
+          'if [ "$git_commit_exit" -eq 44 ]; then',
+          '  echo "::warning::group commit: global data-pipeline lease is busy (exit 44); no group data was staged and the next scheduled cycle will retry — group not failed (systemic class)."',
+          '  echo "⚠️ group commit: global data-pipeline lease busy (exit 44) — group data not staged, group not failed" >> "$GITHUB_STEP_SUMMARY"',
           '  exit 0',
           'fi',
           'exit "$git_commit_exit"',
@@ -223,37 +233,62 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
         })),
       );
       const persist = stepByName(job.steps, 'Persist crawler generation ledger');
-      expect(persist.if).toBe('always()');
+      expect(persist.if).toBe("always() && steps.crawler-generation-finalizer.outcome == 'success'");
+      expect(persist['continue-on-error']).toBe(true);
+      expect(persist.run).toBe(crawlerGenerationLedgerPersistenceRun());
       expect(persist.run).toContain('--extra-only');
       expect(persist.run).toContain('data/crawler-generation-ledger.jsonl');
+      expect(persist.run).toContain('git_commit_exit=$?');
+      expect(persist.run).toContain('eq 42');
+      expect(persist.run).toContain('eq 43');
+      expect(persist.run).toContain('exit "$git_commit_exit"');
+      const finalizerFailure = stepByName(job.steps, 'Report crawler generation finalizer failure');
+      expect(finalizerFailure.if).toBe(
+        "always() && steps.crawler-generation-finalizer.outcome == 'failure'",
+      );
+      expect(finalizerFailure.run).toContain('ledger persistence skipped');
       expect(stepByName(job.steps, 'Upload crawler generation manifest (shadow)')).toMatchObject({
         uses: 'actions/upload-artifact@v7',
         with: { overwrite: true, 'retention-days': 14 },
       });
+      const release = stepByName(job.steps, 'Release cross-entry crawler live-run lease');
+      expect(release).toMatchObject({
+        if: "always() && env.CRAWLER_GROUP_LIVE_LEASE_OWNED == '1'",
+        'continue-on-error': true,
+        run: `node scripts/check-crawler-group-live-run.mjs crawler-group-${group}.yml --release`,
+      });
+      expect(job.steps.indexOf(release)).toBeGreaterThan(
+        job.steps.findIndex((step: any) => step.name === 'Upload crawler generation manifest (shadow)'),
+      );
 
       const portableText = fs.readFileSync(path.join(PORTABLE, `crawler-group-${group}.yml`), 'utf8');
       const portable = YAML.parse(portableText);
-      expect(portable['run-name']).toBe(`crawler-generation-${GENERATION_TOKEN_EXPR}-group-${group}`);
+      expect(PORTABLE_GENERATION_TOKEN_EXPR).toBe(GENERATION_TOKEN_EXPR);
+      expect(portable['run-name']).toBe(`crawler-generation-${PORTABLE_GENERATION_TOKEN_EXPR}-group-${group}`);
       expect(portable.on.workflow_dispatch.inputs.generation_token)
         .toMatchObject({ required: true, type: 'string' });
       const portableJob = Object.values(portable.jobs)[0] as any;
-      expect(portableJob.env.CRAWLER_GENERATION_TOKEN).toBe(GENERATION_TOKEN_EXPR);
-      // #7083 invariant, restated as an equality instead of a blanket ban on
-      // `github.run_*`: producers and finalizer must read ONE value, so the
-      // terminal step env may only repeat the job-level expression verbatim.
+      expect(portableJob.env.CRAWLER_GENERATION_TOKEN).toBe(PORTABLE_GENERATION_TOKEN_EXPR);
+      // #7083 invariant, restated per transport mode: producers and finalizer
+      // must read ONE value. The reusable site logic keeps its coordinate
+      // fallback; the portable caller uses only its required input.
       const logicWithFutureTail = structuredClone(jobFrom(logic));
       logicWithFutureTail.steps.push({ name: 'Future post-finalizer step', run: 'true' });
       expect(stepByName(logicWithFutureTail.steps, 'Finalize crawler generation manifest (shadow)').env.CRAWLER_GENERATION_TOKEN)
         .toBe(job.env.CRAWLER_GENERATION_TOKEN);
-      expect(portableJob.env.CRAWLER_GENERATION_TOKEN).toBe(job.env.CRAWLER_GENERATION_TOKEN);
+      expect(portableJob.env.CRAWLER_GENERATION_TOKEN).toBe(PORTABLE_GENERATION_TOKEN_EXPR);
+      expect(stepByName(portableJob.steps, 'Finalize crawler generation manifest (shadow)').env.CRAWLER_GENERATION_TOKEN)
+        .toBe(PORTABLE_GENERATION_TOKEN_EXPR);
       expect(portableJob.env.CRAWLER_GENERATION_RECEIPT_DIR)
         .toBe('crawler-generation/receipts');
       const portableProducers = portableJob.steps.filter((step: any) =>
-        step.background === true || step.name === 'Commit crawler group data atomically');
+        step.id?.startsWith('crawler-launch-') || step.name === 'Commit crawler group data atomically');
       expect(portableProducers).toHaveLength(results.generationRoster.groups[group].length + 1);
       expect(portableProducers.every((step: any) =>
         !Object.prototype.hasOwnProperty.call(step.env ?? {}, 'CRAWLER_GENERATION_TOKEN'))).toBe(true);
-      expect(portableJob.steps.at(-1).with['retention-days']).toBe(14);
+      expect(portableJob.steps.at(-1).name).toBe('Release cross-entry crawler live-run lease');
+      expect(stepByName(portableJob.steps, 'Upload crawler generation manifest (shadow)').with['retention-days'])
+        .toBe(14);
     }
   }, 30_000);
 

@@ -18,10 +18,15 @@ import { readFile, stat } from 'node:fs/promises';
 import { relative } from 'node:path';
 import { writeAuditReport } from './lib/auditReport.mjs';
 import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
-import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
+import {
+  JOB_BOARD_COMPANY_HUB_PATH_RX,
+  JOB_BOARD_SECTION_RX,
+  EMPLOYER_PROFILE_PATH_RX,
+} from './lib/jobBoardSections.mjs';
 import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
 import { BLOG_SECTION_RX } from './lib/articleSections.mjs';
 import { HEALTH_FACILITIES_SECTION_RX } from './lib/healthFacilitiesSections.mjs';
+import { HEALTH_FACILITY_PAGE_BUDGET_BYTES } from './lib/pageWeightBudgets.mjs';
 import { insertBounded } from './lib/boundedTopN.mjs';
 
 // 215 KB cap (was 200 KB). The TI job-board landing
@@ -47,8 +52,7 @@ import { insertBounded } from './lib/boundedTopN.mjs';
 // frontaliereticino.ch, 6 samples spanning page-1..page-1956): 156.4-
 // 176.7 KB — already 73-82% of the old 215 KB budget, with no per-path
 // override (falls under the flat `job-board` budget via
-// JOB_BOARD_SECTION_RX, unlike the fuel-station
-// ITALIAN_STATIONS_INDEX_BUDGET override below). Raising to 260 KB buys
+// JOB_BOARD_SECTION_RX). Raising to 260 KB buys
 // ~83 KB (47%) of headroom over today's measured peak before the ladder
 // redesign lands, instead of waiting for a hard breach like run
 // 26112128794 above. Do not raise further without a fresh measured
@@ -59,26 +63,19 @@ import { insertBounded } from './lib/boundedTopN.mjs';
 // (tests/events-page-weight-bound.test.ts, issue #7330).
 export const MAX_HTML_BYTES = 260 * 1024;
 
-// Per-path budget override (explicit user-approved exception, 2026-06-03).
-// The Italian-fuel-stations INDEX pages (2 fuels × 4 locales) deliberately
-// render a visible entity-card for EVERY border station so that the
-// orphan-elimination contract (tests/seo/fuel-station-orphans-eliminated.test.ts,
-// introduced by #1241 "dettaglio + link visibili per ogni stazione") stays
-// green: each station is linked from this comprehensive index, not capped.
-// With the full station set these 8 pages weigh ~780 KB — over the 215 KB
-// global budget. Capping the visible list would orphan the overflow stations
-// and break that contract; per explicit user override we raise the budget for
-// THESE pages only rather than trim the indexable content. The global 215 KB
-// cap is unchanged for every other page. If these pages keep growing past the
-// override, revisit moving per-station links onto the per-city hubs and
-// updating the orphan-elimination test (the #1241 restructure).
-const ITALIAN_STATIONS_INDEX_BUDGET = 900 * 1024;
-const ITALIAN_STATIONS_INDEX_RE =
-  /(?:^|\/)(?:stazioni-italia|italienische-tankstellen|italian-stations|stations-italiennes)\//;
+// Explicit owner override (2026-09-11): company hubs and evergreen employer
+// profiles intentionally expose the complete active result set, including the
+// long tail of employer listings. Their size is therefore not a page-weight
+// rejection criterion; image dimension/loading checks remain active for these
+// pages. The build emitter's separate company×city budget is unchanged.
 
 function budgetForPath(relPath) {
   const p = '/' + relPath.replace(/\\/g, '/').replace(/^dist\//, '').replace(/index\.html$/, '');
-  return ITALIAN_STATIONS_INDEX_RE.test(p) ? ITALIAN_STATIONS_INDEX_BUDGET : MAX_HTML_BYTES;
+  if (JOB_BOARD_COMPANY_HUB_PATH_RX.test(p) || EMPLOYER_PROFILE_PATH_RX.test(p)) {
+    return Number.POSITIVE_INFINITY;
+  }
+  if (HEALTH_FACILITIES_SECTION_RX.test(p)) return HEALTH_FACILITY_PAGE_BUDGET_BYTES;
+  return MAX_HTML_BYTES;
 }
 
 function featureForPath(relPath) {

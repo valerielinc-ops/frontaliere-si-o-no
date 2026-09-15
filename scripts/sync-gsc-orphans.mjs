@@ -912,7 +912,9 @@ async function enrichWayback(enrichedOrphans) {
         const titleMatch = stripScriptsAndStyles(html).match(/<title[^>]*>([^<]+)<\/title>/i);
         if (titleMatch?.[1]) {
           const title = titleMatch[1]
-            .replace(/\s*\|.*$/, '') // Remove " | Frontaliere Ticino" suffix
+            // Anchored to the site suffix: an unanchored cut would truncate a
+            // legitimate pipe inside the archived title.
+            .replace(/\s*\|\s*(?:Frontaliere Ticino|Glossario Frontalieri)\s*$/i, '')
             .trim();
           if (title && title.length > 5) {
             if (!orphan.title || orphan.title === orphan.slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())) {

@@ -20,7 +20,7 @@
  * the same day the user just subscribed.
  */
 
-import { normalizeKeyword } from './jobAlertService';
+import { normalizeKeyword } from './jobAlertKeyword';
 
 export const STORAGE_KEY = 'jobDetailAlertPromptState';
 

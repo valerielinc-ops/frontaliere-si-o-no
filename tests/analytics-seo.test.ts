@@ -128,6 +128,9 @@ describe('classifySeoPageType', () => {
       expect(
         classifySeoPageType('/en/find-jobs-ticino/cross-border-worker-financial-analyst-lugano/'),
       ).toBe('job_listing');
+      expect(
+        classifySeoPageType('/cerca-lavoro-ticino/educatori-sociali/'),
+      ).toBe('job_listing');
     });
   });
 

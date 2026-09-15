@@ -1,20 +1,18 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
 import path from 'node:path';
+import { canonicalizeCompanyDefinition } from './lib/company-key.mjs';
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const COMPANIES_TSX = path.resolve(ROOT, 'components', 'vita', 'TicinoCompanies.tsx');
 const EXTRA = path.resolve(ROOT, 'data', 'ticino-companies-extra.json');
 
-function slugify(input = '') {
-  return String(input || '')
-    .trim()
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, 64);
+function normalizeHost(rawUrl = '') {
+  try {
+    return new URL(rawUrl).hostname.toLowerCase().replace(/^www\d?\./, '');
+  } catch {
+    return '';
+  }
 }
 
 function parseTsxCompanies(tsxSource) {
@@ -23,8 +21,9 @@ function parseTsxCompanies(tsxSource) {
   for (const raw of objects) {
     const name = raw.match(/name:\s*'([^']+)'/)?.[1];
     const website = raw.match(/website:\s*'([^']+)'/)?.[1];
+    const employees = Number(raw.match(/employees:\s*(\d+)/)?.[1] || 0);
     if (!name || !website) continue;
-    out.push({ key: slugify(name), name, website });
+    out.push(canonicalizeCompanyDefinition({ name, website, employees }));
   }
   return out;
 }
@@ -35,7 +34,12 @@ function loadExtra() {
   if (!Array.isArray(arr)) return [];
   return arr
     .filter((x) => x && typeof x === 'object' && x.name && x.website)
-    .map((x) => ({ key: slugify(x.name), name: x.name, website: x.website }));
+    .map((x) => canonicalizeCompanyDefinition({
+      key: x.key,
+      name: x.name,
+      website: x.website,
+      employees: Number(x.employees || 0),
+    }));
 }
 
 const tsx = fs.readFileSync(COMPANIES_TSX, 'utf8');
@@ -43,7 +47,16 @@ const all = [...parseTsxCompanies(tsx), ...loadExtra()];
 const dedup = new Map();
 for (const c of all) {
   if (!c.key) continue;
-  if (!dedup.has(c.key)) dedup.set(c.key, c);
+  const prev = dedup.get(normalizeHost(c.website));
+  const preferred = !prev || c.employees > prev.employees ? c : prev;
+  const aliases = [...new Set([
+    ...(prev?.companyKeyAliases || []),
+    ...(c.companyKeyAliases || []),
+  ])].filter((alias) => alias && alias !== preferred.key);
+  dedup.set(normalizeHost(c.website), {
+    ...preferred,
+    ...(aliases.length > 0 ? { companyKeyAliases: aliases } : {}),
+  });
 }
 const companies = [...dedup.values()].sort((a, b) => a.name.localeCompare(b.name));
 

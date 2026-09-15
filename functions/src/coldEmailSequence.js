@@ -22,19 +22,28 @@ export const PRICE = 'CHF 49 al mese per annuncio';
 // Indirizzo opt-out: chi risponde qui (o "STOP") va messo `suppressed` nel send-log.
 export const OPTOUT_EMAIL = 'valerie@frontaliereticino.ch';
 
+/** The only metric labels the outreach copy is allowed to claim. */
+export const OUTREACH_METRIC_LABELS = Object.freeze({
+  applyClicks: 'click per candidarsi',
+  interestSignals: 'segnali di interesse',
+});
+
+const OUTREACH_ALLOWED_LABELS = new Set(Object.values(OUTREACH_METRIC_LABELS));
+
 const OUTREACH_TIME_ZONE = 'Europe/Zurich';
+const ISO_DATE_INPUT_RE = /^\d{4}-\d{2}-\d{2}(?:T.*)?$/;
 const ITALIAN_MONTHS = [
   'gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno',
   'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre',
 ];
 
-function calendarParts(value) {
+export function calendarParts(value, { requireTimeZone = false, timeZone = OUTREACH_TIME_ZONE } = {}) {
   const timestamp = Date.parse(String(value || '').trim());
   if (!Number.isFinite(timestamp)) return null;
   const date = new Date(timestamp);
   try {
     const parts = new Intl.DateTimeFormat('en-US', {
-      timeZone: OUTREACH_TIME_ZONE,
+      timeZone,
       year: 'numeric',
       month: 'numeric',
       day: 'numeric',
@@ -44,28 +53,92 @@ function calendarParts(value) {
     const month = pick('month');
     const day = pick('day');
     if ([year, month, day].every(Number.isFinite)) return { year, month, day };
-  } catch {
-    // A missing timezone database is safer as UTC than as a machine timestamp.
+  } catch (error) {
+    if (requireTimeZone) {
+      throw new RangeError(`Unable to resolve calendar date in timezone ${timeZone}: ${error instanceof Error ? error.message : String(error)}`);
+    }
   }
-  return { year: date.getUTCFullYear(), month: date.getUTCMonth() + 1, day: date.getUTCDate() };
+  return null;
 }
 
 function endDateArticle(day) {
   return day === 8 || day === 11 ? `all'${day}` : `al ${day}`;
 }
 
-/** Convert an ISO range to readable Italian copy without changing the payload. */
-export function formatItalianPeriodLabel(periodLabel) {
+function periodRange(periodLabel) {
+  if (periodLabel && typeof periodLabel === 'object' && !Array.isArray(periodLabel)) {
+    return {
+      from: String(periodLabel.from || '').trim(),
+      to: String(periodLabel.to || '').trim(),
+      inclusive: periodLabel.inclusive || '[from,to)',
+      timeZone: String(periodLabel.timezone || OUTREACH_TIME_ZONE).trim() || OUTREACH_TIME_ZONE,
+      isRange: true,
+    };
+  }
+
   const raw = String(periodLabel || '').trim();
   const match = raw.match(/^(.+?)\s*→\s*(.+?)$/);
-  if (!match) return raw;
-  const from = calendarParts(match[1]);
-  const to = calendarParts(match[2]);
-  if (!from || !to || !ITALIAN_MONTHS[from.month - 1] || !ITALIAN_MONTHS[to.month - 1]) return raw;
+  if (!match) return { raw, isRange: false };
+  return {
+    from: match[1].trim(),
+    to: match[2].trim(),
+    inclusive: '[from,to)',
+    timeZone: OUTREACH_TIME_ZONE,
+    isRange: true,
+  };
+}
+
+function invalidPeriod(message, strict, fallback = '') {
+  if (strict) throw new TypeError(message);
+  return fallback;
+}
+
+/** Convert an ISO range to readable Italian copy without changing its bounds. */
+export function formatItalianPeriodLabel(periodLabel, { strict = false } = {}) {
+  const range = periodRange(periodLabel);
+  if (!range.isRange) {
+    // Human labels such as "negli ultimi 90 giorni" are still valid curated
+    // copy. A bare ISO timestamp, however, is a malformed report label: it
+    // must not leak into an outward-facing email when strict mode is active.
+    if (strict && ISO_DATE_INPUT_RE.test(range.raw)) {
+      return invalidPeriod('Strict period labels require an explicit from/to range', true);
+    }
+    return range.raw;
+  }
+
+  const inclusive = String(range.inclusive || '').trim();
+  const bounds = inclusive.match(/^(\[|\()from,to(\]|\))$/);
+  if (!bounds) return invalidPeriod(`Invalid period interval: ${inclusive || '(missing)'}`, strict, String(periodLabel || '').trim());
+
+  const fromTimestamp = Date.parse(range.from);
+  const toTimestamp = Date.parse(range.to);
+  if (strict && (!ISO_DATE_INPUT_RE.test(range.from) || !ISO_DATE_INPUT_RE.test(range.to))) {
+    return invalidPeriod('Period range must contain ISO from and to dates', true);
+  }
+  if (!Number.isFinite(fromTimestamp) || !Number.isFinite(toTimestamp)) {
+    return invalidPeriod('Period range must contain valid from and to dates', strict, String(periodLabel || '').trim());
+  }
+  if (fromTimestamp >= toTimestamp) {
+    return invalidPeriod('Period range must have from before to', strict, String(periodLabel || '').trim());
+  }
+
+  const fromValue = bounds[1] === '[' ? fromTimestamp : fromTimestamp + 1;
+  const toValue = bounds[2] === ']' ? toTimestamp : toTimestamp - 1;
+  const from = calendarParts(new Date(fromValue).toISOString(), {
+    requireTimeZone: strict,
+    timeZone: range.timeZone,
+  });
+  const to = calendarParts(new Date(toValue).toISOString(), {
+    requireTimeZone: strict,
+    timeZone: range.timeZone,
+  });
+  if (!from || !to || !ITALIAN_MONTHS[from.month - 1] || !ITALIAN_MONTHS[to.month - 1]) {
+    return invalidPeriod('Period range could not be resolved in its timezone', strict, String(periodLabel || '').trim());
+  }
 
   const fromDate = `${from.day} ${ITALIAN_MONTHS[from.month - 1]}`;
   const fromYear = from.year === to.year ? '' : ` ${from.year}`;
-  return `dal ${fromDate}${fromYear} ${endDateArticle(to.day)} ${ITALIAN_MONTHS[to.month - 1]} ${to.year}`;
+  return `dal ${fromDate}${fromYear} fino ${endDateArticle(to.day)} ${ITALIAN_MONTHS[to.month - 1]} ${to.year}`;
 }
 
 /**
@@ -88,12 +161,12 @@ export function buildSequence({ company, metricValue, metricLabel, periodLabel, 
   const metric = count !== null && count > 0
     ? {
         value: count,
-        label: metricLabel === 'click per candidarsi' || metricLabel === 'segnali di interesse'
+        label: OUTREACH_ALLOWED_LABELS.has(metricLabel)
           ? metricLabel
-          : 'segnali di interesse',
+          : OUTREACH_METRIC_LABELS.interestSignals,
       }
     : null;
-  const period = formatItalianPeriodLabel(periodLabel);
+  const period = formatItalianPeriodLabel(periodLabel, { strict: true });
   const metricSentence = metric && period
     ? `${period} abbiamo registrato ${metric.value} ${metric.label} sugli annunci che pubblichiamo per voi su frontaliereticino.ch.`
     : '';

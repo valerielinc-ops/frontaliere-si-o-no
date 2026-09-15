@@ -181,19 +181,24 @@ export async function flushPendingCompanyFollows(
   const failed: FlushPendingCompanyFollowsOutcome['failed'] = [];
   for (const intent of mine) {
     try {
-      created.push(
-        await write(
-          userId,
-          normalized,
-          { name: intent.company, companyKey: intent.companyKey ?? null },
-          intent.locale,
-          {
-            slug: intent.sourceJobSlug ?? null,
-            url: intent.sourceJobUrl ?? null,
-            title: intent.sourceJobTitle ?? null,
-          },
-        ),
+      const alert = await write(
+        userId,
+        normalized,
+        { name: intent.company, companyKey: intent.companyKey ?? null },
+        intent.locale,
+        {
+          slug: intent.sourceJobSlug ?? null,
+          url: intent.sourceJobUrl ?? null,
+          title: intent.sourceJobTitle ?? null,
+        },
       );
+      // A provider/API response can resolve without throwing even when the
+      // delivery is ambiguous. The local intent is durable until the write
+      // path returns the same concrete JobAlert shape used by the UI.
+      if (!alert || typeof alert.id !== 'string' || !alert.id.trim()) {
+        throw new Error('subscribeCompanyAlert: response did not contain an accepted alert');
+      }
+      created.push(alert);
       remaining = remaining.filter((candidate) => candidate !== intent);
       writeRaw(remaining);
     } catch (error) {

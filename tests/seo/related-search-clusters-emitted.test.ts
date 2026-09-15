@@ -41,7 +41,7 @@ import {
 } from '../../build-plugins/shared/headLinkPatterns';
 import { ALTERNATE_LOCALES } from '../../build-plugins/shared/localeAlternateBlock';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
-import { isArchivedStubHtml } from './_bridgeMarker';
+import { isArchivedStubHtml, isBridgePageHtml, isNoindexHtml } from './_bridgeMarker';
 import { buildJunkRetirementHtml } from '../../build-plugins/relatedSearchClustersPlugin';
 import { SCAN_TEST_TIMEOUT_MS } from '../helpers/distHtmlScan';
 
@@ -829,6 +829,24 @@ describe('junk-doorway retirement — not an offender of the cluster dist gate (
       expect(detailsIdx === -1 || detailsIdx > h1Idx).toBe(true);
     });
   }
+});
+
+describe('bridge marker forms — always-run guard for issue #8072', () => {
+  it('recognises quote-flexible bridge links and both noindex meta names', () => {
+    expect(isBridgePageHtml('<link rel="stylesheet" href="/assets/bridge.css">')).toBe(true);
+    expect(isBridgePageHtml("<link href='/assets/bridge.css' rel='stylesheet'>")).toBe(true);
+    expect(isBridgePageHtml('<link rel=stylesheet href=/assets/bridge.css>')).toBe(true);
+
+    expect(isNoindexHtml('<meta name="robots" content="noindex,follow">')).toBe(true);
+    expect(isNoindexHtml("<meta content='noindex' name='googlebot'>")).toBe(true);
+    expect(isNoindexHtml('<meta name=googlebot content=noindex,follow>')).toBe(true);
+  });
+
+  it('does not widen either marker to unrelated tags or filenames', () => {
+    expect(isBridgePageHtml('<link rel="stylesheet" href="/assets/not-bridge.css">')).toBe(false);
+    expect(isNoindexHtml('<meta name="description" content="noindex">')).toBe(false);
+    expect(isArchivedStubHtml('<meta name="author" content="noindex">')).toBe(false);
+  });
 });
 
 // Data-driven boilerplate-strip invariant. Runs WITHOUT a dist build: it reads

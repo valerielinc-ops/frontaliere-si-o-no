@@ -19,7 +19,7 @@
  */
 
 import { FieldValue } from 'firebase-admin/firestore';
-import { buildSequence, bodyToHtml } from './coldEmailSequence.js';
+import { buildSequence, bodyToHtml, OUTREACH_METRIC_LABELS } from './coldEmailSequence.js';
 import { buildInsightsUrl } from './employerInsights.js';
 import { buildUnsubUrl } from './outreachUnsubscribe.js';
 
@@ -31,7 +31,12 @@ const VALID_TOUCHES = new Set([1, 2, 3, 4]);
 
 function periodLabelFromWindow(window) {
   if (!window || typeof window !== 'object' || !window.from || !window.to) return '';
-  return `${window.from} → ${window.to}`;
+  return {
+    from: window.from,
+    to: window.to,
+    inclusive: window.inclusive || '[from,to)',
+    timezone: window.timezone || 'UTC',
+  };
 }
 
 async function getDoc(db, collection, id) {
@@ -92,7 +97,7 @@ export async function handleAdminSendColdEmail({ companyKey, touch, force, secre
   const sequence = buildSequence({
     company: insights.companyName || contact.companyName || key,
     metricValue: periodLabel ? totals.applyClicks : null,
-    metricLabel: 'click per candidarsi',
+    metricLabel: OUTREACH_METRIC_LABELS.applyClicks,
     periodLabel,
     contactName: contact.contactName || '',
     topRole: contact.topRole || '',

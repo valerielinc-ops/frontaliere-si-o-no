@@ -75,6 +75,7 @@ const HF_OPUS_MT_MODELS = {
   'de-fr': 'Helsinki-NLP/opus-mt-de-fr', 'fr-de': 'Helsinki-NLP/opus-mt-fr-de',
   'fr-en': 'Helsinki-NLP/opus-mt-fr-en', 'en-fr': 'Helsinki-NLP/opus-mt-en-fr',
 };
+const HF_OPUS_MT_MAX_CHARS = 2000;
 
 const GOOGLE_TRANSLATE_ENDPOINTS = [
   'https://translate.googleapis.com/translate_a/single',
@@ -192,6 +193,11 @@ const _cascadeStats = {
   // questo bucket dice se e dove il fenomeno esiste, non quante pagine ha
   // salvato.
   tierPassthroughs: {},
+  // I testi lunghi attraversano MyMemory a chunk: un eco qui è un tentativo
+  // per segmento, non un tentativo per campo. Ogni eco entra comunque nel
+  // bucket canonico `tierPassthroughs` (contratto #1210); questo sotto-bucket
+  // conserva la cardinalità per segmento per la calibrazione del pavimento.
+  tierPassthroughChunks: {},
   // Per-field-type split of calls/successes. The cumulative `successes` above is
   // summed across every field type, so a run that translates short titles fine
   // but has every (long) description rejected by all providers still reports
@@ -260,6 +266,12 @@ export function logCascadeSummary() {
   const pass = Object.entries(s.tierPassthroughs).filter(([, v]) => v > 0).sort((a, b) => b[1] - a[1]);
   if (pass.length) {
     console.log('   Tier passthrough (sorgente resa verbatim, scartata): ' + pass.map(([k, v]) => `${k}=${v}`).join(', '));
+  }
+  const passChunks = Object.entries(s.tierPassthroughChunks)
+    .filter(([, v]) => v > 0)
+    .sort((a, b) => b[1] - a[1]);
+  if (passChunks.length) {
+    console.log('   Tier passthrough (chunk, sorgente resa verbatim): ' + passChunks.map(([k, v]) => `${k}=${v}`).join(', '));
   }
   const health = getInstanceHealthStats();
   const down = Object.entries(health).filter(([, h]) => h.failures >= HEALTH_FAILURE_THRESHOLD);
@@ -375,6 +387,25 @@ export function isSourcePassthrough(sourceText, translatedText) {
   return src === normalizeBlock(translatedText).toLowerCase();
 }
 
+// Un segmento breve puo' essere un titolo, una URL o un placeholder che il
+// motore lascia intatto senza indicare che il body intero sia un passthrough.
+// Solo un segmento con abbastanza parole traducibili puo' quindi invalidare il
+// campo a chunk; l'eventuale eco breve resta nell'assemblato e viene giudicato
+// dal confronto sul campo intero in `tryTier`.
+// Misura corpus 2026-09-12 (content/blog-body{,-ch}):
+//   blog-body:    15'476 file, 46'524 campi, 48'298 chunk → 119 brevi / 48'179 sostanziosi
+//   blog-body-ch:  8'388 file, 25'164 campi, 25'589 chunk →  37 brevi / 25'552 sostanziosi
+//   totale:       23'864 file, 71'688 campi, 73'887 chunk → 156 brevi / 73'731 sostanziosi
+const MIN_SUBSTANTIVE_PASSTHROUGH_WORDS = 8;
+const TRANSLATABLE_WORD_RE = /[\p{L}\p{M}]+(?:['’\-][\p{L}\p{M}]+)*/gu;
+
+function isSubstantivePassthroughChunk(text) {
+  const candidate = normalizeBlock(text)
+    .replace(/https?:\/\/\S+/gi, ' ')
+    .replace(/\bZQX\d+XQZ\b/gi, ' ');
+  return (candidate.match(TRANSLATABLE_WORD_RE) || []).length >= MIN_SUBSTANTIVE_PASSTHROUGH_WORDS;
+}
+
 /**
  * `isSourcePassthrough` piu' la contabilita', per i tier che il passthrough lo
  * devono intercettare da soli.
@@ -385,19 +416,23 @@ export function isSourcePassthrough(sourceText, translatedText) {
  * dentro il loop delle chiavi, prima che `tryTier` veda qualcosa. Passando di
  * qui la FORMULA resta una sola — era duplicata a mano in sei tier, ed e' il
  * tipo di duplicazione che deriva in silenzio — e soprattutto il conteggio
- * finisce nello stesso bucket, invece che sparire: un passthrough consumato
- * dentro il tier senza contarlo rendeva `tierPassthroughs` strutturalmente
- * parziale, cieco proprio sui tier di qualita' migliore, e il numero su cui si
- * decide la taratura sarebbe stato sbilanciato senza dirlo.
+ * finisce nello stesso bucket, invece che sparire. Un echo a chunk aggiorna
+ * sia il conteggio canonico `tierPassthroughs` sia la sua dimensione
+ * diagnostica `tierPassthroughChunks`: il primo soddisfa il contratto di
+ * passthrough, il secondo evita di perdere la granularita' utile alla taratura.
  *
  * @param {string} tierName
  * @param {string} source  testo dato in pasto al motore
  * @param {string} out     testo reso dal motore
+ * @param {string} [granularity='field']  `chunk` per il ramo a segmenti
  * @returns {boolean} true se `out` e' la sorgente (e il tier e' stato contato)
  */
-function rejectedAsPassthrough(tierName, source, out, outcome = null) {
+function rejectedAsPassthrough(tierName, source, out, outcome = null, granularity = 'field') {
   if (!out || !isSourcePassthrough(source, out)) return false;
   _cascadeStats.tierPassthroughs[tierName] = (_cascadeStats.tierPassthroughs[tierName] || 0) + 1;
+  if (granularity === 'chunk') {
+    _cascadeStats.tierPassthroughChunks[tierName] = (_cascadeStats.tierPassthroughChunks[tierName] || 0) + 1;
+  }
   noteTranslationOutcome(outcome, 'passthroughs');
   return true;
 }
@@ -521,10 +556,13 @@ async function _callDeepLWithKey(apiKey, text, srcCode, tgtCode) {
 }
 
 async function translateWithDeepL(text, sourceLang, targetLang, outcome = null) {
-  if (DEEPL_API_KEYS.length === 0) return '';
   const clean = normalizeBlock(text);
   if (!clean || sourceLang === targetLang) return '';
   const outcomeBefore = snapshotTranslationOutcome(outcome);
+  if (DEEPL_API_KEYS.length === 0) {
+    if (outcome) outcome.tierUnavailable = true;
+    return '';
+  }
 
   const srcCode = DEEPL_LANG_MAP[sourceLang] || sourceLang?.toUpperCase() || '';
   const tgtCode = DEEPL_LANG_MAP[targetLang] || targetLang?.toUpperCase() || '';
@@ -860,10 +898,13 @@ async function translateWithMozhiEngine(text, sourceLang, targetLang, engine = '
 
 // ── Azure Translator (F0 Free — 2M chars/month, near-DeepL quality) ────────
 async function translateWithAzure(text, sourceLang, targetLang, outcome = null) {
-  if (AZURE_TRANSLATOR_KEYS.length === 0) return '';
   const clean = normalizeBlock(text);
   if (!clean || sourceLang === targetLang) return '';
   const outcomeBefore = snapshotTranslationOutcome(outcome);
+  if (AZURE_TRANSLATOR_KEYS.length === 0) {
+    if (outcome) outcome.tierUnavailable = true;
+    return '';
+  }
 
   // Azure supports up to 50K chars per request, but we chunk at 5K for safety
   const MAX_CHUNK = 5000;
@@ -992,10 +1033,13 @@ async function _getGoogleCloudAccessToken() {
   return _gcOAuth.accessToken;
 }
 
-async function translateWithGoogleCloud(text, sourceLang, targetLang, outcome = null) {
-  if (!_gcOAuthAvailable) return '';
+export async function translateWithGoogleCloud(text, sourceLang, targetLang, outcome = null) {
   const clean = normalizeBlock(text);
   if (!clean || sourceLang === targetLang) return '';
+  if (!_gcOAuthAvailable) {
+    if (outcome) outcome.tierUnavailable = true;
+    return '';
+  }
   if (_googleCloudDailyChars + clean.length > GOOGLE_CLOUD_DAILY_LIMIT) {
     noteTranslationOutcome(outcome, 'incomplete');
     return '';
@@ -1045,17 +1089,25 @@ async function translateWithGoogleCloud(text, sourceLang, targetLang, outcome = 
 }
 
 // ── Hugging Face OPUS-MT (Helsinki-NLP open-source models) ─────────────────
-async function translateWithHuggingFace(text, sourceLang, targetLang, outcome = null) {
-  if (!HF_TOKEN) return '';
+export async function translateWithHuggingFace(text, sourceLang, targetLang, outcome = null) {
   const clean = normalizeBlock(text);
   if (!clean || sourceLang === targetLang) return '';
+  if (!HF_TOKEN) {
+    if (outcome) outcome.tierUnavailable = true;
+    return '';
+  }
 
   const modelKey = `${sourceLang}-${targetLang}`;
   const model = HF_OPUS_MT_MODELS[modelKey];
   if (!model) return '';
 
-  // OPUS-MT models work best with shorter texts (< 512 tokens ≈ ~2000 chars)
-  const truncated = clean.slice(0, 2000);
+  // OPUS-MT models work best with shorter texts (< 512 tokens ≈ ~2000 chars).
+  // Never send only a prefix: the cascade would otherwise publish a plausible
+  // translation of incomplete source as if the whole field were translated.
+  if (clean.length > HF_OPUS_MT_MAX_CHARS) {
+    noteTranslationOutcome(outcome, 'incomplete');
+    return '';
+  }
 
   try {
     const res = await fetch(`https://router.huggingface.co/hf-inference/models/${model}`, {
@@ -1064,7 +1116,7 @@ async function translateWithHuggingFace(text, sourceLang, targetLang, outcome = 
         'Authorization': `Bearer ${HF_TOKEN}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ inputs: truncated }),
+      body: JSON.stringify({ inputs: clean }),
       signal: AbortSignal.timeout(TIMEOUT_MS),
     });
     if (!res.ok) {
@@ -1256,11 +1308,12 @@ async function translateWithLocalOpusMtWithOutcome(text, sourceLang, targetLang,
   return translated;
 }
 
-function mergeTranslationOutcome(target, source) {
+export function mergeTranslationOutcome(target, source) {
   if (!target || !source) return;
   target.passthroughs += source.passthroughs || 0;
   target.errors += source.errors || 0;
   target.incomplete = target.incomplete || source.incomplete === true;
+  target.tierUnavailable = target.tierUnavailable || source.tierUnavailable === true;
 }
 
 export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 'title', _outcome = null }) {
@@ -1409,11 +1462,18 @@ export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 
         noteTranslationOutcome(_outcome, 'incomplete');
         return ''; // quota hit mid-chunk, abort
       }
-      parts.push(mm);
+      // Un eco sostanzioso invalida l'intero campo: assemblarlo con chunk
+      // tradotti produrrebbe testo misto. Un resto breve (titolo, URL o
+      // placeholder) resta invece nell'assemblato e viene giudicato da
+      // `tryTier` sul campo completo, senza buttare via le traduzioni buone.
+      const normalized = normalizeBlock(mm);
+      if (rejectedAsPassthrough('myMemory', chunk, normalized, _outcome, 'chunk')
+        && isSubstantivePassthroughChunk(chunk)) return '';
+      parts.push(normalized);
     }
     // `return joined` e non un confronto locale: questo e' il ramo dei testi
-    // lunghi, cioe' dei body, cioe' esattamente dei 27 passthrough misurati.
-    // Consumandolo qui il bucket `tierPassthroughs` non li avrebbe visti mai.
+    // lunghi, cioe' dei body. Gli echo per segmento sono gia' nel bucket
+    // `tierPassthroughChunks`, oltre al conteggio canonico richiesto da #1210.
     return normalizeBlock(parts.join(' '));
   });
   if (t2) return finalize(t2);
@@ -1525,14 +1585,18 @@ export async function freeTranslateWithRetryDetailed({ text, sourceLang, targetL
   if (out) return { text: out, passthrough: false };
 
   for (let i = 1; i <= maxRetries; i++) {
+    // This flag describes the current attempt. A later source echo may be a
+    // genuine passthrough even when an earlier attempt had no premium tier.
+    outcome.tierUnavailable = false;
     await delay(i * 1000);
     out = await freeTranslate({ text, sourceLang, targetLang, fieldType, _outcome: outcome });
     if (out) return { text: out, passthrough: false };
   }
 
-  // Aggregate all attempts: an error/incomplete result, or a tier unavailable
-  // for this text, must not be hidden by a later source echo and turned into a
-  // durable passthrough memo.
+  // passthroughs/errors/incomplete are aggregated across attempts. The
+  // tierUnavailable flag is deliberately per-attempt and was reset above, so
+  // a later attempt can prove a clean passthrough without inheriting a missing
+  // tier from an earlier attempt.
   const passthrough = outcome.passthroughs > 0
     && outcome.errors === 0
     && !outcome.incomplete

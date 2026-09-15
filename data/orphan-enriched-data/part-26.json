@@ -4825,10 +4825,10 @@
         "fr": "apprentissage-de-professionnel-de-la-sante-senevita-zurich-zh"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/apprentissage-de-professionnel-de-la-sante-senevita-zurich-zh",
-        "en": "/en/find-jobs-ticino/apprentissage-de-professionnel-de-la-sante-senevita-zurich-zh",
-        "de": "/de/jobs-im-tessin/apprentissage-de-professionnel-de-la-sante-senevita-zurich-zh",
-        "fr": "/fr/trouver-emploi-tessin/apprentissage-de-professionnel-de-la-sante-senevita-zurich-zh"
+        "it": "/cerca-lavoro-zurigo/apprentissage-de-professionnel-de-la-sante-senevita-zurich-zh",
+        "en": "/en/find-jobs-zurich/apprentissage-de-professionnel-de-la-sante-senevita-zurich-zh",
+        "de": "/de/jobs-in-zurich/apprentissage-de-professionnel-de-la-sante-senevita-zurich-zh",
+        "fr": "/fr/trouver-emploi-zurich/apprentissage-de-professionnel-de-la-sante-senevita-zurich-zh"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -15811,10 +15811,10 @@
         "fr": "ponceuses-cnc-buhler-group-uzwil"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/cnc-schleifer-in-buhler-group-uzwil",
-        "en": "/en/find-jobs-lucerne/cnc-schleifer-in-buhler-group-uzwil",
+        "it": "/cerca-lavoro-san-gallo/cnc-schleifer-in-buhler-group-uzwil",
+        "en": "/en/find-jobs-st-gallen/cnc-schleifer-in-buhler-group-uzwil",
         "de": "/de/jobs-im-luzern/cnc-schleifer-in-buhler-group-uzwil",
-        "fr": "/fr/trouver-emploi-lucerne/cnc-schleifer-in-buhler-group-uzwil"
+        "fr": "/fr/trouver-emploi-saint-gall/cnc-schleifer-in-buhler-group-uzwil"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -21213,6 +21213,104 @@
       ]
     },
     {
+      "slug": "customer-service-transport-specialist-cippa-trasporti-sa-chiasso",
+      "locale": "en",
+      "path": "/en/find-jobs-ticino/customer-service-transport-specialist-cippa-trasporti-sa-chiasso/",
+      "observedPaths": {
+        "en": "/en/find-jobs-ticino/customer-service-transport-specialist-cippa-trasporti-sa-chiasso/"
+      },
+      "queries": [
+        {
+          "query": "offerte di lavoro chiasso",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "offerte lavoro chiasso",
+          "clicks": 1,
+          "impressions": 1
+        },
+        {
+          "query": "chiasso lavora con noi",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "lavoro chiasso",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "annunci di lavoro chiasso",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "cerco lavoro ch",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "lavoro chiasso",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "offerte di lavoro a chiasso",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "offerte lavoro chiasso per italiani",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 10,
+      "totalClicks": 1,
+      "topQuery": "offerte di lavoro chiasso",
+      "title": "Customer service transport specialist cippa trasporti sa",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Chiasso",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "customer-service-transport-specialist-cippa-trasporti-sa-chiasso",
+        "en": "customer-service-transport-specialist-cippa-trasporti-sa-chiasso",
+        "de": "customer-service-transport-specialist-cippa-trasporti-sa-chiasso",
+        "fr": "customer-service-transport-specialist-cippa-trasporti-sa-chiasso"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ticino/customer-service-transport-specialist-cippa-trasporti-sa-chiasso",
+        "en": "/en/find-jobs-ticino/customer-service-transport-specialist-cippa-trasporti-sa-chiasso",
+        "de": "/de/jobs-im-tessin/customer-service-transport-specialist-cippa-trasporti-sa-chiasso",
+        "fr": "/fr/trouver-emploi-tessin/customer-service-transport-specialist-cippa-trasporti-sa-chiasso"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "data-analyst-data-qualitat-ingenieur-fincons-group-lugano",
       "locale": "de",
       "path": "/de/jobs-im-tessin/data-analyst-data-qualitat-ingenieur-fincons-group-lugano/",
@@ -22857,14 +22955,14 @@
           "impressions": 29
         },
         {
-          "query": "web developer ticino",
+          "query": "programmierer aargau",
           "clicks": 0,
           "impressions": 5
         },
         {
-          "query": "programmierer aargau",
+          "query": "web developer ticino",
           "clicks": 0,
-          "impressions": 4
+          "impressions": 5
         },
         {
           "query": "software development geneva",
@@ -22917,6 +23015,11 @@
           "impressions": 1
         },
         {
+          "query": "posizione aperta",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "programador de sap",
           "clicks": 0,
           "impressions": 1
@@ -22935,9 +23038,14 @@
           "query": "swiss italian region",
           "clicks": 0,
           "impressions": 1
+        },
+        {
+          "query": "tecnologia",
+          "clicks": 0,
+          "impressions": 1
         }
       ],
-      "totalImpressions": 58,
+      "totalImpressions": 61,
       "totalClicks": 1,
       "topQuery": "hire developers in switzerland",
       "title": "Developers",
@@ -40713,10 +40821,10 @@
         "fr": "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-bern-2"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-bern-2",
-        "en": "/en/find-jobs-ticino/lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-bern-2",
-        "de": "/de/jobs-im-tessin/lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-bern-2",
-        "fr": "/fr/trouver-emploi-tessin/lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-bern-2"
+        "it": "/cerca-lavoro-berna/lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-bern-2",
+        "en": "/en/find-jobs-bern/lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-bern-2",
+        "de": "/de/jobs-in-bern/lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-bern-2",
+        "fr": "/fr/trouver-emploi-berne/lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-bern-2"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -61767,10 +61875,10 @@
         "fr": "seller-in-in-hourly-wage-denner-monchaltorf"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/seller-in-in-hourly-wage-denner-monchaltorf",
-        "en": "/en/find-jobs-zurich/seller-in-in-hourly-wage-denner-monchaltorf",
-        "de": "/de/jobs-in-zurich/seller-in-in-hourly-wage-denner-monchaltorf",
-        "fr": "/fr/trouver-emploi-zurich/seller-in-in-hourly-wage-denner-monchaltorf"
+        "it": "/cerca-lavoro-turgovia/seller-in-in-hourly-wage-denner-monchaltorf",
+        "en": "/en/find-jobs-thurgau/seller-in-in-hourly-wage-denner-monchaltorf",
+        "de": "/de/jobs-im-thurgau/seller-in-in-hourly-wage-denner-monchaltorf",
+        "fr": "/fr/trouver-emploi-thurgovie/seller-in-in-hourly-wage-denner-monchaltorf"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -63826,6 +63934,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "sins",
+      "locale": "de",
+      "path": "/de/jobs-im-aargau/sins/",
+      "observedPaths": {
+        "de": "/de/jobs-im-aargau/sins/"
+      },
+      "queries": [
+        {
+          "query": "gemeinde sins offene stellen",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "gemeinde sins offene stellen",
+      "title": "Sins",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "sins",
+        "en": "sins",
+        "de": "sins",
+        "fr": "sins"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-argovia/sins",
+        "en": "/en/find-jobs-aargau/sins",
+        "de": "/de/jobs-im-aargau/sins",
+        "fr": "/fr/trouver-emploi-argovie/sins"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -65950,10 +66115,10 @@
         "fr": "specialiste-en-sante-efz-40-70-senevita-bern-be"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/specialiste-en-sante-efz-40-70-senevita-bern-be",
-        "en": "/en/find-jobs-zurich/specialiste-en-sante-efz-40-70-senevita-bern-be",
+        "it": "/cerca-lavoro-berna/specialiste-en-sante-efz-40-70-senevita-bern-be",
+        "en": "/en/find-jobs-bern/specialiste-en-sante-efz-40-70-senevita-bern-be",
         "de": "/de/jobs-im-zurich/specialiste-en-sante-efz-40-70-senevita-bern-be",
-        "fr": "/fr/trouver-emploi-zurich/specialiste-en-sante-efz-40-70-senevita-bern-be"
+        "fr": "/fr/trouver-emploi-berne/specialiste-en-sante-efz-40-70-senevita-bern-be"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -73382,10 +73547,10 @@
         "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-ilanz-glion-graubunden"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/vendeur-dans-la-nourriture-coop-genossenschaft-ilanz-glion-graubunden",
-        "en": "/en/find-jobs-ticino/vendeur-dans-la-nourriture-coop-genossenschaft-ilanz-glion-graubunden",
-        "de": "/de/jobs-im-tessin/vendeur-dans-la-nourriture-coop-genossenschaft-ilanz-glion-graubunden",
-        "fr": "/fr/trouver-emploi-tessin/vendeur-dans-la-nourriture-coop-genossenschaft-ilanz-glion-graubunden"
+        "it": "/cerca-lavoro-grigioni/vendeur-dans-la-nourriture-coop-genossenschaft-ilanz-glion-graubunden",
+        "en": "/en/find-jobs-graubunden/vendeur-dans-la-nourriture-coop-genossenschaft-ilanz-glion-graubunden",
+        "de": "/de/jobs-in-graubunden/vendeur-dans-la-nourriture-coop-genossenschaft-ilanz-glion-graubunden",
+        "fr": "/fr/trouver-emploi-grisons/vendeur-dans-la-nourriture-coop-genossenschaft-ilanz-glion-graubunden"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -74586,9 +74751,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "vendeur-se-damenmode-lingerie-50-manor-ag-luzern",
-        "en": "vendeur-se-damenmode-lingerie-50-manor-ag-luzern",
-        "de": "vendeur-se-damenmode-lingerie-50-manor-ag-luzern",
+        "de": "manor-mitarbeiter-in-verkauf-damenmode-lingerie-50-luzern-mitarbeiterin-verkauf-damenmodelingerie",
+        "it": "addetto-a-alle-vendite-damenmode-lingerie-50-manor-ag-luzern-mitarbeiterin-verkauf-damenmodelingerie",
+        "en": "sales-associate-damenmode-lingerie-50-manor-ag-luzern-mitarbeiterin-verkauf-damenmodelingerie",
         "fr": "vendeur-se-damenmode-lingerie-50-manor-ag-luzern"
       },
       "localePaths": {
@@ -74603,6 +74768,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -75602,10 +75768,10 @@
         "it": "vendita-prodotti-freschi-coop-genossenschaft-baden"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/vendita-prodotti-freschi-coop-genossenschaft-baden",
-        "en": "/en/find-jobs-zurich/vendita-prodotti-freschi-coop-genossenschaft-baden",
+        "it": "/cerca-lavoro-argovia/vendita-prodotti-freschi-coop-genossenschaft-baden",
+        "en": "/en/find-jobs-aargau/vendita-prodotti-freschi-coop-genossenschaft-baden",
         "de": "/de/jobs-im-basel/vendita-prodotti-freschi-coop-genossenschaft-baden",
-        "fr": "/fr/trouver-emploi-zurich/vendita-prodotti-freschi-coop-genossenschaft-baden"
+        "fr": "/fr/trouver-emploi-argovie/vendita-prodotti-freschi-coop-genossenschaft-baden"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -78120,10 +78286,10 @@
         "fr": "verkaufer-in-im-stundenlohn-denner-winterthur"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/verkaufer-in-im-stundenlohn-denner-winterthur",
-        "en": "/en/find-jobs-zurich/verkaufer-in-im-stundenlohn-denner-winterthur",
-        "de": "/de/jobs-in-zurich/verkaufer-in-im-stundenlohn-denner-winterthur",
-        "fr": "/fr/trouver-emploi-zurich/verkaufer-in-im-stundenlohn-denner-winterthur"
+        "it": "/cerca-lavoro-turgovia/verkaufer-in-im-stundenlohn-denner-winterthur",
+        "en": "/en/find-jobs-thurgau/verkaufer-in-im-stundenlohn-denner-winterthur",
+        "de": "/de/jobs-im-thurgau/verkaufer-in-im-stundenlohn-denner-winterthur",
+        "fr": "/fr/trouver-emploi-thurgovie/verkaufer-in-im-stundenlohn-denner-winterthur"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

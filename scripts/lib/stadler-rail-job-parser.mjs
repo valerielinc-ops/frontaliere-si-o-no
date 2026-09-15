@@ -29,9 +29,8 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
+import { fetchHtml, slugify, stripHtml, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { inferSwissTargetCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
-import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
 import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -150,30 +149,14 @@ function detectEmploymentType(text = '') {
 /* ── HTTP fetch with timeout ──────────────────────────────── */
 
 async function fetchPage(url, timeoutMs, userAgent) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      headers: {
-        'User-Agent': userAgent,
-        Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-        'Accept-Language': 'de-DE,de;q=0.9,en;q=0.7,it;q=0.5,fr;q=0.4',
-      },
-      signal: controller.signal,
-      redirect: 'follow',
-    });
-    clearTimeout(timer);
-    if (!res.ok) {
-      const err = new Error(`HTTP ${res.status}`);
-      err.status = res.status;
-      throw err;
-    }
-    // 200-but-challenge (IP-reputation WAF, cambiavalute class #1363) → Jina.
-    return await rescueHtmlIfChallenged(await res.text(), url, { timeoutMs });
-  } catch (err) {
-    clearTimeout(timer);
-    throw err;
-  }
+  return fetchHtml(url, {
+    timeoutMs,
+    headers: {
+      'User-Agent': userAgent,
+      Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+      'Accept-Language': 'de-DE,de;q=0.9,en;q=0.7,it;q=0.5,fr;q=0.4',
+    },
+  });
 }
 
 /* ── Listing page parser ──────────────────────────────────── */

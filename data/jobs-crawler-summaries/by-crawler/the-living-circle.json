@@ -1,20 +1,53 @@
 {
   "key": "the-living-circle",
   "label": "livingcircle",
-  "generatedAt": "2026-09-09T23:05:37.986Z",
-  "total": 0,
-  "discovered": null,
-  "parsed": null,
-  "lastFetchOutcome": null,
-  "written": 0,
+  "generatedAt": "2026-09-13T13:56:19.539Z",
+  "total": 1,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
+  "durationMs": 1314,
+  "avgDurationMs": 1314,
+  "durationHistory": [
+    1314
+  ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "title": "F&B und Event Manager 100% (all genders)",
+      "slug": "f-b-e-event-manager-100-all-genders-the-living-circle-ascona",
+      "url": "https://jobs.thelivingcircle.ch/jobs/67378285/F-B-und-Event-Manager-100%25-all-genders-/",
+      "applyUrl": "https://jobs.thelivingcircle.ch/jobs/67378285/F-B-und-Event-Manager-100%25-all-genders-/",
+      "company": "The Living Circle",
+      "companyKey": "the-living-circle",
+      "companyDomain": "thelivingcircle.ch",
+      "location": "Ascona",
+      "addressLocality": "Ascona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "hospitality",
+      "sector": "Hotellerie & Ospitalità",
+      "source": "living-circle-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-11",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "the-living-circle-e28ac1886309",
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-09-11T13:38:48.303Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 14
+      }
+    }
+  ],
   "removedJobs": [],
-  "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0
+  "unchangedJobs": []
 }

@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
+import MapCanvas from '@/components/shared/MapCanvas';
 import { Building2, Users, Search, SlidersHorizontal, ArrowUpDown, MapPin, ExternalLink, Filter, ChevronDown, Globe, Briefcase } from 'lucide-react';
 import { useLocale, useTranslation, getCantonI18nParams } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
@@ -897,11 +897,7 @@ const TicinoCompanies: React.FC = () => {
  {/* MAP (right) */}
  <div className="w-full lg:w-[55%] xl:w-[60%] lg:sticky lg:top-4 lg:self-start">
  <div className="rounded-2xl overflow-hidden border-2 border-edge shadow-lg" tabIndex={0} aria-label="Mappa aziende in Ticino">
- <MapContainer center={mapCenter} zoom={10} className="h-[min(600px,70vh)] w-full" scrollWheelZoom={true}>
- <TileLayer
- attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
- url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
- />
+ <MapCanvas center={mapCenter} zoom={10} height="min(600px,70vh)">
  {filtered.map((company) => (
  <Marker key={company.name} position={company.coordinates} icon={createCompanyIcon(company.sector, company.employees, hoveredCompany === company.name)}>
  <Popup maxWidth={300}>
@@ -952,7 +948,7 @@ const TicinoCompanies: React.FC = () => {
  </Popup>
  </Marker>
  ))}
- </MapContainer>
+ </MapCanvas>
 
  {/* Legend */}
  <div className="flex items-center justify-center gap-2 py-2.5 bg-surface text-xs text-muted flex-wrap px-3">

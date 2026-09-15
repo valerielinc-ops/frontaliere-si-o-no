@@ -48,6 +48,7 @@ describe('Claude Haiku fallback setup action', () => {
       "node_archive_sha256='fd8e59d5a511510f6a298afb548f18c7d2b1be404d8b4a27d94fbe49f56cb2d6'",
     );
     expect(resolverRun).toContain('node_runtime_root="$(/usr/bin/mktemp -d "$runner_temp/claude-haiku-node.XXXXXX")"');
+    expect(resolverRun).toContain('/usr/bin/mkdir -p "$runner_temp"');
     expect(resolverRun).toContain('/usr/bin/curl --fail --silent --show-error --location --proto \'=https\' --tlsv1.2');
     expect(resolverRun).toContain('if [ "$archive_sha256" != "$node_archive_sha256" ]');
     expect(resolverRun).toContain('/usr/bin/chmod -R go-rwx "$node_root"');

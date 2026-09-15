@@ -278,7 +278,14 @@ describe('Alexander von Humboldt-Stiftung Stellen crawler parser', () => {
         country: 'CH',
       });
       expect(first.description.length).toBeGreaterThan(300);
-      expect(second).toMatchObject({ id: first.id, url: first.url, slug: first.slug });
+      expect(first.slugDisambiguator).toMatch(/^[a-f0-9]{8}$/);
+      expect(first.slug).toMatch(new RegExp(`-${first.slugDisambiguator}$`));
+      expect(second).toMatchObject({
+        id: first.id,
+        url: first.url,
+        slug: first.slug,
+        slugDisambiguator: first.slugDisambiguator,
+      });
       expect(first.previousSlugs).toBeUndefined();
       expect(second.previousSlugs).toBeUndefined();
     });

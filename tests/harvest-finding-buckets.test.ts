@@ -86,6 +86,19 @@ describe('bucketFinding — la ricognizione negata non fa punteggio', () => {
     expect(bucketFinding(line)).toBe('structured-data');
   });
 
+  it('tratta en dash e trattino ASCII spaziato come confini di frase', () => {
+    for (const separator of ['–', ' - ']) {
+      const line = `🟡 Nit: nessun impatto su \`dist/api/\` ${separator} 🔴 Important: il JSON-LD emette \`baseSalary\` senza valuta.`;
+      expect(stripNegatedImpactClauses(line)).toMatch(/baseSalary/);
+      expect(bucketFinding(line)).toBe('structured-data');
+    }
+  });
+
+  it('dichiara la precedenza del topic canonical sulla sweep sibling', () => {
+    const line = '🔴 Important: la sitemap canonical è rotta; lo stesso anti-pattern nel file gemello non è toccato.';
+    expect(bucketFinding(line)).toBe('canonical-sitemap');
+  });
+
   it("la coda contrastiva toglie solo se stessa, non cio' che la precede", () => {
     const line = '🔴 Important: il fix tocca il canonical del locale `de`, non `dist/api/`, le sitemap o i feed.';
     const stripped = stripNegatedImpactClauses(line);
@@ -148,6 +161,14 @@ describe('bucketFinding — le tre imprecisioni chiuse dalla review di corpus#90
     const line = '🟡 Nit: il fix tocca il mapping e raggiunge il percorso operativo con il relativo controllo di coerenza e il contesto operativo, non `dist/api/`, le sitemap o i feed.';
     const stripped = stripNegatedImpactClauses(line);
     expect(stripped).toMatch(/tocca il mapping e raggiunge il percorso operativo/);
+    expect(stripped).not.toMatch(/sitemap|feed/);
+    expect(bucketFinding(line)).not.toBe('canonical-sitemap');
+  });
+
+  it('non mangia il corpo affermativo quando la riga combina le due forme', () => {
+    const line = '🟡 Nit: nessun impatto su `dist/api/`, il fix tocca il mapping e raggiunge il percorso operativo, non `dist/api/`, le sitemap o i feed.';
+    const stripped = stripNegatedImpactClauses(line);
+    expect(stripped).toMatch(/il fix tocca il mapping e raggiunge il percorso operativo/);
     expect(stripped).not.toMatch(/sitemap|feed/);
     expect(bucketFinding(line)).not.toBe('canonical-sitemap');
   });

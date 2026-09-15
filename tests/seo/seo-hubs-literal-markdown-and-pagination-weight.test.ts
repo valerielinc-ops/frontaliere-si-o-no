@@ -2,7 +2,13 @@ import { describe, expect, it } from 'vitest';
 import {
   renderPagination,
   buildThinCantonHubHtml,
+  buildPaginationIndexHtml,
 } from '../../build-plugins/seoHubsPlugin';
+import {
+  isSeoHubPath,
+  paginationIndexCount,
+  paginationIndexPath,
+} from '../../build-plugins/seoHubsData';
 import { createAuditor } from '../../scripts/audit-no-literal-markdown.mjs';
 import { ROOT } from '../../scripts/lib/audit-runner.mjs';
 import { minifyHtml } from '../../build-plugins/shared/htmlMinify';
@@ -61,49 +67,80 @@ describe('seoHubs — no literal markdown leaks into hub listings', () => {
 });
 
 describe('seoHubs — pagination ladder page-weight byte-shave', () => {
-  it('renderPagination keeps every page-N anchor (BFS) but drops the word prefix', () => {
+  it('renderPagination replaces the unbounded page ladder with bounded range indexes', () => {
     const total = 2500;
-    const html = renderPagination('it', '/cerca-lavoro-ticino/tutti/', 1, total);
+    const basePath = '/cerca-lavoro-ticino/tutti/';
+    const html = renderPagination('it', basePath, 1, total);
 
-    // BFS-depth closure: the full flat ladder must still link every page.
-    expect(html).toContain('/cerca-lavoro-ticino/tutti/page-2/');
-    expect(html).toContain(`/cerca-lavoro-ticino/tutti/page-${total}/`);
-    const linkedPages = new Set(
+    // Page 1 links to the bounded set of range indexes, not to every archive
+    // page. Each index page carries its own complete range of page links.
+    expect(html).toContain(paginationIndexPath(basePath, 1));
+    expect(html).toContain(paginationIndexPath(basePath, paginationIndexCount(total)));
+    const directPages = new Set(
       [...html.matchAll(/tutti\/page-(\d+)\//g)].map((m) => Number(m[1])),
     );
-    // page-1 is the basePath (not `/page-1/`), so 2..2500 == 2499 distinct.
-    expect(linkedPages.size).toBe(total - 1);
+    // The compact nav contributes only its first/last/next links on page 1.
+    expect([...directPages].sort((a, b) => a - b)).toEqual([2, total]);
+    expect(paginationIndexCount(total)).toBe(50);
 
-    // The repeated per-anchor word prefix is gone (this is the byte-shave).
+    // The old repeated per-anchor word prefix remains absent.
     expect(html).not.toContain('Pagina&nbsp;');
     expect(html).not.toContain('Seite&nbsp;');
     expect(html).not.toContain('Page&nbsp;');
-    // Bare-number anchors, and no per-anchor class either: the chip styling
-    // moved onto the `.hpl` container (issue #7662), which is the largest
-    // remaining byte-shave on this ladder (13 B x every anchor).
-    expect(html).toMatch(/<a href="\/cerca-lavoro-ticino\/tutti\/page-2500\/">2500<\/a>/);
+    // Index labels carry the range context; the page-1 payload has no middle
+    // page URL and keeps the existing container styling.
+    expect(html).toContain('Pagine 1–50');
+    expect(html).not.toContain(`${basePath}page-1200/`);
     expect(html).toContain('<div class="s-6_t7LY hpl">');
     expect(html).not.toContain('class="hp"');
   });
 
-  it('renderPagination ships the flat ladder on page-1 only (O(total) instead of O(total^2))', () => {
-    // Issue #7662: the ladder is O(total) bytes, so emitting it on all `total`
-    // pages made the archive O(total^2) HTML and put 885
-    // /cerca-lavoro-ticino/tutti/page-N/ files at 282-284 KB against the
-    // 260 KB audit:page-weight budget. BFS depth is unaffected: page-1 is the
-    // only entry point the parent hubs link, so page-N already took its
-    // minimum depth from page-1's ladder.
+  it('keeps bounded page-1 navigation and compact deep-page navigation', () => {
     const total = 2500;
     const first = renderPagination('it', '/cerca-lavoro-ticino/tutti/', 1, total);
     const inner = renderPagination('it', '/cerca-lavoro-ticino/tutti/', 1200, total);
 
-    expect(first).toContain('s-4nYHgH');
+    expect(first).toContain(paginationIndexPath('/cerca-lavoro-ticino/tutti/', 1));
     expect(inner).not.toContain('s-4nYHgH');
-    // The compact window still chains the archive for humans and prev/next.
+    // The compact window still chains the archive for humans and prev/next;
+    // the deep page does not repeat the index list.
     for (const frag of ['page-1199/', 'page-1201/', 'page-2500/', 'rel="prev"', 'rel="next"']) {
       expect(inner).toContain(frag);
     }
-    expect(Buffer.byteLength(inner)).toBeLessThan(Buffer.byteLength(first) / 50);
+    expect(Buffer.byteLength(first)).toBeGreaterThan(Buffer.byteLength(inner));
+    expect(Buffer.byteLength(first)).toBeLessThan(10000);
+  });
+
+  it('emits crawlable index pages with a complete range and index-chain links', () => {
+    const basePath = '/cerca-lavoro-ticino/tutti/';
+    const html = buildPaginationIndexHtml({
+      locale: 'it',
+      basePath,
+      indexPage: 2,
+      totalPages: 400,
+      totalItems: 40000,
+      archiveTitle: 'Tutti gli annunci di lavoro',
+      archiveDescription: 'Archivio completo delle offerte di lavoro.',
+      parentPath: '/cerca-lavoro-ticino/',
+      parentLabel: 'Cerca lavoro in Ticino',
+      dateStamp: '2026-09-06',
+    });
+
+    expect(html).toMatch(/<link rel=canonical href="?https:\/\/frontaliereticino\.ch\/cerca-lavoro-ticino\/tutti\/page-index-2\/"?>/);
+    expect(html).toMatch(/<link rel=prev href="?https:\/\/frontaliereticino\.ch\/cerca-lavoro-ticino\/tutti\/page-index-1\/"?>/);
+    expect(html).toMatch(/<link rel=next href="?https:\/\/frontaliereticino\.ch\/cerca-lavoro-ticino\/tutti\/page-index-3\/"?>/);
+    expect(html).toContain(`${basePath}page-21/`);
+    expect(html).toContain(`${basePath}page-40/`);
+    expect(html).not.toContain(`${basePath}page-20/`);
+    expect(html).not.toContain(`${basePath}page-41/`);
+    expect(html).toContain('"@type":"CollectionPage"');
+    expect(html).not.toContain('noindex');
+  });
+
+  it('routes emitted page indexes but not article indexes', () => {
+    expect(isSeoHubPath('/cerca-lavoro-ticino/tutti/page-index-1/')).toBe(true);
+    expect(isSeoHubPath('/cerca-lavoro-ticino/tutti/page-1200/')).toBe(true);
+    expect(isSeoHubPath('/articoli-frontaliere/tutti/page-index-1/')).toBe(false);
   });
 
   it('visible breadcrumb links the hub (not a dead span) so page-N can pass equity to the root', () => {
@@ -133,7 +170,7 @@ describe('seoHubs — pagination ladder page-weight byte-shave', () => {
     expect(html).toContain('"position":3');
   });
 
-  it('buildThinCantonHubHtml ladder is shaved in lockstep (CLAUDE.md #6)', () => {
+  it('buildThinCantonHubHtml uses the same bounded range indexes', () => {
     const totalPages = 400;
     const html = buildThinCantonHubHtml({
       locale: 'it',
@@ -151,13 +188,15 @@ describe('seoHubs — pagination ladder page-weight byte-shave', () => {
       totalPages,
     });
     expect(html).not.toContain('Pagina&nbsp;');
-    expect(html).toContain('/cerca-lavoro-argovia/tutti/page-400/');
-    expect(html).toMatch(/<a href="\/cerca-lavoro-argovia\/tutti\/page-400\/">400<\/a>/);
+    expect(html).toContain('/cerca-lavoro-argovia/tutti/page-index-1/');
+    expect(html).toContain('/cerca-lavoro-argovia/tutti/page-index-20/');
+    expect(html).toContain('Pagine 381–400');
+    expect(html).not.toContain('/cerca-lavoro-argovia/tutti/page-400/');
     expect(html).toContain('<div class="s-6_t7LY hpl">');
     expect(html).not.toContain('class="thp"');
   });
 
-  it('buildThinCantonHubHtml ships the full ladder on page-1 only, compact window after (#7662)', () => {
+  it('buildThinCantonHubHtml keeps compact prev/next links on deep pages', () => {
     const totalPages = 400;
     const mk = (page: number) => buildThinCantonHubHtml({
       locale: 'it', hub: 'tutti', canton: 'argovia', cantonLabel: 'Argovia',
@@ -166,14 +205,16 @@ describe('seoHubs — pagination ladder page-weight byte-shave', () => {
       hasSpaBundle: false, entryJs: '', entryCss: '', dateStamp: '2026-09-06',
       page, totalPages,
     });
-    const first = mk(1);
     const inner = mk(200);
 
     const laddered = (html: string) =>
       new Set([...html.matchAll(/cerca-lavoro-argovia\/tutti\/page-(\d+)\//g)].map((m) => Number(m[1])));
-    // page-1 keeps every page-N anchor — load-bearing for BFS-depth closure.
-    expect(laddered(first).size).toBe(totalPages - 1);
-    // page-N > 1 keeps only the compact window: 1 / current +/- 1 / last.
+    const first = mk(1);
+    // Page 1 carries only the bounded index links; its compact next hint
+    // still points to page 2.
+    expect([...laddered(first)]).toEqual([2]);
+    expect(first).toContain('/cerca-lavoro-argovia/tutti/page-index-20/');
+    expect(first).toContain('Sfoglia tutte le pagine (400)');
     // 200 is page-200's own canonical/og:url, not a ladder anchor (the current
     // page renders as a bare <strong>, so the ladder itself links 199/201/400
     // plus the basePath for page-1).
@@ -181,6 +222,28 @@ describe('seoHubs — pagination ladder page-weight byte-shave', () => {
     expect(inner).toContain('<a href="/cerca-lavoro-argovia/tutti/page-199/" rel="prev">199</a>');
     expect(inner).toContain('<a href="/cerca-lavoro-argovia/tutti/page-201/" rel="next">201</a>');
     expect(inner).toContain('/cerca-lavoro-argovia/tutti/');
-    expect(Buffer.byteLength(inner)).toBeLessThan(Buffer.byteLength(first) / 2);
+    const pagination = (html: string) => html.match(/<nav class="s-ay7Grc"[\s\S]*?<\/nav>/)?.[0] ?? '';
+    expect(Buffer.byteLength(pagination(first))).toBeLessThan(2000);
+    expect(Buffer.byteLength(pagination(inner))).toBeLessThan(2000);
+  });
+
+  it('keeps head and body prev/next URLs identical on page 2', () => {
+    const basePath = '/cerca-lavoro-argovia/tutti/';
+    const html = buildThinCantonHubHtml({
+      locale: 'it', hub: 'tutti', canton: 'argovia', cantonLabel: 'Argovia',
+      basePath, totalItems: 40000,
+      items: [{ href: '/cerca-lavoro-argovia/x/', label: 'Ruolo', sub: 'Aarau' }],
+      hasSpaBundle: false, entryJs: '', entryCss: '', dateStamp: '2026-09-06',
+      page: 2, totalPages: 400,
+    });
+    const headPrev = html.match(/<link rel="prev" href="([^"]+)">/)?.[1];
+    const bodyPrev = html.match(/<a href="([^"]+)" rel="prev">1<\/a>/)?.[1];
+    const headNext = html.match(/<link rel="next" href="([^"]+)">/)?.[1];
+    const bodyNext = html.match(/<a href="([^"]+)" rel="next">3<\/a>/)?.[1];
+
+    expect(headPrev).toBe(`https://frontaliereticino.ch${basePath}`);
+    expect(bodyPrev).toBe(basePath);
+    expect(headNext).toBe(`https://frontaliereticino.ch${basePath}page-3/`);
+    expect(bodyNext).toBe(`${basePath}page-3/`);
   });
 });

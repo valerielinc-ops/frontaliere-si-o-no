@@ -22,6 +22,11 @@ describe('fallback GA4 dei monitor PostHog', () => {
     }
   });
 
+  it('non sporca lo stdout dei consumer JSON con la diagnostica auth', () => {
+    const helper = readFileSync(resolve(import.meta.dirname, '../scripts/lib/ga4-service-account.mjs'), 'utf8');
+    expect(helper).toContain('logInfo = console.error');
+  });
+
   it('usa una finestra assestata di esattamente N giornate', () => {
     expect(ga4DateRange(7, 2, new Date('2026-09-08T12:00:00Z'))).toEqual({
       startDate: '2026-08-31',
@@ -41,8 +46,15 @@ describe('fallback GA4 dei monitor PostHog', () => {
       'scripts/fetch-thin-page-promotions.mjs',
       'scripts/refresh-noslash-keep.mjs',
     ];
+    const byConstruction = [
+      'scripts/funnel-metrics-snapshot.mjs',
+      'scripts/lib/source-liveness.mjs',
+    ];
     for (const file of migrated) {
       expect(readFileSync(resolve(root, file), 'utf8'), file).toMatch(/getServiceAccountToken\(/);
+    }
+    for (const file of byConstruction) {
+      expect(readFileSync(resolve(root, file), 'utf8'), file).not.toMatch(/getServiceAccountToken\(/);
     }
   });
 

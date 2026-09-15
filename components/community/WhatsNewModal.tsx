@@ -35,6 +35,43 @@ interface Release {
 
 export const RELEASES: Release[] = [
   {
+    version: '3.96.5',
+    date: '2026-09-12',
+    titleKey: 'whatsNew.v3965.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3965.stabioPetition.title',
+        descKey: 'whatsNew.v3965.stabioPetition.desc',
+        link: { tab: 'petition' },
+      },
+    ],
+  },
+  {
+    version: '3.96.4',
+    date: '2026-09-12',
+    titleKey: 'whatsNew.v3964.title',
+    items: [
+      {
+        type: 'improvement',
+        titleKey: 'whatsNew.v3964.employerInsights.title',
+        descKey: 'whatsNew.v3964.employerInsights.desc',
+      },
+    ],
+  },
+  {
+    version: '3.96.3',
+    date: '2026-09-11',
+    titleKey: 'whatsNew.v3963.title',
+    items: [
+      {
+        type: 'improvement',
+        titleKey: 'whatsNew.v3963.employerInsights.title',
+        descKey: 'whatsNew.v3963.employerInsights.desc',
+      },
+    ],
+  },
+  {
     version: '3.96.2',
     date: '2026-09-09',
     titleKey: 'whatsNew.v3962.title',
@@ -2514,6 +2551,8 @@ export function releaseLinkToRoute(link: NonNullable<ReleaseItem['link']>): AppR
  return { activeTab: 'weekly-digest' };
  case 'tool-of-week':
  return { activeTab: 'tool-of-week' };
+ case 'petition':
+ return { activeTab: 'petition' };
  default:
  return { activeTab: link.tab as AppRoute['activeTab'] };
  }

@@ -464,7 +464,7 @@ export function parsePostJobDetail(html = '', url = '') {
 
   const title = normalizeSpace(jobPosting.title || '')
     || extractMeta(html, 'og:title')
-    || extractTitle(html).replace(/\s*\|.*$/, '')
+    || extractTitle(html).replace(/\s*\|\s*(?:Die\s+Post|La\s+Poste|La\s+Posta|Swiss\s+Post|Post\s*CH(?:\s+AG)?|Post)\s*$/i, '')
     || '';
 
   const city = deriveCity(jobPosting);

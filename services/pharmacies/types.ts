@@ -6,13 +6,114 @@
  * stored in the registry itself, only source configuration (#6397).
  */
 
+import { validatePharmacyReleaseContract } from './release-contract-validator.mjs';
+
+export { validatePharmacyReleaseContract };
+
 export interface OpeningHours {
   dayOfWeek: 'monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday' | 'sunday';
   opens: string;
   closes: string;
+  /** A source may explicitly publish a closed day instead of an interval. */
+  isClosed?: boolean;
 }
 
 export type PharmacySourceType = 'official' | 'association' | 'pharmacy' | 'verified_partner' | 'directory';
+
+export type PharmacyCountry = 'CH' | 'IT';
+
+export const PHARMACY_RELEASE_CONTRACT_VERSION = 1 as const;
+export const PHARMACY_RELEASE_TIMEZONE = 'Europe/Zurich' as const;
+/** The release scope is deliberately limited to the four OFCT regions we verify. */
+export const PHARMACY_RELEASE_REGION_KEYS = [
+  'mendrisiotto',
+  'luganese',
+  'bellinzonese',
+  'biasca-e-valli',
+] as const;
+
+export type PharmacyRegionKey = typeof PHARMACY_RELEASE_REGION_KEYS[number];
+export type PharmacyReleaseState =
+  | 'unknown'
+  | 'fresh'
+  | 'stale'
+  | 'partial'
+  | 'conflicting'
+  | 'expired'
+  | 'not_published';
+export type PharmacyReleaseFreshness = 'fresh' | 'stale' | 'unknown';
+export type PharmacyReleaseCoverage = 'covered' | 'partial' | 'not_published' | 'unknown';
+
+export interface PharmacyReleaseSnapshot {
+  path: string;
+  sha256: string;
+  /** Copied from the snapshot's own `_fetchedAt`; null means no timestamp was published. */
+  fetchedAt: string | null;
+}
+
+export interface PharmacyReleaseScope {
+  country: 'CH';
+  canton: 'Ticino';
+  regions: PharmacyRegionKey[];
+}
+
+export interface PharmacyRegionReleaseStatus {
+  name: string;
+  sourceUrl: string;
+  /** Coverage describes only duty intervals; catalogue identities are not region-attributed. */
+  dutyCount: number;
+  fetchedAt: string | null;
+  freshness: PharmacyReleaseFreshness;
+  coverage: PharmacyReleaseCoverage;
+  state: PharmacyReleaseState;
+  preserved: boolean;
+}
+
+export interface PharmacyReleaseContract {
+  version: typeof PHARMACY_RELEASE_CONTRACT_VERSION;
+  releaseId: string;
+  scope: PharmacyReleaseScope;
+  timezone: typeof PHARMACY_RELEASE_TIMEZONE;
+  state: PharmacyReleaseState;
+  snapshots: {
+    catalogue: PharmacyReleaseSnapshot;
+    duties: PharmacyReleaseSnapshot;
+  };
+  regions: Record<PharmacyRegionKey, PharmacyRegionReleaseStatus>;
+}
+
+/** Status is field-level: an absent value is never rendered as if it were verified. */
+export type PharmacyFieldStatus = 'verified' | 'not_published' | 'not_checked';
+
+export interface PharmacyFieldSource {
+  url: string;
+  sourceType: PharmacySourceType;
+  checkedAt: string;
+  /** Required when the source is OpenStreetMap, whose derived data is ODbL. */
+  license?: string;
+}
+
+export interface PharmacyDataAvailability {
+  address?: PharmacyFieldStatus;
+  phone?: PharmacyFieldStatus;
+  website?: PharmacyFieldStatus;
+  coordinates?: PharmacyFieldStatus;
+  openingHours?: PharmacyFieldStatus;
+  services?: PharmacyFieldStatus;
+}
+
+/**
+ * A previously published detail URL that must keep resolving after an
+ * official identity/locality correction. The importer records the old
+ * province, city and slug so the build can emit a locale-aware redirect to
+ * the current canonical page.
+ */
+export interface PharmacyUrlAlias {
+  country: PharmacyCountry;
+  province?: string;
+  city: string;
+  slug: string;
+}
 
 export interface Pharmacy {
   id: string;
@@ -21,8 +122,13 @@ export interface Pharmacy {
   address: string;
   postalCode: string;
   city: string;
-  canton: string;
-  country: 'CH';
+  /** Present for Swiss records; Italian records use `province` and `region`. */
+  canton?: string;
+  country: PharmacyCountry;
+  province?: string;
+  region?: string;
+  /** Stable identifier from the Italian Ministry of Health open dataset. */
+  ministryId?: string;
   latitude?: number;
   longitude?: number;
   phone?: string;
@@ -32,6 +138,11 @@ export interface Pharmacy {
   sourceUrl: string;
   sourceType: PharmacySourceType;
   lastVerifiedAt: string;
+  /** Provenance for optional fields enriched from a second public source. */
+  fieldSources?: Partial<Record<'address' | 'phone' | 'website' | 'coordinates' | 'openingHours' | 'services', PharmacyFieldSource>>;
+  dataAvailability?: PharmacyDataAvailability;
+  /** Historical detail URLs retained by the data pipeline for redirects. */
+  urlAliases?: PharmacyUrlAlias[];
 }
 
 export type PharmacyDutyCoverageType = 'city' | 'district' | 'region' | 'canton';
@@ -54,6 +165,19 @@ export interface PharmacyDuty {
   verifiedAt?: string;
 }
 
+export interface PharmacyCatalogueDataset {
+  _source: string;
+  _sourceRegions?: string[];
+  _fetchedAt: string | null;
+  _pharmacyCount?: number;
+  _errors: string[];
+  _warnings?: string[];
+  /** True when the last suspicious refresh preserved this catalogue payload. */
+  _preserved?: boolean;
+  _release: PharmacyReleaseContract;
+  pharmacies: Pharmacy[];
+}
+
 export interface PharmacyDutiesDataset {
   _source: string;
   _sourceRegions: string[];
@@ -62,6 +186,8 @@ export interface PharmacyDutiesDataset {
   _errors: string[];
   _warnings: string[];
   _preservedRegions?: string[];
+  _successfulRegions?: string[];
+  _release: PharmacyReleaseContract;
   duties: PharmacyDuty[];
 }
 
@@ -84,6 +210,10 @@ export interface PharmacySourceEntry {
   lastVerifiedAt?: string;
   /** ISO date/time of the most recent successful fetch from `officialSourceUrl` by a connector. Optional: unset until a connector exists for this canton. */
   sourceFetchedAt?: string;
+  /** Canonical checked-in anagraphic snapshot when duties and identity use separate feeds. */
+  anagraficaPath?: string;
+  /** Official source URL for the canonical anagraphic snapshot. */
+  anagraficaSourceUrl?: string;
 }
 
 export interface PharmacySourcesRegistry {
@@ -106,6 +236,14 @@ export const PHARMACY_HUB_PATH: Readonly<Record<'it' | 'en' | 'de' | 'fr', strin
   fr: '/fr/pharmacies/',
 });
 
+/** Canonical locale paths for the verified-duty hub (#6751). */
+export const PHARMACY_DUTY_HUB_PATH: Readonly<Record<'it' | 'en' | 'de' | 'fr', string>> = Object.freeze({
+  it: '/farmacie-di-turno/',
+  en: '/en/on-duty-pharmacies/',
+  de: '/de/notdienst-apotheken/',
+  fr: '/fr/pharmacies-de-garde/',
+});
+
 const REQUIRED_STRING_FIELDS: readonly (keyof PharmacySourceEntry)[] = [
   'canton',
   'officialSourceUrl',
@@ -126,6 +264,17 @@ const SOURCE_TYPES: readonly PharmacySourceType[] = [
   'directory',
 ];
 const SOURCE_STATUSES: readonly PharmacySourceStatus[] = ['unverified', 'active', 'blocked', 'degraded'];
+
+/** Accept only absolute HTTPS URLs from public directory enrichment. */
+export function safePharmacyUrl(value: unknown): string | undefined {
+  if (typeof value !== 'string' || !value.trim()) return undefined;
+  try {
+    const url = new URL(value.trim());
+    return url.protocol === 'https:' ? value.trim() : undefined;
+  } catch {
+    return undefined;
+  }
+}
 
 /**
  * Validates a `PharmacySourceEntry` shape, returning the list of problems
@@ -167,7 +316,6 @@ const REQUIRED_PHARMACY_STRING_FIELDS: readonly (keyof Pharmacy)[] = [
   'address',
   'postalCode',
   'city',
-  'canton',
   'country',
   'sourceUrl',
   'sourceType',
@@ -191,8 +339,41 @@ export function validatePharmacy(index: number | string, entry: unknown): string
     }
   }
 
-  if (typeof e.country === 'string' && e.country !== 'CH') {
-    errors.push(`pharmacy[${index}]: invalid country "${e.country}" (expected "CH")`);
+  if (typeof e.country === 'string' && !(['CH', 'IT'] as const).includes(e.country as PharmacyCountry)) {
+    errors.push(`pharmacy[${index}]: invalid country "${e.country}" (expected "CH" or "IT")`);
+  }
+
+  if (e.country === 'CH' && (typeof e.canton !== 'string' || e.canton.trim() === '')) {
+    errors.push(`pharmacy[${index}]: Swiss record must declare "canton"`);
+  }
+  if (e.country === 'IT' && (typeof e.province !== 'string' || !/^[A-Z]{2}$/.test(e.province))) {
+    errors.push(`pharmacy[${index}]: Italian record must declare a two-letter "province"`);
+  }
+
+  for (const field of ['latitude', 'longitude'] as const) {
+    if (e[field] !== undefined && (typeof e[field] !== 'number' || !Number.isFinite(e[field] as number))) {
+      errors.push(`pharmacy[${index}]: invalid optional "${field}"`);
+    }
+  }
+
+  if (e.dataAvailability !== undefined && (typeof e.dataAvailability !== 'object' || e.dataAvailability === null || Array.isArray(e.dataAvailability))) {
+    errors.push(`pharmacy[${index}]: invalid optional "dataAvailability"`);
+  }
+
+  if (e.website !== undefined && !safePharmacyUrl(e.website)) {
+    errors.push(`pharmacy[${index}]: invalid optional "website" (expected an absolute HTTPS URL)`);
+  }
+
+  if (e.urlAliases !== undefined && (!Array.isArray(e.urlAliases) || e.urlAliases.some((alias) => {
+    if (typeof alias !== 'object' || alias === null || Array.isArray(alias)) return true;
+    const candidate = alias as Record<string, unknown>;
+    return !['CH', 'IT'].includes(String(candidate.country))
+      || typeof candidate.city !== 'string'
+      || !candidate.city.trim()
+      || typeof candidate.slug !== 'string'
+      || !candidate.slug.trim();
+  }))) {
+    errors.push(`pharmacy[${index}]: invalid optional "urlAliases"`);
   }
 
   return errors;
@@ -208,12 +389,18 @@ export function validatePharmacyList(pharmacies: unknown): string[] {
   }
   const errors: string[] = [];
   const seenIds = new Set<string>();
+  const seenSlugs = new Set<string>();
   pharmacies.forEach((entry, index) => {
     errors.push(...validatePharmacy(index, entry));
     const id = (entry as Record<string, unknown> | null)?.id;
     if (typeof id === 'string' && id) {
       if (seenIds.has(id)) errors.push(`pharmacy[${index}]: duplicate id "${id}"`);
       seenIds.add(id);
+    }
+    const slug = (entry as Record<string, unknown> | null)?.slug;
+    if (typeof slug === 'string' && slug) {
+      if (seenSlugs.has(slug)) errors.push(`pharmacy[${index}]: duplicate slug "${slug}"`);
+      seenSlugs.add(slug);
     }
   });
   return errors;
@@ -236,8 +423,25 @@ const DUTY_COVERAGE_TYPES: readonly PharmacyDutyCoverageType[] = ['city', 'distr
 const DUTY_TYPES: readonly PharmacyDutyType[] = ['day', 'night', 'weekend', 'holiday', '24h'];
 const DUTY_STATUSES: readonly PharmacyDutyStatus[] = ['verified', 'pending_review', 'expired', 'conflicting'];
 const DUTY_SOURCE_TYPES: readonly PharmacyDutySourceType[] = ['official', 'association', 'pharmacy', 'verified_partner'];
+const ISO_TIMESTAMP_RE = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?(?:Z|[+-]\d{2}:\d{2})$/;
 
-export function validatePharmacyDuty(index: number | string, entry: unknown): string[] {
+function parseDutyTimestamp(value: unknown): number {
+  if (typeof value !== 'string' || !ISO_TIMESTAMP_RE.test(value)) return NaN;
+  const timestamp = Date.parse(value);
+  return Number.isFinite(timestamp) ? timestamp : NaN;
+}
+
+export interface PharmacyDutyValidationOptions {
+  /** Runtime read models compute expiry themselves at their evaluation boundary. */
+  checkTemporalState?: boolean;
+}
+
+export function validatePharmacyDuty(
+  index: number | string,
+  entry: unknown,
+  now: Date = new Date(),
+  options: PharmacyDutyValidationOptions = {},
+): string[] {
   const errors: string[] = [];
   if (typeof entry !== 'object' || entry === null || Array.isArray(entry)) {
     return [`duty[${index}]: entry is not an object`];
@@ -260,44 +464,106 @@ export function validatePharmacyDuty(index: number | string, entry: unknown): st
   if (typeof e.sourceType === 'string' && !DUTY_SOURCE_TYPES.includes(e.sourceType as PharmacyDutySourceType)) {
     errors.push(`duty[${index}]: invalid sourceType "${e.sourceType}"`);
   }
-  const starts = typeof e.startsAt === 'string' ? Date.parse(e.startsAt) : NaN;
-  const ends = typeof e.endsAt === 'string' ? Date.parse(e.endsAt) : NaN;
+  if (typeof e.sourceUrl === 'string' && !safePharmacyUrl(e.sourceUrl)) {
+    errors.push(`duty[${index}]: invalid sourceUrl (expected an absolute HTTPS URL)`);
+  }
+  const starts = parseDutyTimestamp(e.startsAt);
+  const ends = parseDutyTimestamp(e.endsAt);
   if (!Number.isFinite(starts)) errors.push(`duty[${index}]: invalid startsAt`);
   if (!Number.isFinite(ends)) errors.push(`duty[${index}]: invalid endsAt`);
   if (Number.isFinite(starts) && Number.isFinite(ends) && ends <= starts) {
     errors.push(`duty[${index}]: endsAt must be after startsAt`);
   }
+  if (e.verifiedAt !== undefined && !Number.isFinite(parseDutyTimestamp(e.verifiedAt))) {
+    errors.push(`duty[${index}]: invalid verifiedAt`);
+  }
+  if (e.status === 'verified' && (typeof e.verifiedAt !== 'string' || e.verifiedAt.trim() === '')) {
+    errors.push(`duty[${index}]: verified duty must include verifiedAt`);
+  }
+  const nowMs = now instanceof Date ? now.getTime() : NaN;
+  if (options.checkTemporalState !== false && Number.isFinite(ends) && Number.isFinite(nowMs)) {
+    if (e.status === 'verified' && ends <= nowMs) errors.push(`duty[${index}]: verified duty must not be expired`);
+    if (e.status === 'expired' && ends > nowMs) errors.push(`duty[${index}]: expired duty must have ended`);
+  }
   return errors;
 }
 
-export function validatePharmacyDutyList(duties: unknown): string[] {
+export function validatePharmacyDutyList(
+  duties: unknown,
+  now: Date = new Date(),
+  options: PharmacyDutyValidationOptions = {},
+): string[] {
   if (!Array.isArray(duties)) return ['duties: expected an array'];
   const errors: string[] = [];
   const seenIds = new Set<string>();
   duties.forEach((entry, index) => {
-    errors.push(...validatePharmacyDuty(index, entry));
+    errors.push(...validatePharmacyDuty(index, entry, now, options));
     const id = (entry as Record<string, unknown> | null)?.id;
     if (typeof id === 'string' && id) {
       if (seenIds.has(id)) errors.push(`duty[${index}]: duplicate id "${id}"`);
       seenIds.add(id);
     }
   });
+
+  // A source can publish adjacent intervals, but two intervals for the same
+  // regional coverage must never overlap silently. The importer marks every
+  // member of such a group as `conflicting`; this validator protects checked-in
+  // snapshots and catches hand-edited data that skipped that step.
+  for (let index = 0; index < duties.length; index += 1) {
+    const current = duties[index] as Record<string, unknown> | null;
+    if (!current || typeof current !== 'object') continue;
+    const currentStarts = parseDutyTimestamp(current.startsAt);
+    const currentEnds = parseDutyTimestamp(current.endsAt);
+    if (!Number.isFinite(currentStarts) || !Number.isFinite(currentEnds)) continue;
+    for (let nextIndex = index + 1; nextIndex < duties.length; nextIndex += 1) {
+      const next = duties[nextIndex] as Record<string, unknown> | null;
+      if (!next || typeof next !== 'object' || next.coverageName !== current.coverageName) continue;
+      const nextStarts = parseDutyTimestamp(next.startsAt);
+      const nextEnds = parseDutyTimestamp(next.endsAt);
+      if (!Number.isFinite(nextStarts) || !Number.isFinite(nextEnds)) continue;
+      if (currentStarts < nextEnds && nextStarts < currentEnds
+        && (current.status !== 'conflicting' || next.status !== 'conflicting')) {
+        errors.push(`duty[${index}]: overlapping coverage interval must be marked conflicting with duty[${nextIndex}]`);
+      }
+    }
+  }
   return errors;
 }
 
-export function validatePharmacyDutiesDataset(dataset: unknown): string[] {
+export function validatePharmacyDutiesDataset(dataset: unknown, now: Date = new Date()): string[] {
   if (typeof dataset !== 'object' || dataset === null || Array.isArray(dataset)) {
     return ['dataset is not an object'];
   }
   const d = dataset as Record<string, unknown>;
   const errors: string[] = [];
-  for (const field of ['_source', '_errors', '_warnings', 'duties'] as const) {
+  // Runner-temporary duty artifacts are intentionally release-less; the
+  // atomic border finalizer adds `_release` before any public snapshot write.
+  for (const field of ['_source', '_sourceRegions', '_fetchedAt', '_errors', '_warnings', 'duties'] as const) {
     if (!(field in d)) errors.push(`dataset: missing "${field}"`);
   }
   if (typeof d._source !== 'string' || d._source.trim() === '') errors.push('dataset: invalid "_source"');
+  if (!Array.isArray(d._sourceRegions) || d._sourceRegions.some((url) => !safePharmacyUrl(url))) {
+    errors.push('dataset: "_sourceRegions" must be an array of absolute HTTPS URLs');
+  }
+  if (d._fetchedAt !== null && !Number.isFinite(parseDutyTimestamp(d._fetchedAt))) {
+    errors.push('dataset: invalid "_fetchedAt"');
+  }
+  if (d._lastSuccessfulFetchAt !== undefined
+    && d._lastSuccessfulFetchAt !== null
+    && !Number.isFinite(parseDutyTimestamp(d._lastSuccessfulFetchAt))) {
+    errors.push('dataset: invalid "_lastSuccessfulFetchAt"');
+  }
   if (!Array.isArray(d._errors)) errors.push('dataset: "_errors" must be an array');
   if (!Array.isArray(d._warnings)) errors.push('dataset: "_warnings" must be an array');
-  errors.push(...validatePharmacyDutyList(d.duties));
+  if ('_release' in d) errors.push(...validatePharmacyReleaseContract(d._release));
+  if (d._successfulRegions !== undefined && (!Array.isArray(d._successfulRegions) || d._successfulRegions.some((region) => typeof region !== 'string'))) {
+    errors.push('dataset: "_successfulRegions" must be an array of strings');
+  }
+  if (d._preservedRegions !== undefined
+    && (!Array.isArray(d._preservedRegions) || d._preservedRegions.some((region) => typeof region !== 'string' || !region.trim()))) {
+    errors.push('dataset: invalid optional "_preservedRegions"');
+  }
+  errors.push(...validatePharmacyDutyList(d.duties, now));
   return errors;
 }
 

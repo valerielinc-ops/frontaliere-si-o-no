@@ -27,8 +27,11 @@ export function prefetchOnIdle(key: string, loader: PrefetchFn) {
  });
  };
 
- if ('requestIdleCallback' in window) {
- (window as any).requestIdleCallback(run, { timeout: 3000 });
+ const idleWindow = window as Window & {
+ requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
+ };
+ if (typeof idleWindow.requestIdleCallback === 'function') {
+ idleWindow.requestIdleCallback(run, { timeout: 3000 });
  } else {
  setTimeout(run, 100);
  }
@@ -55,6 +58,9 @@ const TAB_LOADERS: Record<string, PrefetchFn[]> = {
  ],
  stats: [
  () => import('@/components/pages/StatsView'),
+ ],
+ 'plate-auctions': [
+  () => import('@/components/pages/PlateAuctionsPage'),
  ],
  vita: [
  () => import('@/components/comparators/CostOfLiving'),

@@ -87,6 +87,32 @@ describe('email cascade provider ack contract', () => {
     });
   });
 
+  it('does not identify a large numeric Mailjet id after JSON parsing rounds it', async () => {
+    Object.assign(process.env, { MAILJET_API_KEY: 'key', MAILJET_SECRET_KEY: 'secret' });
+    const parsedNumericId = JSON.parse('{"MessageID":288230415932659101}').MessageID;
+    globalThis.fetch = async () => response({ Messages: [{ To: [{ MessageID: parsedNumericId }] }] });
+
+    await expect(PROVIDER_SENDERS.mailjet(payload, null)).resolves.toEqual({
+      messageId: null,
+      provider: 'mailjet',
+      ack: 'unidentifiable',
+    });
+  });
+
+  it.each([
+    ['mailtrap', { MAILTRAP_API_TOKEN: 'token' }, { message_ids: [{ id: 'mailtrap-nested-id' }] }],
+    ['maileroo', { MAILEROO_API_KEY: 'key' }, { success: true, data: { reference_id: { id: 'maileroo-nested-id' } } }],
+  ])('%s extracts an id from a nested provider ack', async (provider, env, body) => {
+    Object.assign(process.env, env);
+    globalThis.fetch = async () => response(body);
+
+    await expect(PROVIDER_SENDERS[provider](payload, null)).resolves.toEqual({
+      messageId: `${provider}-nested-id`,
+      provider,
+      ack: 'identified',
+    });
+  });
+
   it.each(providers)('$id preserves a 2xx response without an id as unidentifiable', async (provider) => {
     Object.assign(process.env, provider.env);
     globalThis.fetch = async () => response(provider.empty);
@@ -191,5 +217,69 @@ describe('email cascade provider ack contract', () => {
     expect(result.accepted).toEqual([]);
     expect(result.ambiguous[0]?.messageId).toBeNull();
     expect(JSON.stringify(result)).not.toMatch(/mg-\d+/);
+  });
+
+  it('does not move an accepted send to failed when onSent throws', async () => {
+    Object.assign(process.env, {
+      MAILGUN_API_KEY: 'key',
+      MAILGUN_DOMAIN: 'example.com',
+    });
+    globalThis.fetch = async () => response({ id: 'mailgun-provider-id' });
+    let callbackCalls = 0;
+
+    const result = await sendEmailCascade([{
+      payload,
+      recipient: { email: 'recipient@example.com' },
+      meta: {},
+    }], {
+      forceProvider: 'mailgun',
+      delayMs: 0,
+      onSent: () => {
+        callbackCalls += 1;
+        throw new Error('bookkeeping failed');
+      },
+    });
+
+    expect(callbackCalls).toBe(1);
+    expect(result.sent).toHaveLength(1);
+    expect(result.accepted).toHaveLength(1);
+    expect(result.ambiguous).toHaveLength(0);
+    expect(result.failed).toHaveLength(0);
+    expect(result.accepted[0].persistFailed).toBe(true);
+    expect(result.providerBreakdown).toEqual({
+      mailgun: { identified: 1, ambiguous: 0, persistFailed: 1 },
+    });
+  });
+
+  it('exposes identified and ambiguous sends separately in providerBreakdown', async () => {
+    Object.assign(process.env, {
+      MAILGUN_API_KEY: 'key',
+      MAILGUN_DOMAIN: 'example.com',
+    });
+    let sendCount = 0;
+    globalThis.fetch = async (url, options) => {
+      if (String(url).includes('mailgun.net') && options?.method === 'POST') {
+        sendCount += 1;
+        return response(sendCount === 1 ? { id: 'mailgun-provider-id' } : {});
+      }
+      return response({ stats: [] });
+    };
+
+    const item = {
+      payload,
+      recipient: { email: 'recipient@example.com' },
+      meta: {},
+    };
+    const result = await sendEmailCascade([item, { ...item, recipient: { email: 'second@example.com' } }], {
+      forceProvider: 'mailgun',
+      delayMs: 0,
+    });
+
+    expect(result.providerBreakdown).toEqual({
+      mailgun: { identified: 1, ambiguous: 1, persistFailed: 0 },
+    });
+    expect(result.accepted).toHaveLength(1);
+    expect(result.ambiguous).toHaveLength(1);
+    expect(result.sent).toHaveLength(2);
   });
 });

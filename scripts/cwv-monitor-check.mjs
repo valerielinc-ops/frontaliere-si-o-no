@@ -119,6 +119,26 @@ export function recordSnapshot(history, key, path, date, snapshot) {
 }
 
 /**
+ * Persist an explicit abstention for every target page when neither CWV
+ * source can provide an observation. A null row is deliberately different
+ * from a successful zero-sample measurement: downstream readers can see that
+ * the week was attempted but the source was unavailable.
+ */
+export function recordSourceUnavailableSnapshots(history, date, reason) {
+  const sourceUnavailable = String(reason || 'CWV source unavailable').trim();
+  for (const page of TARGET_PAGES) {
+    recordSnapshot(history, page.key, page.path, date, {
+      cls_p75: null,
+      cls_n: 0,
+      inp_p75: null,
+      inp_n: 0,
+      sourceUnavailable,
+    });
+  }
+  return history;
+}
+
+/**
  * Regression = the metric's field p75 was ABOVE `threshold` on the last two
  * recorded weeks (not necessarily consecutive calendar weeks — a run that
  * failed to query is simply never recorded, so "last two" is "last two
@@ -228,6 +248,9 @@ const MIN_SAMPLES_PER_METRIC = 30;
     canonicalPath: DEFAULT_HISTORY_FILE,
     root: ROOT,
   });
+  const history = loadHistory(HISTORY_FILE);
+  const today = new Date().toISOString().slice(0, 10);
+  const dryRun = process.argv.includes('--dry-run');
 
   // Vitality guard (scripts/lib/source-liveness.mjs). MIN_SAMPLES_PER_METRIC
   // below suppresses a low-sample p75, which is right for a quiet page but is
@@ -245,19 +268,25 @@ const MIN_SAMPLES_PER_METRIC = 30;
         TARGET_PAGES.some((page) => page.path === row.path && (row.metric === 'CLS' || row.metric === 'INP')),
       );
       if (!hasTargetObservation) {
-        declareNotMeasurable('cwv-monitor-check', liveness);
+        const reason = `${liveness.reason}; GA4 fallback returned no target CLS/INP observations`;
+        recordSourceUnavailableSnapshots(history, today, reason);
+        if (!dryRun) saveHistory(HISTORY_FILE, history);
+        declareNotMeasurable('cwv-monitor-check', { ...liveness, reason });
+        console.warn(`[cwv-monitor-check] source unavailable: recorded ${TARGET_PAGES.length} null snapshot(s) for ${today}`);
         return;
       }
       source = 'ga4';
       console.warn('[cwv-monitor-check] PostHog non misurabile: uso GA4 `web_vitals` come fallback');
     } catch (error) {
-      declareNotMeasurable('cwv-monitor-check', { ...liveness, reason: `${liveness.reason}; GA4 fallback failed: ${error.message}` });
+      const reason = `${liveness.reason}; GA4 fallback failed: ${error.message}`;
+      recordSourceUnavailableSnapshots(history, today, reason);
+      if (!dryRun) saveHistory(HISTORY_FILE, history);
+      declareNotMeasurable('cwv-monitor-check', { ...liveness, reason });
+      console.warn(`[cwv-monitor-check] source unavailable: recorded ${TARGET_PAGES.length} null snapshot(s) for ${today}`);
       return;
     }
   }
 
-  const history = loadHistory(HISTORY_FILE);
-  const today = new Date().toISOString().slice(0, 10);
   const regressions = [];
   let queryFailures = 0;
 
@@ -310,7 +339,6 @@ const MIN_SAMPLES_PER_METRIC = 30;
 
   // `--dry-run` verifica il criterio di chiusura di una issue gia' aperta: non
   // deve lasciare tracce sul file di storia.
-  const dryRun = process.argv.includes('--dry-run');
   if (!dryRun) saveHistory(HISTORY_FILE, history);
   console.log(`[cwv-monitor-check] snapshot recorded for ${today} — ${regressions.length} regression(s) detected`);
 

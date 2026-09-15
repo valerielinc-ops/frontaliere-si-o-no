@@ -20,6 +20,9 @@ import {
   vitestFailureIsNotAttributableToPr,
   jobRefFromCheckRun,
   currentAttemptJobSteps,
+  pollUntil,
+  vitestCheckNeedsPolling,
+  vitestJobIsConcluded,
 } from '../scripts/ci/lib/vitestCheck.mjs';
 import {
   VITEST_CHECK_NAME,
@@ -44,11 +47,81 @@ describe('identità del job condivisa con il corpus', () => {
     expect(currentAttemptJobSteps({ checkRun, jobId: '20', jobs: [{ ...job, id: 21 }] })).toEqual([]);
   });
 
-  it('rifiuta un job pendente, un altro head o un verdetto diverso', () => {
+  it('rifiuta un job pendente, un altro head o un verdetto verde diverso', () => {
     for (const mismatch of [{ status: 'in_progress' }, { head_sha: 'other' }, { conclusion: 'success' }]) {
       expect(currentAttemptJobSteps({ checkRun, jobId: '20', jobs: [{ ...job, ...mismatch }] })).toEqual([]);
     }
     expect(jobRefFromCheckRun({})).toBeNull();
+  });
+
+  it('accoppia anche conclusioni rosse equivalenti tra check-run e job', () => {
+    for (const conclusion of ['failure', 'timed_out', 'cancelled']) {
+      expect(currentAttemptJobSteps({
+        checkRun: { ...checkRun, conclusion: 'failure' },
+        jobId: '20',
+        jobs: [{ ...job, conclusion }],
+      })).toBe(steps);
+    }
+  });
+});
+
+describe('pollUntil — letture GitHub eventualmente ritardate', () => {
+  it('ripete una lista vuota e un job non concluso fino al verdetto', () => {
+    const checkResponses = [
+      [],
+      [vitest(null, null, 'in_progress')],
+      [vitest('success', '2026-09-12T08:00:00Z')],
+    ];
+    const checkSleeps: number[] = [];
+    const checks = pollUntil({
+      read: () => checkResponses.shift(),
+      ready: (value) => !vitestCheckNeedsPolling(value),
+      attempts: 3,
+      delayMs: 1000,
+      sleep: (delay) => checkSleeps.push(delay),
+    });
+    expect(checks).toEqual([vitest('success', '2026-09-12T08:00:00Z')]);
+    expect(checkSleeps).toEqual([1000, 1000]);
+
+    const jobResponses = [
+      [],
+      [{ id: 20, status: 'in_progress', conclusion: null }],
+      [{ id: 20, status: 'completed', conclusion: 'timed_out' }],
+    ];
+    const jobs = pollUntil({
+      read: () => jobResponses.shift(),
+      ready: (value) => value.some((job) => vitestJobIsConcluded(job)),
+      attempts: 3,
+      sleep: () => {},
+    });
+    expect(jobs[0]).toMatchObject({ id: 20, conclusion: 'timed_out' });
+
+    const reviewJobResponses = [
+      [{ id: 20, status: 'in_progress', conclusion: null, steps: [{ name: 'review' }] }],
+      [{ id: 20, status: 'completed', conclusion: 'success', steps: [{ name: 'review' }] }],
+    ];
+    const reviewJob = pollUntil({
+      read: () => reviewJobResponses.shift(),
+      ready: (value) => value.some(
+        (job) => vitestJobIsConcluded(job) && Array.isArray(job.steps) && job.steps.length > 0,
+      ),
+      attempts: 2,
+      sleep: () => {},
+    });
+    expect(reviewJob[0]).toMatchObject({ id: 20, status: 'completed' });
+  });
+
+  it('propaga gli errori HTTP e non accetta un payload ok:false', () => {
+    for (const status of [404, 403, 429]) {
+      expect(() => pollUntil({
+        read: () => { throw Object.assign(new Error(`HTTP ${status}`), { status }); },
+        ready: () => true,
+      })).toThrow(`HTTP ${status}`);
+    }
+    expect(() => pollUntil({
+      read: () => ({ ok: false, status: 404 }),
+      ready: () => false,
+    })).toThrow('HTTP 404');
   });
 });
 
@@ -487,6 +560,13 @@ describe('latestCompletedRunByName / latestCompletedConclusionByName (#242)', ()
     expect(latestCompletedConclusionByName([named('test', null, null, 'in_progress')], 'test')).toBe('');
     expect(latestCompletedConclusionByName([], 'test')).toBe('');
     expect(latestCompletedRunByName([], 'test')).toBeNull();
+  });
+
+  it('preserva `skipped` per un nome generico, ma lo esclude per Vitest', () => {
+    const skipped = [named('test', 'skipped', '2026-08-10T08:30:00Z')];
+    expect(latestCompletedConclusionByName(skipped, 'test')).toBe('skipped');
+    expect(latestCompletedRunByName(skipped, 'test', { excludeSkipped: true })).toBeNull();
+    expect(latestCompletedVitestConclusion([vitest('skipped', '2026-08-10T08:30:00Z')])).toBe('');
   });
 
   it('input non-array → null/`\'\'`, mai un throw dentro il gate di merge', () => {

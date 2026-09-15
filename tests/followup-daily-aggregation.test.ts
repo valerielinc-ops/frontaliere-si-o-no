@@ -1,4 +1,5 @@
 import { describe, it, expect, afterEach } from 'vitest';
+import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
@@ -59,6 +60,32 @@ describe('daily writer concurrency contract', () => {
       DAILY_MUTEX_GROUP,
     ]);
     expect(workflows.every((workflow) => workflow.concurrency?.['cancel-in-progress'] === false)).toBe(true);
+  });
+});
+
+describe('post-merge triage marker contract', () => {
+  it('treats an explicit zero-candidate marker naming an unchanged bucket as empty', () => {
+    const workflow = readFileSync(fileURLToPath(new URL('../.github/workflows/post-merge-followup.yml', import.meta.url)), 'utf8');
+    const verifierLine = workflow.split('\n').find((line) => line.includes("grep -Eiq '") && line.includes('zero outstanding items'));
+    const pattern = verifierLine?.match(/grep -Eiq '([^']+)'/)?.[1];
+    expect(pattern).toBeTruthy();
+
+    const marker = '## Post-merge follow-up triage\n\nCreated/updated: 0 issue — nessun item nuovo aggiunto al daily bucket #8248.';
+    expect(() => execFileSync('grep', ['-Eiq', pattern!], { input: marker })).not.toThrow();
+
+    const zeroResultBranch = workflow
+      .split("elif [ -z \"$bucket_refs\" ]")[0]
+      .split("if printf '%s' \"$marker_body\" | grep -Eiq '")
+      .at(-1);
+    expect(zeroResultBranch).toBeTruthy();
+    expect(zeroResultBranch).not.toContain('persistence_ok=false');
+  });
+
+  it('reads positive persistence only from the explicit creation/update line', () => {
+    const workflow = readFileSync(fileURLToPath(new URL('../.github/workflows/post-merge-followup.yml', import.meta.url)), 'utf8');
+    const bucketLine = workflow.split('\n').find((line) => line.includes('bucket_refs=$(printf'));
+    expect(bucketLine).toContain('Created');
+    expect(bucketLine).toContain('bucket #[0-9]+');
   });
 });
 
@@ -252,6 +279,38 @@ describe('daily follow-up identity and dedup', () => {
 });
 
 describe('daily item parsing and lifecycle', () => {
+  it('recupera il formato shorthand del triage e apre gli item senza State', () => {
+    const shorthand = [
+      'State: collecting',
+      '',
+      '## Origine',
+      '- PR: #8101',
+      '',
+      '## Item',
+      item(`FU-${DAY}-001`)
+        .replace('- State: open\n', '')
+        .replace('- Target file:', '- Target repository: owner/repo\n- Target file:'),
+      '',
+    ].join('\n');
+    const title = dailyBucketTitle(DAY, 'owner/repo', 1);
+    expect(bucketState(shorthand)).toBe('collecting');
+    expect(dailyKeyFromBucketBody(shorthand)).toBe(DAY);
+    expect(hasDailyBucketRepositoryConsistency(shorthand, 'owner/repo')).toBe(true);
+
+    const decision = decideDailyMintGate({ title, body: shorthand }, { triageComplete: true });
+    expect(decision).toMatchObject({ action: 'seal', reason: 'daily-bucket-sealed' });
+    expect(bucketState(decision.body || '')).toBe('sealed');
+    expect(selectFirstOpenItem(decision.body || '')?.id).toBe(`FU-${DAY}-001`);
+
+    const fencedExample = shorthand.replace(
+      '- Suggested action: aggiungi `firstGuard()` e `secondGuard()` in `scripts/example.mjs`',
+      '- Suggested action: aggiungi `firstGuard()` e `secondGuard()` in `scripts/example.mjs`\n```md\n- State: blocked\n```',
+    );
+    const fencedDecision = decideDailyMintGate({ title, body: fencedExample }, { triageComplete: true });
+    expect(fencedDecision).toMatchObject({ action: 'seal', reason: 'daily-bucket-sealed' });
+    expect(selectFirstOpenItem(fencedDecision.body || '')?.id).toBe(`FU-${DAY}-001`);
+  });
+
   it('segnala una fence Markdown non terminata e blocca sealing, queue, reconcile e close', () => {
     const unterminated = body(item(`FU-${DAY}-001`)).replace(
       '- Acceptance token: `firstGuard()`',

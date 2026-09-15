@@ -2,9 +2,9 @@
   "_meta": {
     "issue": 4304,
     "title": "fix(stability): error rate 3,8% -> <1% ed eliminazione dei 25k dead click mensili",
-    "generatedAt": "2026-07-16T20:45:00+02:00",
-    "source": "PostHog HogQL, project eu.posthog.com, live query, 30-day rolling window ending 2026-07-16",
-    "purpose": "Baseline snapshot used to triage and fix issue #4304. NOT an accumulator — re-run the same HogQL queries for future audits rather than appending here.",
+    "generatedAt": "2026-09-13T08:55:54.433Z",
+    "source": "PostHog HogQL, read-only live export",
+    "purpose": "Fresh useful-session/error-free-useful-session evidence for Loop L1",
     "totals30d": {
       "$dead_click": { "n": 25689, "users": 5843, "note": "PostHog's own dead-click autocapture (not the custom dead_click event below)." },
       "exception": { "n": 8376, "users": 1716 },
@@ -16,7 +16,20 @@
       "css_fallback": { "n": 956, "users": 743 },
       "error_page_view": { "n": 783, "users": 477 },
       "chunk_retry": { "n": 449, "users": 189 }
+    },
+    "telemetryWindow": {
+      "start": "2026-09-09T00:00:00.000Z",
+      "end": "2026-09-13T00:00:00.000Z"
     }
+  },
+
+  "generatedAt": "2026-09-13T08:55:54.433Z",
+  "usefulSessions": 18595,
+  "errorFreeUsefulSessions": 7738,
+  "observedErrorEvents": 28969,
+  "telemetryWindow": {
+    "start": "2026-09-09T00:00:00.000Z",
+    "end": "2026-09-13T00:00:00.000Z"
   },
 
   "top10ErrorClusters": [

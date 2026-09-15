@@ -3,7 +3,11 @@ import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import YAML from 'yaml';
-import { scanImportClosure } from '../scripts/ci/check-dependency-free-import-closure.mjs';
+import {
+  importSpecifiers,
+  scanImportClosure,
+  stripComments,
+} from '../scripts/ci/check-dependency-free-import-closure.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SCRIPT = 'scripts/ci/check-dependency-free-import-closure.mjs';
@@ -33,5 +37,35 @@ describe('followup-drainer dependency-free import closure (#7341)', () => {
     expect(drainIndex).toBeGreaterThan(checkIndex);
     expect(steps[checkIndex].run).toBe(`node ${SCRIPT}`);
     expect(steps.some((step: any) => typeof step.run === 'string' && /\bnpm ci\b/.test(step.run))).toBe(false);
+  });
+
+  it('#7995 — strips inline comments without changing quoted source and rejects template fakes', () => {
+    const source = [
+      'const url = "https://example.test/a//b";',
+      'const block = "/* not a comment */";',
+      'import {',
+      "  real, // mention 'fake' from './fake.mjs'",
+      "} from './real.mjs';",
+      'const generated = `',
+      "import { fake } from './template.mjs';",
+      '`;',
+      "const regex = /['// /* not a comment */]/;",
+      "import './regex-safe.mjs';",
+    ].join('\n');
+
+    expect(stripComments(source)).toContain('"https://example.test/a//b"');
+    expect(stripComments(source)).toContain('"/* not a comment */"');
+    expect(importSpecifiers(source)).toEqual(['./real.mjs', './regex-safe.mjs']);
+  });
+
+  it('#7995 — caps multiline clauses and still reads real re-exports', () => {
+    const tooWideImport = [
+      'import {',
+      ...Array.from({ length: 25 }, (_, index) => `  value${index},`),
+      "} from './too-wide.mjs';",
+    ].join('\n');
+
+    expect(importSpecifiers(tooWideImport)).toEqual([]);
+    expect(importSpecifiers("export { value } from './reexport.mjs';")).toEqual(['./reexport.mjs']);
   });
 });

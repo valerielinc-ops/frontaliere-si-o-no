@@ -235,6 +235,8 @@ jobs:
           # remote shards, with no local dist tree to size them from.
           source scripts/lib/bounded-parallel.sh
 
+          # bounded-parallel.sh invokes the worker by name.
+          # shellcheck disable=SC2329
           compact_one() {
             local pair="$1" section loc
             section="${pair%%:*}"; loc="${pair##*:}"

@@ -124,6 +124,14 @@ describe('the autonomous fixers read declared states before contradicting them (
     ).not.toMatch(/["']\.\/scripts\/lib\/pr-body-sections-check\.mjs["']/);
   });
 
+  it.each(FIXERS)('%s keeps the main prefetch complete before a possible push', (file) => {
+    const p = prompt(file);
+    expect(
+      p,
+      `${file}: the fallback fetch must not create a shallow repository before the fixer pushes.`,
+    ).not.toMatch(/git fetch[^\n]*--depth=1[^\n]*origin main/i);
+  });
+
   it.each(FIXERS)('%s reuses the four helpers by name instead of a second parser', (file) => {
     const p = prompt(file);
     expect(p, `${file}: the prompt no longer points at ${HELPER_MODULE}.`).toContain(HELPER_MODULE);
@@ -334,10 +342,13 @@ describe('the autonomous fixers read declared states before contradicting them (
     // NEW prompt text hinges on: the two halves of `blocked:` decide opposite
     // ways, in the module AND in the gate the prompts cite.
     const owner = '- il flag lo decide il proprietario — blocked: decisione del proprietario';
+    const ownerEnglish = '- the owner decides the flag — blocked: owner decision';
     const technical = '- attende il repo gemello — blocked: il mirror è manuale';
     expect((sections as any).bulletState(owner)).toBe('blocked-owner');
+    expect((sections as any).bulletState(ownerEnglish)).toBe('blocked-owner');
     expect((sections as any).bulletState(technical)).toBe('blocked-technical');
     expect(isCandidateItem(owner), 'blocked-owner must NOT reopen as a follow-up').toBe(false);
+    expect(isCandidateItem(ownerEnglish), 'English blocked-owner must NOT reopen as a follow-up').toBe(false);
     expect(isCandidateItem(technical), 'blocked-technical must stay open work').toBe(true);
 
     // And the property that makes `sectionBullets` mandatory in the prompts: a

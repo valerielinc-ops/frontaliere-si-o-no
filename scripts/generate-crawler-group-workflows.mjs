@@ -10,22 +10,22 @@
  * WHY: 581 individual `update-jobs-*.yml` workflows each held one of
  * GitHub Free tier's 20 concurrent-job slots for their full duration
  * (mean ~26.6min, max ~160min for Coop), starving other CI (PR tests,
- * review-loop). GitHub Actions' "parallel steps" feature lets multiple
- * `background: true` run-steps execute concurrently WITHIN ONE job, which
- * holds only ONE concurrent slot no matter how many crawlers it contains.
- * A `wait-all: true` step rejoins them; a failed background step fails
- * the job.
+ * review-loop). GitHub Actions has no parallel-step primitive: steps are
+ * sequential, and unknown keys such as `background`/`wait-all` make the
+ * workflow invalid before a job starts. Each crawler is therefore launched
+ * from a normal `run` step as a detached process, then observed by a normal
+ * `run` step that waits for its status file. The launch steps overlap inside
+ * one job, so the group still holds one concurrent-job slot.
  *
  * DESIGN CONSTRAINT: every crawler's data-path selection and error-reporting
- * mechanism remains the one implemented in its own script. Because GitHub
- * Actions `background: true` applies to a single self-contained `run:`
- * step (not a group of steps), each crawler's entire per-crawler sequence
- * (run script -> housekeeping -> commit descriptor -> failure report) is inlined
- * as ONE shell script body per background step, using each crawler's own
+ * mechanism remains the one implemented in its own script. Each crawler's
+ * entire per-crawler sequence (run script -> housekeeping -> commit descriptor
+ * -> failure report) is inlined as ONE shell script body in a generated
+ * launcher script, using each crawler's own
  * verbatim `run:` bodies (extracted from its original workflow) concatenated
  * in original order — nothing shared/generic is introduced, only the
- * ORIGINAL per-crawler shell fragments spliced together. After `wait-all`,
- * one group commit atomically persists the union of successful descriptors.
+ * ORIGINAL per-crawler shell fragments spliced together. After all result
+ * steps, one group commit atomically persists the union of successful descriptors.
  *
  * TWO CONCURRENCY HAZARDS this generator fixes at the callsite (shared
  * receipt helpers remain compatible with standalone crawler runs):
@@ -36,10 +36,10 @@
  *     to `ls -t /tmp/slug-history-summary-*.txt | head -1` — the globally
  *     newest file, with NO crawler-name binding — reads it into THAT
  *     crawler's commit message, then deletes it. When multiple crawlers
- *     share one job's /tmp as concurrent background steps, one crawler's
+ *     share one job's /tmp as concurrent detached processes, one crawler's
  *     commit step can steal + delete a sibling's telemetry file
  *     (misattributed commit-message body + silent loss). Fix: every
- *     generated background step sets
+ *     generated launcher sets
  *     `SLUG_HISTORY_SUMMARY_FILE=/tmp/slug-history-summary-<slug>.txt`
  *     (unique per crawler name).
  *
@@ -68,6 +68,7 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
@@ -84,6 +85,7 @@ import {
   createCrawlerGenerationRoster,
   validateCrawlerGenerationRoster,
 } from './lib/crawler-generation-contract.mjs';
+import { GLOBAL_DATA_PIPELINE_LEASE_BUSY_EXIT } from './lib/global-data-pipeline-lease.mjs';
 import { CORPUS_OBSERVER_FILES } from './ci/prepare-crawler-workflow-corpus-sync.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -95,12 +97,54 @@ const WORKFLOWS_DIR = path.join(REPO_ROOT, '.github/workflows');
 const ASSIGNMENTS_PATH = path.join(REPO_ROOT, 'data/crawler-group-assignments.json');
 const CHECKOUT_BUCKETS_PATH = path.join(REPO_ROOT, 'scripts/ci/checkout-buckets.json');
 const TRANSLATE_LOGIC_PATH = path.join(WORKFLOWS_DIR, 'translate-pending-logic.yml');
-// Every supported group trigger must bind the caller to an explicit token.
-// The fallback is retained only as a defensive renderer guard for future
-// inputs; the workflow input is required and the central barrier rejects an
-// unbound run.
+// Both workflow forms use the same token expression as the canonical helper:
+// an explicit input wins, while an empty dispatch input derives the run
+// coordinates. Keeping the expression identical in run-name and env prevents
+// an empty portable input from splitting observer identity from runtime state.
 export const CRAWLER_GENERATION_TOKEN_EXPR =
   "${{ inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}";
+export const CRAWLER_GENERATION_PORTABLE_TOKEN_EXPR = CRAWLER_GENERATION_TOKEN_EXPR;
+
+// Runtime overrides used by the legacy crawler shell fragments. Declare them
+// in both workflow forms and address them through the portable `inputs`
+// context: `github.event.inputs` exists for workflow_dispatch only, while the
+// same generated job is also emitted as a workflow_call reusable workflow.
+const CRAWLER_RUNTIME_INPUTS = Object.freeze({
+  timeout_ms: {
+    description: 'Per-crawler timeout override in milliseconds (empty uses the crawler default)',
+    required: false,
+    default: '',
+    type: 'string',
+  },
+  strict_localization: {
+    description: 'Require localized job data (empty uses the crawler default; 1=yes, 0=no)',
+    required: false,
+    default: '',
+    type: 'string',
+  },
+  scan_start_id: {
+    description: 'Optional source cursor for the Armani crawler (empty uses the default)',
+    required: false,
+    default: '',
+    type: 'string',
+  },
+});
+
+function normalizeCrawlerInputReferences(value) {
+  return typeof value === 'string'
+    ? value
+      .replaceAll('github.event.inputs.skip_ai_translation', 'inputs.skip_ai_translation')
+      .replaceAll('github.event.inputs.timeout_ms', 'inputs.timeout_ms')
+      .replaceAll('github.event.inputs.strict_localization', 'inputs.strict_localization')
+      .replaceAll('github.event.inputs.scan_start_id', 'inputs.scan_start_id')
+    : value;
+}
+
+function crawlerRuntimeInputsForGroup(members) {
+  const inputs = structuredClone(CRAWLER_RUNTIME_INPUTS);
+  if (!members.some((member) => member.slug === 'giorgio-armani')) delete inputs.scan_start_id;
+  return inputs;
+}
 const PORTABLE_CORPUS_DIR = path.join(REPO_ROOT, '.github/corpus-workflows');
 const PORTABLE_CONTRACT_PATH = path.join(PORTABLE_CORPUS_DIR, 'contract.json');
 const CORPUS_OBSERVER_SITE_SOURCES = new Map([
@@ -121,6 +165,7 @@ const CRAWLER_GENERATION_RUNTIME_PATHS = Object.freeze([
   'scripts/lib/crawler-generation-contract.mjs',
   'scripts/lib/crawler-generation-receipt.mjs',
   'scripts/lib/crawler-generation-token.mjs',
+  'scripts/lib/global-data-pipeline-lease.mjs',
   'scripts/lib/job-match-key.mjs',
   'scripts/lib/job-url-key.mjs',
   'scripts/lib/locale-map-diff.mjs',
@@ -130,6 +175,16 @@ const CRAWLER_GENERATION_RUNTIME_PATHS = Object.freeze([
 
 const SITE_REPOSITORY = 'valerielinc-ops/frontaliere-si-o-no';
 const CROSS_REPO_BACKOFF_SECONDS = 30;
+const SHA1_COMMIT_RE = /^[a-f0-9]{40}$/u;
+
+// Group 07 has two legacy source slugs whose data-slice identities are the
+// canonical names consumed by the generation observer. Keep this translation
+// explicit and closed: every other crawler keeps its source slug as its step
+// id, and a mapped scope must still match the declared housekeeping scope.
+const CRAWLER_STEP_ID_OVERRIDES = Object.freeze({
+  guess: 'guess-europe',
+  vf: 'vf-international-the-north-face-timberland',
+});
 
 // Solo bucket misurati e confermati estranei al ciclo crawler. L'allowlist e'
 // deliberatamente sulle ESCLUSIONI: un nuovo bucket di checkout-buckets.json
@@ -163,6 +218,28 @@ function loadJson(p) {
   return JSON.parse(fs.readFileSync(p, 'utf8'));
 }
 
+/** Resolve the exact site revision whose generated artifacts are observed. */
+export function resolveCrawlerContractSource({ sourceCommit, sourceRef } = {}) {
+  let commit = sourceCommit || process.env.CRAWLER_SOURCE_COMMIT || process.env.GITHUB_SHA;
+  if (!commit) {
+    try {
+      commit = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: REPO_ROOT, encoding: 'utf8' }).trim();
+    } catch (error) {
+      throw new Error(`cannot resolve crawler contract source commit: ${error.message}`);
+    }
+  }
+  if (!SHA1_COMMIT_RE.test(String(commit))) {
+    throw new Error(`crawler contract sourceCommit must be a 40-character source commit SHA, got ${JSON.stringify(commit)}`);
+  }
+
+  const githubRef = String(process.env.GITHUB_REF || '').replace(/^refs\/heads\//u, '');
+  const ref = sourceRef || process.env.CRAWLER_SOURCE_REF || process.env.GITHUB_REF_NAME || githubRef || 'main';
+  if (!ref || /\s/u.test(String(ref))) {
+    throw new Error(`crawler contract sourceRef must be a non-empty ref without whitespace, got ${JSON.stringify(ref)}`);
+  }
+  return { sourceCommit: String(commit), sourceRef: String(ref) };
+}
+
 /**
  * ---------------------------------------------------------------------------
  * STABLE ASSIGNMENT (#6482) — why packGroups() no longer decides membership on
@@ -183,7 +260,7 @@ function loadJson(p) {
  *
  * Fix: the membership decision is PERSISTED, in
  * data/crawler-group-assignments.json, as an ORDERED member list per group
- * (order matters too — it is the order of the generated background steps, so
+ * (order matters too — it is the order of the generated crawler launchers, so
  * re-sorting it would rewrite every file for no reason). On a normal run the
  * generator READS that file:
  *
@@ -244,7 +321,7 @@ function assignmentsDoc(memberSlugsByGroup) {
     _comment: [
       'PINNED crawler -> group assignment. Source of truth for which crawler runs in which',
       'crawler-group-NN.yml, and in which position (position = order of the generated',
-      'background steps). Maintained BY scripts/generate-crawler-group-workflows.mjs: edit',
+      'crawler launchers). Maintained BY scripts/generate-crawler-group-workflows.mjs: edit',
       'data/crawler-manifest.json and re-run the generator, never hand-edit this file.',
       'A deliberate redistribution of the whole corpus is an explicit --rebalance run (#6482).',
     ].join(' '),
@@ -345,7 +422,7 @@ export function assignGroupsStable(crawlers, pinnedGroups, medianMs) {
 
 /**
  * Bin-pack crawlers into `groupCount` groups. Group wall-clock = MAX member
- * duration (background steps run concurrently, not summed) — NOT a sum, so
+ * duration (crawler processes run concurrently, not summed) — NOT a sum, so
  * standard LPT-for-makespan-by-sum does not directly apply: once a group's
  * bottleneck (its largest member so far) is set, adding any SMALLER member
  * is "free" in the max-cost metric. A naive "always add to the group with
@@ -477,10 +554,22 @@ const CRAWLER_SHELL_PREAMBLE = Object.freeze(['set -uo pipefail', 'set +e', ''])
 // `Workflow Failure: <group>` issue for the run. Suppressing here therefore
 // consolidates the signal, it does not silence it.
 const GROUP_SHARED_PRECONDITION_EXIT = 43;
+const GLOBAL_LEASE_BUSY_EXIT = GLOBAL_DATA_PIPELINE_LEASE_BUSY_EXIT;
 // Fires the per-crawler failure reporter. Any non-zero commit exit still
-// reports EXCEPT the two systemic classes, which are not per-crawler signals.
+// reports EXCEPT the three systemic classes, which are not per-crawler signals.
 const PER_CRAWLER_REPORT_CONDITION = 'if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ]'
-  + ` && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne ${GROUP_SHARED_PRECONDITION_EXIT} ]; }; then`;
+  + ` && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne ${GROUP_SHARED_PRECONDITION_EXIT} ]`
+  + ` && [ "$git_commit_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ]; }; then`;
+
+function globalLeaseBusyNotice(slug, { propagate = false } = {}) {
+  return [
+    `if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq ${GLOBAL_LEASE_BUSY_EXIT} ]; then`,
+    `  echo "::warning::${slug}: global data-pipeline lease is busy (exit ${GLOBAL_LEASE_BUSY_EXIT}); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."`,
+    `  echo "⚠️ ${slug}: global data-pipeline lease busy (exit ${GLOBAL_LEASE_BUSY_EXIT}) — no data staged, no per-crawler issue filed" >> "\${GITHUB_STEP_SUMMARY:-/dev/null}"`,
+    ...(propagate ? [`  exit ${GLOBAL_LEASE_BUSY_EXIT}`] : []),
+    'fi',
+  ];
+}
 
 /**
  * Error annotation + step-summary breadcrumb emitted in place of the
@@ -508,7 +597,7 @@ function sharedPreconditionNotice(slug, { propagate = false } = {}) {
  * Build the isolated work phase for a crawler with an explicit wall timeout.
  *
  * The timeout must cover more than the network fetch: housekeeping and the
- * serialized commit can also block a background target indefinitely. Failure
+ * serialized commit can also block a detached crawler indefinitely. Failure
  * reporting deliberately remains outside this phase so a timeout is still
  * observable and the target exits non-zero without committing partial data.
  */
@@ -542,8 +631,9 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
   work.push(`  echo "⚠️ ${crawler.slug}: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"`);
   work.push('  exit 0');
   work.push('fi');
+  work.push(...globalLeaseBusyNotice(crawler.slug, { propagate: true }));
   work.push(...sharedPreconditionNotice(crawler.slug, { propagate: true }));
-  work.push('if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then');
+  work.push(`if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ]; }; then`);
   work.push('  exit 1');
   work.push('fi');
   work.push('exit 0');
@@ -575,16 +665,17 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
     outer.push('if [ "$target_exit" -eq 124 ]; then');
     outer.push(`  crawler_failure_timeout_detail=${shellQuote(`\n**Causa:** timeout del target dopo ${timeoutMinutes} minuti (exit 124).`)}`);
     outer.push('fi');
-    // `-ne 43`: the work phase re-exits GROUP_SHARED_PRECONDITION_EXIT
-    // verbatim so this gate can drop the per-crawler report for a group-wide
-    // fault. The final `-ne 0` gate below is untouched: the step still fails.
-    outer.push(`if [ "$target_exit" -ne 0 ] && [ "$target_exit" -ne ${GROUP_SHARED_PRECONDITION_EXIT} ]; then`);
+    // `-ne 43`/`-ne 44`: the work phase re-exits the systemic commit outcomes
+    // verbatim so this gate can drop the per-crawler report. The final gate
+    // still fails for real errors, but treats a lease convoy as a retryable
+    // scheduling outcome.
+    outer.push(`if [ "$target_exit" -ne 0 ] && [ "$target_exit" -ne ${GROUP_SHARED_PRECONDITION_EXIT} ] && [ "$target_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ]; then`);
     outer.push(indentBlock(timeoutAwareRun.trimEnd(), 2));
     outer.push('fi');
     outer.push('');
   }
 
-  outer.push('if [ "$target_exit" -ne 0 ]; then');
+  outer.push(`if [ "$target_exit" -ne 0 ] && [ "$target_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ]; then`);
   outer.push('  exit 1');
   outer.push('fi');
   outer.push('exit 0');
@@ -592,7 +683,7 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
 }
 
 /**
- * Build the single inline shell script for one crawler's background step:
+ * Build the single inline shell script for one crawler's launcher:
  * run -> [if success: housekeeping -> commit+push (flock-serialized)] ->
  * [if failure: failure report], using each step's ORIGINAL `run:` body
  * verbatim. The success/failure gating mirrors GitHub Actions' own default
@@ -623,7 +714,7 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
  * GitHub Actions' own `bash -e {0}` default, nothing aborts the script early
  * even without `|| true`. `git_commit_exit` is then
  * treated as equally significant as `crawler_exit` for both the
- * failure-report gate and this background step's own final exit code.
+ * failure-report gate and the launcher's own final exit code.
  */
 export function buildCrawlerShellBody(crawler) {
   const targetTimeoutMinutes = validateTargetTimeoutMinutes(crawler);
@@ -640,7 +731,7 @@ export function buildCrawlerShellBody(crawler) {
   // failure-report `if` block never runs, and no GitHub Issue gets created.
   // This was the root cause of zero "Crawler Failure" issues being filed
   // despite ~160 real crawler failures overnight post-#3701 — every failing
-  // crawler killed its own background step's script before the report gate.
+  // crawler killed its own launcher script before the report gate.
   lines.push('set +e');
   lines.push('');
   lines.push(`# ---- ${crawler.slug}: run crawler (verbatim from original workflow) ----`);
@@ -678,7 +769,7 @@ export function buildCrawlerShellBody(crawler) {
       // into one shared bucket per group, and no longer identify which
       // crawler broke. Substitute the runtime expression with a literal,
       // per-crawler-unique identifier baked in at generation time: the exact
-      // background step name (`Run <slug>`) also used as this step's `name:`
+      // result step name (`Run <slug>`) also used as this step's `name:`
       // in the generated YAML, so close-recovered-failure-issues.mjs can
       // resolve it back to a real, lookup-able step via the Jobs API.
       //
@@ -709,6 +800,7 @@ export function buildCrawlerShellBody(crawler) {
       lines.push(`  echo "::warning::${crawler.slug}: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."`);
       lines.push(`  echo "⚠️ ${crawler.slug}: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"`);
       lines.push('fi');
+      lines.push(...globalLeaseBusyNotice(crawler.slug));
       lines.push(...sharedPreconditionNotice(crawler.slug));
       lines.push('');
       continue;
@@ -727,7 +819,7 @@ export function buildCrawlerShellBody(crawler) {
 
     if (isCommitStep) {
       // HAZARD FIX 2: serialize the local git index mutation across
-      // concurrent background steps sharing this job's working copy.
+      // concurrent crawler processes sharing this job's working copy.
       // Only the commit+push moment is serialized (seconds), not the
       // crawl itself. See file header for rationale.
       //
@@ -752,11 +844,11 @@ export function buildCrawlerShellBody(crawler) {
     lines.push('');
   }
 
-  // Fail this background step (and therefore the job, and therefore make
-  // the `if: failure()` failure-report step's condition true — it already
+  // Fail this launcher process (and therefore its result step and the job,
+  // making the `if: failure()` failure-report step's condition true — it already
   // ran inline above, but a non-zero exit here is also what makes the
   // overall job/step show red in the Actions UI and what a future consumer
-  // of this step's own exit status, e.g. `wait-all`, observes) if EITHER
+  // of this script's own exit status observes) if EITHER
   // the crawl OR the commit/push failed.
   // Contention loss (42) with a successful crawl does NOT fail the step: the
   // job conclusion is what close-recovered-failure-issues.mjs keys recovery
@@ -764,7 +856,7 @@ export function buildCrawlerShellBody(crawler) {
   // blocked the sweep from draining every sibling's recovered issue and made
   // real failures indistinguishable from herd noise. Real crawl/commit
   // failures (any other non-zero) still fail the step as before.
-  lines.push('if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then');
+  lines.push(`if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ]; }; then`);
   lines.push('  exit 1');
   lines.push('fi');
   lines.push('exit 0');
@@ -773,6 +865,114 @@ export function buildCrawlerShellBody(crawler) {
 
 function shellQuote(s) {
   return `'${s.replace(/'/g, `'\\''`)}'`;
+}
+
+function isCrawlerLaunchStep(step) {
+  return typeof step?.id === 'string' && step.id.startsWith('crawler-launch-');
+}
+
+/**
+ * Start one crawler without relying on an undocumented Actions step key.
+ *
+ * GitHub terminates a foreground step only after its `run:` command exits, so
+ * the launcher writes the crawler body to a private script, detaches a new
+ * session, and returns immediately. The detached wrapper records the exact
+ * exit code atomically; the matching result step below turns that code back
+ * into a normal Actions step conclusion and streams the saved log.
+ */
+export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
+  const nn = String(groupIndex).padStart(2, '0');
+  const slug = crawler.slug;
+  const body = buildCrawlerShellBody(crawler);
+  const launcher = [
+    'set +e',
+    `script_path="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.sh"`,
+    `status_file="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.status"`,
+    `status_tmp="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.status.tmp.$$"`,
+    'bash "$script_path"',
+    'crawler_exit=$?',
+    'printf \'%s\\n\' "$crawler_exit" > "$status_tmp"',
+    'mv "$status_tmp" "$status_file"',
+    'exit "$crawler_exit"',
+  ].join('\n');
+  return [
+    'set -euo pipefail',
+    `state_dir="$RUNNER_TEMP/crawler-generation/group-${nn}"`,
+    'mkdir -p "$state_dir"',
+    `script_path="$state_dir/${slug}.sh"`,
+    `launcher_path="$state_dir/${slug}.launcher.sh"`,
+    `log_path="$state_dir/${slug}.log"`,
+    `pid_path="$state_dir/${slug}.pid"`,
+    `status_path="$state_dir/${slug}.status"`,
+    'rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"',
+    '# shellcheck disable=SC2016,SC1003',
+    `printf '%s\\n' ${shellQuote(body)} > "$script_path"`,
+    '# shellcheck disable=SC2016,SC1003',
+    `printf '%s\\n' ${shellQuote(launcher)} > "$launcher_path"`,
+    'if command -v setsid >/dev/null 2>&1; then',
+    '  env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &',
+    'else',
+    '  env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &',
+    'fi',
+    'launcher_pid=$!',
+    'printf \'%s\\n\' "$launcher_pid" > "$pid_path"',
+  ].join('\n');
+}
+
+/** Wait for one detached crawler and expose its real exit code to Actions. */
+export function buildCrawlerResultShellBody(crawler, groupIndex) {
+  const nn = String(groupIndex).padStart(2, '0');
+  const slug = crawler.slug;
+  return [
+    'set -uo pipefail',
+    `state_dir="$RUNNER_TEMP/crawler-generation/group-${nn}"`,
+    `status_file="$state_dir/${slug}.status"`,
+    `pid_file="$state_dir/${slug}.pid"`,
+    `log_file="$state_dir/${slug}.log"`,
+    'launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"',
+    'if [ "$launch_outcome" != "success" ]; then',
+    `  echo "::error::${slug}: launch step outcome is $launch_outcome; detached crawler was not started"`,
+    '  exit 1',
+    'fi',
+    'if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then',
+    `  echo "::error::${slug}: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"`,
+    '  exit 1',
+    'fi',
+    `deadline=$((SECONDS + ${JOB_TIMEOUT_MINUTES} * 60))`,
+    'while [ ! -s "$status_file" ]; do',
+    '  if [ "$SECONDS" -ge "$deadline" ]; then',
+    `    echo "::error::${slug}: detached crawler did not publish a status before the ${JOB_TIMEOUT_MINUTES} minute group budget"`,
+    '    exit 1',
+    '  fi',
+    '  if [ -s "$pid_file" ]; then',
+    '    pid="$(cat "$pid_file" 2>/dev/null || true)"',
+    '    if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then',
+    `      echo "::error::${slug}: invalid detached crawler PID: $pid"`,
+    '      exit 1',
+    '    fi',
+    '    if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then',
+    '      sleep 1',
+    '      if [ ! -s "$status_file" ]; then',
+    `        echo "::error::${slug}: detached crawler exited without publishing its status"`,
+    '        exit 1',
+    '      fi',
+    '    fi',
+    '  fi',
+    '  sleep 2',
+    'done',
+    'if [ -f "$log_file" ]; then',
+    '  cat "$log_file"',
+    'else',
+    `  echo "::error::${slug}: crawler log is missing"`,
+    '  exit 1',
+    'fi',
+    'status="$(cat "$status_file" 2>/dev/null || true)"',
+    'if ! [[ "$status" =~ ^[0-9]+$ ]]; then',
+    `  echo "::error::${slug}: invalid crawler status: $status"`,
+    '  exit 1',
+    'fi',
+    'exit "$status"',
+  ].join('\n');
 }
 
 /**
@@ -822,7 +1022,9 @@ function buildCrawlerStepEnv(crawler, summaryFile) {
   // maps, so a crawler cannot accidentally replace the capability reference
   // with a job-wide variable or a user-controlled value.
   merged.CODEX_AUTH_BROKER_SOCKET = '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}';
-  return merged;
+  return Object.fromEntries(
+    Object.entries(merged).map(([key, value]) => [key, normalizeCrawlerInputReferences(value)]),
+  );
 }
 
 function crawlerGenerationMembers(group) {
@@ -853,6 +1055,41 @@ function crawlerGenerationRosterFromGroups(groups) {
   return createCrawlerGenerationRoster(rosterGroups, primarySlices);
 }
 
+export function crawlerGenerationLedgerPersistenceRun() {
+  return [
+    'set +e',
+    'bash scripts/lib/git-commit-data.sh --extra-only "Record crawler generation ledger" data/crawler-generation-ledger.jsonl',
+    'git_commit_exit=$?',
+    'if [ "$git_commit_exit" -eq 42 ]; then',
+    '  echo "::warning::crawler generation ledger: push lost the ref race after all retries (contention); this cycle ledger entry was not committed and the next scheduled cycle records its own ledger state."',
+    '  echo "⚠️ crawler generation ledger: push contention loss (exit 42) — this cycle ledger entry was not committed; next scheduled cycle records its own state" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"',
+    '  exit 0',
+    'fi',
+    `if [ "$git_commit_exit" -eq ${GLOBAL_LEASE_BUSY_EXIT} ]; then`,
+    `  echo "::warning::crawler generation ledger: global data-pipeline lease is busy (exit ${GLOBAL_LEASE_BUSY_EXIT}); this cycle ledger entry was not committed and the next scheduled cycle records its own state."`,
+    `  echo "⚠️ crawler generation ledger: global data-pipeline lease busy (exit ${GLOBAL_LEASE_BUSY_EXIT}) — this cycle ledger entry was not committed" >> "\${GITHUB_STEP_SUMMARY:-/dev/null}"`,
+    '  exit 0',
+    'fi',
+    'if [ "$git_commit_exit" -ne 0 ]; then',
+    `  if [ "$git_commit_exit" -eq ${GROUP_SHARED_PRECONDITION_EXIT} ]; then`,
+    `    echo "::error::crawler generation ledger: shared deferred-commit precondition failed (exit ${GROUP_SHARED_PRECONDITION_EXIT})"`,
+    `    echo "❌ crawler generation ledger: shared deferred-commit precondition failed (exit ${GROUP_SHARED_PRECONDITION_EXIT})" >> "\${GITHUB_STEP_SUMMARY:-/dev/null}"`,
+    '  else',
+    '    echo "::error::crawler generation ledger persistence failed (exit $git_commit_exit)"',
+    '    echo "❌ crawler generation ledger persistence failed (exit $git_commit_exit)" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"',
+    '  fi',
+    'fi',
+    'exit "$git_commit_exit"',
+  ].join('\n');
+}
+
+function crawlerGenerationFinalizerFailureRun() {
+  return [
+    'echo "::error::crawler generation finalizer failed; ledger persistence skipped so a missing/partial manifest cannot be recorded as success"',
+    'echo "❌ crawler generation finalizer failed; ledger persistence skipped (no false-success ledger entry)" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"',
+  ].join('\n');
+}
+
 function crawlerGenerationTerminalSteps(groupIndex, expectedCrawlers) {
   const nn = String(groupIndex).padStart(2, '0');
   const output = `\${{ runner.temp }}/crawler-generation/crawler-group-${nn}-terminal.json`;
@@ -880,11 +1117,17 @@ function crawlerGenerationTerminalSteps(groupIndex, expectedCrawlers) {
       run: 'node scripts/crawler-group-generation-finalizer.mjs',
     },
     {
+      name: 'Report crawler generation finalizer failure',
+      if: "always() && steps.crawler-generation-finalizer.outcome == 'failure'",
+      'continue-on-error': true,
+      run: crawlerGenerationFinalizerFailureRun(),
+    },
+    {
       name: 'Persist crawler generation ledger',
-      if: 'always()',
+      if: "always() && steps.crawler-generation-finalizer.outcome == 'success'",
       'continue-on-error': true,
       env: { CRAWLER_GENERATION_RECEIPT_DIR: '', SKIP_AI_TRANSLATION: '1' },
-      run: 'bash scripts/lib/git-commit-data.sh --extra-only "Record crawler generation ledger" data/crawler-generation-ledger.jsonl',
+      run: crawlerGenerationLedgerPersistenceRun(),
     },
     {
       name: 'Upload crawler generation manifest (shadow)',
@@ -936,6 +1179,7 @@ function npmScriptsForAnalyzer() {
 /** Build the YAML object (as a JS object, serialized via `yaml` lib) for one group workflow. */
 function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnoreScripts) {
   const groupName = `crawler-group-${String(groupIndex).padStart(2, '0')}`;
+  const runtimeInputs = crawlerRuntimeInputsForGroup(group.members);
 
   const steps = [];
 
@@ -1000,6 +1244,12 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
     ].join('\n'),
   });
 
+  // #7091 — refuse to start if the live cross-repo run of this same group is
+  // already in flight (see scripts/check-crawler-group-live-run.mjs for why
+  // this cannot be a `concurrency:` block instead). Must run after the RC
+  // load above so GITHUB_PAT_NANAKO is in $GITHUB_ENV.
+  steps.push(liveRunGuardStep(groupName));
+
   // OmniRoute (ON by default, RC kill-switch ENABLE_OMNIROUTE_FALLBACK='0')
   // — self-hosted local AI gateway, offered in ai-models.mjs's DEFAULT_CHAIN
   // as AI_MODELS.OMNIROUTE_AUTO. Since 2026-07-29 (AI_COMPETING_TIERS
@@ -1010,10 +1260,10 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
   // that). Shared composite action: see
   // .github/actions/setup-omniroute/action.yml for the full rationale +
   // incident history. Must run before the per-crawler steps below so
-  // OMNIROUTE_ENABLED is set in $GITHUB_ENV in time for every background
-  // step to inherit it (no per-step env: needed — GITHUB_ENV writes made by
-  // a synchronous step before the loop are visible to every subsequent
-  // background step in the same job, same mechanism the RC kill-switch flag
+  // OMNIROUTE_ENABLED is set in $GITHUB_ENV in time for every launcher
+  // to inherit it (no per-step env: needed — GITHUB_ENV writes made by
+  // a synchronous step before the launch loop are visible to every subsequent
+  // launcher in the same job, same mechanism the RC kill-switch flag
   // itself relies on below).
   steps.push({ uses: './.github/actions/setup-omniroute' });
 
@@ -1026,7 +1276,7 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
   // see .github/actions/setup-claude-haiku-fallback/action.yml for the full
   // rationale + incident history. Must run before the per-crawler steps
   // below so ENABLE_HAIKU_ARTICLE_FALLBACK is forced into $GITHUB_ENV in
-  // time for every background step to inherit it.
+  // time for every launcher to inherit it.
   steps.push({
     id: 'setup_claude_haiku_fallback',
     uses: './.github/actions/setup-claude-haiku-fallback',
@@ -1037,26 +1287,32 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
   });
 
   for (const crawler of group.members) {
-    const stepId = `crawler-${crawler.slug}`;
+    const launchStepId = `crawler-launch-${crawler.slug}`;
     const summaryFile = `/tmp/slug-history-summary-${crawler.slug}.txt`;
 
     steps.push({
-      name: `Run ${crawler.slug}`,
-      id: stepId,
-      background: true,
+      name: `Launch ${crawler.slug}`,
+      id: launchStepId,
       // HAZARD FIX 1 (SLUG_HISTORY_SUMMARY_FILE) + #3713 root-cause fix: every
       // env value the crawler's runStep/postSteps declared lives here, in the
       // step's own YAML env: map, instead of being text-spliced into the
       // shell body — see buildCrawlerStepEnv().
       env: buildCrawlerStepEnv(crawler, summaryFile),
-      run: buildCrawlerShellBody(crawler),
+      run: buildCrawlerLaunchShellBody(crawler, groupIndex),
     });
   }
 
-  steps.push({
-    name: 'Wait for all crawlers in this group',
-    'wait-all': true,
-  });
+  for (const crawler of group.members) {
+    steps.push({
+      name: `Run ${crawler.slug}`,
+      id: `crawler-${crawler.slug}`,
+      if: 'always()',
+      env: {
+        CRAWLER_LAUNCH_OUTCOME: `\${{ steps['crawler-launch-${crawler.slug}'].outcome }}`,
+      },
+      run: buildCrawlerResultShellBody(crawler, groupIndex),
+    });
+  }
   steps.push({
     name: 'Commit crawler group data atomically',
     if: 'always()',
@@ -1081,11 +1337,17 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
       '  echo "⚠️ group commit: push contention loss (exit 42) — crawl data was fine, group not failed" >> "$GITHUB_STEP_SUMMARY"',
       '  exit 0',
       'fi',
+      `if [ "$git_commit_exit" -eq ${GLOBAL_LEASE_BUSY_EXIT} ]; then`,
+      `  echo "::warning::group commit: global data-pipeline lease is busy (exit ${GLOBAL_LEASE_BUSY_EXIT}); no group data was staged and the next scheduled cycle will retry — group not failed (systemic class)."`,
+      `  echo "⚠️ group commit: global data-pipeline lease busy (exit ${GLOBAL_LEASE_BUSY_EXIT}) — group data not staged, group not failed" >> "$GITHUB_STEP_SUMMARY"`,
+      '  exit 0',
+      'fi',
       'exit "$git_commit_exit"',
     ].join('\n'),
   });
   steps.push(codexAuthBrokerCleanupStep());
   steps.push(...crawlerGenerationTerminalSteps(groupIndex, crawlerGenerationMembers(group)));
+  steps.push(liveRunLeaseReleaseStep(groupName));
 
   return {
     name: `Crawler Group ${String(groupIndex).padStart(2, '0')} (${group.members.length} crawlers)`,
@@ -1103,6 +1365,7 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
             required: true,
             type: 'string',
           },
+          ...runtimeInputs,
         },
       },
     },
@@ -1122,12 +1385,13 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
         'runs-on': 'ubuntu-latest',
         'timeout-minutes': JOB_TIMEOUT_MINUTES,
         env: {
-          // Job-level env is inherited by every background shell and avoids
+          // Job-level env is inherited by every crawler launcher and avoids
           // hundreds of identical step overrides. The receipt CLIs resolve the
           // two relative directories strictly underneath runner-provided RUNNER_TEMP.
           CRAWLER_GENERATION_TOKEN: CRAWLER_GENERATION_TOKEN_EXPR,
           CRAWLER_GENERATION_RECEIPT_DIR: 'crawler-generation/receipts',
           CRAWLER_GROUP_COMMIT_DIR: 'crawler-generation/commit-batch',
+          DATA_PIPELINE_LEASE: '1',
         },
         steps,
       },
@@ -1235,19 +1499,18 @@ function normalizedCrawlerStep(step) {
   const env = Object.fromEntries(
     Object.entries(copy.env ?? {})
       .filter(([key]) => key !== 'GH_TOKEN')
-      .map(([key, value]) => [
-        key,
-        typeof value === 'string'
-          ? value.replaceAll('github.event.inputs.skip_ai_translation', 'inputs.skip_ai_translation')
-          : value,
-      ]),
+      .map(([key, value]) => [key, normalizeCrawlerInputReferences(value)]),
   );
   copy.env = env;
   return copy;
 }
 
+function crawlerLogicWorkflowName(nn) {
+  return `Crawler Group ${nn} logic (reusable workflow)`;
+}
+
 function logicPreamble(existingText, nn) {
-  const bodyAt = existingText?.search(/^on:\s*$/m) ?? -1;
+  const bodyAt = existingText?.search(/^(?:name:\s*Crawler Group \d+ logic.*|on:)\s*$/m) ?? -1;
   if (bodyAt >= 0) return existingText.slice(0, bodyAt);
   return [
     `# Crawler Group ${nn} logic — generated source for corpus execution.`,
@@ -1266,6 +1529,33 @@ function localRemoteConfigStep() {
 
 function logicRemoteConfigStep() {
   return { name: 'Load secrets from Remote Config', run: 'node scripts/load-rc-env.mjs' };
+}
+
+// #7091 — see scripts/check-crawler-group-live-run.mjs. Each entry point
+// checks the OTHER one: the generated (workflow_dispatch) side checks the
+// live corpus repo, the logic (workflow_call) side checks this repo's own
+// disabled manual entry point.
+function liveRunGuardStep(groupName) {
+  return {
+    name: 'Guard: refuse a concurrent run of the other entry point',
+    run: `node scripts/check-crawler-group-live-run.mjs ${groupName}.yml`,
+  };
+}
+
+function liveRunLeaseReleaseStep(groupName) {
+  return {
+    name: 'Release cross-entry crawler live-run lease',
+    if: "always() && env.CRAWLER_GROUP_LIVE_LEASE_OWNED == '1'",
+    'continue-on-error': true,
+    run: `node scripts/check-crawler-group-live-run.mjs ${groupName}.yml --release`,
+  };
+}
+
+function logicLiveRunGuardStep(groupName) {
+  return {
+    name: 'Guard: refuse a concurrent run of the other entry point',
+    run: `node scripts/check-crawler-group-live-run.mjs ${groupName}.yml --repo ${SITE_REPOSITORY} --token-env GITHUB_PAT`,
+  };
 }
 
 function logicWriteAuthStep(members) {
@@ -1292,7 +1582,7 @@ export function buildCrawlerLogicWorkflow(generatedWorkflowText, {
   const workflow = YAML.parse(generatedWorkflowText);
   const job = Object.values(workflow.jobs ?? {})[0];
   if (!job?.steps) throw new Error(`crawler-group-${nn}: generated job missing`);
-  const members = job.steps.filter((step) => step?.background === true).length;
+  const members = job.steps.filter(isCrawlerLaunchStep).length;
 
   const logicInputs = structuredClone(workflow.on.workflow_dispatch.inputs);
   // The cross-repo minimal caller predates this input. Keep the reusable
@@ -1326,20 +1616,25 @@ export function buildCrawlerLogicWorkflow(generatedWorkflowText, {
   job.steps[rcAt] = logicRemoteConfigStep();
   job.steps.splice(rcAt + 1, 0, logicWriteAuthStep(members));
 
+  const guardAt = job.steps.findIndex(
+    (step) => step?.name === 'Guard: refuse a concurrent run of the other entry point',
+  );
+  if (guardAt < 0) throw new Error(`crawler-group-${nn}: live-run guard step missing`);
+  job.steps[guardAt] = logicLiveRunGuardStep(`crawler-group-${nn}`);
+
   for (const step of job.steps) {
     if (step?.uses?.startsWith('./.github/actions/')) {
       step.uses = `${SITE_REPOSITORY}/${step.uses.slice(2)}@main`;
     }
-    if (step?.background !== true) continue;
+    if (!isCrawlerLaunchStep(step)) continue;
     delete step.env?.GH_TOKEN;
     for (const [key, value] of Object.entries(step.env ?? {})) {
-      if (typeof value === 'string') {
-        step.env[key] = value.replaceAll('github.event.inputs.skip_ai_translation', 'inputs.skip_ai_translation');
-      }
+      step.env[key] = normalizeCrawlerInputReferences(value);
     }
   }
 
   const body = YAML.stringify({
+    name: crawlerLogicWorkflowName(nn),
     on: workflow.on,
     permissions: workflow.permissions,
     env: workflow.env,
@@ -1389,7 +1684,7 @@ function normalizedContractStep(step, side, fileName, members) {
 
   if (typeof copy?.uses === 'string' && copy.uses.startsWith('actions/checkout@')) {
     const allowedWith = side === 'generated'
-      ? new Set(['fetch-depth'])
+      ? new Set(['repository', 'fetch-depth', 'ref', 'clean', 'sparse-checkout', 'sparse-checkout-cone-mode'])
       : new Set(['repository', 'fetch-depth']);
     const unexpected = Object.keys(copy.with ?? {}).filter((key) => !allowedWith.has(key));
     if (unexpected.length > 0) {
@@ -1399,10 +1694,16 @@ function normalizedContractStep(step, side, fileName, members) {
       throw new Error(`${fileName}: logic checkout does not target ${SITE_REPOSITORY}`);
     }
     // Conserva ogni campo step-level presente o futuro (`if`, `timeout-*`,
-    // shell, continue-on-error...). Le sole differenze dichiarate sono il nome
-    // descrittivo e `with.repository` nel reusable cross-repo.
+    // shell, continue-on-error...). Le sole differenze dichiarate sono il nome,
+    // il repository/ref del checkout cross-repo e il suo profilo sparse.
     copy.name = 'Checkout';
     delete copy.with.repository;
+    if (side === 'generated') {
+      delete copy.with.ref;
+      delete copy.with.clean;
+      delete copy.with['sparse-checkout'];
+      delete copy.with['sparse-checkout-cone-mode'];
+    }
     return copy;
   }
 
@@ -1421,9 +1722,29 @@ function normalizedContractStep(step, side, fileName, members) {
     return null;
   }
 
+  if (copy?.name === 'Guard: refuse a concurrent run of the other entry point') {
+    const nn = /crawler-group-(\d{2})/.exec(fileName)?.[1];
+    const groupName = `crawler-group-${nn}`;
+    const expected = side === 'generated' ? liveRunGuardStep(groupName) : logicLiveRunGuardStep(groupName);
+    if (!nn || JSON.stringify(copy) !== JSON.stringify(expected)) {
+      throw new Error(`${fileName}: ${side} live-run guard drifted from its complete allowed form`);
+    }
+    return { name: copy.name };
+  }
+
+  if (copy?.name === 'Release cross-entry crawler live-run lease') {
+    const nn = /crawler-group-(\d{2})/.exec(fileName)?.[1];
+    const groupName = `crawler-group-${nn}`;
+    const expected = liveRunLeaseReleaseStep(groupName);
+    if (!nn || JSON.stringify(copy) !== JSON.stringify(expected)) {
+      throw new Error(`${fileName}: ${side} live-run lease release drifted from its complete allowed form`);
+    }
+    return copy;
+  }
+
   const composite = /^valerielinc-ops\/frontaliere-si-o-no\/(\.github\/actions\/[^@]+)@main$/.exec(copy?.uses ?? '');
   if (composite) copy.uses = `./${composite[1]}`;
-  return copy?.background === true ? normalizedCrawlerStep(copy) : copy;
+  return isCrawlerLaunchStep(copy) ? normalizedCrawlerStep(copy) : copy;
 }
 
 function normalizedJobContract(workflow, side, fileName) {
@@ -1431,7 +1752,7 @@ function normalizedJobContract(workflow, side, fileName) {
   if (jobEntries.length !== 1) throw new Error(`${fileName}: expected exactly one job`);
   const [jobName, job] = jobEntries[0];
   const normalizedJob = structuredClone(job);
-  const members = (job.steps ?? []).filter((step) => step?.background === true).length;
+  const members = (job.steps ?? []).filter(isCrawlerLaunchStep).length;
   const steps = (job.steps ?? [])
     .map((step) => normalizedContractStep(step, side, fileName, members))
     .filter(Boolean);
@@ -1442,7 +1763,7 @@ function normalizedJobContract(workflow, side, fileName) {
 /**
  * I 23 `*-logic.yml` erano copie manuali: la loro parita' col generatore era
  * solo accidentale. Questo confronto fail-closed copre l'intero job (setup,
- * roster, env, shell body e wait-all) e normalizza esclusivamente le differenze
+ * roster, env e shell body) e normalizza esclusivamente le differenze
  * dichiarate del workflow_call cross-repo: checkout esplicito, bootstrap PAT,
  * composite action assolute e token ambient rimosso dai crawler.
  */
@@ -1452,14 +1773,15 @@ export function assertCrawlerLogicParity(generatedWorkflowText, logicWorkflowTex
   const generatedKeys = Object.keys(generatedWorkflow).sort();
   const logicKeys = Object.keys(logicWorkflow).sort();
   if (JSON.stringify(generatedKeys) !== JSON.stringify(['concurrency', 'env', 'jobs', 'name', 'on', 'permissions']) ||
-      JSON.stringify(logicKeys) !== JSON.stringify(['env', 'jobs', 'on', 'permissions'])) {
+      JSON.stringify(logicKeys) !== JSON.stringify(['env', 'jobs', 'name', 'on', 'permissions'])) {
     throw new Error(`${fileName}: undeclared top-level workflow metadata`);
   }
   const generatedJobName = Object.keys(generatedWorkflow.jobs ?? {})[0] ?? '';
   const nn = /_(\d{2})$/.exec(generatedJobName)?.[1];
   const generatedMembers = Object.values(generatedWorkflow.jobs ?? {})[0]?.steps
-    ?.filter((step) => step?.background === true).length;
+    ?.filter(isCrawlerLaunchStep).length;
   if (!nn || generatedWorkflow.name !== `Crawler Group ${nn} (${generatedMembers} crawlers)` ||
+      logicWorkflow.name !== crawlerLogicWorkflowName(nn) ||
       JSON.stringify(generatedWorkflow.concurrency) !== JSON.stringify({
     group: `jobs-crawler-group-${nn}`,
     'cancel-in-progress': false,
@@ -1495,8 +1817,8 @@ export function assertCrawlerLogicParity(generatedWorkflowText, logicWorkflowTex
     throw new Error(`${fileName} drifted from generate-crawler-group-workflows.mjs (full job mismatch)`);
   }
   return logic.job.steps
-    .filter((step) => step?.background === true)
-    .map((step) => step.id.replace(/^crawler-/, ''));
+    .filter(isCrawlerLaunchStep)
+    .map((step) => step.id.replace(/^crawler-launch-/, ''));
 }
 
 function checkoutWithSparse(sourceWith, sparsePatterns, ref = 'main') {
@@ -1532,6 +1854,22 @@ export function buildStandaloneCrossRepoWorkflow({
   const workflow = YAML.parse(logicText);
   const job = Object.values(workflow.jobs ?? {})[0];
   if (!job?.steps) throw new Error(`${name}: reusable logic has no runnable job steps`);
+
+  // Keep the portable workflow's run-name/job/step env aligned with the
+  // canonical helper. `required: true` documents the supported caller, but an
+  // empty dispatch value must still resolve identically in the observer name
+  // and in every runtime consumer.
+  if (/^crawler-group-\d{2}\.yml$/u.test(workflowFile)) {
+    job.env = {
+      ...(job.env ?? {}),
+      CRAWLER_GENERATION_TOKEN: CRAWLER_GENERATION_TOKEN_EXPR,
+    };
+    for (const step of job.steps) {
+      if (step?.env?.CRAWLER_GENERATION_TOKEN === CRAWLER_GENERATION_TOKEN_EXPR) {
+        step.env.CRAWLER_GENERATION_TOKEN = CRAWLER_GENERATION_TOKEN_EXPR;
+      }
+    }
+  }
 
   const checkoutIndex = job.steps.findIndex((step) =>
     typeof step?.uses === 'string' && step.uses.startsWith('actions/checkout@'));
@@ -1591,6 +1929,28 @@ export function buildStandaloneCrossRepoWorkflow({
   };
   job.steps.splice(checkoutIndex, 1, primary, backoff, retry, reportCheckoutFailure, checkoutReady);
 
+  // A workflow rerun keeps the original run id and advances run_attempt. The
+  // recovery planner can authorize exactly one such successor, but only after
+  // the target has verified the immutable claim bound to its own head commit
+  // and workflow blob. Keep this guard in the standalone corpus artifact only:
+  // the reusable site logic is never itself the recovery target.
+  if (workflowFile === 'translate-pending.yml') {
+    const readyIndex = job.steps.findIndex((step) => step?.id === 'checkout');
+    job.steps.splice(readyIndex + 1, 0, {
+      name: 'Validate recovery successor claim',
+      if: "steps.checkout.outcome == 'success' && github.run_attempt > 1",
+      env: {
+        GITHUB_API_URL: '${{ github.api_url }}',
+        GITHUB_EVENT_NAME: '${{ github.event_name }}',
+        GITHUB_RUN_ATTEMPT: '${{ github.run_attempt }}',
+        GITHUB_RUN_ID: '${{ github.run_id }}',
+        GITHUB_SHA: '${{ github.sha }}',
+        GITHUB_TOKEN: '${{ github.token }}',
+      },
+      run: 'node scripts/ci/translate-recovery-successor-guard.mjs',
+    });
+  }
+
   const diagnosticFailureCondition =
     `failure() && (steps.${primaryId}.outcome == 'success' || steps.site_checkout_retry.outcome == 'success')`;
   let diagnosticReporter = null;
@@ -1633,11 +1993,11 @@ export function buildStandaloneCrossRepoWorkflow({
   // npm ci, Remote Config e composite action). Il reporter checkout resta uno
   // shell step separato perché, se entrambi i checkout falliscono, l'action
   // locale non esiste nel working tree. Dopo almeno un checkout riuscito,
-  // invece, questo catch-all viene inserito PRIMA del primo background step:
+  // invece, questo catch-all viene inserito PRIMA del primo crawler launcher:
   // vede i guasti del setup condiviso ma non duplica le issue per-crawler che
-  // ogni background step crea gia' da solo.
+  // ogni crawler processa gia' da solo.
   if (!diagnosticReporter) {
-    const firstCrawlerAt = job.steps.findIndex((step) => step?.background === true);
+    const firstCrawlerAt = job.steps.findIndex(isCrawlerLaunchStep);
     if (firstCrawlerAt < 0) {
       throw new Error(`${name}: no diagnostic reporter and no crawler boundary`);
     }
@@ -1686,8 +2046,16 @@ export function buildStandaloneCrossRepoWorkflow({
 
 function groupTrigger(logic) {
   const inputs = structuredClone(logic.on.workflow_call.inputs);
-  // Standalone corpus callers are generated from the token-aware dispatch
-  // contract and must not inherit the reusable workflow's rollout shim.
+  const runtimeInputs = {};
+  for (const input of Object.keys(CRAWLER_RUNTIME_INPUTS)) {
+    if (!Object.hasOwn(inputs, input)) continue;
+    runtimeInputs[input] = inputs[input];
+    delete inputs[input];
+  }
+  // Standalone corpus callers have exactly one supported caller: the site
+  // orchestrator, which always passes the correlation token. Keep this input
+  // required and without a default; the reusable site workflow remains
+  // optional because its direct/manual path intentionally owns the fallback.
   inputs.generation_token = {
     ...inputs.generation_token,
     required: true,
@@ -1703,18 +2071,7 @@ function groupTrigger(logic) {
           default: '',
           type: 'string',
         },
-        timeout_ms: {
-          description: 'Per-crawler timeout override in milliseconds (empty uses the crawler default)',
-          required: false,
-          default: '',
-          type: 'string',
-        },
-        strict_localization: {
-          description: 'Require localized job data (1=yes)',
-          required: false,
-          default: '1',
-          type: 'string',
-        },
+        ...runtimeInputs,
       },
     },
   };
@@ -1733,6 +2090,39 @@ function translateTrigger(logic) {
   };
 }
 
+function canonicalizePortableCrawlerIdentities(content, logic, sourceMembers) {
+  const logicJob = Object.values(logic.jobs ?? {})[0];
+  const logicSteps = logicJob?.steps ?? [];
+  let canonicalContent = content;
+  const canonicalMembers = sourceMembers.map((sourceSlug) => {
+    const canonicalSlug = CRAWLER_STEP_ID_OVERRIDES[sourceSlug] ?? sourceSlug;
+    const sourceStep = logicSteps.find((step) => step?.id === `crawler-launch-${sourceSlug}`);
+    if (canonicalSlug !== sourceSlug && sourceStep?.env?.JOBS_HOUSEKEEPING_SCOPE !== canonicalSlug) {
+      throw new Error(
+        `portable crawler identity ${canonicalSlug} for ${sourceSlug} does not match JOBS_HOUSEKEEPING_SCOPE ${JSON.stringify(sourceStep?.env?.JOBS_HOUSEKEEPING_SCOPE)}`,
+      );
+    }
+    if (canonicalSlug === sourceSlug) return sourceSlug;
+
+    const launchIdPattern = new RegExp(`^(\\s*)id: crawler-launch-${sourceSlug}$`, 'gmu');
+    const resultIdPattern = new RegExp(`^(\\s*)id: crawler-${sourceSlug}$`, 'gmu');
+    const launchReferencePattern = new RegExp(`crawler-launch-${sourceSlug}(?![a-z0-9-])`, 'gu');
+    const launchMatches = [...canonicalContent.matchAll(launchIdPattern)];
+    const resultMatches = [...canonicalContent.matchAll(resultIdPattern)];
+    if (launchMatches.length !== 1 || resultMatches.length !== 1) {
+      throw new Error(
+        `portable workflow must contain one launcher and one result identity for ${sourceSlug}; found ${launchMatches.length} launcher(s), ${resultMatches.length} result(s)`,
+      );
+    }
+    canonicalContent = canonicalContent
+      .replace(launchIdPattern, `$1id: crawler-launch-${canonicalSlug}`)
+      .replace(resultIdPattern, `$1id: crawler-${canonicalSlug}`)
+      .replace(launchReferencePattern, `crawler-launch-${canonicalSlug}`);
+    return canonicalSlug;
+  });
+  return { content: canonicalContent, members: canonicalMembers };
+}
+
 /** Genera i 23 workflow crawler + translate-pending e il loro contratto hash. */
 /**
  * @param {{
@@ -1741,6 +2131,8 @@ function translateTrigger(logic) {
  *   contractPath?: string,
  *   workflowsDir?: string,
  *   translateLogicPath?: string,
+ *   sourceCommit?: string,
+ *   sourceRef?: string,
  *   write?: boolean,
  * }} [options]
  */
@@ -1750,6 +2142,8 @@ export function generateCrossRepoExecutionArtifacts({
   contractPath,
   workflowsDir = WORKFLOWS_DIR,
   translateLogicPath = TRANSLATE_LOGIC_PATH,
+  sourceCommit,
+  sourceRef,
   write = true,
 } = {}) {
   if (!outDir || !contractPath) throw new Error('cross-repo generation requires outDir and contractPath');
@@ -1759,6 +2153,8 @@ export function generateCrossRepoExecutionArtifacts({
   if (!validateCrawlerGenerationRoster(groupResults.generationRoster).valid) {
     throw new Error('cross-repo generation requires a valid crawler generation roster');
   }
+  const source = resolveCrawlerContractSource({ sourceCommit, sourceRef });
+  const generatorSha256 = sha256(fs.readFileSync(fileURLToPath(import.meta.url), 'utf8'));
 
   const artifacts = [];
   const artifactContents = [];
@@ -1770,7 +2166,7 @@ export function generateCrossRepoExecutionArtifacts({
     const logicText = fs.readFileSync(logicPath, 'utf8');
     const members = assertCrawlerLogicParity(result.content, logicText, path.basename(logicPath));
     const logic = YAML.parse(logicText);
-    const content = buildStandaloneCrossRepoWorkflow({
+    const rawContent = buildStandaloneCrossRepoWorkflow({
       logicText,
       name: `Crawler Group ${nn} (sparse cross-repo execution)`,
       runName: `crawler-generation-${CRAWLER_GENERATION_TOKEN_EXPR}-group-${nn}`,
@@ -1780,6 +2176,8 @@ export function generateCrossRepoExecutionArtifacts({
       runtimePaths: CRAWLER_GENERATION_RUNTIME_PATHS,
       checkoutRef: "${{ inputs.site_code_commit || 'main' }}",
     });
+    const portable = canonicalizePortableCrawlerIdentities(rawContent, logic, members);
+    const content = portable.content;
     YAML.parse(content);
     workflowPayloads.set(fileName, content);
     artifactContents.push(content);
@@ -1788,7 +2186,8 @@ export function generateCrossRepoExecutionArtifacts({
       sourceLogic: path.basename(logicPath),
       sourceSha256: sha256(logicText),
       artifactSha256: sha256(content),
-      members,
+      generatorSha256,
+      members: portable.members,
     });
   }
 
@@ -1809,6 +2208,7 @@ export function generateCrossRepoExecutionArtifacts({
     sourceLogic: path.basename(translateLogicPath),
     sourceSha256: sha256(translateLogicText),
     artifactSha256: sha256(translateContent),
+    generatorSha256,
     members: [],
   });
 
@@ -1834,8 +2234,15 @@ export function generateCrossRepoExecutionArtifacts({
   const contract = {
     schemaVersion: 1,
     generatedBy: 'frontaliere-si-o-no/scripts/generate-crawler-group-workflows.mjs',
-    generatorSha256: sha256(fs.readFileSync(fileURLToPath(import.meta.url), 'utf8')),
+    generatorSha256,
     sourceRepository: SITE_REPOSITORY,
+    sourceRef: source.sourceRef,
+    sourceCommit: source.sourceCommit,
+    artifactObservation: {
+      generatorSha256,
+      sourceRef: source.sourceRef,
+      sourceCommit: source.sourceCommit,
+    },
     groupCount: GROUP_COUNT,
     artifactCount: artifacts.length,
     observerCount: observers.length,
@@ -1886,10 +2293,13 @@ export function generateCrossRepoExecutionArtifacts({
 export function checkGeneratedArtifacts({ profileRenderer = computeProfiledText } = {}) {
   const groupResults = generate({ profileRenderer, write: false });
   const logicArtifacts = generateCrawlerLogicArtifacts({ groupResults, write: false });
+  const committedContract = loadJson(PORTABLE_CONTRACT_PATH);
   const cross = generateCrossRepoExecutionArtifacts({
     groupResults,
     outDir: PORTABLE_CORPUS_DIR,
     contractPath: PORTABLE_CONTRACT_PATH,
+    sourceCommit: committedContract.sourceCommit,
+    sourceRef: committedContract.sourceRef,
     write: false,
   });
   const changed = [];
@@ -2043,7 +2453,7 @@ export function generate({
  * pins and the .yml disagree (a hand-edit like PR #6484, a rebase onto a branch
  * that touched a group, a pin file lost in a merge) the .yml wins and this
  * reads the truth back out of them. Reads the ordered `id: crawler-<slug>`
- * background steps — the same identity the generator writes.
+ * crawler launcher steps — the same identity the generator writes.
  */
 export function extractAssignmentsFromWorkflows(outDir = WORKFLOWS_DIR) {
   const files = fs
@@ -2054,8 +2464,8 @@ export function extractAssignmentsFromWorkflows(outDir = WORKFLOWS_DIR) {
     const doc = YAML.parse(fs.readFileSync(path.join(outDir, f), 'utf8'));
     const jobKey = Object.keys(doc.jobs)[0];
     return (doc.jobs[jobKey].steps || [])
-      .filter((s) => s && s.background && typeof s.id === 'string')
-      .map((s) => /^crawler-(.+)$/.exec(s.id))
+      .filter((s) => isCrawlerLaunchStep(s))
+      .map((s) => /^crawler-launch-(.+)$/.exec(s.id))
       .filter(Boolean)
       .map((m) => m[1]);
   });
@@ -2114,6 +2524,7 @@ if (isMain) {
     });
     console.log(`Generated ${cross.artifacts.length} standalone corpus workflows -> ${outDir}`);
     console.log(`Cross-repo contract -> ${contractPath}`);
+    console.log(`Cross-repo source -> ${cross.contract.sourceRef}@${cross.contract.sourceCommit}`);
   } else {
     const cross = generateCrossRepoExecutionArtifacts({
       groupResults: results,
@@ -2121,6 +2532,7 @@ if (isMain) {
       contractPath: PORTABLE_CONTRACT_PATH,
     });
     console.log(`Generated ${cross.artifacts.length} portable corpus workflows -> ${PORTABLE_CORPUS_DIR}`);
+    console.log(`Cross-repo source -> ${cross.contract.sourceRef}@${cross.contract.sourceCommit}`);
   }
   if (rebalance) {
     console.log('⚠️  --rebalance: membership re-derived from scratch — expect all 23 files to change.');

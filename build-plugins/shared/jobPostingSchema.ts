@@ -63,12 +63,14 @@ import {
   isValidPostalCode,
   resolvePostalCode,
 } from './postalCodes';
+import { sameOrg } from '../../scripts/lib/prospector/registrable.mjs';
 import {
   resolveSalaryBand,
   TICINO_MIN_ANNUAL_CHF,
   type SalaryBand,
 } from './salaryDefaults';
 import { truncateCodeUnits } from './safeTruncate';
+import { sanitizeJobTitleForDisplay } from './stripLiteralMarkdown';
 
 // ── Types ───────────────────────────────────────────────────────────────────
 
@@ -90,6 +92,8 @@ export interface JobInput {
   readonly company?: string | null;
   readonly companyKey?: string | null;
   readonly companySlug?: string | null;
+  /** Website used for hiringOrganization.sameAs; kept separate from the raw ownership domain. */
+  readonly companyWebsite?: string | null;
   readonly companyDomain?: string | null;
   readonly companyLogoUrl?: string | null;
 
@@ -216,6 +220,21 @@ export interface JobPostingSchema {
     readonly '@type': 'Country';
     readonly name: string;
   };
+}
+
+/**
+ * Return true only when the apply destination belongs to the employer domain.
+ * A merely present `url`/`applyUrl` is not proof of a direct employer flow:
+ * crawled records commonly point at an aggregator or a hosted ATS. Missing
+ * employer-domain evidence therefore stays conservatively false.
+ */
+export function isEmployerOwnedApplyUrl(
+  job: Pick<JobInput, 'applyUrl' | 'companyDomain'>,
+): boolean {
+  const applyUrl = String(job?.applyUrl || '').trim();
+  const companyDomain = String(job?.companyDomain || '').trim();
+  if (!applyUrl || !companyDomain) return false;
+  return sameOrg(applyUrl, companyDomain);
 }
 
 /** Schema.org `JobPosting.employmentType` closed set. */
@@ -428,7 +447,7 @@ function buildDescriptionFallback(
 function resolveTitle(job: JobInput, locale: string): string {
   const short = (locale || 'it').slice(0, 2).toLowerCase();
   const byLocale = job.titleByLocale?.[short] || job.titleByLocale?.[locale];
-  const base = String(byLocale || job.title || '').trim();
+  const base = sanitizeJobTitleForDisplay(String(byLocale || job.title || '').trim());
   if (base.length > 0) return base;
   const company = (job.company || '').trim();
   switch (short) {
@@ -716,8 +735,12 @@ export function buildJobPostingSchema(
   const logo = rawLogo && rawLogo.startsWith('/') && !rawLogo.startsWith('//')
     ? `${(opts.baseUrl || CANONICAL_ORIGIN).replace(/\/+$/, '')}${rawLogo}`
     : rawLogo;
-  const sameAs = job.companyDomain && String(job.companyDomain).trim().length > 0
-    ? `https://${String(job.companyDomain).replace(/^https?:\/\//, '').trim()}`
+  // Keep the dedicated website for job-page callers, while preserving the
+  // legacy sameAs signal for other consumers that only provide companyDomain.
+  // Ownership proof remains isolated in isEmployerOwnedApplyUrl().
+  const companyWebsite = String(job.companyWebsite || job.companyDomain || '').trim();
+  const sameAs = companyWebsite
+    ? (/^https?:\/\//i.test(companyWebsite) ? companyWebsite : `https://${companyWebsite}`)
     : undefined;
 
   const hiringOrganization: HiringOrganizationSchema = {
@@ -742,7 +765,7 @@ export function buildJobPostingSchema(
     baseSalary,
     url: opts.url,
     validThrough,
-    directApply: Boolean(job.applyUrl || job.url),
+    directApply: isEmployerOwnedApplyUrl(job),
     ...(job.id || job.slug
       ? {
           identifier: {

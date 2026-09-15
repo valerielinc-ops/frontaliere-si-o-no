@@ -522,9 +522,9 @@ describe('sender call sites — the class of the #5672 defect, not just the one 
     ).toEqual([]);
   });
 
-  it('the drip sender uses the builder that carries ac (regression guard for the fix in this PR)', () => {
+  it('the drip sender uses the scoped-token builder for the footer', () => {
     const src = fs.readFileSync(path.join(REPO_ROOT, 'scripts/send-onboarding-drip.mjs'), 'utf8');
-    expect(src).toMatch(/unsubscribeUrl:\s*makeAuthenticatedActionUrl\('unsubscribe'/);
+    expect(src).toMatch(/unsubscribeUrl:\s*makeOneClickUnsubscribeUrl\(/);
     expect(src).not.toMatch(/unsubscribeUrl:\s*makeUnsubscribeUrl\(/);
   });
 

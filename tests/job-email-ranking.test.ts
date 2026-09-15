@@ -1,16 +1,15 @@
 import { describe, expect, it } from 'vitest';
 import {
   aggregateRankingStats,
-  appendJobRankingParams,
   assignJobRankingVariant,
   buildEmbeddedRankingUpdate,
   computeSmoothedCtr,
-  parseJobRankingClick,
   pseudonymousUserId,
   rankEmailJobs,
   rankingStatsKey,
   readJobEmailRankingConfig,
 } from '../functions/src/lib/jobEmailRanking.js';
+import { appendJobRankingParams, parseJobRankingClick } from '../functions/src/lib/jobEmailRankingLinks.js';
 
 const CONFIG = {
   enabled: true,

@@ -3,10 +3,10 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 /**
  * Issue #7489 item 3. The per-run budgets of check-ai-visibility.mjs live in
  * module state: `openRouterRequests` (metered spend cap) and `retryBudgetLeftMs`
- * (cumulative sleep between retries). "Per run" only holds if a run clears them
- * on entry — the first was cleared at the top of runCheck(), the second was not,
- * so a second run in the SAME process inherited the first run's spent waiting
- * and gave up on the first transient failure without retrying.
+ * (cumulative sleep between retries, keyed per platform). "Per run" only holds
+ * if a run clears them on entry — the first was cleared at the top of runCheck(),
+ * the second was not, so a second run in the SAME process inherited the first
+ * run's spent waiting and gave up on the first transient failure without retrying.
  *
  * The report never writes to disk here: runCheck() appends to the committed
  * history file, which a test must not touch.

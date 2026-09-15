@@ -20,6 +20,7 @@ import { describe, it, expect, beforeEach, vi } from 'vitest';
 // fake module is injected directly via `__setFirestoreModuleForTests`
 // instead of relying on module-registry mocking.
 const firestoreStore = new Map<string, Record<string, unknown>>();
+const TEST_FIREBASE_API_KEY = 'test-firebase-web-api-key';
 
 const setDocMock = vi.fn(async (...args: unknown[]) => {
   const ref = args[0] as { id: string; isSavedJobDoc: boolean };
@@ -113,6 +114,9 @@ function savedEntry(id: string, overrides: Partial<SavedJobEntry> = {}): SavedJo
 
 describe('savedJobsService — persistence', () => {
   beforeEach(() => {
+    // The production app receives this public runtime value from Remote Config;
+    // the Firestore fake still needs a deterministic key to initialize Firebase.
+    process.env.FIREBASE_API_KEY = TEST_FIREBASE_API_KEY;
     localStorage.clear();
     firestoreStore.clear();
     setDocMock.mockClear();

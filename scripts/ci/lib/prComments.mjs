@@ -19,6 +19,37 @@
  * entrambi gli originali (nessuno dei due gated il fetch/check su DRY).
  */
 
+/**
+ * Helper puri per le query `gh api --paginate --jq`.
+ *
+ * Sotto `--paginate` il `--jq` gira PER PAGINA e le uscite si CONCATENANO:
+ * qualunque filtro che produca un AGGREGATO (`length`, `| last`, `| first`)
+ * restituisce quindi un valore per pagina, non uno per query — su 31 commenti
+ * `length` vale `"30\n1"`, che non è nessun numero. L'idioma sicuro è un filtro
+ * ELEMENT-WISE (una riga per elemento, valido su ogni pagina) più
+ * l'aggregazione qui, lato JS, sull'output completo. (`join("\n")` resta
+ * l'eccezione ammessa: il consumatore fa `grep`/`includes` su un blob, e la
+ * concatenazione fra pagine non cambia l'esito.)
+ */
+
+/** Quante righe non vuote ha l'output di un `--jq` element-wise (es. `.[].id`). */
+export function countPaginatedLines(raw) {
+  return String(raw || '').split('\n').filter((l) => l.trim() !== '').length;
+}
+
+/**
+ * Ultimo valore di un `--jq` element-wise che emette `| @json` (una stringa
+ * JSON per riga). `@json` e non il valore grezzo perché i body dei commenti
+ * sono multi-riga e si spezzerebbero sul parser di righe.
+ */
+export function lastPaginatedJsonLine(raw) {
+  const lines = String(raw || '').split('\n').filter((l) => l.trim() !== '');
+  for (let i = lines.length - 1; i >= 0; i -= 1) {
+    try { return String(JSON.parse(lines[i])); } catch { /* riga non-JSON: ignorata */ }
+  }
+  return '';
+}
+
 /** Un commento della issue/PR `num` contiene già `marker`? Predicato puro,
  * nessun logging (i chiamanti loggano l'esito nel proprio contesto). */
 export function hasCommentMarker(gh, repo, num, marker) {

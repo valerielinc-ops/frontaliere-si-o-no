@@ -41,7 +41,7 @@ import { matchSubscribersForAd } from '../services/publisherBlastMatch.mjs';
 import { OWNER_EMAIL, isCanaryJob } from './lib/canaryAd.mjs';
 import { buildBlastEmail } from '../services/publisherBlastEmail.mjs';
 import { slugifyPublisher, truncatePublisherSlug, distinctLocations } from './lib/publisherJobProjection.mjs';
-import { makeAuthenticatedActionUrl, makePreferencesUrl } from '../services/newsletterUrls.mjs';
+import { makeOneClickUnsubscribeUrl, makePreferencesUrl } from '../services/newsletterUrls.mjs';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './lib/email-cascade.mjs';
 
 const SEND = process.argv.includes('--send');
@@ -153,7 +153,7 @@ async function main() {
         recipientEmail: r.email,
         locale,
         adUrl: adUrlFor(locale),
-        unsubscribeUrl: makeAuthenticatedActionUrl('unsubscribe', r.email),
+        unsubscribeUrl: makeOneClickUnsubscribeUrl(r.email),
         // #5759 — the per-channel switch is in the preference centre, and this
         // channel's consent is an opt-out that leans on it. `fallbackUnsigned`
         // so a missing HMAC secret degrades to an unsigned link the reader can

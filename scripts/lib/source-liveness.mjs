@@ -219,7 +219,12 @@ export async function checkPostHogLiveness({
  *
  * Returns the payload so a caller can also persist/serialise it.
  */
-export function declareNotMeasurable(monitorName, verdict, { logger = console } = {}) {
+const defaultDiagnosticLogger = {
+  warn: (...args) => console.error(...args),
+  log: (...args) => console.error(...args),
+};
+
+export function declareNotMeasurable(monitorName, verdict, { logger = defaultDiagnosticLogger } = {}) {
   const bar = '='.repeat(70);
   const lines = [
     bar,
@@ -252,7 +257,7 @@ export function declareNotMeasurable(monitorName, verdict, { logger = console } 
 export async function abstainIfSourceDead(monitorName, opts = {}) {
   const verdict = await checkPostHogLiveness(opts);
   if (verdict.alive) return null;
-  return declareNotMeasurable(monitorName, verdict, { logger: opts.logger ?? console });
+  return declareNotMeasurable(monitorName, verdict, { logger: opts.logger ?? defaultDiagnosticLogger });
 }
 
 /**
@@ -273,6 +278,10 @@ export const POSTHOG_MONITORS = [
   { path: 'scripts/campaign-goal-check.mjs', guarded: true, emits: 'opens GitHub issues (campaign-goal) + exit 1' },
   { path: 'scripts/profession-keyword-opportunities.mjs', guarded: true, emits: 'workflow opens a deduped SEO issue' },
   { path: 'scripts/revenue-monitor.mjs', guarded: true, emits: 'CLS verdict table + history jsonl' },
+  { path: 'scripts/build-employer-insights.mjs', guarded: false, emits: 'scheduled employer-insights snapshot (GA4/PostHog source)' },
+  { path: 'scripts/ci/export-loop-outcomes.mjs', guarded: false, emits: 'scheduled L1/L4/L5/L7/L9 outcome ledgers (source evidence)' },
+  { path: 'scripts/ci/export-l2-demand-outcomes.mjs', guarded: false, emits: 'scheduled L2 demand/utility outcome ledger (source evidence)' },
+  { path: 'scripts/ci/export-l8-affiliate-outcomes.mjs', guarded: false, emits: 'scheduled L8 affiliate attribution outcome ledger (source evidence)' },
   { path: 'scripts/funnel-metrics-snapshot.mjs', guarded: false, emits: 'comments on tracker issues #886/#855/#888/#857' },
   { path: 'scripts/build-evidence-index.mjs', guarded: true, emits: 'data/evidence-index.json (drives thin-page filtering)' },
   { path: 'scripts/fetch-thin-page-promotions.mjs', guarded: false, emits: 'exit 2/3 + promotion URL set' },

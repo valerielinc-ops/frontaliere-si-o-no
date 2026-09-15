@@ -30,6 +30,23 @@ describe('deriveAnalyticsPageContext', () => {
     });
   });
 
+  it('keeps sector hubs out of the job-detail template', () => {
+    expect(
+      deriveAnalyticsPageContext('/cerca-lavoro-ticino/infermieri/'),
+    ).toMatchObject({
+      pageTemplate: 'jobs_sector',
+      routeFamily: 'jobs_sector',
+    });
+
+    expect(
+      deriveAnalyticsPageContext('/en/find-jobs-ticino/nurses/'),
+    ).toMatchObject({
+      pageTemplate: 'jobs_sector',
+      routeFamily: 'jobs_sector',
+      contentLocale: 'en',
+    });
+  });
+
   it('classifies article and stats pages', () => {
     expect(
       deriveAnalyticsPageContext('/fr/articles-frontaliers/imposition-frontaliers-2026'),

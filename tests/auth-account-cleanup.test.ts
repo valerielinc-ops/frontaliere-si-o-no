@@ -170,13 +170,20 @@ describe('cleanupUserDataForDeletedAccount', () => {
     const { cleanupUserDataForDeletedAccount, isAccountDeletedTombstone } = await import(
       '../functions/src/authAccountCleanup.js'
     );
-    const db = seedDeletedUser();
+    const db = seedDeletedUser({
+      [`petition_signatures/${UID}`]: {
+        petitionId: 'stabio-dosso',
+        uid: UID,
+      },
+    });
 
     const result = await cleanupUserDataForDeletedAccount({ uid: UID, email: EMAIL }, db as never);
 
     expect(result.deletedSavedJobs).toBe(2);
     expect(result.tombstonedNewsletter).toBe(true);
     expect(result.tombstonedJobAlert).toBe(true);
+    expect(result.deletedPetitionSignature).toBe(true);
+    expect(db.store[`petition_signatures/${UID}`]).toBeUndefined();
     expect(db.store[`users/${UID}`]).toBeUndefined();
     expect(db.store[`users/${UID}/savedJobs/job-a`]).toBeUndefined();
     expect(db.store[`users/${UID}/savedJobs/job-b`]).toBeUndefined();
@@ -521,6 +528,16 @@ describe('profile delete path no longer pretends client newsletter delete is the
 
   it('onDelete passes the Auth user email into the shared cleanup', () => {
     expect(indexSrc).toMatch(/cleanupUserDataForDeletedAccount\(\{\s*uid:\s*user\.uid,\s*email:\s*user\.email\s*\}\)/);
+  });
+
+  it('configures retries for both tombstone triggers before rethrowing failures', () => {
+    const sync = indexSrc.slice(
+      indexSrc.indexOf('export const syncNewsletterSubscriberAuth'),
+      indexSrc.indexOf('// v1 (not v2/identity\'s beforeUserDeleted)'),
+    );
+    const cleanup = indexSrc.slice(indexSrc.indexOf('export const cleanupUserDataOnAccountDelete'));
+    expect(sync).toMatch(/retry:\s*true/);
+    expect(cleanup).toMatch(/functionsV1\.runWith\(\{\s*failurePolicy:\s*true\s*\}\)\.auth\.user\(\)\.onDelete/);
   });
 
   it('only runs the write trigger for a tombstone when the marker is actually cleared', () => {

@@ -52,6 +52,16 @@ on:
         description: Explicit generation correlation token (shadow only)
         required: true
         type: string
+      timeout_ms:
+        description: Per-crawler timeout override in milliseconds (empty uses the crawler default)
+        required: false
+        default: ""
+        type: string
+      strict_localization:
+        description: Require localized job data (empty uses the crawler default; 1=yes, 0=no)
+        required: false
+        default: ""
+        type: string
 concurrency:
   group: jobs-crawler-group-01
   cancel-in-progress: false
@@ -68,6 +78,7 @@ jobs:
       CRAWLER_GENERATION_TOKEN: ${{ inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}
       CRAWLER_GENERATION_RECEIPT_DIR: crawler-generation/receipts
       CRAWLER_GROUP_COMMIT_DIR: crawler-generation/commit-batch
+      DATA_PIPELINE_LEASE: "1"
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -97,28 +108,39 @@ jobs:
         run: |-
           node scripts/load-rc-env.mjs
           echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"
+      - name: "Guard: refuse a concurrent run of the other entry point"
+        run: node scripts/check-crawler-group-live-run.mjs crawler-group-01.yml
       - uses: ./.github/actions/setup-omniroute
       - id: setup_claude_haiku_fallback
         uses: ./.github/actions/setup-claude-haiku-fallback
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
-      - name: Run coop
-        id: crawler-coop
-        background: true
+      - name: Launch coop
+        id: crawler-launch-coop
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-coop.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_COOP_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          JOBS_COOP_STRICT: ${{ inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
-          SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '1' }}
+          SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '1' }}
           JOBS_HOUSEKEEPING_SCOPE: coop-ticino
           JOBS_SLICE_FILE: data/jobs/by-crawler/coop-ticino.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          set -uo pipefail
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-01"
+          mkdir -p "$state_dir"
+          script_path="$state_dir/coop.sh"
+          launcher_path="$state_dir/coop.launcher.sh"
+          log_path="$state_dir/coop.log"
+          pid_path="$state_dir/coop.pid"
+          status_path="$state_dir/coop.status"
+          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set -uo pipefail
           set +e
 
           # ---- coop: run crawler (verbatim from original workflow) ----
@@ -133,12 +155,12 @@ jobs:
 
           # ---- coop: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Coop jobs (dedicated crawler)"'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Coop jobs (dedicated crawler)"'\''
             git_commit_exit=$?
           fi
 
           # ---- coop: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run coop" \
               --description "## Crawler fallito
@@ -153,17 +175,90 @@ jobs:
             echo "::warning::coop: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ coop: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::coop: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ coop: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::coop: crawl OK but the crawler group's shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "::error::coop: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ coop: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
             exit 1
           fi
-          exit 0
-      - name: Wait for all crawlers in this group
-        wait-all: true
+          exit 0' > "$script_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-01/coop.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-01/coop.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-01/coop.status.tmp.$$"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
+          mv "$status_tmp" "$status_file"
+          exit "$crawler_exit"' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Run coop
+        id: crawler-coop
+        if: always()
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-coop'].outcome }}
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-01"
+          status_file="$state_dir/coop.status"
+          pid_file="$state_dir/coop.pid"
+          log_file="$state_dir/coop.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::coop: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::coop: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::coop: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::coop: invalid detached crawler PID: $pid"
+                exit 1
+              fi
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::coop: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::coop: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::coop: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
       - name: Commit crawler group data atomically
         if: always()
         run: |-
@@ -173,6 +268,11 @@ jobs:
           if [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::group commit: push lost the ref race after all retries (contention) on the final aggregated commit. Cycle lost, self-heals next scheduled run — group not failed (systemic class)."
             echo "⚠️ group commit: push contention loss (exit 42) — crawl data was fine, group not failed" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          if [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::group commit: global data-pipeline lease is busy (exit 44); no group data was staged and the next scheduled cycle will retry — group not failed (systemic class)."
+            echo "⚠️ group commit: global data-pipeline lease busy (exit 44) — group data not staged, group not failed" >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
           exit "$git_commit_exit"
@@ -199,13 +299,42 @@ jobs:
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-01-terminal.json
           CRAWLER_GENERATION_LEDGER_PATH: data/crawler-generation-ledger.jsonl
         run: node scripts/crawler-group-generation-finalizer.mjs
+      - name: Report crawler generation finalizer failure
+        if: always() && steps.crawler-generation-finalizer.outcome == 'failure'
+        continue-on-error: true
+        run: |-
+          echo "::error::crawler generation finalizer failed; ledger persistence skipped so a missing/partial manifest cannot be recorded as success"
+          echo "❌ crawler generation finalizer failed; ledger persistence skipped (no false-success ledger entry)" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
       - name: Persist crawler generation ledger
-        if: always()
+        if: always() && steps.crawler-generation-finalizer.outcome == 'success'
         continue-on-error: true
         env:
           CRAWLER_GENERATION_RECEIPT_DIR: ""
           SKIP_AI_TRANSLATION: "1"
-        run: bash scripts/lib/git-commit-data.sh --extra-only "Record crawler generation ledger" data/crawler-generation-ledger.jsonl
+        run: |-
+          set +e
+          bash scripts/lib/git-commit-data.sh --extra-only "Record crawler generation ledger" data/crawler-generation-ledger.jsonl
+          git_commit_exit=$?
+          if [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::crawler generation ledger: push lost the ref race after all retries (contention); this cycle ledger entry was not committed and the next scheduled cycle records its own ledger state."
+            echo "⚠️ crawler generation ledger: push contention loss (exit 42) — this cycle ledger entry was not committed; next scheduled cycle records its own state" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 0
+          fi
+          if [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::crawler generation ledger: global data-pipeline lease is busy (exit 44); this cycle ledger entry was not committed and the next scheduled cycle records its own state."
+            echo "⚠️ crawler generation ledger: global data-pipeline lease busy (exit 44) — this cycle ledger entry was not committed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 0
+          fi
+          if [ "$git_commit_exit" -ne 0 ]; then
+            if [ "$git_commit_exit" -eq 43 ]; then
+              echo "::error::crawler generation ledger: shared deferred-commit precondition failed (exit 43)"
+              echo "❌ crawler generation ledger: shared deferred-commit precondition failed (exit 43)" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            else
+              echo "::error::crawler generation ledger persistence failed (exit $git_commit_exit)"
+              echo "❌ crawler generation ledger persistence failed (exit $git_commit_exit)" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            fi
+          fi
+          exit "$git_commit_exit"
       - name: Upload crawler generation manifest (shadow)
         if: always()
         continue-on-error: true
@@ -216,3 +345,7 @@ jobs:
           if-no-files-found: error
           overwrite: true
           retention-days: 14
+      - name: Release cross-entry crawler live-run lease
+        if: always() && env.CRAWLER_GROUP_LIVE_LEASE_OWNED == '1'
+        continue-on-error: true
+        run: node scripts/check-crawler-group-live-run.mjs crawler-group-01.yml --release

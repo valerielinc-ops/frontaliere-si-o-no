@@ -1,10 +1,12 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { spawnSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
 import {
   freeTranslate,
   getCascadeStats,
   logCascadeSummary,
   isSourcePassthrough,
+  mergeTranslationOutcome,
 } from '@/scripts/lib/free-translate.mjs';
 import { translateWithMyMemory } from '@/scripts/lib/mymemory-translate.mjs';
 
@@ -26,7 +28,7 @@ vi.mock('@/scripts/lib/mymemory-translate.mjs', () => ({
  * passthrough E deve lasciar passare intatto tutto il resto. Il verso positivo
  * da solo si soddisfa rifiutando tutto.
  *
- * Le asserzioni guardano la RAGIONE (il bucket `tierPassthroughs`, la riga di
+ * Le asserzioni guardano la RAGIONE (i bucket `tierPassthroughs`/`tierPassthroughChunks`, la riga di
  * `logCascadeSummary`), non solo il valore di ritorno. `freeTranslate` rende ''
  * per DUE motivi diversi — «ho rifiutato una non-traduzione» e «i motori sono
  * giu'» — e sul solo valore di ritorno sono indistinguibili: l'ultimo caso di
@@ -211,6 +213,89 @@ function runExhaustedTierSkipScenario(
   });
 }
 
+function runRetryOutcomeResetScenario() {
+  const modulePath = new URL('../scripts/lib/free-translate.mjs', import.meta.url).pathname;
+  const signature = "export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 'title', _outcome = null }) {";
+  const childScript = `
+    const { readFileSync } = await import('node:fs');
+    const source = readFileSync(${JSON.stringify(modulePath)}, 'utf8');
+    const signature = ${JSON.stringify(signature)};
+    const injected = source.replace(
+      signature,
+      "let retryProbeCalls = 0;\\n" + signature + "\\n" +
+        "    retryProbeCalls += 1;\\n" +
+        "    _outcome.passthroughs += 1;\\n" +
+        "    if (retryProbeCalls === 1) _outcome.tierUnavailable = true;\\n" +
+        "    return '';",
+    );
+    if (injected === source) throw new Error('freeTranslate signature not found');
+    const standalone = injected
+      .replace(
+        "import { translateWithMyMemory } from './mymemory-translate.mjs';",
+        "const translateWithMyMemory = async () => '';",
+      )
+      .replace(
+        "import { finalizeTranslatedText, maskProtectedTokens } from './translation-glossary.mjs';",
+        "const finalizeTranslatedText = ({ translatedText }) => translatedText; const maskProtectedTokens = (text) => ({ text, tokens: [] });",
+      )
+      .replace(
+        "import { translateWithLocalOpusMt, localOpusMtEnabled } from './local-opus-mt.mjs';",
+        "const translateWithLocalOpusMt = async () => ''; const localOpusMtEnabled = () => false;",
+      );
+    globalThis.console.log = () => {};
+    globalThis.console.warn = () => {};
+    const moduleUrl = 'data:text/javascript;base64,' + Buffer.from(standalone).toString('base64');
+    const { freeTranslateWithRetryDetailed } = await import(moduleUrl);
+    const result = await freeTranslateWithRetryDetailed({
+      text: 'Titolo di prova',
+      sourceLang: 'it',
+      targetLang: 'en',
+      maxRetries: 1,
+    });
+    process.stdout.write(JSON.stringify(result));
+  `;
+
+  return spawnSync(process.execPath, ['--input-type=module', '--eval', childScript], {
+    encoding: 'utf8',
+    env: { ...process.env, VITEST: '1' },
+  });
+}
+
+function runUnconfiguredTierScenario(service: 'googleCloud' | 'huggingFace') {
+  const moduleUrl = new URL('../scripts/lib/free-translate.mjs', import.meta.url).href;
+  const childScript = `
+    const { translateWithGoogleCloud, translateWithHuggingFace } = await import(${JSON.stringify(moduleUrl)});
+    const translate = ${service === 'googleCloud' ? 'translateWithGoogleCloud' : 'translateWithHuggingFace'};
+    const invoke = async (text, targetLang) => {
+      const outcome = { passthroughs: 0, errors: 0, incomplete: false, tierUnavailable: false };
+      await translate(text, 'it', targetLang, outcome);
+      return outcome;
+    };
+    process.stdout.write(JSON.stringify({
+      empty: await invoke('', 'en'),
+      sameLanguage: await invoke('Titolo di prova', 'it'),
+      unavailable: await invoke('Titolo di prova', 'en'),
+    }));
+  `;
+
+  return spawnSync(process.execPath, ['--input-type=module', '--eval', childScript], {
+    encoding: 'utf8',
+    env: {
+      ...process.env,
+      AZURE_TRANSLATOR_KEY: '',
+      AZURE_TRANSLATOR_KEY_2: '',
+      DEEPL_API_KEY: '',
+      DEEPL_API_KEY_2: '',
+      GSC_CLIENT_ID: '',
+      GSC_CLIENT_SECRET: '',
+      GSC_REFRESH_TOKEN: '',
+      HF_TOKEN: '',
+      HUGGINGFACE_API_KEY: '',
+      VITEST: '1',
+    },
+  });
+}
+
 const EN = [
   '## In brief',
   '- Cross-border workers living within twenty kilometres of the border stay in the old tax regime',
@@ -225,6 +310,7 @@ function statsSnapshot() {
   return {
     hits: s.tierHits.myMemory || 0,
     passthroughs: s.tierPassthroughs.myMemory || 0,
+    chunks: s.tierPassthroughChunks.myMemory || 0,
   };
 }
 
@@ -259,6 +345,7 @@ describe('freeTranslate — guardia «uscita == sorgente»', () => {
     // come hit. Senza questa riga il caso resterebbe verde anche con la guardia
     // rimossa dal giorno in cui i motori sono giu'.
     expect(after.passthroughs - before.passthroughs).toBe(1);
+    expect(after.chunks - before.chunks).toBe(0);
     expect(after.hits - before.hits).toBe(0);
   });
 
@@ -271,14 +358,15 @@ describe('freeTranslate — guardia «uscita == sorgente»', () => {
 
     expect(out).toBe('');
     expect(statsSnapshot().passthroughs - before.passthroughs).toBe(1);
+    expect(statsSnapshot().chunks - before.chunks).toBe(0);
   });
 
   it('conta il passthrough anche sul ramo a CHUNK, che e\' quello dei body lunghi', async () => {
     // MyMemory passa al ramo a chunk sopra i 5000 caratteri. E' il ramo dei
-    // body — cioe' esattamente dei 27 passthrough misurati sul corpus — e la
-    // copia locale del confronto che stava li' li consumava prima di `tryTier`:
-    // il bucket non li avrebbe visti mai, e la riga `Tier passthrough` sarebbe
-    // stata cieca sul caso per cui e' stata scritta.
+    // body — cioe' esattamente dei 27 passthrough misurati sul corpus. Ogni
+    // echo deve comparire nel bucket canonico e nella dimensione chunk: il
+    // primo è il contratto di #1210, il secondo sostiene la calibrazione di
+    // FU-026 senza perdere la granularità.
     //
     // Sorgente su UNA riga di proposito: il ramo a chunk riassembla con
     // `parts.join(' ')`, quindi su un testo a piu' paragrafi l'uscita non e'
@@ -295,7 +383,29 @@ describe('freeTranslate — guardia «uscita == sorgente»', () => {
     const after = statsSnapshot();
 
     expect(out).toBe('');
-    expect(after.passthroughs - before.passthroughs).toBe(1);
+    expect(after.passthroughs - before.passthroughs).toBeGreaterThan(0);
+    expect(after.chunks - before.chunks).toBeGreaterThan(0);
+    expect(after.hits - before.hits).toBe(0);
+  });
+
+  it('rifiuta un body misto quando solo uno dei chunk torna verbatim', async () => {
+    const frase = 'I frontalieri residenti entro venti chilometri dal confine restano nel vecchio regime fiscale e la soglia dei quarantacinque giorni di telelavoro vale dal primo gennaio. ';
+    const lungo = frase.repeat(40).trim();
+    expect(lungo.length).toBeGreaterThan(5000);
+    let calls = 0;
+    vi.mocked(translateWithMyMemory).mockImplementation(async (chunk: string) => {
+      calls += 1;
+      return calls === 1 ? 'Translated first chunk' : chunk;
+    });
+    const before = statsSnapshot();
+
+    const out = await freeTranslate({ text: lungo, sourceLang: 'it', targetLang: 'en', fieldType: 'description' });
+    const after = statsSnapshot();
+
+    expect(calls).toBeGreaterThan(1);
+    expect(out).toBe('');
+    expect(after.passthroughs - before.passthroughs).toBeGreaterThan(0);
+    expect(after.chunks - before.chunks).toBeGreaterThan(0);
     expect(after.hits - before.hits).toBe(0);
   });
 
@@ -311,6 +421,15 @@ describe('freeTranslate — guardia «uscita == sorgente»', () => {
     const summary = lines.join('\n');
     expect(summary).toMatch(/Tier passthrough/);
     expect(summary).toMatch(/myMemory=\d+/);
+    expect(summary).toMatch(/Tier passthrough \(chunk/);
+  });
+
+  it('documenta la soglia dei chunk con la misura del corpus che la sostiene (#1320/FU-025)', () => {
+    const source = readFileSync(new URL('../scripts/lib/free-translate.mjs', import.meta.url), 'utf8');
+    expect(source).toContain('const MIN_SUBSTANTIVE_PASSTHROUGH_WORDS = 8;');
+    expect(source).toContain("blog-body:    15'476 file, 46'524 campi, 48'298 chunk");
+    expect(source).toContain("blog-body-ch:  8'388 file, 25'164 campi, 25'589 chunk");
+    expect(source).toContain("totale:       23'864 file, 71'688 campi, 73'887 chunk");
   });
 
   // ── IL VERSO INVERSO: cio' che NON deve cambiare ───────────────────────────
@@ -357,11 +476,11 @@ describe('freeTranslate — guardia «uscita == sorgente»', () => {
     expect(after.hits - before.hits).toBe(0);
   });
 
-  it('riporta passthrough true dalla cascata reale quando riconosce un echo', () => {
+  it('non memoizza un echo quando i tier premium non sono configurati', () => {
     const child = runRealCascadeWithSelfHostedBody({ translatedText: IT });
 
     expect(child.status).toBe(0);
-    expect(JSON.parse(child.stdout)).toEqual({ text: '', passthrough: true });
+    expect(JSON.parse(child.stdout)).toEqual({ text: '', passthrough: false });
   });
 
   it('non riporta passthrough quando la cascata reale incontra una risposta 200 vuota', () => {
@@ -376,8 +495,7 @@ describe('freeTranslate — guardia «uscita == sorgente»', () => {
 
     expect(child.status).toBe(0);
     const second = JSON.parse(child.stdout).second;
-    expect(second).toMatchObject({ passthroughs: 0, errors: 0, incomplete: false });
-    if (service === 'deepl') expect(second.tierUnavailable).toBe(true);
+    expect(second).toMatchObject({ passthroughs: 0, errors: 0, incomplete: false, tierUnavailable: true });
   });
 
   it('non memoizza un passthrough quando DeepL ha tutte le chiavi gia esauste', () => {
@@ -402,6 +520,32 @@ describe('freeTranslate — guardia «uscita == sorgente»', () => {
     const result = JSON.parse(child.stdout);
     expect(result.first).toEqual({ text: '', passthrough: false });
     expect(result.second).toEqual({ text: '', passthrough: false });
+  });
+
+  it('propaga tierUnavailable nel merge senza perdere un flag gia presente', () => {
+    const target = { passthroughs: 0, errors: 0, incomplete: false, tierUnavailable: false };
+
+    mergeTranslationOutcome(target, { passthroughs: 0, errors: 0, incomplete: false, tierUnavailable: true });
+    mergeTranslationOutcome(target, { passthroughs: 0, errors: 0, incomplete: false, tierUnavailable: false });
+
+    expect(target.tierUnavailable).toBe(true);
+  });
+
+  it('resetta tierUnavailable tra i retry per accettare un passthrough genuino successivo', () => {
+    const child = runRetryOutcomeResetScenario();
+
+    expect(child.status).toBe(0);
+    expect(JSON.parse(child.stdout)).toEqual({ text: '', passthrough: true });
+  });
+
+  it.each(['googleCloud', 'huggingFace'] as const)('marca %s non configurato senza toccare i guard input', (service) => {
+    const child = runUnconfiguredTierScenario(service);
+
+    expect(child.status).toBe(0);
+    const result = JSON.parse(child.stdout);
+    expect(result.empty.tierUnavailable).toBe(false);
+    expect(result.sameLanguage.tierUnavailable).toBe(false);
+    expect(result.unavailable.tierUnavailable).toBe(true);
   });
 });
 

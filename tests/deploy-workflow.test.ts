@@ -109,6 +109,13 @@ describe('post-deploy-validate-dist.yml — parallel SEO audit gates', () => {
     ).toContain('spawn_capped()');
   });
 
+  it('all dist validation jobs have explicit timeout ceilings', () => {
+    const workflow = YAML.parse(VALIDATION_YML) as any;
+    expect(workflow.jobs['validate-dist-source']?.['timeout-minutes']).toBe(90);
+    expect(workflow.jobs['validate-dist-postbuild']?.['timeout-minutes']).toBe(300);
+    expect(workflow.jobs['validate-dist-postbuild-bfs']?.['timeout-minutes']).toBe(120);
+  });
+
   it('any new audit:* script added to package.json must be reachable in post-deploy-validate-dist.yml (direct or via audit:all)', () => {
     // Gates intentionally NOT in the dist-validate parallel block:
     // - `:rebaseline` variants mutate the checked-in baseline; never CI.

@@ -52,6 +52,25 @@ afterEach(() => {
 });
 
 describe('relocalize company invocation batching', () => {
+  it('separates historical truncated keys by the full company name before batching', async () => {
+    const { canonicalCompanyKeyForJob, filterPendingForCompany } = await import('../scripts/relocalize-pending-jobs.mjs');
+    const firstName = `${'x'.repeat(63)} one`;
+    const secondName = `${'x'.repeat(63)} two`;
+    const historicalKey = 'x'.repeat(63) + '-';
+    const normalizedHistoricalKey = 'x'.repeat(63);
+
+    expect(canonicalCompanyKeyForJob({ company: firstName, companyKey: historicalKey }))
+      .not.toBe(canonicalCompanyKeyForJob({ company: secondName, companyKey: historicalKey }));
+    expect(canonicalCompanyKeyForJob({ company: firstName, companyKey: normalizedHistoricalKey }))
+      .toBe(canonicalCompanyKeyForJob({ company: firstName, companyKey: historicalKey }));
+    expect(canonicalCompanyKeyForJob({ company: firstName, companyKey: historicalKey }))
+      .toBe((await import('../scripts/lib/company-key.mjs')).normalizeCompanyKey(firstName));
+    expect(filterPendingForCompany([{ company: firstName, companyKey: historicalKey }], historicalKey))
+      .toHaveLength(1);
+    expect(filterPendingForCompany([{ company: firstName, companyKey: historicalKey }], normalizedHistoricalKey))
+      .toHaveLength(1);
+  });
+
   it('batches short companies, keeps large companies separate, and preserves company rows', async () => {
     const { buildCompanyExecutionGroups, SMALL_COMPANY_JOB_LIMIT } = await import('../scripts/relocalize-pending-jobs.mjs');
     const orderedCompanyKeys = ['short-first', 'large', 'short-later', 'large-later'];
@@ -186,13 +205,16 @@ describe('relocalize company invocation batching', () => {
       .mockImplementationOnce(async () => {
         crawlerCompanyKeys = process.env.JOBS_CRAWLER_COMPANY_KEYS || '';
         return {
-          localizationAttemptedCompanyKeys: [],
-          localizationCoveredCompanyKeys: ['served-company'],
+          localizationSterileCompanyKeys: ['served-company'],
+          localizationAttemptedCompanyKeys: ['unserved-company'],
         };
       })
       .mockImplementationOnce(async () => {
         crawlerCompanyKeys = process.env.JOBS_CRAWLER_COMPANY_KEYS || '';
-        return { localizationAttemptedCompanyKeys: [] };
+        return {
+          localizationSterileCompanyKeys: [],
+          localizationAttemptedCompanyKeys: [],
+        };
       });
 
     vi.resetModules();
@@ -233,7 +255,9 @@ describe('relocalize company invocation batching', () => {
     ].sort());
     expect(rowsByCompany['served-company'].companyServed).toBe(true);
     expect(rowsByCompany['served-company'].cleared).toBe(0);
-    expect(rowsByCompany['unserved-company'].companyServed).toBe(false);
+    // Effective work is visible in the artifact, but it must not advance the
+    // sterile ledger when no flags were cleared.
+    expect(rowsByCompany['unserved-company'].companyServed).toBe(true);
 
     // A singleton with no crawler coverage is also unserved: cardinality alone
     // must never advance its ledger entry.

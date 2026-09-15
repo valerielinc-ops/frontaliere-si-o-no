@@ -287,37 +287,112 @@ export function buildNewsletterConfirmationEmailHtml(confirmUrl, locale = 'it', 
 }
 
 /**
+ * A passwordless account-access email, intentionally not a newsletter DOI.
+ *
+ * Login links travel through the same signed confirmation endpoint because the
+ * endpoint already owns the short-lived credential and the custom-token mint.
+ * Their copy must nevertheless be a different document: an access request is
+ * not consent, so it must not say "confirm your subscription" or enumerate
+ * marketing content the recipient is about to receive.
+ *
+ * @param {string} loginUrl
+ * @param {string} [locale]
+ * @returns {string}
+ */
+export function buildNewsletterLoginEmailHtml(loginUrl, locale = 'it') {
+ const lang = normalizeLocale(locale);
+ const year = new Date().getFullYear();
+ return `<!DOCTYPE html>
+<html lang="${htmlLang(lang)}">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>${t(lang, 'loginSubject')}</title>
+</head>
+<body style="margin:0;padding:0;background:${LIGHT_BG};font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+ <table width="100%" cellpadding="0" cellspacing="0" style="background:${LIGHT_BG};padding:32px 16px;">
+ <tr><td align="center">
+ <table width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;">
+ <tr><td style="text-align:center;padding-bottom:24px;">
+ <a target="_blank" rel="noopener noreferrer" href="${CONFIRMATION_BASE_URL}" style="text-decoration:none;">
+ <img src="${CONFIRMATION_BASE_URL}/icons/icon-192x192.png" alt="${t(lang, 'brandName')}" width="48" height="48" style="display:block;margin:0 auto 8px;border-radius:12px;" />
+ <div style="font-size:22px;font-weight:800;color:${BRAND_BLUE};">${t(lang, 'brandName')}</div>
+ <div style="font-size:12px;color:${MUTED_COLOR};letter-spacing:.04em;">${t(lang, 'brandTagline')}</div>
+ </a>
+ </td></tr>
+ <tr><td style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:16px;padding:32px 28px;">
+ <div style="font-size:28px;font-weight:800;color:${BRAND_DARK};padding-bottom:8px;">${t(lang, 'loginTitle')}</div>
+ <div style="font-size:15px;line-height:1.6;color:${TEXT_COLOR};padding-bottom:20px;">
+ ${t(lang, 'loginIntro')}
+ </div>
+ <table width="100%" cellpadding="0" cellspacing="0" style="margin:24px 0;">
+ <tr><td align="center">
+ <a target="_blank" rel="noopener noreferrer" href="${escapeHtml(loginUrl)}" style="display:inline-block;background:${BRAND_BLUE};color:#ffffff;text-decoration:none;padding:16px 32px;border-radius:12px;font-size:16px;font-weight:700;letter-spacing:.02em;">
+ ${t(lang, 'loginButton')}
+ </a>
+ </td></tr>
+ </table>
+ <div style="font-size:13px;color:${MUTED_COLOR};padding-bottom:10px;">
+ ${t(lang, 'loginAltLink')}
+ </div>
+ <div style="background:#f8fafc;border:1px solid ${BORDER_COLOR};border-radius:8px;padding:12px;font-size:12px;color:${MUTED_COLOR};word-break:break-all;">
+ ${escapeHtml(loginUrl)}
+ </div>
+ <div style="border-top:1px solid ${BORDER_COLOR};margin:24px 0;"></div>
+ <div style="font-size:13px;color:${MUTED_COLOR};line-height:1.6;">
+ ${t(lang, 'loginNotYou')}
+ </div>
+ </td></tr>
+ <tr><td style="text-align:center;padding:20px 0 8px;">
+ <div style="font-size:12px;color:${MUTED_COLOR};">
+ ${t(lang, 'copyright', { year })} ·
+ <a target="_blank" rel="noopener noreferrer" href="${CONFIRMATION_BASE_URL}" style="color:${MUTED_COLOR};text-decoration:none;">frontaliereticino.ch</a>
+ </div>
+ <div style="font-size:11px;color:${MUTED_COLOR};margin-top:6px;">${escapeHtml(dataControllerFooterLine(lang))}</div>
+ </td></tr>
+ </table>
+ </td></tr>
+ </table>
+</body>
+</html>`;
+}
+
+/**
  * The confirmation URL. Shared so the two senders cannot drift on the query
  * string the SPA parses — a reminder pointing at a slightly different URL would
  * be a dead link that still looked right in review.
  *
- * @param {{email: string, token: string|null, sourcePath?: string}} args
+ * @param {{email: string, token: string|null, sourcePath?: string, mode?: string}} args
  * @returns {string}
  */
-export function confirmationConfirmUrl({ email, token, sourcePath }) {
-  const returnPath = sourcePath && sourcePath !== '/' ? sourcePath : '';
-  return `${CONFIRMATION_BASE_URL}${returnPath}?action=confirm_newsletter&email=${encodeURIComponent(email)}&token=${token}`;
+export function confirmationConfirmUrl({ email, token, sourcePath, mode }) {
+ const returnPath = sourcePath && sourcePath !== '/' ? sourcePath : '';
+ const modeParam = mode ? `&mode=${encodeURIComponent(mode)}` : '';
+ return `${CONFIRMATION_BASE_URL}${returnPath}?action=confirm_newsletter&email=${encodeURIComponent(email)}&token=${token}${modeParam}`;
 }
 
 /**
  * Subject + body + tags for one confirmation request, in one call.
  *
  * `tags` carry the frame so the provider-side numbers can answer "do reminders
- * convert at all" without a second system: `campaign_id` stays `confirmation`
- * for every one of the three, because they are the same campaign.
+ * convert at all" without a second system. DOI requests use `campaign_id:
+ * confirmation`; passwordless access requests use `newsletter_login`, because
+ * they are transactional authentication mail and not consent requests.
  *
- * @param {{locale?: string, confirmUrl: string, frame?: string, firstSentAt?: number|null}} args
+ * @param {{locale?: string, confirmUrl: string, frame?: string, firstSentAt?: number|null, login?: boolean}} args
  * @returns {{subject: string, html: string, tags: Array<{name: string, value: string}>, frame: string}}
  */
-export function buildConfirmationRequestEmail({ locale, confirmUrl, frame, firstSentAt } = {}) {
+export function buildConfirmationRequestEmail({ locale, confirmUrl, frame, firstSentAt, login = false } = {}) {
   const lang = normalizeLocale(locale);
-  const resolved = frame || CONFIRMATION_FRAMES.FIRST;
+  const resolved = login ? 'login' : (frame || CONFIRMATION_FRAMES.FIRST);
   return {
     frame: resolved,
-    subject: confirmationEmailSubject(lang, { frame: resolved }),
-    html: buildNewsletterConfirmationEmailHtml(confirmUrl, lang, { frame: resolved, firstSentAt }),
+    subject: login ? t(lang, 'loginSubject') : confirmationEmailSubject(lang, { frame: resolved }),
+    html: login
+      ? buildNewsletterLoginEmailHtml(confirmUrl, lang)
+      : buildNewsletterConfirmationEmailHtml(confirmUrl, lang, { frame: resolved, firstSentAt }),
     tags: [
-      { name: 'campaign_id', value: 'confirmation' },
+      { name: 'campaign_id', value: login ? 'newsletter_login' : 'confirmation' },
       { name: 'type', value: 'transactional' },
       { name: 'locale', value: lang },
       { name: 'frame', value: resolved },

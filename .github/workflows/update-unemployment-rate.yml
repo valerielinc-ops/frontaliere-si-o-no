@@ -65,10 +65,10 @@ jobs:
         id: changes
         run: |
           if git diff --quiet -- public/data/switzerland-unemployment-rate.json; then
-            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
             echo "ℹ️ No changes in unemployment dataset."
           else
-            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
             echo "📊 Unemployment data updated"
           fi
 
@@ -77,6 +77,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          node scripts/ci/validate-generated-data.mjs \
+            --kind unemployment \
+            --file public/data/switzerland-unemployment-rate.json
+
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
@@ -107,4 +111,3 @@ jobs:
             --priority 2 \
             --label Bug \
             --workflow "${{ github.workflow }}"
-

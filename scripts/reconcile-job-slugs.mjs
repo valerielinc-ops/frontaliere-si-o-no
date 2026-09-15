@@ -34,7 +34,7 @@ import {
   DEFAULT_PREV_SLUG_CAP,
   LEGACY_PREV_SLUGS_CAP,
 } from './lib/dedicated-crawler-common.mjs';
-import { resolveJobDiffKey } from './lib/job-match-key.mjs';
+import { extractStableJobId, hasUsableJobId, resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { mergePreviousSlugsCapped } from './lib/slug-history-journal.mjs';
 import { localeMapKey } from './lib/locale-map-diff.mjs';
@@ -1119,6 +1119,73 @@ export function reconcileExpiredSlugs(activeJobs, expiredJobs, options = {}) {
 
 // ─── Per-Crawler Slice Updater ───────────────────────────────────────────────
 
+function nonEmptySlug(value) {
+  const slug = String(value || '').trim();
+  return slug || '';
+}
+
+function hasStableJobIdentity(job) {
+  return hasUsableJobId(job) || Boolean(extractStableJobId(job?.url));
+}
+
+/**
+ * Compare two job records without falling back to a colliding slug.
+ *
+ * The assembled `data/jobs.json` record normally has an `id`, while the
+ * per-crawler slice intentionally does not. In that normal case the stable
+ * URL key is the bridge. If both records expose the same identity dimension
+ * and it conflicts, return `conflict` so the caller fails closed instead of
+ * copying one job's slug history to a sibling with the same current slug.
+ *
+ * @param {object} left
+ * @param {object} right
+ * @returns {'match'|'conflict'|'unknown'}
+ */
+function jobIdentityRelation(left, right) {
+  const leftId = hasUsableJobId(left) ? String(left.id) : '';
+  const rightId = hasUsableJobId(right) ? String(right.id) : '';
+  if (leftId && rightId) return leftId === rightId ? 'match' : 'conflict';
+
+  const leftUrl = extractStableJobId(left?.url);
+  const rightUrl = extractStableJobId(right?.url);
+  if (leftUrl && rightUrl) return leftUrl === rightUrl ? 'match' : 'conflict';
+  return 'unknown';
+}
+
+/**
+ * Find exactly one slice record for an assembled update.
+ *
+ * Identity wins over the legacy slug fallback, and any duplicate/contradictory
+ * strong identity is rejected. The fallback requires a non-empty slug and a
+ * unique candidate, and is allowed only when neither the update nor any slice
+ * candidate exposes a stable identity. If a stable identity exists but cannot
+ * be joined, return null rather than assigning history to an unverified sibling.
+ * This makes the write invariant under slice order and safe to repeat.
+ *
+ * @param {Array<object>} sliceJobs
+ * @param {object} updatedJob
+ * @returns {object|null}
+ */
+export function findMatchingSliceJob(sliceJobs, updatedJob) {
+  if (!Array.isArray(sliceJobs) || !updatedJob || typeof updatedJob !== 'object') return null;
+
+  const relations = sliceJobs.map((sliceJob) => jobIdentityRelation(sliceJob, updatedJob));
+  const strongMatches = sliceJobs.filter((_, index) => relations[index] === 'match');
+  if (strongMatches.length > 0) return strongMatches.length === 1 ? strongMatches[0] : null;
+  if (relations.some((relation) => relation === 'conflict')) return null;
+  if (hasStableJobIdentity(updatedJob) || sliceJobs.some(hasStableJobIdentity)) return null;
+
+  const slug = nonEmptySlug(updatedJob.slug);
+  const italianSlug = nonEmptySlug(updatedJob.slugByLocale?.it);
+  if (!slug && !italianSlug) return null;
+  const fallbackMatches = sliceJobs.filter((sliceJob) => {
+    const sliceSlug = nonEmptySlug(sliceJob?.slug);
+    const sliceItalianSlug = nonEmptySlug(sliceJob?.slugByLocale?.it);
+    return (slug && sliceSlug === slug) || (italianSlug && sliceItalianSlug === italianSlug);
+  });
+  return fallbackMatches.length === 1 ? fallbackMatches[0] : null;
+}
+
 /**
  * Update per-crawler slice files for all modified jobs.
  * @param {Map<string, object>} updatedJobs - slug → job (must have companyKey)
@@ -1142,12 +1209,10 @@ function updateCrawlerSlices(updatedJobs) {
 
     let modified = false;
     for (const updatedJob of jobs) {
-      // Find the matching job in the slice
-      const sliceJob = slice.jobs.find(
-        (sj) =>
-          sj.slug === updatedJob.slug ||
-          (sj.slugByLocale?.it && sj.slugByLocale.it === updatedJob.slugByLocale?.it),
-      );
+      // Match by stable identity first; only use a unique non-empty legacy
+      // slug when neither record has a usable identity. Never let `.find()`
+      // make the result depend on sibling order (issue #7920).
+      const sliceJob = findMatchingSliceJob(slice.jobs, updatedJob);
       if (sliceJob) {
         // Merge, don't overwrite (issue #3630 sibling): updatedJob comes
         // from data/jobs.json, a snapshot that can be stale relative to the

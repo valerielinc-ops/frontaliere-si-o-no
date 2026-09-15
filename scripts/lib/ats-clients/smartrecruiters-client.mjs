@@ -220,7 +220,10 @@ export function buildSmartRecruitersApiUrl(tenant, options = {}) {
  * @param {boolean} [options.includeArchived]      Keep archived departments. Default false.
  * @param {number} [options.timeoutMs]             Per-request. Default 20_000 ms.
  * @param {string} [options.userAgent]             Default polite UA.
- * @returns {Promise<Array<{ id: (number|string), label: string, archived: boolean }>>}
+ * @returns {Promise<{
+ *   departments: Array<{ id: (number|string), label: string, archived: boolean }>,
+ *   complete: boolean,
+ * }>}
  * @throws {SmartRecruitersApiError} on persistent failure.
  */
 export async function fetchSmartRecruitersDepartments(tenant, options = {}) {
@@ -235,9 +238,16 @@ export async function fetchSmartRecruitersDepartments(tenant, options = {}) {
 
   const departments = [];
   let offset = 0;
+  let observedCount = 0;
+  // Keep a high-water mark: a malformed later page makes fetchListPage return
+  // content=[] and its fallback totalFound=0, which must not erase a valid
+  // totalFound declared by an earlier page.
+  let declaredDepartmentTotal = 0;
   for (;;) {
     const url = `${SR_API_BASE}/${encodeURIComponent(tenant)}/departments?limit=${DEFAULT_PAGE_SIZE}&offset=${offset}`;
-    const { content, totalFound } = await fetchListPage(url, { timeoutMs, userAgent });
+    const { content, totalFound: pageTotal } = await fetchListPage(url, { timeoutMs, userAgent });
+    observedCount += content.length;
+    if (Number.isFinite(pageTotal)) declaredDepartmentTotal = Math.max(declaredDepartmentTotal, pageTotal);
     for (const dept of content) {
       const label = typeof dept?.label === 'string' ? dept.label.trim() : '';
       if (!label) continue;
@@ -247,9 +257,12 @@ export async function fetchSmartRecruitersDepartments(tenant, options = {}) {
     }
     if (content.length === 0) break;
     offset += content.length;
-    if (offset >= totalFound) break;
+    if (observedCount >= declaredDepartmentTotal) break;
   }
-  return departments;
+  return {
+    departments,
+    complete: observedCount >= declaredDepartmentTotal,
+  };
 }
 
 /**

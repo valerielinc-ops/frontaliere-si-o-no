@@ -121,10 +121,12 @@ jobs:
           SNAPSHOT_FLAG: ${{ inputs.dry_run && '--no-snapshot' || '' }}
         run: |
           set -o pipefail
-          node scripts/report-email-engagement.mjs \
-            --days "$REPORT_DAYS" \
-            --out /tmp/email-engagement.json \
-            $SNAPSHOT_FLAG | tee /tmp/email-engagement.txt | tee -a "$GITHUB_STEP_SUMMARY"
+          args=(--days "$REPORT_DAYS" --out /tmp/email-engagement.json)
+          if [ -n "${SNAPSHOT_FLAG:-}" ]; then
+            args+=("$SNAPSHOT_FLAG")
+          fi
+          node scripts/report-email-engagement.mjs "${args[@]}" \
+            | tee /tmp/email-engagement.txt | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Upload report artifact
         if: always()
@@ -171,6 +173,9 @@ jobs:
           PRIORITY=3
           [ "$HAS_INTEGRITY" = "1" ] && PRIORITY=2
 
+          # The single-quoted argument is JavaScript source; its template
+          # literals must expand in Node, not in the surrounding shell.
+          # shellcheck disable=SC2016
           BODY=$(node -e '
             const j = require("/tmp/email-engagement.json");
             const s = j.snapshot, t = s.totals;

@@ -288,6 +288,18 @@ describe('buildAlertBody — a scheda the loop can act on', () => {
     expect(body).toMatch(/rimisurali/i);
   });
 
+  it('rifiuta un record senza una finestra days positiva intera', () => {
+    expect(() => buildAlertBody({ ...record, days: 0 }, verdict, 'stabile')).toThrow(
+      /record\.days must be a positive integer/,
+    );
+  });
+
+  it('rifiuta un record senza shard osservati', () => {
+    expect(() => buildAlertBody({ ...record, shards: [] }, verdict, 'stabile')).toThrow(
+      /record\.shards must be a non-empty array/,
+    );
+  });
+
   it('spells out the blast radius, naming both incidents a naive fix would recreate', () => {
     expect(body).toContain('#4838');
     expect(body).toMatch(/galenica/);

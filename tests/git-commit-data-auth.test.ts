@@ -12,7 +12,7 @@ const WORKFLOWS_DIR = resolve(ROOT, '.github/workflows');
 
 // Consolidation (2026-07): these 3 crawlers no longer have their own
 // `.github/workflows/update-jobs-{slug}.yml` — they were folded into grouped
-// `crawler-group-*.yml` workflows as `background: true` steps (see
+// `crawler-group-*.yml` workflows as launch/result step pairs (see
 // scripts/generate-crawler-group-workflows.mjs). Each crawler's own env
 // values (including GH_TOKEN for the commit-and-push phase) are declared in
 // that step's own YAML `env:` map rather than spliced into the shell body
@@ -20,8 +20,8 @@ const WORKFLOWS_DIR = resolve(ROOT, '.github/workflows');
 // text before the shell parses the line, which is an injection risk for any
 // expression an actor can influence). Rather than hardcode which group each
 // crawler currently lands in (bin-packing can reassign groups whenever the
-// generator re-runs), locate the crawler's own background step by its
-// stable `name: Run <slug>` marker in whichever group file currently
+// generator re-runs), locate the crawler's own launch step by its stable
+// `name: Launch <slug>` marker in whichever group file currently
 // contains it.
 const DEDICATED_CRAWLER_SLUGS = ['spital-lachen', 'hopital-de-lavaux', 'hoch-health'] as const;
 
@@ -29,14 +29,14 @@ function findCrawlerBlock(slug: string): string {
   const groupFiles = readdirSync(WORKFLOWS_DIR).filter((f) => /^crawler-group-\d+\.yml$/.test(f));
   for (const file of groupFiles) {
     const content = readFileSync(resolve(WORKFLOWS_DIR, file), 'utf-8');
-    const stepStart = content.indexOf(`- name: Run ${slug}\n`);
+    const stepStart = content.indexOf(`- name: Launch ${slug}\n`);
     if (stepStart === -1) continue;
-    // The next background step (or the final `wait-all` step) starts the
-    // next `- name:` at the same indentation — slice up to there, or to EOF.
+    // The next crawler step starts the next `- name:` at the same indentation
+    // — slice up to there, or to EOF.
     const nextStepIdx = content.indexOf('\n      - name:', stepStart + 1);
     return content.slice(stepStart, nextStepIdx === -1 ? undefined : nextStepIdx);
   }
-  throw new Error(`Crawler '${slug}' not found as a background step in any crawler-group-*.yml`);
+  throw new Error(`Crawler '${slug}' not found as a launch step in any crawler-group-*.yml`);
 }
 
 describe('git-commit-data.sh GitHub auth hardening', () => {

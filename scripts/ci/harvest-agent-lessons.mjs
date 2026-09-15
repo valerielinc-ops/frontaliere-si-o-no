@@ -27,6 +27,10 @@ import { FIX_OUTCOME_RE } from './close-recovered-failure-issues.mjs';
 import { FALSE_POSITIVE_DECLARATION_RE } from './lib/false-positive-declaration.mjs';
 import { REVIEWER_BOT_LOGIN_RE } from './lib/constants.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
+import { hasEnumeratedItems } from './followup-resolution-match.mjs';
+import { isAggregateForAnalytics } from './check-issue-already-resolved.mjs';
+
+export { hasEnumeratedItems };
 
 const WINDOW_DAYS = intFromEnv('WINDOW_DAYS', 14);
 const THRESHOLD = intFromEnv('THRESHOLD', 3);
@@ -77,6 +81,8 @@ const TAXONOMY = [
   { key: 'time-bomb-hardcoded', re: /hardcoded|time-?bomb|absolute date|aged? out|invecchia|date assolut/i, docKeys: ['date assolut', 'time-bomb', 'daysago'] },
   { key: 'cls-layout', re: /\bcls\b|layout shift|reflow|reserve space|min-h-|aspect-ratio/i, docKeys: ['cls', 'reserve space', 'layout shift'] },
   { key: 'auto-ads', re: /auto ?ads|adsense|anchor ad|vignette|in-page ad/i, docKeys: ['auto ads', 'adsense'] },
+  // Precedence is intentional: when a finding mentions both surfaces, the
+  // topic bucket wins before the sibling-sweep process bucket below.
   { key: 'canonical-sitemap', re: /canonical|sitemap|noindex|cross-section/i, docKeys: ['canonical', 'sitemap', 'noindex'] },
   { key: 'workflow-scope-creds', re: /workflows? scope|github_pat|\bpat\b|credential|secret|branch protection|push.*workflow/i, docKeys: ['workflows`', 'capability-guard', 'github_pat'] },
   // i18n-NAMING: genuine naming/i18n defects only — locale URL segments, translated
@@ -281,7 +287,16 @@ const IMPACT_VERB = String.raw`impatt\w*|impact\b|ricadut\w*|tocca\w*|touch\w*|r
 // toccate e' fatto di nomi di file: «nessun impatto su `articles.json`, sulle
 // sitemap o sui feed» si troncava a «nessun impatto su `articles» e lasciava
 // scansionabile «.json`, sulle sitemap o sui feed» — bucket `canonical-sitemap`.
-const CLAUSE_BODY = String.raw`(?:[^.;—\n]|\.(?!\s|$))`;
+const SPACED_HYPHEN = String.raw`[ \t]-[ \t]`;
+const CLAUSE_BODY = String.raw`(?:(?!${SPACED_HYPHEN})[^.;—–\n]|\.(?!\s|$))`;
+// Una virgola puo' anche essere il punto in cui la ricognizione negata lascia
+// posto a una proposizione affermativa («nessun impatto su X, il fix tocca Y»).
+// Se dopo la virgola compare un verbo di impatto entro poche parole, chiudi qui
+// la forma A: altrimenti il suo corpo greedy mangia proprio il verbo che la forma
+// B deve usare come ancora nel replace successivo. Le liste negate restano
+// invariate: una virgola seguita da nomi/coordinate senza un verbo di impatto
+// continua a far parte del corpo della ricognizione.
+const NEGATED_CLAUSE_BODY = String.raw`(?:(?!,\s+(?:\S+\s+){0,3}(?:${IMPACT_VERB})\b)${CLAUSE_BODY})`;
 // (C) La negazione E' il difetto quando la riga afferma uno SWEEP incompleto: «lo
 //     stesso anti-pattern in `cf-purge-cache.mjs` non e' toccato». E' la
 //     formulazione che REVIEW.md prescrive per un finding di classe, ed e' anche
@@ -297,7 +312,7 @@ const SWEEP_ASSERTION_RE = /stesso anti-?pattern|file gemello|stesso costrutto|s
 // (A) negazione PRIMA del verbo: «nessun impatto su …», «nulla tocca …»,
 //     «nessun articolo nuovo raggiunge …», «no impact on …».
 const NEGATED_IMPACT_CLAUSE_RE =
-  new RegExp(String.raw`\b(?:nessun\w*|nulla|niente|zero|senza|non|not|no)\b(?:\s+\S+){0,3}?\s+(?:${IMPACT_VERB})${CLAUSE_BODY}*`, 'giu');
+  new RegExp(String.raw`\b(?:nessun\w*|nulla|niente|zero|senza|non|not|no)\b(?:\s+\S+){0,3}?\s+(?:${IMPACT_VERB})${NEGATED_CLAUSE_BODY}*`, 'giu');
 // (B) negazione DOPO il verbo, in forma contrastiva: «il ramo tocca l'automazione
 //     delle issue di CI, non `dist/api/`, le sitemap, i feed o gli slug». Qui il
 //     vocabolario del bucket sta nella coda negata, quindi si toglie SOLO quella
@@ -309,11 +324,12 @@ const NEGATED_IMPACT_CLAUSE_RE =
 //     avanti nella frase.
 const CONTRASTIVE_NEGATED_TAIL_RE =
   new RegExp(String.raw`(\b(?:${IMPACT_VERB})\b(?:(?!\b(?:${IMPACT_VERB})\b)${CLAUSE_BODY})*?),\s*(?:e\s+|ma\s+)?(?:non|not)\b${CLAUSE_BODY}*`, 'giu');
-// Confine di frase, nella STESSA accezione di `CLAUSE_BODY`: `;`, `—`, a capo, e
+// Confine di frase, nella STESSA accezione di `CLAUSE_BODY`: `;`, `—`, `–`, un
+// trattino ASCII spaziato, a capo, e
 // il punto solo se seguito da spazio o fine riga (dentro un code span non lo e').
 // Tenerne una definizione sola e' cio' che impedisce al guard di sweep e allo
 // strip di disaccordarsi su dove finisce una frase.
-const SENTENCE_BOUNDARY_RE = /[;—\n]|\.(?=\s|$)/gu;
+const SENTENCE_BOUNDARY_RE = new RegExp(String.raw`[;—–\n]|${SPACED_HYPHEN}|\.(?=\s|$)`, 'gu');
 // La frase che contiene lo span `[start, end)`: dal confine precedente al primo
 // confine successivo. I confini interni allo span non esistono per costruzione
 // (`CLAUSE_BODY` li esclude), ma vengono comunque saltati invece di troncare.
@@ -460,77 +476,14 @@ export function tallyFindings(prs, { bucketOf = bucketFinding } = {}) {
 //      never be pre-empted by a content-token matcher.
 // Same feedback-loop class as the reconcile-bot / pre-flight-deterministic skips in
 // the outcome loop below: don't count burn that no safe gate could have prevented.
-function stripFencedBlocks(text) {
-  const lines = String(text || '').split('\n');
-  const out = [];
-  let fence = null;
-  let fenceStart = -1;
-
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
-    const match = /^([ \t]*)(`{3,}|~{3,})/.exec(line);
-    if (fence) {
-      const closes = match
-        && match[2][0] === fence.char
-        && match[2].length >= fence.length
-        && match[1].length >= fence.indent;
-      if (closes) fence = null;
-      continue;
-    }
-    if (match) {
-      fence = { char: match[2][0], length: match[2].length, indent: match[1].length };
-      fenceStart = i;
-      continue;
-    }
-    out.push(line);
-  }
-
-  return fence ? [...out, ...lines.slice(fenceStart)].join('\n') : out.join('\n');
-}
-
-export function hasEnumeratedItems(body) {
-  const b = stripFencedBlocks(body);
-  const numberedSections = (b.match(/^#{2,4}[ \t]*(?:Item[ \t]*)?\d+[ \t]*[.)—–](?=[ \t]|$)/gim) || []).length;
-  if (numberedSections >= 2) return true;
-  const lines = b.split('\n');
-  const orderedBoldItems = lines.reduce((count, line, index) => {
-    const match = /^[ \t]*\d+[.)][ \t]+(.*)$/.exec(line);
-    return count + (match && isBoldTitleLead(match[1], lines, index + 1) ? 1 : 0);
-  }, 0);
-  if (orderedBoldItems >= 2) return true;
-  const boldLeadBullets = lines.reduce((count, line, index) => {
-    const match = /^[-*][ \t]+(?:\[[ xX]\][ \t]*)?(.*)$/.exec(line);
-    return count + (match && isBoldTitleLead(match[1], lines, index + 1) ? 1 : 0);
-  }, 0);
-  return boldLeadBullets >= 2;
-}
-
-function isBoldTitleLead(rest, lines = [], start = 0) {
-  const bold = /^\*\*(?![ \t])(?:[^*]|\*(?!\*))+\*\*/;
-  let candidate = String(rest || '');
-  if (bold.test(candidate)) return true;
-  for (let i = start; i < lines.length; i++) {
-    const line = lines[i];
-    if (/^[ \t]*(?:\d+[.)]|[-*])[ \t]+/.test(line)) break;
-    candidate += '\n' + line;
-    if (bold.test(candidate)) return true;
-  }
-  return false;
-}
-
 // Pure → unit-tested. `labels` is an array of label-name strings.
 export function isAvoidableAlreadyFixed(title, labels, body = '') {
   const names = Array.isArray(labels) ? labels : [];
   if (!names.includes('follow-up')) return false; // out of the gate's scope
-  const t = String(title || '');
-  const m = t.match(/\b(\d+)\s+items?\s+(?:deferred|deferit[oi])\b/i);
-  // An explicit count is authoritative once present — no keyword fallback
-  // needed (and none applied), else a single-item title containing an
-  // ordinary word like "batch" (e.g. "1 item deferred ... batch backfill...")
-  // was misclassified as an aggregate (#3378).
-  if (m) return Number(m[1]) < 2;
-  if (/\b(?:sweep|batch|bulk)\b/i.test(t)) return false; // aggregate by keyword (no explicit count stated)
-  if (hasEnumeratedItems(body)) return false; // aggregate by enumerazione nel corpo (#568)
+  // Keep analytics aligned with the pre-flight aggregate grammar while preserving
+  // its title-only keyword contract. A daily bucket is aggregate even with one
+  // current item; it is processed item by item and must not be counted as burn.
+  if (isAggregateForAnalytics(title, body)) return false;
   return true; // single-item follow-up → the gate's real target → countable
 }
 
@@ -617,7 +570,6 @@ export function orphanNoteBody(r) {
 
 export function isAvoidableMaxTurns(title, labels, delivery = false, body = '') {
   const names = Array.isArray(labels) ? labels : [];
-  const t = String(title || '');
   // `delivery` accepts the legacy boolean (`hasDeliveredPr`) or the richer
   // `{ hasDeliveredPr, hasRecoverableBranch }` — call sites written before the branch
   // evidence existed keep their meaning exactly.
@@ -629,15 +581,10 @@ export function isAvoidableMaxTurns(title, labels, delivery = false, body = '') 
   if (hasRecoverableBranch) return false;
   // (2) drainer already parked it as structurally non-fixable → expected death.
   if (names.includes('needs-human')) return false;
-  // (1) aggregate multi-item → over-budget by construction (circuit-breaker target),
-  //     not a fixable loop. Same detection as isAvoidableAlreadyFixed — an explicit
-  //     count is authoritative once present, no keyword fallback needed (else a
-  //     single-item title containing an ordinary word like "batch" was
-  //     misclassified as an aggregate, #3378).
-  const m = t.match(/\b(\d+)\s+items?\s+(?:deferred|deferit[oi])\b/i);
-  if (m) return Number(m[1]) < 2;
-  if (/\b(?:sweep|batch|bulk)\b/i.test(t)) return false; // aggregate by keyword (no explicit count stated)
-  if (hasEnumeratedItems(body)) return false; // aggregate by enumerazione nel corpo (#568)
+  // (1) aggregate multi-item/daily bucket → over-budget by construction
+  // (circuit-breaker target), not a fixable loop. Reuse the shared predicate;
+  // its explicit analytics mode keeps ordinary body prose from changing burn.
+  if (isAggregateForAnalytics(title, body)) return false;
   return true; // single-item, still-routable → fixable loop → countable
 }
 
@@ -926,8 +873,8 @@ export function examplesSinceFix(examples, cutoffMs) {
 
 function formatExamples(c) {
   return (c.examples || [])
-    .map((e) => e.pr || e.issue)
-    .filter(Boolean)
+    .map((e) => [e?.pr, e?.issue].find((value) => value !== null && value !== undefined && value !== ''))
+    .filter((value) => value !== undefined)
     .map((value) => `#${value}`)
     .join(', ') || '—';
 }

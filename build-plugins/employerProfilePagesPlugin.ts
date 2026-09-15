@@ -63,6 +63,7 @@ import { BRIDGE_FLOOR, MIN_ACTIVE_JOBS } from './shared/employerProfileConfig.mj
 import { loadEmployerDemandSlugs } from './shared/employerDemandSignal.mjs';
 import { resolveEmployerProfilesFlushed, type EmittedEmployerProfile } from './shared/buildSignals';
 import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
+import { JOBLIST_AD_EVERY_N, JOBLIST_AD_MAX_PER_LIST } from '../services/adsenseSlots';
 
 export const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 type Locale = (typeof LOCALES)[number];
@@ -74,6 +75,14 @@ const OG_LOCALE: Record<Locale, string> = { it: 'it_CH', en: 'en_US', de: 'de_CH
  * the hreflang set and the compat self-map trivial. */
 const localePrefix = (locale: Locale): string => (locale === 'it' ? '' : `/${locale}`);
 const profilePath = (locale: Locale, slug: string): string => buildEmployerProfilePath(locale, slug);
+
+/**
+ * Max active jobs rendered as cards and JobPosting ItemList entries per
+ * profile page. Derive the boundary from the shared in-feed cadence: the
+ * trailing card keeps the slot after the last eligible position renderable,
+ * while the full active count remains visible in the stat tile and heading.
+ */
+const MAX_JOBS_LISTED = JOBLIST_AD_EVERY_N * JOBLIST_AD_MAX_PER_LIST + 1;
 
 export interface EmployerProfile {
   slug: string;
@@ -748,10 +757,10 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
             firstDateMs(b.postedDate, b.datePosted, b.crawledAt, b.firstSeenAt) -
             firstDateMs(a.postedDate, a.datePosted, a.crawledAt, a.firstSeenAt),
           );
-        // The heading and the visible list must describe the same live set.
-        // The previous top-N preview made a page say "77" while rendering only
-        // eight cards, and also hid the shared every-third-card ad cadence.
-        const listed = group;
+        // Keep the repeated card + JobPosting payload bounded. The live total
+        // remains explicit in the stat tile and jobs heading below, so this is
+        // a preview cap rather than a claim that the company has fewer roles.
+        const listed = group.slice(0, MAX_JOBS_LISTED);
         // Display the LIVE active count (corpus at build time) rather than the
         // committed snapshot, and gate indexability on it — so a dataset that
         // has drifted below the floor since it was generated auto-downgrades to
@@ -828,8 +837,8 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
           // ("embeds COMPLETE JobPosting structured data (Non-Negotiable #3)")
           // asserts every mandatory JobPosting field on THIS page's ItemList
           // items too — that test is the project's actual encoded contract
-          // for this page. The ItemList now stays aligned with every visible
-          // card instead of describing a hidden top-N preview.
+          // for this page. The ItemList stays aligned with the bounded visible
+          // card preview while the live total remains in the UI heading.
           const itemListElements = listed
             .map((job) => {
               // Same guard as the job cards (renderProfileBody): a job whose

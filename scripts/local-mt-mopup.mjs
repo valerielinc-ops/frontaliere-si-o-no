@@ -34,9 +34,8 @@
  * (scripts/lib/translate-run-clock.mjs). Mirroring the cascade's own elapsed-aware
  * budget, this prevents a cascade that overflowed its 250min gate + a fresh full
  * mop-up + commit/scatter/slug/deploy from approaching the 350min job timeout and
- * losing uncommitted incremental writes. When no run-start marker exists (local
- * run / cascade skipped) the reference falls back to this process's own start, so
- * standalone behaviour is unchanged (bounded purely by LOCAL_MT_TIME_BUDGET_MS).
+ * losing uncommitted incremental writes. Standalone runs without a marker use
+ * this process's own start; the workflow requires the marker before any phase.
  *
  * Usage:
  *   node scripts/local-mt-mopup.mjs [--max-jobs N] [--dry-run]
@@ -56,7 +55,7 @@ import { fileURLToPath } from 'node:url';
 
 import { isIncomplete, reconcileRetranslationState } from './relocalize-pending-jobs.mjs';
 import { titleLooksUntranslated } from './lib/job-locale-utils.mjs';
-import { readRunStartMs, markRunStart, recordRunPhase, readRunPhases } from './lib/translate-run-clock.mjs';
+import { resolveRunStartMs, markRunStart, recordRunPhase, readRunPhases } from './lib/translate-run-clock.mjs';
 import { balanceMarkdownMarkers } from './lib/free-translate.mjs';
 import { finalizeTranslatedText, maskProtectedTokens } from './lib/translation-glossary.mjs';
 import { buildTrafficPriority, formatPriorityReport, isFreshJob, TRAFFIC_SOURCE_PATH } from './lib/job-traffic-priority.mjs';
@@ -81,7 +80,11 @@ const MIN_DESC_CHARS = 120;
  * one-line PR on the site that reaches the corpus through the `identical`
  * mirror — no admin rights on the corpus repo, and the same one line reverts it.
  */
-const LANG_AWARE_OVERWRITE = String(process.env.LOCAL_MT_LANG_AWARE_OVERWRITE || '0') === '1';
+export function languageAwareOverwriteEnabled(value) {
+  return String(value || '0') === '1';
+}
+
+const LANG_AWARE_OVERWRITE = languageAwareOverwriteEnabled(process.env.LOCAL_MT_LANG_AWARE_OVERWRITE);
 
 const PYTHON = process.env.LOCAL_MT_PYTHON || 'python3';
 // Per-step ceiling: a fresh budget measured from THIS process's start.
@@ -91,10 +94,9 @@ const STATIC_TIME_BUDGET_MS = Number(process.env.LOCAL_MT_TIME_BUDGET_MS) || 280
 // 350min job timeout for commit/scatter/slug/deploy.
 const MOPUP_DEADLINE_MS = Number(process.env.LOCAL_MT_MOPUP_DEADLINE_MS) || 320 * 60 * 1000;
 // Effective budget is ELAPSED-AWARE (#2212): the smaller of the per-step ceiling
-// and the time LEFT until the run-wide deadline. Falls back to this process's own
-// start when no run-start marker exists (local run / cascade skipped), so the
-// standalone budget stays exactly LOCAL_MT_TIME_BUDGET_MS.
-const RUN_START_MS = readRunStartMs() ?? Date.now();
+// and the time LEFT until the run-wide deadline. Standalone invocations keep a
+// local fallback; the workflow fails closed when its marker is missing.
+const RUN_START_MS = resolveRunStartMs();
 // When this pass IS the first translation step of the run, RUN_START_MS is its own
 // start and the recorded phase begins at 0 — which is the truth we want to see.
 const PHASE_START_MS = Date.now();
@@ -116,9 +118,6 @@ function parseOpt(name, fallback) {
   if (idx !== -1 && args[idx + 1]) return args[idx + 1];
   return fallback;
 }
-
-const DRY_RUN = parseFlag('--dry-run') || String(process.env.LOCAL_MT_DRY_RUN || '0') === '1';
-const MAX_JOBS = Number(parseOpt('--max-jobs', process.env.LOCAL_MT_MAX_JOBS)) || 2000;
 
 function readJson(filePath) {
   try {
@@ -225,13 +224,46 @@ export function missingSlots(job) {
  * @param {string} text
  * @returns {string}
  */
-export function masculineGermanTitle(text) {
+function masculineGermanTitleLegacy(text) {
+  // Normalize only explicit job-title gender forms.
   return String(text ?? '')
     .replace(/\b(\p{L}[\p{L}-]*?)mann\/\1in\b/giu, '$1mann')
     .replace(/\b(\p{L}[\p{L}-]*)frau(?:\/-?|[-_])mann\b/giu, '$1mann')
-    .replace(/\b(\p{L}[\p{L}-]*)[/:*_]-?in\b/giu, '$1')
+    .replace(/\b(\p{L}[\p{L}-]*)mann(?:\/-?|[-_])frau\b/giu, '$1mann')
+    .replace(/\b(\p{L}[\p{L}-]*)[/:*_]-?in(?:nen)?\b/giu, '$1')
     .replace(/\b(\p{L}[\p{L}-]*)\/\1in\b/giu, '$1')
-    .replace(/\b(\p{L}[\p{L}-]*)\*r\b/giu, '$1r');
+    .replace(/\b(\p{L}[\p{L}-]*)\*([rR])\b/giu, (_match, stem, ending) => `${stem}${ending}`);
+}
+
+const GERMAN_GENDER_STEM_SUFFIX_RE = /(?:er|ent|ant|ist|eur|ier|olog|agog|arzt|ärzt|är|fach|kraft|person|meister|leiter|kolleg|student|koch|chef|coach|expert|and|at|or|wirt|ling)$/iu;
+
+function isLikelyGermanGenderStem(stem) {
+  const value = String(stem || '');
+  return value.length >= 3
+    && /^[-\p{L}]+$/u.test(value)
+    && GERMAN_GENDER_STEM_SUFFIX_RE.test(value);
+}
+
+/**
+ * Keep the broad legacy normalizer behind a small morphology guard. Slash
+ * forms are retained for compatibility with X/in; the ambiguous :in, *in and
+ * _in spellings must also look like a German occupational noun before they
+ * are collapsed.
+ */
+export function masculineGermanTitle(text) {
+  const skipped = [];
+  const guarded = String(text ?? '').replace(
+    /\b(\p{L}[\p{L}-]*)([/:*_])-?in(?:nen)?\b/giu,
+    (match, stem, separator) => {
+      if (separator === '/' || isLikelyGermanGenderStem(stem)) return match;
+      const token = 'QZSKIP' + skipped.length + 'QZ';
+      skipped.push([token, match]);
+      return token;
+    },
+  );
+  let normalized = masculineGermanTitleLegacy(guarded);
+  for (const [token, original] of skipped) normalized = normalized.replace(token, original);
+  return normalized;
 }
 
 function normalizeArgosText(text, from, field) {
@@ -297,11 +329,15 @@ export function finalizeMopupTranslation({
  * for the language-aware arm of the existing-value guard — see below.
  *
  * @returns {{decision: string, incoming: string, sourceText: string,
- *   existing: string, languageDriven: boolean}}
+ *   normalizedSourceText: string, existing: string, languageDriven: boolean}}
  *   decision is 'write' or one of 'skip:source-locale' | 'skip:empty-raw' |
  *   'skip:finalize-empty' | 'skip:source-copy' | 'skip:existing-good' |
  *   'skip:candidate-untranslated'. languageDriven marks the decisions the
  *   language arm made, the ones the rollout switch gates.
+ *
+ * `base.sourceText` stays unchanged for persistence; `base.normalizedSourceText`
+ * is comparison-only. Neither may be written into `job.title` or
+ * `job.titleByLocale[srcLang]` by the caller.
  */
 /**
  * Il nome con cui questo entry point chiede la sua politica di corsia.
@@ -416,9 +452,9 @@ export function classifyMopupWrite({
   const rawSourceText = field === 'title'
     ? (job.title || job.titleByLocale?.[srcLang] || '').trim()
     : (job.description || job.descriptionByLocale?.[srcLang] || '').trim();
-  const sourceText = normalizeArgosText(rawSourceText, srcLang, field);
+  const normalizedSourceText = normalizeArgosText(rawSourceText, srcLang, field);
   const existing = String(job[bag]?.[locale] || '').trim();
-  const base = { incoming: '', sourceText, existing };
+  const base = { incoming: '', sourceText: rawSourceText, normalizedSourceText, existing };
 
   if (locale === srcLang) return { ...base, decision: 'skip:source-locale' };
 
@@ -426,7 +462,7 @@ export function classifyMopupWrite({
   if (!raw) return { ...base, decision: 'skip:empty-raw' };
 
   const incoming = finalizeMopupTranslation({
-    sourceText,
+    sourceText: normalizedSourceText,
     rawText: raw,
     targetLang: locale,
     fieldType: field,
@@ -435,14 +471,14 @@ export function classifyMopupWrite({
   if (!incoming) return { ...base, decision: 'skip:finalize-empty' };
 
   // Never write a value that is just a copy of the source (would re-flag).
-  if (incoming.toLowerCase() === sourceText.toLowerCase()) {
+  if (incoming.toLowerCase() === normalizedSourceText.toLowerCase()) {
     return { ...base, incoming, decision: 'skip:source-copy' };
   }
 
   // Don't overwrite an already-good translation (one that isn't a source copy
   // and meets the min length). Only fill genuinely-missing/bad slots.
   const existingIsBad = existing.length < (field === 'title' ? MIN_TITLE_CHARS : MIN_DESC_CHARS)
-    || existing.toLowerCase() === sourceText.toLowerCase();
+    || existing.toLowerCase() === normalizedSourceText.toLowerCase();
   if (existing && !existingIsBad) {
     // LANGUAGE ARM (workspace issue 16). Length and byte-exact copy are not the
     // only ways an existing value can be bad: it can be the wrong LANGUAGE.
@@ -480,7 +516,7 @@ export function classifyMopupWrite({
     }
     const ask = (title) => titleLooksUntranslated({
       title,
-      sourceTitle: sourceText,
+      sourceTitle: normalizedSourceText,
       sourceLang: srcLang,
       targetLocale: locale,
       company: job.company || '',
@@ -512,6 +548,22 @@ export function classifyMopupWrite({
   return { ...base, incoming, decision: 'write' };
 }
 
+/**
+ * Apply the rollout switch only to the language-aware repair arm. A normal
+ * fill of a missing slot is always eligible; an existing non-empty title is
+ * eligible only when classifyMopupWrite() has proved both that the stored
+ * value is in the wrong language and that the candidate is not. This keeps
+ * the flag from becoming a blanket overwrite switch (#1235).
+ */
+export function shouldApplyMopupWrite({
+  decision,
+  languageDriven = false,
+  langAwareOverwrite = false,
+}) {
+  if (decision !== 'write') return false;
+  return !languageDriven || langAwareOverwrite;
+}
+
 function normalizeCompanyKey(value = '') {
   return String(value || '')
     .trim()
@@ -523,13 +575,19 @@ function normalizeCompanyKey(value = '') {
 }
 
 async function main() {
+  // Parse CLI options only for direct execution. This module is imported by
+  // mark-mistranslated-jobs.mjs; its flags must not configure an imported
+  // mop-up phase, even when both entry points receive --dry-run.
+  const dryRun = parseFlag('--dry-run') || String(process.env.LOCAL_MT_DRY_RUN || '0') === '1';
+  const maxJobs = Number(parseOpt('--max-jobs', process.env.LOCAL_MT_MAX_JOBS)) || 2000;
+
   // Publish the run start (WRITE-ONCE) so that under the Argos-first ordering this
   // BULK pass (Phase 2a) — which runs BEFORE the cascade — establishes the shared
   // run clock. The cascade (Phase 2b) and the leftover mop-up (Phase 2c) then bound
   // their elapsed-aware deadlines to the TRUE whole-job start, keeping the total
   // under the 350min timeout. No-op when a marker already exists (cascade-first, or
   // this being the Phase 2c pass after the cascade seeded it). Uses this process's
-  // start (RUN_START_MS falls back to now() when no marker exists yet).
+  // start (RUN_START_MS falls back locally when no marker exists yet).
   markRunStart(RUN_START_MS);
 
   // Elapsed-aware early-out (#2212): if the cascade already consumed the run-wide
@@ -552,7 +610,7 @@ async function main() {
 
   const sliceFiles = listSliceFileNames(BY_CRAWLER_DIR);
 
-  // Build the FULL candidate list first — no early exit on MAX_JOBS here. The
+  // Build the FULL candidate list first — no early exit on maxJobs here. The
   // old code capped mid-scan while walking sliceFiles alphabetically, so any
   // slice sorted after wherever the cap landed (e.g. postfinance.json,
   // richemont.json — both past position ~200/570) never got scanned, on any
@@ -595,7 +653,7 @@ async function main() {
     console.warn(`⚠️  [local-mt] ${TRAFFIC_SOURCE_PATH} missing/unreadable — ordering this pass oldest-first instead (still fair, just not traffic-weighted).`);
     popularity = {};
   }
-  const { selected: selectedJobs, stats } = orderMopupJobsByTraffic(candidates.map((c) => c.job), popularity, MAX_JOBS);
+  const { selected: selectedJobs, stats } = orderMopupJobsByTraffic(candidates.map((c) => c.job), popularity, maxJobs);
   for (const line of formatPriorityReport(stats, { freshCoverage: freshMeter.stats() })) console.log(line);
 
   const byJob = new Map(candidates.map((c) => [c.job, c]));
@@ -643,7 +701,7 @@ async function main() {
     return;
   }
 
-  if (DRY_RUN) {
+  if (dryRun) {
     console.log('🏁 [local-mt] Dry run — not invoking Python, not writing slices.');
     const sample = requests.slice(0, 5)
       .map((r) => `   ${r.from}->${r.to} [${(r.text || '').slice(0, 50)}…]`)
@@ -733,6 +791,7 @@ async function main() {
   const langWriteReasons = {};
   const langSkipReasons = {};
   let shadowWithheld = 0;
+  let languageFieldsRewritten = 0;
 
   for (const [file, edits] of byFile) {
     if (!budgetOk()) {
@@ -777,17 +836,24 @@ async function main() {
         const bucket = decision === 'write' ? langWriteReasons : langSkipReasons;
         bucket[reason] = (bucket[reason] || 0) + 1;
       }
-      if (decision !== 'write') continue;
       // Shadow arm: with the switch off, a language-driven write is counted and
       // withheld. The corpus is untouched and the log still reports the volume.
-      if (languageDriven && !LANG_AWARE_OVERWRITE) {
-        shadowWithheld++;
+      // Missing fields remain eligible regardless of the rollout switch.
+      if (!shouldApplyMopupWrite({
+        decision,
+        languageDriven,
+        langAwareOverwrite: LANG_AWARE_OVERWRITE,
+      })) {
+        if (decision === 'write' && languageDriven) {
+          shadowWithheld++;
+        }
         continue;
       }
 
       job[bag][locale] = incoming;
       fileChanged = true;
       fieldsFilled++;
+      if (languageDriven) languageFieldsRewritten++;
       touchedJobs.add(jobIdx);
     }
 
@@ -835,7 +901,7 @@ async function main() {
   const langWrites = Object.values(langWriteReasons).reduce((a, b) => a + b, 0);
   const langSkips = Object.values(langSkipReasons).reduce((a, b) => a + b, 0);
   console.log(`\n🌍 [local-mt] Language arm — LOCAL_MT_LANG_AWARE_OVERWRITE=${LANG_AWARE_OVERWRITE ? '1 (ENFORCING, writes applied)' : '0 (SHADOW, writes withheld)'}`);
-  console.log(`   ${langWrites} wrong-language slots with a target-language candidate${LANG_AWARE_OVERWRITE ? ' → overwritten' : ` → WITHHELD (${shadowWithheld} not written)`}`);
+  console.log(`   ${langWrites} wrong-language slots with a target-language candidate${LANG_AWARE_OVERWRITE ? ` → ${languageFieldsRewritten} actually overwritten` : ` → WITHHELD (${shadowWithheld} not written)`}`);
   for (const [reason, n] of sorted(langWriteReasons)) console.log(`      existing was ${reason.padEnd(22)} ${String(n).padStart(6)}`);
   console.log(`   ${langSkips} wrong-language slots whose candidate was ALSO wrong-language → still rejected`);
   for (const [reason, n] of sorted(langSkipReasons)) console.log(`      candidate was ${reason.padEnd(21)} ${String(n).padStart(6)}`);

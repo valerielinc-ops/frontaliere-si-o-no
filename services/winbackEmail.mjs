@@ -119,7 +119,10 @@ export function buildWinbackEmail({ email, locale = 'it' }) {
   // branch now only ASKS, and writes nothing until the button on the landing
   // page is pressed. Do not "simplify" that back into a write-on-arrival.
   const stayUrl = makeAuthenticatedActionUrl('resubscribe', email);
-  const footerUnsubUrl = makeAuthenticatedActionUrl('unsubscribe', email);
+  // Use the same scoped-token endpoint for the body footer and the
+  // List-Unsubscribe header, so this unsubscribe is graded as the primary
+  // email-token path instead of an autologin fallback.
+  const footerUnsubUrl = makeOneClickUnsubscribeUrl(email);
   // Header List-Unsubscribe uses the dedicated one-click endpoint (RFC 8058) —
   // proxied straight to the Cloud Function, bypassing the SPA's `ac` requirement.
   const unsubscribeUrl = makeOneClickUnsubscribeUrl(email);

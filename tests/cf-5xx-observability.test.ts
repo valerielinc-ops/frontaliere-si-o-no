@@ -206,6 +206,7 @@ describe('history file', () => {
     expect(history).toHaveLength(2);
     expect(history[1].total5xx).toBe(9);
     expect(history[1].bySurface['cdn-r2'].total).toBe(9);
+    expect(history[1].topN).toBe(50);
   });
 
   it('skips a truncated line instead of making the whole history unreadable', () => {

@@ -35,7 +35,7 @@ function jqConclusion(checkRuns: unknown[]): string {
 }
 
 function jsConclusion(checkRuns: any[]): string {
-  const last = latestCompletedRunByName(checkRuns, VITEST_NAME);
+  const last = latestCompletedRunByName(checkRuns, VITEST_NAME, { excludeSkipped: true });
   return last ? last.conclusion || '' : '';
 }
 

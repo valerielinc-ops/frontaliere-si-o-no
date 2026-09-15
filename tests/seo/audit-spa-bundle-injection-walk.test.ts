@@ -309,6 +309,20 @@ describe('audit-spa-bundle-injection — offender groups past the breakdown cap'
     expect(report.byFeature['<other>']).toBe(PAGES - GROUP_CAP);
   });
 
+  it('emits the same byFeature keys in the same order across two runs', () => {
+    run(manyWorkdir);
+    const first = JSON.parse(
+      fs.readFileSync(path.join(REPORTS_DIR, 'spa-bundle-injection.json'), 'utf8'),
+    );
+
+    run(manyWorkdir);
+    const second = JSON.parse(
+      fs.readFileSync(path.join(REPORTS_DIR, 'spa-bundle-injection.json'), 'utf8'),
+    );
+
+    expect(Object.keys(second.byFeature)).toEqual(Object.keys(first.byFeature));
+  });
+
   /**
    * The regression branch's per-group delta is `count - baseline.groups[key]`,
    * and that subtraction only means something when both runs put the key in the

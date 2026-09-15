@@ -38,6 +38,8 @@
  * │ input_change │ Form input changed (debounced 2s) │
  * │ ui_interaction │ Structured UI interaction │
  * │ funnel_step │ Conversion funnel progression │
+ * │ job_qualified_session │ One qualified job-detail session │
+ * │ job_apply_handoff │ External application destination hand-off │
  * ├──────────────────────┼──────────────────────────────────────┤
  * │ APP-SPECIFIC — Feature usage │
  * ├──────────────────────┼──────────────────────────────────────┤
@@ -98,12 +100,15 @@ import { deriveAnalyticsPageContext } from './analyticsPageContext';
 import { redactPersonalData } from './privacy/redactPii';
 import { classifyQuestionTopic } from './privacy/questionTopic';
 import { captureEvent as posthogCapture } from './posthog';
+import { createAnalyticsEmissionId } from './analyticsEmissionId';
 import {
  isBenignErrorMessage,
+ isIndexedDbError,
  isOriginRedactedThirdPartyStack,
  BROWSER_EXTENSION_ORIGIN_PATTERN,
 } from './benignErrorPatterns';
 import { safeAffiliateToken } from '../functions/src/lib/affiliateLinks.js';
+import { readEmbeddedBuildId } from './buildInfo';
 
 export interface AnalyticsPageViewIdentity {
  jobSlug?: string;
@@ -117,6 +122,13 @@ export type AnalyticsJobIdentitySource = {
  previousSlugsByLocale?: Partial<Record<string, readonly string[]>> | null;
  companyKey?: string | null;
 };
+
+export type AnalyticsJobApplySource = AnalyticsJobIdentitySource & {
+ featured?: boolean | null;
+};
+
+export const JOB_QUALIFIED_SESSION_EVENT = 'job_qualified_session';
+export const JOB_APPLY_HANDOFF_EVENT = 'job_apply_handoff';
 
 /**
  * Resolve the identity carried by job analytics from the canonical job fields.
@@ -149,6 +161,19 @@ export function buildJobApplyAttributionParams(
   employer_key: employerKey || 'unknown',
   job_slug: identity?.jobSlug || '',
  };
+}
+
+/** Keep destination URLs out of analytics while retaining the external host. */
+function resolveExternalDestinationHost(destination: string): string | null {
+ try {
+  const base = typeof window !== 'undefined' ? window.location.origin : undefined;
+  const url = new URL(destination, base);
+  if (!['http:', 'https:'].includes(url.protocol)) return null;
+  if (typeof window !== 'undefined' && url.origin === window.location.origin) return null;
+  return url.host || null;
+ } catch {
+  return null;
+ }
 }
 
 /**
@@ -186,79 +211,9 @@ export function buildPageViewAttributionParams(
  return {};
 }
 
-/** Create one non-identifying key shared by all provider emissions of one action. */
-export function createAnalyticsEmissionId(): string {
- try {
-  if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') return crypto.randomUUID();
- } catch {
-  // Fall through to a local key when Web Crypto is unavailable.
- }
- return `${Date.now()}-${Math.random().toString(36).slice(2)}`;
-}
-
-export const PAGE_VIEW_HISTORY_STATE_KEY = '__frontaliere_page_view_entry_id';
-
-type HistoryStateRecord = Record<string, unknown>;
-
-function isHistoryStateRecord(value: unknown): value is HistoryStateRecord {
- if (value === null || typeof value !== 'object' || Array.isArray(value)) return false;
- try {
-  const prototype = Object.getPrototypeOf(value);
-  return prototype === Object.prototype || prototype === null;
- } catch {
-  return false;
- }
-}
-
-function readPageViewHistoryEntryId(state: unknown): string | null {
- if (!isHistoryStateRecord(state)) return null;
- const value = state[PAGE_VIEW_HISTORY_STATE_KEY];
- return typeof value === 'string' && value.trim() ? value : null;
-}
-
-function stateForNewPageViewHistoryEntry(state: unknown, entryId: string): HistoryStateRecord | null {
- if (state == null) return { [PAGE_VIEW_HISTORY_STATE_KEY]: entryId };
- if (!isHistoryStateRecord(state)) return null;
- return { ...state, [PAGE_VIEW_HISTORY_STATE_KEY]: entryId };
-}
-
-function stateForReplacedPageViewHistoryEntry(
- state: unknown,
- currentEntryId: string | null,
- entryId: string,
-): HistoryStateRecord | null {
- if (state == null) return { [PAGE_VIEW_HISTORY_STATE_KEY]: currentEntryId || entryId };
- if (!isHistoryStateRecord(state)) return null;
- return {
-  ...state,
-  [PAGE_VIEW_HISTORY_STATE_KEY]: readPageViewHistoryEntryId(state) || currentEntryId || entryId,
- };
-}
-
-export interface AnalyticsPageViewEmission {
- path: string;
- emissionId: string;
- historyEntry: string | null;
-}
-
-/**
- * Reuse the emission id only while the same page-view lifecycle is open.
- * `historyEntry` changes on a new pushState entry; popstate/pagehide close the
- * lifecycle explicitly, so elapsed time never decides whether a visit is new.
- */
-export function getPageViewEmissionId(
- path: string,
- current: AnalyticsPageViewEmission | null,
- historyEntry: string | null,
-): string {
- if (!historyEntry) return '';
- if (
-  current?.path === path
-  && current.emissionId
-  && current.historyEntry === historyEntry
- ) return current.emissionId;
- return createAnalyticsEmissionId();
-}
+// Re-exported here because this name is part of the analytics module's public
+// surface and existing callers use it for non-page-view emission ids.
+export { createAnalyticsEmissionId } from './analyticsEmissionId';
 
 // ─── Clarity Bridge ────────────────────────────────────────────
 // Tag Clarity sessions with custom events for cross-tool analysis.
@@ -376,9 +331,8 @@ function _doLog(eventName: string, params?: Record<string, any>) {
  _logEvent(_analytics, eventName as any, params);
  }
  } catch (error) {
- const msg = error instanceof Error ? error.message : '';
  // If logEvent failed due to IndexedDB loss, re-queue the event and attempt recovery
- if (msg.includes('Indexed Database') || msg.includes('IDBDatabase') || msg.includes('IndexedDB')) {
+ if (isIndexedDbError(error)) {
  _eventQueue.push({ type: 'log', args: [eventName, params] });
  recoverFromIndexedDbLoss();
  return;
@@ -395,8 +349,7 @@ function _doSetProps(properties: Record<string, string>) {
  _setUserProperties(_analytics, properties);
  }
  } catch (error) {
- const msg = error instanceof Error ? error.message : '';
- if (msg.includes('Indexed Database') || msg.includes('IDBDatabase') || msg.includes('IndexedDB')) {
+ if (isIndexedDbError(error)) {
  _eventQueue.push({ type: 'props', args: [properties] });
  recoverFromIndexedDbLoss();
  }
@@ -410,7 +363,7 @@ const log = (eventName: string, params?: Record<string, any>) => {
  posthogCapture('$pageview', {
   $current_url: params?.page_location || window.location.origin + pagePath,
   title: params?.page_title || document.title,
-  ...(params?.emission_id ? { emission_id: params.emission_id } : {}),
+  emission_id: params?.emission_id ?? null,
  });
  } else {
  posthogCapture(eventName, params);
@@ -456,128 +409,25 @@ let sessionStartTime = Date.now();
 let currentScreen = '/';
 let previousScreen = '';
 let lastTrackedPageAt = 0;
-let currentPageViewEmission: AnalyticsPageViewEmission | null = null;
-let pageViewLifecycleWindow: Window | null = null;
-let pageViewHistoryPatch: {
- history: History;
- originalPushState: History['pushState'];
- originalReplaceState: History['replaceState'];
- patchedPushState?: History['pushState'];
- patchedReplaceState?: History['replaceState'];
-} | null = null;
 let _maxScrollDepth = 0;
 const ATTRIBUTION_KEY = 'ft_attribution_v1';
 const ATTRIBUTION_LOGGED_KEY = 'ft_attribution_logged_v1';
+const QUALIFIED_JOB_SESSION_KEY = 'ft_job_qualified_session_v1';
+let qualifiedJobSessionEmitted = false;
 
-function closePageViewLifecycle(): void {
- currentPageViewEmission = null;
-}
-
-function restorePageViewHistoryPatch(): void {
- if (!pageViewHistoryPatch) return;
- const patch = pageViewHistoryPatch;
+function claimQualifiedJobSession(): 'session_storage' | 'memory_only' | null {
+ if (qualifiedJobSessionEmitted) return null;
+ let deduplication: 'session_storage' | 'memory_only' = 'memory_only';
  try {
-  if (patch.patchedPushState && patch.history.pushState === patch.patchedPushState) {
-   patch.history.pushState = patch.originalPushState;
-  }
-  if (patch.patchedReplaceState && patch.history.replaceState === patch.patchedReplaceState) {
-   patch.history.replaceState = patch.originalReplaceState;
-  }
+  if (sessionStorage.getItem(QUALIFIED_JOB_SESSION_KEY) === '1') return null;
+  sessionStorage.setItem(QUALIFIED_JOB_SESSION_KEY, '1');
+  deduplication = 'session_storage';
  } catch {
-  // History methods may be non-writable in a constrained host.
+  // Private browsing or blocked storage: the module-level guard still avoids
+  // duplicate route emissions during the current page lifetime.
  }
- pageViewHistoryPatch = null;
-}
-
-function patchPageViewHistory(historyRef: History): void {
- restorePageViewHistoryPatch();
- const originalPushState = historyRef.pushState;
- const originalReplaceState = historyRef.replaceState;
- const patch: NonNullable<typeof pageViewHistoryPatch> = {
-  history: historyRef,
-  originalPushState,
-  originalReplaceState,
- };
-
- if (typeof originalPushState === 'function') {
-  const patchedPushState = function patchedPageViewPushState(
-   this: History,
-   state: unknown,
-   unused: string,
-   url?: string | URL | null,
-  ): void {
-   const entryId = createAnalyticsEmissionId();
-   const nextState = stateForNewPageViewHistoryEntry(state, entryId);
-   return originalPushState.call(this, nextState || state, unused, url);
-  } as History['pushState'];
-  try {
-   historyRef.pushState = patchedPushState;
-   patch.patchedPushState = patchedPushState;
-  } catch {
-   // Leave the host's History API untouched if it cannot be patched.
-  }
- }
-
- if (typeof originalReplaceState === 'function') {
-  const patchedReplaceState = function patchedPageViewReplaceState(
-   this: History,
-   state: unknown,
-   unused: string,
-   url?: string | URL | null,
-  ): void {
-   const currentEntryId = readPageViewHistoryEntryId(this.state);
-   const entryId = createAnalyticsEmissionId();
-   const nextState = stateForReplacedPageViewHistoryEntry(state, currentEntryId, entryId);
-   return originalReplaceState.call(this, nextState || state, unused, url);
-  } as History['replaceState'];
-  try {
-   historyRef.replaceState = patchedReplaceState;
-   patch.patchedReplaceState = patchedReplaceState;
-  } catch {
-   // Leave the host's History API untouched if it cannot be patched.
-  }
- }
-
- if (patch.patchedPushState || patch.patchedReplaceState) pageViewHistoryPatch = patch;
-}
-
-function ensurePageViewLifecycle(): void {
- if (typeof window === 'undefined') return;
- if (pageViewLifecycleWindow === window) return;
-
- if (pageViewLifecycleWindow) {
-  if (typeof pageViewLifecycleWindow.removeEventListener === 'function') {
-   pageViewLifecycleWindow.removeEventListener('popstate', closePageViewLifecycle, true);
-   pageViewLifecycleWindow.removeEventListener('pagehide', closePageViewLifecycle, true);
-  }
- }
-
- pageViewLifecycleWindow = window;
- const historyRef = (window as unknown as { history?: History }).history;
- if (historyRef) patchPageViewHistory(historyRef);
- closePageViewLifecycle();
- if (typeof window.addEventListener === 'function') {
-  window.addEventListener('popstate', closePageViewLifecycle, true);
-  window.addEventListener('pagehide', closePageViewLifecycle, true);
- }
-}
-
-function ensureCurrentPageViewHistoryEntryId(): string | null {
- if (typeof window === 'undefined') return null;
- const historyRef = (window as unknown as { history?: History }).history;
- if (!historyRef) return null;
- const currentEntryId = readPageViewHistoryEntryId(historyRef.state);
- if (currentEntryId) return currentEntryId;
- if (typeof historyRef.replaceState !== 'function') return null;
- const entryId = createAnalyticsEmissionId();
- const nextState = stateForReplacedPageViewHistoryEntry(historyRef.state, null, entryId);
- if (!nextState) return null;
- try {
-  historyRef.replaceState(nextState, '', '');
-  return readPageViewHistoryEntryId(historyRef.state) === entryId ? entryId : null;
- } catch {
-  return null;
- }
+ qualifiedJobSessionEmitted = true;
+ return deduplication;
 }
 
 const getEngagementTime = () => Math.round((Date.now() - sessionStartTime) / 1000);
@@ -1136,13 +986,18 @@ export const Analytics = {
  * This means non-blocked users get a duplicate page_view (gtag + Firebase)
  * on the initial page, which is a minor metric inflation but correct.
  */
- trackPageView: (path: string, title?: string, identity?: AnalyticsPageViewIdentity | null) => {
- ensurePageViewLifecycle();
+ trackPageView: (
+ path: string,
+ title?: string,
+ identity?: AnalyticsPageViewIdentity | null,
+ // Omitted (`undefined`) means this call is a new act and must coin its own
+ // id. `string` is an explicit id for a retry of the same act. `null` means
+ // the caller could not determine an id and must remain "dedup non
+ // disponibile" — never a guessed value.
+ emissionId?: string | null,
+ ) => {
+ const pageViewEmissionId = emissionId === undefined ? createAnalyticsEmissionId() : emissionId;
  const now = Date.now();
- const historyEntry = ensureCurrentPageViewHistoryEntryId();
- // Do not use elapsed time to decide whether to emit. Re-emissions for the
- // same history entry carry the same emission id and are collapsed downstream;
- // a new entry gets a different id even when it has the same path.
  // NOTE: We intentionally do NOT skip Firebase page_view even when
  // window.__GTAG_PAGE_VIEW_SENT__ is set by static HTML pages.
  //
@@ -1169,8 +1024,6 @@ export const Analytics = {
  currentScreen = path;
  _maxScrollDepth = 0; // Reset scroll tracking for new page
  const pageContext = deriveAnalyticsPageContext(path);
- const emissionId = getPageViewEmissionId(path, currentPageViewEmission, historyEntry);
- currentPageViewEmission = { path, emissionId, historyEntry };
  log('page_view', {
  page_path: path,
  page_title: title || path,
@@ -1182,14 +1035,18 @@ export const Analytics = {
  content_locale: pageContext.contentLocale,
  route_family: pageContext.routeFamily,
  engagement_time_msec: timeOnPrevPage > 0 ? Math.min(timeOnPrevPage, 3600000) : undefined,
- emission_id: emissionId,
+ emission_id: pageViewEmissionId,
  ...buildPageViewAttributionParams(path, identity),
  });
+ if (pageContext.pageTemplate === 'job_detail') {
+  Analytics.trackQualifiedJobSession(identity);
+ }
  // Bridge: tag Clarity session with page template for filtering
  tagClarity('page_template', pageContext.pageTemplate);
  tagClarity('content_group', pageContext.contentGroup);
  // Reset dead-click counter for new page
  _deadClickCount = 0;
+ return pageViewEmissionId;
  },
 
  /**
@@ -1419,6 +1276,7 @@ export const Analytics = {
  active_section: deriveActiveSection(),
  locale: document.documentElement.lang || navigator.language || 'unknown',
  browser_info: parseBrowserInfo(navigator.userAgent || ''),
+ build_id: truncate(readEmbeddedBuildId() || '(unknown)', 40),
  clarity_session_id: getClaritySessionId() || '',
  session_error_sequence: sessionErrorCount,
  user_agent: truncate(navigator.userAgent || '', 150),
@@ -1464,6 +1322,7 @@ export const Analytics = {
  error_fingerprint: errorDigest || '',
  referrer_path: truncate(previousScreen || '/', 180),
  user_agent: truncate(navigator.userAgent || '', 150),
+ build_id: truncate(readEmbeddedBuildId() || '(unknown)', 40),
  connection_type: truncate(
  (navigator as any).connection?.effectiveType || 'unknown',
  20
@@ -1488,7 +1347,7 @@ export const Analytics = {
  // iOS Safari IndexedDB errors can also surface as plain errors (not just
  // rejections) — special-cased BEFORE the benign drop because they trigger an
  // Analytics re-init, not a silent drop.
- if (msg.includes('Indexed Database') || msg.includes('IDBDatabase') || msg.includes('IndexedDB')) {
+ if (isIndexedDbError(msg)) {
  recoverFromIndexedDbLoss();
  return;
  }
@@ -1524,9 +1383,7 @@ export const Analytics = {
  // Firebase Analytics uses IndexedDB internally for event persistence.
  // When iOS suspends/resumes the page, the IDB connection can die.
  // Instead of silently dropping events, attempt to re-initialize Analytics.
- if (message.includes('Indexed Database server lost') || message.includes('IDBDatabase')
- || message.includes('Internal error was encountered in the Indexed Database')
- || message.includes('Refusing to open IndexedDB')) {
+ if (isIndexedDbError(message)) {
  event.preventDefault();
  recoverFromIndexedDbLoss();
  return;
@@ -1660,6 +1517,7 @@ export const Analytics = {
  screen_width: window.innerWidth || 0,
  screen_height: window.innerHeight || 0,
  timestamp: new Date().toISOString(),
+ build_id: truncate(readEmbeddedBuildId() || '(unknown)', 40),
  });
  },
 
@@ -1693,6 +1551,7 @@ export const Analytics = {
  connection_type: truncate((navigator as any).connection?.effectiveType || 'unknown', 20),
  screen_width: window.innerWidth || 0,
  timestamp: new Date().toISOString(),
+ build_id: truncate(readEmbeddedBuildId() || '(unknown)', 40),
  });
  },
 
@@ -1736,6 +1595,7 @@ export const Analytics = {
  connection_type: truncate((navigator as any).connection?.effectiveType || 'unknown', 20),
  screen_width: window.innerWidth || 0,
  timestamp: new Date().toISOString(),
+ build_id: truncate(readEmbeddedBuildId() || '(unknown)', 40),
  });
  },
 
@@ -1759,6 +1619,7 @@ export const Analytics = {
  user_agent: truncate(navigator.userAgent || '', 150),
  connection_type: truncate((navigator as any).connection?.effectiveType || 'unknown', 20),
  timestamp: new Date().toISOString(),
+ build_id: truncate(readEmbeddedBuildId() || '(unknown)', 40),
  });
  },
 
@@ -1941,6 +1802,42 @@ export const Analytics = {
  is_sponsored: isSponsored ? 'sponsored' : 'free',
  job_slug: jobSlug || '',
  });
+ },
+
+ /** Emit the denominator once per browser session after a job detail is viewed. */
+ trackQualifiedJobSession: (identity?: AnalyticsPageViewIdentity | null) => {
+  const deduplication = claimQualifiedJobSession();
+  if (!deduplication) return false;
+  log(JOB_QUALIFIED_SESSION_EVENT, {
+   page_template: 'job_detail',
+   qualification: 'job_detail_view',
+   deduplication,
+   job_slug: identity?.jobSlug || '',
+   employer_key: identity?.employerKey || '',
+  });
+  return true;
+ },
+
+ /**
+  * Record an external application hand-off without claiming that an
+  * application was submitted. Only the destination host is retained.
+  */
+ trackJobApplyHandoff: (
+  job: AnalyticsJobApplySource,
+  destination: string,
+  details: { surface?: string; emissionId?: string } = {},
+ ) => {
+  const destinationHost = resolveExternalDestinationHost(destination);
+  if (!destinationHost) return false;
+  log(JOB_APPLY_HANDOFF_EVENT, {
+   ...buildJobApplyAttributionParams(job),
+   is_sponsored: job.featured ? 'sponsored' : 'free',
+   destination_host: destinationHost,
+   handoff_surface: details.surface || 'job_board_apply',
+   application_status: 'redirect_only',
+   emission_id: details.emissionId || createAnalyticsEmissionId(),
+  });
+  return true;
  },
 
  /**
@@ -2505,7 +2402,7 @@ export const Analytics = {
   * instead of inferring it from a zero impression count.
   */
  trackJobAlertCtaSkipped: (
- surface: 'job_detail_prompt' | 'job_board_filters',
+ surface: 'job_detail_prompt' | 'job_board_filters' | 'sticky_banner' | 'end_card' | 'job_detail_button',
  reason:
  | 'no_auth'
  | 'no_category'

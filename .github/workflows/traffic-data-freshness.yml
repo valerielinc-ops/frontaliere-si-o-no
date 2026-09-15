@@ -54,10 +54,12 @@ jobs:
           # fresh data. Overnight is intentionally skipped to conserve HERE quota.
           if [ "$CURRENT_HOUR" -lt 5 ] || [ "$CURRENT_HOUR" -ge 20 ]; then
             echo "Outside peak hours, skipping freshness check"
-            echo "STALE=false" >> "$GITHUB_OUTPUT"
-            echo "AGE_MINUTES=0" >> "$GITHUB_OUTPUT"
-            echo "THRESHOLD_MINUTES=0" >> "$GITHUB_OUTPUT"
-            echo "PAGEABLE=false" >> "$GITHUB_OUTPUT"
+            {
+              echo "STALE=false"
+              echo "AGE_MINUTES=0"
+              echo "THRESHOLD_MINUTES=0"
+              echo "PAGEABLE=false"
+            } >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
@@ -83,9 +85,11 @@ jobs:
 
           FILE="data/border-wait-current.json"
           if [ ! -f "$FILE" ]; then
-            echo "STALE=true" >> "$GITHUB_OUTPUT"
-            echo "REASON=File missing" >> "$GITHUB_OUTPUT"
-            echo "AGE_MINUTES=0" >> "$GITHUB_OUTPUT"
+            {
+              echo "STALE=true"
+              echo "REASON=File missing"
+              echo "AGE_MINUTES=0"
+            } >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
@@ -96,9 +100,11 @@ jobs:
           ")
 
           if [ -z "$LAST_MODIFIED" ]; then
-            echo "STALE=true" >> "$GITHUB_OUTPUT"
-            echo "REASON=No lastUpdate field found" >> "$GITHUB_OUTPUT"
-            echo "AGE_MINUTES=0" >> "$GITHUB_OUTPUT"
+            {
+              echo "STALE=true"
+              echo "REASON=No lastUpdate field found"
+              echo "AGE_MINUTES=0"
+            } >> "$GITHUB_OUTPUT"
             exit 0
           fi
 

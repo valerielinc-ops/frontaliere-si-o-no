@@ -196,6 +196,19 @@ describe('Search Console 404 compatibility resolver', () => {
     });
   });
 
+  it('canonicalizes flat employer-profile output back to its directory URL', () => {
+    expect(resolveSearchConsoleCompatTarget('/aziende/fachkraft-ch-gmbh.html')).toEqual({
+      canonicalPath: '/aziende/fachkraft-ch-gmbh/',
+      kind: 'legacy',
+      locale: 'it',
+    });
+    expect(resolveSearchConsoleCompatTarget('/en/aziende/roche.html')).toEqual({
+      canonicalPath: '/en/aziende/roche/',
+      kind: 'legacy',
+      locale: 'en',
+    });
+  });
+
   it('routes expired job-detail style URLs back to the localized listing', () => {
     // NB: the fixture must NOT be a sector-hub slug (e.g. the old `cuochi`
     // fixture) — those now self-map to their own live page (full hub or

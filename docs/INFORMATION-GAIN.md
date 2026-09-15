@@ -129,7 +129,9 @@ differenziavano le pagine.
 
 La run `33460354951` ha misurato **37 coorti sotto floor su 159 gated**
 (9817 pagine in coorte, `sampleRate` 0,25, nessuna baseline: soglia assoluta).
-Trentasette sembra un cluster nuovo rispetto alle 3 righe dell'inventario.
+Trentasette sembrava un cluster nuovo rispetto alle 3 righe dell'inventario, e
+oggi sono tutte e 37 inventariate con la mediana misurata (inventario a 40 voci,
+vedi «E allora come si inventaria una coorte che porta il `~`» più sotto).
 Non lo è: sono **cinque famiglie**, ognuna spezzata in più coorti perché ogni
 variante di `h1` è una coorte a sé. 22 + 4 + 4 + 4 + 3 = 37: le famiglie
 coprono tutti gli offender, nessuno resta fuori.
@@ -139,7 +141,7 @@ coprono tutti gli offender, nessuno resta fuori.
 | Calcolatori di stipendio netto (`/calcola-stipendio/`, `/gehalt-berechnen/`, `/calculate-salary/`, `/calculer-salaire/`) — **risolta, vedi sotto** | 22 | 0–4 % → **6,5–19,4 %** | una combinazione RAL × figli × stato civile × regime frontaliero |
 | Tempi di attesa alla dogana (`/tempi-attesa-dogana/` e traduzioni) | 4 | 0 % | un valico, 13–18 segmenti in tutto |
 | Premi cassa malati (`/premi-cassa-malati/` e traduzioni) — **risolta, vedi sotto** | 4 | 2,6–2,7 % → **5,6 %** | un cantone × una fascia d'età |
-| Aziende che assumono, settimanali (`/aziende-che-assumono/` e traduzioni) | 4 | 2,8–4,9 % | una città × una settimana |
+| Aziende che assumono, settimanali (`/aziende-che-assumono/` e traduzioni) — **risolta, vedi sotto** | 4 | 2,8–4,9 % | una città × una settimana |
 | Landing professione × cantone flat-slug (`it:/lavoro-`, e le sue traduzioni) | 3 | 2,9–4,3 % | una professione in un cantone |
 
 Tutte e cinque hanno la stessa forma: **il payload per pagina è numerico**
@@ -204,6 +206,72 @@ Il suffisso `~<skeletonHash>` resta fuori dalla relazione: viene aggiunto solo
 quando **due template distinti** si riducono alla stessa etichetta, e farli
 risolvere entrambi alla chiave nuda condividerebbe la baseline che quel
 suffisso esiste per tenere separata.
+
+### E allora come si inventaria una coorte che porta il `~` (issue #7382)
+
+Le due conseguenze qui sopra, messe insieme, lasciavano queste 37 coorti in un
+buco: il tronco di famiglia non le risolve (la relazione di prefisso è rifiutata
+di proposito su un'etichetta col `~`), e l'uguaglianza pretende una stringa la
+cui prima metà — il prefisso comune dei path **campionati** — cambia col bucket.
+Misurato sulla stessa famiglia immutata: la run `33460354951` chiamava una
+coorte di calcolatori `it:/calcola-stipendio/~2b6ed2`, il campione live del
+2026-09-05 la chiama `it:/calcola-stipendio/stipendio-netto-~2b6ed2`. Nessuna
+delle due forme di chiave copre entrambe. Non erano fuori dall'inventario per
+scelta: erano **non-inventariabili**.
+
+Esiste però un'identità che non si muove, e il report la stampa già per questo
+motivo: lo **`skeletonHash`**, cioè l'hash dell'`h1` mascherato — il template.
+Verificato identico nelle due misure su tutte e 22 le coorti dei calcolatori e
+su quelle di premi, aziende-settimanali e landing professione, **a cavallo del
+cambio di etichetta di #7332**. Da #7382 `KNOWN_LOW_GAIN_COHORTS` accetta quindi
+una terza forma di chiave:
+
+| Forma | Esempio | Risolve |
+|---|---|---|
+| tronco di famiglia | `it:/stipendio-medio-svizzera-` | ogni etichetta che lo **estende**, senza `~` |
+| etichetta esatta | `it:/lavoro-ticino-` | solo se stampata identica |
+| **identità di template** | `it:~2b6ed2` | ogni etichetta di **quel** template in **quel** locale, qualunque prefisso abbia prodotto il bucket |
+
+È più stretta della relazione di prefisso, non più larga: lo hash è
+**per-template** dove il tronco copre una famiglia intera, quindi non può dare a
+una coorte la baseline di un'altra — che è il caso che il `~` esiste per
+impedire. L'ordine di risoluzione segue la specificità: etichetta esatta,
+identità di template, tronco di famiglia.
+
+Le 37 righe sono entrate con la mediana **misurata** dalla run `33460354951`
+(`topOffenders[].metric` dell'artifact `audit-reports-33460354951-1`), non con
+un valore stimato: l'inventario è passato da 3 a 40 voci e le cinque famiglie
+non producono più offender `below-floor`. Il floor resta 5 % e la tolleranza
+1,5 punti, quindi una discesa di una di queste coorti resta rossa — e ognuna
+esce dall'inventario quando `recoveredCohorts` dice che è risalita.
+
+Due dettagli che si vedono solo guardando i dati:
+
+- i tempi di attesa alla dogana erano stati misurati sotto
+  `/guida-frontaliere/tempi-attesa-dogana/`, mentre le sitemap oggi servono
+  `/traffico-dogane/`. La chiave sopravvive al rename **di proposito**: è
+  l'identità del template, non il path;
+- `de:/de/unternehmen-einstellen/` e `en:/en/companies-hiring/` non collidevano
+  ancora nella run del 2026-09-01, quindi il report non ne stampava il suffisso.
+  Il loro `skeletonHash` (`3b9ffd`, `a17e23`) viene dalla misura del 2026-09-05;
+  la mediana registrata resta quella del 2026-09-01, che è la popolazione che il
+  gate giudica.
+
+L'asimmetria del ratchet cambia di conseguenza, ed è l'unica cosa che il resto
+del meccanismo doveva sapere. La condizione «togli la riga solo se l'etichetta
+è UGUALE alla chiave» esiste per non smontare la riga di una **famiglia** sulla
+base di una sotto-famiglia campionata; una chiave di identità-template non è una
+famiglia, è una coorte, quindi qualunque run che la misura la misura per intero.
+Scritta com'era (`key === label`) nessuna delle 37 righe sarebbe mai potuta
+uscire dall'inventario — un inventario che può solo crescere è esattamente ciò
+che un inventario non deve essere. La regola sta ora in un posto solo
+(`isFamilyWideMeasure`), condivisa dal gate su dist e dal live-scan.
+
+La prova per riga sta in `tests/fixtures/information-gain-emitted-slugs.json`,
+sezione `templates`: per ogni chiave le etichette **osservate** nelle due run, e
+`tests/information-gain-metric.test.ts` verifica che tutte risolvano a quella
+riga e che **nessuna** risolva senza lo hash — cioè che la chiave di
+identità-template non sia decorativa.
 
 ## Cosa è cambiato con #5002
 
@@ -337,6 +405,52 @@ siano ordinate le righe in ingresso. `tests/information-gain-families-floor.test
 misura la famiglia pre-merge sull'output del plugin e sul dataset reale
 (`data/health-premiums/2026.json`), con la soglia pinnata al misurato meno un
 punto.
+
+## Le settimanali «aziende che assumono»: le città pari (#7595)
+
+La leaf `/aziende-che-assumono/<città>/<settimana>/` è una cella di griglia —
+una città × una settimana — e tutto ciò che la distingueva dalle sorelle era un
+conteggio: annunci attivi, aziende, variazione sulla settimana prima. Dopo la
+maschera n. 1 non restava niente che appartenesse alla pagina: coorte
+`it:/aziende-che-assumono/~23cba1`, **4,6 % di mediana su 33 pagine**, sotto il
+floor del 5 %.
+
+`build-plugins/shared/peerCohortComparison.ts` è il modulo condiviso delle
+quattro famiglie a payload numerico: i "pari" di una pagina sono le righe
+accanto alla sua nella classifica della coorte, e il blocco le **nomina**. È il
+nome di una sorella a sopravvivere alla maschera n. 2, che folda solo i token
+identitari della pagina corrente — la stessa proprietà su cui poggia
+`nearestMunicipalityComparison.ts`.
+
+Il punto meccanico, valido per tutte e quattro le famiglie: dentro un segmento
+solo i NOMI possono differire fra sorelle, perché ogni cifra diventa `#`.
+Quindi differenzia solo un segmento che porta **più nomi in un ordine
+specifico della pagina**: «davanti in classifica, nell'ordine: A, B, C» è
+diverso su ogni pagina della coorte, mentre «A, due posizioni davanti, sei
+annunci in più» collassa sulla stessa stringa mascherata per ogni pagina che ha
+A davanti. Per questo la prosa emette i due roster (chi sta davanti, chi sta
+dietro) come frasi separate, non una riga di tabella per pari: le celle della
+tabella stanno sotto i 25 caratteri di `MIN_SEGMENT_CHARS` e non contano.
+
+Sulla griglia città × settimana la misura è:
+
+| | prima | dopo |
+|---|---|---|
+| mediana IGS, pagine live (`it`, 33 pagine) | 4,6 % | — (si misura al prossimo deploy) |
+| mediana IGS, fixture deterministica (36 pagine) | 2,7 % | **6,7 %** |
+
+L'hub regionale `ticino` non riceve il blocco: è la **somma** delle sue città,
+quindi metterlo in classifica con loro gli darebbe il primo posto per
+costruzione e non direbbe niente. Le sue pagine fanno coorte a parte, sotto il
+`MIN_COHORT_PAGES = 12` del gate.
+
+L'osservatore pre-merge è la famiglia `aziende-che-assumono` in
+`tests/information-gain-families-floor.test.ts` (soglia 5,7 %, il misurato meno
+un punto) più `tests/weekly-employers-peer-comparison.test.ts`, che fissa le tre
+proprietà da cui la misura dipende: il blocco nomina le sorelle, dice cose
+diverse a due sorelle della stessa settimana, ed è deterministico (emette link
+interni: un ordinamento instabile rimescolerebbe il link graph a ogni build, e
+i pareggi fra città con lo stesso numero di annunci sono la norma).
 
 ## La catena automatica
 

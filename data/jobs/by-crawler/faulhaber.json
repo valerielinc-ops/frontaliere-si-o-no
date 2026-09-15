@@ -1,6 +1,6 @@
 {
   "crawlerKey": "faulhaber",
-  "assembledAt": "2026-09-09T23:04:40.726Z",
+  "assembledAt": "2026-09-13T13:54:52.297Z",
   "jobs": [
     {
       "id": "faulhaber-2bee9b1324a0",
@@ -19,7 +19,7 @@
         "it": "Candidatura",
         "en": "Candidatura spontanea",
         "de": "Candidatura spontanea",
-        "fr": "Candidatura spontanea"
+        "fr": "candidature spontanée"
       },
       "description": "CH - Croglio\n\nAltro\n\nPosto indeterminato\n\nTutti\n\nCandidarsi ora\n\nStampa lavoro\n\nContatto:\n\nHuman Resources Croglio\n\nFaulhaber SA\n\nVia Cantonale 6980 Croglio",
       "descriptionByLocale": {
@@ -46,30 +46,25 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/23370/Candidatura-spontanea",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T23:04:35.168Z",
+      "crawledAt": "2026-09-13T13:54:48.397Z",
       "previousSlugs": [
         "spontaneous-application-faulhaber-croglio",
         "spontananwendung-faulhaber-croglio",
         "demande-spontanee-faulhaber-croglio",
-        "candidatura-spontanea-croglio-faulhaber",
-        "candidatura-faulhaber-croglio",
-        "candidatura-spontanea-faulhaber-croglio"
+        "candidatura-spontanea-croglio-faulhaber"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "candidatura-spontanea-croglio-faulhaber",
-          "candidatura-faulhaber-croglio"
+          "candidatura-spontanea-croglio-faulhaber"
         ],
         "en": [
           "spontaneous-application-faulhaber-croglio"
         ],
         "de": [
-          "spontananwendung-faulhaber-croglio",
-          "candidatura-spontanea-faulhaber-croglio"
+          "spontananwendung-faulhaber-croglio"
         ],
         "fr": [
-          "demande-spontanee-faulhaber-croglio",
-          "candidatura-spontanea-faulhaber-croglio"
+          "demande-spontanee-faulhaber-croglio"
         ]
       },
       "needsRetranslation": true,
@@ -133,15 +128,13 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/55489/R-D-Mechanical-Engineer-Gearbox-design",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:04:22.225Z",
+      "crawledAt": "2026-09-13T13:54:37.101Z",
       "previousSlugs": [
-        "r-d-mechanical-engineer-gearbox-design-croglio-faulhaber",
-        "r-d-mechanical-ingegnere-gearbox-design-faulhaber-croglio"
+        "r-d-mechanical-engineer-gearbox-design-croglio-faulhaber"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "r-d-mechanical-engineer-gearbox-design-croglio-faulhaber",
-          "r-d-mechanical-ingegnere-gearbox-design-faulhaber-croglio"
+          "r-d-mechanical-engineer-gearbox-design-croglio-faulhaber"
         ],
         "fr": [
           "r-d-mechanical-engineer-gearbox-design-croglio-faulhaber"
@@ -208,21 +201,13 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/57267/JUNIOR-LOGISTICS-SPECIALIST",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-09T23:04:09.807Z",
+      "crawledAt": "2026-09-13T13:54:24.904Z",
       "previousSlugs": [
-        "junior-logistica-specialista-faulhaber-croglio",
-        "junior-logistics-specialist-croglio-faulhaber"
+        "junior-logistica-specialista-faulhaber-croglio"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-logistica-specialista-faulhaber-croglio",
-          "junior-logistics-specialist-croglio-faulhaber"
-        ],
-        "de": [
-          "junior-logistics-specialist-croglio-faulhaber"
-        ],
-        "fr": [
-          "junior-logistics-specialist-croglio-faulhaber"
+          "junior-logistica-specialista-faulhaber-croglio"
         ]
       },
       "needsRetranslation": true,
@@ -244,9 +229,9 @@
     },
     {
       "id": "faulhaber-cd396bb6e76c",
-      "slug": "tecnico-di-misura-croglio-faulhaber",
+      "slug": "tecnologia-misura-faulhaber-croglio",
       "slugByLocale": {
-        "it": "tecnico-di-misura-croglio-faulhaber",
+        "it": "tecnologia-misura-faulhaber-croglio",
         "en": "technician-di-misura-faulhaber-croglio",
         "de": "techniker-di-misura-faulhaber-croglio",
         "fr": "tecnico-di-misura-croglio-faulhaber"
@@ -256,7 +241,7 @@
       "companyDomain": "faulhaber.com",
       "title": "Tecnico di misura",
       "titleByLocale": {
-        "it": "Tecnico di misura",
+        "it": "Tecnologia Misura",
         "en": "Technician di misura",
         "de": "Techniker di misura",
         "fr": "Technicien di misura"
@@ -286,13 +271,17 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/57372/Tecnico-di-misura",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-09T23:03:56.560Z",
+      "crawledAt": "2026-09-13T13:54:12.626Z",
       "previousSlugs": [
-        "technicien-di-misura-faulhaber-croglio"
+        "technicien-di-misura-faulhaber-croglio",
+        "tecnico-di-misura-croglio-faulhaber"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "technicien-di-misura-faulhaber-croglio"
+        ],
+        "it": [
+          "tecnico-di-misura-croglio-faulhaber"
         ]
       },
       "needsRetranslation": true,

@@ -18,6 +18,13 @@ export const SOCKET_TIMEOUT_MS = 30_000;
 export const CHILD_TIMEOUT_MS = 120_000;
 export const RESPONSE_TIMEOUT_MS = SOCKET_TIMEOUT_MS + CHILD_TIMEOUT_MS;
 export const SHUTDOWN_TIMEOUT_MS = FORCE_KILL_GRACE_MS + 500;
+export const MAX_REVIEW_ATTEMPTS = 3;
+
+// GitHub may return a transient 5xx after accepting a review POST.  Only the
+// review operation gets a retry: issue/PR creation, comments and edits remain
+// strictly one-shot because repeating those blindly can duplicate state.
+const REVIEW_RETRY_DELAYS_MS = Object.freeze([1_000, 3_000]);
+const TRANSIENT_REVIEW_FAILURE_RE = /\b5\d{2}\b|bad gateway|service unavailable|gateway timeout|something went wrong/i;
 
 const allowedCommands = new Set(['api', 'issue', 'label', 'pr', 'run', 'search']);
 const allowedSubcommands = new Map([
@@ -28,9 +35,18 @@ const allowedSubcommands = new Map([
   ['search', new Set(['issues'])],
 ]);
 export const CORPUS_REPOSITORY = 'nanakokyobashi-rgb/frontaliere-articles';
-const corpusAllowedCommands = new Set(['issue']);
+// The corpus triage prompt may need read-only repository API endpoints for
+// metadata that is not present in the prefetched bundle. Keep `api` available
+// for GETs only; validateOperation/apiMethodError and validateApiEndpoint
+// still reject every mutation and every endpoint outside this exact repo.
+const corpusAllowedCommands = new Set(['api', 'issue']);
 const corpusAllowedSubcommands = new Map([
   ['issue', new Set(['view', 'list', 'create', 'comment', 'edit'])],
+]);
+const mutatingSubcommands = new Map([
+  ['issue', new Set(['create', 'comment', 'edit'])],
+  ['label', new Set(['create'])],
+  ['pr', new Set(['comment', 'create', 'edit', 'review'])],
 ]);
 const operationValueFlags = new Set([
   '--repo', '-R', '--hostname', '--method', '-X', '--header', '-H', '--input', '--template',
@@ -85,6 +101,11 @@ function commandIndexFor(args) {
   return index;
 }
 
+function markSideEffect(sideEffectFile) {
+  if (!sideEffectFile || !path.isAbsolute(sideEffectFile)) return;
+  fs.writeFileSync(sideEffectFile, 'gh\n', { flag: 'a', mode: 0o600 });
+}
+
 function normalizedHost(value) {
   const raw = String(value || '').trim();
   if (!raw || /[\u0000-\u001f\u007f\s]/.test(raw)) return '';
@@ -127,6 +148,75 @@ function firstOperationArg(args, start) {
     if (!arg.includes('=') && operationValueFlags.has(arg)) index += 1;
   }
   return '';
+}
+
+/** Return whether a validated gh request can change remote state. */
+export function isMutatingGhArgs(args) {
+  if (!Array.isArray(args)) return false;
+  const commandIndex = commandIndexFor(args);
+  const command = args[commandIndex];
+  return mutatingSubcommands.get(command)?.has(firstOperationArg(args, commandIndex + 1)) ?? false;
+}
+
+/** Return whether a request is the comment-style pull-request review call. */
+export function isPullRequestReviewArgs(args) {
+  if (!Array.isArray(args)) return false;
+  const commandIndex = commandIndexFor(args);
+  return args[commandIndex] === 'pr' && firstOperationArg(args, commandIndex + 1) === 'review';
+}
+
+/** Classify only a failed review POST with a recognizable transient 5xx. */
+export function isTransientReviewFailure({ code, stderr } = {}) {
+  return Number(code) !== 0 && TRANSIENT_REVIEW_FAILURE_RE.test(String(stderr || ''));
+}
+
+function pullRequestReviewNumber(args, commandIndex) {
+  let operationSeen = false;
+  for (let index = commandIndex + 1; index < args.length; index += 1) {
+    const arg = args[index];
+    if (arg === '--') return args[index + 1] || '';
+    if (arg.startsWith('-')) {
+      if (!arg.includes('=') && operationValueFlags.has(arg)) index += 1;
+      continue;
+    }
+    if (!operationSeen) {
+      operationSeen = true;
+      continue;
+    }
+    return arg;
+  }
+  return '';
+}
+
+function pullRequestReviewBody(args, commandIndex, context) {
+  const start = commandIndex + 1;
+  const inline = prBodyOption(args, start, prBodyInlineFlags);
+  if (inline) return inline.value;
+  const bodyFile = prBodyOption(args, start, prBodyFileFlags);
+  if (!bodyFile) return '';
+  return bodyFilePath(bodyFile.value, context).body || '';
+}
+
+/**
+ * Build the minimum idempotency key for a review retry.  Without a numeric PR,
+ * exact body and full HEAD SHA, a transient retry could duplicate an unknown
+ * review, so the caller must leave it one-shot.
+ */
+export function reviewRetryDetails(args, commandIndex, {
+  cwd,
+  workspaceRoot,
+  scratchRoot,
+  headSha,
+} = {}) {
+  if (!isPullRequestReviewArgs(args)) return null;
+  const pullNumber = pullRequestReviewNumber(args, commandIndex ?? commandIndexFor(args));
+  const body = pullRequestReviewBody(args, commandIndex ?? commandIndexFor(args), {
+    cwd: cwd || process.cwd(),
+    allowedRoots: [realRoot(workspaceRoot || cwd), realRoot(scratchRoot)].filter(Boolean),
+  });
+  const normalizedHead = String(headSha || '').trim();
+  if (!/^\d+$/.test(pullNumber) || !body || !/^[0-9a-f]{40}$/i.test(normalizedHead)) return null;
+  return { pullNumber, body, headSha: normalizedHead };
 }
 
 function hasExplicitOption(args, name) {
@@ -219,9 +309,25 @@ export function resolveGhScope(args, {
   if (repositories.some((value) => !repositoryName(value))) {
     return { error: 'gh --repo must name an exact owner/repository pair' };
   }
+  const hasExplicitRepository = repositories.length > 0;
   const explicitRepository = repositories[0] || siteRepository;
   if (repositories.some((value) => value !== explicitRepository)) {
     return { error: 'gh --repo may not select multiple repositories in one request' };
+  }
+  // The current checkout is the host-side site scope even when the checkout
+  // itself is the corpus: review/comment operations on the current PR use the
+  // runner GITHUB_TOKEN and need the normal `pr` allow-list. The separate
+  // corpus PAT is selected only when the model explicitly targets the corpus
+  // with --repo, which is the write-routing boundary in the prompt.
+  if (hasExplicitRepository && explicitRepository === expectedCorpus) {
+    if (!corpusToken) return { error: 'Codex corpus bridge credential is unavailable' };
+    return {
+      kind: 'corpus',
+      repository: expectedCorpus,
+      token: corpusToken,
+      allowedCommandSet: corpusAllowedCommands,
+      allowedSubcommandMap: corpusAllowedSubcommands,
+    };
   }
   if (explicitRepository === siteRepository) {
     if (!siteToken) return { error: 'Codex GitHub bridge site credential is unavailable' };
@@ -231,16 +337,6 @@ export function resolveGhScope(args, {
       token: siteToken,
       allowedCommandSet: allowedCommands,
       allowedSubcommandMap: allowedSubcommands,
-    };
-  }
-  if (explicitRepository === expectedCorpus) {
-    if (!corpusToken) return { error: 'Codex corpus bridge credential is unavailable' };
-    return {
-      kind: 'corpus',
-      repository: expectedCorpus,
-      token: corpusToken,
-      allowedCommandSet: corpusAllowedCommands,
-      allowedSubcommandMap: corpusAllowedSubcommands,
     };
   }
   return { error: `gh --repo is restricted to ${siteRepository} or the exact corpus repository` };
@@ -549,6 +645,7 @@ function main() {
   const siteToken = process.env.CODEX_GH_AUTH;
   const corpusToken = process.env.CODEX_GH_CORPUS_AUTH || '';
   const realGh = process.env.CODEX_REAL_GH;
+  const sideEffectFile = process.env.CODEX_GH_SIDE_EFFECT_FILE || '';
   const cwd = process.env.CODEX_GH_CWD;
   const workspaceRoot = process.env.CODEX_GH_WORKSPACE || cwd;
   const scratchRoot = process.env.CODEX_GH_SCRATCH;
@@ -594,6 +691,7 @@ function main() {
     let terminationRequested = false;
     let responseSent = false;
     let timedOut = false;
+    let reviewProbeChild = null;
     const terminateChild = (reason) => {
       if (!child || childExited) return;
       if (reason === 'child-timeout' || reason === 'socket-timeout') timedOut = true;
@@ -603,6 +701,7 @@ function main() {
     };
     client.once('close', () => {
       if (child && !childExited) terminateChild('client-disconnected');
+      if (reviewProbeChild && isChildRunning(reviewProbeChild)) requestChildTermination(reviewProbeChild);
       if (childExited) releaseSlot();
     });
     const finish = (result) => {
@@ -659,57 +758,171 @@ function main() {
         finish({ code: 2, stderr: `bridge request: ${error.message}\n` });
         return;
       }
+      const commandIndex = commandIndexFor(args);
+      if (isMutatingGhArgs(args)) markSideEffect(sideEffectFile);
       client.setTimeout(RESPONSE_TIMEOUT_MS, timeoutClient);
-      child = spawn(realGh, args, {
+      const reviewDetails = reviewRetryDetails(args, commandIndex, {
         cwd,
-        env: {
-          ...baseEnv,
-          GH_TOKEN: scope.token,
-          GH_REPO: scope.repository,
-        },
+        workspaceRoot,
+        scratchRoot,
+        headSha: process.env.HEAD_SHA,
       });
-      childExited = false;
-      children.add(child);
-      childTimer = setTimeout(() => terminateChild('child-timeout'), CHILD_TIMEOUT_MS);
-      let stdout = '';
-      let stderr = '';
-      let outputTooLarge = false;
-      const append = (current, chunk) => {
-        const bytes = Buffer.from(chunk);
-        const remaining = MAX_OUTPUT_BYTES - Buffer.byteLength(current);
-        if (remaining <= 0) {
-          outputTooLarge = true;
-          return current;
-        }
-        if (bytes.length > remaining) outputTooLarge = true;
-        return current + bytes.subarray(0, remaining).toString('utf8');
+      let reviewAttempt = 0;
+
+      const reviewWasPersisted = (details) => new Promise((resolve) => {
+        const probeArgs = [
+          'api',
+          `repos/${scope.repository}/pulls/${details.pullNumber}/reviews`,
+          '--method', 'GET',
+          '--paginate',
+          '--slurp',
+        ];
+        const probe = spawn(realGh, probeArgs, {
+          cwd,
+          env: {
+            ...baseEnv,
+            GH_TOKEN: scope.token,
+            GH_REPO: scope.repository,
+          },
+        });
+        reviewProbeChild = probe;
+        children.add(probe);
+        let output = '';
+        let outputTooLarge = false;
+        let settled = false;
+        let probeTerminationTimer = null;
+        const finishProbe = (found) => {
+          if (settled) return;
+          settled = true;
+          if (probeTerminationTimer) clearTimeout(probeTerminationTimer);
+          if (reviewProbeChild === probe) reviewProbeChild = null;
+          children.delete(probe);
+          resolve(found);
+          if (shuttingDown && children.size === 0) finalizeShutdown();
+        };
+        const probeTimeout = setTimeout(() => {
+          if (isChildRunning(probe)) probeTerminationTimer = requestChildTermination(probe);
+        }, 15_000);
+        probe.stdout.setEncoding('utf8');
+        probe.stdout.on('data', (chunk) => {
+          const bytes = Buffer.from(chunk);
+          const remaining = MAX_OUTPUT_BYTES - Buffer.byteLength(output);
+          if (remaining <= 0) {
+            outputTooLarge = true;
+            return;
+          }
+          if (bytes.length > remaining) outputTooLarge = true;
+          output += bytes.subarray(0, remaining).toString('utf8');
+        });
+        probe.on('error', () => {
+          clearTimeout(probeTimeout);
+          finishProbe(false);
+        });
+        probe.on('close', (code) => {
+          clearTimeout(probeTimeout);
+          if (code !== 0 || outputTooLarge) {
+            finishProbe(false);
+            return;
+          }
+          try {
+            const pages = JSON.parse(output);
+            const reviews = Array.isArray(pages)
+              ? pages.flatMap((page) => Array.isArray(page) ? page : [page])
+              : [];
+            const found = reviews.some((review) => review
+              && review.commit_id === details.headSha
+              && typeof review.body === 'string'
+              && review.body.trimEnd() === details.body.trimEnd());
+            finishProbe(found);
+          } catch {
+            finishProbe(false);
+          }
+        });
+      });
+
+      const launch = () => {
+        reviewAttempt += 1;
+        terminationRequested = false;
+        childTerminationTimer = null;
+        child = spawn(realGh, args, {
+          cwd,
+          env: {
+            ...baseEnv,
+            GH_TOKEN: scope.token,
+            GH_REPO: scope.repository,
+          },
+        });
+        childExited = false;
+        children.add(child);
+        childTimer = setTimeout(() => terminateChild('child-timeout'), CHILD_TIMEOUT_MS);
+        let stdout = '';
+        let stderr = '';
+        let outputTooLarge = false;
+        const append = (current, chunk) => {
+          const bytes = Buffer.from(chunk);
+          const remaining = MAX_OUTPUT_BYTES - Buffer.byteLength(current);
+          if (remaining <= 0) {
+            outputTooLarge = true;
+            return current;
+          }
+          if (bytes.length > remaining) outputTooLarge = true;
+          return current + bytes.subarray(0, remaining).toString('utf8');
+        };
+        child.stdout.setEncoding('utf8');
+        child.stderr.setEncoding('utf8');
+        child.stdout.on('data', (chunk) => {
+          stdout = append(stdout, chunk);
+          if (outputTooLarge) terminateChild('output-limit');
+        });
+        child.stderr.on('data', (chunk) => {
+          stderr = append(stderr, chunk);
+          if (outputTooLarge) terminateChild('output-limit');
+        });
+        child.on('error', (error) => {
+          childExited = true;
+          children.delete(child);
+          finish({ code: 1, stdout, stderr: `${stderr}${error.message}\n` });
+          if (shuttingDown && children.size === 0) finalizeShutdown();
+        });
+        child.on('close', async (code) => {
+          childExited = true;
+          children.delete(child);
+          if (childTimer) clearTimeout(childTimer);
+          childTimer = null;
+          if (childTerminationTimer) clearTimeout(childTerminationTimer);
+          childTerminationTimer = null;
+          const resultCode = timedOut || outputTooLarge ? 1 : code ?? 1;
+          const detail = timedOut
+            ? `${stderr}Codex GitHub bridge child timed out\n`
+            : outputTooLarge ? `${stderr}Codex GitHub bridge output exceeded its limit\n` : stderr;
+          const result = { code: resultCode, stdout, stderr: detail };
+          if (reviewDetails
+            && isTransientReviewFailure(result)
+            && reviewAttempt < MAX_REVIEW_ATTEMPTS
+            && !responseSent
+            && !client.destroyed
+            && !shuttingDown) {
+            if (await reviewWasPersisted(reviewDetails)) {
+              finish({
+                code: 0,
+                stdout,
+                stderr: `${detail}Codex GitHub bridge confirmed the review after a transient response.\n`,
+              });
+              return;
+            }
+            const delay = REVIEW_RETRY_DELAYS_MS[reviewAttempt - 1] || REVIEW_RETRY_DELAYS_MS.at(-1);
+            setTimeout(() => {
+              if (!responseSent && !client.destroyed && !shuttingDown) launch();
+              else finish(result);
+            }, delay);
+            return;
+          }
+          finish(result);
+          if (shuttingDown && children.size === 0) finalizeShutdown();
+        });
       };
-      child.stdout.setEncoding('utf8');
-      child.stderr.setEncoding('utf8');
-      child.stdout.on('data', (chunk) => {
-        stdout = append(stdout, chunk);
-        if (outputTooLarge) terminateChild('output-limit');
-      });
-      child.stderr.on('data', (chunk) => {
-        stderr = append(stderr, chunk);
-        if (outputTooLarge) terminateChild('output-limit');
-      });
-      child.on('error', (error) => {
-        childExited = true;
-        children.delete(child);
-        finish({ code: 1, stdout, stderr: `${stderr}${error.message}\n` });
-        if (shuttingDown && children.size === 0) finalizeShutdown();
-      });
-      child.on('close', (code) => {
-        childExited = true;
-        children.delete(child);
-        releaseSlot();
-        const detail = timedOut
-          ? `${stderr}Codex GitHub bridge child timed out\n`
-          : outputTooLarge ? `${stderr}Codex GitHub bridge output exceeded its limit\n` : stderr;
-        finish({ code: timedOut || outputTooLarge ? 1 : code ?? 1, stdout, stderr: detail });
-        if (shuttingDown && children.size === 0) finalizeShutdown();
-      });
+
+      launch();
     });
   });
   server.maxConnections = MAX_ACTIVE_CONNECTIONS;

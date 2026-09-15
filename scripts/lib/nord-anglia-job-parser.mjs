@@ -48,6 +48,7 @@ import { createHash } from 'node:crypto';
 import { XMLParser, XMLValidator } from 'fast-xml-parser';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import { assertFeedBodyLooksLikeXml, assertFeedEndpointHost } from './feed-endpoint-guard.mjs';
 import { httpFetchWithRetry } from './transient-fetch.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -65,6 +66,7 @@ const DEFAULT_TIMEOUT_MS = 20_000;
 // indicates feed-wide drift and aborts the refresh so the indexed slice stays.
 const MAX_ITEM_DROP_RATIO = 0.5;
 const RSS_ITEM_STATS = Symbol('nordAngliaRssItemStats');
+const BARE_XML_AMPERSAND_RE = /<!\[CDATA\[[\s\S]*?\]\]>|&(?!amp;|lt;|gt;|quot;|apos;|#\d+;|#x[0-9a-fA-F]+;)/g;
 
 /** Confirmed real-world address of the Aubonne VD campus (Non-Negotiable #3 inputs). */
 const HQ = {
@@ -112,6 +114,20 @@ function toArray(val) {
 }
 
 class NordAngliaRssItemShapeError extends Error {}
+
+/**
+ * Repair the unescaped ampersands emitted by the Nord Anglia RSS endpoint.
+ *
+ * The feed has emitted raw `&` characters in query strings and HTML text,
+ * which are not legal XML and make fast-xml-parser reject the complete feed.
+ * Keep CDATA blocks opaque: raw ampersands are valid there and escaping them
+ * would change the description delivered to the crawler.
+ */
+function repairBareXmlAmpersands(xml) {
+  return xml.replace(BARE_XML_AMPERSAND_RE, (match) => (
+    match.startsWith('<![CDATA[') ? match : '&amp;'
+  ));
+}
 
 function readOptionalRssScalar(item, field, itemNumber) {
   const value = item?.[field];
@@ -302,11 +318,16 @@ async function fetchJobListings() {
     { headers: { 'User-Agent': POLITE_UA, Accept: 'application/rss+xml,application/xml,text/xml' } },
     { timeout: DEFAULT_TIMEOUT_MS, label: 'nord-anglia rss' },
   );
+  assertFeedEndpointHost('nord-anglia', ATS_HOST, res.url);
   if (!res.ok) {
-    throw new Error(`Nord Anglia RSS feed returned HTTP ${res.status}`);
+    const error = new Error(`Nord Anglia RSS feed returned HTTP ${res.status}`);
+    error.status = res.status;
+    if (res.retryBudgetExhausted === true) error.retryBudgetExhausted = true;
+    throw error;
   }
 
   const xml = await res.text();
+  assertFeedBodyLooksLikeXml('nord-anglia', ATS_HOST, xml);
   return parseNordAngliaRss(xml);
 }
 
@@ -315,7 +336,8 @@ export function parseNordAngliaRss(xml = '') {
   if (typeof xml !== 'string') {
     throw new Error('Nord Anglia RSS feed XML parse failed: expected a string');
   }
-  const validation = XMLValidator.validate(xml);
+  const parseableXml = repairBareXmlAmpersands(xml);
+  const validation = XMLValidator.validate(parseableXml);
   if (validation !== true) {
     const detail = validation?.err?.msg || validation?.err?.code || 'invalid XML';
     throw new Error(`Nord Anglia RSS feed XML parse failed: ${detail}`);
@@ -330,7 +352,7 @@ export function parseNordAngliaRss(xml = '') {
 
   let parsed;
   try {
-    parsed = parser.parse(xml);
+    parsed = parser.parse(parseableXml);
   } catch (err) {
     throw new Error(`Nord Anglia RSS feed XML parse failed: ${err?.message || err}`);
   }

@@ -27,6 +27,11 @@ const blockedGlobalOptions = new Set(['-C', '-c', '--git-dir', '--work-tree', '-
 const safeOptions = new Set(['--all', '--prune', '--tags', '--force', '--force-with-lease', '--set-upstream', '-u', '--rebase', '--no-rebase', '--ff-only', '--no-edit', '--dry-run', '--delete', '-d', '--heads', '--refs', '--mirror', '--verbose', '-v', '--quiet', '-q', '--no-tags']);
 const shadowEntries = ['objects', 'refs', 'logs', 'info', 'hooks', 'packed-refs'];
 
+function markSideEffect(sideEffectFile) {
+  if (!sideEffectFile || !path.isAbsolute(sideEffectFile)) return;
+  fs.writeFileSync(sideEffectFile, 'git\n', { flag: 'a', mode: 0o600 });
+}
+
 function responseFor(client, { code, stdout = '', stderr = '' }) {
   if (client.destroyed) return;
   const response = `${JSON.stringify({ code, stdout, stderr })}\n`;
@@ -74,6 +79,11 @@ export function validateGitArgs(args, { allowedRemote = 'origin' } = {}) {
     return `Git remote is not permitted by the Codex fallback bridge: ${positional[0]}`;
   }
   return '';
+}
+
+/** Return whether a validated Git request can change local or remote state. */
+export function isMutatingGitArgs(args) {
+  return Array.isArray(args) && ['push', 'fetch', 'pull'].includes(args[0]);
 }
 
 function firstPositionalIndex(args) {
@@ -169,6 +179,7 @@ function main() {
   const gitDir = process.env.CODEX_GIT_DIR;
   const commonGitDir = process.env.CODEX_GIT_COMMON_DIR;
   const hostScratch = process.env.CODEX_GIT_HOST_SCRATCH;
+  const sideEffectFile = process.env.CODEX_GIT_SIDE_EFFECT_FILE || '';
   const expectedRemote = canonicalGitRemote({
     host: process.env.CODEX_GIT_HOST,
     repository: process.env.CODEX_GIT_REPOSITORY,
@@ -309,6 +320,7 @@ function main() {
         finish({ code: 2, stderr: `bridge request: ${error.message}\n` });
         return;
       }
+      if (isMutatingGitArgs(args)) markSideEffect(sideEffectFile);
       child = spawn(realGit, childArgs, {
         cwd,
         env: baseEnv,

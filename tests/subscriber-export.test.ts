@@ -93,8 +93,30 @@ describe('missingData', () => {
   });
 
   it('non lo dichiara quando esiste un evento di conferma', () => {
-    const withConfirm = [...EVENTS, { event_type: 'confirm', occurred_at: '2026-06-10T15:00:00.000Z' }];
+    const withConfirm = [...EVENTS, { event_type: 'confirm', source_channel: 'confirmation_link', occurred_at: '2026-06-10T15:00:00.000Z' }];
     expect(missingData(SUBSCRIBER, withConfirm).join(' ')).not.toContain('doppio opt-in');
+  });
+
+  it('non scambia un vecchio evento auth `confirm` per un doppio opt-in', () => {
+    const legacyAuthConfirm = [...EVENTS, { event_type: 'confirm', source_channel: 'auth_google' }];
+    expect(missingData(SUBSCRIBER, legacyAuthConfirm).join(' ')).toContain('doppio opt-in');
+  });
+
+  it('non scambia il timestamp legacy del silent auth per un doppio opt-in', () => {
+    const silentAuth = {
+      ...SUBSCRIBER,
+      source: 'auth_google',
+      source_channel: 'auth_google',
+      consent_act: 'authentication',
+      consent_text_displayed: false,
+      confirmed_at: '2026-06-10T15:00:00.000Z',
+    };
+    expect(missingData(silentAuth, EVENTS).join(' ')).toContain('doppio opt-in');
+    const md = buildSubscriberExport(
+      { email: silentAuth.email, subscriber: silentAuth, events: EVENTS, deliveries: [], jobAlert: null, alerts: [] },
+      { generatedAt: GENERATED_AT },
+    );
+    expect(md).toContain('**Conferma ricevuta il:** (non registrato)');
   });
 
   it('non lo dichiara quando esiste il campo confirmed_at', () => {

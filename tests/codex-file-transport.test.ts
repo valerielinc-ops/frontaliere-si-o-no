@@ -6,6 +6,11 @@ import { randomUUID } from 'node:crypto';
 import { execFile, spawn } from 'node:child_process';
 import { promisify } from 'node:util';
 import { createConnection, createServer } from '../.github/actions/claude-codex-fallback/bridge-transport.mjs';
+import {
+  isPullRequestReviewArgs,
+  isTransientReviewFailure,
+  reviewRetryDetails,
+} from '../.github/actions/claude-codex-fallback/gh-bridge-server.mjs';
 
 const run = promisify(execFile);
 const roots: string[] = [];
@@ -77,6 +82,19 @@ describe('Codex file IPC', () => {
     client.destroy();
     await vi.waitFor(() => expect(closed).toHaveBeenCalledOnce());
   });
+  it('recognizes only retryable review failures and requires a complete idempotency key', () => {
+    const headSha = 'a'.repeat(40);
+    const args = ['pr', 'review', '8488', '--comment', '--body', '## LGTM'];
+    expect(isPullRequestReviewArgs(args)).toBe(true);
+    expect(isPullRequestReviewArgs(['pr', 'comment', '8488', '--body', '## LGTM'])).toBe(false);
+    expect(isTransientReviewFailure({ code: 1, stderr: '502 Bad Gateway' })).toBe(true);
+    expect(isTransientReviewFailure({ code: 1, stderr: 'permission denied' })).toBe(false);
+    expect(reviewRetryDetails(args, 0, { cwd: process.cwd(), workspaceRoot: process.cwd(), scratchRoot: process.cwd(), headSha }))
+      .toEqual({ pullNumber: '8488', body: '## LGTM', headSha });
+    expect(reviewRetryDetails(['pr', 'review', '8488', '--comment', '--body', '## LGTM'], 0, {
+      cwd: process.cwd(), workspaceRoot: process.cwd(), scratchRoot: process.cwd(), headSha: 'short',
+    })).toBeNull();
+  });
   it('retains authenticated GH reads, auth denial, and repository scope through the real bridge', async () => {
     const root = mkdtempSync(join(tmpdir(), 'codex-gh-files-'));
     roots.push(root);
@@ -99,6 +117,105 @@ describe('Codex file IPC', () => {
       await expect(call(['auth', 'token'])).rejects.toMatchObject({ code: 2 });
       await expect(call(['api', 'repos/other/repo'])).rejects.toMatchObject({ code: 2 });
       expect(readdirSync(endpoint)).toEqual([]);
+    } finally {
+      server.kill('SIGTERM');
+      await new Promise(resolve => server.once('exit', resolve));
+    }
+  });
+  it('retries a transient review POST only after an idempotency probe', async () => {
+    const root = mkdtempSync(join(tmpdir(), 'codex-gh-review-'));
+    roots.push(root);
+    const endpoint = join(root, 'mailbox');
+    const state = join(root, 'review-attempts');
+    writeFileSync(state, '0');
+    const fakeGh = join(root, 'gh');
+    writeFileSync(fakeGh, `#!/bin/sh
+set -eu
+state='${state}'
+case "\${1:-}" in
+  api)
+    printf '%s\\n' '[]'
+    ;;
+  pr)
+    [ "\${2:-}" = review ] || exit 2
+    count=$(cat "$state")
+    count=$((count + 1))
+    printf '%s' "$count" > "$state"
+    if [ "$count" -eq 1 ]; then
+      printf '%s\\n' 'failed to create review: non-200 OK status code: 502 Bad Gateway' >&2
+      exit 1
+    fi
+    printf '%s\\n' 'reviewed'
+    ;;
+  *)
+    exit 2
+    ;;
+esac
+`, { mode: 0o755 });
+    const action = resolve('.github/actions/claude-codex-fallback');
+    const headSha = 'b'.repeat(40);
+    const server = spawn(process.execPath, [join(action, 'gh-bridge-server.mjs')], {
+      env: { PATH: '/usr/bin:/bin', HEAD_SHA: headSha, CODEX_BRIDGE_TRANSPORT: 'files', CODEX_GH_SOCKET: endpoint,
+        CODEX_GH_AUTH: 'fixture-token', CODEX_REAL_GH: fakeGh, CODEX_GH_CWD: root,
+        CODEX_GH_WORKSPACE: root, CODEX_GH_SCRATCH: root, CODEX_GH_REPOSITORY: 'owner/repo', CODEX_GH_HOST: 'github.com' },
+      stdio: 'ignore',
+    });
+    try {
+      await vi.waitFor(() => expect(existsSync(endpoint)).toBe(true));
+      const result = await run(process.execPath, [join(action, 'gh-bridge-client.mjs'),
+        'pr', 'review', '8488', '--comment', '--body', '## LGTM'], {
+        env: { CODEX_BRIDGE_TRANSPORT: 'files', CODEX_GH_SOCKET: endpoint }, timeout: 10_000,
+      });
+      expect(result.stdout).toContain('reviewed');
+      expect(readFileSync(state, 'utf8')).toBe('2');
+    } finally {
+      server.kill('SIGTERM');
+      await new Promise(resolve => server.once('exit', resolve));
+    }
+  });
+  it('accepts a transient review response when the probe finds the exact review already persisted', async () => {
+    const root = mkdtempSync(join(tmpdir(), 'codex-gh-review-persisted-'));
+    roots.push(root);
+    const endpoint = join(root, 'mailbox');
+    const state = join(root, 'review-attempts');
+    writeFileSync(state, '0');
+    const fakeGh = join(root, 'gh');
+    const headSha = 'c'.repeat(40);
+    writeFileSync(fakeGh, `#!/bin/sh
+set -eu
+state='${state}'
+case "\${1:-}" in
+  api)
+    printf '%s\\n' '[{"commit_id":"${headSha}","body":"## LGTM"}]'
+    ;;
+  pr)
+    [ "\${2:-}" = review ] || exit 2
+    count=$(cat "$state")
+    count=$((count + 1))
+    printf '%s' "$count" > "$state"
+    printf '%s\\n' 'failed to create review: non-200 OK status code: 502 Bad Gateway' >&2
+    exit 1
+    ;;
+  *)
+    exit 2
+    ;;
+esac
+`, { mode: 0o755 });
+    const action = resolve('.github/actions/claude-codex-fallback');
+    const server = spawn(process.execPath, [join(action, 'gh-bridge-server.mjs')], {
+      env: { PATH: '/usr/bin:/bin', HEAD_SHA: headSha, CODEX_BRIDGE_TRANSPORT: 'files', CODEX_GH_SOCKET: endpoint,
+        CODEX_GH_AUTH: 'fixture-token', CODEX_REAL_GH: fakeGh, CODEX_GH_CWD: root,
+        CODEX_GH_WORKSPACE: root, CODEX_GH_SCRATCH: root, CODEX_GH_REPOSITORY: 'owner/repo', CODEX_GH_HOST: 'github.com' },
+      stdio: 'ignore',
+    });
+    try {
+      await vi.waitFor(() => expect(existsSync(endpoint)).toBe(true));
+      const result = await run(process.execPath, [join(action, 'gh-bridge-client.mjs'),
+        'pr', 'review', '8488', '--comment', '--body', '## LGTM'], {
+        env: { CODEX_BRIDGE_TRANSPORT: 'files', CODEX_GH_SOCKET: endpoint }, timeout: 10_000,
+      });
+      expect(result.stderr).toContain('confirmed the review');
+      expect(readFileSync(state, 'utf8')).toBe('1');
     } finally {
       server.kill('SIGTERM');
       await new Promise(resolve => server.once('exit', resolve));

@@ -78,6 +78,18 @@ describe('isLongformArticle', () => {
     expect(isLongformArticle([thin])).toBe(false);
   });
 
+  it('does not count heading-like lines inside fenced content', () => {
+    const fence = String.fromCharCode(96).repeat(3);
+    const body = [
+      words(250),
+      ...Array.from({ length: 6 }, (_, i) => `## Sezione reale ${i + 1}`),
+      [fence + 'md', '## Sezione nel fence', '## Un altra sezione nel fence', fence].join('\n'),
+    ].join('\n\n');
+
+    expect(countH2Sections([body])).toBe(6);
+    expect(isLongformArticle([body])).toBe(false);
+  });
+
   it('ignores untranslated body placeholders, as the renderer does', () => {
     expect(countH2Sections(['blog.article.foo.body1'])).toBe(0);
   });

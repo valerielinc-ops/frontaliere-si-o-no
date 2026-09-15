@@ -4,9 +4,12 @@ import {
   slugMatchesTitle,
   isLikelyUntranslated,
   buildSlug,
+  MAX_SLUG_LENGTH,
   shortJobHash,
   slugify,
+  slugNeedsBrandRefresh,
 } from '../scripts/lib/regenerate-slugs-helpers.mjs';
+import { appendSlugDisambiguator } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 describe('regenerate-slugs-helpers — slugMatchesTitle', () => {
   // Regression: the original Jaccard threshold (0.5 on whole-slug overlap)
@@ -99,5 +102,37 @@ describe('regenerate-slugs-helpers — buildSlug + slugify', () => {
   it('appends a disambiguator tail without exceeding MAX_SLUG_LENGTH', () => {
     const slug = buildSlug('Product Manager', 'Acme', 'Lugano', 'abc123');
     expect(slug.endsWith('-abc123')).toBe(true);
+    expect(slug.length).toBeLessThanOrEqual(MAX_SLUG_LENGTH);
+  });
+
+  it('shares the canonical length cap with dedicated crawler disambiguation', () => {
+    const slug = appendSlugDisambiguator('long-title '.repeat(40), 'abcdef12');
+    expect(slug.length).toBeLessThanOrEqual(MAX_SLUG_LENGTH);
+    expect(slug).toMatch(/-abcdef12$/);
+  });
+});
+
+describe('regenerate-slugs-helpers — slugNeedsBrandRefresh (#7722)', () => {
+  const relabelled = {
+    isBrandRelabelledKey: true,
+    currentSlug: 'reifenpraktiker-100-in-der-region-balsthal-gesucht-med-ipersonal-ch',
+    title: 'Reifenpraktiker 100% in der Region Balsthal gesucht',
+    company: 'iPersonal AG',
+    location: 'Balsthal, Solothurn',
+  };
+
+  it('ammette lo slug source-locale per una chiave rietichettata', () => {
+    expect(slugNeedsBrandRefresh(relabelled)).toBe(true);
+  });
+
+  it('non attiva il refresh per chiavi non rietichettate', () => {
+    expect(slugNeedsBrandRefresh({ ...relabelled, isBrandRelabelledKey: false })).toBe(false);
+  });
+
+  it('è idempotente dopo il conio canonico', () => {
+    const canonical = buildSlug(relabelled.title, relabelled.company, relabelled.location);
+    expect(slugNeedsBrandRefresh({ ...relabelled, currentSlug: canonical })).toBe(false);
+    expect(canonical).toContain('ipersonal-ag');
+    expect(canonical).not.toContain('med-ipersonal');
   });
 });

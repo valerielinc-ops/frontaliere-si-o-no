@@ -21,7 +21,11 @@ import path from 'node:path';
 import YAML from 'yaml';
 import { verifyCheckoutProfiles, literalPathsIn, isExcludedBy, importedDataOrPublicPathsIn } from '../scripts/ci/verify-checkout-profiles.mjs';
 import { BUCKETS, BASELINE_MB, TREE_MB, CROSSOVER_MB, analyzeAll } from '../scripts/ci/checkout-profile-analyzer.mjs';
-import { computeProfiledText } from '../scripts/ci/apply-checkout-profiles.mjs';
+import {
+  computeProfiledText,
+  missingTypecheckSparsePaths,
+  TYPECHECK_REQUIRED_SPARSE_PATHS,
+} from '../scripts/ci/apply-checkout-profiles.mjs';
 
 const WF_DIR = path.join(process.cwd(), '.github/workflows');
 const workflowFiles = fs.readdirSync(WF_DIR).filter((f) => /\.ya?ml$/.test(f)).sort();
@@ -90,6 +94,23 @@ describe('profili di sparse-checkout', () => {
     expect(BASELINE_MB).toBeLessThan(TREE_MB * 0.1);
   });
 
+  it('il checkout sparse del typecheck porta il symlink e il target del corpus', () => {
+    const source = fs.readFileSync(path.join(WF_DIR, 'tests.yml'), 'utf8');
+    expect(missingTypecheckSparsePaths(source, 'tests.yml')).toEqual([]);
+    expect(TYPECHECK_REQUIRED_SPARSE_PATHS).toEqual([
+      '/data/blog-articles-data.ts',
+      '/packages/articles/content/blog-articles-data.ts',
+    ]);
+  });
+
+  it('se un profilo typecheck esclude il target, --check lo segnala esplicitamente', () => {
+    const source = `jobs:\n  typecheck:\n    steps:\n      - uses: actions/checkout@v5\n        with:\n          sparse-checkout: |\n            /scripts/\n            !/data/\n            !/packages/articles/content/\n      - run: npm run typecheck:gate\n`;
+    expect(missingTypecheckSparsePaths(source, 'synthetic.yml')).toEqual([
+      'synthetic.yml:typecheck:/data/blog-articles-data.ts',
+      'synthetic.yml:typecheck:/packages/articles/content/blog-articles-data.ts',
+    ]);
+  });
+
   it('riconosce un percorso escluso — la prova che il guard puo davvero fallire', () => {
     // Il caso reale che ha fatto scattare questo controllo: `public/data/` escluso
     // mentre `scripts/ci/guard-data-integrity.mjs` lo legge.
@@ -99,6 +120,12 @@ describe('profili di sparse-checkout', () => {
     // e non deve sbagliare per prefisso: `data/jobs-ai-cache.json` NON sta in `data/jobs/`
     expect(isExcludedBy(['data/jobs/'], 'data/jobs-ai-cache.json')).toBe(false);
     expect(isExcludedBy(excluded, 'scripts/lib/x.mjs')).toBe(false);
+  });
+
+  it('rispetta una reinclusione sparse dopo una negazione', () => {
+    const patterns = ['!/data/', '/data/loop-fleet/'];
+    expect(isExcludedBy(patterns, 'data/other.json')).toBe(true);
+    expect(isExcludedBy(patterns, 'data/loop-fleet/loop-registry.json')).toBe(false);
   });
 
   it('estrae i percorsi letterali anche dentro un array', () => {

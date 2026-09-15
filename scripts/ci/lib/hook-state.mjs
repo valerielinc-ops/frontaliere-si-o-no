@@ -7,6 +7,7 @@
  * anomaly returns `unavailable`; callers must then allow the command.
  */
 import { createHash, randomUUID } from 'node:crypto';
+import { execFileSync } from 'node:child_process';
 import {
   linkSync,
   mkdirSync,
@@ -20,6 +21,7 @@ import { normalizeRepository } from './hook-command-parser.mjs';
 
 const STATE_DIR_ENV = 'FRONTALIERE_HOOK_STATE_DIR';
 const WORKSPACE_ENV = 'WORKSPACE';
+export const HOOK_STATE_SCHEMA = 1;
 const MAX_MARKER_BYTES = 16 * 1024;
 const MAX_GIT_TEXT_BYTES = 64 * 1024;
 
@@ -88,15 +90,16 @@ export function claimMarker({ scope, key, record }) {
 }
 
 export function hashKey(key) {
-  return createHash('sha256').update(key).digest('hex').slice(0, 32);
+  return createHash('sha256').update(`${HOOK_STATE_SCHEMA}:${key}`).digest('hex').slice(0, 32);
 }
 
 /**
  * Resolve a stable local repository identity from the hook payload cwd.
  * Explicit `--repo`/GITHUB_REPOSITORY values remain preferable; this fallback
- * only reads a bounded `.git` pointer/config and never invokes git or the
- * network. It lets two child repositories with the same PR number keep
- * separate body markers while sharing one marker across their worktrees.
+ * only reads a bounded `.git` pointer and resolves the local origin with
+ * `git config`; it never accesses the network. It lets two child repositories
+ * with the same PR number keep separate body markers while sharing one marker
+ * across their worktrees.
  *
  * @param {unknown} candidate
  * @returns {string|undefined}
@@ -158,15 +161,26 @@ function resolveCommonGitDir(gitEntry) {
 }
 
 function readOriginRepository(commonGitDir) {
-  const config = readSmallFile(join(commonGitDir, 'config'));
-  if (!config) return undefined;
-
-  const sections = config.matchAll(/\[remote\s+"([^"]+)"\]([\s\S]*?)(?=\n[ \t]*\[|$)/gi);
-  for (const section of sections) {
-    if (section[1] !== 'origin') continue;
-    const url = section[2].match(/^\s*url\s*=\s*(\S+)\s*$/im)?.[1];
-    const repository = normalizeRepository(url);
-    if (repository) return repository;
+  try {
+    const output = execFileSync('git', [
+      '--git-dir', commonGitDir,
+      'config',
+      '--local',
+      '--includes',
+      '--get',
+      'remote.origin.url',
+    ], {
+      encoding: 'utf8',
+      maxBuffer: MAX_GIT_TEXT_BYTES,
+      stdio: ['ignore', 'pipe', 'ignore'],
+      timeout: 1000,
+    });
+    for (const value of output.trim().split(/\r?\n/).reverse()) {
+      const repository = normalizeRepository(value);
+      if (repository) return repository;
+    }
+  } catch {
+    // A missing/broken local git config is the fail-safe unknown-target case.
   }
   return undefined;
 }

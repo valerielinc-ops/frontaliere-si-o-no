@@ -8,7 +8,11 @@ import type { Locale } from '@/services/i18n';
 import { buildPath, preloadBlogData, learnRuntimeBlogSlugs, learnRuntimeSwissSlugs } from '@/services/router';
 import { resolveJobCanton } from '@/build-plugins/shared/cantonSection';
 import { stripMarkdownPlain } from '@/build-plugins/shared/stripMarkdownPlain';
-import { normalizeArticleMarkdown } from '@/packages/articles/engine/shared/normalizeArticleMarkdown';
+import {
+ advanceMarkdownFence,
+ markdownFenceFor,
+ type MarkdownFence,
+} from '@/packages/articles/engine/shared/normalizeArticleMarkdown';
 import { isFaqQuestionHeading } from '@/build-plugins/shared/faqQuestionPrefixes';
 import type { BlogArticleId, AppRoute } from '@/services/router';
 import type { ArticleSection } from '@/services/articleSections';
@@ -19,6 +23,7 @@ import { getArticleAuthorOverride, mergeArticleByline, type ArticleAuthorOverrid
 import { getAuthorBySlug } from '@/data/authors';
 import { resolveArticleProvenance } from '@/services/articleProvenance';
 import { resolveArticleAdDensity, inlineSlotIndex, STANDARD_ARTICLE_AD_DENSITY, AD_ELIGIBLE_MIN_WORDS, AD_ELIGIBLE_MIN_CHARS, type ArticleAdDensityProfile } from '@/services/articleAdDensity';
+import { collectArticleBodySegments, countArticleBodyChars, countArticleBodyWords } from '@/services/articleBodySegments';
 import { isAdStraddleBlock, isListBlock, isTableBlock, LIST_ITEM_RE, TABLE_SEPARATOR_RE } from '@/services/adPlacement';
 import { CDN_BLOG_BASE } from '@/services/seo/blogImageCdn';
 
@@ -416,6 +421,10 @@ function countWordsIn(text: string): number {
  return t.split(/\s+/).filter(Boolean).length;
 }
 
+const isToolsHeading = (value: string): boolean => {
+ return /^(tool utili|tool consigliati|recommended tools|useful tools|empfohlene tools|nützliche tools|outils recommandés|outils utiles)\b/i.test(value.trim());
+};
+
 /**
  * What happened to the ad slot a `## ` block opens: the ad was emitted there,
  * deferred past a block it must not straddle, or refused by the gap/cap check.
@@ -433,10 +442,14 @@ export type H2BoundaryOutcome = 'emitted' | 'deferred' | 'skipped';
  * property of THIS function, and asserting it through the whole component would
  * drown it in i18n/router/Suspense setup.
  *
- * `onH2Boundary` is a test probe (production callers pass four arguments): it
- * fires once per `## ` block that reaches the ad boundary, so a branch that
- * consumes a heading block without offering it a slot is detectable by counting
- * (issue #7748). It never influences placement.
+ * `text` is normalized by `collectArticleBodySegments` before the production call. The
+ * optional shared ID set lets consecutive body segments use the same anchor
+ * namespace.
+ *
+ * `onH2Boundary` is a test probe: it fires once per `## ` block that reaches
+ * the ad boundary, so a branch that consumes a heading block without offering
+ * a slot is detectable by counting (issue #7748). It never influences
+ * placement.
  */
 export function renderFormattedContent(
  text: string,
@@ -444,13 +457,12 @@ export function renderFormattedContent(
  adRenderer?: (keyPrefix: string) => ReactElement | null,
  minWordGap: number = AD_MIN_WORD_GAP,
  onH2Boundary?: (outcome: H2BoundaryOutcome, key: string) => void,
+ usedHeadingIds: Set<string> = new Set(),
 ): ReactElement {
  // Auto-link keywords if navigators provided
- const normalizedText = normalizeArticleMarkdown(text);
- const processed = navigators ? autoLinkKeywords(normalizedText, navigators) : normalizedText;
+ const processed = navigators ? autoLinkKeywords(text, navigators) : text;
 
  const renderedBlocks: ReactElement[] = [];
- const usedHeadingIds = new Set<string>();
 
  // Section-aware ad gating: emit an ad before each H2 boundary (so the ad sits
  // between section A's end and section B's H2) and once at end-of-segment,
@@ -513,9 +525,6 @@ export function renderFormattedContent(
  }
 
  const blocks = processed.split('\n\n').filter(b => b.trim());
- const isToolsHeading = (value: string): boolean => {
- return /^(tool utili|tool consigliati|recommended tools|useful tools|empfohlene tools|nützliche tools|outils recommandés|outils utiles)\b/i.test(value.trim());
- };
  const looksLikeToolBody = (value: string): boolean => {
  const v = value.trim();
  if (!v) return false;
@@ -525,8 +534,23 @@ export function renderFormattedContent(
  };
 
  let blockquoteCount = 0;
+ let markdownFence: MarkdownFence | null = null;
  for (let idx = 0; idx < blocks.length; idx += 1) {
  const trimmed = blocks[idx].trim();
+ const blockLines = trimmed.split('\n');
+ const wasInsideFence = markdownFence !== null;
+ const opensFence = !wasInsideFence && markdownFenceFor(blockLines[0]) !== null;
+ markdownFence = advanceMarkdownFence(blockLines, markdownFence);
+
+ if (wasInsideFence || opensFence) {
+  renderedBlocks.push(
+   <p key={'code-' + idx} className="text-body leading-relaxed">
+   {renderInlineFormatting(trimmed, navigators)}
+   </p>,
+  );
+  markContent(countWordsIn(trimmed));
+  continue;
+ }
 
  // Flush an ad deferred by the H2 lookahead, once the block it would have
  // straddled is behind us. A run of consecutive straddle blocks (a citation
@@ -800,19 +824,29 @@ interface TocHeading {
  level: 2 | 3;
 }
 
-/** Extract H2/H3 headings from markdown body text segments */
+/** Extract H2/H3 headings from already-normalized markdown body segments. */
 export function extractHeadings(bodySegments: string[]): TocHeading[] {
  const headings: TocHeading[] = [];
  const usedIds = new Set<string>();
  for (const body of bodySegments) {
  if (!body || body.startsWith('blog.article.')) continue;
- const blocks = normalizeArticleMarkdown(body).split('\n\n');
+ let markdownFence: MarkdownFence | null = null;
+ const blocks = body.split('\n\n');
  for (const block of blocks) {
- const trimmed = block.trim();
+  const lines = block.split('\n');
+  const wasInsideFence = markdownFence !== null;
+  const opensFence = !wasInsideFence && markdownFenceFor(lines[0]) !== null;
+  markdownFence = advanceMarkdownFence(lines, markdownFence);
+  if (wasInsideFence || opensFence) continue;
+  const trimmed = block.trim();
  let level: 2 | 3 | null = null;
  let raw = '';
  if (trimmed.startsWith('#### ')) {
- // H4 sub-sub-headings: skip from TOC (too granular)
+ // H4 sub-sub-headings are not shown in the TOC, but the renderer still
+ // assigns them an id. Reserve the same id so later H2/H3 anchors match.
+ raw = trimmed.split('\n')[0].replace(/^####\s+/, '').trim();
+ takeUniqueHeadingId(raw, usedIds);
+ continue;
  } else if (trimmed.startsWith('### ')) {
  level = 3;
  raw = trimmed.split('\n')[0].replace(/^###\s+/, '').trim();
@@ -821,6 +855,9 @@ export function extractHeadings(bodySegments: string[]): TocHeading[] {
  raw = trimmed.split('\n')[0].replace(/^##\s+/, '').trim();
  }
  if (level && raw) {
+ // The renderer presents tool headings as a callout without an anchor, so
+ // neither side may consume an id for this block.
+ if (level === 2 && isToolsHeading(raw)) continue;
  // Strip markdown formatting for display text
  const text = raw.replace(/\*\*/g, '').replace(/\*/g, '').replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
  const id = takeUniqueHeadingId(raw, usedIds);
@@ -880,20 +917,8 @@ import type { Article } from '@/data/blog-articles-data';
 /** Average Italian reading speed ≈ 230 wpm. Strip HTML/markdown, count words, clamp 2–30 min. */
 const WORDS_PER_MINUTE = 230;
 
-/** Collect all bodyN translations for an article (body1, body2, … up to body20). */
-function collectBodyParts(articleId: string, t: (key: string) => string): string[] {
- const parts: string[] = [];
- for (let i = 1; i <= 20; i++) {
- const key = `blog.article.${articleId}.body${i}`;
- const val = t(key);
- if (val === key) break;
- parts.push(normalizeArticleMarkdown(val));
- }
- return parts;
-}
-
 export function estimateReadingMinutes(articleId: string, t: (key: string) => string): number {
- const raw = collectBodyParts(articleId, t).join(' ');
+ const raw = collectArticleBodySegments(articleId, t).join(' ');
  // If body translations aren't loaded yet, t() returns the key string — use a default
  if (raw.startsWith('blog.article.')) return 5;
  // Strip HTML tags and markdown-style formatting, then count words
@@ -1420,7 +1445,7 @@ function BlogArticles({
  // static HTML. Costs one request, only for an article the bundle lacks,
  // and returns [] on every failure — in which case nothing is merged and
  // the render is exactly what it is today.
- if (collectBodyParts(selectedArticle, translate).length === 0) {
+ if (collectArticleBodySegments(selectedArticle, translate).length === 0) {
  const route = section === 'svizzera'
  ? { activeTab: 'blog' as const, blogSection: 'svizzera' as const, swissArticle: selectedArticle }
  : { activeTab: 'blog' as const, blogArticle: selectedArticle as BlogArticleId };
@@ -1567,7 +1592,7 @@ function BlogArticles({
  // Skip injection if translations aren't loaded yet
  if (title.startsWith('blog.article.')) return;
  const canonicalUrl = `https://frontaliereticino.ch${buildPath(buildArticleRoute(article.id))}`;
- const articleBodyText = collectBodyParts(article.id, t).join(' ');
+ const articleBodyText = collectArticleBodySegments(article.id, t).join(' ');
  const articleBodyWordCount = articleBodyText.split(/\s+/).filter(Boolean).length;
  const wordCount = articleBodyWordCount || estimateReadingMinutes(article.id, t) * 200;
  // Author matches the visible byline (#3520): a named Person when the
@@ -1651,7 +1676,7 @@ function BlogArticles({
  try { return JSON.parse(el.textContent || '')?.['@type'] === 'FAQPage'; } catch { return false; }
  });
  if (!hasStaticFaqPage && EVERGREEN_CATEGORIES.has(article.category)) {
- const bodyTexts = collectBodyParts(article.id, t);
+ const bodyTexts = collectArticleBodySegments(article.id, t);
  const faqPairs = extractFaqPairs(bodyTexts.join('\n\n'));
  if (faqPairs.length >= 2) {
  const faqSchema = {
@@ -1780,7 +1805,7 @@ function BlogArticles({
  const title = t(`blog.article.${articleId}.title`);
  const excerpt = t(`blog.article.${articleId}.excerpt`);
  // Concatenate all body sections
- const body = collectBodyParts(articleId, t).join(' ');
+ const body = collectArticleBodySegments(articleId, t).join(' ');
  const contextText = `${articleId} ${title} ${excerpt} ${body}`;
 
  const cluster: SeoCluster =
@@ -2069,11 +2094,11 @@ function BlogArticles({
  );
  }
 
- const bodySegments = collectBodyParts(article.id, t);
+ const bodySegments = collectArticleBodySegments(article.id, t);
+ const usedHeadingIds = new Set<string>();
  const presentSegments = bodySegments;
- const combinedBody = presentSegments.join(' ');
- const bodyWordCount = combinedBody.split(/\s+/).filter(Boolean).length;
- const bodyCharCount = combinedBody.trim().length;
+ const bodyWordCount = countArticleBodyWords(presentSegments);
+ const bodyCharCount = countArticleBodyChars(presentSegments);
  // Single quality threshold for all ad formats (FRO-287):
  // The shared word/character floor ensures AdSense policy compliance
  // and avoids thin-content penalties. Articles below this threshold
@@ -2582,7 +2607,7 @@ function BlogArticles({
  </>
  )}
 
- {renderFormattedContent(segment, navigators, makeInlineAd, adDensity.minWordGap)}
+ {renderFormattedContent(segment, navigators, makeInlineAd, adDensity.minWordGap, undefined, usedHeadingIds)}
  </Fragment>
   );
  })}
@@ -2641,10 +2666,10 @@ function BlogArticles({
  <Icon size={24} className={`${CTA_ICON_COLORS[cta.color]} shrink-0 mt-0.5`} />
  <div className="flex-1 min-w-0">
  <p className={`font-semibold ${CTA_TEXT_COLORS[cta.color].title}`}>
- {t(cta.titleKey)}
+ {t(cta.titleKey, getCantonI18nParams())}
  </p>
  <p className={`text-sm ${CTA_TEXT_COLORS[cta.color].desc} mt-1`}>
- {t(cta.descKey)}
+ {t(cta.descKey, getCantonI18nParams())}
  </p>
  <a
  href={buildPath(NAV_ACTION_ROUTES[cta.navAction])}

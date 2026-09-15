@@ -12,6 +12,7 @@ import {
   formatReport,
   slotsPresentByLength,
   isLanguageVerified,
+  beforeCohortWarning,
 } from '../scripts/log-translation-stats.mjs';
 import {
   formatFlaggedRate,
@@ -609,5 +610,14 @@ describe("l'età alla completezza (#17) — il numero che uno snapshot non può 
     // di una run, non un campo del corpus.
     expect(src).toMatch(/os\.tmpdir\(\)/);
     expect(src).not.toMatch(/COHORT_FILE\s*=\s*['"]data\//);
+  });
+
+  it('emette un warning distinguibile quando il pass after non trova il sidecar before', () => {
+    expect(beforeCohortWarning('after', null)).toMatch(/^::warning::/);
+  });
+
+  it('non segnala una coorte before presente, anche se vuota', () => {
+    expect(beforeCohortWarning('after', new Set())).toBeNull();
+    expect(beforeCohortWarning('before', null)).toBeNull();
   });
 });

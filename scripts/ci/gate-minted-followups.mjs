@@ -55,6 +55,8 @@
  *   GATE_PR_REPO    repo delle PR da commentare quando differisce da GH_REPO
  *                   (default: GH_REPO).
  *   GH_TOKEN        richiesto per le scritture.
+ *   GATE_PR_TOKEN   token per leggere/commentare le PR in GATE_PR_REPO quando
+ *                   differisce da GH_REPO (default: GH_TOKEN).
  *   DRY_RUN         "1" → stampa il verdetto, nessuna scrittura.
  *   GATE_MAX_AGE_MIN  età massima (minuti) della issue su cui agire (default 240). Un
  *                   backfill via workflow_dispatch su una PR vecchia non deve poter
@@ -75,6 +77,7 @@ import {
   dailyBucketIdentity,
   dedupeDailyItems,
   dailyBucketInfo,
+  dailyBucketTargetRepository,
   hasFalsifiableAcceptance,
   hasDailyBucketRepositoryConsistency,
   hasStableItemIds,
@@ -167,7 +170,7 @@ export function partitionDailyBucketItems(body, opts = {}) {
       : 'reject';
     (falsifiable && admission !== 'reject' ? valid : demoted).push(item);
   }
-  const targetRepository = /^\s*-\s+Target repository\s*:\s*(.*?)\s*$/im.exec(head)?.[1]?.trim() || '';
+  const targetRepository = dailyBucketTargetRepository(head) || '';
   const deduped = dedupeDailyItems(valid, targetRepository);
   return {
     head,
@@ -185,15 +188,66 @@ export function rebuildDailyBody(head, valid) {
   return `${cleanHead}\n\n${items.replace(/^\s+/, '')}\n`;
 }
 
+/**
+ * Newly minted daily items historically omitted their per-item state because the
+ * prompt specified only the bucket state.  The lifecycle defaults those fresh
+ * items to `open`, but refuses to guess when a malformed/unknown State field is
+ * already present.
+ */
+function normalizeMissingDailyItemStates(body) {
+  const source = String(body || '');
+  const items = parseFollowupItems(source);
+  // Only fresh items without live state receive the collecting default.
+  let normalized = source;
+  let offset = 0;
+  for (const item of items) {
+    if (item.state !== null) continue;
+    if (hasLiveItemStateField(item.raw)) return null;
+    const headingEnd = item.raw.indexOf('\n');
+    if (headingEnd < 0) return null;
+    const raw = `${item.raw.slice(0, headingEnd + 1)}- State: open\n${item.raw.slice(headingEnd + 1)}`;
+    const start = item.start + offset;
+    normalized = `${normalized.slice(0, start)}${raw}${normalized.slice(start + item.raw.length)}`;
+    offset += raw.length - item.raw.length;
+  }
+  return normalized;
+}
+
+/** Do not confuse a quoted/fenced example with a live item State field. */
+function hasLiveItemStateField(text) {
+  let fence = null;
+  for (const line of String(text || '').split('\n')) {
+    const marker = /^\s*(`{3,}|~{3,})(.*)$/.exec(line);
+    if (/^\s*>/.test(line)) continue;
+    if (fence) {
+      if (marker && marker[1][0] === fence.char
+          && marker[1].length >= fence.length && /^\s*$/.test(marker[2])) {
+        fence = null;
+      }
+      continue;
+    }
+    if (marker) {
+      fence = { char: marker[1][0], length: marker[1].length };
+      continue;
+    }
+    if (/^\s*-\s+State\s*:/i.test(line)) return true;
+  }
+  return false;
+}
+
 /** Update only the bucket-level state line (never an item `State:` line). */
 export function setBucketState(body, state) {
-  const src = String(body || '');
+  const src = normalizeMissingDailyItemStates(body);
+  if (src === null) return null;
   const parsed = parseFollowupItems(src);
   const firstHeadingAt = parsed.length ? parsed[0].start : src.length;
   const head = src.slice(0, firstHeadingAt);
   const rest = src.slice(firstHeadingAt);
-  if (!/^-\s+State\s*:\s*(?:collecting|sealed)\s*$/im.test(head)) return null;
-  const nextHead = head.replace(/^(\s*-\s+State\s*:\s*)(?:collecting|sealed)(\s*)$/im, `$1${state}$2`);
+  const stateLine = /^([ \t]*)(-\s+)?State[ \t]*:[ \t]*(?:collecting|sealed)([ \t]*)$/im;
+  if (!stateLine.test(head)) return null;
+  const nextHead = head.replace(stateLine, (_, indent, bullet, trailing) => (
+    `${indent}${bullet || ''}State: ${state}${trailing}`
+  ));
   return `${nextHead}${rest}`;
 }
 
@@ -583,9 +637,10 @@ export function itemHeadline(itemText) {
 // Ritorna `null` quando la chiamata fallisce (con allowFail), non la stringa vuota: il
 // chiamante DEVE poter distinguere «riuscito, output vuoto» da «non riuscito», perche' le
 // scritture qui sono in sequenza e la seconda non ha senso se la prima non e' passata.
-function gh(args, { allowFail = false } = {}) {
+function gh(args, { allowFail = false, token = process.env.GH_TOKEN } = {}) {
   try {
-    return execFileSync('gh', args, { encoding: 'utf-8', maxBuffer: 1 << 26 });
+    const env = token ? { ...process.env, GH_TOKEN: token } : process.env;
+    return execFileSync('gh', args, { encoding: 'utf-8', maxBuffer: 1 << 26, env });
   } catch (e) {
     if (allowFail) {
       console.log(`gh ${args.slice(0, 3).join(' ')} → fallito: ${e?.message?.split('\n')[0]}`);
@@ -593,6 +648,13 @@ function gh(args, { allowFail = false } = {}) {
     }
     throw e;
   }
+}
+
+function ghPr(args, options = {}) {
+  return gh(args, {
+    ...options,
+    token: process.env.GATE_PR_TOKEN || process.env.GH_TOKEN,
+  });
 }
 
 /** Read every open follow-up issue through REST pagination, fail-closed. */
@@ -692,7 +754,7 @@ function recoverableDailyIdentities(open, repoArgs, prRepoArgs) {
     const triagedPrs = [];
     let scanOk = true;
     for (const number of positivePrNumbers(sourcePrs)) {
-      const comments = gh(['pr', 'view', String(number), ...prRepoArgs, '--json', 'comments'], { allowFail: true });
+      const comments = ghPr(['pr', 'view', String(number), ...prRepoArgs, '--json', 'comments'], { allowFail: true });
       if (comments === null) {
         scanOk = false;
         continue;
@@ -1030,7 +1092,7 @@ function main() {
         // ['pr', 'comment', String(pr), ...prRepoArgs
         const commentResults = d.action === 'dedupe'
           ? []
-          : commentTargets.map((targetPr) => gh(['pr', 'comment', String(targetPr), ...prRepoArgs, '--body', commentBody], { allowFail: true }));
+          : commentTargets.map((targetPr) => ghPr(['pr', 'comment', String(targetPr), ...prRepoArgs, '--body', commentBody], { allowFail: true }));
         const posted = d.action === 'dedupe' || commentResults.every((result) => result !== null) ? 'posted' : null;
         if (d.action === 'demote' && posted === null) {
           console.log(`⚠️ #${iss.number}: commento sulla PR #${pr} non riuscito → NON riscrivo il corpo. Gli item demoti restano dove sono; il prossimo giro riprova.`);

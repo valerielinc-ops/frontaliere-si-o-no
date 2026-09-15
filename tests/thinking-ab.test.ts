@@ -129,6 +129,49 @@ describe('aggregazione', () => {
     expect(Object.keys(s.arms).sort()).toEqual([ARM_NO_THINKING, ARM_THINKING].sort());
     expect(s.arms[ARM_NO_THINKING].companies).toBe(0);
   });
+
+  it('deduplica le aziende e unisce companyServed tra primo passaggio e retry', () => {
+    const firstPass = {
+      arm: ARM_THINKING,
+      companyKey: 'acme',
+      jobCount: 4,
+      elapsedMs: 400,
+      attempted: 4,
+      cleared: 1,
+      companyServed: false,
+    };
+    const retry = {
+      arm: ARM_THINKING,
+      companyKey: 'acme',
+      jobCount: 0,
+      elapsedMs: 200,
+      attempted: 1,
+      cleared: 0,
+      companyServed: true,
+    };
+    const other = {
+      arm: ARM_THINKING,
+      companyKey: 'other',
+      jobCount: 2,
+      elapsedMs: 300,
+      attempted: 2,
+      cleared: 0,
+      companyServed: false,
+    };
+
+    for (const order of [[firstPass, retry], [retry, firstPass]]) {
+      const s = summarizeThinkingAb([...order, other]);
+
+      expect(s.arms[ARM_THINKING]).toMatchObject({
+        companies: 2,
+        servedCompanies: 1,
+        unservedCompanies: 1,
+        jobs: 6,
+        attempted: 7,
+        cleared: 1,
+      });
+    }
+  });
 });
 
 describe('innesto nel cascade', () => {

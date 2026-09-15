@@ -49,22 +49,27 @@ import {
   dailyKeyFromBucketBody,
   dailyBucketInfo,
   detectAlreadyResolved,
+  hasEnumeratedItems,
   hasDailyBucketRepositoryConsistency,
   hasFalsifiableAcceptance,
   hasStableItemIds,
   hasStableItemIdsForDailyKey,
   hasUnterminatedMarkdownFence,
   isDailyBucketTitle,
+  normalizeAcceptanceToken,
   parseFollowupItems,
   updateFollowupItemState,
   splitFollowupItems,
 } from './followup-resolution-match.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
 
+export { hasEnumeratedItems };
+
 const DRY_RUN = process.env.DRY_RUN === '1';
 const NO_AUTOCLOSE = process.env.NO_AUTOCLOSE === '1';
 const MAX_ISSUES = intFromEnv('MAX_ISSUES', 100);
 const MARKER = '<!-- reconcile-bot -->';
+const FLAG_MARKER = '<!-- reconcile-bot:flag -->';
 const CLOSE_MARKER = '<!-- reconcile-bot:autoclose -->';
 const LABEL = 'maybe-resolved';
 const CLOSED_LABEL = 'fu-resolved-auto';
@@ -98,64 +103,6 @@ export const RECONCILE_UNCLASSIFIABLE_CLASSIFIER_VERSION = classifierVersion();
 // Labels that VETO auto-close (the issue wants human eyes regardless of token match):
 // explicit keep-open pins + strategic trackers (revenue/tracker stay owner-gated).
 const KEEP_OPEN_LABELS = new Set(['pinned', 'keep-open', 'revenue', 'tracker', 'do-not-close']);
-
-function stripFencedBlocks(text) {
-  const lines = String(text || '').split('\n');
-  const out = [];
-  let fence = null;
-  let fenceStart = -1;
-
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
-    const match = /^([ \t]*)(`{3,}|~{3,})/.exec(line);
-    if (fence) {
-      const closes = match
-        && match[2][0] === fence.char
-        && match[2].length >= fence.length
-        && match[1].length >= fence.indent;
-      if (closes) fence = null;
-      continue;
-    }
-    if (match) {
-      fence = { char: match[2][0], length: match[2].length, indent: match[1].length };
-      fenceStart = i;
-      continue;
-    }
-    out.push(line);
-  }
-
-  return fence ? [...out, ...lines.slice(fenceStart)].join('\n') : out.join('\n');
-}
-
-function isBoldTitleLead(rest, lines = [], start = 0) {
-  const bold = /^\*\*(?![ \t])(?:[^*]|\*(?!\*))+\*\*/;
-  let candidate = String(rest || '');
-  if (bold.test(candidate)) return true;
-  for (let i = start; i < lines.length; i++) {
-    const line = lines[i];
-    if (/^[ \t]*(?:\d+[.)]|[-*])[ \t]+/.test(line)) break;
-    candidate += '\n' + line;
-    if (bold.test(candidate)) return true;
-  }
-  return false;
-}
-
-export function hasEnumeratedItems(body) {
-  const b = stripFencedBlocks(body);
-  const numberedSections = (b.match(/^#{2,4}[ \t]*(?:Item[ \t]*)?\d+[ \t]*[.)—–](?=[ \t]|$)/gim) || []).length;
-  if (numberedSections >= 2) return true;
-  const lines = b.split('\n');
-  const orderedBoldItems = lines.reduce((count, line, index) => {
-    const match = /^[ \t]*\d+[.)][ \t]+(.*)$/.exec(line);
-    return count + (match && isBoldTitleLead(match[1], lines, index + 1) ? 1 : 0);
-  }, 0);
-  if (orderedBoldItems >= 2) return true;
-  const boldLeadBullets = lines.reduce((count, line, index) => {
-    const match = /^[-*][ \t]+(?:\[[ xX]\][ \t]*)?(.*)$/.exec(line);
-    return count + (match && isBoldTitleLead(match[1], lines, index + 1) ? 1 : 0);
-  }, 0);
-  return boldLeadBullets >= 2;
-}
 
 /**
  * A title like "follow-up(#X): 3 item deferred/deferiti — …" with N≥2 → multi-item aggregate.
@@ -291,13 +238,18 @@ export function isCurrentUnclassifiable(issue, comments, {
  * Evidence strong enough to AUTO-CLOSE (vs merely flag). A single common dot-member like
  * `meta.model` matches in countless unrelated files → too coincidental to close on. Require
  * MULTIPLE distinct prescribed tokens all present. A single token, even if it looks like a
- * rich expression, can be the status quo that the follow-up asks to change. Weak-but-resolved
- * stays flagged for a human (never silently closed).
+ * rich expression, can be the status quo that the follow-up asks to change. The one-token
+ * exception is an explicit stable-item Acceptance token, whose contract is already scoped
+ * to the item and is checked by the matcher. Weak-but-resolved legacy evidence stays flagged
+ * for a human (never silently closed).
  * @param {string[]} matchedTokens tokens that were found verbatim in a cited file
+ * @param {{acceptanceToken?: string}} [options] explicit stable-item acceptance token
  * @returns {boolean}
  */
-export function isStrongAutoCloseEvidence(matchedTokens) {
+export function isStrongAutoCloseEvidence(matchedTokens, { acceptanceToken = '' } = {}) {
   const uniq = [...new Set((matchedTokens || []).map((t) => String(t)))];
+  const explicit = normalizeAcceptanceToken(acceptanceToken);
+  if (explicit && uniq.includes(explicit)) return true;
   return uniq.length >= 2;
 }
 
@@ -345,10 +297,13 @@ export function dailyBucketCloseGate(
   const unresolvedItems = [];
   const weakItems = [];
   for (const item of items) {
-    const result = detectAlreadyResolved(item.text, io);
+    const result = detectAlreadyResolved(item.text, io, { acceptanceToken: item.acceptanceToken });
     evidenceById.set(item.id, result.evidence || []);
     if (item.state !== 'done' || !result.resolved) unresolvedItems.push(item);
-    if (!isStrongAutoCloseEvidence((result.evidence || []).map((entry) => entry.tok))) weakItems.push(item);
+    if (!isStrongAutoCloseEvidence(
+      (result.evidence || []).map((entry) => entry.tok),
+      { acceptanceToken: item.acceptanceToken },
+    )) weakItems.push(item);
   }
   if (unresolvedItems.length) {
     return { blocks: true, reason: 'valid-item-unconfirmed', validItems: items, unresolvedItems, evidenceById };
@@ -402,7 +357,7 @@ export function reconcileDailyItems(
   const evidenceById = new Map();
   for (const item of items) {
     const result = hasFalsifiableAcceptance(item.text)
-      ? detectAlreadyResolved(item.text, io)
+      ? detectAlreadyResolved(item.text, io, { acceptanceToken: item.acceptanceToken })
       : { resolved: false, evidence: [] };
     evidenceById.set(item.id, result.evidence || []);
     if (result.resolved && (item.state === 'open' || item.state === 'in-progress')) {
@@ -428,16 +383,16 @@ export function reconcileDailyItems(
  *
  * La riclassificazione NON abbassa la barra di chiusura, la sposta su ciò che
  * era davvero un item: un rischio in prosa senza condizione di accettazione
- * falsificabile non era un item valido, quindi non fa da gate. Gli item validi
- * che restano devono essere TUTTI token-confermati, uno per uno — bar più alta
- * del vecchio controllo issue-wide, che leggeva i token di tutto il corpo
- * insieme.
+ * falsificabile non era un item valido, ma se compare accanto a un item valido
+ * lascia comunque lavoro pendente e fa da veto esplicito. Gli item validi che
+ * restano devono essere TUTTI token-confermati, uno per uno — bar più alta del
+ * vecchio controllo issue-wide, che leggeva i token di tutto il corpo insieme.
  *
  * Il guardrail contro l'incidente #5849 (aggregata chiusa con due item ancora
  * deferiti) è il ramo `no-valid-item`: se dopo la riclassificazione NON resta
- * nessun item valido, non si chiude. Chiudere lì sarebbe chiudere su evidenza
- * assente, che è esattamente il caso vietato. Misurate 5 issue su 17 in questo
- * ramo.
+ * nessun item valido, non si chiude. Un mix di item validi e prosa pendente usa
+ * invece `mixed-prose-pending`; chiudere lì sarebbe chiudere su evidenza
+ * assente, che è esattamente il caso vietato.
  *
  * @returns {{blocks: boolean, reason: string|null}}
  */
@@ -450,6 +405,7 @@ export function aggregateCloseGate(body, io) {
   if (!items.length) return { blocks: true, reason: 'aggregate-unparsed' };
   const valid = items.filter(hasFalsifiableAcceptance);
   if (!valid.length) return { blocks: true, reason: 'no-valid-item' };
+  if (valid.length !== items.length) return { blocks: true, reason: 'mixed-prose-pending' };
   const allConfirmed = valid.every((s) => detectAlreadyResolved(s, io).resolved);
   return allConfirmed ? { blocks: false, reason: null } : { blocks: true, reason: 'valid-item-unconfirmed' };
 }
@@ -519,28 +475,45 @@ const diskIo = {
   },
 };
 
+/**
+ * Parse the comments response while preserving the wrapper's outcome.
+ * `null` means that `gh` could not be invoked or returned unusable JSON;
+ * an empty successful stdout is a valid no-comments response.
+ */
+export function parseIssueCommentsResponse(raw) {
+  if (typeof raw !== 'string') return null;
+  if (!raw.trim()) return [];
+  try {
+    const comments = JSON.parse(raw).comments;
+    return Array.isArray(comments) ? comments : null;
+  } catch {
+    return null;
+  }
+}
+
 function readIssueComments(number) {
   if (issueCommentCache.has(number)) return issueCommentCache.get(number);
   const out = gh(['issue', 'view', String(number), ...repoArgs, '--json', 'comments'], { allowFail: true });
-  if (!out) {
-    issueCommentCache.set(number, null);
-    return null;
-  }
-  try {
-    const comments = JSON.parse(out).comments;
-    const result = Array.isArray(comments) ? comments : null;
-    issueCommentCache.set(number, result);
-    return result;
-  } catch {
-    issueCommentCache.set(number, null);
-    return null;
-  }
+  const result = parseIssueCommentsResponse(out);
+  issueCommentCache.set(number, result);
+  return result;
+}
+
+/**
+ * Item-done comments share the historical `MARKER`; only an aggregate reconcile
+ * flag counts as the prior grace-window confirmation. Keep accepting old flag
+ * comments while giving new flags a marker that cannot collide with item state.
+ */
+export function isReconcileFlagComment(body) {
+  const text = String(body || '');
+  return text.includes(FLAG_MARKER)
+    || (text.includes(MARKER) && text.includes('🤖 **Reconcile (auto)**'));
 }
 
 function alreadyCommented(number, comments = undefined) {
   const resolvedComments = comments === undefined ? readIssueComments(number) : comments;
   if (!Array.isArray(resolvedComments)) return null;
-  return resolvedComments.some((c) => (c.body || '').includes(MARKER));
+  return resolvedComments.some((c) => isReconcileFlagComment(c.body));
 }
 
 function evidenceLines(evidence) {
@@ -749,7 +722,8 @@ ${c.marker}`;
       : f.reason === 'weak-evidence'
       ? '\n\nℹ️ Evidenza debole (singolo token poco specifico): **non** verrà auto-chiusa — verifica e chiudi a mano se lo scope è coperto.'
       : '\n\nSe al prossimo run risulterà ancora risolta, verrà **auto-chiusa** (finestra di grazia: obietta rimuovendo `maybe-resolved` o aggiungendo `keep-open`).';
-    const comment = `${MARKER}
+    const comment = `${FLAG_MARKER}
+${MARKER}
 🤖 **Reconcile (auto)**: i token citati da questa issue risultano già presenti nei file citati — probabile **done-but-open** (coperto da una PR successiva senza \`Closes #${f.number}\`).
 
 ${evidenceLines(f.evidence)}${note}`;

@@ -69,26 +69,6 @@ jobs:
         uses: actions/checkout@v5
         with:
           fetch-depth: 1
-          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
-          sparse-checkout: |
-            /*
-            !/public/images/
-            !/data/seo-404-compat/
-            !/data/translation-cache/
-            !/packages/articles/content/
-            !/data/all-known-job-slugs/
-            !/data/orphan-enriched-data/
-            !/docs/
-            !/data/related-search-candidates.json
-            !/data/cf-hot-404s.json
-            !/data/jobs-ai-cache.json
-            !/data/dist-size-history.jsonl
-            !/data/url-first-seen.json
-            !/data/jobs-snapshots-history/
-            !/data/slug-registry.json
-            !/data/health-premiums/
-            !/data/jobs-crawler-summaries/
-          sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
@@ -149,27 +129,7 @@ jobs:
           # (#794/#804/#805/#806). Concurrent producers on main (crawlers,
           # scheduled refreshers, post-merge auto-commits) regularly out-race a
           # single push.
-          MAX_ATTEMPTS=5
-          BACKOFF_BASE=3
-          attempt=1
-          bash scripts/lib/configure-main-push-auth.sh
-          while [ "$attempt" -le "$MAX_ATTEMPTS" ]; do
-            if git push origin HEAD:main; then
-              echo "✅ Pushed marquee demand table."
-              exit 0
-            fi
-            echo "⚠️ Push rejected (attempt $attempt/$MAX_ATTEMPTS) — fetch + rebase, then retry…"
-            git fetch origin main || true
-            if ! git -c rebase.autoStash=true rebase origin/main; then
-              echo "⚠️ Rebase conflict on the demand table — aborting and resetting."
-              git rebase --abort || true
-              exit 1
-            fi
-            sleep $((BACKOFF_BASE * attempt))
-            attempt=$((attempt + 1))
-          done
-          echo "❌ Push failed after $MAX_ATTEMPTS attempts — leaving the demand table uncommitted."
-          exit 1
+          bash scripts/lib/git-push-with-retry.sh
 
       - name: Report failure to GitHub Issues
         if: failure()

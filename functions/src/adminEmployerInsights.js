@@ -81,6 +81,7 @@ export function serializeEmployerInsightsTotals(totals = {}, window = null) {
     visitors: historicalNumber(t.visitors),
     profileViews: historicalNumber(t.profileViews),
     applyClicks: windowNumber(t.applyClicks),
+    applyClickUsers: windowNumber(t.applyClickUsers),
     applications: windowNumber(t.applications),
     applicationsStatus: hasWindow && typeof t.applicationsStatus === 'string' ? t.applicationsStatus : null,
     adsObserved: historicalNumber(t.adsObserved ?? t.adsCount),

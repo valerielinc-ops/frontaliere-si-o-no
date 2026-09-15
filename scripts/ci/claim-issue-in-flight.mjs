@@ -19,7 +19,8 @@
  * expected to honor too (see `/fix-issue` command + ISSUES.md "Fix flow") — whichever side
  * claims first wins; the other sees the label and skips before spending any turns/tokens.
  *
- * Output (GITHUB_OUTPUT): `in_flight=true|false`.
+ * Output (GITHUB_OUTPUT): `in_flight=true|false`, `claim_acquired=true|false`,
+ * `claim_owner=local|remote|unknown|contended|''`, `claim_error=true|false`.
  *   - true  → label was ALREADY present (someone else claimed first) → issue-fix.yml skips
  *             every downstream step (tier/resume/Claude/telemetry/classify), zero quota
  *             spent. Does NOT touch the existing claim — not this run's to remove.
@@ -28,15 +29,22 @@
  *             on this same output) removes it again on every terminal path so a dead/failed
  *             run never leaves the issue locked forever.
  *
- * PROCEED-SAFE (mirrors check-issue-already-resolved.mjs / check-workflows-scope.mjs): any
- * gh/API/parse fault → in_flight=false (assume nobody else claimed, let the normal fixer
- * run). The accepted risk here is a rare duplicate-work race — never a stranded issue.
+ * LOCAL/REMOTE OWNERSHIP: the base mutex alone cannot tell a local session from the
+ * remote fixer. Both paths therefore add their own visible owner label. A release
+ * removes only a claim carrying the same owner label; in particular, the remote
+ * workflow can never clear a local claim.
+ *
+ * FAIL-CLOSED: a gh/API/parse fault → `in_flight=true`, `claim_acquired=false` and
+ * `claim_error=true`. Proceeding on an unreadable mutex was the unsafe direction:
+ * it can create two PRs and the old release step could then remove the other claim.
  *
  * Env:
  *   GH_TOKEN      required for gh reads/writes (Actions GITHUB_TOKEN is enough).
  *   GH_REPO       optional `owner/repo` (else gh infers from cwd).
  *   ISSUE_NUMBER  required, the candidate issue.
  *   DRY_RUN       "1" → detect + print, no label/comment writes, still emits output.
+ *   CLAIM_ACTION  "acquire" (default) or "release".
+ *   CLAIM_OWNER   "remote" (default) or "local".
  *   GITHUB_OUTPUT optional, Actions step output file.
  */
 
@@ -48,6 +56,10 @@ import { fileURLToPath } from 'node:url';
 const DRY_RUN = process.env.DRY_RUN === '1';
 const ISSUE = process.env.ISSUE_NUMBER;
 const CLAIM_LABEL = 'agent:in-progress';
+const OWNER_LABELS = Object.freeze({ local: 'agent:local', remote: 'agent:remote' });
+const CLAIM_ACTION = process.env.CLAIM_ACTION === 'release' ? 'release' : 'acquire';
+const CLAIM_OWNER = process.env.CLAIM_OWNER === 'local' ? 'local' : 'remote';
+const OWNER_LABEL = OWNER_LABELS[CLAIM_OWNER];
 
 function gh(args, { allowFail = false } = {}) {
   try {
@@ -60,70 +72,140 @@ function gh(args, { allowFail = false } = {}) {
 
 const repoArgs = process.env.GH_REPO ? ['--repo', process.env.GH_REPO] : [];
 
-function setOutput(inFlight) {
-  console.log(`in_flight=${inFlight}`);
+function setOutput(inFlight, claimAcquired = false, owner = '', claimError = false) {
+  const values = {
+    in_flight: inFlight,
+    claim_acquired: claimAcquired,
+    claim_owner: owner,
+    claim_error: claimError,
+  };
+  for (const [key, value] of Object.entries(values)) console.log(`${key}=${value}`);
   if (process.env.GITHUB_OUTPUT) {
-    fs.appendFileSync(process.env.GITHUB_OUTPUT, `in_flight=${inFlight}\n`);
+    fs.appendFileSync(
+      process.env.GITHUB_OUTPUT,
+      Object.entries(values).map(([key, value]) => `${key}=${value}`).join('\n') + '\n',
+    );
   }
 }
 
-function main() {
-  if (!ISSUE) {
-    console.log('ISSUE_NUMBER not set — proceeding (no gate possible).');
-    setOutput(false);
-    return;
-  }
+function ownerFromLabels(labels) {
+  const owners = Object.entries(OWNER_LABELS)
+    .filter(([, label]) => labels.includes(label))
+    .map(([owner]) => owner);
+  if (owners.length > 1) return 'contended';
+  if (owners.length === 1) return owners[0];
+  return labels.includes(CLAIM_LABEL) ? 'unknown' : '';
+}
 
+function isOccupied(labels) {
+  return labels.includes(CLAIM_LABEL) || Object.values(OWNER_LABELS).some((label) => labels.includes(label));
+}
+
+function commentOverlap(labels) {
+  const owner = ownerFromLabels(labels);
+  return '⏭️ **Pre-flight (auto, zero-Claude)**: questa issue è già occupata dal claim `' +
+    '`' + CLAIM_LABEL + '` (owner: `' + (owner || 'unknown') + '`). Non avvio il fixer per evitare ' +
+    'PR duplicate/in conflitto. Rimuovere il claim solo dopo aver verificato che il lavoro ' +
+    'non sia più attivo.';
+}
+
+function readLabels() {
   const raw = gh(['issue', 'view', ISSUE, ...repoArgs, '--json', 'labels'], { allowFail: true });
-  if (!raw) {
-    console.log('Issue fetch failed — proceeding (proceed-safe, cannot prove a claim exists).');
-    setOutput(false);
-    return;
-  }
-
-  let labels;
+  if (!raw) return null;
   try {
-    labels = (JSON.parse(raw).labels || []).map((l) => l.name);
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed?.labels)) return null;
+    const labels = parsed.labels.map((label) => String(label?.name || '')).filter(Boolean);
+    return labels;
   } catch {
-    console.log('Issue label parse failed — proceeding (proceed-safe).');
-    setOutput(false);
+    return null;
+  }
+}
+
+function release(labels) {
+  const owner = ownerFromLabels(labels);
+  if (owner !== CLAIM_OWNER) {
+    console.log('Release ignorato: il claim appartiene a `' + (owner || 'unknown') + '`, non a `' + CLAIM_OWNER + '`.');
+    setOutput(isOccupied(labels), false, owner);
+    return;
+  }
+  if (!DRY_RUN) {
+    const remove = [OWNER_LABEL];
+    const otherOwner = Object.entries(OWNER_LABELS)
+      .filter(([name]) => name !== CLAIM_OWNER)
+      .some(([, label]) => labels.includes(label));
+    if (!otherOwner && labels.includes(CLAIM_LABEL)) remove.push(CLAIM_LABEL);
+    const removeArgs = remove.flatMap((label) => ['--remove-label', label]);
+    gh(['issue', 'edit', ISSUE, ...repoArgs, ...removeArgs]);
+  }
+  console.log('Release claim `' + CLAIM_OWNER + '` su issue #' + ISSUE + '.');
+  setOutput(false, false, CLAIM_OWNER);
+}
+
+function main() {
+  if (!/^\d+$/.test(String(ISSUE || ''))) {
+    console.log('ISSUE_NUMBER missing or invalid — fail-closed: no fixer and no release.');
+    setOutput(true, false, 'unknown', true);
     return;
   }
 
-  if (labels.includes(CLAIM_LABEL)) {
-    console.log(`Issue #${ISSUE}: \`${CLAIM_LABEL}\` already present → another session (interactive or a concurrent run) claimed it first. Skipping the Claude fixer, zero quota spent.`);
+  const labels = readLabels();
+  if (!labels) {
+    console.log('Issue fetch/label parse failed — fail-closed: no fixer and no release.');
+    setOutput(true, false, 'unknown', true);
+    return;
+  }
+
+  if (CLAIM_ACTION === 'release') {
+    release(labels);
+    return;
+  }
+
+  if (isOccupied(labels)) {
+    const owner = ownerFromLabels(labels);
+    console.log(`Issue #${ISSUE}: claim già presente (owner=${owner || 'unknown'}) → skip fixer, zero quota.`);
     if (!DRY_RUN) {
-      const comment = `⏭️ **Pre-flight (auto, zero-Claude)**: questa issue porta già la label \`${CLAIM_LABEL}\` — un'altra sessione (interattiva o un run concorrente) l'ha reclamata per prima. Salto il fixer autonomo per evitare PR duplicate/in conflitto (classe #4788/#4793). Se il claim è stale (run morto senza rilascio), rimuovi \`${CLAIM_LABEL}\` a mano e ri-labella \`agent:fix\`.
-
-<!-- FIX_OUTCOME: overlap-skip -->`;
-      gh(['issue', 'comment', ISSUE, ...repoArgs, '--body', comment], { allowFail: true });
+      gh(['issue', 'comment', ISSUE, ...repoArgs, '--body', `${commentOverlap(labels)}\n\n<!-- FIX_OUTCOME: overlap-skip -->`], { allowFail: true });
     }
-    setOutput(true);
+    setOutput(true, false, owner);
     return;
   }
 
-  console.log(`Issue #${ISSUE}: no \`${CLAIM_LABEL}\` present — claiming now.`);
+  console.log(`Issue #${ISSUE}: nessun claim — acquisisco owner=\`${CLAIM_OWNER}\`.`);
   if (!DRY_RUN) {
     gh(['label', 'create', CLAIM_LABEL, '--color', 'fbca04',
         '--description', 'Un fixer (CI o sessione interattiva) sta lavorando questa issue ORA — mutex anti-doppione (#4788/#4793)',
         ...repoArgs], { allowFail: true });
-    gh(['issue', 'edit', ISSUE, ...repoArgs, '--add-label', CLAIM_LABEL], { allowFail: true });
+    gh(['label', 'create', OWNER_LABEL, '--color', CLAIM_OWNER === 'local' ? '1d76db' : '5319e7',
+        '--description', `Claim ${CLAIM_OWNER}: indica chi sta lavorando la issue; accompagna ${CLAIM_LABEL}`,
+        ...repoArgs], { allowFail: true });
+    gh(['issue', 'edit', ISSUE, ...repoArgs, '--add-label', CLAIM_LABEL, '--add-label', OWNER_LABEL]);
+
+    // Checked-then-set cannot be made atomic with the GitHub labels API. Re-read
+    // immediately: if local and remote raced, neither side is allowed to proceed.
+    const after = readLabels();
+    if (!after) throw new Error('claim verification failed after label write');
+    const owner = ownerFromLabels(after);
+    if (owner !== CLAIM_OWNER || !after.includes(CLAIM_LABEL)) {
+      console.log(`Issue #${ISSUE}: claim conteso/non verificabile (owner=${owner || 'unknown'}) → skip.`);
+      setOutput(true, false, owner || 'unknown');
+      return;
+    }
   }
-  setOutput(false);
+  setOutput(false, !DRY_RUN, CLAIM_OWNER);
 }
 
 // Run only as a CLI entrypoint (mirrors check-issue-already-resolved.mjs's guard).
 //
-// TOTAL / PROCEED-SAFE: an uncaught throw here must never strand the issue labeled
-// `agent:fix` but undispatched. Any error → in_flight=false, exit 0 → the normal fixer
-// (with the OLD, softer prompt-level check) runs unchanged — no worse than before this
-// gate existed.
+// TOTAL / FAIL-CLOSED: an uncaught throw must never make the fixer assume that the
+// mutex is free. A partial label write remains visible to the stale-claim detector;
+// the current run skips rather than risking a duplicate PR.
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   try {
     main();
   } catch (e) {
-    console.error('Claim gate error — proceeding (normal fixer runs):', e && e.message ? e.message : e);
-    setOutput(false);
+    console.error('Claim gate error — fail-closed (fixer skipped):', e && e.message ? e.message : e);
+    setOutput(true, false, 'unknown', true);
     process.exit(0);
   }
 }

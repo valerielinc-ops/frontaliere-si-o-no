@@ -182,6 +182,38 @@ describe('localized city joiner in headline (issue #4397)', () => {
   }
 });
 
+describe('related-search static job links', () => {
+  it('removes whole-title markdown wrappers without corrupting a real triple-star brand', () => {
+    const distDir = makeDist();
+    const page = renderClusterPage({
+      distDir,
+      dateStamp: '2026-09-14',
+      ctx: {
+        candidate: { slug: 'ricerca-retail-lenzburg', locale: 'it', jobCount: 3, sampleTerms: ['retail Lenzburg'], editorialCollision: null },
+        keyword: 'retail',
+        city: 'Lenzburg',
+        matchingJobs: [
+          { id: 'bold', title: '**Specialista nel commercio al dettaglio EFZ &quot;Progettazione di esperienze di acquisto&quot;**', company: 'Coop', location: 'Lenzburg', canton: 'AG', slug: 'bold' },
+          { id: 'brand', title: 'Verkaufsberater:in ***delicatessa 40-60% (w/m/d)', company: 'Globus', location: 'Luzern', canton: 'LU', slug: 'brand' },
+          { id: 'plain', title: 'Retail Specialist', company: 'ACME', location: 'Zürich', canton: 'ZH', slug: 'plain' },
+          { id: 'narrative', title: 'I need to see the current job data to understand the context and identify which job title needs translation. Let me check the job data files. The complete translation is: **Assistant Store Manager (m/w/d) 80-100% — Hägendorf** The translation breaks down as follows.', company: 'Lidl', location: 'Hägendorf', canton: 'SO', slug: 'narrative' },
+        ],
+        topCompanies: ['Coop'],
+      } as any,
+      enriched: undefined,
+      hreflang: [],
+      related: [],
+    });
+
+    expect(page.html).toContain('Specialista nel commercio al dettaglio EFZ');
+    const main = page.html.slice(page.html.indexOf('<main'));
+    expect(main).not.toContain('**Specialista');
+    expect(main).toContain('***delicatessa 40-60%');
+    expect(main).toContain('Assistant Store Manager (m/w/d) 80-100% — Hägendorf');
+    expect(main).not.toContain('I need to see the current job data');
+  });
+});
+
 describe('related search cluster SEO shell', () => {
   it('keeps the full SEO shell, indexation tags, SPA assets, and crawl links', () => {
     const distDir = makeDist();

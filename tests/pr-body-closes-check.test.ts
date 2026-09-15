@@ -10,7 +10,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { checkClosesLines, maskQuoted } from '../scripts/lib/pr-body-closes-check.mjs';
+import { checkClosesLines, maskQuoted, stripEmphasis } from '../scripts/lib/pr-body-closes-check.mjs';
 import { readFileSync } from 'node:fs';
 
 describe('checkClosesLines', () => {
@@ -40,6 +40,7 @@ describe('checkClosesLines', () => {
       'Closes #12\nCloses #34\nCloses #56',
       'Closes #12, closes #34, closes #56', // keyword repeated before each
       'Fixes #7\nResolves #8',
+      'Fixes #12\nowner/repo#34', // completed ref followed by an unrelated cross-ref
       'Closes #12. See also #99 for context.', // #99 is a bare cross-ref, not after a keyword reach... wait
       '## Implementato\n- Closes the gap in foo\n\nCloses #200\nSupersedes #201\n',
       'No issues referenced here at all.',
@@ -89,10 +90,41 @@ describe('checkClosesLines', () => {
  * valid keywords, so a line without one was neither a violation nor a `Closes`.
  */
 describe('checkClosesLines — ineffective closing keyword', () => {
+  it('non attraversa un a capo o un marker di lista con il gap markdown', () => {
+    const res = checkClosesLines('Le issue non sono ancora fixed:\n\n* #849\n\nchiude #849');
+    expect(res.ok).toBe(false);
+    expect(res.violations.find((v) => v.type === 'ineffective-closing-keyword')?.ref).toBe('#849');
+  });
+
+  it('non lascia che una negazione in una clausola precedente sopprima l intento successivo', () => {
+    const res = checkClosesLines('Il controllo non è completato, ma questa PR chiude #7994');
+    const violation = res.violations.find((v) => v.type === 'ineffective-closing-keyword');
+    expect(violation?.ref).toBe('#7994');
+  });
+
+  it('non fonde parole vere quando normalizza l enfasi markdown', () => {
+    expect(stripEmphasis('skip_total')).toBe('skiptotal');
+    expect(stripEmphasis('stato_attuale')).toBe('statoattuale');
+    expect(stripEmphasis('parola*altra*parola')).toBe('parola altra parola');
+  });
+
   it('non tronca il contesto a una finestra fissa di 24 caratteri', () => {
     const source = readFileSync(new URL('../scripts/lib/pr-body-closes-check.mjs', import.meta.url), 'utf8');
     expect(source).not.toContain('m.index - 24');
     expect(checkClosesLines('La issue è già chiusa da #849').ok).toBe(true);
+  });
+
+  it('mantiene NEG_REPORT_RE ancorata alla fine del prefisso', () => {
+    const source = readFileSync(new URL('../scripts/lib/pr-body-closes-check.mjs', import.meta.url), 'utf8');
+    const start = source.indexOf('const NEG_REPORT_RE');
+    const end = source.indexOf(');', start);
+    expect(start).toBeGreaterThanOrEqual(0);
+    expect(source.slice(start, end)).toContain('\\\\s*$');
+  });
+
+  it('non perde una catena multi-issue dopo una negazione in una clausola precedente', () => {
+    const res = checkClosesLines('Non chiude nulla, ma Closes #12 #13');
+    expect(res.violations.find((v) => v.type === 'multi-ref-close')?.refs).toEqual(['12', '13']);
   });
 
   describe('flags closure intent GitHub will ignore', () => {

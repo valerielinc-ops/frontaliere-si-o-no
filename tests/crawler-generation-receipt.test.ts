@@ -16,16 +16,16 @@ import { describe, expect, it } from 'vitest';
 import { digestDocument } from '../scripts/lib/canonical-json-digest.mjs';
 import {
   createCrawlerGroupCommitDescriptor,
+  MAX_COMMIT_MESSAGE_BYTES,
   crawlerGroupCommitMessage,
   validateCrawlerGenerationReceipt,
   validateCrawlerGroupCommitDescriptor,
 } from '../scripts/lib/crawler-generation-receipt.mjs';
 
-const MAX_COMMIT_MESSAGE_BYTES = 128 * 1024;
-
 const ROOT = resolve(import.meta.dirname, '..');
 const SCRIPT_PATH = resolve(ROOT, 'scripts/lib/git-commit-data.sh');
 const BASH_BIN = ['/opt/homebrew/bin/bash', '/usr/local/bin/bash'].find(existsSync) ?? 'bash';
+const LINUX_MAX_ARG_STRLEN = 128 * 1024;
 
 function fixture() {
   const root = mkdtempSync(join(tmpdir(), 'crawler-generation-receipt-'));
@@ -244,6 +244,20 @@ describe('crawler generation receipt emitted by the isolated commit tree', () =>
     expect(Buffer.byteLength(message)).toBeLessThanOrEqual(MAX_COMMIT_MESSAGE_BYTES);
     expect(message).toContain('more crawler(s) omitted (group commit message size cap)');
     expect(message.startsWith('Auto-update crawler group jobs\n\nPer-crawler attribution:\n\n--- crawler-000 ---')).toBe(true);
+  });
+
+  it('does not return the exact Linux argv boundary, even when the full message fits the old cap', () => {
+    const base = 'Auto-update crawler group jobs';
+    const crawlerId = 'boundary';
+    const prefix = `${base}\n\nPer-crawler attribution:\n\n--- ${crawlerId} ---\n`;
+    const descriptors = [{
+      crawlerId,
+      commitMessage: 'x'.repeat(LINUX_MAX_ARG_STRLEN - Buffer.byteLength(prefix)),
+    }];
+
+    const message = crawlerGroupCommitMessage(base, descriptors);
+    expect(Buffer.byteLength(message)).toBeLessThan(LINUX_MAX_ARG_STRLEN);
+    expect(message).toBe(crawlerGroupCommitMessage(base, descriptors));
   });
 
   it('keeps whichever leading attributions fit and lists the rest by id when truncating', () => {

@@ -44,11 +44,16 @@ describe('OFFERWALL_FC_SNIPPET — registry', () => {
     expect(OFFERWALL_FC_SNIPPET).toMatch(/Promise\.resolve/);
   });
 
-  it('initialize() grants access to subscribers AND signed-in users (parity with index.html)', () => {
-    // Same dual gate as the index.html registry: an existing subscriber or a
-    // logged-in visitor (Firebase Auth session key) bypasses the Offerwall.
+  it('initialize() grants access to subscribers AND a persisted Firebase session', () => {
+    // Same dual gate as the index.html registry. The static snippet cannot
+    // embed runtime public configuration, so authService writes an explicit
+    // marker; the hydrated app narrows the check to the active Firebase key.
     expect(OFFERWALL_FC_SNIPPET).toMatch(/newsletter_subscribed/);
-    expect(OFFERWALL_FC_SNIPPET).toMatch(/firebase:authUser:/);
+    expect(OFFERWALL_FC_SNIPPET).toMatch(
+      /localStorage\.getItem\(['"]frontaliere:auth-session['"]\)[\s\S]*['"]true['"]\)/,
+    );
+    expect(OFFERWALL_FC_SNIPPET).not.toMatch(/localStorage\.length|firebase:authUser:/);
+    expect(OFFERWALL_FC_SNIPPET).not.toMatch(/FIREBASE_API_KEY|firebaseApiKey/);
   });
 
   it('show() delegates to the React hook window.__ftOfferwallSubscribe', () => {

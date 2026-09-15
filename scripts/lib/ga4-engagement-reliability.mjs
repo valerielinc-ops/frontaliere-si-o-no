@@ -39,7 +39,34 @@ export const MAX_PLAUSIBLE_ENGAGED_SESSION_SECONDS = 3600;
 /** Sotto questo numero di sessioni la contraddizione non è dichiarabile. */
 export const MIN_SESSIONS_FOR_VERDICT = 30;
 
+/** Shared reason for a successful GA4 request that returned no daily rows. */
+export const GA4_EMPTY_DAILY_ROWS_REASON = 'GA4 ha risposto 200 con zero righe per-giorno';
+
 const finite = (v) => (typeof v === 'number' && Number.isFinite(v) ? v : null);
+
+const GA4_DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+const DAY_MS = 86_400_000;
+
+function parseGa4Date(value) {
+  if (typeof value !== 'string' || !GA4_DATE_RE.test(value)) return null;
+  const time = Date.parse(`${value}T00:00:00Z`);
+  if (!Number.isFinite(time)) return null;
+  const date = new Date(time);
+  return date.toISOString().slice(0, 10) === value ? time : null;
+}
+
+/** Sum the inclusive day counts when every GA4 range is an absolute date range. */
+export function deriveDateRangeDays(dateRanges) {
+  if (!Array.isArray(dateRanges) || dateRanges.length === 0) return null;
+  let total = 0;
+  for (const range of dateRanges) {
+    const start = parseGa4Date(range?.startDate);
+    const end = parseGa4Date(range?.endDate);
+    if (start === null || end === null || end < start) return null;
+    total += Math.floor((end - start) / DAY_MS) + 1;
+  }
+  return total > 0 ? total : null;
+}
 
 /**
  * @param {object} input
@@ -170,7 +197,7 @@ export async function fetchDailyEngagementVerdict({
     reason: `verdetto non calcolato: ${cause}`,
     unreliableDates: [],
   });
-  const requestedDays = Number(windowDays);
+  const requestedDays = deriveDateRangeDays(dateRanges) ?? Number(windowDays);
   const limit = Number.isFinite(requestedDays) && requestedDays > 0
     ? Math.ceil(requestedDays) + 5
     : 35;
@@ -183,13 +210,20 @@ export async function fetchDailyEngagementVerdict({
         { name: 'engagedSessions' },
         { name: 'averageSessionDuration' },
       ],
+      orderBys: [{ dimension: { dimensionName: 'date' }, desc: false }],
       limit,
       ...(dimensionFilter ? { dimensionFilter } : {}),
     });
     if (!res.ok) return notComputed(`HTTP ${res.status}`);
     const data = await res.json();
+    const rows = Array.isArray(data.rows) ? data.rows : [];
+    if (rows.length === 0) return notComputed(GA4_EMPTY_DAILY_ROWS_REASON);
+    const reportedRows = Number(data.rowCount);
+    if (rows.length >= limit || (Number.isFinite(reportedRows) && reportedRows >= limit)) {
+      return notComputed(`risposta GA4 ha raggiunto il limite di ${limit} righe; finestra potenzialmente troncata`);
+    }
     return dailyEngagementConsistency(
-      (data.rows || []).map((r) => ({
+      rows.map((r) => ({
         date: r.dimensionValues?.[0]?.value || '?',
         sessions: Number(r.metricValues?.[0]?.value || 0),
         engagedSessions: Number(r.metricValues?.[1]?.value || 0),

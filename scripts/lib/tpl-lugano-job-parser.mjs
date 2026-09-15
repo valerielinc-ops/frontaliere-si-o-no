@@ -12,8 +12,15 @@
  *   isTplJob(job)              — match TPL jobs in dataset
  */
 
+import { buildPdfBackedDescription } from './pdf-job-content.mjs';
+
 const TPL_ORIGIN = 'https://www.tplsa.ch';
+const TPL_HOST = 'www.tplsa.ch';
 const TPL_DETAIL_PATH = '/2/50/candidati/';
+const TPL_COMPANY_NAME = 'TPL - Trasporti Pubblici Luganesi';
+
+/** Minimum plain-text description length to accept (characters). */
+export const MIN_TPL_DESC_LENGTH = 400;
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
@@ -78,7 +85,7 @@ export function parseTplListingPage(html = '') {
     // absolute off-domain href here would turn the crawler into an SSRF hop.
     if (
       parsedUrl.protocol !== 'https:' ||
-      parsedUrl.hostname.toLowerCase() !== 'www.tplsa.ch' ||
+      parsedUrl.hostname.toLowerCase() !== TPL_HOST ||
       parsedUrl.pathname.replace(/\/+$/, '/') !== TPL_DETAIL_PATH ||
       parsedUrl.searchParams.get('idhr') !== idhr
     ) {
@@ -121,9 +128,14 @@ export function parseTplListingState(html = '') {
  * and the generic `Menu2` company accordion. A blank H1 is the stale/closed
  * ghost-page shape (still HTTP 200) and must fail closed.
  *
+ * The vacancy text itself is NOT on this page: the CMS only renders the role
+ * heading, the application instructions and a link to the "capitolato" PDF that
+ * carries the actual ad (tasks, requirements, contract). That link is therefore
+ * returned as `capitolatoUrl` so the runner can build a real description from it.
+ *
  * @param {string} html
  * @param {string} [expectedTitle] title advertised by the careers listing
- * @returns {{ title: string, body: string, location: string } | null}
+ * @returns {{ title: string, body: string, location: string, capitolatoUrl: string } | null}
  */
 export function parseTplDetailPage(html = '', expectedTitle = '') {
   const source = String(html || '');
@@ -158,7 +170,71 @@ export function parseTplDetailPage(html = '', expectedTitle = '') {
   const hasCapitolato = /<a\b[^>]*(?:class\s*=\s*["'][^"']*btn-candidati|href\s*=\s*["'][^"']*\/repository\/pdf\/)[^>]*>/i.test(afterTitle);
   if (!hasCapitolato || body.length < 80) return null;
 
-  return { title, body, location: 'Lugano' };
+  return { title, body, location: 'Lugano', capitolatoUrl: extractTplCapitolatoUrl(afterTitle) };
+}
+
+/**
+ * Extract the absolute URL of the role's "capitolato" PDF, the only place where
+ * TPL publishes the real ad content.
+ *
+ * Same SSRF discipline as the listing parser: the href comes from untrusted
+ * public HTML, so only an https `/repository/pdf/*.pdf` route on TPL's own host
+ * is accepted — an absolute off-domain href must never become a fetch target.
+ *
+ * @param {string} html - HTML of the vacancy block following the role heading
+ * @returns {string} absolute PDF URL, or '' when none is published
+ */
+export function extractTplCapitolatoUrl(html = '') {
+  const match = String(html || '').match(
+    /<a\b[^>]*href\s*=\s*(['"])([^'"]*\/repository\/pdf\/[^'"]*)\1/i,
+  );
+  if (!match) return '';
+  try {
+    const parsed = new URL(match[2].replace(/&amp;/g, '&'), TPL_ORIGIN);
+    if (parsed.protocol !== 'https:') return '';
+    if (parsed.hostname.toLowerCase() !== TPL_HOST) return '';
+    if (!/\.pdf$/i.test(parsed.pathname)) return '';
+    parsed.hash = '';
+    return parsed.href;
+  } catch {
+    return '';
+  }
+}
+
+/**
+ * Build the published description for a TPL vacancy: the capitolato PDF text is
+ * the body, the page block (application instructions) is the fallback for a
+ * missing/image-only PDF.
+ *
+ * @param {string} title
+ * @param {string} rawPdfText - un-normalized capitolato text ('' when absent)
+ * @param {string} inlineBody - vacancy block scraped from the detail page
+ * @returns {{ description: string, warnings: string[] }}
+ */
+export function buildTplDescription(title = '', rawPdfText = '', inlineBody = '') {
+  const description = buildPdfBackedDescription({
+    introLines: [
+      `${TPL_COMPANY_NAME} pubblica il seguente concorso.`,
+      `Posizione: ${normalizeSpace(title)}.`,
+    ],
+    pdfText: rawPdfText,
+    fallbackText: inlineBody
+      || `Concorso ${normalizeSpace(title)} presso ${TPL_COMPANY_NAME}. Consultare il capitolato ufficiale per i dettagli completi su mansioni, requisiti e modalita di candidatura.`,
+    footerLines: [
+      'Capitolato ufficiale disponibile in PDF.',
+      'Settore: Trasporti pubblici / Mobilita',
+      'Sede: Via Campagna 15, 6900 Lugano (TI), Svizzera',
+    ],
+  });
+
+  const warnings = [];
+  if (rawPdfText && description.length < MIN_TPL_DESC_LENGTH) {
+    warnings.push(
+      `TPL description too short (${description.length} chars < ${MIN_TPL_DESC_LENGTH}) despite a capitolato PDF being available — `
+      + 'the PDF may be image-only/scanned.',
+    );
+  }
+  return { description, warnings };
 }
 
 /**

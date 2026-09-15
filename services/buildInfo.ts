@@ -18,6 +18,24 @@ async function fetchTextFile(path: string): Promise<string> {
   }
 }
 
+/**
+ * Read metadata already present in the current document without a network
+ * round-trip. This is the only reliable value for errors raised before the
+ * asynchronous build-id fetch resolves.
+ */
+function readMeta(name: string): string {
+  if (typeof document === 'undefined') return '';
+  try {
+    return document.querySelector(`meta[name="${name}"]`)?.getAttribute('content')?.trim() || '';
+  } catch {
+    return '';
+  }
+}
+
+export function readEmbeddedBuildId(): string {
+  return readMeta('ft-build-id');
+}
+
 export function fetchCommitHash(): Promise<string> {
   return fetchTextFile('/commit-hash.txt');
 }

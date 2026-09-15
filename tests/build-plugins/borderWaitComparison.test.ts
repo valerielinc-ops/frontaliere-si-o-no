@@ -4,6 +4,7 @@ import {
   renderBorderWaitComparison,
   renderBorderWaitPicker,
 } from '@/build-plugins/borderWaitComparison';
+import { borderCrossings } from '@/data/borderCrossings';
 
 const sourceLabels = {
   tomtom: 'Stima TomTom',
@@ -55,7 +56,10 @@ describe('border-wait comparison', () => {
     expect(html).toContain('Stima TomTom');
     expect(html).toContain('14 min');
     expect(html).toContain('Profilo storico indicativo');
-    expect(html).toContain('0-4 min');
+    const expectedMorning = borderCrossings.find(({ name }) => name === 'Chiasso-Brogeda')?.avgWaitMorning;
+    expect(expectedMorning).toEqual(expect.any(String));
+    if (!expectedMorning) throw new Error('Chiasso-Brogeda has no checked-in morning average');
+    expect(html).toContain(expectedMorning);
     expect(html).toContain('non disponibile');
   });
 

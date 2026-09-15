@@ -1,10 +1,16 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
+import MapCanvas from '@/components/shared/MapCanvas';
 import { AlertTriangle, Clock, Car, TrendingUp, RefreshCw, Navigation, CheckCircle2, Filter, ExternalLink } from 'lucide-react';
 import Callout from '@/components/shared/Callout';
-import { trafficService, hasLiveTrafficData, type TrafficData } from '../../services/trafficService';
+import {
+ trafficService,
+ hasLiveTrafficData,
+ effectiveTrafficWaitMinutes,
+ type TrafficData,
+ type TrafficStatus,
+} from '../../services/trafficService';
 import { slugifyCrossingName } from '../../services/borderCrossingSlug';
 import { Analytics } from '../../services/analytics';
 import { borderCrossings as centralizedCrossings } from '../../data/borderCrossings';
@@ -62,7 +68,7 @@ const POPUP_NAV_LINK_STYLE: React.CSSProperties = {
  color: 'white', borderRadius: '8px', fontSize: '13px', fontWeight: 700, textDecoration: 'none',
 };
 
-const createTrafficIcon = (status: 'green' | 'yellow' | 'red', waitTime: number) => {
+const createTrafficIcon = (status: TrafficStatus, waitTime: number) => {
  const color = STATUS_COLORS[status];
  const size = status === 'red' ? 42 : status === 'yellow' ? 36 : 30;
  return L.divIcon({
@@ -86,15 +92,12 @@ const createTrafficIcon = (status: 'green' | 'yellow' | 'red', waitTime: number)
  });
 };
 
-function effectiveWait(t: TrafficData): number {
- return t.totalCrossingMinutes ?? t.waitTimeMinutes;
+function effectiveWait(t: TrafficData): number | null {
+ return effectiveTrafficWaitMinutes(t);
 }
 
-function effectiveStatus(t: TrafficData): 'green' | 'yellow' | 'red' {
- const mins = effectiveWait(t);
- if (mins < 5) return 'green';
- if (mins < 15) return 'yellow';
- return 'red';
+function effectiveStatus(t: TrafficData): TrafficStatus | null {
+ return t.status ?? null;
 }
 
 interface TrafficAlertsProps {
@@ -149,7 +152,9 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  }, [initialCrossingId]);
 
  const sortedTraffic = useMemo(
- () => [...trafficData].sort((a, b) => effectiveWait(a) - effectiveWait(b)),
+ () => [...trafficData]
+ .filter((traffic) => effectiveWait(traffic) !== null)
+ .sort((a, b) => (effectiveWait(a) ?? 0) - (effectiveWait(b) ?? 0)),
  [trafficData]
  );
 
@@ -172,7 +177,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  .sort((a, b) => {
  if (!a.traffic) return b.traffic ? 1 : 0;
  if (!b.traffic) return -1;
- return effectiveWait(a.traffic) - effectiveWait(b.traffic);
+ return (effectiveWait(a.traffic) ?? Infinity) - (effectiveWait(b.traffic) ?? Infinity);
  });
  }, [trafficData]);
 
@@ -192,17 +197,19 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
 
  const fastest = sortedTraffic[0];
  const slowest = sortedTraffic[sortedTraffic.length - 1];
+ const fastestWait = fastest ? effectiveWait(fastest) : null;
+ const slowestWait = slowest ? effectiveWait(slowest) : null;
 
  const mapCenter: [number, number] = [45.92, 8.97];
 
  // INP (#4302 sibling of the BorderMunicipalitiesMap fix): the mobile
  // (`lg:hidden`) and desktop (`hidden lg:grid`) layouts below each render
- // their OWN <MapContainer>, and Tailwind's responsive classes only toggle
+ // their OWN map, and Tailwind's responsive classes only toggle
  // CSS `display` — both React-Leaflet map instances (tile layer + every
  // crossing Marker) mounted unconditionally, doubling the real init cost on
  // a page (/traffico-dogane/<crossing>/oggi/) that only ever shows one of
- // them. Mount only the viewport-matching one; wrapper divs keep their
- // layout either way, so this does not reintroduce CLS.
+ // them. Mount only the viewport-matching one via MapCanvas `active`; the
+ // reserved box keeps its layout either way, so this does not reintroduce CLS.
  const isDesktopViewport = useMediaQuery('(min-width: 1024px)');
 
  const getTrafficForCrossing = (name: string) =>
@@ -272,7 +279,13 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  const bgColor = status === 'green' ? 'bg-success-strong' : status === 'yellow' ? 'bg-warning-strong' : status === 'red' ? 'bg-danger-strong' : 'bg-surface-raised';
  const borderColor = status === 'green' ? 'border-success' : status === 'yellow' ? 'border-warning' : status === 'red' ? 'border-danger' : 'border-edge';
  const textColor = status === 'green' ? 'text-success' : status === 'yellow' ? 'text-warning' : status === 'red' ? 'text-danger' : 'text-muted';
- const waitLabel = traffic ? `${effectiveWait(traffic)} min` : t('traffic.notAvailable', 'n.d.');
+ const wait = traffic ? effectiveWait(traffic) : null;
+ const waitLabel = wait === null ? t('traffic.notAvailable', 'n.d.') : `${wait} min`;
+ const trafficLabel = status
+ ? `${t(STATUS_LABEL_KEYS[status])} — ${waitLabel}`
+ : traffic
+ ? `${t('traffic.notAvailable', 'n.d.')} — ${waitLabel}`
+ : waitLabel;
 
  return (
  <div
@@ -288,7 +301,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  >
  <div className="flex items-center gap-3 mb-3">
  <div className={`w-10 h-10 ${bgColor} rounded-full flex items-center justify-center ${traffic ? 'text-on-accent' : 'text-muted'} font-bold text-xs shadow-md`}>
- {traffic ? effectiveWait(traffic) : t('traffic.notAvailable', 'n.d.')}
+ {wait === null ? t('traffic.notAvailable', 'n.d.') : wait}
  </div>
  <div className="flex-1 min-w-0">
  <h3 className="font-bold text-strong truncate">{crossing.name}</h3>
@@ -298,7 +311,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
 
  <div className="flex items-center justify-between gap-2">
  <span className={`text-sm font-bold ${textColor}`}>
- {status ? `${t(STATUS_LABEL_KEYS[status])} — ${waitLabel}` : waitLabel}
+ {trafficLabel}
  </span>
  <div className="flex items-center gap-2 shrink-0">
  <a
@@ -412,23 +425,19 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  {chiassoEditorial}
 
  {/* Map */}
- {isDesktopViewport === false && (
- <div className="rounded-xl overflow-hidden border border-edge h-[55vh] min-h-[320px]">
- <MapContainer
+ <MapCanvas
  center={mapCenter}
  zoom={11}
- className="h-full w-full"
- scrollWheelZoom={true}
+ height="55vh"
+ active={isDesktopViewport === false}
+ className="rounded-xl overflow-hidden border border-edge"
  >
- <TileLayer
- attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
- url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
- />
  {borderCrossings.map((crossing) => {
  const traffic = getTrafficForCrossing(crossing.name);
  if (!traffic) return null;
  const status = effectiveStatus(traffic);
  const waitTime = effectiveWait(traffic);
+ if (status === null || waitTime === null) return null;
  return (
  <Marker
  key={crossing.name}
@@ -456,9 +465,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  </Marker>
  );
  })}
- </MapContainer>
- </div>
- )}
+ </MapCanvas>
 
  {legend}
 
@@ -494,7 +501,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  <span className="text-xs font-bold text-success">{t('traffic.fastest')}</span>
  </div>
  <p className="text-lg font-bold font-display text-strong">{fastest.crossingName}</p>
- <p className="text-2xl font-bold text-success">{effectiveWait(fastest)} min</p>
+ <p className="text-2xl font-bold text-success">{fastestWait === null ? t('traffic.notAvailable', 'n.d.') : `${fastestWait} min`}</p>
  </div>
  <div className="bg-gradient-to-br from-danger-subtle to-warning-subtle rounded-xl border border-danger-border p-4">
  <div className="flex items-center gap-2 mb-1">
@@ -502,7 +509,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  <span className="text-xs font-bold text-danger">{t('traffic.slowest')}</span>
  </div>
  <p className="text-lg font-bold font-display text-strong">{slowest.crossingName}</p>
- <p className="text-2xl font-bold text-danger">{effectiveWait(slowest)} min</p>
+ <p className="text-2xl font-bold text-danger">{slowestWait === null ? t('traffic.notAvailable', 'n.d.') : `${slowestWait} min`}</p>
  </div>
  </div>
  )}
@@ -535,23 +542,20 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
 
  {/* Right column — sticky map */}
  <div className="sticky top-4 space-y-3 self-start">
- {isDesktopViewport === true && (
- <div className="rounded-xl overflow-hidden border-2 border-edge shadow-lg h-[70vh] min-h-[500px]">
- <MapContainer
+ <MapCanvas
  center={mapCenter}
  zoom={11}
- className="h-full w-full"
- scrollWheelZoom={true}
+ height="70vh"
+ minHeight={500}
+ active={isDesktopViewport === true}
+ className="rounded-xl overflow-hidden border-2 border-edge shadow-lg"
  >
- <TileLayer
- attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
- url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
- />
  {borderCrossings.map((crossing) => {
  const traffic = getTrafficForCrossing(crossing.name);
  if (!traffic) return null;
  const status = effectiveStatus(traffic);
  const waitTime = effectiveWait(traffic);
+ if (status === null || waitTime === null) return null;
  return (
  <Marker
  key={crossing.name}
@@ -579,9 +583,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  </Marker>
  );
  })}
- </MapContainer>
- </div>
- )}
+ </MapCanvas>
  {legend}
  </div>
  </div>

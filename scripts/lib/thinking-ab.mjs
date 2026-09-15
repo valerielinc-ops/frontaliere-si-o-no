@@ -127,19 +127,34 @@ export function applyThinkingArm(arm, env = process.env) {
  * misura» e «zero» sono due cose diverse, e confonderle e' esattamente il
  * difetto riparato in `queue-alarm.mjs`.
  *
- * @param {Array<{arm: string, companyKey: string, jobCount: number, elapsedMs: number, attempted: number, cleared: number}>} rows
+ * @param {Array<{arm: string, companyKey: string, jobCount: number, elapsedMs: number, attempted: number, cleared: number, companyServed?: boolean}>} rows
  */
 export function summarizeThinkingAb(rows) {
   const arms = {};
   for (const arm of [ARM_THINKING, ARM_NO_THINKING]) {
     const own = rows.filter((r) => r.arm === arm);
-    const companies = own.length;
+    // A retry emits a second row for the same company. Keep row-level timing
+    // and translation totals, but count coverage once per company and merge
+    // the observation with OR so a served first pass cannot be undone by a
+    // sterile retry (or vice versa).
+    const servedByCompany = new Map();
+    for (const row of own) {
+      const companyKey = String(row.companyKey ?? '');
+      servedByCompany.set(
+        companyKey,
+        servedByCompany.get(companyKey) === true || row.companyServed === true,
+      );
+    }
+    const companies = servedByCompany.size;
+    const servedCompanies = [...servedByCompany.values()].filter(Boolean).length;
     const jobs = own.reduce((s, r) => s + (r.jobCount || 0), 0);
     const elapsedMs = own.reduce((s, r) => s + (r.elapsedMs || 0), 0);
     const attempted = own.reduce((s, r) => s + (r.attempted || 0), 0);
     const cleared = own.reduce((s, r) => s + (r.cleared || 0), 0);
     arms[arm] = {
       companies,
+      servedCompanies,
+      unservedCompanies: companies - servedCompanies,
       jobs,
       elapsedMs,
       attempted,

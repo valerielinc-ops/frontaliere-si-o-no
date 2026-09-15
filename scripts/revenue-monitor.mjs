@@ -73,6 +73,10 @@ const AFFILIATE_REVENUE_AMOUNT_FORMAT = process.env.AFFILIATE_REVENUE_AMOUNT_FOR
 export const BASELINE = {
   period: '2026-04-06 → 2026-04-19',
   adsense: {
+    // AdSense reports its account currency in the API response. The account
+    // currently reports EUR; keep this beside the legacy CHF-suffixed keys so
+    // old history consumers remain readable without mislabelling new output.
+    currencyCode: 'EUR',
     revenuePerDayCHF: 0.87,
     rpmCHF: 0.91,
     desktopRpmCHF: 1.10,
@@ -96,6 +100,11 @@ export const BASELINE = {
     clsP75Desktop: 0.18,
   },
 };
+
+// A GA4 fallback baseline is useful only while it still describes the same
+// measurement regime. Once the fallback has been unused for longer than this,
+// comparing against it would manufacture a CLS verdict from stale data.
+export const MAX_BASELINE_AGE_DAYS = 30;
 
 // URL buckets for GSC CTR tracking. Matched as URL-contains on the page dimension.
 export const GSC_BUCKETS = [
@@ -205,6 +214,11 @@ async function fetchAdSenseReport(token) {
   const revenue = Number(row[0]?.value ?? 0);
   const rpm = Number(row[1]?.value ?? 0);
   const impressions = Number(row[2]?.value ?? 0);
+  const currencyCode = String(
+    totals.currencyCode
+      || totals.headers?.find((header) => header.currencyCode)?.currencyCode
+      || 'EUR',
+  ).toUpperCase();
 
   // 3. Desktop-only RPM via PLATFORM_TYPE_NAME dimension.
   const dtParams = new URLSearchParams(params);
@@ -239,6 +253,13 @@ async function fetchAdSenseReport(token) {
   return {
     account,
     window: { start, end },
+    currencyCode,
+    revenue7d: Number(revenue.toFixed(2)),
+    revenuePerDay: Number((revenue / 7).toFixed(2)),
+    rpm: Number(rpm.toFixed(2)),
+    desktopRpm: desktopRpm !== null ? Number(desktopRpm.toFixed(2)) : null,
+    // Legacy aliases: retained for append-only history readers. `currencyCode`
+    // above is the authoritative unit; these names are not claims of CHF.
     revenue7dCHF: Number(revenue.toFixed(2)),
     revenuePerDayCHF: Number((revenue / 7).toFixed(2)),
     rpmCHF: Number(rpm.toFixed(2)),
@@ -447,7 +468,7 @@ export async function fetchGa4ClsFallback({
  * @param opts.failThresholdFrac fraction that triggers 🔴 (default 0.20)
  */
 export function compare(current, baseline, { higherIsBetter = true, warnThresholdFrac = 0.10, failThresholdFrac = 0.20 } = {}) {
-  if (current === null || current === undefined || baseline === null || baseline === undefined) {
+  if (!Number.isFinite(current) || !Number.isFinite(baseline)) {
     return { delta: null, deltaPct: null, verdict: '⚪ n/a' };
   }
   const delta = Number((current - baseline).toFixed(3));
@@ -467,7 +488,7 @@ export function compare(current, baseline, { higherIsBetter = true, warnThreshol
 }
 
 function compareWithSource(current, baseline, options) {
-  if (!baseline) {
+  if (!baseline || !Number.isFinite(baseline.value)) {
     return { delta: null, deltaPct: null, verdict: '⚪ source baseline unavailable' };
   }
   if ((current.source ?? null) !== (baseline.source ?? null)) {
@@ -488,9 +509,16 @@ export function buildComparisonRows(current, baseline = BASELINE) {
   const b = baseline;
 
   if (adsense) {
-    rows.push({ metric: 'AdSense revenue / day (CHF)', baseline: b.adsense.revenuePerDayCHF, current: adsense.revenuePerDayCHF, ...compare(adsense.revenuePerDayCHF, b.adsense.revenuePerDayCHF) });
-    rows.push({ metric: 'AdSense RPM (CHF)', baseline: b.adsense.rpmCHF, current: adsense.rpmCHF, ...compare(adsense.rpmCHF, b.adsense.rpmCHF) });
-    rows.push({ metric: 'AdSense desktop RPM (CHF)', baseline: b.adsense.desktopRpmCHF, current: adsense.desktopRpmCHF, ...compare(adsense.desktopRpmCHF, b.adsense.desktopRpmCHF) });
+    const currencyCode = String(adsense.currencyCode || b.adsense.currencyCode || 'EUR').toUpperCase();
+    const revenuePerDay = adsense.revenuePerDay ?? adsense.revenuePerDayCHF;
+    const baselineRevenuePerDay = b.adsense.revenuePerDay ?? b.adsense.revenuePerDayCHF;
+    const rpm = adsense.rpm ?? adsense.rpmCHF;
+    const baselineRpm = b.adsense.rpm ?? b.adsense.rpmCHF;
+    const desktopRpm = adsense.desktopRpm ?? adsense.desktopRpmCHF;
+    const baselineDesktopRpm = b.adsense.desktopRpm ?? b.adsense.desktopRpmCHF;
+    rows.push({ metric: `AdSense revenue / day (${currencyCode})`, baseline: baselineRevenuePerDay, current: revenuePerDay, ...compare(revenuePerDay, baselineRevenuePerDay) });
+    rows.push({ metric: `AdSense RPM (${currencyCode})`, baseline: baselineRpm, current: rpm, ...compare(rpm, baselineRpm) });
+    rows.push({ metric: `AdSense desktop RPM (${currencyCode})`, baseline: baselineDesktopRpm, current: desktopRpm, ...compare(desktopRpm, baselineDesktopRpm) });
     const gateCurrent7d = adsense.authGateImpressions7d;
     const gateBaseline7d = Math.round(b.adsense.authGateImpressions14d / 2);
     rows.push({ metric: 'Auth-gate impressions (7d)', baseline: gateBaseline7d, current: gateCurrent7d, ...compare(gateCurrent7d, gateBaseline7d) });
@@ -537,8 +565,9 @@ export function buildComparisonRows(current, baseline = BASELINE) {
   if (posthog) {
     // Lower is better for CLS.
     const posthogBaseline = selectPosthogBaseline(posthog, b);
-    rows.push({ metric: 'CLS p75 mobile', baseline: posthogBaseline?.clsP75Mobile ?? null, current: posthog.clsP75Mobile, ...compareWithSource({ value: posthog.clsP75Mobile, source: posthog.source }, posthogBaseline && { value: posthogBaseline.clsP75Mobile, source: posthogBaseline.source }, { higherIsBetter: false }) });
-    rows.push({ metric: 'CLS p75 desktop', baseline: posthogBaseline?.clsP75Desktop ?? null, current: posthog.clsP75Desktop, ...compareWithSource({ value: posthog.clsP75Desktop, source: posthog.source }, posthogBaseline && { value: posthogBaseline.clsP75Desktop, source: posthogBaseline.source }, { higherIsBetter: false }) });
+    const baselineDate = posthogBaseline?.baselineDate ?? null;
+    rows.push({ metric: 'CLS p75 mobile', baseline: posthogBaseline?.clsP75Mobile ?? null, baselineDate, current: posthog.clsP75Mobile, ...compareWithSource({ value: posthog.clsP75Mobile, source: posthog.source }, posthogBaseline && { value: posthogBaseline.clsP75Mobile, source: posthogBaseline.source }, { higherIsBetter: false }) });
+    rows.push({ metric: 'CLS p75 desktop', baseline: posthogBaseline?.clsP75Desktop ?? null, baselineDate, current: posthog.clsP75Desktop, ...compareWithSource({ value: posthog.clsP75Desktop, source: posthog.source }, posthogBaseline && { value: posthogBaseline.clsP75Desktop, source: posthogBaseline.source }, { higherIsBetter: false }) });
   } else {
     rows.push({ metric: 'PostHog CLS', baseline: '—', current: 'skipped', delta: null, deltaPct: null, verdict: '⚪ auth missing' });
   }
@@ -618,7 +647,7 @@ export function computePublisherMetrics(slice, now = new Date()) {
 function renderTable(rows) {
   const data = rows.map((r) => ({
     metric: r.metric,
-    baseline: r.baseline ?? '—',
+    baseline: r.baselineDate ? `${r.baseline ?? '—'} (${r.baselineDate})` : r.baseline ?? '—',
     current: r.current ?? '—',
     'Δ': r.delta ?? '—',
     'Δ%': r.deltaPct !== null && r.deltaPct !== undefined ? `${r.deltaPct}%` : '—',
@@ -640,13 +669,17 @@ export function renderMarkdown(rows, current, baseline = BASELINE) {
   for (const r of rows) {
     const d = r.delta !== null && r.delta !== undefined ? r.delta : '—';
     const p = r.deltaPct !== null && r.deltaPct !== undefined ? `${r.deltaPct}%` : '—';
-    lines.push(`| ${r.metric} | ${r.baseline ?? '—'} | ${r.current ?? '—'} | ${d} | ${p} | ${r.verdict} |`);
+    const baseline = r.baselineDate ? `${r.baseline ?? '—'} (${r.baselineDate})` : r.baseline ?? '—';
+    lines.push(`| ${r.metric} | ${baseline} | ${r.current ?? '—'} | ${d} | ${p} | ${r.verdict} |`);
   }
   lines.push('');
   const regressions = rows.filter((r) => r.verdict.startsWith('🔴') || r.verdict.startsWith('⚠️'));
   if (regressions.length) {
     lines.push('## Regressions');
-    for (const r of regressions) lines.push(`- ${r.verdict} **${r.metric}** — ${r.current} vs baseline ${r.baseline} (${r.deltaPct}%)`);
+    for (const r of regressions) {
+      const baseline = r.baselineDate ? `${r.baseline} (${r.baselineDate})` : r.baseline;
+      lines.push(`- ${r.verdict} **${r.metric}** — ${r.current} vs baseline ${baseline} (${r.deltaPct}%)`);
+    }
   } else {
     lines.push('## All metrics healthy — no regressions flagged.');
   }
@@ -674,6 +707,10 @@ export function buildHistoryEntry(current, rows, dateStr) {
     date: dateStr,
     adsense: current.adsense
       ? {
+          currencyCode: current.adsense.currencyCode ?? null,
+          revenuePerDay: current.adsense.revenuePerDay ?? current.adsense.revenuePerDayCHF ?? null,
+          rpm: current.adsense.rpm ?? current.adsense.rpmCHF ?? null,
+          desktopRpm: current.adsense.desktopRpm ?? current.adsense.desktopRpmCHF ?? null,
           revenuePerDayCHF: current.adsense.revenuePerDayCHF ?? null,
           rpmCHF: current.adsense.rpmCHF ?? null,
           desktopRpmCHF: current.adsense.desktopRpmCHF ?? null,
@@ -736,19 +773,42 @@ export function buildHistoryEntry(current, rows, dateStr) {
   };
 }
 
-function loadLatestPosthogBaseline(file, source) {
+function parseHistoryDate(value) {
+  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return null;
+  const time = Date.parse(`${value}T00:00:00Z`);
+  if (!Number.isFinite(time)) return null;
+  const date = new Date(time);
+  return date.toISOString().slice(0, 10) === value ? { value, time } : null;
+}
+
+export function loadLatestPosthogBaseline(
+  file,
+  source,
+  { now = new Date(), maxAgeDays = MAX_BASELINE_AGE_DAYS } = {},
+) {
   if (!existsSync(file)) return null;
-  let latest = null;
+  const nowDate = parseHistoryDate(new Date(now).toISOString().slice(0, 10));
+  const ageLimit = Number(maxAgeDays);
+  if (!nowDate || !Number.isFinite(ageLimit) || ageLimit < 0) return null;
+  let firstRecent = null;
   for (const line of readFileSync(file, 'utf8').split('\n')) {
     if (!line.trim()) continue;
     try {
       const entry = JSON.parse(line);
-      if (entry.posthog?.source === source) latest = entry.posthog;
+      const entryDate = parseHistoryDate(entry.date);
+      const posthog = entry.posthog;
+      if (!entryDate || posthog?.source !== source) continue;
+      const ageDays = (nowDate.time - entryDate.time) / 86_400_000;
+      if (ageDays < 0 || ageDays > ageLimit) continue;
+      if (!Number.isFinite(posthog.clsP75Mobile) && !Number.isFinite(posthog.clsP75Desktop)) continue;
+      if (!firstRecent || entryDate.time < firstRecent.time) {
+        firstRecent = { time: entryDate.time, posthog: { ...posthog, baselineDate: entryDate.value } };
+      }
     } catch {
       // A malformed historical line must not prevent the monitor from running.
     }
   }
-  return latest;
+  return firstRecent?.posthog ?? null;
 }
 
 // ── Main ────────────────────────────────────────────────────

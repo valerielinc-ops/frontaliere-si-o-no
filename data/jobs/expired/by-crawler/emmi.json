@@ -1,5 +1,47 @@
 [
   {
+    "slug": "gestore-dell-impianto-in-uperisation-emmi-ostermundigen",
+    "title": "Anlagenführer:in Uperisation",
+    "titleByLocale": {
+      "it": "Gestione delle piante",
+      "en": "Plant Operatorin Uperisation",
+      "de": "Anlagenführer:in Uperisation",
+      "fr": "Conducteur d'installation :en surélévation"
+    },
+    "company": "Emmi",
+    "companyKey": "emmi",
+    "location": "Ostermundigen, Bern",
+    "addressLocality": "Ostermundigen",
+    "descriptionByLocale": {
+      "it": "• Sei responsabile del funzionamento e del monitoraggio indipendenti degli impianti di riscaldamento. 拏\n• Puoi anche preparare i semilavorati per l'imbottigliamento in tempo. ✔️\n• Controlli le singole fasi di produzione e fornisci feedback nel SAP. ️\n• Progetti e pianifichi i programmi di produzione e ti assicuri che il processo sia rispettato.\n• Sei responsabile dell'esecuzione dei lavori di manutenzione e pulizia. 識\n• Hai completato una formazione come tecnologo lattiero-caseario o una formazione simile nel settore alimentare e ti piace produrre prodotti di alta qualità. 拏\n• Fornisci un metodo di lavoro preciso, pulito e veloce e una buona conoscenza della lingua tedesca (min. B1).\n• Hai un talento tecnico e un interesse per i grandi impianti di produzione. \n• Dimostri grande disponibilità e flessibilità per il lavoro a turni.",
+      "en": "• You are responsible for the independent operation and monitoring of the heating systems. 拏\n• You also provide the semi-finished products for filling on time. ✔️\n• You control the individual production steps and provide feedback in SAP. ️\n• You design and plan the production programs and ensure that the process process is adhered to.\n• You are responsible for carrying out the maintenance and cleaning work. 識\n• You have completed training as a dairy technologist or similar training in the food industry and enjoy producing high-quality products. 拏\n• You bring an exact, clean and expeditious way of working as well as good knowledge of German (min. B1).\n• You have a technical flair and are interested in large production plants. \n• You show great readiness and flexibility for shift work.",
+      "de": "• Du bist verantwortlich für das selbständige Bedienen und Überwachen der Erhitzungsanlagen. 拏\n\n• Du stellst ausserdem die Halbfabrikate für die Abfüllung termingerecht bereit. ✔️\n\n• Du kontrollierst die einzelnen Produktionsschritte und machst Rückmeldungen im SAP. ️\n\n• Du gestaltest und planst die Produktionsprogramme und stellst sicher, dass der Prozessvorgang eingehalten wird.\n\n• Du bist für die Durchführung der Wartungs- und Reinigungsarbeiten verantwortlich. 識\n\n• Du verfügst über eine abgeschlossenen Ausbildung als Milchtechnologe/Milchtechnologin oder eine ähnliche Ausbildung in der Lebensmittelbranche und hast Freude an der Herstellung von hochwertigen Produkten. 拏\n\n• Du bringst eine exakte, saubere und speditive Arbeitsweise sowie gute Deutschkenntnisse (min. B1) mit.\n\n• Du hast ein technisches Flair und Interesse an grossen Produktionsanlagen. \n\n• Du zeigst grosse Einsatzbereitschaft und Flexibilität für den Schichtbetrieb.",
+      "fr": "• Vous êtes responsable de l'utilisation et de la surveillance indépendantes des systèmes de chauffage. 拏\n• Vous fournissez également les produits semi-finis pour le remplissage dans les délais. ✔️\n• Vous contrôlez les différentes étapes de production et faites des commentaires dans SAP. ️\n• Vous concevez et planifiez les programmes de production et vous vous assurez que le processus est respecté.\n• Tu es responsable de l'exécution des travaux d'entretien et de nettoyage. 識\n• Tu as suivi une formation de technologue en lait ou une formation similaire dans l'industrie alimentaire et tu aimes fabriquer des produits de haute qualité. 拏\n• Vous apportez une méthode de travail précise, propre et rapide ainsi qu'une bonne connaissance de l'allemand (min. B1).\n• Vous avez un flair technique et vous vous intéressez aux grandes installations de production. \n• Tu fais preuve d'une grande disponibilité et de flexibilité pour le travail posté."
+    },
+    "slugByLocale": {
+      "it": "gestore-dell-impianto-in-uperisation-emmi-ostermundigen",
+      "en": "plant-operatorin-uperisation-emmi-ostermundigen",
+      "de": "anlagenfuhrer-in-uperisation-emmi-ch",
+      "fr": "conducteur-d-installation-en-surelevation-emmi-ostermundigen"
+    },
+    "sector": "Food & Beverage (dairy)",
+    "expiredAt": "2026-09-11T13:42:06.572Z",
+    "previousSlugs": [
+      "anlagenfuhrer-in-uperisation-emmi-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "anlagenfuhrer-in-uperisation-emmi-ch"
+      ]
+    },
+    "postalCode": "3072",
+    "streetAddress": "Milchstrasse 9",
+    "salaryMin": 68500,
+    "salaryMax": 104000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "coordinatore-del-lavoro-emmi-suhr-aargau",
     "title": "Schichtkoordinator:in",
     "titleByLocale": {
@@ -1538,48 +1580,6 @@
     "streetAddress": "Winkelweg 4",
     "salaryMin": 94500,
     "salaryMax": 143000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "gestore-dell-impianto-in-pet-emmi-suhr",
-    "title": "Anlagenführer:in PET",
-    "titleByLocale": {
-      "it": "Gestore dell'impianto:in PET",
-      "en": "Plant Operator pet",
-      "de": "Anlagenführer:in PET",
-      "fr": "Conducteur d'installation :en PET"
-    },
-    "company": "Emmi",
-    "companyKey": "emmi",
-    "location": "Suhr, Aargau",
-    "addressLocality": "Suhr",
-    "descriptionByLocale": {
-      "it": "• Gestisci e monitori la moderna linea di riempimento PET dalla produzione di bottiglie alla pallettizzazione e garantisci un processo di produzione regolare.\n• Configurate gli impianti, effettuate cambi di formato o di prodotto e supportate la continua ottimizzazione dei processi produttivi.\n• Potete identificare tempestivamente i malfunzionamenti e correggerli autonomamente o in collaborazione con i reparti specializzati.\n• Garantire che gli standard di qualità, igiene e sicurezza siano sempre rispettati.\n• Sostieni la costruzione, l'ulteriore sviluppo e la stabilizzazione del nuovo sistema di riempimento PET.\n• Hai completato la formazione come operatore di impianto nella ZEF e hai esperienza nella produzione di alimenti e bevande.\n• Comprensione tecnica dei sistemi di produzione e dei flussi di processo automatizzati.\n• Modo di lavorare indipendente e strutturato e senso di responsabilità per la qualità e i processi.\n• Personalità orientata al team con la volontà di condividere conoscenze e sviluppare soluzioni insieme.\n• Disponibilità al lavoro su 3 turni e buona conoscenza della lingua tedesca.",
-      "en": "• You operate and monitor the modern PET filling line from bottle production to palletizing and ensure a smooth production process.\n• You set up the systems, carry out format or product changes and support the continuous optimization of production processes.\n• You can identify malfunctions early and correct them independently or in collaboration with the specialist departments.\n• You ensure that quality, hygiene and safety standards are adhered to at all times.\n• You support the construction, further development and stabilization of the new PET filling system.\n• You have completed training as a plant operator in the EFZ and have experience in food or beverage production.\n• Technical understanding of production systems and automated process flows.\n• Independent, structured way of working and sense of responsibility for quality and processes.\n• Team-oriented personality with a willingness to share knowledge and develop solutions together.\n• Willingness to work in 3 shifts and good knowledge of German.",
-      "de": "• Du bedienst und überwachst die moderne PET-Abfülllinie von der Flaschenherstellung bis zur Palettierung und stellst einen reibungslosen Produktionsablauf sicher.\n• Du richtest die Anlagen ein, führst Format- oder Produktwechsel durch und unterstützt bei der kontinuierlichen Optimierung der Produktionsprozesse.\n• Störungen erkennst du frühzeitig und behebst diese selbstständig oder in Zusammenarbeit mit den Fachstellen.\n• Du stellst sicher, dass Qualitäts-, Hygiene- und Sicherheitsstandards jederzeit eingehalten werden.\n• Du unterstützt beim Aufbau, der Weiterentwicklung und der Stabilisierung der neuen PET-Abfüllanlage.\n• Du hast eine abgeschlossene Ausbidlung als Anlagenführer:in EFZ und hast Erfahrung in der Lebensmittel- oder Getränkeproduktion.\n• Technisches Verständnis für Produktionsanlagen und automatisierte Prozessabläufe.\n• Selbstständige, strukturierte Arbeitsweise sowie Verantwortungsbewusstsein für Qualität und Prozesse.\n• Teamorientierte Persönlichkeit mit der Bereitschaft, Wissen zu teilen und gemeinsam Lösungen zu entwickeln.\n• Bereitschaft zur Arbeit im 3-Schichtbetrieb sowie gute Deutschkenntnisse.",
-      "fr": "• Vous exploitez et surveillez la ligne de remplissage PET moderne, de la production de bouteilles à la palettisation, et assurez le bon déroulement du processus de production.\n• Vous mettez en place les systèmes, effectuez les changements de format ou de produit et soutenez l'optimisation continue des processus de production.\n• Vous pouvez identifier à temps les dysfonctionnements et les corriger de manière autonome ou en collaboration avec les services spécialisés.\n• Vous veillez à ce que les normes de qualité, d'hygiène et de sécurité soient respectées à tout moment.\n• Vous soutenez la construction, le développement et la stabilisation du nouveau système de remplissage PET.\n• Vous avez suivi une formation d'opérateur d'usine dans la ZFE et avez de l'expérience dans la production de produits alimentaires ou de boissons.\n• Compréhension technique des systèmes de production et des flux de processus automatisés.\n• Mode de travail indépendant et structuré et sens des responsabilités en matière de qualité et de processus.\n• Personnalité orientée équipe avec une volonté de partager des connaissances et de développer des solutions ensemble.\n• Volonté de travailler en 3 équipes et bonne connaissance de l'allemand."
-    },
-    "slugByLocale": {
-      "it": "gestore-dell-impianto-in-pet-emmi-suhr",
-      "en": "plant-operator-pet-emmi-suhr",
-      "de": "anlagenfuhrer-in-pet-emmi-ch",
-      "fr": "conducteur-d-installation-en-pet-emmi-suhr"
-    },
-    "sector": "Food & Beverage (dairy)",
-    "expiredAt": "2026-07-08T22:24:38.011Z",
-    "previousSlugs": [
-      "anlagenfuhrer-in-pet-emmi-ch"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "anlagenfuhrer-in-pet-emmi-ch"
-      ]
-    },
-    "postalCode": "5034",
-    "streetAddress": "Obertelweg 2",
-    "salaryMin": 62000,
-    "salaryMax": 94000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
   },

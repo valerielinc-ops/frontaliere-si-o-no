@@ -1,6 +1,6 @@
 {
   "crawlerKey": "georg-fischer",
-  "assembledAt": "2026-09-09T23:20:36.920Z",
+  "assembledAt": "2026-09-13T14:08:57.890Z",
   "jobs": [
     {
       "id": "georg-fischer-1b433d82587d",
@@ -17,7 +17,7 @@
       "title": "Tool Maintenance Technician (m/w/d)",
       "titleByLocale": {
         "it": "Tecnico Manutenzione Attrezzi (m/f/d)",
-        "en": "Tool Maintenance Technician (m/w/d)",
+        "en": "Tool Maintenance Technician (m/f/d)",
         "de": "Tool Maintenance Techniker (m/w/d)",
         "fr": "Technicien Maintenance Outils (h/f/d)"
       },
@@ -33,7 +33,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Subingen-Solothurn/Tool-Maintenance-Technician_JR08893",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:20:27.803Z",
+      "crawledAt": "2026-09-13T14:08:51.148Z",
       "addressLocality": "Subingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -109,7 +109,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen/Innovation-Engineer---Data-Center-Cooling--m-f-d-_JR10330",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T23:20:27.116Z",
+      "crawledAt": "2026-09-13T14:08:50.457Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -193,7 +193,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Seewis-Graubunden/Quality-Engineer-Production--m-f-d-_JR10665",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:20:26.473Z",
+      "crawledAt": "2026-09-13T14:08:49.784Z",
       "addressLocality": "Graubunden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -266,7 +266,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen/FormenmonteurIn--m-w-d-_JR10784",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:20:25.830Z",
+      "crawledAt": "2026-09-13T14:08:49.111Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -283,12 +283,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "JR10784",
-      "previousSlugs": [
-        "formenmonteurin-m-w-d-georg-fischer-ch",
-        "formenmonteurin-m-w-d-georg-fischer-schaffhausen",
-        "filetto-di-forma-m-f-d-georg-fischer-schaffhausen"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "formenmonteurin-m-w-d-georg-fischer-schaffhausen",
+          "formenmonteurin-m-w-d-georg-fischer-ch"
+        ],
         "it": [
           "formenmonteurin-m-w-d-georg-fischer-ch",
           "formenmonteurin-m-w-d-georg-fischer-schaffhausen",
@@ -297,13 +296,15 @@
         "en": [
           "formenmonteurin-m-w-d-georg-fischer-schaffhausen"
         ],
-        "de": [
-          "formenmonteurin-m-w-d-georg-fischer-schaffhausen"
-        ],
         "fr": [
           "formenmonteurin-m-w-d-georg-fischer-schaffhausen"
         ]
       },
+      "previousSlugs": [
+        "formenmonteurin-m-w-d-georg-fischer-ch",
+        "formenmonteurin-m-w-d-georg-fischer-schaffhausen",
+        "filetto-di-forma-m-f-d-georg-fischer-schaffhausen"
+      ],
       "firstSeenAt": "2026-08-07T21:51:41.751Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -315,82 +316,6 @@
           "@type": "QuantitativeValue",
           "minValue": 57500,
           "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "georg-fischer-a2cce9f5ffca",
-      "slug": "automation-ingegnere-sps-m-w-d-georg-fischer-graubunden",
-      "slugByLocale": {
-        "it": "automation-ingegnere-sps-m-w-d-georg-fischer-graubunden",
-        "en": "automation-engineer-sps-m-w-d-georg-fischer-ch",
-        "de": "automation-engineer-sps-m-w-d-georg-fischer-ch",
-        "fr": "automation-ingenieur-sps-m-w-d-georg-fischer-graubunden"
-      },
-      "company": "Georg Fischer",
-      "companyKey": "georg-fischer",
-      "companyDomain": "georgfischer.com",
-      "title": "Automation Engineer SPS (m/w/d)",
-      "titleByLocale": {
-        "it": "Automation Ingegnere SPS (m/w/d)",
-        "en": "Automation Engineer SPS (m/w/d)",
-        "de": "Automation Ingenieur SPS (m/w/d)",
-        "fr": "Automation Ingénieur SPS (m/w/d)"
-      },
-      "description": "Unser Automationsteam in unserem modernen Werk im Bündnerischen Seewis wächst weiter und wir suchen per sofort eine engagierte Verstärkung. Diese Automatiker-Stelle, bei der die SPS-Programmierung im Zentrum steht, ist ideal für eine Person, welche ein komplexes, technologisches Umfeld schätzt und die Ambition hat, Gutes noch besser zu machen. Es handelt sich um eine äusserst abwechslungsreiche Tätigkeit mit hoher Eigenverantwortung und der Möglichkeit, massgeblich zum Erfolg unseres Werkes beizutragen.\n\nIhre Aufgaben\n\n• Programmierung SPS-gesteuerter Prüf- und Montageanlagen sowie Robotersteuerungen – unter Einhaltung der geltenden SEV- und SUVA-Sicherheitsvorschriften\n\n• Aufbau und Inbetriebnahme neuer sowie umgebauter Anlagen\n\n• Störungsbehebung sowie Inspektion, Wartung und Instandsetzung automatisierter Anlagen und Robotersysteme\n\n• Sorgfältige Dokumentation der Arbeitsschritte und Tätigkeiten\n\n• Identifikation und Umsetzung von SPS-Programmieroptimierungen\n\n• Mitarbeit an Automatisierungsprojekten\n\nIhr Profil\n\n• Abgeschlossene Lehre als AutomatikerIn, Weiterbildung, z.b. HF von Vorteil\n\n• Mindestens 3 Jahre Berufserfahrung in einer vergleichbaren Funktion\n\n• Fundierte Kenntnisse in der SPS-Programmierung, idealerweise ergänzt durch Robotik-Erfahrung\n\n• Selbstständige, zuverlässige und qualitätsbewusste Arbeitsweise\n\n• Überzeugungskraft und Fähigkeit, effizient zu kommunizieren (mit Produktion, Logistik, externen Lieferanten, etc.)\n\n• Sicherer Umgang mit MS Office\n\nKandidatendossiers von Beratungen werden nicht berücksichtigt. Interessierte werden geben, sich direkt zu bewerben, danke!\n\n#LI-DNI\n\nContact person:\n\nMoritz Nauer\nTalent Acquisition Specialist\nmoritz.nauer@georgfischer.com\nPlease submit your application via the ‘Apply’ button. The recruiter’s email is for enquiries only.",
-      "descriptionByLocale": {
-        "it": "Il nostro team di automazione nel nostro moderno impianto nella città tedesca di Seewis continua a crescere e stiamo cercando un rinforzo impegnato immediatamente. Questa posizione di automazione, che si concentra sulla programmazione PLC, è ideale per una persona che valorizza un ambiente complesso e tecnologico e ha l'ambizione di migliorare le cose buone. Si tratta di un'attività estremamente variegata con un alto livello di responsabilità personale e l'opportunità di contribuire in modo significativo al successo del nostro lavoro.\n\nI loro compiti\n\n• Programmazione di sistemi di test e montaggio controllati da PLC e controller robot – in conformità alle normative di sicurezza SEV e SUVA applicabili\n\n• Costruzione e messa in servizio di impianti nuovi e convertiti\n\n• Risoluzione dei problemi e ispezione, manutenzione e riparazione di apparecchiature automatizzate e sistemi robotizzati\n\n• Documentazione attenta delle fasi di lavoro e delle attività\n\n• Identificazione e implementazione delle ottimizzazioni di programmazione PLC\n\n• Partecipazione a progetti di automazione\n\nIl tuo profilo\n\n• Apprendistato completato come un automatista, ulteriore istruzione, ad esempio HF di vantaggio\n\n• Almeno 3 anni di esperienza professionale in una funzione paragonabile\n\n• Conoscenza approfondita della programmazione PLC, integrata idealmente dall'esperienza robotica\n\n• Metodo di lavoro indipendente, affidabile e di qualità\n\n• Persuasione e capacità di comunicare in modo efficiente (con produzione, logistica, fornitori esterni, ecc.)\n\n• Gestione sicura di MS Office\n\nI dossier dei candidati delle deliberazioni non sono considerati. Persone interessate daranno per applicare direttamente, grazie!\n\n#LI-DNI\n\nContatto:\n\nMoritz Nauer\nTalent Acquisizione Specialista\nmoritz.nauer@georgfischer.com\nSi prega di inviare la domanda tramite il pulsante ‘Applica’. L'email del reclutatore è solo per le richieste.",
-        "en": "Our automation team in our modern plant in the German town of Seewis continues to grow and we are looking for a committed reinforcement immediately. This automation position, which focuses on PLC programming, is ideal for a person who values a complex, technological environment and has the ambition to make good things even better. It is an extremely varied activity with a high level of personal responsibility and the opportunity to contribute significantly to the success of our work.\n\nTheir tasks\n\n• Programming of PLC-controlled test and assembly systems as well as robot controllers – in compliance with the applicable SEV and SUVA safety regulations\n\n• Construction and commissioning of new and converted facilities\n\n• Troubleshooting and inspection, maintenance and repair of automated equipment and robotic systems\n\n• Careful documentation of work steps and activities\n\n• Identification and implementation of PLC programming optimizations\n\n• Participation in automation projects\n\nYour profile\n\n• Completed apprenticeship as an automatist, further education, e.g. HF of advantage\n\n• At least 3 years of professional experience in a comparable function\n\n• In-depth knowledge of PLC programming, ideally complemented by robotics experience\n\n• Independent, reliable and quality-conscious working method\n\n• Persuasiveness and ability to communicate efficiently (with production, logistics, external suppliers, etc.)\n\n• Safe handling of MS Office\n\nCandidate dossiers of deliberations are not considered. Interested people will give to apply directly, thanks!\n\n#LI-DNI\n\nContact person:\n\nMoritz Nauer\nTalent Acquisition Specialist\nmoritz.nauer@georgfischer.com\nPlease submit your application via the ‘Apply’ button. The recruiter’s email is for enquiries only.",
-        "de": "Unser Automationsteam in unserem modernen Werk im Bündnerischen Seewis wächst weiter und wir suchen per sofort eine engagierte Verstärkung. Diese Automatiker-Stelle, bei der die SPS-Programmierung im Zentrum steht, ist ideal für eine Person, welche ein komplexes, technologisches Umfeld schätzt und die Ambition hat, Gutes noch besser zu machen. Es handelt sich um eine äusserst abwechslungsreiche Tätigkeit mit hoher Eigenverantwortung und der Möglichkeit, massgeblich zum Erfolg unseres Werkes beizutragen.\n\nIhre Aufgaben\n\n• Programmierung SPS-gesteuerter Prüf- und Montageanlagen sowie Robotersteuerungen – unter Einhaltung der geltenden SEV- und SUVA-Sicherheitsvorschriften\n\n• Aufbau und Inbetriebnahme neuer sowie umgebauter Anlagen\n\n• Störungsbehebung sowie Inspektion, Wartung und Instandsetzung automatisierter Anlagen und Robotersysteme\n\n• Sorgfältige Dokumentation der Arbeitsschritte und Tätigkeiten\n\n• Identifikation und Umsetzung von SPS-Programmieroptimierungen\n\n• Mitarbeit an Automatisierungsprojekten\n\nIhr Profil\n\n• Abgeschlossene Lehre als AutomatikerIn, Weiterbildung, z.b. HF von Vorteil\n\n• Mindestens 3 Jahre Berufserfahrung in einer vergleichbaren Funktion\n\n• Fundierte Kenntnisse in der SPS-Programmierung, idealerweise ergänzt durch Robotik-Erfahrung\n\n• Selbstständige, zuverlässige und qualitätsbewusste Arbeitsweise\n\n• Überzeugungskraft und Fähigkeit, effizient zu kommunizieren (mit Produktion, Logistik, externen Lieferanten, etc.)\n\n• Sicherer Umgang mit MS Office\n\nKandidatendossiers von Beratungen werden nicht berücksichtigt. Interessierte werden geben, sich direkt zu bewerben, danke!\n\n#LI-DNI\n\nContact person:\n\nMoritz Nauer\nTalent Acquisition Specialist\nmoritz.nauer@georgfischer.com\nPlease submit your application via the ‘Apply’ button. The recruiter’s email is for enquiries only.",
-        "fr": "Notre équipe d'automatisation dans notre usine moderne dans la ville allemande de Seewis continue de croître et nous sommes à la recherche d'un renforcement engagé immédiatement. Cette position d'automatisation, axée sur la programmation PLC, est idéale pour une personne qui valorise un environnement technologique complexe et qui a l'ambition de rendre les choses encore meilleures. C'est une activité extrêmement variée avec un haut niveau de responsabilité personnelle et la possibilité de contribuer de manière significative au succès de notre travail.\n\nLeurs tâches\n\n• Programmation de systèmes d'essai et de montage contrôlés par PLC ainsi que de contrôleurs robotisés – conformément aux règles de sécurité SEV et VUSA applicables\n\n• Construction et mise en service d'installations nouvelles ou converties\n\n• Dépannage et inspection, entretien et réparation d'équipements automatisés et de systèmes robotiques\n\n• Documentation minutieuse des étapes et des activités de travail\n\n• Identification et mise en œuvre des optimisations de programmation de PLC\n\n• Participation à des projets d'automatisation\n\nVotre profil\n\n• L'apprentissage terminé en tant qu'automatiste, formation continue, par exemple HF d'avantage\n\n• Au moins 3 ans d'expérience professionnelle dans une fonction comparable\n\n• Connaissance approfondie de la programmation PLC, idéalement complétée par une expérience robotique\n\n• Méthode de travail indépendante, fiable et soucieuse de la qualité\n\n• Persuasion et capacité de communiquer efficacement (avec la production, la logistique, les fournisseurs externes, etc.)\n\n• Gestion sûre du bureau des EM\n\nLes dossiers de délibérations des candidats ne sont pas examinés. Les personnes intéressées donneront à postuler directement, merci!\n\n#LI-DNI\n\nPersonne à contacter:\n\nMoritz Nauer\nSpécialiste en acquisition de talents\nMoritz.nauer@georgfischer.com\nVeuillez soumettre votre candidature via le bouton « Appliquer ». L'e-mail du recruteur est réservé aux demandes de renseignements."
-      },
-      "location": "Graubunden",
-      "canton": "GR",
-      "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Seewis-Graubunden/Automation-Engineer-SPS--m-w-d-_JR10894",
-      "source": "Georg Fischer Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:20:25.217Z",
-      "addressLocality": "Graubunden",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Manifattura",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-13",
-      "applyUrl": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Seewis-Graubunden/Automation-Engineer-SPS--m-w-d-_JR10894",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobReqId": "JR10894",
-      "previousSlugs": [
-        "automation-engineer-sps-m-w-d-georg-fischer-ch",
-        "automation-ingegnere-sps-m-w-d-georg-fischer-graubunden"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "automation-engineer-sps-m-w-d-georg-fischer-ch",
-          "automation-ingegnere-sps-m-w-d-georg-fischer-graubunden"
-        ],
-        "fr": [
-          "automation-engineer-sps-m-w-d-georg-fischer-ch"
-        ]
-      },
-      "firstSeenAt": "2026-08-13T10:16:28.882Z",
-      "salaryMin": 67000,
-      "salaryMax": 102000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 67000,
-          "maxValue": 102000,
           "unitText": "YEAR"
         }
       }
@@ -427,7 +352,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen/Praktikant-im-Prozessingenieurwesen_JR10533",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:20:24.596Z",
+      "crawledAt": "2026-09-13T14:08:48.440Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -506,7 +431,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Subingen-Solothurn/Einrichter--m-w-d-_JR10356",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:20:23.941Z",
+      "crawledAt": "2026-09-13T14:08:47.766Z",
       "addressLocality": "Subingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -523,12 +448,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "JR10356",
-      "previousSlugs": [
-        "einrichter-m-w-d-georg-fischer-ch",
-        "einrichter-m-w-d-georg-fischer-subingen",
-        "inverter-m-f-d-georg-fischer-subingen"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "einrichter-m-w-d-georg-fischer-subingen",
+          "einrichter-m-w-d-georg-fischer-ch"
+        ],
         "it": [
           "einrichter-m-w-d-georg-fischer-ch",
           "inverter-m-f-d-georg-fischer-subingen"
@@ -536,13 +460,15 @@
         "en": [
           "einrichter-m-w-d-georg-fischer-ch"
         ],
-        "de": [
-          "einrichter-m-w-d-georg-fischer-subingen"
-        ],
         "fr": [
           "einrichter-m-w-d-georg-fischer-ch"
         ]
       },
+      "previousSlugs": [
+        "einrichter-m-w-d-georg-fischer-ch",
+        "einrichter-m-w-d-georg-fischer-subingen",
+        "inverter-m-f-d-georg-fischer-subingen"
+      ],
       "firstSeenAt": "2026-08-20T21:39:19.019Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -590,7 +516,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Seewis-Graubunden/Reinigungskraft--m-w-d-_JR10731",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:20:23.313Z",
+      "crawledAt": "2026-09-13T14:08:47.080Z",
       "addressLocality": "Graubunden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -607,14 +533,12 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "JR10731",
-      "previousSlugs": [
-        "reinigungskraft-m-w-d-georg-fischer-ch",
-        "reinigungskraft-m-w-d-georg-fischer-graubunden",
-        "reinigungskraft-m-w-d-30-georg-fischer-ch",
-        "reinigungskraft-m-w-d-30-georg-fischer-graubunden",
-        "potenza-di-pulizia-m-f-d-georg-fischer-graubunden"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "reinigungskraft-m-w-d-georg-fischer-ch",
+          "reinigungskraft-m-w-d-30-georg-fischer-graubunden",
+          "reinigungskraft-m-w-d-30-georg-fischer-ch"
+        ],
         "it": [
           "reinigungskraft-m-w-d-georg-fischer-ch",
           "reinigungskraft-m-w-d-georg-fischer-graubunden",
@@ -624,14 +548,17 @@
         "en": [
           "reinigungskraft-m-w-d-georg-fischer-graubunden"
         ],
-        "de": [
-          "reinigungskraft-m-w-d-georg-fischer-ch",
-          "reinigungskraft-m-w-d-30-georg-fischer-graubunden"
-        ],
         "fr": [
           "reinigungskraft-m-w-d-georg-fischer-graubunden"
         ]
       },
+      "previousSlugs": [
+        "reinigungskraft-m-w-d-georg-fischer-ch",
+        "reinigungskraft-m-w-d-georg-fischer-graubunden",
+        "reinigungskraft-m-w-d-30-georg-fischer-ch",
+        "reinigungskraft-m-w-d-30-georg-fischer-graubunden",
+        "potenza-di-pulizia-m-f-d-georg-fischer-graubunden"
+      ],
       "firstSeenAt": "2026-08-20T09:47:00.384Z",
       "salaryMin": 17300,
       "salaryMax": 26100,
@@ -678,7 +605,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen/Team-Assistant--m-f-d--60-_JR10653-1",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T23:20:22.682Z",
+      "crawledAt": "2026-09-13T14:08:46.402Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -711,7 +638,8 @@
           "assistente-di-squadra-m-f-d-60-georg-fischer-schaffhausen"
         ],
         "fr": [
-          "team-assistant-m-f-d-60-georg-fischer-ch"
+          "team-assistant-m-f-d-60-georg-fischer-ch",
+          "team-assistant-m-f-d-60-georg-fischer-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-08-31T17:22:23.056Z",
@@ -761,7 +689,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Seewis-Graubunden/Anlagenfhrer-im-4-Schichtbetrieb-100---m-w-d-_JR11096",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:20:22.011Z",
+      "crawledAt": "2026-09-13T14:08:45.745Z",
       "addressLocality": "Graubunden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -841,7 +769,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen/KunststofftechnologIn--m-w-d-_JR10783",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:20:21.345Z",
+      "crawledAt": "2026-09-13T14:08:45.060Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -858,12 +786,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "JR10783",
-      "previousSlugs": [
-        "kunststofftechnologin-m-w-d-georg-fischer-ch",
-        "kunststofftechnologin-m-w-d-georg-fischer-schaffhausen",
-        "tecnologia-plastica-m-f-d-georg-fischer-schaffhausen"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "kunststofftechnologin-m-w-d-georg-fischer-schaffhausen",
+          "kunststofftechnologin-m-w-d-georg-fischer-ch"
+        ],
         "it": [
           "kunststofftechnologin-m-w-d-georg-fischer-ch",
           "kunststofftechnologin-m-w-d-georg-fischer-schaffhausen",
@@ -872,13 +799,15 @@
         "en": [
           "kunststofftechnologin-m-w-d-georg-fischer-schaffhausen"
         ],
-        "de": [
-          "kunststofftechnologin-m-w-d-georg-fischer-schaffhausen"
-        ],
         "fr": [
           "kunststofftechnologin-m-w-d-georg-fischer-schaffhausen"
         ]
       },
+      "previousSlugs": [
+        "kunststofftechnologin-m-w-d-georg-fischer-ch",
+        "kunststofftechnologin-m-w-d-georg-fischer-schaffhausen",
+        "tecnologia-plastica-m-f-d-georg-fischer-schaffhausen"
+      ],
       "firstSeenAt": "2026-08-07T21:51:42.479Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -926,7 +855,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen/FachspezialistIn-Betriebliches-Gesundheitsmanagement-60---m-w-d-_JR11083",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:20:20.729Z",
+      "crawledAt": "2026-09-13T14:08:44.396Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1005,7 +934,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen/Ausbildungsverantwortliche-r-Mediamatik-50---m-w-d-_JR11047",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:20:20.106Z",
+      "crawledAt": "2026-09-13T14:08:43.739Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1085,7 +1014,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen/SachbearbeiterIn-Kundeninnendienst--m-w-d-_JR11120",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:20:19.491Z",
+      "crawledAt": "2026-09-13T14:08:43.079Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1165,7 +1094,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Seewis-Graubunden/Formenmonteur-100----m-w-d-_JR11198",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:20:18.866Z",
+      "crawledAt": "2026-09-13T14:08:42.426Z",
       "addressLocality": "Graubunden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1245,7 +1174,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen/Intern-Product-Management--Valve-Automation-Solutions--m-f-d--12-Months-80-100-_JR11207",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T23:20:18.204Z",
+      "crawledAt": "2026-09-13T14:08:41.759Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1328,7 +1257,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen/Working-Student-Quality-Engineering---Digitalization--m-w-d--20---40-_JR11029",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:20:17.562Z",
+      "crawledAt": "2026-09-13T14:08:41.099Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1371,86 +1300,244 @@
       }
     },
     {
-      "id": "georg-fischer-12b2871e8228",
-      "slug": "stage-qm-georg-fischer-sissach",
+      "id": "georg-fischer-ea2de4319df8",
+      "slug": "specialista-di-supporto-it-nello-stabilimento-sissach-m-f-d-georg-fischer-sissach",
       "slugByLocale": {
-        "it": "stage-qm-georg-fischer-sissach",
-        "en": "internship-qm-georg-fischer-sissach",
-        "de": "praktikant-in-qm-georg-fischer-ch",
-        "fr": "stage-qm-georg-fischer-sissach"
+        "it": "specialista-di-supporto-it-nello-stabilimento-sissach-m-f-d-georg-fischer-sissach",
+        "en": "it-support-specialist-in-plant-sissach-m-f-d-georg-fischer-sissach",
+        "de": "it-support-spezialistin-werk-sissach-m-w-d-georg-fischer-ch",
+        "fr": "specialiste-du-soutien-informatique-dans-l-usine-sissach-h-f-d-georg-fischer-sissach"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
       "companyDomain": "georgfischer.com",
-      "title": "Praktikant/in QM",
+      "title": "IT-Support-SpezialistIn Werk Sissach (m/w/d)",
       "titleByLocale": {
-        "it": "Stage/QM",
-        "en": "Internship/QM",
-        "de": "Praktikant/in QM",
-        "fr": "Stage/QM"
+        "it": "Specialista di supporto IT nello stabilimento Sissach (m/f/d)",
+        "en": "IT support specialist in plant Sissach (m/f/d)",
+        "de": "IT-Support-SpezialistIn Werk Sissach (m/w/d)",
+        "fr": "Spécialiste du soutien informatique dans l'usine Sissach (h/f/d)"
       },
-      "description": "Wir bei GF sehen uns als zukunftsorientiertes Unternehmen in unserem Fachgebiet. Seit 1802 setzen wir auf Innovationen und nachhaltige Lösungen von höchster Qualität, die das Leben der Menschen auf der ganzen Welt bereichern.\n\nZur Ergänzung unseres Teams im Bereich Qualität suchen wir ab Oktober oder nach Vereinbarung für 6 – 12 Monate eine engagierte, neugierige und teamfähige Persönlichkeit als\n\nPraktikant/in Qualitätsmanagement (m/w/d) 80%\n\nDeine Hauptaufgaben\n\n• Unterstützung bei der Standardisierung und Stabilisierung der Prozesse, der kontinuierlichen Verbesserung sowie im Abweichungsmanagement\n\n• Mitgestaltung und Weiterentwicklung der Qualitätskultur\n\n• Mithilfe in der Optimierung und Darstellung von Prozessen und im Dokumentenmanagement\n\n• Weiterentwicklung von Qualitätsauswertungen in Power BI\n\n• Allgemeine Unterstützung des Bereichs Qualität\n\nDein Profil\n\n• Studium oder Weiterbildung an einer Hochschule im Bereich Wirtschaftsingenieurwesen, Ingenieurwe sen, Betriebsökonomie, Arbeits- und Organisationspsychologie oder einem ähnlichen Studium\n\n• Gutes technisches Grundverständnis oder Interesse, dieses zu entwickeln\n\n• Selbstständige, zuverlässige und strukturierte Arbeitsweise mit rascher Auffassungsgabe für komplexe Zusammenhänge\n\n• Sehr gute Microsoft Office-Kenntnisse (v. a. Excel und PowerPoint), idealerweise ergänzt durch Power BI\n\n• Einwandfreie Deutsch- sowie gute Englischkenntnisse in Wort und Schrift\n\nContact person:\n\nFlorian Osmani\nIntern Commercial\nflorian.osmani@georgfischer.com\nPlease submit your application via the ‘Apply’ button. The recruiter’s email is for enquiries only.",
+      "description": "Sie sorgen dafür, dass IT einfach funktioniert. Nicht nur, indem Sie Herausforderungen schnell lösen, sondern indem Sie diese frühzeitig erkennen und vermeiden. Wenn Sie gerne mit Menschen arbeiten, moderne Microsoft-Technologien schätzen und eine professionelle IT-Landschaft aktiv weiterentwickeln möchten, erwartet Sie bei uns eine abwechslungsreiche Aufgabe mit viel Gestaltungsspielraum.\nIT-Support-SpezialistIn Werk Sissach (m/w/d)\n\nIhre Aufgaben:\n\n• Verantwortung für den 1st- und 2nd-Level-Support sowie die professionelle Unterstützung unserer Anwenderinnen und Anwender\n\n• Installation, Konfiguration und Störungsbehebung von Arbeitsplatz-Hardware, Software und Peripheriegeräten\n\n• Analyse und Behebung von System-, Infrastruktur- und Netzwerkstörungen\n\n• Administration von Benutzerkonten, Berechtigungen, Active Directory sowie der Microsoft-365-Umgebung inklusive Microsoft Teams\n\n• Betreuung von Fachapplikationen sowie Mitarbeit bei der Entwicklung und Umsetzung von IT-Lösungen mit internen und externen Partnern\n\n• Mitwirkung bei der Optimierung von IT-Prozessen, Erstellung von Dokumentationen und Durchführung von Anwenderschulungen\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung im IT-Bereich oder vergleichbare Qualifikation mit mehrjähriger Berufserfahrung im IT-Support oder IT-Service-Management\n\n• Praxiserfahrung im Client-Management, in der Betreuung von Arbeitsplatzinfrastrukturen sowie gute Kenntnisse im Microsoft-Umfeld (Microsoft 365, Active Directory)\n\n• Grundlegendes Verständnis von Netzwerken sowie Interesse an modernen IT-Systemen und Applikationen\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise kombiniert mit einer ausgeprägten Service- und Kundenorientierung\n\n• Erfahrung mit ERP-Systemen (idealerweise SAP), Atlassian Jira, PowerShell oder anderen Automatisierungstechnologien sind von Vorteil\n\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse\n\n• Freude an der Arbeit in einem produktionsnahen Umfeld einer Giesserei\n\nIhr Kontakt:\nRené Paparusso\nTeam Lead Talent Acquisition Management Switzerland\nPhone: +41 52 547 10 79\n\nBewerbungen von Personalvermittlungen werden nicht berücksichtigt.\n\n#LI-DNI\n\nContact person:\n\nRené Paparusso\nTalent Acquisition Specialist\nrene.paparusso@georgfischer.com\nPlease submit your application via the ‘Apply’ button. The recruiter’s email is for enquiries only.",
       "descriptionByLocale": {
-        "it": "A GF, ci vediamo come una società orientata al futuro nel nostro campo di competenza. Dal 1802, ci siamo concentrati sull'innovazione e sulle soluzioni sostenibili di altissima qualità che arricchiscono la vita delle persone di tutto il mondo.\n\nPer completare il nostro team nel settore della qualità, siamo alla ricerca di una personalità impegnata, curiosa e di team-capable da ottobre o d'accordo per 6 – 12 mesi come\n\nStage in Gestione della Qualità (m/f/d) 80 %\n\nI compiti principali\n\n• Supporto per la standardizzazione e la stabilizzazione dei processi, il miglioramento continuo e la gestione delle deviazioni\n\n• Co-creazione e sviluppo della cultura della qualità\n\n• Assistenza nell'ottimizzazione e presentazione dei processi e nella gestione dei documenti\n\n• Ulteriore sviluppo delle valutazioni di qualità in Power BI\n\n• Supporto generale per la qualità\n\nIl tuo profilo\n\n• Studi o ulteriori studi presso un'università nel campo dell'ingegneria industriale, dell'ingegneria, dell'amministrazione aziendale, della psicologia del lavoro e dell'organizzazione o studi simili\n\n• Buona comprensione tecnica di base o interesse a svilupparla\n\n• Metodo di lavoro indipendente, affidabile e strutturato con una rapida comprensione delle relazioni complesse\n\n• Ottima conoscenza di Microsoft Office (specialmente Excel e PowerPoint), idealmente integrato da Power BI\n\n• Appropriato tedesco e buone abilità inglesi in parole e scrittura\n\nContatto:\n\nFlorian Osmani\nCommercio interno\nflorian.osmani@georgfischer.com\nSi prega di inviare la domanda tramite il pulsante 'Applica'. L'email del reclutatore è solo per le richieste.",
-        "en": "At GF, we see ourselves as a future-oriented company in our field of expertise. Since 1802, we have focused on innovation and sustainable solutions of the highest quality that enrich the lives of people around the world.\n\nTo complement our team in the area of quality, we are looking for a committed, curious and team-capable personality from October or by agreement for 6 – 12 months as\n\nInternship in Quality Management (m/f/d) 80 %\n\nYour main tasks\n\n• Support for standardization and stabilization of processes, continuous improvement and deviation management\n\n• Co-creation and further development of quality culture\n\n• Assistance in the optimization and presentation of processes and in document management\n\n• Further development of quality evaluations in Power BI\n\n• General support for quality\n\nYour profile\n\n• Studies or further education at a university in the field of industrial engineering, engineering, business administration, work and organizational psychology or similar studies\n\n• Good basic technical understanding or interest in developing it\n\n• Independent, reliable and structured working method with a quick understanding of complex relationships\n\n• Very good knowledge of Microsoft Office (especially Excel and PowerPoint), ideally supplemented by Power BI\n\n• Appropriate German and good English skills in words and writing\n\nContact person:\n\nFlorian Osmani\nInternal Commercial\nflorian.osmani@georgfischer.com\nPlease submit your application via the ‘Apply’ button. The recruiter’s email is for enquiries only.",
-        "de": "Wir bei GF sehen uns als zukunftsorientiertes Unternehmen in unserem Fachgebiet. Seit 1802 setzen wir auf Innovationen und nachhaltige Lösungen von höchster Qualität, die das Leben der Menschen auf der ganzen Welt bereichern.\n\nZur Ergänzung unseres Teams im Bereich Qualität suchen wir ab Oktober oder nach Vereinbarung für 6 – 12 Monate eine engagierte, neugierige und teamfähige Persönlichkeit als\n\nPraktikant/in Qualitätsmanagement (m/w/d) 80%\n\nDeine Hauptaufgaben\n\n• Unterstützung bei der Standardisierung und Stabilisierung der Prozesse, der kontinuierlichen Verbesserung sowie im Abweichungsmanagement\n\n• Mitgestaltung und Weiterentwicklung der Qualitätskultur\n\n• Mithilfe in der Optimierung und Darstellung von Prozessen und im Dokumentenmanagement\n\n• Weiterentwicklung von Qualitätsauswertungen in Power BI\n\n• Allgemeine Unterstützung des Bereichs Qualität\n\nDein Profil\n\n• Studium oder Weiterbildung an einer Hochschule im Bereich Wirtschaftsingenieurwesen, Ingenieurwe sen, Betriebsökonomie, Arbeits- und Organisationspsychologie oder einem ähnlichen Studium\n\n• Gutes technisches Grundverständnis oder Interesse, dieses zu entwickeln\n\n• Selbstständige, zuverlässige und strukturierte Arbeitsweise mit rascher Auffassungsgabe für komplexe Zusammenhänge\n\n• Sehr gute Microsoft Office-Kenntnisse (v. a. Excel und PowerPoint), idealerweise ergänzt durch Power BI\n\n• Einwandfreie Deutsch- sowie gute Englischkenntnisse in Wort und Schrift\n\nContact person:\n\nFlorian Osmani\nIntern Commercial\nflorian.osmani@georgfischer.com\nPlease submit your application via the ‘Apply’ button. The recruiter’s email is for enquiries only.",
-        "fr": "Chez GF, nous nous considérons comme une entreprise tournée vers l'avenir dans notre domaine d'expertise. Depuis 1802, nous nous concentrons sur l'innovation et les solutions durables de la plus haute qualité qui enrichissent la vie des gens du monde entier.\n\nPour compléter notre équipe dans le domaine de la qualité, nous sommes à la recherche d'une personnalité engagée, curieuse et capable d'équipe à partir d'octobre ou par accord pour 6 – 12 mois\n\nStage en gestion de la qualité (h/f/d) 80 %\n\nVos principales tâches\n\n• Appui à la normalisation et à la stabilisation des processus, amélioration continue et gestion des écarts\n\n• Co-création et développement de la culture de qualité\n\n• Assistance à l'optimisation et à la présentation des processus et à la gestion des documents\n\n• Développement des évaluations de la qualité dans Power BI\n\n• Soutien général à la qualité\n\nVotre profil\n\n• Études ou études complémentaires dans une université dans le domaine du génie industriel, de l'ingénierie, de l'administration des affaires, de la psychologie du travail et de l'organisation ou études similaires\n\n• Bonne compréhension technique de base ou intérêt pour le développer\n\n• Méthode de travail indépendante, fiable et structurée avec une compréhension rapide des relations complexes\n\n• Très bonne connaissance de Microsoft Office (en particulier Excel et PowerPoint), idéalement complétée par Power BI\n\n• Aptitude à l'allemand et bonne maîtrise de l'anglais en mots et en écriture\n\nPersonne à contacter:\n\nFlorian Osmani\nCommerce intérieur\nflorian.osmani@georgfischer.com\nVeuillez soumettre votre candidature via le bouton « Appliquer ». L'email du recruteur est réservé aux demandes de renseignements."
+        "it": "Assicurano che l'IT funzioni semplicemente. Non solo risolvendo rapidamente le sfide, ma riconoscendo ed evitandole presto. Se ti piace lavorare con le persone, apprezzare le moderne tecnologie Microsoft e sviluppare attivamente un panorama IT professionale, si può aspettare un compito vario con un sacco di spazio per la manovra.\nSpecialista di supporto IT nello stabilimento Sissach (m/f/d)\n\nI loro compiti:\n\n• Responsabilità per il supporto di primo e secondo livello e supporto professionale per i nostri utenti\n\n• Installazione, configurazione e risoluzione dei problemi dell'hardware di workstation, del software e delle periferiche\n\n• Analisi e risoluzione delle interruzioni di sistema, infrastruttura e rete\n\n• Amministrazione di account utente, autorizzazioni, Active Directory e ambiente Microsoft 365 tra cui Microsoft Teams\n\n• Supporto di applicazioni specialistiche e cooperazione nello sviluppo e nell'implementazione di soluzioni IT con partner interni ed esterni\n\n• Partecipazione all'ottimizzazione dei processi IT, creazione di documentazione e implementazione della formazione degli utenti\n\nIl tuo profilo:\n\n• Formazione completa nel settore IT o qualificazione comparabile con diversi anni di esperienza professionale nel supporto IT o nella gestione dei servizi IT\n\n• Esperienza pratica nella gestione dei clienti, nella gestione delle infrastrutture di lavoro e buona conoscenza nell'ambiente Microsoft (Microsoft 365, Active Directory)\n\n• Comprensione di base delle reti e degli interessi nei moderni sistemi e applicazioni IT\n\n• Metodo di lavoro indipendente, strutturato e orientato alla soluzione combinato con un servizio pronunciato e l'orientamento del cliente\n\n• L'esperienza con i sistemi ERP (idealmente SAP), Atlassian Jira, PowerShell o altre tecnologie di automazione è un vantaggio\n\n• Conoscenza molto buona del tedesco e buona conoscenza dell'inglese\n\n• Divertimento al lavoro in un ambiente di produzione di una fonderia\n\nIl tuo contatto:\nRené Paparusso,\nTeam Lead Talent Acquisizione Management Svizzera\nTelefono: +41 52 547 10 79\n\nLe domande delle agenzie di reclutamento non sono considerate.\n\n#LI-DNI\n\nContatto:\n\nRené Paparusso,\nTalent Acquisizione Specialista\nrene.paparusso@georgfischer.com\nSi prega di inviare la domanda tramite il pulsante 'Applica'. L'email del reclutatore è solo per le richieste.",
+        "en": "They ensure that IT simply works. Not only by solving challenges quickly, but by recognizing and avoiding them early on. If you like to work with people, appreciate modern Microsoft technologies and actively develop a professional IT landscape, you can expect a varied task with a lot of room for manoeuvre.\nIT support specialist in plant Sissach (m/f/d)\n\nTheir tasks:\n\n• Responsibility for 1st and 2nd level support as well as professional support for our users\n\n• Installation, configuration and troubleshooting of workstation hardware, software and peripherals\n\n• Analysis and resolution of system, infrastructure and network disruptions\n\n• Administration of user accounts, permissions, Active Directory and the Microsoft 365 environment including Microsoft Teams\n\n• Support of specialist applications as well as cooperation in the development and implementation of IT solutions with internal and external partners\n\n• Participation in the optimization of IT processes, creation of documentation and implementation of user training\n\nYour profile:\n\n• Completed training in the IT sector or comparable qualification with several years of professional experience in IT support or IT service management\n\n• Practical experience in client management, in the management of workplace infrastructures and good knowledge in the Microsoft environment (Microsoft 365, Active Directory)\n\n• Basic understanding of networks and interest in modern IT systems and applications\n\n• Independent, structured and solution-oriented working method combined with a pronounced service and customer orientation\n\n• Experience with ERP systems (ideally SAP), Atlassian Jira, PowerShell or other automation technologies is an advantage\n\n• Very good knowledge of German and good knowledge of English\n\n• Enjoyment at work in a production-related environment of a foundry\n\nYour contact:\nRené Paparusso,\nTeam Lead Talent Acquisition Management Switzerland\nPhone: +41 52 547 10 79\n\nApplications from recruitment agencies are not considered.\n\n#LI-DNI\n\nContact person:\n\nRené Paparusso,\nTalent Acquisition Specialist\nrene.paparusso@georgfischer.com\nPlease submit your application via the ‘Apply’ button. The recruiter’s email is for enquiries only.",
+        "de": "Sie sorgen dafür, dass IT einfach funktioniert. Nicht nur, indem Sie Herausforderungen schnell lösen, sondern indem Sie diese frühzeitig erkennen und vermeiden. Wenn Sie gerne mit Menschen arbeiten, moderne Microsoft-Technologien schätzen und eine professionelle IT-Landschaft aktiv weiterentwickeln möchten, erwartet Sie bei uns eine abwechslungsreiche Aufgabe mit viel Gestaltungsspielraum.\nIT-Support-SpezialistIn Werk Sissach (m/w/d)\n\nIhre Aufgaben:\n\n• Verantwortung für den 1st- und 2nd-Level-Support sowie die professionelle Unterstützung unserer Anwenderinnen und Anwender\n\n• Installation, Konfiguration und Störungsbehebung von Arbeitsplatz-Hardware, Software und Peripheriegeräten\n\n• Analyse und Behebung von System-, Infrastruktur- und Netzwerkstörungen\n\n• Administration von Benutzerkonten, Berechtigungen, Active Directory sowie der Microsoft-365-Umgebung inklusive Microsoft Teams\n\n• Betreuung von Fachapplikationen sowie Mitarbeit bei der Entwicklung und Umsetzung von IT-Lösungen mit internen und externen Partnern\n\n• Mitwirkung bei der Optimierung von IT-Prozessen, Erstellung von Dokumentationen und Durchführung von Anwenderschulungen\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung im IT-Bereich oder vergleichbare Qualifikation mit mehrjähriger Berufserfahrung im IT-Support oder IT-Service-Management\n\n• Praxiserfahrung im Client-Management, in der Betreuung von Arbeitsplatzinfrastrukturen sowie gute Kenntnisse im Microsoft-Umfeld (Microsoft 365, Active Directory)\n\n• Grundlegendes Verständnis von Netzwerken sowie Interesse an modernen IT-Systemen und Applikationen\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise kombiniert mit einer ausgeprägten Service- und Kundenorientierung\n\n• Erfahrung mit ERP-Systemen (idealerweise SAP), Atlassian Jira, PowerShell oder anderen Automatisierungstechnologien sind von Vorteil\n\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse\n\n• Freude an der Arbeit in einem produktionsnahen Umfeld einer Giesserei\n\nIhr Kontakt:\nRené Paparusso\nTeam Lead Talent Acquisition Management Switzerland\nPhone: +41 52 547 10 79\n\nBewerbungen von Personalvermittlungen werden nicht berücksichtigt.\n\n#LI-DNI\n\nContact person:\n\nRené Paparusso\nTalent Acquisition Specialist\nrene.paparusso@georgfischer.com\nPlease submit your application via the ‘Apply’ button. The recruiter’s email is for enquiries only.",
+        "fr": "Ils veillent à ce que l'informatique fonctionne simplement. Non seulement en résolvant rapidement les défis, mais en les reconnaissant et en les évitant rapidement. Si vous aimez travailler avec les gens, apprécier les technologies Microsoft modernes et développer activement un paysage informatique professionnel, vous pouvez vous attendre à une tâche variée avec beaucoup de marge de manoeuvre.\nSpécialiste du soutien informatique dans l'usine Sissach (h/f/d)\n\nLeurs tâches:\n\n• Responsabilité du support de 1er et 2ème niveaux ainsi que du support professionnel pour nos utilisateurs\n\n• Installation, configuration et dépannage du matériel, des logiciels et des périphériques des postes de travail\n\n• Analyse et résolution des perturbations des systèmes, des infrastructures et des réseaux\n\n• Administration des comptes utilisateurs, autorisations, Active Directory et l'environnement Microsoft 365 y compris les équipes Microsoft\n\n• Soutien aux applications spécialisées ainsi qu'à la coopération dans le développement et la mise en œuvre de solutions informatiques avec des partenaires internes et externes\n\n• Participation à l'optimisation des processus informatiques, création de documentation et mise en œuvre de la formation des utilisateurs\n\nVotre profil:\n\n• Formation complète dans le secteur de la TI ou qualification comparable avec plusieurs années d'expérience professionnelle en support informatique ou en gestion de services informatiques\n\n• Expérience pratique dans la gestion des clients, dans la gestion des infrastructures de travail et de bonnes connaissances dans l'environnement Microsoft (Microsoft 365, Active Directory)\n\n• Compréhension de base des réseaux et intérêt pour les systèmes et applications informatiques modernes\n\n• Méthode de travail indépendante, structurée et orientée vers la solution associée à un service prononcé et une orientation client\n\n• Expérience avec les systèmes ERP (idéalement SAP), Atlassian Jira, PowerShell ou d'autres technologies d'automatisation est un avantage\n\n• Très bonne connaissance de l'allemand et bonne connaissance de l'anglais\n\n• Profitez du travail dans un environnement de production d'une fonderie\n\nVotre contact:\nRené Paparusso,\nChef d'équipe Talent Acquisition Management Suisse\nTéléphone: +41 52 547 10 79\n\nLes demandes des agences de recrutement ne sont pas prises en considération.\n\n#LI-DNI\n\nPersonne à contacter:\n\nRené Paparusso,\nSpécialiste en acquisition de talents\nRene.paparusso@georgfischer.com\nVeuillez soumettre votre candidature via le bouton « Appliquer ». L'email du recruteur est réservé aux demandes de renseignements."
       },
       "location": "Sissach",
       "canton": "BL",
-      "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Sissach-Basel-Country/Praktikant-in-QM_JR10915",
+      "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Sissach-Basel-Country/ICT-System-Specialist_JR11018",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T23:35:14.090Z",
+      "crawledAt": "2026-09-13T14:08:40.424Z",
       "addressLocality": "Sissach",
       "addressRegion": "BL",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Altro",
+      "category": "IT",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
+      "experienceLevel": "mid",
       "sector": "Industria / Manifattura",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-12",
-      "applyUrl": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Sissach-Basel-Country/Praktikant-in-QM_JR10915",
+      "postedDate": "2026-09-10",
+      "applyUrl": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Sissach-Basel-Country/ICT-System-Specialist_JR11018",
       "requirements": [],
       "requirementsByLocale": {},
-      "jobReqId": "JR10915",
+      "jobReqId": "JR11018",
       "previousSlugs": [
-        "praktikant-in-qm-georg-fischer-ch",
-        "praktikant-in-qm-georg-fischer-sissach"
+        "it-support-spezialistin-werk-sissach-m-w-d-georg-fischer-ch",
+        "it-support-spezialistin-werk-sissach-m-w-d-georg-fischer-sissach",
+        "specialista-di-supporto-it-nello-stabilimento-sissach-m-f-d-georg-fischer-sissach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-qm-georg-fischer-ch"
+          "it-support-spezialistin-werk-sissach-m-w-d-georg-fischer-ch",
+          "specialista-di-supporto-it-nello-stabilimento-sissach-m-f-d-georg-fischer-sissach"
         ],
         "en": [
-          "praktikant-in-qm-georg-fischer-ch"
-        ],
-        "de": [
-          "praktikant-in-qm-georg-fischer-sissach"
+          "it-support-spezialistin-werk-sissach-m-w-d-georg-fischer-ch",
+          "it-support-spezialistin-werk-sissach-m-w-d-georg-fischer-sissach"
         ],
         "fr": [
-          "praktikant-in-qm-georg-fischer-ch"
+          "it-support-spezialistin-werk-sissach-m-w-d-georg-fischer-ch"
         ]
       },
-      "firstSeenAt": "2026-08-12T21:48:19.212Z",
-      "salaryMin": 52000,
-      "salaryMax": 78500,
+      "firstSeenAt": "2026-09-10T23:18:35.009Z",
+      "salaryMin": 64500,
+      "salaryMax": 110000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 52000,
-          "maxValue": 78500,
+          "minValue": 64500,
+          "maxValue": 110000,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "georg-fischer-678931906a45",
+      "slug": "responsabile-r-d-bu-industry-solutions-m-f-d-georg-fischer-schaffhausen",
+      "slugByLocale": {
+        "it": "responsabile-r-d-bu-industry-solutions-m-f-d-georg-fischer-schaffhausen",
+        "en": "head-of-r-d-bu-industry-solutions-m-f-d-georg-fischer-ch",
+        "de": "leiter-r-d-bu-industry-solutions-m-f-d-georg-fischer-schaffhausen",
+        "fr": "responsable-r-d-bu-industry-solutions-m-f-d-georg-fischer-schaffhausen"
       },
-      "crawlerMissStreak": 2
+      "company": "Georg Fischer",
+      "companyKey": "georg-fischer",
+      "companyDomain": "georgfischer.com",
+      "title": "Head of R&D BU Industry Solutions (m/f/d)",
+      "titleByLocale": {
+        "it": "Responsabile R&D BU Industry Solutions (m/f/d)",
+        "en": "Head of R&D BU Industry Solutions (m/f/d)",
+        "de": "Leiter R&D BU Industry Solutions (m/f/d)",
+        "fr": "Responsable R&D BU Industry Solutions (m/f/d)"
+      },
+      "description": "Shape the Future of Industrial Flow Solutions\n\nLead the innovations that will define the future of the Business Unit Industry Solutions. As Head of R&D BU Industry Solutions, you will shape our technology agenda, build world-class engineering capabilities, and turn innovation into sustainable business success. In return, we offer a highly visible leadership role with executive exposure, the opportunity to influence strategic decisions, and the freedom to create lasting impact through technology, people, and products.\n\nHead of R&D Business Unit Industry Solutions (m/f/d)\n\nYour tasks:\n\n• Build, lead, and develop a world-class R&D organization with around 75 employees, fostering technical excellence, leadership capability, and strong succession pipelines\n\n• Define and execute the R&D and technology strategy, translating business priorities into a clear roadmap for innovation and growth\n\n• Drive future competitiveness through technology development, capability building, and strategic partnerships\n\n• Ensure reliable execution of the R&D portfolio, balancing innovation, product development priorities, and resource allocation\n\n• Establish strong technical governance, engineering standards, and decision-making processes across products and systems\n\n• Foster a culture of ownership, collaboration, continuous learning, and customer-focused engineering excellence\n\nYour profile:\n\n• Master's degree or PhD in Engineering, Technology, or a related technical discipline\n\n• At least 8 years' experience in a similar role and demonstrated success in leading and transforming large, multidisciplinary engineering organizations\n\n• Proven track record in senior R&D, Engineering, Technology, or Product Development leadership roles within industrial or engineering-driven businesses\n\n• Strong experience developing technology roadmaps, innovation strategies, and differentiated product portfolios\n\n• Strategic business mindset with the ability to align technology investments, resources, and capabilities with long-term business objectives\n\n• Inspirational and authentic leader who combines technical credibility with a passion for developing people, teams, and engineering culture\n\nYour contact:\nRené Paparusso\nTeam Lead Talent Acquisition Management Switzerland\nPhone: +41 52 547 10 79\n\nApplications from recruitment agencies will not be considered.\n\n#LI-DNI\n\nContact person:\n\nRené Paparusso\nTalent Acquisition Specialist\nrene.paparusso@georgfischer.com\nPlease submit your application via the ‘Apply’ button. The recruiter’s email is for enquiries only.",
+      "descriptionByLocale": {
+        "it": "Forma il futuro delle soluzioni di flusso industriale\n\nGuidare le innovazioni che definiranno il futuro delle Soluzioni di Industria di Business Unit. In qualità di Head of R&D BU Industry Solutions, formerai la nostra agenda tecnologica, costruirai capacità ingegneristiche di livello mondiale e trasformerai l'innovazione in un successo aziendale sostenibile. In cambio, offriamo un ruolo di leadership altamente visibile con esposizione esecutiva, l'opportunità di influenzare le decisioni strategiche, e la libertà di creare un impatto duraturo attraverso la tecnologia, le persone e i prodotti.\n\nCapo di R&D Business Unit Industry Solutions (m/f/d)\n\nI vostri compiti:\n\n• Costruire, guidare e sviluppare un'organizzazione R&D di livello mondiale con circa 75 dipendenti, promuovendo l'eccellenza tecnica, la capacità di leadership e le linee di successione forti\n\n• Definire ed eseguire la strategia R&D e la tecnologia, traducendo le priorità aziendali in una chiara roadmap per l'innovazione e la crescita\n\n• Guidare la competitività futura attraverso lo sviluppo tecnologico, la costruzione di capacità e partnership strategiche\n\n• Assicurare l'esecuzione affidabile del portafoglio R&D, bilanciando l'innovazione, le priorità di sviluppo del prodotto e l'allocazione delle risorse\n\n• Stabilire una forte governance tecnica, standard di ingegneria e processi decisionali in prodotti e sistemi\n\n• Promuovere una cultura di proprietà, collaborazione, apprendimento continuo e eccellenza ingegneristica focalizzata sul cliente\n\nIl tuo profilo:\n\n• Laurea magistrale o dottorato in Ingegneria, Tecnologia o disciplina tecnica correlata\n\n• Almeno 8 anni di esperienza in un ruolo simile e ha dimostrato il successo nel leader e nella trasformazione di grandi e multidisciplinari organizzazioni ingegneristiche\n\n• Dimostrato record in ruoli di leadership senior R&D, Engineering, Technology o Product Development all'interno di imprese industriali o ingegneristiche\n\n• Forte esperienza nello sviluppo di roadmap tecnologiche, strategie di innovazione e portafogli di prodotti differenziati\n\n• mentalità strategica aziendale con la capacità di allineare gli investimenti tecnologici, le risorse e le capacità con obiettivi aziendali a lungo termine\n\n• Leader ispiratore e autentico che combina la credibilità tecnica con la passione per lo sviluppo di persone, team e cultura ingegneristica\n\nIl tuo contatto:\nRené Paparusso\nTeam Lead Talent Acquisizione Management Svizzera\nTelefono: +41 52 547 10 79\n\nLe domande delle agenzie di reclutamento non saranno considerate.\n\n#LI-DNI\n\nContatto:\n\nRené Paparusso\nTalent Acquisizione Specialista\nrene.paparusso@georgfischer.com\nSi prega di inviare la domanda tramite il pulsante ‘Applica’. L'email del reclutatore è solo per le richieste.",
+        "en": "Shape the Future of Industrial Flow Solutions\n\nLead the innovations that will define the future of the Business Unit Industry Solutions. As Head of R&D BU Industry Solutions, you will shape our technology agenda, build world-class engineering capabilities, and turn innovation into sustainable business success. In return, we offer a highly visible leadership role with executive exposure, the opportunity to influence strategic decisions, and the freedom to create lasting impact through technology, people, and products.\n\nHead of R&D Business Unit Industry Solutions (m/f/d)\n\nYour tasks:\n\n• Build, lead, and develop a world-class R&D organization with around 75 employees, fostering technical excellence, leadership capability, and strong succession pipelines\n\n• Define and execute the R&D and technology strategy, translating business priorities into a clear roadmap for innovation and growth\n\n• Drive future competitiveness through technology development, capability building, and strategic partnerships\n\n• Ensure reliable execution of the R&D portfolio, balancing innovation, product development priorities, and resource allocation\n\n• Establish strong technical governance, engineering standards, and decision-making processes across products and systems\n\n• Foster a culture of ownership, collaboration, continuous learning, and customer-focused engineering excellence\n\nYour profile:\n\n• Master's degree or PhD in Engineering, Technology, or a related technical discipline\n\n• At least 8 years' experience in a similar role and demonstrated success in leading and transforming large, multidisciplinary engineering organizations\n\n• Proven track record in senior R&D, Engineering, Technology, or Product Development leadership roles within industrial or engineering-driven businesses\n\n• Strong experience developing technology roadmaps, innovation strategies, and differentiated product portfolios\n\n• Strategic business mindset with the ability to align technology investments, resources, and capabilities with long-term business objectives\n\n• Inspirational and authentic leader who combines technical credibility with a passion for developing people, teams, and engineering culture\n\nYour contact:\nRené Paparusso\nTeam Lead Talent Acquisition Management Switzerland\nPhone: +41 52 547 10 79\n\nApplications from recruitment agencies will not be considered.\n\n#LI-DNI\n\nContact person:\n\nRené Paparusso\nTalent Acquisition Specialist\nrene.paparusso@georgfischer.com\nPlease submit your application via the ‘Apply’ button. The recruiter’s email is for enquiries only.",
+        "de": "Gestalten Sie die Zukunft der industriellen Flow-Lösungen\n\nFühren Sie die Innovationen an, die die Zukunft der Business Unit Industry Solutions bestimmen. Als Head of R&D BU Industry Solutions gestalten Sie unsere Technologieagenda, bauen erstklassige Engineering-Fähigkeiten auf und verwandeln Innovationen in nachhaltigen Geschäftserfolg. Im Gegenzug bieten wir eine sehr sichtbare Führungsrolle mit Executive Exposure, der Möglichkeit, strategische Entscheidungen zu beeinflussen, und der Freiheit, durch Technologie, Menschen und Produkte nachhaltige Wirkung zu erzielen.\n\nLeiter der R&D Business Unit Industry Solutions (m/w/d)\n\nIhre Aufgaben:\n\n• Aufbau, Leitung und Entwicklung einer erstklassigen Forschungs- und Entwicklungsorganisation mit rund 75 Mitarbeitern, die technische Exzellenz, Führungskompetenz und starke Nachfolge-Pipelines fördert\n\n• Definition und Umsetzung der F&E- und Technologiestrategie, Umsetzung der Geschäftsprioritäten in einen klaren Fahrplan für Innovation und Wachstum\n\n• Förderung der zukünftigen Wettbewerbsfähigkeit durch Technologieentwicklung, Aufbau von Fähigkeiten und strategische Partnerschaften\n\n• Sicherstellen einer zuverlässigen Ausführung des F&E-Portfolios, Abwägung von Innovation, Produktentwicklungsprioritäten und Ressourcenzuweisung\n\n• Etablieren Sie eine starke technische Governance, Engineering-Standards und Entscheidungsprozesse für Produkte und Systeme\n\n• Förderung einer Kultur des Eigentums, der Zusammenarbeit, des kontinuierlichen Lernens und der kundenorientierten technischen Exzellenz\n\nIhr Profil:\n\n• Master-Abschluss oder PhD in Ingenieurwissenschaften, Technologie oder einer verwandten technischen Disziplin\n\n• Mindestens 8 Jahre Erfahrung in einer ähnlichen Rolle und zeigten Erfolg bei der Führung und Transformation großer, multidisziplinärer Ingenieurorganisationen\n\n• Nachgewiesene Erfolgsbilanz in leitenden Führungspositionen in den Bereichen R & D, Engineering, Technologie oder Produktentwicklung in Industrie- oder Ingenieurunternehmen\n\n• Starke Erfahrung in der Entwicklung von Technologie-Roadmaps, Innovationsstrategien und differenzierten Produktportfolios\n\n• Strategisches Business Mindset mit der Fähigkeit, Technologieinvestitionen, Ressourcen und Fähigkeiten an langfristigen Geschäftszielen auszurichten\n\n• Inspirierende und authentische Führungskraft, die technische Glaubwürdigkeit mit Leidenschaft für die Entwicklung von Menschen, Teams und Ingenieurkultur verbindet\n\nIhr Kontakt:\nRené Paparusso\nTeam Lead Talent Acquisition Management Schweiz\nTelefon: +41 52 547 10 79\n\nBewerbungen von Rekrutierungsagenturen werden nicht berücksichtigt.\n\n#LI-DNI\n\nKontaktperson:\n\nRené Paparusso\nTalent Acquisition Spezialist\nrene.paparusso@georgfischer.com\nBitte senden Sie Ihre Bewerbung über den Button „Bewerben. Die E-Mail des Recruiters ist nur für Anfragen bestimmt.",
+        "fr": "Façonner l'avenir des solutions de flux industriels\n\nDiriger les innovations qui définiront l'avenir des solutions industrielles de l'unité commerciale. En tant que chef de R&D BU Industry Solutions, vous façonnerez notre programme technologique, créerez des capacités d'ingénierie de calibre mondial et transformerez l'innovation en succès commercial durable. En retour, nous offrons un rôle de leadership très visible avec l'exposition des cadres, l'occasion d'influencer les décisions stratégiques et la liberté de créer un impact durable grâce à la technologie, aux personnes et aux produits.\n\nChef d'unité R & D Solutions industrielles (h/f/d)\n\nVos tâches:\n\n• Bâtir, diriger et développer une organisation de R-D de calibre mondial comptant environ 75 employés, favorisant l'excellence technique, la capacité de leadership et de solides pipelines de relève\n\n• Définir et exécuter la stratégie de R-D et de technologie, en transformant les priorités des entreprises en une feuille de route claire pour l'innovation et la croissance\n\n• Favoriser la compétitivité future par le développement technologique, le renforcement des capacités et les partenariats stratégiques\n\n• Assurer l'exécution fiable du portefeuille de R-D, équilibrer l'innovation, les priorités de développement des produits et l'affectation des ressources\n\n• Établir une gouvernance technique solide, des normes techniques et des processus décisionnels pour tous les produits et systèmes\n\n• Favoriser une culture de propriété, de collaboration, d'apprentissage continu et d'excellence en ingénierie axée sur la clientèle\n\nVotre profil:\n\n• Maîtrise ou doctorat en génie, technologie ou discipline technique connexe\n\n• Au moins 8 ans d'expérience dans un rôle similaire et a démontré du succès dans la direction et la transformation de grandes organisations multidisciplinaires d'ingénierie\n\n• Antécédents prouvés en R-D, en génie, en technologie ou en développement de produits dans les entreprises industrielles ou d'ingénierie\n\n• Forte expérience dans l'élaboration de feuilles de route technologiques, de stratégies d'innovation et de portefeuilles de produits différenciés\n\n• L'esprit d'entreprise stratégique avec la capacité d'aligner les investissements, les ressources et les capacités technologiques sur les objectifs opérationnels à long terme\n\n• Leader inspirant et authentique qui allie crédibilité technique et passion pour le développement des personnes, des équipes et de la culture d'ingénierie\n\nVotre contact:\nRené Paparusso\nChef d'équipe Talent Acquisition Management Suisse\nTéléphone: +41 52 547 10 79\n\nLes demandes des agences de recrutement ne seront pas prises en considération.\n\n#LI-DNI\n\nPersonne à contacter:\n\nRené Paparusso\nSpécialiste en acquisition de talents\nRene.paparusso@georgfischer.com\nVeuillez soumettre votre candidature via le bouton « Appliquer ». L'e-mail du recruteur est réservé aux demandes de renseignements."
+      },
+      "needsRetranslation": false,
+      "location": "Schaffhausen",
+      "canton": "SH",
+      "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen/Head-of-R-D-BU-Industry-Solutions_JR11258",
+      "source": "Georg Fischer Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-13T14:08:39.767Z",
+      "addressLocality": "Schaffhausen",
+      "addressRegion": "SH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Industria / Manifattura",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-11",
+      "applyUrl": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen/Head-of-R-D-BU-Industry-Solutions_JR11258",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "jobReqId": "JR11258",
+      "previousSlugs": [
+        "head-of-r-d-bu-industry-solutions-m-f-d-georg-fischer-ch",
+        "responsabile-r-d-bu-industry-solutions-m-f-d-georg-fischer-schaffhausen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-r-d-bu-industry-solutions-m-f-d-georg-fischer-ch",
+          "responsabile-r-d-bu-industry-solutions-m-f-d-georg-fischer-schaffhausen"
+        ],
+        "de": [
+          "head-of-r-d-bu-industry-solutions-m-f-d-georg-fischer-ch"
+        ],
+        "fr": [
+          "head-of-r-d-bu-industry-solutions-m-f-d-georg-fischer-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-11T13:52:28.132Z",
+      "salaryMin": 92000,
+      "salaryMax": 140000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 92000,
+          "maxValue": 140000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "georg-fischer-50d1d65332f9",
+      "slug": "product-development-ingegnere-plumbing-systems-m-f-d-georg-fischer-schaffhausen",
+      "slugByLocale": {
+        "it": "product-development-ingegnere-plumbing-systems-m-f-d-georg-fischer-schaffhausen",
+        "en": "product-development-engineer-plumbing-systems-m-f-d-georg-fischer-ch",
+        "de": "product-development-ingenieur-plumbing-systems-m-f-d-georg-fischer-schaffhausen",
+        "fr": "product-development-ingenieur-plumbing-systems-m-f-d-georg-fischer-schaffhausen"
+      },
+      "company": "Georg Fischer",
+      "companyKey": "georg-fischer",
+      "companyDomain": "georgfischer.com",
+      "title": "Product Development Engineer Plumbing Systems (m/f/d)",
+      "titleByLocale": {
+        "it": "Product Development Ingegnere Plumbing Systems (m/f/d)",
+        "en": "Product Development Engineer Plumbing Systems (m/f/d)",
+        "de": "Product Development Ingenieur Plumbing Systems (m/f/d)",
+        "fr": "Product Development Ingénieur Plumbing Systems (m/f/d)"
+      },
+      "description": "Shape the future of water flow solutions\n\nAre you passionate about turning innovative ideas into market-leading solutions? At GF Building Flow Solutions, you will play a key role in shaping the future of plumbing systems and installation technologies. As our Product Development Engineer Plumbing Systems, you will drive innovation from concept to market launch, lead cross-functional development projects, and continuously enhance existing products and processes. Working closely with Product Management, manufacturing sites, and international stakeholders, you will help create customer-focused solutions that deliver quality, performance, and long-term value.\n\nProduct Development Engineer Plumbing Systems (m/f/d)\n\nYour tasks:\n\n• Lead the development of innovative plumbing systems and installation tools from concept to market launch\n\n• Manage innovation projects during incubation and act as Technical Lead throughout the Stage-Gate development process\n\n• Drive continuous improvement and cost optimization initiatives for products, materials, and manufacturing processes\n\n• Ensure product quality, reliability, compliance, and technical excellence throughout the entire product lifecycle\n\n• Collaborate closely with Product Management, Operations, Quality, Sales & Application teams, as well as external partners and suppliers\n\n• Support intellectual property activities and ensure compliance with quality, safety, and documentation standards\n\nYour profile:\n\n• Bachelor's or Master's degree in Mechanical Engineering, Plastics Engineering, Materials Engineering, Product Development, Building Technology, or a related field\n\n• Minimum 5 years of experience in product development and engineering within an international industrial environment\n\n• Proven track record of leading product development projects from idea generation through successful market introduction\n\n• Strong knowledge of product design, materials, manufacturing processes, and problem-solving engineering\n\n• Experience with CAD (Siemens NX or others) and PLM/PDM systems such as Windchill and SAP-ECTR, as well as project and budget management\n\n• Strong technical leadership, communication, stakeholder management, and collaboration skills combined with an innovative and customer-focused mindset\n\nYour contact:\nRené Paparusso\nTeam Lead Talent Acquisition Management Switzerland\nPhone: +41 52 547 10 79\n\nApplications from recruitment agencies will not be considered.\n\n#LI-DNI\n\nContact person:\n\nRené Paparusso\nTalent Acquisition Specialist\nrene.paparusso@georgfischer.com\nPlease submit your application via the ‘Apply’ button. The recruiter’s email is for enquiries only.",
+      "descriptionByLocale": {
+        "it": "Forma il futuro delle soluzioni di flusso d'acqua\n\nSei appassionato di trasformare idee innovative in soluzioni leader di mercato? A GF Building Flow Solutions, si svolgerà un ruolo chiave nella modellazione del futuro dei sistemi di idraulico e delle tecnologie di installazione. In qualità di nostro Product Development Engineer Plumbing Systems, guiderai l'innovazione dal concept al lancio di mercato, guiderai progetti di sviluppo interfunzionale e continuerai a migliorare prodotti e processi esistenti. Lavorando a stretto contatto con la gestione del prodotto, i siti di produzione e gli stakeholder internazionali, vi aiuterà a creare soluzioni orientate al cliente che forniscono qualità, prestazioni e valore a lungo termine.\n\nSistemi di ingrandimento dell'ingegnere del prodotto (m/f/d)\n\nI vostri compiti:\n\n• Condurre lo sviluppo di innovativi sistemi di tubatura e strumenti di installazione dal concept al lancio di mercato\n\n• Gestire i progetti di innovazione durante l'incubazione e agire come lead tecnico durante il processo di sviluppo Stage-Gate\n\n• Promuovere iniziative di miglioramento continuo e di ottimizzazione dei costi per prodotti, materiali e processi produttivi\n\n• Garantire qualità, affidabilità, conformità e eccellenza tecnica in tutto il ciclo di vita del prodotto\n\n• Collabora a stretto contatto con i team di Product Management, Operations, Quality, Sales & Application e partner esterni e fornitori\n\n• Sostenere le attività di proprietà intellettuale e garantire il rispetto delle norme di qualità, sicurezza e documentazione\n\nIl tuo profilo:\n\n• Laurea o master in ingegneria meccanica, ingegneria delle materie plastiche, ingegneria dei materiali, sviluppo del prodotto, tecnologia dell'edificio, o un campo relativo\n\n• Minimo 5 anni di esperienza nello sviluppo e nell'ingegneria dei prodotti in un ambiente industriale internazionale\n\n• Regime consolidato dei principali progetti di sviluppo di prodotti dalla generazione di idee attraverso l'introduzione di un mercato di successo\n\n• Forte conoscenza della progettazione, dei materiali, dei processi di produzione e dell'ingegneria di problem solving\n\n• Esperienza con CAD (Siemens NX o altri) e sistemi PLM/PDM come Windchill e SAP-ECTR, nonché gestione del progetto e del budget\n\n• Forte leadership tecnica, comunicazione, gestione delle parti interessate e competenze di collaborazione combinate con una mentalità innovativa e orientata al cliente\n\nIl tuo contatto:\nRené Paparusso\nTeam Lead Talent Acquisizione Management Svizzera\nTelefono: +41 52 547 10 79\n\nLe domande delle agenzie di reclutamento non saranno considerate.\n\n#LI-DNI\n\nContatto:\n\nRené Paparusso\nTalent Acquisizione Specialista\nrene.paparusso@georgfischer.com\nSi prega di inviare la domanda tramite il pulsante ‘Applica’. L'email del reclutatore è solo per le richieste.",
+        "en": "Shape the future of water flow solutions\n\nAre you passionate about turning innovative ideas into market-leading solutions? At GF Building Flow Solutions, you will play a key role in shaping the future of plumbing systems and installation technologies. As our Product Development Engineer Plumbing Systems, you will drive innovation from concept to market launch, lead cross-functional development projects, and continuously enhance existing products and processes. Working closely with Product Management, manufacturing sites, and international stakeholders, you will help create customer-focused solutions that deliver quality, performance, and long-term value.\n\nProduct Development Engineer Plumbing Systems (m/f/d)\n\nYour tasks:\n\n• Lead the development of innovative plumbing systems and installation tools from concept to market launch\n\n• Manage innovation projects during incubation and act as Technical Lead throughout the Stage-Gate development process\n\n• Drive continuous improvement and cost optimization initiatives for products, materials, and manufacturing processes\n\n• Ensure product quality, reliability, compliance, and technical excellence throughout the entire product lifecycle\n\n• Collaborate closely with Product Management, Operations, Quality, Sales & Application teams, as well as external partners and suppliers\n\n• Support intellectual property activities and ensure compliance with quality, safety, and documentation standards\n\nYour profile:\n\n• Bachelor's or Master's degree in Mechanical Engineering, Plastics Engineering, Materials Engineering, Product Development, Building Technology, or a related field\n\n• Minimum 5 years of experience in product development and engineering within an international industrial environment\n\n• Proven track record of leading product development projects from idea generation through successful market introduction\n\n• Strong knowledge of product design, materials, manufacturing processes, and problem-solving engineering\n\n• Experience with CAD (Siemens NX or others) and PLM/PDM systems such as Windchill and SAP-ECTR, as well as project and budget management\n\n• Strong technical leadership, communication, stakeholder management, and collaboration skills combined with an innovative and customer-focused mindset\n\nYour contact:\nRené Paparusso\nTeam Lead Talent Acquisition Management Switzerland\nPhone: +41 52 547 10 79\n\nApplications from recruitment agencies will not be considered.\n\n#LI-DNI\n\nContact person:\n\nRené Paparusso\nTalent Acquisition Specialist\nrene.paparusso@georgfischer.com\nPlease submit your application via the ‘Apply’ button. The recruiter’s email is for enquiries only.",
+        "de": "Gestalten Sie die Zukunft von Wasserflusslösungen\n\nSind Sie leidenschaftlich daran interessiert, innovative Ideen in marktführende Lösungen zu verwandeln? Bei GF Building Flow Solutions spielen Sie eine Schlüsselrolle bei der Gestaltung der Zukunft von Sanitäranlagen und Installationstechnologien. Als unser Product Development Engineer Plumbing Systems werden Sie Innovationen vom Konzept bis zur Markteinführung vorantreiben, funktionsübergreifende Entwicklungsprojekte leiten und bestehende Produkte und Prozesse kontinuierlich verbessern. In enger Zusammenarbeit mit Produktmanagement, Produktionsstätten und internationalen Stakeholdern helfen Sie bei der Entwicklung kundenorientierter Lösungen, die Qualität, Leistung und langfristigen Wert bieten.\n\nProduktentwicklungsingenieur Sanitärsysteme (m/w/d)\n\nIhre Aufgaben:\n\n• Führen Sie die Entwicklung innovativer Sanitärsysteme und Installationswerkzeuge vom Konzept bis zur Markteinführung\n\n• Verwalten Sie Innovationsprojekte während der Inkubation und fungieren Sie als technischer Leiter während des Stage-Gate-Entwicklungsprozesses\n\n• Förderung kontinuierlicher Verbesserungs- und Kostenoptimierungsinitiativen für Produkte, Materialien und Herstellungsprozesse\n\n• Sicherstellen von Produktqualität, Zuverlässigkeit, Compliance und technischer Exzellenz während des gesamten Produktlebenszyklus\n\n• Enge Zusammenarbeit mit Produktmanagement-, Betriebs-, Qualitäts-, Vertriebs- und Anwendungsteams sowie externen Partnern und Lieferanten\n\n• Unterstützung der Aktivitäten im Bereich geistiges Eigentum und Gewährleistung der Einhaltung von Qualitäts-, Sicherheits- und Dokumentationsstandards\n\nIhr Profil:\n\n• Bachelor- oder Master-Abschluss in Maschinenbau, Kunststofftechnik, Werkstofftechnik, Produktentwicklung, Gebäudetechnik oder einem verwandten Bereich\n\n• Mindestens 5 Jahre Erfahrung in Produktentwicklung und Engineering in einem internationalen industriellen Umfeld\n\n• Nachgewiesene Erfolgsbilanz führender Produktentwicklungsprojekte von der Ideengenerierung bis zur erfolgreichen Markteinführung\n\n• Starkes Wissen über Produktdesign, Materialien, Herstellungsprozesse und Problemlösungstechnik\n\n• Erfahrung mit CAD (Siemens NX oder anderen) und PLM/PDM-Systemen wie Windchill und SAP-ECTR sowie Projekt- und Budgetmanagement\n\n• Starke technische Führungsqualitäten, Kommunikation, Stakeholder-Management und Collaboration-Fähigkeiten kombiniert mit einer innovativen und kundenorientierten Denkweise\n\nIhr Kontakt:\nRené Paparusso\nTeam Lead Talent Acquisition Management Schweiz\nTelefon: +41 52 547 10 79\n\nBewerbungen von Rekrutierungsagenturen werden nicht berücksichtigt.\n\n#LI-DNI\n\nKontaktperson:\n\nRené Paparusso\nTalent Acquisition Spezialist\nrene.paparusso@georgfischer.com\nBitte senden Sie Ihre Bewerbung über den Button „Bewerben. Die E-Mail des Recruiters ist nur für Anfragen bestimmt.",
+        "fr": "Former l'avenir des solutions d'écoulement d'eau\n\nÊtes-vous passionné par la transformation d'idées innovantes en solutions de pointe sur le marché? Chez GF Building Flow Solutions, vous jouerez un rôle clé pour façonner l'avenir des systèmes de plomberie et des technologies d'installation. En tant qu'ingénieur en développement de produits Plumbing Systems, vous piloterez l'innovation du concept au lancement du marché, dirigerez des projets de développement interfonctionnels et améliorerez continuellement les produits et les procédés existants. En étroite collaboration avec la gestion des produits, les sites de fabrication et les intervenants internationaux, vous aiderez à créer des solutions axées sur le client qui offrent qualité, performance et valeur à long terme.\n\nIngénieur de développement de produits Systèmes de plomberie (h/f/d)\n\nVos tâches:\n\n• Diriger le développement de systèmes de plomberie innovants et d'outils d'installation du concept au lancement du marché\n\n• Gérer les projets d'innovation pendant l'incubation et jouer le rôle de chef de file technique tout au long du processus de développement de Stage-Gate\n\n• Conduire des initiatives d'amélioration continue et d'optimisation des coûts pour les produits, les matériaux et les procédés de fabrication\n\n• Assurer la qualité, la fiabilité, la conformité et l'excellence technique tout au long du cycle de vie du produit\n\n• Collaborer étroitement avec les équipes Gestion des produits, Opérations, Qualité, Ventes et Application, ainsi qu'avec les partenaires et fournisseurs externes\n\n• Soutenir les activités de propriété intellectuelle et assurer le respect des normes de qualité, de sécurité et de documentation\n\nVotre profil:\n\n• Baccalauréat ou maîtrise en génie mécanique, en génie plastique, en génie des matériaux, en développement de produits, en technologie du bâtiment ou dans un domaine connexe\n\n• Au moins 5 ans d'expérience en développement de produits et en ingénierie dans un environnement industriel international\n\n• Expérience éprouvée de projets de développement de produits de pointe, de la génération d'idées à l'introduction réussie du marché\n\n• Forte connaissance de la conception des produits, des matériaux, des procédés de fabrication et de l'ingénierie de résolution de problèmes\n\n• Expérience avec les systèmes CAO (Siemens NX ou autres) et PLM/PDM tels que Windchill et SAP-ECTR, ainsi que la gestion des projets et du budget\n\n• Un leadership technique fort, la communication, la gestion des parties prenantes et des compétences de collaboration associées à un état d'esprit novateur et axé sur le client\n\nVotre contact:\nRené Paparusso\nChef d'équipe Talent Acquisition Management Suisse\nTéléphone: +41 52 547 10 79\n\nLes demandes des agences de recrutement ne seront pas prises en considération.\n\n#LI-DNI\n\nPersonne à contacter:\n\nRené Paparusso\nSpécialiste en acquisition de talents\nRene.paparusso@georgfischer.com\nVeuillez soumettre votre candidature via le bouton « Appliquer ». L'e-mail du recruteur est réservé aux demandes de renseignements."
+      },
+      "location": "Schaffhausen",
+      "canton": "SH",
+      "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen/Product-Development-Engineer-Plumbing-Systems--m-f-d-_JR11141",
+      "source": "Georg Fischer Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-13T14:08:39.095Z",
+      "addressLocality": "Schaffhausen",
+      "addressRegion": "SH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Manifattura",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-11",
+      "applyUrl": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen/Product-Development-Engineer-Plumbing-Systems--m-f-d-_JR11141",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "jobReqId": "JR11141",
+      "previousSlugs": [
+        "product-development-engineer-plumbing-systems-m-f-d-georg-fischer-ch",
+        "product-development-ingegnere-plumbing-systems-m-f-d-georg-fischer-schaffhausen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "product-development-engineer-plumbing-systems-m-f-d-georg-fischer-ch",
+          "product-development-ingegnere-plumbing-systems-m-f-d-georg-fischer-schaffhausen"
+        ],
+        "de": [
+          "product-development-engineer-plumbing-systems-m-f-d-georg-fischer-ch"
+        ],
+        "fr": [
+          "product-development-engineer-plumbing-systems-m-f-d-georg-fischer-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-11T13:52:27.388Z",
+      "salaryMin": 67000,
+      "salaryMax": 102000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 67000,
+          "maxValue": 102000,
+          "unitText": "YEAR"
+        }
+      }
     }
   ]
 }

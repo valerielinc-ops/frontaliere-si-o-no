@@ -107,10 +107,12 @@ const JOB_IDENTITY_QUERY_PARAMS_BY_HOST = new Map([
  * @returns {string}
  */
 export function normalizeSourceHost(raw = '') {
+  const host = String(raw)
+    .trim()
+    .split(/[\\/]/, 1)[0]
+    .replace(/:\d+$/, '');
   return canonicalJobHost(
-    String(raw)
-      .trim()
-      .replace(/:\d+$/, ''),
+    host,
   ).replace(/^www\./, '');
 }
 

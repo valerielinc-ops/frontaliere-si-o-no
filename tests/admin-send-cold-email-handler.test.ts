@@ -49,7 +49,12 @@ function fakeSender() {
 const baseInsights = {
   companyName: 'Casale SA',
   source: 'posthog',
-  window: { from: '2026-06-10T22:00:00.000Z', to: '2026-09-08T22:00:00.000Z' },
+  window: {
+    from: '2026-06-10T22:00:00.000Z',
+    to: '2026-09-08T22:00:00.000Z',
+    timezone: 'UTC',
+    inclusive: '[from,to)',
+  },
   totals: { applyClicks: 49, applications: null },
 };
 const baseContact = { email: 'denise@casale.ch', contactName: 'Denise Rossi', topRole: 'Infermiere/a' };

@@ -14,7 +14,8 @@
  * Env:
  *   UNTRANSLATED_TITLE_FIX_DEADLINE_MS — run-wide wall-clock deadline measured
  *     from the translate-pending run marker (default 300*60*1000). Standalone
- *     runs without a marker fall back to this process's start time.
+ *     runs without a marker use this process's start time; the workflow fails
+ *     closed if its marker is missing.
  */
 
 import fs from 'node:fs';
@@ -23,7 +24,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { freeTranslateWithRetry, logCascadeSummary } from './lib/free-translate.mjs';
 import { titleLooksUntranslated } from './lib/job-locale-utils.mjs';
-import { readRunStartMs } from './lib/translate-run-clock.mjs';
+import { resolveRunStartMs } from './lib/translate-run-clock.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -31,10 +32,10 @@ const BY_CRAWLER_DIR = path.resolve(__dirname, '..', 'data', 'jobs', 'by-crawler
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const DRY_RUN = process.argv.includes('--dry-run');
 // Run-wide deadline measured from the shared translate-pending start marker.
-// Standalone invocations have no marker, so they get the same budget from now.
+// Standalone invocations keep a local fallback; the workflow requires the marker.
 const TITLE_FIX_DEADLINE_MS = Number(process.env.UNTRANSLATED_TITLE_FIX_DEADLINE_MS)
   || 300 * 60 * 1000;
-const RUN_START_MS = readRunStartMs() ?? Date.now();
+const RUN_START_MS = resolveRunStartMs();
 
 function readJson(p) { return JSON.parse(fs.readFileSync(p, 'utf-8')); }
 

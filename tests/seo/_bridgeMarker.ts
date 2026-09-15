@@ -20,15 +20,22 @@
 // a bare includes('bridge.css') would false-positive on any job description text
 // or JSON-LD field that happens to contain the literal string, under-counting
 // real pages and potentially masking a canton-boundary leak.
-export const isBridgePageHtml = (html: string): boolean =>
-  /<link[^>]+href="[^"]*bridge\.css[^"]*"/.test(html);
+const BRIDGE_CSS_LINK_RE =
+  /<link\b[^>]*\bhref\s*=\s*(?:"(?:[^"]*\/)?bridge\.css(?:[?#][^"]*)?"|'(?:[^']*\/)?bridge\.css(?:[?#][^']*)?'|(?:[^\s>]*\/)?bridge\.css(?:[?#][^\s>]*)?)[^>]*>/i;
 
-// A page carrying `<meta name="robots" content="noindex…">`. Quote-flexible
-// (dist-shrink may strip attribute quotes): `name=robots content=noindex` is
-// DOM-equivalent to `name="robots" content="noindex"`. Attribute-order-independent
-// (two lookaheads, #3060): content-before-name must not slip past dist-samplers.
+export const isBridgePageHtml = (html: string): boolean =>
+  BRIDGE_CSS_LINK_RE.test(html);
+
+// A page carrying `<meta name="robots|googlebot" content="noindex…">`.
+// Quote-flexible (dist-shrink may strip attribute quotes): `name=robots
+// content=noindex` is DOM-equivalent to the quoted form. Attribute-order-
+// independent (two lookaheads, #3060): content-before-name must not slip past
+// dist-samplers.
+const NOINDEX_META_RE =
+  /<meta\b(?=[^>]*\bname\s*=\s*["']?(?:robots|googlebot)(?![a-z0-9_-])["']?)(?=[^>]*\bcontent\s*=\s*["']?[^"'>]*\bnoindex\b)/i;
+
 export const isNoindexHtml = (html: string): boolean =>
-  /<meta(?=[^>]*name=["']?robots["']?)(?=[^>]*content=["']?[^"'>]*noindex)/i.test(html);
+  NOINDEX_META_RE.test(html);
 
 // A page that "real indexable content page" dist-samplers MUST skip: either a
 // thin canonical-bridge stub (bridge.css, above) OR a full-content but noindex

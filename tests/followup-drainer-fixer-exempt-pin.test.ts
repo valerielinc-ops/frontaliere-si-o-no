@@ -21,8 +21,11 @@
 
 import { describe, it, expect } from 'vitest';
 import {
+  hasActiveAgentClaim,
   isCrawlerRescueCandidate,
+  isDecomposeEligible,
   isQueueManaged,
+  isRecoverableQueueManaged,
   isReparkableCandidate,
   isAgeOutCandidate,
 } from '../scripts/ci/followup-drainer.mjs';
@@ -65,5 +68,28 @@ describe('pin keep-open — nessuno stadio del drainer lo instrada', () => {
     expect(isCrawlerRescueCandidate({ ...CRAWLER, labels: L('parser-broken', 'fu-parked') })).toBe(false);
     expect(isCrawlerRescueCandidate({ ...CRAWLER, labels: L('parser-broken', 'needs-human') })).toBe(false);
     expect(isCrawlerRescueCandidate(FOLLOWUP)).toBe(false); // queue-managed → è di `stuckFix`
+  });
+});
+
+describe('claim locale/remoto — nessun pass del drainer strappa lavoro in corso', () => {
+  it('protegge rescue, decompose, parked-retry, WIP recovery e age-out', () => {
+    const old = new Date(Date.now() - 400 * 86_400_000).toISOString();
+    for (const owner of ['agent:local', 'agent:remote']) {
+      const claimed = {
+        ...FOLLOWUP,
+        createdAt: old,
+        labels: L('follow-up', 'fu-parked', owner),
+      };
+      expect(hasActiveAgentClaim(claimed)).toBe(true);
+      expect(isDecomposeEligible(claimed)).toBe(false);
+      expect(isRecoverableQueueManaged({ ...claimed, labels: L('follow-up', 'fu-parked', 'needs-human', owner) })).toBe(false);
+      expect(isReparkableCandidate(claimed)).toBe(false);
+      expect(isAgeOutCandidate(claimed, { now: Date.now(), ageOutDays: 60 })).toBe(false);
+    }
+  });
+
+  it('protegge anche un crawler e un owner label isolato (fail-closed)', () => {
+    expect(isCrawlerRescueCandidate({ ...CRAWLER, labels: L('parser-broken', 'agent:local') })).toBe(false);
+    expect(hasActiveAgentClaim({ labels: L('agent:remote') })).toBe(true);
   });
 });

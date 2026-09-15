@@ -141,6 +141,17 @@ describe('a per-question page is the answer to exactly one question', () => {
   });
 });
 
+describe('FAQ hub landmark contract', () => {
+  it('keeps the FAQ hub and question pages to one main landmark', () => {
+    const hub = __renderFaqHubPageForTest('it', DATE, undefined, new Set(FAQ_HUB_LOCALES), ELIGIBLE).html;
+    const entry = render(firstEligible, 'it').html;
+    expect(hub.match(/<main\b[^>]*>/gi) ?? []).toHaveLength(1);
+    expect(entry.match(/<main\b[^>]*>/gi) ?? []).toHaveLength(1);
+    expect(hub).toContain('<main class="seo-static-content fh-main">');
+    expect(entry).toContain('<main class="seo-static-content fh-main">');
+  });
+});
+
 describe('every locale of a question exists, so no hreflang alternate dangles', () => {
   it('emits all four locales plus x-default, all above the floor', () => {
     for (const locale of FAQ_HUB_LOCALES) {

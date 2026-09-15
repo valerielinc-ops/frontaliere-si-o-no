@@ -22,7 +22,11 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { hasFalsifiableAcceptance, ACCEPTANCE_CONDITION } from '../scripts/ci/followup-resolution-match.mjs';
+import {
+  commandReferent,
+  hasFalsifiableAcceptance,
+  ACCEPTANCE_CONDITION,
+} from '../scripts/ci/followup-resolution-match.mjs';
 import {
   aggregateCloseGate,
   isCurrentUnclassifiable,
@@ -45,6 +49,22 @@ const body = (items: string[]) =>
   items.map((s, i) => `### ${i + 1}. item\n${s}`).join('\n');
 
 const io = (content: string) => ({ fileExists: () => true, readFile: () => content });
+const codexAction = readFileSync(fileURLToPath(new URL('../.github/actions/claude-codex-fallback/action.yml', import.meta.url)), 'utf8');
+const postMergeFollowup = readFileSync(fileURLToPath(new URL('../.github/workflows/post-merge-followup.yml', import.meta.url)), 'utf8');
+
+describe('routing corpus del bridge Codex', () => {
+  it('non espone il PAT al sandbox e istruisce il provider a usare gh --repo', () => {
+    expect(codexAction).toContain('codex_corpus_github_auth="${CODEX_CORPUS_GH_AUTH:-${GITHUB_PAT_NANAKO:-${GITHUB_PAT:-}}}"');
+    expect(codexAction).toContain('unset CODEX_GH_AUTH CODEX_CORPUS_GH_AUTH GITHUB_PAT_NANAKO GITHUB_PAT');
+    const start = postMergeFollowup.indexOf('Per Nanako usa SEMPRE');
+    const end = postMergeFollowup.indexOf('Parse PR body', start);
+    expect(start).toBeGreaterThanOrEqual(0);
+    expect(end).toBeGreaterThan(start);
+    const routing = postMergeFollowup.slice(start, end);
+    expect(routing).toContain('gh issue create --repo nanakokyobashi-rgb/frontaliere-articles');
+    expect(routing).not.toContain('GH_TOKEN="$GITHUB_PAT"');
+  });
+});
 
 describe('la condizione di accettazione', () => {
   it('un rischio in prosa non ne ha una', () => {
@@ -96,15 +116,15 @@ describe('il gate dell\'aggregata', () => {
   });
 
   it('item valido non confermato → NON chiudere', () => {
-    const g = aggregateCloseGate(body([prose, withToken]), io('file che non contiene il token'));
+    const g = aggregateCloseGate(body([withToken]), io('file che non contiene il token'));
     expect(g.blocks).toBe(true);
     expect(g.reason).toBe('valid-item-unconfirmed');
   });
 
-  it('tutti gli item validi confermati → chiudere, anche con prosa accanto', () => {
+  it('un item valido confermato accanto a prosa pendente → NON chiudere', () => {
     const g = aggregateCloseGate(body([prose, withToken]), io('… resolveSearchConsoleCompatTarget() …'));
-    expect(g.blocks).toBe(false);
-    expect(g.reason).toBe(null);
+    expect(g.blocks).toBe(true);
+    expect(g.reason).toBe('mixed-prose-pending');
   });
 
   it('corpo senza struttura a item → veto storico, mai «vuoto quindi chiudi»', () => {
@@ -249,6 +269,12 @@ describe('condizione di accettazione — la scheda con COMANDO (D1/D2/D3)', () =
     expect(hasFalsifiableAcceptance(item)).toBe(true);
   });
 
+  it('D2: un referente directory o file senza estensione è risolvibile', () => {
+    expect(commandReferent('find data/all-known-job-slugs/')).toBe('data/all-known-job-slugs/');
+    expect(commandReferent('node scripts/ci/followup-check')).toBe('scripts/ci/followup-check');
+    expect(hasFalsifiableAcceptance(scheda('find data/all-known-job-slugs/'))).toBe(true);
+  });
+
   it('D2: metrica gia\' al bersaglio (`prima=N atteso=N`) → RIFIUTATA, e\' irrobustimento travestito', () => {
     const item = scheda('npx vitest run tests/foo.test.ts', 'prima=0 atteso=0');
     expect(hasFalsifiableAcceptance(item)).toBe(false);
@@ -357,7 +383,7 @@ describe('condizione di accettazione — la scheda con COMANDO (D1/D2/D3)', () =
     const item = scheda('npx vitest run tests/foo.test.ts');
     const g = aggregateCloseGate(body([prose, item]), io('qualunque contenuto, anche il comando verbatim: npx vitest run tests/foo.test.ts'));
     expect(g.blocks).toBe(true);
-    expect(g.reason).toBe('valid-item-unconfirmed');
+    expect(g.reason).toBe('mixed-prose-pending');
   });
 
   it('D3: apertura e chiusura si muovono INSIEME sullo stesso item', () => {

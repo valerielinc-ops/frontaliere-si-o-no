@@ -40,6 +40,8 @@ import {
   generateFuelIndexPages,
   renderFuelIndexHubLinks,
   buildFuelIndexPath,
+  buildFuelIndexPaginationPath,
+  ITALIAN_STATIONS_INDEX_PAGE_SIZE,
   type SwissStationLeaf,
   type ItalianStationLeaf,
 } from '../../build-plugins/fuelStationIndexPages';
@@ -51,6 +53,7 @@ import {
   type FuelDailyLocale,
   type FuelType,
 } from '../../build-plugins/fuelDailyData';
+import { MAX_HTML_BYTES } from '../../scripts/audit-page-weight.mjs';
 
 // ── Synthetic leaves ──────────────────────────────────────────────
 
@@ -66,6 +69,15 @@ const SYNTHETIC_ITALIAN: ItalianStationLeaf[] = [
   { citySlug: 'como', cityDisplay: 'Como', stationSlug: 'eni-via-cavour-1', name: 'Eni Como', brand: 'Eni', address: 'Via Cavour 1, 22100 Como' },
   { citySlug: 'varese', cityDisplay: 'Varese', stationSlug: 'q8-via-roma-2', name: 'Q8 Varese', brand: 'Q8', address: 'Via Roma 2, 21100 Varese' },
 ];
+
+const SYNTHETIC_ITALIAN_LARGE: ItalianStationLeaf[] = Array.from({ length: 260 }, (_, index) => ({
+  citySlug: `border-city-${index % 13}`,
+  cityDisplay: `Border City ${index % 13}`,
+  stationSlug: `station-${index}`,
+  name: `MIMIT station ${index} with a representative long station name`,
+  brand: `Brand ${index % 18}`,
+  address: `Via del valico ${index}, zona frontaliera nord, 22100 Como — ingresso lato autostrada e servizio self-service`,
+}));
 
 function countAnchors(html: string, hrefSubstr: string): number {
   // Count <a href="..."> occurrences whose href contains the substring.
@@ -271,5 +283,46 @@ describe('fuel-station orphans — emittedPaths gate excludes pages the build sk
     const html = pages[buildFuelIndexPath('it', 'benzina', 'italianStations')]!;
     expect(countAnchors(html, '/italia/varese/stazioni/q8-via-roma-2/')).toBeGreaterThanOrEqual(1);
     expect(countAnchors(html, '/italia/como/stazioni/')).toBe(0);
+  });
+});
+
+describe('fuel-station index pagination — Italian station pages stay within the shared weight budget', () => {
+  const pages = generateFuelIndexPages({
+    today: TODAY,
+    swissStations: SYNTHETIC_SWISS,
+    italianStations: SYNTHETIC_ITALIAN_LARGE,
+  });
+  const root = buildFuelIndexPath('it', 'benzina', 'italianStations');
+  const pagePaths = Object.keys(pages)
+    .filter((path) => path === root || path.startsWith(`${root}page-`))
+    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+
+  it('keeps page 1 at the established root and emits the complete page ladder', () => {
+    expect(pagePaths).toHaveLength(Math.ceil(SYNTHETIC_ITALIAN_LARGE.length / ITALIAN_STATIONS_INDEX_PAGE_SIZE));
+    expect(pagePaths[0]).toBe(root);
+    expect(pagePaths.at(-1)).toBe(buildFuelIndexPaginationPath('it', 'benzina', 'italianStations', pagePaths.length));
+    expect(pages[root]).toContain('/prezzi-benzina/stazioni-italia/page-2/');
+  });
+
+  it('keeps every paginated HTML page under MAX_HTML_BYTES with representative long station data', () => {
+    for (const path of pagePaths) {
+      const bytes = Buffer.byteLength(pages[path]!, 'utf8');
+      expect(bytes, `${path} is over the page-weight budget`).toBeLessThanOrEqual(MAX_HTML_BYTES);
+    }
+  });
+
+  it('links every Italian station leaf exactly once across the page ladder', () => {
+    const html = pagePaths.map((path) => pages[path]!).join('\n');
+    for (const leaf of SYNTHETIC_ITALIAN_LARGE) {
+      expect(countAnchors(html, `/italia/${leaf.citySlug}/stazioni/${leaf.stationSlug}/`)).toBe(1);
+    }
+  });
+
+  it('exposes accessible previous/next links on the middle page', () => {
+    const middlePath = buildFuelIndexPaginationPath('it', 'benzina', 'italianStations', 2);
+    expect(pages[middlePath]).toMatch(/aria-current(?:="page"|=page)/);
+    expect(pages[middlePath]).toMatch(/rel(?:="prev"|=prev)/);
+    expect(pages[middlePath]).toMatch(/rel(?:="next"|=next)/);
+    expect(pages[middlePath]).toContain('Stazioni benzina Italia confine — indice completo — pagina 2');
   });
 });

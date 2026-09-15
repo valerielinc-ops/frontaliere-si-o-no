@@ -42,6 +42,8 @@ describe('collapseDuplicateRouteEntries — canonical tie-breaks', () => {
     expect(forward.entries).toHaveLength(1);
     expect(backward.entries).toHaveLength(1);
     expect(forward.entries[0].slugByLocale?.en).toBe('alpha');
+    expect(forward.entries[0].previousSlugsByLocale?.en).toContain('zulu');
+    expect(backward.entries[0].previousSlugsByLocale?.en).toContain('zulu');
     expect(JSON.stringify(forward.entries)).toBe(JSON.stringify(backward.entries));
   });
 });

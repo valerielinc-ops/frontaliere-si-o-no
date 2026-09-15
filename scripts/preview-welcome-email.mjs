@@ -173,7 +173,12 @@ function renderOne(doc, locale) {
     acquisitionSource: ctx.acquisitionSource,
   });
   // Mirror the sender: every internal link carries autologin credentials.
-  const authedHtml = wrapAuthenticatedHrefs(html, email, { utmCampaign: `welcome_${ctx.segment}` });
+  const authedHtml = wrapAuthenticatedHrefs(html, email, {
+    utmSource: 'newsletter',
+    utmMedium: 'email',
+    utmCampaign: `welcome_${ctx.segment}`,
+    preserveExistingUtmMedium: true,
+  });
   return { resolvedSegment: ctx.segment, subject, preheader, html: authedHtml };
 }
 

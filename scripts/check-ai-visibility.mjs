@@ -26,13 +26,14 @@
  */
 
 import { readFile, writeFile, appendFile, mkdir } from 'node:fs/promises';
-import { existsSync, realpathSync } from 'node:fs';
-import { join, dirname, resolve } from 'node:path';
+import { existsSync, realpathSync, readFileSync } from 'node:fs';
+import { join, dirname, resolve, basename, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { GH_MODELS_URL } from './lib/gh-models-endpoint.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const AI_VISIBILITY_SCRIPT_PATH = fileURLToPath(import.meta.url);
+const __dirname = dirname(AI_VISIBILITY_SCRIPT_PATH);
 const PROJECT_ROOT = join(__dirname, '..');
 const REPORTS_DIR = join(PROJECT_ROOT, 'reports');
 // Full reports live in the gitignored reports/ dir (artifacts only). The
@@ -84,6 +85,11 @@ const COMPETITORS = [
   'cross-border.ch',
   'grfranco.ch',
 ];
+
+// Gemini sometimes returns a bare hostname in `web.title`. Restrict that
+// fallback to suffixes used by the known competitors and common public domains
+// so dotted prose tokens such as `art.3.OAMal` are not promoted to hosts.
+const PLAUSIBLE_BARE_HOST_TLDS = new Set(['ch', 'it', 'com', 'net', 'org', 'eu']);
 
 // ─── CLI flags ──────────────────────────────────────────────────────────────
 
@@ -337,7 +343,8 @@ async function queryOpenRouter(query) {
   const data = await res.json();
   const message = data.choices?.[0]?.message || {};
   const choice = data.choices?.[0] || {};
-  const content = message.content || '';
+  const hasStringContent = typeof message.content === 'string';
+  const content = hasStringContent ? message.content : '';
 
   // The web plugin returns its sources as `annotations[].url_citation`, not
   // inside the prose: those are the real retrieved URLs. Reading only the text
@@ -345,16 +352,14 @@ async function queryOpenRouter(query) {
   //
   // Read every shape OpenRouter is known to use, and — the point of issue
   // #7404 — tell "the plugin found nothing" apart from "we did not recognise
-  // this response". Reading one shape only, an unrecognised payload yielded an
-  // empty list that applyPlatformAnswer recorded as `checked: true,
-  // cited: false`: a systematic miss indistinguishable from a measured zero,
-  // exactly the class of bug the #7005 contract exists to prevent. An absent
-  // key is now `null` (checked: false, unknown); a PRESENT but empty one stays
-  // an honest measured zero.
+  // this response". A string `message.content` is a known answer shape even
+  // when no citation key is present, so that response is an honest measured
+  // zero. Only a response with neither string content nor a citation key is
+  // unrecognised and stays unchecked.
   const annotations = message.annotations ?? choice.annotations;
   const listed = data.citations ?? message.citations;
-  if (annotations === undefined && listed === undefined) {
-    console.warn('  ⚠ OpenRouter: no known citation key in response (annotations/citations) — recorded as unchecked, not as a miss');
+  if (!hasStringContent && annotations === undefined && listed === undefined) {
+    console.warn('  ⚠ OpenRouter: no known content or citation key in response — recorded as unchecked, not as a miss');
     return null;
   }
 
@@ -377,7 +382,7 @@ async function queryOpenRouter(query) {
  */
 const MAX_ATTEMPTS = 3;
 
-// Per-RUN ceiling on time spent sleeping between retries (issue #7398).
+// Per-platform, per-RUN ceiling on time spent sleeping between retries (issue #7398).
 // MAX_ATTEMPTS bounds the wait of a SINGLE call (<=120s with `Retry-After: 60`),
 // but runCheck makes one call per platform per query: 20 queries x ~120s is ~40
 // min of pure sleep against the job's `timeout-minutes: 30`, so a quota-429 day
@@ -387,10 +392,10 @@ const MAX_ATTEMPTS = 3;
 // return null, which callers already record as `checked: false` (unknown) and
 // never as "not cited".
 const RETRY_BUDGET_MS = 300_000; // 5 min of sleep on a 30-min job
-let retryBudgetLeftMs = RETRY_BUDGET_MS;
+const retryBudgetLeftMs = new Map();
 
-/** Reset the per-run retry budget (a run = one process; tests need it too). */
-function resetRetryBudget() { retryBudgetLeftMs = RETRY_BUDGET_MS; }
+/** Reset every platform's per-run retry budget (a run = one process; tests need it too). */
+function resetRetryBudget() { retryBudgetLeftMs.clear(); }
 
 /**
  * Reset EVERY per-run budget, at the one place a run begins.
@@ -411,15 +416,17 @@ function resetRunBudgets() {
 }
 
 /**
- * Spend `ms` of the run's retry budget. Returns false when the budget cannot
- * cover the planned wait — the caller must then give up WITHOUT sleeping.
+ * Spend `ms` of one platform's run budget. Returns false when that platform's
+ * budget cannot cover the planned wait — the caller must give up WITHOUT sleeping.
  */
 function spendRetryBudget(label, ms) {
-  if (ms > retryBudgetLeftMs) {
-    console.warn(`  ⚠ ${label}: retry budget spent (${Math.round(RETRY_BUDGET_MS / 1000)}s/run) — giving up without waiting`);
+  const key = String(label || 'unknown');
+  const left = retryBudgetLeftMs.get(key) ?? RETRY_BUDGET_MS;
+  if (ms > left) {
+    console.warn(`  ⚠ ${label}: retry budget spent (${Math.round(RETRY_BUDGET_MS / 1000)}s/platform/run) — giving up without waiting`);
     return false;
   }
-  retryBudgetLeftMs -= ms;
+  retryBudgetLeftMs.set(key, left - ms);
   return true;
 }
 
@@ -525,9 +532,13 @@ function citedHosts(content, citations = []) {
     const cleaned = String(raw || '').trim().replace(/[.,;:!?)]+$/, '');
     if (!cleaned) continue;
     // Bare hostname (a Gemini `web.title`) — no scheme, no whitespace.
-    const withScheme = /^[a-z][a-z0-9+.-]*:\/\//i.test(cleaned)
+    const hasScheme = /^[a-z][a-z0-9+.-]*:\/\//i.test(cleaned);
+    const isBareHost = /^[a-z0-9-]+(\.[a-z0-9-]+)+(\/\S*)?$/i.test(cleaned);
+    const bareHostname = isBareHost ? cleaned.split('/', 1)[0] : '';
+    const bareTld = bareHostname.split('.').at(-1)?.toLowerCase();
+    const withScheme = hasScheme
       ? cleaned
-      : (/^[a-z0-9-]+(\.[a-z0-9-]+)+(\/\S*)?$/i.test(cleaned) ? `https://${cleaned}` : null);
+      : (isBareHost && PLAUSIBLE_BARE_HOST_TLDS.has(bareTld) ? `https://${cleaned}` : null);
     if (!withScheme) continue;
     try {
       hosts.push(new URL(withScheme).hostname.toLowerCase().replace(/^www\./, ''));
@@ -1016,8 +1027,23 @@ function realPath(p) {
   try { return realpathSync(p); } catch { return resolve(p); }
 }
 
+// Some package managers use a real `.bin` wrapper that dynamically imports
+// the script instead of linking it, so its argv[1] cannot match by realpath.
+// Inspect only wrappers that reference this file; arbitrary module imports
+// must remain side-effect free.
+function isNpmBinWrapper(p) {
+  const wrapperPath = resolve(p);
+  if (!wrapperPath.split(sep).includes('.bin')) return false;
+  try {
+    return readFileSync(wrapperPath, 'utf8').includes(basename(AI_VISIBILITY_SCRIPT_PATH));
+  } catch {
+    return false;
+  }
+}
+
 const isDirectRun = Boolean(process.argv[1])
-  && realPath(process.argv[1]) === realPath(fileURLToPath(import.meta.url));
+  && (realPath(process.argv[1]) === realPath(AI_VISIBILITY_SCRIPT_PATH)
+    || isNpmBinWrapper(process.argv[1]));
 
 if (isDirectRun) {
   runCheck().catch(err => {
@@ -1028,6 +1054,7 @@ if (isDirectRun) {
 
 export {
   fetchWithRetry,
+  citedHosts,
   findSiteMention,
   findCompetitorMentions,
   generateMarkdown,

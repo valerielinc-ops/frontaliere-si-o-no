@@ -160,7 +160,7 @@ describe('decideRestore (scripts/lib/mailtrapSuspensionClassify.mjs)', () => {
     it('restores a reject-bounced doc with consent evidence as confirmed', () => {
       const v = decideRestore({
         sub: cohort281({ confirmed_at: daysAgo(400) }),
-        events: [...suspensionEvents, { event_type: 'confirm' }],
+        events: [...suspensionEvents, { event_type: 'confirm', source_channel: 'confirmation_link' }],
         nowMs: NOW,
       });
       expect(v.restore).toBe(true);
@@ -356,7 +356,7 @@ describe('decideRestore (scripts/lib/mailtrapSuspensionClassify.mjs)', () => {
       // `confirmed` weekly under `--apply`. Fixed in #5717.
       const v = decideRestore({
         sub: cohort281(),
-        events: [...suspensionEvents, { event_type: 'confirm' }],
+        events: [...suspensionEvents, { event_type: 'confirm', source_channel: 'confirmation_link' }],
         nowMs: NOW,
       });
       expect(v).toMatchObject({ restore: true, confirmed: true });

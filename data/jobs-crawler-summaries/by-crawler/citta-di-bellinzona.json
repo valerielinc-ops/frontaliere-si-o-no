@@ -1,54 +1,19 @@
 {
   "key": "citta-di-bellinzona",
   "label": "Bellinzona",
-  "generatedAt": "2026-09-09T23:03:59.820Z",
-  "total": 3,
+  "generatedAt": "2026-09-13T13:54:12.992Z",
+  "total": 1,
   "newCount": 0,
-  "updatedCount": 2,
-  "removedCount": 0,
+  "updatedCount": 1,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 3841,
-  "avgDurationMs": 3841,
+  "durationMs": 4250,
+  "avgDurationMs": 4250,
   "durationHistory": [
-    3841
+    4250
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "id": "citta-di-bellinzona-responsabile-del-servizio-risorse-umane-presso-l-azienda-multiservizi-bellinzon-bellinzona",
-      "slug": "responsabile-del-servizio-risorse-umane-presso-l-azienda-multiservizi-bellinzon-bellinzona",
-      "company": "Città di Bellinzona",
-      "companyKey": "citta-di-bellinzona",
-      "companyDomain": "bellinzona.ch",
-      "title": "Responsabile del Servizio Risorse Umane presso l'Azienda Multiservizi Bellinzona",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6500",
-      "streetAddress": "Piazza Nosetto",
-      "category": "public-admin",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-21",
-      "url": "https://www.bellinzona.ch/assunzioni",
-      "pdfUrl": null,
-      "applyUrl": null,
-      "source": "Bellinzona Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-09-09T23:03:53.795Z",
-      "firstSeenAt": "2026-08-21T09:48:20.071Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
     {
       "id": "citta-di-bellinzona-assistente-dentale-presso-il-settore-attivita-sociali-servizio-clinica-dentaria-bellinzona",
       "slug": "assistente-dentale-presso-il-settore-attivita-sociali-servizio-clinica-dentaria-bellinzona",
@@ -74,7 +39,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=884ae3e2-9776-4e19-b06b-a49066a6ccd8,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-09T23:03:53.795Z",
+      "crawledAt": "2026-09-13T13:54:06.456Z",
       "firstSeenAt": "2026-06-29T21:52:24.302Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -85,8 +50,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "citta-di-bellinzona-responsabile-del-servizio-risorse-umane-presso-l-azienda-multiservizi-bellinzon-bellinzona",
       "slug": "responsabile-del-servizio-risorse-umane-presso-l-azienda-multiservizi-bellinzon-bellinzona",
@@ -112,52 +76,22 @@
       "applyUrl": null,
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-09T23:03:53.795Z",
+      "crawledAt": "2026-09-11T13:33:51.308Z",
       "firstSeenAt": "2026-08-21T09:48:20.071Z",
-      "_qualityScore": 90,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "salarySource": "estimated",
+      "crawlerMissStreak": 2,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
-    },
-    {
-      "id": "citta-di-bellinzona-operaio-a-giardiniere-a-afc-presso-il-settore-opere-pubbliche-bellinzona",
-      "slug": "operaio-a-giardiniere-a-afc-presso-il-settore-opere-pubbliche-bellinzona",
-      "company": "Città di Bellinzona",
-      "companyKey": "citta-di-bellinzona",
-      "companyDomain": "bellinzona.ch",
-      "title": "Operaio/a (Giardiniere/a AFC) presso il Settore Opere pubbliche",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6500",
-      "streetAddress": "Piazza Nosetto",
-      "category": "public-admin",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-29",
-      "url": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=29956b6b-1104-445c-adc5-5f35b4fb4e4a,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "pdfUrl": null,
-      "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=29956b6b-1104-445c-adc5-5f35b4fb4e4a,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "source": "Bellinzona Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-09-09T23:03:53.794Z",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-29T21:52:24.302Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "id": "citta-di-bellinzona-assistente-dentale-presso-il-settore-attivita-sociali-servizio-clinica-dentaria-bellinzona",
       "slug": "assistente-dentale-presso-il-settore-attivita-sociali-servizio-clinica-dentaria-bellinzona",
@@ -183,7 +117,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=884ae3e2-9776-4e19-b06b-a49066a6ccd8,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-09T23:03:53.795Z",
+      "crawledAt": "2026-09-13T13:54:06.456Z",
       "firstSeenAt": "2026-06-29T21:52:24.302Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {

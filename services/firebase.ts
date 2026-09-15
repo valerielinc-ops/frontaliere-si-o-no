@@ -14,18 +14,10 @@ import type { FirebasePerformance, PerformanceTrace } from "firebase/performance
 import type { AppCheck } from "firebase/app-check";
 import { reportCaughtError } from '@/services/errorReporter';
 import { isRecaptchaClientReady, type RecaptchaLikeWindow } from '@/services/recaptchaReady';
-
-const _K = 'JztKDydNL0lRMwFyR3MKcyFaPABJPEF4I2lwFGxORhwwVgkHPyFT';
-const _S = 'fr0nt4l13r3-t1c1n0';
-function _d(e: string, k: string): string {
- const b = Uint8Array.from(atob(e), c => c.charCodeAt(0));
- let r = '';
- for (let i = 0; i < b.length; i++) r += String.fromCharCode(b[i] ^ k.charCodeAt(i % k.length));
- return r;
-}
+import { setFirebaseApiKey } from '@/services/firebaseAuthPersistence';
+import { openIndexedDbWithSchema } from './indexedDbSchema';
 
 const firebaseConfig = {
- apiKey: import.meta.env.VITE_FIREBASE_API_KEY || _d(_K, _S),
  // Use the default Firebase auth domain (frontaliere-ticino.firebaseapp.com), NOT the
  // custom auth.frontaliereticino.ch domain. The custom domain requires
  // Custom auth domain — auth.frontaliereticino.ch is registered as an authorized
@@ -127,16 +119,88 @@ const firebaseError = (...args: unknown[]) => {
 // imported. The vendor-firebase chunk is only downloaded when these functions
 // are first called, not when this module is evaluated.
 let _app: FirebaseApp | null = null;
+let _appLoading: Promise<FirebaseApp> | null = null;
 let _analytics: FirebaseAnalytics | null = null;
 let _analyticsLoading: Promise<FirebaseAnalytics | null> | null = null;
 let _analyticsBlocked = false;
 
-async function getAppInstance(): Promise<FirebaseApp> {
- if (!_app) {
- const { initializeApp } = await import("firebase/app");
- _app = initializeApp(firebaseConfig);
+// Firebase Installations is a dependency of Analytics. Its SDK opens this
+// database at version 1 and only creates the store during oldVersion === 0;
+// an existing version-1 database with a lost store otherwise rejects later
+// from `transaction('firebase-installations-store')`.
+const FIREBASE_INSTALLATIONS_SCHEMA = {
+ name: 'firebase-installations-database',
+ version: 1,
+ stores: [{ name: 'firebase-installations-store' }],
+} as const;
+
+/**
+ * Repair only Firebase's anonymous-installation cache before Analytics starts.
+ * `unavailable` is allowed through because Firebase's own isSupported path
+ * intentionally runs without a FID when IndexedDB is restricted; blocked,
+ * unsupported, and invalid schemas must not reach the SDK's unhandled promise.
+ */
+async function prepareFirebaseInstallationsStore(): Promise<boolean> {
+ if (typeof indexedDB === 'undefined' || indexedDB === null) return true;
+ try {
+  const result = await openIndexedDbWithSchema(FIREBASE_INSTALLATIONS_SCHEMA);
+  if (result.db) {
+   result.db.close();
+   return true;
+  }
+  return result.status === 'unavailable';
+ } catch {
+  // Disable optional Analytics if the schema preflight itself is inconclusive.
+  return false;
  }
+}
+
+function getEnvironmentFirebaseApiKey(): string {
+ if (typeof process === 'undefined') return '';
+ return String(process.env.FIREBASE_API_KEY || process.env.VITE_FIREBASE_API_KEY || '').trim();
+}
+
+async function resolveFirebaseApiKey(): Promise<string> {
+ const environmentKey = getEnvironmentFirebaseApiKey();
+ if (environmentKey) {
+ setFirebaseApiKey(environmentKey);
+ return environmentKey;
+ }
+
+ // In the browser the key is public runtime configuration, delivered by the
+ // allowlisted endpoint instead of being inlined into source or static HTML.
+ await initRemoteConfig();
+ let remoteKey = publicConfig?.FIREBASE_API_KEY?.trim() || '';
+ if (!remoteKey && typeof window !== 'undefined') {
+ // `initRemoteConfig()` memoizes the first attempt, including a transient
+ // failure. Retry directly before making Firebase initialization terminal for
+ // the entire page view.
+ await refreshRemoteConfig();
+ remoteKey = publicConfig?.FIREBASE_API_KEY?.trim() || '';
+ }
+ if (remoteKey) setFirebaseApiKey(remoteKey);
+ return remoteKey;
+}
+
+async function getAppInstance(): Promise<FirebaseApp> {
+ if (_app) return _app;
+ if (_appLoading) return _appLoading;
+
+ _appLoading = (async () => {
+ const apiKey = await resolveFirebaseApiKey();
+ if (!apiKey) {
+ throw new Error('Firebase Web API key unavailable from runtime public config');
+ }
+ const { initializeApp } = await import("firebase/app");
+ _app = initializeApp({ ...firebaseConfig, apiKey });
  return _app;
+ })();
+
+ try {
+ return await _appLoading;
+ } finally {
+ _appLoading = null;
+ }
 }
 
 let _firestoreDb: unknown = null;
@@ -164,12 +228,20 @@ async function getAnalyticsInstance(): Promise<FirebaseAnalytics | null> {
  _analyticsLoading = (async () => {
  try {
  const { initializeAnalytics } = await import("firebase/analytics");
+ const installationsStoreReady = await prepareFirebaseInstallationsStore();
+ if (!installationsStoreReady) {
+  // Analytics is non-critical; leave the app usable when a different tab
+  // holds the broken database open or a newer SDK owns its schema.
+  _analyticsBlocked = true;
+  _analytics = null;
+ } else {
  // Use initializeAnalytics instead of getAnalytics to pass config:
  // - send_page_view: false — App.tsx tracks SPA page views manually
  // to avoid duplicate page_view events that inflate pagesPerSession.
  _analytics = initializeAnalytics(await getAppInstance(), {
  config: { send_page_view: false },
  });
+ }
  } catch {
  // Ad blocker or privacy extension blocked the analytics chunk or
  // gtag.js — analytics will be silently disabled for this session.

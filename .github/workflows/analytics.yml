@@ -25,8 +25,12 @@ on:
           - bing
           - clarity
 
+concurrency:
+  group: analytics-report
+  cancel-in-progress: false
+
 permissions:
-  contents: read
+  contents: write
   issues: write
 
 jobs:
@@ -37,27 +41,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
-        with:
-          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
-          sparse-checkout: |
-            /*
-            !/public/images/
-            !/data/seo-404-compat/
-            !/data/translation-cache/
-            !/packages/articles/content/
-            !/data/all-known-job-slugs/
-            !/data/orphan-enriched-data/
-            !/data/related-search-candidates.json
-            !/data/cf-hot-404s.json
-            !/data/dist-size-history.jsonl
-            !/data/jobs-stats-history.json
-            !/data/url-first-seen.json
-            !/data/jobs-snapshots-history/
-            !/data/slug-registry.json
-            !/data/evidence-index.json
-            !/data/health-premiums/
-            !/data/jobs-crawler-summaries/
-          sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
@@ -118,14 +101,41 @@ jobs:
 
           mkdir -p reports
 
-          FLAGS="--days $DAYS --save"
+          args=(--days "$DAYS" --save)
           if [ "$SECTION" != "all" ]; then
-            FLAGS="$FLAGS --$SECTION"
+            args+=("--$SECTION")
           fi
 
           echo "📊 Running analytics report ($SECTION, last $DAYS days)..."
-          node scripts/analytics-report.mjs $FLAGS
+          node scripts/analytics-report.mjs "${args[@]}"
         continue-on-error: true
+
+      - name: Commit AI channel history
+        # The report is intentionally allowed to finish with partial data, but
+        # the history write must not disappear with the runner workspace.
+        if: always()
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -- data/ai-channel-history.jsonl
+          if git diff --cached --quiet -- data/ai-channel-history.jsonl; then
+            echo "No AI channel history changes to commit"
+            exit 0
+          fi
+
+          staged_paths="$(git diff --cached --name-only)"
+          if [ "$staged_paths" != "data/ai-channel-history.jsonl" ]; then
+            echo "::error::AI channel history step staged an unexpected path"
+            git diff --cached --name-only
+            exit 1
+          fi
+
+          git commit -m "chore(analytics): persist AI channel history [skip ci]"
+          bash scripts/lib/git-push-with-retry.sh \
+            --branch "$GITHUB_REF_NAME" \
+            --in-place-resolver-cmd "source scripts/lib/resolve-append-conflicts.sh && resolve_append_conflicts && git add -- data/ai-channel-history.jsonl"
 
       - name: Sync app_error issues to backlog
         # Turns the errorHealth.appErrors block just computed above into
@@ -338,7 +348,7 @@ jobs:
                     console.log('- **' + safe(String(s.message || '').slice(0, 80)) + '** (' + s.count + 'x)');
                     const lines = String(s.stack || '').split(/\\\\n|at /).filter(Boolean).slice(0, 2);
                     for (const line of lines) {
-                      console.log('  - `' + safe(line.trim().slice(0, 80)) + '`');
+                      console.log('  - ' + String.fromCharCode(96) + safe(line.trim().slice(0, 80)) + String.fromCharCode(96));
                     }
                   }
                 }

@@ -48,24 +48,29 @@ jobs:
       # The evidence index (GA4/PostHog network fetch) and the article
       # embeddings (local ONNX CPU work) are independent and write disjoint
       # files (data/evidence-index.json vs data/article-embeddings*.{bin,json}),
-      # so they run as background steps concurrently. `wait-all` rejoins before
-      # the commit; a failure in either still fails the job (verified live).
-      - name: Build evidence index
-        id: evidence-index
-        background: true
-        run: node scripts/build-evidence-index.mjs
-
-      - name: Build article embeddings (incremental)
-        id: article-embeddings
-        background: true
-        run: node scripts/build-article-embeddings.mjs --incremental
+      # so they run as ordinary shell processes in parallel. The explicit waits
+      # keep the commit behind both commands and preserve either failure.
+      - name: Build evidence index + article embeddings (parallel)
         env:
           # Local ONNX embeddings (no API key). Cache model weights in-repo so the
           # actions/cache step above persists them across runs.
           TRANSFORMERS_CACHE: .cache/transformers
-
-      - name: Wait for evidence index + embeddings
-        wait-all: true
+        run: |
+          set +e
+          node scripts/build-evidence-index.mjs > "$RUNNER_TEMP/evidence-index.log" 2>&1 &
+          evidence_pid=$!
+          node scripts/build-article-embeddings.mjs --incremental > "$RUNNER_TEMP/article-embeddings.log" 2>&1 &
+          embeddings_pid=$!
+          evidence_status=0
+          embeddings_status=0
+          wait "$evidence_pid" || evidence_status=$?
+          wait "$embeddings_pid" || embeddings_status=$?
+          cat "$RUNNER_TEMP/evidence-index.log"
+          cat "$RUNNER_TEMP/article-embeddings.log"
+          if [ "$evidence_status" -ne 0 ] || [ "$embeddings_status" -ne 0 ]; then
+            echo "evidence_status=$evidence_status embeddings_status=$embeddings_status"
+            exit 1
+          fi
 
       - name: Commit evidence
         run: |
@@ -81,32 +86,8 @@ jobs:
             echo "No evidence changes to commit"
             exit 0
           fi
-          bash scripts/lib/configure-main-push-auth.sh
           git commit -m "chore(evidence): refresh $(date -u +%Y-%m-%d)"
-          # Retry-on-rebase loop — same pattern as #794/#804/#805/#806.
-          # Concurrent producers on main (crawlers + scheduled refreshers
-          # + post-merge auto-commits) regularly out-race a single push;
-          # mirror the loop already proven elsewhere.
-          MAX_ATTEMPTS=5
-          BACKOFF_BASE=3
-          attempt=1
-          while [ "$attempt" -le "$MAX_ATTEMPTS" ]; do
-            if git push origin HEAD:main; then
-              echo "✅ Pushed evidence refresh."
-              exit 0
-            fi
-            echo "⚠️ Push rejected (attempt $attempt/$MAX_ATTEMPTS) — fetch + rebase, then retry…"
-            git fetch origin main || true
-            if ! git -c rebase.autoStash=true rebase origin/main; then
-              echo "⚠️ Rebase conflict on evidence data files — aborting and resetting."
-              git rebase --abort || true
-              exit 1
-            fi
-            sleep $((BACKOFF_BASE * attempt))
-            attempt=$((attempt + 1))
-          done
-          echo "❌ Push failed after $MAX_ATTEMPTS attempts — leaving evidence uncommitted."
-          exit 1
+          bash scripts/lib/git-push-with-retry.sh
 
       - name: Report failure to GitHub Issues
         if: failure()
@@ -138,16 +119,13 @@ jobs:
             /*
             !/public/images/
             !/data/jobs/
-            !/data/seo-404-compat/
             !/data/translation-cache/
             !/packages/articles/content/
-            !/data/all-known-job-slugs/
-            !/data/orphan-enriched-data/
             !/public/data/
             !/data/related-search-candidates.json
             !/data/cf-hot-404s.json
-            !/data/jobs-ai-cache.json
             !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
             !/data/url-first-seen.json
             !/data/jobs-snapshots-history/
             !/data/slug-registry.json
@@ -191,28 +169,7 @@ jobs:
             exit 0
           fi
           git commit -m "chore(tune): quota update $(date -u +%Y-%m-%d)"
-          bash scripts/lib/configure-main-push-auth.sh
-          # Retry-on-rebase loop — same as the build-evidence job above.
-          MAX_ATTEMPTS=5
-          BACKOFF_BASE=3
-          attempt=1
-          while [ "$attempt" -le "$MAX_ATTEMPTS" ]; do
-            if git push origin HEAD:main; then
-              echo "✅ Pushed tune state."
-              exit 0
-            fi
-            echo "⚠️ Push rejected (attempt $attempt/$MAX_ATTEMPTS) — fetch + rebase, then retry…"
-            git fetch origin main || true
-            if ! git -c rebase.autoStash=true rebase origin/main; then
-              echo "⚠️ Rebase conflict on quota state files — aborting and resetting."
-              git rebase --abort || true
-              exit 1
-            fi
-            sleep $((BACKOFF_BASE * attempt))
-            attempt=$((attempt + 1))
-          done
-          echo "❌ Push failed after $MAX_ATTEMPTS attempts — leaving tune uncommitted."
-          exit 1
+          bash scripts/lib/git-push-with-retry.sh
 
       - name: Report failure to GitHub Issues
         if: failure()

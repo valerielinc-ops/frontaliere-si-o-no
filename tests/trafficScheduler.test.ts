@@ -142,6 +142,36 @@ describe('trafficService.getTrafficData – Firestore path', () => {
     expect(data[0]).not.toHaveProperty('direction');
   });
 
+  it('keeps a fresh total-only reading without inventing queue or status', async () => {
+    const fakeDocs = [
+      {
+        id: 'total-only-crossing',
+        data: () => ({
+          crossingName: 'Total-only crossing',
+          totalCrossingMinutes: 0,
+          approachMinutes: 4,
+          lastUpdate: { toDate: () => new Date(Date.now() - 10 * 60 * 1000) },
+        }),
+      },
+    ];
+
+    vi.mocked(firestoreModule.getDocs).mockResolvedValueOnce({
+      empty: false,
+      forEach: (cb: (doc: (typeof fakeDocs)[0]) => void) => fakeDocs.forEach(cb),
+    } as unknown as Awaited<ReturnType<typeof firestoreModule.getDocs>>);
+
+    const data = await trafficService.getTrafficData();
+    expect(data).toHaveLength(1);
+    expect(data[0]).toMatchObject({
+      crossingName: 'Total-only crossing',
+      totalCrossingMinutes: 0,
+      approachMinutes: 4,
+      source: 'firestore',
+    });
+    expect(data[0]).not.toHaveProperty('waitTimeMinutes');
+    expect(data[0]).not.toHaveProperty('status');
+  });
+
   it('does not turn a Firestore reading without a timestamp into a current reading', async () => {
     const incompleteDocs = [
       {

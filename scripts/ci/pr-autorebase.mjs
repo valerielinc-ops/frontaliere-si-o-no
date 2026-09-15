@@ -78,8 +78,12 @@ import {
   reviewStepIsInFlight,
   jobRefFromCheckRun,
   currentAttemptJobSteps,
+  pollUntil,
+  vitestCheckNeedsPolling,
+  vitestJobIsConcluded,
 } from './lib/vitestCheck.mjs';
-import { hasCommentMarker as hasCommentMarkerShared, upsertStickyComment } from './lib/prComments.mjs';
+import { hasCommentMarker as hasCommentMarkerShared, upsertStickyComment,
+  countPaginatedLines, lastPaginatedJsonLine } from './lib/prComments.mjs';
 import { runBudgetFromEnv, rotateForFairness } from './lib/run-budget.mjs';
 import { parseCollisionPeers, collisionGateDecision } from './auto-merge-eval.mjs';
 import {
@@ -92,7 +96,7 @@ import {
   decideNeedsHumanPass,
   renderReopenBudget,
 } from './lib/reopen-breaker.mjs';
-import { intFromEnv } from '../lib/int-from-env.mjs';
+import { intFromEnv, positiveIntFromEnv } from '../lib/int-from-env.mjs';
 
 const DRY = process.argv.includes('--dry-run');
 const REPO = process.env.GITHUB_REPOSITORY || '';
@@ -117,7 +121,7 @@ const REOPEN_RETRY_SLEEP_S = intFromEnv('AUTOREBASE_REOPEN_RETRY_SLEEP_S', 5);
  * job muore fra `close` e `reopen` lasciando la PR chiusa.
  * close + N chiamate reopen (≈3s l'una, generoso su un'API degradata) + le pause.
  */
-const REOPEN_COST_MS = intFromEnv('AUTOREBASE_REOPEN_COST_MS', 3_000 + REOPEN_ATTEMPTS * 3_000 + (REOPEN_ATTEMPTS - 1) * REOPEN_RETRY_SLEEP_S * 1_000);
+const REOPEN_COST_MS = positiveIntFromEnv('AUTOREBASE_REOPEN_COST_MS', 3_000 + REOPEN_ATTEMPTS * 3_000 + (REOPEN_ATTEMPTS - 1) * REOPEN_RETRY_SLEEP_S * 1_000);
 /**
  * Etichetta che dice al worktree-branch-janitor di NON cancellare l'head ref di
  * questa PR. Si applica solo quando la coppia close+reopen si è rotta a metà:
@@ -178,6 +182,12 @@ const STUCK_RED_STALE_H = intFromEnv('AUTOREBASE_STUCK_RED_STALE_H', 24);
 // recover (observed on #1616 this session). The rebase isn't urgent — main is
 // always seconds-fresh — so deferring one tick (~30m) is free. 0 disables.
 const ACTIVITY_GUARD_MIN = intFromEnv('AUTOREBASE_ACTIVITY_GUARD_MIN', 6);
+const VITEST_POLL_ATTEMPTS = 3;
+const VITEST_POLL_DELAY_MS = 1_000;
+
+function sleepSync(ms) {
+  if (ms > 0) execFileSync('sleep', [String(ms / 1_000)], { stdio: 'ignore' });
+}
 
 function gh(args, { json = true, allowFail = false } = {}) {
   try {
@@ -381,14 +391,16 @@ function reopenToRetrigger(num) {
 function reopenStateFingerprint(num, vitestConclusion) {
   const d = gh(['pr', 'view', String(num), '--repo', REPO, '--json',
     'additions,deletions,changedFiles'], { allowFail: true }) || {};
-  const reviews = gh(['api', `repos/${REPO}/pulls/${num}/reviews`, '--paginate',
-    '--jq', 'length'], { json: false, allowFail: true });
+  // `--jq 'length'` sotto `--paginate` conta PER PAGINA ("30\n30\n7"): il
+  // conteggio si fa element-wise, una riga per review su tutte le pagine.
+  const reviews = gh(['api', `repos/${REPO}/pulls/${num}/reviews?per_page=100`, '--paginate',
+    '--jq', '.[].id'], { json: false, allowFail: true });
   return reopenFingerprint({
     additions: d.additions,
     deletions: d.deletions,
     changedFiles: d.changedFiles,
     vitestConclusion,
-    reviewCount: parseInt((reviews || '0').trim(), 10) || 0,
+    reviewCount: countPaginatedLines(reviews),
   });
 }
 
@@ -478,10 +490,13 @@ function guardedReopen(num, head, { stuckRedReason = '' } = {}) {
 
 /** Body del commento sticky del budget, o '' se non c'è. */
 function readReopenBudgetBody(num) {
-  const raw = gh(['api', `repos/${REPO}/issues/${num}/comments`, '--paginate',
-    '--jq', `[.[] | select(.body // "" | contains("${REOPEN_BUDGET_MARKER}")) | .body] | last // ""`],
+  // Element-wise + `@json` (un body per riga, escapato): un aggregato come
+  // `| last` girerebbe PER PAGINA sotto `--paginate` e concatenerebbe l'ultimo
+  // match di OGNI pagina, restituendo due body incollati invece di uno.
+  const raw = gh(['api', `repos/${REPO}/issues/${num}/comments?per_page=100`, '--paginate',
+    '--jq', `.[] | select(.body // "" | contains("${REOPEN_BUDGET_MARKER}")) | .body | @json`],
   { json: false, allowFail: true });
-  return raw || '';
+  return lastPaginatedJsonLine(raw);
 }
 
 /** Label correnti della PR (rilette: il breaker può averle appena cambiate). */
@@ -521,9 +536,14 @@ function headPushedMinutesAgo(head) {
 const _checkRuns = new Map();
 function checkRunsOf(head) {
   if (_checkRuns.has(head)) return _checkRuns.get(head);
-  const out = gh(['api', `repos/${REPO}/commits/${head}/check-runs?per_page=100`],
-    { json: true, allowFail: true });
-  const runs = (out && out.check_runs) || [];
+  const out = pollUntil({
+    read: () => gh(['api', `repos/${REPO}/commits/${head}/check-runs?per_page=100`]),
+    ready: (response) => !vitestCheckNeedsPolling(response?.check_runs),
+    attempts: VITEST_POLL_ATTEMPTS,
+    delayMs: VITEST_POLL_DELAY_MS,
+    sleep: sleepSync,
+  });
+  const runs = Array.isArray(out?.check_runs) ? out.check_runs : [];
   _checkRuns.set(head, runs);
   return runs;
 }
@@ -570,8 +590,7 @@ let _mainTestsRuns = null;
 function mainTestsRuns() {
   if (_mainTestsRuns) return _mainTestsRuns;
   const out = gh(
-    ['api', `repos/${REPO}/actions/workflows/tests.yml/runs?branch=main&status=completed&per_page=50`],
-    { json: true, allowFail: true });
+    ['api', `repos/${REPO}/actions/workflows/tests.yml/runs?branch=main&status=completed&per_page=50`]);
   _mainTestsRuns = (out && out.workflow_runs) || [];
   return _mainTestsRuns;
 }
@@ -581,21 +600,38 @@ function mainTestsRuns() {
  * (`.../runs/<run_id>/job/<job_id>`), che è l'unico riferimento che la
  * check-runs API dà al job di Actions. Accetta solo il job del tentativo
  * corrente con lo stesso head e verdetto: un rerun può lasciare link vecchi.
- * `[]` se il link non è parsabile, il job è superato o la chiamata fallisce →
- * `vitestFailureIsReviewGate` risponde `false` e vale la
- * precondizione normale (fail-CLOSED: nel dubbio non si ricicla). */
+ * `[]` se il link non è parsabile, il job è superato o resta non concluso dopo
+ * il polling → `vitestFailureIsReviewGate` risponde `false` e vale la
+ * precondizione normale (fail-CLOSED: nel dubbio non si ricicla). Gli errori
+ * HTTP non vengono convertiti in `[]`. */
 const _vitestJobSteps = new Map();
 function vitestJobSteps(head) {
   if (_vitestJobSteps.has(head)) return _vitestJobSteps.get(head);
-  const last = latestCompletedVitestExecutionRun(checkRunsOf(head));
+  const checks = checkRunsOf(head);
+  if (vitestCheckNeedsPolling(checks)) {
+    _vitestJobSteps.set(head, []);
+    return [];
+  }
+  const last = latestCompletedVitestExecutionRun(checks);
   const ref = jobRefFromCheckRun(last);
   if (!ref) {
     _vitestJobSteps.set(head, []);
     return [];
   }
-  const out = gh(['api', `repos/${REPO}/actions/runs/${ref.runId}/jobs?filter=latest&per_page=100`, '--paginate', '--jq', '.jobs'],
-    { json: true, allowFail: true });
-  const steps = currentAttemptJobSteps({ checkRun: last, jobId: ref.jobId, jobs: out });
+  const out = pollUntil({
+    read: () => gh(['api', `repos/${REPO}/actions/runs/${ref.runId}/jobs?filter=latest&per_page=100`, '--paginate', '--jq', '.jobs']),
+    ready: (jobs) => Array.isArray(jobs) && jobs.some(
+      (job) => String(job?.id) === ref.jobId && vitestJobIsConcluded(job),
+    ),
+    attempts: VITEST_POLL_ATTEMPTS,
+    delayMs: VITEST_POLL_DELAY_MS,
+    sleep: sleepSync,
+  });
+  const steps = currentAttemptJobSteps({
+    checkRun: last,
+    jobId: ref.jobId,
+    jobs: Array.isArray(out) ? out : [],
+  });
   _vitestJobSteps.set(head, steps);
   return steps;
 }
@@ -643,10 +679,18 @@ function reviewInProgress(head) {
     // not rebase into that gap: the push could cancel a review whose Jobs API
     // record has not been materialized yet.
     if (!jobId) return true;
-    const job = gh(['api', `repos/${REPO}/actions/jobs/${jobId}`], { allowFail: true });
-    // During startup GitHub can return the job with `steps: []`; this is not a
-    // negative answer, it is the short window before the review step appears.
-    if (!job || !Array.isArray(job.steps) || job.steps.length === 0) return true;
+    const job = pollUntil({
+      read: () => gh(['api', `repos/${REPO}/actions/jobs/${jobId}`]),
+      ready: (response) => vitestJobIsConcluded(response)
+        && Array.isArray(response.steps) && response.steps.length > 0,
+      attempts: VITEST_POLL_ATTEMPTS,
+      delayMs: VITEST_POLL_DELAY_MS,
+      sleep: sleepSync,
+    });
+    // During startup GitHub can return the job with `steps: []` or without a
+    // terminal conclusion; neither is a negative answer, it is the short
+    // window before the review step appears/finishes.
+    if (!vitestJobIsConcluded(job) || !Array.isArray(job.steps) || job.steps.length === 0) return true;
     if (reviewStepIsInFlight(job?.steps)) return true;
   }
   return false;
@@ -693,12 +737,11 @@ export function testsRunInFlightOnHead({ runs, head }) {
 }
 
 /** Run di `tests.yml` sul branch della PR (qualunque stato, ultimi 20): la
- * selezione per head SHA + stato la fa `testsRunInFlightOnHead` (pura). Su
- * errore API torna `[]` → fail-open, la guardia non blocca il rebase. */
+ * selezione per head SHA + stato la fa `testsRunInFlightOnHead` (pura). Gli
+ * errori API attraversano `gh`, invece di sembrare una lista vuota. */
 function testsRunsForBranch(branch) {
   const out = gh(
-    ['api', `repos/${REPO}/actions/workflows/tests.yml/runs?branch=${encodeURIComponent(branch)}&per_page=20`],
-    { allowFail: true });
+    ['api', `repos/${REPO}/actions/workflows/tests.yml/runs?branch=${encodeURIComponent(branch)}&per_page=20`]);
   return (out && Array.isArray(out.workflow_runs)) ? out.workflow_runs : [];
 }
 

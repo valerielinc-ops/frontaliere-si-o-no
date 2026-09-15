@@ -143,6 +143,19 @@ jobs:
 
           work=$(mktemp -d)
           echo "work=$work" >> "$GITHUB_OUTPUT"
+          source_manifest="$RUNNER_TEMP/engine-source-manifest.txt"
+          source_tree_sha="$(git rev-parse HEAD:packages/articles/engine)"
+          manifest() {
+            local root="$1"
+            find "$root" -type f -print0 \
+              | LC_ALL=C sort -z \
+              | while IFS= read -r -d '' file; do
+                  rel="${file#"$root"/}"
+                  printf '%s  %s\n' "$(sha256sum "$file" | cut -d' ' -f1)" "$rel"
+                done
+          }
+          manifest packages/articles/engine > "$source_manifest"
+          echo "source_tree_sha=$source_tree_sha" >> "$GITHUB_OUTPUT"
 
           # Always branch from nanako's CURRENT main, never from whatever the
           # side branch happens to hold. The side branch is derived state; if
@@ -158,8 +171,17 @@ jobs:
           # destructive step was `rm -rf content` — there is deliberately no
           # analogue here, and the guard below proves it on the actual diff
           # rather than trusting this comment.
-          rm -rf "${work:?}/engine"
-          cp -R packages/articles/engine "$work/engine"
+          stage_dir="$work/.engine-stage"
+          mkdir -p "$stage_dir"
+          cp -R packages/articles/engine "$stage_dir/engine"
+          manifest "$stage_dir/engine" > "$stage_dir/engine-manifest.txt"
+          if ! diff -u "$source_manifest" "$stage_dir/engine-manifest.txt"; then
+            echo "::error::engine/shared preflight mismatch after the copy — refusing to fan out a partial mirror"
+            exit 1
+          fi
+          mv "$work/engine" "$work/.engine-before-preflight"
+          mv "$stage_dir/engine" "$work/engine"
+          rm -rf "$work/.engine-before-preflight" "$stage_dir"
           for f in index.ts articleSections.ts; do
             [ -f "packages/articles/$f" ] && cp "packages/articles/$f" "$work/$f"
           done
@@ -184,6 +206,7 @@ jobs:
                 | grep -vE '^(engine/|index\.ts$|articleSections\.ts$)' || true)
           if [ -n "$bad" ]; then
             echo "::error::the engine mirror staged paths outside engine/ — refusing"
+            # shellcheck disable=SC2001
             echo "$bad" | sed 's/^/  offending: /'
             exit 1
           fi
@@ -217,6 +240,7 @@ jobs:
         run: |
           set -euo pipefail
           cd "$WORK"
+          test -f scripts/ci/pr-body-contract.mjs
 
           git config user.name "Valerie Linc"
           git config user.email "valerielinc@gmail.com"
@@ -313,6 +337,8 @@ jobs:
                                 END { if (n > 25) printf ", and %d more", n - 25; print "" }')
 
           body=$(mktemp)
+          # The single-quoted Markdown fragments must remain literal text.
+          # shellcheck disable=SC2016
           printf '%s\n' \
             'Automated by `mirror-articles-engine.yml` in valerielinc-ops/frontaliere-si-o-no.' \
             '' \
@@ -329,16 +355,20 @@ jobs:
             '' \
             '## Implementato' \
             > "$body"
+          # shellcheck disable=SC2016
           printf -- '- Lockstep of `engine/` (plus `index.ts` and `articleSections.ts`) with valerielinc-ops/frontaliere-si-o-no@%s — %s path(s) updated in this repo, %s removed.\n' \
             "${SHA:0:8}" "$n_changed" "$n_deleted" >> "$body"
           if [ -n "${carried:-}" ]; then
+            # shellcheck disable=SC2016
             printf '%s\n' '- Site commits this PR carries down, newest first (paths `packages/articles/engine/`, `index.ts`, `articleSections.ts`):' >> "$body"
             printf '%s\n' "$carried" \
               | awk 'NF { s = $1; $1 = ""; sub(/^ /, ""); printf "  - `%s` — %s\n", s, $0 }' >> "$body"
           fi
           if [ -n "${paths_inline:-}" ]; then
+            # shellcheck disable=SC2016
             printf -- '- Paths updated here: %s\n' "$paths_inline" >> "$body"
           fi
+          # shellcheck disable=SC2016
           printf '%s\n' \
             '' \
             '## Non implementato (ancora)' \

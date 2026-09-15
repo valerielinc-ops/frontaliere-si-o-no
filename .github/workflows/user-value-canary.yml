@@ -143,10 +143,12 @@ jobs:
         if: always()
         run: |
           if [ -s user-value-canary-result.json ]; then
-            echo "## User-value (ARPU) canary" >> "$GITHUB_STEP_SUMMARY"
-            echo '```json' >> "$GITHUB_STEP_SUMMARY"
-            cat user-value-canary-result.json >> "$GITHUB_STEP_SUMMARY"
-            echo '```' >> "$GITHUB_STEP_SUMMARY"
+            {
+              echo "## User-value (ARPU) canary"
+              echo '```json'
+              cat user-value-canary-result.json
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
           fi
 
       - name: Build issue body

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Build the employer-insights snapshot from the complete, documentable
- * PostHog period.
+ * Build the employer-insights snapshot from a complete, documentable
+ * analytics period.
  *
  * The calculation deliberately starts from the union of events. A pageview
  * is one signal among many, not the admission criterion for an ad. Identity
@@ -10,6 +10,7 @@
  *
  * Usage:
  *   node scripts/build-employer-insights.mjs --source posthog --days 30
+ *   node scripts/build-employer-insights.mjs --source ga4
  *   node scripts/build-employer-insights.mjs --source posthog --company <companyKey>
  *   node scripts/build-employer-insights.mjs --source posthog --apply
  */
@@ -20,7 +21,17 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
+import { writeEmployerInsightsDocuments } from './lib/employer-insights-firestore.mjs';
 import { assertEmployerInsightsSource } from './lib/employer-insights-contract.mjs';
+import {
+  GA4_READONLY_SCOPE,
+  getServiceAccountToken,
+  runGa4Report,
+} from './lib/ga4-service-account.mjs';
+import {
+  ANALYTICS_PROCESSING_LAG_DAYS,
+  settledEndDate,
+} from './lib/analytics-settled-window.mjs';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 import { JOB_BOARD_SECTION_PREFIX_SOURCE } from './lib/jobBoardSections.mjs';
 import {
@@ -28,10 +39,13 @@ import {
   canonicalCompanyProfileSlug,
   rawCompanySlug,
 } from '../build-plugins/shared/companyProfileSlug.mjs';
+import { isJobBoardSectorHubPath } from '../build-plugins/shared/jobSectorSlugs.mjs';
 
 export const INSIGHTS_SCHEMA_VERSION = 2;
 export const DELIVERY_UNAVAILABLE = 'non disponibile';
 export const EVENT_QUERY_PAGE_SIZE = 10_000;
+export const GA4_EVENT_QUERY_PAGE_SIZE = 100_000;
+const DAY_MS = 86_400_000;
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 function resolveBuildSha() {
@@ -120,22 +134,35 @@ function toIso(value) {
   if (value == null || value === '') return null;
   if (value instanceof Date) return Number.isNaN(value.getTime()) ? null : value.toISOString();
   if (typeof value === 'object') {
-    if (typeof value.toDate === 'function') return toIso(value.toDate());
-    if (typeof value.toMillis === 'function') return toIso(new Date(value.toMillis()));
-    if (typeof value._seconds === 'number') return toIso(new Date(value._seconds * 1000 + numberOr(value._nanoseconds, 0) / 1e6));
-    if (typeof value.seconds === 'number') return toIso(new Date(value.seconds * 1000 + numberOr(value.nanoseconds, 0) / 1e6));
+    try {
+      if (typeof value.toDate === 'function') return toIso(value.toDate());
+      if (typeof value.toMillis === 'function') return toIso(new Date(value.toMillis()));
+      if (typeof value._seconds === 'number') return toIso(new Date(value._seconds * 1000 + numberOr(value._nanoseconds, 0) / 1e6));
+      if (typeof value.seconds === 'number') return toIso(new Date(value.seconds * 1000 + numberOr(value.nanoseconds, 0) / 1e6));
+    } catch {
+      return null;
+    }
   }
-  const date = new Date(value);
-  return Number.isNaN(date.getTime()) ? null : date.toISOString();
+  try {
+    const date = new Date(value);
+    return Number.isNaN(date.getTime()) ? null : date.toISOString();
+  } catch {
+    return null;
+  }
 }
 
 function inWindow(timestamp, window) {
   const iso = toIso(timestamp);
-  if (!iso) return true;
-  const from = Date.parse(window.from);
-  const to = Date.parse(window.to);
-  const time = Date.parse(iso);
-  return Number.isFinite(time) && time >= from && time < to;
+  if (!iso) return false;
+  try {
+    const from = Date.parse(window?.from);
+    const to = Date.parse(window?.to);
+    const time = Date.parse(iso);
+    return Number.isFinite(from) && Number.isFinite(to)
+      && Number.isFinite(time) && time >= from && time < to;
+  } catch {
+    return false;
+  }
 }
 
 function weekStart(timestamp) {
@@ -349,7 +376,7 @@ function normalizeEventRow(source) {
   return {
     emissionId: normalizeText(read(['emissionId', 'emission_id', 'actionId', 'action_id'], 15)),
     event: eventName,
-    timestamp: Array.isArray(source) ? null : toIso(read(['timestamp', 'occurredAt', 'createdAt'], undefined)),
+    timestamp: toIso(read(['timestamp', 'occurredAt', 'createdAt'], 16)),
     week: normalizeWeek(read(['week', 'wk'], 2)),
     path: normalizeText(read(['path', '$pathname', 'pathname'], 3)),
     jobSlug: normalizeText(read(['jobSlug', 'job_slug', 'slug'], 4)),
@@ -463,6 +490,12 @@ function pathSegments(pathname) {
 
 function routeIdentity(pathname) {
   const segments = pathSegments(pathname);
+  // Sector hubs deliberately share the `/section/<slug>/` shape with job
+  // details. Their page views have no employer/job identity and must remain
+  // residual traffic; resolving the hub slug against the job catalog would
+  // inflate an employer's denominator (e.g. `/infermieri/` versus the LIS
+  // detail slug) while apply clicks remain correctly attributed.
+  if (isJobBoardSectorHubPath(pathname)) return null;
   for (const segment of segments) {
     const prefix = COMPANY_HUB_PREFIXES.find((candidate) => segment.startsWith(candidate) && segment.length > candidate.length);
     if (prefix) return { kind: 'company', alias: segment.slice(prefix.length) };
@@ -550,7 +583,7 @@ export function resolveEventIdentity(sourceRow, catalog) {
 }
 
 function isPageview(row) {
-  return row.event === '$pageview' || row.event === 'pageview';
+  return row.event === '$pageview' || row.event === 'pageview' || row.event === 'page_view';
 }
 
 function isApplyClick(row) {
@@ -566,9 +599,11 @@ function ensureCompanyState(states, catalog, companyKey) {
       profileViews: 0,
       profileVisitors: 0,
       applyClicks: 0,
+      applyClickUsers: 0,
       eventsObserved: 0,
       eventTypes: new Map(),
       trend: new Map(),
+      applyClickTrend: new Map(),
       profileTrend: new Map(),
       companyPaths: new Set(),
     });
@@ -597,6 +632,7 @@ function ensureAd(state, job) {
       views: 0,
       visitors: 0,
       applyClicks: 0,
+      applyClickUsers: 0,
       eventsObserved: 0,
       eventTypes: new Map(),
       trend: new Map(),
@@ -622,12 +658,17 @@ function addResidual(residuals, reason, amount) {
 export function aggregateEmployerEvents(inputRows = [], { catalog, window, source = 'posthog' } = {}) {
   catalog ||= buildIdentityCatalog();
   const effectiveWindow = window || { from: '1970-01-01T00:00:00.000Z', to: '9999-01-01T00:00:00.000Z' };
-  const windowRows = inputRows
-    .map(normalizeEventRow)
-    .filter((row) => inWindow(row.timestamp, effectiveWindow));
+  const normalizedRows = inputRows.map(normalizeEventRow);
+  const invalidTimestampRows = normalizedRows.filter((row) => !row.timestamp);
+  const windowRows = normalizedRows
+    .filter((row) => row.timestamp && inWindow(row.timestamp, effectiveWindow));
   const deduped = collapseTechnicalDuplicates(windowRows);
+  const invalidTimestampDeduped = collapseTechnicalDuplicates(invalidTimestampRows);
   const states = new Map();
   const residuals = residualLedger();
+  for (const sourceRow of invalidTimestampDeduped.rows) {
+    addResidual(residuals, 'invalid_timestamp', Math.max(0, numberOr(sourceRow.observed, 1)));
+  }
   let attributed = 0;
   let eventRowsAttributed = 0;
 
@@ -655,7 +696,12 @@ export function aggregateEmployerEvents(inputRows = [], { catalog, window, sourc
     const views = pageview ? (sourceRow.views == null ? count : numberOr(sourceRow.views, count)) : 0;
     const visitors = pageview ? numberOr(sourceRow.visitors || sourceRow.persons, 0) : 0;
     const clicks = applyClick ? (sourceRow.clicks == null ? count : numberOr(sourceRow.clicks, count)) : 0;
+    // GA4/PostHog expose users per grouped row, not a cross-window user union.
+    // Keep the observed units for context, but never present them as named or
+    // globally unique people.
+    const applyClickUsers = applyClick ? numberOr(sourceRow.persons, 0) : 0;
     state.applyClicks += clicks;
+    state.applyClickUsers += applyClickUsers;
     if (job) {
       state.views += views;
       state.visitors += visitors;
@@ -665,8 +711,10 @@ export function aggregateEmployerEvents(inputRows = [], { catalog, window, sourc
       ad.views += views;
       ad.visitors += visitors;
       ad.applyClicks += clicks;
-      const week = sourceRow.week || (pageview ? weekStart(sourceRow.timestamp) : null);
+      ad.applyClickUsers += applyClickUsers;
+      const week = sourceRow.week || ((pageview || applyClick) ? weekStart(sourceRow.timestamp) : null);
       if (pageview && week) addMetric(ad.trend, week, views);
+      if (applyClick && week) addMetric(state.applyClickTrend, week, clicks);
     } else if (pageview) {
       state.profileViews += views;
       state.profileVisitors += visitors;
@@ -676,22 +724,24 @@ export function aggregateEmployerEvents(inputRows = [], { catalog, window, sourc
   }
 
   const residualTotal = Object.values(residuals).reduce((sum, value) => sum + value, 0);
+  const rawObserved = deduped.rawObserved + invalidTimestampDeduped.rawObserved;
+  const observed = deduped.observed + invalidTimestampDeduped.observed;
   const coverage = {
     source,
-    status: deduped.observed > 0 ? 'observed' : 'zero_observed',
-    rawObserved: deduped.rawObserved,
-    observed: deduped.observed,
+    status: observed > 0 ? 'observed' : 'zero_observed',
+    rawObserved,
+    observed,
     attributed,
     residuals,
     residualTotal,
-    technicalDuplicatesRemoved: deduped.removed,
-    dedupUnavailable: deduped.dedupUnavailable,
+    technicalDuplicatesRemoved: deduped.removed + invalidTimestampDeduped.removed,
+    dedupUnavailable: deduped.dedupUnavailable + invalidTimestampDeduped.dedupUnavailable,
     deduplication: {
       key: 'emission_id',
-      status: deduped.dedupUnavailable > 0 ? 'dedup non disponibile' : 'available',
-      unavailableCount: deduped.dedupUnavailable,
+      status: (deduped.dedupUnavailable + invalidTimestampDeduped.dedupUnavailable) > 0 ? 'dedup non disponibile' : 'available',
+      unavailableCount: deduped.dedupUnavailable + invalidTimestampDeduped.dedupUnavailable,
     },
-    invariant: attributed + residualTotal === deduped.observed,
+    invariant: attributed + residualTotal === observed,
     attributedRows: eventRowsAttributed,
   };
   return { states, coverage, dedupedRows: deduped.rows };
@@ -727,7 +777,12 @@ export function aggregateApplicationEvidence(records = [], { window, catalog } =
     }
     if (id) seenIds.add(id);
     const createdAt = toIso(source?.createdAt || source?.submittedAt);
-    if (createdAt && !inWindow(createdAt, window)) continue;
+    if (!createdAt) {
+      evidence.observed += 1;
+      addResidual(evidence.residuals, 'invalid_timestamp', 1);
+      continue;
+    }
+    if (!inWindow(createdAt, window)) continue;
     evidence.observed += 1;
     const jobIdResult = resolveJobById(catalog, source?.jobId || source?.publisherJobId);
     const slugResult = !jobIdResult ? resolveUnique(catalog.jobAliasToIds, source?.jobSlug || source?.slug) : null;
@@ -761,10 +816,20 @@ function serializeEventTypes(types) {
   return Object.fromEntries([...types.entries()].sort(([a], [b]) => a.localeCompare(b)));
 }
 
-function serializeTrend(trend) {
-  return [...trend.entries()]
-    .sort(([a], [b]) => a.localeCompare(b))
-    .map(([week, views]) => ({ week, views }));
+function serializeTrend(trend, extras = {}) {
+  const weeks = new Set(trend.keys());
+  for (const extra of Object.values(extras)) {
+    for (const week of extra.keys()) weeks.add(week);
+  }
+  return [...weeks]
+    .sort((a, b) => a.localeCompare(b))
+    .map((week) => {
+      const point = { week, views: trend.get(week) || 0 };
+      for (const [name, extra] of Object.entries(extras)) {
+        if (extra.has(week)) point[name] = extra.get(week) || 0;
+      }
+      return point;
+    });
 }
 
 function queryCoverageOrDefault(queryCoverage, coverage, window) {
@@ -782,6 +847,10 @@ function queryCoverageOrDefault(queryCoverage, coverage, window) {
     queryHash: query.queryHash || null,
     snapshotId: query.snapshotId || null,
     sourceObserved: query.sourceObserved ?? coverage.rawObserved,
+    sourceResponse: query.sourceResponse ?? null,
+    sourceResponseRows: query.sourceResponseRows ?? null,
+    groupedResponse: query.groupedResponse ?? null,
+    groupedResponseRows: query.groupedResponseRows ?? null,
     from: window.from,
     to: window.to,
   };
@@ -801,6 +870,7 @@ export function buildDryRunPayload({
   if (!Array.isArray(documents)) throw new Error('dry-run documents must be an array');
   if (!window?.from || !window?.to || !window?.timezone) throw new Error('dry-run window must include from, to and timezone');
   assertEmployerInsightsSource(source);
+  const normalizedCoverage = queryCoverageOrDefault(queryCoverage, { rawObserved: null }, window);
   return {
     schemaVersion: INSIGHTS_SCHEMA_VERSION,
     generatedAt,
@@ -808,15 +878,19 @@ export function buildDryRunPayload({
     window,
     coverage: {
       source,
-      sourceObserved: queryCoverage.sourceObserved ?? null,
-      totalRows: queryCoverage.totalRows ?? null,
-      returnedRows: queryCoverage.returnedRows ?? null,
-      returned: queryCoverage.returned ?? null,
-      pages: queryCoverage.pages ?? null,
-      pageSize: queryCoverage.pageSize ?? EVENT_QUERY_PAGE_SIZE,
-      truncated: Boolean(queryCoverage.truncated),
-      queryHash: queryCoverage.queryHash || null,
-      snapshotId: queryCoverage.snapshotId || null,
+      sourceObserved: normalizedCoverage.sourceObserved,
+      totalRows: normalizedCoverage.groupRowsBeforeCut,
+      returnedRows: normalizedCoverage.returnedRows,
+      returned: normalizedCoverage.returned,
+      pages: normalizedCoverage.pages,
+      pageSize: normalizedCoverage.pageSize,
+      truncated: normalizedCoverage.truncated,
+      queryHash: normalizedCoverage.queryHash,
+      snapshotId: normalizedCoverage.snapshotId,
+      sourceResponse: normalizedCoverage.sourceResponse,
+      sourceResponseRows: normalizedCoverage.sourceResponseRows,
+      groupedResponse: normalizedCoverage.groupedResponse,
+      groupedResponseRows: normalizedCoverage.groupedResponseRows,
     },
     documents,
   };
@@ -844,6 +918,10 @@ function selectWindowSummary(doc) {
     window: doc.window,
     totals: doc.totals,
     trend: doc.trend,
+    topAd: doc.topAd,
+    ads: doc.ads,
+    profileTrend: doc.profileTrend,
+    applicationsCoverage: doc.applicationsCoverage,
     coverage: doc.coverage,
     limits: doc.limits,
   };
@@ -915,6 +993,7 @@ export function buildInsightsDocuments({
         views: ad.views,
         visitors: ad.visitors,
         applyClicks: ad.applyClicks,
+        applyClickUsers: ad.applyClickUsers,
         eventsObserved: ad.eventsObserved,
         eventTypes: serializeEventTypes(ad.eventTypes),
         applications: app ? app.applications : unavailable.applications,
@@ -930,7 +1009,7 @@ export function buildInsightsDocuments({
     const forwardedAt = ads.map((ad) => ad.forwardedAt).filter(Boolean).sort().at(-1) || null;
     const jobTrend = ads.flatMap((ad) => ad.trend);
     for (const point of jobTrend) addMetric(state.trend, point.week, point.views);
-    const trend = serializeTrend(state.trend);
+    const trend = serializeTrend(state.trend, { applyClicks: state.applyClickTrend });
     const profileTrend = serializeTrend(state.profileTrend);
     const eventLimits = queryCoverageOrDefault(queryCoverage, aggregate.coverage, window);
     const doc = {
@@ -946,6 +1025,7 @@ export function buildInsightsDocuments({
         profileViews: state.profileViews,
         profileVisitors: state.profileVisitors,
         applyClicks: state.applyClicks,
+        applyClickUsers: state.applyClickUsers,
         adsCount: ads.length,
         applications: totalsApplications,
         applicationsStatus: evidence.status === 'source_unavailable'
@@ -960,6 +1040,8 @@ export function buildInsightsDocuments({
       profileTrend,
       coverage: {
         ...aggregate.coverage,
+        sourceResponse: eventLimits.sourceResponse,
+        sourceResponseRows: eventLimits.sourceResponseRows,
         residuals: { ...aggregate.coverage.residuals },
         identityResolution: {
           method: 'explicit_alias',
@@ -970,6 +1052,12 @@ export function buildInsightsDocuments({
             identifier: 'person_id',
             aggregation: 'sum_distinct_per_event_group',
             globalUnique: false,
+          },
+          applyClickUsers: {
+            identifier: 'person_id',
+            aggregation: 'sum_per_apply_event_group',
+            globalUnique: false,
+            pii: false,
           },
         },
       },
@@ -993,6 +1081,10 @@ export function buildInsightsDocuments({
         pages: eventLimits.pages,
         pageSize: eventLimits.pageSize,
         truncated: eventLimits.truncated,
+        sourceResponse: eventLimits.sourceResponse,
+        sourceResponseRows: eventLimits.sourceResponseRows,
+        groupedResponse: eventLimits.groupedResponse,
+        groupedResponseRows: eventLimits.groupedResponseRows,
       },
     };
     if (Object.keys(additionalWindows).length) doc.additionalWindows = additionalWindows;
@@ -1020,6 +1112,26 @@ function hogqlDate(iso) {
   return String(iso).replace('T', ' ').replace(/\.\d{3}Z$/, '');
 }
 
+// Every grouped event row needs a cursor discriminator that cannot be empty.
+// PostHog installations expose the identity in different places, so prefer
+// the stable provider ids and fall back to the complete grouped identity.
+const EVENT_KEY_EXPRESSION = [
+  'coalesce(',
+  "nullIf(toString(properties.$insert_id), ''),",
+  "nullIf(toString(properties.$event_id), ''),",
+  "nullIf(toString(uuid), ''),",
+  "concat(toString(timestamp), '|', toString(event), '|',",
+  "coalesce(toString(properties.$pathname), ''), '|',",
+  "coalesce(toString(properties.job_slug), ''), '|',",
+  "coalesce(toString(properties.job_id), ''), '|',",
+  "coalesce(toString(properties.publisher_job_id), ''), '|',",
+  "coalesce(toString(properties.employer_key), ''), '|',",
+  "coalesce(toString(properties.item_id), ''), '|',",
+  "coalesce(toString(properties.content_type), ''), '|',",
+  "coalesce(toString(properties.emission_id), ''))",
+  ')',
+].join(' ');
+
 const EVENT_CURSOR_TIMESTAMP_INDEX = 16;
 const EVENT_CURSOR_FIELDS = [
   { name: 'event', index: 17, alias: 'cursor_event', expression: 'toString(event)', objectKeys: ['cursor_event', 'event'] },
@@ -1032,6 +1144,7 @@ const EVENT_CURSOR_FIELDS = [
   { name: 'itemId', index: 24, alias: 'cursor_item_id', expression: "coalesce(toString(properties.item_id), '')", objectKeys: ['cursor_item_id', 'itemId', 'item_id'] },
   { name: 'contentType', index: 25, alias: 'cursor_content_type', expression: "coalesce(toString(properties.content_type), '')", objectKeys: ['cursor_content_type', 'contentType', 'content_type'] },
   { name: 'emissionId', index: 26, alias: 'cursor_emission_id', expression: "coalesce(toString(properties.emission_id), '')", objectKeys: ['cursor_emission_id', 'emissionId', 'emission_id'] },
+  { name: 'eventKey', index: 27, alias: 'cursor_event_key', expression: EVENT_KEY_EXPRESSION, objectKeys: ['cursor_event_key', 'eventKey', 'event_key'] },
 ];
 
 function hogqlString(value) {
@@ -1039,12 +1152,26 @@ function hogqlString(value) {
 }
 
 function hogqlTimestamp(value) {
-  const raw = String(value ?? '')
-    .trim()
-    .replace('T', ' ')
-    .replace(/(?:Z|[+-]\d\d:\d\d)$/, '');
-  const [whole, fraction = ''] = raw.split('.', 2);
-  return whole + '.' + fraction.slice(0, 6).padEnd(6, '0');
+  const match = String(value ?? '').trim().match(
+    /^(\d{4}-\d{2}-\d{2})[T ](\d{2}):(\d{2}):(\d{2})(?:\.(\d+))?(Z|[+-]\d{2}:?\d{2})?$/,
+  );
+  if (!match) throw new Error('invalid PostHog cursor timestamp');
+  const [, datePart, hour, minute, second, rawFraction = '', zone = ''] = match;
+  const fraction = rawFraction.slice(0, 6).padEnd(6, '0');
+  if (!zone || zone === 'Z') return `${datePart} ${hour}:${minute}:${second}.${fraction}`;
+
+  const sign = zone[0] === '+' ? 1 : -1;
+  const offsetDigits = zone.slice(1).replace(':', '');
+  const offsetHours = Number(offsetDigits.slice(0, 2));
+  const offsetMinutes = Number(offsetDigits.slice(2, 4));
+  if (offsetHours > 23 || offsetMinutes > 59) throw new Error('invalid PostHog cursor timestamp offset');
+  const [year, month, day] = datePart.split('-').map(Number);
+  const base = Date.UTC(year, month - 1, day, Number(hour), Number(minute), Number(second));
+  if (!Number.isFinite(base)) throw new Error('invalid PostHog cursor timestamp');
+  const utc = new Date(base - sign * (offsetHours * 60 + offsetMinutes) * 60_000);
+  const pad = (number) => String(number).padStart(2, '0');
+  return `${utc.getUTCFullYear()}-${pad(utc.getUTCMonth() + 1)}-${pad(utc.getUTCDate())} `
+    + `${pad(utc.getUTCHours())}:${pad(utc.getUTCMinutes())}:${pad(utc.getUTCSeconds())}.${fraction}`;
 }
 
 function cursorFieldValue(row, field) {
@@ -1060,15 +1187,31 @@ function eventCursorFromRow(row) {
     ? row[EVENT_CURSOR_TIMESTAMP_INDEX]
     : row?.cursorTimestamp ?? row?.cursor_timestamp ?? row?.timestamp;
   const values = EVENT_CURSOR_FIELDS.map((field) => [field.name, cursorFieldValue(row, field)]);
-  if (timestamp == null || timestamp === '' || values.some(([, value]) => value == null)) return null;
+  const eventKey = values.find(([name]) => name === 'eventKey')?.[1];
+  if (
+    timestamp == null
+    || timestamp === ''
+    || values.some(([, value]) => value == null)
+    || eventKey === ''
+  ) return null;
   return {
     timestamp: String(timestamp),
     ...Object.fromEntries(values.map(([name, value]) => [name, String(value)])),
   };
 }
 
-function eventCursorSortKey(cursor) {
-  return [hogqlTimestamp(cursor.timestamp), ...EVENT_CURSOR_FIELDS.map((field) => cursor[field.name])].join('\u0000');
+function compareCursorText(left, right) {
+  return Buffer.from(String(left), 'utf8').compare(Buffer.from(String(right), 'utf8'));
+}
+
+function compareEventCursors(left, right) {
+  const timestampResult = compareCursorText(hogqlTimestamp(left.timestamp), hogqlTimestamp(right.timestamp));
+  if (timestampResult !== 0) return timestampResult;
+  for (const field of EVENT_CURSOR_FIELDS) {
+    const result = compareCursorText(left[field.name], right[field.name]);
+    if (result !== 0) return result;
+  }
+  return 0;
 }
 
 function eventCursorFilter(cursor, cursorTimestamp) {
@@ -1116,12 +1259,13 @@ function eventSelect(window, cursor = null) {
       countIf(event IN ('$pageview', 'pageview')) AS views,
       countIf(event = 'job_apply' OR (event = 'select_content' AND properties.content_type IN ('job_board_apply','job_board_apply_header_logo','job_board_apply_header_title'))) AS clicks,
       coalesce(toString(properties.emission_id), '') AS emission_id,
-      toString(timestamp) AS cursor_timestamp,
+      toString(timestamp) AS timestamp,
       ${cursorSelect}
     FROM events
     WHERE timestamp >= toDateTime('${from}') AND timestamp < toDateTime('${to}')${cursorFilter}
     GROUP BY event, week, path, job_slug, job_id, provider_id,
-             employer_key, item_id, content_type, emission_id, timestamp
+             employer_key, item_id, content_type, emission_id, timestamp,
+             ${EVENT_KEY_EXPRESSION}
     ORDER BY cursor_timestamp, ${cursorOrder}
   `.trim();
 }
@@ -1135,6 +1279,26 @@ function eventCountSelect(window) {
   `.trim();
 }
 
+function readPostHogCountResult(rows, label) {
+  if (!Array.isArray(rows) || rows.length === 0) {
+    throw new Error(`posthog ${label} count response unavailable`);
+  }
+  const first = rows[0];
+  const raw = Array.isArray(first) ? first[0] : first?.total;
+  if (raw === undefined || raw === null || raw === '') {
+    throw new Error(`posthog ${label} count response invalid`);
+  }
+  const value = Number(raw);
+  if (!Number.isFinite(value)) {
+    throw new Error(`posthog ${label} count response invalid`);
+  }
+  return {
+    count: Math.max(0, Math.trunc(value)),
+    response: 'present',
+    rawRows: rows.length,
+  };
+}
+
 export async function queryEventRows(window, { query: runQuery = hogql, pageSize = EVENT_QUERY_PAGE_SIZE } = {}) {
   const baseQuery = eventSelect(window);
   const queryHash = sha256(baseQuery);
@@ -1142,8 +1306,10 @@ export async function queryEventRows(window, { query: runQuery = hogql, pageSize
     runQuery('SELECT count() AS total FROM (' + baseQuery + ')'),
     runQuery(eventCountSelect(window)),
   ]);
-  const groupedRowsBeforeCut = Math.max(0, Math.trunc(numberOr(countRows?.[0]?.[0] ?? countRows?.[0]?.total, 0)));
-  const sourceObserved = Math.max(0, Math.trunc(numberOr(sourceCountRows?.[0]?.[0] ?? sourceCountRows?.[0]?.total, 0)));
+  const groupedCount = readPostHogCountResult(countRows, 'grouped');
+  const sourceCount = readPostHogCountResult(sourceCountRows, 'source');
+  const groupedRowsBeforeCut = groupedCount.count;
+  const sourceObserved = sourceCount.count;
   const rows = [];
   let pages = 0;
   let cursor = null;
@@ -1154,7 +1320,7 @@ export async function queryEventRows(window, { query: runQuery = hogql, pageSize
     if (!pageRows.length) break;
     const nextCursor = eventCursorFromRow(pageRows.at(-1));
     if (!nextCursor) throw new Error('posthog page missing keyset cursor');
-    if (cursor && eventCursorSortKey(nextCursor) <= eventCursorSortKey(cursor)) {
+    if (cursor && compareEventCursors(nextCursor, cursor) <= 0) {
       throw new Error('posthog keyset cursor did not advance');
     }
     cursor = nextCursor;
@@ -1178,6 +1344,205 @@ export async function queryEventRows(window, { query: runQuery = hogql, pageSize
       queryHash,
       snapshotId: sha256(`${queryHash}:${window.from}:${window.to}`),
       sourceObserved,
+      sourceResponse: sourceCount.response,
+      sourceResponseRows: sourceCount.rawRows,
+      groupedResponse: groupedCount.response,
+      groupedResponseRows: groupedCount.rawRows,
+    },
+  };
+}
+
+/** Do not hand a partial event snapshot to the document builder. */
+export function assertCompleteEventCoverage(coverage) {
+  if (coverage?.truncated) {
+    throw new Error(
+      `employer insights event query truncated (${coverage.rowsReturned ?? 0}/${coverage.totalRows ?? 0} grouped rows)`,
+    );
+  }
+}
+
+const GA4_INSIGHTS_EVENTS = ['page_view', 'job_apply'];
+
+function ga4DateForValue(value, label) {
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) throw new Error(`GA4 ${label} is not a valid date`);
+  return parsed.toISOString().slice(0, 10);
+}
+
+function ga4DateForWindowEnd(window) {
+  const end = Date.parse(window.to) - DAY_MS;
+  if (!Number.isFinite(end)) throw new Error('GA4 window.to is not a valid date');
+  return ga4DateForValue(new Date(end), 'window.to');
+}
+
+function ga4DimensionValue(row, index) {
+  const cell = row?.dimensionValues?.[index];
+  const value = cell && typeof cell === 'object' ? cell.value : cell;
+  return value === '(not set)' || value === '(other)' ? '' : normalizeText(value);
+}
+
+function ga4MetricValue(row, index) {
+  const cell = row?.metricValues?.[index];
+  const value = cell && typeof cell === 'object' ? cell.value : cell;
+  return Math.max(0, numberOr(value, 0));
+}
+
+function ga4DayTimestamp(value) {
+  const compact = String(value || '').replaceAll('-', '');
+  if (!/^\d{8}$/.test(compact)) throw new Error(`GA4 row has invalid date: ${value || '<missing>'}`);
+  return `${compact.slice(0, 4)}-${compact.slice(4, 6)}-${compact.slice(6, 8)}T00:00:00.000Z`;
+}
+
+function exactGa4EventExpression(eventName) {
+  return {
+    filter: {
+      fieldName: 'eventName',
+      stringFilter: { value: eventName, matchType: 'EXACT' },
+    },
+  };
+}
+
+/**
+ * Keep the GA4 report contract in one place. `pagePath` is intentional: the
+ * static gtag pageview has no custom employer parameters, so the existing
+ * explicit route aliases can still attribute that signal without guessing.
+ */
+export function buildGa4EventQueryBody(window, { limit = GA4_EVENT_QUERY_PAGE_SIZE, offset = 0 } = {}) {
+  const startDate = ga4DateForValue(window?.from, 'window.from');
+  const endDate = ga4DateForWindowEnd(window);
+  if (Date.parse(`${startDate}T00:00:00.000Z`) >= Date.parse(`${endDate}T00:00:00.000Z`) + DAY_MS) {
+    throw new Error('GA4 window has no complete date');
+  }
+  return {
+    dateRanges: [{ startDate, endDate }],
+    dimensions: [
+      { name: 'date' },
+      { name: 'eventName' },
+      { name: 'customEvent:employer_key' },
+      { name: 'customEvent:job_slug' },
+      { name: 'pagePath' },
+    ],
+    metrics: [
+      { name: 'eventCount' },
+      { name: 'totalUsers' },
+      { name: 'sessions' },
+    ],
+    dimensionFilter: {
+      orGroup: { expressions: GA4_INSIGHTS_EVENTS.map(exactGa4EventExpression) },
+    },
+    orderBys: [
+      { dimension: { dimensionName: 'date' } },
+      { dimension: { dimensionName: 'eventName' } },
+      { dimension: { dimensionName: 'customEvent:employer_key' } },
+      { dimension: { dimensionName: 'customEvent:job_slug' } },
+      { dimension: { dimensionName: 'pagePath' } },
+    ],
+    limit,
+    offset,
+  };
+}
+
+/** Convert one GA4 row into the event shape consumed by the shared aggregator. */
+export function normalizeGa4EventRows(rows = []) {
+  return rows.map((row) => {
+    const event = ga4DimensionValue(row, 1);
+    if (!GA4_INSIGHTS_EVENTS.includes(event)) throw new Error(`GA4 row has unsupported event: ${event || '<missing>'}`);
+    const timestamp = ga4DayTimestamp(ga4DimensionValue(row, 0));
+    const observed = ga4MetricValue(row, 0);
+    return {
+      event,
+      timestamp,
+      week: weekStart(timestamp),
+      path: ga4DimensionValue(row, 4),
+      jobSlug: ga4DimensionValue(row, 3),
+      jobId: '',
+      providerId: '',
+      employerKey: ga4DimensionValue(row, 2),
+      itemId: '',
+      contentType: '',
+      views: event === 'page_view' ? observed : 0,
+      clicks: event === 'job_apply' ? observed : 0,
+      observed,
+      persons: ga4MetricValue(row, 1),
+      sessions: ga4MetricValue(row, 2),
+      emissionId: '',
+    };
+  });
+}
+
+/**
+ * Read the complete selected GA4 event set. GA4 paginates with offset rather
+ * than the PostHog keyset used above; rowCount and the data-loss marker are
+ * retained so a high-cardinality `(other)`/short page fails closed.
+ */
+export async function queryGa4EventRows(
+  window,
+  {
+    token,
+    propertyId,
+    report = runGa4Report,
+    pageSize = GA4_EVENT_QUERY_PAGE_SIZE,
+  } = {},
+) {
+  if (!token) throw new Error('GA4 service-account token is required');
+  if (!Number.isInteger(pageSize) || pageSize <= 0 || pageSize > GA4_EVENT_QUERY_PAGE_SIZE) {
+    throw new Error(`GA4 pageSize must be an integer between 1 and ${GA4_EVENT_QUERY_PAGE_SIZE}`);
+  }
+  const firstBody = buildGa4EventQueryBody(window, { limit: pageSize, offset: 0 });
+  const queryHash = sha256(stableJson({ ...firstBody, offset: 0 }));
+  const rawRows = [];
+  let totalRows = null;
+  let offset = 0;
+  let pages = 0;
+  let dataLossFromOtherRow = false;
+
+  while (true) {
+    const data = await report({
+      token,
+      propertyId,
+      body: { ...firstBody, offset },
+    });
+    const reportedRows = Number(data?.rowCount);
+    if (Number.isFinite(reportedRows) && reportedRows >= 0) {
+      if (totalRows !== null && totalRows !== reportedRows) {
+        throw new Error(`GA4 rowCount changed during pagination: ${totalRows} → ${reportedRows}`);
+      }
+      totalRows = Math.trunc(reportedRows);
+    }
+    dataLossFromOtherRow ||= data?.metadata?.dataLossFromOtherRow === true;
+    const pageRows = Array.isArray(data?.rows) ? data.rows : [];
+    rawRows.push(...pageRows);
+    pages += 1;
+    offset += pageRows.length;
+
+    if (!pageRows.length) break;
+    if (totalRows !== null && offset >= totalRows) break;
+    if (totalRows === null && pageRows.length < pageSize) break;
+  }
+
+  totalRows ??= rawRows.length;
+  const rows = normalizeGa4EventRows(rawRows);
+  const returned = rows.reduce((sum, row) => sum + row.observed, 0);
+  const identityRows = rows.filter((row) => row.employerKey);
+  const identityObserved = identityRows.reduce((sum, row) => sum + row.observed, 0);
+  return {
+    rows,
+    coverage: {
+      pageSize,
+      totalRows,
+      groupRowsBeforeCut: totalRows,
+      totalBeforeCut: returned,
+      rowsReturned: rows.length,
+      returned,
+      returnedRows: rows.length,
+      pages,
+      truncated: dataLossFromOtherRow || rows.length < totalRows,
+      dataLossFromOtherRow,
+      identityRows: identityRows.length,
+      identityObserved,
+      queryHash,
+      snapshotId: sha256(`${queryHash}:${window.from}:${window.to}`),
+      sourceObserved: returned,
     },
   };
 }
@@ -1195,10 +1560,18 @@ function makeWindow(from, to, kind) {
   return { from: fromIso, to: toIsoValue, kind, timezone: 'UTC' };
 }
 
-async function loadApplicationRecords() {
-  const db = await getFirestoreDb();
+function ga4SettledExclusiveEnd(now = new Date()) {
+  const settled = settledEndDate(now, ANALYTICS_PROCESSING_LAG_DAYS);
+  const end = Date.UTC(settled.getUTCFullYear(), settled.getUTCMonth(), settled.getUTCDate()) + DAY_MS;
+  return new Date(end).toISOString();
+}
+
+export async function loadApplicationRecords(db = null) {
+  const firestore = db || await getFirestoreDb();
   const records = [];
-  let query = db.collection('applications').select('jobId', 'jobSlug', 'createdAt', 'forwardedAt');
+  let query = firestore.collection('applications')
+    .select('jobId', 'jobSlug', 'createdAt', 'forwardedAt')
+    .orderBy('__name__');
   while (true) {
     const snapshot = await query.limit(500).get();
     for (const doc of snapshot.docs) records.push({ id: doc.id, ...doc.data() });
@@ -1209,44 +1582,51 @@ async function loadApplicationRecords() {
 }
 
 async function writeDocuments(docs) {
-  const { FieldValue } = await import('firebase-admin/firestore');
   const db = await getFirestoreDb();
-  let written = 0;
-  for (let i = 0; i < docs.length; i += 400) {
-    const batch = db.batch();
-    for (const document of docs.slice(i, i + 400)) {
-      batch.set(db.collection('employer_insights').doc(document.companyKey), {
-        ...document,
-        updatedAt: FieldValue.serverTimestamp(),
-      });
-      written += 1;
-    }
-    await batch.commit();
-  }
-  return written;
+  const result = await writeEmployerInsightsDocuments(db, docs);
+  return result.documentsWritten;
 }
 
 async function main() {
   const source = arg('--source', null);
   if (!source) throw new Error('--source is required (posthog or ga4)');
   assertEmployerInsightsSource(source);
-  if (source !== 'posthog') {
-    throw new Error('source=ga4 is not yet supported by this builder; refusing to query PostHog under a GA4 label');
-  }
   const now = new Date().toISOString();
-  const explicitTo = arg('--to', now);
+  const requestedTo = arg('--to', null);
+  const requestedFrom = arg('--from', null);
   const requestedDays = arg('--days', null);
+  const explicitTo = requestedTo || (source === 'ga4' ? ga4SettledExclusiveEnd() : now);
   let primaryWindow;
   if (requestedDays != null) {
     const days = positiveNumberOr(requestedDays, null);
     if (!days) throw new Error('--days must be a positive number');
     primaryWindow = makeWindow(new Date(Date.parse(explicitTo) - days * 86_400_000), explicitTo, `days:${days}`);
+  } else if (source === 'ga4') {
+    // GA4's Data API is eventually consistent; never include the two newest
+    // calendar days in the scheduled snapshot. The feed begins at the
+    // instrumentation window instead of pretending old, unattributed rows
+    // prove employer coverage.
+    const days = 30;
+    primaryWindow = makeWindow(
+      new Date(Date.parse(explicitTo) - days * DAY_MS),
+      explicitTo,
+      `ga4-settled-days:${days}`,
+    );
   } else {
     const bounds = await findSourceBounds();
-    primaryWindow = makeWindow(arg('--from', bounds.from || '1970-01-01T00:00:00.000Z'), explicitTo, 'cumulative');
+    primaryWindow = makeWindow(requestedFrom || bounds.from || '1970-01-01T00:00:00.000Z', explicitTo, 'cumulative');
   }
-  const requestedFrom = arg('--from', null);
   if (requestedFrom) primaryWindow = makeWindow(requestedFrom, explicitTo, requestedDays ? `days:${requestedDays}` : 'explicit');
+
+  const ga4Options = source === 'ga4'
+    ? {
+      token: await getServiceAccountToken([GA4_READONLY_SCOPE]),
+      propertyId: process.env.GA4_PROPERTY_ID,
+    }
+    : null;
+  if (source === 'ga4' && !ga4Options.token) {
+    throw new Error('GA4 source requires a readable service-account token');
+  }
 
   const additional = new Map();
   for (const days of [30, 90]) {
@@ -1261,7 +1641,13 @@ async function main() {
   const windows = [['primary', primaryWindow], ...[...additional.entries()]];
   const builds = [];
   for (const [label, window] of windows) {
-    const queried = await queryEventRows(window);
+    const queried = source === 'ga4'
+      ? await queryGa4EventRows(window, ga4Options)
+      : await queryEventRows(window);
+    assertCompleteEventCoverage(queried.coverage);
+    if (source === 'ga4' && queried.coverage.identityObserved <= 0) {
+      throw new Error(`GA4 employer identity feed unavailable for ${window.from} → ${window.to}`);
+    }
     const evidence = hasFlag('--apply')
       ? aggregateApplicationEvidence(applicationRecords, { window, catalog })
       : emptyApplicationEvidence();

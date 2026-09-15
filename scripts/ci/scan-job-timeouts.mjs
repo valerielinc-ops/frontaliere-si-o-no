@@ -112,6 +112,7 @@ import { execFileSync } from 'node:child_process';
 import {
   createGithubIssue,
   commentOnGithubIssue,
+  isFailureReportingDisabled,
   searchSafePrefix,
 } from '../lib/github-issue-creator.mjs';
 // Il body di queste issue non deve MAI citare un path `.github/workflows/**`:
@@ -222,9 +223,15 @@ export function stepTimingLines(job, { maxSteps = MAX_TIMED_STEPS, nowMs = Date.
   if (timed.length === 0) return [];
 
   const firstStepStartMs = timed.reduce((min, step) => Math.min(min, step.startedAt), Infinity);
-  const jobStartMs = Number.isFinite(Date.parse(job?.started_at || ''))
+  const reportedJobStartMs = Number.isFinite(Date.parse(job?.started_at || ''))
     ? Date.parse(job.started_at)
     : firstStepStartMs;
+  const firstStepPrecedesJobStart = Number.isFinite(reportedJobStartMs)
+    && firstStepStartMs < reportedJobStartMs;
+  // GitHub can stamp setup steps a few seconds before `job.started_at`. Use the
+  // earliest observable timestamp as the attribution window's start; otherwise
+  // a complete first step can be longer than the reported job life.
+  const jobStartMs = firstStepPrecedesJobStart ? firstStepStartMs : reportedJobStartMs;
   const jobWindowMs = Number.isFinite(jobStartMs) && jobEndMs >= jobStartMs
     ? jobEndMs - jobStartMs
     : 0;
@@ -238,6 +245,17 @@ export function stepTimingLines(job, { maxSteps = MAX_TIMED_STEPS, nowMs = Date.
 
   const totalMs = timed.reduce((acc, s) => acc + s.durationMs, 0);
   const unattributedMs = Math.max(0, jobWindowMs - totalMs);
+  // Steps are normally sequential, but the API can expose overlapping setup
+  // work. Never let their summed percentages exceed 100%.
+  const attributionWindowMs = Math.max(jobWindowMs, totalMs);
+  const timingNotes = [
+    firstStepPrecedesJobStart
+      ? '⚠️ finestra estesa all’avvio del primo step: gli step precedono `started_at` del job'
+      : '',
+    totalMs > jobWindowMs
+      ? 'percentuali rapportate al tempo attribuito per evitare valori oltre il 100%'
+      : '',
+  ].filter(Boolean);
   const ranked = [...timed].sort((a, b) => b.durationMs - a.durationMs);
   const shown = ranked.slice(0, maxSteps);
   const omitted = ranked.slice(maxSteps);
@@ -247,10 +265,13 @@ export function stepTimingLines(job, { maxSteps = MAX_TIMED_STEPS, nowMs = Date.
     `**Dove è finito il tempo** (${formatDurationMs(jobWindowMs)} di vita del job; `
       + `${formatDurationMs(totalMs)} attribuiti agli step; `
       + `${formatDurationMs(unattributedMs)} non attribuiti, `
+      + (timingNotes.length > 0 ? `${timingNotes.join('; ')}; ` : '')
       + 'ordinati per durata; ✂️ = lo step in corso quando il cap ha tagliato):',
   ];
   for (const step of shown) {
-    const share = jobWindowMs > 0 ? ` (${Math.round((step.durationMs / jobWindowMs) * 100)}%)` : '';
+    const share = attributionWindowMs > 0
+      ? ` (${Math.round((step.durationMs / attributionWindowMs) * 100)}%)`
+      : '';
     lines.push(
       `- ${step === cut ? '✂️ ' : ''}${markdownCodeSpan(step.name)} — **${formatDurationMs(step.durationMs)}**${share}`,
     );
@@ -268,15 +289,24 @@ function repoPath(suffix) {
   return REPO ? `repos/${REPO}/${suffix}` : `repos/{owner}/{repo}/${suffix}`;
 }
 
-function gh(args, { allowFailure = false } = {}) {
+function gh(args, { allowFailure = false, warnOnFailure = false } = {}) {
   try {
     return execFileSync('gh', args, {
       encoding: 'utf8',
       maxBuffer: 50 * 1024 * 1024,
-      stdio: ['ignore', 'pipe', 'inherit'],
+      stdio: ['ignore', 'pipe', warnOnFailure ? 'pipe' : 'inherit'],
     }).trim();
   } catch (err) {
-    if (allowFailure) return null;
+    if (allowFailure) {
+      if (warnOnFailure) {
+        const stderr = String(err?.stderr ?? '').trim();
+        const detail = stderr || `exit status ${err?.status ?? 'sconosciuto'}`;
+        console.warn(
+          `::warning::[scan-job-timeouts] lettura annotazioni fallita con gh api --paginate --slurp: ${detail}`,
+        );
+      }
+      return null;
+    }
     throw err;
   }
 }
@@ -297,7 +327,7 @@ function readPaginatedAnnotations(job) {
     `${job.check_run_url}/annotations`,
     '--paginate',
     '--slurp',
-  ], { allowFailure: true });
+  ], { allowFailure: true, warnOnFailure: true });
   if (!out) return null;
 
   let pages;
@@ -466,6 +496,11 @@ function parseIssueList(raw) {
   }
 }
 
+function normalizedIssueState(issue) {
+  const state = String(issue?.state ?? '').trim().toUpperCase();
+  return state === 'OPEN' || state === 'CLOSED' ? state : 'UNKNOWN';
+}
+
 /**
  * Find the canonical issue only when it already contains THIS physical run.
  *
@@ -530,6 +565,11 @@ export async function main() {
   const emittedByTitle = new Map();
 
   async function emit({ title, description, labels, workflow, runUrl, jobCount }) {
+    if (isFailureReportingDisabled()) {
+      console.log(`[scan-job-timeouts] ENABLE_FAILURE_REPORT=false; skipping issue persistence for ${runUrl}`);
+      return;
+    }
+
     const already = emittedByTitle.get(title);
 
     // Every emission is atomic at run level, so the durable run URL proves that
@@ -541,10 +581,10 @@ export async function main() {
 
     // A different run of the same workflow is a real recurrence. It is already
     // aggregated, so one comment records the whole occurrence atomically. A
-    // CLOSED canonical deliberately falls through to createGithubIssue: that
-    // helper owns the guarded reopen path; commenting here would leave the new
-    // incident closed and invisible to triage.
-    if (already && already.state !== 'CLOSED') {
+    // CLOSED or unknown-state canonical deliberately falls through to
+    // createGithubIssue: that helper owns the guarded reopen path; commenting
+    // here would leave a closed or uncertain incident invisible to triage.
+    if (already && normalizedIssueState(already) === 'OPEN') {
       reported += jobCount;
       if (DRY_RUN) {
         console.log(`[scan-job-timeouts] (dry-run) would report "${title}" (already emitted → would COMMENT)`);
@@ -584,7 +624,12 @@ export async function main() {
     }
     emittedByTitle.set(title, {
       ...issue,
-      state: 'OPEN',
+      // `createGithubIssue` can return a persisted CLOSED issue when a stale
+      // build is observed inside the deploy-latency window. Preserve that
+      // authoritative state (and keep UNKNOWN fail-safe) so the next same-title
+      // hit calls the creator again instead of commenting on a closed or
+      // uncertain canonical.
+      state: normalizedIssueState(issue),
       persistedRunUrl: runUrl,
     });
   }

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 23,
-  "crawlerCount": 601,
+  "crawlerCount": 602,
   "groups": {
     "10": [
       "berit-klinik",
@@ -435,6 +435,7 @@
       "kanton-gr",
       "ksw",
       "lups",
+      "mcm-group",
       "microsoft",
       "privatklinik-wyss",
       "prosenectute-ti",
@@ -1006,6 +1007,7 @@
     "marriott": "data/jobs/by-crawler/marriott.json",
     "matterhorn-gotthard-bahn": "data/jobs/by-crawler/matterhorn-gotthard-bahn.json",
     "mcdonald-s-switzerland": "data/jobs/by-crawler/mcdonald-s-switzerland.json",
+    "mcm-group": "data/jobs/by-crawler/mcm-group.json",
     "med-ipersonal": "data/jobs/by-crawler/med-ipersonal.json",
     "medacta-international": "data/jobs/by-crawler/medacta-international.json",
     "medartis": "data/jobs/by-crawler/medartis.json",
@@ -1254,5 +1256,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:38c75dbd377f18ab0826a536013f621a1cccbe92e49f93643da1d4b485863219"
+  "digest": "sha256:80747d27d6778cf7dfd0b3e39fbc21f73b8d48f989a8ae762edb933619a60bfd"
 }

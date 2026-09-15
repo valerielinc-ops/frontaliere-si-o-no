@@ -36,6 +36,7 @@ import {
   FORCE_KILL_GRACE_MS as GH_FORCE_KILL_GRACE_MS,
   SHUTDOWN_TIMEOUT_MS as GH_SHUTDOWN_TIMEOUT_MS,
   CORPUS_REPOSITORY,
+  isMutatingGhArgs,
   resolveGhScope,
   validatePrBodyContract,
   validateGhArgs,
@@ -50,6 +51,7 @@ import {
   SHUTDOWN_TIMEOUT_MS as GIT_SHUTDOWN_TIMEOUT_MS,
   buildGitNetworkArgs,
   canonicalGitRemote,
+  isMutatingGitArgs,
   validateGitArgs,
 } from '../.github/actions/claude-codex-fallback/git-bridge-server.mjs';
 import {
@@ -291,6 +293,32 @@ describe('validator dei bridge host-side', () => {
         corpusToken: 'corpus-secret',
       });
       expect(corpus).toMatchObject({ kind: 'corpus', repository: CORPUS_REPOSITORY, token: 'corpus-secret' });
+
+      const corpusCheckout = resolveGhScope(['issue', 'create', '--repo', CORPUS_REPOSITORY], {
+        ...context,
+        repository: CORPUS_REPOSITORY,
+        siteToken: 'site-secret',
+        corpusToken: 'corpus-secret',
+      });
+      expect(corpusCheckout).toMatchObject({ kind: 'corpus', repository: CORPUS_REPOSITORY, token: 'corpus-secret' });
+      const implicitCorpus = resolveGhScope(['issue', 'list'], {
+        ...context,
+        repository: CORPUS_REPOSITORY,
+        siteToken: 'site-secret',
+        corpusToken: 'corpus-secret',
+      });
+      expect(implicitCorpus).toMatchObject({
+        kind: 'site',
+        repository: CORPUS_REPOSITORY,
+        token: 'site-secret',
+      });
+      expect(implicitCorpus.allowedCommandSet).toContain('pr');
+      expect(resolveGhScope(['pr', 'view', '--repo', 'owner/repo'], {
+        ...context,
+        repository: CORPUS_REPOSITORY,
+        siteToken: 'site-secret',
+        corpusToken: 'corpus-secret',
+      })).toMatchObject({ error: expect.stringMatching(/restricted/) });
       expect(validateGhArgs(['issue', 'create', '--repo', CORPUS_REPOSITORY], {
         ...context,
         repository: corpus.repository,
@@ -303,6 +331,23 @@ describe('validator dei bridge host-side', () => {
         allowedCommandSet: corpus.allowedCommandSet,
         allowedSubcommandMap: corpus.allowedSubcommandMap,
       })).toMatch(/not permitted/);
+      const currentCorpus = resolveGhScope(['pr', 'comment'], {
+        ...context,
+        repository: CORPUS_REPOSITORY,
+        siteToken: 'site-secret',
+        corpusToken: 'corpus-secret',
+      });
+      expect(currentCorpus).toMatchObject({
+        kind: 'site',
+        repository: CORPUS_REPOSITORY,
+        token: 'site-secret',
+      });
+      expect(validateGhArgs(['pr', 'comment'], {
+        ...context,
+        repository: currentCorpus.repository,
+        allowedCommandSet: currentCorpus.allowedCommandSet,
+        allowedSubcommandMap: currentCorpus.allowedSubcommandMap,
+      })).toBe('');
       expect(resolveGhScope(['issue', 'view', '--repo', 'other/repo'], {
         ...context,
         repository: 'owner/repo',
@@ -320,12 +365,18 @@ describe('validator dei bridge host-side', () => {
         siteToken: 'site-secret',
         corpusToken: 'corpus-secret',
       })).toMatchObject({ kind: 'corpus' });
-      expect(validateGhArgs(['api', 'repos/' + CORPUS_REPOSITORY + '/issues', '--repo', CORPUS_REPOSITORY], {
+      expect(validateGhArgs(['api', 'repos/' + CORPUS_REPOSITORY + '/issues', '--repo', CORPUS_REPOSITORY, '--method', 'GET'], {
         ...context,
         repository: corpus.repository,
         allowedCommandSet: corpus.allowedCommandSet,
         allowedSubcommandMap: corpus.allowedSubcommandMap,
-      })).toMatch(/not permitted/);
+      })).toBe('');
+      expect(validateGhArgs(['api', 'repos/' + CORPUS_REPOSITORY + '/issues', '--repo', CORPUS_REPOSITORY, '--method', 'POST'], {
+        ...context,
+        repository: corpus.repository,
+        allowedCommandSet: corpus.allowedCommandSet,
+        allowedSubcommandMap: corpus.allowedSubcommandMap,
+      })).toMatch(/mutations/);
     } finally {
       rmSync(root, { recursive: true, force: true });
     }
@@ -562,7 +613,7 @@ describe('copertura workflow diretti', () => {
   it.each(workflowNames)('%s usa il fallback locale e il secret subscription-only', (workflowName) => {
     const workflow = readFileSync(resolve(repoRoot, '.github', 'workflows', workflowName), 'utf8');
     expect(workflow.match(/uses: \.\/\.github\/actions\/claude-codex-fallback/g)).toHaveLength(1);
-    expect(workflow).toContain('preflight_blocked: ${{ steps.quota.outputs.codex_fallback }}');
+    expect(workflow).not.toContain('preflight_blocked:');
     expect(workflow).toContain('codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}');
     expect(workflow).toContain('codex_github_token:');
     expect(workflow).toContain('github_token:');
@@ -625,7 +676,7 @@ describe('copertura workflow diretti', () => {
     expect(action).toContain('Resolve trusted Node runtime');
     expect(action).toContain('find_trusted_tool()');
     expect(action).toContain('node_sha256=');
-    expect(action).toContain('Snapshot Codex fallback runtime before Claude');
+    expect(action).toContain('Snapshot Codex primary runtime before fallback');
     expect(action).not.toContain('gh_host_launcher');
     expect(action).not.toContain('gh-pr-body-check.mjs');
     expect(action).not.toContain('pr-body-check-gate.mjs');
@@ -636,16 +687,32 @@ describe('copertura workflow diretti', () => {
     expect(action).not.toContain('real_gh="$(command -v gh');
     expect(action).toContain('CODEX_GH_CORPUS_AUTH="$codex_corpus_github_auth"');
     expect(action).toContain('CODEX_GH_CORPUS_REPOSITORY="nanakokyobashi-rgb/frontaliere-articles"');
-    expect(postMerge).toContain('codex_corpus_github_token: ${{ env.GITHUB_PAT }}');
+    expect(postMerge).toContain('codex_corpus_github_token: ${{ env.GITHUB_PAT_NANAKO || env.GITHUB_PAT }}');
     expect(action).toContain('codex_install_root=');
-    const installStart = action.indexOf('- name: Install pinned Codex CLI');
-    const authStart = action.indexOf('- name: Prepare ephemeral Codex subscription auth');
-    const codexStart = action.indexOf('- name: Run one Codex subscription fallback');
+    const installStart = action.indexOf('- name: Install pinned Codex CLI (primary');
+    const sandboxStart = action.indexOf('- name: Prepare Linux sandbox prerequisites for Codex primary');
+    const authStart = action.indexOf('- name: Prepare ephemeral Codex subscription auth for Codex primary');
+    const codexStart = action.indexOf('- name: Run Codex primary (one subscription attempt)');
+    const claudeStart = action.indexOf('- name: Run Claude fallback');
+    const finalizeStart = action.indexOf('- name: Record structured Codex primary evidence');
     expect(installStart).toBeGreaterThan(-1);
-    expect(installStart).toBeLessThan(authStart);
+    expect(installStart).toBeLessThan(sandboxStart);
+    expect(sandboxStart).toBeLessThan(authStart);
     expect(authStart).toBeLessThan(codexStart);
+    expect(codexStart).toBeLessThan(claudeStart);
+    expect(claudeStart).toBeLessThan(finalizeStart);
+    expect(action).toContain("steps.codex.outcome == 'failure'");
+    expect(action).toContain("steps.codex.outputs.side_effect_detected == 'false'");
+    expect(action).toContain('restore_sanitized_git_config');
+    const stopGhStart = action.indexOf('        stop_gh_bridge() {');
+    const stopGhEnd = action.indexOf('        trap stop_gh_bridge EXIT', stopGhStart);
+    expect(stopGhStart).toBeGreaterThan(-1);
+    expect(action.slice(stopGhStart, stopGhEnd)).toContain('restore_sanitized_git_config || true');
+    expect(action).toContain('snapshot_git_delivery_state');
+    expect(action).not.toContain('steps.preflight');
+    expect(action).not.toContain('steps.runtime.outputs');
     const installBlock = action.slice(installStart, authStart);
-    const codexBlock = action.slice(codexStart, action.indexOf('- name: Record structured Codex fallback evidence'));
+    const codexBlock = action.slice(codexStart, claudeStart);
     expect(installBlock).toContain('env -i');
     expect(installBlock).toContain('NPM_CONFIG_USERCONFIG=/dev/null');
     expect(installBlock).toContain('TRUSTED_NPM: ${{ steps.trusted_node.outputs.npm_realpath }}');
@@ -711,7 +778,7 @@ describe('copertura workflow diretti', () => {
     expect(action).not.toContain('CODEX_GH_AUTH"]');
     expect(action).toContain('codex_git_remote="${codex_github_host%/}/${codex_github_repository}.git"');
     expect(action).toContain('CODEX_NODE_REAL=$node_realpath');
-    expect(action).toContain('"$TRUSTED_NODE" "$RUNTIME_ROOT/ci/claude-codex-fallback.mjs"');
+    expect(action).toContain('"$trusted_node" "$runtime_root/ci/claude-codex-fallback.mjs"');
     expect(action).toContain('"$TRUSTED_NODE" -e');
     expect(action).toContain('CODEX_GIT_AUTH="$codex_github_auth"');
     expect(action).toContain('CODEX_REAL_GIT="$git_host_realpath"');
@@ -736,7 +803,7 @@ describe('copertura workflow diretti', () => {
     expect(action).toContain('chmod 600 "$CODEX_HOME/auth.json"');
     expect(action).toContain('Cleanup ephemeral Codex CLI install');
     expect(action).toContain('fs.rmSync(process.argv[1], {recursive:true, force:true})');
-    expect(action).toContain('Never mark this Codex run rate-limited or refunded');
+    expect(action).toContain("FALLBACK_DETAIL=\"codex-primary exit=$codex_outcome\"");
     expect(action).not.toContain('--dangerously-bypass-approvals-and-sandbox');
     expect(action).not.toContain('--sandbox danger-full-access');
     expect(action).not.toContain('--sandbox workspace-write');
@@ -800,6 +867,13 @@ describe('copertura workflow diretti', () => {
     expect(ghBridge).toContain('CODEX_GH_CORPUS_AUTH');
     expect(ghBridge).toContain('CORPUS_REPOSITORY');
     expect(ghBridge).toContain('resolveGhScope(args');
+  });
+
+  it('classifica i side-effect dei bridge prima di autorizzare un retry', () => {
+    expect(isMutatingGhArgs(['--repo', 'owner/repo', 'pr', 'comment', '--body-file', 'body.md'])).toBe(true);
+    expect(isMutatingGhArgs(['--repo', 'owner/repo', 'pr', 'view', '1'])).toBe(false);
+    expect(isMutatingGitArgs(['push', 'origin', 'HEAD'])).toBe(true);
+    expect(isMutatingGitArgs(['ls-remote', 'origin', 'HEAD'])).toBe(false);
   });
 
   it('verifica URL, versione e SHA-256 della release Node pinnata', () => {
@@ -911,12 +985,10 @@ describe('copertura workflow diretti', () => {
     expect(run('invalid', '0')).not.toBe(0);
   });
 
-  it('propaga ogni failure o skip inatteso dei passi di decisione', () => {
+  it('accetta Codex riuscito o Claude fallback e propaga gli esiti inattesi', () => {
     const action = readFileSync(resolve(repoRoot, '.github', 'actions', 'claude-codex-fallback', 'action.yml'), 'utf8');
-    expect(action).toContain('runtime_snapshot_outcome="${{ steps.runtime_snapshot.outcome }}"');
-    expect(action).toContain('preflight_outcome="${{ steps.preflight.outcome }}"');
-    expect(action).toContain('runtime_outcome="${{ steps.runtime.outcome }}"');
     expect(action).toContain('finalize_outcome="${{ steps.finalize.outcome }}"');
+    expect(action).toContain('action_success="${{ steps.finalize.outputs.action_success }}"');
     const preserveStart = action.indexOf('    - name: Preserve primary/fallback outcome');
     const runStart = action.indexOf('      run: |\n', preserveStart);
     expect(preserveStart).toBeGreaterThanOrEqual(0);
@@ -927,25 +999,17 @@ describe('copertura workflow diretti', () => {
       .join('\n');
     const runPreserve = (overrides: Record<string, string> = {}) => {
       const values: Record<string, string> = {
-        trusted_node: 'success',
-        runtime_snapshot: 'success',
-        preflight: 'success',
-        runtime: 'success',
         finalize: 'success',
-        fallback_used: 'false',
-        fallback_success: 'false',
-        claude: 'success',
+        action_success: 'true',
+        codex_outcome: 'success',
+        claude_outcome: 'skipped',
         ...overrides,
       };
       const expressions: Record<string, string> = {
-        '${{ steps.trusted_node.outcome }}': values.trusted_node,
-        '${{ steps.runtime_snapshot.outcome }}': values.runtime_snapshot,
-        '${{ steps.preflight.outcome }}': values.preflight,
-        '${{ steps.runtime.outcome }}': values.runtime,
         '${{ steps.finalize.outcome }}': values.finalize,
-        '${{ steps.finalize.outputs.fallback_used }}': values.fallback_used,
-        '${{ steps.finalize.outputs.fallback_success }}': values.fallback_success,
-        '${{ steps.claude.outcome }}': values.claude,
+        '${{ steps.finalize.outputs.action_success }}': values.action_success,
+        '${{ steps.finalize.outputs.codex_outcome }}': values.codex_outcome,
+        '${{ steps.finalize.outputs.claude_outcome }}': values.claude_outcome,
       };
       let script = preserveScript;
       for (const [expression, value] of Object.entries(expressions)) {
@@ -959,16 +1023,10 @@ describe('copertura workflow diretti', () => {
       }
     };
     expect(runPreserve()).toBe(0);
-    for (const step of ['runtime_snapshot', 'preflight', 'runtime', 'finalize']) {
-      for (const outcome of ['failure', 'skipped']) {
-        expect(runPreserve({ [step]: outcome })).not.toBe(0);
-      }
-    }
-    expect(runPreserve({ trusted_node: 'failure' })).not.toBe(0);
-    expect(runPreserve({ fallback_used: 'true', fallback_success: 'true' })).toBe(0);
-    expect(runPreserve({ fallback_used: 'true', fallback_success: 'false' })).not.toBe(0);
+    expect(runPreserve({ codex_outcome: 'failure', claude_outcome: 'success' })).toBe(0);
+    expect(runPreserve({ action_success: 'false', codex_outcome: 'failure', claude_outcome: 'failure' })).not.toBe(0);
+    expect(runPreserve({ finalize: 'failure' })).not.toBe(0);
   });
-
   it('esegue il preflight dal runtime snapshot minimale senza import mancanti', () => {
     const root = mkdtempSync(join(tmpdir(), 'codex-runtime-snapshot-'));
     const snapshotCi = join(root, 'ci');

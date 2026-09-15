@@ -22,9 +22,14 @@ describe('isAggregate — aggregate follow-ups bypass the already-resolved short
   it('does not promote a body-only count to authoritative title evidence', () => {
     expect(isAggregate('follow-up(#10): cleanup', '4 items deferred for later.')).toBe(false);
   });
-  it('reads the sweep/batch/bulk fallback from the title, not from arbitrary body prose (#1073)', () => {
-    expect(isAggregate('follow-up(#10): cleanup', 'This batch has 4 items deferred for later.')).toBe(false);
+  it('reads the sweep/batch/bulk fallback from the body for hand-written aggregates (#8023)', () => {
+    expect(isAggregate('follow-up(#10): cleanup', 'This batch has 4 items deferred for later.')).toBe(true);
+    expect(isAggregate('follow-up(#10): cleanup', '```text\nThis batch is only quoted context.\n```')).toBe(false);
     expect(isAggregate('follow-up(#10): batch cleanup', 'A single item is described here.')).toBe(true);
+  });
+  it('ignores sweep/batch/bulk words inside inline code in title and body (#1320/FU-028)', () => {
+    expect(isAggregate('follow-up(#10): `triage-sweep.mjs` cleanup', 'A single item is described here.')).toBe(false);
+    expect(isAggregate('follow-up(#10): cleanup', 'A single item cites `needs-human-sweep.yml`.')).toBe(false);
   });
   it('treats single-item / count-less follow-ups as non-aggregate (gate may short-circuit)', () => {
     expect(isAggregate('follow-up(#1685): 1 item deferred — perf', '')).toBe(false);

@@ -20,7 +20,7 @@
  * sono le due frasi. Il test le legge come le legge lui: quale gradino nomina
  * `stepVsOther`, e se `heavierThanStep` è d'accordo su chi lo batte.
  */
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import {
   generateAllScenarios,
   scenarioToInputs,
@@ -123,5 +123,36 @@ describe('le frasi sul gradino di RAL usano una sola definizione di gradino', ()
       }
     }
     expect(offenders).toEqual([]);
+  });
+
+  it('avvisa quando la famiglia salariale passata al confronto è incompleta', () => {
+    const scenario = scenarios.find((candidate) => candidate.salary === SALARY_LEVELS[1])!;
+    const missingSalary = SALARY_LEVELS[0];
+    const partialFamily = scenarios.filter((candidate) => (
+      !(
+        candidate.frontierType === scenario.frontierType &&
+        candidate.maritalStatus === scenario.maritalStatus &&
+        candidate.children === scenario.children &&
+        candidate.distanceZone === scenario.distanceZone &&
+        candidate.salary === missingSalary
+      )
+    ));
+    const result = calculateSimulation(scenarioToInputs(scenario));
+    const warning = vi.spyOn(console, 'warn').mockImplementation(() => undefined);
+
+    try {
+      const sentences = scenarioLeverSentences({
+        scenario,
+        allScenarios: partialFamily,
+        chResidentNetAnnual: result.chResident.netIncomeAnnual,
+        itResidentNetAnnual: result.itResident.netIncomeAnnual,
+        locale: 'it',
+      });
+
+      expect(warning).toHaveBeenCalledWith(expect.stringContaining('famiglia salariale incompleta'));
+      expect(sentences.some((sentence) => sentence.startsWith('Il confronto che si muove'))).toBe(false);
+    } finally {
+      warning.mockRestore();
+    }
   });
 });

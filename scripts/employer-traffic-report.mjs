@@ -164,6 +164,11 @@ function postHogCursorValue(value) {
   return String(value).replaceAll('\\', '\\\\').replaceAll("'", "\\'");
 }
 
+/** Match ClickHouse's UTF-8 bytewise ordering for the keyset cursor. */
+export function comparePostHogCompany(left, right) {
+  return Buffer.from(String(left), 'utf8').compare(Buffer.from(String(right), 'utf8'));
+}
+
 export function postHogBaseQuery(window, cursorCompany = null) {
   const cursorFilter = cursorCompany == null
     ? ''
@@ -289,7 +294,7 @@ async function fromPostHog(window, companies) {
     if (!page.length) break;
     const nextCursor = postHogCompanyFromRow(page.at(-1));
     if (!nextCursor) throw new Error('posthog page missing company cursor');
-    if (cursorCompany !== null && nextCursor <= cursorCompany) {
+    if (cursorCompany !== null && comparePostHogCompany(nextCursor, cursorCompany) <= 0) {
       throw new Error('posthog company cursor did not advance');
     }
     cursorCompany = nextCursor;
@@ -320,8 +325,12 @@ async function postHogSourceFrom() {
   return toIso(rows?.[0]?.[0] ?? rows?.[0]?.source_from);
 }
 
-function ga4Date(iso) {
-  const date = new Date(Date.parse(iso) - 86_400_000);
+export function ga4Date(iso) {
+  const parsed = Date.parse(iso);
+  if (!Number.isFinite(parsed)) throw new Error(`invalid GA4 window end: ${iso}`);
+  const date = new Date(parsed);
+  date.setUTCHours(0, 0, 0, 0);
+  date.setUTCDate(date.getUTCDate() - 1);
   return date.toISOString().slice(0, 10);
 }
 
@@ -458,10 +467,10 @@ async function fromGa4(window) {
   };
 }
 
-function reportPayload({ source, window, data, rows, min, days }) {
+export function reportPayload({ source, window, data, rows, min, days }) {
   const filtered = rows
     .filter((entry) => numberOr(entry.applyClickProxy) >= min)
-    .sort((a, b) => b.applyClickProxy - a.applyClickProxy || a.key.localeCompare(b.key));
+    .sort((a, b) => b.applyClickProxy - a.applyClickProxy || comparePostHogCompany(a.key, b.key));
   const totals = filtered.reduce((total, entry) => ({
     applyClickProxy: total.applyClickProxy + numberOr(entry.applyClickProxy),
     applyClicks: total.applyClicks + numberOr(entry.applyClicks || entry.clicks),

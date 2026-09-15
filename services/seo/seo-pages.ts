@@ -169,6 +169,86 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  ]
  },
 
+ petition: {
+ title: 'Petizione dosso Stabio-Gaggiolo: chiediamo una soluzione sicura | Frontaliere Ticino',
+ description: 'Segnalazioni di code dopo il valico di Gaggiolo: chiediamo dati, valutazione tecnica e rimozione o abbassamento del dosso se sicuro.',
+ keywords: 'petizione dosso Stabio Gaggiolo, traffico frontalieri, code dogana Gaggiolo, via Gaggiolo, traffico Stabio',
+ ogTitle: 'Petizione per il dosso alla dogana di Stabio',
+ ogDescription: 'Chiediamo una verifica tecnica e una soluzione che riduca le code senza compromettere la sicurezza.',
+ h1: 'Petizione per una dogana di Stabio più scorrevole',
+ canonicalPath: '/petizione-dosso-stabio/',
+ structuredData: {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Petizione per il dosso alla dogana di Stabio-Gaggiolo",
+  "url": `${BASE_URL}/petizione-dosso-stabio/`,
+  "description": "Segnalazioni di code dopo il valico di Gaggiolo: chiediamo dati, valutazione tecnica e rimozione o abbassamento del dosso se sicuro.",
+  "inLanguage": "it",
+  "isPartOf": { "@id": `${BASE_URL}/#website` },
+  "publisher": { "@id": `${BASE_URL}/#organization` }
+ }
+ },
+
+ petitionEn: {
+ title: 'Stabio-Gaggiolo speed-bump petition: we ask for a safe solution | Frontaliere Ticino',
+ description: 'Reports of queues after the Gaggiolo crossing: we ask for data, a technical review and removal or lowering of the bump if safe.',
+ keywords: 'Stabio Gaggiolo speed bump petition, cross-border traffic, Gaggiolo customs queues, Stabio traffic',
+ ogTitle: 'Petition about the speed bump at Stabio customs',
+ ogDescription: 'We ask for a technical review and a solution that reduces queues without compromising safety.',
+ h1: 'A smoother Stabio customs crossing: sign the petition',
+ canonicalPath: '/en/stabio-speed-bump-petition/',
+ structuredData: {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Petition about the Stabio-Gaggiolo speed bump",
+  "url": `${BASE_URL}/en/stabio-speed-bump-petition/`,
+  "description": "Reports of queues after the Gaggiolo crossing: we ask for data, a technical review and removal or lowering of the bump if safe.",
+  "inLanguage": "en",
+  "isPartOf": { "@id": `${BASE_URL}/#website` },
+  "publisher": { "@id": `${BASE_URL}/#organization` }
+ }
+ },
+
+ petitionDe: {
+ title: 'Petition zur Schwelle Stabio-Gaggiolo: Wir fordern eine sichere Lösung | Frontaliere Ticino',
+ description: 'Meldungen über Staus nach dem Grenzübergang Gaggiolo: Wir fordern Daten, eine technische Prüfung und eine Entfernung oder Absenkung, falls sicher.',
+ keywords: 'Petition Schwelle Stabio Gaggiolo, Grenzverkehr, Stau Zoll Gaggiolo, Verkehr Stabio',
+ ogTitle: 'Petition zur Verkehrsschwelle am Zoll Stabio',
+ ogDescription: 'Wir fordern eine technische Prüfung und eine Lösung, die Staus verringert, ohne die Sicherheit zu beeinträchtigen.',
+ h1: 'Ein fliessenderer Grenzübergang Stabio: Petition unterschreiben',
+ canonicalPath: '/de/petition-geschwindigkeitsrampe-stabio/',
+ structuredData: {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Petition zur Schwelle am Grenzübergang Stabio-Gaggiolo",
+  "url": `${BASE_URL}/de/petition-geschwindigkeitsrampe-stabio/`,
+  "description": "Meldungen über Staus nach dem Grenzübergang Gaggiolo: Wir fordern Daten, eine technische Prüfung und eine Entfernung oder Absenkung, falls sicher.",
+  "inLanguage": "de",
+  "isPartOf": { "@id": `${BASE_URL}/#website` },
+  "publisher": { "@id": `${BASE_URL}/#organization` }
+ }
+ },
+
+ petitionFr: {
+ title: 'Pétition dos-d’âne Stabio-Gaggiolo : pour une solution sûre | Frontaliere Ticino',
+ description: 'Signalements de files après le passage de Gaggiolo : nous demandons des données, une expertise technique et le retrait ou l’abaissement si possible.',
+ keywords: 'pétition dos-d’âne Stabio Gaggiolo, trafic frontalier, files douane Gaggiolo, trafic Stabio',
+ ogTitle: 'Pétition sur le dos-d’âne à la douane de Stabio',
+ ogDescription: 'Nous demandons une expertise technique et une solution qui réduise les files sans compromettre la sécurité.',
+ h1: 'Un passage de Stabio plus fluide : signez la pétition',
+ canonicalPath: '/fr/petition-dos-d-ane-stabio/',
+ structuredData: {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Pétition sur le dos-d’âne du passage Stabio-Gaggiolo",
+  "url": `${BASE_URL}/fr/petition-dos-d-ane-stabio/`,
+  "description": "Signalements de files après le passage de Gaggiolo : nous demandons des données, une expertise technique et le retrait ou l’abaissement si possible.",
+  "inLanguage": "fr",
+  "isPartOf": { "@id": `${BASE_URL}/#website` },
+  "publisher": { "@id": `${BASE_URL}/#organization` }
+ }
+ },
+
  // ─── SEO landings: salary presets (long-tail) ─────────────,
 
  'glossario-impostaAllaFonte': {

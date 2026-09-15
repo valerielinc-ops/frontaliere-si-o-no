@@ -1,0 +1,250 @@
+/**
+ * Runtime-neutral source of truth for sector-hub URL slugs.
+ *
+ * This file is intentionally plain ESM: the browser-side typed path helpers,
+ * the employer-insights refresh and the analytics CLI all need to agree on
+ * which two-segment job-board paths are sector hubs. Keeping the table here
+ * avoids making raw Node scripts load the TypeScript build-plugin graph.
+ */
+
+export const SECTOR_HUB_SLUG = Object.freeze({
+  it: Object.freeze({
+    infermieri: 'infermieri',
+    'case-anziani': 'case-anziani',
+    educatori: 'educatori',
+    ingegneri: 'ingegneri',
+    autisti: 'autisti',
+    sviluppatori: 'sviluppatori',
+    ristorazione: 'ristorazione',
+    oss: 'operatori-socio-sanitari',
+    logistica: 'logistica',
+    apprendistato: 'apprendistato',
+    medici: 'medici',
+    fisioterapisti: 'fisioterapisti',
+    farmacisti: 'farmacisti',
+    'data-scientist': 'data-scientist',
+    cybersecurity: 'cybersecurity',
+    'project-manager': 'project-manager',
+    contabili: 'contabili',
+    banca: 'banca-finanza',
+    assicurazioni: 'assicurazioni',
+    consulenza: 'consulenza',
+    avvocati: 'avvocati-legale',
+    'risorse-umane': 'risorse-umane',
+    marketing: 'marketing',
+    vendite: 'vendite',
+    commercio: 'commercio-dettaglio',
+    trasporti: 'trasporti',
+    magazzino: 'magazzino',
+    meccanici: 'meccanici',
+    elettricisti: 'elettricisti',
+    idraulici: 'idraulici',
+    edilizia: 'edilizia',
+    falegnami: 'falegnami',
+    industria: 'industria-produzione',
+    orologeria: 'orologeria',
+    farmaceutica: 'farmaceutica',
+    chimica: 'chimica',
+    food: 'alimentare',
+    cuochi: 'cuochi',
+    camerieri: 'camerieri',
+    hotel: 'hotel-alberghi',
+    pulizie: 'pulizie',
+    sicurezza: 'sicurezza',
+    scuola: 'scuola-formazione',
+    designer: 'designer',
+    architetti: 'architetti',
+    agricoltura: 'agricoltura',
+    energia: 'energia',
+    media: 'media-giornalismo',
+    tecnici: 'tecnici',
+  }),
+  en: Object.freeze({
+    infermieri: 'nurses',
+    'case-anziani': 'elderly-care',
+    educatori: 'educators',
+    ingegneri: 'engineers',
+    autisti: 'drivers',
+    sviluppatori: 'developers',
+    ristorazione: 'restaurants',
+    oss: 'healthcare-assistants',
+    logistica: 'logistics',
+    apprendistato: 'apprenticeships',
+    medici: 'doctors',
+    fisioterapisti: 'physiotherapists',
+    farmacisti: 'pharmacists',
+    'data-scientist': 'data-scientists',
+    cybersecurity: 'cybersecurity',
+    'project-manager': 'project-managers',
+    contabili: 'accountants',
+    banca: 'banking-finance',
+    assicurazioni: 'insurance',
+    consulenza: 'consulting',
+    avvocati: 'legal',
+    'risorse-umane': 'human-resources',
+    marketing: 'marketing',
+    vendite: 'sales',
+    commercio: 'retail',
+    trasporti: 'transport',
+    magazzino: 'warehouse',
+    meccanici: 'mechanics',
+    elettricisti: 'electricians',
+    idraulici: 'plumbers',
+    edilizia: 'construction',
+    falegnami: 'carpenters',
+    industria: 'manufacturing',
+    orologeria: 'watchmaking',
+    farmaceutica: 'pharmaceutical',
+    chimica: 'chemistry',
+    food: 'food-industry',
+    cuochi: 'cooks',
+    camerieri: 'waiters',
+    hotel: 'hotels',
+    pulizie: 'cleaning',
+    sicurezza: 'security',
+    scuola: 'education',
+    designer: 'designers',
+    architetti: 'architects',
+    agricoltura: 'agriculture',
+    energia: 'energy',
+    media: 'media',
+    tecnici: 'technicians',
+  }),
+  de: Object.freeze({
+    infermieri: 'pflegepersonal',
+    'case-anziani': 'altenpflege',
+    educatori: 'erzieher',
+    ingegneri: 'ingenieure',
+    autisti: 'fahrer',
+    sviluppatori: 'entwickler',
+    ristorazione: 'gastronomie',
+    oss: 'pflegeassistenten',
+    logistica: 'logistik',
+    apprendistato: 'lehrstellen',
+    medici: 'aerzte',
+    fisioterapisti: 'physiotherapeuten',
+    farmacisti: 'apotheker',
+    'data-scientist': 'data-scientists',
+    cybersecurity: 'cybersicherheit',
+    'project-manager': 'projektmanager',
+    contabili: 'buchhalter',
+    banca: 'bank-finanzen',
+    assicurazioni: 'versicherungen',
+    consulenza: 'beratung',
+    avvocati: 'recht',
+    'risorse-umane': 'personalwesen',
+    marketing: 'marketing',
+    vendite: 'verkauf',
+    commercio: 'einzelhandel',
+    trasporti: 'transport',
+    magazzino: 'lager',
+    meccanici: 'mechaniker',
+    elettricisti: 'elektriker',
+    idraulici: 'sanitaer',
+    edilizia: 'bau',
+    falegnami: 'schreiner',
+    industria: 'produktion',
+    orologeria: 'uhrenindustrie',
+    farmaceutica: 'pharma',
+    chimica: 'chemie',
+    food: 'lebensmittel',
+    cuochi: 'koeche',
+    camerieri: 'servicepersonal',
+    hotel: 'hotellerie',
+    pulizie: 'reinigung',
+    sicurezza: 'sicherheit',
+    scuola: 'schule',
+    designer: 'designer',
+    architetti: 'architekten',
+    agricoltura: 'landwirtschaft',
+    energia: 'energie',
+    media: 'medien',
+    tecnici: 'techniker',
+  }),
+  fr: Object.freeze({
+    infermieri: 'infirmiers',
+    'case-anziani': 'maisons-retraite',
+    educatori: 'educateurs',
+    ingegneri: 'ingenieurs',
+    autisti: 'chauffeurs',
+    sviluppatori: 'developpeurs',
+    ristorazione: 'restauration',
+    oss: 'aides-soignants',
+    logistica: 'logistique',
+    apprendistato: 'apprentissages',
+    medici: 'medecins',
+    fisioterapisti: 'physiotherapeutes',
+    farmacisti: 'pharmaciens',
+    'data-scientist': 'data-scientists',
+    cybersecurity: 'cybersecurite',
+    'project-manager': 'chefs-de-projet',
+    contabili: 'comptables',
+    banca: 'banque-finance',
+    assicurazioni: 'assurances',
+    consulenza: 'conseil',
+    avvocati: 'juridique',
+    'risorse-umane': 'ressources-humaines',
+    marketing: 'marketing',
+    vendite: 'ventes',
+    commercio: 'commerce-detail',
+    trasporti: 'transport',
+    magazzino: 'entrepot',
+    meccanici: 'mecaniciens',
+    elettricisti: 'electriciens',
+    idraulici: 'plombiers',
+    edilizia: 'batiment',
+    falegnami: 'menuisiers',
+    industria: 'industrie',
+    orologeria: 'horlogerie',
+    farmaceutica: 'pharmaceutique',
+    chimica: 'chimie',
+    food: 'agroalimentaire',
+    cuochi: 'cuisiniers',
+    camerieri: 'serveurs',
+    hotel: 'hotellerie',
+    pulizie: 'nettoyage',
+    sicurezza: 'securite',
+    scuola: 'enseignement',
+    designer: 'designers',
+    architetti: 'architectes',
+    agricoltura: 'agriculture',
+    energia: 'energie',
+    media: 'medias',
+    tecnici: 'techniciens',
+  }),
+});
+
+const LOCALE_PREFIX_RE = /^\/(en|de|fr)(?=\/|$)/i;
+const JOB_BOARD_SECTION_RE = /^(?:cerca-lavoro|find-jobs|jobs-im|jobs-in|trouver-emploi)-[a-z][a-z-]*$/;
+
+function normalizePath(input) {
+  let path = String(input || '').trim();
+  if (!path) return '/';
+  if (/^https?:\/\//i.test(path)) {
+    try {
+      const url = new URL(path);
+      path = `${url.pathname}${url.search || ''}`;
+    } catch {
+      return '/';
+    }
+  }
+  const hashIndex = path.indexOf('#');
+  if (hashIndex >= 0) path = path.slice(0, hashIndex);
+  const queryIndex = path.indexOf('?');
+  if (queryIndex >= 0) path = path.slice(0, queryIndex);
+  if (!path.startsWith('/')) path = `/${path}`;
+  path = path.replace(/\/{2,}/g, '/');
+  if (path.length > 1 && path.endsWith('/')) path = path.slice(0, -1);
+  return path || '/';
+}
+
+/** True when a URL is an emitted sector hub, not a job detail with a short slug. */
+export function isJobBoardSectorHubPath(inputPath) {
+  const normalizedPath = normalizePath(inputPath);
+  const localeMatch = normalizedPath.match(LOCALE_PREFIX_RE);
+  const locale = (localeMatch?.[1]?.toLowerCase() || 'it');
+  const localPath = normalizedPath.replace(LOCALE_PREFIX_RE, '') || '/';
+  const segments = localPath.split('/').filter(Boolean).map((segment) => segment.toLowerCase());
+  if (segments.length !== 2 || !JOB_BOARD_SECTION_RE.test(segments[0])) return false;
+  return Object.values(SECTOR_HUB_SLUG[locale] || {}).includes(segments[1]);
+}

@@ -1,4 +1,5 @@
 import { JOB_BOARD_SEGMENT_RX } from './jobBoardSections.mjs';
+import { isJobBoardSectorHubPath } from '../../build-plugins/shared/jobSectorSlugs.mjs';
 
 function normalizePath(input = '') {
   let path = String(input || '').trim();
@@ -76,7 +77,8 @@ export function classifyAnalyticsPath(inputPath = '') {
     const firstTail = tail.split('/')[0] || '';
     const isCompany = /^(azienda|company|unternehmen|entreprise)-/i.test(firstTail);
     const isSearch = /^(ricerca|search|suche|recherche)-/i.test(firstTail);
-    const pageTemplate = !tail ? 'jobs_index' : isCompany ? 'jobs_company' : isSearch ? 'jobs_search' : 'job_detail';
+    const isSectorHub = isJobBoardSectorHubPath(normalizedPath);
+    const pageTemplate = !tail ? 'jobs_index' : isCompany ? 'jobs_company' : isSearch ? 'jobs_search' : isSectorHub ? 'jobs_sector' : 'job_detail';
     return { contentGroup: 'jobs', pageTemplate, siteSection: 'jobs', contentLocale, routeFamily: pageTemplate };
   }
 

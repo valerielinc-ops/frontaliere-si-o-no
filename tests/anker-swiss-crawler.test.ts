@@ -9,6 +9,7 @@ import {
 } from '../scripts/lib/anker-swiss-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 import { buildSlug as buildCanonicalSlug } from '../scripts/lib/regenerate-slugs-helpers.mjs';
+import { mergePreserveLocaleData } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 describe('Anker Swiss Ticino AG crawler parser', () => {
   // ── Constants ──
@@ -137,6 +138,40 @@ describe('Anker Swiss Ticino AG crawler parser', () => {
       const slug = buildSlug('Bauarbeiter, Bauhauptgewerbe 100%', 'Lugano', 'https://anker-swiss.ch/stellen/bauarbeiter-1/');
       expect(slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
       expect(slug.length).toBeLessThanOrEqual(120);
+    });
+
+    it('keeps the previously published long base route as a redirect', () => {
+      const title = `${'Senior Bauprojektleiter '.repeat(8)}100%`;
+      const location = 'Lugano';
+      const url = 'https://anker-swiss.ch/stellen/long-title/';
+      const oldSlug = slugify(`${title} ${location} anker-swiss ch`);
+      const freshSlug = buildAnkerSwissJobSlug(title, location, url);
+      const old = {
+        id: 'anker-swiss-long-title',
+        url,
+        slug: oldSlug,
+        slugByLocale: { de: oldSlug },
+        company: ANKER_SWISS_COMPANY_NAME,
+        companyKey: ANKER_SWISS_KEY,
+        title,
+        location,
+        sourceLang: 'de',
+      };
+      const fresh = {
+        ...old,
+        slug: freshSlug,
+        slugByLocale: { de: freshSlug },
+        slugDisambiguator: buildSlugDisambiguator(url),
+      };
+
+      const merged = mergePreserveLocaleData([old], [fresh], {
+        matchKey: (job: { id: string }) => job.id,
+      });
+
+      expect(freshSlug).not.toBe(oldSlug);
+      expect(merged[0].slug).toBe(freshSlug);
+      expect(merged[0].previousSlugs).toContain(oldSlug);
+      expect(merged[0].previousSlugsByLocale.de).toContain(oldSlug);
     });
   });
 

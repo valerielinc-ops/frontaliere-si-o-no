@@ -25,7 +25,6 @@ import {
  requestConfirmationEmail,
  markNewsletterSubscribedLocally,
  isNewsletterOptedOut,
- isNewsletterAccountDeleted,
 } from '@/services/newsletterSubscribers';
 import { consentProof } from '@/services/consentTexts';
 import ConsentNotice from '@/components/shared/ConsentNotice';
@@ -336,13 +335,88 @@ const PublisherPublishPage: React.FC = () => {
  // The gate offers Google + LinkedIn (SocialSignInButtons) AND an email
  // path. Email reuses the newsletter double-opt-in: a NEW address gets the
  // opt-in email (which doubles as a sign-in link via ?action=confirm_newsletter
- // auto-login, wired in App.tsx); an EXISTING address gets a login link sent
- // explicitly (requestConfirmationEmail purpose:'login'). All three methods
- // also subscribe the user to the newsletter (implicit consent, owner policy).
+ // auto-login, wired in App.tsx); an EXISTING address gets a passwordless login
+ // link sent explicitly (requestConfirmationEmail purpose:'login'). Social
+ // authentication and login-only email links do not create or renew a
+ // newsletter subscription.
  const [gateEmail, setGateEmail] = useState('');
  const [gateStatus, setGateStatus] = useState<'idle' | 'loading' | 'sent' | 'error'>('idle');
  const [gateError, setGateError] = useState('');
  const gateSocialSyncedRef = useRef(false);
+ const gateSocialIntentRef = useRef(false);
+
+ const markGateSocialIntent = () => {
+ gateSocialIntentRef.current = true;
+ try {
+ // The marker survives the full-page OAuth redirect. It is short-lived and
+ // consumed by the effect below, so a restored session cannot be mistaken
+ // for a fresh communications request on a later visit.
+ sessionStorage.setItem('publisher_social_auth_intent_at', String(Date.now()));
+ } catch { /* storage unavailable — popup flow still uses the ref */ }
+ };
+
+ // ── Explicit social communications gate ────────────────────
+ // A provider sign-in on this gate is an intentional communications action,
+ // but an already-authenticated visitor opening the page is not. The previous
+ // implementation subscribed from `user` alone, which made a page visit act
+ // like a newsletter opt-in and could also re-enter the confirmation path.
+ useEffect(() => {
+ if (!user || gateSocialSyncedRef.current) return;
+
+ let restoredSocialIntent = false;
+ try {
+ const intentAt = Number(sessionStorage.getItem('publisher_social_auth_intent_at') || '0');
+ const isRecent = Number.isFinite(intentAt) && intentAt > 0 && Date.now() - intentAt < 10 * 60 * 1000;
+ restoredSocialIntent = isRecent;
+ if (isRecent) sessionStorage.removeItem('publisher_social_auth_intent_at');
+ else if (intentAt > 0) sessionStorage.removeItem('publisher_social_auth_intent_at');
+ } catch { /* storage unavailable — popup flow uses the in-memory ref */ }
+
+ if (!gateSocialIntentRef.current && !restoredSocialIntent) return;
+ gateSocialSyncedRef.current = true;
+ if (typeof window !== 'undefined' && localStorage.getItem('newsletter_subscribed') === 'true') return;
+
+ const email = getAuthEmail(user);
+ if (!email) return;
+ void (async () => {
+ try {
+ const firestore = getFirestore(await getApp());
+ // Authentication alone must never touch a recorded opt-out. This check is
+ // deliberately before the upsert because the upsert records an event even
+ // when its state guard declines the promotion.
+ if (await isNewsletterOptedOut(firestore, email)) return;
+ const providerId = String(user?.providerData?.[0]?.providerId || '').toLowerCase();
+ const consentMethod = providerId.includes('google')
+ ? 'google_oauth'
+ : providerId.includes('linkedin')
+ ? 'linkedin_oauth'
+ : providerId.includes('facebook')
+ ? 'facebook_oauth'
+ : 'social_oauth';
+ await upsertNewsletterSubscriber(firestore, {
+ email,
+ userId: user?.uid || null,
+ name: user?.displayName || null,
+ preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false },
+ source: 'publisher_gate_social',
+ sourcePage: '/pubblica-offerta',
+ sourceCta: 'publisher_gate_social',
+ sourceComponent: 'PublisherPublishPage',
+ sourceRouteFamily: 'publisher',
+ locale: navigator.language || 'it-IT',
+ // The gate renders this exact notice before the provider click. This is an
+ // explicit access-gate action, not a generic auth listener or page-visit
+ // side effect, so it may use the existing confirmed path without a DOI.
+ isActive: true,
+ status: 'confirmed',
+ ...consentProof('communicationsSignIn', consentMethod, locale),
+ });
+ markNewsletterSubscribedLocally();
+ } catch (error) {
+ reportCaughtError(error, 'publisher.gateSocialSubscribe');
+ }
+ })();
+ }, [user]);
 
  // ── Tier ────────────────────────────────────────────────────
  // free      → plain crawler-style listing (no featured/blast, external apply only), no payment.
@@ -546,73 +620,6 @@ const PublisherPublishPage: React.FC = () => {
  }, 2000);
  return () => window.clearTimeout(timer);
  }, [checkoutSuccess, user, hasCredits, pollCount]);
-
- // ── Implicit newsletter subscribe on social sign-in ─────────
- // When a visitor authenticates via Google/LinkedIn through the gate, also
- // record them as a newsletter subscriber (owner policy: all three access
- // methods imply consent). Idempotent + guarded so it runs once and never
- // re-asks an already-known subscriber. The email path subscribes in its own
- // submit handler, so this only needs to cover the OAuth providers.
- useEffect(() => {
- if (!user || gateSocialSyncedRef.current) return;
- const email = getAuthEmail(user);
- if (!email) return;
- gateSocialSyncedRef.current = true;
- void (async () => {
- try {
- const firestore = getFirestore(await getApp());
- if (typeof window !== 'undefined'
- && localStorage.getItem('newsletter_subscribed') === 'true'
- && !(await isNewsletterAccountDeleted(firestore, email))) return;
- // Fourth sibling of the auto-subscribe-on-sign-in guard (App.tsx,
- // hooks/useUserState.ts, services/authService.ts are the other three),
- // and it needs the same pre-check for the same reason (#5672). The
- // localStorage flag above is not one: the unsubscribe handler removes it.
- //
- // `inferNewsletterSubscriptionState` already refuses the promotion, so no
- // resurrection — but the upsert would still RUN, and
- // `captureNewsletterSubscriber` records a `subscribe_completed` event on
- // the way out whatever state it resolved. That event is the signal used to
- // tell a genuine re-subscription from a resurrection (it is how the 95
- // legitimate returns were separated from the 281), so writing one for
- // someone who did nothing but sign in corrupts the only evidence we have.
- // Declining to promote is not enough; the write must not happen at all.
- if (await isNewsletterOptedOut(firestore, email)) return;
- const providerId = String(user?.providerData?.[0]?.providerId || '').toLowerCase();
- const consentMethod = providerId.includes('google')
- ? 'google_oauth'
- : providerId.includes('linkedin')
- ? 'linkedin_oauth'
- : providerId.includes('facebook')
- ? 'facebook_oauth'
- : 'social_oauth';
- await upsertNewsletterSubscriber(firestore, {
- email,
- userId: user?.uid || null,
- name: user?.displayName || null,
- preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false },
- source: 'publisher_gate_social',
- sourcePage: '/pubblica-offerta',
- sourceCta: 'publisher_gate_social',
- sourceComponent: 'PublisherPublishPage',
- sourceRouteFamily: 'publisher',
- locale: navigator.language || 'it-IT',
- // OAuth-verified email + implicit consent → no double-opt-in email.
- isActive: true,
- status: 'confirmed',
- // #5712/#5718/#5765: the gate below renders this exact string, in this
- // locale, once — under its email button, covering these providers too.
- ...consentProof('communicationsSignIn', consentMethod, locale),
- // No `consentGiven`: an OAuth sign-in is not a ticked box. The gate's
- // notice makes the disclosure real; it does not turn a login into a
- // request. See services/consentTexts.ts (#5712).
- });
- markNewsletterSubscribedLocally();
- } catch (error) {
- reportCaughtError(error, 'publisher.gateSocialSubscribe');
- }
- })();
- }, [user]);
 
  // ── SEO meta (title + description) ──────────────────────────
  useEffect(() => {
@@ -1285,6 +1292,15 @@ const PublisherPublishPage: React.FC = () => {
  setGateError('');
  try {
  const firestore = getFirestore(await getApp());
+ // This is the email authentication branch, not a newsletter re-consent.
+ // Keep an existing opt-out untouched and send only a passwordless login
+ // link; the social branch above applies the same rule.
+ if (await isNewsletterOptedOut(firestore, email)) {
+ await requestConfirmationEmail(email, 'login');
+ setGateStatus('sent');
+ Analytics.trackUIInteraction('publisher', 'gate', 'email_login', 'sent');
+ return;
+ }
  const upsert = await upsertNewsletterSubscriber(firestore, {
  email,
  preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false },
@@ -1309,7 +1325,7 @@ const PublisherPublishPage: React.FC = () => {
  });
  // New pending subscribers already received the opt-in (= login) email from
  // the upsert. Existing subscribers need an explicit login link.
- if (upsert.existed) {
+ if (upsert.existed || upsert.hadConfirmationProof) {
  await requestConfirmationEmail(email, 'login');
  }
  setGateStatus('sent');
@@ -1391,7 +1407,12 @@ const PublisherPublishPage: React.FC = () => {
 
  <div className="mt-6 space-y-4">
  {/* Social sign-in — same row as the newsletter box (Google + LinkedIn) */}
- <SocialSignInButtons locale={locale} googleWidth={320} errorContext="publisher.gate" />
+ <SocialSignInButtons
+ locale={locale}
+ googleWidth={320}
+ errorContext="publisher.gate"
+ onAuthIntent={markGateSocialIntent}
+ />
 
  {/* Divider */}
  <div className="flex items-center gap-3">

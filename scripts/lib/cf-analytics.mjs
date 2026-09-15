@@ -31,9 +31,15 @@ export const DEFAULT_ZONE_NAME = 'frontaliereticino.ch';
 // "1d96ms > 1d").
 export const MAX_HOURS = 23.9;
 
-/** POST a GraphQL query; return `data` or throw with the CF error message. */
-export async function cfGraphQL(token, query, variables) {
-  const res = await fetch(GRAPHQL_ENDPOINT, {
+/**
+ * POST a GraphQL query; return `data` or throw with the CF error message.
+ *
+ * `fetchImpl` is injectable so bounded callers can account for every network
+ * request in their cycle budget; existing consumers keep the global fetch
+ * default.
+ */
+export async function cfGraphQL(token, query, variables, fetchImpl = fetch) {
+  const res = await fetchImpl(GRAPHQL_ENDPOINT, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${token}`,
@@ -49,10 +55,13 @@ export async function cfGraphQL(token, query, variables) {
   return json.data;
 }
 
-/** Resolve a zone id from its name (or return the override if provided). */
-export async function resolveZoneId(token, zoneName = DEFAULT_ZONE_NAME, zoneIdOverride) {
+/**
+ * Resolve a zone id from its name (or return the override if provided).
+ * @param {typeof fetch} [fetchImpl=fetch] network implementation
+ */
+export async function resolveZoneId(token, zoneName = DEFAULT_ZONE_NAME, zoneIdOverride, fetchImpl = fetch) {
   if (zoneIdOverride) return zoneIdOverride;
-  const res = await fetch(`${REST_BASE}/zones?name=${encodeURIComponent(zoneName)}`, {
+  const res = await fetchImpl(`${REST_BASE}/zones?name=${encodeURIComponent(zoneName)}`, {
     headers: { Authorization: `Bearer ${token}` },
   });
   const json = await res.json().catch(() => null);
@@ -114,9 +123,11 @@ query($zone:String!,$limit:Int!,$filter:ZoneHttpRequestsAdaptiveGroupsFilter_Inp
  *                                         phantom rows misread as a real
  *                                         outage three PRs in a row
  *                                         (#1791/#1814/#1830).
+ * @param {typeof fetch} [opts.fetchImpl=fetch] network implementation
  * @returns {Promise<Array<{status:number,host:string,path:string,count:number}>>}
  */
 export async function fetchErrorPaths(token, zoneId, opts = {}) {
+  const fetchImpl = opts.fetchImpl ?? fetch;
   const hours = Math.min(opts.hours ?? MAX_HOURS, MAX_HOURS);
   const minStatus = opts.minStatus ?? 404;
   const limit = opts.limit ?? 10000;
@@ -132,7 +143,7 @@ export async function fetchErrorPaths(token, zoneId, opts = {}) {
   if (opts.maxStatus != null) filter.edgeResponseStatus_leq = opts.maxStatus;
   if (opts.host) filter.clientRequestHTTPHost = opts.host;
 
-  const data = await cfGraphQL(token, ERROR_PATHS_QUERY, { zone: zoneId, limit, filter });
+  const data = await cfGraphQL(token, ERROR_PATHS_QUERY, { zone: zoneId, limit, filter }, fetchImpl);
   const rows = data.viewer.zones[0]?.httpRequestsAdaptiveGroups || [];
   return rows.map((r) => ({
     status: r.dimensions.edgeResponseStatus,
@@ -169,9 +180,11 @@ export async function fetchErrorPaths(token, zoneId, opts = {}) {
  * @param {number} [opts.minStatus=500]
  * @param {Date|string} [opts.until=now]
  * @param {string|null} [opts.requestSource='eyeball']  see the anti-phantom note in fetchErrorPaths
+ * @param {typeof fetch} [opts.fetchImpl=fetch] network implementation
  * @returns {Promise<Array<{hour:string,edgeStatus:number,originStatus:number|null,cacheStatus:string|null,host:string,count:number}>>}
  */
 export async function fetchErrorDiagnostics(token, zoneId, opts = {}) {
+  const fetchImpl = opts.fetchImpl ?? fetch;
   const hours = Math.min(opts.hours ?? MAX_HOURS, MAX_HOURS);
   const minStatus = opts.minStatus ?? 500;
   const until = opts.until ? new Date(opts.until) : new Date();
@@ -184,7 +197,7 @@ export async function fetchErrorDiagnostics(token, zoneId, opts = {}) {
   };
   if (requestSource) filter.requestSource = requestSource;
 
-  const data = await cfGraphQL(token, ERROR_DIAGNOSTICS_QUERY, { zone: zoneId, limit: 10000, filter });
+  const data = await cfGraphQL(token, ERROR_DIAGNOSTICS_QUERY, { zone: zoneId, limit: 10000, filter }, fetchImpl);
   const rows = data.viewer.zones[0]?.httpRequestsAdaptiveGroups || [];
   return rows.map((r) => ({
     hour: r.dimensions.datetimeHour,
@@ -229,12 +242,14 @@ export async function fetchErrorDiagnostics(token, zoneId, opts = {}) {
  * @param {number} [opts.maxStatus]       ceiling on edgeResponseStatus (<=)
  * @param {string} [opts.host]            filter to one clientRequestHTTPHost
  * @param {Date|string} [opts.until=now]  end of the most recent window
+ * @param {typeof fetch} [opts.fetchImpl=fetch] network implementation
  * @returns {Promise<{rows:Array<{path:string,count:number}>, windowsOk:number, windowCount:number}>}
  *   `rows` — normalized (trailing-slash-stripped) path + summed count across
  *   all windows. `windowsOk` — windows that returned successfully (a single
  *   failed window is skipped, not fatal, to tolerate transient CF 5xx).
  */
 export async function sweepErrorPathsWindowed(token, zoneId, opts = {}) {
+  const fetchImpl = opts.fetchImpl ?? fetch;
   const windowHours = opts.windowHours ?? 1;
   const windowCount = opts.windowCount ?? 48;
   const until = opts.until ? new Date(opts.until) : new Date();
@@ -252,6 +267,7 @@ export async function sweepErrorPathsWindowed(token, zoneId, opts = {}) {
         host: opts.host,
         limit: 10000,
         until: windowUntil,
+        fetchImpl,
       });
     } catch {
       // A single failed window (transient CF 5xx / retention edge) must not

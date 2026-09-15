@@ -41,6 +41,7 @@ import {
 } from '../build-plugins/healthPremiumsData';
 import {
   computeCantonStats,
+  assertHealthPremiumsCriticalPages,
   generateHealthPremiumsPages,
   type HealthPremiumsDataset,
 } from '../build-plugins/healthPremiumsLandingPlugin';
@@ -1054,6 +1055,22 @@ describe('generateHealthPremiumsPages — real data replaces derivation', () => 
     // fall around ~153.
     const hasRealKinRange = /1[456]\d,\d{2}/.test(hub);
     expect(hasRealKinRange, 'hub should expose a KIN median in ~140-170 CHF range').toBe(true);
+  });
+});
+
+describe('health-premiums critical page guard (#8507)', () => {
+  it('accepts a generated Ticino 26–30 route', () => {
+    expect(() => assertHealthPremiumsCriticalPages(generation)).not.toThrow();
+  });
+
+  it('fails closed with the missing route and skipped canton diagnosis', () => {
+    const emptyGeneration = generateHealthPremiumsPages({
+      dataset: { insurers: [], premiums: {} },
+      today,
+    });
+    expect(() => assertHealthPremiumsCriticalPages(emptyGeneration)).toThrow(
+      /critical page guard failed: missing=.*premi-cassa-malati\/ticino\/adulto-26-30\/.*skippedCantons=.*ticino/,
+    );
   });
 });
 

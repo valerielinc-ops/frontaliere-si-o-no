@@ -10,6 +10,7 @@ import {
   classifyProviderOutcomes,
   classifyRecipientConsent,
   companyAlertJobQuarantines,
+  coalesceDeliveryWrites,
   deliveryOutcomeForEmail,
   finalizeRecipientDelivery,
   hasDeferredCompanyAlertWork,
@@ -19,6 +20,7 @@ import {
   PER_RUN_CAP,
   planDeferredDeliveryWrites,
   planDeliveryWriteback,
+  persistDeferredDeliveryWrites,
   selectNewlyPublishedJobs,
   sortCompanyAlertRecipients,
 } from '../scripts/send-company-alerts.mjs';
@@ -43,7 +45,7 @@ function alert(
   id: string,
   companyKey: string,
   extra: Record<string, unknown> = {},
-) {
+): any {
   return {
     id,
     ref: ref(`job_alert_subscribers/fixture/alerts/${id}`),
@@ -441,6 +443,278 @@ describe('B6 — the per-run cap leaves a durable, fair backlog', () => {
       state: DELIVERY_STATES.DEFERRED,
       reason: 'per-run-cap',
     });
+  });
+
+  it('prioritises an alert-level defer even when its ledger has no job key', () => {
+    const alertLevelDeferred = alert('b6-alert-level-sort', 'Acme', {
+      deliveryDeferredAttempts: 1,
+      deliveryDeferredState: DELIVERY_STATES.DEFERRED,
+      deliveryLedger: {},
+      email: 'b6-deferred@example.invalid',
+    });
+    const fresh = alert('b6-fresh-sort', 'Acme', {
+      email: 'b6-fresh@example.invalid',
+    });
+    const byRecipient = new Map([
+      [fresh.email, [fresh]],
+      [alertLevelDeferred.email, [alertLevelDeferred]],
+    ]);
+
+    expect(hasDeferredCompanyAlertWork([alertLevelDeferred])).toBe(true);
+    expect(sortCompanyAlertRecipients(byRecipient)[0]).toBe(alertLevelDeferred.email);
+  });
+
+  it('keeps the alert-level reason and the highest per-job attempts when writes race', async () => {
+    const sourceAlert = alert('b6-racing-writes', 'Acme');
+    const sourceJob = job('b6-racing-job', 'Acme', 'acme');
+    const section = buildRecipientSections([sourceAlert], [sourceJob], NOW)[0];
+    const [alertLevelWrite] = planDeferredDeliveryWrites(
+      [{ alert: sourceAlert, jobs: [] }],
+      NOW,
+      'consent-lookup-failed',
+    );
+    const [throughputWrite] = planDeferredDeliveryWrites(
+      [section],
+      NOW + 1,
+      'per-run-cap',
+    );
+    expect(throughputWrite.deliveryLedger['b6-racing-job']).not.toHaveProperty('attempts');
+
+    const db = serializedDb({
+      [sourceAlert.ref.path]: {
+        ...sourceAlert,
+        ref: undefined,
+        deliveryLedger: {
+          'b6-racing-job': {
+            state: DELIVERY_STATES.DEFERRED,
+            at: NOW,
+            attempts: 2,
+            reason: 'per-run-cap',
+          },
+        },
+      },
+    });
+    await persistDeferredDeliveryWrites(db, [alertLevelWrite, throughputWrite], false);
+
+    expect(db.docs.get(sourceAlert.ref.path)).toMatchObject({
+      deliveryLastDeferredReason: 'consent-lookup-failed',
+      deliveryLedger: {
+        'b6-racing-job': {
+          state: DELIVERY_STATES.DEFERRED,
+          attempts: 2,
+        },
+      },
+    });
+  });
+
+  it('keeps a terminal per-job defer when alert-level and throughput writes coalesce', async () => {
+    const sourceAlert = alert('b6-terminal-coalescing', 'Acme', {
+      deliveryDeferredAttempts: DEFERRED_MAX_ATTEMPTS - 1,
+      deliveryDeferredState: DELIVERY_STATES.DEFERRED,
+    });
+    const sourceJob = job('b6-terminal-coalescing-job', 'Acme', 'acme');
+    const section = buildRecipientSections([sourceAlert], [sourceJob], NOW)[0];
+    const [alertLevelWrite] = planDeferredDeliveryWrites(
+      [{ alert: sourceAlert, jobs: [sourceJob] }],
+      NOW,
+      'consent-lookup-failed',
+    );
+    const [throughputWrite] = planDeferredDeliveryWrites(
+      [section],
+      NOW + 1,
+      'per-run-cap',
+    );
+
+    const db = serializedDb({
+      [sourceAlert.ref.path]: {
+        ...sourceAlert,
+        ref: undefined,
+        deliveryLedger: {},
+      },
+    });
+    await persistDeferredDeliveryWrites(db, [alertLevelWrite, throughputWrite], false);
+
+    expect(db.docs.get(sourceAlert.ref.path)).toMatchObject({
+      deliveryLastDeferredReason: 'consent-lookup-failed',
+      deliveryDeferredAttempts: DEFERRED_MAX_ATTEMPTS,
+      deliveryDeferredState: DELIVERY_STATES.DEFERRED_EXHAUSTED,
+      deliveryLedger: {
+        [sourceJob.id]: {
+          state: DELIVERY_STATES.DEFERRED_EXHAUSTED,
+          attempts: DEFERRED_MAX_ATTEMPTS,
+          reason: 'consent-lookup-failed',
+        },
+      },
+    });
+  });
+
+  it('marks a per-job defer terminal when its attempts exceed the alert counter', () => {
+    const sourceJob = job('b6-job-terminal-before-alert', 'Acme', 'acme');
+    const sourceAlert = alert('b6-alert-job-terminal-before-alert', 'Acme', {
+      deliveryDeferredAttempts: 1,
+      deliveryDeferredState: DELIVERY_STATES.DEFERRED,
+      deliveryLedger: {
+        [sourceJob.id]: {
+          state: DELIVERY_STATES.FAILED,
+          at: NOW,
+          attempts: DEFERRED_MAX_ATTEMPTS - 1,
+        },
+      },
+    });
+
+    const [write] = planDeferredDeliveryWrites([{
+      alert: sourceAlert,
+      jobs: [sourceJob],
+    }], NOW + 1, 'consent-lookup-failed');
+
+    expect(write.deliveryDeferredAttempts).toBe(2);
+    expect(write.deliveryDeferredState).toBe(DELIVERY_STATES.DEFERRED);
+    expect(write.deliveryLedger[sourceJob.id]).toMatchObject({
+      state: DELIVERY_STATES.DEFERRED_EXHAUSTED,
+      attempts: DEFERRED_MAX_ATTEMPTS,
+    });
+  });
+
+  it('keeps an already exhausted per-job defer terminal through a throughput cap', () => {
+    const sourceJob = job('b6-throughput-after-terminal', 'Acme', 'acme');
+    const sourceAlert = alert('b6-throughput-after-terminal', 'Acme', {
+      deliveryLedger: {
+        [sourceJob.id]: {
+          state: DELIVERY_STATES.DEFERRED,
+          at: NOW,
+          attempts: DEFERRED_MAX_ATTEMPTS,
+        },
+      },
+    });
+
+    const [write] = planDeferredDeliveryWrites([{
+      alert: sourceAlert,
+      jobs: [sourceJob],
+    }], NOW + 1, 'card-cap');
+
+    expect(write.deliveryLedger[sourceJob.id]).toMatchObject({
+      state: DELIVERY_STATES.DEFERRED_EXHAUSTED,
+      attempts: DEFERRED_MAX_ATTEMPTS,
+    });
+  });
+
+  it('does not consume the failure budget on repeated throughput deferrals', () => {
+    const sourceAlert = alert('b6-throughput-budget', 'Acme');
+    const sourceJob = job('b6-throughput-budget-job', 'Acme', 'acme');
+    let persistedAlert = sourceAlert;
+
+    for (let attempt = 1; attempt <= DEFERRED_MAX_ATTEMPTS + 1; attempt += 1) {
+      const [write] = planDeferredDeliveryWrites([{
+        alert: persistedAlert,
+        jobs: [sourceJob],
+      }], NOW + attempt, 'per-run-cap');
+      expect(write.deliveryDeferredAttempts).toBeUndefined();
+      expect(write.deliveryLedger[sourceJob.id]).toMatchObject({
+        state: DELIVERY_STATES.DEFERRED,
+      });
+      persistedAlert = {
+        ...persistedAlert,
+        deliveryLedger: write.deliveryLedger,
+      };
+    }
+
+    expect(hasDeferredCompanyAlertWork([persistedAlert])).toBe(true);
+  });
+
+  it('preserves failure attempts through a capacity defer before the next failure', () => {
+    const sourceJob = job('b6-capacity-then-failure-job', 'Acme', 'acme');
+    const sourceAlert = alert('b6-capacity-then-failure', 'Acme', {
+      deliveryLedger: {
+        [sourceJob.id]: {
+          state: DELIVERY_STATES.FAILED,
+          at: NOW,
+          attempts: 1,
+        },
+      },
+    });
+    const section = buildRecipientSections([sourceAlert], [sourceJob], NOW)[0];
+    const [capacityWrite] = planDeferredDeliveryWrites([section], NOW + 1, 'per-run-cap');
+
+    expect(capacityWrite).not.toHaveProperty('deliveryDeferredAttempts');
+    expect(capacityWrite.deliveryLedger[sourceJob.id]).toMatchObject({
+      state: DELIVERY_STATES.DEFERRED,
+      attempts: 1,
+    });
+
+    const [failureWrite] = planDeferredDeliveryWrites([{
+      alert: { ...sourceAlert, deliveryLedger: capacityWrite.deliveryLedger },
+      jobs: [sourceJob],
+    }], NOW + 2, 'consent-lookup-failed');
+
+    expect(failureWrite).toMatchObject({
+      deliveryDeferredAttempts: 1,
+      deliveryDeferredState: DELIVERY_STATES.DEFERRED,
+    });
+    expect(failureWrite.deliveryLedger[sourceJob.id]).toMatchObject({
+      state: DELIVERY_STATES.DEFERRED,
+      attempts: 2,
+    });
+  });
+
+  it.each([DELIVERY_STATES.CLAIMED, DELIVERY_STATES.FAILED])(
+    'increments a failure deferral from a prior %s entry',
+    (priorState) => {
+      const sourceJob = job(`b6-failure-after-${priorState}`, 'Acme', 'acme');
+      const sourceAlert = alert(`b6-failure-after-${priorState}`, 'Acme', {
+        deliveryLedger: {
+          [sourceJob.id]: {
+            state: priorState,
+            at: NOW,
+            attempts: 2,
+          },
+        },
+      });
+
+      const [write] = planDeferredDeliveryWrites([{
+        alert: sourceAlert,
+        jobs: [sourceJob],
+      }], NOW + 1, 'consent-lookup-failed');
+
+      expect(write.deliveryLedger[sourceJob.id]).toMatchObject({
+        state: DELIVERY_STATES.DEFERRED_EXHAUSTED,
+        attempts: 3,
+      });
+    },
+  );
+
+  it('coalesces the maximum per-job attempt regardless of write order', () => {
+    const sourceAlert = alert('b6-coalesce-order', 'Acme');
+    const sourceJob = job('b6-coalesce-order-job', 'Acme', 'acme');
+    const writes = [
+      {
+        ref: sourceAlert.ref,
+        deliveryLedger: {
+          [sourceJob.id]: {
+            state: DELIVERY_STATES.DEFERRED,
+            at: NOW,
+            attempts: 2,
+          },
+        },
+        reason: 'consent-lookup-failed',
+        at: NOW,
+      },
+      {
+        ref: sourceAlert.ref,
+        deliveryLedger: {
+          [sourceJob.id]: {
+            state: DELIVERY_STATES.DEFERRED,
+            at: NOW + 1,
+            attempts: 3,
+          },
+        },
+        reason: 'consent-lookup-failed',
+        at: NOW + 1,
+      },
+    ];
+
+    for (const order of [writes, [...writes].reverse()]) {
+      expect(coalesceDeliveryWrites(order)[0].deliveryLedger[sourceJob.id].attempts).toBe(3);
+    }
   });
 
   it('counts repeated deferrals per alert, not per job key', () => {

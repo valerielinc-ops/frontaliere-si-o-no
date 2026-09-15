@@ -1,6 +1,6 @@
 {
   "companyKey": "jobs",
-  "companyName": "Socar",
+  "companyName": "Smart-Hotel",
   "companyHost": "jobs.hangl.ch",
   "platform": "hangl.ch",
   "mode": "jsonld",
@@ -8,17 +8,17 @@
     "https://jobs.hangl.ch/"
   ],
   "detailTemplate": "/",
-  "detailEnrichment": false,
+  "detailEnrichment": true,
   "detailFetchWorkers": 4,
   "sampleVacancyCount": 29,
   "sampleTitles": [
-    "Verkäufer in unserer Brillenabteilung (m/w/d)",
-    "Verkäufer Sport-& Freizeitmode (m/w/d)",
     "Direktionsassistent (m/w/d)",
     "Skilehrer/in (m/w/d)                                                                                     ",
-    "Funpark-Skilehrer/in (m/w/d)"
+    "Funpark-Skilehrer/in (m/w/d)",
+    "Chef de Partie - Gardemanger / Patissier (m/w/d)",
+    "Snowboardlehrer/in (m/w/d)"
   ],
   "canton": "GR",
   "sourceLang": "de",
-  "learnedAt": "2026-08-31T10:26:32.044Z"
+  "learnedAt": "2026-09-11T09:06:11.681Z"
 }

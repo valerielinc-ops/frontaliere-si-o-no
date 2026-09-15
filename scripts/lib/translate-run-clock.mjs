@@ -30,8 +30,10 @@
  *
  * Storage: RUNNER_TEMP (per-job temp dir, persists across steps within a job but
  * is never part of the committed workspace), falling back to os.tmpdir() for
- * local runs. Best-effort: a missing/unreadable marker just makes the mop-up fall
- * back to its own start as the reference — never a hard failure.
+ * local runs. The workflow initializes and verifies the marker before any
+ * translation phase. Consumers use resolveRunStartMs(), which keeps the local
+ * standalone fallback but fails closed when the workflow requires the shared
+ * clock.
  */
 import fs from 'node:fs';
 import os from 'node:os';
@@ -71,8 +73,8 @@ export function markRunStart(epochMs) {
     if (readRunStartMs() !== null) return;
     fs.writeFileSync(MARKER_PATH, String(epochMs), 'utf-8');
   } catch {
-    // Best-effort: a marker-write failure must never break the step. The reader
-    // will simply fall back to its own start as the reference.
+    // Best-effort for standalone callers: the workflow's explicit initializer
+    // verifies the write before any consumer step is allowed to run.
   }
 }
 
@@ -94,8 +96,22 @@ export function recordRunPhase(entry, { replaceLast = false } = {}) {
     if (replaceLast && phases[lastIndex]?.name === entry.name) {
       phases[lastIndex] = entry;
     } else {
-      if (phases.length >= MAX_RUN_PHASES) return;
-      phases.push(entry);
+      let existingIndex = -1;
+      for (let index = phases.length - 1; index >= 0; index -= 1) {
+        if (phases[index]?.name === entry.name) {
+          existingIndex = index;
+          break;
+        }
+      }
+      if (existingIndex >= 0) {
+        // A phase is a singleton in one translate run. An early return can
+        // arrive after another process already recorded the same phase, so
+        // appending here would make the collector count one run twice.
+        phases[existingIndex] = entry;
+      } else {
+        if (phases.length >= MAX_RUN_PHASES) return;
+        phases.push(entry);
+      }
     }
     fs.writeFileSync(RUN_PHASES_PATH, JSON.stringify(phases), 'utf-8');
   } catch {
@@ -118,16 +134,32 @@ export function readRunPhases() {
 }
 
 /**
- * Read the published run-start epoch (ms), or null when no valid marker exists
- * (local run, cascade skipped/crashed pre-write). Callers fall back to Date.now()
- * so the mop-up still self-bounds, just from its own start.
+ * Read the published run-start epoch (ms), or null when no valid marker exists.
+ * Use resolveRunStartMs() in budget consumers so the workflow can fail closed.
  */
 export function readRunStartMs() {
   try {
     const ms = Number(fs.readFileSync(MARKER_PATH, 'utf-8').trim());
     if (Number.isFinite(ms) && ms > 0) return ms;
   } catch {
-    // No marker → caller falls back to Date.now().
+    // The resolver decides whether a missing marker is a local fallback or a
+    // workflow error.
   }
   return null;
+}
+
+/**
+ * Resolve the shared run-start epoch. Local scripts remain convenient to run
+ * directly, but the translate-pending workflow must never restart the elapsed
+ * budget after a missing marker.
+ */
+export function resolveRunStartMs() {
+  const marker = readRunStartMs();
+  if (marker !== null) return marker;
+  if (process.env.TRANSLATE_RUN_CLOCK_REQUIRED === '1') {
+    throw new Error(
+      'translate-pending run-start marker missing; refusing to restart the elapsed budget',
+    );
+  }
+  return Date.now();
 }

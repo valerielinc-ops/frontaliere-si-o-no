@@ -10,11 +10,12 @@
  *   <jobalino-joblist
  *     company="privatklinik-meiringen"
  *     additional_companies="michel-gruppe-ag"
- *     filter5="Ja">
+ *     filter5="Ja"> (legacy widget configuration; the parser deliberately
+ *     omits this server-owned filter, which changed its meaning)
  *
  * Our parser uses the same JSONP endpoint
  *   https://my.jobalino.ch/custel_jobExternalList/privatklinik-meiringen
- *   ?additional_company_names=michel-gruppe-ag&filter5=Ja
+ *   ?additional_company_names=michel-gruppe-ag
  *
  * Detail pages are at https://my.jobalino.ch/job/{HASH}/{slug} and ship
  * a clean schema.org JobPosting JSON-LD payload — see
@@ -36,7 +37,11 @@ const parser = createJobalinoParser({
   // out of the Michel-Gruppe AG umbrella plus any Aadorf jobs Michel-Gruppe
   // posts on behalf of the privatklinik network.
   additionalCompanies: 'michel-gruppe-ag',
-  listingFilters: { filter5: 'Ja' },
+  // The public widget used to pass `filter5=Ja`, but Jobalino now treats that
+  // value as an empty result for this tenant while the unfiltered endpoint
+  // still returns its live openings. Keep ownership filtering in the parser's
+  // `matchCompanyName` predicate below instead of relying on a mutable ATS
+  // filter value.
   locale: 'de',
   companyKey: PRIVATKLINIK_MEIRINGEN_KEY,
   companyName: PRIVATKLINIK_MEIRINGEN_COMPANY_NAME,

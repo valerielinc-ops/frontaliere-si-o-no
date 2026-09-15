@@ -117,9 +117,17 @@ function normalizeOfficialCantonCode(value) {
   return '';
 }
 
-function locationRegionKey(value) {
+function locationRegionKey(value, addressCountry = '') {
   const raw = String(value || '').trim();
-  return normalizeOfficialCantonCode(raw) || normalizeSwissTargetLocationText(raw);
+  const canton = normalizeOfficialCantonCode(raw);
+  if (canton) return canton;
+  const region = normalizeSwissTargetLocationText(raw);
+  if (!region) return '';
+  // A free-text subdivision is not a Swiss canton. Keep the country in its
+  // identity, and make the absence of country explicit, so an unknown foreign
+  // region cannot be treated as a country-less Swiss-shaped value.
+  const country = normalizeSwissTargetLocationText(addressCountry) || 'unknown';
+  return `${country}:${region}`;
 }
 
 function locationCodes(value) {
@@ -274,11 +282,12 @@ export function resolveSourceBackedSwissGeography(value, addressCountry = '') {
  */
 export function locationEvidenceKey(candidate) {
   if (typeof candidate === 'string') return [candidate.trim(), '', '', '', '', ''].join('\u0000');
+  const addressCountry = String(candidate?.addressCountry || candidate?.country || '').trim();
   return [
     String(candidate?.location || '').trim(),
-    String(candidate?.addressCountry || candidate?.country || '').trim(),
+    addressCountry,
     String(candidate?.addressLocality || '').trim(),
-    locationRegionKey(candidate?.addressRegion),
+    locationRegionKey(candidate?.addressRegion, addressCountry),
     String(candidate?.postalCode || '').trim(),
     String(candidate?.streetAddress || '').trim(),
   ].join('\u0000');
@@ -352,6 +361,7 @@ export function dedupeLocationCandidates(candidates = []) {
   const groups = new Map();
   for (const candidate of Array.isArray(candidates) ? candidates : []) {
     if (candidate === null || candidate === undefined
+      || Array.isArray(candidate)
       || (typeof candidate !== 'string' && typeof candidate !== 'object')) continue;
     const key = locationEvidenceKey(candidate);
     const current = groups.get(key);

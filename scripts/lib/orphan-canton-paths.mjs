@@ -60,10 +60,10 @@ const INBOUND_PATH_RE = new RegExp(
   `^(?:/(?:en|de|fr))?/${INBOUND_PREFIX_ALTERNATES}-([a-z-]+)/[^/]+/?$`,
 );
 
-// 6-char hex disambiguator tail appended by the slug regen step (see
+// 6- or 8-char hex disambiguator tail appended by a slug generator (see
 // `appendDisambiguatorTail` in regenerate-slugs-helpers.mjs). Strip it before
 // looking up the city — the city name is what comes immediately before it.
-const DISAMBIGUATOR_TAIL_RE = /-[a-f0-9]{6}$/;
+const DISAMBIGUATOR_TAIL_RE = /-[a-f0-9]{6}(?:[a-f0-9]{2})?$/;
 
 let _cityCantonIndex = null;
 

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "clinique-generale-ste-anne",
-  "assembledAt": "2026-09-09T23:12:07.819Z",
+  "assembledAt": "2026-09-10T23:11:11.342Z",
   "jobs": [
     {
       "id": "clinique-generale-ste-anne-42d3ec8c44f5",
@@ -35,7 +35,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000136139809-aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-",
       "source": "Clinique Générale Ste-Anne Dedicated Parser (SMN clinic=CDF)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-09T23:11:59.960Z",
+      "crawledAt": "2026-09-10T23:11:05.486Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -168,7 +168,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }

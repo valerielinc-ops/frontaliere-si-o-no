@@ -318,11 +318,17 @@ describe('#5684 point 3 — a preference set in the centre survives what comes a
     expect(read('services/newsletterOptOut.mjs')).toContain('export function isNewsletterOptOutBinding');
     expect(src).toContain('export { isNewsletterOptOutBinding }');
     expect(src).toContain('export async function isNewsletterOptedOut');
-    for (const p of ['App.tsx', 'services/authService.ts', 'components/community/JobBoard.tsx']) {
+    for (const p of ['App.tsx', 'components/community/JobBoard.tsx']) {
       expect(read(p), `${p} must consult the opt-out before auto-subscribing`).toContain(
         'isNewsletterOptedOut',
       );
     }
+    // Authentication is now access-only. `authService.ts` may enrich an
+    // existing profile, but it must not call the newsletter upsert or carry a
+    // hidden One Tap subscription path that would need an opt-out guard.
+    expect(read('services/authService.ts')).not.toMatch(
+      /(?:upsertNewsletterSubscriber|captureNewsletterSubscriber|persistOneTapSubscriber)/,
+    );
   });
 
   it('the digest opt-out is not re-defaulted by a later login', () => {

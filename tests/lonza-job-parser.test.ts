@@ -13,6 +13,7 @@
 import { describe, it, expect } from 'vitest';
 import { inferSwissTargetCanton } from '../scripts/lib/target-swiss-locations.mjs';
 import { COMPANY_HQ } from '../scripts/lib/crawler-location-config.mjs';
+import { __internals as lonzaInternals } from '../scripts/lib/lonza-job-parser.mjs';
 
 // ─── Constants (mirroring the crawler script) ─────────────────────────────────
 
@@ -288,6 +289,11 @@ describe('Workday API response parsing', () => {
 // ─── Location parsing ─────────────────────────────────────────────────────────
 
 describe('Workday location parsing', () => {
+  it('production parser drops a country-only prefix before selecting the city', () => {
+    expect(lonzaInternals.parseWorkdayLocation('CH - Visp')).toBe('Visp');
+    expect(lonzaInternals.parseWorkdayLocation('CH')).toBe('');
+  });
+
   it('parses "Visp - Switzerland" → "Visp"', () => {
     expect(parseWorkdayLocation('Visp - Switzerland')).toBe('Visp');
   });

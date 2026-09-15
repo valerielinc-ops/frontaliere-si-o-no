@@ -20,14 +20,69 @@
  * script and test importer is unchanged and the two cannot drift.
  */
 
+function readField(row, ...fields) {
+  const d = row?.doc || {};
+  for (const field of fields) {
+    if (row?.[field] !== undefined) return row[field];
+    if (d?.[field] !== undefined) return d[field];
+  }
+  return undefined;
+}
+
 /**
- * The recorded proof that this address ever completed the double opt-in.
+ * Server-owned provenance written by the DOI confirmation endpoint.
  *
- * `confirmed_at` / `confirmedAt` are written by the two branches of
- * functions/src/newsletterSubscriptionManagement.js that a RECIPIENT reaches by
- * clicking, and by nothing else: `action === 'confirm'` (the double-opt-in
- * link) and `action === 'resubscribe'` (the "riattiva" click), each in the same
- * `.set()` that writes `status: 'confirmed'`.
+ * A silent authentication row may already carry `confirmed_at`, but that
+ * timestamp was not a newsletter act. This marker is the durable distinction
+ * for the exceptional case where the recipient later clicks a real DOI link
+ * while the old authentication state is still on the document. It is written
+ * by the Admin SDK path only; browser writes are guarded in firestore.rules.
+ */
+export const CONFIRMATION_LINK_PROOF = 'confirmation_link';
+
+/**
+ * Whether an append-only event is the server-recorded double-opt-in click.
+ *
+ * Historical client-side signup/authentication writers also used
+ * `event_type: 'confirm'` when a row became active. The event type alone is
+ * therefore not consent evidence. The confirmation endpoint is the only
+ * writer allowed to use this source channel for the event, so both fields are
+ * required here and every recovery/export reader shares the same fail-closed
+ * interpretation.
+ *
+ * @param {Record<string, unknown> | null | undefined} event
+ * @returns {boolean}
+ */
+export function isNewsletterConfirmationEvent(event) {
+  return event?.event_type === 'confirm'
+    && event?.source_channel === CONFIRMATION_LINK_PROOF;
+}
+
+/**
+ * Whether the row carries the durable confirmation timestamp.
+ *
+ * This is intentionally weaker than `hasConfirmationProof`: a transactional
+ * DOI request must not be re-sent merely because an old row is still marked
+ * `pending`, but marketing eligibility additionally validates the provenance
+ * of authentication-created stamps.
+ *
+ * @param {({doc?: object} & Record<string, unknown>) | null | undefined} row
+ * @returns {boolean}
+ */
+export function hasConfirmationStamp(row) {
+  return Boolean(readField(row, 'confirmed_at', 'confirmedAt'));
+}
+
+/**
+ * The recorded proof that this address may receive marketing mail.
+ *
+ * `confirmed_at` / `confirmedAt` are the durable proof anchor. For records
+ * whose provenance is an authentication path, the anchor is valid only when
+ * the communications notice was actually displayed. This distinction matters
+ * for historical rows created by the old silent auth writer: they carry a
+ * timestamp and `consent_text_displayed: false`, but no subscription request.
+ * Explicit communication gates also use an authentication act, and pass this
+ * gate because their displayed flag is true.
  *
  * The resubscribe half was added by #5677 itself. That branch wrote `confirmed`
  * with NO stamp, and its token is an HMAC(email) checked without reference to
@@ -40,9 +95,13 @@
  * `resubscribe_link` one of only two signals allowed to lift a recorded
  * opt-out.
  *
- * So the stamp is a record of a click, not an inference from the signup form,
- * and that distinction is the whole of #5677: `status` alone is NOT proof, in
- * BOTH directions, and both directions were measured on production
+ * The stamp is a durable record, not an inference from the signup form. For
+ * authentication provenance, the displayed notice is part of that proof;
+ * status alone — and a silent authentication timestamp — are NOT proof. A
+ * server-owned `confirmed_via: 'confirmation_link'` marker is the other
+ * allowed route: it records the recipient's later DOI click without claiming
+ * that the old authentication flow displayed a newsletter notice. The
+ * distinction is the whole of #5677, and both directions were measured on production
  * (2026-08-12, 8.617 docs; re-measured 2026-08-13 on 8.670):
  *
  *   - `status: 'confirmed'` WITHOUT the stamp: 392 docs, of which 380 carry a
@@ -62,14 +121,13 @@
  * documents have already confirmed, and a cycle that expired them would close
  * 848 real subscriptions.
  *
- * So the gate keys on the stamp and never on the word. Blocking every
+ * The marketing gate keys on this proof and never on the word. Blocking every
  * `pending` row instead would have silently dropped 535 people who had
  * confirmed (496 of them with the `confirm` event still in their event log)
  * along with the 561 who never did — which is also why `pending` must NOT be
  * added to `NEWSLETTER_EXCLUDED_STATUSES`: that Set is shared with the sunset
  * and win-back channels, whose whole purpose is reaching people the ordinary
  * campaigns no longer may.
- *
  * @param {({doc?: object} & Record<string, unknown>) | null | undefined} row
  *   Either a raw Firestore row or a projection carrying the raw one on `.doc`;
  *   both spellings of the stamp are read on either level, and a caller may pass
@@ -77,6 +135,25 @@
  * @returns {boolean}
  */
 export function hasConfirmationProof(row) {
-  const d = row?.doc || {};
-  return !!(d.confirmed_at || d.confirmedAt || row?.confirmed_at || row?.confirmedAt);
+  if (!hasConfirmationStamp(row)) return false;
+
+  const act = String(readField(row, 'consent_act', 'consentAct') || '').trim().toLowerCase();
+  const source = String(readField(row, 'source') || '').trim().toLowerCase();
+  const sourceChannel = String(readField(row, 'source_channel', 'sourceChannel') || '').trim().toLowerCase();
+  const confirmedVia = String(readField(row, 'confirmed_via', 'confirmedVia') || '').trim().toLowerCase();
+  const authenticationPath =
+    act === 'authentication'
+    || sourceChannel.startsWith('auth_')
+    || sourceChannel === 'chatbot'
+    || source.startsWith('chatbot')
+    || source.includes('auth');
+
+  if (
+    authenticationPath
+    && confirmedVia !== CONFIRMATION_LINK_PROOF
+    && readField(row, 'consent_text_displayed', 'consentTextDisplayed') !== true
+  ) {
+    return false;
+  }
+  return true;
 }

@@ -31,6 +31,28 @@ export const FIRESTORE_BATCH_SIZE = 400;
 // estimate below doesn't capture.
 export const FIRESTORE_BATCH_MAX_BYTES = 8 * 1024 * 1024;
 
+function withCommittedItems(error, committedItems) {
+  if (error && typeof error === 'object') {
+    try {
+      Object.defineProperty(error, 'committedItems', {
+        value: committedItems,
+        configurable: true,
+        enumerable: false,
+      });
+      return error;
+    } catch {
+      // Fall through for frozen/non-extensible provider errors.
+    }
+  }
+  const wrapped = new Error(String(error), { cause: error });
+  Object.defineProperty(wrapped, 'committedItems', {
+    value: committedItems,
+    configurable: true,
+    enumerable: false,
+  });
+  return wrapped;
+}
+
 function estimateBytes(value) {
   try {
     return Buffer.byteLength(JSON.stringify(value));
@@ -68,6 +90,11 @@ function estimateBytes(value) {
  * records did I write", and that must not change meaning the day an applyFn
  * grows a second write.
  *
+ * When a batch commit fails, the thrown error is annotated with
+ * `committedItems`, the number of items committed by earlier batches. A
+ * caller performing a best-effort rollback can therefore report a confirmed
+ * partial restore instead of hiding it behind the original write error.
+ *
  * @template T
  * @param {import('firebase-admin').firestore.Firestore} db
  * @param {T[]} items
@@ -93,7 +120,11 @@ export async function commitInChunks(
 
   const flush = async () => {
     if (opsInBatch === 0) return;
-    await batch.commit();
+    try {
+      await batch.commit();
+    } catch (error) {
+      throw withCommittedItems(error, processed);
+    }
     processed += itemsInBatch;
     batch = db.batch();
     itemsInBatch = 0;

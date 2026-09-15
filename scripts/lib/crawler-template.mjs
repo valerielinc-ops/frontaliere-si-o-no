@@ -147,11 +147,13 @@ import {
   getCrawlerElapsedMs,
 } from '../jobs-url-helper.mjs';
 import { CRAWLER_FETCH_OUTCOMES } from './crawler-fetch-outcome.mjs';
+import { normalizeDetailDrop, detailDropSummaryFields } from './crawler-detail-drop.mjs';
 import {
   writeJobsCrawlerSlice,
   writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
+  markCrawlerSummaryAbortKind,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from '../assemble-jobs-dataset.mjs';
@@ -172,11 +174,17 @@ import {
 } from './transient-fetch.mjs';
 import { fetchHtmlViaJinaWithRetry, rescueHtmlIfChallenged } from './jina-proxy.mjs';
 import { fetchFollowingValidatedRedirects } from './prospector/public-fetch-policy.mjs';
+import { assertFeedEndpointHost } from './feed-endpoint-guard.mjs';
 
 // Re-export the shared transient-fetch primitives so existing importers of
 // crawler-template keep working and the ATS clients share one classifier.
 export { RETRYABLE_STATUS, WAF_IP_BLOCK_STATUS, isTransientFetchError, isConnectionLevelFetchError, fetchWithRetry };
 export { fetchFollowingValidatedRedirects } from './prospector/public-fetch-policy.mjs';
+export { assertFeedEndpointHost };
+
+function isRetryBudgetExhaustedError(err) {
+  return err?.retryBudgetExhausted === true || err?.response?.retryBudgetExhausted === true;
+}
 
 /* ── Shared Utilities (re-exported for parser convenience) ──────────── */
 
@@ -196,6 +204,14 @@ export function slugify(text = '', maxLength = 90) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   return truncateSlugAtWordBoundary(base, maxLength);
+}
+
+/**
+ * Environment switch used by the strict validation gate for one crawler.
+ * Kebab-case company keys must map to shell-safe underscore names.
+ */
+export function crawlerStrictEnvVar(companyKey = '') {
+  return `JOBS_${String(companyKey).toUpperCase().replace(/-/g, '_')}_STRICT`;
 }
 
 /**
@@ -744,8 +760,21 @@ export function warnIfListingAtCap({ label, count, cap, total }) {
 
 export function exitCrawlerOnError(err, label = 'crawler') {
   if (isConnectionLevelFetchError(err)) {
+    markCrawlerSummaryAbortKind('connection-level-fetch');
     console.log(
       `\n⚠️ ${label}: connection-level fetch failure after retries + proxy fallback (${err?.message || err}). Keeping existing jobs (no de-index).`,
+    );
+    process.exit(0);
+  }
+  if (isRetryBudgetExhaustedError(err)) {
+    console.log(
+      `\n⚠️ ${label}: retryable HTTP response exhausted its retry budget (${err?.message || err}). Keeping existing jobs (no de-index).`,
+    );
+    process.exit(0);
+  }
+  if (err?.feedEndpointUnavailable) {
+    console.log(
+      `\n⚠️ ${label}: ${err?.message || err}. Keeping existing jobs (no de-index).`,
     );
     process.exit(0);
   }
@@ -786,7 +815,9 @@ export async function verifyUrlNoRedirect(url, options = {}) {
  * @typedef {Object} CrawlerConfig
  * @property {string}   companyKey          — Unique kebab-case key (e.g. 'lonza')
  * @property {string}   companyLabel        — Display name for logs (e.g. 'Lonza')
- * @property {Function} fetchJobs           — async () => ParsedJob[]. Source-locale only.
+ * @property {Function} fetchJobs           — async () => ParsedJob[] or
+ *                                             { jobs: ParsedJob[], ...metadata }.
+ *                                             Source-locale only.
  * @property {Function} isCompanyJob        — (job) => boolean. Matches this company's jobs.
  * @property {string}   [root]              — Project root (default: cwd)
  * @property {string}   [defaultSourceLang] — Fallback source language (default: 'it')
@@ -844,6 +875,36 @@ export function evaluateAuthoritativeSnapshot(parsedJobs, options = {}) {
 }
 
 /**
+ * Normalize the fetch result while keeping parser metadata outside the jobs
+ * array. Arrays with attached fields remain supported for legacy crawlers, but
+ * new parsers can return `{ jobs, fetchOutcome }` so an intermediate
+ * `.filter()`/`.map()` cannot discard the verdict (issue #8069).
+ *
+ * @param {unknown} fetchResult
+ * @returns {{ jobs: object[]|undefined, metadata: object }}
+ */
+export function normalizeCrawlerFetchResult(fetchResult) {
+  if (Array.isArray(fetchResult)) {
+    return { jobs: fetchResult, metadata: fetchResult };
+  }
+  if (fetchResult && typeof fetchResult === 'object') {
+    return {
+      jobs: Array.isArray(fetchResult.jobs) ? fetchResult.jobs : undefined,
+      metadata: fetchResult,
+    };
+  }
+  return { jobs: undefined, metadata: {} };
+}
+
+// A source-specific parser may report how many otherwise-valid listings it
+// discarded because it could not derive a per-vacancy detail URL. Once that
+// loss exceeds 40% of the existing slice, keep the old slice: the ordinary
+// anti-shrink guard only reacts to the resulting job count and deliberately
+// allows a 40%-retained large slice through, which would make this failure
+// mode silently archive live pages.
+export const MISSING_DETAIL_URL_MAX_RATIO = 0.4;
+
+/**
  * Restore the active slug identity of jobs already present in a crawler slice.
  *
  * The implementation lives in `scripts/lib/slug-history-journal.mjs` (issue
@@ -897,8 +958,9 @@ export async function runStandardCrawlerPipeline(config) {
   // ─── Step 0: Init ───────────────────────────────────────────
   setCrawlerStartTime();
   // `counts.discovered` (issue #5945, mirrors update-baronie-jobs.mjs) lets a
-  // fetchJobs() that attaches an optional `.discoveredCount` property to its
-  // returned array report the pre-filter candidate count — even on the
+  // fetchJobs() that returns either a legacy array with an optional
+  // `.discoveredCount` property or a structured `{ jobs, discoveredCount }`
+  // result report the pre-filter candidate count — even on the
   // "0 jobs after filtering" early return below — so check-crawler-health can
   // classify "found candidates, filtered to 0" as healthy instead of broken,
   // without a human adding the slug to EMPTY_OK_CRAWLERS. Parsers that don't
@@ -911,14 +973,21 @@ export async function runStandardCrawlerPipeline(config) {
   // `written === 0`) and check-crawler-health calls a broken crawler healthy.
   // `counts.lastFetchOutcome` (issue #7897) is the run's own verdict on WHY it
   // ended up empty, when its parser can tell: `ok`, `anti_bot_block`,
-  // `selector_miss`, `filtered_empty`. `discovered`/`parsed` let the monitor
+  // `selector_miss`, `filtered_empty`, `connection_error`, `exhausted_retry`
+  // or `feed_endpoint_unavailable`. `discovered`/`parsed` let the monitor
   // INFER a cause by comparing counts; this reports one observed at the
   // fetch/parse boundary, which is the only place an anti-bot block and a dead
   // selector are distinguishable at all. It rides the same `counts` object so
   // the exit-guard slice carries it too — the zero-match soft exit below is
   // precisely the run whose cause matters most. Parsers that don't set
   // `.fetchOutcome` leave it null: unchanged behaviour.
-  const counts = { discovered: null, parsed: null, lastFetchOutcome: null };
+  const counts = {
+    discovered: null,
+    parsed: null,
+    lastFetchOutcome: null,
+    abortKind: null,
+    detailDrop: null,
+  };
   registerCrawlerSummaryGuard(companyKey, companyLabel, counts);
   console.log('═══════════════════════════════════════════════');
   console.log(`  ${companyLabel} — Standard Crawler Pipeline`);
@@ -933,8 +1002,10 @@ export async function runStandardCrawlerPipeline(config) {
   // ─── Step 2: Fetch ──────────────────────────────────────────
   // Parser returns source-locale jobs only. DO NOT set non-source locale fields.
   let parsedJobs;
+  let fetchMetadata;
   try {
-    parsedJobs = await fetchJobs();
+    const fetchResult = await fetchJobs();
+    ({ jobs: parsedJobs, metadata: fetchMetadata } = normalizeCrawlerFetchResult(fetchResult));
   } catch (err) {
     // Connection-level fetch failure = the runner's datacenter egress could not
     // reach an otherwise-healthy source (transient IP-reputation / egress block,
@@ -952,8 +1023,24 @@ export async function runStandardCrawlerPipeline(config) {
     // fallback before re-throwing a connection-level error here, so this is the
     // last-resort guard after the proxy could not help either.
     if (isConnectionLevelFetchError(err)) {
+      counts.lastFetchOutcome = 'connection_error';
+      counts.abortKind = 'connection-level-fetch';
       console.log(
         `\n⚠️ ${companyLabel}: connection-level fetch failure after retries + proxy fallback (${err.message}). Keeping existing jobs.`,
+      );
+      return;
+    }
+    if (isRetryBudgetExhaustedError(err)) {
+      counts.lastFetchOutcome = 'exhausted_retry';
+      console.log(
+        `\n⚠️ ${companyLabel}: retryable HTTP response exhausted its retry budget (${err?.message || err}). Keeping existing jobs.`,
+      );
+      return;
+    }
+    if (err?.feedEndpointUnavailable) {
+      counts.lastFetchOutcome = 'feed_endpoint_unavailable';
+      console.log(
+        `\n⚠️ ${companyLabel}: ${err.message}. Keeping existing jobs.`,
       );
       return;
     }
@@ -964,6 +1051,8 @@ export async function runStandardCrawlerPipeline(config) {
     // existing slice, no de-index, no "Crawler Failure" issue every run. A
     // persistent outage is still caught by the crawler-health monitor.
     if (err?.antiBotExhausted) {
+      counts.lastFetchOutcome = 'connection_error';
+      counts.abortKind = 'connection-level-fetch';
       console.log(
         `\n⚠️ ${companyLabel}: anti-bot fence exhausted (UA + Jina + Playwright) for ${err.message}. Keeping existing jobs.`,
       );
@@ -972,15 +1061,36 @@ export async function runStandardCrawlerPipeline(config) {
     throw err;
   }
 
-  if (Number.isFinite(parsedJobs?.discoveredCount)) {
-    counts.discovered = parsedJobs.discoveredCount;
+  if (Number.isFinite(fetchMetadata?.discoveredCount)) {
+    counts.discovered = fetchMetadata.discoveredCount;
   }
-  if (CRAWLER_FETCH_OUTCOMES.has(parsedJobs?.fetchOutcome)) {
-    counts.lastFetchOutcome = parsedJobs.fetchOutcome;
+  if (CRAWLER_FETCH_OUTCOMES.has(fetchMetadata?.fetchOutcome)) {
+    counts.lastFetchOutcome = fetchMetadata.fetchOutcome;
   }
   // Set before every early return below, so a soft-exit slice written by the
   // exit guard carries the same evidence a published one would.
   counts.parsed = Array.isArray(parsedJobs) ? parsedJobs.length : 0;
+  // Coop-family enrichers attach the non-fatal drop observation to the array.
+  // Keep it in the mutable guard counters so early exits preserve the signal.
+  counts.detailDrop = normalizeDetailDrop(parsedJobs?.detailDrop);
+
+  const missingDetailUrlCount = Number(fetchMetadata?.missingDetailUrlCount);
+  const missingDetailUrlRatio = companyExisting.length > 0 && Number.isFinite(missingDetailUrlCount)
+    ? missingDetailUrlCount / companyExisting.length
+    : 0;
+  if (
+    companyExisting.length > 0
+    && Number.isFinite(missingDetailUrlCount)
+    && missingDetailUrlCount > 0
+    && missingDetailUrlRatio > MISSING_DETAIL_URL_MAX_RATIO
+  ) {
+    console.warn(
+      `\n⚠️ ${companyLabel}: ${missingDetailUrlCount}/${companyExisting.length} valid listings `
+      + `(${Math.round(missingDetailUrlRatio * 100)}%) lost their detail URL `
+      + `(limit ${MISSING_DETAIL_URL_MAX_RATIO * 100}%). Keeping existing jobs.`,
+    );
+    return;
+  }
 
   // Only source-specific crawlers with an explicit completeness proof may
   // retire every unmatched record immediately. Validation runs before the
@@ -997,6 +1107,7 @@ export async function runStandardCrawlerPipeline(config) {
   );
 
   if (!parsedJobs || (parsedJobs.length === 0 && !authoritativeEmptySnapshot)) {
+    counts.abortKind = 'no-jobs-parsed';
     console.log(`\n⚠️ No ${companyLabel} jobs discovered. Keeping existing jobs.`);
     return;
   }
@@ -1077,7 +1188,7 @@ export async function runStandardCrawlerPipeline(config) {
   // Checks: locale coverage, URL domains, slug format, description quality.
   // Strict mode (default) fails the crawler if validation finds issues.
   const validateOpts = {
-    strictEnvVar: `JOBS_${companyKey.toUpperCase().replace(/-/g, '_')}_STRICT`,
+    strictEnvVar: crawlerStrictEnvVar(companyKey),
     label: companyLabel,
     dataJobsPath: DATA_JOBS,
     isTargetJob: isCompanyJob,
@@ -1141,6 +1252,7 @@ export async function runStandardCrawlerPipeline(config) {
     parsed: counts.parsed,
     lastFetchOutcome: counts.lastFetchOutcome,
     written: sliceJobs.length,
+    ...detailDropSummaryFields(counts.detailDrop),
     // Per-run proof, not a per-slug guess: true only when this run's parser
     // returned zero jobs AND its own `validateAuthoritativeSnapshot` proved
     // the source explicitly says so (e.g. an "attualmente non ci sono

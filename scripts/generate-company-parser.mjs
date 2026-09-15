@@ -17,6 +17,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { callLLM, flushScores, flushScoresBeforeExit } from './lib/ai-models.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { companyKeyAliasesFor, normalizeCompanyKey, normalizeCompanyKeyAlias } from './lib/company-key.mjs';
 import { decodeHtmlEntities } from './lib/dedicated-crawler-common.mjs';
 import { registrableDomain } from './lib/prospector/registrable.mjs';
 
@@ -64,15 +65,6 @@ const ATS_HOST_HINTS = [
 
 function normalizeSpace(s) {
   return String(s || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
-}
-
-function slugify(s) {
-  return String(s || '')
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
 }
 
 function readJson(filePath, fallback = null) {
@@ -184,7 +176,10 @@ async function main() {
   if (!companyWebsite) throw new Error(`Invalid company website URL: ${PARSER_COMPANY_WEBSITE}`);
 
   const companyName = PARSER_COMPANY_NAME;
-  const companyKey = PARSER_COMPANY_KEY || slugify(companyName);
+  // The full name is authoritative. PARSER_COMPANY_KEY may still contain the
+  // historical 64-char cut and is retained only as an explicit alias below.
+  const companyKey = normalizeCompanyKey(companyName);
+  const companyKeyAliases = companyKeyAliasesFor(companyName, PARSER_COMPANY_KEY);
   const companyHost = hostOf(companyWebsite);
 
   const heuristicSeeds = buildHeuristicSeeds(companyWebsite, companyHost);
@@ -214,6 +209,7 @@ async function main() {
         content: [
           `Company name: ${companyName}`,
           `Company key: ${companyKey}`,
+          ...(companyKeyAliases.length > 0 ? [`Legacy company key aliases: ${companyKeyAliases.join(', ')}`] : []),
           `Company website: ${companyWebsite}`,
           `Company host: ${companyHost}`,
           `Candidate career URLs (already discovered/heuristic):`,
@@ -222,6 +218,7 @@ async function main() {
           'Return JSON with keys:',
           '{',
           '  "companyKey": "slug",',
+          '  "companyKeyAliases": ["legacy-slug"],',
           '  "crawlerMode": ["workday"|"teaser_api"|"generic_ats"|"html"|"jsonld"],',
           '  "sourceSeedsByDomain": ["https://..."],',
           '  "sourceSeedsByName": ["https://..."],',
@@ -267,6 +264,7 @@ async function main() {
 
   const proposalRecord = {
     companyKey,
+    companyKeyAliases,
     companyName,
     companyWebsite,
     companyHost,
@@ -283,7 +281,16 @@ async function main() {
 
   const existingProposals = readJson(PROPOSALS_PATH, { proposals: [] });
   const normalized = Array.isArray(existingProposals?.proposals) ? existingProposals.proposals : [];
-  const withoutCurrent = normalized.filter((p) => String(p?.companyKey || '') !== companyKey);
+  const currentKeys = new Set([companyKey, ...companyKeyAliases]
+    .flatMap((key) => [normalizeCompanyKeyAlias(key), normalizeCompanyKey(key)])
+    .filter(Boolean));
+  const withoutCurrent = normalized.filter((p) => {
+    const previousKeys = [p?.companyKey, ...(Array.isArray(p?.companyKeyAliases) ? p.companyKeyAliases : [])]
+      .flatMap((key) => [normalizeCompanyKeyAlias(key), normalizeCompanyKey(key)])
+      .filter(Boolean);
+    return !previousKeys
+      .some((key) => currentKeys.has(key));
+  });
   withoutCurrent.unshift(proposalRecord);
   writeJson(PROPOSALS_PATH, { generatedAt: new Date().toISOString(), proposals: withoutCurrent.slice(0, 500) });
 
@@ -299,6 +306,9 @@ async function main() {
     cfg.companyCrawlerMode = cfg.companyCrawlerMode && typeof cfg.companyCrawlerMode === 'object'
       ? cfg.companyCrawlerMode
       : {};
+    cfg.companyKeyAliases = cfg.companyKeyAliases && typeof cfg.companyKeyAliases === 'object'
+      ? cfg.companyKeyAliases
+      : {};
 
     const currentDomainSeeds = Array.isArray(cfg.sourceSeeds.byDomain[companyHost]) ? cfg.sourceSeeds.byDomain[companyHost] : [];
     cfg.sourceSeeds.byDomain[companyHost] = [...new Set([...currentDomainSeeds, ...finalDomainSeeds])];
@@ -308,6 +318,16 @@ async function main() {
     cfg.sourceSeeds.byName[companyNameKey] = [...new Set([...currentNameSeeds, ...finalNameSeeds])];
 
     cfg.companyCrawlerMode[companyKey] = finalModes;
+    for (const alias of companyKeyAliases) {
+      const previousTarget = cfg.companyKeyAliases[alias];
+      const previousTargetKeys = [previousTarget]
+        .flatMap((key) => [normalizeCompanyKeyAlias(key), normalizeCompanyKey(key)])
+        .filter(Boolean);
+      if (previousTarget && !previousTargetKeys.some((key) => currentKeys.has(key))) {
+        throw new Error(`Cannot migrate company key alias "${alias}": already points to "${previousTarget}"`);
+      }
+      cfg.companyKeyAliases[alias] = companyKey;
+    }
     writeJson(CONFIG_PATH, cfg);
   }
 

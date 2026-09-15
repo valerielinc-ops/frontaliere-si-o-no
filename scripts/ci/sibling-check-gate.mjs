@@ -46,7 +46,7 @@
  */
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { dirname, join, basename, resolve } from 'node:path';
+import { basename, resolve } from 'node:path';
 import { extractPrBody, describePrBodySource } from './pr-body-check-gate.mjs';
 import { FALSE_POSITIVE_DECLARATION_RE } from './lib/false-positive-declaration.mjs';
 import {
@@ -54,18 +54,29 @@ import {
   unresolvedBaseOverrideActive,
 } from './lib/resolve-merge-base.mjs';
 import { EXIT_BLOCK } from './lib/hook-exit-codes.mjs';
-import { resolveHookTargetCwd, resolveGatedHeadRef } from './lib/hook-target-cwd.mjs';
+import {
+  resolveHookRepository,
+  describeHookTargetCwdFailure,
+  resolveGitWorktreeRoot,
+  resolveHookTargetCwdDetails,
+  resolveGatedHeadRef,
+} from './lib/hook-target-cwd.mjs';
 import {
   findIssueFixReadBudgetViolation,
+  findIssueFixReadToolViolation,
   formatReadBudgetViolation,
 } from './issue-fix-read-budget.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const checkScript = join(__dirname, 'check-sibling-patterns.mjs');
-// Il repo a cui questo gate appartiene, ricavato dal proprio path: e' l'unica
-// directory sempre giusta, anche quando `payload.cwd` e' inchiodato altrove
-// (thread di sub-agente — vedi lib/hook-target-cwd.mjs).
-const gateRepo = resolve(__dirname, '..', '..');
+/**
+ * Resolve the local checker for the repository that the PR command targets.
+ * A repository without a local checker is deliberately ignored: running the
+ * site's checker against a corpus branch is worse than an explicit no-op,
+ * because it produces a verdict about a different repository. The corpus can
+ * opt in later by adding its own checker at the conventional path.
+ */
+export function resolveSiblingGateTarget(command) {
+  return resolveHookRepository(command);
+}
 
 /**
  * Extract the text under `## Non implementato` from a PR body (up to the next
@@ -139,7 +150,10 @@ export const DECLARATION_HOWTO =
 
 async function main() {
   let command = '';
+  let toolName = '';
+  let toolInput = {};
   let targetCwd;
+  let targetCwdResolution;
   try {
     const chunks = [];
     for await (const chunk of process.stdin) {
@@ -149,14 +163,20 @@ async function main() {
     if (raw) {
       try {
         const payload = JSON.parse(raw);
+        toolName = payload?.tool_name ?? '';
+        toolInput = payload?.tool_input && typeof payload.tool_input === 'object'
+          ? payload.tool_input
+          : {};
         command =
-          payload?.tool_input?.command ??
+          toolInput.command ??
           payload?.command ??
           '';
-        targetCwd = resolveHookTargetCwd(payload, command);
+        targetCwdResolution = resolveHookTargetCwdDetails(payload, command);
+        targetCwd = targetCwdResolution.cwd;
       } catch {
         command = raw; // raw text fallback — grep for gh pr create
-        targetCwd = resolveHookTargetCwd(undefined, command);
+        targetCwdResolution = resolveHookTargetCwdDetails(undefined, command);
+        targetCwd = targetCwdResolution.cwd;
       }
     }
   } catch {
@@ -172,7 +192,15 @@ async function main() {
     !command.includes('gh pr create')
   ) {
     try {
-      const violation = findIssueFixReadBudgetViolation({ command, cwd: targetCwd });
+      const violation = toolName === 'Read'
+        ? findIssueFixReadToolViolation({
+          filePath: toolInput.file_path,
+          path: toolInput.path,
+          offset: toolInput.offset,
+          limit: toolInput.limit,
+          cwd: targetCwd,
+        })
+        : findIssueFixReadBudgetViolation({ command, cwd: targetCwd });
       if (violation) {
         process.stderr.write(formatReadBudgetViolation(violation));
         process.exit(EXIT_BLOCK);
@@ -186,15 +214,52 @@ async function main() {
     process.exit(0);
   }
 
+  const gateTarget = resolveSiblingGateTarget(command);
+  if (!gateTarget) {
+    // The root hook is shared by repositories with different code layouts.
+    // No local sibling checker for the explicit target means there is no
+    // repository-correct analysis to run; do not inspect the site's branch.
+    process.exit(0);
+  }
+
+  // A literal command cwd is a stronger signal than the tracked payload cwd.
+  // If it points outside Git, falling back to `gateTarget.repo` below can make
+  // the checker analyze a plausible but unrelated tree and silently allow the
+  // PR when the checker itself fails. Relative `cd`s are also rejected when
+  // they resolve to another worktree, because a shared main checkout is not
+  // evidence for the branch being proposed.
+  if (targetCwdResolution?.error) {
+    const detail = describeHookTargetCwdFailure(targetCwdResolution);
+    process.stderr.write(
+      `\n🚫 sibling-check-gate: cwd non risolvibile — ${detail ?? 'segnale ambiguo'}.\n` +
+        'Sweep sibling NON ESEGUITO: il gate non può verificare una directory diversa da quella proposta.\n' +
+        'Rimedio: usa una repository Git valida e, per un worktree diverso, un percorso assoluto nel `cd`.\n\n',
+    );
+    process.exit(EXIT_BLOCK);
+  }
+
+  // A payload cwd without a literal `cd` is still useful, but only when it is
+  // actually a repository. Do this check before resolveGatedHeadRef: that
+  // function intentionally falls back to the gate repository for a branch ref,
+  // which must not turn an invalid cwd into a successful sibling sweep.
+  if (targetCwd && !resolveGitWorktreeRoot(targetCwd)) {
+    process.stderr.write(
+      `\n🚫 sibling-check-gate: cwd ${targetCwd} non appartiene a una repository Git.\n` +
+        'Sweep sibling NON ESEGUITO: nessun file è stato verificato.\n' +
+        'Rimedio: esegui `gh pr create` da un checkout/worktree Git valido.\n\n',
+    );
+    process.exit(EXIT_BLOCK);
+  }
+
   // Run check-sibling-patterns.mjs --json to get the structured candidate list.
   // `--head <ref>` pins the analysis to the BRANCH being proposed (see the
   // module docstring): a commit-to-commit diff, identical from any directory of
   // the repo, blind to other sessions' uncommitted files. `cwd: targetCwd` now
   // only picks WHICH REPO to run git in.
-  const head = resolveGatedHeadRef(command, targetCwd, gateRepo);
+  const head = resolveGatedHeadRef(command, targetCwd, gateTarget.repo);
   let jsonOutput;
   try {
-    jsonOutput = execFileSync('node', [checkScript, '--json', '--head', head.ref], {
+    jsonOutput = execFileSync('node', [gateTarget.checkScript, '--json', '--head', head.ref], {
       encoding: 'utf8',
       maxBuffer: 8 * 1024 * 1024,
       // Capture stdout (parsed as JSON); let stderr propagate for progress messages.

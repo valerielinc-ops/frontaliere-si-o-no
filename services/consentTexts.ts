@@ -37,9 +37,9 @@
  * CLOSING THAT GAP (#5712 / #5718)
  * --------------------------------
  * The sentence above was true of every entry until this change. It is now
- * true of the entries that describe paths nobody can render a notice into
- * (the auth listener in App.tsx, Google One Tap, an emailed link) and FALSE
- * — deliberately, verifiably — of the two entries added below.
+ * true of the historical entries that describe paths nobody could render a
+ * notice into (the old auth listener in App.tsx, Google One Tap, an emailed
+ * link) and FALSE — deliberately, verifiably — of the two entries added below.
  *
  * `communicationsOptIn`, `communicationsSignIn` and `communicationsSignInEmail`
  * are `displayed: true` because a component renders that sentence:
@@ -256,10 +256,10 @@ export type ConsentMethod =
   | 'linkedin_oauth'
   /**
    * A federated sign-in whose provider the call site genuinely does not know.
-   * App.tsx's auth listener fires on `source: 'signup'` for Google AND for
-   * Facebook (`getAuthEmail` reads `providerData` precisely because Facebook
-   * may not set `user.email`), so naming one of them there would be a guess
-   * recorded as a fact.
+   * Historical auth writes used `source: 'signup'` for Google AND Facebook
+   * (`getAuthEmail` read `providerData` because Facebook may not set
+   * `user.email`), so naming one of them there would be a guess recorded as a
+   * fact. Live auth paths no longer write newsletter records.
    */
   | 'social_signin'
   | 'email_link_click';
@@ -466,7 +466,9 @@ export const CONSENT_TEXTS = Object.freeze({
   }),
 
   /**
-   * App.tsx / hooks/useUserState.ts / authService One Tap: sign-in auto-subscribe.
+   * Historical App.tsx / hooks/useUserState.ts / authService One Tap sign-in
+   * auto-subscribe record. The live paths were removed; keep this entry frozen
+   * so existing documents still describe what they were told.
    *
    * REWRITTEN AT `2026-08-12.2`, AND WHY THIS ONE AND NOT THE OTHERS (#5745)
    * -----------------------------------------------------------------------
@@ -482,16 +484,9 @@ export const CONSENT_TEXTS = Object.freeze({
    * doing so changes what future subscribers are recorded as having been told
    * for reasons unconnected to the fix — `saveJobSignIn`, `companyFollow` and
    * the two publisher gates are kept byte-identical on exactly that ground.
-   * The distinguishing fact here is measurable, and was measured: of the
-   * fifteen `displayed: false` entries, only THIS one and `chatbotSignIn` are
-   * still reachable from code (3 call sites and 1; the other thirteen have
-   * zero and are historical records of what past subscribers were told).
-   *
-   * So these two are not history, they are the disclosure IN FORCE at a gate
-   * that still fires today — and a disclosure in force may not promise mail
-   * that no live channel sends. History stays frozen; what is still being
-   * handed out gets corrected, and the version bump is what keeps the two
-   * facts distinguishable on the stored documents.
+   * These entries are historical records, not a disclosure in force: the
+   * authentication paths now grant access or enrich a profile only. History
+   * stays frozen so existing documents remain interpretable.
    */
   signInAutoSubscribe: entry({
     id: 'signin_auto_subscribe',
@@ -501,7 +496,7 @@ export const CONSENT_TEXTS = Object.freeze({
     act: 'authentication',
   }),
 
-  /** App.tsx chatbot sign-in (chatbot_google / chatbot_facebook / chatbot_email). See `signInAutoSubscribe` for why this one was rewritten. */
+  /** Historical App.tsx chatbot sign-in record; the live gate is access-only. */
   chatbotSignIn: entry({
     id: 'chatbot_signin',
     version: '2026-08-12.2',

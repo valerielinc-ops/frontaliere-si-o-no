@@ -42,6 +42,11 @@ const MAX_REPORT_BYTES = 64 * 1024;
 export const MAX_DISCOVERY_RUNS = 100;
 export const MAX_DISCOVERY_ARTIFACTS = 100;
 export const MAX_DISCOVERY_TOKENS = 32;
+// Keep the response cap above separate from the aggregate budget. A bounded
+// discovery window can consume one sentinel artifact per run and up to one
+// bounded report list per token.
+export const MAX_DISCOVERY_ARTIFACT_REFERENCES =
+  MAX_DISCOVERY_RUNS + MAX_DISCOVERY_TOKENS * MAX_DISCOVERY_ARTIFACTS;
 export const MAX_DISCOVERY_BYTES = 1024 * 1024;
 export const MAX_SCHEDULE_SELECTIONS = 2;
 
@@ -53,7 +58,9 @@ export function recordDiscoveredArtifactIds(seen, artifacts) {
     }
     seen.add(artifact.id);
   }
-  if (seen.size > MAX_DISCOVERY_ARTIFACTS) throw new TypeError('discovery artifact cap exceeded');
+  if (seen.size > MAX_DISCOVERY_ARTIFACT_REFERENCES) {
+    throw new TypeError('discovery artifact cap exceeded');
+  }
   return seen.size;
 }
 
@@ -80,8 +87,14 @@ function exactWorkflowPath(value, base, ref) {
   return value === base || value === `${base}@${ref}`;
 }
 
-function generationDispatchRef(generationToken) {
+export function generationDispatchRef(generationToken) {
+  if (!isCrawlerGenerationToken(generationToken)) return null;
   return `${GENERATION_DISPATCH_REF_PREFIX}${generationToken}`;
+}
+
+export function generationSentinelName(generationToken) {
+  if (!isCrawlerGenerationToken(generationToken)) return null;
+  return `crawler-generation-sentinel-${generationToken}`;
 }
 
 function exactRunBase(run, runId, headBranch = 'main') {
@@ -94,11 +107,13 @@ function exactRunBase(run, runId, headBranch = 'main') {
 }
 
 export function validateSentinelOwnerRun(run, { runId, generationToken, corpusCodeCommit }) {
-  const runName = `crawler-generation-sentinel-${generationToken}`;
-  return RUN_ID_RE.test(String(runId ?? ''))
-    && isCrawlerGenerationToken(generationToken)
+  const runName = generationSentinelName(generationToken);
+  const dispatchRef = generationDispatchRef(generationToken);
+  return runName !== null
+    && dispatchRef !== null
+    && RUN_ID_RE.test(String(runId ?? ''))
     && COMMIT_RE.test(corpusCodeCommit ?? '')
-    && exactRunBase(run, runId, generationDispatchRef(generationToken))
+    && exactRunBase(run, runId, dispatchRef)
     && (run.name === OBSERVER_WORKFLOW_NAME || run.name === runName)
     && run.display_title === runName
     && run.event === 'workflow_dispatch'
@@ -106,9 +121,10 @@ export function validateSentinelOwnerRun(run, { runId, generationToken, corpusCo
 }
 
 export function validateObserverReportOwnerRun(run, runId, generationToken = null) {
-  const headBranch = run?.event === 'workflow_dispatch' && isCrawlerGenerationToken(generationToken)
-    ? generationDispatchRef(generationToken)
-    : 'main';
+  const isDispatch = run?.event === 'workflow_dispatch';
+  if (isDispatch && !isCrawlerGenerationToken(generationToken)) return false;
+  const headBranch = isDispatch ? generationDispatchRef(generationToken) : 'main';
+  if (headBranch === null) return false;
   if (!RUN_ID_RE.test(String(runId ?? '')) || !exactRunBase(run, runId, headBranch)) return false;
   let expectedName;
   if (run.event === 'schedule') expectedName = `crawler-generation-observer-schedule-${runId}`;
@@ -116,8 +132,8 @@ export function validateObserverReportOwnerRun(run, runId, generationToken = nul
     expectedName = /^crawler-generation-observer-event-[1-9][0-9]*$/.test(run.display_title ?? '')
       ? run.display_title
       : null;
-  } else if (run.event === 'workflow_dispatch' && isCrawlerGenerationToken(generationToken)) {
-    expectedName = `crawler-generation-sentinel-${generationToken}`;
+  } else if (isDispatch) {
+    expectedName = generationSentinelName(generationToken);
   } else return false;
   return expectedName !== null
     && (run.name === OBSERVER_WORKFLOW_NAME || run.name === expectedName)
@@ -244,17 +260,19 @@ function validateSentinelDocument(sentinel) {
 
 function validateGroupRun(run, sentinel, group) {
   const binding = sentinel.groups[group];
+  const dispatchRef = generationDispatchRef(sentinel.generationToken);
+  if (dispatchRef === null) return false;
   return String(run?.id ?? '') === String(binding.runId)
     && run?.repository?.full_name === CALLER_REPOSITORY
     && exactWorkflowPath(
       run?.path,
       `.github/workflows/${binding.workflowFile}`,
-      generationDispatchRef(sentinel.generationToken),
+      dispatchRef,
     )
     && (run?.name === binding.workflowName || run?.name === binding.runName)
     && run?.display_title === binding.runName
     && run?.event === 'workflow_dispatch'
-    && run?.head_branch === generationDispatchRef(sentinel.generationToken)
+    && run?.head_branch === dispatchRef
     && run?.head_sha === sentinel.corpusCodeCommit
     && validLifecycle(run);
 }
@@ -339,12 +357,12 @@ export async function discoverCrawlerGenerationReconciliations({ client, now, ru
     const artifacts = assertList(await client.json(
       `/repos/${CALLER_REPOSITORY}/actions/runs/${runId}/artifacts?per_page=100`,
     ), 'artifacts', MAX_DISCOVERY_ARTIFACTS);
-    recordDiscoveredArtifactIds(artifactIds, artifacts);
     const exact = artifacts.filter((artifact) => safeArtifact(
       artifact,
       `crawler-generation-sentinel-${token}`,
     ) && String(artifact.workflow_run.id) === runId);
     if (exact.length !== 1) continue;
+    recordDiscoveredArtifactIds(artifactIds, exact);
     artifactBytes += exact[0].size_in_bytes;
     if (artifactBytes > MAX_DISCOVERY_BYTES) throw new TypeError('discovery byte cap exceeded');
     const sentinel = await downloadArtifactJson({
@@ -398,11 +416,11 @@ export async function discoverCrawlerGenerationReconciliations({ client, now, ru
     const reportArtifacts = assertList(await client.json(
       `/repos/${CALLER_REPOSITORY}/actions/artifacts?name=${encodeURIComponent(`crawler-generation-observer-${generationToken}`)}&per_page=100`,
     ), 'artifacts', MAX_DISCOVERY_ARTIFACTS);
-    recordDiscoveredArtifactIds(artifactIds, reportArtifacts);
     const exactReports = reportArtifacts.filter((artifact) => safeArtifact(
       artifact,
       `crawler-generation-observer-${generationToken}`,
     ));
+    recordDiscoveredArtifactIds(artifactIds, exactReports);
     const reportRecords = [];
     for (const artifact of exactReports) {
       artifactBytes += artifact.size_in_bytes;

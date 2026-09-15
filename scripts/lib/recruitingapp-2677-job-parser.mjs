@@ -33,6 +33,7 @@ import { isSufficientVacancyDescription } from './prospector/extract.mjs';
 export const RECRUITINGAPP_2677_KEY = 'recruitingapp-2677';
 export const RECRUITINGAPP_2677_COMPANY_NAME = 'E-Recruiting LLB-Gruppe Stellen';
 export const RECRUITINGAPP_2677_COMPANY_DOMAIN = 'recruitingapp-2677.umantis.com';
+export const MAX_INTRO_BLOCKS = 8;
 
 const CAREER_URL = 'https://recruitingapp-2677.umantis.com/Jobs/1?lang=ger&ContentOnly=&message=';
 // Only these source-backed workplace localities can authorize retiring the
@@ -49,6 +50,27 @@ function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
 }
 
+function normalizeComparableTitle(value = '') {
+  return normalizeSpace(value).normalize('NFC').toLocaleLowerCase('en-US');
+}
+
+/**
+ * Stable identity for the source's location candidates. Candidate order is
+ * not a source contract: a parser or upstream HTML change may reorder the
+ * same locations without changing the vacancy.
+ */
+export function stableLocationCandidatesKey(candidates = []) {
+  const fields = ['location', 'addressLocality', 'addressRegion', 'addressCountry', 'postalCode', 'streetAddress'];
+  const values = (Array.isArray(candidates) ? candidates : [candidates])
+    .map((candidate) => {
+      if (typeof candidate === 'string') return normalizeComparableTitle(candidate);
+      if (!candidate || typeof candidate !== 'object') return '';
+      return fields.map((field) => normalizeComparableTitle(candidate[field])).join('\u001e');
+    })
+    .filter((value) => value && /[^\u001e]/.test(value));
+  return [...new Set(values)].sort((a, b) => a.localeCompare(b, 'en')).join('\u001f');
+}
+
 /**
  * The LLB Umantis detail header is `workload ◆ workplace ◆ employment mode`.
  * The generic Umantis cascade can mistake the first segment for a location
@@ -57,9 +79,18 @@ function normalizeSpace(s = '') {
 function extractRecruitingapp2677DetailFields(html = '', pageUrl = '') {
   const detail = extractRuntimeDetailFields({ platform: 'umantis.com' }, html, pageUrl);
   const introRx = /<(?:div|section)\b[^>]*\bclass\s*=\s*["'][^"']*\bintro\b[^"']*["'][^>]*>[\s\S]*?<\/(?:div|section)>/gi;
-  const introLine = [...String(html || '').matchAll(introRx)]
-    .flatMap(([intro]) => stripHtml(intro).split('\n'))
-    .find((line) => line.includes('◆')) || '';
+  const rawHtml = String(html || '');
+  let introLine = '';
+  let introBlocks = 0;
+  let match;
+  while (introBlocks < MAX_INTRO_BLOCKS && (match = introRx.exec(rawHtml))) {
+    introBlocks += 1;
+    const candidate = stripHtml(match[0]).split('\n').find((line) => line.includes('◆'));
+    if (candidate) {
+      introLine = candidate;
+      break;
+    }
+  }
   const parts = introLine.split('◆').map(normalizeSpace).filter(Boolean);
   const location = parts.length >= 3 ? parts[1] : '';
   if (location) {
@@ -200,7 +231,7 @@ async function fetchJobListings(runtime = {}) {
         }
         if (conflictingListingIds.has(id)) continue;
         const previousTitle = listingTitles.get(id);
-        if (previousTitle !== undefined && normalize(previousTitle) !== normalize(title)) {
+        if (previousTitle !== undefined && normalizeComparableTitle(previousTitle) !== normalizeComparableTitle(title)) {
           conflictingListingIds.add(id);
           continue;
         }
@@ -223,6 +254,7 @@ async function fetchJobListings(runtime = {}) {
         locations: (detail.locationCandidates || [])
           .map((candidate) => normalizeSpace(candidate?.addressLocality || candidate?.location || ''))
           .filter(Boolean),
+        locationKey: stableLocationCandidatesKey(detail.locationCandidates || []),
       };
       const previous = observedDetails.get(vacancyId);
       if (!observation.title || !observation.rich || observation.locations.length === 0) {
@@ -232,10 +264,10 @@ async function fetchJobListings(runtime = {}) {
         if (!previous.title || !previous.rich || previous.locations.length === 0) {
           invalidDetailIds.add(vacancyId);
         }
-        if (normalize(previous.title) !== normalize(observation.title)
+        if (normalizeComparableTitle(previous.title) !== normalizeComparableTitle(observation.title)
           || previous.rich !== observation.rich
           || previous.swiss !== observation.swiss
-          || previous.locations.join('\u001f') !== observation.locations.join('\u001f')) {
+          || previous.locationKey !== observation.locationKey) {
           conflictingDetailIds.add(vacancyId);
         }
       } else {
@@ -263,7 +295,7 @@ async function fetchJobListings(runtime = {}) {
       && conflictingDetailIds.size === 0
       && details.every((detail) => detail.rich && detail.locations.length > 0)
       && details.every((detail) => attemptedDetailIds.has(detail.id)
-        && normalize(listingTitles.get(detail.id)) === normalize(detail.title)),
+        && normalizeComparableTitle(listingTitles.get(detail.id)) === normalizeComparableTitle(detail.title)),
     details,
   };
   if ((proof.discoveredCount > 0 || proof.attemptedDetailCount > 0) && !proof.complete) {

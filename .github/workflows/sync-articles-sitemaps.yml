@@ -71,7 +71,9 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load push credentials from Remote Config
-        run: node scripts/load-rc-env.mjs
+        run: |
+          test -f scripts/load-rc-env.mjs
+          node scripts/load-rc-env.mjs
 
       # The corpus, not just the published surface. pull-articles-api.mjs brings
       # in the sitemaps, feeds and ticker — everything a MACHINE reads — and
@@ -457,7 +459,12 @@ jobs:
 
       - name: Load secrets from Remote Config
         if: steps.commit.outputs.news-sitemap-changed == 'true' || steps.commit.outputs.ticker-changed == 'true' || steps.commit.outputs.feeds-changed == 'true'
-        run: node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal)"
+        run: |
+          if test -f scripts/load-rc-env.mjs; then
+            node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal)"
+          else
+            echo "⚠️ load-rc-env.mjs is absent in this checkout (non-fatal)"
+          fi
 
       - name: Publish the news sitemap to the edge
         if: steps.commit.outputs.news-sitemap-changed == 'true'
@@ -515,6 +522,9 @@ jobs:
             echo "::warning::R2 credentials absent — the ticker keeps serving the previously pushed copy"
             exit 0
           fi
+          # The single-quoted argument is JavaScript source; its template
+          # literals must expand in Node, not in the surrounding shell.
+          # shellcheck disable=SC2016
           node -e '
             const fs = require("node:fs");
             const parsed = JSON.parse(fs.readFileSync("public/news-ticker-live.json", "utf-8"));

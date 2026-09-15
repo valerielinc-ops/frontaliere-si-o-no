@@ -1,231 +1,60 @@
 {
-  "generatedAt": "2026-09-06T09:29:58.367Z",
-  "companiesTotal": 564,
-  "withLogo": 428,
-  "missing": 136,
-  "missingJobCount": 7428,
+  "generatedAt": "2026-09-13T10:20:59.239Z",
+  "companiesTotal": 568,
+  "withLogo": 450,
+  "missing": 118,
+  "missingJobCount": 5425,
   "companies": [
     {
-      "companyKey": "fachkraft",
-      "companyName": "fachkraft.ch GmbH",
-      "jobCount": 3031,
-      "exampleUrl": "https://www.fachkraft.ch/stellen/zimmermann-zimmerin-luzern-dauerstelle-281813/",
+      "companyKey": "sta",
+      "companyName": "STA Personal AG",
+      "jobCount": 1739,
+      "exampleUrl": "https://www.sta.jobs/stellen/zimmermann-zimmerin-affoltern-am-albis-dauerstelle-104389/",
       "sourceCrawlers": [
-        "fachkraft"
+        "sta"
       ]
     },
     {
-      "companyKey": "stadt-zuerich",
-      "companyName": "Stadt Zürich",
-      "jobCount": 423,
-      "exampleUrl": "https://jobs.stadt-zuerich.ch/job/Lehrstelle-2027-Kauffrau-Kaufmann-EFZ/1366225157/",
+      "companyKey": "stellentreff",
+      "companyName": "Stellentreff AG",
+      "jobCount": 959,
+      "exampleUrl": "https://www.stellentreff.ch/stellen/zimmermann-zimmerin-meilen-temporaer-113155/",
       "sourceCrawlers": [
-        "stadt-zuerich"
+        "stellentreff"
       ]
     },
     {
-      "companyKey": "kanton-aargau",
-      "companyName": "Kanton Aargau",
-      "jobCount": 422,
-      "exampleUrl": "https://recruitingapp-12705.umantis.com/Vacancies/11159/Application/CheckLogin/1",
+      "companyKey": "stellenpartner",
+      "companyName": "Stellenpartner AG",
+      "jobCount": 800,
+      "exampleUrl": "https://www.stellenpartner.ch/stellen/zimmermann-zimmerin-luzern-dauerstelle-107194/",
       "sourceCrawlers": [
-        "kanton-aargau"
+        "stellenpartner"
       ]
     },
     {
-      "companyKey": "kanton-zuerich",
-      "companyName": "Kantonale Verwaltung Zürich",
-      "jobCount": 175,
-      "exampleUrl": "https://live.solique.ch/ktzh/job/details/4053002/",
+      "companyKey": "anker-swiss",
+      "companyName": "Anker Swiss Ticino AG",
+      "jobCount": 281,
+      "exampleUrl": "https://anker-swiss.ch/stellen/plattenleger-1158891/",
       "sourceCrawlers": [
-        "kanton-zuerich"
+        "anker-swiss"
       ]
     },
     {
-      "companyKey": "medbase",
-      "companyName": "Medbase",
-      "jobCount": 168,
-      "exampleUrl": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Winterthur/Facharzt--w-m-d--fr-Dermatologie-100-_JR03952",
+      "companyKey": "swiss-armed-forces-vtg",
+      "companyName": "Swiss Armed Forces (VTG)",
+      "jobCount": 52,
+      "exampleUrl": "https://jobs.admin.ch/offene-stellen/automobilmechatroniker-in-schwere-fahrzeuge-1/1e61c28a-67d3-48be-97c8-706ebfbd251d",
       "sourceCrawlers": [
-        "medbase"
-      ]
-    },
-    {
-      "companyKey": "ksml",
-      "companyName": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
-      "jobCount": 167,
-      "exampleUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40039",
-      "sourceCrawlers": [
-        "ksml"
-      ]
-    },
-    {
-      "companyKey": "ottos",
-      "companyName": "OTTO'S AG",
-      "jobCount": 159,
-      "exampleUrl": "https://live.solique.ch/ottosag/job/details/4050428",
-      "sourceCrawlers": [
-        "ottos"
-      ]
-    },
-    {
-      "companyKey": "raiffeisen",
-      "companyName": "Raiffeisen",
-      "jobCount": 154,
-      "exampleUrl": "https://jobs.raiffeisen.ch/offene-stellen/consulente-patrimoniale/c576cb19-8a5e-44ea-a92c-28440eec0833",
-      "sourceCrawlers": [
-        "raiffeisen"
-      ]
-    },
-    {
-      "companyKey": "equans",
-      "companyName": "Equans Switzerland",
-      "jobCount": 125,
-      "exampleUrl": "https://ohws.prospective.ch/public/v1/jobs/c67de164-e77f-4385-a86e-3b9858bc1d24",
-      "sourceCrawlers": [
-        "equans"
-      ]
-    },
-    {
-      "companyKey": "zfv-unternehmungen",
-      "companyName": "ZFV-Unternehmungen",
-      "jobCount": 104,
-      "exampleUrl": "https://jobs.zfv.ch/Aide-de-cuisine-50-fr-j4701.html",
-      "sourceCrawlers": [
-        "zfv-unternehmungen"
-      ]
-    },
-    {
-      "companyKey": "etat-de-fribourg",
-      "companyName": "Etat de Fribourg",
-      "jobCount": 88,
-      "exampleUrl": "https://jobs.fr.ch/job/Fribourg%2C-CH-Stagiaire-pr%C3%A9-HEG-Sari/1366234557/",
-      "sourceCrawlers": [
-        "etat-de-fribourg"
-      ]
-    },
-    {
-      "companyKey": "deloitte",
-      "companyName": "Deloitte",
-      "jobCount": 86,
-      "exampleUrl": "https://apply.deloitte.ch/CHCareers/JobDetail/Trainee-AI-Scientist-M-A-Deal-Transformation-and-Post-Merger-Integration-Advisory/24449",
-      "sourceCrawlers": [
-        "deloitte"
-      ]
-    },
-    {
-      "companyKey": "kanton-st-gallen",
-      "companyName": "Kanton St. Gallen",
-      "jobCount": 78,
-      "exampleUrl": "https://recruitingapp-2800.umantis.com/Vacancies/5496/Description/1",
-      "sourceCrawlers": [
-        "kanton-st-gallen"
-      ]
-    },
-    {
-      "companyKey": "pfister",
-      "companyName": "Möbel Pfister AG",
-      "jobCount": 78,
-      "exampleUrl": "https://apply.refline.ch/424626/3462/pub/1/index.html",
-      "sourceCrawlers": [
-        "pfister"
-      ]
-    },
-    {
-      "companyKey": "endress-hauser",
-      "companyName": "Endress+Hauser",
-      "jobCount": 75,
-      "exampleUrl": "https://careers.endress.com/Germany/job/Freiburg-Senior-Software-Architect%2C-IIoT-Platform-%28Netilion%29-mfd-79110/1431922033/",
-      "sourceCrawlers": [
-        "endress-hauser"
-      ]
-    },
-    {
-      "companyKey": "on-running",
-      "companyName": "On Running",
-      "jobCount": 71,
-      "exampleUrl": "https://boards.greenhouse.io/onrunning/jobs/4565069?gh_jid=4565069",
-      "sourceCrawlers": [
-        "on-running"
-      ]
-    },
-    {
-      "companyKey": "kanton-basel-landschaft",
-      "companyName": "Kantonale Verwaltung Basel-Landschaft",
-      "jobCount": 66,
-      "exampleUrl": "https://jobs.baselland.ch/offene-stellen/behoerden-und-gerichtsdolmetschende-auf-abruf/4b23b98d-2dbd-4890-9def-0e720ff872bd",
-      "sourceCrawlers": [
-        "kanton-basel-landschaft"
-      ]
-    },
-    {
-      "companyKey": "rheinmetall-air-defence",
-      "companyName": "Rheinmetall Air Defence AG",
-      "jobCount": 61,
-      "exampleUrl": "https://www.rheinmetall.com/en/job/elektroingenieur_effektoren__m_w_d_/1154063",
-      "sourceCrawlers": [
-        "rheinmetall-air-defence"
-      ]
-    },
-    {
-      "companyKey": "siemens",
-      "companyName": "Siemens",
-      "jobCount": 57,
-      "exampleUrl": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/399122",
-      "sourceCrawlers": [
-        "siemens"
-      ]
-    },
-    {
-      "companyKey": "zkb",
-      "companyName": "Zürcher Kantonalbank",
-      "jobCount": 55,
-      "exampleUrl": "https://apply.refline.ch/792841/11349/pub/1",
-      "sourceCrawlers": [
-        "zkb"
-      ]
-    },
-    {
-      "companyKey": "eraneos",
-      "companyName": "Eraneos Switzerland AG",
-      "jobCount": 54,
-      "exampleUrl": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/Projektleiter-in--60-100---all-genders-_JR100054",
-      "sourceCrawlers": [
-        "eraneos"
-      ]
-    },
-    {
-      "companyKey": "vz-vermoegenszentrum",
-      "companyName": "VZ VermögensZentrum",
-      "jobCount": 54,
-      "exampleUrl": "https://jobs.vermoegenszentrum.ch/offene-stellen/mitarbeiter-in-contact-center-zweisprachig/facfb110-e586-45c5-b396-8d21bc7383eb",
-      "sourceCrawlers": [
-        "vz-vermoegenszentrum"
-      ]
-    },
-    {
-      "companyKey": "css-versicherung",
-      "companyName": "CSS Versicherung",
-      "jobCount": 53,
-      "exampleUrl": "https://jobs.css.ch/offene-stellen/spontanbewerbung-kundenberater-in-fuer-privatkunden-region-zofingen-aarau-frick/36b01376-f5e2-4689-be50-0d98b88c4186",
-      "sourceCrawlers": [
-        "css-versicherung"
-      ]
-    },
-    {
-      "companyKey": "etat-de-vaud",
-      "companyName": "État de Vaud (Administration cantonale vaudoise)",
-      "jobCount": 51,
-      "exampleUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5635",
-      "sourceCrawlers": [
-        "etat-de-vaud"
+        "vtg"
       ]
     },
     {
       "companyKey": "valora",
       "companyName": "Valora Group",
-      "jobCount": 50,
-      "exampleUrl": "https://career.valora.com/en/job/229/agenturpartnerin-agenturpartner-kanton-graubunden",
+      "jobCount": 51,
+      "exampleUrl": "https://career.valora.com/en/job/2653/agenturpartnerin-agenturpartner-region-berner-oberland",
       "sourceCrawlers": [
         "valora"
       ]
@@ -233,8 +62,8 @@
     {
       "companyKey": "concordia",
       "companyName": "Concordia",
-      "jobCount": 46,
-      "exampleUrl": "https://jobs.concordia.ch/offene-stellen/teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitspruefung-bvm-80/fef2c449-500c-4790-824b-af3c2e8cc18f",
+      "jobCount": 50,
+      "exampleUrl": "https://jobs.concordia.ch/offene-stellen/agenturleiter-in-in-biel/59b49fb8-d6d7-40cd-b796-ed31ada432b0",
       "sourceCrawlers": [
         "concordia"
       ]
@@ -242,35 +71,44 @@
     {
       "companyKey": "hornbach",
       "companyName": "Hornbach",
-      "jobCount": 43,
+      "jobCount": 44,
       "exampleUrl": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTUzMDkx&showApplicationForm=false",
       "sourceCrawlers": [
         "hornbach"
       ]
     },
     {
-      "companyKey": "google-switzerland",
-      "companyName": "Google Switzerland",
-      "jobCount": 42,
-      "exampleUrl": "https://www.google.com/about/careers/applications/jobs/results/143299441233666758-customer-engineer-security-google-cloud-sales-english",
-      "sourceCrawlers": [
-        "google-switzerland"
-      ]
-    },
-    {
       "companyKey": "galliker",
       "companyName": "Galliker Transport AG",
-      "jobCount": 40,
-      "exampleUrl": "https://apply.refline.ch/878019/0154/pub/5/index.html",
+      "jobCount": 41,
+      "exampleUrl": "https://apply.refline.ch/878019/0416/pub/9/index.html",
       "sourceCrawlers": [
         "galliker"
       ]
     },
     {
+      "companyKey": "groupe-e",
+      "companyName": "Groupe E",
+      "jobCount": 39,
+      "exampleUrl": "https://job.groupe-e.ch/job/Matran-Mad-6-Technicienne-ou-Technicien-de-maintenance-CVC-100-Frib/1352851555/",
+      "sourceCrawlers": [
+        "groupe-e"
+      ]
+    },
+    {
+      "companyKey": "laderach-schweiz-ag",
+      "companyName": "Läderach (Schweiz) AG",
+      "jobCount": 38,
+      "exampleUrl": "https://laderach.career.softgarden.de/jobs/67262315/Stv-Filialleiter-Chocolaterie-Landquart-Outlet-w-m-d-/",
+      "sourceCrawlers": [
+        "laderach"
+      ]
+    },
+    {
       "companyKey": "new-yorker",
       "companyName": "New Yorker",
-      "jobCount": 40,
-      "exampleUrl": "https://jobs.newyorker.de/karriere-schweiz/Stellvertretende-Filialleitung-mwd-de-j27748.html",
+      "jobCount": 38,
+      "exampleUrl": "https://jobs.newyorker.de/karriere-schweiz/Stellvertretende-Filialleitung-mwd-de-j28095.html",
       "sourceCrawlers": [
         "new-yorker"
       ]
@@ -279,33 +117,60 @@
       "companyKey": "bcv",
       "companyName": "Banque Cantonale Vaudoise",
       "jobCount": 36,
-      "exampleUrl": "https://jobs.bcv.ch/job/Lausanne-Responsable-de-projets-IT-expert/1264390001/",
+      "exampleUrl": "https://jobs.bcv.ch/job/Morges-Conseill%C3%A8re-ou-Conseiller-Private-Banking-Key-Clients-&-Entrepreneurs-Morges/1429188533/",
       "sourceCrawlers": [
         "bcv"
       ]
     },
     {
+      "companyKey": "belimo",
+      "companyName": "Belimo",
+      "jobCount": 34,
+      "exampleUrl": "https://jobsredirect.belimo.com/job/Hinwil-Logistikerin-%28tempor%C3%A4r%29-Z%C3%BCri-8340/1165121155/",
+      "sourceCrawlers": [
+        "belimo"
+      ]
+    },
+    {
+      "companyKey": "stadt-bern",
+      "companyName": "Stadt Bern",
+      "jobCount": 34,
+      "exampleUrl": "https://jobs.bern.ch/offene-stellen/teilprojektleiter-in-gis-bern/b832fa96-c5fc-4d2d-9fa8-18f53d176e3b",
+      "sourceCrawlers": [
+        "stadt-bern"
+      ]
+    },
+    {
+      "companyKey": "ete",
+      "companyName": "Emil Egger AG",
+      "jobCount": 33,
+      "exampleUrl": "https://www.ete.ch/jobs/operateur-logistique-maintenance-magasin-automatise/",
+      "sourceCrawlers": [
+        "ete"
+      ]
+    },
+    {
       "companyKey": "grand-resort-bad-ragaz",
       "companyName": "Grand Resort Bad Ragaz",
-      "jobCount": 35,
-      "exampleUrl": "https://jobs.resortragaz.ch/offene-stellen/lehre-als-informatiker-in-efz-w-m-i/b7f5a5e3-3166-4f1b-b17a-1105fd42e620",
+      "jobCount": 32,
+      "exampleUrl": "https://jobs.resortragaz.ch/offene-stellen/lehre-als-restaurantfachfrau-mann-efz-m-w-i/b0cc0197-1c18-44b2-881a-314a23a19c94",
       "sourceCrawlers": [
         "grand-resort-bad-ragaz"
       ]
     },
     {
-      "companyKey": "groupe-e",
-      "companyName": "Groupe E",
-      "jobCount": 35,
-      "exampleUrl": "https://job.groupe-e.ch/job/Granges-Paccot-Chantemerle-Contrema%C3%AEtre-%28HF%29-80-100-Frib/1352594255/",
+      "companyKey": "kanton-solothurn",
+      "companyName": "Kanton Solothurn",
+      "jobCount": 32,
+      "exampleUrl": "https://job.so.ch/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung/fa6b7d68-1ec9-4005-a4e5-50ee5d5729d4",
       "sourceCrawlers": [
-        "groupe-e"
+        "kanton-solothurn"
       ]
     },
     {
       "companyKey": "hess-carrosserie",
       "companyName": "Carrosserie HESS AG",
-      "jobCount": 33,
+      "jobCount": 31,
       "exampleUrl": "https://jobs.hess-ag.ch/publication/carrosseriespengler/jcxfkduwb7hw872kevj67iv7pycb2jbdeo3fvgbhdei6473x8hvy361dqxt2rqep",
       "sourceCrawlers": [
         "hess-carrosserie"
@@ -314,55 +179,10 @@
     {
       "companyKey": "suva",
       "companyName": "Suva",
-      "jobCount": 33,
-      "exampleUrl": "https://jobs.suva.ch/job/Luzern-Bauingenieurin-Baumeisterin-80%C2%A0-%C2%A0100%C2%A0-LU-6004/1383023233/",
+      "jobCount": 31,
+      "exampleUrl": "https://jobs.suva.ch/job/Luzern-Projektassistentin-Baumanagement-60-80-LU-6004/1434835333/",
       "sourceCrawlers": [
         "suva"
-      ]
-    },
-    {
-      "companyKey": "swica",
-      "companyName": "SWICA Gesundheitsorganisation",
-      "jobCount": 33,
-      "exampleUrl": "https://jobs.swica.ch/offene-stellen/leiter-agentur-alle/7d81878c-e2d8-4eba-9819-013813722c42",
-      "sourceCrawlers": [
-        "swica"
-      ]
-    },
-    {
-      "companyKey": "ete",
-      "companyName": "Emil Egger AG",
-      "jobCount": 31,
-      "exampleUrl": "https://www.ete.ch/jobs/operateur-logistique-maintenance-magasin-automatise/",
-      "sourceCrawlers": [
-        "ete"
-      ]
-    },
-    {
-      "companyKey": "kanton-solothurn",
-      "companyName": "Kanton Solothurn",
-      "jobCount": 31,
-      "exampleUrl": "https://job.so.ch/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung/fa6b7d68-1ec9-4005-a4e5-50ee5d5729d4",
-      "sourceCrawlers": [
-        "kanton-solothurn"
-      ]
-    },
-    {
-      "companyKey": "stadt-bern",
-      "companyName": "Stadt Bern",
-      "jobCount": 31,
-      "exampleUrl": "https://jobs.bern.ch/offene-stellen/lehrstelle-gaertner-in-garten-und-landschaftsbau/6733ce74-06ef-4e2c-850c-1efb5fb003ba",
-      "sourceCrawlers": [
-        "stadt-bern"
-      ]
-    },
-    {
-      "companyKey": "belimo",
-      "companyName": "Belimo",
-      "jobCount": 30,
-      "exampleUrl": "https://jobsredirect.belimo.com/job/Hinwil-Lehrstelle-als-Fachfrau-mann-Betriebsunterhalt-EFZ-Z%C3%BCri-8340/1165066855/",
-      "sourceCrawlers": [
-        "belimo"
       ]
     },
     {
@@ -375,30 +195,30 @@
       ]
     },
     {
+      "companyKey": "swica",
+      "companyName": "SWICA Gesundheitsorganisation",
+      "jobCount": 30,
+      "exampleUrl": "https://jobs.swica.ch/offene-stellen/leiter-agentur-alle/7d81878c-e2d8-4eba-9819-013813722c42",
+      "sourceCrawlers": [
+        "swica"
+      ]
+    },
+    {
       "companyKey": "stadt-luzern",
       "companyName": "Stadt Luzern",
-      "jobCount": 30,
-      "exampleUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/planungs-und-baukoordinator-in-total-140/d2b9e650-df09-4d7b-a088-1ad1006e7cab",
+      "jobCount": 29,
+      "exampleUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/geomatikingenieur-in-fh-geomatiktechniker-in-eidg-fa/eab851b2-2bc7-4d4e-8ca2-827b952bdeb3",
       "sourceCrawlers": [
         "stadt-luzern"
       ]
     },
     {
-      "companyKey": "migrolino",
-      "companyName": "migrolino",
-      "jobCount": 28,
-      "exampleUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/8a1d1c46-c4fb-4be0-8402-da3fe7fc1f20",
-      "sourceCrawlers": [
-        "migrolino"
-      ]
-    },
-    {
-      "companyKey": "abraxas",
-      "companyName": "Abraxas Informatik AG",
+      "companyKey": "canton-valais",
+      "companyName": "Canton du Valais",
       "jobCount": 27,
-      "exampleUrl": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-80-100-3988",
+      "exampleUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101842&publication=2635",
       "sourceCrawlers": [
-        "abraxas"
+        "canton-valais"
       ]
     },
     {
@@ -411,10 +231,64 @@
       ]
     },
     {
+      "companyKey": "spruengli",
+      "companyName": "Confiserie Sprüngli AG",
+      "jobCount": 27,
+      "exampleUrl": "https://apply.refline.ch/116352/1258/pub/1/index.html",
+      "sourceCrawlers": [
+        "spruengli"
+      ]
+    },
+    {
+      "companyKey": "srg-ssr",
+      "companyName": "SRG SSR",
+      "jobCount": 27,
+      "exampleUrl": "https://jobs.srgssr.ch/rtr/offene-stellen/fufragnadi-emprendissadi-da-prova/b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
+      "sourceCrawlers": [
+        "srg-ssr"
+      ]
+    },
+    {
+      "companyKey": "abraxas",
+      "companyName": "Abraxas Informatik AG",
+      "jobCount": 26,
+      "exampleUrl": "https://www.abraxas.ch/de/karriere/offene-stellen/wms-praktikum-im-bereich-human-resources-4960",
+      "sourceCrawlers": [
+        "abraxas"
+      ]
+    },
+    {
+      "companyKey": "otis-sa",
+      "companyName": "Otis SA",
+      "jobCount": 25,
+      "exampleUrl": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Kreuzstrasse-34-6010-Kriens/Supervisor-NK_20167897",
+      "sourceCrawlers": [
+        "otis"
+      ]
+    },
+    {
+      "companyKey": "volksschule-luzern",
+      "companyName": "Volksschule Stadt Luzern",
+      "jobCount": 25,
+      "exampleUrl": "https://job.stadtluzern.ch/stellen/musik-volksschule/offene-stellen/fachperson-logopaedie-40/0d063ba2-1d98-49e5-a20d-0c0876cb0dbb",
+      "sourceCrawlers": [
+        "volksschule-luzern"
+      ]
+    },
+    {
+      "companyKey": "valiant-bank",
+      "companyName": "Valiant Bank AG",
+      "jobCount": 24,
+      "exampleUrl": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/dd63b9f0-f6df-431a-8687-d68cb3c6b1ba",
+      "sourceCrawlers": [
+        "valiant-bank"
+      ]
+    },
+    {
       "companyKey": "livit",
       "companyName": "Livit AG",
-      "jobCount": 25,
-      "exampleUrl": "https://jobs.livit.ch/offene-stellen/junior-bewirtschafter-in-geschaeftsflaechen/c052c2f1-da96-43e9-83ed-3c9a0d760587",
+      "jobCount": 23,
+      "exampleUrl": "https://jobs.livit.ch/offene-stellen/immobilienbewirtschafter-in-geschaeftsflaechen/9424cac8-8db1-4804-967e-dd716cb2ef4e",
       "sourceCrawlers": [
         "livit"
       ]
@@ -422,37 +296,10 @@
     {
       "companyKey": "postauto",
       "companyName": "PostAuto AG",
-      "jobCount": 25,
+      "jobCount": 23,
       "exampleUrl": "https://job.post.ch/default/job/ConductriceConducteur-Auxiliaire-Transport-scolaire%2C-Canton-Vaud/74508-fr_FR",
       "sourceCrawlers": [
         "postauto"
-      ]
-    },
-    {
-      "companyKey": "spruengli",
-      "companyName": "Confiserie Sprüngli AG",
-      "jobCount": 25,
-      "exampleUrl": "https://apply.refline.ch/116352/1257/pub/1/index.html",
-      "sourceCrawlers": [
-        "spruengli"
-      ]
-    },
-    {
-      "companyKey": "ehnv",
-      "companyName": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
-      "jobCount": 23,
-      "exampleUrl": "https://www.ehnv.ch/emplois#offer/4094/une-medecin-agreee-ou-associe-interniste-bariatrique-a-100-min-60",
-      "sourceCrawlers": [
-        "ehnv"
-      ]
-    },
-    {
-      "companyKey": "valiant-bank",
-      "companyName": "Valiant Bank AG",
-      "jobCount": 23,
-      "exampleUrl": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/dd63b9f0-f6df-431a-8687-d68cb3c6b1ba",
-      "sourceCrawlers": [
-        "valiant-bank"
       ]
     },
     {
@@ -474,93 +321,75 @@
       ]
     },
     {
-      "companyKey": "volksschule-luzern",
-      "companyName": "Volksschule Stadt Luzern",
+      "companyKey": "ehnv",
+      "companyName": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
       "jobCount": 21,
-      "exampleUrl": "https://job.stadtluzern.ch/stellen/musik-volksschule/offene-stellen/fachperson-logopaedie-40/0d063ba2-1d98-49e5-a20d-0c0876cb0dbb",
+      "exampleUrl": "https://www.ehnv.ch/emplois#offer/4094/une-medecin-agreee-ou-associe-interniste-bariatrique-a-100-min-60",
       "sourceCrawlers": [
-        "volksschule-luzern"
-      ]
-    },
-    {
-      "companyKey": "canton-valais",
-      "companyName": "Canton du Valais",
-      "jobCount": 20,
-      "exampleUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100653&publication=2635",
-      "sourceCrawlers": [
-        "canton-valais"
-      ]
-    },
-    {
-      "companyKey": "lindt-spruengli",
-      "companyName": "Lindt & Sprüngli",
-      "jobCount": 20,
-      "exampleUrl": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/LCH---CHE---Plant---Kilchberg---Plant/Betriebselektriker-in_JR101051",
-      "sourceCrawlers": [
-        "lindt-spruengli"
-      ]
-    },
-    {
-      "companyKey": "srg-ssr",
-      "companyName": "SRG SSR",
-      "jobCount": 20,
-      "exampleUrl": "https://jobs.srgssr.ch/rtr/offene-stellen/fufragnadi-emprendissadi-da-prova/b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
-      "sourceCrawlers": [
-        "srg-ssr"
-      ]
-    },
-    {
-      "companyKey": "sfs-group",
-      "companyName": "SFS Group",
-      "jobCount": 19,
-      "exampleUrl": "https://join.sfs.com/ch/en/vacancies/verkaufsberater-in-im-handwerkercenter-(m-f-d).html",
-      "sourceCrawlers": [
-        "sfs-group"
-      ]
-    },
-    {
-      "companyKey": "accor",
-      "companyName": "Ibis Budget",
-      "jobCount": 18,
-      "exampleUrl": "https://careers.accor.com/fr/fr/job/serveur-chef-de-rang-h-f-x-in-moevenpick-hotel-and-casino-geneva-geneva-switzerl-jid-98917",
-      "sourceCrawlers": [
-        "accor"
+        "ehnv"
       ]
     },
     {
       "companyKey": "empa",
       "companyName": "Empa",
-      "jobCount": 18,
+      "jobCount": 21,
       "exampleUrl": "https://apply.refline.ch/673276/2176/pub/1/index.html",
       "sourceCrawlers": [
         "empa"
       ]
     },
     {
-      "companyKey": "dormakaba",
-      "companyName": "dormakaba",
-      "jobCount": 17,
-      "exampleUrl": "https://jobs.dormakaba.com/job-invite/11893/?locale=fr_FR",
+      "companyKey": "accor",
+      "companyName": "Ibis Budget",
+      "jobCount": 19,
+      "exampleUrl": "https://careers.accor.com/fr/fr/job/serveur-chef-de-rang-h-f-x-in-moevenpick-hotel-and-casino-geneva-geneva-switzerl-jid-98917",
       "sourceCrawlers": [
-        "dormakaba"
+        "accor"
+      ]
+    },
+    {
+      "companyKey": "lindt-spruengli",
+      "companyName": "Lindt & Sprüngli",
+      "jobCount": 19,
+      "exampleUrl": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/LCH---CHE---Plant---Kilchberg---Plant/Betriebselektriker-in_JR101051",
+      "sourceCrawlers": [
+        "lindt-spruengli"
+      ]
+    },
+    {
+      "companyKey": "tl-lausanne",
+      "companyName": "tl (Transports publics de la région lausannoise)",
+      "jobCount": 19,
+      "exampleUrl": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7es-m%C3%A9canicien%C2%B7nes-en-maintenance-automobiles-v%C3%A9hicules-utilitaires/1428715533/",
+      "sourceCrawlers": [
+        "tl-lausanne"
       ]
     },
     {
       "companyKey": "patek-philippe",
       "companyName": "Patek Philippe",
       "jobCount": 17,
-      "exampleUrl": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-d'Atelier-Assemblage-S%C3%A9quentiel-%28HF%29/1360288355/",
+      "exampleUrl": "https://careers.patek.com/job/Plan-Les-Ouates-Sp%C3%A9cialiste-Relations-Publiques-%28HF%29/1365244755/",
       "sourceCrawlers": [
         "patek-philippe"
       ]
     },
     {
-      "companyKey": "sicpa",
-      "companyName": "SICPA SA",
+      "companyKey": "sfs-group",
+      "companyName": "SFS Group",
       "jobCount": 17,
-      "exampleUrl": "https://jobs.sicpa.com/job/Prilly-Principal-Software-Engineer-Mobile-SDK-Tooling-&-On%E2%80%91Device-Computer-Vision-%28iOSAndroid%29/1393025833/",
+      "exampleUrl": "https://join.sfs.com/ch/en/vacancies/verkaufsberater-in-im-handwerkercenter-(m-f-d).html",
       "sourceCrawlers": [
-        "sicpa"
+        "sfs-group"
+      ]
+    },
+    {
+      "companyKey": "felfel",
+      "companyName": "FELFEL",
+      "jobCount": 16,
+      "exampleUrl": "https://felfel.jobs.personio.de/job/2740018",
+      "sourceCrawlers": [
+        "felfel"
       ]
     },
     {
@@ -573,30 +402,21 @@
       ]
     },
     {
-      "companyKey": "michaelpage",
-      "companyName": "Michael Page",
+      "companyKey": "sicpa",
+      "companyName": "SICPA SA",
       "jobCount": 16,
-      "exampleUrl": "https://www.pageexecutive.com/job-detail/head-rd/ref/jn-032025-6700193",
+      "exampleUrl": "https://jobs.sicpa.com/job/Prilly-Business-Architect/1436219133/",
       "sourceCrawlers": [
-        "michaelpage"
+        "sicpa"
       ]
     },
     {
-      "companyKey": "sodexo",
-      "companyName": "Sodexo (Suisse) SA",
-      "jobCount": 16,
-      "exampleUrl": "https://sodexo-suisse.concludis.de/prj/shw/7d3010c11d08cf990b7614d2c2ca9098_0/5213/Unterhaltsreiniger_in_m_w_d_auf_Abruf.htm?b=0&lang=de_DE",
+      "companyKey": "dormakaba",
+      "companyName": "dormakaba",
+      "jobCount": 15,
+      "exampleUrl": "https://jobs.dormakaba.com/job-invite/11893/?locale=fr_FR",
       "sourceCrawlers": [
-        "sodexo"
-      ]
-    },
-    {
-      "companyKey": "tl-lausanne",
-      "companyName": "tl (Transports publics de la région lausannoise)",
-      "jobCount": 16,
-      "exampleUrl": "https://carrieres.t-l.ch/job/Lausanne-Stagiaire-Porte-Parole-et-Communication-institutionnelle/1424627433/",
-      "sourceCrawlers": [
-        "tl-lausanne"
+        "dormakaba"
       ]
     },
     {
@@ -609,19 +429,37 @@
       ]
     },
     {
+      "companyKey": "ipersonal",
+      "companyName": "MediPersonal",
+      "jobCount": 15,
+      "exampleUrl": "https://med-ipersonal.ch/jobs/advance-practice-nurse-80-100-in-heitenried-gesucht-dein-wissen-im-einsatz/",
+      "sourceCrawlers": [
+        "ipersonal"
+      ]
+    },
+    {
       "companyKey": "med-ipersonal",
       "companyName": "iPersonal AG",
       "jobCount": 15,
-      "exampleUrl": "https://www.ipersonal.ch/jobs/reifenpraktiker-100-in-der-region-balsthal-gesucht-jetzt-bewerben/",
+      "exampleUrl": "https://www.ipersonal.ch/jobs/techniker-elektronik-100-in-der-region-nottwil-temporaerbuero-ipersonal/",
       "sourceCrawlers": [
         "med-ipersonal"
+      ]
+    },
+    {
+      "companyKey": "migrolino",
+      "companyName": "migrolino",
+      "jobCount": 15,
+      "exampleUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/5d80c334-b989-4067-aca6-e184a596b2fb",
+      "sourceCrawlers": [
+        "migrolino"
       ]
     },
     {
       "companyKey": "strabag",
       "companyName": "STRABAG AG",
       "jobCount": 15,
-      "exampleUrl": "https://www.jobs.ch/en/vacancies/detail/531ad36d-6332-4bd9-9953-ca29caac8902/",
+      "exampleUrl": "https://www.jobs.ch/en/vacancies/detail/6f2b1045-1245-475b-a118-6690e3b5c0d7/",
       "sourceCrawlers": [
         "strabag"
       ]
@@ -636,75 +474,57 @@
       ]
     },
     {
-      "companyKey": "kuehne-nagel",
-      "companyName": "Kuehne+Nagel",
+      "companyKey": "michaelpage",
+      "companyName": "Michael Page",
       "jobCount": 14,
-      "exampleUrl": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL16638EXTERNALENGLOBAL/blue-yonder-wms-specialist-m-w-d",
+      "exampleUrl": "https://www.pageexecutive.com/job-detail/head-rd/ref/jn-032025-6700193",
       "sourceCrawlers": [
-        "kuehne-nagel"
+        "michaelpage"
       ]
     },
     {
-      "companyKey": "felfel",
-      "companyName": "FELFEL",
+      "companyKey": "oerlikon",
+      "companyName": "Oerlikon",
+      "jobCount": 14,
+      "exampleUrl": "https://careers.oerlikon.com/job/Receptionist/104921-en_US",
+      "sourceCrawlers": [
+        "oerlikon"
+      ]
+    },
+    {
+      "companyKey": "victorinox",
+      "companyName": "Victorinox",
       "jobCount": 13,
-      "exampleUrl": "https://felfel.jobs.personio.de/job/2740018",
+      "exampleUrl": "https://victorinox-career.talent-soft.com/stelle/stelle-initiativbewerbung-delemont-m-w-d_211.aspx",
       "sourceCrawlers": [
-        "felfel"
+        "victorinox"
       ]
     },
     {
-      "companyKey": "gmo",
-      "companyName": "gmo",
-      "jobCount": 13,
-      "exampleUrl": "https://www.arsante.ch/emploi/pharmacien-ne-92",
-      "sourceCrawlers": [
-        "gmo"
-      ]
-    },
-    {
-      "companyKey": "huber-suhner",
-      "companyName": "Huber+Suhner AG",
-      "jobCount": 13,
-      "exampleUrl": "https://recruiting.hubersuhner.com/Vacancies/7883/Description/1",
-      "sourceCrawlers": [
-        "huber-suhner"
-      ]
-    },
-    {
-      "companyKey": "ipersonal",
-      "companyName": "iPersonal AG",
-      "jobCount": 13,
-      "exampleUrl": "https://med-ipersonal.ch/jobs/assistent-in-gesundheit-und-soziales-eba-80-100-in-nunningen-gesucht-unterstuetzung-mit-herz-und-engagement/",
-      "sourceCrawlers": [
-        "ipersonal"
-      ]
-    },
-    {
-      "companyKey": "baloise",
-      "companyName": "Baloise",
+      "companyKey": "breitling",
+      "companyName": "Breitling",
       "jobCount": 12,
-      "exampleUrl": "https://jobs.helvetia.com/offene-stellen/it-projektleitung-und-business-analyse-m-w-d-finanzieren/8eb5b7f0-af9d-4cea-b198-1217990999dc",
+      "exampleUrl": "https://careers.breitling.com/job/manager-machines-garnissage-t0-m-f-x/1472-en_GB",
       "sourceCrawlers": [
-        "baloise"
+        "breitling"
       ]
     },
     {
       "companyKey": "hofweissbad",
       "companyName": "Hof Weissbad AG",
       "jobCount": 12,
-      "exampleUrl": "https://www.jobs.ch/en/vacancies/detail/ec1678b0-0e0b-4ffe-96d5-5111513047ea/",
+      "exampleUrl": "https://www.jobs.ch/en/vacancies/detail/8c0e447d-7f8c-4ca4-8b92-b9ec1312566e/",
       "sourceCrawlers": [
         "hofweissbad"
       ]
     },
     {
-      "companyKey": "komax",
-      "companyName": "Komax",
+      "companyKey": "kuehne-nagel",
+      "companyName": "Kuehne+Nagel",
       "jobCount": 12,
-      "exampleUrl": "https://jobs.komaxgroup.com/job/Thun-Eink%C3%A4ufer-in-Elektronik-80-100-3608/1165310355/",
+      "exampleUrl": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL16726EXTERNALENGLOBAL/expo-event-logistics-specialist-m-w-d",
       "sourceCrawlers": [
-        "komax"
+        "kuehne-nagel"
       ]
     },
     {
@@ -717,84 +537,120 @@
       ]
     },
     {
+      "companyKey": "apleona-schweiz-ag",
+      "companyName": "Apleona Schweiz AG",
+      "jobCount": 11,
+      "exampleUrl": "https://recruitingapp-2765.umantis.com/Vacancies/2541/Description/1",
+      "sourceCrawlers": [
+        "apleona-schweiz-ag"
+      ]
+    },
+    {
+      "companyKey": "huber-suhner",
+      "companyName": "Huber+Suhner AG",
+      "jobCount": 11,
+      "exampleUrl": "https://recruiting.hubersuhner.com/Vacancies/8007/Description/1",
+      "sourceCrawlers": [
+        "huber-suhner"
+      ]
+    },
+    {
       "companyKey": "planzer",
       "companyName": "Planzer",
-      "jobCount": 12,
-      "exampleUrl": "https://live.solique.ch/planzer/job/details/4065450",
+      "jobCount": 11,
+      "exampleUrl": "https://live.solique.ch/planzer/job/details/4067672",
       "sourceCrawlers": [
         "planzer"
       ]
     },
     {
-      "companyKey": "victorinox",
-      "companyName": "Victorinox",
-      "jobCount": 12,
-      "exampleUrl": "https://victorinox-career.talent-soft.com/stelle/stelle-initiativbewerbung-delemont-m-w-d_211.aspx",
+      "companyKey": "sodexo",
+      "companyName": "Sodexo (Suisse) SA",
+      "jobCount": 11,
+      "exampleUrl": "https://sodexo-suisse.concludis.de/prj/shw/7d3010c11d08cf990b7614d2c2ca9098_0/5213/Unterhaltsreiniger_in_m_w_d_auf_Abruf.htm?b=0&lang=de_DE",
       "sourceCrawlers": [
-        "victorinox"
+        "sodexo"
       ]
     },
     {
-      "companyKey": "breitling",
-      "companyName": "Breitling",
-      "jobCount": 11,
-      "exampleUrl": "https://careers.breitling.com/job/manager-machines-garnissage-t0-m-f-x/1472-en_GB",
+      "companyKey": "baloise",
+      "companyName": "Baloise",
+      "jobCount": 10,
+      "exampleUrl": "https://jobs.helvetia.com/offene-stellen/berater-w-m-d-private-banking-solothurn/5b8cd2c4-0f38-4f4b-9ca1-d5138b8d53f1",
       "sourceCrawlers": [
-        "breitling"
+        "baloise"
+      ]
+    },
+    {
+      "companyKey": "komax",
+      "companyName": "Komax",
+      "jobCount": 10,
+      "exampleUrl": "https://jobs.komaxgroup.com/job/Thun-Eink%C3%A4ufer-in-Elektronik-80-100-3608/1165310355/",
+      "sourceCrawlers": [
+        "komax"
+      ]
+    },
+    {
+      "companyKey": "recruitingapp-1154",
+      "companyName": "SGKB Bewerbermanagement Stellen",
+      "jobCount": 10,
+      "exampleUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3791/Description/1",
+      "sourceCrawlers": [
+        "recruitingapp-1154"
+      ]
+    },
+    {
+      "companyKey": "davos-klosters-bergbahnen-ag",
+      "companyName": "Davos Klosters Bergbahnen AG",
+      "jobCount": 9,
+      "exampleUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Front-Office-Hotel-Montana_j_3885730",
+      "sourceCrawlers": [
+        "davos-klosters-bergbahnen"
       ]
     },
     {
       "companyKey": "edmond-de-rothschild",
       "companyName": "Edmond de Rothschild",
-      "jobCount": 11,
+      "jobCount": 9,
       "exampleUrl": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/2675",
       "sourceCrawlers": [
         "edmond-de-rothschild"
       ]
     },
     {
-      "companyKey": "fondation-soins-lausanne",
-      "companyName": "Fondation Soins Lausanne",
-      "jobCount": 11,
-      "exampleUrl": "https://www.jobup.ch/fr/emplois/detail/634fa6fe-18f8-4f28-9e74-647412acbdf8/",
+      "companyKey": "gmo",
+      "companyName": "gmo",
+      "jobCount": 9,
+      "exampleUrl": "https://www.arsante.ch/emploi/experts-medicaux-93",
       "sourceCrawlers": [
-        "fondation-soins-lausanne"
+        "gmo"
       ]
     },
     {
-      "companyKey": "oerlikon",
-      "companyName": "Oerlikon",
-      "jobCount": 11,
-      "exampleUrl": "https://careers.oerlikon.com/job/Customer-Service-Specialist-Riri-Zippers-WM/104205-en_US",
+      "companyKey": "rieter",
+      "companyName": "Rieter",
+      "jobCount": 9,
+      "exampleUrl": "https://live.solique.ch/rieter/en/jobs/Senior-System-Engineer-100-wmd---4065731",
       "sourceCrawlers": [
-        "oerlikon"
-      ]
-    },
-    {
-      "companyKey": "apleona-schweiz-ag",
-      "companyName": "Apleona Schweiz AG",
-      "jobCount": 10,
-      "exampleUrl": "https://recruitingapp-2765.umantis.com/Vacancies/2546/Description/1",
-      "sourceCrawlers": [
-        "apleona-schweiz-ag"
+        "rieter"
       ]
     },
     {
       "companyKey": "sygnum",
       "companyName": "Sygnum Bank",
-      "jobCount": 10,
-      "exampleUrl": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN268",
+      "jobCount": 9,
+      "exampleUrl": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN280",
       "sourceCrawlers": [
         "sygnum"
       ]
     },
     {
-      "companyKey": "jsafrasarasin",
-      "companyName": "J. Safra Sarasin",
+      "companyKey": "totalenergies",
+      "companyName": "TotalEnergies",
       "jobCount": 9,
-      "exampleUrl": "https://jsafrasarasin.umantis.com/Vacancies/459/Description/2",
+      "exampleUrl": "https://jobs.totalenergies.com/en_US/careers/JobDetail/Tech-Lead-Advanced-Analytics/83204",
       "sourceCrawlers": [
-        "jsafrasarasin"
+        "totalenergies"
       ]
     },
     {
@@ -807,30 +663,12 @@
       ]
     },
     {
-      "companyKey": "recruitingapp-1154",
-      "companyName": "SGKB Bewerbermanagement Stellen",
+      "companyKey": "novelis",
+      "companyName": "Novelis",
       "jobCount": 8,
-      "exampleUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3780/Description/1",
+      "exampleUrl": "https://ch-external-novelis.icims.com/jobs/52599/plant-hr-manager-%28f-m-d%29/job?hub=13&in_iframe=1",
       "sourceCrawlers": [
-        "recruitingapp-1154"
-      ]
-    },
-    {
-      "companyKey": "rieter",
-      "companyName": "Rieter",
-      "jobCount": 8,
-      "exampleUrl": "https://live.solique.ch/rieter/en/jobs/Senior-Network-Engineer--4058728",
-      "sourceCrawlers": [
-        "rieter"
-      ]
-    },
-    {
-      "companyKey": "totalenergies",
-      "companyName": "TotalEnergies",
-      "jobCount": 8,
-      "exampleUrl": "https://jobs.totalenergies.com/en_US/careers/JobDetail/Corporate-Compliance-Officer-Fixed-Term-contract-6-months/82946",
-      "sourceCrawlers": [
-        "totalenergies"
+        "novelis"
       ]
     },
     {
@@ -845,28 +683,10 @@
     {
       "companyKey": "chopard",
       "companyName": "Chopard",
-      "jobCount": 7,
-      "exampleUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2552?c=chopard&lang=en-US",
+      "jobCount": 6,
+      "exampleUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2555?c=chopard&lang=en-US",
       "sourceCrawlers": [
         "chopard"
-      ]
-    },
-    {
-      "companyKey": "sophia-genetics",
-      "companyName": "SOPHiA GENETICS",
-      "jobCount": 7,
-      "exampleUrl": "https://apply.workable.com/sophia-genetics/j/2BC999723E/",
-      "sourceCrawlers": [
-        "sophia-genetics"
-      ]
-    },
-    {
-      "companyKey": "swisslog",
-      "companyName": "Swisslog",
-      "jobCount": 7,
-      "exampleUrl": "https://www.swisslog.com/de-de/karriere/offene-stellen/servicetechnikerin-mechanik-mwd-4094",
-      "sourceCrawlers": [
-        "swisslog"
       ]
     },
     {
@@ -888,12 +708,21 @@
       ]
     },
     {
-      "companyKey": "nivarox-swatch-group",
-      "companyName": "Nivarox-FAR S.A.",
+      "companyKey": "jsafrasarasin",
+      "companyName": "J. Safra Sarasin",
       "jobCount": 6,
-      "exampleUrl": "https://www.swatchgroup.com/fr/job/32999",
+      "exampleUrl": "https://jsafrasarasin.umantis.com/Vacancies/459/Description/2",
       "sourceCrawlers": [
-        "nivarox-swatch-group"
+        "jsafrasarasin"
+      ]
+    },
+    {
+      "companyKey": "sophia-genetics",
+      "companyName": "SOPHiA GENETICS",
+      "jobCount": 6,
+      "exampleUrl": "https://apply.workable.com/sophia-genetics/j/2BC999723E/",
+      "sourceCrawlers": [
+        "sophia-genetics"
       ]
     },
     {
@@ -906,12 +735,12 @@
       ]
     },
     {
-      "companyKey": "novelis",
-      "companyName": "Novelis",
+      "companyKey": "fondation-soins-lausanne",
+      "companyName": "Fondation Soins Lausanne",
       "jobCount": 5,
-      "exampleUrl": "https://ch-external-novelis.icims.com/jobs/52599/plant-hr-manager-%28f-m-d%29/job?hub=13&in_iframe=1",
+      "exampleUrl": "https://www.jobup.ch/fr/emplois/detail/389bb0ed-87a6-4a37-a726-bb5f41c9fbab/",
       "sourceCrawlers": [
-        "novelis"
+        "fondation-soins-lausanne"
       ]
     },
     {
@@ -921,6 +750,24 @@
       "exampleUrl": "https://jobs.chur.ch/Kaufmaennische-Praktikumsstelle-HMS-31-de-j1709.html",
       "sourceCrawlers": [
         "stadt-chur"
+      ]
+    },
+    {
+      "companyKey": "swisslog",
+      "companyName": "Swisslog",
+      "jobCount": 5,
+      "exampleUrl": "https://www.swisslog.com/de-de/karriere/offene-stellen/automatikerin-efz-4097",
+      "sourceCrawlers": [
+        "swisslog"
+      ]
+    },
+    {
+      "companyKey": "cedes-ag",
+      "companyName": "CEDES AG",
+      "jobCount": 4,
+      "exampleUrl": "https://www.cedes.com/en/career/jobs/business-development-ea-professional-network/",
+      "sourceCrawlers": [
+        "cedes"
       ]
     },
     {
@@ -942,39 +789,30 @@
       ]
     },
     {
+      "companyKey": "guggerbach",
+      "companyName": "Bistro Guggerzyt",
+      "jobCount": 4,
+      "exampleUrl": "https://www.guggerbach.ch/guggerbach/jobs-karriere/lehrstelle-fachperson-gesundheit-efz",
+      "sourceCrawlers": [
+        "guggerbach"
+      ]
+    },
+    {
       "companyKey": "oetiker",
       "companyName": "Oetiker",
       "jobCount": 4,
-      "exampleUrl": "https://jobs.smartrecruiters.com/Oetiker/744000135999378-it-service-management-specialist-emea-all-?oga=true",
+      "exampleUrl": "https://jobs.smartrecruiters.com/Oetiker/744000147421499-junior-firmware-engineer-embedded-systems-c-c-all-?oga=true",
       "sourceCrawlers": [
         "oetiker"
       ]
     },
     {
-      "companyKey": "apg-sga",
-      "companyName": "APG|SGA",
+      "companyKey": "careers",
+      "companyName": "lepatron",
       "jobCount": 3,
-      "exampleUrl": "https://jobs.apgsga.ch/publication/software-engineer-zuerich/fq77rwsz40tq2rk03aosn5kdlrimsc8r82avvqk4zlmb67ptcjlynfhsx0aw2lzt",
+      "exampleUrl": "https://careers.orior.ch/job/B%C3%B6ckten-Praktikantin-Product-Manager-Convenience%2C-80-100-BL/1431816433/",
       "sourceCrawlers": [
-        "apg-sga"
-      ]
-    },
-    {
-      "companyKey": "gavi",
-      "companyName": "Gavi, the Vaccine Alliance",
-      "jobCount": 3,
-      "exampleUrl": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2524&portal=Global",
-      "sourceCrawlers": [
-        "gavi"
-      ]
-    },
-    {
-      "companyKey": "recruitingapp-2563",
-      "companyName": "Switch Bewerbermanagement Stellen",
-      "jobCount": 3,
-      "exampleUrl": "https://recruitingapp-2563.umantis.com/Vacancies/559/Description/1",
-      "sourceCrawlers": [
-        "recruitingapp-2563"
+        "careers"
       ]
     },
     {
@@ -984,6 +822,15 @@
       "exampleUrl": "https://amina.jobs.personio.com/job/2752820",
       "sourceCrawlers": [
         "amina-bank"
+      ]
+    },
+    {
+      "companyKey": "apg-sga",
+      "companyName": "APG|SGA",
+      "jobCount": 2,
+      "exampleUrl": "https://jobs.apgsga.ch/publication/software-engineer-zuerich/fq77rwsz40tq2rk03aosn5kdlrimsc8r82avvqk4zlmb67ptcjlynfhsx0aw2lzt",
+      "sourceCrawlers": [
+        "apg-sga"
       ]
     },
     {
@@ -1005,21 +852,12 @@
       ]
     },
     {
-      "companyKey": "bucher-suter",
-      "companyName": "Bucher + Suter AG",
+      "companyKey": "banca-migros",
+      "companyName": "Banca Migros",
       "jobCount": 2,
-      "exampleUrl": "https://www.bucher-suter.com/jobs/salesforce-business-consultant-agentforce-contact-center-service-cloud-ch/",
+      "exampleUrl": "https://jobs.migros.ch/it/le-nostre-imprese/job/banca-migros/consulente-clientela-aziendale-tutti-generi/28b1d225-4c3c-496d-85e8-79dc742205b1",
       "sourceCrawlers": [
-        "bucher-suter"
-      ]
-    },
-    {
-      "companyKey": "careers",
-      "companyName": "lepatron",
-      "jobCount": 2,
-      "exampleUrl": "https://careers.orior.ch/job/B%C3%B6ckten-Praktikantin-Product-Manager-Convenience%2C-80-100-BL/1431816433/",
-      "sourceCrawlers": [
-        "careers"
+        "migros-ticino"
       ]
     },
     {
@@ -1041,21 +879,30 @@
       ]
     },
     {
-      "companyKey": "clariant",
-      "companyName": "Clariant",
-      "jobCount": 2,
-      "exampleUrl": "https://careers.clariant.com/job/Pratteln-Intern-Corporate-Strategy-&-Innovation/1405838633/",
-      "sourceCrawlers": [
-        "clariant"
-      ]
-    },
-    {
       "companyKey": "constellium",
       "companyName": "Constellium Valais",
       "jobCount": 2,
       "exampleUrl": "https://jobs.constellium.com/job/Steg-Betriebsschlosser-in-Tagesarbeit-Vala-3940/1386046533/",
       "sourceCrawlers": [
         "constellium"
+      ]
+    },
+    {
+      "companyKey": "gavi",
+      "companyName": "Gavi, the Vaccine Alliance",
+      "jobCount": 2,
+      "exampleUrl": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2489&portal=Global",
+      "sourceCrawlers": [
+        "gavi"
+      ]
+    },
+    {
+      "companyKey": "kiabi",
+      "companyName": "Kiabi Suisse",
+      "jobCount": 2,
+      "exampleUrl": "https://jobs.smartrecruiters.com/KIABI/744000134785679-conseiller-de-vente-en-renfort-d-equipe-contrat-sur-appel-cdi-etudiant-e-temps-partiel-h-f-nb-kiabi-fribourg?oga=true",
+      "sourceCrawlers": [
+        "kiabi"
       ]
     },
     {
@@ -1077,6 +924,15 @@
       ]
     },
     {
+      "companyKey": "riri-group",
+      "companyName": "Riri Group",
+      "jobCount": 2,
+      "exampleUrl": "https://careers.oerlikon.com/job/Mendrisio-Customer-Service-Specialist-Riri-Zippers-WM-TI-6850/1398158033/?feedId=null&utm_source=J2WRSS&utm_medium=rss&utm_campaign=J2W_RSS",
+      "sourceCrawlers": [
+        "riri"
+      ]
+    },
+    {
       "companyKey": "siemens-healthineers",
       "companyName": "Siemens Healthineers",
       "jobCount": 2,
@@ -1092,6 +948,24 @@
       "exampleUrl": "https://job-boards.eu.greenhouse.io/veeamsoftware/jobs/4781639101",
       "sourceCrawlers": [
         "veeam"
+      ]
+    },
+    {
+      "companyKey": "visionapartments",
+      "companyName": "Vision Management Services GmbH",
+      "jobCount": 2,
+      "exampleUrl": "https://www.jobs.ch/en/vacancies/detail/1b00f75a-551d-4189-9e6c-7ebd0516daf2/",
+      "sourceCrawlers": [
+        "visionapartments"
+      ]
+    },
+    {
+      "companyKey": "bucher-suter",
+      "companyName": "Bucher + Suter AG",
+      "jobCount": 1,
+      "exampleUrl": "https://www.bucher-suter.com/jobs/salesforce-business-consultant-agentforce-contact-center-service-cloud-ch/",
+      "sourceCrawlers": [
+        "bucher-suter"
       ]
     },
     {
@@ -1131,15 +1005,6 @@
       ]
     },
     {
-      "companyKey": "gim-architekten",
-      "companyName": "GIM Architekten AG",
-      "jobCount": 1,
-      "exampleUrl": "https://www.jobs.ch/en/vacancies/detail/1d796c78-bfb5-4f59-abbc-afa0ee492061/",
-      "sourceCrawlers": [
-        "gim-architekten"
-      ]
-    },
-    {
       "companyKey": "holmes-place",
       "companyName": "Holmes Place",
       "jobCount": 1,
@@ -1167,39 +1032,12 @@
       ]
     },
     {
-      "companyKey": "kiabi",
-      "companyName": "Kiabi Suisse",
-      "jobCount": 1,
-      "exampleUrl": "https://jobs.smartrecruiters.com/KIABI/744000134785679-conseiller-de-vente-en-renfort-d-equipe-contrat-sur-appel-cdi-etudiant-e-temps-partiel-h-f-nb-kiabi-fribourg?oga=true",
-      "sourceCrawlers": [
-        "kiabi"
-      ]
-    },
-    {
       "companyKey": "kudelski-nagra",
       "companyName": "Kudelski NAGRA",
       "jobCount": 1,
       "exampleUrl": "https://careers.nagra.com/?page=advertisement_display&id=15596",
       "sourceCrawlers": [
         "kudelski-nagra"
-      ]
-    },
-    {
-      "companyKey": "recruitingapp-2677",
-      "companyName": "E-Recruiting LLB-Gruppe Stellen",
-      "jobCount": 1,
-      "exampleUrl": "https://recruitingapp-2677.umantis.com/Vacancies/1989/Description/1",
-      "sourceCrawlers": [
-        "recruitingapp-2677"
-      ]
-    },
-    {
-      "companyKey": "riri",
-      "companyName": "Riri Group",
-      "jobCount": 1,
-      "exampleUrl": "https://careers.oerlikon.com/job/Mendrisio-Customer-Service-Specialist-Riri-Zippers-WM-TI-6850/1398158033/?feedId=null&utm_source=J2WRSS&utm_medium=rss&utm_campaign=J2W_RSS",
-      "sourceCrawlers": [
-        "riri"
       ]
     },
     {
@@ -1212,12 +1050,12 @@
       ]
     },
     {
-      "companyKey": "visionapartments",
-      "companyName": "Vision Management Services GmbH",
+      "companyKey": "tpl-trasporti-pubblici-luganesi",
+      "companyName": "TPL - Trasporti Pubblici Luganesi",
       "jobCount": 1,
-      "exampleUrl": "https://www.jobs.ch/en/vacancies/detail/1b00f75a-551d-4189-9e6c-7ebd0516daf2/",
+      "exampleUrl": "https://www.tplsa.ch/2/50/candidati/?idhr=769",
       "sourceCrawlers": [
-        "visionapartments"
+        "tpl-lugano"
       ]
     },
     {

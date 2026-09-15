@@ -9,10 +9,12 @@
 import { describe, it, expect } from 'vitest';
 import {
   buildJobPostingSchema,
+  isEmployerOwnedApplyUrl,
   MANDATORY_JOBPOSTING_FIELDS,
   type JobInput,
   type JobPostingSchema,
 } from '../../build-plugins/shared/jobPostingSchema';
+import { SLIM_INDEX_FIELDS } from '../../build-plugins/shared/slimJobIndex';
 
 const OPTS = {
   locale: 'it',
@@ -112,6 +114,21 @@ describe('buildJobPostingSchema — complete input', () => {
     expect(schema.employmentType).toBe('FULL_TIME');
     expect(schema.identifier?.value).toBe('eoc-infermiere-123');
   });
+
+  it('recovers a real title when the localized source contains an AI translation narrative', () => {
+    const schema = buildJobPostingSchema({
+      titleByLocale: {
+        it: 'I need to see the current job data and verify the employer details before I can provide a complete Italian translation: **Assistente vendite 80%** However, the translation breaks down because the source context does not include enough information about the employer or location.',
+      },
+      company: 'Klinik Hirslanden',
+      city: 'Zürich',
+    }, OPTS);
+
+    expect(schema.title).toBe('Assistente vendite 80%');
+    expect(schema.description).toContain('Assistente vendite 80%');
+    expect(schema.title).not.toContain('I need to see');
+    expect(schema.title).not.toContain('**');
+  });
 });
 
 describe('buildJobPostingSchema — partial input (missing address + salary)', () => {
@@ -135,7 +152,7 @@ describe('buildJobPostingSchema — partial input (missing address + salary)', (
 });
 
 describe('buildJobPostingSchema — application destination', () => {
-  it('marks a job directly applicable when only applyUrl is available', () => {
+  it('keeps directApply false when only an applyUrl is available without employer proof', () => {
     const schema = buildJobPostingSchema({
       title: 'Operatore sanitario',
       description:
@@ -144,7 +161,64 @@ describe('buildJobPostingSchema — application destination', () => {
       applyUrl: 'https://jobs.example.test/application/123',
       url: '',
     }, OPTS);
+    expect(schema.directApply).toBe(false);
+  });
+
+  it('marks a same-organisation application subdomain as direct apply', () => {
+    const schema = buildJobPostingSchema({
+      title: 'Operatore sanitario',
+      description:
+        'Descrizione sufficientemente lunga per verificare il percorso di candidatura esterno del lavoro.',
+      company: 'Esempio SA',
+      companyDomain: 'example.com',
+      applyUrl: 'https://careers.example.com/application/123',
+      url: 'https://www.example.com/jobs/123',
+    }, OPTS);
     expect(schema.directApply).toBe(true);
+  });
+
+  it('keeps the typed applyUrl/companyDomain pair through the slim boundary', () => {
+    const directApplyFields: Pick<JobInput, 'applyUrl' | 'companyDomain'> = {
+      applyUrl: 'https://careers.example.com/application/123',
+      companyDomain: 'example.com',
+    };
+
+    expect(SLIM_INDEX_FIELDS.has('applyUrl')).toBe(true);
+    expect(isEmployerOwnedApplyUrl(directApplyFields)).toBe(true);
+    expect(buildJobPostingSchema({
+      ...directApplyFields,
+      title: 'Operatore sanitario',
+      description:
+        'Descrizione sufficientemente lunga per verificare il percorso tipizzato di candidatura diretta.',
+      company: 'Esempio SA',
+    }, OPTS).directApply).toBe(true);
+  });
+
+  it('does not label a hosted ATS destination as employer direct apply', () => {
+    const schema = buildJobPostingSchema({
+      title: 'Operatore sanitario',
+      description:
+        'Descrizione sufficientemente lunga per verificare il percorso di candidatura esterno del lavoro.',
+      company: 'Esempio SA',
+      companyDomain: 'example.com',
+      applyUrl: 'https://example.wd5.myworkdayjobs.com/en-US/careers/job/123',
+      url: 'https://www.example.com/jobs/123',
+    }, OPTS);
+    expect(schema.directApply).toBe(false);
+  });
+
+  it('keeps the raw ownership domain separate from hiringOrganization.sameAs', () => {
+    const schema = buildJobPostingSchema({
+      title: 'Operatore sanitario',
+      description:
+        'Descrizione sufficientemente lunga per verificare che il sito dichiarato per sameAs sia distinto dal dominio usato per ownership.',
+      company: 'Esempio SA',
+      companyDomain: 'ownership.example.com',
+      companyWebsite: 'https://www.employer.example.com',
+      applyUrl: 'https://careers.employer.example.com/application/123',
+    }, OPTS);
+    expect(schema.directApply).toBe(true);
+    expect(schema.hiringOrganization.sameAs).toBe('https://www.employer.example.com');
   });
 });
 

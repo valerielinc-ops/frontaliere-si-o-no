@@ -80,7 +80,7 @@ import {
 } from '../scripts/lib/events-utils.mjs';
 import { getCantonLabel, type CantonLocale } from '../services/cantonList';
 import { imageObjectLd, type ImageObjectLd } from '../services/seo/imageObjectLd';
-import { osmEmbedSrc, CTA_PRIMARY_CLASS } from './shared/seoContentTokens';
+import { differentiateH1FromTitle, osmEmbedSrc, CTA_PRIMARY_CLASS } from './shared/seoContentTokens';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 
@@ -132,6 +132,19 @@ function localizedDescription(event: SiteEvent, locale: Locale): string | undefi
 const LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'] as const;
 const SITEMAP_NAME = 'sitemap-eventi.xml';
 const SOURCE = EVENT_SOURCES['tio-agenda'];
+
+function isIndexableWordCount(wordCount: number): boolean {
+  return wordCount >= MIN_INDEXABLE_WORDS;
+}
+
+/** Page numbers whose rendered bodies pass the same gate used by `robots`. */
+export function indexableLadderPages(
+  renderedPages: ReadonlyArray<{ page: number; wordCount: number }>,
+): number[] {
+  return renderedPages
+    .filter(({ page, wordCount }) => page >= 2 && isIndexableWordCount(wordCount))
+    .map(({ page }) => page);
+}
 
 // Localized base segment per canton+locale — shared with the FB poster and
 // the weekend-digest article generator (AGENTS.md §6, one source of truth).
@@ -2602,9 +2615,9 @@ function buildLadderAlternates(canton: string, comune: string | undefined, page:
  * weight (issue #7329). Carries ONLY the index rows for its slice plus the
  * ladder nav; the cards, stats, FAQ and methodology stay on the base page.
  *
- * Indexable under the ordinary `MIN_INDEXABLE_WORDS` gate, exactly like the
- * bucket/hub/digest siblings — NOT `noindex` by construction. A ladder page is
- * the ONLY inbound link of the rows it carries (rows past
+ * Indexability follows the ordinary `MIN_INDEXABLE_WORDS` gate, exactly like
+ * the bucket/hub/digest siblings. A ladder page is the ONLY inbound link of
+ * the rows it carries (rows past
  * `OVERFLOW_ROWS_PER_PAGE` moved off the base page), and both reachability
  * auditors treat a noindex page as a bridge that stops the walk:
  * `scripts/audit-orphan-pages-in-sitemaps.mjs` (`if (htmlHasNoindex(html)) {
@@ -2612,7 +2625,8 @@ function buildLadderAlternates(canton: string, comune: string | undefined, page:
  * (`if (htmlHasNoindex(html)) continue;`) both skip link extraction. A noindex
  * ladder would therefore re-orphan every row it transports — precisely the
  * #5434 regression this overflow block exists to prevent. For the same reason
- * the ladder URLs ARE listed in `sitemap-eventi.xml` (see `buildSitemap`).
+ * only indexable ladder URLs are listed in `sitemap-eventi.xml` (see
+ * `buildSitemap`).
  *
  * BFS: linked from the CANTON HUB (`renderHubLadderIndex`), not only from the
  * base page, so a ladder page sits at the same depth as the base page and its
@@ -2640,6 +2654,8 @@ export function renderOverflowLadderPage(params: {
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
   const pageCount = overflowLadderPageCount(events, cap, detailHref);
   const rowCount = overflowRows(events, cap, detailHref).length;
+  const ladderTitle = oCopy.ladderTitle(label, page, pageCount);
+  const ladderH1 = differentiateH1FromTitle(ladderTitle, ladderTitle, locale);
 
   const body = `${EVENTS_STYLE_BLOCK}<div class="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8">
     <nav class="mb-4 text-sm text-muted" aria-label="Breadcrumb">
@@ -2655,7 +2671,7 @@ export function renderOverflowLadderPage(params: {
     </nav>
 
     <header class="ev-in rounded-lg border border-edge bg-surface p-5 shadow-stripe-sm sm:p-8">
-      <h1 class="max-w-4xl font-display text-2xl font-bold leading-tight text-heading sm:text-3xl">${esc(oCopy.ladderTitle(label, page, pageCount))}</h1>
+      <h1 class="max-w-4xl font-display text-2xl font-bold leading-tight text-heading sm:text-3xl">${esc(ladderH1)}</h1>
       <p class="mt-3 max-w-3xl text-base leading-7 text-body">${esc(oCopy.ladderLede(label, rowCount))}</p>
       <p class="mt-3 text-sm text-muted">${renderSourceAttribution(events, copy, dateStamp)}</p>
     </header>
@@ -2682,14 +2698,14 @@ export function renderOverflowLadderPage(params: {
   });
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}`;
+  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: isIndexableWordCount(wordCount) })}`;
   const html = buildSeoPageHtml({
     locale,
-    title: oCopy.ladderTitle(label, page, pageCount),
+    title: ladderTitle,
     description: oCopy.ladderDesc(label, page, pageCount),
     canonicalUrl,
     hreflangHtml: buildLadderAlternates(canton, comune, page),
-    robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
+    robots: isIndexableWordCount(wordCount) ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
     bodyHtml,
     jsonLdScripts: [breadcrumbLd],
@@ -3477,13 +3493,13 @@ export function renderDigestPage(params: {
 // `sitemap-eventi-<canton>.xml` per group, indexed from a sitemap index),
 // mirroring the existing `data/seo-404-compat/part-*.json` sharding pattern
 // used elsewhere in this codebase for the same class of problem.
-function buildSitemap(
+export function buildSitemap(
   perCanton: Array<{
     canton: string;
     comuni: string[];
     digests: DigestDef[];
     hasOtherEvents?: boolean;
-    ladders?: Array<{ comune: string | undefined; pageCount: number }>;
+    ladders?: Array<{ comune: string | undefined; pages: number[] }>;
   }>,
   dateStamp: string,
   detailEntries: Array<{ canton: string; comune: string; slug: string }> = [],
@@ -3504,8 +3520,8 @@ function buildSitemap(
     if (hasOtherEvents) entries.push(sitemapUrl(canton, OTHER_EVENTS_COMUNE_KEY, dateStamp, '0.5'));
     // Overflow ladder pages of the buckets that have one (page 1 IS the bucket
     // page already pushed above, so the ladder starts at 2).
-    for (const { comune, pageCount } of ladders ?? []) {
-      for (let page = 2; page <= pageCount; page += 1) entries.push(ladderSitemapUrl(canton, comune, page, dateStamp));
+    for (const { comune, pages } of ladders ?? []) {
+      for (const page of pages) entries.push(ladderSitemapUrl(canton, comune, page, dateStamp));
     }
   }
   // Per-event detail pages
@@ -3637,13 +3653,27 @@ export function assignEventSlugs(list: SiteEvent[], reservedBaseSlugs: ReadonlyS
 }
 
 function assignLegacyEventSlugs(list: SiteEvent[], reservedBaseSlugs: ReadonlySet<string> = new Set()): Map<string, string> {
-  const used = new Set<string>(reservedBaseSlugs);
+  const used = new Set<string>([...reservedBaseSlugs].map((slug) => reserveLadderShape(slug, 'evento')));
+  const rawBaseFor = new Map(list.map((ev) => [ev.id, slugifyLegacyEvent(ev)]));
+  const rawBaseOwners = new Map<string, string>();
+  for (const [eventId, base] of rawBaseFor) if (!rawBaseOwners.has(base)) rawBaseOwners.set(base, eventId);
   const slugFor = new Map<string, string>();
   for (const ev of list) {
-    const base = slugifyLegacyEvent(ev);
+    const base = rawBaseFor.get(ev.id)!;
     let slug = base;
     let n = 2;
-    while (used.has(slug)) slug = disambiguateEventSlug(base, n++);
+    let collidesWithRawBase = false;
+    while (used.has(slug)) {
+      const candidate = disambiguateEventSlug(base, n++);
+      const rawOwner = rawBaseOwners.get(candidate);
+      if (rawOwner && rawOwner !== ev.id) {
+        console.warn(`[events-pages] skip legacy slug bridge for ${ev.id}: ${candidate} collides with ${rawOwner}`);
+        collidesWithRawBase = true;
+        break;
+      }
+      slug = candidate;
+    }
+    if (collidesWithRawBase) continue;
     used.add(slug);
     slugFor.set(ev.id, slug);
   }
@@ -3669,9 +3699,17 @@ export function changedEventSlugMigrations(
   reservedBaseSlugs: ReadonlySet<string> = new Set(),
 ): EventSlugMigration[] {
   const legacy = assignLegacyEventSlugs(list as SiteEvent[], reservedBaseSlugs);
+  const emittedFromSlugs = new Map<string, string>();
   return list.flatMap((ev) => {
-    const fromSlug = legacy.get(ev.id)!;
+    const fromSlug = legacy.get(ev.id);
     const toSlug = assigned.get(ev.id)!;
+    if (!fromSlug) return [];
+    const priorOwner = emittedFromSlugs.get(fromSlug);
+    if (priorOwner && priorOwner !== ev.id) {
+      console.warn(`[events-pages] skip legacy slug bridge for ${ev.id}: ${fromSlug} already belongs to ${priorOwner}`);
+      return [];
+    }
+    emittedFromSlugs.set(fromSlug, ev.id);
     return fromSlug === toSlug ? [] : [{ canton, comune, eventId: ev.id, fromSlug, toSlug }];
   });
 }
@@ -3695,6 +3733,55 @@ export function renderEventSlugRedirectPage(locale: Locale, canonicalPath: strin
     noindex: true,
   });
   return bridge.replace('</head>', ` <meta http-equiv="refresh" content="0; url=${canonicalUrl}">\n </head>`);
+}
+
+const EVENT_ROUTE_ROOTS: Record<Locale, string> = {
+  it: 'eventi',
+  en: 'en/events',
+  de: 'de/veranstaltungen',
+  fr: 'fr/evenements',
+};
+
+/**
+ * Remove only redirect bridges that this build no longer emits. Event detail
+ * pages can be renamed or disappear from the grace window while their old
+ * files remain in `dist/`; leaving those files behind makes an orphaned
+ * legacy URL look live to crawlers. The refresh+noindex pair is specific to
+ * `renderEventSlugRedirectPage`, so thin detail pages and other noindex output
+ * are left untouched.
+ */
+export function pruneStaleEventSlugRedirects(
+  distDir: string,
+  expectedPaths: ReadonlySet<string> | readonly string[],
+): string[] {
+  const expected = new Set([...expectedPaths].map((p) => path.resolve(p)));
+  const removed: string[] = [];
+  const isRedirectBridge = (filePath: string) => {
+    let html: string;
+    try { html = fs.readFileSync(filePath, 'utf8'); } catch { return false; }
+    return html.includes('<meta name="robots" content="noindex,follow">')
+      && html.includes('<meta http-equiv="refresh" content="0; url=');
+  };
+  const walk = (dir: string) => {
+    let entries: fs.Dirent[];
+    try { entries = fs.readdirSync(dir, { withFileTypes: true }); } catch { return; }
+    for (const entry of entries) {
+      const filePath = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        walk(filePath);
+        continue;
+      }
+      if (!entry.isFile() || (!entry.name.endsWith('.html') && entry.name !== 'index.html')) continue;
+      if (expected.has(path.resolve(filePath)) || !isRedirectBridge(filePath)) continue;
+      fs.rmSync(filePath, { force: true });
+      removed.push(filePath);
+    }
+  };
+  for (const locale of LOCALES) {
+    if (!shouldEmitLocale(locale)) continue;
+    walk(path.join(distDir, EVENT_ROUTE_ROOTS[locale]));
+  }
+  return removed;
 }
 
 /**
@@ -3837,6 +3924,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       const canonicalDetailPaths = new Set<string>();
       for (const entry of detailSlugs.values()) for (const locale of LOCALES) canonicalDetailPaths.add(pathForEventDetail(locale, entry.comune, entry.slug, entry.canton));
       const emittedSlugRedirects = new Set<string>();
+      const expectedSlugRedirectPaths = new Set<string>();
 
       const emit = (rendered: { urlPath: string; html: string; wordCount: number }) => {
         if (rendered.wordCount < MIN_INDEXABLE_WORDS) thinPages += 1;
@@ -3853,8 +3941,12 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         const key = eventSlugRedirectKey(locale, fromPath);
         if (fromPath === toPath || canonicalDetailPaths.has(fromPath) || emittedSlugRedirects.has(key)) return;
         const html = renderEventSlugRedirectPage(locale, toPath);
-        collector.add(path.join(distDir, fromPath, 'index.html'), html);
-        collector.add(path.join(distDir, fromPath.replace(/\/+$/, '') + '.html'), html);
+        const indexPath = path.join(distDir, fromPath, 'index.html');
+        const flatPath = path.join(distDir, fromPath.replace(/\/+$/, '') + '.html');
+        expectedSlugRedirectPaths.add(indexPath);
+        expectedSlugRedirectPaths.add(flatPath);
+        collector.add(indexPath, html);
+        collector.add(flatPath, html);
         emittedSlugRedirects.add(key);
       };
 
@@ -3863,7 +3955,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         comuni: string[];
         digests: DigestDef[];
         hasOtherEvents: boolean;
-        ladders: Array<{ comune: string | undefined; pageCount: number }>;
+        ladders: Array<{ comune: string | undefined; pages: number[] }>;
       }> = [];
       // Per-canton aggregates for the Swiss-wide index hub (issue #3645, F3)
       // — filled alongside `perCantonSitemap` in the same loop below so both
@@ -3889,13 +3981,41 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         const digestEvents = new Map(DIGESTS.map((d) => [d.key, d.filter(events, { todayIso: dateStamp })]));
 
         // The ladder of this canton, counted ONCE per locale (#7742). Everything
-        // downstream — the hub pills, the emit loop below, the sitemap — reads
-        // this map instead of re-deriving page counts from its own `detailHref`,
-        // so the pages linked, the pages written and the pages sitemapped are by
-        // construction the same set. Computed for ALL locales, not just the ones
-        // this shard emits, because the sitemap is built for all four (see the
-        // BUILD_LOCALE note in the loop).
+        // downstream — the hub pills and the emit loop — reads this map instead
+        // of re-deriving page counts from its own `detailHref`.
         const laddersByLocale = new Map<Locale, LadderBucket[]>(LOCALES.map((locale) => [locale, cantonLadders(byComune, otherEvents, detailHrefFor(locale))]));
+        const sharedLadderPageCounts = new Map<string | undefined, number>(
+          sitemapLadders(laddersByLocale).map(({ comune, pageCount }): [string | undefined, number] => [comune, pageCount]),
+        );
+        // The sitemap's canonical <loc> is always the IT path. Record the actual
+        // IT render result, so its membership reads the page's own robots gate;
+        // non-IT pages remain hreflang alternates, not sitemap <loc>s.
+        const renderedItLadderPages = new Map<string | undefined, Array<{ page: number; wordCount: number }>>();
+        const recordItLadderPage = (comune: string | undefined, page: number, rendered: { wordCount: number }) => {
+          const pages = renderedItLadderPages.get(comune) ?? [];
+          pages.push({ page, wordCount: rendered.wordCount });
+          renderedItLadderPages.set(comune, pages);
+        };
+        const renderItLadderForSitemap = (
+          comune: string | undefined,
+          events: SiteEvent[],
+          cap: number,
+          detailHref: DetailHref,
+        ) => {
+          for (let page = 2; page <= (sharedLadderPageCounts.get(comune) ?? 1); page += 1) {
+            recordItLadderPage(comune, page, renderOverflowLadderPage({ locale: 'it', canton, comune, events, cap, page, dateStamp, distDir, detailHref }));
+          }
+        };
+
+        // Shared sitemaps are owned by the IT/main shard. On a non-IT matrix
+        // shard the normal locale loop is intentionally skipped before it can
+        // render IT, so collect the same IT render results here for the
+        // complete sitemap metadata without emitting those pages twice.
+        if (!shouldEmitLocale('it')) {
+          const itDetailHref = detailHrefFor('it');
+          for (const comune of comuni) renderItLadderForSitemap(comune, byComune.get(comune)!, EVENT_CARD_CAP, itDetailHref);
+          if (otherEvents.length > 0) renderItLadderForSitemap(OTHER_EVENTS_COMUNE_KEY, otherEvents, OTHER_EVENTS_CARD_CAP, itDetailHref);
+        }
 
         for (const locale of LOCALES) {
           // Per-locale matrix shard (BUILD_LOCALE): render nothing for a locale
@@ -3936,7 +4056,9 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
             // pages. Sitemapped alongside the bucket (see `perCantonSitemap`
             // below): the ladder is the only inbound of the rows it carries.
             for (let page = 2; page <= (ladderPages.get(comune) ?? 1); page += 1) {
-              emit(renderOverflowLadderPage({ locale, canton, comune, events: list, cap: EVENT_CARD_CAP, page, dateStamp, distDir, detailHref }));
+              const rendered = renderOverflowLadderPage({ locale, canton, comune, events: list, cap: EVENT_CARD_CAP, page, dateStamp, distDir, detailHref });
+              emit(rendered);
+              if (locale === 'it' && page <= (sharedLadderPageCounts.get(comune) ?? 1)) recordItLadderPage(comune, page, rendered);
             }
             // One indexable detail page per event under its comune.
             for (const ev of list) {
@@ -3961,19 +4083,19 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
           if (otherEvents.length > 0) {
             emit(renderOtherEventsPage({ locale, canton, events: otherEvents, dateStamp, weekendDays, distDir, detailHref }));
             for (let page = 2; page <= (ladderPages.get(OTHER_EVENTS_COMUNE_KEY) ?? 1); page += 1) {
-              emit(
-                renderOverflowLadderPage({
-                  locale,
-                  canton,
-                  comune: OTHER_EVENTS_COMUNE_KEY,
-                  events: otherEvents,
-                  cap: OTHER_EVENTS_CARD_CAP,
-                  page,
-                  dateStamp,
-                  distDir,
-                  detailHref,
-                }),
-              );
+              const rendered = renderOverflowLadderPage({
+                locale,
+                canton,
+                comune: OTHER_EVENTS_COMUNE_KEY,
+                events: otherEvents,
+                cap: OTHER_EVENTS_CARD_CAP,
+                page,
+                dateStamp,
+                distDir,
+                detailHref,
+              });
+              emit(rendered);
+              if (locale === 'it' && page <= (sharedLadderPageCounts.get(OTHER_EVENTS_COMUNE_KEY) ?? 1)) recordItLadderPage(OTHER_EVENTS_COMUNE_KEY, page, rendered);
             }
             for (const ev of otherEvents) {
               const eventSlug = detailSlugs.get(ev.id)!.slug;
@@ -3998,15 +4120,18 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
           }
         }
 
+        const ladders = [...renderedItLadderPages.entries()]
+          .map(([comune, renderedPages]) => ({ comune, pages: indexableLadderPages(renderedPages) }))
+          .filter(({ pages }) => pages.length > 0);
+
         perCantonSitemap.push({
           canton,
           comuni,
           digests: DIGESTS.filter((d) => (digestEvents.get(d.key)?.length ?? 0) > 0),
           hasOtherEvents: otherEvents.length > 0,
-          // Not a third count of its own: the same per-locale lists the hub and
-          // the emit loop used, narrowed to the pages every locale emits (a
-          // sitemap `<loc>` advertises an alternate for each one).
-          ladders: sitemapLadders(laddersByLocale),
+          // The list is derived from the rendered IT ladder pages and the same
+          // word-count predicate as their `robots` value (#7741).
+          ladders,
         });
         cantonStats.push({ canton, eventCount: events.length, comuneCount: byComune.size });
       }
@@ -4092,6 +4217,11 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       const sitemapXml = buildSitemap(perCantonSitemap, dateStamp, detailEntries);
       fs.mkdirSync(distDir, { recursive: true });
       fs.writeFileSync(path.join(distDir, SITEMAP_NAME), sitemapXml, 'utf-8');
+
+      const staleSlugRedirects = pruneStaleEventSlugRedirects(distDir, expectedSlugRedirectPaths);
+      if (staleSlugRedirects.length) {
+        console.log(`\x1b[36m[events-pages]\x1b[0m Removed ${staleSlugRedirects.length} stale event slug bridge file(s)`);
+      }
 
       const t0 = Date.now();
       const flushed = await collector.flush();

@@ -54,6 +54,7 @@ import { renderProfessionCantonPage } from '@/build-plugins/professionCantonLand
 import { buildProfessionCantonPath, PROFESSION_CANTON_KEYS } from '@/build-plugins/professionCantonData';
 import { ALL_CANTON_PROFESSION_IDS, type AnyProfessionId } from '@/build-plugins/professionLandingsData';
 import type { ProfessionJobsSnapshot } from '@/build-plugins/professionJobsAggregate';
+import { renderWeeklyEmployersCorpus } from './weekly-employers-peer-fixture';
 
 const DIST = '/tmp/information-gain-families';
 
@@ -69,6 +70,17 @@ const DIST = '/tmp/information-gain-families';
  * rendono la famiglia due volte.
  */
 let premiCassaMalatiPages: Rendered[] | null = null;
+const HEALTH_PREMIUMS_DATA_AVAILABLE = (() => {
+  try {
+    const dataset = JSON.parse(
+      readFileSync('data/health-premiums/2026.json', 'utf-8'),
+    ) as HealthPremiumsDataset;
+    return Object.keys(dataset.premiums ?? {}).length > 0;
+  } catch {
+    return false;
+  }
+})();
+
 const renderPremiCassaMalati = (): Rendered[] => {
   if (premiCassaMalatiPages) return premiCassaMalatiPages;
   const dataset = JSON.parse(
@@ -226,6 +238,17 @@ const FAMILIES: Array<{ name: string; minMedian: number; render: () => Rendered[
     render: renderProfessionCantonFamily,
   },
   {
+    // Non è una famiglia comunale: è la griglia città × settimana di
+    // `/aziende-che-assumono/` (issue #7595), che aveva lo stesso difetto —
+    // payload interamente numerico, quindi invisibile dopo la maschera n. 1.
+    // Il corpus è una fixture deterministica (vedi il modulo importato): sulle
+    // pagine LIVE la mediana misurata era 4,6 %, sulla fixture 2,7 %, e il
+    // blocco del confronto fra città pari vale +4 punti su entrambe.
+    name: 'aziende-che-assumono',
+    minMedian: 5.7, // misurato 6,7 % sulla fixture (era 2,7 %)
+    render: () => renderWeeklyEmployersCorpus(),
+  },
+  {
     name: 'vivere-in-austria',
     // La sola famiglia sotto il floor del gate, e per questo INVENTARIATA con
     // 4,2 %: il corridoio non ha alcun regime frontalieri, quindi la pagina è
@@ -253,7 +276,8 @@ const measure = (pages: Rendered[]) => {
 
 describe('information gain delle famiglie a floor, misurato sull’output dei plugin', () => {
   for (const family of FAMILIES) {
-    it(`${family.name} sta sopra ${family.minMedian} %`, () => {
+    const test = family.name === 'premi-cassa-malati' && !HEALTH_PREMIUMS_DATA_AVAILABLE ? it.skip : it;
+    test(`${family.name} sta sopra ${family.minMedian} %`, () => {
       const cohort = measure(family.render());
       expect(cohort, `${family.name}: nessuna coorte prodotta`).not.toBeNull();
       expect(

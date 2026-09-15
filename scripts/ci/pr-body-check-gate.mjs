@@ -25,14 +25,14 @@ import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { EXIT_BLOCK } from './lib/hook-exit-codes.mjs';
-import { resolveHookTargetCwd, resolveGatedHeadRef } from './lib/hook-target-cwd.mjs';
+import {
+  resolveHookRepository,
+  resolveHookTargetCwd,
+  resolveGatedHeadRef,
+} from './lib/hook-target-cwd.mjs';
 // La tassonomia degli stati vive in UN posto solo: riscriverla qui produrrebbe
 // due copie che divergono al primo stato nuovo, in silenzio.
 import { bulletsWithoutState, checkPrBodySections, extractSection, filesUncitedInBody } from '../lib/pr-body-sections-check.mjs';
-
-// Il repo a cui questo gate appartiene: l'unica directory sempre giusta quando
-// `payload.cwd` e' inchiodato altrove (sub-agente — vedi lib/hook-target-cwd.mjs).
-const gateRepo = resolve(fileURLToPath(import.meta.url), '..', '..', '..');
 
 const NON_IMPL_ANCORA_RE = /^[ \t]{0,3}#{2,3}[ \t]+Non[ \t]+implementato[^\n]*/im;
 
@@ -374,8 +374,13 @@ async function main() {
   try {
     // Stesso ref del sibling-gate: il branch proposto, non l'HEAD della
     // directory tracciata (2026-09-05, AGENTS.md #6 — la classe intera).
-    const head = resolveGatedHeadRef(command, targetCwd, gateRepo);
-    warnAboutUncitedFiles(body, head.cwd, head.ref);
+    // Se il repository esplicito non ha un checker locale, saltiamo solo
+    // questo avviso advisory: la validazione obbligatoria del body continua.
+    const gateTarget = resolveHookRepository(command);
+    if (gateTarget) {
+      const head = resolveGatedHeadRef(command, targetCwd, gateTarget.repo);
+      warnAboutUncitedFiles(body, head.cwd, head.ref);
+    }
   } catch { /* advisory: non blocca mai */ }
 
   // The same pure validator is used by this hook and by the workflow CLI.

@@ -46,6 +46,8 @@ permissions:
   issues: write
 env:
   NODE_OPTIONS: --disable-warning=DEP0040 --disable-warning=DEP0169 --max-old-space-size=12288
+  DATA_PIPELINE_LEASE: "1"
+  TRANSLATE_RUN_CLOCK_REQUIRED: "1"
 jobs:
   translate:
     runs-on: ubuntu-latest
@@ -118,6 +120,16 @@ jobs:
         id: checkout
         if: always() && (steps.site_checkout_primary.outcome == 'success' || steps.site_checkout_retry.outcome == 'success')
         run: "true"
+      - name: Validate recovery successor claim
+        if: steps.checkout.outcome == 'success' && github.run_attempt > 1
+        env:
+          GITHUB_API_URL: ${{ github.api_url }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_RUN_ATTEMPT: ${{ github.run_attempt }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          GITHUB_SHA: ${{ github.sha }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/ci/translate-recovery-successor-guard.mjs
       - name: Setup Node.js
         uses: actions/setup-node@v5
         with:
@@ -184,11 +196,11 @@ jobs:
           echo "🧹 Running housekeeping (no slug hardening — deferred to Phase 3)..."
           for slice in data/jobs/by-crawler/*.json; do
             [ -f "$slice" ] || continue
-            JOBS_SLICE_FILE="$slice" node scripts/cleanup-jobs.mjs || true
+            JOBS_SLICE_FILE="$slice" node scripts/cleanup-jobs.mjs
           done
           echo "✅ Housekeeping complete"
       - name: Commit housekeeping
-        if: always() && steps.checkout.outcome == 'success' && steps.hk.outputs.run == 'true' && inputs.dry_run != true
+        if: success() && steps.checkout.outcome == 'success' && steps.hk.outputs.run == 'true' && inputs.dry_run != true
         run: bash scripts/lib/git-commit-data.sh --slice-only "🧹 Housekeeping — prune expired + validate URLs"
       - name: Install Argos Translate (local MT engine)
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
@@ -200,6 +212,20 @@ jobs:
       - name: Assemble dataset
         if: inputs.skip_translate != true
         run: node scripts/assemble-jobs-dataset.mjs
+      - name: Initialize translation run clock
+        if: inputs.skip_translate != true
+        run: |
+          node --input-type=module <<'NODE'
+          import { markRunStart, readRunStartMs } from './scripts/lib/translate-run-clock.mjs';
+
+          markRunStart(Date.now());
+          const startMs = readRunStartMs();
+          if (startMs === null) {
+            console.error('::error::translate-pending run-start marker could not be initialized');
+            process.exit(1);
+          }
+          console.log(`Translation run clock initialized at ${startMs}.`);
+          NODE
       - name: Record translation rollout context
         env:
           ROLLOUT_REPOSITORY: ${{ github.repository }}
@@ -218,7 +244,7 @@ jobs:
         run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
       - name: Re-assemble dataset after Argos bulk
         if: inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST_DISABLE != '1'
-        run: node scripts/assemble-jobs-dataset.mjs --no-summaries
+        run: node scripts/assemble-jobs-dataset.mjs
       - name: "Phase 2 pre: Flag locale-mismatched job descriptions"
         if: inputs.skip_translate != true
         continue-on-error: true
@@ -287,17 +313,33 @@ jobs:
           node scripts/relocalize-pending-jobs.mjs "${ARGS[@]}"
           legacy_status=$?
           set -e
+          expected_decision_digest=''
+          expected_contract_digest=''
           while IFS= read -r binding; do
-            if [[ "$binding" =~ ^expected_(decision|contract)_digest=sha256:[a-f0-9]{64}$ ]]; then
-              echo "$binding" >> "$GITHUB_OUTPUT"
+            if [[ "$binding" =~ ^expected_decision_digest=sha256:[a-f0-9]{64}$ ]]; then
+              expected_decision_digest="${binding#*=}"
+            elif [[ "$binding" =~ ^expected_contract_digest=sha256:[a-f0-9]{64}$ ]]; then
+              expected_contract_digest="${binding#*=}"
             fi
           done < <(node scripts/translation-shadow-preflight-v2.mjs \
             --mode capture \
             --decision "$RUNNER_TEMP/translation-shadow-preflight-v2-decision.json" 2>/dev/null || true)
+          # Emit both declared step outputs on every path. An empty value is
+          # intentionally still an unbound proof and the observer keeps it
+          # missing/unmeasurable; the explicit keys make the conditional
+          # producer visible to the workflow contract audit.
+          printf 'expected_decision_digest=%s\n' "$expected_decision_digest" >> "$GITHUB_OUTPUT"
+          printf 'expected_contract_digest=%s\n' "$expected_contract_digest" >> "$GITHUB_OUTPUT"
           exit "$legacy_status"
-      - name: Log translation stats (after)
-        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
-        run: node scripts/log-translation-stats.mjs after
+      - name: Upload thinking A/B rows
+        if: always() && inputs.skip_translate != true
+        continue-on-error: true
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: translation-thinking-ab-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/translation-thinking-ab.json
+          retention-days: 30
+          if-no-files-found: warn
       - name: Scatter changes back to per-crawler slices
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
         run: node scripts/scatter-jobs-to-slices.mjs
@@ -322,21 +364,42 @@ jobs:
           after="$(git rev-parse HEAD)"
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
       - name: "Phase 2d: Fix untranslated titles (free cascade)"
-        if: steps.hk.outputs.run == 'true' && inputs.dry_run != true
+        if: github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
         env:
-          UNTRANSLATED_TITLE_FIX_DEADLINE_MS: "18000000"
+          UNTRANSLATED_TITLE_FIX_DEADLINE_MS: "14400000"
         run: node scripts/fix-untranslated-titles.mjs
       - name: Commit title fixes
         id: commit_title_fixes
-        if: steps.hk.outputs.run == 'true' && inputs.dry_run != true
+        if: github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
         run: |
           before="$(git rev-parse HEAD)"
           bash scripts/lib/git-commit-data.sh --slice-only "🔤 Fix untranslated titles (free cascade)"
           after="$(git rev-parse HEAD)"
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
+      - name: "Phase 2e: Fix untranslated descriptions (free cascade)"
+        if: github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
+        env:
+          UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS: "14400000"
+        run: node scripts/fix-untranslated-descriptions.mjs
+      - name: Commit description fixes
+        id: commit_description_fixes
+        if: github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
+        run: |
+          before="$(git rev-parse HEAD)"
+          bash scripts/lib/git-commit-data.sh --slice-only "📝 Fix untranslated descriptions (free cascade)"
+          after="$(git rev-parse HEAD)"
+          if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
       - name: Re-assemble true-final translation dataset
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
         run: node scripts/assemble-jobs-dataset.mjs
+      - name: Log translation stats (after)
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            node scripts/log-translation-stats.mjs after
+          else
+            TRANSLATION_STATS_AFTER_TREE=1 bash scripts/lib/git-commit-data.sh --slice-only "📊 Translation stats (after)" data/translation-stats-history.json
+          fi
       - name: Capture final translation observability (shadow)
         if: always() && steps.translation_observability_before.outputs.ready == 'true'
         env:
@@ -358,7 +421,7 @@ jobs:
           node scripts/collect-translation-observability.mjs \
             --mode finalize --report "$RUNNER_TEMP/translation-observability.json" \
             --output "$RUNNER_TEMP/translation-observability.json" \
-            --final-commit "${{ steps.commit_title_fixes.outputs.final_commit || steps.commit_translations.outputs.final_commit }}"
+            --final-commit "${{ steps.commit_description_fixes.outputs.final_commit || steps.commit_title_fixes.outputs.final_commit || steps.commit_translations.outputs.final_commit }}"
       - name: Finalize translation shadow preflight v2 observation
         id: translation_shadow_preflight_v2_finalize
         if: always() && steps.checkout.outcome == 'success'
@@ -374,7 +437,7 @@ jobs:
           SHADOW_EVENT_NAME: ${{ github.event_name }}
           SHADOW_EXPECTED_CONTRACT_DIGEST: ${{ steps.translation_shadow_preflight_v2_decision.outputs.expected_contract_digest }}
           SHADOW_EXPECTED_DECISION_DIGEST: ${{ steps.translation_shadow_preflight_v2_decision.outputs.expected_decision_digest }}
-          SHADOW_FINAL_TRANSLATION_COMMIT: ${{ steps.commit_title_fixes.outputs.final_commit || steps.commit_translations.outputs.final_commit }}
+          SHADOW_FINAL_TRANSLATION_COMMIT: ${{ steps.commit_description_fixes.outputs.final_commit || steps.commit_title_fixes.outputs.final_commit || steps.commit_translations.outputs.final_commit }}
           SHADOW_OBSERVED_JOB_STATUS: ${{ job.status }}
           SHADOW_RUN_ATTEMPT: ${{ github.run_attempt }}
           SHADOW_RUN_ID: ${{ github.run_id }}
@@ -419,15 +482,6 @@ jobs:
       - name: Roll up translation observability history
         if: always() && steps.translation_observability_before.outputs.ready == 'true' && inputs.dry_run != true
         run: node scripts/rollup-translation-observability.mjs "$RUNNER_TEMP/translation-observability.json" data/translation-observability-history.json
-      - name: Upload thinking A/B rows
-        if: always() && inputs.skip_translate != true
-        continue-on-error: true
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
-        with:
-          name: translation-thinking-ab-${{ github.run_id }}-${{ github.run_attempt }}
-          path: ${{ runner.temp }}/translation-thinking-ab.json
-          retention-days: 30
-          if-no-files-found: warn
       - name: Upload cascade company rows
         if: always() && inputs.skip_translate != true
         continue-on-error: true

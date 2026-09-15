@@ -1,18 +1,19 @@
 /**
  * followup-drainer.mjs — gestore coda follow-up (zero-Claude, deterministico).
  *
- * Risolve la STARVATION osservata 2026-06-04: `issue-fix.yml` ha un solo slot
- * concurrency globale (`group: issue-fix`, `cancel-in-progress: false`). GitHub
- * con cancel=false CANCELLA le run PENDING tenendo solo l'in-progress + l'ultima
- * queued. In un burst di follow-up auto-routati a agent:fix → 60% delle fix-run
- * cancellate-in-coda, mai ri-tentate (nessun nuovo evento `labeled`), ~20 issue
- * bloccate `agent:fix` ma non lavorate.
+ * Risolve la STARVATION misurata il 2026-06-04, quando `issue-fix.yml` aveva un
+ * solo slot concurrency globale (`group: issue-fix`, `cancel-in-progress: false`):
+ * GitHub con cancel=false cancellava le run PENDING tenendo solo l'in-progress
+ * e l'ultima queued. Ora il workflow è per-issue e questo drainer mantiene un
+ * cap bounded, così un burst non crea sfratti tra issue diverse.
  *
  * Design (vedi AUTONOMOUS-LOOP-DESIGN): i follow-up non ricevono più `agent:fix`
  * diretto da triage ma `agent:fix-queued`. Questo drainer (cron ~20min +
- * workflow_run dopo issue-fix) promuove UNO alla volta a `agent:fix`, e SOLO
- * quando lo slot issue-fix è libero → la run promossa è l'unica pending → non
- * viene mai cancellata. Starvation eliminata per costruzione.
+ * dispatch manuale) riempie fino al cap gli slot `agent:fix` per issue diverse;
+ * la chiave per-issue del workflow evita gli sfratti fra candidati distinti,
+ * mentre lo stesso numero resta serializzato. Il cron è il trigger automatico
+ * durevole: il fan-out `workflow_run` è stato rimosso perché creava burst
+ * concorrenti che GitHub cancellava sul gruppo serializzato.
  *
  * Termina autonomamente (no human): un follow-up promosso che non produce PR
  * (run cancellata/error_max_turns) viene rilevato come orfano e RI-ACCODATO con
@@ -59,12 +60,25 @@ import {
 import {
   isBackoffActive,
   latestFixOutcomeEntryFromComments,
+  latestFixRunOutcomeEntryFromComments,
   latestFixOutcomeFromComments,
   maxQuotaResetsAt,
 } from './claude-rate-limit.mjs';
+import { quotaFallbackDecision } from './check-quota-backoff.mjs';
+import {
+  acquireQuotaFloorLease,
+  quotaFloorFairnessDecision,
+  quotaFloorLeaseExpiry,
+  quotaFloorLeaseOwner,
+  QUOTA_FLOOR_LEDGER_ISSUE,
+  QUOTA_FLOOR_LEASE_TTL_SEC,
+  quotaFloorLeaseDecision,
+  readQuotaFloorLedger,
+  releaseQuotaFloorLease,
+} from './quota-floor-lease.mjs';
 import { FIX_OUTCOME_RE } from './close-recovered-failure-issues.mjs';
 import { runBudgetFromEnv } from './lib/run-budget.mjs';
-import { intFromEnv } from '../lib/int-from-env.mjs';
+import { intFromEnv, positiveIntFromEnv } from '../lib/int-from-env.mjs';
 import {
   bucketState,
   dailyKeyFromBucketBody,
@@ -73,6 +87,7 @@ import {
   hasStableItemIds,
   hasStableItemIdsForDailyKey,
   hasUnterminatedMarkdownFence,
+  countAggregateHeadingItems,
   followupItemMarkers,
   parseFollowupItems,
   selectFirstOpenItem,
@@ -85,6 +100,7 @@ export {
   detectRemoteConfigScoped,
   matchSecretsScopedShape,
   latestFixOutcomeEntryFromComments,
+  latestFixRunOutcomeEntryFromComments,
   latestFixOutcomeFromComments,
 };
 
@@ -183,6 +199,12 @@ const ITEM_COST_MS = intFromEnv('FOLLOWUP_ITEM_COST_MS', 8_000);
 
 const DRY = process.argv.includes('--dry-run');
 const REPO = process.env.GITHUB_REPOSITORY || '';
+// issue-fix.yml already runs Codex first and uses Claude only as fallback. The
+// drainer must apply the same provider contract: a Claude-only beacon is not a
+// reason to starve the queue when the primary provider can still make one try.
+const CODEX_FALLBACK_MODE = process.env.FOLLOWUP_CODEX_FALLBACK_MODE === '1';
+const QUOTA_FLOOR_LEDGER = process.env.QUOTA_FLOOR_LEDGER_ISSUE || QUOTA_FLOOR_LEDGER_ISSUE;
+const QUOTA_FLOOR_TTL_SEC = positiveIntFromEnv('QUOTA_FLOOR_LEASE_TTL_SEC', QUOTA_FLOOR_LEASE_TTL_SEC);
 // Exported (#5524 item 3) so a test can tie this number to the `fu-attempt:N`
 // labels that actually exist in the repo (`ROUTING_LABELS` in
 // triage-sweep.mjs) instead of the two constants drifting apart in silence —
@@ -191,6 +213,19 @@ const REPO = process.env.GITHUB_REPOSITORY || '';
 // forever, unnoticed (no error, just a park that never reaches `needs-human`
 // nor gets excluded from re-triage by `ROUTING_LABELS`).
 export const MAX_ATTEMPTS = 3;
+
+/**
+ * Whether a Claude quota beacon must stop queue promotions.
+ *
+ * Keep this projection in one pure function so the drainer cannot silently
+ * diverge from the pre-flight gate's Codex fallback semantics.
+ */
+export function quotaPromotionDecision(resetsAt, {
+  nowSec = Math.floor(Date.now() / 1000),
+  codexFallbackMode = false,
+} = {}) {
+  return quotaFallbackDecision({ resetsAt, nowSec, codexFallbackMode });
+}
 // Cap di letture `gh issue view` per la scansione del beacon di quota. Il beacon
 // sta sull'ultima issue processata, quindi in regime normale si trova alla prima
 // o seconda lettura; il cap serve solo a impedire che una coda lunga trasformi il
@@ -211,11 +246,13 @@ const ORPHAN_MIN_AGE_MIN = 30;
 const SETTLE_MIN = intFromEnv('FOLLOWUP_SETTLE_MIN', 3);
 
 // Quante run `issue-fix` possono essere vive insieme. Era 1 hard-coded — un
-// mutex, non un cap — poi alzato a 3 (2026-09-04). Dal 2026-09-06 il default
-// e' di nuovo 1: tre fixer paralleli consumano troppi token. Override:
-// `FOLLOWUP_MAX_INFLIGHT_FIX=3` ripristina il parallelismo precedente, senza
-// toccare il codice (VISION.md D4: cap, kill-switch, telemetria — la riga
-// `in-flight=N/M` nel log di ogni run).
+// mutex, non un cap — poi alzato a 3 (2026-09-04). Il default locale resta 5:
+// è il massimo misurato come stabile dalla flotta locale. Il workflow remoto
+// configura esplicitamente 7 sui runner GitHub Actions; quel valore resta
+// bounded e protetto da claim/quota Codex, senza cambiare il fallback locale.
+// Override:
+// `FOLLOWUP_MAX_INFLIGHT_FIX=N` conserva il kill-switch e la telemetria — la
+// riga `in-flight=N/M` nel log di ogni run.
 //
 // `fixQueueDepth()` clampa questo numero alla profondita' vera della coda di
 // `issue-fix.yml`. Con la chiave per-issue il clamp non morde; se qualcuno
@@ -238,7 +275,7 @@ const SETTLE_MIN = intFromEnv('FOLLOWUP_SETTLE_MIN', 3);
 const RAW_MAX_INFLIGHT_FIX = Number(process.env.FOLLOWUP_MAX_INFLIGHT_FIX);
 const REQUESTED_MAX_INFLIGHT_FIX = Number.isFinite(RAW_MAX_INFLIGHT_FIX)
   ? Math.max(1, Math.floor(RAW_MAX_INFLIGHT_FIX))
-  : 1;
+  : 5;
 
 /**
  * Quante promozioni `agent:fix` puo' reggere DAVVERO la coda di `issue-fix.yml`.
@@ -247,14 +284,11 @@ const REQUESTED_MAX_INFLIGHT_FIX = Number.isFinite(RAW_MAX_INFLIGHT_FIX)
  * quelle che GitHub accetta di tenere. Le due cose sono diverse e il 2026-09-04
  * ha misurato quanto costa confonderle.
  *
- * `issue-fix.yml` ha `concurrency: { group: issue-fix, cancel-in-progress:
- * false }` — un gruppo COSTANTE, uguale per ogni issue. L'header di quel file
- * lo dice per esteso: «GitHub tiene **una sola** run pending per gruppo, e ogni
- * nuova pending SFRATTA (`cancelled`) la precedente. La profondita' della coda
- * e' 1, non N». E poiche' `on: issues:[labeled]` e' one-shot, l'evento della
- * run sfrattata e' consumato: la label `agent:fix` resta sulla issue e NIENTE
- * la ri-arma. Il RESCUE piu' sotto la ritrova orfana e le addebita un
- * `fu-attempt` — per una run che non e' mai partita.
+ * `issue-fix.yml` usa una chiave per-issue: GitHub serializza gli eventi dello
+ * stesso numero, ma issue diverse hanno gruppi distinti. Il cap decide quindi
+ * quante run Codex-primary possono partire insieme; se qualcuno rende di nuovo
+ * costante il `group:`, la profondita' torna 1 e il clamp evita di sfrattare le
+ * pending.
  *
  * Misurato sul sito (2026-09-05), dopo che il cap era passato da 1 a 3 il
  * 2026-09-04 alle 09:05Z:
@@ -267,13 +301,11 @@ const REQUESTED_MAX_INFLIGHT_FIX = Number.isFinite(RAW_MAX_INFLIGHT_FIX)
  * Il backlog aperto e' cresciuto di 82 issue nette in 15 giorni: quelle 88
  * parcheggiate senza un solo tentativo reale lo spiegano per intero.
  *
- * Percio' il cap non e' piu' un numero libero: viene CLAMPATO alla profondita'
- * dichiarata dal workflow. Con un `group:` costante la profondita' e' 1 —
- * promuovere una seconda issue nello stesso tick non riempie uno slot, ne
- * distrugge una. Con un `group:` che contiene un'espressione per-issue
- * (`${{ github.event.issue.number }}`) le run sono davvero indipendenti e il
- * cap torna a valere per quello che e': quello, e non un numero piu' alto qui,
- * e' il modo di alzare la parallelizzazione.
+ * Percio' il cap viene CLAMPATO alla profondita' dichiarata dal workflow. Con
+ * un `group:` costante la profondita' e' 1 — promuovere una seconda issue nello
+ * stesso tick non riempie uno slot, ne distrugge una. Con un `group:` che
+ * contiene un'espressione per-issue (`${{ github.event.issue.number }}`) le run
+ * sono indipendenti e il cap torna a valere per intero.
  *
  * File illeggibile o `concurrency:` assente → si sceglie il verso sicuro
  * (1 e Infinity rispettivamente): mai promuovere piu' di quanto si sappia
@@ -324,7 +356,7 @@ const FIX_QUEUE_DEPTH = (() => {
 const MAX_INFLIGHT_FIX = Math.min(REQUESTED_MAX_INFLIGHT_FIX, FIX_QUEUE_DEPTH);
 if (MAX_INFLIGHT_FIX < REQUESTED_MAX_INFLIGHT_FIX) {
   // Telemetria: senza questa riga il clamp e' invisibile e chi ha alzato il cap
-  // crede di avere 3 slot mentre ne ha 1 — che e' esattamente come e' nato il
+  // crede di avere piu' slot mentre ne ha 1 — che e' esattamente come e' nato il
   // difetto del 2026-09-04.
   console.log(`cap issue-fix richiesto ${REQUESTED_MAX_INFLIGHT_FIX} → clampato a ${FIX_QUEUE_DEPTH}: la profondita' della coda di issue-fix.yml (concurrency group costante) e' ${FIX_QUEUE_DEPTH}; promuoverne di piu' sfratterebbe le pending invece di riempire slot. Per alzarlo davvero, rendi il gruppo per-issue in issue-fix.yml.`);
 }
@@ -332,6 +364,14 @@ if (MAX_INFLIGHT_FIX < REQUESTED_MAX_INFLIGHT_FIX) {
 const LBL_QUEUED = 'agent:fix-queued';
 const LBL_FIX = 'agent:fix';
 const LBL_PARKED = 'fu-parked';
+// Claim condiviso con `/fix-issue` locale e con i fixer remoti. Il drainer
+// legge la presenza di una qualunque label di claim come lavoro assegnato:
+// anche un owner label senza `agent:in-progress` va protetto, perché è uno
+// stato transitorio che il prossimo reread del fixer deve poter sanare senza
+// che il drainer gli strappi l'issue da sotto.
+const LBL_IN_PROGRESS = 'agent:in-progress';
+const LBL_LOCAL = 'agent:local';
+const LBL_REMOTE = 'agent:remote';
 // Issue-contatore/tracker permanenti (#5615): il ledger crawler-transient e il
 // tracker loop-health sono queue-managed (category='other' → route='queue',
 // nessuna regex di categoria li riconosce), quindi altrimenti eleggibili
@@ -400,7 +440,8 @@ const PARENT_CLOSE_MAX_PER_RUN = intFromEnv('FOLLOWUP_PARENT_CLOSE_MAX_PER_RUN',
  */
 export function isDecomposeEligible(iss) {
   const ls = names(iss);
-  return !ls.includes(LBL_DECOMPOSED) && !ls.includes(LBL_FROM_DECOMP)
+  return !hasActiveAgentClaim(iss)
+    && !ls.includes(LBL_DECOMPOSED) && !ls.includes(LBL_FROM_DECOMP)
     && !ls.includes(LBL_DECOMP_QUEUED) && !ls.includes(LBL_DECOMP)
     && !ls.includes(LBL_MAYBE_RESOLVED) && !ls.includes(LBL_DECOMP_RETRIED);
 }
@@ -501,9 +542,10 @@ let unparkLabelEnsured = false;
 const AGEOUT_COMMENT_SCAN_MAX = intFromEnv('FOLLOWUP_AGEOUT_COMMENT_SCAN_MAX', 25);
 // Periodo della finestra rotante (vedi `scanWindowOffset`). 20 minuti = la
 // cadenza del cron di `followup-drainer.yml`, così un tick del cron corrisponde
-// a uno spostamento della finestra. Le run extra innescate da `workflow_run`
-// cadono nello stesso bucket e riusano lo stesso offset: è voluto, altrimenti
-// una raffica di fine-fix sfoglierebbe il pool senza che passi tempo vero.
+// a uno spostamento della finestra. Eventuali dispatch manuali nello stesso
+// periodo cadono nello stesso bucket e riusano lo stesso offset: è voluto,
+// altrimenti una raffica di retry sfoglierebbe il pool senza che passi tempo
+// vero.
 const SCAN_ROTATION_PERIOD_MS = intFromEnv('FOLLOWUP_SCAN_ROTATION_MS', 20 * 60_000);
 
 // Esiti FIX_OUTCOME (contratto ISSUES.md: il fixer chiude ogni run con
@@ -855,6 +897,15 @@ export function isDeliveredThisRun({ outcome, outcomeAt, mergedAt, promotedAt } 
   if (!Number.isFinite(outcomeAt) || outcomeAt < promotedAt) return false;
   if (!Number.isFinite(mergedAt) || mergedAt < promotedAt) return false;
   return true;
+}
+
+/** Un verdetto persistente appartiene alla promozione corrente? Pura → testabile.
+ * Senza entrambe le date la relazione non è dimostrabile: fail-closed, perché
+ * un marker vecchio non deve parkare o recuperare una run appena riarmata. */
+export function outcomeForCurrentPromotion({ outcome = null, outcomeAt = null, promotedAt = null } = {}) {
+  if (!outcome) return null;
+  if (!Number.isFinite(outcomeAt) || !Number.isFinite(promotedAt)) return null;
+  return outcomeAt >= promotedAt ? outcome : null;
 }
 
 // --- WORKFLOW-SCOPE PRE-FLIGHT (escalation #1724) ---------------------------
@@ -1338,10 +1389,9 @@ export function countAggregateItems(body) {
   const b = stripFencedBlocks(body);
   // Delimitatore: `.`, `)`, em/en dash — NON il trattino nudo, che
   // trasformerebbe un heading-data (`### 2026-08-25 …`) in una voce di lavoro.
-  const h3 = (b.match(/^###[ \t]*(?:Item[ \t]*)?\d+[ \t]*[.)—–]/gim) || []).length;
-  const h2 = (b.match(/^##[ \t]*(?:Item[ \t]*)?\d+[ \t]*[.)—–]/gim) || []).length;
+  const headings = countAggregateHeadingItems(b);
   const cb = (b.match(/^[ \t]*[-*][ \t]+\[[ xX]\]/gm) || []).length;
-  return h3 + h2 + cb;
+  return headings + cb;
 }
 
 /**
@@ -1613,6 +1663,26 @@ export function isQueueManaged(iss) {
 }
 
 /**
+ * Candidate per il solo recovery di un checkpoint WIP parcheggiato.
+ *
+ * `classifyIssue` può trattare `needs-human` come veto assorbente per il
+ * routing normale. Qui il branch live è una prova più forte del veto: togliamo
+ * SOLO quella label dalla classificazione e conserviamo gli altri pin
+ * (`keep-open`, `agent:no-age-out`, ...), che continuano a escludere il lavoro
+ * dal ciclo automatico.
+ * @param {{title?: string, labels?: Array<{name:string}>}} iss
+ */
+export function isRecoverableQueueManaged(iss) {
+  if (hasActiveAgentClaim(iss)) return false;
+  const labels = (iss?.labels || []).map((label) => label?.name).filter(Boolean);
+  if (!labels.includes('needs-human')) return isQueueManaged(iss);
+  return classifyIssue(
+    iss?.title,
+    labels.filter((label) => label !== 'needs-human'),
+  ).route === 'queue';
+}
+
+/**
  * Tracker / issue-contatore PERMANENTE (`agent:no-age-out`, #5615).
  *
  * Esiste per essere una condizione permanentemente visibile: non si chiude mai e
@@ -1644,6 +1714,7 @@ export function isPermanentTracker(iss) {
 export function isAgeOutCandidate(iss, { now, ageOutDays }) {
   if (!ageOutDays || ageOutDays <= 0) return false;
   if (!isQueueManaged(iss)) return false;
+  if (hasActiveAgentClaim(iss)) return false;
   const ls = (iss?.labels || []).map((l) => l.name);
   if (isPermanentTracker(iss)) return false; // issue-contatore/tracker permanente, mai eleggibile
   if (ls.includes(LBL_FIX) || ls.includes(LBL_QUEUED)) return false; // in lavorazione/coda
@@ -1937,6 +2008,11 @@ function inFlightFixCount() {
 // avrebbe mai potuto vedere, e senza una riga di log a dirlo. Un silent cap in
 // senso proprio, contro la regola esplicita di AGENTS.md.
 const ISSUE_LIST_LIMIT = intFromEnv('FOLLOWUP_ISSUE_LIST_LIMIT', 300);
+// Il pass PARKED-WIP può fare fino a quattro letture/mutazioni per candidato
+// (compare, PR aperta, commenti, merge) e non deve consumare l'intero tick prima
+// del rescue ordinario. Il cap è indipendente dal deadline-budget: protegge
+// anche i run locali o i workflow che non esportano una deadline.
+const PARKED_WIP_MAX_PER_RUN = intFromEnv('FOLLOWUP_PARKED_WIP_MAX_PER_RUN', 25);
 
 /** Elenco issue con tetto DICHIARATO: se il tetto è stato raggiunto lo dice,
  * invece di restituire in silenzio una vista parziale che sembra completa. */
@@ -2015,6 +2091,16 @@ function listAllOpenIssues() {
 
 const names = (iss) => (iss.labels || []).map((l) => l.name);
 const has = (iss, n) => names(iss).includes(n);
+/**
+ * Un claim locale o remoto rende l'issue di proprietà di un altro worker.
+ * È volutamente fail-closed: un owner label senza il mutex base è comunque
+ * uno stato transitorio che il drainer non deve strappare via alla flotta.
+ * Pura → testabile.
+ */
+export function hasActiveAgentClaim(iss) {
+  const ls = names(iss);
+  return ls.includes(LBL_IN_PROGRESS) || ls.includes(LBL_LOCAL) || ls.includes(LBL_REMOTE);
+}
 const attemptOf = (iss) => {
   const m = names(iss).map((n) => /^fu-attempt:(\d+)$/.exec(n)).find(Boolean);
   return m ? parseInt(m[1], 10) : 0;
@@ -2091,6 +2177,7 @@ const reparkGenOf = (iss) => {
  * @param {{number?: number, title?: string, labels?: Array<{name:string}>}} iss
  */
 export function isReparkableCandidate(iss) {
+  if (hasActiveAgentClaim(iss)) return false;
   if (!isQueueManaged(iss)) return false;
   if (has(iss, LBL_FIX) || has(iss, LBL_QUEUED)) return false; // già in lavoro/coda
   if (has(iss, LBL_DECOMP_QUEUED) || has(iss, LBL_DECOMP) || has(iss, LBL_DECOMPOSED)) return false; // nello stadio decompose
@@ -2114,6 +2201,7 @@ export function isReparkableCandidate(iss) {
  * @param {{number?: number, title?: string, labels?: Array<{name:string}>}} iss
  */
 export function isCrawlerRescueCandidate(iss) {
+  if (hasActiveAgentClaim(iss)) return false;
   if (isQueueManaged(iss)) return false;      // quelli li prende `stuckFix`
   if (isFixerExempt(names(iss))) return false; // pin fuori dal ciclo (#7648)
   if (has(iss, LBL_QUEUED) || has(iss, LBL_PARKED) || has(iss, 'needs-human')) return false;
@@ -2307,6 +2395,7 @@ export function isIssueGroupable(issue, {
 } = {}) {
   const title = String(issue?.title || '');
   const body = String(issue?.body || '');
+  if (hasActiveAgentClaim(issue)) return false;
   if (!issueGroupingKey(issue, { repository })) return false;
   if (isFixerExempt(names(issue))) return false;
   if (has(issue, LBL_FIX) || has(issue, LBL_PARKED) || has(issue, 'needs-human')) return false;
@@ -2357,7 +2446,7 @@ function editChecked(num, { add = [], remove = [] }) {
   const args = ['issue', 'edit', String(num), '--repo', REPO];
   for (const l of add) args.push('--add-label', l);
   for (const l of remove) args.push('--remove-label', l);
-  if (DRY) { console.log(`[dry] edit checked #${num} +[${add}] -[${remove}]`); return true; }
+  if (DRY) { console.log(`[dry] edit #${num} +[${add}] -[${remove}]`); return true; }
   try {
     gh(args, { json: false });
     return true;
@@ -2388,8 +2477,10 @@ function prepareIssueGroup(group) {
   const leader = group?.issues?.[0]?.number;
   const label = issueGroupLabel(group?.key, leader);
   if (!label || !Array.isArray(group?.issues) || group.issues.length < 2) return null;
+  if (group.issues.some(hasActiveAgentClaim)) return null;
   ensureLabel(label, '5319e7', `Gruppo issue B19: chiave condivisa, massimo ${ISSUE_GROUP_MAX_SIZE} issue nella PR`);
   for (const issue of group.issues) {
+    if (hasActiveAgentClaim(issue)) return null;
     const stale = names(issue)
       .filter((name) => name.startsWith(ISSUE_GROUP_LABEL_PREFIX) && name !== label);
     if (!editChecked(issue.number, { add: [label], remove: stale })) return null;
@@ -2442,11 +2533,97 @@ function hasFixPREver(num) {
   } catch { return true; }
 }
 
+/** Distingue il 404 «branch fix/issue-N assente» da un errore API generico.
+ * Il primo è uno stato normale del ciclo e significa «nessun checkpoint»; il
+ * secondo deve restare fail-closed, perché non abbiamo potuto verificare il
+ * branch. Pura → testabile senza chiamare GitHub.
+ */
+export function isGithubNotFoundError(error) {
+  if (Number(error?.status) === 404) return true;
+  const details = [error?.stderr, error?.stdout, error?.message]
+    .map((value) => String(value || ''))
+    .join('\n');
+  return /\bHTTP\s+404\b/i.test(details)
+    || /["']?status["']?\s*[:=]\s*["']?404["']?(?:\D|$)/i.test(details);
+}
+
+/**
+ * Un checkpoint WIP remoto è lavoro recuperabile finché il branch canonico
+ * contiene commit che non sono in `main`. La query live evita di fidarsi di un
+ * vecchio commento `RECOVERABLE_BRANCH` dopo un merge o una cancellazione del
+ * branch. Fail-safe: errore GitHub → nessun override del rescue bounded.
+ *
+ * @param {number} num
+ * @returns {{state: 'live', branch: string, aheadBy: number}|{state: 'unknown', branch: string}|null}
+ */
+function recoverableFixBranch(num) {
+  const branch = `fix/issue-${num}`;
+  try {
+    const comparison = gh([
+      'api', `repos/${REPO}/compare/main...${encodeURIComponent(branch)}`,
+      '--jq', '{ahead_by: .ahead_by}',
+    ]);
+    if (comparison?.ahead_by === undefined || comparison?.ahead_by === null) {
+      return { state: 'unknown', branch };
+    }
+    const aheadBy = Number(comparison?.ahead_by);
+    if (!Number.isSafeInteger(aheadBy)) return { state: 'unknown', branch };
+    return aheadBy > 0 ? { state: 'live', branch, aheadBy } : null;
+  } catch (error) {
+    if (isGithubNotFoundError(error)) return null;
+    return { state: 'unknown', branch };
+  }
+}
+
+/**
+ * Decide how to handle a stale fixer run that left a non-empty WIP branch.
+ * The branch is explicitly resumable, so `max-turns` must not route an
+ * already-partial fix straight to a terminal park (especially for a
+ * `from-decompose` issue). A `pr-created` marker is resumable too when its PR
+ * was closed without a merge. The retry still consumes the normal bounded
+ * attempt; an active quota backoff keeps the issue as beacon without mutating
+ * it.
+ * Pura → testabile.
+ *
+ * @param {{outcome?: string|null, hasBranchWork?: boolean, hasMergedFix?: boolean,
+ *          attempt?: number, maxAttempts?: number, quotaBackoffActive?: boolean}} args
+ * @returns {{action: 'none'|'hold-quota'|'requeue'|'park-attempts', nextAttempt: number, reason: string}}
+ */
+export function recoverableFixDecision({
+  outcome = null,
+  hasBranchWork = false,
+  hasMergedFix = false,
+  attempt = 0,
+  maxAttempts = MAX_ATTEMPTS,
+  quotaBackoffActive = false,
+} = {}) {
+  const none = { action: 'none', nextAttempt: attempt, reason: 'nessun checkpoint WIP live' };
+  const isClosedUnmergedPr = outcome === 'pr-created' && !hasMergedFix;
+  if (!hasBranchWork || !(outcome === null || outcome === 'max-turns' || isClosedUnmergedPr)) return none;
+  if (quotaBackoffActive) {
+    return { action: 'hold-quota', nextAttempt: attempt, reason: 'checkpoint WIP presente, ma la finestra quota è ancora aperta' };
+  }
+  const nextAttempt = attempt + 1;
+  const reason = `checkpoint WIP recuperabile (${outcome || 'nessun verdetto'}), ${nextAttempt}/${maxAttempts}`;
+  return nextAttempt >= maxAttempts
+    ? { action: 'park-attempts', nextAttempt, reason }
+    : { action: 'requeue', nextAttempt, reason };
+}
+
 /** Ultimo verdetto FIX_OUTCOME della issue CON il suo timestamp
  * (`{outcome, at}`). Stessa sorgente di `latestFixOutcome`, forma che serve a
  * `isDeliveredThisRun` per scopare il marker alla run corrente. */
 function latestFixOutcomeEntry(num) {
-  return latestFixOutcomeEntryFromComments(issueComments(num) || []);
+  return latestFixRunOutcomeEntryFromComments(issueComments(num) || []);
+}
+
+/** Una PR può sbloccare il re-queue solo se il merge è successivo all'ultimo
+ * verdetto FIX_OUTCOME. Un merge precedente non prova che abbia consegnato il
+ * lavoro dell'ultimo tentativo: potrebbe essere una PR stantia riusata dopo un
+ * fallimento, e considerarla nuova renderebbe gratuito un retry fallito. */
+export function mergeAfterFixOutcomeAt(mergedAt, outcomeAt) {
+  if (!Number.isFinite(mergedAt) || !Number.isFinite(outcomeAt)) return null;
+  return mergedAt > outcomeAt ? mergedAt : null;
 }
 
 /** ULTIMA promozione (`agent:fix` aggiunta) di questa issue con la sua
@@ -2466,48 +2643,108 @@ function fixPromotion(num) {
   }
 }
 
-/** Epoch ms del merge più recente di una PR fix (`fix/issue-N`), o null se
- * nessuna è mai stata MERGIATA (o su errore gh). `--state merged` e non
- * l'assenza di PR aperte: una PR chiusa SENZA merge non ha fatto atterrare
- * niente, e `hasFixPR` (`--state open`) non le distingue. Fail-safe a null =
- * nessuna gratuità, cioè il ramo bounded pre-esistente. */
-function mergedFixPrAt(num) {
-  return mergedFixPr(num)?.mergedAt ?? null;
+/** Pull request numbers cross-referenced from an issue timeline. When a
+ * repository is supplied, cross-references from another repository are
+ * ignored because pull request numbers are repository-local. Pure so the
+ * linked-PR selection can be tested without spending a GitHub API call. */
+export function linkedPullRequestNumbers(raw, repository = '') {
+  if (!Array.isArray(raw)) return [];
+  const expectedRepo = String(repository || '').trim().toLowerCase();
+  const numbers = [];
+  for (const event of raw.flat(Infinity)) {
+    if (event?.event !== 'cross-referenced') continue;
+    if (!event?.source?.issue?.pull_request) continue;
+    const sourceRepo = String(event.source.issue.repository?.full_name || '').trim().toLowerCase();
+    if (expectedRepo && sourceRepo !== expectedRepo) continue;
+    const number = Number(event.source.issue.number);
+    if (Number.isInteger(number) && number > 0) numbers.push(number);
+  }
+  return [...new Set(numbers)];
 }
 
-// `gh pr list --json files` risolve `files(first: 100)`: oltre quella soglia la
-// lista e` troncata SENZA segnalarlo. Una vista troncata non e` "nessun
-// workflow", ed e` la differenza fra un verdetto e una falsa affermazione.
-const PR_FILES_PAGE = 100;
+/** Select the latest merged PR timestamp. Pure; the API lookup happens in
+ * `mergedFixPr`. */
+export function selectLatestMergedFixPr(prs) {
+  let best = null;
+  for (const pr of Array.isArray(prs) ? prs : []) {
+    const at = Date.parse(pr?.mergedAt);
+    if (Number.isNaN(at)) continue;
+    if (best !== null && at <= best.mergedAt) continue;
+    best = { mergedAt: at };
+  }
+  return best;
+}
 
-/** Ultima PR fix MERGIATA di questa issue: `{mergedAt, mergeSha, files,
- * filesKnown}` (epoch ms, SHA del commit di merge, path modificati), o null se
- * non ne esiste nessuna / errore gh. Sorgente unica del merge di una fix —
- * `mergedFixPrAt` ne è la proiezione — così il ramo DELIVERED e il pass
- * PRODUCTION-PROOF non possono divergere su "quale merge conta". `files`,
- * `mergeSha` e `filesKnown` servono solo al secondo, e costano zero in più:
- * `gh pr list` li restituisce nella stessa chiamata. */
+/** Epoch ms del merge più recente di una PR fix collegata all'issue successivo
+ * all'ultimo verdetto, o null se nessuna è mai stata MERGIATA (o su errore gh).
+ * La timeline segue anche branch rinominati o creati manualmente; la ricerca
+ * sul vecchio branch resta come fallback per i dati storici senza evento di
+ * cross-reference. `--state merged` e non l'assenza di PR aperte: una PR chiusa
+ * SENZA merge non ha fatto atterrare niente, e `hasFixPR` (`--state open`) non
+ * le distingue. Fail-safe a null = nessuna gratuità, cioè il ramo bounded
+ * pre-esistente. */
+function mergedFixPrAt(num) {
+  const mergedAt = mergedFixPr(num)?.mergedAt ?? null;
+  const outcomeAt = latestFixOutcomeEntry(num)?.at ?? null;
+  return mergeAfterFixOutcomeAt(mergedAt, outcomeAt);
+}
+
+/** Ultima PR fix MERGIATA di questa issue: `{mergedAt}` oppure null se non ne
+ * esiste nessuna / errore gh. La timeline REST segue i cross-reference
+ * delle PR e quindi non dipende dal nome del branch; la ricerca su
+ * `fix/issue-N` resta come fallback. `mergedFixPrAt` ne è la proiezione, così
+ * il ramo DELIVERED ha una sola sorgente per il merge che conta. */
 function mergedFixPr(num) {
+  const linked = [];
   try {
-    const prs = gh(['pr', 'list', '--repo', REPO, '--head', `fix/issue-${num}`, '--state', 'merged', '--json', 'mergedAt,files,mergeCommit', '--limit', '20']);
-    let best = null;
-    for (const pr of Array.isArray(prs) ? prs : []) {
-      const at = Date.parse(pr?.mergedAt);
-      if (Number.isNaN(at)) continue;
-      if (best === null || at > best.mergedAt) {
-        const files = (pr?.files || []).map((f) => String(f?.path || ''));
-        best = {
-          mergedAt: at,
-          mergeSha: String(pr?.mergeCommit?.oid || ''),
-          files,
-          filesKnown: files.length > 0 && files.length < PR_FILES_PAGE,
-        };
+    const raw = gh([
+      'api',
+      `repos/${REPO}/issues/${num}/timeline?per_page=100`,
+      '--paginate',
+      '--slurp',
+    ]);
+    for (const prNumber of linkedPullRequestNumbers(raw, REPO)) {
+      try {
+        linked.push(gh([
+          'pr',
+          'view',
+          String(prNumber),
+          '--repo',
+          REPO,
+          '--json',
+          'mergedAt',
+        ]));
+      } catch {
+        // A single deleted/inaccessible linked PR must not hide other candidates.
       }
     }
-    return best;
   } catch {
-    return null;
+    // Fall back to the historical branch query below.
   }
+
+  let branchFallback = [];
+  try {
+    branchFallback = gh([
+      'pr',
+      'list',
+      '--repo',
+      REPO,
+      '--head',
+      `fix/issue-${num}`,
+      '--state',
+      'merged',
+      '--json',
+      'mergedAt',
+      '--limit',
+      '20',
+    ]);
+  } catch {
+    // A timeline result is still authoritative when the legacy query fails.
+  }
+  return selectLatestMergedFixPr([
+    ...linked,
+    ...(Array.isArray(branchFallback) ? branchFallback : []),
+  ]);
 }
 
 function minutesSince(iso) {
@@ -2597,6 +2834,7 @@ export const CRAWLER_MAX_ATTEMPTS = intFromEnv('FOLLOWUP_CRAWLER_MAX_ATTEMPTS', 
  *     partita → ri-arma con tentativo consumato, park al tetto.
  *
  * @param {{outcome: string|null, ageMin: number, attempt?: number, hasPR?: boolean,
+ *          hasBranchWork?: boolean,
  *          quotaBackoffActive?: boolean, settleMin?: number, orphanMinAgeMin?: number,
  *          maxAttempts?: number, decomposeEligible?: boolean}} args
  * @returns {{action: 'skip'|'settling'|'hold-quota'|'requeue'|'requeue-zero-work'|'decompose'|'park-max-turns'|'park-verdict'|'park-attempts', nextAttempt: number, reason: string}}
@@ -2606,6 +2844,7 @@ export function crawlerFixDecision({
   ageMin,
   attempt = 0,
   hasPR = false,
+  hasBranchWork = false,
   outcomeAt = null,
   mergedAt = null,
   promotedAt = null,
@@ -2617,6 +2856,20 @@ export function crawlerFixDecision({
 } = {}) {
   const keep = (action, reason) => ({ action, nextAttempt: attempt, reason });
   if (hasPR) return keep('skip', 'ha una PR fix aperta');
+  const currentOutcome = outcomeForCurrentPromotion({ outcome, outcomeAt, promotedAt });
+  const recoverable = recoverableFixDecision({
+    outcome: currentOutcome,
+    // Un branch già presente non basta da solo: con outcome null una
+    // promozione fresca può stare ancora lavorando sullo stesso checkpoint.
+    // Il crawler può cedere il beacon solo dopo la finestra di settling/orfano;
+    // `max-turns` è invece un esito terminale già osservabile.
+    hasBranchWork: hasBranchWork && (currentOutcome === 'max-turns' || ageMin >= orphanMinAgeMin),
+    hasMergedFix: mergedAt !== null,
+    attempt,
+    maxAttempts,
+    quotaBackoffActive,
+  });
+  if (recoverable.action !== 'none') return recoverable;
   // `max-turns` = troppo grande per una run, non un verdetto fermo. La path
   // queue-managed di questo stesso file lo manda alla DECOMPOSE-ROUTE; qui,
   // per l'unica categoria che `isQueueManaged` esclude, il park era
@@ -2626,20 +2879,20 @@ export function crawlerFixDecision({
   // con verdetto `max-turns` ed eleggibili allo scorporo). Il park resta per
   // le ineleggibili — `from-decompose`/`decomposed:1`, dove il secondo livello
   // di scorporo è escluso su misura (VISION.md D5).
-  if (outcome === 'max-turns') {
+  if (currentOutcome === 'max-turns') {
     return decomposeEligible
       ? keep('decompose', 'error_max_turns: too-large deterministico → scorporo (stessa strada della path queue-managed)')
       : keep('park-max-turns', 'error_max_turns (deterministico: stesso cap, stesso esito), non eleggibile allo scorporo');
   }
-  if (outcome && ZERO_WORK.has(outcome)) {
+  if (currentOutcome && ZERO_WORK.has(currentOutcome)) {
     // La run è morta prima di leggere la issue (429): 0 turni, $0, issue INTATTA
     // → ri-accoda SENZA consumare un tentativo. Finestra ancora aperta → non
     // toccare nulla: la issue resta il beacon del backoff per i tick successivi.
     return quotaBackoffActive
-      ? keep('hold-quota', `${outcome}, finestra quota ancora aperta`)
-      : keep('requeue-zero-work', `${outcome}, finestra quota chiusa (tentativo NON consumato)`);
+      ? keep('hold-quota', `${currentOutcome}, finestra quota ancora aperta`)
+      : keep('requeue-zero-work', `${currentOutcome}, finestra quota chiusa (tentativo NON consumato)`);
   }
-  if (outcome && NON_RETRYABLE.has(outcome)) return keep('park-verdict', `verdetto non-ri-tentabile: ${outcome}`);
+  if (currentOutcome && NON_RETRYABLE.has(currentOutcome)) return keep('park-verdict', `verdetto non-ri-tentabile: ${currentOutcome}`);
   // Gemello del ramo DELIVERED del rescue queue-managed: `hasPR` sopra guarda
   // solo le PR APERTE, quindi al merge una run riuscita ricadeva nel ramo
   // finale «nessun verdetto (run cancellata-in-coda / crashata / mai partita)»
@@ -2648,14 +2901,14 @@ export function crawlerFixDecision({
   // critico: i crawler non passano né dal parked-retry né dall'age-out, quindi
   // `park-attempts` sotto è la loro UNICA uscita, e un `pr-created` stantio che
   // rendesse gratuita ogni run morta successiva gliela toglierebbe del tutto.
-  if (isDeliveredThisRun({ outcome, outcomeAt, mergedAt, promotedAt })) {
-    return keep('requeue-delivered', `${outcome}, PR fix mergiata in questo ciclo (tentativo NON consumato)`);
+  if (isDeliveredThisRun({ outcome: currentOutcome, outcomeAt, mergedAt, promotedAt })) {
+    return keep('requeue-delivered', `${currentOutcome}, PR fix mergiata in questo ciclo (tentativo NON consumato)`);
   }
-  if (isSettlingPromotion({ outcome: outcome ?? null, ageMin, settleMin })) return keep('settling', 'promozione fresca, run non ancora visibile');
+  if (isSettlingPromotion({ outcome: currentOutcome, ageMin, settleMin })) return keep('settling', 'promozione fresca, run non ancora visibile');
   if (ageMin < orphanMinAgeMin) return keep('skip', `senza verdetto ma giovane (${Math.round(ageMin)}min < ${orphanMinAgeMin}min)`);
   const nextAttempt = attempt + 1;
-  const reason = outcome
-    ? `esito transiente ${outcome}, nessuna PR`
+  const reason = currentOutcome
+    ? `esito transiente ${currentOutcome}, nessuna PR`
     : 'nessun verdetto (run cancellata-in-coda / crashata / mai partita)';
   return nextAttempt >= maxAttempts
     ? { action: 'park-attempts', nextAttempt, reason: `${reason}, tentativo ${nextAttempt}/${maxAttempts}` }
@@ -2749,6 +3002,100 @@ export function runDrain() {
     console.log(`budget di run: ${Math.round(budget.remainingMs() / 1000)}s utilizzabili prima della deadline del job.`);
   }
 
+  // --- PARKED-WIP: salva i checkpoint prima dell'AGE-OUT ---------------------
+  // Un fixer può aver pushato `fix/issue-N` e poi essere morto su max-turns o
+  // senza marker. Se il rescue ha già parcheggiato la issue, `agent:fix` non è
+  // più presente e il vecchio age-out la vedeva come «mai entrata in
+  // lavorazione»: la chiudeva prima che il rescue potesse leggere il branch.
+  // Il branch live è la prova più forte del contrario. Ri-accodare con
+  // `agent:fix-queued` non consuma quota e lascia al DRAIN la promozione
+  // serializzata; quindi è sicuro anche durante un backoff quota.
+  //
+  // Il pass è prima dell'AGE-OUT anche per `--dry-run`: la preview non deve
+  // suggerire una chiusura che la modalità reale non può fare.
+  const parkedForWip = listIssues(LBL_PARKED)
+    .filter((iss) => isRecoverableQueueManaged(iss))
+    .filter((iss) => !has(iss, LBL_FIX) && !has(iss, LBL_QUEUED))
+    .filter((iss) => !isDecomposedParent(iss));
+  const parkedWipOrder = rotateForScan(parkedForWip, {
+    scanMax: PARKED_WIP_MAX_PER_RUN, now: Date.now(), periodMs: SCAN_ROTATION_PERIOD_MS,
+  });
+  let parkedWipFound = 0;
+  let parkedWipRequeued = 0;
+  let parkedWipDeferredByCap = 0;
+  let parkedWipDeferredByBudget = 0;
+  for (let parkedIndex = 0; parkedIndex < parkedWipOrder.length; parkedIndex += 1) {
+    const iss = parkedWipOrder[parkedIndex];
+    if (parkedIndex >= PARKED_WIP_MAX_PER_RUN) {
+      parkedWipDeferredByCap = parkedWipOrder.length - parkedIndex;
+      break;
+    }
+    // Il confronto del branch è una lettura remota per candidata e le letture
+    // successive possono essere ancora più costose. Prenotiamo il candidato
+    // prima di iniziare: se il budget non basta, non tocchiamo nulla e il
+    // prossimo tick riparte dalla stessa finestra ruotata.
+    if (!budget.take(`#${iss.number} (parked-wip)`, ITEM_COST_MS)) {
+      parkedWipDeferredByBudget = parkedWipOrder.length - parkedIndex;
+      if (parkedWipDeferredByBudget > 1) {
+        budget.defer(`parked-wip: altre ${parkedWipDeferredByBudget - 1} candidate`);
+      }
+      break;
+    }
+    const recoverable = recoverableFixBranch(iss.number);
+    if (recoverable?.state === 'unknown') {
+      console.log(`::warning::PARKED-WIP #${iss.number}: confronto ${recoverable.branch} con main non verificabile → nessuna mutazione, resta aperta per il prossimo tick.`);
+      continue;
+    }
+    if (!recoverable) continue;
+    parkedWipFound++;
+    if (hasFixPR(iss.number)) {
+      console.log(`PARKED-WIP #${iss.number} ignorato: esiste già una PR fix aperta (branch ${recoverable.branch} ahead=${recoverable.aheadBy}).`);
+      continue;
+    }
+    const outcome = latestFixOutcomeEntry(iss.number).outcome;
+    const mergedAt = outcome === 'pr-created' ? mergedFixPrAt(iss.number) : null;
+    const decision = recoverableFixDecision({
+      outcome,
+      hasBranchWork: true,
+      hasMergedFix: mergedAt !== null,
+      attempt: attemptOf(iss),
+      // L'operazione qui è solo queueing: non avvia Claude e non deve essere
+      // bloccata dal backoff globale, che verrà rispettato dal DRAIN.
+      quotaBackoffActive: false,
+    });
+    if (decision.action === 'none') {
+      console.log(`::warning::PARKED-WIP #${iss.number}: branch ${recoverable.branch} ahead=${recoverable.aheadBy}, ma il marker ${outcome || 'assente'} non è compatibile con il recovery automatico.`);
+      continue;
+    }
+    if (decision.action === 'park-attempts') {
+      console.log(`PARKED-WIP #${iss.number} resta parked: ${decision.reason}, branch ${recoverable.branch} ahead=${recoverable.aheadBy}.`);
+      continue;
+    }
+    const previousAttempt = attemptOf(iss);
+    const previousAttemptLabel = previousAttempt ? `fu-attempt:${previousAttempt}` : null;
+    const add = [LBL_QUEUED, `fu-attempt:${decision.nextAttempt}`];
+    const remove = [LBL_PARKED, 'needs-human', previousAttemptLabel].filter(Boolean);
+    if (DRY) {
+      console.log(`[dry] RE-QUEUE PARKED-WIP #${iss.number} (${decision.reason}, branch ${recoverable.branch} ahead=${recoverable.aheadBy}) → agent:fix-queued`);
+      parkedWipRequeued++;
+      continue;
+    }
+    if (edit(iss.number, { add, remove })) {
+      console.log(`RE-QUEUE PARKED-WIP #${iss.number} (${decision.reason}, branch ${recoverable.branch} ahead=${recoverable.aheadBy}) → agent:fix-queued`);
+      parkedWipRequeued++;
+    }
+  }
+  if (parkedWipFound || parkedWipDeferredByCap || parkedWipDeferredByBudget) {
+    const capNote = parkedWipDeferredByCap
+      ? `${parkedWipDeferredByCap} rinviate per cap ${PARKED_WIP_MAX_PER_RUN}/run`
+      : '';
+    const budgetNote = parkedWipDeferredByBudget
+      ? `${parkedWipDeferredByBudget} rinviate per budget`
+      : '';
+    const deferredNote = [capNote, budgetNote].filter(Boolean).join('; ');
+    console.log(`parked-wip: ${parkedWipFound} checkpoint live individuati, ${parkedWipRequeued} ri-accodati prima dell'age-out${deferredNote ? `; ${deferredNote} al prossimo tick (no silent cap)` : ''}.`);
+  }
+
   // --- AGE-OUT CLOSE: drena il ratchet delle issue queue-managed mai chiuse ---
   // Ortogonale allo slot issue-fix (chiudere non tocca il fixer) → gira sempre.
   if (AGEOUT_DAYS > 0) {
@@ -2814,6 +3161,19 @@ export function runDrain() {
       console.log(`age-out: ${candidates.length} eleggibili, cap ${AGEOUT_MAX_PER_RUN}/run → ${candidates.length - toClose.length} rinviate al prossimo tick (no silent cap).`);
     }
     for (const iss of toClose) {
+      // Difesa anche dopo il pass PARKED-WIP: un edit può fallire, la lista
+      // open può essere stata letta prima della mutazione, oppure `--dry-run`
+      // non cambia le label. Un branch avanti a main prova che la issue è
+      // entrata in lavorazione: non chiuderla mai per age-out.
+      const liveWip = recoverableFixBranch(iss.number);
+      if (liveWip?.state === 'unknown') {
+        console.log(`::warning::AGE-OUT skip #${iss.number}: confronto ${liveWip.branch} con main non verificabile → resta aperta, nessuna chiusura al buio.`);
+        continue;
+      }
+      if (liveWip?.state === 'live') {
+        console.log(`AGE-OUT skip #${iss.number}: checkpoint WIP live (${liveWip.branch} ahead=${liveWip.aheadBy}) → resta aperta/da recuperare.`);
+        continue;
+      }
       // Coppia non atomica (comment → close): senza budget il job può morire fra
       // le due e lasciare la issue commentata-ma-aperta, che al tick successivo
       // viene ri-commentata. Non si comincia se non c'è il tempo di finire.
@@ -2844,7 +3204,7 @@ export function runDrain() {
     // passo #7340 & C. resterebbero `agent:fix` per sempre, invisibili a ogni
     // altro strato. Solo label (nessuna `gh view`), e solo per i pochi padri
     // che le portano davvero.
-    for (const p of parents.filter((x) => has(x, LBL_FIX) || has(x, LBL_QUEUED))) {
+    for (const p of parents.filter((x) => !hasActiveAgentClaim(x) && (has(x, LBL_FIX) || has(x, LBL_QUEUED)))) {
       if (DRY) { console.log(`[dry] parent-dequeue #${p.number}`); continue; }
       try {
         gh(['issue', 'comment', String(p.number), '--repo', REPO, '--body',
@@ -2881,6 +3241,10 @@ export function runDrain() {
     });
     let examined = 0;
     for (const p of rotatedParents) {
+      if (hasActiveAgentClaim(p)) {
+        console.log(`CLAIM-SKIP #${p.number} (agent claim presente: ${names(p).filter((name) => [LBL_IN_PROGRESS, LBL_LOCAL, LBL_REMOTE].includes(name)).join(', ') || 'stato claim incompleto'}) → nessun parent-close sulla flotta locale/remota`);
+        continue;
+      }
       if (examined >= PARENT_CLOSE_MAX_PER_RUN) {
         console.log(`parent-close: cap ${PARENT_CLOSE_MAX_PER_RUN}/run raggiunto, ${parents.length - examined} padri rinviati al prossimo tick (no silent cap).`);
         break;
@@ -2922,6 +3286,7 @@ export function runDrain() {
       // ha bisogno di un'uscita: ce l'ha. `needs-human` incluso, altrimenti
       // questo stadio ri-commenterebbe a ogni tick ciò che ha già instradato.
       .filter((iss) => !has(iss, LBL_FIX) && !has(iss, LBL_QUEUED) && !has(iss, 'needs-human'))
+      .filter((iss) => !hasActiveAgentClaim(iss))
       .filter((iss) => !has(iss, LBL_DECOMP_QUEUED) && !has(iss, LBL_DECOMP) && !has(iss, LBL_DECOMPOSED))
       // Già flaggata da un giro precedente del ramo `flag`: rientrare non
       // produce nulla (il ramo fa `continue` sul marker) ma consuma uno slot del
@@ -3127,6 +3492,7 @@ export function runDrain() {
     const tooLarge = listIssues(LBL_PARKED)
       .filter((iss) => isQueueManaged(iss))
       .filter((iss) => !has(iss, LBL_FIX) && !has(iss, LBL_QUEUED) && !has(iss, 'needs-human'))
+      .filter((iss) => !hasActiveAgentClaim(iss))
       .filter((iss) => reparkGenOf(iss) >= 1)
       .filter((iss) => !isWorkflowScoped(iss.number))
       .filter((iss) => !hasFixPREver(iss.number));
@@ -3177,6 +3543,7 @@ export function runDrain() {
         break;
       }
       if (has(iss, LBL_SIBLING_DEBT)) continue; // idempotenza: la label È il marker
+      if (hasActiveAgentClaim(iss)) continue; // claim locale/remoto: non toccare il lavoro in corso
       const debt = detectSiblingDebt(`${iss.title}\n${iss.body || ''}`, REPO);
       if (!debt) continue;
       if (!budget.take(`#${iss.number} (sibling-debt)`, ITEM_COST_MS)) break;
@@ -3334,7 +3701,8 @@ export function runDrain() {
 
   // Tutto (rescue + drain) gira SOLO a slot issue-fix libero: così il rescue non
   // può mai toccare la issue di una run viva (evita di togliere agent:fix mentre
-  // il fix è in corso), e la promozione resta l'unica pending → mai cancellata.
+  // il fix è in corso). Il drain riempie poi gli slot liberi fino al cap; la
+  // chiave per-issue mantiene una sola pending per ciascun numero.
   //
   // #5524 item 2: quel `return` precedeva ogni ramo che usa `DRY` per stampare
   // "cosa farei" (RESCUE+PARK, CRAWLER RESCUE, DRAIN sono tutti SOTTO questa
@@ -3437,8 +3805,17 @@ export function runDrain() {
   }
   if (quotaBackoffUntil !== null) {
     const when = new Date(quotaBackoffUntil * 1000).toISOString();
-    console.log(`QUOTA BACKOFF attivo fino a ${when} — nessuna promozione e nessun tentativo consumato in questo tick.`);
+    if (CODEX_FALLBACK_MODE) {
+      console.log(`QUOTA Claude attiva fino a ${when}, ma Codex fallback è abilitato — il drainer non congela la coda; ogni promozione prova il provider primario una sola volta.`);
+    } else {
+      console.log(`QUOTA BACKOFF attivo fino a ${when} — nessuna promozione e nessun tentativo consumato in questo tick.`);
+    }
   }
+  const quotaDecision = quotaPromotionDecision(quotaBackoffUntil, {
+    nowSec: Math.floor(Date.now() / 1000),
+    codexFallbackMode: CODEX_FALLBACK_MODE,
+  });
+  const quotaBlocksPromotions = quotaDecision.quotaBlocked;
 
   // --- FAIRNESS DI QUOTA (peer repo, opt-in via env) --------------------------
   // La quota Claude è UNA per i due repo, e il beacon peer è a senso unico: il
@@ -3455,17 +3832,26 @@ export function runDrain() {
   let fairnessHold = false;
   {
     const fairnessPeer = process.env.FAIRNESS_PEER_REPO || '';
-    const fairnessHours = String(process.env.FAIRNESS_HOURS_UTC || '')
-      .split(',').map((s) => parseInt(s, 10)).filter(Number.isInteger);
-    if (fairnessPeer && quotaBackoffUntil === null && fairnessHours.includes(new Date().getUTCHours())) {
+    const fairnessHours = String(process.env.FAIRNESS_HOURS_UTC || '');
+    const currentHour = new Date().getUTCHours();
+    if (fairnessPeer && !quotaBlocksPromotions && fairnessHours.trim()) {
       try {
         const pq = gh(['issue', 'list', '--repo', fairnessPeer, '--state', 'open', '--label', LBL_QUEUED, '--json', 'number', '--limit', '50']);
         const minQ = intFromEnv('FAIRNESS_PEER_QUEUE_MIN', 10);
-        if (Array.isArray(pq) && pq.length >= minQ) {
+        const fairness = quotaFloorFairnessDecision({
+          nowHour: currentHour,
+          reservedHours: fairnessHours,
+          peerQueue: Array.isArray(pq) ? pq.length : null,
+          peerQueueMin: minQ,
+        });
+        if (!fairness.ok || fairness.hold) {
           fairnessHold = true;
-          console.log(`FAIRNESS: ora UTC ${new Date().getUTCHours()} riservata al peer ${fairnessPeer} (coda peer=${pq.length} ≥ ${minQ}) → nessuna promozione (fix né decompose) in questo tick.`);
+          console.log(`FAIRNESS: ora UTC ${currentHour} riservata al peer ${fairnessPeer} (${fairness.reason}) → nessuna promozione (fix né decompose) in questo tick.`);
         }
-      } catch { /* peer illeggibile → non trattenere (bias a promuovere) */ }
+      } catch (error) {
+        fairnessHold = true;
+        console.log(`::warning::FAIRNESS: coda peer non leggibile (${String(error).slice(0, 160)}) → fail-closed, nessuna promozione in questa finestra.`);
+      }
     }
   }
 
@@ -3495,9 +3881,63 @@ export function runDrain() {
     // marker per scoparlo alla run corrente — il marker e' uno stato PERSISTENTE
     // della issue e sopravvive a ogni run successiva.
     const outcomeEntry = latestFixOutcomeEntry(iss.number);
-    const outcome = outcomeEntry.outcome;
+    const rawOutcome = outcomeEntry.outcome;
+    // Anche il rescue queue-managed deve scartare i marker persistenti della
+    // promozione precedente: una nuova label `agent:fix` può infatti lasciare
+    // il vecchio `max-turns` visibile mentre la run corrente non ha ancora
+    // scritto il proprio marker.
+    const promotion = !hasPR && rawOutcome !== null
+      ? fixPromotion(iss.number)
+      : { at: null, byDrainer: false };
+    const outcome = outcomeForCurrentPromotion({
+      outcome: rawOutcome,
+      outcomeAt: outcomeEntry.at,
+      promotedAt: promotion.at,
+    });
     if (isSettlingPromotion({ outcome, ageMin, settleMin: SETTLE_MIN })) { settlingPromotions++; continue; } // registrazione run
     if (ageMin < ORPHAN_MIN_AGE_MIN) continue; // fix finito senza PR ma non ancora orfano → non bloccare il drain
+    // Un branch `fix/issue-N` avanti a main è un checkpoint WIP reale, non una
+    // run vuota. Prima del checkpoint deterministico questo lavoro restava
+    // invisibile; ora il rescue deve riaccodarlo in modo resume-aware anche se
+    // il vecchio marker è `max-turns` e l'issue è già `from-decompose`.
+    const mergedAt = outcome === 'pr-created' ? mergedFixPrAt(iss.number) : null;
+    const recoverable = outcome === null || outcome === 'max-turns'
+      || (outcome === 'pr-created' && mergedAt === null)
+      ? recoverableFixBranch(iss.number)
+      : null;
+    if (recoverable?.state === 'unknown') {
+      console.log(`::warning::RESCUE-SKIP #${iss.number}: confronto ${recoverable.branch} con main non verificabile → nessuna mutazione, resta agent:fix.`);
+      continue;
+    }
+    const recoverableDecision = recoverableFixDecision({
+      outcome,
+      hasBranchWork: recoverable?.state === 'live',
+      hasMergedFix: mergedAt !== null,
+      attempt: attemptOf(iss),
+      quotaBackoffActive: quotaBlocksPromotions,
+    });
+    if (recoverableDecision.action === 'hold-quota') {
+      console.log(`HOLD #${iss.number} (${recoverableDecision.reason}, branch ${recoverable?.branch} ahead=${recoverable?.aheadBy}) → resta agent:fix come beacon`);
+      continue;
+    }
+    if (recoverableDecision.action === 'requeue' || recoverableDecision.action === 'park-attempts') {
+      const previousAttempt = attemptOf(iss);
+      const previousLabel = previousAttempt ? `fu-attempt:${previousAttempt}` : null;
+      if (recoverableDecision.action === 'park-attempts') {
+        console.log(`PARK #${iss.number} (${recoverableDecision.reason}, branch ${recoverable?.branch} ahead=${recoverable?.aheadBy}) → fu-parked + needs-human`);
+        edit(iss.number, {
+          add: [LBL_PARKED, 'needs-human', `fu-attempt:${recoverableDecision.nextAttempt}`],
+          remove: [LBL_FIX, LBL_QUEUED, previousLabel].filter(Boolean),
+        });
+      } else {
+        console.log(`RE-QUEUE #${iss.number} (${recoverableDecision.reason}, branch ${recoverable?.branch} ahead=${recoverable?.aheadBy}) → resume-aware retry`);
+        edit(iss.number, {
+          add: [LBL_QUEUED, `fu-attempt:${recoverableDecision.nextAttempt}`],
+          remove: [LBL_FIX, previousLabel].filter(Boolean),
+        });
+      }
+      continue;
+    }
     // vecchio + nessuna PR → orfano. Ma «nessuna PR» ha due cause diverse:
     // (a) run morta/crashata (nessun verdetto) → ri-tentabile; (b) ABORT pulita
     // del fixer con verdetto deterministico-non-ri-tentabile (no-root-cause,
@@ -3518,7 +3958,7 @@ export function runDrain() {
     //    #4974). Un tentativo si consuma quando l'agent PROVA, non quando la
     //    quota gliel'ha impedito.
     if (outcome && ZERO_WORK.has(outcome)) {
-      if (quotaBackoffUntil !== null) {
+      if (quotaBlocksPromotions) {
         console.log(`HOLD #${iss.number} (${outcome}, finestra quota ancora aperta) → resta agent:fix come beacon, nessun tentativo consumato`);
         continue;
       }
@@ -3548,7 +3988,6 @@ export function runDrain() {
       // c'è stata. Se manca anche solo una, si prosegue verso i rami sotto,
       // che il tentativo lo consumano — cioè il comportamento bounded di prima.
       const mergedAt = mergedFixPrAt(iss.number);
-      const promotion = fixPromotion(iss.number);
       if (isDeliveredThisRun({
         outcome,
         outcomeAt: outcomeEntry.at,
@@ -3630,30 +4069,50 @@ export function runDrain() {
   for (const iss of crawlerFix) {
     const hasPR = hasFixPR(iss.number);
     const entry = hasPR ? { outcome: null, at: null } : latestFixOutcomeEntry(iss.number);
-    const outcome = entry.outcome;
+    const rawOutcome = entry.outcome;
+    const ageMin = minutesSince(iss.updatedAt);
+    // La promotione va letta anche per i verdetti non DELIVERED: un vecchio
+    // `max-turns` persistente non deve prevalere su un nuovo riarmo.
+    const promotion = !hasPR && rawOutcome !== null
+      ? fixPromotion(iss.number)
+      : { at: null, byDrainer: false };
+    const outcome = outcomeForCurrentPromotion({
+      outcome: rawOutcome,
+      outcomeAt: entry.at,
+      promotedAt: promotion.at,
+    });
+    const delivered = rawOutcome !== null && DELIVERED.has(rawOutcome);
+    const mergedAt = delivered ? mergedFixPrAt(iss.number) : null;
+    const recoverableBranch = (outcome === 'max-turns'
+      || (outcome === null && ageMin >= ORPHAN_MIN_AGE_MIN)
+      || (outcome === 'pr-created' && mergedAt === null))
+      ? recoverableFixBranch(iss.number)
+      : null;
+    if (recoverableBranch?.state === 'unknown') {
+      console.log(`::warning::CRAWLER-SKIP #${iss.number}: confronto ${recoverableBranch.branch} con main non verificabile → nessuna mutazione, resta agent:fix.`);
+      continue;
+    }
     const attempt = attemptOf(iss);
     const prevAttemptLabel = attempt ? `fu-attempt:${attempt}` : null;
-    // Le due letture extra servono SOLO a qualificare il ramo DELIVERED, che e'
-    // raro: calcolarle solo li' tiene il costo gh del pass invariato su tutti
-    // gli altri esiti.
-    const delivered = outcome !== null && DELIVERED.has(outcome);
-    const mergedAt = delivered ? mergedFixPrAt(iss.number) : null;
-    const promotion = delivered ? fixPromotion(iss.number) : { at: null, byDrainer: false };
+    // La seconda lettura (`fixPromotion`) è necessaria per scartare marker
+    // persistenti anche quando l'esito è un verdetto terminale, non solo per
+    // qualificare il ramo DELIVERED.
     // Gemello del warning del rescue queue-managed: stessa causa (writer
     // concorrente di `agent:fix`), stesso fail-closed, stesso bisogno di non
     // essere silenzioso.
-    if (isConcurrentRepromotion({ outcome, outcomeAt: entry.at, mergedAt, promotion })) {
-      console.log(`::warning::#${iss.number}: consegna reale (${outcome} + merge) letta come run morta — \`${LBL_FIX}\` ri-applicata da un writer concorrente (triage-sweep / recycle-stale-prs) DOPO il merge → tentativo consumato (fail-closed)`);
+    if (isConcurrentRepromotion({ outcome: rawOutcome, outcomeAt: entry.at, mergedAt, promotion })) {
+      console.log(`::warning::#${iss.number}: consegna reale (${rawOutcome} + merge) letta come run morta — \`${LBL_FIX}\` ri-applicata da un writer concorrente (triage-sweep / recycle-stale-prs) DOPO il merge → tentativo consumato (fail-closed)`);
     }
     const d = crawlerFixDecision({
       outcome,
-      outcomeAt: entry.at,
+      outcomeAt: outcome === null ? null : entry.at,
       mergedAt,
       promotedAt: promotion.at,
-      ageMin: minutesSince(iss.updatedAt),
+      ageMin,
       attempt,
       hasPR,
-      quotaBackoffActive: quotaBackoffUntil !== null,
+      hasBranchWork: recoverableBranch?.state === 'live',
+      quotaBackoffActive: quotaBlocksPromotions,
       decomposeEligible: DECOMPOSE_ENABLED && isDecomposeEligible(iss),
     });
     const tag = `#${iss.number} — "${iss.title?.slice(0, 50)}"`;
@@ -3715,7 +4174,7 @@ export function runDrain() {
   // orfano di `agent:fix` (#5514). Ri-arma UNA volta (`decompose-retried`),
   // alla seconda morte park+needs-human: bounded, niente loop. Il guard
   // `inFlightDecomposeCount()==0` impedisce di yankare la label da una run VIVA.
-  if (DECOMPOSE_ENABLED && quotaBackoffUntil === null) {
+  if (DECOMPOSE_ENABLED && !quotaBlocksPromotions) {
     const decompInFlight = inFlightDecomposeCount();
     if (decompInFlight === 0) {
       // Il RESCUE gira anche sotto fairness-hold: non consuma quota (sole
@@ -3727,6 +4186,10 @@ export function runDrain() {
       // toglierebbe la label su cui il beacon viene cercato.
       const decomposing = listIssues(LBL_DECOMP);
       for (const iss of decomposing) {
+        if (hasActiveAgentClaim(iss)) {
+          console.log(`CLAIM-SKIP #${iss.number} (agent claim presente: ${names(iss).filter((name) => [LBL_IN_PROGRESS, LBL_LOCAL, LBL_REMOTE].includes(name)).join(', ') || 'stato claim incompleto'}) → lascio intatta la decomposizione della flotta locale/remota`);
+          continue;
+        }
         if (!budget.take(`#${iss.number} (decompose-rescue)`, ITEM_COST_MS)) break;
         const ageMin = minutesSince(iss.updatedAt);
         if (ageMin < ORPHAN_MIN_AGE_MIN) continue; // run appena partita/registrata → aspetta
@@ -3754,6 +4217,7 @@ export function runDrain() {
         } else {
           const dq = listIssues(LBL_DECOMP_QUEUED)
             .filter((i) => !has(i, LBL_PARKED))
+            .filter((i) => !hasActiveAgentClaim(i))
             .sort((a, b) => prioRank(a) - prioRank(b) || Date.parse(a.createdAt) - Date.parse(b.createdAt));
           if (dq.length && budget.take(`#${dq[0].number} (decompose-drain)`, ITEM_COST_MS)) {
             console.log(`PROMUOVO DECOMPOSE #${dq[0].number} (${has(dq[0], 'fu-prio:high') ? 'high' : 'low'}) → ${LBL_DECOMP} — "${dq[0].title?.slice(0, 50)}"`);
@@ -3766,7 +4230,7 @@ export function runDrain() {
     }
   }
 
-  // --- DRAIN: promuovi 1 queued a agent:fix (slot già verificato libero) -------
+  // --- DRAIN: promuovi queued a agent:fix fino al cap (slot verificati liberi) -
   // Guard QUOTA (misurato 2026-08-05): lo slot può essere libero e la coda piena
   // e comunque promuovere è dannoso, perché il collo di bottiglia non è lo slot
   // ma la quota Max condivisa. Con la finestra 429 aperta, ogni promozione è una
@@ -3776,7 +4240,7 @@ export function runDrain() {
   // condizione DETERMINISTICA, non un'euristica: si aspetta la scadenza
   // dichiarata dal server. Il beacon resta sulla issue in `agent:fix`, quindi il
   // tick successivo lo rilegge senza bisogno di alcuno store esterno.
-  if (quotaBackoffUntil !== null) {
+  if (quotaBlocksPromotions) {
     const mins = Math.max(1, Math.round((quotaBackoffUntil - Math.floor(Date.now() / 1000)) / 60));
     console.log(`DRAIN sospeso: quota Claude esaurita per altri ~${mins} min (reset ${new Date(quotaBackoffUntil * 1000).toISOString()}). Nessuna promozione — evito run che morirebbero a turno 1.`);
     return;
@@ -3798,9 +4262,77 @@ export function runDrain() {
   if (fairnessHold) return;
 
   const queued = listIssues(LBL_QUEUED)
-    .filter((i) => !has(i, LBL_PARKED) && !isDecomposedParent(i))
+    .filter((i) => !has(i, LBL_PARKED) && !isDecomposedParent(i) && !hasActiveAgentClaim(i))
     .sort((a, b) => prioRank(a) - prioRank(b) || Date.parse(a.createdAt) - Date.parse(b.createdAt));
   if (!queued.length) { console.log('coda vuota → niente da promuovere.'); return; }
+
+  // The issue-fix preflight reuses the reservation written here. The ledger is
+  // read only after the queue is known to be non-empty, so a temporary GitHub
+  // outage cannot affect rescue/age-out work or an idle drain. A bad ledger is
+  // fail-closed for promotions: no label is changed until the shared floor can
+  // be observed.
+  const floorLedger = readQuotaFloorLedger({
+    repo: REPO,
+    ledgerIssue: QUOTA_FLOOR_LEDGER,
+    nowSec: Math.floor(Date.now() / 1000),
+    runJson: (args) => gh(args),
+  });
+  if (!floorLedger.ok) {
+    console.log(`::warning::quota floor telemetry unavailable (${floorLedger.reason}) → nessuna promozione in questo tick.`);
+    return;
+  }
+  if (!Number.isSafeInteger(QUOTA_FLOOR_TTL_SEC) || QUOTA_FLOOR_TTL_SEC <= 0) {
+    console.log('::warning::quota floor lease TTL non valido → nessuna promozione in questo tick.');
+    return;
+  }
+  console.log(`quota floor telemetry: active repair=${floorLedger.activeCounts.repair}, active issue-fix=${floorLedger.activeCounts['issue-fix']}`);
+
+  const floorReservations = new Map();
+  const reserveIssueFixFloor = (subject) => {
+    const existingReservation = floorReservations.get(subject);
+    if (existingReservation) return existingReservation;
+    const decision = quotaFloorLeaseDecision(floorLedger, { kind: 'issue-fix', subject });
+    if (!decision.admit) return { ok: false, reason: decision.reason };
+    const owner = decision.existing?.owner || quotaFloorLeaseOwner({
+      kind: 'issue-fix',
+      subject,
+      runId: `drainer-${process.env.GITHUB_RUN_ID || 'local'}`,
+      attempt: process.env.GITHUB_RUN_ATTEMPT || '1',
+    });
+    if (!decision.existing && !DRY) {
+      const lease = acquireQuotaFloorLease({
+        repo: REPO,
+        ledgerIssue: QUOTA_FLOOR_LEDGER,
+        kind: 'issue-fix',
+        subject,
+        owner,
+        expiresAt: quotaFloorLeaseExpiry(Math.floor(Date.now() / 1000), QUOTA_FLOOR_TTL_SEC),
+        runCommand: (args) => gh(args, { json: false }),
+      });
+      if (!lease.ok) return { ok: false, reason: lease.reason };
+      floorLedger.activeLeases.push({ kind: 'issue-fix', subject, owner, expiresAt: Infinity, released: false });
+    }
+    const reservation = { ok: true, owner, existing: !!decision.existing };
+    floorReservations.set(subject, reservation);
+    if (DRY) console.log(`[dry] quota floor lease issue-fix ${subject} → ${owner}`);
+    return reservation;
+  };
+  const releaseIssueFixFloor = (subject) => {
+    const reservation = floorReservations.get(subject);
+    if (!reservation || DRY || reservation.existing) return true;
+    const released = releaseQuotaFloorLease({
+      repo: REPO,
+      ledgerIssue: QUOTA_FLOOR_LEDGER,
+      owner: reservation.owner,
+      runCommand: (args) => gh(args, { json: false }),
+    });
+    if (!released.ok) {
+      console.log(`::error::${released.reason}`);
+      return false;
+    }
+    floorReservations.delete(subject);
+    return true;
+  };
 
   let overlapSkipped = 0;
   let prFilesMap = null; // lazy: caricato al primo candidato con path estratti, poi cached
@@ -3883,6 +4415,10 @@ export function runDrain() {
   // Park preemptivo = stesso esito del NON_RETRYABLE post-hoc, senza il run. Il
   // body serve solo per i candidati realmente considerati → fetch lazy, 1 alla volta.
   for (const cand of queued) {
+    if (hasActiveAgentClaim(cand)) {
+      console.log(`CLAIM-SKIP #${cand.number} (agent claim presente: ${names(cand).filter((name) => [LBL_IN_PROGRESS, LBL_LOCAL, LBL_REMOTE].includes(name)).join(', ') || 'stato claim incompleto'}) → lascio intatta la coda per la flotta locale/remota`);
+      continue;
+    }
     const plannedGroup = groupsByMember.get(Number(cand.number));
     const candidateGroupDigests = names(cand)
       .filter((name) => name.startsWith(ISSUE_GROUP_LABEL_PREFIX))
@@ -4170,24 +4706,37 @@ export function runDrain() {
       }
     }
 
+    const floorSubject = `issue-${cand.number}`;
+    const floorReservation = reserveIssueFixFloor(floorSubject);
+    if (!floorReservation.ok) {
+      console.log(`::warning::quota floor lease non acquisibile per #${cand.number} (${floorReservation.reason}) → coda intatta, nessuna promozione ulteriore.`);
+      return;
+    }
+
     if (plannedGroup
       && Number(cand.number) === Number(plannedGroup.issues[0]?.number)
       && groupStates.get(plannedGroup.label) === 'failed') {
       const groupLabel = prepareIssueGroup(plannedGroup);
       if (!groupLabel) {
         console.log(`::warning::GROUP-SKIP #${cand.number}: applicazione della label di gruppo fallita, membri lasciati in coda per il retry; nessuna promozione parziale.`);
+        releaseIssueFixFloor(floorSubject);
         continue;
       }
       if (!editChecked(cand.number, { add: [LBL_FIX], remove: [LBL_QUEUED] })) {
         console.log(`::warning::GROUP-SKIP #${cand.number}: promozione del leader fallita, membri lasciati in coda.`);
         groupStates.set(groupLabel, 'failed');
+        releaseIssueFixFloor(floorSubject);
         continue;
       }
       groupStates.set(groupLabel, 'promoted');
       console.log(`PROMUOVO GRUPPO ${groupLabel} (${plannedGroup.issues.length} issue, chiave ${plannedGroup.source}) → leader #${cand.number} [${promoted + 1}/${promoteBudget}]`);
     } else {
       console.log(`PROMUOVO #${cand.number} (${has(cand, 'fu-prio:high') ? 'high' : 'low'}) → ${LBL_FIX} [${promoted + 1}/${promoteBudget}]`);
-      edit(cand.number, { add: [LBL_FIX], remove: [LBL_QUEUED] });
+      if (!editChecked(cand.number, { add: [LBL_FIX], remove: [LBL_QUEUED] })) {
+        releaseIssueFixFloor(floorSubject);
+        console.log(`::warning::promozione #${cand.number} non verificata → coda intatta, nessuna promozione ulteriore.`);
+        return;
+      }
     }
     promoted += 1;
     // Si riempiono gli slot liberi calcolati in cima, non uno solo. Il conteggio

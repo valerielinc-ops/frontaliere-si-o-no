@@ -38,6 +38,10 @@ on:
         type: boolean
         required: false
         default: false
+      retention_probe:
+        description: 'Investigation-only: release exactly one jobsSeo retention candidate and label its corpus-release gcFreed measurement'
+        required: false
+        default: ''
 
 permissions:
   contents: read
@@ -102,7 +106,12 @@ jobs:
             echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
           fi
       - name: Load secrets from Remote Config
-        run: node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal)"
+        run: |
+          if test -f scripts/load-rc-env.mjs; then
+            node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal)"
+          else
+            echo "⚠️ load-rc-env.mjs is absent in this checkout (non-fatal)"
+          fi
       - name: Cache assemble-jobs output
         uses: actions/cache@v5
         with:
@@ -157,6 +166,7 @@ jobs:
       FAST_BUILD: ${{ github.event.inputs.fast_build == 'true' && '1' || '' }}
       SEQUENTIAL_PROFILE: ${{ github.event.inputs.parallel_plugins == 'true' && '' || '1' }}
       RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
+      JOBS_SEO_RETENTION_PROBE: ${{ github.event.inputs.retention_probe }}
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -198,7 +208,12 @@ jobs:
           fi
 
       - name: Load secrets from Remote Config
-        run: node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal for the build experiment)"
+        run: |
+          if test -f scripts/load-rc-env.mjs; then
+            node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal for the build experiment)"
+          else
+            echo "⚠️ load-rc-env.mjs is absent in this checkout (non-fatal for the build experiment)"
+          fi
 
       # Fase 3: consume the shared atomic snapshot from the prep job instead of
       # re-running assemble/cleanup/mine/migrate/thumbnails per shard. Guarantees
@@ -213,7 +228,12 @@ jobs:
         run: |
           set -eo pipefail
           tar -xzf /tmp/snapshot/prepared-snapshot.tgz -C .
-          test -f data/jobs.json && echo "✓ data/jobs.json restored ($(wc -c < data/jobs.json) bytes)" || { echo "✖ data/jobs.json missing after restore"; exit 1; }
+          if [ -f data/jobs.json ]; then
+            echo "✓ data/jobs.json restored ($(wc -c < data/jobs.json) bytes)"
+          else
+            echo "✖ data/jobs.json missing after restore"
+            exit 1
+          fi
 
       - name: Cache per-job OG images
         uses: actions/cache@v5
@@ -228,7 +248,7 @@ jobs:
           set -eo pipefail
           echo "::group::Build locale ${BUILD_LOCALE}"
           START=$(date +%s)
-          npm run build:ci 2>&1 | tee /tmp/build-${BUILD_LOCALE}.log
+          npm run build:ci 2>&1 | tee "/tmp/build-${BUILD_LOCALE}.log"
           END=$(date +%s)
           echo "::endgroup::"
           ELAPSED=$((END - START))
@@ -260,13 +280,15 @@ jobs:
           set -eo pipefail
           SIZE=$(du -sh dist 2>/dev/null | cut -f1 || echo '?')
           FILES=$(find dist -type f 2>/dev/null | wc -l | tr -d ' ' || echo '?')
-          echo "### Locale \`${BUILD_LOCALE}\` build summary" >> "$GITHUB_STEP_SUMMARY"
-          echo "" >> "$GITHUB_STEP_SUMMARY"
-          echo "| metric | value |" >> "$GITHUB_STEP_SUMMARY"
-          echo "|---|---|" >> "$GITHUB_STEP_SUMMARY"
-          echo "| wall-time | ${BUILD_ELAPSED_SECONDS:-?}s |" >> "$GITHUB_STEP_SUMMARY"
-          echo "| dist size | ${SIZE} |" >> "$GITHUB_STEP_SUMMARY"
-          echo "| dist files | ${FILES} |" >> "$GITHUB_STEP_SUMMARY"
+          {
+            echo "### Locale \`${BUILD_LOCALE}\` build summary"
+            echo ""
+            echo "| metric | value |"
+            echo "|---|---|"
+            echo "| wall-time | ${BUILD_ELAPSED_SECONDS:-?}s |"
+            echo "| dist size | ${SIZE} |"
+            echo "| dist files | ${FILES} |"
+          } >> "$GITHUB_STEP_SUMMARY"
 
   # ── Classic monolith build (all 4 locales) from the SAME prep snapshot ──
   # Reference for the equivalence check. Same data + same wall-clock window as
@@ -277,6 +299,7 @@ jobs:
     env:
       SEQUENTIAL_PROFILE: ${{ github.event.inputs.parallel_plugins == 'true' && '' || '1' }}
       RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
+      JOBS_SEO_RETENTION_PROBE: ${{ github.event.inputs.retention_probe }}
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -307,7 +330,12 @@ jobs:
             echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
           fi
       - name: Load secrets from Remote Config
-        run: node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal)"
+        run: |
+          if test -f scripts/load-rc-env.mjs; then
+            node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal)"
+          else
+            echo "⚠️ load-rc-env.mjs is absent in this checkout (non-fatal)"
+          fi
       - name: Download prepared snapshot
         uses: actions/download-artifact@v7
         with:
@@ -317,7 +345,12 @@ jobs:
         run: |
           set -eo pipefail
           tar -xzf /tmp/snapshot/prepared-snapshot.tgz -C .
-          test -f data/jobs.json && echo "✓ data/jobs.json restored" || { echo "✖ missing"; exit 1; }
+          if [ -f data/jobs.json ]; then
+            echo "✓ data/jobs.json restored"
+          else
+            echo "✖ missing"
+            exit 1
+          fi
       - name: Cache per-job OG images
         uses: actions/cache@v5
         with:
@@ -382,10 +415,10 @@ jobs:
         run: |
           set -eo pipefail
           MONO=/tmp/manifests/manifest-monolith/manifest-monolith.txt
-          SHARDS=""
+          shards=()
           for loc in it en de fr; do
             f="/tmp/manifests/manifest-$loc/manifest-$loc.txt"
-            [ -f "$f" ] && SHARDS="$SHARDS $f"
+            [ -f "$f" ] && shards+=("$f")
           done
-          echo "monolith: $MONO"; echo "shards:$SHARDS"
-          node scripts/ci/compare-dist-manifests.mjs "$MONO" $SHARDS
+          echo "monolith: $MONO"; echo "shards:${shards[*]}"
+          node scripts/ci/compare-dist-manifests.mjs "$MONO" "${shards[@]}"

@@ -85,21 +85,6 @@ on:
         required: false
         type: boolean
         default: false
-      profile_jobs_seo:
-        description: 'Compatibility no-op: jobsSeoPagesPlugin per-category profiling is now enabled by default whenever BUILD_PROFILE=1.'
-        required: false
-        type: boolean
-        default: false
-      profile_related_compare:
-        description: 'Investigation-only: when jobs SEO profiling is enabled, compare legacy related-job filtering against the pre-indexed related-job pool and emit before/after profiler rows.'
-        required: false
-        type: boolean
-        default: false
-      profile_weekly_employers:
-        description: 'Compatibility no-op: weeklyEmployersPlugin per-category profiling is now enabled by default whenever BUILD_PROFILE=1.'
-        required: false
-        type: boolean
-        default: false
       write_collision_dump:
         description: 'Investigation-only: dump every unique-by-hash content claim() to dist/.write-collisions-data/ for triaging colliding paths. Off by default — adds ~200k synchronous writeFileSync calls during build (~100-200s overhead) that get pruned at end. The collisions JSON report is emitted regardless; only enable this when you need the actual HTML payload of a colliding path.'
         required: false
@@ -209,7 +194,12 @@ jobs:
             echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
           fi
       - name: Load secrets from Remote Config
-        run: node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal)"
+        run: |
+          if test -f scripts/load-rc-env.mjs; then
+            node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal)"
+          else
+            echo "⚠️ load-rc-env.mjs is absent in this checkout (non-fatal)"
+          fi
       - name: Cache assemble-jobs output
         uses: actions/cache@v5
         with:
@@ -441,7 +431,9 @@ jobs:
           fi
 
       - name: Load secrets from Remote Config
-        run: node scripts/load-rc-env.mjs
+        run: |
+          test -f scripts/load-rc-env.mjs
+          node scripts/load-rc-env.mjs
 
       # Consume the shared atomic snapshot from the prep job instead of
       # re-running assemble/cleanup/mine/migrate/thumbnails per shard.
@@ -454,7 +446,12 @@ jobs:
         run: |
           set -eo pipefail
           tar -xzf /tmp/snapshot/prepared-snapshot.tgz -C .
-          test -f data/jobs.json && echo "✓ data/jobs.json restored ($(wc -c < data/jobs.json) bytes)" || { echo "✖ data/jobs.json missing after restore"; exit 1; }
+          if [ -f data/jobs.json ]; then
+            echo "✓ data/jobs.json restored ($(wc -c < data/jobs.json) bytes)"
+          else
+            echo "✖ data/jobs.json missing after restore"
+            exit 1
+          fi
 
       - name: Cache per-job OG images
         uses: actions/cache@v5
@@ -939,6 +936,8 @@ jobs:
           # scripts/lib/bounded-parallel.sh.
           source scripts/lib/bounded-parallel.sh
 
+          # bounded-parallel.sh invokes the worker by name.
+          # shellcheck disable=SC2329
           push_one() {
             local section="$1" skip_var
             # #4881 Fase 5: build no longer emits this section when its
@@ -947,7 +946,7 @@ jobs:
             # it. scripts/publish-article-fast.mjs is this section's only
             # push path once the flag is on (see strip-loop + reconcile
             # workflow disposition in the same PR).
-            skip_var="$(echo "$section" | tr a-z A-Z)_BUILD_EMIT_SKIP"
+            skip_var="$(echo "$section" | LC_ALL=C tr '[:lower:]' '[:upper:]')_BUILD_EMIT_SKIP"
             if [ "${!skip_var:-}" = "true" ]; then
               echo "$section-it: BUILD_EMIT_SKIP=true — excluded from full-replace push (served by fast-publish only)"
               return 0
@@ -970,7 +969,8 @@ jobs:
 
           export BP_FAILED_FILE="$RUNNER_TEMP/shard-push-failed-it.txt"
           fail=0
-          bp_run_bounded 4 push_one $order || fail=1
+          mapfile -t ordered_sections <<< "$order"
+          bp_run_bounded 4 push_one "${ordered_sections[@]}" || fail=1
           # A tolerated failure must still be VISIBLE: file/refresh one deduped
           # issue naming the shards that stayed unpublished (incident
           # 2026-07-30 — uri-it failed on every deploy for 3 days behind a
@@ -1094,7 +1094,8 @@ jobs:
           source scripts/lib/bounded-parallel.sh
           pack_section() {
             local section="$1"
-            local live_var="$(echo "$section" | tr a-z A-Z)_SHARD_LIVE"
+            local live_var
+            live_var="$(echo "$section" | LC_ALL=C tr '[:lower:]' '[:upper:]')_SHARD_LIVE"
             if [ "${!live_var:-}" != "true" ]; then
               return 0
             fi
@@ -1161,7 +1162,8 @@ jobs:
             echo "::warning::could not order the section list — packing in list order"
             order="$(bash scripts/lib/deploy-shard-sections.sh)"
           }
-          bp_run_bounded 4 pack_section $order || true
+          mapfile -t ordered_sections <<< "$order"
+          bp_run_bounded 4 pack_section "${ordered_sections[@]}" || true
       - name: Upload shard batch 1 dist for post-deploy validation
         if: matrix.locale == 'it'
         continue-on-error: true
@@ -1318,7 +1320,7 @@ jobs:
 
           strip_one() {
             local section="$1" skip_var
-            skip_var="$(echo "$section" | tr a-z A-Z)_BUILD_EMIT_SKIP"
+            skip_var="$(echo "$section" | LC_ALL=C tr '[:lower:]' '[:upper:]')_BUILD_EMIT_SKIP"
             if [ "${!skip_var:-}" = "true" ]; then
               echo "$section-it: BUILD_EMIT_SKIP=true — build never emitted this section, no ok-marker, nothing to strip"
               return 0
@@ -1339,7 +1341,8 @@ jobs:
           # nor failed the step on a strip error. Only the VISIBILITY changes:
           # a failing section used to vanish, and now names itself.
           export BP_FAILED_FILE="$RUNNER_TEMP/shard-strip-failed-it.txt"
-          bp_run_bounded 4 strip_one $order || true
+          mapfile -t ordered_sections <<< "$order"
+          bp_run_bounded 4 strip_one "${ordered_sections[@]}" || true
           if [ -s "$BP_FAILED_FILE" ]; then
             echo "::warning::section strip failed for: $(paste -sd, "$BP_FAILED_FILE") — those subtrees stay in the IT apex (artifact may exceed the 10 GB Pages cap)"
           fi
@@ -1597,23 +1600,10 @@ jobs:
           # SKIPS merge drivers, so the json-first-seen driver above would
           # never fire and the CONFLICT wedge (see above) could reappear
           # with no signal (#2921, follow-up of #2920).
-          for i in 1 2 3 4 5; do
-            if git -c rebase.autoStash=true -c rebase.backend=merge \
-                pull --rebase origin main \
-                && git push origin HEAD:main; then
-              echo "[dist-history] pushed on attempt $i"
-              exit 0
-            fi
-            git rebase --abort 2>/dev/null || true
-            case "$i" in
-              1) sleep 5 ;;
-              2) sleep 10 ;;
-              3) sleep 15 ;;
-              4) sleep 25 ;;
-              5) sleep 40 ;;
-            esac
-          done
-          echo "::warning::[dist-history] push failed after 5 attempts — url-first-seen.json will not be available to the next build's grace-window check"
+          # The shared helper forces the merge backend and preserves the dirty
+          # dist tree while it rebases; a failed push is fatal so the history
+          # cannot disappear behind a green deploy.
+          bash scripts/lib/git-push-with-retry.sh --max-attempts 5 --stash-dirty
 
       # ── Section shards (non-IT) → frontaliere-<section>-<loc> shard repos ──
       # Section shard push FIRST (before the offload below) so
@@ -1772,12 +1762,14 @@ jobs:
           # IT-leg push step above and scripts/lib/bounded-parallel.sh.
           source scripts/lib/bounded-parallel.sh
 
+          # bounded-parallel.sh invokes the worker by name.
+          # shellcheck disable=SC2329
           push_one() {
             local section="$1" skip_var
             # #4881 Fase 5: same exclusion as the IT-leg push step above —
             # build no longer emitted this section, so a full-replace push
             # here would force-push a near-empty dist/ tree over the shard.
-            skip_var="$(echo "$section" | tr a-z A-Z)_BUILD_EMIT_SKIP"
+            skip_var="$(echo "$section" | LC_ALL=C tr '[:lower:]' '[:upper:]')_BUILD_EMIT_SKIP"
             if [ "${!skip_var:-}" = "true" ]; then
               echo "$section-$loc: BUILD_EMIT_SKIP=true — excluded from full-replace push (served by fast-publish only)"
               return 0
@@ -1798,7 +1790,8 @@ jobs:
 
           export BP_FAILED_FILE="$RUNNER_TEMP/shard-push-failed-$loc.txt"
           fail=0
-          bp_run_bounded 4 push_one $order || fail=1
+          mapfile -t ordered_sections <<< "$order"
+          bp_run_bounded 4 push_one "${ordered_sections[@]}" || fail=1
           # Same visibility contract as the IT leg above — see that comment.
           if [ -s "$BP_FAILED_FILE" ]; then
             node scripts/ci/report-shard-push-failure.mjs \
@@ -1892,7 +1885,8 @@ jobs:
           source scripts/lib/bounded-parallel.sh
           pack_section() {
             local section="$1"
-            local live_var="$(echo "$section" | tr a-z A-Z)_SHARD_LIVE"
+            local live_var
+            live_var="$(echo "$section" | LC_ALL=C tr '[:lower:]' '[:upper:]')_SHARD_LIVE"
             if [ "${!live_var:-}" != "true" ]; then
               return 0
             fi
@@ -1947,7 +1941,8 @@ jobs:
             echo "::warning::could not order the section list — packing in list order"
             order="$(bash scripts/lib/deploy-shard-sections.sh)"
           }
-          bp_run_bounded 4 pack_section $order || true
+          mapfile -t ordered_sections <<< "$order"
+          bp_run_bounded 4 pack_section "${ordered_sections[@]}" || true
       - name: Upload shard batch 1 dist for post-deploy validation
         if: matrix.locale != 'it'
         continue-on-error: true
@@ -2080,7 +2075,7 @@ jobs:
           LOC='${{ matrix.locale }}'
           strip_one() {
             local section="$1" skip_var
-            skip_var="$(echo "$section" | tr a-z A-Z)_BUILD_EMIT_SKIP"
+            skip_var="$(echo "$section" | LC_ALL=C tr '[:lower:]' '[:upper:]')_BUILD_EMIT_SKIP"
             if [ "${!skip_var:-}" = "true" ]; then
               echo "$section-$LOC: BUILD_EMIT_SKIP=true — build never emitted this section, no ok-marker, nothing to strip"
               return 0
@@ -2094,7 +2089,8 @@ jobs:
           }
           # Same exit-status contract as the IT-leg step: unchanged, visibility only.
           export BP_FAILED_FILE="$RUNNER_TEMP/shard-strip-failed-$LOC.txt"
-          bp_run_bounded 4 strip_one $order || true
+          mapfile -t ordered_sections <<< "$order"
+          bp_run_bounded 4 strip_one "${ordered_sections[@]}" || true
           if [ -s "$BP_FAILED_FILE" ]; then
             echo "::warning::section strip failed for: $(paste -sd, "$BP_FAILED_FILE") — those subtrees stay in the $LOC shard (artifact may exceed the 10 GB Pages cap)"
           fi

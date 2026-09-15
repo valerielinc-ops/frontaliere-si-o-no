@@ -397,6 +397,13 @@ describe('github-pages artifact resolve has exactly one implementation', () => {
     expect(actionSource).not.toContain('[0:8]');
   });
 
+  it('#7995/1 — expected artifact refs resolve before the full-SHA comparison', () => {
+    expect(actionSource).toContain(`gh api "repos/$GH_REPO/commits/$INPUT_EXPECTED_SHA" --jq '.sha'`);
+    expect(actionSource).toContain('FOUND_SHA_LOWER');
+    expect(actionSource).toContain('EXPECTED_SHA_LOWER');
+    expect(actionSource).not.toContain('[ "$FOUND_SHA" != "$INPUT_EXPECTED_SHA" ]');
+  });
+
   it('every caller of the action reaches it through a checkout', () => {
     // A LOCAL composite action must exist on disk. A job that calls
     // `./.github/actions/...` without checking the repo out dies at step
@@ -431,6 +438,16 @@ describe('github-pages artifact resolve has exactly one implementation', () => {
   });
 });
 describe('workflow deploy/artifact contracts', () => {
+  it('#7995/2 — measure parses the first JSON body, after any HTTP headers', () => {
+    const measure = codeOnly(join(WORKFLOWS_DIR, 'measure-deploy-delta.yml'));
+    expect(measure).toContain(
+      "awk '/^[[:space:]]*[{[]/ { body=1 } body { sub(/\\r$/, \"\"); print }' \"$response\"",
+    );
+    expect(measure).not.toContain(
+      "awk 'body { sub(/\\r$/, \"\"); print } /^[[:space:]]*$/ { body=1 }' \"$response\"",
+    );
+  });
+
   it('#7697 — both paginated walk-backs use strict mode and a fresh workspace', () => {
     for (const file of [ACTION_PATH, join(WORKFLOWS_DIR, 'measure-deploy-delta.yml')]) {
       const source = codeOnly(file);

@@ -64,6 +64,12 @@ function gh(args, { json = true, allowFail = false } = {}) {
   }
 }
 
+/** REST paginata in NDJSON: `gh --paginate --jq` emette un oggetto per riga. */
+function paginatedJsonLines(args) {
+  const raw = gh(args, { json: false });
+  return raw.trim() ? raw.trim().split(/\r?\n/).map((line) => JSON.parse(line)) : [];
+}
+
 /**
  * Quali PR sono parcheggiate: draft, ferme da più di `maxAgeHours`, senza già
  * la label.
@@ -98,11 +104,13 @@ function main() {
 
   let prs;
   try {
-    prs = gh(['pr', 'list', '--repo', REPO, '--state', 'open', '--limit', '100',
-      '--json', 'number,title,isDraft,updatedAt,labels']);
+    prs = paginatedJsonLines(['api', `repos/${REPO}/pulls?state=open&per_page=100`, '--paginate',
+      '--jq', '.[] | {number, title, isDraft: .draft, updatedAt: .updated_at, labels: [.labels[] | {name}]}']);
   } catch (e) {
-    // Non fallire il job: questo è un segnale, non un gate.
-    console.error(`gh pr list fallito: ${String(e).slice(0, 160)} — skip.`);
+    // Non fallire il job: questo è un segnale, non un gate. Un errore di
+    // paginazione lascia però il dato sconosciuto: non fingiamo una lista
+    // completa con la prima pagina già ricevuta.
+    console.error(`gh api paginata fallita: ${String(e).slice(0, 160)} — skip.`);
     process.exit(0);
   }
 

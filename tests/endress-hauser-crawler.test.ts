@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import {
   ENDRESS_HAUSER_KEY,
   ENDRESS_HAUSER_COMPANY_NAME,
@@ -165,6 +165,31 @@ describe('Endress+Hauser crawler parser', () => {
       const jobs = parseCsbSearchResults(html);
       expect(jobs).toHaveLength(1);
       expect(jobs[0].location).toBe('Zürich, CH');
+    });
+
+    it('does not warn for a multi-office marker found only in the title cell', () => {
+      const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      try {
+        const jobs = parseCsbSearchResults(rowHtml(
+          '/Switzerland/job/role/1234567893/',
+          'Role +1 more… , Bern, CH',
+          'Lugano, CH',
+        ));
+        expect(jobs[0].location).toBe('Lugano, CH');
+        expect(warn).not.toHaveBeenCalled();
+      } finally {
+        warn.mockRestore();
+      }
+    });
+
+    it('does not let a three-character title hide a heuristic location', () => {
+      const html = `
+        <tr>
+          <td><a href="/job/ago/1234567894/" class="jobTitle-link">ago</a></td>
+          <td>Lugano, CH</td>
+          <td>Jun 17, 2026</td>
+        </tr>`;
+      expect(parseCsbSearchResults(html)[0].location).toBe('Lugano, CH');
     });
 
     it('still parses flat (non-prefixed) job links for existing tenants', () => {

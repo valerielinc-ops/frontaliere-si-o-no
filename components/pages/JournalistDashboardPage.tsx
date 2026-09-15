@@ -241,7 +241,7 @@ export default function JournalistDashboardPage(): React.ReactElement {
     // instead of {title, body}. content.body is absent at runtime on those documents even though
     // the type says string — reconstruct from old fields to prevent silent data loss on open+save.
     const rawBody: string | undefined = content.body as string | undefined;
-    const legacy = content as Record<string, unknown>;
+    const legacy = content as unknown as Record<string, unknown>;
     setBody(
       rawBody ||
         [legacy['excerpt'], legacy['body1'], legacy['body2'], legacy['body3']]
@@ -523,10 +523,9 @@ export default function JournalistDashboardPage(): React.ReactElement {
           <p className="text-subtle max-w-sm mx-auto">{t('journalistDashboard.gate.subtitle')}</p>
         </div>
         <div className="mt-6 space-y-4">
-          {/* No consent notice: signing in here subscribes the visitor, but the
-              write is App.tsx's under `signInAutoSubscribe` (displayed: false),
-              so a rendered formula would not be the stored one. Declared in
-              `SIGN_IN_SURFACES`, tests/consent-shown-at-signup.test.tsx (#5739). */}
+          {/* Authentication here grants dashboard access only; newsletter
+              consent is not collected by this gate. Declared in
+              `SIGN_IN_SURFACES`, tests/consent-shown-at-signup.test.tsx. */}
           <SocialSignInButtons locale={locale} googleWidth={320} errorContext="journalistDashboard.gate" />
         </div>
       </div>

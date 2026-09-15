@@ -255,6 +255,7 @@ runs:
               exit 1
               ;;
           esac
+          /usr/bin/mkdir -p "$runner_temp"
           node_runtime_root="$(/usr/bin/mktemp -d "$runner_temp/claude-haiku-node.XXXXXX")"
           /usr/bin/chmod 700 "$node_runtime_root"
           archive_path="$node_runtime_root/$node_archive"

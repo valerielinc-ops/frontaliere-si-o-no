@@ -204,6 +204,11 @@ describe('searchIssuesByTitlePrefix — search and listing are reconciled', () =
     expect(res?.number).toBe(5306);
     expect(callsFor('create')).toHaveLength(0);
     expect(callsFor('comment')[0]?.[2]).toBe('5306');
+    const commentCall = callsFor('comment')[0];
+    const commentBody = commentCall ? commentCall[commentCall.indexOf('--body') + 1] : undefined;
+    expect(commentBody).toContain('open-twin-links');
+    expect(commentBody).toContain('#5305');
+    expect(commentBody).toContain('#5306');
     const listCalls = callsFor('list');
     expect(listCalls).toHaveLength(2);
     expect(listCalls.some((call) => call.includes('--search'))).toBe(true);

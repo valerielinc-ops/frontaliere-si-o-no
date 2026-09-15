@@ -245,7 +245,7 @@ jobs:
           # exists to prevent (issue #4857). Name it here instead.
           MISSING_VARS=""
           for section in $(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json); do
-            live_var="$(echo "$section" | tr 'a-z' 'A-Z')_SHARD_LIVE"
+            live_var="$(echo "$section" | LC_ALL=C tr '[:lower:]' '[:upper:]')_SHARD_LIVE"
             if [ -z "${!live_var+set}" ]; then
               MISSING_VARS="$MISSING_VARS $live_var"
             fi
@@ -403,15 +403,23 @@ jobs:
               echo ''
               echo '### Complete offender list'
               echo ''
+              # The backticks are Markdown in the jq format string, not shell
+              # command substitutions.
+              # shellcheck disable=SC2016
               jq -r '"Mode `\(.mode)`. **\(.missingTotal)** URL(s) with no page file, listed in full in `missing-urls.json` (in the artifact) — every one of them, not a sample of five per sitemap."' "$REPORT"
               echo ''
+              # shellcheck disable=SC2016
               jq -r '.missingBySitemap // {} | to_entries[] | "- `\(.key)` — \(.value.missing) of \(.value.total) URL(s) missing"' "$REPORT"
             else
               echo ''
+              # The Markdown backticks are literal issue-summary text.
+              # shellcheck disable=SC2016
               echo '> No `missing-urls.json` was produced. That means this checkout of `scripts/ci/assert-dist-complete.mjs` predates its `--report=` flag: the per-sitemap counts above are complete, but the URL lists are capped at 5 examples per sitemap. Re-dispatch from a branch that has the flag to get the full work list.'
             fi
             if [ -f /tmp/revalidate-report/shard-var-drift.txt ]; then
               echo ''
+              # The Markdown backticks are literal issue-summary text.
+              # shellcheck disable=SC2016
               echo '> ⚠️ This workflow is missing shard env vars — see the rehydrate step warning. A failure above may be an artefact of that, not of the site.'
             fi
             echo ''

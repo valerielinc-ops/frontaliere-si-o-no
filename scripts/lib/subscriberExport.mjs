@@ -20,6 +20,11 @@
  * 1,2% (#5678). Meglio dirlo noi.
  */
 
+import {
+  hasConfirmationProof,
+  isNewsletterConfirmationEvent,
+} from '../../services/subscriberConsent.mjs';
+
 /** Firestore Timestamp | Date | ISO string | millis → ISO string, oppure null. */
 export function toIso(value) {
   if (value == null || value === '') return null;
@@ -100,8 +105,8 @@ export function missingData(subscriber, events = []) {
   if (!s.geo_country && !s.geo_city && (!s.geo_source || s.geo_source === 'none')) {
     gaps.push('La geolocalizzazione: non è stata catturata per questa iscrizione.');
   }
-  const confirmed = s.confirmed_at || s.confirmedAt
-    || events.some((e) => String(e?.event_type) === 'confirm');
+  const confirmed = hasConfirmationProof(s)
+    || events.some((e) => isNewsletterConfirmationEvent(e));
   if (!confirmed) {
     gaps.push('Una conferma del doppio opt-in: non risulta alcun click di conferma registrato.');
   }
@@ -167,7 +172,13 @@ export function buildSubscriberExport(data, opts) {
   out.push(line('Parametri UTM', utmParts.length ? utmParts.join(', ') : null));
   out.push(line('Lingua del browser', s.signup_locale || s.locale));
   out.push(line('Email di conferma inviata il', toIso(s.confirmation_sent_at)));
-  out.push(line('Conferma ricevuta il', toIso(s.confirmed_at) || toIso(s.confirmedAt)));
+  const confirmationEvent = events.find((e) => isNewsletterConfirmationEvent(e));
+  const confirmationReceivedAt = hasConfirmationProof(s)
+    ? (toIso(s.confirmed_at) || toIso(s.confirmedAt))
+    : confirmationEvent
+      ? (toIso(confirmationEvent.occurred_at) || toIso(confirmationEvent.timestamp))
+      : null;
+  out.push(line('Conferma ricevuta il', confirmationReceivedAt));
   out.push('');
 
   out.push('## 2. Stato attuale');

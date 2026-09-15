@@ -88,12 +88,18 @@ describe('prospector careers ownership trail', () => {
 
     const links = extractLinks(homepage, redirectedHomeUrl);
     expect(links.find((link) => link.text === 'Lavora con noi')?.url).toBe(careersUrl);
-    expect(links.some((link) => link.url === 'https://unrelated.example/lavora-con-noi')).toBe(true);
-    // `extractLinks` must retain external links because the next hop uses them
-    // to discover an ATS. The career-candidate boundary, however, must reject
-    // that cross-origin link and use the redirected homepage origin for the
-    // deep `../jobs.html` link. A stale check keyed on `acme.ch` would drop the
-    // real candidate before reaching the careers page at all.
+    expect(links.some((link) => link.url === 'https://unrelated.example/lavora-con-noi')).toBe(false);
+    // Cross-origin links remain available only to the explicit ATS-discovery
+    // path. The default extractor must keep them out of document evidence,
+    // while the career-candidate boundary uses the redirected homepage origin
+    // for the deep `../jobs.html` link. A stale check keyed on `acme.ch` would
+    // drop the real candidate before reaching the careers page at all.
+    expect(extractLinks(homepage, redirectedHomeUrl, { sameOriginOnly: false }))
+      .toContainEqual({
+        url: 'https://unrelated.example/lavora-con-noi',
+        text: 'Lavora con noi altrove',
+        host: 'unrelated.example',
+      });
     expect(result.via).toContain('homepage-link');
     expect(result.careersUrls).toEqual([careersUrl]);
     expect(result.careersUrls).not.toContain('https://unrelated.example/lavora-con-noi');

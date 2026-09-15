@@ -144,7 +144,7 @@ function inferCategory(title = '', description = '') {
   return 'engineering';
 }
 
-async function fetchAllListings() {
+async function fetchAllListings(counts = null) {
   console.log('🔍 Fetching MTIC Group listing page...');
 
   let html;
@@ -152,7 +152,10 @@ async function fetchAllListings() {
     html = await fetchText(CAREERS_URL);
   } catch (err) {
     console.log(`  ❌ Listing page fetch failed: ${err.message}`);
-    return [];
+    // Do not turn an unobserved source failure into an authoritative empty
+    // snapshot. Let the shared crawler error path preserve the existing slice
+    // and let the summary guard record the aborted run.
+    throw err;
   }
 
   const allItems = parseMticListingPage(html);
@@ -195,6 +198,7 @@ async function fetchAllListings() {
     console.log(`  ⚠️ SPS subdomain check failed: ${err.message}`);
   }
 
+  if (counts) counts.discovered = allItems.length;
   return allItems;
 }
 
@@ -342,6 +346,39 @@ function updateAdapterConfig(jobs) {
   });
 }
 
+function writeMticSummary({ counts, sliceJobs = [], diff = null }) {
+  const durationMs = getCrawlerElapsedMs();
+  const emptyDiff = {
+    newJobs: [],
+    updatedJobs: [],
+    removedJobs: [],
+    unchangedJobs: [],
+    unchangedCount: 0,
+  };
+  const summaryDiff = diff || emptyDiff;
+  writeSummaryCrawlerSlice({
+    key: COMPANY_KEY,
+    label: 'MTIC Group',
+    generatedAt: new Date().toISOString(),
+    total: sliceJobs.length,
+    discovered: counts.discovered,
+    parsed: counts.parsed,
+    written: sliceJobs.length,
+    lastFetchOutcome: counts.lastFetchOutcome,
+    newCount: summaryDiff.newJobs.length,
+    updatedCount: summaryDiff.updatedJobs.length,
+    removedCount: summaryDiff.removedJobs.length,
+    unchangedCount: summaryDiff.unchangedCount,
+    durationMs,
+    avgDurationMs: durationMs,
+    durationHistory: [durationMs],
+    newJobs: summaryDiff.newJobs.slice(0, 30),
+    updatedJobs: summaryDiff.updatedJobs.slice(0, 30),
+    removedJobs: summaryDiff.removedJobs.slice(0, 30),
+    unchangedJobs: (summaryDiff.unchangedJobs || []).slice(0, 30),
+  });
+}
+
 function validateLocales() {
   validateDedicatedLocaleCoverage({
     strictEnvVar: 'JOBS_MTIC_STRICT',
@@ -359,18 +396,21 @@ function validateLocales() {
 
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(COMPANY_KEY, 'MTIC Group');
+  // Keep the source/filter boundary observable: a non-zero listing page that
+  // yields no Swiss jobs is a valid filtered-empty run, not a dead selector or
+  // an unobserved fetch failure.
+  const counts = { discovered: null, parsed: null, lastFetchOutcome: null };
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'MTIC Group', counts);
   console.log('═══════════════════════════════════════════════');
   console.log('  MTIC Group / SPS InterCert S.A. — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');
   console.log(`  Careers page: ${CAREERS_URL}\n`);
 
-  const listings = await fetchAllListings();
+  const listings = await fetchAllListings(counts);
   if (listings.length === 0) {
-    console.log('⚠️ No listings found on MTIC careers page — skipping.');
-    mergeJobs([]);
-    updateAdapterConfig([]);
-    validateLocales();
+    counts.lastFetchOutcome = 'selector_miss';
+    console.log('⚠️ No listings found on MTIC careers page — skipping without changing the published slice.');
+    writeMticSummary({ counts });
     return;
   }
 
@@ -388,6 +428,14 @@ async function main() {
   }
   if (deduplicated.length < enrichedListings.length) {
     console.log(`🔄 Deduplicated: ${enrichedListings.length} → ${deduplicated.length} unique URLs`);
+  }
+
+  counts.parsed = deduplicated.length;
+  counts.lastFetchOutcome = counts.parsed > 0 ? 'ok' : 'filtered_empty';
+  if (deduplicated.length === 0) {
+    console.log('⚠️ No Ticino jobs found after filtering — keeping the published slice unchanged.');
+    writeMticSummary({ counts });
+    return;
   }
 
   const jobs = deduplicated.map(buildMticJob);
@@ -411,27 +459,10 @@ async function main() {
   console.log(`  🔄 Updated: ${updated}`);
 
   // Write per-crawler slice and reassemble global dataset
-  const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
   writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
-  writeSummaryCrawlerSlice({
-    key: COMPANY_KEY,
-    label: 'MTIC Group',
-    generatedAt: new Date().toISOString(),
-    total: _sliceJobs.length,
-    newCount: diff.newJobs.length,
-    updatedCount: diff.updatedJobs.length,
-    removedCount: diff.removedJobs.length,
-    unchangedCount: diff.unchangedCount,
-    durationMs: _durationMs,
-    avgDurationMs: _durationMs,
-    durationHistory: [_durationMs],
-    newJobs: diff.newJobs.slice(0, 30),
-    updatedJobs: diff.updatedJobs.slice(0, 30),
-    removedJobs: diff.removedJobs.slice(0, 30),
-    unchangedJobs: (diff.unchangedJobs || []).slice(0, 30),
-  });
+  writeMticSummary({ counts, sliceJobs: _sliceJobs, diff });
   await assembleJobsDataset();
 }
 

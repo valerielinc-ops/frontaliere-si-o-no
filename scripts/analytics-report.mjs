@@ -42,14 +42,35 @@ import {
 } from './lib/analytics-opportunity-utils.mjs';
 import { normalizeInspectionUrl } from './lib/url-normalize.mjs';
 import { sleep, fetchRetry, getServiceAccountToken, DEFAULT_GA4_PROPERTY_ID } from './lib/ga4-service-account.mjs';
-import { engagementConsistency, dailyEngagementConsistency, engagementUnreliableNoteFromReason } from './lib/ga4-engagement-reliability.mjs';
-import { settledDays, settledEndDate, fmtUtcDate, utcDaysBefore } from './lib/analytics-settled-window.mjs';
+import {
+  engagementConsistency,
+  dailyEngagementConsistency,
+  engagementUnreliableNoteFromReason,
+  GA4_EMPTY_DAILY_ROWS_REASON,
+} from './lib/ga4-engagement-reliability.mjs';
+import {
+  buildAiChannelHistoryEntry,
+  buildAiChannelTrend,
+  selectPreviousReliableAiChannelEntry,
+} from './lib/ai-channel-history.mjs';
+import {
+  countInclusiveUtcDays,
+  scaleSessionThreshold,
+  settledDays,
+  settledEndDate,
+  fmtUtcDate,
+  utcDaysBefore,
+} from './lib/analytics-settled-window.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SITE_URL = 'https://frontaliereticino.ch';
+const JOB_QUALIFIED_SESSION_EVENT = 'job_qualified_session';
+const JOB_APPLY_HANDOFF_EVENT = 'job_apply_handoff';
 const SERP_HISTORY_PATH = resolve(__dirname, '..', 'data', 'seo-serp-experiment-history.json');
 const SERP_LAST_RUN_PATH = resolve(__dirname, '..', 'data', 'seo-serp-autopilot-last-run.json');
 const AI_CHANNEL_HISTORY_PATH = resolve(__dirname, '..', 'data', 'ai-channel-history.jsonl');
+const HIGH_BOUNCE_BASE_MIN_SESSIONS = 10;
+const CRITICAL_BOUNCE_BASE_MIN_SESSIONS = 50;
 
 // ── CLI Args ────────────────────────────────────────────────
 const args = process.argv.slice(2);
@@ -774,6 +795,29 @@ async function reportGA4(token) {
     ? { dateRanges: [{ startDate: fmtDate(startDate), endDate: settledEnd }] }
     : baseRequest;
 
+  // #7822: the per-path query uses the settled window, which is shorter than
+  // the full report window by the processing lag. Scale session floors by the
+  // actual inclusive dates sent to GA4 so a shorter window is not held to the
+  // traffic expected from a longer one.
+  const fullWindowDays = countInclusiveUtcDays(
+    baseRequest.dateRanges[0].startDate,
+    baseRequest.dateRanges[0].endDate,
+  );
+  const settledWindowDays = countInclusiveUtcDays(
+    settledRequest.dateRanges[0].startDate,
+    settledRequest.dateRanges[0].endDate,
+  );
+  const highBounceMinSessions = scaleSessionThreshold(
+    HIGH_BOUNCE_BASE_MIN_SESSIONS,
+    fullWindowDays,
+    settledWindowDays,
+  );
+  const criticalBounceMinSessions = scaleSessionThreshold(
+    CRITICAL_BOUNCE_BASE_MIN_SESSIONS,
+    fullWindowDays,
+    settledWindowDays,
+  );
+
   const result = { period: `${fmtDate(startDate)} → ${fmtDate(endDate)}` };
   // #7509: il verdetto d'affidabilità viaggia CON la cifra. Le tabelle bounce
   // per-device/per-landing-page e la diagnostica per sorgente leggono la STESSA
@@ -791,6 +835,17 @@ async function reportGA4(token) {
       if (note) row.engagementUnreliableNote = note;
     }
     return rows;
+  };
+
+  // #7508: a failed engagement measurement is a negative verdict, not an
+  // absent field. This is declared before the daily query because a successful
+  // GA4 response with zero rows is also a measurement failure (#7823).
+  const markEngagementNotComputed = (cause) => {
+    if (!result.summary) result.summary = {};
+    const reason = `verdetto non calcolato: ${cause}`;
+    result.summary.engagementReliable = false;
+    result.summary.engagementUnreliableReason = reason;
+    return { reliable: false, reason, unreliableDates: [] };
   };
 
   const defaultGaEvents = new Set([
@@ -832,13 +887,19 @@ async function reportGA4(token) {
     );
     if (res.ok) {
       const data = await res.json();
-      dailyEngagementRows = (data.rows || []).map((r) => ({
+      const dailyRows = Array.isArray(data.rows) ? data.rows : [];
+      dailyEngagementRows = dailyRows.map((r) => ({
         date: r.dimensionValues?.[0]?.value || '?',
         sessions: parseInt(r.metricValues?.[0]?.value || '0', 10),
         engagedSessions: parseInt(r.metricValues?.[1]?.value || '0', 10),
         averageSessionDuration: parseFloat(r.metricValues?.[2]?.value || '0'),
       }));
-      dailyEngagement = dailyEngagementConsistency(dailyEngagementRows);
+      if (dailyEngagementRows.length === 0) {
+        dailyEngagement = markEngagementNotComputed(GA4_EMPTY_DAILY_ROWS_REASON);
+        log('⚠️', `GA4 engagement per-giorno: ${GA4_EMPTY_DAILY_ROWS_REASON}`);
+      } else {
+        dailyEngagement = dailyEngagementConsistency(dailyEngagementRows);
+      }
     } else {
       log('⚠️', `GA4 engagement per-giorno: ${res.status} — sanity-check #6703 non applicato`);
     }
@@ -864,18 +925,11 @@ async function reportGA4(token) {
     };
   };
 
-  // #7508: `engagementReliable` era assegnato in un punto solo, sul percorso
-  // felice del riepilogo. Sui rami d'errore (403, non-ok, throw) il campo
-  // restava `undefined`, e i guard a valle lo testano con `!== false`: un
-  // verdetto mai calcolato passava per «affidabile» e le raccomandazioni da
-  // bounce/durata tornavano a essere emesse proprio quando la rilevazione era
-  // rotta — il caso #6703 che il guard esiste per neutralizzare. «Non
-  // calcolato» e' un verdetto negativo, non un'assenza: lo si scrive.
-  const markEngagementNotComputed = (cause) => {
-    if (!result.summary) result.summary = {};
-    result.summary.engagementReliable = false;
-    result.summary.engagementUnreliableReason = `verdetto non calcolato: ${cause}`;
-  };
+  // The AI channel query runs before the per-path query, so keep its history
+  // payload until `result.highBouncePaths` has been populated. This lets the
+  // committed row explain how many settled-window paths the full-window
+  // verdict would have suppressed.
+  let aiChannelHistoryContext = null;
 
   // ── 3a. Overall metrics ─────────────────
   try {
@@ -960,6 +1014,68 @@ async function reportGA4(token) {
   } catch (e) {
     log('⚠️', `GA4 summary: ${e.message}`);
     markEngagementNotComputed(e.message);
+  }
+
+  // ── 3a-bis. Qualified job sessions → external application hand-offs ──
+  // Both values are GA4 session metrics filtered by event name, so the report
+  // never treats a redirect as a submitted application. The ratio is only
+  // reported when the qualified-session denominator exists.
+  try {
+    const queryEventSessions = async (eventName) => {
+      const res = await fetchRetry(
+        `https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`,
+        {
+          method: 'POST',
+          headers,
+          body: JSON.stringify({
+            ...settledRequest,
+            metrics: [{ name: 'sessions' }],
+            dimensionFilter: {
+              filter: {
+                fieldName: 'eventName',
+                stringFilter: { value: eventName, matchType: 'EXACT' },
+              },
+            },
+            limit: 1,
+          }),
+        },
+      );
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      return Math.max(0, parseInt(data.rows?.[0]?.metricValues?.[0]?.value || '0', 10));
+    };
+
+    const [validApplyAccesses, qualifiedSessions] = await Promise.all([
+      queryEventSessions(JOB_APPLY_HANDOFF_EVENT),
+      queryEventSessions(JOB_QUALIFIED_SESSION_EVENT),
+    ]);
+    result.applicationMetric = {
+      name: 'valid_apply_access_per_1000_qualified_sessions',
+      definition: 'distinct sessions with job_apply_handoff / distinct sessions with job_qualified_session × 1,000',
+      status: 'handoff_not_submitted_application',
+      validApplyAccesses,
+      qualifiedSessions,
+      perThousandQualifiedSessions: qualifiedSessions > 0
+        ? Number(((validApplyAccesses / qualifiedSessions) * 1_000).toFixed(2))
+        : null,
+      window: settledRequest.dateRanges[0],
+      proof: 'job_apply_handoff records an external redirect only; no submission is inferred',
+    };
+    if (!flags.json) {
+      const metric = result.applicationMetric;
+      const rate = metric.perThousandQualifiedSessions == null ? 'n/d' : metric.perThousandQualifiedSessions;
+      log('🧭', `Accessi candidatura validi: ${fmtNum(metric.validApplyAccesses)} · sessioni qualificate: ${fmtNum(metric.qualifiedSessions)} · per 1.000: ${rate}`);
+    }
+  } catch (e) {
+    result.applicationMetric = {
+      name: 'valid_apply_access_per_1000_qualified_sessions',
+      status: 'source_unavailable',
+      validApplyAccesses: null,
+      qualifiedSessions: null,
+      perThousandQualifiedSessions: null,
+      proof: `GA4 event-session query failed: ${e.message}`,
+    };
+    log('⚠️', `GA4 application funnel: ${e.message}`);
   }
 
   // ── 3b. Top pages + top articles + keyword intent ─────────
@@ -1513,22 +1629,41 @@ async function reportGA4(token) {
         sessions > 0
           ? bySource.reduce((sum, r) => sum + r.avgSessionDuration * r.sessions, 0) / sessions
           : 0;
-      // #6703: la history è un file committato — un engagement rate prodotto da
-      // un giorno non ancora elaborato ci resterebbe per sempre e falserebbe
-      // ogni delta week-over-week successivo. Si annota e non si appende.
-      // Come per il riepilogo: il rate qui è l'aggregato della finestra, che
-      // diluisce il giorno in lag. Il verdetto per-giorno è quello che decide.
+      // #7821: la history è un file committato, quindi ogni lettura deve
+      // restare disponibile per diagnosi anche quando il verdetto full-window
+      // è inaffidabile. Il trend, invece, potrà usare solo record esplicitamente
+      // affidabili. Il record viene finalizzato dopo la query high-bounce qui
+      // sotto, così include il conteggio dei path che il verdetto pieno avrebbe
+      // soppresso.
       const aggregateVerdict = engagementConsistency({
         sessions,
         engagedSessions,
         averageSessionDuration: avgSessionDuration,
       });
       const engagementVerdict = dailyEngagement.reliable ? aggregateVerdict : dailyEngagement;
+      const settledWindowVerdict = settledEngagementVerdict();
 
       const todayStr = fmtDate(endDate);
-      const priorEntries = readJsonlSafe(AI_CHANNEL_HISTORY_PATH)
-        .filter((e) => e && e.date && e.date !== todayStr);
-      const previous = priorEntries.length > 0 ? priorEntries[priorEntries.length - 1] : null;
+      const previous = selectPreviousReliableAiChannelEntry(
+        readJsonlSafe(AI_CHANNEL_HISTORY_PATH),
+        todayStr,
+        DAYS,
+      );
+      const historyContext = {
+        date: todayStr,
+        windowDays: DAYS,
+        sessions,
+        engagedSessions,
+        engagementRate,
+        bySource,
+        fullWindowVerdict: dailyEngagement,
+        effectiveWindowVerdict: engagementVerdict,
+        settledWindowVerdict,
+      };
+      const historyForTrend = buildAiChannelHistoryEntry({
+        ...historyContext,
+        highBouncePaths: [],
+      });
 
       result.aiChannel = {
         date: todayStr,
@@ -1540,35 +1675,9 @@ async function reportGA4(token) {
         engagementReliable: engagementVerdict.reliable,
         engagementUnreliableReason: engagementVerdict.reason,
         bySource,
-        trend: previous && engagementVerdict.reliable
-          ? {
-              previousDate: previous.date,
-              sessionsDelta: sessions - Number(previous.sessions || 0),
-              engagementRateDelta: Number((engagementRate - Number(previous.engagementRate || 0)).toFixed(4)),
-            }
-          : null,
+        trend: buildAiChannelTrend({ current: historyForTrend, previous }),
       };
-
-      try {
-        if (!engagementVerdict.reliable) {
-          log('⚠️', `AI channel history: append saltato, engagement inaffidabile — ${engagementVerdict.reason}`);
-        } else {
-          mkdirSync(dirname(AI_CHANNEL_HISTORY_PATH), { recursive: true });
-          appendFileSync(
-            AI_CHANNEL_HISTORY_PATH,
-            JSON.stringify({
-              date: todayStr,
-              windowDays: DAYS,
-              sessions,
-              engagedSessions,
-              engagementRate,
-              bySource: bySource.map((r) => ({ source: r.source, sessions: r.sessions })),
-            }) + '\n'
-          );
-        }
-      } catch (histErr) {
-        log('⚠️', `AI channel history append: ${histErr.message}`);
-      }
+      aiChannelHistoryContext = { ...historyContext, previous };
 
       if (!flags.json) {
         log('', '');
@@ -3297,14 +3406,21 @@ async function reportGA4(token) {
           bounceRate: parseFloat(r.metricValues[1].value),
           engagementDuration: parseFloat(r.metricValues[2].value),
         }))
-        .filter(p => p.sessions >= 10 && p.bounceRate > 0.5); // Min 10 sessions, >50% bounce
+        .filter(p => p.sessions >= highBounceMinSessions && p.bounceRate > 0.5);
 
       result.highBouncePaths = highBouncePages;
       result.highBouncePathsPeriod = settledRequest.dateRanges[0].startDate + ' → ' + settledRequest.dateRanges[0].endDate;
+      result.highBouncePathsMinSessions = highBounceMinSessions;
+      result.highBouncePathsThreshold = {
+        baseMinSessions: HIGH_BOUNCE_BASE_MIN_SESSIONS,
+        fullWindowDays,
+        settledWindowDays,
+        effectiveMinSessions: highBounceMinSessions,
+      };
 
       if (!flags.json && highBouncePages.length > 0) {
         log('', '');
-        log('🚪', 'High-bounce pages (>50% bounce, ≥10 sessions):');
+        log('🚪', `High-bounce pages (>50% bounce, ≥${highBounceMinSessions} sessions):`);
         log('', '  Page'.padEnd(48) + 'Sessions'.padStart(10) + 'Bounce'.padStart(8) + 'Eng.time'.padStart(10));
         log('', '  ' + '─'.repeat(74));
         for (const p of highBouncePages.slice(0, 10)) {
@@ -3314,6 +3430,32 @@ async function reportGA4(token) {
       }
     }
   } catch (e) { log('⚠️', `Exit pages: ${e.message}`); }
+
+  // #7820/#7821: append after the high-bounce query so the committed record
+  // contains both reliability verdicts and the diagnostic count requested by
+  // the full-window guard. Reliability never suppresses this write: an
+  // unreliable reading is useful evidence, while the trend helper above has
+  // already excluded it from comparisons.
+  if (aiChannelHistoryContext) {
+    const historyEntry = buildAiChannelHistoryEntry({
+      ...aiChannelHistoryContext,
+      highBouncePaths: result.highBouncePaths,
+    });
+    result.aiChannel.trend = buildAiChannelTrend({
+      current: historyEntry,
+      previous: aiChannelHistoryContext.previous,
+    });
+
+    try {
+      mkdirSync(dirname(AI_CHANNEL_HISTORY_PATH), { recursive: true });
+      appendFileSync(AI_CHANNEL_HISTORY_PATH, `${JSON.stringify(historyEntry)}\n`);
+      if (!historyEntry.engagementReliable) {
+        log('⚠️', `AI channel history: append conservato con engagement inaffidabile — ${historyEntry.engagementUnreliableReason}`);
+      }
+    } catch (histErr) {
+      log('⚠️', `AI channel history append: ${histErr.message}`);
+    }
+  }
 
   // ── 3o. Actionable recommendations ──────
   try {
@@ -3494,13 +3636,13 @@ async function reportGA4(token) {
     // guard resta come rete di sicurezza: se anche la finestra assestata è
     // incoerente, la raccomandazione non esce.
     if (settledEngagementVerdict().reliable && result.highBouncePaths && result.highBouncePaths.length > 0) {
-      const criticalBounce = result.highBouncePaths.filter(p => p.sessions >= 50 && p.bounceRate > 0.7);
+      const criticalBounce = result.highBouncePaths.filter(p => p.sessions >= criticalBounceMinSessions && p.bounceRate > 0.7);
       if (criticalBounce.length > 0) {
         const paths = criticalBounce.slice(0, 3).map(p => p.path).join(', ');
         recommendations.push({
           severity: 'high',
           area: 'engagement',
-          message: `Pagine con >70% bounce e ≥50 sessioni: ${paths} — rivedere contenuto e CTA`,
+          message: `Pagine con >70% bounce e ≥${criticalBounceMinSessions} sessioni: ${paths} — rivedere contenuto e CTA`,
         });
       }
     }

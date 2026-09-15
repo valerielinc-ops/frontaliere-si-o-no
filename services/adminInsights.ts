@@ -25,6 +25,8 @@ export interface EmployerInsightsTotals {
   visitors: number | null;
   profileViews: number | null;
   applyClicks: number | null;
+  /** Provider-observed user units for apply clicks; aggregate only, never PII. */
+  applyClickUsers: number | null;
   applications: number | null;
   applicationsStatus: string | null;
   adsObserved: number | null;

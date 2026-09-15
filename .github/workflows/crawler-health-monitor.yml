@@ -44,26 +44,6 @@ jobs:
           # persist-credentials leaves GITHUB_TOKEN on extraheader; the commit
           # step rewrites origin via configure-main-push-auth.sh (GITHUB_PAT).
           persist-credentials: true
-          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
-          sparse-checkout: |
-            /*
-            !/public/images/
-            !/data/seo-404-compat/
-            !/data/translation-cache/
-            !/packages/articles/content/
-            !/data/all-known-job-slugs/
-            !/data/orphan-enriched-data/
-            !/docs/
-            !/data/related-search-candidates.json
-            !/data/cf-hot-404s.json
-            !/data/jobs-ai-cache.json
-            !/data/dist-size-history.jsonl
-            !/data/url-first-seen.json
-            !/data/jobs-snapshots-history/
-            !/data/slug-registry.json
-            !/data/evidence-index.json
-            !/data/health-premiums/
-          sparse-checkout-cone-mode: false
         # Tetto Checkout (classe #5145/#5144/#5162): senza, un fetch degenere
         # consuma l'intero budget e il job muore `cancelled` — stato invisibile
         # agli `if: failure()`, il buco che scan-job-timeouts.mjs tappa solo a
@@ -115,62 +95,13 @@ jobs:
             git config user.name  "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
             git add data/crawler-health.json
-            bash scripts/lib/configure-main-push-auth.sh
-
-            MAX_ATTEMPTS=5
-            attempt=0
-            while true; do
-              attempt=$((attempt + 1))
-              # Commit once (the diff is already in the index).
-              if git diff --cached --quiet; then
-                echo "ℹ️ No staged changes left — already up to date."
-                break
-              fi
-              git commit -m "chore: update crawler-health state [skip ci]" || true
-
-              # Fetch + rebase onto the latest remote tip. Other crawler
-              # workflows push to main concurrently; we only touch
-              # data/crawler-health.json so conflicts are extremely rare,
-              # but rebase keeps us safe even when a parallel push lands
-              # between our fetch and push.
-              git fetch origin main || true  # tolerate transient net failure; rebase below will signal staleness
-              if ! git rebase origin/main; then
-                echo "⚠️ Rebase conflict — aborting and resetting."
-                git rebase --abort 2>/dev/null || true
-                if [ "$attempt" -ge "$MAX_ATTEMPTS" ]; then
-                  echo "❌ Could not rebase after $MAX_ATTEMPTS attempts."
-                  exit 1
-                fi
-                # Reset our commit, re-add the file (latest remote may have
-                # touched it), then loop.
-                git reset --mixed HEAD~1 || true
-                git fetch origin main || true  # tolerate transient net failure; rebase below will signal staleness
-                git reset --hard origin/main
-                # Re-run the script so the state file reflects the new
-                # remote baseline plus today's observations.
-                node scripts/check-crawler-health.mjs || true
-                if git diff --quiet -- data/crawler-health.json; then
-                  echo "ℹ️ State file already matches remote after replay."
-                  break
-                fi
-                git add data/crawler-health.json
-                continue
-              fi
-
-              if git push origin main; then
-                echo "✅ Pushed updated health state."
-                break
-              fi
-
-              echo "⚠️ Push rejected (attempt $attempt/$MAX_ATTEMPTS) — retrying after backoff..."
-              if [ "$attempt" -ge "$MAX_ATTEMPTS" ]; then
-                echo "❌ Push failed after $MAX_ATTEMPTS attempts."
-                exit 1
-              fi
-              # Undo our commit so the next loop re-fetches cleanly.
-              git reset --mixed HEAD~1 || true
-              sleep $((attempt * 5 + RANDOM % 6))
-            done
+            git commit -m "chore: update crawler-health state [skip ci]"
+            # Re-run the health calculation on the fetched main tip if the
+            # state file itself conflicts. The non-zero health verdict is
+            # intentional, so only the state file is staged by the command.
+            bash scripts/lib/git-push-with-retry.sh \
+              --max-attempts 5 \
+              --regenerate-cmd "node scripts/check-crawler-health.mjs || true; git add data/crawler-health.json"
           else
             echo "ℹ️ No state change — nothing to commit."
           fi
@@ -203,7 +134,14 @@ jobs:
             # I backtick che contiene sono innocui: bash espande le command
             # substitution nel TESTO dell'heredoc, non nel valore delle variabili
             # che vi espande dentro.
-            scheda=$(jq -r ".[$i].scheda // \"\"" data/crawler-health-issues.json)
+            if ! scheda="$(jq -er ".[$i].scheda | select(type == \"string\" and test(\"[^[:space:]]\"))" data/crawler-health-issues.json)"; then
+              echo "::error::Missing non-empty scheda for crawler ${slug}." >&2
+              exit 1
+            fi
+            if [ -z "$scheda" ]; then
+              echo "::error::Missing non-empty scheda for crawler ${slug}." >&2
+              exit 1
+            fi
 
             # `${slug}` is a legitimate discriminant — one issue per crawler.
             # `${status}` was NOT: a crawler sliding degraded → broken changed the

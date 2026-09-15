@@ -8,7 +8,21 @@ function domainToASCII(rawHost) {
   // `new URL()` accepts an authority prefix and silently treats the rest as
   // userinfo, a port, or a path. Reject authority delimiters before parsing so
   // a different raw identity cannot become a trusted hostname by truncation.
-  if (/[/\\?#@:\s]/.test(rawHost)) return '';
+  const authorityDelimiter = /[/\\?#@:\s]/;
+  const encodedAuthorityDelimiter = /%(?:2f|5c|3f|23|40|3a)/i;
+  let candidate = rawHost;
+  for (let decodePass = 0; decodePass < 2; decodePass += 1) {
+    if (authorityDelimiter.test(candidate) || encodedAuthorityDelimiter.test(candidate)) return '';
+    let decoded;
+    try {
+      decoded = decodeURIComponent(candidate);
+    } catch {
+      break;
+    }
+    if (decoded === candidate) break;
+    candidate = decoded;
+  }
+  if (authorityDelimiter.test(candidate) || encodedAuthorityDelimiter.test(candidate)) return '';
   try {
     return new URL(`https://${rawHost}`).hostname;
   } catch {

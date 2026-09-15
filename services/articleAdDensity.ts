@@ -15,6 +15,12 @@
  */
 
 import { fnv1a32Mod } from '../scripts/lib/fnv1a.mjs';
+import { countArticleBodyWords } from './articleBodySegments';
+import {
+  advanceMarkdownFence,
+  markdownFenceFor,
+  type MarkdownFence,
+} from '../packages/articles/engine/shared/normalizeArticleMarkdown';
 
 /** Number of `## ` sections from which an article is treated as longform. */
 export const LONGFORM_MIN_H2_SECTIONS = 7;
@@ -123,7 +129,7 @@ export const LONGFORM_ARTICLE_AD_DENSITY: ArticleAdDensityProfile = {
 export function longformWordGap(segments: readonly string[]): number {
   const bodyParts = segments.filter(segment => segment && !segment.startsWith('blog.article.'));
   if (bodyParts.length === 0) return LONGFORM_MAX_WORD_GAP;
-  const perSegment = Math.floor(countWords(bodyParts) / bodyParts.length / 2);
+  const perSegment = Math.floor(countArticleBodyWords(bodyParts) / bodyParts.length / 2);
   return Math.min(LONGFORM_MAX_WORD_GAP, Math.max(LONGFORM_MIN_WORD_GAP, perSegment));
 }
 
@@ -138,16 +144,17 @@ export function countH2Sections(segments: readonly string[]): number {
   let count = 0;
   for (const segment of segments) {
     if (!segment || segment.startsWith('blog.article.')) continue;
+    let fence: MarkdownFence | null = null;
     for (const block of segment.split('\n\n')) {
+      const lines = block.split('\n');
+      const wasInsideFence = fence !== null;
+      const opensFence = !wasInsideFence && markdownFenceFor(lines[0]) !== null;
+      fence = advanceMarkdownFence(lines, fence);
+      if (wasInsideFence || opensFence) continue;
       if (block.trim().startsWith('## ')) count += 1;
     }
   }
   return count;
-}
-
-/** Total words of the body, same tokenizer as the renderer's `countWordsIn`. */
-function countWords(segments: readonly string[]): number {
-  return segments.join(' ').split(/\s+/).filter(Boolean).length;
 }
 
 /**
@@ -156,7 +163,7 @@ function countWords(segments: readonly string[]): number {
  */
 export function isLongformArticle(segments: readonly string[]): boolean {
   return countH2Sections(segments) >= LONGFORM_MIN_H2_SECTIONS
-    && countWords(segments) >= LONGFORM_MIN_WORDS;
+    && countArticleBodyWords(segments) >= LONGFORM_MIN_WORDS;
 }
 
 /**

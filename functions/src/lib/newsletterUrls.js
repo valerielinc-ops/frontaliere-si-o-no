@@ -286,13 +286,15 @@ export function shouldWrapAuthenticatedHref(rawHref) {
  * `ne`/`ac` are deliberately short: Mailgun silently drops click tracking for
  * href values >= 1000 characters.
  *
- * utm_medium defaults to 'newsletter' because GA4's Email channel grouping keys
- * on it; pass utmCampaign to keep campaigns separable within that channel.
- * Job alerts override both: they use 'email' (medium = channel, source =
- * identifier) and must keep the utm_medium their utmBase already set. The
- * attribution rewrite is deliberately NOT gated on the perimeter — dropping
- * utm_medium from every content link would move the whole email channel into
- * GA4's `direct` bucket, which is a reporting outage traded for nothing.
+ * utm_medium defaults to 'newsletter' for the historical callers. New senders
+ * pass an explicit source/medium/campaign triple. Source and campaign are only
+ * filled when absent, so a destination carrying an explicit UTM taxonomy keeps
+ * it byte-for-byte compatible with the sender that created it.
+ * Job alerts use 'email' (medium = channel, source = identifier) and keep the
+ * utm_medium their utmBase already set. The attribution rewrite is deliberately
+ * NOT gated on the perimeter — dropping UTM parameters from every content link
+ * would move the whole email channel into GA4's `direct` bucket, which is a
+ * reporting outage traded for nothing.
  *
  * @param {string} targetUrl absolute or site-relative
  * @param {string} email
@@ -303,6 +305,7 @@ export function shouldWrapAuthenticatedHref(rawHref) {
  *   this recipient instead of computing another HMAC. Only consulted when the
  *   destination is inside the perimeter — an out-of-perimeter link never emits
  *   the code it was handed.
+ * @param {string|null} [opts.utmSource] filled as utm_source when absent.
  * @param {string|null} [opts.utmCampaign] added as utm_campaign when set.
  * @param {string} [opts.utmMedium='newsletter'] value written to utm_medium.
  * @param {boolean} [opts.preserveExistingUtmMedium=false] when true, leave a
@@ -320,6 +323,7 @@ export function makeAuthenticatedUrl(
   {
     secret,
     autologinCode,
+    utmSource,
     utmCampaign,
     utmMedium = 'newsletter',
     preserveExistingUtmMedium = false,
@@ -348,14 +352,26 @@ export function makeAuthenticatedUrl(
     url.searchParams.set('ne', String(email || '').toLowerCase());
     if (code) url.searchParams.set('ac', code);
   }
-  // Job alerts build their links from a utmBase that already carries a
-  // utm_medium; overwriting it would lose that attribution. The newsletter and
-  // the welcome email have no such base and always want the GA4 Email channel
-  // value, so overwrite stays the default.
-  if (!(preserveExistingUtmMedium && url.searchParams.has('utm_medium'))) {
+  // Job alerts and the weekly newsletter pass their own explicit taxonomy and
+  // preserve a non-empty utm_medium already present on the destination. Legacy
+  // callers that omit preserveExistingUtmMedium retain the historical default
+  // of writing utmMedium.
+  const hasNonEmptyParam = (name) => {
+    const value = url.searchParams.get(name);
+    return typeof value === 'string' && value.trim().length > 0;
+  };
+  // Source and campaign are additive: an explicit taxonomy already present on
+  // a link belongs to that link's producer and must not be rewritten by a
+  // later authentication pass. Empty placeholders are completed for new links.
+  if (utmSource && !hasNonEmptyParam('utm_source')) {
+    url.searchParams.set('utm_source', utmSource);
+  }
+  if (!(preserveExistingUtmMedium && hasNonEmptyParam('utm_medium'))) {
     url.searchParams.set('utm_medium', utmMedium);
   }
-  if (utmCampaign) url.searchParams.set('utm_campaign', utmCampaign);
+  if (utmCampaign && !hasNonEmptyParam('utm_campaign')) {
+    url.searchParams.set('utm_campaign', utmCampaign);
+  }
   return url.toString();
 }
 
@@ -378,10 +394,23 @@ export function makeAuthenticatedUrl(
  *
  * @param {string} html
  * @param {string} email
- * @param {{secret?: string, utmCampaign?: string|null, scheme?: 'legacy'|'v1'}} [opts]
+ * @param {{secret?: string, utmSource?: string|null, utmMedium?: string,
+ *   utmCampaign?: string|null, preserveExistingUtmMedium?: boolean,
+ *   scheme?: 'legacy'|'v1'}} [opts]
  * @returns {string}
  */
-export function wrapAuthenticatedHrefs(html, email, { secret, utmCampaign, scheme } = {}) {
+export function wrapAuthenticatedHrefs(
+  html,
+  email,
+  {
+    secret,
+    utmSource,
+    utmMedium = 'newsletter',
+    utmCampaign,
+    preserveExistingUtmMedium = false,
+    scheme,
+  } = {},
+) {
   if (!html || !email) return html;
   const autologinCode = generateAutologinCode(email, { secret, scheme });
   return html.replace(/href="([^"]+)"/g, (whole, rawHref) => {
@@ -393,7 +422,14 @@ export function wrapAuthenticatedHrefs(html, email, { secret, utmCampaign, schem
     // "no idea" resolves to "no credential" by construction — there is no
     // sessionGated argument here and there deliberately cannot be one.
     if (!isOwnRewritableHref(href)) return whole;
-    const wrapped = makeAuthenticatedUrl(href, email, { secret, autologinCode, utmCampaign });
+    const wrapped = makeAuthenticatedUrl(href, email, {
+      secret,
+      autologinCode,
+      utmSource,
+      utmMedium,
+      utmCampaign,
+      preserveExistingUtmMedium,
+    });
     return `href="${wrapped.replace(/&/g, '&amp;')}"`;
   });
 }

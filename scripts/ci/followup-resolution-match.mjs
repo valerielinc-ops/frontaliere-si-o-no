@@ -78,6 +78,82 @@ export function isDailyBucketTitle(title = '') {
   return !!dailyBucketInfo(title);
 }
 
+// Aggregate grammar is shared by the pre-flight gate, the lessons harvester,
+// and the adapted reconciler. Keep the vocabulary/count regexes and inline
+// Markdown masking in this pure module so those callers cannot drift.
+export const AGGREGATE_ITEM_COUNT_RE = /\b(\d+)\s+items?\s+(?:deferred|deferit[oi])\b/i;
+export const AGGREGATE_KEYWORD_RE = /\b(?:sweep|batch|bulk)\b/i;
+const AGGREGATE_HEADING_ITEM_RE = /^#{2,3}[ \t]*(?:Item[ \t]*)?(?!\d{4}\b)\d+[ \t]*[.)—–]/gim;
+
+export function maskInlineCodeSpans(text) {
+  return String(text || '').replace(/(`+)([^`\n]*?)\1/g, (span) => span.replace(/[^\n]/g, ' '));
+}
+
+/** Remove fenced Markdown blocks before classifying issue enumerations. */
+export function stripFencedBlocks(text) {
+  const lines = String(text || '').split('\n');
+  const out = [];
+  let fence = null;
+  let fenceStart = -1;
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const match = /^([ \t]*)(`{3,}|~{3,})/.exec(line);
+    if (fence) {
+      const closes = match
+        && match[2][0] === fence.char
+        && match[2].length >= fence.length
+        && match[1].length >= fence.indent;
+      if (closes) fence = null;
+      continue;
+    }
+    if (match) {
+      fence = { char: match[2][0], length: match[2].length, indent: match[1].length };
+      fenceStart = i;
+      continue;
+    }
+    out.push(line);
+  }
+
+  return fence ? [...out, ...lines.slice(fenceStart)].join('\n') : out.join('\n');
+}
+
+/** Count the shared h2/h3 item grammar used by aggregate routing. */
+export function countAggregateHeadingItems(body) {
+  const b = stripFencedBlocks(body);
+  return (b.match(AGGREGATE_HEADING_ITEM_RE) || []).length;
+}
+
+function isBoldTitleLead(rest, lines = [], start = 0) {
+  const bold = /^\*\*(?![ \t])(?:[^*]|\*(?!\*))+\*\*/;
+  let candidate = String(rest || '');
+  if (bold.test(candidate)) return true;
+  for (let i = start; i < lines.length; i++) {
+    const line = lines[i];
+    if (/^[ \t]*(?:\d+[.)]|[-*])[ \t]+/.test(line)) break;
+    candidate += '\n' + line;
+    if (bold.test(candidate)) return true;
+  }
+  return false;
+}
+
+/** Detect at least two real, Markdown-style issue items. */
+export function hasEnumeratedItems(body) {
+  const b = stripFencedBlocks(body);
+  if (countAggregateHeadingItems(b) >= 2) return true;
+  const lines = b.split('\n');
+  const orderedBoldItems = lines.reduce((count, line, index) => {
+    const match = /^[ \t]*\d+[.)][ \t]+(.*)$/.exec(line);
+    return count + (match && isBoldTitleLead(match[1], lines, index + 1) ? 1 : 0);
+  }, 0);
+  if (orderedBoldItems >= 2) return true;
+  const boldLeadBullets = lines.reduce((count, line, index) => {
+    const match = /^[-*][ \t]+(?:\[[ xX]\][ \t]*)?(.*)$/.exec(line);
+    return count + (match && isBoldTitleLead(match[1], lines, index + 1) ? 1 : 0);
+  }, 0);
+  return boldLeadBullets >= 2;
+}
+
 /**
  * Normalize a fingerprint component without changing the acceptance oracle.
  * Punctuation meaningful to code tokens is retained; whitespace/case drift is not.
@@ -156,6 +232,11 @@ export function canonicalDailyBuckets(issues) {
  */
 export function isDistinctiveToken(s) {
   if (s.length < 6 || s.length > 80) return false;
+  // Markdown source locations such as `scripts/ci/review-gate.mjs:L410` are
+  // citation metadata, not prescribed code.  The file is already extracted by
+  // `citedFiles()`; counting its `:Lnnn` suffix as a second token makes a
+  // resolved item look unresolved whenever the issue includes a line anchor.
+  if (/^[\w./-]+\.[a-z0-9]{2,5}:L?\d+(?:-L?\d+)?$/i.test(s) && s.includes('/')) return false;
   if (/^[\w./-]+$/.test(s) && /\.[a-z]{2,4}$/i.test(s)) return false; // bare file path
   if (/\s/.test(s.trim()) && !/[(){}'"`:=<>]|\.\w/.test(s)) return false; // prose phrase
   // ONLY code punctuation qualifies. A bare identifier (even a familiar field/helper name
@@ -184,10 +265,44 @@ export function mostSpecificToken(tokens) {
   return [...tokens].sort((a, b) => score(b) - score(a))[0];
 }
 
+const BACKTICKED_FILE_REFERENCE_RE = /`([\w./-]+\.[a-z]{2,5})(?::L?\d+(?:-L?\d+)?)?`/gi;
+const FILE_REFERENCE_RE = /(?:^|[\s(`'":=])([\w./-]+\/[\w./-]+\.[a-z]{2,5})(?::L?\d+(?:-L?\d+)?)?(?=$|[\s`'":,;.)\]}])/gim;
+
+function addExistingFileReference(out, candidate, fileExists) {
+  const path = String(candidate || '');
+  if (path.includes('/') && fileExists(path)) out.add(path);
+}
+
 /**
- * Backticked file paths in the body that exist according to `fileExists(path)`.
- * Strips a trailing `:Lnnn` / `:nnn` line suffix. Only paths containing `/` are
- * considered (avoids bare `package.json`-style ambiguity flagging wrong files).
+ * Legacy follow-ups put the source location inside a quoted `Original text`
+ * block instead of a live `Target file` field. The quoted code remains excluded
+ * from token extraction; only an explicitly backticked path is recovered as a
+ * locator, and the acceptance token must still come from `Suggested action`.
+ */
+function legacyOriginalText(body) {
+  const lines = String(body || '').split('\n');
+  const out = [];
+  let inOriginalText = false;
+  for (const line of lines) {
+    if (/^\s*-\s+Original text\s*:/i.test(line)) {
+      inOriginalText = true;
+      continue;
+    }
+    if (inOriginalText && !/^\s*>/.test(line) && isOriginalTextBoundary(line)) {
+      inOriginalText = false;
+      continue;
+    }
+    if (inOriginalText) out.push(line);
+  }
+  return out.join('\n');
+}
+
+/**
+ * File paths in the body that exist according to `fileExists(path)`. Current
+ * bodies use explicit `Suggested action` or `Target file` metadata; legacy
+ * bodies may cite the source path in quoted `Original text`, while newer
+ * suggested actions sometimes write a path as ordinary prose. Tokens remain
+ * restricted to `Suggested action`.
  *
  * @param {string} body
  * @param {(path: string) => boolean} fileExists
@@ -195,17 +310,22 @@ export function mostSpecificToken(tokens) {
  */
 export function citedFiles(body, fileExists) {
   const out = new Set();
+  const actionText = explicitSuggestedActionText(body);
   const unprotected = markdownRecords(body)
     .filter((record) => !record.protected)
     .map((record) => record.line)
     .join('\n');
-  for (const m of unprotected.matchAll(/`([\w./-]+\.[a-z]{2,5})(?::L?\d+)?`/gi)) {
-    const p = m[1];
-    if (p.includes('/') && fileExists(p)) out.add(p);
+  for (const m of actionText.matchAll(BACKTICKED_FILE_REFERENCE_RE)) {
+    addExistingFileReference(out, m[1], fileExists);
   }
-  for (const m of unprotected.matchAll(/(?:^|\n)\s*(?:[-*]\s*)?Target file:\s*([\w./-]+\.[a-z]{2,5})(?::L?\d+)?\s*$/gim)) {
-    const p = m[1];
-    if (p.includes('/') && fileExists(p)) out.add(p);
+  for (const m of actionText.matchAll(FILE_REFERENCE_RE)) {
+    addExistingFileReference(out, m[1], fileExists);
+  }
+  for (const m of legacyOriginalText(body).matchAll(BACKTICKED_FILE_REFERENCE_RE)) {
+    addExistingFileReference(out, m[1], fileExists);
+  }
+  for (const m of unprotected.matchAll(/(?:^|\n)\s*(?:[-*]\s*)?Target file:\s*`?([\w./-]+\.[a-z]{2,5})(?::L?\d+(?:-L?\d+)?)?`?\s*$/gim)) {
+    addExistingFileReference(out, m[1], fileExists);
   }
   return [...out];
 }
@@ -262,6 +382,16 @@ function acceptanceScopeText(body) {
  */
 export function suggestedActionText(body) {
   const scoped = acceptanceScopeText(body);
+  const regions = suggestedActionRegions(body, scoped);
+  return regions.length ? regions.join('\n') : scoped;
+}
+
+/** Return only explicit Suggested action regions; unlike `suggestedActionText`, never falls back. */
+function explicitSuggestedActionText(body) {
+  return suggestedActionRegions(body).join('\n');
+}
+
+function suggestedActionRegions(body, scoped = acceptanceScopeText(body)) {
   const lines = scoped.split('\n');
   const regions = [];
   for (let i = 0; i < lines.length; i++) {
@@ -274,7 +404,7 @@ export function suggestedActionText(body) {
       regions.push(buf.join('\n'));
     }
   }
-  return regions.length ? regions.join('\n') : scoped;
+  return regions;
 }
 
 /** Backticked spans inside the suggested-action region → distinctive tokens (capped, deduped). */
@@ -285,6 +415,33 @@ export function citedTokens(body) {
     if (isDistinctiveToken(t)) out.add(t);
   }
   return [...out].slice(0, 8);
+}
+
+/** Normalize the explicit acceptance token carried by a stable daily item. */
+export function normalizeAcceptanceToken(value) {
+  return String(value || '').trim().replace(/^`+|`+$/g, '').trim();
+}
+
+function escapedRegExp(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+/**
+ * Match a prescribed zero-argument call token against a real invocation with
+ * arguments. The acceptance field names the callable (`foo()`), while the
+ * implementation may necessarily pass data (`foo(value)`). A declaration is
+ * not an invocation and must not satisfy this normalization.
+ */
+function codeTokenMatches(content, token) {
+  const emptyCall = /^([A-Za-z_$][\w$]*(?:\.[A-Za-z_$][\w$]*)*)\(\)$/u.exec(token);
+  if (!emptyCall) return content.includes(token);
+  const callRe = new RegExp(`(^|[^A-Za-z0-9_$])${escapedRegExp(emptyCall[1])}\\s*\\(`, 'gu');
+  for (const match of content.matchAll(callRe)) {
+    const callStart = (match.index ?? 0) + match[1].length;
+    if (/\bfunction\s*$/.test(content.slice(0, callStart))) continue;
+    return true;
+  }
+  return false;
 }
 
 /**
@@ -358,7 +515,8 @@ export function schedaCommand(itemText) {
 
 /**
  * Il referente nominato da un comando: il primo path di repository che il comando
- * cita (con almeno una `/` e un'estensione). È la metà VERIFICABILE della scheda —
+ * cita (con almeno una `/`; può essere un file con o senza estensione oppure una
+ * directory terminata da `/`). È la metà VERIFICABILE della scheda —
  * un nome si scrive, un referente si risolve.
  *
  * Il vincolo della `/` è lo stesso di `citedFiles()`, e per la stessa ragione: un
@@ -370,7 +528,7 @@ export function schedaCommand(itemText) {
  */
 export function commandReferent(command) {
   const m = String(command || '').match(
-    /(?:^|[\s`'":=(])([\w.-]+(?:\/[\w.-]+)+\.[a-z]{2,5})(?=$|[\s`'":,)])/i,
+    /(?:^|[\s`'":=(])((?:[\w.-]+\/)+[\w.-]+\/?)(?=$|[\s`'":,)])/i,
   );
   return m ? m[1] : null;
 }
@@ -515,6 +673,24 @@ export function hasUnterminatedMarkdownFence(text) {
 function fieldValuesOutsideMarkdownProtection(text, field) {
   const escaped = String(field).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const re = new RegExp(`^\\s*-\\s+${escaped}\\s*:\\s*(.*?)\\s*$`, 'i');
+  const values = [];
+  for (const record of markdownRecords(text)) {
+    if (record.protected) continue;
+    const match = re.exec(record.line);
+    if (match) values.push(match[1].trim());
+  }
+  return values;
+}
+
+/**
+ * Read bucket-header fields in both forms emitted by the triage prompt:
+ * `- Field: value` (canonical) and `Field: value` (legacy/Claude shorthand).
+ * Item fields remain strict bullet fields; only the slice before the first item
+ * may use the shorthand, so quoted/fenced content cannot become metadata.
+ */
+function headerFieldValuesOutsideMarkdownProtection(text, field) {
+  const escaped = String(field).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const re = new RegExp(`^\\s*(?:-\\s+)?${escaped}\\s*:\\s*(.*?)\\s*$`, 'i');
   const values = [];
   for (const record of markdownRecords(text)) {
     if (record.protected) continue;
@@ -793,11 +969,22 @@ export function dailyKeyFromBucketBody(body) {
   const source = String(body || '');
   const firstItem = parseFollowupItems(source)[0];
   const head = source.slice(0, firstItem?.start ?? source.length);
-  const values = fieldValuesOutsideMarkdownProtection(head, 'Daily key');
+  const values = headerFieldValuesOutsideMarkdownProtection(head, 'Daily key');
   const keys = values
     .map((value) => /^(\d{4}-\d{2}-\d{2})\b/.exec(value)?.[1] || null)
     .filter(Boolean);
-  return keys.length === 1 && values.length === 1 ? keys[0] : null;
+  if (keys.length === 1 && values.length === 1) return keys[0];
+  if (values.length) return null;
+
+  // The prompt has historically required the stable date in every item ID but
+  // did not always print a separate `Daily key` header.  Recover that form only
+  // when every parsed item carries one valid, identical date; mixed/malformed
+  // IDs remain fail-closed.
+  const itemKeys = parseFollowupItems(source).map((item) => followupItemDailyKey(item.id));
+  const uniqueKeys = [...new Set(itemKeys)];
+  return itemKeys.length > 0 && itemKeys.every(Boolean) && uniqueKeys.length === 1
+    ? uniqueKeys[0]
+    : null;
 }
 
 function normalizeRepositoryPart(value) {
@@ -809,8 +996,20 @@ export function dailyBucketTargetRepository(body) {
   const source = String(body || '');
   const firstItem = parseFollowupItems(source)[0];
   const head = source.slice(0, firstItem?.start ?? source.length);
-  const values = fieldValuesOutsideMarkdownProtection(head, 'Target repository');
-  return values.length === 1 ? values[0].trim() : null;
+  const values = headerFieldValuesOutsideMarkdownProtection(head, 'Target repository');
+  if (values.length === 1) return values[0].trim();
+  if (values.length) return null;
+
+  // A bucket without a header is still safe to inspect when every item declares
+  // exactly one same target repository.  Never infer an owner from only a subset
+  // of items: that would let a mixed bucket cross the site/corpus boundary.
+  const itemRepositories = parseFollowupItems(source).map((item) => {
+    const declared = fieldValuesOutsideMarkdownProtection(item.text, 'Target repository');
+    return declared.length === 1 ? declared[0].trim() : null;
+  });
+  const normalized = [...new Set(itemRepositories.filter(Boolean).map(normalizeRepositoryPart))];
+  if (!itemRepositories.length || itemRepositories.some((value) => !value) || normalized.length !== 1) return null;
+  return itemRepositories[0];
 }
 
 /** Require title/header/item repository declarations to agree when present. */
@@ -848,7 +1047,7 @@ export function bucketState(body) {
   // The bucket state belongs to the Batch header. Do not mistake a quoted
   // `- State: collecting` inside an item's Original text/code fence for it.
   const head = source.slice(0, firstItem?.start ?? source.length);
-  const values = stateFieldValuesOutsideMarkdownProtection(head);
+  const values = headerFieldValuesOutsideMarkdownProtection(head, 'State').map((value) => value.toLowerCase());
   if (values.length !== 1 || !/^(collecting|sealed)$/i.test(values[0])) return null;
   return values[0].toLowerCase();
 }
@@ -934,9 +1133,9 @@ export function followupItemMarkers(text) {
 // "issue") Italian prose puts between the verb and the `#N`, bounded to that
 // fixed word list so a real sentence boundary still breaks the run exactly
 // like the English case above.
-const IT_BRIDGE = '(?:anche\\s+)?(?:l[ae]\\s+)?(?:issue\\s+)?';
+const IT_BRIDGE = '(?:anche[ \\t]+)?(?:l[ae][ \\t]+)?(?:issue[ \\t]+)?';
 const CLOSE_KW_LIST = new RegExp(
-  `\\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?|supersede[sd]?|chiud[eo]|risolv[eo]|super[ae])\\b\\s*:?\\s*${IT_BRIDGE}((?:#\\d+(?:[\\s,&]+(?:and\\s+)?)?)+)`,
+  `\\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?|supersede[sd]?|chiud[eo]|risolv[eo]|super[ae])\\b[ \\t]*:?[ \\t]*${IT_BRIDGE}((?:#\\d+(?:[ \\t,&]+(?:and[ \\t]+)?)?)+)`,
   'ig',
 );
 
@@ -987,8 +1186,9 @@ export function closingMergedPr(issueNumber, mergedPrs) {
  * worse than a wasted run):
  *   1. There is at least one distinctive cited token (code-punctuation-carrying — a bare
  *      field name like `previousSlugs` no longer qualifies); AND
- *   2. EVERY distinctive token from the prescribed `Suggested action` is present verbatim
- *      in a cited file. Requiring ALL of them — not merely *some* token, and not just the
+ *   2. EVERY token in the selected prescribed set is present in a cited file. Stable daily
+ *      items use their explicit `Acceptance token`; legacy bodies use every distinctive
+ *      token from `Suggested action`. Requiring ALL of them — not merely *some* token, and not just the
  *      heuristic "most-specific" one — means a single coincidental field-name hit can
  *      never alone flip `resolved` to true; the whole prescribed shape must be on main.
  *      (This is a strict superset of "most-specific token present", and unlike that test
@@ -1005,10 +1205,12 @@ export function closingMergedPr(issueNumber, mergedPrs) {
  * @param {object} io
  * @param {(path: string) => boolean} io.fileExists  true if the path resolves
  * @param {(path: string) => (string|null)} io.readFile  current file content, or null
+ * @param {{acceptanceToken?: string}} [options] explicit stable-item acceptance token;
+ *        when present it replaces the legacy Suggested-action token set
  * @returns {{ resolved: boolean, evidence: Array<{file:string, tok:string}>,
  *             files: string[], tokens: string[] }}
  */
-export function detectAlreadyResolved(body, io) {
+export function detectAlreadyResolved(body, io, options = {}) {
   const empty = { resolved: false, evidence: [], files: [], tokens: [] };
   try {
     const fileExists = io && typeof io.fileExists === 'function' ? io.fileExists : () => false;
@@ -1019,7 +1221,10 @@ export function detectAlreadyResolved(body, io) {
     // prescribed token. Keep it out of the token-resolution path entirely, while
     // preserving the free-form issue fallback for bodies with no sheet at all.
     const sheetOnly = COMMAND_CONDITION.holds(bodyText) && !ACCEPTANCE_CONDITION.holds(bodyText);
-    const tokens = sheetOnly ? [] : citedTokens(bodyText);
+    const acceptanceToken = normalizeAcceptanceToken(options?.acceptanceToken);
+    const tokens = acceptanceToken
+      ? (isDistinctiveToken(acceptanceToken) ? [acceptanceToken] : [])
+      : (sheetOnly ? [] : citedTokens(bodyText));
     const evidence = [];
     if (files.length && tokens.length) {
       const cache = new Map();
@@ -1028,7 +1233,10 @@ export function detectAlreadyResolved(body, io) {
         const content = cache.get(file);
         if (typeof content !== 'string') continue;
         for (const tok of tokens) {
-          if (content.includes(tok)) evidence.push({ file, tok });
+          const matched = acceptanceToken
+            ? codeTokenMatches(content, tok)
+            : content.includes(tok);
+          if (matched) evidence.push({ file, tok });
         }
       }
     }

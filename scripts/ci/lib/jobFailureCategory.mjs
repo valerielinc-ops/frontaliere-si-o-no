@@ -64,9 +64,9 @@ export const TEST_STEP_NAME = 'vitest related (PR diff)';
  * check gia' comunica correttamente, e non va mai mascherato da un gate.
  *
  * `ambiguous: true` marca uno step il cui rosso NON identifica una causa: il
- * join dei gate in background unisce `tsc`, i cinque lint e il gruppo vitest
- * indipendente, e dal solo esito dello step non si sa quale dei tre ha ceduto.
- * Per quel caso non si afferma nulla sull'esito dei test.
+ * collector raccoglie `tsc`, i cinque lint e i source guard indipendenti, e dal
+ * solo esito dello step non si sa quale gate abbia ceduto. Per quel caso non si
+ * afferma nulla sull'esito dei test.
  */
 export const FAILURE_CATEGORIES = Object.freeze([
   {
@@ -75,9 +75,9 @@ export const FAILURE_CATEGORIES = Object.freeze([
     tail: 'hanno fallito i test',
   },
   {
-    id: 'background-join',
-    names: ['Wait for background gates and independent vitest'],
-    tail: 'è rosso il join dei gate in background: typecheck, lint o gruppo vitest indipendente — quale dei tre sta scritto nel log di questo step',
+    id: 'independent-gates',
+    names: ['Collect independent source gates'],
+    tail: 'è rosso il collector dei gate indipendenti: typecheck, lint o source guard — quale dei gate abbia ceduto è scritto nel log di questo step',
     ambiguous: true,
   },
   {
@@ -96,18 +96,11 @@ export const FAILURE_CATEGORIES = Object.freeze([
     tail: 'il body della PR non rispetta il contratto (`## Implementato` / `## Non implementato (ancora)`)',
   },
   {
-    id: 'typecheck',
-    names: ['tsc --noEmit (baseline + ratchet)'],
-    tail: 'il typecheck è rosso',
-  },
-  {
     id: 'source-guards',
     names: [
-      'Wait for background source guards',
-      'Forbid hard-coded AdSense <ins> in build-plugins',
-      'Forbid regex lookbehind in client-bundled source',
+      'Run source guards in parallel',
     ],
-    tail: 'è rosso un source guard',
+    tail: 'è rosso il gate dei source guard',
   },
 ]);
 

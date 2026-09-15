@@ -9,12 +9,7 @@ on:
         description: 'Target engine (leave empty for all)'
         required: false
         default: ''
-        type: choice
-        options:
-          - ''
-          - bing
-          - yandex
-          - indexnow
+        type: string
       sitemap:
         description: 'Sitemap filter (e.g. "jobs", "blog", leave empty for all)'
         required: false

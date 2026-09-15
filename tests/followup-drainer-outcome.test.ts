@@ -8,7 +8,13 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { latestFixOutcomeFromComments, NON_RETRYABLE, isAgeOutEligible, isSettlingPromotion } from '../scripts/ci/followup-drainer.mjs';
+import {
+  latestFixOutcomeFromComments,
+  latestFixRunOutcomeEntryFromComments,
+  NON_RETRYABLE,
+  isAgeOutEligible,
+  isSettlingPromotion,
+} from '../scripts/ci/followup-drainer.mjs';
 
 type Comment = { body?: string; createdAt?: string };
 const at = (n: number) => new Date(2026, 0, n).toISOString();
@@ -45,6 +51,32 @@ describe('latestFixOutcomeFromComments', () => {
   it('case-insensitive sul codice', () => {
     expect(latestFixOutcomeFromComments([{ body: '<!-- FIX_OUTCOME: No-Root-Cause -->', createdAt: at(1) }]))
       .toBe('no-root-cause');
+  });
+});
+
+describe('latestFixRunOutcomeEntryFromComments', () => {
+  it('un backstop generico piu\' recente invalida il verdetto storico', () => {
+    const c: Comment[] = [
+      { body: '<!-- FIX_OUTCOME: max-turns -->', createdAt: at(1) },
+      { body: '<!-- FIX_OUTCOME: no-pr-unspecified -->\n_Outcome rilevato dal post-step deterministico._', createdAt: at(2) },
+    ];
+    expect(latestFixRunOutcomeEntryFromComments(c)).toEqual({ outcome: null, at: Date.parse(at(2)) });
+  });
+
+  it('conserva un backstop pr-created piu\' recente come consegna osservabile', () => {
+    const c: Comment[] = [
+      { body: '<!-- FIX_OUTCOME: max-turns -->', createdAt: at(1) },
+      { body: '<!-- FIX_OUTCOME: pr-created -->\n_Outcome rilevato dal post-step deterministico._', createdAt: at(2) },
+    ];
+    expect(latestFixRunOutcomeEntryFromComments(c)).toEqual({ outcome: 'pr-created', at: Date.parse(at(2)) });
+  });
+
+  it('non scavalca un verdetto autentico piu\' recente del backstop', () => {
+    const c: Comment[] = [
+      { body: '<!-- FIX_OUTCOME: no-pr-unspecified -->\npost-step deterministico', createdAt: at(2) },
+      { body: '<!-- FIX_OUTCOME: no-root-cause -->', createdAt: at(3) },
+    ];
+    expect(latestFixRunOutcomeEntryFromComments(c)).toEqual({ outcome: 'no-root-cause', at: Date.parse(at(3)) });
   });
 });
 

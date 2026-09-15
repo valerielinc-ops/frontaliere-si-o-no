@@ -92,7 +92,12 @@ export function joinAnchorParts(text = '', attr = '') {
 }
 
 /**
- * Absolute links in an HTML document, with their anchor text.
+ * Absolute same-host links in an HTML document, with their anchor text.
+ * Cross-origin links are available only when a caller explicitly opts in;
+ * careers-trail discovery does that for the separate ATS hop, while the
+ * default keeps a document's own link evidence from leaking into another
+ * host. HTTP/HTTPS links on the same host remain usable when a page mixes
+ * transport schemes; a different host or port is still excluded.
  *
  * Written as a scan for `href=` rather than a full anchor match on purpose:
  * SME sites nest `<span>`/`<img>` inside `<a>` freely, and a
@@ -102,11 +107,15 @@ export function joinAnchorParts(text = '', attr = '') {
  *
  * @param {string} html
  * @param {string} baseUrl
+ * @param {{ sameOriginOnly?: boolean }} [options]
  * @returns {{ url: string, text: string, host: string }[]}
  */
-export function extractLinks(html = '', baseUrl = '') {
+export function extractLinks(html = '', baseUrl = '', options = {}) {
   const out = [];
   const seen = new Set();
+  let baseHost = '';
+  try { baseHost = new URL(baseUrl).host; } catch { /* absolute hrefs may still be usable */ }
+  const sameOriginOnly = options.sameOriginOnly ?? true;
   const rx = /<a\b([^>]*)>/gi;
   let m;
   while ((m = rx.exec(html))) {
@@ -118,13 +127,15 @@ export function extractLinks(html = '', baseUrl = '') {
     const rest = html.slice(rx.lastIndex, rx.lastIndex + 400);
     const text = rest.split(/<\/a>/i)[0].replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
     const aria = readAttr(attrs, ['aria-label', 'title']);
-    let abs;
-    try { abs = new URL(href, baseUrl).toString(); } catch { continue; }
-    if (!/^https?:/i.test(abs)) continue;
+    let parsed;
+    try { parsed = new URL(href, baseUrl); } catch { continue; }
+    if (!/^https?:$/i.test(parsed.protocol)) continue;
+    if (sameOriginOnly && baseHost && parsed.host !== baseHost) continue;
+    const abs = parsed.toString();
     const key = abs.split('#')[0];
     if (seen.has(key)) continue;
     seen.add(key);
-    out.push({ url: abs, text: cleanAnchorText(joinAnchorParts(text, aria)), host: normalizeHost(new URL(abs).hostname) });
+    out.push({ url: abs, text: cleanAnchorText(joinAnchorParts(text, aria)), host: normalizeHost(parsed.hostname) });
   }
   return out;
 }
@@ -333,7 +344,7 @@ export async function traceFromCareersUrl(careersUrl, employerDomain) {
   // itself means `page.url`'s host, not the caller-supplied `employerDomain`,
   // is what every link on this page is actually relative to.
   const pageHost = normalizeHost(new URL(page.url).hostname);
-  const links = extractLinks(page.body, page.url);
+  const links = extractLinks(page.body, page.url, { sameOriginOnly: false });
   const checked = [];
   for (const cand of externalAtsLinks(links, pageHost, { relaxed: true }).slice(0, 6)) {
     checked.push(await verifyAtsHost(cand));
@@ -373,7 +384,7 @@ export async function traceCareers(domain, opts = {}) {
   // `domain`'s registrable domain), which both hides real on-site careers
   // links and misreads homepage chrome as ATS candidates.
   const homeHost = normalizeHost(new URL(home.url).hostname);
-  const homeLinks = extractLinks(home.body, home.url);
+  const homeLinks = extractLinks(home.body, home.url, { sameOriginOnly: false });
 
   // Hop 0 — the ATS link is sometimes right on the homepage.
   const fromHome = externalAtsLinks(homeLinks, homeHost);
@@ -423,7 +434,7 @@ export async function traceCareers(domain, opts = {}) {
     if (!page.ok) continue;
     if (!isDistinctCareerSurface(home.body, page.body, page.url, home.url)) continue;
     result.careersUrls.push(page.url);
-    const links = extractLinks(page.body, page.url);
+    const links = extractLinks(page.body, page.url, { sameOriginOnly: false });
     for (const ext of externalAtsLinks(links, homeHost, { relaxed: true, globalLinks: homeLinks })) {
       if (!result.externalHosts.some((e) => e.host === ext.host)) result.externalHosts.push(ext);
     }

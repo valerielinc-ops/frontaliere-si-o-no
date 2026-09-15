@@ -31,10 +31,17 @@ const read = (p: string) => readFileSync(resolve(p), 'utf8');
 const SCRIPT_PATH = 'scripts/identify-top-marquee-by-gsc.mjs';
 const WORKFLOW_PATH = '.github/workflows/refresh-gsc-marquee-demand.yml';
 
+const FAKE_PRIVATE_KEY = [
+  '-----BEGIN' + ' PRIVATE KEY-----',
+  'test-fixture',
+  '-----END' + ' PRIVATE KEY-----',
+  '',
+].join('\n');
+
 const FAKE_SA = {
   type: 'service_account',
   client_email: 'gsc-service-account@frontaliere-ticino.iam.gserviceaccount.com',
-  private_key: '-----BEGIN PRIVATE KEY-----\nnot-a-real-key\n-----END PRIVATE KEY-----\n',
+  private_key: FAKE_PRIVATE_KEY,
 };
 
 function withTempSaFile(body: (path: string) => void): void {

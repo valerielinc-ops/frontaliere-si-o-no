@@ -732,11 +732,11 @@ function crawlerGenerationContractReasons(contract, observerBytes, remoteArtifac
     ...GROUP_IDS.map((group) => `crawler-group-${group}.yml`),
     'translate-pending.yml',
   ].sort(compareCodePoint);
-  const actualArtifacts = Array.isArray(contract?.artifacts)
-    ? contract.artifacts.map((entry) => entry?.file).sort(compareCodePoint)
-    : [];
   let contractShapeValid = false;
   try {
+    const actualArtifacts = Array.isArray(contract?.artifacts)
+      ? contract.artifacts.map((entry) => entry?.file).sort(compareCodePoint)
+      : [];
     contractShapeValid = contract?.schemaVersion === 1
       && contract?.groupCount === GROUP_IDS.length
       && contract?.artifactCount === expectedArtifacts.length
@@ -999,6 +999,9 @@ export async function runCrawlerGenerationDispatchCli(argv = process.argv.slice(
         env.GITHUB_OUTPUT,
         `ready=${result.ready}\ndispatch_mode=${result.dispatchMode}\ncorpus_commit=${result.corpusCodeCommit ?? ''}\n`,
       );
+    }
+    if (env.GENERATION_PREFLIGHT_OUTPUT) {
+      writeJsonAtomic(env.GENERATION_PREFLIGHT_OUTPUT, result, { compact: true });
     }
     if (result.ready && (result.warnings ?? []).includes('corpus_mirror_lockstep_pending')) {
       process.stderr.write(

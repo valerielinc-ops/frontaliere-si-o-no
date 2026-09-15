@@ -20,6 +20,18 @@ const TRANSLATIONS = {
  confirmWeeklyGuides: '📖 Guide pratiche per frontalieri',
  confirmNotYou: '<strong>Non ti sei iscritto?</strong> Ignora questa email in tutta sicurezza. Il link è valido per 7 giorni.',
 
+ // Passwordless account access. This is deliberately separate from the DOI
+ // copy: opening it authenticates the reader, but never changes newsletter
+ // subscription state.
+ loginSubject: 'Accedi a Frontaliere Ticino – link di accesso',
+ loginTitle: 'Accedi a Frontaliere Ticino',
+ loginIntro: 'Hai richiesto un link per accedere al tuo account su <strong>Frontaliere Ticino</strong>. Clicca il pulsante qui sotto per entrare senza password. Questo link non modifica la tua iscrizione alla newsletter.',
+ loginButton: 'Accedi al sito',
+ loginAltLink: 'Oppure copia e incolla questo link nel browser:',
+ loginNotYou: '<strong>Non hai richiesto questo link?</strong> Ignora questa email in tutta sicurezza. La tua iscrizione alla newsletter non viene modificata.',
+ loginSuccessTitle: 'Accesso effettuato',
+ loginSuccessBody: 'Hai effettuato l’accesso a Frontaliere Ticino. La tua iscrizione alla newsletter non è stata modificata.',
+
  // Solleciti (#5692) — la CORNICE, non un testo nuovo. Chi non ha confermato
  // non ha acconsentito: sopra e sotto queste righe c'è la stessa identica email
  // di conferma, con lo stesso identico link. Niente offerte, niente urgenza.
@@ -80,6 +92,15 @@ const TRANSLATIONS = {
  confirmWeeklyGuides: '📖 Practical guides for cross-border workers',
  confirmNotYou: '<strong>Didn\'t subscribe?</strong> You can safely ignore this email. The link is valid for 7 days.',
 
+ loginSubject: 'Sign in to Frontaliere Ticino – secure access link',
+ loginTitle: 'Sign in to Frontaliere Ticino',
+ loginIntro: 'You requested a link to access your account on <strong>Frontaliere Ticino</strong>. Click the button below to enter without a password. This link does not change your newsletter subscription.',
+ loginButton: 'Sign in to the site',
+ loginAltLink: 'Or copy and paste this link into your browser:',
+ loginNotYou: '<strong>Didn\'t request this link?</strong> You can safely ignore this email. Your newsletter subscription will not be changed.',
+ loginSuccessTitle: 'Signed in successfully',
+ loginSuccessBody: 'You are now signed in to Frontaliere Ticino. Your newsletter subscription was not changed.',
+
  confirmReminderSubject: 'Reminder: confirm your newsletter subscription – Frontaliere Ticino',
  confirmReminderLastSubject: 'Last reminder: confirm your newsletter subscription – Frontaliere Ticino',
  confirmReminderLead: 'We wrote to you {when} to ask you to confirm your newsletter subscription, and we have not heard back. The link below is still valid, if you would like to confirm now.',
@@ -132,6 +153,15 @@ const TRANSLATIONS = {
  confirmWeeklyGuides: '📖 Praktische Ratgeber für Grenzgänger',
  confirmNotYou: '<strong>Nicht angemeldet?</strong> Sie können diese E-Mail ignorieren. Der Link ist 7 Tage gültig.',
 
+ loginSubject: 'Bei Frontaliere Ticino anmelden – sicherer Zugangslink',
+ loginTitle: 'Bei Frontaliere Ticino anmelden',
+ loginIntro: 'Sie haben einen Link angefordert, um auf Ihr Konto bei <strong>Frontaliere Ticino</strong> zuzugreifen. Klicken Sie unten, um sich ohne Passwort anzumelden. Dieser Link ändert Ihre Newsletter-Anmeldung nicht.',
+ loginButton: 'Zur Website anmelden',
+ loginAltLink: 'Oder kopieren Sie diesen Link in Ihren Browser:',
+ loginNotYou: '<strong>Haben Sie diesen Link nicht angefordert?</strong> Sie können diese E-Mail sicher ignorieren. Ihre Newsletter-Anmeldung wird nicht geändert.',
+ loginSuccessTitle: 'Anmeldung erfolgreich',
+ loginSuccessBody: 'Sie sind jetzt bei Frontaliere Ticino angemeldet. Ihre Newsletter-Anmeldung wurde nicht geändert.',
+
  confirmReminderSubject: 'Erinnerung: Newsletter-Anmeldung bestätigen – Frontaliere Ticino',
  confirmReminderLastSubject: 'Letzte Erinnerung: Newsletter-Anmeldung bestätigen – Frontaliere Ticino',
  confirmReminderLead: 'Wir haben Ihnen {when} geschrieben und Sie gebeten, Ihre Newsletter-Anmeldung zu bestätigen; eine Antwort haben wir nicht erhalten. Der Link unten ist weiterhin gültig, falls Sie jetzt bestätigen möchten.',
@@ -183,6 +213,15 @@ const TRANSLATIONS = {
  confirmWeeklyTax: '📋 Mises à jour fiscales et réglementaires',
  confirmWeeklyGuides: '📖 Guides pratiques pour frontaliers',
  confirmNotYou: '<strong>Vous ne vous êtes pas inscrit ?</strong> Vous pouvez ignorer cet e-mail en toute sécurité. Le lien est valable 7 jours.',
+
+ loginSubject: 'Se connecter à Frontaliere Ticino – lien d’accès sécurisé',
+ loginTitle: 'Se connecter à Frontaliere Ticino',
+ loginIntro: 'Vous avez demandé un lien pour accéder à votre compte sur <strong>Frontaliere Ticino</strong>. Cliquez ci-dessous pour entrer sans mot de passe. Ce lien ne modifie pas votre inscription à la newsletter.',
+ loginButton: 'Accéder au site',
+ loginAltLink: 'Ou copiez et collez ce lien dans votre navigateur :',
+ loginNotYou: '<strong>Vous n’avez pas demandé ce lien ?</strong> Vous pouvez ignorer cet e-mail en toute sécurité. Votre inscription à la newsletter ne sera pas modifiée.',
+ loginSuccessTitle: 'Connexion réussie',
+ loginSuccessBody: 'Vous êtes maintenant connecté à Frontaliere Ticino. Votre inscription à la newsletter n’a pas été modifiée.',
 
  confirmReminderSubject: 'Rappel : confirmez votre inscription à la newsletter – Frontaliere Ticino',
  confirmReminderLastSubject: 'Dernier rappel : confirmez votre inscription à la newsletter – Frontaliere Ticino',

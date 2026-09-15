@@ -875,6 +875,24 @@ async function fetchOrTagAmbiguous(url, opts) {
   }
 }
 
+/** Extract a durable string identifier from the provider response shape. */
+function extractProviderMessageId(rawMessageId) {
+  if (typeof rawMessageId === 'string') return rawMessageId.trim();
+  if (!rawMessageId || typeof rawMessageId !== 'object') return '';
+  if (Array.isArray(rawMessageId)) {
+    for (const value of rawMessageId) {
+      const messageId = extractProviderMessageId(value);
+      if (messageId) return messageId;
+    }
+    return '';
+  }
+  for (const key of ['id', 'message_id', 'messageId', 'reference_id']) {
+    const messageId = extractProviderMessageId(rawMessageId[key]);
+    if (messageId) return messageId;
+  }
+  return '';
+}
+
 /**
  * Preserve a provider's acceptance when its 2xx response has no usable id.
  * The absence of an identifier is not a provider failure and must not make
@@ -884,9 +902,10 @@ async function fetchOrTagAmbiguous(url, opts) {
  * @returns {{ messageId: string|null, provider: string, ack: 'identified'|'unidentifiable' }}
  */
 function providerAck(provider, rawMessageId) {
-  const messageId = typeof rawMessageId === 'string'
-    ? rawMessageId.trim()
-    : Number.isFinite(rawMessageId) ? String(rawMessageId) : '';
+  // Provider ids must remain strings all the way from the response. In
+  // particular, a large Mailjet numeric id may already be rounded by JSON.parse
+  // past 2^53; accepting that number would mark a fabricated value identified.
+  const messageId = extractProviderMessageId(rawMessageId);
   return {
     messageId: messageId || null,
     provider,
@@ -1533,7 +1552,7 @@ async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, f
  *   call so a caller with its own hang budget (e.g. a post-deploy live-check
  *   script) can bound the whole send. Omitted by default (no change for
  *   existing callers) — the cascade itself has no built-in timeout.
- * @returns {{ sent: Array, accepted: Array, ambiguous: Array, failed: Array, adaptiveThrottle?: Object }}
+ * @returns {{ sent: Array, accepted: Array, ambiguous: Array, failed: Array, providerBreakdown: Object, adaptiveThrottle?: Object }}
  */
 export async function sendEmailCascade(emails, opts = {}) {
   const { concurrency = 1, delayMs = 1000, adaptiveThrottle: adaptiveConfig, forceProvider, onSent, finalizeForProvider, signal } = opts;
@@ -1549,7 +1568,7 @@ export async function sendEmailCascade(emails, opts = {}) {
   const available = PROVIDERS.filter(p => isProviderConfigured(p.id));
   if (available.length === 0) {
     console.error('❌ No email providers configured. Set at least one API key.');
-    return { sent: [], accepted: [], ambiguous: [], failed: emails };
+    return { sent: [], accepted: [], ambiguous: [], failed: emails, providerBreakdown: {} };
   }
 
   const totalQuota = available.reduce((sum, p) => sum + remainingQuota(p.id), 0);
@@ -1583,7 +1602,19 @@ export async function sendEmailCascade(emails, opts = {}) {
         // Both identified and unidentifiable 2xx responses are terminal sends.
         // Persisting the latter is what prevents a later run from retrying an
         // email whose provider accepted it but returned no usable identifier.
-        if (onSent) await onSent(item, result);
+        // A bookkeeping callback cannot turn an already accepted send into a
+        // failed delivery or make it eligible for a provider retry.
+        if (onSent) {
+          try {
+            await onSent(item, result);
+          } catch (callbackError) {
+            // The provider accepted the message, but the durable bookkeeping
+            // callback did not. Keep the terminal outcome accepted while
+            // exposing the persistence failure to the caller for quarantine.
+            outcome.persistFailed = true;
+            console.warn(`⚠️ onSent callback failed after ${result?.provider || 'provider'} accepted the message: ${String(callbackError?.message || callbackError).slice(0, 200)}`);
+          }
+        }
       } catch (err) {
         // ambiguousDelivery (#4911): the message may have already gone out
         // via a provider that then failed on the response — surfaced here
@@ -1599,12 +1630,19 @@ export async function sendEmailCascade(emails, opts = {}) {
 
   // Print summary
   const providerBreakdown = {};
-  for (const s of sent) {
-    providerBreakdown[s.provider] = (providerBreakdown[s.provider] || 0) + 1;
+  for (const s of accepted) {
+    const stats = providerBreakdown[s.provider] || (providerBreakdown[s.provider] = { identified: 0, ambiguous: 0, persistFailed: 0 });
+    stats.identified += 1;
+    if (s.persistFailed) stats.persistFailed += 1;
   }
-  console.log(`✅ Sent: ${sent.length} (identified=${accepted.length}, ambiguous=${ambiguous.length}), Failed: ${failed.length}`);
+  for (const s of ambiguous) {
+    const stats = providerBreakdown[s.provider] || (providerBreakdown[s.provider] = { identified: 0, ambiguous: 0, persistFailed: 0 });
+    stats.ambiguous += 1;
+    if (s.persistFailed) stats.persistFailed += 1;
+  }
+  console.log(`✅ Sent: ${accepted.length} identified, ${ambiguous.length} ambiguous (provider-accepted=${sent.length}), Failed: ${failed.length}`);
   if (Object.keys(providerBreakdown).length > 0) {
-    console.log(`   Breakdown: ${Object.entries(providerBreakdown).map(([k, v]) => `${k}=${v}`).join(', ')}`);
+    console.log(`   Breakdown: ${Object.entries(providerBreakdown).map(([k, v]) => `${k}=identified:${v.identified},ambiguous:${v.ambiguous}${v.persistFailed ? `,persistFailed:${v.persistFailed}` : ''}`).join(', ')}`);
   }
   // Per-message scheduled-send breakdown (feature #3798): how many of the
   // successful sends were actually deferred provider-side vs sent immediately.
@@ -1613,8 +1651,8 @@ export async function sendEmailCascade(emails, opts = {}) {
   console.log(`   Scheduling: scheduled=${scheduledCount}, immediate=${immediateCount}`);
 
   return adaptiveThrottle
-    ? { sent, accepted, ambiguous, failed, adaptiveThrottle: adaptiveThrottle.snapshot() }
-    : { sent, accepted, ambiguous, failed };
+    ? { sent, accepted, ambiguous, failed, providerBreakdown, adaptiveThrottle: adaptiveThrottle.snapshot() }
+    : { sent, accepted, ambiguous, failed, providerBreakdown };
 }
 
 // ── Stats ────────────────────────────────────────────────────
