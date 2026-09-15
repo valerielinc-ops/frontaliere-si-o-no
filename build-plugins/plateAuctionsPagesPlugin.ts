@@ -18,6 +18,7 @@ import { shouldPlaceInfeedAd } from '../services/adsenseSlots';
 import { buildSitemapIndexXml, discoverSitemapFiles } from './sitemapAliasPlugin';
 import { SITEMAP_SHARD_CAP, padShardIndex } from '../scripts/lib/sitemap-limits.mjs';
 import { buildPlateAuctionPath, allPlateAuctionCantonCodes } from '../services/plateAuctions/paths';
+import { validatePlateAuctionSourcesRegistry } from '../services/plateAuctions/types';
 import type {
   PlateAuctionSourceStatus,
   PlateAuctionSourcesRegistry,
@@ -65,8 +66,8 @@ function readSnapshot(rootDir: string): Snapshot {
 }
 function readSourceRegistry(rootDir: string): PlateAuctionSourcesRegistry | null {
   try {
-    const registry = JSON.parse(fs.readFileSync(np.join(rootDir, 'data', 'plate-auction-sources-registry.json'), 'utf8')) as PlateAuctionSourcesRegistry;
-    return registry && typeof registry.sources === 'object' ? registry : null;
+    const registry: unknown = JSON.parse(fs.readFileSync(np.join(rootDir, 'data', 'plate-auction-sources-registry.json'), 'utf8'));
+    return validatePlateAuctionSourcesRegistry(registry).length === 0 ? registry as PlateAuctionSourcesRegistry : null;
   } catch {
     return null;
   }
@@ -99,7 +100,7 @@ function renderCoverageSection(registry: PlateAuctionSourcesRegistry | null, ent
   const registryStamp = registry?.generatedAt ? `<p>${esc(copy.registryUpdated)}: ${esc(formatDate(registry.generatedAt, locale))}</p>` : '';
   const rows = entries.map((entry) => {
     const updated = entry.lastUpdatedAt ? ` <span>${esc(copy.lastUpdated)}: ${esc(formatDate(entry.lastUpdatedAt, locale))}</span>` : '';
-    const cantonName = CANTON_NAMES[entry.plateCode]?.[locale] || entry.canton;
+    const cantonName = CANTON_NAMES[entry.plateCode.toUpperCase()]?.[locale] || entry.canton;
     return `<li data-canton-status="${esc(entry.status)}"><strong>${esc(cantonName)} (${esc(entry.plateCode)})</strong> — ${esc(copy.status)}: ${esc(sourceStatusLabel(entry.status, locale))}.${updated} <a href="${esc(entry.officialUrl)}" style="${LINK_ACCENT_STYLE}" rel="noopener noreferrer" target="_blank">${esc(copy.official)}</a></li>`;
   }).join('');
   const content = entries.length > 0

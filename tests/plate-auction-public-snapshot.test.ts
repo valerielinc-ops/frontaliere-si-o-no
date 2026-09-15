@@ -51,6 +51,15 @@ const row = (overrides: Record<string, unknown> = {}) => ({
 });
 
 describe("public plate-auction snapshot source gating", () => {
+  it("matches active sources case-insensitively", async () => {
+    const snapshot = await getPublicPlateAuctionSnapshot(
+      makeDb({ auctions: [row({ sourceKey: "zh", platePrefix: "zh" })] }) as never,
+    );
+
+    expect(snapshot.auctions).toHaveLength(1);
+    expect(snapshot.auctions[0].sourceKey).toBe("zh");
+  });
+
   it("does not resurrect rows or degraded status from a blocked source", async () => {
     const snapshot = await getPublicPlateAuctionSnapshot(
       makeDb({

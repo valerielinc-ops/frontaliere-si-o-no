@@ -106,6 +106,19 @@ describe('plate-auction static pages', () => {
     expect(rendered.html).toContain('https://eauktion.gr.ch/');
   });
 
+  it('fails closed when the source registry is malformed', () => {
+    const rootDir = fixtureRoot();
+    writeFileSync(join(rootDir, 'data', 'plate-auction-sources-registry.json'), JSON.stringify({
+      generatedAt: '2026-09-13T12:00:00.000Z',
+      sources: null,
+    }), 'utf8');
+
+    const rendered = renderPlateAuctionPage({ locale: 'it', view: 'hub', rootDir });
+    expect(rendered.html).toContain('Il registro delle fonti cantonali non è disponibile');
+    expect(rendered.html).not.toContain('<table>');
+    expect(rendered.html).not.toContain('GR8');
+  });
+
   it('uses verified history for rankings and keeps the live row out', () => {
     const rootDir = fixtureRoot();
     const rendered = renderPlateAuctionPage({ locale: 'it', view: 'rankings', rootDir });
