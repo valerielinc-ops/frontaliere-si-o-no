@@ -2164,6 +2164,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'farmacie-confine-italia-como-varese-verbano': { it: 'farmacie-confine-italia-como-varese-verbano', en: 'border-pharmacies-como-varese-verbano', de: 'grenzapotheken-como-varese-verbano', fr: 'pharmacies-frontiere-come-varese-verbano' },
  'farmacia-aperta-turno-elenco': { it: 'farmacia-aperta-turno-elenco', en: 'open-pharmacy-duty-directory-guide', de: 'apotheke-geoeffnet-notdienst-verzeichnis', fr: 'pharmacie-ouverte-garde-repertoire' },
  'cartella-sanitaria-mercosur-parlamento': { it: 'cartella-sanitaria-mercosur-parlamento', en: 'health-record-mercosur-parliament', de: 'gesundheitsakte-mercosur-parlament', fr: 'dossier-sante-mercosur-parlement' },
+ 'consiglio-nazionale-cartella-sanitaria': { it: 'consiglio-nazionale-cartella-sanitaria', en: 'national-council-electronic-health-record', de: 'nationalrat-elektronische-gesundheitsakte', fr: 'conseil-national-dossier-sante-electronique' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

@@ -6423,6 +6423,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.cartella-sanitaria-mercosur-parlamento.title': 'Il sì del Nazionale alla cartella sanitaria elettronica',
     'blog.article.cartella-sanitaria-mercosur-parlamento.excerpt': 'Approvata in Parlamento la cartella sanitaria elettronica, l\'accordo Mercosur e i fondi per l\'agricoltura svizzera.',
     'blog.article.cartella-sanitaria-mercosur-parlamento.imageAlt': 'Il Palazzo federale a Berna durante i dibattiti parlamentari federali sulla sanità',
+    'blog.article.consiglio-nazionale-cartella-sanitaria.title': 'Nuova cartella sanitaria elettronica: ok del Consiglio nazionale',
+    'blog.article.consiglio-nazionale-cartella-sanitaria.excerpt': 'Approvata la legge per la nuova cartella sanitaria elettronica in Svizzera. Sostituirà la precedente infrastruttura entro il 2030.',
+    'blog.article.consiglio-nazionale-cartella-sanitaria.imageAlt': 'Nuova cartella sanitaria elettronica approvata in Svizzera',
 };
 
 export default blogMetaChIt;
