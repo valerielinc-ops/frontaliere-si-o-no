@@ -362,6 +362,8 @@ if (MAX_INFLIGHT_FIX < REQUESTED_MAX_INFLIGHT_FIX) {
 }
 
 const LBL_QUEUED = 'agent:fix-queued';
+const LBL_OPERATIONS_AUDIT = 'operations-audit';
+const LBL_OPERATIONS_AUDIT_REVIEW = 'operations-audit-review';
 const LBL_FIX = 'agent:fix';
 const LBL_PARKED = 'fu-parked';
 // Claim condiviso con `/fix-issue` locale e con i fixer remoti. Il drainer
@@ -1660,6 +1662,30 @@ export function findOverlapFile(paths, prFilesMap) {
 export function isQueueManaged(iss) {
   const ls = (iss?.labels || []).map((l) => l.name);
   return classifyIssue(iss?.title, ls).route === 'queue';
+}
+
+/**
+ * Pin che deve restare fuori dalla coda del fixer, salvo il caso L11 in cui
+ * `agent:no-age-out` protegge la durata del tracker ma `agent:fix-queued` è la
+ * decisione esplicita dell'audit di instradare un errore provato.
+ *
+ * `operations-audit-review` resta un veto: se il sincronizzatore non è riuscito
+ * a togliere una vecchia label di coda, un warning-only non deve diventare un
+ * fix per errore. `keep-open` resta inoltre più forte del route L11.
+ * Pura → testabile.
+ * @param {{labels?: Array<{name?: string}|string>}} iss
+ */
+export function isPinnedOutsideDrainerQueue(iss) {
+  const labels = names(iss);
+  const pins = new Set(labels
+    .filter((label) => isFixerExempt([label]))
+    .map((label) => String(label).toLowerCase()));
+  const auditFixQueued = labels.includes(LBL_OPERATIONS_AUDIT)
+    && labels.includes(LBL_QUEUED)
+    && !labels.includes(LBL_OPERATIONS_AUDIT_REVIEW)
+    && pins.size === 1
+    && pins.has('agent:no-age-out');
+  return pins.size > 0 && !auditFixQueued;
 }
 
 /**
@@ -4453,11 +4479,15 @@ export function runDrain() {
     // nessuna chiamata gh extra. `classifyIssue` non le instrada PIÙ, ma quelle
     // già in coda quando il pin è stato messo (o messo dopo l'accodamento) ci
     // resterebbero per sempre: la coda si legge per label, non si ri-classifica.
+    // Eccezione bounded L11: `agent:no-age-out` conserva la durata del tracker,
+    // mentre `operations-audit` + `agent:fix-queued` senza review è la prova
+    // esplicita che l'errore va nel normale issue→PR. Un warning-only con una
+    // vecchia queue label resta comunque pinnato e viene disaccodato.
     // Le disaccodo invece di parcheggiarle — `fu-parked` significa «lavoro
     // sospeso», e un tracker su causa esterna non è lavoro sospeso: è una
     // condizione da osservare. Senza `agent:fix-queued` esce da qui e da ogni
     // stadio del drainer, e resta aperta come il pin chiede.
-    if (isFixerExempt(names(cand))) {
+    if (isPinnedOutsideDrainerQueue(cand)) {
       const pins = names(cand).filter((n) => isFixerExempt([n])).join(', ');
       console.log(`DISACCODO #${cand.number} (pin ${pins}) → tracker su causa esterna, nessun run del fixer`);
       const note = `📌 **Pre-flight drainer (zero-Claude, #7648)**: questa issue porta \`${pins}\` — un pin che la dichiara tracker su una causa esterna al repository. Nessun turn-budget la chiude, perché l'input che manca non è codice; promuoverla spende un run Max per ri-scoprire ogni volta la stessa attesa, e rischia di chiudere ciò che il pin vuole tenere aperto.\n\n**Non promuovo e non parcheggio**: \`fu-parked\` vorrebbe dire «lavoro sospeso», e questo non lo è. Rimuovo solo le label di routing; la issue resta aperta e visibile. Togli il pin quando la causa esterna si sblocca e il triage la ri-accoda normalmente.\n\n<!-- FIX_OUTCOME: revenue-tracker-manual -->`;

@@ -1352,7 +1352,6 @@
         "grand-vendeur-addetto-alle-vendite-senior-roger-dubuis-geneva",
         "grand-vendeur-associato-senior-alle-vendite-roger-dubuis-geneva",
         "senior-sales-associate-richemont-geneva-n74jn7",
-        "leitender-vertriebsmitarbeiter-cartier-geneva",
         "senior-sales-associate-cartier-geneva"
       ],
       "previousSlugsByLocale": {
@@ -1371,7 +1370,6 @@
         ],
         "de": [
           "senior-verkaufsmitarbeiter-cartier-geneva",
-          "leitender-vertriebsmitarbeiter-cartier-geneva",
           "senior-sales-associate-cartier-geneva"
         ],
         "fr": [
@@ -1453,14 +1451,12 @@
         ],
         "de": [
           "beschaffungsprozess-manager-richemont-plan-les-ouates",
-          "beschaffungsprozessmanager-richemont-plan-les-ouates",
           "procurement-process-manager-richemont-plan-les-ouates"
         ]
       },
       "previousSlugs": [
         "procurement-process-manager-richemont-plan-les-ouates",
-        "beschaffungsprozess-manager-richemont-plan-les-ouates",
-        "beschaffungsprozessmanager-richemont-plan-les-ouates"
+        "beschaffungsprozess-manager-richemont-plan-les-ouates"
       ],
       "firstSeenAt": "2026-08-10T21:54:47.042Z",
       "salaryMin": 83500,
@@ -3738,14 +3734,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "procurement-category-manager-richemont-plan-les-ouates-2",
-        "procurement-category-manager-richemont-plan-les-ouates",
-        "procurement-category-manager-piaget-plan-les-ouates"
+        "procurement-category-manager-richemont-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
           "procurement-category-manager-richemont-plan-les-ouates-2",
-          "procurement-category-manager-richemont-plan-les-ouates",
-          "procurement-category-manager-piaget-plan-les-ouates"
+          "procurement-category-manager-richemont-plan-les-ouates"
         ],
         "de": [
           "procurement-category-manager-richemont-plan-les-ouates-2"
@@ -8485,7 +8479,7 @@
       "slugByLocale": {
         "it": "acquisire-excellence-manager-van-cleef-arpels-meyrin",
         "en": "purchasing-excellence-manager-richemont-meyrin",
-        "de": "purchasing-excellence-manager-richemont-meyrin",
+        "de": "vereinigtes-konigreich-van-cleef-arpels-meyrin",
         "fr": "gestionnaire-de-l-excellence-des-achats-van-cleef-arpels-meyrin"
       },
       "company": "Van Cleef & Arpels",
@@ -8539,6 +8533,9 @@
           "purchasing-excellence-manager-van-cleef-arpels-meyrin"
         ],
         "fr": [
+          "purchasing-excellence-manager-richemont-meyrin"
+        ],
+        "de": [
           "purchasing-excellence-manager-richemont-meyrin"
         ]
       },
@@ -10338,20 +10335,6 @@
       "jobReqId": "jr132699",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "it": [
-          "specialiste-analyses-materiaux-richemont-glovelier"
-        ],
-        "en": [
-          "specialiste-analyses-materiaux-richemont-glovelier"
-        ],
-        "de": [
-          "specialiste-analyses-materiaux-richemont-glovelier"
-        ]
-      },
-      "previousSlugs": [
-        "specialiste-analyses-materiaux-richemont-glovelier"
-      ],
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3118,
       "retranslationAttempts": 12,
@@ -11900,12 +11883,10 @@
         "fr": [
           "gestionnaire-de-boutiques-iwc-zurich",
           "boutique-manager-richemont-zurich",
-          "directeur-de-la-boutique-iwc-zurich",
           "boutique-assistant-richemont-zurich"
         ],
         "it": [
           "boutique-manager-richemont-zurich",
-          "manager-di-boutique-iwc-zurich",
           "assistente-di-boutique-van-cleef-arpels-zurich",
           "assistant-shop-van-cleef-arpels-zurich",
           "boutique-assistent-van-cleef-arpels-zurich",
@@ -11922,8 +11903,6 @@
       "previousSlugs": [
         "boutique-manager-richemont-zurich",
         "gestionnaire-de-boutiques-iwc-zurich",
-        "directeur-de-la-boutique-iwc-zurich",
-        "manager-di-boutique-iwc-zurich",
         "assistente-di-boutique-van-cleef-arpels-zurich",
         "assistant-shop-van-cleef-arpels-zurich",
         "boutique-assistent-van-cleef-arpels-zurich",
