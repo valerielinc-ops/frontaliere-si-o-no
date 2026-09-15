@@ -85,6 +85,12 @@ describe('PostHog smoke tests', () => {
 
     // Autocapture disabled — explicit events only.
     expect(opts.autocapture).toBe(false);
+
+    // Quota controls: replay is capped locally and analytics sampling is
+    // installed as a second before_send hook after benign-error filtering.
+    expect(opts.session_recording.sampleRate).toBe(0.05);
+    expect(Array.isArray(opts.before_send)).toBe(true);
+    expect(opts.before_send).toHaveLength(2);
   });
 
   it('capturePageView() emits a $pageview event with $current_url + title', async () => {
