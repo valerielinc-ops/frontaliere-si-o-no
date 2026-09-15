@@ -147119,7 +147119,9 @@
     "createdAt": "2026-06-29",
     "slugByLocale": {
       "fr": "aine-gestionnaire-prix-de-transfert-pwc-switzerland-zurich",
-      "en": "senior-manager-transfer-pricing-pwc-zurich"
+      "en": "senior-manager-transfer-pricing-pwc-zurich",
+      "it": "manager-senior-prezzi-di-trasferimento-pwc-switzerland-zurich",
+      "de": "senior-manager-transferpreise-pwc-switzerland-zurich"
     }
   },
   "id|pwc.ch|ae9bd178-3b8b-46bf-9717-5d709518a4e3": {
@@ -186329,7 +186331,7 @@
     "canton": "ZH",
     "createdAt": "2026-07-03",
     "slugByLocale": {
-      "de": "client-advisor-wm-apac-switzerland-china-team-in-zurich-ubs-zurich",
+      "de": "kundenberater-wm-apac-schweiz-china-team-in-zurich-ubs-zurich",
       "en": "client-advisor-wm-apac-switzerland-china-team-in-zurich-ubs-zurich",
       "fr": "conseiller-client-wm-apac-suisse-equipe-chine-a-zurich-ubs-zurich",
       "it": "client-advisor-wm-apac-svizzera-team-cina-a-zurigo-ubs-zurich"
@@ -186341,7 +186343,8 @@
     "createdAt": "2026-07-03",
     "slugByLocale": {
       "fr": "conseiller-client-wm-apac-suisse-equipe-taiwan-a-zurich-ubs-zurich",
-      "en": "client-advisor-wm-apac-switzerland-taiwan-team-in-zurich-ubs-zurich"
+      "en": "client-advisor-wm-apac-switzerland-taiwan-team-in-zurich-ubs-zurich",
+      "de": "kundenberater-wm-apac-schweiz-taiwan-team-in-zurich-ubs-zurich"
     }
   },
   "id|ubs.com|339845": {
@@ -280576,7 +280579,7 @@
     "slugByLocale": {
       "it": "tirocinio-fuori-ciclo-2026-consulenza-interna-di-gruppo-zurigo-ubs-zurich",
       "en": "2026-off-cycle-internship-group-internal-consulting-zurich-ubs-zurich",
-      "de": "2026-off-cycle-internship-group-internal-consulting-zurich-ubs-zurich",
+      "de": "2026-off-cycle-praktikum-group-internal-consulting-zurich-ubs-zurich",
       "fr": "2026-stage-hors-cycle-conseils-internes-de-groupe-zurich-ubs-zurich"
     },
     "createdAt": "2026-07-07",
@@ -415758,7 +415761,8 @@
     "slugByLocale": {
       "it": "acquisire-excellence-manager-van-cleef-arpels-meyrin",
       "fr": "gestionnaire-de-l-excellence-des-achats-van-cleef-arpels-meyrin",
-      "en": "purchasing-excellence-manager-richemont-meyrin"
+      "en": "purchasing-excellence-manager-richemont-meyrin",
+      "de": "vereinigtes-konigreich-van-cleef-arpels-meyrin"
     },
     "createdAt": "2026-07-28",
     "canton": "GE"
@@ -483295,7 +483299,8 @@
     "slugByLocale": {
       "en": "senior-associate-treasury-strategy-technology-pwc-zurich",
       "it": "senior-associate-strategia-del-tesoro-tecnologia-pwc-switzerland-zurich",
-      "fr": "associe-principal-strategie-de-tresorerie-et-technologie-pwc-switzerland-zurich"
+      "fr": "associe-principal-strategie-de-tresorerie-et-technologie-pwc-switzerland-zurich",
+      "de": "senior-associate-treasury-strategie-und-technologie-pwc-switzerland-zurich"
     },
     "createdAt": "2026-08-10",
     "canton": "ZH"
@@ -512859,7 +512864,8 @@
     "slugByLocale": {
       "it": "manager-cloud-data-ai-cloud-data-platform-architetto-pwc-switzerland-zurich",
       "en": "manager-cloud-data-ai-cloud-data-platform-architect-pwc-zurich",
-      "fr": "manager-cloud-data-ai-cloud-data-platform-architecte-pwc-switzerland-zurich"
+      "fr": "manager-cloud-data-ai-cloud-data-platform-architecte-pwc-switzerland-zurich",
+      "de": "manager-cloud-data-ki-cloud-und-datenplattform-architekt-pwc-switzerland-zurich"
     },
     "createdAt": "2026-08-14",
     "canton": "ZH"
@@ -512868,7 +512874,8 @@
     "canonicalSlug": "manager-senior-manager-cloud-data-ai-cd-ai-data-engineering-pwc-zurich",
     "slugByLocale": {
       "en": "manager-senior-manager-cloud-data-ai-cd-ai-data-engineering-pwc-zurich",
-      "fr": "gestionnaire-gestionnaire-principal-cloud-data-ai-cd-ai-ingenierie-des-donnees-pwc-switzerland-zurich"
+      "fr": "gestionnaire-gestionnaire-principal-cloud-data-ai-cd-ai-ingenierie-des-donnees-pwc-switzerland-zurich",
+      "it": "manager-senior-manager-cloud-dati-e-intelligenza-artificiale-cd-ai-ingegneria-dei-dati-pwc-switzerland-zurich"
     },
     "createdAt": "2026-08-14",
     "canton": "ZH"
@@ -512877,7 +512884,8 @@
     "canonicalSlug": "manager-senior-manager-sap-business-transformation-architecture-pwc-zurich",
     "slugByLocale": {
       "en": "manager-senior-manager-sap-business-transformation-architecture-pwc-zurich",
-      "fr": "gestionnaire-gestionnaire-principal-transformation-operationnelle-et-architecture-sap-pwc-switzerland-zurich"
+      "fr": "gestionnaire-gestionnaire-principal-transformation-operationnelle-et-architecture-sap-pwc-switzerland-zurich",
+      "it": "manager-senior-manager-sap-trasformazione-e-architettura-del-business-sap-pwc-switzerland-zurich"
     },
     "createdAt": "2026-08-14",
     "canton": "ZH"
@@ -537956,7 +537964,10 @@
   "id|ems-group.com|0dac06fc-8d42-4700-9df4-0cabc77f489d": {
     "canonicalSlug": "verkaufscontroller-m-w-d-100-ems-chemie-domat-ems",
     "slugByLocale": {
-      "it": "verkaufscontroller-m-w-d-100-ems-chemie-domat-ems"
+      "it": "verkaufscontroller-m-w-d-100-ems-chemie-domat-ems",
+      "en": "sales-controller-m-w-d-100-ems-chemie-ag-domat-ems",
+      "de": "139ler-m-w-d-100-ems-chemie-ag-domat-ems",
+      "fr": "controleur-de-ventes-h-f-d-100-ems-chemie-ag-domat-ems"
     },
     "createdAt": "2026-08-19",
     "canton": "GR"
@@ -556969,7 +556980,8 @@
   "id|ubs.com|349636": {
     "canonicalSlug": "sap-s-4hana-general-ledger-consolidation-specialist-ubs-zurich",
     "slugByLocale": {
-      "en": "sap-s-4hana-general-ledger-consolidation-specialist-ubs-zurich"
+      "en": "sap-s-4hana-general-ledger-consolidation-specialist-ubs-zurich",
+      "fr": "consolidation-senior-groupe-sap-s-4hana-pme-declarantes-ubs-zurich"
     },
     "createdAt": "2026-08-25",
     "canton": "ZH"
@@ -562366,7 +562378,8 @@
   "id|ubs.com|348927": {
     "canonicalSlug": "ubs-card-center-senior-sales-client-advisor-cards-100-w-m-d-ubs-zurich",
     "slugByLocale": {
-      "de": "ubs-card-center-senior-sales-client-advisor-cards-100-w-m-d-ubs-zurich"
+      "de": "ubs-card-center-senior-sales-client-advisor-cards-100-w-m-d-ubs-zurich",
+      "fr": "centre-de-cartes-ubs-cartes-de-conseillers-clients-de-ventes-seniors-100-h-f-d-ubs-zurich"
     },
     "createdAt": "2026-08-26",
     "canton": "ZH"
@@ -601983,7 +601996,10 @@
   "url|https://jobs.dualoo.com/portal/3ibnwlo9/0f84dc0a-aebd-499f-964f-415dbe22fb1f/detail?lang=de": {
     "canonicalSlug": "assistenzarztin-assistenzarzt-w-m-d-60-klinik-aadorf-aadorf",
     "slugByLocale": {
-      "de": "assistenzarztin-assistenzarzt-w-m-d-60-klinik-aadorf-aadorf"
+      "de": "assistenzarztin-assistenzarzt-w-m-d-60-klinik-aadorf-aadorf",
+      "it": "assistancer-assistancer-m-f-d-60-klinik-aadorf-aadorf",
+      "en": "assistancer-assistancer-m-f-d-60-klinik-aadorf-aadorf",
+      "fr": "assistance-assistance-h-f-d-60-klinik-aadorf-aadorf"
     },
     "createdAt": "2026-08-27",
     "canton": "TG"
@@ -601991,7 +602007,9 @@
   "url|https://jobs.dualoo.com/portal/3ibnwlo9/ec61d00e-038b-4056-b9b4-7b3dfe0b3821/detail?lang=de": {
     "canonicalSlug": "psychologin-psychologe-station-via-nova-w-m-d-70-klinik-aadorf-aadorf",
     "slugByLocale": {
-      "de": "psychologin-psychologe-station-via-nova-w-m-d-70-klinik-aadorf-aadorf"
+      "de": "psychologin-psychologe-station-via-nova-w-m-d-70-klinik-aadorf-aadorf",
+      "it": "psychologin-stychologe-via-nova-m-f-d-70-klinik-aadorf-aadorf",
+      "fr": "phychologine-phychologe-station-via-nova-h-f-d-70-klinik-aadorf-aadorf"
     },
     "createdAt": "2026-08-27",
     "canton": "TG"
@@ -603686,7 +603704,8 @@
   "id|ubs.com|349406": {
     "canonicalSlug": "ubs-card-center-senior-hardware-security-module-engineer-80-100-ubs-zurich",
     "slugByLocale": {
-      "en": "ubs-card-center-senior-hardware-security-module-engineer-80-100-ubs-zurich"
+      "en": "ubs-card-center-senior-hardware-security-module-engineer-80-100-ubs-zurich",
+      "fr": "ubs-card-center-ingenieur-principal-du-module-de-securite-materielle-80-100-ubs-zurich"
     },
     "createdAt": "2026-08-27",
     "canton": "ZH"
@@ -630968,7 +630987,8 @@
     "slugByLocale": {
       "de": "carrosseriespengler-in-mit-selbststandiger-arbeitsweise-fachkraft-ch",
       "en": "carrosseriespengler-with-independent-working-method-fachkraft-ch-gmbh-baden-aargau",
-      "fr": "carrosseriespengler-avec-methode-de-travail-independante-fachkraft-ch-gmbh-baden-aargau"
+      "fr": "carrosseriespengler-avec-methode-de-travail-independante-fachkraft-ch-gmbh-baden-aargau",
+      "it": "lattoniere-a-di-carrozzeria-con-modalita-di-lavoro-indipendente-fachkraft-ch-gmbh-baden-aargau"
     },
     "createdAt": "2026-08-27",
     "canton": "TI"
@@ -637255,7 +637275,10 @@
   "id|ems-group.com|bfcd16eb-1a00-4444-9ddc-2f9be9347fa4": {
     "canonicalSlug": "raumpfleger-m-w-d-20-ems-chemie-domat-ems",
     "slugByLocale": {
-      "it": "raumpfleger-m-w-d-20-ems-chemie-domat-ems"
+      "it": "raumpfleger-m-w-d-20-ems-chemie-domat-ems",
+      "en": "room-cleaner-m-w-d-20-ems-chemie-ag-domat-ems",
+      "de": "raspfleger-m-w-d-20-ems-chemie-ag-domat-ems",
+      "fr": "agent-de-nettoyage-m-f-d-20-ems-chemie-ag-domat-ems"
     },
     "createdAt": "2026-08-28",
     "canton": "GR"
@@ -654414,7 +654437,8 @@
     "canonicalSlug": "manager-social-security-payroll-accounting-pwc-zurich",
     "slugByLocale": {
       "de": "manager-social-security-payroll-accounting-pwc-zurich",
-      "fr": "gestionnaire-securite-sociale-et-comptabilite-de-la-paie-pwc-switzerland-zurich"
+      "fr": "gestionnaire-securite-sociale-et-comptabilite-de-la-paie-pwc-switzerland-zurich",
+      "it": "gestore-contabilita-della-previdenza-sociale-e-dei-salari-pwc-switzerland-zurich"
     },
     "createdAt": "2026-09-07",
     "canton": "ZH"
@@ -673571,7 +673595,9 @@
     "canonicalSlug": "chef-de-partie-100-spruengli-zurich",
     "slugByLocale": {
       "de": "chef-de-partie-100-spruengli-zurich",
-      "fr": "chef-de-partie-100-confiserie-sprungli-ag-zurich"
+      "fr": "chef-de-partie-100-confiserie-sprungli-ag-zurich",
+      "it": "capo-della-sezione-specializzata-1010-confiserie-sprungli-ag-zurich",
+      "en": "head-of-party-1010-confiserie-sprungli-ag-zurich"
     },
     "createdAt": "2026-09-08",
     "canton": "ZH"
@@ -704604,7 +704630,8 @@
     "canonicalSlug": "gestione-della-struttura-di-piombo-svizzera-m-f-d-80-100-abb-svizzera-sede-ticino-baden-aargau",
     "slugByLocale": {
       "it": "gestione-della-struttura-di-piombo-svizzera-m-f-d-80-100-abb-svizzera-sede-ticino-baden-aargau",
-      "en": "lead-facility-management-switzerland-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau-tvxofn"
+      "en": "lead-facility-management-switzerland-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau-tvxofn",
+      "fr": "gestion-des-installations-de-pointe-suisse-h-f-d-80-100-abb-svizzera-sede-ticino-baden-aargau"
     },
     "createdAt": "2026-09-11",
     "canton": "AG"
@@ -720876,7 +720903,8 @@
   "id|ems-group.com|5608412e-903b-48f7-bd6c-f5f87287a3f0": {
     "canonicalSlug": "senior-financial-accountant-fachspezialist-rechnungswesen-m-w-d-100-ems-chemie-domat-ems",
     "slugByLocale": {
-      "it": "senior-financial-accountant-fachspezialist-rechnungswesen-m-w-d-100-ems-chemie-domat-ems"
+      "it": "senior-financial-accountant-fachspezialist-rechnungswesen-m-w-d-100-ems-chemie-domat-ems",
+      "fr": "comptable-financier-principal-comptable-specialiste-h-f-d-100-ems-chemie-ag-domat-ems"
     },
     "createdAt": "2026-09-14",
     "canton": "GR"
@@ -723905,6 +723933,451 @@
     "canonicalSlug": "senior-iam-business-analyst-80-100-six-group-zurich",
     "slugByLocale": {
       "en": "senior-iam-business-analyst-80-100-six-group-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "url|https://jobs.dualoo.com/portal/3ibnwlo9/41921d06-3a31-4c81-a961-7a46ba6e54b2/detail?lang=de": {
+    "canonicalSlug": "cooperato-service-cooperato-m-f-d-60-klinik-aadorf-aadorf",
+    "slugByLocale": {
+      "it": "cooperato-service-cooperato-m-f-d-60-klinik-aadorf-aadorf",
+      "en": "cooperate-cooperate-service-m-f-d-60-klinik-aadorf-aadorf",
+      "de": "mitarbeiterin-mitarbeiter-hausdienst-w-m-d-60-klinik-aadorf-aadorf",
+      "fr": "cooperate-cooperate-service-h-f-d-60-klinik-aadorf-aadorf"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "TG"
+  },
+  "id|ubs.com|350745": {
+    "canonicalSlug": "2027-internship-gwm-emea-strategy-execution-growth-initiatives-ubs-zurich",
+    "slugByLocale": {
+      "en": "2027-internship-gwm-emea-strategy-execution-growth-initiatives-ubs-zurich",
+      "fr": "2027-stage-gwm-emea-strategie-execution-et-initiatives-de-croissance-ubs-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|ubs.com|342774": {
+    "canonicalSlug": "2026-off-cycle-internship-p-c-marketing-digital-sales-zurich-ubs-zurich",
+    "slugByLocale": {
+      "en": "2026-off-cycle-internship-p-c-marketing-digital-sales-zurich-ubs-zurich",
+      "fr": "2026-stage-hors-cycle-marketing-p-c-et-ventes-numeriques-zurich-ubs-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|ubs.com|350708": {
+    "canonicalSlug": "2027-internship-ib-global-markets-execution-sales-zurich-ubs-zurich",
+    "slugByLocale": {
+      "en": "2027-internship-ib-global-markets-execution-sales-zurich-ubs-zurich",
+      "fr": "2027-stage-ventes-d-execution-de-marches-mondiaux-ib-zurich-ubs-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|ubs.com|350729": {
+    "canonicalSlug": "2027-stage-gestione-delle-vendite-gestione-della-ricchezza-ch-zurigo-ubs-zurich",
+    "slugByLocale": {
+      "it": "2027-stage-gestione-delle-vendite-gestione-della-ricchezza-ch-zurigo-ubs-zurich",
+      "en": "2027-internship-sales-management-wealth-management-ch-zurich-ubs-zurich",
+      "fr": "2027-stage-gestion-des-ventes-gestion-de-patrimoine-ch-zurich-ubs-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|ubs.com|350738": {
+    "canonicalSlug": "2027-stage-intermediari-finanziari-globali-europa-zh-ubs-zurich",
+    "slugByLocale": {
+      "it": "2027-stage-intermediari-finanziari-globali-europa-zh-ubs-zurich",
+      "en": "2027-internship-global-financial-intermediaries-europe-zh-ubs-zurich",
+      "fr": "2027-stage-intermediaires-financiers-mondiaux-europe-zh-ubs-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|ubs.com|350739": {
+    "canonicalSlug": "2027-stage-capo-di-stato-maggiore-wmch-zurigo-ubs-zurich",
+    "slugByLocale": {
+      "it": "2027-stage-capo-di-stato-maggiore-wmch-zurigo-ubs-zurich",
+      "en": "2027-internship-chief-of-staff-wmch-zurich-ubs-zurich",
+      "de": "2027-praktikum-stabschef-wmch-zurich-ubs-zurich",
+      "fr": "2027-stage-chef-de-cabinet-wmch-zurich-ubs-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|ubs.com|350747": {
+    "canonicalSlug": "2027-internship-ib-global-markets-advisory-sales-zurich-ubs-zurich",
+    "slugByLocale": {
+      "en": "2027-internship-ib-global-markets-advisory-sales-zurich-ubs-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|ubs.com|350752": {
+    "canonicalSlug": "2027-stage-ufficio-operativo-gwm-lending-zurigo-ubs-zurich",
+    "slugByLocale": {
+      "it": "2027-stage-ufficio-operativo-gwm-lending-zurigo-ubs-zurich",
+      "en": "2027-internship-operating-office-gwm-lending-zurich-ubs-zurich",
+      "fr": "2027-stage-bureau-d-exploitation-des-prets-gwm-zurich-ubs-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|ubs.com|350623": {
+    "canonicalSlug": "2027-internship-gwm-gfiw-bro-governance-and-frameworks-ubs-zurich",
+    "slugByLocale": {
+      "en": "2027-internship-gwm-gfiw-bro-governance-and-frameworks-ubs-zurich",
+      "fr": "2027-stage-gwm-gfiw-bro-gouvernance-et-cadres-ubs-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|ubs.com|350749": {
+    "canonicalSlug": "2027-programma-di-stage-group-legal-zurich-ubs-zurich",
+    "slugByLocale": {
+      "it": "2027-programma-di-stage-group-legal-zurich-ubs-zurich",
+      "en": "2027-internship-program-group-legal-zurich-ubs-zurich",
+      "de": "2027-praktikumsprogramm-group-legal-zurich-ubs-zurich",
+      "fr": "2027-programme-de-stage-group-legal-zurich-ubs-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|ubs.com|351024": {
+    "canonicalSlug": "2027-stage-gestione-account-cliente-wm-apac-ch-zurigo-ubs-zurich",
+    "slugByLocale": {
+      "it": "2027-stage-gestione-account-cliente-wm-apac-ch-zurigo-ubs-zurich",
+      "en": "2027-internship-client-account-management-wm-apac-ch-zurich-ubs-zurich",
+      "fr": "2027-stage-gestion-de-compte-client-wm-apac-ch-zurich-ubs-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|ubs.com|350395": {
+    "canonicalSlug": "2027-programma-di-stage-business-management-ic-as-zurich-ubs-zurich",
+    "slugByLocale": {
+      "it": "2027-programma-di-stage-business-management-ic-as-zurich-ubs-zurich",
+      "en": "2027-internship-program-business-management-ic-as-zurich-ubs-zurich",
+      "de": "2027-praktikumsprogramm-business-management-ic-as-zurich-ubs-zurich",
+      "fr": "2027-programme-de-stage-business-management-ic-as-zurich-ubs-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|ubs.com|350403": {
+    "canonicalSlug": "2027-programma-di-stage-relationship-mgmt-multinationals-zurich-ubs-zurich",
+    "slugByLocale": {
+      "it": "2027-programma-di-stage-relationship-mgmt-multinationals-zurich-ubs-zurich",
+      "en": "2027-internship-program-relationship-mgmt-multinationals-zurich-ubs-zurich",
+      "de": "2027-praktikumsprogramm-relationship-mgmt-multinationals-zurich-ubs-zurich",
+      "fr": "2027-programme-de-stage-relationship-mgmt-multinationals-zurich-ubs-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|ubs.com|350503": {
+    "canonicalSlug": "2027-graduate-talent-program-gwm-emea-cos-people-engagement-zh-ubs-zurich",
+    "slugByLocale": {
+      "en": "2027-graduate-talent-program-gwm-emea-cos-people-engagement-zh-ubs-zurich",
+      "fr": "2027-programme-des-talents-diplomes-gwm-emea-cos-engagement-des-personnes-zh-ubs-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|ubs.com|350509": {
+    "canonicalSlug": "2027-graduate-talent-program-gwm-marketing-business-risk-zh-ubs-zurich",
+    "slugByLocale": {
+      "en": "2027-graduate-talent-program-gwm-marketing-business-risk-zh-ubs-zurich",
+      "fr": "2027-programme-des-talents-diplomes-risque-commercial-du-gwm-zh-ubs-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|ubs.com|350511": {
+    "canonicalSlug": "2027-graduate-talent-program-wm-eastern-europe-israel-overseas-ubs-zurich",
+    "slugByLocale": {
+      "en": "2027-graduate-talent-program-wm-eastern-europe-israel-overseas-ubs-zurich",
+      "fr": "2027-programme-des-talents-diplomes-wm-europe-de-l-est-israel-et-outre-mer-ubs-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|ubs.com|350563": {
+    "canonicalSlug": "2027-graduate-talent-program-asset-management-investments-ubs-zurich",
+    "slugByLocale": {
+      "en": "2027-graduate-talent-program-asset-management-investments-ubs-zurich",
+      "fr": "2027-programme-des-talents-diplomes-investissements-en-gestion-d-actifs-ubs-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|ubs.com|350565": {
+    "canonicalSlug": "2027-graduate-talent-program-asset-management-uga-zh-ubs-zurich",
+    "slugByLocale": {
+      "en": "2027-graduate-talent-program-asset-management-uga-zh-ubs-zurich",
+      "fr": "2027-programme-de-talents-diplomes-gestion-d-actifs-uga-zh-ubs-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|ubs.com|350606": {
+    "canonicalSlug": "2027-graduate-talent-program-gwm-gfiw-europe-intl-uk-nordics-zh-ubs-zurich",
+    "slugByLocale": {
+      "en": "2027-graduate-talent-program-gwm-gfiw-europe-intl-uk-nordics-zh-ubs-zurich",
+      "fr": "2027-programme-de-talents-diplomes-gwm-gfiw-europe-intl-uk-nordiques-zh-ubs-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|ubs.com|350512": {
+    "canonicalSlug": "2027-graduate-talent-program-gwm-client-account-manager-apac-zh-ubs-zurich",
+    "slugByLocale": {
+      "en": "2027-graduate-talent-program-gwm-client-account-manager-apac-zh-ubs-zurich",
+      "fr": "2027-programme-des-talents-diplomes-gestionnaire-de-compte-client-gwm-apac-zh-ubs-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|ubs.com|350568": {
+    "canonicalSlug": "2027-graduate-talent-program-asset-management-etf-structuring-zh-ubs-zurich",
+    "slugByLocale": {
+      "en": "2027-graduate-talent-program-asset-management-etf-structuring-zh-ubs-zurich",
+      "fr": "2027-programme-des-talents-diplomes-gestion-d-actifs-etf-structure-zh-ubs-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|ubs.com|348440": {
+    "canonicalSlug": "ubs-card-center-ag-cloud-security-risk-engineer-100-w-m-d-ubs-zurich",
+    "slugByLocale": {
+      "en": "ubs-card-center-ag-cloud-security-risk-engineer-100-w-m-d-ubs-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|ubs.com|347961": {
+    "canonicalSlug": "rechtsanwalt-rechtsanwaltin-investment-bank-global-markets-legal-ubs-zurich",
+    "slugByLocale": {
+      "en": "rechtsanwalt-rechtsanwaltin-investment-bank-global-markets-legal-ubs-zurich",
+      "fr": "rechtsanwalt-rechtsanwaltin-banque-d-investissement-marches-mondiaux-legal-ubs-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|ubs.com|348953": {
+    "canonicalSlug": "remote-advisor-mortgage-remote-sales-advice-zurich-80-100-ubs-zurich",
+    "slugByLocale": {
+      "de": "remote-advisor-mortgage-remote-sales-advice-zurich-80-100-ubs-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|ubs.com|348828": {
+    "canonicalSlug": "programma-associato-client-advisor-wm-team-central-europe-ubs-zurich",
+    "slugByLocale": {
+      "it": "programma-associato-client-advisor-wm-team-central-europe-ubs-zurich",
+      "en": "associate-program-client-advisor-wm-team-central-europe-ubs-zurich",
+      "fr": "programme-associe-client-advisor-wm-team-europe-centrale-ubs-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|ubs.com|345580": {
+    "canonicalSlug": "strategy-operations-manager-asset-management-coo-ubs-zurich",
+    "slugByLocale": {
+      "en": "strategy-operations-manager-asset-management-coo-ubs-zurich",
+      "fr": "gestionnaire-de-la-strategie-et-des-operations-gestion-des-biens-ubs-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|ubs.com|350008": {
+    "canonicalSlug": "area-di-mercato-martigny-manager-verbier-ubs-valais",
+    "slugByLocale": {
+      "it": "area-di-mercato-martigny-manager-verbier-ubs-valais",
+      "en": "manager-martigny-market-area-verbier-ubs-valais",
+      "de": "manager-martigny-marktgebiet-verbier-ubs-valais",
+      "fr": "responsable-zone-de-marche-martigny-verbier-ubs-valais"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "VS"
+  },
+  "id|ubs.com|347724": {
+    "canonicalSlug": "media-relations-manager-gruppo-comunicazioni-esterne-ubs-zurich",
+    "slugByLocale": {
+      "it": "media-relations-manager-gruppo-comunicazioni-esterne-ubs-zurich",
+      "en": "media-relations-manager-group-external-communications-ubs-zurich",
+      "fr": "gestionnaire-des-relations-avec-les-medias-groupe-communications-externes-ubs-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|ubs.com|346359": {
+    "canonicalSlug": "iniziative-manager-migrazione-del-cliente-ubs-zurich",
+    "slugByLocale": {
+      "it": "iniziative-manager-migrazione-del-cliente-ubs-zurich",
+      "en": "initiative-manager-client-migration-ubs-zurich",
+      "de": "initiative-manager-kundenmigration-ubs-zurich",
+      "fr": "gestionnaire-d-initiative-migration-des-clients-ubs-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|ubs.com|349404": {
+    "canonicalSlug": "product-structuring-specialista-ubs-zurich",
+    "slugByLocale": {
+      "it": "product-structuring-specialista-ubs-zurich",
+      "en": "product-structuring-specialist-ubs-zurich",
+      "de": "product-structuring-spezialist-ubs-zurich",
+      "fr": "product-structuring-specialiste-ubs-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|ubs.com|350553": {
+    "canonicalSlug": "specialista-mortgage-e-registro-di-terra-80-100-ubs-zurich",
+    "slugByLocale": {
+      "it": "specialista-mortgage-e-registro-di-terra-80-100-ubs-zurich",
+      "en": "specialist-mortgage-and-land-registry-80-100-ubs-zurich",
+      "de": "spezialist-in-hypotheken-und-grundbuchwesen-80-100-ubs-zurich",
+      "fr": "registre-hypothecaire-et-foncier-specialise-80-100-ubs-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|ubs.com|349287": {
+    "canonicalSlug": "caldaia-planner-e-specialista-di-prevenzione-st-gallen-80-100-ubs-ostschweiz",
+    "slugByLocale": {
+      "it": "caldaia-planner-e-specialista-di-prevenzione-st-gallen-80-100-ubs-ostschweiz",
+      "en": "wealth-planner-and-prevention-specialist-st-gallen-80-100-ubs-ostschweiz",
+      "de": "wealth-planner-und-vorsorgespezialist-in-st-gallen-80-100-ubs-ostschweiz",
+      "fr": "planificateur-de-patrimoine-et-specialiste-de-la-prevention-st-gallen-80-100-ubs-ostschweiz"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "BS"
+  },
+  "id|pwc.ch|c0fbc28f-b2cd-48b2-a169-d1de2fa66aa4": {
+    "canonicalSlug": "career-start-audit-trade-industries-services-herbst-2027-pwc-switzerland-zug",
+    "slugByLocale": {
+      "it": "career-start-audit-trade-industries-services-herbst-2027-pwc-switzerland-zug",
+      "de": "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zug",
+      "fr": "debut-de-carriere-en-verification-commerce-industries-et-services-automne-2027-pwc-switzerland-zug"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZG"
+  },
+  "id|pwc.ch|729bb17f-88a7-45b7-95aa-33c762d3631a": {
+    "canonicalSlug": "inizio-carriera-in-audit-asset-management-autunno-2027-pwc-switzerland-zug",
+    "slugByLocale": {
+      "it": "inizio-carriera-in-audit-asset-management-autunno-2027-pwc-switzerland-zug",
+      "de": "career-start-in-audit-asset-management-herbst-2027-pwc-zug",
+      "fr": "debut-de-carriere-en-verification-gestion-d-actifs-automne-2027-pwc-switzerland-zug"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZG"
+  },
+  "id|pwc.ch|50afe67d-6ec3-4ef9-a1bf-66ba8952874d": {
+    "canonicalSlug": "inizio-carriera-in-audit-banking-autunno-2027-pwc-switzerland-luzern",
+    "slugByLocale": {
+      "it": "inizio-carriera-in-audit-banking-autunno-2027-pwc-switzerland-luzern",
+      "de": "career-start-in-audit-banking-herbst-2027-pwc-bern",
+      "fr": "debut-de-carriere-en-audit-banque-automne-2027-pwc-switzerland-luzern"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "BE"
+  },
+  "id|pwc.ch|a5b9666a-1b23-454b-9e6f-1ce51a1f8604": {
+    "canonicalSlug": "inizio-carriera-in-audit-assicurazione-autunno-2027-pwc-switzerland-zurich",
+    "slugByLocale": {
+      "it": "inizio-carriera-in-audit-assicurazione-autunno-2027-pwc-switzerland-zurich",
+      "de": "career-start-in-audit-insurance-herbst-2027-pwc-zurich",
+      "fr": "debut-de-carriere-en-audit-assurance-automne-2027-pwc-switzerland-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|pwc.ch|68724eb8-6d9d-43e8-b1d5-77832d6f6e51": {
+    "canonicalSlug": "direttore-cloud-data-ai-cd-ai-generative-ai-pwc-switzerland-zurich",
+    "slugByLocale": {
+      "it": "direttore-cloud-data-ai-cd-ai-generative-ai-pwc-switzerland-zurich",
+      "en": "director-cloud-data-ai-cd-ai-generative-ai-pwc-zurich",
+      "de": "direktor-cloud-data-ai-cd-ai-generative-ai-pwc-switzerland-zurich",
+      "fr": "directeur-cloud-data-ai-cd-ai-ia-generique-pwc-switzerland-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|pwc.ch|0f225e04-dcd9-47e5-8631-b1b270ebb59a": {
+    "canonicalSlug": "direttore-in-cybersecurity-technology-transformation-pwc-switzerland-zurich",
+    "slugByLocale": {
+      "it": "direttore-in-cybersecurity-technology-transformation-pwc-switzerland-zurich",
+      "en": "director-in-cybersecurity-technology-transformation-pwc-zurich",
+      "de": "direktor-in-cybersecurity-technology-transformation-pwc-switzerland-zurich",
+      "fr": "directeur-in-cybersecurity-technology-transformation-pwc-switzerland-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|pwc.ch|d7035140-e19a-4654-b565-9f187d4f45b1": {
+    "canonicalSlug": "manager-senior-manager-operations-manufacturing-strategy-transformation-80-100-pwc-zurich",
+    "slugByLocale": {
+      "en": "manager-senior-manager-operations-manufacturing-strategy-transformation-80-100-pwc-zurich",
+      "fr": "gestionnaire-gestionnaire-principal-operations-et-fabrication-strategie-et-transformation-80-100-pwc-switzerland-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|pwc.ch|4015f397-e97f-4a01-be57-9c8b42c9ec0f": {
+    "canonicalSlug": "direttore-cio-advisory-middle-markets-pwc-switzerland-zurich",
+    "slugByLocale": {
+      "it": "direttore-cio-advisory-middle-markets-pwc-switzerland-zurich",
+      "en": "director-cio-advisory-middle-markets-pwc-zurich",
+      "de": "direktor-cio-advisory-middle-markets-pwc-switzerland-zurich",
+      "fr": "directeur-dpi-conseil-marches-moyens-pwc-switzerland-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|pwc.ch|5d811490-3a27-4084-ba34-54d410a0f5f6": {
+    "canonicalSlug": "responsabile-international-corporate-tax-servizi-finanziari-pwc-switzerland-zurich",
+    "slugByLocale": {
+      "it": "responsabile-international-corporate-tax-servizi-finanziari-pwc-switzerland-zurich",
+      "en": "manager-international-corporate-tax-financial-services-pwc-zurich",
+      "de": "manager-internationale-korperschaftsteuer-finanzdienstleistungen-pwc-switzerland-zurich",
+      "fr": "gestionnaire-impot-international-sur-les-societes-services-financiers-pwc-switzerland-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|pwc.ch|e2eb875a-9cc5-4911-92a0-2929c37cefde": {
+    "canonicalSlug": "senior-associate-international-corporate-tax-servizi-finanziari-pwc-switzerland-zurich",
+    "slugByLocale": {
+      "it": "senior-associate-international-corporate-tax-servizi-finanziari-pwc-switzerland-zurich",
+      "en": "senior-associate-international-corporate-tax-financial-services-pwc-zurich",
+      "de": "senior-associate-internationale-korperschaftsteuer-finanzdienstleistungen-pwc-switzerland-zurich",
+      "fr": "aine-associe-impot-international-sur-les-societes-services-financiers-pwc-switzerland-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|pwc.ch|39ec65bc-721d-4402-abab-a10976eb04bb": {
+    "canonicalSlug": "trainee-sustainability-strategic-regulatory-supply-chain-pwc-zurich",
+    "slugByLocale": {
+      "en": "trainee-sustainability-strategic-regulatory-supply-chain-pwc-zurich",
+      "de": "auszubildender-sustainability-strategic-regulatory-lieferkette-pwc-switzerland-zurich",
+      "fr": "apprenti-sustainability-strategic-regulatory-chaine-d-approvisionnement-pwc-switzerland-zurich"
+    },
+    "createdAt": "2026-09-15",
+    "canton": "ZH"
+  },
+  "id|pwc.ch|6766296b-d3d5-4e8d-a2eb-6b9f38919750": {
+    "canonicalSlug": "senior-manager-contabilita-fiscale-pwc-switzerland-zurich",
+    "slugByLocale": {
+      "it": "senior-manager-contabilita-fiscale-pwc-switzerland-zurich",
+      "en": "senior-manager-tax-accounting-pwc-zurich",
+      "de": "senior-manager-steuerbuchhaltung-pwc-switzerland-zurich",
+      "fr": "gestionnaire-principal-comptabilite-fiscale-pwc-switzerland-zurich"
     },
     "createdAt": "2026-09-15",
     "canton": "ZH"

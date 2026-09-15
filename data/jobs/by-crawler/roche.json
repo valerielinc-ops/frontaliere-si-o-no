@@ -6824,7 +6824,6 @@
         "directeur-medical-roche-basel",
         "medical-director-roche-basel",
         "medical-director-roche-ch-w87uue",
-        "medical-direttore-cvm-roche-basel-iufblz",
         "medical-direttore-cvm-roche-basel-a4vrka",
         "medical-director-cvm-roche-ch-27mycl"
       ],
@@ -6837,7 +6836,6 @@
           "directeur-medical-roche-basel",
           "medical-director-roche-basel",
           "medical-director-roche-ch-w87uue",
-          "medical-direttore-cvm-roche-basel-iufblz",
           "medical-direttore-cvm-roche-basel-a4vrka"
         ],
         "en": [
@@ -9307,7 +9305,15 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-09-13T14:10:58.637Z"
+      "firstSeenAt": "2026-09-13T14:10:58.637Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medical-direttore-cvm-roche-basel-iufblz"
+        ]
+      },
+      "previousSlugs": [
+        "medical-direttore-cvm-roche-basel-iufblz"
+      ]
     },
     {
       "id": "roche-c1e7db166b00",
@@ -84141,14 +84147,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "praktikum-fur-studierende-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-monate",
-        "praktikum-per-studierende-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-pfic2b",
         "praktikum-fur-studierende-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-monate-2",
         "praktikum-per-studierende-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-fur-studierende-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-monate",
-          "praktikum-per-studierende-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-pfic2b",
           "praktikum-fur-studierende-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-monate-2",
           "praktikum-per-studierende-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst"
         ],
@@ -87433,13 +87437,15 @@
       "previousSlugs": [
         "praktikum-fur-studierende-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-monate-2",
         "praktikum-fur-studierende-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-monate",
-        "praktikum-per-studierende-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst"
+        "praktikum-per-studierende-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst",
+        "praktikum-per-studierende-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-pfic2b"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-fur-studierende-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-monate-2",
           "praktikum-fur-studierende-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-monate",
-          "praktikum-per-studierende-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst"
+          "praktikum-per-studierende-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst",
+          "praktikum-per-studierende-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-pfic2b"
         ],
         "en": [
           "praktikum-fur-studierende-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-monate-2"
