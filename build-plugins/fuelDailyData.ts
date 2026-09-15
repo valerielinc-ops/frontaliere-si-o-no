@@ -555,11 +555,13 @@ const FUEL_INDEX_TERMINAL_SLUGS: ReadonlySet<string> = new Set([
 
 /**
  * Recognise a fuel-station / fuel-cities index path:
- * `/[locale?]/{section}/{terminal-slug}/`
+ * `/[locale?]/{section}/{terminal-slug}/` plus `/page-N/` for paginated
+ * indexes (page 1 keeps the root URL).
  *
  * Examples:
  *   /prezzi-benzina/stazioni-italia/
  *   /en/gasoline-price-switzerland/swiss-stations/
+ *   /prezzi-benzina/stazioni-italia/page-2/
  */
 export function isFuelStationIndexPath(pathname: string): boolean {
   if (!pathname) return false;
@@ -569,8 +571,9 @@ export function isFuelStationIndexPath(pathname: string): boolean {
   if (parts.length < 2) return false;
   let idx = 0;
   if (parts[0] === 'en' || parts[0] === 'de' || parts[0] === 'fr') idx = 1;
-  // Expected shape: [prefix?] section terminal-slug — exactly idx+2 parts.
-  if (parts.length !== idx + 2) return false;
+  // Expected shape: [prefix?] section terminal-slug, optionally followed by
+  // the canonical `/page-N/` suffix for N >= 2.
+  if (parts.length !== idx + 2 && parts.length !== idx + 3) return false;
   const section = parts[idx];
   const terminal = parts[idx + 1];
   let sectionMatch = false;
@@ -580,7 +583,9 @@ export function isFuelStationIndexPath(pathname: string): boolean {
     }
   }
   if (!sectionMatch) return false;
-  return FUEL_INDEX_TERMINAL_SLUGS.has(terminal);
+  if (!FUEL_INDEX_TERMINAL_SLUGS.has(terminal)) return false;
+  if (parts.length === idx + 2) return true;
+  return /^page-(?:[2-9]|[1-9]\d+)$/.test(parts[idx + 2]);
 }
 
 /**

@@ -93,17 +93,7 @@ const DUP_MAX_REPORTED = 20;
 const DUP_LOCALE_PREFIXES = /** @type {const} */ (['en', 'de', 'fr']);
 
 // audit-page-weight constants. `MAX_HTML_BYTES` is IMPORTED (see the import
-// block above), not re-declared: "kept in lock-step" by comment is what left
-// this script stale at 200 KB while the active gate had already moved to 215
-// (issue #4209(b)), i.e. a budget that silently stopped matching the gate it
-// mirrors. One declaration cannot drift (issue #7330).
-// Per-path budget override — mirrors scripts/audit-page-weight.mjs (the active
-// gate). The Italian-fuel-stations index pages deliberately link every border
-// station inline for the orphan-elimination contract (#1241); per explicit user
-// override (2026-06-03) they get a raised budget, the global cap is unchanged.
-const PW_ITALIAN_STATIONS_INDEX_BUDGET = 900 * 1024;
-const PW_ITALIAN_STATIONS_INDEX_RE =
-  /(?:^|\/)(?:stazioni-italia|italienische-tankstellen|italian-stations|stations-italiennes)\//;
+// block above), not re-declared: one declaration cannot drift (issue #7330).
 // Keep in lock-step with audit-page-weight.mjs: the complete company-hub and
 // employer-profile result sets are explicit owner-approved page-weight
 // exceptions, while image dimension/loading validation remains enforced.
@@ -116,7 +106,7 @@ function pwBudgetForPath(relPath) {
     return Number.POSITIVE_INFINITY;
   }
   if (HEALTH_FACILITIES_SECTION_RX.test(p)) return HEALTH_FACILITY_PAGE_BUDGET_BYTES;
-  return PW_ITALIAN_STATIONS_INDEX_RE.test(p) ? PW_ITALIAN_STATIONS_INDEX_BUDGET : MAX_HTML_BYTES;
+  return MAX_HTML_BYTES;
 }
 
 // audit-hreflang constants.

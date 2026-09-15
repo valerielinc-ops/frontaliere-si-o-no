@@ -275,6 +275,13 @@ export const FUEL_INDEX_SLUG = {
 export type FuelIndexKind = keyof typeof FUEL_INDEX_SLUG;
 
 /**
+ * Maximum number of Italian-station cards per HTML page. The complete leaf
+ * set remains linkable through the generated page ladder, while each page
+ * stays below the shared 260 KB audit budget with room for upstream growth.
+ */
+export const ITALIAN_STATIONS_INDEX_PAGE_SIZE = 100;
+
+/**
  * Build the canonical path for a fuel-station / fuel-cities index page.
  *
  *   buildFuelIndexPath('it', 'benzina', 'swissStations')
@@ -294,6 +301,22 @@ export function buildFuelIndexPath(
     .map((p) => String(p).replace(/^\/+|\/+$/g, ''))
     .filter((p) => p.length > 0);
   return `/${parts.join('/')}/`;
+}
+
+/**
+ * Build the canonical path for one page of a browseable index.
+ * Page 1 keeps the established root URL; page 2 onwards use `/page-N/`.
+ */
+export function buildFuelIndexPaginationPath(
+  locale: FuelDailyLocale,
+  fuel: FuelType,
+  kind: FuelIndexKind,
+  page: number,
+): string {
+  const base = buildFuelIndexPath(locale, fuel, kind);
+  const pageNumber = Math.floor(page);
+  if (!Number.isFinite(pageNumber) || pageNumber <= 1) return base;
+  return `${base.replace(/\/+$/, '')}/page-${pageNumber}/`;
 }
 
 // ── Localised copy ────────────────────────────────────────────────
@@ -664,7 +687,7 @@ function esc(s: unknown): string {
 
 // ── Anchor list rendering ─────────────────────────────────────────
 
-interface GroupedAnchors {
+export interface GroupedAnchors {
   readonly heading: string;
   readonly anchors: ReadonlyArray<{
     readonly href: string;
@@ -679,6 +702,46 @@ interface GroupedAnchors {
   readonly slug: string;
   /** When set, FUEL_ZONE_BORDER_HINT is rendered as a 2nd line under the zone header. */
   readonly zoneKey?: FuelZone;
+}
+
+/**
+ * Split a grouped anchor list into bounded pages without dropping or
+ * reordering any anchor. A large city may span two pages; its heading is
+ * repeated on the second page so every card retains a meaningful context.
+ */
+function paginateGroupedAnchors(
+  groups: ReadonlyArray<GroupedAnchors>,
+  pageSize: number,
+): GroupedAnchors[][] {
+  if (!Number.isInteger(pageSize) || pageSize < 1) {
+    throw new Error(`fuel index page size must be a positive integer, got ${pageSize}`);
+  }
+
+  const pages: GroupedAnchors[][] = [];
+  let current: GroupedAnchors[] = [];
+  let remaining = pageSize;
+
+  const flush = (): void => {
+    if (current.length > 0) pages.push(current);
+    current = [];
+    remaining = pageSize;
+  };
+
+  for (const group of groups) {
+    let offset = 0;
+    while (offset < group.anchors.length) {
+      const take = Math.min(remaining, group.anchors.length - offset);
+      current.push({
+        ...group,
+        anchors: group.anchors.slice(offset, offset + take),
+      });
+      offset += take;
+      remaining -= take;
+      if (remaining === 0) flush();
+    }
+  }
+  flush();
+  return pages;
 }
 
 /**
@@ -801,6 +864,65 @@ function renderZoneNav(
   return `<nav aria-label="${esc(copy.jumpNavLabel)}" style="${ZONE_NAV_STYLE}">${chips}</nav>`;
 }
 
+const INDEX_PAGINATION_STYLE =
+  'display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:0 0 24px';
+
+const INDEX_PAGINATION_LINK_STYLE =
+  'display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:34px;padding:0 9px;border:1px solid var(--color-edge);border-radius:9px;color:var(--color-heading);text-decoration:none;font-size:13px;font-weight:600';
+
+function paginationCopy(locale: FuelDailyLocale): {
+  readonly nav: string;
+  readonly page: string;
+} {
+  if (locale === 'it') return { nav: 'Paginazione indice', page: 'Pagina' };
+  if (locale === 'en') return { nav: 'Index pagination', page: 'Page' };
+  if (locale === 'de') return { nav: 'Index-Seitennavigation', page: 'Seite' };
+  return { nav: 'Pagination de l’index', page: 'Page' };
+}
+
+function paginationItems(page: number, totalPages: number): Array<number | 'ellipsis'> {
+  if (totalPages <= 8) return Array.from({ length: totalPages }, (_, index) => index + 1);
+
+  const candidates = new Set([1, totalPages, page - 1, page, page + 1]);
+  const numbers = [...candidates]
+    .filter((value) => value >= 1 && value <= totalPages)
+    .sort((a, b) => a - b);
+  const items: Array<number | 'ellipsis'> = [];
+  for (const value of numbers) {
+    const previous = items[items.length - 1];
+    if (typeof previous === 'number' && value - previous > 1) items.push('ellipsis');
+    items.push(value);
+  }
+  return items;
+}
+
+function renderIndexPagination(
+  locale: FuelDailyLocale,
+  page: number,
+  totalPages: number,
+  pagePathFor: (page: number) => string,
+): string {
+  if (totalPages <= 1) return '';
+  const copy = paginationCopy(locale);
+  const items = paginationItems(page, totalPages);
+  const links = items
+    .map((item) => {
+      if (item === 'ellipsis') return '<span aria-hidden="true" style="padding:0 2px;color:var(--color-subtle)">…</span>';
+      const rel = item === page - 1 ? ' rel="prev"' : item === page + 1 ? ' rel="next"' : '';
+      const current = item === page ? ' aria-current="page"' : '';
+      return `<a href="${esc(pagePathFor(item))}" style="${INDEX_PAGINATION_LINK_STYLE}" aria-label="${esc(`${copy.page} ${item}`)}"${current}${rel}>${item}</a>`;
+    })
+    .join('');
+  return `<nav aria-label="${esc(copy.nav)}" style="${INDEX_PAGINATION_STYLE}">${links}</nav>`;
+}
+
+function pageSuffix(locale: FuelDailyLocale, page: number): string {
+  if (locale === 'it') return `pagina ${page}`;
+  if (locale === 'en') return `page ${page}`;
+  if (locale === 'de') return `Seite ${page}`;
+  return `page ${page}`;
+}
+
 // ── Page assembly ─────────────────────────────────────────────────
 
 interface RenderIndexOpts {
@@ -814,12 +936,35 @@ interface RenderIndexOpts {
   readonly distDir?: string;
   /** Cross-links to the other 2 indexes + the daily hub. */
   readonly relatedLinks: ReadonlyArray<{ readonly href: string; readonly label: string }>;
+  readonly page: number;
+  readonly totalPages: number;
+  readonly pagePathFor: (page: number) => string;
 }
 
 function renderIndexPage(opts: RenderIndexOpts): string {
-  const { locale, fuel, kind, canonicalPath, alternates, groups, today, distDir, relatedLinks } = opts;
+  const {
+    locale,
+    fuel,
+    kind,
+    canonicalPath,
+    alternates,
+    groups,
+    today,
+    distDir,
+    relatedLinks,
+    page,
+    totalPages,
+    pagePathFor,
+  } = opts;
   const copy = COPY[locale];
   const titles = titleFor(kind, locale, fuel);
+  const pageTitleSuffix = page > 1 ? pageSuffix(locale, page) : '';
+  const pageH1 = pageTitleSuffix ? `${titles.h1} — ${pageTitleSuffix}` : titles.h1;
+  // Keep the page number in the SERP title while retaining the most useful
+  // keyword prefix inside the 66-character title budget.
+  const titleBase = pageTitleSuffix
+    ? `${titles.title.split(' — ')[0]} — ${pageTitleSuffix}`
+    : titles.title;
   const fuelLabel = FUEL_TYPE_LABEL[locale][fuel];
   const dateStamp = today.toISOString().slice(0, 10);
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
@@ -850,6 +995,10 @@ function renderIndexPage(opts: RenderIndexOpts): string {
 
   // Hreflang.
   const alternatesHtml = renderHreflangTags(alternates);
+  const prevNextHtml = [
+    page > 1 ? `<link rel="prev" href="${BASE_URL}${pagePathFor(page - 1)}">` : '',
+    page < totalPages ? `<link rel="next" href="${BASE_URL}${pagePathFor(page + 1)}">` : '',
+  ].filter(Boolean).join('\n');
 
   // BreadcrumbList JSON-LD.
   const breadcrumbLd = inlineScriptJson({
@@ -863,7 +1012,7 @@ function renderIndexPage(opts: RenderIndexOpts): string {
         name: fuelLabel,
         item: `${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/`,
       },
-      { '@type': 'ListItem', position: 3, name: titles.h1, item: canonicalUrl },
+      { '@type': 'ListItem', position: 3, name: pageH1, item: canonicalUrl },
     ],
   });
 
@@ -872,7 +1021,7 @@ function renderIndexPage(opts: RenderIndexOpts): string {
   // across all groups so the list reads top-to-bottom on the rendered page.
   //
   // Cap at 50 to keep the inline JSON-LD ≤ ~10 KB. With 400+ Italian stations
-  // the un-capped list inflates the inline payload past the 200 KB
+  // the un-capped list inflates the inline payload past the shared
   // `audit:page-weight` budget. Mirrors the PR #183 cap on the master jobs
   // hub. The visible anchors below ARE the full set — only the structured
   // ItemList is sampled.
@@ -891,7 +1040,7 @@ function renderIndexPage(opts: RenderIndexOpts): string {
   const webPageLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
-    name: titles.h1,
+    name: pageH1,
     url: canonicalUrl,
     description: titles.description,
     inLanguage: locale,
@@ -904,14 +1053,14 @@ function renderIndexPage(opts: RenderIndexOpts): string {
     },
     mainEntity: {
       '@type': 'ItemList',
-      name: titles.h1,
+      name: pageH1,
       numberOfItems: flatListItems.length,
       itemListOrder: 'https://schema.org/ItemListOrderAscending',
       itemListElement: itemListElements,
     },
   });
 
-  const title = clampSiteSuffix(titles.title, 'Frontaliere Ticino');
+  const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
   // Pre-cut removed: clampMetaDescription (160) runs downstream and is
   // word-aware. Slicing first only handed it a string already broken
   // mid-word, which is what reached the SERP snippet.
@@ -927,6 +1076,7 @@ function renderIndexPage(opts: RenderIndexOpts): string {
   const ctaHref = buildFuelTodayPath(locale, fuel);
   const ctaRow = renderCtaRow(ctaHref, copy.ctaDailyHub(fuelLabel));
   const zoneNav = totalAnchors > 0 ? renderZoneNav(groups, copy) : '';
+  const pagination = renderIndexPagination(locale, page, totalPages, pagePathFor);
 
   const proseBlock = `<section style="${PROSE_BLOCK_STYLE}" aria-label="${esc(copy.methodologyHeading)}">
     <h2 style="${PROSE_HEADING_STYLE}">${esc(copy.methodologyHeading)}</h2>
@@ -941,16 +1091,17 @@ function renderIndexPage(opts: RenderIndexOpts): string {
     <span> / </span>
     <a href="${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/" class="s-bcl">${esc(fuelLabel)}</a>
     <span> / </span>
-    <span>${esc(titles.h1)}</span>
+    <span>${esc(pageH1)}</span>
   </nav>
   <header class="s-S1RSUf">
     <p style="${HERO_EYEBROW_STYLE}">${esc(copy.updatedLabel)} · ${dateStamp}</p>
-    <h1 style="${H1_STYLE}">${esc(titles.h1)}</h1>
+    <h1 style="${H1_STYLE}">${esc(pageH1)}</h1>
     <p style="${TAGLINE_STYLE}">${esc(tagline)}</p>
   </header>
   ${statBar}
   ${advice}
   ${ctaRow}
+  ${pagination}
   ${zoneNav}
   <section aria-labelledby="browseAll">
     <h2 id="browseAll" style="${H2_STYLE};margin-top:8px">${esc(copy.browseHeading)}</h2>
@@ -968,6 +1119,7 @@ function renderIndexPage(opts: RenderIndexOpts): string {
     robots: 'index,follow',
     ogType: 'website',
     hreflangHtml: alternatesHtml,
+    extraHeadHtml: prevNextHtml,
     jsonLdScripts: [breadcrumbLd, webPageLd],
     bodyHtml,
     distDir,
@@ -1049,10 +1201,10 @@ export function generateFuelIndexPages(inp: FuelIndexInputs): Record<string, str
       const copy = COPY[locale];
 
       // Common alternates+related-links computation per kind.
-      const buildAlternates = (kind: FuelIndexKind): Record<FuelDailyLocale, string> => {
+      const buildAlternates = (kind: FuelIndexKind, page = 1): Record<FuelDailyLocale, string> => {
         const alts: Record<FuelDailyLocale, string> = { it: '', en: '', de: '', fr: '' };
         for (const alt of FUEL_DAILY_LOCALES) {
-          alts[alt] = buildFuelIndexPath(alt, fuel, kind);
+          alts[alt] = buildFuelIndexPaginationPath(alt, fuel, kind, page);
         }
         return alts;
       };
@@ -1118,6 +1270,9 @@ export function generateFuelIndexPages(inp: FuelIndexInputs): Record<string, str
           today,
           distDir,
           relatedLinks: buildRelated('swissStations'),
+          page: 1,
+          totalPages: 1,
+          pagePathFor: (page) => buildFuelIndexPaginationPath(locale, fuel, 'swissStations', page),
         });
       }
 
@@ -1168,6 +1323,9 @@ export function generateFuelIndexPages(inp: FuelIndexInputs): Record<string, str
           today,
           distDir,
           relatedLinks: buildRelated('italianCities'),
+          page: 1,
+          totalPages: 1,
+          pagePathFor: (page) => buildFuelIndexPaginationPath(locale, fuel, 'italianCities', page),
         });
       }
 
@@ -1193,18 +1351,27 @@ export function generateFuelIndexPages(inp: FuelIndexInputs): Record<string, str
             anchors,
           });
         }
-        const canonicalPath = buildFuelIndexPath(locale, fuel, 'italianStations');
-        out[canonicalPath] = renderIndexPage({
-          locale,
-          fuel,
-          kind: 'italianStations',
-          canonicalPath,
-          alternates: buildAlternates('italianStations'),
-          groups,
-          today,
-          distDir,
-          relatedLinks: buildRelated('italianStations'),
-        });
+        const pages = paginateGroupedAnchors(groups, ITALIAN_STATIONS_INDEX_PAGE_SIZE);
+        const totalPages = Math.max(1, pages.length);
+        const pagePathFor = (page: number): string =>
+          buildFuelIndexPaginationPath(locale, fuel, 'italianStations', page);
+        for (let page = 1; page <= totalPages; page++) {
+          const canonicalPath = pagePathFor(page);
+          out[canonicalPath] = renderIndexPage({
+            locale,
+            fuel,
+            kind: 'italianStations',
+            canonicalPath,
+            alternates: buildAlternates('italianStations', page),
+            groups: pages[page - 1] ?? [],
+            today,
+            distDir,
+            relatedLinks: buildRelated('italianStations'),
+            page,
+            totalPages,
+            pagePathFor,
+          });
+        }
       }
     }
   }
