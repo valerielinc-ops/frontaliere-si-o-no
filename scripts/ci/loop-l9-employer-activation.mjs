@@ -554,6 +554,7 @@ function writeReports(reportDir, verdict, observation, decision) {
   fs.mkdirSync(dir, { recursive: true });
   const files = [
     ['l9-observation.json', observation],
+    ['l9-outcome.json', observation.outcome],
     ['l9-decision.json', decision],
     ['l9-report.md', reportMarkdown(verdict, observation, decision)],
   ];
@@ -750,19 +751,28 @@ export async function runL9({
     quality: verdict.quality,
     recordedAt: now.toISOString(),
   });
-  observation.outcome = buildValidatedLoopOutcome({
-    registry: loopRegistry,
+  observation.outcome = {
+    ...buildValidatedLoopOutcome({
+      registry: loopRegistry,
+      loopId: LOOP_ID,
+      quality: verdict.quality,
+      independent: verdict.ok,
+      numerator: verdict.ok ? outcomes.paidActivations : null,
+      denominator: verdict.ok ? outcomes.eligibleEmployerAccounts : null,
+      observedAt: finiteDate(outcomes.generatedAt)?.toISOString() || null,
+      reason: verdict.ok
+        ? 'employer profile inventory and the independent funnel/subscription ledger agree'
+        : `paid employer outcome is ${verdict.quality}; inventory is not treated as revenue`,
+      now,
+    }),
     loopId: LOOP_ID,
-    quality: verdict.quality,
-    independent: verdict.ok,
-    numerator: verdict.ok ? outcomes.paidActivations : null,
-    denominator: verdict.ok ? outcomes.eligibleEmployerAccounts : null,
-    observedAt: finiteDate(outcomes.generatedAt)?.toISOString() || null,
-    reason: verdict.ok
-      ? 'employer profile inventory and the independent funnel/subscription ledger agree'
-      : `paid employer outcome is ${verdict.quality}; inventory is not treated as revenue`,
-    now,
-  });
+    safeToAct: false,
+    realOutreachSent: false,
+    inventoryUntouched: true,
+    subscriptionStateUntouched: true,
+    pricesUntouched: true,
+    recipientsUntouched: true,
+  };
   const decision = buildDecision({
     loopId: LOOP_ID,
     goal: loopPolicy.goal,

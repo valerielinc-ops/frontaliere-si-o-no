@@ -200,6 +200,8 @@ describe('L9 Employer Supply → Paid Activation', () => {
     expect(issues).toHaveLength(1);
     expect(JSON.parse(fs.readFileSync(path.join(reportDir, 'l9-actions.json'), 'utf8')))
       .toMatchObject({ realOutreachSent: false, inventoryUntouched: true, pricesUntouched: true });
+    expect(JSON.parse(fs.readFileSync(path.join(reportDir, 'l9-outcome.json'), 'utf8')))
+      .toMatchObject({ loopId: 'L9', safeToAct: false, realOutreachSent: false, inventoryUntouched: true, subscriptionStateUntouched: true, pricesUntouched: true });
     expect(JSON.parse(fs.readFileSync(path.join(reportDir, 'l9-result.json'), 'utf8')))
       .toMatchObject({ ok: false, issued: true, actionsWritten: true, outcomeLedgerMissing: true, profileInventoryComplete: true });
   });
