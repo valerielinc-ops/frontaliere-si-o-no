@@ -182,6 +182,71 @@ function reconcileOpenPromotions(store) {
 }
 
 /**
+ * Il push data-only passa deliberatamente dal PAT, ma una successiva PR può
+ * dover aggiornare `.github/workflows/**` e richiede quindi il token App.
+ * Ripristina l'identità originale prima che il percorso di promozione usi
+ * `git push origin <branch>`.
+ */
+function restorePromotionAppRemote() {
+  const appToken = process.env.APP_TOKEN;
+  const identity = String(process.env.WORKFLOWS_PUSH_IDENTITY || '').trim().toLowerCase();
+  if (!appToken || identity !== 'app') return;
+  const origin = execFileSync('git', ['remote', 'get-url', 'origin'], {
+    cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'],
+  }).toString().trim();
+  const match = origin.match(/github\.com[/:]([^/]+\/[^/]+?)(?:\.git)?$/);
+  if (!match) throw new Error('origin GitHub non riconoscibile dopo il push PAT');
+  try {
+    execFileSync('git', ['config', '--local', '--unset-all', 'http.https://github.com/.extraheader'], {
+      cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'],
+    });
+  } catch { /* il retry helper l'ha già rimosso */ }
+  execFileSync('git', ['remote', 'set-url', 'origin', `https://x-access-token:${appToken}@github.com/${match[1]}.git`], {
+    cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'],
+  });
+}
+
+/**
+ * Rende durevole una riconciliazione anche quando questo giro non apre una PR.
+ *
+ * La riconciliazione modifica main, non il branch di una PR: se si limita a
+ * `saveCandidates`, il file cambia soltanto nella working tree del runner e il
+ * giro successivo rilegge gli stessi `promoting`. Questo è particolarmente
+ * facile da perdere quando il promotion gate restituisce zero candidati.
+ *
+ * @param {ReturnType<typeof loadCandidates>} store
+ * @param {{ landed: number, reopened: number }} reconciled
+ * @returns {boolean}
+ */
+function persistReconciledPromotionState(store, reconciled) {
+  if (!reconciled.landed && !reconciled.reopened) return true;
+  const baseBranch = process.env.GITHUB_REF_NAME || execFileSync(
+    'git', ['rev-parse', '--abbrev-ref', 'HEAD'],
+    { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] },
+  ).toString().trim();
+  try {
+    saveCandidates(store);
+    execFileSync('git', ['add', 'data/prospector'], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] });
+    execFileSync('git', [
+      'commit', '-m',
+      `prospector: riconcilia ${reconciled.landed + reconciled.reopened} stati di promozione`,
+    ], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] });
+    // Il remote può ancora portare l'identità App usata per la PR: il retry
+    // helper ripristina l'autenticazione PAT per il commit data-only su main.
+    execFileSync('bash', ['scripts/lib/git-push-with-retry.sh', '--branch', baseBranch], {
+      cwd: ROOT,
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
+    restorePromotionAppRemote();
+    console.log(`stato riconciliato scritto su ${baseBranch}: ${reconciled.landed} production, ${reconciled.reopened} ricandidati.`);
+    return true;
+  } catch (err) {
+    console.error(`❌ stato riconciliato non persistito su ${baseBranch}: ${String(err.stderr || err.message).slice(0, 240)}`);
+    return false;
+  }
+}
+
+/**
  * C'e' gia' una PR di promozione aperta?
  *
  * Ogni promozione rigenera TUTTI i 23 `crawler-group-*.yml`, perche' aggiungere
@@ -235,7 +300,7 @@ function openPromotionPr() {
 const reconciled = reconcileOpenPromotions(store);
 if (reconciled.landed) console.log(`promozioni atterrate in produzione: ${reconciled.landed}`);
 if (reconciled.reopened) console.log(`ricandidati dopo PR chiuse senza merge: ${reconciled.reopened}`);
-if (reconciled.landed || reconciled.reopened) saveCandidates(store);
+if (!persistReconciledPromotionState(store, reconciled)) process.exit(1);
 
 const { promotable, blocked, capped } = selectForPromotion(
   byStatus(store, 'promoted'),
@@ -622,7 +687,14 @@ try {
   try {
     git('add', 'data/prospector');
     git('commit', '-m', `prospector: segna ${shipped.length} candidati come in promozione (PR ${prNumber})`);
-    git('push', 'origin', baseBranch);
+    // The PR branch needs the App token because it may contain regenerated
+    // workflow files. The follow-up state commit targets main and must use the
+    // shared bypass-auth/retry contract instead: otherwise the remote still
+    // carries the App URL and GitHub rejects this data-only push with GH013.
+    execFileSync('bash', ['scripts/lib/git-push-with-retry.sh', '--branch', baseBranch], {
+      cwd: ROOT,
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
     console.log(`stato "promoting" scritto su ${baseBranch}: il giro successivo non li riproporra'.`);
   } catch (err) {
     console.error(`⚠️ non sono riuscito a scrivere lo stato su ${baseBranch}: ${String(err.stderr || err.message).slice(0, 200)}`);

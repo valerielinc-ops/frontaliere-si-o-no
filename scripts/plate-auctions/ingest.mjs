@@ -11,9 +11,21 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import registry from '../../data/plate-auction-sources-registry.json' with { type: 'json' };
 import { fetchGrPlateAuctions } from './connectors/gr.mjs';
-import { fetchTiPlateAuctions } from './connectors/ti.mjs';
+import { fetchSgPlateAuctions } from './connectors/sg.mjs';
+import { fetchShPlateAuctions } from './connectors/sh.mjs';
+import { fetchSzPlateAuctions } from './connectors/sz.mjs';
+import { fetchTgPlateAuctions } from './connectors/tg.mjs';
 import { fetchVsPlateAuctions } from './connectors/vs.mjs';
 import { fetchZhPlateAuctions } from './connectors/zh.mjs';
+import { fetchTiPlateAuctions } from './connectors/ti.mjs';
+import { fetchExpandedCard, fetchExpandedEcari } from './connectors/expanded.mjs';
+import {
+  fetchAiFixedPrice,
+  fetchBsFixedPrice,
+  fetchGlFixedPrice,
+  fetchLuFixedPrice,
+  fetchUrFixedPrice,
+} from './connectors/fixed-price.mjs';
 import {
   checkPlateAuctionQuality,
   derivePlateAuctionDataConfidence,
@@ -21,9 +33,27 @@ import {
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DEFAULT_OUTPUT = resolve(__dirname, '../../public/data/plate-auctions.json');
-const FETCHERS = {
+export const FETCHERS = {
+  ag: () => fetchExpandedCard('ag'),
+  ai: fetchAiFixedPrice,
+  ar: () => fetchExpandedEcari('ar'),
+  be: () => fetchExpandedCard('be'),
+  bl: () => fetchExpandedEcari('bl'),
+  bs: fetchBsFixedPrice,
+  fr: () => fetchExpandedEcari('fr'),
+  gl: fetchGlFixedPrice,
   gr: fetchGrPlateAuctions,
+  lu: fetchLuFixedPrice,
+  nw: () => fetchExpandedEcari('nw'),
+  ow: () => fetchExpandedEcari('ow'),
+  sg: fetchSgPlateAuctions,
+  sh: fetchShPlateAuctions,
+  so: () => fetchExpandedEcari('so'),
+  sz: fetchSzPlateAuctions,
+  tg: fetchTgPlateAuctions,
   ti: fetchTiPlateAuctions,
+  ur: fetchUrFixedPrice,
+  vd: () => fetchExpandedCard('vd'),
   vs: fetchVsPlateAuctions,
   zh: fetchZhPlateAuctions,
 };
@@ -39,7 +69,12 @@ function readPrevious(path) {
 }
 
 function sourceStatus(source, result) {
-  const base = { ...source, rowCount: result.fetchedRowCount, lastFetchedAt: result.fetchedAt };
+  const base = {
+    ...source,
+    rowCount: result.fetchedRowCount,
+    lastFetchedAt: result.fetchedAt,
+    lastCheckedAt: result.fetchedAt,
+  };
   if (result.error) return { ...base, status: 'degraded', rowCount: result.previousRows.length, errorCode: 'fetch_failed', lastSuccessAt: result.previousSuccessAt };
   if (result.sourceDisappeared) return {
     ...base,
@@ -153,6 +188,7 @@ export async function collectPlateAuctions({
       results[key] = { rows: outputRows, fetchedAt, fetchedRowCount: rows.length, previousRows: previousForSource, previousSuccessAt, zeroRows: rows.length === 0, sourceDisappeared, qualityIssues: quality.issues, error: null };
     } catch (error) {
       const previousForSource = previousRows.filter((row) => row.sourceKey === source.plateCode);
+      console.warn(`[collectPlateAuctions:${key}] ${error instanceof Error ? error.message : String(error)}`);
       results[key] = { rows: [], fetchedAt, fetchedRowCount: 0, previousRows: previousForSource, previousSuccessAt: previous?.sources?.[key]?.lastSuccessAt || previous?.generatedAt, error };
     }
   }
@@ -167,8 +203,12 @@ export async function collectPlateAuctions({
       sources[key] = sourceStatus(source, result);
     } else {
       const previousForSource = previousRows.filter((row) => row.sourceKey === source.plateCode);
-      outputAuctions.push(...previousForSource);
-      sources[key] = { ...source, rowCount: previousForSource.length };
+      if (source.status === 'active') outputAuctions.push(...previousForSource);
+      sources[key] = {
+        ...source,
+        rowCount: source.status === 'active' ? previousForSource.length : 0,
+        lastCheckedAt: now.toISOString(),
+      };
     }
   }
 
@@ -185,6 +225,7 @@ export async function collectPlateAuctions({
     && typeof row.finalPriceVerifiedAt === 'string').length;
   return {
     schema: 1,
+    complete: true,
     generatedAt: now.toISOString(),
     sources,
     auctions: outputAuctions,

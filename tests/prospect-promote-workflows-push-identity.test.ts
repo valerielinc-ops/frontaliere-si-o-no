@@ -95,4 +95,25 @@ describe('cablaggio: capacità letta e identità che pusha non possono divergere
     expect(step).toMatch(/WORKFLOWS_PUSH_IDENTITY:\s*app\b/);
     expect(step).toMatch(/x-access-token:\$\{APP_TOKEN\}/);
   });
+
+  it("scrive lo stato post-PR con il retry helper che ripristina l'auth di main", () => {
+    const promote = read('scripts/prospect-promote.mjs');
+    expect(promote).toContain("['scripts/lib/git-push-with-retry.sh', '--branch', baseBranch]");
+    expect(promote).not.toContain("git('push', 'origin', baseBranch)");
+  });
+
+  it('persiste la riconciliazione anche senza una nuova PR di promozione', () => {
+    const promote = read('scripts/prospect-promote.mjs');
+    const start = promote.indexOf('const reconciled = reconcileOpenPromotions(store);');
+    const nextStage = promote.indexOf('const { promotable, blocked, capped } = selectForPromotion(');
+    expect(start).toBeGreaterThanOrEqual(0);
+    expect(nextStage).toBeGreaterThan(start);
+    const reconciliationPath = promote.slice(start, nextStage);
+    expect(reconciliationPath).toContain('persistReconciledPromotionState(store, reconciled)');
+    expect(reconciliationPath).toContain('process.exit(1)');
+    expect(promote).toContain('prospector: riconcilia');
+    expect(promote).toContain('restorePromotionAppRemote();');
+    expect(promote).toContain('WORKFLOWS_PUSH_IDENTITY');
+    expect(promote).toContain("identity !== 'app'");
+  });
 });

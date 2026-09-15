@@ -19,19 +19,54 @@
 
 import admin from 'firebase-admin';
 import { runTrafficCollection } from '../functions/src/trafficSchedulerCore.js';
+import { collectOfficialTrafficSignals } from './lib/official-traffic-sources.mjs';
 import { snapshotBorderWaitFiles } from './snapshot-border-wait-history.mjs';
 
 const hereApiKey = process.env.HERE_API_KEY;
 const tomtomApiKey = process.env.TOMTOM_API_KEY;
 const googleApiKey = process.env.GOOGLE_MAPS_API_KEY;
+const googleRoutesApiKey = process.env.GOOGLE_ROUTES_API_KEY || googleApiKey;
+const mapboxSecretToken = process.env.MAPBOX_SECRET_TOKEN;
+const mapboxAccessToken = mapboxSecretToken || process.env.MAPBOX_PUBLIC_TOKEN;
+const geoapifyApiKey = process.env.GEOAPIFY_API_KEY;
+const graphhopperApiKey = process.env.GRAPHHOPPER_API_KEY;
+const openrouteserviceApiKey = process.env.OPENROUTESERVICE_API_KEY;
+const stadiaApiKey = process.env.STADIA_API_KEY;
 const enableWebcam = process.env.ENABLE_WEBCAM_ANALYSIS === '1';
 
-if (!hereApiKey && !tomtomApiKey && !googleApiKey) {
-  console.error('❌ No routing API key set (HERE_API_KEY, TOMTOM_API_KEY, or GOOGLE_MAPS_API_KEY)');
+if (!hereApiKey && !tomtomApiKey && !googleApiKey && !googleRoutesApiKey && !mapboxAccessToken
+  && !geoapifyApiKey && !graphhopperApiKey && !openrouteserviceApiKey && !stadiaApiKey) {
+  console.error('❌ No routing API key set (HERE/TomTom/Google/Mapbox/Geoapify/GraphHopper/ORS/Stadia)');
   process.exit(1);
 }
 
-const { collected, errors } = await runTrafficCollection({ hereApiKey, tomtomApiKey, googleApiKey, enableWebcam });
+let officialSignals = null;
+try {
+  officialSignals = await collectOfficialTrafficSignals({
+    swissApiKey: process.env.OPENTRANSPORTDATA_API_KEY,
+  });
+  const health = officialSignals.sources.map((source) => `${source.id}:${source.status}`).join(', ');
+  console.log(`🛰️ Official traffic sources: ${health}`);
+} catch (error) {
+  // Open data is a signal layer, never a reason to skip the paid/free provider
+  // mesh. The provider budget guards remain the load-bearing safety boundary.
+  console.warn(`⚠️ Official traffic layer unavailable: ${error.message}`);
+}
+
+const { collected, errors } = await runTrafficCollection({
+  hereApiKey,
+  tomtomApiKey,
+  googleApiKey,
+  googleRoutesApiKey,
+  mapboxAccessToken,
+  mapboxSecretToken,
+  geoapifyApiKey,
+  graphhopperApiKey,
+  openrouteserviceApiKey,
+  stadiaApiKey,
+  officialSignals: officialSignals?.byCrossing,
+  enableWebcam,
+});
 
 if (collected === 0 && errors > 0) {
   console.error(`❌ All ${errors} crossings failed — traffic data NOT collected`);

@@ -1,14 +1,15 @@
 name: Audit Missing Company Logos (weekly)
 
 # Trova le aziende per cui services/jobDataNormalization.ts::resolveCompanyLogoUrl()
-# ritorna `null` per TUTTI i loro annunci — quelle pagine mostrano il badge
-# iniziali colorato invece di un logo reale (vedi
-# scripts/audit-missing-company-logos.mjs per il dettaglio). Distinto da
-# verify-company-logos-weekly.yml, che verifica URL di logo GIA' assegnati ma
-# rotti: qui nessun logo e' mai stato assegnato.
+# non produce una copertura verificabile: `null` per tutti gli annunci, oppure
+# un riferimento locale/esterno rotto. Le pagine mostrano il badge iniziali
+# colorato nei casi senza logo (vedi scripts/audit-missing-company-logos.mjs).
+# Il report include anche i riferimenti rotti che prima finivano soltanto nel
+# workflow verify-company-logos-weekly.yml.
 #
-# Scrive data/company-logos-missing.json e, se ci sono aziende senza logo,
-# apre/aggiorna UNA issue con l'elenco — la riprende il loop autonomo del
+# Prima assembla il dataset canonico come fa il build; poi scrive
+# data/company-logos-missing.json e, se ci sono anomalie, apre/aggiorna UNA
+# issue con l'elenco — la riprende il loop autonomo del
 # repo (issue-triage -> agent:fix-queued -> issue-fix -> PR -> pr-review-loop
 # -> auto-merge).
 #
@@ -27,6 +28,11 @@ jobs:
   audit:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    env:
+      # Keep the guard active for both the first audit and every rebase retry
+      # performed by git-push-with-retry.sh.
+      COMPANY_LOGO_AUDIT_MIN_JOBS: '1000'
+      COMPANY_LOGO_AUDIT_ASSET_BASE_URL: https://cdn.frontaliereticino.ch
     steps:
       # Nessun blocco sparse-checkout: NON e' un'omissione. scripts/audit-missing-company-logos.mjs
       # importa scripts/lib/github-issue-creator.mjs (per --report-issue), la cui
@@ -62,6 +68,9 @@ jobs:
       - name: Load push credentials from Remote Config
         run: node scripts/load-rc-env.mjs
 
+      - name: Assemble canonical jobs dataset
+        run: node scripts/assemble-jobs-dataset.mjs --no-summaries
+
       # --report-issue: calcola il report E apre/aggiorna l'issue nello
       # stesso step (createGithubIssue dedupe sul titolo stabile, quindi run
       # ripetute commentano sulla issue canonica invece di duplicarla).
@@ -85,7 +94,7 @@ jobs:
           # Rigenera SENZA --report-issue: un retry su conflitto di rebase non
           # deve riaprire/ricommentare la issue una seconda volta.
           bash scripts/lib/git-push-with-retry.sh \
-            --regenerate-cmd "npx tsx scripts/audit-missing-company-logos.mjs || true; git add data/company-logos-missing.json"
+            --regenerate-cmd "npx tsx scripts/audit-missing-company-logos.mjs; git add data/company-logos-missing.json"
 
       - name: Report failure to GitHub Issues
         if: failure()

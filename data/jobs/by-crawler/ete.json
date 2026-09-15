@@ -329,7 +329,6 @@
         "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-st-gallen",
         "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-st-gallen-feec8724"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T05:44:50.244Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -344,7 +343,9 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1831
     },
     {
       "id": "ete-4f890e1dbbc4",
@@ -936,7 +937,6 @@
         "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-bassersdorf",
         "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-bassersdorf-03c5de57"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T05:44:48.129Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -951,7 +951,9 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1330
     },
     {
       "id": "ete-08d39e2960e3",
@@ -1860,7 +1862,6 @@
         "logisticien-ne-de-nuit-ete-ch-avenches",
         "logisticien-ne-de-nuit-emil-egger-ag-avenches-f71f0455"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T05:44:45.407Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1875,7 +1876,9 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1114
     },
     {
       "id": "ete-d5ea0472e9b7",
@@ -2117,7 +2120,6 @@
         "spontanbewerbung-ete-ch-st-gallen",
         "spontanbewerbung-emil-egger-ag-st-gallen-b5449b49"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T05:44:44.499Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -2132,7 +2134,9 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1298
     },
     {
       "id": "ete-f45d285760e0",
@@ -2198,7 +2202,6 @@
         "chauffeur-chauffeuse-kat-c-e-ete-ch-st-gallen",
         "chauffeur-chauffeuse-kat-c-e-emil-egger-ag-st-gallen-f45d2857"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T05:44:44.198Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -2213,7 +2216,9 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1772
     },
     {
       "id": "ete-d5fd3983aedd",
@@ -2369,7 +2374,6 @@
         "lehre-zum-logistikerin-efz-start-ab-sommer-2027-ete-ch-st-gallen",
         "lehre-zum-logistikerin-efz-start-ab-sommer-2027-emil-egger-ag-st-gallen-2aa60663"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T05:44:43.595Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -2384,7 +2388,9 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1914
     },
     {
       "id": "ete-a74ebdca32fe",
@@ -2627,7 +2633,6 @@
         "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-ete-ch-st-gallen",
         "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-emil-egger-ag-st-gallen-89271a69"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T05:44:42.690Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -2642,7 +2647,9 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1690
     },
     {
       "id": "ete-db7ff58f1338",

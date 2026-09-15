@@ -69,8 +69,9 @@ import { isChCantonSnapshotPath, parseChCantonSnapshotPath } from '../build-plug
 import { parseChCantonEmployersPath } from '../build-plugins/weeklyEmployersChCantonPathsData';
 import { isSectionPagePath, parseSectionPagePath } from '../build-plugins/sectionPagesPathsData';
 import { isFiscalHubPath, parseFiscalHubPath, parseFiscalMunicipalityPath } from '../build-plugins/fiscalMunicipalityData';
-import { buildPharmacyPath, parsePharmacyPath, type PharmacyPath } from './pharmacies/paths';
+import { buildPharmacyPath, parsePharmacyRoute, type PharmacyPath } from './pharmacies/routePaths';
 import { buildPlateAuctionPath, parsePlateAuctionPath } from './plateAuctions/paths';
+import type { PlateVehicleType } from './plateAuctions/types';
 import {
   isFrenchBorderMunicipalityHubPath,
   parseFrenchBorderMunicipalityHubPath,
@@ -838,6 +839,7 @@ export interface AppRoute {
  plateAuctionView?: 'hub' | 'canton' | 'detail' | 'rankings';
  plateAuctionCanton?: string;
  plateAuctionPlate?: string;
+ plateAuctionVehicleType?: PlateVehicleType;
  blogArticle?: BlogArticleId;
  /** Unresolved blog slug when blog data hasn't loaded yet (lazy-loaded). */
  blogSlug?: string;
@@ -2038,6 +2040,7 @@ export function parsePath(pathname: string): ParseResult {
        plateAuctionView: plateAuctionPath.view,
        ...(plateAuctionPath.canton ? { plateAuctionCanton: plateAuctionPath.canton } : {}),
        ...(plateAuctionPath.plate ? { plateAuctionPlate: plateAuctionPath.plate } : {}),
+       ...(plateAuctionPath.vehicleType ? { plateAuctionVehicleType: plateAuctionPath.vehicleType } : {}),
      },
      locale: plateAuctionPath.locale,
    };
@@ -2460,7 +2463,7 @@ export function parsePath(pathname: string): ParseResult {
  // over a page that exists. Routed to `vita` for back-nav: daily-life
  // services is the closest existing tab family.
  {
-   const pharmacyPath = parsePharmacyPath(pathname);
+   const pharmacyPath = parsePharmacyRoute(pathname);
    if (pharmacyPath) {
      return { route: { activeTab: 'vita', pharmacyPath, staticOverlay: false }, locale: pharmacyPath.locale };
    }
@@ -3402,6 +3405,7 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
      view: route.plateAuctionView || 'hub',
      canton: route.plateAuctionCanton,
      plate: route.plateAuctionPlate,
+     vehicleType: route.plateAuctionVehicleType,
    })}${hashSuffix}`;
  }
  const localizeEditorialJobSlug = (jobSlug?: string): string | undefined => {

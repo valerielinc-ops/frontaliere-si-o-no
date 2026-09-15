@@ -8,15 +8,15 @@
  * shape a future per-canton connector will populate — but no connector
  * exists yet: `data/pharmacy-sources-registry.json` only carries SOURCE
  * CONFIGURATION (which canton, which official URL, whether that URL has been
- * verified as scrapeable). This page renders that registry, one card per
- * canton, and nothing else. It never lists a pharmacy name or an on-duty
+ * verified as scrapeable). This page renders the complete 26-canton geography
+ * and joins it to that registry, and nothing else. It never lists a pharmacy name or an on-duty
  * schedule, because the repo has none to show — inventing one to make the
  * page feel more complete would be exactly the "dati farmacie/turni
  * inventati" the parent issue (#6173) rules out. When Ticino moved to
  * `active` after the #6398 network verification, the honest addition was
  * "the source is confirmed scrapeable", not a fabricated duty listing.
  *
- * The visible promise to the reader is therefore: link to the OFFICIAL
+ * The visible promise to the reader is therefore: link to the registered
  * source they can check right now, and be plain about which cantons that
  * link exists for yet.
  *
@@ -48,9 +48,20 @@ import {
   type PharmacySourceStatus,
   type PharmacySourcesRegistry,
 } from '../services/pharmacies/types';
+import { SWISS_CANTONS, type SwissCanton } from '../services/pharmacies/swissCantons';
 import registryJson from '../data/pharmacy-sources-registry.json';
+import borderSourcesJson from '../data/pharmacy-border-sources.json';
 
 const registry = registryJson as PharmacySourcesRegistry;
+const borderSources = borderSourcesJson as { sources?: Record<string, { officialSourceUrl?: string }> };
+const ITALY_BORDER_SOURCE_URL = borderSources.sources?.['italy-border']?.officialSourceUrl
+  || null;
+const ITALY_BORDER_PATH: Record<PageLocale, string> = {
+  it: '/farmacie/italia/',
+  en: '/en/pharmacies/italy/',
+  de: '/de/apotheken/italien/',
+  fr: '/fr/pharmacies/italie/',
+};
 
 type PageLocale = 'it' | 'en' | 'de' | 'fr';
 const LOCALES: readonly PageLocale[] = ['it', 'en', 'de', 'fr'];
@@ -77,17 +88,17 @@ const H1: Record<PageLocale, string> = {
 };
 
 const DESCRIPTION: Record<PageLocale, string> = {
-  it: 'Lo stato della copertura, cantone per cantone, delle fonti ufficiali sulle farmacie di turno in Svizzera: quali sono verificate e dove trovare l’informazione oggi stesso.',
-  en: 'Canton-by-canton coverage status of the official sources for on-duty pharmacies in Switzerland: which are verified, and where to find the information today.',
-  de: 'Der kantonale Abdeckungsstatus der offiziellen Quellen für Notfall-Apotheken in der Schweiz: welche verifiziert sind und wo Sie die Information schon heute finden.',
-  fr: 'L’état de la couverture, canton par canton, des sources officielles sur les pharmacies de garde en Suisse : lesquelles sont vérifiées et où trouver l’information dès aujourd’hui.',
+  it: 'Lo stato della copertura, cantone per cantone, delle fonti di riferimento sulle farmacie di turno in Svizzera: quali sono verificate e dove trovare l’informazione oggi stesso.',
+  en: 'Canton-by-canton coverage status of the reference sources for on-duty pharmacies in Switzerland: which are verified, and where to find the information today.',
+  de: 'Der kantonale Abdeckungsstatus der Referenzquellen für Notfall-Apotheken in der Schweiz: welche verifiziert sind und wo Sie die Information schon heute finden.',
+  fr: 'L’état de la couverture, canton par canton, des sources de référence sur les pharmacies de garde en Suisse : lesquelles sont vérifiées et où trouver l’information dès aujourd’hui.',
 };
 
 const LEDE: Record<PageLocale, string> = {
-  it: 'Questa pagina non pubblica turni: elenca, per ogni cantone, se abbiamo verificato una fonte ufficiale da cui in futuro leggere le farmacie di turno, e nel frattempo il link diretto per controllare adesso.',
-  en: 'This page does not publish duty schedules: for every canton it lists whether we have verified an official source to read on-duty pharmacies from in the future, and in the meantime the direct link to check right now.',
-  de: 'Diese Seite veröffentlicht keine Dienstpläne: Sie zeigt für jeden Kanton, ob wir eine offizielle Quelle verifiziert haben, aus der künftig Notfall-Apotheken gelesen werden, und in der Zwischenzeit den direkten Link zur sofortigen Prüfung.',
-  fr: 'Cette page ne publie pas de plannings de garde : elle indique, pour chaque canton, si nous avons vérifié une source officielle permettant à l’avenir de lire les pharmacies de garde, et en attendant, le lien direct pour vérifier dès maintenant.',
+  it: 'Questa pagina non pubblica turni: mostra tutti i 26 cantoni svizzeri, indica dove una fonte di riferimento è stata verificata e collega il corridoio italiano già coperto dall’anagrafica, senza trasformare l’assenza di dati in un turno.',
+  en: 'This page does not publish duty schedules: it shows all 26 Swiss cantons, identifies where a reference source has been verified and links the Italian border corridor already covered by the directory, without turning missing data into a duty schedule.',
+  de: 'Diese Seite veröffentlicht keine Dienstpläne: Sie zeigt alle 26 Schweizer Kantone, weist verifizierte Referenzquellen aus und verlinkt den bereits vom Verzeichnis erfassten italienischen Grenzkorridor, ohne fehlende Daten in einen Dienstplan umzuwandeln.',
+  fr: 'Cette page ne publie pas de plannings de garde : elle présente les 26 cantons suisses, indique les sources de référence vérifiées et relie le corridor italien déjà couvert par le répertoire, sans transformer l’absence de données en garde.',
 };
 
 const STATUS_LABEL: Record<PharmacySourceStatus, Record<PageLocale, string>> = {
@@ -131,20 +142,34 @@ const COVERAGE_IN_PROGRESS_HEADING: Record<PageLocale, string> = {
   fr: 'Couverture en cours',
 };
 
+const NO_SOURCE_STATUS: Record<PageLocale, string> = {
+  it: 'Fonte non ancora collegata',
+  en: 'Source not connected yet',
+  de: 'Quelle noch nicht angebunden',
+  fr: 'Source pas encore reliée',
+};
+
+const NO_SOURCE_NOTE: Record<PageLocale, string> = {
+  it: 'Nessun URL di turno verificato nel registry: non pubblichiamo un link o un calendario dedotto.',
+  en: 'No verified duty URL is in the registry: we do not publish an invented link or an inferred schedule.',
+  de: 'Keine verifizierte Dienstplan-URL im Registry: Wir veröffentlichen weder einen erfundenen Link noch einen abgeleiteten Plan.',
+  fr: 'Aucune URL de garde vérifiée dans le registre : aucun lien inventé ni planning déduit n’est publié.',
+};
+
 function coverageIntro(count: number, total: number, locale: PageLocale): string {
   if (count === 0) {
     return {
-      it: `Nessun cantone ha ancora una fonte verificata: sotto trovi comunque il link ufficiale per ogni cantone che stiamo esaminando (${total} finora), da consultare direttamente.`,
-      en: `No canton has a verified source yet: below you still find the official link for every canton we are examining (${total} so far), to check directly.`,
-      de: `Noch kein Kanton hat eine verifizierte Quelle: unten finden Sie dennoch den offiziellen Link für jeden von uns geprüften Kanton (${total} bisher), zur direkten Kontrolle.`,
-      fr: `Aucun canton n’a encore de source vérifiée : vous trouverez ci-dessous le lien officiel pour chaque canton examiné jusqu’ici (${total}), à consulter directement.`,
+      it: `Nessuno dei ${total} cantoni ha ancora una fonte verificata nel registry: sotto trovi lo stato esplicito, senza URL inventati.`,
+      en: `None of the ${total} cantons has a verified source in the registry yet: below you find an explicit status, without invented URLs.`,
+      de: `Für keinen der ${total} Kantone ist im Registry eine Quelle verifiziert: Unten finden Sie den ausdrücklichen Status, ohne erfundene URLs.`,
+      fr: `Aucun des ${total} cantons ne possède encore de source vérifiée dans le registre : le statut est indiqué ci-dessous, sans URL inventée.`,
     }[locale];
   }
   return {
-    it: `${count} su ${total} cantoni esaminati ha una fonte ufficiale verificata come leggibile in modo automatico. Gli altri restano elencati con lo stato della verifica e il link ufficiale.`,
-    en: `${count} of ${total} examined cantons has an official source verified as machine-readable. The others remain listed with their verification status and official link.`,
-    de: `${count} von ${total} geprüften Kantonen verfügt über eine offizielle Quelle, die als maschinenlesbar verifiziert wurde. Die übrigen bleiben mit ihrem Verifizierungsstatus und dem offiziellen Link aufgeführt.`,
-    fr: `${count} canton(s) sur ${total} examinés dispose(nt) d’une source officielle vérifiée comme lisible automatiquement. Les autres restent listés avec leur statut de vérification et leur lien officiel.`,
+    it: `${count} su ${total} cantoni ha una fonte verificata come leggibile in modo automatico. Gli altri mostrano che la fonte non è ancora collegata, senza un link dedotto.`,
+    en: `${count} of ${total} cantons has a source verified as machine-readable. The others show that no source is connected yet, without an inferred link.`,
+    de: `${count} von ${total} Kantonen verfügt über eine Quelle, die als maschinenlesbar verifiziert wurde. Bei den übrigen wird die noch fehlende Anbindung ohne abgeleiteten Link angezeigt.`,
+    fr: `${count} canton(s) sur ${total} dispose(nt) d’une source vérifiée comme lisible automatiquement. Pour les autres, l’absence de source reliée est indiquée sans lien déduit.`,
   }[locale];
 }
 
@@ -176,6 +201,48 @@ const SOURCE_LINK_LABEL: Record<PageLocale, string> = {
   fr: 'Source officielle',
 };
 
+const ASSOCIATION_SOURCE_LINK_LABEL: Record<PageLocale, string> = {
+  it: 'Fonte associativa',
+  en: 'Association source',
+  de: 'Verbandsquelle',
+  fr: 'Source associative',
+};
+
+const SOURCE_NOTE: Record<PageLocale, string> = {
+  it: 'Il link identifica la fonte di riferimento; non è un calendario live e non attiva da solo un connettore di turni.',
+  en: 'This link identifies the reference source; it is not a live duty calendar and does not by itself activate a duty connector.',
+  de: 'Dieser Link bezeichnet die Referenzquelle; er ist kein Live-Dienstplan und aktiviert allein keinen Dienstplan-Connector.',
+  fr: 'Ce lien identifie la source de référence ; il ne s’agit pas d’un planning de garde en direct et n’active pas à lui seul un connecteur.',
+};
+
+const BORDER_HEADING: Record<PageLocale, string> = {
+  it: 'Corridoio italiano di confine',
+  en: 'Italian border corridor',
+  de: 'Italienischer Grenzkorridor',
+  fr: 'Corridor italien frontalier',
+};
+
+const BORDER_TEXT: Record<PageLocale, string> = {
+  it: 'Per Como, Varese e Verbano-Cusio-Ossola esiste già un’anagrafica del Ministero della Salute italiano. È una directory di sedi, non un calendario di farmacie di turno: la pagina separata mantiene questa distinzione e non inventa disponibilità.',
+  en: 'For Como, Varese and Verbano-Cusio-Ossola, the Italian Ministry of Health directory already supplies pharmacy identities. It is a location directory, not an on-duty calendar: the separate page keeps that distinction and does not invent availability.',
+  de: 'Für Como, Varese und Verbano-Cusio-Ossola liefert das italienische Gesundheitsministerium bereits ein Apothekenverzeichnis. Es ist kein Notdienstkalender: Die separate Seite hält diese Unterscheidung ein und erfindet keine Verfügbarkeit.',
+  fr: 'Pour Côme, Varèse et Verbano-Cusio-Ossola, le répertoire du ministère italien de la Santé fournit déjà les identités des pharmacies. Il ne s’agit pas d’un calendrier de garde : la page séparée conserve cette distinction et n’invente aucune disponibilité.',
+};
+
+const BORDER_DIRECTORY_LABEL: Record<PageLocale, string> = {
+  it: 'Apri l’anagrafica CO/VA/VB',
+  en: 'Open the CO/VA/VB directory',
+  de: 'Verzeichnis CO/VA/VB öffnen',
+  fr: 'Ouvrir le répertoire CO/VA/VB',
+};
+
+const BORDER_SOURCE_LABEL: Record<PageLocale, string> = {
+  it: 'Fonte ufficiale del Ministero',
+  en: 'Official Ministry source',
+  de: 'Offizielle Quelle des Ministeriums',
+  fr: 'Source officielle du ministère',
+};
+
 const VERIFIED_ON_LABEL: Record<PageLocale, string> = {
   it: 'Verificata il',
   en: 'Verified on',
@@ -193,31 +260,59 @@ function formatDate(iso: string, locale: PageLocale): string {
   return d.toLocaleDateString(locale === 'it' ? 'it-CH' : locale, { year: 'numeric', month: 'long', day: 'numeric' });
 }
 
-function renderCantonCard(entry: PharmacySourceEntry, locale: PageLocale): string {
-  const statusLabel = STATUS_LABEL[entry.status]?.[locale] ?? entry.status;
-  const verified = entry.lastVerifiedAt
-    ? `<p style="${BODY_STYLE}"><strong>${esc(VERIFIED_ON_LABEL[locale])}:</strong> ${esc(formatDate(entry.lastVerifiedAt, locale))}</p>`
+export interface PharmacyHubCantonCard {
+  canton: SwissCanton;
+  source?: PharmacySourceEntry;
+}
+
+function sourceForCanton(canton: SwissCanton): PharmacySourceEntry | undefined {
+  return registry.sources[canton.key]
+    || Object.values(registry.sources).find((entry) => entry.canton === canton.names.it || entry.canton === canton.names.en);
+}
+
+export function getPharmacyHubCantonCards(): readonly PharmacyHubCantonCard[] {
+  return Object.freeze(SWISS_CANTONS.map((canton) => ({ canton, source: sourceForCanton(canton) })));
+}
+
+function renderCantonCard(card: PharmacyHubCantonCard, locale: PageLocale): string {
+  const { canton, source } = card;
+  const statusLabel = source ? STATUS_LABEL[source.status]?.[locale] ?? source.status : NO_SOURCE_STATUS[locale];
+  const verified = source?.lastVerifiedAt
+    ? `<p style="${BODY_STYLE}"><strong>${esc(VERIFIED_ON_LABEL[locale])}:</strong> ${esc(formatDate(source.lastVerifiedAt, locale))}</p>`
     : '';
-  const fetched = entry.sourceFetchedAt
-    ? `<p style="${BODY_STYLE}"><strong>${esc(VERIFIED_ON_LABEL[locale])}:</strong> ${esc(formatDate(entry.sourceFetchedAt, locale))}</p>`
+  const fetched = source?.sourceFetchedAt
+    ? `<p style="${BODY_STYLE}"><strong>${esc(VERIFIED_ON_LABEL[locale])}:</strong> ${esc(formatDate(source.sourceFetchedAt, locale))}</p>`
     : '';
-  const notes = entry.notes ? `<p style="${BODY_STYLE}">${esc(entry.notes)}</p>` : '';
+  // Discovery notes remain in the registry/docs; the card uses localized
+  // copy so Italian audit notes do not leak into EN/DE/FR pages.
+  const notes = source
+    ? `<p style="${BODY_STYLE}">${esc(SOURCE_NOTE[locale])}</p>`
+    : `<p style="${BODY_STYLE}">${esc(NO_SOURCE_NOTE[locale])}</p>`;
+  const sourceLinkLabel = source?.sourceType === 'association'
+    ? ASSOCIATION_SOURCE_LINK_LABEL[locale]
+    : SOURCE_LINK_LABEL[locale];
+  const sourceLink = source
+    ? `<p style="${BODY_STYLE}"><a href="${esc(source.officialSourceUrl)}" rel="nofollow noopener">${esc(sourceLinkLabel)} →</a></p>`
+    : '';
   return `
       <article class="${CARD_CLASS}">
-        <h3 style="${H3_STYLE}">${esc(entry.canton)}</h3>
+        <h3 style="${H3_STYLE}">${esc(canton.names[locale])} <span aria-hidden="true">(${esc(canton.code)})</span></h3>
         <p style="${BODY_STYLE}"><strong>${esc(statusLabel)}</strong></p>
         ${verified}${fetched}
-        <p style="${BODY_STYLE}"><a href="${esc(entry.officialSourceUrl)}" rel="nofollow noopener">${esc(SOURCE_LINK_LABEL[locale])} →</a></p>
+        ${sourceLink}
         ${notes}
       </article>`;
 }
 
 function renderBody(locale: PageLocale): string {
-  const entries = Object.values(registry.sources);
-  const activeEntries = entries.filter((e) => e.status === 'active');
+  const cantonCards = getPharmacyHubCantonCards();
+  const activeEntries = cantonCards.filter((card) => card.source?.status === 'active');
   const heading = activeEntries.length > 0 ? COVERAGE_ACTIVE_HEADING[locale] : COVERAGE_IN_PROGRESS_HEADING[locale];
-  const intro = coverageIntro(activeEntries.length, entries.length, locale);
-  const cards = entries.map((e) => renderCantonCard(e, locale)).join('');
+  const intro = coverageIntro(activeEntries.length, cantonCards.length, locale);
+  const cards = cantonCards.map((card) => renderCantonCard(card, locale)).join('');
+  const borderSourceLink = ITALY_BORDER_SOURCE_URL
+    ? `<a href="${esc(ITALY_BORDER_SOURCE_URL)}" rel="nofollow noopener">${esc(BORDER_SOURCE_LABEL[locale])} →</a>`
+    : '';
 
   return `
     <header>
@@ -229,6 +324,11 @@ function renderBody(locale: PageLocale): string {
       <p style="${BODY_STYLE}">${esc(intro)}</p>
       <p style="${BODY_STYLE}">${esc(NOT_YET_LIVE_NOTE[locale])}</p>
       <div class="s-XENO3U">${cards}</div>
+    </section>
+    <section>
+      <h2 style="${H2_STYLE}">${esc(BORDER_HEADING[locale])}</h2>
+      <p style="${BODY_STYLE}">${esc(BORDER_TEXT[locale])}</p>
+      <p style="${BODY_STYLE}"><a href="${esc(ITALY_BORDER_PATH[locale])}">${esc(BORDER_DIRECTORY_LABEL[locale])} →</a>${borderSourceLink ? `<br>${borderSourceLink}` : ''}</p>
     </section>
     <section>
       <h2 style="${H2_STYLE}">${esc(DISCLAIMER_HEADING[locale])}</h2>
@@ -328,7 +428,7 @@ export function pharmacyHubPlugin(rootDir: string): Plugin {
       }
 
       const written = await collector.flush();
-      console.log(`\x1b[36m[pharmacy-hub]\x1b[0m Emitted ${written} pages from ${Object.keys(registry.sources).length} registry entries`);
+      console.log(`\x1b[36m[pharmacy-hub]\x1b[0m Emitted ${written} pages for ${SWISS_CANTONS.length} cantons and the Italian border corridor`);
 
       if (fs.existsSync(path.join(distDir, 'sitemap-farmacie.xml'))) {
         patchSitemapIndex(distDir, dateStamp);

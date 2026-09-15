@@ -112,6 +112,7 @@ permissions:
 
 env:
   NODE_OPTIONS: '--disable-warning=DEP0040 --disable-warning=DEP0169 --max-old-space-size=12288'
+  DATA_PIPELINE_LEASE: '1'
   # Every translation consumer must use the one run-wide clock. The initializer
   # below verifies the marker before any soft-failing phase can run.
   TRANSLATE_RUN_CLOCK_REQUIRED: '1'
@@ -368,13 +369,23 @@ jobs:
           node scripts/relocalize-pending-jobs.mjs "${ARGS[@]}"
           legacy_status=$?
           set -e
+          expected_decision_digest=''
+          expected_contract_digest=''
           while IFS= read -r binding; do
-            if [[ "$binding" =~ ^expected_(decision|contract)_digest=sha256:[a-f0-9]{64}$ ]]; then
-              echo "$binding" >> "$GITHUB_OUTPUT"
+            if [[ "$binding" =~ ^expected_decision_digest=sha256:[a-f0-9]{64}$ ]]; then
+              expected_decision_digest="${binding#*=}"
+            elif [[ "$binding" =~ ^expected_contract_digest=sha256:[a-f0-9]{64}$ ]]; then
+              expected_contract_digest="${binding#*=}"
             fi
           done < <(node scripts/translation-shadow-preflight-v2.mjs \
             --mode capture \
             --decision "$RUNNER_TEMP/translation-shadow-preflight-v2-decision.json" 2>/dev/null || true)
+          # Emit both declared step outputs on every path. An empty value is
+          # intentionally still an unbound proof and the observer keeps it
+          # missing/unmeasurable; the explicit keys make the conditional
+          # producer visible to the workflow contract audit.
+          printf 'expected_decision_digest=%s\n' "$expected_decision_digest" >> "$GITHUB_OUTPUT"
+          printf 'expected_contract_digest=%s\n' "$expected_contract_digest" >> "$GITHUB_OUTPUT"
           exit "$legacy_status"
 
       # Upload the cascade measurement before the long mop-up/title phases.

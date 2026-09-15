@@ -194,7 +194,12 @@ jobs:
             echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
           fi
       - name: Load secrets from Remote Config
-        run: node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal)"
+        run: |
+          if test -f scripts/load-rc-env.mjs; then
+            node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal)"
+          else
+            echo "⚠️ load-rc-env.mjs is absent in this checkout (non-fatal)"
+          fi
       - name: Cache assemble-jobs output
         uses: actions/cache@v5
         with:
@@ -426,7 +431,9 @@ jobs:
           fi
 
       - name: Load secrets from Remote Config
-        run: node scripts/load-rc-env.mjs
+        run: |
+          test -f scripts/load-rc-env.mjs
+          node scripts/load-rc-env.mjs
 
       # Consume the shared atomic snapshot from the prep job instead of
       # re-running assemble/cleanup/mine/migrate/thumbnails per shard.
@@ -1593,23 +1600,10 @@ jobs:
           # SKIPS merge drivers, so the json-first-seen driver above would
           # never fire and the CONFLICT wedge (see above) could reappear
           # with no signal (#2921, follow-up of #2920).
-          for i in 1 2 3 4 5; do
-            if git -c rebase.autoStash=true -c rebase.backend=merge \
-                pull --rebase origin main \
-                && git push origin HEAD:main; then
-              echo "[dist-history] pushed on attempt $i"
-              exit 0
-            fi
-            git rebase --abort 2>/dev/null || true
-            case "$i" in
-              1) sleep 5 ;;
-              2) sleep 10 ;;
-              3) sleep 15 ;;
-              4) sleep 25 ;;
-              5) sleep 40 ;;
-            esac
-          done
-          echo "::warning::[dist-history] push failed after 5 attempts — url-first-seen.json will not be available to the next build's grace-window check"
+          # The shared helper forces the merge backend and preserves the dirty
+          # dist tree while it rebases; a failed push is fatal so the history
+          # cannot disappear behind a green deploy.
+          bash scripts/lib/git-push-with-retry.sh --max-attempts 5 --stash-dirty
 
       # ── Section shards (non-IT) → frontaliere-<section>-<loc> shard repos ──
       # Section shard push FIRST (before the offload below) so

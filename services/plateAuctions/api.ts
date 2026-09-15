@@ -13,12 +13,15 @@ export const PLATE_AUCTION_API_SCHEMA = 1;
 export interface PlateAuctionSourceSnapshot extends PlateAuctionSourceEntry {
   lastFetchedAt?: string;
   lastSuccessAt?: string;
+  lastCheckedAt?: string;
   rowCount: number;
   errorCode?: string;
 }
 
 export interface PlateAuctionApiSnapshot {
   schema: typeof PLATE_AUCTION_API_SCHEMA;
+  /** The server fails closed instead of returning a silently truncated page. */
+  complete: boolean;
   generatedAt: string;
   sources: Record<string, PlateAuctionSourceSnapshot>;
   auctions: PlateAuction[];
@@ -149,6 +152,7 @@ function sanitizeSource(value: unknown): PlateAuctionSourceSnapshot | null {
     rowCount,
     ...(typeof value.lastFetchedAt === 'string' ? { lastFetchedAt: value.lastFetchedAt } : {}),
     ...(typeof value.lastSuccessAt === 'string' ? { lastSuccessAt: value.lastSuccessAt } : {}),
+    ...(typeof value.lastCheckedAt === 'string' ? { lastCheckedAt: value.lastCheckedAt } : {}),
     ...(typeof value.errorCode === 'string' ? { errorCode: value.errorCode } : {}),
     ...(typeof value.notes === 'string' ? { notes: value.notes } : {}),
   };
@@ -228,6 +232,7 @@ export function parsePlateAuctionApiSnapshot(value: unknown): PlateAuctionApiSna
   if (!isRecord(value) || value.schema !== PLATE_AUCTION_API_SCHEMA || typeof value.generatedAt !== 'string') {
     throw new Error('Invalid plate-auction API schema');
   }
+  if (value.complete === false) throw new Error('Incomplete plate-auction snapshot');
   const auctions = Array.isArray(value.auctions)
     ? value.auctions.map(sanitizePublicPlateAuction).filter((item): item is PlateAuction => item !== null)
     : [];
@@ -251,7 +256,7 @@ export function parsePlateAuctionApiSnapshot(value: unknown): PlateAuctionApiSna
       && typeof auction.finalPriceVerifiedAt === 'string').length,
     cantonsWithData: new Set(auctions.map((auction) => auction.sourceKey || auction.platePrefix)).size,
   };
-  return { schema: PLATE_AUCTION_API_SCHEMA, generatedAt: value.generatedAt, sources, auctions, ...(history ? { history } : {}), counts };
+  return { schema: PLATE_AUCTION_API_SCHEMA, complete: true, generatedAt: value.generatedAt, sources, auctions, ...(history ? { history } : {}), counts };
 }
 
 export async function fetchPlateAuctionSnapshot(): Promise<PlateAuctionApiSnapshot> {

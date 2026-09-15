@@ -34,10 +34,10 @@ on:
         default: 'own,seco,web,osm'
       trace_limit:
         description: 'Quanti candidati tracciare'
-        default: '150'
+        default: '300'
       expand_platforms:
         description: 'Quante piattaforme espandere'
-        default: '2'
+        default: '4'
       promote_max:
         description: 'Quanti crawler validati promuovere in produzione per giro'
         default: '10'
@@ -61,8 +61,8 @@ env:
   # `own` erano gia' nazionali per costruzione.
   CANTONS: ${{ github.event.inputs.cantons || 'all' }}
   SOURCES: ${{ github.event.inputs.sources || 'own,seco,web,osm' }}
-  TRACE_LIMIT: ${{ github.event.inputs.trace_limit || '150' }}
-  EXPAND_PLATFORMS: ${{ github.event.inputs.expand_platforms || '2' }}
+  TRACE_LIMIT: ${{ github.event.inputs.trace_limit || '300' }}
+  EXPAND_PLATFORMS: ${{ github.event.inputs.expand_platforms || '4' }}
   # Politeness is not a default worth leaving to chance: these employers never
   # asked to be crawled.
   PROSPECTOR_HOST_DELAY_MS: '1200'
@@ -128,10 +128,10 @@ jobs:
         run: node scripts/prospect-expand.mjs --platforms="$EXPAND_PLATFORMS" --max-probe=200
 
       - name: Synthesize crawlers
-        run: node scripts/prospect-synthesize.mjs --limit=40
+        run: node scripts/prospect-synthesize.mjs --limit=60
 
       - name: Grade extraction against the live pages
-        run: node scripts/prospect-validate.mjs --limit=40 --sample=3
+        run: node scripts/prospect-validate.mjs --limit=60 --sample=3
 
       - name: Summary
         run: node scripts/prospect-report.mjs --markdown >> "$GITHUB_STEP_SUMMARY"
@@ -150,17 +150,7 @@ jobs:
             exit 0
           fi
           git commit -m 'prospector: aggiorna coda candidati, registro piattaforme e report qualita'
-          bash scripts/lib/configure-main-push-auth.sh
-          for attempt in 1 2 3; do
-            if git push; then
-              echo "push riuscito al tentativo $attempt"
-              exit 0
-            fi
-            echo "push respinto, ribaso e riprovo ($attempt/3)"
-            git pull --rebase --autostash origin "$GITHUB_REF_NAME" || exit 1
-          done
-          echo 'push fallito dopo 3 tentativi'
-          exit 1
+          bash scripts/lib/git-push-with-retry.sh --branch "$GITHUB_REF_NAME"
 
       # ── Chiusura del loop ────────────────────────────────────────────────
       # Ship dei crawler che hanno superato il gate: nessun passo umano. Gira
@@ -196,10 +186,11 @@ jobs:
           # file di workflow — e il gate APP_TOKEN_WORKFLOWS lo sa gia', quindi
           # in quel caso i gruppi non vengono nemmeno rigenerati.
           #
-          # Niente fallback a GITHUB_PAT qui: lo step di commit della coda ha
-          # gia' caricato Remote Config per il push a main. La promozione tocca
-          # `.github/workflows/**` e vuole lo scope `workflows` del token App,
-          # non il PAT.
+          # Niente fallback a GITHUB_PAT per il push della PR: lo step di commit
+          # della coda ha gia' caricato Remote Config per il push a main, ma la
+          # promozione tocca `.github/workflows/**` e vuole lo scope `workflows`
+          # del token App. Il commit data-only di stato, dopo la creazione della
+          # PR, passa invece dal retry helper condiviso che ripristina il PAT.
           GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
           # L'IDENTITA' con cui questo step pusha, dichiarata accanto al token
           # che la porta. `prospect-promote.mjs` legge la capacita' `workflows`

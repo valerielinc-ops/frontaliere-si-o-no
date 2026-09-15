@@ -40,6 +40,16 @@ describe('plate-auction public API contract', () => {
     expect(snapshot.counts.finalsVerified).toBe(1);
   });
 
+  it('rejects a snapshot explicitly marked incomplete', () => {
+    expect(() => parsePlateAuctionApiSnapshot({
+      schema: 1,
+      complete: false,
+      generatedAt: '2026-09-13T12:00:00.000Z',
+      sources: {},
+      auctions: [],
+    })).toThrow('Incomplete plate-auction snapshot');
+  });
+
   it('accepts the corpus editorial companion through its own allow-list', () => {
     const block = { title: 'Guide', excerpt: 'Summary', paragraphs: ['One paragraph'], bullets: ['One point'] };
     const weekly = { ...block, status: 'ready', highlights: [{ plate: 'GR 7', currentPriceChf: 700, officialUrl: 'https://example.test/auction', bidderName: 'private' }] };

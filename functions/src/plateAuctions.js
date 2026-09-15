@@ -1,8 +1,19 @@
 import {
+  buildEcariDetailUrl,
   extractEcariTabSection,
+  extractPdfUrl,
+  fetchJson,
   fetchHtml,
+  fetchPdfText,
+  FIXED_PRICE_SOURCE_CONFIGS,
+  parseAiFixedPricePdfText,
+  parseBsFixedPricePdfText,
+  parseGlFixedPriceJson,
+  parseLuFixedPricePdfText,
   parseEcariAuctionRows,
+  parseUrFixedPricePdfText,
   parseZhAuctionCards,
+  SWISSSIGN_RSA_TLS_OV_ICA_2022_1,
 } from './plateAuctionsCore.js';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY } from './plateAuctionSourceRegistry.js';
@@ -16,8 +27,116 @@ export const PLATE_AUCTION_COLLECTION = 'plate_auctions_current';
 export const PLATE_AUCTION_HISTORY_COLLECTION = 'plate_auctions_history';
 export const PLATE_AUCTION_SOURCE_COLLECTION = 'plate_auction_sources';
 export const PLATE_AUCTION_API_SCHEMA = 1;
+const PLATE_AUCTION_PAGE_SIZE = 1000;
+const PLATE_AUCTION_MAX_ROWS = 100000;
+
+function makeEcariConnector({ canton, plateCode, url, parserVersion = '2.0.0' }) {
+  return {
+    canton,
+    plateCode,
+    url,
+    parserVersion,
+    parse(html, fetchedAt) {
+      return parseEcariSource(html, {
+        canton,
+        plateCode,
+        officialAuctionUrl: url,
+        fetchedAt,
+      });
+    },
+  };
+}
+
+function makeCardConnector({ canton, plateCode, url, detailBaseUrl, parserVersion = '1.1.0' }) {
+  return {
+    canton,
+    plateCode,
+    url,
+    parserVersion,
+    parse(html, fetchedAt) {
+      return parseCardSource(html, {
+        canton,
+        plateCode,
+        officialAuctionUrl: url,
+        detailBaseUrl,
+        fetchedAt,
+      });
+    },
+  };
+}
+
+function makeFixedPriceConnector({ sourceKey, parse }) {
+  const source = FIXED_PRICE_SOURCE_CONFIGS[sourceKey];
+  if (!source) throw new Error(`Missing fixed-price source config: ${sourceKey}`);
+  return {
+    canton: source.canton,
+    plateCode: source.plateCode,
+    url: source.url || source.pageUrl,
+    parserVersion: source.parserVersion,
+    async fetchSource({ fetchedAt, injectedFetcher } = {}) {
+      if (source.kind === 'json') {
+        const payload = injectedFetcher
+          ? await injectedFetcher(source.url, { responseType: 'json', timeoutMs: 20000 })
+          : await fetchJson(source.url);
+        return parse(payload, {
+          canton: source.canton,
+          plateCode: source.plateCode,
+          officialUrl: source.officialUrl,
+          officialDetailUrl: source.url,
+          fetchedAt,
+        });
+      }
+      const pageHtml = injectedFetcher
+        ? await injectedFetcher(source.pageUrl, { responseType: 'html', timeoutMs: 20000 })
+        : await fetchHtml(source.pageUrl);
+      const variants = source.pdfVariants || [{
+        fallbackPdfUrl: source.fallbackPdfUrl,
+        pdfUrlPattern: source.pdfUrlPattern,
+      }];
+      const rows = [];
+      for (const variant of variants) {
+        const pdfUrl = variant.pdfUrlPattern
+          ? extractPdfUrl(pageHtml, {
+            baseUrl: source.pageUrl,
+            pattern: variant.pdfUrlPattern,
+          }) || variant.fallbackPdfUrl
+          : variant.fallbackPdfUrl;
+        const pdf = injectedFetcher
+          ? await injectedFetcher(pdfUrl, { responseType: 'pdf-text', timeoutMs: 30000 })
+          : await fetchPdfText(pdfUrl);
+        rows.push(...parse(pdf, {
+          canton: source.canton,
+          plateCode: source.plateCode,
+          officialUrl: source.officialUrl,
+          officialDetailUrl: pdfUrl,
+          fetchedAt,
+          ...(variant.vehicleType ? { vehicleType: variant.vehicleType } : {}),
+        }));
+      }
+      return rows;
+    },
+  };
+}
 
 const CONNECTORS = {
+  ag: makeCardConnector({
+    canton: 'Argovia',
+    plateCode: 'AG',
+    url: 'https://www.auktion-ag.ch',
+    detailBaseUrl: 'https://www.auktion-ag.ch',
+  }),
+  ai: makeFixedPriceConnector({ sourceKey: 'ai', parse: parseAiFixedPricePdfText }),
+  ar: makeEcariConnector({ canton: 'Appenzello Esterno', plateCode: 'AR', url: 'https://eauktion.ar.ch/ecari-auction/ui/app/init' }),
+  be: makeCardConnector({
+    canton: 'Berna',
+    plateCode: 'BE',
+    url: 'https://www.auktion-be.ch/de/',
+    detailBaseUrl: 'https://www.auktion-be.ch',
+  }),
+  bl: makeEcariConnector({ canton: 'Basilea Campagna', plateCode: 'BL', url: 'https://eauktion.bl.ch/ecari-auction/ui/app/init' }),
+  bs: makeFixedPriceConnector({ sourceKey: 'bs', parse: parseBsFixedPricePdfText }),
+  fr: makeEcariConnector({ canton: 'Friburgo', plateCode: 'FR', url: 'https://appls.ocn.ch/ecari-auction/ui/app/init?locale=fr_ch' }),
+  gl: makeFixedPriceConnector({ sourceKey: 'gl', parse: parseGlFixedPriceJson }),
   gr: {
     canton: 'Grigioni',
     plateCode: 'GR',
@@ -37,10 +156,13 @@ const CONNECTORS = {
         auctionStatus,
         listingType,
         idPrefix,
-        detailUrlBuilder: () => 'https://eauktion.gr.ch/',
+        detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl('https://eauktion.gr.ch/', sourceRecordId),
       }));
     },
   },
+  nw: makeEcariConnector({ canton: 'Nidvaldo', plateCode: 'NW', url: 'https://ecarinwprod.ilz.info/ecari-auction/' }),
+  ow: makeEcariConnector({ canton: 'Obvaldo', plateCode: 'OW', url: 'https://ecariowprod.ilz.info/ecari-auction/' }),
+  so: makeEcariConnector({ canton: 'Soletta', plateCode: 'SO', url: 'https://eauktion.so.ch/ecari-auction' }),
   vs: {
     canton: 'Vallese',
     plateCode: 'VS',
@@ -59,10 +181,16 @@ const CONNECTORS = {
         auctionStatus: status,
         listingType,
         idPrefix,
-        detailUrlBuilder: () => 'https://ecari.vs.ch/ecari-auction/',
+        detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl('https://ecari.vs.ch/ecari-auction/', sourceRecordId),
       }));
     },
   },
+  vd: makeCardConnector({
+    canton: 'Vaud',
+    plateCode: 'VD',
+    url: 'https://www.encheres-vd.ch/de/',
+    detailBaseUrl: 'https://www.encheres-vd.ch',
+  }),
   ti: {
     canton: 'Ticino',
     plateCode: 'TI',
@@ -82,10 +210,12 @@ const CONNECTORS = {
         auctionStatus,
         listingType,
         idPrefix,
-        detailUrlBuilder: () => 'https://www.carieauktion.ti.ch/ecari-auktion/',
+        detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl('https://www.carieauktion.ti.ch/ecari-auktion/', sourceRecordId),
       }));
     },
   },
+  lu: makeFixedPriceConnector({ sourceKey: 'lu', parse: parseLuFixedPricePdfText }),
+  ur: makeFixedPriceConnector({ sourceKey: 'ur', parse: parseUrFixedPricePdfText }),
   zh: {
     canton: 'Zurigo',
     plateCode: 'ZH',
@@ -99,7 +229,99 @@ const CONNECTORS = {
       });
     },
   },
+  sg: {
+    canton: 'San Gallo',
+    plateCode: 'SG',
+    url: 'https://egov.stva.sg.ch/ecari-auction/ui/app/init',
+    parserVersion: '2.0.0',
+    parse(html, fetchedAt) {
+      return parseEcariSource(html, {
+        canton: 'San Gallo',
+        plateCode: 'SG',
+        officialAuctionUrl: 'https://egov.stva.sg.ch/ecari-auction/ui/app/init',
+        fetchedAt,
+      });
+    },
+  },
+  sz: {
+    canton: 'Svitto',
+    plateCode: 'SZ',
+    url: 'https://cariegov.sz.ch/ecari-auction/ui/app/init',
+    parserVersion: '2.0.0',
+    parse(html, fetchedAt) {
+      return parseEcariSource(html, {
+        canton: 'Svitto',
+        plateCode: 'SZ',
+        officialAuctionUrl: 'https://cariegov.sz.ch/ecari-auction/ui/app/init',
+        fetchedAt,
+      });
+    },
+  },
+  sh: {
+    canton: 'Sciaffusa',
+    plateCode: 'SH',
+    url: 'https://www.auktion-stva.sh.ch/',
+    parserVersion: '1.1.0',
+    parse(html, fetchedAt) {
+      return parseCardSource(html, {
+        canton: 'Sciaffusa',
+        plateCode: 'SH',
+        officialAuctionUrl: 'https://www.auktion-stva.sh.ch/',
+        detailBaseUrl: 'https://www.auktion-stva.sh.ch',
+        fetchedAt,
+      });
+    },
+  },
+  tg: {
+    canton: 'Turgovia',
+    plateCode: 'TG',
+    url: 'https://www.auktion.tg.ch/de/',
+    parserVersion: '1.1.0',
+    parse(html, fetchedAt) {
+      return parseCardSource(html, {
+        canton: 'Turgovia',
+        plateCode: 'TG',
+        officialAuctionUrl: 'https://www.auktion.tg.ch/de/',
+        detailBaseUrl: 'https://www.auktion.tg.ch',
+        fetchedAt,
+      });
+    },
+  },
 };
+
+const ECARI_TABS = [
+  ['tabContent1', 'active', 'auction', 'auction'],
+  ['tabContent2', 'upcoming', 'future-registration', 'future'],
+  ['tabContent3', 'active', 'fixed-price', 'fixed'],
+  ['tabContent4', 'upcoming', 'wanted', 'wanted'],
+];
+
+function parseEcariSource(html, { canton, plateCode, officialAuctionUrl, fetchedAt, tabs = ECARI_TABS }) {
+  return tabs.flatMap(([tabContentId, auctionStatus, listingType, idSuffix]) => parseEcariAuctionRows(
+    extractEcariTabSection(html, tabContentId),
+    {
+      canton,
+      plateCode,
+      officialAuctionUrl,
+      fetchedAt,
+      auctionStatus,
+      listingType,
+      idPrefix: idSuffix === 'auction' ? plateCode.toLowerCase() : `${plateCode.toLowerCase()}-${idSuffix}`,
+      detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl(officialAuctionUrl, sourceRecordId),
+    },
+  ));
+}
+
+function parseCardSource(html, { canton, plateCode, officialAuctionUrl, detailBaseUrl, fetchedAt }) {
+  return parseZhAuctionCards(html, {
+    fetchedAt,
+    officialAuctionUrl,
+    detailBaseUrl,
+    sourceKey: plateCode,
+    canton,
+    platePrefix: plateCode,
+  });
+}
 
 function timestampValue(value) {
   if (!value) return undefined;
@@ -171,7 +393,7 @@ function publicSource(value) {
   for (const key of allowed) {
     if (value[key] !== undefined && value[key] !== null) output[key] = value[key];
   }
-  for (const key of ['lastFetchedAt', 'lastSuccessAt']) {
+  for (const key of ['lastFetchedAt', 'lastSuccessAt', 'lastCheckedAt']) {
     const normalized = timestampValue(value[key]);
     if (normalized) output[key] = normalized;
   }
@@ -182,15 +404,78 @@ function publicSource(value) {
   return output;
 }
 
-async function readCollection(db, collection, limit) {
-  const snapshot = await db.collection(collection).limit(limit).get();
-  return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+async function readPaginatedDocuments({ firstQuery, nextQuery, pageSize, maxRows = PLATE_AUCTION_MAX_ROWS, label }) {
+  const documents = [];
+  let query = firstQuery;
+  while (true) {
+    const snapshot = await query.get();
+    const pageDocuments = Array.isArray(snapshot?.docs) ? snapshot.docs : [];
+    if (documents.length + pageDocuments.length > maxRows) {
+      throw new Error(`${label} pagination limit`);
+    }
+    documents.push(...pageDocuments);
+    if (pageDocuments.length < pageSize) return documents;
+    const lastDocument = pageDocuments[pageDocuments.length - 1];
+    if (!lastDocument || typeof nextQuery !== 'function') {
+      throw new Error(`${label} pagination unavailable`);
+    }
+    query = nextQuery(lastDocument);
+  }
+}
+
+async function readCollection(db, collection, options = {}) {
+  // Keep callers using the historical numeric second argument safe while the
+  // paginated reader accepts named limits. A number means maxRows, as it did
+  // before pagination was introduced.
+  const { pageSize = PLATE_AUCTION_PAGE_SIZE, maxRows = PLATE_AUCTION_MAX_ROWS } = typeof options === 'number'
+    ? { maxRows: options }
+    : (options || {});
+  const collectionRef = db.collection(collection);
+  if (typeof collectionRef.orderBy !== 'function') {
+    const snapshot = await collectionRef.limit(maxRows).get();
+    if (Array.isArray(snapshot?.docs) && snapshot.docs.length >= maxRows) {
+      throw new Error(`${collection} pagination unavailable`);
+    }
+    return (snapshot.docs || []).map((doc) => ({ id: doc.id, ...doc.data() }));
+  }
+  const ordered = collectionRef.orderBy('__name__');
+  const documents = await readPaginatedDocuments({
+    firstQuery: ordered.limit(pageSize),
+    nextQuery: (lastDocument) => ordered.startAfter(lastDocument).limit(pageSize),
+    pageSize,
+    maxRows,
+    label: collection,
+  });
+  return documents.map((doc) => ({ id: doc.id, ...doc.data() }));
+}
+
+async function readSourceRows(db, sourceKey) {
+  const collectionRef = db.collection(PLATE_AUCTION_COLLECTION);
+  const filtered = collectionRef.where('sourceKey', '==', sourceKey);
+  if (typeof filtered.orderBy !== 'function') {
+    const snapshot = await filtered.limit(PLATE_AUCTION_MAX_ROWS).get();
+    if (Array.isArray(snapshot?.docs) && snapshot.docs.length >= PLATE_AUCTION_MAX_ROWS) {
+      throw new Error(`plate-auctions:${sourceKey} pagination unavailable`);
+    }
+    return snapshot.docs || [];
+  }
+  const ordered = filtered.orderBy('__name__');
+  return readPaginatedDocuments({
+    firstQuery: ordered.limit(PLATE_AUCTION_PAGE_SIZE),
+    nextQuery: (lastDocument) => ordered.startAfter(lastDocument).limit(PLATE_AUCTION_PAGE_SIZE),
+    pageSize: PLATE_AUCTION_PAGE_SIZE,
+    maxRows: PLATE_AUCTION_MAX_ROWS,
+    label: `plate-auctions:${sourceKey}`,
+  });
 }
 
 export async function getPublicPlateAuctionSnapshot(db = getAdminDb()) {
   const [auctionRows, sourceRows] = await Promise.all([
-    readCollection(db, PLATE_AUCTION_COLLECTION, 2500),
-    readCollection(db, PLATE_AUCTION_SOURCE_COLLECTION, 50),
+    // Basel-Stadt publishes a large official fixed-price catalogue. Read all
+    // pages and fail closed above the defensive cap instead of silently
+    // truncating the public snapshot.
+    readCollection(db, PLATE_AUCTION_COLLECTION),
+    readCollection(db, PLATE_AUCTION_SOURCE_COLLECTION, { pageSize: 50, maxRows: 50 }),
   ]);
   let historyRows = [];
   try {
@@ -204,18 +489,39 @@ export async function getPublicPlateAuctionSnapshot(db = getAdminDb()) {
     // first deployment must not take the live catalogue down with it.
     console.warn('[getPublicPlateAuctionSnapshot:history]', error instanceof Error ? error.message : String(error));
   }
-  const auctions = auctionRows.map(publicAuction).filter(Boolean).map((auction) => {
+  const activeSourceCodes = new Set(Object.values(PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY)
+    .filter((source) => source.status === 'active')
+    .map((source) => source.plateCode));
+  const auctions = auctionRows.map(publicAuction).filter(Boolean)
+    .filter((auction) => activeSourceCodes.has(auction.sourceKey || auction.platePrefix))
+    .map((auction) => {
     const closed = closeExpiredObservation(auction, new Date());
     return closed ? publicAuction(closed) : auction;
   }).filter(Boolean);
-  const history = historyRows.map(publicAuction).filter(Boolean);
+  const history = historyRows.map(publicAuction).filter(Boolean)
+    .filter((auction) => activeSourceCodes.has(auction.sourceKey || auction.platePrefix));
   const sources = Object.fromEntries(Object.entries(PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY).map(([key, source]) => [key, { ...source, rowCount: 0 }]));
   for (const source of sourceRows) {
     const publicValue = publicSource(source);
-    if (publicValue) sources[source.id] = publicValue;
+    if (!publicValue) continue;
+    const registrySource = PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY[source.id];
+    if (registrySource && registrySource.status !== 'active') {
+      // A stale Firestore document must not resurrect a source that the
+      // registry has explicitly blocked or marked as having no public
+      // catalogue. Keep the last check timestamp, but publish the registry
+      // state and zero current rows immediately after deployment.
+      sources[source.id] = {
+        ...registrySource,
+        rowCount: 0,
+        ...(publicValue.lastCheckedAt ? { lastCheckedAt: publicValue.lastCheckedAt } : {}),
+      };
+    } else {
+      sources[source.id] = publicValue;
+    }
   }
   return {
     schema: PLATE_AUCTION_API_SCHEMA,
+    complete: true,
     generatedAt: new Date().toISOString(),
     sources,
     auctions,
@@ -233,33 +539,44 @@ export async function getPublicPlateAuctionSnapshot(db = getAdminDb()) {
   };
 }
 
-function sourceDocument(config, fetchedAt, patch = {}) {
+function sourceDocument(sourceKey, config, fetchedAt, patch = {}) {
+  const registrySource = PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY[sourceKey] || {};
   return {
-    canton: config.canton,
-    plateCode: config.plateCode,
-    officialUrl: config.url,
-    accessMethod: 'html-scrape',
-    fetchFrequency: 'PT6H',
-    timezone: 'Europe/Zurich',
-    parserVersion: config.parserVersion,
-    availableFields: ['sourceRecordId', 'plateNumber', 'listingType', 'vehicleType', 'startingPriceChf', 'minimumIncrementChf', 'currentBidChf', 'bidCount', 'endsAt', 'officialDetailUrl'],
-    rateLimit: 'collector capped at four fetches/day',
-    termsOfUse: 'review source terms before increasing frequency',
-    owner: 'platform',
+    canton: registrySource.canton || config.canton,
+    plateCode: registrySource.plateCode || config.plateCode,
+    officialUrl: registrySource.officialUrl || config.url,
+    accessMethod: registrySource.accessMethod || 'html-scrape',
+    fetchFrequency: registrySource.fetchFrequency || 'PT6H',
+    timezone: registrySource.timezone || 'Europe/Zurich',
+    parserVersion: registrySource.parserVersion || config.parserVersion,
+    availableFields: registrySource.availableFields || [],
+    rateLimit: registrySource.rateLimit || 'collector capped at four fetches/day',
+    termsOfUse: registrySource.termsOfUse || 'review source terms before increasing frequency',
+    owner: registrySource.owner || 'platform',
+    ...(registrySource.notes ? { notes: registrySource.notes } : {}),
     lastFetchedAt: fetchedAt,
+    lastCheckedAt: fetchedAt,
     ...patch,
   };
 }
 
-export async function refreshPlateAuctions({ db = getAdminDb(), fetcher = fetchHtml, now = new Date() } = {}) {
+/**
+ * @param {{db?: any, fetcher?: (url: string, options?: Record<string, unknown>) => Promise<any>, now?: Date}} options
+ */
+export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = new Date() } = {}) {
   const fetchedAt = now.toISOString();
   const summaries = {};
   for (const [key, config] of Object.entries(CONNECTORS)) {
+    if (PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY[key]?.status !== 'active') continue;
     try {
-      const html = await fetcher(config.url, { timeoutMs: 20000 });
-      const parsedRows = config.parse(html, fetchedAt);
+      const parsedRows = typeof config.fetchSource === 'function'
+        ? await config.fetchSource({ fetchedAt, injectedFetcher: fetcher })
+        : config.parse(await (fetcher || fetchHtml)(config.url, {
+          timeoutMs: 20000,
+          ...(key === 'fr' ? { ca: SWISSSIGN_RSA_TLS_OV_ICA_2022_1 } : {}),
+        }), fetchedAt);
       const sourceRef = db.collection(PLATE_AUCTION_SOURCE_COLLECTION).doc(key);
-      const previous = await db.collection(PLATE_AUCTION_COLLECTION).where('sourceKey', '==', config.plateCode).limit(2500).get();
+      const previous = { docs: await readSourceRows(db, config.plateCode) };
       const previousById = new Map(previous.docs.map((doc) => [doc.id, { id: doc.id, ...doc.data() }]));
       if (parsedRows.length === 0) {
         // An empty upstream response is degraded, but it must not leave a
@@ -281,7 +598,7 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher = fetchH
           }
           await batch.commit();
         }
-        await sourceRef.set(sourceDocument(config, fetchedAt, { status: 'degraded', rowCount: 0, errorCode: 'zero_rows' }), { merge: true });
+        await sourceRef.set(sourceDocument(key, config, fetchedAt, { status: 'degraded', rowCount: 0, errorCode: 'zero_rows' }), { merge: true });
         summaries[key] = { status: 'degraded', rowCount: 0, closedExpired: writes.length / 2 };
         continue;
       }
@@ -342,13 +659,30 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher = fetchH
       const sourcePatch = sourceDisappeared
         ? { status: 'degraded', rowCount: rows.length, errorCode: 'source_disappeared' }
         : { status: 'active', rowCount: rows.length, lastSuccessAt: fetchedAt, errorCode: null };
-      await sourceRef.set(sourceDocument(config, fetchedAt, sourcePatch), { merge: true });
+      await sourceRef.set(sourceDocument(key, config, fetchedAt, sourcePatch), { merge: true });
       summaries[key] = { status: sourcePatch.status, rowCount: rows.length, ...(sourceDisappeared ? { errorCode: 'source_disappeared' } : {}) };
     } catch (error) {
-      await db.collection(PLATE_AUCTION_SOURCE_COLLECTION).doc(key).set(sourceDocument(config, fetchedAt, { status: 'degraded', errorCode: 'fetch_failed', errorMessage: error instanceof Error ? error.message.slice(0, 180) : 'unknown_error' }), { merge: true });
+      await db.collection(PLATE_AUCTION_SOURCE_COLLECTION).doc(key).set(sourceDocument(key, config, fetchedAt, { status: 'degraded', errorCode: 'fetch_failed', errorMessage: error instanceof Error ? error.message.slice(0, 180) : 'unknown_error' }), { merge: true });
       summaries[key] = { status: 'degraded', errorCode: 'fetch_failed' };
       console.error(`[refreshPlateAuctions:${key}]`, error instanceof Error ? error.message : String(error));
     }
+  }
+  // Keep the complete 26-canton matrix visible in the API, including sources
+  // that are known to be blocked or that do not publish a public auction
+  // catalogue. This is deliberately explicit: a missing connector is an
+  // implementation error, while a blocked/no-public source is a known state.
+  for (const [key, source] of Object.entries(PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY)) {
+    if (CONNECTORS[key] && source.status === 'active') continue;
+    const patch = source.status === 'active'
+      ? { status: 'degraded', errorCode: 'missing_connector' }
+      : { status: source.status, errorCode: null };
+    await db.collection(PLATE_AUCTION_SOURCE_COLLECTION).doc(key).set({
+      ...source,
+      rowCount: 0,
+      lastCheckedAt: fetchedAt,
+      ...patch,
+    }, { merge: true });
+    summaries[key] = { status: patch.status, rowCount: 0, ...(patch.errorCode ? { errorCode: patch.errorCode } : {}) };
   }
   return { fetchedAt, summaries };
 }

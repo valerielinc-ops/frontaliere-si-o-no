@@ -4,11 +4,16 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { buildPharmacyAliasBridge, buildPharmacyDirectoryPage, emitPharmacyAliasBridge, pharmacyPageDescriptors } from '../../build-plugins/pharmacyDirectoryPagesPlugin';
+import { ITALY_BORDER_PHARMACIES, TICINO_CITIES, TICINO_PHARMACIES, pharmacyCitySlug } from '../../services/pharmacies/data';
 import { buildPharmacyPath } from '../../services/pharmacies/paths';
 import { extractVisibleText } from '../../scripts/audit-text-html-ratio.mjs';
+import catalogueJson from '../../data/pharmacies-ticino-complete.json';
+import dutiesJson from '../../data/pharmacy-duties-ticino.json';
+import type { PharmacyDutiesDataset } from '../../services/pharmacies/types';
 
 const locales = ['it', 'en', 'de', 'fr'] as const;
 const tempRoots: string[] = [];
+const EMPTY_DUTY_DATASET = { ...dutiesJson, duties: [] } as unknown as PharmacyDutiesDataset;
 
 afterEach(() => {
   while (tempRoots.length > 0) fs.rmSync(tempRoots.pop()!, { recursive: true, force: true });
@@ -21,6 +26,69 @@ describe('pharmacy directory page matrix', () => {
     expect(descriptors.some((descriptor) => descriptor.kind === 'country' && descriptor.country === 'IT')).toBe(true);
     expect(descriptors.filter((descriptor) => descriptor.kind === 'area')).toHaveLength(3);
     expect(descriptors.filter((descriptor) => descriptor.kind === 'city' && descriptor.country === 'IT').length).toBeGreaterThan(200);
+  });
+
+  it.each(locales)('renders the Ticino canton as a same-build city index (%s)', (locale) => {
+    const descriptors = pharmacyPageDescriptors();
+    const canton = descriptors.find((descriptor) => descriptor.kind === 'canton');
+    const cityDescriptors = descriptors.filter((descriptor) => descriptor.kind === 'city' && descriptor.country === 'CH');
+    const expectedCityPaths = TICINO_CITIES.map((city) => buildPharmacyPath({ kind: 'city', locale, citySlug: city.slug }, locale));
+    const latest = [...new Set(TICINO_PHARMACIES.map((pharmacy) => pharmacy.lastVerifiedAt))].sort().at(-1)!;
+    const latestLabel = new Intl.DateTimeFormat(locale === 'it' ? 'it-CH' : locale, { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Europe/Zurich' }).format(new Date(latest));
+
+    expect(canton).toBeDefined();
+    expect(TICINO_PHARMACIES.length).toBeGreaterThanOrEqual(119);
+    expect(TICINO_CITIES.length).toBeGreaterThanOrEqual(34);
+    expect(cityDescriptors).toHaveLength(TICINO_CITIES.length);
+
+    const page = buildPharmacyDirectoryPage(canton!, locale, '');
+    const nav = page.html.match(/<nav\b[^>]*>[\s\S]*?<\/nav>/)?.[0] || '';
+    const hrefs = [...nav.matchAll(/<a href="([^"]+)"/g)].map((match) => match[1]);
+    const schemas = [...page.html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((match) => JSON.parse(match[1]));
+    const collection = schemas.find((schema) => schema['@type'] === 'CollectionPage');
+
+    expect(page.path).toBe(buildPharmacyPath({ kind: 'canton', locale }, locale));
+    expect(page.indexable).toBe(true);
+    expect(page.wordCount).toBeGreaterThanOrEqual(50);
+    expect(page.html).not.toMatch(/<article\b/);
+    expect(hrefs).toEqual(expectedCityPaths);
+    expect(hrefs.every((cityPath) => cityDescriptors.some((descriptor) => buildPharmacyPath({ kind: 'city', locale, citySlug: descriptor.citySlug }, locale) === cityPath))).toBe(true);
+    expect(page.html).toContain(TICINO_PHARMACIES[0].sourceUrl);
+    expect(page.html).toContain(latestLabel);
+    expect(page.html).toContain(locale === 'it' ? 'Verifica' : locale === 'en' ? 'Check' : locale === 'de' ? 'prüfen' : 'Vérifiez');
+    expect(collection.mainEntity.numberOfItems).toBe(TICINO_CITIES.length);
+    expect(collection.mainEntity.itemListElement.map((item: { url: string }) => item.url)).toEqual(expectedCityPaths.map((cityPath) => `https://frontaliereticino.ch${cityPath}`));
+  });
+
+  it.each(locales)('publishes every Ticino pharmacy on its generated city page (%s)', (locale) => {
+    const cityDescriptors = pharmacyPageDescriptors().filter((descriptor) => descriptor.kind === 'city' && descriptor.country === 'CH');
+    const publishedPaths = new Set<string>();
+
+    for (const city of cityDescriptors) {
+      const pharmacies = TICINO_PHARMACIES.filter((pharmacy) => pharmacy.city === city.cityName);
+      const page = buildPharmacyDirectoryPage(city, locale, '');
+      const hrefs = [...page.html.matchAll(/<a href="([^"]+)"/g)].map((match) => match[1]);
+
+      expect(pharmacies.length, `missing pharmacy records for ${locale} ${city.cityName}`).toBeGreaterThan(0);
+      expect(page.indexable).toBe(true);
+      expect(page.html).toContain('"@type":"FAQPage"');
+      expect(page.html).toContain(`"@id":"https://frontaliereticino.ch${buildPharmacyPath({ kind: 'city', locale, citySlug: city.citySlug }, locale)}#faq"`);
+      expect(page.html).toMatch(/<details\b/);
+      for (const pharmacy of pharmacies) {
+        const detailPath = buildPharmacyPath({
+          kind: 'pharmacy',
+          country: 'CH',
+          locale,
+          citySlug: city.citySlug,
+          pharmacySlug: pharmacy.slug,
+        }, locale);
+        expect(hrefs, `missing ${detailPath}`).toContain(detailPath);
+        expect(page.html).toContain(pharmacy.sourceUrl);
+        publishedPaths.add(detailPath);
+      }
+    }
+
+    expect(publishedPaths.size).toBe(TICINO_PHARMACIES.length);
   });
 
   it.each(locales)('renders an escaped, indexable detail page with schema and one static main (%s)', (locale) => {
@@ -57,7 +125,40 @@ describe('pharmacy directory page matrix', () => {
     expect(page.html).not.toContain('CollectionPage');
   });
 
-  it('keeps every indexable directory page above the text-html ratio floor', () => {
+  it('renders an explicit verified-duty fallback and disclaimer when the duty dataset is empty', () => {
+    const hub = pharmacyPageDescriptors().find((descriptor) => descriptor.kind === 'duty-hub');
+    const city = pharmacyPageDescriptors().find((descriptor) => descriptor.kind === 'duty-city' && descriptor.citySlug === 'lugano');
+    expect(hub).toBeDefined();
+    expect(city).toBeDefined();
+
+    for (const descriptor of [hub!, city!]) {
+      const page = buildPharmacyDirectoryPage(descriptor, 'it', '', EMPTY_DUTY_DATASET);
+      expect(page.html.toLocaleLowerCase()).toContain('nessun turno verificato');
+      expect(page.html).toContain('Verifica sempre telefonicamente con la farmacia prima di recarti sul posto: orari e turni possono cambiare.');
+      expect(page.html).not.toMatch(/<article\b/);
+    }
+  });
+
+  it('re-evaluates a static duty page when the atomic snapshot becomes fresh', () => {
+    const descriptor = pharmacyPageDescriptors().find((candidate) => candidate.kind === 'duty-hub');
+    const snapshotAt = Math.max(Date.parse(dutiesJson._fetchedAt), Date.parse(catalogueJson._fetchedAt));
+    const afterNow = new Date(snapshotAt + 60_000);
+    const sample = dutiesJson.duties.find((duty) => (
+      duty.status === 'verified'
+      && Date.parse(duty.startsAt) <= afterNow.getTime()
+      && Date.parse(duty.endsAt) > afterNow.getTime()
+    ));
+    expect(descriptor).toBeDefined();
+    expect(sample).toBeDefined();
+    const before = buildPharmacyDirectoryPage(descriptor!, 'it', '', dutiesJson as unknown as PharmacyDutiesDataset, new Date(snapshotAt - 1));
+    const after = buildPharmacyDirectoryPage(descriptor!, 'it', '', dutiesJson as unknown as PharmacyDutiesDataset, afterNow);
+    const sampleInterval = `${new Intl.DateTimeFormat('it-CH', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Europe/Zurich' }).format(new Date(sample!.startsAt))} – ${new Intl.DateTimeFormat('it-CH', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Europe/Zurich' }).format(new Date(sample!.endsAt))}`;
+    expect(before.html).not.toContain(sampleInterval);
+    expect(after.html).toContain(sampleInterval);
+    expect(after.html).toMatch(/<article\b/);
+  });
+
+  it('keeps every indexable directory page above the text-html ratio floor', { timeout: 90000 }, () => {
     for (const locale of locales) {
       for (const descriptor of pharmacyPageDescriptors()) {
         const page = buildPharmacyDirectoryPage(descriptor, locale, '/tmp/pharmacy-dist');
@@ -103,6 +204,62 @@ describe('pharmacy directory page matrix', () => {
       `https://frontaliereticino.ch${buildPharmacyPath({ kind: 'area', country: 'IT', areaSlug: 'verbano-cusio-ossola', locale }, locale)}`,
     ]));
     expect(page.html).toContain('"@type":"BreadcrumbList"');
+  });
+
+  it.each(locales)('keeps Italian province hubs compact while linking every pharmacy (%s)', (locale) => {
+    const area = pharmacyPageDescriptors().find((descriptor) => descriptor.kind === 'area' && descriptor.areaSlug === 'varese');
+    const pharmacies = ITALY_BORDER_PHARMACIES.filter((pharmacy) => pharmacy.province === 'VA');
+    expect(area).toBeDefined();
+
+    const page = buildPharmacyDirectoryPage(area!, locale, '/tmp/pharmacy-dist');
+    const hrefs = [...page.html.matchAll(/<a href="([^"]+)"/g)].map((match) => match[1]);
+
+    expect(page.indexable).toBe(true);
+    expect(Buffer.byteLength(page.html, 'utf8')).toBeLessThan(260 * 1024);
+    expect(page.html).not.toMatch(/<article\b/);
+    for (const pharmacy of pharmacies) {
+      const detailPath = buildPharmacyPath({
+        kind: 'pharmacy',
+        country: 'IT',
+        locale,
+        areaSlug: 'varese',
+        citySlug: pharmacyCitySlug(pharmacy.city),
+        pharmacySlug: pharmacy.slug,
+      }, locale);
+      expect(hrefs, 'missing ' + detailPath).toContain(detailPath);
+      expect(page.html).toContain(pharmacy.sourceUrl);
+    }
+  });
+
+  it('emits a valid weekly duty route as indexable only for a valid P0 release pair', () => {
+    const descriptor = pharmacyPageDescriptors().find((candidate) => candidate.kind === 'duty-week');
+    expect(descriptor?.weekStart).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    const now = new Date(Math.max(Date.parse(dutiesJson._fetchedAt), Date.parse(catalogueJson._fetchedAt)) + 60_000);
+    const nextWeek = new Date(`${descriptor!.weekStart}T00:00:00Z`);
+    nextWeek.setUTCDate(nextWeek.getUTCDate() + 7);
+    const validDescriptor = { ...descriptor!, weekStart: nextWeek.toISOString().slice(0, 10) };
+    const page = buildPharmacyDirectoryPage(validDescriptor, 'it', '/tmp/pharmacy-dist', dutiesJson as unknown as PharmacyDutiesDataset, now);
+    expect(page.path).toContain('/farmacie-di-turno/settimana/');
+    expect(page.indexable).toBe(true);
+    expect(page.html).toMatch(/<meta name=robots content="index, ?follow/);
+    expect(page.html).toContain('Mendrisiotto');
+    expect(page.html).toContain('Luganese');
+    expect(page.html).toContain('Bellinzonese');
+    expect(page.html).toContain('Biasca e Valli');
+    expect(page.html).toContain('Locarnese');
+    expect(page.html).toContain('<table');
+    expect(page.html).toMatch(/\d{2}\.\d{2}\.\d{4}/);
+    expect(page.html).not.toContain('Non coperto in questa edizione');
+    expect(page.html).toContain('"@type":"ItemList"');
+
+    const tampered = {
+      ...dutiesJson,
+      _release: { ...dutiesJson._release, state: 'partial' },
+    } as unknown as PharmacyDutiesDataset;
+    const tamperedPage = buildPharmacyDirectoryPage(validDescriptor, 'it', '/tmp/pharmacy-dist', tampered, now);
+    expect(tamperedPage.indexable).toBe(false);
+    expect(tamperedPage.html).toContain('noindex,follow');
+    expect(tamperedPage.html).not.toContain('"@type":"ItemList"');
   });
 
   it('emits a noindex canonical bridge for a historical Italian detail path', () => {

@@ -46,6 +46,7 @@ permissions:
   issues: write
 env:
   NODE_OPTIONS: --disable-warning=DEP0040 --disable-warning=DEP0169 --max-old-space-size=12288
+  DATA_PIPELINE_LEASE: "1"
   TRANSLATE_RUN_CLOCK_REQUIRED: "1"
 jobs:
   translate:
@@ -119,6 +120,16 @@ jobs:
         id: checkout
         if: always() && (steps.site_checkout_primary.outcome == 'success' || steps.site_checkout_retry.outcome == 'success')
         run: "true"
+      - name: Validate recovery successor claim
+        if: steps.checkout.outcome == 'success' && github.run_attempt > 1
+        env:
+          GITHUB_API_URL: ${{ github.api_url }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_RUN_ATTEMPT: ${{ github.run_attempt }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          GITHUB_SHA: ${{ github.sha }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/ci/translate-recovery-successor-guard.mjs
       - name: Setup Node.js
         uses: actions/setup-node@v5
         with:
@@ -302,13 +313,23 @@ jobs:
           node scripts/relocalize-pending-jobs.mjs "${ARGS[@]}"
           legacy_status=$?
           set -e
+          expected_decision_digest=''
+          expected_contract_digest=''
           while IFS= read -r binding; do
-            if [[ "$binding" =~ ^expected_(decision|contract)_digest=sha256:[a-f0-9]{64}$ ]]; then
-              echo "$binding" >> "$GITHUB_OUTPUT"
+            if [[ "$binding" =~ ^expected_decision_digest=sha256:[a-f0-9]{64}$ ]]; then
+              expected_decision_digest="${binding#*=}"
+            elif [[ "$binding" =~ ^expected_contract_digest=sha256:[a-f0-9]{64}$ ]]; then
+              expected_contract_digest="${binding#*=}"
             fi
           done < <(node scripts/translation-shadow-preflight-v2.mjs \
             --mode capture \
             --decision "$RUNNER_TEMP/translation-shadow-preflight-v2-decision.json" 2>/dev/null || true)
+          # Emit both declared step outputs on every path. An empty value is
+          # intentionally still an unbound proof and the observer keeps it
+          # missing/unmeasurable; the explicit keys make the conditional
+          # producer visible to the workflow contract audit.
+          printf 'expected_decision_digest=%s\n' "$expected_decision_digest" >> "$GITHUB_OUTPUT"
+          printf 'expected_contract_digest=%s\n' "$expected_contract_digest" >> "$GITHUB_OUTPUT"
           exit "$legacy_status"
       - name: Upload thinking A/B rows
         if: always() && inputs.skip_translate != true

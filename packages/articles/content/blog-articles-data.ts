@@ -35067,6 +35067,42 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'premi-cassa-malati-2027-ticino',
+ category: 'novita',
+ date: '2026-09-15T00:05:51.344Z',
+ image: '/images/blog/premi-cassa-malati-2027-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'stipendi-como-lombardia-2024',
+ category: 'novita',
+ date: '2026-09-15T00:15:58.876Z',
+ image: '/images/blog/stipendi-como-lombardia-2024.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'mendrisio-melano-progetto-meme-risanamento-fonico',
+ category: 'novita',
+ date: '2026-09-15T02:42:05.181Z',
+ image: '/images/blog/mendrisio-melano-progetto-meme-risanamento-fonico.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'bollettino-frontaliere-2026-09-15',
+ category: 'novita',
+ date: '2026-09-15T09:52:10.386Z',
+ image: '/images/blog/bollettino-frontaliere-2026-09-15.webp',
+ hasCalculator: false,
+ authorSlug: 'samuele-valente',
+ authorName: 'Samuele Valente',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

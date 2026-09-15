@@ -238,6 +238,16 @@ describe('jobCardHtml — renderJobCardHtml', () => {
     expect(html).not.toContain('Sviluppatore');
   });
 
+  it('does not render an AI translation explanation as the job title', () => {
+    const html = renderJobCardHtml({
+      ...baseJob,
+      title: 'I need to see the current job data to understand the context and identify which job title needs translation. Let me check the job data files. The complete translation is: **Assistant Store Manager (m/w/d) 80-100% — Hägendorf** The translation breaks down as follows.',
+    }, { href: '/x/', locale: 'en' });
+    expect(html).toContain('Assistant Store Manager (m/w/d) 80-100% — Hägendorf');
+    expect(html).not.toContain('I need to see the current job data');
+    expect(html).not.toContain('**');
+  });
+
   it('respects the linkifyLocation callback for hub linking', () => {
     const customLinkify = (raw: string) =>
       `<a href="/hub/${encodeURIComponent(raw.toLowerCase())}/">${raw}</a>`;

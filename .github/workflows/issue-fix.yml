@@ -780,7 +780,11 @@ jobs:
           set -uo pipefail
           {
             echo "text<<BODY_CONTRACT_EOF"
-            cat <<'BODY_CONTRACT_TEXT'
+            # The expression in the prompt is baseline-indented after YAML
+            # parsing. Prefix every emitted line with that same three-space
+            # prompt-item indent; otherwise only the first line inherits the
+            # indentation of the expression placeholder.
+            sed 's/^/   /' <<'BODY_CONTRACT_TEXT'
           Poi esegui `node scripts/ci/pr-body-check-gate.mjs --body-file "$BODY_FILE"` e chiama `gh pr create` solo se il comando termina con exit 0, usando `--body-file "$BODY_FILE"`. Lo step ha anche un wrapper deterministico su `gh`: una create senza body-file o con un body non conforme viene bloccata prima della chiamata remota; non usare un body inline.
           **La riga di chiusura qui sopra è già calcolata, copiala VERBATIM.** Non
           sostituirla con `Closes #$ISSUE_NUMBER` di tua iniziativa: se dice
@@ -803,7 +807,8 @@ jobs:
           - `in questa PR` — è già nel diff che stai per mergiare;
           - `PR concatenata #N` — con il NUMERO, altrimenti non è tracciabile, non chiude e non conta;
           - `per scelta` / `by construction` — è un no motivato, non un rinvio;
-          - `blocked: <causa esterna reale>` — lavoro sospeso su una causa che non controlli.
+          - `blocked: <causa esterna reale>` — lavoro sospeso su una causa che non controlli;
+            `blocked: owner decision` è la variante inglese di `blocked: decisione del proprietario`.
           Perché non è cosmesi: `scripts/ci/followup-has-candidates.mjs` riapre come issue di
           follow-up ogni bullet `blocked: <causa tecnica>` **e ogni bullet senza stato**. Un
           bullet che dice solo «out of scope» torna indietro come issue nuova e rialimenta il
@@ -1010,11 +1015,11 @@ jobs:
             - **Overlap-file** (no race su lavoro in corso): estrai i path target dal body della issue (file citati in `## Suggested action` / `## Item` / blocchi codice). Per ogni PR aperta (`gh pr list --state open --json number,title`) confronta i suoi file (`gh pr diff <n> --name-only`) coi target: se una PR aperta **modifica già** uno dei file target → posta commento "File `<path>` già in volo nella PR #<n> (<title>) — skip per evitare conflitto/duplicazione; riaprire l'auto-fix dopo il merge se ancora pertinente." e TERMINA. Razionale: un'altra PR può riscrivere quel file rendendo il fix moot o conflittuale (es. #934 hardening vs #943 rewrite di `submit-indexnow-batch.yml`). Nel dubbio (issue non file-specifica) → procedi.
             - **Capability guard (valuta SUBITO, prima di implementare — risparmio token):** ${{ steps.tier.outputs.capability_guard }} ${{ steps.tier.outputs.secrets_note }}
 
-            - **Stati già dichiarati nei residui (leggi PRIMA di implementare):** se la issue nasce da una PR (follow-up, `Addresses`/`da PR #N` nel body), leggi il body di quella PR e classificane i residui. In quest'ordine:
+            - **Stati già dichiarati nei residui (leggi PRIMA di implementare):** se la issue nasce da una PR (follow-up, `Addresses`/`da PR #N` nel body, o qualunque PR citata come origine in altra forma), leggi il body di quella PR e classificane i residui. In quest'ordine:
               1. `gh pr view <N> --json body -q .body > /tmp/pr-body.md`.
-              2. `git fetch --no-tags --depth=1 origin main`, poi recupera **sia** `scripts/lib/pr-body-sections-check.mjs` **sia** `scripts/ci/lib/false-positive-declaration.mjs` mantenendo la STESSA struttura relativa: `mkdir -p /tmp/s/lib /tmp/s/ci/lib && git show FETCH_HEAD:scripts/lib/pr-body-sections-check.mjs > /tmp/s/lib/pr-body-sections-check.mjs && git show FETCH_HEAD:scripts/ci/lib/false-positive-declaration.mjs > /tmp/s/ci/lib/false-positive-declaration.mjs` — il primo importa il secondo con un percorso relativo, quindi appiattirli in un file solo rompe l'import (`ERR_MODULE_NOT_FOUND`). **Il modulo va risolto da `main`, MAI dal checkout corrente:** col `resume=true` del passo 1 questo container è su un branch `fix/issue-*` che può essere nato PRIMA di #5916, dove `bulletState` non è esportato (o il file non c'è) e l'import muore quando i turni di diagnosi sono già spesi.
+              2. `git fetch --no-tags origin main`, poi recupera **sia** `scripts/lib/pr-body-sections-check.mjs` **sia** `scripts/ci/lib/false-positive-declaration.mjs` mantenendo la STESSA struttura relativa: `mkdir -p /tmp/s/lib /tmp/s/ci/lib && git show FETCH_HEAD:scripts/lib/pr-body-sections-check.mjs > /tmp/s/lib/pr-body-sections-check.mjs && git show FETCH_HEAD:scripts/ci/lib/false-positive-declaration.mjs > /tmp/s/ci/lib/false-positive-declaration.mjs` — il primo importa il secondo con un percorso relativo, quindi appiattirli in un file solo rompe l'import (`ERR_MODULE_NOT_FOUND`). **Il modulo va risolto da `main`, MAI dal checkout corrente:** col `resume=true` del passo 1 questo container è su un branch `fix/issue-*` che può essere nato PRIMA di #5916, dove `bulletState` non è esportato (o il file non c'è) e l'import muore quando i turni di diagnosi sono già spesi.
               3. importa `file:///tmp/s/lib/pr-body-sections-check.mjs` ed esegui `extractSection(body, NON_IMPL_ANCORA_RE)` → `sectionBullets(sezione)` → `bulletState(bullet)`. **NON scrivere un secondo parser** né una regex tua: `NON_IMPL_ANCORA_RE` è l'header canonico che `extractSection` pretende come argomento, `sectionBullets` applica `stripNonContent` — senza di lui gli ESEMPI di tassonomia dentro un blocco fenced del body vengono letti come stati dichiarati — e `scripts/ci/followup-has-candidates.mjs` giudica con le stesse funzioni: riscriverle a mano le fa divergere in silenzio.
-              **Quali stati CHIUDONO un item — `blocked:` NON è monolitico.** La lista canonica è `CLOSING_STATES` di `followup-has-candidates.mjs`: chiudono `in questa PR`, `PR concatenata #N`, `per scelta`, `by construction` e `blocked: decisione del proprietario`. I primi due sono lavoro già tracciato, gli ultimi tre un NO motivato. NON chiude `blocked-technical`, cioè ogni altro `blocked: <causa>`, che resta lavoro dovuto e va trattato normalmente; e `PR concatenata` senza il `#N` non chiude: è lavoro aperto. Leggi la CAUSA, non il prefisso.
+              **Quali stati CHIUDONO un item — `blocked:` NON è monolitico.** La lista canonica è `CLOSING_STATES` di `followup-has-candidates.mjs`: chiudono `in questa PR`, `PR concatenata #N`, `per scelta`, `by construction` e `blocked: decisione del proprietario` / `blocked: owner decision`. I primi due sono lavoro già tracciato, gli ultimi tre un NO motivato. NON chiude `blocked-technical`, cioè ogni altro `blocked: <causa>`, che resta lavoro dovuto e va trattato normalmente; e `PR concatenata` senza il `#N` non chiude: è lavoro aperto. Leggi la CAUSA, non il prefisso.
               **Due controlli prima di onorare il veto.** `bulletState` vince sull'occorrenza più a SINISTRA: verifica sul testo del bullet che (a) le parole dello stato non stiano dentro una negazione — «il floor non è a 3 per scelta ma per un limite dell'API, il fix vero arriva in questa PR» viene classificato `by-choice` mentre dichiara l'opposto — e che (b) il MOTIVO venga DOPO lo stato. Una menzione nuda di `per scelta` o `by construction`, senza motivo, non è una chiusura: l'item resta aperto. Il veto vale solo per il bullet che copre il TEMA dell'item, mai per uno che gli somiglia.
               **Cosa fare quando il veto regge.** Non implementare, e posta un commento che cita il bullet verbatim e lo stato letto. Issue SINGOLA → TERMINA con `<!-- FIX_OUTCOME: already-fixed -->`. Aggregata → salta quell'item e passa al successivo in-capability; **se li salti TUTTI, l'ultimo commento deve comunque portare quel marker**, mai il terminale generico: senza, `scripts/ci/followup-drainer.mjs` scarta il backstop, la issue rientra in coda e la stessa aggregata brucia un run Claude a ogni giro fino a `fu-parked`.
 
@@ -1041,7 +1046,7 @@ jobs:
                ## Non implementato (ancora)
                - <scope NON fatto> — <STATO LETTERALE>
                ```
-               ${{ steps.body_contract.outputs.text }}
+            ${{ steps.body_contract.outputs.text }}
             10. La PR entra automaticamente in `pr-review-loop` → review → `## LGTM` → `auto-merge-on-lgtm`. NON mergiare a mano.
 
             **Constraint:**

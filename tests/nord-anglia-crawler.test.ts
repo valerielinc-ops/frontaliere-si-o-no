@@ -127,6 +127,26 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
     expect(canonicalizeNordAngliaJobUrl('https://example.com/job/Aubonne-Teacher/1/?utm_source=rss')).toBe('');
   });
 
+  it('reports a retired ATS host as an unavailable endpoint, not as malformed XML (#7853)', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => {
+      const html = new Response(
+        '<!DOCTYPE html><html><head><script>a&&b</script></head></html>',
+        { status: 200, headers: { 'content-type': 'text/html' } },
+      );
+      Object.defineProperty(html, 'url', {
+        value: 'https://www.nordangliaeducation.com/careers',
+      });
+      return html;
+    }));
+
+    const error = await fetchAllNordAngliaJobs().catch((err: any) => err);
+    expect(error).toBeInstanceOf(Error);
+    expect(error.message).toMatch(
+      /\[nord-anglia\] feed endpoint redirected off careers\.nordangliaeducation\.com/,
+    );
+    expect(error.feedEndpointUnavailable).toBe(true);
+  });
+
   it('isolates a hard failure to the Nord Anglia launch/result pair and its slice', () => {
     const workflowDir = join(ROOT, '.github', 'workflows');
     const groupFiles = readdirSync(workflowDir).filter((file) => /^crawler-group-\d+\.yml$/.test(file));

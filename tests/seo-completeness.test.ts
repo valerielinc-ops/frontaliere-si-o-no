@@ -545,7 +545,9 @@ describe('Sitemap — every IT canonical URL is in sitemap.xml', () => {
 describe('IndexNow — submit-indexnow.js reads sitemap and submits to Bing', () => {
   it('reads URLs from sub-sitemaps (not hardcoded)', () => {
     expect(indexNowContent).toContain('sitemap-pages.xml');
-    expect(indexNowContent).toContain('sitemap-blog.xml');
+    expect(indexNowContent).toContain('CORE_SITEMAPS');
+    expect(indexNowContent).toContain('INDEXNOW_SITEMAPS');
+    expect(readProjectFile('scripts/lib/sitemap-files.mjs')).toContain('sitemap-blog.xml');
     expect(indexNowContent).toContain('readFileSync');
     expect(indexNowContent).toContain('<loc>');
   });

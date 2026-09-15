@@ -5,9 +5,9 @@ import {
   TICINO_CITY_BY_SLUG,
   pharmacyBySlug,
 } from './data';
-import type { PharmacyCountry } from './types';
+import { PHARMACY_DUTY_HUB_PATH, type PharmacyCountry } from './types';
 
-export type PharmacyPageKind = 'hub' | 'canton' | 'city' | 'duty-hub' | 'duty-city' | 'country' | 'area' | 'pharmacy';
+export type PharmacyPageKind = 'hub' | 'canton' | 'city' | 'duty-hub' | 'duty-city' | 'duty-week' | 'country' | 'area' | 'pharmacy';
 
 export interface PharmacyPath {
   kind: PharmacyPageKind;
@@ -16,6 +16,7 @@ export interface PharmacyPath {
   areaSlug?: string;
   citySlug?: string;
   pharmacySlug?: string;
+  weekStart?: string;
 }
 
 const LOCALE_BASES: Record<Locale, {
@@ -24,11 +25,12 @@ const LOCALE_BASES: Record<Locale, {
   italy: string;
   dutyHub: string;
   dutySegment: string;
+  dutyWeekSegment: string;
 }> = {
-  it: { hub: '/farmacie/', canton: '/farmacie/ticino/', italy: '/farmacie/italia/', dutyHub: '/farmacie-di-turno/', dutySegment: 'di-turno' },
-  en: { hub: '/en/pharmacies/', canton: '/en/pharmacies/ticino/', italy: '/en/pharmacies/italy/', dutyHub: '/en/on-duty-pharmacies/', dutySegment: 'on-duty' },
-  de: { hub: '/de/apotheken/', canton: '/de/apotheken/ticino/', italy: '/de/apotheken/italien/', dutyHub: '/de/notdienst-apotheken/', dutySegment: 'notdienst' },
-  fr: { hub: '/fr/pharmacies/', canton: '/fr/pharmacies/ticino/', italy: '/fr/pharmacies/italie/', dutyHub: '/fr/pharmacies-de-garde/', dutySegment: 'de-garde' },
+  it: { hub: '/farmacie/', canton: '/farmacie/ticino/', italy: '/farmacie/italia/', dutyHub: PHARMACY_DUTY_HUB_PATH.it, dutySegment: 'di-turno', dutyWeekSegment: 'settimana' },
+  en: { hub: '/en/pharmacies/', canton: '/en/pharmacies/ticino/', italy: '/en/pharmacies/italy/', dutyHub: PHARMACY_DUTY_HUB_PATH.en, dutySegment: 'on-duty', dutyWeekSegment: 'week' },
+  de: { hub: '/de/apotheken/', canton: '/de/apotheken/ticino/', italy: '/de/apotheken/italien/', dutyHub: PHARMACY_DUTY_HUB_PATH.de, dutySegment: 'notdienst', dutyWeekSegment: 'woche' },
+  fr: { hub: '/fr/pharmacies/', canton: '/fr/pharmacies/ticino/', italy: '/fr/pharmacies/italie/', dutyHub: PHARMACY_DUTY_HUB_PATH.fr, dutySegment: 'de-garde', dutyWeekSegment: 'semaine' },
 };
 
 function normalized(pathname: string): string {
@@ -46,6 +48,16 @@ function slugify(value: string): string {
     .replace(/^-+|-+$/g, '');
 }
 
+function isIsoMonday(value: string): boolean {
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
+  if (!match) return false;
+  const date = new Date(Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3])));
+  return date.getUTCFullYear() === Number(match[1])
+    && date.getUTCMonth() === Number(match[2]) - 1
+    && date.getUTCDate() === Number(match[3])
+    && date.getUTCDay() === 1;
+}
+
 export function pharmacyBases(locale: Locale): (typeof LOCALE_BASES)[Locale] {
   return LOCALE_BASES[locale];
 }
@@ -58,6 +70,11 @@ export function buildPharmacyPath(path: PharmacyPath, locale: Locale = path.loca
   const bases = LOCALE_BASES[locale];
   if (path.kind === 'hub') return bases.hub;
   if (path.kind === 'duty-hub') return bases.dutyHub;
+  if (path.kind === 'duty-week') {
+    return path.weekStart && isIsoMonday(path.weekStart)
+      ? `${bases.dutyHub}${bases.dutyWeekSegment}/${path.weekStart}/`
+      : bases.dutyHub;
+  }
   if (path.kind === 'country') return path.country === 'IT' ? bases.italy : bases.canton;
   if (path.kind === 'canton') return bases.canton;
 
@@ -107,6 +124,12 @@ export function parsePharmacyPath(pathname: string): PharmacyPath | null {
     const bases = LOCALE_BASES[locale];
     if (path === bases.hub) return { kind: 'hub', locale };
     if (path === bases.dutyHub) return { kind: 'duty-hub', locale };
+    if (path.startsWith(bases.dutyHub)) {
+      const remainder = path.slice(bases.dutyHub.length).split('/').filter(Boolean);
+      if (remainder.length === 2 && remainder[0] === bases.dutyWeekSegment && isIsoMonday(remainder[1])) {
+        return { kind: 'duty-week', locale, weekStart: remainder[1] };
+      }
+    }
 
     const italy = parseItalianPath(path, locale, bases);
     if (italy) return italy;

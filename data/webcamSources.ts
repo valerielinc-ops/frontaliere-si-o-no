@@ -35,6 +35,15 @@ export const WEBCAM_SOURCES: WebcamSource[] = [
   status: 'active',
  },
  {
+  id: 'sitg-infomob-camera',
+  entityName: 'SITG / Canton Genève – INFOMOB_CAMERA',
+  officialUrl: 'https://sitg.ge.ch/donnees/infomob-camera',
+  accessMethod: 'hotlink',
+  termsReviewedAt: '2026-09-15',
+  license: 'Dataset ufficiale SITG INFOMOB; verificare i termini prima di redistribuire oltre l’uso informativo.',
+  status: 'active',
+ },
+ {
   id: 'ilmeteo-lanzo-intelvi',
   entityName: "Webcam Lago di Lugano – Lanzo d'Intelvi",
   officialUrl: 'https://www.ilmeteo.it/webcam/Lanzo+d%27Intelvi',

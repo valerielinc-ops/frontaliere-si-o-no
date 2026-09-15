@@ -124,6 +124,78 @@ describe('decontaminate-prev-slugs: flat previousSlugs redirect', () => {
     }
   });
 
+  it('uses the canonical slice predicate for a complete active-directory pass', async () => {
+    const { decontaminateSliceDirectory } = await import('../scripts/decontaminate-prev-slugs.mjs');
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'decontaminate-directory-'));
+    const claimantFile = path.join(tmpDir, 'claimant.json');
+    const ownerFile = path.join(tmpDir, 'owner.json');
+    const scratchFile = path.join(tmpDir, 'owner.json.cleanup-tmp.json');
+    const claimant = {
+      id: 'directory-claimant',
+      url: 'https://claimant.example/jobs/directory-claimant',
+      previousSlugs: [] as string[],
+    };
+    const owner = {
+      id: 'directory-owner',
+      url: 'https://owner.example/jobs/directory-owner',
+      previousSlugs: [] as string[],
+    };
+    const ownerSlug = `directory-owner-route-${stableSlugHash(owner)}`;
+    claimant.previousSlugs.push(ownerSlug);
+    fs.writeFileSync(claimantFile, JSON.stringify({ jobs: [claimant] }));
+    fs.writeFileSync(ownerFile, JSON.stringify({ jobs: [owner] }));
+    fs.writeFileSync(scratchFile, JSON.stringify({ jobs: [{ previousSlugs: ['not-read'] }] }));
+
+    try {
+      expect(decontaminateSliceDirectory(tmpDir, { apply: true })).toMatchObject({ moved: 1 });
+      expect(JSON.parse(fs.readFileSync(claimantFile, 'utf8')).jobs[0].previousSlugs).toEqual([]);
+      expect(JSON.parse(fs.readFileSync(ownerFile, 'utf8')).jobs[0].previousSlugs).toEqual([ownerSlug]);
+      expect(JSON.parse(fs.readFileSync(scratchFile, 'utf8')).jobs[0].previousSlugs).toEqual(['not-read']);
+      expect(decontaminateSliceDirectory(tmpDir, { apply: false }).affected).toEqual([]);
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    }
+  });
+
+  it('scans expired raw-array slices without changing their on-disk shape', async () => {
+    const { listCrawlerSlicePaths, processFiles } = await import('../scripts/decontaminate-prev-slugs.mjs');
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'decontaminate-expired-array-'));
+    const activeDir = path.join(tmpDir, 'active');
+    const expiredDir = path.join(tmpDir, 'expired', 'by-crawler');
+    fs.mkdirSync(activeDir, { recursive: true });
+    fs.mkdirSync(expiredDir, { recursive: true });
+
+    const activeFile = path.join(activeDir, 'claimant.json');
+    const expiredFile = path.join(expiredDir, 'owner.json');
+    const owner = {
+      id: 'expired-owner',
+      url: 'https://owner.example/jobs/expired-owner',
+      previousSlugs: [] as string[],
+    };
+    const claimant = {
+      id: 'active-claimant',
+      url: 'https://claimant.example/jobs/active-claimant',
+      previousSlugs: [] as string[],
+    };
+    const ownerSlug = `expired-owner-route-${stableSlugHash(owner)}`;
+    claimant.previousSlugs.push(ownerSlug);
+    fs.writeFileSync(activeFile, JSON.stringify({ crawlerKey: 'claimant', jobs: [claimant] }));
+    fs.writeFileSync(expiredFile, JSON.stringify([owner]));
+
+    try {
+      expect(listCrawlerSlicePaths([activeDir, expiredDir])).toEqual([activeFile, expiredFile].sort());
+      expect(processFiles([activeFile, expiredFile], { apply: true }).moved).toBe(1);
+
+      const activePayload = JSON.parse(fs.readFileSync(activeFile, 'utf8'));
+      const expiredPayload = JSON.parse(fs.readFileSync(expiredFile, 'utf8'));
+      expect(Array.isArray(expiredPayload)).toBe(true);
+      expect(activePayload.jobs[0].previousSlugs).not.toContain(ownerSlug);
+      expect(expiredPayload[0].previousSlugs).toContain(ownerSlug);
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    }
+  });
+
   it('routes a fresh writer payload to a unique owner already present in the fleet', async () => {
     const { decontaminateEntries } = await import('../scripts/decontaminate-prev-slugs.mjs');
     const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'decontaminate-writer-fleet-'));

@@ -2,8 +2,11 @@ import { afterEach, describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { pharmacyDirectoryPagesPlugin, pharmacyPageDescriptors, pharmacyUrlAliasDescriptors } from '../build-plugins/pharmacyDirectoryPagesPlugin';
+import { buildPharmacyDirectoryPage, pharmacyDirectoryPagesPlugin, pharmacyPageDescriptors, pharmacyUrlAliasDescriptors } from '../build-plugins/pharmacyDirectoryPagesPlugin';
 import { AD_SLOTS } from '../services/adsenseSlots';
+import catalogueJson from '../data/pharmacies-ticino-complete.json';
+import dutiesJson from '../data/pharmacy-duties-ticino.json';
+import type { PharmacyDutiesDataset } from '../services/pharmacies/types';
 
 const tempRoots: string[] = [];
 
@@ -41,15 +44,36 @@ function robotsOf(html: string): string {
 }
 
 describe('pharmacy directory static pages', () => {
-  it('keeps below-floor routes out of the sitemap at the source boundary', () => {
-    const source = fs.readFileSync(
-      path.resolve(__dirname, '..', 'build-plugins', 'pharmacyDirectoryPagesPlugin.ts'),
-      'utf8',
+  it('keeps duty-week model indexability fail-closed and tied to the sitemap', async () => {
+    const root = makeTempRoot();
+    await runCloseBundle(root);
+
+    const descriptor = pharmacyPageDescriptors().find((candidate) => candidate.kind === 'duty-week');
+    expect(descriptor).toBeDefined();
+    const now = new Date(Math.max(Date.parse(dutiesJson._fetchedAt), Date.parse(catalogueJson._fetchedAt)) + 60_000);
+    const current = buildPharmacyDirectoryPage(descriptor!, 'it', root, dutiesJson as unknown as PharmacyDutiesDataset, now);
+    const nextWeek = new Date(`${descriptor!.weekStart}T00:00:00Z`);
+    nextWeek.setUTCDate(nextWeek.getUTCDate() + 7);
+    const validDescriptor = { ...descriptor!, weekStart: nextWeek.toISOString().slice(0, 10) };
+    const valid = buildPharmacyDirectoryPage(validDescriptor, 'it', root, dutiesJson as unknown as PharmacyDutiesDataset, now);
+    expect(valid.indexable).toBe(true);
+    expect(robotsOf(valid.html).replace(/\s+/g, '')).toBe('index,follow');
+    expect(valid.html).toContain('"@type":"ItemList"');
+
+    const sitemap = fs.readFileSync(path.join(root, 'dist', 'sitemap-farmacie.xml'), 'utf8');
+    const sitemapRoutes = new Set(
+      [...sitemap.matchAll(/<loc>[^<]+<\/loc>/g)].map((match) => new URL(match[0].slice(5, -6)).pathname),
     );
-    expect(source).toContain('const indexable = descriptor.kind !== \'duty-city\' && wordCount >= MIN_INDEXABLE_WORDS;');
-    expect(source).toContain('if (built.indexable) urls.push(built.path);');
-    expect(source).toContain('let excludedNoindexRoutes = 0;');
-    expect(source).toContain('else excludedNoindexRoutes += 1;');
+    expect(sitemapRoutes.has(current.path)).toBe(current.indexable);
+
+    const tampered = {
+      ...dutiesJson,
+      _release: { ...dutiesJson._release, state: 'partial' },
+    } as unknown as PharmacyDutiesDataset;
+    const guarded = buildPharmacyDirectoryPage(validDescriptor, 'it', root, tampered, now);
+    expect(guarded.indexable).toBe(false);
+    expect(robotsOf(guarded.html).replace(/\s+/g, '')).toBe('noindex,follow');
+    expect(guarded.html).not.toContain('"@type":"ItemList"');
   });
 
   it('keeps HTML, robots, sitemap and end-of-content ads on one indexability contract', async () => {

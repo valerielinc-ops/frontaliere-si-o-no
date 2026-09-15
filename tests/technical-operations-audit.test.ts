@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 // @ts-expect-error — il supervisore è uno script ESM zero-dependency applicativo
 import {
@@ -524,6 +526,13 @@ describe('technical operations audit', () => {
     expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([]);
   });
 
+  it('riconosce gli output digest sempre emessi dal preflight shadow reale', () => {
+    const file = '.github/workflows/translate-pending-logic.yml';
+    const source = fs.readFileSync(path.resolve(file), 'utf8');
+    const findings = auditWorkflowText(file, source, { root: process.cwd() });
+    expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([]);
+  });
+
   it('segue un helper importato da uno script first-party', () => {
     const files = new Map([
       ['/repo/scripts/pull.mjs', [
@@ -632,6 +641,160 @@ describe('technical operations audit', () => {
       .toEqual([expect.objectContaining({ severity: 'warning' })]);
     expect(findings.find((item: any) => item.rule === 'workflow.script-reference')?.message)
       .toContain('actions/checkout (build)');
+  });
+
+  it('accetta un checkout runtime quando lo stesso step verifica prima il file', () => {
+    const source = [
+      'name: runtime-checkout-guarded',
+      'on: [push]',
+      'jobs:',
+      '  compare:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - uses: actions/checkout@v4',
+      '        with:',
+      '          path: build',
+      '      - name: run guarded tool',
+      '        working-directory: build',
+      '        run: |',
+      '          test -f scripts/generated.mjs',
+      '          node scripts/generated.mjs',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/runtime-checkout-guarded.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.script-reference')).toEqual([]);
+  });
+
+  it('non usa una verifica runtime posta dopo il comando come prova', () => {
+    const source = [
+      'name: runtime-checkout-after',
+      'on: [push]',
+      'jobs:',
+      '  compare:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - uses: actions/checkout@v4',
+      '        with:',
+      '          path: build',
+      '      - name: run unguarded tool',
+      '        working-directory: build',
+      '        run: |',
+      '          node scripts/generated.mjs',
+      '          test -f scripts/generated.mjs',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/runtime-checkout-after.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.script-reference'))
+      .toEqual([expect.objectContaining({ severity: 'warning' })]);
+  });
+
+  it('ignora un percorso di script citato soltanto in un commento shell', () => {
+    const source = [
+      'name: commented-script',
+      'on: [push]',
+      'jobs:',
+      '  check:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: documentation',
+      '        run: |',
+      '          # esempio: node scripts/does-not-run.mjs',
+      '          echo ready',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/commented-script.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.script-reference')).toEqual([]);
+  });
+
+  it('non considera una ricetta quotata come assertion runtime', () => {
+    const source = [
+      'name: quoted-runtime-assertion',
+      'on: [push]',
+      'jobs:',
+      '  compare:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - uses: actions/checkout@v4',
+      '        with:',
+      '          path: build',
+      '      - name: run unguarded tool',
+      '        working-directory: build',
+      '        run: |',
+      '          echo "test -f scripts/generated.mjs"',
+      "          printf '%s\\n' 'test -f scripts/generated.mjs'",
+      '          node scripts/generated.mjs',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/quoted-runtime-assertion.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.script-reference'))
+      .toEqual([expect.objectContaining({ severity: 'warning' })]);
+  });
+
+  it('non accetta una assertion con fallback che assorbe il fallimento', () => {
+    const source = [
+      'name: swallowed-runtime-assertion',
+      'on: [push]',
+      'jobs:',
+      '  compare:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - uses: actions/checkout@v4',
+      '        with:',
+      '          path: build',
+      '      - name: run unguarded tool',
+      '        working-directory: build',
+      '        run: |',
+      '          test -f scripts/generated.mjs || true',
+      '          node scripts/generated.mjs',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/swallowed-runtime-assertion.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.script-reference'))
+      .toEqual([expect.objectContaining({ severity: 'warning' })]);
+  });
+
+  it('lega una assertion condizionale solo al ramo then', () => {
+    const source = [
+      'name: conditional-runtime-assertion',
+      'on: [push]',
+      'jobs:',
+      '  compare:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - uses: actions/checkout@v4',
+      '        with:',
+      '          path: build',
+      '      - name: run guarded tool',
+      '        working-directory: build',
+      '        run: |',
+      '          if test -f "scripts/generated.mjs"; then',
+      '            node scripts/generated.mjs',
+      '          else',
+      '            echo missing',
+      '          fi',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/conditional-runtime-assertion.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.script-reference')).toEqual([]);
+  });
+
+  it('non estende una assertion condizionale al ramo else', () => {
+    const source = [
+      'name: conditional-runtime-assertion-else',
+      'on: [push]',
+      'jobs:',
+      '  compare:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - uses: actions/checkout@v4',
+      '        with:',
+      '          path: build',
+      '      - name: run unguarded tool',
+      '        working-directory: build',
+      '        run: |',
+      '          if test -f scripts/generated.mjs; then',
+      '            node scripts/generated.mjs',
+      '          else',
+      '            node scripts/generated.mjs',
+      '          fi',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/conditional-runtime-assertion-else.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.script-reference'))
+      .toEqual([expect.objectContaining({ severity: 'warning' })]);
   });
 
   it('non usa un file omonimo nella root per mascherare working-directory errato', () => {

@@ -11752,6 +11752,20 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-14.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 14. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-09-14.seoDescription': 'Grenzgänger-Bulletin vom 14. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-09-14.ogDescription': 'Die Zahlen vom 14. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.premi-cassa-malati-2027-ticino.title': 'Krankenkassenprämien 2027 im Tessin: Anfrage an die Regierung',
+    'blog.article.premi-cassa-malati-2027-ticino.excerpt': 'Die Grossräte Censi und Genini stellen dem Regierungsrat eine Anfrage zu den Krankenkassenprämien 2027 und den geschätzten Steigerungen im Tessin.',
+    'blog.article.premi-cassa-malati-2027-ticino.imageAlt': 'Regierungsgebaeude in Bellinzona und Panoramablick im Tessin',
+    'blog.article.stipendi-como-lombardia-2024.title': 'Durchschnittslohn in Como und der Lombardei: Die Daten für 2024',
+    'blog.article.stipendi-como-lombardia-2024.excerpt': 'Im Jahr 2024 steigt der durchschnittliche Jahreslohn in der Lombardei auf 30.384,07 Euro, aber fast die Hälfte der Arbeitnehmer übersteigt nicht 25.000 Euro.',
+    'blog.article.stipendi-como-lombardia-2024.imageAlt': 'Durchschnittsgehälter und Löhne in der Lombardei und Como',
+    'blog.article.mendrisio-melano-progetto-meme-risanamento-fonico.title': 'Mendrisio-Melano, MeMe-Projekt zur Reduzierung des Autobahnlärms',
+    'blog.article.mendrisio-melano-progetto-meme-risanamento-fonico.excerpt': 'Das Bundesamt für Strassen (Astra) hat den Entwurf für das Projekt MeMe, einen umfassenden Sanierungsplan für den Autobahnabschnitt A2 zwischen Mendrisio und Melano, veröffentlicht.',
+    'blog.article.mendrisio-melano-progetto-meme-risanamento-fonico.imageAlt': 'Autobahnabschnitt A2 zwischen Mendrisio und Melano',
+    'blog.article.bollettino-frontaliere-2026-09-15.title': 'Grenzgänger-Tagesbulletin – 15. September 2026: 38 neue Stellenangebote gestern',
+    'blog.article.bollettino-frontaliere-2026-09-15.excerpt': 'Die Zahlen von heute, 15. September 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-09-15.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 15. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-09-15.seoDescription': 'Grenzgänger-Bulletin vom 15. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-09-15.ogDescription': 'Die Zahlen vom 15. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
 };
 
 export default blogMetaDe;

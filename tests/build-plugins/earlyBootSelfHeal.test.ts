@@ -47,7 +47,6 @@ describe('SELF_HEAL_SCRIPT_CONTENT', () => {
   it('suppresses Safari IndexedDB object-store errors before the app mounts', () => {
     expect(EARLY_BOOT_CONTENT).toMatch(/Object store cannot be found in the database/i);
 
-    new Function(EARLY_BOOT_CONTENT)();
     const reason = new Error('InvalidStateError: Object store cannot be found in the database');
     const event = Object.assign(new Event('unhandledrejection', { cancelable: true }), { reason });
 

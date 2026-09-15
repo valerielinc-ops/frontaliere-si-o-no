@@ -11755,6 +11755,20 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-14.imageAlt': 'Les chiffres du jour pour les frontaliers – 14 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-09-14.seoDescription': 'Bulletin du frontalier du 14 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-09-14.ogDescription': 'Les chiffres du 14 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.premi-cassa-malati-2027-ticino.title': 'Primes caisse-maladie 2027 au Tessin : question au gouvernement',
+    'blog.article.premi-cassa-malati-2027-ticino.excerpt': 'Les grands conseillers Censi et Genini soumettent une question au Conseil d\'État sur les primes de la caisse-maladie 2027 et sur les estimations d\'augmentation au Tessin.',
+    'blog.article.premi-cassa-malati-2027-ticino.imageAlt': 'Batiment du gouvernement a Bellinzona et vue panoramique au Tessin',
+    'blog.article.stipendi-como-lombardia-2024.title': 'Salaire moyen à Côme et en Lombardie : les données de 2024',
+    'blog.article.stipendi-como-lombardia-2024.excerpt': 'En 2024, le salaire annuel moyen en Lombardie s\'élève à 30 384,07 euros, mais près de la moitié des travailleurs ne dépasse pas 25 000 euros.',
+    'blog.article.stipendi-como-lombardia-2024.imageAlt': 'Salaires moyens et rémunérations en Lombardie et à Côme (Como)',
+    'blog.article.mendrisio-melano-progetto-meme-risanamento-fonico.title': 'Mendrisio-Melano, projet MeMe pour réduire le bruit de l\'autoroute',
+    'blog.article.mendrisio-melano-progetto-meme-risanamento-fonico.excerpt': 'L\'Office fédéral des routes (OFROU) a publié le dessin pour le projet MeMe, un plan d\'assainissement global pour le tronçon de l\'autoroute A2 entre Mendrisio et Melano.',
+    'blog.article.mendrisio-melano-progetto-meme-risanamento-fonico.imageAlt': 'Section d\'autoroute A2 entre Mendrisio et Melano',
+    'blog.article.bollettino-frontaliere-2026-09-15.title': 'Bulletin du frontalier – 15 septembre 2026 : 38 nouvelles offres d\'emploi hier',
+    'blog.article.bollettino-frontaliere-2026-09-15.excerpt': 'Les chiffres du jour, 15 septembre 2026, pour les frontaliers : les attentes relevées ce matin à chaque douane, les communes où l\'essence coûte le moins cher, le taux franc-euro à la clôture et les offres d\'emploi parues en Suisse. Des données de notre suivi, relevées chaque jour.',
+    'blog.article.bollettino-frontaliere-2026-09-15.imageAlt': 'Les chiffres du jour pour les frontaliers – 15 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
+    'blog.article.bollettino-frontaliere-2026-09-15.seoDescription': 'Bulletin du frontalier du 15 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
+    'blog.article.bollettino-frontaliere-2026-09-15.ogDescription': 'Les chiffres du 15 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
 };
 
 export default blogMetaFr;

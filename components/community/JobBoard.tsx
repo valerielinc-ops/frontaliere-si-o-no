@@ -12,6 +12,7 @@ import { cdnDataUrl } from '@/services/cdnDataBase';
 import { cdnImageUrl } from '@/services/cdnImageBase';
 import { requestJobAlertOpen } from '@/services/jobAlertOpenSignal';
 import { baseCompanySlug, rawCompanySlug } from '@/build-plugins/shared/companyProfileSlug.mjs';
+import { firstParsableDateStr } from '@/build-plugins/shared/firstParsableDate';
 const JobAlertForm = lazyRetry(() => import('@/components/community/JobAlertForm'));
 const JobAlertStickyBanner = lazyRetry(() => import('@/components/community/JobAlertStickyBanner'));
 const JobAlertEndCard = lazyRetry(() => import('@/components/community/JobAlertEndCard'));
@@ -749,7 +750,7 @@ function companyLogoUrl(job: JobListing): string | null {
  return null;
 }
 
-function normalizeIncomingJob(raw: any): JobListing {
+export function normalizeIncomingJob(raw: any): JobListing {
  const title = String(raw?.title || '').trim();
  const description = String(raw?.description || '').trim();
  const company = String(raw?.company || '').trim() || 'Azienda';
@@ -773,7 +774,10 @@ function normalizeIncomingJob(raw: any): JobListing {
  ? raw.requirements.map((item: unknown) => String(item || '').trim()).filter(Boolean)
  : [],
  featured: Boolean(raw?.featured),
- postedDate: String(raw?.postedDate || '').trim() || new Date().toISOString().slice(0, 10),
+ // A recrawl must never make an undated listing look newly published. Prefer
+ // the source publication date, then the first discovery timestamp; crawledAt
+ // is only a last-resort fallback because it changes on every recrawl.
+ postedDate: firstParsableDateStr(raw?.postedDate, raw?.firstSeenAt, raw?.crawledAt) || new Date().toISOString().slice(0, 10),
  // Do not promote job.url (which may be an ATS host) into ownership proof.
  // Static SEO and runtime JSON-LD must both use the crawler's raw domain.
  companyDomain: rawCompanyDomain || undefined,
@@ -2015,6 +2019,23 @@ const DATE_RANGE_MS: Record<DateRange, number> = {
   '30d': 30 * 24 * 60 * 60 * 1000,
   '90d': 90 * 24 * 60 * 60 * 1000,
 };
+
+type JobDateFields = Pick<JobListing, 'postedDate' | 'firstSeenAt'>;
+
+/** Apply the publication-date meaning shared by every JobBoard result tier. */
+export function isJobWithinDateRange(job: JobDateFields, cutoff: number): boolean {
+  if (cutoff <= 0) return true;
+  const jobDate = new Date(firstParsableDateStr(job.postedDate, job.firstSeenAt)).getTime();
+  return Number.isFinite(jobDate) && jobDate >= cutoff;
+}
+
+const NEW_JOB_MS = 72 * 60 * 60 * 1000;
+
+/** Newness follows first discovery, so a later recrawl cannot renew a listing. */
+export function isJobNewAt(job: JobDateFields, now: number): boolean {
+  const firstSeen = new Date(firstParsableDateStr(job.firstSeenAt, job.postedDate)).getTime();
+  return Number.isFinite(firstSeen) && now - firstSeen < NEW_JOB_MS;
+}
 
 // --- Memoized JobCard to avoid re-renders on filter/sort ---
 interface JobCardProps {
@@ -4134,14 +4155,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (deferredSelectedCompany !== 'all' && job.company.toLowerCase() !== deferredSelectedCompany) return false;
  if (deferredSelectedLocation !== 'all' && normalizeLocalityKey(job.addressLocality || '') !== deferredSelectedLocation) return false;
  if (deferredSelectedSector !== 'all' && (job.sector || '').toLowerCase() !== deferredSelectedSector) return false;
- if (cutoff > 0) {
- const jobDate = new Date(job.crawledAt || job.postedDate).getTime();
- if (jobDate < cutoff) return false;
- }
- if (deferredShowNewOnly) {
- const jobTs = new Date(job.crawledAt || job.postedDate).getTime();
- if (now - jobTs >= 72 * 60 * 60 * 1000) return false;
- }
+ if (!isJobWithinDateRange(job, cutoff)) return false;
+ if (deferredShowNewOnly && !isJobNewAt(job, now)) return false;
  // "Salvati" view (#4466): same mechanics as the new-only pill — an
  // AND-filter over the loaded pool keyed on the localStorage saved ids.
  if (deferredShowSavedOnly && !savedJobIds.has(job.id)) return false;
@@ -5652,10 +5667,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return t('jobBoard.daysAgo', { days: String(diff) });
  };
 
- const NEW_JOB_MS = 72 * 60 * 60 * 1000; // 72 hours
  const isNewJob = (job: JobListing) => {
- const ts = new Date(job.firstSeenAt || job.postedDate).getTime();
- return Date.now() - ts < NEW_JOB_MS;
+ return isJobNewAt(job, Date.now());
  };
 
  const buildJobPath = (jobOrSlug?: JobListing | string) => {
@@ -10237,11 +10250,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const pos = idx + 1;
  // One in-feed ad after every Nth card (shared `shouldPlaceInfeedAd`
  // cadence: 3, 6, 9, …), never after the last loaded card.
- // `initialFilterCanton` is the URL-driven canton this page landed on
- // (e.g. 'LU' for /cerca-lavoro-lucerna/) — passed through so the
- // Lucerna in-feed A/B test (services/adsenseSlots.ts
- // INFEED_AD_AB_TEST_SUPPRESSED_CANTONS) can suppress the manual slot
- // on this specific canton listing without touching any other list.
+ // `initialFilterCanton` is the URL-driven canton this page landed on. It is
+ // passed through so the active Ticino treatment (services/adsenseSlots.ts
+ // INFEED_AD_AB_TEST_SUPPRESSED_CANTONS) can suppress the manual slot on that
+ // specific canton listing without touching any other list.
  const showAd = shouldPlaceInfeedAd(pos, {
    canton: initialFilterCanton,
    adExperimentActive,
