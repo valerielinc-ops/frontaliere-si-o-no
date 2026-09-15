@@ -10,6 +10,8 @@ import {
   type DutyWeekStatus,
 } from './dutyWeek';
 import { SWISS_CANTONS, type SwissCanton } from './swissCantons';
+import { buildItalyDutyWeekModel, type ItalyDutyWeekModel } from './italyDuty';
+import type { ItalyDutySnapshot } from './italyRelease';
 import type {
   PharmacyCatalogueDataset,
   PharmacyDutiesDataset,
@@ -55,6 +57,7 @@ export interface DutyCoverageMatrixModel {
   readonly reason: string;
   readonly regions: readonly DutyCoverageRegion[];
   readonly sourceOnlyCantons: readonly DutyCoverageSourceOnlyCanton[];
+  readonly italy: ItalyDutyWeekModel;
 }
 
 export interface BuildDutyCoverageMatrixOptions {
@@ -64,12 +67,22 @@ export interface BuildDutyCoverageMatrixOptions {
   duties?: PharmacyDutiesDataset;
   catalogue?: PharmacyCatalogueDataset;
   registry?: PharmacySourcesRegistry;
+  italyDuties?: ItalyDutySnapshot;
+  italyStatus?: ItalyDutySnapshot;
+  italyMaxAgeMs?: number;
+  italyPharmacyIds?: ReadonlySet<string>;
 }
 
 export interface DutyCoverageMatrixCopy {
   heading: string;
   lede: string;
   ticinoHeading: string;
+  italyHeading: string;
+  italyLede: string;
+  italyReadyNotice: string;
+  italyUnavailableNotice: (state: string) => string;
+  italyPublishedLabel: string;
+  italyNotPublishedLabel: string;
   readyNotice: string;
   unavailableNotice: (status: DutyWeekStatus) => string;
   sourceOnlyHeading: string;
@@ -138,6 +151,14 @@ export function buildDutyCoverageMatrix(options: BuildDutyCoverageMatrixOptions 
   const registry = options.registry ?? DEFAULT_REGISTRY;
   const weekStart = options.weekStart ?? currentDutyWeekStart(now);
   const week = buildDutyWeekModel(dataset, weekStart, { now, catalogue });
+  const italy = buildItalyDutyWeekModel({
+    now,
+    weekStart,
+    duties: options.italyDuties,
+    status: options.italyStatus,
+    maxAgeMs: options.italyMaxAgeMs,
+    pharmacyIds: options.italyPharmacyIds,
+  });
   const releaseReady = week.status === 'ready' && week.indexable;
 
   const regions = DUTY_WEEK_REGIONS.map((region) => {
@@ -160,6 +181,7 @@ export function buildDutyCoverageMatrix(options: BuildDutyCoverageMatrixOptions 
     reason: week.reason,
     regions: Object.freeze(regions),
     sourceOnlyCantons: Object.freeze(SOURCE_ONLY_CANTONS.map((canton) => sourceOnlyCanton(canton, registry, locale))),
+    italy,
   });
 }
 
@@ -179,6 +201,12 @@ export function getDutyCoverageMatrixCopy(locale: Locale): DutyCoverageMatrixCop
       heading: 'Matrice di copertura delle farmacie di turno',
       lede: 'Il calendario operativo verificato riguarda cinque regioni del Ticino. Gli altri 25 cantoni sono presenti solo come riferimenti alle fonti.',
       ticinoHeading: 'Ticino · cinque regioni con turni pubblicati',
+      italyHeading: 'Italia · Como, Varese e Verbano-Cusio-Ossola',
+      italyLede: 'I turni italiani vengono mostrati soltanto quando il release ufficiale è completo, fresco e pubblicabile. In caso contrario indichiamo lo stato senza creare intervalli o collegamenti operativi.',
+      italyReadyNotice: 'Release italiano fresh e pubblicato: gli intervalli verificati sono mostrati per la settimana corrente.',
+      italyUnavailableNotice: (state) => `Turni italiani non pubblicabili: il release è ${state}.`,
+      italyPublishedLabel: 'Turni italiani pubblicati',
+      italyNotPublishedLabel: 'Turni italiani non pubblicabili',
       readyNotice: 'Release completa e fresca: gli intervalli verificati sono mostrati per la settimana corrente.',
       unavailableNotice: (status) => `Turni non mostrati: la release non è pronta per la pubblicazione (${status}).`,
       sourceOnlyHeading: 'Altri 25 cantoni · solo fonte',
@@ -203,6 +231,12 @@ export function getDutyCoverageMatrixCopy(locale: Locale): DutyCoverageMatrixCop
       heading: 'On-duty pharmacy coverage matrix',
       lede: 'Verified operational coverage covers five Ticino regions. The other 25 cantons appear only as source references.',
       ticinoHeading: 'Ticino · five regions with published duties',
+      italyHeading: 'Italy · Como, Varese and Verbano-Cusio-Ossola',
+      italyLede: 'Italian duties appear only when the official release is complete, fresh and publishable. Otherwise we show its state without creating operational intervals or links.',
+      italyReadyNotice: 'Fresh and published Italian release: verified intervals are shown for the current week.',
+      italyUnavailableNotice: (state) => `Italian duties are not publishable: the release is ${state}.`,
+      italyPublishedLabel: 'Published Italian duties',
+      italyNotPublishedLabel: 'Italian duties not publishable',
       readyNotice: 'Complete and fresh release: verified intervals are shown for the current week.',
       unavailableNotice: (status) => `Duties are hidden: the release is not ready for publication (${status}).`,
       sourceOnlyHeading: 'Other 25 cantons · source only',
@@ -227,6 +261,12 @@ export function getDutyCoverageMatrixCopy(locale: Locale): DutyCoverageMatrixCop
       heading: 'Abdeckungsmatrix für Notdienst-Apotheken',
       lede: 'Die verifizierte operative Abdeckung umfasst fünf Tessiner Regionen. Die anderen 25 Kantone erscheinen nur als Quellenreferenzen.',
       ticinoHeading: 'Tessin · fünf Regionen mit veröffentlichtem Notdienst',
+      italyHeading: 'Italien · Como, Varese und Verbano-Cusio-Ossola',
+      italyLede: 'Italienische Notdienste werden nur angezeigt, wenn die offizielle Veröffentlichung vollständig, aktuell und veröffentlichbar ist. Andernfalls zeigen wir den Status ohne operative Zeiträume oder Links.',
+      italyReadyNotice: 'Aktuelle und veröffentlichte italienische Ausgabe: Verifizierte Zeiträume der laufenden Woche werden angezeigt.',
+      italyUnavailableNotice: (state) => `Italienische Notdienste sind nicht veröffentlichbar: Die Veröffentlichung ist ${state}.`,
+      italyPublishedLabel: 'Veröffentlichte italienische Notdienste',
+      italyNotPublishedLabel: 'Italienische Notdienste nicht veröffentlichbar',
       readyNotice: 'Vollständige und aktuelle Veröffentlichung: Verifizierte Zeiträume der laufenden Woche werden angezeigt.',
       unavailableNotice: (status) => `Notdienste werden nicht angezeigt: Die Veröffentlichung ist nicht bereit (${status}).`,
       sourceOnlyHeading: 'Andere 25 Kantone · nur Quelle',
@@ -251,6 +291,12 @@ export function getDutyCoverageMatrixCopy(locale: Locale): DutyCoverageMatrixCop
       heading: 'Matrice de couverture des pharmacies de garde',
       lede: 'La couverture opérationnelle vérifiée concerne cinq régions tessinoises. Les 25 autres cantons apparaissent uniquement comme références de sources.',
       ticinoHeading: 'Tessin · cinq régions avec gardes publiées',
+      italyHeading: 'Italie · Côme, Varèse et Verbano-Cusio-Ossola',
+      italyLede: 'Les gardes italiennes apparaissent uniquement lorsque la publication officielle est complète, récente et publiable. Sinon, nous affichons son statut sans créer d’intervalles ni de liens opérationnels.',
+      italyReadyNotice: 'Publication italienne récente et publiée : les intervalles vérifiés de la semaine en cours sont affichés.',
+      italyUnavailableNotice: (state) => `Les gardes italiennes ne sont pas publiables : la publication est ${state}.`,
+      italyPublishedLabel: 'Gardes italiennes publiées',
+      italyNotPublishedLabel: 'Gardes italiennes non publiables',
       readyNotice: 'Publication complète et récente : les intervalles vérifiés de la semaine en cours sont affichés.',
       unavailableNotice: (status) => `Les gardes sont masquées : la publication n’est pas prête (${status}).`,
       sourceOnlyHeading: '25 autres cantons · source uniquement',
