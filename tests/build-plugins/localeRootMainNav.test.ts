@@ -56,6 +56,7 @@ import { buildFaqHubPath } from '../../data/faq-hub/routes';
 import { PHARMACY_DUTY_HUB_PATH, PHARMACY_HUB_PATH } from '../../services/pharmacies/types';
 import { COMMUNICATIONS_PAGE_PATH } from '../../services/communicationChannels';
 import { buildPlateAuctionPath } from '../../services/plateAuctions/paths';
+import { extractMetaDescription } from '../../scripts/lib/meta-description-extract.mjs';
 
 /** Minimal stand-in for the mirrored IT root the ratchet starts from. */
 const SHELL = '<html lang="it"><body><div id="root"><main id="main-content"></main></div></body></html>';
@@ -77,9 +78,12 @@ describe('locale-root SPA shells — internal links (#5428)', () => {
   it.each(NON_IT_LOCALES)('localizes the SEO head for /%s/ and keeps titles within 60 characters', (locale) => {
     const html = renderLocaleRootShell(SEO_SHELL, locale);
     const title = html.match(/<title>([^<]*)<\/title>/i)?.[1] || '';
+    const description = extractMetaDescription(html) || '';
 
     expect(title).toBe(HOMEPAGE_SEO_TITLES[locale]);
     expect(title.length).toBeLessThanOrEqual(60);
+    expect(description.length).toBeGreaterThanOrEqual(120);
+    expect(description.length).toBeLessThanOrEqual(160);
     expect(html).toContain('content="' + HOMEPAGE_SEO_TITLES[locale] + '"');
     expect(html).toContain('href="https://frontaliereticino.ch/' + locale + '/"');
     expect(html).toContain('content="' + locale + '_CH"');
