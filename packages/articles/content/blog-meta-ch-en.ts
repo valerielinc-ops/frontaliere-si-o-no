@@ -6432,6 +6432,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.premi-lamal-politica-responsabilita.title': 'LAMal premium increases: the policy rebounds responsibilities',
     'blog.article.premi-lamal-politica-responsabilita.excerpt': 'The annual increases in LAMal premiums are punctual, with the policy rebounding responsibilities between the Confederation and the Cantons. The cost affects the quality of life of Swiss families.',
     'blog.article.premi-lamal-politica-responsabilita.imageAlt': 'Panoramic view of Lugano symbolizing Swiss economy and financial challenges, particularly healthcare costs.',
+    'blog.article.formazione-adulta-reddito-svizzera.title': 'Adult education increases income 50%',
+    'blog.article.formazione-adulta-reddito-svizzera.excerpt': 'UST Study: Achieving Secondary Title II in Adulthood Leads to +50% Income and Employment at 80%',
+    'blog.article.formazione-adulta-reddito-svizzera.imageAlt': 'Adult education with view of Swiss Alps',
 };
 
 export default blogMetaChEn;

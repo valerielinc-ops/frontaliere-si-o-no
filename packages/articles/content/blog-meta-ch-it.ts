@@ -6432,6 +6432,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.premi-lamal-politica-responsabilita.title': 'Aumenti premi LAMal: la politica rimbalza responsabilità',
     'blog.article.premi-lamal-politica-responsabilita.excerpt': 'Gli aumenti annuali dei premi LAMal sono puntuali, con la politica che rimbalza le responsabilità tra Confederazione e Cantoni. Il costo condiziona la qualità di vita delle famiglie svizzere.',
     'blog.article.premi-lamal-politica-responsabilita.imageAlt': 'Vista panoramica di Lugano che simboleggia l\'economia e le sfide finanziarie svizzere, in particolare i costi sanitari.',
+    'blog.article.formazione-adulta-reddito-svizzera.title': 'Formazione adulta aumenta reddito 50%',
+    'blog.article.formazione-adulta-reddito-svizzera.excerpt': 'Studio UST: conseguire titolo secondario II in età adulta porta a +50% di reddito e occupazione all\'80%',
+    'blog.article.formazione-adulta-reddito-svizzera.imageAlt': 'Formazione in età adulta con vista sulle Alpi svizzere',
 };
 
 export default blogMetaChIt;
