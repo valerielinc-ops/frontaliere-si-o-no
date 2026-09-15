@@ -116,10 +116,24 @@ describe('buildAiSearchMarkdown()', () => {
     expect(() => buildAiSearchMarkdown({ tldr: ['only one'], keyFacts })).toThrow();
   });
 
-  it('rejects too-short key-facts', () => {
+  it('accepts zero to two source-backed key facts', () => {
+    for (const count of [0, 1, 2]) {
+      expect(() =>
+        buildAiSearchMarkdown({ tldr, keyFacts: keyFacts.slice(0, count) }),
+      ).not.toThrow();
+    }
+  });
+
+  it('rejects more than eight key facts', () => {
     expect(() =>
-      buildAiSearchMarkdown({ tldr, keyFacts: [{ term: 'a', value: 'b' }] }),
-    ).toThrow();
+      buildAiSearchMarkdown({
+        tldr,
+        keyFacts: Array.from({ length: 9 }, (_, index) => ({
+          term: `Fatto ${index + 1}`,
+          value: 'valore',
+        })),
+      }),
+    ).toThrow(/0-8/);
   });
 
   it('produces locale-specific headings', () => {
@@ -231,13 +245,27 @@ describe('validateBackfillPayload()', () => {
     expect(() => validateBackfillPayload({ keyFacts: valid.keyFacts })).toThrow();
   });
 
-  it('rejects too few key facts', () => {
-    expect(() =>
-      validateBackfillPayload({
-        tldr: valid.tldr,
-        keyFacts: [{ term: 'Cosa', value: 'x' }],
-      }),
-    ).toThrow();
+  it('accepts zero to two source-backed key facts', () => {
+    for (const count of [0, 1, 2]) {
+      expect(() =>
+        validateBackfillPayload({
+          tldr: valid.tldr,
+          keyFacts: valid.keyFacts.slice(0, count),
+        }),
+      ).not.toThrow();
+    }
+  });
+
+  it('caps runaway key facts at the shared upper bound', () => {
+    const payload = {
+      tldr: valid.tldr,
+      keyFacts: Array.from({ length: 9 }, (_, index) => ({
+        term: `Fatto ${index + 1}`,
+        value: 'valore',
+      })),
+    };
+    expect(() => validateBackfillPayload(payload)).not.toThrow();
+    expect(payload.keyFacts).toHaveLength(8);
   });
 
   it('rejects non-string tldr bullets', () => {

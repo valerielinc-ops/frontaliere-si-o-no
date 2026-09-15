@@ -24,6 +24,7 @@
 // ── Markdown markers (used to detect existing AI-search optimization) ──
 export const TLDR_HEADING_MARKER = '## In breve';
 export const KEY_FACTS_HEADING_MARKER = '## Fatti chiave';
+const MAX_KEY_FACTS = 8;
 
 const TLDR_MARKERS_BY_LOCALE = {
   it: '## In breve',
@@ -83,8 +84,8 @@ export function buildAiSearchMarkdown({ tldr, keyFacts, locale = 'it' }) {
   if (!Array.isArray(tldr) || tldr.length < 2) {
     throw new Error('buildAiSearchMarkdown: tldr must be an array of ≥2 bullets');
   }
-  if (!Array.isArray(keyFacts) || keyFacts.length < 3) {
-    throw new Error('buildAiSearchMarkdown: keyFacts must be an array of ≥3 entries');
+  if (!Array.isArray(keyFacts) || keyFacts.length > MAX_KEY_FACTS) {
+    throw new Error(`buildAiSearchMarkdown: keyFacts must be an array of 0-${MAX_KEY_FACTS} entries`);
   }
   const tldrHeading = getTldrHeading(locale);
   const keyFactsHeading = getKeyFactsHeading(locale);
@@ -196,15 +197,15 @@ export function validateBackfillPayload(payload) {
   // factual pieces routinely generate 13-27 keyFacts and verbose 7-bullet
   // tldrs; capping here recovers ~30 articles per backfill run.
   if (Array.isArray(obj.tldr) && obj.tldr.length > 6) obj.tldr.length = 6;
-  if (Array.isArray(obj.keyFacts) && obj.keyFacts.length > 12) obj.keyFacts.length = 12;
+  if (Array.isArray(obj.keyFacts) && obj.keyFacts.length > MAX_KEY_FACTS) obj.keyFacts.length = MAX_KEY_FACTS;
   if (!Array.isArray(tldr) || tldr.length < 2) {
     throw new Error(`validateBackfillPayload: tldr must be an array of 2-6 strings, got ${Array.isArray(tldr) ? tldr.length : typeof tldr}`);
   }
   if (!tldr.every((b) => typeof b === 'string' && b.length > 0 && b.length <= 200)) {
     throw new Error('validateBackfillPayload: every tldr bullet must be a non-empty string ≤200 chars');
   }
-  if (!Array.isArray(keyFacts) || keyFacts.length < 3) {
-    throw new Error(`validateBackfillPayload: keyFacts must be an array of 3-12 entries, got ${Array.isArray(keyFacts) ? keyFacts.length : typeof keyFacts}`);
+  if (!Array.isArray(keyFacts)) {
+    throw new Error(`validateBackfillPayload: keyFacts must be an array of 0-${MAX_KEY_FACTS} entries, got ${typeof keyFacts}`);
   }
   for (const kf of keyFacts) {
     if (!kf || typeof kf !== 'object') {
