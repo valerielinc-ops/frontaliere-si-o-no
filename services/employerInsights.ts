@@ -161,6 +161,21 @@ export function humanizeInsightsSource(source: string | null | undefined, locale
 }
 
 /**
+ * Whether a GA4 report window deliberately stops before the report timestamp
+ * so that the latest, still-processing days are not presented as complete.
+ */
+export function hasAnalyticsProcessingLag(
+  source: string | null | undefined,
+  generatedAt: string | null | undefined,
+  window: EmployerInsightsWindow | null | undefined,
+): boolean {
+  if (String(source || '').trim().toLowerCase() !== 'ga4') return false;
+  const generated = Date.parse(generatedAt || '');
+  const exclusiveTo = Date.parse(window?.to || '');
+  return Number.isFinite(generated) && Number.isFinite(exclusiveTo) && exclusiveTo < generated;
+}
+
+/**
  * Outcome of a fetch. The page renders one of: loading | ok | not-found | error.
  * - `ok`        → data present, render the report.
  * - `not-found` → companyKey/token valid but no data yet (graceful empty state).
