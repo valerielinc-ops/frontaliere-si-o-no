@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 23,
-  "crawlerCount": 602,
+  "crawlerCount": 603,
   "groups": {
     "10": [
       "berit-klinik",
@@ -294,7 +294,8 @@
       "suchtfachstelle-zuerich",
       "sulzer",
       "sune-egge",
-      "swissquote"
+      "swissquote",
+      "vereinaklosters"
     ],
     "20": [
       "accor",
@@ -1231,6 +1232,7 @@
     "vaudoise": "data/jobs/by-crawler/vaudoise.json",
     "vaxcyte": "data/jobs/by-crawler/vaxcyte.json",
     "veeam": "data/jobs/by-crawler/veeam.json",
+    "vereinaklosters": "data/jobs/by-crawler/vereinaklosters.json",
     "vf-international-the-north-face-timberland": "data/jobs/by-crawler/vf-international-the-north-face-timberland.json",
     "victorinox": "data/jobs/by-crawler/victorinox.json",
     "villa-im-park": "data/jobs/by-crawler/villa-im-park.json",
@@ -1256,5 +1258,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:80747d27d6778cf7dfd0b3e39fbc21f73b8d48f989a8ae762edb933619a60bfd"
+  "digest": "sha256:de598b103154a95b8db92bd17d52b2f19d26aa31b1319acea275b91d5295bd28"
 }
