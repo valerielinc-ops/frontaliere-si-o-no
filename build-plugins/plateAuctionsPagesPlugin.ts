@@ -99,7 +99,8 @@ function renderCoverageSection(registry: PlateAuctionSourcesRegistry | null, ent
   const registryStamp = registry?.generatedAt ? `<p>${esc(copy.registryUpdated)}: ${esc(formatDate(registry.generatedAt, locale))}</p>` : '';
   const rows = entries.map((entry) => {
     const updated = entry.lastUpdatedAt ? ` <span>${esc(copy.lastUpdated)}: ${esc(formatDate(entry.lastUpdatedAt, locale))}</span>` : '';
-    return `<li data-canton-status="${esc(entry.status)}"><strong>${esc(entry.canton)} (${esc(entry.plateCode)})</strong> — ${esc(copy.status)}: ${esc(sourceStatusLabel(entry.status, locale))}.${updated} <a href="${esc(entry.officialUrl)}" style="${LINK_ACCENT_STYLE}" rel="noopener noreferrer" target="_blank">${esc(copy.official)}</a></li>`;
+    const cantonName = CANTON_NAMES[entry.plateCode]?.[locale] || entry.canton;
+    return `<li data-canton-status="${esc(entry.status)}"><strong>${esc(cantonName)} (${esc(entry.plateCode)})</strong> — ${esc(copy.status)}: ${esc(sourceStatusLabel(entry.status, locale))}.${updated} <a href="${esc(entry.officialUrl)}" style="${LINK_ACCENT_STYLE}" rel="noopener noreferrer" target="_blank">${esc(copy.official)}</a></li>`;
   }).join('');
   const content = entries.length > 0
     ? `<ul>${rows}</ul>`

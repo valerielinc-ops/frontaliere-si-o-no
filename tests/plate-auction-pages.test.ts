@@ -86,6 +86,9 @@ describe('plate-auction static pages', () => {
     expect(rendered.html).toContain('Grigioni (GR)');
     expect(rendered.html).toContain('Ultimo aggiornamento');
     expect(rendered.html).toContain('https://eauktion.gr.ch/');
+
+    const english = renderPlateAuctionPage({ locale: 'en', view: 'hub', rootDir });
+    expect(english.html).toContain('Graubünden (GR)');
   });
 
   it('shows coverage in progress and suppresses listings when no registry source is active', () => {
