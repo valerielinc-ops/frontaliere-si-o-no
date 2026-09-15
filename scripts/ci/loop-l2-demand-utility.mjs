@@ -235,6 +235,7 @@ function writeReports(reportDir, verdict, observation, decision) {
   const files = [
     ['l2-observation.json', observation],
     ['l2-decision.json', decision],
+    ['l2-outcome.json', observation.outcome],
     ['l2-report.md', reportMarkdown(verdict, observation, decision)],
   ];
   for (const [name, content] of files) {
@@ -353,7 +354,7 @@ export async function runL2({
     quality: verdict.quality,
     recordedAt: now.toISOString(),
   });
-  observation.outcome = buildValidatedLoopOutcome({
+  const validatedOutcome = buildValidatedLoopOutcome({
     registry: loopRegistry,
     loopId: LOOP_ID,
     quality: verdict.quality,
@@ -366,6 +367,32 @@ export async function runL2({
       : `useful-action outcome is ${verdict.quality}; no landing change is authorized`,
     now,
   });
+  observation.outcome = {
+    ...validatedOutcome,
+    loopId: LOOP_ID,
+    generatedAt: generatedAt?.toISOString() || null,
+    eligibleLandingSessions: verdict.snapshot?.outcomes?.eligibleLandingSessions ?? null,
+    usefulActions: verdict.snapshot?.outcomes?.usefulActions ?? null,
+    metrics: {
+      eligibleLandingSessions: verdict.snapshot?.outcomes?.eligibleLandingSessions ?? null,
+      usefulActions: verdict.snapshot?.outcomes?.usefulActions ?? null,
+    },
+    evidence: {
+      source: verdict.snapshot?.outcomeJoin === 'joined'
+        ? 'PostHog landing-path session/action export joined to GSC paths'
+        : 'PostHog landing-path session/action export unavailable or incomplete',
+      sourcePath,
+      sourceRefs: loopPolicy.outcome.sourceRefs,
+      outcomeJoin: verdict.snapshot?.outcomeJoin || 'missing',
+    },
+    evidenceStatus: verdict.snapshot?.outcomeJoin === 'joined' && validatedOutcome.independent ? 'verified' : 'unverified',
+    sourcePath,
+    safeToAct: false,
+    publishedDataUntouched: true,
+    noThinPages: true,
+    noKeywordStuffing: true,
+    sourceRequired: true,
+  };
   const decision = buildDecision({
     loopId: LOOP_ID,
     goal: loopPolicy.goal,
