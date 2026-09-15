@@ -30,7 +30,7 @@ export const L5_DECISION_EVENT_CONTRACT = Object.freeze({
   completionTaskProperty: 'task_id',
   nextActionSurfaceProperty: 'decision_surface',
   nextActionIdProperty: 'action_id',
-  sessionJoin: '$session_id',
+  sessionJoin: 'properties.$session_id',
 });
 
 const DAY_MS = 86_400_000;

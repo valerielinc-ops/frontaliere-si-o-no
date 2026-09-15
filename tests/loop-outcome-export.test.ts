@@ -71,7 +71,7 @@ describe('read-only loop outcome exporters', () => {
       nextUsefulActions: 45,
       evidence: {
         sourceRefs: ['decision-surfaces', 'posthog'],
-        sessionJoin: '$session_id',
+        sessionJoin: 'properties.$session_id',
         eventContract: {
           completionEvent: 'decision_moment_completed',
           nextActionEvent: 'decision_moment_next_action',
@@ -112,7 +112,7 @@ describe('read-only loop outcome exporters', () => {
     expect(calls).toHaveLength(1);
     expect(calls[0].query).toContain("event = 'decision_moment_completed'");
     expect(calls[0].query).toContain("event = 'decision_moment_next_action'");
-    expect(calls[0].query).toContain('GROUP BY $session_id');
+    expect(calls[0].query).toContain('GROUP BY properties.$session_id');
     expect(calls[0].query).toContain('2026-09-04T00:00:00.000Z');
     expect(calls[0].query).toContain('2026-09-12T00:00:00.000Z');
     expect(calls[0].config).toMatchObject({ apiKey: 'test-key', projectId: '123', host: 'https://posthog.test' });
