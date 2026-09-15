@@ -399,3 +399,10 @@ describe('recovery issue lifecycle', () => {
     expect(cleanStep).toContain('--title "Workflow Failure: ${{ github.workflow }}"');
   });
 });
+
+describe('workflow runtime bootstrap', () => {
+  it('installs the locked runtime dependencies before importing the health check', () => {
+    const workflow = readFileSync(PHARMACY_WORKFLOW, 'utf8');
+    expect(workflow).toContain('run: npm ci --ignore-scripts --no-audit --no-fund');
+  });
+});

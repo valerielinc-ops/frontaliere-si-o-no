@@ -42,8 +42,13 @@ jobs:
         with:
           node-version: '20'
 
-      # Nessun `npm ci`: lo script usa solo la stdlib di Node e legge i dataset
-      # checked-in — nessuna rete, nessuna dipendenza.
+      # Il controllo del perimetro importa il contratto condiviso del catalogo
+      # farmacie, la cui catena di moduli usa `undici` per i crawler. Il report
+      # non fa richieste di rete, ma un checkout Actions pulito deve comunque
+      # installare le dipendenze runtime dichiarate dal lockfile.
+      - name: Install runtime dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
       - name: Run pharmacy data-health dashboard
         id: check
         continue-on-error: true
