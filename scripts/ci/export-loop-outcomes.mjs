@@ -285,7 +285,7 @@ function readRemoteConfigValue(template, name) {
   return text(value) ? value : null;
 }
 
-async function resolvePostHogConfig(client) {
+export async function resolvePostHogConfig(client) {
   let template = null;
   const read = async (envName, remoteName) => {
     if (text(process.env[envName])) return process.env[envName];
@@ -299,7 +299,10 @@ async function resolvePostHogConfig(client) {
   return { apiKey, projectId, host };
 }
 
-function completeUtcWindow(now, days) {
+export function completeUtcWindow(now, days) {
+  if (!Number.isInteger(days) || days < 1 || days > 31) {
+    throw new Error('days must be an integer between 1 and 31');
+  }
   const endMs = Math.floor(now.getTime() / DAY_MS) * DAY_MS;
   return {
     start: new Date(endMs - days * DAY_MS).toISOString(),
@@ -314,7 +317,7 @@ function rollingWindow(now, hours) {
   };
 }
 
-function postHogRow(response, name) {
+export function postHogRow(response, name) {
   const columns = response?.columns || [];
   const row = response?.results?.[0];
   if (Array.isArray(row)) {
@@ -324,7 +327,7 @@ function postHogRow(response, name) {
   return row?.[name] ?? null;
 }
 
-function nonNegativeInteger(value, label) {
+export function nonNegativeInteger(value, label) {
   const parsed = typeof value === 'number' ? value : Number(value);
   if (!Number.isInteger(parsed) || parsed < 0) throw new Error(`PostHog returned invalid ${label}`);
   return parsed;
