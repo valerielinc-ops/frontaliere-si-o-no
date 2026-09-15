@@ -56,10 +56,14 @@ function parseLocalizedEntry(articleId, body) {
 export function parseArticleUrlSlugs(source, slugConst) {
   if (typeof source !== 'string') invalidArgument('source');
   if (typeof slugConst !== 'string' || slugConst.length === 0) invalidArgument('slugConst');
-  const block = source.match(
+  const declaration = source.match(
     new RegExp('\\bconst\\s+' + escapeRegex(slugConst) + '(?:\\s*:\\s*[^=\\n]+)?\\s*=\\s*\\{([\\s\\S]*?)\\}\\s*;', 'm'),
-  )?.[1] ?? '';
-  if (!block) return {};
+  );
+  if (!declaration) return {};
+  const block = declaration[1];
+  if (!block.trim()) {
+    throw new SyntaxError('parseArticleUrlSlugs: empty slug map for ' + slugConst);
+  }
 
   const out = {};
   for (const match of block.matchAll(SLUG_MAP_ENTRY_RE)) {

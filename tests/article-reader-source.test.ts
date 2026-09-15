@@ -74,6 +74,11 @@ describe('parseArticleUrlSlugs', () => {
   it('keeps an absent optional declaration as an empty map', () => {
     expect(parseArticleUrlSlugs('export const OTHER = {};', 'BLOG_SLUGS')).toEqual({});
   });
+
+  it('rejects an existing empty declaration instead of falling back to article ids', () => {
+    expect(() => parseArticleUrlSlugs('export const BLOG_SLUGS = {};', 'BLOG_SLUGS'))
+      .toThrow(/empty slug map/i);
+  });
 });
 
 describe('ogPagesPlugin standalone module graph', () => {
