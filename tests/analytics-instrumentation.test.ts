@@ -180,6 +180,21 @@ describe('analytics.ts — trackCtaClick helper', () => {
   });
 });
 
+describe('analytics.ts — L5 decision-moment contract', () => {
+  it('exposes categorical completion and next-action events without answer or URL payloads', () => {
+    expect(analyticsSrc).toContain("DECISION_MOMENT_COMPLETED_EVENT = 'decision_moment_completed'");
+    expect(analyticsSrc).toContain("DECISION_MOMENT_NEXT_ACTION_EVENT = 'decision_moment_next_action'");
+    const completion = analyticsSrc.match(/trackDecisionMomentCompleted:[\s\S]*?\n \},/);
+    const nextAction = analyticsSrc.match(/trackDecisionMomentNextAction:[\s\S]*?\n \},/);
+    expect(completion?.[0]).toMatch(/decision_surface:/);
+    expect(completion?.[0]).toMatch(/task_id:/);
+    expect(completion?.[0]).not.toMatch(/email|answer|target_url|href/i);
+    expect(nextAction?.[0]).toMatch(/decision_surface:/);
+    expect(nextAction?.[0]).toMatch(/action_id:/);
+    expect(nextAction?.[0]).not.toMatch(/email|answer|target_url|href/i);
+  });
+});
+
 describe('analytics.ts — qualified application funnel', () => {
   it('declares separate qualified-session and external hand-off events', () => {
     expect(analyticsSrc).toContain("JOB_QUALIFIED_SESSION_EVENT = 'job_qualified_session'");

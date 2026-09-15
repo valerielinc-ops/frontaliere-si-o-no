@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Read-only outcome exporters for the three site-only loop ledgers.
+ * Read-only outcome exporters for the site-only loop ledgers.
  *
  * The script deliberately uses Google REST APIs and the native Node runtime:
  * the loop workflows are sparse checkouts and must not install dependencies.
@@ -14,8 +14,24 @@ import { pathToFileURL } from 'node:url';
 import { runHogQL } from '../lib/posthog-client.mjs';
 
 export const DEFAULT_L1_WINDOW_DAYS = 4;
+export const DEFAULT_L5_WINDOW_DAYS = 8;
 export const DEFAULT_L4_WINDOW_HOURS = 30;
 export const DEFAULT_L9_WINDOW_HOURS = 240;
+
+/**
+ * The L5 export joins categorical completion and next-action events on the
+ * PostHog session id.  Keep this contract explicit so the validator and the
+ * application instrumentation cannot silently drift apart.
+ */
+export const L5_DECISION_EVENT_CONTRACT = Object.freeze({
+  completionEvent: 'decision_moment_completed',
+  nextActionEvent: 'decision_moment_next_action',
+  completionSurfaceProperty: 'decision_surface',
+  completionTaskProperty: 'task_id',
+  nextActionSurfaceProperty: 'decision_surface',
+  nextActionIdProperty: 'action_id',
+  sessionJoin: '$session_id',
+});
 
 const DAY_MS = 86_400_000;
 
@@ -389,6 +405,132 @@ export async function exportL1({ inputPath, outputPath, now = new Date(), days =
   fs.mkdirSync(path.dirname(path.resolve(outputPath)), { recursive: true });
   fs.writeFileSync(path.resolve(outputPath), `${JSON.stringify(telemetry, null, 2)}\n`);
   return telemetry;
+}
+
+/**
+ * @param {{eligibleDecisionSessions?: number, nextUsefulActions?: number, generatedAt?: string, telemetryWindow?: object, eventContract?: object}} options
+ */
+export function buildL5DecisionMomentExport({
+  eligibleDecisionSessions,
+  nextUsefulActions,
+  generatedAt,
+  telemetryWindow,
+  eventContract = L5_DECISION_EVENT_CONTRACT,
+} = {}) {
+  return {
+    generatedAt,
+    independent: true,
+    eligibleDecisionSessions,
+    nextUsefulActions,
+    evidence: {
+      source: 'PostHog HogQL, read-only live export',
+      sourceRefs: ['decision-surfaces', 'posthog'],
+      sessionJoin: eventContract.sessionJoin,
+      eventContract: { ...eventContract },
+    },
+    telemetryWindow,
+    export: {
+      schemaVersion: 1,
+      purpose: 'L5 decision-moment outcome',
+      readOnly: true,
+      publishedDataUntouched: true,
+      noDarkPatterns: true,
+      noUnsupportedTimingPromise: true,
+      noInvasivePersonalization: true,
+    },
+    _meta: {
+      generatedAt,
+      source: 'PostHog HogQL, read-only live export',
+      purpose: 'Fresh completed-task/next-action session join for Loop L5',
+      telemetryWindow,
+    },
+  };
+}
+
+export function buildUnavailableL5DecisionMomentExport({ generatedAt = new Date().toISOString() } = {}) {
+  return {
+    generatedAt,
+    independent: false,
+    eligibleDecisionSessions: null,
+    nextUsefulActions: null,
+    evidence: {
+      source: 'PostHog HogQL, read-only live export unavailable',
+      sourceRefs: ['decision-surfaces', 'posthog'],
+      sessionJoin: L5_DECISION_EVENT_CONTRACT.sessionJoin,
+      eventContract: { ...L5_DECISION_EVENT_CONTRACT },
+    },
+    export: {
+      schemaVersion: 1,
+      purpose: 'L5 decision-moment outcome',
+      readOnly: true,
+      publishedDataUntouched: true,
+      unavailable: true,
+    },
+    _meta: {
+      generatedAt,
+      source: 'PostHog HogQL, read-only live export unavailable',
+      purpose: 'Explicit fail-closed placeholder; never a measured outcome',
+    },
+  };
+}
+
+/**
+ * @param {{posthogRunner?: Function, config?: object, start?: string, end?: string, eventContract?: object}} options
+ */
+export async function fetchL5DecisionMomentCounts({
+  posthogRunner = runHogQL,
+  config,
+  start,
+  end,
+  eventContract = L5_DECISION_EVENT_CONTRACT,
+} = {}) {
+  const query = `
+    SELECT count() AS eligibleDecisionSessions,
+      countIf(nextUsefulActions > 0) AS nextUsefulActions
+    FROM (
+      SELECT ${eventContract.sessionJoin},
+        countIf(event = '${eventContract.completionEvent}') AS completedTasks,
+        countIf(event = '${eventContract.nextActionEvent}') AS nextUsefulActions
+      FROM events
+      WHERE timestamp >= '${start}' AND timestamp < '${end}'
+        AND event IN ('${eventContract.completionEvent}', '${eventContract.nextActionEvent}')
+      GROUP BY ${eventContract.sessionJoin}
+      HAVING completedTasks > 0
+    )`;
+  const response = await posthogRunner(query, config);
+  return {
+    eligibleDecisionSessions: nonNegativeInteger(postHogRow(response, 'eligibleDecisionSessions'), 'eligibleDecisionSessions'),
+    nextUsefulActions: nonNegativeInteger(postHogRow(response, 'nextUsefulActions'), 'nextUsefulActions'),
+  };
+}
+
+/**
+ * @param {{outputPath?: string, now?: Date, days?: number, client?: object, posthogRunner?: Function}} options
+ */
+export async function exportL5({
+  outputPath,
+  now = new Date(),
+  days = DEFAULT_L5_WINDOW_DAYS,
+  client = null,
+  posthogRunner = runHogQL,
+} = {}) {
+  const firestore = client || new GoogleDataClient();
+  const window = completeUtcWindow(now, days);
+  const config = await resolvePostHogConfig(firestore);
+  const counts = await fetchL5DecisionMomentCounts({
+    posthogRunner,
+    config,
+    start: window.start,
+    end: window.end,
+  });
+  const outcome = buildL5DecisionMomentExport({
+    ...counts,
+    generatedAt: now.toISOString(),
+    telemetryWindow: window,
+  });
+  fs.mkdirSync(path.dirname(path.resolve(outputPath)), { recursive: true });
+  fs.writeFileSync(path.resolve(outputPath), `${JSON.stringify(outcome, null, 2)}\n`);
+  return outcome;
 }
 
 function eventSet(rows) {
@@ -783,7 +925,7 @@ function valueAfter(argv, name, fallback = null) {
 export async function main({ argv = process.argv.slice(2) } = {}) {
   const loop = valueAfter(argv, '--loop');
   const outputPath = valueAfter(argv, '--out');
-  if (!['L1', 'L4', 'L9'].includes(loop)) throw new Error('--loop must be L1, L4 or L9');
+  if (!['L1', 'L4', 'L5', 'L9'].includes(loop)) throw new Error('--loop must be L1, L4, L5 or L9');
   if (!outputPath) throw new Error('--out is required');
   const now = new Date();
   if (loop === 'L1') {
@@ -796,6 +938,19 @@ export async function main({ argv = process.argv.slice(2) } = {}) {
       snoozesPath: valueAfter(argv, '--snoozes', 'data/alert-snoozes.json'),
       outputPath,
       now,
+    });
+  }
+  if (loop === 'L5') {
+    if (argv.includes('--unavailable')) {
+      const outcome = buildUnavailableL5DecisionMomentExport({ generatedAt: now.toISOString() });
+      fs.mkdirSync(path.dirname(path.resolve(outputPath)), { recursive: true });
+      fs.writeFileSync(path.resolve(outputPath), `${JSON.stringify(outcome, null, 2)}\n`);
+      return outcome;
+    }
+    return exportL5({
+      outputPath,
+      now,
+      days: Number(valueAfter(argv, '--days', DEFAULT_L5_WINDOW_DAYS)),
     });
   }
   return exportL9({

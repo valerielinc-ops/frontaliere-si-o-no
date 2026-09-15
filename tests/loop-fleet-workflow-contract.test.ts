@@ -40,9 +40,10 @@ describe('loop fleet workflow contract', () => {
     }
   });
 
-  it('gates the three repaired loops on a runner-local fail-closed outcome export', () => {
+  it('gates repaired loops on a runner-local fail-closed outcome export', () => {
     const contracts = [
       ['loop-l3-job-quality.yml', 'l3-outcome.json', 'handoffIsNotApplication', 'validate_l3_outcome'],
+      ['loop-l5-decision-moments.yml', 'l5-outcome.json', 'publishedDataUntouched', 'validate_l5_outcome'],
       ['loop-l8-revenue-attribution.yml', 'l8-outcome.json', 'externalCommercialStateUntouched', 'validate_l8_outcome'],
       ['loop-l10-fleet-control.yml', 'l10-outcome.json', 'ledgerWriteMode', 'validate_l10_outcome'],
     ];
