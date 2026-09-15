@@ -58,6 +58,7 @@ import {
   isFamilyWideMeasure,
 } from './lib/informationGain.mjs';
 import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
+import { isPlateAuctionSectionPath } from './lib/plateAuctionSections.mjs';
 
 /**
  * Median share of page-specific prose a gated cohort must clear.
@@ -301,7 +302,12 @@ function createAuditor({ dist = DEFAULT_DIST, sampleRate = 1 } = {}) {
       // already treat them as a distinct, unmeasured category; scoring them
       // here mixes two page kinds with unrelated prose expectations into the
       // same cohort and floods it with false "below-floor" offenders.
-      if (JOB_BOARD_SECTION_RX.test(relPath)) return;
+      // Plate-auction pages have the same property: their differentiating
+      // payload is a public record (plate, price, bids and closing date), and
+      // the information-gain metric masks those numeric fields by design.
+      // Keep this vertical out of the editorial near-duplicate gate rather
+      // than adding each newly emitted canton/plate cohort to its inventory.
+      if (JOB_BOARD_SECTION_RX.test(relPath) || isPlateAuctionSectionPath(relPath)) return;
       fingerprints.push(fingerprintPage(relPath, html));
     },
     report() {
