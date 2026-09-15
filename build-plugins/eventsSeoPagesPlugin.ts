@@ -45,7 +45,7 @@ import { WriteCollector } from './batchWrite';
 import { shouldEmitLocale, EMIT_ALL_LOCALES } from './shared/localeEmitFilter';
 import { BASE_URL, BUILD_DATE_STAMP, buildCanonicalBridgePage, countHtmlBodyWords, MIN_INDEXABLE_WORDS } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
-import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
+import { adSlotHtml, endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { truncateHeadline, TITLE_MAX_CHARS, composePlaceTitle } from './shared/titleSuffix';
 import { staticPagesFlushed } from './shared/buildSignals';
 import { inlineScriptJson } from './shared/inlineJsonScript';
@@ -77,7 +77,9 @@ import {
   UNRESOLVED_CANTON_KEY,
   UNRESOLVED_CANTON_LABEL,
   normalizeText,
+  cleanEventText,
 } from '../scripts/lib/events-utils.mjs';
+export { cleanEventText } from '../scripts/lib/events-utils.mjs';
 import { getCantonLabel, type CantonLocale } from '../services/cantonList';
 import { imageObjectLd, type ImageObjectLd } from '../services/seo/imageObjectLd';
 import { differentiateH1FromTitle, osmEmbedSrc, CTA_PRIMARY_CLASS } from './shared/seoContentTokens';
@@ -122,11 +124,14 @@ interface SiteEvent {
 }
 
 function localizedTitle(event: SiteEvent, locale: Locale): string {
-  return event.titleByLocale?.[locale] || event.title;
+  return cleanEventText(event.titleByLocale?.[locale] || event.title) || cleanEventText(event.title);
 }
 
 function localizedDescription(event: SiteEvent, locale: Locale): string | undefined {
-  return event.descriptionByLocale?.[locale] || event.description;
+  const localized = cleanEventText(event.descriptionByLocale?.[locale]);
+  if (localized) return localized;
+  const fallback = cleanEventText(event.description);
+  return fallback || undefined;
 }
 
 const LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'] as const;
@@ -1027,6 +1032,9 @@ function catalogImageObjectLd(category: string | undefined, locale: Locale): Ima
  *     soonest event (always `events[0]`, see `upcomingEvents()` sort order
  *     in scripts/lib/events-utils.mjs) a wider, image-forward treatment
  *     from `sm:` up.
+ * Detail-page art direction and ad-slot spacing live in the global event atom
+ * block in `index.css`; keeping them out of this per-page style string avoids
+ * repeating a large CSS payload in every generated detail document.
  * Emitted once per page body; safe to duplicate across independently
  * generated static HTML documents.
  */
@@ -1334,7 +1342,7 @@ function mirroredEventImageObject(event: SiteEvent): ImageObjectLd | null {
   if (!raw || !raw.startsWith('/')) return null;
   return imageObjectLd({
     contentUrl: `${BASE_URL}${raw}`,
-    caption: event.title,
+    caption: cleanEventText(event.title),
     creditText: event.sourceName,
   });
 }
@@ -2759,6 +2767,7 @@ interface DetailCopy {
   addressLabel: string;
   mapLinkLabel: (place: string) => string;
   descriptionTitle: string;
+  adLabel: string;
 }
 
 /**
@@ -2894,6 +2903,7 @@ const DETAIL_COPY: Record<Locale, DetailCopy> = {
     addressLabel: 'Indirizzo',
     mapLinkLabel: (place: string) => `Apri ${place} su OpenStreetMap`,
     descriptionTitle: 'Descrizione',
+    adLabel: 'Pubblicità',
   },
   en: {
     metaTitle: (t, c) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIXES.en(c)),
@@ -2922,6 +2932,7 @@ const DETAIL_COPY: Record<Locale, DetailCopy> = {
     addressLabel: 'Address',
     mapLinkLabel: (place: string) => `Open ${place} on OpenStreetMap`,
     descriptionTitle: 'Description',
+    adLabel: 'Advertisement',
   },
   de: {
     metaTitle: (t, c) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIXES.de(c)),
@@ -2950,6 +2961,7 @@ const DETAIL_COPY: Record<Locale, DetailCopy> = {
     addressLabel: 'Adresse',
     mapLinkLabel: (place: string) => `${place} auf OpenStreetMap öffnen`,
     descriptionTitle: 'Beschreibung',
+    adLabel: 'Werbung',
   },
   fr: {
     metaTitle: (t, c) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIXES.fr(c)),
@@ -2978,6 +2990,7 @@ const DETAIL_COPY: Record<Locale, DetailCopy> = {
     addressLabel: 'Adresse',
     mapLinkLabel: (place: string) => `Ouvrir ${place} sur OpenStreetMap`,
     descriptionTitle: 'Description',
+    adLabel: 'Publicité',
   },
 };
 
@@ -3063,6 +3076,25 @@ function renderLocationCard(event: SiteEvent, comune: string, dc: DetailCopy, ma
   </section>`;
 }
 
+function renderEventHero(event: SiteEvent, title: string, category: string, when: string, place: string): string {
+  const hasEventImage = Boolean(event.imageUrl && event.imageUrl.startsWith('/'));
+  const imageSrc = hasEventImage ? event.imageUrl! : catalogImagePath(event.category);
+  const imageAlt = hasEventImage ? title : category;
+  const venueOrPlace = event.venue || place;
+  return `<figure class="ev-in ev-hero">
+    <div class="ev-hero-stage">
+      <img class="ev-hero-backdrop" src="${esc(imageSrc)}" width="1200" height="675" loading="lazy" decoding="async" alt="" aria-hidden="true">
+      <div class="ev-hero-surface">
+        <img class="ev-heroimg" src="${esc(imageSrc)}" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async" alt="${esc(imageAlt)}">
+      </div>
+      <figcaption class="ev-hero-caption">
+        <span class="ev-hero-caption-kicker">${esc(category)}</span>
+        <span>${esc(when)}${event.startTime ? ` · ${esc(event.startTime)}` : ''} · ${esc(venueOrPlace)}</span>
+      </figcaption>
+    </div>
+  </figure>`;
+}
+
 export function renderEventDetailPage(params: {
   locale: Locale;
   event: SiteEvent;
@@ -3108,12 +3140,12 @@ export function renderEventDetailPage(params: {
   const description = localizedDescription(event, locale);
   const visual = categoryVisual(event.category);
   // `imageUrl` only ever holds a mirrored site-relative path — see the same
-  // guard in `renderEventCard`/`mirroredEventImageObject`. No direct photo →
-  // per-category catalog SVG (real, site-owned image, never absent) instead
-  // of no hero image at all.
-  const heroImage = event.imageUrl && event.imageUrl.startsWith('/')
-    ? `<div class="ev-in ev-hero"><img class="ev-heroimg" src="${esc(event.imageUrl)}" width="1200" height="675" loading="eager" fetchpriority="high" alt="${esc(title)}"></div>`
-    : `<div class="ev-in ev-hero"><img class="ev-heroimg" src="${esc(catalogImagePath(event.category))}" width="1200" height="675" loading="eager" fetchpriority="high" alt="${esc(cat)}"></div>`;
+  // guard in `renderEventCard`/`mirroredEventImageObject`. The hero keeps a
+  // square source flyer contained in a 16:9 stage instead of stretching it to
+  // the old `object-cover` banner, with a restrained tonal backdrop filling
+  // the surrounding space.
+  const heroImage = renderEventHero(event, title, cat, when, displayComune);
+  const inlineAdMarker = '<!-- EVENT_INLINE_AD -->';
 
   const body = `${EVENTS_STYLE_BLOCK}<div class="ev-wrap3">
     <nav class="ev-crumb" aria-label="Breadcrumb">
@@ -3130,9 +3162,11 @@ export function renderEventDetailPage(params: {
 
     ${heroImage}
 
-    <header class="${heroImage ? '' : 'ev-in '}ev-head" data-speakable>
-      <span class="ev-tag ${TONE_CHIP_ATOM[visual.tone]}">${visual.emoji} ${esc(cat)}</span>
-      ${event.recurring ? `<span class="ev-tag2">${esc(dc.recurringLabel)}</span>` : ''}
+    <header class="ev-in ev-head" data-speakable>
+      <div class="ev-head-top">
+        <span class="ev-tag ${TONE_CHIP_ATOM[visual.tone]}">${visual.emoji} ${esc(cat)}</span>
+        ${event.recurring ? `<span class="ev-tag2">${esc(dc.recurringLabel)}</span>` : ''}
+      </div>
       <h1 class="ev-h1">${esc(title)}</h1>
       <p class="ev-lede">${esc(dc.lede(when, time, event.venue ? event.venue : '', displayComune))}</p>
       ${description ? `<p class="ev-p-sm3">${esc(description)}</p>` : ''}
@@ -3156,11 +3190,13 @@ export function renderEventDetailPage(params: {
       <a class="ev-btn2" href="${comunePath}">${esc(dc.allInComune(displayComune))} →</a>
     </section>
 
-    <section class="mt-8">
+    <section class="ev-copy">
       <h2 class="ev-h2b">${esc(dc.aboutTitle)}</h2>
       <p class="ev-lede">${esc(dc.about(title, displayComune, `${when}${event.startTime ? ` (${event.startTime})` : ''}`, cat, event.venue))}</p>
       ${description ? `<h3 class="ev-h3">${esc(dc.descriptionTitle)}</h3><p class="ev-p">${esc(description)}</p>` : ''}
     </section>
+
+    ${inlineAdMarker}
 
     <section class="ev-panel">
       <h2 class="ev-h2">${esc(dc.practicalTitle)}</h2>
@@ -3213,14 +3249,22 @@ export function renderEventDetailPage(params: {
   });
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: !isPast && wordCount >= MIN_INDEXABLE_WORDS })}`;
+  const indexable = !isPast && wordCount >= MIN_INDEXABLE_WORDS;
+  const inlineAd = indexable
+    ? `<section class="ev-ad" aria-label="${esc(dc.adLabel)}" data-ad-placement="event-detail-inline">
+      <p class="ev-ad-label">${esc(dc.adLabel)}</p>
+      ${adSlotHtml('ARTICLE_INLINE_MOBILE')}
+    </section>`
+    : '';
+  const bodyWithAds = body.replace(inlineAdMarker, inlineAd);
+  const bodyHtml = `${bodyWithAds}${endOfContentMultiplexHtml({ indexable })}`;
   const html = buildSeoPageHtml({
     locale,
     title: dc.metaTitle(title, displayComune),
     description: dc.metaDesc(title, displayComune, when),
     canonicalUrl,
     hreflangHtml: buildEventAlternates(canton, comune, eventSlug),
-    robots: !isPast && wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
+    robots: indexable ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
     bodyHtml,
     jsonLdScripts: eventLdScript ? [eventLdScript, breadcrumbLd, faqLd] : [breadcrumbLd, faqLd],

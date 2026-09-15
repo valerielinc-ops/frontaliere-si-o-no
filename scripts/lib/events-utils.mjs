@@ -17,6 +17,7 @@
 import { readFileSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { decode as decodeHtmlEntities } from 'html-entities';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import CANTON_URL_SLUGS from '../../data/canton-url-slugs.json' with { type: 'json' };
 import { MUNICIPALITIES } from '../../data/municipalities.ts';
@@ -335,6 +336,22 @@ export function normalizeText(value) {
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '')
     .toLowerCase()
+    .trim();
+}
+
+/** Safe plain-text boundary for crawler fields that may contain rich HTML.
+ * Keeps the event source data usable by crawlers and static renderers alike,
+ * including escaped tags such as `&lt;b&gt;...&lt;/b&gt;`. */
+export function cleanEventText(value) {
+  if (typeof value !== 'string') return '';
+  const withoutRawTags = value
+    .replace(/<!--[\s\S]*?-->/g, ' ')
+    .replace(/<(script|style|noscript|template)\b[^>]*>[\s\S]*?<\/\1>/gi, ' ')
+    .replace(/<br\s*\/?\s*>/gi, ' ')
+    .replace(/<\/?[a-z][^>]*>/gi, ' ');
+  return decodeHtmlEntities(withoutRawTags, { level: 'html5', scope: 'body' })
+    .replace(/<\/?[a-z][^>]*>/gi, ' ')
+    .replace(/\s+/g, ' ')
     .trim();
 }
 
