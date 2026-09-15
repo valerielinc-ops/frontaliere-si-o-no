@@ -156,17 +156,19 @@ const BASE_FRANCHISE_BY_AGE_CLASS = {
 // Cantons with commune-level detail
 const COMMUNE_DETAIL_CANTONS = ['TI', 'GR', 'VS'];
 
-// These are deliberately conservative lower bounds for the output produced by
-// the canonical BAG + Priminfo sources.  The last three yearly snapshots in
-// the repository contain 322 commune blocks, 25 canton blocks and 20 entries
-// per ranking.  A smaller response is a truncation/error, not a usable
-// snapshot; the cross-field checks below still require exact commune coverage.
+// The canonical BAG + Priminfo producer has emitted this exact cardinality in
+// each versioned snapshot for 2024, 2025 and 2026. A changed source or a
+// truncated response must stop the update until the contract is reviewed;
+// accepting a smaller floor would let missing blocks reach all four mirrors.
 export const HEALTH_PREMIUMS_VALIDATION_MINIMUMS = Object.freeze({
-  communesTotal: 300,
-  communesPerDetailCanton: 50,
-  premiumBlocks: 320,
-  cantonPremiumBlocks: 20,
+  communesTotal: 322,
+  communesPerDetailCanton: Object.freeze({ TI: 100, GR: 100, VS: 122 }),
+  premiumBlocks: 347,
+  detailPremiumBlocks: 322,
+  cantonPremiumBlocks: 25,
   rankingEntries: 20,
+  minInsurersPerBlock: 3,
+  requiredAgeClasses: Object.freeze(['KIN', 'JUG', 'ERW']),
 });
 
 // ── CSV parser (no dependencies) ──
@@ -776,7 +778,7 @@ function hasPositivePremium(value) {
   return typeof value === 'number' && Number.isFinite(value) && value > 0;
 }
 
-function hasValidInsurerPremium(value) {
+function hasValidInsurerPremium(value, { requireCoreCoverage = false } = {}) {
   if (!isPlainObject(value)) return false;
 
   const entries = Object.entries(value);
@@ -785,7 +787,7 @@ function hasValidInsurerPremium(value) {
   if (flatEntries.some(([, premium]) => !hasPositivePremium(premium))) return false;
   const hasFlatModels = flatEntries.length > 0;
   const byAgeClass = value.byAgeClass;
-  if (byAgeClass === undefined) return hasFlatModels;
+  if (byAgeClass === undefined) return !requireCoreCoverage && hasFlatModels;
   if (!isPlainObject(byAgeClass)) return false;
 
   const ageClassEntries = Object.entries(byAgeClass);
@@ -797,13 +799,23 @@ function hasValidInsurerPremium(value) {
       PREMIUM_MODEL_KEYS.has(key) && hasPositivePremium(premium),
     );
   });
-  return ageClassesAreValid;
+  if (!ageClassesAreValid) return false;
+  if (!requireCoreCoverage) return true;
+
+  return hasPositivePremium(value.standard) &&
+    HEALTH_PREMIUMS_VALIDATION_MINIMUMS.requiredAgeClasses.every((ageClass) =>
+      isPlainObject(byAgeClass[ageClass]) && hasPositivePremium(byAgeClass[ageClass].standard),
+    );
 }
 
-function hasValidPremiumBlock(value) {
+function hasValidPremiumBlock(value, { requireCoreCoverage = false } = {}) {
   if (!isPlainObject(value) || !isPlainObject(value.insurers)) return false;
   const insurers = Object.values(value.insurers);
-  return insurers.length > 0 && insurers.every(hasValidInsurerPremium);
+  if (insurers.length === 0 ||
+      (requireCoreCoverage && insurers.length < HEALTH_PREMIUMS_VALIDATION_MINIMUMS.minInsurersPerBlock)) {
+    return false;
+  }
+  return insurers.every((insurer) => hasValidInsurerPremium(insurer, { requireCoreCoverage }));
 }
 
 function hasValidCommuneEntry(value) {
@@ -888,10 +900,11 @@ export function assertHealthPremiumsSnapshot(snapshot, { expectedYear, requireLu
   let communeCount = 0;
   for (const canton of COMMUNE_DETAIL_CANTONS) {
     const communes = snapshot.communes[canton];
-    if (!Array.isArray(communes) || communes.length < HEALTH_PREMIUMS_VALIDATION_MINIMUMS.communesPerDetailCanton) {
+    const expectedCommuneCount = HEALTH_PREMIUMS_VALIDATION_MINIMUMS.communesPerDetailCanton[canton];
+    if (!Array.isArray(communes) || communes.length !== expectedCommuneCount) {
       throw new Error(
-        `Refusing to write health-premiums snapshot: ${canton} communes must contain at least ` +
-        `${HEALTH_PREMIUMS_VALIDATION_MINIMUMS.communesPerDetailCanton} entries`,
+        `Refusing to write health-premiums snapshot: ${canton} communes must contain exactly ` +
+        `${expectedCommuneCount} entries`,
       );
     }
     for (const commune of communes) {
@@ -911,9 +924,9 @@ export function assertHealthPremiumsSnapshot(snapshot, { expectedYear, requireLu
       communeCount += 1;
     }
   }
-  if (communeCount < HEALTH_PREMIUMS_VALIDATION_MINIMUMS.communesTotal) {
+  if (communeCount !== HEALTH_PREMIUMS_VALIDATION_MINIMUMS.communesTotal) {
     throw new Error(
-      `Refusing to write health-premiums snapshot: communes must contain at least ` +
+      `Refusing to write health-premiums snapshot: communes must contain exactly ` +
       `${HEALTH_PREMIUMS_VALIDATION_MINIMUMS.communesTotal} entries, got ${communeCount}`,
     );
   }
@@ -922,9 +935,9 @@ export function assertHealthPremiumsSnapshot(snapshot, { expectedYear, requireLu
     throw new Error('Refusing to write health-premiums snapshot: premiums is empty or malformed');
   }
   const premiumEntries = Object.entries(snapshot.premiums);
-  if (premiumEntries.length < HEALTH_PREMIUMS_VALIDATION_MINIMUMS.premiumBlocks) {
+  if (premiumEntries.length !== HEALTH_PREMIUMS_VALIDATION_MINIMUMS.premiumBlocks) {
     throw new Error(
-      `Refusing to write health-premiums snapshot: premiums must contain at least ` +
+      `Refusing to write health-premiums snapshot: premiums must contain exactly ` +
       `${HEALTH_PREMIUMS_VALIDATION_MINIMUMS.premiumBlocks} blocks, got ${premiumEntries.length}`,
     );
   }
@@ -936,8 +949,11 @@ export function assertHealthPremiumsSnapshot(snapshot, { expectedYear, requireLu
     if (!isPlainObject(block) || (block.type !== undefined && block.type !== 'canton')) {
       throw new Error(`Refusing to write health-premiums snapshot: premium block ${key} has unexpected shape`);
     }
-    if (!hasValidPremiumBlock(block)) {
-      throw new Error(`Refusing to write health-premiums snapshot: premium block ${key} is empty or malformed`);
+    if (!hasValidPremiumBlock(block, { requireCoreCoverage: true })) {
+      throw new Error(
+        `Refusing to write health-premiums snapshot: premium block ${key} is empty, malformed, ` +
+        'or lacks required insurer/model coverage',
+      );
     }
     for (const insurerId of Object.keys(block.insurers)) {
       if (!insurerIds.has(insurerId)) {
@@ -966,16 +982,17 @@ export function assertHealthPremiumsSnapshot(snapshot, { expectedYear, requireLu
     detailPremiumEntries.push([key, block]);
   }
 
-  if (cantonPremiumBlockCount < HEALTH_PREMIUMS_VALIDATION_MINIMUMS.cantonPremiumBlocks) {
+  if (cantonPremiumBlockCount !== HEALTH_PREMIUMS_VALIDATION_MINIMUMS.cantonPremiumBlocks) {
     throw new Error(
-      `Refusing to write health-premiums snapshot: canton premium blocks must contain at least ` +
+      `Refusing to write health-premiums snapshot: canton premium blocks must contain exactly ` +
       `${HEALTH_PREMIUMS_VALIDATION_MINIMUMS.cantonPremiumBlocks}, got ${cantonPremiumBlockCount}`,
     );
   }
-  if (detailPremiumEntries.length !== communeCount) {
+  if (detailPremiumEntries.length !== HEALTH_PREMIUMS_VALIDATION_MINIMUMS.detailPremiumBlocks ||
+      detailPremiumEntries.length !== communeCount) {
     throw new Error(
       `Refusing to write health-premiums snapshot: premium blocks cover ${detailPremiumEntries.length} ` +
-      `communes, expected ${communeCount}`,
+      `communes, expected ${HEALTH_PREMIUMS_VALIDATION_MINIMUMS.detailPremiumBlocks}`,
     );
   }
   for (const [key] of communeByKey) {
@@ -988,7 +1005,7 @@ export function assertHealthPremiumsSnapshot(snapshot, { expectedYear, requireLu
   if (orphanInsurerId !== undefined) {
     throw new Error(`Refusing to write health-premiums snapshot: insurer ${orphanInsurerId} has no premium block`);
   }
-  if (requireLugano && !hasValidPremiumBlock(snapshot.premiums['6823-Lugano'])) {
+  if (requireLugano && !hasValidPremiumBlock(snapshot.premiums['6823-Lugano'], { requireCoreCoverage: true })) {
     throw new Error('Refusing to write health-premiums snapshot: current-year Lugano premium block is missing or empty');
   }
 

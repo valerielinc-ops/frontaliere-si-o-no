@@ -28,7 +28,9 @@ function makePremiumInsurers(basePremium: number) {
       const standard = basePremium + index;
       return [String(index + 1), {
         standard,
-        byAgeClass: { ERW: { standard } },
+        byAgeClass: Object.fromEntries(
+          HEALTH_PREMIUMS_VALIDATION_MINIMUMS.requiredAgeClasses.map((ageClass) => [ageClass, { standard }]),
+        ),
       }];
     }),
   );
@@ -47,7 +49,7 @@ function makeValidSnapshot() {
 
   for (const canton of DETAIL_CANTONS) {
     communes[canton] = [];
-    for (let index = 0; index < 100; index += 1) {
+    for (let index = 0; index < HEALTH_PREMIUMS_VALIDATION_MINIMUMS.communesPerDetailCanton[canton]; index += 1) {
       const commune = canton === 'TI' && index === 0
         ? { name: 'Lugano', bfsNr: 5192, plz: '6823', region: 1 }
         : { name: `${canton} Commune ${index}`, bfsNr: bfsNr++, plz: String(1000 + communeIndex), region: (index % 3) + 1 };
@@ -140,7 +142,7 @@ describe('health premiums producer guards', () => {
     const malformed = makeValidSnapshot();
     malformed.premiums['6823-Lugano'].insurers['1'] = { byAgeClass: { ERW: {} } };
     expect(() => assertHealthPremiumsSnapshot(malformed, { expectedYear: 2026, requireLugano: true }))
-      .toThrow('premium block 6823-Lugano is empty or malformed');
+      .toThrow('premium block 6823-Lugano is empty, malformed, or lacks required insurer/model coverage');
   });
 
   it('rejects a commune map that is non-empty but not the consumer shape', () => {
@@ -154,7 +156,25 @@ describe('health premiums producer guards', () => {
     const malformed = makeValidSnapshot();
     malformed.premiums = Object.fromEntries(Object.entries(malformed.premiums).slice(0, 1));
     expect(() => assertHealthPremiumsSnapshot(malformed, { expectedYear: 2026, requireLugano: true }))
-      .toThrow(`premiums must contain at least ${HEALTH_PREMIUMS_VALIDATION_MINIMUMS.premiumBlocks} blocks`);
+      .toThrow(`premiums must contain exactly ${HEALTH_PREMIUMS_VALIDATION_MINIMUMS.premiumBlocks} blocks`);
+  });
+
+  it('rejects five missing canton blocks even when the remaining payload is non-empty', () => {
+    const malformed = makeValidSnapshot();
+    for (let index = 0; index < 5; index += 1) delete malformed.premiums[`Canton-${index}`];
+    expect(() => assertHealthPremiumsSnapshot(malformed, { expectedYear: 2026, requireLugano: true }))
+      .toThrow(`premiums must contain exactly ${HEALTH_PREMIUMS_VALIDATION_MINIMUMS.premiumBlocks} blocks`);
+  });
+
+  it('rejects a premium block with truncated insurer/model coverage', () => {
+    const malformed = makeValidSnapshot();
+    const lugano = malformed.premiums['6823-Lugano'];
+    lugano.insurers = Object.fromEntries(
+      Object.entries(lugano.insurers).slice(0, HEALTH_PREMIUMS_VALIDATION_MINIMUMS.minInsurersPerBlock)
+        .map(([id, models]) => [id, { standard: models.standard }]),
+    );
+    expect(() => assertHealthPremiumsSnapshot(malformed, { expectedYear: 2026, requireLugano: true }))
+      .toThrow('premium block 6823-Lugano is empty, malformed, or lacks required insurer/model coverage');
   });
 
   it('rejects ranking arrays that are non-empty but truncated', () => {
@@ -168,14 +188,14 @@ describe('health premiums producer guards', () => {
   it('requires every commune and ranking to have matching premium coverage', () => {
     const malformed = makeValidSnapshot();
     delete malformed.premiums['6823-Lugano'];
-    malformed.premiums['Canton-extra'] = {
-      type: 'canton',
-      canton: 'CX',
-      region: null,
+    malformed.premiums['6823-Replacement'] = {
+      canton: 'TI',
+      region: 1,
+      bfsNr: 99999,
       insurers: makePremiumInsurers(500),
     };
     expect(() => assertHealthPremiumsSnapshot(malformed, { expectedYear: 2026, requireLugano: true }))
-      .toThrow('premium blocks cover 299 communes, expected 300');
+      .toThrow('premium block 6823-Replacement has no matching commune');
   });
 
   it('accepts a valid current-year snapshot and rejects an unexpected year', () => {
