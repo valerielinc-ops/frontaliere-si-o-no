@@ -21,9 +21,27 @@ import {
 export const DEFAULT_L1_WINDOW_DAYS = 4;
 export const DEFAULT_L3_WINDOW_DAYS = 4;
 export const DEFAULT_L4_WINDOW_HOURS = 30;
+export const DEFAULT_L5_WINDOW_DAYS = 7;
+export const DEFAULT_L7_WINDOW_DAYS = 7;
 export const DEFAULT_L9_WINDOW_HOURS = 240;
 
 const DAY_MS = 86_400_000;
+const L7_EVENT_NAMES = Object.freeze([
+  'experiment_assignment',
+  'experiment_exposure',
+  'experiment_outcome',
+  'experiment_guardrail',
+]);
+const L7_DEFAULT_POLICY = Object.freeze({
+  outcomeId: 'registered-experiment-outcome',
+  primaryMetric: 'registered_outcome_per_eligible_cohort',
+  minimumSample: 200,
+  guardrails: ['persistent assignment', 'minimum sample', 'explicit expiry', 'no automatic price change'],
+  candidateTtlHours: 168,
+  sourceRefs: ['experiment-assignment-exposure-outcome'],
+  assignmentMethod: 'stable-sha256',
+  assignmentKey: 'experiment-session-id',
+});
 
 function isObject(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -339,6 +357,451 @@ function nonNegativeInteger(value, label) {
   const parsed = typeof value === 'number' ? value : Number(value);
   if (!Number.isInteger(parsed) || parsed < 0) throw new Error(`PostHog returned invalid ${label}`);
   return parsed;
+}
+
+function isoDate(value, label) {
+  const date = value instanceof Date ? value : new Date(value);
+  if (!Number.isFinite(date.getTime())) throw new Error(label + ' must be a valid date');
+  return date.toISOString();
+}
+
+function quoteHogQLString(value) {
+  return "'" + String(value).replaceAll("\\", "\\\\").replaceAll("'", "\\'") + "'";
+}
+
+function postHogAggregate(response, label) {
+  const columns = Array.isArray(response?.columns) ? response.columns : [];
+  const row = response?.results?.[0];
+  if (Array.isArray(row)) {
+    return Object.fromEntries(columns.map((column, index) => [column, row[index]]));
+  }
+  if (isObject(row)) return row;
+  throw new Error('PostHog returned no ' + label + ' aggregate row');
+}
+
+function writeJsonFile(outputPath, value) {
+  const absolute = path.resolve(outputPath);
+  fs.mkdirSync(path.dirname(absolute), { recursive: true });
+  fs.writeFileSync(absolute, JSON.stringify(value, null, 2) + '\n');
+}
+
+/**
+ * The L5 outcome contract is deliberately narrower than generic UI activity:
+ * a completed calculator task is the denominator, and a same-session compare
+ * or CTA event is the next useful action. The scope is written into the
+ * evidence object so the resulting number cannot be mistaken for an
+ * unqualified all-surface conversion rate.
+ */
+export function buildL5DecisionMomentQuery({ start, end } = {}) {
+  if (!text(start) || !text(end)) throw new Error('L5 decision-moment query requires start and end');
+  return [
+    'SELECT countIf(completionRecords > 0) AS eligibleDecisionSessions,',
+    '  countIf(completionRecords > 0 AND nextUsefulAt > completedAt) AS nextUsefulActions',
+    'FROM (',
+    '  SELECT $session_id,',
+    '    countIf(event = \'simulation_complete\'',
+    '      OR (event = \'funnel_step\' AND properties.funnel = \'calculator\'',
+    '        AND properties.step = \'simulation_complete\')) AS completionRecords,',
+    '    minIf(timestamp, event = \'simulation_complete\'',
+    '      OR (event = \'funnel_step\' AND properties.funnel = \'calculator\'',
+    '        AND properties.step = \'simulation_complete\')) AS completedAt,',
+    '    maxIf(timestamp, (event = \'funnel_step\' AND properties.step = \'compare\'',
+    '        AND (properties.funnel = \'calculator\'',
+    '          OR (properties.funnel = \'main_conversion\' AND properties.from_tab = \'calculator\')))',
+    '      OR (event = \'cta_click\' AND properties.cta_id LIKE \'calculator%\')) AS nextUsefulAt',
+    '  FROM events',
+    '  WHERE event IN (\'funnel_step\', \'simulation_complete\', \'cta_click\')',
+    '    AND timestamp >= \'' + start + '\' AND timestamp < \'' + end + '\'',
+    '  GROUP BY $session_id',
+    ')',
+  ].join('\n');
+}
+
+export function buildL5DecisionMomentExport({
+  eligibleDecisionSessions,
+  nextUsefulActions,
+  generatedAt,
+  telemetryWindow,
+} = {}) {
+  const eligible = nonNegativeInteger(eligibleDecisionSessions, 'eligibleDecisionSessions');
+  const next = nonNegativeInteger(nextUsefulActions, 'nextUsefulActions');
+  if (next > eligible) throw new Error('PostHog returned nextUsefulActions greater than eligibleDecisionSessions');
+  const generated = isoDate(generatedAt, 'L5 generatedAt');
+  return {
+    schemaVersion: 1,
+    loopId: 'L5',
+    generatedAt: generated,
+    independent: true,
+    eligibleDecisionSessions: eligible,
+    nextUsefulActions: next,
+    metrics: {
+      eligibleDecisionSessions: eligible,
+      nextUsefulActions: next,
+    },
+    telemetryWindow,
+    scope: {
+      denominator: 'distinct PostHog sessions with simulation_complete or funnel_step calculator/simulation_complete',
+      numerator: 'denominator sessions with calculator compare transition or calculator CTA click after completion',
+      surface: 'calculator',
+    },
+    evidence: {
+      source: 'posthog-decision-surface-export',
+      sourceRefs: ['decision-surfaces', 'posthog'],
+      eventContract: {
+        completed: 'simulation_complete or funnel_step:funnel=calculator,step=simulation_complete',
+        nextUseful: 'funnel_step:step=compare from calculator or cta_click:cta_id starts calculator',
+        ordering: 'nextUsefulAt > completedAt',
+        joinKey: '$session_id',
+      },
+    },
+    _meta: {
+      generatedAt: generated,
+      source: 'PostHog HogQL, read-only live export',
+      purpose: 'Fresh completed-task and next-useful-action evidence for Loop L5',
+      telemetryWindow,
+    },
+  };
+}
+
+export async function exportL5({
+  outputPath,
+  now = new Date(),
+  days = DEFAULT_L5_WINDOW_DAYS,
+  client = null,
+  posthogRunner = runHogQL,
+} = {}) {
+  const firestore = client || new GoogleDataClient();
+  const window = rollingWindow(now, Number(days) * 24);
+  const config = await resolvePostHogConfig(firestore);
+  const response = await posthogRunner(buildL5DecisionMomentQuery(window), config);
+  const aggregate = postHogAggregate(response, 'L5 decision-moment');
+  const outcome = buildL5DecisionMomentExport({
+    eligibleDecisionSessions: aggregate.eligibleDecisionSessions,
+    nextUsefulActions: aggregate.nextUsefulActions,
+    generatedAt: now,
+    telemetryWindow: window,
+  });
+  writeJsonFile(outputPath, outcome);
+  return outcome;
+}
+
+function normalizeL7Policy(policy = {}) {
+  const outcome = isObject(policy.outcome) ? policy.outcome : {};
+  const allocation = isObject(policy.allocationPolicy) ? policy.allocationPolicy : {};
+  const contamination = isObject(allocation.contaminationPolicy) ? allocation.contaminationPolicy : {};
+  const lifecycle = isObject(policy.lifecycle) ? policy.lifecycle : {};
+  const configuredSourceRefs = Array.isArray(outcome.sourceRefs)
+    ? outcome.sourceRefs.filter(text).map((sourceRef) => sourceRef.trim())
+    : [];
+  const sourceRefs = configuredSourceRefs.length ? configuredSourceRefs : L7_DEFAULT_POLICY.sourceRefs;
+  return {
+    outcomeId: text(outcome.outcomeId) ? outcome.outcomeId.trim() : L7_DEFAULT_POLICY.outcomeId,
+    primaryMetric: text(policy.primaryMetric) ? policy.primaryMetric.trim() : L7_DEFAULT_POLICY.primaryMetric,
+    minimumSample: integer(policy.minimumSample) ? policy.minimumSample : L7_DEFAULT_POLICY.minimumSample,
+    guardrails: Array.isArray(policy.guardrails) && policy.guardrails.length
+      ? policy.guardrails.filter(text).map((guardrail) => guardrail.trim())
+      : L7_DEFAULT_POLICY.guardrails,
+    candidateTtlHours: number(lifecycle.candidateTtlHours) && lifecycle.candidateTtlHours > 0
+      ? lifecycle.candidateTtlHours
+      : L7_DEFAULT_POLICY.candidateTtlHours,
+    sourceRefs,
+    assignmentMethod: text(allocation.assignmentMethod) ? allocation.assignmentMethod.trim() : L7_DEFAULT_POLICY.assignmentMethod,
+    assignmentKey: text(allocation.assignmentKey) ? allocation.assignmentKey.trim() : L7_DEFAULT_POLICY.assignmentKey,
+    contaminationKey: text(contamination.key) ? contamination.key.trim() : (
+      text(allocation.assignmentKey) ? allocation.assignmentKey.trim() : L7_DEFAULT_POLICY.assignmentKey
+    ),
+  };
+}
+
+function readL7Policy(registryPath, policyOverride = null) {
+  if (policyOverride) return normalizeL7Policy(policyOverride);
+  const registry = JSON.parse(fs.readFileSync(path.resolve(registryPath), 'utf8'));
+  const policy = Array.isArray(registry.loops)
+    ? registry.loops.find((loop) => loop?.loopId === 'L7')
+    : null;
+  if (!policy) throw new Error('loop-fleet registry has no L7 policy: ' + registryPath);
+  return normalizeL7Policy(policy);
+}
+
+export function buildL7ExperimentLedgerQuery({ start, end, policy = {} } = {}) {
+  if (!text(start) || !text(end)) throw new Error('L7 experiment query requires start and end');
+  const normalizedPolicy = normalizeL7Policy(policy);
+  const assignmentEvent = quoteHogQLString('experiment_assignment');
+  const exposureEvent = quoteHogQLString('experiment_exposure');
+  const outcomeEvent = quoteHogQLString('experiment_outcome');
+  const guardrailEvent = quoteHogQLString('experiment_guardrail');
+  const assignmentValidity = [
+    'properties.assignment_method = ' + quoteHogQLString(normalizedPolicy.assignmentMethod),
+    'properties.assignment_key = ' + quoteHogQLString(normalizedPolicy.assignmentKey),
+    'properties.persistent = true',
+  ].join(' AND ');
+  const exposureValidity = 'properties.variant IS NOT NULL';
+  const outcomeValidity = [
+    'properties.outcome_id = ' + quoteHogQLString(normalizedPolicy.outcomeId),
+    'properties.primary_metric = ' + quoteHogQLString(normalizedPolicy.primaryMetric),
+  ].join(' AND ');
+  const guardrailValidity = [
+    'properties.guardrail_checked = true',
+    '(properties.breach = true OR properties.breach = false)',
+  ].join(' AND ');
+  const contaminationValidity = [
+    'properties.contamination_checked = true',
+    '(properties.contaminated = true OR properties.contaminated = false)',
+  ].join(' AND ');
+  // HogQL exposes `toDateTime` but not the safe `*OrNull` variants.  Route
+  // malformed timestamp shapes to the epoch; a calendar value that still
+  // cannot be parsed aborts the export instead of being marked verified.
+  const expiryPattern = quoteHogQLString('^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?Z$');
+  const expiryDate = 'toDateTime(if(match(properties.expires_at, ' + expiryPattern + ') = 1, properties.expires_at, ' + quoteHogQLString('1970-01-01T00:00:00Z') + '))';
+  const expiryValidity = [
+    'match(properties.expires_at, ' + expiryPattern + ') = 1',
+    expiryDate + ' > timestamp',
+    expiryDate + ' <= addHours(timestamp, ' + normalizedPolicy.candidateTtlHours + ')',
+  ].join(' AND ');
+  const completeAssignmentSessionPredicate = [
+    'assignmentRecords > 0',
+    'invalidEligibilityRecords = 0',
+    'invalidAssignmentRecords = 0',
+    'persistentAssignmentRecords = assignmentRecords',
+    'invalidContaminationRecords = 0',
+    'invalidExpiryRecords = 0',
+    'exposureRecords > 0',
+    'invalidExposureRecords = 0',
+    'outcomeRecords > 0',
+    'invalidOutcomeRecords = 0',
+    'guardrailRecords > 0',
+    'invalidGuardrailRecords = 0',
+    'guardrailBreachRecords = 0',
+  ].join(' AND ');
+  return [
+    'SELECT',
+    '  sum(eventCount) AS sourceEventCount,',
+    '  countIf(assignmentRecords > 0 AND invalidEligibilityRecords = 0) AS eligibleCohort,',
+    '  countIf(assignmentRecords > 0) AS assignments,',
+    '  countIf(' + completeAssignmentSessionPredicate + ') AS completeAssignmentSessions,',
+    '  countIf(validExposureRecords > 0) AS exposures,',
+    '  countIf(validOutcomeRecords > 0) AS primaryOutcomes,',
+    '  sum(guardrailBreachRecords) AS guardrailBreaches,',
+    '  countIf(assignmentRecords > 0 AND persistentAssignmentRecords = assignmentRecords) AS persistentAssignments,',
+    '  sum(contaminatedAssignments) AS contaminatedAssignments,',
+    '  countIf(assignmentRecords > 0 AND invalidAssignmentRecords = 0) AS assignmentContract,',
+    '  countIf(assignmentRecords > 0 AND exposureRecords > 0 AND invalidExposureRecords = 0) AS exposureContract,',
+    '  countIf(assignmentRecords > 0 AND outcomeRecords > 0 AND invalidOutcomeRecords = 0) AS outcomeContract,',
+    '  countIf(assignmentRecords > 0 AND guardrailRecords > 0 AND invalidGuardrailRecords = 0) AS guardrailContract,',
+    '  countIf(assignmentRecords > 0 AND invalidContaminationRecords = 0) AS contaminationContract,',
+    '  countIf(assignmentRecords > 0 AND invalidExpiryRecords = 0) AS expiryContract,',
+    '  min(firstSeenAt) AS firstSeenAt,',
+    '  max(lastSeenAt) AS lastSeenAt',
+    'FROM (',
+    '  SELECT $session_id,',
+    '    count() AS eventCount,',
+    '    sum(if(event = ' + assignmentEvent + ', 1, 0)) AS assignmentRecords,',
+    '    sum(if(event = ' + assignmentEvent + ', if(properties.eligible = true, 0, 1), 0)) AS invalidEligibilityRecords,',
+    '    sum(if(event = ' + exposureEvent + ', 1, 0)) AS exposureRecords,',
+    '    sum(if(event = ' + exposureEvent + ' AND ' + exposureValidity + ', 1, 0)) AS validExposureRecords,',
+    '    sum(if(event = ' + outcomeEvent + ', 1, 0)) AS outcomeRecords,',
+    '    sum(if(event = ' + outcomeEvent + ' AND ' + outcomeValidity + ', 1, 0)) AS validOutcomeRecords,',
+    '    sum(if(event = ' + guardrailEvent + ', 1, 0)) AS guardrailRecords,',
+    '    sum(if(event = ' + guardrailEvent + ' AND properties.breach = true, 1, 0)) AS guardrailBreachRecords,',
+    '    sum(if(event = ' + assignmentEvent + ' AND properties.persistent = true, 1, 0)) AS persistentAssignmentRecords,',
+    '    sum(if(event = ' + assignmentEvent + ' AND properties.contaminated = true, 1, 0)) AS contaminatedAssignments,',
+    '    sum(if(event = ' + assignmentEvent + ', if(' + assignmentValidity + ', 0, 1), 0)) AS invalidAssignmentRecords,',
+    '    sum(if(event = ' + exposureEvent + ', if(' + exposureValidity + ', 0, 1), 0)) AS invalidExposureRecords,',
+    '    sum(if(event = ' + outcomeEvent + ', if(' + outcomeValidity + ', 0, 1), 0)) AS invalidOutcomeRecords,',
+    '    sum(if(event = ' + guardrailEvent + ', if(' + guardrailValidity + ', 0, 1), 0)) AS invalidGuardrailRecords,',
+    '    sum(if(event = ' + assignmentEvent + ', if(' + contaminationValidity + ', 0, 1), 0)) AS invalidContaminationRecords,',
+    '    sum(if(event = ' + assignmentEvent + ', if(' + expiryValidity + ', 0, 1), 0)) AS invalidExpiryRecords,',
+    '    min(timestamp) AS firstSeenAt,',
+    '    max(timestamp) AS lastSeenAt',
+    '  FROM events',
+    '  WHERE event IN (' + L7_EVENT_NAMES.map(quoteHogQLString).join(', ') + ')',
+    '    AND properties.loop_id = ' + quoteHogQLString('L7'),
+    '    AND timestamp >= ' + quoteHogQLString(start) + ' AND timestamp < ' + quoteHogQLString(end),
+    '  GROUP BY $session_id',
+    ')',
+  ].join('\n');
+}
+
+function l7MetricValues(aggregate, sourceObserved) {
+  const names = [
+    'eligibleCohort',
+    'assignments',
+    'exposures',
+    'primaryOutcomes',
+    'guardrailBreaches',
+    'persistentAssignments',
+    'contaminatedAssignments',
+  ];
+  if (!sourceObserved) return Object.fromEntries(names.map((name) => [name, null]));
+  return Object.fromEntries(names.map((name) => [
+    name,
+    nonNegativeInteger(aggregate[name] ?? 0, name),
+  ]));
+}
+
+function l7DurationDays(aggregate, sourceObserved) {
+  if (!sourceObserved) return null;
+  if (number(aggregate.durationDays) && aggregate.durationDays > 0) return Number(aggregate.durationDays);
+  const firstSeen = new Date(aggregate.firstSeenAt);
+  const lastSeen = new Date(aggregate.lastSeenAt);
+  if (!Number.isFinite(firstSeen.getTime()) || !Number.isFinite(lastSeen.getTime())) return null;
+  const days = (lastSeen.getTime() - firstSeen.getTime()) / DAY_MS;
+  return days > 0 ? Number(days.toFixed(3)) : null;
+}
+
+export function buildL7ExperimentLedger({
+  aggregate = {},
+  generatedAt,
+  telemetryWindow,
+  policy = {},
+} = {}) {
+  const normalizedPolicy = normalizeL7Policy(policy);
+  const generated = isoDate(generatedAt, 'L7 generatedAt');
+  const sourceEventCount = nonNegativeInteger(aggregate.sourceEventCount ?? 0, 'sourceEventCount');
+  const sourceObserved = sourceEventCount > 0;
+  const values = l7MetricValues(aggregate, sourceObserved);
+  const durationDays = l7DurationDays(aggregate, sourceObserved);
+  const assignments = values.assignments;
+  const exposures = values.exposures;
+  const eligibleCohort = values.eligibleCohort;
+  const completeAssignmentSessions = nonNegativeInteger(
+    aggregate.completeAssignmentSessions ?? 0,
+    'completeAssignmentSessions',
+  );
+  const contracts = {
+    assignment: nonNegativeInteger(aggregate.assignmentContract ?? 0, 'assignmentContract'),
+    exposure: nonNegativeInteger(aggregate.exposureContract ?? 0, 'exposureContract'),
+    outcome: nonNegativeInteger(aggregate.outcomeContract ?? 0, 'outcomeContract'),
+    guardrail: nonNegativeInteger(aggregate.guardrailContract ?? 0, 'guardrailContract'),
+    contamination: nonNegativeInteger(aggregate.contaminationContract ?? 0, 'contaminationContract'),
+    expiry: nonNegativeInteger(aggregate.expiryContract ?? 0, 'expiryContract'),
+  };
+  const contractsComplete = sourceObserved
+    && assignments !== null
+    && assignments > 0
+    && eligibleCohort >= normalizedPolicy.minimumSample
+    && assignments >= normalizedPolicy.minimumSample
+    && eligibleCohort === assignments
+    && exposures !== null
+    && exposures > 0
+    && exposures >= normalizedPolicy.minimumSample
+    && values.primaryOutcomes !== null
+    && values.primaryOutcomes > 0
+    && values.primaryOutcomes <= exposures
+    && values.guardrailBreaches === 0
+    && values.persistentAssignments === assignments
+    && values.contaminatedAssignments === 0
+    && completeAssignmentSessions >= assignments
+    && durationDays !== null
+    && contracts.assignment >= assignments
+    && contracts.exposure >= assignments
+    && contracts.outcome >= assignments
+    && contracts.guardrail >= assignments
+    && contracts.contamination >= assignments
+    && contracts.expiry >= assignments;
+  const preRegistration = {
+    outcomeId: normalizedPolicy.outcomeId,
+    primaryMetric: normalizedPolicy.primaryMetric,
+    minimumSample: normalizedPolicy.minimumSample,
+    guardrails: normalizedPolicy.guardrails,
+    expiresAt: new Date(new Date(generated).getTime() + normalizedPolicy.candidateTtlHours * 3_600_000).toISOString(),
+  };
+  const assignmentLedger = {
+    persistent: contractsComplete,
+    method: normalizedPolicy.assignmentMethod,
+    key: normalizedPolicy.assignmentKey,
+  };
+  const contaminationPolicy = {
+    controlled: contractsComplete,
+    key: normalizedPolicy.contaminationKey,
+  };
+  return {
+    schemaVersion: 1,
+    loopId: 'L7',
+    generatedAt: generated,
+    independent: contractsComplete,
+    status: contractsComplete ? 'observed' : (sourceObserved ? 'unverified' : 'missing'),
+    sourceEventCount,
+    eligibleCohort: values.eligibleCohort,
+    assignments: values.assignments,
+    exposures: values.exposures,
+    completeAssignmentSessions,
+    primaryOutcomes: values.primaryOutcomes,
+    guardrailBreaches: values.guardrailBreaches,
+    persistentAssignments: values.persistentAssignments,
+    contaminatedAssignments: values.contaminatedAssignments,
+    durationDays,
+    metrics: values,
+    preRegistration,
+    assignmentLedger,
+    contaminationPolicy,
+    contracts,
+    telemetryWindow,
+    scope: {
+      assignment: 'experiment_assignment with explicit loop_id, stable method/key, persistence and expiry',
+      exposure: 'experiment_exposure with explicit loop_id and variant',
+      outcome: 'experiment_outcome with registered outcome id and primary metric',
+      guardrails: 'experiment_guardrail with guardrail_checked and breach fields',
+      joinKey: '$session_id, which is the registered experiment-session-id',
+    },
+    evidence: {
+      source: 'posthog-experiment-ledger-export',
+      sourceRefs: normalizedPolicy.sourceRefs,
+      status: contractsComplete ? 'verified' : (sourceObserved ? 'unverified' : 'missing'),
+      sourceEventCount,
+      telemetryWindow,
+      eventContract: {
+        events: [...L7_EVENT_NAMES],
+        requiredProperties: [
+          'loop_id',
+          'assignment_method',
+          'assignment_key',
+          'persistent',
+          'expires_at',
+          'contamination_checked',
+          'contaminated',
+          'guardrail_checked',
+          'breach',
+        ],
+      },
+    },
+    reason: contractsComplete
+      ? 'explicit PostHog experiment ledger satisfies the registered assignment, exposure, outcome and guardrail contract'
+      : (sourceObserved
+        ? 'PostHog contains experiment events, but the registered ledger contract is incomplete; allocation remains disabled'
+        : 'no canonical L7 experiment ledger events were observed; allocation remains disabled'),
+    _meta: {
+      generatedAt: generated,
+      source: 'PostHog HogQL, read-only live export',
+      purpose: 'Independent assignment, exposure, outcome and guardrail evidence for Loop L7',
+      telemetryWindow,
+    },
+  };
+}
+
+export async function exportL7({
+  registryPath = 'data/loop-fleet/loop-registry.json',
+  outputPath,
+  now = new Date(),
+  days = DEFAULT_L7_WINDOW_DAYS,
+  client = null,
+  posthogRunner = runHogQL,
+  policy = null,
+} = {}) {
+  const firestore = client || new GoogleDataClient();
+  const window = rollingWindow(now, Number(days) * 24);
+  const resolvedPolicy = policy || readL7Policy(registryPath);
+  const config = await resolvePostHogConfig(firestore);
+  const response = await posthogRunner(buildL7ExperimentLedgerQuery({ ...window, policy: resolvedPolicy }), config);
+  const aggregate = postHogAggregate(response, 'L7 experiment ledger');
+  const outcome = buildL7ExperimentLedger({
+    aggregate,
+    generatedAt: now,
+    telemetryWindow: window,
+    policy: resolvedPolicy,
+  });
+  writeJsonFile(outputPath, outcome);
+  return outcome;
 }
 
 export function buildL1TelemetryExport(input, {
@@ -893,7 +1356,9 @@ function valueAfter(argv, name, fallback = null) {
 export async function main({ argv = process.argv.slice(2) } = {}) {
   const loop = valueAfter(argv, '--loop');
   const outputPath = valueAfter(argv, '--out');
-  if (!['L1', 'L3', 'L4', 'L9'].includes(loop)) throw new Error('--loop must be L1, L3, L4 or L9');
+  if (!['L1', 'L3', 'L4', 'L5', 'L7', 'L9'].includes(loop)) {
+    throw new Error('--loop must be L1, L3, L4, L5, L7 or L9');
+  }
   if (!outputPath) throw new Error('--out is required');
   const now = new Date();
   if (loop === 'L1') {
@@ -916,6 +1381,21 @@ export async function main({ argv = process.argv.slice(2) } = {}) {
       snoozesPath: valueAfter(argv, '--snoozes', 'data/alert-snoozes.json'),
       outputPath,
       now,
+    });
+  }
+  if (loop === 'L5') {
+    return exportL5({
+      outputPath,
+      now,
+      days: valueAfter(argv, '--days', DEFAULT_L5_WINDOW_DAYS),
+    });
+  }
+  if (loop === 'L7') {
+    return exportL7({
+      registryPath: valueAfter(argv, '--registry', 'data/loop-fleet/loop-registry.json'),
+      outputPath,
+      now,
+      days: valueAfter(argv, '--days', DEFAULT_L7_WINDOW_DAYS),
     });
   }
   return exportL9({

@@ -383,16 +383,16 @@ export function reconcileDailyItems(
  *
  * La riclassificazione NON abbassa la barra di chiusura, la sposta su ciò che
  * era davvero un item: un rischio in prosa senza condizione di accettazione
- * falsificabile non era un item valido, quindi non fa da gate. Gli item validi
- * che restano devono essere TUTTI token-confermati, uno per uno — bar più alta
- * del vecchio controllo issue-wide, che leggeva i token di tutto il corpo
- * insieme.
+ * falsificabile non era un item valido, ma se compare accanto a un item valido
+ * lascia comunque lavoro pendente e fa da veto esplicito. Gli item validi che
+ * restano devono essere TUTTI token-confermati, uno per uno — bar più alta del
+ * vecchio controllo issue-wide, che leggeva i token di tutto il corpo insieme.
  *
  * Il guardrail contro l'incidente #5849 (aggregata chiusa con due item ancora
  * deferiti) è il ramo `no-valid-item`: se dopo la riclassificazione NON resta
- * nessun item valido, non si chiude. Chiudere lì sarebbe chiudere su evidenza
- * assente, che è esattamente il caso vietato. Misurate 5 issue su 17 in questo
- * ramo.
+ * nessun item valido, non si chiude. Un mix di item validi e prosa pendente usa
+ * invece `mixed-prose-pending`; chiudere lì sarebbe chiudere su evidenza
+ * assente, che è esattamente il caso vietato.
  *
  * @returns {{blocks: boolean, reason: string|null}}
  */
@@ -405,6 +405,7 @@ export function aggregateCloseGate(body, io) {
   if (!items.length) return { blocks: true, reason: 'aggregate-unparsed' };
   const valid = items.filter(hasFalsifiableAcceptance);
   if (!valid.length) return { blocks: true, reason: 'no-valid-item' };
+  if (valid.length !== items.length) return { blocks: true, reason: 'mixed-prose-pending' };
   const allConfirmed = valid.every((s) => detectAlreadyResolved(s, io).resolved);
   return allConfirmed ? { blocks: false, reason: null } : { blocks: true, reason: 'valid-item-unconfirmed' };
 }
