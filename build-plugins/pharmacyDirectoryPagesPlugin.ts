@@ -372,6 +372,13 @@ function renderPharmacyCard(pharmacy: Pharmacy, locale: Locale): string {
   return `<article class="${CARD_CLASS}"><h3 style="${H3_STYLE}"><a href="${esc(buildPharmacyPath(countryPath, locale))}">${esc(pharmacy.name)}</a></h3><p style="${BODY_STYLE}"><strong>${esc(copy.address)}:</strong> ${esc(pharmacy.address)}, ${href(cityUrl, `${pharmacy.postalCode} ${pharmacy.city}`)}${pharmacy.phone ? `<br><strong>${esc(copy.phone)}:</strong> <a href="tel:${esc(pharmacy.phone)}">${esc(pharmacy.phone)}</a>` : ''}</p>${badges.length ? `<p style="${BODY_STYLE}">${badges.map(esc).join(' · ')}</p>` : ''}${sourceLine(pharmacy, locale)}</article>`;
 }
 
+function renderCompactPharmacyListItem(pharmacy: Pharmacy, locale: Locale): string {
+  const copy = COPY[locale];
+  const detailPath = pharmacyPath(pharmacy, locale);
+  const source = '<a href="' + esc(pharmacy.sourceUrl) + '" rel="nofollow noopener">' + esc(copy.sourceLink) + '</a>';
+  return '<li><a href="' + esc(buildPharmacyPath(detailPath, locale)) + '">' + esc(pharmacy.name) + '</a> — ' + esc(pharmacy.address) + ', ' + esc(pharmacy.postalCode) + ' ' + esc(pharmacy.city) + ' · ' + source + '</li>';
+}
+
 function renderHours(pharmacy: Pharmacy, locale: Locale): string {
   const copy = COPY[locale];
   if (!pharmacy.openingHours?.length) return `<p style="${BODY_STYLE}">${esc(copy.hoursUnavailable)}</p>`;
@@ -736,7 +743,10 @@ function renderBody(
     sections = `<p style="${BODY_STYLE}">${href(parent, `${copy.directoryHeading}: ${pharmacy.city}`)}</p><section><h2 style="${H2_STYLE}">${esc(copy.contactHeading)}</h2><p style="${BODY_STYLE}"><strong>${esc(copy.address)}:</strong> ${esc(pharmacy.address)}, ${esc(pharmacy.postalCode)} ${esc(pharmacy.city)}</p>${pharmacy.phone ? `<p style="${BODY_STYLE}"><strong>${esc(copy.phone)}:</strong> <a href="tel:${esc(pharmacy.phone)}">${esc(pharmacy.phone)}</a></p>` : ''}${website ? `<p style="${BODY_STYLE}"><strong>${esc(copy.website)}:</strong> <a href="${esc(website)}" rel="nofollow noopener">${esc(website)}</a></p>` : ''}${maps ? `<p style="${BODY_STYLE}"><strong>${esc(copy.map)}:</strong> <a href="${esc(maps)}" rel="nofollow noopener">${esc(copy.openMap)}</a></p>` : ''}</section><section><h2 style="${H2_STYLE}">${esc(copy.hoursHeading)}</h2>${renderHours(pharmacy, locale)}</section><section><h2 style="${H2_STYLE}">${esc(copy.servicesHeading)}</h2>${renderServices(pharmacy, locale)}</section><section><h2 style="${H2_STYLE}">${esc(copy.sourcesHeading)}</h2>${sourceLine(pharmacy, locale)}<p style="${BODY_STYLE}">${esc(copy.osmNote)}</p></section>`;
   } else {
     const pharmacies = pagePharmacies(descriptor, dataset, now);
-    sections = `<section><h2 style="${H2_STYLE}">${esc(copy.directoryHeading)}</h2><div class="s-XENO3U">${pharmacies.map((pharmacy) => renderPharmacyCard(pharmacy, locale)).join('')}</div>${descriptor.kind === 'city' && descriptor.country === 'CH' ? `<p style="${BODY_STYLE}">${href({ kind: 'duty-city', locale, citySlug: descriptor.citySlug }, copy.viewDuties)}</p>` : ''}</section>`;
+    const directory = descriptor.kind === 'area'
+      ? '<ul style="' + BODY_STYLE + '">' + pharmacies.map((pharmacy) => renderCompactPharmacyListItem(pharmacy, locale)).join('') + '</ul>'
+      : `<div class="s-XENO3U">${pharmacies.map((pharmacy) => renderPharmacyCard(pharmacy, locale)).join('')}</div>`;
+    sections = `<section><h2 style="${H2_STYLE}">${esc(copy.directoryHeading)}</h2>${directory}${descriptor.kind === 'city' && descriptor.country === 'CH' ? `<p style="${BODY_STYLE}">${href({ kind: 'duty-city', locale, citySlug: descriptor.citySlug }, copy.viewDuties)}</p>` : ''}</section>`;
   }
   const faq = descriptor.kind === 'city' && descriptor.country === 'CH'
     ? renderCityFaq(locale, descriptor.cityName || '', pharmaciesForCity(descriptor.cityName || '').length)
