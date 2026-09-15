@@ -49,7 +49,9 @@ describe('pharmacy directory static pages', () => {
     await runCloseBundle(root);
 
     const descriptor = pharmacyPageDescriptors().find((candidate) => candidate.kind === 'duty-week');
+    const hubDescriptor = pharmacyPageDescriptors().find((candidate) => candidate.kind === 'duty-hub');
     expect(descriptor).toBeDefined();
+    expect(hubDescriptor).toBeDefined();
     const now = new Date(Math.max(Date.parse(dutiesJson._fetchedAt), Date.parse(catalogueJson._fetchedAt)) + 60_000);
     const current = buildPharmacyDirectoryPage(descriptor!, 'it', root, dutiesJson as unknown as PharmacyDutiesDataset, now);
     const nextWeek = new Date(`${descriptor!.weekStart}T00:00:00Z`);
@@ -60,11 +62,17 @@ describe('pharmacy directory static pages', () => {
     expect(robotsOf(valid.html).replace(/\s+/g, '')).toBe('index,follow');
     expect(valid.html).toContain('"@type":"ItemList"');
 
+    const hub = buildPharmacyDirectoryPage(hubDescriptor!, 'it', root, dutiesJson as unknown as PharmacyDutiesDataset, now);
+    expect(hub.indexable).toBe(true);
+    expect(robotsOf(hub.html).replace(/\s+/g, '')).toBe('index,follow');
+    expect(hub.html).toContain('"@type":"ItemList"');
+
     const sitemap = fs.readFileSync(path.join(root, 'dist', 'sitemap-farmacie.xml'), 'utf8');
     const sitemapRoutes = new Set(
       [...sitemap.matchAll(/<loc>[^<]+<\/loc>/g)].map((match) => new URL(match[0].slice(5, -6)).pathname),
     );
     expect(sitemapRoutes.has(current.path)).toBe(current.indexable);
+    expect(sitemapRoutes.has(hub.path)).toBe(true);
 
     const tampered = {
       ...dutiesJson,
@@ -74,6 +82,12 @@ describe('pharmacy directory static pages', () => {
     expect(guarded.indexable).toBe(false);
     expect(robotsOf(guarded.html).replace(/\s+/g, '')).toBe('noindex,follow');
     expect(guarded.html).not.toContain('"@type":"ItemList"');
+
+    const guardedHub = buildPharmacyDirectoryPage(hubDescriptor!, 'it', root, tampered, now);
+    expect(guardedHub.indexable).toBe(false);
+    expect(robotsOf(guardedHub.html).replace(/\s+/g, '')).toBe('noindex,follow');
+    expect(guardedHub.html).not.toContain('"@type":"CollectionPage"');
+    expect(guardedHub.html).not.toContain('"@type":"ItemList"');
   });
 
   it('keeps HTML, robots, sitemap and end-of-content ads on one indexability contract', async () => {
