@@ -15,6 +15,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { GoogleDataClient } from './export-loop-outcomes.mjs';
 import { runHogQL } from '../lib/posthog-client.mjs';
+import { validateLoopRegistry } from '../lib/loop-fleet-contract.mjs';
 
 export const DEFAULT_L7_WINDOW_DAYS = 8;
 export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
@@ -86,7 +87,7 @@ function readJson(filePath, label) {
 }
 
 function readL7Policy(registryPath) {
-  const registry = readJson(registryPath, 'loop fleet registry');
+  const registry = validateLoopRegistry(readJson(registryPath, 'loop fleet registry'));
   const policy = Array.isArray(registry.loops)
     ? registry.loops.find((loop) => loop?.loopId === 'L7')
     : null;

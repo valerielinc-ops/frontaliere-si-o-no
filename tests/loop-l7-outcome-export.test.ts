@@ -119,8 +119,7 @@ describe('read-only L7 experiment outcome exporter', () => {
   it('writes an explicit unavailable placeholder with no measurements', async () => {
     const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l7-export-test-'));
     const outputPath = path.join(directory, 'outcome.json');
-    const registryPath = path.join(directory, 'registry.json');
-    fs.writeFileSync(registryPath, JSON.stringify({ loops: [POLICY] }));
+    const registryPath = path.resolve('data/loop-fleet/loop-registry.json');
     const outcome = await exportL7({
       outputPath,
       registryPath,
@@ -138,6 +137,20 @@ describe('read-only L7 experiment outcome exporter', () => {
       primaryOutcomes: null,
       export: { unavailable: true, mutationsPerformed: false, noAutomaticPriceChange: true },
     });
+  });
+
+  it('rifiuta un registry L7 incompleto prima di interrogare PostHog', async () => {
+    const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l7-invalid-registry-'));
+    const outputPath = path.join(directory, 'outcome.json');
+    const registryPath = path.join(directory, 'registry.json');
+    fs.writeFileSync(registryPath, JSON.stringify({ loops: [POLICY] }));
+    await expect(exportL7({
+      outputPath,
+      registryPath,
+      now: NOW,
+      config: { apiKey: 'test', projectId: 'test' },
+      posthogRunner: async () => RESPONSE,
+    })).rejects.toThrow(/schemaVersion|states|goal missing/);
   });
 
   it('rejects inconsistent persistent and contaminated session counts', async () => {
