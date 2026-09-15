@@ -11,6 +11,10 @@ export interface BorderWaitCurrentEntry {
   totalCrossingMinutes?: number;
   status?: string;
   source?: string;
+  officialSources?: string;
+  officialLastUpdate?: string;
+  officialQueueKm?: number;
+  dataQuality?: string;
   lastUpdate?: string;
 }
 
