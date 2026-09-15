@@ -82,7 +82,7 @@ describe('plate-auction static pages', () => {
     const rendered = renderPlateAuctionPage({ locale: 'it', view: 'hub', rootDir });
 
     expect(rendered.html).toContain('Copertura per cantone');
-    expect(rendered.html).toContain('data-canton-status="active"');
+    expect(rendered.html).toContain('data-canton-status=active');
     expect(rendered.html).toContain('Grigioni (GR)');
     expect(rendered.html).toContain('Ultimo aggiornamento');
     expect(rendered.html).toContain('https://eauktion.gr.ch/');
@@ -97,7 +97,7 @@ describe('plate-auction static pages', () => {
 
     const rendered = renderPlateAuctionPage({ locale: 'it', view: 'hub', rootDir });
     expect(rendered.html).toContain('Copertura in corso');
-    expect(rendered.html).toContain('data-canton-status="unverified"');
+    expect(rendered.html).toContain('data-canton-status=unverified');
     expect(rendered.html).not.toContain('<table>');
     expect(rendered.html).not.toContain('GR8');
     expect(rendered.html).toContain('https://eauktion.gr.ch/');
