@@ -2163,6 +2163,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'farmacie-ticino-elenco-contatti': { it: 'farmacie-ticino-elenco-contatti', en: 'ticino-pharmacy-directory-contacts', de: 'apotheken-tessin-verzeichnis-kontakte', fr: 'repertoire-pharmacies-tessin-contacts' },
  'farmacie-confine-italia-como-varese-verbano': { it: 'farmacie-confine-italia-como-varese-verbano', en: 'border-pharmacies-como-varese-verbano', de: 'grenzapotheken-como-varese-verbano', fr: 'pharmacies-frontiere-come-varese-verbano' },
  'farmacia-aperta-turno-elenco': { it: 'farmacia-aperta-turno-elenco', en: 'open-pharmacy-duty-directory-guide', de: 'apotheke-geoeffnet-notdienst-verzeichnis', fr: 'pharmacie-ouverte-garde-repertoire' },
+ 'cartella-sanitaria-mercosur-parlamento': { it: 'cartella-sanitaria-mercosur-parlamento', en: 'health-record-mercosur-parliament', de: 'gesundheitsakte-mercosur-parlament', fr: 'dossier-sante-mercosur-parlement' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

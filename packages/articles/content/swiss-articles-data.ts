@@ -19234,6 +19234,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'cartella-sanitaria-mercosur-parlamento',
+    category: 'novita',
+    date: '2026-09-15T00:10:32.195Z',
+    image: '/images/blog/cartella-sanitaria-mercosur-parlamento.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
