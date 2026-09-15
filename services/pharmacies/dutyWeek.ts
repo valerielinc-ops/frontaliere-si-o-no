@@ -369,6 +369,6 @@ export function buildDutyWeekModel(
     regions,
     missingRegions,
     unresolvedPharmacyIds,
-    reason: reasons.length > 0 ? reasons.join('; ') : 'all declared OFCT regions have fresh, verified data',
+    reason: reasons.length > 0 ? reasons.join('; ') : 'all declared Ticino duty regions have fresh, verified data',
   };
 }

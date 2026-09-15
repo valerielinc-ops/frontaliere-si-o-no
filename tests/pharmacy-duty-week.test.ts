@@ -119,6 +119,7 @@ describe('weekly pharmacy duty read model', () => {
     expect(model.releaseId).toBe(pair.release.releaseId);
     expect(model.missingRegions).toEqual([]);
     expect(model.unresolvedPharmacyIds).toEqual([]);
+    expect(model.reason).toBe('all declared Ticino duty regions have fresh, verified data');
   });
 
   it('fails closed when the P0 release contract is missing', () => {
