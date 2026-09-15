@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import pharmacies from '../data/pharmacies-ticino-complete.json';
 import { localDateTimeToIso } from '../services/pharmacies/time.mjs';
+import { assertCompleteDutyResult } from '../scripts/import-pharmacy-duties-ticino.mjs';
 import {
   LOCARNESE_REGION,
   buildLocarnesePharmacyDuties,
@@ -136,6 +137,9 @@ describe('Locarnese pharmacy duty parser', () => {
     });
     expect(result.duties.some((duty) => duty.startsAt === localDateTimeToIso(sourceDate(1), '08:00'))).toBe(false);
     expect(result.warnings).toContain('locarnese: missing duty boundary before row 1');
+    expect(() => assertCompleteDutyResult(result, LOCARNESE_REGION)).toThrow(
+      'locarnese: parser skipped 1 malformed duty row(s); refusing partial region',
+    );
   });
 
   it('returns unresolved identities and emits no duty for unknown or ambiguous catalogue matches', () => {

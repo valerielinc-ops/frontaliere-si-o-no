@@ -47,6 +47,18 @@ export function reclassifyPreservedDuties(duties, now = new Date()) {
   });
 }
 
+/**
+ * A parser result with skipped source rows is a partial table, not a fresh
+ * regional snapshot. Keep the check shared by all Ticino parsers so a source
+ * drift cannot publish the intervals that happened to remain parseable.
+ */
+export function assertCompleteDutyResult(result, region) {
+  if (result?.skipped > 0) {
+    throw new Error(`${region.key}: parser skipped ${result.skipped} malformed duty row(s); refusing partial region`);
+  }
+  return result;
+}
+
 function previousFetchedAt(previous) {
   return typeof previous?._fetchedAt === 'string'
     ? previous._fetchedAt
@@ -170,6 +182,7 @@ async function main() {
       const result = region.key === 'locarnese'
         ? buildLocarnesePharmacyDuties(html, region, attemptedAt, pharmacyData.pharmacies || [])
         : buildPharmacyDuties(html, region, attemptedAt, pharmacyIds);
+      assertCompleteDutyResult(result, region);
       if (result.unresolved?.length) {
         throw new Error(`${result.unresolved.length} Locarnese row(s) have no unique Ticino catalogue identity`);
       }
