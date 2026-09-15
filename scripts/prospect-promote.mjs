@@ -182,6 +182,45 @@ function reconcileOpenPromotions(store) {
 }
 
 /**
+ * Rende durevole una riconciliazione anche quando questo giro non apre una PR.
+ *
+ * La riconciliazione modifica main, non il branch di una PR: se si limita a
+ * `saveCandidates`, il file cambia soltanto nella working tree del runner e il
+ * giro successivo rilegge gli stessi `promoting`. Questo è particolarmente
+ * facile da perdere quando il promotion gate restituisce zero candidati.
+ *
+ * @param {ReturnType<typeof loadCandidates>} store
+ * @param {{ landed: number, reopened: number }} reconciled
+ * @returns {boolean}
+ */
+function persistReconciledPromotionState(store, reconciled) {
+  if (!reconciled.landed && !reconciled.reopened) return true;
+  const baseBranch = process.env.GITHUB_REF_NAME || execFileSync(
+    'git', ['rev-parse', '--abbrev-ref', 'HEAD'],
+    { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] },
+  ).toString().trim();
+  try {
+    saveCandidates(store);
+    execFileSync('git', ['add', 'data/prospector'], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] });
+    execFileSync('git', [
+      'commit', '-m',
+      `prospector: riconcilia ${reconciled.landed + reconciled.reopened} stati di promozione`,
+    ], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] });
+    // Il remote può ancora portare l'identità App usata per la PR: il retry
+    // helper ripristina l'autenticazione PAT per il commit data-only su main.
+    execFileSync('bash', ['scripts/lib/git-push-with-retry.sh', '--branch', baseBranch], {
+      cwd: ROOT,
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
+    console.log(`stato riconciliato scritto su ${baseBranch}: ${reconciled.landed} production, ${reconciled.reopened} ricandidati.`);
+    return true;
+  } catch (err) {
+    console.error(`❌ stato riconciliato non persistito su ${baseBranch}: ${String(err.stderr || err.message).slice(0, 240)}`);
+    return false;
+  }
+}
+
+/**
  * C'e' gia' una PR di promozione aperta?
  *
  * Ogni promozione rigenera TUTTI i 23 `crawler-group-*.yml`, perche' aggiungere
@@ -235,7 +274,7 @@ function openPromotionPr() {
 const reconciled = reconcileOpenPromotions(store);
 if (reconciled.landed) console.log(`promozioni atterrate in produzione: ${reconciled.landed}`);
 if (reconciled.reopened) console.log(`ricandidati dopo PR chiuse senza merge: ${reconciled.reopened}`);
-if (reconciled.landed || reconciled.reopened) saveCandidates(store);
+if (!persistReconciledPromotionState(store, reconciled)) process.exit(1);
 
 const { promotable, blocked, capped } = selectForPromotion(
   byStatus(store, 'promoted'),
