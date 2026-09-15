@@ -414,7 +414,6 @@ describe('affiliate partner rows carry their position', () => {
     // da nessun invio. Il blocco partner, che e' cio' che qui si misura, si
     // rende comunque.
     return buildLegacy({
-      aiBriefing: '<p>Test.</p>',
       exchangeRate: SAMPLE_EXCHANGE,
       featuredTool: SAMPLE_TOOL,
       weeklyFact: SAMPLE_FACT,
@@ -473,10 +472,9 @@ describe('legacy newsletter partner descriptions survive unknown locales', () =>
   const buildLegacyNewsletter = async (locale: unknown) => {
     const { buildNewsletter } = await import('../scripts/newsletter-template.mjs');
     return buildNewsletter({
-      aiBriefing: '<p>Test.</p>',
       exchangeRate: SAMPLE_EXCHANGE,
       weeklyFact: SAMPLE_FACT,
-      locale,
+      locale: typeof locale === 'string' ? locale : undefined,
       unsubscribeUrl: 'https://frontaliereticino.ch/?action=unsubscribe&email=test@example.com',
       resubscribeUrl: 'https://frontaliereticino.ch/?action=resubscribe&email=test@example.com',
     });
@@ -496,6 +494,37 @@ describe('legacy newsletter partner descriptions survive unknown locales', () =>
       const html = await buildLegacyNewsletter(locale);
       for (const description of ITALIAN_DESCRIPTIONS) expect(html).toContain(description);
       expect(html).not.toContain('undefined');
+    }
+  });
+});
+
+// Stessa classe, template LIVE: `services/newsletter-template.mjs` ha i suoi
+// lookup per-locale (`nlT`, DATE_LOCALE, monthNames) e i test esistenti
+// (newsletter-locale-leakage) li esercitano solo sui quattro locali
+// supportati. Un iscritto con `locale` fuori da quell'insieme — o nullo, che
+// in DB capita — deve ricevere l'italiano, mai la stringa `undefined`.
+describe('live newsletter template survives an unknown locale', () => {
+  const buildLive = (locale: unknown) => buildNewsletter({
+    aiBriefing: '<p>Test.</p>',
+    exchangeRate: SAMPLE_EXCHANGE,
+    matchedJobs: SAMPLE_JOBS,
+    featuredTool: SAMPLE_TOOL,
+    weeklyFact: SAMPLE_FACT,
+    locale: typeof locale === 'string' ? locale : undefined,
+    unsubscribeUrl: 'https://frontaliereticino.ch/?action=unsubscribe&email=test@example.com',
+    resubscribeUrl: 'https://frontaliereticino.ch/?action=resubscribe&email=test@example.com',
+  });
+
+  it('never prints the literal "undefined", in any locale', () => {
+    for (const locale of ['it', 'en', 'de', 'fr', 'es', 'es-ES', 'zh-CN', 'pt_BR', '', undefined, null]) {
+      expect(buildLive(locale), `locale=${String(locale)}`).not.toContain('undefined');
+    }
+  });
+
+  it('falls back to the Italian copy outside it|en|de|fr', () => {
+    for (const locale of ['es', 'es-ES', 'zh-CN', 'pt_BR', '', undefined, null]) {
+      const html = buildLive(locale);
+      expect(html, `locale=${String(locale)}`).toContain('lang="it"');
     }
   });
 });
