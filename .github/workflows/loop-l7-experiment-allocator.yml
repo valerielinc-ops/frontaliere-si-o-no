@@ -10,6 +10,8 @@ on:
       - 'data/experiment-outcomes.json'
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l7-experiment-allocator.mjs'
+      - 'scripts/ci/export-loop-outcomes.mjs'
+      - 'scripts/lib/posthog-client.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
@@ -21,6 +23,8 @@ on:
       - 'data/experiment-outcomes.json'
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l7-experiment-allocator.mjs'
+      - 'scripts/ci/export-loop-outcomes.mjs'
+      - 'scripts/lib/posthog-client.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
@@ -56,9 +60,11 @@ jobs:
             /data/experiment-outcomes.json
             /data/loop-fleet/loop-registry.json
             /scripts/ci/loop-l7-experiment-allocator.mjs
+            /scripts/ci/export-loop-outcomes.mjs
             /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /scripts/lib/loop-fleet-outcome.mjs
+            /scripts/lib/posthog-client.mjs
             /scripts/lib/github-issue-creator.mjs
             /.github/workflows/loop-l7-experiment-allocator.yml
           sparse-checkout-cone-mode: false
@@ -74,6 +80,21 @@ jobs:
             echo 'LOOP_FLEET_COLLISIONS=0'
             echo 'LOOP_FLEET_GATE_BYPASS=false'
           } >> "$GITHUB_ENV"
+      - name: Prepare read-only Firebase credentials
+        if: github.event_name != 'pull_request'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          chmod 600 /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+      - name: Export fresh L7 outcomes
+        if: github.event_name != 'pull_request'
+        run: node scripts/ci/export-loop-outcomes.mjs --loop L7 --registry data/loop-fleet/loop-registry.json --out "$RUNNER_TEMP/experiment-outcomes.json"
       - name: Audit experiment allocation
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -82,7 +103,9 @@ jobs:
         run: |
           set -o pipefail
           mkdir -p "$REPORT_DIR"
-          args=(--json --apply --report-dir "$REPORT_DIR" --candidates data/experimental-candidates.json --outcomes data/experiment-outcomes.json --registry data/loop-fleet/loop-registry.json)
+          outcomes_path=data/experiment-outcomes.json
+          if [ "${{ github.event_name }}" != "pull_request" ]; then outcomes_path="$RUNNER_TEMP/experiment-outcomes.json"; fi
+          args=(--json --apply --report-dir "$REPORT_DIR" --candidates data/experimental-candidates.json --outcomes "$outcomes_path" --registry data/loop-fleet/loop-registry.json)
           if [ "$ISSUE_ENABLED" = "true" ]; then
             args+=(--issue --strict)
           else
