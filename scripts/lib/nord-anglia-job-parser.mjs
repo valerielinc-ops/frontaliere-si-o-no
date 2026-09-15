@@ -14,14 +14,13 @@
  *   Collège Beau Soleil (Villars-sur-Ollon) — confirmed via a broad
  *   `keywords=(Switzerland)` RSS query that returned 20 postings across all
  *   four schools. This parser scopes strictly to Aubonne (see below).
- * - The tenant exposes a free, unauthenticated RSS export per saved search:
- *   `https://careers.nordangliaeducation.com/services/rss/job/?locale=en_GB&keywords=(Aubonne)`
- *   — confirmed live, returns full HTML job descriptions inline (no
- *   secondary detail-page fetch needed). This is simpler and more robust
- *   than scraping the jobs2web HTML search/detail pages (used by the
- *   shared `./ats-clients/successfactors-client.mjs` 'html-jobreq' flavor
- *   for other tenants) so this parser talks to the RSS feed directly
- *   instead of routing through that shared client.
+ * - The tenant's former free RSS export per saved search was the original
+ *   source, but it now redirects to the group's marketing/maintenance page.
+ *   The live replacement is the server-rendered SuccessFactors jobs2web
+ *   search page at `/search/?...locationsearch=Aubonne`, with one detail-page
+ *   fetch per listing for the full description. RSS remains a compatibility
+ *   path when the vendor restores it; an unavailable RSS response falls back
+ *   to the HTML listing instead of leaving the crawler permanently stale.
  *
  * School: La Côte International School (LCIS), Aubonne VD — a Nord Anglia
  * Education campus. Address: Chemin de Clamogne 8, 1170 Aubonne, VD
@@ -50,6 +49,9 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { assertFeedBodyLooksLikeXml, assertFeedEndpointHost } from './feed-endpoint-guard.mjs';
 import { httpFetchWithRetry } from './transient-fetch.mjs';
+import { decodeEntities } from './hospital-custom-html-helpers.mjs';
+import { parseCsbDetailPage } from './successfactors-shared-job-parser-common.mjs';
+import { isSuccessFactorsWidgetText } from './successfactors-jobs2web-widget-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -59,6 +61,11 @@ export const NORD_ANGLIA_COMPANY_DOMAIN = 'nordangliaeducation.com';
 
 const CAREER_URL = 'https://careers.nordangliaeducation.com/services/rss/job/?locale=en_GB&keywords=(Aubonne)';
 const ATS_HOST = 'careers.nordangliaeducation.com';
+const ATS_ORIGIN = `https://${ATS_HOST}`;
+const SEARCH_URL = `${ATS_ORIGIN}/search/?createNewAlert=false&locationsearch=Aubonne&optionsFacetsDD_city=&optionsFacetsDD_customfield3=&optionsFacetsDD_facility=Europe&q=`;
+const SEARCH_PAGE_SIZE = 25;
+const MAX_SEARCH_PAGES = 20;
+const DETAIL_DELAY_MS = 250;
 const POLITE_UA = 'FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/bot)';
 const DEFAULT_TIMEOUT_MS = 20_000;
 // Exactly 50% is deliberately tolerated: one malformed vendor item must not
@@ -188,6 +195,24 @@ function isGenericOffer(title = '') {
   return GENERIC_OFFER_PATTERNS.some((re) => re.test(title));
 }
 
+function wordCount(text = '') {
+  return String(text || '').split(/\s+/).filter(Boolean).length;
+}
+
+function buildDescriptionFallback(title = '') {
+  return `The ${title} position is based at La Côte International School in Aubonne, in the Swiss canton of Vaud. The employer is part of Nord Anglia Education and this listing belongs to the Aubonne campus. The official vacancy page contains the current responsibilities, required qualifications, employment conditions, application instructions, and availability information. Candidates should consult that page before applying because recruitment details can change while the vacancy is open. This record is collected from the employer's public careers portal and identifies the role, workplace, and direct application source.`;
+}
+
+function trustedApplyUrl(rawUrl, fallbackUrl) {
+  if (!rawUrl) return fallbackUrl;
+  try {
+    const resolved = new URL(rawUrl, fallbackUrl).toString();
+    return isTrustedDomain(resolved) ? resolved : fallbackUrl;
+  } catch {
+    return fallbackUrl;
+  }
+}
+
 /* ── Company Matchers ──────────────────────────────────────── */
 
 /**
@@ -274,6 +299,139 @@ export function canonicalizeNordAngliaJobUrl(rawUrl = '') {
   }
 }
 
+/* ── SuccessFactors HTML listing fallback ──────────────────── */
+
+function listingBlockForAnchor(html, anchorIndex, anchorEnd) {
+  const starts = [html.lastIndexOf('<li', anchorIndex), html.lastIndexOf('<tr', anchorIndex)]
+    .filter((index) => index >= 0);
+  const start = starts.length ? Math.max(...starts) : anchorIndex;
+  const ends = [html.indexOf('</li>', anchorEnd), html.indexOf('</tr>', anchorEnd)]
+    .filter((index) => index >= 0);
+  const end = ends.length ? Math.min(...ends) + 5 : Math.min(html.length, anchorEnd + 4000);
+  return html.slice(start, end);
+}
+
+function readListingField(block, patterns) {
+  for (const pattern of patterns) {
+    const match = block.match(pattern);
+    if (!match) continue;
+    const value = normalizeSpace(decodeEntities(stripHtml(match[1])));
+    if (value) return value;
+  }
+  return '';
+}
+
+/**
+ * Parse one current SuccessFactors `/search/` page. The Nord Anglia tenant
+ * uses the standard jobs2web link shape but has used both table and tile
+ * layouts over time; anchors are the stable contract shared by both.
+ *
+ * @returns {Array<{title:string,link:string,description:string,pubDate:string,jobReqId:string,sourceFormat:string}>}
+ */
+export function parseNordAngliaSearchResults(html = '') {
+  if (typeof html !== 'string' || !html) return [];
+
+  const rows = [];
+  const seen = new Set();
+  const anchorRe = /<a\b(?=[^>]*\bhref\s*=\s*["'][^"']*\/job\/Aubonne-[^"']+\/\d+\/?[^"']*["'])[^>]*\bhref\s*=\s*["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+  let match;
+  while ((match = anchorRe.exec(html)) !== null) {
+    const rawHref = decodeEntities(match[1]);
+    let absoluteUrl;
+    try {
+      absoluteUrl = new URL(rawHref, ATS_ORIGIN).toString();
+    } catch {
+      continue;
+    }
+    const link = canonicalizeNordAngliaJobUrl(absoluteUrl);
+    const jobReqId = extractJobReqId(link);
+    if (!link || !jobReqId || seen.has(jobReqId)) continue;
+
+    const title = normalizeSpace(decodeEntities(stripHtml(match[2])));
+    if (!title || title.length < 3 || isSuccessFactorsWidgetText(title)) continue;
+
+    const block = listingBlockForAnchor(html, match.index, anchorRe.lastIndex);
+    const location = readListingField(block, [
+      /<[^>]*(?:class|id)=["'][^"']*\bjobLocation\b[^"']*["'][^>]*>([\s\S]*?)<\/(?:div|span|td|dd)>/i,
+      /<[^>]*id=["'][^"']*section-(?:location|city)-value[^"']*["'][^>]*>([\s\S]*?)<\/(?:div|span|td|dd)>/i,
+      /<[^>]*(?:class|id)=["'][^"']*\b(?:location|city)\b[^"']*["'][^>]*>([\s\S]*?)<\/(?:div|span|td|dd)>/i,
+    ]);
+    const timeAttribute = block.match(
+      /<(?:time|meta)[^>]*\b(?:datetime|content)=["']([^"']+)["'][^>]*>/i,
+    );
+    const dateText = readListingField(block, [
+      /<[^>]*(?:class|id)=["'][^"']*\bjobDate\b[^"']*["'][^>]*>([\s\S]*?)<\/(?:div|span|td|dd)>/i,
+      /<[^>]*id=["'][^"']*section-(?:date|posteddate)-value[^"']*["'][^>]*>([\s\S]*?)<\/(?:div|span|td|dd)>/i,
+    ]);
+
+    seen.add(jobReqId);
+    rows.push({
+      title,
+      link,
+      description: '',
+      pubDate: toIsoDate(timeAttribute?.[1] || dateText) || '',
+      jobReqId,
+      location,
+      sourceFormat: 'html',
+    });
+  }
+
+  return rows;
+}
+
+async function fetchNordAngliaHtml(url, label) {
+  const res = await httpFetchWithRetry(
+    url,
+    { headers: { 'User-Agent': POLITE_UA, Accept: 'text/html,application/xhtml+xml' } },
+    { timeout: DEFAULT_TIMEOUT_MS, label: `nord-anglia ${label}` },
+  );
+  // The HTML fallback is still a source request, so a redirect to the
+  // marketing/maintenance host must not be mistaken for a zero-result board.
+  assertFeedEndpointHost('nord-anglia', ATS_HOST, res.url);
+  if (!res.ok) {
+    const error = new Error(`Nord Anglia ${label} returned HTTP ${res.status}`);
+    error.status = res.status;
+    if (res.retryBudgetExhausted === true) error.retryBudgetExhausted = true;
+    throw error;
+  }
+  return res.text();
+}
+
+async function fetchNordAngliaSearchListings() {
+  const listings = [];
+  const seen = new Set();
+
+  for (let page = 0; page < MAX_SEARCH_PAGES; page += 1) {
+    const pageUrl = new URL(SEARCH_URL);
+    if (page > 0) pageUrl.searchParams.set('startrow', String(page * SEARCH_PAGE_SIZE));
+    console.log(`  📄 Fetching SuccessFactors listing page: startrow=${page * SEARCH_PAGE_SIZE}`);
+    const html = await fetchNordAngliaHtml(pageUrl.toString(), 'search');
+    const pageRows = parseNordAngliaSearchResults(html);
+    let added = 0;
+    for (const row of pageRows) {
+      if (seen.has(row.jobReqId)) continue;
+      seen.add(row.jobReqId);
+      listings.push(row);
+      added += 1;
+    }
+    console.log(`    Found ${pageRows.length} Aubonne listing(s), added ${added}`);
+    if (pageRows.length === 0 || pageRows.length < SEARCH_PAGE_SIZE || added === 0) break;
+    await new Promise((resolve) => setTimeout(resolve, DETAIL_DELAY_MS));
+  }
+
+  return listings;
+}
+
+async function fetchNordAngliaDetail(url) {
+  try {
+    const html = await fetchNordAngliaHtml(url, 'detail');
+    return parseCsbDetailPage(html);
+  } catch (err) {
+    console.warn(`  ⚠️ Nord Anglia detail fetch failed for ${jobUrlForDiagnostic(url)}: ${err?.message || err}`);
+    return null;
+  }
+}
+
 /* ── Category Detection ────────────────────────────────────── */
 
 function detectCategory(title = '') {
@@ -304,13 +462,8 @@ function detectEmploymentType(text = '') {
 
 /* ── Fetch + Parse ─────────────────────────────────────────── */
 
-/**
- * Fetch and parse the Aubonne-scoped RSS feed. Single request, no
- * pagination — jobs2web RSS exports return every matching item at once.
- *
- * @returns {Promise<Array<{title, link, description, pubDate}>>}
- */
-async function fetchJobListings() {
+/** Fetch and parse the legacy Aubonne-scoped RSS feed. */
+async function fetchNordAngliaRssListings() {
   console.log(`   Fetching from: ${CAREER_URL}`);
 
   const res = await httpFetchWithRetry(
@@ -329,6 +482,31 @@ async function fetchJobListings() {
   const xml = await res.text();
   assertFeedBodyLooksLikeXml('nord-anglia', ATS_HOST, xml);
   return parseNordAngliaRss(xml);
+}
+
+/**
+ * Prefer the legacy RSS while it is available, then use the live
+ * SuccessFactors HTML search when the RSS endpoint is redirected or replaced
+ * by an HTML maintenance page. Other failures remain hard failures so a
+ * transient/HTTP regression cannot be converted into an empty slice.
+ */
+async function fetchJobListings() {
+  try {
+    return await fetchNordAngliaRssListings();
+  } catch (err) {
+    if (err?.feedEndpointUnavailable !== true) throw err;
+
+    console.warn(
+      '⚠️ Nord Anglia RSS endpoint unavailable; falling back to the live SuccessFactors search listing',
+    );
+    const htmlListings = await fetchNordAngliaSearchListings();
+    if (htmlListings.length > 0) return htmlListings;
+
+    // A successful HTML response without any recognizable Aubonne posting is
+    // not evidence of a genuine empty board: retain the original soft endpoint
+    // classification until the listing selector is independently confirmed.
+    throw err;
+  }
 }
 
 /** Parse the Aubonne-scoped jobs2web RSS payload into scalar item fields. */
@@ -407,7 +585,7 @@ export function parseNordAngliaRss(xml = '') {
  */
 export async function fetchAllNordAngliaJobs() {
   console.log(`🔍 Fetching ${NORD_ANGLIA_COMPANY_NAME} jobs`);
-  console.log(`   Source: ${CAREER_URL}\n`);
+  console.log(`   Source: ${CAREER_URL} (HTML fallback: ${SEARCH_URL})\n`);
 
   const listings = await fetchJobListings();
   const rssItemStats = listings?.[RSS_ITEM_STATS];
@@ -419,13 +597,17 @@ export async function fetchAllNordAngliaJobs() {
     return [];
   }
 
-  console.log(`  📋 Raw RSS items found: ${listings.length}`);
+  const listingFormat = listings[0]?.sourceFormat || 'rss';
+  console.log(
+    `  📋 Raw ${listingFormat === 'html' ? 'SuccessFactors listings' : 'RSS items'} found: ${listings.length}`,
+  );
 
   const jobs = [];
   const seen = new Set();
   let aubonneScopeCandidates = 0;
   let aubonneScopeDrops = 0;
   for (const item of listings) {
+    const isHtmlListing = item.sourceFormat === 'html';
     const rawTitle = normalizeSpace(item.title || '');
     const link = normalizeSpace(item.link || '');
     const title = stripLocationSuffix(rawTitle);
@@ -435,12 +617,16 @@ export async function fetchAllNordAngliaJobs() {
     if (isGenericOffer(title)) continue;
 
     const publicUrl = canonicalizeNordAngliaJobUrl(link);
-    const hasTitleScope = AUBONNE_TITLE_RE.test(rawTitle) && title.length >= 3;
+    const hasTitleScope = isHtmlListing
+      ? title.length >= 3
+      : AUBONNE_TITLE_RE.test(rawTitle) && title.length >= 3;
     // The vendor search is full-text and may legitimately return unrelated
     // records. Count an item only when either independent signal still hints
     // at Aubonne; then require both signals before publishing it. This catches
     // one-sided vendor drift without treating ordinary search noise as drift.
-    const isAubonneCandidate = AUBONNE_TITLE_HINT_RE.test(rawTitle) || Boolean(publicUrl);
+    const isAubonneCandidate = isHtmlListing
+      ? Boolean(publicUrl)
+      : AUBONNE_TITLE_HINT_RE.test(rawTitle) || Boolean(publicUrl);
     if (!isAubonneCandidate) continue;
     aubonneScopeCandidates++;
 
@@ -450,7 +636,7 @@ export async function fetchAllNordAngliaJobs() {
     // those checks separate makes vendor title and URL-template drift
     // independently observable.
     let scopeDropped = false;
-    if (!hasTitleScope) {
+    if (!hasTitleScope && !isHtmlListing) {
       scopeDropped = true;
       console.warn(
         `[nord-anglia-title-scope-drop] Skipped "${title || '[missing title]'}" at `
@@ -472,10 +658,14 @@ export async function fetchAllNordAngliaJobs() {
     if (seen.has(publicUrl)) continue;
     seen.add(publicUrl);
 
-    const descriptionHtml = item.description;
-    const descriptionText = stripHtml(descriptionHtml);
-    const description = descriptionText || `${title} presso ${NORD_ANGLIA_COMPANY_NAME} ad Aubonne.`;
-    const sourceLang = detectLang(descriptionText || title, 'en');
+    const detail = isHtmlListing ? await fetchNordAngliaDetail(publicUrl) : null;
+    const listingDescriptionText = stripHtml(item.description);
+    const detailDescriptionText = detail?.descriptionText || '';
+    const descriptionText = isHtmlListing ? detailDescriptionText : listingDescriptionText;
+    const description = wordCount(descriptionText) >= 50
+      ? descriptionText
+      : buildDescriptionFallback(title);
+    const sourceLang = detail?.language || detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} nord-anglia aubonne`);
     // New identity is derived from the same canonical URL that is published,
     // so tracking/session query rotation cannot mint a new job. The standard
@@ -483,8 +673,8 @@ export async function fetchAllNordAngliaJobs() {
     // preserves any already-indexed legacy raw-link ID and slug history.
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const jobReqId = extractJobReqId(publicUrl);
-    const employmentType = detectEmploymentType(`${descriptionText} ${title}`);
-    const postedDate = toIsoDate(item.pubDate) || new Date().toISOString().split('T')[0];
+    const employmentType = detectEmploymentType(`${detail?.rateText || ''} ${descriptionText} ${title}`);
+    const postedDate = toIsoDate(detail?.postedDate) || toIsoDate(item.pubDate) || new Date().toISOString().split('T')[0];
 
     const job = {
       // ── Required fields ──
@@ -501,7 +691,9 @@ export async function fetchAllNordAngliaJobs() {
       location: HQ.city,
       canton: HQ.canton,
       url: publicUrl,
-      source: 'La Côte International School Aubonne Dedicated Parser (Nord Anglia jobs2web RSS)',
+      source: isHtmlListing
+        ? 'La Côte International School Aubonne Dedicated Parser (Nord Anglia SuccessFactors HTML)'
+        : 'La Côte International School Aubonne Dedicated Parser (Nord Anglia jobs2web RSS)',
       sourceLang,
       crawledAt: new Date().toISOString(),
 
@@ -520,7 +712,7 @@ export async function fetchAllNordAngliaJobs() {
       currency: 'CHF',
       featured: false,
       postedDate,
-      applyUrl: publicUrl,
+      applyUrl: isHtmlListing ? trustedApplyUrl(detail?.applyUrl, publicUrl) : publicUrl,
       jobReqId: jobReqId || null,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
