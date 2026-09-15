@@ -1517,7 +1517,15 @@ for (const entry of [...readLedger(remotePath), ...readLedger(localPath)]) {
   merged.set(entry.digest, entry);
 }
 const lines = [...merged.values()].map((entry) => JSON.stringify(entry));
-fs.writeFileSync(outputPath, lines.length > 0 ? `${lines.join('\n')}\n` : '', 'utf8');
+if (lines.length > 0) {
+  fs.writeFileSync(outputPath, `${lines.join('\n')}\n`, 'utf8');
+} else {
+  // An absent ledger and an empty ledger are both read as an empty history,
+  // but only the former preserves the append-only contract when no record was
+  // ever written. Do not manufacture a zero-byte tracked file from a merge
+  // of two absent/empty inputs.
+  fs.rmSync(outputPath, { force: true });
+}
 NODE
 }
 
@@ -1660,6 +1668,18 @@ commit_isolated_from_worktree() {
         fi
         local_blob="$(git hash-object -w -- "$f")"
         base_blob="$(git rev-parse -q --verify "${base_sha}:${f}" 2>/dev/null || true)"
+      fi
+
+      # A finalizer always appends a JSONL record before the ledger reaches
+      # this step. If an explicit --extra-only caller nevertheless presents a
+      # brand-new zero-byte ledger, treat it like the absent path instead of
+      # publishing a durable empty file that changes the history shape.
+      if [ "$f" = "data/crawler-generation-ledger.jsonl" ] \
+        && [ "$GROUP_BATCH" != true ] \
+        && [ -f "$f" ] && [ ! -s "$f" ] \
+        && [ -z "$remote_blob" ] && [ -z "$base_blob" ]; then
+        echo "ℹ️ crawler generation ledger is empty and absent from origin/main — preserving absence"
+        continue
       fi
 
       # A missing remote path is not automatically a writable empty slot.

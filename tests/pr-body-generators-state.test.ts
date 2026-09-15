@@ -433,6 +433,28 @@ describe('generatori del body PR — sezione dei residui', () => {
     expect(blocks[0].renderedWith).toContain(`model: ${otherInput}`);
   });
 
+  it('re-indenta ogni riga del contratto dinamico al livello dell’item del prompt', () => {
+    const source = sources.find((item) => item.rel === '.github/workflows/issue-fix.yml');
+    expect(source, 'issue-fix.yml non trovato: controllo non vacuo').toBeTruthy();
+    const document: any = YAML.parse(source!.text);
+    const steps = Object.values<any>(document.jobs ?? {}).flatMap((job) => job.steps ?? []);
+    const bodyContract = steps.find((step) => step.id === 'body_contract');
+    const claude = steps.find((step) => typeof step?.with?.prompt === 'string');
+    expect(bodyContract?.run).toBeTypeOf('string');
+    expect(claude?.with?.prompt).toBeTypeOf('string');
+
+    const prefix = /sed 's\/\^\/( +)\/' <<'BODY_CONTRACT_TEXT'/.exec(bodyContract.run)?.[1];
+    expect(prefix, 'il passo body_contract deve dichiarare l’indentazione runtime').toBe('   ');
+    const placeholder = claude.with.prompt.split('\n').find((line: string) =>
+      line.includes('${{ steps.body_contract.outputs.text }}'),
+    );
+    expect(placeholder).toBe('${{ steps.body_contract.outputs.text }}');
+
+    const sample = '## Non implementato (ancora)\n- residuo — blocked: owner decision\n\n## fine';
+    const emitted = sample.split('\n').map((line) => `${prefix}${line}`).join('\n');
+    expect(emitted.split('\n').every((line) => line.startsWith(prefix))).toBe(true);
+  });
+
   it('trova almeno i generatori noti (il discovery non è vacuo)', async () => {
     const found = new Set(emissions(sources).map((e) => e.rel));
     // Se il discovery si rompe, ogni altro test qui sotto diventa verde a vuoto

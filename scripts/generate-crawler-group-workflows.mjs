@@ -1315,7 +1315,12 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
   }
   steps.push({
     name: 'Commit crawler group data atomically',
-    if: 'always()',
+    // The reusable workflow keeps a coordinate-derived token only as a
+    // diagnostic fallback for legacy callers. It is not a barrier binding:
+    // publishing its slices would let an unregistered caller reach main
+    // before the central observer rejects the manifest. A failed/cancelled
+    // crawler group is likewise not allowed to publish a partial batch.
+    if: "always() && inputs.generation_token != '' && job.status == 'success'",
     // PUSH-CONTENTION CLASS (exit 42 from git-commit-data.sh, see
     // commit_isolated_from_worktree): with `--group-batch`, GROUP_BATCH=true
     // takes it out of the sequential soft-success path (JOBS_SLICE_FILE
@@ -1586,8 +1591,8 @@ export function buildCrawlerLogicWorkflow(generatedWorkflowText, {
 
   const logicInputs = structuredClone(workflow.on.workflow_dispatch.inputs);
   // The cross-repo minimal caller predates this input. Keep the reusable
-  // contract callable during the rollout; the fallback is still rejected by
-  // the central barrier unless the caller's registry binds the same token.
+  // contract callable during the rollout; its fallback remains diagnostic-only
+  // because the group commit step requires the explicit binding.
   logicInputs.generation_token = {
     ...logicInputs.generation_token,
     required: false,

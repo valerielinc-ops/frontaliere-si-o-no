@@ -184,6 +184,21 @@ describe('git-commit-data.sh 3-way merge — append-only slug/path registries (#
       expect(() => execFileSync('git', ['cat-file', '-e', `main:${SLICE}`], { cwd: h.originDir })).toThrow();
     } finally { cleanup(h); }
   });
+  it('does not publish a brand-new zero-byte crawler generation ledger', () => {
+    const h = initHarness();
+    const ledger = 'data/crawler-generation-ledger.jsonl';
+    try {
+      writeFileSync(join(h.repoDir, 'README.md'), 'seed\n');
+      commitAndPush(h.repoDir, 'seed non-ledger history');
+      mkdirSync(dirname(join(h.repoDir, ledger)), { recursive: true });
+      writeFileSync(join(h.repoDir, ledger), '');
+
+      runExtraOnlyScript(h, [ledger]);
+
+      expect(() => execFileSync('git', ['cat-file', '-e', `main:${ledger}`], { cwd: h.originDir })).toThrow();
+      expect(readFileSync(join(h.repoDir, ledger), 'utf8')).toBe('');
+    } finally { cleanup(h); }
+  });
   it('unions previousSlugs instead of reading a deduped local array as intentional removals', () => {
     const h = initHarness();
     try {

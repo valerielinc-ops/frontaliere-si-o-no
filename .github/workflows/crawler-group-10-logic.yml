@@ -3985,7 +3985,7 @@ jobs:
           fi
           exit "$status"
       - name: Commit crawler group data atomically
-        if: always()
+        if: always() && inputs.generation_token != '' && job.status == 'success'
         run: |-
           set +e
           bash scripts/lib/git-commit-data.sh --group-batch "Auto-update crawler group 10 jobs"

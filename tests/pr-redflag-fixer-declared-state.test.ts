@@ -177,6 +177,15 @@ describe('the autonomous fixers read declared states before contradicting them (
     );
   });
 
+  it.each(FIXERS)('%s teaches the English owner-decision alias', (file) => {
+    expect(prompt(file), `${file}: missing the English owner-decision state alias.`)
+      .toMatch(/blocked:\s*owner decision/i);
+  });
+
+  it('issue-fix checks any cited origin PR, not only follow-up-shaped citations', () => {
+    expect(prompt('issue-fix.yml')).toContain('qualunque PR citata come origine');
+  });
+
   it('pr-redflag-fixer does not veto current work merely because it is tracked', () => {
     const p = prompt('pr-redflag-fixer.yml');
     expect(p).toMatch(

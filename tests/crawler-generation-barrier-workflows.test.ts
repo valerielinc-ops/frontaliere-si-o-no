@@ -201,7 +201,7 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       expect(resultsByCrawler.every((step: any) => step.if === 'always()')).toBe(true);
       expect(stepByName(job.steps, 'Commit crawler group data atomically')).toEqual({
         name: 'Commit crawler group data atomically',
-        if: 'always()',
+        if: "always() && inputs.generation_token != '' && job.status == 'success'",
         run: [
           'set +e',
           `bash scripts/lib/git-commit-data.sh --group-batch "Auto-update crawler group ${group} jobs"`,
@@ -271,7 +271,8 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       expect(portableJob.env.CRAWLER_GENERATION_TOKEN).toBe(PORTABLE_GENERATION_TOKEN_EXPR);
       // #7083 invariant, restated per transport mode: producers and finalizer
       // must read ONE value. The reusable site logic keeps its coordinate
-      // fallback; the portable caller uses only its required input.
+      // fallback for diagnostics only; the commit gate accepts only the
+      // explicit input, which the portable caller requires.
       const logicWithFutureTail = structuredClone(jobFrom(logic));
       logicWithFutureTail.steps.push({ name: 'Future post-finalizer step', run: 'true' });
       expect(stepByName(logicWithFutureTail.steps, 'Finalize crawler generation manifest (shadow)').env.CRAWLER_GENERATION_TOKEN)
@@ -284,6 +285,8 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       const portableProducers = portableJob.steps.filter((step: any) =>
         step.id?.startsWith('crawler-launch-') || step.name === 'Commit crawler group data atomically');
       expect(portableProducers).toHaveLength(results.generationRoster.groups[group].length + 1);
+      expect(stepByName(portableJob.steps, 'Commit crawler group data atomically').if)
+        .toBe("always() && inputs.generation_token != '' && job.status == 'success'");
       expect(portableProducers.every((step: any) =>
         !Object.prototype.hasOwnProperty.call(step.env ?? {}, 'CRAWLER_GENERATION_TOKEN'))).toBe(true);
       expect(portableJob.steps.at(-1).name).toBe('Release cross-entry crawler live-run lease');

@@ -83,6 +83,11 @@ describe('crawler group generation finalizer', () => {
     expect(manifest.valid).toBe(false);
     expect(manifest.reasons).toContain('ledger_persistence_failed');
     expect(validateGroupTerminalManifest(manifest).valid).toBe(true);
+    const { digest, ...payload } = manifest;
+    expect(digest).toBe(digestDocument(payload));
+    const diagnosticEntry = createCrawlerGenerationLedgerEntry(manifest);
+    expect(diagnosticEntry.manifestDigest).toBe(digest);
+    expect(validateCrawlerGenerationLedgerEntry(diagnosticEntry)).toEqual({ valid: true, errors: [] });
     expect(fs.readFileSync(ledger, 'utf8')).toBe('{broken}\n');
   });
   it('verifies the receipt commit and remote tip while ignoring a deliberately stale workspace', () => {
