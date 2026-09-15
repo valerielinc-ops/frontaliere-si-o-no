@@ -7,6 +7,7 @@
  * configuration and keeps the historical named exports used by tests/CLI.
  */
 import {
+  buildEcariDetailUrl,
   extractEcariTabSection,
   fetchHtml,
   parseEcariAuctionRows,
@@ -38,7 +39,7 @@ export function parseVsAuctionRows(
     auctionStatus,
     listingType,
     idPrefix,
-    detailUrlBuilder: () => VS_AUCTION_URL,
+    detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl(VS_AUCTION_URL, sourceRecordId),
   });
 }
 
