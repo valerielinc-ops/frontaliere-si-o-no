@@ -339,6 +339,18 @@ describe('live JobAlert backfill requires the registration marker', () => {
     );
   });
 
+  it('ritenta gli errori transitori invece di perdere il rapporto newsletter→JobAlert', () => {
+    const signupStart = src.indexOf('export const backfillJobAlertOnNewsletterSignup');
+    const personalizationStart = src.indexOf('export const backfillJobAlertOnPersonalizationSync');
+    const signup = src.slice(signupStart, personalizationStart);
+    const personalization = src.slice(personalizationStart, src.indexOf('// Publisher domain ownership verification'));
+
+    expect(signup).toContain('retry: true');
+    expect(signup).toContain('throw error;');
+    expect(personalization).toContain('retry: true');
+    expect(personalization).toContain('throw error;');
+  });
+
   it('keeps the historical write path explicitly opt-in', () => {
     const historical = readRepoFile('scripts/backfill-jobalerts-from-newsletter.mjs');
     expect(historical).toContain("process.argv.includes('--write')");

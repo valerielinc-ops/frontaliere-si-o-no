@@ -1920,7 +1920,7 @@ export const cleanupUserDataOnAccountDelete = functionsV1.runWith({ failurePolic
 // below), so routine engagement writes (open/click tracking) remain a cheap
 // no-op.
 export const backfillJobAlertOnNewsletterSignup = onDocumentWritten(
- { region: 'europe-west6', memory: '256MiB', document: 'newsletter_subscribers/{email}' },
+ { region: 'europe-west6', memory: '256MiB', retry: true, document: 'newsletter_subscribers/{email}' },
  async (event) => {
  const emailId = event.params.email;
  if (emailId === '_meta_') return;
@@ -1954,6 +1954,7 @@ export const backfillJobAlertOnNewsletterSignup = onDocumentWritten(
  '[backfillJobAlertOnNewsletterSignup]',
  error instanceof Error ? error.message : String(error),
  );
+ throw error;
  }
  },
 );
@@ -1973,6 +1974,7 @@ export const backfillJobAlertOnPersonalizationSync = onDocumentWritten(
  {
  region: 'europe-west6',
  memory: '256MiB',
+ retry: true,
  document: 'newsletter_subscribers/{email}/private/personalization',
  },
  async (event) => {
@@ -1997,6 +1999,7 @@ export const backfillJobAlertOnPersonalizationSync = onDocumentWritten(
  '[backfillJobAlertOnPersonalizationSync]',
  error instanceof Error ? error.message : String(error),
  );
+ throw error;
  }
  },
 );
