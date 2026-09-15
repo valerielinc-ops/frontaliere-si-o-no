@@ -11754,6 +11754,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-14.imageAlt': 'I numeri del giorno per i frontalieri – 14 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-09-14.seoDescription': 'Bollettino frontalieri del 14 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-09-14.ogDescription': 'I numeri del 14 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.premi-cassa-malati-2027-ticino.title': 'Premi cassa malati 2027 in Ticino: interrogazione al Governo',
+    'blog.article.premi-cassa-malati-2027-ticino.excerpt': 'I granconsiglieri Censi e Genini presentano un\'interrogazione al Consiglio di Stato sui premi cassa malati 2027 e sulle stime di aumento in Ticino.',
+    'blog.article.premi-cassa-malati-2027-ticino.imageAlt': 'Palazzo del Governo a Bellinzona e vista panoramica in Ticino',
 };
 
 export default blogMetaIt;

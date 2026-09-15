@@ -90631,6 +90631,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-premi-cassa-malati-2027-ticino': {
+    title: 'Premi cassa malati 2027 in Ticino: interrogazione al Governo',
+    description: 'Scopri l\'interrogazione dei granconsiglieri Censi e Genini al Consiglio di Stato sui premi cassa malati 2027 in Ticino e sulle stime di aumento. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, cassa, malati, interrogazione',
+    ogTitle: 'Premi cassa malati 2027 in Ticino: interrogazione al Governo',
+    ogDescription: 'I granconsiglieri Andrea Censi e Sem Genini interrogano il Consiglio di Stato sui premi cassa malati 2027 in Ticino, analizzando le stime di aumento e le misure di risparmio.',
+    canonicalPath: '/articoli-frontaliere/premi-cassa-malati-2027-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi cassa malati 2027 in Ticino: interrogazione al Governo",
+      "description": "Scopri l'interrogazione dei granconsiglieri Censi e Genini al Consiglio di Stato sui premi cassa malati 2027 in Ticino e sulle stime di aumento. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-cassa-malati-2027-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo del Governo a Bellinzona e vista panoramica in Ticino"
+      },
+      "datePublished": "2026-09-15T00:05:51+00:00",
+      "dateModified": "2026-09-15T00:05:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/premi-cassa-malati-2027-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

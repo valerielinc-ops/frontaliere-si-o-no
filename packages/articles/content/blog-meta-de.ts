@@ -11752,6 +11752,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-14.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 14. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-09-14.seoDescription': 'Grenzgänger-Bulletin vom 14. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-09-14.ogDescription': 'Die Zahlen vom 14. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.premi-cassa-malati-2027-ticino.title': 'Krankenkassenprämien 2027 im Tessin: Anfrage an die Regierung',
+    'blog.article.premi-cassa-malati-2027-ticino.excerpt': 'Die Grossräte Censi und Genini stellen dem Regierungsrat eine Anfrage zu den Krankenkassenprämien 2027 und den geschätzten Steigerungen im Tessin.',
+    'blog.article.premi-cassa-malati-2027-ticino.imageAlt': 'Regierungsgebaeude in Bellinzona und Panoramablick im Tessin',
 };
 
 export default blogMetaDe;

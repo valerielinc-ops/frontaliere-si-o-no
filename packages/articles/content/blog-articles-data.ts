@@ -35067,6 +35067,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'premi-cassa-malati-2027-ticino',
+ category: 'novita',
+ date: '2026-09-15T00:05:51.344Z',
+ image: '/images/blog/premi-cassa-malati-2027-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
