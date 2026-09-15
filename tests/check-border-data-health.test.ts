@@ -209,6 +209,11 @@ describe('collectWebcamUrls', () => {
         !evaluateWebcamResult({ ok: true, status: 200, bytes: 5 * 1024 }, minBytes).broken,
       ),
     ).toBe(true);
+    expect(
+      sitg.every(({ minBytes }) =>
+        evaluateWebcamResult({ ok: true, status: 200, bytes: 117 }, minBytes).broken,
+      ),
+    ).toBe(true);
   });
 });
 
