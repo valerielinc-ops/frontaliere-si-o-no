@@ -8,40 +8,21 @@
  * Canonical here (not in `services/`) because Cloud Functions have no
  * bundler and cannot import anything outside `functions/`.
  *
- * CONSENT GATE (#5705) — READ THIS BEFORE THE TIER DOCUMENTATION BELOW
- * -------------------------------------------------------------------
+ * REGISTRATION RELATIONSHIP — READ THIS BEFORE THE TIER DOCUMENTATION BELOW
+ * -----------------------------------------------------------------------
  * Measured on production 2026-08-12: of 7.745 documents in the `alerts`
  * subcollection, 7.167 were created by this module and 578 by a person using
  * `createAlert` (services/jobAlertService.ts). 6.308 of the inferred ones were
  * still active, and 71 were created on that same day — this was not a historic
  * one-off, it was still running.
  *
- * The four signal tiers documented below are **inferences of interest**, not
- * requests for a service: a form field, an IP-geolocated city, browsing
- * behaviour, a canton read out of the URL of the page somebody signed up on.
- * None of them is an act by which a person asks for a DAILY email carrying
- * every job ad — a channel with its own cadence, distinct from the weekly
- * newsletter the subscriber actually agreed to (the stored formula, when it
- * was stored at all, names the CHF/EUR rate, border traffic and tax news; it
- * never names job ads). Deriving a second channel from navigation is exactly
- * what produced 6.308 unrequested subscriptions and one nLPD complaint.
- *
- * So the tiers no longer AUTHORISE anything. They still classify (they decide
- * what an alert would look like, and `buildAlertPayload` still tags its
- * provenance with them), but `shouldSkipSubscriber` now additionally requires
- * `hasAffirmativeJobAlertConsent` — an affirmative, recorded, job-alert-scoped
- * consent — and returns the named reason `'no-job-alert-consent'` when it is
- * absent. Fail-closed: absent, malformed or unreadable consent means "do not
- * create", never "create and see".
- *
- * What that predicate costs today, stated plainly: **no path in this codebase
- * records such a consent**, so all three entry points (the two triggers in
- * functions/index.js and the batch script) create nothing. `createAlert`, the
- * voluntary path behind the 578 real alerts, writes no consent field either —
- * its proof of consent is that a person operated the form, which is not a fact
- * a Firestore document carries. The predicate is satisfiable, not a hardcoded
- * `false`: a job-alert opt-in added to `services/consentTexts.ts` and actually
- * rendered (`displayed: true`) admits its subscribers with no change here.
+ * The four signal tiers below are **context**, not separate consent events.
+ * They determine the initial criteria and provenance for the base job-alert
+ * relationship established by the registration terms. Every terms-based
+ * registration gets one `backfill-newsletter` alert, including a broad
+ * empty-filter alert when no signal is available yet. The alert is then
+ * progressively ranked and enriched by searches, visited jobs and clicks.
+ * Explicit global or address-level suppression remains a hard stop.
  *
  * Why `onDocumentWritten`, not `onDocumentCreated`: on every social sign-in
  * (Google/Facebook/LinkedIn/One-Tap), `saveUserProfileToFirestore`
@@ -110,7 +91,7 @@
  *     or too broad — see `lib/jobBoardUrlCanton.js`.
  */
 
-import { isNewsletterExcluded } from './lib/emailSuppression.js';
+import { isCrossChannelStop, isNewsletterExcluded } from './lib/emailSuppression.js';
 import { isNewsletterOptOutBinding } from './lib/newsletterOptOut.js';
 import { derivePersonalizationPatch } from './lib/subscriberPersonalization.js';
 import { deriveCantonFromJobBoardUrl } from './lib/jobBoardUrlCanton.js';
@@ -223,7 +204,10 @@ export function resolveSignalTier(data, personalization) {
  * domain, corporate anti-phishing scanners opened 35 links on one send, 25 of
  * them inside 7 seconds (see `resubscribeLink` in that register).
  */
-export const AFFIRMATIVE_CONSENT_ACTS = Object.freeze(['typed_email_submit']);
+export const AFFIRMATIVE_CONSENT_ACTS = Object.freeze([
+  'typed_email_submit',
+  'email_checkbox_submit',
+]);
 
 /**
  * Phrases that name the job-alert CHANNEL — the thing being subscribed to.
@@ -277,20 +261,29 @@ export function consentNamesJobAlerts(rawText) {
 }
 
 /**
- * The gate that stops a newsletter subscription from becoming a job-alert
- * subscription (#5705). Four conditions, every one of them fail-closed:
+ * Historical telemetry helper for the former job-alert gate (#5705).
+ *
+ * This predicate is deliberately no longer called by the live trigger or any
+ * sender. Registration terms establish the base relationship; keeping this
+ * helper lets audits distinguish old records that carried an affirmative,
+ * job-alert-specific act from the new terms-based registrations.
+ *
+ * The old predicate had five conditions, every one of them fail-closed:
  *
  *  1. `consent_given === true` — an affirmative opt-in was recorded.
  *     `captureNewsletterSubscriber` (services/newsletterSubscribers.ts)
  *     defaults this to `false`, and `consentProof` deliberately does not hand
  *     callers a `consentGiven` to set, precisely so the flag stays countable.
- *  2. `consent_text` names the job-alert channel — the newsletter formula the
- *     6.308 were enrolled under does not, and that is the whole defect.
+ *  2. `consent_text` names the job-alert channel — a formula that does not
+ *     disclose it cannot authorize this channel.
  *  3. `consent_text_displayed === true` — nobody can agree to a sentence they
- *     were never shown. Every entry in the register is `displayed: false`
- *     today, and recording that gap honestly is the point of the field.
+ *     were never shown. Historical channel-specific entries remain
+ *     `displayed: false`; the live unified `communicationsOptIn` entry is
+ *     displayed and is the only formula intended to pass this condition.
  *  4. `consent_act` is one of `AFFIRMATIVE_CONSENT_ACTS` — an authentication
  *     or a link fetch is not a request.
+ *  5. `preferences.jobs === true` — the unified relationship enables the jobs
+ *     category; a historical text alone is not enough.
  *
  * @param {Record<string, unknown>|null|undefined} data a `newsletter_subscribers` doc
  * @returns {boolean}
@@ -300,6 +293,10 @@ export function hasAffirmativeJobAlertConsent(data) {
   if (data.consent_given !== true) return false;
   if (data.consent_text_displayed !== true) return false;
   if (!AFFIRMATIVE_CONSENT_ACTS.includes(String(data.consent_act ?? ''))) return false;
+  // A generic newsletter capture may name the job-alert category without
+  // activating it. The jobs preference is the explicit signal that this
+  // particular relationship may govern job-alert delivery.
+  if (data.preferences?.jobs !== true) return false;
   return consentNamesJobAlerts(data.consent_text);
 }
 
@@ -355,28 +352,23 @@ export function hasStoredJobAlertConsent(data) {
 }
 
 /**
- * Sender-side authorization for one alert. Suppression/opt-out is deliberately
- * not handled here: every sender still applies its shared cross-channel and
- * channel-local suppression predicates separately. This function answers only
- * whether an alert has a valid consent basis for the job-alert channel.
- *
- * Backfilled alerts fail closed until either the newsletter record contains an
- * affirmative, job-alert-scoped consent or the alert itself records a later
- * explicit activation/banner act. This closes the gap between the creation
- * trigger (which already refuses new unconsented backfills) and historical
- * alerts that were created before that trigger was fixed.
+ * Sender-side authorization for one alert. Each sender still applies its
+ * shared cross-channel and channel-local suppression predicates separately.
+ * Registration terms establish the base relationship; this helper only
+ * prevents delivery after an explicit global/address-level stop and labels
+ * the alert's provenance for diagnostics.
  */
 export function evaluateJobAlertConsent({ alert, subscriber }) {
-  if (!isBackfilledJobAlert(alert)) {
-    return { allowed: true, reason: 'explicit-alert' };
+  // The registration terms establish the base relationship. This function is
+  // no longer a consent gate: it only protects the sender from an explicit
+  // global/address-level stop when the subscriber document is available.
+  if (subscriber && isCrossChannelStop(subscriber)) {
+    return { allowed: false, reason: 'cross-channel-stop' };
   }
-  if (hasStoredJobAlertConsent(alert)) {
-    return { allowed: true, reason: 'alert-proof' };
-  }
-  if (hasAffirmativeJobAlertConsent(subscriber)) {
-    return { allowed: true, reason: 'subscriber-job-alert-proof' };
-  }
-  return { allowed: false, reason: 'backfill-without-job-alert-consent' };
+  return {
+    allowed: true,
+    reason: isBackfilledJobAlert(alert) ? 'backfill-registration-terms' : 'explicit-alert',
+  };
 }
 
 /**
@@ -386,26 +378,24 @@ export function evaluateJobAlertConsent({ alert, subscriber }) {
  * only — safe default, since deriving from an absent doc naturally yields
  * no patch and behaves exactly like the flat-field-only check.
  *
- * The consent gate is checked LAST, after the tier, on purpose: it makes the
- * `'no-job-alert-consent'` counter mean exactly "would have been created under
- * the pre-#5705 rule, and was not" — i.e. the live rate of the travaso this
- * guard stops. Checking it first would bury that number under the no-signal
- * majority.
- * @returns {'invalid-email'|'suppressed'|'no-signal'|'no-job-alert-consent'|null} skip reason, null = eligible.
+ * The registration terms create the base relationship; only suppression remains
+ * a creation gate. A no-signal registration intentionally creates a broad
+ * backfill alert so later behaviour can refine it.
+ * @returns {'invalid-email'|'suppressed'|null} skip reason, null = eligible.
  */
 export function shouldSkipSubscriber(email, data, personalization = null) {
   if (!email || !email.includes('@')) return 'invalid-email';
-  // Status AND stamp. This is the path that MANUFACTURES an alert out of a
-  // newsletter subscription, so reading `status` alone is the worst place to do
-  // it: the 458 documents that carry only the camelCase `unsubscribedAt` (#5673)
-  // still say `confirmed`, and the alert created from one of them would then
-  // outlive the opt-out that was supposed to end the relationship — exactly the
-  // pairing #5688 measured (127 of 127 backfilled alerts still active after the
-  // newsletter side was suppressed). The shared predicate, so a subscriber who
-  // left and explicitly came back is eligible again (#5711).
-  if (isNewsletterExcluded(data?.status) || isNewsletterOptOutBinding(data)) return 'suppressed';
-  if (resolveSignalTier(data, personalization).tier === 'none') return 'no-signal';
-  return hasAffirmativeJobAlertConsent(data) ? null : 'no-job-alert-consent';
+  // A newsletter unsubscribe/inactivity state prevents a new base
+  // relationship from being created. Hard address signals and the explicit
+  // stop-all marker apply across both channels. A newsletter-only opt-out does
+  // not delete an already-created concrete job alert; the alert sender checks
+  // its own channel state separately.
+  if (
+    isNewsletterExcluded(data?.status)
+    || isNewsletterOptOutBinding(data)
+    || isCrossChannelStop(data)
+  ) return 'suppressed';
+  return null;
 }
 
 /**
@@ -436,6 +426,32 @@ export function shouldSkipSubscriber(email, data, personalization = null) {
 export function buildAlertPayload(email, data, existingBackfill, personalization = null) {
   const { tier } = resolveSignalTier(data, personalization);
   const channel = data?.source_channel || 'unknown';
+  const hasJobContext = Boolean(
+    data?.job_search_query
+    || data?.job_category
+    || data?.job_title
+    || data?.job_location
+    || data?.job_slug
+  );
+  const isJobBoardRegistration = String(channel).toLowerCase() === 'job_gate'
+    || String(channel).toLowerCase().includes('job_board')
+    || hasJobContext;
+  const contextKeywords = isJobBoardRegistration
+    ? [...new Set([
+      data?.job_search_query,
+      data?.job_category,
+      data?.job_title,
+    ].map((value) => String(value || '').trim()).filter(Boolean))]
+    : [];
+  const contextLocations = isJobBoardRegistration && data?.job_location
+    ? [String(data.job_location).trim()]
+    : [];
+  const contextSectors = isJobBoardRegistration && data?.sector_interest
+    ? [String(data.sector_interest).trim()]
+    : [];
+  const existingKeywords = Array.isArray(existingBackfill?.keywords) ? existingBackfill.keywords : [];
+  const existingLocations = Array.isArray(existingBackfill?.locations) ? existingBackfill.locations : [];
+  const existingSectors = Array.isArray(existingBackfill?.sectors) ? existingBackfill.sectors : [];
   const tierSuffix =
     tier === 'location-fallback' || tier === 'personalization-fallback' || tier === 'url-fallback'
       ? `:${tier}`
@@ -443,10 +459,13 @@ export function buildAlertPayload(email, data, existingBackfill, personalization
   return {
     email,
     userId: data?.user_id || null,
-    keywords: [],
-    locations: [],
+    // A job-board registration starts from the exact job/search context that
+    // opened the gate. Newsletter registrations intentionally stay broad and
+    // use the evolving profile/personalization signals instead.
+    keywords: existingKeywords.length > 0 ? existingKeywords : contextKeywords,
+    locations: existingLocations.length > 0 ? existingLocations : contextLocations,
     contractTypes: [],
-    sectors: [],
+    sectors: existingSectors.length > 0 ? existingSectors : contextSectors,
     cantonFilter: null,
     frequency: typeof existingBackfill?.frequency === 'string' && existingBackfill.frequency
       ? existingBackfill.frequency
@@ -454,7 +473,7 @@ export function buildAlertPayload(email, data, existingBackfill, personalization
     locale: resolveSubscriberLocale(data),
     sourceJobSlug: data?.job_slug || null,
     sourceJobUrl: null,
-    sourceJobTitle: null,
+    sourceJobTitle: data?.job_title || null,
     specificJobId: null,
     specificCompanyKey: null,
     active: existingBackfill ? existingBackfill.active !== false : true,

@@ -216,12 +216,10 @@ import { handleCompanyLogoError, generateInitialsLogo } from '@/services/logoSer
 import { deriveJobPostalCode, getJobLocationSnapshot } from '@/services/jobLocationSnapshot';
 import { getJobSalaryContext } from '@/data/salaryData';
 import {
- upsertNewsletterSubscriber,
- markNewsletterSubscribedLocally,
+ upsertUnifiedEmailSubscriber,
 } from '@/services/newsletterSubscribers';
-import { consentProof } from '@/services/consentTexts';
-import ConsentNotice from '@/components/shared/ConsentNotice';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
+import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import { requestSlot, releaseSlot, POPUP_PRIORITY } from '@/services/popupQueue';
 import { isCrawlerVisitorAgent } from '@/functions/src/lib/returnVisit.js';
 import type { Article } from '@/data/blog-articles-data';
@@ -5883,8 +5881,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  saveAuthJobContext({
  slug: focusedJob.slug || null,
  company: focusedJob.company || null,
+ title: sanitizeJobTitle(focusedJob.titleByLocale?.[locale] ?? focusedJob.title),
  location: focusedJob.location || focusedJob.addressLocality || null,
  category: focusedJob.category || null,
+ searchQuery: searchQuery.trim() || null,
  });
  }
  void promptOneTap();
@@ -5992,7 +5992,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const sourceSuffix = `:${unlockedJob.company}:${sanitizeJobTitle(unlockedJob.title).slice(0, 60)}`;
  const emailDomain = String(userEmail || '').split('@')[1] || 'unknown';
 
- autoNewsletterSubscribe(userEmail || undefined, `job_gate_google${sourceSuffix}`);
+ void autoNewsletterSubscribe(userEmail || undefined, `job_gate_google${sourceSuffix}`, 'authenticated').then((consented) => {
+  if (consented) Analytics.trackNewsletter('subscribe', emailDomain);
+ });
  // Leva B: offer the one-tap job alert immediately on this just-unlocked job.
  justAuthedJobIdRef.current = unlockedJob.id;
  setAuthNotice(null);
@@ -6004,7 +6006,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  emailDomain,
  ...buildJobTrackingContext(unlockedJob),
  });
- Analytics.trackNewsletter('subscribe', emailDomain);
  Analytics.trackSelectContent('job_board_open_detail', `${unlockedJob.company}_${unlockedJob.title}`);
 
  const nextSlug = deriveLocalizedJobSlug(unlockedJob, locale);
@@ -6156,11 +6157,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  clearJobAuthRedirectSlug();
  const userEmail = result.email || result.user?.email;
  const sourceSuffix = jobToTrack ? `:${jobToTrack.company}:${sanitizeJobTitle(jobToTrack.title).slice(0, 60)}` : '';
- autoNewsletterSubscribe(userEmail, `job_gate_google${sourceSuffix}`);
+ const consented = await autoNewsletterSubscribe(userEmail, `job_gate_google${sourceSuffix}`, 'authenticated');
  setAuthNotice(null);
  const emailDomain = String(userEmail || '').split('@')[1] || 'unknown';
  Analytics.trackJobAuthFunnel('auth_success', { method: provider, emailDomain, ...jobContext });
- Analytics.trackNewsletter('subscribe', emailDomain);
+ if (consented) Analytics.trackNewsletter('subscribe', emailDomain);
  setAuthGateOpen(false);
  releaseSlot('job-auth-gate');
  const jobToOpen = pendingJob || selectedJob;
@@ -6187,13 +6188,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const jobContext = pendingJob ? buildJobTrackingContext(pendingJob) : {};
  try {
  const sourceSuffix = pendingJob ? `:${pendingJob.company}:${sanitizeJobTitle(pendingJob.title).slice(0, 60)}` : '';
- await autoNewsletterSubscribe(email, `job_gate_email${sourceSuffix}`);
+ const consented = await autoNewsletterSubscribe(email, `job_gate_email${sourceSuffix}`, 'email');
  localStorage.setItem(JOB_EMAIL_ACCESS_KEY, email.toLowerCase());
  setEmailAccessGranted(true);
  setAuthNotice({ kind: 'pending', email });
  const emailDomain = email.split('@')[1] || 'unknown';
  Analytics.trackJobAuthFunnel('auth_success', { method: 'email', emailDomain, ...jobContext });
- Analytics.trackNewsletter('subscribe', emailDomain);
+ if (consented) Analytics.trackNewsletter('subscribe', emailDomain);
  Analytics.trackSelectContent('job_board_email_access', emailDomain);
  authUnlockCandidateRef.current = null;
  setAuthGateOpen(false);
@@ -6221,13 +6222,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setAuthError(null);
  const jobContext = buildJobTrackingContext(job);
  try {
- await autoNewsletterSubscribe(email, `job_gate:${job.company}:${sanitizeJobTitle(job.title).slice(0, 60)}`);
+ const consented = await autoNewsletterSubscribe(email, `job_gate:${job.company}:${sanitizeJobTitle(job.title).slice(0, 60)}`, 'email');
  localStorage.setItem(JOB_EMAIL_ACCESS_KEY, email.toLowerCase());
  setEmailAccessGranted(true);
  setAuthNotice({ kind: 'pending', email });
  const emailDomain = email.split('@')[1] || 'unknown';
  Analytics.trackJobAuthFunnel('auth_success', { method: 'email', emailDomain, ...jobContext });
- Analytics.trackNewsletter('subscribe', emailDomain);
+ if (consented) Analytics.trackNewsletter('subscribe', emailDomain);
  authUnlockCandidateRef.current = null;
  setEmailInput('');
  // No need to route — the component will re-render with hasAccess=true
@@ -6263,42 +6264,27 @@ const JobBoard: React.FC<JobBoardProps> = ({
  };
  };
 
- const autoNewsletterSubscribe = async (email?: string, source?: string) => {
- if (!email) return;
+ const autoNewsletterSubscribe = async (
+ email?: string,
+ source?: string,
+ registrationMethod: 'email' | 'authenticated' = 'email',
+ ): Promise<boolean> => {
+ if (!email) return false;
  try {
  const [{ getFirestore }, { getApp }] = await Promise.all([
  import('firebase/firestore'),
  import('@/services/firebase'),
  ]);
  const firestore = getFirestore(await getApp());
- if (!firestore) return;
- // This is an explicit job-access gate, not a generic authentication hook.
- // Two callers are social sign-in unlocks that promote
- // (`isActive`/`status: 'confirmed'` below when the source is Google/Facebook)
- // because the gate displays the communications notice before the click. The
- // other two land `pending` and require the DOI link; none is triggered by a
- // page visit or by a global auth listener.
- //
- // Returning here also skips `markNewsletterSubscribedLocally()` below, which
- // is intended: that flag is what grants offerwall access, and granting a
- // subscriber perk to someone who is not a subscriber is the lie that made
- // this guard necessary. The job unlock itself is unaffected — every caller
- // grants it (JOB_EMAIL_ACCESS_KEY / setEmailAccessGranted) after the await,
- // independently of what happens in here.
- const { isNewsletterOptedOut, isNewsletterAccountDeleted } = await import('@/services/newsletterSubscribers');
- if (localStorage.getItem('newsletter_subscribed') === 'true'
- && !(await isNewsletterAccountDeleted(firestore, email))) return;
+ if (!firestore) return false;
  const normalizedSource = String(source || 'job_board_auth').toLowerCase();
- const isTrustedAuthSource = normalizedSource.includes('google') || normalizedSource.includes('facebook');
- // Social sign-in is authentication, not renewed newsletter consent. An
- // explicit email gate, however, may start a fresh DOI cycle after an opt-out;
- // the confirmation link remains the only thing that lifts the suppression.
- if (isTrustedAuthSource && await isNewsletterOptedOut(firestore, email)) return;
+ const sourceChannel = 'job_gate' as const;
  const focusedJob = selectedJob || sortedJobs[0] || null;
  const jobContext = focusedJob
  ? {
  slug: focusedJob.slug || null,
  company: focusedJob.company || null,
+ title: sanitizeJobTitle(focusedJob.titleByLocale?.[locale] ?? focusedJob.title) || null,
  location: focusedJob.location || null,
  category: normalizeJobCategory(focusedJob.category, focusedJob.title) || null,
  searchQuery: searchQuery.trim() || null,
@@ -6310,44 +6296,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
  category: null,
  searchQuery: searchQuery.trim() || null,
  };
- await upsertNewsletterSubscriber(firestore, {
+ await upsertUnifiedEmailSubscriber(firestore, {
  email,
- preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: true },
  source: source || 'job_board_auth',
- sourceChannel: isTrustedAuthSource
- ? normalizedSource.includes('facebook')
- ? 'auth_facebook'
- : 'auth_google'
- : 'job_gate',
+ sourceChannel,
  sourcePage: window.location.pathname,
- sourceCta: isTrustedAuthSource ? 'job_board_social_unlock' : 'job_board_email_unlock',
+ sourceCta: normalizedSource.includes('email') ? 'job_board_email_unlock' : 'job_board_social_unlock',
  sourceComponent: 'JobBoard',
- sourceRouteFamily: 'job-board',
- jobContext,
- locationInterest: jobContext.location,
- sectorInterest: jobContext.category,
- locale: navigator.language || 'it-IT',
- reconsent: !isTrustedAuthSource,
- isActive: isTrustedAuthSource,
- status: isTrustedAuthSource ? 'confirmed' : 'pending',
- // Two different acts, ONE sentence (#5678, #5712, #5765). Each of the two
- // gate surfaces below renders a single notice, under its "continua con
- // email" button, and both entries named here carry that exact sentence —
- // they differ only in `act`, because typing an address is not the same
- // thing as signing in. Until #5765 this gate printed the sign-in notice
- // above the provider buttons AND the opt-in notice under the email form:
- // two statements on one screen, one of them stored. The social branch
- // still promotes straight to confirmed/active with no double opt-in.
- ...consentProof(
- isTrustedAuthSource ? 'communicationsSignIn' : 'communicationsSignInEmail',
- isTrustedAuthSource
- ? (normalizedSource.includes('facebook') ? 'facebook_oauth' : 'google_oauth')
- : 'email_submit',
- locale,
- ),
- });
- markNewsletterSubscribedLocally();
- } catch { /* non-critical */ }
+   sourceRouteFamily: 'job-board',
+   locale: navigator.language || 'it-IT',
+   jobContext,
+   registrationMethod,
+   });
+ return true;
+ } catch { /* non-critical */ return false; }
  };
 
  const goToPage = (p: number) => {
@@ -6863,6 +6825,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <span className="inline-flex items-center gap-1"><Shield size={12} className="text-success" />{t('jobBoard.gate.privacyNote')}</span>
  </div>
 
+ <EmailConsentCheckbox
+  consentKey="communicationsOptIn"
+  locale={locale}
+  className="text-xs text-muted leading-relaxed"
+ />
+
  {/* Social proof */}
  {jobs.length > 0 && (
  <p className="text-xs font-medium text-accent">
@@ -6904,7 +6872,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const ctx = buildJobTrackingContext(job);
  Analytics.trackJobAuthFunnel('auth_method_click', { method: 'linkedin', ...ctx });
  setAuthBusy('linkedin');
- saveAuthJobContext({ slug: job.slug, company: job.company, location: job.location, category: job.category });
+ saveAuthJobContext({
+  slug: job.slug,
+  company: job.company,
+  title: sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title),
+  location: job.location,
+  category: job.category,
+  searchQuery: searchQuery.trim() || null,
+ });
  const jobSlug = job.slugByLocale?.[locale] ?? job.slug;
  const section = getJobBoardSectionSlug(locale);
  const prefix = locale === 'it' ? '' : `/${locale}`;
@@ -6950,10 +6925,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {authBusy === 'email' ? <Loader2 className="w-4 h-4 animate-spin" /> : <Mail className="w-4 h-4" />}
  {t('jobBoard.authGateEmailCta')}
  </button>
- {/* The gate's ONE notice (#5765). It covers both ways through this gate —
- the provider buttons above and this button — which is why the sentence
- opens with "accedendo" and why both branches of the upsert store it. */}
- <ConsentNotice consentKey="communicationsSignIn" locale={locale} className="text-[10px] text-muted leading-snug block" />
  </form>
  </div>
 
@@ -8323,6 +8294,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </li>
  </ul>
 
+ <EmailConsentCheckbox
+  consentKey="communicationsOptIn"
+  locale={locale}
+  className="mt-3 text-xs text-muted leading-relaxed"
+ />
+
  {/* Social proof — keep one short line */}
  {jobs.length > 0 && (
  <p className="mt-3 text-xs font-medium text-accent">
@@ -8366,7 +8343,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const ctx = buildJobTrackingContext(job);
  Analytics.trackJobAuthFunnel('auth_method_click', { method: 'linkedin', ...ctx });
  setAuthBusy('linkedin');
- saveAuthJobContext({ slug: job.slug, company: job.company, location: job.location, category: job.category });
+ saveAuthJobContext({
+  slug: job.slug,
+  company: job.company,
+  title: sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title),
+  location: job.location,
+  category: job.category,
+  searchQuery: searchQuery.trim() || null,
+ });
  const jobSlug = job.slugByLocale?.[locale] ?? job.slug;
  const section = getJobBoardSectionSlug(locale);
  const prefix = locale === 'it' ? '' : `/${locale}`;
@@ -8422,13 +8406,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </button>
  </form>
  </details>
- {/* OUTSIDE the <details> on purpose (#5765). This is the gate's only
- notice and it covers the provider buttons too, so it may not disappear
- when somebody collapses the email form — which is exactly what would
- happen if it sat inside, and the social branch would then subscribe an
- address with nothing on screen. Placed right after the form, so with
- the panel open (the default) it still reads under the email button. */}
- <ConsentNotice consentKey="communicationsSignIn" locale={locale} className="text-[10px] text-muted leading-snug block" />
  </div>
 
  {authError && <p className="text-sm text-danger mt-2">{authError}</p>}

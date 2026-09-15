@@ -13,7 +13,7 @@
 
 import admin from 'firebase-admin';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
-import { isTransactionalHardBlock } from './lib/emailSuppression.js';
+import { isCrossChannelStop, isTransactionalHardBlock } from './lib/emailSuppression.js';
 import { isNewsletterOptOutBinding } from './lib/newsletterOptOut.js';
 import { hasConfirmationProof, hasConfirmationStamp } from './lib/subscriberConsent.js';
 import { normalizeLocale } from './emailI18n.js';
@@ -79,6 +79,7 @@ function confirmationSendStateError(data, { isLoginLink = false, isResubscribeLi
  }
 
  if (isLoginLink) return null;
+ if (isCrossChannelStop(data)) return 'address_suppressed';
 
  const status = String(data?.status || '').trim().toLowerCase();
  if (isResubscribeLink) {

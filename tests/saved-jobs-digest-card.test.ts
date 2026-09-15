@@ -10,7 +10,12 @@
 // title/company/canton/CTA shape should turn every "field present" test red.
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
-import { renderJobCard, formatPostedDate, getStrings } from '../scripts/send-saved-jobs-digest.mjs';
+import {
+  renderJobCard,
+  formatPostedDate,
+  getStrings,
+  isSavedJobsDigestEligible,
+} from '../scripts/send-saved-jobs-digest.mjs';
 
 const s = getStrings('it');
 
@@ -136,6 +141,54 @@ describe('saved-jobs digest — formatPostedDate (#5536)', () => {
     const label = formatPostedDate('05/06/26', 'it');
     expect(label).not.toBe('');
     expect(label.toLowerCase()).toContain('giu'); // "giu" (giugno) not "mag" (maggio)
+  });
+});
+
+describe('saved-jobs digest — channel opt-out and suppression', () => {
+  it('uses the saved-job relationship without a DOI or consent marker', () => {
+    expect(isSavedJobsDigestEligible(
+      { savedJobsDigest: { optedIn: false, optedOut: false } },
+      {},
+    )).toBe(true);
+  });
+
+  it('lets an explicit saved-jobs opt-out stop delivery', () => {
+    expect(isSavedJobsDigestEligible(
+      { savedJobsDigest: { optedIn: true, optedOut: true } },
+      {},
+    )).toBe(false);
+  });
+
+  it('keeps the legacy explicit digest opt-in compatible without proof', () => {
+    expect(isSavedJobsDigestEligible(
+      { savedJobsDigest: { optedIn: true, optedOut: false } },
+      {},
+    )).toBe(true);
+  });
+
+  it('does not require a confirmation purpose for the digest', () => {
+    expect(isSavedJobsDigestEligible(
+      { savedJobsDigest: { optedIn: false, optedOut: false } },
+      { confirmed_at: '2026-09-14T10:00:00.000Z', consent_purpose: 'newsletter_only' },
+    )).toBe(true);
+  });
+
+  it('stops on the shared hard/global suppression predicate', () => {
+    expect(isSavedJobsDigestEligible(
+      { savedJobsDigest: { optedIn: true, optedOut: false } },
+      { status: 'bounced' },
+    )).toBe(false);
+    expect(isSavedJobsDigestEligible(
+      { savedJobsDigest: { optedIn: true, optedOut: false } },
+      { all_email_opted_out: true },
+    )).toBe(false);
+  });
+
+  it('requires the central subscriber relationship before sending', () => {
+    expect(isSavedJobsDigestEligible(
+      { savedJobsDigest: { optedIn: true, optedOut: false } },
+      null,
+    )).toBe(false);
   });
 });
 

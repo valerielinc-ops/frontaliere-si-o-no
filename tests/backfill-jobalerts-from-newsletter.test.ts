@@ -12,6 +12,7 @@ import {
   resolveSignalTier,
   shouldSkipSubscriber,
 } from '../scripts/backfill-jobalerts-from-newsletter.mjs';
+import { runBackfill } from '../scripts/backfill-jobalerts-from-newsletter.mjs';
 import { MAX_ALERTS_PER_USER as CLIENT_MAX_ALERTS_PER_USER } from '../services/jobAlertService';
 import { CONSENT_TEXTS } from '@/services/consentTexts';
 import { JOB_ALERT_CONSENT, withJobAlertConsent as withConsent } from './helpers/jobAlertConsent';
@@ -36,17 +37,17 @@ describe('backfill-jobalerts-from-newsletter — getSignalTier stays URL-blind',
 });
 
 describe('backfill-jobalerts-from-newsletter — shouldSkipSubscriber', () => {
-  it('is eligible when job_category is present AND job alerts were consented to', () => {
-    expect(shouldSkipSubscriber('a@b.ch', withConsent({ job_category: 'tech' }))).toBeNull();
+  it('is eligible when job_category is present without a second job-alert consent', () => {
+    expect(shouldSkipSubscriber('a@b.ch', { job_category: 'tech' })).toBeNull();
   });
 
   it('is eligible when only job_location is present', () => {
-    expect(shouldSkipSubscriber('a@b.ch', withConsent({ job_location: 'Lugano' }))).toBeNull();
+    expect(shouldSkipSubscriber('a@b.ch', { job_location: 'Lugano' })).toBeNull();
   });
 
   it('is eligible via tier 1 (not location-fallback) when only sector_interest is present, no job context', () => {
     expect(getSignalTier({ sector_interest: 'health' })).toBe('signal');
-    expect(shouldSkipSubscriber('a@b.ch', withConsent({ sector_interest: 'health' }))).toBeNull();
+    expect(shouldSkipSubscriber('a@b.ch', { sector_interest: 'health' })).toBeNull();
   });
 
   it('skips an invalid/missing email', () => {
@@ -61,48 +62,44 @@ describe('backfill-jobalerts-from-newsletter — shouldSkipSubscriber', () => {
     );
   });
 
-  it('skips a subscriber with neither job_category nor job_location', () => {
-    expect(shouldSkipSubscriber('a@b.ch', withConsent({ job_slug: 'some-job-abc123' }))).toBe('no-signal');
-    expect(shouldSkipSubscriber('a@b.ch', withConsent({}))).toBe('no-signal');
+  it('keeps a no-signal registration eligible for the broad alert', () => {
+    expect(shouldSkipSubscriber('a@b.ch', { job_slug: 'some-job-abc123' })).toBeNull();
+    expect(shouldSkipSubscriber('a@b.ch', {})).toBeNull();
   });
 
   it('is eligible via the location-fallback tier when only location_interest is present', () => {
-    expect(shouldSkipSubscriber('a@b.ch', withConsent({ location_interest: 'Lugano' }))).toBeNull();
+    expect(shouldSkipSubscriber('a@b.ch', { location_interest: 'Lugano' })).toBeNull();
   });
 
   it('is eligible via the location-fallback tier when only geo_city is present', () => {
-    expect(shouldSkipSubscriber('a@b.ch', withConsent({ geo_city: 'Bellinzona' }))).toBeNull();
+    expect(shouldSkipSubscriber('a@b.ch', { geo_city: 'Bellinzona' })).toBeNull();
   });
 
-  it('stays no-signal when no personalization arg is passed, even with a viewedJobs-worthy history (flat-field callers unaffected)', () => {
-    expect(shouldSkipSubscriber('a@b.ch', withConsent({}))).toBe('no-signal');
+  it('keeps the broad relationship when no personalization arg is passed', () => {
+    expect(shouldSkipSubscriber('a@b.ch', {})).toBeNull();
   });
 
   it('is eligible via the personalization-fallback tier when browsing data has real signal', () => {
     expect(
       shouldSkipSubscriber(
         'a@b.ch',
-        withConsent({}),
+        {},
         { viewedJobs: [{ location: 'Mendrisio', category: 'IT / Tecnologia' }] },
       ),
     ).toBeNull();
   });
 
-  it('stays no-signal when personalization has nothing usable either', () => {
-    expect(shouldSkipSubscriber('a@b.ch', withConsent({}), { viewedJobs: [], filterUsage: {} })).toBe('no-signal');
+  it('keeps the broad relationship when personalization has nothing usable either', () => {
+    expect(shouldSkipSubscriber('a@b.ch', {}, { viewedJobs: [], filterUsage: {} })).toBeNull();
   });
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
-// #5705 — the consent gate. Every assertion in the block above used to be
-// written WITHOUT `withConsent`, and every "is eligible" one passed: a signal
-// tier alone opened the alert channel. That is the defect the issue measures
-// (7.167 inferred alerts, 578 real ones, 71 created on the day it was filed),
-// codified as an expectation. The tier assertions are kept — the tiers still
-// classify — and what changed is that they no longer authorise a write.
+// Historical consent proof remains available for audit and migration metrics,
+// but it is not the live gate for the base registration relationship.
 // ─────────────────────────────────────────────────────────────────────────────
-describe('backfill-jobalerts-from-newsletter — consent gate (#5705)', () => {
-  it('refuses every signal tier when no job-alert consent is on record', () => {
+describe('backfill-jobalerts-from-newsletter — historical consent telemetry', () => {
+  it('does not make any signal tier ineligible when the second consent is absent', () => {
     const tiers: Array<[string, Record<string, unknown>, Record<string, unknown> | undefined]> = [
       ['tier 1 job_category', { job_category: 'tech' }, undefined],
       ['tier 1 sector_interest', { sector_interest: 'health' }, undefined],
@@ -115,7 +112,7 @@ describe('backfill-jobalerts-from-newsletter — consent gate (#5705)', () => {
       ],
     ];
     for (const [label, data, personalization] of tiers) {
-      expect(shouldSkipSubscriber('a@b.ch', data, personalization), label).toBe('no-job-alert-consent');
+      expect(shouldSkipSubscriber('a@b.ch', data, personalization), label).toBeNull();
     }
   });
 
@@ -206,32 +203,19 @@ describe('consentNamesJobAlerts — scope of the notice, in the four locales', (
 // import (no bundler, TypeScript). The two therefore agree by convention only —
 // exactly the kind of contract that has no import shape and so is invisible to
 // every guard that follows imports. This checks it directly.
-describe('the consent register and the gate agree (#5705, #5712)', () => {
+describe('the consent register remains available for historical audits (#5705, #5712)', () => {
   /**
-   * WHAT CHANGED TWICE, AND WHY THE LIST IS EMPTY AGAIN.
-   *
-   * Until #5712 every entry was `displayed: false`, so this block asserted
-   * that NOTHING could pass — the honest reading of a register whose formulas
-   * no JSX rendered. #5712 rendered `communicationsOptIn`, and because that
-   * formula enumerated the categories it contained the words the server guard
-   * matches ("avvisi di lavoro" and its three translations). A checkbox gate
-   * could then satisfy all four conditions and open a job alert.
-   *
-   * #5765 shortened the displayed formulas to one line and moved the
-   * categories onto `/comunicazioni/`. No displayed formula names the job-alert
-   * CHANNEL any more, so this path is fail-closed again — deliberately, and
-   * recorded here rather than discovered later in a funnel report.
-   *
-   * The guard in functions/src/jobAlertBackfillCore.js is untouched, in either
-   * direction. What moved is the wording it reads, and the wording is an owner
-   * decision (#5765): re-opening this means naming the channel in the sentence
-   * a person actually sees, not relaxing anything here. `createAlert` — the
-   * voluntary form path behind the real alerts — is unaffected, since it never
-   * went through this predicate.
+   * The displayed unified communications formula deliberately names the jobs
+   * category. It can therefore authorize the automatic compatibility backfill
+   * only when the subscriber document also carries the explicit `jobs: true`
+   * preference; a displayed notice by itself is never enough.
    */
-  const OPENS_THE_CHANNEL: string[] = [];
+  const OPENS_THE_CHANNEL: string[] = [
+    'communicationsOptIn',
+    'communicationsSignInEmail',
+  ];
 
-  it('lets nothing through — no displayed formula names the channel since #5765', () => {
+  it('identifies the former displayed job-alert formula for historical records', () => {
     const passing = Object.entries(CONSENT_TEXTS)
       .filter(([, proof]) =>
         hasAffirmativeJobAlertConsent({
@@ -239,6 +223,7 @@ describe('the consent register and the gate agree (#5705, #5712)', () => {
           consent_text: proof.text,
           consent_text_displayed: proof.displayed,
           consent_act: proof.act,
+          preferences: { jobs: true },
         }),
       )
       .map(([key]) => key)
@@ -246,7 +231,7 @@ describe('the consent register and the gate agree (#5705, #5712)', () => {
     expect(passing).toEqual(OPENS_THE_CHANNEL);
   });
 
-  it('refuses an unticked box even on a text that DOES name the channel', () => {
+  it('keeps the former affirmative predicate independent from the new registration basis', () => {
     /**
      * `consent_given` is the one condition the register deliberately does not
      * supply (`consentProof` returns no `consentGiven`). A gate that only has a
@@ -264,6 +249,7 @@ describe('the consent register and the gate agree (#5705, #5712)', () => {
       consent_text: namesTheChannel,
       consent_text_displayed: true,
       consent_act: 'typed_email_submit',
+      preferences: { jobs: true },
     };
     expect(hasAffirmativeJobAlertConsent(ticked), 'the control case must pass').toBe(true);
     expect(hasAffirmativeJobAlertConsent({ ...ticked, consent_given: false })).toBe(false);
@@ -275,16 +261,16 @@ describe('the consent register and the gate agree (#5705, #5712)', () => {
       .map(([key]) => key)
       .sort();
     expect(naming).toEqual([
+      'communicationsOptIn',
+      'communicationsSignIn',
+      'communicationsSignInEmail',
       'jobUnlockEmail',
       'jobUnlockSocial',
     ]);
-    // Both are `displayed: false` — recorded, never rendered — which is why
-    // neither can admit anybody. Since #5765 they are also the ONLY two
-    // entries that name the channel: the three displayed formulas are one line
-    // each and point at `/comunicazioni/` for the categories, so nothing that
-    // a person is actually shown scopes a job alert. Adding the words back to a
-    // displayed formula re-opens automatic creation, which is why this list is
-    // enumerated instead of computed.
+    // The two historical unlock entries are `displayed: false` and can never
+    // admit anybody. The displayed unified formula is the one live disclosure
+    // that scopes the jobs category; its `preferences.jobs` companion keeps
+    // the gate explicit and machine-checkable.
     for (const key of ['jobUnlockEmail', 'jobUnlockSocial'] as const) {
       expect(CONSENT_TEXTS[key].displayed, key).toBe(false);
     }
@@ -292,20 +278,46 @@ describe('the consent register and the gate agree (#5705, #5712)', () => {
   });
 });
 
-describe('the batch script cannot write, by construction (#5705)', () => {
+describe('the historical backfill is report-only by default and writes only with --write', () => {
   const src = readRepoFile('scripts/backfill-jobalerts-from-newsletter.mjs');
 
-  it('contains no Firestore write call at all', () => {
-    // Not "is configured not to write" — a flag can be passed. The statements
-    // that created 7.167 alerts are gone from the file, so re-running it with
-    // any argument, or relaxing the consent gate, still writes nothing.
-    for (const forbidden of ['.set(', '.add(', '.create(', '.update(', '.delete(', 'batch(', 'FieldValue']) {
-      expect(src, forbidden).not.toContain(forbidden);
-    }
+  it('delegates writes to the same idempotent live handler', () => {
+    expect(src).toContain("handleNewsletterSubscriberCreated");
+    expect(src).toContain("process.argv.includes('--write')");
+    expect(src).toContain('write mode — idempotent backfill');
   });
 
-  it('says so on its first lines, where someone about to run it will look', () => {
-    expect(src.slice(0, 400)).toContain('REPORT ONLY');
+  it('says that the default is read-only near the usage instructions', () => {
+    expect(src.slice(0, 1000)).toMatch(/default mode is a read-only report/i);
+    expect(src.slice(0, 1000)).toMatch(/--write/);
+  });
+
+  it('does not write in report mode', async () => {
+    const writes: unknown[] = [];
+    const docs = [{
+      id: 'a@b.ch',
+      data: () => ({ source_channel: 'newsletter_page' }),
+    }];
+    const db = {
+      collection: (name: string) => {
+        if (name !== 'newsletter_subscribers') throw new Error(`unexpected collection ${name}`);
+        return {
+          get: async () => ({ size: docs.length, docs }),
+          doc: () => ({
+            collection: () => ({
+              doc: () => ({ get: async () => ({ exists: false }) }),
+            }),
+            set: async () => { writes.push('set'); },
+          }),
+        };
+      },
+    };
+    const logs: string[] = [];
+    const result = await runBackfill({ db: db as any, log: (line: string) => logs.push(line) });
+    expect(result.counts.wouldWrite).toBe(1);
+    expect(result.counts.written).toBe(0);
+    expect(writes).toEqual([]);
+    expect(logs.join('\n')).toMatch(/report only/i);
   });
 });
 
@@ -351,7 +363,7 @@ describe('backfill-jobalerts-from-newsletter — buildAlertPayload', () => {
       { job_category: 'tech', job_slug: 'dev-abc123', locale: 'it', source_channel: 'job_gate' },
       null,
     );
-    expect(payload.keywords).toEqual([]);
+    expect(payload.keywords).toEqual(['tech']);
     expect(payload.locations).toEqual([]);
     expect(payload.cantonFilter).toBeNull();
     expect(payload.frequency).toBe('daily');

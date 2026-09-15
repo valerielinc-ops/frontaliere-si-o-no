@@ -58,69 +58,26 @@
  * click away from running again. `cadence` is the field that must stop
  * promising, and it does.
  *
- * THE ONE CHANNEL WHOSE CONSENT IS AN OPT-OUT (#5759)
- * ---------------------------------------------------
- * `publisher-blast` carried `consentCategory: null` from #5712 until #5759. It
- * is third-party advertising — a different PURPOSE, not another format of the
- * editorial category — and no formula in the register admitted it. That null
- * was never an oversight to be tidied away by picking the nearest category:
- * the choice belonged to the owner, and quietly filing it under "editorial" is
- * the shortcut that produced 6.308 unrequested job alerts (#5705).
+ * THE ADVERTISING PREFERENCE CONTROL (#5759)
+ * ----------------------------------------
+ * `publisher-blast` is third-party advertising: a different communication
+ * category from editorial updates, jobs and service messages. It therefore
+ * has its own row on `/comunicazioni/` and its own preference-centre control,
+ * while remaining part of the base registration activated by the Terms and
+ * Conditions.
  *
- * The owner answered on 2026-08-13 (#5764 §3, #5759). The answer has three
- * parts and they only work together:
+ * A current registration writes `ADVERTISING_CONSENT_FIELD` as the activation
+ * marker. The preference centre can turn it off and writes the legacy
+ * `ADVERTISING_OPT_OUT_FIELD` as a hard deny. Absence is false for historical
+ * records, so the matcher cannot manufacture an advertising audience during
+ * the migration. The matcher, the authenticated preference writer and the
+ * token endpoint all read/write the same fields; the tests keep those deploy
+ * units aligned.
  *
- *   1. advertising is NAMED — as its own consent category, on
- *      `/comunicazioni/`, which is where #5765 moved every category. The
- *      formula at the gates stays one line and points there;
- *   2. NO extra checkbox at the signup gates. The number of ticks does not
- *      change, so what is collected is an OPT-OUT and not an opt-in. That is a
- *      weaker position than a dedicated box, and it was chosen knowingly;
- *   3. the reader can switch THIS channel off on its own, from the preference
- *      centre — `ADVERTISING_OPT_OUT_FIELD` on the subscriber document, read
- *      by services/publisherBlastMatch.mjs.
- *
- * Part 3 is what makes part 2 defensible, so removing the switch means
- * removing the category too; `tests/consent-shown-at-signup.test.tsx` and
- * `tests/preference-center-coverage.test.ts` assert the three as one.
- *
- * It is a CATEGORY and not an advertiser. A second advertising channel
- * tomorrow is covered by the same disclosure and the same switch — the
- * property this whole page is built around, and the reason no sponsor is
- * named anywhere in it.
- *
- * WHO IT COVERS — THE WHOLE LIST, RETROACTIVELY, SINCE 2026-08-14
- * ---------------------------------------------------------------
- * #5759 shipped with a fourth part that is no longer there. A subscriber whose
- * stored `consent_text` pointed at a page version older than
- * `ADVERTISING_NAMED_FROM_PAGE_VERSION` was excluded from the blast, on the
- * ground that the page they read did not name advertising — which on the day
- * it shipped was every existing subscriber, the audience being expected to
- * refill with people who read the new sentence.
- *
- * The owner was told that this is what it meant and answered on 2026-08-14:
- * do not wait, third-party advertising may reach the whole list. So the filter
- * is gone (`consentCoversAdvertising`, services/publisherBlastMatch.mjs) and
- * what is left standing is the pair in points 1 and 3 above — the page that
- * names the category, and the switch that turns it off — applied to people who
- * were subscribed before either existed. That is weaker than waiting, it is
- * the owner's call, and the file that carries the decision says so in the
- * function that used to enforce the opposite.
- *
- * Two things follow, and both are asserted rather than hoped for:
- *   - the page may not go on saying that early subscribers are exempt. It said
- *     exactly that until this change, in four locales, in `CATEGORY_NOTE` and
- *     in the `cadence` below — a page that describes a filter the sender does
- *     not apply is worse than one that describes none;
- *   - the switch and the naming are now the ENTIRE defence, so
- *     `tests/consent-shown-at-signup.test.tsx` keeping them inseparable stops
- *     being a formality.
- *
- * The channel itself stays `suspended`. Naming it creates the basis on which
- * it could run; turning the workflow back on is an act on the Actions API, and
- * this registry may never claim `live` for something the API has disabled —
- * that is #5745, and the marker in the workflow file is what keeps the two in
- * step.
+ * The channel itself stays `suspended`. Naming it documents the capability,
+ * but the registry may never claim `live` for a workflow disabled at the
+ * Actions API level — that is #5745, and the marker in the workflow file is
+ * what keeps the two in step.
  */
 // Relative, not `@/`: `build-plugins/communicationsPagePlugin.ts` imports this
 // module and is itself reachable from vite.config.ts, which esbuild bundles
@@ -163,31 +120,35 @@ export function isUncoveredChannel(channel: {
 }
 
 /**
- * The subscriber-document field that switches third-party advertising off, and
- * only that (#5759).
+ * Legacy hard-deny field for third-party advertising (#5759).
  *
- * Absent means ON: the owner's decision is an opt-out, so the switch can only
- * ever be read as `=== true`. Named here because the writers are TypeScript
- * (the preference centre) and JavaScript in another deploy unit (the Cloud
- * Function), and the reader is an `.mjs` that cannot import either — the same
- * no-import-shape boundary as `SUSPENDED_WORKFLOW_MARKER`, held together the
- * same way, by a test that reads both sides.
+ * It is retained for historical records and remains authoritative when true.
+ * The absence of the newer activation marker does not block a subscriber:
+ * third-party advertising follows the same no-proof-gate policy as the other
+ * base communications. Named here because the writers are TypeScript (the
+ * preference centre) and JavaScript in another deploy unit (the Cloud
+ * Function), while the reader is an `.mjs` that cannot import either.
  */
 export const ADVERTISING_OPT_OUT_FIELD = 'advertising_opt_out';
 
 /**
+ * Base-registration activation marker for third-party advertising. It is
+ * written on new registrations and retained for audit/UI compatibility, but
+ * its absence is not a delivery gate for an existing subscriber.
+ */
+export const ADVERTISING_CONSENT_FIELD = 'consent_advertising';
+
+/**
  * The first page version whose text named third-party advertising.
  *
- * FROZEN, and since 2026-08-14 no longer a filter on anything. It gated the ad
- * blast from #5759 until the owner decided that the disclosure applies to the
- * whole list including the people who subscribed before it existed; what it
- * records now is a date — the revision at which `/comunicazioni/` grew its
- * "Pubblicità di terzi" section — which stays true whatever is done with it.
+ * FROZEN. It records the first revision at which `/comunicazioni/` grew its
+ * "Pubblicità di terzi" section. It is retained for reporting/audit and is not
+ * a substitute for the affirmative purpose-specific field.
  *
  * `advertisingDisclosureWasShown` (services/publisherBlastMatch.mjs) still
  * reads it, to REPORT per recipient whether their own proof predates the
- * naming. That number is the measurable cost of the retroactive decision, so
- * the constant has to keep meaning what it says.
+ * naming. It is an audit signal only, so the constant has to keep meaning what
+ * it says.
  *
  * It moves only if the disclosure is withdrawn and re-issued, which is a new
  * owner decision. `services/publisherBlastMatch.mjs` carries the same literal —
@@ -470,10 +431,10 @@ export const COMMUNICATION_CHANNELS: readonly CommunicationChannel[] = Object.fr
       fr: 'Messages promotionnels d’entreprises tierces qui paient pour atteindre le lectorat de ce site.',
     },
     cadence: {
-      it: 'Sospeso dal 12 agosto 2026: il workflow è disattivato e non parte nulla. Non ha mai spedito: zero annunci a pagamento in coda al momento della sospensione. Se verrà riattivato potrà raggiungere tutte le persone iscritte, comprese quelle iscritte prima che questa pagina nominasse la pubblicità di terzi, e mai chi lo ha disattivato dalle proprie preferenze o ha chiesto di non ricevere più email.',
-      en: 'Suspended since 12 August 2026: the workflow is disabled and nothing goes out. It has never sent anything: zero paid ads queued at the time. If it is switched back on it may reach everyone who is subscribed, including people who subscribed before this page named third-party advertising — and never anyone who has switched it off in their preferences or asked to stop receiving email.',
-      de: 'Seit dem 12. August 2026 ausgesetzt: der Workflow ist deaktiviert, es geht nichts hinaus. Er hat nie etwas versendet: null bezahlte Anzeigen in der Warteschlange. Bei einer Reaktivierung kann er alle angemeldeten Personen erreichen, auch jene, die sich angemeldet haben, bevor diese Seite Werbung Dritter nannte — und nie jemanden, der ihn in den eigenen Einstellungen abgeschaltet oder den Erhalt von E-Mails abbestellt hat.',
-      fr: 'Suspendu depuis le 12 août 2026 : le workflow est désactivé et rien ne part. Il n’a jamais rien envoyé : zéro annonce payante en attente. S’il est réactivé, il pourra atteindre toutes les personnes inscrites, y compris celles inscrites avant que cette page ne nomme la publicité de tiers, et jamais quelqu’un qui l’a désactivé depuis ses préférences ou qui a demandé à ne plus recevoir d’e-mails.',
+      it: 'Sospeso dal 12 agosto 2026: il workflow è disattivato e non parte nulla. Non ha mai spedito: zero annunci a pagamento in coda al momento della sospensione. Se verrà riattivato potrà raggiungere gli iscritti del rapporto base che non avranno disattivato questa categoria, e mai chi ha chiesto di non ricevere più email.',
+      en: 'Suspended since 12 August 2026: the workflow is disabled and nothing goes out. It has never sent anything: zero paid ads queued at the time. If it is switched back on, it may reach base subscribers who have not switched this category off, and never anyone who has asked to stop receiving email.',
+      de: 'Seit dem 12. August 2026 ausgesetzt: Der Workflow ist deaktiviert, es geht nichts hinaus. Er hat nie etwas versendet: Zum Zeitpunkt der Aussetzung waren null bezahlte Anzeigen in der Warteschlange. Bei einer Reaktivierung kann er Basis-Abonnenten erreichen, die diese Kategorie nicht deaktiviert haben — niemals Personen, die den Erhalt von E-Mails abbestellt haben.',
+      fr: 'Suspendu depuis le 12 août 2026 : le workflow est désactivé et rien ne part. Il n’a jamais rien envoyé : aucune annonce payante n’était en attente au moment de la suspension. S’il est réactivé, il pourra atteindre les abonnés de base qui n’auront pas désactivé cette catégorie, et jamais ceux qui ont demandé à ne plus recevoir d’e-mails.',
     },
   }),
 ]);
@@ -575,7 +536,7 @@ export const COMMUNICATIONS_PAGE_PATH: Readonly<Record<ConsentLocale, string>> =
  * formula's own `version` is bumped too. One page edit, one consent version —
  * which is the property the whole arrangement exists to buy.
  */
-export const COMMUNICATIONS_PAGE_VERSION = '2026-08-14.1';
+export const COMMUNICATIONS_PAGE_VERSION = '2026-09-15.1';
 
 /**
  * Published version → fingerprint of the page content at that version.
@@ -601,6 +562,15 @@ export const COMMUNICATIONS_PAGE_REVISIONS: Readonly<Record<string, string>> = O
   // dati" grows the recipients, the profiling and the business-transfer
   // disclosures. `2026-08-13.3` above is untouched — people were pointed at it.
   '2026-08-14.1': '28c22f25c931e7ab',
+  // 2026-09-14 — third-party advertising is explicitly opt-in and the page
+  // now states the recipient boundary, the provider boundary and the rule for
+  // any future change of controller.
+  '2026-09-14.1': 'ad30d38fe4c8427a',
+  '2026-09-14.2': '5e5f1488c979d73c',
+  // 2026-09-15 — the base registration now includes third-party advertising;
+  // the preference-centre control is an opt-out, and the sharing disclosures
+  // describe advertising partners and a possible business transfer.
+  '2026-09-15.1': '3cf863fce20723b5',
 });
 
 /** Channels grouped by the consent sentence that authorises them, page order preserved. */

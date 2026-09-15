@@ -10,20 +10,17 @@
  * 2026-08: 6.854 of 6.864 job-alert addresses also sit in the newsletter
  * collection — summing the two overstates by ~45%). This script unions them
  * by lowercased email:
- *   - newsletter side: status `confirmed` AND the recorded proof of the
- *     double-opt-in click. (This was the stricter bar of a NEW channel until
- *     #5686; the weekly newsletter now shares the same proof gate, from the
- *     same module. It stays stricter only in the `confirmed`-only admission
- *     below, which is about this channel's cadence, not about consent.)
+ *   - newsletter side: every registered row not excluded by its status or a
+ *     recorded opt-out. Registration terms, not a second checkbox, establish
+ *     the base relationship; no confirmation proof is required for delivery.
  *   - job-alert side: root docs not excluded by isJobAlertExcluded().
- *   - anyone whose newsletter document records an exclusion — the status
- *     (unsubscribed/inactive or address-suppressed) OR the opt-out stamp in
- *     either spelling — is OUT even if they sit in the job-alert collection:
- *     an explicit broadcast opt-out wins over membership. That rule is now
- *     the system's, not this channel's: #5688 gave the alert senders their
- *     own reading of it (isCrossChannelStop, services/emailSuppression.mjs).
- *   - anyone whose newsletter doc carries NO confirmation stamp is OUT of
- *     every channel, job alert included — see hasConfirmationProof() (#5677).
+ *   - anyone whose newsletter document records a hard address suppression or
+ *     the explicit global stop-all flag is OUT even if they sit in the
+ *     job-alert collection. A newsletter-only unsubscribe/inactivity state is
+ *     scoped to the newsletter and does not silence this separately requested
+ *     channel (isCrossChannelStop, services/emailSuppression.mjs).
+ *   - anyone whose newsletter doc carries a hard address stop or a global
+ *     stop-all flag is OUT of every channel, job alert included.
  *
  * WHAT THIS SCRIPT DELIBERATELY DOES NOT DO
  *   - No `last_sent_at` WRITE. The newsletter and job-alert senders exclude
@@ -62,9 +59,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { isNewsletterExcluded, isJobAlertExcluded } from '../services/emailSuppression.mjs';
+import { isCrossChannelStop, isNewsletterExcluded, isJobAlertExcluded } from '../services/emailSuppression.mjs';
 import { isNewsletterOptOutBinding } from '../services/newsletterOptOut.mjs';
-import { hasConfirmationProof } from '../services/subscriberConsent.mjs';
 import { sanitizeFirstName, nlNormLocale } from '../services/newsletter-template.mjs';
 import { buildDailyBriefEmail, briefSections } from '../services/daily-brief-template.mjs';
 import { makeOneClickUnsubscribeUrl, makePreferencesUrl } from '../services/newsletterUrls.mjs';
@@ -195,17 +191,6 @@ export async function loadDayPayload(todayIso, { dryRun = false, fetchImpl = fet
 // ── Recipients: the deduplicated union ─────────────────────────────────────
 
 /**
- * The consent gate — one definition, in services/subscriberConsent.mjs, where
- * every sender can reach it. It lived here until #5686 found the weekly
- * newsletter mailing every unconfirmed row for want of the same check; a rule
- * that two senders must agree on cannot live inside one of them.
- *
- * Re-exported so `tests/daily-brief-recipients.test.ts` keeps asserting it
- * against the sender that consumes it, not only against the module.
- */
-export { hasConfirmationProof };
-
-/**
  * Pure dedup: union the two collections' rows by lowercased email.
  * @param {Array<{email: string, status?: string, locale?: string, name?: string, doc?: object}>} newsletterRows
  * @param {Array<{email: string, status?: string, doc?: object}>} jobAlertRows
@@ -216,18 +201,10 @@ export function dedupeRecipients(newsletterRows, jobAlertRows) {
   const stats = {
     newsletterSeen: newsletterRows.length,
     jobAlertSeen: jobAlertRows.length,
-    newsletterConfirmed: 0,
+    newsletterRegistered: 0,
     newsletterExcluded: 0,
-    // Rows held back for want of a confirmation stamp — split by what the
-    // `status` field claimed, because the two halves are different defects and
-    // the run log has to keep them apart: `status: 'confirmed'` with no stamp
-    // is fabricated consent (a recovery procedure wrote it), while `pending`
-    // with no stamp is a signup that never completed.
-    unconfirmedClaimedConfirmed: 0,
-    unconfirmedPending: 0,
     jobAlertEligible: 0,
     jobAlertExcluded: 0,
-    jobAlertBlockedUnconfirmed: 0,
     optOutWins: 0,
     union: 0,
     overlap: 0,
@@ -243,59 +220,26 @@ export function dedupeRecipients(newsletterRows, jobAlertRows) {
 
   for (const [email, row] of nlByEmail) {
     const status = String(row.status || '').trim().toLowerCase();
-    // Status AND stamp. `status` is one last-writer-wins field: #5672's
-    // resurrection ring overwrote it on 186 documents, 49 of which received
-    // that day's brief — this channel is where that was measured. The stamp
-    // survives it, in whichever of the two spellings the writer used (#5673),
-    // and since #5711 it is append-only — so the shared predicate, never a bare
-    // presence check, because only a strictly later re-opt-in lifts it.
     if (isNewsletterExcluded(status) || isNewsletterOptOutBinding(row.doc || row)) {
       stats.newsletterExcluded++;
       continue;
     }
-    // NO STAMP → OUT OF EVERY CHANNEL. Not "neutral", not "let the job-alert
-    // side decide": an address that never completed the double opt-in is not
-    // reachable by this email, and the job-alert loop below re-checks the same
-    // predicate so membership in job_alert_subscribers cannot route around it.
-    if (!hasConfirmationProof(row)) {
-      if (status === 'confirmed') stats.unconfirmedClaimedConfirmed++;
-      else stats.unconfirmedPending++;
-      continue;
-    }
-    if (status === 'confirmed') {
-      stats.newsletterConfirmed++;
-      byEmail.set(email, { email, locale: nlNormLocale(row.locale), name: row.name || null, source: 'newsletter', nlDoc: row.doc || null, jaDoc: null });
-    }
-    // `pending` WITH the stamp falls through deliberately: it is not admitted
-    // from the newsletter side (that side stays confirmed-only) but it does
-    // not block the job-alert side either — it is a confirmed subscriber whose
-    // status was flipped by the deliverability re-probe, not a missing consent.
+    stats.newsletterRegistered++;
+    byEmail.set(email, { email, locale: nlNormLocale(row.locale), name: row.name || null, source: 'newsletter', nlDoc: row.doc || null, jaDoc: null });
   }
 
   for (const row of jobAlertRows) {
     const email = norm(row.email);
     if (!email || !email.includes('@')) continue;
     const nlRow = nlByEmail.get(email);
-    const nlStatus = nlRow ? String(nlRow.status || '').trim().toLowerCase() : null;
-    // Explicit broadcast opt-out (or a bounced/complained address) wins over
-    // job-alert membership. isNewsletterExcluded already contains every status
-    // isAddressSuppressed does, so the second call this line used to make was
-    // dead; what was genuinely missing is the stamp, same as the newsletter
-    // side above. `nlRow` is null for an address with no newsletter document at
-    // all, and the predicate reads that as "nothing recorded" — which is right:
-    // job-alert membership is its own basis, and there is no opt-out to honour.
-    if (isNewsletterExcluded(nlStatus) || isNewsletterOptOutBinding(nlRow?.doc || nlRow)) {
+    // A hard address suppression or the explicit stop-all action wins over
+    // job-alert membership. A newsletter-only unsubscribe/inactivity state is
+    // deliberately not applied here: this recipient may have separately asked
+    // for a job-alert/daily-brief channel. `nlRow` is null when no newsletter
+    // document exists, and the cross-channel predicate reads that as no global
+    // stop — the job-alert membership remains its own basis.
+    if (isCrossChannelStop(nlRow?.doc || nlRow)) {
       stats.optOutWins++;
-      continue;
-    }
-    // The consent gate, restated on this side — this is the hole #5677 was
-    // filed for. A newsletter doc that exists but carries no confirmation
-    // stamp keeps the address out, however eligible the job alert is; only an
-    // address with NO newsletter doc at all enters on job-alert membership
-    // alone (job alerts have no double opt-in: the doc exists because the user
-    // created the alert).
-    if (nlRow && !hasConfirmationProof(nlRow)) {
-      stats.jobAlertBlockedUnconfirmed++;
       continue;
     }
     if (isJobAlertExcluded(row.status)) {
@@ -318,9 +262,9 @@ export function dedupeRecipients(newsletterRows, jobAlertRows) {
     }
   }
 
-  // Deterministic order: confirmed newsletter members first (double-opt-in,
-  // engaged), then job-alert-only; alphabetical within each group — so a
-  // capacity cut is stable across reruns and the resume set stays coherent.
+  // Deterministic order: newsletter members first, then job-alert-only;
+  // alphabetical within each group — so a capacity cut is stable across
+  // reruns and the resume set stays coherent.
   const recipients = [...byEmail.values()].sort((a, b) => {
     if (a.source !== b.source) return a.source === 'newsletter' ? -1 : 1;
     return a.email.localeCompare(b.email);
@@ -637,15 +581,8 @@ async function main() {
   const { newsletterRows, jobAlertRows } = await fetchRecipients(db);
   const { recipients, stats } = dedupeRecipients(newsletterRows, jobAlertRows);
   console.log(
-    `👥 dedup: newsletter ${stats.newsletterSeen} (confirmed ${stats.newsletterConfirmed}) ∪ job-alert ${stats.jobAlertSeen} (eligible ${stats.jobAlertEligible})` +
+    `👥 dedup: newsletter ${stats.newsletterSeen} (registered ${stats.newsletterRegistered}) ∪ job-alert ${stats.jobAlertSeen} (eligible ${stats.jobAlertEligible})` +
     ` → UNION ${stats.union} (overlap ${stats.overlap}, opt-out wins ${stats.optOutWins})`,
-  );
-  // Printed unconditionally, including when it is zero: this is the LPD-facing
-  // number (#5677) and a silent gate is how the previous one stayed open.
-  console.log(
-    `🔒 double opt-in: trattenuti ${stats.unconfirmedClaimedConfirmed + stats.unconfirmedPending}` +
-    ` senza timbro di conferma (status 'confirmed' senza prova: ${stats.unconfirmedClaimedConfirmed},` +
-    ` non confermati: ${stats.unconfirmedPending}) — di cui ${stats.jobAlertBlockedUnconfirmed} avevano un job alert che li avrebbe fatti entrare`,
   );
 
   const nowMs = Date.now();

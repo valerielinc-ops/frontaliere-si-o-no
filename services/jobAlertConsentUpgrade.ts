@@ -70,6 +70,7 @@ import {
 } from './consentTexts';
 import { COMMUNICATIONS_PAGE_VERSION } from './communicationChannels';
 import { isNewsletterOptOutBinding } from './newsletterOptOut.mjs';
+import { isCrossChannelStop } from './emailSuppression.mjs';
 
 /**
  * The register entry whose sentence the activation surfaces render.
@@ -214,11 +215,10 @@ export function buildJobAlertConsentProof(opts: {
 /**
  * Decide whether this one alert document may be stamped.
  *
- * THE ORDER IS THE CONTRACT — see the header. Opt-out first, on the alert AND
- * on its parent subscriber document, because an opt-out recorded at either
- * level is an opt-out; then provenance; then the existing-proof guard. Reversing
- * the first two is the #5692 shape and `tests/job-alert-consent-upgrade.test.ts`
- * fails on it.
+ * THE ORDER IS THE CONTRACT — see the header. A per-alert opt-out on the alert
+ * itself or the explicit global stop on its parent comes first; then provenance;
+ * then the existing-proof guard. A newsletter-only opt-out is intentionally not
+ * a parent stop for this job-alert channel.
  */
 export function planJobAlertConsentUpgrade(input: {
   alert: DocData;
@@ -228,12 +228,11 @@ export function planJobAlertConsentUpgrade(input: {
   const { alert, subscriber, proof } = input;
   if (!alert || typeof alert !== 'object') return { write: false, reason: 'no-document' };
 
-  // 1. THE OPT-OUT, FIRST AND ALWAYS. `isNewsletterOptOutBinding` reads
-  //    `status: 'unsubscribed'` and both spellings of the stamp, and honours a
-  //    later re-opt-in; job-alert unsubscribes write `unsubscribed_at` onto the
-  //    alert itself (functions/src/jobAlertUnsubscribe.js), so the same reader
-  //    covers both documents.
-  if (isNewsletterOptOutBinding(alert) || isNewsletterOptOutBinding(subscriber)) {
+  // 1. THE OPT-OUT, FIRST AND ALWAYS. `isNewsletterOptOutBinding` reads the
+  //    alert's own unsubscribe stamp; the parent uses the shared cross-channel
+  //    predicate, which means hard address suppression or an explicit stop-all,
+  //    not the newsletter's channel-only unsubscribe.
+  if (isNewsletterOptOutBinding(alert) || isCrossChannelStop(subscriber)) {
     return { write: false, reason: 'opt-out-binding' };
   }
 

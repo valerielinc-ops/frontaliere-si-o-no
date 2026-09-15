@@ -17,7 +17,7 @@
  *
  *   action                            what the holder can do
  *   ───────────────────────────────── ──────────────────────────────────────────
- *   unsubscribe                       leave every list
+ *   unsubscribe                       leave the newsletter channel
  *   resubscribe                       (POST, #5711) go back onto the newsletter
  *   confirm                           complete a double opt-in, and mint a
  *                                     Firebase custom token for auto-login
@@ -26,8 +26,9 @@
  *   create_alert / update_alert /
  *   delete_alert                      write and destroy those alerts
  *   toggle_newsletter_subscription    subscribe / unsubscribe the newsletter
+ *   unsubscribe_all                   stop every email channel
  *   set_daily_brief_frequency         change the daily-brief cadence
- *   set_advertising_opt_out           switch third-party advertising off
+ *   set_advertising_opt_out           change the third-party advertising choice
  *   get_autologin_status              read whether autologin is on
  *   toggle_autologin                  turn the OTHER credential on and off
  *   revoke_autologin                  revoke the other credential entirely
@@ -176,6 +177,7 @@ const SCOPE_BY_ACTION = Object.freeze({
   revoke_autologin: TOKEN_SCOPES.PREFERENCES,
   get_full_status: TOKEN_SCOPES.PREFERENCES,
   toggle_newsletter_subscription: TOKEN_SCOPES.PREFERENCES,
+  unsubscribe_all: TOKEN_SCOPES.PREFERENCES,
   create_alert: TOKEN_SCOPES.PREFERENCES,
   update_alert: TOKEN_SCOPES.PREFERENCES,
   delete_alert: TOKEN_SCOPES.PREFERENCES,

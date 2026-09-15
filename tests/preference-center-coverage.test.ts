@@ -65,13 +65,9 @@ const SENDERS: Array<{ file: string; kind: 'recurring' | 'transactional' | 'outr
   { file: 'services/dormantWinbackStage1Email.mjs', kind: 'recurring', what: 'dormant win-back stage 1' },
   { file: 'services/companyAlertEmail.mjs', kind: 'recurring', what: 'followed-employer alert' },
   { file: 'scripts/send-saved-jobs-digest.mjs', kind: 'recurring', what: 'saved-jobs digest' },
-  // Reclassified `outreach` → `recurring` by #5759. It was outreach only in the
-  // sense that nobody had consented to it: the channel had no consent category,
-  // so it owed the reader nothing a subscriber channel owes. The owner's
-  // decision of 2026-08-13 made it a category of the newsletter relationship,
-  // collected as an opt-out — and an opt-out that the mail carrying it does not
-  // link to is the #5684 defect, restated on the one channel where the switch
-  // is the entire defence.
+  // Reclassified `outreach` → `recurring` by #5759. It is a subscriber-facing
+  // channel with its own optional advertising purpose and preference-centre
+  // control; the channel's email must carry a link back to that control.
   { file: 'services/publisherBlastEmail.mjs', kind: 'recurring', what: 'publisher ad blast' },
   // Re-pointed by #5692 from functions/src/newsletterConfirmationEmail.js, which
   // is now only the SENDER: the template moved to lib/ so the follow-up runner
@@ -119,11 +115,10 @@ const CHANNELS: Array<{ what: string; controlStrings: string[]; sender: string }
     sender: 'scripts/send-saved-jobs-digest.mjs',
   },
   {
-    // #5759. Listed here the day the channel acquired a consent category, which
-    // is the day it became a subscriber channel rather than a capability nobody
-    // had agreed to. Its consent is an OPT-OUT — no extra checkbox at signup —
-    // so of every row in this registry it is the one whose switch is not a
-    // convenience but the thing that makes the consent defensible at all.
+    // #5759. Listed here as a subscriber-facing channel with a separate,
+    // affirmative advertising purpose. Its switch must remain available even
+    // while the sender is suspended, so a future reactivation cannot treat an
+    // absent choice as consent.
     what: 'third-party advertising',
     controlStrings: [
       'adsTitle',
@@ -166,11 +161,15 @@ describe('#5684 point 1 — every recurring channel has a switch in the preferen
     expect(controllerSrc).toMatch(/optedOut:\s*!enabled/);
   });
 
-  it('the digest sender still reads the flag the centre writes', () => {
+  it('the digest sender reads the channel choice and the cross-channel stop', () => {
     // The two halves are in different languages and different deploy units, so
     // nothing but a test connects them. If the sender's gate moves, the switch
     // in the centre becomes decorative without failing anything else.
-    expect(read('scripts/send-saved-jobs-digest.mjs')).toContain('savedJobsDigest?.optedOut === true');
+    const senderSrc = read('scripts/send-saved-jobs-digest.mjs');
+    expect(senderSrc).toContain('isSavedJobsDigestEligible');
+    expect(senderSrc).toContain('isCrossChannelStop');
+    expect(senderSrc).toContain('digest.optedOut === true');
+    expect(senderSrc).toContain('digest.optedIn === true');
   });
 
   it('the ad blast reads the advertising flag the centre writes, in both modes', () => {
@@ -178,8 +177,10 @@ describe('#5684 point 1 — every recurring channel has a switch in the preferen
     // instead of two: the `.mjs` matcher that chooses the audience, the Cloud
     // Function behind token mode, and the component behind auth mode. A switch
     // whose polarity one of them reads differently is worse than no switch.
-    expect(read('services/publisherBlastMatch.mjs')).toContain('advertising_opt_out');
+    expect(read('services/publisherBlastMatch.mjs')).toContain('consent_advertising');
     expect(read('functions/src/newsletterSubscriptionManagement.js')).toContain('advertising_opt_out');
+    expect(read('functions/src/newsletterSubscriptionManagement.js')).toContain('consent_advertising');
+    expect(controllerSrc).toContain('consent_advertising');
     expect(controllerSrc).toContain('advertising_opt_out');
     // …and the audience filter is where it is applied, not merely mentioned.
     expect(matchSubscribersForAd(
@@ -189,6 +190,7 @@ describe('#5684 point 1 — every recurring channel has a switch in the preferen
         job_search_query: 'x',
         confirmed_at: '2026-08-13T00:00:00.000Z',
         consent_text: `frontaliereticino.ch/comunicazioni (versione ${ADVERTISING_NAMED_FROM_PAGE_VERSION}).`,
+        consent_advertising: true,
         advertising_opt_out: true,
       }],
       { minScore: 0 },
@@ -318,17 +320,23 @@ describe('#5684 point 3 — a preference set in the centre survives what comes a
     expect(read('services/newsletterOptOut.mjs')).toContain('export function isNewsletterOptOutBinding');
     expect(src).toContain('export { isNewsletterOptOutBinding }');
     expect(src).toContain('export async function isNewsletterOptedOut');
-    for (const p of ['App.tsx', 'components/community/JobBoard.tsx']) {
-      expect(read(p), `${p} must consult the opt-out before auto-subscribing`).toContain(
-        'isNewsletterOptedOut',
-      );
-    }
-    // Authentication is now access-only. `authService.ts` may enrich an
-    // existing profile, but it must not call the newsletter upsert or carry a
-    // hidden One Tap subscription path that would need an opt-out guard.
-    expect(read('services/authService.ts')).not.toMatch(
-      /(?:upsertNewsletterSubscriber|captureNewsletterSubscriber|persistOneTapSubscriber)/,
-    );
+    expect(read('App.tsx'), 'the explicit resubscribe flow must consult the newsletter opt-out')
+      .toContain('isNewsletterOptedOut');
+    const jobBoard = read('components/community/JobBoard.tsx');
+    expect(jobBoard, 'job access must use the shared base relationship')
+      .toContain('upsertUnifiedEmailSubscriber');
+    expect(jobBoard, 'job access must not present a second communications checkbox')
+      .not.toContain('authConsentChecked');
+    // A recorded explicit opt-out is still a hard boundary. It is enforced by
+    // the shared writer, independently from the old checkbox gate, so a job
+    // access or authentication event cannot silently overwrite it.
+    expect(src, 'the shared writer must preserve an explicit newsletter opt-out')
+      .toContain('if (optedOut && !isDedicatedReconsent)');
+    const authService = read('services/authService.ts');
+    expect(authService).toContain('upsertNewsletterSubscriber');
+    expect(authService).toContain('registrationTermsAccepted: true');
+    expect(authService).toContain('skipConfirmationEmail: true');
+    expect(authService).not.toMatch(/requestConfirmationEmail/);
   });
 
   it('the digest opt-out is not re-defaulted by a later login', () => {

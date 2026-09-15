@@ -1,10 +1,12 @@
 /**
- * THE INVARIANT: no channel mails an address that never opted in (#5686).
+ * THE INVARIANT: the base registration relationship reaches every base
+ * channel; explicit opt-outs and hard suppression still stop delivery.
  *
  * `tests/newsletter-confirmed-implies-stamp.test.ts` proves the WRITE side —
  * nothing fabricates `status: 'confirmed'` without the click that earns it.
  * This file is the READ side: given a corpus where `status` cannot be trusted,
- * which senders consult the proof before choosing a recipient.
+ * which senders still respect suppression, and which one consent-request flow
+ * consults confirmation proof for its own re-probe exclusion.
  *
  * It exists because the same defect was found twice in five days, in two
  * different channels, by two different people:
@@ -15,7 +17,9 @@
  *     a link auto-confirms them" — which nothing implements. 1.488 addresses
  *     that never confirmed had been receiving it indefinitely; the person who
  *     reported it had signed up on 2026-06-10, never confirmed, and was in the
- *     `weekly_2026-06-08` campaign two days later.
+ *     `weekly_2026-06-08` campaign two days later. The current terms-based
+ *     policy intentionally keeps those rows eligible unless they opt out or
+ *     are technically suppressed.
  * Both were fixed one channel at a time, and neither fix could see the other
  * coming, because nothing enumerated the channels. This does.
  *
@@ -30,9 +34,9 @@
  * what there was.
  *
  * WHAT IT DOES NOT PROVE, said plainly so nobody reads a wider promise into
- * it: that a file mentions the gate is not proof that the gate covers every
- * path through the file. It is proof that the author of a new channel had to
- * answer the question — which is the failure mode that produced both issues.
+ * it: a source scan cannot replace a delivery test. It does make each new
+ * sender declare whether it uses the terms-based base relationship, a separate
+ * explicit purpose, or no subscriber population at all.
  */
 import { describe, it, expect } from 'vitest';
 import { readdirSync } from 'node:fs';
@@ -54,17 +58,14 @@ import { ROOT, read, stripComments, discoverSenders } from './helpers/senders';
 
 const CALLS_GATE = /hasConfirmationProof\s*\(/;
 const CALLS_JOB_ALERT_GATE = /evaluateJobAlertConsent\s*\(/;
+const LIFECYCLE_SUPPRESSION_DELEGATES: Record<string, RegExp> = {
+  'scripts/newsletter-sunset.mjs': /classifySunset\s*\(/,
+  'scripts/newsletter-winback-campaign.mjs': /classifyDormantWinback\s*\(/,
+};
 
 type Verdict =
   /** Consults the proof before choosing a recipient. */
   | { verdict: 'gated'; why: string; gateIn?: string }
-  /**
-   * Its purpose is reaching people the ordinary campaigns no longer may, so
-   * the gate would make it inert. Declared, not ignored — and each one's real
-   * audience rule is asserted below, so "re-permission" cannot become a label
-   * somebody pins on an ordinary campaign to get past this file.
-   */
-  | { verdict: 're-permission'; why: string }
   /** Does not choose recipients from the subscriber collections at all. */
   | { verdict: 'not-a-broadcast'; why: string }
   /**
@@ -74,8 +75,8 @@ type Verdict =
    *
    * It cannot be `gated` — gating it on `hasConfirmationProof` returning true
    * would make it inert, since the whole population it exists for is the people
-   * for whom it returns false. It is not `re-permission` either: those two
-   * channels write to somebody who DID consent once and has gone quiet. And it
+   * for whom it returns false. It is not a lifecycle campaign either: those
+   * senders are gated by the same durable proof before they can write. And it
    * is not a broadcast — no content, no offer, one link, sent only to an address
    * that submitted the form itself.
    *
@@ -87,11 +88,11 @@ type Verdict =
    * pass on a file that reads the gate and ignores the answer.
    */
   | { verdict: 'consent-request'; why: string; gateIn?: string }
+  /** Base newsletter/job-alert relationship created at registration. */
+  | { verdict: 'terms-based'; why: string }
   /**
-   * Channel-aware gate: explicit job alerts keep their own consent basis, but
-   * inferred newsletter→job-alert backfills need a job-alert proof before the
-   * sender can use their `active` flag. This is deliberately not the generic
-   * newsletter `hasConfirmationProof` gate.
+   * Legacy type retained for the explicit-purpose cases below. Base job-alert
+   * delivery is represented by `terms-based` and uses suppression only.
    */
   | { verdict: 'channel-aware-gated'; why: string };
 
@@ -104,54 +105,45 @@ type Verdict =
  */
 const VERDICTS: Record<string, Verdict> = {
   'scripts/send-newsletter.mjs': {
-    verdict: 'gated',
-    why: '#5686 — the weekly campaign, the channel this file was written for',
+    verdict: 'terms-based',
+    why: 'registration terms establish the newsletter relationship; local unsubscribe and hard suppression remain active',
   },
   'scripts/send-daily-brief.mjs': {
-    verdict: 'gated',
-    why: '#5677 — gated on both sides of its union, and driven behaviourally in tests/daily-brief-recipients.test.ts',
+    verdict: 'terms-based',
+    why: 'the base relationship covers both newsletter and job-alert sides; each side still applies its own suppression',
   },
   'scripts/blast-publisher-ads.mjs': {
-    verdict: 'gated',
-    why: 'paid-ad blast over the whole collection — same class as #5686, fixed in the same PR',
-    gateIn: 'services/publisherBlastMatch.mjs',
+    verdict: 'terms-based',
+    why: 'third-party advertising is part of the base relationship; explicit category opt-out and hard suppression remain active',
   },
   'scripts/newsletter-sunset.mjs': {
-    verdict: 're-permission',
-    why: 'the sunset mail is the last thing a lapsed address gets; a consent gate here would only mean it lapses in silence',
+    verdict: 'terms-based',
+    why: 'the sunset lifecycle is newsletter mail and only explicit opt-out, excluded status or hard suppression stops it',
   },
   'scripts/newsletter-winback-campaign.mjs': {
-    verdict: 're-permission',
-    why: 'two-stage win-back at the dormant end of the engagement score — same reason as the sunset above',
+    verdict: 'terms-based',
+    why: 'the dormant lifecycle is newsletter mail and only explicit opt-out, excluded status or hard suppression stops it',
   },
   'scripts/send-onboarding-drip.mjs': {
-    verdict: 'gated',
-    why: '#5700 — was the known-gap entry this file recorded (admitted `pending` on isActive, and anchored enrollment on created_at when no stamp existed); both are gone, and the enrollment fallback with them',
+    verdict: 'terms-based',
+    why: 'onboarding is a base communication and follows the registration/suppression state',
   },
   'scripts/newsletter-confirmation-followups.mjs': {
     verdict: 'consent-request',
     why: '#5692 — reminders #2 and #3 of the double opt-in, the same email and the same link as #1. Its recipients are unconfirmed BY DEFINITION; what it consults the gate for is the opposite exclusion, the 842 `pending` re-probes that already carry `confirmed_at`',
     gateIn: 'functions/src/lib/confirmationFollowup.js',
   },
-  /**
-   * The two alert channels use a channel-aware gate. An alert somebody really
-   * created has a consent basis of its OWN and remains sendable; a historical
-   * newsletter backfill is not allowed to borrow `active` as consent and must
-   * carry either an alert-specific proof or an affirmative job-alert consent
-   * on the newsletter record. The newsletter opt-out remains a separate,
-   * cross-channel stop asserted in tests/no-channel-mails-opted-out.test.ts.
-   */
   'scripts/send-job-alerts.mjs': {
-    verdict: 'channel-aware-gated',
-    why: 'explicit alerts keep their own consent; historical newsletter backfills require evaluateJobAlertConsent before delivery',
+    verdict: 'terms-based',
+    why: 'the base job-alert relationship is created with registration; alert-local and cross-channel suppression still apply',
   },
   'scripts/send-company-alerts.mjs': {
-    verdict: 'channel-aware-gated',
-    why: 'the immediate sender shares the same explicit-vs-backfilled consent boundary as the daily digest',
+    verdict: 'terms-based',
+    why: 'following a company activates this additional channel on top of the base relationship; suppression still applies',
   },
   'scripts/send-saved-jobs-digest.mjs': {
-    verdict: 'not-a-broadcast',
-    why: 'audience is collectionGroup(savedJobs) + users/{uid} with its own opt-out; newsletter_subscribers is read per-address as a suppression cross-check only',
+    verdict: 'terms-based',
+    why: 'saving a job activates this additional channel; delivery still respects the central hard/global stop',
   },
   'scripts/send-cold-emails.mjs': {
     verdict: 'not-a-broadcast',
@@ -186,7 +178,7 @@ describe('every sender is classified', () => {
     const undeclared = senders.filter((s) => !(s in VERDICTS));
     expect(
       undeclared,
-      'a new sender must say whether it consults the consent gate, and why',
+      'a new sender must say whether it uses the base relationship or a separate consent request, and why',
     ).toEqual([]);
   });
 
@@ -201,6 +193,9 @@ describe('the verdicts hold', () => {
   const gated = entries.filter(([, v]) => v.verdict === 'gated') as Array<[string, Extract<Verdict, { verdict: 'gated' }>]>;
   const channelAware = entries.filter(([, v]) => v.verdict === 'channel-aware-gated') as Array<
     [string, Extract<Verdict, { verdict: 'channel-aware-gated' }>]
+  >;
+  const termsBased = entries.filter(([, v]) => v.verdict === 'terms-based') as Array<
+    [string, Extract<Verdict, { verdict: 'terms-based' }>]
   >;
   const consentRequests = entries.filter(([, v]) => v.verdict === 'consent-request') as Array<
     [string, Extract<Verdict, { verdict: 'consent-request' }>]
@@ -230,6 +225,10 @@ describe('the verdicts hold', () => {
     expect(stripComments(read(where))).not.toMatch(/function hasConfirmationProof/);
   });
 
+  it('has no ordinary sender left behind with a confirmation-proof gate', () => {
+    expect(gated.map(([file]) => file)).toEqual([]);
+  });
+
   it.each(channelAware)('%s consults the channel-aware job-alert gate', (file) => {
     const src = stripComments(read(file));
     expect(src, `${file} must call evaluateJobAlertConsent()`).toMatch(CALLS_JOB_ALERT_GATE);
@@ -240,20 +239,49 @@ describe('the verdicts hold', () => {
     ).toMatch(/export function evaluateJobAlertConsent\s*\(/);
   });
 
+  it.each(termsBased)('%s uses the terms-based relationship and still applies suppression', (file) => {
+    const src = stripComments(read(file));
+    expect(src, `${file} must not reintroduce the former confirmation gate`).not.toMatch(CALLS_GATE);
+    const hasLocalOrDelegatedSuppression = /isCrossChannelStop\s*\(|isNewsletterExcluded\s*\(|isNewsletterOptOutBinding\s*\(|isJobAlertExcluded\s*\(/.test(src)
+      || Boolean(LIFECYCLE_SUPPRESSION_DELEGATES[file]?.test(src));
+    expect(hasLocalOrDelegatedSuppression, `${file} must keep at least one central/channel suppression check`).toBe(true);
+  });
+
+  it('defers job alerts when the batched suppression lookup fails', () => {
+    const src = read('scripts/send-job-alerts.mjs');
+    const start = src.indexOf('const suppressionLookupFailedEmails');
+    const end = src.indexOf('if (suppressedEmails.size > 0)', start);
+    expect(start).toBeGreaterThan(-1);
+    expect(end).toBeGreaterThan(start);
+    const lookup = src.slice(start, end);
+    expect(lookup).toMatch(/catch \(err\)[\s\S]*chunk\.forEach\(\(email\) => suppressionLookupFailedEmails\.add/);
+    expect(lookup).toMatch(/alerts = alerts\.filter\(\(a\) => !suppressionLookupFailedEmails\.has/);
+  });
+
   it.each(notBroadcast)('%s does not scan a subscriber collection', (file) => {
     const src = stripComments(read(file));
     expect(src).not.toMatch(/collection\('newsletter_subscribers'\)\s*\.\s*get\(\)/);
     expect(src).not.toMatch(/collection\('job_alert_subscribers'\)\s*\.\s*get\(\)/);
   });
 
-  it('the re-permission channels are exactly the ones whose audience rule says so', () => {
-    // The label has to be earned by the code, or it becomes the sentence any
-    // ordinary campaign writes to get past this file. Both channels admit only
-    // an explicit mailable allowlist, and neither can be pointed at a fresh
-    // unconfirmed signup: `pending` is not in it.
-    const lapsed = { status: 'pending', sends: 99, last_sent_at: '2020-01-01T00:00:00.000Z', created_at: '2020-01-01T00:00:00.000Z' };
-    expect(classifySunset(lapsed, Date.now()).action).toBe('none');
-    expect(classifyDormantWinback({ ...lapsed, engagement_level: 'dormant' }, Date.now()).action).toBe('none');
+  it('the lifecycle win-back classifiers accept mailable rows without proof', () => {
+    // Ordinary communications do not use DOI proof as a delivery gate. The
+    // only refusal here should come from opt-out, excluded status, technical
+    // suppression or the lifecycle thresholds themselves.
+    const now = Date.now();
+    const lapsed = {
+      status: 'active',
+      send_count: 99,
+      open_count: 0,
+      click_count: 0,
+      created_at: '2020-01-01T00:00:00.000Z',
+    };
+    expect(classifySunset(lapsed, now).action).toBe('winback');
+    expect(classifyDormantWinback({
+      ...lapsed,
+      send_count: 5,
+      created_at: new Date(now - 30 * 24 * 60 * 60 * 1000).toISOString(),
+    }, now).action).toBe('stage1');
   });
 });
 
@@ -325,8 +353,15 @@ describe('send-newsletter.mjs: both recipient paths, not just the bulk one', () 
     expect(functionBody(src, 'fetchTargetSubscriber').length).toBeGreaterThan(200);
   });
 
-  it.each(['fetchSubscribers', 'fetchTargetSubscriber'])('%s consults the gate', (name) => {
-    expect(stripComments(functionBody(src, name))).toMatch(CALLS_GATE);
+  it.each(['fetchSubscribers', 'fetchTargetSubscriber'])('%s applies the newsletter suppression checks', (name) => {
+    expect(stripComments(functionBody(src, name))).toMatch(/isCrossChannelStop\s*\(|isNewsletterOptOutBinding\s*\(/);
+  });
+
+  it('the bulk path falls back to the Firestore document id for legacy rows without a usable email field', () => {
+    const body = functionBody(src, 'fetchSubscribers');
+    expect(body).toMatch(/normalizeEmailAddress\(row\.email\)/);
+    expect(body).toMatch(/email:\s*d\.id/);
+    expect(body).toMatch(/subscriberFromFirestoreRow\(rowForSend\)/);
   });
 
   it('the --test fallback profile cannot stand in for a refused document', () => {
@@ -360,8 +395,9 @@ describe('the fix that was NOT made, and why it must stay unmade', () => {
   it('`pending` is not in NEWSLETTER_EXCLUDED_STATUSES', () => {
     // The obvious fix, and the wrong one. That Set is shared with
     // newsletter-sunset, the dormant win-back, the onboarding drip and the
-    // transactional guard; `pending` in it would make the two re-permission
-    // channels inert — they exist to reach exactly these people. It would also
+    // transactional guard; `pending` in it would also drop the 847 production
+    // rows sitting at `pending` WITH a stamp, which represent deliverability
+    // re-probes on addresses that DID confirm. It would also
     // drop the 847 production rows sitting at `pending` WITH a stamp, which
     // scripts/mailtrap-suppression-retry.mjs writes as a deliverability
     // re-probe on addresses that DID confirm (measured 2026-08-12).
@@ -375,9 +411,10 @@ describe('the fix that was NOT made, and why it must stay unmade', () => {
     // #5692 closes an unanswered double opt-in after three requests, one per
     // day. The distinction from the paragraph above is the whole point and is
     // worth stating where somebody will read it:
-    //   - `pending` describes a document we have not finished asking. The two
-    //     re-permission channels must still reach those people, and 848 of
-    //     them (2026-08-13) have in fact already confirmed;
+    //   - `pending` describes a document we have not finished asking. The
+    //     confirmation-request channel still reaches people without proof,
+    //     while ordinary and lifecycle senders do not use proof as a delivery
+    //     gate;
     //   - `expired` describes one we HAVE finished asking. The record exists
     //     to say we asked three times and stopped, so a win-back or a sunset
     //     mail to that address contradicts the record itself.
@@ -462,8 +499,8 @@ describe('the fix that was NOT made, and why it must stay unmade', () => {
       const subscribeBranch = fn.slice(0, fn.indexOf('} else {'));
       expect(subscribeBranch).not.toMatch(/confirmed_at:\s*serverTimestamp\(\)/);
       expect(subscribeBranch).not.toMatch(/confirmedAt:\s*serverTimestamp\(\)/);
-      // The gate agrees with the write: a row that toggle produces without
-      // prior proof does not pass.
+      // The proof predicate remains an audit/confirmation-flow predicate; the
+      // ordinary senders do not consult it as a delivery gate.
       expect(hasConfirmationProof({
         status: 'subscribed',
         resubscribed_at: STAMP,

@@ -19,12 +19,14 @@ import { Bell, BellOff, Bookmark, Mail, Loader2, CheckCircle2, AlertCircle, Tras
 import {
  getFullSubscriptionStatus,
  toggleNewsletterSubscription,
+ stopAllEmails,
  toggleAutologin,
  deleteJobAlert,
  updateJobAlert,
  createJobAlert,
  setDailyBriefFrequency,
  setAdvertisingEnabled,
+ upsertUnifiedEmailSubscriber,
  isNewsletterOptOutBinding,
  isAccountDeletedSubscriber,
  DAILY_BRIEF_FREQUENCIES,
@@ -34,8 +36,10 @@ import {
  type JobAlertPatch,
  type JobAlertCreatePayload,
 } from '@/services/newsletterSubscribers';
+import { GLOBAL_EMAIL_OPT_OUT_FIELDS } from '@/services/emailSuppression.mjs';
 import { getLocale, type Locale } from '@/services/i18n';
 import { resilientImport } from '@/services/resilientImport';
+import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 
 // ─── Types ──────────────────────────────────────────────────
 
@@ -55,6 +59,15 @@ export interface SubscriptionPreferencesControllerProps {
 }
 
 type LoadStatus = 'loading' | 'ready' | 'error';
+
+function hasExplicitGlobalEmailStop(data: Record<string, any> | null | undefined): boolean {
+ return GLOBAL_EMAIL_OPT_OUT_FIELDS.some((field) => (
+  data?.[field] === true
+  || data?.[field] === 1
+  || data?.[field] === 'true'
+  || data?.[field] === '1'
+ ));
+}
 
 // ─── i18n ───────────────────────────────────────────────────
 
@@ -139,13 +152,9 @@ interface SectionStrings {
  digestOn: string;
  digestOff: string;
  /**
-  * #5759 — third-party advertising.
-  *
-  * The one channel here whose consent is an OPT-OUT: the owner ruled on
-  * 2026-08-13 that it is named on /comunicazioni/ and that NO extra checkbox
-  * appears at the signup gates. This card is the other half of that ruling —
-  * the thing a person contesting the mail is pointed at — so it is not
-  * optional copy, it is the reason the arrangement is defensible.
+  * Third-party advertising is included in the base registration. This card
+  * records the reader's separate opt-out/restore choice without turning it
+  * into a second signup path.
   */
  adsTitle: string;
  adsDesc: string;
@@ -190,7 +199,7 @@ const STRINGS: Record<Locale, SectionStrings> = {
  digestOff: 'Disattivato',
  adsTitle: 'Annunci di inserzionisti',
  adsDesc:
- 'Messaggi promozionali di aziende terze che pagano per raggiungere chi legge il sito. Non ti è stata chiesta una spunta separata: è compreso nelle comunicazioni a cui ti sei iscritto, e questo interruttore serve a toglierlo. Vale solo per questo canale: newsletter, bollettino e avvisi lavoro restano come sono.',
+ 'Messaggi promozionali di aziende terze. È incluso nell’attivazione base ed è attivo in partenza; questo interruttore separato ti permette di disattivarlo senza cambiare newsletter, bollettino o avvisi lavoro.',
  adsOn: 'Attivo',
  adsOff: 'Disattivato',
  autologinTitle: 'Auto-login dai link email',
@@ -274,7 +283,7 @@ const STRINGS: Record<Locale, SectionStrings> = {
  digestOff: 'Off',
  adsTitle: 'Advertiser announcements',
  adsDesc:
- 'Promotional messages from third-party companies paying to reach this site’s readers. You were not asked to tick a separate box: it is included in the communications you signed up for, and this switch is how you take it out. It covers this channel only: the newsletter, the daily brief and your job alerts stay as they are.',
+ 'Promotional messages from third-party companies. They are included in the base activation and on by default; this separate switch lets you turn them off without changing the newsletter, daily brief or your job alerts.',
  adsOn: 'On',
  adsOff: 'Off',
  autologinTitle: 'Auto-login from email links',
@@ -358,7 +367,7 @@ const STRINGS: Record<Locale, SectionStrings> = {
  digestOff: 'Abgeschaltet',
  adsTitle: 'Anzeigen von Inserenten',
  adsDesc:
- 'Werbenachrichten von Drittfirmen, die dafür bezahlen, die Leserschaft dieser Website zu erreichen. Du wurdest nicht um ein separates Häkchen gebeten: Es ist in den Mitteilungen enthalten, für die du dich angemeldet hast, und dieser Schalter nimmt es heraus. Er gilt nur für diesen Kanal: Newsletter, Tagesbulletin und Job-Alerts bleiben unverändert.',
+ 'Werbenachrichten von Drittunternehmen. Sie gehören zur Basisaktivierung und sind zunächst aktiv; mit diesem eigenen Schalter kannst du sie ausschalten, ohne Newsletter, Tagesbulletin oder Job-Alerts zu ändern.',
  adsOn: 'Aktiv',
  adsOff: 'Abgeschaltet',
  autologinTitle: 'Auto-Login über E-Mail-Links',
@@ -442,7 +451,7 @@ const STRINGS: Record<Locale, SectionStrings> = {
  digestOff: 'Désactivé',
  adsTitle: 'Annonces d’annonceurs',
  adsDesc:
- 'Messages promotionnels d’entreprises tierces qui paient pour atteindre le lectorat du site. Aucune case distincte ne t’a été proposée : c’est compris dans les communications auxquelles tu t’es inscrit, et cet interrupteur sert à le retirer. Il ne concerne que ce canal : la newsletter, le bulletin et tes alertes emploi restent inchangés.',
+ 'Messages promotionnels d’entreprises tierces. Ils sont inclus dans l’activation de base et actifs par défaut ; cet interrupteur distinct te permet de les désactiver sans modifier la newsletter, le bulletin ni tes alertes emploi.',
  adsOn: 'Actif',
  adsOff: 'Désactivé',
  autologinTitle: 'Auto-connexion depuis les liens email',
@@ -532,8 +541,9 @@ async function authLoadFullStatus(email: string): Promise<{
  autologinEnabled: true,
  dailyBriefFrequency: null as DailyBriefFrequency | null,
  dailyBriefTier: null as number | null,
- // Absent document, absent objection: the consent is an opt-out (#5759).
- advertisingEnabled: true,
+ // No document means no subscriber relationship. For an existing subscriber,
+ // advertising is enabled unless the category was explicitly disabled.
+ advertisingEnabled: false,
  };
  if (subSnap.exists()) {
  const data = subSnap.data() || {};
@@ -553,11 +563,9 @@ async function authLoadFullStatus(email: string): Promise<{
  ? data.daily_brief_frequency_override
  : null,
  dailyBriefTier: typeof data.daily_brief_tier === 'number' ? data.daily_brief_tier : null,
- // `advertising_opt_out === true` and nothing else, token-for-token with
- // get_full_status in the Cloud Function AND with the audience filter in
- // services/publisherBlastMatch.mjs. Three readers of one opt-out field,
- // and the switch is a lie the moment one of them reads it differently.
- advertisingEnabled: data.advertising_opt_out !== true,
+ // The activation marker is optional for legacy rows; only an explicit
+ // category opt-out disables advertising.
+ advertisingEnabled: data.consent_advertising !== false && data.advertising_opt_out !== true,
  };
  }
 
@@ -601,7 +609,7 @@ async function authLoadFullStatus(email: string): Promise<{
  * token for.
  */
 async function authSetBriefFrequency(email: string, frequency: DailyBriefFrequency | null): Promise<void> {
- const { getFirestore, doc, setDoc, addDoc, collection, serverTimestamp, deleteField } =
+ const { getFirestore, doc, getDoc, setDoc, addDoc, collection, serverTimestamp, deleteField } =
  await resilientImport(
  () => import('firebase/firestore'),
  (m) => typeof m.getFirestore === 'function',
@@ -613,9 +621,12 @@ async function authSetBriefFrequency(email: string, frequency: DailyBriefFrequen
  const app = await getApp();
  const db = getFirestore(app as any);
  const key = email.trim().toLowerCase();
+ const subscriberRef = doc(db, 'newsletter_subscribers', key);
+ const existing = await getDoc(subscriberRef);
+ if (!existing.exists()) throw new Error('subscriber_not_found');
 
  await setDoc(
- doc(db, 'newsletter_subscribers', key),
+ subscriberRef,
  {
  email: key,
  daily_brief_frequency_override: frequency === null ? deleteField() : frequency,
@@ -634,18 +645,15 @@ async function authSetBriefFrequency(email: string, frequency: DailyBriefFrequen
 }
 
 /**
- * Auth-mode twin of `setAdvertisingEnabled` (#5759): a signed-in reader writes
+ * Auth-mode twin of `setAdvertisingEnabled`: a signed-in reader writes
  * their own subscriber document instead of round-tripping through an HMAC
  * endpoint they hold no token for — the same shape as `authSetBriefFrequency`.
  *
- * The field is written in BOTH directions and never deleted. `false` is not the
- * same record as an absent field: it says this person was asked and left it on,
- * which is the evidence that answers a later "I never agreed to advertising" —
- * and #5711 is the precedent, where clearing a stamp to express a state
- * destroyed the only proof that the state had ever changed.
+ * The purpose-specific field is written in both directions. An absent field is
+ * never interpreted as consent; the legacy opt-out is retained as a hard deny.
  */
 async function authSetAdvertisingOptOut(email: string, enabled: boolean): Promise<void> {
- const { getFirestore, doc, setDoc, addDoc, collection, serverTimestamp } =
+ const { getFirestore, doc, getDoc, setDoc, addDoc, collection, serverTimestamp } =
  await resilientImport(
  () => import('firebase/firestore'),
  (m) => typeof m.getFirestore === 'function',
@@ -657,13 +665,27 @@ async function authSetAdvertisingOptOut(email: string, enabled: boolean): Promis
  const app = await getApp();
  const db = getFirestore(app as any);
  const key = email.trim().toLowerCase();
+ const subscriberRef = doc(db, 'newsletter_subscribers', key);
+ const existing = await getDoc(subscriberRef);
+ if (!existing.exists()) throw new Error('subscriber_not_found');
 
  await setDoc(
- doc(db, 'newsletter_subscribers', key),
+ subscriberRef,
  {
  email: key,
+ consent_advertising: enabled,
+ consent_advertising_at: enabled ? serverTimestamp() : null,
+ consent_advertising_updated_at: serverTimestamp(),
  advertising_opt_out: !enabled,
  advertising_opt_out_updated_at: serverTimestamp(),
+ ...(enabled ? {
+  // Restoring this opt-out-controlled category lifts the global block without
+  // changing the individual state of the remaining channels.
+  all_email_opted_out: false,
+  all_emails_opted_out: false,
+  global_email_opt_out: false,
+  global_email_opted_out: false,
+ } : {}),
  },
  { merge: true },
  );
@@ -674,6 +696,65 @@ async function authSetAdvertisingOptOut(email: string, enabled: boolean): Promis
  timestamp: serverTimestamp(),
  occurred_at: new Date().toISOString(),
  });
+}
+
+/**
+ * Auth-mode twin of the token-mode stop-all action. The global fields are
+ * deliberately separate from `status: 'unsubscribed'`: the latter is the
+ * newsletter channel's state, while these fields are the shared hard stop read
+ * by every other sender. Require an existing subscriber document so an
+ * authenticated profile control cannot create an email relationship by itself.
+ */
+async function authStopAllEmails(email: string): Promise<void> {
+ const { getFirestore, doc, getDoc, setDoc, addDoc, collection, serverTimestamp } =
+ await resilientImport(
+ () => import('firebase/firestore'),
+ (m) => typeof m.getFirestore === 'function',
+ );
+ const { getApp } = await resilientImport(
+ () => import('@/services/firebase'),
+ (m) => typeof m.getApp === 'function',
+ );
+ const app = await getApp();
+ const db = getFirestore(app as any);
+ const key = email.trim().toLowerCase();
+ const subscriberRef = doc(db, 'newsletter_subscribers', key);
+ const existing = await getDoc(subscriberRef);
+ if (!existing.exists()) throw new Error('subscriber_not_found');
+
+ await setDoc(
+ subscriberRef,
+ {
+ email: key,
+ status: 'unsubscribed',
+ isActive: false,
+ active: false,
+ unsubscribed_at: serverTimestamp(),
+ unsubscribedAt: serverTimestamp(),
+ all_email_opted_out: true,
+ all_emails_opted_out: true,
+ global_email_opt_out: true,
+ global_email_opted_out: true,
+ all_email_opted_out_at: serverTimestamp(),
+ global_email_opt_out_at: serverTimestamp(),
+ daily_brief_frequency_override: 'off',
+ consent_advertising: false,
+ consent_advertising_updated_at: serverTimestamp(),
+ advertising_opt_out: true,
+ advertising_opt_out_updated_at: serverTimestamp(),
+ updated_at: serverTimestamp(),
+ updatedAt: serverTimestamp(),
+ },
+ { merge: true },
+ );
+
+ await addDoc(collection(subscriberRef, 'events'), {
+ email: key,
+ event_type: 'all_email_unsubscribed',
+ source_channel: 'preferences_auth',
+ timestamp: serverTimestamp(),
+ occurred_at: new Date().toISOString(),
+ }).catch(() => {});
 }
 
 /**
@@ -691,14 +772,13 @@ function briefTierToOption(days: number): DailyBriefFrequency {
 }
 
 /**
- * Saved-jobs digest opt-out (#5684 point 1).
+ * Saved-jobs digest preference (#5684 point 1).
  *
- * The channel's kill switch is `users/{uid}.savedJobsDigest.optedOut`, read by
- * scripts/send-saved-jobs-digest.mjs and — until this change — written from
- * exactly one place: functions/src/savedJobsDigestUnsubscribe.js, i.e. the link
- * inside the digest itself. That is the situation the issue names as
- * disqualifying: a channel that can only be switched off from its own email is
- * invisible to anyone who arrives from the profile or deleted the message.
+ * The saved-jobs action is a separate channel activation; the explicit
+ * preference remains the source of truth for legacy subscribers, and
+ * `savedJobsDigest.optedOut` always wins. The link inside the digest remains an
+ * independent one-click opt-out. This keeps the channel visible even when the
+ * reader deleted the message that contained its unsubscribe link.
  *
  * Auth mode only, and that is sufficient rather than a compromise: the sender
  * iterates `users/{uid}/savedJobs`, so every possible recipient of this channel
@@ -707,7 +787,7 @@ function briefTierToOption(days: number): DailyBriefFrequency {
  * Function, tracked separately. The digest's own "manage" link already points
  * at the profile, so the loop closes there.
  */
-async function authLoadSavedJobsDigest(userId: string): Promise<boolean> {
+async function authLoadSavedJobsDigest(userId: string, email: string): Promise<boolean> {
  const { getFirestore, doc, getDoc } = await resilientImport(
  () => import('firebase/firestore'),
  (m) => typeof m.getFirestore === 'function',
@@ -718,14 +798,23 @@ async function authLoadSavedJobsDigest(userId: string): Promise<boolean> {
  );
  const app = await getApp();
  const db = getFirestore(app as any);
- const snap = await getDoc(doc(db, 'users', userId));
- // Absent doc / absent field = receiving, matching the sender, which skips only
- // on an explicit `optedOut === true`.
- return snap.exists() ? (snap.data() || {}).savedJobsDigest?.optedOut !== true : true;
+ const [snap, subscriberSnap] = await Promise.all([
+  getDoc(doc(db, 'users', userId)),
+  getDoc(doc(db, 'newsletter_subscribers', email.trim().toLowerCase())),
+ ]);
+ // A channel opt-out always wins. This channel is activated separately by the
+ // saved-jobs action/preference, so the base registration is not enough.
+ const digest = snap.exists() ? (snap.data() || {}).savedJobsDigest : null;
+ const subscriberData = subscriberSnap.exists() ? subscriberSnap.data() || {} : null;
+ const hasGlobalStop = hasExplicitGlobalEmailStop(subscriberData);
+ return digest?.optedOut !== true
+  && !hasGlobalStop
+  && Boolean(subscriberData)
+  && digest?.optedIn === true;
 }
 
-async function authSetSavedJobsDigest(userId: string, enabled: boolean): Promise<void> {
- const { getFirestore, doc, setDoc, serverTimestamp } = await resilientImport(
+async function authSetSavedJobsDigest(userId: string, email: string, enabled: boolean): Promise<void> {
+ const { getFirestore, doc, getDoc, setDoc, serverTimestamp } = await resilientImport(
  () => import('firebase/firestore'),
  (m) => typeof m.getFirestore === 'function',
  );
@@ -735,6 +824,13 @@ async function authSetSavedJobsDigest(userId: string, enabled: boolean): Promise
  );
  const app = await getApp();
  const db = getFirestore(app as any);
+ const subscriberRef = doc(db, 'newsletter_subscribers', email.trim().toLowerCase());
+ const subscriberSnap = await getDoc(subscriberRef);
+ const subscriberData = subscriberSnap.exists() ? subscriberSnap.data() || {} : null;
+ if (!subscriberData) throw new Error('subscriber-not-created');
+ if (enabled && hasExplicitGlobalEmailStop(subscriberData)) {
+  throw new Error('email-suppressed');
+ }
  // Merge, and only under `savedJobsDigest` — services/savedJobsService.ts's
  // ensureUserProfileDoc deliberately never rewrites this key after creation so
  // a server-side unsubscribe cannot be clobbered by a re-login; a shallow
@@ -743,7 +839,9 @@ async function authSetSavedJobsDigest(userId: string, enabled: boolean): Promise
  doc(db, 'users', userId),
  {
  savedJobsDigest: {
+ optedIn: enabled,
  optedOut: !enabled,
+ optedInAt: enabled ? serverTimestamp() : null,
  // Same provenance fields savedJobsDigestUnsubscribe.js records, so an
  // LPD art. 25 request gets one answer regardless of which surface the
  // reader used.
@@ -759,7 +857,7 @@ async function authToggleNewsletter(email: string, subscribed: boolean): Promise
  // Keep historical opt-out stamps as evidence; only the account-deletion
  // lifecycle marker is removed when this explicit authenticated re-registration
  // turns the newsletter back on.
- const { getFirestore, doc, setDoc, addDoc, collection, serverTimestamp, deleteField } =
+ const { getFirestore, doc, getDoc, setDoc, addDoc, collection, serverTimestamp, deleteField } =
  await resilientImport(
  () => import('firebase/firestore'),
  (m) => typeof m.getFirestore === 'function',
@@ -771,15 +869,22 @@ async function authToggleNewsletter(email: string, subscribed: boolean): Promise
  const app = await getApp();
  const db = getFirestore(app as any);
  const key = email.trim().toLowerCase();
-
+ const subscriberRef = doc(db, 'newsletter_subscribers', key);
+ const existing = await getDoc(subscriberRef);
+ const existingData = existing.exists() ? existing.data() || {} : null;
+ if (!existingData) throw new Error('subscriber_not_found');
  if (subscribed) {
  await setDoc(
- doc(db, 'newsletter_subscribers', key),
+ subscriberRef,
  {
  email: key,
  status: 'subscribed',
  isActive: true,
  active: true,
+ all_email_opted_out: false,
+ all_emails_opted_out: false,
+ global_email_opt_out: false,
+ global_email_opted_out: false,
  account_deleted_at: deleteField(),
  // Both spellings of the RE-OPT-IN stamp, and neither opt-out stamp is
  // deleted (#5711). scripts/send-newsletter.mjs drops a row carrying
@@ -793,8 +898,8 @@ async function authToggleNewsletter(email: string, subscribed: boolean): Promise
  // This toggle records an explicit re-opt-in, but it is NOT a double-opt-in
  // confirmation. Do not mint `confirmed_at` here: a profile session can prove
  // who is acting, not that the address completed the newsletter DOI. Existing
- // confirmation proof remains intact and the sender gate will use it; a record
- // without proof stays unmarketable until the real confirmation path runs.
+ // confirmation proof remains intact; ordinary senders use the relationship
+ // and suppression state, while the DOI flow may still consult the proof.
  updated_at: serverTimestamp(),
  updatedAt: serverTimestamp(),
  },
@@ -802,7 +907,7 @@ async function authToggleNewsletter(email: string, subscribed: boolean): Promise
  );
  } else {
  await setDoc(
- doc(db, 'newsletter_subscribers', key),
+ subscriberRef,
  {
  email: key,
  status: 'unsubscribed',
@@ -829,7 +934,7 @@ async function authToggleNewsletter(email: string, subscribed: boolean): Promise
 }
 
 async function authToggleAutologin(email: string, enabled: boolean): Promise<void> {
- const { getFirestore, doc, setDoc, addDoc, collection, serverTimestamp } = await resilientImport(
+ const { getFirestore, doc, getDoc, setDoc, addDoc, collection, serverTimestamp } = await resilientImport(
  () => import('firebase/firestore'),
  (m) => typeof m.getFirestore === 'function',
  );
@@ -840,9 +945,14 @@ async function authToggleAutologin(email: string, enabled: boolean): Promise<voi
  const app = await getApp();
  const db = getFirestore(app as any);
  const key = email.trim().toLowerCase();
+ const subscriberRef = doc(db, 'newsletter_subscribers', key);
+ const existingSubscriber = await getDoc(subscriberRef);
+ if (!existingSubscriber.exists()) {
+  throw new Error('subscriber_not_found');
+ }
 
  await setDoc(
- doc(db, 'newsletter_subscribers', key),
+ subscriberRef,
  {
  email: key,
  autologin_enabled: enabled,
@@ -852,7 +962,7 @@ async function authToggleAutologin(email: string, enabled: boolean): Promise<voi
  { merge: true },
  );
 
- await addDoc(collection(doc(db, 'newsletter_subscribers', key), 'events'), {
+ await addDoc(collection(subscriberRef, 'events'), {
  email: key,
  event_type: enabled ? 'autologin_enabled' : 'autologin_disabled',
  source_channel: 'user_profile',
@@ -879,7 +989,15 @@ async function authUpdateAlert(
  const db = getFirestore(app as any);
  const key = email.trim().toLowerCase();
 
+ const subscriberRef = doc(db, 'newsletter_subscribers', key);
  const ref = doc(db, 'job_alert_subscribers', key, 'alerts', alertId);
+ const [existingSubscriber, existingAlert] = await Promise.all([
+  getDoc(subscriberRef),
+  getDoc(ref),
+ ]);
+ if (!existingSubscriber.exists() || !existingAlert.exists()) {
+  throw new Error(!existingSubscriber.exists() ? 'subscriber_not_found' : 'alert_not_found');
+ }
  const update: Record<string, any> = { email: key, updatedAt: serverTimestamp() };
  if (patch.keywords !== undefined) update.keywords = patch.keywords;
  if (patch.locations !== undefined) update.locations = patch.locations;
@@ -895,7 +1013,7 @@ async function authUpdateAlert(
  if ('paused' in patch) update.paused = patch.paused === true;
  await setDoc(ref, update, { merge: true });
 
- await addDoc(collection(doc(db, 'newsletter_subscribers', key), 'events'), {
+ await addDoc(collection(subscriberRef, 'events'), {
  email: key,
  event_type: 'job_alert_updated',
  source_channel: 'user_profile',
@@ -943,6 +1061,34 @@ async function authCreateAlert(
  const db = getFirestore(app as any);
  const key = email.trim().toLowerCase();
 
+ const subscriberRef = doc(db, 'newsletter_subscribers', key);
+ let subscriberSnap = await getDoc(subscriberRef);
+ let subscriberData = subscriberSnap.exists() ? subscriberSnap.data() || {} : null;
+ // A concrete search is an activation of the job-alert channel, not a second
+ // consent event. Ensure the common terms-based relationship first; the
+ // newsletter opt-out remains channel-local, while a hard/global stop still
+ // blocks a new outbound alert.
+ await upsertUnifiedEmailSubscriber(db as any, {
+  email: key,
+  userId,
+  source: 'preference_center',
+  sourceChannel: 'web_app',
+  sourcePage: '/profilo/',
+  sourceCta: 'create_job_alert',
+  sourceComponent: 'SubscriptionPreferencesController',
+  sourceRouteFamily: 'preferences',
+  locale: getLocale(),
+  jobContext: {
+   searchQuery: payload.keywords.join(', '),
+   category: payload.sectors.join(', '),
+   location: payload.locations.join(', '),
+  },
+ });
+ subscriberSnap = await getDoc(subscriberRef);
+ subscriberData = subscriberSnap.exists() ? subscriberSnap.data() || {} : null;
+ if (hasExplicitGlobalEmailStop(subscriberData)) throw new Error('email-suppressed');
+ if (!subscriberData) throw new Error('subscriber-not-created');
+
  // An explicit alert created from the authenticated preference centre starts a
  // new job-alert lifecycle after account deletion. Reactivate the parent before
  // adding the child; the sender gates on this parent document.
@@ -983,7 +1129,7 @@ async function authCreateAlert(
  docData,
  );
 
- await addDoc(collection(doc(db, 'newsletter_subscribers', key), 'events'), {
+ await addDoc(collection(subscriberRef, 'events'), {
  email: key,
  event_type: 'job_alert_created',
  source_channel: 'user_profile',
@@ -1012,7 +1158,7 @@ async function authCreateAlert(
 }
 
 async function authDeleteAlert(email: string, alertId: string): Promise<void> {
- const { getFirestore, doc, deleteDoc, addDoc, collection, serverTimestamp } = await resilientImport(
+ const { getFirestore, doc, getDoc, deleteDoc, addDoc, collection, serverTimestamp } = await resilientImport(
  () => import('firebase/firestore'),
  (m) => typeof m.getFirestore === 'function',
  );
@@ -1023,8 +1169,14 @@ async function authDeleteAlert(email: string, alertId: string): Promise<void> {
  const app = await getApp();
  const db = getFirestore(app as any);
  const key = email.trim().toLowerCase();
- await deleteDoc(doc(db, 'job_alert_subscribers', key, 'alerts', alertId));
- await addDoc(collection(doc(db, 'newsletter_subscribers', key), 'events'), {
+ const subscriberRef = doc(db, 'newsletter_subscribers', key);
+ const subscriber = await getDoc(subscriberRef);
+ const alertRef = doc(db, 'job_alert_subscribers', key, 'alerts', alertId);
+ const alert = await getDoc(alertRef);
+ if (!subscriber.exists()) throw new Error('subscriber_not_found');
+ if (!alert.exists()) throw new Error('alert_not_found');
+ await deleteDoc(alertRef);
+ await addDoc(collection(subscriberRef, 'events'), {
  email: key,
  event_type: 'job_alert_deleted',
  source_channel: 'user_profile',
@@ -1075,10 +1227,10 @@ interface AlertEditorProps {
  * existing alert's real auto/pinned state is already shown in AlertRow. */
  isCreate?: boolean;
  onSave: (values: {
- keywords: string[];
- locations: string[];
- sectors: string[];
- frequency: JobAlertFrequency;
+  keywords: string[];
+  locations: string[];
+  sectors: string[];
+  frequency: JobAlertFrequency;
  }) => void;
  onCancel: () => void;
  requireAtLeastOneFilter?: boolean;
@@ -1124,7 +1276,12 @@ const AlertEditor: React.FC<AlertEditorProps> = ({
  return;
  }
  setValidationError('');
- onSave({ keywords: kw, locations: loc, sectors: sec, frequency: freq });
+ onSave({
+  keywords: kw,
+  locations: loc,
+  sectors: sec,
+  frequency: freq,
+ });
  };
 
  return (
@@ -1467,13 +1624,13 @@ export function SubscriptionPreferencesController({
  const [savingBrief, setSavingBrief] = useState(false);
  const [alerts, setAlerts] = useState<SubscriptionAlertSummary[]>([]);
 
- const [digestEnabled, setDigestEnabled] = useState<boolean>(true);
+ const [digestEnabled, setDigestEnabled] = useState<boolean>(false);
  /** Auth mode only — token mode has no uid to key `users/{uid}` by. See authLoadSavedJobsDigest. */
  const [digestAvailable, setDigestAvailable] = useState<boolean>(false);
  const [savingDigest, setSavingDigest] = useState(false);
- // #5759 — third-party advertising. Defaults to ON, which is what the opt-out
- // shape means: nothing was ticked, so nothing is off until somebody says so.
- const [adsEnabled, setAdsEnabled] = useState<boolean>(true);
+ // Third-party advertising is included in the base activation; this is the
+ // separate preference-centre switch that lets the reader opt out.
+ const [adsEnabled, setAdsEnabled] = useState<boolean>(false);
  const [savingAds, setSavingAds] = useState(false);
  const [stoppingAll, setStoppingAll] = useState(false);
  const [savingNewsletter, setSavingNewsletter] = useState(false);
@@ -1517,7 +1674,7 @@ export function SubscriptionPreferencesController({
  setAutologinEnabledState(result.newsletter?.autologinEnabled !== false);
  setBriefFrequency(result.newsletter?.dailyBriefFrequency ?? null);
  setBriefTier(result.newsletter?.dailyBriefTier ?? null);
- setAdsEnabled(result.newsletter?.advertisingEnabled !== false);
+ setAdsEnabled(result.newsletter?.advertisingEnabled === true);
  setAlerts(result.alerts || []);
  setLoadStatus('ready');
  } else {
@@ -1535,14 +1692,14 @@ export function SubscriptionPreferencesController({
  setAutologinEnabledState(result.newsletter.autologinEnabled);
  setBriefFrequency(result.newsletter.dailyBriefFrequency ?? null);
  setBriefTier(result.newsletter.dailyBriefTier ?? null);
- setAdsEnabled(result.newsletter.advertisingEnabled !== false);
+ setAdsEnabled(result.newsletter.advertisingEnabled === true);
  setAlerts(result.alerts);
  // The digest read is best-effort and deliberately non-fatal: it lives in a
  // different collection under different rules, and a failure there must not
  // cost the reader the newsletter and job-alert controls that did load.
  if (userId) {
  try {
- const enabled = await authLoadSavedJobsDigest(userId);
+ const enabled = await authLoadSavedJobsDigest(userId, email);
  if (!cancelled) {
  setDigestEnabled(enabled);
  setDigestAvailable(true);
@@ -1748,7 +1905,7 @@ export function SubscriptionPreferencesController({
  setSavingDigest(true);
  setErrorMsg('');
  try {
- await authSetSavedJobsDigest(userId, next);
+ await authSetSavedJobsDigest(userId, email, next);
  flashSaved('saved-jobs-digest');
  } catch (err: any) {
  console.warn('[SubscriptionPreferencesController] Toggle saved-jobs digest failed:', err?.message);
@@ -1766,9 +1923,8 @@ export function SubscriptionPreferencesController({
   * told so. That statement is only honest if the all-off case is also reachable
   * — otherwise "off" means one thing in the copy and another in the reader's
   * inbox, which is how someone ends up at the provider's abuse desk convinced
-  * they were ignored. Composed strictly from the primitives already used by the
-  * individual controls: no new endpoint, no new field, nothing this component
-  * could not already write.
+  * they were ignored. A dedicated global stop is recorded first, then the
+  * individual controls are kept in sync with their existing channel writers.
   *
   * Job alerts are PAUSED, not deleted: pausing stops every send
   * (scripts/send-job-alerts.mjs and, as of this change, send-company-alerts.mjs
@@ -1780,14 +1936,11 @@ export function SubscriptionPreferencesController({
   * visibly on in the UI.
   */
  /**
-  * Third-party advertising, on or off (#5759).
+ * Third-party advertising, on or off (#5759).
   *
-  * Both modes, unlike the saved-jobs digest: that channel's recipients are
-  * signed-in accounts by construction, so auth mode alone was sufficient for
-  * it. This one's audience is the newsletter collection, so somebody who
-  * arrived from a footer link with an address and no session is exactly the
-  * person the switch has to serve — and the person most likely to be looking
-  * for it.
+ * Both modes are needed: the audience is the newsletter collection, so a
+ * reader who arrived from a footer link with an address and no session is
+ * exactly the person the token-mode switch has to serve.
   */
  const handleToggleAds = async () => {
  const next = !adsEnabled;
@@ -1799,7 +1952,7 @@ export function SubscriptionPreferencesController({
  if (!token) throw new Error('missing_token');
  const result = await setAdvertisingEnabled(email, token, next);
  if (!result.success) throw new Error(result.error || 'write_failed');
- setAdsEnabled(result.advertisingEnabled !== false);
+ setAdsEnabled(result.advertisingEnabled === true);
  } else {
  await authSetAdvertisingOptOut(email, next);
  }
@@ -1817,6 +1970,22 @@ export function SubscriptionPreferencesController({
  setStoppingAll(true);
  setErrorMsg('');
  const failed: string[] = [];
+
+ // Record the authoritative cross-channel block first. The individual state
+ // writes below keep every card accurate, but this one field makes the sender
+ // side fail closed even if one of those best-effort writes is unavailable.
+ try {
+  if (mode === 'token') {
+   if (!token) throw new Error('missing_token');
+   const result = await stopAllEmails(email, token);
+   if (!result.success) throw new Error(result.error || 'write_failed');
+  } else {
+   await authStopAllEmails(email);
+  }
+ } catch (err: any) {
+  failed.push('all-email-stop');
+  console.warn('[SubscriptionPreferencesController] Stop-all global block failed:', err?.message);
+ }
 
  if (newsletterSubscribed) {
  try {
@@ -1869,7 +2038,7 @@ export function SubscriptionPreferencesController({
 
  if (digestAvailable && userId && digestEnabled) {
  try {
- await authSetSavedJobsDigest(userId, false);
+ await authSetSavedJobsDigest(userId, email, false);
  setDigestEnabled(false);
  } catch (err: any) {
  failed.push('saved-jobs-digest');
@@ -1983,10 +2152,10 @@ export function SubscriptionPreferencesController({
  };
 
  const handleCreateAlert = async (values: {
- keywords: string[];
- locations: string[];
- sectors: string[];
- frequency: JobAlertFrequency;
+  keywords: string[];
+  locations: string[];
+  sectors: string[];
+  frequency: JobAlertFrequency;
  }) => {
  setSavingNewAlert(true);
  setErrorMsg('');
@@ -2061,6 +2230,11 @@ export function SubscriptionPreferencesController({
  {stoppingAll ? S.stopAllWorking : S.stopAll}
  </button>
  <p className="mt-2 text-xs text-muted leading-relaxed">{S.stopAllHint}</p>
+ <EmailConsentCheckbox
+  consentKey="communicationsOptIn"
+  locale={locale || getLocale()}
+  className="mt-3 text-xs text-muted leading-relaxed"
+ />
  {savedTickKey === 'stop-all' && (
  <span className="mt-2 inline-flex items-center gap-1 text-xs text-success">
  <CheckCircle2 size={14} /> {S.saved}
@@ -2279,9 +2453,9 @@ export function SubscriptionPreferencesController({
 
  {/* ── Third-party advertising card (#5759) ──
  Rendered unconditionally, in BOTH modes and even while the channel is
- suspended. A switch that only appears once the mail starts arriving is a
- switch nobody can use pre-emptively, and pre-emptive is the only kind that
- makes an opt-out honest. */}
+ suspended. The base registration activates it; this card is the separate
+ preference-centre control used to turn the category off before any future
+ reactivation of the channel. */}
  <section className="border border-edge rounded-xl p-5 bg-surface scroll-mt-20">
  <div className="flex items-start justify-between gap-4">
  <div className="flex-1">

@@ -19,7 +19,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import {
  Download, Send, CheckCircle2, Loader2, AlertCircle,
- FileText, Shield, Gift, Users, X, ArrowRight,
+ FileText, Shield, Gift, Users, X, ArrowRight, Mail,
 } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
@@ -29,8 +29,7 @@ import {
  upsertNewsletterSubscriber,
  markNewsletterSubscribedLocally,
 } from '@/services/newsletterSubscribers';
-import { consentProof } from '@/services/consentTexts';
-import ConsentNotice from '@/components/shared/ConsentNotice';
+import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import { useAuth, renderGoogleButtonWithReadiness, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
 import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
@@ -755,7 +754,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  return true;
  });
  const [email, setEmail] = useState('');
- const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error' | 'exists'>('idle');
+ const [status, setStatus] = useState<'idle' | 'loading' | 'pending' | 'success' | 'error' | 'exists'>('idle');
  const [errorMessage, setErrorMessage] = useState('');
 
  // Show after delay
@@ -848,24 +847,22 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  source: `lead_magnet_${variant}`,
  locale: navigator.language || 'it-IT',
  isActive: true,
- // The recipient typed their address into this form and pressed the
- // button — a deliberate act, the one thing that may lift a recorded
- // opt-out (#5672). Without it an unsubscribed reader would see the
- // success state and receive nothing: `isActive: true` makes this a
- // promotion, which the guard declines, and neither the confirmation nor
- // the welcome email fires for a document left `unsubscribed`. Never set
- // it from an authentication event.
- reconsent: true,
+ registrationMethod: 'email',
  leadMagnet: variant,
- // #5678/#5712: the guide-for-address exchange, recorded verbatim — and
- // now the same sentence is rendered under both forms below.
- ...consentProof('communicationsOptIn', 'email_submit', locale),
  }),
  8000,
  'newsletter_upsert',
  );
 
- if (upsert.existed && upsert.status !== 'pending') {
+ const needsConfirmation = upsert.status === 'pending' && !upsert.hadConfirmationProof;
+ if (needsConfirmation) {
+ setStatus('pending');
+ generateChecklistPDF(variant).catch(() => {});
+ Analytics.trackUIInteraction('lead_magnet', 'form', 'confirmation_pending', variant);
+  return;
+ }
+
+ if (upsert.existed) {
  // Already subscribed — still show success (they get the guide)
  markNewsletterSubscribedLocally();
  setStatus('success');
@@ -882,12 +879,31 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  setErrorMessage(error.message || t('newsletter.subscribeError'));
  setStatus('error');
  }
- }, [email, variant, t]);
+ }, [email, locale, variant, t]);
 
  if (!visible || user || localStorage.getItem(SUBSCRIBED_KEY) === 'true') return null;
 
  const colors = VARIANT_COLORS[variant];
  const IconComponent = VARIANT_ICONS[variant];
+
+ // ─── Pending confirmation state ────────────────────────────────────
+ if (status === 'pending') {
+ return (
+ <div className="mt-6 p-5 bg-info-subtle border border-info-border rounded-2xl text-center" role="status" aria-live="polite">
+ <Mail className="w-10 h-10 text-info mx-auto mb-2" />
+ <p className="font-bold text-strong">{t('newsletter.doubleOptIn.title')}</p>
+ <p className="text-sm text-subtle mt-1">{t('newsletter.doubleOptIn.description')}</p>
+ <p className="text-xs text-muted mt-2">{t('newsletter.doubleOptIn.spamHint')}</p>
+ <button
+ onClick={() => generateChecklistPDF(variant).catch(() => {})}
+ className="mt-3 inline-flex items-center gap-1.5 px-4 py-2 bg-info-strong hover:bg-info-strong-hover text-on-accent text-sm font-semibold rounded-lg transition-colors"
+ >
+ <Download className="w-4 h-4" />
+ {t('leadMagnet.success.download')}
+ </button>
+ </div>
+ );
+ }
 
  // ─── Success state ─────────────────────────────────────────────────
  if (status === 'success') {
@@ -951,7 +967,13 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  )}
  </button>
  </form>
- <ConsentNotice consentKey="communicationsOptIn" locale={locale} className="text-[11px] text-muted leading-relaxed block mt-2" />
+ <EmailConsentCheckbox
+   id={`lead-magnet-${variant}-consent-compact`}
+   consentKey="communicationsOptIn"
+   locale={locale}
+   className="mt-2 flex items-start gap-2"
+   noticeClassName="text-[11px] text-muted leading-relaxed"
+ />
 
  <div className="flex items-center gap-3 mt-2 mb-1">
  <div className="flex-1 h-px bg-surface-raised" />
@@ -1059,7 +1081,12 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  )}
  </button>
  </form>
- <ConsentNotice consentKey="communicationsOptIn" locale={locale} className="text-[11px] text-muted leading-relaxed block mt-2" />
+ <EmailConsentCheckbox
+   id={`lead-magnet-${variant}-consent`}
+   consentKey="communicationsOptIn"
+   locale={locale}
+   className="mt-2 flex items-start gap-2"
+ />
 
  {/* Social sign-in */}
  <div className="flex items-center gap-3 mt-3 mb-2">

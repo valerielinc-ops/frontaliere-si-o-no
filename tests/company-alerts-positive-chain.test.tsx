@@ -71,8 +71,20 @@ const doubles = vi.hoisted(() => {
       status: 'pending',
       isActive: false,
       active: false,
-      company_follow_only: true,
-      sourceChannel: 'company_follow_button',
+      // Mirror the canonical writer's persisted snake_case fields. The real
+      // confirmation handler and the alert writer intentionally read the
+      // central Firestore document, not the camelCase input object.
+      consent_given: true,
+      consent_text: 'synthetic unified communications confirmation',
+      consent_text_displayed: true,
+      consent_act: 'email_checkbox_submit',
+      consent_purpose: 'unified_email_channels',
+      consent_method: 'email_checkbox',
+      company_follow_only: false,
+      company_follow_followup_pending: input.sourceChannel === 'company_follow_unified',
+      sourceChannel: input.sourceChannel || 'company_follow_unified',
+      source_channel: input.sourceChannel || 'company_follow_unified',
+      preferences: input.preferences || { jobs: true },
       consentText: 'synthetic company follow confirmation',
       metadata: {
         signup: {
@@ -91,6 +103,12 @@ const doubles = vi.hoisted(() => {
   const requestConfirmationEmail = vi.fn(async () => undefined);
 
   const getDoc = vi.fn(async (ref: any) => {
+    if (String(ref?.path || '').startsWith('newsletter_subscribers/')) {
+      return {
+        exists: () => Boolean(state.subscriber),
+        data: () => (state.subscriber ? { ...state.subscriber } : undefined),
+      };
+    }
     const found = state.alerts.find((alert) => alert.ref?.path === ref?.path);
     return {
       exists: () => Boolean(found),
@@ -131,6 +149,11 @@ const doubles = vi.hoisted(() => {
   });
 
   const updateDoc = vi.fn(async (ref: any, data: Record<string, any>) => {
+    if (String(ref?.path || '').startsWith('newsletter_subscribers/')) {
+      if (!state.subscriber) throw new Error('fake Firestore subscriber not found');
+      Object.assign(state.subscriber, data);
+      return;
+    }
     const found = state.alerts.find((alert) => alert.ref?.path === ref?.path);
     if (!found) throw new Error('fake Firestore alert not found');
     Object.assign(found, data);
@@ -252,6 +275,7 @@ vi.mock('@/services/userAlertsCache', () => ({
 
 vi.mock('@/services/newsletterSubscribers', () => ({
   upsertNewsletterSubscriber: (...args: any[]) => doubles.upsertNewsletterSubscriber(...args),
+  upsertUnifiedEmailSubscriber: (...args: any[]) => doubles.upsertNewsletterSubscriber(...args),
   requestConfirmationEmail: (...args: any[]) => doubles.requestConfirmationEmail(...args),
 }));
 
@@ -493,6 +517,7 @@ async function runChain(locale: 'it' | 'en', round: number) {
   const input = document.querySelector('#company-follow-email') as HTMLInputElement | null;
   expect(input, 'ring 4: anonymous branch exposes email input').not.toBeNull();
   fireEvent.change(input as HTMLInputElement, { target: { value: email } });
+  expect(screen.queryByRole('checkbox'), 'ring 4: registration has no second consent checkbox').toBeNull();
   const form = input?.closest('form');
   expect(form, 'ring 4: anonymous branch exposes capture form').not.toBeNull();
   fireEvent.submit(form as HTMLFormElement);
@@ -503,10 +528,8 @@ async function runChain(locale: 'it' | 'en', round: number) {
   expect(readPendingCompanyFollows(), 'ring 4: pending follow intent exists before confirmation').toHaveLength(1);
   expect(doubles.state.alerts, 'ring 4: pending confirmation creates no CompanyAlert').toHaveLength(0);
   await confirmSyntheticAddress(email);
-  expect(
-    doubles.state.subscriber?.status === 'suppressed',
-    'ring 4: confirmed company-follow address stays newsletter-suppressed',
-  ).toBe(true);
+  expect(doubles.state.subscriber?.status, 'ring 4: confirmed unified address is active').toBe('confirmed');
+  expect(doubles.state.subscriber?.isActive, 'ring 4: confirmed unified address is newsletter-active').toBe(true);
   expect(doubles.state.subscriber?.company_follow_confirmed_at, 'ring 4: confirmation proof is recorded').toBeTruthy();
   expect(doubles.state.subscriber?.company_follow_followup_pending, 'ring 4: confirmed follow is queued for alert flush').toBe(true);
   expect(doubles.state.subscriber?.metadata, 'ring 4: merge keeps nested subscriber metadata').toEqual({

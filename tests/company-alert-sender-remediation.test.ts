@@ -164,29 +164,46 @@ describe('B2 — expired offers never reach selection or rendering', () => {
 });
 
 describe('B3 — consent and suppression are fail-closed', () => {
-  const knownNewsletter = { exists: true, data: { status: 'confirmed', isActive: true } };
+  const knownNewsletter = {
+    exists: true,
+    data: {
+      status: 'confirmed',
+      isActive: true,
+      confirmed_at: '2026-09-01T00:00:00.000Z',
+      consent_act: 'typed_email_submit',
+    },
+  };
   const knownJobAlert = { exists: true, data: { status: 'active', active: true } };
 
   it('distinguishes known-ok, known-suppressed and unknown states', () => {
     expect(classifyRecipientConsent(knownNewsletter, knownJobAlert)).toEqual({
       action: 'send',
-      reason: 'consent-known-ok',
+      reason: 'subscription-known-ok',
     });
     expect(classifyRecipientConsent(
-      { exists: true, data: { status: 'unsubscribed' } },
+      { exists: true, data: { status: 'unsubscribed', all_email_opted_out: true } },
       knownJobAlert,
     )).toEqual({ action: 'suppress', reason: 'newsletter-cross-channel-stop' });
     expect(classifyRecipientConsent(
+      {
+        exists: true,
+        data: {
+          status: 'unsubscribed',
+          active: false,
+          confirmed_at: '2026-09-01T00:00:00.000Z',
+          consent_act: 'typed_email_submit',
+        },
+      },
+      knownJobAlert,
+    )).toEqual({ action: 'send', reason: 'subscription-known-ok' });
+    expect(classifyRecipientConsent(
       { exists: true, data: { status: 'pending' } },
       knownJobAlert,
-    )).toEqual({ action: 'defer', reason: 'newsletter-consent-status-unknown' });
+    )).toEqual({ action: 'send', reason: 'subscription-known-ok' });
     expect(classifyRecipientConsent(
       { exists: true, data: { status: 'subscribed', isActive: true } },
       knownJobAlert,
-    )).toEqual({
-      action: 'defer',
-      reason: 'newsletter-consent-resubscribe-status',
-    });
+    )).toEqual({ action: 'send', reason: 'subscription-known-ok' });
     expect(classifyRecipientConsent(undefined, knownJobAlert)).toEqual({
       action: 'defer',
       reason: 'consent-document-missing',

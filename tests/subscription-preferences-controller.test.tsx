@@ -523,6 +523,15 @@ describe('SubscriptionPreferencesController — auth-mode source check', () => {
  expect(src).toMatch(/deleteDoc\(/);
  expect(src).toMatch(/account_deleted_at:\s*deleteField\(\)/);
  expect(src).toMatch(/authCreateAlert\(userId, email, values\)/);
+ expect(src).not.toMatch(/emailConsentGiven/);
+ });
+
+ it('does not let the auth autologin preference create a central subscriber', () => {
+  const autoStart = src.indexOf('async function authToggleAutologin');
+  const autoEnd = src.indexOf('async function authUpdateAlert', autoStart);
+  const auto = src.slice(autoStart, autoEnd);
+  expect(auto).toContain('const existingSubscriber = await getDoc(subscriberRef);');
+  expect(auto).toContain("throw new Error('subscriber_not_found')");
  });
 
  it('keeps a tombstoned auth subscriber unsubscribed so the newsletter toggle can re-opt in', () => {

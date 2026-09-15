@@ -44,7 +44,7 @@ import { t, htmlLang, normalizeLocale } from './emailI18n.js';
 import { resolveSubscriberLocale } from './lib/subscriberLocale.js';
 import { forensicsFields } from './lib/requestForensics.js';
 import { isNewsletterOptOutBinding, toEpochMillis } from './lib/newsletterOptOut.js';
-import { isTransactionalHardBlock } from './lib/emailSuppression.js';
+import { isCrossChannelStop, isTransactionalHardBlock } from './lib/emailSuppression.js';
 import {
  CONFIRMATION_LINK_PROOF,
  hasConfirmationProof,
@@ -67,6 +67,16 @@ import {
 } from './lib/newsletterActionToken.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
+const REGISTRATION_TERMS_VERSION = '2026-09-15.1';
+// Kept in this Functions bundle because it cannot import the TypeScript
+// register. Keep these strings byte-identical to consentDisplayText(
+// 'communicationsOptIn', locale) in services/consentTexts.ts.
+const REGISTRATION_TERMS_TEXT = Object.freeze({
+ it: 'Registrandomi accetto i Termini e condizioni e iscrivo il mio indirizzo alle comunicazioni di Frontaliere Ticino: newsletter e aggiornamenti redazionali, avvisi di lavoro, messaggi di servizio e messaggi promozionali di terzi. Posso gestire le preferenze o revocare l’iscrizione in qualsiasi momento. Condizioni (v. 2026-09-15.1).',
+ en: 'By registering I accept the Terms and Conditions and subscribe my address to Frontaliere Ticino communications: newsletters and editorial updates, job alerts, service messages and promotional messages from third parties. I can manage my preferences or unsubscribe at any time. Terms (v. 2026-09-15.1).',
+ de: 'Mit der Registrierung akzeptiere ich die Nutzungsbedingungen und trage meine Adresse in die Mitteilungen von Frontaliere Ticino ein: Newsletter und redaktionelle Aktualisierungen, Job-Alerts, Servicenachrichten und Werbenachrichten von Dritten. Ich kann meine Einstellungen jederzeit verwalten oder mich abmelden. Bedingungen (V. 2026-09-15.1).',
+ fr: 'En m’inscrivant, j’accepte les conditions et j’inscris mon adresse aux communications de Frontaliere Ticino : newsletters et mises à jour éditoriales, alertes emploi, messages de service et messages promotionnels de tiers. Je peux gérer mes préférences ou me désinscrire à tout moment. Conditions (v. 2026-09-15.1).',
+});
 // Proxied by the CF Worker straight to this function (see UNSUB_PROXIES in
 // infra/cloudflare-worker/locale-router.js) — bypasses the SPA/index.html
 // catch-all so the confirmation page's own resubscribe link doesn't loop
@@ -452,7 +462,7 @@ function serializeAlertDoc(id, data) {
  */
 const RESUBSCRIBE_BURST_WINDOW_MS = 10_000;
 
-export async function handleSubscriptionManagement({ action, email, token, locale, secret, method = 'GET', mode = undefined, autologinPolicy = undefined, tokenPolicy = undefined, enabled = undefined, subscribed = undefined, alertId = undefined, keywords = undefined, locations = undefined, sectors = undefined, frequency = undefined, frequencyOverride = undefined, active = undefined, paused = undefined, specificCompanyKey = undefined, specificJobId = undefined, dailyBriefFrequency = undefined, advertisingEnabled = undefined, forensics = undefined, db: injectedDb }) {
+export async function handleSubscriptionManagement({ action, email, token, locale, secret, method = 'GET', mode = undefined, autologinPolicy = undefined, tokenPolicy = undefined, enabled = undefined, subscribed = undefined, alertId = undefined, keywords = undefined, locations = undefined, sectors = undefined, frequency = undefined, frequencyOverride = undefined, active = undefined, paused = undefined, specificCompanyKey = undefined, specificJobId = undefined, emailConsentGiven = undefined, dailyBriefFrequency = undefined, advertisingEnabled = undefined, forensics = undefined, db: injectedDb }) {
  const db = injectedDb || getAdminDb();
  // Defaults to GET, i.e. FAIL-CLOSED. A caller that forgets to thread the verb
  // through cannot re-subscribe anybody; the opposite default would make the
@@ -556,7 +566,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  } catch { /* fallback to 'it' */ }
  }
 
- const validActions = ['unsubscribe', 'resubscribe', 'confirm', 'exchange_auth_code', 'get_autologin_status', 'toggle_autologin', 'revoke_autologin', 'get_full_status', 'toggle_newsletter_subscription', 'delete_alert', 'update_alert', 'create_alert', 'set_daily_brief_frequency', 'set_advertising_opt_out'];
+ const validActions = ['unsubscribe', 'unsubscribe_all', 'resubscribe', 'confirm', 'exchange_auth_code', 'get_autologin_status', 'toggle_autologin', 'revoke_autologin', 'get_full_status', 'toggle_newsletter_subscription', 'delete_alert', 'update_alert', 'create_alert', 'set_daily_brief_frequency', 'set_advertising_opt_out'];
  if (!validActions.includes(action)) {
  return { status: 400, html: buildResponseHtml({ title: t(lang, 'manageErrorTitle'), message: t(lang, 'manageErrorInvalidAction'), showResubscribe: false, email: '', token: '', locale: lang }) };
  }
@@ -680,6 +690,9 @@ export async function handleSubscriptionManagement({ action, email, token, local
  // unsubscribe scope is graded before any policy value is read, so no sunset and
  // no TTL can reach it.
  const requiredScope = scopeForAction(action);
+ if (action === 'unsubscribe_all' && httpMethod !== 'POST') {
+ return { status: 405, json: { success: false, error: 'method_not_allowed' } };
+ }
  const optOut = action === 'unsubscribe'
  ? verifyOptOutCredential(normalizedEmail, token, secret, { policy: tokenPol })
  : (() => {
@@ -715,6 +728,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  'revoke_autologin',
  'get_full_status',
  'toggle_newsletter_subscription',
+ 'unsubscribe_all',
  'resubscribe',
  'delete_alert',
  'update_alert',
@@ -763,14 +777,19 @@ export async function handleSubscriptionManagement({ action, email, token, local
  if (action === 'toggle_autologin') {
  const desired = enabled === true || enabled === 'true' || enabled === '1';
  try {
- await db.collection('newsletter_subscribers').doc(normalizedEmail).set({
+ const subscriberRef = db.collection('newsletter_subscribers').doc(normalizedEmail);
+ const existingSubscriber = await subscriberRef.get();
+ if (!existingSubscriber.exists) {
+  return { status: 404, json: { success: false, error: 'subscriber_not_found' } };
+ }
+ await subscriberRef.set({
  email: normalizedEmail,
  autologin_enabled: desired,
  updated_at: admin.firestore.FieldValue.serverTimestamp(),
  updatedAt: admin.firestore.FieldValue.serverTimestamp(),
  }, { merge: true });
 
- await db.collection('newsletter_subscribers').doc(normalizedEmail).collection('events').add({
+ await subscriberRef.collection('events').add({
  email: normalizedEmail,
  event_type: desired ? 'autologin_enabled' : 'autologin_disabled',
  source_channel: 'preferences_link',
@@ -817,13 +836,18 @@ export async function handleSubscriptionManagement({ action, email, token, local
  }
  try {
  const now = new Date();
+ const subscriberRef = db.collection('newsletter_subscribers').doc(normalizedEmail);
+ const existingSubscriber = await subscriberRef.get();
+ if (!existingSubscriber.exists) {
+  return { status: 404, json: { success: false, error: 'subscriber_not_found' } };
+ }
  // Start of the next UTC day, not this instant. The stamp being revoked is
  // day-granular, so an instant mid-day is being compared against a midnight
  // and the boundary was emergent; this states it. Consequence, and it is the
  // honest one: the codes minted LATER on the day of the revocation die too,
  // and autologin returns with the first email of the following UTC day.
  const watermarkMs = revocationWatermarkFor(now.getTime());
- await db.collection('newsletter_subscribers').doc(normalizedEmail).set({
+ await subscriberRef.set({
  email: normalizedEmail,
  autologin_revoked_before: admin.firestore.Timestamp.fromMillis(watermarkMs),
  autologin_revoked_at: admin.firestore.FieldValue.serverTimestamp(),
@@ -831,7 +855,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  updatedAt: admin.firestore.FieldValue.serverTimestamp(),
  }, { merge: true });
 
- await db.collection('newsletter_subscribers').doc(normalizedEmail).collection('events').add({
+ await subscriberRef.collection('events').add({
  email: normalizedEmail,
  event_type: 'autologin_revoked',
  source_channel: 'preferences_link',
@@ -859,10 +883,10 @@ export async function handleSubscriptionManagement({ action, email, token, local
  if (action === 'get_full_status') {
  try {
  const subDoc = await db.collection('newsletter_subscribers').doc(normalizedEmail).get();
- // `advertisingEnabled: true` in the no-document default for the same reason
- // it is `!== true` below: the consent is an opt-out, and a document that does
- // not exist carries no objection (#5759).
- let newsletter = { subscribed: false, autologinEnabled: true, advertisingEnabled: true };
+ // No document means no base registration. An existing subscriber is eligible
+ // for third-party advertising unless the category was explicitly disabled;
+ // a missing activation marker is not a delivery gate for legacy records.
+ let newsletter = { subscribed: false, autologinEnabled: true, advertisingEnabled: false };
  if (subDoc.exists) {
  const data = subDoc.data() || {};
  const status = data.status;
@@ -889,12 +913,11 @@ export async function handleSubscriptionManagement({ action, email, token, local
  ? data.daily_brief_frequency_override
  : null,
  dailyBriefTier: Number.isFinite(data.daily_brief_tier) ? data.daily_brief_tier : null,
- // Third-party advertising (#5759). The consent is an OPT-OUT, so an
- // absent field means the channel is on and only an explicit `true`
- // on `advertising_opt_out` turns it off — the same `=== true` that
- // services/publisherBlastMatch.mjs applies when choosing an audience.
+ // Third-party advertising (#5759) is part of the base registration. The
+ // preference centre writes `advertising_opt_out` (and the false marker) as a
+ // hard deny, matching the audience matcher; absence means enabled.
  // Reported positively so the page never has to invert it.
- advertisingEnabled: data.advertising_opt_out !== true,
+ advertisingEnabled: data.consent_advertising !== false && data.advertising_opt_out !== true,
  };
  }
 
@@ -950,13 +973,25 @@ export async function handleSubscriptionManagement({ action, email, token, local
  return { status: 405, json: { success: false, error: 'method_not_allowed' } };
  }
  try {
+ const subscriberRef = db.collection('newsletter_subscribers').doc(normalizedEmail);
+ const existingSubscriber = await subscriberRef.get();
+ if (!existingSubscriber.exists) {
+  return { status: 404, json: { success: false, error: 'subscriber_not_found' } };
+ }
  if (desired) {
- await db.collection('newsletter_subscribers').doc(normalizedEmail).set({
- email: normalizedEmail,
- status: 'subscribed',
- isActive: true,
- active: true,
- account_deleted_at: admin.firestore.FieldValue.delete(),
+ await subscriberRef.set({
+  email: normalizedEmail,
+  status: 'subscribed',
+  isActive: true,
+  active: true,
+  // An explicit newsletter reactivation lifts the global stop for this
+  // address. Other channels remain in their own off/paused state, so this
+  // does not silently re-enable them.
+  all_email_opted_out: false,
+  all_emails_opted_out: false,
+  global_email_opt_out: false,
+  global_email_opted_out: false,
+  account_deleted_at: admin.firestore.FieldValue.delete(),
  // Both spellings, and NEITHER opt-out stamp is deleted (#5711). The
  // re-opt-in stamp is what lifts the opt-out for every sender now —
  // `isNewsletterOptOutBinding` compares the two — so the lift is no
@@ -967,7 +1002,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  updatedAt: admin.firestore.FieldValue.serverTimestamp(),
  }, { merge: true });
  } else {
- await db.collection('newsletter_subscribers').doc(normalizedEmail).set({
+ await subscriberRef.set({
  email: normalizedEmail,
  status: 'unsubscribed',
  isActive: false,
@@ -990,7 +1025,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  // `metadata.ip`/`metadata.user_agent` are direction-neutral (same shape the
  // ESP webhook event writes already use, e.g. newsletterMailtrapWebhookCore.js),
  // so they are recorded on both directions.
- await db.collection('newsletter_subscribers').doc(normalizedEmail).collection('events').add({
+ await subscriberRef.collection('events').add({
  email: normalizedEmail,
  event_type: desired ? 'subscription_resubscribed' : 'subscription_unsubscribed',
  source_channel: 'preferences_link',
@@ -1024,7 +1059,12 @@ export async function handleSubscriptionManagement({ action, email, token, local
  return { status: 400, json: { success: false, error: 'invalid_frequency' } };
  }
  try {
- await db.collection('newsletter_subscribers').doc(normalizedEmail).set({
+ const subscriberRef = db.collection('newsletter_subscribers').doc(normalizedEmail);
+ const existingSubscriber = await subscriberRef.get();
+ if (!existingSubscriber.exists) {
+  return { status: 404, json: { success: false, error: 'subscriber_not_found' } };
+ }
+ await subscriberRef.set({
  email: normalizedEmail,
  daily_brief_frequency_override: requested === null
  ? admin.firestore.FieldValue.delete()
@@ -1032,7 +1072,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  daily_brief_override_updated_at: admin.firestore.FieldValue.serverTimestamp(),
  }, { merge: true });
 
- await db.collection('newsletter_subscribers').doc(normalizedEmail).collection('events').add({
+ await subscriberRef.collection('events').add({
  email: normalizedEmail,
  event_type: 'daily_brief_frequency_set',
  frequency: requested,
@@ -1057,17 +1097,16 @@ export async function handleSubscriptionManagement({ action, email, token, local
 
  // Third-party advertising, on or off (#5759).
  //
- // The owner's decision of 2026-08-13 makes advertising a consent category of
- // its own, collected as an OPT-OUT: nobody ticks an extra box at signup, so
- // the switch is what a person contesting the mail is pointed at. It has to
- // exist here as well as in the authenticated profile, because a reader who
- // arrived from a footer link has an address and no session.
+ // Advertising is part of the base registration, but the preference-centre
+ // opt-out is stored explicitly here as well as in the authenticated profile,
+ // because a reader who arrived from a footer link has an address and no
+ // session.
  //
  // Scoped to this channel alone, like every other control in the centre:
  // `advertising_opt_out` stops the paid-ad blast and touches neither the
  // newsletter nor the brief nor the alerts.
  if (action === 'set_advertising_opt_out') {
- const desired = !(advertisingEnabled === false || advertisingEnabled === 'false' || advertisingEnabled === '0');
+ const desired = advertisingEnabled === true || advertisingEnabled === 'true' || advertisingEnabled === '1';
  // Same asymmetry as `toggle_newsletter_subscription` (#5711): switching a
  // channel back ON is the direction a link-following scanner must never be
  // able to take for somebody, so it needs a POST. Switching it OFF stays
@@ -1077,17 +1116,33 @@ export async function handleSubscriptionManagement({ action, email, token, local
  return { status: 405, json: { success: false, error: 'method_not_allowed' } };
  }
  try {
- await db.collection('newsletter_subscribers').doc(normalizedEmail).set({
+ const subscriberRef = db.collection('newsletter_subscribers').doc(normalizedEmail);
+ const existingSubscriber = await subscriberRef.get();
+ if (!existingSubscriber.exists) {
+  return { status: 404, json: { success: false, error: 'subscriber_not_found' } };
+ }
+ await subscriberRef.set({
  email: normalizedEmail,
+ consent_advertising: desired,
+ consent_advertising_at: desired ? admin.firestore.FieldValue.serverTimestamp() : null,
+ consent_advertising_updated_at: admin.firestore.FieldValue.serverTimestamp(),
  // Written, never deleted, in BOTH directions. `false` is not the same
  // record as an absent field: it says this person was asked and said
  // yes, which is the only evidence that survives a later complaint —
  // the same reason #5711 stopped erasing the opt-out stamps.
  advertising_opt_out: !desired,
  advertising_opt_out_updated_at: admin.firestore.FieldValue.serverTimestamp(),
+  ...(desired ? {
+   // Enabling this channel is an explicit choice after a global stop. It does
+   // not reactivate any other channel whose own state is still off/paused.
+   all_email_opted_out: false,
+   all_emails_opted_out: false,
+   global_email_opt_out: false,
+   global_email_opted_out: false,
+  } : {}),
  }, { merge: true });
 
- await db.collection('newsletter_subscribers').doc(normalizedEmail).collection('events').add({
+ await subscriberRef.collection('events').add({
  email: normalizedEmail,
  event_type: desired ? 'advertising_opted_in' : 'advertising_opted_out',
  source_channel: 'preferences_link',
@@ -1113,17 +1168,27 @@ export async function handleSubscriptionManagement({ action, email, token, local
  return { status: 400, json: { success: false, error: 'invalid_alert_id' } };
  }
  try {
+ const subscriberRef = db.collection('newsletter_subscribers').doc(normalizedEmail);
+ const existingSubscriber = await subscriberRef.get();
+ if (!existingSubscriber.exists) {
+  return { status: 404, json: { success: false, error: 'subscriber_not_found' } };
+ }
+ const alertRef = db.collection('job_alert_subscribers').doc(normalizedEmail).collection('alerts').doc(id);
+ const existingAlert = await alertRef.get();
+ if (!existingAlert.exists) {
+  return { status: 404, json: { success: false, error: 'alert_not_found' } };
+ }
  // Disiscrizione = stato, non rimozione: keep the child as the suppression and
  // audit record so sender/cap queries cannot resurrect a deleted follow and an
  // audit can still prove when/why the user left.
- await db.collection('job_alert_subscribers').doc(normalizedEmail).collection('alerts').doc(id).set({
+ await alertRef.set({
   active: false,
   unsubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
   unsubscribe_source: 'preferences_link',
   updatedAt: admin.firestore.FieldValue.serverTimestamp(),
   updated_at: admin.firestore.FieldValue.serverTimestamp(),
  }, { merge: true });
- await db.collection('newsletter_subscribers').doc(normalizedEmail).collection('events').add({
+ await subscriberRef.collection('events').add({
  email: normalizedEmail,
  event_type: 'job_alert_deleted',
  source_channel: 'preferences_link',
@@ -1194,14 +1259,23 @@ export async function handleSubscriptionManagement({ action, email, token, local
  }
 
  try {
+ const subscriberRef = db.collection('newsletter_subscribers').doc(normalizedEmail);
+ const existingSubscriber = await subscriberRef.get();
+ if (!existingSubscriber.exists) {
+  return { status: 404, json: { success: false, error: 'subscriber_not_found' } };
+ }
  const ref = db.collection('job_alert_subscribers').doc(normalizedEmail).collection('alerts').doc(id);
+ const existingAlert = await ref.get();
+ if (!existingAlert.exists) {
+  return { status: 404, json: { success: false, error: 'alert_not_found' } };
+ }
  await ref.set({
  ...patch,
  email: normalizedEmail,
  updatedAt: admin.firestore.FieldValue.serverTimestamp(),
  }, { merge: true });
 
- await db.collection('newsletter_subscribers').doc(normalizedEmail).collection('events').add({
+ await subscriberRef.collection('events').add({
  email: normalizedEmail,
  event_type: 'job_alert_updated',
  source_channel: 'preferences_link',
@@ -1245,6 +1319,54 @@ export async function handleSubscriptionManagement({ action, email, token, local
  }
 
  try {
+  const subscriberRef = db.collection('newsletter_subscribers').doc(normalizedEmail);
+  const subscriberSnap = await subscriberRef.get();
+  let subscriberData = subscriberSnap.exists ? subscriberSnap.data() || {} : null;
+  // The action itself is the activation of this concrete alert. It does not
+  // require a second checkbox or a historical DOI stamp. If an old token-mode
+  // user has no central row yet, create the same terms-based base relationship
+  // used by the browser registration paths.
+  if (!subscriberData) {
+   const termsText = REGISTRATION_TERMS_TEXT[lang] || REGISTRATION_TERMS_TEXT.it;
+   await subscriberRef.set({
+    email: normalizedEmail,
+    status: 'confirmed',
+    isActive: true,
+    active: true,
+    preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false, jobs: true },
+    interests: ['jobs'],
+    source: 'job_alert',
+    source_channel: 'job_gate',
+    source_page: '/preferenze-newsletter/',
+    consent_given: true,
+    consent_given_at: admin.firestore.FieldValue.serverTimestamp(),
+    consent_advertising: true,
+    consent_advertising_at: admin.firestore.FieldValue.serverTimestamp(),
+    consent_advertising_updated_at: admin.firestore.FieldValue.serverTimestamp(),
+    consent_basis: 'registration_terms',
+    registration_terms_accepted: true,
+    registration_terms_version: REGISTRATION_TERMS_VERSION,
+    registration_terms_text: termsText,
+    registration_terms_accepted_at: admin.firestore.FieldValue.serverTimestamp(),
+    consent_text: termsText,
+    consent_text_version: REGISTRATION_TERMS_VERSION,
+    consent_text_displayed: true,
+    consent_act: 'registration_terms_acceptance',
+    consent_method: 'terms_and_conditions',
+    consent_purpose: 'unified_email_channels',
+    confirmed_at: admin.firestore.FieldValue.serverTimestamp(),
+    confirmedAt: admin.firestore.FieldValue.serverTimestamp(),
+    subscribed_at: admin.firestore.FieldValue.serverTimestamp(),
+    created_at: admin.firestore.FieldValue.serverTimestamp(),
+    updated_at: admin.firestore.FieldValue.serverTimestamp(),
+    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+   });
+   subscriberData = (await subscriberRef.get()).data() || {};
+  }
+  if (isCrossChannelStop(subscriberData)) {
+   return { status: 409, json: { success: false, error: 'email_suppressed' } };
+  }
+
   const alertsCol = db.collection('job_alert_subscribers').doc(normalizedEmail).collection('alerts');
   const idempotencyKey = alertIdempotencyKey({
    email: normalizedEmail,
@@ -1415,6 +1537,61 @@ export async function handleSubscriptionManagement({ action, email, token, local
  };
  }
 
+ // `unsubscribe` above is deliberately newsletter-only. Stop-all is a
+ // separate, POST-only preference-centre action so a mail scanner cannot turn
+ // a normal newsletter unsubscribe into a global block. The explicit fields
+ // are the cross-channel contract read by every sender; the newsletter state
+ // and the advertising/daily-brief fields keep the preference centre honest
+ // when the reader returns to it later.
+ if (action === 'unsubscribe_all') {
+  const subscriberRef = db.collection('newsletter_subscribers').doc(normalizedEmail);
+  const existing = await subscriberRef.get();
+  if (!existing.exists) {
+   return { status: 404, json: { success: false, error: 'subscriber_not_found' } };
+  }
+  try {
+   await subscriberRef.set({
+    email: normalizedEmail,
+    status: 'unsubscribed',
+    isActive: false,
+    active: false,
+    unsubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
+    unsubscribedAt: admin.firestore.FieldValue.serverTimestamp(),
+    all_email_opted_out: true,
+    all_emails_opted_out: true,
+    global_email_opt_out: true,
+    global_email_opted_out: true,
+    all_email_opted_out_at: admin.firestore.FieldValue.serverTimestamp(),
+    global_email_opt_out_at: admin.firestore.FieldValue.serverTimestamp(),
+    daily_brief_frequency_override: 'off',
+    consent_advertising: false,
+    consent_advertising_updated_at: admin.firestore.FieldValue.serverTimestamp(),
+    advertising_opt_out: true,
+    advertising_opt_out_updated_at: admin.firestore.FieldValue.serverTimestamp(),
+    updated_at: admin.firestore.FieldValue.serverTimestamp(),
+    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+    ...forensicFields,
+   }, { merge: true });
+
+   await subscriberRef.collection('events').add({
+    email: normalizedEmail,
+    event_type: 'all_email_unsubscribed',
+    source_channel: 'preferences_link',
+    timestamp: admin.firestore.FieldValue.serverTimestamp(),
+    occurred_at: new Date().toISOString(),
+    ...forensicFields,
+   });
+
+   return {
+    status: 200,
+    json: { success: true, allEmailsOptedOut: true },
+   };
+  } catch (err) {
+   console.error('[unsubscribe_all] Failed:', err?.message);
+   return { status: 500, json: { success: false, error: 'write_failed' } };
+  }
+ }
+
  if (action === 'confirm') {
   const subscriberDoc = await db.collection('newsletter_subscribers').doc(normalizedEmail).get();
   const subscriberData = subscriberDoc.exists ? (subscriberDoc.data() || {}) : {};
@@ -1503,9 +1680,10 @@ export async function handleSubscriptionManagement({ action, email, token, local
    };
   }
 
+  const companyFollowSource = new Set(['company_follow_button', 'company_follow_unified']);
   const companyFollowPending = subscriberData.company_follow_followup_pending === true
    || (subscriberData.company_follow_followup_pending === undefined
-    && subscriberData.source_channel === 'company_follow_button');
+    && companyFollowSource.has(String(subscriberData.source_channel || '').trim().toLowerCase()));
   const companyFollowOnly = subscriberData.company_follow_only === true;
   const confirmationProofRecorded = hasConfirmationProof(subscriberData);
   let alreadyConfirmed = false;
@@ -1559,6 +1737,14 @@ export async function handleSubscriptionManagement({ action, email, token, local
     ...(alreadyConfirmed ? {} : {
      account_deleted_at: admin.firestore.FieldValue.delete(),
     }),
+    // A unified CompanyFollow capture is an all-email consent plus a parked
+    // employer-follow intent. Keep the central row active after DOI and leave
+    // the follow marker for App.tsx to flush into the alert collection. The
+    // legacy company-only branch above has its own suppressed state.
+    ...(companyFollowPending ? {
+     company_follow_confirmed_at: admin.firestore.FieldValue.serverTimestamp(),
+     company_follow_followup_pending: true,
+    } : {}),
     // A double opt-in confirmation click IS the explicit act that lifts an
     // earlier opt-out. The original opt-out stamps remain as evidence; the
     // newer re-opt-in stamp is what the shared predicate compares.

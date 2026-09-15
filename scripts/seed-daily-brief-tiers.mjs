@@ -127,8 +127,9 @@ export function planSeed(rows, nowMs) {
     // does, so the second call was dead. What was genuinely missing is the
     // stamp: a document that opted out through the SPA keeps `status:
     // 'confirmed'` on 458 production rows (#5673), and seeding it a cadence
-    // tier is planning a send to someone who asked us to stop (#5688). Shared
-    // predicate, so an explicit re-opt-in still gets seeded (#5711).
+    // tier is planning a newsletter send to someone who asked that channel to
+    // stop (#5688). Shared predicate, so an explicit re-opt-in still gets
+    // seeded (#5711).
     if (isNewsletterExcluded(status) || isNewsletterOptOutBinding(doc)) { skipped.excluded++; continue; }
     if (doc.daily_brief_frequency_override != null) { skipped.pinned++; continue; }
     if (doc.daily_brief_tier != null) { skipped.alreadySeeded++; continue; }
