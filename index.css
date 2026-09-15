@@ -1206,6 +1206,95 @@ input[type=number] { -moz-appearance: textfield; }
     border-radius: .75rem;
     filter: drop-shadow(0 18px 28px color-mix(in srgb, var(--_heading) 32%, transparent));
   }
+  .ev-hero-poster {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+    padding: clamp(1rem, 4vw, 2.75rem);
+    padding-bottom: clamp(2.5rem, 7vw, 4.75rem);
+    border: 1px solid color-mix(in srgb, var(--_on-accent) 28%, transparent);
+    border-radius: .75rem;
+    color: var(--_on-accent);
+    background: var(--_surface-inverted);
+    box-shadow: 0 18px 30px color-mix(in srgb, var(--_heading) 32%, transparent);
+    isolation: isolate;
+  }
+  .ev-hero-poster::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: -38%;
+    right: -8%;
+    width: clamp(12rem, 34vw, 28rem);
+    aspect-ratio: 1;
+    border: 1px solid color-mix(in srgb, var(--_accent) 78%, transparent);
+    border-radius: 50%;
+    box-shadow:
+      0 0 0 1.25rem color-mix(in srgb, var(--_accent) 18%, transparent),
+      0 0 0 2.5rem color-mix(in srgb, var(--_accent) 10%, transparent);
+    opacity: .9;
+    transform: rotate(-18deg);
+  }
+  .ev-hero-poster::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: 0 18% 0 auto;
+    width: 1px;
+    background: color-mix(in srgb, var(--_on-accent) 22%, transparent);
+    box-shadow:
+      10px 0 0 color-mix(in srgb, var(--_on-accent) 8%, transparent),
+      -10px 0 0 color-mix(in srgb, var(--_on-accent) 8%, transparent);
+    opacity: .8;
+  }
+  .ev-hero-poster-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: .65rem;
+    width: max-content;
+    max-width: 100%;
+    color: var(--_accent);
+    font-size: .6875rem;
+    font-weight: 800;
+    letter-spacing: .16em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+  .ev-hero-poster-kicker::before {
+    content: '';
+    width: clamp(1.75rem, 6vw, 3.25rem);
+    height: 2px;
+    flex: 0 0 auto;
+    background: currentColor;
+  }
+  .ev-hero-poster-title {
+    display: block;
+    max-width: 12ch;
+    margin-top: auto;
+    padding-top: 1.25rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.45rem, 5vw, 4rem);
+    font-weight: 700;
+    letter-spacing: -.045em;
+    line-height: .98;
+    text-wrap: balance;
+  }
+  .ev-hero-poster-meta {
+    display: block;
+    max-width: 42ch;
+    margin-top: 1rem;
+    color: color-mix(in srgb, var(--_on-accent) 76%, transparent);
+    font-size: clamp(.6875rem, 1.5vw, .9375rem);
+    font-weight: 600;
+    line-height: 1.45;
+  }
   .ev-hero-caption {
     position: absolute;
     inset: auto 0 0;
