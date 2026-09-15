@@ -442,7 +442,13 @@ export async function gradeExtraction(spec, vacancies, opts = {}) {
 
   /** @type {QualityReport['verdict']} */
   let verdict = 'insufficient';
-  if (graded.length >= 2) verdict = score >= goodAt ? 'good' : (score >= weakAt ? 'weak' : 'bad');
+  // Il promotion gate adatta il campione alla dimensione dell'inventario:
+  // un datore con una sola vacancy viene giudicato su quella pagina, mentre
+  // la stabilita' resta comunque vincolata a due validazioni in giorni
+  // distinti. Richiedere qui due pagine renderebbe quel ramo del gate
+  // irraggiungibile per costruzione.
+  const minimumGradedForVerdict = vacancies.length > 0 ? Math.min(2, vacancies.length) : 2;
+  if (graded.length >= minimumGradedForVerdict) verdict = score >= goodAt ? 'good' : (score >= weakAt ? 'weak' : 'bad');
 
   return {
     companyKey: spec.companyKey,
