@@ -12,7 +12,11 @@
  */
 
 // Shared, pure (browser-safe) suppression set — keeps every sender in agreement.
-import { isAddressSuppressed, isGlobalEmailOptOut } from './emailSuppression.mjs';
+import {
+  isAddressSuppressed,
+  isGlobalEmailOptOut,
+  isCrossChannelStop,
+} from './emailSuppression.mjs';
 import {
   isNewsletterOptOutBinding,
   newsletterOptOutMillis,
@@ -129,10 +133,20 @@ function advertisingReactivationSupersedesNewsletterOptOut(sub) {
  */
 export function isAdvertisingSuppressed(sub) {
   if (!sub || typeof sub !== 'object') return true;
-  if (isAddressSuppressed(sub.status) || isGlobalEmailOptOut(sub)) return true;
+  // Hard address signals and the explicit global stop can never be lifted by
+  // an advertising-only choice, even when the newsletter row also carries an
+  // older opt-out stamp.
+  if (isAddressSuppressed(sub.status) || isAddressSuppressed(sub.doc?.status)
+    || isGlobalEmailOptOut(sub)) return true;
   if (isAdvertisingOptedOut(sub)) return true;
-  if (!isNewsletterOptOutBinding(sub)) return false;
-  return !advertisingReactivationSupersedesNewsletterOptOut(sub);
+  // Keep the cross-channel decision visible at this sender boundary. The
+  // only permitted exception is an explicit, strictly newer advertising
+  // reactivation; it is evaluated below rather than treating a missing proof
+  // or marker as a delivery gate.
+  if (isCrossChannelStop(sub)) {
+    return !advertisingReactivationSupersedesNewsletterOptOut(sub);
+  }
+  return false;
 }
 
 function norm(s) {

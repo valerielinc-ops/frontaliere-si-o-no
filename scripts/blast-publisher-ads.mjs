@@ -32,6 +32,7 @@
  */
 
 import { isAdvertisingSuppressed, matchSubscribersForAd } from '../services/publisherBlastMatch.mjs';
+import { isCrossChannelStop } from '../services/emailSuppression.mjs';
 import { OWNER_EMAIL, isCanaryJob } from './lib/canaryAd.mjs';
 import { buildBlastEmail } from '../services/publisherBlastEmail.mjs';
 import { slugifyPublisher, truncatePublisherSlug, distinctLocations } from './lib/publisherJobProjection.mjs';
@@ -81,7 +82,14 @@ async function main() {
   // Keep the advertising-specific hard/global stop at this sender boundary
   // too. A later explicit advertising reactivation may lift a newsletter stop
   // for this category only; it never re-enables the other senders.
-  const sendableSubscribers = subscribers.filter((subscriber) => !isAdvertisingSuppressed(subscriber));
+  const sendableSubscribers = subscribers.filter((subscriber) => {
+    // Apply the canonical cross-channel stop before the advertising-specific
+    // matcher. A row with that stop may proceed to the matcher only when it
+    // carries the explicit advertising reactivation marker; the matcher then
+    // verifies its timestamp and still blocks hard/global suppression.
+    if (isCrossChannelStop(subscriber) && subscriber?.advertising_opt_out !== false) return false;
+    return !isAdvertisingSuppressed(subscriber);
+  });
   console.log(`[blast] ${ads.length} ad(s), ${subscribers.length} subscribers. mode=${SEND ? 'SEND' : 'DRY-RUN'}`);
 
   if (SEND) {
