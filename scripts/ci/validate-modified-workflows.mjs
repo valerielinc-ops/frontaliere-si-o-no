@@ -79,7 +79,7 @@ const LOOP_FLEET_DENY_RULES = Object.freeze([
   },
   {
     id: 'direct-main-or-force-push',
-    pattern: /\bgit\s+push\b[^\n]*(?:--force(?:-with-lease)?(?:\s|$)|(?:^|\s)-f(?:\s|$)|(?:^|\s)(?:origin\/)?(?:refs\/heads\/)?main(?:\s|$))/giu,
+    pattern: /\bgit\s+push\b[^\n]*(?:--force(?:-with-lease)?(?:\s|$)|(?:^|\s)-f(?:\s|$)|(?:^|[\s:])(?:origin\/)?(?:refs\/heads\/)?main(?:\s|$))/giu,
   },
   {
     id: 'manual-merge',
@@ -108,6 +108,36 @@ function ruleMatches(source, rule) {
   return [...source.matchAll(rule.pattern)];
 }
 
+function stripShellComment(line) {
+  let singleQuoted = false;
+  let doubleQuoted = false;
+  let escaped = false;
+  for (let index = 0; index < line.length; index += 1) {
+    const character = line[index];
+    if (escaped) {
+      escaped = false;
+      continue;
+    }
+    if (character === '\\' && !singleQuoted) {
+      escaped = true;
+      continue;
+    }
+    if (character === "'" && !doubleQuoted) {
+      singleQuoted = !singleQuoted;
+      continue;
+    }
+    if (character === '"' && !singleQuoted) {
+      doubleQuoted = !doubleQuoted;
+      continue;
+    }
+    if (character === '#' && !singleQuoted && !doubleQuoted
+        && (index === 0 || /\s/u.test(line[index - 1]))) {
+      return line.slice(0, index);
+    }
+  }
+  return line;
+}
+
 function workflowCommandSource(source) {
   const lines = String(source).split('\n');
   const commands = lines.map(() => '');
@@ -123,11 +153,11 @@ function workflowCommandSource(source) {
       }
       if (blockContentIndent === null && leading > blockIndent) {
         blockContentIndent = leading;
-        commands[index] = line;
+        commands[index] = stripShellComment(line);
         continue;
       }
       if (blockContentIndent !== null && leading >= blockContentIndent) {
-        commands[index] = line;
+        commands[index] = stripShellComment(line);
         continue;
       }
       blockIndent = null;
@@ -141,7 +171,7 @@ function workflowCommandSource(source) {
       blockIndent = runIndent;
       blockContentIndent = null;
     }
-    else commands[index] = value;
+    else commands[index] = stripShellComment(value);
   }
   return commands.join('\n');
 }
@@ -156,14 +186,18 @@ function workflowCommandSource(source) {
  */
 export function validateLoopFleetWorkflowText(file, text) {
   if (!LOOP_FLEET_WORKFLOW_RE.test(String(file))) return [];
-  const source = removeYamlComments(String(text || ''));
-  const commandSource = workflowCommandSource(source);
-  return LOOP_FLEET_DENY_RULES.flatMap((rule) => ruleMatches(rule.scope === 'source' ? source : commandSource, rule).map((match) => ({
+  const rawSource = String(text || '');
+  const source = removeYamlComments(rawSource);
+  const commandSource = workflowCommandSource(rawSource);
+  return LOOP_FLEET_DENY_RULES.flatMap((rule) => {
+    const matchedSource = rule.scope === 'source' ? source : commandSource;
+    return ruleMatches(matchedSource, rule).map((match) => ({
     file,
     rule: rule.id,
-    line: lineFor(source, match.index || 0),
+    line: lineFor(matchedSource, match.index || 0),
     snippet: match[0].trim().slice(0, 160),
-  })));
+    }));
+  });
 }
 
 function git(args) {

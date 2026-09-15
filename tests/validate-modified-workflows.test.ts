@@ -99,6 +99,18 @@ describe('validate-modified-workflows', () => {
       ]));
   });
 
+  it('catches refspec pushes and preserves commands after a quoted hash', () => {
+    const workflow = [
+      'steps:',
+      '  - run: echo "a # b" && git push --force origin HEAD:main',
+      '  - run: git push origin $BRANCH:main',
+    ].join('\n');
+
+    const findings = validateLoopFleetWorkflowText('.github/workflows/loop-l11-technical-operations.yml', workflow);
+    expect(findings.filter(({ rule }) => rule === 'direct-main-or-force-push')).toHaveLength(2);
+    expect(findings.find(({ rule }) => rule === 'direct-main-or-force-push')).toMatchObject({ line: 2 });
+  });
+
   it('scans only run scalars and stops before the next step key', () => {
     const workflow = [
       'steps:',
