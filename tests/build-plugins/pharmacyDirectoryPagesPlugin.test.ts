@@ -313,9 +313,9 @@ describe('pharmacy directory page matrix', () => {
       expect(page.html).not.toContain('application/ld+json');
       expect(page.html).not.toContain('data-italy-duty-published');
       expect(page.html).not.toMatch(/<time\b/);
-      expect(page.html).not.toContain('novita_138.html');
-      expect(page.html).not.toContain('Dettaglionews?IDNews=400586');
-      expect(page.html).not.toContain('2968938.pdf');
+      expect(page.html).toContain('novita_138.html');
+      expect(page.html).toContain('Dettaglionews?IDNews=400586');
+      expect(page.html).toContain('2968938.pdf');
     }
     expect(buildPharmacyPath({ kind: 'italy-duty-hub', country: 'IT', locale }, locale)).toContain('/');
   });
@@ -343,9 +343,9 @@ describe('pharmacy directory page matrix', () => {
     expect(html).not.toContain('data-italy-duty-published');
     expect(html).not.toMatch(/data-duty-id=/);
     expect(html).not.toMatch(/<time\b/);
-    expect(html).not.toContain('novita_138.html');
-    expect(html).not.toContain('Dettaglionews?IDNews=400586');
-    expect(html).not.toContain('2968938.pdf');
+    expect(html).toContain('novita_138.html');
+    expect(html).toContain('Dettaglionews?IDNews=400586');
+    expect(html).toContain('2968938.pdf');
   });
 
   it('emits a noindex canonical bridge for a historical Italian detail path', () => {
