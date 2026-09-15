@@ -151,6 +151,8 @@ describe('L5 Decision Moments', () => {
     expect(result.outcome).toMatchObject({
       status: 'partial',
       independent: false,
+      numerator: null,
+      denominator: null,
       eligibleDecisionSessions: null,
       nextUsefulActions: null,
       metrics: { eligibleDecisionSessions: null, nextUsefulActions: null },

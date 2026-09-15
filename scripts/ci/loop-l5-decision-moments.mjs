@@ -483,8 +483,8 @@ function buildDecisionMomentOutcome({ source, verdict, policy, registry, now }) 
     loopId: LOOP_ID,
     quality: status,
     independent: measured,
-    numerator: nextUsefulActions,
-    denominator: eligibleDecisionSessions,
+    numerator: measured ? nextUsefulActions : null,
+    denominator: measured ? eligibleDecisionSessions : null,
     observedAt: generatedAt?.toISOString() || null,
     reason: measured
       ? 'explicit independent decision-surface export with eligible sessions and next useful actions'
