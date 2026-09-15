@@ -4,12 +4,14 @@ import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   buildL1TelemetryExport,
+  buildL3OutcomeExport,
   buildL4OutcomeLedger,
   buildL5DecisionMomentExport,
   buildL5DecisionMomentQuery,
   buildL7ExperimentLedger,
   buildL7ExperimentLedgerQuery,
   buildL9OutcomeLedger,
+  exportL3,
   exportL4,
   exportL5,
   exportL7,
@@ -74,6 +76,81 @@ describe('read-only loop outcome exporters', () => {
       usefulSessions: 18595,
       errorFreeUsefulSessions: 7738,
       _meta: { issue: 4304, generatedAt: NOW.toISOString() },
+    });
+  });
+
+  it('exports L3 from exact settled GA4 event-session counts without inventing applications', async () => {
+    const calls: Array<{ url: string; init: RequestInit }> = [];
+    const client = {
+      request: async (url: string, init: RequestInit) => {
+        calls.push({ url, init });
+        const body = JSON.parse(String(init.body));
+        const eventName = body.dimensionFilter.filter.stringFilter.value;
+        return {
+          rows: [{ metricValues: [{ value: eventName === 'job_qualified_session' ? '120' : '90' }] }],
+        };
+      },
+    };
+    const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l3-export-test-'));
+    const outputPath = path.join(outputDir, 'outcomes.json');
+    const output = await exportL3({
+      now: NOW,
+      days: 4,
+      outputPath,
+      propertyId: 'properties/524485296',
+      client: client as any,
+    });
+
+    expect(output).toMatchObject({
+      generatedAt: NOW.toISOString(),
+      independent: true,
+      eligibleJobSessions: 120,
+      validHandoffs: 90,
+      evidence: {
+        sourceRefs: ['job-crawler-summaries', 'application-handoff'],
+        settledWindow: true,
+        eventFilters: {
+          eligibleJobSessions: 'job_qualified_session',
+          validHandoffs: 'job_apply_handoff',
+        },
+      },
+      export: {
+        handoffIsNotApplication: true,
+        applicationSubmissionSource: 'not available from site telemetry',
+        publishedDataUntouched: true,
+        readOnly: true,
+      },
+    });
+    expect(output).not.toHaveProperty('applications');
+    expect(JSON.parse(fs.readFileSync(outputPath, 'utf8'))).toEqual(output);
+    expect(calls).toHaveLength(2);
+    for (const call of calls) {
+      expect(call.url).toBe('https://analyticsdata.googleapis.com/v1beta/properties/524485296:runReport');
+      const body = JSON.parse(String(call.init.body));
+      expect(body).toMatchObject({
+        dateRanges: [{ startDate: '2026-09-07', endDate: '2026-09-10' }],
+        metrics: [{ name: 'sessions' }],
+        dimensionFilter: {
+          filter: {
+            fieldName: 'eventName',
+            stringFilter: { matchType: 'EXACT' },
+          },
+        },
+      });
+    }
+  });
+
+  it('keeps the L3 builder honest when the source has no submitted-application field', () => {
+    expect(buildL3OutcomeExport({
+      generatedAt: NOW.toISOString(),
+      eligibleJobSessions: 0,
+      validHandoffs: 0,
+      telemetryWindow: { startDate: '2026-09-07', endDate: '2026-09-10' },
+    })).toMatchObject({
+      independent: true,
+      eligibleJobSessions: 0,
+      validHandoffs: 0,
+      export: { handoffIsNotApplication: true, publishedDataUntouched: true },
     });
   });
 
