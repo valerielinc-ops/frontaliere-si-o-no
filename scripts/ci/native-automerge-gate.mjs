@@ -475,7 +475,7 @@ function ghRaw(args) {
 }
 
 function ghJson(args) {
-  return JSON.parse(ghRaw(args));
+  return JSON.parse(withTransientGithubReadRetry(() => ghRaw(args)));
 }
 
 function sleepForTransientReadRetry(delayMs) {
@@ -520,8 +520,8 @@ export function withTransientGithubReadRetry(operation, {
   throw new Error('read retry exhausted without an attempt');
 }
 
-function ghReadJson(args) {
-  return JSON.parse(withTransientGithubReadRetry(() => ghRaw(args)));
+function ghJsonOnce(args) {
+  return JSON.parse(ghRaw(args));
 }
 
 // `review-test-policy` needs both parsed GitHub responses and raw newline
@@ -551,7 +551,7 @@ const REVIEW_METADATA_QUERY = [
 function loadReviewMetadata(repo, pr) {
   const [owner, name] = String(repo).split('/');
   if (!owner || !name) throw new Error('repository non valido per la metadata review');
-  const pages = ghReadJson([
+  const pages = ghJson([
     'api', 'graphql', '--paginate', '--slurp',
     '-f', `query=${REVIEW_METADATA_QUERY}`,
     '-F', `owner=${owner}`,
@@ -563,7 +563,7 @@ function loadReviewMetadata(repo, pr) {
 }
 
 function loadReviews(repo, pr) {
-  const reviews = flattenPages(ghReadJson([
+  const reviews = flattenPages(ghJson([
     'api', `repos/${repo}/pulls/${pr}/reviews`, '--paginate', '--slurp',
   ]));
   const metadataById = new Map();
@@ -589,7 +589,7 @@ function loadReviews(repo, pr) {
 }
 
 function loadCheckRuns(repo, head) {
-  const pages = ghReadJson([
+  const pages = ghJson([
     'api', `repos/${repo}/commits/${head}/check-runs?per_page=100`, '--paginate', '--slurp',
   ]);
   return (Array.isArray(pages) ? pages : [pages])
@@ -603,10 +603,10 @@ function loadReviewGateEvidence(repo, head, checkRuns, review) {
   const check = latestRequiredVitestCheck(checkRuns, head);
   const location = parseActionsJobUrl(check?.details_url, repo);
   if (!check || !location || !reviewIdKey(review.id)) return null;
-  const workflow = ghReadJson([
+  const workflow = ghJson([
     'api', `repos/${repo}/actions/runs/${location.runId}`,
   ]);
-  const job = ghReadJson([
+  const job = ghJson([
     'api', `repos/${repo}/actions/jobs/${location.jobId}`,
   ]);
   return {
@@ -622,7 +622,7 @@ const DISABLE_AUTO_MERGE_MUTATION =
 
 function disableNativeAutoMerge(repo, pr) {
   if (!pr?.id) throw new Error('node ID della PR mancante');
-  const response = ghJson([
+  const response = ghJsonOnce([
     'api', 'graphql',
     '-f', `query=${DISABLE_AUTO_MERGE_MUTATION}`,
     '-F', `pullRequestId=${pr.id}`,
@@ -676,7 +676,7 @@ function capturedErrorOutput(error) {
 /** Confirm that a concurrent opt-in achieved the intended state before going green. */
 function concurrentOptInSucceeded(repo, prNumber, expectedHead) {
   try {
-    const observed = ghReadJson(['pr', 'view', prNumber, '--repo', repo, '--json',
+    const observed = ghJson(['pr', 'view', prNumber, '--repo', repo, '--json',
       'state,headRefOid,autoMergeRequest']);
     if (observed.state === 'MERGED') return true;
     return observed.state === 'OPEN'
@@ -696,7 +696,7 @@ function main() {
 
   let pr;
   try {
-    pr = ghReadJson(['pr', 'view', prNumber, '--repo', repo, '--json',
+    pr = ghJson(['pr', 'view', prNumber, '--repo', repo, '--json',
       'number,id,state,isDraft,baseRefName,headRefOid,autoMergeRequest']);
   } catch (error) {
     console.error(`::error::native auto-merge guard: impossibile leggere PR #${prNumber}: ${String(error).slice(0, 240)}`);
@@ -751,7 +751,7 @@ function main() {
   // invalidates the review/check snapshot and must be re-evaluated.
   let current;
   try {
-    current = ghReadJson(['pr', 'view', prNumber, '--repo', repo, '--json',
+    current = ghJson(['pr', 'view', prNumber, '--repo', repo, '--json',
       'number,id,state,isDraft,baseRefName,headRefOid,autoMergeRequest']);
   } catch (error) {
     console.error(`::error::native auto-merge guard: conferma HEAD fallita: ${String(error).slice(0, 240)}`);

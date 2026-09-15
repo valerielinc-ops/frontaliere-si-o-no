@@ -551,7 +551,7 @@ describe('native auto-merge gate (#8512)', () => {
 
   it('revalidates review and checks after the final HEAD read and before native opt-in', () => {
     const gateSource = readFileSync(new URL('../scripts/ci/native-automerge-gate.mjs', import.meta.url), 'utf8');
-    const headRead = gateSource.indexOf('current = ghReadJson');
+    const headRead = gateSource.indexOf('current = ghJson');
     const finalReviewRead = gateSource.indexOf('finalReviews = loadReviews');
     const finalCheckRead = gateSource.indexOf('finalCheckRuns = loadCheckRuns');
     const finalGate = gateSource.indexOf('const finalDecision = revalidateNativeAutoMerge');
@@ -564,8 +564,10 @@ describe('native auto-merge gate (#8512)', () => {
     expect(nativeOptIn).toBeGreaterThan(finalGate);
     expect(gateSource).toContain("if (finalDecision.action === 'revoke')");
     expect(gateSource).toContain('concurrentOptInSucceeded');
-    expect(gateSource).toContain('function ghReadJson(args)');
+    expect(gateSource).toContain('function ghJson(args)');
+    expect(gateSource).toContain('function ghJsonOnce(args)');
     expect(gateSource).toContain('withTransientGithubReadRetry');
+    expect(gateSource).toContain('const response = ghJsonOnce');
     expect(gateSource).toContain("stdio: ['ignore', 'pipe', 'pipe']");
   });
 
