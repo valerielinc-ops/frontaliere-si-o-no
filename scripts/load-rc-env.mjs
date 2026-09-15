@@ -66,8 +66,32 @@ export const RC_TO_ENV = {
   // tooling, never written as a source or static HTML literal.
   FIREBASE_API_KEY:               ['FIREBASE_API_KEY', 'VITE_FIREBASE_API_KEY'],
   GOOGLE_MAPS_API_KEY:            ['GOOGLE_MAPS_API_KEY'],
+  // Google Routes is the current API surface. Keep the legacy Distance Matrix
+  // key separately available so the mesh can fall back when Routes is disabled
+  // in the project; the value itself is never exposed to the client here.
+  GOOGLE_ROUTES_API_KEY:          ['GOOGLE_ROUTES_API_KEY'],
   TOMTOM_API_KEY:             ['TOMTOM_API_KEY'],
   HERE_API_KEY:               ['HERE_API_KEY'],
+  MAPBOX_PUBLIC_TOKEN:         ['MAPBOX_PUBLIC_TOKEN'],
+  MAPBOX_SECRET_TOKEN:         ['MAPBOX_SECRET_TOKEN'],
+  GEOAPIFY_API_KEY:            ['GEOAPIFY_API_KEY'],
+  GRAPHHOPPER_API_KEY:         ['GRAPHHOPPER_API_KEY'],
+  OPENROUTESERVICE_API_KEY:    ['OPENROUTESERVICE_API_KEY'],
+  STADIA_API_KEY:              ['STADIA_API_KEY'],
+  // Swiss DATEX2 traffic situations require an OpenTransportData API token.
+  // The public French/Italian/operator feeds below do not require credentials.
+  OPENTRANSPORTDATA_API_KEY:   ['OPENTRANSPORTDATA_API_KEY'],
+  // Conservative, server-side quota ceilings. A missing value falls back to
+  // the safe defaults in functions/src/trafficProviderMesh.js.
+  TOMTOM_DAILY_BUDGET:         ['TOMTOM_DAILY_BUDGET'],
+  HERE_MONTHLY_BUDGET:         ['HERE_MONTHLY_BUDGET'],
+  GOOGLE_ROUTES_MONTHLY_BUDGET: ['GOOGLE_ROUTES_MONTHLY_BUDGET'],
+  GOOGLE_MAPS_MONTHLY_BUDGET:  ['GOOGLE_MAPS_MONTHLY_BUDGET'],
+  MAPBOX_MONTHLY_BUDGET:       ['MAPBOX_MONTHLY_BUDGET'],
+  GEOAPIFY_DAILY_BUDGET:       ['GEOAPIFY_DAILY_BUDGET'],
+  GRAPHHOPPER_DAILY_BUDGET:    ['GRAPHHOPPER_DAILY_BUDGET'],
+  OPENROUTESERVICE_DAILY_BUDGET: ['OPENROUTESERVICE_DAILY_BUDGET'],
+  STADIA_DAILY_BUDGET:         ['STADIA_DAILY_BUDGET'],
   // HERE Cost Management Usage API (OAuth access key) — reconciles the routing
   // budget counter with real billed usage. Server-only, never client-visible.
   HERE_OAUTH_KEY_ID:          ['HERE_OAUTH_KEY_ID'],

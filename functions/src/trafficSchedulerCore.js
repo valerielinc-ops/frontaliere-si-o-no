@@ -14,6 +14,15 @@
 
 import admin from 'firebase-admin';
 import { slugifyCrossingName, BORDER_CROSSINGS } from './borderCrossingsData.js';
+import {
+  TRAFFIC_PROVIDER_SPECS,
+  buildTrafficProviderChain,
+  classifyProviderError,
+  getTrafficSegmentTravelTimes,
+  providerBudget,
+  providerPeriod,
+  reserveTrafficProviderBudget,
+} from './trafficProviderMesh.js';
 
 // Re-export so callers that previously imported from this module keep working.
 export { slugifyCrossingName, BORDER_CROSSINGS };
@@ -23,13 +32,11 @@ const TOMTOM_CALCULATE_ROUTE_URL = 'https://api.tomtom.com/routing/1/calculateRo
 const HERE_ROUTER_URL = 'https://router.hereapi.com/v8/routes';
 const TT_FLOW_URL = 'https://api.tomtom.com/traffic/services/4/flowSegmentData/relative0';
 const MAX_FLOW_DELAY_MIN = 45;
-// HERE "Time Aware Routing" free tier is 5 000 transactions / calendar month
-// (Base Plan v6.0 Tier 1, 0–5000 = €0; May 2026 over-ran to 8 962 → first
-// invoice). Each crossing costs 2 transactions (crossing segment +
-// approach segment), so a full run of 26 crossings = 52. We hard-cap monthly
-// HERE usage below the free tier and skip further runs once the budget is
-// exhausted — the deterministic guarantee that we never pay, independent of how
-// GitHub schedules the cron. Override via the HERE_MONTHLY_BUDGET env var.
+// HERE "Time Aware Routing" has a paid meter after its free allowance. Each
+// crossing costs 2 transactions (crossing segment + approach segment), so the
+// scheduler reserves the whole run before issuing requests and hard-caps the
+// local monthly budget below the advertised free tier. Override via the
+// HERE_MONTHLY_BUDGET env var.
 // `Number(process.env.X || 4500)` metteva l'alternativa DENTRO `Number`: una
 // variabile presente ma non numerica dava `NaN`, e `NaN` come tetto di spesa
 // significa nessun tetto — `usage >= NaN` e' falso, quindi la garanzia «non
@@ -112,9 +119,25 @@ export function estimateWaitFromCongestion(congestionScore) {
  * @param {{hereApiKey?:string, tomtomApiKey?:string, googleApiKey?:string}} keys
  * @returns {'tomtom'|'here'|'google-maps'|null}
  */
-export function resolveTrafficProvider({ hereApiKey, tomtomApiKey, googleApiKey }) {
+export function resolveTrafficProvider({
+ hereApiKey,
+ tomtomApiKey,
+ googleApiKey,
+ googleRoutesApiKey,
+ mapboxAccessToken,
+ geoapifyApiKey,
+ graphhopperApiKey,
+ openrouteserviceApiKey,
+ stadiaApiKey,
+ }) {
  if (tomtomApiKey) return 'tomtom';
  if (hereApiKey) return 'here';
+ if (googleRoutesApiKey) return 'google-routes';
+ if (mapboxAccessToken) return 'mapbox';
+ if (geoapifyApiKey) return 'geoapify';
+ if (openrouteserviceApiKey) return 'openrouteservice';
+ if (graphhopperApiKey) return 'graphhopper';
+ if (stadiaApiKey) return 'stadia';
  if (googleApiKey) return 'google-maps';
  return null;
 }
@@ -284,7 +307,7 @@ export async function getTomTomFlowSegmentData(lat, lng, apiKey) {
 }
 
 async function getSegmentTravelTimes(originLat, originLng, destLat, destLng, options) {
- const provider = resolveTrafficProvider(options);
+ const provider = options.providerOverride ?? resolveTrafficProvider(options);
  if (provider === 'here') {
  return getHereMapsRouteTravelTimes(originLat, originLng, destLat, destLng, options.hereApiKey);
  }
@@ -293,6 +316,9 @@ async function getSegmentTravelTimes(originLat, originLng, destLat, destLng, opt
  }
  if (provider === 'google-maps') {
  return getGoogleDistanceMatrix(originLat, originLng, destLat, destLng, options.googleApiKey);
+ }
+ if (provider && provider !== 'tomtom' && provider !== 'here' && provider !== 'google-maps') {
+  return getTrafficSegmentTravelTimes(provider, originLat, originLng, destLat, destLng, options);
  }
  throw new Error('No live traffic provider configured');
 }
@@ -320,19 +346,81 @@ export function applyWebcamTrafficSanity(waitTimeMinutes, approachMinutes, webca
  return waitTimeMinutes;
 }
 
+function providerIdFromEntry(entry) {
+ return typeof entry === 'string' ? entry : entry?.id;
+}
+
+function finiteNonNegative(value) {
+ const n = Number(value);
+ return Number.isFinite(n) && n >= 0 ? n : null;
+}
+
+function officialSignalForCrossing(options, crossing) {
+ const signals = options.officialSignals;
+ if (!signals) return null;
+ const slug = slugifyCrossingName(crossing.name);
+ const signal = signals instanceof Map ? signals.get(slug) : signals[slug];
+ return signal && typeof signal === 'object' ? signal : null;
+}
+
+/** Apply only explicit official queue/approach values; incidents without a
+ * measured delay remain provenance, not fabricated minutes. */
+function applyOfficialSignal(waitTimeMinutes, approachMinutes, signal) {
+ if (!signal) return { waitTimeMinutes, approachMinutes };
+ const officialQueue = finiteNonNegative(signal.queueMinutes ?? signal.officialQueueMinutes);
+ const officialApproach = finiteNonNegative(signal.approachMinutes ?? signal.officialApproachMinutes);
+ return {
+  waitTimeMinutes: officialQueue === null ? waitTimeMinutes : Math.max(waitTimeMinutes, Math.round(officialQueue)),
+  approachMinutes: officialApproach === null ? approachMinutes : Math.max(approachMinutes, Math.round(officialApproach)),
+ };
+}
+
+async function getSegmentWithProviderFallback(originLat, originLng, destLat, destLng, options, providerChain) {
+ let lastError = null;
+ for (const entry of providerChain) {
+  const providerId = providerIdFromEntry(entry);
+  if (!providerId || options.providerRuntime?.disabled?.has(providerId)) continue;
+  try {
+   if (options.providerRuntime?.ensureProvider) {
+    const allowed = await options.providerRuntime.ensureProvider(providerId);
+    if (!allowed) continue;
+   }
+   const value = await getSegmentTravelTimes(
+    originLat,
+    originLng,
+    destLat,
+    destLng,
+    { ...options, providerOverride: providerId },
+   );
+   return { ...value, provider: providerId };
+  } catch (error) {
+   lastError = error;
+   const kind = classifyProviderError(error);
+   // A quota/auth failure is account-wide for this run. Transient/data errors
+   // still rotate for this segment, but the provider may serve the next one.
+   if (kind === 'quota' || kind === 'auth' || error?.code === 'TRAFFIC_PROVIDER_BUDGET_EXHAUSTED') {
+    options.providerRuntime?.disabled?.add(providerId);
+   }
+   console.warn(`⚠️ ${providerId} failed for one traffic segment (${kind}) — rotating fallback`);
+  }
+ }
+ throw lastError ?? new Error('No live traffic provider available');
+}
+
 /**
  * Fetches traffic data for a single border crossing via two live-routing calls:
  * 1. Approach segment: Italian approach point (≈500 m south) → crossing
  * 2. Crossing segment: crossing → Swiss checkpoint (≈1 km north)
  *
  * @param {{ name: string, lat: number, lng: number }} crossing
- * @param {{ hereApiKey?: string, tomtomApiKey?: string, googleApiKey?: string }} options
+ * @param {{ [key: string]: any }} options
  */
 export async function fetchCrossingTraffic(crossing, options = {}) {
  const { lat, lng } = crossing;
- const provider = resolveTrafficProvider(options);
+ const provider = options.providerOverride ?? resolveTrafficProvider(options);
+ const providerChain = options.providerChain;
 
- if (!provider) {
+ if (!provider && !providerChain?.length) {
  throw new Error('No live traffic provider configured');
  }
 
@@ -341,9 +429,26 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
  // Italian approach point: ≈500 m south of the crossing
  const approachLat = lat - 0.0045;
 
+ const segmentFetcher = providerChain?.length
+  ? (originLat, originLng, destLat, destLng) => getSegmentWithProviderFallback(
+   originLat,
+   originLng,
+   destLat,
+   destLng,
+   options,
+   providerChain,
+  )
+  : (originLat, originLng, destLat, destLng) => getSegmentTravelTimes(
+   originLat,
+   originLng,
+   destLat,
+   destLng,
+   options,
+  ).then((value) => ({ ...value, provider }));
+
  const [crossingResult, approachResult] = await Promise.allSettled([
- getSegmentTravelTimes(lat, lng, checkpointLat, lng, options),
- getSegmentTravelTimes(approachLat, lng, lat, lng, options),
+ segmentFetcher(lat, lng, checkpointLat, lng),
+ segmentFetcher(approachLat, lng, lat, lng),
  ]);
 
  let waitTimeMinutes = 0;
@@ -356,9 +461,23 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
  console.warn(`⚠️ Crossing segment failed for ${crossing.name}: ${crossingResult.reason?.message}`);
  }
 
+ const observedProviders = new Set(
+  [crossingResult, approachResult]
+   .filter((result) => result.status === 'fulfilled')
+   .map((result) => result.value.provider)
+   .filter(Boolean),
+ );
+
  // TomTom Flow sanity check: if road speed is <30% of free flow but routing says 0 min,
- // there's likely a queue the routing API missed. Override conservatively.
- if (options.tomtomApiKey && waitTimeMinutes < 5) {
+ // there's likely a queue the routing API missed. Override conservatively. In the mesh,
+ // only a segment actually served by TomTom may trigger this extra API call.
+ const tomTomWasUsed = providerChain?.length
+  ? observedProviders.has('tomtom')
+  : provider === 'tomtom';
+ if (((options.enableTomTomFlow ?? !providerChain) || provider === 'tomtom')
+  && tomTomWasUsed
+  && options.tomtomApiKey
+  && waitTimeMinutes < 5) {
  try {
  const flow = await getTomTomFlowSegmentData(crossing.lat, crossing.lng, options.tomtomApiKey);
  if (flow.ratio < 0.3 && flow.confidence > 0.5) {
@@ -381,9 +500,18 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
  const hasLiveData =
  crossingResult.status === 'fulfilled' || approachResult.status === 'fulfilled';
 
+ const signal = officialSignalForCrossing(options, crossing);
+ const officialAdjusted = applyOfficialSignal(waitTimeMinutes, approachMinutes, signal);
+ waitTimeMinutes = officialAdjusted.waitTimeMinutes;
+ approachMinutes = officialAdjusted.approachMinutes;
+
  // Source of the wait estimate. `provider` while live routing data exists; flips
  // to 'webcam' below when the webcam becomes the PRIMARY datum (no live routing).
- let source = provider;
+ let source = observedProviders.size === 1
+  ? [...observedProviders][0]
+  : observedProviders.size > 1
+   ? 'traffic-mesh'
+   : provider;
 
  // Webcam analysis serves two distinct roles depending on whether live routing
  // data exists. We fetch it once (only road-facing CV cameras vote; tourist/
@@ -408,17 +536,28 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
  if (hasLiveData) {
   // (a) Adjust-only: never let the webcam replace a successful routing estimate.
   waitTimeMinutes = applyWebcamTrafficSanity(waitTimeMinutes, approachMinutes, webcam, crossing.name);
+  // Official measured queues/approach signals are a lower bound. Re-apply them
+  // after the webcam sanity filter so a clear image cannot erase an official
+  // road authority signal.
+  const protectedOfficial = applyOfficialSignal(waitTimeMinutes, approachMinutes, signal);
+  waitTimeMinutes = protectedOfficial.waitTimeMinutes;
+  approachMinutes = protectedOfficial.approachMinutes;
  } else if (webcam && webcam.visibility === 'good') {
   // (b) Webcam-as-PRIMARY: both routing segments failed but a good-visibility
   // camera saw the road. Use the granular congestion→minutes estimate.
-  waitTimeMinutes = estimateWaitFromCongestion(webcam.congestionScore);
+  waitTimeMinutes = Math.max(waitTimeMinutes, estimateWaitFromCongestion(webcam.congestionScore));
   approachMinutes = 0; // no live approach datum to combine with
-  source = 'webcam';
+  source = signal ? 'official+webcam' : 'webcam';
   console.log(
    `📷 Webcam PRIMARY estimate for ${crossing.name}: routing unavailable, ` +
    `congestionScore=${webcam.congestionScore == null ? 'null' : webcam.congestionScore.toFixed(2)} ` +
    `(queueDetected=${webcam.queueDetected}) → ${waitTimeMinutes} min`,
   );
+ } else if (signal && (finiteNonNegative(signal.queueMinutes ?? signal.officialQueueMinutes) !== null
+  || finiteNonNegative(signal.approachMinutes ?? signal.officialApproachMinutes) !== null)) {
+  // Official open-data signals are a useful primary fallback when both route
+  // segments fail. Incident-only records deliberately do not reach this path.
+  source = 'official';
  } else {
   // (b') No live data AND no usable webcam (night/poor/no camera) → preserve the
   // existing behavior: throw so the crossing gets no data and the SPA falls back
@@ -433,7 +572,10 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
  else if (waitTimeMinutes < 15) status = 'yellow';
  else status = 'red';
 
- return {
+ const officialSources = Array.isArray(signal?.sourceIds)
+  ? signal.sourceIds.filter(Boolean).join(',')
+  : typeof signal?.sourceId === 'string' ? signal.sourceId : '';
+ const result = {
  crossingName: crossing.name,
  waitTimeMinutes,
  approachMinutes,
@@ -441,6 +583,11 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
  status,
  source,
  };
+ if (officialSources) result.officialSources = officialSources;
+ if (signal?.updatedAt) result.officialLastUpdate = String(signal.updatedAt);
+ if (finiteNonNegative(signal?.queueKm) !== null) result.officialQueueKm = Number(signal.queueKm);
+ if (signal) result.dataQuality = hasLiveData ? 'live+official' : 'official';
+ return result;
 }
 
 // ─── Firebase Admin init ──────────────────────────────────────
@@ -514,6 +661,120 @@ export async function reserveHereTransactionBudget(callsThisRun) {
  });
 }
 
+function createProviderMeshRuntime(providerChain, callsThisRun) {
+ const disabled = new Set();
+ const reservations = new Map();
+
+ const ensureProvider = async (providerId) => {
+  if (disabled.has(providerId)) return false;
+  if (reservations.has(providerId)) return reservations.get(providerId);
+
+  const promise = (async () => {
+   try {
+    // HERE keeps its historical/reconciled document name. All other providers
+    // use the generic provider-period document in trafficProviderMesh.js.
+    const reservation = providerId === 'here'
+     ? await reserveHereTransactionBudget(callsThisRun)
+     : await reserveTrafficProviderBudget(providerId, callsThisRun);
+    if (!reservation?.allowed) {
+     disabled.add(providerId);
+     const budget = reservation?.budget ?? providerBudget(providerId);
+     const period = reservation?.period ?? providerPeriod(providerId);
+     console.warn(`🛑 ${providerId} local budget reached (${budget}/${period}) — rotating provider`);
+     return false;
+    }
+    return true;
+   } catch (error) {
+    // A failed budget transaction cannot prove that a paid request is safe.
+    // Fail closed and let the chain try a different provider or webcam.
+    disabled.add(providerId);
+    console.warn(`🛑 ${providerId} budget reservation failed — rotating provider: ${error.message}`);
+    return false;
+   }
+  })();
+  reservations.set(providerId, promise);
+  return promise;
+ };
+
+ return { providerChain, disabled, reservations, ensureProvider };
+}
+
+async function runTrafficCollectionWithProviderMesh(options, providerChain) {
+ const maxTomTomFlowCalls = providerChain.some((spec) => spec.id === 'tomtom') && options.tomtomApiKey
+  ? BORDER_CROSSINGS.length
+  : 0;
+ const callsThisRun = BORDER_CROSSINGS.length * 2 + 1 + maxTomTomFlowCalls;
+ // two route segments + one preflight, plus the worst-case TomTom Flow check
+ // for every crossing. Reserving the upper bound keeps a late fallback from
+ // spending outside the same provider cap.
+ const runtime = createProviderMeshRuntime(providerChain, callsThisRun);
+ const probe = BORDER_CROSSINGS[0];
+ let selectedProvider = null;
+
+ // Probe in preference order. This catches account-wide 401/403/429 states
+ // before the large batch, while per-segment rotation below still handles a
+ // limit reached during the run.
+ for (const spec of providerChain) {
+  const providerId = spec.id;
+  if (!(await runtime.ensureProvider(providerId))) continue;
+  try {
+   await getSegmentTravelTimes(
+    probe.lat,
+    probe.lng,
+    probe.lat + 0.01,
+    probe.lng,
+    { ...options, providerOverride: providerId },
+   );
+   selectedProvider = providerId;
+   break;
+  } catch (error) {
+   runtime.disabled.add(providerId);
+   console.warn(`🛑 ${providerId} preflight failed (${classifyProviderError(error)}) — rotating provider`);
+  }
+ }
+
+ if (!selectedProvider) {
+  if (options.enableWebcam) {
+   console.warn('📷 Provider mesh exhausted — falling back to webcam-only collection');
+   return runWebcamOnlyCollection(options);
+  }
+  return { collected: 0, errors: 0, skipped: 'traffic-provider-mesh-exhausted' };
+ }
+
+ const selectedSpec = TRAFFIC_PROVIDER_SPECS[selectedProvider];
+ const effectiveOptions = {
+  ...options,
+  providerChain,
+  providerRuntime: runtime,
+  enableTomTomFlow: selectedProvider === 'tomtom',
+ };
+ console.log(`🚦 Starting traffic collection for ${BORDER_CROSSINGS.length} crossings via ${selectedProvider} (provider mesh)…`);
+
+ const results = [];
+ let errors = 0;
+ const batchSize = selectedSpec?.batchSize ?? 5;
+ const batchDelayMs = selectedSpec?.batchDelayMs ?? 250;
+ for (let i = 0; i < BORDER_CROSSINGS.length; i += batchSize) {
+  const chunk = BORDER_CROSSINGS.slice(i, i + batchSize);
+  const settled = await Promise.allSettled(chunk.map((crossing) => fetchCrossingTraffic(crossing, effectiveOptions)));
+  for (let j = 0; j < settled.length; j++) {
+   const result = settled[j];
+   if (result.status === 'fulfilled') results.push(result.value);
+   else {
+    console.error(`❌ ${chunk[j].name}: ${result.reason?.message}`);
+    errors++;
+   }
+  }
+  if (i + batchSize < BORDER_CROSSINGS.length) {
+   await new Promise((resolve) => setTimeout(resolve, batchDelayMs));
+  }
+ }
+
+ if (results.length > 0) await saveTrafficToFirestore(results);
+ console.log(`✅ Provider-mesh collection done – ${results.length} OK, ${errors} errors`);
+ return { collected: results.length, errors };
+}
+
 // ─── Firestore persistence ─────────────────────────────────────
 
 /**
@@ -535,7 +796,8 @@ export async function saveTrafficToFirestore(crossingResults) {
  const dayOfWeek = nowDate.getDay();
 
  // Firestore batches are limited to 500 operations; each crossing = 2 writes.
- // With 22 crossings (44 ops) we are well within limits.
+ // Two writes per crossing remain well within Firestore's 500-operation batch
+ // limit for the current crossing catalog.
  const batch = db.batch();
 
  for (const result of crossingResults) {
@@ -575,8 +837,7 @@ export async function saveTrafficToFirestore(crossingResults) {
  * @param {number} waitTimeMinutes - already mapped via estimateWaitFromCongestion
  * @returns {{ crossingName: string, waitTimeMinutes: number, approachMinutes: number, totalCrossingMinutes: number, status: string, source: string }}
  */
-function buildWebcamCrossingResult(crossing, waitTimeMinutes) {
- const approachMinutes = 0; // no live approach datum from a camera
+function buildWebcamCrossingResult(crossing, waitTimeMinutes, approachMinutes = 0, signal = null, webcamUsed = true) {
  const totalCrossingMinutes = waitTimeMinutes + approachMinutes;
 
  // Same green/yellow/red thresholds as fetchCrossingTraffic.
@@ -585,14 +846,22 @@ function buildWebcamCrossingResult(crossing, waitTimeMinutes) {
  else if (waitTimeMinutes < 15) status = 'yellow';
  else status = 'red';
 
- return {
+ const result = {
  crossingName: crossing.name,
  waitTimeMinutes,
  approachMinutes,
  totalCrossingMinutes,
  status,
- source: 'webcam',
+ source: signal ? (webcamUsed ? 'official+webcam' : 'official') : 'webcam',
  };
+ const officialSources = Array.isArray(signal?.sourceIds)
+  ? signal.sourceIds.filter(Boolean).join(',')
+  : typeof signal?.sourceId === 'string' ? signal.sourceId : '';
+ if (officialSources) result.officialSources = officialSources;
+ if (signal?.updatedAt) result.officialLastUpdate = String(signal.updatedAt);
+ if (finiteNonNegative(signal?.queueKm) !== null) result.officialQueueKm = Number(signal.queueKm);
+ if (signal) result.dataQuality = webcamUsed ? 'official+webcam' : 'official';
+ return result;
 }
 
 /**
@@ -637,12 +906,26 @@ export async function runWebcamOnlyCollection(options = {}) {
  continue;
  }
 
- // Skip crossings with no CV camera (null) or unusable visibility
- // (night/poor) — they keep falling back to the statistical mock model.
- if (!webcam || webcam.visibility !== 'good') continue;
+ const signal = officialSignalForCrossing(options, crossing);
+ const officialMinutes = applyOfficialSignal(0, 0, signal);
+ const hasOfficialMinutes = signal && (
+  finiteNonNegative(signal.queueMinutes ?? signal.officialQueueMinutes) !== null
+  || finiteNonNegative(signal.approachMinutes ?? signal.officialApproachMinutes) !== null
+ );
+ // A camera remains the preferred free primary signal. If it is absent/night,
+ // an explicit official queue/approach measurement can still refresh the
+ // crossing instead of freezing the whole snapshot.
+ if (!webcam || webcam.visibility !== 'good') {
+  if (!hasOfficialMinutes) continue;
+  results.push(buildWebcamCrossingResult(crossing, officialMinutes.waitTimeMinutes, officialMinutes.approachMinutes, signal, false));
+  continue;
+ }
 
- const waitTimeMinutes = estimateWaitFromCongestion(webcam.congestionScore);
- results.push(buildWebcamCrossingResult(crossing, waitTimeMinutes));
+ const waitTimeMinutes = Math.max(
+  officialMinutes.waitTimeMinutes,
+  estimateWaitFromCongestion(webcam.congestionScore),
+ );
+ results.push(buildWebcamCrossingResult(crossing, waitTimeMinutes, officialMinutes.approachMinutes, signal));
  console.log(
  `📷 Webcam-only estimate for ${crossing.name}: ` +
  `congestionScore=${webcam.congestionScore == null ? 'null' : webcam.congestionScore.toFixed(2)} ` +
@@ -677,13 +960,20 @@ export async function runWebcamOnlyCollection(options = {}) {
  * the run degrades to webcam-only (or a clean skip) instead of reporting a
  * near-total per-crossing failure.
  *
- * @param {{ hereApiKey?: string, tomtomApiKey?: string, googleApiKey?: string, enableWebcam?: boolean }} options
+ * @param {{ [key: string]: any }} options
  * @returns {Promise<{collected: number, errors: number}>}
  */
 export async function runTrafficCollection(options = {}) {
  const { hereApiKey, tomtomApiKey, googleApiKey } = options;
  const enableWebcam = !!options.enableWebcam;
  console.log(`📷 Webcam analysis: ${enableWebcam ? 'enabled' : 'disabled'}`);
+ const providerChain = buildTrafficProviderChain(options);
+ const usesExtendedMesh = providerChain.some(
+  (spec) => !['tomtom', 'here', 'google-maps'].includes(spec.id),
+ );
+ if (usesExtendedMesh) {
+  return runTrafficCollectionWithProviderMesh(options, providerChain);
+ }
  let provider = resolveTrafficProvider({ hereApiKey, tomtomApiKey, googleApiKey });
  // Options forwarded to the per-crossing routing loop. May be rewritten (HERE
  // key dropped) when falling back to TomTom so resolveTrafficProvider inside
