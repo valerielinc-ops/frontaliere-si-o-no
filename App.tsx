@@ -2832,8 +2832,8 @@ const App: React.FC = () => {
  <SafeLazy boundary="rail-ad-left"><ArticleRailAdStack side="left" narrow onEmptyResolved={handleLeftRailEmpty} /></SafeLazy>
  </aside>
  )}
- <main id="main-content" tabIndex={-1} className={`flex-grow mx-auto py-4 lg:py-8 scroll-mt-20 focus:outline-none transition-[max-width,padding] duration-300 ease-out relative z-10 ${
- activeTab === 'admin' ? 'w-full px-3 sm:px-6' : `!max-w-[2400px] !w-[95%] px-3 sm:px-4${(sideRailEligible || activeTab === 'job-board') ? ' xlw:!w-full' : ''}`
+ <main id="main-content" tabIndex={-1} className={`flex-grow mx-auto py-4 lg:py-8 scroll-mt-20 focus:outline-none transition-[max-width,padding] duration-300 ease-out relative z-10${activeTab === 'plate-auctions' ? ' plate-auctions-main' : ''} ${
+ activeTab === 'admin' ? 'w-full px-3 sm:px-6' : `!max-w-[2400px] !w-[95%] px-3 sm:px-4${(sideRailEligible || activeTab === 'job-board' || activeTab === 'plate-auctions') ? ' xlw:!w-full' : ''}`
  }`}>
  <Suspense fallback={<LazyFallback />}>
  {notFoundPath ? (
@@ -2873,7 +2873,7 @@ const App: React.FC = () => {
  ) : activeTab === 'vita' ? (
  pharmacyPath ? <PharmacyDirectory page={pharmacyPath} /> : <VitaTabContent />
  ) : activeTab === 'plate-auctions' ? (
- <div className="max-w-7xl mx-auto">
+ <div className="max-xlw:max-w-7xl xlw:max-w-[1768px] mx-auto">
  <PlateAuctionsPage />
  </div>
  ) : activeTab === 'stats' ? (

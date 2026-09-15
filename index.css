@@ -253,6 +253,7 @@ main:not(.seo-static-content):not(.cluster-seo-prose) { display: block !importan
    specificity (id) + !important overrides the element-only caps above. */
 @media (min-width: 1400px) {
   .ft-rail-grid-spa > #main-content { max-width: none !important; }
+  #main-content.plate-auctions-main { max-width: none !important; }
 }
 
 /* Static SEO feature pages — centered, fluid container aligned with the
