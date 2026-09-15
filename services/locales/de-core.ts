@@ -841,6 +841,7 @@ const deCore: Record<string, string> = {
  'jobAlert.cardTitleActive': 'Deine Job-Alerts',
  'jobAlert.cardDescriptionActive': 'Verwalte oder füge neue benutzerdefinierte Alerts hinzu.',
  'jobAlert.stickyBannerText': 'Wir informieren dich, sobald ähnliche Stellen verfügbar sind.',
+ 'jobAlert.stickyBannerCta': 'Kostenlosen Alert erstellen',
  'jobAlert.stickyBannerAria': 'Einladung zum Abonnieren von Job-Alerts',
  'jobAlert.endCardTitle': 'Du hast alle Jobs gesehen',
  'jobAlert.endCardTitleWithKeyword': 'Du hast alle „{keyword}"-Jobs gesehen',
