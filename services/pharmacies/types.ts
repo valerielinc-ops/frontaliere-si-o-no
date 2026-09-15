@@ -236,6 +236,14 @@ export const PHARMACY_HUB_PATH: Readonly<Record<'it' | 'en' | 'de' | 'fr', strin
   fr: '/fr/pharmacies/',
 });
 
+/** Canonical locale paths for the verified-duty hub (#6751). */
+export const PHARMACY_DUTY_HUB_PATH: Readonly<Record<'it' | 'en' | 'de' | 'fr', string>> = Object.freeze({
+  it: '/farmacie-di-turno/',
+  en: '/en/on-duty-pharmacies/',
+  de: '/de/notdienst-apotheken/',
+  fr: '/fr/pharmacies-de-garde/',
+});
+
 const REQUIRED_STRING_FIELDS: readonly (keyof PharmacySourceEntry)[] = [
   'canton',
   'officialSourceUrl',
@@ -458,6 +466,9 @@ export function validatePharmacyDuty(index: number | string, entry: unknown, now
   }
   if (e.verifiedAt !== undefined && !Number.isFinite(parseDutyTimestamp(e.verifiedAt))) {
     errors.push(`duty[${index}]: invalid verifiedAt`);
+  }
+  if (e.status === 'verified' && (typeof e.verifiedAt !== 'string' || e.verifiedAt.trim() === '')) {
+    errors.push(`duty[${index}]: verified duty must include verifiedAt`);
   }
   const nowMs = now instanceof Date ? now.getTime() : NaN;
   if (Number.isFinite(ends) && Number.isFinite(nowMs)) {

@@ -5,7 +5,7 @@ import {
   TICINO_CITY_BY_SLUG,
   pharmacyBySlug,
 } from './data';
-import type { PharmacyCountry } from './types';
+import { PHARMACY_DUTY_HUB_PATH, type PharmacyCountry } from './types';
 
 export type PharmacyPageKind = 'hub' | 'canton' | 'city' | 'duty-hub' | 'duty-city' | 'duty-week' | 'country' | 'area' | 'pharmacy';
 
@@ -27,10 +27,10 @@ const LOCALE_BASES: Record<Locale, {
   dutySegment: string;
   dutyWeekSegment: string;
 }> = {
-  it: { hub: '/farmacie/', canton: '/farmacie/ticino/', italy: '/farmacie/italia/', dutyHub: '/farmacie-di-turno/', dutySegment: 'di-turno', dutyWeekSegment: 'settimana' },
-  en: { hub: '/en/pharmacies/', canton: '/en/pharmacies/ticino/', italy: '/en/pharmacies/italy/', dutyHub: '/en/on-duty-pharmacies/', dutySegment: 'on-duty', dutyWeekSegment: 'week' },
-  de: { hub: '/de/apotheken/', canton: '/de/apotheken/ticino/', italy: '/de/apotheken/italien/', dutyHub: '/de/notdienst-apotheken/', dutySegment: 'notdienst', dutyWeekSegment: 'woche' },
-  fr: { hub: '/fr/pharmacies/', canton: '/fr/pharmacies/ticino/', italy: '/fr/pharmacies/italie/', dutyHub: '/fr/pharmacies-de-garde/', dutySegment: 'de-garde', dutyWeekSegment: 'semaine' },
+  it: { hub: '/farmacie/', canton: '/farmacie/ticino/', italy: '/farmacie/italia/', dutyHub: PHARMACY_DUTY_HUB_PATH.it, dutySegment: 'di-turno', dutyWeekSegment: 'settimana' },
+  en: { hub: '/en/pharmacies/', canton: '/en/pharmacies/ticino/', italy: '/en/pharmacies/italy/', dutyHub: PHARMACY_DUTY_HUB_PATH.en, dutySegment: 'on-duty', dutyWeekSegment: 'week' },
+  de: { hub: '/de/apotheken/', canton: '/de/apotheken/ticino/', italy: '/de/apotheken/italien/', dutyHub: PHARMACY_DUTY_HUB_PATH.de, dutySegment: 'notdienst', dutyWeekSegment: 'woche' },
+  fr: { hub: '/fr/pharmacies/', canton: '/fr/pharmacies/ticino/', italy: '/fr/pharmacies/italie/', dutyHub: PHARMACY_DUTY_HUB_PATH.fr, dutySegment: 'de-garde', dutyWeekSegment: 'semaine' },
 };
 
 function normalized(pathname: string): string {

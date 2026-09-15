@@ -68,6 +68,16 @@ function parseLocality(value) {
   return match ? { postalCode: match[1], city: match[2].trim() } : null;
 }
 
+function isHttpsUrl(value) {
+  if (typeof value !== 'string' || !value.trim()) return false;
+  try {
+    const url = new URL(value.trim());
+    return url.protocol === 'https:' && Boolean(url.hostname);
+  } catch {
+    return false;
+  }
+}
+
 export function parsePharmacyDutyRows(html) {
   const tableMatch = String(html || '').match(
     new RegExp(`id=["']${DUTY_TABLE_ID}["'][^>]*>([\\s\\S]*?)<\\/table>`, 'i'),
@@ -151,6 +161,11 @@ export function buildPharmacyDuties(html, region, fetchedAt, pharmacyIds = new S
   const parsed = parsePharmacyDutyRows(html);
   const warnings = [...parsed.warnings];
   const duties = [];
+  const regionKey = typeof region?.key === 'string' && region.key.trim() ? region.key : 'unknown-region';
+  if (!region || typeof region.name !== 'string' || !region.name.trim() || !isHttpsUrl(region.url)) {
+    warnings.push(`${regionKey}: invalid duty source; no Ticino duty intervals emitted`);
+    return { duties, skipped: parsed.skipped, warnings };
+  }
   const fetchedAtMs = Date.parse(fetchedAt);
   if (!Number.isFinite(fetchedAtMs)) {
     warnings.push('invalid fetchedAt; no Ticino duty intervals emitted');

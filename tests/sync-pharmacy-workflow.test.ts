@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { parse } from 'yaml';
+import { buildSyncArgs } from '../scripts/sync-pharmacy-duties.mjs';
 
 const WORKFLOW = readFileSync(
   resolve(import.meta.dirname, '../.github/workflows/sync-pharmacy-duties.yml'),
@@ -13,6 +14,14 @@ const BORDER_WORKFLOW = readFileSync(
 );
 
 describe('sync-pharmacy-duties workflow', () => {
+  it('uses a read-only preview for local calls and reserves staged writes for CI', () => {
+    const local = buildSyncArgs([], {});
+    expect(local).toHaveLength(2);
+    expect(local[1]).toBe('--dry-run');
+    expect(buildSyncArgs(['--dry-run'], {})).toEqual(local);
+    expect(buildSyncArgs([], { PHARMACY_DUTY_STAGE_DIR: '/tmp/pharmacy-stage' })).toHaveLength(1);
+  });
+
   it('delegates manual and cadence duty triggers to the atomic border writer', () => {
     expect(WORKFLOW).toContain('workflow_dispatch: {}');
     expect(WORKFLOW).toContain("cron: '*/15 * * * *'");

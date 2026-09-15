@@ -69,6 +69,12 @@ describe('OFCT Ticino duty parser', () => {
     expect(result.warnings).toContain('invalid fetchedAt; no Ticino duty intervals emitted');
   });
 
+  it('fails closed when the duty source is missing or not HTTPS', () => {
+    const result = buildPharmacyDuties(HTML, { ...REGION, url: 'http://example.invalid/' }, '2026-09-09T00:00:00.000Z', new Set(['ti-alchemilla-mendrisio']));
+    expect(result.duties).toEqual([]);
+    expect(result.warnings).toContain('mendrisiotto: invalid duty source; no Ticino duty intervals emitted');
+  });
+
   it('does not create an identity when the source omits the postal code', () => {
     const html = `<table id="tabella_mese_corrente_compatta"><tr><td class="cella_farma_compatta_data">08/09/2026</td><td class="cella_farma_compatta_orario">08:00</td><td class="cella_farma_compatta_nome">Alchemilla</td><td class="cella_farma_compatta_localita">6850 Mendrisio</td></tr><tr><td class="cella_farma_compatta_data">10/09/2026</td><td class="cella_farma_compatta_orario">08:00</td><td class="cella_farma_compatta_nome">Sede senza CAP</td><td class="cella_farma_compatta_localita">Lugano</td></tr><tr><td class="cella_farma_compatta_data">12/09/2026</td><td class="cella_farma_compatta_orario">08:00</td><td class="cella_farma_compatta_nome">Amavita</td><td class="cella_farma_compatta_localita">6826 Riva San Vitale</td></tr></table>`;
     const parsed = parsePharmacyDutyRows(html);

@@ -34,6 +34,7 @@ describe('Ticino duty dataset', () => {
     expect(sample).toBeDefined();
     expect(validatePharmacyDuty(0, { ...sample, startsAt: '2026-09-14' }, now)).toContain('duty[0]: invalid startsAt');
     expect(validatePharmacyDuty(0, { ...sample, endsAt: '2026-09-13T12:00:00.000Z' }, now)).toContain('duty[0]: verified duty must not be expired');
+    expect(validatePharmacyDuty(0, { ...sample, verifiedAt: undefined }, now)).toContain('duty[0]: verified duty must include verifiedAt');
     expect(validatePharmacyDuty(0, { ...sample, status: 'expired' }, now)).toContain('duty[0]: expired duty must have ended');
   });
 
