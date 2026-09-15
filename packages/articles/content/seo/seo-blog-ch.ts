@@ -83285,6 +83285,123 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-consiglio-nazionale-cartella-sanitaria': {
+    title: 'Nuova cartella sanitaria elettronica: ok del Consiglio nazionale',
+    description: 'Approvata la legge per la cartella sanitaria elettronica in Svizzera. Sostituirà la vecchia versione entro il 2030 con gestione automatica e gratuita.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuova, cartella, sanitaria, elettronica',
+    ogTitle: 'Nuova cartella sanitaria elettronica: ok dal Consiglio nazionale',
+    ogDescription: 'Il Consiglio nazionale ha approvato la nuova legge per la cartella sanitaria elettronica. Sostituirà il vecchio sistema entro il 2030 con apertura automatica per i residenti.',
+    canonicalPath: '/articoli-svizzera/consiglio-nazionale-cartella-sanitaria/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuova cartella sanitaria elettronica: ok del Consiglio nazionale",
+      "description": "Approvata la legge per la cartella sanitaria elettronica in Svizzera. Sostituirà la vecchia versione entro il 2030 con gestione automatica e gratuita.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/consiglio-nazionale-cartella-sanitaria.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Nuova cartella sanitaria elettronica approvata in Svizzera"
+      },
+      "datePublished": "2026-09-15T00:26:33+00:00",
+      "dateModified": "2026-09-15T00:26:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/consiglio-nazionale-cartella-sanitaria/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ssr-risparmi-270-milioni-2029': {
+    title: 'SSR: 270 milioni da risparmiare entro il 2029 | Frontaliere Ticino',
+    description: 'La SSR lancia il progetto Enavant per risparmiare 270 milioni CHF entro il 2029. Tagli al personale dirigenziale, meno posti di lavoro a SRF e stop',
+    keywords: 'frontalieri, ticino, svizzera, italia, milioni, risparmiare, entro, avvia',
+    ogTitle: 'SSR: 270 milioni di franchi da risparmiare entro il 2029',
+    ogDescription: 'La Società svizzera di radiotelevisione (SSR) ha annunciato il piano di trasformazione aziendale Enavant, che prevede risparmi per 270 milioni di franchi entro il 2029. Tra le misure: riduzione del 20% dei dirigenti, 38 posti di lavoro in meno a SRF',
+    canonicalPath: '/articoli-svizzera/ssr-risparmi-270-milioni-2029/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "SSR: 270 milioni da risparmiare entro il 2029",
+      "description": "La SSR lancia il progetto Enavant per risparmiare 270 milioni CHF entro il 2029. Tagli al personale dirigenziale, meno posti di lavoro a SRF e stop",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ssr-risparmi-270-milioni-2029.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo del Parlamento svizzero a Berna, sede delle decisioni federali."
+      },
+      "datePublished": "2026-09-15T01:03:03+00:00",
+      "dateModified": "2026-09-15T01:03:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ssr-risparmi-270-milioni-2029/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-premi-lamal-politica-responsabilita': {
+    title: 'Aumenti premi LAMal: la politica rimbalza responsabilità',
+    description: 'Gli aumenti dei premi LAMal in Svizzera continuano, con la politica che rimbalza le responsabilità. Si propone la deducibilità fiscale integrale per alleggerire',
+    keywords: 'frontalieri, ticino, svizzera, italia, aumenti, premi, lamal, politica',
+    ogTitle: 'Premi LAMal: politica e responsabilità degli aumenti in Svizzera',
+    ogDescription: 'Gli aumenti annuali dei premi dell\'assicurazione malattia obbligatoria in Svizzera mettono sotto pressione le famiglie. L\'articolo analizza il \'rimbalzo istituzionale\' delle responsabilità e propone la deducibilità fiscale integrale dei premi',
+    canonicalPath: '/articoli-svizzera/premi-lamal-politica-responsabilita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aumenti premi LAMal: la politica rimbalza responsabilità",
+      "description": "Gli aumenti dei premi LAMal in Svizzera continuano, con la politica che rimbalza le responsabilità. Si propone la deducibilità fiscale integrale per alleggerire",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-lamal-politica-responsabilita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano che simboleggia l'economia e le sfide finanziarie svizzere, in particolare i costi sanitari."
+      },
+      "datePublished": "2026-09-15T01:18:20+00:00",
+      "dateModified": "2026-09-15T01:18:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-lamal-politica-responsabilita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

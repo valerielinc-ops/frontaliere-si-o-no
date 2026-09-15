@@ -641,6 +641,16 @@ export function isCantonOnlyLabel(text = '') {
   return _cantonOnlyTokens.has(token);
 }
 
+// Manual aliases are intentionally stored as a flat list in the BFS snapshot.
+// These two entries are different: Davos Platz and Davos Glaris are
+// sub-localities of the municipality Davos, not municipalities in their own
+// right. Keep the relationship here until the snapshot schema can carry an
+// explicit parent field; canonical consumers must compare the parent commune.
+const MUNICIPALITY_ALIAS_PARENT_BY_TOKEN = new Map([
+  ['davos platz', 'davos'],
+  ['davos glaris', 'davos'],
+]);
+
 // Reverse map: normalized city token → canonical BFS municipality display name
 // (preserves hyphens and casing, e.g. "la chaux de fonds" → "La Chaux-de-Fonds").
 // `findSwissCityInText`/`normalizeToken` deliberately return the space-normalized
@@ -660,7 +670,9 @@ const _canonicalCityNameByToken = (() => {
     }
     for (const name of entry.aliases || []) {
       const token = normalizeToken(name);
-      if (token && !map.has(token)) map.set(token, name);
+      if (!token || map.has(token)) continue;
+      const parentToken = MUNICIPALITY_ALIAS_PARENT_BY_TOKEN.get(token);
+      map.set(token, parentToken ? (map.get(parentToken) || name) : name);
     }
   }
   return map;

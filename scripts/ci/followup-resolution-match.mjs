@@ -83,6 +83,7 @@ export function isDailyBucketTitle(title = '') {
 // Markdown masking in this pure module so those callers cannot drift.
 export const AGGREGATE_ITEM_COUNT_RE = /\b(\d+)\s+items?\s+(?:deferred|deferit[oi])\b/i;
 export const AGGREGATE_KEYWORD_RE = /\b(?:sweep|batch|bulk)\b/i;
+const AGGREGATE_HEADING_ITEM_RE = /^#{2,3}[ \t]*(?:Item[ \t]*)?(?!\d{4}\b)\d+[ \t]*[.)—–]/gim;
 
 export function maskInlineCodeSpans(text) {
   return String(text || '').replace(/(`+)([^`\n]*?)\1/g, (span) => span.replace(/[^\n]/g, ' '));
@@ -117,6 +118,12 @@ export function stripFencedBlocks(text) {
   return fence ? [...out, ...lines.slice(fenceStart)].join('\n') : out.join('\n');
 }
 
+/** Count the shared h2/h3 item grammar used by aggregate routing. */
+export function countAggregateHeadingItems(body) {
+  const b = stripFencedBlocks(body);
+  return (b.match(AGGREGATE_HEADING_ITEM_RE) || []).length;
+}
+
 function isBoldTitleLead(rest, lines = [], start = 0) {
   const bold = /^\*\*(?![ \t])(?:[^*]|\*(?!\*))+\*\*/;
   let candidate = String(rest || '');
@@ -133,8 +140,7 @@ function isBoldTitleLead(rest, lines = [], start = 0) {
 /** Detect at least two real, Markdown-style issue items. */
 export function hasEnumeratedItems(body) {
   const b = stripFencedBlocks(body);
-  const numberedSections = (b.match(/^#{2,3}[ \t]*(?:Item[ \t]*)?(?!\d{4}\b)\d+[ \t]*[.)—–]/gim) || []).length;
-  if (numberedSections >= 2) return true;
+  if (countAggregateHeadingItems(b) >= 2) return true;
   const lines = b.split('\n');
   const orderedBoldItems = lines.reduce((count, line, index) => {
     const match = /^[ \t]*\d+[.)][ \t]+(.*)$/.exec(line);

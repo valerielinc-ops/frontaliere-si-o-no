@@ -6423,6 +6423,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cartella-sanitaria-mercosur-parlamento.title': 'The National Team\'s yes to the electronic health record',
     'blog.article.cartella-sanitaria-mercosur-parlamento.excerpt': 'The electronic health record, the Mercosur agreement and the Swiss agriculture funds have been approved in Parliament.',
     'blog.article.cartella-sanitaria-mercosur-parlamento.imageAlt': 'The Federal Palace in Bern during federal parliamentary health debates',
+    'blog.article.consiglio-nazionale-cartella-sanitaria.title': 'New electronic health record: ok from the National Council',
+    'blog.article.consiglio-nazionale-cartella-sanitaria.excerpt': 'The law for the new electronic health record in Switzerland has been approved. It will replace the previous infrastructure by 2030.',
+    'blog.article.consiglio-nazionale-cartella-sanitaria.imageAlt': 'New electronic health record approved in Switzerland',
+    'blog.article.ssr-risparmi-270-milioni-2029.title': 'SRG: 270 million to be saved by 2029',
+    'blog.article.ssr-risparmi-270-milioni-2029.excerpt': 'The SRG starts the Enavant project to cut 270 million francs by 2029, with 80 million by 2027. 20% reduction in managers and stop in the Champions League.',
+    'blog.article.ssr-risparmi-270-milioni-2029.imageAlt': 'Swiss Parliament building in Bern, seat of federal decisions.',
+    'blog.article.premi-lamal-politica-responsabilita.title': 'LAMal premium increases: the policy rebounds responsibilities',
+    'blog.article.premi-lamal-politica-responsabilita.excerpt': 'The annual increases in LAMal premiums are punctual, with the policy rebounding responsibilities between the Confederation and the Cantons. The cost affects the quality of life of Swiss families.',
+    'blog.article.premi-lamal-politica-responsabilita.imageAlt': 'Panoramic view of Lugano symbolizing Swiss economy and financial challenges, particularly healthcare costs.',
 };
 
 export default blogMetaChEn;
