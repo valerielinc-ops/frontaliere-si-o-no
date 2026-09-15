@@ -209,18 +209,36 @@ jobs:
           git checkout --detach origin/main
 
           base_branch='chore/loop-fleet-ledger'
-          open_pr=$(gh pr list --repo "$GITHUB_REPOSITORY" --state open --head "$base_branch" --json number --jq '.[0].number // ""')
+          open_pr_record=$(gh pr list \
+            --repo "$GITHUB_REPOSITORY" \
+            --state open \
+            --json number,headRefName,baseRefName \
+            --jq 'map(select(.baseRefName == "main" and (.headRefName == "chore/loop-fleet-ledger" or (.headRefName | startswith("chore/loop-fleet-ledger-"))))) | sort_by(.number) | if length == 0 then "" else .[-1] | [(.number | tostring), .headRefName] | @tsv end')
+          open_pr=''
+          open_branch=''
+          if [ -n "$open_pr_record" ]; then
+            IFS=$'\t' read -r open_pr open_branch <<<"$open_pr_record"
+          fi
+          source_orphan_branch=$(git ls-remote --heads origin "refs/heads/${base_branch}-${SOURCE_LOOP}-${SOURCE_RUN_ID}-*" | sed -n '1{s#.*refs/heads/##;p}')
           branch="$base_branch"
+          ledger_branch=''
           if [ -n "$open_pr" ]; then
-            git fetch origin "$base_branch"
-            for ledger_file in loop-observations.jsonl loop-decisions.jsonl loop-health-history.jsonl lifecycle-events.jsonl; do
-              if git cat-file -e "origin/$base_branch:data/loop-fleet/ledger/$ledger_file" 2>/dev/null; then
-                mkdir -p data/loop-fleet/ledger
-                git show "origin/$base_branch:data/loop-fleet/ledger/$ledger_file" > "data/loop-fleet/ledger/$ledger_file"
-              fi
-            done
+            branch="$open_branch"
+            ledger_branch="$open_branch"
+          elif [ -n "$source_orphan_branch" ]; then
+            ledger_branch="$source_orphan_branch"
+            branch="${source_orphan_branch}-retry-${GITHUB_RUN_ATTEMPT}"
           elif git ls-remote --exit-code origin "refs/heads/$base_branch" >/dev/null 2>&1; then
             branch="${base_branch}-${SOURCE_LOOP}-${SOURCE_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          fi
+          if [ -n "$ledger_branch" ]; then
+            git fetch origin "$ledger_branch"
+            for ledger_file in loop-observations.jsonl loop-decisions.jsonl loop-health-history.jsonl lifecycle-events.jsonl; do
+              if git cat-file -e "origin/$ledger_branch:data/loop-fleet/ledger/$ledger_file" 2>/dev/null; then
+                mkdir -p data/loop-fleet/ledger
+                git show "origin/$ledger_branch:data/loop-fleet/ledger/$ledger_file" > "data/loop-fleet/ledger/$ledger_file"
+              fi
+            done
           fi
 
           node scripts/ci/merge-loop-fleet-ledger.mjs \
@@ -234,8 +252,8 @@ jobs:
           merged_dir="$RUNNER_TEMP/loop-fleet-ledger-merged"
           rm -rf "$merged_dir"
           mv data/loop-fleet/ledger "$merged_dir"
-          if [ -n "$open_pr" ]; then
-            git checkout -b "$branch" "origin/$base_branch"
+          if [ -n "$ledger_branch" ]; then
+            git checkout -b "$branch" "origin/$ledger_branch"
           else
             git checkout -b "$branch"
           fi
