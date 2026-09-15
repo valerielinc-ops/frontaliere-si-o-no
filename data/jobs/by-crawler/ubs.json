@@ -482,9 +482,9 @@
     },
     {
       "id": "ubs-8644bcc1ccf5",
-      "slug": "2026-off-cycle-internship-p-c-marketing-digital-sales-zurich-ubs-zurich",
+      "slug": "2026-stage-fuori-ciclo-marketing-p-c-digital-sales-zurigo-ubs-zurich",
       "slugByLocale": {
-        "it": "2026-off-cycle-internship-p-c-marketing-digital-sales-zurich-ubs-zurich",
+        "it": "2026-stage-fuori-ciclo-marketing-p-c-digital-sales-zurigo-ubs-zurich",
         "en": "2026-off-cycle-internship-p-c-marketing-digital-sales-zurich-ubs-zurich",
         "de": "2026-off-cycle-internship-p-c-marketing-digital-sales-zurich-ubs-zurich",
         "fr": "2026-stage-hors-cycle-marketing-p-c-et-ventes-numeriques-zurich-ubs-zurich"
@@ -549,7 +549,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "2026-off-cycle-internship-p-c-marketing-digital-sales-zurich-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "2026-off-cycle-internship-p-c-marketing-digital-sales-zurich-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-312a37a06ddc",
@@ -2082,10 +2090,10 @@
     },
     {
       "id": "ubs-5117714c8466",
-      "slug": "2027-graduate-talent-program-gwm-marketing-business-risk-zh-ubs-zurich",
+      "slug": "2027-programma-di-immatricolazione-dei-laureati-gwm-marketing-business-risk-zh-ubs-zurich",
       "slugByLocale": {
         "en": "2027-graduate-talent-program-gwm-marketing-business-risk-zh-ubs-zurich",
-        "it": "2027-graduate-talent-program-gwm-marketing-business-risk-zh-ubs-zurich",
+        "it": "2027-programma-di-immatricolazione-dei-laureati-gwm-marketing-business-risk-zh-ubs-zurich",
         "de": "2027-graduate-talent-program-gwm-marketing-business-risk-zh-ubs-zurich",
         "fr": "2027-programme-des-talents-diplomes-risque-commercial-du-gwm-zh-ubs-zurich"
       },
@@ -2151,15 +2159,23 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-13T13:51:44.467Z"
+      "firstSeenAt": "2026-09-13T13:51:44.467Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-graduate-talent-program-gwm-marketing-business-risk-zh-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "2027-graduate-talent-program-gwm-marketing-business-risk-zh-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-c517f19be3c1",
-      "slug": "2027-graduate-talent-program-asset-management-uga-zh-ubs-zurich",
+      "slug": "2027-graduate-tont-program-gestione-delle-attivita-uga-zh-ubs-zurich",
       "slugByLocale": {
         "en": "2027-graduate-talent-program-asset-management-uga-zh-ubs-zurich",
-        "it": "2027-graduate-talent-program-asset-management-uga-zh-ubs-zurich",
-        "de": "2027-graduate-talent-program-asset-management-uga-zh-ubs-zurich",
+        "it": "2027-graduate-tont-program-gestione-delle-attivita-uga-zh-ubs-zurich",
+        "de": "2027-graduierten-talentprogramm-asset-management-uga-zh-ubs-zurich",
         "fr": "2027-programme-de-talents-diplomes-gestion-d-actifs-uga-zh-ubs-zurich"
       },
       "company": "UBS",
@@ -2224,14 +2240,25 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-13T13:51:44.467Z"
+      "firstSeenAt": "2026-09-13T13:51:44.467Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-graduate-talent-program-asset-management-uga-zh-ubs-zurich"
+        ],
+        "de": [
+          "2027-graduate-talent-program-asset-management-uga-zh-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "2027-graduate-talent-program-asset-management-uga-zh-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-5c36672aa772",
-      "slug": "2027-graduate-talent-program-wm-eastern-europe-israel-overseas-ubs-zurich",
+      "slug": "2027-programma-di-studi-in-materia-di-diritti-umani-europa-orientale-israele-e-overseas-ubs-zurich",
       "slugByLocale": {
         "en": "2027-graduate-talent-program-wm-eastern-europe-israel-overseas-ubs-zurich",
-        "it": "2027-graduate-talent-program-wm-eastern-europe-israel-overseas-ubs-zurich",
+        "it": "2027-programma-di-studi-in-materia-di-diritti-umani-europa-orientale-israele-e-overseas-ubs-zurich",
         "de": "2027-graduate-talent-program-wm-eastern-europe-israel-overseas-ubs-zurich",
         "fr": "2027-programme-des-talents-diplomes-wm-europe-de-l-est-israel-et-outre-mer-ubs-zurich"
       },
@@ -2297,7 +2324,15 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-13T13:51:44.467Z"
+      "firstSeenAt": "2026-09-13T13:51:44.467Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-graduate-talent-program-wm-eastern-europe-israel-overseas-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "2027-graduate-talent-program-wm-eastern-europe-israel-overseas-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-6a26d41423ea",
@@ -2447,10 +2482,10 @@
     },
     {
       "id": "ubs-15801f85f1d4",
-      "slug": "2027-graduate-talent-program-asset-management-etf-structuring-zh-ubs-zurich",
+      "slug": "2027-graduate-total-program-gestione-delle-attivita-etf-strutturazione-zh-ubs-zurich",
       "slugByLocale": {
         "en": "2027-graduate-talent-program-asset-management-etf-structuring-zh-ubs-zurich",
-        "it": "2027-graduate-talent-program-asset-management-etf-structuring-zh-ubs-zurich",
+        "it": "2027-graduate-total-program-gestione-delle-attivita-etf-strutturazione-zh-ubs-zurich",
         "de": "2027-graduate-talent-program-asset-management-etf-structuring-zh-ubs-zurich",
         "fr": "2027-programme-des-talents-diplomes-gestion-d-actifs-etf-structure-zh-ubs-zurich"
       },
@@ -2516,7 +2551,15 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-13T13:51:44.466Z"
+      "firstSeenAt": "2026-09-13T13:51:44.466Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-graduate-talent-program-asset-management-etf-structuring-zh-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "2027-graduate-talent-program-asset-management-etf-structuring-zh-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-25ad76a18be9",
@@ -2524,7 +2567,7 @@
       "slugByLocale": {
         "en": "2027-graduate-talent-program-gwm-client-account-manager-apac-zh-ubs-zurich",
         "it": "2027-graduate-talent-program-gwm-client-account-manager-apac-zh-ubs-zurich",
-        "de": "2027-graduate-talent-program-gwm-client-account-manager-apac-zh-ubs-zurich",
+        "de": "2027-talentprogramm-fur-absolventen-gwm-kundenbetreuer-apac-zh-ubs-zurich",
         "fr": "2027-programme-des-talents-diplomes-gestionnaire-de-compte-client-gwm-apac-zh-ubs-zurich"
       },
       "company": "UBS",
@@ -6307,11 +6350,11 @@
     },
     {
       "id": "ubs-5ca623469c9f",
-      "slug": "2026-talent-pipeline-for-client-account-manager-wm-apac-switzerland-ubs-zurich",
+      "slug": "2026-tt-pipeline-per-il-responsabile-clienti-wm-apac-svizzera-ubs-zurich",
       "slugByLocale": {
-        "it": "2026-talent-pipeline-for-client-account-manager-wm-apac-switzerland-ubs-zurich",
+        "it": "2026-tt-pipeline-per-il-responsabile-clienti-wm-apac-svizzera-ubs-zurich",
         "en": "2026-talent-pipeline-for-client-account-manager-wm-apac-switzerland-ubs-zurich",
-        "de": "2026-talent-pipeline-for-client-account-manager-wm-apac-switzerland-ubs-zurich",
+        "de": "2026-talent-pipeline-fur-kundenkontomanager-wm-apac-schweiz-ubs-zurich",
         "fr": "pipeline-de-talents-2026-pour-client-account-manager-wm-apac-suisse-ubs-zurich"
       },
       "company": "UBS",
@@ -6363,16 +6406,21 @@
       "previousSlugs": [
         "client-account-manager-apac-switzerland-ubs-zurich",
         "client-account-manager-apac-switzerland-ubs",
-        "client-account-manager-apac-switzerland-ubs-2"
+        "client-account-manager-apac-switzerland-ubs-2",
+        "2026-talent-pipeline-for-client-account-manager-wm-apac-switzerland-ubs-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "client-account-manager-apac-switzerland-ubs-zurich",
           "client-account-manager-apac-switzerland-ubs",
-          "client-account-manager-apac-switzerland-ubs-2"
+          "client-account-manager-apac-switzerland-ubs-2",
+          "2026-talent-pipeline-for-client-account-manager-wm-apac-switzerland-ubs-zurich"
         ],
         "fr": [
           "client-account-manager-apac-switzerland-ubs-zurich"
+        ],
+        "de": [
+          "2026-talent-pipeline-for-client-account-manager-wm-apac-switzerland-ubs-zurich"
         ]
       },
       "needsRetranslation": true,

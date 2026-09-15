@@ -9839,9 +9839,9 @@
     },
     {
       "id": "richemont-99223caa3e6a",
-      "slug": "boutique-watchmaker-richemont-zurich",
+      "slug": "orologiaio-di-boutique-richemont-zurich",
       "slugByLocale": {
-        "it": "boutique-watchmaker-richemont-zurich",
+        "it": "orologiaio-di-boutique-richemont-zurich",
         "en": "boutique-watchmaker-richemont-zurich",
         "de": "boutique-watchmaker-richemont-zurich",
         "fr": "boutique-horlogerie-richemont-zurich"
@@ -9900,7 +9900,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "boutique-watchmaker-richemont-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "boutique-watchmaker-richemont-zurich"
+      ]
     },
     {
       "id": "richemont-c49d77c3cf1d",
@@ -11457,7 +11465,7 @@
       "slug": "supply-planner-richemont-neuchatel",
       "slugByLocale": {
         "it": "supply-planner-richemont-neuchatel",
-        "en": "supply-planner-richemont-neuchatel",
+        "en": "the-following-information-shall-be-provided-panerai-neuchatel",
         "de": "versorgungsplaner-panerai-neuchatel",
         "fr": "planificateur-d-approvisionnement-panerai-neuchatel"
       },

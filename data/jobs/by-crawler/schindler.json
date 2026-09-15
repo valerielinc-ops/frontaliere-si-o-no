@@ -3994,7 +3994,6 @@
       },
       "previousSlugs": [
         "lehrstelle-als-fachmann-frau-kundendialog-efz-fur-2027-schindler-ebikon",
-        "gestionnaire-pour-les-consentements-de-cookies-schindler-ebikon",
         "manager-fur-cookie-einwilligungen-schindler-ebikon-12"
       ],
       "salaryMin": 58500,
@@ -6435,7 +6434,6 @@
         "apprentissage-d-employe-e-de-commerce-cfc-pour-2027-schindler-le-mont-sur-lausanne",
         "apprentissage-de-polymecanicien-ne-cfc-monteur-euse-d-ascenseurs-pour-2027-schindler-le-mont-sur-lausanne",
         "apprentissage-de-polymecanicien-ne-cfc-monteur-euse-d-ascenseurs-pour-2027-schindler-le",
-        "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne",
         "apprendistato-di-polimeccanico-a-cfc-installatore-trice-di-ascensori-per-il-2027-schindler-le-mont-sur-lausanne"
       ],
       "previousSlugsByLocale": {
@@ -7111,12 +7109,12 @@
     },
     {
       "id": "schindler-e66bf297a8d0",
-      "slug": "global-finance-transformation-manager-m-f-d-100-schindler-ebikon",
+      "slug": "direttore-di-trasformazione-della-finanza-globale-m-f-d-100-schindler-ebikon",
       "slugByLocale": {
-        "it": "global-finance-transformation-manager-m-f-d-100-schindler-ebikon",
+        "it": "direttore-di-trasformazione-della-finanza-globale-m-f-d-100-schindler-ebikon",
         "en": "global-finance-transformation-manager-m-f-d-100-schindler-ebikon",
         "de": "global-finance-transformation-manager-m-f-d-100-schindler-ebikon",
-        "fr": "global-finance-transformation-manager-m-f-d-100-schindler-ebikon"
+        "fr": "gestionnaire-de-transformation-de-la-finance-mondiale-h-f-d-100-schindler-ebikon"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -7172,7 +7170,18 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "global-finance-transformation-manager-m-f-d-100-schindler-ebikon"
+        ],
+        "fr": [
+          "global-finance-transformation-manager-m-f-d-100-schindler-ebikon"
+        ]
+      },
+      "previousSlugs": [
+        "global-finance-transformation-manager-m-f-d-100-schindler-ebikon"
+      ]
     },
     {
       "id": "schindler-e1d2c35884cb",
