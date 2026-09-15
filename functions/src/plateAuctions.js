@@ -423,7 +423,13 @@ async function readPaginatedDocuments({ firstQuery, nextQuery, pageSize, maxRows
   }
 }
 
-async function readCollection(db, collection, { pageSize = PLATE_AUCTION_PAGE_SIZE, maxRows = PLATE_AUCTION_MAX_ROWS } = {}) {
+async function readCollection(db, collection, options = {}) {
+  // Keep callers using the historical numeric second argument safe while the
+  // paginated reader accepts named limits. A number means maxRows, as it did
+  // before pagination was introduced.
+  const { pageSize = PLATE_AUCTION_PAGE_SIZE, maxRows = PLATE_AUCTION_MAX_ROWS } = typeof options === 'number'
+    ? { maxRows: options }
+    : (options || {});
   const collectionRef = db.collection(collection);
   if (typeof collectionRef.orderBy !== 'function') {
     const snapshot = await collectionRef.limit(maxRows).get();
