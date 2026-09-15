@@ -41,4 +41,7 @@ jobs:
         run: node scripts/load-rc-env.mjs
 
       - name: Check provider health without route probes
-        run: node scripts/check-traffic-provider-quotas.mjs --json
+        # The check validates every configured routing provider plus all three
+        # ASTRA plans. It never sends a routing request, so it cannot consume
+        # paid route quota; each real collector call remains guarded in code.
+        run: node scripts/check-traffic-provider-quotas.mjs --json --require-otd-plans

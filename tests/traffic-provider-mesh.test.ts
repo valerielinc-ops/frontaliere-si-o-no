@@ -45,12 +45,14 @@ describe('traffic provider mesh', () => {
       HERE_DAILY_BUDGET: '999999',
       HERE_MONTHLY_BUDGET: '999999',
     }).limits.map((limit) => limit.budget)).toEqual([1_000, 4_500]);
-    expect(providerQuotaDefinition('opentransportdata', 'traffic-lights', {
-      OPENTRANSPORTDATA_QUOTA: '999999',
-    })).toMatchObject({
-      limits: [{ budget: 260_000 }],
-      rateLimit: { maxPerMinute: 5, minIntervalMs: 12_500 },
-    });
+    for (const operation of ['traffic-situations', 'traffic-lights', 'traffic-counters']) {
+      expect(providerQuotaDefinition('opentransportdata', operation, {
+        OPENTRANSPORTDATA_QUOTA: '999999',
+      })).toMatchObject({
+        limits: [{ budget: 260_000, period: 'six-month' }],
+        rateLimit: { maxPerMinute: 5, minIntervalMs: 12_500 },
+      });
+    }
     expect(providerQuotaDefinition('stadia').unitCost).toBe(20);
   });
 

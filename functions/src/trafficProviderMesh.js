@@ -26,6 +26,23 @@ function quotaOperation({ unitCost = 1, limits, rateLimit = null }) {
   return Object.freeze({ unitCost, limits: Object.freeze(limits), rateLimit });
 }
 
+function openTransportDataQuota(plan) {
+  return quotaOperation({
+    limits: [quotaLimit({
+      // ASTRA plan pages expose a 260,000-request allowance. Keep a lower
+      // local ceiling by default and scope the ledger independently per plan.
+      period: 'six-month',
+      quotaScope: `opentransportdata-${plan}`,
+      budgetEnv: 'OPENTRANSPORTDATA_QUOTA',
+      defaultBudget: 234_000,
+      safeMaximum: 260_000,
+    })],
+    // Five calls/minute => at least 12.5s between reservations, shared by
+    // overlapping schedulers through Firestore.
+    rateLimit: { maxPerMinute: 5, minIntervalMs: 12_500 },
+  });
+}
+
 /**
  * Default caps are deliberately below the commonly advertised free quotas.
  * They are a safety ceiling, not a claim about the current commercial plan.
@@ -224,19 +241,12 @@ export const TRAFFIC_PROVIDER_SPECS = Object.freeze({
     id: 'opentransportdata',
     key: 'opentransportdataApiKey',
     quotas: Object.freeze({
-      'traffic-lights': quotaOperation({
-        limits: [quotaLimit({
-          // The API Manager exposes this quota without a reset period and
-          // documents a manual ASTRA reset. Keep the local ledger lifetime
-          // scoped until the owner explicitly resets it.
-          period: 'lifetime',
-          quotaScope: 'opentransportdata-traffic-lights',
-          budgetEnv: 'OPENTRANSPORTDATA_QUOTA',
-          defaultBudget: 234_000,
-          safeMaximum: 260_000,
-        })],
-        rateLimit: { maxPerMinute: 5, minIntervalMs: 12_500 },
-      }),
+      // Keep route as a compatibility alias for callers that only know the
+      // original LSA collector operation.
+      route: openTransportDataQuota('traffic-lights'),
+      'traffic-situations': openTransportDataQuota('traffic-situations'),
+      'traffic-lights': openTransportDataQuota('traffic-lights'),
+      'traffic-counters': openTransportDataQuota('traffic-counters'),
     }),
     batchSize: 1,
     batchDelayMs: 12_500,

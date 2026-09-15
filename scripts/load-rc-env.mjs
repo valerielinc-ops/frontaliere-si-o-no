@@ -78,8 +78,17 @@ export const RC_TO_ENV = {
   GRAPHHOPPER_API_KEY:         ['GRAPHHOPPER_API_KEY'],
   OPENROUTESERVICE_API_KEY:    ['OPENROUTESERVICE_API_KEY'],
   STADIA_API_KEY:              ['STADIA_API_KEY'],
-  // Swiss ASTRA OCIT-C traffic-light snippets require an OpenTransportData API token.
-  // The public French/Italian/operator feeds below do not require credentials.
+  // OpenTransportData exposes three separate ASTRA plans. Keep each token and
+  // its dashboard-only token hash distinct so the quota ledger cannot mix
+  // plans. The LSA token also feeds the legacy collector variable below.
+  OPENTRANSPORTDATA_ASTRA_SITUATION_TOKEN:      ['OPENTRANSPORTDATA_ASTRA_SITUATION_TOKEN'],
+  OPENTRANSPORTDATA_ASTRA_SITUATION_TOKEN_HASH: ['OPENTRANSPORTDATA_ASTRA_SITUATION_TOKEN_HASH'],
+  OPENTRANSPORTDATA_ASTRA_LSA_TOKEN:            ['OPENTRANSPORTDATA_ASTRA_LSA_TOKEN', 'OPENTRANSPORTDATA_API_KEY'],
+  OPENTRANSPORTDATA_ASTRA_LSA_TOKEN_HASH:       ['OPENTRANSPORTDATA_ASTRA_LSA_TOKEN_HASH'],
+  OPENTRANSPORTDATA_ASTRA_COUNTERS_TOKEN:      ['OPENTRANSPORTDATA_ASTRA_COUNTERS_TOKEN'],
+  OPENTRANSPORTDATA_ASTRA_COUNTERS_TOKEN_HASH: ['OPENTRANSPORTDATA_ASTRA_COUNTERS_TOKEN_HASH'],
+  // Legacy single-token RC param: retain it as a fallback only when no
+  // plan-specific LSA token is provisioned.
   OPENTRANSPORTDATA_API_KEY:   ['OPENTRANSPORTDATA_API_KEY'],
   OPENTRANSPORTDATA_QUOTA:     ['OPENTRANSPORTDATA_QUOTA'],
   // Conservative, server-side quota ceilings. A missing value falls back to

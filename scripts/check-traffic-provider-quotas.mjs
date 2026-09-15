@@ -12,6 +12,43 @@
 import { buildTrafficProviderChain, providerQuotaDefinition } from '../functions/src/trafficProviderMesh.js';
 
 const jsonOutput = process.argv.includes('--json');
+const requireOtdPlans = process.argv.includes('--require-otd-plans');
+
+const OTD_PLANS = Object.freeze([
+  {
+    id: 'astra-situation',
+    label: 'ASTRA traffic situations',
+    operation: 'traffic-situations',
+    tokenEnv: 'OPENTRANSPORTDATA_ASTRA_SITUATION_TOKEN',
+    hashEnv: 'OPENTRANSPORTDATA_ASTRA_SITUATION_TOKEN_HASH',
+  },
+  {
+    id: 'astra-lsa',
+    label: 'ASTRA LSA traffic lights',
+    operation: 'traffic-lights',
+    tokenEnv: 'OPENTRANSPORTDATA_ASTRA_LSA_TOKEN',
+    hashEnv: 'OPENTRANSPORTDATA_ASTRA_LSA_TOKEN_HASH',
+  },
+  {
+    id: 'astra-counters',
+    label: 'ASTRA traffic counters',
+    operation: 'traffic-counters',
+    tokenEnv: 'OPENTRANSPORTDATA_ASTRA_COUNTERS_TOKEN',
+    hashEnv: 'OPENTRANSPORTDATA_ASTRA_COUNTERS_TOKEN_HASH',
+  },
+]);
+
+const PROVIDER_CREDENTIALS = Object.freeze([
+  { id: 'tomtom', env: 'TOMTOM_API_KEY' },
+  { id: 'here', env: 'HERE_API_KEY' },
+  { id: 'google-routes', env: 'GOOGLE_ROUTES_API_KEY', fallbackEnv: 'GOOGLE_MAPS_API_KEY' },
+  { id: 'google-maps', env: 'GOOGLE_MAPS_API_KEY' },
+  { id: 'mapbox', env: 'MAPBOX_SECRET_TOKEN', fallbackEnv: 'MAPBOX_PUBLIC_TOKEN' },
+  { id: 'geoapify', env: 'GEOAPIFY_API_KEY' },
+  { id: 'openrouteservice', env: 'OPENROUTESERVICE_API_KEY' },
+  { id: 'graphhopper', env: 'GRAPHHOPPER_API_KEY' },
+  { id: 'stadia', env: 'STADIA_API_KEY' },
+]);
 
 function has(value) {
   return typeof value === 'string' && value.trim().length > 0;
@@ -65,6 +102,19 @@ function configuredProviderReport() {
   }).map((spec) => providerReport(spec.id));
 }
 
+function providerCredentialReport() {
+  return PROVIDER_CREDENTIALS.map((provider) => {
+    const direct = has(process.env[provider.env]);
+    const fallback = provider.fallbackEnv ? has(process.env[provider.fallbackEnv]) : false;
+    return {
+      id: provider.id,
+      credential: direct ? 'direct' : fallback ? 'fallback' : 'missing',
+      configured: direct || fallback,
+      fallback: fallback ? provider.fallbackEnv : null,
+    };
+  });
+}
+
 function providerReport(providerId, operation = 'route') {
   const quota = providerQuotaDefinition(providerId, operation);
   return {
@@ -84,20 +134,49 @@ function providerReport(providerId, operation = 'route') {
   };
 }
 
-const officialTraffic = has(process.env.OPENTRANSPORTDATA_API_KEY)
-  ? providerReport('opentransportdata', 'traffic-lights')
-  : { id: 'opentransportdata', configured: false, operation: 'traffic-lights', status: 'skipped' };
+function officialTrafficPlanReport(plan) {
+  const quota = providerQuotaDefinition('opentransportdata', plan.operation);
+  const tokenPresent = has(process.env[plan.tokenEnv]);
+  const tokenHashPresent = has(process.env[plan.hashEnv]);
+  return {
+    id: 'opentransportdata',
+    plan: plan.id,
+    label: plan.label,
+    operation: plan.operation,
+    configured: tokenPresent,
+    status: tokenPresent ? 'configured' : 'skipped',
+    tokenPresent,
+    tokenHashPresent,
+    tokenHashUsed: false,
+    limits: quota.limits.map((limit) => ({
+      period: limit.period,
+      currentPeriod: limit.periodKey(new Date()),
+      localBudget: limit.budget,
+      scope: limit.quotaScope,
+    })),
+    rateLimit: quota.rateLimit,
+    usageApi: 'not-polled-without-billable-probe',
+    guard: 'firestore-local-budget-and-rate-limit',
+  };
+}
+
+const officialTrafficPlans = OTD_PLANS.map(officialTrafficPlanReport);
+// Keep the original field for consumers that only render the LSA feed.
+const officialTraffic = officialTrafficPlans.find((plan) => plan.operation === 'traffic-lights');
 
 const report = {
   generatedAt: new Date().toISOString(),
   mapbox: await checkMapbox(),
+  providerCredentials: providerCredentialReport(),
   configuredProviders: configuredProviderReport(),
   officialTraffic,
+  officialTrafficPlans,
   guarantees: {
     noRouteProbe: true,
     budgetReservation: 'Firestore transaction immediately before each provider request; fail-closed on check errors',
-    rateLimit: 'OpenTransportData traffic-lights: Firestore interval guard at 12.5 seconds (<=5/minute)',
+    rateLimit: 'OpenTransportData ASTRA plans: independent Firestore interval guards at 12.5 seconds (<=5/minute)',
     mapboxUsage: 'official usage API unavailable; dashboard remains authoritative',
+    requiredOtdPlans: requireOtdPlans,
   },
 };
 
@@ -106,19 +185,27 @@ if (jsonOutput) {
 } else {
   console.log(`Traffic provider health — ${report.generatedAt}`);
   console.log(`Mapbox token: ${report.mapbox.status}; usage API: dashboard-only; guard: Firestore budget`);
+  for (const provider of report.providerCredentials) {
+    console.log(`${provider.id}: ${provider.credential}`);
+  }
   for (const provider of report.configuredProviders) {
     const caps = provider.limits.map((limit) => `${limit.localBudget}/${limit.currentPeriod}`).join(',');
     console.log(`${provider.id}/${provider.operation}: configured; cap=${caps}; rotation=${provider.rotation}`);
   }
-  console.log(
-    `opentransportdata/traffic-lights: ${report.officialTraffic.configured ? 'configured' : 'skipped'}; ` +
-    (report.officialTraffic.configured
-      ? `cap=${report.officialTraffic.limits[0].localBudget}/${report.officialTraffic.limits[0].currentPeriod}; rate<=5/min`
-      : 'missing token'),
-  );
+  for (const plan of report.officialTrafficPlans) {
+    const cap = plan.limits[0];
+    console.log(
+      `opentransportdata/${plan.plan}: ${plan.configured ? 'configured' : 'skipped'}; ` +
+      `tokenHash=${plan.tokenHashPresent ? 'present' : 'absent'}; ` +
+      (plan.configured
+        ? `cap=${cap.localBudget}/${cap.currentPeriod}; rate<=5/min`
+        : 'missing token'),
+    );
+  }
   if (!report.configuredProviders.length) console.log('No provider key loaded from Remote Config.');
 }
 
 // Only token/authentication failure is a health failure. Unknown usage is an
 // expected state for providers that do not expose a public metering endpoint.
 if (report.mapbox.status === 'error') process.exitCode = 1;
+if (requireOtdPlans && report.officialTrafficPlans.some((plan) => !plan.configured)) process.exitCode = 1;
