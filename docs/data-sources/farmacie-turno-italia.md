@@ -22,9 +22,9 @@ Le fonti sono registrate in
   La pagina indica l'approvazione ATS Insubria n. 310 del 20/05/2026.
 - VCO: [Determina ASL VCO n. 1755 del
   09/12/2025](https://www.aslvco.it/wp-content/uploads/2025/12/2968938.pdf?x88295=),
-  che approva il calendario 2026 e i cambi turno. La tabella base è una
-  successione; vengono pubblicate soltanto le righe che recano una data
-  esplicita nel documento.
+  che approva il calendario 2026 e i cambi turno (validità dichiarata
+  2026-01-01–2026-12-31). La tabella base è una successione; vengono
+  pubblicate soltanto le righe che recano una data esplicita nel documento.
 
 Il catalogo anagrafico usato per risolvere `pharmacyId` è il dataset ufficiale
 del Ministero della Salute già presente in
@@ -66,3 +66,10 @@ I fixture in
 [`tests/fixtures/pharmacy-duties/italy/`](../../tests/fixtures/pharmacy-duties/italy/)
 sono estratti testuali dei documenti ufficiali, conservati per test
 deterministici senza chiamate di rete.
+
+Le fixture raw incluse nel repository sono estratti deterministici per il parser,
+non calendari annuali completi: Como, Varese e VCO restano evidenza non
+operativa finché non sono presenti almeno 300 giorni distinti del calendario
+ufficiale. Per questo lo snapshot iniziale può avere release not_published e
+zero turni operativi; il connettore non presenta un estratto come copertura
+provinciale.

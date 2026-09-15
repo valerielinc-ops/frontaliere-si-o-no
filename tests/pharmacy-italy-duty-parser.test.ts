@@ -14,19 +14,35 @@ const FETCHED_AT = '2026-09-15T10:00:00.000Z';
 
 describe('Italian official duty parser', () => {
   it('parses the three official provincial fixture formats and keeps the province', () => {
-    const results = sources.sources.map((source: { key: string }) => {
-      const raw = readFileSync(new URL(`${source.key}.txt`, FIXTURE_DIR), 'utf8');
+    const results = sources.sources.map((source: { key: string; fixturePath: string }) => {
+      const raw = readFileSync(new URL(`${source.fixturePath}/source.txt`, FIXTURE_DIR), 'utf8');
       return parseItalyDutySource(raw, source, { fetchedAt: FETCHED_AT, asOf: FETCHED_AT, catalogue });
     });
 
     expect(results.map((result: { province: string }) => result.province)).toEqual(['CO', 'VA', 'VB']);
-    expect(results.every((result: { duties: unknown[]; errors: string[]; freshness: string }) => result.duties.length > 0 && result.errors.length === 0 && result.freshness === 'fresh')).toBe(true);
-    expect(results.flatMap((result: { duties: Array<{ province: string }> }) => result.duties).every((duty) => ['CO', 'VA', 'VB'].includes(duty.province))).toBe(true);
+    expect(results.every((result: { duties: unknown[]; observedDuties: unknown[]; errors: string[]; freshness: string; coverage: string }) => (
+      result.duties.length === 0
+      && result.observedDuties.length > 0
+      && result.errors.some((error) => error.includes('coverage is incomplete'))
+      && result.freshness === 'fresh'
+      && result.coverage === 'partial'
+    ))).toBe(true);
+    expect(results.flatMap((result: { observedDuties: Array<{ province: string }> }) => result.observedDuties).every((duty) => ['CO', 'VA', 'VB'].includes(duty.province))).toBe(true);
   });
 
   it('uses Europe/Rome, including the autumn DST boundary', () => {
     expect(localDateTimeToItalyIso('15/09/2026', '08:30')).toBe('2026-09-15T06:30:00.000Z');
     expect(localDateTimeToItalyIso('25/10/2026', '08:30')).toBe('2026-10-25T07:30:00.000Z');
+  });
+
+  it('evaluates validity windows on the Europe/Rome calendar date', () => {
+    const como = sources.sources.find((source: { province: string }) => source.province === 'CO');
+    const result = parseItalyDutySource(
+      'PROVINCIA DI COMO\n05/09/2026 Appiano Cavour',
+      como,
+      { fetchedAt: '2026-06-01T00:30:00.000Z', asOf: '2026-05-31T22:30:00.000Z', catalogue },
+    );
+    expect(result.errors).not.toContain('official calendar is outside its declared validity window');
   });
 
   it('fails closed when province evidence is conflicting or an explicit row omits it', () => {
@@ -50,5 +66,20 @@ describe('Italian official duty parser', () => {
     );
     expect(result.duties).toEqual([]);
     expect(result.errors).toContain('source contains a province marker outside CO');
+  });
+
+  it('drops the whole province when one otherwise valid feed row is malformed', () => {
+    const como = sources.sources.find((source: { province: string }) => source.province === 'CO');
+    const result = parseItalyDutySource(
+      [
+        'PROVINCIA DI COMO',
+        'DUTY|date=15/09/2026|label=Albese|pharmacyId=it-msal-2192|province=CO',
+        'DUTY|date=not-a-date|label=Albavilla|pharmacyId=it-msal-2166|province=CO',
+      ].join('\n'),
+      como,
+      { fetchedAt: FETCHED_AT, asOf: FETCHED_AT, catalogue },
+    );
+    expect(result.duties).toEqual([]);
+    expect(result.errors.some((error: string) => error.includes('invalid date'))).toBe(true);
   });
 });
