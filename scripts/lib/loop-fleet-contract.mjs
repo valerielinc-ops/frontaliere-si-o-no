@@ -839,6 +839,7 @@ export function summarizeLifecycleEvents(events = [], { now = new Date() } = {})
       .filter((eventType) => eventTypes.includes(eventType));
     const terminalIncoherence = [
       ...terminalLifecycleErrors(candidateEvents, eventTypes),
+      ...duplicateTerminalEventTypes.map((eventType) => `${eventType} appears more than once`),
       ...invalidOccurredAtEventTypes
         .filter((eventType) => TERMINAL_LIFECYCLE_EVENTS.includes(eventType))
         .map((eventType) => `${eventType} has invalid occurredAt`),
@@ -848,7 +849,6 @@ export function summarizeLifecycleEvents(events = [], { now = new Date() } = {})
       && !terminalEventTypes.includes('rolled_back');
     const incoherent = [
       ...duplicateEventTypes.map((eventType) => `${eventType} appears more than once`),
-      ...duplicateTerminalEventTypes.map((eventType) => `${eventType} appears more than once`),
       ...invalidOccurredAtEventTypes.map((eventType) => `${eventType} has invalid occurredAt`),
       !orderValid ? 'events are out of order' : null,
       !ownerConsistent ? 'owner changes without an explicit reassignment event' : null,
