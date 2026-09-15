@@ -8,12 +8,16 @@
  * scope of unrelated SEO audits.
  */
 
-const PLATE_AUCTION_SECTION_SOURCE = [
-  'aste-targhe-svizzera',
-  'en/swiss-plate-auctions',
-  'de/schweizer-nummernschildauktionen',
-  'fr/encheres-plaques-suisses',
-].join('|');
+export const PLATE_AUCTION_BASE_BY_LOCALE = Object.freeze({
+  it: 'aste-targhe-svizzera',
+  en: 'swiss-plate-auctions',
+  de: 'schweizer-nummernschildauktionen',
+  fr: 'encheres-plaques-suisses',
+});
+
+const PLATE_AUCTION_SECTION_SOURCE = Object.entries(PLATE_AUCTION_BASE_BY_LOCALE)
+  .map(([locale, slug]) => (locale === 'it' ? slug : `${locale}/${slug}`))
+  .join('|');
 
 /**
  * Matches a canonical plate-auction section in a dist-relative path.
@@ -24,9 +28,9 @@ export const PLATE_AUCTION_SECTION_RX = new RegExp(
 );
 
 /**
- * @param {string} normalisedPath dist-relative path or URL path
+ * @param {string} auctionSectionPath dist-relative path or URL path
  * @returns {boolean} whether the path belongs to the plate-auction vertical
  */
-export function isPlateAuctionSectionPath(normalisedPath) {
-  return PLATE_AUCTION_SECTION_RX.test(String(normalisedPath));
+export function isPlateAuctionSectionPath(auctionSectionPath) {
+  return PLATE_AUCTION_SECTION_RX.test(String(auctionSectionPath));
 }

@@ -307,7 +307,8 @@ function createAuditor({ dist = DEFAULT_DIST, sampleRate = 1 } = {}) {
       // the information-gain metric masks those numeric fields by design.
       // Keep this vertical out of the editorial near-duplicate gate rather
       // than adding each newly emitted canton/plate cohort to its inventory.
-      if (JOB_BOARD_SECTION_RX.test(relPath) || isPlateAuctionSectionPath(relPath)) return;
+      if (JOB_BOARD_SECTION_RX.test(relPath)) return;
+      if (isPlateAuctionSectionPath(relPath)) return;
       fingerprints.push(fingerprintPage(relPath, html));
     },
     report() {
