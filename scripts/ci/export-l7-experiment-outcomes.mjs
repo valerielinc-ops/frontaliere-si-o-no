@@ -15,7 +15,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { GoogleDataClient } from './export-loop-outcomes.mjs';
 import { runHogQL } from '../lib/posthog-client.mjs';
-import { validateLoopRegistry } from '../lib/loop-fleet-contract.mjs';
+import { loadLoopPolicy } from '../lib/loop-fleet-contract.mjs';
 
 export const DEFAULT_L7_WINDOW_DAYS = 8;
 export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
@@ -76,23 +76,8 @@ function completeUtcWindow(now, days) {
   };
 }
 
-function readJson(filePath, label) {
-  const absolute = path.resolve(filePath);
-  if (!fs.existsSync(absolute)) throw new Error(`${label} is missing: ${filePath}`);
-  try {
-    return JSON.parse(fs.readFileSync(absolute, 'utf8'));
-  } catch (error) {
-    throw new Error(`${label} is invalid JSON: ${error.message}`);
-  }
-}
-
 function readL7Policy(registryPath) {
-  const registry = validateLoopRegistry(readJson(registryPath, 'loop fleet registry'));
-  const policy = Array.isArray(registry.loops)
-    ? registry.loops.find((loop) => loop?.loopId === 'L7')
-    : null;
-  if (!isObject(policy)) throw new Error('L7 policy is missing from the loop fleet registry');
-  return policy;
+  return loadLoopPolicy(registryPath, 'L7').policy;
 }
 
 function readRemoteConfigValue(template, name) {
