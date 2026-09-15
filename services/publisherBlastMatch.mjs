@@ -12,7 +12,12 @@
  */
 
 // Shared, pure (browser-safe) suppression set — keeps every sender in agreement.
-import { isCrossChannelStop } from './emailSuppression.mjs';
+import { isAddressSuppressed, isGlobalEmailOptOut } from './emailSuppression.mjs';
+import {
+  isNewsletterOptOutBinding,
+  newsletterOptOutMillis,
+  toEpochMillis,
+} from './newsletterOptOut.mjs';
 
 /**
  * The purpose-specific field, the legacy hard-deny switch, and the first page
@@ -104,6 +109,32 @@ export function isAdvertisingOptedOut(sub) {
     || sub?.[ADVERTISING_CONSENT_FIELD] === false;
 }
 
+/**
+ * An explicit advertising reactivation may lift the newsletter stop for this
+ * category only. The timestamp ordering prevents an older `false` value from
+ * resurrecting advertising after a later stop-all action; the other senders
+ * continue to apply the newsletter/global stop unchanged.
+ */
+function advertisingReactivationSupersedesNewsletterOptOut(sub) {
+  if (sub?.[ADVERTISING_OPT_OUT_FIELD] !== false) return false;
+  const optOutAt = newsletterOptOutMillis(sub);
+  const advertisingChoiceAt = toEpochMillis(sub?.advertising_opt_out_updated_at);
+  return optOutAt != null && advertisingChoiceAt != null && advertisingChoiceAt > optOutAt;
+}
+
+/**
+ * Advertising-specific suppression. A category reactivation is allowed to
+ * restore advertising after a newsletter opt-out, but never after a hard
+ * address suppression or a global stop, and never re-enables other channels.
+ */
+export function isAdvertisingSuppressed(sub) {
+  if (!sub || typeof sub !== 'object') return true;
+  if (isAddressSuppressed(sub.status) || isGlobalEmailOptOut(sub)) return true;
+  if (isAdvertisingOptedOut(sub)) return true;
+  if (!isNewsletterOptOutBinding(sub)) return false;
+  return !advertisingReactivationSupersedesNewsletterOptOut(sub);
+}
+
 function norm(s) {
   return String(s ?? '').trim().toLowerCase();
 }
@@ -174,14 +205,12 @@ export function matchSubscribersForAd(ad, subscribers, opts = {}) {
   const scored = [];
   for (const sub of subscribers) {
     if (!sub || !sub.email) continue;
-    // Respect the recorded unsubscribe, hard address suppression and legacy
-    // global stop-all flag. The advertising category also has its own explicit
-    // opt-out field, which decides eligibility below.
-    if (isCrossChannelStop(sub)) continue;
     // Third-party advertising is an ordinary base communication: no
     // double-opt-in proof, registration marker or status word is a delivery
-    // gate. Only the explicit category opt-out below can stop this category.
-    if (!consentCoversAdvertising(sub)) continue;
+    // gate. The advertising-specific predicate still honours hard/global
+    // suppression, the category opt-out and a newsletter stop unless this
+    // category was explicitly reactivated afterwards.
+    if (isAdvertisingSuppressed(sub)) continue;
     const score = scoreSubscriberForAd(ad, sub);
     if (score >= minScore) {
       scored.push({

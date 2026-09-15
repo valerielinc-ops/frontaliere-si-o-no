@@ -145,11 +145,11 @@ describe('saved-jobs digest — formatPostedDate (#5536)', () => {
 });
 
 describe('saved-jobs digest — channel opt-out and suppression', () => {
-  it('uses the saved-job relationship without a DOI or consent marker', () => {
+  it('requires explicit saved-job activation without a DOI or consent marker', () => {
     expect(isSavedJobsDigestEligible(
       { savedJobsDigest: { optedIn: false, optedOut: false } },
       {},
-    )).toBe(true);
+    )).toBe(false);
   });
 
   it('lets an explicit saved-jobs opt-out stop delivery', () => {
@@ -166,9 +166,9 @@ describe('saved-jobs digest — channel opt-out and suppression', () => {
     )).toBe(true);
   });
 
-  it('does not require a confirmation purpose for the digest', () => {
+  it('does not require a confirmation purpose after explicit digest activation', () => {
     expect(isSavedJobsDigestEligible(
-      { savedJobsDigest: { optedIn: false, optedOut: false } },
+      { savedJobsDigest: { optedIn: true, optedOut: false } },
       { confirmed_at: '2026-09-14T10:00:00.000Z', consent_purpose: 'newsletter_only' },
     )).toBe(true);
   });

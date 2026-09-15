@@ -222,14 +222,38 @@ describe('matchSubscribersForAd', () => {
     });
 
     it('a global opt-out still stops it — the explicit global field is authoritative', () => {
-      // Newsletter status/stamps are channel-scoped. The stop-all action writes
-      // a dedicated cross-channel field, which is what this matcher reads.
+      // The stop-all action writes a dedicated cross-channel field, which is
+      // authoritative even when a category field says advertising is on.
       expect(emails([
         control,
         { email: 'canonical@example.com', ...strongMatch, ...ANCIENT, all_email_opted_out: true },
         { email: 'alias@example.com', ...strongMatch, ...ANCIENT, global_email_opted_out: true },
         { email: 'newsletter-only@example.com', ...strongMatch, ...ANCIENT, status: 'unsubscribed' },
       ])).toEqual(['control@example.com']);
+    });
+
+    it('allows only an explicit later advertising reactivation after a newsletter opt-out', () => {
+      expect(emails([
+        control,
+        {
+          email: 'still-off@example.com',
+          ...strongMatch,
+          ...ANCIENT,
+          status: 'unsubscribed',
+          unsubscribed_at: '2026-09-02T00:00:00.000Z',
+          advertising_opt_out: false,
+          advertising_opt_out_updated_at: '2026-09-01T00:00:00.000Z',
+        },
+        {
+          email: 'ads-on@example.com',
+          ...strongMatch,
+          ...ANCIENT,
+          status: 'unsubscribed',
+          unsubscribed_at: '2026-09-01T00:00:00.000Z',
+          advertising_opt_out: false,
+          advertising_opt_out_updated_at: '2026-09-02T00:00:00.000Z',
+        },
+      ]).sort()).toEqual(['ads-on@example.com', 'control@example.com']);
     });
 
     it('a hard suppression still stops it — bounced, complained, suppressed', () => {

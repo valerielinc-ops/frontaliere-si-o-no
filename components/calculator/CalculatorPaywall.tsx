@@ -30,6 +30,7 @@ import { NEWSLETTER_SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import { getFirestoreLazy } from '@/services/firebase';
 import { upsertUnifiedEmailSubscriber } from '@/services/newsletterSubscribers';
+import { isNewsletterExcluded } from '@/services/emailSuppression.mjs';
 
 export const PAYWALL_DISMISSED_KEY = 'frontaliere_paywall_dismissed';
 export const SIM_COMPLETE_COUNTER_KEY = 'counter_sim_complete';
@@ -230,17 +231,26 @@ const CalculatorPaywall: React.FC<CalculatorPaywallProps> = ({ result, inputs, o
     setStatus('loading');
     setErrorMessage('');
     try {
-      const firestore = await getFirestoreLazy('calculatorPaywall.firestoreInit');
-      if (!firestore) throw new Error('firestore_unavailable');
-      await upsertUnifiedEmailSubscriber(firestore as any, {
-        email: trimmed,
-        source: 'calculator_paywall',
-        sourceChannel: 'calculator_paywall',
-        sourcePage: typeof window !== 'undefined' ? window.location.pathname : '/',
-        sourceCta: 'calculator_paywall_pdf',
-        sourceComponent: 'CalculatorPaywall',
-        locale,
-      });
+      // The PDF is the user's requested transactional result. Registration is
+      // best-effort: a Firestore outage must not turn a successful report
+      // request into a dead-end. Do not mark the local newsletter flag unless
+      // this registration actually returned a sendable state.
+      let registration: Awaited<ReturnType<typeof upsertUnifiedEmailSubscriber>> | null = null;
+      try {
+        const firestore = await getFirestoreLazy('calculatorPaywall.firestoreInit');
+        if (!firestore) throw new Error('firestore_unavailable');
+        registration = await upsertUnifiedEmailSubscriber(firestore as any, {
+          email: trimmed,
+          source: 'calculator_paywall',
+          sourceChannel: 'calculator_paywall',
+          sourcePage: typeof window !== 'undefined' ? window.location.pathname : '/',
+          sourceCta: 'calculator_paywall_pdf',
+          sourceComponent: 'CalculatorPaywall',
+          locale,
+        });
+      } catch (registrationError) {
+        reportCaughtError(registrationError, 'paywall.newsletterRegistration');
+      }
       const pdfBlob = await generateCalculatorPdfReport({ result, inputs, locale }, trimmed);
       const pdfBase64 = await pdfBlobToBase64(pdfBlob);
       const resultSummary = {
@@ -271,7 +281,9 @@ const CalculatorPaywall: React.FC<CalculatorPaywallProps> = ({ result, inputs, o
       Analytics.trackDecisionMomentNextAction('calculator', 'calculator_report');
       // Mark as subscribed so the paywall (and other subscribe prompts) stop
       // re-asking the same email across the site.
-      try { localStorage.setItem(NEWSLETTER_SUBSCRIBED_KEY, 'true'); } catch { /* ignore quota */ }
+      if (registration && registration.optedOut !== true && !isNewsletterExcluded(registration.status)) {
+        try { localStorage.setItem(NEWSLETTER_SUBSCRIBED_KEY, 'true'); } catch { /* ignore quota */ }
+      }
       setStatus('success');
       // Auto-close after short delay so the user sees the confirmation.
       setTimeout(() => onClose(), 1800);

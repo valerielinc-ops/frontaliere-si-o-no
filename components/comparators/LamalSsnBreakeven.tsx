@@ -24,8 +24,10 @@ import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import { getFirestoreLazy } from '@/services/firebase';
 import { upsertUnifiedEmailSubscriber, markNewsletterSubscribedLocally } from '@/services/newsletterSubscribers';
+import { isNewsletterExcluded } from '@/services/emailSuppression.mjs';
 import { generateLamalSsnPdfReport, pdfBlobToBase64 } from '@/services/pdfReport';
 import { SEND_CALCULATOR_REPORT_URL } from '@/services/functionsBase';
+import { reportCaughtError } from '@/services/errorReporter';
 
 /** SSN voluntary-registration contribution bounds (share of net income, L. 213/2023). */
 const SSN_RATE_MIN = 0.03;
@@ -102,17 +104,24 @@ const LamalSsnBreakeven: React.FC<LamalSsnBreakevenProps> = ({
  setSendError(null);
  Analytics.trackHealthInsurance('lamal_ssn_pdf_request', result.verdict);
  try {
- const firestore = await getFirestoreLazy('lamalSsnBreakeven.firestoreInit');
- if (!firestore) throw new Error('firestore_unavailable');
- const upsert = await upsertUnifiedEmailSubscriber(firestore as any, {
- email: trimmed,
- source: 'lamal_ssn_tool',
- sourceChannel: 'lamal_ssn_tool',
- sourcePage: typeof window !== 'undefined' ? window.location.pathname : '/',
- sourceCta: 'lamal_ssn_pdf',
- sourceComponent: 'LamalSsnBreakeven',
- locale,
- });
+ // The PDF is the user's requested transactional result. Registration is
+ // best-effort so a Firestore outage cannot block report generation or delivery.
+ let upsert: Awaited<ReturnType<typeof upsertUnifiedEmailSubscriber>> | null = null;
+ try {
+  const firestore = await getFirestoreLazy('lamalSsnBreakeven.firestoreInit');
+  if (!firestore) throw new Error('firestore_unavailable');
+  upsert = await upsertUnifiedEmailSubscriber(firestore as any, {
+  email: trimmed,
+  source: 'lamal_ssn_tool',
+  sourceChannel: 'lamal_ssn_tool',
+  sourcePage: typeof window !== 'undefined' ? window.location.pathname : '/',
+  sourceCta: 'lamal_ssn_pdf',
+  sourceComponent: 'LamalSsnBreakeven',
+  locale,
+  });
+ } catch (registrationError) {
+  reportCaughtError(registrationError, 'lamalSsn.newsletterRegistration');
+ }
  const pdfBlob = await generateLamalSsnPdfReport({
  incomeCHF: income,
  age,
@@ -148,12 +157,17 @@ const LamalSsnBreakeven: React.FC<LamalSsnBreakevenProps> = ({
  throw new Error(`http_${resp.status}`);
  }
  Analytics.trackFunnelStep('lamal_ssn_email_submitted', { funnel: 'newsletter_lamal_ssn' });
- const needsConfirmation = upsert.status === 'pending' && !upsert.hadConfirmationProof;
+ const needsConfirmation = upsert != null
+  && upsert.optedOut !== true
+  && upsert.status === 'pending'
+  && !upsert.hadConfirmationProof;
  if (needsConfirmation) {
    Analytics.trackFunnelStep('lamal_ssn_confirmation_pending', { funnel: 'newsletter_lamal_ssn' });
-   setSendStatus('pending');
+ setSendStatus('pending');
  } else {
-   markNewsletterSubscribedLocally();
+   if (upsert && upsert.optedOut !== true && !isNewsletterExcluded(upsert.status)) {
+     markNewsletterSubscribedLocally();
+   }
    setSendStatus('success');
  }
  } catch {

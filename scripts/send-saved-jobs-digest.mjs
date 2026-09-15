@@ -67,12 +67,14 @@ const MAX_RECOMMENDATIONS = 3;
  * Decide whether this particular recurring channel may send.
  *
  * The user profile is the channel activation/opt-out source; the email-keyed
- * subscriber is the registration/suppression source. A saved-job record is
- * sufficient to activate delivery, regardless of DOI proof or legacy fields.
+ * subscriber is the registration/suppression source. An explicit
+ * `savedJobsDigest.optedIn` activation is required, regardless of DOI proof or
+ * legacy fields; merely having a saved-job record is not an activation.
  */
 export function isSavedJobsDigestEligible(userData, subscriberData) {
   const digest = userData?.savedJobsDigest || {};
   if (digest.optedOut === true) return false;
+  if (digest.optedIn !== true) return false;
   if (!subscriberData || isCrossChannelStop(subscriberData)) {
     return false;
   }
@@ -651,8 +653,9 @@ async function main() {
       continue;
     }
 
-    // The saved-job record activates this channel. An explicit channel opt-out
-    // and the shared address/global suppression predicate still win.
+    // The explicit saved-jobs preference activates this channel. An explicit
+    // channel opt-out and the shared address/global suppression predicate still
+    // win; a saved-job record alone is not enough.
     const subscriberDoc = await db.collection('newsletter_subscribers').doc(email.toLowerCase()).get();
     const subscriberData = subscriberDoc.exists ? subscriberDoc.data() || {} : null;
     if (!isSavedJobsDigestEligible(userData, subscriberData)) {

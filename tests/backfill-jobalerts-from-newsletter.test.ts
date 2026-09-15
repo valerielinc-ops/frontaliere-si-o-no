@@ -321,6 +321,30 @@ describe('the historical backfill is report-only by default and writes only with
   });
 });
 
+describe('live JobAlert backfill requires the registration marker', () => {
+  const src = readRepoFile('functions/index.js');
+
+  it('does not let profile or social-auth document creation manufacture an alert', () => {
+    const signupStart = src.indexOf('export const backfillJobAlertOnNewsletterSignup');
+    const personalizationStart = src.indexOf('export const backfillJobAlertOnPersonalizationSync');
+    const signup = src.slice(signupStart, personalizationStart);
+    const personalization = src.slice(personalizationStart, src.indexOf('// Publisher domain ownership verification'));
+    const markerGuard = 'afterData?.registration_terms_accepted !== true';
+
+    expect(signup).toContain(markerGuard);
+    expect(signup.indexOf(markerGuard)).toBeLessThan(signup.indexOf('handleNewsletterSubscriberCreated'));
+    expect(personalization).toContain('parentData?.registration_terms_accepted !== true');
+    expect(personalization.indexOf('parentData?.registration_terms_accepted !== true')).toBeLessThan(
+      personalization.indexOf('handleNewsletterSubscriberCreated'),
+    );
+  });
+
+  it('keeps the historical write path explicitly opt-in', () => {
+    const historical = readRepoFile('scripts/backfill-jobalerts-from-newsletter.mjs');
+    expect(historical).toContain("process.argv.includes('--write')");
+  });
+});
+
 describe('backfill-jobalerts-from-newsletter — resolveSignalTier tier-3', () => {
   it('derives personalization-fallback from browsing data when flat fields are empty', () => {
     const result = resolveSignalTier({}, { viewedJobs: [{ location: 'Mendrisio', category: 'IT / Tecnologia' }] });

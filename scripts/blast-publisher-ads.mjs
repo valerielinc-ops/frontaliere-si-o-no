@@ -31,8 +31,7 @@
  * (load-rc-env.mjs in CI, or env).
  */
 
-import { matchSubscribersForAd } from '../services/publisherBlastMatch.mjs';
-import { isCrossChannelStop } from '../services/emailSuppression.mjs';
+import { isAdvertisingSuppressed, matchSubscribersForAd } from '../services/publisherBlastMatch.mjs';
 import { OWNER_EMAIL, isCanaryJob } from './lib/canaryAd.mjs';
 import { buildBlastEmail } from '../services/publisherBlastEmail.mjs';
 import { slugifyPublisher, truncatePublisherSlug, distinctLocations } from './lib/publisherJobProjection.mjs';
@@ -79,11 +78,10 @@ async function main() {
 
   const subsSnap = await db.collection('newsletter_subscribers').get();
   const subscribers = subsSnap.docs.filter((d) => d.id !== '_meta_').map((d) => d.data());
-  // Keep the address-level hard/global stop at this sender boundary too. The
-  // matcher applies the same predicate (and the advertising category opt-out)
-  // for ordinary ads; this filter makes the safety boundary explicit before
-  // the canary/regular audience split.
-  const sendableSubscribers = subscribers.filter((subscriber) => !isCrossChannelStop(subscriber));
+  // Keep the advertising-specific hard/global stop at this sender boundary
+  // too. A later explicit advertising reactivation may lift a newsletter stop
+  // for this category only; it never re-enables the other senders.
+  const sendableSubscribers = subscribers.filter((subscriber) => !isAdvertisingSuppressed(subscriber));
   console.log(`[blast] ${ads.length} ad(s), ${subscribers.length} subscribers. mode=${SEND ? 'SEND' : 'DRY-RUN'}`);
 
   if (SEND) {

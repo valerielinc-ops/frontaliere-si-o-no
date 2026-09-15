@@ -218,8 +218,10 @@ export async function handleSendCalculatorReport({
       await subscriberRef.set(baseDoc, { merge: true });
     }
   } catch (firestoreErr) {
-    console.error('[sendCalculatorReport] Firestore enrichment failed:', firestoreErr);
-    return { status: 503, body: { success: false, error: 'firestore_unavailable' } };
+    // Enrichment is best-effort. The PDF request is transactional and the
+    // user has already submitted it, so a write outage must not swallow the
+    // email or turn a successful report into a 5XX.
+    console.error('[sendCalculatorReport] Firestore enrichment failed — continuing with transactional PDF:', firestoreErr);
   }
 
   const isLamal = src === 'lamal_ssn_tool';

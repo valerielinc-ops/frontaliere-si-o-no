@@ -60,7 +60,7 @@ vi.mock('../../functions/src/newsletterResendWebhookCore.js', () => ({
 }));
 
 // sendCalculatorReport.js is cascade-routed (2026-07-16) rather than holding a
-// directly-injectable Resend client, so its 503/502/200 status-code contract
+// directly-injectable Resend client, so its 500/502/200 status-code contract
 // is exercised here by controlling the cascade's isProviderConfigured/
 // sendEmailCascade directly instead of an injected resendClient.
 vi.mock('../../functions/src/emailCascade.js', () => ({
@@ -174,16 +174,15 @@ describe('handleSendCalculatorReport — structured error responses', () => {
     expect(res.body).toEqual({ success: false, error: 'missing_resend_api_key' });
   });
 
-  it('returns 503 structured error (no unhandled 500) when Firestore upsert fails', async () => {
+  it('still sends the PDF and returns 200 when Firestore enrichment fails', async () => {
     const handle = await loadSendCalculatorReport();
     const db = makeDbStub({
       // The upsert is the WRITE. It used to be simulated by throwing from the
       // preceding read, which no longer models this failure: the read now fails
       // OPEN on purpose (a lookup hiccup must not swallow a PDF the user
       // submitted a form for — see tests/transactional-suppression-guard.test.ts,
-      // "FAILS OPEN on a Firestore read error"). The 503-on-upsert-failure
-      // contract asserted here is unchanged; only the injection point moved to
-      // the write it is actually about.
+      // "FAILS OPEN on a Firestore read error"). Enrichment is best-effort, so
+      // this write failure must not block the transactional send.
       getImpl: async () => ({ exists: true, data: () => ({}) }),
       setImpl: async () => {
         throw new Error('UNAVAILABLE: simulated outage');
@@ -197,8 +196,10 @@ describe('handleSendCalculatorReport — structured error responses', () => {
       sourcePath: '/',
       db,
     });
-    expect(res.status).toBe(503);
-    expect(res.body).toEqual({ success: false, error: 'firestore_unavailable' });
+    expect(res.status).toBe(200);
+    expect(res.body.success).toBe(true);
+    const cascade = await import('../../functions/src/emailCascade.js');
+    expect(cascade.sendEmailCascade).toHaveBeenCalledTimes(1);
   });
 
   it('returns 502 structured error when Resend rejects the email send', async () => {

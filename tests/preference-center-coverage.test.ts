@@ -169,9 +169,9 @@ describe('#5684 point 1 — every recurring channel has a switch in the preferen
     expect(senderSrc).toContain('isSavedJobsDigestEligible');
     expect(senderSrc).toContain('isCrossChannelStop');
     expect(senderSrc).toContain('digest.optedOut === true');
-    // Terms-based delivery has no positive `optedIn` gate. The channel can
-    // still be stopped explicitly through `optedOut`, the preference centre,
-    // or the shared cross-channel suppression predicate.
+    // The saved-jobs relationship is explicit: only an activated digest can
+    // be sent, and `optedOut`/the shared suppression predicate can stop it.
+    expect(senderSrc).toContain('digest.optedIn !== true');
   });
 
   it('the ad blast reads the advertising flag the centre writes, in both modes', () => {

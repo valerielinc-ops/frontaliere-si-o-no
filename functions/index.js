@@ -1913,10 +1913,12 @@ export const cleanupUserDataOnAccountDelete = functionsV1.runWith({ failurePolic
 // un-awaited auth-fields-only write races the full signal-carrying upsert,
 // and the bare write structurally tends to land first. A one-shot create
 // hook would see zero signal and skip the subscriber permanently once the
-// real signal arrives via a later merge. New documents and the first write of
-// registration_terms_accepted are always processed, including registrations
-// with no signal yet. signalTierChanged still gates later enrichment writes so
-// routine engagement writes (open/click tracking) remain a cheap no-op.
+// real signal arrives via a later merge. New documents carrying
+// registration_terms_accepted and its first write are always processed,
+// including registrations with no signal yet. signalTierChanged still gates
+// later enrichment writes (and the explicit registration marker is required
+// below), so routine engagement writes (open/click tracking) remain a cheap
+// no-op.
 export const backfillJobAlertOnNewsletterSignup = onDocumentWritten(
  { region: 'europe-west6', memory: '256MiB', document: 'newsletter_subscribers/{email}' },
  async (event) => {
@@ -1925,6 +1927,11 @@ export const backfillJobAlertOnNewsletterSignup = onDocumentWritten(
  const after = event.data?.after;
  if (!after?.exists) return; // ignore deletes
  const afterData = after.data();
+ // A newsletter_subscribers document can also be created by profile sync,
+ // social auth or other non-registration flows. Only the explicit terms-based
+ // registration is allowed to manufacture the broad newsletter + JobAlert
+ // relationship; the historical migration remains an explicit batch action.
+ if (afterData?.registration_terms_accepted !== true) return;
  const beforeData = event.data?.before?.exists ? event.data.before.data() : null;
  const clearedAccountDeletion = beforeData
   && isAccountDeletedTombstone(beforeData)
@@ -1977,6 +1984,7 @@ export const backfillJobAlertOnPersonalizationSync = onDocumentWritten(
  const parentSnap = await getAdminDb().collection('newsletter_subscribers').doc(emailId).get();
  if (!parentSnap.exists) return;
  const parentData = parentSnap.data();
+ if (parentData?.registration_terms_accepted !== true) return;
  if (getSignalTier(parentData) !== 'none') return; // already resolved via flat fields
  const result = await handleNewsletterSubscriberCreated(emailId, parentData, {
  personalization: after.data(),

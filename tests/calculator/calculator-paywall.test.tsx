@@ -41,8 +41,9 @@ vi.mock('@/services/pdfReport', () => ({
   })),
 }));
 
+const getFirestoreLazyMock = vi.hoisted(() => vi.fn().mockResolvedValue({}));
 vi.mock('@/services/firebase', () => ({
-  getFirestoreLazy: vi.fn().mockResolvedValue({}),
+  getFirestoreLazy: (...args: unknown[]) => getFirestoreLazyMock(...args),
 }));
 
 const upsertUnifiedEmailSubscriberMock = vi.hoisted(() =>
@@ -209,6 +210,7 @@ describe('CalculatorPaywall — render + interaction', () => {
   beforeEach(() => {
     localStorage.clear();
     vi.clearAllMocks();
+    getFirestoreLazyMock.mockResolvedValue({});
   });
 
   afterEach(() => {
@@ -315,6 +317,28 @@ describe('CalculatorPaywall — render + interaction', () => {
 
     await waitFor(() => expect(upsertUnifiedEmailSubscriberMock).toHaveBeenCalledTimes(1));
     expect(fetchImpl).toHaveBeenCalledTimes(1);
+  });
+
+  it('still sends the PDF when newsletter registration is unavailable', async () => {
+    getFirestoreLazyMock.mockRejectedValueOnce(new Error('UNAVAILABLE'));
+    const fetchImpl = vi.fn(async () => new Response(JSON.stringify({ success: true }), { status: 200 }));
+    render(
+      <CalculatorPaywall
+        result={mockResult}
+        inputs={mockInputs}
+        onClose={() => {}}
+        fetchImpl={fetchImpl as unknown as typeof fetch}
+      />,
+    );
+    fireEvent.change(screen.getByPlaceholderText('calculator.paywall.emailPlaceholder'), {
+      target: { value: 'user@gmail.com' },
+    });
+    const form = document.body.querySelector('form');
+    expect(form).not.toBeNull();
+    fireEvent.submit(form!);
+
+    await waitFor(() => expect(fetchImpl).toHaveBeenCalledTimes(1));
+    expect(upsertUnifiedEmailSubscriberMock).not.toHaveBeenCalled();
   });
 
   it('rejects invalid emails without calling the Cloud Function', async () => {

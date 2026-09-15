@@ -10,6 +10,7 @@ import {
  upsertNewsletterSubscriber,
  markNewsletterSubscribedLocally,
 } from '@/services/newsletterSubscribers';
+import { isNewsletterExcluded } from '@/services/emailSuppression.mjs';
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import TelegramChannelCta from '@/components/shared/TelegramChannelCta';
 
@@ -52,6 +53,16 @@ interface NewsletterProps {
 }
 
 const SUBSCRIBED_KEY = 'newsletter_subscribed';
+
+/**
+ * The shared upsert is deliberately fail-closed for a recorded opt-out or
+ * suppression state. Callers must not turn that no-op into a local success:
+ * `existed` is false for an opted-out row, and a pre-confirmation opt-out can
+ * still report `status: 'pending'`.
+ */
+function isRejectedNewsletterCapture(result: { optedOut?: boolean; status?: string | null }): boolean {
+ return result.optedOut === true || isNewsletterExcluded(result.status);
+}
 
 const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverride, subtitleOverride, acquisitionSource }) => {
  const { t, locale } = useTranslation();
@@ -101,7 +112,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
      try {
        const firestore = await initFirestore();
        if (!firestore) throw new Error(t('newsletter.subscribeError'));
-       await upsertNewsletterSubscriber(firestore, {
+       const upsert = await upsertNewsletterSubscriber(firestore, {
          email: socialEmail,
          userId: user.uid,
          source: 'newsletter_social_consent',
@@ -114,6 +125,12 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
          registrationMethod: 'authenticated',
        });
        if (!cancelled) {
+         if (isRejectedNewsletterCapture(upsert)) {
+           setPendingSocialMethod(null);
+           setStatus('error');
+           setErrorMessage(t('newsletter.subscribeError'));
+           return;
+         }
          markNewsletterSubscribedLocally();
          setPendingSocialMethod(null);
          setStatus('success');
@@ -208,9 +225,15 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  locale: navigator.language || 'it-IT',
  registrationMethod: 'email',
  }),
- 8000,
+8000,
  'newsletter_upsert',
  );
+ if (isRejectedNewsletterCapture(upsert)) {
+ setErrorMessage(t('newsletter.subscribeError'));
+ setStatus('error');
+ Analytics.trackNewsletter('error', 'suppressed');
+ return;
+ }
  const needsConfirmation = upsert.status === 'pending' && !upsert.hadConfirmationProof;
  if (upsert.existed && !needsConfirmation) {
  console.log('[Newsletter] Email already subscribed');
