@@ -1,17 +1,73 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, afterEach, vi } from 'vitest';
+
+const mocks = vi.hoisted(() => ({
+  fetchWorkdayJobs: vi.fn(),
+  fetchWorkdayJobDescriptionText: vi.fn(async () => ''),
+}));
+
+vi.mock('../scripts/lib/ats-clients/workday-client.mjs', () => ({
+  buildWorkdayApiBase: () => 'https://roche.wd3.myworkdayjobs.com/wday/cxs/roche/roche-ext',
+  fetchWorkdayJobs: mocks.fetchWorkdayJobs,
+  fetchWorkdayJobDescriptionText: mocks.fetchWorkdayJobDescriptionText,
+  parseWorkdayPostedDate: () => null,
+  extractWorkdayJobIdentity: (posting: any) => ({
+    title: posting.title,
+    location: posting.location || '',
+    applyUrl: posting.applyUrl || '',
+    externalPath: posting.externalPath || '',
+    postedAt: null,
+    jobReqId: posting.jobReqId || '',
+  }),
+  WorkdayAuthError: class WorkdayAuthError extends Error {},
+}));
 import {
   ROCHE_KEY,
   ROCHE_COMPANY_NAME,
+  fetchAllRocheJobs,
   isRocheJob,
   isTrustedDomain,
 } from '../scripts/lib/roche-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
 describe('Roche crawler parser', () => {
+  afterEach(() => {
+    mocks.fetchWorkdayJobs.mockReset();
+    mocks.fetchWorkdayJobDescriptionText.mockClear();
+  });
+
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(ROCHE_KEY).toBe('roche');
     expect(ROCHE_COMPANY_NAME).toBe('Roche');
+  });
+
+  it('drops Workday listings without a detail URL and reports the source loss', async () => {
+    mocks.fetchWorkdayJobs.mockImplementation(async function* fetchMockJobs() {
+      yield {
+        title: 'Swiss role with detail URL',
+        location: 'Basel',
+        externalPath: '/job/Basel/Swiss-role_JR1',
+        applyUrl: 'https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Swiss-role_JR1',
+        jobReqId: 'JR1',
+      };
+      yield {
+        title: 'Listing without detail URL',
+        location: 'Basel',
+        externalPath: '',
+        applyUrl: '',
+        jobReqId: 'JR2',
+      };
+    });
+
+    const jobs = await fetchAllRocheJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({
+      title: 'Swiss role with detail URL',
+      url: 'https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Swiss-role_JR1',
+    });
+    expect((jobs as any).missingDetailUrlCount).toBe(1);
+    expect(mocks.fetchWorkdayJobDescriptionText).toHaveBeenCalledTimes(1);
   });
 
   // ── isCompanyJob ──

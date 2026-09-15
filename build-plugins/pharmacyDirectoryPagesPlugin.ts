@@ -28,17 +28,13 @@ import { safePharmacyUrl, type Pharmacy, type PharmacyCatalogueDataset, type Pha
 import dutiesJson from '../data/pharmacy-duties-ticino.json';
 import completeTicinoJson from '../data/pharmacies-ticino-complete.json';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
+import { buildPharmacyTitle } from '../services/pharmacies/title';
 
 const LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'];
 const dutiesDataset = dutiesJson as PharmacyDutiesDataset;
 const completeTicinoSnapshot = completeTicinoJson as unknown as PharmacyCatalogueDataset;
 const dutySource = 'https://www.ofct.ch/farmacieturno/';
 const osmLicense = 'OpenStreetMap contributors, ODbL 1.0';
-const PHARMACY_TITLE_DUPLICATES = new Set(
-  BORDER_PHARMACIES
-    .map((pharmacy) => `${pharmacy.name}\u0000${pharmacy.city}`)
-    .filter((key, index, keys) => keys.indexOf(key) !== index),
-);
 
 type DutyWeekCopy = {
   title: (weekStart: string) => string;
@@ -524,48 +520,8 @@ function pageTitle(kind: PharmacyPageKind, locale: Locale, descriptor: PageDescr
   if (kind === 'duty-hub') return copy.dutyHubTitle;
   if (kind === 'duty-city') return copy.dutyCityTitle(descriptor.cityName || '');
   if (kind === 'duty-week') return DUTY_WEEK_COPY[locale].title(descriptor.weekStart || '');
-  if (kind === 'pharmacy') return pharmacyTitle(descriptor.pharmacy!);
+  if (kind === 'pharmacy') return buildPharmacyTitle(descriptor.pharmacy!, BORDER_PHARMACIES);
   return copy.cityTitle(descriptor.cityName || '', descriptor.country || 'CH');
-}
-
-function pharmacyTitleBase(pharmacy: Pharmacy, discriminator: string): string {
-  const citySuffix = ` — ${pharmacy.city}`;
-  // Keep the locality visible even when an official name is unusually long;
-  // otherwise two different cities sharing a long chain name collapse to the
-  // same truncated <title>. Reserve the optional discriminator as well so
-  // same-name/same-city records remain unique after shell compaction.
-  const nameBudget = Math.max(1, 52 - citySuffix.length - discriminator.length);
-  const name = pharmacy.name.length > nameBudget
-    ? `${pharmacy.name.slice(0, Math.max(1, nameBudget - 1)).replace(/[\s,:;–—-]+$/, '')}…`
-    : pharmacy.name;
-  return `${name}${citySuffix}${discriminator}`;
-}
-
-function pharmacyDiscriminator(pharmacy: Pharmacy): string {
-  if (!PHARMACY_TITLE_DUPLICATES.has(`${pharmacy.name}\u0000${pharmacy.city}`)) return '';
-  const compactAddress = pharmacy.address
-    .replace(/^(via|viale|piazza|corso|largo|vicolo|strada)\s+/i, '')
-    .replace(/[,.]/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
-  return ` · ${pharmacy.ministryId ? `#${pharmacy.ministryId}` : `${pharmacy.postalCode} ${compactAddress}`}`;
-}
-
-const pharmacyTitleGroups = new Map<string, string[]>();
-for (const pharmacy of BORDER_PHARMACIES) {
-  const title = pharmacyTitleBase(pharmacy, pharmacyDiscriminator(pharmacy));
-  pharmacyTitleGroups.set(title, [...(pharmacyTitleGroups.get(title) || []), pharmacy.id]);
-}
-const PHARMACY_TITLE_COLLISION_RANKS = new Map<string, number>();
-for (const ids of pharmacyTitleGroups.values()) {
-  if (ids.length < 2) continue;
-  ids.forEach((id, index) => PHARMACY_TITLE_COLLISION_RANKS.set(id, index + 1));
-}
-
-function pharmacyTitle(pharmacy: Pharmacy): string {
-  const rank = PHARMACY_TITLE_COLLISION_RANKS.get(pharmacy.id);
-  const discriminator = rank ? ` · #${rank}` : pharmacyDiscriminator(pharmacy);
-  return pharmacyTitleBase(pharmacy, discriminator);
 }
 
 function pageLede(kind: PharmacyPageKind, locale: Locale): string {
@@ -604,7 +560,7 @@ function shellTitle(descriptor: PageDescriptor, locale: Locale): string {
 function pageDescription(descriptor: PageDescriptor, locale: Locale): string {
   const copy = COPY[locale];
   if (descriptor.kind === 'pharmacy' && descriptor.pharmacy) {
-    return `${pharmacyTitle(descriptor.pharmacy)}: ${copy.detailLede}`;
+    return `${buildPharmacyTitle(descriptor.pharmacy, BORDER_PHARMACIES)}: ${copy.detailLede}`;
   }
   if (descriptor.kind === 'city' || descriptor.kind === 'area' || descriptor.kind === 'duty-city') {
     return `${descriptor.cityName || descriptor.areaName || ''}: ${pageLede(descriptor.kind, locale)}`;
@@ -783,10 +739,11 @@ function breadcrumbJsonLd(descriptor: PageDescriptor, locale: Locale): string {
   return JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: item.name, item: `${BASE_URL}${buildPharmacyPath(item.path, locale)}` })) });
 }
 
-function cityFaqJsonLd(locale: Locale, cityName: string, count: number): string {
+function cityFaqJsonLd(locale: Locale, pathValue: PharmacyPath, cityName: string, count: number): string {
   return JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    '@id': `${BASE_URL}${buildPharmacyPath(pathValue, locale)}#faq`,
     mainEntity: cityFaqItems(locale, cityName, count).map((item) => ({
       '@type': 'Question',
       name: item.question,
@@ -837,7 +794,7 @@ function jsonLd(
   if (descriptor.kind === 'city' && descriptor.country === 'CH') {
     const cityName = descriptor.cityName || '';
     const pharmacies = pharmaciesForCity(cityName);
-    return [collectionJsonLd(pathValue, title, pharmacies), cityFaqJsonLd(locale, cityName, pharmacies.length), breadcrumbJsonLd(descriptor, locale)];
+    return [collectionJsonLd(pathValue, title, pharmacies), cityFaqJsonLd(locale, pathValue, cityName, pharmacies.length), breadcrumbJsonLd(descriptor, locale)];
   }
   if (descriptor.kind === 'canton') return [cantonCollectionJsonLd(pathValue, title, cantonCityEntries(locale, emittedPaths)), breadcrumbJsonLd(descriptor, locale)];
   if (descriptor.kind === 'country') return [countryCollectionJsonLd(pathValue, title), breadcrumbJsonLd(descriptor, locale)];
