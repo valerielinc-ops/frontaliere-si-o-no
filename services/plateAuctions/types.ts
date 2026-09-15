@@ -1,6 +1,6 @@
 /**
  * Plate-auction domain types — shared contract between the per-canton
- * connectors (GR/SG/SH/SZ/TG/VS/ZH; TI kept for parser compatibility) and the pages/classifiche that read
+ * connectors (AG/AR/BE/BL/FR/GR/NW/OW/SG/SH/SO/SZ/TG/TI/VD/VS/ZH) and the pages/classifiche that read
  * `data/plate-auction-sources-registry.json`. See #4854 → "Modello dati" for
  * the origin of `PlateAuction`; no auction data (prices, plates, winners) is
  * stored in the registry itself, only source configuration.
