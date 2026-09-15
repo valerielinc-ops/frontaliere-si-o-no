@@ -231,6 +231,7 @@ describe('loop fleet status', () => {
 
     expect(summary.candidates[0]).toMatchObject({
       terminalOrderValid: false,
+      duplicateTerminalEventTypes: [],
       terminalPending: false,
       complete: false,
     });
@@ -240,6 +241,8 @@ describe('loop fleet status', () => {
       'inconclusive conflicts with a rollback terminal',
       'inconclusive conflicts with a merged candidate',
     ]));
+
+    expect(summary.state).toBe('candidate');
 
     const missingRequest = summarizeLifecycleEvents([
       event('candidate', '2026-09-12T12:00:00.000Z'),
@@ -252,6 +255,55 @@ describe('loop fleet status', () => {
       event('rolled_back', '2026-09-12T12:00:07.000Z'),
     ]);
     expect(missingRequest.candidates[0].incoherent).toContain('rolled_back requires rollback_requested');
+  });
+
+  it('rejects invalid lifecycle timestamps and duplicate terminal retries', () => {
+    const lifecycle = registry.loops.find((row: any) => row.loopId === 'L1').lifecycle;
+    const event = (eventType: string, occurredAt: string) => ({
+      eventType,
+      candidateId: 'lf-decision-terminal-integrity',
+      owner: 'CTO / Reliability',
+      sourceRecordId: 'lf-decision-terminal-integrity',
+      lifecycle,
+      occurredAt,
+      artifactOrPr: `evidence://${eventType}`,
+    });
+    const summary = summarizeLifecycleEvents([
+      event('candidate', 'invalid'),
+      event('owner_assigned', '2026-09-12T12:00:01.000Z'),
+      event('rollback_requested', '2026-09-12T12:00:02.000Z'),
+      event('rollback_requested', '2026-09-12T12:00:03.000Z'),
+    ]);
+
+    expect(summary.candidates[0]).toMatchObject({
+      orderValid: false,
+      invalidOccurredAtEventTypes: ['candidate'],
+      duplicateTerminalEventTypes: ['rollback_requested'],
+      terminalOrderValid: false,
+      complete: false,
+    });
+    expect(summary.candidates[0].incoherent).toEqual(expect.arrayContaining([
+      'candidate has invalid occurredAt',
+      'rollback_requested appears more than once',
+      'rollback_requested requires post_merge_verified',
+    ]));
+
+    const validDuplicate = summarizeLifecycleEvents([
+      event('candidate', '2026-09-12T12:00:00.000Z'),
+      event('owner_assigned', '2026-09-12T12:00:01.000Z'),
+      event('pr_opened', '2026-09-12T12:00:02.000Z'),
+      event('tests_passed', '2026-09-12T12:00:03.000Z'),
+      event('review_approved', '2026-09-12T12:00:04.000Z'),
+      event('merged', '2026-09-12T12:00:05.000Z'),
+      event('post_merge_verified', '2026-09-12T12:00:06.000Z'),
+      event('rollback_requested', '2026-09-12T12:00:07.000Z'),
+      event('rollback_requested', '2026-09-12T12:00:08.000Z'),
+    ]);
+    expect(validDuplicate.candidates[0]).toMatchObject({
+      duplicateTerminalEventTypes: ['rollback_requested'],
+      terminalOrderValid: false,
+      complete: false,
+    });
   });
 
   it('keeps missing evidence explicit instead of reporting a false healthy state', () => {
