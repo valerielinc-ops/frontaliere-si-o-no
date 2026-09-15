@@ -88,6 +88,15 @@ describe('traffic provider mesh', () => {
       callsThisRun: 1,
       budget: 2000,
     })).toEqual({ allowed: false, count: -1 });
+    for (const storedCount of [undefined, null, '']) {
+      expect(computeProviderBudgetDecision({
+        storedPeriod: '2026-09-15',
+        storedCount,
+        period: '2026-09-15',
+        callsThisRun: 1,
+        budget: 2000,
+      })).toMatchObject({ allowed: false });
+    }
   });
 
   it('calls Google Routes with a traffic-aware field mask and parses durations', async () => {

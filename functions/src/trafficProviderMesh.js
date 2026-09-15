@@ -320,6 +320,22 @@ export function providerQuotaDefinition(providerId, operation = 'route', env = p
   };
 }
 
+/**
+ * Firestore counters are written as numbers. Accept a strict decimal string
+ * for compatibility with an old deployment, but never coerce blank, null, or
+ * arbitrary values to zero: a current-period malformed counter is unsafe.
+ */
+function parsePersistedInteger(value) {
+  if (typeof value === 'number') {
+    return Number.isSafeInteger(value) ? value : Number.NaN;
+  }
+  if (typeof value === 'string' && /^[0-9]+$/.test(value)) {
+    const parsed = Number(value);
+    return Number.isSafeInteger(parsed) && parsed >= 0 ? parsed : Number.NaN;
+  }
+  return value === undefined || value === null || value === '' ? null : Number.NaN;
+}
+
 /** Pure atomic budget decision; safe to use in tests and transaction code. */
 export function computeProviderBudgetDecision({
   storedPeriod,
@@ -328,7 +344,9 @@ export function computeProviderBudgetDecision({
   callsThisRun,
   budget,
 }) {
-  const current = storedPeriod === period ? Number(storedCount ?? 0) : 0;
+  const current = storedPeriod === period
+    ? parsePersistedInteger(storedCount)
+    : 0;
   const calls = Number(callsThisRun);
   const cap = Number(budget);
   if (!Number.isSafeInteger(current) || current < 0) return { allowed: false, count: current };
@@ -372,6 +390,15 @@ export async function reserveTrafficProviderRequest(providerId, operation = 'rou
     limit,
     ref: db.collection('meta').doc(limit.documentId ?? `trafficProviderQuota-${limit.quotaScope}`),
   }));
+  // Before the mesh, the generic guard stored provider totals under this
+  // document. Read it in the same transaction so the first new reservation
+  // cannot reset an existing counter and spend a second full allowance.
+  const legacyBudgetScope = spec.budgetScope ?? providerId;
+  const legacyRef = db.collection('meta').doc(`trafficProviderBudget-${legacyBudgetScope}`);
+  const legacyIsSeparate = !quotaRefs.some(({ ref }) => ref.path === legacyRef.path);
+  const legacyQuota = providerQuotaDefinition(providerId, 'route');
+  const legacyPeriodType = legacyQuota.limits[0].period;
+  const legacyBudget = legacyQuota.limits[0].budget;
   const rateRef = quota.rateLimit
     ? db.collection('meta').doc(`trafficProviderRate-${providerId}-${operation}`)
     : null;
@@ -379,18 +406,51 @@ export async function reserveTrafficProviderRequest(providerId, operation = 'rou
   return db.runTransaction(async (tx) => {
     const snapshots = [];
     for (const item of quotaRefs) snapshots.push({ ...item, snap: await tx.get(item.ref) });
+    const legacySnap = legacyIsSeparate ? await tx.get(legacyRef) : null;
     const rateSnap = rateRef ? await tx.get(rateRef) : null;
+    const legacyData = legacySnap?.exists ? legacySnap.data() : {};
+    const legacyPeriod = providerPeriod(providerId, now);
+    const legacyStoredPeriod = legacyData.period ?? legacyData.month;
+    const legacyDecision = legacyIsSeparate
+      ? computeProviderBudgetDecision({
+        storedPeriod: legacyStoredPeriod,
+        storedCount: legacyData.count,
+        period: legacyPeriod,
+        callsThisRun: requestedUnits,
+        budget: legacyBudget,
+      })
+      : null;
+    if (legacyDecision && !legacyDecision.allowed && legacyStoredPeriod === legacyPeriod) {
+      return {
+        allowed: false,
+        reason: 'legacy-quota-state',
+        provider: providerId,
+        operation,
+        period: legacyPeriod,
+        count: legacyDecision.count,
+      };
+    }
     const decisions = snapshots.map(({ limit, snap }) => {
       const period = periodKey(limit.period, now);
       const data = snap.exists ? snap.data() : {};
+      const storedPeriod = data.period ?? data.month;
+      const hasCurrentQuotaState = storedPeriod === period;
+      // A legacy current-period counter is the conservative starting point
+      // only when the new operation document has not started its own period.
+      // If the new document is current but malformed, computeProviderBudgetDecision
+      // remains fail-closed instead of hiding corruption behind the fallback.
+      const useLegacyState = !hasCurrentQuotaState
+        && legacyDecision
+        && legacyStoredPeriod === legacyPeriod
+        && limit.period === legacyPeriodType;
       return {
         limit,
         period,
         decision: computeProviderBudgetDecision({
           // `month` keeps compatibility with the pre-mesh HERE document while
           // the new quota docs use the neutral `period` field.
-          storedPeriod: data.period ?? data.month,
-          storedCount: data.count,
+          storedPeriod: useLegacyState ? period : storedPeriod,
+          storedCount: useLegacyState ? legacyData.count : data.count,
           period,
           callsThisRun: requestedUnits,
           budget: limit.budget,
@@ -399,13 +459,11 @@ export async function reserveTrafficProviderRequest(providerId, operation = 'rou
     });
     const rateData = rateSnap?.exists ? rateSnap.data() : null;
     const rawLastRequestAtMs = rateData?.lastRequestAtMs;
-    const lastRequestAtMs = rawLastRequestAtMs === undefined || rawLastRequestAtMs === null
-      ? 0
-      : Number(rawLastRequestAtMs);
+    const lastRequestAtMs = parsePersistedInteger(rawLastRequestAtMs);
     const nowMs = now.getTime();
     const minIntervalMs = quota.rateLimit?.minIntervalMs ?? 0;
     if (minIntervalMs > 0 && rateSnap?.exists
-      && (!Number.isSafeInteger(lastRequestAtMs) || lastRequestAtMs < 0)) {
+      && (!Number.isSafeInteger(lastRequestAtMs) || lastRequestAtMs <= 0)) {
       return {
         allowed: false,
         reason: 'invalid-rate-state',
@@ -445,6 +503,16 @@ export async function reserveTrafficProviderRequest(providerId, operation = 'rou
         count: item.decision.count,
         budget: item.limit.budget,
         units: 'provider-defined',
+        updatedAt,
+      }, { merge: true });
+    }
+    if (legacyIsSeparate && legacyDecision) {
+      tx.set(legacyRef, {
+        provider: providerId,
+        budgetScope: legacyBudgetScope,
+        period: legacyPeriod,
+        count: legacyDecision.count,
+        budget: legacyBudget,
         updatedAt,
       }, { merge: true });
     }
