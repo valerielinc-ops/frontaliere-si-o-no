@@ -683,6 +683,11 @@ async function main() {
   //    column) so the written filename matches the actual payload even when
   //    --year was inferred from the default.
   const datasetYear = output.year;
+  const expectedDatasetYear = TARGET_YEAR ?? CURRENT_YEAR;
+  assertHealthPremiumsSnapshot(output, {
+    expectedYear: expectedDatasetYear,
+    requireLugano: expectedDatasetYear === CURRENT_YEAR,
+  });
   const resolvedDataOut = path.join(DATA_DIR, `${datasetYear}.json`);
   const resolvedPublicOut = path.join(PUBLIC_DIR, `${datasetYear}.json`);
 
@@ -745,6 +750,124 @@ export function assertHealthPremiumsOutput({ relevantPremiums, output, communeRa
     );
   }
   return output;
+}
+
+const PREMIUM_MODEL_KEYS = new Set(['standard', 'hausarzt', 'hmo', 'telmed']);
+const PREMIUM_AGE_CLASSES = new Set(['KIN', 'JUG', 'ERW']);
+
+function isPlainObject(value) {
+  return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
+function hasPositivePremium(value) {
+  return typeof value === 'number' && Number.isFinite(value) && value > 0;
+}
+
+function hasValidInsurerPremium(value) {
+  if (!isPlainObject(value)) return false;
+
+  const entries = Object.entries(value);
+  if (entries.some(([key]) => !PREMIUM_MODEL_KEYS.has(key) && key !== 'byAgeClass')) return false;
+  const flatEntries = entries.filter(([key]) => PREMIUM_MODEL_KEYS.has(key));
+  if (flatEntries.some(([, premium]) => !hasPositivePremium(premium))) return false;
+  const hasFlatModels = flatEntries.length > 0;
+  const byAgeClass = value.byAgeClass;
+  if (byAgeClass === undefined) return hasFlatModels;
+  if (!isPlainObject(byAgeClass)) return false;
+
+  const ageClassEntries = Object.entries(byAgeClass);
+  if (ageClassEntries.length === 0) return false;
+  const ageClassesAreValid = ageClassEntries.every(([ageClass, models]) => {
+    if (!PREMIUM_AGE_CLASSES.has(ageClass) || !isPlainObject(models)) return false;
+    const modelEntries = Object.entries(models);
+    return modelEntries.length > 0 && modelEntries.every(([key, premium]) =>
+      PREMIUM_MODEL_KEYS.has(key) && hasPositivePremium(premium),
+    );
+  });
+  return ageClassesAreValid;
+}
+
+function hasValidPremiumBlock(value) {
+  if (!isPlainObject(value) || !isPlainObject(value.insurers)) return false;
+  const insurers = Object.values(value.insurers);
+  return insurers.length > 0 && insurers.every(hasValidInsurerPremium);
+}
+
+/**
+ * Validate the on-disk snapshot contract before any producer write.
+ *
+ * This is deliberately independent from row counts: a non-empty response can
+ * still be an upstream error object, a truncated block, or a shape change
+ * that happens to leave a few counters non-zero. The workflow calls the same
+ * guard again after generation against all four committed mirrors.
+ *
+ * @param {unknown} snapshot
+ * @param {{ expectedYear?: number, requireLugano?: boolean }} [options]
+ */
+export function assertHealthPremiumsSnapshot(snapshot, { expectedYear, requireLugano = false } = {}) {
+  if (!isPlainObject(snapshot)) {
+    throw new Error('Refusing to write health-premiums snapshot: top-level value is not an object');
+  }
+
+  const year = snapshot.year;
+  if (!Number.isInteger(year) || year < 2000 || year > 9999) {
+    throw new Error(`Refusing to write health-premiums snapshot: invalid year ${JSON.stringify(year)}`);
+  }
+  if (expectedYear !== undefined && year !== expectedYear) {
+    throw new Error(`Refusing to write health-premiums snapshot: expected year ${expectedYear}, got ${year}`);
+  }
+  if (typeof snapshot.fetchedAt !== 'string' || Number.isNaN(Date.parse(snapshot.fetchedAt))) {
+    throw new Error('Refusing to write health-premiums snapshot: fetchedAt is missing or invalid');
+  }
+
+  if (!Array.isArray(snapshot.insurers) || snapshot.insurers.length < 10) {
+    throw new Error('Refusing to write health-premiums snapshot: insurers must contain at least 10 entries');
+  }
+  const insurerIds = new Set();
+  for (const insurer of snapshot.insurers) {
+    if (!isPlainObject(insurer) || (typeof insurer.id !== 'string' && typeof insurer.id !== 'number') ||
+        String(insurer.id).trim() === '' || typeof insurer.name !== 'string' || insurer.name.trim() === '') {
+      throw new Error('Refusing to write health-premiums snapshot: insurer entry has unexpected shape');
+    }
+    const id = String(insurer.id);
+    if (insurerIds.has(id)) {
+      throw new Error(`Refusing to write health-premiums snapshot: duplicate insurer id ${id}`);
+    }
+    insurerIds.add(id);
+  }
+
+  if (!isPlainObject(snapshot.communes) || Object.keys(snapshot.communes).length === 0) {
+    throw new Error('Refusing to write health-premiums snapshot: communes is missing or malformed');
+  }
+
+  if (!isPlainObject(snapshot.premiums) || Object.keys(snapshot.premiums).length === 0) {
+    throw new Error('Refusing to write health-premiums snapshot: premiums is empty or malformed');
+  }
+  const premiumEntries = Object.entries(snapshot.premiums);
+  const invalidPremiumKey = premiumEntries.find(([, block]) => !hasValidPremiumBlock(block))?.[0];
+  if (invalidPremiumKey !== undefined) {
+    throw new Error(`Refusing to write health-premiums snapshot: premium block ${invalidPremiumKey} is empty or malformed`);
+  }
+  if (premiumEntries.length === 0) {
+    throw new Error('Refusing to write health-premiums snapshot: no premium block has usable insurer values');
+  }
+  if (requireLugano && !hasValidPremiumBlock(snapshot.premiums['6823-Lugano'])) {
+    throw new Error('Refusing to write health-premiums snapshot: current-year Lugano premium block is missing or empty');
+  }
+
+  if (!isPlainObject(snapshot.rankings) ||
+      !Array.isArray(snapshot.rankings.cheapest) || snapshot.rankings.cheapest.length === 0 ||
+      !Array.isArray(snapshot.rankings.mostExpensive) || snapshot.rankings.mostExpensive.length === 0) {
+    throw new Error('Refusing to write health-premiums snapshot: rankings are empty or malformed');
+  }
+  for (const ranking of [...snapshot.rankings.cheapest, ...snapshot.rankings.mostExpensive]) {
+    if (!isPlainObject(ranking) || typeof ranking.municipality !== 'string' || ranking.municipality.trim() === '' ||
+        !hasPositivePremium(ranking.avgPremium) || !Number.isInteger(ranking.numInsurers) || ranking.numInsurers < 1) {
+      throw new Error('Refusing to write health-premiums snapshot: ranking entry has unexpected shape');
+    }
+  }
+
+  return snapshot;
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {

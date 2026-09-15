@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   assertHealthPremiumsOutput,
+  assertHealthPremiumsSnapshot,
   parseCSV,
   validatePremiumsCsvShape,
 } from '../scripts/fetch-health-premiums.mjs';
@@ -59,5 +60,44 @@ describe('health premiums producer guards', () => {
       output,
       communeRankings: [{ municipality: '6823-Lugano' }],
     })).toBe(output);
+  });
+
+  it('rejects a non-empty snapshot whose nested premium shape is unusable', () => {
+    const malformed = {
+      fetchedAt: '2026-09-15T00:00:00.000Z',
+      year: 2026,
+      insurers: Array.from({ length: 10 }, (_, index) => ({ id: String(index + 1), name: `Insurer ${index + 1}` })),
+      communes: { TI: [] },
+      premiums: { '6823-Lugano': { insurers: { '1': { byAgeClass: { ERW: {} } } } } },
+      rankings: {
+        cheapest: [{ municipality: '6823-Lugano', avgPremium: 400, numInsurers: 1 }],
+        mostExpensive: [{ municipality: '6823-Lugano', avgPremium: 400, numInsurers: 1 }],
+      },
+    };
+    expect(() => assertHealthPremiumsSnapshot(malformed, { expectedYear: 2026, requireLugano: true }))
+      .toThrow('premium block 6823-Lugano is empty or malformed');
+  });
+
+  it('accepts a valid current-year snapshot and rejects an unexpected year', () => {
+    const valid = {
+      fetchedAt: '2026-09-15T00:00:00.000Z',
+      year: 2026,
+      insurers: Array.from({ length: 10 }, (_, index) => ({ id: String(index + 1), name: `Insurer ${index + 1}` })),
+      communes: { TI: [] },
+      premiums: {
+        '6823-Lugano': {
+          canton: 'TI',
+          region: 1,
+          insurers: { '1': { standard: 400, byAgeClass: { ERW: { standard: 400 } } } },
+        },
+      },
+      rankings: {
+        cheapest: [{ municipality: '6823-Lugano', avgPremium: 400, numInsurers: 1 }],
+        mostExpensive: [{ municipality: '6823-Lugano', avgPremium: 400, numInsurers: 1 }],
+      },
+    };
+    expect(assertHealthPremiumsSnapshot(valid, { expectedYear: 2026, requireLugano: true })).toBe(valid);
+    expect(() => assertHealthPremiumsSnapshot({ ...valid, year: 2025 }, { expectedYear: 2026, requireLugano: true }))
+      .toThrow('expected year 2026, got 2025');
   });
 });
