@@ -406,6 +406,17 @@ export function shouldExportRcValue(value, rcKey) {
   return value === '' && ALLOW_EMPTY_RC_KEYS.has(rcKey);
 }
 
+/**
+ * Claim an environment target once per load pass. Multiple RC parameters can
+ * intentionally point to the same legacy variable; the first mapping wins so
+ * a more specific value cannot be overwritten by a later fallback mapping.
+ */
+export function claimEnvKey(queuedEnvKeys, envKey) {
+  if (queuedEnvKeys.has(envKey)) return false;
+  queuedEnvKeys.add(envKey);
+  return true;
+}
+
 // ─── Helpers ─────────────────────────────────────────────────────────────
 
 function getRcValue(template, key) {
@@ -588,6 +599,7 @@ async function main() {
   let skipped = 0;
   let missing = 0;
   const lines = []; // For GITHUB_ENV or stdout
+  const queuedEnvKeys = new Set();
 
   for (const [rcKey, envKeys] of Object.entries(RC_TO_ENV)) {
     const value = getRcValue(template, rcKey);
@@ -601,7 +613,7 @@ async function main() {
     }
 
     for (const envKey of envKeys) {
-      if (process.env[envKey]) {
+      if (process.env[envKey] || !claimEnvKey(queuedEnvKeys, envKey)) {
         skipped++;
         continue;
       }
