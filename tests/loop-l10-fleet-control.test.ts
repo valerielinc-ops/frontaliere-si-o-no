@@ -61,6 +61,7 @@ function registry(overrides: Record<string, unknown> = {}) {
         : { healthy: 'observe', needsReview: 'follow-up' },
       ...(loopId === 'L7'
         ? {
+          policyRequirements: ['allocation'],
           allocationPolicy: {
             persistent: true,
             assignmentMethod: 'stable-sha256',

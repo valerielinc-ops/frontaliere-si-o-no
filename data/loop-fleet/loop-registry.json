@@ -303,6 +303,7 @@
         "candidate": "candidate"
       },
       "guardrails": ["persistent assignment", "minimum sample", "explicit expiry", "no automatic price change"],
+      "policyRequirements": ["allocation"],
       "allocationPolicy": {
         "persistent": true,
         "assignmentMethod": "stable-sha256",
