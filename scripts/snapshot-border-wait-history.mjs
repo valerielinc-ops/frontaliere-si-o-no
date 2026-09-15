@@ -107,6 +107,10 @@ async function fetchTrafficCurrent(db) {
       totalCrossingMinutes: data.totalCrossingMinutes ?? null,
       status: data.status ?? null,
       ...(typeof data.source === 'string' ? { source: data.source } : {}),
+      ...(typeof data.officialSources === 'string' ? { officialSources: data.officialSources } : {}),
+      ...(typeof data.officialLastUpdate === 'string' ? { officialLastUpdate: data.officialLastUpdate } : {}),
+      ...(typeof data.officialQueueKm === 'number' ? { officialQueueKm: data.officialQueueKm } : {}),
+      ...(typeof data.dataQuality === 'string' ? { dataQuality: data.dataQuality } : {}),
       lastUpdate: lu,
     };
     if (lu && (!latestUpdate || lu > latestUpdate)) latestUpdate = lu;

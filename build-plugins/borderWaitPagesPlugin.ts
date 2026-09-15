@@ -197,7 +197,7 @@ const BORDER_WAIT_DISCOVER_MORE_CTAS: Record<BorderWaitLocale, ReadonlyArray<Dis
 // ── Types ──────────────────────────────────────────────────────
 
 /** Source categories for a wait-time reading. */
-export type WaitSource = 'bazg' | 'here' | 'tomtom' | 'google' | 'google-maps' | 'webcam' | 'static';
+export type WaitSource = 'bazg' | 'here' | 'tomtom' | 'google' | 'google-maps' | 'google-routes' | 'mapbox' | 'geoapify' | 'openrouteservice' | 'graphhopper' | 'stadia' | 'traffic-mesh' | 'official' | 'official+webcam' | 'webcam' | 'static';
 
 /** Shape of the "current snapshot" JSON written by scripts/snapshot-border-wait-history.mjs. */
 export interface BorderWaitCurrent {
@@ -519,6 +519,9 @@ interface Copy {
   sourceHere: string;
   sourceTomtom: string;
   sourceGoogle: string;
+  sourceRouting: string;
+  sourceOfficial: string;
+  sourceOfficialWebcam: string;
   sourceWebcam: string;
   sourceStatic: string;
   hourlyTodayLabel: string;
@@ -593,7 +596,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
         'Dato live non disponibile in questo momento. I numeri sotto sono medie storiche del valico — usali come riferimento.',
     },
     paragraph: (c, country, bestHour, worstHour) =>
-      `Pianifica il passaggio da ${c} consultando prima il dato corrente ed eventualmente la webcam live quando disponibile. Negli ultimi 30 giorni l'ora migliore per transitare è stata ${bestHour}, mentre l'ora peggiore è ${worstHour}. Questa pagina viene rigenerata automaticamente ad ogni deploy — i dati live provengono dalla collezione Firestore alimentata dal cron di traffico TomTom, gli stessi numeri usati nella mappa interattiva del sito. Se stai tornando in ${country.name} dopo il lavoro, ricorda che i picchi pendolari possono cambiare rapidamente: tra le 17 e le 19 anche ${c} può registrare code. Per i frontalieri abituali, conviene sempre tenere il documento d'identità a portata di mano: anche con l'area Schengen, il valico di ${c} può essere oggetto di controlli a campione su veicoli, merci e dichiarazioni doganali (importazioni di alimentari oltre la franchigia, valuta in contanti sopra 10.000 CHF, sostanze regolamentate). I controlli più mirati avvengono solitamente nelle fasce 6:00–8:00 e 17:00–19:30, sovrapposti ai picchi pendolari. Per chi guida un'auto aziendale registrata in Svizzera, ricorda di portare la lettera di autorizzazione del datore di lavoro e l'estratto del libretto di circolazione: in caso di controllo doganale ${country.customsAdjective} evita lunghi accertamenti.`,
+      `Pianifica il passaggio da ${c} consultando prima il dato corrente ed eventualmente la webcam live quando disponibile. Negli ultimi 30 giorni l'ora migliore per transitare è stata ${bestHour}, mentre l'ora peggiore è ${worstHour}. Questa pagina viene rigenerata automaticamente ad ogni deploy — i dati live provengono dalla collezione Firestore alimentata dal cron di traffico con provider a rotazione, gli stessi numeri usati nella mappa interattiva del sito. Se stai tornando in ${country.name} dopo il lavoro, ricorda che i picchi pendolari possono cambiare rapidamente: tra le 17 e le 19 anche ${c} può registrare code. Per i frontalieri abituali, conviene sempre tenere il documento d'identità a portata di mano: anche con l'area Schengen, il valico di ${c} può essere oggetto di controlli a campione su veicoli, merci e dichiarazioni doganali (importazioni di alimentari oltre la franchigia, valuta in contanti sopra 10.000 CHF, sostanze regolamentate). I controlli più mirati avvengono solitamente nelle fasce 6:00–8:00 e 17:00–19:30, sovrapposti ai picchi pendolari. Per chi guida un'auto aziendale registrata in Svizzera, ricorda di portare la lettera di autorizzazione del datore di lavoro e l'estratto del libretto di circolazione: in caso di controllo doganale ${country.customsAdjective} evita lunghi accertamenti.`,
     updatedLabel: 'Aggiornamento',
     currentStatusLabel: 'Stato attuale',
     waitMinutesLabel: 'Minuti di attesa',
@@ -604,6 +607,9 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     sourceHere: 'Stima percorso live (HERE)',
     sourceTomtom: 'Stima TomTom (flusso veicolare)',
     sourceGoogle: 'Stima Google Maps',
+    sourceRouting: 'Stima percorso live (provider a rotazione)',
+    sourceOfficial: 'Segnale ufficiale viabilità',
+    sourceOfficialWebcam: 'Segnale ufficiale + webcam live',
     sourceWebcam: 'Stima da webcam (analisi immagine live)',
     sourceStatic: 'Dati statistici — tempo reale non disponibile',
     hourlyTodayLabel: 'Andamento orario di oggi',
@@ -696,7 +702,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
         'Live data is currently unavailable. The numbers below are historical averages for this crossing — use them as a reference.',
     },
     paragraph: (c, country, bestHour, worstHour) =>
-      `Plan your ${c} crossing by checking the current reading and, when available, the live webcam feed. Over the last 30 days the best hour to transit has been ${bestHour}; the worst hour is ${worstHour}. This page is regenerated on every deploy — live data comes from the Firestore collection fed by the TomTom traffic cron, the same numbers used across the site's interactive map. If you are returning to ${country.name} after work, remember that commuter peaks can change quickly: between 17:00 and 19:00 ${c} may also show queues. For regular cross-border commuters, always keep your ID document at hand: even within the Schengen area, the ${c} crossing can be subject to spot checks on vehicles, goods and customs declarations (food imports above the personal allowance, cash above CHF 10,000, regulated substances). The most targeted checks usually fall between 06:00–08:00 and 17:00–19:30, overlapping with commuter peaks. If you drive a Switzerland-registered company car, keep the employer authorisation letter and a copy of the vehicle registration in the glovebox: this avoids prolonged customs questioning at ${country.customsAdjective} border checkpoints.`,
+      `Plan your ${c} crossing by checking the current reading and, when available, the live webcam feed. Over the last 30 days the best hour to transit has been ${bestHour}; the worst hour is ${worstHour}. This page is regenerated on every deploy — live data comes from the Firestore collection fed by a rotating traffic-provider cron, the same numbers used across the site's interactive map. If you are returning to ${country.name} after work, remember that commuter peaks can change quickly: between 17:00 and 19:00 ${c} may also show queues. For regular cross-border commuters, always keep your ID document at hand: even within the Schengen area, the ${c} crossing can be subject to spot checks on vehicles, goods and customs declarations (food imports above the personal allowance, cash above CHF 10,000, regulated substances). The most targeted checks usually fall between 06:00–08:00 and 17:00–19:30, overlapping with commuter peaks. If you drive a Switzerland-registered company car, keep the employer authorisation letter and a copy of the vehicle registration in the glovebox: this avoids prolonged customs questioning at ${country.customsAdjective} border checkpoints.`,
     updatedLabel: 'Updated',
     currentStatusLabel: 'Current status',
     waitMinutesLabel: 'Wait minutes',
@@ -707,6 +713,9 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     sourceHere: 'Live route estimate (HERE)',
     sourceTomtom: 'TomTom estimate (traffic flow)',
     sourceGoogle: 'Google Maps estimate',
+    sourceRouting: 'Live route estimate (rotating provider)',
+    sourceOfficial: 'Official traffic signal',
+    sourceOfficialWebcam: 'Official signal + live webcam',
     sourceWebcam: 'Webcam estimate (live image analysis)',
     sourceStatic: 'Historical averages — live data unavailable',
     hourlyTodayLabel: "Today's hourly trend",
@@ -799,7 +808,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
         'Live-Daten sind derzeit nicht verfügbar. Die Werte unten sind historische Mittelwerte für diesen Übergang — als Orientierung nutzen.',
     },
     paragraph: (c, country, bestHour, worstHour) =>
-      `Planen Sie die Überquerung bei ${c}, indem Sie zuerst den aktuellen Messwert und — falls verfügbar — die Live-Webcam prüfen. In den letzten 30 Tagen war die beste Transitzeit ${bestHour}, die schlechteste ${worstHour}. Diese Seite wird bei jedem Deploy neu generiert — Live-Daten stammen aus der Firestore-Kollektion, die der TomTom-Verkehrs-Cronjob füllt, dieselben Werte wie auf der interaktiven Karte der Seite. Wer abends nach ${country.name} zurückkehrt, sollte beachten, dass sich Pendlerstaus schnell verändern können: Zwischen 17:00 und 19:00 Uhr kann auch ${c} Rückstau aufweisen. Für regelmässige Grenzgänger empfiehlt es sich, das Ausweisdokument griffbereit zu halten: Auch innerhalb des Schengen-Raums kann ${c} Stichprobenkontrollen für Fahrzeuge, Waren und Zollanmeldungen unterliegen (Lebensmittelimporte über der Personenfreimenge, Bargeld über CHF 10'000, regulierte Substanzen). Die gezieltesten Kontrollen finden in der Regel zwischen 06:00–08:00 und 17:00–19:30 Uhr statt — also genau in den Pendler-Stosszeiten. Wer einen in der Schweiz zugelassenen Firmenwagen fährt, sollte das Schreiben des Arbeitgebers und eine Kopie der Fahrzeugausweispapiere im Handschuhfach mitführen, um langwierige Befragungen am ${country.customsAdjective} Zoll zu vermeiden.`,
+      `Planen Sie die Überquerung bei ${c}, indem Sie zuerst den aktuellen Messwert und — falls verfügbar — die Live-Webcam prüfen. In den letzten 30 Tagen war die beste Transitzeit ${bestHour}, die schlechteste ${worstHour}. Diese Seite wird bei jedem Deploy neu generiert — Live-Daten stammen aus der Firestore-Kollektion, die der rotierende Verkehrs-Cronjob füllt, dieselben Werte wie auf der interaktiven Karte der Seite. Wer abends nach ${country.name} zurückkehrt, sollte beachten, dass sich Pendlerstaus schnell verändern können: Zwischen 17:00 und 19:00 Uhr kann auch ${c} Rückstau aufweisen. Für regelmässige Grenzgänger empfiehlt es sich, das Ausweisdokument griffbereit zu halten: Auch innerhalb des Schengen-Raums kann ${c} Stichprobenkontrollen für Fahrzeuge, Waren und Zollanmeldungen unterliegen (Lebensmittelimporte über der Personenfreimenge, Bargeld über CHF 10'000, regulierte Substanzen). Die gezieltesten Kontrollen finden in der Regel zwischen 06:00–08:00 und 17:00–19:30 Uhr statt — also genau in den Pendler-Stosszeiten. Wer einen in der Schweiz zugelassenen Firmenwagen fährt, sollte das Schreiben des Arbeitgebers und eine Kopie der Fahrzeugausweispapiere im Handschuhfach mitführen, um langwierige Befragungen am ${country.customsAdjective} Zoll zu vermeiden.`,
     updatedLabel: 'Aktualisiert',
     currentStatusLabel: 'Aktueller Stand',
     waitMinutesLabel: 'Wartezeit (Min.)',
@@ -810,6 +819,9 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     sourceHere: 'Live-Routenschätzung (HERE)',
     sourceTomtom: 'TomTom-Schätzung (Verkehrsfluss)',
     sourceGoogle: 'Google-Maps-Schätzung',
+    sourceRouting: 'Live-Routenschätzung (rotierender Provider)',
+    sourceOfficial: 'Offizielles Verkehrssignal',
+    sourceOfficialWebcam: 'Offizielles Signal + Live-Webcam',
     sourceWebcam: 'Webcam-Schätzung (Live-Bildanalyse)',
     sourceStatic: 'Historischer Durchschnitt — keine Live-Daten',
     hourlyTodayLabel: 'Stundentrend heute',
@@ -902,7 +914,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
         "Données en direct indisponibles pour le moment. Les valeurs ci-dessous sont des moyennes historiques du poste — à utiliser comme référence.",
     },
     paragraph: (c, country, bestHour, worstHour) =>
-      `Planifiez votre passage par ${c} en consultant d'abord la valeur actuelle et, lorsqu'elle est disponible, la webcam en direct. Sur les 30 derniers jours la meilleure heure de transit a été ${bestHour}, la pire ${worstHour}. Cette page est régénérée à chaque déploiement — les données live proviennent de la collection Firestore alimentée par le cron de trafic TomTom, les mêmes chiffres que la carte interactive du site. Si vous rentrez ${country.frDestinationPreposition ?? 'en'} ${country.name} après le travail, notez que les files pendulaires peuvent évoluer rapidement : entre 17h et 19h ${c} peut aussi afficher des files. Pour les frontaliers réguliers, gardez toujours votre pièce d'identité à portée de main : même dans l'espace Schengen, le passage de ${c} peut faire l'objet de contrôles aléatoires sur les véhicules, les marchandises et les déclarations douanières (importations alimentaires au-delà de la franchise personnelle, espèces au-delà de 10 000 CHF, substances réglementées). Les contrôles les plus ciblés se concentrent entre 06h00–08h00 et 17h00–19h30, soit pendant les pics pendulaires. Si vous conduisez un véhicule de société immatriculé en Suisse, gardez la lettre d'autorisation de l'employeur et une copie de la carte grise dans la boîte à gants : cela évite les interrogations prolongées aux postes douaniers ${country.customsAdjective}.`,
+      `Planifiez votre passage par ${c} en consultant d'abord la valeur actuelle et, lorsqu'elle est disponible, la webcam en direct. Sur les 30 derniers jours la meilleure heure de transit a été ${bestHour}, la pire ${worstHour}. Cette page est régénérée à chaque déploiement — les données live proviennent de la collection Firestore alimentée par un cron de trafic à fournisseurs rotatifs, les mêmes chiffres que la carte interactive du site. Si vous rentrez ${country.frDestinationPreposition ?? 'en'} ${country.name} après le travail, notez que les files pendulaires peuvent évoluer rapidement : entre 17h et 19h ${c} peut aussi afficher des files. Pour les frontaliers réguliers, gardez toujours votre pièce d'identité à portée de main : même dans l'espace Schengen, le passage de ${c} peut faire l'objet de contrôles aléatoires sur les véhicules, les marchandises et les déclarations douanières (importations alimentaires au-delà de la franchise personnelle, espèces au-delà de 10 000 CHF, substances réglementées). Les contrôles les plus ciblés se concentrent entre 06h00–08h00 et 17h00–19h30, soit pendant les pics pendulaires. Si vous conduisez un véhicule de société immatriculé en Suisse, gardez la lettre d'autorisation de l'employeur et une copie de la carte grise dans la boîte à gants : cela évite les interrogations prolongées aux postes douaniers ${country.customsAdjective}.`,
     updatedLabel: 'Mis à jour',
     currentStatusLabel: 'État actuel',
     waitMinutesLabel: "Minutes d'attente",
@@ -913,6 +925,9 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     sourceHere: 'Estimation d\'itinéraire en direct (HERE)',
     sourceTomtom: 'Estimation TomTom (flux de trafic)',
     sourceGoogle: 'Estimation Google Maps',
+    sourceRouting: 'Estimation d\'itinéraire en direct (provider rotatif)',
+    sourceOfficial: 'Signal officiel de trafic',
+    sourceOfficialWebcam: 'Signal officiel + webcam en direct',
     sourceWebcam: 'Estimation par webcam (analyse d\'image en direct)',
     sourceStatic: 'Moyennes historiques — données temps réel indisponibles',
     hourlyTodayLabel: "Tendance horaire d'aujourd'hui",
@@ -1439,7 +1454,18 @@ function sourceLabel(source: WaitSource, copy: Copy): string {
       return copy.sourceTomtom;
     case 'google':
     case 'google-maps':
-      return copy.sourceGoogle;
+    case 'google-routes':
+    case 'mapbox':
+    case 'geoapify':
+    case 'openrouteservice':
+    case 'graphhopper':
+    case 'stadia':
+    case 'traffic-mesh':
+      return copy.sourceRouting;
+    case 'official+webcam':
+      return copy.sourceOfficialWebcam;
+    case 'official':
+      return copy.sourceOfficial;
     case 'webcam':
       return copy.sourceWebcam;
     case 'static':
@@ -1775,6 +1801,15 @@ function renderLeafPage(inp: LeafInputs): string {
     tomtom: copy.sourceTomtom,
     google: copy.sourceGoogle,
     'google-maps': copy.sourceGoogle,
+    'google-routes': copy.sourceRouting,
+    mapbox: copy.sourceRouting,
+    geoapify: copy.sourceRouting,
+    openrouteservice: copy.sourceRouting,
+    graphhopper: copy.sourceRouting,
+    stadia: copy.sourceRouting,
+    'traffic-mesh': copy.sourceRouting,
+    official: copy.sourceOfficial,
+    'official+webcam': copy.sourceOfficialWebcam,
     webcam: copy.sourceWebcam,
   };
   const sourceLabelMap = JSON.stringify(sourceLabels);
@@ -2235,6 +2270,15 @@ function renderHubPage(inp: HubInputs): string {
     tomtom: copy.sourceTomtom,
     google: copy.sourceGoogle,
     'google-maps': copy.sourceGoogle,
+    'google-routes': copy.sourceRouting,
+    mapbox: copy.sourceRouting,
+    geoapify: copy.sourceRouting,
+    openrouteservice: copy.sourceRouting,
+    graphhopper: copy.sourceRouting,
+    stadia: copy.sourceRouting,
+    'traffic-mesh': copy.sourceRouting,
+    official: copy.sourceOfficial,
+    'official+webcam': copy.sourceOfficialWebcam,
     webcam: copy.sourceWebcam,
   });
   const rows = crossingsInScope.map((c) => {
@@ -2383,12 +2427,12 @@ function renderHubPage(inp: HubInputs): string {
   // border commuters. Lifts the hub page above the 10 % text/HTML threshold.
   const methodologyPara =
     locale === 'it'
-      ? `Da dove arrivano i dati e come usarli. La rilevazione "live" che vedi nella tabella è il valore minuti di attesa più recente, in genere refresh ogni 15 minuti durante le fasce critiche (06:00–10:00 in direzione Svizzera e 16:00–20:00 nel senso opposto). Le tre fonti sono, in ordine di priorità: la pagina ufficiale BAZG (Amministrazione federale delle dogane) per i valichi monitorati con telecamera, l'API TomTom Traffic per gli archi stradali in approccio al valico (latenza ~5 minuti), e una stima statica calcolata sui pattern storici quando le altre due fonti tacciono. La differenza fra "live" e "statico" è esplicita su ogni pagina di valico: il banner giallo segnala quando il dato è una stima fallback e non una misura reale.`
+      ? `Da dove arrivano i dati e come usarli. La rilevazione "live" che vedi nella tabella è il valore minuti di attesa più recente, in genere refresh ogni 15 minuti durante le fasce critiche (06:00–10:00 in direzione Svizzera e 16:00–20:00 nel senso opposto). La pipeline combina provider di routing a rotazione, segnali ufficiali di viabilità e webcam quando disponibili; se nessun segnale live è utilizzabile, mostra le medie storiche. La fonte effettiva è indicata su ogni pagina di valico, così una stima di fallback non viene confusa con una misura reale.`
       : locale === 'en'
-        ? `Where the numbers come from and how to use them. The "live" reading in the table is the most recent wait-minutes figure, usually refreshed every 15 minutes during peak windows (06:00–10:00 inbound into Switzerland and 16:00–20:00 in the reverse direction). The three sources, in priority order, are: the official BAZG (Swiss Federal Customs) page for camera-monitored crossings, the TomTom Traffic API for the road segments approaching the crossing (~5-minute latency), and a static estimate from historical patterns when the other two are silent. The difference between "live" and "static" is explicit on every crossing page: a yellow banner flags whenever the figure is a fallback estimate rather than a real measurement.`
+        ? `Where the numbers come from and how to use them. The "live" reading in the table is the most recent wait-minutes figure, usually refreshed every 15 minutes during peak windows (06:00–10:00 inbound into Switzerland and 16:00–20:00 in the reverse direction). The pipeline combines rotating routing providers, official traffic signals and webcams where available; if no live signal can be used, it shows historical averages. The effective source is shown on every crossing page, so a fallback estimate is not confused with a real-time measurement.`
         : locale === 'de'
-          ? `Woher die Zahlen kommen und wie man sie nutzt. Der "Live"-Wert in der Tabelle ist die jüngste Wartezeit in Minuten, im Allgemeinen alle 15 Minuten während der Spitzenzeiten aktualisiert (06:00–10:00 Richtung Schweiz und 16:00–20:00 in Gegenrichtung). Die drei Quellen, nach Priorität geordnet: die offizielle BAZG-Seite (Eidgenössische Zollverwaltung) für die kameraüberwachten Übergänge, die TomTom-Traffic-API für die Strassensegmente vor dem Übergang (~5 Minuten Latenz), und eine statische Schätzung aus historischen Mustern, wenn beide anderen Quellen schweigen. Der Unterschied zwischen "Live" und "Statisch" ist auf jeder Übergangsseite explizit: ein gelbes Banner kennzeichnet einen Fallback-Schätzwert anstelle einer echten Messung.`
-          : `D'où viennent les chiffres et comment les utiliser. La valeur "live" affichée dans le tableau est le temps d'attente le plus récent en minutes, mis à jour en général toutes les 15 minutes pendant les pics (06:00–10:00 vers la Suisse et 16:00–20:00 dans le sens inverse). Les trois sources, par ordre de priorité, sont : la page officielle BAZG (Administration fédérale des douanes) pour les passages surveillés par caméra, l'API TomTom Traffic pour les tronçons routiers menant au passage (~5 minutes de latence), et une estimation statique à partir des moyennes historiques lorsque les deux autres se taisent. La différence entre "live" et "statique" est explicite sur chaque page de passage : un bandeau jaune signale qu'il s'agit d'une estimation de repli et non d'une mesure réelle.`;
+          ? `Woher die Zahlen kommen und wie man sie nutzt. Der "Live"-Wert in der Tabelle ist die jüngste Wartezeit in Minuten, im Allgemeinen alle 15 Minuten während der Spitzenzeiten aktualisiert (06:00–10:00 Richtung Schweiz und 16:00–20:00 in Gegenrichtung). Die Pipeline kombiniert rotierende Routing-Provider, offizielle Verkehrssignale und Webcams, sofern verfügbar; wenn kein Live-Signal verwendet werden kann, zeigt sie historische Durchschnittswerte. Die tatsächliche Quelle ist auf jeder Übergangsseite angegeben, damit ein Fallback-Schätzwert nicht mit einer Echtzeitmessung verwechselt wird.`
+          : `D'où viennent les chiffres et comment les utiliser. La valeur "live" affichée dans le tableau est le temps d'attente le plus récent en minutes, mis à jour en général toutes les 15 minutes pendant les pics (06:00–10:00 vers la Suisse et 16:00–20:00 dans le sens inverse). La pipeline combine des fournisseurs de routage en rotation, des signaux officiels de trafic et des webcams lorsqu'elles sont disponibles ; si aucun signal live ne peut être utilisé, elle affiche les moyennes historiques. La source effective est indiquée sur chaque page de passage, afin de ne pas confondre une estimation de repli avec une mesure en temps réel.`;
 
   const commuterImpactPara =
     locale === 'it'

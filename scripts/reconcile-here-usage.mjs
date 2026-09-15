@@ -222,7 +222,7 @@ async function seedCounter({ monthKey, realBilled, source, dryRun }) {
   return db.runTransaction(async (tx) => {
     const snap = await tx.get(ref);
     const data = snap.exists ? snap.data() : {};
-    const liveCount = data.month === monthKey ? Number(data.count || 0) : 0;
+    const liveCount = (data.month ?? data.period) === monthKey ? Number(data.count || 0) : 0;
     // Conservative merge: never drop below what we already counted live.
     const reconciled = Math.max(realBilled, liveCount);
     if (!dryRun) {
@@ -246,7 +246,7 @@ async function seedCounter({ monthKey, realBilled, source, dryRun }) {
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const monthKey = currentMonthKey();
-  const budget = args.budget ?? intFromEnv('HERE_MONTHLY_BUDGET', 4500);
+  const budget = args.budget ?? intFromEnv('HERE_MONTHLY_BUDGET', 4000);
 
   let realBilled;
   let source;

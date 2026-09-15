@@ -46,6 +46,7 @@ import sharp from 'sharp';
 // The shared per-process cookie jar collects them from each response and resends them on
 // the next fetch, exactly as a browser would — restoring session continuity across feeds.
 import { buildCookieHeader, updateCookieJar } from './lib/tiChCookieJar.mjs';
+import { fetchSITGCameraFeeds } from './lib/sitg-camera-catalog.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -85,6 +86,7 @@ export const WARMUP_DAYS = envNumber(process.env.WEBCAM_WARMUP_DAYS, DEFAULT_WAR
 // 0.5 ⇒ a strict majority (>= half, rounded up); env-tunable for calibration
 // without a deploy. With a single good feed the vote is trivially that feed.
 export const QUEUE_VOTE_FRACTION = envNumber(process.env.WEBCAM_QUEUE_VOTE_FRACTION, DEFAULT_QUEUE_VOTE_FRACTION);
+let sitgFeedsPromise = null;
 // COCO class ids that count as road vehicles.
 const VEHICLE_CLASS_IDS = new Set([2 /* car */, 3 /* motorcycle */, 5 /* bus */, 7 /* truck */]);
 
@@ -193,6 +195,18 @@ export const CROSSING_TO_FEEDS = Object.entries(WEBCAM_FEEDS).reduce((acc, [key,
   }
   return acc;
 }, /** @type {Record<string, string[]>} */ ({}));
+
+async function getSITGFeeds() {
+  if (!sitgFeedsPromise) sitgFeedsPromise = fetchSITGCameraFeeds();
+  return sitgFeedsPromise;
+}
+
+export function feedAnalysisBox(feed, width, height) {
+  if (Array.isArray(feed?.box) && feed.box.length === 4) return feed.box;
+  const safeWidth = Number.isFinite(width) && width > 0 ? Math.floor(width) : INPUT_SIZE;
+  const safeHeight = Number.isFinite(height) && height > 0 ? Math.floor(height) : INPUT_SIZE;
+  return [0, 0, safeWidth, safeHeight];
+}
 
 // ─── Pure scoring / geometry helpers (unit-testable, no network / no ONNX) ──────
 
@@ -495,8 +509,8 @@ export function aggregateWebcamResults(results, voteFraction = QUEUE_VOTE_FRACTI
  * @param {string} feedKey - Key from WEBCAM_FEEDS (e.g. '01.2S')
  * @returns {Promise<{congestionScore: number|null, queueDetected: boolean, visibility: 'good'|'poor'|'night'|'warming-up', brightness: number|null, variance: number|null, vehicleCount: number|null, feedKey: string} | null>}
  */
-export async function analyzeWebcamFeed(feedKey) {
-  const feed = WEBCAM_FEEDS[feedKey];
+export async function analyzeWebcamFeed(feedKey, feedRegistry = WEBCAM_FEEDS) {
+  const feed = feedRegistry[feedKey];
   if (!feed) return null;
 
   // Warmup gating: a feed introduced within the last WARMUP_DAYS is not yet
@@ -537,7 +551,8 @@ export async function analyzeWebcamFeed(feedKey) {
   }
 
   try {
-    const [left, top, width, height] = feed.box;
+    const metadata = await sharp(buf, { animated: false }).metadata();
+    const [left, top, width, height] = feedAnalysisBox(feed, metadata.width, metadata.height);
     // Brightness/variance from the cropped greyscale frame drive the visibility
     // gates (YOLO is unreliable at night / in fog), exactly as before.
     const frame = await sharp(buf, { animated: false })
@@ -563,7 +578,7 @@ export async function analyzeWebcamFeed(feedKey) {
 
     // Good frame → real vehicle detection.
     const capacity = feed.capacity ?? DEFAULT_CAPACITY;
-    const vehicleCount = await detectVehiclesInZone(buf, feed.box);
+    const vehicleCount = await detectVehiclesInZone(buf, [left, top, width, height]);
     const congestionScore = vehicleCountToCongestion(vehicleCount, capacity);
 
     return {
@@ -587,10 +602,21 @@ export async function analyzeWebcamFeed(feedKey) {
  * @returns {Promise<{congestionScore: number|null, queueDetected: boolean, visibility: string, feeds: string[]}|null>}
  */
 export async function analyzeWebcamForCrossing(crossingSlug) {
-  const feedKeys = CROSSING_TO_FEEDS[crossingSlug]
-    ?? (CROSSING_TO_PRIMARY_FEED[crossingSlug] ? [CROSSING_TO_PRIMARY_FEED[crossingSlug]] : []);
+  const sitgFeeds = await getSITGFeeds();
+  const sitgRegistry = Object.fromEntries(sitgFeeds.map((feed) => [feed.key, feed]));
+  const allFeeds = { ...WEBCAM_FEEDS, ...sitgRegistry };
+  const dynamicFeedKeys = sitgFeeds
+    .filter((feed) => feed.crossings?.includes(crossingSlug))
+    .map((feed) => feed.key);
+  const feedKeys = [...new Set([
+    ...(CROSSING_TO_FEEDS[crossingSlug] ?? []),
+    ...dynamicFeedKeys,
+  ])];
+  if (feedKeys.length === 0 && CROSSING_TO_PRIMARY_FEED[crossingSlug]) {
+    feedKeys.push(CROSSING_TO_PRIMARY_FEED[crossingSlug]);
+  }
   if (feedKeys.length === 0) return null;
-  const results = await Promise.all(feedKeys.map((k) => analyzeWebcamFeed(k)));
+  const results = await Promise.all(feedKeys.map((k) => analyzeWebcamFeed(k, allFeeds)));
   return aggregateWebcamResults(results);
 }
 

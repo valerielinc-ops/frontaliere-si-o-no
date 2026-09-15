@@ -5,12 +5,10 @@ on:
   # Cron times are in UTC.  Europe/Rome is UTC+1 (CET) or UTC+2 (CEST).
   # The ranges below cover both winter and summer offsets.
   #
-  # HERE bills 2 "Time Aware Routing" transactions per crossing (52/run for 26
-  # crossings); the free tier is 5 000/month. Frequency is concentrated at the
-  # two commute peaks (where wait times actually move) and thinned everywhere
-  # else so the month's runs spread evenly under budget. A hard in-code monthly
-  # cap (HERE_MONTHLY_BUDGET in trafficSchedulerCore.js) is the backstop that
-  # guarantees we never exceed the free tier regardless of scheduling variance.
+  # Each routing provider has its own conservative Firestore-reserved cap. The
+  # scheduler concentrates runs at the two commute peaks and the provider mesh
+  # rotates on quota/auth failures; HERE still has a separate monthly guard so
+  # its free-tier ceiling cannot be crossed by scheduling variance.
   schedule:
     # ── Weekdays (Mon–Fri) ──
     # Morning commute peak ≈ CET 05:00–09:00 → every 30 min

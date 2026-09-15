@@ -54,20 +54,23 @@ vi.mock('firebase-admin', () => {
       // reserveHereTransactionBudget: db.collection('meta').doc(...).
       // saveTrafficToFirestore: db.collection('trafficCurrent'|'trafficHistory').
       collection: (name: string) => ({
-        doc: () => ({
+        doc: (id: string) => ({
           __collection: name,
+          __id: id,
           // trafficHistory chains .collection('snapshots').doc(id)
-          collection: () => ({ doc: () => ({ __collection: 'trafficHistorySnapshot' }) }),
+          collection: () => ({ doc: () => ({ __collection: 'trafficHistorySnapshot', __id: id }) }),
         }),
       }),
       runTransaction: async (fn: (tx: unknown) => Promise<unknown>) =>
         fn({
-          get: async () => ({
-            exists: adminState.budgetDoc != null,
-            data: () => adminState.budgetDoc ?? {},
+          get: async (ref: { __id?: string }) => ({
+            exists: ref?.__id === 'hereTransactionBudget' && adminState.budgetDoc != null,
+            data: () => ref?.__id === 'hereTransactionBudget' ? (adminState.budgetDoc ?? {}) : {},
           }),
-          set: (_ref: unknown, data: { month?: string; count?: number }) => {
-            adminState.budgetDoc = { month: data.month, count: data.count };
+          set: (ref: { __id?: string }, data: { month?: string; count?: number }) => {
+            if (ref?.__id === 'hereTransactionBudget') {
+              adminState.budgetDoc = { month: data.month, count: data.count };
+            }
           },
         }),
     }),
