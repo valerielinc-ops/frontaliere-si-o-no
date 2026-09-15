@@ -6643,8 +6643,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
    'job_apply_click',
    { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface },
   );
+  // List/card surfaces do not render the offer host themselves. Route those
+  // clicks through the detail render, where `assistedApplicationOfferJsx` is
+  // mounted, so the treatment CTA never becomes an invisible state update.
+  if (!isJobDetailView && !authResolved) return;
   setAssistedCheckoutError(null);
   setAssistedApplicationJob(job);
+  if (!isJobDetailView) openDetail(job);
   return;
  }
  redirectExternalApplication(job, surface, false);
