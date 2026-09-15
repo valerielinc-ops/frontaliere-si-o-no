@@ -232,7 +232,7 @@ const CalculatorPaywall: React.FC<CalculatorPaywallProps> = ({ result, inputs, o
     try {
       const firestore = await getFirestoreLazy('calculatorPaywall.firestoreInit');
       if (!firestore) throw new Error('firestore_unavailable');
-      const upsert = await upsertUnifiedEmailSubscriber(firestore as any, {
+      await upsertUnifiedEmailSubscriber(firestore as any, {
         email: trimmed,
         source: 'calculator_paywall',
         sourceChannel: 'calculator_paywall',
@@ -268,13 +268,10 @@ const CalculatorPaywall: React.FC<CalculatorPaywallProps> = ({ result, inputs, o
         throw new Error(`http_${resp.status}`);
       }
       Analytics.trackFunnelStep('paywall_email_submitted', { funnel: 'newsletter_paywall' });
-      // The report is a transactional delivery and can be sent immediately,
-      // but a typed address remains pending for the base communications until
-      // the DOI link is clicked. Do not suppress future newsletter prompts on
-      // the strength of this access-only success state.
-      if (upsert.status !== 'pending' || upsert.hadConfirmationProof) {
-        try { localStorage.setItem(NEWSLETTER_SUBSCRIBED_KEY, 'true'); } catch { /* ignore quota */ }
-      }
+      Analytics.trackDecisionMomentNextAction('calculator', 'calculator_report');
+      // Mark as subscribed so the paywall (and other subscribe prompts) stop
+      // re-asking the same email across the site.
+      try { localStorage.setItem(NEWSLETTER_SUBSCRIBED_KEY, 'true'); } catch { /* ignore quota */ }
       setStatus('success');
       // Auto-close after short delay so the user sees the confirmation.
       setTimeout(() => onClose(), 1800);
