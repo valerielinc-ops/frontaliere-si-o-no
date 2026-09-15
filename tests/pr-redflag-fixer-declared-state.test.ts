@@ -124,6 +124,14 @@ describe('the autonomous fixers read declared states before contradicting them (
     ).not.toMatch(/["']\.\/scripts\/lib\/pr-body-sections-check\.mjs["']/);
   });
 
+  it.each(FIXERS)('%s keeps the main prefetch complete before a possible push', (file) => {
+    const p = prompt(file);
+    expect(
+      p,
+      `${file}: the fallback fetch must not create a shallow repository before the fixer pushes.`,
+    ).not.toMatch(/git fetch[^\n]*--depth=1[^\n]*origin main/i);
+  });
+
   it.each(FIXERS)('%s reuses the four helpers by name instead of a second parser', (file) => {
     const p = prompt(file);
     expect(p, `${file}: the prompt no longer points at ${HELPER_MODULE}.`).toContain(HELPER_MODULE);
