@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "guidle",
   "sourceName": "Guidle",
-  "assembledAt": "2026-09-14T11:12:18.354Z",
+  "assembledAt": "2026-09-15T10:39:56.805Z",
   "events": [
     {
       "id": "guidle:AJdd68h",
@@ -13362,47 +13362,6 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-AhcNEFj.webp"
-    },
-    {
-      "id": "guidle:AV3EdQ2",
-      "title": "«Blütezeit»",
-      "titleByLocale": {
-        "it": "«Blütezeit»",
-        "en": "«Blütezeit»",
-        "de": "«Blütezeit»",
-        "fr": "«Blütezeit»"
-      },
-      "description": "Konzert",
-      "descriptionByLocale": {
-        "it": "Konzert",
-        "en": "Konzert",
-        "de": "Konzert",
-        "fr": "Konzert"
-      },
-      "startDate": "2026-09-14",
-      "endDate": "2026-09-14",
-      "startTime": "17:30",
-      "category": "Musica classica",
-      "venue": "Offene Kirche Sils Maria",
-      "canton": "GR",
-      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/sils-segl-maria/bluetezeit_AV3EdQ2",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 20,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Via da Marias 96",
-        "postalCode": "7514"
-      },
-      "geo": {
-        "lat": 46.4290576,
-        "lng": 9.7634384
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AV3EdQ2.webp"
     },
     {
       "id": "guidle:AYFyRiM",
@@ -29052,48 +29011,6 @@
       "imageUrl": "/images/events/guidle-A4puuwG.webp"
     },
     {
-      "id": "guidle:AV9pTKr",
-      "title": "Occultazione di Venere da parte della Luna",
-      "titleByLocale": {
-        "it": "Occultazione di Venere da parte della Luna",
-        "en": "Venus occultation by the moon",
-        "de": "Venusbedeckung durch den Mond",
-        "fr": "Occultation de Vénus par la Lune"
-      },
-      "description": "La stella della sera è eclissata dalla luna a mezzogiorno.",
-      "descriptionByLocale": {
-        "it": "La stella della sera è eclissata dalla luna a mezzogiorno.",
-        "en": "The evening star is eclipsed by the moon around midday.",
-        "de": "Der Abendstern wird um die Mittagszeit vom Mond verdeckt.",
-        "fr": "L'étoile du soir est cachée par la lune à midi."
-      },
-      "startDate": "2026-09-14",
-      "endDate": "2026-09-14",
-      "startTime": "11:00",
-      "category": "Astronomia",
-      "venue": "Sternwarte Rümlang",
-      "comune": "Rümlang",
-      "canton": "ZH",
-      "url": "https://www.guidle.com/it/evenements/savoir/ruemlang/occultation-de-venus-par-la-lune_AV9pTKr",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 0,
-        "currency": "CHF",
-        "isFree": true
-      },
-      "address": {
-        "street": "Chätschstrasse 2a",
-        "postalCode": "8153"
-      },
-      "geo": {
-        "lat": 47.4400981,
-        "lng": 8.5253145
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AV9pTKr.webp"
-    },
-    {
       "id": "guidle:A7Ty4ss",
       "title": "Gesteinsbestimmung «Dr. Stone gibt Auskunft!»",
       "titleByLocale": {
@@ -33094,6 +33011,329 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-AcrMG6B.webp"
+    },
+    {
+      "id": "guidle:A2YANiX",
+      "title": "Tanzen am Nachmittag 55+",
+      "titleByLocale": {
+        "it": "Tanzen am Nachmittag 55+",
+        "en": "Tanzen am Nachmittag 55",
+        "de": "Tanzen am Nachmittag 55",
+        "fr": "Tanzen am Nachmittag 55"
+      },
+      "description": "Tanznachmittag für alle. Tanzen zu Live Musik, Walzer, Tango, Polka, Schlager und vielen mehr.",
+      "descriptionByLocale": {
+        "it": "Tanznachmittag für alle. Tanzen zu Live Musik, Walzer, Tango, Polka, Schlager und vielen mehr.",
+        "en": "Tanznachmittag für alle. Tanzen to Live Music, Waltz, Tango, Polka, Schlager and more.",
+        "de": "Tanznachmittag für alle. Tanzen zu Live Musik, Walzer, Tango, Polka, Schlager und viele mehr.",
+        "fr": "Tanznachmittag für alle Tanzen zu Live Musik, Walzer, Tango, Polka, Schlager und vielen mehr."
+      },
+      "startDate": "2026-09-30",
+      "endDate": "2026-12-09",
+      "startTime": "14:00",
+      "category": "Rock'n'Roll",
+      "venue": "Chillout",
+      "comune": "Boswil",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/boswil/tanzen-am-nachmittag-55_A2YANiX",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Zentralstrasse 7",
+        "postalCode": "5623"
+      },
+      "geo": {
+        "lat": 47.3018107,
+        "lng": 8.3127881
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-A2YANiX.webp"
+    },
+    {
+      "id": "guidle:AC54AMx",
+      "title": "Komm, sing mit!",
+      "titleByLocale": {
+        "it": "Komm, sing mit!",
+        "en": "Komm, sing mit!",
+        "de": "Komm, sing mit!",
+        "fr": "Komm, sing mit !"
+      },
+      "description": "Liedwünsche aus dem Kirchgesangbuch, Geschichten aus dem Leben, Gotteslob, Organisation: Robert Bachmann und Pfr. Simon Becker",
+      "descriptionByLocale": {
+        "it": "Liedwünsche aus dem Kirchgesangbuch, Geschichten aus dem Leben, Gotteslob, Organisation: Robert Bachmann und Pfr. Simon Becker",
+        "en": "Liedwünsche aus dem Kirchgesangbuch, Geschichten aus dem Leben, Gotteslob, Organization: Robert Bachmann und Pfr. Simon Becker",
+        "de": "Lieder aus dem Kirchgesangbuch, Geschichten aus dem Leben, Gotteslob, Organisation: Robert Bachmann und PFR. Simon Becker",
+        "fr": "Liedwünsche aus dem Kirchgesangbuch, Geschichten aus dem Leben, Gotteslob, Organisation : Robert Bachmann und Pfr. Simon Becker"
+      },
+      "startDate": "2026-09-18",
+      "endDate": "2026-12-11",
+      "startTime": "14:00",
+      "category": "Altri musica",
+      "venue": "Evang.-ref. Kirchgemeindehaus Schiers",
+      "comune": "Schiers",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/veranstaltungen/schiers/komm-sing-mit_AC54AMx",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Schuderserstrasse 16",
+        "postalCode": "7220"
+      },
+      "geo": {
+        "lat": 46.9705982,
+        "lng": 9.6886881
+      },
+      "recurring": true
+    },
+    {
+      "id": "guidle:AEW2YxX",
+      "title": "Offenes Singen „KRAFT der LIEDER“ | StimmVolk",
+      "titleByLocale": {
+        "it": "Offenes Singen „KRAFT der LIEDER“ | StimmVolk",
+        "en": "Offenes Singen \"KRAFT der LIEDER\" | StimmVolk",
+        "de": "Offenes Singen \"KRAFT der LIEDER\" | StimmVolk",
+        "fr": "Offenes Singen « KRAFT der LIEDER » | StimmVolk"
+      },
+      "description": "Cantare insieme, in modo aperto, canzoni rinvigorenti e meditative per il potere e per il cuore, senza prerequisiti (musicali).",
+      "descriptionByLocale": {
+        "it": "Cantare insieme, in modo aperto, canzoni rinvigorenti e meditative per il potere e per il cuore, senza prerequisiti (musicali).",
+        "en": "Singing together, in an open way, invigorating and meditative songs for power and for the heart, without (musical) prerequisites.",
+        "de": "Gemeinsam, offen, belebende und meditative Lieder für Kraft und Herz singen, ohne (musikalische) Voraussetzungen.",
+        "fr": "Chanter ensemble, de manière ouverte, des chansons revigorantes et méditatives pour le pouvoir et pour le cœur, sans conditions préalables (musicales)."
+      },
+      "startDate": "2026-09-22",
+      "endDate": "2026-12-15",
+      "startTime": "19:00",
+      "category": "Altri musica",
+      "venue": "Loorensiedlung",
+      "comune": "Affoltern am Albis",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/affoltern-am-albis/offenes-singen-kraft-der-lieder-stimmvolk_AEW2YxX",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Loorenstrasse 33",
+        "postalCode": "8910"
+      },
+      "geo": {
+        "lat": 47.279148,
+        "lng": 8.459549
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AEW2YxX.webp"
+    },
+    {
+      "id": "guidle:APNreL3",
+      "title": "Open Mic Frutigen",
+      "titleByLocale": {
+        "it": "Open Mic Frutigen",
+        "en": "Open Mic Frutigen",
+        "de": "Open-Mic-Frutigen",
+        "fr": "Micro ouvert Frutigen"
+      },
+      "description": "Offene Bühne für handgemachte Musik",
+      "descriptionByLocale": {
+        "it": "Palco aperto per musica fatta a mano",
+        "en": "Open stage for handmade music",
+        "de": "Offene Bühne für handgemachte Musik",
+        "fr": "Scène ouverte pour la musique faite maison"
+      },
+      "startDate": "2026-09-18",
+      "endDate": "2026-12-18",
+      "startTime": "19:30",
+      "category": "Commedia",
+      "venue": "Hotel-Restaurant Landhaus Adler",
+      "comune": "Frutigen",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/events/music/frutigen/open-mic-frutigen_APNreL3",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Dorfstrasse 16",
+        "postalCode": "3714"
+      },
+      "geo": {
+        "lat": 46.5881203,
+        "lng": 7.6457101
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-APNreL3.webp"
+    },
+    {
+      "id": "guidle:ARkQ123",
+      "title": "AR Mood Festival",
+      "titleByLocale": {
+        "it": "AR Mood Festival",
+        "en": "AR Mood Festival",
+        "de": "AR Mood Festival",
+        "fr": "Festival de l'humeur AR"
+      },
+      "description": "Entdecken Sie auf dem Place Longereuse in Fleurier die verschiedensten Küchen der Welt mit Foodtrucks, Live-Konzerten, einer Bar, Animationen für Kinder und vielen weiteren ÜBERRASCHUNGEN!",
+      "descriptionByLocale": {
+        "it": "In Place Longereuse a Fleurier, vieni a scoprire una grande varietà di cucina mondiale con foodtruck, concerti dal vivo, un bar, animazione per bambini e tante altre SORPRESE!",
+        "en": "On the Place Longereuse in Fleurier, come and discover a wide variety of world cuisine with foodtrucks, live concerts, a bar, entertainment for children and lots of other SURPRISES!",
+        "de": "Entdecken Sie auf dem Place Longereuse in Fleurier eine große Vielfalt der Weltküche mit Foodtrucks, Live-Konzerten, einer Bar, Unterhaltung für Kinder und vielen weiteren ÜBERRASCHUNGEN!",
+        "fr": "Sur la place Longereuse de Fleurier, venez découvrir des cuisines du monde très diversifiées avec des foodtrucks, des concerts live, un bar, des animations pour les enfants et plein d’autres"
+      },
+      "startDate": "2027-05-28",
+      "endDate": "2027-05-30",
+      "startTime": "16:00",
+      "category": "Festival / Incontro",
+      "venue": "AR Mood Festival",
+      "canton": "NE",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/fleurier/ar-mood-festival_ARkQ123",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "place Longereuse",
+        "postalCode": "2114"
+      },
+      "geo": {
+        "lat": 46.9047972,
+        "lng": 6.5755542
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-ARkQ123.webp"
+    },
+    {
+      "id": "guidle:APaPQvN",
+      "title": "Corn'Rock Festival",
+      "titleByLocale": {
+        "it": "Corn'Rock Festival",
+        "en": "Corn'Rock Festival",
+        "de": "Corn'Rock Festival",
+        "fr": "Corn'Rock Festival"
+      },
+      "description": "Das Corn'Rock-Festival ist eine lokale Veranstaltung, die regionale Bands, Künstler und Unternehmen bevorzugt. Die Atmosphäre des Festivals ist familienfreundlich und jeder ist willkommen.",
+      "descriptionByLocale": {
+        "it": "Das Corn'Rock-Festival ist eine lokale Veranstaltung, die regionale Bands, Künstler und Unternehmen bevorzugt. Die Atmosphäre des Festivals ist familienfreundlich und jeder ist willkommen.",
+        "en": "The Corn'Rock Festival is a local event, which favours regional bands, artists, and businesses. The atmosphere of the festival is family friendly and everyone is welcome.",
+        "de": "Das Corn'Rock-Festival ist eine lokale Veranstaltung, die regionale Bands, Künstler und Unternehmen bevorzugt. Die Atmosphäre des Festivals ist familienfreundlich und jeder ist willkommen.",
+        "fr": "Le Corn'Rock Festival est une manifestation locale, qui privilégie les groupes, artistes, et commerçants de la région. L'ambiance du festival est conviviale et familiale, tout le monde y est bienvenu."
+      },
+      "startDate": "2027-05-21",
+      "endDate": "2027-05-22",
+      "startTime": "00:00",
+      "category": "Festival / Incontro",
+      "venue": "Corn’Rock Festival",
+      "comune": "Cornaux",
+      "canton": "NE",
+      "url": "https://www.guidle.com/it/events/music/cornaux-ne/cornrock-festival_APaPQvN",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Chemin Prés-Bersot",
+        "postalCode": "2087"
+      },
+      "geo": {
+        "lat": 47.0357161,
+        "lng": 7.0196598
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-APaPQvN.webp"
+    },
+    {
+      "id": "guidle:AU1jLwP",
+      "title": "Tanzen für Junggebliebene mit Live Musik",
+      "titleByLocale": {
+        "it": "Tanzen für Junggebliebene mit Live Musik",
+        "en": "Tanzen für Junggebliebene mit Live Musik",
+        "de": "Tanzen für Junggebliebene mit Live Musik",
+        "fr": "Tanzen für Junggebliebene mit Live Musik"
+      },
+      "description": "Live Musik und Hits die zum Tanzen einladen. Kuchen, leckere Getränke und dazu den sozialen Austausch. Perfekt für alle Junggebliebenen mit Freude am Tanzen.",
+      "descriptionByLocale": {
+        "it": "Live Musik und Hits die zum Tanzen einladen. Kuchen, leckere Getränke und dazu den sozialen Austausch. Perfekt für alle Junggebliebenen mit Freude am Tanzen.",
+        "en": "Live Musik und Hits die zum Tanzen einladen. Kuchen, leckere Getränke und dazu den sozialen Austausch. Perfekt für alle Junggebliebenen mit Freude am Tanzen.",
+        "de": "Live Musik und Hits die zum Tanzen einladen. Kuchen, leckere Getränke und dazu den sozialen Austausch. Perfekt für alle Junggebliebenen mit Freude am Tanzen.",
+        "fr": "Live Musik und Hits die zum Tanzen einladen. Kuchen, leckere Getränke und dazu den sozialen Austausch. Perfekt für alle Junggebliebenen mit Freude am Tanzen."
+      },
+      "startDate": "2026-09-22",
+      "endDate": "2026-12-22",
+      "startTime": "14:00",
+      "category": "Danza te stesso",
+      "venue": "AUREA",
+      "comune": "Rheinfelden",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/rheinfelden/tanzen-fuer-junggebliebene-mit-live-musik_AU1jLwP",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Baslerstrasse 15",
+        "postalCode": "4310"
+      },
+      "geo": {
+        "lat": 47.5513376,
+        "lng": 7.7852593
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AU1jLwP.webp"
+    },
+    {
+      "id": "guidle:A3miUT6",
+      "title": "Sing & Jam Session #zusammen singen und musizieren, #pop/rock cover songs",
+      "titleByLocale": {
+        "it": "Sing & Jam Session #zusammen singen und musizieren, #pop/rock cover songs",
+        "en": "Sing & Jam Session #zusammen singen und musizieren, #pop/rock cover songs",
+        "de": "Sing & Jam Session #zusammen singen und musizieren, #pop/rock cover songs",
+        "fr": "Sing & Jam Session #zusammen singen und musizieren, #pop/rock cover songs"
+      },
+      "description": "Sing and play your favorite pop and rock hits in a friendly and open environment. Whether you're a musician, singer, professional or amateur - everyone is welcome!",
+      "descriptionByLocale": {
+        "it": "Sing and play your favorite pop and rock hits in a friendly and open environment. Whether you're a musician, singer, professional or amateur - everyone is welcome!",
+        "en": "Sing and play your favorite pop and rock hits in a friendly and open environment. Whether you're a musician, singer, professional or amateur - everyone is welcome!",
+        "de": "Sing and play your favorite pop and rock hits in a friendly and open environment. Whether you're a musician, singer, professional or amateur - everyone is welcome!",
+        "fr": "Sing and play your favorite pop and rock hits in a friendly and open environment. Whether you're a musician, singer, professional or amateur - everyone is welcome!"
+      },
+      "startDate": "2026-09-20",
+      "endDate": "2026-12-20",
+      "startTime": "16:00",
+      "category": "Altri musica",
+      "venue": "Quartiertreffpunkt LoLa",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/basel/sing-und-jam-session-zusammen-singen-und-musizieren-poprock-cover-songs_A3miUT6",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Lothringerstrasse 63",
+        "postalCode": "4056"
+      },
+      "geo": {
+        "lat": 47.5683754,
+        "lng": 7.5771319
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-A3miUT6.webp"
     }
   ]
 }
