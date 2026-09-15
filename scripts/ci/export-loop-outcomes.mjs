@@ -354,6 +354,10 @@ function isoDate(value, label) {
   return date.toISOString();
 }
 
+function quoteHogQLString(value) {
+  return "'" + String(value).replaceAll("\\", "\\\\").replaceAll("'", "\\'") + "'";
+}
+
 function postHogAggregate(response, label) {
   const columns = Array.isArray(response?.columns) ? response.columns : [];
   const row = response?.results?.[0];
@@ -380,17 +384,17 @@ function writeJsonFile(outputPath, value) {
 export function buildL5DecisionMomentQuery({ start, end } = {}) {
   if (!text(start) || !text(end)) throw new Error('L5 decision-moment query requires start and end');
   return [
-    'SELECT countIf(completed = 1) AS eligibleDecisionSessions,',
-    '  countIf(completed = 1 AND nextUseful = 1) AS nextUsefulActions',
+    'SELECT countIf(completedAt IS NOT NULL) AS eligibleDecisionSessions,',
+    '  countIf(completedAt IS NOT NULL AND nextUsefulAt > completedAt) AS nextUsefulActions',
     'FROM (',
     '  SELECT $session_id,',
-    '    max(if(event = \'simulation_complete\'',
+    '    minIf(timestamp, event = \'simulation_complete\'',
     '      OR (event = \'funnel_step\' AND properties.funnel = \'calculator\'',
-    '        AND properties.step = \'simulation_complete\'), 1, 0)) AS completed,',
-    '    max(if((event = \'funnel_step\' AND properties.step = \'compare\'',
+    '        AND properties.step = \'simulation_complete\')) AS completedAt,',
+    '    maxIf(timestamp, (event = \'funnel_step\' AND properties.step = \'compare\'',
     '        AND (properties.funnel = \'calculator\'',
     '          OR (properties.funnel = \'main_conversion\' AND properties.from_tab = \'calculator\')))',
-    '      OR (event = \'cta_click\' AND properties.cta_id LIKE \'calculator%\'), 1, 0)) AS nextUseful',
+    '      OR (event = \'cta_click\' AND properties.cta_id LIKE \'calculator%\')) AS nextUsefulAt',
     '  FROM events',
     '  WHERE event IN (\'funnel_step\', \'simulation_complete\', \'cta_click\')',
     '    AND timestamp >= \'' + start + '\' AND timestamp < \'' + end + '\'',
@@ -423,7 +427,7 @@ export function buildL5DecisionMomentExport({
     telemetryWindow,
     scope: {
       denominator: 'distinct PostHog sessions with simulation_complete or funnel_step calculator/simulation_complete',
-      numerator: 'denominator sessions with calculator compare transition or calculator CTA click',
+      numerator: 'denominator sessions with calculator compare transition or calculator CTA click after completion',
       surface: 'calculator',
     },
     evidence: {
@@ -432,6 +436,7 @@ export function buildL5DecisionMomentExport({
       eventContract: {
         completed: 'simulation_complete or funnel_step:funnel=calculator,step=simulation_complete',
         nextUseful: 'funnel_step:step=compare from calculator or cta_click:cta_id starts calculator',
+        ordering: 'nextUsefulAt > completedAt',
         joinKey: '$session_id',
       },
     },
@@ -504,50 +509,84 @@ function readL7Policy(registryPath, policyOverride = null) {
   return normalizeL7Policy(policy);
 }
 
-export function buildL7ExperimentLedgerQuery({ start, end } = {}) {
+export function buildL7ExperimentLedgerQuery({ start, end, policy = {} } = {}) {
   if (!text(start) || !text(end)) throw new Error('L7 experiment query requires start and end');
+  const normalizedPolicy = normalizeL7Policy(policy);
+  const assignmentEvent = quoteHogQLString('experiment_assignment');
+  const exposureEvent = quoteHogQLString('experiment_exposure');
+  const outcomeEvent = quoteHogQLString('experiment_outcome');
+  const guardrailEvent = quoteHogQLString('experiment_guardrail');
+  const assignmentValidity = [
+    'properties.assignment_method = ' + quoteHogQLString(normalizedPolicy.assignmentMethod),
+    'properties.assignment_key = ' + quoteHogQLString(normalizedPolicy.assignmentKey),
+    'properties.persistent = true',
+  ].join(' AND ');
+  const exposureValidity = 'properties.variant IS NOT NULL';
+  const outcomeValidity = [
+    'properties.outcome_id = ' + quoteHogQLString(normalizedPolicy.outcomeId),
+    'properties.primary_metric = ' + quoteHogQLString(normalizedPolicy.primaryMetric),
+  ].join(' AND ');
+  const guardrailValidity = [
+    'properties.guardrail_checked = true',
+    '(properties.breach = true OR properties.breach = false)',
+  ].join(' AND ');
+  const contaminationValidity = [
+    'properties.contamination_checked = true',
+    '(properties.contaminated = true OR properties.contaminated = false)',
+  ].join(' AND ');
+  // HogQL exposes `toDateTime` but not the safe `*OrNull` variants.  Route
+  // malformed timestamp shapes to the epoch; a calendar value that still
+  // cannot be parsed aborts the export instead of being marked verified.
+  const expiryPattern = quoteHogQLString('^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?Z$');
+  const expiryDate = 'toDateTime(if(match(properties.expires_at, ' + expiryPattern + ') = 1, properties.expires_at, ' + quoteHogQLString('1970-01-01T00:00:00Z') + '))';
+  const expiryValidity = [
+    'match(properties.expires_at, ' + expiryPattern + ') = 1',
+    expiryDate + ' > timestamp',
+    expiryDate + ' <= addHours(timestamp, ' + normalizedPolicy.candidateTtlHours + ')',
+  ].join(' AND ');
   return [
     'SELECT',
     '  sum(eventCount) AS sourceEventCount,',
-    '  countIf(eligible = 1) AS eligibleCohort,',
-    '  countIf(hasAssignment = 1) AS assignments,',
-    '  countIf(hasExposure = 1) AS exposures,',
-    '  countIf(hasOutcome = 1) AS primaryOutcomes,',
+    '  countIf(assignmentRecords > 0 AND invalidEligibilityRecords = 0) AS eligibleCohort,',
+    '  countIf(assignmentRecords > 0) AS assignments,',
+    '  countIf(validExposureRecords > 0) AS exposures,',
+    '  countIf(validOutcomeRecords > 0) AS primaryOutcomes,',
     '  sum(guardrailBreaches) AS guardrailBreaches,',
-    '  countIf(persistentAssignment = 1) AS persistentAssignments,',
+    '  countIf(assignmentRecords > 0 AND persistentAssignmentRecords = assignmentRecords) AS persistentAssignments,',
     '  sum(contaminatedAssignments) AS contaminatedAssignments,',
-    '  countIf(assignmentContract = 1) AS assignmentContract,',
-    '  countIf(guardrailContract = 1) AS guardrailContract,',
-    '  countIf(contaminationContract = 1) AS contaminationContract,',
-    '  countIf(expiryContract = 1) AS expiryContract,',
+    '  countIf(assignmentRecords > 0 AND invalidAssignmentRecords = 0) AS assignmentContract,',
+    '  countIf(exposureRecords > 0 AND invalidExposureRecords = 0) AS exposureContract,',
+    '  countIf(outcomeRecords > 0 AND invalidOutcomeRecords = 0) AS outcomeContract,',
+    '  countIf(guardrailRecords > 0 AND invalidGuardrailRecords = 0) AS guardrailContract,',
+    '  countIf(assignmentRecords > 0 AND invalidContaminationRecords = 0) AS contaminationContract,',
+    '  countIf(assignmentRecords > 0 AND invalidExpiryRecords = 0) AS expiryContract,',
     '  min(firstSeenAt) AS firstSeenAt,',
     '  max(lastSeenAt) AS lastSeenAt',
     'FROM (',
     '  SELECT $session_id,',
     '    count() AS eventCount,',
-    '    max(if(event = \'experiment_assignment\' AND properties.eligible = true, 1, 0)) AS eligible,',
-    '    max(if(event = \'experiment_assignment\', 1, 0)) AS hasAssignment,',
-    '    max(if(event = \'experiment_exposure\' AND properties.variant IS NOT NULL, 1, 0)) AS hasExposure,',
-    '    max(if(event = \'experiment_outcome\'',
-    '      AND properties.outcome_id = \'registered-experiment-outcome\'',
-    '      AND properties.primary_metric = \'registered_outcome_per_eligible_cohort\', 1, 0)) AS hasOutcome,',
-    '    sum(if(event = \'experiment_guardrail\' AND properties.breach = true, 1, 0)) AS guardrailBreaches,',
-    '    max(if(event = \'experiment_assignment\' AND properties.persistent = true, 1, 0)) AS persistentAssignment,',
-    '    sum(if(event = \'experiment_assignment\' AND properties.contaminated = true, 1, 0)) AS contaminatedAssignments,',
-    '    max(if(event = \'experiment_assignment\'',
-    '      AND properties.assignment_method = \'stable-sha256\'',
-    '      AND properties.assignment_key = \'experiment-session-id\'',
-    '      AND properties.persistent = true, 1, 0)) AS assignmentContract,',
-    '    max(if(event = \'experiment_guardrail\' AND properties.guardrail_checked = true, 1, 0)) AS guardrailContract,',
-    '    max(if(event = \'experiment_assignment\'',
-    '      AND properties.contamination_checked = true AND properties.contaminated = false, 1, 0)) AS contaminationContract,',
-    '    max(if(event = \'experiment_assignment\' AND properties.expires_at IS NOT NULL, 1, 0)) AS expiryContract,',
+    '    sum(if(event = ' + assignmentEvent + ', 1, 0)) AS assignmentRecords,',
+    '    sum(if(event = ' + assignmentEvent + ', if(properties.eligible = true, 0, 1), 0)) AS invalidEligibilityRecords,',
+    '    sum(if(event = ' + exposureEvent + ', 1, 0)) AS exposureRecords,',
+    '    sum(if(event = ' + exposureEvent + ' AND ' + exposureValidity + ', 1, 0)) AS validExposureRecords,',
+    '    sum(if(event = ' + outcomeEvent + ', 1, 0)) AS outcomeRecords,',
+    '    sum(if(event = ' + outcomeEvent + ' AND ' + outcomeValidity + ', 1, 0)) AS validOutcomeRecords,',
+    '    sum(if(event = ' + guardrailEvent + ', 1, 0)) AS guardrailRecords,',
+    '    sum(if(event = ' + guardrailEvent + ' AND properties.breach = true, 1, 0)) AS guardrailBreaches,',
+    '    sum(if(event = ' + assignmentEvent + ' AND properties.persistent = true, 1, 0)) AS persistentAssignmentRecords,',
+    '    sum(if(event = ' + assignmentEvent + ' AND properties.contaminated = true, 1, 0)) AS contaminatedAssignments,',
+    '    sum(if(event = ' + assignmentEvent + ', if(' + assignmentValidity + ', 0, 1), 0)) AS invalidAssignmentRecords,',
+    '    sum(if(event = ' + exposureEvent + ', if(' + exposureValidity + ', 0, 1), 0)) AS invalidExposureRecords,',
+    '    sum(if(event = ' + outcomeEvent + ', if(' + outcomeValidity + ', 0, 1), 0)) AS invalidOutcomeRecords,',
+    '    sum(if(event = ' + guardrailEvent + ', if(' + guardrailValidity + ', 0, 1), 0)) AS invalidGuardrailRecords,',
+    '    sum(if(event = ' + assignmentEvent + ', if(' + contaminationValidity + ', 0, 1), 0)) AS invalidContaminationRecords,',
+    '    sum(if(event = ' + assignmentEvent + ', if(' + expiryValidity + ', 0, 1), 0)) AS invalidExpiryRecords,',
     '    min(timestamp) AS firstSeenAt,',
     '    max(timestamp) AS lastSeenAt',
     '  FROM events',
-    '  WHERE event IN (' + L7_EVENT_NAMES.map((name) => '\'' + name + '\'').join(', ') + ')',
-    '    AND properties.loop_id = \'L7\'',
-    '    AND timestamp >= \'' + start + '\' AND timestamp < \'' + end + '\'',
+    '  WHERE event IN (' + L7_EVENT_NAMES.map(quoteHogQLString).join(', ') + ')',
+    '    AND properties.loop_id = ' + quoteHogQLString('L7'),
+    '    AND timestamp >= ' + quoteHogQLString(start) + ' AND timestamp < ' + quoteHogQLString(end),
     '  GROUP BY $session_id',
     ')',
   ].join('\n');
@@ -595,6 +634,14 @@ export function buildL7ExperimentLedger({
   const assignments = values.assignments;
   const exposures = values.exposures;
   const eligibleCohort = values.eligibleCohort;
+  const contracts = {
+    assignment: nonNegativeInteger(aggregate.assignmentContract ?? 0, 'assignmentContract'),
+    exposure: nonNegativeInteger(aggregate.exposureContract ?? 0, 'exposureContract'),
+    outcome: nonNegativeInteger(aggregate.outcomeContract ?? 0, 'outcomeContract'),
+    guardrail: nonNegativeInteger(aggregate.guardrailContract ?? 0, 'guardrailContract'),
+    contamination: nonNegativeInteger(aggregate.contaminationContract ?? 0, 'contaminationContract'),
+    expiry: nonNegativeInteger(aggregate.expiryContract ?? 0, 'expiryContract'),
+  };
   const contractsComplete = sourceObserved
     && assignments !== null
     && assignments > 0
@@ -611,10 +658,12 @@ export function buildL7ExperimentLedger({
     && values.persistentAssignments === assignments
     && values.contaminatedAssignments === 0
     && durationDays !== null
-    && nonNegativeInteger(aggregate.assignmentContract ?? 0, 'assignmentContract') >= assignments
-    && nonNegativeInteger(aggregate.guardrailContract ?? 0, 'guardrailContract') >= assignments
-    && nonNegativeInteger(aggregate.contaminationContract ?? 0, 'contaminationContract') >= assignments
-    && nonNegativeInteger(aggregate.expiryContract ?? 0, 'expiryContract') >= assignments;
+    && contracts.assignment >= assignments
+    && contracts.exposure >= assignments
+    && contracts.outcome >= assignments
+    && contracts.guardrail >= assignments
+    && contracts.contamination >= assignments
+    && contracts.expiry >= assignments;
   const preRegistration = {
     outcomeId: normalizedPolicy.outcomeId,
     primaryMetric: normalizedPolicy.primaryMetric,
@@ -650,6 +699,7 @@ export function buildL7ExperimentLedger({
     preRegistration,
     assignmentLedger,
     contaminationPolicy,
+    contracts,
     telemetryWindow,
     scope: {
       assignment: 'experiment_assignment with explicit loop_id, stable method/key, persistence and expiry',
@@ -704,14 +754,15 @@ export async function exportL7({
 } = {}) {
   const firestore = client || new GoogleDataClient();
   const window = rollingWindow(now, Number(days) * 24);
+  const resolvedPolicy = policy || readL7Policy(registryPath);
   const config = await resolvePostHogConfig(firestore);
-  const response = await posthogRunner(buildL7ExperimentLedgerQuery(window), config);
+  const response = await posthogRunner(buildL7ExperimentLedgerQuery({ ...window, policy: resolvedPolicy }), config);
   const aggregate = postHogAggregate(response, 'L7 experiment ledger');
   const outcome = buildL7ExperimentLedger({
     aggregate,
     generatedAt: now,
     telemetryWindow: window,
-    policy: policy || readL7Policy(registryPath),
+    policy: resolvedPolicy,
   });
   writeJsonFile(outputPath, outcome);
   return outcome;

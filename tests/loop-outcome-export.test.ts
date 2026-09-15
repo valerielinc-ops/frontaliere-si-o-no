@@ -194,6 +194,9 @@ describe('read-only loop outcome exporters', () => {
     expect(query).toContain("properties.step = 'simulation_complete'");
     expect(query).toContain("properties.step = 'compare'");
     expect(query).toContain("properties.cta_id LIKE 'calculator%'");
+    expect(query).toContain('minIf(timestamp');
+    expect(query).toContain('maxIf(timestamp');
+    expect(query).toContain('nextUsefulAt > completedAt');
     expect(query).toContain('GROUP BY $session_id');
 
     const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l5-export-test-'));
@@ -235,6 +238,19 @@ describe('read-only loop outcome exporters', () => {
     expect(query).toContain("event IN ('experiment_assignment', 'experiment_exposure', 'experiment_outcome', 'experiment_guardrail')");
     expect(query).toContain("properties.loop_id = 'L7'");
     expect(query).toContain("properties.assignment_method = 'stable-sha256'");
+    expect(query).toContain('invalidAssignmentRecords');
+    expect(query).toContain('invalidOutcomeRecords');
+    expect(query).toContain('invalidExpiryRecords');
+    expect(query).toContain('toDateTime(if(match(properties.expires_at');
+    expect(query).toContain('match(properties.expires_at');
+    expect(query).toContain('addHours(timestamp, 168)');
+
+    const twelveHourQuery = buildL7ExperimentLedgerQuery({
+      start: '2026-09-05T12:00:00.000Z',
+      end: NOW.toISOString(),
+      policy: { ...L7_POLICY, lifecycle: { ...L7_POLICY.lifecycle, candidateTtlHours: 12 } },
+    } as any);
+    expect(twelveHourQuery).toContain('addHours(timestamp, 12)');
 
     const completeAggregate = {
       sourceEventCount: 1200,
@@ -246,6 +262,8 @@ describe('read-only loop outcome exporters', () => {
       persistentAssignments: 250,
       contaminatedAssignments: 0,
       assignmentContract: 250,
+      exposureContract: 250,
+      outcomeContract: 250,
       guardrailContract: 250,
       contaminationContract: 250,
       expiryContract: 250,
@@ -295,6 +313,22 @@ describe('read-only loop outcome exporters', () => {
       policy: L7_POLICY,
     } as any);
     expect(breached).toMatchObject({ status: 'unverified', independent: false, evidence: { status: 'unverified' } });
+
+    const maskedInvalidRecord = buildL7ExperimentLedger({
+      aggregate: { ...completeAggregate, exposureContract: 249 },
+      generatedAt: NOW,
+      telemetryWindow: { start: '2026-09-05T12:00:00.000Z', end: NOW.toISOString() },
+      policy: L7_POLICY,
+    } as any);
+    expect(maskedInvalidRecord).toMatchObject({ status: 'unverified', independent: false });
+
+    const expiredAssignment = buildL7ExperimentLedger({
+      aggregate: { ...completeAggregate, expiryContract: 249 },
+      generatedAt: NOW,
+      telemetryWindow: { start: '2026-09-05T12:00:00.000Z', end: NOW.toISOString() },
+      policy: L7_POLICY,
+    } as any);
+    expect(expiredAssignment).toMatchObject({ status: 'unverified', independent: false });
 
     const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l7-export-test-'));
     const output = await (exportL7 as any)({
