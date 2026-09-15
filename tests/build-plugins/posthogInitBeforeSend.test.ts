@@ -90,15 +90,17 @@ describe('POSTHOG_INIT_CONTENT before_send (issue #3406/#3407)', () => {
   });
 
   it('passes through non-exception events unchanged', () => {
-    const event = { event: '$pageview', properties: {} };
+    const event = { event: '$snapshot', properties: {} };
     expect(beforeSend(event)).toBe(event);
   });
 
   it('keeps replay snapshots and identity events outside analytics sampling', () => {
     const snapshot = { event: '$snapshot', properties: { $session_id: 'sampled-out' } };
+    const exception = { event: '$exception', properties: { $session_id: 'sampled-out' } };
     const identify = { event: '$identify', properties: { $session_id: 'sampled-out' } };
 
     expect(beforeSend(snapshot)).toBe(snapshot);
+    expect(beforeSend(exception)).toBe(exception);
     expect(beforeSend(identify)).toBe(identify);
   });
 
