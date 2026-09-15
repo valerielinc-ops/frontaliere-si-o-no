@@ -4,20 +4,20 @@
   "generatorSha256": "37f6d9c00179fd46d206c3fb8e1a9e752d99905f75aa641534eb4df79ca90d41",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "6aa0464c25b7541c79f4101c26f63b939617ebf8",
+  "sourceCommit": "8f5e806b67d490bc331dbb607187c073677cc19d",
   "artifactObservation": {
     "generatorSha256": "37f6d9c00179fd46d206c3fb8e1a9e752d99905f75aa641534eb4df79ca90d41",
     "sourceRef": "main",
-    "sourceCommit": "6aa0464c25b7541c79f4101c26f63b939617ebf8"
+    "sourceCommit": "8f5e806b67d490bc331dbb607187c073677cc19d"
   },
   "groupCount": 23,
   "artifactCount": 24,
   "observerCount": 7,
-  "crawlerCount": 602,
+  "crawlerCount": 603,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:80747d27d6778cf7dfd0b3e39fbc21f73b8d48f989a8ae762edb933619a60bfd",
+    "rosterDigest": "sha256:de598b103154a95b8db92bd17d52b2f19d26aa31b1319acea275b91d5295bd28",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -527,6 +527,7 @@
     "scripts/update-vaudoise-jobs.mjs",
     "scripts/update-vaxcyte-jobs.mjs",
     "scripts/update-veeam-jobs.mjs",
+    "scripts/update-vereinaklosters-jobs.mjs",
     "scripts/update-victorinox-jobs.mjs",
     "scripts/update-villa-im-park-jobs.mjs",
     "scripts/update-visionapartments-jobs.mjs",
@@ -1233,8 +1234,8 @@
     {
       "file": "crawler-group-19.yml",
       "sourceLogic": "crawler-group-19-logic.yml",
-      "sourceSha256": "f6dba2b5aa91d14a0a1c42634d5f8fc41444fabf908595e449f4e3872b05bca5",
-      "artifactSha256": "0d1c94f422d6a92df83461bb7c672dc3000588befe9dd75b1bd78841c9b21296",
+      "sourceSha256": "7f9506c99a325bab2d7baa403acf8022dbbc2386fda5cbecd5ec8338d21e39e8",
+      "artifactSha256": "98dbbe572d9389b35e9278fb58268cfa6dbdb8e30fb9b4dcedfa3d680542346c",
       "generatorSha256": "37f6d9c00179fd46d206c3fb8e1a9e752d99905f75aa641534eb4df79ca90d41",
       "members": [
         "migros",
@@ -1263,7 +1264,8 @@
         "csl-behring",
         "cseb",
         "bucher-suter",
-        "alpiq"
+        "alpiq",
+        "vereinaklosters"
       ]
     },
     {
