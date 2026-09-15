@@ -194,6 +194,9 @@ describe('read-only loop outcome exporters', () => {
     expect(query).toContain("properties.step = 'simulation_complete'");
     expect(query).toContain("properties.step = 'compare'");
     expect(query).toContain("properties.cta_id LIKE 'calculator%'");
+    expect(query).toContain('countIf(completionRecords > 0) AS eligibleDecisionSessions');
+    expect(query).toContain('countIf(completionRecords > 0 AND nextUsefulAt > completedAt)');
+    expect(query).toContain('countIf(event = \'simulation_complete\'');
     expect(query).toContain('minIf(timestamp');
     expect(query).toContain('maxIf(timestamp');
     expect(query).toContain('nextUsefulAt > completedAt');
@@ -241,6 +244,10 @@ describe('read-only loop outcome exporters', () => {
     expect(query).toContain('invalidAssignmentRecords');
     expect(query).toContain('invalidOutcomeRecords');
     expect(query).toContain('invalidExpiryRecords');
+    expect(query).toContain('completeAssignmentSessions');
+    expect(query).toContain('assignmentRecords > 0 AND exposureRecords > 0 AND invalidExposureRecords = 0');
+    expect(query).toContain('assignmentRecords > 0 AND outcomeRecords > 0 AND invalidOutcomeRecords = 0');
+    expect(query).toContain('assignmentRecords > 0 AND guardrailRecords > 0 AND invalidGuardrailRecords = 0');
     expect(query).toContain('toDateTime(if(match(properties.expires_at');
     expect(query).toContain('match(properties.expires_at');
     expect(query).toContain('addHours(timestamp, 168)');
@@ -257,6 +264,7 @@ describe('read-only loop outcome exporters', () => {
       eligibleCohort: 250,
       assignments: 250,
       exposures: 250,
+      completeAssignmentSessions: 250,
       primaryOutcomes: 40,
       guardrailBreaches: 0,
       persistentAssignments: 250,
@@ -284,6 +292,7 @@ describe('read-only loop outcome exporters', () => {
       eligibleCohort: 250,
       assignments: 250,
       exposures: 250,
+      completeAssignmentSessions: 250,
       primaryOutcomes: 40,
       assignmentLedger: { persistent: true, method: 'stable-sha256', key: 'experiment-session-id' },
       contaminationPolicy: { controlled: true },
@@ -321,6 +330,20 @@ describe('read-only loop outcome exporters', () => {
       policy: L7_POLICY,
     } as any);
     expect(maskedInvalidRecord).toMatchObject({ status: 'unverified', independent: false });
+
+    const disjointContracts = buildL7ExperimentLedger({
+      aggregate: {
+        ...completeAggregate,
+        completeAssignmentSessions: 249,
+        exposureContract: 250,
+        outcomeContract: 250,
+        guardrailContract: 250,
+      },
+      generatedAt: NOW,
+      telemetryWindow: { start: '2026-09-05T12:00:00.000Z', end: NOW.toISOString() },
+      policy: L7_POLICY,
+    } as any);
+    expect(disjointContracts).toMatchObject({ status: 'unverified', independent: false });
 
     const expiredAssignment = buildL7ExperimentLedger({
       aggregate: { ...completeAggregate, expiryContract: 249 },

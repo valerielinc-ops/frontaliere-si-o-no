@@ -384,10 +384,13 @@ function writeJsonFile(outputPath, value) {
 export function buildL5DecisionMomentQuery({ start, end } = {}) {
   if (!text(start) || !text(end)) throw new Error('L5 decision-moment query requires start and end');
   return [
-    'SELECT countIf(completedAt IS NOT NULL) AS eligibleDecisionSessions,',
-    '  countIf(completedAt IS NOT NULL AND nextUsefulAt > completedAt) AS nextUsefulActions',
+    'SELECT countIf(completionRecords > 0) AS eligibleDecisionSessions,',
+    '  countIf(completionRecords > 0 AND nextUsefulAt > completedAt) AS nextUsefulActions',
     'FROM (',
     '  SELECT $session_id,',
+    '    countIf(event = \'simulation_complete\'',
+    '      OR (event = \'funnel_step\' AND properties.funnel = \'calculator\'',
+    '        AND properties.step = \'simulation_complete\')) AS completionRecords,',
     '    minIf(timestamp, event = \'simulation_complete\'',
     '      OR (event = \'funnel_step\' AND properties.funnel = \'calculator\'',
     '        AND properties.step = \'simulation_complete\')) AS completedAt,',
@@ -544,20 +547,36 @@ export function buildL7ExperimentLedgerQuery({ start, end, policy = {} } = {}) {
     expiryDate + ' > timestamp',
     expiryDate + ' <= addHours(timestamp, ' + normalizedPolicy.candidateTtlHours + ')',
   ].join(' AND ');
+  const completeAssignmentSessionPredicate = [
+    'assignmentRecords > 0',
+    'invalidEligibilityRecords = 0',
+    'invalidAssignmentRecords = 0',
+    'persistentAssignmentRecords = assignmentRecords',
+    'invalidContaminationRecords = 0',
+    'invalidExpiryRecords = 0',
+    'exposureRecords > 0',
+    'invalidExposureRecords = 0',
+    'outcomeRecords > 0',
+    'invalidOutcomeRecords = 0',
+    'guardrailRecords > 0',
+    'invalidGuardrailRecords = 0',
+    'guardrailBreachRecords = 0',
+  ].join(' AND ');
   return [
     'SELECT',
     '  sum(eventCount) AS sourceEventCount,',
     '  countIf(assignmentRecords > 0 AND invalidEligibilityRecords = 0) AS eligibleCohort,',
     '  countIf(assignmentRecords > 0) AS assignments,',
+    '  countIf(' + completeAssignmentSessionPredicate + ') AS completeAssignmentSessions,',
     '  countIf(validExposureRecords > 0) AS exposures,',
     '  countIf(validOutcomeRecords > 0) AS primaryOutcomes,',
-    '  sum(guardrailBreaches) AS guardrailBreaches,',
+    '  sum(guardrailBreachRecords) AS guardrailBreaches,',
     '  countIf(assignmentRecords > 0 AND persistentAssignmentRecords = assignmentRecords) AS persistentAssignments,',
     '  sum(contaminatedAssignments) AS contaminatedAssignments,',
     '  countIf(assignmentRecords > 0 AND invalidAssignmentRecords = 0) AS assignmentContract,',
-    '  countIf(exposureRecords > 0 AND invalidExposureRecords = 0) AS exposureContract,',
-    '  countIf(outcomeRecords > 0 AND invalidOutcomeRecords = 0) AS outcomeContract,',
-    '  countIf(guardrailRecords > 0 AND invalidGuardrailRecords = 0) AS guardrailContract,',
+    '  countIf(assignmentRecords > 0 AND exposureRecords > 0 AND invalidExposureRecords = 0) AS exposureContract,',
+    '  countIf(assignmentRecords > 0 AND outcomeRecords > 0 AND invalidOutcomeRecords = 0) AS outcomeContract,',
+    '  countIf(assignmentRecords > 0 AND guardrailRecords > 0 AND invalidGuardrailRecords = 0) AS guardrailContract,',
     '  countIf(assignmentRecords > 0 AND invalidContaminationRecords = 0) AS contaminationContract,',
     '  countIf(assignmentRecords > 0 AND invalidExpiryRecords = 0) AS expiryContract,',
     '  min(firstSeenAt) AS firstSeenAt,',
@@ -572,7 +591,7 @@ export function buildL7ExperimentLedgerQuery({ start, end, policy = {} } = {}) {
     '    sum(if(event = ' + outcomeEvent + ', 1, 0)) AS outcomeRecords,',
     '    sum(if(event = ' + outcomeEvent + ' AND ' + outcomeValidity + ', 1, 0)) AS validOutcomeRecords,',
     '    sum(if(event = ' + guardrailEvent + ', 1, 0)) AS guardrailRecords,',
-    '    sum(if(event = ' + guardrailEvent + ' AND properties.breach = true, 1, 0)) AS guardrailBreaches,',
+    '    sum(if(event = ' + guardrailEvent + ' AND properties.breach = true, 1, 0)) AS guardrailBreachRecords,',
     '    sum(if(event = ' + assignmentEvent + ' AND properties.persistent = true, 1, 0)) AS persistentAssignmentRecords,',
     '    sum(if(event = ' + assignmentEvent + ' AND properties.contaminated = true, 1, 0)) AS contaminatedAssignments,',
     '    sum(if(event = ' + assignmentEvent + ', if(' + assignmentValidity + ', 0, 1), 0)) AS invalidAssignmentRecords,',
@@ -634,6 +653,10 @@ export function buildL7ExperimentLedger({
   const assignments = values.assignments;
   const exposures = values.exposures;
   const eligibleCohort = values.eligibleCohort;
+  const completeAssignmentSessions = nonNegativeInteger(
+    aggregate.completeAssignmentSessions ?? 0,
+    'completeAssignmentSessions',
+  );
   const contracts = {
     assignment: nonNegativeInteger(aggregate.assignmentContract ?? 0, 'assignmentContract'),
     exposure: nonNegativeInteger(aggregate.exposureContract ?? 0, 'exposureContract'),
@@ -657,6 +680,7 @@ export function buildL7ExperimentLedger({
     && values.guardrailBreaches === 0
     && values.persistentAssignments === assignments
     && values.contaminatedAssignments === 0
+    && completeAssignmentSessions >= assignments
     && durationDays !== null
     && contracts.assignment >= assignments
     && contracts.exposure >= assignments
@@ -690,6 +714,7 @@ export function buildL7ExperimentLedger({
     eligibleCohort: values.eligibleCohort,
     assignments: values.assignments,
     exposures: values.exposures,
+    completeAssignmentSessions,
     primaryOutcomes: values.primaryOutcomes,
     guardrailBreaches: values.guardrailBreaches,
     persistentAssignments: values.persistentAssignments,
