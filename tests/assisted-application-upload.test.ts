@@ -1,11 +1,13 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { directRules, matchBlock } from './helpers/firestoreRulesBlock';
 
-const uploadSource = readFileSync(resolve('components/community/AssistedApplicationUpload.tsx'), 'utf8');
-const firestoreRules = readFileSync(resolve('firestore.rules'), 'utf8');
-const storageRules = readFileSync(resolve('storage.rules'), 'utf8');
+const repoRoot = resolve(fileURLToPath(new URL('..', import.meta.url)));
+const uploadSource = readFileSync(resolve(repoRoot, 'components/community/AssistedApplicationUpload.tsx'), 'utf8');
+const firestoreRules = readFileSync(resolve(repoRoot, 'firestore.rules'), 'utf8');
+const storageRules = readFileSync(resolve(repoRoot, 'storage.rules'), 'utf8');
 
 describe('assisted application post-payment upload', () => {
   it('keeps the browser flow consent-first and never requests a download URL', () => {
