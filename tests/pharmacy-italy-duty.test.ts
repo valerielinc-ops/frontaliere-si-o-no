@@ -6,6 +6,7 @@ import {
   buildAtomicItalyDutySnapshots,
   ITALY_DUTY_RELEASE_MAX_AGE_MS,
   evaluateItalyDutyRelease,
+  isItalyDutyReleasePublishable,
 } from '../services/pharmacies/italyRelease';
 import {
   buildItalyDutyWeekModel,
@@ -118,6 +119,7 @@ describe('Italian duty week read model', () => {
     });
     expect(identityEvaluation.publishable).toBe(false);
     expect(identityEvaluation.reasons).toContain('Italy duties snapshot contains invalid entries');
+    expect(isItalyDutyReleasePublishable(identityTampered)).toBe(false);
 
     const sourceTampered = buildAtomicItalyDutySnapshots({
       duties: {
@@ -170,6 +172,35 @@ describe('Italian duty week read model', () => {
     });
     expect(malformedEvaluation.publishable).toBe(false);
     expect(malformedEvaluation.reasons).toContain('Italy status snapshot contains invalid province entries');
+  });
+
+  it('fails closed when global diagnostics or the all-sources flag are malformed', () => {
+    const snapshots = freshSnapshots();
+    const malformedErrors = buildAtomicItalyDutySnapshots({
+      duties: { ...snapshots.duties, _errors: 'not-an-array' },
+      status: snapshots.status,
+      evaluatedAt: FETCHED_AT,
+    });
+    const errorEvaluation = evaluateItalyDutyRelease({
+      duties: malformedErrors.duties,
+      status: malformedErrors.status,
+      now: NOW,
+    });
+    expect(errorEvaluation.publishable).toBe(false);
+    expect(errorEvaluation.reasons).toContain('Italy snapshot diagnostics are malformed');
+
+    const malformedFlag = buildAtomicItalyDutySnapshots({
+      duties: snapshots.duties,
+      status: { ...snapshots.status, _allSourcesFailed: 'false' },
+      evaluatedAt: FETCHED_AT,
+    });
+    const flagEvaluation = evaluateItalyDutyRelease({
+      duties: malformedFlag.duties,
+      status: malformedFlag.status,
+      now: NOW,
+    });
+    expect(flagEvaluation.publishable).toBe(false);
+    expect(flagEvaluation.reasons).toContain('Italy snapshot diagnostics are malformed');
   });
 
   it('expires the Italy release after the 72-hour Europe/Rome freshness window', () => {

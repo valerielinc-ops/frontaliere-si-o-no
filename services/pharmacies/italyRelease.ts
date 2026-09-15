@@ -393,6 +393,16 @@ function validateItalyDutyProvinceStatusEntries(
   return errors;
 }
 
+function validateItalyDutyDiagnostics(duties: Snapshot, status: Snapshot): string[] {
+  const errors: string[] = [];
+  for (const [label, snapshot] of [['duties', duties], ['status', status]] as const) {
+    if (!Array.isArray(snapshot._errors)) errors.push(`${label}: _errors must be an array`);
+    if (!Array.isArray(snapshot._warnings)) errors.push(`${label}: _warnings must be an array`);
+  }
+  if (typeof status._allSourcesFailed !== 'boolean') errors.push('status: _allSourcesFailed must be a boolean');
+  return errors;
+}
+
 function freshnessFor(value: unknown, nowMs: number, maxAgeMs: number): ItalyDutyProvinceFreshness {
   if (!Number.isFinite(nowMs) || typeof value !== 'string') return 'unknown';
   const parsed = Date.parse(value);
@@ -483,6 +493,8 @@ export function evaluateItalyDutyRelease({
   if (sourceRegistry.errors.length > 0) reasons.push('Italy duty source registry is invalid');
   const provinceStatusErrors = validateItalyDutyProvinceStatusEntries(statusRecord, sourceRegistry);
   if (provinceStatusErrors.length > 0) reasons.push('Italy status snapshot contains invalid province entries');
+  const diagnosticErrors = validateItalyDutyDiagnostics(dutiesRecord, statusRecord);
+  if (diagnosticErrors.length > 0) reasons.push('Italy snapshot diagnostics are malformed');
 
   const rawRows = dutiesRecord.duties;
   const rows = Array.isArray(rawRows) ? rawRows : [];
@@ -565,13 +577,14 @@ export function evaluateItalyDutyRelease({
     && rowErrors.length === 0
     && sourceRegistry.errors.length === 0
     && provinceStatusErrors.length === 0
+    && diagnosticErrors.length === 0
     && globalFreshness === 'fresh'
     && allProvincesReady
     && !(Array.isArray(dutiesRecord._errors) && dutiesRecord._errors.length > 0)
     && !(Array.isArray(statusRecord._errors) && statusRecord._errors.length > 0)
     && statusRecord._allSourcesFailed !== true;
   let state = releaseValue;
-  if (integrityErrors.length > 0 || rowErrors.length > 0) state = releaseValue === 'fresh' ? 'conflicting' : releaseValue;
+  if (integrityErrors.length > 0 || rowErrors.length > 0 || diagnosticErrors.length > 0) state = releaseValue === 'fresh' ? 'conflicting' : releaseValue;
   else if (releaseValue === 'fresh' && globalFreshness !== 'fresh') state = globalFreshness;
   else if (releaseValue === 'fresh' && !allProvincesReady) state = 'partial';
   if (!publishable && reasons.length === 0) reasons.push('Italy release is not publishable');
@@ -587,6 +600,5 @@ export function evaluateItalyDutyRelease({
 }
 
 export function isItalyDutyReleasePublishable({ duties, status }: { duties: Snapshot; status: Snapshot }): boolean {
-  const release = duties?._release;
-  return isRecord(release) && release.state === 'fresh' && verifyItalyDutyRelease({ duties, status }).length === 0;
+  return evaluateItalyDutyRelease({ duties, status }).publishable;
 }
