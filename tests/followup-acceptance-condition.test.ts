@@ -25,6 +25,8 @@ import { fileURLToPath } from 'node:url';
 import {
   commandReferent,
   hasFalsifiableAcceptance,
+  metricAlreadyGreen,
+  splitFollowupItems,
   ACCEPTANCE_CONDITION,
 } from '../scripts/ci/followup-resolution-match.mjs';
 import {
@@ -278,6 +280,24 @@ describe('condizione di accettazione — la scheda con COMANDO (D1/D2/D3)', () =
   it('D2: metrica gia\' al bersaglio (`prima=N atteso=N`) → RIFIUTATA, e\' irrobustimento travestito', () => {
     const item = scheda('npx vitest run tests/foo.test.ts', 'prima=0 atteso=0');
     expect(hasFalsifiableAcceptance(item)).toBe(false);
+  });
+
+  it('D2: `metricAlreadyGreen` resta confinata all\'item, non alla prima scheda aggregata', () => {
+    const aggregata = body([
+      scheda('node scripts/ci/first-check', 'prima=0 atteso=0'),
+      scheda('node scripts/ci/second-check', 'prima=12 atteso=0'),
+    ]);
+    const items = splitFollowupItems(aggregata);
+
+    expect(items).toHaveLength(2);
+    expect(items.map(metricAlreadyGreen)).toEqual([true, false]);
+
+    const gate = decideMintGate({ body: aggregata, createdAt: new Date().toISOString() });
+    expect(gate.action).toBe('demote');
+    expect(gate.valid).toHaveLength(1);
+    expect(gate.demoted).toHaveLength(1);
+    expect(gate.valid[0]).toContain('second-check');
+    expect(gate.demoted[0]).toContain('first-check');
   });
 
   it('una SOGLIA (`atteso=<N`) non e\' un bersaglio raggiunto e resta ammessa', () => {
