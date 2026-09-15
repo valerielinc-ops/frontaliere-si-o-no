@@ -134,13 +134,42 @@ export const TermsOfService: React.FC = () => {
  </div>
  </div>
 
- {/* Section 5: Modifiche */}
+ {/* Section 5: Comunicazioni email */}
+ <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
+ <div className="flex items-center gap-3 mb-4">
+ <div className="p-2 bg-info-subtle rounded-xl">
+ <FileText className="text-info" size={24} />
+ </div>
+ <h2 className="text-xl font-bold font-display text-strong">5. Comunicazioni email</h2>
+ </div>
+ <div className="space-y-3 text-subtle">
+ <p>
+  Registrandoti al sito, tramite email o tramite un sistema di accesso federato, accetti questi Termini e iscrivi
+  il tuo indirizzo al rapporto base di comunicazioni di Frontaliere Ticino: newsletter, job alert, messaggi di servizio
+  e comunicazioni promozionali di terzi. Non è richiesta
+  una casella di consenso separata: la registrazione e questa informativa descrivono le comunicazioni incluse.
+ </p>
+ <p>
+ Il canale di registrazione può fornire i criteri iniziali dell&apos;alert: una categoria e parole chiave dal jobboard,
+ la ricerca effettuata, il contesto del calcolatore o della pagina visitata. Per le iscrizioni generiche l&apos;alert
+ parte ampio e si perfeziona con le successive ricerche, visite e offerte consultate. Puoi gestire i canali e le
+ preferenze nella pagina <a href="/comunicazioni/" className="text-accent underline">Comunicazioni</a>.
+ </p>
+ <p>
+  Salvare un lavoro o seguire un&apos;azienda attiva inoltre il relativo canale aggiuntivo. La pubblicità di terzi non è
+  un percorso di iscrizione separato: è compresa nel rapporto base e attiva in partenza. Puoi disattivarla in qualsiasi
+  momento dal centro preferenze, senza disattivare newsletter o job alert.
+ </p>
+ </div>
+ </div>
+
+ {/* Section 6: Modifiche */}
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
  <div className="flex items-center gap-3 mb-4">
  <div className="p-2 bg-surface-raised rounded-xl">
  <FileText className="text-subtle" size={24} />
  </div>
- <h2 className="text-xl font-bold font-display text-strong">5. Modifiche ai Termini</h2>
+ <h2 className="text-xl font-bold font-display text-strong">6. Modifiche ai Termini</h2>
  </div>
  <div className="space-y-3 text-subtle">
  <p>
@@ -151,10 +180,10 @@ export const TermsOfService: React.FC = () => {
  </div>
  </div>
 
- {/* Section 6: Contatti */}
+ {/* Section 7: Contatti */}
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
  <div className="space-y-3 text-subtle">
- <h2 className="text-xl font-bold font-display text-strong">6. Contatti</h2>
+ <h2 className="text-xl font-bold font-display text-strong">7. Contatti</h2>
  <p>
  Per domande o chiarimenti sui presenti termini di servizio, puoi contattarci tramite
  la <button onClick={() => nav.navigateTo('contact')} className="text-accent hover:underline font-semibold">pagina contatti</button> o

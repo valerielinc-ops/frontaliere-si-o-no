@@ -2,7 +2,7 @@
  * Tests for the post-signup welcome email (functions/src/newsletterWelcomeEmail.js).
  *
  * Covers: idempotency (transaction-race loser skips, ONE cascade send),
- * already-sent skip, suppression statuses, not-confirmed gate, the 48h
+ * already-sent skip, suppression statuses, the 48h
  * recency guard, the WELCOME_EMAIL_ENABLED kill switch (fail-open on
  * RC-absent/throw), drip handoff state, tag/campaign_id shape, the
  * unsubscribe-token round trip via verifyHmacToken, send-failure rollback,
@@ -305,14 +305,27 @@ describe('sendNewsletterWelcomeEmail', () => {
     },
   );
 
-  it('skips a subscriber that is not confirmed/active', async () => {
+  it('skips an explicit global stop-all even when the newsletter status is active', async () => {
+    const { sendNewsletterWelcomeEmail } = await import('../functions/src/newsletterWelcomeEmail.js');
+    const db = createFakeDb({
+      newsletter_subscribers: {
+        'user@example.com': recentDoc({ all_email_opted_out: true }),
+      },
+    });
+
+    const result = await sendNewsletterWelcomeEmail({ email: 'user@example.com', locale: 'it', db, trigger: 'confirm' });
+    expect(result).toEqual({ success: false, skipped: 'suppressed' });
+    expect(sendEmailCascadeMock).not.toHaveBeenCalled();
+  });
+
+  it('does not back-send a welcome to a pending row without a confirmation anchor', async () => {
     const { sendNewsletterWelcomeEmail } = await import('../functions/src/newsletterWelcomeEmail.js');
     const db = createFakeDb({
       newsletter_subscribers: { 'pending@example.com': { status: 'pending', isActive: false } },
     });
 
     const result = await sendNewsletterWelcomeEmail({ email: 'pending@example.com', locale: 'it', db, trigger: 'confirm' });
-    expect(result).toEqual({ success: false, skipped: 'not_confirmed' });
+    expect(result).toEqual({ success: false, skipped: 'too_old' });
   });
 
   /**
@@ -340,7 +353,7 @@ describe('sendNewsletterWelcomeEmail', () => {
     const db = createFakeDb({ newsletter_subscribers: { 'nostamp@example.com': doc } });
 
     const result = await sendNewsletterWelcomeEmail({ email: 'nostamp@example.com', locale: 'it', db, trigger: 'confirm' });
-    expect(result).toEqual({ success: false, skipped: 'not_confirmed' });
+    expect(result).toEqual({ success: false, skipped: 'too_old' });
     expect(sendEmailCascadeMock).not.toHaveBeenCalled();
   });
 
@@ -390,7 +403,7 @@ describe('sendNewsletterWelcomeEmail', () => {
     });
 
     const result = await sendNewsletterWelcomeEmail({ email: 'nostampfresh@example.com', locale: 'it', db, trigger: 'confirm' });
-    expect(result).toEqual({ success: false, skipped: 'not_confirmed' });
+    expect(result).toEqual({ success: false, skipped: 'too_old' });
   });
 
   // ── Recency guard ────────────────────────────────────────────
@@ -707,19 +720,15 @@ describe('sendNewsletterWelcomeEmail — job alert awareness', () => {
     expect(subject).not.toBe('Sei dentro: gli avvisi lavoro sono attivi');
   });
 
-  it('offers instead of announcing when the subscriber never consented to job alerts (#5705)', async () => {
-    // This test used to read: "a signal-bearing subscriber WILL get an alert,
-    // so the copy may confirm it even before the doc lands" — and it passed,
-    // because the trigger did create one from a sector_interest field. That is
-    // the defect of #5705 in miniature: telling somebody their subscription to
-    // a daily mailing is active when they never asked for it. With the consent
-    // gate the predicate returns false, and the email offers the alert — an
-    // offer the reader can accept, which is what a consent is.
+  it('announces the base job alert when a terms registration has job context (#5705)', async () => {
+    // The registration terms cover newsletter + job alerts. A job signal is
+    // enough for the backfill trigger to derive the initial alert; no second
+    // checkbox or DOI is required on this path.
     const { sendNewsletterWelcomeEmail } = await import('../functions/src/newsletterWelcomeEmail.js');
     const db = createFakeDb({ newsletter_subscribers: { [EMAIL]: jobDoc() } }, {});
     await sendNewsletterWelcomeEmail({ email: EMAIL, locale: 'it', db, trigger: 'confirm' });
     const { subject } = await sentHtml();
-    expect(subject).not.toBe('Sei dentro: gli avvisi lavoro sono attivi');
+    expect(subject).toBe('Sei dentro: gli avvisi lavoro sono attivi');
   });
 
   it('still falls back to the trigger predicate for a subscriber who DID consent', async () => {

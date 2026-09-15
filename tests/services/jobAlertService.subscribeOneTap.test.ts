@@ -12,7 +12,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import type { JobAlert } from '@/services/jobAlertService';
 import { MAX_ALERTS_PER_USER } from '@/services/jobAlertService';
 
-const addDocMock = vi.fn<(...args: unknown[]) => Promise<{ id: string }>>(async () => ({
+const addDocMock = vi.fn(async (..._args: unknown[]) => ({
   id: 'alert-id',
 }));
 const setDocMock = vi.fn<(...args: unknown[]) => Promise<void>>(async () => undefined);
@@ -22,6 +22,7 @@ const getDocMock = vi.fn<(...args: unknown[]) => Promise<{ exists: () => boolean
 const getDocsMock = vi.fn<(...args: unknown[]) => Promise<{ size: number; docs: unknown[] }>>(
   async () => ({ size: 0, docs: [] }),
 );
+const upsertUnifiedEmailSubscriberMock = vi.fn(async (..._args: unknown[]) => ({ status: 'pending' }));
 
 vi.mock('firebase/firestore', () => ({
   collectionGroup: vi.fn(() => ({})),
@@ -39,6 +40,16 @@ vi.mock('firebase/firestore', () => ({
   deleteField: vi.fn(() => '__delete_field__'),
   getFirestore: vi.fn(() => ({})),
 }));
+vi.mock('@/services/newsletterSubscribers', () => ({
+  upsertUnifiedEmailSubscriber: (...args: unknown[]) => upsertUnifiedEmailSubscriberMock(...args),
+}));
+
+const TEST_EMAIL_CONSENT = {
+  email: '',
+  source: 'test',
+  sourceChannel: 'job_gate',
+  locale: 'it',
+} as const;
 
 import {
   normalizeKeyword,
@@ -134,10 +145,13 @@ describe('subscribeJobAlertOneTap', () => {
     getDocMock.mockResolvedValue({ exists: () => false, data: () => undefined });
     getDocsMock.mockClear();
     getDocsMock.mockResolvedValue({ size: 0, docs: [] });
+    upsertUnifiedEmailSubscriberMock.mockClear();
   });
 
   it('writes the canonical 1-tap config to Firestore', async () => {
-    const result = await subscribeJobAlertOneTap('user-1', 'Foo@Example.COM', 'Sanità', 'it');
+    const result = await subscribeJobAlertOneTap(
+      'user-1', 'Foo@Example.COM', 'Sanità', 'it', undefined, undefined, TEST_EMAIL_CONSENT,
+    );
 
     // The parent subscriber doc is upserted with normalised email.
     expect(setDocMock).toHaveBeenCalledTimes(2);
@@ -171,10 +185,24 @@ describe('subscribeJobAlertOneTap', () => {
 
     expect(result.id).toMatch(/^intent_v1_/);
     expect(result.frequency).toBe('weekly');
+    expect(upsertUnifiedEmailSubscriberMock).toHaveBeenCalledWith(
+      expect.anything(),
+      expect.objectContaining({ email: 'foo@example.com', userId: 'user-1' }),
+    );
+  });
+
+  it('creates the base relationship and alert without a second explicit consent', async () => {
+    const result = await subscribeJobAlertOneTap('user-1', 'a@b.com', 'Sanità', 'it');
+    expect(result).toMatchObject({ email: 'a@b.com', active: true, requiresEmailConfirmation: false });
+    expect(setDocMock).toHaveBeenCalledTimes(2);
+    expect(upsertUnifiedEmailSubscriberMock).toHaveBeenCalledWith(
+      expect.anything(),
+      expect.objectContaining({ email: 'a@b.com', userId: 'user-1' }),
+    );
   });
 
   it('trims whitespace from the category and forwards locale', async () => {
-    await subscribeJobAlertOneTap('u', 'e@x.com', '  Marketing  ', 'en');
+    await subscribeJobAlertOneTap('u', 'e@x.com', '  Marketing  ', 'en', undefined, undefined, TEST_EMAIL_CONSENT);
     const alertPayload = (setDocMock.mock.calls[1] as unknown[])[1] as {
       keywords: string[];
       locale: string;
@@ -184,7 +212,7 @@ describe('subscribeJobAlertOneTap', () => {
   });
 
   it('strips the leading emoji from the stored keyword (so it can match job text)', async () => {
-    await subscribeJobAlertOneTap('u', 'e@x.com', '💻 Tecnologia', 'it');
+    await subscribeJobAlertOneTap('u', 'e@x.com', '💻 Tecnologia', 'it', undefined, undefined, TEST_EMAIL_CONSENT);
     const alertPayload = (setDocMock.mock.calls[1] as unknown[])[1] as { keywords: string[] };
     expect(alertPayload.keywords).toEqual(['Tecnologia']);
   });
@@ -194,7 +222,7 @@ describe('subscribeJobAlertOneTap', () => {
       slug: 'ingegnere-software-duferco-lugano',
       url: 'https://frontaliereticino.ch/cerca-lavoro-ticino/ingegnere-software-duferco-lugano/',
       title: 'Ingegnere di software senior',
-    });
+    }, undefined, TEST_EMAIL_CONSENT);
     const alertPayload = (setDocMock.mock.calls[1] as unknown[])[1] as {
       sourceJobSlug: string | null;
       sourceJobUrl: string | null;
@@ -206,7 +234,7 @@ describe('subscribeJobAlertOneTap', () => {
   });
 
   it('defaults source provenance to null when omitted', async () => {
-    await subscribeJobAlertOneTap('u', 'e@x.com', 'Marketing', 'it');
+    await subscribeJobAlertOneTap('u', 'e@x.com', 'Marketing', 'it', undefined, undefined, TEST_EMAIL_CONSENT);
     const alertPayload = (setDocMock.mock.calls[1] as unknown[])[1] as {
       sourceJobSlug: string | null;
       sourceJobUrl: string | null;
@@ -231,7 +259,7 @@ describe('subscribeJobAlertOneTap', () => {
       docs: Array.from({ length: MAX_ALERTS_PER_USER }, () => ({ data: () => ({}) })),
     });
     await expect(
-      subscribeJobAlertOneTap('user-1', 'a@b.com', 'Sanità', 'it'),
+      subscribeJobAlertOneTap('user-1', 'a@b.com', 'Sanità', 'it', undefined, undefined, TEST_EMAIL_CONSENT),
     ).rejects.toThrow(new RegExp(`Maximum ${MAX_ALERTS_PER_USER}`));
     expect(addDocMock).not.toHaveBeenCalled();
   });
@@ -248,7 +276,7 @@ describe('subscribeJobAlertOneTap', () => {
       })),
     });
     await expect(
-      subscribeJobAlertOneTap('user-1', 'a@b.com', 'Sanità', 'it'),
+      subscribeJobAlertOneTap('user-1', 'a@b.com', 'Sanità', 'it', undefined, undefined, TEST_EMAIL_CONSENT),
     ).resolves.toBeTruthy();
     expect(setDocMock).toHaveBeenCalledTimes(2);
   });
@@ -257,7 +285,7 @@ describe('subscribeJobAlertOneTap', () => {
   // services/jobMatchProfile.ts (already-validated canton code) as a 6th
   // optional arg, hard-scoping the alert instead of covering all cantons.
   it('sets cantonFilter from the optional cantonCode argument', async () => {
-    await subscribeJobAlertOneTap('u', 'e@x.com', '💻 Tecnologia', 'it', undefined, 'TI');
+    await subscribeJobAlertOneTap('u', 'e@x.com', '💻 Tecnologia', 'it', undefined, 'TI', TEST_EMAIL_CONSENT);
     const alertPayload = (setDocMock.mock.calls[1] as unknown[])[1] as {
       cantonFilter: string[] | null;
     };
@@ -265,7 +293,7 @@ describe('subscribeJobAlertOneTap', () => {
   });
 
   it('defaults cantonFilter to null when cantonCode is omitted', async () => {
-    await subscribeJobAlertOneTap('u', 'e@x.com', 'Marketing', 'it');
+    await subscribeJobAlertOneTap('u', 'e@x.com', 'Marketing', 'it', undefined, undefined, TEST_EMAIL_CONSENT);
     const alertPayload = (setDocMock.mock.calls[1] as unknown[])[1] as {
       cantonFilter: string[] | null;
     };
@@ -273,7 +301,7 @@ describe('subscribeJobAlertOneTap', () => {
   });
 
   it('defaults cantonFilter to null when cantonCode is explicitly null', async () => {
-    await subscribeJobAlertOneTap('u', 'e@x.com', 'Marketing', 'it', undefined, null);
+    await subscribeJobAlertOneTap('u', 'e@x.com', 'Marketing', 'it', undefined, null, TEST_EMAIL_CONSENT);
     const alertPayload = (setDocMock.mock.calls[1] as unknown[])[1] as {
       cantonFilter: string[] | null;
     };

@@ -126,14 +126,39 @@ function getAuthInstance(): any {
 
 // ─── User Profile Persistence ────────────────────────────────
 
+function authProviderSourceChannel(provider: string): string {
+ const normalized = String(provider || '').toLowerCase();
+ if (normalized.includes('facebook')) return 'auth_facebook';
+ if (normalized.includes('linkedin')) return 'auth_linkedin';
+ if (normalized.includes('email')) return 'auth_email';
+ return 'auth_google';
+}
+
+function authProviderFromUser(user: any): 'google' | 'facebook' | 'linkedin' | 'email' {
+ const ids = Array.isArray(user?.providerData)
+  ? user.providerData.map((item: any) => String(item?.providerId || '').toLowerCase())
+  : [];
+ if (ids.some((id: string) => id.includes('facebook'))) return 'facebook';
+ if (ids.some((id: string) => id.includes('linkedin'))) return 'linkedin';
+ if (ids.some((id: string) => id.includes('google'))) return 'google';
+ return 'email';
+}
+
 /**
- * Enrich the newsletter_subscribers/{email} document with auth profile data.
- * Best-effort — sign-in succeeds even if this write fails.
- * Called after successful Google, Facebook, or LinkedIn sign-in.
+ * Register every authenticated account in the base communications
+ * relationship, then enrich its profile. The registration terms describe the
+ * newsletter + job-alert relationship; feature-specific alerts are added by
+ * the source channel (or by the backfill trigger when context arrives later).
+ * This is intentionally best-effort so a Firestore outage never prevents
+ * Firebase Authentication from completing.
  */
-export async function saveUserProfileToFirestore(user: any, provider: 'google' | 'facebook' | 'linkedin'): Promise<void> {
+export async function saveUserProfileToFirestore(
+ user: any,
+ provider: 'google' | 'facebook' | 'linkedin' | 'email',
+ jobContext?: AuthJobContext | null,
+): Promise<void> {
  try {
- const email = user?.email?.trim().toLowerCase();
+ const email = getAuthEmail(user)?.trim().toLowerCase();
  if (!email) return;
 
  const [{ getApp }, fsModule] = await Promise.all([
@@ -142,6 +167,33 @@ export async function saveUserProfileToFirestore(user: any, provider: 'google' |
  ]);
 
  const db = fsModule.getFirestore(await getApp());
+ const { upsertNewsletterSubscriber } = await import('./newsletterSubscribers');
+ const context = jobContext === undefined ? consumeAuthJobContext() : jobContext;
+ const sourceChannel = authProviderSourceChannel(provider);
+ await upsertNewsletterSubscriber(db, {
+  email,
+  userId: user.uid || null,
+  name: user.displayName || null,
+  source: sourceChannel,
+  sourceChannel,
+  sourcePage: typeof window !== 'undefined' ? window.location.pathname : null,
+  sourceComponent: 'authService',
+  sourceRouteFamily: 'authentication',
+  locale: typeof navigator !== 'undefined' ? navigator.language : 'it',
+  jobContext: context
+   ? {
+    slug: context.slug || null,
+    company: context.company || null,
+    title: context.title || null,
+    location: context.location || null,
+    category: context.category || null,
+    searchQuery: context.searchQuery || null,
+   }
+   : null,
+  registrationTermsAccepted: true,
+  registrationMethod: provider === 'email' ? 'email' : 'authenticated',
+  skipConfirmationEmail: provider !== 'email',
+ });
  const subRef = fsModule.doc(db, 'newsletter_subscribers', email);
 
  const displayName = user.displayName || null;
@@ -161,7 +213,7 @@ export async function saveUserProfileToFirestore(user: any, provider: 'google' |
  await fsModule.setDoc(subRef, profileData, { merge: true });
  } catch (err) {
  // Best-effort: don't break login if Firestore write fails
- console.warn('[Auth] Failed to enrich subscriber profile:', err);
+ console.warn('[Auth] Failed to register/enrich subscriber profile:', err);
  }
 }
 
@@ -280,6 +332,7 @@ export async function signInWithEmailPassword(email: string, password: string): 
  if (!authInstance || !_authModule) return null;
  const result = await _authModule.signInWithEmailAndPassword(authInstance, email.trim(), password);
  mirrorAuthSessionMarker(result.user);
+ saveUserProfileToFirestore(result.user, 'email').catch(() => {});
  const { Analytics } = await import('@/services/analytics');
  Analytics.trackUIInteraction('auth', 'email', 'login', 'success');
  return result.user;
@@ -335,6 +388,7 @@ export async function signInWithNewsletterEmailLink(email: string, href?: string
 
  const result = await _authModule.signInWithEmailLink(authInstance, normalizedEmail, link);
  mirrorAuthSessionMarker(result?.user);
+ if (result?.user) saveUserProfileToFirestore(result.user, 'email').catch(() => {});
  const { Analytics } = await import('@/services/analytics');
  Analytics.trackUIInteraction('auth', 'newsletter', 'login', 'email-link-success');
  return result?.user || null;
@@ -353,6 +407,7 @@ export async function signInWithCustomAuthToken(token: string): Promise<any | nu
  if (!authInstance || !_authModule) return null;
  const result = await _authModule.signInWithCustomToken(authInstance, token);
  mirrorAuthSessionMarker(result?.user);
+ if (result?.user) saveUserProfileToFirestore(result.user, authProviderFromUser(result.user)).catch(() => {});
  return result?.user || null;
  } catch (error) {
  reportCaughtError(error, 'auth.signInWithCustomToken');
@@ -744,6 +799,7 @@ export async function signInWithFacebook(): Promise<any | null> {
  const user = await handleAccountLinking(popupError);
  if (user) {
   mirrorAuthSessionMarker(user);
+  saveUserProfileToFirestore(user, 'facebook').catch(() => {});
   return user;
  }
  // If linking failed, inform the user
@@ -861,8 +917,10 @@ const AUTH_JOB_CONTEXT_KEY = 'auth_job_context';
 export interface AuthJobContext {
  slug?: string | null;
  company?: string | null;
+ title?: string | null;
  location?: string | null;
  category?: string | null;
+ searchQuery?: string | null;
 }
 
 /** Save job context before an OAuth redirect so the callback can enrich the newsletter subscription. */
@@ -1010,7 +1068,9 @@ export function useAuth(): AuthState & {
  currentUserUid: authInstance?.currentUser?.uid || null,
  });
  if (result?.user) {
- const provider = sessionStorage.getItem('auth_redirect_provider') || 'google';
+ const provider = sessionStorage.getItem('auth_redirect_provider') || authProviderFromUser(result.user);
+ const providerName: 'google' | 'facebook' | 'linkedin' | 'email' =
+  provider === 'facebook' || provider === 'linkedin' || provider === 'email' ? provider : 'google';
  mirrorAuthSessionMarker(result.user);
  sessionStorage.removeItem('auth_redirect_provider');
  // Mirror the redirect result into local hook state immediately.
@@ -1025,10 +1085,10 @@ export function useAuth(): AuthState & {
  setUser(Object.create(result.user));
  }
  import('@/services/analytics').then(({ Analytics }) => {
- Analytics.trackUIInteraction('auth', provider, 'login', 'success-redirect');
+ Analytics.trackUIInteraction('auth', providerName, 'login', 'success-redirect');
  });
  // Best-effort: save user profile to Firestore for personalization
- saveUserProfileToFirestore(result.user, provider as 'google' | 'facebook').catch(() => {});
+ saveUserProfileToFirestore(result.user, providerName).catch(() => {});
  // Restore the path the user was on before the redirect
  const savedPath = sessionStorage.getItem('auth_redirect_path');
  logAuthDebug('useAuth:redirect-success', {
@@ -1065,6 +1125,10 @@ export function useAuth(): AuthState & {
  mirrorAuthSessionMarker(u);
  setUser(u);
  setLoading(false);
+ // Authentication is also a site registration under the product terms. Pass
+ // null explicitly so the background listener never consumes job context that
+ // belongs to the foreground OAuth result handler.
+ if (u) saveUserProfileToFirestore(u, authProviderFromUser(u), null).catch(() => {});
  });
  }).catch((e) => {
  logAuthDebug('useAuth:startAuth:error', {
@@ -1337,7 +1401,7 @@ export async function initOneTap(): Promise<boolean> {
  return oneTapInitPromise;
 }
 
-/** Handle One Tap credential response. Authentication alone never subscribes. */
+/** Handle One Tap credential response and register the base terms relationship. */
 async function handleOneTapResponse(response: OneTapResponse): Promise<void> {
  try {
  await ensureFirebaseAuth();
@@ -1349,8 +1413,9 @@ async function handleOneTapResponse(response: OneTapResponse): Promise<void> {
  const { Analytics } = await import('@/services/analytics');
  Analytics.trackUIInteraction('auth', 'google', 'login', 'onetap');
 
- // Profile enrichment is independent from newsletter consent. A newsletter
- // record is created only by an explicit form or a visible communications gate.
+ // Authentication is a registration channel under the site terms. The central
+ // writer records the same newsletter + job-alert relationship as every other
+ // signup source; the feature context, when present, is passed separately.
  saveUserProfileToFirestore(result.user, 'google').catch(() => { /* best-effort */ });
 
  // Redirect to saved path if present (e.g., expired/bridge job → listing)

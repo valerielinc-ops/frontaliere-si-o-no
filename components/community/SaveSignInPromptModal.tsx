@@ -13,9 +13,9 @@
  * address gets the opt-in email, which doubles as a sign-in link via
  * ?action=confirm_newsletter auto-login (wired generically in App.tsx for
  * any sourcePath — including a magic link opened in a brand new tab); an
- * EXISTING address gets a login link sent explicitly (requestConfirmationEmail
- * purpose:'login'). Social authentication is access-only and never creates or
- * reactivates newsletter state.
+ * Every email registration creates the same terms-based newsletter + job-alert
+ * relationship as the other site channels. The login link only authenticates
+ * the visitor; it is not a second communications choice.
  *
  * Purely presentational: parent (`JobBoard.tsx`) owns open/close state
  * reacts `authUser?.uid` becoming truthy close modal replay pending save —
@@ -27,13 +27,12 @@
 
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
-import { X, Bookmark, Mail, Loader2, AlertCircle, Shield } from 'lucide-react';
+import { X, Bookmark, Mail, Loader2, AlertCircle } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
-import { upsertNewsletterSubscriber, requestConfirmationEmail } from '@/services/newsletterSubscribers';
-import { consentProof } from '@/services/consentTexts';
-import ConsentNotice from '@/components/shared/ConsentNotice';
+import { upsertUnifiedEmailSubscriber, requestConfirmationEmail } from '@/services/newsletterSubscribers';
+import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import { getFirestore } from 'firebase/firestore';
 import { getApp } from '@/services/firebase';
 import { Analytics } from '@/services/analytics';
@@ -63,23 +62,20 @@ export default function SaveSignInPromptModal({ locale, onDismiss }: SaveSignInP
     setEmailError('');
     try {
       const firestore = getFirestore(await getApp());
-      const upsert = await upsertNewsletterSubscriber(firestore, {
+      const upsert = await upsertUnifiedEmailSubscriber(firestore, {
         email: trimmed,
-        preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false },
         source: 'save_signin_prompt_email',
+        sourceChannel: 'saved_job_unified',
         sourcePage: window.location.pathname,
         sourceCta: 'save_signin_prompt_email',
         sourceComponent: 'SaveSignInPromptModal',
         sourceRouteFamily: 'community',
         locale: navigator.language || 'it-IT',
-        // #5712/#5718: the notice under the form renders this exact string,
-        // in this locale, and it is the one stored.
-        ...consentProof('communicationsOptIn', 'email_submit', locale),
-        // No `consentGiven`: this form has no consent checkbox, so nothing here
-        // is an affirmative opt-in — only "was shown" is true. See the
-        // `consentGiven` section of services/consentTexts.ts (#5712).
       });
-      if (upsert.existed) {
+      // A new email-only registration already receives the DOI link from the
+      // unified upsert. Send the separate login link only when confirmation is
+      // already available (or this is not a pending email registration).
+      if (upsert.status !== 'pending' || upsert.hadConfirmationProof) {
         await requestConfirmationEmail(trimmed, 'login');
       }
       setEmailStatus('sent');
@@ -131,8 +127,8 @@ export default function SaveSignInPromptModal({ locale, onDismiss }: SaveSignInP
           </div>
         ) : (
           <div className="space-y-4">
-            {/* Social authentication is access-only. The email branch below
-                owns its explicit consent notice and newsletter request. */}
+            {/* Social authentication and the email path both use the same
+                site-wide registration relationship. */}
             <SocialSignInButtons locale={locale} errorContext="saveAuthPrompt" googleWidth={360} />
 
             <div className="flex items-center gap-3">
@@ -178,10 +174,13 @@ export default function SaveSignInPromptModal({ locale, onDismiss }: SaveSignInP
               </button>
             </form>
 
-            <p className="flex items-start gap-1.5 text-xs text-muted leading-relaxed">
-              <Shield className="w-3.5 h-3.5 text-success shrink-0 mt-0.5" />
-              <ConsentNotice consentKey="communicationsOptIn" locale={locale} className="text-[10px] text-muted leading-snug block" />
-            </p>
+            <EmailConsentCheckbox
+              id="save-signin-email-consent"
+              consentKey="communicationsOptIn"
+              locale={locale}
+              className="flex items-start gap-2 cursor-pointer"
+              noticeClassName="text-[10px] text-muted leading-snug"
+            />
           </div>
         )}
 

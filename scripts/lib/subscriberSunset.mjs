@@ -30,6 +30,7 @@
 import { toMillis } from './firestoreTimestamp.mjs';
 import { isReprobeDue, REPROBE_AFTER_INACTIVE_DAYS, REPROBE_MAX_ATTEMPTS } from './reprobeGuard.mjs';
 import { isNewsletterOptOutBinding } from '../../services/newsletterOptOut.mjs';
+import { isCrossChannelStop } from '../../services/emailSuppression.mjs';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
@@ -111,6 +112,13 @@ function reprobeOrNone(sub, nowMs, noneReason) {
 export function classifySunset(sub, nowMs) {
   const status = norm(sub?.status);
   const engaged = num(sub?.open_count ?? sub?.openCount) > 0 || num(sub?.click_count ?? sub?.clickCount) > 0;
+
+  // A global stop-all or hard address signal also ends lifecycle mail. Keep
+  // this before the inactive/reprobe branches so list hygiene can never make a
+  // globally suppressed address mailable again.
+  if (isCrossChannelStop(sub)) {
+    return { action: 'none', reason: 'global/address suppression — not a lifecycle candidate' };
+  }
 
   // A recorded opt-out outranks every branch below, including the `inactive`
   // one, which can otherwise return 'reactivate'/'reprobe' and make the address

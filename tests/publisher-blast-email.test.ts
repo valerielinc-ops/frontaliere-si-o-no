@@ -54,13 +54,12 @@ describe('buildBlastEmail', () => {
   /**
    * The footer this channel owes its reader (#5759).
    *
-   * Third-party advertising is consented to as an OPT-OUT — the owner ruled on
-   * 2026-08-13 that no extra checkbox appears at signup — so the compensating
-   * control is a per-channel switch in the preference centre. A mail whose only
-   * exit is "unsubscribe from everything" offers a different, worse bargain
-   * than the one the reader was told about, and leaves someone who wants to
-   * keep the newsletter with nothing to click. That is #5684 restated on the
-   * one channel where the switch IS the consent.
+   * Third-party advertising is a separate optional purpose. The preference
+   * centre records its affirmative choice and keeps its withdrawal scoped to
+   * this channel. A mail whose only exit is "unsubscribe from everything"
+   * offers a different, worse bargain than the one the reader was told about,
+   * and leaves someone who wants to keep the newsletter with nothing to click.
+   * That is #5684 restated on the one channel with its own consent category.
    *
    * tests/preference-center-coverage.test.ts asserts the source-level half (the
    * template references the builder at all); this is the rendered half, which

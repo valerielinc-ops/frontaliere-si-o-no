@@ -1,6 +1,8 @@
 /**
  * THE INVARIANT, EXTENDED TO `functions/`: no scheduled Cloud Function trigger
- * bulk-mails `newsletter_subscribers` without consulting the consent gate.
+ * bulk-mails `newsletter_subscribers` without applying the shared suppression
+ * predicates. Ordinary delivery is terms-based; confirmation proof is not a
+ * recipient gate.
  *
  * `tests/no-channel-mails-unconfirmed.test.ts` (#5686) polices every sender in
  * `scripts/*.mjs` — `discoverSenders()` (`tests/helpers/senders.ts`) scans that
@@ -58,17 +60,17 @@ function buildImportMap(): Map<string, string> {
 
 /** Bulk (not doc-by-id) read of the newsletter_subscribers collection. */
 const BULK_READ = /collection\('newsletter_subscribers'\)\s*\.\s*(get\(\)|where\()/;
-const CALLS_GATE = /hasConfirmationProof\s*\(/;
+const CALLS_SUPPRESSION = /isCrossChannelStop\s*\(|isNewsletterExcluded\s*\(|isNewsletterOptOutBinding\s*\(/;
 
 describe('the detector itself', () => {
   // Verified against fixtures, not just production files: an it.each loop
   // whose body condition never fires on today's source would otherwise pass
   // vacuously if the regexes were broken (same failure mode the `scripts/`
   // scan guards against with its own "found the senders at all" canary).
-  it('flags a bulk read with no gate', () => {
+  it('flags a bulk read with no suppression check', () => {
     const fixture = "const snap = await db.collection('newsletter_subscribers').get();";
     expect(BULK_READ.test(fixture)).toBe(true);
-    expect(CALLS_GATE.test(fixture)).toBe(false);
+    expect(CALLS_SUPPRESSION.test(fixture)).toBe(false);
   });
 
   it('does not flag a doc-by-id read', () => {
@@ -76,16 +78,16 @@ describe('the detector itself', () => {
     expect(BULK_READ.test(fixture)).toBe(false);
   });
 
-  it('recognises a gated bulk read', () => {
+  it('recognises a suppression-filtered bulk read', () => {
     const fixture =
       "const snap = await db.collection('newsletter_subscribers').where('status', '==', 'confirmed').get();\n" +
-      'const eligible = snap.docs.filter((d) => hasConfirmationProof(d.data()));';
+      'const eligible = snap.docs.filter((d) => !isNewsletterExcluded(d.data().status));';
     expect(BULK_READ.test(fixture)).toBe(true);
-    expect(CALLS_GATE.test(fixture)).toBe(true);
+    expect(CALLS_SUPPRESSION.test(fixture)).toBe(true);
   });
 });
 
-describe('no scheduled functions/ trigger bulk-mails newsletter_subscribers unconfirmed', () => {
+describe('no scheduled functions/ trigger bulk-mails newsletter_subscribers without suppression', () => {
   const triggers = discoverScheduledTriggers();
   const importMap = buildImportMap();
 
@@ -96,7 +98,7 @@ describe('no scheduled functions/ trigger bulk-mails newsletter_subscribers unco
     expect(triggers.map((t) => t.name)).toContain('purgePublisherApplications');
   });
 
-  it.each(triggers)('$name: every function it calls that bulk-reads newsletter_subscribers consults the gate', ({ body }) => {
+  it.each(triggers)('$name: every function it calls that bulk-reads newsletter_subscribers applies suppression', ({ body }) => {
     const calledNames = [...body.matchAll(/\b(\w+)\(/g)].map((m) => m[1]);
     const files = new Set(
       calledNames.map((n) => importMap.get(n)).filter((f): f is string => Boolean(f)),
@@ -106,20 +108,15 @@ describe('no scheduled functions/ trigger bulk-mails newsletter_subscribers unco
       if (!BULK_READ.test(src)) continue;
       expect(
         src,
-        `${file} bulk-reads newsletter_subscribers from a scheduled trigger — it must consult hasConfirmationProof()`,
-      ).toMatch(CALLS_GATE);
-      // `.js` as well as `.mjs`: a Cloud Function CANNOT import
-      // `services/subscriberConsent.mjs` — no bundler, and nothing outside
-      // `functions/` ships — so the only shared gate reachable from here is
-      // `functions/src/lib/subscriberConsent.js`, which is where the single
-      // definition has lived since #5692 (the `services/` path is its
-      // re-export). Demanding the `.mjs` spelling asked a `functions/` file for
-      // an import that cannot resolve, so the day a scheduled trigger DID
-      // consult the gate this assertion would have failed it for complying.
-      expect(src, `${file} must import the shared gate, never a local copy`).toMatch(
-        /from ['"][^'"]*subscriberConsent\.m?js['"]/,
+        `${file} bulk-reads newsletter_subscribers from a scheduled trigger — it must apply a central suppression predicate`,
+      ).toMatch(CALLS_SUPPRESSION);
+      // `.js` as well as `.mjs`: a Cloud Function CANNOT import the services
+      // shim at runtime, so its suppression helper must be reachable from the
+      // shipped `functions/` tree and never be copied locally.
+      expect(src, `${file} must import the shared suppression helper, never a local copy`).toMatch(
+        /from ['"][^'"]*emailSuppression\.m?js['"]/,
       );
-      expect(src).not.toMatch(/function hasConfirmationProof/);
+      expect(src).not.toMatch(/function isCrossChannelStop/);
     }
   });
 });

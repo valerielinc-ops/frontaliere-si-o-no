@@ -5,16 +5,13 @@ import { reportCaughtError } from '@/services/errorReporter';
 import { useTranslation } from '@/services/i18n';
 import { unlockAchievement } from '@/services/gamificationService';
 import EmailInput, { validateEmailStrict, checkMxRecord } from '@/components/shared/EmailInput';
-import { useAuth, getAuthEmail, eagerAuth, promptOneTap, cancelOneTap, renderGoogleButtonWithReadiness, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
+import { useAuth, getAuthEmail, renderGoogleButtonWithReadiness, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
 import {
  upsertNewsletterSubscriber,
  markNewsletterSubscribedLocally,
- getEmailProviderInfo,
- openEmailProvider,
- requestConfirmationEmail,
 } from '@/services/newsletterSubscribers';
-import { consentProof } from '@/services/consentTexts';
-import ConsentNotice from '@/components/shared/ConsentNotice';
+import { isNewsletterExcluded } from '@/services/emailSuppression.mjs';
+import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import TelegramChannelCta from '@/components/shared/TelegramChannelCta';
 
 // Firebase Firestore will be lazily imported
@@ -56,11 +53,20 @@ interface NewsletterProps {
 }
 
 const SUBSCRIBED_KEY = 'newsletter_subscribed';
-const NEWSLETTER_ONETAP_FOOTER_KEY = 'onetap_prompted_newsletter_footer';
+
+/**
+ * The shared upsert is deliberately fail-closed for a recorded opt-out or
+ * suppression state. Callers must not turn that no-op into a local success:
+ * `existed` is false for an opted-out row, and a pre-confirmation opt-out can
+ * still report `status: 'pending'`.
+ */
+function isRejectedNewsletterCapture(result: { optedOut?: boolean; status?: string | null }): boolean {
+ return result.optedOut === true || isNewsletterExcluded(result.status);
+}
 
 const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverride, subtitleOverride, acquisitionSource }) => {
  const { t, locale } = useTranslation();
- const { user, signIn: googleSignIn, signInFacebook: facebookSignIn } = useAuth();
+ const { user, signIn: googleSignIn } = useAuth();
  const [email, setEmail] = useState('');
  const [name, setName] = useState('');
  const [alreadySubscribed] = useState(() => localStorage.getItem(SUBSCRIBED_KEY) === 'true');
@@ -83,18 +89,62 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  taxUpdates: true,
  tips: false,
  });
- const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'pending' | 'error' | 'exists'>('idle');
+ const [status, setStatus] = useState<'idle' | 'loading' | 'pending' | 'success' | 'error' | 'exists'>('idle');
  const [errorMessage, setErrorMessage] = useState('');
- const [resendStatus, setResendStatus] = useState<'idle' | 'sending' | 'sent' | 'cooldown' | 'error'>('idle');
+ const [pendingSocialMethod, setPendingSocialMethod] = useState<'google_oauth' | 'linkedin_oauth' | 'facebook_oauth' | null>(null);
 
+ // A provider button authenticates and registers the visitor in one flow. The
+ // terms-based relationship is written after Auth supplies the verified
+ // address; there is no second communications checkbox.
  useEffect(() => {
- if (!compact || user) return;
- if (sessionStorage.getItem(NEWSLETTER_ONETAP_FOOTER_KEY)) return;
- sessionStorage.setItem(NEWSLETTER_ONETAP_FOOTER_KEY, '1');
- eagerAuth();
- promptOneTap();
- return () => cancelOneTap();
- }, [compact, user]);
+   if (!user || !pendingSocialMethod) return;
+   let cancelled = false;
+   void (async () => {
+     const socialEmail = getAuthEmail(user);
+     if (!socialEmail) {
+       if (!cancelled) {
+         setPendingSocialMethod(null);
+         setStatus('error');
+         setErrorMessage(t('newsletter.invalidEmail'));
+       }
+       return;
+     }
+     try {
+       const firestore = await initFirestore();
+       if (!firestore) throw new Error(t('newsletter.subscribeError'));
+       const upsert = await upsertNewsletterSubscriber(firestore, {
+         email: socialEmail,
+         userId: user.uid,
+         source: 'newsletter_social_consent',
+         sourceChannel: 'newsletter_page',
+         sourcePage: typeof window !== 'undefined' ? window.location.pathname : '/comunicazioni/',
+         sourceCta: 'newsletter_social_signup',
+         sourceComponent: compact ? 'NewsletterCompact' : 'Newsletter',
+         sourceRouteFamily: compact ? 'footer' : 'newsletter',
+         locale,
+         registrationMethod: 'authenticated',
+       });
+       if (!cancelled) {
+         if (isRejectedNewsletterCapture(upsert)) {
+           setPendingSocialMethod(null);
+           setStatus('error');
+           setErrorMessage(t('newsletter.subscribeError'));
+           return;
+         }
+         markNewsletterSubscribedLocally();
+         setPendingSocialMethod(null);
+         setStatus('success');
+       }
+     } catch (error: any) {
+       if (!cancelled) {
+         setPendingSocialMethod(null);
+         setStatus('error');
+         setErrorMessage(error?.message || t('newsletter.subscribeError'));
+       }
+     }
+   })();
+   return () => { cancelled = true; };
+ }, [compact, locale, pendingSocialMethod, t, user]);
 
  useEffect(() => {
  let cancelled = false;
@@ -173,32 +223,40 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  sourceComponent: compact ? 'NewsletterCompact' : 'Newsletter',
  sourceRouteFamily: compact ? 'footer' : 'newsletter',
  locale: navigator.language || 'it-IT',
-        isActive: false, // pending until double opt-in confirmed
-        status: 'pending',
-        // A fresh form submission may renew an old opt-out, but only through
-        // the new confirmation link sent by the server.
-        reconsent: true,
-        // #5678/#5712. This form has no consent checkbox (unlike SubscriptionCTA),
- // so `consentGiven` stays unset — but the notice IS rendered in both form
- // variants below, in this locale, so what is stored is what was read.
- ...consentProof('communicationsOptIn', 'email_submit', locale),
+ registrationMethod: 'email',
  }),
- 8000,
+8000,
  'newsletter_upsert',
  );
- if (upsert.existed && upsert.status !== 'pending') {
+ if (isRejectedNewsletterCapture(upsert)) {
+ setErrorMessage(t('newsletter.subscribeError'));
+ setStatus('error');
+ Analytics.trackNewsletter('error', 'suppressed');
+ return;
+ }
+ const needsConfirmation = upsert.status === 'pending' && !upsert.hadConfirmationProof;
+ if (upsert.existed && !needsConfirmation) {
  console.log('[Newsletter] Email already subscribed');
  setStatus('exists');
  Analytics.trackNewsletter('error', email.split('@')[1]);
  return;
  }
 
- markNewsletterSubscribedLocally();
+ if (needsConfirmation) {
  setStatus('pending');
  setEmail('');
  setName('');
+ console.log('[Newsletter] ⏳ Confirmation link sent; communications remain active under the registration terms');
+ Analytics.trackNewsletter('subscribe', email.split('@')[1]);
+ return;
+ }
+
+ markNewsletterSubscribedLocally();
+ setStatus('success');
+ setEmail('');
+ setName('');
  unlockAchievement('newsletter_sub');
- console.log('[Newsletter] ✅ Subscription saved as pending (double opt-in)');
+ console.log('[Newsletter] ✅ Subscription saved under the registration terms');
  Analytics.trackNewsletter('subscribe', email.split('@')[1]);
  } catch (error: any) {
  reportCaughtError(error, 'newsletter.subscribe');
@@ -223,10 +281,18 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  {subtitleOverride || t('newsletter.compactDescription')}
  </p>
 
- {(status === 'success' || status === 'pending') ? (
+ {status === 'pending' ? (
+ <div className="flex items-start gap-2 text-on-accent" role="status" aria-live="polite">
+ <Mail size={18} className="mt-0.5 shrink-0" />
+ <div>
+ <p className="font-bold text-sm">{t('newsletter.doubleOptIn.title')}</p>
+ <p className="text-on-accent/80 text-xs mt-1">{t('newsletter.doubleOptIn.checkInbox')}</p>
+ </div>
+ </div>
+ ) : status === 'success' ? (
  <div className={`flex items-center gap-2 text-on-accent`}>
- {status === 'pending' ? <Mail size={18} /> : <CheckCircle2 size={18} />}
- {status === 'pending' ? t('newsletter.doubleOptIn.checkInbox') : t('newsletter.subscriptionConfirmedShort')}
+ <CheckCircle2 size={18} />
+ {t('newsletter.subscriptionConfirmedShort')}
  </div>
  ) : (
  <div className="space-y-3">
@@ -249,18 +315,29 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  {status === 'loading' ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}
  </button>
  </form>
- <ConsentNotice consentKey="communicationsOptIn" locale={locale} className="text-[11px] text-on-accent/80 leading-relaxed block" />
+ <EmailConsentCheckbox
+   id="newsletter-compact-consent"
+   consentKey="communicationsOptIn"
+   locale={locale}
+   className="flex items-start gap-2"
+   noticeClassName="text-[11px] text-on-accent/80 leading-relaxed"
+ />
  {!user && (
  <div className="flex flex-col gap-2">
  <div className="space-y-2">
- <div ref={googleButtonRef} className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-xl" />
+ <div
+   ref={googleButtonRef}
+   onPointerDown={() => { setPendingSocialMethod('google_oauth'); }}
+   className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-xl"
+ />
  {!googleButtonReady && (
  <button
  onClick={async () => {
+ setPendingSocialMethod('google_oauth');
  Analytics.trackNewsletter('view_form', 'google');
  await googleSignIn();
  }}
- className="w-full min-h-[44px] grid grid-cols-[20px_1fr_20px] items-center px-4 py-2 bg-on-accent/10 border border-on-accent/20 rounded-xl text-on-accent/90 text-xs font-semibold hover:bg-on-accent/20 transition-colors"
+ className="w-full min-h-[44px] grid grid-cols-[20px_1fr_20px] items-center px-4 py-2 bg-on-accent/10 border border-on-accent/20 rounded-xl text-on-accent/90 text-xs font-semibold hover:bg-on-accent/20 transition-colors disabled:opacity-50"
  >
  <svg viewBox="0 0 24 24" className="w-4 h-4" aria-hidden="true">
  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4" />
@@ -277,8 +354,8 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  {linkedInAvailable && (
  <button
  type="button"
- onClick={() => signInWithLinkedIn()}
- className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-brand-linkedin hover:bg-brand-linkedin-hover text-on-accent text-sm font-semibold transition-colors"
+ onClick={() => { setPendingSocialMethod('linkedin_oauth'); void signInWithLinkedIn(); }}
+ className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-brand-linkedin hover:bg-brand-linkedin-hover text-on-accent text-sm font-semibold transition-colors disabled:opacity-50"
  >
  <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
  {locale === 'it' ? 'Continua con LinkedIn' : locale === 'de' ? 'Mit LinkedIn fortfahren' : locale === 'fr' ? 'Continuer avec LinkedIn' : 'Continue with LinkedIn'}
@@ -333,57 +410,26 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  </div>
  </div>
 
- {(status === 'success' || status === 'pending') ? (
- <div className="bg-warning-subtle rounded-2xl border border-warning-border p-5 sm:p-8 text-center">
- <Mail size={48} className="text-warning mx-auto mb-4" />
+ {status === 'pending' ? (
+ <div className="bg-info-subtle rounded-2xl border border-info-border p-5 sm:p-8 text-center" role="status" aria-live="polite">
+ <Mail size={48} className="text-info mx-auto mb-4" />
  <h3 className="text-xl font-bold font-display text-strong mb-2">{t('newsletter.doubleOptIn.title')}</h3>
- <p className="text-subtle mb-3">
- {t('newsletter.doubleOptIn.description')}
- </p>
- <p className="text-sm text-muted mb-4">
- {t('newsletter.doubleOptIn.spamHint')}
- </p>
-
- {/* FRO-23: Email provider button */}
- {email && (() => {
- const provider = getEmailProviderInfo(email);
- if (!provider) return null;
- return (
- <button
- onClick={() => openEmailProvider(email)}
- className="inline-flex items-center gap-2 px-5 py-2.5 bg-info-strong hover:bg-info-strong-hover text-on-accent text-sm font-semibold rounded-xl transition-colors"
- >
- <Mail size={16} />
- {t('newsletter.openEmailProvider', { provider: provider.name })}
- </button>
- );
- })()}
-
- {/* FRO-26: Resend confirmation */}
- {email && (
- <div className="mt-4">
- <p className="text-sm text-muted mb-1">{t('newsletter.pendingReminder.resend')}</p>
- <button
- disabled={resendStatus === 'sending' || resendStatus === 'sent'}
- onClick={async () => {
- setResendStatus('sending');
- try {
- const result = await requestConfirmationEmail(email);
- setResendStatus(result.success ? 'sent' : result.error === 'cooldown_active' ? 'cooldown' : 'error');
- } catch {
- setResendStatus('error');
- }
- }}
- className="text-xs font-medium text-info hover:text-info underline underline-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
- >
- {resendStatus === 'sending' ? '...' :
- resendStatus === 'sent' ? t('newsletter.resendConfirmationSent') :
- resendStatus === 'cooldown' ? t('newsletter.resendConfirmationCooldown') :
- resendStatus === 'error' ? t('newsletter.resendConfirmationError') :
- t('newsletter.resendConfirmation')}
- </button>
+ <p className="text-subtle mb-2">{t('newsletter.doubleOptIn.description')}</p>
+ <p className="text-sm text-muted">{t('newsletter.doubleOptIn.spamHint')}</p>
  </div>
- )}
+ ) : status === 'success' ? (
+ <div className="bg-success-subtle rounded-2xl border border-success-border p-5 sm:p-8 text-center">
+ <CheckCircle2 size={48} className="text-success mx-auto mb-4" />
+ <h3 className="text-xl font-bold font-display text-strong mb-2">{t('newsletter.subscriptionConfirmedShort')}</h3>
+ <p className="text-subtle mb-3">
+ {locale === 'it'
+   ? 'La registrazione attiva newsletter, avvisi lavoro e messaggi promozionali di terzi. Puoi gestire o fermare ogni canale dalle preferenze.'
+   : locale === 'de'
+   ? 'Die Registrierung aktiviert Newsletter, Jobbenachrichtigungen und Werbenachrichten Dritter. Du kannst jeden Kanal in den Einstellungen verwalten oder stoppen.'
+   : locale === 'fr'
+   ? 'L’inscription active la newsletter, les alertes emploi et les messages promotionnels de tiers. Vous pouvez gérer ou arrêter chaque canal dans vos préférences.'
+   : 'Registration activates the newsletter, job alerts and third-party promotional messages. You can manage or stop each channel in your preferences.'}
+ </p>
  </div>
  ) : (
  <form onSubmit={handleSubscribe} className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm space-y-5">
@@ -474,7 +520,12 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  </button>
  </div>
 
- <ConsentNotice consentKey="communicationsOptIn" locale={locale} />
+ <EmailConsentCheckbox
+   id="newsletter-page-consent"
+   consentKey="communicationsOptIn"
+   locale={locale}
+   className="flex items-start gap-2"
+ />
 
  <p className="text-sm text-muted text-center">
  {t('newsletter.unsubscribeNotice')}

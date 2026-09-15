@@ -91,8 +91,9 @@ export async function tombstoneEmailKeyedSubscribers(rawEmail, db) {
   }
 
   const stamp = new Date().toISOString();
-  // Newsletter: `unsubscribed` is already in NEWSLETTER_EXCLUDED_STATUSES and
-  // CROSS_CHANNEL_STOP_STATUSES. Confirmation mail is transactional and still
+  // Newsletter: `unsubscribed` is a channel-local exclusion. A hard address
+  // suppression or an explicit stop-all is handled separately by the shared
+  // cross-channel predicate. Confirmation mail is transactional and still
   // sends to `unsubscribed` — `account_deleted_at` is the extra signal that
   // send + Auth-sync consult. Job alerts: `inactive` is that channel's
   // exclusion status (it has no `unsubscribed`).

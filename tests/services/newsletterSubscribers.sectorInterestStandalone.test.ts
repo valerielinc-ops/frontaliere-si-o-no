@@ -59,6 +59,7 @@ describe('captureNewsletterSubscriber — sector_interest without job_category (
         // No jobContext — this subscriber never visited a job page.
         // #5678: a NEW subscriber cannot be created without a consent text.
         consentText: 'formula di prova',
+        consentGiven: true,
       },
     );
 

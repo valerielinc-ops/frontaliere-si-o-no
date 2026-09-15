@@ -24,7 +24,11 @@ import {
   JOB_ALERT_CONSENT_ACT,
   buildJobAlertConsentProof,
 } from '@/services/jobAlertConsentUpgrade';
-import { CONSENT_TEXTS, consentDisplayText } from '@/services/consentTexts';
+import {
+  CONSENT_TEXTS,
+  consentDisplayText,
+  UNIFIED_EMAIL_CONSENT_PURPOSE,
+} from '@/services/consentTexts';
 
 const ROOT = path.resolve(__dirname, '..');
 const read = (rel: string) => readFileSync(path.join(ROOT, rel), 'utf8');
@@ -111,6 +115,7 @@ describe('buildNewsletterConsentProof — what is stored is what was on screen',
     expect(proof.consent_act).toBe(COMMUNICATIONS_BANNER_CONSENT_ACT);
     expect(proof.consent_act).not.toBe(JOB_ALERT_CONSENT_ACT);
     expect(proof.consent_origin).toBe(CONSENT_ORIGIN_COMMS_BANNER);
+    expect(proof.consent_purpose).toBe(UNIFIED_EMAIL_CONSENT_PURPOSE);
   });
 
   it('never asserts consent_given: a dedicated button is an act, not a ticked checkbox', () => {

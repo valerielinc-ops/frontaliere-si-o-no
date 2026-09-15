@@ -17,23 +17,21 @@
  */
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { BellRing, Check, Loader2, Mail, Shield } from 'lucide-react';
+import { BellRing, Check, Loader2, Mail } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { useAuth } from '@/services/authService';
 import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
-import { upsertNewsletterSubscriber, requestConfirmationEmail } from '@/services/newsletterSubscribers';
-import { consentProof } from '@/services/consentTexts';
+import { upsertUnifiedEmailSubscriber, requestConfirmationEmail } from '@/services/newsletterSubscribers';
 import { getFirestore } from 'firebase/firestore';
 import { getApp } from '@/services/firebase';
 import { reportCaughtError } from '@/services/errorReporter';
 import {
   buildSalaryAlertConfig,
   subscribeSalaryAlert,
-  upgradeBackfilledAlertConsent,
 } from '@/services/jobAlertService';
-import ConsentNotice from '@/components/shared/ConsentNotice';
+import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import { JOB_ALERT_SUBSCRIBED_KEY } from '@/services/jobAlertCtaState';
 import { consumePendingSalaryAlert, savePendingSalaryAlert } from '@/services/pendingSalaryAlert';
 
@@ -86,10 +84,6 @@ export const SalaryAlertCTA: React.FC<Props> = ({ netMonthlyCHF }) => {
       /* storage unavailable */
     }
     setStatus('success');
-    // #5876 — the explicit alert action is the only place that upgrades a
-    // backfilled proof. Never turn a successful alert into an error if the
-    // ancillary audit write is unavailable.
-    void upgradeBackfilledAlertConsent(email, alertLocale).catch(() => {});
   }, [alertLocale]);
 
   // Social sign-in and the email magic-link flow both update the global user.
@@ -166,7 +160,6 @@ export const SalaryAlertCTA: React.FC<Props> = ({ netMonthlyCHF }) => {
       minNetMonthlyCHF: threshold,
       locale: alertLocale,
     });
-
     // Anonymous: keep the visitor at the result and make the next action
     // explicit. The alert is written only after authentication completes.
     if (!uid || !email) {
@@ -202,26 +195,24 @@ export const SalaryAlertCTA: React.FC<Props> = ({ netMonthlyCHF }) => {
     setCaptureError('');
     try {
       const firestore = getFirestore(await getApp());
-      const upsert = await upsertNewsletterSubscriber(firestore, {
+      const upsert = await upsertUnifiedEmailSubscriber(firestore, {
         email: trimmed,
-        preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false },
         source: 'calculator_salary_alert_email',
+        sourceChannel: 'job_gate',
         sourcePage: typeof window !== 'undefined' ? window.location.pathname : '',
         sourceCta: CTA_ID,
         sourceComponent: 'SalaryAlertCTA',
         sourceRouteFamily: 'calculator',
-        locale: typeof navigator !== 'undefined' ? navigator.language || 'it-IT' : 'it-IT',
-        reconsent: true,
-        ...consentProof('communicationsOptIn', 'email_submit', alertLocale),
+        locale: alertLocale,
+        jobContext: { category: 'salary_alert', searchQuery: `minNetMonthlyCHF:${threshold}` },
       });
-      // The upsert's confirmation request is the newsletter DOI (or the
-      // re-consent DOI); it is not the authentication contract the parked
-      // calculator intent needs. Request a separate passwordless access link
-      // for every capture result, including a brand-new pending address, so
-      // the alert can replay as soon as the visitor proves possession of the
-      // email. The two messages have different purposes and the server keeps
-      // the login link outside the DOI attempt cap.
-      await requestConfirmationEmail(trimmed, 'login');
+      // A brand-new typed address already receives the DOI link, and the
+      // confirmation endpoint auto-authenticates it so the parked alert can
+      // replay. Only an address whose confirmation is already available needs
+      // the separate passwordless access link.
+      if (upsert.status !== 'pending' || upsert.hadConfirmationProof) {
+        await requestConfirmationEmail(trimmed, 'login');
+      }
       Analytics.trackFunnelStep('salary_alert_email_sent', {
         funnel: 'salary_alert',
         capture_surface: 'calculator_results',
@@ -234,7 +225,7 @@ export const SalaryAlertCTA: React.FC<Props> = ({ netMonthlyCHF }) => {
       setCaptureError(t('newsletter.subscribeError'));
       setCaptureStatus('error');
     }
-  }, [alertLocale, captureEmail, captureStatus, t]);
+  }, [alertLocale, captureEmail, captureStatus, t, threshold]);
 
   // Below the CHF 100 floor there is no meaningful threshold to advertise.
   if (threshold <= 0) return null;
@@ -273,6 +264,13 @@ export const SalaryAlertCTA: React.FC<Props> = ({ netMonthlyCHF }) => {
               <p className="text-sm text-subtle leading-relaxed mb-4">
                 {t('results.salaryAlert.body')}
               </p>
+              <EmailConsentCheckbox
+                id="salary-alert-consent"
+                locale={alertLocale}
+                consentKey="communicationsOptIn"
+                className="mb-3 flex items-start gap-2 cursor-pointer"
+                noticeClassName="text-[10px] text-muted leading-snug"
+              />
               {status === 'error' && (
                 <p className="text-sm text-danger mb-3" role="alert">
                   {t('results.salaryAlert.error')}
@@ -333,10 +331,6 @@ export const SalaryAlertCTA: React.FC<Props> = ({ netMonthlyCHF }) => {
                       </form>
                     </>
                   )}
-                  <p className="flex items-start gap-1.5 text-xs text-muted leading-relaxed">
-                    <Shield size={13} className="text-success shrink-0 mt-0.5" aria-hidden="true" />
-                    <ConsentNotice consentKey="communicationsOptIn" locale={alertLocale} className="text-[10px] text-muted leading-snug block" />
-                  </p>
                 </div>
               ) : (
                 <>
@@ -350,11 +344,6 @@ export const SalaryAlertCTA: React.FC<Props> = ({ netMonthlyCHF }) => {
                     {status === 'submitting' && <Loader2 size={16} className="animate-spin" aria-hidden="true" />}
                     {status === 'error' ? t('results.salaryAlert.retry') : t('results.salaryAlert.button')}
                   </button>
-                  <ConsentNotice
-                    consentKey="communicationsOptIn"
-                    locale={alertLocale}
-                    className="mt-2 text-[11px] text-muted leading-relaxed block"
-                  />
                 </>
               )}
             </>

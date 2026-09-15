@@ -2,8 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { BellRing, Loader2, X } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
-import { subscribeJobAlertOneTap, upgradeBackfilledAlertConsent } from '@/services/jobAlertService';
-import ConsentNotice from '@/components/shared/ConsentNotice';
+import { subscribeJobAlertOneTap } from '@/services/jobAlertService';
 import BottomPromptShell from '@/components/shared/BottomPromptShell';
 import { POPUP_PRIORITY } from '@/services/popupQueue';
 
@@ -50,8 +49,6 @@ export interface JobDetailAlertPromptProps {
   onShown?: () => void;
   /** Optional override for the subscribe call (used by tests). */
   subscribe?: typeof subscribeJobAlertOneTap;
-  /** Optional override for the consent-proof upgrade (used by tests). */
-  upgradeConsent?: typeof upgradeBackfilledAlertConsent;
 }
 
 const TITLE_ID = 'job-detail-alert-prompt-title';
@@ -73,11 +70,9 @@ export default function JobDetailAlertPrompt({
   onManage,
   onShown,
   subscribe = subscribeJobAlertOneTap,
-  upgradeConsent = upgradeBackfilledAlertConsent,
 }: JobDetailAlertPromptProps) {
   const { t } = useTranslation();
   const [status, setStatus] = useState<JobDetailAlertPromptStatus>('idle');
-
   const handleAccept = useCallback(async () => {
     setStatus('submitting');
     try {
@@ -92,20 +87,24 @@ export default function JobDetailAlertPrompt({
           title: sourceJobTitle ?? null,
         },
         cantonCode ?? null,
+        {
+          email,
+          source: 'job_alert_detail_prompt',
+          sourceChannel: 'job_alert_detail_prompt',
+          sourcePage: typeof window !== 'undefined' ? window.location.pathname : null,
+          sourceCta: 'job_alert_detail_prompt',
+          sourceComponent: 'JobDetailAlertPrompt',
+          sourceRouteFamily: 'job-detail',
+          locale,
+        },
       );
       setStatus('success');
-      // #5876 — "Sì, attiva" is the explicit act the owner ruled on: if this
-      // person's alert came from the travaso, it is now consented to, with the
-      // notice rendered below as the stored formula. Never awaited into the
-      // error path — a proof that fails to land must not turn a successful
-      // subscription into an error toast.
-      void upgradeConsent(email, locale).catch(() => {});
       onAccepted();
     } catch (error: unknown) {
       setStatus('error');
       if (onErrored) onErrored(error);
     }
-  }, [category, email, locale, onAccepted, onErrored, subscribe, upgradeConsent, userId, sourceJobSlug, sourceJobUrl, sourceJobTitle, cantonCode]);
+  }, [category, email, locale, onAccepted, onErrored, subscribe, userId, sourceJobSlug, sourceJobUrl, sourceJobTitle, cantonCode]);
 
   const handleDismiss = useCallback(() => {
     onDismissed();
@@ -194,6 +193,7 @@ export default function JobDetailAlertPrompt({
                   <button
                     type="button"
                     onClick={handleAccept}
+                    disabled={false}
                     className="inline-flex items-center gap-1 px-3 py-1.5 min-h-[44px] text-xs font-semibold rounded-lg bg-accent-strong text-on-accent hover:bg-accent-strong-hover transition-colors"
                   >
                     {t('jobAlert.jobDetailPrompt.acceptCta', 'Sì, attiva')}
@@ -235,6 +235,7 @@ export default function JobDetailAlertPrompt({
                   <button
                     type="button"
                     onClick={handleAccept}
+                    disabled={false}
                     className="inline-flex items-center gap-1 px-3 py-1.5 min-h-[44px] text-xs font-semibold rounded-lg bg-accent-strong text-on-accent hover:bg-accent-strong-hover transition-colors"
                   >
                     {t('jobAlert.jobDetailPrompt.retryCta', 'Riprova')}
@@ -249,20 +250,6 @@ export default function JobDetailAlertPrompt({
                 </>
               )}
             </div>
-            {status === 'idle' && (
-              // Under the buttons, not above them: the formula is small print
-              // that has to be on screen when the act happens (#5902), and
-              // three lines of it between the promise and "Sì, attiva" pushed
-              // the CTA down the toast for no legal gain. The sentence itself
-              // is untouched — it is stored verbatim as the consent proof, so
-              // shortening it here would make the register describe something
-              // nobody read.
-              <ConsentNotice
-                consentKey="communicationsOptIn"
-                locale={locale}
-                className="mt-2 text-[10px] text-muted leading-snug block"
-              />
-            )}
           </div>
         </div>
       </div>

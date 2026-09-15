@@ -211,10 +211,11 @@ describe('handleSendCalculatorReport — narrow suppression guard', () => {
     expect(vi.mocked((await cascade()).sendEmailCascade)).toHaveBeenCalledTimes(1);
   });
 
-  it('still delivers the PDF when no subscriber doc exists yet (first capture)', async () => {
+  it('still delivers the transactional PDF without creating a subscriber doc', async () => {
     const { res, db } = await send(null);
     expect(res.status).toBe(200);
-    expect(db.writes.length).toBeGreaterThan(0);
+    expect(db.writes).toHaveLength(0);
+    expect(db.events).toHaveLength(0);
     expect(vi.mocked((await cascade()).sendEmailCascade)).toHaveBeenCalledTimes(1);
   });
 
@@ -223,10 +224,10 @@ describe('handleSendCalculatorReport — narrow suppression guard', () => {
     expect(res.status).toBe(200);
     expect(res.body.success).toBe(true);
     expect(vi.mocked((await cascade()).sendEmailCascade)).toHaveBeenCalledTimes(1);
-    // The lead is still captured — a merge write, without the create-only
-    // fields that would downgrade a confirmed subscriber to `pending`.
-    expect(db.writes).toHaveLength(1);
-    expect(db.writes[0]).not.toHaveProperty('status');
+    // The transactional request still ships, but the endpoint does not write
+    // marketing state while the consent-backed document cannot be located.
+    expect(db.writes).toHaveLength(0);
+    expect(db.events).toHaveLength(0);
   });
 });
 

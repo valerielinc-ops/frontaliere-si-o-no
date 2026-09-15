@@ -68,12 +68,15 @@ describe('JobMatchAlertCta', () => {
     expect(screen.getByText(/Avvisami per ruoli come questo/)).toBeTruthy();
   });
 
-  it('calls subscribe with category, locale, no source, and the canton code', async () => {
+  it('calls subscribe with category, locale, canton code, and attribution metadata', async () => {
     const { onSubscribed, subscribe } = renderCta({ cantonCode: 'TI' });
     await act(async () => {
       fireEvent.click(screen.getByText(/Avvisami per ruoli come questo/));
     });
-    expect(subscribe).toHaveBeenCalledWith('user-1', 'foo@example.com', '💻 Tecnologia', 'it', undefined, 'TI');
+    expect(subscribe).toHaveBeenCalledWith(
+      'user-1', 'foo@example.com', '💻 Tecnologia', 'it', undefined, 'TI',
+      expect.objectContaining({ source: 'job_alert_match_cta', sourceComponent: 'JobMatchAlertCta' }),
+    );
     expect(onSubscribed).toHaveBeenCalledTimes(1);
     await waitFor(() => {
       expect(screen.getByText(/Alert attivato/)).toBeTruthy();
@@ -85,7 +88,10 @@ describe('JobMatchAlertCta', () => {
     await act(async () => {
       fireEvent.click(screen.getByText(/Avvisami per ruoli come questo/));
     });
-    expect(subscribe).toHaveBeenCalledWith('user-1', 'foo@example.com', '💻 Tecnologia', 'it', undefined, null);
+    expect(subscribe).toHaveBeenCalledWith(
+      'user-1', 'foo@example.com', '💻 Tecnologia', 'it', undefined, null,
+      expect.objectContaining({ source: 'job_alert_match_cta', sourceComponent: 'JobMatchAlertCta' }),
+    );
   });
 
   it('transitions to error when subscribe rejects', async () => {

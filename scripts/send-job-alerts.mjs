@@ -70,7 +70,6 @@ import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIde
 import { makePreferencesUrl, generateAutologinCode, makeAuthenticatedUrl as makeAuthenticatedUrlShared } from '../services/newsletterUrls.mjs';
 import { makeAlertUnsubscribeUrl, makeAllAlertsUnsubscribeUrl } from './lib/job-alert-unsub-urls.mjs';
 import { isImmediateCompanyAlert } from './lib/company-alert-routing.mjs';
-import { evaluateJobAlertConsent } from '../functions/src/jobAlertBackfillCore.js';
 // localePathPrefix aliased to the local name this script has always used for
 // its locale-aware URL construction — the implementation is the canonical
 // shared helper (also used by send-newsletter.mjs, send-saved-jobs-digest.mjs).
@@ -1409,13 +1408,12 @@ async function processRetryQueue(db) {
   // A retry stores rendered HTML, so it cannot rely on the eligibility checks
   // that ran when the first attempt was built. Re-read the live alert and both
   // subscriber documents before every retry: an opt-out, a deleted/paused
-  // alert, a provider suppression or the historical backfill-consent gate must
+  // alert or a provider suppression must
   // stop the queued message too. Lookup failures leave the queue item intact
   // and send nothing; fail-open here would turn a transient read error into a
   // post-unsubscribe delivery.
   const RETRY_LOOKUP_CHUNK_SIZE = 200;
   let retrySuppressed = 0;
-  let retryConsentBlocked = 0;
   let retryStale = 0;
   for (let i = 0; i < retryCandidates.length; i += RETRY_LOOKUP_CHUNK_SIZE) {
     const chunk = retryCandidates.slice(i, i + RETRY_LOOKUP_CHUNK_SIZE);
@@ -1440,12 +1438,6 @@ async function processRetryQueue(db) {
         } else if (isCrossChannelStop(newsletter) || isJobAlertExcluded(jobAlertRoot?.status)) {
           discardReason = 'suppressed';
           retrySuppressed += 1;
-        } else {
-          const consent = evaluateJobAlertConsent({ alert, subscriber: newsletter });
-          if (!consent.allowed) {
-            discardReason = consent.reason;
-            retryConsentBlocked += 1;
-          }
         }
 
         if (discardReason) {
@@ -1485,7 +1477,7 @@ async function processRetryQueue(db) {
   }
 
   if (retryEmails.length === 0) {
-    console.log(`   🔄 Retry queue: no sendable entries (stale ${retryStale}, suppressed ${retrySuppressed}, consent-blocked ${retryConsentBlocked})`);
+    console.log(`   🔄 Retry queue: no sendable entries (stale ${retryStale}, suppressed ${retrySuppressed})`);
     return;
   }
 
@@ -1692,15 +1684,15 @@ async function main() {
   const alertEmails = [...new Set(alerts.map((a) => a.email.toLowerCase()))];
   const newsletterCooldownSet = new Set();
   const autologinDisabledSet = new Set();
+  // A failed batched Firestore read is a transient uncertainty about the
+  // suppression state. Keep those addresses separate from suppression so the
+  // alert is deferred and can be retried on the next run.
+  const suppressionLookupFailedEmails = new Set();
   // Everything that says "do not send this address a job alert", from either
   // channel's document:
-  //   - the newsletter doc, via isCrossChannelStop(): the address-level hard
-  //     signals (dead or hostile mailbox) AND the explicit newsletter opt-out,
-  //     status or stamp. The second half is #5688 — this loop already read the
-  //     document, it just asked isAddressSuppressed(), which does not answer
-  //     "did this person tell us to stop". 127 of 127 addresses suppressed
-  //     after an LPD complaint kept their alerts, one of them receiving mail
-  //     fifteen minutes after we wrote that they were off every list.
+  //   - the newsletter doc, via isCrossChannelStop(): address-level hard
+  //     signals plus the explicit global stop-all. Newsletter unsubscribe
+  //     remains channel-scoped and is handled by the newsletter sender.
   //   - the job-alert doc, via isJobAlertExcluded(): the same hard signals plus
   //     THIS channel's own inactivity sunset.
   const suppressedEmails = new Set();
@@ -1768,11 +1760,9 @@ async function main() {
           const data = subDoc.data() || {};
           subscriberProfiles.set(email.toLowerCase(), data);
           if (data.last_clicked_url) lastClickedUrlByEmail.set(email.toLowerCase(), data.last_clicked_url);
-          // The whole row, not data.status: the opt-out is recorded as a status
-          // AND as an append-only stamp in two spellings, 458 documents carry
-          // only the camelCase one (#5673), and only a strictly later explicit
-          // re-opt-in lifts it (#5711). isCrossChannelStop is the one place all
-          // of that is decided.
+          // The whole row, not data.status: isCrossChannelStop owns the
+          // address-level hard/global decision. Newsletter-only status/stamps
+          // stay in the newsletter sender's channel-specific gate.
           if (isCrossChannelStop(data)) suppressedEmails.add(email.toLowerCase());
           const lastSentAt = data.last_sent_at;
           if (lastSentAt) {
@@ -1801,18 +1791,25 @@ async function main() {
         }
       });
     } catch (err) {
-      // Fail-open (don't drop valid recipients on a transient read blip) but
-      // stay observable — a silent catch previously hid Firestore read failures.
+      // Fail closed: without the subscriber documents we cannot evaluate the
+      // suppression predicates safely. The alert stays queued for the
+      // next run instead of becoming an accidental send.
       // Granularity is per-chunk now (was per-email): a getAll() failure is a
       // single RPC-level error, not per-document, so isolating further would
       // need per-email getAll calls — defeating the batching this fixes.
+      chunk.forEach((email) => suppressionLookupFailedEmails.add(email.toLowerCase()));
       console.warn(`   ⚠️  batched subscriber lookup failed for ${chunk.length} email(s) starting at ${chunk[0]}: ${err?.message || err}`);
     }
+  }
+  if (suppressionLookupFailedEmails.size > 0) {
+    const before = alerts.length;
+    alerts = alerts.filter((a) => !suppressionLookupFailedEmails.has(a.email.toLowerCase()));
+    console.warn(`   ⏳ Subscriber suppression lookup failed; ${before - alerts.length} alert(s) deferred for the next run.`);
   }
   if (suppressedEmails.size > 0) {
     const before = alerts.length;
     alerts = alerts.filter((a) => !suppressedEmails.has(a.email.toLowerCase()));
-    console.log(`   🚫 Suppressed (newsletter opt-out / bounced / complained / provider list): ${before - alerts.length} alert(s) skipped`);
+    console.log(`   🚫 Suppressed (global stop / bounced / complained / provider list): ${before - alerts.length} alert(s) skipped`);
   }
   if (autologinDisabledSet.size > 0) {
     console.log(`   🔒 Autologin opt-out: ${autologinDisabledSet.size} subscriber(s) will receive email without autologin token`);
@@ -1821,31 +1818,6 @@ async function main() {
     const before = alerts.length;
     alerts = alerts.filter((a) => !newsletterCooldownSet.has(a.email.toLowerCase()));
     console.log(`   📬 Newsletter cooldown (36h): ${before - alerts.length} alerts deferred (newsletter sent recently)`);
-  }
-
-  // Historical newsletter→job-alert backfills were created before the
-  // creation trigger became fail-closed. Do not let their `active` flag turn
-  // into authorization: a backfilled alert needs either an alert-specific
-  // proof or an affirmative job-alert consent on the newsletter record.
-  // Explicit alerts created by the user have no backfill marker and retain
-  // their own consent basis. Missing subscriber data also fails closed here —
-  // a transient read error must not make an inferred alert mailable.
-  const blockedBackfillReasons = {};
-  const beforeConsentFilter = alerts.length;
-  alerts = alerts.filter((alert) => {
-    const emailKey = String(alert.email || '').toLowerCase();
-    const verdict = evaluateJobAlertConsent({
-      alert,
-      subscriber: subscriberProfiles.get(emailKey) || null,
-    });
-    if (!verdict.allowed) {
-      blockedBackfillReasons[verdict.reason] = (blockedBackfillReasons[verdict.reason] || 0) + 1;
-      return false;
-    }
-    return true;
-  });
-  if (alerts.length !== beforeConsentFilter) {
-    console.log(`   🔐 Job-alert consent gate: ${beforeConsentFilter - alerts.length} inferred alert(s) skipped — ${JSON.stringify(blockedBackfillReasons)}`);
   }
 
   // 2b-bis. Bring back the alerts whose owner came back to the site (#5705,

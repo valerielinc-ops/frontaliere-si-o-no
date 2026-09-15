@@ -549,12 +549,15 @@ const UserProfile: React.FC = () => {
  try {
  const db = await initFirestore();
  if (!db) return;
- const { doc, setDoc, collection, addDoc, serverTimestamp } = await import('firebase/firestore');
+ const { doc, getDoc, setDoc, collection, addDoc, serverTimestamp } = await import('firebase/firestore');
  const key = email.trim().toLowerCase();
- await setDoc(doc(db, 'newsletter_subscribers', key), {
- email: key,
- autologin_enabled: next,
- updated_at: serverTimestamp(),
+ const subscriberRef = doc(db, 'newsletter_subscribers', key);
+ const existingSubscriber = await getDoc(subscriberRef);
+ if (!existingSubscriber.exists()) return;
+ await setDoc(subscriberRef, {
+  email: key,
+  autologin_enabled: next,
+  updated_at: serverTimestamp(),
  updatedAt: serverTimestamp(),
  }, { merge: true });
  await addDoc(collection(db, 'newsletter_subscribers', key, 'events'), {

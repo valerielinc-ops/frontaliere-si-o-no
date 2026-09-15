@@ -3,13 +3,15 @@
  *
  * HTTP endpoint that accepts a client-generated PDF (as base64) and an email
  * address, then:
- *   1. Upserts the email into `newsletter_subscribers/{email}` with
- *      `source: 'calculator_paywall'` + metadata.
+ *   1. Enriches an already consent-backed `newsletter_subscribers/{email}`
+ *      document with the calculator source metadata, when one exists.
  *   2. Sends the PDF as an email attachment via Resend.
  *
  * Kept intentionally minimal: the heavy lifting (PDF rendering) is done in the
  * browser, so this endpoint only needs to wrap Resend's attachment API and
- * record the capture in Firestore.
+ * optionally record capture metadata in Firestore. It must never create a
+ * marketing relationship merely because somebody posted an email address to
+ * the PDF endpoint; the client-side gate owns the explicit consent write.
  *
  * Suppression: this is a TRANSACTIONAL send (the user submitted the form and is
  * waiting for the PDF), so it is guarded only against a provably dead mailbox
@@ -163,9 +165,9 @@ export async function handleSendCalculatorReport({
   const db = injectedDb || getAdminDb();
   const now = admin.firestore.FieldValue.serverTimestamp();
 
-  // Upsert subscriber doc with source tag. Firestore errors are converted to
-  // a structured 5XX so the HTTP handler can return a stable JSON shape
-  // instead of leaking a raw stack trace.
+  // Enrich an existing subscriber doc with the source tag. Firestore errors
+  // are converted to a structured 5XX so the HTTP handler can return a stable
+  // JSON shape instead of leaking a raw stack trace.
   const subscriberRef = db.collection('newsletter_subscribers').doc(normalizedEmail);
   const baseDoc = {
     email: normalizedEmail,
@@ -178,10 +180,10 @@ export async function handleSendCalculatorReport({
       result_summary: resultSummary || null,
     },
   };
-  // Single read, shared by the suppression guard below and the upsert branch —
-  // and it FAILS OPEN: a Firestore hiccup leaves `existing` null and the PDF
-  // still ships. This is a transactional email the user submitted a form for
-  // seconds ago; a lookup failure must never silently swallow it.
+  // Single read, shared by the suppression guard below and the enrichment
+  // branch — and it FAILS OPEN: a Firestore hiccup leaves `existing` null and
+  // the PDF still ships. This is a transactional email the user submitted a
+  // form for seconds ago; a lookup failure must never silently swallow it.
   let existing = null;
   let existingReadFailed = false;
   try {
@@ -211,28 +213,15 @@ export async function handleSendCalculatorReport({
   }
 
   try {
-    if (existingReadFailed) {
-      // Existence unknown. Merge the source tag only — writing the create-only
-      // fields blind (`status: 'pending'`, `isActive: false`) would downgrade a
-      // confirmed subscriber, which is worse than a slightly thinner doc.
-      await subscriberRef.set(baseDoc, { merge: true });
-    } else if (!existing.exists) {
-      await subscriberRef.set({
-        ...baseDoc,
-        created_at: now,
-        source: src,
-        source_channel: src,
-        status: 'pending',
-        isActive: false,
-        signup_locale: lang,
-      });
-    } else {
+    if (!existingReadFailed && existing?.exists) {
       // Add tag without overwriting existing status/confirmation state.
       await subscriberRef.set(baseDoc, { merge: true });
     }
   } catch (firestoreErr) {
-    console.error('[sendCalculatorReport] Firestore upsert failed:', firestoreErr);
-    return { status: 503, body: { success: false, error: 'firestore_unavailable' } };
+    // Enrichment is best-effort. The PDF request is transactional and the
+    // user has already submitted it, so a write outage must not swallow the
+    // email or turn a successful report into a 5XX.
+    console.error('[sendCalculatorReport] Firestore enrichment failed — continuing with transactional PDF:', firestoreErr);
   }
 
   const isLamal = src === 'lamal_ssn_tool';
@@ -282,25 +271,28 @@ export async function handleSendCalculatorReport({
   }
   const emailData = { id: sent[0]?.messageId };
 
-  // Best-effort event write — if Firestore is temporarily unavailable the
-  // email has already shipped, so we log and still return 200 to the client
-  // rather than failing the user-visible request.
-  try {
-    await db
-      .collection('newsletter_subscribers')
-      .doc(normalizedEmail)
-      .collection('events')
-      .add({
-        email: normalizedEmail,
-        event_type: `${src}_pdf_sent`,
-        source_channel: src,
-        message_id: emailData?.id || null,
-        locale: lang,
-        timestamp: now,
-        occurred_at: new Date().toISOString(),
-      });
-  } catch (eventErr) {
-    console.warn('[sendCalculatorReport] Non-fatal: event log write failed:', eventErr?.message || eventErr);
+  // Best-effort event write — only under an existing subscriber document. If
+  // Firestore is temporarily unavailable or no consent-backed document was
+  // found, the email has already shipped, so log and still return 200 rather
+  // than failing the user-visible transactional request.
+  if (!existingReadFailed && existing?.exists) {
+    try {
+      await db
+        .collection('newsletter_subscribers')
+        .doc(normalizedEmail)
+        .collection('events')
+        .add({
+          email: normalizedEmail,
+          event_type: `${src}_pdf_sent`,
+          source_channel: src,
+          message_id: emailData?.id || null,
+          locale: lang,
+          timestamp: now,
+          occurred_at: new Date().toISOString(),
+        });
+    } catch (eventErr) {
+      console.warn('[sendCalculatorReport] Non-fatal: event log write failed:', eventErr?.message || eventErr);
+    }
   }
 
   return { status: 200, body: { success: true, messageId: emailData?.id || null } };

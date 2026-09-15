@@ -75,12 +75,14 @@
  * being agreed to while the document kept one of them. `JobBoard.tsx` did it
  * twice, once per gate surface: four notices in one file.
  *
- * The formula is therefore one sentence plus the link, and everything it used
- * to enumerate lives on the page it names. Two consequences worth stating,
- * because neither is free:
+ * The formula is therefore one shared disclosure plus the link. It names the
+ * email categories covered by the unified choice; the page it names carries
+ * the detailed channel contents, cadences and controls. Two consequences are
+ * worth stating, because neither is free:
  *
- *  - the page has to CARRY what left, controller included, or shortening the
- *    formula would delete a disclosure instead of relocating it. It does:
+ *  - the page has to CARRY the detail beyond the category names, controller
+ *    included, or shortening the formula would delete a disclosure instead of
+ *    relocating it. It does:
  *    `build-plugins/communicationsPagePlugin.ts` prints the categories, the
  *    cadences, the opt-out route, the controller and the privacy notice.
  *  - a sentence that points at a page is only as good as the page's stability,
@@ -93,19 +95,18 @@
  * WHAT THAT COST, MEASURED AND NOT HIDDEN. `consentNamesJobAlerts`
  * (functions/src/jobAlertBackfillCore.js) requires the job-alert CHANNEL to be
  * named in the stored text before a newsletter opt-in may create a job alert.
- * Moving the categories to the page means no displayed formula names it any
- * more, so that path is fail-closed again — the four checkbox gates stop being
- * able to open a job alert. That is a product decision, recorded in
- * `tests/backfill-jobalerts-from-newsletter.test.ts` where the guard is
- * asserted, not a side effect to be discovered in a funnel report.
+ * The displayed unified formula names the category and the shared writer also
+ * records `preferences.jobs: true`, so that path is explicit and testable.
+ * Historical formulas and access-only authentication still fail closed. This
+ * is recorded in `tests/backfill-jobalerts-from-newsletter.test.ts` rather than
+ * left as a side effect to be discovered in a funnel report.
  *
  * WHAT THAT PAGE NOW ALSO CARRIES (#5759). Third-party advertising
- * (`publisher-blast.yml`) is a different PURPOSE, not a different format, and
- * for that reason it spent #5712–#5765 in no category at all. The owner ruled
- * on 2026-08-13: it is named as its own category ON THE PAGE — not in the line
- * below, which stays short — collected as an OPT-OUT with no extra checkbox,
- * and switchable off on its own. `ADVERTISING_CONSENT_BASIS` records the whole
- * shape where a call site would look for it.
+ * (`publisher-blast.yml`) is named as its own category on the page, but it is
+ * part of the same base activation as the other communications. The preference
+ * centre exposes a separate control so the recipient can turn that category
+ * off; `ADVERTISING_CONSENT_BASIS` records the rule where a call site would
+ * look for it.
  *
  * A NOTE ON LOCALES. `text` stays the Italian string and stays pinned; `texts`
  * carries all four. The stored value is the one the person's own locale
@@ -121,25 +122,14 @@
  *
  * NOT SET HERE — `consentGiven`
  * -----------------------------
- * `consent_given: true` asserts an affirmative opt-in, which is a different
- * fact from `displayed` and stays a different field. Nothing in this module
- * sets it: a formula being on screen proves a disclosure, never a decision.
- *
- * Only a CALL SITE with a real checkbox the visitor has to tick before the
- * form submits may add it, and after #5712 exactly four do — NewsletterPopup,
- * SubscriptionCTA, PdfDownloadGate, OfferwallNewsletterGate. Four others
- * (SaveSignInPromptModal, CompanyFollowButton, both PublisherPublishPage
- * gates) asserted it with no checkbox anywhere in the file and no longer do:
- * the claim was dropped, not the notice. Documents that already carry it keep
- * it — `captureNewsletterSubscriber` falls back to the stored value.
- *
- * The stake is concrete. `hasAffirmativeJobAlertConsent`
- * (functions/src/jobAlertBackfillCore.js, PR #5722) requires
- * `consent_given` AND `consent_text_displayed` AND a text naming the alert
- * channel: a checkbox-less gate asserting the first would re-open job-alert
- * creation for people who never asked, which is exactly the #5705 shape that
- * produced 6.308 unrequested alerts.
- * `tests/consent-shown-at-signup.test.ts` enforces the checkbox rule per file.
+ * `consent_given: true` records an affirmative consent event, which is a
+ * different fact from `displayed` and stays a different field. Registration
+ * terms use the separate `registration_terms_accepted` marker: the terms
+ * shown at account creation establish the base newsletter + job-alert+
+ * third-party-advertising relationship without a second channel-specific
+ * checkbox. The explicit checkbox/remediation paths remain available for
+ * historical records; the preference centre is an opt-out control for the
+ * advertising category.
  */
 
 /**
@@ -199,53 +189,16 @@ export const consentPageLabel = (locale?: string | null): string =>
   CONSENT_PAGE_LABELS[consentLocale(locale)];
 
 /**
- * HOW THIRD-PARTY ADVERTISING IS CONSENTED TO, now that the owner has decided.
+ * HOW THIRD-PARTY ADVERTISING IS ACTIVATED.
  *
- * This constant used to be called `ADVERTISING_NOT_COVERED` and it described a
- * fork: name advertising in the formula and accept that some people refuse it,
- * or do not send it to people whose consent does not cover it — "and only the
- * owner may pick". The owner picked on 2026-08-13 (#5764 §3, implemented in
- * #5759), so that sentence had to go: a comment describing an open choice that
- * has been closed is worse than no comment, because it invites the next reader
- * to re-open it and to treat the shipped behaviour as an accident.
- *
- * What was chosen, in full, because each half is load-bearing:
- *
- *  - advertising is NAMED, as its own consent category, on `/comunicazioni/` —
- *    which is where #5765 moved every category. The formulas below stay ONE
- *    line and point at that page; naming it here instead would re-inflate the
- *    sentence the owner deliberately shortened, and tell the reader nothing
- *    extra, since the page is what the sentence sends them to;
- *  - NO extra checkbox at the signup gates. The number of ticks is unchanged,
- *    so this is an OPT-OUT. That is weaker than a dedicated box and the owner
- *    recorded it as a deliberate trade: the residual risk is a recipient who
- *    says they never agreed to advertising, and the answer to them is the
- *    sentence that names it plus the switch that stops it;
- *  - that switch is `ADVERTISING_OPT_OUT_FIELD`
- *    (services/communicationChannels.ts), rendered in the preference centre
- *    beside the other channels and read by services/publisherBlastMatch.mjs.
- *
- * AND WHO IT REACHES, WHICH CHANGED ON 2026-08-14. As shipped, #5759 also
- * excluded a subscriber whose stored `consent_text` named a page version older
- * than `ADVERTISING_NAMED_FROM_PAGE_VERSION` — they had read a page with no
- * advertising section, so the "the formula names it" half of the defence did
- * not exist for them. On the day that shipped it was effectively the whole
- * list, and the owner was told so before answering: send to all of them.
- *
- * So the third bullet above now applies retroactively, to people who were
- * subscribed before either the naming or the switch existed. It is weaker than
- * waiting for the list to pass through the new formula, and the two things left
- * holding it up are the page that names the category today and the switch that
- * turns it off. `consentCoversAdvertising`
- * (services/publisherBlastMatch.mjs) is where the decision is written down, in
- * the function that used to enforce the opposite.
- *
- * Slipping the channel under "aggiornamenti redazionali" is still the shortcut
- * that produced the 6.308 unrequested job alerts (#5705). It has a category of
- * its own precisely so nobody needs to.
+ * The page names advertising as its own category, while the preference centre
+ * stores the activation marker in `consent_advertising`. A current registration
+ * writes it as `true`; the preference centre can turn it off and records the
+ * legacy `advertising_opt_out` hard deny. Page versions are useful for audit
+ * and reporting, but never override that opt-out.
  */
 export const ADVERTISING_CONSENT_BASIS =
-  'owner decisions 2026-08-13 (#5764 §3, #5759) and 2026-08-14 — third-party advertising (publisher-blast.yml) is its own consent category, named on /comunicazioni/ and collected as an OPT-OUT: no extra checkbox, a per-channel switch in the preference centre, and, since 2026-08-14, no exclusion by the version of the stored consent_text — the disclosure reaches the whole list, including subscribers whose proof predates the page version that named it';
+  'Third-party advertising (publisher-blast.yml) is included in the same base registration under the Terms and Conditions, named as its own category on /comunicazioni/ and active by default; the preference centre can turn it off, and advertising_opt_out remains a hard deny alongside the ordinary unsubscribe and suppression gates';
 
 /** How the address reached us, stored as `consent_method`. */
 export type ConsentMethod =
@@ -254,6 +207,7 @@ export type ConsentMethod =
   | 'google_oauth'
   | 'facebook_oauth'
   | 'linkedin_oauth'
+  | 'terms_and_conditions'
   /**
    * A federated sign-in whose provider the call site genuinely does not know.
    * Historical auth writes used `source: 'signup'` for Google AND Facebook
@@ -271,7 +225,8 @@ export type ConsentMethod =
 export type ConsentAct =
   | 'authentication'
   | 'typed_email_submit'
-  | 'email_link_click';
+  | 'email_link_click'
+  | 'registration_terms_acceptance';
 
 export type ConsentProofEntry = {
   /** Stable grouping key. Never a substitute for `text` when answering art. 25. */
@@ -348,10 +303,10 @@ const POINTER: Readonly<Record<ConsentLocale, string>> = Object.freeze({
  * entry whose text does not describe the sign-in.
  */
 const ACCESS_OPENING: Readonly<Record<ConsentLocale, string>> = Object.freeze({
-  it: 'Accedendo iscrivo il mio indirizzo alle comunicazioni di Frontaliere Ticino.',
-  en: 'By signing in I subscribe my address to the Frontaliere Ticino communications.',
-  de: 'Mit der Anmeldung trage ich meine Adresse in die Mitteilungen von Frontaliere Ticino ein.',
-  fr: 'En me connectant, j’inscris mon adresse aux communications de Frontaliere Ticino.',
+  it: 'Registrandomi o accedendo accetto i Termini e condizioni e iscrivo il mio indirizzo alle comunicazioni di Frontaliere Ticino: newsletter e aggiornamenti redazionali, avvisi di lavoro, messaggi di servizio e messaggi promozionali di terzi.',
+  en: 'By registering or signing in I accept the Terms and Conditions and subscribe my address to Frontaliere Ticino communications: newsletters and editorial updates, job alerts, service messages and promotional messages from third parties.',
+  de: 'Mit der Registrierung oder Anmeldung akzeptiere ich die Nutzungsbedingungen und trage meine Adresse in die Mitteilungen von Frontaliere Ticino ein: Newsletter und redaktionelle Aktualisierungen, Job-Alerts, Servicenachrichten und Werbenachrichten von Dritten.',
+  fr: 'En m’inscrivant ou en me connectant, j’accepte les conditions et j’inscris mon adresse aux communications de Frontaliere Ticino : newsletters et mises à jour éditoriales, alertes emploi, messages de service et messages promotionnels de tiers.',
 });
 
 /**
@@ -364,10 +319,10 @@ const ACCESS_OPENING: Readonly<Record<ConsentLocale, string>> = Object.freeze({
  * between the two sentences.
  */
 const SUBSCRIBE_OPENING: Readonly<Record<ConsentLocale, string>> = Object.freeze({
-  it: 'Iscrivo il mio indirizzo alle comunicazioni di Frontaliere Ticino.',
-  en: 'I subscribe my address to the Frontaliere Ticino communications.',
-  de: 'Ich trage meine Adresse in die Mitteilungen von Frontaliere Ticino ein.',
-  fr: 'J’inscris mon adresse aux communications de Frontaliere Ticino.',
+  it: 'Registrandomi accetto i Termini e condizioni e iscrivo il mio indirizzo alle comunicazioni di Frontaliere Ticino: newsletter e aggiornamenti redazionali, avvisi di lavoro, messaggi di servizio e messaggi promozionali di terzi. Posso gestire le preferenze o revocare l’iscrizione in qualsiasi momento.',
+  en: 'By registering I accept the Terms and Conditions and subscribe my address to Frontaliere Ticino communications: newsletters and editorial updates, job alerts, service messages and promotional messages from third parties. I can manage my preferences or unsubscribe at any time.',
+  de: 'Mit der Registrierung akzeptiere ich die Nutzungsbedingungen und trage meine Adresse in die Mitteilungen von Frontaliere Ticino ein: Newsletter und redaktionelle Aktualisierungen, Job-Alerts, Servicenachrichten und Werbenachrichten von Dritten. Ich kann meine Einstellungen jederzeit verwalten oder mich abmelden.',
+  fr: 'En m’inscrivant, j’accepte les conditions et j’inscris mon adresse aux communications de Frontaliere Ticino : newsletters et mises à jour éditoriales, alertes emploi, messages de service et messages promotionnels de tiers. Je peux gérer mes préférences ou me désinscrire à tout moment.',
 });
 
 const compose = (
@@ -382,25 +337,39 @@ const compose = (
 const COMMUNICATIONS_OPT_IN = compose(SUBSCRIBE_OPENING);
 const COMMUNICATIONS_SIGN_IN = compose(ACCESS_OPENING);
 
+/**
+ * The purpose attached to the unified communications formula. Keep this
+ * alongside the formula so the central writer can distinguish the unified
+ * communications choice from historical, channel-specific consent records.
+ */
+export const UNIFIED_EMAIL_CONSENT_PURPOSE = 'unified_email_channels' as const;
+
+/**
+ * Base registration basis for the product-wide communications relationship.
+ * The visitor does not make a second, channel-specific choice: the terms shown
+ * at registration describe the newsletter and job-alert relationship together.
+ */
+export const REGISTRATION_TERMS_CONSENT_BASIS = 'registration_terms' as const;
+export const REGISTRATION_TERMS_CONSENT_ACT = 'registration_terms_acceptance' as const;
+export const REGISTRATION_TERMS_CONSENT_METHOD = 'terms_and_conditions' as const;
+
 export const CONSENT_TEXTS = Object.freeze({
   /**
-   * THE ONE FORMULA THAT IS ACTUALLY SHOWN — typed-address and checkbox gates.
+   * THE ONE FORMULA THAT IS ACTUALLY SHOWN — typed-address and registration gates.
    *
    * Replaces the per-gate newsletter-only formulas at every gate that renders
    * `<ConsentNotice consentKey="communicationsOptIn">`. Which gate it was is
    * not lost: `consent_source_url` and `source_channel` still carry it, and
    * they are facts about the request rather than a sentence somebody wrote.
    *
-   * `act: 'typed_email_submit'` is the only value in
-   * `AFFIRMATIVE_CONSENT_ACTS`, so this entry — combined with a `consentGiven:
-   * true` the CALL SITE sets when it really has a ticked box — is what can
-   * re-open job-alert creation after PR #5722 closed it fail-closed. Nothing
-   * here sets `consentGiven`: a gate with no checkbox stays at `false` and
-   * creates no alert, which is the correct answer for it.
+   * Typed-address forms and registration flows share this disclosure. The
+   * registration writer records the terms basis and the explicit remediation
+   * writer can still record its own affirmative act when an older account is
+   * asked to make a fresh choice.
    */
   communicationsOptIn: entry({
     id: 'communications_opt_in',
-    version: '2026-08-20.1',
+    version: '2026-09-15.1',
     text: COMMUNICATIONS_OPT_IN.it,
     texts: COMMUNICATIONS_OPT_IN,
     displayed: true,
@@ -426,7 +395,7 @@ export const CONSENT_TEXTS = Object.freeze({
    */
   communicationsSignIn: entry({
     id: 'communications_sign_in',
-    version: '2026-08-20.1',
+    version: '2026-09-15.1',
     text: COMMUNICATIONS_SIGN_IN.it,
     texts: COMMUNICATIONS_SIGN_IN,
     displayed: true,
@@ -445,9 +414,9 @@ export const CONSENT_TEXTS = Object.freeze({
    * to remove.
    *
    * `act` cannot be shared to solve it: typing an address IS a different thing
-   * from signing in, it is the only value in `AFFIRMATIVE_CONSENT_ACTS`, and
-   * recording either one as the other misdescribes what the person did. So the
-   * TEXT is shared and the ACT is not — byte-identical to
+   * from signing in, it is an affirmative value in `AFFIRMATIVE_CONSENT_ACTS`,
+   * and recording either one as the other misdescribes what the person did. So
+   * the TEXT is shared and the ACT is not — byte-identical to
    * `communicationsSignIn`, asserted in tests/newsletter-consent-proof.test.ts,
    * the same shape `publisherGateSocial`/`publisherGateEmail` already use.
    *
@@ -458,7 +427,7 @@ export const CONSENT_TEXTS = Object.freeze({
    */
   communicationsSignInEmail: entry({
     id: 'communications_sign_in_email',
-    version: '2026-08-20.1',
+    version: '2026-09-15.1',
     text: COMMUNICATIONS_SIGN_IN.it,
     texts: COMMUNICATIONS_SIGN_IN,
     displayed: true,
@@ -654,7 +623,30 @@ export type ConsentProofInput = {
   consentAct: ConsentAct;
   consentMethod: string;
   consentUserAgent: string | null;
+  /** The displayed communications formula covers the unified email scope. */
+  consentPurpose?: typeof UNIFIED_EMAIL_CONSENT_PURPOSE;
 };
+
+/**
+ * Build the audit fields for the implicit base registration.
+ *
+ * `displayed` is supplied by the caller because an inline signup notice and a
+ * background authentication restore do not make the same UI claim. Both use
+ * the same versioned wording; neither needs a separate checkbox.
+ */
+export function registrationTermsProof(
+  locale?: string,
+  displayed = false,
+): ConsentProofInput {
+  const proof = consentProof('communicationsOptIn', REGISTRATION_TERMS_CONSENT_METHOD, locale);
+  return {
+    ...proof,
+    consentTextDisplayed: displayed,
+    consentAct: REGISTRATION_TERMS_CONSENT_ACT,
+    consentMethod: REGISTRATION_TERMS_CONSENT_METHOD,
+    consentPurpose: UNIFIED_EMAIL_CONSENT_PURPOSE,
+  };
+}
 
 /**
  * Build the consent-proof fields for one capture.
@@ -690,6 +682,9 @@ export function consentProof(
     consentTextDisplayed: proof.displayed,
     consentAct: proof.act,
     consentMethod: method,
+    ...(key === 'communicationsOptIn'
+      ? { consentPurpose: UNIFIED_EMAIL_CONSENT_PURPOSE }
+      : {}),
     consentUserAgent:
       typeof navigator !== 'undefined' && typeof navigator.userAgent === 'string'
         ? navigator.userAgent

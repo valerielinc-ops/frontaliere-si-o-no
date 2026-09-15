@@ -363,6 +363,7 @@ const TOKEN = 'b'.repeat(64);
 const SPA_CALLS: Array<{ action: string; call: () => Promise<unknown> }> = [
   { action: 'exchange_auth_code', call: () => subs.exchangeNewsletterAuthCode(EMAIL, 'ac-code-value') },
   { action: 'unsubscribe', call: () => subs.unsubscribeViaCloudFunction(EMAIL, TOKEN) },
+  { action: 'unsubscribe_all', call: () => subs.stopAllEmails(EMAIL, TOKEN) },
   { action: 'confirm', call: () => subs.confirmNewsletterSubscription(EMAIL, TOKEN) },
   { action: 'get_full_status', call: () => subs.getFullSubscriptionStatus(EMAIL, TOKEN) },
   { action: 'get_autologin_status', call: () => subs.getAutologinStatus(EMAIL, TOKEN) },

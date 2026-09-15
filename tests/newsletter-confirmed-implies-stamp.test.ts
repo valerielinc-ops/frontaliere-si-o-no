@@ -318,7 +318,7 @@ describe('every branch that writes the word writes the proof', () => {
     const writers = actionBranches(src).filter((b) => WRITES_CONFIRMED.test(stripComments(b.body)));
     // Both are clicks the RECIPIENT performs. If this list grows, the new
     // entry must be a click too — an automatic path belongs nowhere near it.
-    expect(writers.map((b) => b.action).sort()).toEqual(['confirm', 'resubscribe']);
+    expect(writers.map((b) => b.action).sort()).toEqual(['confirm', 'create_alert', 'resubscribe']);
     for (const b of writers) {
       const body = stripComments(b.body);
       expect(body, `branch '${b.action}' writes confirmed with no confirmed_at`).toMatch(/confirmed_at\s*:/);

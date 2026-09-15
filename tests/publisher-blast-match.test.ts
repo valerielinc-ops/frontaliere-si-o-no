@@ -1,8 +1,10 @@
 import { describe, it, expect } from 'vitest';
 import {
+  isAdvertisingSuppressed,
   scoreSubscriberForAd,
   matchSubscribersForAd,
 } from '../services/publisherBlastMatch.mjs';
+import { isCrossChannelStop } from '../services/emailSuppression.mjs';
 
 const fisioAd = {
   title: 'Fisioterapista diplomato/a',
@@ -34,21 +36,16 @@ describe('scoreSubscriberForAd', () => {
 });
 
 describe('matchSubscribersForAd', () => {
-  // Every fixture below carries the double-opt-in stamp, because since #5686 a
-  // row without one is not a recipient at all — see the consent-gate block at
-  // the bottom of this file.
+  // The fixtures model subscribed rows. A double-opt-in stamp is deliberately
+  // not part of the audience contract: the sender must still match rows that
+  // have no proof, provided they are not suppressed or opted out.
   //
-  // …and since #5759 it also carries a `consent_text` naming a page version at
-  // or after the one that named third-party advertising. Same reasoning, one
-  // gate later: a row whose stored disclosure never mentioned advertising is
-  // not a recipient of an ad blast either. Spreading `CONSENTED` into the
-  // fixtures rather than leaving them bare is what keeps the tests below about
-  // what they say they are about — without it every expectation here would be
-  // satisfied by the new gate and would assert nothing about scoring,
-  // suppression or the cap.
+  // `consent_text` remains useful as an audit signal, but neither its page
+  // version nor the optional advertising marker is a proof gate.
   const STAMP = '2026-01-01T00:00:00.000Z';
   const CONSENTED = {
     confirmed_at: STAMP,
+    consent_advertising: true,
     consent_text:
       'Iscrivo il mio indirizzo alle comunicazioni di Frontaliere Ticino. Cosa ricevo, con che frequenza, come disdire e chi tratta i dati: frontaliereticino.ch/comunicazioni (versione 2026-08-13.2).',
   };
@@ -60,13 +57,13 @@ describe('matchSubscribersForAd', () => {
     { email: '', job_search_query: 'Fisioterapista', ...CONSENTED },
   ];
 
-  it('returns matching subscribers sorted by score, excluding unsubscribed/blank', () => {
+  it('returns matching subscribers sorted by score, excluding blank only', () => {
     const res = matchSubscribersForAd(fisioAd, subs, { minScore: 3 });
     const emails = res.map((r: { email: string }) => r.email);
     expect(emails).toContain('a@x.ch');
     expect(emails).toContain('b@x.ch');
     expect(emails).not.toContain('c@x.ch'); // construction
-    expect(emails).not.toContain('d@x.ch'); // unsubscribed
+    expect(emails).not.toContain('d@x.ch'); // an explicit unsubscribe stops advertising too
     expect(emails).not.toContain(''); // blank
     // a (direct query) ranks above b (sector only)
     expect(res[0].email).toBe('a@x.ch');
@@ -103,28 +100,27 @@ describe('matchSubscribersForAd', () => {
   describe('the consent gate', () => {
     const strongMatch = { job_search_query: 'Fisioterapista diplomato/a', sector_interest: 'health' };
 
-    it('drops a perfect match that carries no confirmation stamp', () => {
+    it('keeps perfect matches regardless of confirmation stamp or status word', () => {
       const rows = [
         { email: 'stamped@example.com', ...strongMatch, ...CONSENTED },
         { email: 'never-confirmed@example.com', ...strongMatch, ...CONSENTED, confirmed_at: undefined, status: 'pending' },
         { email: 'claims-confirmed@example.com', ...strongMatch, ...CONSENTED, confirmed_at: undefined, status: 'confirmed' },
       ];
       const emails = matchSubscribersForAd(fisioAd, rows, { minScore: 3 }).map((r: { email: string }) => r.email);
-      expect(emails).toEqual(['stamped@example.com']);
+      expect(emails).toEqual([
+        'stamped@example.com',
+        'never-confirmed@example.com',
+        'claims-confirmed@example.com',
+      ]);
     });
 
-    it('follows the toggle: `subscribed` passes with the stamp, not with resubscribed_at alone', () => {
-      // The #5686 review finding, checked on THIS channel rather than assumed:
-      // the blast shares the gate, so the authenticated preferences toggle had
-      // to start writing `confirmed_at` for these people to keep matching. The
-      // resubscribe LINK writes only `resubscribed_at` — a bare GET a scanner
-      // follows — and must stay out.
+    it('does not use confirmation or resubscribe timestamps as a delivery gate', () => {
       const rows = [
         { email: 'toggled@example.com', ...strongMatch, ...CONSENTED, status: 'subscribed', resubscribed_at: STAMP },
         { email: 'link-only@example.com', ...strongMatch, ...CONSENTED, confirmed_at: undefined, status: 'subscribed', resubscribed_at: STAMP },
       ];
       const emails = matchSubscribersForAd(fisioAd, rows, { minScore: 3 }).map((r: { email: string }) => r.email);
-      expect(emails).toEqual(['toggled@example.com']);
+      expect(emails).toEqual(['toggled@example.com', 'link-only@example.com']);
     });
 
     it('keeps a `pending` row that DOES carry the stamp — the deliverability re-probe', () => {
@@ -140,18 +136,12 @@ describe('matchSubscribersForAd', () => {
   /**
    * The advertising half (#5759), at unit level.
    *
-   * The owner's decision of 2026-08-13 makes third-party advertising a consent
-   * category collected as an OPT-OUT: nobody ticks a box for it, so what stands
-   * in for the tick is a formula that names it and a switch that stops it. This
-   * function is where both become a fact about who receives mail.
+   * Third-party advertising is a separately manageable category. The page and
+   * preference centre record it, but the absence of a marker is not a delivery
+   * gate under the whole-list policy.
    *
-   * AND THE HALF THAT WAS TAKEN AWAY ON 2026-08-14. #5759 also refused anyone
-   * whose stored proof predated the page version that named advertising. The
-   * owner was told what that meant — effectively the whole list — and decided
-   * the disclosure reaches back over all of it. The first test below is the
-   * former one turned around, and it is written as an assertion rather than
-   * deleted precisely so that tomorrow the reach reads as a decision somebody
-   * took and not as a filter somebody lost.
+   * The page-version comparison remains an audit signal only. Explicit
+   * advertising opt-out is the only category-specific refusal.
    *
    * The contract-level version of the same claim — that the naming and the
    * switch cannot ship without each other — lives in
@@ -164,12 +154,8 @@ describe('matchSubscribersForAd', () => {
       matchSubscribersForAd(fisioAd, rows, { minScore: 3 }).map((r: { email: string }) => r.email);
 
     it('reaches a match whose stored disclosure predates the page that named advertising', () => {
-      // THE DECISION, PINNED. Each of these three shapes was excluded until
-      // 2026-08-14: an older page version, no `consent_text` at all (8.505 of
-      // 8.605 documents, measured 2026-08-12), a text with no version in it.
-      // They are now recipients like anybody else, and this expectation exists
-      // so that a future reader finds the choice recorded instead of inferring
-      // a regression from a missing check.
+      // The stored page version is audit-only. Older, missing and unparseable
+      // disclosures remain eligible like every other subscribed row.
       const older = CONSENTED.consent_text.replace('2026-08-13.2', '2026-08-13.1');
       expect(emails([
         { email: 'old@example.com', ...strongMatch, ...CONSENTED, consent_text: older },
@@ -200,39 +186,29 @@ describe('matchSubscribersForAd', () => {
       });
     });
 
-    it('drops the reader who used the switch, and only on an explicit true', () => {
-      // `false` is not absence: the preference centre writes it when somebody
-      // looked at the switch and left it on. That is evidence, and evidence
-      // must not change who gets the mail.
+    it('allows an absent advertising marker and still honours the switch', () => {
       expect(emails([
         { email: 'off@example.com', ...strongMatch, ...CONSENTED, advertising_opt_out: true },
         { email: 'left-on@example.com', ...strongMatch, ...CONSENTED, advertising_opt_out: false },
-        { email: 'never-asked@example.com', ...strongMatch, ...CONSENTED },
+        { email: 'never-asked@example.com', ...strongMatch, ...CONSENTED, consent_advertising: undefined },
       ]).sort()).toEqual(['left-on@example.com', 'never-asked@example.com']);
     });
   });
 
   /**
-   * WHAT MUST STILL HOLD NOW THAT THE VERSION FILTER IS GONE.
-   *
-   * "Advertising may reach the whole list" was a decision about ONE gate. The
-   * others — the per-channel switch, a global opt-out, a hard suppression, the
-   * double-opt-in stamp — are not that decision, and the way a relaxation goes
-   * wrong is by taking more than it was given: each of those is checked in the
-   * same loop, one `continue` away from the line that was changed.
-   *
-   * Every case below therefore ships with a CONTROL that is identical except
-   * for the one field under test, and the control's `consent_text` is a version
-   * OLDER than the naming — so a control that is admitted proves the relaxation
-   * really is in force, and a case that is dropped proves the drop is the field
-   * and not a leftover of the removed filter. Without the control both halves
-   * would pass on a matcher that rejected everybody.
+   * The explicit advertising choice is only one of the gates. The other gates
+   * — the per-channel withdrawal, a global opt-out and hard suppression — must
+   * continue to apply independently unless the reader explicitly reactivates
+   * advertising. Each case below
+   * ships with a control identical apart from the field under test, so a green
+   * test cannot be explained by the matcher rejecting everybody.
    */
-  describe('the gates that must still hold after the relaxation (owner decision 2026-08-14)', () => {
+  describe('the gates that must still hold with purpose-specific advertising consent', () => {
     const strongMatch = { job_search_query: 'Fisioterapista diplomato/a', sector_interest: 'health' };
-    /** A proof from BEFORE advertising was named: admitted since 2026-08-14. */
+    /** A proof from BEFORE advertising was named: still eligible with explicit ad consent. */
     const ANCIENT = {
       confirmed_at: '2026-01-01T00:00:00.000Z',
+      consent_advertising: true,
       consent_text:
         'Inserendo il mio indirizzo email nel modulo della newsletter, chiedo di ricevere la newsletter per frontalieri. (versione 2026-08-12.1)',
     };
@@ -248,17 +224,69 @@ describe('matchSubscribersForAd', () => {
       ])).toEqual(['control@example.com']);
     });
 
-    it('a global opt-out still stops it — in both spellings of the stamp, and on status alone', () => {
-      // The three shapes `isNewsletterOptOutBinding` exists for (#5673, #5688):
-      // the Cloud Function status, the SPA camelCase stamp, the snake_case one.
-      // A person who asked us to stop is not an advertising audience whatever
-      // the owner decided about the disclosure.
+    it('a global opt-out still stops it without a category reactivation', () => {
+      // The stop-all action writes a dedicated cross-channel field, which is
+      // authoritative for the ordinary case even when a category field says
+      // advertising is on. The only exception is the explicit marker tested
+      // below; other senders never consume that marker.
       expect(emails([
         control,
-        { email: 'status@example.com', ...strongMatch, ...ANCIENT, status: 'unsubscribed' },
-        { email: 'camel@example.com', ...strongMatch, ...ANCIENT, unsubscribedAt: '2026-02-01T00:00:00.000Z' },
-        { email: 'snake@example.com', ...strongMatch, ...ANCIENT, unsubscribed_at: '2026-02-01T00:00:00.000Z' },
+        { email: 'canonical@example.com', ...strongMatch, ...ANCIENT, all_email_opted_out: true },
+        { email: 'alias@example.com', ...strongMatch, ...ANCIENT, global_email_opted_out: true },
+        { email: 'newsletter-only@example.com', ...strongMatch, ...ANCIENT, status: 'unsubscribed' },
       ])).toEqual(['control@example.com']);
+    });
+
+    it('allows only an explicit later advertising reactivation after a newsletter opt-out', () => {
+      expect(emails([
+        control,
+        {
+          email: 'still-off@example.com',
+          ...strongMatch,
+          ...ANCIENT,
+          status: 'unsubscribed',
+          unsubscribed_at: '2026-09-02T00:00:00.000Z',
+          advertising_opt_out: false,
+          advertising_opt_out_updated_at: '2026-09-01T00:00:00.000Z',
+        },
+        {
+          email: 'ads-on@example.com',
+          ...strongMatch,
+          ...ANCIENT,
+          status: 'unsubscribed',
+          unsubscribed_at: '2026-09-01T00:00:00.000Z',
+          advertising_opt_out: false,
+          advertising_opt_out_updated_at: '2026-09-02T00:00:00.000Z',
+        },
+        {
+          email: 'ads-on-legacy-status-only@example.com',
+          ...strongMatch,
+          ...ANCIENT,
+          status: 'unsubscribed',
+          advertising_opt_out: false,
+          advertising_reactivated_at: '2026-09-02T00:00:00.000Z',
+        },
+      ]).sort()).toEqual([
+        'ads-on-legacy-status-only@example.com',
+        'ads-on@example.com',
+        'control@example.com',
+      ]);
+    });
+
+    it('keeps the stop-all fields for other senders while allowing explicit ad reactivation', () => {
+      const reactivated = {
+        email: 'ads-only-after-stop@example.com',
+        ...strongMatch,
+        ...ANCIENT,
+        status: 'unsubscribed',
+        all_email_opted_out: true,
+        global_email_opted_out: true,
+        advertising_opt_out: false,
+        advertising_reactivated_at: '2026-09-02T00:00:00.000Z',
+      };
+      expect(isCrossChannelStop(reactivated)).toBe(true);
+      expect(isAdvertisingSuppressed(reactivated)).toBe(false);
+      expect(emails([reactivated])).toEqual(['ads-only-after-stop@example.com']);
     });
 
     it('a hard suppression still stops it — bounced, complained, suppressed', () => {
@@ -270,15 +298,12 @@ describe('matchSubscribersForAd', () => {
       ])).toEqual(['control@example.com']);
     });
 
-    it('the double opt-in stamp is still required — an unconfirmed address is not reached', () => {
-      // #5686. The relaxed gate is about WHAT they were told, not about whether
-      // they ever completed a subscription: a `confirmed` word with no stamp
-      // behind it is the shape that mailed 1.488 addresses.
+    it('does not require a double opt-in stamp for pending or confirmed rows', () => {
       expect(emails([
         control,
         { email: 'pending@example.com', ...strongMatch, ...ANCIENT, confirmed_at: undefined, status: 'pending' },
         { email: 'claims@example.com', ...strongMatch, ...ANCIENT, confirmed_at: undefined, status: 'confirmed' },
-      ])).toEqual(['control@example.com']);
+      ])).toEqual(['control@example.com', 'pending@example.com', 'claims@example.com']);
     });
 
     it('an opt-out and an ancient proof together are still one drop, not a cancellation', () => {

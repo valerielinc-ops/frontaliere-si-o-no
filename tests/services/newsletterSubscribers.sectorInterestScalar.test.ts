@@ -59,6 +59,7 @@ describe('captureNewsletterSubscriber — sector_interest stays scalar (issue #4
         sectorInterest: ['health', 'tech'] as unknown as string,
         // #5678: a NEW subscriber cannot be created without a consent text.
         consentText: 'formula di prova',
+        consentGiven: true,
       },
     );
 

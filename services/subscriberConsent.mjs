@@ -16,5 +16,8 @@
 export {
   CONFIRMATION_LINK_PROOF,
   hasConfirmationProof,
+  hasUnifiedEmailConsent,
+  isBaseCommunicationsReady,
   isNewsletterConfirmationEvent,
+  UNIFIED_EMAIL_CONSENT_PURPOSE,
 } from '../functions/src/lib/subscriberConsent.js';

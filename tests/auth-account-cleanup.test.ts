@@ -458,7 +458,7 @@ describe('all supported registration methods after account-delete', () => {
     expect(after.reactivated_at).toBeUndefined();
   });
 
-  it('an autologin code in a leftover email starts Auth without granting newsletter consent', async () => {
+  it('an autologin code in a leftover email starts Auth without duplicating terms registration', async () => {
     const { cleanupUserDataForDeletedAccount } = await import(
       '../functions/src/authAccountCleanup.js'
     );
@@ -548,7 +548,7 @@ describe('profile delete path no longer pretends client newsletter delete is the
 
   it('rechecks job-alert backfill when a re-registration clears the tombstone', () => {
     expect(indexSrc).toMatch(/const clearedAccountDeletion = beforeData\s+&& isAccountDeletedTombstone\(beforeData\)\s+&& !isAccountDeletedTombstone\(afterData\)/);
-    expect(indexSrc).toMatch(/if \(!signalTierChanged\(beforeData, afterData\) && !clearedAccountDeletion\) return/);
+    expect(indexSrc).toMatch(/if \(!created && !registrationTermsAccepted && !signalTierChanged\(beforeData, afterData\) && !clearedAccountDeletion\) return/);
   });
 
   it('clears local newsletter lifecycle flags after a successful account deletion', () => {

@@ -352,7 +352,11 @@ describe('E oracle: public company identity and hydrated CTA', () => {
     );
     await waitFor(() => screen.getByRole('button', { name: /Segui questa azienda/i }));
     fireEvent.click(screen.getByRole('button', { name: /Segui questa azienda/i }));
-    const emailInput = await screen.findByLabelText(/azienda|company/i);
+    const emailInput = await waitFor(() => {
+      const input = document.querySelector('#company-follow-email');
+      if (!input) throw new Error('company follow capture input was not mounted');
+      return input as HTMLInputElement;
+    });
     fireEvent.change(emailInput, { target: { value: CONTROLLED_EMAIL } });
     await act(async () => {
       fireEvent.submit(emailInput.closest('form') as HTMLFormElement);
@@ -626,7 +630,7 @@ describe('E oracle: sender, matching, provider, and writeback', () => {
     finish(errors);
   });
 
-  it('E-NEG-05: unknown consent and suppression states defer with a reason', async () => {
+  it('E-NEG-05: missing data and suppression states stay distinct', async () => {
     const errors: unknown[] = [];
     const api = await senderApi();
     const classify = api.classifyRecipientConsent;
@@ -645,7 +649,7 @@ describe('E oracle: sender, matching, provider, and writeback', () => {
       {
         id: 'pending-newsletter',
         newsletter: { exists: true, data: { status: 'pending', active: true } },
-        expected: { action: 'defer', reason: 'newsletter-consent-status-unknown' },
+        expected: { action: 'send', reason: 'subscription-known-ok' },
       },
       {
         id: 'malformed-newsletter',
@@ -654,19 +658,42 @@ describe('E oracle: sender, matching, provider, and writeback', () => {
       },
       {
         id: 'unknown-job-alert',
-        newsletter: { exists: true, data: { status: 'confirmed', active: true } },
+        newsletter: {
+          exists: true,
+          data: {
+            status: 'confirmed',
+            active: true,
+            confirmed_at: '2026-09-01T00:00:00.000Z',
+            consent_act: 'typed_email_submit',
+          },
+        },
         jobAlert: { exists: true, data: { status: 'mystery', active: true } },
-        expected: { action: 'defer', reason: 'job-alert-consent-status-unknown' },
+        expected: { action: 'send', reason: 'subscription-known-ok' },
       },
       {
         id: 'known-sendable',
-        newsletter: { exists: true, data: { status: 'confirmed', active: true } },
+        newsletter: {
+          exists: true,
+          data: {
+            status: 'confirmed',
+            active: true,
+            confirmed_at: '2026-09-01T00:00:00.000Z',
+            consent_act: 'typed_email_submit',
+          },
+        },
         jobAlert: activeJobAlert,
-        expected: { action: 'send', reason: 'consent-known-ok' },
+        expected: { action: 'send', reason: 'subscription-known-ok' },
       },
       {
         id: 'cross-channel-stop',
-        newsletter: { exists: true, data: { status: 'unsubscribed', active: true } },
+        newsletter: {
+          exists: true,
+          data: {
+            status: 'unsubscribed',
+            active: true,
+            all_email_opted_out: true,
+          },
+        },
         jobAlert: activeJobAlert,
         expected: { action: 'suppress', reason: 'newsletter-cross-channel-stop' },
       },
@@ -1063,7 +1090,7 @@ describe('E oracle: sender, matching, provider, and writeback', () => {
 });
 
 describe('E oracle: regressions outside company alerts', () => {
-  it('E-NEG-12: category popup remains visible and creates only after acceptance', async () => {
+  it('E-NEG-12: category popup remains visible and creates only after the user action', async () => {
     const errors: unknown[] = [];
     const subscribe = vi.fn(async () => ({
       id: 'category-alert',

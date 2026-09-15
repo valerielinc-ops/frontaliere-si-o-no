@@ -12,6 +12,12 @@ import {
 import { deriveAnalyticsPageContext } from './analyticsPageContext';
 import { isNewsletterOptOutBinding } from './newsletterOptOut.mjs';
 import { hasConfirmationProof } from './subscriberConsent.mjs';
+import { GLOBAL_EMAIL_OPT_OUT_FIELDS, isGlobalEmailOptOut } from './emailSuppression.mjs';
+import {
+ registrationTermsProof,
+ REGISTRATION_TERMS_CONSENT_BASIS,
+ UNIFIED_EMAIL_CONSENT_PURPOSE,
+} from './consentTexts';
 import { reportCaughtError } from '@/services/errorReporter';
 import { NEWSLETTER_SUBSCRIBED_KEY as LOCAL_SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
 import { FUNCTIONS_BASE } from './functionsBase';
@@ -46,7 +52,8 @@ export type NewsletterSubscriberStatus =
   * Explicit reactivation from a preferences surface. This is not double
   * opt-in confirmation: the HMAC/preferences-link writer records only the
   * reactivation stamp, while the authenticated SPA also records confirmation
-  * stamps. Senders must keep applying their own proof gate.
+  * stamps. Senders keep applying channel/opt-out suppression; proof remains
+  * audit and confirmation-request data, not an ordinary-delivery gate.
   */
  | 'subscribed'
  | 'unsubscribed'
@@ -96,6 +103,7 @@ export type NewsletterUtm = {
 export type NewsletterJobContext = {
  slug?: string | null;
  company?: string | null;
+ title?: string | null;
  location?: string | null;
  category?: string | null;
  searchQuery?: string | null;
@@ -118,6 +126,7 @@ export type NewsletterEventType =
  | 'open'
  | 'click'
  | 'unsubscribe'
+ | 'all_email_unsubscribe'
  | 'bounce'
  | 'complaint'
  | 'suppressed';
@@ -171,6 +180,12 @@ export type NewsletterUpsertInput = {
  consentAct?: string | null;
  /** Purpose of the act; kept separate from the existing consent phrase. */
  consentPurpose?: string | null;
+ /** The product basis recorded for the base relationship. */
+ consentBasis?: string | null;
+ /** Whether this write is the automatic terms-based registration. */
+ registrationTermsAccepted?: boolean;
+ /** How the address was registered: typed email needs DOI; auth is verified. */
+ registrationMethod?: 'email' | 'authenticated';
  /**
   * Network provenance of the consent, ALREADY TRUNCATED (/24 IPv4, /48 IPv6).
   *
@@ -189,6 +204,37 @@ export type NewsletterUpsertInput = {
   * event: signing in is not consent to receive mail you already refused.
   */
  reconsent?: boolean;
+ /** Clear a stop-all marker only with the same explicit email choice. */
+ clearGlobalEmailStop?: boolean;
+ /**
+  * Skip the legacy double-opt-in request for a terms-based registration. A
+  * deliberate `reconsent` keeps the DOI flow and is never skipped.
+  */
+ skipConfirmationEmail?: boolean;
+};
+
+/**
+ * The shared registration write used by alert and feature gates.
+ *
+ * A job/company/saved-item action may be the visible trigger, but it must still
+ * create the same email relationship as the newsletter form. Keeping this
+ * input small prevents alert services from inventing their own consent fields;
+ * `upsertUnifiedEmailSubscriber` supplies the canonical terms-based relationship.
+ */
+export type UnifiedEmailConsentInput = {
+  email: string;
+  userId?: string | null;
+  name?: string | null;
+  source?: string | null;
+  sourceChannel?: NewsletterSourceChannel | null;
+  sourcePage?: string | null;
+  sourceCta?: string | null;
+  sourceComponent?: string | null;
+  sourceRouteFamily?: string | null;
+  locale?: string | null;
+  jobContext?: NewsletterJobContext | null;
+  /** Typed email starts pending; an authenticated provider can confirm now. */
+  registrationMethod?: 'email' | 'authenticated';
 };
 
 export type NewsletterEventInput = {
@@ -239,6 +285,47 @@ const DEFAULT_PREFERENCES: NewsletterPreferences = {
  tips: false,
 };
 
+/**
+ * Build the one canonical subscription write for an email-related feature.
+ *
+ * The alert itself is not the registration record. This payload creates/updates
+ * the central communications document under the registration terms, enables
+ * both the newsletter and jobs categories, and lets the source channel provide
+ * the initial alert criteria. Third-party advertising is part of this same
+ * terms-based activation; the preference centre can turn that category off.
+ */
+export function unifiedEmailConsentInput(input: UnifiedEmailConsentInput): NewsletterUpsertInput {
+  const locale = input.locale || 'it';
+  const registrationMethod = input.registrationMethod || (input.userId ? 'authenticated' : 'email');
+  const authenticated = registrationMethod === 'authenticated';
+  return {
+    email: input.email,
+    userId: input.userId || null,
+    name: input.name || null,
+    source: input.source || 'unified_email_gate',
+    sourceChannel: input.sourceChannel || 'web_app',
+    sourcePage: input.sourcePage || null,
+    sourceCta: input.sourceCta || null,
+    sourceComponent: input.sourceComponent || null,
+    sourceRouteFamily: input.sourceRouteFamily || null,
+    locale,
+    preferences: { ...DEFAULT_PREFERENCES, jobs: true },
+    status: authenticated ? 'confirmed' : 'pending',
+    isActive: authenticated,
+    jobContext: input.jobContext || null,
+    // This is the base relationship created by registering for a site
+    // feature. It is governed by the registration terms, not a second
+    // checkbox. Typed email still needs the link that proves possession of
+    // the address; a verified authentication provider can confirm directly.
+    registrationTermsAccepted: true,
+    skipConfirmationEmail: authenticated,
+    consentGiven: true,
+    consentBasis: REGISTRATION_TERMS_CONSENT_BASIS,
+    consentPurpose: UNIFIED_EMAIL_CONSENT_PURPOSE,
+    ...registrationTermsProof(locale, true),
+  };
+}
+
 const COMPANY_FOLLOW_ONLY_PREFERENCES: NewsletterPreferences = {
  exchangeRate: false,
  traffic: false,
@@ -256,6 +343,15 @@ const COMPANY_FOLLOW_ONLY_PREFERENCES: NewsletterPreferences = {
  mendrisio: false,
  chiasso: false,
 };
+
+// The exact `company_follow_button` channel remains a compatibility boundary
+// for historical company-only captures. Live CompanyFollow UI uses the
+// unified channel, but it still needs the pending-follow bookkeeping so the
+// DOI confirmation can replay the parked intent into a CompanyAlert.
+const COMPANY_FOLLOW_SOURCE_CHANNELS = new Set([
+ 'company_follow_button',
+ 'company_follow_unified',
+]);
 
 const CONFIRMED_NEWSLETTER_SOURCES = new Set([
  'signup',
@@ -330,6 +426,25 @@ function normalizeSourceChannel(input: NewsletterUpsertInput): NewsletterSourceC
  return source;
 }
 
+const AUTHENTICATED_REGISTRATION_CHANNELS = new Set([
+ 'auth_google',
+ 'auth_facebook',
+ 'auth_linkedin',
+]);
+
+/**
+ * A verified provider session can confirm the base relationship immediately;
+ * a bare address cannot. Keep this decision explicit so a source label alone
+ * never accidentally turns an email-only form into a confirmed subscriber.
+ */
+function isAuthenticatedRegistration(input: NewsletterUpsertInput): boolean {
+ if (input.registrationMethod !== undefined) return input.registrationMethod === 'authenticated';
+ if (input.userId) return true;
+ const channel = normalizeSourceChannel(input);
+ return AUTHENTICATED_REGISTRATION_CHANNELS.has(channel)
+  || channel.startsWith('auth_');
+}
+
 /**
  * The explicit event that ends the company-follow-only purpose.
  *
@@ -344,6 +459,10 @@ function isExplicitNewsletterOptInCapture(
  input: NewsletterUpsertInput,
  sourceChannel: NewsletterSourceChannel,
 ): boolean {
+ // The current registration model is unified even when an older caller still
+ // uses the historical button channel. Keep the legacy company-only behavior
+ // only for writes that do not carry the new registration basis.
+ if (input.registrationTermsAccepted === true) return true;
  if (sourceChannel === 'company_follow_button') return false;
  return (
   (input.preferences !== undefined
@@ -361,7 +480,9 @@ function resolveCompanyFollowOnlyPurpose(
  existingCompanyFollowOnly: boolean,
 ): boolean {
  if (sourceChannel === 'company_follow_button') {
-  return !hasExistingSubscriber || existingCompanyFollowOnly;
+  return input.registrationTermsAccepted === true
+   ? false
+   : (!hasExistingSubscriber || existingCompanyFollowOnly);
  }
  if (isExplicitNewsletterOptInCapture(input, sourceChannel)) return false;
  return existingCompanyFollowOnly;
@@ -535,9 +656,10 @@ function isAccountDeletionReRegistration(
  * Which half of the status vocabulary a write belongs to.
  *
  * `subscription` — states on the subscription side of the post-filter. They
- * are the only statuses that a (re)subscription write may land on, but this
- * classification does not itself authorise mail: each sender still applies
- * its own confirmation/proof gate, and `subscribed` is not `confirmed`.
+ * are the only statuses that a (re)subscription write may land on. This
+ * classification does not itself suppress mail: senders apply their channel
+ * status and opt-out rules, while DOI proof remains confirmation/audit data.
+ * `subscribed` is an activity state, not a second delivery gate.
  *
  * `suppression` — an opt-out, or an address-level signal a webhook reports
  * (hard bounce / spam complaint / provider blocklist). Every one of them is at
@@ -601,8 +723,8 @@ export function inferNewsletterSubscriptionState(
  // `{ status: 'pending', isActive: false }` — inactive, so it returned there
  // and the preservation below was unreachable — and `pending` protects LESS
  // than `unsubscribed`: it is absent from NEWSLETTER_EXCLUDED_STATUSES, so
- // scripts/send-daily-brief.mjs stops excluding the recipient and falls back
- // to `hasConfirmationProof`, which an old `confirmed_at` satisfies. The
+ // scripts/send-daily-brief.mjs stops excluding the recipient and used to fall
+ // back to `hasConfirmationProof`, which an old `confirmed_at` satisfies. The
  // post-filter must never hand back a status less protective than the one on
  // the document; keying on the status vocabulary instead of on `isActive` is
  // what makes that true by construction.
@@ -674,15 +796,23 @@ function inferSubscriptionStateIgnoringOptOut(
  const explicitIsActive = input.isActive;
 
  // A fresh DOI request must not downgrade a subscriber who already has valid
- // confirmation proof. A historical confirmed row without valid proof can be
- // returned to DOI when the displayed communications consent is explicit.
+ // confirmation proof. Legacy active rows are also preserved: they predate
+ // the terms marker, so a later feature gate must not turn an already-active
+ // relationship into a new pending cycle merely because the caller supplies
+ // the old `status: 'pending'` shape. Only a current terms-based row that is
+ // already known to need proof can be returned to DOI here.
  const existingIsConfirmed = existing?.status === 'confirmed'
   || existing?.isActive === true
-  || existing?.active === true;
+  || existing?.active === true
+  || hasConfirmationProof(existing);
  const requestsPendingDoi = input.reconsent === true
   || (explicitStatus === 'pending' && explicitIsActive === false);
  if (existingIsConfirmed && requestsPendingDoi) {
-  if (hasConfirmationProof(existing) || !carriesDisplayedNewsletterConsent(input)) {
+  if (
+   hasConfirmationProof(existing)
+   || (existing?.registration_terms_accepted !== true && input.registrationMethod !== 'email')
+   || !carriesDisplayedNewsletterConsent(input)
+  ) {
    return { status: 'confirmed', isActive: true };
   }
   return { status: 'pending', isActive: false };
@@ -709,9 +839,9 @@ function inferSubscriptionStateIgnoringOptOut(
  }
 
  // Acquisition provenance is not confirmation proof. A caller must state an
- // explicit status/activity transition (and, where required, carry the
- // displayed consent proof); otherwise a new address remains pending and can
- // only become mailable through the DOI confirmation endpoint.
+ // explicit status/activity transition when it needs to distinguish a new
+ // relationship from a reactivation. A new address may remain `pending` for
+ // DOI/audit purposes, but ordinary delivery does not wait for that proof.
  return { status: 'pending', isActive: false };
 }
 
@@ -1021,28 +1151,55 @@ export async function captureNewsletterSubscriber(
  const existing = await getDoc(ref);
  const existingData = existing.exists() ? existing.data() : undefined;
 
- // No new subscriber without a record of what they were told (#5678).
- //
- // 8.505 of 8.605 documents carry no `consent_text`, and the cause was never
- // this write — it was that most callers passed nothing. A guard here is what
- // stops the count from growing: the next signup path physically cannot create
- // a document without naming its formula, because it throws first.
- //
- // Scoped to CREATION on purpose, twice over:
- //  - the 8.505 existing documents keep working. Their text is not
- //    reconstructible and must not be invented, so a later write on one of
- //    them carries the gap forward instead of papering over it;
- //  - throwing is the safe failure. Every caller wraps this in try/catch and
- //    degrades to "not subscribed", which is the outcome we want from a path
- //    that cannot say what it disclosed.
+  // Every ordinary registration carries the same product-wide relationship:
+  // newsletter + job alerts + third-party advertising. The terms are the
+  // legal/product disclosure; a second checkbox is not part of this flow.
+  // Keep `reconsent` reserved for the dedicated reactivation path, which still
+  // needs its own confirmation step.
+ const isDedicatedReconsent = input.reconsent === true
+  || normalizeSourceChannel(input) === 'resubscribe_link';
+ const isServerResubscribeLink = normalizeSourceChannel(input) === 'resubscribe_link';
+ const authenticatedRegistration = isAuthenticatedRegistration(input);
+ if (!isServerResubscribeLink) {
+  // Every registration is made under the versioned terms/communications
+  // disclosure. The source channel changes the initial alert criteria, not the
+  // registration basis, so the same displayed terms record is written for
+  // newsletter, job-board, salary, article and authentication entry points.
+  const termsProof = registrationTermsProof(input.locale, true);
+  const requestedStatus = String(input.status || '').trim().toLowerCase();
+  const existingSuppressionStatus = String(existingData?.status || '').trim().toLowerCase();
+  const preservedSuppressionStatus = ['unsubscribed', 'bounced', 'complained', 'suppressed', 'expired']
+   .includes(requestedStatus)
+   ? input.status
+   : ['bounced', 'complained', 'suppressed'].includes(existingSuppressionStatus)
+   ? existingData?.status
+   : undefined;
+  const registrationStatus = preservedSuppressionStatus
+   || (input.reconsent === true
+    ? 'pending'
+    : (authenticatedRegistration ? 'confirmed' : 'pending'));
+  input = {
+   ...input,
+   ...termsProof,
+   status: registrationStatus,
+   isActive: preservedSuppressionStatus ? false : authenticatedRegistration && input.reconsent !== true,
+   consentGiven: true,
+   consentBasis: REGISTRATION_TERMS_CONSENT_BASIS,
+   registrationTermsAccepted: true,
+   // A typed address is pending until the recipient clicks the DOI link. A
+   // verified authentication provider can skip that extra proof step.
+   skipConfirmationEmail: input.reconsent === true
+    ? false
+    : (input.skipConfirmationEmail ?? authenticatedRegistration),
+  };
+ }
+
+ // Store the terms wording on every new relationship. Unlike the old
+ // checkbox-specific invariant, this is deliberately not a creation gate:
+ // callers may register through authentication or a feature action without a
+ // second explicit consent control.
  const resolvedConsentText =
  sanitizeString(input.consentText) || sanitizeString(existingData?.consent_text);
- if (!existing.exists() && !resolvedConsentText) {
- throw new Error(
- `newsletter/consent-text-required: refusing to create ${email} without a consent text. ` +
- 'Pass consentProof(<key>, <method>) from services/consentTexts.ts.',
- );
- }
 
  const subscriptionState = inferNewsletterSubscriptionState(input, existingData);
  // The same two questions the guard above asks, asked once and reused: the
@@ -1055,7 +1212,10 @@ export async function captureNewsletterSubscriber(
  const optedOut = optOutBinding && !reOptInGranted;
  const resolved = await resolveCaptureDefaults(input);
  const sourceChannel = resolved.sourceChannel;
- const isCompanyFollowSource = sourceChannel === 'company_follow_button';
+ const isLegacyCompanyFollowSource = sourceChannel === 'company_follow_button'
+  && existingData?.company_follow_only === true
+  && input.registrationTermsAccepted !== true;
+ const isCompanyFollowSource = COMPANY_FOLLOW_SOURCE_CHANNELS.has(sourceChannel);
  // A new company-follow capture authorises only the company-follow purpose.
  // Existing newsletter subscribers keep the preferences they already chose;
  // this write must not turn a follow click into three unrelated opt-ins.
@@ -1065,15 +1225,29 @@ export async function captureNewsletterSubscriber(
   existing.exists(),
   existingData?.company_follow_only === true,
  );
- const resolvedPreferences = isCompanyFollowSource
+ const preserveExistingCompanyFollowPreferences = isCompanyFollowSource
+  && existing.exists()
+  && existingData?.company_follow_only !== true;
+ const resolvedPreferences = isLegacyCompanyFollowSource
   ? (existingData?.company_follow_only === true
    ? COMPANY_FOLLOW_ONLY_PREFERENCES
    : (existingData?.preferences || COMPANY_FOLLOW_ONLY_PREFERENCES))
-  : defaultPreferences(input.preferences || existingData?.preferences);
+  : defaultPreferences(preserveExistingCompanyFollowPreferences
+   ? existingData?.preferences
+   : (input.preferences || existingData?.preferences));
+ // The displayed communications formula names the jobs category. Preserve
+ // that scope even when an older caller still supplies the newsletter-only
+ // preference defaults; this enables the category without manufacturing a
+ // concrete alert (criteria are still required by the alert writers).
+ const unifiedPreferences = input.registrationTermsAccepted === true
+  || (input.consentGiven === true
+   && sanitizeString(input.consentPurpose) === UNIFIED_EMAIL_CONSENT_PURPOSE)
+  ? { ...resolvedPreferences, jobs: true }
+  : resolvedPreferences;
  const jobContext = input.jobContext || {};
  const interests = dedupeStrings([
  ...(input.interests || []),
- ...(Object.entries(resolvedPreferences)
+ ...(Object.entries(unifiedPreferences)
  .filter(([, enabled]) => Boolean(enabled))
  .map(([key]) => key)),
  sanitizeString(input.locationInterest),
@@ -1088,42 +1262,67 @@ export async function captureNewsletterSubscriber(
  existing.exists() &&
  (existingData?.status === 'confirmed' || existingData?.isActive === true || existingData?.active === true);
 
- const explicitInputStatus = String(input.status || '').trim().toLowerCase();
+ // An ordinary registration is the new terms-based basis for the relationship.
+ // If an older row has no such basis yet, write the complete current proof so
+ // the remediation can succeed through the same shared writer. A recorded
+ // newsletter opt-out is handled as a strict no-op below and is never silently
+ // converted into a registration.
+ if (optedOut && !isDedicatedReconsent) {
+  return {
+   existed: alreadyActive,
+   id: email,
+   status: subscriptionState.status,
+   optedOut: true,
+   hadConfirmationProof: hasConfirmationProof(existingData),
+  };
+ }
+
  const isExplicitConsentRequest = input.reconsent === true
- || explicitInputStatus === 'pending'
- || explicitInputStatus === 'confirmed'
- || input.consentGiven === true;
+ || normalizeSourceChannel(input) === 'resubscribe_link';
  const isAccountDeletionReRegistrationRequest = isAccountDeletionReRegistration(input, existingData);
  const hasExistingConfirmationStamp = Boolean(existingData?.confirmed_at || existingData?.confirmedAt);
+ const needsTermsRemediation = input.registrationTermsAccepted === true
+  && existingData?.registration_terms_accepted !== true;
  // A contextual social gate may legitimately confirm an old malformed row, but
  // only after it has displayed the communications notice and explicitly asked
  // for the confirmed state. Keep the evidence in the same payload as the
  // promotion so firestore.rules can validate both new creates and these repairs.
  const needsConfirmedStamp = subscriptionState.status === 'confirmed'
  && (!wasConfirmed || (
+  (input.registrationTermsAccepted === true && !hasExistingConfirmationStamp)
+  || (
   isExplicitConsentRequest
   && input.consentTextDisplayed === true
   && !hasExistingConfirmationStamp
+  )
   ));
  // Firestore rules keep consent corrections owner-only once a confirmed row
  // exists. An access-only email gate may still call this shared upsert to
  // decide whether it needs a login link, but it must not turn that login into
  // a browser-authored consent rewrite. Conversely, a visible contextual gate
- // on a silent-auth row has an explicit status/DOI request and must be allowed
- // to deposit the displayed proof that makes the row mailable again.
+ // on a silent-auth row has an explicit status/DOI request and may deposit the
+ // displayed proof for audit and confirmation flows; ordinary delivery is
+ // already terms-based.
  const preserveExistingConfirmedConsent = existing.exists()
  && wasConfirmed
  && (subscriptionState.status === 'confirmed' || subscriptionState.status === 'subscribed')
  && !isAccountDeletionReRegistrationRequest
  && sourceChannel !== 'resubscribe_link'
  && !isNewsletterOptOutBinding(existingData)
+ && !needsTermsRemediation
  && (hasConfirmationProof(existingData) || !isExplicitConsentRequest);
 
  const now = nowIso();
  const existingConsentSourceUrl = sanitizeString(existingData?.consent_source_url);
  const existingConsentUserAgent = sanitizeString(existingData?.consent_user_agent);
  const existingConsentIp = sanitizeString(existingData?.consent_ip);
- const consentPurpose = isCompanyFollowSource
+ const advertisingEnabled = existingData?.advertising_opt_out === true
+  ? false
+  : input.registrationTermsAccepted === true || existingData?.consent_advertising === true;
+ const hasAdvertisingState = input.registrationTermsAccepted === true
+  || existingData?.consent_advertising !== undefined
+  || existingData?.advertising_opt_out === true;
+ const consentPurpose = isLegacyCompanyFollowSource
   ? (companyFollowOnly
    ? 'companyFollow'
    : sanitizeString(existingData?.consent_purpose) || 'companyFollow')
@@ -1154,7 +1353,7 @@ export async function captureNewsletterSubscriber(
  last_seen_locale: sanitizeString(input.lastSeenLocale) || sanitizeString(existingData?.last_seen_locale) || resolved.lastSeenLocale,
  type: sanitizeString(input.type) || sanitizeString(existingData?.type),
  leadMagnet: sanitizeString(input.leadMagnet) || sanitizeString(existingData?.leadMagnet),
- preferences: resolvedPreferences,
+ preferences: unifiedPreferences,
  interests,
  location_interest: sanitizeString(input.locationInterest) || sanitizeString(existingData?.location_interest),
  sector_interest: sanitizeString(input.sectorInterest) || sanitizeString(existingData?.sector_interest),
@@ -1179,14 +1378,30 @@ export async function captureNewsletterSubscriber(
  : subscriptionState.status,
  variant: sanitizeString(input.variant) || sanitizeString(existingData?.variant),
  metadata: input.metadata || existingData?.metadata || null,
- consent_given: preserveExistingConfirmedConsent
- ? (existingData?.consent_given ?? false)
- : (input.consentGiven ?? existingData?.consent_given ?? false),
- consent_given_at: preserveExistingConfirmedConsent
- ? (existingData?.consent_given_at ?? null)
- : (input.consentGiven
+ consent_given: input.registrationTermsAccepted === true
+  ? true
+  : preserveExistingConfirmedConsent
+  ? (existingData?.consent_given ?? false)
+  : (input.consentGiven ?? existingData?.consent_given ?? false),
+ consent_given_at: input.registrationTermsAccepted === true
   ? (existingData?.consent_given_at || now)
-  : (existingData?.consent_given_at || null)),
+  : preserveExistingConfirmedConsent
+  ? (existingData?.consent_given_at ?? null)
+  : (input.consentGiven
+   ? (existingData?.consent_given_at || now)
+   : (existingData?.consent_given_at || null)),
+ ...(hasAdvertisingState ? {
+  // Third-party advertising is part of the same base registration. The
+  // preference centre can later write an explicit opt-out; a historical
+  // absence remains compatible with the no-proof-gate delivery policy.
+  consent_advertising: advertisingEnabled,
+  consent_advertising_at: advertisingEnabled
+   ? (existingData?.consent_advertising_at || now)
+   : (existingData?.consent_advertising_at || null),
+  consent_advertising_updated_at: input.registrationTermsAccepted === true
+   ? now
+   : (existingData?.consent_advertising_updated_at || null),
+ } : {}),
  consent_text: preserveExistingConfirmedConsent
  ? (existingData?.consent_text ?? null)
  : resolvedConsentText,
@@ -1206,6 +1421,22 @@ export async function captureNewsletterSubscriber(
  consent_purpose: preserveExistingConfirmedConsent
  ? (existingData?.consent_purpose ?? null)
  : consentPurpose,
+ consent_basis: preserveExistingConfirmedConsent
+  ? (existingData?.consent_basis ?? null)
+  : sanitizeString(input.consentBasis)
+   || (input.registrationTermsAccepted === true ? REGISTRATION_TERMS_CONSENT_BASIS : null)
+   || sanitizeString(existingData?.consent_basis),
+ registration_terms_accepted: input.registrationTermsAccepted === true
+  || existingData?.registration_terms_accepted === true,
+ registration_terms_version: input.registrationTermsAccepted === true
+  ? (sanitizeString(input.consentTextVersion) || sanitizeString(existingData?.registration_terms_version))
+  : (existingData?.registration_terms_version ?? null),
+ registration_terms_text: input.registrationTermsAccepted === true
+  ? (sanitizeString(input.consentText) || sanitizeString(existingData?.registration_terms_text))
+  : (existingData?.registration_terms_text ?? null),
+ registration_terms_accepted_at: input.registrationTermsAccepted === true
+  ? (existingData?.registration_terms_accepted_at || now)
+  : (existingData?.registration_terms_accepted_at ?? null),
  consent_method: preserveExistingConfirmedConsent
  ? (existingData?.consent_method ?? null)
  : sanitizeString(input.consentMethod) || sanitizeString(existingData?.consent_method) || sourceChannel,
@@ -1213,12 +1444,12 @@ export async function captureNewsletterSubscriber(
  // one exists, but do not attach this follow's URL/UA/IP to the record.
  consent_source_url: preserveExistingConfirmedConsent
   ? (existingData?.consent_source_url ?? null)
-  : isCompanyFollowSource
+  : isLegacyCompanyFollowSource
   ? existingConsentSourceUrl
   : sanitizeString(input.sourcePage) || (typeof window !== 'undefined' ? window.location.href : null) || existingConsentSourceUrl,
  consent_user_agent: preserveExistingConfirmedConsent
   ? (existingData?.consent_user_agent ?? null)
-  : isCompanyFollowSource
+  : isLegacyCompanyFollowSource
   ? existingConsentUserAgent
   : sanitizeString(input.consentUserAgent) || existingConsentUserAgent || (typeof navigator !== 'undefined' ? navigator.userAgent : null),
  // EXISTING VALUE WINS — the inverse of every other field here, and
@@ -1228,12 +1459,12 @@ export async function captureNewsletterSubscriber(
  // proves the subscription, which is the one an art. 25 request asks for.
  consent_ip: preserveExistingConfirmedConsent
   ? (existingData?.consent_ip ?? null)
-  : isCompanyFollowSource
+  : isLegacyCompanyFollowSource
   ? existingConsentIp
   : existingConsentIp || sanitizeString(input.consentIp),
- consent_ip_recorded_at: preserveExistingConfirmedConsent
+  consent_ip_recorded_at: preserveExistingConfirmedConsent
   ? (existingData?.consent_ip_recorded_at ?? null)
-  : isCompanyFollowSource
+  : isLegacyCompanyFollowSource
   ? (existingConsentIp ? (sanitizeString(existingData?.consent_ip_recorded_at) || null) : null)
   : existingConsentIp
   ? (sanitizeString(existingData?.consent_ip_recorded_at) || null)
@@ -1243,6 +1474,13 @@ export async function captureNewsletterSubscriber(
   : {}),
  ...(isCompanyFollowSource || existingData?.company_follow_followup_pending !== undefined
   ? { company_follow_followup_pending: isCompanyFollowSource || existingData?.company_follow_followup_pending === true }
+  : {}),
+  // A global stop is never lifted by an ordinary registration. Only the
+  // dedicated reactivation flow may do that, and it remains confirmation-based.
+ ...(input.clearGlobalEmailStop === true
+  && isGlobalEmailOptOut(existingData)
+  && subscriptionState.status === 'pending'
+  ? Object.fromEntries(GLOBAL_EMAIL_OPT_OUT_FIELDS.map((field) => [field, false]))
   : {}),
  // These are subscription-state fields in firestore.rules. Do not mint a
  // missing historical twin during an anonymous update: that would turn a
@@ -1418,6 +1656,10 @@ export async function recordNewsletterClick(
  const email = normalizeNewsletterEmail(input.email);
  if (!email || !email.includes('@')) return;
  const ref = doc(collection(db, 'newsletter_subscribers'), email);
+ const existingSubscriber = await getDoc(ref);
+ // A click is delivery telemetry, not consent. Never let a manually crafted
+ // /newsletter/click URL create the canonical subscriber relationship.
+ if (!existingSubscriber.exists()) return;
  await setDoc(
  ref,
  {
@@ -1498,7 +1740,13 @@ export async function applyNewsletterDeliveryEvent(
  update.active = status === 'confirmed';
  }
 
- await setDoc(doc(collection(db, 'newsletter_subscribers'), email), update, { merge: true });
+ const subscriberRef = doc(collection(db, 'newsletter_subscribers'), email);
+ const existingSubscriber = await getDoc(subscriberRef);
+ // This function is used by trusted delivery processing, but the invariant
+ // is still useful at the write boundary: delivery telemetry can enrich a
+ // relationship; it cannot create one without consent.
+ if (!existingSubscriber.exists()) return;
+ await setDoc(subscriberRef, update, { merge: true });
  if (input.campaignId) {
  // Same collision class as recordNewsletterClick above — no 'unknown'
  // fallback, skip the attribution write instead of colliding on a
@@ -1573,7 +1821,8 @@ export async function upsertNewsletterSubscriber(
  // at the send point (functions/src/newsletterConfirmationEmail.js), where
  // every caller passes.
  const requestsReconsent = input.reconsent === true && result.status === 'pending';
- if (requestsReconsent || (result.status === 'pending' && !result.hadConfirmationProof)) {
+ if (!input.skipConfirmationEmail
+  && (requestsReconsent || (result.status === 'pending' && !result.hadConfirmationProof))) {
  const confirmation = await requestConfirmationEmail(input.email, requestsReconsent ? 'resubscribe' : undefined);
  if (!confirmation.success) {
   // Do not mark the UI as "email sent" when the endpoint returned a refusal.
@@ -1599,6 +1848,20 @@ export async function upsertNewsletterSubscriber(
  }
 
  return result;
+}
+
+/**
+ * Persist the canonical email relationship for an alert or feature gate.
+ *
+ * Keeping this wrapper beside the normal newsletter upsert is intentional:
+ * feature services provide provenance, while consent wording, DOI state and
+ * the enabled jobs category remain owned by one shared writer.
+ */
+export async function upsertUnifiedEmailSubscriber(
+ db: Firestore,
+ input: UnifiedEmailConsentInput,
+): Promise<NewsletterCaptureResult> {
+ return upsertNewsletterSubscriber(db, unifiedEmailConsentInput(input));
 }
 
 // ─── Newsletter confirmation helpers (FRO-24) ───────────────
@@ -1850,6 +2113,33 @@ export async function unsubscribeViaCloudFunction(
 }
 
 /**
+ * Stop every email channel for this address from the preference centre.
+ *
+ * This is intentionally separate from `unsubscribeViaCloudFunction`: the
+ * ordinary unsubscribe is newsletter-scoped, while this POST-only action sets
+ * the explicit global stop-all fields read by job/company/saved-job senders.
+ */
+export async function stopAllEmails(
+ email: string,
+ token: string,
+): Promise<{ success: boolean; error?: string }> {
+ try {
+ const normalizedEmail = email.toLowerCase().trim();
+ if (!normalizedEmail || !token) return { success: false, error: 'missing_credential' };
+ const resp = await postManageSubscription('unsubscribe_all', {
+ email: normalizedEmail,
+ token,
+ });
+ const data = await resp.json().catch(() => ({}));
+ if (resp.ok && data?.success === true) return { success: true };
+ return { success: false, error: data?.error || `http_${resp.status}` };
+ } catch (error: any) {
+ console.warn('[newsletter] Cloud Function stop-all failed:', error?.message);
+ return { success: false, error: error?.message || 'unknown_error' };
+ }
+}
+
+/**
  * Read the autologin-enabled flag for a subscriber.
  * Uses the same HMAC token as unsubscribe (just the email, no prefix).
  * Returns { enabled: true } by default for subscribers without the field set.
@@ -1984,14 +2274,11 @@ export type FullSubscriptionStatus = {
  dailyBriefFrequency?: DailyBriefFrequency | null;
  /** Days between sends the engine currently computes — shown so "automatic" is legible. */
  dailyBriefTier?: number | null;
- /**
-  * Third-party advertising: ON unless the reader switched it off (#5759).
-  *
-  * Phrased positively although the stored field is `advertising_opt_out`,
-  * because every other control in the centre reads "enabled". A flag whose
-  * polarity flips between the wire and the switch is how somebody turns a
-  * channel ON believing they turned it off.
-  */
+  /**
+   * Third-party advertising is ON for the subscriber relationship and can be
+   * turned off separately in the preference centre. The legacy opt-out remains
+   * a hard deny; an absent activation marker does not block historical records.
+   */
  advertisingEnabled?: boolean;
  };
  alerts?: SubscriptionAlertSummary[];
@@ -2021,11 +2308,10 @@ export async function getFullSubscriptionStatus(
  ? data.newsletter.dailyBriefFrequency
  : null,
  dailyBriefTier: typeof data.newsletter?.dailyBriefTier === 'number' ? data.newsletter.dailyBriefTier : null,
- // Absent means ON — the consent is an opt-out (#5759), so only an
- // explicit `false` from the function may switch the control off. A
- // `!== false` here and a `=== true` on the stored field are the same
- // rule read from the two ends.
- advertisingEnabled: data.newsletter?.advertisingEnabled !== false,
+ // Existing subscriber rows return advertising as enabled unless the reader
+ // used the separate preference control to opt out. Historical rows without
+ // the activation marker remain compatible with the same default.
+ advertisingEnabled: data.newsletter?.advertisingEnabled === true,
  },
  alerts: Array.isArray(data.alerts)
  ? data.alerts.map((a: any) => ({
@@ -2143,10 +2429,10 @@ export async function setDailyBriefFrequency(
 /**
  * Turn third-party advertising on or off for an HMAC-authed email (#5759).
  *
- * The channel-scoped half of the owner's decision: advertising is consented to
- * as an opt-out, with no extra checkbox at signup, and this is the switch that
- * makes that defensible. It touches nothing else — the newsletter, the brief
- * and the job alerts keep whatever the reader set for them.
+ * Advertising is part of the base registration, with a separate preference
+ * control for opting out. This switch records that category-level choice and
+ * touches nothing else — the newsletter, brief and job alerts keep whatever
+ * the reader set for them.
  *
  * POST, for the same reason as `toggleNewsletterSubscription` (#5711): turning
  * a channel back ON is the direction a link-following scanner must never be
@@ -2170,7 +2456,7 @@ export async function setAdvertisingEnabled(
  });
  const data = await resp.json();
  if (resp.ok && data.success) {
- return { success: true, advertisingEnabled: data.advertisingEnabled !== false };
+ return { success: true, advertisingEnabled: data.advertisingEnabled === true };
  }
  return { success: false, error: data?.error || 'write_failed' };
  } catch (error: any) {
@@ -2264,6 +2550,8 @@ export type JobAlertCreatePayload = {
  locations: string[];
  sectors: string[];
  frequency: JobAlertFrequency;
+ /** The explicit checkbox state collected by the preference-centre form. */
+ emailConsentGiven?: boolean;
  /**
   * Pinned scope (#5012). A CompanyAlert is created with EMPTY keywords and
   * locations plus a `specificCompanyKey` — the pin is the filter. Before
@@ -2365,6 +2653,7 @@ export async function createJobAlert(
  };
  if (payload.specificCompanyKey) body.specific_company_key = payload.specificCompanyKey;
  if (payload.specificJobId) body.specific_job_id = payload.specificJobId;
+ body.email_consent_given = payload.emailConsentGiven === true ? 'true' : 'false';
  const resp = await postManageSubscription('create_alert', body);
  const data = await resp.json();
  if (resp.ok && data.success) {

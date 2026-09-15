@@ -3,7 +3,7 @@
  * send-onboarding-drip.mjs — post-signup onboarding drip runner (#4451).
  *
  * A once-a-day GitHub Actions job (send-onboarding-drip.yml) that walks the
- * confirmed newsletter subscribers and sends the next due step of the 4-touch
+ * registered newsletter subscribers and sends the next due step of the 4-touch
  * onboarding sequence (day 0/3/7/14, see services/newsletter/onboardingDrip.mjs).
  *
  * State lives per-user on the newsletter_subscribers/{email} doc — drip_started_at,
@@ -12,10 +12,9 @@
  * is due. Subscribers excluded via the canonical NEWSLETTER_EXCLUDED_STATUSES
  * (unsubscribed/inactive/bounced/complained/suppressed, see
  * services/emailSuppression.mjs) are skipped on `status` directly, not just the
- * isActive/active booleans. Who may be mailed at ALL is decided by
- * `hasConfirmationProof()` (services/subscriberConsent.mjs) since #5700 — the
- * recorded consent, never `status` and never the isActive/active booleans; see
- * resolveDueStep() for the measurement that motivated it.
+ * isActive/active booleans. Registration terms establish the base
+ * communications relationship; only suppression, recency and drip state remain
+ * gates for this lifecycle channel.
  * Sends go through the shared email cascade (scripts/lib/email-cascade.mjs),
  * so provider daily caps (Mailjet 200/day, etc.) are respected exactly like the
  * weekly newsletter. Per-user scheduled-send integrates with #3798 (reuses
@@ -50,7 +49,6 @@ import {
 } from './lib/send-schedule.mjs';
 import { isNewsletterExcluded } from '../services/emailSuppression.mjs';
 import { isNewsletterOptOutBinding } from '../services/newsletterOptOut.mjs';
-import { hasConfirmationProof } from '../services/subscriberConsent.mjs';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 const DEFAULT_FROM_EMAIL = 'Frontaliere Ticino <newsletter@frontaliereticino.ch>';
@@ -121,28 +119,11 @@ function isUnsubscribedOrInactive(data) {
 
 /**
  * Resolve the drip state for a subscriber doc, or null when they are not
- * eligible for a send this run (unsubscribed, not confirmed, completed, or the
+ * eligible for a send this run (suppressed, too old, completed, or the
  * next step is not yet due). When eligible, returns the step to send.
  */
 function resolveDueStep(data, now, enrollWindowMs) {
   if (isUnsubscribedOrInactive(data)) return null;
-  // THE PROOF, not the word and not the boolean (#5700). This used to be
-  //
-  //     data.status === 'confirmed' || data.isActive === true || data.active === true
-  //
-  // and every one of those three disjuncts is a state a MACHINE writes:
-  // `scripts/mailtrap-suppression-retry.mjs:176` writes `status: 'pending',
-  // isActive: true` as a deliverability re-probe, and the 2026-07 recovery pass
-  // wrote `status: 'confirmed'` by DEDUCING consent from the signup origin. So
-  // the OR admitted 550 documents (2026-08-13, 8.673 docs: 405 `confirmed` with
-  // no stamp, 143 `pending` carrying isActive, 2 with an empty status) whose
-  // consent nothing records.
-  //
-  // Measured on the same run, and the reason this is a narrowing and not a
-  // trade: the strict gate newly REFUSES 550 and newly ADMITS 0. `isActive` /
-  // `active` are not lost as a signal — `isUnsubscribedOrInactive` above still
-  // rejects the `false` of either, which is the direction that protects anyone.
-  if (!hasConfirmationProof(data)) return null;
   if (data.drip_completed === true) return null;
 
   let startedAt = toDate(data.drip_started_at);
@@ -151,13 +132,9 @@ function resolveDueStep(data, now, enrollWindowMs) {
     // Enrollment: only fresh signups (confirmed within the window) start the
     // drip — never back-blast the whole historical base on first deploy.
     //
-    // The `created_at`/`createdAt` fallback is GONE (#5700). It made the
-    // absence of the proof cost nothing: a doc with no stamp still enrolled,
-    // anchored on the day its row was created. Unreachable now that the gate
-    // above requires the stamp, and removed rather than left as reassuring dead
-    // code — it is exactly the line a future relaxation of the gate would
-    // silently re-arm. The `!confirmedAt` guard stays: a stamp shaped like
-    // something `toDate` cannot parse must fail CLOSED, not fall through.
+    // Terms-based registrations receive a confirmed_at anchor from the central
+    // upsert. Keep the timestamp requirement so an old/incomplete row cannot
+    // accidentally start a historical drip.
     const confirmedAt = toDate(data.confirmed_at) || toDate(data.confirmedAt);
     if (!confirmedAt) return null;
     if (now.getTime() - confirmedAt.getTime() > enrollWindowMs) return null;

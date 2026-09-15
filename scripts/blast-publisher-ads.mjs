@@ -13,22 +13,16 @@
  * Free tier ads are NEVER blasted (no newsletter perk). Respects a per-run total
  * cap (free-tier ESP safety). Dry-run by default; --send actually emails.
  *
- * CONSENT (#5759). Third-party advertising is its own consent category since
- * the owner's decision of 2026-08-13, collected as an OPT-OUT: no extra
- * checkbox at signup, named on /comunicazioni/, switchable off on its own. The
- * audience filter therefore drops anyone who used that switch, plus everyone
- * the other senders drop — opted out, suppressed, never double-opted-in — all
- * in services/publisherBlastMatch.mjs, so a dry-run reports the real audience
- * and not a larger one.
+ * ACTIVATION (#5759). Third-party advertising is part of the base activation:
+ * `/comunicazioni/` names it and the registration writer stores the optional
+ * `consent_advertising` marker. The audience filter does not require a marker
+ * or a double-opt-in proof: legacy and new subscribed rows are both eligible.
+ * The preference-centre opt-out, global stop and technical suppression still
+ * stop delivery, so a dry-run reports the real audience.
  *
- * AND WHO IT NO LONGER DROPS (owner's decision of 2026-08-14). Until that day
- * it also refused anyone whose stored `consent_text` predated the page version
- * that named advertising, which was effectively the whole list. The owner was
- * told so and decided the disclosure reaches back over all of it, so that
- * filter is gone — `consentCoversAdvertising` carries the reasoning. What is
- * left of the question is `toldAboutAdvertising` on each matched row, counted
- * into the log line below: the size of the cohort mailed advertising without
- * ever having read the word, reported per run rather than estimated once.
+ * `toldAboutAdvertising` remains on each matched row as an audit signal: it
+ * reports whether the stored communications proof predates the page revision
+ * that first named advertising. It is audit-only and does not gate delivery.
  *
  *   GOOGLE_APPLICATION_CREDENTIALS=<sa.json> node scripts/blast-publisher-ads.mjs            # dry-run (logs audience)
  *   GOOGLE_APPLICATION_CREDENTIALS=<sa.json> node scripts/blast-publisher-ads.mjs --send      # send (CI only)
@@ -37,7 +31,10 @@
  * (load-rc-env.mjs in CI, or env).
  */
 
-import { matchSubscribersForAd } from '../services/publisherBlastMatch.mjs';
+import {
+  isAdvertisingSuppressed,
+  matchSubscribersForAd,
+} from '../services/publisherBlastMatch.mjs';
 import { OWNER_EMAIL, isCanaryJob } from './lib/canaryAd.mjs';
 import { buildBlastEmail } from '../services/publisherBlastEmail.mjs';
 import { slugifyPublisher, truncatePublisherSlug, distinctLocations } from './lib/publisherJobProjection.mjs';
@@ -84,6 +81,11 @@ async function main() {
 
   const subsSnap = await db.collection('newsletter_subscribers').get();
   const subscribers = subsSnap.docs.filter((d) => d.id !== '_meta_').map((d) => d.data());
+  // Use one canonical predicate at the sender boundary. It applies hard/global
+  // suppression and the category opt-out, while preserving the explicit
+  // advertising-only reactivation exception without re-enabling newsletter,
+  // JobAlert, brief or digest delivery.
+  const sendableSubscribers = subscribers.filter((subscriber) => !isAdvertisingSuppressed(subscriber));
   console.log(`[blast] ${ads.length} ad(s), ${subscribers.length} subscribers. mode=${SEND ? 'SEND' : 'DRY-RUN'}`);
 
   if (SEND) {
@@ -103,7 +105,7 @@ async function main() {
     // verified end-to-end without emailing real subscribers a test listing.
     const audience = isCanaryJob(ad)
       ? [{ email: OWNER_EMAIL, locale: ad.sourceLang || 'it', score: 999 }]
-      : matchSubscribersForAd(ad, subscribers, { minScore: 5, max: PER_AD_CAP });
+      : matchSubscribersForAd(ad, sendableSubscribers, { minScore: 5, max: PER_AD_CAP });
     // The second number is what the owner's 2026-08-14 decision costs, counted
     // rather than estimated: recipients whose own stored disclosure never named
     // third-party advertising. It stopped excluding them that day (see
@@ -154,10 +156,10 @@ async function main() {
         locale,
         adUrl: adUrlFor(locale),
         unsubscribeUrl: makeOneClickUnsubscribeUrl(r.email),
-        // #5759 — the per-channel switch is in the preference centre, and this
-        // channel's consent is an opt-out that leans on it. `fallbackUnsigned`
-        // so a missing HMAC secret degrades to an unsigned link the reader can
-        // still open, never to no link at all.
+        // #5759 — the advertising opt-out and its per-channel control are in
+        // the preference centre. `fallbackUnsigned` means a missing
+        // HMAC secret degrades to an unsigned link the reader can still open,
+        // never to no link at all.
         preferencesUrl: makePreferencesUrl(r.email, locale, { fallbackUnsigned: true }),
         // Same label the CTA slug is built from → card city and linked page agree.
         locationLabel: firstLocationLabel,

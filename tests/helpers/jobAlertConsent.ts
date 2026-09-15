@@ -7,17 +7,18 @@
  * hand-copied literals would let the gate be weakened in the core while two of
  * them kept passing against a stale idea of what consent looks like.
  *
- * No production path writes this shape today — that is the finding of #5705,
- * not an oversight here. `createAlert` (services/jobAlertService.ts), the
- * voluntary path behind the 578 real alerts, records no consent field at all:
- * its proof is that a person operated the form, which is not something the
- * subscriber document carries.
+ * The production unified email writer records the same category preference on
+ * the central subscriber document. Keeping it here is important: this helper
+ * represents consent that covers the JobAlert channel, not merely a text that
+ * mentions it, so the predicate requires `preferences.jobs` as well as the
+ * displayed formula and affirmative act.
  */
 export const JOB_ALERT_CONSENT = {
   consent_given: true,
   consent_text: 'Chiedo di ricevere gli avvisi di lavoro quotidiani di Frontaliere Ticino.',
   consent_text_displayed: true,
   consent_act: 'typed_email_submit',
+  preferences: { jobs: true },
 } as const;
 
 /** `newsletter_subscribers` doc data with the consent above spread onto it. */

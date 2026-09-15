@@ -523,6 +523,7 @@ const frComparatori: Record<string, string> = {
  'health.lamalSsn.emailSending': 'Envoi\u2026',
  'health.lamalSsn.emailSuccess': 'Termin\u00e9 ! V\u00e9rifiez votre bo\u00eete mail.',
  'health.lamalSsn.emailError': '\u00c9chec de l\u2019envoi. V\u00e9rifiez l\u2019email et r\u00e9essayez.',
+ 'health.lamalSsn.consentRequired': 'Veuillez donner votre consentement pour recevoir le PDF et les communications par e-mail.',
  'health.lamalSsn.disclaimer': 'Estimations indicatives \u00e0 titre informatif, pas un conseil. V\u00e9rifiez les primes sur priminfo.admin.ch et le taux aupr\u00e8s de votre r\u00e9gion.',
  'health.subtitle': 'Comparaison primes LAMal vs SSN Italie pour travailleurs frontaliers',
  'health.warningTitle': 'Droit d\'option',

@@ -119,7 +119,6 @@ import { makeAlertUnsubscribeUrl, makeAllAlertsUnsubscribeUrl, BASE_URL } from '
 import { FIRESTORE_BATCH_SIZE } from './lib/firestore-batch.mjs';
 import { isImmediateCompanyAlert, IMMEDIATE_FREQUENCY } from './lib/company-alert-routing.mjs';
 import { companyAlertQuarantineReason } from './lib/company-alert-routing.mjs';
-import { evaluateJobAlertConsent } from '../functions/src/jobAlertBackfillCore.js';
 /**
  * `/aziende-seguite/` per locale — ONE literal segment for every language, like
  * `/aziende/` in services/companyAlertEmail.mjs.
@@ -158,17 +157,6 @@ const CLOSED_JOB_STATUSES = new Set([
   'inactive',
   'removed',
 ]);
-
-// These are the states written by the two consent containers. `subscribed` is
-// a known reactivation state, but not sendable here: the preferences-link
-// writer does not establish double-opt-in proof, and company-follow consent
-// is a separate gate. Anything else, including `pending` and a missing
-// document, is unknown and therefore fail-closed in the sender.
-const NEWSLETTER_SENDABLE_STATUS = 'confirmed';
-const NEWSLETTER_NON_SENDABLE_STATUS_REASONS = Object.freeze({
-  subscribed: 'newsletter-consent-resubscribe-status',
-});
-const JOB_ALERT_SENDABLE_STATUS = 'active';
 
 /**
  * Per-run cap on RECIPIENTS, mirroring blast-publisher-ads.mjs's PER_RUN_CAP.
@@ -344,14 +332,15 @@ export function sortCompanyAlertRecipients(alertsByRecipient) {
 }
 
 /**
- * Decide whether both consent containers prove that an immediate email is
- * allowed. The caller passes Firestore-like projections (`{exists, data}`), so
- * a missing row is distinguishable from a known suppression.
+ * Decide whether both channel containers are available to evaluate an
+ * immediate email. The caller passes Firestore-like projections
+ * (`{exists, data}`), so a missing row is distinguishable from a known
+ * suppression. No confirmation proof or status word is a delivery gate.
  *
- * `pending`, an unrecognised status, a false activity flag on a confirmed
- * newsletter record, and any absent container are all UNKNOWN. They are not a
- * reason to guess that the recipient opted in: the sender defers and the next
- * run can retry the lookup.
+ * The newsletter row is the central registration relationship, but its status
+ * is channel-local. A newsletter unsubscribe/inactivity state therefore does
+ * not cancel a separately requested CompanyAlert. Missing or malformed rows
+ * remain UNKNOWN, so the sender defers and the next run can retry the lookup.
  *
  * @param {{exists?: boolean, data?: object}|null|undefined} newsletterDoc
  * @param {{exists?: boolean, data?: object}|null|undefined} jobAlertDoc
@@ -379,28 +368,7 @@ export function classifyRecipientConsent(newsletterDoc, jobAlertDoc) {
     return { action: 'suppress', reason: 'job-alert-subscriber-inactive' };
   }
 
-  const newsletterStatus = String(newsletter.status || '').trim().toLowerCase();
-  const knownNonSendableReason = Object.hasOwn(
-    NEWSLETTER_NON_SENDABLE_STATUS_REASONS,
-    newsletterStatus,
-  )
-    ? NEWSLETTER_NON_SENDABLE_STATUS_REASONS[newsletterStatus]
-    : null;
-  if (knownNonSendableReason) {
-    return { action: 'defer', reason: knownNonSendableReason };
-  }
-  if (newsletterStatus !== NEWSLETTER_SENDABLE_STATUS) {
-    return { action: 'defer', reason: 'newsletter-consent-status-unknown' };
-  }
-  if (newsletter.isActive === false || newsletter.active === false) {
-    return { action: 'defer', reason: 'newsletter-consent-activity-unknown' };
-  }
-
-  const jobAlertStatus = String(jobAlert.status || '').trim().toLowerCase();
-  if (jobAlertStatus !== JOB_ALERT_SENDABLE_STATUS) {
-    return { action: 'defer', reason: 'job-alert-consent-status-unknown' };
-  }
-  return { action: 'send', reason: 'consent-known-ok' };
+  return { action: 'send', reason: 'subscription-known-ok' };
 }
 
 /**
@@ -1373,13 +1341,13 @@ async function main() {
   console.log(`   Immediate CompanyAlerts: ${alerts.length}`);
   if (alerts.length === 0) return;
 
-  // Consent/suppression, from both documents. The newsletter side is
-  // isCrossChannelStop: address-level hard signals plus the explicit newsletter
-  // opt-out. A known-good state requires newsletter `confirmed` and job-alert
-  // `active`; missing/pending/unknown is DEFERRED, never fail-open.
+  // Registration/suppression, from both documents. The newsletter side is
+  // isCrossChannelStop: the recorded unsubscribe, address-level hard signals
+  // and legacy explicit global stop-all. Known rows plus the active alert are
+  // rows plus the active alert are sendable regardless of confirmation
+  // proof or status word; missing or unknown data is DEFERRED, never fail-open.
   const emailsInScope = [...new Set(alerts.map((a) => String(a.email || '').toLowerCase()))];
   const consentByEmail = new Map();
-  const newsletterProfiles = new Map();
   const LOOKUP_CHUNK_SIZE = 200;
   for (let i = 0; i < emailsInScope.length; i += LOOKUP_CHUNK_SIZE) {
     const chunk = emailsInScope.slice(i, i + LOOKUP_CHUNK_SIZE);
@@ -1391,7 +1359,6 @@ async function main() {
       const snaps = await db.getAll(...refs);
       chunk.forEach((e, idx) => {
         const [nlDoc, jaDoc] = snaps.slice(idx * 2, idx * 2 + 2);
-        if (nlDoc?.exists) newsletterProfiles.set(e, nlDoc.data() || {});
         consentByEmail.set(e, classifyRecipientConsent(
           nlDoc && { exists: nlDoc.exists, data: nlDoc.data() || {} },
           jaDoc && { exists: jaDoc.exists, data: jaDoc.data() || {} },
@@ -1438,28 +1405,6 @@ async function main() {
     await persistDeferredDeliveryWrites(db, deferredDeliveryWrites, DRY_RUN);
     console.log('   No recipient has a verified sendable consent state — nothing to send.');
     return;
-  }
-
-  // The immediate sender must enforce the same consent boundary as the daily
-  // digest. A historical backfill can be switched to `immediate` by later
-  // writes, so filtering only the digest would leave a second delivery path.
-  // Missing newsletter data fails closed for inferred alerts.
-  const blockedBackfillReasons = {};
-  const beforeBackfillConsentFilter = alerts.length;
-  alerts = alerts.filter((alert) => {
-    const emailKey = String(alert.email || '').toLowerCase();
-    const verdict = evaluateJobAlertConsent({
-      alert,
-      subscriber: newsletterProfiles.get(emailKey) || null,
-    });
-    if (!verdict.allowed) {
-      blockedBackfillReasons[verdict.reason] = (blockedBackfillReasons[verdict.reason] || 0) + 1;
-      return false;
-    }
-    return true;
-  });
-  if (alerts.length !== beforeBackfillConsentFilter) {
-    console.log(`   🔐 Job-alert consent gate: ${beforeBackfillConsentFilter - alerts.length} inferred alert(s) skipped — ${JSON.stringify(blockedBackfillReasons)}`);
   }
 
   // ── ONE EMAIL PER RECIPIENT ──────────────────────────────────────────────

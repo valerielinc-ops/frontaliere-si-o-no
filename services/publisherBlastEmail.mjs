@@ -232,11 +232,10 @@ export function buildBlastEmail({ ad, recipientEmail, locale = 'it', adUrl, unsu
           </div>
           <div style="font-size:11px;color:${MUTED_ON_DARK};margin:0 0 10px;line-height:1.5;">${esc(s.why(recipientEmail))}</div>
           <!--
-            #5759 — this channel is third-party advertising, consented to as an
-            OPT-OUT with no separate checkbox. The switch that stops it alone
-            lives in the preference centre, so the mail that relies on the
-            switch has to carry the way to it: an opt-out nobody can find is
-            the whole of #5684, and "unsubscribe from everything" is not the
+            #5759 — this channel is third-party advertising, enabled only by
+            its separate preference-centre choice. The mail still carries the
+            channel-specific preference link: withdrawal must be as easy as
+            the subscription, and "unsubscribe from everything" is not the
             same offer.
           -->
           <div style="font-size:11px;color:${MUTED_ON_DARK};margin:0 0 10px;line-height:1.5;">${esc(s.adsNote)}</div>

@@ -13,7 +13,7 @@
 
 import admin from 'firebase-admin';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
-import { isTransactionalHardBlock } from './lib/emailSuppression.js';
+import { isCrossChannelStop, isTransactionalHardBlock } from './lib/emailSuppression.js';
 import { isNewsletterOptOutBinding } from './lib/newsletterOptOut.js';
 import { hasConfirmationProof, hasConfirmationStamp } from './lib/subscriberConsent.js';
 import { normalizeLocale } from './emailI18n.js';
@@ -78,9 +78,14 @@ function confirmationSendStateError(data, { isLoginLink = false, isResubscribeLi
  return 'address_suppressed';
  }
 
- if (isLoginLink) return null;
-
  const status = String(data?.status || '').trim().toLowerCase();
+ if (isLoginLink) return null;
+ // A resubscribe DOI is itself the recipient's explicit request to return.
+ // Allow the expected old opt-out stamp while the fresh cycle is `pending`,
+ // then keep the current `unsubscribed` status as a race-safe stop below.
+ const resubscribePendingCycle = isResubscribeLink && status === 'pending';
+ if (isCrossChannelStop(data) && !resubscribePendingCycle) return 'address_suppressed';
+
  if (isResubscribeLink) {
  if (status === 'unsubscribed') return 'address_suppressed';
  return status === 'pending' ? null : 'confirmation_not_pending';

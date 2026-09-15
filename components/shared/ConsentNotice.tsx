@@ -48,7 +48,7 @@ export interface ConsentNoticeProps {
   locale?: string | null;
   /** Extra classes for the wrapper. Defaults keep it legible, never `text-slate-400` on light. */
   className?: string;
-  /** Set when the notice labels a checkbox, so the box and the sentence are one control. */
+  /** Optional id retained for callers that used to pair the notice with a control. */
   id?: string;
 }
 

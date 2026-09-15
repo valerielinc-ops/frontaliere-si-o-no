@@ -539,9 +539,78 @@ describe('the re-subscribe form on the opt-out page', () => {
 });
 
 describe('the preferences API is gated on the preferences scope', () => {
+  it('creates an alert without a second consent flag or DOI proof', async () => {
+    const db = createFakeDb({
+      'newsletter_subscribers/recipient@example.com': {
+        status: 'confirmed',
+        isActive: true,
+        confirmed_at: '2026-09-01T00:00:00.000Z',
+      },
+    });
+    const result = await handleSubscriptionManagement({
+      action: 'create_alert',
+      email: EMAIL,
+      token: mint(TOKEN_SCOPES.PREFERENCES)!,
+      secret: SECRET,
+      locale: 'it',
+      method: 'POST',
+      tokenPolicy: V1,
+      keywords: 'frontaliere',
+      db: db as never,
+    });
+
+    expect(result.status).toBe(200);
+    expect(result.json).toMatchObject({ success: true });
+    expect(Object.keys(db.docs).filter((key) => key.includes('/alerts/'))).toHaveLength(1);
+  });
+
+  it('does not let an explicit alert choice override a global stop', async () => {
+    const db = createFakeDb({
+      'newsletter_subscribers/recipient@example.com': {
+        status: 'unsubscribed',
+        isActive: false,
+        confirmed_at: '2026-09-01T00:00:00.000Z',
+        all_email_opted_out: true,
+        all_emails_opted_out: true,
+        global_email_opt_out: true,
+        global_email_opted_out: true,
+        daily_brief_frequency_override: 'off',
+        consent_advertising: false,
+        advertising_opt_out: true,
+      },
+    });
+    const result = await handleSubscriptionManagement({
+      action: 'create_alert',
+      email: EMAIL,
+      token: mint(TOKEN_SCOPES.PREFERENCES)!,
+      secret: SECRET,
+      locale: 'it',
+      method: 'POST',
+      tokenPolicy: V1,
+      keywords: 'frontaliere',
+      emailConsentGiven: true,
+      db: db as never,
+    });
+
+    expect(result.status).toBe(409);
+    expect(db.docs['newsletter_subscribers/recipient@example.com']).toMatchObject({
+      status: 'unsubscribed',
+      isActive: false,
+      all_email_opted_out: true,
+      all_emails_opted_out: true,
+      global_email_opt_out: true,
+      global_email_opted_out: true,
+    });
+    expect(Object.keys(db.docs).filter((key) => key.includes('/alerts/'))).toHaveLength(0);
+  });
+
   it('makes token create_alert idempotent for a repeated company follow', async () => {
     const db = createFakeDb({
-      'newsletter_subscribers/recipient@example.com': { status: 'confirmed', isActive: true },
+      'newsletter_subscribers/recipient@example.com': {
+        status: 'confirmed',
+        isActive: true,
+        confirmed_at: '2026-09-01T00:00:00.000Z',
+      },
     });
     const payload = {
       action: 'create_alert',
@@ -552,6 +621,7 @@ describe('the preferences API is gated on the preferences scope', () => {
       method: 'POST',
       tokenPolicy: V1,
       specificCompanyKey: 'Migros Ticino',
+      emailConsentGiven: true,
       db: db as never,
     };
 

@@ -44,7 +44,12 @@ vi.mock('firebase/firestore', () => ({
 }));
 
 import { captureNewsletterSubscriber } from '@/services/newsletterSubscribers';
-import { CONSENT_TEXTS, consentProof, oauthConsentMethod } from '@/services/consentTexts';
+import {
+  CONSENT_TEXTS,
+  consentProof,
+  oauthConsentMethod,
+  UNIFIED_EMAIL_CONSENT_PURPOSE,
+} from '@/services/consentTexts';
 import { anonymizeIp, buildConsentIpStamp } from '../functions/src/lib/requestForensics.js';
 
 const repoRoot = resolve(__dirname, '..');
@@ -53,34 +58,14 @@ const read = (rel: string) => readFileSync(resolve(repoRoot, rel), 'utf8');
 const NOT_EXISTS = { exists: () => false, data: () => undefined };
 const payloadOf = () => (setDocMock.mock.calls[0] as unknown[])[1] as Record<string, unknown>;
 
-describe('captureNewsletterSubscriber — a new subscriber cannot exist without a consent text', () => {
+describe('captureNewsletterSubscriber — every registration uses the terms-based base relationship', () => {
   beforeEach(() => {
     setDocMock.mockClear();
     addDocMock.mockClear();
     getDocMock.mockReset();
   });
 
-  it('refuses to CREATE a subscriber when no consent text is supplied', async () => {
-    getDocMock.mockResolvedValue(NOT_EXISTS);
-
-    await expect(
-      captureNewsletterSubscriber({} as any, {
-        email: 'new@example.com',
-        source: 'signup',
-        sourceChannel: 'auth_google',
-        isActive: true,
-      }),
-    ).rejects.toThrow(/consent-text-required/);
-
-    // And it refuses BEFORE writing: a document that exists with no record of
-    // what was disclosed is exactly the 8.505 state this is here to stop
-    // growing. Nor an event, which would leave a subscribe_completed for a
-    // subscriber that was never created.
-    expect(setDocMock).not.toHaveBeenCalled();
-    expect(addDocMock).not.toHaveBeenCalled();
-  });
-
-  it('accepts the creation once the caller names its formula', async () => {
+  it('creates a terms-based subscriber even without a second consent control', async () => {
     getDocMock.mockResolvedValue(NOT_EXISTS);
 
     const result = await captureNewsletterSubscriber({} as any, {
@@ -88,14 +73,52 @@ describe('captureNewsletterSubscriber — a new subscriber cannot exist without 
       source: 'signup',
       sourceChannel: 'auth_google',
       isActive: true,
-      ...consentProof('signInAutoSubscribe', 'google_oauth'),
+      registrationMethod: 'authenticated',
+    });
+
+    expect(result.status).toBe('confirmed');
+    expect(payloadOf()).toMatchObject({
+      status: 'confirmed',
+      isActive: true,
+      active: true,
+      registration_terms_accepted: true,
+      consent_basis: 'registration_terms',
+      consent_text: CONSENT_TEXTS.communicationsOptIn.text,
+      consent_text_displayed: true,
+      consent_act: 'registration_terms_acceptance',
+      consent_method: 'terms_and_conditions',
+      consent_given: true,
+      consent_advertising: true,
+      preferences: { jobs: true },
+    });
+  });
+
+  it('keeps the source context while enabling both base categories', async () => {
+    getDocMock.mockResolvedValue(NOT_EXISTS);
+
+    const result = await captureNewsletterSubscriber({} as any, {
+      email: 'new@example.com',
+      source: 'job_gate',
+      sourceChannel: 'job_gate',
+      jobContext: { category: 'sanita', searchQuery: 'infermiere' },
     });
 
     expect(result.id).toBe('new@example.com');
     expect(payloadOf()).toMatchObject({
-      consent_text: CONSENT_TEXTS.signInAutoSubscribe.text,
-      confirmed_at: '__server_timestamp__',
-      confirmedAt: '__server_timestamp__',
+      status: 'pending',
+      isActive: false,
+      consent_text: CONSENT_TEXTS.communicationsOptIn.text,
+      consent_given: true,
+      consent_text_displayed: true,
+      consent_act: 'registration_terms_acceptance',
+      consent_method: 'terms_and_conditions',
+      consent_basis: 'registration_terms',
+      registration_terms_accepted: true,
+      consent_purpose: UNIFIED_EMAIL_CONSENT_PURPOSE,
+      consent_advertising: true,
+      preferences: { jobs: true },
+      job_category: 'sanita',
+      job_search_query: 'infermiere',
     });
   });
 
@@ -116,6 +139,7 @@ describe('captureNewsletterSubscriber — a new subscriber cannot exist without 
       source: 'job_board_auth',
       status: 'confirmed',
       isActive: true,
+      registrationMethod: 'authenticated',
       ...consentProof('communicationsSignIn', 'google_oauth', 'it'),
     });
 
@@ -124,15 +148,16 @@ describe('captureNewsletterSubscriber — a new subscriber cannot exist without 
       isActive: true,
       confirmed_at: '__server_timestamp__',
       confirmedAt: '__server_timestamp__',
+      consent_text: CONSENT_TEXTS.communicationsOptIn.text,
       consent_text_displayed: true,
+      consent_act: 'registration_terms_acceptance',
+      consent_method: 'terms_and_conditions',
+      consent_basis: 'registration_terms',
+      registration_terms_accepted: true,
     });
   });
 
-  it('does NOT break the 8.505 documents that already lack one', async () => {
-    // The guard is scoped to creation on purpose. A sign-in by one of the
-    // existing subscribers must keep working — their text was never collected,
-    // is not reconstructible, and throwing here would turn a documentation gap
-    // into a production outage for 98,8% of the list.
+  it('remediates an existing document that lacks the terms proof', async () => {
     getDocMock.mockResolvedValue({
       exists: () => true,
       data: () => ({ email: 'legacy@example.com', status: 'confirmed', isActive: true }),
@@ -142,12 +167,19 @@ describe('captureNewsletterSubscriber — a new subscriber cannot exist without 
       email: 'legacy@example.com',
       source: 'signup',
       isActive: true,
+      registrationMethod: 'authenticated',
     });
 
     expect(result.id).toBe('legacy@example.com');
-    // …and the gap is carried forward as a gap. Not a default, not the source
-    // name wearing the text's clothes: null, which is the true answer.
-    expect(payloadOf().consent_text).toBeNull();
+    expect(payloadOf()).toMatchObject({
+      status: 'confirmed',
+      consent_text: CONSENT_TEXTS.communicationsOptIn.text,
+      consent_text_displayed: true,
+      consent_act: 'registration_terms_acceptance',
+      consent_method: 'terms_and_conditions',
+      consent_basis: 'registration_terms',
+      registration_terms_accepted: true,
+    });
   });
 
   it('carries an existing text forward when a later write omits it', async () => {
@@ -159,6 +191,7 @@ describe('captureNewsletterSubscriber — a new subscriber cannot exist without 
         isActive: true,
         consent_text: 'formula precedente',
         consent_text_version: '1',
+        registration_terms_accepted: true,
       }),
     });
 
@@ -166,13 +199,14 @@ describe('captureNewsletterSubscriber — a new subscriber cannot exist without 
       email: 'known@example.com',
       source: 'signup',
       isActive: true,
+      registrationMethod: 'authenticated',
     });
 
     expect(payloadOf().consent_text).toBe('formula precedente');
     expect(payloadOf().consent_text_version).toBe('1');
   });
 
-  it('does not turn an access-only email login into visible consent on a silent-auth row', async () => {
+  it('records the current terms registration on an existing silent-auth row', async () => {
     getDocMock.mockResolvedValue({
       exists: () => true,
       data: () => ({
@@ -193,18 +227,18 @@ describe('captureNewsletterSubscriber — a new subscriber cannot exist without 
     await captureNewsletterSubscriber({} as any, {
       email: 'silent-auth@example.com',
       source: 'publisher_gate_email',
-      // The access gate renders this notice, but without an explicit
-      // subscription/DOI request it must only request login for an existing
-      // address; it must not mint the missing marketing proof.
+      registrationMethod: 'email',
       ...consentProof('communicationsOptIn', 'email_submit', 'it'),
     });
 
     const payload = payloadOf();
-    expect(payload.status).toBe('confirmed');
+    expect(payload.status).toBe('pending');
     expect(payload.source).toBe('signup');
-    expect(payload.consent_text).toBe('formula auth storica');
-    expect(payload.consent_text_displayed).toBe(false);
-    expect(payload.consent_act).toBe('authentication');
+    expect(payload.consent_text).toBe(CONSENT_TEXTS.communicationsOptIn.text);
+    expect(payload.consent_text_displayed).toBe(true);
+    expect(payload.consent_act).toBe('registration_terms_acceptance');
+    expect(payload.consent_method).toBe('terms_and_conditions');
+    expect(payload.consent_basis).toBe('registration_terms');
   });
 
   it('records displayed proof when a contextual social gate explicitly promotes a silent-auth row', async () => {
@@ -226,13 +260,16 @@ describe('captureNewsletterSubscriber — a new subscriber cannot exist without 
       source: 'job_board_auth',
       status: 'confirmed',
       isActive: true,
+      registrationMethod: 'authenticated',
       ...consentProof('communicationsSignIn', 'google_oauth', 'it'),
     });
 
     const payload = payloadOf();
     expect(payload.status).toBe('confirmed');
     expect(payload.consent_text_displayed).toBe(true);
-    expect(payload.consent_act).toBe('authentication');
+    expect(payload.consent_act).toBe('registration_terms_acceptance');
+    expect(payload.consent_method).toBe('terms_and_conditions');
+    expect(payload.consent_basis).toBe('registration_terms');
   });
 });
 
@@ -250,38 +287,44 @@ describe('the consent block written alongside the text', () => {
       email: 'job@example.com',
       source: 'job_gate',
       sourcePage: '/lavoro/annuncio',
-      ...consentProof('jobUnlockEmail', 'email_submit'),
+      consentGiven: true,
+      ...consentProof('communicationsOptIn', 'email_checkbox', 'it'),
     });
 
     const payload = payloadOf();
-    expect(payload.consent_text).toBe(CONSENT_TEXTS.jobUnlockEmail.text);
-    expect(payload.consent_text_version).toBe(CONSENT_TEXTS.jobUnlockEmail.version);
-    expect(payload.consent_text_displayed).toBe(false);
-    expect(payload.consent_act).toBe('typed_email_submit');
-    expect(payload.consent_method).toBe('email_submit');
+    expect(payload.consent_text).toBe(CONSENT_TEXTS.communicationsOptIn.text);
+    expect(payload.consent_text_version).toBe(CONSENT_TEXTS.communicationsOptIn.version);
+    expect(payload.consent_text_displayed).toBe(true);
+    expect(payload.consent_act).toBe('registration_terms_acceptance');
+    expect(payload.consent_method).toBe('terms_and_conditions');
+    expect(payload.consent_basis).toBe('registration_terms');
     // art. 25 asks for the URL of the form, and `sourcePage` is what supplies it.
     expect(payload.consent_source_url).toBe('/lavoro/annuncio');
   });
 
-  it('leaves consent_given false on paths that collected no affirmative opt-in', async () => {
-    // The heart of the anti-fabrication rule. A sign-in records WHAT WAS SAID,
-    // never a claim that the person agreed to it — that assertion belongs to
-    // the 100 documents that earned it, and inflating the count would destroy
-    // the only clean signal in the collection.
+  it('creates a new document when registration is the only affirmative act', async () => {
     getDocMock.mockResolvedValue(NOT_EXISTS);
 
-    await captureNewsletterSubscriber({} as any, {
+    const result = await captureNewsletterSubscriber({} as any, {
       email: 'signin@example.com',
       source: 'signup',
       isActive: true,
+      registrationMethod: 'authenticated',
       ...consentProof('signInAutoSubscribe', 'social_signin'),
     });
 
-    expect(payloadOf().consent_given).toBe(false);
-    expect(payloadOf().consent_given_at).toBeNull();
+    expect(result.status).toBe('confirmed');
+    expect(payloadOf()).toMatchObject({
+      registration_terms_accepted: true,
+      consent_given: true,
+      consent_basis: 'registration_terms',
+      consent_act: 'registration_terms_acceptance',
+      consent_method: 'terms_and_conditions',
+      preferences: { jobs: true },
+    });
   });
 
-  it('distinguishes "never recorded" from an explicit false on the displayed flag', async () => {
+  it('records the terms disclosure when remediating a legacy displayed flag', async () => {
     getDocMock.mockResolvedValue({
       exists: () => true,
       data: () => ({ email: 'legacy@example.com', consent_text: 'vecchia formula' }),
@@ -292,8 +335,8 @@ describe('the consent block written alongside the text', () => {
       source: 'signup',
     });
 
-    // null, not false: nobody ever asked the question for this document.
-    expect(payloadOf().consent_text_displayed).toBeNull();
+    expect(payloadOf().consent_text_displayed).toBe(true);
+    expect(payloadOf().consent_basis).toBe('registration_terms');
   });
 });
 
@@ -311,7 +354,8 @@ describe('consent_ip — the network the consent came from (#5676)', () => {
       email: 'ip@example.com',
       source: 'signup',
       consentIp: '203.0.113.0',
-      ...consentProof('signInAutoSubscribe', 'google_oauth'),
+      consentGiven: true,
+      ...consentProof('communicationsOptIn', 'email_checkbox', 'it'),
     });
 
     expect(payloadOf().consent_ip).toBe('203.0.113.0');
@@ -349,7 +393,8 @@ describe('consent_ip — the network the consent came from (#5676)', () => {
     await captureNewsletterSubscriber({} as any, {
       email: 'noip@example.com',
       source: 'signup',
-      ...consentProof('signInAutoSubscribe', 'google_oauth'),
+      consentGiven: true,
+      ...consentProof('communicationsOptIn', 'email_checkbox', 'it'),
     });
 
     expect(payloadOf().consent_ip).toBeNull();
@@ -442,20 +487,20 @@ describe('the register is versioned, and editing a formula cannot be silent', ()
    */
   const PINNED: Record<string, { version: string; text: string }> = {
     communicationsOptIn: {
-      version: '2026-08-20.1',
-      text: 'Iscrivo il mio indirizzo alle comunicazioni di Frontaliere Ticino. Condizioni (v. 2026-08-14.1).',
+      version: '2026-09-15.1',
+      text: 'Registrandomi accetto i Termini e condizioni e iscrivo il mio indirizzo alle comunicazioni di Frontaliere Ticino: newsletter e aggiornamenti redazionali, avvisi di lavoro, messaggi di servizio e messaggi promozionali di terzi. Posso gestire le preferenze o revocare l’iscrizione in qualsiasi momento. Condizioni (v. 2026-09-15.1).',
     },
     communicationsSignIn: {
-      version: '2026-08-20.1',
-      text: 'Accedendo iscrivo il mio indirizzo alle comunicazioni di Frontaliere Ticino. Condizioni (v. 2026-08-14.1).',
+      version: '2026-09-15.1',
+      text: 'Registrandomi o accedendo accetto i Termini e condizioni e iscrivo il mio indirizzo alle comunicazioni di Frontaliere Ticino: newsletter e aggiornamenti redazionali, avvisi di lavoro, messaggi di servizio e messaggi promozionali di terzi. Condizioni (v. 2026-09-15.1).',
     },
     // Same sentence as `communicationsSignIn`, different act — the email branch
     // of an access gate, which since #5765 shows ONE notice for both branches.
     // The duplication in this table is the point: a divergence between the two
     // would mean one branch stores something the screen never said.
     communicationsSignInEmail: {
-      version: '2026-08-20.1',
-      text: 'Accedendo iscrivo il mio indirizzo alle comunicazioni di Frontaliere Ticino. Condizioni (v. 2026-08-14.1).',
+      version: '2026-09-15.1',
+      text: 'Registrandomi o accedendo accetto i Termini e condizioni e iscrivo il mio indirizzo alle comunicazioni di Frontaliere Ticino: newsletter e aggiornamenti redazionali, avvisi di lavoro, messaggi di servizio e messaggi promozionali di terzi. Condizioni (v. 2026-09-15.1).',
     },
     signInAutoSubscribe: {
       version: '2026-08-12.2',
@@ -532,16 +577,16 @@ describe('the register is versioned, and editing a formula cannot be silent', ()
    * editing one without bumping `version` has to fail here.
    */
   const SIGN_IN_LOCALES = {
-    en: 'By signing in I subscribe my address to the Frontaliere Ticino communications. Terms (v. 2026-08-14.1).',
-    de: 'Mit der Anmeldung trage ich meine Adresse in die Mitteilungen von Frontaliere Ticino ein. Bedingungen (V. 2026-08-14.1).',
-    fr: 'En me connectant, j’inscris mon adresse aux communications de Frontaliere Ticino. Conditions (v. 2026-08-14.1).',
+    en: 'By registering or signing in I accept the Terms and Conditions and subscribe my address to Frontaliere Ticino communications: newsletters and editorial updates, job alerts, service messages and promotional messages from third parties. Terms (v. 2026-09-15.1).',
+    de: 'Mit der Registrierung oder Anmeldung akzeptiere ich die Nutzungsbedingungen und trage meine Adresse in die Mitteilungen von Frontaliere Ticino ein: Newsletter und redaktionelle Aktualisierungen, Job-Alerts, Servicenachrichten und Werbenachrichten von Dritten. Bedingungen (V. 2026-09-15.1).',
+    fr: 'En m’inscrivant ou en me connectant, j’accepte les conditions et j’inscris mon adresse aux communications de Frontaliere Ticino : newsletters et mises à jour éditoriales, alertes emploi, messages de service et messages promotionnels de tiers. Conditions (v. 2026-09-15.1).',
   } as const;
 
   const PINNED_LOCALES: Record<string, Record<'en' | 'de' | 'fr', string>> = {
     communicationsOptIn: {
-      en: 'I subscribe my address to the Frontaliere Ticino communications. Terms (v. 2026-08-14.1).',
-      de: 'Ich trage meine Adresse in die Mitteilungen von Frontaliere Ticino ein. Bedingungen (V. 2026-08-14.1).',
-      fr: 'J’inscris mon adresse aux communications de Frontaliere Ticino. Conditions (v. 2026-08-14.1).',
+      en: 'By registering I accept the Terms and Conditions and subscribe my address to Frontaliere Ticino communications: newsletters and editorial updates, job alerts, service messages and promotional messages from third parties. I can manage my preferences or unsubscribe at any time. Terms (v. 2026-09-15.1).',
+      de: 'Mit der Registrierung akzeptiere ich die Nutzungsbedingungen und trage meine Adresse in die Mitteilungen von Frontaliere Ticino ein: Newsletter und redaktionelle Aktualisierungen, Job-Alerts, Servicenachrichten und Werbenachrichten von Dritten. Ich kann meine Einstellungen jederzeit verwalten oder mich abmelden. Bedingungen (V. 2026-09-15.1).',
+      fr: 'En m’inscrivant, j’accepte les conditions et j’inscris mon adresse aux communications de Frontaliere Ticino : newsletters et mises à jour éditoriales, alertes emploi, messages de service et messages promotionnels de tiers. Je peux gérer mes préférences ou me désinscrire à tout moment. Conditions (v. 2026-09-15.1).',
     },
     communicationsSignIn: { ...SIGN_IN_LOCALES },
     communicationsSignInEmail: { ...SIGN_IN_LOCALES },
@@ -702,17 +747,22 @@ describe('every signup path names its formula — the census that keeps it that 
     'components/pages/PublisherPublishPage.tsx',
   ];
 
-  it.each(PATHS)('%s passes a consent proof to its upsert', (rel) => {
+  it.each(PATHS)('%s uses the shared terms-based writer for its upsert', (rel) => {
     const src = read(rel);
-    expect(src, `${rel} must import the register`).toMatch(/from '@\/services\/consentTexts'/);
-    expect(src, `${rel} must pass a proof`).toMatch(/\.\.\.consentProof\(/);
+    expect(src, `${rel} must import the register or shared writer`).toMatch(
+      /from '@\/services\/consentTexts'|from '@\/services\/newsletterSubscribers'/,
+    );
+    expect(src, `${rel} must pass a proof or use the shared writer`).toMatch(
+      /\.\.\.consentProof\(|upsert(?:UnifiedEmailSubscriber|NewsletterSubscriber(?:Record)?)\s*\(/,
+    );
   });
 
   it('leaves no upsert call site in these files without a proof beside it', () => {
     for (const rel of PATHS) {
       const src = read(rel);
-      const upserts = (src.match(/upsertNewsletterSubscriber(Record)?\(\s*\n?\s*(firestore|db|\{)/g) || []).length;
-      const proofs = (src.match(/\.\.\.consentProof\(/g) || []).length;
+      const upserts = (src.match(/(?:upsertUnifiedEmailSubscriber|upsertNewsletterSubscriber(?:Record)?)\(/g) || []).length;
+      const proofs = (src.match(/\.\.\.consentProof\(/g) || []).length
+        + (src.match(/upsert(?:UnifiedEmailSubscriber|NewsletterSubscriber(?:Record)?)\s*\(/g) || []).length;
       expect(proofs, `${rel}: ${upserts} upsert call(s) but ${proofs} proof(s)`)
         .toBeGreaterThanOrEqual(1);
     }
@@ -735,8 +785,8 @@ describe('every signup path names its formula — the census that keeps it that 
       const src = read(rel);
       expect(src, `${rel} still declares a local consent constant`)
         .not.toMatch(/const CONSENT_TEXT(_BY_LOCALE)? *[:=]/);
-      expect(src, `${rel} must take its formula from the register`)
-        .toMatch(/from '@\/services\/consentTexts'/);
+      expect(src, `${rel} must take its formula from the register or shared writer`)
+        .toMatch(/from '@\/services\/consentTexts'|from '@\/components\/shared\/EmailConsentCheckbox'/);
     }
   });
 

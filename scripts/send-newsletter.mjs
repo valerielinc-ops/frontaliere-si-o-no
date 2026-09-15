@@ -58,9 +58,8 @@ import {
 import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS } from '../functions/src/lib/emailExperimentPostHog.js';
 import { refreshEngagementScore } from '../functions/src/lib/engagementScore.js';
 import { prioritizeSubscribers } from '../services/newsletter-priority.mjs';
-import { NEWSLETTER_EXCLUDED_STATUSES } from '../services/emailSuppression.mjs';
+import { NEWSLETTER_EXCLUDED_STATUSES, isCrossChannelStop } from '../services/emailSuppression.mjs';
 import { isNewsletterOptOutBinding } from '../services/newsletterOptOut.mjs';
-import { hasConfirmationProof } from '../services/subscriberConsent.mjs';
 import { makeUnsubscribeUrl, makeResubscribeUrl, makeOneClickUnsubscribeUrl, generateAutologinCode, makePreferencesUrl, makeAuthenticatedUrl, isOwnRewritableHref } from '../services/newsletterUrls.mjs';
 import { auditEmailLinksStatic } from './lib/email-link-audit.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
@@ -1482,9 +1481,8 @@ const EXCLUDED_STATUSES = NEWSLETTER_EXCLUDED_STATUSES;
  * Three outcomes, kept apart deliberately. `--test` may legitimately fall back
  * to a synthetic profile for an address that has NO document — the owner's own
  * mailbox, a seed address — but it must NOT fall back for an address whose
- * document exists and fails the gate below: that fallback is the only path
- * that would still reach an unconfirmed subscriber after #5686, and a gate
- * with a bypass beside it is not a gate.
+ * document exists and fails the suppression checks below: that fallback would
+ * bypass an explicit unsubscribe or hard stop.
  *
  * @param {string} email
  * @returns {Promise<{subscriber: object|null, refusal: string|null}>}
@@ -1495,22 +1493,23 @@ async function fetchTargetSubscriber(email) {
   if (!normalized) return { subscriber: null, refusal: 'not a parseable address' };
   const doc = await db.collection('newsletter_subscribers').doc(normalized).get();
   if (!doc.exists) return { subscriber: null, refusal: null };
-  const row = doc.data();
-  const status = (row.status || '').toLowerCase();
+  const row = doc.data() || {};
+  // Legacy rows sometimes have no usable `email` field even though the
+  // document id is the normalized address. Do not turn that storage-shape
+  // defect into a delivery exclusion.
+  const rowForSend = normalizeEmailAddress(row.email) ? row : { ...row, email: normalized };
+  const status = (rowForSend.status || '').toLowerCase();
   if (EXCLUDED_STATUSES.has(status)) return { subscriber: null, refusal: `status '${status}' is excluded` };
-  // Shared predicate, not a bare stamp check (#5711): the opt-out stamp is now
+  if (isCrossChannelStop(rowForSend)) return { subscriber: null, refusal: 'global email stop or hard address suppression' };
+  // Shared predicate for the explicit newsletter opt-out (#5711): the stamp is now
   // append-only — a re-subscription no longer deletes it — so "carries a stamp"
   // would mean "was never mailable again", including for the people who
   // explicitly asked to come back. What lifts it is a STRICTLY LATER
   // `resubscribed_at`, which only the explicit re-opt-in paths write.
   //
-  // Orthogonal to the confirmation gate below (#5686), and both are needed:
-  // this one answers "did they leave?", that one "did they ever arrive?".
-  if (isNewsletterOptOutBinding(row)) return { subscriber: null, refusal: 'unsubscribed' };
-  if (!hasConfirmationProof(row)) {
-    return { subscriber: null, refusal: 'no confirmation stamp — the double opt-in was never completed (#5686)' };
-  }
-  return { subscriber: subscriberFromFirestoreRow({ ...row, email: row.email || normalized }), refusal: null };
+  // This is orthogonal to the registration basis: it answers "did they leave?".
+  if (isNewsletterOptOutBinding(rowForSend)) return { subscriber: null, refusal: 'unsubscribed' };
+  return { subscriber: subscriberFromFirestoreRow(rowForSend), refusal: null };
 }
 
 async function fetchSubscribers() {
@@ -1520,75 +1519,37 @@ async function fetchSubscribers() {
   // preferredSendSampleCount, but computeGlobalPreferredHour reads the
   // Firestore field names directly off the row, so keep the rows around too.
   const rawRows = [];
-  // Held back for want of the double-opt-in stamp, split by what `status`
-  // claimed — the two halves are different defects and the run log has to keep
-  // them apart (same split as send-daily-brief.mjs's dedupeRecipients stats).
-  let heldUnconfirmedPending = 0;
-  let heldClaimedConfirmed = 0;
-
   try {
-    // Two filters, and they answer different questions.
-    //
-    // EXCLUDED_STATUSES answers "has this address opted OUT, or is it
-    // undeliverable?" — the shared denylist, identical across every sender.
-    //
-    // hasConfirmationProof() answers "did this address ever opt IN?", and it
-    // is the half that was missing until #5686. What stood here instead was a
-    // comment asserting that "clicking a link auto-confirms them", so the
-    // weekly campaign could safely take every non-excluded row, `pending`
-    // included. Nothing implements that: the only writers of `status:
-    // 'confirmed'` are the `confirm` and `resubscribe` click handlers in
-    // functions/src/newsletterSubscriptionManagement.js, and neither is
-    // reachable from a link inside a newsletter. 1.488 addresses that never
-    // confirmed were receiving the weekly send indefinitely (measured
-    // 2026-08-12).
-    //
-    // The gate keys on the STAMP, never on the word `pending` — see
-    // services/subscriberConsent.mjs for the measurement behind that. Adding
-    // `pending` to EXCLUDED_STATUSES instead would drop the 847 re-probe rows
-    // that DID confirm, and would silently disarm the sunset and win-back
-    // channels, which share that Set and exist to reach exactly those people.
+    // Every non-excluded subscriber is eligible here, including pending rows
+    // and rows without a confirmation proof. The only delivery stops are the
+    // newsletter opt-out/status, cross-channel hard stop and malformed address.
     const snap = await db.collection('newsletter_subscribers').get();
     snap.docs.forEach((d) => {
       if (d.id === '_meta_') return;
-      const row = d.data();
-      // Skip rows whose email field carries no address at all (empty or a
-      // name-only string with no "@"); subscriberFromFirestoreRow is the
-      // authoritative guard (it returns null for any unparseable address), this
-      // just avoids the call on obviously-empty rows.
-      if (!row.email || !/@/.test(String(row.email))) return;
-      const status = (row.status || '').toLowerCase();
+      const row = d.data() || {};
+      // The document id is the canonical key for this collection. Older rows
+      // can omit `email` (or retain a name-only malformed value), so use the
+      // id before deciding that the address is unusable. This keeps a storage
+      // shape defect from silently cutting the bulk audience.
+      const rowForSend = normalizeEmailAddress(row.email) ? row : { ...row, email: d.id };
+      if (!normalizeEmailAddress(rowForSend.email)) return;
+      const status = (rowForSend.status || '').toLowerCase();
       if (EXCLUDED_STATUSES.has(status)) return;
+      if (isCrossChannelStop(rowForSend)) return;
       // Belt-and-suspenders: also exclude on the opt-out STAMPS, not just the
       // status (frontend handler bug backfill). Same shared predicate as
       // fetchTargetSubscriber above — a stamp superseded by a strictly later
       // explicit re-opt-in is not binding (#5711).
-      if (isNewsletterOptOutBinding(row)) return;
-      if (!hasConfirmationProof(row)) {
-        if (status === 'confirmed') heldClaimedConfirmed++;
-        else heldUnconfirmedPending++;
-        return;
-      }
-      rawRows.push(row);
+      if (isNewsletterOptOutBinding(rowForSend)) return;
+      rawRows.push(rowForSend);
       // Pass the RAW row.email so subscriberFromFirestoreRow can harvest a
       // "Name <addr>" display name; it strips the wrapper internally and
       // returns the bare address on subscriber.email.
-      const subscriber = subscriberFromFirestoreRow(row);
+      const subscriber = subscriberFromFirestoreRow(rowForSend);
       if (subscriber) subscribers.set(subscriber.email, subscriber);
     });
   } catch (e) {
     console.warn('\u26a0\ufe0f Subscriber fetch failed:', e.message);
-  }
-
-  if (heldUnconfirmedPending || heldClaimedConfirmed) {
-    // Printed every run, not only when it changes: this number IS the size of
-    // the list #5681's re-permission campaign has to work through, and a
-    // silent gate is how the previous arrangement lasted this long.
-    console.log(
-      `🔒 Consent gate: ${heldUnconfirmedPending + heldClaimedConfirmed} held back for want of a confirmation stamp `
-      + `(${heldUnconfirmedPending} never completed the double opt-in, `
-      + `${heldClaimedConfirmed} claim 'confirmed' with no stamp)`,
-    );
   }
 
   // user_profiles collection removed — all subscriber data is in newsletter_subscribers
@@ -2246,7 +2207,8 @@ async function main() {
     // A refusal is a REFUSAL here too, not a cue to invent a profile: the
     // synthetic fallback exists for an address with NO document (the owner's
     // own mailbox, a seed address), and letting it stand in for a document
-    // that failed the consent gate would reopen #5686 through --test.
+    // that failed a suppression check would reopen an explicit stop through
+    // --test.
     if (target.refusal) {
       console.error(`❌ Test target not eligible: ${targetEmail} — ${target.refusal}. Use --preview for the HTML.`);
       process.exit(1);
@@ -2795,7 +2757,7 @@ async function main() {
     } catch { /* leave payload unchanged */ }
   };
 
-  // ── Track only confirmed-sent emails for resume, as they are confirmed ──
+  // ── Track provider-accepted emails for resume ──
   // `db` is optional in this script (fixture runs have none) — without it there
   // is nothing to resume from and nothing to record.
   const resume = db
@@ -2804,7 +2766,7 @@ async function main() {
   const { sent, failed } = await sendEmailBatch(cappedEmails, finalizeForProvider, resume ? (email) => resume.record(email) : null);
   if (resume) await resume.flush();
 
-  // Record an impression only for confirmed production sends. Test/QA sends
+  // Record an impression only for accepted production sends. Test/QA sends
   // intentionally remain outside the CTR denominator, just like the subject
   // experiment's delivery records.
   if (mode === 'send' && db && sent.length > 0) {

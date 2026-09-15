@@ -4,10 +4,12 @@
  *
  * Provides a Cloud Function endpoint that:
  * 1. Verifies an HMAC token (uid signed with NEWSLETTER_SECRET)
- * 2. Sets users/{uid}.savedJobsDigest.optedOut = true in Firestore
+ * 2. Sets users/{uid}.savedJobsDigest.optedIn = false and `.optedOut = true`
+ *    in Firestore
  * 3. Returns a branded HTML confirmation page (GET) or 200 OK (POST for RFC 8058)
  *
- * Scoped strictly to this channel: flips only `savedJobsDigest.optedOut` on the
+ * Scoped strictly to this channel: flips only the `savedJobsDigest` preference
+ * fields on the
  * user's own doc, never touches `newsletter_subscribers` or
  * `job_alert_subscribers/*` — unsubscribing from the saved-jobs reminder must
  * never silently drop the newsletter or job alerts (see emailSuppression.js).
@@ -143,6 +145,7 @@ export async function handleSavedJobsDigestUnsubscribe({ uid, email, token, secr
   await userRef.set(
     {
       savedJobsDigest: {
+        optedIn: false,
         optedOut: true,
         unsubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
         ...forensicFields,

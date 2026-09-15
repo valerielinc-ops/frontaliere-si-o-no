@@ -14,12 +14,30 @@ set -uo pipefail
 
 EXTRAS="${1:-proxy,code}"
 
+# `pipx install` has no useful upper bound of its own. A package-index stall
+# must not hold the entire review job until the six-hour job timeout: Headroom
+# is an optimization and the documented fallback is direct Claude. Keep the
+# install bounded and fail open when the runner does not provide GNU timeout.
+HEADROOM_INSTALL_TIMEOUT_SECONDS="${HEADROOM_INSTALL_TIMEOUT_SECONDS:-90}"
+if ! [[ "$HEADROOM_INSTALL_TIMEOUT_SECONDS" =~ ^[1-9][0-9]*$ ]]; then
+  HEADROOM_INSTALL_TIMEOUT_SECONDS=90
+fi
+
+run_bounded() {
+  if command -v timeout >/dev/null 2>&1; then
+    timeout --signal=TERM --kill-after=10s "${HEADROOM_INSTALL_TIMEOUT_SECONDS}s" "$@"
+    return $?
+  fi
+  echo "::warning::HEADROOM-INACTIVE: timeout utility unavailable — skipping bounded install (Claude will run direct)."
+  return 125
+}
+
 # pipx is preinstalled on GitHub-hosted runners; fall back to pip --user for
 # self-hosted / externally-managed environments.
-if pipx install "headroom-ai[${EXTRAS}]"; then
+if run_bounded pipx install "headroom-ai[${EXTRAS}]"; then
   :
 else
-  python3 -m pip install --user --break-system-packages "headroom-ai[${EXTRAS}]" || true
+  run_bounded python3 -m pip install --user --break-system-packages "headroom-ai[${EXTRAS}]" || true
 fi
 
 echo "$HOME/.local/bin" >> "${GITHUB_PATH:-/dev/null}"

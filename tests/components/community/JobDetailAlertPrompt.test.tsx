@@ -108,7 +108,7 @@ describe('JobDetailAlertPrompt', () => {
     expect(screen.getByText(/Gestisci alert/)).toBeTruthy();
   });
 
-  it('passes the job\'s own canton code as the 6th subscribe argument (issue #4298)', async () => {
+  it('passes the job\'s canton code and attribution metadata (issue #4298)', async () => {
     const { subscribe } = renderPrompt({ cantonCode: 'TI' });
     await act(async () => {
       fireEvent.click(screen.getByText(/Sì, attiva/));
@@ -120,6 +120,7 @@ describe('JobDetailAlertPrompt', () => {
       'it',
       { slug: null, url: null, title: null },
       'TI',
+      expect.objectContaining({ source: 'job_alert_detail_prompt', sourceComponent: 'JobDetailAlertPrompt' }),
     );
   });
 
@@ -135,6 +136,7 @@ describe('JobDetailAlertPrompt', () => {
       'it',
       { slug: null, url: null, title: null },
       null,
+      expect.objectContaining({ source: 'job_alert_detail_prompt', sourceComponent: 'JobDetailAlertPrompt' }),
     );
   });
 

@@ -46,7 +46,17 @@ function createManagementDb(email: string, initial: Subscriber) {
               data: () => docs[`${name}/${id}`],
             }),
             set: async (data: Subscriber) => {
-              docs[`${name}/${id}`] = { ...(docs[`${name}/${id}`] || {}), ...data };
+              const next = { ...(docs[`${name}/${id}`] || {}) };
+              for (const [key, value] of Object.entries(data)) {
+                // Firestore removes deleteField() transforms instead of
+                // returning the transform sentinel on the next read.
+                if (value === '__delete_field__' || value?.constructor?.name === 'DeleteTransform') {
+                  delete next[key];
+                } else {
+                  next[key] = value;
+                }
+              }
+              docs[`${name}/${id}`] = next;
             },
             collection: (subName: string) => ({
               add: async (data: Subscriber) => {
@@ -98,7 +108,7 @@ describe('company-follow/newsletter purpose boundary', () => {
     vi.spyOn(console, 'warn').mockImplementation(() => {});
   });
 
-  it('follow then explicit newsletter opt-in confirms active and sends welcome', async () => {
+  it('follow then newsletter capture stays active without a second confirmation or welcome dispatch', async () => {
     const email = 'follow-then-newsletter@example.com';
 
     await captureNewsletterSubscriber({} as any, {
@@ -107,7 +117,10 @@ describe('company-follow/newsletter purpose boundary', () => {
       sourceChannel: 'company_follow_button',
       preferences: { exchangeRate: true, traffic: true, taxUpdates: true },
       consentText: 'formula follow',
-      consentGiven: false,
+      consentGiven: true,
+      consentTextDisplayed: true,
+      consentAct: 'email_checkbox_submit',
+      consentMethod: 'email_checkbox',
     });
 
     await captureNewsletterSubscriber({} as any, {
@@ -116,7 +129,10 @@ describe('company-follow/newsletter purpose boundary', () => {
       sourceChannel: 'newsletter_page',
       preferences: { exchangeRate: true, traffic: true, taxUpdates: true },
       consentText: 'formula newsletter',
-      consentGiven: false,
+      consentGiven: true,
+      consentTextDisplayed: true,
+      consentAct: 'typed_email_submit',
+      consentMethod: 'email_submit',
       consentPurpose: 'communications',
       status: 'pending',
       isActive: false,
@@ -129,13 +145,10 @@ describe('company-follow/newsletter purpose boundary', () => {
     expect(confirmed.status).toBe('confirmed');
     expect(confirmed.isActive).toBe(true);
     expect(confirmed.active).toBe(true);
-    expect(mocks.welcome).toHaveBeenCalledWith(expect.objectContaining({
-      email,
-      trigger: 'confirm',
-    }));
+    expect(mocks.welcome).not.toHaveBeenCalled();
   });
 
-  it('newsletter opt-in after a confirmed follow starts a new newsletter confirmation', async () => {
+  it('newsletter capture after a confirmed follow keeps the same unified confirmation', async () => {
     const email = 'confirmed-follow-then-newsletter@example.com';
 
     await captureNewsletterSubscriber({} as any, {
@@ -144,7 +157,10 @@ describe('company-follow/newsletter purpose boundary', () => {
       sourceChannel: 'company_follow_button',
       preferences: { exchangeRate: true, traffic: true, taxUpdates: true },
       consentText: 'formula follow',
-      consentGiven: false,
+      consentGiven: true,
+      consentTextDisplayed: true,
+      consentAct: 'email_checkbox_submit',
+      consentMethod: 'email_checkbox',
     });
 
     const followConfirmation = await confirm(email, subscriber as Subscriber);
@@ -165,7 +181,7 @@ describe('company-follow/newsletter purpose boundary', () => {
     const newsletterConfirmation = await confirm(email, subscriber as Subscriber);
     const confirmed = newsletterConfirmation.db.docs[`newsletter_subscribers/${email}`];
 
-    expect(newsletterConfirmation.result.alreadyConfirmed).toBe(false);
+    expect(newsletterConfirmation.result.alreadyConfirmed).toBe(true);
     expect(confirmed.company_follow_only).toBe(false);
     expect(confirmed.status).toBe('confirmed');
     expect(confirmed.isActive).toBe(true);
@@ -175,10 +191,10 @@ describe('company-follow/newsletter purpose boundary', () => {
       sourcePath: null,
       newsletterActive: true,
     });
-    expect(mocks.welcome).toHaveBeenCalledTimes(1);
+    expect(mocks.welcome).not.toHaveBeenCalled();
   });
 
-  it('company follow alone confirms suppressed and keeps every newsletter preference false', async () => {
+  it('company follow alone confirms the base relationship and parks the extra company alert', async () => {
     const email = 'company-follow-only@example.com';
 
     await captureNewsletterSubscriber({} as any, {
@@ -187,22 +203,26 @@ describe('company-follow/newsletter purpose boundary', () => {
       sourceChannel: 'company_follow_button',
       preferences: { exchangeRate: true, traffic: true, taxUpdates: true },
       consentText: 'formula follow',
-      consentGiven: false,
+      consentGiven: true,
+      consentTextDisplayed: true,
+      consentAct: 'email_checkbox_submit',
+      consentMethod: 'email_checkbox',
     });
 
     const { db } = await confirm(email, subscriber as Subscriber);
     const confirmed = db.docs[`newsletter_subscribers/${email}`];
 
-    expect(confirmed.company_follow_only).toBe(true);
+    expect(confirmed.company_follow_only).toBe(false);
     expect(confirmed.preferences).toMatchObject({
-      exchangeRate: false,
-      traffic: false,
-      taxUpdates: false,
+      exchangeRate: true,
+      traffic: true,
+      taxUpdates: true,
       tips: false,
+      jobs: true,
     });
-    expect(confirmed.status).toBe('suppressed');
-    expect(confirmed.isActive).toBe(false);
-    expect(confirmed.active).toBe(false);
+    expect(confirmed.status).toBe('confirmed');
+    expect(confirmed.isActive).toBe(true);
+    expect(confirmed.active).toBe(true);
     expect(mocks.welcome).not.toHaveBeenCalled();
   });
 
@@ -233,13 +253,14 @@ describe('company-follow/newsletter purpose boundary', () => {
       traffic: true,
       taxUpdates: true,
       tips: true,
+      jobs: true,
     });
     expect(subscriber?.status).toBe('confirmed');
     expect(subscriber?.isActive).toBe(true);
     expect(subscriber?.active).toBe(true);
   });
 
-  it('does not end the company-follow purpose for a non-newsletter metadata write', async () => {
+  it('an ordinary registration ends the legacy company-follow-only purpose', async () => {
     subscriber = {
       email: 'company-follow-metadata@example.com',
       status: 'pending',
@@ -259,6 +280,11 @@ describe('company-follow/newsletter purpose boundary', () => {
       consentGiven: false,
     });
 
-    expect(subscriber?.company_follow_only).toBe(true);
+    expect(subscriber?.company_follow_only).toBe(false);
+    // A typed ordinary registration stays pending for DOI/audit purposes;
+    // ordinary senders no longer use that proof state as a delivery gate.
+    expect(subscriber?.status).toBe('pending');
+    expect(subscriber?.isActive).toBe(false);
+    expect(subscriber?.preferences).toMatchObject({ jobs: true });
   });
 });

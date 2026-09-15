@@ -18,7 +18,7 @@
 
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 
-const addDocMock = vi.fn<(...args: unknown[]) => Promise<{ id: string }>>(async () => ({
+const addDocMock = vi.fn(async (..._args: unknown[]) => ({
   id: 'alert-id',
 }));
 const setDocMock = vi.fn<(...args: unknown[]) => Promise<void>>(async () => undefined);
@@ -29,6 +29,7 @@ const updateDocMock = vi.fn<(...args: unknown[]) => Promise<void>>(async () => u
 const getDocsMock = vi.fn<(...args: unknown[]) => Promise<{ size: number; docs: unknown[] }>>(
   async () => ({ size: 0, docs: [] }),
 );
+const upsertUnifiedEmailSubscriberMock = vi.fn(async (..._args: unknown[]) => ({ status: 'pending' }));
 
 vi.mock('firebase/firestore', () => ({
   collectionGroup: vi.fn(() => ({})),
@@ -46,6 +47,16 @@ vi.mock('firebase/firestore', () => ({
   deleteField: vi.fn(() => '__delete_field__'),
   getFirestore: vi.fn(() => ({})),
 }));
+vi.mock('@/services/newsletterSubscribers', () => ({
+  upsertUnifiedEmailSubscriber: (...args: unknown[]) => upsertUnifiedEmailSubscriberMock(...args),
+}));
+
+const TEST_EMAIL_CONSENT = {
+  email: '',
+  source: 'test',
+  sourceChannel: 'job_gate',
+  locale: 'it',
+} as const;
 
 import {
   createAlert,
@@ -62,6 +73,7 @@ beforeEach(() => {
   updateDocMock.mockClear();
   getDocsMock.mockClear();
   getDocsMock.mockResolvedValue({ size: 0, docs: [] });
+  upsertUnifiedEmailSubscriberMock.mockClear();
 });
 
 describe('normalizeCantonFilter', () => {
@@ -103,6 +115,7 @@ describe('createAlert — cantonFilter persistence', () => {
     sectors: [],
     frequency: 'weekly' as const,
     locale: 'it' as const,
+    emailConsent: TEST_EMAIL_CONSENT,
   };
 
   it('writes a single-canton filter (TI alone)', async () => {

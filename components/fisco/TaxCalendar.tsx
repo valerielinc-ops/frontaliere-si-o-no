@@ -11,9 +11,9 @@ import {
  upsertNewsletterSubscriber,
  markNewsletterSubscribedLocally,
  isNewsletterOptedOut,
+ type NewsletterCaptureResult,
 } from '@/services/newsletterSubscribers';
-import { consentProof } from '@/services/consentTexts';
-import ConsentNotice from '@/components/shared/ConsentNotice';
+import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 
 interface TaxDeadline {
  id: string;
@@ -505,12 +505,11 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  const subscribeToNewsletter = async (
  emailRaw: string,
  source: 'tax_calendar_email' | 'tax_calendar_google' | 'tax_calendar_facebook'
- ) => {
+ ): Promise<NewsletterCaptureResult | false> => {
  const email = emailRaw.trim().toLowerCase();
  if (!validateEmailStrict(email).valid) {
  throw new Error('Inserisci una email valida');
  }
-
  const preferences = { exchangeRate: true, traffic: true, taxUpdates: true, tips: true };
  const isTrustedAuthSource = source !== 'tax_calendar_email';
 
@@ -520,46 +519,26 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  import('@/services/firebase'),
  ]);
  const db = getFirestore(app);
- // Social sign-in is an authentication path and must not touch an opt-out.
- // The typed-email reminder is an explicit request for a fresh DOI cycle, so
- // it deliberately reaches the reconsent branch below instead of being
- // swallowed by this guard.
- if (isTrustedAuthSource && await isNewsletterOptedOut(db, email)) return;
- await upsertNewsletterSubscriber(db, {
+ // Social and typed-email registration use the same terms-based base
+ // relationship; the reminder action only adds this calendar preference.
+ if (isTrustedAuthSource && await isNewsletterOptedOut(db, email)) return false;
+ const result = await upsertNewsletterSubscriber(db, {
  email,
  name: null,
  preferences,
  source,
- sourceChannel: source.includes('google')
- ? 'auth_google'
- : source.includes('facebook')
- ? 'auth_facebook'
- : 'tax_calendar',
+ sourceChannel: 'tax_calendar',
  sourcePage: window.location.pathname,
  sourceCta: 'tax_calendar_reminder_gate',
- sourceComponent: 'TaxCalendar',
- sourceRouteFamily: 'tax_calendar',
- locale: navigator.language || 'it-IT',
-   isActive: isTrustedAuthSource,
-   status: isTrustedAuthSource ? 'confirmed' : 'pending',
-   // Only the typed-email reminder is a deliberate re-consent act. Social
-   // sign-in remains an authentication path and must never lift an opt-out.
-   reconsent: !isTrustedAuthSource,
-   // #5678/#5712/#5765. Two acts, ONE sentence and ONE notice: the panel
- // below prints it once, under the email button, and it covers the
- // provider buttons too. Both entries named here carry that exact
- // sentence and differ only in `act`, so whichever way the person came
- // through, the document keeps what the screen said.
- ...consentProof(
- isTrustedAuthSource ? 'communicationsSignIn' : 'communicationsSignInEmail',
- isTrustedAuthSource
- ? (source.includes('facebook') ? 'facebook_oauth' : 'google_oauth')
- : 'email_submit',
- locale,
- ),
- });
- markNewsletterSubscribedLocally();
- return true;
+   sourceComponent: 'TaxCalendar',
+   sourceRouteFamily: 'tax_calendar',
+   locale,
+   registrationMethod: isTrustedAuthSource ? 'authenticated' : 'email',
+   });
+ if (result.status !== 'pending' || result.hadConfirmationProof) {
+   markNewsletterSubscribedLocally();
+ }
+ return result;
  } catch (error) {
  console.warn('[TaxCalendar] Subscription failed:', error);
  return false;
@@ -596,12 +575,16 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  setReminderSignupLoading(true);
  Analytics.trackUIInteraction('tax_calendar', 'checklist_reminder_funnel', 'method', 'email_submit');
  try {
- await subscribeToNewsletter(reminderSignupEmail, 'tax_calendar_email');
+ const result = await subscribeToNewsletter(reminderSignupEmail, 'tax_calendar_email');
+ if (!result) throw new Error('Iscrizione non completata.');
+ const needsConfirmation = result.status === 'pending' && !result.hadConfirmationProof;
  setReminderEnabled(true);
  setReminderSignupOpen(false);
  setReminderSignupError('');
- setChecklistNotice(t('newsletter.doubleOptIn.checkInbox'));
- Analytics.trackUIInteraction('tax_calendar', 'checklist_reminder_funnel', 'activation', 'pending', 'email');
+ setChecklistNotice(needsConfirmation
+   ? `${t('newsletter.doubleOptIn.title')}. ${t('newsletter.doubleOptIn.description')} ${t('newsletter.doubleOptIn.spamHint')}`
+   : (locale === 'it' ? 'Reminder attivato.' : locale === 'de' ? 'Erinnerung aktiviert.' : locale === 'fr' ? 'Rappel activé.' : 'Reminder activated.'));
+ Analytics.trackUIInteraction('tax_calendar', 'checklist_reminder_funnel', 'activation', needsConfirmation ? 'confirmation_pending' : 'success', 'email');
  } catch (error: any) {
  setReminderSignupError(error?.message || 'Errore di iscrizione, riprova.');
  Analytics.trackUIInteraction('tax_calendar', 'checklist_reminder_funnel', 'method', 'email_error');
@@ -619,7 +602,8 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  const signedUser = await googleSignIn();
  const email = getAuthEmail(signedUser);
  if (!email) throw new Error('Email Google non disponibile.');
- await subscribeToNewsletter(email, 'tax_calendar_google');
+ const result = await subscribeToNewsletter(email, 'tax_calendar_google');
+ if (!result) throw new Error('Iscrizione non completata.');
  enableReminderWithTracking('google');
  } catch (e) {
  reportCaughtError(e, 'taxCalendar.googleSignIn');
@@ -639,7 +623,8 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  const signedUser = await facebookSignIn();
  const email = getAuthEmail(signedUser);
  if (!email) throw new Error('Email Facebook non disponibile.');
- await subscribeToNewsletter(email, 'tax_calendar_facebook');
+ const result = await subscribeToNewsletter(email, 'tax_calendar_facebook');
+ if (!result) throw new Error('Iscrizione non completata.');
  enableReminderWithTracking('facebook');
  } catch (e) {
  reportCaughtError(e, 'taxCalendar.facebookSignIn');
@@ -923,7 +908,10 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  </div>
  <div className={`grid grid-cols-1 gap-2 ${linkedInAvailable ? 'sm:grid-cols-2' : ''}`}>
  <div className="space-y-2">
- <div ref={googleReminderButtonRef} className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-lg" />
+ <div
+   ref={googleReminderButtonRef}
+   className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-lg"
+ />
  {!reminderGoogleButtonReady && (
  <button
  type="button"
@@ -947,8 +935,8 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  <div className="space-y-2">
  <button
  type="button"
- onClick={() => signInWithLinkedIn()}
- className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-brand-linkedin hover:bg-brand-linkedin-hover text-on-accent text-xs font-semibold transition-colors"
+ onClick={() => { void signInWithLinkedIn(); }}
+ className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-brand-linkedin hover:bg-brand-linkedin-hover text-on-accent text-xs font-semibold transition-colors disabled:opacity-50"
  >
  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
  {locale === 'it' ? 'Continua con LinkedIn' : locale === 'de' ? 'Mit LinkedIn fortfahren' : locale === 'fr' ? 'Continuer avec LinkedIn' : 'Continue with LinkedIn'}
@@ -975,7 +963,13 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  </form>
  {/* The panel's ONE notice (#5765): it stands under the email button and
  covers the provider buttons above it too. */}
- <ConsentNotice consentKey="communicationsSignIn" locale={locale} className="text-[10px] text-muted leading-snug block" />
+ <EmailConsentCheckbox
+   id="tax-calendar-reminder-consent"
+   consentKey="communicationsOptIn"
+   locale={locale}
+   className="flex items-start gap-2"
+   noticeClassName="text-[10px] text-muted leading-snug"
+ />
  <div className="text-xs text-subtle">
  {t('newsletter.doubleOptIn.description')} {t('newsletter.doubleOptIn.spamHint')}
  </div>

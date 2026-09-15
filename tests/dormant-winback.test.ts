@@ -24,6 +24,7 @@ function dormantSub(overrides: Record<string, unknown> = {}) {
     open_count: 0,
     click_count: 0,
     created_at: daysAgo(30),
+    confirmed_at: daysAgo(30),
     ...overrides,
   };
 }
@@ -31,6 +32,12 @@ function dormantSub(overrides: Record<string, unknown> = {}) {
 describe('classifyDormantWinback', () => {
   it('starts stage 1 for a dormant subscriber past the send floor', () => {
     expect(classifyDormantWinback(dormantSub(), NOW).action).toBe('stage1');
+  });
+
+  it('does not require confirmation proof for ordinary lifecycle mail', () => {
+    const unproven = dormantSub();
+    delete (unproven as Record<string, unknown>).confirmed_at;
+    expect(classifyDormantWinback(unproven, NOW).action).toBe('stage1');
   });
 
   it('does not touch subscribers below the send floor (too new to judge)', () => {
@@ -117,6 +124,10 @@ describe('classifyDormantWinback', () => {
     }
   });
 
+  it('does not start a lifecycle sequence for an explicit global stop-all address', () => {
+    expect(classifyDormantWinback(dormantSub({ global_email_opt_out: true }), NOW).action).toBe('none');
+  });
+
   it('leaves an already-inactive subscriber alone (owned by the other track\'s reactivate)', () => {
     expect(classifyDormantWinback(dormantSub({ status: 'inactive' }), NOW).action).toBe('none');
   });
@@ -134,6 +145,7 @@ describe('classifyDormantWinback', () => {
       openCount: 0,
       clickCount: 0,
       createdAt: daysAgo(30),
+      confirmed_at: daysAgo(30),
     };
     expect(classifyDormantWinback(camel, NOW).action).toBe('stage1');
   });

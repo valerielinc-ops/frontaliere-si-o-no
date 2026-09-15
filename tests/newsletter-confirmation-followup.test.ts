@@ -944,7 +944,7 @@ describe('the ledger both senders write, and the shapes it has never seen', () =
   });
 });
 
-describe('the write that starts a cycle, and the one that stops asking', () => {
+describe('terms-based registration: typed email waits for DOI, verified auth may confirm', () => {
   let fetchMock: ReturnType<typeof vi.fn>;
 
   beforeEach(() => {
@@ -970,52 +970,69 @@ describe('the write that starts a cycle, and the one that stops asking', () => {
 
   const merged = () => (setDocMock.mock.calls[0] as any[])[1] as Record<string, any>;
 
-  it('a new signup starts a cycle: counter at zero, anchor stamped', () => {
+  it('a new typed signup keeps the base relationship pending until DOI', async () => {
     getDocMock.mockResolvedValue({ exists: () => false, data: () => undefined });
-    return captureNewsletterSubscriber({} as any, {
+    await captureNewsletterSubscriber({} as any, {
       email: 'new@example.com',
       source: 'popup',
       consentText: 'formula di prova',
-    }).then(() => {
-      expect(merged().status).toBe('pending');
-      expect(merged().confirmation_attempts).toBe(0);
-      expect(merged().confirmation_cycle_started_at).toBe('__server_timestamp__');
+      consentGiven: true,
+      consentTextDisplayed: true,
+      consentAct: 'typed_email_submit',
+      consentMethod: 'email_submit',
+      registrationMethod: 'email',
     });
+    expect(merged()).toMatchObject({
+      status: 'pending',
+      isActive: false,
+      active: false,
+      registration_terms_accepted: true,
+      consent_basis: 'registration_terms',
+      consent_act: 'registration_terms_acceptance',
+      consent_method: 'terms_and_conditions',
+      consent_advertising: true,
+      preferences: { jobs: true },
+    });
+    expect(merged().confirmation_cycle_started_at).toBe('__server_timestamp__');
+    expect(merged()).not.toHaveProperty('confirmed_at');
   });
 
-  it('company follow records its own purpose without broadening newsletter preferences or PII proof', async () => {
+  it('company follow adds its extra channel on top of the base relationship', async () => {
     getDocMock.mockResolvedValue({ exists: () => false, data: () => undefined });
     vi.stubGlobal('navigator', { userAgent: 'controlled-test-user-agent' });
 
     await captureNewsletterSubscriber({} as any, {
       email: 'follow@example.com',
       source: 'company_follow_button',
-      sourceChannel: 'company_follow_button',
+      sourceChannel: 'company_follow_unified',
       sourcePage: '/lavoro/azienda/',
       preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false },
       consentText: 'formula di prova',
       consentUserAgent: 'controlled-test-user-agent',
-      consentGiven: false,
-      consentAct: 'email_submit',
+      consentGiven: true,
+      consentTextDisplayed: true,
+      consentMethod: 'email_checkbox',
+      consentAct: 'email_checkbox_submit',
     });
 
     const data = merged();
     expect(data.preferences).toMatchObject({
-      exchangeRate: false,
-      traffic: false,
-      taxUpdates: false,
+      exchangeRate: true,
+      traffic: true,
+      taxUpdates: true,
       tips: false,
+      jobs: true,
     });
-    expect(data.interests).not.toEqual(expect.arrayContaining(['exchangeRate', 'traffic', 'taxUpdates']));
-    expect(data.consent_purpose).toBe('companyFollow');
-    expect(data.company_follow_only).toBe(true);
-    expect(data.consent_given).toBe(false);
-    expect(data.consent_source_url).toBeNull();
-    expect(data.consent_user_agent).toBeNull();
+    expect(data.interests).toEqual(expect.arrayContaining(['exchangeRate', 'traffic', 'taxUpdates', 'jobs']));
+    expect(data.consent_purpose).toBe('unified_email_channels');
+    expect(data.company_follow_only).toBe(false);
+    expect(data.consent_given).toBe(true);
+    expect(data.consent_source_url).toBe('/lavoro/azienda/');
+    expect(data.consent_user_agent).toBe('controlled-test-user-agent');
     expect(data.consent_ip).toBeNull();
   });
 
-  it('does not invent newsletter defaults when an existing subscriber has no preference record', async () => {
+  it('fills the base defaults when an existing subscriber has no preference record', async () => {
     getDocMock.mockResolvedValue({
       exists: () => true,
       data: () => ({
@@ -1030,23 +1047,23 @@ describe('the write that starts a cycle, and the one that stops asking', () => {
     await captureNewsletterSubscriber({} as any, {
       email: 'existing@example.com',
       source: 'company_follow_button',
-      sourceChannel: 'company_follow_button',
-      preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false },
-      consentText: 'formula di prova',
+      sourceChannel: 'company_follow_unified',
+      jobContext: { company: 'Existing Company' },
     });
 
     const data = merged();
     expect(data.preferences).toMatchObject({
-      exchangeRate: false,
-      traffic: false,
-      taxUpdates: false,
+      exchangeRate: true,
+      traffic: true,
+      taxUpdates: true,
       tips: false,
+      jobs: true,
     });
-    expect(Object.values(data.preferences).every((value) => value === false)).toBe(true);
-    expect(data.consent_purpose).toBe('communications');
+    expect(data.consent_purpose).toBe('unified_email_channels');
+    expect(data.company_follow_only).toBe(false);
   });
 
-  it('repairs legacy company-only preferences instead of carrying broad opt-ins forward', async () => {
+  it('migrates a legacy company-only row to the unified base on a new registration', async () => {
     getDocMock.mockResolvedValue({
       exists: () => true,
       data: () => ({
@@ -1068,13 +1085,18 @@ describe('the write that starts a cycle, and the one that stops asking', () => {
     });
 
     const data = merged();
-    expect(Object.values(data.preferences).every((value) => value === false)).toBe(true);
-    expect(data.company_follow_only).toBe(true);
+    expect(data.preferences).toMatchObject({
+      exchangeRate: true,
+      traffic: true,
+      taxUpdates: true,
+      tips: true,
+      jobs: true,
+    });
+    expect(data.company_follow_only).toBe(false);
+    expect(data.consent_basis).toBe('registration_terms');
   });
 
-  it('a signup on an EXPIRED document restarts the cycle instead of inheriting its cap', async () => {
-    // Without this the terminal state is a one-way door for a person who comes
-    // back and asks to subscribe again — the counter still says three.
+  it('a typed signup on an EXPIRED document starts a fresh DOI cycle', async () => {
     getDocMock.mockResolvedValue({
       exists: () => true,
       data: () => ({
@@ -1090,13 +1112,16 @@ describe('the write that starts a cycle, and the one that stops asking', () => {
     const result = await captureNewsletterSubscriber({} as any, { email: 'again@example.com', source: 'popup' });
 
     expect(result.status).toBe('pending');
-    expect(merged().confirmation_attempts).toBe(0);
+    expect(merged()).toMatchObject({
+      status: 'pending',
+      isActive: false,
+      registration_terms_accepted: true,
+      consent_basis: 'registration_terms',
+    });
     expect(merged().confirmation_cycle_started_at).toBe('__server_timestamp__');
   });
 
-  it('a repeat submit while already pending does NOT reset the counter', async () => {
-    // Otherwise the cap is worth nothing: resubmitting the form would buy three
-    // more requests every time.
+  it('a repeat typed registration while already pending does not self-confirm', async () => {
     getDocMock.mockResolvedValue({
       exists: () => true,
       data: () => ({ email: 'p@example.com', status: 'pending', consent_text: 'formula di prova', confirmation_attempts: 2 }),
@@ -1104,7 +1129,8 @@ describe('the write that starts a cycle, and the one that stops asking', () => {
 
     await captureNewsletterSubscriber({} as any, { email: 'p@example.com', source: 'popup' });
 
-    expect(merged()).not.toHaveProperty('confirmation_attempts');
+    expect(merged().status).toBe('pending');
+    expect(merged().isActive).toBe(false);
     expect(merged()).not.toHaveProperty('confirmation_cycle_started_at');
   });
 
@@ -1129,7 +1155,7 @@ describe('the write that starts a cycle, and the one that stops asking', () => {
     expect(fetchMock).not.toHaveBeenCalled();
   });
 
-  it('restarts DOI for a silent-auth record only after visible consent is supplied', async () => {
+  it('does not restart DOI for a silent-auth record when the base registration is terms-based', async () => {
     getDocMock.mockResolvedValue({
       exists: () => true,
       data: () => ({
@@ -1154,25 +1180,30 @@ describe('the write that starts a cycle, and the one that stops asking', () => {
       consentMethod: 'email_submit',
     });
 
-    expect(result.status).toBe('pending');
+    expect(result.status).toBe('confirmed');
     expect(result.hadConfirmationProof).toBe(false);
-    await vi.waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1), { timeout: 5000 });
-    expect((fetchMock.mock.calls[0] as any[])[0]).toBe(`${FUNCTIONS_BASE}/newsletterSendConfirmation`);
+    expect(fetchMock).not.toHaveBeenCalled();
   });
 
-  it('does not mark a pending signup locally when the confirmation request is refused', async () => {
+  it('sends the DOI and marks a typed signup locally as pending', async () => {
     getDocMock.mockResolvedValue({ exists: () => false, data: () => undefined });
-    fetchMock.mockResolvedValue({ ok: false, json: async () => ({ success: false, error: 'cooldown_active' }) });
 
-    await expect(upsertNewsletterSubscriber({} as any, {
+    const result = await upsertNewsletterSubscriber({} as any, {
       email: 'refused@example.com',
       source: 'popup',
       consentText: 'formula di prova',
-    })).rejects.toThrow('confirmation-email-failed');
-    expect(window.localStorage.getItem('newsletter_pending_email')).toBeNull();
+      consentGiven: true,
+      consentTextDisplayed: true,
+      consentAct: 'typed_email_submit',
+      consentMethod: 'email_submit',
+      registrationMethod: 'email',
+    });
+    expect(result.status).toBe('pending');
+    expect(window.localStorage.getItem('newsletter_pending_email')).toBe('refused@example.com');
+    expect(fetchMock.mock.calls.some(([url]) => url === `${FUNCTIONS_BASE}/newsletterSendConfirmation`)).toBe(true);
   });
 
-  it('does NOT ask somebody who already confirmed, even when the write lands on `pending`', async () => {
+  it('does not ask somebody who already confirmed when a legacy row is remediated', async () => {
     // The 848 again, this time at the write that would have mailed them.
     getDocMock.mockResolvedValue({
       exists: () => true,
@@ -1187,7 +1218,7 @@ describe('the write that starts a cycle, and the one that stops asking', () => {
 
     const result = await upsertNewsletterSubscriber({} as any, { email: 'reprobe@example.com', status: 'pending', source: 'popup' });
 
-    expect(result.status).toBe('pending');
+    expect(result.status).toBe('confirmed');
     expect(result.hadConfirmationProof).toBe(true);
     expect(fetchMock).not.toHaveBeenCalled();
   });

@@ -219,7 +219,7 @@ describe('handleSavedJobsDigestUnsubscribe — forensics', () => {
   }
 
   it('records method/UA/anonymized ip inside the savedJobsDigest write', async () => {
-    const db = capturingDb({ savedJobsDigest: { optedOut: false } });
+    const db = capturingDb({ savedJobsDigest: { optedIn: true, optedOut: false } });
     const result = await handleSavedJobsDigestUnsubscribe({
       uid: UID,
       email: 'user@example.com',
@@ -242,7 +242,7 @@ describe('handleSavedJobsDigestUnsubscribe — forensics', () => {
   });
 
   it('opts out exactly as before with no forensics passed', async () => {
-    const db = capturingDb({ savedJobsDigest: { optedOut: false } });
+    const db = capturingDb({ savedJobsDigest: { optedIn: true, optedOut: false } });
     const result = await handleSavedJobsDigestUnsubscribe({
       uid: UID,
       email: '',

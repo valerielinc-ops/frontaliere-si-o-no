@@ -19,8 +19,7 @@ import { useLocale } from '@/services/i18n';
 import { renderGoogleButton, isLinkedInSignInAvailable, signInWithLinkedIn, saveAuthJobContext } from '@/services/authService';
 import { reportCaughtError } from '@/services/errorReporter';
 import { upsertNewsletterSubscriber } from '@/services/newsletterSubscribers';
-import { consentProof } from '@/services/consentTexts';
-import ConsentNotice from '@/components/shared/ConsentNotice';
+import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import { resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
 import { handleCompanyLogoError } from '@/services/logoService';
 import { cdnImageUrl } from '@/services/cdnImageBase';
@@ -266,17 +265,9 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  sourceComponent: 'JobBridgeView',
  sourceRouteFamily: 'job-board',
  jobContext: newsletterJobContext,
+ registrationMethod: 'email',
  locationInterest: newsletterJobContext.location,
  sectorInterest: newsletterJobContext.category,
-        isActive: false,
-        status: 'pending',
-        // Email access is an explicit communications form. If this address
-        // opted out before, the new DOI link must be clicked first.
-        reconsent: true,
-        // #5678: record the formula in force at this gate. `pending`, so the text
- // states that the subscription waits for the confirmation link.
- // #5712/#5718: the notice under the unlock form is the stored string.
- ...consentProof('communicationsOptIn', 'email_submit', locale),
  });
  localStorage.setItem(JOB_EMAIL_ACCESS_KEY, email.toLowerCase());
  window.location.href = targetPath;
@@ -407,7 +398,13 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  {EMAIL_CTA_COPY[locale] ?? EMAIL_CTA_COPY.it}
  </button>
  </form>
- <ConsentNotice consentKey="communicationsOptIn" locale={locale} className="text-[10px] text-muted leading-snug block" />
+ <EmailConsentCheckbox
+   id="job-bridge-email-consent"
+   consentKey="communicationsOptIn"
+   locale={locale}
+   className="mt-2 flex items-start gap-2 cursor-pointer"
+   noticeClassName="text-[10px] text-muted leading-snug"
+ />
  {emailError && <p className="text-sm text-danger">{emailError}</p>}
  </div>
  )} {/* AdSense */} <AdSenseUnit slot="5196931137" className="my-2" />

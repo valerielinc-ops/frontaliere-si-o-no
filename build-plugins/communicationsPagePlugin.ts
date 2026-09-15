@@ -147,26 +147,18 @@ const CATEGORY_HEADING: Record<NamedConsentCategory, Record<PageLocale, string>>
 /**
  * What a category needs said about it beyond its channel rows.
  *
- * Only `advertising` has one, and it is not decoration: it is where the shape
- * of that consent is stated to the person it applies to — no separate box was
- * ticked, and the switch is per-channel. A reader who wants to contest "I never
- * agreed to advertising" is entitled to find, on the page their proof names,
- * exactly what they were and were not asked.
- *
- * REWRITTEN ON 2026-08-14, AND THE OLD SENTENCE IS THE REASON. It ended "chi si
- * è iscritto prima del 13 agosto 2026 non lo riceve", which described the
- * version filter `services/publisherBlastMatch.mjs` applied at the time. The
- * owner removed that filter, so the sentence had to go in the same change: a
- * page telling a reader they are exempt while the sender mails them is a worse
- * disclosure than one that admits the reach, and it is the half of this page a
- * complaint would quote first.
+ * Only `advertising` has one, and it is not decoration: it is where the page
+ * explains that the category belongs to the base registration while keeping a
+ * separate preference-centre switch for withdrawal. A reader who wants to
+ * contest the reach is entitled to find, on the page their proof names, the
+ * category, recipients and opt-out route.
  */
 const CATEGORY_NOTE: Partial<Record<NamedConsentCategory, Record<PageLocale, string>>> = {
   advertising: {
-    it: 'Questa categoria è compresa nelle comunicazioni a cui ti sei iscritto: non ti è stata proposta una casella separata e il numero di spunte all’iscrizione non è cambiato. Vale per tutte le persone iscritte, anche per chi si è iscritto prima del 13 agosto 2026, cioè prima che questa pagina nominasse la pubblicità di terzi: è una decisione del titolare del 14 agosto 2026. In cambio puoi disattivare solo questo canale, dalle tue preferenze, senza toccare nulla del resto.',
-    en: 'This category is included in the communications you signed up for: no separate box was offered to you and the number of ticks at signup did not change. It applies to everyone who is subscribed, including people who subscribed before 13 August 2026, that is, before this page named third-party advertising: this is a decision the data controller took on 14 August 2026. In exchange you can switch off this channel alone, from your preferences, without touching any of the rest.',
-    de: 'Diese Kategorie ist in den Mitteilungen enthalten, für die Sie sich angemeldet haben: Es wurde Ihnen kein separates Kästchen angeboten, und die Anzahl der Häkchen bei der Anmeldung hat sich nicht geändert. Sie gilt für alle angemeldeten Personen, auch für jene, die sich vor dem 13. August 2026 angemeldet haben, also bevor diese Seite Werbung Dritter nannte: Das ist eine Entscheidung der verantwortlichen Person vom 14. August 2026. Dafür können Sie allein diesen Kanal in Ihren Einstellungen abschalten, ohne am Rest etwas zu ändern.',
-    fr: 'Cette catégorie est comprise dans les communications auxquelles vous vous êtes inscrit : aucune case distincte ne vous a été proposée et le nombre de cases à cocher à l’inscription n’a pas changé. Elle s’applique à toutes les personnes inscrites, y compris celles inscrites avant le 13 août 2026, c’est-à-dire avant que cette page ne nomme la publicité de tiers : c’est une décision du responsable du traitement du 14 août 2026. En contrepartie, vous pouvez désactiver ce seul canal, depuis vos préférences, sans toucher au reste.',
+    it: 'Questa categoria fa parte dell’attivazione base delle comunicazioni ed è attiva per impostazione predefinita dopo la conferma dell’indirizzo. La mostriamo come interruttore separato nelle preferenze per permetterti di disattivarla senza toccare newsletter, bollettino o avvisi di lavoro. Se il canale verrà riattivato, potrà raggiungere chi non l’ha disattivato.',
+    en: 'This category is part of the base communications activation and is on by default after the address is confirmed. We show it as a separate preference switch so you can turn it off without changing the newsletter, daily brief or job alerts. If the channel is switched back on, it may reach people who have not switched it off.',
+    de: 'Diese Kategorie gehört zur Basisaktivierung der Mitteilungen und ist nach der Bestätigung der Adresse standardmässig aktiv. Wir führen sie als eigenen Schalter in den Einstellungen, damit Sie sie ausschalten können, ohne Newsletter, Tagesbulletin oder Stellenbenachrichtigungen zu ändern. Wird der Kanal wieder eingeschaltet, kann er Personen erreichen, die ihn nicht deaktiviert haben.',
+    fr: 'Cette catégorie fait partie de l’activation de base des communications et est active par défaut après la confirmation de l’adresse. Nous l’affichons comme un interrupteur distinct dans les préférences afin que vous puissiez la désactiver sans modifier la newsletter, le bulletin quotidien ni les alertes emploi. Si le canal est réactivé, il pourra atteindre les personnes qui ne l’ont pas désactivé.',
   },
 };
 
@@ -314,25 +306,25 @@ const SHARING_HEADING: Record<PageLocale, string> = {
 };
 
 const SHARING_INTRO: Record<PageLocale, string> = {
-  it: 'Qui sotto trovi le categorie di destinatari e le finalità, non i nomi delle singole aziende: è questo che permette di cambiare un fornitore o di aggiungere un partner senza riscrivere il testo e senza chiederti di nuovo il consenso. Vale però solo per le finalità scritte qui: quello che non è nominato non è coperto.',
-  en: 'Below are the categories of recipient and the purposes, not the names of individual companies: that is what makes it possible to change a supplier or add a partner without rewriting this text and without asking you for consent again. It only holds for the purposes written here, though: what is not named is not covered.',
-  de: 'Nachstehend finden Sie die Kategorien von Empfängern und die Zwecke, nicht die Namen einzelner Unternehmen: Das erlaubt es, einen Dienstleister zu wechseln oder einen Partner hinzuzunehmen, ohne diesen Text neu zu schreiben und ohne Sie erneut um Einwilligung zu bitten. Es gilt allerdings nur für die hier genannten Zwecke: Was nicht genannt ist, ist nicht abgedeckt.',
-  fr: 'Vous trouverez ci-dessous les catégories de destinataires et les finalités, et non les noms des entreprises : c’est ce qui permet de changer de prestataire ou d’ajouter un partenaire sans réécrire ce texte ni vous redemander votre consentement. Cela ne vaut toutefois que pour les finalités écrites ici : ce qui n’est pas nommé n’est pas couvert.',
+  it: 'Qui sotto trovi le categorie di destinatari e le finalità, non i nomi delle singole aziende. Possiamo cambiare un fornitore tecnico per la stessa finalità già descritta, rispettando le garanzie applicabili; per la pubblicità di terzi la registrazione base copre la comunicazione o il trasferimento dei dati agli inserzionisti e ai partner pubblicitari per le finalità commerciali descritte qui sotto. Quello che non è nominato non è coperto.',
+  en: 'Below are the categories of recipient and the purposes, not the names of individual companies. We may change a technical supplier for the same purpose already described, subject to the applicable safeguards; for third-party advertising, the base registration covers communicating or transferring data to advertisers and advertising partners for the commercial purposes described below. What is not named is not covered.',
+  de: 'Nachstehend finden Sie die Kategorien von Empfängern und die Zwecke, nicht die Namen einzelner Unternehmen. Wir können einen technischen Dienstleister für denselben bereits beschriebenen Zweck wechseln, unter Einhaltung der anwendbaren Garantien; für Werbung Dritter umfasst die Basisregistrierung die Übermittlung oder Übertragung von Daten an Inserenten und Werbepartner für die unten beschriebenen kommerziellen Zwecke. Was nicht genannt ist, ist nicht abgedeckt.',
+  fr: 'Vous trouverez ci-dessous les catégories de destinataires et les finalités, et non les noms des entreprises. Nous pouvons changer de prestataire technique pour la même finalité déjà décrite, dans le respect des garanties applicables ; pour la publicité de tiers, l’inscription de base couvre la communication ou le transfert de données aux annonceurs et partenaires publicitaires pour les finalités commerciales décrites ci-dessous. Ce qui n’est pas nommé n’est pas couvert.',
 };
 
 const SHARING_ITEMS: Record<PageLocale, readonly { lead: string; body: string }[]> = {
   it: [
     {
-      lead: 'Partner pubblicitari e commerciali.',
-      body: 'I tuoi dati possono essere comunicati a terzi — inserzionisti, agenzie e altri partner commerciali — per finalità pubblicitarie e di marketing, compresi partner con cui oggi non abbiamo alcun rapporto. Per la posta elettronica oggi non accade: gli annunci degli inserzionisti te li inviamo noi e l’inserzionista non riceve il tuo indirizzo. Sulle pagine del sito, invece, i circuiti pubblicitari che pubblicano gli annunci raccolgono per conto proprio identificativi del browser e dati di navigazione: sono descritti nell’informativa completa.',
+      lead: 'Annunci di terzi.',
+      body: 'Il canale email degli annunci di terzi è oggi sospeso. Se verrà riattivato, potremo inviare messaggi promozionali di terzi agli iscritti del rapporto base che non avranno disattivato questa categoria e potremo comunicare, mettere a disposizione o cedere il loro indirizzo email e le informazioni dichiarate o derivate dalle interazioni agli inserzionisti e ai partner pubblicitari per le loro finalità commerciali. I circuiti pubblicitari presenti sulle pagine del sito possono raccogliere identificativi del browser e dati di navigazione secondo il consenso cookie e sono descritti nell’informativa completa.',
     },
     {
       lead: 'Profilazione a fini commerciali.',
-      body: 'Usiamo ciò che ci hai indicato tu — professione cercata, settore, luogo, annunci salvati, aziende seguite — e il modo in cui interagisci con le nostre email e con il sito — se le apri, su quali link clicchi, da quanto tempo non le apri — per scegliere quali contenuti, annunci di lavoro e messaggi pubblicitari inviarti, con quale frequenza e quando smettere di scriverti. Non compriamo dati su di te da terzi: il profilo è costruito solo con quello che ci dai tu e con il tuo comportamento sulle nostre email e sul nostro sito. Nessuna di queste elaborazioni produce decisioni automatizzate con effetti giuridici o economici nei tuoi confronti.',
+      body: 'Usiamo ciò che ci hai indicato tu — professione cercata, settore, luogo, annunci salvati, aziende seguite — e il modo in cui interagisci con le nostre email e con il sito — se le apri, su quali link clicchi, da quanto tempo non le apri — per scegliere contenuti, annunci di lavoro e messaggi promozionali pertinenti. Queste informazioni possono essere messe a disposizione dei partner pubblicitari per selezionare messaggi commerciali, salvo la disattivazione della categoria. Nessuna di queste elaborazioni produce decisioni automatizzate con effetti giuridici o economici nei tuoi confronti.',
     },
     {
-      lead: 'Cessione, fusione o vendita dell’attività.',
-      body: 'Se il sito, o un suo ramo di attività, viene ceduto, conferito o fuso in un’altra azienda, i dati degli iscritti possono essere trasferiti a chi acquista, insieme all’attività, e il rapporto prosegue alle condizioni descritte in questa pagina. Se dopo il trasferimento le finalità cambiano, te ne verrà data notizia prima che il cambiamento abbia effetto.',
+      lead: 'Cambio di titolare.',
+      body: 'Un’eventuale cessione, fusione o vendita dell’attività può trasferire al successore il rapporto base e i dati necessari, compresa la possibilità di proseguire le finalità commerciali qui descritte. In caso di cambio di titolare o di finalità, ti forniremo l’informativa richiesta e raccoglieremo un nuovo consenso quando necessario prima di usare i dati per lo scopo modificato.',
     },
     {
       lead: 'Fornitori che lavorano per noi.',
@@ -341,16 +333,16 @@ const SHARING_ITEMS: Record<PageLocale, readonly { lead: string; body: string }[
   ],
   en: [
     {
-      lead: 'Advertising and commercial partners.',
-      body: 'Your data may be shared with third parties — advertisers, agencies and other commercial partners — for advertising and marketing purposes, including partners we have no relationship with today. For email this does not happen at present: we send advertisers’ announcements ourselves and the advertiser does not receive your address. On the site’s pages, by contrast, the advertising networks that serve the ads collect browser identifiers and browsing data on their own account: they are described in the full privacy notice.',
+      lead: 'Third-party advertising.',
+      body: 'The third-party email-ad channel is currently suspended. If it is reactivated, we may send promotional messages from third parties to base subscribers who have not switched this category off, and may communicate, make available or transfer their email address and declared or interaction-derived information to advertisers and advertising partners for their own commercial purposes. Advertising networks on site pages may collect browser identifiers and browsing data under the cookie consent choice; they are described in the full privacy notice.',
     },
     {
-      lead: 'Profiling for commercial purposes.',
-      body: 'We use what you told us — the role you searched for, sector, place, saved listings, followed employers — and how you interact with our emails and the site — whether you open them, which links you click, how long since you last opened one — to choose which content, job listings and advertising messages to send you, how often, and when to stop writing. We do not buy data about you from third parties: the profile is built only from what you give us and from your behaviour on our emails and our site. None of this produces automated decisions with legal or economic effects on you.',
+      lead: 'Profiling for relevant content.',
+      body: 'We use what you told us — the role you searched for, sector, place, saved listings and followed employers — and how you interact with our emails and the site — whether you open them and which links you click — to choose relevant content, job listings and promotional messages. This information may be made available to advertising partners to select commercial messages, unless you switch the category off. None of this produces automated decisions with legal or economic effects on you.',
     },
     {
-      lead: 'Sale, merger or transfer of the business.',
-      body: 'If the site, or a branch of it, is sold, contributed or merged into another company, subscribers’ data may be transferred to the buyer together with the business, and the relationship continues on the terms described on this page. If the purposes change after the transfer, you will be told before the change takes effect.',
+      lead: 'Change of controller.',
+      body: 'A sale, merger or transfer of the business may transfer the base relationship and the necessary data to the successor, including the commercial purposes described here. If the controller or purposes change, we will provide the information required and obtain fresh consent where necessary before using the data for the changed purpose.',
     },
     {
       lead: 'Suppliers working for us.',
@@ -359,16 +351,16 @@ const SHARING_ITEMS: Record<PageLocale, readonly { lead: string; body: string }[
   ],
   de: [
     {
-      lead: 'Werbe- und Geschäftspartner.',
-      body: 'Ihre Daten können an Dritte — Inserenten, Agenturen und andere Geschäftspartner — zu Werbe- und Marketingzwecken weitergegeben werden, auch an Partner, zu denen heute keine Beziehung besteht. Bei der E-Mail geschieht das derzeit nicht: Die Anzeigen der Inserenten versenden wir selbst, und der Inserent erhält Ihre Adresse nicht. Auf den Seiten der Website hingegen erheben die Werbenetzwerke, welche die Anzeigen ausliefern, auf eigene Rechnung Browser-Kennungen und Nutzungsdaten: Sie sind in der vollständigen Datenschutzerklärung beschrieben.',
+      lead: 'Werbung Dritter.',
+      body: 'Der E-Mail-Kanal für Werbung Dritter ist derzeit ausgesetzt. Bei einer Reaktivierung können wir Werbenachrichten von Dritten an Basis-Abonnenten senden, die diese Kategorie nicht deaktiviert haben, und ihre E-Mail-Adresse sowie angegebene oder aus Interaktionen abgeleitete Informationen Inserenten und Werbepartnern für deren eigene kommerzielle Zwecke mitteilen, zur Verfügung stellen oder übertragen. Werbenetzwerke auf den Seiten der Website können unter der Cookie-Einwilligung Browser-Kennungen und Nutzungsdaten erheben; sie sind in der vollständigen Datenschutzerklärung beschrieben.',
     },
     {
-      lead: 'Profilbildung zu kommerziellen Zwecken.',
-      body: 'Wir verwenden Ihre eigenen Angaben — gesuchter Beruf, Branche, Ort, gespeicherte Inserate, gefolgte Arbeitgeber — und die Art, wie Sie mit unseren E-Mails und der Website umgehen — ob Sie sie öffnen, welche Links Sie anklicken, wie lange Sie nichts geöffnet haben — um auszuwählen, welche Inhalte, Stelleninserate und Werbenachrichten Sie erhalten, wie oft, und wann wir aufhören zu schreiben. Wir kaufen keine Daten über Sie bei Dritten: Das Profil entsteht allein aus Ihren Angaben und Ihrem Verhalten in unseren E-Mails und auf unserer Website. Nichts davon führt zu automatisierten Entscheidungen mit rechtlichen oder wirtschaftlichen Folgen für Sie.',
+      lead: 'Profilbildung für relevante Inhalte.',
+      body: 'Wir verwenden Ihre eigenen Angaben — gesuchter Beruf, Branche, Ort, gespeicherte Inserate und gefolgte Arbeitgeber — und die Art, wie Sie mit unseren E-Mails und der Website umgehen — ob Sie sie öffnen und welche Links Sie anklicken — um relevante Inhalte, Stelleninserate und Werbenachrichten auszuwählen. Diese Informationen können Werbepartnern zur Auswahl kommerzieller Nachrichten zur Verfügung gestellt werden, sofern Sie die Kategorie nicht deaktivieren. Nichts davon führt zu automatisierten Entscheidungen mit rechtlichen oder wirtschaftlichen Folgen für Sie.',
     },
     {
-      lead: 'Verkauf, Fusion oder Übertragung des Unternehmens.',
-      body: 'Wird die Website oder ein Teil davon verkauft, eingebracht oder mit einem anderen Unternehmen fusioniert, können die Daten der Angemeldeten zusammen mit dem Geschäftsbetrieb an die Erwerberin übertragen werden; das Verhältnis läuft zu den auf dieser Seite beschriebenen Bedingungen weiter. Ändern sich nach der Übertragung die Zwecke, werden Sie darüber informiert, bevor die Änderung wirksam wird.',
+      lead: 'Änderung des Verantwortlichen.',
+      body: 'Ein Verkauf, eine Fusion oder eine Übertragung des Unternehmens kann die Basisbeziehung und die erforderlichen Daten auf den Nachfolger übertragen, einschliesslich der hier beschriebenen kommerziellen Zwecke. Wenn sich der Verantwortliche oder die Zwecke ändern, informieren wir Sie und holen, soweit erforderlich, eine neue Einwilligung ein, bevor wir die Daten für den geänderten Zweck verwenden.',
     },
     {
       lead: 'Dienstleister, die für uns arbeiten.',
@@ -377,16 +369,16 @@ const SHARING_ITEMS: Record<PageLocale, readonly { lead: string; body: string }[
   ],
   fr: [
     {
-      lead: 'Partenaires publicitaires et commerciaux.',
-      body: 'Vos données peuvent être communiquées à des tiers — annonceurs, agences et autres partenaires commerciaux — à des fins publicitaires et de marketing, y compris à des partenaires avec lesquels nous n’avons aujourd’hui aucune relation. Pour le courrier électronique, cela n’a pas lieu actuellement : les annonces des annonceurs, c’est nous qui vous les envoyons, et l’annonceur ne reçoit pas votre adresse. Sur les pages du site, en revanche, les régies publicitaires qui diffusent les annonces collectent pour leur propre compte des identifiants de navigateur et des données de navigation : elles sont décrites dans la politique de confidentialité complète.',
+      lead: 'Publicité de tiers.',
+      body: 'Le canal d’e-mails publicitaires de tiers est actuellement suspendu. S’il est réactivé, nous pourrons envoyer des messages promotionnels de tiers aux abonnés de base qui n’auront pas désactivé cette catégorie, et communiquer, mettre à disposition ou transférer leur adresse e-mail ainsi que les informations déclarées ou déduites des interactions aux annonceurs et partenaires publicitaires pour leurs propres finalités commerciales. Les régies publicitaires présentes sur les pages du site peuvent collecter des identifiants de navigateur et des données de navigation selon le choix de consentement aux cookies ; elles sont décrites dans la politique complète.',
     },
     {
-      lead: 'Profilage à des fins commerciales.',
-      body: 'Nous utilisons ce que vous nous avez indiqué — métier recherché, secteur, lieu, offres enregistrées, entreprises suivies — et la manière dont vous interagissez avec nos e-mails et avec le site — si vous les ouvrez, sur quels liens vous cliquez, depuis combien de temps vous n’avez rien ouvert — pour choisir quels contenus, offres d’emploi et messages publicitaires vous envoyer, à quelle fréquence, et quand cesser de vous écrire. Nous n’achetons pas de données vous concernant auprès de tiers : le profil est construit uniquement à partir de ce que vous nous donnez et de votre comportement dans nos e-mails et sur notre site. Rien de tout cela ne produit de décision automatisée ayant des effets juridiques ou économiques à votre égard.',
+      lead: 'Profilage pour des contenus pertinents.',
+      body: 'Nous utilisons ce que vous nous avez indiqué — métier recherché, secteur, lieu, offres enregistrées et entreprises suivies — et la manière dont vous interagissez avec nos e-mails et avec le site — si vous les ouvrez et sur quels liens vous cliquez — pour choisir des contenus, offres d’emploi et messages promotionnels pertinents. Ces informations peuvent être mises à disposition des partenaires publicitaires pour sélectionner des messages commerciaux, sauf si vous désactivez la catégorie. Rien de tout cela ne produit de décision automatisée ayant des effets juridiques ou économiques à votre égard.',
     },
     {
-      lead: 'Cession, fusion ou vente de l’activité.',
-      body: 'Si le site, ou une branche de son activité, est cédé, apporté ou fusionné dans une autre entreprise, les données des personnes inscrites peuvent être transférées à l’acquéreur avec l’activité, et la relation se poursuit aux conditions décrites sur cette page. Si les finalités changent après le transfert, vous en serez informé avant que le changement ne prenne effet.',
+      lead: 'Changement de responsable.',
+      body: 'Une cession, une fusion ou un transfert de l’activité peut transférer au successeur la relation de base et les données nécessaires, y compris les finalités commerciales décrites ici. Si le responsable ou les finalités changent, nous vous fournirons les informations requises et recueillerons un nouveau consentement lorsque cela est nécessaire avant d’utiliser les données pour la finalité modifiée.',
     },
     {
       lead: 'Prestataires qui travaillent pour nous.',

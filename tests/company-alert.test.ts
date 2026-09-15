@@ -30,6 +30,7 @@ const getDocMock = vi.fn<(...args: unknown[]) => Promise<{ exists: () => boolean
 const getDocsMock = vi.fn<(...args: unknown[]) => Promise<{ size: number; docs: unknown[] }>>(
   async () => ({ size: 0, docs: [] }),
 );
+const upsertUnifiedEmailSubscriberMock = vi.fn(async () => ({ status: 'pending' }));
 vi.mock('firebase/firestore', () => ({
   collectionGroup: vi.fn(() => ({})),
   collection: vi.fn(() => ({})),
@@ -46,6 +47,16 @@ vi.mock('firebase/firestore', () => ({
   deleteField: vi.fn(() => '__delete_field__'),
   getFirestore: vi.fn(() => ({})),
 }));
+vi.mock('@/services/newsletterSubscribers', () => ({
+  upsertUnifiedEmailSubscriber: (...args: unknown[]) => upsertUnifiedEmailSubscriberMock(...args),
+}));
+
+const TEST_EMAIL_CONSENT = {
+  email: '',
+  source: 'test',
+  sourceChannel: 'job_gate',
+  locale: 'it',
+} as const;
 
 import {
   companyAlertKey,
@@ -473,10 +484,11 @@ describe('subscribeCompanyAlert persists the immediate cadence (#5012 phase 2)',
     getDocMock.mockResolvedValue({ exists: () => false, data: () => undefined });
     getDocsMock.mockClear();
     getDocsMock.mockResolvedValue({ size: 0, docs: [] });
+    upsertUnifiedEmailSubscriberMock.mockClear();
   });
 
   it('writes frequency:immediate with a sticky override and the canonical key', async () => {
-    await subscribeCompanyAlert('user-1', 'Foo@Example.COM', { name: 'Migros Ticino' }, 'it');
+    await subscribeCompanyAlert('user-1', 'Foo@Example.COM', { name: 'Migros Ticino' }, 'it', undefined, TEST_EMAIL_CONSENT);
     const payload = (setDocMock.mock.calls.find((call) => {
       const data = call[1] as Record<string, unknown> | undefined;
       return data?.specificCompanyKey === 'migros';
@@ -522,11 +534,14 @@ describe('subscribeCompanyAlert persists the immediate cadence (#5012 phase 2)',
     getDocMock
       .mockResolvedValueOnce({ exists: () => false, data: () => undefined })
       .mockResolvedValueOnce({ exists: () => false, data: () => undefined })
-      .mockResolvedValueOnce({ exists: () => true, data: () => stored });
+      .mockResolvedValueOnce({ exists: () => true, data: () => ({ company_follow_followup_pending: true }) })
+      .mockResolvedValueOnce({ exists: () => true, data: () => stored })
+      .mockResolvedValueOnce({ exists: () => true, data: () => stored })
+      .mockResolvedValueOnce({ exists: () => true, data: () => ({ company_follow_followup_pending: true }) });
     getDocsMock.mockResolvedValue({ size: 0, docs: [] });
 
-    const first = await subscribeCompanyAlert('user-1', 'foo@example.com', { name: 'Migros Ticino' }, 'it');
-    const second = await subscribeCompanyAlert('user-1', 'foo@example.com', { name: 'Migros Ticino' }, 'it');
+    const first = await subscribeCompanyAlert('user-1', 'foo@example.com', { name: 'Migros Ticino' }, 'it', undefined, TEST_EMAIL_CONSENT);
+    const second = await subscribeCompanyAlert('user-1', 'foo@example.com', { name: 'Migros Ticino' }, 'it', undefined, TEST_EMAIL_CONSENT);
 
     expect(first.id).toBe(second.id);
     const alertWrites = setDocMock.mock.calls.filter((call) => {
@@ -540,6 +555,7 @@ describe('subscribeCompanyAlert persists the immediate cadence (#5012 phase 2)',
   it('clears the server follow-up marker only after the alert write resolves', async () => {
     getDocMock
       .mockResolvedValueOnce({ exists: () => false, data: () => undefined })
+      .mockResolvedValueOnce({ exists: () => false, data: () => undefined })
       .mockResolvedValueOnce({ exists: () => true, data: () => ({ company_follow_followup_pending: true }) });
 
     await subscribeCompanyAlert(
@@ -547,6 +563,8 @@ describe('subscribeCompanyAlert persists the immediate cadence (#5012 phase 2)',
       'foo@example.com',
       { name: 'Renamed Display SA', companyKey: 'stable-crawler-key' },
       'it',
+      undefined,
+      TEST_EMAIL_CONSENT,
     );
 
     expect(updateDocMock).toHaveBeenCalledWith(
@@ -1088,12 +1106,12 @@ describe('anonymous capture + double opt-in (#5012 phase 2)', () => {
   });
 
   it('reuses the site\'s ONE opt-in mechanism instead of a second one', () => {
-    // upsertNewsletterSubscriber writes status:'pending' and auto-fires
+    // upsertUnifiedEmailSubscriber writes status:'pending' and auto-fires
     // newsletterSendConfirmation; an ALREADY-KNOWN address needs the explicit
     // purpose:'login' link (SaveSignInPromptModal's precedent) or the visitor
     // gets no email at all and is never followed — silently.
     const button = readRepoFile('components/community/CompanyFollowButton.tsx');
-    expect(button).toContain('upsertNewsletterSubscriber');
+    expect(button).toContain('upsertUnifiedEmailSubscriber');
     expect(button).toContain("requestConfirmationEmail(trimmed, 'login')");
     // Was `consentGiven: true` until #5712, which removed the claim: this form
     // has no consent checkbox, so nothing here is an affirmative opt-in and
@@ -1101,8 +1119,8 @@ describe('anonymous capture + double opt-in (#5012 phase 2)', () => {
     // alerts for people who only typed an address to follow an employer. The
     // shared mechanism this test is really about is the register: one formula,
     // rendered and stored by the same function.
-    expect(button).toContain("consentProof('communicationsOptIn'");
-    expect(button).toContain('<ConsentNotice consentKey="communicationsOptIn"');
+    expect(button).toContain('consentKey="communicationsOptIn"');
+    expect(button).toContain('<EmailConsentCheckbox');
     expect(button).not.toContain('consentGiven: true');
     // No bespoke token, no bespoke confirmation endpoint.
     expect(button.includes('createHmac')).toBe(false);
@@ -1113,7 +1131,7 @@ describe('anonymous capture + double opt-in (#5012 phase 2)', () => {
     expect(app).toContain("action === 'confirm_newsletter'");
     expect(app).toContain('companyFollowFollowup');
     expect(app).toContain('outcome.pending');
-    expect(app).toContain('let followupStillOpen = Boolean(followupForUi);');
+    expect(app).toContain('followupStillOpen = Boolean(followupForUi);');
     expect(app).toContain('followupStillOpen = false;');
     expect(app).toContain('if (!followupStillOpen && result.alreadyConfirmed)');
     expect(app).toContain('Torna alla pagina e completa il seguito');
@@ -1276,7 +1294,7 @@ describe('«Le mie aziende seguite» page (#5012 phase 2)', () => {
 
   it('is wired into the router in every direction', () => {
     const router = readRepoFile('services/router.ts');
-    expect(router).toContain("| 'followed-companies';");           // ActiveTab
+    expect(router).toContain("'followed-companies'");              // ActiveTab
     expect(router).toContain("[table.followedCompanies]: { tab: 'followed-companies' }"); // slug → tab
     expect(router).toContain('return finish(`${prefix}/${table.followedCompanies}${hashSuffix}`);'); // tab → path
   });
@@ -1496,7 +1514,7 @@ describe('CTA on the static company hubs /cerca-lavoro-.../ (#8105)', () => {
     expect(readRepoFile('build-plugins/shared/buildSignals.ts')).toContain('readonly indexable: boolean;');
     expect(readRepoFile('build-plugins/employerProfilePagesPlugin.ts')).toContain('indexable,');
     expect(readRepoFile('build-plugins/employerProfilePagesLinksPlugin.ts'))
-      .toContain('if (!p.indexable) continue;');
+      .toContain('!p.indexable');
   });
 
   it('enumerates every data-company-key consumer through the canonical alert key', () => {

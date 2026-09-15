@@ -18,9 +18,8 @@ import { Analytics } from '@/services/analytics';
 import { renderGoogleButton, isLinkedInSignInAvailable, signInWithLinkedIn, saveAuthJobContext } from '@/services/authService';
 import { useAuthGateHeadlineVariant } from '@/services/authGateExperiment';
 import { reportCaughtError } from '@/services/errorReporter';
-import { upsertNewsletterSubscriber } from '@/services/newsletterSubscribers';
-import { consentProof } from '@/services/consentTexts';
-import ConsentNotice from '@/components/shared/ConsentNotice';
+import { upsertUnifiedEmailSubscriber } from '@/services/newsletterSubscribers';
+import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import { resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
 import { handleCompanyLogoError } from '@/services/logoService';
 import { cdnImageUrl } from '@/services/cdnImageBase';
@@ -280,7 +279,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  import('@/services/firebase'),
  ]);
  const firestore = getFirestore(await getApp());
- await upsertNewsletterSubscriber(firestore, {
+ await upsertUnifiedEmailSubscriber(firestore, {
  email,
  source: 'job_expired',
  sourceChannel: 'job_gate',
@@ -289,17 +288,6 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  sourceComponent: 'JobExpiredView',
  sourceRouteFamily: 'job-board',
  jobContext: newsletterJobContext,
- locationInterest: newsletterJobContext.location,
- sectorInterest: newsletterJobContext.category,
-        isActive: false,
-        status: 'pending',
-        // A typed address starts a fresh DOI cycle after an old opt-out; it
-        // does not itself prove renewed consent.
-        reconsent: true,
-        // #5678: record the formula in force at this gate. `pending`, so the text
- // states that the subscription waits for the confirmation link.
- // #5712/#5718: the notice under the unlock form is the stored string.
- ...consentProof('communicationsOptIn', 'email_submit', locale),
  });
  localStorage.setItem(JOB_EMAIL_ACCESS_KEY, email.toLowerCase());
  window.location.reload();
@@ -971,7 +959,13 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  {t('jobBoard.gate.emailCta')}
  </button>
  </form>
- <ConsentNotice consentKey="communicationsOptIn" locale={locale} className="text-[10px] text-muted leading-snug block" />
+ <EmailConsentCheckbox
+   id="job-expired-email-consent"
+   consentKey="communicationsOptIn"
+   locale={locale}
+   className="mt-2 flex items-start gap-2 cursor-pointer"
+   noticeClassName="text-[10px] text-muted leading-snug"
+ />
  </details>
  </div>
 

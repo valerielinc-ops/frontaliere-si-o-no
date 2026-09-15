@@ -7,15 +7,14 @@
 
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { createPortal } from 'react-dom';
-import { X, Bell, Send, CheckCircle2, Loader2, AlertCircle, LogIn, Shield, TrendingUp, FileText, Lightbulb, Users, Mail } from 'lucide-react';
+import { X, Bell, Send, CheckCircle2, Loader2, AlertCircle, Shield, TrendingUp, FileText, Lightbulb, Users, Mail } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { reportCaughtError } from '@/services/errorReporter';
 import { unlockAchievement } from '@/services/gamificationService';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
-import ConsentNotice from '@/components/shared/ConsentNotice';
+import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import TelegramChannelCta from '@/components/shared/TelegramChannelCta';
-import { consentProof } from '@/services/consentTexts';
 import { requestSlot, releaseSlot, isActive, subscribe, POPUP_PRIORITY } from '@/services/popupQueue';
 import { useAuth, promptOneTap, cancelOneTap, getAuthEmail, eagerAuth, renderGoogleButtonWithReadiness, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
 import { useNavigationOptional } from '@/services/NavigationContext';
@@ -26,9 +25,6 @@ import {
  upsertNewsletterSubscriber,
  markNewsletterSubscribedLocally,
  getNewsletterPendingEmail,
- getEmailProviderInfo,
- openEmailProvider,
- requestConfirmationEmail,
 } from '@/services/newsletterSubscribers';
 
 const POPUP_DISMISSED_KEY = 'newsletter_popup_dismissed';
@@ -70,11 +66,8 @@ const NewsletterPopup: React.FC = () => {
  const [visible, setVisible] = useState(false);
  const [queueActive, setQueueActive] = useState(false);
  const [email, setEmail] = useState('');
- const [consentChecked, setConsentChecked] = useState(false);
- const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'pending' | 'error' | 'exists'>('idle');
+ const [status, setStatus] = useState<'idle' | 'loading' | 'pending' | 'success' | 'error' | 'exists'>('idle');
  const [errorMessage, setErrorMessage] = useState('');
- const [reminderMode, setReminderMode] = useState(false);
- const [resendStatus, setResendStatus] = useState<'idle' | 'sending' | 'sent' | 'cooldown' | 'error'>('idle');
  const [googleButtonReady, setGoogleButtonReady] = useState(false);
  const [linkedInAvailable, setLinkedInAvailable] = useState(false);
  const { user, signIn: googleSignIn, signInFacebook: facebookSignIn } = useAuth();
@@ -146,11 +139,10 @@ const NewsletterPopup: React.FC = () => {
  if (daysSince < 1) return; // 1-day cooldown for reminders (shorter than normal 7-day)
  }
  setEmail(pendingInfo.email);
- setReminderMode(true);
  setStatus('pending');
  setVisible(true);
  requestSlot('newsletter-popup', POPUP_PRIORITY.NEWSLETTER);
- Analytics.trackUIInteraction('newsletter_popup', 'modal', 'show', 'pending_reminder');
+ Analytics.trackUIInteraction('newsletter_popup', 'modal', 'show', 'legacy_registration_review');
  return;
  }
 
@@ -360,12 +352,6 @@ const NewsletterPopup: React.FC = () => {
  setStatus('error');
  return;
  }
- if (!consentChecked) {
- setErrorMessage(t('newsletter.consentRequired'));
- setStatus('error');
- return;
- }
-
  setStatus('loading');
 
  try {
@@ -386,30 +372,26 @@ const NewsletterPopup: React.FC = () => {
  sourceComponent: 'NewsletterPopup',
  sourceRouteFamily: nav?.activeTab || 'web_app',
  locale: navigator.language || 'it-IT',
-        isActive: false,
-        status: 'pending',
-        // A deliberate form submit is allowed to start a fresh DOI cycle for
-        // an address that previously opted out; the confirmation link, not
-        // this typed address, lifts the old suppression.
-        reconsent: true,
-        // The checkbox above rendered THIS string, in THIS locale, and it is
- // the one stored — same function on both sides (#5712/#5718).
- ...consentProof('communicationsOptIn', 'email_checkbox', locale),
- // Set here and not by the register: this gate really does have a
- // ticked box, which is the fact `consent_given` asserts.
- consentGiven: true,
+ registrationMethod: 'email',
  }),
  8000,
  'newsletter_upsert',
  );
 
- if (upsert.existed && upsert.status !== 'pending') {
+ const needsConfirmation = upsert.status === 'pending' && !upsert.hadConfirmationProof;
+ if (upsert.existed && !needsConfirmation) {
  setStatus('exists');
  return;
  }
 
- markNewsletterSubscribedLocally();
+ if (needsConfirmation) {
  setStatus('pending');
+ Analytics.trackUIInteraction('newsletter_popup', 'form', 'subscribe', 'confirmation_pending');
+ return;
+ }
+
+ markNewsletterSubscribedLocally();
+ setStatus('success');
  unlockAchievement('newsletter_sub');
  Analytics.trackUIInteraction('newsletter_popup', 'form', 'subscribe', 'success');
  } catch (error: any) {
@@ -453,73 +435,18 @@ const NewsletterPopup: React.FC = () => {
 
  {/* Body */}
  <div className="p-6 overflow-y-auto overscroll-contain">
- {(status === 'success' || status === 'pending') ? (
- <div className="text-center py-4">
  {status === 'pending' ? (
- <>
- <Mail className="w-12 h-12 text-warning mx-auto mb-3" />
- <p className="font-bold text-strong mb-1">
- {reminderMode ? t('newsletter.pendingReminder.title') : t('newsletter.doubleOptIn.title')}
- </p>
- <p className="text-sm text-subtle">
- {reminderMode ? t('newsletter.pendingReminder.description') : t('newsletter.doubleOptIn.description')}
- </p>
+ <div className="text-center py-4" role="status" aria-live="polite">
+ <Mail className="w-12 h-12 text-info mx-auto mb-3" />
+ <p className="font-bold text-strong mb-1">{t('newsletter.doubleOptIn.title')}</p>
+ <p className="text-sm text-subtle">{t('newsletter.doubleOptIn.description')}</p>
  <p className="text-xs text-muted mt-2">{t('newsletter.doubleOptIn.spamHint')}</p>
-
- {/* FRO-23: Email provider button */}
- {email && (() => {
- const provider = getEmailProviderInfo(email);
- if (!provider) return null;
- return (
- <button
- onClick={() => openEmailProvider(email)}
- className="mt-3 inline-flex items-center gap-2 px-5 py-2.5 bg-info-strong hover:bg-info-strong-hover text-on-accent text-sm font-semibold rounded-xl transition-colors"
- >
- <Mail className="w-4 h-4" />
- {t('newsletter.openEmailProvider', { provider: provider.name })}
- </button>
- );
- })()}
-
- {/* FRO-26: Resend confirmation button */}
- {email && (
- <div className="mt-3">
- <p className="text-sm text-muted mb-1">{t('newsletter.pendingReminder.resend')}</p>
- <button
- disabled={resendStatus === 'sending' || resendStatus === 'sent'}
- onClick={async () => {
- setResendStatus('sending');
- try {
- const result = await requestConfirmationEmail(email);
- if (result.success) {
- setResendStatus('sent');
- } else if (result.error === 'cooldown_active') {
- setResendStatus('cooldown');
- } else {
- setResendStatus('error');
- }
- } catch {
- setResendStatus('error');
- }
- }}
- className="text-xs font-medium text-info hover:text-info underline underline-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
- >
- {resendStatus === 'sending' ? '...' :
- resendStatus === 'sent' ? t('newsletter.resendConfirmationSent') :
- resendStatus === 'cooldown' ? t('newsletter.resendConfirmationCooldown') :
- resendStatus === 'error' ? t('newsletter.resendConfirmationError') :
- t('newsletter.resendConfirmation')}
- </button>
  </div>
- )}
- </>
- ) : (
- <>
+ ) : status === 'success' ? (
+ <div className="text-center py-4">
  <CheckCircle2 className="w-12 h-12 text-success mx-auto mb-3" />
  <p className="font-bold text-strong mb-1">{t('newsletter.subscriptionConfirmed')}</p>
  <p className="text-sm text-subtle">{t('newsletter.subscriptionConfirmedDesc')}</p>
- </>
- )}
 
  {/* Telegram channel offered ONLY in the post-submit state: the popup form
    * itself is a single-conversion surface, and a second CTA next to the
@@ -623,16 +550,12 @@ const NewsletterPopup: React.FC = () => {
  />
  </div>
 
- <label className="flex items-start gap-2 cursor-pointer">
- <input
- type="checkbox"
- checked={consentChecked}
- onChange={(e) => { setConsentChecked(e.target.checked); setStatus('idle'); }}
- className="mt-0.5 w-4 h-4 rounded text-info focus-visible:ring-info shrink-0"
+ <EmailConsentCheckbox
+   id="newsletter-popup-consent"
+   consentKey="communicationsOptIn"
+   locale={locale}
+   className="flex items-start gap-2"
  />
- {/* The sentence that gets STORED, not a translation of it (#5712). */}
- <ConsentNotice consentKey="communicationsOptIn" locale={locale} />
- </label>
 
  {status === 'error' && (
  <div className="flex items-center gap-2 p-2 bg-danger-subtle rounded-lg text-danger text-xs">

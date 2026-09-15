@@ -22,15 +22,23 @@ async function initFirestore(): Promise<unknown> {
   }
 }
 
-/** Merge-write partial profile fields onto the shared subscriber doc. Swallows/reports errors — never throws. */
+/**
+ * Merge-write partial profile fields onto an existing shared subscriber doc.
+ * Authentication/profile enrichment must not create an email relationship;
+ * the explicit subscription form or gate owns that create. Swallows/reports
+ * errors — never throws.
+ */
 export async function savePartialProfile(email: string, partial: Record<string, unknown>): Promise<void> {
-  try {
-    const db = await initFirestore();
-    if (!db) return;
-    const { doc, setDoc } = await import('firebase/firestore');
+ try {
+  const db = await initFirestore();
+  if (!db) return;
+    const { doc, getDoc, setDoc } = await import('firebase/firestore');
     const key = email.trim().toLowerCase();
+    const subscriberRef = doc(db as never, 'newsletter_subscribers', key);
+    const existingSubscriber = await getDoc(subscriberRef);
+    if (!existingSubscriber.exists()) return;
     await setDoc(
-      doc(db as never, 'newsletter_subscribers', key),
+      subscriberRef,
       { ...partial, updatedAt: new Date().toISOString() },
       { merge: true },
     );

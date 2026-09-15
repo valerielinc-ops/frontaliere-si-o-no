@@ -25,7 +25,7 @@ import path from 'node:path';
 import { spawn, spawnSync } from 'node:child_process';
 
 const CODEX_MODEL = 'gpt-5.6-luna';
-const CODEX_EFFORT = 'medium';
+const CODEX_EFFORT = 'max';
 const CODEX_CLI_VERSION = '0.153.4';
 const CODEX_PROFILE = 'claude-haiku-fallback';
 const MAX_REQUEST_BYTES = 1024 * 1024;

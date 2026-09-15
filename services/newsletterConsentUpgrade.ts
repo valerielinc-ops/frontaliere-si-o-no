@@ -40,7 +40,12 @@
  */
 import type { Firestore } from 'firebase/firestore';
 import { COMMUNICATIONS_PAGE_VERSION } from './communicationChannels';
-import { CONSENT_TEXTS, consentDisplayText, type ConsentTextKey } from './consentTexts';
+import {
+  CONSENT_TEXTS,
+  consentDisplayText,
+  UNIFIED_EMAIL_CONSENT_PURPOSE,
+  type ConsentTextKey,
+} from './consentTexts';
 import { CONSENT_TEXT_FIELDS, type DocData } from './jobAlertConsentUpgrade';
 import { isNewsletterOptOutBinding } from './newsletterOptOut.mjs';
 
@@ -110,6 +115,8 @@ export interface NewsletterConsentProof {
   readonly consent_page_version: string;
   readonly consent_act: string;
   readonly consent_origin: string;
+  /** The banner displays the same unified communications scope as every checkbox gate. */
+  readonly consent_purpose: typeof UNIFIED_EMAIL_CONSENT_PURPOSE;
   readonly consent_source_url: string | null;
   readonly consent_user_agent: string | null;
   /** The timestamp of the act. Opaque here so the pure layer never imports Firestore. */
@@ -145,6 +152,7 @@ export function buildNewsletterConsentProof(opts: {
     consent_page_version: COMMUNICATIONS_PAGE_VERSION,
     consent_act: COMMUNICATIONS_BANNER_CONSENT_ACT,
     consent_origin: CONSENT_ORIGIN_COMMS_BANNER,
+    consent_purpose: UNIFIED_EMAIL_CONSENT_PURPOSE,
     consent_source_url: opts.sourceUrl ?? null,
     consent_user_agent:
       typeof navigator !== 'undefined' && typeof navigator.userAgent === 'string'

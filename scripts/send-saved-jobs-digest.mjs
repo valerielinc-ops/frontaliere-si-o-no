@@ -9,17 +9,15 @@
  * dominant category/canton used by the in-app nudge
  * (services/savedJobsAlertCriteria.ts, shared with the browser bundle).
  *
- * Opt-out, not opt-in: any user with ≥1 saved job receives it, unless
- * `users/{uid}.savedJobsDigest.optedOut === true` (set by
- * functions/src/savedJobsDigestUnsubscribe.js) or the newsletter document
- * records a cross-channel stop — a bounce/complaint/provider suppression, or
- * the explicit newsletter opt-out (isCrossChannelStop, #5688).
+ * Saving jobs / accepting the saved-jobs prompt is the separate activation for
+ * this channel; an explicit channel opt-out still wins. Delivery additionally
+ * requires the central subscriber record and shared suppression predicate, but
+ * never a double-opt-in proof or a purpose marker.
  *
- * The propagation runs ONE way and that is deliberate. This channel's
- * unsubscribe is scoped to `savedJobsDigest` and must never touch
- * `newsletter_subscribers` or `job_alert_subscribers/*`; a newsletter opt-out,
- * which is worded as "stop emailing me" and not as "stop one of the emails",
- * reaches here (see functions/src/lib/emailSuppression.js).
+ * The channel-specific preference stays on the user document and must never
+ * mutate `newsletter_subscribers` or `job_alert_subscribers/*`. An explicit
+ * unsubscribe, legacy stop-all flag or hard address suppression reaches this
+ * sender through the shared predicate (see functions/src/lib/emailSuppression.js).
  *
  * Env:
  *   GOOGLE_APPLICATION_CREDENTIALS — Firebase service account for Firestore
@@ -64,6 +62,24 @@ const FROM_EMAIL = 'Frontaliere Ticino <alerts@frontaliereticino.ch>';
 const DRY_RUN = process.argv.includes('--dry-run');
 const MAX_SAVED_LISTED = 20; // hard UI cap, matches SAVED_JOBS_CAP order of magnitude
 const MAX_RECOMMENDATIONS = 3;
+
+/**
+ * Decide whether this particular recurring channel may send.
+ *
+ * The user profile is the channel activation/opt-out source; the email-keyed
+ * subscriber is the registration/suppression source. An explicit
+ * `savedJobsDigest.optedIn` activation is required, regardless of DOI proof or
+ * legacy fields; merely having a saved-job record is not an activation.
+ */
+export function isSavedJobsDigestEligible(userData, subscriberData) {
+  const digest = userData?.savedJobsDigest || {};
+  if (digest.optedOut === true) return false;
+  if (digest.optedIn !== true) return false;
+  if (!subscriberData || isCrossChannelStop(subscriberData)) {
+    return false;
+  }
+  return true;
+}
 
 // Brand palette — same tokens/values as buildAlertEmail in send-job-alerts.mjs
 // so the job-alert and saved-jobs-digest emails read as one product.
@@ -633,26 +649,16 @@ async function main() {
       skippedCount++;
       continue;
     }
-    if (userData.savedJobsDigest?.optedOut === true) {
-      skippedCount++;
-      continue;
-    }
     if (TARGET_EMAIL_RAW && email.toLowerCase() !== TARGET_EMAIL_RAW) {
       continue;
     }
 
-    // Newsletter-document cross-check. Two things, not one: the address-level
-    // hard signals (bounce / complaint / provider list) and the explicit
-    // newsletter opt-out. Until #5688 this read only the first half, so a
-    // person who clicked "disiscriviti" kept getting this weekly reminder —
-    // the same defect the two alert senders had, from the same cause (the
-    // predicate answered "does this mailbox work", not "did they ask us to
-    // stop"). The channel's OWN opt-out is separate and checked above
-    // (`users/{uid}.savedJobsDigest.optedOut`); it does not propagate back to
-    // the newsletter, which is why savedJobsDigestUnsubscribe.js writes only
-    // under `users/{uid}`.
+    // The explicit saved-jobs preference activates this channel. An explicit
+    // channel opt-out and the shared address/global suppression predicate still
+    // win; a saved-job record alone is not enough.
     const subscriberDoc = await db.collection('newsletter_subscribers').doc(email.toLowerCase()).get();
-    if (subscriberDoc.exists && isCrossChannelStop(subscriberDoc.data() || {})) {
+    const subscriberData = subscriberDoc.exists ? subscriberDoc.data() || {} : null;
+    if (!isSavedJobsDigestEligible(userData, subscriberData)) {
       skippedCount++;
       continue;
     }
