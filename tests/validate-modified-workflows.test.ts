@@ -113,6 +113,13 @@ describe('validate-modified-workflows', () => {
     expect(validateLoopFleetWorkflowText('.github/workflows/loop-l8-revenue-attribution.yml', workflow)).toEqual([]);
   });
 
+  it('covers a future numeric loop workflow such as L11', () => {
+    expect(validateLoopFleetWorkflowText('nested/loop-l11-technical-operations.yml', 'steps:\n  - run: gh pr merge 123'))
+      .toEqual(expect.arrayContaining([
+        expect.objectContaining({ rule: 'manual-merge' }),
+      ]));
+  });
+
   it('keeps the canonical fleet workflows inside the deny-list boundary', () => {
     const workflowDir = '.github/workflows';
     const files = fs.readdirSync(workflowDir)

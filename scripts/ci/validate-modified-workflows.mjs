@@ -64,7 +64,7 @@ function lineFor(source, index) {
   return source.slice(0, index).split('\n').length;
 }
 
-const LOOP_FLEET_WORKFLOW_RE = /(?:^|\/)(?:loop-l(?:[0-9]|10)-[^/]+|loop-fleet-[^/]+|technical-operations-supervisor)\.ya?ml$/u;
+const LOOP_FLEET_WORKFLOW_RE = /(?:^|\/)(?:loop-l[0-9]+-[^/]+|loop-fleet-[^/]+|technical-operations-supervisor)\.ya?ml$/u;
 
 // The fleet may inspect, report, open an issue, and persist evidence through a
 // reviewed branch/PR. It must never become a direct production, commercial,
