@@ -1,0 +1,24 @@
+{
+  "companyKey": "city-work",
+  "companyName": "city-work ag St. Gallen",
+  "companyHost": "city-work.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://city-work.ch/jobsuche/"
+  ],
+  "detailTemplate": "/jobs/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 7,
+  "sampleTitles": [
+    "Job ansehen",
+    "Job ansehen",
+    "Job ansehen",
+    "Job ansehen",
+    "Job ansehen"
+  ],
+  "canton": "AI",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-15T09:56:46.947Z"
+}

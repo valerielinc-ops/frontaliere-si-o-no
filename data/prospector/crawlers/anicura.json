@@ -1,0 +1,22 @@
+{
+  "companyKey": "anicura",
+  "companyName": "anicura",
+  "companyHost": "jobs.anicura.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://jobs.anicura.ch/jobs/5851151-tieraerzt-in-80-100-w-m-d-thun"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "<source srcset=\"https://images.teamtailor-cdn.com/images/s3/teamtailor-production/user_picture_800-v9/image_uplo",
+    "<source srcset=\"https://images.teamtailor-cdn.com/images/s3/teamtailor-production/user_picture_800-v9/image_uplo",
+    "<source srcset=\"https://images.teamtailor-cdn.com/images/s3/teamtailor-production/user_picture_800-v9/image_uplo"
+  ],
+  "canton": "VD",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-15T09:57:24.911Z"
+}

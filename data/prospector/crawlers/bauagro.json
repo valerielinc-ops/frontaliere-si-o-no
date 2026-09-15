@@ -1,0 +1,24 @@
+{
+  "companyKey": "bauagro",
+  "companyName": "Bau + Agro Personal AG",
+  "companyHost": "pevena.ch",
+  "platform": "pevena.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.pevena.ch/stellenangebote?search_module=1&"
+  ],
+  "detailTemplate": "/stellenangebote/stelle/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "26.08.2026 100220-2-1 <div class=\"resultItems__detailTitle",
+    "26.08.2026 100013-4-3 <div class=\"resultItems__detailTitle",
+    "24.08.2026 101458-1-1 <div class=\"resultItems__detailTitle",
+    "21.08.2026 100241-1-2 <div class=\"resultItems__detailTitle",
+    "19.08.2026 101374-1-2 <div class=\"resultItems__detailTitle"
+  ],
+  "canton": "AR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-15T09:56:22.720Z"
+}
