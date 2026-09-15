@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-09-15T19:43:41.626Z",
+  "updatedAt": "2026-09-15T19:44:11.236Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -775978,13 +775978,13 @@
     },
     "vereinaklosters.ch": {
       "key": "vereinaklosters.ch",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "osm",
         "web"
       ],
       "firstSeenAt": "2026-08-22T04:08:25.758Z",
-      "updatedAt": "2026-09-15T19:42:51.597Z",
+      "updatedAt": "2026-09-15T19:44:11.212Z",
       "name": "Vereina",
       "domain": "vereinaklosters.ch",
       "city": "Klosters",
@@ -776136,7 +776136,8 @@
         }
       ],
       "promotionPr": "8786",
-      "promotionBranch": "prospector/promote-2026-09-15"
+      "promotionBranch": "prospector/promote-2026-09-15",
+      "promotedAt": "2026-09-15T19:44:11.212Z"
     },
     "vereinfair.ch": {
       "key": "vereinfair.ch",
