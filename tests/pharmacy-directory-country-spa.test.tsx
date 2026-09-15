@@ -30,12 +30,17 @@ describe('pharmacy country SPA route', () => {
     expect(container.querySelector('#pharmacy-map-heading')).toBeNull();
   });
 
-  it('shows the verified-duty fallback when the dataset has no active interval', () => {
+  it('shows the fail-closed coverage matrix when the dataset has no active interval', () => {
     vi.useFakeTimers({ now: new Date('2030-01-01T00:00:00.000Z') });
     const { container } = render(<PharmacyDirectory page={{ kind: 'duty-hub', locale: 'it' }} />);
+    const matrix = container.querySelector('[data-coverage-matrix="true"]');
 
-    expect(screen.getByText('Nessun turno verificato per questa città o area nel dataset corrente.')).toBeInTheDocument();
-    expect(container.querySelectorAll('article')).toHaveLength(0);
+    expect(matrix).toHaveAttribute('data-release-ready', 'false');
+    expect(screen.getByText(/Turni non mostrati:/)).toBeInTheDocument();
+    expect(matrix?.querySelectorAll('[data-coverage-kind="ticino-region"]')).toHaveLength(5);
+    expect(matrix?.querySelectorAll('[data-coverage-kind="ticino-region"] [data-duty-id]')).toHaveLength(0);
+    expect(matrix?.querySelectorAll('[data-coverage-kind="ticino-region"] time')).toHaveLength(0);
+    expect(matrix?.querySelectorAll('[data-coverage-kind="source-only-canton"]')).toHaveLength(25);
     expect(container.textContent).toContain('Verifica sempre telefonicamente con la farmacia prima di recarti sul posto: orari e turni possono cambiare.');
   });
 });
