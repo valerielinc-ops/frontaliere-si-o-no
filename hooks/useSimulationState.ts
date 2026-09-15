@@ -119,10 +119,11 @@ export function useSimulationState(activeTab: ActiveTab, seoLanding: SeoLandingI
  worker_type: inputs.workerType,
  });
  Analytics.trackFunnelStep('simulation_complete', {
- funnel: 'calculator',
- worker_type: inputs.workerType,
- has_children: inputs.hasChildren,
+  funnel: 'calculator',
+  worker_type: inputs.workerType,
+  has_children: inputs.hasChildren,
  });
+  Analytics.trackDecisionMomentCompleted('calculator', 'simulation');
  }
  }, [inputs]);
 

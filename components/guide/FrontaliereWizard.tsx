@@ -223,6 +223,7 @@ const FrontaliereWizard: React.FC = () => {
  addXp(20);
  Analytics.trackEvent('frontaliere_wizard_complete', { answered: finalAnswers.length });
  Analytics.trackUIInteraction('frontaliere_wizard', 'wizard', 'complete', `answers_${finalAnswers.length}`);
+ Analytics.trackDecisionMomentCompleted('frontaliere_wizard', 'wizard');
  }, []);
 
  const handleAnswer = useCallback((questionId: string, option: WizardOption) => {
@@ -255,6 +256,7 @@ const FrontaliereWizard: React.FC = () => {
 
  const navigateStep = useCallback((e: React.MouseEvent<HTMLAnchorElement>, step: PlanStep) => {
  e.preventDefault();
+ Analytics.trackDecisionMomentNextAction('frontaliere_wizard', step.id);
  Analytics.trackSelectContent('frontaliere_wizard_plan', step.id);
  if (nav) {
  nav.navigateTo(step.nav[0], step.nav[1]);

@@ -19,11 +19,26 @@ import {
 } from '../lib/ga4-service-account.mjs';
 
 export const DEFAULT_L1_WINDOW_DAYS = 4;
+export const DEFAULT_L5_WINDOW_DAYS = 8;
 export const DEFAULT_L3_WINDOW_DAYS = 4;
 export const DEFAULT_L4_WINDOW_HOURS = 30;
-export const DEFAULT_L5_WINDOW_DAYS = 7;
 export const DEFAULT_L7_WINDOW_DAYS = 7;
 export const DEFAULT_L9_WINDOW_HOURS = 240;
+
+/**
+ * The L5 export joins categorical completion and next-action events on the
+ * PostHog session id.  Keep this contract explicit so the validator and the
+ * application instrumentation cannot silently drift apart.
+ */
+export const L5_DECISION_EVENT_CONTRACT = Object.freeze({
+  completionEvent: 'decision_moment_completed',
+  nextActionEvent: 'decision_moment_next_action',
+  completionSurfaceProperty: 'decision_surface',
+  completionTaskProperty: 'task_id',
+  nextActionSurfaceProperty: 'decision_surface',
+  nextActionIdProperty: 'action_id',
+  sessionJoin: 'properties.$session_id',
+});
 
 const DAY_MS = 86_400_000;
 const L7_EVENT_NAMES = Object.freeze([
@@ -395,27 +410,23 @@ function writeJsonFile(outputPath, value) {
  * evidence object so the resulting number cannot be mistaken for an
  * unqualified all-surface conversion rate.
  */
-export function buildL5DecisionMomentQuery({ start, end } = {}) {
+export function buildL5DecisionMomentQuery({ start, end, eventContract = L5_DECISION_EVENT_CONTRACT } = {}) {
   if (!text(start) || !text(end)) throw new Error('L5 decision-moment query requires start and end');
+  const completionEvent = eventContract.completionEvent;
+  const nextActionEvent = eventContract.nextActionEvent;
+  const sessionJoin = eventContract.sessionJoin;
   return [
-    'SELECT countIf(completionRecords > 0) AS eligibleDecisionSessions,',
-    '  countIf(completionRecords > 0 AND nextUsefulAt > completedAt) AS nextUsefulActions',
+    'SELECT count() AS eligibleDecisionSessions,',
+    '  countIf(nextUsefulActions > 0) AS nextUsefulActions',
     'FROM (',
-    '  SELECT $session_id,',
-    '    countIf(event = \'simulation_complete\'',
-    '      OR (event = \'funnel_step\' AND properties.funnel = \'calculator\'',
-    '        AND properties.step = \'simulation_complete\')) AS completionRecords,',
-    '    minIf(timestamp, event = \'simulation_complete\'',
-    '      OR (event = \'funnel_step\' AND properties.funnel = \'calculator\'',
-    '        AND properties.step = \'simulation_complete\')) AS completedAt,',
-    '    maxIf(timestamp, (event = \'funnel_step\' AND properties.step = \'compare\'',
-    '        AND (properties.funnel = \'calculator\'',
-    '          OR (properties.funnel = \'main_conversion\' AND properties.from_tab = \'calculator\')))',
-    '      OR (event = \'cta_click\' AND properties.cta_id LIKE \'calculator%\')) AS nextUsefulAt',
+    `  SELECT ${sessionJoin},`,
+    `    countIf(event = '${completionEvent}') AS completedTasks,`,
+    `    countIf(event = '${nextActionEvent}') AS nextUsefulActions`,
     '  FROM events',
-    '  WHERE event IN (\'funnel_step\', \'simulation_complete\', \'cta_click\')',
+    `  WHERE event IN ('${completionEvent}', '${nextActionEvent}')`,
     '    AND timestamp >= \'' + start + '\' AND timestamp < \'' + end + '\'',
-    '  GROUP BY $session_id',
+    `  GROUP BY ${sessionJoin}`,
+    '  HAVING completedTasks > 0',
     ')',
   ].join('\n');
 }
@@ -425,6 +436,7 @@ export function buildL5DecisionMomentExport({
   nextUsefulActions,
   generatedAt,
   telemetryWindow,
+  eventContract = L5_DECISION_EVENT_CONTRACT,
 } = {}) {
   const eligible = nonNegativeInteger(eligibleDecisionSessions, 'eligibleDecisionSessions');
   const next = nonNegativeInteger(nextUsefulActions, 'nextUsefulActions');
@@ -443,19 +455,22 @@ export function buildL5DecisionMomentExport({
     },
     telemetryWindow,
     scope: {
-      denominator: 'distinct PostHog sessions with simulation_complete or funnel_step calculator/simulation_complete',
-      numerator: 'denominator sessions with calculator compare transition or calculator CTA click after completion',
-      surface: 'calculator',
+      denominator: 'distinct PostHog sessions with an explicit decision_moment_completed event',
+      numerator: 'denominator sessions with an explicit decision_moment_next_action event',
+      surface: 'declared decision surfaces',
     },
     evidence: {
-      source: 'posthog-decision-surface-export',
+      source: 'PostHog HogQL, read-only live export',
       sourceRefs: ['decision-surfaces', 'posthog'],
-      eventContract: {
-        completed: 'simulation_complete or funnel_step:funnel=calculator,step=simulation_complete',
-        nextUseful: 'funnel_step:step=compare from calculator or cta_click:cta_id starts calculator',
-        ordering: 'nextUsefulAt > completedAt',
-        joinKey: '$session_id',
-      },
+      sessionJoin: eventContract.sessionJoin,
+      eventContract: { ...eventContract },
+    },
+    export: {
+      readOnly: true,
+      publishedDataUntouched: true,
+      noDarkPatterns: true,
+      noUnsupportedTimingPromise: true,
+      noInvasivePersonalization: true,
     },
     _meta: {
       generatedAt: generated,
@@ -474,7 +489,7 @@ export async function exportL5({
   posthogRunner = runHogQL,
 } = {}) {
   const firestore = client || new GoogleDataClient();
-  const window = rollingWindow(now, Number(days) * 24);
+  const window = completeUtcWindow(now, Number(days));
   const config = await resolvePostHogConfig(firestore);
   const response = await posthogRunner(buildL5DecisionMomentQuery(window), config);
   const aggregate = postHogAggregate(response, 'L5 decision-moment');
@@ -868,6 +883,33 @@ export async function exportL1({ inputPath, outputPath, now = new Date(), days =
   return telemetry;
 }
 
+export function buildUnavailableL5DecisionMomentExport({ generatedAt = new Date().toISOString() } = {}) {
+  return {
+    generatedAt,
+    independent: false,
+    eligibleDecisionSessions: null,
+    nextUsefulActions: null,
+    evidence: {
+      source: 'PostHog HogQL, read-only live export unavailable',
+      sourceRefs: ['decision-surfaces', 'posthog'],
+      sessionJoin: L5_DECISION_EVENT_CONTRACT.sessionJoin,
+      eventContract: { ...L5_DECISION_EVENT_CONTRACT },
+    },
+    export: {
+      schemaVersion: 1,
+      purpose: 'L5 decision-moment outcome',
+      readOnly: true,
+      publishedDataUntouched: true,
+      unavailable: true,
+    },
+    _meta: {
+      generatedAt,
+      source: 'PostHog HogQL, read-only live export unavailable',
+      purpose: 'Explicit fail-closed placeholder; never a measured outcome',
+    },
+  };
+}
+
 function normalizeGa4PropertyId(raw) {
   const value = raw || process.env.GA4_PROPERTY_ID || DEFAULT_GA4_PROPERTY_ID;
   return value.startsWith('properties/') ? value : `properties/${value}`;
@@ -965,6 +1007,24 @@ export async function exportL3({ outputPath, now = new Date(), days = DEFAULT_L3
   fs.mkdirSync(path.dirname(path.resolve(outputPath)), { recursive: true });
   fs.writeFileSync(path.resolve(outputPath), `${JSON.stringify(outcome, null, 2)}\n`);
   return outcome;
+}
+
+/**
+ * @param {{posthogRunner?: Function, config?: object, start?: string, end?: string, eventContract?: object}} options
+ */
+export async function fetchL5DecisionMomentCounts({
+  posthogRunner = runHogQL,
+  config,
+  start,
+  end,
+  eventContract = L5_DECISION_EVENT_CONTRACT,
+} = {}) {
+  const query = buildL5DecisionMomentQuery({ start, end, eventContract });
+  const response = await posthogRunner(query, config);
+  return {
+    eligibleDecisionSessions: nonNegativeInteger(postHogRow(response, 'eligibleDecisionSessions'), 'eligibleDecisionSessions'),
+    nextUsefulActions: nonNegativeInteger(postHogRow(response, 'nextUsefulActions'), 'nextUsefulActions'),
+  };
 }
 
 function eventSet(rows) {
@@ -1387,10 +1447,16 @@ export async function main({ argv = process.argv.slice(2) } = {}) {
     });
   }
   if (loop === 'L5') {
+    if (argv.includes('--unavailable')) {
+      const outcome = buildUnavailableL5DecisionMomentExport({ generatedAt: now.toISOString() });
+      fs.mkdirSync(path.dirname(path.resolve(outputPath)), { recursive: true });
+      fs.writeFileSync(path.resolve(outputPath), `${JSON.stringify(outcome, null, 2)}\n`);
+      return outcome;
+    }
     return exportL5({
       outputPath,
       now,
-      days: valueAfter(argv, '--days', DEFAULT_L5_WINDOW_DAYS),
+      days: Number(valueAfter(argv, '--days', DEFAULT_L5_WINDOW_DAYS)),
     });
   }
   if (loop === 'L7') {

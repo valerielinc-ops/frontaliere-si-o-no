@@ -86,6 +86,7 @@ const FrontaliereChecklist: React.FC = () => {
       next.completedAt = Date.now();
       unlockAchievement(CHECKLIST_COMPLETE_ACHIEVEMENT); // +50 XP + achievement toast
       Analytics.trackEvent('checklist_completed', { total: TOTAL });
+      Analytics.trackDecisionMomentCompleted('frontaliere_checklist', 'checklist');
     }
 
     saveChecklistState(next);
@@ -193,7 +194,7 @@ const FrontaliereChecklist: React.FC = () => {
               {/* Guide link */}
               <a
                 href={href}
-                onClick={(e) => { e.preventDefault(); navigateToRoute(step.route); }}
+                onClick={(e) => { e.preventDefault(); Analytics.trackDecisionMomentNextAction('frontaliere_checklist', step.id); navigateToRoute(step.route); }}
                 className="flex-shrink-0 inline-flex items-center gap-1 px-3 py-2 min-h-[44px] rounded-lg text-xs font-semibold text-accent hover:bg-accent-subtle transition-colors whitespace-nowrap"
               >
                 <span className="hidden sm:inline">{t('checklist.stepCta')}</span>

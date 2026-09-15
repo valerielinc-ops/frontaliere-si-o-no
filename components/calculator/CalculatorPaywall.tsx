@@ -247,6 +247,7 @@ const CalculatorPaywall: React.FC<CalculatorPaywallProps> = ({ result, inputs, o
         throw new Error(`http_${resp.status}`);
       }
       Analytics.trackFunnelStep('paywall_email_submitted', { funnel: 'newsletter_paywall' });
+      Analytics.trackDecisionMomentNextAction('calculator', 'calculator_report');
       // Mark as subscribed so the paywall (and other subscribe prompts) stop
       // re-asking the same email across the site.
       try { localStorage.setItem(NEWSLETTER_SUBSCRIBED_KEY, 'true'); } catch { /* ignore quota */ }

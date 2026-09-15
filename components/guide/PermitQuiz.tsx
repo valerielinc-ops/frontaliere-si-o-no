@@ -153,6 +153,7 @@ const PermitQuiz: React.FC = () => {
  } else {
  setShowResults(true);
  Analytics.trackUIInteraction('permit_quiz', 'quiz', 'complete', `answers_${newAnswers.length}`);
+  Analytics.trackDecisionMomentCompleted('permit_quiz', 'quiz');
  }
  }, 300);
  }, [answers, currentStep, totalQuestions]);
@@ -300,7 +301,7 @@ const PermitQuiz: React.FC = () => {
 
  {/* Lead Magnet CTA */}
  <Suspense fallback={null}>
- <LeadMagnetCTA variant="relocation" delay={3000} />
+ <LeadMagnetCTA variant="relocation" delay={3000} decisionSurface="permit_quiz" />
  </Suspense>
 
  {/* Shareable result card */}
@@ -438,7 +439,7 @@ const PermitQuiz: React.FC = () => {
 
  {currentAnswer && currentStep === totalQuestions - 1 && (
  <button
- onClick={() => { setShowResults(true); Analytics.trackUIInteraction('permit_quiz', 'quiz', 'complete', `answers_${answers.length}`); }}
+ onClick={() => { setShowResults(true); Analytics.trackUIInteraction('permit_quiz', 'quiz', 'complete', `answers_${answers.length}`); Analytics.trackDecisionMomentCompleted('permit_quiz', 'quiz'); }}
  className="flex items-center gap-2 text-sm bg-warning-strong hover:bg-warning-strong-hover text-on-accent px-4 py-2 rounded-xl transition-colors"
  aria-label={t('permitQuiz.showResults')}
  >

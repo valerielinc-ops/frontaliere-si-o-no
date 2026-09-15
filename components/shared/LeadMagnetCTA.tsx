@@ -52,6 +52,8 @@ interface LeadMagnetCTAProps {
  delay?: number;
  /** Compact inline style vs. prominent card */
  compact?: boolean;
+ /** Optional L5 surface id for an explicit post-completion action join. */
+ decisionSurface?: string;
 }
 
 // ─── Constants ───────────────────────────────────────────────────────────
@@ -737,6 +739,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  variant,
  delay = 0,
  compact = false,
+ decisionSurface,
 }) => {
  const { t, locale } = useTranslation();
  const { user, signIn: googleSignIn } = useAuth();
@@ -869,12 +872,14 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  // Already subscribed — still show success (they get the guide)
  markNewsletterSubscribedLocally();
  setStatus('success');
+ if (decisionSurface) Analytics.trackDecisionMomentNextAction(decisionSurface, 'lead_magnet_access');
  generateChecklistPDF(variant).catch(() => {});
  return;
  }
 
  markNewsletterSubscribedLocally();
  setStatus('success');
+ if (decisionSurface) Analytics.trackDecisionMomentNextAction(decisionSurface, 'lead_magnet_access');
  generateChecklistPDF(variant).catch(() => {});
  unlockAchievement('newsletter_sub');
  Analytics.trackUIInteraction('lead_magnet', 'form', 'subscribe', `success_${variant}`);

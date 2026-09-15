@@ -790,8 +790,9 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
  type="button"
  aria-label={t('results.compareCta.button')}
  onClick={() => {
- Analytics.trackFunnelStep('compare', { funnel: 'calculator', source: 'results_cta' });
- Analytics.trackCtaClick('calculator.results.compare_cta', {
+  Analytics.trackFunnelStep('compare', { funnel: 'calculator', source: 'results_cta' });
+  Analytics.trackDecisionMomentNextAction('calculator', 'compare_scenarios');
+  Analytics.trackCtaClick('calculator.results.compare_cta', {
  component: 'ResultsView',
  section: 'results',
  label: 'compare_scenarios',
