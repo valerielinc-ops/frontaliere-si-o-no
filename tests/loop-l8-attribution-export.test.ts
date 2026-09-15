@@ -69,6 +69,37 @@ describe('L8 affiliate attribution exporter', () => {
     expect(outcome.evidence.sourceRefs).toContain('posthog.affiliate_click');
   });
 
+  it('keeps an export without transaction rows non-independent', () => {
+    const outcome = buildL8AttributionExport({
+      aggregate: AGGREGATE,
+      generatedAt: NOW,
+      telemetryWindow: WINDOW,
+      commercial: {
+        generatedAt: '2026-09-14T11:00:00.000Z',
+        independent: true,
+        evidence: { source: 'network-export', sourceRefs: ['authorised-network'] },
+      },
+    });
+    expect(outcome).toMatchObject({
+      independent: false,
+      transactions: null,
+      evidence: { status: 'commercial-export-incomplete', commercialLedger: 'missing' },
+    });
+  });
+
+  it('fails closed when a PostHog aggregate is missing instead of coercing it to zero', () => {
+    expect(() => buildL8AttributionExport({
+      aggregate: { ...AGGREGATE, webClicks: null },
+      generatedAt: NOW,
+      telemetryWindow: WINDOW,
+    })).toThrow('invalid webClicks');
+    expect(() => buildL8AttributionExport({
+      aggregate: { ...AGGREGATE, webClicks: false },
+      generatedAt: NOW,
+      telemetryWindow: WINDOW,
+    })).toThrow('invalid webClicks');
+  });
+
   it('creates a fail-closed unavailable input', () => {
     const outcome = buildUnavailableL8AttributionExport({
       generatedAt: NOW,

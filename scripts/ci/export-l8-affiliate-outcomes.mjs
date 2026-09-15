@@ -32,6 +32,11 @@ function object(value) {
 }
 
 function integer(value, label) {
+  if (value === null || value === undefined
+    || (typeof value === 'string' && value.trim() === '')
+    || typeof value === 'boolean') {
+    throw new Error(`PostHog returned invalid ${label}`);
+  }
   const parsed = typeof value === 'number' ? value : Number(value);
   if (!Number.isInteger(parsed) || parsed < 0) throw new Error(`PostHog returned invalid ${label}`);
   return parsed;
@@ -89,7 +94,7 @@ export function buildL8AttributionQuery({ start, end } = {}) {
   ].join('\n');
 }
 
-function attributionEvidence({ telemetryWindow, commercial }) {
+function attributionEvidence({ telemetryWindow, commercial, commercialRowsPresent }) {
   const commercialEvidence = object(commercial?.evidence) ? commercial.evidence : {};
   const configuredRefs = Array.isArray(commercialEvidence.sourceRefs)
     ? commercialEvidence.sourceRefs.filter(text).map((sourceRef) => sourceRef.trim())
@@ -103,8 +108,12 @@ function attributionEvidence({ telemetryWindow, commercial }) {
     ...commercialEvidence,
     source: text(commercialEvidence.source) || 'posthog-affiliate-attribution-export',
     sourceRefs,
-    status: text(commercialEvidence.status) || (commercial ? 'commercial-export-present' : 'attribution-only'),
-    commercialLedger: commercial ? 'supplied-by-authorised-export' : 'missing',
+    status: text(commercialEvidence.status) || (
+      commercialRowsPresent
+        ? 'commercial-export-present'
+        : (commercial ? 'commercial-export-incomplete' : 'attribution-only')
+    ),
+    commercialLedger: commercialRowsPresent ? 'supplied-by-authorised-export' : 'missing',
     telemetryWindow,
     eventContract: {
       exposure: 'affiliate_experiment_exposure with categorical surface/campaign/variant',
@@ -136,6 +145,7 @@ export function buildL8AttributionExport({
       ? suppliedCommercial.transactions
       : (Array.isArray(suppliedCommercial.rows) ? suppliedCommercial.rows : null))
     : null;
+  const commercialRowsPresent = Array.isArray(rows);
   return {
     ...(suppliedCommercial || {}),
     schemaVersion: 1,
@@ -143,8 +153,12 @@ export function buildL8AttributionExport({
     // Keep the network timestamp when a commercial export is present. The
     // current PostHog timestamp must not make an old commission ledger fresh.
     generatedAt: text(suppliedCommercial?.generatedAt) || generated,
-    independent: suppliedCommercial?.independent === true,
-    evidence: attributionEvidence({ telemetryWindow: window, commercial: suppliedCommercial }),
+    independent: suppliedCommercial?.independent === true && commercialRowsPresent,
+    evidence: attributionEvidence({
+      telemetryWindow: window,
+      commercial: suppliedCommercial,
+      commercialRowsPresent,
+    }),
     period: suppliedCommercial?.period || periodFromWindow(window),
     clicks: {
       web: webClicks,
