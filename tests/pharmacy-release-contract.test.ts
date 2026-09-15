@@ -218,6 +218,17 @@ describe('pharmacy atomic release contract', () => {
     expect(publicDutiesForRegion(pair.duties, 'Mendrisiotto', NOW, tamperedCatalogue)).toEqual([]);
   });
 
+  it('keeps legacy release states unless strict entry validation is requested', () => {
+    const pair = makePair();
+    const minimalCatalogueTamper = {
+      ...pair.catalogue,
+      pharmacies: [{ id: 'minimal-legacy-record' }],
+    } as PharmacyCatalogueDataset;
+
+    expect(getPharmacyReleaseEvaluation(pair.duties, NOW, minimalCatalogueTamper).state).toBe('conflicting');
+    expect(getPharmacyReleaseEvaluation(pair.duties, NOW, minimalCatalogueTamper, { validateEntries: true }).state).toBe('unknown');
+  });
+
   it('binds aggregate and regional release state to the release digest', () => {
     const pair = makePair();
     const variants = [

@@ -223,7 +223,7 @@ export function buildDutyWeekModel(
   const sourceUrl = typeof record._source === 'string' && record._source.trim() ? record._source : null;
   const fetchedAt = typeof record._fetchedAt === 'string' && record._fetchedAt.trim() ? record._fetchedAt : null;
   const effectiveCatalogue = options.catalogue ?? DEFAULT_PHARMACY_CATALOGUE;
-  const evaluation = getPharmacyReleaseEvaluation(dataset, now, effectiveCatalogue);
+  const evaluation = getPharmacyReleaseEvaluation(dataset, now, effectiveCatalogue, { validateEntries: true });
   const releaseId = evaluation.releaseId;
   const timezone = snapshotTimezone(dataset);
   const dutyEntryErrors = validatePharmacyDutyList(record.duties, now, { checkTemporalState: false });

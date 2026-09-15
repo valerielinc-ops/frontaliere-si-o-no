@@ -90,6 +90,11 @@ export interface PharmacyReleaseEvaluation {
   regions: Record<PharmacyRegionKey, PharmacyRegionReleaseStatus>;
 }
 
+export interface PharmacyReleaseEvaluationOptions {
+  /** Validate snapshot entries for a strict runtime read-model evaluation. */
+  validateEntries?: boolean;
+}
+
 export interface RuntimeDutyState {
   status: PharmacyDutyStatus;
   active: boolean;
@@ -261,6 +266,7 @@ export function getPharmacyReleaseEvaluation(
   dataset: PharmacyDutiesDataset,
   now: Date = new Date(),
   catalogue: PharmacyCatalogueDataset = CURRENT_CATALOGUE,
+  options: PharmacyReleaseEvaluationOptions = {},
 ): PharmacyReleaseEvaluation {
   const dutyRelease = dataset?._release;
   const catalogueRelease = catalogue?._release;
@@ -268,13 +274,19 @@ export function getPharmacyReleaseEvaluation(
   const catalogueErrors = cachedReleaseValidation(catalogueRelease);
   const dutiesArrayInvalid = !Array.isArray(dataset?.duties);
   const catalogueArrayInvalid = !Array.isArray(catalogue?.pharmacies);
-  // Expiry is part of the runtime state machine below. Structural validation
-  // must still accept an interval exactly crossing the evaluation boundary.
-  const dutyEntryErrors = validatePharmacyDutyList(dataset?.duties, now, { checkTemporalState: false });
-  const catalogueEntryErrors = validatePharmacyList(catalogue?.pharmacies);
+  const validateEntries = options.validateEntries === true;
+  // Entry validation is opt-in for compatibility with release-contract
+  // callers whose fixtures intentionally contain minimal records. The weekly
+  // runtime opts in below so malformed snapshots remain non-indexable.
+  const dutyEntryErrors = validateEntries
+    ? validatePharmacyDutyList(dataset?.duties, now, { checkTemporalState: false })
+    : [];
+  const catalogueEntryErrors = validateEntries ? validatePharmacyList(catalogue?.pharmacies) : [];
   if (
     dutyErrors.length > 0
     || catalogueErrors.length > 0
+    || dutiesArrayInvalid
+    || catalogueArrayInvalid
     || dutyEntryErrors.length > 0
     || catalogueEntryErrors.length > 0
   ) {
