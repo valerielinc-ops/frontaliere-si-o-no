@@ -18,11 +18,11 @@
   },
   "_errors": [
     "como-ats-2026-2027: official calendar coverage is incomplete: 3/300 distinct calendar days",
-    "como-ats-2026-2027: zero unambiguous duty rows resolved against the Ministry catalogue",
+    "como-ats-2026-2027: no operational duty rows published because official calendar coverage is incomplete",
     "varese-ats-2026-2027: official calendar coverage is incomplete: 2/300 distinct calendar days",
-    "varese-ats-2026-2027: zero unambiguous duty rows resolved against the Ministry catalogue",
+    "varese-ats-2026-2027: no operational duty rows published because official calendar coverage is incomplete",
     "vco-asl-2026: official calendar coverage is incomplete: 4/300 distinct calendar days",
-    "vco-asl-2026: zero unambiguous duty rows resolved against the Ministry catalogue"
+    "vco-asl-2026: no operational duty rows published because official calendar coverage is incomplete"
   ],
   "_warnings": [],
   "duties": [],
@@ -42,12 +42,12 @@
     "snapshots": {
       "duties": {
         "path": "data/pharmacy-duties-italy.json",
-        "sha256": "fa1ef4d552e615934b5ae43823b76ac5f30e3dccf89f2c79b0b6b4937630a2e9",
+        "sha256": "a280a8de12cf1eed50ba74987a3e98b9a3625079e84c8ed281c1baa394430bcd",
         "fetchedAt": "2026-09-15T11:30:00.000Z"
       },
       "status": {
         "path": "data/pharmacy-duties-italy-status.json",
-        "sha256": "cd29bbd8f2fc3fd99872e185cef556bf6ba6c0579b13bd4de141d7d2675b5ec8",
+        "sha256": "8ad11a4ee3e89ef0325063724ebeb00bf70b95dd54eb82abf269d7895c1b70ef",
         "fetchedAt": "2026-09-15T11:30:00.000Z"
       }
     },
@@ -64,7 +64,7 @@
         "state": "partial",
         "errors": [
           "official calendar coverage is incomplete: 3/300 distinct calendar days",
-          "zero unambiguous duty rows resolved against the Ministry catalogue"
+          "no operational duty rows published because official calendar coverage is incomplete"
         ],
         "warnings": []
       },
@@ -80,7 +80,7 @@
         "state": "partial",
         "errors": [
           "official calendar coverage is incomplete: 2/300 distinct calendar days",
-          "zero unambiguous duty rows resolved against the Ministry catalogue"
+          "no operational duty rows published because official calendar coverage is incomplete"
         ],
         "warnings": []
       },
@@ -96,11 +96,11 @@
         "state": "partial",
         "errors": [
           "official calendar coverage is incomplete: 4/300 distinct calendar days",
-          "zero unambiguous duty rows resolved against the Ministry catalogue"
+          "no operational duty rows published because official calendar coverage is incomplete"
         ],
         "warnings": []
       }
     },
-    "releaseId": "pharmacy-italy-v1-b928e2ce7f4cbecfe1db511024b0d3c8b5a36f955b21a544b87b64f2fa68d539"
+    "releaseId": "pharmacy-italy-v1-4a00489cacc66a0cb6d411713c04b5e4cc373ddf93b0c292775a2dc8630c5665"
   }
 }

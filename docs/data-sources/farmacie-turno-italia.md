@@ -48,12 +48,14 @@ prima di permettere la pubblicazione.
 
 La release è non pubblicabile quando si verifica una di queste condizioni:
 
-- la provincia della fonte manca, è fuori da `CO`, `VA`, `VB` o il documento
-  contiene indicatori di più province;
+- la provincia della fonte manca, il documento non contiene esattamente un
+  marker coerente, è fuori da `CO`, `VA`, `VB` oppure contiene indicatori di più
+  province;
 - una riga non ha una data esplicita, un'identità ministeriale univoca o un
   intervallo Europe/Rome valido;
-- il documento è fuori dalla finestra di validità dichiarata o il fetch supera
-  la soglia di freschezza;
+- il documento o una sua riga è fuori dalla finestra di validità dichiarata,
+  il raw URL o il redirect finale non resta HTTPS sullo stesso host ufficiale,
+  oppure il fetch supera la soglia di freschezza;
 - una fonte non produce almeno una riga verificata, il sidecar contiene errori,
   i due snapshot hanno release diverse oppure un hash non coincide.
 

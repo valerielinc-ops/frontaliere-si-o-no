@@ -10,6 +10,7 @@ export const ITALY_DUTY_TIMEZONE = 'Europe/Rome';
 export const ITALY_DUTY_PROVINCES = Object.freeze(['CO', 'VA', 'VB']);
 export const ITALY_DUTY_START_TIME = '08:30';
 export const ITALY_DUTY_MAX_AGE_HOURS = 72;
+export const ITALY_DUTY_MINIMUM_CALENDAR_DAYS = 300;
 
 const ITALIAN_MONTHS = Object.freeze({
   gen: 1,
@@ -160,6 +161,9 @@ export function resolveItalyDutyProvince(rawText, expectedProvince) {
   if (hints.some((province) => province !== expected)) {
     return { province: null, hints, error: `source contains a province marker outside ${expected}` };
   }
+  if (hints.length === 0) {
+    return { province: null, hints, error: 'source province marker is missing' };
+  }
   if (hints.length > 1) {
     return { province: null, hints, error: 'source contains ambiguous province markers' };
   }
@@ -170,9 +174,13 @@ function validOfficialSource(source) {
   return source && source.sourceType === 'official'
     && typeof source.officialSourceUrl === 'string'
     && /^https:\/\//i.test(source.officialSourceUrl)
+    && typeof source.rawUrl === 'string'
+    && /^https:\/\//i.test(source.rawUrl)
     && ITALY_DUTY_PROVINCES.includes(source.province)
     && typeof source.key === 'string'
-    && typeof source.format === 'string';
+    && typeof source.format === 'string'
+    && Number.isInteger(source.minimumCalendarDays)
+    && source.minimumCalendarDays >= ITALY_DUTY_MINIMUM_CALENDAR_DAYS;
 }
 
 function sourceAliases(source) {
@@ -333,10 +341,12 @@ function dedupeRecords(records) {
   });
 }
 
-function resolveCataloguePharmacy(pharmacyId, catalogue) {
+function resolveCataloguePharmacy(pharmacyId, province, catalogue) {
   const pharmacies = Array.isArray(catalogue) ? catalogue : catalogue?.pharmacies;
   if (!Array.isArray(pharmacies)) return null;
-  const matches = pharmacies.filter((pharmacy) => pharmacy?.id === pharmacyId && pharmacy?.country === 'IT');
+  const matches = pharmacies.filter((pharmacy) => pharmacy?.id === pharmacyId
+    && pharmacy?.country === 'IT'
+    && pharmacy?.province === province);
   return matches.length === 1 ? matches[0] : null;
 }
 
@@ -347,9 +357,9 @@ function dutyId(source, date, pharmacyId) {
 function recordsToDuties(records, source, province, fetchedAt, catalogue, warnings) {
   const duties = [];
   for (const record of dedupeRecords(records)) {
-    const pharmacy = resolveCataloguePharmacy(record.pharmacyId, catalogue);
+    const pharmacy = resolveCataloguePharmacy(record.pharmacyId, province, catalogue);
     if (!pharmacy) {
-      warnings.push(`${source.key}: source identity ${record.pharmacyId} is missing from the Italian Ministry catalogue`);
+      warnings.push(`${source.key}: source identity ${record.pharmacyId} is missing from or has a province mismatch in the Italian Ministry catalogue`);
       continue;
     }
     const startsAt = localDateTimeToItalyIso(datePartsToText(record.date), ITALY_DUTY_START_TIME);
@@ -388,8 +398,29 @@ function sourceValidity(source, asOf) {
   const date = new Date(asOf);
   if (!Number.isFinite(date.getTime())) return false;
   const parts = dateTimeParts(date);
-  const asOfDate = `${parts.year}-${String(parts.month).padStart(2, '0')}-${String(parts.day).padStart(2, '0')}`;
+  const asOfDate = [
+    parts.year,
+    String(parts.month).padStart(2, '0'),
+    String(parts.day).padStart(2, '0'),
+  ].join('-');
+  if (source.validFrom && !isSourceCalendarDate(source.validFrom)) return false;
+  if (source.validTo && !isSourceCalendarDate(source.validTo)) return false;
   return (!source.validFrom || asOfDate >= source.validFrom) && (!source.validTo || asOfDate <= source.validTo);
+}
+
+function isSourceCalendarDate(value) {
+  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+  const [year, month, day] = value.split('-').map(Number);
+  return validCalendarParts(year, month, day);
+}
+
+function sourceCalendarDateWithinValidity(source, date) {
+  const value = [
+    date.year,
+    String(date.month).padStart(2, '0'),
+    String(date.day).padStart(2, '0'),
+  ].join('-');
+  return (!source.validFrom || value >= source.validFrom) && (!source.validTo || value <= source.validTo);
 }
 
 /**
@@ -436,7 +467,11 @@ export function parseItalyDutySource(rawText, source, {
   const dedupedRecords = dedupeRecords(records);
   const observedDuties = recordsToDuties(dedupedRecords, source, provinceResult.province, fetchedAt, catalogue, warnings);
   const observedCalendarDays = new Set(dedupedRecords.map((record) => record.date.year + '-' + String(record.date.month).padStart(2, '0') + '-' + String(record.date.day).padStart(2, '0'))).size;
-  const minimumCalendarDays = Number(source.minimumCalendarDays || 0);
+  const outOfWindowRecords = dedupedRecords.filter((record) => !sourceCalendarDateWithinValidity(source, record.date));
+  if (outOfWindowRecords.length > 0) {
+    errors.push('official duty date is outside its declared validity window: ' + outOfWindowRecords.length + ' row(s)');
+  }
+  const minimumCalendarDays = Number(source.minimumCalendarDays);
   let incompleteCalendar = false;
   if (Number.isInteger(minimumCalendarDays) && minimumCalendarDays > 0 && observedCalendarDays < minimumCalendarDays) {
     incompleteCalendar = true;
@@ -451,8 +486,16 @@ export function parseItalyDutySource(rawText, source, {
     errors.push(...fatalWarnings.map((warning) => `source row is not publishable: ${warning}`));
   }
   if (errors.length > 0) duties = [];
-  const coverage = duties.length > 0 ? 'covered' : incompleteCalendar ? 'partial' : 'not_published';
-  if (coverage !== 'covered') errors.push('zero unambiguous duty rows resolved against the Ministry catalogue');
+  const coverage = errors.length === 0 && duties.length > 0 && !incompleteCalendar
+    ? 'covered'
+    : incompleteCalendar ? 'partial' : 'not_published';
+  if (coverage !== 'covered') {
+    errors.push(incompleteCalendar
+      ? 'no operational duty rows published because official calendar coverage is incomplete'
+      : observedDuties.length === 0
+        ? 'zero unambiguous duty rows resolved against the Ministry catalogue'
+        : 'no operational duty rows published because source validation failed');
+  }
 
   return {
     duties,
