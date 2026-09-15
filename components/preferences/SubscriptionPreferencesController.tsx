@@ -12,7 +12,7 @@
  *     No Firebase Auth session is required.
  *   - 'auth': used inside an authenticated user profile page. Reads/writes go
  *     directly to Firestore using the Firebase SDK; security rules gate access.
- */
+  */
 
 import React, { useEffect, useMemo, useState, useCallback } from 'react';
 import { Bell, BellOff, Bookmark, Mail, Loader2, CheckCircle2, AlertCircle, Trash2, Key, Pencil, Plus, Save, X, Pause, Play, Sunrise, Megaphone } from 'lucide-react';
@@ -1947,9 +1947,13 @@ export function SubscriptionPreferencesController({
  * Both modes are needed: the audience is the newsletter collection, so a
  * reader who arrived from a footer link with an address and no session is
  * exactly the person the token-mode switch has to serve.
-  */
+ */
  const handleToggleAds = async () => {
- const next = !adsEnabled;
+ // An advertising reactivation is valid only from a resolved, explicit OFF
+ // state. During an unresolved preference load, do not infer an ON action from
+ // `undefined`/other falsy values; the backend remains the authority for the
+ // advertising-only marker and leaves newsletter/stop-all state untouched.
+ const next = adsEnabled === false;
  // This is an advertising-only choice. The writers record
  // `advertising_reactivated_at` when `next` is true; they deliberately do not
  // call the newsletter re-subscribe path, so a newsletter/stop-all state stays
