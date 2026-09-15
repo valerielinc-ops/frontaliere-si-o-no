@@ -63,6 +63,9 @@ export function parseArticleUrlSlugs(source, slugConst) {
 
   const out = {};
   for (const match of block.matchAll(SLUG_MAP_ENTRY_RE)) {
+    if (Object.prototype.hasOwnProperty.call(out, match[1])) {
+      throw new SyntaxError('parseArticleUrlSlugs: duplicate article id ' + match[1]);
+    }
     out[match[1]] = parseLocalizedEntry(match[1], match[2]);
   }
   return out;

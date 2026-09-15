@@ -45,6 +45,16 @@ describe('parseArticleUrlSlugs', () => {
     expect(() => parseArticleUrlSlugs(partial, 'BLOG_SLUGS')).toThrow(/article-1.*fr/i);
   });
 
+  it('rejects duplicate top-level article ids instead of overwriting the first URL map', () => {
+    expect(() => parseArticleUrlSlugs(
+      `const BLOG_SLUGS = {
+        "article": { it: "italiano-1", en: "english-1", de: "deutsch-1", fr: "francais-1" },
+        "article": { it: "italiano-2", en: "english-2", de: "deutsch-2", fr: "francais-2" }
+      };`,
+      'BLOG_SLUGS',
+    )).toThrow(/duplicate article id/i);
+  });
+
   it('does not let the shared reader swallow a parser contract error', () => {
     const fakeFs = {
       existsSync: () => true,
