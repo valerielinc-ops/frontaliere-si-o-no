@@ -155,13 +155,28 @@ describe('locale-root SPA shells — internal links (#5428)', () => {
     }
   });
 
-  it('keeps the root rail when the real Vite template has a styled root and hidden h1', () => {
+  it('keeps the root rail when the real Vite template has a styled root and visible h1', () => {
     const template = fs.readFileSync(new URL('../../index.html', import.meta.url), 'utf8');
     expect(template).toContain('<div id="root" style="min-height:100vh">');
-    expect(template).toContain('position:absolute;left:-9999px');
+    expect(template).toContain('<h1 id="homepage-static-h1">');
+    expect(template).not.toContain('position:absolute;left:-9999px');
     const html = injectHomepageSeoContent(template, 'it');
     expect(html).toContain('id="hp-directory-hubs"');
     expect(html).toContain(`href="${buildPlateAuctionPath({ locale: 'de', view: 'hub' })}"`);
+  });
+
+  it.each(NON_IT_LOCALES)('localizes the server-rendered homepage h1 for /%s/', (locale) => {
+    const template = fs.readFileSync(new URL('../../index.html', import.meta.url), 'utf8');
+    const html = renderLocaleRootShell(template, locale);
+    expect(html.match(/<h1\b/g)).toHaveLength(1);
+    expect(html).toContain(
+      {
+        en: 'Ticino Cross-Border Workers 2026 — Switzerland-Italy Net Salary Calculator',
+        de: 'Grenzgänger Tessin 2026 — Nettolohnrechner Schweiz-Italien',
+        fr: 'Frontaliers Tessin 2026 — Calculateur de salaire net Suisse-Italie',
+      }[locale],
+    );
+    expect(html).not.toContain('position:absolute;left:-9999px');
   });
 
   it('repairs the directory rail on an older IT artifact that already has the SEO block', () => {

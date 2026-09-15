@@ -383,64 +383,6 @@ async function submitToEndpoint(endpointName, endpoint, urlList) {
   return { engineName, totalSubmitted, total: urlList.length, failed };
 }
 
-// ── Bing Webmaster URL Submission API ─────────────────────────
-async function submitToBingApi(urlList) {
-  const apiKey = process.env.BING_API_KEY;
-  if (!apiKey) {
-    console.log('\nBing Webmaster API: BING_API_KEY not set — skipping');
-    return;
-  }
-
-  const siteUrl = `https://${HOST}`;
-  const BING_BATCH = 500;
-
-  console.log(`\nBing Webmaster URL Submission API: ${urlList.length} URLs`);
-
-  if (DRY_RUN) {
-    console.log(`  Would submit ${urlList.length} URLs in ${Math.ceil(urlList.length / BING_BATCH)} batches`);
-    return;
-  }
-
-  const batches = [];
-  for (let i = 0; i < urlList.length; i += BING_BATCH) {
-    batches.push(urlList.slice(i, i + BING_BATCH));
-  }
-
-  let totalSubmitted = 0;
-
-  for (let b = 0; b < batches.length; b++) {
-    const batch = batches[b];
-    const endpoint = `https://ssl.bing.com/webmaster/api.svc/json/SubmitUrlbatch?apikey=${apiKey}`;
-    try {
-      const res = await fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json; charset=utf-8' },
-        body: JSON.stringify({ siteUrl, urlList: batch }),
-        signal: AbortSignal.timeout(30_000),
-      });
-
-      if (res.ok) {
-        totalSubmitted += batch.length;
-        console.log(`  Batch ${b + 1}/${batches.length}: ${batch.length} URLs submitted`);
-      } else {
-        const text = await res.text().catch(() => '');
-        if (/quota|exceeded/i.test(text)) {
-          console.warn(`  Bing daily quota exceeded after ${totalSubmitted} URLs — stopping`);
-        } else {
-          console.error(`  Bing API: HTTP ${res.status} — ${text.slice(0, 200)}`);
-        }
-        break;
-      }
-    } catch (err) {
-      console.error(`  Bing API error: ${err.message}`);
-      break;
-    }
-    if (b < batches.length - 1) await sleep(500);
-  }
-
-  console.log(`  Bing API total: ${totalSubmitted}/${urlList.length} URLs submitted`);
-}
-
 // ── Main ──────────────────────────────────────────────────────
 async function main() {
   console.log('=== IndexNow Batch Submission ===\n');
@@ -496,10 +438,7 @@ async function main() {
     results.push(result);
   }
 
-  // 6. Also submit to Bing Webmaster URL Submission API if configured
-  await submitToBingApi(urlList);
-
-  // 7. Summary
+  // 6. Summary
   console.log('\n=== Summary ===\n');
   for (const r of results) {
     const status = r.failed ? 'PARTIAL' : 'OK';

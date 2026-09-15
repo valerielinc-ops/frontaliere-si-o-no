@@ -3,17 +3,13 @@
  * IndexNow Submission Script
  * Reads the site's content sub-sitemaps for the IndexNow protocol.
  *
- * Additionally, it can submit a SMALL subset to the Bing Webmaster URL
- * Submission API to avoid daily quota issues (default: only the newly
- * generated article + hreflang alternates).
- *
  * Run after deployment: node scripts/submit-indexnow.js
  *
  * Features:
  * - Pre-verifies the key file is accessible before submitting
  * - Retries failed submissions with exponential backoff
  * - Falls back to GET method for single-URL submission if POST fails
- * - Batches large URL lists (max 10 000 per request)
+ * - Batches a deploy delta conservatively (max 500 per request)
  *
  * No hardcoded URL list — the sitemap is the single source of truth.
  */
@@ -21,7 +17,6 @@
 import { readFileSync, existsSync, realpathSync } from 'node:fs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, resolve } from 'node:path';
-import { getBingUrlSubmissionQuota } from './lib/bing-webmaster.mjs';
 import { CORE_SITEMAPS } from './lib/sitemap-files.mjs';
 // Key/host/keyLocation live in the shared module so this sitemap-driven
 // submitter and the fast-publish direct-URL submitter can never drift on the
@@ -37,20 +32,9 @@ const MAX_RETRIES = 2;
 const BATCH_SIZE = 500; // conservative batch size
 // Runs after deploy (GitHub Actions). All channels are enabled by default.
 
-const ARTICLE_URL = (process.env.ARTICLE_URL || '').trim();
-// Default 0: do NOT resubmit recent news articles to Bing URL Submission API
-// on routine deploys. Bing URL Submission quota is ~10 URLs/day and was being
-// burned daily by 20-URL fallback submissions of already-indexed news items.
-// Set to a positive number (1-5) to opt back in. See docs/bing-quota-investigation.md.
-const BING_RECENT_NEWS_FALLBACK = Math.max(0, Math.min(5, Number(process.env.BING_RECENT_NEWS_FALLBACK ?? 0)));
-
 // ── Helpers ─────────────────────────────────────────────────
 function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
-}
-
-function looksLikeQuotaExceeded(message = '') {
-  return /quota|exceeded your daily url submission quota/i.test(String(message || ''));
 }
 
 function toBase64Utf8(s) {
@@ -110,32 +94,11 @@ function readXml(relativePath) {
   return readFileSync(resolve(rootDir, ...relativePath), 'utf-8');
 }
 
-function extractUrlBlockByAnyMatch(sitemapXml, targets) {
-  const targetSet = new Set(targets.filter(Boolean));
-  if (targetSet.size === 0) return null;
-
-  for (const match of sitemapXml.matchAll(/<url>[\s\S]*?<\/url>/g)) {
-    const block = match[0];
-    for (const t of targetSet) {
-      if (block.includes(`<loc>${t}</loc>`) || block.includes(`href="${t}"`)) {
-        return block;
-      }
-    }
-  }
-  return null;
-}
-
 function extractUrlsFromUrlBlock(urlBlock) {
   const urls = new Set();
   for (const m of urlBlock.matchAll(/<loc>([^<]+)<\/loc>/g)) urls.add(m[1].trim());
   for (const m of urlBlock.matchAll(/hreflang="[^"]*"\s+href="([^"]+)"/g)) urls.add(m[1].trim());
   return [...urls];
-}
-
-function getRecentNewsUrls(newsXml, count) {
-  const locs = [...newsXml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].trim());
-  // sitemap-news.xml is chronological; take last N
-  return locs.slice(-count);
 }
 
 // Read a sitemap from public/ ONLY (no dist/ preference). The URL-block
@@ -169,47 +132,6 @@ function expandWithPublicAlternates(urls) {
     }
   }
   return [...expanded].sort();
-}
-
-function getBingUrlsSubset() {
-  // Read all sub-sitemaps for URL block lookup — public/ only, since the
-  // lookup exists to resolve hreflang alternates (see readPublicXml docs).
-  const sitemapXml = ['sitemap-pages.xml', 'sitemap-blog.xml', 'sitemap-blog-ch.xml', 'sitemap-glossario.xml']
-    .map(f => { try { return readPublicXml(f); } catch { return ''; } }).join('\n');
-
-  // Preferred: the newly generated article URL (from CI workflow output)
-  if (ARTICLE_URL) {
-    const block = extractUrlBlockByAnyMatch(sitemapXml, [ARTICLE_URL]);
-    if (block) {
-      const urls = extractUrlsFromUrlBlock(block);
-      return { urls, reason: 'new-article' };
-    }
-    console.warn(`⚠️  ARTICLE_URL non trovato nelle sub-sitemaps, fallback a news sitemap: ${ARTICLE_URL}`);
-  }
-
-  // Fallback: last 1–5 items from news sitemap (resolve alternates if present).
-  // Disabled by default (BING_RECENT_NEWS_FALLBACK=0) to preserve the scarce
-  // Bing URL Submission daily quota (~10/day) for actual new content.
-  if (BING_RECENT_NEWS_FALLBACK <= 0) {
-    return { urls: [], reason: 'recent-news-fallback-disabled' };
-  }
-  let newsXml = '';
-  try {
-    newsXml = readPublicXml('sitemap-news.xml');
-  } catch {
-    return { urls: [], reason: 'no-news-sitemap' };
-  }
-  const recent = getRecentNewsUrls(newsXml, BING_RECENT_NEWS_FALLBACK);
-  const subset = new Set();
-  for (const url of recent) {
-    const block = extractUrlBlockByAnyMatch(sitemapXml, [url]);
-    if (block) {
-      for (const u of extractUrlsFromUrlBlock(block)) subset.add(u);
-    } else {
-      subset.add(url);
-    }
-  }
-  return { urls: [...subset], reason: 'recent-news-fallback' };
 }
 
 // ── Sitemap diff: load pre-deploy baseline URLs ──────────────
@@ -343,71 +265,6 @@ async function submitSingleGet(endpoint, url) {
   } catch {
     return { ok: false, status: 0 };
   }
-}
-
-// ── Bing Webmaster URL Submission API ────────────────────────
-async function submitToBingApi(urlList) {
-  const apiKey = process.env.BING_API_KEY;
-  if (!apiKey) {
-    console.log('ℹ️  BING_API_KEY non configurata — skip Bing Webmaster API');
-    return;
-  }
-
-  // IMPORTANT: keep Bing Webmaster API submissions small to avoid daily quota issues.
-  const { urls: bingUrls, reason } = getBingUrlsSubset();
-  if (bingUrls.length === 0) {
-    console.log('ℹ️  Bing Webmaster API: nessun URL da inviare (subset vuoto)');
-    return;
-  }
-
-  const siteUrl = `https://${HOST}`;
-  const quota = await getBingUrlSubmissionQuota(apiKey, siteUrl);
-  if (quota && Number.isFinite(quota.dailyQuota) && quota.dailyQuota <= 0) {
-    console.warn(`⚠️  Bing Webmaster API: quota giornaliera esaurita (DailyQuota=${quota.dailyQuota}) — skip`);
-    return;
-  }
-
-  const endpoint = `https://ssl.bing.com/webmaster/api.svc/json/SubmitUrlbatch?apikey=${apiKey}`;
-  const BING_BATCH = 500; // Bing API limit: 500 URLs per request
-
-  let totalSubmitted = 0;
-  const batches = [];
-  for (let i = 0; i < bingUrls.length; i += BING_BATCH) {
-    batches.push(bingUrls.slice(i, i + BING_BATCH));
-  }
-
-  console.log(`📨 Bing Webmaster API: invio subset (${reason}) — ${bingUrls.length} URL`);
-
-  for (let b = 0; b < batches.length; b++) {
-    const batch = batches[b];
-    try {
-      const res = await fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json; charset=utf-8' },
-        body: JSON.stringify({
-          siteUrl,
-          urlList: batch,
-        }),
-      });
-      if (res.ok || res.status === 200) {
-        totalSubmitted += batch.length;
-      } else {
-        const text = await res.text().catch(() => '');
-        if (res.status === 400 && looksLikeQuotaExceeded(text)) {
-          console.warn(`⚠️  Bing Webmaster API: quota giornaliera raggiunta — stop invii per questo deploy`);
-        } else {
-          console.warn(`⚠️  Bing API: ${res.status} — ${text.slice(0, 200)}`);
-        }
-        break;
-      }
-    } catch (err) {
-      console.warn(`⚠️  Bing API errore: ${err.message}`);
-      break;
-    }
-    if (b < batches.length - 1) await sleep(500);
-  }
-
-  if (totalSubmitted > 0) console.log(`✅ Bing Webmaster API: ${totalSubmitted} URLs submitted`);
 }
 
 // ── Bing Content Submission API (for Copilot) ────────────────
@@ -599,9 +456,6 @@ async function submitToIndexNow() {
       }
     }
   }
-
-  // Complementary: Bing Webmaster URL Submission API (uses its own subset logic)
-  await submitToBingApi(urlList);
 
   // Bing Content Submission API (structured content for Copilot)
   await submitToBingContentApi();
