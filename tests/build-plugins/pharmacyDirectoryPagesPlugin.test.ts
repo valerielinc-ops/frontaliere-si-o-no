@@ -6,6 +6,7 @@ import path from 'node:path';
 import { buildPharmacyAliasBridge, buildPharmacyDirectoryPage, emitPharmacyAliasBridge, pharmacyPageDescriptors } from '../../build-plugins/pharmacyDirectoryPagesPlugin';
 import { ITALY_BORDER_PHARMACIES, TICINO_CITIES, TICINO_PHARMACIES, pharmacyCitySlug } from '../../services/pharmacies/data';
 import { buildPharmacyPath } from '../../services/pharmacies/paths';
+import { formatDutyDateTime } from '../../services/pharmacies/dutyWeek';
 import { extractVisibleText } from '../../scripts/audit-text-html-ratio.mjs';
 import catalogueJson from '../../data/pharmacies-ticino-complete.json';
 import dutiesJson from '../../data/pharmacy-duties-ticino.json';
@@ -131,12 +132,38 @@ describe('pharmacy directory page matrix', () => {
     expect(hub).toBeDefined();
     expect(city).toBeDefined();
 
-    for (const descriptor of [hub!, city!]) {
-      const page = buildPharmacyDirectoryPage(descriptor, 'it', '', EMPTY_DUTY_DATASET);
-      expect(page.html.toLocaleLowerCase()).toContain('nessun turno verificato');
-      expect(page.html).toContain('Verifica sempre telefonicamente con la farmacia prima di recarti sul posto: orari e turni possono cambiare.');
-      expect(page.html).not.toMatch(/<article\b/);
-    }
+    const hubPage = buildPharmacyDirectoryPage(hub!, 'it', '', EMPTY_DUTY_DATASET);
+    expect(hubPage.html.toLocaleLowerCase()).toContain('turni non mostrati');
+    expect(hubPage.html).toMatch(/data-release-ready=(?:"false"|false)/);
+    expect(hubPage.html).not.toContain('"@type":"CollectionPage"');
+    expect(hubPage.html).not.toMatch(/<article\b/);
+
+    const cityPage = buildPharmacyDirectoryPage(city!, 'it', '', EMPTY_DUTY_DATASET);
+    expect(cityPage.html.toLocaleLowerCase()).toContain('nessun turno verificato');
+    expect(cityPage.html).toContain('Verifica sempre telefonicamente con la farmacia prima di recarti sul posto: orari e turni possono cambiare.');
+    expect(cityPage.html).not.toMatch(/<article\b/);
+  });
+
+  it.each(locales)('keeps the static coverage matrix to five Ticino regions and 25 source-only cantons (%s)', (locale) => {
+    const descriptor = pharmacyPageDescriptors().find((candidate) => candidate.kind === 'duty-hub');
+    const now = new Date(Date.parse(dutiesJson._fetchedAt) + 60_000);
+    const page = buildPharmacyDirectoryPage(descriptor!, locale, '', dutiesJson as unknown as PharmacyDutiesDataset, now);
+
+    expect(page.indexable).toBe(true);
+    expect(page.html.match(/data-coverage-kind=(?:"ticino-region"|ticino-region)/g) || []).toHaveLength(5);
+    expect(page.html.match(/data-coverage-kind=(?:"source-only-canton"|source-only-canton)/g) || []).toHaveLength(25);
+    expect(page.html.match(/data-source-status=(?:"unverified"|unverified)/g) || []).toHaveLength(25);
+    expect(page.html).toMatch(/data-release-ready=(?:"true"|true)/);
+    expect(page.html).toContain('https://apotheken-aargau.ch/notfall/');
+    expect(page.html).toContain('https://www.farmacielocarnese.ch/');
+
+    const tampered = { ...dutiesJson, _release: { ...dutiesJson._release, state: 'partial' } } as unknown as PharmacyDutiesDataset;
+    const unavailable = buildPharmacyDirectoryPage(descriptor!, locale, '', tampered, now);
+    expect(unavailable.indexable).toBe(false);
+    expect(unavailable.html).toContain('noindex,follow');
+    expect(unavailable.html).toMatch(/data-release-ready=(?:"false"|false)/);
+    expect(unavailable.html).not.toContain('"@type":"CollectionPage"');
+    expect(unavailable.html).not.toContain('"@type":"ItemList"');
   });
 
   it('re-evaluates a static duty page when the atomic snapshot becomes fresh', () => {
@@ -152,10 +179,12 @@ describe('pharmacy directory page matrix', () => {
     expect(sample).toBeDefined();
     const before = buildPharmacyDirectoryPage(descriptor!, 'it', '', dutiesJson as unknown as PharmacyDutiesDataset, new Date(snapshotAt - 1));
     const after = buildPharmacyDirectoryPage(descriptor!, 'it', '', dutiesJson as unknown as PharmacyDutiesDataset, afterNow);
-    const sampleInterval = `${new Intl.DateTimeFormat('it-CH', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Europe/Zurich' }).format(new Date(sample!.startsAt))} – ${new Intl.DateTimeFormat('it-CH', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Europe/Zurich' }).format(new Date(sample!.endsAt))}`;
-    expect(before.html).not.toContain(sampleInterval);
-    expect(after.html).toContain(sampleInterval);
-    expect(after.html).toMatch(/<article\b/);
+    expect(before.indexable).toBe(false);
+    expect(before.html).not.toContain(formatDutyDateTime(sample!.startsAt));
+    expect(after.indexable).toBe(true);
+    expect(after.html).toContain(formatDutyDateTime(sample!.startsAt));
+    expect(after.html).toContain(formatDutyDateTime(sample!.endsAt));
+    expect(after.html).toMatch(new RegExp(`data-duty-id=(?:"${sample!.id}"|${sample!.id})`));
   });
 
   it('keeps every indexable directory page above the text-html ratio floor', { timeout: 90000 }, () => {
