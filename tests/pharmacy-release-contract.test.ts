@@ -31,6 +31,7 @@ const REGION_DEFINITIONS = [
   { key: 'luganese', name: 'Luganese', url: 'https://www.ofct.ch/luganese/' },
   { key: 'bellinzonese', name: 'Bellinzonese', url: 'https://www.ofct.ch/bellinzonese/' },
   { key: 'biasca-e-valli', name: 'Biasca e Valli', url: 'https://www.ofct.ch/biasca-e-valli/' },
+  { key: 'locarnese', name: 'Locarnese', url: 'https://www.farmacielocarnese.ch/' },
 ] as const;
 
 function makeDuty(region: (typeof REGION_DEFINITIONS)[number], index: number, overrides: Partial<PharmacyDuty> = {}): PharmacyDuty {
@@ -148,10 +149,11 @@ describe('pharmacy atomic release contract', () => {
     expect(verifyPharmacyReleaseContract({ catalogue: second.catalogue, duties: second.duties })).toEqual([]);
   });
 
-  it('exposes the checked-in release as fresh and limited to the four OFCT regions', () => {
+  it('exposes the checked-in release as fresh and limited to five verified Ticino regions', () => {
     const catalogue = catalogueJson as unknown as PharmacyCatalogueDataset;
     const duties = dutiesJson as unknown as PharmacyDutiesDataset;
-    const evaluation = getPharmacyReleaseEvaluation(duties, new Date('2026-09-14T19:00:00.000Z'), catalogue);
+    const now = new Date(Date.parse(duties._fetchedAt) + 60_000);
+    const evaluation = getPharmacyReleaseEvaluation(duties, now, catalogue);
 
     expect(validatePharmacyReleaseContract(catalogue._release)).toEqual([]);
     expect(validatePharmacyReleaseContract(duties._release)).toEqual([]);
@@ -162,8 +164,8 @@ describe('pharmacy atomic release contract', () => {
     expect(evaluation).toMatchObject({ state: 'fresh', publishable: true, releaseId: catalogue._release.releaseId });
     expect(Object.keys(evaluation.regions)).toEqual([...PHARMACY_RELEASE_REGION_KEYS]);
     expect(Object.values(evaluation.regions).every((region) => region.state === 'fresh' && region.coverage === 'covered')).toBe(true);
-    expect(Object.keys(evaluation.regions)).not.toContain('locarnese');
-    expect(publicDutiesForRegion(duties, 'Mendrisiotto', new Date('2026-09-14T19:00:00.000Z'), catalogue)).not.toHaveLength(0);
+    expect(evaluation.regions.locarnese).toMatchObject({ name: 'Locarnese', coverage: 'covered', state: 'fresh' });
+    expect(publicDutiesForRegion(duties, 'Mendrisiotto', now, catalogue)).not.toHaveLength(0);
   });
 
   it('fails closed on a catalogue/duties mismatch or a stale snapshot', () => {
