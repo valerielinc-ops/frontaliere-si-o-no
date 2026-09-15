@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "lastRunAt": "2026-09-14T10:04:29.568Z",
+  "lastRunAt": "2026-09-15T09:32:15.240Z",
   "findings": {
     "cloudflare-5xx-unverified|source:cloudflare-5xx-unverified": {
       "code": "cloudflare-5xx-unverified",
       "url": "source:cloudflare-5xx-unverified",
-      "consecutiveRuns": 1,
+      "consecutiveRuns": 2,
       "firstSeenAt": "2026-09-14T10:04:29.568Z",
-      "lastSeenAt": "2026-09-14T10:04:29.568Z",
-      "detail": "count=49 sampled-out-or-unprobed; no live recovery asserted"
+      "lastSeenAt": "2026-09-15T09:32:15.240Z",
+      "detail": "count=30 sampled-out-or-unprobed; no live recovery asserted"
     }
   },
   "cleanRuns": 0,
-  "lastActionable": false
+  "lastActionable": true
 }
