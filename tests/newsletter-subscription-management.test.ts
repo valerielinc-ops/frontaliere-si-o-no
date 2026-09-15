@@ -79,6 +79,7 @@ function createFakeDb(existingDocs: Record<string, any> = {}, subcollectionDocs:
     __sets: sets,
     __adds: adds,
     __deletes: deletes,
+    __docs: existingDocs,
     __subcollectionDocs: subcollectionDocs,
   };
 }
@@ -186,6 +187,10 @@ describe('handleSubscriptionManagement', () => {
           status: 'unsubscribed',
           isActive: false,
           unsubscribed_at: '2026-09-01T00:00:00.000Z',
+          all_email_opted_out: true,
+          all_emails_opted_out: true,
+          global_email_opt_out: true,
+          global_email_opted_out: true,
         },
       },
     });
@@ -206,14 +211,23 @@ describe('handleSubscriptionManagement', () => {
     expect(subscriberSet!.data).toMatchObject({
       consent_advertising: true,
       advertising_opt_out: false,
-      all_email_opted_out: false,
-      global_email_opt_out: false,
       advertising_reactivated_at: expect.anything(),
     });
-    // `status` is intentionally absent from this merge: newsletter and the
-    // other channels remain stopped while the advertising sender consumes the
-    // purpose-specific marker.
+    // Neither the newsletter state nor the global stop is cleared by this
+    // purpose-specific merge. The advertising sender consumes the marker; all
+    // other senders still see the recorded stop.
     expect(subscriberSet!.data).not.toHaveProperty('status');
+    expect(subscriberSet!.data).not.toHaveProperty('all_email_opted_out');
+    expect(subscriberSet!.data).not.toHaveProperty('all_emails_opted_out');
+    expect(subscriberSet!.data).not.toHaveProperty('global_email_opt_out');
+    expect(subscriberSet!.data).not.toHaveProperty('global_email_opted_out');
+    expect(db.__docs.newsletter_subscribers[TEST_EMAIL]).toMatchObject({
+      status: 'unsubscribed',
+      all_email_opted_out: true,
+      all_emails_opted_out: true,
+      global_email_opt_out: true,
+      global_email_opted_out: true,
+    });
   });
 
   it('does not let a GET turn a newsletter unsubscribe into a global stop', async () => {

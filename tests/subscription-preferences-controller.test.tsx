@@ -521,6 +521,13 @@ describe('SubscriptionPreferencesController — auth-mode source check', () => {
   expect(toggle).toContain('authSetAdvertisingOptOut(email, next)');
   expect(toggle).not.toContain('authToggleNewsletter(email, next)');
   expect(src).toContain("status: 'unsubscribed'` alone");
+
+  const writerStart = src.indexOf('async function authSetAdvertisingOptOut');
+  const writerEnd = src.indexOf('async function authStopAllEmails', writerStart);
+  const writer = src.slice(writerStart, writerEnd);
+  expect(writer).toContain('ADVERTISING_REACTIVATED_AT_FIELD');
+  expect(writer).not.toMatch(/all_email(?:s)?_opted_out:\s*false/);
+  expect(writer).not.toMatch(/global_email_opted_out:\s*false/);
  });
 
  it('source contains auth-mode Firestore helpers', () => {

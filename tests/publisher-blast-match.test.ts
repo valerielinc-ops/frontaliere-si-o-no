@@ -1,8 +1,10 @@
 import { describe, it, expect } from 'vitest';
 import {
+  isAdvertisingSuppressed,
   scoreSubscriberForAd,
   matchSubscribersForAd,
 } from '../services/publisherBlastMatch.mjs';
+import { isCrossChannelStop } from '../services/emailSuppression.mjs';
 
 const fisioAd = {
   title: 'Fisioterapista diplomato/a',
@@ -196,7 +198,8 @@ describe('matchSubscribersForAd', () => {
   /**
    * The explicit advertising choice is only one of the gates. The other gates
    * — the per-channel withdrawal, a global opt-out and hard suppression — must
-   * continue to apply independently. Each case below
+   * continue to apply independently unless the reader explicitly reactivates
+   * advertising. Each case below
    * ships with a control identical apart from the field under test, so a green
    * test cannot be explained by the matcher rejecting everybody.
    */
@@ -221,9 +224,11 @@ describe('matchSubscribersForAd', () => {
       ])).toEqual(['control@example.com']);
     });
 
-    it('a global opt-out still stops it — the explicit global field is authoritative', () => {
+    it('a global opt-out still stops it without a category reactivation', () => {
       // The stop-all action writes a dedicated cross-channel field, which is
-      // authoritative even when a category field says advertising is on.
+      // authoritative for the ordinary case even when a category field says
+      // advertising is on. The only exception is the explicit marker tested
+      // below; other senders never consume that marker.
       expect(emails([
         control,
         { email: 'canonical@example.com', ...strongMatch, ...ANCIENT, all_email_opted_out: true },
@@ -266,6 +271,22 @@ describe('matchSubscribersForAd', () => {
         'ads-on@example.com',
         'control@example.com',
       ]);
+    });
+
+    it('keeps the stop-all fields for other senders while allowing explicit ad reactivation', () => {
+      const reactivated = {
+        email: 'ads-only-after-stop@example.com',
+        ...strongMatch,
+        ...ANCIENT,
+        status: 'unsubscribed',
+        all_email_opted_out: true,
+        global_email_opted_out: true,
+        advertising_opt_out: false,
+        advertising_reactivated_at: '2026-09-02T00:00:00.000Z',
+      };
+      expect(isCrossChannelStop(reactivated)).toBe(true);
+      expect(isAdvertisingSuppressed(reactivated)).toBe(false);
+      expect(emails([reactivated])).toEqual(['ads-only-after-stop@example.com']);
     });
 
     it('a hard suppression still stops it — bounced, complained, suppressed', () => {

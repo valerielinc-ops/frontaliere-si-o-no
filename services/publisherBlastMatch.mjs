@@ -14,7 +14,6 @@
 // Shared, pure (browser-safe) suppression set — keeps every sender in agreement.
 import {
   isAddressSuppressed,
-  isGlobalEmailOptOut,
   isCrossChannelStop,
 } from './emailSuppression.mjs';
 import {
@@ -115,13 +114,14 @@ export function isAdvertisingOptedOut(sub) {
 }
 
 /**
- * An explicit advertising reactivation may lift the newsletter stop for this
- * category only. The dedicated marker is written only by the preference-centre
- * ON action, and its timestamp ordering prevents an older `false` value from
- * resurrecting advertising after a later stop-all action. The fallback keeps
- * rows written by the previous implementation readable; those rows still
- * require both timestamps. The other senders continue to apply the
- * newsletter/global stop unchanged.
+ * An explicit advertising reactivation may lift the newsletter or stop-all
+ * state for this category only. The dedicated marker is written only by the
+ * preference-centre ON action, and its timestamp ordering prevents an older
+ * `false` value from resurrecting advertising after a later stop-all action.
+ * The global stop fields remain recorded, so every other sender continues to
+ * apply the stop unchanged; only this purpose-specific predicate consumes the
+ * explicit advertising reactivation. The fallback keeps rows written by the
+ * previous implementation readable; those rows still require both timestamps.
  */
 function advertisingReactivationSupersedesNewsletterOptOut(sub) {
   if (sub?.[ADVERTISING_OPT_OUT_FIELD] !== false) return false;
@@ -140,34 +140,35 @@ function advertisingReactivationSupersedesNewsletterOptOut(sub) {
 
 /**
  * Whether advertising has an explicit, sender-specific reactivation that may
- * coexist with a newsletter/stop-all state. Hard address suppression and the
- * explicit global stop always win, so this cannot become a bypass for either.
+ * coexist with a newsletter/stop-all state. Hard address suppression always
+ * wins. A global stop remains in the document for every other sender, but an
+ * authenticated advertising-only ON action is the explicit purpose-specific
+ * exception for this sender.
  */
 export function isAdvertisingReactivation(sub) {
   if (!sub || typeof sub !== 'object') return false;
   if (isAddressSuppressed(sub.status) || isAddressSuppressed(sub.doc?.status)
-    || isGlobalEmailOptOut(sub) || isAdvertisingOptedOut(sub)) return false;
+    || isAdvertisingOptedOut(sub)) return false;
   if (!isCrossChannelStop(sub)) return false;
   return advertisingReactivationSupersedesNewsletterOptOut(sub);
 }
 
 /**
  * Advertising-specific suppression. A category reactivation is allowed to
- * restore advertising after a newsletter opt-out, but never after a hard
- * address suppression or a global stop, and never re-enables other channels.
+ * restore advertising after a newsletter/stop-all opt-out, but never after a
+ * hard address suppression, and never re-enables other channels. The global
+ * stop fields are intentionally left intact for those other predicates.
  */
 export function isAdvertisingSuppressed(sub) {
   if (!sub || typeof sub !== 'object') return true;
-  // Hard address signals and the explicit global stop can never be lifted by
-  // an advertising-only choice, even when the newsletter row also carries an
-  // older opt-out stamp.
-  if (isAddressSuppressed(sub.status) || isAddressSuppressed(sub.doc?.status)
-    || isGlobalEmailOptOut(sub)) return true;
+  // Hard address signals can never be lifted by an advertising-only choice,
+  // even when the newsletter row also carries an older opt-out stamp.
+  if (isAddressSuppressed(sub.status) || isAddressSuppressed(sub.doc?.status)) return true;
   if (isAdvertisingOptedOut(sub)) return true;
   // Keep the cross-channel decision visible at this sender boundary. The
   // only permitted exception is an explicit, strictly newer advertising
-  // reactivation; it is evaluated below rather than treating a missing proof
-  // or marker as a delivery gate.
+  // reactivation. A global stop stays present for every other sender; this
+  // purpose-specific reader is the only one allowed to consume the marker.
   if (isCrossChannelStop(sub)) return !isAdvertisingReactivation(sub);
   return false;
 }

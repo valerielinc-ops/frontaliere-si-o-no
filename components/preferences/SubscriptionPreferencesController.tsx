@@ -687,12 +687,10 @@ async function authSetAdvertisingOptOut(email: string, enabled: boolean): Promis
   // This marker is consumed only by the advertising sender. It must remain
   // separate from `status`, which is the newsletter channel's state.
   [ADVERTISING_REACTIVATED_AT_FIELD]: serverTimestamp(),
-  // Restoring this opt-out-controlled category lifts the global block without
-  // changing the individual state of the remaining channels.
-  all_email_opted_out: false,
-  all_emails_opted_out: false,
-  global_email_opt_out: false,
-  global_email_opted_out: false,
+  // Keep the stop-all fields untouched. They remain authoritative for every
+  // other sender; the advertising matcher consumes this marker for this
+  // purpose only, so turning ads on cannot re-enable newsletter, JobAlert,
+  // brief or digest delivery.
  } : {}),
  },
  { merge: true },
