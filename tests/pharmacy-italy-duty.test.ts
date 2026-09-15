@@ -205,6 +205,22 @@ describe('Italian duty week read model', () => {
     });
     expect(sourceIdentityEvaluation.publishable).toBe(false);
     expect(sourceIdentityEvaluation.reasons).toContain('Italy status snapshot contains invalid province entries');
+
+    const malformedWarnings = buildAtomicItalyDutySnapshots({
+      duties: snapshots.duties,
+      status: {
+        ...snapshots.status,
+        _provinces: { ...provinces, VB: { ...provinces.VB, warnings: [42] } },
+      },
+      evaluatedAt: FETCHED_AT,
+    });
+    const warningsEvaluation = evaluateItalyDutyRelease({
+      duties: malformedWarnings.duties,
+      status: malformedWarnings.status,
+      now: NOW,
+    });
+    expect(warningsEvaluation.publishable).toBe(false);
+    expect(warningsEvaluation.reasons).toContain('Italy status snapshot contains invalid province entries');
   });
 
   it('fails closed when the Italy source registry envelope is malformed', () => {

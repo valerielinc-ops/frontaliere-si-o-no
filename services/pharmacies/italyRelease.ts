@@ -413,6 +413,11 @@ function validateItalyDutyProvinceStatusEntries(
     } else if (entry.errors.length > 0) {
       errors.push(province + ': province status reports source errors');
     }
+    if (!Array.isArray(entry.warnings)) {
+      errors.push(province + ': province status warnings must be an array');
+    } else if (entry.warnings.some((warning) => typeof warning !== 'string')) {
+      errors.push(province + ': province status warnings must contain strings');
+    }
   }
   return errors;
 }
