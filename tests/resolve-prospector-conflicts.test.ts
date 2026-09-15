@@ -75,13 +75,13 @@ describe('Prospector rebase conflict resolver', () => {
     const local = structuredClone(base);
     local.platforms.vendor.status = 'supported';
     local.platforms.vendor.seenOn.push('three.example');
-    local.platforms.vendor.hostHits['one.vendor.example'] = 2;
+    local.platforms.vendor.hostHits['one.vendor.example'] = 3;
     local.platforms.vendor.tenantCount = 3;
 
     const merged = mergeProspectorPath('data/prospector/platforms.json', base, upstream, local) as typeof base;
     expect(merged.platforms.vendor.status).toBe('supported');
     expect(merged.platforms.vendor.seenOn).toEqual(['one.example', 'two.example', 'three.example']);
-    expect(merged.platforms.vendor.hostHits).toEqual({ 'one.vendor.example': 2, 'two.vendor.example': 2 });
+    expect(merged.platforms.vendor.hostHits).toEqual({ 'one.vendor.example': 4, 'two.vendor.example': 2 });
     expect(merged.platforms.vendor.tenantCount).toBe(3);
   });
 

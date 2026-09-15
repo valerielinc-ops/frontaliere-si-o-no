@@ -182,7 +182,19 @@ function mergeCandidate(upstream, local) {
   return merged;
 }
 
-function mergePlatform(upstream, local) {
+function mergeCounter(upstream, local, base) {
+  const upstreamValue = Number(upstream) || 0;
+  const localValue = Number(local) || 0;
+  const baseValue = Number(base) || 0;
+  // host/path hits and expansion attempts are cumulative observations. Each
+  // side may have added a different delta since the common base, so taking the
+  // max would silently discard one run's evidence. Negative deltas are not
+  // expected, but treating them as zero keeps a stale writer from regressing
+  // the counter.
+  return baseValue + Math.max(0, upstreamValue - baseValue) + Math.max(0, localValue - baseValue);
+}
+
+function mergePlatform(upstream, local, base = {}) {
   const merged = { ...clone(upstream), ...clone(local) };
   const statuses = [upstream.status, local.status].filter((status) => status in PLATFORM_STATUS_RANK);
   if (statuses.length) merged.status = statuses.sort((a, b) => PLATFORM_STATUS_RANK[a] - PLATFORM_STATUS_RANK[b]).at(-1);
@@ -194,15 +206,16 @@ function mergePlatform(upstream, local) {
     if (isObject(upstream[field]) || isObject(local[field])) {
       const values = { ...objectOrEmpty(upstream[field]), ...objectOrEmpty(local[field]) };
       for (const key of new Set([...Object.keys(upstream[field] || {}), ...Object.keys(local[field] || {})])) {
-        values[key] = Math.max(Number(upstream[field]?.[key]) || 0, Number(local[field]?.[key]) || 0);
+        values[key] = mergeCounter(upstream[field]?.[key], local[field]?.[key], base[field]?.[key]);
       }
       merged[field] = Object.fromEntries(Object.keys(values).sort().map((key) => [key, values[key]]));
     }
   }
-  for (const field of ['tenantCount', 'expansionAttempts']) {
-    if (upstream[field] !== undefined || local[field] !== undefined) {
-      merged[field] = Math.max(Number(upstream[field]) || 0, Number(local[field]) || 0);
-    }
+  if (upstream.tenantCount !== undefined || local.tenantCount !== undefined) {
+    merged.tenantCount = Math.max(Number(upstream.tenantCount) || 0, Number(local.tenantCount) || 0);
+  }
+  if (upstream.expansionAttempts !== undefined || local.expansionAttempts !== undefined) {
+    merged.expansionAttempts = mergeCounter(upstream.expansionAttempts, local.expansionAttempts, base.expansionAttempts);
   }
   if (upstream.discoveredAt || local.discoveredAt) merged.discoveredAt = oldest(upstream.discoveredAt, local.discoveredAt);
   if (upstream.lastExpandedAt || local.lastExpandedAt) merged.lastExpandedAt = newest(upstream.lastExpandedAt, local.lastExpandedAt);
