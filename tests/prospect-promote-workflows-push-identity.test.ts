@@ -95,4 +95,10 @@ describe('cablaggio: capacità letta e identità che pusha non possono divergere
     expect(step).toMatch(/WORKFLOWS_PUSH_IDENTITY:\s*app\b/);
     expect(step).toMatch(/x-access-token:\$\{APP_TOKEN\}/);
   });
+
+  it("scrive lo stato post-PR con il retry helper che ripristina l'auth di main", () => {
+    const promote = read('scripts/prospect-promote.mjs');
+    expect(promote).toContain("['scripts/lib/git-push-with-retry.sh', '--branch', baseBranch]");
+    expect(promote).not.toContain("git('push', 'origin', baseBranch)");
+  });
 });

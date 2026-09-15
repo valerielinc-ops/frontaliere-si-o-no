@@ -13,8 +13,9 @@ import { registrableDomain, tenantLabel, sameOrg, normalizeHost, safeDecodePath,
 import { parseRobots, robotsAllows } from '../scripts/lib/prospector/polite-fetch.mjs';
 import {
   loadRegistry, observePlatform, isPlatformEligible, enumerablePlatforms,
-  sharedHostPlatforms, listingPathHints,
+  sharedHostPlatforms, listingPathHints, recordExpansionAttempt,
 } from '../scripts/lib/prospector/platform-registry.mjs';
+import { prioritizeTraceCandidates } from '../scripts/lib/prospector/trace-priority.mjs';
 import { pathTemplate, extractByTemplate, extractJsonLd, extractDetailFields, extractMicrodata, renderedWorkplaceLabelValues, renderedPostalAddressCandidates, scoreVacancyPage, textOf, isVacancyPath } from '../scripts/lib/prospector/extract.mjs';
 import { cleanAnchorText, extractLinks, isCareerLink, externalAtsLinks, isDistinctCareerSurface } from '../scripts/lib/prospector/careers-trail.mjs';
 import { tenantSlugCandidates, tenantIdsAreNameLike, employerNameFromPage } from '../scripts/lib/prospector/tenant-enum.mjs';
@@ -177,6 +178,55 @@ describe('platform registry', () => {
     observePlatform(r2, { tenantHost: 'live.shared.example', employerDomain: 'alpha.ch', path: '/alpha/jobs' });
     observePlatform(r2, { tenantHost: 'live.shared.example', employerDomain: 'beta.ch', path: '/beta/jobs' });
     expect(listingPathHints(r2.platforms['shared.example'])).toEqual([]);
+  });
+
+  it('rotates expansion budget instead of repeating the highest-signal vendors', () => {
+    const platform = (domain: string, seen: number, lastExpandedAt?: string) => ({
+      domain,
+      status: 'confirmed' as const,
+      seenOn: Array.from({ length: seen }, (_, i) => `employer-${i}.ch`),
+      tenantCount: 0,
+      tenantShape: 'subdomain' as const,
+      ...(lastExpandedAt ? { lastExpandedAt } : {}),
+    });
+    const r = {
+      version: 1,
+      updatedAt: null,
+      platforms: {
+        'highest-signal.example': platform('highest-signal.example', 20, '2026-09-14T03:00:00Z'),
+        'oldest.example': platform('oldest.example', 2, '2026-09-12T03:00:00Z'),
+        'never.example': platform('never.example', 1),
+      },
+    };
+
+    expect(enumerablePlatforms(r).map((p) => p.domain)).toEqual([
+      'never.example',
+      'oldest.example',
+      'highest-signal.example',
+    ]);
+    recordExpansionAttempt(r.platforms['never.example'], '2026-09-15T03:00:00Z');
+    expect(r.platforms['never.example']).toMatchObject({
+      lastExpandedAt: '2026-09-15T03:00:00Z',
+      expansionAttempts: 1,
+    });
+  });
+});
+
+describe('priorità della coda TRACE', () => {
+  it('porta davanti i datori con annunci attivi e conserva FIFO tra i pari', () => {
+    const ranked = prioritizeTraceCandidates([
+      { key: 'osm-domain', domain: 'map-employer.ch', adCount: 0, firstSeenAt: '2026-08-21T00:00:00Z' },
+      { key: 'seco-new', adCount: 1, firstSeenAt: '2026-09-14T00:00:00Z' },
+      { key: 'seco-old', adCount: 1, firstSeenAt: '2026-08-21T00:00:00Z' },
+      { key: 'seco-domain', domain: 'active-employer.ch', adCount: 1, firstSeenAt: '2026-09-14T00:00:00Z' },
+    ], 4);
+
+    expect(ranked.map((c) => c.key)).toEqual([
+      'seco-domain',
+      'seco-old',
+      'seco-new',
+      'osm-domain',
+    ]);
   });
 });
 

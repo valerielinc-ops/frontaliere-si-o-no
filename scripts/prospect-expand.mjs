@@ -24,7 +24,7 @@
  *   node scripts/prospect-expand.mjs --platform=example.com
  *   node scripts/prospect-expand.mjs --platforms=2 --max-probe=200
  */
-import { loadRegistry, saveRegistry, enumerablePlatforms } from './lib/prospector/platform-registry.mjs';
+import { loadRegistry, saveRegistry, enumerablePlatforms, recordExpansionAttempt } from './lib/prospector/platform-registry.mjs';
 import { loadCandidates, saveCandidates, upsertCandidate, setStatus, statusCounts } from './lib/prospector/candidate-store.mjs';
 import { enumerateTenants } from './lib/prospector/tenant-enum.mjs';
 import { loadCoverage, isCovered } from './lib/prospector/coverage.mjs';
@@ -77,6 +77,9 @@ for (const platform of targets) {
   // fatto in questo giro: l'enumerazione parla con vendor arbitrari e con due
   // servizi esterni (indice web, log dei certificati) che rispondono come
   // vogliono.
+  // Mark the attempt before any network call. An empty or failing vendor must
+  // still yield the next run's budget to the rest of the confirmed registry.
+  recordExpansionAttempt(platform);
   let res;
   try {
     res = await enumerateTenants(platform, { nameSeeds: seeds, maxProbe });

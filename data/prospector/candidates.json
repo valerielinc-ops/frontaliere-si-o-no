@@ -212016,12 +212016,12 @@
     },
     "mcm-group.ch": {
       "key": "mcm-group.ch",
-      "status": "promoted",
+      "status": "production",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-22T04:08:26.096Z",
-      "updatedAt": "2026-09-14T09:45:32.036Z",
+      "updatedAt": "2026-09-14T10:18:07.000Z",
       "name": "Medizinisches Center Bonaduz",
       "domain": "mcm-group.ch",
       "city": "",
@@ -212082,7 +212082,10 @@
           "jobLikeRate": 1,
           "logoFound": true
         }
-      ]
+      ],
+      "promotionPr": "8582",
+      "promotionBranch": "prospector/promote-2026-09-14",
+      "promotedAt": "2026-09-14T10:18:07.000Z"
     },
     "stallacapre.ch": {
       "key": "stallacapre.ch",

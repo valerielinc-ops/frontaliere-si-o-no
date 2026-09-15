@@ -622,7 +622,14 @@ try {
   try {
     git('add', 'data/prospector');
     git('commit', '-m', `prospector: segna ${shipped.length} candidati come in promozione (PR ${prNumber})`);
-    git('push', 'origin', baseBranch);
+    // The PR branch needs the App token because it may contain regenerated
+    // workflow files. The follow-up state commit targets main and must use the
+    // shared bypass-auth/retry contract instead: otherwise the remote still
+    // carries the App URL and GitHub rejects this data-only push with GH013.
+    execFileSync('bash', ['scripts/lib/git-push-with-retry.sh', '--branch', baseBranch], {
+      cwd: ROOT,
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
     console.log(`stato "promoting" scritto su ${baseBranch}: il giro successivo non li riproporra'.`);
   } catch (err) {
     console.error(`⚠️ non sono riuscito a scrivere lo stato su ${baseBranch}: ${String(err.stderr || err.message).slice(0, 200)}`);
