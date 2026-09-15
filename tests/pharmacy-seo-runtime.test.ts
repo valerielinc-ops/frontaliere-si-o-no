@@ -44,6 +44,10 @@ function weeklyPath(): string {
   return buildPharmacyPath({ kind: 'duty-week', locale: 'it', weekStart: '2026-09-14' });
 }
 
+function dutyHubPath(): string {
+  return buildPharmacyPath({ kind: 'duty-hub', locale: 'it' });
+}
+
 function addJsonLd(schema: Record<string, unknown>, dynamic = false): void {
   const script = document.createElement('script');
   script.type = 'application/ld+json';
@@ -67,6 +71,35 @@ function addStaticCitySchemas(citySlug: string): Record<string, any>[] {
 }
 
 describe('pharmacy SEO after SPA navigation', () => {
+  it('indexes the duty hub only when the complete fresh release is ready', () => {
+    const now = new Date('2026-09-15T12:00:00.000Z');
+    const ready = pharmacySeoRuntime.resolvePharmacySeoMetadata(
+      { kind: 'duty-hub', locale: 'it' },
+      { now, duties, catalogue },
+    );
+    expect(ready.robots).toBe('index,follow');
+    expect(JSON.stringify(ready.structuredData)).toContain('"ItemList"');
+
+    const tamperedDuties = {
+      ...duties,
+      _release: { ...duties._release, state: 'partial' as const },
+    } as PharmacyDutiesDataset;
+    const stale = pharmacySeoRuntime.resolvePharmacySeoMetadata(
+      { kind: 'duty-hub', locale: 'it' },
+      { now, duties: tamperedDuties, catalogue },
+    );
+    expect(stale.robots).toBe('noindex,follow');
+    expect(stale.structuredData).toBeUndefined();
+
+    const empty = pharmacySeoRuntime.resolvePharmacySeoMetadata(
+      { kind: 'duty-hub', locale: 'it' },
+      { now, duties: { ...duties, duties: [] } as PharmacyDutiesDataset, catalogue },
+    );
+    expect(empty.robots).toBe('noindex,follow');
+    expect(empty.structuredData).toBeUndefined();
+    expect(dutyHubPath()).toBe('/farmacie-di-turno/');
+  });
+
   it('keeps stale, tampered and unsupported weekly models noindex', () => {
     const staleFetchedAt = '2026-09-13T00:00:00.000Z';
     const staleDuties = {

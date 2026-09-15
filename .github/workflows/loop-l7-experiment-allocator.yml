@@ -98,20 +98,26 @@ jobs:
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
+          set -euo pipefail
           if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
-            echo '::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set; cannot resolve read-only PostHog configuration'
-            exit 1
+            echo '::warning::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set; recording an explicitly unavailable experiment outcome'
+            echo 'LOOP_FLEET_L7_EXPORT_UNAVAILABLE=1' >> "$GITHUB_ENV"
+            exit 0
           fi
           printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
           chmod 600 "$RUNNER_TEMP/firebase-sa.json"
           echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
       - name: Export fresh L7 outcomes
-        if: github.event_name != 'pull_request'
+        if: always() && github.event_name != 'pull_request'
         env:
           OUTCOME_PATH: ${{ runner.temp }}/experiment-outcomes.json
         run: |
           set -o pipefail
           mkdir -p "$(dirname "$OUTCOME_PATH")" "$RUNNER_TEMP/loop-fleet-l7"
+          if [ "${LOOP_FLEET_L7_EXPORT_UNAVAILABLE:-0}" = '1' ]; then
+            node scripts/ci/export-l7-experiment-outcomes.mjs --unavailable --out "$OUTCOME_PATH" --registry data/loop-fleet/loop-registry.json
+            exit 0
+          fi
           set +e
           node scripts/ci/export-l7-experiment-outcomes.mjs --days 8 --json --out "$OUTCOME_PATH" --registry data/loop-fleet/loop-registry.json | tee "$RUNNER_TEMP/loop-fleet-l7/export-cli-output.log" | tee -a "$GITHUB_STEP_SUMMARY"
           export_code=${PIPESTATUS[0]}

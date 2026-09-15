@@ -14,6 +14,8 @@ describe('PostHog quota sampling', () => {
     expect(shouldCapturePostHogEvent(event('session-a', '$snapshot'), 0)).toBe(true);
     expect(shouldCapturePostHogEvent(event('session-a', '$exception'), 0)).toBe(true);
     expect(shouldCapturePostHogEvent(event('session-a', '$identify'), 0)).toBe(true);
+    expect(shouldCapturePostHogEvent(event('session-a', 'decision_moment_completed'), 0)).toBe(true);
+    expect(shouldCapturePostHogEvent(event('session-a', 'decision_moment_next_action'), 0)).toBe(true);
     expect(shouldCapturePostHogEvent(event('session-a'), 0)).toBe(false);
   });
 

@@ -22,6 +22,7 @@ import {
 import { buildPharmacyPath, type PharmacyPageKind, type PharmacyPath } from '../services/pharmacies/paths';
 import { publicDutiesForRegion } from '../services/pharmacies/duties';
 import { buildDutyWeekModel, currentDutyWeekStart, DUTY_WEEK_SOURCE_URL, formatDutyDateTime, type DutyWeekModel } from '../services/pharmacies/dutyWeek';
+import { buildDutyCoverageMatrix, formatDutyCoverageDate, getDutyCoverageMatrixCopy, type DutyCoverageMatrixModel } from '../services/pharmacies/dutyCoverageMatrix';
 import { currentDutyForRegion } from '../services/pharmacies/duties';
 import type { Locale } from '../services/i18n';
 import { safePharmacyUrl, type Pharmacy, type PharmacyCatalogueDataset, type PharmacyDuty, type PharmacyDutiesDataset, type PharmacyFieldSource, type PharmacyUrlAlias } from '../services/pharmacies/types';
@@ -449,6 +450,33 @@ function renderDutyWeek(
   return `<header><h1 style="${H1_STYLE}">${esc(h1)}</h1><p style="${LEDE_STYLE}">${esc(copy.lede)}</p><p style="${BODY_STYLE}"><strong>${esc(copy.interval)}:</strong> ${esc(dutyWeekDateRange(model, locale))}<br><strong>${esc(copy.fetched)}:</strong> ${esc(fetched)}<br><strong>${esc(copy.source)}:</strong> <a href="${esc(source)}" rel="nofollow noopener">${esc(source)}</a></p>${status}</header>${regions}<section><h2 style="${H2_STYLE}">${esc(COPY[locale].disclaimerHeading)}</h2><p style="${BODY_STYLE}">${esc(copy.verify)}</p></section>`;
 }
 
+function renderDutyCoverageMatrix(
+  locale: Locale,
+  dataset: PharmacyDutiesDataset = dutiesDataset,
+  now = new Date(),
+): string {
+  const copy = getDutyCoverageMatrixCopy(locale);
+  const matrix = buildDutyCoverageMatrix({ locale, duties: dataset, catalogue: completeTicinoSnapshot, now });
+  const regions = matrix.regions.map((region) => {
+    const duties = matrix.releaseReady
+      ? region.duties.map((duty) => {
+        const pharmacy = pharmacyById(duty.pharmacyId);
+        const pharmacyLink = pharmacy
+          ? `<a href="${esc(buildPharmacyPath(pharmacyPath(pharmacy, locale), locale))}">${esc(pharmacy.name)}</a>`
+          : `<span>${esc(copy.notResolved)}</span>`;
+        return `<li style="${BODY_STYLE}" data-duty-id="${esc(duty.id)}"><strong>${esc(copy.pharmacy)}:</strong> ${pharmacyLink}<br><strong>${esc(copy.interval)}:</strong> <time datetime="${esc(duty.startsAt)}">${esc(formatDutyDateTime(duty.startsAt))}</time> – <time datetime="${esc(duty.endsAt)}">${esc(formatDutyDateTime(duty.endsAt))}</time></li>`;
+      }).join('')
+      : '';
+    const source = matrix.releaseReady && region.sourceUrl
+      ? ` <a href="${esc(region.sourceUrl)}" rel="nofollow noopener">${esc(copy.openSource)}</a>`
+      : '';
+    return `<section data-coverage-kind="ticino-region" data-region-key="${esc(region.key)}"><h3 style="${H2_STYLE}">${esc(region.name)}</h3>${source}${duties ? `<ul style="${BODY_STYLE}">${duties}</ul>` : `<p style="${BODY_STYLE}">${esc(matrix.releaseReady ? copy.noIntervals : copy.unavailableNotice(matrix.status))}</p>`}</section>`;
+  }).join('');
+  const sourceOnly = matrix.sourceOnlyCantons.map((canton) => `<li data-coverage-kind="source-only-canton" data-canton-code="${esc(canton.code)}" data-source-status="${esc(canton.status || 'unavailable')}" data-source-type="${esc(canton.sourceType || 'unavailable')}" style="${BODY_STYLE}"><h3 style="${H3_STYLE}">${esc(canton.name)}</h3><p><strong>${esc(copy.sourceOnlyLabel)}</strong></p><dl><dt><strong>${esc(copy.status)}</strong></dt><dd>${esc(copy.statusLabel(canton.status))}</dd><dt><strong>${esc(copy.sourceType)}</strong></dt><dd>${esc(copy.sourceTypeLabel(canton.sourceType))}</dd><dt><strong>${esc(copy.lastVerifiedAt)}</strong></dt><dd>${esc(canton.lastVerifiedAt ? formatDutyCoverageDate(canton.lastVerifiedAt, locale) : copy.notAvailable)}</dd><dt><strong>${esc(copy.officialSource)}</strong></dt><dd>${canton.officialSourceUrl ? `<a href="${esc(canton.officialSourceUrl)}" rel="nofollow noopener">${esc(copy.openOfficialSource)}</a>` : esc(copy.notAvailable)}</dd></dl></li>`).join('');
+  const notice = matrix.releaseReady ? copy.readyNotice : copy.unavailableNotice(matrix.status);
+  return `<section data-coverage-matrix="true" data-release-ready="${String(matrix.releaseReady)}"><h2 style="${H2_STYLE}">${esc(copy.heading)}</h2><p style="${LEDE_STYLE}">${esc(copy.lede)}</p><section><h2 style="${H2_STYLE}">${esc(copy.ticinoHeading)}</h2><p style="${BODY_STYLE}" role="status">${esc(notice)}</p>${regions}</section><section><h2 style="${H2_STYLE}">${esc(copy.sourceOnlyHeading)}</h2><p style="${LEDE_STYLE}">${esc(copy.sourceOnlyLede)}</p><ul>${sourceOnly}</ul></section></section>`;
+}
+
 function dutyWeekCollectionJsonLd(pathValue: PharmacyPath, title: string, model: DutyWeekModel): string {
   const duties = model.regions.flatMap((region) => region.duties);
   const itemListElement = duties.slice(0, MAX_COLLECTION_SCHEMA_ITEMS).flatMap((duty, index) => {
@@ -467,6 +495,31 @@ function dutyWeekCollectionJsonLd(pathValue: PharmacyPath, title: string, model:
     name: title,
     url: `${BASE_URL}${buildPharmacyPath(pathValue, pathValue.locale)}`,
     mainEntity: { '@type': 'ItemList', numberOfItems: duties.length, itemListElement },
+  });
+}
+
+function dutyCoverageCollectionJsonLd(pathValue: PharmacyPath, title: string, matrix: DutyCoverageMatrixModel): string {
+  const duties = matrix.regions.flatMap((region) => region.duties);
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: title,
+    url: `${BASE_URL}${buildPharmacyPath(pathValue, pathValue.locale)}`,
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: duties.length,
+      itemListElement: duties.slice(0, MAX_COLLECTION_SCHEMA_ITEMS).flatMap((duty, index) => {
+        const pharmacy = pharmacyById(duty.pharmacyId);
+        return pharmacy
+          ? [{
+            '@type': 'ListItem',
+            position: index + 1,
+            name: `${pharmacy.name} — ${duty.coverageName}`,
+            url: `${BASE_URL}${buildPharmacyPath(pharmacyPath(pharmacy, pathValue.locale), pathValue.locale)}`,
+          }]
+          : [];
+      }),
+    },
   });
 }
 
@@ -682,10 +735,7 @@ function renderBody(
   if (descriptor.kind === 'hub') {
     sections = `<section><h2 style="${H2_STYLE}">${esc(copy.directoryHeading)}</h2><p style="${BODY_STYLE}">${href({ kind: 'canton', locale }, copy.ticinoTitle)} · ${href({ kind: 'country', country: 'IT', locale }, copy.italyTitle)} · ${href({ kind: 'duty-hub', locale }, copy.duties)}</p><p style="${BODY_STYLE}">${ITALY_BORDER_PROVINCES.map((area) => href({ kind: 'area', country: 'IT', areaSlug: area.slug, locale }, area.name)).join(' · ')}</p><p style="${BODY_STYLE}">${esc(copy.locarneseNote)}</p></section>`;
   } else if (descriptor.kind === 'duty-hub') {
-    const currentRows = currentDutyRows(dataset, now);
-    const regions = [...new Set(currentRows.map((duty) => duty.coverageName))];
-    const dutyCards = regions.map((region) => renderDuty(currentDutyForRegion(dataset, region, now), locale)).join('');
-    sections = `<section><h2 style="${H2_STYLE}">${esc(copy.duties)}</h2>${regions.length > 0 ? `<div class="s-XENO3U">${dutyCards}</div>` : `<p style="${BODY_STYLE}">${esc(copy.noDuty)}</p>`}<p style="${BODY_STYLE}">${esc(copy.locarneseNote)}</p></section>`;
+    sections = renderDutyCoverageMatrix(locale, dataset, now);
   } else if (descriptor.kind === 'duty-city') {
     const region = TICINO_PHARMACIES.find((pharmacy) => pharmacy.city === descriptor.cityName && datasetDuties.some((duty) => duty.pharmacyId === pharmacy.id))?.id;
     const coverage = region ? datasetDuties.find((duty) => duty.pharmacyId === region)?.coverageName : undefined;
@@ -791,6 +841,7 @@ function jsonLd(
   dataset: PharmacyDutiesDataset = dutiesDataset,
   now = new Date(),
   emittedPaths: ReadonlySet<string> = emittedPathsForLocale(locale),
+  indexable = true,
 ): string[] {
   const pathValue = descriptorPath(descriptor, locale);
   const title = pageTitle(descriptor.kind, locale, descriptor);
@@ -801,6 +852,12 @@ function jsonLd(
     return model.indexable
       ? [dutyWeekCollectionJsonLd(pathValue, title, model), breadcrumbJsonLd(descriptor, locale)]
       : [breadcrumbJsonLd(descriptor, locale)];
+  }
+  if (descriptor.kind === 'duty-hub') {
+    const matrix = buildDutyCoverageMatrix({ locale, duties: dataset, catalogue: completeTicinoSnapshot, now });
+    return indexable && matrix.releaseReady
+      ? [dutyCoverageCollectionJsonLd(pathValue, title, matrix), breadcrumbJsonLd(descriptor, locale)]
+      : [];
   }
   if (descriptor.kind === 'city' && descriptor.country === 'CH') {
     const cityName = descriptor.cityName || '';
@@ -850,8 +907,13 @@ function buildPage(
   // regional OFCT schedule. Keep them crawlable for users without creating
   // duplicate indexable pages or an ItemList with a different visible scope.
   const dutyWeek = descriptor.kind === 'duty-week' ? dutyWeekModel(descriptor, dataset, now) : null;
+  const dutyCoverage = descriptor.kind === 'duty-hub'
+    ? buildDutyCoverageMatrix({ locale, duties: dataset, catalogue: completeTicinoSnapshot, now })
+    : null;
   const indexable = descriptor.kind === 'duty-week'
     ? Boolean(dutyWeek?.indexable && wordCount >= MIN_INDEXABLE_WORDS)
+    : descriptor.kind === 'duty-hub'
+      ? Boolean(dutyCoverage?.releaseReady && wordCount >= MIN_INDEXABLE_WORDS)
     : descriptor.kind !== 'duty-city' && wordCount >= MIN_INDEXABLE_WORDS;
   const pathValue = descriptorPath(descriptor, locale);
   const description = pageDescription(descriptor, locale);
@@ -860,7 +922,7 @@ function buildPage(
     path: buildPharmacyPath(pathValue, locale),
     wordCount,
     indexable,
-    html: buildSeoPageHtml({ locale, title: emittedTitle, description, canonicalUrl: `${BASE_URL}${buildPharmacyPath(pathValue, locale)}`, hreflangHtml: hreflang(descriptor), robots: indexable ? 'index,follow' : 'noindex,follow', jsonLdScripts: jsonLd(descriptor, locale, dataset, now, emittedPaths), bodyHtml, seoContentOutsideRoot: true, seoMainClass: 'seo-static-content', distDir }),
+    html: buildSeoPageHtml({ locale, title: emittedTitle, description, canonicalUrl: `${BASE_URL}${buildPharmacyPath(pathValue, locale)}`, hreflangHtml: hreflang(descriptor), robots: indexable ? 'index,follow' : 'noindex,follow', jsonLdScripts: jsonLd(descriptor, locale, dataset, now, emittedPaths, indexable), bodyHtml, seoContentOutsideRoot: true, seoMainClass: 'seo-static-content', distDir }),
   };
 }
 

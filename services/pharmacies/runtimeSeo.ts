@@ -17,6 +17,7 @@ import {
 } from './data';
 import { buildPharmacyPath, type PharmacyPath } from './paths';
 import { buildDutyWeekModel } from './dutyWeek';
+import { buildDutyCoverageMatrix, type DutyCoverageMatrixModel } from './dutyCoverageMatrix';
 import { currentDutyForRegion } from './duties';
 import { buildPharmacyTitle } from './title';
 import { safePharmacyUrl, type Pharmacy, type PharmacyCatalogueDataset, type PharmacyDutiesDataset } from './types';
@@ -302,6 +303,32 @@ function dutyWeekStructuredData(path: PharmacyPath, title: string, model: Return
   };
 }
 
+function dutyCoverageStructuredData(path: PharmacyPath, title: string, matrix: DutyCoverageMatrixModel): Record<string, any> | undefined {
+  if (!matrix.releaseReady) return undefined;
+  const duties = matrix.regions.flatMap((region) => region.duties);
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: title,
+    url: `${BASE_URL}${buildPharmacyPath(path, path.locale)}`,
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: duties.length,
+      itemListElement: duties.slice(0, MAX_COLLECTION_SCHEMA_ITEMS).flatMap((duty, index) => {
+        const pharmacy = pharmacyById(duty.pharmacyId);
+        return pharmacy
+          ? [{
+            '@type': 'ListItem',
+            position: index + 1,
+            name: `${pharmacy.name} — ${duty.coverageName}`,
+            url: `${BASE_URL}${buildPharmacyPath(pharmacyPathForRecord(pharmacy, path.locale), path.locale)}`,
+          }]
+          : [];
+      }),
+    },
+  };
+}
+
 function pharmacyBreadcrumbStructuredData(path: PharmacyPath, title: string): Record<string, any> {
   const copy = RUNTIME_PHARMACY_COPY[path.locale];
   return {
@@ -337,9 +364,14 @@ export function resolvePharmacySeoMetadata(
       catalogue: options.catalogue ?? RUNTIME_PHARMACY_CATALOGUE,
     })
     : null;
-  const indexable = resolved && path.kind !== 'duty-city' && (model ? model.indexable : true);
+  const coverageMatrix = path.kind === 'duty-hub'
+    ? buildDutyCoverageMatrix({ locale, now: options.now, duties: options.duties ?? RUNTIME_PHARMACY_DUTIES, catalogue: options.catalogue ?? RUNTIME_PHARMACY_CATALOGUE })
+    : null;
+  const indexable = resolved && path.kind !== 'duty-city' && (model ? model.indexable : coverageMatrix ? coverageMatrix.releaseReady : true);
   const description = model
     ? copy.dutyWeekDescription
+    : coverageMatrix
+      ? copy.dutyWeekDescription
     : `${title}. ${copy.directoryDescription}`;
   const canonicalPath = buildPharmacyPath(path, locale);
   const collectionPharmacies = pharmaciesForCollection(path);
@@ -347,11 +379,15 @@ export function resolvePharmacySeoMetadata(
     ? pharmacyDetailStructuredData(pharmacy, locale)
     : model
       ? dutyWeekStructuredData(path, title, model)
-      : collectionPharmacies
-        ? path.kind === 'country'
-          ? countryCollectionStructuredData(path, title)
-          : collectionStructuredData(path, title, collectionPharmacies)
-        : undefined;
+      : coverageMatrix
+        ? coverageMatrix.releaseReady && indexable
+          ? dutyCoverageStructuredData(path, title, coverageMatrix)
+          : undefined
+        : collectionPharmacies
+          ? path.kind === 'country'
+            ? countryCollectionStructuredData(path, title)
+            : collectionStructuredData(path, title, collectionPharmacies)
+          : undefined;
   const breadcrumb = indexable ? pharmacyBreadcrumbStructuredData(path, title) : undefined;
   const structuredData = primaryStructuredData && breadcrumb
     ? [primaryStructuredData, breadcrumb]

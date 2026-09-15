@@ -357,6 +357,48 @@ describe('renderEventDetailPage', () => {
     expect(page.html.match(/data-ad-slot=["']?1982411173/g)).toHaveLength(1);
     expect(page.html.match(/data-ad-slot=["']?5196931137/g)).toHaveLength(1);
   });
+  it('uses a crisp typographic poster for the known 222×222 MySwitzerland thumbnail', () => {
+    const myswitzerlandEvent = {
+      ...EVENT,
+      id: 'myswitzerland:queen-basel',
+      title: 'The Music of QUEEN - Live',
+      sourceKey: 'myswitzerland',
+      sourceName: 'MySwitzerland',
+      imageUrl: '/images/events/myswitzerland-queen-basel.webp',
+      venue: 'Musical Theater Basel',
+      comune: 'Basel',
+      canton: 'BS',
+      startDate: '2026-09-19',
+      endDate: '2026-09-19',
+    };
+    const myswitzerlandPage = renderEventDetailPage({
+      locale: 'fr',
+      event: myswitzerlandEvent as never,
+      comune: 'Basel',
+      eventSlug: slugifyEvent(myswitzerlandEvent),
+      sameComuneEvents: [myswitzerlandEvent] as never,
+      dateStamp: '2026-06-30',
+      distDir,
+      detailHref: (() => null) as never,
+    });
+    expect(myswitzerlandPage.html).toContain('data-hero-mode=poster');
+    expect(myswitzerlandPage.html).toContain('class=ev-hero-poster');
+    expect(myswitzerlandPage.html).toContain('The Music of QUEEN - Live');
+    expect(myswitzerlandPage.html).not.toContain('class="ev-heroimg"');
+
+    const guidlePage = renderEventDetailPage({
+      locale: 'it',
+      event: { ...EVENT, sourceKey: 'guidle', sourceName: 'Guidle', imageUrl: '/images/events/guidle-abc.jpg' } as never,
+      comune: 'Lugano',
+      eventSlug: slugifyEvent(EVENT),
+      sameComuneEvents: [EVENT] as never,
+      dateStamp: '2026-06-30',
+      distDir,
+      detailHref: (() => null) as never,
+    });
+    expect(guidlePage.html).toContain('data-hero-mode=image');
+    expect(guidlePage.html).toContain('class=ev-heroimg');
+  });
   it('does not add manual slots to the noindex past-event bridge', () => {
     const pastPage = renderEventDetailPage({
       locale: 'it',

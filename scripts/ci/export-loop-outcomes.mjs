@@ -847,6 +847,37 @@ export function buildL1TelemetryExport(input, {
   };
 }
 
+/**
+ * Keep a credential outage observable without turning it into a clean run.
+ * The loop validator will classify the null session counts as partial and the
+ * evidence recorder can still persist the fail-closed decision.
+ */
+export function buildUnavailableL1TelemetryExport({
+  generatedAt = new Date().toISOString(),
+  reason = 'read-only telemetry export unavailable',
+} = {}) {
+  return {
+    generatedAt,
+    usefulSessions: null,
+    errorFreeUsefulSessions: null,
+    observedErrorEvents: null,
+    independent: false,
+    export: {
+      schemaVersion: 1,
+      sourceRefs: ['posthog-error-telemetry'],
+      readOnly: true,
+      unavailable: true,
+      mutationsPerformed: false,
+    },
+    _meta: {
+      generatedAt,
+      source: 'PostHog HogQL, read-only live export unavailable',
+      purpose: 'Explicit fail-closed placeholder for Loop L1',
+      reason,
+    },
+  };
+}
+
 export async function exportL1({ inputPath, outputPath, now = new Date(), days = DEFAULT_L1_WINDOW_DAYS, client = null, posthogRunner = runHogQL } = {}) {
   const firestore = client || new GoogleDataClient();
   const window = completeUtcWindow(now, days);
@@ -883,7 +914,10 @@ export async function exportL1({ inputPath, outputPath, now = new Date(), days =
   return telemetry;
 }
 
-export function buildUnavailableL5DecisionMomentExport({ generatedAt = new Date().toISOString() } = {}) {
+export function buildUnavailableL5DecisionMomentExport({
+  generatedAt = new Date().toISOString(),
+  reason = 'read-only decision-moment export unavailable',
+} = {}) {
   return {
     generatedAt,
     independent: false,
@@ -906,6 +940,7 @@ export function buildUnavailableL5DecisionMomentExport({ generatedAt = new Date(
       generatedAt,
       source: 'PostHog HogQL, read-only live export unavailable',
       purpose: 'Explicit fail-closed placeholder; never a measured outcome',
+      reason,
     },
   };
 }
@@ -982,6 +1017,40 @@ export function buildL3OutcomeExport({
       applicationSubmissionSource: 'not available from site telemetry',
       publishedDataUntouched: true,
       readOnly: true,
+    },
+  };
+}
+
+/** Explicitly unavailable L3 input; never a zero application or handoff rate. */
+export function buildUnavailableL3OutcomeExport({
+  generatedAt = new Date().toISOString(),
+  reason = 'read-only application-handoff export unavailable',
+} = {}) {
+  return {
+    generatedAt,
+    independent: false,
+    eligibleJobSessions: null,
+    validHandoffs: null,
+    applications: null,
+    evidence: {
+      source: 'GA4 Data API read-only export unavailable',
+      sourceRefs: ['job-crawler-summaries', 'application-handoff'],
+      status: 'unavailable',
+    },
+    export: {
+      schemaVersion: 1,
+      sourceRefs: ['ga4.job_qualified_session', 'ga4.job_apply_handoff'],
+      handoffIsNotApplication: true,
+      publishedDataUntouched: true,
+      readOnly: true,
+      unavailable: true,
+      mutationsPerformed: false,
+    },
+    _meta: {
+      generatedAt,
+      source: 'GA4 Data API read-only export unavailable',
+      purpose: 'Explicit fail-closed placeholder for Loop L3',
+      reason,
     },
   };
 }
@@ -1285,6 +1354,44 @@ export async function exportL4({ configPath = null, snoozesPath = null, outputPa
   return outcome;
 }
 
+/** Explicitly unavailable L4 input; no delivery or return metric is inferred. */
+export function buildUnavailableL4OutcomeExport({
+  generatedAt = new Date().toISOString(),
+  reason = 'read-only alert delivery export unavailable',
+} = {}) {
+  return {
+    generatedAt,
+    independent: false,
+    eligibleConsentedUsers: null,
+    deliveredAlerts: null,
+    openedAlerts: null,
+    clickedAlerts: null,
+    returningUsers7d: null,
+    duplicateSends: null,
+    consentViolations: null,
+    suppressedWithoutConsent: null,
+    deferredAlerts: null,
+    evidence: {
+      source: 'Firestore read-only alert delivery export unavailable',
+      sourceRefs: ['consent-delivery', 'posthog-return'],
+      status: 'unavailable',
+    },
+    export: {
+      schemaVersion: 1,
+      readOnly: true,
+      unavailable: true,
+      mutationsPerformed: false,
+      externalDeliveryUntouched: true,
+    },
+    _meta: {
+      generatedAt,
+      source: 'Firestore read-only alert delivery export unavailable',
+      purpose: 'Explicit fail-closed placeholder for Loop L4',
+      reason,
+    },
+  };
+}
+
 function publisherId(row) {
   return String(documentData(row).publisherUid || documentData(row).publisher_uid || '').trim();
 }
@@ -1426,11 +1533,29 @@ export async function main({ argv = process.argv.slice(2) } = {}) {
   const now = new Date();
   if (loop === 'L1') {
     const inputPath = valueAfter(argv, '--input', valueAfter(argv, '--telemetry', 'data/error-triage-baseline.json'));
+    if (argv.includes('--unavailable')) {
+      const outcome = buildUnavailableL1TelemetryExport({
+        generatedAt: now.toISOString(),
+        reason: valueAfter(argv, '--reason', 'read-only telemetry export unavailable'),
+      });
+      fs.mkdirSync(path.dirname(path.resolve(outputPath)), { recursive: true });
+      fs.writeFileSync(path.resolve(outputPath), `${JSON.stringify(outcome, null, 2)}\n`);
+      return outcome;
+    }
     return exportL1({ inputPath, outputPath, now });
   }
   if (loop === 'L3') {
     const days = Number(valueAfter(argv, '--days', DEFAULT_L3_WINDOW_DAYS));
     if (!Number.isInteger(days) || days < 1) throw new Error('--days must be a positive integer');
+    if (argv.includes('--unavailable')) {
+      const outcome = buildUnavailableL3OutcomeExport({
+        generatedAt: now.toISOString(),
+        reason: valueAfter(argv, '--reason', 'read-only application-handoff export unavailable'),
+      });
+      fs.mkdirSync(path.dirname(path.resolve(outputPath)), { recursive: true });
+      fs.writeFileSync(path.resolve(outputPath), `${JSON.stringify(outcome, null, 2)}\n`);
+      return outcome;
+    }
     return exportL3({
       outputPath,
       now,
@@ -1439,6 +1564,15 @@ export async function main({ argv = process.argv.slice(2) } = {}) {
     });
   }
   if (loop === 'L4') {
+    if (argv.includes('--unavailable')) {
+      const outcome = buildUnavailableL4OutcomeExport({
+        generatedAt: now.toISOString(),
+        reason: valueAfter(argv, '--reason', 'read-only alert delivery export unavailable'),
+      });
+      fs.mkdirSync(path.dirname(path.resolve(outputPath)), { recursive: true });
+      fs.writeFileSync(path.resolve(outputPath), `${JSON.stringify(outcome, null, 2)}\n`);
+      return outcome;
+    }
     return exportL4({
       configPath: valueAfter(argv, '--config', 'data/alert-config.json'),
       snoozesPath: valueAfter(argv, '--snoozes', 'data/alert-snoozes.json'),
@@ -1448,7 +1582,10 @@ export async function main({ argv = process.argv.slice(2) } = {}) {
   }
   if (loop === 'L5') {
     if (argv.includes('--unavailable')) {
-      const outcome = buildUnavailableL5DecisionMomentExport({ generatedAt: now.toISOString() });
+      const outcome = buildUnavailableL5DecisionMomentExport({
+        generatedAt: now.toISOString(),
+        reason: valueAfter(argv, '--reason', 'read-only decision-moment export unavailable'),
+      });
       fs.mkdirSync(path.dirname(path.resolve(outputPath)), { recursive: true });
       fs.writeFileSync(path.resolve(outputPath), `${JSON.stringify(outcome, null, 2)}\n`);
       return outcome;

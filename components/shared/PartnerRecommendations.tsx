@@ -118,13 +118,13 @@ const PartnerRecommendations: React.FC<PartnerRecommendationsProps> = ({
  <PartnerCard
  key={partner.id}
  partner={partner}
-   context={context}
-   index={index}
-   surface={surface}
-   campaign={effectiveCampaign}
-   variant={effectiveVariant}
+ context={context}
+ index={index}
+ surface={surface}
+ campaign={effectiveCampaign}
+ variant={effectiveVariant}
    experimentId={isExperiment ? G4_EXPERIMENT_ID : undefined}
-  />
+ />
  ))}
  </div>
  <p className="text-sm text-muted mt-2 text-center">

@@ -69,13 +69,6 @@ describe('affiliateService config gates', () => {
     );
   });
 
-  it('keeps the G4 experiment bounded to the approved web contexts', () => {
-    expect(resolveAffiliateExperimentVariant('exchange', 'email')).toBe('control');
-    expect(resolveAffiliateExperimentVariant('jobs', 'web')).toBe('control');
-    // Node/SSR has no session bucket, so the safe fallback is explicit control.
-    expect(resolveAffiliateExperimentVariant('banks', 'web')).toBe('control');
-  });
-
   it('uses one stable session assignment across the approved contexts', () => {
     const values = new Map([[G4_EXPERIMENT_SESSION_ID_KEY, 'test-session']]);
     vi.stubGlobal('window', {
@@ -93,6 +86,13 @@ describe('affiliateService config gates', () => {
     } finally {
       vi.unstubAllGlobals();
     }
+  });
+
+  it('keeps the G4 experiment bounded to the approved web contexts', () => {
+    expect(resolveAffiliateExperimentVariant('exchange', 'email')).toBe('control');
+    expect(resolveAffiliateExperimentVariant('jobs', 'web')).toBe('control');
+    // Node/SSR has no session bucket, so the safe fallback is explicit control.
+    expect(resolveAffiliateExperimentVariant('banks', 'web')).toBe('control');
   });
 
   it('marks paid programs sponsored and institutional links plain', () => {

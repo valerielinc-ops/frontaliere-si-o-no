@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-15T00:00:00.000Z",
+  "timezone": "Europe/Rome",
+  "scope": {
+    "country": "IT",
+    "provinces": ["CO", "VA", "VB"]
+  },
+  "sources": [
+    {
+      "key": "como-ats-2026-2027",
+      "name": "Como",
+      "province": "CO",
+      "sourceType": "official",
+      "officialSourceUrl": "https://www.comune.merone.co.it/novita/comunicati_stampa/novita_138.html",
+      "rawUrl": "https://www.comune.merone.co.it/EG0/EGDOCVISJS.HBL",
+      "fixturePath": "co",
+      "fetchMode": "halley-post-pdf",
+      "halley": { "engine": "e1046", "descriptor": "0001OV010265T" },
+      "format": "como-calendar-v1",
+      "validFrom": "2026-06-01",
+      "validTo": "2027-05-31",
+      "minimumCalendarDays": 300,
+      "maxAgeHours": 72,
+      "identityAliases": [
+        { "sourceLabel": "Appiano Cavour", "pharmacyId": "it-msal-2088" },
+        { "sourceLabel": "Albese", "pharmacyId": "it-msal-2192" },
+        { "sourceLabel": "Albavilla", "pharmacyId": "it-msal-2166" },
+        { "sourceLabel": "Merone", "pharmacyId": "it-msal-2098" },
+        { "sourceLabel": "Albiolo", "pharmacyId": "it-msal-2129" }
+      ],
+      "notes": "Calendario annuale pubblicato dal Comune di Merone dopo la comunicazione ATS Insubria; l'allegato Turni base copre la provincia di Como."
+    },
+    {
+      "key": "varese-ats-2026-2027",
+      "name": "Varese",
+      "province": "VA",
+      "sourceType": "official",
+      "officialSourceUrl": "https://comune.marchirolo.varese.it/Dettaglionews?IDNews=400586",
+      "rawUrl": "https://comune.marchirolo.varese.it/portals/2011/SiscomArchivio/6/121368-10-Varese_calendario_turni_2026_2027_2%201.pdf",
+      "fixturePath": "va",
+      "fetchMode": "pdf",
+      "format": "varese-calendar-v1",
+      "validFrom": "2026-06-01",
+      "validTo": "2027-05-31",
+      "minimumCalendarDays": 300,
+      "maxAgeHours": 72,
+      "identityAliases": [
+        { "sourceLabel": "CUVEGLIO", "pharmacyId": "it-msal-3863" },
+        { "sourceLabel": "GALLARATE - Sciarè", "pharmacyId": "it-msal-18425" },
+        { "sourceLabel": "BESOZZO - Pajetta", "pharmacyId": "it-msal-3829" },
+        { "sourceLabel": "GAVIRATE - Calzoni", "pharmacyId": "it-msal-3921" },
+        { "sourceLabel": "VARESE - Centrale", "pharmacyId": "it-msal-3924" },
+        { "sourceLabel": "VARESE - Europa", "pharmacyId": "it-msal-3909" }
+      ],
+      "notes": "Calendario 24 ore ripubblicato dal Comune di Marchirolo, approvato con deliberazione ATS Insubria n. 310 del 20/05/2026."
+    },
+    {
+      "key": "vco-asl-2026",
+      "name": "Verbano-Cusio-Ossola",
+      "province": "VB",
+      "sourceType": "official",
+      "officialSourceUrl": "https://www.aslvco.it/wp-content/uploads/2025/12/2968938.pdf?x88295=",
+      "rawUrl": "https://www.aslvco.it/wp-content/uploads/2025/12/2968938.pdf?x88295=",
+      "fixturePath": "vb",
+      "fetchMode": "pdf",
+      "format": "vco-calendar-v1",
+      "calendarYear": 2026,
+      "validFrom": "2026-01-01",
+      "validTo": "2026-12-31",
+      "minimumCalendarDays": 300,
+      "maxAgeHours": 72,
+      "identityAliases": [
+        { "sourceLabel": "GIUSSANI - VERBANIA", "pharmacyId": "it-msal-1007" },
+        { "sourceLabel": "ASTINI - VERBANIA", "pharmacyId": "it-msal-1009" },
+        { "sourceLabel": "BORRONI - VERBANIA", "pharmacyId": "it-msal-1020" },
+        { "sourceLabel": "SAN GIORGIO - VERBANIA", "pharmacyId": "it-msal-1005" }
+      ],
+      "notes": "Determina ASL VCO n. 1755 del 09/12/2025: il calendario base è una rotazione; il parser pubblica solo le righe con data esplicita (cambi turno), non inventa date dalla successione 1-15."
+    }
+  ],
+  "thirdPartyLinkOut": {
+    "url": "https://farmacia-aperta.eu/",
+    "policy": "link-out-only",
+    "notes": "Farmacia Aperta non è scaricata, copiata o sottoposta a scraping; resta soltanto un link informativo documentato."
+  }
+}

@@ -112,6 +112,11 @@ export interface AffiliateLinkAttribution {
 
 export type AffiliateExperimentVariant = 'control' | 'benefit';
 
+/**
+ * Bounded G4 experiment: only hydrated exchange/banks recommendations may be
+ * assigned a treatment. One session-wide storage bucket keeps both approved
+ * contexts on the same assignment; stable SHA-256 follows the L7 registry.
+ */
 function createExperimentSessionId(): string {
  const browserCrypto = globalThis.crypto;
  if (browserCrypto?.randomUUID) return browserCrypto.randomUUID();
@@ -126,11 +131,6 @@ function assignExperimentVariant(sessionId: string): AffiliateExperimentVariant 
  return (digest[0] & 1) === 0 ? 'control' : 'benefit';
 }
 
-/**
- * Bounded G4 experiment: only hydrated exchange/banks recommendations may be
- * assigned a treatment. One session-wide storage bucket keeps both approved
- * contexts on the same assignment; stable SHA-256 follows the L7 registry.
- */
 export function resolveAffiliateExperimentVariant(
  context: ComparatorContext,
  surface: string,
