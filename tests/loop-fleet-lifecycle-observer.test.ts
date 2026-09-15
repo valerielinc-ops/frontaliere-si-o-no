@@ -347,6 +347,32 @@ describe('loop-fleet independent lifecycle observer', () => {
       registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
     })).toMatchObject({ inputRecords: 5, appended: 0, skipped: 5 });
 
+    const retried = observed.events.map((event: Record<string, unknown>) => ({
+      ...event,
+      recordedAt: '2026-09-13T12:05:00.000Z',
+      execution: {
+        ...(event.execution as Record<string, unknown>),
+        event: 'workflow_dispatch',
+        runId: '10000',
+        sha: 'e'.repeat(40),
+        recordedAt: '2026-09-13T12:05:00.000Z',
+      },
+    }));
+    fs.writeFileSync(eventsFile, `${retried.map((event: unknown) => JSON.stringify(event)).join('\n')}\n`);
+    expect(appendLoopFleetLifecycle({
+      eventsFile,
+      ledgerDir,
+      registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
+    })).toMatchObject({ inputRecords: 5, appended: 0, skipped: 5 });
+
+    const conflicting = { ...retried[0], artifactOrPr: 'https://github.com/example/frontaliere/pull/1000' };
+    fs.writeFileSync(eventsFile, `${JSON.stringify(conflicting)}\n`);
+    expect(() => appendLoopFleetLifecycle({
+      eventsFile,
+      ledgerDir,
+      registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
+    })).toThrow('conflicting duplicate');
+
     const recorderEvent = { ...candidate(), eventType: 'candidate' };
     fs.writeFileSync(eventsFile, `${JSON.stringify(recorderEvent)}\n`);
     expect(() => appendLoopFleetLifecycle({ eventsFile, ledgerDir })).toThrow('must be a downstream event');
