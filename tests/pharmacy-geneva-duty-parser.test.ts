@@ -61,7 +61,7 @@ describe('Geneva pharmacy duty source parser', () => {
     expect(parsed.coverage).toBe('partial');
     expect(parsed.observedCalendarDays).toBe(14);
     expect(parsed.uncoveredCalendarDays).toBe(351);
-    expect(parsed.observedDuties).toHaveLength(2);
+    expect(parsed.observedDuties).toHaveLength(14);
     expect(parsed.duties).toEqual([]);
     expect(parsed.errors).toEqual(expect.arrayContaining([
       'official calendar coverage is incomplete: 14/365 distinct calendar days',
@@ -69,8 +69,37 @@ describe('Geneva pharmacy duty source parser', () => {
     ]));
     expect(parsed.warnings).toContain('permanent 24/7 cards are retained as observations only; no dated duty interval is inferred');
     expect(parsed.observedDuties.map((duty) => [duty.pharmacyId, duty.startsAt, duty.endsAt])).toEqual([
-      ['ge-pharmacie-du-museum', '2026-10-31T07:00:00.000Z', '2026-11-06T22:00:00.000Z'],
-      ['ge-pharmacie-plaza', '2026-08-15T06:00:00.000Z', '2026-08-21T21:00:00.000Z'],
+      ['ge-pharmacie-du-museum', '2026-10-31T07:00:00.000Z', '2026-10-31T22:00:00.000Z'],
+      ['ge-pharmacie-du-museum', '2026-11-01T07:00:00.000Z', '2026-11-01T22:00:00.000Z'],
+      ['ge-pharmacie-du-museum', '2026-11-02T07:00:00.000Z', '2026-11-02T22:00:00.000Z'],
+      ['ge-pharmacie-du-museum', '2026-11-03T07:00:00.000Z', '2026-11-03T22:00:00.000Z'],
+      ['ge-pharmacie-du-museum', '2026-11-04T07:00:00.000Z', '2026-11-04T22:00:00.000Z'],
+      ['ge-pharmacie-du-museum', '2026-11-05T07:00:00.000Z', '2026-11-05T22:00:00.000Z'],
+      ['ge-pharmacie-du-museum', '2026-11-06T07:00:00.000Z', '2026-11-06T22:00:00.000Z'],
+      ['ge-pharmacie-plaza', '2026-08-15T06:00:00.000Z', '2026-08-15T21:00:00.000Z'],
+      ['ge-pharmacie-plaza', '2026-08-16T06:00:00.000Z', '2026-08-16T21:00:00.000Z'],
+      ['ge-pharmacie-plaza', '2026-08-17T06:00:00.000Z', '2026-08-17T21:00:00.000Z'],
+      ['ge-pharmacie-plaza', '2026-08-18T06:00:00.000Z', '2026-08-18T21:00:00.000Z'],
+      ['ge-pharmacie-plaza', '2026-08-19T06:00:00.000Z', '2026-08-19T21:00:00.000Z'],
+      ['ge-pharmacie-plaza', '2026-08-20T06:00:00.000Z', '2026-08-20T21:00:00.000Z'],
+      ['ge-pharmacie-plaza', '2026-08-21T06:00:00.000Z', '2026-08-21T21:00:00.000Z'],
+    ]);
+  });
+
+  it('expands multi-day windows into daily intervals and carries overnight closing into the next day', () => {
+    const overnightHtml = `
+      <div class="et_pb_module et_pb_text"><div class="et_pb_text_inner"><h4>Pharmacie du Museum</h4></div></div>
+      <div class="et_pb_module et_pb_text"><div class="et_pb_text_inner"><p>lundi 30 novembre au mercredi 2 décembre 2026<br />22:00 − 02:00<br />Rte de Malagnou 29<br />1208 Genève</p></div></div>`;
+    const parsed = parseGenevaDutySource(overnightHtml, sourceConfig, {
+      fetchedAt: FETCHED_AT,
+      asOf: FETCHED_AT,
+      catalogue: CATALOGUE,
+    });
+
+    expect(parsed.observedDuties.map((duty) => [duty.id, duty.startsAt, duty.endsAt])).toEqual([
+      ['ge-duty-pharmageneve-garde-2026-2026-11-30-ge-pharmacie-du-museum', '2026-11-30T21:00:00.000Z', '2026-12-01T01:00:00.000Z'],
+      ['ge-duty-pharmageneve-garde-2026-2026-12-01-ge-pharmacie-du-museum', '2026-12-01T21:00:00.000Z', '2026-12-02T01:00:00.000Z'],
+      ['ge-duty-pharmageneve-garde-2026-2026-12-02-ge-pharmacie-du-museum', '2026-12-02T21:00:00.000Z', '2026-12-03T01:00:00.000Z'],
     ]);
   });
 
