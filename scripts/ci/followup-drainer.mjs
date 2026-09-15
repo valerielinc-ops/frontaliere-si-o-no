@@ -362,6 +362,8 @@ if (MAX_INFLIGHT_FIX < REQUESTED_MAX_INFLIGHT_FIX) {
 }
 
 const LBL_QUEUED = 'agent:fix-queued';
+const LBL_OPERATIONS_AUDIT = 'operations-audit';
+const LBL_OPERATIONS_AUDIT_REVIEW = 'operations-audit-review';
 const LBL_FIX = 'agent:fix';
 const LBL_PARKED = 'fu-parked';
 // Claim condiviso con `/fix-issue` locale e con i fixer remoti. Il drainer
@@ -1678,11 +1680,9 @@ export function isPinnedOutsideDrainerQueue(iss) {
   const pins = new Set(labels
     .filter((label) => isFixerExempt([label]))
     .map((label) => String(label).toLowerCase()));
-  const isProvenOperationsAudit = labels
-    .map((label) => String(label).toLowerCase());
-  const auditFixQueued = isProvenOperationsAudit.includes('operations-audit')
-    && isProvenOperationsAudit.includes(LBL_QUEUED)
-    && !isProvenOperationsAudit.includes('operations-audit-review')
+  const auditFixQueued = labels.includes(LBL_OPERATIONS_AUDIT)
+    && labels.includes(LBL_QUEUED)
+    && !labels.includes(LBL_OPERATIONS_AUDIT_REVIEW)
     && pins.size === 1
     && pins.has('agent:no-age-out');
   return pins.size > 0 && !auditFixQueued;
