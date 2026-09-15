@@ -1,0 +1,24 @@
+{
+  "companyKey": "ofac",
+  "companyName": "Ofac Group",
+  "companyHost": "ofac.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://ofac.ch/fr/a-propos-d-ofac/jobs"
+  ],
+  "detailTemplate": "/fr/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 7,
+  "sampleTitles": [
+    "Voir l'annonce",
+    "Voir l'annonce",
+    "Voir l'annonce",
+    "Voir l'annonce",
+    "Voir l'annonce"
+  ],
+  "canton": "BE",
+  "sourceLang": "fr",
+  "learnedAt": "2026-09-15T13:09:55.679Z"
+}
