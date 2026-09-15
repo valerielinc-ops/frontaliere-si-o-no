@@ -71,6 +71,7 @@ describe('pharmacy directory page matrix', () => {
       expect(pharmacies.length, `missing pharmacy records for ${locale} ${city.cityName}`).toBeGreaterThan(0);
       expect(page.indexable).toBe(true);
       expect(page.html).toContain('"@type":"FAQPage"');
+      expect(page.html).toContain(`"@id":"https://frontaliereticino.ch${buildPharmacyPath({ kind: 'city', locale, citySlug: city.citySlug }, locale)}#faq"`);
       expect(page.html).toMatch(/<details\b/);
       for (const pharmacy of pharmacies) {
         const detailPath = buildPharmacyPath({

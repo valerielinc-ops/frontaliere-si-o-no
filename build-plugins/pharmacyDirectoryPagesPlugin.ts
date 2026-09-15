@@ -739,10 +739,11 @@ function breadcrumbJsonLd(descriptor: PageDescriptor, locale: Locale): string {
   return JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: item.name, item: `${BASE_URL}${buildPharmacyPath(item.path, locale)}` })) });
 }
 
-function cityFaqJsonLd(locale: Locale, cityName: string, count: number): string {
+function cityFaqJsonLd(locale: Locale, pathValue: PharmacyPath, cityName: string, count: number): string {
   return JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    '@id': `${BASE_URL}${buildPharmacyPath(pathValue, locale)}#faq`,
     mainEntity: cityFaqItems(locale, cityName, count).map((item) => ({
       '@type': 'Question',
       name: item.question,
@@ -793,7 +794,7 @@ function jsonLd(
   if (descriptor.kind === 'city' && descriptor.country === 'CH') {
     const cityName = descriptor.cityName || '';
     const pharmacies = pharmaciesForCity(cityName);
-    return [collectionJsonLd(pathValue, title, pharmacies), cityFaqJsonLd(locale, cityName, pharmacies.length), breadcrumbJsonLd(descriptor, locale)];
+    return [collectionJsonLd(pathValue, title, pharmacies), cityFaqJsonLd(locale, pathValue, cityName, pharmacies.length), breadcrumbJsonLd(descriptor, locale)];
   }
   if (descriptor.kind === 'canton') return [cantonCollectionJsonLd(pathValue, title, cantonCityEntries(locale, emittedPaths)), breadcrumbJsonLd(descriptor, locale)];
   if (descriptor.kind === 'country') return [countryCollectionJsonLd(pathValue, title), breadcrumbJsonLd(descriptor, locale)];

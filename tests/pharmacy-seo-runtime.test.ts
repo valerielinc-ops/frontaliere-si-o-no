@@ -6,6 +6,8 @@ import completeTicinoJson from '../data/pharmacies-ticino-complete.json';
 import { buildPharmacyPath } from '../services/pharmacies/paths';
 import { BORDER_PHARMACIES, pharmacyCitySlug } from '../services/pharmacies/data';
 import { buildPharmacyTitle } from '../services/pharmacies/title';
+import { buildPharmacyDirectoryPage, pharmacyPageDescriptors } from '../build-plugins/pharmacyDirectoryPagesPlugin';
+import { parsePath } from '../services/router';
 import { setLocale } from '../services/i18n';
 import type { Pharmacy, PharmacyCatalogueDataset, PharmacyDutiesDataset } from '../services/pharmacies/types';
 
@@ -29,6 +31,7 @@ beforeEach(() => {
   setLocale('it');
   document.documentElement.lang = 'it';
   document.head.innerHTML = '<title>Simulatore Fiscale</title><meta name="robots" content="index,follow"><link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/">';
+  document.body.innerHTML = '';
 });
 
 afterEach(() => {
@@ -53,6 +56,15 @@ function jsonLdSchemas(): Record<string, any>[] {
     .map((script) => JSON.parse(script.textContent || '{}'));
 }
 
+function addStaticCitySchemas(citySlug: string): Record<string, any>[] {
+  const descriptor = pharmacyPageDescriptors().find((candidate) => candidate.kind === 'city' && candidate.country === 'CH' && candidate.citySlug === citySlug);
+  const page = buildPharmacyDirectoryPage(descriptor!, 'it', '');
+  const schemas = [...page.html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+    .map((match) => JSON.parse(match[1]));
+  schemas.forEach((schema) => addJsonLd(schema));
+  return schemas;
+}
+
 describe('pharmacy SEO after SPA navigation', () => {
   it('keeps stale, tampered and unsupported weekly models noindex', () => {
     const stale = pharmacySeoRuntime.resolvePharmacySeoMetadata(
@@ -75,6 +87,21 @@ describe('pharmacy SEO after SPA navigation', () => {
     expect(stale.robots).toBe('noindex,follow');
     expect(tampered.robots).toBe('noindex,follow');
     expect(unsupported.robots).toBe('noindex,follow');
+    expect(stale.structuredData).toBeUndefined();
+    expect(tampered.structuredData).toBeUndefined();
+    expect(unsupported.structuredData).toBeUndefined();
+  });
+
+  it.each([
+    ['it', 'Farmacie'],
+    ['en', 'Pharmacies'],
+    ['de', 'Apotheken'],
+    ['fr', 'Pharmacies'],
+  ] as const)('localizes the pharmacy breadcrumb root in %s', (locale, label) => {
+    const metadata = pharmacySeoRuntime.resolvePharmacySeoMetadata({ kind: 'hub', locale });
+    const schemas = Array.isArray(metadata.structuredData) ? metadata.structuredData : [metadata.structuredData];
+    const breadcrumb = schemas.find((schema) => schema?.['@type'] === 'BreadcrumbList');
+    expect(breadcrumb?.itemListElement[0].name).toBe(label);
   });
 
   it('updates pharmacy title, canonical, robots and all locale alternates', async () => {
@@ -126,6 +153,40 @@ describe('pharmacy SEO after SPA navigation', () => {
     expect(pharmacySchemas[0].url).toBe(`https://frontaliereticino.ch${path}`);
     expect(breadcrumb?.itemListElement.at(-1)?.item).toBe(`https://frontaliereticino.ch${path}`);
     expect(JSON.stringify(schemas)).not.toContain('Stale pharmacy');
+  });
+
+  it('removes the static city FAQPage when navigating from a city to a pharmacy detail', async () => {
+    const pharmacy = ticino.pharmacies[0] as unknown as Pharmacy;
+    const citySlug = pharmacyCitySlug(pharmacy.city);
+    const staticSchemas = addStaticCitySchemas(citySlug);
+    const staticFaq = staticSchemas.find((schema) => schema['@type'] === 'FAQPage');
+    expect(staticFaq?.['@id']).toContain(`/farmacie/ticino/${citySlug}/#faq`);
+
+    const path = buildPharmacyPath({
+      kind: 'pharmacy',
+      locale: 'it',
+      country: 'CH',
+      citySlug,
+      pharmacySlug: pharmacy.slug,
+    });
+    window.history.replaceState({}, '', path);
+    await seo.updateMetaTags('pharmacy');
+
+    expect(jsonLdSchemas().some((schema) => schema['@type'] === 'FAQPage')).toBe(false);
+    expect(jsonLdSchemas().some((schema) => schema['@type'] === 'Pharmacy' && schema.name === pharmacy.name)).toBe(true);
+  });
+
+  it('removes the static city FAQPage when navigating from a city to a non-pharmacy route', async () => {
+    const pharmacy = ticino.pharmacies[0] as unknown as Pharmacy;
+    const staticSchemas = addStaticCitySchemas(pharmacyCitySlug(pharmacy.city));
+    const staticFaqId = staticSchemas.find((schema) => schema['@type'] === 'FAQPage')?.['@id'];
+    expect(jsonLdSchemas().some((schema) => schema['@type'] === 'FAQPage')).toBe(true);
+
+    window.history.replaceState({}, '', '/');
+    await seo.updateMetaTags('calculator');
+
+    expect(jsonLdSchemas().some((schema) => schema['@type'] === 'FAQPage' && schema['@id'] === staticFaqId)).toBe(false);
+    expect(JSON.stringify(jsonLdSchemas())).not.toContain('/farmacie/');
   });
 
   it('injects CollectionPage and route-aware Breadcrumb JSON-LD for a valid collection route', async () => {
@@ -204,5 +265,18 @@ describe('pharmacy SEO after SPA navigation', () => {
     await seo.updateMetaTags('pharmacy-duty-week');
     expect(JSON.stringify(jsonLdSchemas())).not.toContain('/farmacie/');
     expect(jsonLdSchemas().some((schema) => ['Pharmacy', 'CollectionPage'].includes(schema['@type']))).toBe(false);
+  });
+
+  it('cleans pharmacy schemas through the real malformed-week router 404 path', () => {
+    const malformedPath = '/farmacie/di-turno/settimana/2026-09-15/';
+    const parsed = parsePath(malformedPath);
+    expect(parsed.notFoundPath).toBe(malformedPath);
+    addStaticCitySchemas(pharmacyCitySlug(ticino.pharmacies[0].city));
+
+    seo.applyNotFoundSeo(parsed.notFoundPath!);
+
+    expect(document.querySelector('meta[name="robots"]')?.getAttribute('content')).toBe('noindex');
+    expect(JSON.stringify(jsonLdSchemas())).not.toContain('/farmacie/');
+    expect(jsonLdSchemas().some((schema) => schema['@type'] === 'FAQPage')).toBe(false);
   });
 });

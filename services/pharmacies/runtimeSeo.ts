@@ -46,6 +46,7 @@ const RUNTIME_PHARMACY_COPY: Record<Locale, {
   dutyWeekTitle: (weekStart: string) => string;
   dutyWeekDescription: string;
   directoryDescription: string;
+  breadcrumbLabel: string;
   keywords: string;
 }> = {
   it: {
@@ -57,6 +58,7 @@ const RUNTIME_PHARMACY_COPY: Record<Locale, {
     dutyWeekTitle: (weekStart) => `Farmacie di turno in Ticino: settimana del ${weekStart}`,
     dutyWeekDescription: 'Calendario settimanale delle sole aree OFCT con intervalli verificati. Non è una copertura di tutti i cantoni né delle farmacie italiane di confine.',
     directoryDescription: 'Directory transfrontaliera di Ticino e province italiane vicine. Ogni sede mostra la fonte, la data di recupero e separa i dati anagrafici dagli orari e dai servizi opzionali.',
+    breadcrumbLabel: 'Farmacie',
     keywords: 'farmacie Ticino, farmacie di turno, farmacie confine Italia',
   },
   en: {
@@ -68,6 +70,7 @@ const RUNTIME_PHARMACY_COPY: Record<Locale, {
     dutyWeekTitle: (weekStart) => `On-duty pharmacies in Ticino: week of ${weekStart}`,
     dutyWeekDescription: 'Weekly schedule for the OFCT areas with verified intervals only. This is not coverage for every Swiss canton or for Italian border pharmacies.',
     directoryDescription: 'Cross-border directory for Ticino and nearby Italian provinces. Each location shows its source, retrieval date and the distinction between identity, hours and optional services.',
+    breadcrumbLabel: 'Pharmacies',
     keywords: 'pharmacies Ticino, on-duty pharmacies, Italian border pharmacies',
   },
   de: {
@@ -79,6 +82,7 @@ const RUNTIME_PHARMACY_COPY: Record<Locale, {
     dutyWeekTitle: (weekStart) => `Notdienst-Apotheken im Tessin: Woche ab ${weekStart}`,
     dutyWeekDescription: 'Wochenplan nur für OFCT-Gebiete mit verifizierten Zeiträumen. Dies ist keine Abdeckung aller Schweizer Kantone oder der italienischen Grenzapotheken.',
     directoryDescription: 'Grenzüberschreitendes Verzeichnis für das Tessin und nahe italienische Provinzen. Jede Seite zeigt Quelle, Abrufdatum und die Trennung von Identität, Zeiten und optionalen Leistungen.',
+    breadcrumbLabel: 'Apotheken',
     keywords: 'Apotheken Tessin, Notdienst-Apotheken, italienische Grenzapotheken',
   },
   fr: {
@@ -90,6 +94,7 @@ const RUNTIME_PHARMACY_COPY: Record<Locale, {
     dutyWeekTitle: (weekStart) => `Pharmacies de garde au Tessin : semaine du ${weekStart}`,
     dutyWeekDescription: 'Planning hebdomadaire limité aux zones OFCT dont les intervalles sont vérifiés. Il ne couvre pas tous les cantons suisses ni les pharmacies italiennes de la frontière.',
     directoryDescription: 'Répertoire transfrontalier du Tessin et des provinces italiennes voisines. Chaque site montre sa source, sa date de collecte et distingue identité, horaires et services optionnels.',
+    breadcrumbLabel: 'Pharmacies',
     keywords: 'pharmacies Tessin, pharmacies de garde, pharmacies frontière italienne',
   },
 };
@@ -298,11 +303,12 @@ function dutyWeekStructuredData(path: PharmacyPath, title: string, model: Return
 }
 
 function pharmacyBreadcrumbStructuredData(path: PharmacyPath, title: string): Record<string, any> {
+  const copy = RUNTIME_PHARMACY_COPY[path.locale];
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Farmacie', item: `${BASE_URL}${buildPharmacyPath({ kind: 'hub', locale: path.locale }, path.locale)}` },
+      { '@type': 'ListItem', position: 1, name: copy.breadcrumbLabel, item: `${BASE_URL}${buildPharmacyPath({ kind: 'hub', locale: path.locale }, path.locale)}` },
       { '@type': 'ListItem', position: 2, name: title, item: `${BASE_URL}${buildPharmacyPath(path, path.locale)}` },
     ],
   };
@@ -346,7 +352,7 @@ export function resolvePharmacySeoMetadata(
           ? countryCollectionStructuredData(path, title)
           : collectionStructuredData(path, title, collectionPharmacies)
         : undefined;
-  const breadcrumb = resolved ? pharmacyBreadcrumbStructuredData(path, title) : undefined;
+  const breadcrumb = indexable ? pharmacyBreadcrumbStructuredData(path, title) : undefined;
   const structuredData = primaryStructuredData && breadcrumb
     ? [primaryStructuredData, breadcrumb]
     : primaryStructuredData || breadcrumb;
