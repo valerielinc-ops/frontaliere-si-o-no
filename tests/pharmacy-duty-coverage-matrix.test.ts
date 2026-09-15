@@ -56,6 +56,12 @@ describe('duty coverage matrix', () => {
       expect(canton).not.toHaveProperty('endsAt');
     }
 
+    expect(matrix.italy.provinces.map((province) => province.code)).toEqual(['CO', 'VA', 'VB']);
+    expect(matrix.italy.publishable).toBe(false);
+    expect(matrix.italy.indexable).toBe(false);
+    expect(matrix.italy.provinces.every((province) => province.duties.length === 0)).toBe(true);
+    expect(matrix.italy.provinces.every((province) => province.sourceUrl === null)).toBe(true);
+
     const english = buildDutyCoverageMatrix({ duties, catalogue, registry, locale: 'en', now, weekStart: '2026-09-14' });
     expect(english.sourceOnlyCantons.find((canton) => canton.code === 'AG')?.name).toBe('Aargau');
   });
@@ -72,6 +78,7 @@ describe('duty coverage matrix', () => {
     expect(matrix.regions.every((region) => region.duties.length === 0)).toBe(true);
     expect(matrix.regions.every((region) => region.sourceUrl === null)).toBe(true);
     expect(matrix.sourceOnlyCantons).toHaveLength(25);
+    expect(matrix.italy.provinces.every((province) => province.duties.length === 0)).toBe(true);
   });
 
   it('rejects non-HTTPS official source URLs at the read-model boundary', () => {

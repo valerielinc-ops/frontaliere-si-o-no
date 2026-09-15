@@ -146,7 +146,7 @@ export interface Pharmacy {
   urlAliases?: PharmacyUrlAlias[];
 }
 
-export type PharmacyDutyCoverageType = 'city' | 'district' | 'region' | 'canton';
+export type PharmacyDutyCoverageType = 'city' | 'district' | 'region' | 'canton' | 'province';
 export type PharmacyDutyType = 'day' | 'night' | 'weekend' | 'holiday' | '24h';
 export type PharmacyDutyStatus = 'verified' | 'pending_review' | 'expired' | 'conflicting';
 export type PharmacyDutySourceType = 'official' | 'association' | 'pharmacy' | 'verified_partner';
@@ -154,6 +154,8 @@ export type PharmacyDutySourceType = 'official' | 'association' | 'pharmacy' | '
 export interface PharmacyDuty {
   id: string;
   pharmacyId: string;
+  /** Present on Italian release rows, whose duty boundary is a province. */
+  province?: string;
   coverageType: PharmacyDutyCoverageType;
   coverageName: string;
   startsAt: string;
@@ -467,7 +469,7 @@ const REQUIRED_DUTY_STRING_FIELDS: readonly (keyof PharmacyDuty)[] = [
   'sourceType',
   'fetchedAt',
 ];
-const DUTY_COVERAGE_TYPES: readonly PharmacyDutyCoverageType[] = ['city', 'district', 'region', 'canton'];
+const DUTY_COVERAGE_TYPES: readonly PharmacyDutyCoverageType[] = ['city', 'district', 'region', 'canton', 'province'];
 const DUTY_TYPES: readonly PharmacyDutyType[] = ['day', 'night', 'weekend', 'holiday', '24h'];
 const DUTY_STATUSES: readonly PharmacyDutyStatus[] = ['verified', 'pending_review', 'expired', 'conflicting'];
 const DUTY_SOURCE_TYPES: readonly PharmacyDutySourceType[] = ['official', 'association', 'pharmacy', 'verified_partner'];
