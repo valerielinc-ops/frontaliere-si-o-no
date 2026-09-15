@@ -116,15 +116,15 @@ describe('il gate dell\'aggregata', () => {
   });
 
   it('item valido non confermato → NON chiudere', () => {
-    const g = aggregateCloseGate(body([prose, withToken]), io('file che non contiene il token'));
+    const g = aggregateCloseGate(body([withToken]), io('file che non contiene il token'));
     expect(g.blocks).toBe(true);
     expect(g.reason).toBe('valid-item-unconfirmed');
   });
 
-  it('tutti gli item validi confermati → chiudere, anche con prosa accanto', () => {
+  it('un item valido confermato accanto a prosa pendente → NON chiudere', () => {
     const g = aggregateCloseGate(body([prose, withToken]), io('… resolveSearchConsoleCompatTarget() …'));
-    expect(g.blocks).toBe(false);
-    expect(g.reason).toBe(null);
+    expect(g.blocks).toBe(true);
+    expect(g.reason).toBe('mixed-prose-pending');
   });
 
   it('corpo senza struttura a item → veto storico, mai «vuoto quindi chiudi»', () => {
@@ -383,7 +383,7 @@ describe('condizione di accettazione — la scheda con COMANDO (D1/D2/D3)', () =
     const item = scheda('npx vitest run tests/foo.test.ts');
     const g = aggregateCloseGate(body([prose, item]), io('qualunque contenuto, anche il comando verbatim: npx vitest run tests/foo.test.ts'));
     expect(g.blocks).toBe(true);
-    expect(g.reason).toBe('valid-item-unconfirmed');
+    expect(g.reason).toBe('mixed-prose-pending');
   });
 
   it('D3: apertura e chiusura si muovono INSIEME sullo stesso item', () => {

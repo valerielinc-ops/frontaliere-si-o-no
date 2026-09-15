@@ -149,6 +149,26 @@ describe('citedFiles', () => {
   });
 });
 
+it('propaga il Target file non backtickato fino al matcher end-to-end', () => {
+  const target = 'scripts/ci/foo.mjs';
+  const body = [
+    '### 1. Runtime guard',
+    `- Target file: ${target}`,
+    '- Suggested action: chiamare `newGuard()` prima del ritorno.',
+  ].join('\n');
+  const io = {
+    fileExists: (file: string) => file === target,
+    readFile: (file: string) => (file === target ? 'newGuard();' : null),
+  };
+
+  expect(detectAlreadyResolved(body, io)).toEqual({
+    resolved: true,
+    evidence: [{ file: target, tok: 'newGuard()' }],
+    files: [target],
+    tokens: ['newGuard()'],
+  });
+});
+
 describe('suggestedActionText scoping', () => {
   it('returns only the Suggested action region when present (not Original text)', () => {
     const body = [
