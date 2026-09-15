@@ -43,6 +43,7 @@ import {
 import {
   FUEL_INDEX_SLUG,
   buildFuelIndexPath,
+  buildFuelIndexPaginationPath,
   type FuelIndexKind,
 } from '../../build-plugins/fuelStationIndexPages';
 
@@ -72,6 +73,16 @@ describe('fuel-station-index router recognition', () => {
     // The exact URL the user reported as "Pagina non trovata".
     expect(isFuelStationIndexPath('/prezzi-benzina/stazioni-italia/')).toBe(true);
     expect(isFuelDailyPath('/prezzi-benzina/stazioni-italia/')).toBe(true);
+  });
+
+  it('matches paginated Italian-station index paths while rejecting non-canonical page numbers', () => {
+    const page2 = buildFuelIndexPaginationPath('it', 'benzina', 'italianStations', 2);
+    expect(page2).toBe('/prezzi-benzina/stazioni-italia/page-2/');
+    expect(isFuelStationIndexPath(page2)).toBe(true);
+    expect(isFuelDailyPath(page2)).toBe(true);
+    expect(isFuelStationIndexPath('/prezzi-benzina/stazioni-italia/page-1/')).toBe(false);
+    expect(isFuelStationIndexPath('/prezzi-benzina/stazioni-italia/page-0/')).toBe(false);
+    expect(isFuelStationIndexPath('/prezzi-benzina/stazioni-italia/page-01/')).toBe(false);
   });
 
   it('rejects unrelated URLs', () => {
