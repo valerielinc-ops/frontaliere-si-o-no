@@ -30,6 +30,10 @@ export const PLATE_AUCTION_API_SCHEMA = 1;
 const PLATE_AUCTION_PAGE_SIZE = 1000;
 const PLATE_AUCTION_MAX_ROWS = 100000;
 
+function canonicalPlateCode(value) {
+  return String(value || '').trim().toUpperCase();
+}
+
 function makeEcariConnector({ canton, plateCode, url, parserVersion = '2.0.0' }) {
   return {
     canton,
@@ -491,15 +495,15 @@ export async function getPublicPlateAuctionSnapshot(db = getAdminDb()) {
   }
   const activeSourceCodes = new Set(Object.values(PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY)
     .filter((source) => source.status === 'active')
-    .map((source) => source.plateCode));
+    .map((source) => canonicalPlateCode(source.plateCode)));
   const auctions = auctionRows.map(publicAuction).filter(Boolean)
-    .filter((auction) => activeSourceCodes.has(auction.sourceKey || auction.platePrefix))
+    .filter((auction) => activeSourceCodes.has(canonicalPlateCode(auction.sourceKey || auction.platePrefix)))
     .map((auction) => {
     const closed = closeExpiredObservation(auction, new Date());
     return closed ? publicAuction(closed) : auction;
   }).filter(Boolean);
   const history = historyRows.map(publicAuction).filter(Boolean)
-    .filter((auction) => activeSourceCodes.has(auction.sourceKey || auction.platePrefix));
+    .filter((auction) => activeSourceCodes.has(canonicalPlateCode(auction.sourceKey || auction.platePrefix)));
   const sources = Object.fromEntries(Object.entries(PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY).map(([key, source]) => [key, { ...source, rowCount: 0 }]));
   for (const source of sourceRows) {
     const publicValue = publicSource(source);
