@@ -77,7 +77,9 @@ import {
   UNRESOLVED_CANTON_KEY,
   UNRESOLVED_CANTON_LABEL,
   normalizeText,
+  cleanEventText,
 } from '../scripts/lib/events-utils.mjs';
+export { cleanEventText } from '../scripts/lib/events-utils.mjs';
 import { getCantonLabel, type CantonLocale } from '../services/cantonList';
 import { imageObjectLd, type ImageObjectLd } from '../services/seo/imageObjectLd';
 import { differentiateH1FromTitle, osmEmbedSrc, CTA_PRIMARY_CLASS } from './shared/seoContentTokens';
@@ -119,63 +121,6 @@ interface SiteEvent {
   // `description` via localizedTitle/localizedDescription below.
   titleByLocale?: Partial<Record<Locale, string>>;
   descriptionByLocale?: Partial<Record<Locale, string>>;
-}
-
-const EVENT_ENTITY_RE = /&(#x[\da-f]+|#\d+|[a-z][a-z\d]+);/gi;
-const EVENT_NAMED_ENTITIES: Record<string, string> = {
-  amp: '&',
-  apos: "'",
-  bull: '•',
-  copy: '©',
-  hellip: '…',
-  laquo: '«',
-  ldquo: '“',
-  lt: '<',
-  lsquo: '‘',
-  mdash: '—',
-  middot: '·',
-  nbsp: ' ',
-  ndash: '–',
-  quot: '"',
-  raquo: '»',
-  rdquo: '”',
-  reg: '®',
-  rsquo: '’',
-  trade: '™',
-  gt: '>',
-};
-
-function decodeEventEntity(_match: string, entity: string): string {
-  const normalized = entity.toLowerCase();
-  if (normalized.startsWith('#x')) {
-    const codePoint = Number.parseInt(normalized.slice(2), 16);
-    return Number.isInteger(codePoint) && codePoint >= 0 && codePoint <= 0x10ffff ? String.fromCodePoint(codePoint) : ' ';
-  }
-  if (normalized.startsWith('#')) {
-    const codePoint = Number.parseInt(normalized.slice(1), 10);
-    return Number.isInteger(codePoint) && codePoint >= 0 && codePoint <= 0x10ffff ? String.fromCodePoint(codePoint) : ' ';
-  }
-  return EVENT_NAMED_ENTITIES[normalized] ?? _match;
-}
-
-/** Convert crawler-supplied rich text into safe, readable event copy.
- *
- * MySwitzerland/Guidle descriptions sometimes arrive as escaped HTML (for
- * example `&lt;b&gt;...&lt;/b&gt;`). The static renderer must never expose the
- * source markup to visitors, and the same cleaned value feeds cards and
- * Event JSON-LD so the page does not disagree with its structured data.
- */
-export function cleanEventText(value: unknown): string {
-  if (typeof value !== 'string') return '';
-  return value
-    .replace(/<!--[\s\S]*?-->/g, ' ')
-    .replace(/<(script|style|noscript|template)\b[^>]*>[\s\S]*?<\/\1>/gi, ' ')
-    .replace(/<br\s*\/?>/gi, ' ')
-    .replace(/<\/?[a-z][^>]*>/gi, ' ')
-    .replace(EVENT_ENTITY_RE, decodeEventEntity)
-    .replace(/<\/?[a-z][^>]*>/gi, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
 }
 
 function localizedTitle(event: SiteEvent, locale: Locale): string {

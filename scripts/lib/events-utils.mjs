@@ -338,6 +338,59 @@ export function normalizeText(value) {
     .trim();
 }
 
+const EVENT_ENTITY_RE = /&(#x[\da-f]+|#\d+|[a-z][a-z\d]+);/gi;
+const EVENT_NAMED_ENTITIES = {
+  amp: '&',
+  apos: "'",
+  bull: '•',
+  copy: '©',
+  hellip: '…',
+  laquo: '«',
+  ldquo: '“',
+  lt: '<',
+  lsquo: '‘',
+  mdash: '—',
+  middot: '·',
+  nbsp: ' ',
+  ndash: '–',
+  quot: '"',
+  raquo: '»',
+  rdquo: '”',
+  reg: '®',
+  rsquo: '’',
+  trade: '™',
+  gt: '>',
+};
+
+function decodeEventEntity(_match, entity) {
+  const normalized = entity.toLowerCase();
+  if (normalized.startsWith('#x')) {
+    const codePoint = Number.parseInt(normalized.slice(2), 16);
+    return Number.isInteger(codePoint) && codePoint >= 0 && codePoint <= 0x10ffff ? String.fromCodePoint(codePoint) : ' ';
+  }
+  if (normalized.startsWith('#')) {
+    const codePoint = Number.parseInt(normalized.slice(1), 10);
+    return Number.isInteger(codePoint) && codePoint >= 0 && codePoint <= 0x10ffff ? String.fromCodePoint(codePoint) : ' ';
+  }
+  return EVENT_NAMED_ENTITIES[normalized] ?? _match;
+}
+
+/** Safe plain-text boundary for crawler fields that may contain rich HTML.
+ * Keeps the event source data usable by crawlers and static renderers alike,
+ * including escaped tags such as `&lt;b&gt;...&lt;/b&gt;`. */
+export function cleanEventText(value) {
+  if (typeof value !== 'string') return '';
+  return value
+    .replace(/<!--[\s\S]*?-->/g, ' ')
+    .replace(/<(script|style|noscript|template)\b[^>]*>[\s\S]*?<\/\1>/gi, ' ')
+    .replace(/<br\s*\/?\s*>/gi, ' ')
+    .replace(/<\/?[a-z][^>]*>/gi, ' ')
+    .replace(EVENT_ENTITY_RE, decodeEventEntity)
+    .replace(/<\/?[a-z][^>]*>/gi, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 /**
  * Segment shape the events tree reserves for its own overflow ladder:
  * `overflowLadderPath()` mints `<bucket-path>page-N/`, and the bucket path is
