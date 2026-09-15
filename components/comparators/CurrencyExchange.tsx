@@ -18,6 +18,7 @@ import {
  CREDIT_AGRICOLE_IT_REFERRAL_URL,
 } from '@/services/exchangePartners';
 import { resolveGoHref, type AffiliateLinkAttribution } from '@/services/affiliateService';
+import { AFFILIATE_CONTEXTUAL_CAMPAIGN } from '@/services/affiliateExperiment.mjs';
 
 // Lazy-load Recharts to avoid 386KB vendor-charts blocking main thread (TBT fix)
 const LazyExchangeChart = lazyRetry(() =>
@@ -87,7 +88,7 @@ interface ExchangeProvider {
 
 /** /go/-routed href for a referral provider (falls back to the direct URL). */
 function providerAttribution(position: string): AffiliateLinkAttribution {
- return { surface: 'web', position, campaign: 'g4-contextual', variant: 'v1' };
+ return { surface: 'web', position, campaign: AFFILIATE_CONTEXTUAL_CAMPAIGN, variant: 'v1' };
 }
 
 function providerGoHref(provider: ExchangeProvider, position: string): string {

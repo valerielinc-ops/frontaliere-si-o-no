@@ -82,6 +82,7 @@ import {
   renderDiscoverMore,
 } from './shared/seoContentTokens';
 import { PARTNERS, buildAffiliateLinkHref } from '../services/affiliateService';
+import { AFFILIATE_CONTEXTUAL_CAMPAIGN } from '../services/affiliateExperiment.mjs';
 
 // ── Feature-specific "Scopri di più" CTAs ─────────────────────
 // Three contextually relevant links per locale for the F2 health-premiums feature.
@@ -202,7 +203,7 @@ export function renderHealthPartnerBlock(locale: HealthPremiumLocale): string {
       const href = buildAffiliateLinkHref(p, {
         surface: 'web',
         position: `health-premiums-${locale}-${index + 1}`,
-        campaign: 'g4-contextual',
+        campaign: AFFILIATE_CONTEXTUAL_CAMPAIGN,
         variant: 'v1',
       });
       return `<li class="s-6FVpHG"><a href="${esc(href)}" rel="${rel}" style="${LINK_ACCENT_STYLE};display:inline-block;padding:8px 0;font-weight:600;font-size:15px">${p.emoji} ${esc(p.name)} →</a><br><span style="font-size:14px">${esc(copy.taglines[p.id])}</span></li>`;

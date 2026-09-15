@@ -11,6 +11,7 @@ import { lazyRetry } from '@/services/lazyRetry';
 const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 const LeadMagnetCTA = lazyRetry(() => import('@/components/shared/LeadMagnetCTA'));
 import DataFreshness from '@/components/shared/DataFreshness';
+import { AFFILIATE_CONTEXTUAL_CAMPAIGN } from '@/services/affiliateExperiment.mjs';
 
 interface Bank {
  name: string;
@@ -288,7 +289,7 @@ const BankComparison: React.FC = () => {
  <div className="grid md:grid-cols-2 gap-6">
  {filtered.map((bank, index) => {
  const CardWrapper = bank.website ? 'a' : 'div';
- const attribution: AffiliateLinkAttribution = { surface: 'web', position: `banks-comparison-${index + 1}`, campaign: 'g4-contextual', variant: 'v1' };
+ const attribution: AffiliateLinkAttribution = { surface: 'web', position: `banks-comparison-${index + 1}`, campaign: AFFILIATE_CONTEXTUAL_CAMPAIGN, variant: 'v1' };
  const cardProps = bank.website ? {
  href: resolveGoHref(bank.goId, bank.website, attribution),
  target: '_blank',

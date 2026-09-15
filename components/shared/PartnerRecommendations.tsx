@@ -10,6 +10,7 @@ import React, { useEffect, useState } from 'react';
 import { ExternalLink } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { getPartnersForContext, buildAffiliateLinkHref, partnerRelAttr, resolveAffiliateExperimentVariant, type ComparatorContext, type AffiliatePartner, type AffiliateExperimentVariant } from '@/services/affiliateService';
+import { G4_EXPERIMENT_CAMPAIGN, G4_EXPERIMENT_ID, isG4ExperimentContext } from '@/services/affiliateExperiment.mjs';
 import { Analytics } from '@/services/analytics';
 
 interface PartnerRecommendationsProps {
@@ -30,7 +31,8 @@ const PartnerCard: React.FC<{
  surface: string;
  campaign: string;
  variant: string;
-}> = ({ partner, context, index, surface, campaign, variant }) => {
+ experimentId?: string;
+}> = ({ partner, context, index, surface, campaign, variant, experimentId }) => {
  const { t } = useTranslation();
  const position = `${context}-${index + 1}`;
  const href = buildAffiliateLinkHref(partner, { surface, position, campaign, variant });
@@ -39,7 +41,7 @@ const PartnerCard: React.FC<{
 
  const handleClick = () => {
  Analytics.trackExternalLink(href, `affiliate_${partner.id}`);
- Analytics.trackAffiliateClick(partner.id, context, { surface, position, campaign, variant });
+ Analytics.trackAffiliateClick(partner.id, context, { surface, position, campaign, variant, experimentId });
  };
 
  return (
@@ -84,21 +86,23 @@ const PartnerRecommendations: React.FC<PartnerRecommendationsProps> = ({
  context,
  maxCards = 2,
  surface = 'web',
- campaign = 'g4-contextual',
+ campaign = G4_EXPERIMENT_CAMPAIGN,
  variant,
 }) => {
  const { t } = useTranslation();
  const partners = getPartnersForContext(context, maxCards);
  const [assignedVariant, setAssignedVariant] = useState<AffiliateExperimentVariant>('control');
+ const isExperiment = isG4ExperimentContext(context, surface);
+ const effectiveCampaign = isExperiment ? G4_EXPERIMENT_CAMPAIGN : campaign;
 
  useEffect(() => {
  if (variant) return;
  const nextVariant = resolveAffiliateExperimentVariant(context, surface);
  setAssignedVariant(nextVariant);
- if (surface === 'web' && (context === 'exchange' || context === 'banks')) {
- Analytics.trackAffiliateExperimentExposure(context, { surface, campaign, variant: nextVariant });
+ if (isExperiment) {
+ Analytics.trackAffiliateExperimentExposure(context, { surface, campaign: effectiveCampaign, variant: nextVariant });
  }
- }, [campaign, context, surface, variant]);
+ }, [context, effectiveCampaign, isExperiment, surface, variant]);
 
  const effectiveVariant = variant || assignedVariant;
 
@@ -114,12 +118,13 @@ const PartnerRecommendations: React.FC<PartnerRecommendationsProps> = ({
  <PartnerCard
  key={partner.id}
  partner={partner}
- context={context}
- index={index}
- surface={surface}
- campaign={campaign}
- variant={effectiveVariant}
- />
+   context={context}
+   index={index}
+   surface={surface}
+   campaign={effectiveCampaign}
+   variant={effectiveVariant}
+   experimentId={isExperiment ? G4_EXPERIMENT_ID : undefined}
+  />
  ))}
  </div>
  <p className="text-sm text-muted mt-2 text-center">

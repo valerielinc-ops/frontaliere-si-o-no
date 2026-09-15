@@ -79,6 +79,7 @@ describe('read-only L7 experiment outcome exporter', () => {
     expect(query).toContain("event = 'affiliate_experiment_exposure'");
     expect(query).toContain("event = 'affiliate_click'");
     expect(query).toContain("properties.campaign = 'g4-contextual'");
+    expect(query).toContain("properties.experiment_id = 'g4-affiliate-contextual'");
     expect(query).not.toMatch(/email|https?:\/\//i);
   });
 
@@ -184,6 +185,7 @@ describe('read-only L7 experiment outcome exporter', () => {
       exposureEvent: 'affiliate_experiment_exposure',
       outcomeEvent: 'affiliate_click',
       sessionJoin: 'properties.$session_id',
+      experimentIdProperty: 'experiment_id',
       contexts: ['exchange', 'banks'],
       variants: ['control', 'benefit'],
     });

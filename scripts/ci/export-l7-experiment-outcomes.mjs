@@ -16,18 +16,24 @@ import { pathToFileURL } from 'node:url';
 import { GoogleDataClient } from './export-loop-outcomes.mjs';
 import { runHogQL } from '../lib/posthog-client.mjs';
 import { validateLoopRegistry } from '../lib/loop-fleet-contract.mjs';
+import {
+  AFFILIATE_EXPERIMENT_ID_PROPERTY,
+  G4_EXPERIMENT_CAMPAIGN,
+  G4_EXPERIMENT_ID,
+} from '../../services/affiliateExperiment.mjs';
 
 export const DEFAULT_L7_WINDOW_DAYS = 8;
 export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
 export const L7_EXPERIMENT_EVENT_CONTRACT = Object.freeze({
-  experimentId: 'g4-affiliate-contextual',
+  experimentId: G4_EXPERIMENT_ID,
   exposureEvent: 'affiliate_experiment_exposure',
   outcomeEvent: 'affiliate_click',
-  campaign: 'g4-contextual',
+  campaign: G4_EXPERIMENT_CAMPAIGN,
   surface: 'web',
   contexts: Object.freeze(['exchange', 'banks']),
   variants: Object.freeze(['control', 'benefit']),
   sessionJoin: 'properties.$session_id',
+  experimentIdProperty: AFFILIATE_EXPERIMENT_ID_PROPERTY,
   exposureVariantProperty: 'variant',
   outcomeVariantProperty: 'variant',
 });
@@ -358,6 +364,7 @@ export async function fetchL7ExperimentCounts({
             AND event IN ('${eventContract.exposureEvent}', '${eventContract.outcomeEvent}')
             AND properties.surface = '${eventContract.surface}'
             AND properties.campaign = '${eventContract.campaign}'
+            AND properties.${eventContract.experimentIdProperty} = '${eventContract.experimentId}'
             AND properties.context IN (${contexts})
             AND properties.${eventContract.sessionJoin.replace('properties.', '')} IS NOT NULL
             AND properties.${eventContract.sessionJoin.replace('properties.', '')} != ''

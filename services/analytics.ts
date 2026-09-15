@@ -111,6 +111,7 @@ import {
 } from './benignErrorPatterns';
 import { safeAffiliateToken } from '../functions/src/lib/affiliateLinks.js';
 import { readEmbeddedBuildId } from './buildInfo';
+import { AFFILIATE_EXPERIMENT_ID_PROPERTY, G4_EXPERIMENT_ID } from './affiliateExperiment.mjs';
 
 export interface AnalyticsPageViewIdentity {
  jobSlug?: string;
@@ -1064,6 +1065,7 @@ export const Analytics = {
    position?: string;
    campaign?: string;
    variant?: string;
+   experimentId?: string;
   },
  ) => {
  const safePartnerId = safeAffiliateToken(partnerId, 'unknown');
@@ -1072,6 +1074,7 @@ export const Analytics = {
  const position = safeAffiliateToken(attribution?.position, safeContext);
  const campaign = safeAffiliateToken(attribution?.campaign, 'affiliate');
  const variant = safeAffiliateToken(attribution?.variant, 'control');
+ const experimentId = safeAffiliateToken(attribution?.experimentId);
  log('affiliate_click', {
  partner_id: safePartnerId,
  context: safeContext,
@@ -1081,6 +1084,7 @@ export const Analytics = {
  variant,
  content_type: 'affiliate',
  item_id: `${safePartnerId}_${surface}_${position}_${campaign}_${variant}`,
+ ...(experimentId ? { [AFFILIATE_EXPERIMENT_ID_PROPERTY]: experimentId } : {}),
  });
  },
 
@@ -1094,6 +1098,7 @@ export const Analytics = {
   } = {},
  ) => {
   log('affiliate_experiment_exposure', {
+   [AFFILIATE_EXPERIMENT_ID_PROPERTY]: G4_EXPERIMENT_ID,
    context: safeAffiliateToken(context, 'unknown'),
    surface: safeAffiliateToken(attribution.surface, 'web'),
    campaign: safeAffiliateToken(attribution.campaign, 'affiliate'),
