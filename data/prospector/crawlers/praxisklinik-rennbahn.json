@@ -1,0 +1,24 @@
+{
+  "companyKey": "praxisklinik-rennbahn",
+  "companyName": "Praxisklinik Rennbahn AG",
+  "companyHost": "rennbahnklinik.ch",
+  "platform": "rennbahnklinik.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.rennbahnklinik.ch/offene-stellen"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 6,
+  "sampleTitles": [
+    "Mitarbeiter/in Leistungsdiagnostik 80% ab sofort",
+    "Fachperson Gesundheit (FaGe) 80-100% ab sofort",
+    "Mitarbeiter/in Patientenaufnahme 40% Vormittags 1. Dezember 2026 oder nach",
+    "Pflegepraktikum für Medizinstudierende 100% Divers",
+    "Technische/r Operationsfachfrau/-mann (TOA) 80-100% ab sofort"
+  ],
+  "canton": "BL",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-15T17:41:59.872Z"
+}
