@@ -158,6 +158,102 @@ describe('loop fleet status', () => {
     }] });
   });
 
+  it('requires an ordered rollback terminal and keeps a pending request incomplete', () => {
+    const lifecycle = registry.loops.find((row: any) => row.loopId === 'L1').lifecycle;
+    const event = (eventType: string, occurredAt: string) => ({
+      eventType,
+      candidateId: 'lf-decision-rollback-order',
+      owner: 'CTO / Reliability',
+      sourceRecordId: 'lf-decision-rollback-order',
+      lifecycle,
+      occurredAt,
+      artifactOrPr: `evidence://${eventType}`,
+    });
+    const verified = [
+      event('candidate', '2026-09-12T12:00:00.000Z'),
+      event('owner_assigned', '2026-09-12T12:00:01.000Z'),
+      event('pr_opened', '2026-09-12T12:00:02.000Z'),
+      event('tests_passed', '2026-09-12T12:00:03.000Z'),
+      event('review_approved', '2026-09-12T12:00:04.000Z'),
+      event('merged', '2026-09-12T12:00:05.000Z'),
+      event('post_merge_verified', '2026-09-12T12:00:06.000Z'),
+    ];
+
+    const pending = summarizeLifecycleEvents([
+      ...verified,
+      event('rollback_requested', '2026-09-12T12:00:07.000Z'),
+    ]);
+    expect(pending.candidates[0]).toMatchObject({
+      terminalEventTypes: ['rollback_requested'],
+      terminalOrderValid: true,
+      terminalPending: true,
+      complete: false,
+      incoherent: [],
+    });
+
+    const rolledBack = summarizeLifecycleEvents([
+      ...verified,
+      event('rollback_requested', '2026-09-12T12:00:07.000Z'),
+      event('rolled_back', '2026-09-12T12:00:08.000Z'),
+    ]);
+    expect(rolledBack.candidates[0]).toMatchObject({
+      terminalEventTypes: ['rollback_requested', 'rolled_back'],
+      terminalOrderValid: true,
+      terminalPending: false,
+      complete: true,
+      incoherent: [],
+    });
+  });
+
+  it('marks terminal lifecycle contradictions incomplete instead of accepting them as rollback evidence', () => {
+    const lifecycle = registry.loops.find((row: any) => row.loopId === 'L1').lifecycle;
+    const event = (eventType: string, occurredAt: string) => ({
+      eventType,
+      candidateId: 'lf-decision-terminal-contradiction',
+      owner: 'CTO / Reliability',
+      sourceRecordId: 'lf-decision-terminal-contradiction',
+      lifecycle,
+      occurredAt,
+      artifactOrPr: `evidence://${eventType}`,
+    });
+    const summary = summarizeLifecycleEvents([
+      event('candidate', '2026-09-12T12:00:00.000Z'),
+      event('owner_assigned', '2026-09-12T12:00:01.000Z'),
+      event('pr_opened', '2026-09-12T12:00:02.000Z'),
+      event('tests_passed', '2026-09-12T12:00:03.000Z'),
+      event('review_approved', '2026-09-12T12:00:04.000Z'),
+      event('merged', '2026-09-12T12:00:05.000Z'),
+      event('rolled_back', '2026-09-12T12:00:06.000Z'),
+      event('post_merge_verified', '2026-09-12T12:00:10.000Z'),
+      event('rollback_requested', '2026-09-12T12:00:08.000Z'),
+      event('inconclusive', '2026-09-12T12:00:09.000Z'),
+    ]);
+
+    expect(summary.candidates[0]).toMatchObject({
+      terminalOrderValid: false,
+      terminalPending: false,
+      complete: false,
+    });
+    expect(summary.candidates[0].incoherent).toEqual(expect.arrayContaining([
+      'rolled_back occurs before rollback_requested',
+      'rollback_requested occurs before post_merge_verified',
+      'inconclusive conflicts with a rollback terminal',
+      'inconclusive conflicts with a merged candidate',
+    ]));
+
+    const missingRequest = summarizeLifecycleEvents([
+      event('candidate', '2026-09-12T12:00:00.000Z'),
+      event('owner_assigned', '2026-09-12T12:00:01.000Z'),
+      event('pr_opened', '2026-09-12T12:00:02.000Z'),
+      event('tests_passed', '2026-09-12T12:00:03.000Z'),
+      event('review_approved', '2026-09-12T12:00:04.000Z'),
+      event('merged', '2026-09-12T12:00:05.000Z'),
+      event('post_merge_verified', '2026-09-12T12:00:06.000Z'),
+      event('rolled_back', '2026-09-12T12:00:07.000Z'),
+    ]);
+    expect(missingRequest.candidates[0].incoherent).toContain('rolled_back requires rollback_requested');
+  });
+
   it('keeps missing evidence explicit instead of reporting a false healthy state', () => {
     const rows = buildStatusRows(
       registry,
