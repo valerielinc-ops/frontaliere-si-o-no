@@ -140,6 +140,27 @@ describe('Geneva pharmacy duty release gate', () => {
     expect(evaluation.indexable).toBe(true);
   });
 
+  it('requires both paired snapshots to declare release readiness', () => {
+    const complete = completeSnapshots();
+    const closed = buildAtomicGenevaDutySnapshots({
+      duties: { ...complete.duties, _releaseReady: false, _state: 'not_published' },
+      status: complete.status,
+      sources: complete.activeSources,
+      evaluatedAt: FETCHED_AT,
+    });
+    const evaluation = evaluateGenevaDutyRelease({
+      duties: closed.duties,
+      status: closed.status,
+      sources: complete.activeSources as unknown as Record<string, unknown>,
+      catalogue: CATALOGUE,
+      now: NOW,
+    });
+
+    expect(closed.release.state).toBe('not_published');
+    expect(evaluation.publishable).toBe(false);
+    expect(evaluation.indexable).toBe(false);
+  });
+
   it('fails closed on payload tampering and identity/source boundary violations', () => {
     const complete = completeSnapshots();
     const tamperedPayload = {

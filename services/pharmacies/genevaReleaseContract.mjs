@@ -192,6 +192,7 @@ function releaseState(duties, status, sources) {
     || dutyRows === null
     || status?._allSourcesFailed !== false
     || status?._releaseReady !== true
+    || duties?._releaseReady !== true
     || status?._state !== 'fresh'
     || duties?._state !== 'fresh'
     || statusErrors.length > 0

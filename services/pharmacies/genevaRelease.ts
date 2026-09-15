@@ -306,6 +306,8 @@ export function evaluateGenevaDutyRelease({
     && coverageRecord.uncoveredCalendarDays === 0
     && source?.status === 'active'
     && statusRecord._allSourcesFailed === false
+    && dutiesRecord._releaseReady === true
+    && statusRecord._releaseReady === true
     && Array.isArray(dutiesRecord._errors) && dutiesRecord._errors.length === 0
     && Array.isArray(statusRecord._errors) && statusRecord._errors.length === 0
     && Array.isArray(statusRecord._unresolvedIdentities) && statusRecord._unresolvedIdentities.length === 0
