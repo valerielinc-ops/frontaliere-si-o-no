@@ -124,6 +124,45 @@ describe('decontaminate-prev-slugs: flat previousSlugs redirect', () => {
     }
   });
 
+  it('scans expired raw-array slices without changing their on-disk shape', async () => {
+    const { listCrawlerSlicePaths, processFiles } = await import('../scripts/decontaminate-prev-slugs.mjs');
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'decontaminate-expired-array-'));
+    const activeDir = path.join(tmpDir, 'active');
+    const expiredDir = path.join(tmpDir, 'expired', 'by-crawler');
+    fs.mkdirSync(activeDir, { recursive: true });
+    fs.mkdirSync(expiredDir, { recursive: true });
+
+    const activeFile = path.join(activeDir, 'claimant.json');
+    const expiredFile = path.join(expiredDir, 'owner.json');
+    const owner = {
+      id: 'expired-owner',
+      url: 'https://owner.example/jobs/expired-owner',
+      previousSlugs: [] as string[],
+    };
+    const claimant = {
+      id: 'active-claimant',
+      url: 'https://claimant.example/jobs/active-claimant',
+      previousSlugs: [] as string[],
+    };
+    const ownerSlug = `expired-owner-route-${stableSlugHash(owner)}`;
+    claimant.previousSlugs.push(ownerSlug);
+    fs.writeFileSync(activeFile, JSON.stringify({ crawlerKey: 'claimant', jobs: [claimant] }));
+    fs.writeFileSync(expiredFile, JSON.stringify([owner]));
+
+    try {
+      expect(listCrawlerSlicePaths([activeDir, expiredDir])).toEqual([activeFile, expiredFile].sort());
+      expect(processFiles([activeFile, expiredFile], { apply: true }).moved).toBe(1);
+
+      const activePayload = JSON.parse(fs.readFileSync(activeFile, 'utf8'));
+      const expiredPayload = JSON.parse(fs.readFileSync(expiredFile, 'utf8'));
+      expect(Array.isArray(expiredPayload)).toBe(true);
+      expect(activePayload.jobs[0].previousSlugs).not.toContain(ownerSlug);
+      expect(expiredPayload[0].previousSlugs).toContain(ownerSlug);
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    }
+  });
+
   it('routes a fresh writer payload to a unique owner already present in the fleet', async () => {
     const { decontaminateEntries } = await import('../scripts/decontaminate-prev-slugs.mjs');
     const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'decontaminate-writer-fleet-'));
