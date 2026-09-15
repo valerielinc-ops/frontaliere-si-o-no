@@ -86,6 +86,12 @@ beforeEach(() => {
       paymentStatus: 'pending',
       cvStorageKey: 'assisted-application-uploads/pending/cv.pdf',
     },
+    abandoned_old: {
+      paymentStatus: 'paid',
+      submissionStatus: 'awaiting_upload',
+      cvUploadedAt: { toMillis: () => NOW - 91 * DAY },
+      cvStorageKey: 'assisted-application-uploads/abandoned_old/cv.pdf',
+    },
     unsafe_reference: {
       paymentStatus: 'refunded',
       refundedAt: { toMillis: () => NOW - 100 * DAY },
@@ -112,8 +118,8 @@ describe('purgeExpiredAssistedApplicationFiles', () => {
 
     const result = await purgeExpiredAssistedApplicationFiles(90, NOW);
 
-    expect(result.purged).toBe(2);
-    expect(deleteFileMock).toHaveBeenCalledTimes(3);
+    expect(result.purged).toBe(3);
+    expect(deleteFileMock).toHaveBeenCalledTimes(4);
     expect(deleteFileMock).toHaveBeenCalledWith(
       'assisted-application-uploads/submitted_old/cv.pdf',
       { ignoreNotFound: true },
@@ -126,6 +132,12 @@ describe('purgeExpiredAssistedApplicationFiles', () => {
     expect(orders.submitted_old.coverLetterStorageKey).toBeNull();
     expect(orders.submitted_old.retentionPurgedAt).toBe('__server_timestamp__');
     expect(orders.refunded_old.cvStorageKey).toBeNull();
+    expect(orders.abandoned_old.cvStorageKey).toBeNull();
+    expect(orders.abandoned_old.cvUploadedAt).toBeNull();
+    expect(deleteFileMock).toHaveBeenCalledWith(
+      'assisted-application-uploads/abandoned_old/cv.pdf',
+      { ignoreNotFound: true },
+    );
   });
 
   it('preserves talent-pool consent and never deletes a path outside the assisted namespace', async () => {

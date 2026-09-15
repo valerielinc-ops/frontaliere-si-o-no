@@ -69,6 +69,49 @@ function metadataForOrder(order, userId) {
   };
 }
 
+function checkoutAttemptFor(value) {
+  const result = Number(value);
+  return Number.isSafeInteger(result) && result > 0 ? result : 1;
+}
+
+function isExpiredCheckoutOrder(order) {
+  return order?.checkoutSessionStatus === 'expired'
+    || order?.paymentFailureReason === 'checkout_session_expired';
+}
+
+function stripeRequestKeyFor(requestRecord, requestKeyHash, checkoutAttempt) {
+  const stored = boundedString(requestRecord?.stripeRequestKey, 128);
+  if (stored) return stored;
+  // Keep the pre-rotation key for ledgers written by the previous version.
+  return checkoutAttempt === 1 ? requestKeyHash : requestKeyHash + ':' + checkoutAttempt;
+}
+
+function pendingOrderData(order, orderId, userId, requestKeyHash, checkoutAttempt) {
+  return {
+    orderId,
+    userId,
+    checkoutRequestKeyHash: requestKeyHash,
+    checkoutAttempt,
+    checkoutSessionStatus: 'creating',
+    ...order,
+    paymentStatus: 'pending',
+    submissionStatus: 'awaiting_payment',
+    applicantName: null,
+    applicantEmail: null,
+    applicantPhone: null,
+    cvStorageKey: null,
+    cvUploadedAt: null,
+    coverLetterStorageKey: null,
+    consentVersion: null,
+    consentedAt: null,
+    submittedAt: null,
+    refundedAt: null,
+    retentionPurgedAt: null,
+    createdAt: admin.firestore.FieldValue.serverTimestamp(),
+    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+  };
+}
+
 /** Create a pending order and a fixed-price, one-time Stripe Checkout Session. */
 export async function handleCreateAssistedApplicationCheckout(req) {
   if (req.method !== 'POST') {
@@ -111,54 +154,74 @@ export async function handleCreateAssistedApplicationCheckout(req) {
   const orderCollection = firestore.collection(ASSISTED_APPLICATIONS_COLLECTION);
   let requestRecord = null;
   let orderRef = null;
+  let checkoutAttempt = 1;
+  let stripeRequestKey = requestKeyHash;
 
   try {
     await firestore.runTransaction(async (transaction) => {
       const existing = await transaction.get(requestRef);
       if (existing.exists) {
-        requestRecord = existing.data() || {};
+        const existingRecord = existing.data() || {};
         if (
-          requestRecord.userId !== userId
-          || requestRecord.requestKeyHash !== requestKeyHash
-          || requestRecord.payloadHash !== payloadHash
-          || !requestRecord.orderId
+          existingRecord.userId !== userId
+          || existingRecord.requestKeyHash !== requestKeyHash
+          || existingRecord.payloadHash !== payloadHash
+          || !existingRecord.orderId
         ) {
           throw new AssistedApplicationRequestConflictError();
         }
-        orderRef = orderCollection.doc(requestRecord.orderId);
+
+        const existingOrderRef = orderCollection.doc(existingRecord.orderId);
+        const existingOrderSnapshot = await transaction.get(existingOrderRef);
+        const existingOrder = existingOrderSnapshot.exists ? existingOrderSnapshot.data() || {} : null;
+        if (existingOrderSnapshot.exists && !isExpiredCheckoutOrder(existingOrder)) {
+          requestRecord = existingRecord;
+          orderRef = existingOrderRef;
+          checkoutAttempt = checkoutAttemptFor(existingRecord.checkoutAttempt);
+          stripeRequestKey = stripeRequestKeyFor(existingRecord, requestKeyHash, checkoutAttempt);
+          return;
+        }
+
+        checkoutAttempt = checkoutAttemptFor(existingRecord.checkoutAttempt) + 1;
+        orderRef = orderCollection.doc();
+        stripeRequestKey = stripeRequestKeyFor(null, requestKeyHash, checkoutAttempt);
+        requestRecord = {
+          ...existingRecord,
+          orderId: orderRef.id,
+          checkoutAttempt,
+          stripeRequestKey,
+          checkoutSessionStatus: 'creating',
+          stripeCheckoutSessionId: null,
+          checkoutUrl: null,
+          updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+        };
+        transaction.set(requestRef, requestRecord, { merge: true });
+        transaction.set(
+          orderRef,
+          pendingOrderData(order, orderRef.id, userId, requestKeyHash, checkoutAttempt),
+        );
         return;
       }
 
       orderRef = orderCollection.doc();
+      checkoutAttempt = 1;
+      stripeRequestKey = requestKeyHash;
       requestRecord = {
         requestKeyHash,
         payloadHash,
         userId,
         orderId: orderRef.id,
+        checkoutAttempt,
+        stripeRequestKey,
+        checkoutSessionStatus: 'creating',
         createdAt: admin.firestore.FieldValue.serverTimestamp(),
         updatedAt: admin.firestore.FieldValue.serverTimestamp(),
       };
       transaction.set(requestRef, requestRecord);
-      transaction.set(orderRef, {
-        orderId: orderRef.id,
-        userId,
-        checkoutRequestKeyHash: requestKeyHash,
-        ...order,
-        paymentStatus: 'pending',
-        submissionStatus: 'awaiting_payment',
-        applicantName: null,
-        applicantEmail: null,
-        applicantPhone: null,
-        cvStorageKey: null,
-        coverLetterStorageKey: null,
-        consentVersion: null,
-        consentedAt: null,
-        submittedAt: null,
-        refundedAt: null,
-        retentionPurgedAt: null,
-        createdAt: admin.firestore.FieldValue.serverTimestamp(),
-        updatedAt: admin.firestore.FieldValue.serverTimestamp(),
-      });
+      transaction.set(
+        orderRef,
+        pendingOrderData(order, orderRef.id, userId, requestKeyHash, checkoutAttempt),
+      );
     });
   } catch (error) {
     if (error instanceof AssistedApplicationRequestConflictError) {
@@ -167,7 +230,11 @@ export async function handleCreateAssistedApplicationCheckout(req) {
     throw error;
   }
 
-  if (requestRecord?.checkoutUrl && requestRecord.stripeCheckoutSessionId) {
+  if (
+    requestRecord?.checkoutUrl
+    && requestRecord.stripeCheckoutSessionId
+    && requestRecord.checkoutSessionStatus !== 'expired'
+  ) {
     return {
       status: 200,
       body: { ok: true, url: requestRecord.checkoutUrl, orderId: requestRecord.orderId },
@@ -195,16 +262,22 @@ export async function handleCreateAssistedApplicationCheckout(req) {
     metadata,
     payment_intent_data: { metadata },
   }, {
-    idempotencyKey: `assisted-application:${requestKeyHash}`,
+    idempotencyKey: 'assisted-application:' + stripeRequestKey,
   });
 
   await orderRef.set({
     stripeCheckoutSessionId: session.id,
+    checkoutAttempt,
+    stripeRequestKey,
+    checkoutSessionStatus: 'open',
     updatedAt: admin.firestore.FieldValue.serverTimestamp(),
   }, { merge: true });
   await requestRef.set({
+    checkoutAttempt,
+    stripeRequestKey,
     stripeCheckoutSessionId: session.id,
     checkoutUrl: session.url,
+    checkoutSessionStatus: 'open',
     updatedAt: admin.firestore.FieldValue.serverTimestamp(),
   }, { merge: true });
 
@@ -252,10 +325,18 @@ export async function handleAssistedApplicationWebhookEvent(event, { db: dbFn, t
       : amountMismatch || currencyMismatch
         ? 'amount_or_currency_missing_or_mismatch'
         : null;
+  const checkoutSessionStatus = isExpired
+    ? 'expired'
+    : isAsyncFailed || amountMismatch || currencyMismatch
+      ? 'failed'
+      : paymentConfirmed
+        ? 'completed'
+        : 'pending';
 
   const update = {
     paymentStatus,
     submissionStatus: paymentStatus === 'paid' ? 'awaiting_upload' : 'awaiting_payment',
+    checkoutSessionStatus,
     stripeSessionId: obj.id || null,
     amountTotal: typeof obj.amount_total === 'number' ? obj.amount_total : null,
     currency: obj.currency || ASSISTED_APPLICATION_CURRENCY,

@@ -24,6 +24,11 @@ describe('assisted application post-payment upload', () => {
     expect(uploadSource).toContain('MAX_PAYMENT_POLL_INTERVAL_MS');
     expect(uploadSource).toContain('Math.min(pollDelayMs * 2, MAX_PAYMENT_POLL_INTERVAL_MS)');
     expect(uploadSource).not.toContain('MAX_PAYMENT_POLLS');
+    expect(uploadSource).toContain('consentPersisted');
+    expect(uploadSource).toContain('disabled={consentPersisted || consentSaving || uploading || submitBusy}');
+    expect(uploadSource).toContain('cvUploadedAt: firestoreModule.serverTimestamp()');
+    expect(uploadSource).toContain('await updateOrder({');
+    expect(uploadSource).toContain('disabled={!consent || Boolean(cvStorageKey)');
   });
 
   it('allows only the server to create/pay an order and freezes payment identity for clients', () => {
@@ -36,6 +41,9 @@ describe('assisted application post-payment upload', () => {
     expect(block).toContain('request.resource.data.paymentStatus == resource.data.paymentStatus');
     expect(block).toContain("'consentVersion', 'consentedAt'");
     expect(block).toContain("'submittedAt'");
+    expect(block).toContain("'cvUploadedAt'");
+    expect(block).toContain('request.resource.data.cvUploadedAt is timestamp');
+    expect(block).toContain('request.resource.data.cvStorageKey == resource.data.cvStorageKey');
     expect(block).toContain("request.resource.data.consentVersion == 'assisted-application-v1'");
     expect(block).toContain('allow delete: if false;');
   });

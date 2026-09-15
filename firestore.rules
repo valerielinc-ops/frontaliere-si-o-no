@@ -789,6 +789,7 @@ service cloud.firestore {
         && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
           'applicantName', 'applicantEmail', 'applicantPhone',
           'cvStorageKey', 'coverLetterStorageKey',
+          'cvUploadedAt',
           'consentVersion', 'consentedAt', 'submissionStatus', 'submittedAt', 'updatedAt',
         ])
         && request.resource.data.consentVersion == 'assisted-application-v1'
@@ -806,6 +807,20 @@ service cloud.firestore {
           || request.resource.data.cvStorageKey is string)
         && (request.resource.data.cvStorageKey == null
           || request.resource.data.cvStorageKey.matches('^assisted-application-uploads/' + orderId + '/[A-Za-z0-9._-]+$'))
+        && (!request.resource.data.keys().hasAll(['cvUploadedAt'])
+          || request.resource.data.cvUploadedAt == null
+          || request.resource.data.cvUploadedAt is timestamp)
+        && (request.resource.data.cvStorageKey == resource.data.cvStorageKey
+          || (resource.data.cvStorageKey == null
+            && request.resource.data.cvStorageKey is string
+            && request.resource.data.keys().hasAll(['cvUploadedAt'])
+            && request.resource.data.cvUploadedAt is timestamp))
+        && (!resource.data.keys().hasAll(['cvUploadedAt'])
+          || request.resource.data.cvUploadedAt == resource.data.cvUploadedAt
+          || (resource.data.cvStorageKey == null
+            && request.resource.data.cvStorageKey is string
+            && request.resource.data.keys().hasAll(['cvUploadedAt'])
+            && request.resource.data.cvUploadedAt is timestamp))
         && (request.resource.data.coverLetterStorageKey == null
           || request.resource.data.coverLetterStorageKey is string)
         && (request.resource.data.coverLetterStorageKey == null

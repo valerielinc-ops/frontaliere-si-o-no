@@ -180,6 +180,56 @@ describe('handleCreateAssistedApplicationCheckout', () => {
     expect(Object.keys(store.assisted_application_checkout_requests)).toHaveLength(1);
   });
 
+  it('rotates the checkout attempt after Stripe reports the saved session expired', async () => {
+    const {
+      handleCreateAssistedApplicationCheckout,
+      handleAssistedApplicationWebhookEvent,
+    } = await loadCheckout();
+
+    const first = await handleCreateAssistedApplicationCheckout(request());
+    await handleAssistedApplicationWebhookEvent({
+      type: 'checkout.session.expired',
+      data: {
+        object: {
+          id: 'cs_assisted_1',
+          metadata: { product: 'assisted_application', orderId: first.body.orderId },
+        },
+      },
+    }, { db: firestore, ts: '__webhook_timestamp__' });
+
+    stripeCheckoutSessionsCreate.mockImplementationOnce(async () => ({
+      id: 'cs_assisted_2',
+      url: 'https://checkout.stripe.com/cs_assisted_2',
+    }));
+    const second = await handleCreateAssistedApplicationCheckout(request());
+
+    expect(second).toEqual({
+      status: 200,
+      body: {
+        ok: true,
+        url: 'https://checkout.stripe.com/cs_assisted_2',
+        orderId: 'order-2',
+      },
+    });
+    expect(stripeCheckoutSessionsCreate).toHaveBeenCalledTimes(2);
+    expect(stripeCheckoutSessionsCreate.mock.calls[1][1].idempotencyKey)
+      .not.toBe(stripeCheckoutSessionsCreate.mock.calls[0][1].idempotencyKey);
+    expect(store.assisted_applications['order-1']).toEqual(expect.objectContaining({
+      paymentStatus: 'failed',
+      checkoutSessionStatus: 'expired',
+    }));
+    expect(store.assisted_applications['order-2']).toEqual(expect.objectContaining({
+      paymentStatus: 'pending',
+      checkoutSessionStatus: 'open',
+      checkoutAttempt: 2,
+    }));
+    expect(Object.values(store.assisted_application_checkout_requests)[0]).toEqual(expect.objectContaining({
+      orderId: 'order-2',
+      checkoutAttempt: 2,
+      checkoutSessionStatus: 'open',
+    }));
+  });
+
   it('rejects a reused request key when the checkout payload changes', async () => {
     const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
 

@@ -25,6 +25,7 @@ interface AssistedApplicationOrder {
   consentVersion?: string | null;
   consentedAt?: unknown;
   cvStorageKey?: string | null;
+  cvUploadedAt?: unknown;
   applicantName?: string | null;
   applicantEmail?: string | null;
 }
@@ -86,6 +87,7 @@ export default function AssistedApplicationUpload({
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [consent, setConsent] = useState(false);
+  const [consentPersisted, setConsentPersisted] = useState(false);
   const [consentSaving, setConsentSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [cvStorageKey, setCvStorageKey] = useState<string | null>(null);
@@ -122,7 +124,10 @@ export default function AssistedApplicationUpload({
       setName((value) => value || data.applicantName || '');
       setEmail((value) => value || data.applicantEmail || '');
       setCvStorageKey(data.cvStorageKey || null);
-      setConsent(data.consentVersion === ASSISTED_APPLICATION_CONSENT_VERSION);
+      const hasPersistedConsent = data.consentVersion === ASSISTED_APPLICATION_CONSENT_VERSION
+        && data.consentedAt != null;
+      setConsent(hasPersistedConsent);
+      setConsentPersisted(hasPersistedConsent);
       if (data.submissionStatus === 'ready_for_manual_submission') {
         setStatus('submitted');
         return true;
@@ -193,10 +198,18 @@ export default function AssistedApplicationUpload({
 
   const handleConsentChange = async (checked: boolean) => {
     if (!checked) {
+      if (consentPersisted) {
+        setConsent(true);
+        return;
+      }
       setConsent(false);
       return;
     }
     if (order?.paymentStatus !== 'paid') return;
+    if (consentPersisted) {
+      setConsent(true);
+      return;
+    }
     setConsentSaving(true);
     setError(null);
     try {
@@ -207,6 +220,7 @@ export default function AssistedApplicationUpload({
         updatedAt: firestoreModule.serverTimestamp(),
       });
       setConsent(true);
+      setConsentPersisted(true);
       trackAssistedApplicationEvent('consent_confirmed', {
         ...orderEventContext(order),
         consent_type: 'assisted_application_mandate',
@@ -221,7 +235,7 @@ export default function AssistedApplicationUpload({
   };
 
   const handleFileChange = async (file: File | undefined) => {
-    if (!file || !consent || order?.paymentStatus !== 'paid') return;
+    if (!file || !consent || order?.paymentStatus !== 'paid' || cvStorageKey) return;
     const contentType = fileTypeFor(file);
     if (!contentType || file.size >= MAX_FILE_SIZE) {
       setError(t('jobBoard.assisted.fileError'));
@@ -232,9 +246,10 @@ export default function AssistedApplicationUpload({
     setError(null);
     trackAssistedApplicationEvent('cv_upload_started', orderEventContext(order));
     try {
-      const [{ getApp }, storageModule] = await Promise.all([
+      const [{ getApp }, storageModule, firestoreModule] = await Promise.all([
         import('@/services/firebase'),
         import('firebase/storage'),
+        import('firebase/firestore'),
       ]);
       const storage = storageModule.getStorage(await getApp());
       const path = `assisted-application-uploads/${orderId}/${Date.now()}-${randomFileToken()}-${safeFileName(file.name)}`;
@@ -244,6 +259,11 @@ export default function AssistedApplicationUpload({
         { contentType },
       );
       const fullPath = snapshot.metadata.fullPath || path;
+      await updateOrder({
+        cvStorageKey: fullPath,
+        cvUploadedAt: firestoreModule.serverTimestamp(),
+        updatedAt: firestoreModule.serverTimestamp(),
+      });
       setCvStorageKey(fullPath);
       trackAssistedApplicationEvent('cv_upload_completed', orderEventContext(order));
     } catch {
@@ -349,7 +369,7 @@ export default function AssistedApplicationUpload({
                     type="checkbox"
                     checked={consent}
                     onChange={(event) => { void handleConsentChange(event.target.checked); }}
-                    disabled={consentSaving || uploading || submitBusy}
+                    disabled={consentPersisted || consentSaving || uploading || submitBusy}
                     className="mt-1 h-4 w-4 shrink-0"
                   />
                   <span>{t('jobBoard.assisted.consent', { jobTitle, companyName: order.companyName || '' })}</span>
@@ -377,7 +397,7 @@ export default function AssistedApplicationUpload({
                     <input
                       type="file"
                       accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                      disabled={!consent || consentSaving || uploading || submitBusy}
+                      disabled={!consent || Boolean(cvStorageKey) || consentSaving || uploading || submitBusy}
                       onChange={(event) => { void handleFileChange(event.target.files?.[0]); }}
                       className="sr-only"
                     />
