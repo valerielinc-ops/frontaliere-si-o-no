@@ -101,6 +101,8 @@ const ALLOCATION_POLICY_FIELDS = Object.freeze([
   'noAutomaticPriceChange',
 ]);
 
+const LOOP_POLICY_REQUIREMENTS = Object.freeze(['allocation']);
+
 const BOUNDED_CANARY_FIELDS = Object.freeze([
   'enabled',
   'maxExposure',
@@ -193,6 +195,16 @@ function requireLifecycle(value, name) {
 function requireBoolean(value, name) {
   if (typeof value !== 'boolean') fail(`${name} must be boolean`);
   return value;
+}
+
+function requirePolicyRequirements(value, name) {
+  const requirements = value === undefined ? [] : requireTextArrayAllowEmpty(value, name);
+  for (const requirement of requirements) {
+    if (!LOOP_POLICY_REQUIREMENTS.includes(requirement)) {
+      fail(`${name} contains unsupported requirement ${requirement}`);
+    }
+  }
+  return [...requirements];
 }
 
 function rejectUnknownKeys(value, allowed, name) {
@@ -330,6 +342,7 @@ export function validateLoopRegistry(registry) {
     requireTextArray(loop.actionClasses, `${id}.actionClasses`);
     requireTextArray(loop.guardrails, `${id}.guardrails`);
     requireTextArray(loop.sourceRefs, `${id}.sourceRefs`);
+    const policyRequirements = requirePolicyRequirements(loop.policyRequirements, `${id}.policyRequirements`);
     for (const sourceRef of loop.sourceRefs) {
       if (!Object.hasOwn(sourceCatalog, sourceRef)) fail(`${id}.sourceRefs references undeclared ${sourceRef}`);
     }
@@ -342,9 +355,17 @@ export function validateLoopRegistry(registry) {
     }
     const lifecycle = requireLifecycle(loop.lifecycle, `${id}.lifecycle`);
     const actionPolicy = requireActionPolicy(loop.actionPolicy, `${id}.actionPolicy`);
-    const allocationPolicy = id === 'L7'
+    const hasAllocationRequirement = policyRequirements.includes('allocation');
+    const hasAllocationPolicy = loop.allocationPolicy !== undefined;
+    if (hasAllocationRequirement && !hasAllocationPolicy) {
+      fail(`${id}.allocationPolicy is required by policyRequirements`);
+    }
+    if (!hasAllocationRequirement && hasAllocationPolicy) {
+      fail(`${id}.allocationPolicy requires policyRequirements to include allocation`);
+    }
+    const allocationPolicy = hasAllocationPolicy
       ? requireAllocationPolicy(loop.allocationPolicy, `${id}.allocationPolicy`)
-      : (loop.allocationPolicy === undefined ? undefined : requireAllocationPolicy(loop.allocationPolicy, `${id}.allocationPolicy`));
+      : undefined;
     for (const actionClass of loop.actionClasses) {
       for (const part of actionClass.split('+').map((value) => value.trim()).filter(Boolean)) {
         declaredActionClasses.add(part);
@@ -353,6 +374,7 @@ export function validateLoopRegistry(registry) {
     normalizedLoops.push({
       ...loop,
       sourceRefs: [...loop.sourceRefs],
+      policyRequirements,
       outcome,
       lifecycle,
       actionPolicy,
