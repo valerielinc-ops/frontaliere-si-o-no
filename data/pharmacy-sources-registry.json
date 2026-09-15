@@ -253,7 +253,21 @@
       "lastVerifiedAt": "2026-08-31T00:00:00.000Z",
       "anagraficaPath": "data/pharmacies-ticino-complete.json",
       "anagraficaSourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
-      "notes": "Verificato via Playwright/curl (#6398, 2026-08-31): 4/5 regioni (Mendrisiotto/Luganese/Bellinzonese/Biasca e Valli) su www.ofct.ch pubblicano tabelle HTML server-rendered #tabella_mese_corrente_compatta (turno del mese, riga attiva marcata class \"di_turno\") e #tabella_lista_farmacie (anagrafica) — niente JS richiesto, fetch statico + parse HTML bastano. robots.txt permette (crawl-delay: 10), nessun ToU restrittivo trovato. La 5a regione, Locarnese, è su dominio separato (farmacielocarnese.ch, verificato #6740, 2026-08-31): nessun robots.txt (nessun vincolo dichiarato), anche qui solo HTML server-rendered senza JS/API, ma struttura diversa (tabella turni senza indirizzo/CAP, nessuna anagrafica) — serve un parser dedicato, non ancora scritto. Vedi docs/data-sources/farmacie-turno-ticino.md."
+      "regionalSources": {
+        "locarnese": {
+          "officialSourceUrl": "https://www.farmacielocarnese.ch/",
+          "accessMethod": "html-scrape",
+          "fetchFrequency": "P1D",
+          "timezone": "Europe/Zurich",
+          "sourceType": "association",
+          "owner": "platform",
+          "status": "active",
+          "lastVerifiedAt": "2026-09-15T00:00:00.000Z",
+          "sourceFetchedAt": "2026-09-15T09:40:29.571Z",
+          "notes": "Fonte associativa regionale attiva per gli intervalli di turno. Il parser dedicato legge la tabella HTML server-rendered e pubblica un intervallo solo quando Farmacia e Località risolvono un'unica identità nel catalogo cantonale; la fonte non pubblica un'anagrafica completa e non fornisce indirizzi da copiare."
+        }
+      },
+      "notes": "Verificato via Playwright/curl (#6398, 2026-08-31): le 4 regioni OFCT (Mendrisiotto/Luganese/Bellinzonese/Biasca e Valli) pubblicano tabelle HTML server-rendered #tabella_mese_corrente_compatta (turno del mese, riga attiva marcata class \"di_turno\") e #tabella_lista_farmacie (anagrafica) — niente JS richiesto, fetch statico + parse HTML bastano. robots.txt permette (crawl-delay: 10), nessun ToU restrittivo trovato. Il Locarnese è registrato come fonte associativa regionale separata e attiva su farmacielocarnese.ch; la tabella turni è gestita dal parser dedicato con matching univoco al catalogo cantonale, senza copiare dati anagrafici. Vedi docs/data-sources/farmacie-turno-ticino.md."
     },
     "uri": {
       "canton": "Uri",

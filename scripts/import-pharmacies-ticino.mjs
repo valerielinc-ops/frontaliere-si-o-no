@@ -24,9 +24,9 @@
 //     outside-world failure).
 //   - Native fetch (Node >= 18; project requires Node 22+), regex-based HTML
 //     parsing (scripts/lib/pharmacy-ticino-parser.mjs) — no new dependency.
-//   - Locarnese is out of scope: separate domain/template, network access
-//     verified (#6740) but no dedicated parser exists yet — no anagraphic
-//     table published there (see the verification doc's "Verdetto").
+//   - Locarnese publishes a separate duty calendar, not a complete anagraphic
+//     table. Its duty parser resolves each row to this OFCT catalogue instead
+//     of manufacturing or copying pharmacy identity fields from that source.
 //   - Write guard: if every region fetch fails, the result is empty and the
 //     write is skipped (existing dataset preserved) rather than overwriting
 //     a good dataset with `pharmacies: []` (#6739).

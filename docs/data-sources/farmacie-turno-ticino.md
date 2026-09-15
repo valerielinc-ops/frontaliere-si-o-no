@@ -1,8 +1,8 @@
 # Ticino — farmacie di turno (`ofct.ch`, `farmacielocarnese.ch`)
 
 Verifica di rete (issue #6398, sub-issue `from-decompose` di #6173 Fase 1
-MVP), 2026-08-31. Aggiornato con la verifica del connettore Locarnese
-(issue #6740, follow-up di #6722), stesso giorno.
+MVP), 2026-08-31. Aggiornato con la verifica del connettore e del parser
+Locarnese (issue #6740, follow-up di #6722), 2026-09-15.
 
 ## Metodo
 
@@ -27,9 +27,10 @@ risposta HTML iniziale.
    - `https://www.ofct.ch/biasca-e-valli/`
 
    La quinta, **Locarnese, è ospitata su un dominio separato**
-   (`https://www.farmacielocarnese.ch/`) con un template diverso —
-   **non verificata da questa indagine**, resta un connettore a parte da
-   investigare separatamente.
+   (`https://www.farmacielocarnese.ch/`) con un template diverso. È una fonte
+   associativa attiva per gli intervalli di turno, gestita dal parser dedicato;
+   ogni riga viene usata solo dopo il matching univoco con il catalogo
+   cantonale. Il sito non è una fonte di anagrafica completa.
 3. Su ognuna delle 4 pagine `ofct.ch`, i dati **sono già nella risposta HTML
    iniziale** (confermato via `curl -A "Mozilla/5.0"`, nessun JS necessario),
    in due tabelle HTML statiche con classi/id stabili:
@@ -64,8 +65,9 @@ risposta HTML iniziale.
    esiste una pagina di condizioni d'uso da verificare per un divieto di
    scraping.
 7. `farmacielocarnese.ch` (dominio Locarnese) risponde 200 sulla home ma
-   **non ha `robots.txt`** (404 sul path) — nessun vincolo dichiarato, ma la
-   struttura dati non è stata ispezionata in questa verifica.
+   **non ha `robots.txt`** (404 sul path) — nessun vincolo dichiarato. La
+   struttura dati è stata ispezionata e il parser attivo usa esclusivamente la
+   tabella degli intervalli, non l'indirizzo inline della farmacia attiva.
 
 ## Verifica Locarnese (`farmacielocarnese.ch`, #6740, 2026-08-31)
 
@@ -107,15 +109,15 @@ Metodo: `curl -A "Mozilla/5.0"` semplice (nessuna esecuzione JS) sulla home
 
 ### Verdetto Locarnese
 
-**Fonte scrapabile via HTTP statico** (nessun JS/API richiesto, stesso
-pattern di `ofct.ch`): `robots.txt` assente = nessun vincolo dichiarato,
-nessun ToU raggiungibile. La struttura dati è però **meno uniforme** di
-`ofct.ch` — tabella turni senza indirizzo/CAP, indirizzo della farmacia
-attiva solo dentro una stringa JS inline, nessuna tabella anagrafica — un
-parser dedicato (diverso da `pharmacy-ticino-parser.mjs`, che assume la
-struttura `ofct.ch`) è necessario prima di poter includere Locarnese nel
-connettore Ticino. Non un blocco di accesso: un blocco di forma-dati,
-lasciato alla prossima fase implementativa (#6173).
+**Fonte attiva scrapabile via HTTP statico** (nessun JS/API richiesto):
+`robots.txt` assente = nessun vincolo dichiarato, nessun ToU raggiungibile.
+La struttura è **meno uniforme** di `ofct.ch` — tabella turni senza
+indirizzo/CAP, indirizzo della farmacia attiva solo dentro una stringa JS
+inline, nessuna tabella anagrafica — e per questo usa
+`scripts/lib/pharmacy-locarnese-parser.mjs`. Il parser accetta solo le righe
+Data/Ora/Farmacia/Località e pubblica l'intervallo soltanto con un match unico
+al catalogo cantonale; in caso contrario l'import fallisce chiuso. Il feed
+fornisce turni, non una scheda anagrafica, e nessun indirizzo viene copiato.
 
 ## Verdetto complessivo
 
@@ -124,14 +126,15 @@ lasciato alla prossima fase implementativa (#6173).
 Locarnese via `farmacielocarnese.ch`): niente JSON/API su nessuno dei due
 domini, solo HTML server-rendered raggiungibile con un fetch statico (no
 browser headless richiesto in produzione — Playwright/curl sono serviti
-solo per la verifica). Il connettore Ticino può passare da `unverified` ad
-**`active`** con `accessMethod: "html-scrape"` su questa base.
+solo per la verifica). Il registry registra il feed Locarnese come fonte
+associativa `active`, `accessMethod: "html-scrape"`, frequenza `P1D`; il
+connettore pubblica gli intervalli soltanto dopo il matching univoco con il
+catalogo e non tratta il feed come anagrafica.
 
-Prossimo passo per il connettore vero e proprio (#6173 Fase successiva): un
-parser che visita le 4 URL regione `ofct.ch` (già scritto,
-`scripts/lib/pharmacy-ticino-parser.mjs`) più un parser dedicato per
-`farmacielocarnese.ch` (struttura diversa, vedi sopra), normalizza secondo
-`PharmacyDuty`/`Pharmacy` (`services/pharmacies/types.ts`), rispetta il
-`crawl-delay: 10` dichiarato da `ofct.ch` (Locarnese non ne dichiara uno,
-ma un connettore futuro deve comunque restare rispettoso: stesso ritardo
-minimo tra fetch).
+Il connettore vero e proprio (#6173) visita le 4 URL regione `ofct.ch`
+(parser `scripts/lib/pharmacy-ticino-parser.mjs`) più il parser dedicato
+`scripts/lib/pharmacy-locarnese-parser.mjs`, normalizza secondo
+`PharmacyDuty`/`Pharmacy` (`services/pharmacies/types.ts`) e rispetta il
+`crawl-delay: 10` dichiarato da `ofct.ch`. Locarnese non dichiara un ritardo:
+la pipeline mantiene comunque una frequenza giornaliera e non usa i campi
+anagrafici inline come fonte di catalogo.

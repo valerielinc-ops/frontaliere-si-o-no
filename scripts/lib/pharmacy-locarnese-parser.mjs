@@ -14,12 +14,8 @@
  * retained as boundary-only and is never emitted as an interval.
  */
 import { localDateTimeToIso } from '../../services/pharmacies/time.mjs';
-
-export const LOCARNESE_REGION = Object.freeze({
-  key: 'locarnese',
-  name: 'Locarnese',
-  url: 'https://www.farmacielocarnese.ch/',
-});
+export { LOCARNESE_REGION } from './pharmacy-duty-regions.mjs';
+import { LOCARNESE_REGION } from './pharmacy-duty-regions.mjs';
 
 const DUTY_HEADERS = ['data', 'ora', 'farmacia', 'localita'];
 const MISSING_BOUNDARY = Symbol('missingBoundary');

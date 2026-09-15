@@ -49,7 +49,7 @@ describe('pharmacy directory static pages', () => {
 
     const descriptor = pharmacyPageDescriptors().find((candidate) => candidate.kind === 'duty-week');
     expect(descriptor).toBeDefined();
-    const now = new Date('2026-09-14T19:00:00.000Z');
+    const now = new Date(Date.parse(dutiesJson._fetchedAt) + 60_000);
     const valid = buildPharmacyDirectoryPage(descriptor!, 'it', root, dutiesJson as unknown as PharmacyDutiesDataset, now);
     expect(valid.indexable).toBe(true);
     expect(robotsOf(valid.html).replace(/\s+/g, '')).toBe('index,follow');

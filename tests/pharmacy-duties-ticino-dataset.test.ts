@@ -4,6 +4,7 @@ import pharmacies from '../data/pharmacies-ticino-complete.json';
 import {
   buildPharmacyDutiesDataset,
   buildPharmacyDutyStatus,
+  DUTY_SOURCE_REGIONS,
   reclassifyPreservedDuties,
 } from '../scripts/import-pharmacy-duties-ticino.mjs';
 import { getRuntimeDutyState, publicDutiesForRegion } from '../services/pharmacies/duties';
@@ -16,7 +17,8 @@ describe('Ticino duty dataset', () => {
     expect(validatePharmacyDutiesDataset(typedDataset)).toEqual([]);
     const ids = new Set(pharmacies.pharmacies.map((pharmacy) => pharmacy.id));
     expect(typedDataset.duties.every((duty) => ids.has(duty.pharmacyId))).toBe(true);
-    expect(new Set(typedDataset.duties.map((duty) => duty.coverageName))).toEqual(new Set(['Mendrisiotto', 'Luganese', 'Bellinzonese', 'Biasca e Valli']));
+    expect(new Set(typedDataset.duties.map((duty) => duty.coverageName))).toEqual(new Set(['Mendrisiotto', 'Luganese', 'Bellinzonese', 'Biasca e Valli', 'Locarnese']));
+    expect(DUTY_SOURCE_REGIONS).toContain('https://www.farmacielocarnese.ch/');
   });
 
   it('does not expose expired intervals as current after the page remains open', () => {
@@ -82,6 +84,7 @@ describe('Ticino duty dataset', () => {
       _attemptedAt: attemptedAt,
     });
     expect(blocked._sourceRegions).toEqual(partial._sourceRegions);
+    expect(blocked._sourceRegions).toEqual(DUTY_SOURCE_REGIONS);
   });
 
   it('requires overlapping same-area intervals to be explicitly conflicting', () => {
