@@ -203,6 +203,22 @@ function uniqueSorted(values: string[]): string[] {
   return [...new Set(values)].sort();
 }
 
+const DUTY_LIFECYCLE_VALIDATION_MESSAGES = [
+  'verified duty must not be expired',
+  'expired duty must have ended',
+] as const;
+
+/**
+ * The weekly page can render a historical week, so expiry is evaluated by
+ * this read model rather than by the structural snapshot validator. Keep all
+ * schema, URL, timestamp and overlap errors while ignoring only those two
+ * clock-relative lifecycle diagnostics.
+ */
+function validateDutyEntriesForWeeklyModel(value: unknown, now: Date): string[] {
+  return validatePharmacyDutyList(value, now)
+    .filter((error) => !DUTY_LIFECYCLE_VALIDATION_MESSAGES.some((message) => error.endsWith(message)));
+}
+
 /**
  * Builds the dated read model used by both the static page and the SPA.
  * A model is indexable only when catalogue and duty snapshots are the same
@@ -222,17 +238,25 @@ export function buildDutyWeekModel(
   const record = recordOf(dataset);
   const sourceUrl = typeof record._source === 'string' && record._source.trim() ? record._source : null;
   const fetchedAt = typeof record._fetchedAt === 'string' && record._fetchedAt.trim() ? record._fetchedAt : null;
-  const effectiveCatalogue = options.catalogue ?? DEFAULT_PHARMACY_CATALOGUE;
-  const evaluation = getPharmacyReleaseEvaluation(dataset, now, effectiveCatalogue, { validateEntries: true });
-  const releaseId = evaluation.releaseId;
-  const timezone = snapshotTimezone(dataset);
-  const dutyEntryErrors = validatePharmacyDutyList(record.duties, now, { checkTemporalState: false });
+  // Preserve an explicitly supplied null/malformed catalogue as invalid data;
+  // only an omitted option uses the checked-in build snapshot.
+  const effectiveCatalogue: unknown = options.catalogue === undefined
+    ? DEFAULT_PHARMACY_CATALOGUE
+    : options.catalogue;
+  // Validate before the release evaluator: its region aggregation assumes
+  // typed entries and must never receive null/incomplete runtime records.
+  const dutyEntryErrors = validateDutyEntriesForWeeklyModel(record.duties, now);
   const catalogueEntryErrors = validatePharmacyList(recordOf(effectiveCatalogue).pharmacies);
+  const evaluation = dutyEntryErrors.length === 0 && catalogueEntryErrors.length === 0
+    ? getPharmacyReleaseEvaluation(dataset, now, effectiveCatalogue as PharmacyCatalogueDataset)
+    : null;
+  const releaseId = evaluation?.releaseId ?? null;
+  const timezone = snapshotTimezone(dataset);
   const duties = dutyEntryErrors.length === 0 && Array.isArray(record.duties)
     ? record.duties as PharmacyDuty[]
     : [];
-  const cataloguePharmacyIds = catalogueEntryErrors.length === 0 && Array.isArray(effectiveCatalogue.pharmacies)
-    ? new Set(effectiveCatalogue.pharmacies.map((pharmacy) => pharmacy.id))
+  const cataloguePharmacyIds = catalogueEntryErrors.length === 0 && Array.isArray(recordOf(effectiveCatalogue).pharmacies)
+    ? new Set((recordOf(effectiveCatalogue).pharmacies as PharmacyCatalogueDataset['pharmacies']).map((pharmacy) => pharmacy.id))
     : undefined;
   const regions = DUTY_WEEK_REGIONS.map((region) => ({
     key: region.key,
@@ -252,12 +276,16 @@ export function buildDutyWeekModel(
       .filter((duty) => !cataloguePharmacyIds.has(duty.pharmacyId))
       .map((duty) => duty.pharmacyId)))
     : [];
-  const reasons: string[] = [...evaluation.reasons];
-  let status: DutyWeekStatus = evaluation.state === 'fresh' ? 'ready' : evaluation.state;
+  const reasons: string[] = [
+    ...(evaluation?.reasons ?? []),
+    ...(dutyEntryErrors.length > 0 ? ['duties snapshot contains invalid entries'] : []),
+    ...(catalogueEntryErrors.length > 0 ? ['catalogue snapshot contains invalid entries'] : []),
+  ];
+  let status: DutyWeekStatus = evaluation?.state === 'fresh' ? 'ready' : evaluation?.state ?? 'unknown';
   const preserveFailClosedStatus = (fallback: DutyWeekStatus): DutyWeekStatus => (
     status === 'conflicting' || status === 'unknown' || status === 'not_published' ? status : fallback
   );
-  if (!evaluation.publishable && evaluation.reasons.length === 0) {
+  if (evaluation && !evaluation.publishable && evaluation.reasons.length === 0) {
     reasons.push('catalogue and duties release is not publishable');
   }
 
@@ -314,8 +342,8 @@ export function buildDutyWeekModel(
     reasons.push('the requested week has expired and has no verified intervals');
   }
 
-  const indexable = evaluation.publishable
-    && evaluation.state === 'fresh'
+  const indexable = Boolean(evaluation?.publishable)
+    && evaluation?.state === 'fresh'
     && status === 'ready'
     && regions.every((region) => region.duties.length > 0);
   return {

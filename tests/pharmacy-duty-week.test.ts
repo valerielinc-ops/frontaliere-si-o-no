@@ -184,7 +184,7 @@ describe('weekly pharmacy duty read model', () => {
     const earlyMonday = {
       ...BASE_DUTIES[0],
       startsAt: '2026-09-13T22:15:00.000Z',
-      endsAt: '2026-09-14T14:00:00.000Z',
+      endsAt: '2026-09-13T22:45:00.000Z',
     };
     const nextEarlyMonday = {
       ...BASE_DUTIES[1],
@@ -258,6 +258,18 @@ describe('weekly pharmacy duty read model', () => {
     expect(model.status).toBe('unknown');
     expect(model.indexable).toBe(false);
     expect(model.unresolvedPharmacyIds).toEqual([]);
+    expect(model.reason).toContain('invalid entries');
+  });
+
+  it('fails closed for explicitly null runtime snapshots', () => {
+    const model = buildDutyWeekModel(null as unknown as PharmacyDutiesDataset, WEEK, {
+      now: NOW,
+      catalogue: null as unknown as PharmacyCatalogueDataset,
+    });
+
+    expect(model.status).toBe('unknown');
+    expect(model.indexable).toBe(false);
+    expect(model.regions.every((region) => region.duties.length === 0)).toBe(true);
     expect(model.reason).toContain('invalid entries');
   });
 
