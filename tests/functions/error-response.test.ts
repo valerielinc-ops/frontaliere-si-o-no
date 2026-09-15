@@ -84,7 +84,7 @@ type StubDb = {
  * Behaviour is controlled by the `overrides` argument.
  */
 function makeDbStub(overrides: {
-  getImpl?: () => Promise<{ exists: boolean }>;
+  getImpl?: () => Promise<{ exists: boolean; data?: () => Record<string, unknown> }>;
   setImpl?: () => Promise<void>;
   addImpl?: () => Promise<{ id: string }>;
 } = {}): StubDb {
@@ -184,6 +184,7 @@ describe('handleSendCalculatorReport — structured error responses', () => {
       // "FAILS OPEN on a Firestore read error"). The 503-on-upsert-failure
       // contract asserted here is unchanged; only the injection point moved to
       // the write it is actually about.
+      getImpl: async () => ({ exists: true, data: () => ({}) }),
       setImpl: async () => {
         throw new Error('UNAVAILABLE: simulated outage');
       },

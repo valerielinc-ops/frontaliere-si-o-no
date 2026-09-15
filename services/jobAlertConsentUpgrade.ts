@@ -216,9 +216,9 @@ export function buildJobAlertConsentProof(opts: {
  * Decide whether this one alert document may be stamped.
  *
  * THE ORDER IS THE CONTRACT — see the header. A per-alert opt-out on the alert
- * itself or the explicit global stop on its parent comes first; then provenance;
- * then the existing-proof guard. A newsletter-only opt-out is intentionally not
- * a parent stop for this job-alert channel.
+ * itself or the explicit unsubscribe/stop-all on its parent comes first; then
+ * provenance; then the existing-proof guard. A recipient opt-out is never
+ * treated as a new alert activation for this job-alert channel.
  */
 export function planJobAlertConsentUpgrade(input: {
   alert: DocData;
@@ -230,8 +230,8 @@ export function planJobAlertConsentUpgrade(input: {
 
   // 1. THE OPT-OUT, FIRST AND ALWAYS. `isNewsletterOptOutBinding` reads the
   //    alert's own unsubscribe stamp; the parent uses the shared cross-channel
-  //    predicate, which means hard address suppression or an explicit stop-all,
-  //    not the newsletter's channel-only unsubscribe.
+  //    predicate, which includes the newsletter's recorded unsubscribe,
+  //    legacy stop-all fields and hard address suppression.
   if (isNewsletterOptOutBinding(alert) || isCrossChannelStop(subscriber)) {
     return { write: false, reason: 'opt-out-binding' };
   }

@@ -61,7 +61,7 @@ describe('matchSubscribersForAd', () => {
     expect(emails).toContain('a@x.ch');
     expect(emails).toContain('b@x.ch');
     expect(emails).not.toContain('c@x.ch'); // construction
-    expect(emails).toContain('d@x.ch'); // newsletter-only opt-out does not stop advertising
+    expect(emails).not.toContain('d@x.ch'); // an explicit unsubscribe stops advertising too
     expect(emails).not.toContain(''); // blank
     // a (direct query) ranks above b (sector only)
     expect(res[0].email).toBe('a@x.ch');
@@ -229,7 +229,7 @@ describe('matchSubscribersForAd', () => {
         { email: 'canonical@example.com', ...strongMatch, ...ANCIENT, all_email_opted_out: true },
         { email: 'alias@example.com', ...strongMatch, ...ANCIENT, global_email_opted_out: true },
         { email: 'newsletter-only@example.com', ...strongMatch, ...ANCIENT, status: 'unsubscribed' },
-      ])).toEqual(['control@example.com', 'newsletter-only@example.com']);
+      ])).toEqual(['control@example.com']);
     });
 
     it('a hard suppression still stops it — bounced, complained, suppressed', () => {

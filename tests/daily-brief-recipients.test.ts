@@ -57,7 +57,7 @@ describe('dedupeRecipients', () => {
     expect(recipients.map((r) => r.email)).toEqual(['conf@example.com', 'pend@example.com']);
   });
 
-  it('a newsletter-only opt-out stays scoped, while a global stop wins over job-alert membership', () => {
+  it('an explicit unsubscribe wins over job-alert membership, as does a global stop', () => {
     const scoped = dedupeRecipients(
       [
         { ...nl('out@example.com', 'unsubscribed'), doc: { status: 'unsubscribed', confirmed_at: STAMP } },
@@ -65,10 +65,9 @@ describe('dedupeRecipients', () => {
       ],
       [ja('out@example.com', 'active'), ja('bounced@example.com', 'active')],
     );
-    expect(scoped.recipients.map((r) => r.email)).toEqual(['out@example.com']);
-    // The newsletter-only unsubscribe is scoped to that channel; the one
-    // counted win below is the separate hard suppression on bounced@.
-    expect(scoped.stats.optOutWins).toBe(1);
+    expect(scoped.recipients).toHaveLength(0);
+    // Both the unsubscribe and the hard suppression are cross-channel stops.
+    expect(scoped.stats.optOutWins).toBe(2);
 
     const global = dedupeRecipients(
       [

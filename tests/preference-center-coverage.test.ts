@@ -169,7 +169,9 @@ describe('#5684 point 1 — every recurring channel has a switch in the preferen
     expect(senderSrc).toContain('isSavedJobsDigestEligible');
     expect(senderSrc).toContain('isCrossChannelStop');
     expect(senderSrc).toContain('digest.optedOut === true');
-    expect(senderSrc).toContain('digest.optedIn === true');
+    // Terms-based delivery has no positive `optedIn` gate. The channel can
+    // still be stopped explicitly through `optedOut`, the preference centre,
+    // or the shared cross-channel suppression predicate.
   });
 
   it('the ad blast reads the advertising flag the centre writes, in both modes', () => {
@@ -335,7 +337,7 @@ describe('#5684 point 3 — a preference set in the centre survives what comes a
     const authService = read('services/authService.ts');
     expect(authService).toContain('upsertNewsletterSubscriber');
     expect(authService).toContain('registrationTermsAccepted: true');
-    expect(authService).toContain('skipConfirmationEmail: true');
+    expect(authService).toMatch(/skipConfirmationEmail:\s*provider !== 'email'/);
     expect(authService).not.toMatch(/requestConfirmationEmail/);
   });
 

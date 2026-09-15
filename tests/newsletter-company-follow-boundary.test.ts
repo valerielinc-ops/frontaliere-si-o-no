@@ -46,7 +46,17 @@ function createManagementDb(email: string, initial: Subscriber) {
               data: () => docs[`${name}/${id}`],
             }),
             set: async (data: Subscriber) => {
-              docs[`${name}/${id}`] = { ...(docs[`${name}/${id}`] || {}), ...data };
+              const next = { ...(docs[`${name}/${id}`] || {}) };
+              for (const [key, value] of Object.entries(data)) {
+                // Firestore removes deleteField() transforms instead of
+                // returning the transform sentinel on the next read.
+                if (value === '__delete_field__' || value?.constructor?.name === 'DeleteTransform') {
+                  delete next[key];
+                } else {
+                  next[key] = value;
+                }
+              }
+              docs[`${name}/${id}`] = next;
             },
             collection: (subName: string) => ({
               add: async (data: Subscriber) => {
@@ -271,8 +281,10 @@ describe('company-follow/newsletter purpose boundary', () => {
     });
 
     expect(subscriber?.company_follow_only).toBe(false);
-    expect(subscriber?.status).toBe('confirmed');
-    expect(subscriber?.isActive).toBe(true);
+    // A typed ordinary registration stays pending for DOI/audit purposes;
+    // ordinary senders no longer use that proof state as a delivery gate.
+    expect(subscriber?.status).toBe('pending');
+    expect(subscriber?.isActive).toBe(false);
     expect(subscriber?.preferences).toMatchObject({ jobs: true });
   });
 });

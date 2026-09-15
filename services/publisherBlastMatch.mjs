@@ -174,10 +174,9 @@ export function matchSubscribersForAd(ad, subscribers, opts = {}) {
   const scored = [];
   for (const sub of subscribers) {
     if (!sub || !sub.email) continue;
-    // Respect hard address suppression and the explicit global stop-all flag.
-    // A newsletter-only unsubscribe is intentionally not applied here: this is
-    // the advertising category has its own opt-out field, which decides
-    // eligibility below without turning the category into a second signup path.
+    // Respect the recorded unsubscribe, hard address suppression and legacy
+    // global stop-all flag. The advertising category also has its own explicit
+    // opt-out field, which decides eligibility below.
     if (isCrossChannelStop(sub)) continue;
     // Third-party advertising is an ordinary base communication: no
     // double-opt-in proof, registration marker or status word is a delivery

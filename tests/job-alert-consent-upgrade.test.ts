@@ -219,17 +219,16 @@ describe('case 2 — accept, then unsubscribe: the opt-out wins and the proof st
     expect(decision).not.toHaveProperty('payload');
   });
 
-  it('does not treat a newsletter-only opt-out as a job-alert stop', () => {
-    // The newsletter and job-alert choices are separate. A later explicit
-    // activation may therefore upgrade a backfilled alert after the newsletter
-    // alone was switched off.
+  it('treats a newsletter unsubscribe as a job-alert stop', () => {
+    // The unsubscribe is an explicit recipient opt-out, so an alert upgrade
+    // cannot use a stale alert record to re-enable mail on another channel.
     expect(
       planJobAlertConsentUpgrade({
         alert: backfilledAlert(),
         subscriber: { status: 'unsubscribed' },
         proof: proof(),
       }),
-    ).toEqual({ write: true, payload: proof() });
+    ).toEqual({ write: false, reason: 'opt-out-binding' });
   });
 
   it('honours an explicit global stop recorded on the parent subscriber document', () => {

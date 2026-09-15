@@ -30,11 +30,11 @@
  * lifecycle classifiers are driven with the exact document shapes production
  * holds.
  *
- * THE DIRECTION IS DELIBERATE AND IT IS CHANNEL-SCOPED. A newsletter opt-out
- * silences the newsletter only; an alert opt-out silences that alert. The
- * separate stop-all action is the only user instruction that crosses channels.
- * Asserted below, because "the asymmetry is intentional" is exactly the
- * sentence a later reader deletes when it lives only in a comment.
+ * THE DIRECTION IS DELIBERATE AND IT IS CROSS-CHANNEL. An explicit unsubscribe
+ * or opt-out silences every ordinary email channel; internal lifecycle states
+ * such as `inactive` and `expired` remain channel-scoped. Asserted below so a
+ * later sender cannot quietly reintroduce a second consent gate or ignore the
+ * recorded stop.
  *
  * Every address here is on example.com (the repo is public).
  */
@@ -152,9 +152,9 @@ const GLOBAL_STOP_SHAPES: Array<[string, Record<string, unknown>]> = [
 ];
 
 describe('the predicate: what the newsletter document says to every other channel', () => {
-  it.each(NEWSLETTER_OPTED_OUT_SHAPES)('%s remains a newsletter-only opt-out', (_label, doc) => {
+  it.each(NEWSLETTER_OPTED_OUT_SHAPES)('%s stops every ordinary email channel', (_label, doc) => {
     expect(isNewsletterOptOutBinding(doc)).toBe(true);
-    expect(isCrossChannelStop(doc)).toBe(false);
+    expect(isCrossChannelStop(doc)).toBe(true);
   });
 
   it.each(GLOBAL_STOP_SHAPES)('%s is a cross-channel stop', (_label, doc) => {
@@ -170,11 +170,11 @@ describe('the predicate: what the newsletter document says to every other channe
     expect(hasNewsletterOptOutStamp(SPA_STAMP_ONLY)).toBe(true);
   });
 
-  it('newsletter status is not the global stop-all signal', () => {
-    // A newsletter unsubscribe is intentionally channel-scoped. A hard status
-    // remains cross-channel because it describes the address, not a preference.
+  it('newsletter status is an ordinary cross-channel opt-out signal', () => {
+    // An explicit unsubscribe stops every ordinary communication. A hard
+    // status remains cross-channel because it describes the address itself.
     expect(isAddressSuppressed('unsubscribed')).toBe(false);
-    expect(isCrossChannelStop({ status: 'unsubscribed' })).toBe(false);
+    expect(isCrossChannelStop({ status: 'unsubscribed' })).toBe(true);
     expect(isCrossChannelStop({ status: 'bounced' })).toBe(true);
   });
 
@@ -193,9 +193,8 @@ describe('the predicate: what the newsletter document says to every other channe
   });
 
   it('an explicit re-opt-in lifts it — the predicate is not a stamp presence check', () => {
-    // The newsletter predicate still owns the append-only stamp and its
-    // supersession rule. The cross-channel predicate deliberately ignores that
-    // channel-only history altogether.
+    // The shared predicate uses the same append-only stamp and supersession
+    // rule as the newsletter reader, so every sender sees the same decision.
     const returned = {
       email: STILL_IN,
       status: 'confirmed',
@@ -205,17 +204,19 @@ describe('the predicate: what the newsletter document says to every other channe
     };
     expect(hasNewsletterOptOutStamp(returned)).toBe(true);
     expect(isCrossChannelStop(returned)).toBe(false);
-    expect(isCrossChannelStop({ ...returned, resubscribed_at: OPT_OUT_STAMP })).toBe(false);
-    expect(isCrossChannelStop({ ...returned, status: 'unsubscribed' })).toBe(false);
+    expect(isCrossChannelStop({ ...returned, resubscribed_at: OPT_OUT_STAMP })).toBe(true);
+    // A status that is still explicitly `unsubscribed` remains a stop even if
+    // a stale re-opt-in stamp is present; the reactivation writer must also
+    // move the status out of the suppression state.
+    expect(isCrossChannelStop({ ...returned, status: 'unsubscribed' })).toBe(true);
   });
 
   it('the cross-channel reader and the opt-out module agree on the opt-out half', () => {
-    // The newsletter predicate and the cross-channel predicate intentionally
-    // answer different questions: the former sees channel opt-out history,
-    // the latter sees only hard/global stops.
+    // The newsletter predicate and the cross-channel predicate must agree on
+    // the recipient's recorded opt-out history.
     for (const [, doc] of NEWSLETTER_OPTED_OUT_SHAPES) {
       expect(isNewsletterOptOutBinding(doc)).toBe(true);
-      expect(isCrossChannelStop(doc)).toBe(false);
+      expect(isCrossChannelStop(doc)).toBe(true);
     }
     expect(isNewsletterOptOutBinding(STILL_SUBSCRIBED)).toBe(false);
     for (const status of ['bounced', 'complained', 'suppressed']) {
@@ -225,7 +226,7 @@ describe('the predicate: what the newsletter document says to every other channe
   });
 
   it('normalises case and whitespace, like every other predicate in the module', () => {
-    expect(isCrossChannelStop({ status: '  UNSUBSCRIBED ' })).toBe(false);
+    expect(isCrossChannelStop({ status: '  UNSUBSCRIBED ' })).toBe(true);
     expect(isCrossChannelStop({ global_email_opt_out: 'true' })).toBe(true);
   });
 });
@@ -247,20 +248,18 @@ describe('the boundary: `inactive` is NOT an opt-out and must not cross', () => 
 
   it('the set contains only hard address-level signals; global stop is a field', () => {
     expect([...CROSS_CHANNEL_STOP_STATUSES].sort()).toEqual(
-      ['bounced', 'complained', 'suppressed'],
+      ['bounced', 'complained', 'suppressed', 'unsubscribed'],
     );
     expect(CROSS_CHANNEL_STOP_STATUSES.has('inactive')).toBe(false);
-    // …and it is strictly narrower than the newsletter's own set, by exactly
-    // the members that are OURS rather than the recipient's — the shape that
-    // makes the difference reviewable.
+    // …and it remains narrower than the newsletter's own set only by the
+    // lifecycle states that are OURS rather than the recipient's.
     //
     // `inactive` is the never-engager sunset; `expired` (#5692) is an
     // unanswered double opt-in, closed after three requests one day apart.
     // Both are states we wrote about our own channel, neither is an
-    // instruction the human gave, and neither may cross to the alert channel,
-    // whose consent basis is a separate act the person performed themselves.
+    // instruction the human gave, and neither may cross to the alert channel.
     const nlOnly = [...NEWSLETTER_EXCLUDED_STATUSES].filter((s) => !CROSS_CHANNEL_STOP_STATUSES.has(s)).sort();
-    expect(nlOnly).toEqual(['expired', 'inactive', 'unsubscribed']);
+    expect(nlOnly).toEqual(['expired', 'inactive']);
     expect(isCrossChannelStop({ status: 'expired' })).toBe(false);
   });
 
@@ -284,9 +283,9 @@ describe('nothing in the other collections authorises the send', () => {
     expect(THEIR_ALERT.active).toBe(true);
   });
 
-  it('so only an explicit global stop in the newsletter document can stop the send', () => {
-    expect(isCrossChannelStop(CF_UNSUBSCRIBED)).toBe(false);
-    expect(isCrossChannelStop(SPA_STAMP_ONLY)).toBe(false);
+  it('so an explicit unsubscribe or global stop in the newsletter document stops the send', () => {
+    expect(isCrossChannelStop(CF_UNSUBSCRIBED)).toBe(true);
+    expect(isCrossChannelStop(SPA_STAMP_ONLY)).toBe(true);
     expect(isCrossChannelStop(GLOBAL_STOP)).toBe(true);
   });
 
@@ -305,7 +304,7 @@ describe('nothing in the other collections authorises the send', () => {
 });
 
 describe('the senders, driven', () => {
-  it('send-daily-brief: newsletter opt-out stays scoped, global stop blocks the union', () => {
+  it('send-daily-brief: newsletter opt-out blocks the union, as does global stop', () => {
     const nlRow = (doc: { email: string; status: string }) => ({
       email: doc.email, status: doc.status, locale: 'it', doc,
     });
@@ -316,8 +315,8 @@ describe('the senders, driven', () => {
         { email: STILL_IN, status: 'active', doc: { status: 'active' } },
       ],
     );
-    expect(scoped.recipients.map((r: { email: string }) => r.email)).toEqual([STILL_IN, OPTED_OUT]);
-    expect(scoped.stats.optOutWins).toBe(0);
+    expect(scoped.recipients.map((r: { email: string }) => r.email)).toEqual([STILL_IN]);
+    expect(scoped.stats.optOutWins).toBe(1);
 
     const global = dedupeRecipients(
       [nlRow(GLOBAL_STOP), nlRow(STILL_SUBSCRIBED)],
@@ -330,16 +329,14 @@ describe('the senders, driven', () => {
     expect(global.stats.optOutWins).toBe(1);
   });
 
-  it('blast-publisher-ads: newsletter opt-out stays scoped, global stop does not', () => {
+  it('blast-publisher-ads: newsletter opt-out and global stop both block', () => {
     // minScore 0 so only the channel gates decide. Advertising consent is
     // explicitly copied onto the fixtures because it is a separate purpose.
     const ad = { title: 'Test', locations: [], keywords: [] };
     const newsletterOnly = { ...STILL_SUBSCRIBED, ...SPA_STAMP_ONLY, email: 'newsletter-only@example.com' };
     const global = { ...STILL_SUBSCRIBED, ...GLOBAL_STOP, email: 'global@example.com' };
     const audience = matchSubscribersForAd(ad, [newsletterOnly, global, STILL_SUBSCRIBED], { minScore: 0 });
-    expect(audience.map((a: { email: string }) => a.email)).toEqual([
-      'newsletter-only@example.com', STILL_IN,
-    ]);
+    expect(audience.map((a: { email: string }) => a.email)).toEqual([STILL_IN]);
   });
 
   it('the backfill that MANUFACTURES alerts refuses an opted-out document', () => {
@@ -406,8 +403,9 @@ describe('the senders, driven', () => {
  * Two gates, because two questions. A sender reading the newsletter document
  * for ITS OWN channel uses the channel set (which contains `unsubscribed` and
  * `inactive`) plus the stamp; a sender reading it for ANOTHER channel uses
- * isCrossChannelStop, which sees hard address signals and the explicit global
- * stop-all field. Naming the gate per file keeps the scope visible.
+ * isCrossChannelStop, which sees the recorded opt-out, hard address signals
+ * and legacy global stop-all fields. Naming the gate per file keeps the scope
+ * visible.
  */
 type Verdict =
   | { verdict: 'cross-channel'; why: string; gateIn?: string }
@@ -440,7 +438,7 @@ const VERDICTS: Record<string, Verdict> = {
   },
   'scripts/send-saved-jobs-digest.mjs': {
     verdict: 'cross-channel',
-    why: '#5688 — the channel\'s own opt-out is users/{uid}.savedJobsDigest.optedOut; the newsletter document contributes the cross-channel stop and only that',
+    why: '#5688 — the channel\'s own opt-out is users/{uid}.savedJobsDigest.optedOut; the newsletter document contributes the recorded cross-channel stop',
   },
   'scripts/send-newsletter.mjs': {
     verdict: 'newsletter-channel',
@@ -448,7 +446,7 @@ const VERDICTS: Record<string, Verdict> = {
   },
   'scripts/send-daily-brief.mjs': {
     verdict: 'cross-channel',
-    why: 'its own daily-brief frequency is channel-scoped; the central document contributes only hard/global stops',
+    why: 'its own daily-brief frequency is channel-scoped; the central document contributes recorded opt-outs and hard/global stops',
   },
   'scripts/send-onboarding-drip.mjs': {
     verdict: 'newsletter-channel',
@@ -456,7 +454,7 @@ const VERDICTS: Record<string, Verdict> = {
   },
   'scripts/blast-publisher-ads.mjs': {
     verdict: 'cross-channel',
-    why: 'paid-ad blast is a separate opt-in channel; hard/global stops apply while newsletter unsubscribe stays scoped',
+    why: 'paid-ad blast is a separate opt-in channel; recorded unsubscribe, hard and legacy global stops apply',
     gateIn: 'services/publisherBlastMatch.mjs',
   },
   'scripts/newsletter-sunset.mjs': {

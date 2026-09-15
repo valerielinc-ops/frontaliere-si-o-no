@@ -385,11 +385,10 @@ export function evaluateJobAlertConsent({ alert, subscriber }) {
  */
 export function shouldSkipSubscriber(email, data, personalization = null) {
   if (!email || !email.includes('@')) return 'invalid-email';
-  // A newsletter unsubscribe/inactivity state prevents a new base
-  // relationship from being created. Hard address signals and the explicit
-  // stop-all marker apply across both channels. A newsletter-only opt-out does
-  // not delete an already-created concrete job alert; the alert sender checks
-  // its own channel state separately.
+  // An explicit newsletter opt-out, hard address signal or legacy stop-all
+  // prevents a new base relationship from being created. An opt-out does not
+  // delete an already-created concrete job alert; the alert sender applies the
+  // same shared stop before delivery.
   if (
     isNewsletterExcluded(data?.status)
     || isNewsletterOptOutBinding(data)

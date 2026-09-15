@@ -14,11 +14,10 @@
  * requires the central subscriber record and shared suppression predicate, but
  * never a double-opt-in proof or a purpose marker.
  *
- * The propagation runs ONE way and that is deliberate. This channel's
- * unsubscribe is scoped to `savedJobsDigest` and must never touch
- * `newsletter_subscribers` or `job_alert_subscribers/*`; only the explicit
- * stop-all flag (or a hard address suppression) reaches here through the shared
- * predicate (see functions/src/lib/emailSuppression.js).
+ * The channel-specific preference stays on the user document and must never
+ * mutate `newsletter_subscribers` or `job_alert_subscribers/*`. An explicit
+ * unsubscribe, legacy stop-all flag or hard address suppression reaches this
+ * sender through the shared predicate (see functions/src/lib/emailSuppression.js).
  *
  * Env:
  *   GOOGLE_APPLICATION_CREDENTIALS — Firebase service account for Firestore

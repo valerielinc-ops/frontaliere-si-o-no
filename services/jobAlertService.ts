@@ -350,9 +350,9 @@ export async function createAlert(
   const latestSubscriberData = latestSubscriber.exists()
     ? latestSubscriber.data() as Record<string, any>
     : null;
-  // A newsletter-only opt-out is scoped to the newsletter channel. Creating
-  // or reactivating a concrete job alert is a separate user action; only a
-  // global stop or hard address suppression blocks it.
+  // An explicit newsletter unsubscribe is an opt-out from ordinary email, so
+  // creating or reactivating a concrete job alert cannot bypass it. Internal
+  // lifecycle states remain separate; the shared predicate owns the stop rule.
   if (isCrossChannelStop(latestSubscriberData)) {
     throw new Error('job-alert/email-suppressed');
   }

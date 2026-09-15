@@ -1342,8 +1342,8 @@ async function main() {
   if (alerts.length === 0) return;
 
   // Registration/suppression, from both documents. The newsletter side is
-  // isCrossChannelStop: address-level hard signals plus the explicit global
-  // stop-all. Newsletter-only unsubscribe stays scoped to that channel. Known
+  // isCrossChannelStop: the recorded unsubscribe, address-level hard signals
+  // and legacy explicit global stop-all. Known rows plus the active alert are
   // rows plus the active alert are sendable regardless of confirmation
   // proof or status word; missing or unknown data is DEFERRED, never fail-open.
   const emailsInScope = [...new Set(alerts.map((a) => String(a.email || '').toLowerCase()))];

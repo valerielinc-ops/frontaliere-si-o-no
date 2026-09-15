@@ -1780,7 +1780,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  // way, and the nightly cron / presigned-link endpoint remain as fallback
  // sends. Lazy import to keep this action's cold-start path unchanged when
  // the subscriber was already confirmed (the common re-click case).
- if (!companyFollowOnly && !alreadyConfirmed) {
+ if (!companyFollowOnly && !alreadyConfirmed && !companyFollowPending) {
   try {
    const { sendNewsletterWelcomeEmail } = await import('./newsletterWelcomeEmail.js');
    await sendNewsletterWelcomeEmail({ email: normalizedEmail, locale: lang, db, trigger: 'confirm' });

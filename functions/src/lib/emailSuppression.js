@@ -18,12 +18,11 @@
  *   - reading the recipient's OWN channel document → isNewsletterExcluded /
  *     isJobAlertExcluded (each folds in that channel's own soft states);
  *   - reading the NEWSLETTER document from any other channel → isCrossChannelStop
- *     (address-level hard signals plus the explicit global stop-all; the
- *     newsletter-only unsubscribe deliberately does not cross);
+ *     (address-level hard signals plus the recorded unsubscribe/stop-all);
  *   - a transactional message the user just asked for → isTransactionalHardBlock.
  */
 
-import { assertSubscriberData } from './newsletterOptOut.js';
+import { assertSubscriberData, isNewsletterOptOutBinding } from './newsletterOptOut.js';
 
 /**
  * Address-level hard signals. The mailbox is dead (bounced), the human flagged
@@ -34,16 +33,16 @@ import { assertSubscriberData } from './newsletterOptOut.js';
 export const ADDRESS_SUPPRESSED_STATUSES = new Set(['bounced', 'complained', 'suppressed']);
 
 /**
- * Newsletter-channel exclusions: the address-level signals PLUS the channel-level
- * soft states — `unsubscribed` (explicit opt-out) and `inactive` (the sunset of a
- * never-engager, see scripts/lib/subscriberSunset.mjs). `inactive` is NOT in
+ * Newsletter-channel exclusions: the address-level signals PLUS the explicit
+ * opt-out state `unsubscribed` and the internal `inactive` sunset (see
+ * scripts/lib/subscriberSunset.mjs). `inactive` is NOT in
  * ADDRESS_SUPPRESSED_STATUSES because it is a soft, channel-level state, not a
  * hard cross-channel signal (a bounce/complaint).
  *
- * `unsubscribed` is channel-scoped. A person who clicks the newsletter's
- * unsubscribe control has turned off the newsletter, not every other email
- * they separately requested. The explicit stop-all action writes a separate
- * global field; that is the only user instruction that crosses channels.
+ * `unsubscribed` is an explicit recipient opt-out. It therefore crosses
+ * channels: a person who asks us to stop receiving email must not continue to
+ * receive job alerts, company alerts, digests or advertising. `inactive` and
+ * `expired` remain internal newsletter lifecycle states and stay scoped.
  */
 export const NEWSLETTER_EXCLUDED_STATUSES = new Set([
   'unsubscribed',
@@ -70,21 +69,21 @@ export const NEWSLETTER_EXCLUDED_STATUSES = new Set([
 /**
  * What the NEWSLETTER document says to every OTHER channel.
  *
- * The address-level hard signals plus an explicit global opt-out. Newsletter
- * `unsubscribed`, `inactive` and `expired` are deliberately NOT in this set:
- * they are channel state, not a stop-all instruction. The predicate below also
- * reads the global field, because a stop-all decision is not safely represented
- * by the newsletter's channel status.
+ * The address-level hard signals plus an explicit newsletter opt-out. The
+ * latter is read both from the status and from the append-only opt-out stamps;
+ * the explicit global fields are retained for legacy stop-all writers.
  */
-export const CROSS_CHANNEL_STOP_STATUSES = new Set([...ADDRESS_SUPPRESSED_STATUSES]);
+export const CROSS_CHANNEL_STOP_STATUSES = new Set([
+  'unsubscribed',
+  ...ADDRESS_SUPPRESSED_STATUSES,
+]);
 
 /**
  * Canonical and legacy spellings of the explicit stop-all decision.
  *
- * `status: 'unsubscribed'` remains the newsletter-only state. Keeping a
- * separate field lets job, company and saved-job emails continue until the
- * user deliberately stops all email, while every sender still shares one
- * fail-closed global gate.
+ * These fields remain supported for the legacy explicit stop-all action. The
+ * ordinary unsubscribe status/stamps are also cross-channel stops; there is
+ * no second gate a recipient must discover to stop email everywhere.
  */
 export const GLOBAL_EMAIL_OPT_OUT_FIELDS = Object.freeze([
   'all_email_opted_out',
@@ -105,8 +104,7 @@ export const GLOBAL_EMAIL_OPT_OUT_FIELDS = Object.freeze([
  *
  * This set answers only "what does the JOB-ALERT document say". A sender must
  * also ask what the NEWSLETTER document says — isCrossChannelStop() below —
- * because the explicit global stop lives on that central row, while a
- * newsletter-only unsubscribe is intentionally channel-scoped.
+ * because unsubscribe/stop-all history lives on that central row.
  */
 export const JOB_ALERT_EXCLUDED_STATUSES = new Set(['inactive', ...ADDRESS_SUPPRESSED_STATUSES]);
 
@@ -170,9 +168,8 @@ export function isGlobalEmailOptOut(row) {
  *
  *   - the address-level hard signals DO live on `status`, so isAddressSuppressed
  *     still answers that half;
- *   - a global stop-all decision lives in an explicit field, so a newsletter
- *     `status: 'unsubscribed'` or its append-only channel stamp does NOT cross
- *     into this predicate;
+ *   - a recipient opt-out lives in `status` or append-only opt-out stamps, and
+ *     the legacy stop-all decision lives in explicit fields;
  *
  * Accepts a raw Firestore document or a projection carrying the raw one on
  * `.doc` (the shape scripts/send-daily-brief.mjs builds); the opt-out fields are
@@ -194,8 +191,11 @@ export function isCrossChannelStop(row) {
   assertSubscriberData(row.doc, 'isCrossChannelStop(row.doc)');
   const raw = row.doc && typeof row.doc === 'object' ? row.doc : row;
   const status = row.status != null ? row.status : raw.status;
-  if (isAddressSuppressed(status) || isAddressSuppressed(raw.status)) return true;
-  return isGlobalEmailOptOut(row);
+  if (CROSS_CHANNEL_STOP_STATUSES.has(norm(status))
+    || CROSS_CHANNEL_STOP_STATUSES.has(norm(raw.status))) return true;
+  return isGlobalEmailOptOut(row)
+    || isNewsletterOptOutBinding(raw)
+    || isNewsletterOptOutBinding(row);
 }
 
 /**

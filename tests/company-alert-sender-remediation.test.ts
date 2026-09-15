@@ -195,7 +195,7 @@ describe('B3 — consent and suppression are fail-closed', () => {
         },
       },
       knownJobAlert,
-    )).toEqual({ action: 'send', reason: 'subscription-known-ok' });
+    )).toEqual({ action: 'suppress', reason: 'newsletter-cross-channel-stop' });
     expect(classifyRecipientConsent(
       { exists: true, data: { status: 'pending' } },
       knownJobAlert,

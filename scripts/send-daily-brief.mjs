@@ -14,13 +14,10 @@
  *     recorded opt-out. Registration terms, not a second checkbox, establish
  *     the base relationship; no confirmation proof is required for delivery.
  *   - job-alert side: root docs not excluded by isJobAlertExcluded().
- *   - anyone whose newsletter document records a hard address suppression or
- *     the explicit global stop-all flag is OUT even if they sit in the
- *     job-alert collection. A newsletter-only unsubscribe/inactivity state is
- *     scoped to the newsletter and does not silence this separately requested
- *     channel (isCrossChannelStop, services/emailSuppression.mjs).
- *   - anyone whose newsletter doc carries a hard address stop or a global
- *     stop-all flag is OUT of every channel, job alert included.
+ *   - anyone whose newsletter document records an explicit unsubscribe, hard
+ *     address suppression or legacy global stop-all flag is OUT even if they
+ *     sit in the job-alert collection (isCrossChannelStop,
+ *     services/emailSuppression.mjs).
  *
  * WHAT THIS SCRIPT DELIBERATELY DOES NOT DO
  *   - No `last_sent_at` WRITE. The newsletter and job-alert senders exclude
@@ -232,12 +229,10 @@ export function dedupeRecipients(newsletterRows, jobAlertRows) {
     const email = norm(row.email);
     if (!email || !email.includes('@')) continue;
     const nlRow = nlByEmail.get(email);
-    // A hard address suppression or the explicit stop-all action wins over
-    // job-alert membership. A newsletter-only unsubscribe/inactivity state is
-    // deliberately not applied here: this recipient may have separately asked
-    // for a job-alert/daily-brief channel. `nlRow` is null when no newsletter
-    // document exists, and the cross-channel predicate reads that as no global
-    // stop — the job-alert membership remains its own basis.
+    // An explicit unsubscribe, hard address suppression or legacy stop-all
+    // action wins over job-alert membership. `nlRow` is null when no newsletter
+    // document exists, and the cross-channel predicate reads that as no stop —
+    // the job-alert membership remains its own basis.
     if (isCrossChannelStop(nlRow?.doc || nlRow)) {
       stats.optOutWins++;
       continue;
