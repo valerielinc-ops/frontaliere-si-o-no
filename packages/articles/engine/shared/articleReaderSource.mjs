@@ -12,7 +12,37 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 
 const escapeRegex = (value) => String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
-const SLUG_MAP_ENTRY_RE = /["']([^"']+)["']\s*:\s*\{\s*it:\s*["']([^"']+)["']\s*,\s*en:\s*["']([^"']+)["']\s*,\s*de:\s*["']([^"']+)["']\s*,\s*fr:\s*["']([^"']+)["']/g;
+const SLUG_MAP_ENTRY_RE = /["']([^"']+)["']\s*:\s*\{([^{}]*)\}/g;
+const LOCALE_FIELD_RE = /(?:^|,)\s*(?:(it|en|de|fr)|["'](it|en|de|fr)["'])\s*:\s*["']([^"']*)["']/g;
+
+function invalidArgument(name) {
+  throw new TypeError('parseArticleUrlSlugs: ' + name + ' must be a non-empty string');
+}
+
+function parseLocalizedEntry(articleId, body) {
+  const fields = {};
+  for (const match of body.matchAll(LOCALE_FIELD_RE)) {
+    const locale = match[1] || match[2];
+    if (Object.prototype.hasOwnProperty.call(fields, locale)) {
+      throw new SyntaxError('parseArticleUrlSlugs: duplicate locale ' + locale + ' for ' + articleId);
+    }
+    if (!match[3].trim()) {
+      throw new SyntaxError('parseArticleUrlSlugs: empty locale ' + locale + ' for ' + articleId);
+    }
+    fields[locale] = match[3];
+  }
+
+  const missing = LOCALES.filter((locale) => !Object.prototype.hasOwnProperty.call(fields, locale));
+  if (missing.length > 0) {
+    throw new SyntaxError(
+      'parseArticleUrlSlugs: incomplete locale map for ' + articleId + '; missing ' + missing.join(', '),
+    );
+  }
+
+  const localized = {};
+  for (const locale of LOCALES) localized[locale] = fields[locale];
+  return localized;
+}
 
 /**
  * Parse one `const <slugConst> = { ... }` source block into its locale URL
@@ -24,13 +54,16 @@ const SLUG_MAP_ENTRY_RE = /["']([^"']+)["']\s*:\s*\{\s*it:\s*["']([^"']+)["']\s*
  * @returns {Record<string, Record<string, string>>}
  */
 export function parseArticleUrlSlugs(source, slugConst) {
-  if (typeof source !== 'string' || typeof slugConst !== 'string' || slugConst.length === 0) return {};
-  const block = source.match(new RegExp(`const ${escapeRegex(slugConst)}[\\s\\S]*?\\n\\};`, 'm'))?.[0] ?? '';
+  if (typeof source !== 'string') invalidArgument('source');
+  if (typeof slugConst !== 'string' || slugConst.length === 0) invalidArgument('slugConst');
+  const block = source.match(
+    new RegExp('\\bconst\\s+' + escapeRegex(slugConst) + '(?:\\s*:\\s*[^=\\n]+)?\\s*=\\s*\\{([\\s\\S]*?)\\}\\s*;', 'm'),
+  )?.[1] ?? '';
   if (!block) return {};
 
   const out = {};
   for (const match of block.matchAll(SLUG_MAP_ENTRY_RE)) {
-    out[match[1]] = Object.fromEntries(LOCALES.map((locale, index) => [locale, match[index + 2]]));
+    out[match[1]] = parseLocalizedEntry(match[1], match[2]);
   }
   return out;
 }

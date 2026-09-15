@@ -1,0 +1,77 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { describe, expect, it } from 'vitest';
+
+import { parseArticleUrlSlugs } from '../packages/articles/engine/shared/articleReaderSource.mjs';
+import { readBlogUrlSlugs } from '../packages/articles/engine/shared/articleReaders';
+
+const ROOT = path.resolve(import.meta.dirname, '..');
+
+const REORDERED_SOURCE = `
+  export const BLOG_SLUGS: Record<string, Record<string, string>> = {
+  'article-1': {
+    fr: 'article-1-fr',
+    it: 'article-1-it',
+    de: 'article-1-de',
+    en: 'article-1-en',
+  },
+};
+`;
+
+describe('parseArticleUrlSlugs', () => {
+  it('reads locale properties by key, independently of their source order', () => {
+    expect(parseArticleUrlSlugs(REORDERED_SOURCE, 'BLOG_SLUGS')).toEqual({
+      'article-1': {
+        it: 'article-1-it',
+        en: 'article-1-en',
+        de: 'article-1-de',
+        fr: 'article-1-fr',
+      },
+    });
+  });
+
+  it('rejects a non-string source instead of silently treating it as an empty map', () => {
+    expect(() => parseArticleUrlSlugs(null, 'BLOG_SLUGS')).toThrow(TypeError);
+    expect(() => parseArticleUrlSlugs({} as never, 'BLOG_SLUGS')).toThrow(/source.*string/i);
+  });
+
+  it('rejects a non-string or empty constant name', () => {
+    expect(() => parseArticleUrlSlugs(REORDERED_SOURCE, null)).toThrow(TypeError);
+    expect(() => parseArticleUrlSlugs(REORDERED_SOURCE, '')).toThrow(TypeError);
+  });
+
+  it('signals a slug entry whose locale map is partial', () => {
+    const partial = REORDERED_SOURCE.replace("fr: 'article-1-fr',", '');
+    expect(() => parseArticleUrlSlugs(partial, 'BLOG_SLUGS')).toThrow(/article-1.*fr/i);
+  });
+
+  it('does not let the shared reader swallow a parser contract error', () => {
+    const fakeFs = {
+      existsSync: () => true,
+      readFileSync: () => REORDERED_SOURCE,
+    };
+    const fakePath = { resolve: (...parts: string[]) => parts.join('/') };
+
+    expect(() => readBlogUrlSlugs(
+      fakeFs as never,
+      fakePath as never,
+      '/tmp',
+      'routerBlogData.ts',
+      null as never,
+    )).toThrow(TypeError);
+  });
+
+  it('keeps an absent optional declaration as an empty map', () => {
+    expect(parseArticleUrlSlugs('export const OTHER = {};', 'BLOG_SLUGS')).toEqual({});
+  });
+});
+
+describe('ogPagesPlugin standalone module graph', () => {
+  it('uses the explicit ESM extension for the shared parser import', () => {
+    const source = fs.readFileSync(
+      path.join(ROOT, 'packages/articles/engine/ogPagesPlugin.ts'),
+      'utf8',
+    );
+    expect(source).toContain("from './shared/articleReaderSource.mjs'");
+  });
+});
