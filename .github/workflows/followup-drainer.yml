@@ -19,6 +19,9 @@ on:
 # Una sola run drainer alla volta, nello stesso mutex repo-scoped dei writer daily:
 # evita che queue promotion legga/segnali un bucket mentre gate o reconciler lo mutano.
 concurrency:
+  # Regression #7581: 1,426/1,710 historical runs (83.4%) were cancelled when
+  # workflow_run fed a constant group. Keep the durable cron and repo-scoped
+  # mutex so concurrent repositories cannot evict this queue's pending run.
   group: followup-daily-${{ github.repository }}
   cancel-in-progress: false
 

@@ -11760,6 +11760,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.stipendi-como-lombardia-2024.title': 'Stipendio medio a Como e in Lombardia: i dati del 2024',
     'blog.article.stipendi-como-lombardia-2024.excerpt': 'Nel 2024 la retribuzione media annua in Lombardia sale a 30.384,07 euro, ma quasi la metà dei lavoratori non supera i 25.000 euro.',
     'blog.article.stipendi-como-lombardia-2024.imageAlt': 'Stipendi medi e retribuzioni in Lombardia e Como',
+    'blog.article.mendrisio-melano-progetto-meme-risanamento-fonico.title': 'Mendrisio-Melano, progetto MeMe per ridurre il rumore dell\'autostrada',
+    'blog.article.mendrisio-melano-progetto-meme-risanamento-fonico.excerpt': 'L\'Ufficio federale delle strade (USTRA) ha pubblicato il disegno per il progetto MeMe, un piano di risanamento globale per il tratto dell\'autostrada A2 tra Mendrisio e Melano.',
+    'blog.article.mendrisio-melano-progetto-meme-risanamento-fonico.imageAlt': 'Tratto autostradale A2 tra Mendrisio e Melano',
 };
 
 export default blogMetaIt;

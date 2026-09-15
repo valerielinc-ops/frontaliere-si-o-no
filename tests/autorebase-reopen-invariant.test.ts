@@ -42,6 +42,15 @@ describe('pr-autorebase: la PR non resta chiusa in silenzio', () => {
     );
   });
 
+  it('rende rosso il mis-wiring verso il budget PR invece del pin di reopen', () => {
+    const line = script.match(/^const REOPEN_ATTEMPTS\s*=.*$/mu)?.[0];
+    expect(line).toBeDefined();
+    expect(line).toMatch(/intFromEnv\(\s*['"]AUTOREBASE_REOPEN_ATTEMPTS['"]/);
+
+    const miswired = line!.replaceAll('AUTOREBASE_REOPEN_ATTEMPTS', 'AUTOREBASE_PR_COST_MS');
+    expect(miswired).not.toMatch(/intFromEnv\(\s*['"]AUTOREBASE_REOPEN_ATTEMPTS['"]/);
+  });
+
   it('etichetta la PR quando la riapertura fallisce davvero', () => {
     const start = script.indexOf('function reopenToRetrigger');
     const fn = script.slice(start, script.indexOf('\n}', script.indexOf('::error::', start)));

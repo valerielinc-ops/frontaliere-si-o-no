@@ -1202,7 +1202,7 @@
       "firstSeenAt": "2026-09-09T13:46:28.874Z",
       "titleByLocale": {
         "it": "Vicedirettore di filiale/ Vicedirettore di filiale (m/f/d) 80-100% — Hägendorf",
-        "en": "I need to see the current job data to find this title and translate it properly. Reading the job files to locate this title. I can see this is a German job title that needs to be translated to English. Let me translate it: **Assistant Store Manager (m/w/d) 80-100% — Hägendorf** The translation breaks down as: - \"Stv. Filialleiter/ Stv. Filialleiterin\" = \"Assistant Store Manager\" (Stv. = Stellvertreter/Stellvertreterin = Assistant/Deputy, Filialleiter/in = Store Manager) - \"(m/w/d)\" = gender notation, kept as is (or could be written out, but typically retained) - \"80-100%\" = employment percentage, unchanged - \"Hägendorf\" = location name, unchanged",
+        "en": "Assistant Store Manager (m/w/d) 80-100% — Hägendorf",
         "de": "Stv. Filialleiter/ Stv. Filialleiterin (m/w/d) 80-100% — Hägendorf",
         "fr": "Directeur/Directrice de succursale adjoint(e) (m/f/d) 80-100% — Hägendorf"
       },
@@ -3871,11 +3871,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "assistant-supply-chain-m-w-d-80-100-lidl-svizzera-weinfelden"
+          "assistant-supply-chain-m-w-d-80-100-lidl-svizzera-weinfelden",
+          "assistente-supply-chain-m-f-d-80-100-lidl-svizzera-weinfelden"
         ]
       },
       "previousSlugs": [
-        "assistant-supply-chain-m-w-d-80-100-lidl-svizzera-weinfelden"
+        "assistant-supply-chain-m-w-d-80-100-lidl-svizzera-weinfelden",
+        "assistente-supply-chain-m-f-d-80-100-lidl-svizzera-weinfelden"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -4827,21 +4829,42 @@
           "mitarbeiter-mitarbeiterin-reinigung-m-w-d-30-lidl-svizzera-landquart-mesxwg",
           "nettoyage-du-personnel-h-f-d-30-lidl-svizzera-landquart",
           "mitarbeiter-mitarbeiterin-reinigung-m-w-d-30-lidl-svizzera-landquart",
-          "329-collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-ins-xsgkgb"
+          "329-collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-ins-xsgkgb",
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-wallisellen-en3p4t",
+          "employe-personnel-de-nettoyage-h-f-d-20-40-wallisellen-lidl-svizzera-wallisellen",
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-wallisellen",
+          "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-wallisellen-en3p4t",
+          "dipendenti-personale-di-pulizia-m-f-d-20-butzberg-lidl-svizzera-butzberg",
+          "employee-cleaning-staff-m-f-d-20-butzberg-lidl-svizzera-butzberg",
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-lidl-svizzera-butzberg-vvxhu1",
+          "employe-personnel-de-nettoyage-h-f-d-20-butzberg-lidl-svizzera-butzberg",
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-lidl-svizzera-butzberg",
+          "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-lidl-svizzera-butzberg-vvxhu1",
+          "dipendenti-personale-di-pulizia-m-f-d-20-40-wallisellen-lidl-svizzera-wallisellen"
         ],
         "en": [
           "staff-cleaning-m-f-d-30-lidl-svizzera-landquart",
-          "329-mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-ins-xsgkgb"
+          "329-mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-ins-xsgkgb",
+          "employee-cleaning-staff-m-f-d-20-40-wallisellen-lidl-svizzera-wallisellen",
+          "employee-cleaning-staff-m-f-d-20-butzberg-lidl-svizzera-butzberg"
         ],
         "de": [
           "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-luzern",
           "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-oftringen",
           "mitarbeiter-mitarbeiterin-reinigung-m-w-d-30-lidl-svizzera-landquart-mesxwg",
-          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-30-lidl-svizzera-landquart"
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-30-lidl-svizzera-landquart",
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-wallisellen-en3p4t",
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-wallisellen",
+          "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-wallisellen-en3p4t",
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-lidl-svizzera-butzberg-vvxhu1",
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-lidl-svizzera-butzberg",
+          "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-lidl-svizzera-butzberg-vvxhu1"
         ],
         "fr": [
           "nettoyage-du-personnel-h-f-d-30-lidl-svizzera-landquart",
-          "329-mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-ins-xsgkgb"
+          "329-mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-ins-xsgkgb",
+          "employe-personnel-de-nettoyage-h-f-d-20-40-wallisellen-lidl-svizzera-wallisellen",
+          "employe-personnel-de-nettoyage-h-f-d-20-butzberg-lidl-svizzera-butzberg"
         ]
       },
       "previousSlugs": [
@@ -4854,7 +4877,19 @@
         "nettoyage-du-personnel-h-f-d-30-lidl-svizzera-landquart",
         "mitarbeiter-mitarbeiterin-reinigung-m-w-d-30-lidl-svizzera-landquart",
         "329-collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-ins-xsgkgb",
-        "329-mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-ins-xsgkgb"
+        "329-mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-ins-xsgkgb",
+        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-wallisellen-en3p4t",
+        "employe-personnel-de-nettoyage-h-f-d-20-40-wallisellen-lidl-svizzera-wallisellen",
+        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-wallisellen",
+        "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-wallisellen-en3p4t",
+        "dipendenti-personale-di-pulizia-m-f-d-20-butzberg-lidl-svizzera-butzberg",
+        "employee-cleaning-staff-m-f-d-20-butzberg-lidl-svizzera-butzberg",
+        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-lidl-svizzera-butzberg-vvxhu1",
+        "employe-personnel-de-nettoyage-h-f-d-20-butzberg-lidl-svizzera-butzberg",
+        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-lidl-svizzera-butzberg",
+        "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-lidl-svizzera-butzberg-vvxhu1",
+        "dipendenti-personale-di-pulizia-m-f-d-20-40-wallisellen-lidl-svizzera-wallisellen",
+        "employee-cleaning-staff-m-f-d-20-40-wallisellen-lidl-svizzera-wallisellen"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -5082,11 +5117,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden"
+          "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden",
+          "catena-di-alimentazione-aggiuntiva-e-controllo-m-f-d-80-100-lidl-svizzera-weinfelden"
         ]
       },
       "previousSlugs": [
-        "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden"
+        "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden",
+        "catena-di-alimentazione-aggiuntiva-e-controllo-m-f-d-80-100-lidl-svizzera-weinfelden"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -6612,7 +6649,10 @@
       "previousSlugsByLocale": {
         "it": [
           "ch-stv-filialleiter-stv-filialleiterin-m-w-d-80-lidl-svizzera-kehrsatz",
-          "ch-stv-filialleiter-stv-filialleiterin-m-w-d-80-lidl-svizzera-kehrsatz-9l6l4z"
+          "ch-stv-filialleiter-stv-filialleiterin-m-w-d-80-lidl-svizzera-kehrsatz-9l6l4z",
+          "vice-direttore-di-filiale-m-f-d-80-100-baar-lidl-svizzera-baar",
+          "vice-direttore-di-filiale-m-f-d-80-100-ebikon-lidl-svizzera-ebikon",
+          "vice-direttore-di-filiale-m-f-d-80-100-wettingen-lidl-svizzera-wettingen"
         ],
         "en": [
           "ch-stv-filialleiter-stv-filialleiterin-m-w-d-80-lidl-svizzera-kehrsatz-9l6l4z"
@@ -6623,7 +6663,10 @@
       },
       "previousSlugs": [
         "ch-stv-filialleiter-stv-filialleiterin-m-w-d-80-lidl-svizzera-kehrsatz",
-        "ch-stv-filialleiter-stv-filialleiterin-m-w-d-80-lidl-svizzera-kehrsatz-9l6l4z"
+        "ch-stv-filialleiter-stv-filialleiterin-m-w-d-80-lidl-svizzera-kehrsatz-9l6l4z",
+        "vice-direttore-di-filiale-m-f-d-80-100-baar-lidl-svizzera-baar",
+        "vice-direttore-di-filiale-m-f-d-80-100-ebikon-lidl-svizzera-ebikon",
+        "vice-direttore-di-filiale-m-f-d-80-100-wettingen-lidl-svizzera-wettingen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
