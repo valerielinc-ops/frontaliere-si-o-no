@@ -71,6 +71,23 @@ describe('traffic provider mesh', () => {
     })).toEqual({ allowed: true, count: 100 });
   });
 
+  it('fails closed when the persisted counter is corrupted', () => {
+    expect(computeProviderBudgetDecision({
+      storedPeriod: '2026-09-15',
+      storedCount: 'not-a-number',
+      period: '2026-09-15',
+      callsThisRun: 1,
+      budget: 2000,
+    })).toEqual({ allowed: false, count: Number.NaN });
+    expect(computeProviderBudgetDecision({
+      storedPeriod: '2026-09-15',
+      storedCount: -1,
+      period: '2026-09-15',
+      callsThisRun: 1,
+      budget: 2000,
+    })).toEqual({ allowed: false, count: -1 });
+  });
+
   it('calls Google Routes with a traffic-aware field mask and parses durations', async () => {
     const fetchMock = vi.fn().mockResolvedValue({
       ok: true,

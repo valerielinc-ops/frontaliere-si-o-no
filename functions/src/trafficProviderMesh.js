@@ -318,11 +318,13 @@ export function computeProviderBudgetDecision({
   callsThisRun,
   budget,
 }) {
-  const current = storedPeriod === period ? Number(storedCount || 0) : 0;
+  const current = storedPeriod === period ? Number(storedCount ?? 0) : 0;
   const calls = Number(callsThisRun);
   const cap = Number(budget);
+  if (!Number.isSafeInteger(current) || current < 0) return { allowed: false, count: current };
   if (!Number.isSafeInteger(calls) || calls < 0) return { allowed: false, count: current };
   if (!Number.isSafeInteger(cap) || cap < 0) return { allowed: false, count: current };
+  if (!Number.isSafeInteger(current + calls)) return { allowed: false, count: current };
   if (current + calls > cap) return { allowed: false, count: current };
   return { allowed: true, count: current + calls };
 }
@@ -385,9 +387,22 @@ export async function reserveTrafficProviderRequest(providerId, operation = 'rou
         }),
       };
     });
-    const lastRequestAtMs = Number(rateSnap?.exists ? rateSnap.data()?.lastRequestAtMs : 0);
+    const rateData = rateSnap?.exists ? rateSnap.data() : null;
+    const rawLastRequestAtMs = rateData?.lastRequestAtMs;
+    const lastRequestAtMs = rawLastRequestAtMs === undefined || rawLastRequestAtMs === null
+      ? 0
+      : Number(rawLastRequestAtMs);
     const nowMs = now.getTime();
     const minIntervalMs = quota.rateLimit?.minIntervalMs ?? 0;
+    if (minIntervalMs > 0 && rateSnap?.exists
+      && (!Number.isSafeInteger(lastRequestAtMs) || lastRequestAtMs < 0)) {
+      return {
+        allowed: false,
+        reason: 'invalid-rate-state',
+        provider: providerId,
+        operation,
+      };
+    }
     if (minIntervalMs > 0 && Number.isFinite(lastRequestAtMs) && lastRequestAtMs > 0
       && nowMs - lastRequestAtMs < minIntervalMs) {
       return {
