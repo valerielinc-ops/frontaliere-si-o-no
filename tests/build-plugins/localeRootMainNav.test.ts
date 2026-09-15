@@ -47,6 +47,7 @@ import fs from 'node:fs';
 import {
   injectHomepageSeoContent,
   injectLocaleMainNav,
+  HOMEPAGE_SEO_TITLES,
   NAV_LABELS,
   renderLocaleRootShell,
 } from '../../build-plugins/staticPagesPlugin';
@@ -58,6 +59,7 @@ import { buildPlateAuctionPath } from '../../services/plateAuctions/paths';
 
 /** Minimal stand-in for the mirrored IT root the ratchet starts from. */
 const SHELL = '<html lang="it"><body><div id="root"><main id="main-content"></main></div></body></html>';
+const SEO_SHELL = '<html lang=it><head><title>Old Italian homepage title</title><meta name=description content="Old description"><link rel=canonical href=https://frontaliereticino.ch/><meta property=og:title content="Old title"><meta property=og:description content="Old OG description"><meta property=og:url content=https://frontaliereticino.ch/><meta property=og:locale content=it_CH><meta name=twitter:title content="Old Twitter title"><meta name=twitter:description content="Old Twitter description"><meta name=twitter:url content=https://frontaliereticino.ch/><meta name=citation_language content=it></head><body><div id="root"><main id="main-content"></main></div></body></html>';
 
 /**
  * `renderLocaleRootShell` IS the ratchet's per-locale transform — the same
@@ -72,6 +74,18 @@ function renderLocaleRoot(locale: 'en' | 'de' | 'fr'): string {
 const NON_IT_LOCALES = ['en', 'de', 'fr'] as const;
 
 describe('locale-root SPA shells — internal links (#5428)', () => {
+  it.each(NON_IT_LOCALES)('localizes the SEO head for /%s/ and keeps titles within 60 characters', (locale) => {
+    const html = renderLocaleRootShell(SEO_SHELL, locale);
+    const title = html.match(/<title>([^<]*)<\/title>/i)?.[1] || '';
+
+    expect(title).toBe(HOMEPAGE_SEO_TITLES[locale]);
+    expect(title.length).toBeLessThanOrEqual(60);
+    expect(html).toContain('content="' + HOMEPAGE_SEO_TITLES[locale] + '"');
+    expect(html).toContain('href="https://frontaliereticino.ch/' + locale + '/"');
+    expect(html).toContain('content="' + locale + '_CH"');
+    expect(html).not.toContain('Old Italian homepage title');
+  });
+
   it.each(NON_IT_LOCALES)(
     '/%s/ links its HTML sitemap page, the depth-≤2 hub every *LinksPlugin injects into',
     (locale) => {

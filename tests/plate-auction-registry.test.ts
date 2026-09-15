@@ -68,16 +68,20 @@ describe('plate-auction sources registry schema', () => {
     expect(Object.entries(registry.sources)
       .filter(([, entry]) => entry.status === 'active')
       .map(([key]) => key)
-      .sort()).toEqual(['gr', 'sg', 'sh', 'sz', 'tg', 'vs', 'zh']);
+      .sort()).toEqual(['ag', 'ar', 'be', 'bl', 'fr', 'gr', 'nw', 'ow', 'sg', 'sh', 'so', 'sz', 'tg', 'ti', 'vd', 'vs', 'zh']);
   });
 
-  it('keeps live public catalogues active and stale TI endpoint blocked', () => {
+  it('keeps live public catalogues active and Ricardo catalogues blocked', () => {
     expect(registry.sources.vs.status).toBe('active');
     expect(registry.sources.vs.accessMethod).toBe('html-scrape');
     expect(registry.sources.gr.status).toBe('active');
     expect(registry.sources.zh.status).toBe('active');
-    expect(registry.sources.ti.status).toBe('blocked');
-    expect(registry.sources.ti.officialUrl).toBe('https://www.ti.ch/sportello/targhe');
+    expect(registry.sources.ti.status).toBe('active');
+    expect(registry.sources.ti.officialUrl).toBe('https://www.carieauktion.ti.ch/ecari-auktion/');
+    expect(registry.sources.ne.status).toBe('blocked');
+    expect(registry.sources.ge.status).toBe('blocked');
+    expect(registry.sources.ju.status).toBe('blocked');
+    expect(registry.sources.bs.status).toBe('no-public-auction');
   });
 
   it('rejects an entry missing a required field', () => {
