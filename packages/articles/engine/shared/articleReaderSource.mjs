@@ -46,8 +46,8 @@ function parseLocalizedEntry(articleId, body) {
 
 /**
  * Parse one `const <slugConst> = { ... }` source block into its locale URL
- * map. A missing or empty declaration is represented by `{}` so the caller
- * can choose whether an empty source is a valid fallback or a hard error.
+ * map. A missing declaration is a grammar error; callers that treat the source
+ * file as optional must handle the file's absence before calling this parser.
  *
  * @param {string} source
  * @param {string} slugConst
@@ -59,7 +59,9 @@ export function parseArticleUrlSlugs(source, slugConst) {
   const declaration = source.match(
     new RegExp('\\bconst\\s+' + escapeRegex(slugConst) + '(?:\\s*:\\s*[^=\\n]+)?\\s*=\\s*\\{([\\s\\S]*?)\\}\\s*;', 'm'),
   );
-  if (!declaration) return {};
+  if (!declaration) {
+    throw new SyntaxError('parseArticleUrlSlugs: missing slug map declaration for ' + slugConst);
+  }
   const block = declaration[1];
   if (!block.trim()) {
     throw new SyntaxError('parseArticleUrlSlugs: empty slug map for ' + slugConst);

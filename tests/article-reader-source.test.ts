@@ -77,8 +77,15 @@ describe('parseArticleUrlSlugs', () => {
     )).toThrow(TypeError);
   });
 
-  it('keeps an absent optional declaration as an empty map', () => {
-    expect(parseArticleUrlSlugs('export const OTHER = {};', 'BLOG_SLUGS')).toEqual({});
+  it('rejects a missing or malformed declaration instead of returning an empty fallback', () => {
+    expect(() => parseArticleUrlSlugs('export const OTHER = {};', 'BLOG_SLUGS'))
+      .toThrow(/missing slug map declaration/i);
+    expect(() => parseArticleUrlSlugs(
+      `export const BLOG_SLUGS = {
+        "article": { it: "italiano", en: "english", de: "deutsch", fr: "francais" }
+      `,
+      'BLOG_SLUGS',
+    )).toThrow(/missing slug map declaration/i);
   });
 
   it('rejects an existing empty declaration instead of falling back to article ids', () => {
