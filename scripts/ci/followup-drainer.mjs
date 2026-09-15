@@ -87,6 +87,7 @@ import {
   hasStableItemIds,
   hasStableItemIdsForDailyKey,
   hasUnterminatedMarkdownFence,
+  countAggregateHeadingItems,
   followupItemMarkers,
   parseFollowupItems,
   selectFirstOpenItem,
@@ -1388,10 +1389,9 @@ export function countAggregateItems(body) {
   const b = stripFencedBlocks(body);
   // Delimitatore: `.`, `)`, em/en dash — NON il trattino nudo, che
   // trasformerebbe un heading-data (`### 2026-08-25 …`) in una voce di lavoro.
-  const h3 = (b.match(/^###[ \t]*(?:Item[ \t]*)?(?!\d{4}\b)\d+[ \t]*[.)—–]/gim) || []).length;
-  const h2 = (b.match(/^##[ \t]*(?:Item[ \t]*)?(?!\d{4}\b)\d+[ \t]*[.)—–]/gim) || []).length;
+  const headings = countAggregateHeadingItems(b);
   const cb = (b.match(/^[ \t]*[-*][ \t]+\[[ xX]\]/gm) || []).length;
-  return h3 + h2 + cb;
+  return headings + cb;
 }
 
 /**

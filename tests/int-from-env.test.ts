@@ -90,6 +90,21 @@ describe('check-number-env-fallback — il gate che impedisce il rientro', () =>
     expect(lineHasNumberEnvFallback('const a = 1; // Number(process.env.X || 8000)')).toBe(false);
   });
 
+  it('tratta # come commento YAML senza confondere l apostrofo della prosa con una stringa', () => {
+    expect(lineHasNumberEnvFallback(
+      "description: it's a note # Number(process.env.X || 8000)",
+      'fixture.yml',
+    )).toBe(false);
+    expect(lineHasNumberEnvFallback(
+      'run: Number(process.env.X || 8000) # commento YAML',
+      'fixture.yaml',
+    )).toBe(true);
+    expect(lineHasNumberEnvFallback(
+      'description: https://example.test/#anchor # Number(process.env.X || 8000)',
+      'fixture.yml',
+    )).toBe(false);
+  });
+
   it('riconosce il Number(process.env.X) grezzo solo quando governa un bound locale', () => {
     const cases = [
       `const limit = Number(process.env["LIMIT"]);\nitems.slice(0, limit);`,
