@@ -7,6 +7,7 @@ import { buildPharmacyAliasBridge, buildPharmacyDirectoryPage, emitPharmacyAlias
 import { ITALY_BORDER_PHARMACIES, TICINO_CITIES, TICINO_PHARMACIES, pharmacyCitySlug } from '../../services/pharmacies/data';
 import { buildPharmacyPath } from '../../services/pharmacies/paths';
 import { extractVisibleText } from '../../scripts/audit-text-html-ratio.mjs';
+import catalogueJson from '../../data/pharmacies-ticino-complete.json';
 import dutiesJson from '../../data/pharmacy-duties-ticino.json';
 import type { PharmacyDutiesDataset } from '../../services/pharmacies/types';
 
@@ -138,18 +139,23 @@ describe('pharmacy directory page matrix', () => {
     }
   });
 
-  it('re-evaluates a static duty page at the injected interval boundary', () => {
+  it('re-evaluates a static duty page when the atomic snapshot becomes fresh', () => {
     const descriptor = pharmacyPageDescriptors().find((candidate) => candidate.kind === 'duty-hub');
-    const sample = dutiesJson.duties.find((duty) => duty.status === 'verified');
+    const snapshotAt = Math.max(Date.parse(dutiesJson._fetchedAt), Date.parse(catalogueJson._fetchedAt));
+    const afterNow = new Date(snapshotAt + 60_000);
+    const sample = dutiesJson.duties.find((duty) => (
+      duty.status === 'verified'
+      && Date.parse(duty.startsAt) <= afterNow.getTime()
+      && Date.parse(duty.endsAt) > afterNow.getTime()
+    ));
     expect(descriptor).toBeDefined();
     expect(sample).toBeDefined();
-    const before = buildPharmacyDirectoryPage(descriptor!, 'it', '', dutiesJson as unknown as PharmacyDutiesDataset, new Date(Date.parse(dutiesJson._fetchedAt) + 1));
-    const after = buildPharmacyDirectoryPage(descriptor!, 'it', '', dutiesJson as unknown as PharmacyDutiesDataset, new Date(Date.parse(sample!.endsAt)));
+    const before = buildPharmacyDirectoryPage(descriptor!, 'it', '', dutiesJson as unknown as PharmacyDutiesDataset, new Date(snapshotAt - 1));
+    const after = buildPharmacyDirectoryPage(descriptor!, 'it', '', dutiesJson as unknown as PharmacyDutiesDataset, afterNow);
     const sampleInterval = `${new Intl.DateTimeFormat('it-CH', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Europe/Zurich' }).format(new Date(sample!.startsAt))} – ${new Intl.DateTimeFormat('it-CH', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Europe/Zurich' }).format(new Date(sample!.endsAt))}`;
-    expect(before.html).toContain(sampleInterval);
-    expect(before.html).toMatch(/<article\b/);
-    expect(after.html).not.toContain(sampleInterval);
-    expect(after.html).not.toMatch(/<article\b/);
+    expect(before.html).not.toContain(sampleInterval);
+    expect(after.html).toContain(sampleInterval);
+    expect(after.html).toMatch(/<article\b/);
   });
 
   it('keeps every indexable directory page above the text-html ratio floor', { timeout: 90000 }, () => {
@@ -225,11 +231,14 @@ describe('pharmacy directory page matrix', () => {
     }
   });
 
-  it('emits the current weekly duty route as indexable only for a valid P0 release pair', () => {
+  it('emits a valid weekly duty route as indexable only for a valid P0 release pair', () => {
     const descriptor = pharmacyPageDescriptors().find((candidate) => candidate.kind === 'duty-week');
     expect(descriptor?.weekStart).toMatch(/^\d{4}-\d{2}-\d{2}$/);
-    const now = new Date(Date.parse(dutiesJson._fetchedAt) + 60_000);
-    const page = buildPharmacyDirectoryPage(descriptor!, 'it', '/tmp/pharmacy-dist', dutiesJson as unknown as PharmacyDutiesDataset, now);
+    const now = new Date(Math.max(Date.parse(dutiesJson._fetchedAt), Date.parse(catalogueJson._fetchedAt)) + 60_000);
+    const nextWeek = new Date(`${descriptor!.weekStart}T00:00:00Z`);
+    nextWeek.setUTCDate(nextWeek.getUTCDate() + 7);
+    const validDescriptor = { ...descriptor!, weekStart: nextWeek.toISOString().slice(0, 10) };
+    const page = buildPharmacyDirectoryPage(validDescriptor, 'it', '/tmp/pharmacy-dist', dutiesJson as unknown as PharmacyDutiesDataset, now);
     expect(page.path).toContain('/farmacie-di-turno/settimana/');
     expect(page.indexable).toBe(true);
     expect(page.html).toMatch(/<meta name=robots content="index, ?follow/);
@@ -247,7 +256,7 @@ describe('pharmacy directory page matrix', () => {
       ...dutiesJson,
       _release: { ...dutiesJson._release, state: 'partial' },
     } as unknown as PharmacyDutiesDataset;
-    const tamperedPage = buildPharmacyDirectoryPage(descriptor!, 'it', '/tmp/pharmacy-dist', tampered, now);
+    const tamperedPage = buildPharmacyDirectoryPage(validDescriptor, 'it', '/tmp/pharmacy-dist', tampered, now);
     expect(tamperedPage.indexable).toBe(false);
     expect(tamperedPage.html).toContain('noindex,follow');
     expect(tamperedPage.html).not.toContain('"@type":"ItemList"');

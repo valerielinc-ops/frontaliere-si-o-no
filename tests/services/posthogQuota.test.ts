@@ -12,6 +12,7 @@ function event(sessionId: string, name = 'custom_event') {
 describe('PostHog quota sampling', () => {
   it('keeps replay snapshots and identity events even at zero analytics sampling', () => {
     expect(shouldCapturePostHogEvent(event('session-a', '$snapshot'), 0)).toBe(true);
+    expect(shouldCapturePostHogEvent(event('session-a', '$exception'), 0)).toBe(true);
     expect(shouldCapturePostHogEvent(event('session-a', '$identify'), 0)).toBe(true);
     expect(shouldCapturePostHogEvent(event('session-a'), 0)).toBe(false);
   });
@@ -26,17 +27,18 @@ describe('PostHog quota sampling', () => {
 
   it('keeps roughly the configured fraction of different sessions', () => {
     const kept = Array.from({ length: 10000 }, (_, index) =>
-      shouldCapturePostHogEvent(event(`session-${index}`)),
+      shouldCapturePostHogEvent(event(`session-${index}`), 0.1),
     ).filter(Boolean).length;
 
     expect(kept).toBeGreaterThan(800);
     expect(kept).toBeLessThan(1200);
-    expect(POSTHOG_EVENT_SAMPLE_RATE).toBe(0.1);
+    expect(POSTHOG_EVENT_SAMPLE_RATE).toBe(0);
   });
 
   it('fails open when the SDK event has no sampling identifier', () => {
     const payload = { event: 'custom_event', properties: {} };
-    expect(shouldCapturePostHogEvent(payload)).toBe(true);
+    expect(shouldCapturePostHogEvent(payload, 0.1)).toBe(true);
+    expect(shouldCapturePostHogEvent(payload, 0)).toBe(false);
   });
 
   it('returns null for a null event and preserves accepted events', () => {
