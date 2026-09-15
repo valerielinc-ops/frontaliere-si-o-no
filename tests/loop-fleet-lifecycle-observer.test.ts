@@ -3,7 +3,11 @@ import os from 'node:os';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 // @ts-expect-error — the lifecycle observer is a dependency-free ESM CI script.
-import { explicitTerminalEvidence, observeLifecycle } from '../scripts/ci/observe-loop-fleet-lifecycle.mjs';
+import {
+  explicitTerminalEvidence,
+  expiredClosedPullRequestEvidence,
+  observeLifecycle,
+} from '../scripts/ci/observe-loop-fleet-lifecycle.mjs';
 // @ts-expect-error — the lifecycle appender is a dependency-free ESM CI script.
 import { appendLoopFleetLifecycle } from '../scripts/ci/append-loop-fleet-lifecycle.mjs';
 import { buildLifecycleEvent } from '../scripts/lib/loop-fleet-contract.mjs';
@@ -247,6 +251,67 @@ describe('loop-fleet independent lifecycle observer', () => {
     expect(result.events.map((event: { eventType: string }) => event.eventType)).toContain('inconclusive');
     expect(result.events.find((event: { eventType: string }) => event.eventType === 'inconclusive'))
       .toMatchObject({ candidateId: 'lf-decision-observer-test' });
+  });
+
+  it('marks a closed unmerged transport inconclusive only after the registry TTL', () => {
+    const closedUnmerged = fleetPr({
+      state: 'CLOSED',
+      mergedAt: null,
+      mergeCommit: null,
+      updatedAt: '2026-09-10T13:00:00.000Z',
+    });
+    expect(expiredClosedPullRequestEvidence(
+      candidate(),
+      closedUnmerged,
+      new Date('2026-09-10T11:59:59.000Z'),
+    )).toBeNull();
+    expect(expiredClosedPullRequestEvidence(candidate(), closedUnmerged, NOW)).toEqual({
+      occurredAt: NOW.toISOString(),
+      artifactOrPr: closedUnmerged.url,
+    });
+
+    const result = observeLifecycle({
+      registry,
+      lifecycleEvents: [candidate()],
+      pullRequests: [closedUnmerged],
+      postMergeRuns: [],
+      execution: observerExecution(),
+      now: NOW,
+    });
+    expect(result.events.map((event: { eventType: string }) => event.eventType)).toEqual([
+      'pr_opened',
+      'tests_passed',
+      'review_approved',
+      'inconclusive',
+    ]);
+    expect(result).toMatchObject({
+      autoInconclusiveCount: 1,
+      autoInconclusiveEligibleCount: 1,
+      autoInconclusiveDeferredCount: 0,
+      matches: [{ autoInconclusive: true }],
+    });
+  });
+
+  it('keeps an overdue open PR pending and never infers inconclusive from it', () => {
+    const result = observeLifecycle({
+      registry,
+      lifecycleEvents: [candidate()],
+      pullRequests: [fleetPr({
+        state: 'OPEN',
+        mergedAt: null,
+        mergeCommit: null,
+      })],
+      postMergeRuns: [],
+      execution: observerExecution(),
+      now: NOW,
+    });
+    expect(result.events.map((event: { eventType: string }) => event.eventType)).toEqual([
+      'pr_opened',
+      'tests_passed',
+      'review_approved',
+    ]);
+    expect(result.autoInconclusiveCount).toBe(0);
+    expect(result.matches[0].autoInconclusive).toBe(false);
   });
 
   it('persists observed events idempotently and rejects recorder-owned events', () => {

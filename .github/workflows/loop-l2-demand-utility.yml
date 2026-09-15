@@ -91,9 +91,11 @@ jobs:
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
+          set -euo pipefail
           if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
-            echo '::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set; cannot resolve read-only PostHog configuration'
-            exit 1
+            echo '::warning::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set; recording an explicitly unavailable demand outcome'
+            echo 'LOOP_FLEET_L2_EXPORT_UNAVAILABLE=1' >> "$GITHUB_ENV"
+            exit 0
           fi
           printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
           chmod 600 "$RUNNER_TEMP/firebase-sa.json"
@@ -108,6 +110,10 @@ jobs:
           mkdir -p "$(dirname "$OUTCOME_PATH")"
           if [ "$WORKFLOW_EVENT" = 'pull_request' ]; then
             node scripts/ci/export-l2-demand-outcomes.mjs --unavailable --input data/gsc-orphan-queries-clusters.json --out "$OUTCOME_PATH"
+            exit 0
+          fi
+          if [ "${LOOP_FLEET_L2_EXPORT_UNAVAILABLE:-0}" = '1' ]; then
+            node scripts/ci/export-l2-demand-outcomes.mjs --unavailable --input data/gsc-orphan-queries-clusters.json --out "$OUTCOME_PATH" --reason 'Firebase read-only credentials unavailable'
             exit 0
           fi
           set +e

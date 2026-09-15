@@ -35,6 +35,11 @@ const POSTHOG_UNSAMPLED_EVENTS = new Set([
   '$set_once',
   '$groupidentify',
   '$create_alias',
+  // L5's read-only exporter joins these two low-cardinality events by
+  // session. Keep that independent decision-surface measurement available
+  // even while ordinary product analytics are hard-stopped at zero.
+  'decision_moment_completed',
+  'decision_moment_next_action',
 ]);
 
 function stableHashToUnitInterval(value: string): number {

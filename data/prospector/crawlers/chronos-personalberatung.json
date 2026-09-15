@@ -1,0 +1,24 @@
+{
+  "companyKey": "chronos-personalberatung",
+  "companyName": "CHRONOS Personalberatung GmbH",
+  "companyHost": "chronos-personalberatung.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://chronos-personalberatung.ch/jobs-list/"
+  ],
+  "detailTemplate": "/jobdetail/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 22,
+  "sampleTitles": [
+    "Sachbearbeiter Import (m/w/d) 100%",
+    "Projektleiter & Verkaufsingenieur Lüftung (m/w/d) 80-100 %",
+    "Servicetechniker Wärmepumpen Mittelland 80 – 100 % (m/w)",
+    "Sachbearbeiter Einkauf & Lagerbewirtschaftung HLKS – Filtrationstechnik (100 %)",
+    "Niederlassungsleiter HLK Winterthur (m/w/d) 100 %"
+  ],
+  "canton": "BE",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-15T13:10:02.898Z"
+}

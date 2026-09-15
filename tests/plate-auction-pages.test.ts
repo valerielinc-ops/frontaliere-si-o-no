@@ -159,6 +159,15 @@ describe('plate-auction static pages', () => {
     }
   });
 
+  it('bounds a large canton index while keeping detail pages separate', () => {
+    const rootDir = fixtureRoot({ auctionCount: 2000 });
+    const rendered = renderPlateAuctionPage({ locale: 'de', view: 'canton', canton: 'GR', rootDir });
+
+    expect(Buffer.byteLength(rendered.html, 'utf8')).toBeLessThan(260 * 1024);
+    expect(rendered.html).toContain('GR2006');
+    expect(rendered.html).not.toContain('/gr56/');
+  });
+
   it('materializes every published detail URL and includes it in the sitemap', async () => {
     const rootDir = fixtureRoot({ auctionCount: 41, withDist: true });
     const closeBundle = plateAuctionsPagesPlugin(rootDir).closeBundle;

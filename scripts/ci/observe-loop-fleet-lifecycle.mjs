@@ -6,9 +6,11 @@
  * The loop recorder owns candidate/owner_assigned. This script is a separate,
  * read-only observer for the GitHub evidence that can prove pr_opened,
  * tests_passed, review_approved, merged, post_merge_verified and explicitly
- * marked rollback/inconclusive outcomes. It never infers a lifecycle event
- * from a local decision and never writes GitHub state. A separate reviewed PR
- * step may persist the emitted events.
+ * marked rollback outcomes. An inconclusive event may also be emitted by the
+ * deterministic TTL rule below, but only for a matched PR that is visibly
+ * closed without a merge. It never infers a merge or rollback from a local
+ * decision and never writes GitHub state. A separate reviewed PR step may
+ * persist the emitted events.
  */
 import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process';
@@ -35,6 +37,7 @@ const EXPLICIT_TERMINAL_EVENT_TYPES = Object.freeze([
   'rolled_back',
   'inconclusive',
 ]);
+const MAX_AUTO_INCONCLUSIVE_EVENTS = 50;
 const TRUSTED_COMMENT_ASSOCIATIONS = new Set(['OWNER', 'MEMBER', 'COLLABORATOR']);
 const TERMINAL_MARKER_RE = /<!--\s*loop-fleet-lifecycle:\s*(rollback_requested|rolled_back|inconclusive)\s+candidate=([A-Za-z0-9._:-]+)\s*-->/iu;
 const POST_MERGE_WORKFLOWS = Object.freeze(new Set([
@@ -391,10 +394,36 @@ function prEvidence(pr) {
 }
 
 /**
+ * A closed, unmerged ledger PR is an observable terminal failure of the
+ * candidate transport. Once its candidate TTL has elapsed, mark that
+ * transport attempt inconclusive so the next status run does not leave it
+ * looking merely pending forever. An open PR is deliberately left pending;
+ * absence from the bounded PR listing is never treated as proof that no PR
+ * exists.
+ */
+export function expiredClosedPullRequestEvidence(candidate, pr, now = new Date()) {
+  if (!(now instanceof Date) || !Number.isFinite(now.getTime())) return null;
+  if (String(pr?.state || '').toUpperCase() !== 'CLOSED' || !text(pr?.url)) return null;
+  if (text(pr?.mergeCommit?.oid) || iso(pr?.mergedAt)) return null;
+  const candidateAt = Date.parse(candidate?.occurredAt || '');
+  const ttlHours = Number(candidate?.lifecycle?.candidateTtlHours);
+  if (!Number.isFinite(candidateAt) || !Number.isFinite(ttlHours) || ttlHours <= 0) return null;
+  const deadline = candidateAt + ttlHours * 3_600_000;
+  if (now.getTime() < deadline) return null;
+  return {
+    occurredAt: now.toISOString(),
+    artifactOrPr: text(pr.url),
+  };
+}
+
+/**
  * Reconstruct only independently observable downstream events. The returned
  * `events` contains new records; existing candidate events are never copied or
- * rewritten. Rollback/inconclusive events are emitted only from an explicit,
- * trusted comment marker.
+ * rewritten. Rollback events and manually declared inconclusive events are
+ * emitted only from an explicit, trusted comment marker. A closed, unmerged
+ * matched PR can additionally produce an automatic inconclusive event after
+ * the registry TTL; that path is bounded and never acts on an open PR or on a
+ * missing PR listing.
  */
 export function observeLifecycle({
   registry,
@@ -418,6 +447,8 @@ export function observeLifecycle({
   }
   const events = [];
   const matches = [];
+  let autoInconclusiveCount = 0;
+  let autoInconclusiveEligibleCount = 0;
   const eligiblePullRequests = (Array.isArray(pullRequests) ? pullRequests : []).filter(isFleetLedgerPr);
   const candidateMatches = new Map();
   for (const pr of eligiblePullRequests) {
@@ -461,12 +492,37 @@ export function observeLifecycle({
       if (!existing.has(candidate.candidateId)) existing.set(candidate.candidateId, new Set());
       existing.get(candidate.candidateId).add(eventType);
     }
+    const hasTerminalEvent = () => EXPLICIT_TERMINAL_EVENT_TYPES
+      .some((eventType) => existing.get(candidate.candidateId)?.has(eventType));
+    const automaticInconclusive = expiredClosedPullRequestEvidence(candidate, pr, now);
+    if (automaticInconclusive && !hasTerminalEvent()) {
+      autoInconclusiveEligibleCount += 1;
+      if (autoInconclusiveCount < MAX_AUTO_INCONCLUSIVE_EVENTS) {
+        const event = buildObservedEvent({
+          candidate,
+          eventType: 'inconclusive',
+          pr,
+          evidence: automaticInconclusive,
+          execution,
+          now,
+        });
+        if (event) {
+          events.push(event);
+          newlyObserved.push('inconclusive');
+          autoInconclusiveCount += 1;
+          if (!existing.has(candidate.candidateId)) existing.set(candidate.candidateId, new Set());
+          existing.get(candidate.candidateId).add('inconclusive');
+        }
+      }
+    }
     matches.push({
       candidateId: candidate.candidateId,
       loopId: candidate.loopId,
       prNumber: pr.number ?? null,
       prUrl: text(pr.url),
       observed: newlyObserved,
+      autoInconclusive: newlyObserved.includes('inconclusive')
+        && !terminalEvidence.inconclusive,
     });
   }
   return {
@@ -478,6 +534,9 @@ export function observeLifecycle({
     matchCount: matches.length,
     matches,
     events,
+    autoInconclusiveCount,
+    autoInconclusiveEligibleCount,
+    autoInconclusiveDeferredCount: Math.max(0, autoInconclusiveEligibleCount - autoInconclusiveCount),
   };
 }
 
