@@ -46,6 +46,8 @@ if (!existsSync(outputPath)) {
     );
   }
   if (snapshot) {
+    if (snapshot.complete !== true)
+      errors.push("snapshot is not explicitly marked complete");
     const auctions = Array.isArray(snapshot.auctions) ? snapshot.auctions : [];
     const sourceKeys = Object.keys(snapshot.sources || {}).sort();
     const expectedKeys = Object.keys(registry.sources).sort();
