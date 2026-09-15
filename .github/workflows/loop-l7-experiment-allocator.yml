@@ -9,9 +9,12 @@ on:
       - 'data/experimental-candidates.json'
       - 'data/experiment-outcomes.json'
       - 'data/loop-fleet/loop-registry.json'
-      - 'scripts/ci/loop-l7-experiment-allocator.mjs'
+      - 'scripts/ci/export-l7-experiment-outcomes.mjs'
       - 'scripts/ci/export-loop-outcomes.mjs'
+      - 'scripts/lib/ga4-service-account.mjs'
+      - 'scripts/lib/analytics-settled-window.mjs'
       - 'scripts/lib/posthog-client.mjs'
+      - 'scripts/ci/loop-l7-experiment-allocator.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
@@ -22,9 +25,12 @@ on:
       - 'data/experimental-candidates.json'
       - 'data/experiment-outcomes.json'
       - 'data/loop-fleet/loop-registry.json'
-      - 'scripts/ci/loop-l7-experiment-allocator.mjs'
+      - 'scripts/ci/export-l7-experiment-outcomes.mjs'
       - 'scripts/ci/export-loop-outcomes.mjs'
+      - 'scripts/lib/ga4-service-account.mjs'
+      - 'scripts/lib/analytics-settled-window.mjs'
       - 'scripts/lib/posthog-client.mjs'
+      - 'scripts/ci/loop-l7-experiment-allocator.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
@@ -59,8 +65,12 @@ jobs:
             /data/experimental-candidates.json
             /data/experiment-outcomes.json
             /data/loop-fleet/loop-registry.json
-            /scripts/ci/loop-l7-experiment-allocator.mjs
+            /scripts/ci/export-l7-experiment-outcomes.mjs
             /scripts/ci/export-loop-outcomes.mjs
+            /scripts/lib/ga4-service-account.mjs
+            /scripts/lib/analytics-settled-window.mjs
+            /scripts/lib/posthog-client.mjs
+            /scripts/ci/loop-l7-experiment-allocator.mjs
             /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /scripts/lib/loop-fleet-outcome.mjs
@@ -86,15 +96,30 @@ jobs:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
           if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
-            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set"
+            echo '::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set; cannot resolve read-only PostHog configuration'
             exit 1
           fi
-          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
-          chmod 600 /tmp/firebase-sa.json
-          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
+          chmod 600 "$RUNNER_TEMP/firebase-sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
       - name: Export fresh L7 outcomes
         if: github.event_name != 'pull_request'
-        run: node scripts/ci/export-loop-outcomes.mjs --loop L7 --registry data/loop-fleet/loop-registry.json --out "$RUNNER_TEMP/experiment-outcomes.json"
+        env:
+          OUTCOME_PATH: ${{ runner.temp }}/experiment-outcomes.json
+        run: |
+          set -o pipefail
+          mkdir -p "$(dirname "$OUTCOME_PATH")" "$RUNNER_TEMP/loop-fleet-l7"
+          set +e
+          node scripts/ci/export-l7-experiment-outcomes.mjs --days 8 --json --out "$OUTCOME_PATH" --registry data/loop-fleet/loop-registry.json | tee "$RUNNER_TEMP/loop-fleet-l7/export-cli-output.log" | tee -a "$GITHUB_STEP_SUMMARY"
+          export_code=${PIPESTATUS[0]}
+          set -e
+          if [ "$export_code" -ne 0 ]; then
+            echo '::warning::L7 live outcome export failed; recording an explicitly unavailable outcome so the allocator remains fail-closed'
+            node scripts/ci/export-l7-experiment-outcomes.mjs --unavailable --out "$OUTCOME_PATH" --registry data/loop-fleet/loop-registry.json
+          fi
+      - name: Prepare unavailable L7 outcomes for pull request
+        if: github.event_name == 'pull_request'
+        run: node scripts/ci/export-l7-experiment-outcomes.mjs --unavailable --out "$RUNNER_TEMP/experiment-outcomes.json" --registry data/loop-fleet/loop-registry.json
       - name: Audit experiment allocation
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -103,8 +128,7 @@ jobs:
         run: |
           set -o pipefail
           mkdir -p "$REPORT_DIR"
-          outcomes_path=data/experiment-outcomes.json
-          if [ "${{ github.event_name }}" != "pull_request" ]; then outcomes_path="$RUNNER_TEMP/experiment-outcomes.json"; fi
+          outcomes_path="$RUNNER_TEMP/experiment-outcomes.json"
           args=(--json --apply --report-dir "$REPORT_DIR" --candidates data/experimental-candidates.json --outcomes "$outcomes_path" --registry data/loop-fleet/loop-registry.json)
           if [ "$ISSUE_ENABLED" = "true" ]; then
             args+=(--issue --strict)
@@ -122,6 +146,7 @@ jobs:
           fi
       - name: Validate runner-local L7 outcome export
         if: always()
+        id: validate_l7_outcome
         env:
           REPORT_DIR: ${{ runner.temp }}/loop-fleet-l7
         run: |
@@ -145,7 +170,7 @@ jobs:
             and .noAutomaticPriceChange == true
           )' "$REPORT_DIR/l7-outcome.json" >/dev/null
       - name: Record canonical L7 evidence
-        if: always()
+        if: ${{ always() && steps.validate_l7_outcome.outcome == 'success' }}
         env:
           REPORT_DIR: ${{ runner.temp }}/loop-fleet-l7
         run: node scripts/ci/record-loop-fleet-evidence.mjs --loop L7 --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json
