@@ -11763,6 +11763,11 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mendrisio-melano-progetto-meme-risanamento-fonico.title': 'Mendrisio-Melano, progetto MeMe per ridurre il rumore dell\'autostrada',
     'blog.article.mendrisio-melano-progetto-meme-risanamento-fonico.excerpt': 'L\'Ufficio federale delle strade (USTRA) ha pubblicato il disegno per il progetto MeMe, un piano di risanamento globale per il tratto dell\'autostrada A2 tra Mendrisio e Melano.',
     'blog.article.mendrisio-melano-progetto-meme-risanamento-fonico.imageAlt': 'Tratto autostradale A2 tra Mendrisio e Melano',
+    'blog.article.bollettino-frontaliere-2026-09-15.title': 'Bollettino del frontaliere – 15 settembre 2026: 38 nuovi annunci di lavoro ieri',
+    'blog.article.bollettino-frontaliere-2026-09-15.excerpt': 'I numeri di oggi, 15 settembre 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-09-15.imageAlt': 'I numeri del giorno per i frontalieri – 15 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-09-15.seoDescription': 'Bollettino frontalieri del 15 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-09-15.ogDescription': 'I numeri del 15 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
 };
 
 export default blogMetaIt;

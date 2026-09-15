@@ -167,12 +167,17 @@ export function readBlogUrlSlugs(
 ): Record<string, Record<HubLocale, string>> {
   const file = np.resolve(rootDir, slugDataFile);
   const out: Record<string, Record<HubLocale, string>> = {};
+  let src: string;
   try {
     if (!fs.existsSync(file)) return out;
-    const src = fs.readFileSync(file, 'utf-8');
-    Object.assign(out, parseArticleUrlSlugs(src, slugConst));
+    src = fs.readFileSync(file, 'utf-8');
   } catch (err) {
     console.warn(`[seo-hubs] failed to read ${slugConst} from ${slugDataFile}`, err);
+    return out;
   }
+  // Keep filesystem absence/read failures backward-compatible, but do not
+  // swallow a parser contract or grammar error: a partial slug registry would
+  // otherwise render a superficially valid page with missing localized URLs.
+  Object.assign(out, parseArticleUrlSlugs(src, slugConst));
   return out;
 }
