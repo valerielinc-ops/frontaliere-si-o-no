@@ -158,6 +158,36 @@ describe('weekly pharmacy duty read model', () => {
     expect(unresolved.indexable).toBe(false);
   });
 
+  it('uses the same effective catalogue for default evaluation and identity validation', () => {
+    const pair = makePair();
+    const model = buildDutyWeekModel(pair.duties, WEEK, { now: NOW });
+
+    expect(model.indexable).toBe(false);
+    expect(model.unresolvedPharmacyIds).toEqual(['pharmacy-1']);
+  });
+
+  it('uses Europe/Zurich local-midnight bounds for Monday edges', () => {
+    const earlyMonday = {
+      ...BASE_DUTIES[0],
+      startsAt: '2026-09-13T22:15:00.000Z',
+      endsAt: '2026-09-13T22:45:00.000Z',
+    };
+    const nextEarlyMonday = {
+      ...BASE_DUTIES[1],
+      startsAt: '2026-09-20T22:15:00.000Z',
+      endsAt: '2026-09-20T22:45:00.000Z',
+    };
+    const pair = makePair({}, {
+      duties: [earlyMonday, nextEarlyMonday, ...BASE_DUTIES.slice(2)],
+    });
+    const model = build(pair);
+    const mendrisiotto = model.regions.find((region) => region.key === 'mendrisiotto');
+    const luganese = model.regions.find((region) => region.key === 'luganese');
+
+    expect(mendrisiotto?.duties.map((candidate) => candidate.id)).toContain(earlyMonday.id);
+    expect(luganese?.duties.map((candidate) => candidate.id)).not.toContain(nextEarlyMonday.id);
+  });
+
   it.each(['aggregate state', 'regional status', 'snapshot hash'] as const)('fails closed when P0 release %s is tampered', (label) => {
     const pair = makePair();
     const changes = label === 'aggregate state'

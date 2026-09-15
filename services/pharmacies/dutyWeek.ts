@@ -1,9 +1,12 @@
+import catalogueJson from '../../data/pharmacies-ticino-complete.json';
 import { getPharmacyReleaseEvaluation } from './duties';
 import type { PharmacyCatalogueDataset, PharmacyDuty, PharmacyDutiesDataset } from './types';
 
 export const DUTY_WEEK_TIMEZONE = 'Europe/Zurich';
 export const DUTY_WEEK_SOURCE_URL = 'https://www.ofct.ch/farmacieturno/';
 export const DUTY_WEEK_MAX_AGE_MS = 36 * 60 * 60 * 1000;
+
+const DEFAULT_PHARMACY_CATALOGUE = catalogueJson as unknown as PharmacyCatalogueDataset;
 
 export const DUTY_WEEK_REGIONS = Object.freeze([
   { key: 'mendrisiotto', name: 'Mendrisiotto' },
@@ -75,34 +78,100 @@ function dateKeyParts(value: string): [number, number, number] | null {
   return [year, month, day];
 }
 
+const ZURICH_DATE_TIME_FORMATTER = new Intl.DateTimeFormat('en-GB', {
+  timeZone: DUTY_WEEK_TIMEZONE,
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+  hour: '2-digit',
+  minute: '2-digit',
+  second: '2-digit',
+  hourCycle: 'h23',
+});
+
+interface ZonedDateTimeParts {
+  year: number;
+  month: number;
+  day: number;
+  hour: number;
+  minute: number;
+  second: number;
+}
+
+function zonedDateTimeParts(value: Date): ZonedDateTimeParts {
+  const parts = ZURICH_DATE_TIME_FORMATTER.formatToParts(value);
+  return {
+    year: Number(parts.find((part) => part.type === 'year')?.value),
+    month: Number(parts.find((part) => part.type === 'month')?.value),
+    day: Number(parts.find((part) => part.type === 'day')?.value),
+    hour: Number(parts.find((part) => part.type === 'hour')?.value),
+    minute: Number(parts.find((part) => part.type === 'minute')?.value),
+    second: Number(parts.find((part) => part.type === 'second')?.value),
+  };
+}
+
+/** Resolves a calendar date to midnight in Europe/Zurich, including DST. */
+function zonedMidnight(value: string): Date | null {
+  const parts = dateKeyParts(value);
+  if (!parts) return null;
+  const [year, month, day] = parts;
+  const localAsUtc = Date.UTC(year, month - 1, day);
+  let candidate = new Date(localAsUtc);
+
+  for (let attempt = 0; attempt < 4; attempt += 1) {
+    const local = zonedDateTimeParts(candidate);
+    const localAsUtcAtCandidate = Date.UTC(
+      local.year,
+      local.month - 1,
+      local.day,
+      local.hour,
+      local.minute,
+      local.second,
+    );
+    const offsetMs = localAsUtcAtCandidate - candidate.getTime();
+    const next = new Date(localAsUtc - offsetMs);
+    if (next.getTime() === candidate.getTime()) {
+      const resolved = zonedDateTimeParts(next);
+      return resolved.year === year
+        && resolved.month === month
+        && resolved.day === day
+        && resolved.hour === 0
+        && resolved.minute === 0
+        && resolved.second === 0
+        ? next
+        : null;
+    }
+    candidate = next;
+  }
+
+  return null;
+}
+
 function weekStartDate(value: string): Date | null {
   const parts = dateKeyParts(value);
   if (!parts) return null;
   const date = new Date(Date.UTC(parts[0], parts[1] - 1, parts[2]));
-  return date.getUTCDay() === 1 ? date : null;
+  return date.getUTCDay() === 1 ? zonedMidnight(value) : null;
 }
 
 function keyForDate(date: Date): string {
   return `${date.getUTCFullYear()}-${String(date.getUTCMonth() + 1).padStart(2, '0')}-${String(date.getUTCDate()).padStart(2, '0')}`;
 }
 
-function addDays(date: Date, days: number): Date {
-  const next = new Date(date);
+function addCalendarDays(value: string, days: number): string | null {
+  const parts = dateKeyParts(value);
+  if (!parts) return null;
+  const next = new Date(Date.UTC(parts[0], parts[1] - 1, parts[2]));
   next.setUTCDate(next.getUTCDate() + days);
-  return next;
+  return keyForDate(next);
 }
 
 function localDateParts(now: Date): { year: number; month: number; day: number } {
-  const parts = new Intl.DateTimeFormat('en-GB', {
-    timeZone: DUTY_WEEK_TIMEZONE,
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  }).formatToParts(now);
+  const parts = zonedDateTimeParts(now);
   return {
-    year: Number(parts.find((part) => part.type === 'year')?.value),
-    month: Number(parts.find((part) => part.type === 'month')?.value),
-    day: Number(parts.find((part) => part.type === 'day')?.value),
+    year: parts.year,
+    month: parts.month,
+    day: parts.day,
   };
 }
 
@@ -141,17 +210,19 @@ export function buildDutyWeekModel(
   options: BuildDutyWeekOptions = {},
 ): DutyWeekModel {
   const start = weekStartDate(weekStartKey);
-  const weekEndDate = start ? addDays(start, 7) : null;
+  const weekEndKey = start ? addCalendarDays(weekStartKey, 7) : null;
+  const weekEndDate = weekEndKey ? zonedMidnight(weekEndKey) : null;
   const now = options.now || new Date();
   const record = recordOf(dataset);
   const sourceUrl = typeof record._source === 'string' && record._source.trim() ? record._source : null;
   const fetchedAt = typeof record._fetchedAt === 'string' && record._fetchedAt.trim() ? record._fetchedAt : null;
-  const evaluation = getPharmacyReleaseEvaluation(dataset, now, options.catalogue);
+  const effectiveCatalogue = options.catalogue ?? DEFAULT_PHARMACY_CATALOGUE;
+  const evaluation = getPharmacyReleaseEvaluation(dataset, now, effectiveCatalogue);
   const releaseId = evaluation.releaseId;
   const timezone = snapshotTimezone(dataset);
   const duties = Array.isArray(record.duties) ? record.duties as PharmacyDuty[] : [];
-  const cataloguePharmacyIds = options.catalogue && Array.isArray(options.catalogue.pharmacies)
-    ? new Set(options.catalogue.pharmacies.map((pharmacy) => pharmacy.id))
+  const cataloguePharmacyIds = Array.isArray(effectiveCatalogue.pharmacies)
+    ? new Set(effectiveCatalogue.pharmacies.map((pharmacy) => pharmacy.id))
     : undefined;
   const regions = DUTY_WEEK_REGIONS.map((region) => ({
     key: region.key,
@@ -232,7 +303,7 @@ export function buildDutyWeekModel(
     && regions.every((region) => region.duties.length > 0);
   return {
     weekStart: weekStartKey,
-    weekEnd: weekEndDate ? keyForDate(weekEndDate) : '',
+    weekEnd: weekEndKey ?? '',
     timezone,
     sourceUrl,
     fetchedAt,
