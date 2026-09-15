@@ -143,12 +143,17 @@ function createRunnerVariant(source: string) {
   return dir;
 }
 
-function createStatusStreamGitWrapper() {
+function createStatusStreamGitWrapper({ failFirstDiff = false } = {}) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'related-status-stream-git-'));
   const realGit = execFileSync('which', ['git'], { encoding: 'utf8' }).trim();
+  const firstDiff = path.join(dir, 'first-diff');
   const wrapper = path.join(dir, 'git');
   fs.writeFileSync(wrapper, `#!/bin/sh
 if [ "$1" = "diff" ]; then
+  if [ "${failFirstDiff ? 'true' : 'false'}" = "true" ] && [ ! -e "${firstDiff}" ]; then
+    : > "${firstDiff}"
+    exit 128
+  fi
   case " $* " in
     *" --name-status "*)
       printf 'R100\\000.github/workflows/old-for-parser.yml\\000A\\000.github/workflows/brand-new-for-parser.yml\\000'
@@ -258,6 +263,17 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(result.stderr).toMatch(/VITEST_RELATED_DRY_RUN|BLOCKED: related-test verdict requires a full checkout/);
   }, 120_000);
 
+  it('rifiuta il dry-run CI anche quando la diff non produce candidati', () => {
+    const result = runRunnerWithEnv(
+      ['README.md'],
+      { GITHUB_ACTIONS: 'true', VITEST_RELATED_DRY_RUN: 'true' },
+      ['--select-only'],
+    );
+    expect(result.status).toBe(1);
+    expect(result.stderr).toContain('VITEST_RELATED_DRY_RUN non è consentito in GitHub Actions');
+    expect(result.stdout).not.toContain('No existing source/test files in the diff');
+  }, 120_000);
+
   it('il portable di quel commit violava davvero l\'adiacenza che il test pretende', () => {
     // La prova che la selezione mancata è costata un rosso vero, non ipotetico:
     // al commit di #7355 uno step estraneo separava finalize da upload.
@@ -350,6 +366,26 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
       const graph = runRunnerInFixture(fixtureDir, runnerDir, 'single-path-rename', {
         PATH: `${gitWrapper.dir}:${process.env.PATH || ''}`,
         RELATED_TESTS_REAL_GIT: gitWrapper.realGit,
+      });
+      expect(graph.files['tests/consumer.test.ts'].deps)
+        .toContain('.github/workflows/brand-new-for-parser.yml');
+    } finally {
+      fs.rmSync(fixtureDir, { recursive: true, force: true });
+      fs.rmSync(runnerDir, { recursive: true, force: true });
+      fs.rmSync(gitWrapper.dir, { recursive: true, force: true });
+    }
+  }, 120_000);
+
+  it('prova il ref successivo se il diff del primo ref fallisce', () => {
+    const runnerSource = fs.readFileSync(RUNNER, 'utf8');
+    const fixtureDir = createRenameFixture();
+    const runnerDir = createRunnerVariant(runnerSource);
+    const gitWrapper = createStatusStreamGitWrapper({ failFirstDiff: true });
+    try {
+      const graph = runRunnerInFixture(fixtureDir, runnerDir, 'fallback-ref', {
+        PATH: `${gitWrapper.dir}:${process.env.PATH || ''}`,
+        RELATED_TESTS_REAL_GIT: gitWrapper.realGit,
+        GITHUB_BASE_REF: 'ci-base',
       });
       expect(graph.files['tests/consumer.test.ts'].deps)
         .toContain('.github/workflows/brand-new-for-parser.yml');
