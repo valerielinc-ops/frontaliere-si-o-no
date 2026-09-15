@@ -1100,7 +1100,6 @@
         "gestionnaire-adjoint-executif-division-des-salles-m-m-j-kulm-hotel-st-moritz-st-moritz",
         "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-27T23:33:49.949Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -1114,8 +1113,7 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "kulm-hotel-33cf5a12b4cb",
