@@ -11758,6 +11758,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.stipendi-como-lombardia-2024.title': 'Durchschnittslohn in Como und der Lombardei: Die Daten für 2024',
     'blog.article.stipendi-como-lombardia-2024.excerpt': 'Im Jahr 2024 steigt der durchschnittliche Jahreslohn in der Lombardei auf 30.384,07 Euro, aber fast die Hälfte der Arbeitnehmer übersteigt nicht 25.000 Euro.',
     'blog.article.stipendi-como-lombardia-2024.imageAlt': 'Durchschnittsgehälter und Löhne in der Lombardei und Como',
+    'blog.article.mendrisio-melano-progetto-meme-risanamento-fonico.title': 'Mendrisio-Melano, MeMe-Projekt zur Reduzierung des Autobahnlärms',
+    'blog.article.mendrisio-melano-progetto-meme-risanamento-fonico.excerpt': 'Das Bundesamt für Strassen (Astra) hat den Entwurf für das Projekt MeMe, einen umfassenden Sanierungsplan für den Autobahnabschnitt A2 zwischen Mendrisio und Melano, veröffentlicht.',
+    'blog.article.mendrisio-melano-progetto-meme-risanamento-fonico.imageAlt': 'Autobahnabschnitt A2 zwischen Mendrisio und Melano',
 };
 
 export default blogMetaDe;

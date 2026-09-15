@@ -11761,6 +11761,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.stipendi-como-lombardia-2024.title': 'Salaire moyen à Côme et en Lombardie : les données de 2024',
     'blog.article.stipendi-como-lombardia-2024.excerpt': 'En 2024, le salaire annuel moyen en Lombardie s\'élève à 30 384,07 euros, mais près de la moitié des travailleurs ne dépasse pas 25 000 euros.',
     'blog.article.stipendi-como-lombardia-2024.imageAlt': 'Salaires moyens et rémunérations en Lombardie et à Côme (Como)',
+    'blog.article.mendrisio-melano-progetto-meme-risanamento-fonico.title': 'Mendrisio-Melano, projet MeMe pour réduire le bruit de l\'autoroute',
+    'blog.article.mendrisio-melano-progetto-meme-risanamento-fonico.excerpt': 'L\'Office fédéral des routes (OFROU) a publié le dessin pour le projet MeMe, un plan d\'assainissement global pour le tronçon de l\'autoroute A2 entre Mendrisio et Melano.',
+    'blog.article.mendrisio-melano-progetto-meme-risanamento-fonico.imageAlt': 'Section d\'autoroute A2 entre Mendrisio et Melano',
 };
 
 export default blogMetaFr;
