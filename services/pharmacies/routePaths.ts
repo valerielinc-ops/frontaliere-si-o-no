@@ -1,7 +1,7 @@
 import type { Locale } from '../i18n';
 import { PHARMACY_DUTY_HUB_PATH, type PharmacyCountry } from './types';
 
-export type PharmacyPageKind = 'hub' | 'canton' | 'city' | 'duty-hub' | 'duty-city' | 'duty-week' | 'country' | 'area' | 'pharmacy';
+export type PharmacyPageKind = 'hub' | 'canton' | 'city' | 'duty-hub' | 'duty-city' | 'duty-week' | 'italy-duty-hub' | 'italy-duty-week' | 'country' | 'area' | 'pharmacy';
 
 export interface PharmacyPath {
   kind: PharmacyPageKind;
@@ -47,6 +47,11 @@ function isIsoMonday(value: string): boolean {
     && date.getUTCDay() === 1;
 }
 
+function italyDutyHubPath(locale: Locale): string {
+  const bases = LOCALE_BASES[locale];
+  return `${bases.italy}${bases.dutySegment}/`;
+}
+
 export function buildPharmacyPath(path: PharmacyPath, locale: Locale = path.locale): string {
   const bases = LOCALE_BASES[locale];
   if (path.kind === 'hub') return bases.hub;
@@ -55,6 +60,12 @@ export function buildPharmacyPath(path: PharmacyPath, locale: Locale = path.loca
     return path.weekStart && isIsoMonday(path.weekStart)
       ? `${bases.dutyHub}${bases.dutyWeekSegment}/${path.weekStart}/`
       : bases.dutyHub;
+  }
+  if (path.kind === 'italy-duty-hub') return italyDutyHubPath(locale);
+  if (path.kind === 'italy-duty-week') {
+    return path.weekStart && isIsoMonday(path.weekStart)
+      ? `${italyDutyHubPath(locale)}${bases.dutyWeekSegment}/${path.weekStart}/`
+      : italyDutyHubPath(locale);
   }
   if (path.kind === 'country') return path.country === 'IT' ? bases.italy : bases.canton;
   if (path.kind === 'canton') return bases.canton;
@@ -105,6 +116,15 @@ export function parsePharmacyRoute(pathname: string): PharmacyPath | null {
       const remainder = path.slice(bases.dutyHub.length).split('/').filter(Boolean);
       if (remainder.length === 2 && remainder[0] === bases.dutyWeekSegment && isIsoMonday(remainder[1])) {
         return { kind: 'duty-week', locale, weekStart: remainder[1] };
+      }
+    }
+
+    const italyDutyHub = italyDutyHubPath(locale);
+    if (path === italyDutyHub) return { kind: 'italy-duty-hub', country: 'IT', locale };
+    if (path.startsWith(italyDutyHub)) {
+      const remainder = path.slice(italyDutyHub.length).split('/').filter(Boolean);
+      if (remainder.length === 2 && remainder[0] === bases.dutyWeekSegment && isIsoMonday(remainder[1])) {
+        return { kind: 'italy-duty-week', country: 'IT', locale, weekStart: remainder[1] };
       }
     }
 

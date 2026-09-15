@@ -141,7 +141,7 @@ export default function PharmacyDutyWeek({ page }: { page: PharmacyPath }) {
     <div className="grid gap-5 md:grid-cols-2">
       {model.regions.map((region) => <section key={region.key} className="rounded-2xl border border-edge bg-surface p-5 shadow-sm" aria-labelledby={`duty-week-${region.key}`}>
         <h2 id={`duty-week-${region.key}`} className="font-display text-xl font-bold text-heading">{region.name}</h2>
-        {region.duties.length > 0 ? <div className="mt-4 overflow-x-auto"><table className="w-full min-w-[34rem] border-collapse text-left text-sm leading-6 text-body"><thead className="border-y border-edge text-xs uppercase tracking-wide text-muted"><tr><th className="py-2 pr-3 font-semibold">{copy.date}</th><th className="py-2 pr-3 font-semibold">{copy.hours}</th><th className="py-2 pr-3 font-semibold">{copy.pharmacy}</th><th className="py-2 font-semibold">{copy.source}</th></tr></thead><tbody>{region.duties.map((duty) => {
+        {model.indexable && region.duties.length > 0 ? <div className="mt-4 overflow-x-auto"><table className="w-full min-w-[34rem] border-collapse text-left text-sm leading-6 text-body"><thead className="border-y border-edge text-xs uppercase tracking-wide text-muted"><tr><th className="py-2 pr-3 font-semibold">{copy.date}</th><th className="py-2 pr-3 font-semibold">{copy.hours}</th><th className="py-2 pr-3 font-semibold">{copy.pharmacy}</th><th className="py-2 font-semibold">{copy.source}</th></tr></thead><tbody>{region.duties.map((duty) => {
           const pharmacy = pharmacyById(duty.pharmacyId);
           const startsAt = formatDutyDateTime(duty.startsAt);
           const endsAt = formatDutyDateTime(duty.endsAt);

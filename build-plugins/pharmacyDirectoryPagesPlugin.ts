@@ -24,6 +24,8 @@ import { publicDutiesForRegion } from '../services/pharmacies/duties';
 import { buildDutyWeekModel, currentDutyWeekStart, DUTY_WEEK_SOURCE_URL, formatDutyDateTime, type DutyWeekModel } from '../services/pharmacies/dutyWeek';
 import { buildDutyCoverageMatrix, formatDutyCoverageDate, getDutyCoverageMatrixCopy, type DutyCoverageMatrixModel } from '../services/pharmacies/dutyCoverageMatrix';
 import { currentDutyForRegion } from '../services/pharmacies/duties';
+import { currentItalyDutyWeekStart } from '../services/pharmacies/italyDuty';
+import { ITALY_DUTY_COPY, italyDutyWeekModel, italyDutyWeekStructuredData, renderItalyDutyCoverageSection, renderItalyDutyWeek } from './pharmacyItalyDuty';
 import type { Locale } from '../services/i18n';
 import { safePharmacyUrl, type Pharmacy, type PharmacyCatalogueDataset, type PharmacyDuty, type PharmacyDutiesDataset, type PharmacyFieldSource, type PharmacyUrlAlias } from '../services/pharmacies/types';
 import dutiesJson from '../data/pharmacy-duties-ticino.json';
@@ -435,8 +437,9 @@ function renderDutyWeek(
     ? `<p style="${LEDE_STYLE}">${esc(copy.coverage)}</p>`
     : `<aside style="${BODY_STYLE}"><strong>${esc(copy.unavailable)}</strong><br>${esc(model.reason)}</aside>`;
   const regions = model.regions.map((region) => {
-    const rows = region.duties.length > 0
-      ? region.duties.map((duty) => {
+    const duties = model.indexable ? region.duties : [];
+    const rows = duties.length > 0
+      ? duties.map((duty) => {
         const pharmacy = pharmacyById(duty.pharmacyId);
         const link = pharmacy ? `<a href="${esc(buildPharmacyPath(pharmacyPath(pharmacy, locale), locale))}">${esc(pharmacy.name)}</a>` : esc(duty.pharmacyId);
         const startsAt = formatDutyDateTime(duty.startsAt);
@@ -473,8 +476,9 @@ function renderDutyCoverageMatrix(
     return `<section data-coverage-kind="ticino-region" data-region-key="${esc(region.key)}"><h3 style="${H2_STYLE}">${esc(region.name)}</h3>${source}${duties ? `<ul style="${BODY_STYLE}">${duties}</ul>` : `<p style="${BODY_STYLE}">${esc(matrix.releaseReady ? copy.noIntervals : copy.unavailableNotice(matrix.status))}</p>`}</section>`;
   }).join('');
   const sourceOnly = matrix.sourceOnlyCantons.map((canton) => `<li data-coverage-kind="source-only-canton" data-canton-code="${esc(canton.code)}" data-source-status="${esc(canton.status || 'unavailable')}" data-source-type="${esc(canton.sourceType || 'unavailable')}" style="${BODY_STYLE}"><h3 style="${H3_STYLE}">${esc(canton.name)}</h3><p><strong>${esc(copy.sourceOnlyLabel)}</strong></p><dl><dt><strong>${esc(copy.status)}</strong></dt><dd>${esc(copy.statusLabel(canton.status))}</dd><dt><strong>${esc(copy.sourceType)}</strong></dt><dd>${esc(copy.sourceTypeLabel(canton.sourceType))}</dd><dt><strong>${esc(copy.lastVerifiedAt)}</strong></dt><dd>${esc(canton.lastVerifiedAt ? formatDutyCoverageDate(canton.lastVerifiedAt, locale) : copy.notAvailable)}</dd><dt><strong>${esc(copy.officialSource)}</strong></dt><dd>${canton.officialSourceUrl ? `<a href="${esc(canton.officialSourceUrl)}" rel="nofollow noopener">${esc(copy.openOfficialSource)}</a>` : esc(copy.notAvailable)}</dd></dl></li>`).join('');
+  const italy = renderItalyDutyCoverageSection(locale, matrix);
   const notice = matrix.releaseReady ? copy.readyNotice : copy.unavailableNotice(matrix.status);
-  return `<section data-coverage-matrix="true" data-release-ready="${String(matrix.releaseReady)}"><h2 style="${H2_STYLE}">${esc(copy.heading)}</h2><p style="${LEDE_STYLE}">${esc(copy.lede)}</p><section><h2 style="${H2_STYLE}">${esc(copy.ticinoHeading)}</h2><p style="${BODY_STYLE}" role="status">${esc(notice)}</p>${regions}</section><section><h2 style="${H2_STYLE}">${esc(copy.sourceOnlyHeading)}</h2><p style="${LEDE_STYLE}">${esc(copy.sourceOnlyLede)}</p><ul>${sourceOnly}</ul></section></section>`;
+  return `<section data-coverage-matrix="true" data-release-ready="${String(matrix.releaseReady)}" data-italy-release-ready="${String(matrix.italy.publishable)}" data-italy-indexable="${String(matrix.italy.indexable)}" data-italy-release-state="${esc(matrix.italy.state)}"><h2 style="${H2_STYLE}">${esc(copy.heading)}</h2><p style="${LEDE_STYLE}">${esc(copy.lede)}</p><section><h2 style="${H2_STYLE}">${esc(copy.ticinoHeading)}</h2><p style="${BODY_STYLE}" role="status">${esc(notice)}</p>${regions}</section>${italy}<section><h2 style="${H2_STYLE}">${esc(copy.sourceOnlyHeading)}</h2><p style="${LEDE_STYLE}">${esc(copy.sourceOnlyLede)}</p><ul>${sourceOnly}</ul></section></section>`;
 }
 
 function dutyWeekCollectionJsonLd(pathValue: PharmacyPath, title: string, model: DutyWeekModel): string {
@@ -584,6 +588,8 @@ function pageTitle(kind: PharmacyPageKind, locale: Locale, descriptor: PageDescr
   if (kind === 'duty-hub') return copy.dutyHubTitle;
   if (kind === 'duty-city') return copy.dutyCityTitle(descriptor.cityName || '');
   if (kind === 'duty-week') return DUTY_WEEK_COPY[locale].title(descriptor.weekStart || '');
+  if (kind === 'italy-duty-hub') return locale === 'it' ? 'Farmacie di turno in Italia' : locale === 'en' ? 'On-duty pharmacies in Italy' : locale === 'de' ? 'Notdienst-Apotheken in Italien' : 'Pharmacies de garde en Italie';
+  if (kind === 'italy-duty-week') return ITALY_DUTY_COPY[locale].title(descriptor.weekStart || '');
   if (kind === 'pharmacy') return buildPharmacyTitle(descriptor.pharmacy!, BORDER_PHARMACIES);
   return copy.cityTitle(descriptor.cityName || '', descriptor.country || 'CH');
 }
@@ -604,6 +610,8 @@ function pageLede(kind: PharmacyPageKind, locale: Locale): string {
         ? copy.dutyCityLede
         : kind === 'duty-week'
           ? DUTY_WEEK_COPY[locale].lede
+          : kind === 'italy-duty-hub' || kind === 'italy-duty-week'
+            ? ITALY_DUTY_COPY[locale].lede
           : kind === 'pharmacy'
                 ? copy.detailLede
                 : copy.cityLede;
@@ -645,9 +653,11 @@ interface PageDescriptor {
 
 function descriptorPath(descriptor: PageDescriptor, locale: Locale): PharmacyPath {
   if (descriptor.kind === 'hub' || descriptor.kind === 'canton' || descriptor.kind === 'country' || descriptor.kind === 'duty-hub') return { kind: descriptor.kind, locale, country: descriptor.country };
+  if (descriptor.kind === 'italy-duty-hub') return { kind: 'italy-duty-hub', country: 'IT', locale };
   if (descriptor.kind === 'pharmacy') return pharmacyPath(descriptor.pharmacy!, locale);
   if (descriptor.kind === 'duty-city') return { kind: 'duty-city', locale, citySlug: descriptor.citySlug };
   if (descriptor.kind === 'duty-week') return { kind: 'duty-week', locale, weekStart: descriptor.weekStart };
+  if (descriptor.kind === 'italy-duty-week') return { kind: 'italy-duty-week', country: 'IT', locale, weekStart: descriptor.weekStart };
   return cityPath(descriptor.country || 'CH', locale, descriptor.citySlug || '', descriptor.areaSlug);
 }
 
@@ -730,6 +740,7 @@ function renderBody(
 ): string {
   const copy = COPY[locale];
   if (descriptor.kind === 'duty-week') return renderDutyWeek(descriptor, locale, h1, dataset, now);
+  if (descriptor.kind === 'italy-duty-hub' || descriptor.kind === 'italy-duty-week') return renderItalyDutyWeek({ pathValue: descriptorPath(descriptor, locale), h1, now });
   const datasetDuties = Array.isArray(dataset.duties) ? dataset.duties : [];
   let sections = '';
   if (descriptor.kind === 'hub') {
@@ -851,7 +862,13 @@ function jsonLd(
     const model = dutyWeekModel(descriptor, dataset, now);
     return model.indexable
       ? [dutyWeekCollectionJsonLd(pathValue, title, model), breadcrumbJsonLd(descriptor, locale)]
-      : [breadcrumbJsonLd(descriptor, locale)];
+      : [];
+  }
+  if (descriptor.kind === 'italy-duty-hub' || descriptor.kind === 'italy-duty-week') {
+    const model = italyDutyWeekModel(descriptor.weekStart, now);
+    return indexable && model.indexable
+      ? [italyDutyWeekStructuredData(pathValue, title, model), breadcrumbJsonLd(descriptor, locale)]
+      : [];
   }
   if (descriptor.kind === 'duty-hub') {
     const matrix = buildDutyCoverageMatrix({ locale, duties: dataset, catalogue: completeTicinoSnapshot, now });
@@ -879,6 +896,8 @@ function descriptors(): PageDescriptor[] {
     { kind: 'canton', country: 'CH' },
     { kind: 'duty-hub' },
     { kind: 'duty-week', weekStart: currentDutyWeekStart(new Date()) },
+    { kind: 'italy-duty-hub', country: 'IT' },
+    { kind: 'italy-duty-week', country: 'IT', weekStart: currentItalyDutyWeekStart(new Date()) },
     { kind: 'country', country: 'IT' },
     ...ITALY_BORDER_PROVINCES.map((area) => ({ kind: 'area' as const, country: 'IT' as const, areaSlug: area.slug, areaName: area.name })),
     ...TICINO_CITIES.map((city) => ({ kind: 'city' as const, country: 'CH' as const, citySlug: city.slug, cityName: city.name })),
@@ -907,13 +926,18 @@ function buildPage(
   // regional OFCT schedule. Keep them crawlable for users without creating
   // duplicate indexable pages or an ItemList with a different visible scope.
   const dutyWeek = descriptor.kind === 'duty-week' ? dutyWeekModel(descriptor, dataset, now) : null;
+  const italyDutyWeek = descriptor.kind === 'italy-duty-hub' || descriptor.kind === 'italy-duty-week'
+    ? italyDutyWeekModel(descriptor.weekStart, now)
+    : null;
   const dutyCoverage = descriptor.kind === 'duty-hub'
     ? buildDutyCoverageMatrix({ locale, duties: dataset, catalogue: completeTicinoSnapshot, now })
     : null;
   const indexable = descriptor.kind === 'duty-week'
     ? Boolean(dutyWeek?.indexable && wordCount >= MIN_INDEXABLE_WORDS)
-    : descriptor.kind === 'duty-hub'
-      ? Boolean(dutyCoverage?.releaseReady && wordCount >= MIN_INDEXABLE_WORDS)
+    : descriptor.kind === 'italy-duty-hub' || descriptor.kind === 'italy-duty-week'
+      ? Boolean(italyDutyWeek?.indexable && wordCount >= MIN_INDEXABLE_WORDS)
+      : descriptor.kind === 'duty-hub'
+        ? Boolean(dutyCoverage?.releaseReady && wordCount >= MIN_INDEXABLE_WORDS)
     : descriptor.kind !== 'duty-city' && wordCount >= MIN_INDEXABLE_WORDS;
   const pathValue = descriptorPath(descriptor, locale);
   const description = pageDescription(descriptor, locale);

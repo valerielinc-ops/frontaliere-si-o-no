@@ -1,9 +1,12 @@
 import { sha256 } from '@noble/hashes/sha256';
+import { validatePharmacyDutyList } from './types';
 
 export const ITALY_DUTY_RELEASE_VERSION = 1 as const;
 export const ITALY_DUTY_RELEASE_TIMEZONE = 'Europe/Rome' as const;
 export const ITALY_DUTY_RELEASE_PROVINCES = ['CO', 'VA', 'VB'] as const;
 export const ITALY_DUTY_RELEASE_PREFIX = 'pharmacy-italy-v1-' as const;
+/** The Italy connector contract allows three days between source refreshes. */
+export const ITALY_DUTY_RELEASE_MAX_AGE_MS = 72 * 60 * 60 * 1000;
 
 export type ItalyDutyProvince = (typeof ITALY_DUTY_RELEASE_PROVINCES)[number];
 export type ItalyDutyReleaseState = 'unknown' | 'fresh' | 'stale' | 'partial' | 'conflicting' | 'not_published';
@@ -32,7 +35,31 @@ export interface ItalyDutyRelease {
 }
 
 type JsonValue = null | boolean | number | string | JsonValue[] | { [key: string]: JsonValue };
-type Snapshot = Record<string, unknown> & { _release?: unknown; _fetchedAt?: unknown };
+export type ItalyDutySnapshot = Record<string, unknown> & { _release?: unknown; _fetchedAt?: unknown };
+type Snapshot = ItalyDutySnapshot;
+
+export type ItalyDutyProvinceFreshness = 'fresh' | 'stale' | 'unknown';
+export type ItalyDutyProvinceCoverage = 'covered' | 'partial' | 'not_published' | 'unknown';
+
+export interface ItalyDutyProvinceEvaluation {
+  province: ItalyDutyProvince;
+  state: ItalyDutyReleaseState;
+  freshness: ItalyDutyProvinceFreshness;
+  coverage: ItalyDutyProvinceCoverage;
+  dutyCount: number;
+  observedDutyCount: number;
+  sourceUrl: string | null;
+  fetchedAt: string | null;
+}
+
+export interface ItalyDutyReleaseEvaluation {
+  state: ItalyDutyReleaseState;
+  releaseId: string | null;
+  fetchedAt: string | null;
+  publishable: boolean;
+  reasons: string[];
+  provinces: Record<ItalyDutyProvince, ItalyDutyProvinceEvaluation>;
+}
 
 function compareCodePoint(left: string, right: string): number {
   return left < right ? -1 : left > right ? 1 : 0;
@@ -250,6 +277,179 @@ export function verifyItalyDutyRelease({ duties, status }: { duties: Snapshot; s
     }
   }
   return errors;
+}
+
+function releaseState(value: unknown): ItalyDutyReleaseState {
+  return ['unknown', 'fresh', 'stale', 'partial', 'conflicting', 'not_published'].includes(String(value))
+    ? value as ItalyDutyReleaseState
+    : 'unknown';
+}
+
+function provinceFreshness(value: unknown): ItalyDutyProvinceFreshness {
+  return value === 'fresh' || value === 'stale' || value === 'unknown' ? value : 'unknown';
+}
+
+function provinceCoverage(value: unknown): ItalyDutyProvinceCoverage {
+  return value === 'covered' || value === 'partial' || value === 'not_published' || value === 'unknown'
+    ? value
+    : 'unknown';
+}
+
+function httpsUrl(value: unknown): string | null {
+  if (typeof value !== 'string' || !value.trim()) return null;
+  try {
+    const url = new URL(value.trim());
+    return url.protocol === 'https:' ? value.trim() : null;
+  } catch {
+    return null;
+  }
+}
+
+function freshnessFor(value: unknown, nowMs: number, maxAgeMs: number): ItalyDutyProvinceFreshness {
+  if (!Number.isFinite(nowMs) || typeof value !== 'string') return 'unknown';
+  const parsed = Date.parse(value);
+  if (!Number.isFinite(parsed)) return 'unknown';
+  const age = nowMs - parsed;
+  return age < 0 || age > maxAgeMs ? 'stale' : 'fresh';
+}
+
+function nonNegativeInteger(value: unknown): number {
+  return typeof value === 'number' && Number.isInteger(value) && value >= 0 ? value : 0;
+}
+
+function validateItalyDutyRows(rows: unknown[], now: Date): string[] {
+  const errors = validatePharmacyDutyList(rows, now, { checkTemporalState: false });
+  rows.forEach((row, index) => {
+    if (!isRecord(row)) return;
+    if (!ITALY_DUTY_RELEASE_PROVINCES.includes(row.province as ItalyDutyProvince)) {
+      errors.push(`duty[${index}]: invalid Italian province`);
+    }
+    if (row.coverageType !== 'province') errors.push(`duty[${index}]: Italian duty must use province coverage`);
+    if (row.status !== 'verified') errors.push(`duty[${index}]: Italian release rows must be verified`);
+  });
+  return errors;
+}
+
+/**
+ * Runtime gate for the atomic Italy artifact. The checked-in `_release` is a
+ * build-time claim; this evaluator additionally checks the clock, every
+ * province status and the operational rows before a UI consumer can expose a
+ * marker, source link or duty interval.
+ */
+export function evaluateItalyDutyRelease({
+  duties,
+  status,
+  now = new Date(),
+  maxAgeMs = ITALY_DUTY_RELEASE_MAX_AGE_MS,
+}: {
+  duties: unknown;
+  status: unknown;
+  now?: Date;
+  maxAgeMs?: number;
+}): ItalyDutyReleaseEvaluation {
+  const dutiesRecord = isRecord(duties) ? duties as ItalyDutySnapshot : {};
+  const statusRecord = isRecord(status) ? status as ItalyDutySnapshot : {};
+  const release = isRecord(dutiesRecord._release) ? dutiesRecord._release : null;
+  const releaseValue = releaseState(release?.state);
+  const releaseId = typeof release?.releaseId === 'string' && release.releaseId.trim() ? release.releaseId : null;
+  const reasons: string[] = [];
+  let integrityErrors: string[] = [];
+  try {
+    integrityErrors = verifyItalyDutyRelease({ duties: dutiesRecord, status: statusRecord });
+  } catch {
+    integrityErrors = ['release verification threw while validating the artifact'];
+  }
+  if (integrityErrors.length > 0) reasons.push('Italy release integrity verification failed');
+
+  const rawRows = dutiesRecord.duties;
+  const rows = Array.isArray(rawRows) ? rawRows : [];
+  const rowErrors = validateItalyDutyRows(rows, now);
+  if (!Array.isArray(rawRows)) reasons.push('Italy duties snapshot is missing its duties array');
+  if (rowErrors.length > 0) reasons.push('Italy duties snapshot contains invalid entries');
+
+  const nowMs = now instanceof Date ? now.getTime() : NaN;
+  const snapshotFreshness = [
+    freshnessFor(dutiesRecord._fetchedAt, nowMs, maxAgeMs),
+    freshnessFor(statusRecord._fetchedAt, nowMs, maxAgeMs),
+  ];
+  const globalFreshness: ItalyDutyProvinceFreshness = snapshotFreshness.includes('unknown')
+    ? 'unknown'
+    : snapshotFreshness.includes('stale') ? 'stale' : 'fresh';
+  if (globalFreshness !== 'fresh') reasons.push(`Italy release freshness is ${globalFreshness}`);
+  if (releaseValue !== 'fresh') reasons.push(`Italy release state is ${releaseValue}`);
+  if (Array.isArray(dutiesRecord._errors) && dutiesRecord._errors.length > 0) reasons.push('Italy duties snapshot reports source errors');
+  if (Array.isArray(statusRecord._errors) && statusRecord._errors.length > 0) reasons.push('Italy status snapshot reports source errors');
+  if (statusRecord._allSourcesFailed === true) reasons.push('all Italian duty sources failed');
+
+  const rawEntries = isRecord(statusRecord._provinces) ? statusRecord._provinces : {};
+  const provinces = {} as Record<ItalyDutyProvince, ItalyDutyProvinceEvaluation>;
+  let allProvincesReady = true;
+  for (const province of ITALY_DUTY_RELEASE_PROVINCES) {
+    const rawEntry = isRecord(rawEntries[province]) ? rawEntries[province] : null;
+    const releaseEntry = isRecord(release?.provinces) && isRecord(release.provinces[province])
+      ? release.provinces[province]
+      : null;
+    const entry = rawEntry || releaseEntry;
+    const dutyRows = rows.filter((row): row is Record<string, unknown> => isRecord(row) && row.province === province);
+    const entryFetchedAt = isoOrNull(entry?.fetchedAt);
+    const entryFreshness = entry ? freshnessFor(entry.fetchedAt, nowMs, maxAgeMs) : 'unknown';
+    const effectiveFreshness: ItalyDutyProvinceFreshness = globalFreshness === 'unknown' || entryFreshness === 'unknown'
+      ? 'unknown'
+      : globalFreshness === 'stale' || entryFreshness === 'stale' ? 'stale' : 'fresh';
+    const dutyCount = nonNegativeInteger(entry?.dutyCount);
+    const observedDutyCount = nonNegativeInteger(entry?.observedDutyCount);
+    const evaluation: ItalyDutyProvinceEvaluation = {
+      province,
+      state: releaseState(entry?.state),
+      freshness: effectiveFreshness,
+      coverage: provinceCoverage(entry?.coverage),
+      dutyCount,
+      observedDutyCount,
+      sourceUrl: httpsUrl(entry?.sourceUrl),
+      fetchedAt: entryFetchedAt,
+    };
+    provinces[province] = evaluation;
+
+    const ready = evaluation.state === 'fresh'
+      && evaluation.freshness === 'fresh'
+      && evaluation.coverage === 'covered'
+      && evaluation.sourceUrl !== null
+      && evaluation.dutyCount > 0
+      && dutyRows.length === evaluation.dutyCount;
+    if (!ready) {
+      allProvincesReady = false;
+      if (!rawEntry) reasons.push(`${province}: province status is missing`);
+      if (evaluation.state !== 'fresh') reasons.push(`${province}: ${evaluation.state}`);
+      if (evaluation.coverage !== 'covered') reasons.push(`${province}: coverage is ${evaluation.coverage}`);
+      if (evaluation.freshness !== 'fresh') reasons.push(`${province}: freshness is ${evaluation.freshness}`);
+      if (evaluation.dutyCount === 0) reasons.push(`${province}: no operational duty rows are publishable`);
+      else if (dutyRows.length !== evaluation.dutyCount) reasons.push(`${province}: duty count does not match the release status`);
+      if (!evaluation.sourceUrl) reasons.push(`${province}: official source URL is missing or invalid`);
+    }
+  }
+
+  const publishable = releaseValue === 'fresh'
+    && integrityErrors.length === 0
+    && rowErrors.length === 0
+    && globalFreshness === 'fresh'
+    && allProvincesReady
+    && !(Array.isArray(dutiesRecord._errors) && dutiesRecord._errors.length > 0)
+    && !(Array.isArray(statusRecord._errors) && statusRecord._errors.length > 0)
+    && statusRecord._allSourcesFailed !== true;
+  let state = releaseValue;
+  if (integrityErrors.length > 0 || rowErrors.length > 0) state = releaseValue === 'fresh' ? 'conflicting' : releaseValue;
+  else if (releaseValue === 'fresh' && globalFreshness !== 'fresh') state = globalFreshness;
+  else if (releaseValue === 'fresh' && !allProvincesReady) state = 'partial';
+  if (!publishable && reasons.length === 0) reasons.push('Italy release is not publishable');
+
+  return {
+    state,
+    releaseId,
+    fetchedAt: isoOrNull(dutiesRecord._fetchedAt),
+    publishable,
+    reasons: [...new Set(reasons)],
+    provinces,
+  };
 }
 
 export function isItalyDutyReleasePublishable({ duties, status }: { duties: Snapshot; status: Snapshot }): boolean {

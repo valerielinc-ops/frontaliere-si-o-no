@@ -15,6 +15,8 @@ describe('pharmacy canonical paths', () => {
         { kind: 'duty-hub' as const, locale },
         { kind: 'duty-city' as const, citySlug: 'lugano', locale },
         { kind: 'duty-week' as const, weekStart: '2026-09-14', locale },
+        { kind: 'italy-duty-hub' as const, country: 'IT' as const, locale },
+        { kind: 'italy-duty-week' as const, country: 'IT' as const, weekStart: '2026-09-14', locale },
       ]) {
         expect(parsePharmacyPath(buildPharmacyPath(path, locale))).toEqual(path);
       }
@@ -50,5 +52,11 @@ describe('pharmacy canonical paths', () => {
         expect(parsePharmacyPath(buildPharmacyPath(path))).toEqual(path);
       }
     }
+  });
+
+  it('keeps Italian duty routes distinct from the directory and Ticino duty routes', () => {
+    expect(buildPharmacyPath({ kind: 'italy-duty-hub', country: 'IT', locale: 'it' })).toBe('/farmacie/italia/di-turno/');
+    expect(buildPharmacyPath({ kind: 'italy-duty-week', country: 'IT', locale: 'it', weekStart: '2026-09-14' })).toBe('/farmacie/italia/di-turno/settimana/2026-09-14/');
+    expect(parsePharmacyPath('/farmacie/italia/di-turno/settimana/2026-09-15/')).toBeNull();
   });
 });

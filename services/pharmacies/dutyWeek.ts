@@ -117,12 +117,30 @@ function zonedDateTimeParts(value: Date): ZonedDateTimeParts {
   };
 }
 
-/** Stable server-rendered duty label: DD.MM.YYYY HH:mm in Europe/Zurich. */
-export function formatDutyDateTime(iso: string): string {
+/** Stable server-rendered duty label: DD.MM.YYYY HH:mm in the source timezone. */
+export function formatDutyDateTimeInTimezone(iso: string, timeZone: string): string {
   const date = new Date(iso);
   if (!Number.isFinite(date.getTime())) return iso;
-  const { year, month, day, hour, minute } = zonedDateTimeParts(date);
+  const parts = new Intl.DateTimeFormat('en-GB', {
+    timeZone,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    hourCycle: 'h23',
+  }).formatToParts(date);
+  const year = Number(parts.find((part) => part.type === 'year')?.value);
+  const month = Number(parts.find((part) => part.type === 'month')?.value);
+  const day = Number(parts.find((part) => part.type === 'day')?.value);
+  const hour = Number(parts.find((part) => part.type === 'hour')?.value);
+  const minute = Number(parts.find((part) => part.type === 'minute')?.value);
   return `${String(day).padStart(2, '0')}.${String(month).padStart(2, '0')}.${year} ${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}`;
+}
+
+/** Stable server-rendered duty label in the Swiss source timezone. */
+export function formatDutyDateTime(iso: string): string {
+  return formatDutyDateTimeInTimezone(iso, DUTY_WEEK_TIMEZONE);
 }
 
 /** Resolves a calendar date to midnight in Europe/Zurich, including DST. */

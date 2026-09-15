@@ -27,4 +27,14 @@ describe('generic pharmacy route grammar', () => {
     expect(parsePharmacyRoute('/farmacie-di-turno/settimana/2026-09-15/')).toBeNull();
     expect(buildPharmacyPath({ kind: 'duty-week', locale: 'it', weekStart: '2026-09-14' })).toBe('/farmacie-di-turno/settimana/2026-09-14/');
   });
+
+  it.each([
+    ['it', '/farmacie/italia/di-turno/', '/farmacie/italia/di-turno/settimana/2026-09-14/'],
+    ['en', '/en/pharmacies/italy/on-duty/', '/en/pharmacies/italy/on-duty/week/2026-09-14/'],
+    ['de', '/de/apotheken/italien/notdienst/', '/de/apotheken/italien/notdienst/woche/2026-09-14/'],
+    ['fr', '/fr/pharmacies/italie/de-garde/', '/fr/pharmacies/italie/de-garde/semaine/2026-09-14/'],
+  ] as const)('recognises the Italian duty hub and week in %s', (locale, hubPath, weekPath) => {
+    expect(parsePharmacyRoute(hubPath)).toEqual({ kind: 'italy-duty-hub', country: 'IT', locale });
+    expect(parsePharmacyRoute(weekPath)).toEqual({ kind: 'italy-duty-week', country: 'IT', locale, weekStart: '2026-09-14' });
+  });
 });
