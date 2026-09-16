@@ -11784,6 +11784,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.goldbach-group-ristrutturazione-licenziamenti.title': 'Goldbach Group reorganisiert sich: Bis zu 35 Entlassungen',
     'blog.article.goldbach-group-ristrutturazione-licenziamenti.excerpt': 'Das von der TX Group kontrollierte Zürcher Unternehmen fasst zwei Divisionen im Bereich Werbung zusammen und leitet ein Vernehmlassungsverfahren ein.',
     'blog.article.goldbach-group-ristrutturazione-licenziamenti.imageAlt': 'Buerogebaeude in der Schweiz',
+    'blog.article.ffs-cargo-tagli-ticino-berna.title': 'SBB Cargo-Schnitte: Bern antwortet auf Tessin',
+    'blog.article.ffs-cargo-tagli-ticino-berna.excerpt': 'Die Bundesregierung lehnt den Beschluss des Kantons Tessin über die Kürzungen von SBB Cargo ab und bestätigt die Führungsautonomie des Unternehmens und die Zentralität der Nord-Süd-Achse.',
+    'blog.article.ffs-cargo-tagli-ticino-berna.imageAlt': 'SBB-Cargo-Zug auf der Bahnstrecke im Tessin',
 };
 
 export default blogMetaDe;

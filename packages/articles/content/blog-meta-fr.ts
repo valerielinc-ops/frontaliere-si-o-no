@@ -11787,6 +11787,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.goldbach-group-ristrutturazione-licenziamenti.title': 'Goldbach Group se réorganise : jusqu\'à 35 licenciements',
     'blog.article.goldbach-group-ristrutturazione-licenziamenti.excerpt': 'La société zurichoise contrôlée par TX Group unit deux divisions dans le secteur de la publicité, en lançant une procédure de consultation.',
     'blog.article.goldbach-group-ristrutturazione-licenziamenti.imageAlt': 'Immeuble de bureaux en Suisse',
+    'blog.article.ffs-cargo-tagli-ticino-berna.title': 'Coupes CFF cargo : Berne répond au Tessin',
+    'blog.article.ffs-cargo-tagli-ticino-berna.excerpt': 'Le gouvernement fédéral rejette la résolution du canton du Tessin sur les réductions de Ffs Cargo, confirmant l\'autonomie de gestion de l\'entreprise et la centralité de l\'axe nord-sud.',
+    'blog.article.ffs-cargo-tagli-ticino-berna.imageAlt': 'Train de marchandises des CFF en transit sur la ligne ferroviaire au Tessin',
 };
 
 export default blogMetaFr;

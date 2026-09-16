@@ -35157,6 +35157,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ffs-cargo-tagli-ticino-berna',
+ category: 'novita',
+ date: '2026-09-16T02:10:01.575Z',
+ image: '/images/blog/ffs-cargo-tagli-ticino-berna.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
