@@ -197,6 +197,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: migros-ticino
           JOBS_SLICE_FILE: data/jobs/by-crawler/migros-ticino.json
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -euo pipefail
@@ -344,6 +345,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: mikron
           JOBS_SLICE_FILE: data/jobs/by-crawler/mikron.json
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -euo pipefail
@@ -491,6 +493,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: rsbj
           JOBS_SLICE_FILE: data/jobs/by-crawler/rsbj.json
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -euo pipefail
@@ -638,6 +641,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: sulzer
           JOBS_SLICE_FILE: data/jobs/by-crawler/sulzer.json
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -euo pipefail
@@ -785,6 +789,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: suchtfachstelle-zuerich
           JOBS_SLICE_FILE: data/jobs/by-crawler/suchtfachstelle-zuerich.json
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -euo pipefail
@@ -932,6 +937,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: swissquote
           JOBS_SLICE_FILE: data/jobs/by-crawler/swissquote.json
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -euo pipefail
@@ -1079,6 +1085,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: medartis
           JOBS_SLICE_FILE: data/jobs/by-crawler/medartis.json
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -euo pipefail
@@ -1226,6 +1233,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '1' }}
           JOBS_HOUSEKEEPING_SCOPE: rapelli
           JOBS_SLICE_FILE: data/jobs/by-crawler/rapelli.json
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -euo pipefail
@@ -1373,6 +1381,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: stadler-rail
           JOBS_SLICE_FILE: data/jobs/by-crawler/stadler-rail.json
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -euo pipefail
@@ -1520,6 +1529,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: stiftung-kind-autismus
           JOBS_SLICE_FILE: data/jobs/by-crawler/stiftung-kind-autismus.json
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -euo pipefail
@@ -1667,6 +1677,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: komax
           JOBS_SLICE_FILE: data/jobs/by-crawler/komax.json
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -euo pipefail
@@ -1814,6 +1825,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: spitaeler-schaffhausen
           JOBS_SLICE_FILE: data/jobs/by-crawler/spitaeler-schaffhausen.json
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -euo pipefail
@@ -1959,6 +1971,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: grace-la-margna
           JOBS_SLICE_FILE: data/jobs/by-crawler/grace-la-margna.json
           SKIP_AI_TRANSLATION: \${{ inputs.skip_ai_translation || '0' }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -euo pipefail
@@ -2106,6 +2119,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: albergo-gardenia
           JOBS_SLICE_FILE: data/jobs/by-crawler/albergo-gardenia.json
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -euo pipefail
@@ -2253,6 +2267,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: okjob
           JOBS_SLICE_FILE: data/jobs/by-crawler/okjob.json
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -euo pipefail
@@ -2400,6 +2415,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: goline
           JOBS_SLICE_FILE: data/jobs/by-crawler/goline.json
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -euo pipefail
@@ -2548,6 +2564,7 @@ jobs:
           SKIP_BOILERPLATE_GUARD: "1"
           JOBS_HOUSEKEEPING_SCOPE: sune-egge
           JOBS_SLICE_FILE: data/jobs/by-crawler/sune-egge.json
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -euo pipefail
@@ -2695,6 +2712,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: klinik-susenberg
           JOBS_SLICE_FILE: data/jobs/by-crawler/klinik-susenberg.json
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -euo pipefail
@@ -2842,6 +2860,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: integra-biosciences
           JOBS_SLICE_FILE: data/jobs/by-crawler/integra-biosciences.json
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -euo pipefail
@@ -2989,6 +3008,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: forel-klinik
           JOBS_SLICE_FILE: data/jobs/by-crawler/forel-klinik.json
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -euo pipefail
@@ -3136,6 +3156,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: hfr-hopital-fribourgeois
           JOBS_SLICE_FILE: data/jobs/by-crawler/hfr-hopital-fribourgeois.json
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -euo pipefail
@@ -3283,6 +3304,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: convit-holding
           JOBS_SLICE_FILE: data/jobs/by-crawler/convit-holding.json
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -euo pipefail
@@ -3430,6 +3452,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: gz-dielsdorf
           JOBS_SLICE_FILE: data/jobs/by-crawler/gz-dielsdorf.json
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -euo pipefail
@@ -3577,6 +3600,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: csl-behring
           JOBS_SLICE_FILE: data/jobs/by-crawler/csl-behring.json
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -euo pipefail
@@ -3724,6 +3748,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: cseb
           JOBS_SLICE_FILE: data/jobs/by-crawler/cseb.json
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -euo pipefail
@@ -3871,6 +3896,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: bucher-suter
           JOBS_SLICE_FILE: data/jobs/by-crawler/bucher-suter.json
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -euo pipefail
@@ -4018,6 +4044,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '1' }}
           JOBS_HOUSEKEEPING_SCOPE: alpiq
           JOBS_SLICE_FILE: data/jobs/by-crawler/alpiq.json
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -euo pipefail
@@ -4165,6 +4192,7 @@ jobs:
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: vereinaklosters
           JOBS_SLICE_FILE: data/jobs/by-crawler/vereinaklosters.json
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -euo pipefail
