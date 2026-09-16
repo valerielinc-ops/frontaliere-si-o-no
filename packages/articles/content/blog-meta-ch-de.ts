@@ -6479,6 +6479,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lotta-denaro-sporco-svizzera.title': 'Der Kampf der Schweiz gegen schmutziges Geld und Korruption',
     'blog.article.lotta-denaro-sporco-svizzera.excerpt': 'Analyse vom 02.September 2026 über die Achillesfersen der Schweiz bei der Rückgabe des schmutzigen Geldes und den Knoten der direkten Bankeinzahlungen.',
     'blog.article.lotta-denaro-sporco-svizzera.imageAlt': 'Bankgebäude in der Schweiz, das den Kampf gegen Geldwäsche darstellt',
+    'blog.article.calcio-hockey-svizzera-economia-pubblico.title': 'Fußball und Hockey in der Schweiz, zwischen Wirtschaft und Popularität',
+    'blog.article.calcio-hockey-svizzera-economia-pubblico.excerpt': 'Ökonomische und öffentliche Analyse von Fußball und Eishockey in der Schweiz: Einnahmen aus der Super League, Eishockeyschätzungen und Stadionauftritte.',
+    'blog.article.calcio-hockey-svizzera-economia-pubblico.imageAlt': 'Wirtschaftlicher Vergleich zwischen Fussball und Eishockey in der Schweiz',
 };
 
 export default blogMetaChDe;

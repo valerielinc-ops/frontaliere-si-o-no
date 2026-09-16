@@ -83987,6 +83987,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-calcio-hockey-svizzera-economia-pubblico': {
+    title: 'Calcio e hockey in Svizzera, tra economia e popolarità',
+    description: 'Confronto economico tra calcio e hockey in Svizzera: ricavi Super League a 440 milioni, stime hockey a 300 milioni e dati sul pubblico negli stadi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, calcio, hockey, economia, popolarità',
+    ogTitle: 'Calcio e hockey in Svizzera, tra economia e popolarità',
+    ogDescription: 'Analisi finanziaria e di pubblico tra Super League e campionato svizzero di hockey su ghiaccio per la stagione 2024-2025, con ricavi, spettatori e differenze territoriali.',
+    canonicalPath: '/articoli-svizzera/calcio-hockey-svizzera-economia-pubblico/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Calcio e hockey in Svizzera, tra economia e popolarità",
+      "description": "Confronto economico tra calcio e hockey in Svizzera: ricavi Super League a 440 milioni, stime hockey a 300 milioni e dati sul pubblico negli stadi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/calcio-hockey-svizzera-economia-pubblico.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Confronto economico tra calcio e hockey su ghiaccio in Svizzera"
+      },
+      "datePublished": "2026-09-16T02:41:41+00:00",
+      "dateModified": "2026-09-16T02:41:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/calcio-hockey-svizzera-economia-pubblico/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
