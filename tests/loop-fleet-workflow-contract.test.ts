@@ -40,6 +40,14 @@ describe('loop fleet workflow contract', () => {
     }
   });
 
+  it('does not feed an append-only ledger merge back into L11', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'technical-operations-supervisor.yml'), 'utf8');
+    const pushBlock = source.match(/\n  push:\n([\s\S]*?)\n  workflow_dispatch:/u)?.[1] ?? '';
+    expect(pushBlock).toMatch(/branches:\n\s+- main/u);
+    expect(pushBlock).toContain("paths-ignore:\n      - 'data/loop-fleet/ledger/**'");
+    expect(pushBlock).not.toContain('data/loop-fleet/**');
+  });
+
   it('gates repaired loops on a runner-local fail-closed outcome export', () => {
     const contracts = [
       ['loop-l3-job-quality.yml', 'l3-outcome.json', 'handoffIsNotApplication', 'validate_l3_outcome'],
