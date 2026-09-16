@@ -41,6 +41,7 @@ import { buildBridgeThinHtml } from './shared/bridgeThinShell';
 import { buildSoftLandingThinHtml } from './shared/softLandingThinShell';
 import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/gscKeywordThinShell';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
+import { IncrementalManifest } from './shared/incrementalManifest.mjs';
 import {
   normalizeSearchTerm as normalizeSearchTermShared,
   collectSearchLandingMatches,
@@ -716,6 +717,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const retentionProbeCandidate = parseJobsSeoRetentionProbe(process.env[JOBS_SEO_RETENTION_PROBE_ENV]);
  const distDir = np.resolve(rootDir, 'dist');
  const jobsPath = np.resolve(rootDir, 'data/jobs.json');
+ const incrementalManifests = new Map(
+  JOB_SEO_LOCALES.map((locale) => [locale, new IncrementalManifest(locale)]),
+ );
+ const registerIncrementalPage = (locale: (typeof JOB_SEO_LOCALES)[number], pagePath: string, kind: string, input: unknown) => {
+  incrementalManifests.get(locale)?.register(pagePath, kind, input);
+ };
 
  // BFS-depth closure (2026-06-11): the per-canton "Esplora" navigator only
  // linked the top-8 cities by job count, leaving every OTHER emitted
@@ -1442,6 +1449,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
 
  if (!fs.existsSync(jobsPath)) {
  console.warn('[jobs-seo-pages] data/jobs.json not found');
+ for (const manifest of incrementalManifests.values()) manifest.write(rootDir);
  // Unblock downstream consumers before bailing. relatedSearchClustersPlugin
  // `await`s jobsSeoPagesFlushed (writeSitemap L2029 + cache-hit path L2190);
  // returning here without resolving the signal would hang those awaits
@@ -2784,6 +2792,23 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const perJob_matchedCity = CITY_HUB_KEYS.find((c) => jobMatchesCity(job as never, c));
  const perJob_logoUrl = companyLogo(job);
  const perJob_relatedPool = getRelatedPool(job);
+ const perJob_relatedManifestInput = perJob_relatedPool.map((relatedJob: any) => ({
+  id: relatedJob?.id,
+  slug: relatedJob?.slug,
+  slugByLocale: relatedJob?.slugByLocale,
+  title: relatedJob?.title,
+  titleByLocale: relatedJob?.titleByLocale,
+  company: relatedJob?.company,
+  companyKey: relatedJob?.companyKey,
+  location: relatedJob?.location,
+  canton: relatedJob?.canton,
+  category: relatedJob?.category,
+  contract: relatedJob?.contract,
+  salaryMin: relatedJob?.salaryMin,
+  salaryMax: relatedJob?.salaryMax,
+  currency: relatedJob?.currency,
+  logoUrl: companyLogo(relatedJob),
+ }));
  const perJob_relatedSeed = (() => {
  const s = String(job.slug || '');
  let h = 2166136261 >>> 0;
@@ -2847,6 +2872,16 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // The page itself is still emitted with its own URL (breadcrumbs,
  // JobPosting, etc. describe THIS page) so existing backlinks resolve.
  const effectiveCanonicalUrl = resolveCanonicalUrl(perLocaleSlug[locale], canonicalUrl);
+ const activeJobManifestInput = {
+  path: canonicalPath,
+  locale,
+  slug: perLocaleSlug[locale],
+  canton: jobCanton,
+  canonicalUrl: effectiveCanonicalUrl,
+  logoUrl: perJob_logoUrl,
+  relatedJobs: perJob_relatedManifestInput,
+  job,
+ };
  const localizedTitle = stripLiteralMarkdownFromTitle(String(job?.titleByLocale?.[locale] || job.title || ''));
  const jobLocation = perJob_jobLocation;
  const dc = getCantonDisplayLabel(perJob_cantonCode, locale);
@@ -3750,6 +3785,7 @@ ${staticAnalyticsHtml}
  recordPhase('template-render', __tPh_template);
  const __tPh_write = phaseTimer();
  _qw(np.join(outDir, 'index.html'), html);
+ registerIncrementalPage(locale, canonicalPath, 'active-job', activeJobManifestInput);
  jobHtmlCache.set(`${locale}:${perLocaleSlug[locale]}`, html);
  // Also write flat .html so /slug serves 200 (avoids GitHub Pages 301 redirect)
  // Uses a canonical bridge page instead of a noindex/meta-refresh alias
@@ -3799,6 +3835,13 @@ ${staticAnalyticsHtml}
  const legacyDir = np.join(distDir, legacyRel);
  _md(legacyDir);
  _qw(np.join(legacyDir, 'index.html'), legacyIndexHtml);
+ registerIncrementalPage(locale, legacyRel, 'legacy-slug-bridge', {
+  bridgeType: 'locale-slug',
+  source: activeJobManifestInput,
+  sourcePath: canonicalPath,
+  targetPath: legacyRel,
+  legacySlug: job.slug,
+ });
  const legacyFlat = np.join(distDir, legacyRel + '.html');
  _qwFlatFull(legacyFlat, legacyIndexHtml.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
  }
@@ -3830,6 +3873,13 @@ ${staticAnalyticsHtml}
  const legacyTIDir = np.join(distDir, legacyTIRel);
  _md(legacyTIDir);
  _qw(np.join(legacyTIDir, 'index.html'), legacyTIIndexHtml);
+ registerIncrementalPage(locale, legacyTIRel, 'legacy-slug-bridge', {
+  bridgeType: 'legacy-ti',
+  source: activeJobManifestInput,
+  sourcePath: canonicalPath,
+  targetPath: legacyTIRel,
+  legacySlug: job.slug,
+ });
  const legacyTIFlat = np.join(distDir, legacyTIRel + '.html');
  _qwFlatFull(legacyTIFlat, legacyTIIndexHtml.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
  // Claim this TI-mirror path as the AUTHORITATIVE active bridge so the
@@ -12328,13 +12378,14 @@ ${staticAnalyticsHtml}
  // Never overwrite ANY page already written by an earlier phase
  // (active jobs, company pages, search pages, editorial pages)
  const targetFile = np.join(distDir, normPath, 'index.html');
- if (_writtenPaths.has(targetFile)) return;
- if (activeJobDirs.has(normPath)) return;
+ if (_writtenPaths.has(targetFile)) return false;
+ if (activeJobDirs.has(normPath)) return false;
 
  const outDir = np.join(distDir, normPath);
  _qw(np.join(outDir, 'index.html'), html);
  const flatFile = np.join(distDir, normPath + '.html');
  _qwFlat(flatFile, html);
+ return true;
  };
 
  // Pre-compute company → active jobs lookup (O(1) instead of O(n) per expired page)
@@ -12359,6 +12410,22 @@ ${staticAnalyticsHtml}
  }
  return result;
  };
+ const incrementalJobSummary = (job: any) => ({
+  id: job?.id,
+  slug: job?.slug,
+  slugByLocale: job?.slugByLocale,
+  title: job?.title,
+  titleByLocale: job?.titleByLocale,
+  company: job?.company,
+  companyKey: job?.companyKey,
+  location: job?.location,
+  canton: job?.canton,
+  category: job?.category,
+  contract: job?.contract,
+  salaryMin: job?.salaryMin,
+  salaryMax: job?.salaryMax,
+  currency: job?.currency,
+ });
 
  // Cache soft-landing HTML per (locale, slug) so the cross-locale
  // reconciliation pass below can reuse it instead of re-rendering.
@@ -13132,7 +13199,31 @@ ${staticAnalyticsHtml}
  emittedSoftLandingPaths.add(__slPathKey);
 
  const __tEjpWrite = phaseTimer();
- writeSoftLandingPage(relPath.slice(1), softLandingHtml);
+ const softLandingManifestInput = {
+  path: relPath,
+  locale,
+  slug,
+  trackingPaths: paths,
+  expiredJob: ejData,
+  gsc: gscInfo,
+  company: jobCompany,
+  location: jobLocation,
+  canton: jobCanton,
+  sector: jobSector,
+  contract: jobContract,
+  datePosted: jobDatePosted,
+  expiredAt: jobExpiredAt,
+  candidatePaths: __slCandidatePaths,
+  prosePaths: __slProsePaths,
+  keepProse: __slKeepProse,
+  action: __slAction,
+  recentJobs: (sameCompanyActiveJobs.length > 0 ? sameCompanyActiveJobs : selectRecentJobs(slug, slug))
+   .map(incrementalJobSummary),
+ };
+ const wroteSoftLanding = writeSoftLandingPage(relPath.slice(1), softLandingHtml);
+ if (wroteSoftLanding) {
+  registerIncrementalPage(locale, relPath, 'expired-soft-landing', softLandingManifestInput);
+ }
  const cacheKey = `${locale}:${slug}`;
  if (expiredCacheKeys.has(cacheKey)) {
  expiredSoftLandingCache.set(cacheKey, softLandingHtml);
@@ -13145,7 +13236,16 @@ ${staticAnalyticsHtml}
  const trackedRel = relPath.replace(/^\//, '');
  if (legacyRel !== trackedRel && !emittedSoftLandingPaths.has(legacyRel.replace(/\/+$/, ''))) {
  emittedSoftLandingPaths.add(legacyRel.replace(/\/+$/, ''));
- writeSoftLandingPage(legacyRel, softLandingHtml);
+ const wroteLegacySoftLanding = writeSoftLandingPage(legacyRel, softLandingHtml);
+ if (wroteLegacySoftLanding) {
+  registerIncrementalPage(locale, legacyRel, 'legacy-slug-bridge', {
+   bridgeType: 'expired-soft-landing-legacy-locale',
+   source: softLandingManifestInput,
+   sourcePath: relPath,
+   targetPath: legacyRel,
+   legacySlug: slug,
+  });
+ }
  legacyCount++;
  }
  }
@@ -13298,6 +13398,16 @@ ${staticAnalyticsHtml}
  _md(outDir);
  _qw(indexFile, bridgeHtml);
  _writtenPaths.add(indexFile);
+ registerIncrementalPage(baseLocale, relPath, 'cross-locale-reconciliation', {
+  source: 'expired-soft-landing',
+  path: relPath,
+  baseLocale,
+  baseSlug,
+  foreignSlug,
+  canton: ejCantonForCrossLocale,
+  slugByLocale,
+  expiredJob: ej,
+ });
  crossLocaleExpiredCount++;
  recordEmit('cross-locale-expired-bridge', __tCrossLocaleExpired);
  // Sibling backpressure (AGENTS.md #6): same unbounded background-flush
@@ -13654,6 +13764,16 @@ ${staticAnalyticsHtml}
 
  _md(outDir);
  _qw(np.join(outDir, 'index.html'), indexHtml);
+ registerIncrementalPage(locale, oldPath, 'previous-slugs-full-content', {
+  path: oldPath,
+  locale,
+  canton: jobCantonForBridge,
+  oldSlug,
+  currentSlug,
+  winnerId,
+  job,
+  previousSlugsByLocale: pslByLocale,
+ });
 
  const flatFile = np.join(distDir, oldPath.replace(/^\//, '') + '.html');
  _md(np.dirname(flatFile));
@@ -13700,6 +13820,17 @@ ${staticAnalyticsHtml}
  const legacyTIOutDir = np.join(distDir, legacyTIRelPath);
  _md(legacyTIOutDir);
  _qw(np.join(legacyTIOutDir, 'index.html'), indexHtml);
+ registerIncrementalPage(locale, legacyTIRelPath, 'previous-slugs-full-content', {
+  path: legacyTIRelPath,
+  locale,
+  canton: jobCantonForBridge,
+  oldSlug,
+  currentSlug,
+  winnerId,
+  job,
+  previousSlugsByLocale: pslByLocale,
+  bridgeType: 'legacy-ti',
+ });
  const legacyTIFlatFile = np.join(distDir, legacyTIRelPath + '.html');
  _md(np.dirname(legacyTIFlatFile));
  _qwFlat(legacyTIFlatFile, indexHtml);
@@ -13884,6 +14015,17 @@ ${staticAnalyticsHtml}
  _md(outDir);
  _qw(indexFile, bridgeHtml);
  _writtenPaths.add(indexFile);
+ registerIncrementalPage(baseLocale, relPath, 'cross-locale-reconciliation', {
+  source: 'active-job',
+  path: relPath,
+  baseLocale,
+  baseSlug,
+  foreignSlug,
+  canton: jobCantonForCrossLocale,
+  slugPerLocale,
+  previousSlugsByLocale: prevSlugsByLocale,
+  job,
+ });
  // Note: skip the flat `.html` variant — GH Pages serves
  // /dir/index.html for direct URL hits and the flat variant
  // would double disk usage for ~27k bridge pages.
@@ -14190,6 +14332,14 @@ ${staticAnalyticsHtml}
  `(bridges=${fmtBytes(bridgeBytesSaved)}, soft-landings=${fmtBytes(softLandingBytesSaved)}, gsc-keyword=${fmtBytes(gscKeywordBytesSaved)})`
  );
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m ${trafficFilter.summary()}`);
+ for (const manifest of incrementalManifests.values()) {
+  const manifestPath = manifest.write(rootDir);
+  const manifestData = manifest.toJSON();
+  console.log(
+   `\x1b[36m[jobs-seo-pages]\x1b[0m incremental manifest ${np.relative(rootDir, manifestPath)} ` +
+   `entries=${manifestData.counts.total} kinds=${JSON.stringify(manifestData.counts.byKind)}`,
+  );
+ }
  },
  };
 }

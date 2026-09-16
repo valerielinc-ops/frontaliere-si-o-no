@@ -1,0 +1,62 @@
+{
+  "manifestVersion": 1,
+  "locale": "it",
+  "counts": {
+    "total": 5,
+    "byKind": {
+      "active-job": 2,
+      "expired-soft-landing": 1,
+      "legacy-slug-bridge": 0,
+      "previous-slugs-full-content": 0,
+      "cross-locale-reconciliation": 1,
+      "related-search-cluster": 1
+    }
+  },
+  "entries": [
+    {
+      "path": "cerca-lavoro-ticino/muratore/",
+      "inputHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "inputFingerprint": "1111111111111111111111111111111111111111111111111111111111111111",
+      "kind": "active-job",
+      "templateVersion": "active-job@1",
+      "sourceVersion": "input@1",
+      "state": "live"
+    },
+    {
+      "path": "cerca-lavoro-ticino/ufficio-scaduto/",
+      "inputHash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "inputFingerprint": "6666666666666666666666666666666666666666666666666666666666666666",
+      "kind": "expired-soft-landing",
+      "templateVersion": "expired-soft-landing@1",
+      "sourceVersion": "input@1",
+      "state": "live"
+    },
+    {
+      "path": "cerca-lavoro-ticino/collisione/",
+      "inputHash": "7777777777777777777777777777777777777777777777777777777777777777",
+      "inputFingerprint": "4444444444444444444444444444444444444444444444444444444444444444",
+      "kind": "active-job",
+      "templateVersion": "active-job@2",
+      "sourceVersion": "input@1",
+      "state": "live"
+    },
+    {
+      "path": "cerca-lavoro-ticino/riconciliazione/",
+      "inputHash": "8888888888888888888888888888888888888888888888888888888888888888",
+      "inputFingerprint": "7777777777777777777777777777777777777777777777777777777777777777",
+      "kind": "cross-locale-reconciliation",
+      "templateVersion": "cross-locale-reconciliation@1",
+      "sourceVersion": "input@1",
+      "state": "live"
+    },
+    {
+      "path": "ricerca/muratore-ticino/",
+      "inputHash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "inputFingerprint": "5555555555555555555555555555555555555555555555555555555555555555",
+      "kind": "related-search-cluster",
+      "templateVersion": "related-search-cluster@1",
+      "sourceVersion": "input@1",
+      "state": "live"
+    }
+  ]
+}
