@@ -1071,8 +1071,14 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   };
  };
 
+ // No forced GC by default: the marker samples heapUsed as-is. With the
+ // heap partially in swap (host headroom ~0.6-1.2 GB on every leg) each
+ // forced full GC re-pages ~10 GB; 14-23 of them stretched run
+ // 35146607926 from ~100 min to >4 h per leg. JOBS_SEO_MEM_GC=1 restores
+ // the precise live-set measurement for a deliberate canary.
+ const jobsSeoMemOptions = { forceGc: process.env.JOBS_SEO_MEM_GC === '1' } as const;
  const logJobsSeoMem = (phase: string, phaseDetails: BuildMemDetails = {}): void => {
-  logBuildMem(`jobsSeoPages: ${phase}`, collector, jobsSeoMemDetails(phaseDetails));
+  logBuildMem(`jobsSeoPages: ${phase}`, collector, jobsSeoMemDetails(phaseDetails), jobsSeoMemOptions);
  };
 
  /**
