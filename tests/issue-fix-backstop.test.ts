@@ -86,7 +86,7 @@ describe('issue-fix F1/F7 policy gate', () => {
     expect(gate).toContain('const codeReferenceRe =');
     expect(gate).toContain("replaceAll('\\\\', '/')");
     expect(gate).toContain('classifyAutomationRisk');
-    expect(gate).toContain('policyInput.pathsComplete = true');
+    expect(gate).toContain('policyInput.pathsComplete = pathsComplete');
     expect(gate).toContain('automationBlocked: risk.blocked');
     expect(gate).toContain('snapshot_fingerprint');
     expect(end).toBeLessThan(appToken);
@@ -203,20 +203,65 @@ describe('issue-fix F1/F7 policy gate', () => {
     });
   });
 
-  it('lega il mint a una snapshot verificabile e alla seconda lettura live', () => {
+  it('risolve gli alias GitHub e i ref con slash, ma nega URL ambigui o non gestibili', () => {
+    expect(runInlineRisk(
+      'https://www.github.com/valerielinc-ops/frontaliere-si-o-no/blob/feature/docs/.github/workflows/issue-fix.yml',
+    )).toMatchObject({
+      automationBlocked: true,
+      riskDenyCode: 'control-plane',
+      pathsComplete: true,
+    });
+    expect(runInlineRisk(
+      'https://raw.githubusercontent.com/valerielinc-ops/frontaliere-si-o-no/feature/docs/.github/workflows/issue-fix.yml',
+    )).toMatchObject({
+      automationBlocked: true,
+      riskDenyCode: 'control-plane',
+      pathsComplete: true,
+    });
+    expect(runInlineRisk(
+      'https://github.com/valerielinc-ops/frontaliere-si-o-no/blob/feature/branch/src/fix.ts',
+    )).toMatchObject({
+      automationBlocked: false,
+      riskDecision: 'allow',
+      pathsComplete: true,
+    });
+    expect(runInlineRisk(
+      'https://www.github.com/valerielinc-ops/frontaliere-si-o-no/blob/feature/src/docs/agent-target.ts',
+    )).toMatchObject({
+      automationBlocked: true,
+      riskDenyCode: 'paths-unverifiable',
+      pathsComplete: false,
+    });
+  });
+
+  it('lega il mint a una snapshot verificabile e congela il payload consumato', () => {
     const verification = workflow.indexOf(
       '- name: Verify issue snapshot immediately before App token and bridge',
     );
+    const group = workflow.indexOf(
+      '- name: Load issue group context (B19, frozen before capabilities)',
+    );
     const appToken = workflow.indexOf('Mint GitHub App token');
+    const tier = workflow.indexOf('- name: Determine fix tier');
+    const closing = workflow.indexOf('- name: Closing keyword for the PR body');
     expect(verification).toBeGreaterThan(-1);
+    expect(group).toBeGreaterThan(verification);
+    expect(group).toBeLessThan(appToken);
     expect(verification).toBeLessThan(appToken);
-    expect(workflow).toContain('--json number,state,title,body,labels');
+    expect(tier).toBeGreaterThan(group);
+    expect(closing).toBeGreaterThan(tier);
+    expect(workflow).toContain('--json number,state,title,body,labels,comments');
     expect(workflow).toContain('jq -ceS --arg repo \"$REPO\" --argjson issue_number \"$ISSUE_NUMBER\"');
+    expect(workflow).toContain('comments: (.comments | sort_by');
+    expect(workflow).toContain('printf \'%s\\n\' \"$snapshot\" > \"$ctx_dir/issue.json\"');
     expect(workflow).toContain('sha256sum');
     expect(workflow).toContain('EXPECTED_SNAPSHOT_FINGERPRINT');
     expect(workflow).toContain('issue snapshot cambiata o non coerente');
     expect(workflow).toContain('nessuna capability remota');
     expect(workflow).toContain('echo \"verified=true\" >> \"$GITHUB_OUTPUT\"');
+    expect(workflow).toContain('snapshot issue congelato mancante o non verificabile durante il prefetch');
+    expect(workflow).not.toContain('fallback `gh issue view $ISSUE_NUMBER --json number,title,body,labels,comments`');
+    expect(workflow.slice(tier, closing)).not.toContain('gh issue view');
     expect(workflow).toMatch(
       /if: always\(\) && steps\.issue_snapshot\.outputs\.verified == 'true'/u,
     );

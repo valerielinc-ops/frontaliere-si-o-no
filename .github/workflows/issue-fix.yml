@@ -124,7 +124,7 @@ jobs:
           case "$ISSUE_NUMBER" in
             (''|*[!0-9]*) echo "::error::numero issue non verificabile"; exit 1 ;;
           esac
-          gh issue view "$ISSUE_NUMBER" --repo "$REPO" --json number,state,title,body,labels > "$issue_file"
+          gh issue view "$ISSUE_NUMBER" --repo "$REPO" --json number,state,title,body,labels,comments > "$issue_file"
           snapshot=$(jq -ceS --arg repo "$REPO" --argjson issue_number "$ISSUE_NUMBER" '
             if (.number == $issue_number)
               and (.state == "OPEN")
@@ -132,12 +132,15 @@ jobs:
               and ((.body == null) or ((.body | type) == "string"))
               and ((.labels | type) == "array")
               and all(.labels[]; (type == "object") and ((.name | type) == "string") and (.name | length > 0))
+              and ((.comments | type) == "array")
+              and all(.comments[]; type == "object")
             then {
               target: { repo: $repo, issue: .number },
               state: .state,
               title: .title,
               body: (.body // ""),
-              labels: ([.labels[].name] | sort)
+              labels: ([.labels[].name] | sort),
+              comments: (.comments | sort_by([(.createdAt // ""), (.id // ""), (.body // "")]))
             }
             else error("issue snapshot non verificabile")
             end
@@ -178,6 +181,26 @@ jobs:
           const repeatedSeparatorRe = /(?<![\w.-])(?:[A-Za-z0-9_.-]+[\\/])+[\\/]/gu;
           const rootPathRe = /(?<![\w.-])(?:REVIEW\.md|README(?:\.[A-Za-z0-9_.-]+)?|CHANGELOG(?:\.[A-Za-z0-9_.-]+)?|LICENSE(?:\.[A-Za-z0-9_.-]+)?|Makefile|Dockerfile|CODEOWNERS)(?![\w.-])/giu;
           const urlRe = /\bhttps?:\/\/[^\s<>()]+/giu;
+          const githubWebHosts = new Set(['github.com', 'www.github.com']);
+          const githubRawHosts = new Set(['raw.githubusercontent.com']);
+          const githubPathRootRe = /^(?:\.github|scripts|src|components|services|hooks|build-plugins|packages|tests?|docs|functions)(?:\/|$)/iu;
+          const githubRootFileRe = /^(?:REVIEW\.md|README(?:\.[A-Za-z0-9_.-]+)?|CHANGELOG(?:\.[A-Za-z0-9_.-]+)?|LICENSE(?:\.[A-Za-z0-9_.-]+)?|Makefile|Dockerfile|CODEOWNERS)$/iu;
+          const githubRootDotfileRe = /^\.[A-Za-z0-9][A-Za-z0-9_.-]*$/u;
+          const githubControlPlanePathRe = /^(?:\.github(?:\/|$)|scripts\/ci(?:\/|$)|scripts\/lib\/classify-issue\.mjs$|REVIEW\.md$)/iu;
+          const resolveGithubPath = (parts, refStart) => {
+            if (parts.length <= refStart + 1) return '';
+            const candidates = [];
+            for (let index = refStart + 1; index < parts.length; index += 1) {
+              const candidate = parts.slice(index).join('/');
+              if (githubPathRootRe.test(candidate)
+                  || githubRootFileRe.test(candidate)
+                  || (index === parts.length - 1 && githubRootDotfileRe.test(parts[index]))) {
+                candidates.push(candidate);
+              }
+            }
+            const controlPlaneCandidate = candidates.find((candidate) => githubControlPlanePathRe.test(candidate));
+            return controlPlaneCandidate || (candidates.length === 1 ? candidates[0] : '');
+          };
           const codeReferenceRe = /`([^`\r\n]+)`/gu;
           const pathReferences = [];
           const isPathCandidate = (value) => {
@@ -196,11 +219,29 @@ jobs:
           for (const match of issueText.matchAll(urlRe)) {
             let parsed;
             try { parsed = new URL(match[0]); } catch { pathReferences.push(''); continue; }
-            const parts = parsed.pathname.split('/').filter(Boolean).map((part) => decodeURIComponent(part));
+            const hostname = parsed.hostname.toLowerCase();
+            if (!githubWebHosts.has(hostname) && !githubRawHosts.has(hostname)) continue;
+            let parts;
+            try {
+              const encodedParts = parsed.pathname.split('/').slice(1);
+              if (encodedParts.length === 0 || encodedParts.some((part) => part.length === 0)) {
+                pathReferences.push('');
+                continue;
+              }
+              parts = encodedParts.map((part) => decodeURIComponent(part));
+            } catch {
+              pathReferences.push('');
+              continue;
+            }
             const repo = parts.length >= 2 ? `${parts[0]}/${parts[1]}`.toLowerCase() : '';
-            if (parsed.hostname.toLowerCase() !== 'github.com' || repo !== targetRepo
-                || !['blob', 'tree', 'raw'].includes(parts[2] || '')) continue;
-            pathReferences.push(parts.length >= 5 ? parts.slice(4).join('/') : '');
+            if (repo !== targetRepo) continue;
+            const isWebHost = githubWebHosts.has(hostname);
+            const refStart = isWebHost ? 3 : 2;
+            if (isWebHost && !['blob', 'tree', 'raw'].includes(parts[2] || '')) {
+              pathReferences.push('');
+              continue;
+            }
+            pathReferences.push(resolveGithubPath(parts, refStart));
           }
           const withoutUrls = issueText.replace(urlRe, ' ');
           for (const match of withoutUrls.matchAll(pathTokenRe)) {
@@ -216,6 +257,7 @@ jobs:
           }
           const uniqueReferences = [...new Set(pathReferences)];
           const normalizedPaths = uniqueReferences.map(normalizeReference);
+          const pathsComplete = uniqueReferences.length > 0 && normalizedPaths.every(Boolean);
           const classification = classifyIssue(issue.title, issue.labels, issue.body ?? '');
           const policyInput = {
             title: issue.title,
@@ -225,7 +267,7 @@ jobs:
           };
           if (uniqueReferences.length > 0) {
             policyInput.paths = normalizedPaths;
-            policyInput.pathsComplete = true;
+            policyInput.pathsComplete = pathsComplete;
           }
           const risk = classifyAutomationRisk(policyInput);
           process.stdout.write(JSON.stringify({
@@ -238,6 +280,7 @@ jobs:
             riskDenyCode: risk.denyCode,
             riskReason: risk.reason,
             unknownPaths: risk.unknownPaths,
+            pathsComplete: policyInput.pathsComplete ?? null,
             snapshotFingerprint: process.env.SNAPSHOT_FINGERPRINT,
           }));
           NODE
@@ -361,7 +404,7 @@ jobs:
             exit 1
           fi
           issue_file="${RUNNER_TEMP}/issue-f1-f7-verify.json"
-          gh issue view "$ISSUE_NUMBER" --repo "$REPO" --json number,state,title,body,labels > "$issue_file"
+          gh issue view "$ISSUE_NUMBER" --repo "$REPO" --json number,state,title,body,labels,comments > "$issue_file"
           snapshot=$(jq -ceS --arg repo "$REPO" --argjson issue_number "$ISSUE_NUMBER" '
             if (.number == $issue_number)
               and (.state == "OPEN")
@@ -369,12 +412,15 @@ jobs:
               and ((.body == null) or ((.body | type) == "string"))
               and ((.labels | type) == "array")
               and all(.labels[]; (type == "object") and ((.name | type) == "string") and (.name | length > 0))
+              and ((.comments | type) == "array")
+              and all(.comments[]; type == "object")
             then {
               target: { repo: $repo, issue: .number },
               state: .state,
               title: .title,
               body: (.body // ""),
-              labels: ([.labels[].name] | sort)
+              labels: ([.labels[].name] | sort),
+              comments: (.comments | sort_by([(.createdAt // ""), (.id // ""), (.body // "")]))
             }
             else error("issue snapshot non verificabile")
             end
@@ -384,8 +430,122 @@ jobs:
             echo "::error::issue snapshot cambiata o non coerente: deny prima del mint/bridge; nessuna capability remota."
             exit 1
           fi
+          ctx_dir="${RUNNER_TEMP}/issue-fix-ctx"
+          mkdir -p "$ctx_dir"
+          printf '%s\n' "$snapshot" > "$ctx_dir/issue.json"
           echo "Issue snapshot verificata prima delle capability: $actual"
           echo "verified=true" >> "$GITHUB_OUTPUT"
+
+      - name: Load issue group context (B19, frozen before capabilities)
+        id: group
+        if: steps.issue_snapshot.outputs.verified == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          CTX_DIR: ${{ runner.temp }}/issue-fix-ctx
+        run: |
+          set -euo pipefail
+          group_is_group=false
+          group_label_output=
+          group_numbers_output=
+
+          load_group_context() {
+            local leader_json group_label group_contract members valid numbers
+            local group_max_size group_label_pattern query_limit
+
+            if ! leader_json=$(jq -ce '{labels: .labels}' "$CTX_DIR/issue.json"); then
+              echo "::warning::snapshot issue non leggibile per il gruppo #$ISSUE_NUMBER → flusso singolo"
+              return 0
+            fi
+
+            # Tetto e matcher arrivano dalla stessa sorgente del producer. Il
+            # tail protegge il contratto da eventuale stdout diagnostico emesso
+            # da un import transitivo senza duplicare la regola nel YAML.
+            if ! group_contract=$(node --input-type=module -e "import('./scripts/ci/followup-drainer.mjs').then(({ ISSUE_GROUP_MAX_SIZE, ISSUE_GROUP_LABEL_PATTERN }) => process.stdout.write(JSON.stringify({ maxSize: ISSUE_GROUP_MAX_SIZE, labelPattern: ISSUE_GROUP_LABEL_PATTERN })))" | tail -n 1); then
+              echo "::warning::impossibile leggere il contratto del raggruppatore → flusso singolo"
+              return 0
+            fi
+            if ! group_max_size=$(printf '%s' "$group_contract" | jq -er '.maxSize | numbers | tostring') || \
+              ! group_label_pattern=$(printf '%s' "$group_contract" | jq -er '.labelPattern | strings | select(length > 0)'); then
+              echo "::warning::contratto B19 non valido → flusso singolo"
+              return 0
+            fi
+            case "$group_max_size" in
+              [2-9]|[1-9][0-9]*) ;;
+              *) echo "::warning::tetto B19 non valido ($group_max_size) → flusso singolo"; return 0 ;;
+            esac
+
+            if ! group_label=$(printf '%s' "$leader_json" | jq -r --arg pattern "$group_label_pattern" \
+              '[.labels[]?.name | select(test($pattern))] | .[0] // empty'); then
+              echo "::warning::impossibile riconoscere la label B19 → flusso singolo"
+              return 0
+            fi
+            if [ -z "$group_label" ]; then
+              echo "issue #$ISSUE_NUMBER: nessun gruppo B19 → flusso singolo"
+              return 0
+            fi
+
+            # La label è assegnata a tutti i membri, ma solo il numero in coda
+            # alla label può armare il run. Un membro etichettato per errore
+            # degrada al flusso singolo e non apre una seconda PR di gruppo.
+            if [ "${group_label##*-}" != "$ISSUE_NUMBER" ]; then
+              echo "issue #$ISSUE_NUMBER: membro non-leader di $group_label → flusso singolo"
+              return 0
+            fi
+
+            query_limit=$((group_max_size + 1))
+            if ! members=$(gh issue list --repo "$REPO" --state open --label "$group_label" \
+              --json number,title,body,labels,createdAt,updatedAt --limit "$query_limit"); then
+              echo "::warning::impossibile leggere i membri di $group_label → flusso singolo"
+              return 0
+            fi
+            if ! valid=$(printf '%s' "$members" | jq -r --arg label "$group_label" --arg leader "$ISSUE_NUMBER" --argjson max "$group_max_size" \
+              'type == "array" and length >= 2 and length <= $max
+               and ([.[].number | tostring] | index($leader) != null)
+               and all(.[]; any(.labels[]?; .name == $label))'); then
+              echo "::warning::impossibile validare $group_label → flusso singolo"
+              return 0
+            fi
+            if [ "$valid" != true ]; then
+              echo "::warning::gruppo $group_label non valido o oltre il tetto → flusso singolo"
+              return 0
+            fi
+
+            if ! printf '%s' "$members" | jq --arg leader "$ISSUE_NUMBER" \
+              'sort_by(if (.number | tostring) == $leader then 0 else 1 end, .createdAt, .number)' > "$CTX_DIR/group.json"; then
+              echo "::warning::impossibile scrivere il contesto di $group_label → flusso singolo"
+              return 0
+            fi
+            if ! numbers=$(jq -er '[.[].number] | join(",")' "$CTX_DIR/group.json"); then
+              echo "::warning::impossibile leggere il contesto di $group_label → flusso singolo"
+              return 0
+            fi
+            group_is_group=true
+            group_label_output=$group_label
+            group_numbers_output=$numbers
+            echo "issue #$ISSUE_NUMBER: gruppo B19 $group_label → membri #$numbers congelati prima delle capability"
+          }
+
+          load_group_context
+          {
+            echo "is_group=$group_is_group"
+            echo "group_label=$group_label_output"
+            echo "group_numbers=$group_numbers_output"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Validate issue group context file (zero-Claude)
+        id: group_context
+        if: steps.group.outputs.is_group == 'true'
+        env:
+          CTX_DIR: ${{ runner.temp }}/issue-fix-ctx
+        run: |
+          set -euo pipefail
+          if [ ! -r "$CTX_DIR/group.json" ] || ! jq -e 'type == "array" and length >= 2' "$CTX_DIR/group.json" >/dev/null; then
+            echo "::error::contesto del gruppo B19 illeggibile: il ramo group non può procedere"
+            exit 1
+          fi
 
       # Conia il token della GitHub App PRIMA di ogni gate che ne dipende.
       #
@@ -610,119 +770,6 @@ jobs:
         # vince, l'altro vede la label e si ferma prima di spendere turni.
         run: node scripts/ci/claim-issue-in-flight.mjs
 
-      - name: Load issue group context (B19, zero-Claude)
-        id: group
-        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPO: ${{ github.repository }}
-          ISSUE_NUMBER: ${{ github.event.issue.number }}
-          CTX_DIR: ${{ runner.temp }}/issue-fix-ctx
-        run: |
-          set -euo pipefail
-          mkdir -p "$CTX_DIR"
-          : > "$CTX_DIR/group.json"
-          group_is_group=false
-          group_label_output=
-          group_numbers_output=
-
-          load_group_context() {
-            local leader_json group_label group_contract members valid numbers
-            local group_max_size group_label_pattern query_limit
-
-            if ! leader_json=$(gh issue view "$ISSUE_NUMBER" --repo "$REPO" --json labels); then
-              echo "::warning::impossibile leggere le label della issue #$ISSUE_NUMBER → fallback alla issue singola"
-              return 0
-            fi
-
-            # Tetto e matcher arrivano dalla stessa sorgente del producer. Il
-            # tail protegge il contratto da eventuale stdout diagnostico emesso
-            # da un import transitivo senza duplicare la regola nel YAML.
-            if ! group_contract=$(node --input-type=module -e "import('./scripts/ci/followup-drainer.mjs').then(({ ISSUE_GROUP_MAX_SIZE, ISSUE_GROUP_LABEL_PATTERN }) => process.stdout.write(JSON.stringify({ maxSize: ISSUE_GROUP_MAX_SIZE, labelPattern: ISSUE_GROUP_LABEL_PATTERN })))" | tail -n 1); then
-              echo "::warning::impossibile leggere il contratto del raggruppatore → fallback alla issue #$ISSUE_NUMBER"
-              return 0
-            fi
-            if ! group_max_size=$(printf '%s' "$group_contract" | jq -er '.maxSize | numbers | tostring') || \
-              ! group_label_pattern=$(printf '%s' "$group_contract" | jq -er '.labelPattern | strings | select(length > 0)'); then
-              echo "::warning::contratto B19 non valido → fallback alla issue #$ISSUE_NUMBER"
-              return 0
-            fi
-            case "$group_max_size" in
-              [2-9]|[1-9][0-9]*) ;;
-              *) echo "::warning::tetto B19 non valido ($group_max_size) → fallback alla issue #$ISSUE_NUMBER"; return 0 ;;
-            esac
-
-            if ! group_label=$(printf '%s' "$leader_json" | jq -r --arg pattern "$group_label_pattern" \
-              '[.labels[]?.name | select(test($pattern))] | .[0] // empty'); then
-              echo "::warning::impossibile riconoscere la label B19 → fallback alla issue #$ISSUE_NUMBER"
-              return 0
-            fi
-            if [ -z "$group_label" ]; then
-              echo "issue #$ISSUE_NUMBER: nessun gruppo B19 → flusso singolo"
-              return 0
-            fi
-
-            # La label è assegnata a tutti i membri, ma solo il numero in coda
-            # alla label può armare il run. Un membro etichettato per errore
-            # degrada al flusso singolo e non apre una seconda PR di gruppo.
-            if [ "${group_label##*-}" != "$ISSUE_NUMBER" ]; then
-              echo "issue #$ISSUE_NUMBER: membro non-leader di $group_label → flusso singolo"
-              return 0
-            fi
-
-            query_limit=$((group_max_size + 1))
-            if ! members=$(gh issue list --repo "$REPO" --state open --label "$group_label" \
-              --json number,title,body,labels,createdAt,updatedAt --limit "$query_limit"); then
-              echo "::warning::impossibile leggere i membri di $group_label → fallback alla issue #$ISSUE_NUMBER"
-              return 0
-            fi
-            if ! valid=$(printf '%s' "$members" | jq -r --arg label "$group_label" --arg leader "$ISSUE_NUMBER" --argjson max "$group_max_size" \
-              'type == "array" and length >= 2 and length <= $max
-               and ([.[].number | tostring] | index($leader) != null)
-               and all(.[]; any(.labels[]?; .name == $label))'); then
-              echo "::warning::impossibile validare $group_label → fallback alla issue #$ISSUE_NUMBER"
-              return 0
-            fi
-            if [ "$valid" != true ]; then
-              echo "::warning::gruppo $group_label non valido o oltre il tetto → fallback alla issue #$ISSUE_NUMBER"
-              return 0
-            fi
-
-            if ! printf '%s' "$members" | jq --arg leader "$ISSUE_NUMBER" \
-              'sort_by(if (.number | tostring) == $leader then 0 else 1 end, .createdAt, .number)' > "$CTX_DIR/group.json"; then
-              echo "::warning::impossibile scrivere il contesto di $group_label → fallback alla issue #$ISSUE_NUMBER"
-              return 0
-            fi
-            if ! numbers=$(jq -er '[.[].number] | join(",")' "$CTX_DIR/group.json"); then
-              echo "::warning::impossibile leggere il contesto di $group_label → fallback alla issue #$ISSUE_NUMBER"
-              return 0
-            fi
-            group_is_group=true
-            group_label_output=$group_label
-            group_numbers_output=$numbers
-            echo "issue #$ISSUE_NUMBER: gruppo B19 $group_label → membri #$numbers"
-          }
-
-          load_group_context
-          {
-            echo "is_group=$group_is_group"
-            echo "group_label=$group_label_output"
-            echo "group_numbers=$group_numbers_output"
-          } >> "$GITHUB_OUTPUT"
-
-      - name: Validate issue group context file (zero-Claude)
-        id: group_context
-        if: steps.group.outputs.is_group == 'true'
-        env:
-          CTX_DIR: ${{ runner.temp }}/issue-fix-ctx
-        run: |
-          set -euo pipefail
-          if [ ! -r "$CTX_DIR/group.json" ] || ! jq -e 'type == "array" and length >= 2' "$CTX_DIR/group.json" >/dev/null; then
-            echo "::error::contesto del gruppo B19 illeggibile: il ramo group non può procedere"
-            exit 1
-          fi
-
       - name: Determine fix tier
         id: tier
         if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
@@ -758,12 +805,20 @@ jobs:
         # stesso principio anti-tier-breadth-waste della nota sopra.
         run: |
           set -euo pipefail
-          # Prefetch bundle (token-lever, stesso pattern di tests.yml/pr-review-loop
-          # "review-ctx"): questa issue serve qui per il tier E al prompt Claude
-          # (step 3, "Carica la issue") come sua prima azione a pagamento — un solo
-          # `gh issue view` invece di due, zero costo qui, un turno risparmiato là.
-          mkdir -p "$CTX_DIR"
-          gh issue view "$ISSUE_NUMBER" --json number,title,body,labels,comments > "$CTX_DIR/issue.json"
+          # Il file issue è stato congelato e hash-verificato prima del mint App,
+          # del gruppo e di ogni capability. Non rileggere GitHub qui: una seconda
+          # lettura reintrodurrebbe il TOCTOU che il fingerprint deve chiudere.
+          if [ ! -r "$CTX_DIR/issue.json" ] || ! jq -e '
+            type == "object"
+            and (.state == "OPEN")
+            and (.title | type == "string")
+            and (.body | type == "string")
+            and (.labels | type == "array")
+            and (.comments | type == "array")
+          ' "$CTX_DIR/issue.json" >/dev/null; then
+            echo "::error::snapshot issue congelato mancante o non verificabile durante il prefetch"
+            exit 1
+          fi
           if [ "${IS_GROUP:-false}" = true ]; then
             if [ ! -r "$CTX_DIR/group.json" ] || ! jq -e 'type == "array" and length >= 2' "$CTX_DIR/group.json" >/dev/null; then
               echo "::error::contesto del gruppo B19 illeggibile durante il prefetch"
@@ -1005,7 +1060,7 @@ jobs:
             } >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          ref=$(gh issue view "$ISSUE_NUMBER" --json number,title,body,labels 2>/dev/null \
+          ref=$(jq -c '{number: .target.issue, title, body, labels}' "$CTX_DIR/issue.json" 2>/dev/null \
                 | node scripts/lib/pr-body-generator-contract.mjs --closing-ref 2>/dev/null) || ref=""
           if [ -z "$ref" ]; then
             ref="Closes #${ISSUE_NUMBER}"
@@ -1251,7 +1306,7 @@ jobs:
 
             ### Registro delle decisioni del proprietario (iniettato dal workflow)
             ${{ steps.tier.outputs.decision_registry }}
-            3. Carica la issue con `Read` da `${{ runner.temp }}/issue-fix-ctx/issue.json` (prefetchata dallo step "Determine fix tier", stessi campi). Solo se manca/è vuoto: fallback `gh issue view $ISSUE_NUMBER --json number,title,body,labels,comments`. Se `group=true`, leggi anche `${{ runner.temp }}/issue-fix-ctx/group.json` e tratta ogni record come una issue da chiudere nella stessa PR: la diagnosi deve confermare il punto di riparazione comune, non limitarsi alla label.
+            3. Carica la issue esclusivamente con `Read` da `${{ runner.temp }}/issue-fix-ctx/issue.json` (snapshot congelato e verificato prima delle capability, con commenti inclusi). Se manca, è vuota o non è leggibile, TERMINA senza fallback a GitHub live: la precondizione zero-Claude deve fallire chiusa. Se `group=true`, leggi anche il gruppo congelato da `${{ runner.temp }}/issue-fix-ctx/group.json` e tratta ogni record come una issue da chiudere nella stessa PR: la diagnosi deve confermare il punto di riparazione comune, non limitarsi alla label.
 
             **Pre-condizioni (abort se falliscono):**
             - Se esiste già una PR aperta che cita "#$ISSUE_NUMBER" (`gh pr list --state open --search "$ISSUE_NUMBER in:body" --json number`) → posta commento "PR già in volo: #<n>, skip." e TERMINA. No doppioni.
