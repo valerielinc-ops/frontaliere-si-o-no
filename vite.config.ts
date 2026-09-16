@@ -204,12 +204,11 @@ export default defineConfig(({ mode }) => {
  ogPagesPlugin(__dirname),
  // MUST stay BEFORE jobsSeoPagesPlugin. `jobsSeoPagesPlugin` does
  // `await employerProfilesFlushed` (#5273) to link each job ad at the
- // evergreen `/aziende/<slug>/` hub, and deploy.yml runs the build with
- // SEQUENTIAL_PROFILE=1, which makes profilePlugin mark EVERY closeBundle
- // `sequential: true`. Under sequential hooks a signal can only ever travel
- // FORWARD in this array: registered after its consumer, the producer never
- // gets to run, the await never settles, the event loop drains and node
- // exits 0 — a green build missing every page after the deadlock (#5330).
+ // evergreen `/aziende/<slug>/` hub. Most deploy hooks run in parallel, but
+ // the explicit sequential profile remains available for diagnostics; under
+ // that mode a signal can only travel FORWARD in this array. If the producer
+ // were registered after its consumer, the await would never settle and a
+ // green build could omit every page after the deadlock (#5330).
  // tests/build-plugin-order.test.ts derives this constraint from the
  // sources, so a new cross-plugin `await` is checked here automatically.
  employerProfilePagesPlugin(__dirname),

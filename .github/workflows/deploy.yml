@@ -11,14 +11,18 @@ on:
     # il dist deployato (deploy-starvation: build lungo vs merge ~5min via
     # auto-merge PAT). I path sotto non sono letti dalla build del dist:
     #   - docs/markdown, file CI/workflow, test, config agent: nessun output dist.
+    #   - telemetry/evidence-only data elencati più sotto: nessun import in
+    #     vite.config.ts o nei build-plugins; i commit misti con contenuto
+    #     restano deploy-bound.
     # NON ignorati (toccano il dist): build-plugins/, services/, components/,
     # scripts/ (assemble-jobs gira a build-time), data/jobs*, vite/index/package.
     # NB: usiamo `*.md` (root) + `docs/**`, NON `**/*.md`: `public/**/*.md`
     # (es. press-kit) è copiato verbatim da Vite (publicDir) nel dist → resta
     # dist-bound e deve poter deployare.
     #
-    # ⚠️ NON allargare questa lista per curare la "deploy starvation" — è la
-    # leva sbagliata, misurato il 2026-08-06 sulle ultime 48h (#5251):
+    # ⚠️ NON allargare questa lista con dati che possono alimentare il dist per
+    # curare la "deploy starvation" — è la leva sbagliata, misurato il
+    # 2026-08-06 sulle ultime 48h (#5251):
     #   - 141 run di deploy: 121 cancellati, 10 success, 8 failure, 2 attivi.
     #   - `paths-ignore` NON si applica a `workflow_dispatch`, e 40 dei 141 run
     #     (28%) arrivano proprio da lì: 15 workflow di dati chiamano
@@ -55,6 +59,12 @@ on:
       - 'data/seo-health/**'
       - 'data/border-wait-averages.json'
       - 'data/weather-snapshot.json'
+      # Telemetria/evidence-only: se lo stesso push contiene anche data/jobs,
+      # articoli o altri input della build, GitHub non applica paths-ignore.
+      - 'data/loop-fleet/**'
+      - 'data/translation-observability-history.json'
+      - 'data/translation-observability-state.json'
+      - 'data/translation-stats-history.json'
       - '*.md'
       - 'docs/**'
       - '.github/**'
@@ -87,7 +97,7 @@ on:
         required: false
         type: string
       profile_sequential:
-        description: 'Investigation-only run: same sequential build as production (now the default), but skips deploy/validate/upload steps. Use to inspect [profile-detail] timings without consuming a deploy slot.'
+        description: 'Investigation-only run: serialize every closeBundle hook to inspect [profile-detail] timings. Production keeps independent hooks parallel.'
         required: false
         type: boolean
         default: false
@@ -102,7 +112,7 @@ on:
         type: boolean
         default: false
       parallel_plugins:
-        description: 'Force parallel closeBundle even when profile_sequential=true. Default (off) means parallel for production, sequential only for clean profile dispatch runs. Set this to true when you want to dispatch a profile run AND keep the parallel scheduling — useful for measuring parallel build behavior without cron-storm cancellation.'
+        description: 'Compatibility override for a profile dispatch: keep closeBundle hooks parallel even when profile_sequential=true.'
         required: false
         type: boolean
         default: false
@@ -314,9 +324,10 @@ jobs:
       matrix:
         locale: ${{ fromJSON(needs.matrix-setup.outputs.matrix) }}
     env:
-      # Mirrors the monolith Build step env. Profile-bound knobs that map to
-      # workflow_dispatch inputs irrelevant to the matrix path are dropped;
-      # SEQUENTIAL_PROFILE is forced on (always sequential on the GH runner).
+      # Mirrors the monolith Build step env. Production leaves independent
+      # closeBundle hooks parallel; only hooks that explicitly declare an
+      # ordering barrier stay sequential. Full serialization is opt-in for a
+      # workflow_dispatch profile run so diagnostics never slow normal deploys.
       BUILD_PROFILE: '1'
       ASSET_CDN: 'https://cdn.frontaliereticino.ch'
       # Restored to 2 (#4959 §4): the post-walk worker no longer imports the
@@ -325,7 +336,7 @@ jobs:
       # verified directly: the leaf loads, the old plugin path still fails with
       # ERR_MODULE_NOT_FOUND on siteShell.
       POST_WALK_WORKERS: '2'
-      SEQUENTIAL_PROFILE: '1'
+      SEQUENTIAL_PROFILE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.profile_sequential == 'true' && github.event.inputs.parallel_plugins != 'true' && '1' || '' }}
       JOBS_SEO_PROFILE_PHASES: '1'
       WEEKLY_EMPLOYERS_PROFILE: ''
       RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'

@@ -96,9 +96,9 @@ export function loadDataJson<T = unknown>(relPath: string, rootDir?: string): T 
  * It stops being the right default when the next plugin to run is the build's
  * memory peak and does NOT read the cached file. That is exactly the shape
  * `employerProfilePagesPlugin` acquired when it moved ahead of
- * `jobsSeoPagesPlugin` in vite.config.ts (it had to: under SEQUENTIAL_PROFILE=1
- * a signal only travels forward through the plugin array, and registered after
- * its consumer it deadlocked the build — #5330). `jobsSeoPagesPlugin` parses
+ * `jobsSeoPagesPlugin` in vite.config.ts (it had to: under the opt-in sequential
+ * profile a signal only travels forward through the plugin array, and registered
+ * after its consumer it deadlocked the build — #5330). `jobsSeoPagesPlugin` parses
  * `data/jobs.json` with its OWN `readFileSync` and never consults this cache,
  * so the two copies are now simultaneously live: measured as a flat +545 MB on
  * every `[mem]` line of the peak plugin (`[profile-mem]` heapUsed went

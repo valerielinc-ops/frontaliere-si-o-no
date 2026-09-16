@@ -43,6 +43,7 @@ const REHYDRATE_LOCALE_SCRIPT = readFileSync(resolve(ROOT, 'scripts/lib/rehydrat
 const PACKAGE_JSON = JSON.parse(readFileSync(resolve(ROOT, 'package.json'), 'utf-8'));
 const BATCH_WRITE = readFileSync(resolve(ROOT, 'build-plugins/batchWrite.ts'), 'utf-8');
 const AUDIT_ALL_REGISTRY_SRC = readFileSync(resolve(ROOT, 'scripts/audit-all.mjs'), 'utf-8');
+const BUILD_LOCALE_ENV = (YAML.parse(DEPLOY_YML) as any).jobs['build-locale'].env as Record<string, unknown>;
 
 // `audit:title-uniqueness` was moved to a separate weekly workflow because it
 // OOM-killed the parallel block. All remaining gates must stay in parallel.
@@ -460,5 +461,26 @@ describe('deploy.yml — wall-time delle fasi post-build nella storia committata
     const workflow = YAML.parse(DEPLOY_YML) as any;
     const ignored = workflow.on?.push?.['paths-ignore'] ?? [];
     expect(ignored).toContain('data/build-history/**');
+  });
+
+  it('ignora solo i commit di telemetria che non alimentano il dist', () => {
+    const workflow = YAML.parse(DEPLOY_YML) as any;
+    const ignored = workflow.on?.push?.['paths-ignore'] ?? [];
+    expect(ignored).toEqual(expect.arrayContaining([
+      'data/loop-fleet/**',
+      'data/translation-observability-history.json',
+      'data/translation-observability-state.json',
+      'data/translation-stats-history.json',
+    ]));
+  });
+});
+
+describe('deploy.yml — scheduling del build senza serializzazione globale', () => {
+  it('mantiene paralleli gli hook indipendenti in produzione', () => {
+    const sequentialProfile = String(BUILD_LOCALE_ENV.SEQUENTIAL_PROFILE ?? '');
+    expect(sequentialProfile).toContain("github.event_name == 'workflow_dispatch'");
+    expect(sequentialProfile).toContain("github.event.inputs.profile_sequential == 'true'");
+    expect(sequentialProfile).toContain("github.event.inputs.parallel_plugins != 'true'");
+    expect(sequentialProfile).not.toBe('1');
   });
 });
