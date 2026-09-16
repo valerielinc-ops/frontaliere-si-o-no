@@ -37,6 +37,7 @@ jobs:
           sparse-checkout: |
             /data/loop-fleet/ledger/
             /scripts/ci/loop-fleet-ledger-reconcile.mjs
+            /scripts/lib/canonical-json-digest.mjs
             /.github/workflows/loop-fleet-ledger-reconcile.yml
           sparse-checkout-cone-mode: false
 
