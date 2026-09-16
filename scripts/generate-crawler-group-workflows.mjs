@@ -1171,6 +1171,11 @@ function buildCrawlerStepEnv(crawler, summaryFile) {
   for (const step of crawler.postSteps) {
     Object.assign(merged, step.env || {});
   }
+  // The provider-neutral article chain can fall back to Claude Haiku when
+  // the Codex broker is unavailable. Keep its OAuth credential in every
+  // crawler launch step; ai-models.mjs still gates the fallback by Remote
+  // Config and the per-run cap.
+  merged.CLAUDE_CODE_OAUTH_TOKEN = '${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}';
   // CODEX_AUTH_JSON is deliberately scoped to the setup action below. The
   // crawler shell is backgrounded and may spawn arbitrary post-steps; putting
   // the subscription secret here would expose it to every one of those
