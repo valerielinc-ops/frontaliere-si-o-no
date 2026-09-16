@@ -67,17 +67,17 @@ import {
 } from './lib/newsletterActionToken.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
-const REGISTRATION_TERMS_VERSION = '2026-09-15.1';
+const REGISTRATION_TERMS_VERSION = '2026-09-16.1';
 const ADVERTISING_OPT_OUT_FIELD = 'advertising_opt_out';
 const ADVERTISING_REACTIVATED_AT_FIELD = 'advertising_reactivated_at';
 // Kept in this Functions bundle because it cannot import the TypeScript
 // register. Keep these strings byte-identical to consentDisplayText(
 // 'communicationsOptIn', locale) in services/consentTexts.ts.
 const REGISTRATION_TERMS_TEXT = Object.freeze({
- it: 'Registrandomi accetto i Termini e condizioni e iscrivo il mio indirizzo alle comunicazioni di Frontaliere Ticino: newsletter e aggiornamenti redazionali, avvisi di lavoro, messaggi di servizio e messaggi promozionali di terzi. Posso gestire le preferenze o revocare l’iscrizione in qualsiasi momento. Condizioni (v. 2026-09-15.1).',
- en: 'By registering I accept the Terms and Conditions and subscribe my address to Frontaliere Ticino communications: newsletters and editorial updates, job alerts, service messages and promotional messages from third parties. I can manage my preferences or unsubscribe at any time. Terms (v. 2026-09-15.1).',
- de: 'Mit der Registrierung akzeptiere ich die Nutzungsbedingungen und trage meine Adresse in die Mitteilungen von Frontaliere Ticino ein: Newsletter und redaktionelle Aktualisierungen, Job-Alerts, Servicenachrichten und Werbenachrichten von Dritten. Ich kann meine Einstellungen jederzeit verwalten oder mich abmelden. Bedingungen (V. 2026-09-15.1).',
- fr: 'En m’inscrivant, j’accepte les conditions et j’inscris mon adresse aux communications de Frontaliere Ticino : newsletters et mises à jour éditoriales, alertes emploi, messages de service et messages promotionnels de tiers. Je peux gérer mes préférences ou me désinscrire à tout moment. Conditions (v. 2026-09-15.1).',
+ it: 'Registrandomi accetto le condizioni e mi iscrivo alle comunicazioni di Frontaliere Ticino. Condizioni (v. 2026-09-15.1).',
+ en: 'By registering I accept the terms and subscribe to Frontaliere Ticino communications. Terms (v. 2026-09-15.1).',
+ de: 'Mit der Registrierung akzeptiere ich die Bedingungen und abonniere die Mitteilungen von Frontaliere Ticino. Bedingungen (V. 2026-09-15.1).',
+ fr: 'En m’inscrivant, j’accepte les conditions et m’inscris aux communications de Frontaliere Ticino. Conditions (v. 2026-09-15.1).',
 });
 // Proxied by the CF Worker straight to this function (see UNSUB_PROXIES in
 // infra/cloudflare-worker/locale-router.js) — bypasses the SPA/index.html

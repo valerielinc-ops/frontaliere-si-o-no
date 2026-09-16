@@ -46,8 +46,13 @@ function pr(overrides: Record<string, unknown> = {}) {
     state: 'OPEN',
     isDraft: false,
     baseRefName: 'main',
+    title: 'Safe change',
+    body: '',
+    labels: [],
     headRefOid: HEAD,
     autoMergeRequest: null,
+    changedFiles: ['src/safe.ts'],
+    changedFilesComplete: true,
     ...overrides,
   };
 }
@@ -153,6 +158,118 @@ describe('native auto-merge gate (#8512)', () => {
 
     expect(result.allow).toBe(true);
     expect(result.reason).toContain('success');
+  });
+
+  it.each([
+    ['deploy/workflow/functions', '.github/workflows/release.yml', 'deploy-workflow-functions'],
+    ['secrets/ruoli/permessi', 'config/iam/roles.yml', 'secrets-roles-permissions'],
+    ['billing/revenue/partner', 'services/partner/billing.ts', 'billing-revenue-partner'],
+    ['contenuti pubblicati/SEO/Auto Ads', 'packages/articles/content/guide.md', 'published-content-seo-auto-ads'],
+    ['outreach/comunicazioni', 'scripts/newsletter/send.mjs', 'outreach-communications'],
+  ])('non abilita native auto-merge per %s', (_label, changedFile, domain) => {
+    const result = evaluateNativeAutoMerge({
+      pr: pr({ changedFiles: [changedFile] }),
+      reviews: [review(CLEAN_BODY)],
+      checkRuns: [vitest()],
+    });
+
+    expect(result).toMatchObject({
+      allow: false,
+      humanApprovalRequired: true,
+      humanApprovalVerified: false,
+    });
+    expect(result.riskDomains).toContain(domain);
+  });
+
+  it('mantiene il deny anche quando una review umana separata è verificata', () => {
+    const human = {
+      id: 9,
+      user: { type: 'User', login: 'owner' },
+      state: 'APPROVED',
+      commit_id: HEAD,
+      submitted_at: '2026-09-13T12:02:00Z',
+    };
+    const result = evaluateNativeAutoMerge({
+      pr: pr({ changedFiles: ['.github/workflows/release.yml'] }),
+      reviews: [human],
+      checkRuns: [vitest()],
+    });
+
+    expect(result).toMatchObject({
+      allow: false,
+      humanApprovalRequired: true,
+      humanApprovalVerified: true,
+      humanApprovalReviewId: 9,
+    });
+    expect(result.reason).toMatch(/gestione umana separata/i);
+  });
+
+  it('needs-human è un veto persistente: la review umana non autorizza la rimozione automatica', () => {
+    const human = {
+      id: 10,
+      user: { type: 'User', login: 'owner' },
+      state: 'APPROVED',
+      commit_id: HEAD,
+      submitted_at: '2026-09-13T12:02:00Z',
+    };
+    expect(evaluateNativeAutoMerge({
+      pr: pr({ labels: [{ name: 'needs-human' }] }),
+      reviews: [human, review(CLEAN_BODY)],
+      checkRuns: [vitest()],
+    })).toMatchObject({
+      allow: false,
+      needsHumanVeto: true,
+      humanApprovalRequired: true,
+      humanApprovalVerified: true,
+      humanApprovalReviewId: 10,
+    });
+  });
+
+  it.each([
+    'scripts/ci/lib/automation-risk-policy.mjs',
+    '.github/actions/run-agent/action.yml',
+    'unknown-zone/agent-target.ts',
+  ])('nega control-plane/path sconosciuto anche con review e check verdi: %s', (changedFile) => {
+    expect(evaluateNativeAutoMerge({
+      pr: pr({ changedFiles: [changedFile] }),
+      reviews: [review(CLEAN_BODY)],
+      checkRuns: [vitest()],
+    })).toMatchObject({ allow: false, humanApprovalRequired: true });
+  });
+
+  it('nega se title/body/labels non sono metadata verificabili', () => {
+    expect(evaluateNativeAutoMerge({
+      pr: pr({ body: null }),
+      reviews: [review(CLEAN_BODY)],
+      checkRuns: [vitest()],
+    })).toMatchObject({ allow: false });
+  });
+
+  it('nega per default con file list non verificabile', () => {
+    expect(evaluateNativeAutoMerge({
+      pr: pr({ changedFilesComplete: false }),
+      reviews: [review(CLEAN_BODY)],
+      checkRuns: [vitest()],
+    })).toMatchObject({
+      allow: false,
+      humanApprovalRequired: true,
+      humanApprovalVerified: false,
+    });
+  });
+
+  it('revoca un opt-in native persistente quando il diff entra in un dominio F1/F7', () => {
+    expect(revalidateNativeAutoMerge({
+      pr: pr({
+        autoMergeRequest: { enabledAt: '2026-09-13T12:00:00Z' },
+        changedFiles: ['.github/workflows/release.yml'],
+      }),
+      reviews: [review(CLEAN_BODY)],
+      checkRuns: [vitest()],
+    })).toMatchObject({
+      allow: false,
+      action: 'revoke',
+      humanApprovalRequired: true,
+    });
   });
 
   it('allows outside-diff findings only with the structured successful review-gate proof', () => {
@@ -499,7 +616,7 @@ describe('native auto-merge gate (#8512)', () => {
   it('binds the native opt-in to the exact HEAD that passed the gate', () => {
     const gateSource = readFileSync(new URL('../scripts/ci/native-automerge-gate.mjs', import.meta.url), 'utf8');
 
-    expect(gateSource).toContain("nativeAutoMergeArgs({ repo, prNumber, headSha: pr.headRefOid })");
+    expect(gateSource).toContain("nativeAutoMergeArgs({ repo, prNumber, headSha: fresh.headRefOid })");
     expect(nativeAutoMergeArgs({
       repo: 'valerielinc-ops/frontaliere-si-o-no',
       prNumber: '8517',
@@ -561,13 +678,16 @@ describe('native auto-merge gate (#8512)', () => {
     const headRead = gateSource.indexOf('current = ghJson');
     const finalReviewRead = gateSource.indexOf('finalReviews = loadReviews');
     const finalCheckRead = gateSource.indexOf('finalCheckRuns = loadCheckRuns');
+    const finalMetadataRead = gateSource.indexOf('fresh = ghJson');
     const finalGate = gateSource.indexOf('const finalDecision = revalidateNativeAutoMerge');
     const nativeOptIn = gateSource.indexOf("execFileSync('gh', nativeAutoMergeArgs");
 
     expect(headRead).toBeGreaterThanOrEqual(0);
     expect(finalReviewRead).toBeGreaterThan(headRead);
     expect(finalCheckRead).toBeGreaterThan(finalReviewRead);
+    expect(finalMetadataRead).toBeGreaterThan(finalCheckRead);
     expect(finalGate).toBeGreaterThan(finalCheckRead);
+    expect(finalGate).toBeGreaterThan(finalMetadataRead);
     expect(nativeOptIn).toBeGreaterThan(finalGate);
     expect(gateSource).toContain("if (finalDecision.action === 'revoke')");
     expect(gateSource).toContain('concurrentOptInSucceeded');
@@ -576,6 +696,8 @@ describe('native auto-merge gate (#8512)', () => {
     expect(gateSource).toContain('withTransientGithubReadRetry');
     expect(gateSource).toContain('const response = ghJsonOnce');
     expect(gateSource).toContain("stdio: ['ignore', 'pipe', 'pipe']");
+    expect(gateSource).toContain('function samePrMetadata');
+    expect(gateSource).toContain('title,body,labels,state,isDraft,baseRefName,headRefOid,autoMergeRequest');
   });
 
   it('fails closed when the final same-HEAD snapshot gains a finding or check failure', () => {
@@ -606,6 +728,20 @@ describe('native auto-merge workflow wiring (#8512)', () => {
   const workflow = readFileSync(new URL('../.github/workflows/enable-native-automerge.yml', import.meta.url), 'utf8');
   const retry = readFileSync(new URL('../.github/workflows/retry-native-automerge.yml', import.meta.url), 'utf8');
 
+  it('legacy evaluator riacquisisce metadata/file-list e vincola la mutation alla HEAD fresca', () => {
+    const evaluator = readFileSync(new URL('../scripts/ci/auto-merge-eval.mjs', import.meta.url), 'utf8');
+    const finalMetadata = evaluator.indexOf('freshPr = gh');
+    const finalFiles = evaluator.indexOf('freshFileSnapshot = fetchPrFiles');
+    const mutation = evaluator.indexOf("const mergeArgs = [");
+    expect(finalMetadata).toBeGreaterThan(-1);
+    expect(finalFiles).toBeGreaterThan(finalMetadata);
+    expect(mutation).toBeGreaterThan(finalFiles);
+    expect(evaluator).toContain('samePrMetadata(pr, freshPr)');
+    expect(evaluator).toContain("freshRisk = classifyAutomationRisk");
+    expect(evaluator).toContain("labels.some((label) => String(label || '').toLowerCase() === 'needs-human')");
+    expect(evaluator).toContain("'--match-head-commit', freshPr.headRefOid");
+  });
+
   it('evaluates review and workflow-run events, while opening remains a guarded observation', () => {
     expect(workflow).toContain('types: [opened, edited, reopened, ready_for_review, synchronize]');
     expect(workflow).toContain('pull_request_review:');
@@ -613,8 +749,13 @@ describe('native auto-merge workflow wiring (#8512)', () => {
     expect(workflow).toContain('workflow_run:');
     expect(workflow).toContain('workflows: [tests]');
     expect(workflow).toContain('NATIVE_AUTOMERGE_BOOTSTRAP_READY=false');
+    expect(workflow).toContain('Static control-plane bootstrap guard');
+    expect(workflow).toContain('control-plane path');
+    expect(workflow.indexOf('Static control-plane bootstrap guard')).toBeLessThan(workflow.indexOf('Download trusted workflow helpers'));
+    expect(workflow).toContain("grep -q 'CONTROL_PLANE_GUARD_VERSION'");
     expect(workflow).toContain('gate_tmp="$helper_dir/native-automerge-gate-check.mjs"');
     expect(workflow).toContain('scripts/ci/review-test-policy.mjs?ref=main');
+    expect(workflow).toContain('scripts/ci/lib/automation-risk-policy.mjs?ref=main');
     expect(workflow).toContain('scripts/ci/lib/fetchPrFiles.mjs?ref=main');
     expect(workflow).toContain('scripts/ci/lib/vitestCheck.mjs?ref=main');
     expect(workflow).toContain('node --check "$gate_tmp"');
@@ -627,9 +768,14 @@ describe('native auto-merge workflow wiring (#8512)', () => {
   it('routes the scheduled retry through the same guard and never bypasses it', () => {
     expect(retry).toContain('native-automerge-gate.mjs');
     expect(retry).toContain('MAX_PR_SCAN: \'100\'');
+    expect(retry).toContain('Static control-plane bootstrap guard');
+    expect(retry).toContain('control-plane path');
+    expect(retry.indexOf('Static control-plane bootstrap guard')).toBeLessThan(retry.indexOf('Download trusted workflow helpers'));
+    expect(retry).toContain("grep -q 'CONTROL_PLANE_GUARD_VERSION'");
     expect(retry).toContain('sort_by(.createdAt) | reverse | .[].number');
     expect(retry).toContain('gate_tmp="$helper_dir/native-automerge-gate-check.mjs"');
     expect(retry).toContain('scripts/ci/review-test-policy.mjs?ref=main');
+    expect(retry).toContain('scripts/ci/lib/automation-risk-policy.mjs?ref=main');
     expect(retry).toContain('scripts/ci/lib/fetchPrFiles.mjs?ref=main');
     expect(retry).toContain('scripts/ci/lib/vitestCheck.mjs?ref=main');
     expect(retry).toContain('node --check "$gate_tmp"');
