@@ -42,6 +42,11 @@ function expectedIf(label: string, sourceIf: string) {
 }
 
 describe('translation observability workflow', () => {
+  it('does not acquire the crawler Firestore lease for the translation caller', () => {
+    const parsed: any = YAML.parse(workflow);
+    expect(parsed.env?.DATA_PIPELINE_LEASE).toBeUndefined();
+  });
+
   it('advances true-final state only on successful non-dry source and portable runs', () => {
     for (const [label, document] of [['source', workflow], ['portable artifact', portableWorkflow]]) {
       const steps = parseTranslationSteps(document);
