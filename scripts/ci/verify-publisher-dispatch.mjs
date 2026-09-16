@@ -142,9 +142,6 @@ function compareMetadata(attestation, runMetadata, workflowMetadata, reasons) {
   if (runMetadata.repository?.full_name !== PUBLISHER_SOURCE_REPOSITORY) {
     reasons.push('publisher-source-run-repository-mismatch');
   }
-  if (runMetadata.path !== PUBLISHER_SOURCE_WORKFLOW_PATH) {
-    reasons.push('publisher-source-run-workflow-path-mismatch');
-  }
   if (workflowMetadata.name !== PUBLISHER_SOURCE_WORKFLOW) {
     reasons.push('publisher-source-workflow-api-name-mismatch');
   }

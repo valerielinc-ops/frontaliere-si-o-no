@@ -55,7 +55,6 @@ const VALID_PUBLISHER_EVENT = {
 const VALID_SOURCE_RUN = {
   id: 123456789,
   workflow_id: 323736126,
-  path: PUBLISHER_SOURCE_WORKFLOW_PATH,
   head_branch: 'main',
   head_sha: SOURCE_SHA,
   event: 'push',
@@ -444,8 +443,10 @@ describe('human-side-effect-gate policy', () => {
 });
 
 describe('publisher dispatch provenance verifier', () => {
-  it('accepts the publisher contract while its source run is still in progress', () => {
-    const decision = verifyPublisher({});
+  it('accepts a realistic in-progress run response without a run-level workflow path', () => {
+    const runMetadata = sourceRun();
+    expect(runMetadata).not.toHaveProperty('path');
+    const decision = verifyPublisher({ runMetadata });
     expect(decision).toMatchObject({ verified: true, reason: 'publisher-source-run-verified', reasons: [] });
   });
 
@@ -465,7 +466,6 @@ describe('publisher dispatch provenance verifier', () => {
   it('rejects source run metadata that does not bind repo, workflow, run, or SHA', () => {
     for (const [name, runMetadata, clientPayload, reason] of [
       ['wrong API repository', sourceRun({ repository: { full_name: 'other/repository' } }), {}, 'publisher-source-run-repository-mismatch'],
-      ['wrong workflow path', sourceRun({ path: '.github/workflows/other.yml' }), {}, 'publisher-source-run-workflow-path-mismatch'],
       ['wrong run id', sourceRun({ id: 987654321 }), {}, 'publisher-source-run-id-mismatch'],
       ['wrong run attempt', sourceRun({ run_attempt: 2 }), {}, 'publisher-source-run-attempt-mismatch'],
       ['wrong SHA in payload', sourceRun(), { source_sha: 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb' }, 'publisher-source-sha-mismatch'],
@@ -480,6 +480,7 @@ describe('publisher dispatch provenance verifier', () => {
   it('rejects workflow identity and branch/event mismatches', () => {
     for (const [name, runMetadata, workflowMetadata, clientPayload, reason] of [
       ['wrong workflow API name', sourceRun(), { ...VALID_SOURCE_WORKFLOW, name: 'Other workflow' }, {}, 'publisher-source-workflow-api-name-mismatch'],
+      ['wrong workflow API path', sourceRun(), { ...VALID_SOURCE_WORKFLOW, path: '.github/workflows/other.yml' }, {}, 'publisher-source-workflow-api-path-mismatch'],
       ['wrong workflow API id', sourceRun(), { ...VALID_SOURCE_WORKFLOW, id: 999999999 }, {}, 'publisher-source-run-workflow-binding-mismatch'],
       ['wrong branch', sourceRun({ head_branch: 'develop' }), undefined, {}, 'publisher-source-branch-api-mismatch'],
       ['wrong event', sourceRun({ event: 'workflow_dispatch' }), undefined, {}, 'publisher-source-event-api-mismatch'],
