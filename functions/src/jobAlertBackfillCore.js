@@ -154,6 +154,7 @@ export function hasNewsletterSubscriberRecord(data) {
     (typeof data.status === 'string' && data.status.trim())
     || typeof data.isActive === 'boolean'
     || typeof data.active === 'boolean'
+    || typeof data.confirmed === 'boolean'
     || (data.preferences && typeof data.preferences === 'object')
     || data.consent_given === true
     || data.consentGiven === true
@@ -392,7 +393,7 @@ export function evaluateJobAlertConsent({ alert, subscriber }) {
   }
   return {
     allowed: true,
-    reason: isBackfilledJobAlert(alert) ? 'backfill-registration-terms' : 'explicit-alert',
+    reason: isBackfilledJobAlert(alert) ? 'backfill-newsletter-registration' : 'explicit-alert',
   };
 }
 

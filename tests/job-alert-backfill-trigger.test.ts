@@ -112,6 +112,11 @@ describe('hasNewsletterSubscriberRecord', () => {
   it('recognizes a legacy pending row without any confirmation proof', () => {
     expect(hasNewsletterSubscriberRecord({ status: 'pending' })).toBe(true);
   });
+
+  it('recognizes a legacy row whose only subscriber marker is boolean confirmed', () => {
+    expect(hasNewsletterSubscriberRecord({ confirmed: false })).toBe(true);
+    expect(hasNewsletterSubscriberRecord({ confirmed: true })).toBe(true);
+  });
 });
 
 describe('handleNewsletterSubscriberCreated — meta sentinel', () => {
