@@ -17,6 +17,7 @@ import {
   withTransientGithubReadRetry,
 } from '../scripts/ci/native-automerge-gate.mjs';
 import { TEST_REVIEW_MARKER } from '../scripts/ci/review-test-policy.mjs';
+import { CONTROL_PLANE_PATHS } from '../scripts/ci/lib/automation-risk-policy.mjs';
 
 const HEAD = 'a'.repeat(40);
 const OLD_HEAD = 'b'.repeat(40);
@@ -161,7 +162,6 @@ describe('native auto-merge gate (#8512)', () => {
   });
 
   it.each([
-    ['deploy/workflow/functions', '.github/workflows/release.yml', 'deploy-workflow-functions'],
     ['secrets/ruoli/permessi', 'config/iam/roles.yml', 'secrets-roles-permissions'],
     ['billing/revenue/partner', 'services/partner/billing.ts', 'billing-revenue-partner'],
     ['contenuti pubblicati/SEO/Auto Ads', 'packages/articles/content/guide.md', 'published-content-seo-auto-ads'],
@@ -181,6 +181,21 @@ describe('native auto-merge gate (#8512)', () => {
     expect(result.riskDomains).toContain(domain);
   });
 
+  it.each([
+    ...CONTROL_PLANE_PATHS,
+    '.github/workflows/another-workflow.yml',
+    '.github/actions/another-action/action.yml',
+    'scripts/ci/another-gate.mjs',
+  ])('allows native auto-merge for control-plane path %s when the pre-existing PR gates pass', (changedFile) => {
+    const result = evaluateNativeAutoMerge({
+      pr: pr({ changedFiles: [changedFile] }),
+      reviews: [review(CLEAN_BODY)],
+      checkRuns: [vitest()],
+    });
+
+    expect(result).toMatchObject({ allow: true });
+  });
+
   it('mantiene il deny anche quando una review umana separata è verificata', () => {
     const human = {
       id: 9,
@@ -190,7 +205,7 @@ describe('native auto-merge gate (#8512)', () => {
       submitted_at: '2026-09-13T12:02:00Z',
     };
     const result = evaluateNativeAutoMerge({
-      pr: pr({ changedFiles: ['.github/workflows/release.yml'] }),
+      pr: pr({ changedFiles: ['config/iam/roles.yml'] }),
       reviews: [human],
       checkRuns: [vitest()],
     });
@@ -226,10 +241,8 @@ describe('native auto-merge gate (#8512)', () => {
   });
 
   it.each([
-    'scripts/ci/lib/automation-risk-policy.mjs',
-    '.github/actions/run-agent/action.yml',
     'unknown-zone/agent-target.ts',
-  ])('nega control-plane/path sconosciuto anche con review e check verdi: %s', (changedFile) => {
+  ])('nega un path sconosciuto anche con review e check verdi: %s', (changedFile) => {
     expect(evaluateNativeAutoMerge({
       pr: pr({ changedFiles: [changedFile] }),
       reviews: [review(CLEAN_BODY)],
@@ -261,7 +274,7 @@ describe('native auto-merge gate (#8512)', () => {
     expect(revalidateNativeAutoMerge({
       pr: pr({
         autoMergeRequest: { enabledAt: '2026-09-13T12:00:00Z' },
-        changedFiles: ['.github/workflows/release.yml'],
+        changedFiles: ['config/iam/roles.yml'],
       }),
       reviews: [review(CLEAN_BODY)],
       checkRuns: [vitest()],
@@ -738,6 +751,7 @@ describe('native auto-merge workflow wiring (#8512)', () => {
     expect(mutation).toBeGreaterThan(finalFiles);
     expect(evaluator).toContain('samePrMetadata(pr, freshPr)');
     expect(evaluator).toContain("freshRisk = classifyAutomationRisk");
+    expect(evaluator).toContain("surface: 'pull-request'");
     expect(evaluator).toContain("labels.some((label) => String(label || '').toLowerCase() === 'needs-human')");
     expect(evaluator).toContain("'--match-head-commit', freshPr.headRefOid");
   });
@@ -749,10 +763,9 @@ describe('native auto-merge workflow wiring (#8512)', () => {
     expect(workflow).toContain('workflow_run:');
     expect(workflow).toContain('workflows: [tests]');
     expect(workflow).toContain('NATIVE_AUTOMERGE_BOOTSTRAP_READY=false');
-    expect(workflow).toContain('Static control-plane bootstrap guard');
-    expect(workflow).toContain('control-plane path');
-    expect(workflow.indexOf('Static control-plane bootstrap guard')).toBeLessThan(workflow.indexOf('Download trusted workflow helpers'));
-    expect(workflow).toContain("grep -q 'CONTROL_PLANE_GUARD_VERSION'");
+    expect(workflow).not.toContain('Static control-plane bootstrap guard');
+    expect(workflow).not.toContain('control-plane path');
+    expect(workflow).not.toContain('CONTROL_PLANE_GUARD_VERSION');
     expect(workflow).toContain('gate_tmp="$helper_dir/native-automerge-gate-check.mjs"');
     expect(workflow).toContain('scripts/ci/review-test-policy.mjs?ref=main');
     expect(workflow).toContain('scripts/ci/lib/automation-risk-policy.mjs?ref=main');
@@ -768,10 +781,9 @@ describe('native auto-merge workflow wiring (#8512)', () => {
   it('routes the scheduled retry through the same guard and never bypasses it', () => {
     expect(retry).toContain('native-automerge-gate.mjs');
     expect(retry).toContain('MAX_PR_SCAN: \'100\'');
-    expect(retry).toContain('Static control-plane bootstrap guard');
-    expect(retry).toContain('control-plane path');
-    expect(retry.indexOf('Static control-plane bootstrap guard')).toBeLessThan(retry.indexOf('Download trusted workflow helpers'));
-    expect(retry).toContain("grep -q 'CONTROL_PLANE_GUARD_VERSION'");
+    expect(retry).not.toContain('Static control-plane bootstrap guard');
+    expect(retry).not.toContain('control-plane path');
+    expect(retry).not.toContain('CONTROL_PLANE_GUARD_VERSION');
     expect(retry).toContain('sort_by(.createdAt) | reverse | .[].number');
     expect(retry).toContain('gate_tmp="$helper_dir/native-automerge-gate-check.mjs"');
     expect(retry).toContain('scripts/ci/review-test-policy.mjs?ref=main');
