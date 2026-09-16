@@ -45,8 +45,9 @@ token App, quota, claim e agent. Un errore di lettura o parsing lascia il fixer
 skipped. Non esiste un override nel prompt.
 
 Per una PR il native gate valuta titolo/body/label e un elenco file completo:
-un elenco incompleto è deny-by-default; F1/F7, control-plane e path sconosciuti
-non aggiungono un veto quando il loro snapshot è verificabile. `needs-human` è
+metadata o elenco incompleti sono un deny tecnico fail-closed senza
+`humanApprovalRequired`; F1/F7, control-plane e path sconosciuti non aggiungono
+un veto quando il loro snapshot è verificabile. `needs-human` è
 un veto persistente: anche una review umana APPROVED non lo rimuove via
 automazione; la rimozione richiede un umano e una review `APPROVED` di un utente
 non-bot sulla HEAD esatta. Il gate finale riacquisisce metadata e file-list e

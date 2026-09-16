@@ -246,8 +246,10 @@ export function classifyAutomationRisk({
       needsHumanVeto: false,
       domains: [],
       unknownPaths: [],
-      humanApprovalRequired: true,
-      reason: 'metadata issue/PR non verificabili; automation deny-by-default',
+      humanApprovalRequired: !isPullRequestSurface,
+      reason: isPullRequestSurface
+        ? 'metadata PR non verificabili; deny fail-closed senza approvazione umana'
+        : 'metadata issue non verificabili; automation deny-by-default',
     };
   }
 
@@ -284,8 +286,10 @@ export function classifyAutomationRisk({
       needsHumanVeto: false,
       domains: [],
       unknownPaths: [],
-      humanApprovalRequired: true,
-      reason: 'elenco path PR non verificabile; automation deny-by-default',
+      humanApprovalRequired: !isPullRequestSurface,
+      reason: isPullRequestSurface
+        ? 'elenco path PR non verificabile; deny fail-closed senza approvazione umana'
+        : 'elenco path issue non verificabile; automation deny-by-default',
     };
   }
 

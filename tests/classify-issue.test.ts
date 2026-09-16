@@ -223,7 +223,7 @@ describe('policy automazione F1/F7', () => {
     });
   });
 
-  it('nega per default quando il file list della PR è incompleto', () => {
+  it('nega per default quando il file list dell’issue è incompleto', () => {
     expect(classifyAutomationRisk({ paths: ['src/safe.ts'], pathsComplete: false })).toMatchObject({
       blocked: true,
       verifiable: false,
@@ -248,9 +248,27 @@ describe('policy automazione F1/F7', () => {
         decision: 'deny',
         denyCode: 'paths-unverifiable',
         verifiable: false,
-        humanApprovalRequired: true,
+        humanApprovalRequired: false,
       });
     }
+  });
+
+  it('nega metadata PR non verificabili senza introdurre approvazione umana', () => {
+    expect(classifyAutomationRisk({
+      title: null,
+      body: 'PR con metadata corrotti',
+      labels: [],
+      paths: ['src/safe.ts'],
+      pathsComplete: true,
+      surface: 'pull-request',
+    })).toMatchObject({
+      blocked: true,
+      decision: 'deny',
+      denyCode: 'metadata-unverifiable',
+      verifiable: false,
+      needsHumanVeto: false,
+      humanApprovalRequired: false,
+    });
   });
 
   it('non usa i nomi dei test-only path come segnale di dominio', () => {

@@ -470,7 +470,7 @@ function main() {
   console.log(`HEAD SHA: ${head} · labels: [${labels.join(', ') || '—'}]`);
   if (!Array.isArray(pr.labels) || typeof pr.title !== 'string' || typeof pr.body !== 'string'
       || pr.baseRefName !== 'main') {
-    return fail(`Metadata PR #${PR} non verificabile (title/body/labels/base) — policy deny-by-default, skip.`);
+    return fail(`Metadata PR #${PR} non verificabile (title/body/labels/base) — deny fail-closed senza approvazione umana, skip.`);
   }
   if (labels.some((label) => String(label || '').toLowerCase() === 'needs-human')) {
     return fail(`PR #${PR} marcata needs-human: veto persistente, rimozione solo da umano con approvazione sulla HEAD — skip.`);
@@ -486,7 +486,7 @@ function main() {
     return fail(`Impossibile leggere l'elenco file della PR #${PR}: ${String(e).slice(0, 160)} — skip fail-closed.`);
   }
   if (!fileSnapshot.complete) {
-    return fail(`Elenco file PR #${PR} non verificabile (${fileSnapshot.reason}) — policy F1/F7 deny-by-default, skip.`);
+    return fail(`Elenco file PR #${PR} non verificabile (${fileSnapshot.reason}) — deny fail-closed senza approvazione umana, skip.`);
   }
   const risk = classifyAutomationRisk({
     title: pr.title,
@@ -497,7 +497,7 @@ function main() {
     surface: 'pull-request',
   });
   if (!risk.verifiable) {
-    return fail(`Policy PR non verificabile per l'auto-merge legacy PR #${PR}: ${risk.reason} — skip fail-closed.`);
+    return fail(`Policy PR non verificabile per l'auto-merge legacy PR #${PR}: ${risk.reason} — deny fail-closed senza approvazione umana, skip.`);
   }
   if (risk.needsHumanVeto) {
     return fail(`PR #${PR} marcata needs-human: veto persistente, rimozione solo da umano con approvazione sulla HEAD — skip.`);
@@ -710,7 +710,7 @@ function main() {
       'number,title,body,state,isDraft,baseRefName,headRefOid,labels,autoMergeRequest,mergeStateStatus']);
     freshFileSnapshot = fetchPrFiles(PR, gh, REPO);
   } catch (e) {
-    return fail(`Metadata/file-list finale PR #${PR} non verificabile (${String(e).slice(0, 160)}) — skip fail-closed.`);
+    return fail(`Metadata/file-list finale PR #${PR} non verificabile (${String(e).slice(0, 160)}) — deny fail-closed senza approvazione umana, skip.`);
   }
   if (!samePrMetadata(pr, freshPr) || freshPr.headRefOid !== head) {
     return fail(`Metadata o HEAD PR #${PR} cambiati durante la valutazione — skip; nessuna mutation su snapshot stantio.`);
@@ -721,7 +721,7 @@ function main() {
     return fail(`PR #${PR} non più eleggibile o needs-human aggiunta nella rilettura finale — skip.`);
   }
   if (!freshFileSnapshot.complete) {
-    return fail(`File-list finale PR #${PR} incompleto (${freshFileSnapshot.reason}) — skip fail-closed.`);
+    return fail(`File-list finale PR #${PR} incompleto (${freshFileSnapshot.reason}) — deny fail-closed senza approvazione umana, skip.`);
   }
   const freshRisk = classifyAutomationRisk({
     title: freshPr.title,
@@ -732,7 +732,7 @@ function main() {
     surface: 'pull-request',
   });
   if (!freshRisk.verifiable) {
-    return fail(`Policy PR finale non verificabile per #${PR}: ${freshRisk.reason} — skip fail-closed.`);
+    return fail(`Policy PR finale non verificabile per #${PR}: ${freshRisk.reason} — deny fail-closed senza approvazione umana, skip.`);
   }
   if (freshRisk.needsHumanVeto) {
     return fail(`PR #${PR} marcata needs-human nella rilettura finale: veto persistente, rimozione solo da umano — skip.`);

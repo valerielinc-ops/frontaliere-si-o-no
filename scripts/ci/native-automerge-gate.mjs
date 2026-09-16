@@ -385,8 +385,8 @@ export function evaluateNativeAutoMerge({
   if (typeof pr.title !== 'string' || typeof pr.body !== 'string' || !Array.isArray(pr.labels)) {
     return {
       allow: false,
-      reason: 'metadata PR (title/body/labels) non verificabili',
-      humanApprovalRequired: true,
+      reason: 'metadata PR (title/body/labels) non verificabili; deny fail-closed senza approvazione umana',
+      humanApprovalRequired: false,
       humanApprovalVerified: false,
     };
   }
@@ -409,9 +409,9 @@ export function evaluateNativeAutoMerge({
   if (!risk.verifiable) {
     return {
       allow: false,
-      reason: `policy F1/F7 non verificabile: ${risk.reason}`,
+      reason: `policy PR non verificabile: ${risk.reason}; deny fail-closed senza approvazione umana`,
       riskDomains: risk.domains,
-      humanApprovalRequired: true,
+      humanApprovalRequired: false,
       humanApprovalVerified: false,
     };
   }

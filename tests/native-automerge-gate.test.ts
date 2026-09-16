@@ -248,7 +248,7 @@ describe('native auto-merge gate (#8512)', () => {
       checkRuns: [vitest()],
     })).toMatchObject({
       allow: false,
-      humanApprovalRequired: true,
+      humanApprovalRequired: false,
       humanApprovalVerified: false,
     });
   });
