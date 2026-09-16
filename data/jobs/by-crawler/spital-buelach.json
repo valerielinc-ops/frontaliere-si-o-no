@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-buelach",
-  "assembledAt": "2026-09-13T14:14:31.832Z",
+  "assembledAt": "2026-09-16T22:22:51.474Z",
   "jobs": [
     {
       "id": "spital-buelach-292bab1d5f97",
@@ -2275,79 +2275,6 @@
         ]
       },
       "firstSeenAt": "2026-08-24T10:17:55.841Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "spital-buelach-314ba8ba8cfe",
-      "slug": "dipl-infermieristica-professionale-stazione-privata-con-responsabilita-professionale-spital-bulach-bulach",
-      "slugByLocale": {
-        "it": "dipl-infermieristica-professionale-stazione-privata-con-responsabilita-professionale-spital-bulach-bulach",
-        "en": "dipl-nursing-professional-private-station-with-professional-responsibility-spital-bulach-bulach",
-        "de": "dipl-pflegefachperson-privatstation-mit-fachverantwortung-spital-buelach-bulach",
-        "fr": "dipl-station-privee-avec-responsabilite-professionnelle-spital-bulach-bulach"
-      },
-      "company": "Spital Bülach",
-      "companyKey": "spital-buelach",
-      "companyDomain": "spitalbuelach.ch",
-      "title": "Dipl. Pflegefachperson Privatstation mit Fachverantwortung",
-      "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale Stazione privata con responsabilità professionale",
-        "en": "Dipl. Nursing professional Private station with professional responsibility",
-        "de": "Dipl. Pflegefachperson Privatstation mit Fachverantwortung",
-        "fr": "Dipl. Station privée avec responsabilité professionnelle"
-      },
-      "description": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Patientenorientierte Pflege, Betreuung und Überwachung von Privat- und Halbprivat-Patientinnen und Patienten mit verschiedenen chirurgischen und medizinischen Krankheitsbildern\n\n• Durchführung medizintechnischer Interventionen\n\n• Ressourcenfördernde Pflege und Betreuung unserer Patientinnen und Patienten\n\n• Fachverantwortung für die fachlichen Anliegen der Mitarbeitenden (10%)\n\n• Aktive Mitgestaltung im Shared Leadership Team\n\nAnforderungen:\n• Diplom als Pflegefachperson HF/FH oder entsprechendes ausländisches Diplom mit SRK-Anerkennung\n\n• Erfahrung und Kompetenz in der fachlichen Führung von Mitarbeitenden\n\n• Ausgeprägte Kommunikations- und Kooperationsfähigkeit\n\n• Selbstständiges und verantwortungsbewusstes Arbeiten\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P8-Fort-und-Weiterbildung.svg,P9-Einsatzmodell-Pflege.svg,P15-Jahresarbeitszeit-Pflege.svg,P10-Talentprogramm.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
-      "descriptionByLocale": {
-        "it": "<b>Bülach Ospedale cresce - crescere con esso.\n\nCompiti:\n• Cura, cura e monitoraggio dei pazienti privati e semiprivati con varie condizioni chirurgiche e mediche\n\n• Attuazione degli interventi medici\n\n• La cura e la cura dei nostri pazienti\n\n• Responsabilità per le preoccupazioni professionali dei dipendenti (10%)\n\n• Partecipazione attiva al Team di Leadership condivisa\n\nRequisiti\n• Diploma come infermiera HF/FH o equivalente diploma straniero con riconoscimento SRK\n\n• Esperienza e competenza nella gestione professionale dei dipendenti\n\n• Forte capacità di comunicazione e cooperazione\n\n• Lavoro indipendente e responsabile\n\nOffriamo:\nP1-oeV.svg,P2-food.svg,P3-benefits.svg,P4-change-household.svg,P5-social benefit.svg,P8-Fort-and-Further-Training.svg,P9-Assignment-model-care.svg,P15-annual-time-10.svg. #\n\nCon i suoi 170 posti letto e circa 1.200 dipendenti, il Bülach Hospital fornisce assistenza medica per 180.000 persone nella zona di Zurigo e nelle regioni limitrofe. Ogni anno, trattiamo e curiamo circa 10.000 pazienti malati e oltre 78.000 pazienti ambulanti. In totale, circa 1.400 bambini vedono la luce della giornata all'ospedale di Bülach ogni anno.",
-        "en": "<b>Bülach Hospital grows - grow with it.</b>\n\nTasks:\n• Patient-oriented care, care and monitoring of private and semi-private patients with various surgical and medical conditions\n\n• Implementation of medical interventions\n\n• Resource-promoting care and care of our patients\n\n• Responsibility for the professional concerns of employees (10%)\n\n• Active participation in the Shared Leadership Team\n\nRequirements\n• Diploma as nurse HF/FH or equivalent foreign diploma with SRK recognition\n\n• Experience and competence in the professional management of employees\n\n• Strong communication and cooperation capability\n\n• Independent and responsible work\n\nWe offer:\nP1-oeV.svg,P2-food.svg,P3-benefits.svg,P4-changing-household.svg,P5-social benefits.svg,P8-Fort-and-Further-Training.svg,P9-Assignment-model-care.svg,P15-annual-time-care.svg,P10-talent program. svg\n\nWith its 170 beds and around 1,200 employees, the Bülach Hospital provides medical care for 180,000 people in the Zurich Underland and neighbouring regions. Every year, we treat and care for around 10,000 inpatient patients and over 78,000 outpatients. In total, around 1,400 babies see the light of day in Bülach Hospital every year.",
-        "de": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Patientenorientierte Pflege, Betreuung und Überwachung von Privat- und Halbprivat-Patientinnen und Patienten mit verschiedenen chirurgischen und medizinischen Krankheitsbildern\n\n• Durchführung medizintechnischer Interventionen\n\n• Ressourcenfördernde Pflege und Betreuung unserer Patientinnen und Patienten\n\n• Fachverantwortung für die fachlichen Anliegen der Mitarbeitenden (10%)\n\n• Aktive Mitgestaltung im Shared Leadership Team\n\nAnforderungen:\n• Diplom als Pflegefachperson HF/FH oder entsprechendes ausländisches Diplom mit SRK-Anerkennung\n\n• Erfahrung und Kompetenz in der fachlichen Führung von Mitarbeitenden\n\n• Ausgeprägte Kommunikations- und Kooperationsfähigkeit\n\n• Selbstständiges und verantwortungsbewusstes Arbeiten\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P8-Fort-und-Weiterbildung.svg,P9-Einsatzmodell-Pflege.svg,P15-Jahresarbeitszeit-Pflege.svg,P10-Talentprogramm.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
-        "fr": "<b>L'hôpital de Bülach pousse - pousse avec.</b>\n\nTâches :\n• Soins axés sur le patient, soins et surveillance des patients privés et semi-privés présentant diverses affections chirurgicales et médicales\n\n• Mise en œuvre des interventions médicales\n\n• La promotion des ressources et les soins de nos patients\n\n• Responsabilité pour les préoccupations professionnelles des employés (10 %)\n\n• Participation active à l'équipe de leadership partagée\n\nExigences\n• Diplôme d'infirmière HF/FH ou diplôme étranger équivalent avec reconnaissance SRK\n\n• Expérience et compétence dans la gestion professionnelle des salariés\n\n• Renforcement des capacités de communication et de coopération\n\n• Travail indépendant et responsable\n\nNous offrons:\nP1-oeV.svg,P2-food.svg,P3-bénéfices.svg,P4-changement-household.svg,P5-bénéfices sociaux.svg,P8-Fort-et-Ensuite-Formation.svg,P9-Assignment-model-care.svg,P15-annual-time-care.svg,P10-talent program. svg\n\nAvec ses 170 lits et ses quelque 1 200 employés, l'hôpital Bülach fournit des soins médicaux à 180 000 personnes dans les sous-terres de Zurich et les régions voisines. Chaque année, nous traitons et soigneons environ 10 000 patients hospitalisés et plus de 78 000 patients externes. Au total, environ 1 400 bébés voient chaque année le jour à l'hôpital Bülach."
-      },
-      "needsRetranslation": false,
-      "location": "Bülach",
-      "canton": "ZH",
-      "url": "https://job.spitalbuelach.ch/offene-stellen/dipl-pflegefachperson-privatstation-mit-fachverantwortung/fd570bfb-6e58-4f58-8982-bfe36f18b466",
-      "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:14:24.026Z",
-      "addressLocality": "Bülach",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8180",
-      "streetAddress": "Spitalstrasse 24",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-23",
-      "applyUrl": "https://jobs.spitalbuelach.ch/diplomierte-pflegefachperson-mit-fachverantwortung-80-100--de-f1443.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachperson-privatstation-mit-fachverantwortung-spital-buelach-bulach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-privatstation-mit-fachverantwortung-spital-buelach-bulach"
-        ]
-      },
-      "firstSeenAt": "2026-08-24T10:17:55.837Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",

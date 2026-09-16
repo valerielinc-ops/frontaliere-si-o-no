@@ -1,6 +1,6 @@
 {
   "crawlerKey": "unispital-basel",
-  "assembledAt": "2026-09-15T01:06:49.394Z",
+  "assembledAt": "2026-09-16T22:30:37.717Z",
   "jobs": [
     {
       "id": "unispital-basel-50f443dec3dd",
@@ -1362,77 +1362,6 @@
         ]
       },
       "firstSeenAt": "2026-06-08T13:57:07.629Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "unispital-basel-b05ac4a77666",
-      "slug": "medizinische-r-praxisassistent-in-springerpool-universitatsspital-basel-basel",
-      "slugByLocale": {
-        "it": "medizinische-r-praxisassistent-in-springerpool-universitatsspital-basel-basel",
-        "en": "medizinische-r-praxisassistent-in-springerpool-universitatsspital-basel-basel",
-        "de": "medizinische-r-praxisassistent-in-springerpool-unispital-basel-ch",
-        "fr": "medizinische-r-praxisassistent-in-springerpool-universitatsspital-basel-basel"
-      },
-      "company": "Universitätsspital Basel",
-      "companyKey": "unispital-basel",
-      "companyDomain": "unispital-basel.ch",
-      "title": "Medizinische*r Praxisassistent*in (Springerpool)",
-      "titleByLocale": {
-        "it": "Assistente Medico (Springerpool)",
-        "en": "Medical Practice Assistant (Springerpool)",
-        "de": "Medizinische*r Praxisassistent*in (Springerpool)",
-        "fr": "Assistant en pratique médicale (Springerpool)"
-      },
-      "description": "Aufgaben:\n• Selbstständige Durchführung administrativer und medizintechnischer Aufgaben in den ambulanten Sprechstunden des USB\n\n• Unterstützung der Ärztinnen und Ärzte bei diagnostischen, therapeutischen und interventionellen Behandlungen\n\n• Übernahme einfacher pflegerischer Tätigkeiten im ambulanten Bereich und im ambulanten OP\n\n• Vorbereitung von Untersuchungen sowie Sicherstellung der Material- und Geräteverfügbarkeit\n\n• Gewährleistung eines reibungslosen Ablaufs unter Einhaltung von Qualitäts-, Hygiene- und Sicherheitsstandards\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Med. Praxisassistentin/Praxisassistent (MPA), idealerweise mit Berufserfahrung im Spital- oder Praxisumfeld\n\n• Erfahrung in administrativen Aufgaben sowie sicherer Umgang mit digitalen Anwendungen\n\n• Technisches Verständnis und Freude am Umgang mit medizinischen Geräten und Apparaturen\n\n• Ausgeprägte Dienstleistungsorientierung, Organisationsgeschick sowie eine offene und wertschätzende Kommunikation\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift sowie weitere Fremdsprachenkenntnisse von Vorteil\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Svolgere autonomamente compiti amministrativi e tecnico-medichi negli orari di consultazione ambulatoriale dell'USB\n• Supportare i medici con trattamenti diagnostici, terapeutici e interventistici\n• Assumere semplici compiti infermieristici in ambito ambulatoriale e in sala operatoria ambulatoriale\n• Preparare gli esami e garantire la disponibilità di materiali e attrezzature\n• Garantire un processo regolare nel rispetto degli standard di qualità, igiene e sicurezza Requisiti:\n• Formazione completata come assistente di studio medico (MPA), preferibilmente con Esperienza professionale in un ambiente ospedaliero o ambulatoriale\n• Esperienza anche in compiti amministrativi come utilizzo disinvolto delle applicazioni digitali\n• Comprensione tecnica e piacere nel lavorare con apparecchi e apparecchiature mediche\n• Forte orientamento al servizio, capacità organizzative nonché comunicazione aperta e riconoscente\n• Ottima conoscenza del tedesco parlato e scritto e di altre lingue straniere sono un vantaggio Offriamo:\n• Politica salariale interessante ed eccellenti prestazioni sociali\n• Riduzioni nei settori dello shopping, dello sport e del tempo libero\n• Supporto nel trasloco e nella ricerca di un appartamento\n• 25 giorni di ferie più 5 anche gratuiti Flexitage\n• Supporto nella formazione continua e nella pianificazione della carriera\n• Campus nel cuore di Basilea e nel triangolo di confine\n• Ampia possibilità di assistenza all'infanzia\n• Programma sportivo e di movimento gratuito",
-        "en": "Tasks:\n• Independently carrying out administrative and medical-technical tasks in the outpatient consultation hours of the USB\n• Supporting doctors with diagnostic, therapeutic and interventional treatments\n• Taking on simple nursing tasks in the outpatient area and in the outpatient operating room\n• Preparing examinations and ensuring the availability of materials and equipment\n• Ensuring a smooth process in compliance with quality, hygiene and safety standards Requirements:\n• Completed training as a medical practice assistant (MPA), ideally with Professional experience in a hospital or practice environment\n• Experience in administrative tasks as well as confident use of digital applications\n• Technical understanding and enjoyment of working with medical devices and equipment\n• Strong service orientation, organizational skills as well as open and appreciative communication\n• Very good knowledge of spoken and written German as well as other foreign language skills are an advantage We offer:\n• Attractive wage policy and excellent social benefits\n• Discounts in the areas of shopping, sports and leisure\n• Support with moving and looking for an apartment\n• 25 days of vacation plus 5 also free Flexitage\n• Support with further training and career planning\n• Campus in the heart of Basel and in the border triangle\n• Comprehensive childcare options\n• Free sports and exercise program",
-        "de": "Aufgaben:\n• Selbstständige Durchführung administrativer und medizintechnischer Aufgaben in den ambulanten Sprechstunden des USB\n\n• Unterstützung der Ärztinnen und Ärzte bei diagnostischen, therapeutischen und interventionellen Behandlungen\n\n• Übernahme einfacher pflegerischer Tätigkeiten im ambulanten Bereich und im ambulanten OP\n\n• Vorbereitung von Untersuchungen sowie Sicherstellung der Material- und Geräteverfügbarkeit\n\n• Gewährleistung eines reibungslosen Ablaufs unter Einhaltung von Qualitäts-, Hygiene- und Sicherheitsstandards\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Med. Praxisassistentin/Praxisassistent (MPA), idealerweise mit Berufserfahrung im Spital- oder Praxisumfeld\n\n• Erfahrung in administrativen Aufgaben sowie sicherer Umgang mit digitalen Anwendungen\n\n• Technisches Verständnis und Freude am Umgang mit medizinischen Geräten und Apparaturen\n\n• Ausgeprägte Dienstleistungsorientierung, Organisationsgeschick sowie eine offene und wertschätzende Kommunikation\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift sowie weitere Fremdsprachenkenntnisse von Vorteil\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Tâches :\n• Effectuer de manière autonome des tâches administratives et médico-techniques pendant les heures de consultation ambulatoire de l'USB\n• Accompagner les médecins dans les traitements diagnostiques, thérapeutiques et interventionnels\n• Assumer des tâches infirmières simples en zone ambulatoire et au bloc opératoire ambulatoire\n• Préparer les examens et assurer la disponibilité du matériel et des équipements\n• Assurer le bon déroulement du processus dans le respect des normes de qualité, d'hygiène et de sécurité Exigences :\n• Formation complétée d'assistant de pratique médicale (MPA), idéalement avec une expérience professionnelle en milieu hospitalier ou de cabinet\n• Expérience dans les tâches administratives également ainsi qu'une utilisation sûre des applications numériques\n• Compréhension technique et plaisir de travailler avec des appareils et équipements médicaux\n• Forte orientation vers le service, compétences organisationnelles ainsi qu'une communication ouverte et appréciée\n• Une très bonne connaissance de l'allemand parlé et écrit ainsi que d'autres langues étrangères sont un avantage Nous offrons :\n• Une politique salariale attractive et d'excellentes prestations sociales\n• Des réductions dans les domaines du shopping, du sport et des loisirs\n• Une aide au déménagement et à la recherche d'un appartement\n• 25 jours de vacances plus 5 également gratuits Flexitage\n• Un soutien à la formation continue et à la planification de carrière\n• Campus au cœur de Bâle et dans le triangle frontalier\n• Possibilités complètes de garde d'enfants\n• Programme de sport et d'exercice gratuit"
-      },
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://job.unispital-basel.ch/offene-stellen/medizinische-r-praxisassistent-in-springerpool/1cc07639-2a40-4464-a952-564e682a47d7",
-      "source": "USB Dedicated Parser (Prospective API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:04:06.737Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4031",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-17",
-      "applyUrl": "https://career012.successfactors.eu/career?company=USB&career_ns=job_application&career_job_req_id=27636",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "medizinische-r-praxisassistent-in-springerpool-unispital-basel-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "medizinische-r-praxisassistent-in-springerpool-unispital-basel-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-17T14:05:10.959Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -5173,83 +5102,6 @@
           "@type": "QuantitativeValue",
           "minValue": 62000,
           "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "unispital-basel-7d1a9b67a703",
-      "slug": "clinic-manager-membri-della-gestione-clinica-universitatsspital-basel-basel",
-      "slugByLocale": {
-        "it": "clinic-manager-membri-della-gestione-clinica-universitatsspital-basel-basel",
-        "en": "clinic-manager-member-of-clinic-management-universitatsspital-basel-basel",
-        "de": "klinikmanager-in-mitglied-der-klinikleitung-unispital-basel-ch",
-        "fr": "gestionnaire-de-clinique-membre-de-la-direction-de-clinique-universitatsspital-basel-basel"
-      },
-      "company": "Universitätsspital Basel",
-      "companyKey": "unispital-basel",
-      "companyDomain": "unispital-basel.ch",
-      "title": "Klinikmanager*in (Mitglied der Klinikleitung)",
-      "titleByLocale": {
-        "it": "Clinic Manager (Membri della gestione clinica)",
-        "en": "Clinic Manager (Member of Clinic Management)",
-        "de": "Klinikmanager*in (Mitglied der Klinikleitung)",
-        "fr": "Gestionnaire de clinique (membre de la direction de clinique)"
-      },
-      "description": "Aufgaben:\n• Betriebswirtschaftliche und administrative Leitung der Kliniken Innere Medizin, Medizinische Poliklinik und Klinische Pharmakologie & Toxikologie\n\n• Enge Zusammenarbeit mit den Chefärzt*innen und den Leitungen Pflege in strategischen, finanziellen und organisatorischen Fragestellungen\n\n• Budgetverantwortung (inkl. regelmässiger Auswertungen von Ergebnis- und Budgetzahlen sowie von Trends im Gesundheitswesen) und Entwicklung von Vorschlägen und Massnahmen\n\n• Erstellung und Interpretation betriebswirtschaftlicher Analysen zur Entscheidungsfindung und Unterstützung der Klinikleitungen\n\n• Führung des administrativen Personals mit 17 Mitarbeitenden, davon 8 direkt unterstellt\n\n• Leitung und Umsetzung von Projekten in den Bereichen Prozessoptimierung, Digitalisierung und Klinikentwicklung\n\nAnforderungen:\n• Betriebswirtschaftliches Studium (FH oder Universität) sowie mehrjährige Berufs- und Führungserfahrung in einer ähnlichen Funktion\n\n• Praktische Kenntnisse und Erfahrungen im Gesundheitswesen wünschenswert\n\n• Dienstleistungsorientierte Persönlichkeit mit Durchsetzungsvermögen und Verhandlungsgeschick sowie hoher Kommunikationskompetenz\n\n• Selbständige, strukturierte und zielgerichtete Arbeitsweise sowie Freude an der Arbeit in einem interdisziplinären Umfeld\n\n• Stilsicheres Deutsch erforderlich, gute Fremdsprachenkenntnisse (Englisch, Französisch) von Vorteil\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Gestione aziendale e amministrativa delle cliniche Medicina Interna, Policlinica Medica e Farmacologia Clinica & Tossicologia\n\n• stretta collaborazione con i medici principali e la gestione Cura in questioni strategiche, finanziarie e organizzative\n\n• Responsabilità del bilancio (comprese le valutazioni regolari dei risultati e delle cifre di bilancio nonché le tendenze nel settore sanitario) e lo sviluppo di proposte e misure\n\n• Preparazione e interpretazione dell'analisi aziendale per il processo decisionale e il sostegno della gestione clinica\n\n• Gestione del personale amministrativo con 17 dipendenti, 8 dei quali sono direttamente subordinati\n\n• Gestione e realizzazione di progetti nei settori dell'ottimizzazione dei processi, della digitalizzazione e dello sviluppo clinico\n\nRequisiti\n• Studi commerciali (FH o università) e diversi anni di esperienza professionale e manageriale in una funzione simile\n\n• Conoscenza pratica ed esperienza nel settore sanitario auspicabile\n\n• Personalità orientata al servizio con assertività e competenze di negoziazione, nonché alte capacità di comunicazione\n\n• Metodi di lavoro indipendenti, strutturati e mirati, nonché il godimento del lavoro in un ambiente interdisciplinare\n\n• Tedesco stilistico richiesto, buone competenze di lingua straniera (inglese, francese) vantaggioso\n\nOffriamo:\n• Politica salariale attraente e benefici sociali eccellenti\n\n• Vantaggi per shopping, sport e tempo libero\n\n• Assistenza nel trasferimento e nella ricerca di alloggi\n\n• 25 giorni di vacanza plus 5 anche free flexitage\n\n• Sostegno all'ulteriore istruzione e alla pianificazione della carriera\n\n• Campus nel cuore di Basilea e l'angolo trinazionale\n\n• Servizi per l'infanzia completi\n\n• Programma gratuito di sport ed esercizio",
-        "en": "Tasks:\n• Business and administrative management of the clinics Internal Medicine, Medical Polyclinic and Clinical Pharmacology & Toxicology\n\n• Close cooperation with the chief physicians and the management Care in strategic, financial and organizational issues\n\n• Budget responsibility (including regular evaluations of results and budget figures as well as trends in the healthcare sector) and development of proposals and measures\n\n• Preparation and interpretation of business analysis for decision-making and support of clinic management\n\n• Management of administrative staff with 17 employees, 8 of whom are directly subordinated\n\n• Management and implementation of projects in the areas of process optimization, digitalization and clinical development\n\nRequirements\n• Business studies (FH or university) as well as several years of professional and managerial experience in a similar function\n\n• Practical knowledge and experience in healthcare desirable\n\n• Service-oriented personality with assertiveness and negotiating skills as well as high communication skills\n\n• Independent, structured and targeted working methods as well as enjoyment of working in an interdisciplinary environment\n\n• Stylistic German required, good foreign language skills (English, French) advantageous\n\nWe offer:\n• Attractive wage policy and excellent social benefits\n\n• Advantages for shopping, sports and leisure\n\n• Assistance in moving and finding accommodation\n\n• 25 holiday days plus 5 also free flexitage\n\n• Support for further education and career planning\n\n• Campus in the heart of Basel and the Trinational Corner\n\n• Comprehensive childcare facilities\n\n• Free Sports and Exercise Program",
-        "de": "Aufgaben:\n• Betriebswirtschaftliche und administrative Leitung der Kliniken Innere Medizin, Medizinische Poliklinik und Klinische Pharmakologie & Toxikologie\n\n• Enge Zusammenarbeit mit den Chefärzt*innen und den Leitungen Pflege in strategischen, finanziellen und organisatorischen Fragestellungen\n\n• Budgetverantwortung (inkl. regelmässiger Auswertungen von Ergebnis- und Budgetzahlen sowie von Trends im Gesundheitswesen) und Entwicklung von Vorschlägen und Massnahmen\n\n• Erstellung und Interpretation betriebswirtschaftlicher Analysen zur Entscheidungsfindung und Unterstützung der Klinikleitungen\n\n• Führung des administrativen Personals mit 17 Mitarbeitenden, davon 8 direkt unterstellt\n\n• Leitung und Umsetzung von Projekten in den Bereichen Prozessoptimierung, Digitalisierung und Klinikentwicklung\n\nAnforderungen:\n• Betriebswirtschaftliches Studium (FH oder Universität) sowie mehrjährige Berufs- und Führungserfahrung in einer ähnlichen Funktion\n\n• Praktische Kenntnisse und Erfahrungen im Gesundheitswesen wünschenswert\n\n• Dienstleistungsorientierte Persönlichkeit mit Durchsetzungsvermögen und Verhandlungsgeschick sowie hoher Kommunikationskompetenz\n\n• Selbständige, strukturierte und zielgerichtete Arbeitsweise sowie Freude an der Arbeit in einem interdisziplinären Umfeld\n\n• Stilsicheres Deutsch erforderlich, gute Fremdsprachenkenntnisse (Englisch, Französisch) von Vorteil\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Tâches :\n• Gestion commerciale et administrative des cliniques Médecine interne, polyclinique médicale et pharmacologie clinique et toxicologie\n\n• Collaboration étroite avec les médecins en chef et la direction Soins dans les domaines stratégique, financier et organisationnel\n\n• Responsabilité budgétaire (y compris évaluation régulière des résultats et des chiffres budgétaires ainsi que des tendances dans le secteur des soins de santé) et élaboration de propositions et de mesures\n\n• Préparation et interprétation de l'analyse opérationnelle pour la prise de décisions et l'appui à la gestion des cliniques\n\n• Gestion du personnel administratif de 17 salariés, dont 8 sont directement subordonnés\n\n• Gestion et réalisation de projets dans les domaines de l'optimisation des processus, de la numérisation et du développement clinique\n\nExigences\n• Études d'entreprise (FH ou université) ainsi que plusieurs années d'expérience professionnelle et de gestion dans une fonction similaire\n\n• Connaissances pratiques et expérience en soins de santé souhaitables\n\n• Personnalité axée sur le service, avec assurance et compétences en matière de négociation, ainsi que compétences élevées en matière de communication\n\n• Méthodes de travail indépendantes, structurées et ciblées ainsi que la jouissance du travail dans un environnement interdisciplinaire\n\n• Allemand styliste requis, bonnes compétences en langue étrangère (anglais, français) avantageux\n\nNous offrons:\n• Une politique salariale attrayante et d'excellentes prestations sociales\n\n• Avantages pour le shopping, le sport et les loisirs\n\n• Aide au déménagement et à la recherche de logements\n\n• 25 jours de vacances plus 5 flexitage gratuit\n\n• Appui à la formation continue et à la planification des carrières\n\n• Campus au cœur de Bâle et du Coin Trinational\n\n• Établissements complets de garde d ' enfants\n\n• Programme de sports et d'exercices gratuits"
-      },
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://job.unispital-basel.ch/offene-stellen/klinikmanager-in-mitglied-der-klinikleitung/926caf19-620b-4eec-8ead-1306e5d528f6",
-      "source": "USB Dedicated Parser (Prospective API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:04:06.689Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4031",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-24",
-      "applyUrl": "https://career012.successfactors.eu/career?company=USB&career_ns=job_application&career_job_req_id=27720",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "klinikmanager-in-mitglied-der-klinikleitung-unispital-basel-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "klinikmanager-in-mitglied-der-klinikleitung-unispital-basel-ch"
-        ],
-        "en": [
-          "klinikmanager-in-mitglied-der-klinikleitung-unispital-basel-ch"
-        ],
-        "fr": [
-          "klinikmanager-in-mitglied-der-klinikleitung-unispital-basel-ch"
-        ]
-      },
-      "firstSeenAt": "2026-08-24T10:20:44.246Z",
-      "salaryMin": 85500,
-      "salaryMax": 129500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 129500,
           "unitText": "YEAR"
         }
       }
