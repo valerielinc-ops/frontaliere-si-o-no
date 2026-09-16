@@ -8,10 +8,10 @@
  */
 
 import admin from 'firebase-admin';
+import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
 
 export const ASSISTED_APPLICATION_RETENTION_DAYS = 90;
 
-const ASSISTED_APPLICATIONS_COLLECTION = 'assisted_applications';
 const ASSISTED_STORAGE_PREFIX = 'assisted-application-uploads/';
 const RETENTION_PAGE_SIZE = 500;
 const STORAGE_BUCKET =

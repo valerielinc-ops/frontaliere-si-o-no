@@ -11,6 +11,7 @@ import { cdnDataUrl } from '@/services/cdnDataBase';
 import { fetchAdminEmployerInsights, updateEmployerContact, sendColdEmail, type EmployerInsightsRow, type EmployerInsightsWindow, type EmployerOutreachStatus } from '@/services/adminInsights';
 import { fetchJournalistGrants, setJournalistRole, type JournalistGrant } from '@/services/journalistAdminService';
 import { fetchRedazioneAdminData, updateAuthorProfile, reassignArticleAuthor, type RedazioneAdminData } from '@/services/redazioneAdminService';
+import AssistedApplicationAdmin from '@/components/pages/AssistedApplicationAdmin';
 import type { AuthorProfilePatch } from '@/services/authorProfileService';
 import { getAllAuthors } from '@/data/authors';
 import { ARTICLES } from '@/data/blog-articles-data';
@@ -34,7 +35,7 @@ import {
  AlertTriangle, CheckCircle2, Eye, MousePointerClick,
  Mail, Users, Send, RefreshCw, ToggleLeft, ToggleRight, Database, Activity, Calendar, Terminal,
  Play, Loader2, Clock3, ListChecks, FileText, ArrowUp, ArrowDown, Search, ChevronDown, ChevronRight, RotateCcw, Zap,
- Building2, UserCheck, Pencil, Save, X, Newspaper
+ Building2, UserCheck, Pencil, Save, X, Newspaper, ClipboardCheck
 } from 'lucide-react';
 
 type EmployerSequenceInput = {
@@ -394,7 +395,7 @@ export default function AdminPanel() {
  const { user } = useAuth();
  const hasPreloadedWorkflowSnapshots = useRef(false);
  const [copiedCmd, setCopiedCmd] = useState(false);
- const [activeSection, setActiveSection] = useState<'newsletter' | 'owner' | 'insights' | 'journalists' | 'redazione' | WorkflowContext>('jobs');
+ const [activeSection, setActiveSection] = useState<'newsletter' | 'owner' | 'insights' | 'journalists' | 'redazione' | 'assisted-applications' | WorkflowContext>('jobs');
  const [ownerTab] = useState<'overview'>('overview');
  const [workflowStates, setWorkflowStates] = useState<Record<string, WorkflowRunState>>({});
  const workflowStatesRef = useRef<Record<string, WorkflowRunState>>({});
@@ -3373,6 +3374,7 @@ export default function AdminPanel() {
  { id: 'seo' as const, label: 'SEO/Qualità', icon: Shield },
  { id: 'analytics' as const, label: 'Dati', icon: Database },
  { id: 'insights' as const, label: 'Insights Aziende', icon: Building2 },
+ { id: 'assisted-applications' as const, label: 'Candidature', icon: ClipboardCheck },
  { id: 'journalists' as const, label: 'Giornalisti', icon: Newspaper },
  { id: 'redazione' as const, label: 'Redazione', icon: Users },
  { id: 'newsletter' as const, label: 'Newsletter', icon: Mail },
@@ -4004,6 +4006,9 @@ export default function AdminPanel() {
  )}
  </div>
  )}
+
+ {/* Assisted-application operational queue */}
+ {activeSection === 'assisted-applications' && <AssistedApplicationAdmin />}
 
  {/* Giornalisti section */}
  {activeSection === 'journalists' && (

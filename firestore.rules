@@ -985,6 +985,14 @@ service cloud.firestore {
       allow delete: if false;
     }
 
+    // Lifecycle audit entries contain operational history and actor metadata;
+    // they are written by the admin/status webhook code with the Admin SDK only.
+    // In particular, a candidate must not be able to erase or forge a
+    // manual-submission completion, block reason, or refund event.
+    match /assisted_applications/{orderId}/events/{eventId} {
+      allow read, write: if false;
+    }
+
     // Per-ad analytics counters (views, apply clicks). Public increment like
     // job_views/article_views; owner reads aggregates in the dashboard.
     match /publisher_job_events/{jobId} {
