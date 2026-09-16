@@ -6476,6 +6476,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.fides-26-polizia-esercito-berna.title': 'FIDES Exercise 26: Police and Army in Bern',
     'blog.article.fides-26-polizia-esercito-berna.excerpt': 'The cooperation between the police and the army in the FIDES 26 exercise in the canton of Bern has mobilized about 180 agents and a thousand soldiers.',
     'blog.article.fides-26-polizia-esercito-berna.imageAlt': 'Joint exercise between police and army FIDES 26 in the canton of Bern',
+    'blog.article.lotta-denaro-sporco-svizzera.title': 'Switzerland\'s fight against dirty money and corruption',
+    'blog.article.lotta-denaro-sporco-svizzera.excerpt': 'Analysis of 02 Sep 2026 on the Achilles heels of Switzerland in the return of dirty money and the knot of direct bank deposits.',
+    'blog.article.lotta-denaro-sporco-svizzera.imageAlt': 'Bank building in Switzerland representing the fight against dirty money',
 };
 
 export default blogMetaChEn;
