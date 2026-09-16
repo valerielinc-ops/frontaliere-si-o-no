@@ -73,6 +73,18 @@ function hasValidTransportManifestKeys(entry) {
     && hasValidCouplingSnapshot(entry.couplingSnapshot);
 }
 
+const LEGACY_OBSERVER_TARGETS = new Set(CORPUS_OBSERVER_FILES.map(({ target }) => target));
+
+// A previous transport layout accidentally registered observer files below
+// `.github/workflows/observers/`. Those entries are stale duplicates of the
+// canonical observer destinations and may be removed during normalization;
+// every other duplicate remains fail-closed.
+function isLegacyObserverTransportEntry(entry, destination) {
+  return LEGACY_OBSERVER_TARGETS.has(destination)
+    && typeof entry?.path === 'string'
+    && entry.path.startsWith('.github/workflows/observers/');
+}
+
 function sha16(content) {
   return crypto.createHash('sha256').update(content).digest('hex').slice(0, 16);
 }
@@ -91,10 +103,6 @@ export function expectedCorpusPaths() {
     CORPUS_CONTRACT_PATH,
     CORPUS_MANIFEST_PATH,
   ];
-}
-
-function ownedSitePaths() {
-  return new Set(expectedMappings().keys());
 }
 
 function expectedMappings() {
@@ -122,13 +130,17 @@ function contentForSitePath(sitePath, { contractBuffer, payloads, observerPayloa
 export function assertCrawlerManifestDelta({ baseManifest, currentManifest } = {}) {
   if (!baseManifest || !currentManifest) throw new Error('baseManifest and currentManifest are required');
   const expected = structuredClone(baseManifest);
+  const mappings = expectedMappings();
   const currentOwned = new Map();
   for (const entry of currentManifest.files ?? []) {
-    if (!ownedSitePaths().has(entry.sitePath)) continue;
+    if (!mappings.has(entry.sitePath)) continue;
     if (currentOwned.has(entry.sitePath)) throw new Error(`duplicate owned crawler manifest entry: ${entry.sitePath}`);
     currentOwned.set(entry.sitePath, entry);
   }
-  for (const [sitePath, destination] of expectedMappings()) {
+  expected.files = (expected.files ?? []).filter((entry) => (
+    !isLegacyObserverTransportEntry(entry, mappings.get(entry.sitePath))
+  ));
+  for (const [sitePath, destination] of mappings) {
     const current = currentOwned.get(sitePath);
     if (!current || current.path !== destination || current.mode !== 'identical' ||
         !hasValidTransportManifestKeys(current)) {
@@ -194,14 +206,20 @@ export function prepareCrawlerWorkflowCorpusSync({ sourceDir, corpusRoot, aligne
   const mappings = expectedMappings();
   const observed = new Set();
   const date = alignedAt ?? new Date().toISOString().slice(0, 10);
+  const normalizedFiles = [];
   for (const entry of manifest.files ?? []) {
     const destination = mappings.get(entry.sitePath);
-    if (!destination) continue;
+    if (!destination) {
+      normalizedFiles.push(entry);
+      continue;
+    }
+    if (isLegacyObserverTransportEntry(entry, destination)) continue;
     if (entry.path !== destination || entry.mode !== 'identical' ||
         !hasValidTransportManifestKeys(entry) || observed.has(entry.sitePath)) {
       throw new Error(`invalid or duplicate crawler transport mapping: ${entry.sitePath}`);
     }
     observed.add(entry.sitePath);
+    normalizedFiles.push(entry);
     const content = contentForSitePath(entry.sitePath, { contractBuffer, payloads, observerPayloads });
     const hash = sha16(content);
     const baselineKeys = Object.keys(entry.baseline ?? {}).sort();
@@ -211,6 +229,7 @@ export function prepareCrawlerWorkflowCorpusSync({ sourceDir, corpusRoot, aligne
       entry.baseline = { site: hash, corpus: hash, alignedAt: date };
     }
   }
+  manifest.files = normalizedFiles;
   const destinations = new Set((manifest.files ?? []).map((entry) => entry.path));
   for (const [sitePath, destination] of mappings) {
     if (observed.has(sitePath)) continue;

@@ -24,10 +24,11 @@ const shadowCascadeEnv = {
   SHADOW_SOURCE_WORKFLOW: '${{ github.workflow_ref }}',
   SHADOW_WORKFLOW_BLOB_SHA: '${{ github.workflow_sha }}',
 };
+const recoveryReady = "(github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')";
 const expectedShadowHashes = {
   cascadeRun: '32dac0d952132cfd66c261cf4c4cd3c45b99dc2ba019fbb0a0f0d01a745a4718',
-  finalize: '557e7f3cdcb4fcedd01b4566776286bd45b61cd7e1a7c0a1484caa4b80ee5faa',
-  upload: '0c184849503095b03f5d268617fed8cfac7aa8fd4e112a99ed3aa7a782dc9568',
+  finalize: '820bd133d1bd7156079a1fd44d875bcdc7ce2390f743c0cf7eae8fab7b9d0cd2',
+  upload: '3cd267dc8289079f0cd74fb4fab019a457ecfed652769535c3190f55a8d81d89',
 };
 
 function translateStep(document: string) {
@@ -41,6 +42,13 @@ function sha256(value: string) {
 
 function cloneDocument<T>(value: T): T {
   return JSON.parse(JSON.stringify(value));
+}
+
+function expectedPortableRecoveryStep(sourceStep: any) {
+  return {
+    ...cloneDocument(sourceStep),
+    if: `${sourceStep.if} && ${recoveryReady}`,
+  };
 }
 
 function findUniqueStep(steps: any[], name: string) {
@@ -109,13 +117,19 @@ function expectCurrentShadowContract(currentDocument: any, sourceDocument: any) 
   expect(Object.keys(upload.step.with).sort()).toEqual([
     'if-no-files-found', 'name', 'path', 'retention-days',
   ]);
-  expect(finalize.step).toEqual(findUniqueStep(sourceSteps, shadowFinalizeName).step);
-  expect(upload.step).toEqual(findUniqueStep(sourceSteps, shadowUploadName).step);
+  expect(finalize.step).toEqual(expectedPortableRecoveryStep(
+    findUniqueStep(sourceSteps, shadowFinalizeName).step,
+  ));
+  expect(upload.step).toEqual(expectedPortableRecoveryStep(
+    findUniqueStep(sourceSteps, shadowUploadName).step,
+  ));
   expect(sha256(JSON.stringify(finalize.step))).toBe(expectedShadowHashes.finalize);
   expect(sha256(JSON.stringify(upload.step))).toBe(expectedShadowHashes.upload);
   expect(upload.step.uses).toBe(`actions/upload-artifact@${uploadArtifactV7Sha}`);
   expect(findUniqueStep(currentSteps, 'Upload translation observability report').step)
-    .toEqual(findUniqueStep(sourceSteps, 'Upload translation observability report').step);
+    .toEqual(expectedPortableRecoveryStep(
+      findUniqueStep(sourceSteps, 'Upload translation observability report').step,
+    ));
 }
 
 describe('crawler generation PR B workflow wiring', () => {
@@ -161,7 +175,7 @@ describe('crawler generation PR B workflow wiring', () => {
       .find((step: any) => step.name === 'Trigger deploy');
     expect(currentTriggerDeploy).toBeDefined();
     expect(sourceTriggerDeploy).toBeDefined();
-    expect(currentTriggerDeploy).toEqual(sourceTriggerDeploy);
+    expect(currentTriggerDeploy).toEqual(expectedPortableRecoveryStep(sourceTriggerDeploy));
     const contract = JSON.parse(fs.readFileSync('.github/corpus-workflows/contract.json', 'utf8'));
     for (const group of GROUP_IDS) {
       const workflowPath = `.github/corpus-workflows/crawler-group-${group}.yml`;

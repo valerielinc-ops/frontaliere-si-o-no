@@ -69,6 +69,10 @@ describe('crawler workflow corpus transport', () => {
     expect(script).not.toMatch(/content\/|engine\/|host\//);
   });
 
+  it('descrive nel body generato tutti gli observer e le baseline trasportate', () => {
+    expect(script).toContain('i sette observer dedicati e le 32 baseline');
+  });
+
   it('lo script di consegna e sintatticamente valido', () => {
     expect(() => execFileSync('bash', ['-n', scriptPath], { stdio: 'pipe' })).not.toThrow();
   });

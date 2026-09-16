@@ -1943,6 +1943,7 @@ export function buildStandaloneCrossRepoWorkflow({
     const readyIndex = job.steps.findIndex((step) => step?.id === 'checkout');
     job.steps.splice(readyIndex + 1, 0, {
       name: 'Validate recovery successor claim',
+      id: 'recovery_guard',
       if: "steps.checkout.outcome == 'success' && github.run_attempt > 1",
       env: {
         GITHUB_API_URL: '${{ github.api_url }}',
@@ -2020,6 +2021,27 @@ export function buildStandaloneCrossRepoWorkflow({
         priority: '2',
       },
     });
+  }
+
+  // A rejected successor guard makes the default-success steps skip, but an
+  // `always()` condition would otherwise keep running translation, assembly,
+  // observability and publication steps without their setup. That produces
+  // misleading cascade failures (for example missing `undici` or Firebase
+  // credentials) and can reach side effects on an unauthorized rerun. Keep
+  // cleanup and the failure reporter alive; every other post-guard
+  // `always()` step must prove either a normal first attempt or a verified
+  // successor before it runs.
+  if (workflowFile === 'translate-pending.yml') {
+    const guardIndex = job.steps.findIndex((step) => step?.id === 'recovery_guard');
+    if (guardIndex < 0) throw new Error(`${name}: recovery guard was not generated`);
+    const recoveryReady = "(github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')";
+    for (let index = guardIndex + 1; index < job.steps.length; index += 1) {
+      const step = job.steps[index];
+      if (step?.name === 'Cleanup Codex auth broker') continue;
+      if (typeof step?.if === 'string' && step.if.includes('always()')) {
+        step.if = `${step.if} && ${recoveryReady}`;
+      }
+    }
   }
 
   const standalone = {
