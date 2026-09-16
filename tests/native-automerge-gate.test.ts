@@ -21,6 +21,7 @@ import { TEST_REVIEW_MARKER } from '../scripts/ci/review-test-policy.mjs';
 const HEAD = 'a'.repeat(40);
 const OLD_HEAD = 'b'.repeat(40);
 const CLEAN_BODY = '## Findings (Important: 0, Nit: 0)\n\n## LGTM';
+const BODY_WITH_NON_BLOCKING_NIT = '## Findings (Important: 0, Nit: 1)\n\n`packages/articles/content/swiss-articles-data.ts:L19421`: 🟡 Nit: scope documentation can be clearer.\n\n## LGTM';
 const CODEX_FALLBACK_REVIEW = '<!-- CODEX_FALLBACK_REVIEW -->';
 
 function review(
@@ -423,12 +424,18 @@ describe('native auto-merge gate (#8512)', () => {
     expect(evaluateNativeAutoMerge({ pr: pr(), reviews, checkRuns: [vitest()] }).allow).toBe(false);
   });
 
-  it('requires explicit Important 0, Nit 0 and an H2 LGTM', () => {
+  it('allows advisory Nits while requiring zero Important findings and an H2 LGTM', () => {
     expect(reviewHasZeroFindings(CLEAN_BODY)).toBe(true);
     expect(reviewHasLgtm(CLEAN_BODY)).toBe(true);
     expect(reviewIsApproved(review(CLEAN_BODY))).toBe(true);
-    expect(reviewHasZeroFindings('## Findings (Important: 0, Nit: 1)\n\n## LGTM')).toBe(false);
-    expect(reviewHasZeroFindings('## Findings (Important: 0, Nit: 0)\n\n🟡 Nit: not harmless')).toBe(false);
+    expect(reviewHasZeroFindings(BODY_WITH_NON_BLOCKING_NIT)).toBe(true);
+    expect(reviewIsApproved(review(BODY_WITH_NON_BLOCKING_NIT))).toBe(true);
+    expect(evaluateNativeAutoMerge({
+      pr: pr(),
+      reviews: [review(BODY_WITH_NON_BLOCKING_NIT)],
+      checkRuns: [vitest()],
+    })).toMatchObject({ allow: true });
+    expect(reviewHasZeroFindings('## Findings (Important: 1, Nit: 0)\n\n🔴 Important: not harmless')).toBe(false);
     expect(reviewHasLgtm('The text says ## LGTM, but is not a heading')).toBe(false);
   });
 
@@ -457,7 +464,7 @@ describe('native auto-merge gate (#8512)', () => {
     });
 
     expect(result).toMatchObject({ allow: false, action: 'revoke' });
-    expect(result.reason).toMatch(/Important 0\/Nit 0/i);
+    expect(result.reason).toMatch(/Important 0/i);
   });
 
   it('retains a persisted native opt-in only after revalidating the current HEAD', () => {
