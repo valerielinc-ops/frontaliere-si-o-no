@@ -38,6 +38,12 @@ const PREFLIGHT_READ_ATTEMPTS = 3;
 const PREFLIGHT_READ_CONCURRENCY = 4;
 const PREFLIGHT_READ_DELAY_MS = 250;
 const MAX_PREFLIGHT_READ_DELAY_MS = 5_000;
+// Site -> corpus workflow delivery is asynchronous. Give the corpus mirror a
+// bounded window to catch up after a trusted lineage-only skew; never turn a
+// mismatch into readiness without rereading the pinned tree and its hashes.
+export const PREFLIGHT_ALIGNMENT_BACKOFF_MS = Object.freeze([
+  30_000, 60_000, 120_000, 180_000,
+]);
 export const LEGACY_DISPATCH_POST_ATTEMPTS = 3;
 export const LEGACY_DISPATCH_RETRY_DELAY_MS = 2_000;
 const COMMIT_RE = /^(?:[a-f0-9]{40}|[a-f0-9]{64})$/;
@@ -886,9 +892,19 @@ export async function mapWithConcurrency(items, concurrency, mapper) {
   return results;
 }
 
-export async function runPreflight({ request, contractPath, observerPath, sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay)) }) {
-  const localContract = JSON.parse(fs.readFileSync(contractPath, 'utf8'));
-  const localObserver = fs.readFileSync(observerPath);
+function isPotentialTransientLineageMismatch(result, localContract, remoteContract) {
+  return result?.ready === false
+    && Array.isArray(result.reasons)
+    && result.reasons.length === 1
+    && result.reasons[0] === 'contract_mismatch'
+    && localContract?.sourceRepository === SITE_REPOSITORY
+    && remoteContract?.sourceRepository === SITE_REPOSITORY
+    && SHA256_RE.test(localContract?.generatorSha256 ?? '')
+    && SHA256_RE.test(remoteContract?.generatorSha256 ?? '')
+    && localContract.generatorSha256 !== remoteContract.generatorSha256;
+}
+
+async function readPreflightSnapshot({ request, localContract, localObserver, sleep }) {
   const commitResponse = await requestPreflightRead({
     request,
     sleep,
@@ -919,15 +935,56 @@ export async function runPreflight({ request, contractPath, observerPath, sleep 
     input: { method: 'GET', path: `/repos/${CALLER_REPOSITORY}/actions/workflows/${OBSERVER_WORKFLOW_FILE}`, apiVersion: GITHUB_API_VERSION },
   });
   if (workflow.status !== 200) throw new Error('workflow_response_invalid');
-  return evaluateCrawlerGenerationPreflight({
-    corpusCodeCommit,
-    localContract,
+  return {
+    result: evaluateCrawlerGenerationPreflight({
+      corpusCodeCommit,
+      localContract,
+      remoteContract,
+      localObserver,
+      remoteObserver,
+      remoteArtifacts,
+      remoteWorkflow: workflow.body,
+    }),
     remoteContract,
-    localObserver,
-    remoteObserver,
-    remoteArtifacts,
-    remoteWorkflow: workflow.body,
-  });
+  };
+}
+
+export async function runPreflight({
+  request,
+  contractPath,
+  observerPath,
+  sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay)),
+  onTransientMismatch = () => {},
+}) {
+  const localContract = JSON.parse(fs.readFileSync(contractPath, 'utf8'));
+  const localObserver = fs.readFileSync(observerPath);
+  const maxAttempts = PREFLIGHT_ALIGNMENT_BACKOFF_MS.length + 1;
+  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    const snapshot = await readPreflightSnapshot({ request, localContract, localObserver, sleep });
+    const { result } = snapshot;
+    const retryable = isPotentialTransientLineageMismatch(result, localContract, snapshot.remoteContract);
+    if (!retryable || attempt === maxAttempts) {
+      if (attempt === 1) return result;
+      return {
+        ...result,
+        reconciliation: {
+          status: result.ready ? 'aligned_after_retry' : retryable ? 'exhausted' : 'blocked',
+          attempts: attempt,
+          maxAttempts,
+        },
+      };
+    }
+    const delayMs = PREFLIGHT_ALIGNMENT_BACKOFF_MS[attempt - 1];
+    onTransientMismatch({
+      attempt,
+      nextAttempt: attempt + 1,
+      maxAttempts,
+      delayMs,
+      reasons: result.reasons,
+    });
+    await sleep(delayMs);
+  }
+  throw new Error('crawler_generation_preflight_reconciliation_unreachable');
 }
 
 function parseArguments(argv) {
@@ -985,6 +1042,12 @@ export async function runCrawlerGenerationDispatchCli(argv = process.argv.slice(
         request,
         contractPath: path.resolve(values['--contract']),
         observerPath: path.resolve(values['--observer']),
+        onTransientMismatch: ({ attempt, nextAttempt, maxAttempts, delayMs, reasons }) => {
+          process.stderr.write(
+            `::notice::crawler generation preflight transient lineage skew on attempt ${attempt}/${maxAttempts}`
+            + ` (${reasons.join(',')}); retrying attempt ${nextAttempt} after ${delayMs}ms\n`,
+          );
+        },
       });
     } catch {
       result = {
@@ -994,10 +1057,11 @@ export async function runCrawlerGenerationDispatchCli(argv = process.argv.slice(
         reasons: ['preflight_infrastructure_error'],
       };
     }
+    const reasonText = result.reasons?.length > 0 ? result.reasons.join(',') : 'none';
     if (env.GITHUB_OUTPUT) {
       fs.appendFileSync(
         env.GITHUB_OUTPUT,
-        `ready=${result.ready}\ndispatch_mode=${result.dispatchMode}\ncorpus_commit=${result.corpusCodeCommit ?? ''}\n`,
+        `ready=${result.ready}\ndispatch_mode=${result.dispatchMode}\ncorpus_commit=${result.corpusCodeCommit ?? ''}\nreasons=${reasonText}\n`,
       );
     }
     if (env.GENERATION_PREFLIGHT_OUTPUT) {
@@ -1007,6 +1071,16 @@ export async function runCrawlerGenerationDispatchCli(argv = process.argv.slice(
       process.stderr.write(
         `::warning::crawler generation mirror ahead of ${CALLER_REPOSITORY}@${result.corpusCodeCommit}`
         + ' — lockstep still propagating, dispatching the corpus generation pinned at that commit\n',
+      );
+    }
+    if (!result.ready) {
+      process.stderr.write(
+        `::error::crawler generation preflight blocked (mode=${result.dispatchMode}, reasons=${reasonText})\n`,
+      );
+    } else if (result.reconciliation) {
+      process.stderr.write(
+        `::notice::crawler generation preflight aligned after ${result.reconciliation.attempts}`
+        + `/${result.reconciliation.maxAttempts} bounded attempts\n`,
       );
     }
     process.stdout.write(`${JSON.stringify(result)}\n`);
