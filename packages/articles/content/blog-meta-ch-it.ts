@@ -6458,6 +6458,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.vaccini-antinfluenzali-ritardo-svizzera.title': 'Vaccini antinfluenzali in Svizzera: il 40% arriva in ritardo',
     'blog.article.vaccini-antinfluenzali-ritardo-svizzera.excerpt': 'Slittano le consegne del 40% dei vaccini antinfluenzali in Svizzera. Pharmasuisse corre ai ripari con una seconda finestra a fine novembre.',
     'blog.article.vaccini-antinfluenzali-ritardo-svizzera.imageAlt': 'Farmacia svizzera pronta per la campagna di vaccinazione antinfluenzale',
+    'blog.article.ruag-riorganizzazione-tagli-posti.title': 'RUAG si riorganizza: fino a 49 posti di lavoro a rischio',
+    'blog.article.ruag-riorganizzazione-tagli-posti.excerpt': 'Il gruppo d\'armamento RUAG annuncia una riorganizzazione che potrebbe comportare la soppressione di un massimo di 49 posti di lavoro in Svizzera.',
+    'blog.article.ruag-riorganizzazione-tagli-posti.imageAlt': 'Edifici federali a Berna',
 };
 
 export default blogMetaChIt;

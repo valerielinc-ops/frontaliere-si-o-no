@@ -83714,6 +83714,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ruag-riorganizzazione-tagli-posti': {
+    title: 'RUAG si riorganizza: fino a 49 posti di lavoro a rischio',
+    description: 'Il gruppo d\'armamento RUAG annuncia una riorganizzazione con tagli fino a 49 posti di lavoro nei siti di Berna, Thun ed Emmen. Tutti i dettagli. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, ruag, riorganizza, fino, posti',
+    ogTitle: 'RUAG: riorganizzazione e tagli fino a 49 posti di lavoro in Svizzera',
+    ogDescription: 'Il gruppo d\'armamento RUAG avvia una procedura di consultazione che coinvolge i siti di Berna, Thun ed Emmen, con la possibile soppressione di 49 posti.',
+    canonicalPath: '/articoli-svizzera/ruag-riorganizzazione-tagli-posti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "RUAG si riorganizza: fino a 49 posti di lavoro a rischio",
+      "description": "Il gruppo d'armamento RUAG annuncia una riorganizzazione con tagli fino a 49 posti di lavoro nei siti di Berna, Thun ed Emmen. Tutti i dettagli. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ruag-riorganizzazione-tagli-posti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edifici federali a Berna"
+      },
+      "datePublished": "2026-09-16T01:29:58+00:00",
+      "dateModified": "2026-09-16T01:29:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ruag-riorganizzazione-tagli-posti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

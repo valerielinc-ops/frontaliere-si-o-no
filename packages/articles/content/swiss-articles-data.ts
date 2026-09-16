@@ -19346,6 +19346,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ruag-riorganizzazione-tagli-posti',
+    category: 'novita',
+    date: '2026-09-16T01:29:58.058Z',
+    image: '/images/blog/ruag-riorganizzazione-tagli-posti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
