@@ -1177,9 +1177,9 @@
     },
     {
       "id": "medartis-0ae9f01726ae",
-      "slug": "production-allrounder-packaging-labeling-medartis-basel",
+      "slug": "allrounder-di-produzione-confezionamento-e-etichettatura-medartis-basel",
       "slugByLocale": {
-        "it": "production-allrounder-packaging-labeling-medartis-basel",
+        "it": "allrounder-di-produzione-confezionamento-e-etichettatura-medartis-basel",
         "en": "production-allrounder-packaging-labeling-medartis-basel",
         "de": "production-allrounder-packaging-labeling-medartis-basel",
         "fr": "production-allrounder-emballage-et-etiquetage-medartis-basel"
@@ -1238,7 +1238,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "production-allrounder-packaging-labeling-medartis-basel"
+        ]
+      },
+      "previousSlugs": [
+        "production-allrounder-packaging-labeling-medartis-basel"
+      ]
     },
     {
       "id": "medartis-bb1513c7d9ce",
