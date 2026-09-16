@@ -11785,6 +11785,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.goldbach-group-ristrutturazione-licenziamenti.title': 'Goldbach Group reorganises: up to 35 redundancies',
     'blog.article.goldbach-group-ristrutturazione-licenziamenti.excerpt': 'The Zurich company controlled by TX Group joins two divisions in the advertising sector, initiating a consultation procedure.',
     'blog.article.goldbach-group-ristrutturazione-licenziamenti.imageAlt': 'Corporate office building in Switzerland',
+    'blog.article.ffs-cargo-tagli-ticino-berna.title': 'FFS cargo cuts: Bern responds to Ticino',
+    'blog.article.ffs-cargo-tagli-ticino-berna.excerpt': 'The federal government rejects the resolution of the Canton of Ticino on the cuts of FFS Cargo, confirming the management autonomy of the company and the centrality of the north-south axis.',
+    'blog.article.ffs-cargo-tagli-ticino-berna.imageAlt': 'Ffs freight train transiting along the railway line in Ticino',
 };
 
 export default blogMetaEn;

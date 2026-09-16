@@ -91021,6 +91021,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ffs-cargo-tagli-ticino-berna': {
+    title: 'Tagli ffs cargo: Berna risponde al Ticino | Frontaliere Ticino',
+    description: 'Berna respinge la risoluzione del Ticino sui tagli di Ffs Cargo. Albert Rösti conferma l\'autonomia gestionale delle ferrovie e la centralità nord-sud.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tagli, cargo, berna, risponde',
+    ogTitle: 'Tagli Ffs Cargo, Berna non si esprime: sono scelte aziendali',
+    ogDescription: 'Il governo federale risponde alla risoluzione del Cantone Ticino sui tagli di Ffs Cargo confermando l\'autonomia gestionale delle ferrovie e l\'assenza di interventi correttivi.',
+    canonicalPath: '/articoli-frontaliere/ffs-cargo-tagli-ticino-berna',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tagli ffs cargo: Berna risponde al Ticino",
+      "description": "Berna respinge la risoluzione del Ticino sui tagli di Ffs Cargo. Albert Rösti conferma l'autonomia gestionale delle ferrovie e la centralità nord-sud.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ffs-cargo-tagli-ticino-berna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno merci delle Ffs in transito lungo la linea ferroviaria in Ticino"
+      },
+      "datePublished": "2026-09-16T02:10:01+00:00",
+      "dateModified": "2026-09-16T02:10:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ffs-cargo-tagli-ticino-berna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
