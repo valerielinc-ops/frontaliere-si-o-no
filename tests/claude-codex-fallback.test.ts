@@ -52,6 +52,7 @@ import {
   buildGitNetworkArgs,
   canonicalGitRemote,
   isMutatingGitArgs,
+  resolveCurrentWorkBranchRef,
   validateGitArgs,
 } from '../.github/actions/claude-codex-fallback/git-bridge-server.mjs';
 import {
@@ -431,6 +432,7 @@ describe('validator dei bridge host-side', () => {
     expect(validateGitArgs(['push', 'https://example.invalid/repo.git'])).toMatch(/paths and URLs/);
     expect(validateGitArgs(['push', 'upstream', 'main'])).toMatch(/remote is not permitted/);
     const workBranch = 'codex/fallback-bridge-test';
+    const workBranchRef = `refs/heads/${workBranch}`;
     for (const flag of [
       '--all',
       '--force',
@@ -450,17 +452,19 @@ describe('validator dei bridge host-side', () => {
       'HEAD:refs/heads/other',
       'HEAD:other',
       `${workBranch}:refs/heads/other`,
-      `refs/heads/${workBranch}:refs/heads/other`,
-      `other:refs/heads/${workBranch}`,
-      'refs/heads/other:refs/heads/codex/fallback-bridge-test',
+      `${workBranchRef}:refs/heads/other`,
+      `other:${workBranchRef}`,
+      `refs/heads/other:${workBranchRef}`,
+      workBranch,
+      `${workBranch}:${workBranchRef}`,
       'a'.repeat(40),
-      `${'a'.repeat(40)}:refs/heads/${workBranch}`,
+      `${'a'.repeat(40)}:${workBranchRef}`,
       'v1.2.3',
-      `v1.2.3:refs/heads/${workBranch}`,
-      `refs/tags/v1.2.3:refs/heads/${workBranch}`,
-      `refs/remotes/origin/${workBranch}:refs/heads/${workBranch}`,
+      `v1.2.3:${workBranchRef}`,
+      `refs/tags/v1.2.3:${workBranchRef}`,
+      `refs/remotes/origin/${workBranch}:${workBranchRef}`,
       'refs/tags/v1.2.3',
-      `HEAD:refs/heads/main`,
+      'HEAD:refs/heads/main',
       'HEAD:refs/tags/release',
       'HEAD:refs/remotes/origin/work',
       ':refs/heads/work',
@@ -468,43 +472,75 @@ describe('validator dei bridge host-side', () => {
       '+HEAD:refs/heads/work',
       'HEAD:refs/heads/work*',
     ]) {
-      expect(validateGitArgs(['push', 'origin', refspec], { allowedWorkBranch: workBranch })).toMatch(/Git push (?:refspec|source|destination)|work branch/);
+      expect(validateGitArgs(['push', 'origin', refspec], { allowedWorkBranch: workBranchRef })).toMatch(/Git push (?:refspec|source|destination)|work branch/);
     }
-    expect(validateGitArgs(['push'], { allowedWorkBranch: workBranch })).toMatch(/exactly one explicit work-branch refspec/);
-    expect(validateGitArgs(['push', 'origin'], { allowedWorkBranch: workBranch })).toMatch(/exactly one explicit work-branch refspec/);
-    expect(validateGitArgs(['push', 'origin', 'HEAD', 'other'], { allowedWorkBranch: workBranch })).toMatch(/exactly one explicit work-branch refspec/);
+    expect(validateGitArgs(['push'], { allowedWorkBranch: workBranchRef })).toMatch(/exactly one explicit work-branch refspec/);
+    expect(validateGitArgs(['push', 'origin'], { allowedWorkBranch: workBranchRef })).toMatch(/exactly one explicit work-branch refspec/);
+    expect(validateGitArgs(['push', 'origin', 'HEAD', 'other'], { allowedWorkBranch: workBranchRef })).toMatch(/exactly one explicit work-branch refspec/);
     for (const refspec of [
       'HEAD',
-      `HEAD:${workBranch}`,
-      `HEAD:refs/heads/${workBranch}`,
-      workBranch,
-      `${workBranch}:${workBranch}`,
-      `${workBranch}:refs/heads/${workBranch}`,
-      `refs/heads/${workBranch}:${workBranch}`,
-      `refs/heads/${workBranch}`,
-      `refs/heads/${workBranch}:refs/heads/${workBranch}`,
+      `HEAD:${workBranchRef}`,
+      workBranchRef,
+      `${workBranchRef}:${workBranchRef}`,
     ]) {
-      expect(validateGitArgs(['push', 'origin', refspec], { allowedWorkBranch: workBranch })).toBe('');
+      expect(validateGitArgs(['push', 'origin', refspec], { allowedWorkBranch: workBranchRef })).toBe('');
     }
-    expect(validateGitArgs(['push', '--set-upstream', 'origin', workBranch], { allowedWorkBranch: workBranch })).toBe('');
-    expect(validateGitArgs(['push', 'origin', 'HEAD:refs/heads/codex/fallback-bridge-test'], { allowedWorkBranch: '' })).toMatch(/current work branch/);
-    expect(validateGitArgs(['push', 'origin', 'HEAD:refs/heads/codex/fallback-bridge-test'], { allowedWorkBranch: 'main' })).toMatch(/current work branch/);
+    expect(validateGitArgs(['push', '--set-upstream', 'origin', workBranchRef], { allowedWorkBranch: workBranchRef })).toBe('');
+    expect(validateGitArgs(['push', 'origin', `HEAD:${workBranchRef}`], { allowedWorkBranch: '' })).toMatch(/current work branch/);
+    expect(validateGitArgs(['push', 'origin', `HEAD:${workBranchRef}`], { allowedWorkBranch: 'refs/heads/main' })).toMatch(/current work branch/);
     expect(validateGitArgs(['fetch', 'origin', 'main'])).toBe('');
     expect(validateGitArgs(['ls-remote', 'origin', 'refs/heads/main'])).toBe('');
     const expectedRemote = 'https://github.com/owner/repo.git';
     expect(canonicalGitRemote({ host: 'https://github.com', repository: 'owner/repo' })).toBe(expectedRemote);
-    expect(buildGitNetworkArgs(['push', 'origin', `HEAD:refs/heads/${workBranch}`], expectedRemote)).toEqual([
-      'push', expectedRemote, `HEAD:refs/heads/${workBranch}`,
+    expect(buildGitNetworkArgs(['push', 'origin', `HEAD:${workBranchRef}`], expectedRemote)).toEqual([
+      'push', expectedRemote, `HEAD:${workBranchRef}`,
     ]);
-    expect(buildGitNetworkArgs(['push', 'origin', 'HEAD'], expectedRemote, { allowedWorkBranch: workBranch })).toEqual([
-      'push', expectedRemote, `HEAD:refs/heads/${workBranch}`,
+    expect(buildGitNetworkArgs(['push', 'origin', 'HEAD'], expectedRemote, { allowedWorkBranch: workBranchRef })).toEqual([
+      'push', expectedRemote, `HEAD:${workBranchRef}`,
     ]);
     expect(buildGitNetworkArgs(['fetch', '--prune'], expectedRemote)).toEqual([
       'fetch', '--prune', expectedRemote,
     ]);
-    expect(buildGitNetworkArgs(['push', '--', 'origin', workBranch], expectedRemote)).toEqual([
-      'push', '--', expectedRemote, workBranch,
+    expect(buildGitNetworkArgs(['push', '--', 'origin', workBranchRef], expectedRemote)).toEqual([
+      'push', '--', expectedRemote, workBranchRef,
     ]);
+  });
+
+  it('risolve nel runtime Git solo HEAD sotto refs/heads e rifiuta tag, remote, detached e main', () => {
+    const root = mkdtempSync(join(tmpdir(), 'codex-git-namespace-'));
+    const repo = join(root, 'repo');
+    mkdirSync(repo, { recursive: true });
+    const gitEnv = {
+      ...process.env,
+      GIT_CONFIG_NOSYSTEM: '1',
+      GIT_CONFIG_GLOBAL: '/dev/null',
+      GIT_CONFIG_SYSTEM: '/dev/null',
+    };
+    delete gitEnv.GIT_DIR;
+    delete gitEnv.GIT_COMMON_DIR;
+    delete gitEnv.GIT_WORK_TREE;
+    const resolveHead = () => resolveCurrentWorkBranchRef({ realGit: 'git', cwd: repo, env: gitEnv });
+    const setHead = (ref) => execFileSync('git', ['-C', repo, 'symbolic-ref', 'HEAD', ref], { env: gitEnv });
+    try {
+      execFileSync('git', ['init', '-q', repo], { env: gitEnv });
+      execFileSync('git', ['-C', repo, '-c', 'user.name=codex-fixture', '-c', 'user.email=codex-fixture@example.invalid', 'commit', '--allow-empty', '-qm', 'fixture'], { env: gitEnv });
+      execFileSync('git', ['-C', repo, 'checkout', '-qb', 'codex/fallback-bridge-runtime'], { env: gitEnv });
+      setHead('refs/tags/fallback-tag');
+      expect(resolveHead()).toBe('');
+      expect(validateGitArgs(['push', 'origin', 'HEAD'], { allowedWorkBranch: resolveHead() })).toMatch(/current work branch/);
+      setHead('refs/remotes/origin/fallback-remote');
+      expect(resolveHead()).toBe('');
+      expect(validateGitArgs(['push', 'origin', 'HEAD'], { allowedWorkBranch: resolveHead() })).toMatch(/current work branch/);
+      setHead('refs/heads/codex/fallback-bridge-runtime');
+      expect(resolveHead()).toBe('refs/heads/codex/fallback-bridge-runtime');
+      expect(validateGitArgs(['push', 'origin', 'HEAD'], { allowedWorkBranch: resolveHead() })).toBe('');
+      execFileSync('git', ['-C', repo, 'checkout', '--detach', 'HEAD'], { env: gitEnv, stdio: 'ignore' });
+      expect(resolveHead()).toBe('');
+      setHead('refs/heads/main');
+      expect(resolveHead()).toBe('');
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
   });
 
   it('mantiene limiti espliciti del protocollo e output dei due broker', () => {
