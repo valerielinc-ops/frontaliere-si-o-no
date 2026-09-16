@@ -2,7 +2,7 @@ import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'nod
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { afterEach, describe, expect, it } from 'vitest';
-import { plateAuctionsPagesPlugin, renderPlateAuctionPage } from '../build-plugins/plateAuctionsPagesPlugin';
+import { loadPlateAuctionContext, plateAuctionsPagesPlugin, renderPlateAuctionPage } from '../build-plugins/plateAuctionsPagesPlugin';
 import { buildPlateAuctionPath } from '../services/plateAuctions/paths';
 import { AD_SLOTS } from '../services/adsenseSlots';
 
@@ -300,5 +300,22 @@ describe('plate-auction static pages', () => {
       expect(historyHtml).toContain('ft-plate-auction-top-ad');
     }
     expect(expectedDetailUrls.size).toBe(164);
+  });
+
+  it('renders from a precomputed context instead of re-reading the snapshot per page', () => {
+    // Regressione #8753: ogni pagina di dettaglio rileggeva lo snapshot da
+    // disco (227 min di closeBundle in CI). Con un contesto passato dal
+    // plugin il render deve usare QUELLO, non il rootDir.
+    const contextRoot = fixtureRoot({ auctionCount: 41 });
+    const otherRoot = fixtureRoot();
+    const context = loadPlateAuctionContext(contextRoot);
+    const zurich = context.detailRows.find((row) => row.platePrefix === 'ZH');
+    expect(zurich).toBeDefined();
+    const args = { locale: 'it' as const, view: 'detail' as const, canton: 'ZH', plate: zurich!.normalizedPlate, vehicleType: zurich!.vehicleType };
+    const fromDisk = renderPlateAuctionPage({ ...args, rootDir: contextRoot });
+    const withContext = renderPlateAuctionPage({ ...args, rootDir: otherRoot, context });
+    const withoutContext = renderPlateAuctionPage({ ...args, rootDir: otherRoot });
+    expect(withContext.html).toBe(fromDisk.html);
+    expect(withoutContext.html).not.toBe(fromDisk.html);
   });
 });
