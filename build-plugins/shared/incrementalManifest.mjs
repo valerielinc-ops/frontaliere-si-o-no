@@ -56,11 +56,42 @@ function isRuntimeInputKey(key) {
   return RUNTIME_INPUT_KEYS.has(normalizedKey(key));
 }
 
+function isCanonicalJsonReady(value, inArray = false) {
+  if (value === undefined) return inArray;
+  if (value === null) return true;
+  if (value instanceof Date) return true;
+
+  switch (typeof value) {
+    case 'string':
+    case 'boolean':
+      return true;
+    case 'number':
+      return Number.isFinite(value);
+    case 'object': {
+      if (Array.isArray(value)) return value.every((item) => isCanonicalJsonReady(item, true));
+      const keys = Object.keys(value);
+      for (let i = 0; i < keys.length; i += 1) {
+        if (isRuntimeInputKey(keys[i]) || (i > 0 && compareStrings(keys[i - 1], keys[i]) > 0)) {
+          return false;
+        }
+        if (!isCanonicalJsonReady(value[keys[i]])) return false;
+      }
+      return true;
+    }
+    default:
+      return false;
+  }
+}
+
 function canonicalValue(value, inArray = false) {
   if (value === undefined) return inArray ? 'null' : undefined;
   if (value === null) return 'null';
 
   if (value instanceof Date) return JSON.stringify(value.toISOString());
+
+  if (typeof value === 'object' && isCanonicalJsonReady(value, inArray)) {
+    return JSON.stringify(value);
+  }
 
   switch (typeof value) {
     case 'string':
@@ -81,7 +112,14 @@ function canonicalValue(value, inArray = false) {
 
       const entries = Object.entries(value)
         .filter(([key, item]) => !isRuntimeInputKey(key) && item !== undefined)
-        .sort(([left], [right]) => left < right ? -1 : left > right ? 1 : 0);
+      let isSorted = true;
+      for (let i = 1; i < entries.length; i += 1) {
+        if (compareStrings(entries[i - 1][0], entries[i][0]) > 0) {
+          isSorted = false;
+          break;
+        }
+      }
+      if (!isSorted) entries.sort(([left], [right]) => compareStrings(left, right));
       return `{${entries.map(([key, item]) => `${JSON.stringify(key)}:${canonicalValue(item)}`).join(',')}}`;
     }
     default:
@@ -95,6 +133,30 @@ export function canonicalizeInput(input) {
 
 function sha256(value) {
   return createHash('sha256').update(value, 'utf8').digest('hex');
+}
+
+function digestJobRecord(job) {
+  // The assembler preserves source JSON key order. A shallow filter keeps the
+  // full record covered without recursively canonicalizing its large fields.
+  const record = { ...(job && typeof job === 'object' ? job : {}) };
+  for (const key of Object.keys(record)) {
+    if (isRuntimeInputKey(key)) delete record[key];
+  }
+  // Job records do not carry fetch-only `fetchedAt`; `updatedAt`, `crawledAt`,
+  // and posting dates are retained because they are source/freshness inputs to
+  // the rendered JobPosting. Only generated build metadata is excluded above.
+  return sha256(JSON.stringify(record));
+}
+
+function projectRelatedJob(relatedJob, locale) {
+  const isRecord = relatedJob && typeof relatedJob === 'object';
+  const id = isRecord ? stableJobId(relatedJob) : String(relatedJob ?? '');
+  if (!id) return null;
+  return {
+    id,
+    slug: isRecord ? String(relatedJob?.slugByLocale?.[locale] || relatedJob?.slug || '') : '',
+    title: isRecord ? String(relatedJob?.titleByLocale?.[locale] || relatedJob?.title || '') : '',
+  };
 }
 
 export function templateVersionForKind(kind) {
@@ -133,17 +195,20 @@ export function stableJobVersion(job) {
 }
 
 /**
- * Build the input passed to the shadow hash. `relatedJobIds` is deliberately
- * already projected by the caller; related job objects never enter the
+ * Build the input passed to the shadow hash. The full job record is represented
+ * by a cheap digest; only the small related-job projection enters the
  * canonicalizer.
  */
-export function buildMinimalJobInput(job, locale, slug, relatedJobIds = []) {
+export function buildMinimalJobInput(job, locale, slug, relatedJobs = []) {
   return {
     jobId: stableJobId(job),
+    jobRecordDigest: digestJobRecord(job),
     jobVersion: stableJobVersion(job),
     locale: String(locale),
+    relatedJobs: (Array.isArray(relatedJobs) ? relatedJobs : [])
+      .map((relatedJob) => projectRelatedJob(relatedJob, locale))
+      .filter(Boolean),
     slug: String(slug ?? ''),
-    relatedJobIds: relatedJobIds.map((id) => String(id)).filter(Boolean),
   };
 }
 

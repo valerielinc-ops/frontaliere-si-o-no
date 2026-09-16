@@ -29,23 +29,66 @@ describe('incremental manifest input contract', () => {
     expect(first).toBe(second);
   });
 
-  it('projects only stable job identity and related job ids', () => {
+  it('includes the full job digest and related locale projections', () => {
     const input = buildMinimalJobInput(
       { id: 'job-1', updatedAt: 'v2', title: 'large source object' },
       'de',
       'maurer-v2',
-      ['related-1', 'related-2'],
+      [
+        { id: 'related-1', slugByLocale: { de: 'bezogen-1' }, titleByLocale: { de: 'Related one' } },
+        { id: 'related-2', slug: 'related-2', title: 'Related two' },
+      ],
     );
-    expect(input).toEqual({
+    expect(input).toMatchObject({
       jobId: 'job-1',
       jobVersion: 'v2',
       locale: 'de',
       slug: 'maurer-v2',
-      relatedJobIds: ['related-1', 'related-2'],
+      relatedJobs: [
+        { id: 'related-1', slug: 'bezogen-1', title: 'Related one' },
+        { id: 'related-2', slug: 'related-2', title: 'Related two' },
+      ],
     });
+    expect(input.jobRecordDigest).toMatch(/^[a-f0-9]{64}$/);
     expect(computeInputHash(input, 'active-job')).not.toBe(
       computeInputHash(buildMinimalJobInput({ id: 'job-1', updatedAt: 'v3' }, 'de', 'maurer-v2', ['related-1', 'related-2']), 'active-job'),
     );
+  });
+
+  it('changes the page hash when only the job title changes', () => {
+    const baseJob = { id: 'job-1', updatedAt: 'v2', title: 'Original title' };
+    const changedJob = { ...baseJob, title: 'Changed title' };
+    const firstHash = computeInputHash(
+      buildMinimalJobInput(baseJob, 'it', 'original-title'),
+      'active-job',
+    );
+    const secondHash = computeInputHash(
+      buildMinimalJobInput(changedJob, 'it', 'original-title'),
+      'active-job',
+    );
+    expect(secondHash).not.toBe(firstHash);
+  });
+
+  it('changes the page hash when only a related title changes', () => {
+    const pageJob = { id: 'page-1', updatedAt: 'v1', title: 'Page' };
+    const relatedJob = {
+      id: 'related-1',
+      slugByLocale: { it: 'related-job' },
+      titleByLocale: { it: 'Related title' },
+    };
+    const changedRelatedJob = {
+      ...relatedJob,
+      titleByLocale: { it: 'Changed related title' },
+    };
+    const firstHash = computeInputHash(
+      buildMinimalJobInput(pageJob, 'it', 'page', [relatedJob]),
+      'related-search-cluster',
+    );
+    const secondHash = computeInputHash(
+      buildMinimalJobInput(pageJob, 'it', 'page', [changedRelatedJob]),
+      'related-search-cluster',
+    );
+    expect(secondHash).not.toBe(firstHash);
   });
 
   it('keeps the shadow feature opt-in by default', () => {
@@ -60,6 +103,29 @@ describe('incremental manifest input contract', () => {
     const input = { slug: 'muratore', title: 'Muratore' };
     expect(computeInputHash(input, 'active-job', 'active-job@1'))
       .not.toBe(computeInputHash(input, 'active-job', 'active-job@2'));
+  });
+
+  it('removes only top-level runtime keys from the job digest', () => {
+    const baseJob = {
+      id: 'job-1',
+      title: 'Role',
+      nested: { buildId: 'source-value' },
+    };
+    const withRuntimeFields = {
+      ...baseJob,
+      buildId: 'build-a',
+      generatedAt: '2026-09-16T12:00:00.000Z',
+    };
+    const withDifferentNestedValue = {
+      ...baseJob,
+      nested: { buildId: 'changed-source-value' },
+    };
+    const hashFor = (job: object) => computeInputHash(
+      buildMinimalJobInput(job, 'it', 'role'),
+      'active-job',
+    );
+    expect(hashFor(withRuntimeFields)).toBe(hashFor(baseJob));
+    expect(hashFor(withDifferentNestedValue)).not.toBe(hashFor(baseJob));
   });
 
   it('writes compact, grouped JSONL entries and counters outside dist', () => {
@@ -112,21 +178,44 @@ describe('incremental manifest input contract', () => {
     }
   });
 
-  it('measures 10k register calls on a fixed minimal workload', () => {
-    const manifest = new IncrementalManifest('it');
-    const started = performance.now();
-    for (let i = 0; i < 10_000; i += 1) {
-      manifest.register(`/bench/${i}/`, 'active-job', {
-        jobId: `job-${i}`,
-        jobVersion: 'fixture-v1',
-        locale: 'it',
-        slug: `job-${i}`,
-        relatedJobIds: [],
-      });
+  it('measures 10k register calls on the full-record workload', () => {
+    const relatedJobs = [
+      { id: 'related-1', slugByLocale: { it: 'related-one' }, title: 'Related one' },
+      { id: 'related-2', slugByLocale: { it: 'related-two' }, title: 'Related two' },
+    ];
+    const register = (manifest: IncrementalManifest, i: number) => {
+      const job = {
+        id: `job-${i}`,
+        updatedAt: 'fixture-v1',
+        title: `Job title ${i}`,
+        company: 'Fixture Company',
+        location: 'Lugano',
+        salaryMin: 80_000,
+        salaryMax: 95_000,
+        description: 'A representative job description with rendered fields and enough text to exercise the record digest.',
+      };
+      manifest.register(
+        `/bench/${i}/`,
+        'active-job',
+        buildMinimalJobInput(job, 'it', `job-${i}`, relatedJobs),
+      );
+    };
+    const warmupManifest = new IncrementalManifest('it');
+    for (let i = 0; i < 1_000; i += 1) register(warmupManifest, i);
+    const measurements: number[] = [];
+    let manifest: IncrementalManifest | null = null;
+    for (let round = 0; round < 3; round += 1) {
+      manifest = new IncrementalManifest('it');
+      const started = performance.now();
+      for (let i = 0; i < 10_000; i += 1) {
+        register(manifest, i);
+      }
+      measurements.push(performance.now() - started);
     }
-    const elapsedMs = performance.now() - started;
-    console.log(`incrementalManifest register benchmark: ${elapsedMs.toFixed(3)} ms per 10k register()`);
-    expect(manifest.toJSON().counts.total).toBe(10_000);
+    const sortedMeasurements = [...measurements].sort((left, right) => left - right);
+    const elapsedMs = sortedMeasurements[Math.floor(sortedMeasurements.length / 2)];
+    console.log(`incrementalManifest full-record register benchmark: ${elapsedMs.toFixed(3)} ms per 10k register() (median of ${measurements.length})`);
+    expect(manifest?.toJSON().counts.total).toBe(10_000);
     expect(elapsedMs).toBeGreaterThan(0);
   });
 });
