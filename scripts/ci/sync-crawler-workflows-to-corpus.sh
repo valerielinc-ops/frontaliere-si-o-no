@@ -157,12 +157,12 @@ body="$work/pr-body.md"
 cat > "$body" <<'BODY'
 ## Implementato
 
-- in questa PR: sincronizzati atomicamente i 24 workflow crawler eseguibili, il contratto hash del generatore, i sette observer dedicati e le 32 baseline del loop-sync manifest dalla sorgente portabile del sito; il diff è limitato da allowlist fail-closed.
+- in questa PR: aggiorna esclusivamente i file di trasporto effettivamente presenti nel diff della branch; l'allowlist fail-closed impedisce di includere gemelli già allineati o path estranei.
 - in questa PR: la branch di consegna viene aggiornata senza push su `main`; test, review automatica e auto-merge `## LGTM` del corpus restano obbligatori prima che la schedulazione cambi.
 
 ## Non implementato (ancora)
 
-- in questa PR, by construction: nessun dato del corpus, engine o host viene copiato; il trasporto può toccare soltanto i 24 artifact, il loro contratto, l'observer dedicato e le baseline corrispondenti.
+- in questa PR, per scelta: nessun dato del corpus, engine o host viene copiato; il trasporto resta limitato ai file elencati dal diff e validati dall'allowlist.
 - blocked: il ciclo autonomo del corpus deve completare la review della HEAD e apporre `## LGTM`; fino ad allora non è autorizzato alcun merge diretto o manuale.
 BODY
 
