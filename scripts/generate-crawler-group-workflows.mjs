@@ -999,13 +999,11 @@ export function buildCrawlerResultShellBody(crawler, groupIndex) {
 function buildCrawlerStepEnv(crawler, summaryFile) {
   const merged = {
     SLUG_HISTORY_SUMMARY_FILE: summaryFile,
-    // Auth for the opt-in Claude CLI Haiku fallback (tier-0 by default since
-    // 2026-07-29 — see AI_COMPETING_TIERS in ai-models.mjs; see the
-    // "Setup Claude CLI Haiku fallback" step below). Harmless to always
-    // pass: ai-models.mjs only offers the model when this AND the RC flag
-    // are both set. Most crawlers route callLLM through
-    // dedicated-crawler-common.mjs / shared-jobs-crawler.mjs.
-    CLAUDE_CODE_OAUTH_TOKEN: '${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}',
+    // The Codex Luna Max lane is reached through the private broker created by
+    // the setup action below. Never pass its subscription credential to the
+    // backgrounded crawler process; only the socket capability crosses this
+    // boundary. Most crawlers route callLLM through dedicated-crawler-common.mjs
+    // / shared-jobs-crawler.mjs.
   };
   Object.assign(merged, crawler.runStep.env || {});
   for (const step of crawler.postSteps) {
@@ -1022,6 +1020,9 @@ function buildCrawlerStepEnv(crawler, summaryFile) {
   // maps, so a crawler cannot accidentally replace the capability reference
   // with a job-wide variable or a user-controlled value.
   merged.CODEX_AUTH_BROKER_SOCKET = '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}';
+  // The broker socket is only a capability; provider selection still needs to
+  // be explicit so every crawler uses the Codex Luna Max article lane.
+  merged.AI_MODELS_PREFER = 'codex-cli/gpt-5.6-luna';
   return Object.fromEntries(
     Object.entries(merged).map(([key, value]) => [key, normalizeCrawlerInputReferences(value)]),
   );
@@ -1146,10 +1147,10 @@ function crawlerGenerationTerminalSteps(groupIndex, expectedCrawlers) {
 }
 
 /**
- * The broker normally exits immediately after its one-shot request. Keep an
+ * The broker serves a bounded sequence of Codex Luna Max requests. Keep an
  * explicit always-run cleanup at the end of the job as well: this covers runs
- * that never reach Claude/Codex and persistent runners where the short broker
- * TTL should remain only a backstop, not the normal lifecycle.
+ * that never reach Codex and persistent runners where the TTL should remain
+ * only a backstop, not the normal lifecycle.
  */
 function codexAuthBrokerCleanupStep() {
   return {
@@ -1255,8 +1256,8 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
   // as AI_MODELS.OMNIROUTE_AUTO. Since 2026-07-29 (AI_COMPETING_TIERS
   // default, see ai-models.mjs's _lastResortTier doc comment) this tier is
   // tier-0 BY DEFAULT — it competes on real score against the direct
-  // free-tier providers, it is not pinned relative to LOCAL_FALLBACK/
-  // CLAUDE_CLI_HAIKU by tier rank anymore (AI_COMPETING_TIERS='' restores
+  // free-tier providers, it is not pinned relative to LOCAL_FALLBACK by tier
+  // rank anymore (AI_COMPETING_TIERS='' restores
   // that). Shared composite action: see
   // .github/actions/setup-omniroute/action.yml for the full rationale +
   // incident history. Must run before the per-crawler steps below so
@@ -1267,21 +1268,15 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
   // itself relies on below).
   steps.push({ uses: './.github/actions/setup-omniroute' });
 
-  // Claude CLI Haiku fallback (ON by default, kill-switch '0') — tier-0 by
-  // default in ai-models.mjs's DEFAULT_CHAIN since 2026-07-29
-  // (AI_COMPETING_TIERS), competing on real score instead of being reached
-  // only after every free-tier model has failed. Capped at
-  // CLAUDE_CLI_MAX_CALLS_PER_RUN calls/run (default 25) since this quota is
-  // shared with pr-review-loop.yml/issue-fix.yml. Shared composite action:
-  // see .github/actions/setup-claude-haiku-fallback/action.yml for the full
-  // rationale + incident history. Must run before the per-crawler steps
-  // below so ENABLE_HAIKU_ARTICLE_FALLBACK is forced into $GITHUB_ENV in
-  // time for every launcher to inherit it.
+  // Codex Luna Max article lane (ON by default, historical kill-switch '0').
+  // The setup action installs the pinned Codex CLI and exposes only a private
+  // bounded broker socket to the per-crawler steps below. Its raw subscription
+  // credential never enters a crawler environment.
   steps.push({
     id: 'setup_claude_haiku_fallback',
     uses: './.github/actions/setup-claude-haiku-fallback',
     // Keep the Codex secret on the setup action's process only. That action
-    // keeps it in a one-shot broker and exposes only a socket output to the
+    // keeps it in a bounded broker and exposes only a socket output to the
     // individual crawler AI steps; no raw secret enters any crawler step.
     with: { codex_auth_json: '${{ secrets.CODEX_AUTH_JSON }}' },
   });
@@ -1612,7 +1607,6 @@ export function buildCrawlerLogicWorkflow(generatedWorkflowText, {
       inputs: logicInputs,
       secrets: {
         FIREBASE_SERVICE_ACCOUNT_JSON: { required: false },
-        CLAUDE_CODE_OAUTH_TOKEN: { required: false },
         CODEX_AUTH_JSON: { required: false },
       },
     },
@@ -1808,7 +1802,6 @@ export function assertCrawlerLogicParity(generatedWorkflowText, logicWorkflowTex
   const logicTrigger = logicWorkflow.on;
   const expectedSecrets = {
         FIREBASE_SERVICE_ACCOUNT_JSON: { required: false },
-        CLAUDE_CODE_OAUTH_TOKEN: { required: false },
         CODEX_AUTH_JSON: { required: false },
   };
   const expectedLogicInputs = structuredClone(generatedTrigger.workflow_dispatch.inputs);

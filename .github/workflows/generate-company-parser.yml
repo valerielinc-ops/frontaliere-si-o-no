@@ -93,12 +93,9 @@ jobs:
           cat /tmp/omniroute.log || true
           node scripts/omniroute-diagnose.mjs || true
 
-      # ── Claude CLI Haiku fallback (ON by default, kill-switch '0') ──────
-      # Tier-0 in ai-models.mjs's DEFAULT_CHAIN by default since 2026-07-29
-      # (AI_COMPETING_TIERS) — competes on real score instead of being
-      # reached only after every free-tier model has failed. See
-      # .github/actions/setup-claude-haiku-fallback/action.yml for the full
-      # rationale + incident history.
+      # ── Codex Luna Max article lane (ON by default, kill-switch '0') ────
+      # Bounded Codex CLI broker used by ai-models.mjs for parser proposals.
+      # The historical action path is retained for workflow compatibility.
       - id: setup_claude_haiku_fallback
         uses: ./.github/actions/setup-claude-haiku-fallback
         with:
@@ -110,13 +107,11 @@ jobs:
           PARSER_COMPANY_WEBSITE: ${{ inputs.company_website }}
           PARSER_COMPANY_KEY: ${{ inputs.company_key }}
           PARSER_APPLY_CONFIG: ${{ inputs.apply_config == 'true' && '1' || '0' }}
-          # Auth for the opt-in Claude CLI Haiku fallback (tier-0 by default
-          # since 2026-07-29 — see AI_COMPETING_TIERS in ai-models.mjs; see
-          # "Setup Claude CLI Haiku fallback" step above). Harmless to always
-          # pass: ai-models.mjs only offers the model when this AND the RC
-          # flag are both set.
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # Auth for the bounded Codex Luna Max article lane. Harmless to
+          # always pass: ai-models.mjs only opens the broker when its gate is
+          # enabled.
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: node scripts/generate-company-parser.mjs
 
       - name: Check for changes
@@ -140,8 +135,8 @@ jobs:
           PARSER_APPLY_CONFIG: ${{ inputs.apply_config == 'true' && '1' || '0' }}
           # --regenerate-cmd below re-invokes generate-company-parser.mjs on
           # rebase-conflict retry — same auth needed as the step above.
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |
           node scripts/ci/validate-generated-data.mjs \
             --kind parser-proposals \

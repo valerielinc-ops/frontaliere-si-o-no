@@ -3,21 +3,22 @@ import { readFileSync } from 'node:fs';
 import YAML from 'yaml';
 
 const WORKFLOW = '.github/workflows/tests.yml';
+const ACTION = '.github/actions/claude-codex-fallback/action.yml';
 
-describe('tests workflow — Claude effort is checked on the runtime CLI (#7267)', () => {
-  it('checks the action-installed CLI after the review action succeeds', () => {
+describe('tests workflow — Codex Luna Max is fixed at runtime', () => {
+  it('uses the pinned Codex CLI with max reasoning and no Claude runtime guard', () => {
     const source = readFileSync(WORKFLOW, 'utf8');
+    const action = readFileSync(ACTION, 'utf8');
     const doc: any = YAML.parse(source);
     const steps = Object.values<any>(doc.jobs ?? {})
       .flatMap((job: any) => job.steps ?? []);
-    const index = steps.findIndex((step: any) => step.id === 'claude_review');
-    const guard = steps.find((step: any) => step.id === 'claude_effort');
+    const review = steps.find((step: any) => step.id === 'codex_review');
 
-    expect(index, `missing Claude review step in ${WORKFLOW}`).toBeGreaterThanOrEqual(0);
-    expect(guard, `missing runtime effort guard in ${WORKFLOW}`).toBeTruthy();
-    expect(guard.run).toContain('claude --effort medium --version');
-    expect(guard.run).toMatch(/unknown.{0,20}--effort|--effort.{0,20}unknown|unknown option.{0,20}effort/i);
-    expect(guard.if).toContain("steps.claude_review.outcome == 'success'");
-    expect(steps.indexOf(guard)).toBeGreaterThan(index);
+    expect(review, `missing Codex review step in ${WORKFLOW}`).toBeTruthy();
+    expect(action).toContain('name: "Codex Luna Max primary"');
+    expect(action).toContain('--model gpt-5.6-luna');
+    expect(action).toContain('-c model_reasoning_effort=max');
+    expect(steps.some((step: any) => step.id === 'claude_effort')).toBe(false);
+    expect(action).not.toContain('claude --effort');
   });
 });

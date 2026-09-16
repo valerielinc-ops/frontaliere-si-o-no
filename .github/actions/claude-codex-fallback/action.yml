@@ -1,28 +1,24 @@
-name: "Codex primary with Claude fallback"
+name: "Codex Luna Max primary"
 description: >-
   Runs exactly one ephemeral Codex CLI attempt with ChatGPT subscription auth.
-  If Codex fails before any detectable local or remote side effect, runs the
-  existing Claude Code action as the fallback. A failure after a possible side
-  effect stops without retrying the prompt. The action has no API-key mode.
+  A failure after a possible local or remote side effect stops without
+  retrying the prompt. The action has no API-key mode and no alternate agent.
 
 inputs:
   preflight_blocked:
-    description: "Deprecated compatibility input; Claude quota no longer gates the Codex-primary run."
+    description: "Deprecated compatibility input; subscription quota no longer gates the Codex run."
     required: false
     default: "false"
   execution_file:
-    description: "Claude execution file, when the caller already has one."
+    description: "Deprecated compatibility input; Codex does not produce a Claude execution file."
     required: false
     default: ""
-  claude_code_oauth_token:
-    description: "Claude subscription OAuth token for the fallback action."
-    required: true
   codex_auth_json:
     description: "ChatGPT-managed Codex auth.json supplied to the Codex-primary setup step."
     required: false
     default: ""
   github_token:
-    description: "Token passed to the Claude fallback action."
+    description: "Token used by the provider-neutral quota and delivery helpers."
     required: false
     default: ""
   codex_github_token:
@@ -33,24 +29,8 @@ inputs:
     description: "Optional separate token for the exact frontaliere-articles corpus scope; host-side bridge only."
     required: false
     default: ""
-  allowed_bots:
-    description: "Bot allow-list passed to the Claude fallback action."
-    required: false
-    default: ""
-  allowed_non_write_users:
-    description: "Non-write actor allow-list passed to the Claude fallback action."
-    required: false
-    default: ""
-  show_full_output:
-    description: "show_full_output value for the Claude fallback action."
-    required: false
-    default: "true"
-  claude_args:
-    description: "claude_args value for the Claude fallback action."
-    required: false
-    default: ""
   prompt:
-    description: "The unchanged task prompt used by the Codex primary and Claude fallback."
+    description: "The task prompt used by the Codex Luna Max primary."
     required: true
   review_marker:
     description: "Optional marker required in a Codex primary review body before a review gate accepts it."
@@ -59,16 +39,16 @@ inputs:
 
 outputs:
   execution_file:
-    description: "Claude execution file, if the Claude fallback ran."
+    description: "Deprecated compatibility output; always empty for Codex."
     value: ${{ steps.finalize.outputs.execution_file }}
   fallback_used:
-    description: "true when the Claude fallback was attempted."
+    description: "Deprecated compatibility output; always false because Codex is the only agent."
     value: ${{ steps.finalize.outputs.fallback_used }}
   fallback_success:
-    description: "true when the Claude fallback finished successfully."
+    description: "Deprecated compatibility output; always false because Codex is the only agent."
     value: ${{ steps.finalize.outputs.fallback_success }}
   fallback_trigger:
-    description: "codex-primary or codex-failure, or empty."
+    description: "Deprecated compatibility output; empty for the Codex-only action."
     value: ${{ steps.finalize.outputs.fallback_trigger }}
   fallback_evidence_file:
     description: "Ephemeral structured Codex-primary evidence file for review gates."
@@ -77,7 +57,7 @@ outputs:
     description: "Ephemeral last-message file written by Codex, if attempted."
     value: ${{ steps.finalize.outputs.codex_output_file }}
   claude_outcome:
-    description: "Outcome of the Claude fallback action."
+    description: "Deprecated compatibility output; always skipped for the Codex-only action."
     value: ${{ steps.finalize.outputs.claude_outcome }}
 
   primary_provider:
@@ -87,19 +67,19 @@ outputs:
     description: "true when the Codex primary completed successfully."
     value: ${{ steps.finalize.outputs.primary_success }}
   selected_provider:
-    description: "Provider that completed the task: codex, claude, or none."
+    description: "Provider that completed the task: codex or none."
     value: ${{ steps.finalize.outputs.selected_provider }}
   action_success:
-    description: "true when Codex primary or Claude fallback completed successfully."
+    description: "true when the Codex primary completed successfully."
     value: ${{ steps.finalize.outputs.action_success }}
   codex_outcome:
     description: "GitHub Actions outcome of the Codex primary step."
     value: ${{ steps.finalize.outputs.codex_outcome }}
   claude_used:
-    description: "true when the Claude fallback was actually attempted."
+    description: "Deprecated compatibility output; always false for the Codex-only action."
     value: ${{ steps.finalize.outputs.claude_used }}
   claude_success:
-    description: "true when the Claude fallback completed successfully."
+    description: "Deprecated compatibility output; always false for the Codex-only action."
     value: ${{ steps.finalize.outputs.claude_success }}
   side_effect_detected:
     description: "true when Codex may have changed local or remote state before failing."
@@ -1117,28 +1097,11 @@ runs:
           side_effect_detected=false
         fi
         if [ "$side_effect_detected" = true ] && [ "$codex_status" -ne 0 ]; then
-          echo '::warning::Claude fallback suppressed because Codex may have changed local or remote state.'
+          echo '::warning::Codex retry suppressed because the primary may have changed local or remote state.'
         fi
         printf 'side_effect_detected=%s\n' "$side_effect_detected" >> "$GITHUB_OUTPUT"
         printf 'codex_output=%s\n' "$codex_output_destination" >> "$GITHUB_OUTPUT"
         exit "$codex_status"
-
-    - name: Run Claude fallback
-      id: claude
-      # A failed Codex process is retryable only when the bridge and Git-state
-      # snapshots prove that it did not deliver or mutate anything. Unknown
-      # state is deliberately non-retryable to avoid duplicate fixes/PRs.
-      if: always() && steps.repair_quota.outputs.admit == 'true' && (steps.codex.outcome == 'skipped' || (steps.codex.outcome == 'failure' && steps.codex.outputs.side_effect_detected == 'false'))
-      continue-on-error: true
-      uses: anthropics/claude-code-action@9c5ddab2e6d17b83ea679153b31f1d5f023cf636
-      with:
-        claude_code_oauth_token: ${{ inputs.claude_code_oauth_token }}
-        github_token: ${{ inputs.github_token }}
-        allowed_bots: ${{ inputs.allowed_bots }}
-        allowed_non_write_users: ${{ inputs.allowed_non_write_users }}
-        show_full_output: ${{ inputs.show_full_output }}
-        claude_args: ${{ inputs.claude_args }}
-        prompt: ${{ inputs.prompt }}
 
     - name: Record structured Codex primary evidence
       id: finalize
@@ -1148,8 +1111,6 @@ runs:
         CODEX_OUTCOME: ${{ steps.codex.outcome }}
         CODEX_SIDE_EFFECT_DETECTED: ${{ steps.codex.outputs.side_effect_detected }}
         CODEX_OUTPUT: ${{ steps.codex.outputs.codex_output }}
-        CLAUDE_OUTCOME: ${{ steps.claude.outcome }}
-        EXEC_FILE: ${{ steps.claude.outputs.execution_file }}
         REPAIR_QUOTA_ADMIT: ${{ steps.repair_quota.outputs.admit }}
         REPAIR_QUOTA_HELD: ${{ steps.repair_quota.outputs.held }}
         EVIDENCE_FILE: ${{ runner.temp }}/codex-primary-evidence-${{ github.run_id }}-${{ github.run_attempt }}.md
@@ -1179,31 +1140,21 @@ runs:
         elif [ "$side_effect_detected" != 'false' ]; then
           side_effect_detected=true
         fi
-        claude_outcome="${CLAUDE_OUTCOME:-skipped}"
         codex_success=false
         [ "$codex_outcome" = 'success' ] && codex_success=true
         claude_used=false
-        case "$claude_outcome" in
-          success|failure|cancelled) claude_used=true ;;
-        esac
         claude_success=false
-        [ "$claude_outcome" = 'success' ] && claude_success=true
         action_success=false
         selected_provider='none'
         if [ "$codex_success" = 'true' ]; then
           action_success=true
           selected_provider='codex'
-        elif [ "$claude_success" = 'true' ]; then
-          action_success=true
-          selected_provider='claude'
         fi
         primary_provider='codex'
         primary_success="$codex_success"
         trigger=''
         if [ "$codex_success" = 'true' ]; then
           trigger='codex-primary'
-        elif [ "$claude_used" = 'true' ]; then
-          trigger='codex-failure'
         fi
         evidence_file=''
         if [ "$codex_success" = 'true' ]; then
@@ -1225,14 +1176,14 @@ runs:
           cat "$EVIDENCE_FILE" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           evidence_file="$EVIDENCE_FILE"
         fi
-        printf 'execution_file=%s\n' "${EXEC_FILE:-}" >> "$GITHUB_OUTPUT"
+        printf 'execution_file=\n' >> "$GITHUB_OUTPUT"
         printf 'fallback_used=%s\n' "$claude_used" >> "$GITHUB_OUTPUT"
         printf 'fallback_success=%s\n' "$claude_success" >> "$GITHUB_OUTPUT"
         printf 'fallback_trigger=%s\n' "$trigger" >> "$GITHUB_OUTPUT"
         printf 'fallback_evidence_file=%s\n' "$evidence_file" >> "$GITHUB_OUTPUT"
         printf 'codex_output_file=%s\n' "${CODEX_OUTPUT:-}" >> "$GITHUB_OUTPUT"
         printf 'codex_outcome=%s\n' "$codex_outcome" >> "$GITHUB_OUTPUT"
-        printf 'claude_outcome=%s\n' "$claude_outcome" >> "$GITHUB_OUTPUT"
+        printf 'claude_outcome=skipped\n' >> "$GITHUB_OUTPUT"
         printf 'claude_used=%s\n' "$claude_used" >> "$GITHUB_OUTPUT"
         printf 'claude_success=%s\n' "$claude_success" >> "$GITHUB_OUTPUT"
         printf 'side_effect_detected=%s\n' "$side_effect_detected" >> "$GITHUB_OUTPUT"
@@ -1346,11 +1297,11 @@ runs:
         finalize_outcome="${{ steps.finalize.outcome }}"
         action_success="${{ steps.finalize.outputs.action_success }}"
         if [ "$finalize_outcome" != 'success' ]; then
-          echo "::error::Codex-primary/Claude-fallback finalizer ended with outcome=$finalize_outcome."
+          echo "::error::Codex-primary finalizer ended with outcome=$finalize_outcome."
           exit 1
         fi
         if [ "$action_success" = 'true' ]; then
           exit 0
         fi
-        echo "::error::Neither Codex primary nor Claude fallback completed successfully (codex=${{ steps.finalize.outputs.codex_outcome }}, claude=${{ steps.finalize.outputs.claude_outcome }})."
+        echo "::error::Codex Luna Max did not complete successfully (outcome=${{ steps.finalize.outputs.codex_outcome }})."
         exit 1

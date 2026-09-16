@@ -3,7 +3,7 @@
  *
  * Il difetto sorvegliato. `post-merge-followup.yml` conia una issue aggregata per PR
  * mergiata; il divieto di mintare item senza condizione di accettazione falsificabile
- * esisteva solo nel prompt Claude. Misurato il 2026-09-06 sul sito, ultimi 7 giorni:
+ * esisteva solo nel prompt Codex. Misurato il 2026-09-06 sul sito, ultimi 7 giorni:
  * 164 aggregate coniate, 91 (55%) strutturalmente immortali — 76 senza nemmeno un item
  * falsificabile. Una `no-valid-item` non si chiude MAI: `aggregateCloseGate()` la blocca
  * per costruzione (chiuderla sarebbe chiudere su evidenza assente, incidente #5849).
@@ -377,13 +377,13 @@ describe('gate sul conio — pin sul sorgente', () => {
     // comportamentale se ne accorge — il gate semplicemente non gira piu'.
     const gate = wf.indexOf('node scripts/ci/gate-minted-followups.mjs');
     const conio = wf.indexOf('uses: ./.github/actions/claude-codex-fallback');
-    const stepStart = wf.lastIndexOf('- name: Run Claude follow-up triage', conio);
+    const stepStart = wf.lastIndexOf('- name: Run Codex Luna Max follow-up triage', conio);
     expect(gate).toBeGreaterThan(-1);
     expect(conio).toBeGreaterThan(-1);
     expect(stepStart).toBeGreaterThan(-1);
     expect(stepStart).toBeLessThan(conio);
     expect(gate).toBeGreaterThan(conio);
-    expect(wf.slice(stepStart, gate)).toContain('Run Claude follow-up triage');
+    expect(wf.slice(stepStart, gate)).toContain('Run Codex Luna Max follow-up triage');
     // Deve girare anche se il conio e' morto in timeout DOPO aver creato la issue,
     // e non deve poter far fallire il triage.
     const step = wf.slice(wf.lastIndexOf('- name:', gate), gate);

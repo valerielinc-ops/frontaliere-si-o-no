@@ -693,7 +693,7 @@ describe('copertura workflow diretti', () => {
     expect(issueFix).not.toMatch(/\n\s+github_token: \$\{\{ env\.APP_TOKEN \|\| secrets\.GITHUB_TOKEN \}\}/);
   });
 
-  it('mantiene il contratto di invocazione Codex e cleanup effimero', () => {
+  it('mantiene il contratto di invocazione Codex Luna Max e cleanup effimero', () => {
     const action = readFileSync(resolve(repoRoot, '.github', 'actions', 'claude-codex-fallback', 'action.yml'), 'utf8');
     const actionDir = resolve(repoRoot, '.github', 'actions', 'claude-codex-fallback');
     const ghBridge = readFileSync(resolve(actionDir, 'gh-bridge-server.mjs'), 'utf8');
@@ -703,8 +703,8 @@ describe('copertura workflow diretti', () => {
     const gitClient = readFileSync(resolve(actionDir, 'git-bridge-client.mjs'), 'utf8');
     const gitSanitizer = readFileSync(resolve(actionDir, 'sanitize-git-config.mjs'), 'utf8');
     const postMerge = readFileSync(resolve(repoRoot, '.github', 'workflows', 'post-merge-followup.yml'), 'utf8');
-    expect(action).toContain('anthropics/claude-code-action@9c5ddab2e6d17b83ea679153b31f1d5f023cf636');
-    expect(action).not.toContain('anthropics/claude-code-action@v1');
+    expect(action).not.toContain('anthropics/claude-code-action');
+    expect(action).toContain('name: "Codex Luna Max primary"');
     expect(action).toContain('@openai/codex@0.153.4');
     expect(action).toContain('--ephemeral');
     expect(action).toContain('--model gpt-5.6-luna');
@@ -754,16 +754,14 @@ describe('copertura workflow diretti', () => {
     const sandboxStart = action.indexOf('- name: Prepare Linux sandbox prerequisites for Codex primary');
     const authStart = action.indexOf('- name: Prepare ephemeral Codex subscription auth for Codex primary');
     const codexStart = action.indexOf('- name: Run Codex primary (one subscription attempt)');
-    const claudeStart = action.indexOf('- name: Run Claude fallback');
     const finalizeStart = action.indexOf('- name: Record structured Codex primary evidence');
     expect(installStart).toBeGreaterThan(-1);
     expect(installStart).toBeLessThan(sandboxStart);
     expect(sandboxStart).toBeLessThan(authStart);
     expect(authStart).toBeLessThan(codexStart);
-    expect(codexStart).toBeLessThan(claudeStart);
-    expect(claudeStart).toBeLessThan(finalizeStart);
-    expect(action).toContain("steps.codex.outcome == 'failure'");
-    expect(action).toContain("steps.codex.outputs.side_effect_detected == 'false'");
+    expect(codexStart).toBeLessThan(finalizeStart);
+    expect(action).toContain('CODEX_OUTCOME: ${{ steps.codex.outcome }}');
+    expect(action).toContain('CODEX_SIDE_EFFECT_DETECTED: ${{ steps.codex.outputs.side_effect_detected }}');
     expect(action).toContain('restore_sanitized_git_config');
     const stopGhStart = action.indexOf('        stop_gh_bridge() {');
     const stopGhEnd = action.indexOf('        trap stop_gh_bridge EXIT', stopGhStart);
@@ -773,7 +771,7 @@ describe('copertura workflow diretti', () => {
     expect(action).not.toContain('steps.preflight');
     expect(action).not.toContain('steps.runtime.outputs');
     const installBlock = action.slice(installStart, authStart);
-    const codexBlock = action.slice(codexStart, claudeStart);
+    const codexBlock = action.slice(codexStart, finalizeStart);
     expect(installBlock).toContain('env -i');
     expect(installBlock).toContain('NPM_CONFIG_USERCONFIG=/dev/null');
     expect(installBlock).toContain('TRUSTED_NPM: ${{ steps.trusted_node.outputs.npm_realpath }}');
@@ -1046,7 +1044,7 @@ describe('copertura workflow diretti', () => {
     expect(run('invalid', '0')).not.toBe(0);
   });
 
-  it('accetta Codex riuscito o Claude fallback e propaga gli esiti inattesi', () => {
+  it('accetta il successo Codex e propaga gli esiti inattesi', () => {
     const action = readFileSync(resolve(repoRoot, '.github', 'actions', 'claude-codex-fallback', 'action.yml'), 'utf8');
     expect(action).toContain('finalize_outcome="${{ steps.finalize.outcome }}"');
     expect(action).toContain('action_success="${{ steps.finalize.outputs.action_success }}"');
