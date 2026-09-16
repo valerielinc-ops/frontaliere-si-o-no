@@ -931,7 +931,7 @@ export function buildObservation({
   primaryMetric,
   guardrails,
   minimumSample,
-  actionClass = 'observe',
+  actionClass,
   quality = 'unmeasurable',
   allowNumeratorExceedDenominator = false,
   recordedAt = new Date().toISOString(),
