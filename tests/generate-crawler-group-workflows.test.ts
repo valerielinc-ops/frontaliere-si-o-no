@@ -1734,6 +1734,15 @@ describe('cross-repo crawler execution artifacts', () => {
     }
   });
 
+  it('documenta nel translate il confine di scrittura isolato senza lease Firestore', () => {
+    const { outDir } = generateArtifacts();
+    const translate = fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8');
+    expect(translate).toMatch(/isolated `--slice-only`/);
+    expect(translate).toMatch(/private index from the\s+# current `origin\/main`/);
+    expect(translate).toMatch(/3-way-merges touched JSON/);
+    expect(translate).toMatch(/retries the atomic ref push after contention/);
+  });
+
   it('confina il secret Codex all’action setup e lo rimuove dagli env dei processi', () => {
     const { outDir } = generateArtifacts();
     const generated = YAML.parse(fs.readFileSync(path.join(outDir, 'crawler-group-01.yml'), 'utf8'));
