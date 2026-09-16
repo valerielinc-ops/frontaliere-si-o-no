@@ -145,6 +145,7 @@ function sha256(value) {
 }
 
 const jobRecordDigestCache = new WeakMap();
+const relatedJobProjectionCache = new WeakMap();
 
 function digestJobRecord(job) {
   if (!job || typeof job !== 'object') return sha256('{}');
@@ -153,9 +154,13 @@ function digestJobRecord(job) {
 
   // The assembler preserves source JSON key order. A shallow filter keeps the
   // full record covered without recursively canonicalizing its large fields.
-  const record = { ...job };
-  for (const key of Object.keys(record)) {
-    if (isRuntimeInputKey(key)) delete record[key];
+  const keys = Object.keys(job);
+  let record = job;
+  if (keys.some((key) => isRuntimeInputKey(key))) {
+    record = {};
+    for (const key of keys) {
+      if (!isRuntimeInputKey(key)) record[key] = job[key];
+    }
   }
   // Job records do not carry fetch-only `fetchedAt`; `updatedAt`, `crawledAt`,
   // and posting dates are retained because they are source/freshness inputs to
@@ -170,11 +175,20 @@ function projectRelatedJob(relatedJob, locale) {
   const id = isRecord ? stableJobId(relatedJob) : String(relatedJob ?? '');
   if (!id) return null;
   if (!isRecord) return { id, slug: '', digest: null };
-  return {
+  let projectionsByLocale = relatedJobProjectionCache.get(relatedJob);
+  if (!projectionsByLocale) {
+    projectionsByLocale = new Map();
+    relatedJobProjectionCache.set(relatedJob, projectionsByLocale);
+  }
+  const cachedProjection = projectionsByLocale.get(locale);
+  if (cachedProjection) return cachedProjection;
+  const projection = {
     id,
     slug: String(relatedJob?.slugByLocale?.[locale] || relatedJob?.slug || ''),
     digest: digestJobRecord(relatedJob),
   };
+  projectionsByLocale.set(locale, projection);
+  return projection;
 }
 
 export function templateVersionForKind(kind) {
