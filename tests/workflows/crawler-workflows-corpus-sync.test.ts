@@ -73,6 +73,18 @@ describe('crawler workflow corpus transport', () => {
     expect(script).toContain('i sette observer dedicati e le 32 baseline');
   });
 
+  it('emette stati espliciti nel body per evitare un finding Important del review-gate', () => {
+    const bodyStart = script.indexOf('## Non implementato (ancora)');
+    const bodyEnd = script.indexOf('\nBODY', bodyStart);
+    expect(bodyStart).toBeGreaterThanOrEqual(0);
+    expect(bodyEnd).toBeGreaterThan(bodyStart);
+    const body = script.slice(bodyStart, bodyEnd);
+    expect(body).toContain('- in questa PR, by construction:');
+    expect(body).toContain('- blocked:');
+    expect(body).not.toContain('\n- by construction:');
+    expect(body).not.toContain('\n- per scelta:');
+  });
+
   it('lo script di consegna e sintatticamente valido', () => {
     expect(() => execFileSync('bash', ['-n', scriptPath], { stdio: 'pipe' })).not.toThrow();
   });
