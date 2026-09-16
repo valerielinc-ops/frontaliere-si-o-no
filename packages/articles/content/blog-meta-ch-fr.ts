@@ -6467,6 +6467,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.migros-ristruttura-online-retail.title': 'Migros donne plus d\'indépendance à l\'Internet et change les sommets',
     'blog.article.migros-ristruttura-online-retail.excerpt': 'Le groupe Migros réorganise les structures en créant le secteur de la vente en ligne indépendante et nomme Florian Teuteberg nouveau président.',
     'blog.article.migros-ristruttura-online-retail.imageAlt': 'Siege administratif de Migros en Suisse',
+    'blog.article.avviare-attivita-canton-nidvaldo.title': 'Démarrer une activité dans le canton de Nidwald : guide pratique',
+    'blog.article.avviare-attivita-canton-nidvaldo.excerpt': 'Les étapes nécessaires pour choisir la forme juridique, l\'inscription au registre du commerce et les coûts fixes pour démarrer une entreprise dans le canton de Nidwald.',
+    'blog.article.avviare-attivita-canton-nidvaldo.imageAlt': 'Immeuble de bureaux moderne dans un canton suisse pour les activités économiques',
 };
 
 export default blogMetaChFr;

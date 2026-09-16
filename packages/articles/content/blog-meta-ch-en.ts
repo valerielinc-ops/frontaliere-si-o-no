@@ -6467,6 +6467,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.migros-ristruttura-online-retail.title': 'Migros gives more independence to the online and changes the top management',
     'blog.article.migros-ristruttura-online-retail.excerpt': 'The Migros group reorganizes the structures creating the independent Online Retail sector and appoints Florian Teuteberg as new president.',
     'blog.article.migros-ristruttura-online-retail.imageAlt': 'Migros administrative headquarters in Switzerland',
+    'blog.article.avviare-attivita-canton-nidvaldo.title': 'Starting a business in Canton Nidvaldo: a practical guide',
+    'blog.article.avviare-attivita-canton-nidvaldo.excerpt': 'The necessary steps for the choice of legal form, registration in the commercial register and fixed costs to start a business in the Canton of Nidvaldo.',
+    'blog.article.avviare-attivita-canton-nidvaldo.imageAlt': 'Modern office building in a Swiss canton for business activities',
 };
 
 export default blogMetaChEn;

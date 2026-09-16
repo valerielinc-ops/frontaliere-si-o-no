@@ -6467,6 +6467,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.migros-ristruttura-online-retail.title': 'Migros macht Online unabhängiger und wechselt die Führung',
     'blog.article.migros-ristruttura-online-retail.excerpt': 'Die Migros-Gruppe reorganisiert die Strukturen zum eigenständigen Online Retail und ernennt Florian Teuteberg zum neuen Präsidenten.',
     'blog.article.migros-ristruttura-online-retail.imageAlt': 'Migros Verwaltungsgebaeude in der Schweiz',
+    'blog.article.avviare-attivita-canton-nidvaldo.title': 'Ein Unternehmen im Kanton Nidwalden gründen: Praxisleitfaden',
+    'blog.article.avviare-attivita-canton-nidvaldo.excerpt': 'Die notwendigen Schritte für die Wahl der Rechtsform, die Eintragung ins Handelsregister und die Fixkosten für die Unternehmensgründung im Kanton Nidwalden.',
+    'blog.article.avviare-attivita-canton-nidvaldo.imageAlt': 'Modernes Bürogebäude in einem Schweizer Kanton für geschäftliche Aktivitäten',
 };
 
 export default blogMetaChDe;

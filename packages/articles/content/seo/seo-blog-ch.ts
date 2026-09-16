@@ -83831,6 +83831,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avviare-attivita-canton-nidvaldo': {
+    title: 'Avviare un\'attività nel Canton Nidvaldo: guida pratica',
+    description: 'Scopri come avviare un\'impresa nel Canton Nidvaldo: registro di commercio, forme giuridiche, obblighi assicurativi e fiscali spiegati in modo semplice.',
+    keywords: 'frontalieri, ticino, svizzera, italia, avviare, attività, canton, nidvaldo',
+    ogTitle: 'Avviare un\'attività nel Canton Nidvaldo: guida e costi',
+    ogDescription: 'Vuoi aprire un\'azienda nel Canton Nidvaldo? Scopri le procedure per il registro di commercio, le imposte e gli obblighi previdenziali in questa guida pratica.',
+    canonicalPath: '/articoli-svizzera/avviare-attivita-canton-nidvaldo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Avviare un'attività nel Canton Nidvaldo: guida pratica",
+      "description": "Scopri come avviare un'impresa nel Canton Nidvaldo: registro di commercio, forme giuridiche, obblighi assicurativi e fiscali spiegati in modo semplice.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avviare-attivita-canton-nidvaldo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio moderno in un cantone svizzero per attività economica"
+      },
+      "datePublished": "2026-09-16T02:04:47+00:00",
+      "dateModified": "2026-09-16T02:04:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avviare-attivita-canton-nidvaldo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
