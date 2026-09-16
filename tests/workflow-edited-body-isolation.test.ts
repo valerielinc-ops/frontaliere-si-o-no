@@ -31,14 +31,14 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
   return reruns;
 }
 
-describe('one code verdict and selective body recovery', () => {
-  it('has exactly one unconditional required execution job and no metadata triggers', () => {
+describe('one code verdict and metadata-triggered review recovery', () => {
+  it('has exactly one unconditional required execution job and reviews edited PR metadata', () => {
     expect(Object.keys(workflow.jobs)).toEqual(['vitest']);
     expect(job.name).toBe(VITEST_CHECK_NAME);
     expect(job.name).toBe(VITEST_EXECUTION_JOB_NAME);
     expect(job.if).toBeUndefined();
-    expect(workflow.on.pull_request.types).not.toContain('edited');
     expect(workflow.on.pull_request.types).not.toContain('labeled');
+    expect(workflow.on.pull_request.types).toContain('edited');
     expect(workflow.on.pull_request.types).toContain('synchronize');
   });
 
