@@ -149,6 +149,35 @@ describe('plate-auction static pages', () => {
     expect(rendered.html).toContain('id=rail-right-root');
   });
 
+  it('caps large canton catalogues before first paint', () => {
+    const rootDir = fixtureRoot({ auctionCount: 102 });
+    const rendered = renderPlateAuctionPage({ locale: 'de', view: 'canton', canton: 'GR', rootDir });
+
+    expect(Buffer.byteLength(rendered.html)).toBeLessThan(260 * 1024);
+    expect((rendered.html.match(/<tr>/g) || []).length).toBeLessThanOrEqual(106);
+    expect(rendered.html).not.toContain('Alle veröffentlichten Auktionen');
+  });
+
+  it('caps extra detail links when a small current catalogue has old rows', () => {
+    const rootDir = fixtureRoot();
+    const snapshotPath = join(rootDir, 'public', 'data', 'plate-auctions.json');
+    const snapshot = JSON.parse(readFileSync(snapshotPath, 'utf8')) as { auctions: Array<Record<string, unknown>> };
+    snapshot.auctions.push(...Array.from({ length: 2500 }, (_, index) => ({
+      ...snapshot.auctions[0],
+      id: `gr-expired-${index}`,
+      normalizedPlate: `EXPIRED${index}`,
+      auctionStatus: 'closed',
+      dataConfidence: 'partial',
+    })));
+    writeFileSync(snapshotPath, JSON.stringify(snapshot), 'utf8');
+
+    const rendered = renderPlateAuctionPage({ locale: 'it', view: 'canton', canton: 'GR', rootDir });
+
+    expect(rendered.html).toContain('EXPIRED0');
+    expect(rendered.html).not.toContain('EXPIRED48');
+    expect((rendered.html.match(/<li>/g) || []).length).toBeLessThanOrEqual(48);
+  });
+
   it('renders a historical detail page with the same indexable ad surfaces', () => {
     const rootDir = fixtureRoot();
     const rendered = renderPlateAuctionPage({ locale: 'en', view: 'detail', canton: 'GR', plate: 'GR7', rootDir });

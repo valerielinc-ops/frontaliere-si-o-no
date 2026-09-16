@@ -600,7 +600,7 @@ describe('native auto-merge workflow wiring (#8512)', () => {
   const retry = readFileSync(new URL('../.github/workflows/retry-native-automerge.yml', import.meta.url), 'utf8');
 
   it('evaluates review and workflow-run events, while opening remains a guarded observation', () => {
-    expect(workflow).toContain('types: [opened, reopened, ready_for_review, synchronize]');
+    expect(workflow).toContain('types: [opened, edited, reopened, ready_for_review, synchronize]');
     expect(workflow).toContain('pull_request_review:');
     expect(workflow).toContain('types: [submitted, edited, dismissed]');
     expect(workflow).toContain('workflow_run:');

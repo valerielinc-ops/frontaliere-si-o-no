@@ -11,6 +11,12 @@ on:
   push:
     branches:
       - main
+    # A reviewed ledger merge already passed L11; starting L11 again from its
+    # own append-only evidence would create an unbounded PR chain. Mixed pushes
+    # still run because paths-ignore applies only when every changed path is
+    # ignored.
+    paths-ignore:
+      - 'data/loop-fleet/ledger/**'
   workflow_dispatch:
     inputs:
       report_issue:

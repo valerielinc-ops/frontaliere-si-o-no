@@ -121,6 +121,7 @@ jobs:
         if: always() && (steps.site_checkout_primary.outcome == 'success' || steps.site_checkout_retry.outcome == 'success')
         run: "true"
       - name: Validate recovery successor claim
+        id: recovery_guard
         if: steps.checkout.outcome == 'success' && github.run_attempt > 1
         env:
           GITHUB_API_URL: ${{ github.api_url }}
@@ -203,7 +204,7 @@ jobs:
         if: success() && steps.checkout.outcome == 'success' && steps.hk.outputs.run == 'true' && inputs.dry_run != true
         run: bash scripts/lib/git-commit-data.sh --slice-only "🧹 Housekeeping — prune expired + validate URLs"
       - name: Install Argos Translate (local MT engine)
-        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1' && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         continue-on-error: true
         run: |
           python3 -m pip install --quiet --upgrade pip
@@ -261,7 +262,7 @@ jobs:
         run: node scripts/log-translation-stats.mjs before
       - name: Capture translation observability baseline
         id: translation_observability_before
-        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         run: |
           test -f data/jobs.json
           started_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
@@ -332,7 +333,7 @@ jobs:
           printf 'expected_contract_digest=%s\n' "$expected_contract_digest" >> "$GITHUB_OUTPUT"
           exit "$legacy_status"
       - name: Upload thinking A/B rows
-        if: always() && inputs.skip_translate != true
+        if: always() && inputs.skip_translate != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         continue-on-error: true
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
@@ -341,10 +342,10 @@ jobs:
           retention-days: 30
           if-no-files-found: warn
       - name: Scatter changes back to per-crawler slices
-        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         run: node scripts/scatter-jobs-to-slices.mjs
       - name: "Phase 2c mop-up: local MT (Argos Translate, in-process)"
-        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1' && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         continue-on-error: true
         env:
           LOCAL_MT_TIME_BUDGET_MS: "9000000"
@@ -353,11 +354,11 @@ jobs:
           INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
         run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
       - name: Re-assemble dataset after Phase 2c mop-up
-        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         run: node scripts/assemble-jobs-dataset.mjs
       - name: Commit translations
         id: commit_translations
-        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && inputs.dry_run != true
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         run: |
           before="$(git rev-parse HEAD)"
           bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs" data/jobs/by-crawler/ data/translation-cache/ data/jobs-crawler-config.json data/slug-registry.json data/translation-stats-history.json data/cascade-company-skip.json
@@ -390,10 +391,10 @@ jobs:
           after="$(git rev-parse HEAD)"
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
       - name: Re-assemble true-final translation dataset
-        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         run: node scripts/assemble-jobs-dataset.mjs
       - name: Log translation stats (after)
-        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         run: |
           if [ "${{ inputs.dry_run }}" = "true" ]; then
             node scripts/log-translation-stats.mjs after
@@ -401,7 +402,7 @@ jobs:
             TRANSLATION_STATS_AFTER_TREE=1 bash scripts/lib/git-commit-data.sh --slice-only "📊 Translation stats (after)" data/translation-stats-history.json
           fi
       - name: Capture final translation observability (shadow)
-        if: always() && steps.translation_observability_before.outputs.ready == 'true'
+        if: always() && steps.translation_observability_before.outputs.ready == 'true' && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         env:
           OBSERVABILITY_OUTCOME: ${{ job.status }}
         run: |
@@ -416,7 +417,7 @@ jobs:
             --started-at "${{ steps.translation_observability_before.outputs.started_at }}" \
             --source-commit "${{ steps.translation_observability_before.outputs.source_commit }}" --outcome "$OBSERVABILITY_OUTCOME"
       - name: Finalize translation observability report
-        if: always() && steps.translation_observability_before.outputs.ready == 'true'
+        if: always() && steps.translation_observability_before.outputs.ready == 'true' && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         run: |
           node scripts/collect-translation-observability.mjs \
             --mode finalize --report "$RUNNER_TEMP/translation-observability.json" \
@@ -424,7 +425,7 @@ jobs:
             --final-commit "${{ steps.commit_description_fixes.outputs.final_commit || steps.commit_title_fixes.outputs.final_commit || steps.commit_translations.outputs.final_commit }}"
       - name: Finalize translation shadow preflight v2 observation
         id: translation_shadow_preflight_v2_finalize
-        if: always() && steps.checkout.outcome == 'success'
+        if: always() && steps.checkout.outcome == 'success' && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         continue-on-error: true
         env:
           SHADOW_DEFAULT_COMPANY_KEY: ${{ inputs.company_key }}
@@ -469,7 +470,7 @@ jobs:
             --final-translation-commit "$SHADOW_FINAL_TRANSLATION_COMMIT" \
             --observed-job-status "$SHADOW_OBSERVED_JOB_STATUS"
       - name: Upload translation shadow preflight v2 artifacts
-        if: always() && steps.translation_shadow_preflight_v2_finalize.outcome != 'skipped'
+        if: always() && steps.translation_shadow_preflight_v2_finalize.outcome != 'skipped' && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         continue-on-error: true
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
@@ -480,10 +481,10 @@ jobs:
           retention-days: 14
           if-no-files-found: warn
       - name: Roll up translation observability history
-        if: always() && steps.translation_observability_before.outputs.ready == 'true' && inputs.dry_run != true
+        if: always() && steps.translation_observability_before.outputs.ready == 'true' && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         run: node scripts/rollup-translation-observability.mjs "$RUNNER_TEMP/translation-observability.json" data/translation-observability-history.json
       - name: Upload cascade company rows
-        if: always() && inputs.skip_translate != true
+        if: always() && inputs.skip_translate != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         continue-on-error: true
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
@@ -492,7 +493,7 @@ jobs:
           retention-days: 30
           if-no-files-found: warn
       - name: Commit translation observability history
-        if: always() && steps.translation_observability_before.outputs.ready == 'true' && inputs.dry_run != true
+        if: always() && steps.translation_observability_before.outputs.ready == 'true' && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         run: |
           telemetry_paths=(data/translation-observability-history.json)
           if [ -f data/translation-observability-state.json ]; then
@@ -500,7 +501,7 @@ jobs:
           fi
           bash scripts/lib/git-commit-data.sh --slice-only "📊 Roll up translation observability" "${telemetry_paths[@]}"
       - name: Upload translation observability report
-        if: always() && steps.translation_observability_before.outputs.ready == 'true'
+        if: always() && steps.translation_observability_before.outputs.ready == 'true' && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: translation-observability-${{ github.run_id }}
@@ -508,13 +509,13 @@ jobs:
           retention-days: 14
           if-no-files-found: error
       - name: "Phase 3: Regenerate locale slugs"
-        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
+        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         run: node scripts/regenerate-slugs-by-locale.mjs
       - name: Commit slug regeneration
-        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
+        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         run: bash scripts/lib/git-commit-data.sh --slice-only "🔗 Regenerate locale slugs (post-translation)"
       - name: Trigger deploy
-        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
+        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         run: |
           if node scripts/validate-translation-completeness.mjs 2>/dev/null; then
             echo "✅ All translations complete — triggering deploy"

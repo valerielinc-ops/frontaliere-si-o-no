@@ -13,6 +13,7 @@ const cascadeScript = fs.readFileSync(path.resolve('scripts/relocalize-pending-j
 const mopupScript = fs.readFileSync(path.resolve('scripts/local-mt-mopup.mjs'), 'utf8');
 const commitHelper = fs.readFileSync(path.resolve('scripts/lib/git-commit-data.sh'), 'utf8');
 const UPLOAD_ARTIFACT_V7_SHA = '043fb46d1a93c77aae656e7c1c64a875d1fc6a0a';
+const RECOVERY_READY = "(github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')";
 
 type YamlMapping = Record<string, unknown>;
 
@@ -36,6 +37,10 @@ function sha256(document: string) {
   return createHash('sha256').update(document).digest('hex');
 }
 
+function expectedIf(label: string, sourceIf: string) {
+  return label === 'portable artifact' ? `${sourceIf} && ${RECOVERY_READY}` : sourceIf;
+}
+
 describe('translation observability workflow', () => {
   it('advances true-final state only on successful non-dry source and portable runs', () => {
     for (const [label, document] of [['source', workflow], ['portable artifact', portableWorkflow]]) {
@@ -47,7 +52,7 @@ describe('translation observability workflow', () => {
         throw new Error(`${label}: final observability step must define name, if, and run`);
       }
       expect(final, `${label}: final observability step missing`).toMatchObject({
-        if: "always() && steps.translation_observability_before.outputs.ready == 'true'",
+        if: expectedIf(label, "always() && steps.translation_observability_before.outputs.ready == 'true'"),
       });
       expect(final.run).toContain('--state data/translation-observability-state.json');
       expect(final.run).toContain('--state-output data/translation-observability-state.json');
@@ -114,7 +119,7 @@ describe('translation observability workflow', () => {
       const statsStep = parseTranslationSteps(document)
         .find((step) => step.name === 'Log translation stats (after)');
       expect(statsStep, `${label}: after stats step missing`).toMatchObject({
-        if: "always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true",
+        if: expectedIf(label, "always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true"),
       });
       expect(statsStep?.run, `${label}: after stats must use the publication-tree helper`)
         .toContain('TRANSLATION_STATS_AFTER_TREE=1');
@@ -250,7 +255,7 @@ describe('translation observability workflow', () => {
       expect(cascade?.env, `${label}: dry-run must not alter Phase 2b`).not.toHaveProperty('RELOCALIZE_DRY_RUN');
       expect(JSON.stringify(cascade), `${label}: Phase 2b must not consume dry-run`).not.toContain('inputs.dry_run');
       expect(finalize, `${label}: finalizer missing`).toMatchObject({
-        if: "always() && steps.checkout.outcome == 'success'",
+        if: expectedIf(label, "always() && steps.checkout.outcome == 'success'"),
         'continue-on-error': true,
         env: {
           SHADOW_FINAL_TRANSLATION_COMMIT: '${{ steps.commit_description_fixes.outputs.final_commit || steps.commit_title_fixes.outputs.final_commit || steps.commit_translations.outputs.final_commit }}',
