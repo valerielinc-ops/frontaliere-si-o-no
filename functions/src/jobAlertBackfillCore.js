@@ -18,11 +18,12 @@
  *
  * The four signal tiers below are **context**, not separate consent events.
  * They determine the initial criteria and provenance for the base job-alert
- * relationship established by the registration terms. Every terms-based
- * registration gets one `backfill-newsletter` alert, including a broad
+ * relationship established by the newsletter registration. Every eligible
+ * newsletter record gets one `backfill-newsletter` alert, including a broad
  * empty-filter alert when no signal is available yet. The alert is then
  * progressively ranked and enriched by searches, visited jobs and clicks.
- * Explicit global or address-level suppression remains a hard stop.
+ * Newsletter lifecycle exclusions and explicit suppression remain creation
+ * gates; confirmation proof is not one.
  *
  * Why `onDocumentWritten`, not `onDocumentCreated`: on every social sign-in
  * (Google/Facebook/LinkedIn/One-Tap), `saveUserProfileToFirestore`
@@ -136,6 +137,31 @@ export function getSignalTier(data) {
 export function signalTierChanged(beforeData, afterData) {
   const beforeTier = beforeData ? getCheapSignalTier(beforeData) : 'none';
   return getCheapSignalTier(afterData) !== beforeTier;
+}
+
+/**
+ * True when a document carries the shape of a newsletter subscription rather
+ * than only an authentication/profile write. This is deliberately not a
+ * consent-proof check: legacy subscriber rows may have no proof fields at
+ * all, while a bare profile sync must not manufacture an alert relationship.
+ *
+ * @param {Record<string, unknown>|null|undefined} data
+ * @returns {boolean}
+ */
+export function hasNewsletterSubscriberRecord(data) {
+  if (!data || typeof data !== 'object') return false;
+  return Boolean(
+    (typeof data.status === 'string' && data.status.trim())
+    || typeof data.isActive === 'boolean'
+    || typeof data.active === 'boolean'
+    || typeof data.confirmed === 'boolean'
+    || (data.preferences && typeof data.preferences === 'object')
+    || data.consent_given === true
+    || data.consentGiven === true
+    || (typeof data.consent_text === 'string' && data.consent_text.trim())
+    || (typeof data.consentText === 'string' && data.consentText.trim())
+    || data.registration_terms_accepted === true
+  );
 }
 
 /**
@@ -367,7 +393,7 @@ export function evaluateJobAlertConsent({ alert, subscriber }) {
   }
   return {
     allowed: true,
-    reason: isBackfilledJobAlert(alert) ? 'backfill-registration-terms' : 'explicit-alert',
+    reason: isBackfilledJobAlert(alert) ? 'backfill-newsletter-registration' : 'explicit-alert',
   };
 }
 
@@ -378,17 +404,17 @@ export function evaluateJobAlertConsent({ alert, subscriber }) {
  * only — safe default, since deriving from an absent doc naturally yields
  * no patch and behaves exactly like the flat-field-only check.
  *
- * The registration terms create the base relationship; only suppression remains
- * a creation gate. A no-signal registration intentionally creates a broad
- * backfill alert so later behaviour can refine it.
+ * Newsletter lifecycle exclusions and explicit suppression remain creation
+ * gates. A no-signal registration intentionally creates a broad backfill
+ * alert so later behaviour can refine it; confirmation proof is not consulted.
  * @returns {'invalid-email'|'suppressed'|null} skip reason, null = eligible.
  */
 export function shouldSkipSubscriber(email, data, personalization = null) {
   if (!email || !email.includes('@')) return 'invalid-email';
-  // An explicit newsletter opt-out, hard address signal or legacy stop-all
-  // prevents a new base relationship from being created. An opt-out does not
-  // delete an already-created concrete job alert; the alert sender applies the
-  // same shared stop before delivery.
+  // Newsletter lifecycle exclusions, an explicit newsletter opt-out, hard
+  // address signals or a legacy stop-all prevent a new base relationship from
+  // being created. An opt-out does not delete an already-created concrete job
+  // alert; the alert sender applies the same shared stop before delivery.
   if (
     isNewsletterExcluded(data?.status)
     || isNewsletterOptOutBinding(data)

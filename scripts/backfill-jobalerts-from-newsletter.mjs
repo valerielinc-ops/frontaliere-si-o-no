@@ -2,19 +2,20 @@
 /**
  * Backfill the base job-alert relationship for existing registrations.
  *
- * The site registration relationship is now product-wide: every valid,
- * non-suppressed newsletter_subscribers document also gets the canonical
- * backfill-newsletter alert. Newsletter/lead channels start with the broad
- * alert that progressively learns from visits, searches and clicked jobs;
- * job-board channels keep the job/search context captured at registration.
+ * The site registration relationship is now product-wide: every valid
+ * newsletter_subscribers document not excluded by lifecycle/suppression state
+ * gets the canonical backfill-newsletter alert. Newsletter/lead channels start
+ * with the broad alert that progressively learns from visits, searches and
+ * clicked jobs; job-board channels keep the job/search context captured at
+ * registration.
  *
  * Safety:
  *   - default mode is a read-only report;
  *   - --write applies the exact same idempotent handler used by the live
  *     Firestore trigger;
  *   - no consent checkbox/DOI proof is consulted for the base relationship;
- *   - explicit unsubscribe, hard address suppression and stop-all remain
- *     exclusion gates.
+ *   - explicit unsubscribe, hard address suppression, stop-all and the
+ *     newsletter lifecycle exclusions remain exclusion gates.
  *
  * Usage:
  *   GOOGLE_APPLICATION_CREDENTIALS=/path/to/sa.json \

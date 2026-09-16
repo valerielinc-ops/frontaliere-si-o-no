@@ -34,7 +34,7 @@ describe('job-alert sender base-relationship and suppression boundary', () => {
     expect(evaluateJobAlertConsent({
       alert: BACKFILLED_ALERT,
       subscriber: SILENT_AUTH_SUBSCRIBER,
-    })).toEqual({ allowed: true, reason: 'backfill-registration-terms' });
+    })).toEqual({ allowed: true, reason: 'backfill-newsletter-registration' });
   });
 
   it('keeps explicit job-alert proof as historical metadata without requiring it', () => {
@@ -46,7 +46,7 @@ describe('job-alert sender base-relationship and suppression boundary', () => {
         consent_act: 'typed_email_submit',
         consent_text: 'Chiedo di ricevere gli avvisi di lavoro quotidiani.',
       },
-    })).toEqual({ allowed: true, reason: 'backfill-registration-terms' });
+    })).toEqual({ allowed: true, reason: 'backfill-newsletter-registration' });
   });
 
   it('allows a backfill explicitly upgraded from the site', () => {
@@ -61,7 +61,7 @@ describe('job-alert sender base-relationship and suppression boundary', () => {
     expect(hasStoredJobAlertConsent(alert)).toBe(true);
     expect(evaluateJobAlertConsent({ alert, subscriber: SILENT_AUTH_SUBSCRIBER })).toEqual({
       allowed: true,
-      reason: 'backfill-registration-terms',
+      reason: 'backfill-newsletter-registration',
     });
   });
 
@@ -81,7 +81,7 @@ describe('job-alert sender base-relationship and suppression boundary', () => {
   it('does not turn a missing profile into a consent gate', () => {
     expect(evaluateJobAlertConsent({ alert: BACKFILLED_ALERT, subscriber: null })).toEqual({
       allowed: true,
-      reason: 'backfill-registration-terms',
+      reason: 'backfill-newsletter-registration',
     });
   });
 
