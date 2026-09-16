@@ -1568,6 +1568,70 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(fs.readFileSync(corpusManifestPath, 'utf8')).toBe(stableManifest);
   }, 30_000);
 
+  it('converge il transport adattato del translate in identical dopo il fix sorgente', () => {
+    const { outDir, contractPath } = generateArtifacts();
+    fs.copyFileSync(contractPath, path.join(outDir, 'contract.json'));
+    const corpusRoot = path.join(tmp, 'adapted-corpus');
+    const manifestPath = path.join(corpusRoot, 'scripts/ci/loop-sync-manifest.json');
+    const baseManifest = {
+      files: [
+        {
+          path: '.github/workflows/translate-pending.yml',
+          sitePath: '.github/corpus-workflows/translate-pending.yml',
+          mode: 'adapted',
+          reason: 'temporary corpus-only lease removal for issue #1314',
+          baseline: { site: 'old-site', corpus: 'old-corpus', alignedAt: '2026-09-16' },
+        },
+        {
+          path: 'generator/data/crawler-cross-repo-contract.json',
+          sitePath: '.github/corpus-workflows/contract.json',
+          mode: 'adapted',
+          reason: 'temporary contract divergence for issue #1314',
+          baseline: { site: 'old-site', corpus: 'old-corpus', alignedAt: '2026-09-16' },
+        },
+      ],
+    };
+    fs.mkdirSync(path.dirname(manifestPath), { recursive: true });
+    fs.writeFileSync(manifestPath, `${JSON.stringify(baseManifest, null, 2)}\n`);
+
+    prepareCrawlerWorkflowCorpusSync({ sourceDir: outDir, corpusRoot, alignedAt: '2026-09-17' });
+
+    const currentManifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+    for (const sitePath of [
+      '.github/corpus-workflows/translate-pending.yml',
+      '.github/corpus-workflows/contract.json',
+    ]) {
+      const entry = currentManifest.files.find((candidate: any) => candidate.sitePath === sitePath);
+      expect(entry?.mode).toBe('identical');
+      expect(entry).not.toHaveProperty('reason');
+    }
+    expect(() => assertCrawlerManifestDelta({
+      baseManifest,
+      currentManifest,
+    })).not.toThrow();
+  }, 30_000);
+
+  it('non consente la convergenza di un adattamento transport non approvato', () => {
+    const baseManifest: any = {
+      files: [{
+        path: '.github/workflows/crawler-group-01.yml',
+        sitePath: '.github/corpus-workflows/crawler-group-01.yml',
+        mode: 'adapted',
+        reason: 'unrelated adaptation',
+        baseline: { site: 'old-site', corpus: 'old-corpus', alignedAt: '2026-09-16' },
+      }],
+    };
+    const currentManifest = structuredClone(baseManifest);
+    currentManifest.files[0] = {
+      path: '.github/workflows/crawler-group-01.yml',
+      sitePath: '.github/corpus-workflows/crawler-group-01.yml',
+      mode: 'identical',
+      baseline: { site: 'new-site', corpus: 'new-site', alignedAt: '2026-09-17' },
+    };
+    expect(() => assertCrawlerManifestDelta({ baseManifest, currentManifest }))
+      .toThrow(/owned crawler manifest entry missing or malformed/);
+  });
+
   it('un artifact sorgente mancante fallisce prima di cancellare la destinazione', () => {
     const { outDir } = generateArtifacts();
     fs.renameSync(path.join(outDir, 'crawler-group-23.yml'), path.join(outDir, 'crawler-group-23.missing'));
