@@ -60,6 +60,12 @@ describe('Italian duty release contract', () => {
       'status release metadata does not match the payload contract',
     ]));
 
+    const tamperedStatusState = {
+      ...status,
+      _release: { ...status._release, state: 'fresh' },
+    };
+    expect(verifyItalyDutyRelease({ duties, status: tamperedStatusState })).toContain('status release metadata does not match the payload contract');
+
     const completeStatus = {
       ...status,
       _allSourcesFailed: false,
@@ -101,6 +107,47 @@ describe('Italian duty release contract', () => {
       expect.stringContaining('pharmacyId is missing or ambiguous'),
       expect.stringContaining('payload hash mismatch'),
     ]));
+
+    const statusStateTampered = {
+      ...status,
+      _release: { ...status._release, state: 'fresh' },
+    };
+    expect(checkItalyDutyData({ duties, status: statusStateTampered, sources, catalogue, now: new Date('2026-09-15T12:00:00.000Z') }))
+      .toContain('release metadata differs between duties and status');
+
+    const aliasMismatchSources = {
+      ...sources,
+      sources: sources.sources.map((source: { province: string; identityAliases: Array<Record<string, string>> }) => source.province === 'CO'
+        ? {
+          ...source,
+          identityAliases: [
+            { ...source.identityAliases[0], pharmacyId: 'it-msal-3924' },
+            ...source.identityAliases.slice(1),
+          ],
+        }
+        : source),
+    };
+    expect(checkItalyDutyData({ duties, status, sources: aliasMismatchSources, catalogue, now: new Date('2026-09-15T12:00:00.000Z') }))
+      .toContain('source como-ats-2026-2027: alias it-msal-3924 province does not match CO');
+
+    const httpRawSources = {
+      ...sources,
+      sources: sources.sources.map((source: { province: string }) => source.province === 'CO'
+        ? { ...source, rawUrl: 'http://www.comune.merone.co.it/EG0/EGDOCVISJS.HBL' }
+        : source),
+    };
+    expect(checkItalyDutyData({ duties, status, sources: httpRawSources, catalogue, now: new Date('2026-09-15T12:00:00.000Z') }))
+      .toContain('source como-ats-2026-2027: rawUrl must be official HTTPS');
+
+    const statusCountMismatch = {
+      ...status,
+      _provinces: {
+        ...status._provinces,
+        CO: { ...status._provinces.CO, dutyCount: 1 },
+      },
+    };
+    expect(checkItalyDutyData({ duties, status: statusCountMismatch, sources, catalogue, now: new Date('2026-09-15T12:00:00.000Z') }))
+      .toContain('status.CO: dutyCount 1 does not match duties rows 0');
   });
 
   it('pins VCO to the official ASL calendar and its declared 2026 validity window', () => {

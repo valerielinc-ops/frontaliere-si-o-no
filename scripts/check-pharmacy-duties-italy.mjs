@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 
 import {
   ITALY_DUTY_MAX_AGE_HOURS,
+  ITALY_DUTY_MINIMUM_CALENDAR_DAYS,
   ITALY_DUTY_PROVINCES,
   ITALY_DUTY_TIMEZONE,
   verifyItalyReleaseSnapshots,
@@ -29,6 +30,15 @@ async function readJson(filePath) {
 
 function isIso(value) {
   return typeof value === 'string' && Number.isFinite(Date.parse(value));
+}
+
+function isCalendarDate(value) {
+  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+  const [year, month, day] = value.split('-').map(Number);
+  const candidate = new Date(Date.UTC(year, month - 1, day));
+  return candidate.getUTCFullYear() === year
+    && candidate.getUTCMonth() === month - 1
+    && candidate.getUTCDate() === day;
 }
 
 function checkFreshness(timestamp, now, maxAgeHours = ITALY_DUTY_MAX_AGE_HOURS) {
@@ -72,10 +82,10 @@ export function checkItalyDutyData({ duties, status, sources, catalogue, now = n
     if (!sameHttpsHost(source?.officialSourceUrl, source?.rawUrl)) {
       errors.push(`source ${source?.key || '<unknown>'}: rawUrl host must match the official source host`);
     }
-    if (!Number.isInteger(source?.minimumCalendarDays) || source.minimumCalendarDays < 300) {
+    if (!Number.isInteger(source?.minimumCalendarDays) || source.minimumCalendarDays < ITALY_DUTY_MINIMUM_CALENDAR_DAYS) {
       errors.push(`source ${source?.key || '<unknown>'}: minimumCalendarDays must be at least 300`);
     }
-    if (typeof source?.validFrom !== 'string' || typeof source?.validTo !== 'string'
+    if (!isCalendarDate(source?.validFrom) || !isCalendarDate(source?.validTo)
       || source.validFrom > source.validTo) {
       errors.push(`source ${source?.key || '<unknown>'}: validity window is missing or inverted`);
     }
@@ -101,6 +111,13 @@ export function checkItalyDutyData({ duties, status, sources, catalogue, now = n
     errors.push('snapshot fetchedAt is stale, missing, or in the future');
   }
 
+  const dutyRows = Array.isArray(duties?.duties) ? duties.duties : [];
+  const dutyCountsByProvince = new Map(ITALY_DUTY_PROVINCES.map((province) => [province, 0]));
+  for (const duty of dutyRows) {
+    if (dutyCountsByProvince.has(duty?.province)) {
+      dutyCountsByProvince.set(duty.province, dutyCountsByProvince.get(duty.province) + 1);
+    }
+  }
   const provinceStatuses = status?._provinces && typeof status._provinces === 'object' ? status._provinces : {};
   for (const province of ITALY_DUTY_PROVINCES) {
     const entry = provinceStatuses[province];
@@ -115,7 +132,11 @@ export function checkItalyDutyData({ duties, status, sources, catalogue, now = n
     if (!Array.isArray(entry.errors)) errors.push(`status.${province}: errors must be an array`);
     if (!Array.isArray(entry.warnings)) errors.push(`status.${province}: warnings must be an array`);
     if (!checkFreshness(entry.fetchedAt, now)) errors.push(`status.${province}: fetchedAt is stale`);
+    const effectiveDutyCount = dutyCountsByProvince.get(province) || 0;
     if (!Number.isInteger(entry.dutyCount) || entry.dutyCount < 1) errors.push(`status.${province}: no duty rows`);
+    if (entry.dutyCount !== effectiveDutyCount) {
+      errors.push(`status.${province}: dutyCount ${entry.dutyCount} does not match duties rows ${effectiveDutyCount}`);
+    }
     if (Array.isArray(entry.errors) && entry.errors.length > 0) errors.push(`status.${province}: source errors present`);
   }
   if (Array.isArray(status?._errors) && status._errors.length > 0) errors.push('status: errors present');
@@ -129,9 +150,23 @@ export function checkItalyDutyData({ duties, status, sources, catalogue, now = n
     records.push(pharmacy);
     catalogueById.set(pharmacy?.id, records);
   }
+  if (catalogueRows) {
+    for (const source of sourceList) {
+      for (const alias of Array.isArray(source?.identityAliases) ? source.identityAliases : []) {
+        const identities = catalogueById.get(alias?.pharmacyId) || [];
+        if (identities.length !== 1 || identities[0]?.country !== 'IT') {
+          errors.push('source ' + (source?.key || '<unknown>') + ': alias '
+            + (alias?.pharmacyId || '<unknown>') + ' is missing or ambiguous in the Ministry catalogue');
+        } else if (identities[0].province !== source.province) {
+          errors.push('source ' + (source?.key || '<unknown>') + ': alias '
+            + (alias?.pharmacyId || '<unknown>') + ' province does not match ' + source.province);
+        }
+      }
+    }
+  }
 
   const seen = new Set();
-  for (const [index, duty] of (Array.isArray(duties?.duties) ? duties.duties : []).entries()) {
+  for (const [index, duty] of dutyRows.entries()) {
     if (!ITALY_DUTY_PROVINCES.includes(duty?.province)) errors.push(`duties[${index}]: missing or ambiguous province`);
     if (!duty?.pharmacyId || duty?.sourceType !== 'official' || !/^https:\/\//i.test(duty?.sourceUrl || '')) {
       errors.push(`duties[${index}]: missing official identity/source`);

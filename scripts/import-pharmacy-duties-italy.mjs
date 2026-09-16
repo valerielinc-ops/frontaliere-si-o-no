@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { execFileSync } from 'node:child_process';
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, rename, unlink, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -29,7 +29,26 @@ async function readJson(filePath) {
   return JSON.parse(await readFile(filePath, 'utf8'));
 }
 
-async function fetchResponse(url, options = {}) {
+export function assertOfficialItalyUrl(url, source, label = 'official source URL') {
+  let parsed;
+  let official;
+  try {
+    parsed = new URL(url);
+    official = new URL(source?.officialSourceUrl || '');
+  } catch {
+    throw new Error(label + ' is not a valid URL');
+  }
+  if (parsed.protocol !== 'https:' || official.protocol !== 'https:') {
+    throw new Error(label + ' must remain official HTTPS');
+  }
+  if (parsed.host !== official.host) {
+    throw new Error(label + ' host does not match the official source host');
+  }
+  return parsed;
+}
+
+async function fetchResponse(url, options = {}, source, label = 'official source') {
+  assertOfficialItalyUrl(url, source, label);
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
   try {
@@ -43,6 +62,7 @@ async function fetchResponse(url, options = {}) {
       signal: controller.signal,
       redirect: 'follow',
     });
+    assertOfficialItalyUrl(response.url || url, source, label + ' final URL');
     if (!response.ok) throw new Error(`HTTP ${response.status} for ${url}`);
     return response;
   } finally {
@@ -59,14 +79,25 @@ async function fetchPdfBytes(source) {
       method: 'POST',
       headers: { 'Content-Type': `text/plain;charset=UTF-8; boundary=${boundary}` },
       body,
-    });
+    }, source, 'official raw URL');
     const result = await response.json();
-    if (result?.K !== 'DOWNLOAD' || typeof result.PATH !== 'string' || !/^https:\/\//i.test(result.PATH)) {
+    if (result?.K !== 'DOWNLOAD' || typeof result.PATH !== 'string') {
       throw new Error('official Halley source did not return a PDF download');
     }
-    return Buffer.from(await (await fetchResponse(result.PATH, { headers: { Accept: 'application/pdf' } })).arrayBuffer());
+    const pdfResponse = await fetchResponse(
+      result.PATH,
+      { headers: { Accept: 'application/pdf' } },
+      source,
+      'official Halley PDF URL',
+    );
+    return Buffer.from(await pdfResponse.arrayBuffer());
   }
-  const response = await fetchResponse(source.rawUrl, { headers: { Accept: 'application/pdf,application/octet-stream' } });
+  const response = await fetchResponse(
+    source.rawUrl,
+    { headers: { Accept: 'application/pdf,application/octet-stream' } },
+    source,
+    'official raw URL',
+  );
   return Buffer.from(await response.arrayBuffer());
 }
 
@@ -144,7 +175,14 @@ function buildDatasets({ attemptedAt, duties, sourceStatuses, errors, warnings }
 
 async function writeJson(filePath, value) {
   await mkdir(dirname(filePath), { recursive: true });
-  await writeFile(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
+  const temporaryPath = filePath + '.' + process.pid + '.tmp';
+  try {
+    await writeFile(temporaryPath, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
+    await rename(temporaryPath, filePath);
+  } catch (error) {
+    await unlink(temporaryPath).catch(() => {});
+    throw error;
+  }
 }
 
 export async function importItalyPharmacyDuties({

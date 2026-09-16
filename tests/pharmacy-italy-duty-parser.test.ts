@@ -24,6 +24,7 @@ describe('Italian official duty parser', () => {
       result.duties.length === 0
       && result.observedDuties.length > 0
       && result.errors.some((error) => error.includes('coverage is incomplete'))
+      && result.errors.some((error) => error.includes('no operational duty rows published'))
       && result.freshness === 'fresh'
       && result.coverage === 'partial'
     ))).toBe(true);
@@ -35,6 +36,13 @@ describe('Italian official duty parser', () => {
     expect(localDateTimeToItalyIso('25/10/2026', '08:30')).toBe('2026-10-25T07:30:00.000Z');
   });
 
+  it('requires exactly one coherent province marker', () => {
+    expect(resolveItalyDutyProvince('Calendario turni annuale 2026', 'CO').error)
+      .toBe('source province marker is missing');
+    expect(resolveItalyDutyProvince('Provincia di Como e Provincia di Varese', 'CO').error)
+      .toContain('outside CO');
+  });
+
   it('evaluates validity windows on the Europe/Rome calendar date', () => {
     const como = sources.sources.find((source: { province: string }) => source.province === 'CO');
     const result = parseItalyDutySource(
@@ -43,6 +51,14 @@ describe('Italian official duty parser', () => {
       { fetchedAt: '2026-06-01T00:30:00.000Z', asOf: '2026-05-31T22:30:00.000Z', catalogue },
     );
     expect(result.errors).not.toContain('official calendar is outside its declared validity window');
+
+    const outOfWindow = parseItalyDutySource(
+      'PROVINCIA DI COMO\nDUTY|date=31/05/2026|label=Appiano Cavour|pharmacyId=it-msal-2088|province=CO',
+      como,
+      { fetchedAt: FETCHED_AT, asOf: FETCHED_AT, catalogue },
+    );
+    expect(outOfWindow.duties).toEqual([]);
+    expect(outOfWindow.errors).toContain('official duty date is outside its declared validity window: 1 row(s)');
   });
 
   it('fails closed when province evidence is conflicting or an explicit row omits it', () => {
@@ -50,7 +66,7 @@ describe('Italian official duty parser', () => {
     expect(resolveItalyDutyProvince('Calendario Provincia di Como e Provincia di Varese', 'CO').error).toContain('outside CO');
 
     const result = parseItalyDutySource(
-      'DUTY|date=15/09/2026|label=Appiano Cavour|pharmacyId=it-msal-2088|province=',
+      'PROVINCIA DI COMO\nDUTY|date=15/09/2026|label=Appiano Cavour|pharmacyId=it-msal-2088|province=',
       como,
       { fetchedAt: FETCHED_AT, asOf: FETCHED_AT, catalogue },
     );
@@ -66,6 +82,25 @@ describe('Italian official duty parser', () => {
     );
     expect(result.duties).toEqual([]);
     expect(result.errors).toContain('source contains a province marker outside CO');
+  });
+
+  it('rejects an identity alias that belongs to another province', () => {
+    const como = sources.sources.find((source: { province: string }) => source.province === 'CO');
+    const mismatchedSource = {
+      ...como,
+      identityAliases: [
+        { ...como.identityAliases[0], pharmacyId: 'it-msal-3924' },
+        ...como.identityAliases.slice(1),
+      ],
+    };
+    const result = parseItalyDutySource(
+      'PROVINCIA DI COMO\nDUTY|date=15/09/2026|label=Appiano Cavour|pharmacyId=it-msal-3924|province=CO',
+      mismatchedSource,
+      { fetchedAt: FETCHED_AT, asOf: FETCHED_AT, catalogue },
+    );
+    expect(result.duties).toEqual([]);
+    expect(result.observedDuties).toEqual([]);
+    expect(result.warnings.join(' ')).toContain('province mismatch');
   });
 
   it('drops the whole province when one otherwise valid feed row is malformed', () => {
