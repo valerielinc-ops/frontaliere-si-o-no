@@ -127,6 +127,15 @@ const KNOWN_ISSUE_CATEGORIES = new Set([
   'tracker',
   'validation-failure',
 ]);
+// These labels are emitted by the two read-only locale metric audits. They are
+// explicit ordinary signals, not a fallback for arbitrary `other` issues:
+// unknown text remains deny-by-default, and all F1/F7/control-plane/path
+// matches below still take precedence over this allowlist.
+export const KNOWN_ORDINARY_ISSUE_LABELS = Object.freeze([
+  'job-description-locale',
+  'job-title-locale',
+]);
+const KNOWN_ORDINARY_ISSUE_LABEL_SET = new Set(KNOWN_ORDINARY_ISSUE_LABELS);
 const ISSUE_PATH_TOKEN_RE = /(?<![\w.-])((?:\.github|[A-Za-z0-9_.-]+)\/[A-Za-z0-9_.-]+(?:\/[A-Za-z0-9_.-]+)*(?:\.[A-Za-z0-9_.-]+)?)(?![\w.-])/gu;
 
 function labelName(label) {
@@ -293,7 +302,8 @@ export function classifyAutomationRisk({
   const unknownIssuePaths = issuePathCandidates.filter((path) => !isRecognizedAutomationPath(path));
   const unknown = unique([...unknownPaths, ...unknownIssuePaths]);
   const knownIssue = KNOWN_ISSUE_CATEGORIES.has(String(category).toLowerCase())
-    || issueMatches.length > 0;
+    || issueMatches.length > 0
+    || labelNames.some((label) => KNOWN_ORDINARY_ISSUE_LABEL_SET.has(label));
   const denyCode = controlPlane
     ? 'control-plane'
     : unknown.length > 0

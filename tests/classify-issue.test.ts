@@ -13,6 +13,7 @@ import {
   CONTROL_PLANE_PATHS,
   extractIssuePathCandidates,
   findSeparateHumanApproval,
+  KNOWN_ORDINARY_ISSUE_LABELS,
   isControlPlanePath,
   isAutomationTestPath,
   isRecognizedAutomationPath,
@@ -238,6 +239,24 @@ describe('policy automazione F1/F7', () => {
       body: 'No deterministic category is declared.',
       labels: [],
     })).toMatchObject({ blocked: true, decision: 'deny', denyCode: 'unknown-issue' });
+  });
+
+  it('allows only the explicit locale-audit issue signals without weakening unknown deny', () => {
+    for (const label of KNOWN_ORDINARY_ISSUE_LABELS) {
+      expect(classifyAutomationRisk({
+        title: 'Metric anomaly',
+        labels: [label],
+      })).toMatchObject({ blocked: false, decision: 'allow', denyCode: null });
+    }
+    expect(classifyAutomationRisk({
+      title: 'Metric anomaly',
+      labels: ['locale-audit'],
+    })).toMatchObject({ blocked: true, decision: 'deny', denyCode: 'unknown-issue' });
+    expect(classifyAutomationRisk({
+      title: 'Metric anomaly',
+      body: 'Fix canonical SEO before the locale audit',
+      labels: ['job-title-locale'],
+    })).toMatchObject({ blocked: true, decision: 'deny', denyCode: 'high-risk-domain' });
   });
 
   it('keeps needs-human as a persistent hard veto, even with an exact safe diff', () => {

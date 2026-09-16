@@ -32,7 +32,10 @@ possono essere modificati dal percorso autonomo. Un path non riconosciuto e
 un issue text senza categoria/signal noto ricevono anch'essi `decision='deny'`;
 non esiste allow-by-default per stringhe o file sconosciuti.
 
-Per un'issue ad alto rischio il classifier restituisce `route='none'` e
+Le sole eccezioni esplicite al deny per un'issue `other` sono le label metriche
+read-only `job-description-locale` e `job-title-locale`; non trasformano testo
+generico in un segnale noto e non prevalgono mai su dominio, path sconosciuto o
+control-plane. Per un'issue ad alto rischio il classifier restituisce `route='none'` e
 `autofix=false`; `issue-triage` rimuove le label di routing e applica
 `needs-human`, mentre il job `risk_policy` dell'issue-fix si chiude prima di
 token App, quota, claim e agent. Un errore di lettura o parsing lascia il fixer

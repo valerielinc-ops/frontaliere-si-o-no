@@ -31,7 +31,7 @@ jobs:
             echo '::error::control-plane bootstrap guard: elenco PR non verificabile; hard fail umano.'
             exit 1
           fi
-          while IFS= read -r pr_number; do
+          while IFS= read -r -u 9 pr_number; do
             [ -n "$pr_number" ] || continue
             if ! files=$(gh api "repos/$REPOSITORY/pulls/$pr_number/files?per_page=100" --paginate --jq '.[].filename'); then
               echo "::error::control-plane bootstrap guard: file-list PR #$pr_number non verificabile; hard fail umano."
@@ -49,7 +49,7 @@ jobs:
                   ;;
               esac
             done <<< "$files"
-          done <<< "$pr_numbers"
+          done 9<<< "$pr_numbers"
           echo 'control-plane bootstrap guard: nessuna PR aperta modifica il control-plane staticamente.'
 
       # Two-step rollout: the gate is trusted only when it is already present
