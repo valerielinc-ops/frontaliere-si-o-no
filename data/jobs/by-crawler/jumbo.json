@@ -169,7 +169,6 @@
       },
       "postalCode": "8304",
       "streetAddress": "Industriestrasse 34",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-jumbo-dietlikon",
@@ -202,8 +201,7 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "jumbo-09984742-0a7",
@@ -779,7 +777,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-allmendingen",
@@ -882,7 +879,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-arbon-landquartstrasse",
@@ -1037,7 +1033,7 @@
         "it": "Specialista di vendita al dettaglio AFC \"Creazione di esperienze di acquisto",
         "en": "Retail Specialist EFZ \"Designing Shopping Experiences",
         "de": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-        "fr": "I need to see the current content to understand what needs translation. Let me check the files. I notice from the git status that several job files have been modified, including files like `data/jobs/by-crawler/*.json`. The title you've provided appears to be a Swiss French/German mix job posting. Let me translate it completely to French: **Vendeuse/Vendeur CFC « Créer des expériences d'achat »** → **Vendeuse/Vendeur CFC « Créer des expériences d'achat »** Wait, I see the issue - the title is already partially in French. A complete French translation would be: **Vendeuse/Vendeur CFC « Créer des expériences d'achat »** If you want a more natural French phrasing: **Vendeuse/Vendeur CFC « Créer des expériences commerciales »** Or fully modernized: **Vendeuse/Vendeur CFC « Concevoir les expériences d'achat »** Which file contains this title and what's the current French translation showing as German?"
+        "fr": "Vendeuse/Vendeur CFC « Créer des expériences d'achat »"
       },
       "description": "## Deine Aufgaben\n- Du berätst, bedienst unsere Kundschaft und führst anspruchsvolle Verkaufsgespräche.\n- Du bestellst die Ware und bist für die Bewirtschaftung zuständig.​\n- Du gestaltest produkt- und dienstleistungsorientierte Einkaufserlebnisse.\n- Du erkennst Entwicklungen in der eigenen Branche und integrierst diese in den Arbeitsalltag.\n\n## Das bringst du mit\n- Teamfähigkeit und Freude am Kontakt mit Menschen\n- Organisationsfähigkeit und Flexibilität​\n- Wille, selbständig zu arbeiten und Verantwortung zu übernehmen​\n- Freude daran, sich in einem dynamischen Unternehmen weiterzuentwickeln​\n- Kommunikationsfähigkeit ​\n- Flair für den Verkauf​\n\n## Das bieten wir dir\n- Jahresabo \"update Fitness\"\n- CHF 500 für Laptop oder Tablet\n- 50% auf erstes Handy-Abo von Coop Mobile\n- SBB Halbtax oder Anteil GA CHF 650\n- Viele Vergünstigungen für Mitarbeitende\nMarcel Buri\nHR Berufsbildung\nChoose Your Character - Create Your Future:\nGestalte deine Zukunft mit einer passenden Lehre. Coop bietet ein grosses Angebot an Lehrstellen und Weiterbildungsmöglichkeiten.",
       "descriptionByLocale": {
@@ -1086,7 +1082,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-jumbo-arbon-2",
@@ -1111,8 +1106,7 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "jumbo-19b93b64-6eb",
@@ -1180,7 +1174,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-arbon",
@@ -1385,7 +1378,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-bachenbulach",
@@ -1589,7 +1581,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-biel-centre-bahnhof",
@@ -1793,7 +1784,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-biel",
@@ -1998,7 +1988,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-chur-sommerau",
@@ -2202,7 +2191,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-dubendorf",
@@ -2305,7 +2293,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-jumbo-egerkingen",
@@ -2338,8 +2325,7 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "jumbo-a44f0219-919",
@@ -2407,7 +2393,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-egerkingen",
@@ -2815,7 +2800,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-jumbo-wurenlingen",
@@ -2848,8 +2832,7 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "jumbo-4760182b-e92",
@@ -3019,7 +3002,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-heimberg",
@@ -3122,7 +3104,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-jumbo-hinwil",
@@ -3155,8 +3136,7 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "jumbo-2861affd-61c",
@@ -3224,7 +3204,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-hinwil",
@@ -3429,7 +3408,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-hochdorf",
@@ -3937,7 +3915,6 @@
       },
       "postalCode": "8304",
       "streetAddress": "Industriestrasse 34",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-ilanz",
@@ -4242,7 +4219,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-lyssach",
@@ -4446,7 +4422,6 @@
       },
       "postalCode": "8304",
       "streetAddress": "Industriestrasse 34",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-netstal-wiggispark",
@@ -4650,7 +4625,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-pfaffikon",
@@ -4854,7 +4828,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-regensdorf",
@@ -5058,7 +5031,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-rickenbach",
@@ -5262,7 +5234,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-rumlang",
@@ -5466,7 +5437,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-schafisheim",
@@ -5670,7 +5640,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-seewen",
@@ -5874,7 +5843,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-solothurn",
@@ -6078,7 +6046,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-suhr",
@@ -6282,7 +6249,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-thalwil",
@@ -6486,7 +6452,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-thun-strattligenmarkt",
@@ -6791,7 +6756,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-villmergen",
@@ -6894,7 +6858,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-interlaken",
@@ -6997,7 +6960,6 @@
       },
       "postalCode": "8304",
       "streetAddress": "Industriestrasse 34",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-emmenbrucke",
@@ -7100,7 +7062,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-kriens",
@@ -7304,7 +7265,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-schenkon",
@@ -7407,7 +7367,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-stans",
@@ -7510,7 +7469,6 @@
       },
       "postalCode": "8304",
       "streetAddress": "Industriestrasse 34",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-haag",
@@ -7613,7 +7571,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "apprentissage-de-gestionnaire-du-commerce-de-detail-cfc-34-conception-et-realisation-d-39"
@@ -7710,7 +7667,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "apprentissage-de-gestionnaire-du-commerce-de-detail-jumbo-bulle"
@@ -7807,7 +7763,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "apprentissage-de-gestionnaire-du-commerce-de-detail-cfc-34-conception-et-realisation-d-39-2",
@@ -7900,7 +7855,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "apprentissage-de-gestionnaire-du-commerce-de-detail-jumbo-bussigny"
@@ -7997,7 +7951,6 @@
       },
       "postalCode": "1003",
       "streetAddress": "Rue Chaucrau 3-5",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "apprentissage-de-gestionnaire-du-commerce-de-detail-cfc-34-conception-et-realisation-d-39-4",
@@ -8098,7 +8051,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "apprentissage-de-gestionnaire-du-commerce-de-detail-cfc-34-conception-et-realisation-d-39-5",
@@ -8191,7 +8143,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "apprentissage-de-gestionnaire-du-commerce-de-detail-cfc-34-conception-et-realisation-d-39-3",
@@ -8284,7 +8235,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "apprentissage-de-gestionnaire-du-commerce-de-detail-jumbo-conthey"
@@ -8381,7 +8331,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-sissach",
@@ -8688,7 +8637,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-gossau",
@@ -8892,7 +8840,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-kreuzlingen",
@@ -9096,7 +9043,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-kusnacht",
@@ -9300,7 +9246,6 @@
       },
       "postalCode": "8304",
       "streetAddress": "Industriestrasse 34",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-volkiland-maximo",
@@ -9504,7 +9449,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-wattwil",
@@ -9809,7 +9753,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-willisau",
@@ -10114,7 +10057,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-brig",
@@ -10217,7 +10159,6 @@
       },
       "postalCode": "8953",
       "streetAddress": "Reservatstrasse 1-3",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-woschnau",
@@ -10615,7 +10556,6 @@
           "• Vous êtes de bonne constitution et la manutention ne vous pose aucun problème"
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "conseillere-conseiller-de-vente-loisirs-f-h-d-jumbo-allaman",
@@ -10711,7 +10651,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugsByLocale": {
         "de": [
@@ -10812,7 +10751,6 @@
           "• Vous êtes en bonne forme physique, avez une grande force de travail, et la manutention ne vous pose aucun problème"
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "firstSeenAt": "2026-08-21T09:46:26.292Z",
       "salaryMin": 109000,
@@ -10890,7 +10828,6 @@
           "• Vous êtes de bonne constitution physique et la manutention ne vous pose aucun problème"
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-conthey",
@@ -10990,24 +10927,33 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugsByLocale": {
         "de": [
-          "verkaufsberater-in-do-it-jumbo-mels"
+          "verkaufsberater-in-do-it-jumbo-mels",
+          "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz-6t3aqt"
         ],
         "it": [
-          "verkaufsberater-in-do-it-jumbo-mels"
+          "verkaufsberater-in-do-it-jumbo-mels",
+          "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz",
+          "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz-6t3aqt",
+          "verkaufsberater-in-do-it-jumbo-schwyz",
+          "consulente-di-vendita-do-it-jumbo-schwyz"
         ],
         "en": [
-          "verkaufsberater-in-do-it-jumbo-mels"
+          "verkaufsberater-in-do-it-jumbo-mels",
+          "verkaufsberater-in-do-it-jumbo-schwyz"
         ],
         "fr": [
           "verkaufsberater-in-do-it-jumbo-mels"
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-do-it-jumbo-mels"
+        "verkaufsberater-in-do-it-jumbo-mels",
+        "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz",
+        "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz-6t3aqt",
+        "verkaufsberater-in-do-it-jumbo-schwyz",
+        "consulente-di-vendita-do-it-jumbo-schwyz"
       ],
       "firstSeenAt": "2026-08-21T09:46:26.291Z",
       "salaryMin": 68500,
@@ -11087,7 +11033,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "verkaufsberater-in-garden-jumbo-rapperswil-jona",
@@ -11318,7 +11263,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "verkaufsberater-in-garden-jumbo-wurenlingen"
@@ -11406,7 +11350,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "verkaufsberater-in-deco-jumbo-chur"
@@ -11493,7 +11436,6 @@
           "• Teamarbeit bereitet dir Freude."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "mitarbeiter-in-logistik-jumbo-schwyz"
@@ -11587,7 +11529,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "firstSeenAt": "2026-08-26T10:00:59.272Z",
       "salaryMin": 77500,
@@ -11666,7 +11607,6 @@
           "• Am liebsten arbeiten Sie mit Menschen – mit der Kundschaft und im Team"
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "firstSeenAt": "2026-08-27T00:45:08.462Z",
       "salaryMin": 77500,
@@ -11922,7 +11862,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "verkaufsberater-in-deco-jumbo-unterentfelden"
@@ -12109,7 +12048,6 @@
           "• Einsatzzeiten (Mo bis Sa)? Da bist du flexibel, ist ja klar."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "venditore-in-cassa-servizi-jumbo-reinach",
@@ -12220,7 +12158,6 @@
           "• Am liebsten arbeitet du mit Menschen – mit der Kundschaft und im Team."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "verkaufer-in-kassen-services-jumbo-glarus",
@@ -12505,7 +12442,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugsByLocale": {
         "it": [
@@ -12605,7 +12541,6 @@
           "• Am liebsten arbeitet du mit Menschen – mit der Kundschaft und im Team."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "verkaufer-in-kassen-services-jumbo-rapperswil-jona",
@@ -12701,7 +12636,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "verkaufsberater-in-deco-jumbo-schattdorf"
@@ -12738,7 +12672,7 @@
       "slugByLocale": {
         "it": "consulente-vendite-giardino-e-piante-jumbo-arbon",
         "en": "sales-advisor-in-garden-and-plants-jumbo-arbon-df3732",
-        "de": "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon",
+        "de": "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon-rko8si",
         "fr": "conseiller-commercial-en-jardin-et-plantes-jumbo-arbon-df3732"
       },
       "company": "JUMBO",
@@ -12795,7 +12729,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon",
@@ -12810,6 +12743,9 @@
           "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon"
         ],
         "fr": [
+          "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon"
+        ],
+        "de": [
           "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon"
         ]
       },
@@ -13000,7 +12936,6 @@
           "• Sehr gute Deutschkenntnisse in Wort und Schrift, Französisch- oder Italienischkenntnisse von Vorteil"
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "sachbearbeiter-in-kundendienst-jumbo-dietlikon"
@@ -13095,7 +13030,6 @@
           "• Die Kundenkontakt und die Teamarbeit bereiten dir Freude."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-hinwil",
@@ -13203,7 +13137,6 @@
           "• Erfahrungen mit SAP-Systemen und -Prozessen sowie Französischkenntnisse sind wünschenswert"
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "marketing-assistant-elektromaterial-e-licht-jumbo-dietlikon",
@@ -13315,7 +13248,6 @@
           "• Einsatzzeiten (Mo bis Sa)? Da bist du flexibel, ist ja klar."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "verkaufer-in-kassen-services-jumbo-baden",
@@ -13414,7 +13346,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugsByLocale": {
         "it": [
@@ -13510,7 +13441,6 @@
           "• Vous êtes en bonne condition physique, flexible et appréciez un travail varié"
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "firstSeenAt": "2026-09-06T22:52:27.448Z",
       "salaryMin": 72000,
@@ -13589,7 +13519,6 @@
           "• Einsatzzeiten (Mo bis Sa)? Da bist du flexibel, ist ja klar."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "verkaufer-in-kasse-services-jumbo-chur",
@@ -13688,7 +13617,6 @@
           "• Deutsch beherrschst Du sehr gut – mündlich und schriftlich."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "rayonleiter-in-admin-jumbo-arbon-textilstrasse"
@@ -13781,7 +13709,6 @@
           "• Einsatzzeiten? Da bist du sehr flexibel."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "lagerist-in-jumbo-arbon",
@@ -13876,7 +13803,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "verkaufsberater-in-garden-jumbo-ilanz-glion"
@@ -13969,7 +13895,6 @@
           "• Einsatzzeiten (Mo bis Sa)? Da bist du flexibel, ist ja klar."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "verkaufer-in-kassen-services-jumbo-baden",
@@ -14067,7 +13992,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "verkaufsberater-in-do-it-jumbo-villmergen",
@@ -14163,7 +14087,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-schwyz",
@@ -14271,7 +14194,6 @@
           "• Deutsch beherrschst du sehr gut – mündlich und schriftlich."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "rayonleiter-in-garden-jumbo-thalwil",
@@ -14379,7 +14301,6 @@
           "• Vous êtes flexible au niveau des horaires et travailler le samedi ou le vendredi soir n'est pas un obstacle pour vous"
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "caissiere-caissier-f-h-d-jumbo-conthey"
@@ -14469,7 +14390,6 @@
           "• Am liebsten arbeitet du mit Menschen – mit der Kundschaft und im Team."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "vendeur-dans-les-caisses-enregistreuses-services-jumbo-division-der-coop-genossenschaft-willisau",
@@ -14581,7 +14501,6 @@
           "• Die Kundenkontakt und die Teamarbeit bereiten dir Freude."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "addetto-a-alle-vendite-administration-e-kundendienst-jumbo-willisau",
@@ -14678,7 +14597,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "firstSeenAt": "2026-09-07T15:09:52.631Z",
       "salaryMin": 49500,
@@ -14758,7 +14676,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "verkaufsberater-in-bau-e-schreinerei-jumbo-gossau",
@@ -14795,7 +14712,7 @@
       "id": "jumbo-eb925fca-c40",
       "slug": "consulente-commerciale-do-it-jumbo-kusnacht",
       "slugByLocale": {
-        "de": "verkaufsberater-in-do-it-jumbo-kusnacht",
+        "de": "verkaufsberater-in-do-it-jumbo-kusnacht-p73eh7",
         "it": "consulente-commerciale-do-it-jumbo-kusnacht",
         "en": "sales-consultant-do-it-jumbo-kusnacht",
         "fr": "consultant-en-ventes-do-it-jumbo-kusnacht"
@@ -14854,7 +14771,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "verkaufsberater-in-do-it-jumbo-kusnacht",
@@ -14869,6 +14785,9 @@
           "verkaufsberater-in-do-it-jumbo-kusnacht"
         ],
         "fr": [
+          "verkaufsberater-in-do-it-jumbo-kusnacht"
+        ],
+        "de": [
           "verkaufsberater-in-do-it-jumbo-kusnacht"
         ]
       },
@@ -14950,7 +14869,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "verkaufsberater-in-garden-jumbo-kusnacht"
@@ -15044,20 +14962,31 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
-        "verkaufsberater-in-do-it-jumbo-schattdorf"
+        "verkaufsberater-in-do-it-jumbo-schattdorf",
+        "consulente-commerciale-do-it-jumbo-schattdorf",
+        "sales-consultant-in-do-it-jumbo-schattdorf-20000b",
+        "consultant-en-ventes-a-do-it-jumbo-schattdorf",
+        "consulente-di-vendita-in-do-it-jumbo-schattdorf",
+        "verkaufsberater-in-do-it-jumbo-schattdorf-ndwk3z"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-do-it-jumbo-schattdorf"
+          "verkaufsberater-in-do-it-jumbo-schattdorf",
+          "consulente-commerciale-do-it-jumbo-schattdorf",
+          "sales-consultant-in-do-it-jumbo-schattdorf-20000b",
+          "consultant-en-ventes-a-do-it-jumbo-schattdorf",
+          "consulente-di-vendita-in-do-it-jumbo-schattdorf",
+          "verkaufsberater-in-do-it-jumbo-schattdorf-ndwk3z"
         ],
         "en": [
-          "verkaufsberater-in-do-it-jumbo-schattdorf"
+          "verkaufsberater-in-do-it-jumbo-schattdorf",
+          "sales-consultant-in-do-it-jumbo-schattdorf-20000b"
         ],
         "fr": [
-          "verkaufsberater-in-do-it-jumbo-schattdorf"
+          "verkaufsberater-in-do-it-jumbo-schattdorf",
+          "consultant-en-ventes-a-do-it-jumbo-schattdorf"
         ]
       },
       "firstSeenAt": "2026-09-09T13:49:14.517Z",
@@ -15138,7 +15067,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "verkaufsberater-in-do-it-jumbo-thalwil"
@@ -15232,7 +15160,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "verkaufsberater-in-garden-jumbo-allschwil"
@@ -15420,7 +15347,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "garden-sales-consultant-jumbo-eyholz",
@@ -15624,7 +15550,6 @@
           "• Deutsch beherrschst du sehr gut – mündlich und schriftlich."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "stellvertretende-r-geschaftsfuhrer-in-inkl-rayonleitung-do-it-jumbo-brig-glis"
@@ -15718,7 +15643,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "verkaufsberater-in-do-it-jumbo-eyholz"
@@ -15765,7 +15689,7 @@
       "titleByLocale": {
         "it": "Chef/ Capo Dipartimento Giardino (m/f/d)",
         "en": "Chef/ Head of Department Garden (m/f/d)",
-        "de": "Cheffe/ Chef de rayon Garden (f/h/d)",
+        "de": "Chef / Abteilungsleiter Garten (m/w/d)",
         "fr": "Cheffe/ Chef de rayon Garden (f/h/d)"
       },
       "description": "## Mission\n- Gérer et organiser le secteur Garden en plaçant la satisfaction de la clientèle au centre des priorités\n- Conseiller avec expertise, rendre le magasin attractif et veiller à une présentation soignée selon nos concepts internes\n- Garantir la disponibilité de la marchandise, planifier et mettre en oeuvre les activités promotionnelles du secteur\n- Analyser les chiffres-clé, prendre les mesures appropriées et assurer une planification optimale des ressources dans le respect du budget\n- Piloter une petite équipe en fixant des objectifs clairs, en favorisant la motivation et en développant les compétences de chacun·e\n\n## Compétences requises\n- Vous manifestez un intérêt prononcé pour la vente, avez un bon flair commercial et aspirez à un poste à responsabilités\n- Vous êtes idéalement au bénéfice d'un CFC d'horticultrice/d'horticulteur, de paysagiste ou d'une formation reconnue dans la vente, ains qu'une expérience confirmée dans une fonction similaire, incluant la gestion d'équipe\n- Vous faites preuve de solides capacités organisationnelles, d'un grand sens des responsabilités et êtes en bonne condition physique\n- Vous exercez un leadership naturel et motivant, facilitez le contact et la communication, et favorisez l'esprit d'équipe\n- Vous maîtrisez le français à l'oral comme à l'écrit, êtes à l'aise avec les outils informatiques courants et faites preuve de flexibilité pour répondre aux horaires de la clientèle\n- Rabais et réductions:\n- Conditions d'engagement:\n- Temps de travail:\n- Formation continue:\n- Développement durable:\n- Communication:\n- Santé:\n\n## Votre personne de contact\nSébastien Hofstetter\nRH Marketing",
@@ -15805,7 +15729,6 @@
         "• Vous maîtrisez le français à l'oral comme à l'écrit, êtes à l'aise avec les outils informatiques courants et faites preuve de flexibilité pour répondre aux horaires de la clientèle"
       ],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "chef-head-of-department-garden-m-f-d-jumbo-crissier",
@@ -15904,7 +15827,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "sales-advisor-garden-jumbo-argovia",
@@ -16008,7 +15930,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "verkaufsberater-in-deco-jumbo-arbon"
@@ -16102,7 +16023,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "verkaufsberater-in-do-it-jumbo-arbon"
@@ -16196,7 +16116,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "verkaufsberater-in-do-it-jumbo-eppenberg-woschnau"
@@ -16293,7 +16212,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "verkaufsberater-in-do-it-jumbo-eppenberg-woschnau"
@@ -16388,7 +16306,6 @@
           "• Du beschreibst dich als engagierte Persönlichkeit."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "mitarbeiter-in-logistik-jumbo-wurenlingen-2",
@@ -16400,7 +16317,8 @@
         "mitarbeiter-in-logistik-jumbo-division-der-coop-genossenschaft-wurenlingen-aargau-wee5rk",
         "mitarbeiter-in-logistik-jumbo-wurenlingen-aargau-iogi71",
         "collaborateur-trice-logistik-jumbo-division-der-coop-genossenschaft-wurenlingen-aargau-wee5rk",
-        "collaborateur-trice-logistik-jumbo-wurenlingen-aargau-iogi71"
+        "collaborateur-trice-logistik-jumbo-wurenlingen-aargau-iogi71",
+        "mitarbeiter-in-logistik-jumbo-wurenlingen-ig4wn4"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16413,10 +16331,14 @@
           "mitarbeiter-in-logistik-jumbo-division-der-coop-genossenschaft-wurenlingen-aargau-wee5rk",
           "mitarbeiter-in-logistik-jumbo-wurenlingen-aargau-iogi71",
           "collaborateur-trice-logistik-jumbo-division-der-coop-genossenschaft-wurenlingen-aargau-wee5rk",
-          "collaborateur-trice-logistik-jumbo-wurenlingen-aargau-iogi71"
+          "collaborateur-trice-logistik-jumbo-wurenlingen-aargau-iogi71",
+          "mitarbeiter-in-logistik-jumbo-wurenlingen-ig4wn4"
         ],
         "en": [
           "mitarbeiter-in-logistik-jumbo-wurenlingen-2"
+        ],
+        "de": [
+          "mitarbeiter-in-logistik-jumbo-wurenlingen-ig4wn4"
         ]
       },
       "firstSeenAt": "2026-09-10T23:07:55.381Z",
@@ -16494,7 +16416,6 @@
           "• Vous recherchez un poste varié à responsabilités et pouvez offrir de la flexibilité au niveau des horaires de travail"
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "responsable-administration-service-clients-f-h-d-jumbo-bienne"
@@ -16589,7 +16510,6 @@
           "• Am liebsten arbeitet du mit Menschen – mit der Kundschaft und im Team."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "verkaufer-in-kassen-services-jumbo-kriens"
@@ -16683,7 +16603,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "verkaufsberater-in-garten-jumbo-division-der-coop-genossenschaft-laupen-bern-kfkc2t",
@@ -16792,7 +16711,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "verkaufsberater-in-garten-jumbo-laupen",
@@ -16887,7 +16805,6 @@
           "• Vous avez un bon sens de l'organisation et êtes capable de travailler sous pression"
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "firstSeenAt": "2026-09-11T13:41:14.070Z",
       "salaryMin": 72000,
@@ -16968,7 +16885,6 @@
           "• Du bist engagiert und stets gut gelaunt."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "caisse-enregistreuse-services-du-vendeur-jumbo-widnau",
@@ -17052,16 +16968,16 @@
       "title": "Verkaufsberater:in Do-it",
       "titleByLocale": {
         "de": "Verkaufsberater:in Do-it",
-        "it": "Verkaufsberater:in Do-it",
-        "en": "Verkaufsberater:in Do-it",
-        "fr": "Verkaufsberater:in Do-it"
+        "it": "Consulente commerciale Do-it",
+        "en": "Sales consultant Do-it",
+        "fr": "Consultant en ventes Do-it"
       },
       "description": "## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, das du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo bis Sa) flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Do-it kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nYves Sanarica\nHR Marketing",
       "descriptionByLocale": {
         "de": "## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, das du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo bis Sa) flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Do-it kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nYves Sanarica\nHR Marketing",
-        "it": "## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, das du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo bis Sa) flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Do-it kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nYves Sanarica\nHR Marketing",
-        "en": "## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, das du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo bis Sa) flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Do-it kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nYves Sanarica\nHR Marketing",
-        "fr": "## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, das du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo bis Sa) flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Do-it kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nYves Sanarica\nHR Marketing"
+        "it": "## Compiti\n- Con il vostro consiglio amichevole e competente ispirate i nostri clienti.\n- Aderisci alle linee guida interne e quindi assicurati che le merci siano presentate in modo attraente.\n- Con le merci sulla nostra zona di vendita e nel magazzino siete coscientious.\n- Se necessario, è anche possibile aiutare in altri rayons.\n- I processi di inventario, vendita e inventario-rilevanti sono parte della gestione del processo che si prende il sopravvento.\n\n## Requisiti\n- Vendere e consultare sono la vostra passione, soddisfazione del cliente la vostra motivazione? Perfetto.\n- Parli fluente tedesco, hai esperienza di vendita e idealmente una formazione completa di vendita: Allora sei proprio qui.\n- Naturalmente, sei flessibile nei tempi operativi (Mo to Sa). Ti appartiene alle vendite.\n- Conosci Do-it? Così si può segnare particolarmente bene a questo punto.\n- Sempre un sorriso amichevole – questo è il tuo segreto per il successo.\n\n## Cosa offriamo\n- Sconti: Sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino a 20% di sconto su vari servizi assicurativi, fino a 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati su Coop Mobile, Reka Card: Sconto su abbonamento, sconto su Mobility CarSharing, sconto personale anche per i partner:in (vivere nella stessa famiglia), sconto su abbonamento GA\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, contratto collettivo di lavoro (GAV), 18 settimane di congedo di maternità retribuito e 4 settimane di congedo di paternità retribuito, bonus di lealtà, piano di risparmio presso il fondo pensionistico, regime flessibile e attraente per la pensione anticipata dal 58 completato. Anno di età, condizioni di lavoro attraenti\n- Ore lavorative: 5 week-end\n- Formazione: oltre 600 corsi di formazione interna, supporto per l'istruzione e la formazione esterna, gestione del talento con una vasta gamma di opportunità di sviluppo\n- Salute: aggiornamento Fitness: Fr. 200.– Sconto abbonamento annuale\n\n## La persona di contatto\nYves Sanarica\nHR Marketing",
+        "en": "## Tasks\n- With your friendly and competent advice you inspire our customers.\n- You adhere to the internal guidelines and so you make sure that the goods are presented attractively.\n- With the goods on our sales area and in the warehouse you are conscientious.\n- If necessary, you can also help in other rayons.\n- Inventory, sales and inventory-relevant processes are parts of the process management that you take over.\n\n## Requirements\n- Selling and consulting are your passion, customer satisfaction your motivation? Perfect.\n- You speak fluent German, you have sales experience and ideally a completed sales training: Then you are right here.\n- Of course, you are flexible in the operating times (Mo to Sa). Belongs to you in sales.\n- Are you familiar with Do-it? So you can score particularly well at this point.\n- Always a friendly smile – this is your secret to success.\n\n## What we offer\n- Discounts: Discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all formats of the Coop Group, cheaper mobile and prepaid subscriptions on Coop Mobile, Reka Card: Discount on subscription, discount on Mobility CarSharing, personal discount also for partners:in (living in the same household), discount on GA subscription\n- Conditions of employment: Pension fund: 2/3 is paid by Coop, collective employment contract (GAV), 18 weeks paid maternity leave and 4 weeks paid paternity leave, loyalty bonuses, savings plan at the pension fund, flexible and attractive scheme for early retirement pension from the completed 58. Year of age, attractive employment conditions\n- Working hours: 5 weeks holidays\n- Training: More than 600 internal training courses, support for external education and training, talent management with a wide range of development opportunities\n- Health: Update Fitness: Fr. 200.– Annual subscription discount\n\n## Your contact person\nYves Sanarica\nHR Marketing",
+        "fr": "## Tâche\n- Avec votre conseil amical et compétent, vous inspirez nos clients.\n- Vous respectez les directives internes et vous assurez donc que les marchandises sont présentées de manière attrayante.\n- Avec les marchandises sur notre zone de vente et dans l'entrepôt, vous êtes consciencieux.\n- Si nécessaire, vous pouvez également aider dans d'autres rayons.\n- Les processus d'inventaire, de vente et d'inventaire font partie de la gestion des processus que vous prenez en charge.\n\n## Exigences\n- La vente et le conseil sont votre passion, la satisfaction des clients votre motivation? Parfait.\n- Vous parlez couramment allemand, vous avez une expérience de vente et idéalement une formation de vente terminée: Alors vous êtes là.\n- Bien sûr, vous êtes flexible dans les temps de fonctionnement (Mo à Sa). Vous appartenez à la vente.\n- Vous connaissez Do-it ? Donc vous pouvez marquer particulièrement bien à ce stade.\n- Toujours un sourire amical – c'est votre secret pour le succès.\n\n## Ce que nous offrons\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du Groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: Remise sur l'abonnement, réduction sur Mobility CarSharing, réduction personnelle également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, contrat de travail collectif (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de retraite, régime flexible et attrayant de retraite anticipée à partir de 58. Année d'âge, conditions d'emploi attrayantes\n- Heures de travail: 5 semaines de congés\n- Formation : plus de 600 cours de formation interne, soutien à l'éducation et à la formation externes, gestion des talents avec un large éventail de possibilités de développement\n- Santé : Mise à jour de la condition physique : Fr. 200.– Rabais d'abonnement annuel\n\n## Votre personne à contacter\nYves Sanarica\nMarketing des ressources humaines"
       },
       "location": "Schwyz",
       "canton": "SZ",
@@ -17101,7 +17017,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -17182,7 +17097,6 @@
           "• Deutsch beherrschst du sehr gut – mündlich und schriftlich."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-division-der-coop-genossenschaft-eyholz",
@@ -17230,16 +17144,16 @@
       "title": "Verkaufsberater:in Garden und Pflanzen",
       "titleByLocale": {
         "de": "Verkaufsberater:in Garden und Pflanzen",
-        "it": "Verkaufsberater:in Garden e Pflanzen",
-        "en": "Verkaufsberater:in Garden und Pflanzen",
-        "fr": "Verkaufsberater:in Garden und Pflanzen"
+        "it": "Consulente vendite Giardino e piante",
+        "en": "Sales Advisor Garden and Plants",
+        "fr": "Conseiller en ventes Jardin et plantes"
       },
       "description": "## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, das du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo. bis Sa.) flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Garden und Pflanzen kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend)\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nSuzana Jovanovic\nHR Marketing",
       "descriptionByLocale": {
         "de": "## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, das du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo. bis Sa.) flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Garden und Pflanzen kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend)\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nSuzana Jovanovic\nHR Marketing",
-        "it": "## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, das du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo. bis Sa.) flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Garden und Pflanzen kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend)\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nSuzana Jovanovic\nHR Marketing",
-        "en": "## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, das du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo. bis Sa.) flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Garden und Pflanzen kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend)\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nSuzana Jovanovic\nHR Marketing",
-        "fr": "## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, das du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo. bis Sa.) flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Garden und Pflanzen kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend)\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nSuzana Jovanovic\nHR Marketing"
+        "it": "## Compiti\n- Con il vostro consiglio amichevole e competente ispirate i nostri clienti.\n- Aderisci alle linee guida interne e quindi assicurati che le merci siano presentate in modo attraente.\n- Con le merci sulla nostra zona di vendita e nel magazzino siete coscientious.\n- Se necessario, è anche possibile aiutare in altri rayons.\n- I processi di inventario, vendita e inventario-rilevanti sono parte della gestione del processo che si prende il sopravvento.\n\n## Requisiti\n- Vendere e consultare sono la vostra passione, soddisfazione del cliente la vostra motivazione? Perfetto.\n- Parli fluente tedesco, hai esperienza di vendita e idealmente una formazione completa di vendita: Allora sei proprio qui.\n- Naturalmente, sei flessibile durante i tempi di distribuzione (Mo. to Sa.). Ti appartiene alle vendite.\n- Conosci giardini e piante? Così si può segnare soprattutto a questo punto\n- Sempre un sorriso amichevole – questo è il tuo segreto per il successo.\n- Sconti: sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino a 20% di sconto su vari servizi assicurativi, fino a 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati a Coop Mobile, sconto personale anche per i partner:in (vivere nella stessa famiglia)\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, contratto collettivo di lavoro (GAV), 18 settimane di congedo di maternità retribuito e 4 settimane di congedo di paternità retribuito, bonus di lealtà, piano di risparmio presso il fondo pensionistico, regime flessibile e attraente per la pensione anticipata dal 58 completato. Età anno\n- Ore lavorative: 5 week-end\n- Formazione: oltre 600 corsi di formazione interna, supporto per l'istruzione e la formazione esterna, gestione del talento con una vasta gamma di opportunità di sviluppo\n- Salute: aggiornamento Fitness: Fr. 200.– Sconto abbonamento annuale\n\n## La persona di contatto\nSuzana Jovanovic\nHR Marketing",
+        "en": "## Tasks\n- With your friendly and competent advice you inspire our customers.\n- You adhere to the internal guidelines and so you make sure that the goods are presented attractively.\n- With the goods on our sales area and in the warehouse you are conscientious.\n- If necessary, you can also help in other rayons.\n- Inventory, sales and inventory-relevant processes are parts of the process management that you take over.\n\n## Requirements\n- Selling and consulting are your passion, customer satisfaction your motivation? Perfect.\n- You speak fluent German, you have sales experience and ideally a completed sales training: Then you are right here.\n- Of course, you are flexible during the deployment times (Mo. to Sa.). Belongs to you in sales.\n- Are you familiar with gardens and plants? So you can score especially at this point\n- Always a friendly smile – this is your secret to success.\n- Discounts: discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all formats of the Coop Group, cheaper mobile and prepaid subscriptions at Coop Mobile, personal discount also for partners:in (living in the same household)\n- Conditions of employment: Pension fund: 2/3 is paid by Coop, collective employment contract (GAV), 18 weeks paid maternity leave and 4 weeks paid paternity leave, loyalty bonuses, savings plan at the pension fund, flexible and attractive scheme for early retirement pension from the completed 58. Age year\n- Working hours: 5 weeks holidays\n- Training: More than 600 internal training courses, support for external education and training, talent management with a wide range of development opportunities\n- Health: Update Fitness: Fr. 200.– Annual subscription discount\n\n## Your contact person\nSuzana Jovanovic\nHR Marketing",
+        "fr": "## Tâche\n- Avec votre conseil amical et compétent, vous inspirez nos clients.\n- Vous respectez les directives internes et vous assurez donc que les marchandises sont présentées de manière attrayante.\n- Avec les marchandises sur notre zone de vente et dans l'entrepôt, vous êtes consciencieux.\n- Si nécessaire, vous pouvez également aider dans d'autres rayons.\n- Les processus d'inventaire, de vente et d'inventaire font partie de la gestion des processus que vous prenez en charge.\n\n## Exigences\n- La vente et le conseil sont votre passion, la satisfaction des clients votre motivation? Parfait.\n- Vous parlez couramment allemand, vous avez une expérience de vente et idéalement une formation de vente terminée: Alors vous êtes là.\n- Bien sûr, vous êtes flexible pendant les temps de déploiement (Mo. à Sa.). Vous appartenez à la vente.\n- Connaissez-vous les jardins et les plantes? Donc vous pouvez marquer particulièrement à ce stade\n- Toujours un sourire amical – c'est votre secret pour le succès.\n- Réductions: réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers chez Coop Mobile, réduction personnelle également pour les partenaires:in (habitant dans le même ménage)\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, contrat de travail collectif (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de retraite, régime flexible et attrayant de retraite anticipée à partir de 58. Année\n- Heures de travail: 5 semaines de congés\n- Formation : plus de 600 cours de formation interne, soutien à l'éducation et à la formation externes, gestion des talents avec un large éventail de possibilités de développement\n- Santé : Mise à jour de la condition physique : Fr. 200.– Rabais d'abonnement annuel\n\n## Votre personne à contacter\nSuzana Jovanovic\nMarketing des ressources humaines"
       },
       "location": "Arbon",
       "canton": "TG",
@@ -17279,7 +17193,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -17311,16 +17224,16 @@
       "title": "Marketing Assistant Holz",
       "titleByLocale": {
         "de": "Marketing Assistent Holz",
-        "en": "Marketing Assistant Holz",
-        "it": "Marketing Assistant Holz",
-        "fr": "Marketing Assistant Holz"
+        "en": "Marketing Assistant Wood",
+        "it": "Assistente di marketing legno",
+        "fr": "Assistant marketing Bois"
       },
       "description": "## Aufgaben\n- Bearbeitung des Sortimentsbereichs Holz von der Beschaffung bis zum fertigen Angebot (stationär für die Verkaufsstellen sowie online)\n- Telefonischer und schriftlicher Kontakt zu Lieferanten, Partnern sowie Verkaufsstellen in Deutsch, Französisch und Englisch\n- Artikelstammdatenmanagement mittels SAP sowie Bearbeitung von Attributen im E-Shop\n- Unterstützung des Teams sowie der Purchasing Managers in administrativen Belangen\n- Durchführung von Rechnungsprüfungen\n- Sicherstellung der Angebotsvielfalt und Produkteaktualität im eigenen Verantwortungsbereich wie auch für unseren E-Shop\n\n## Anforderungen\n- Kaufmännische Grundbildung mit Berufserfahrung in ähnlichem Bereich\n- Erste Erfahrungen im Bereich Produkte-Marketing bzw. Beschaffung\n- Flair für die Holz-Welt, Sortimentskenntnisse sind von Vorteil\n- Selbstständige und engagierte Persönlichkeit mit strukturierter sowie zuverlässiger Arbeitsweise\n- Gute mündliche und schriftliche Sprachkenntnisse in Deutsch wie auch gute PC-Anwenderkenntnisse (MS-Office)\n- Erfahrungen mit SAP-Systemen und -Prozessen sowie Französischkenntnisse sind wünschenswert\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Home-Office, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Nachhaltigkeit:\n- Kommunikation:\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nDominique Hotz\nHR Marketing",
       "descriptionByLocale": {
         "de": "## Aufgaben\n- Bearbeitung des Sortimentsbereichs Holz von der Beschaffung bis zum fertigen Angebot (stationär für die Verkaufsstellen sowie online)\n- Telefonischer und schriftlicher Kontakt zu Lieferanten, Partnern sowie Verkaufsstellen in Deutsch, Französisch und Englisch\n- Artikelstammdatenmanagement mittels SAP sowie Bearbeitung von Attributen im E-Shop\n- Unterstützung des Teams sowie der Purchasing Managers in administrativen Belangen\n- Durchführung von Rechnungsprüfungen\n- Sicherstellung der Angebotsvielfalt und Produkteaktualität im eigenen Verantwortungsbereich wie auch für unseren E-Shop\n\n## Anforderungen\n- Kaufmännische Grundbildung mit Berufserfahrung in ähnlichem Bereich\n- Erste Erfahrungen im Bereich Produkte-Marketing bzw. Beschaffung\n- Flair für die Holz-Welt, Sortimentskenntnisse sind von Vorteil\n- Selbstständige und engagierte Persönlichkeit mit strukturierter sowie zuverlässiger Arbeitsweise\n- Gute mündliche und schriftliche Sprachkenntnisse in Deutsch wie auch gute PC-Anwenderkenntnisse (MS-Office)\n- Erfahrungen mit SAP-Systemen und -Prozessen sowie Französischkenntnisse sind wünschenswert\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Home-Office, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Nachhaltigkeit:\n- Kommunikation:\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nDominique Hotz\nHR Marketing",
-        "it": "## Aufgaben\n- Bearbeitung des Sortimentsbereichs Holz von der Beschaffung bis zum fertigen Angebot (stationär für die Verkaufsstellen sowie online)\n- Telefonischer und schriftlicher Kontakt zu Lieferanten, Partnern sowie Verkaufsstellen in Deutsch, Französisch und Englisch\n- Artikelstammdatenmanagement mittels SAP sowie Bearbeitung von Attributen im E-Shop\n- Unterstützung des Teams sowie der Purchasing Managers in administrativen Belangen\n- Durchführung von Rechnungsprüfungen\n- Sicherstellung der Angebotsvielfalt und Produkteaktualität im eigenen Verantwortungsbereich wie auch für unseren E-Shop\n\n## Anforderungen\n- Kaufmännische Grundbildung mit Berufserfahrung in ähnlichem Bereich\n- Erste Erfahrungen im Bereich Produkte-Marketing bzw. Beschaffung\n- Flair für die Holz-Welt, Sortimentskenntnisse sind von Vorteil\n- Selbstständige und engagierte Persönlichkeit mit strukturierter sowie zuverlässiger Arbeitsweise\n- Gute mündliche und schriftliche Sprachkenntnisse in Deutsch wie auch gute PC-Anwenderkenntnisse (MS-Office)\n- Erfahrungen mit SAP-Systemen und -Prozessen sowie Französischkenntnisse sind wünschenswert\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Home-Office, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Nachhaltigkeit:\n- Kommunikation:\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nDominique Hotz\nHR Marketing",
-        "en": "## Aufgaben\n- Bearbeitung des Sortimentsbereichs Holz von der Beschaffung bis zum fertigen Angebot (stationär für die Verkaufsstellen sowie online)\n- Telefonischer und schriftlicher Kontakt zu Lieferanten, Partnern sowie Verkaufsstellen in Deutsch, Französisch und Englisch\n- Artikelstammdatenmanagement mittels SAP sowie Bearbeitung von Attributen im E-Shop\n- Unterstützung des Teams sowie der Purchasing Managers in administrativen Belangen\n- Durchführung von Rechnungsprüfungen\n- Sicherstellung der Angebotsvielfalt und Produkteaktualität im eigenen Verantwortungsbereich wie auch für unseren E-Shop\n\n## Anforderungen\n- Kaufmännische Grundbildung mit Berufserfahrung in ähnlichem Bereich\n- Erste Erfahrungen im Bereich Produkte-Marketing bzw. Beschaffung\n- Flair für die Holz-Welt, Sortimentskenntnisse sind von Vorteil\n- Selbstständige und engagierte Persönlichkeit mit strukturierter sowie zuverlässiger Arbeitsweise\n- Gute mündliche und schriftliche Sprachkenntnisse in Deutsch wie auch gute PC-Anwenderkenntnisse (MS-Office)\n- Erfahrungen mit SAP-Systemen und -Prozessen sowie Französischkenntnisse sind wünschenswert\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Home-Office, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Nachhaltigkeit:\n- Kommunikation:\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nDominique Hotz\nHR Marketing",
-        "fr": "## Aufgaben\n- Bearbeitung des Sortimentsbereichs Holz von der Beschaffung bis zum fertigen Angebot (stationär für die Verkaufsstellen sowie online)\n- Telefonischer und schriftlicher Kontakt zu Lieferanten, Partnern sowie Verkaufsstellen in Deutsch, Französisch und Englisch\n- Artikelstammdatenmanagement mittels SAP sowie Bearbeitung von Attributen im E-Shop\n- Unterstützung des Teams sowie der Purchasing Managers in administrativen Belangen\n- Durchführung von Rechnungsprüfungen\n- Sicherstellung der Angebotsvielfalt und Produkteaktualität im eigenen Verantwortungsbereich wie auch für unseren E-Shop\n\n## Anforderungen\n- Kaufmännische Grundbildung mit Berufserfahrung in ähnlichem Bereich\n- Erste Erfahrungen im Bereich Produkte-Marketing bzw. Beschaffung\n- Flair für die Holz-Welt, Sortimentskenntnisse sind von Vorteil\n- Selbstständige und engagierte Persönlichkeit mit strukturierter sowie zuverlässiger Arbeitsweise\n- Gute mündliche und schriftliche Sprachkenntnisse in Deutsch wie auch gute PC-Anwenderkenntnisse (MS-Office)\n- Erfahrungen mit SAP-Systemen und -Prozessen sowie Französischkenntnisse sind wünschenswert\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Home-Office, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Nachhaltigkeit:\n- Kommunikation:\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nDominique Hotz\nHR Marketing"
+        "it": "## Compiti\n- Lavorazione della gamma di legname da approvvigionamento all'offerta finita (stazione per i punti vendita e online)\n- Telefono e contatto scritto con fornitori, partner e punti vendita in tedesco, francese e inglese\n- Gestione dei dati master dell'articolo utilizzando SAP e elaborazione degli attributi nell'e-shop\n- Supporto del team e dei responsabili acquisti in materia amministrativa\n- Gestione degli audit\n- Garantire la varietà di offerte e la corrente di prodotto nella nostra area di responsabilità e per il nostro e-shop\n\n## Requisiti\n- Istruzione di base commerciale con esperienza professionale in un campo simile\n- Prima esperienza nel marketing del prodotto o nell'approvvigionamento\n- Fiamma per il mondo del legno, la conoscenza dell'assortimento è un vantaggio\n- Personalità indipendente e impegnata con un modo di lavoro strutturato e affidabile\n- Buone competenze linguistiche orali e scritte in tedesco e buone capacità di utilizzo del PC (MS-Office)\n- L'esperienza con sistemi e processi SAP e la conoscenza del francese è auspicabile\n\n## Cosa offriamo\n- Sconti: Sconti sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino a 20% di sconto su vari servizi assicurativi, fino a 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati a Coop Mobile, Reka Card: sconto su abbonamento, sconto personale anche per i partner:in (vivere nella stessa famiglia), sconto su abbonamento GA\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, contratto collettivo di lavoro (GAV), 18 settimane di congedo di maternità retribuito e 4 settimane di congedo di paternità pagato, bonus di lealtà, piano di risparmio presso il fondo pensionistico, ufficio di casa, regime flessibile e attraente per la pensione di prepensionamento dal 58 completato. Anno di età, condizioni di lavoro attraenti\n- Ore lavorative: 5 week-end\n- Formazione: oltre 600 corsi di formazione interna, supporto per l'istruzione e la formazione esterna, gestione del talento con una vasta gamma di opportunità di sviluppo\n- Sostenibilità:\n- Comunicazione:\n- Salute: aggiornamento Fitness: Fr. 200.– Sconto abbonamento annuale\n\n## La persona di contatto\nDominique Hotz\nHR Marketing",
+        "en": "## Tasks\n- Processing of the timber range from procurement to the finished offer (stationary for sales outlets and online)\n- Telephone and written contact with suppliers, partners and sales outlets in German, French and English\n- Article master data management using SAP as well as processing of attributes in the e-shop\n- Support of the team and the Purchasing Managers in administrative matters\n- Conduct of audits\n- Ensuring the variety of offers and product currentness in our own area of responsibility as well as for our e-shop\n\n## Requirements\n- Commercial basic education with professional experience in a similar field\n- First experience in product marketing or Procurement\n- Flair for the wood world, assortment knowledge is an advantage\n- Independent and committed personality with a structured and reliable way of working\n- Good oral and written language skills in German as well as good PC user skills (MS-Office)\n- Experience with SAP systems and processes as well as knowledge of French is desirable\n\n## What we offer\n- Discounts: Discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all formats of the Coop Group, cheaper mobile and prepaid subscriptions at Coop Mobile, Reka Card: discount on subscription, staff discount also for partners:in (living in the same household), discount on GA subscription\n- Conditions of employment: Pension fund: 2/3 is paid by Coop, collective employment contract (GAV), 18 weeks paid maternity leave and 4 weeks paid paternity leave, loyalty bonuses, savings plan at the pension fund, home office, flexible and attractive scheme for early retirement pension from the completed 58. Year of age, attractive employment conditions\n- Working hours: 5 weeks holidays\n- Training: More than 600 internal training courses, support for external education and training, talent management with a wide range of development opportunities\n- Sustainability:\n- Communication:\n- Health: Update Fitness: Fr. 200.– Annual subscription discount\n\n## Your contact person\nDominique Hotz\nHR Marketing",
+        "fr": "## Tâche\n- La transformation du bois va de l'approvisionnement à l'offre finale (stationnaire pour les points de vente et en ligne)\n- Contacts téléphoniques et écrits avec les fournisseurs, partenaires et points de vente en allemand, français et anglais\n- Article master gestion des données en utilisant SAP ainsi que le traitement des attributs dans l'e-shop\n- Soutien de l'équipe et des responsables des achats en matière administrative\n- Conduite des audits\n- Assurer la variété des offres et le courant des produits dans notre propre domaine de responsabilité ainsi que pour notre e-shop\n\n## Exigences\n- Éducation de base commerciale avec expérience professionnelle dans un domaine similaire\n- Première expérience en marketing de produits ou en achats\n- Flair pour le monde du bois, la connaissance de l'assortiment est un avantage\n- Personnalité indépendante et engagée avec un mode de travail structuré et fiable\n- Bonnes compétences en langue orale et écrite en allemand ainsi que de bonnes compétences des utilisateurs de PC (MS-Office)\n- Une expérience des systèmes et des processus SAP ainsi que de la connaissance du français est souhaitable\n\n## Ce que nous offrons\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers chez Coop Mobile, Reka Card: réduction sur l'abonnement, rabais personnel également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA\n- Conditions d'emploi: fonds de pension: 2/3 est payé par Coop, contrat de travail collectif (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de pension, bureau à domicile, régime souple et attrayant de retraite anticipée à partir de 58. Année d'âge, conditions d'emploi attrayantes\n- Heures de travail: 5 semaines de congés\n- Formation : plus de 600 cours de formation interne, soutien à l'éducation et à la formation externes, gestion des talents avec un large éventail de possibilités de développement\n- Durabilité :\n- Communication:\n- Santé : Mise à jour de la condition physique : Fr. 200.– Rabais d'abonnement annuel\n\n## Votre personne à contacter\nDominique Hotz\nMarketing des ressources humaines"
       },
       "location": "Dietlikon",
       "canton": "ZH",
@@ -17362,7 +17275,6 @@
           "• Erfahrungen mit SAP-Systemen und -Prozessen sowie Französischkenntnisse sind wünschenswert"
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "salaryMin": 77000,
       "salaryMax": 136000,
@@ -17401,9 +17313,9 @@
       "description": "## Aufgaben\n- Die Regalpflege sowie das Einräumen der Lieferungen liegen in deiner Verantwortung.\n- Dank dir sind Ordnung und Sauberkeit auf der Verkaufsfläche garantiert.\n- Du packst die Ware aus und führst Zählungen sowie Qualitätskontrollen durch.\n\n## Anforderungen\n- Deine Deutschkenntnisse sind gut – in Wort und Schrift.\n- Flexibilität hinsichtlich der Einsatzzeiten ist für dich selbstverständlich (Mo–Sa).\n- Teamarbeit bereitet dir Freude.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend)\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nCarolina Erismann\nHR Marketing",
       "descriptionByLocale": {
         "de": "## Aufgaben\n- Die Regalpflege sowie das Einräumen der Lieferungen liegen in deiner Verantwortung.\n- Dank dir sind Ordnung und Sauberkeit auf der Verkaufsfläche garantiert.\n- Du packst die Ware aus und führst Zählungen sowie Qualitätskontrollen durch.\n\n## Anforderungen\n- Deine Deutschkenntnisse sind gut – in Wort und Schrift.\n- Flexibilität hinsichtlich der Einsatzzeiten ist für dich selbstverständlich (Mo–Sa).\n- Teamarbeit bereitet dir Freude.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend)\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nCarolina Erismann\nHR Marketing",
-        "it": "## Aufgaben\n- Die Regalpflege sowie das Einräumen der Lieferungen liegen in deiner Verantwortung.\n- Dank dir sind Ordnung und Sauberkeit auf der Verkaufsfläche garantiert.\n- Du packst die Ware aus und führst Zählungen sowie Qualitätskontrollen durch.\n\n## Anforderungen\n- Deine Deutschkenntnisse sind gut – in Wort und Schrift.\n- Flexibilität hinsichtlich der Einsatzzeiten ist für dich selbstverständlich (Mo–Sa).\n- Teamarbeit bereitet dir Freude.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend)\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nCarolina Erismann\nHR Marketing",
-        "en": "## Aufgaben\n- Die Regalpflege sowie das Einräumen der Lieferungen liegen in deiner Verantwortung.\n- Dank dir sind Ordnung und Sauberkeit auf der Verkaufsfläche garantiert.\n- Du packst die Ware aus und führst Zählungen sowie Qualitätskontrollen durch.\n\n## Anforderungen\n- Deine Deutschkenntnisse sind gut – in Wort und Schrift.\n- Flexibilität hinsichtlich der Einsatzzeiten ist für dich selbstverständlich (Mo–Sa).\n- Teamarbeit bereitet dir Freude.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend)\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nCarolina Erismann\nHR Marketing",
-        "fr": "## Aufgaben\n- Die Regalpflege sowie das Einräumen der Lieferungen liegen in deiner Verantwortung.\n- Dank dir sind Ordnung und Sauberkeit auf der Verkaufsfläche garantiert.\n- Du packst die Ware aus und führst Zählungen sowie Qualitätskontrollen durch.\n\n## Anforderungen\n- Deine Deutschkenntnisse sind gut – in Wort und Schrift.\n- Flexibilität hinsichtlich der Einsatzzeiten ist für dich selbstverständlich (Mo–Sa).\n- Teamarbeit bereitet dir Freude.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend)\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nCarolina Erismann\nHR Marketing"
+        "it": "## Compiti\n- L'assistenza alla mensola e la fornitura di consegne sono vostra responsabilità.\n- Grazie a voi, ordine e pulizia sono garantiti sul piano di vendita.\n- Si disfare le merci e effettuare conteggi e controlli di qualità.\n\n## Requisiti\n- La vostra conoscenza del tedesco è buona – nella parola e nella scrittura.\n- La flessibilità in termini di tempi di implementazione è una questione ovviamente per voi (Mo–Sa).\n- Il lavoro di squadra ti dà piacere.\n\n## Cosa offriamo\n- Sconti: sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino a 20% di sconto su vari servizi assicurativi, fino a 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati a Coop Mobile, Reka Card: sconto su abbonamento, sconto personale anche per i partner:in (vivere nella stessa famiglia)\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, contratto collettivo di lavoro (GAV), 18 settimane di congedo di maternità retribuito e 4 settimane di congedo di paternità retribuito, bonus di lealtà, piano di risparmio presso il fondo pensionistico, regime flessibile e attraente per la pensione anticipata dal 58 completato. Anno di età, condizioni di lavoro attraenti\n- Ore lavorative: 5 week-end\n- Formazione: oltre 600 corsi di formazione interna, supporto per l'istruzione e la formazione esterna, gestione del talento con una vasta gamma di opportunità di sviluppo\n- Salute: aggiornamento Fitness: Fr. 200.– Sconto abbonamento annuale\n\n## La persona di contatto\nCarolina Erismann\nHR Marketing",
+        "en": "## Tasks\n- The shelf care and the provision of deliveries are your responsibility.\n- Thanks to you, order and cleanliness are guaranteed on the sales floor.\n- You unpack the goods and carry out counts and quality controls.\n\n## Requirements\n- Your knowledge of German is good – in word and writing.\n- Flexibility in terms of deployment times is a matter of course for you (Mo–Sa).\n- Teamwork gives you pleasure.\n\n## What we offer\n- Discounts: discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all formats of the Coop Group, cheaper mobile and prepaid subscriptions at Coop Mobile, Reka Card: discount on subscription, staff discount also for partners:in (living in the same household)\n- Conditions of employment: Pension fund: 2/3 is paid by Coop, collective employment contract (GAV), 18 weeks paid maternity leave and 4 weeks paid paternity leave, loyalty bonuses, savings plan at the pension fund, flexible and attractive scheme for early retirement pension from the completed 58. Year of age, attractive employment conditions\n- Working hours: 5 weeks holidays\n- Training: More than 600 internal training courses, support for external education and training, talent management with a wide range of development opportunities\n- Health: Update Fitness: Fr. 200.– Annual subscription discount\n\n## Your contact person\nCarolina Erismann\nHR Marketing",
+        "fr": "## Tâche\n- Le soin des étagères et la fourniture des livraisons sont de votre responsabilité.\n- Grâce à vous, la commande et la propreté sont garanties sur le plancher de vente.\n- Vous déballez les marchandises et effectuez des comptages et des contrôles de qualité.\n\n## Exigences\n- Votre connaissance de l'allemand est bonne – en paroles et en écriture.\n- La flexibilité en termes de temps de déploiement est bien sûr une question pour vous (Mo–Sa).\n- Le travail d'équipe vous fait plaisir.\n\n## Ce que nous offrons\n- Réductions: réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers chez Coop Mobile, Reka Card: réduction sur l'abonnement, rabais personnel également pour les partenaires:in (habitant dans le même ménage)\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, contrat de travail collectif (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de retraite, régime flexible et attrayant de retraite anticipée à partir de 58. Année d'âge, conditions d'emploi attrayantes\n- Heures de travail: 5 semaines de congés\n- Formation : plus de 600 cours de formation interne, soutien à l'éducation et à la formation externes, gestion des talents avec un large éventail de possibilités de développement\n- Santé : Mise à jour de la condition physique : Fr. 200.– Rabais d'abonnement annuel\n\n## Votre personne à contacter\nCaroline Erismann\nMarketing des ressources humaines"
       },
       "location": "Baden",
       "canton": "AG",
@@ -17439,7 +17351,6 @@
           "• Teamarbeit bereitet dir Freude."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -17471,16 +17382,16 @@
       "title": "Verkaufsberater:in Do-it",
       "titleByLocale": {
         "de": "Verkaufsberater:in Do-it",
-        "it": "Verkaufsberater:in Do-it",
-        "en": "Verkaufsberater:in Do-it",
-        "fr": "Verkaufsberater:in Do-it"
+        "it": "Consulente commerciale Do-it",
+        "en": "Sales consultant Do-it",
+        "fr": "Consultant en ventes Do-it"
       },
       "description": "## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, dass du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo bis Sa) flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Do-it kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nSinduja Kugasothy\nHR Marketing",
       "descriptionByLocale": {
         "de": "## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, dass du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo bis Sa) flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Do-it kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nSinduja Kugasothy\nHR Marketing",
-        "it": "## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, dass du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo bis Sa) flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Do-it kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nSinduja Kugasothy\nHR Marketing",
-        "en": "## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, dass du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo bis Sa) flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Do-it kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nSinduja Kugasothy\nHR Marketing",
-        "fr": "## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, dass du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo bis Sa) flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Do-it kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nSinduja Kugasothy\nHR Marketing"
+        "it": "## Compiti\n- Con il vostro consiglio amichevole e competente ispirate i nostri clienti.\n- Aderisci alle linee guida interne e quindi assicurati che le merci siano presentate in modo attraente.\n- Con le merci sulla nostra zona di vendita e nel magazzino siete coscientious.\n- I processi di inventario, vendita e inventario-rilevanti sono parte della gestione del processo che si prende il sopravvento.\n\n## Requisiti\n- Vendere e consultare sono la vostra passione, soddisfazione del cliente la vostra motivazione? Perfetto.\n- Si parla fluente tedesco, hanno esperienza di vendita e idealmente una formazione completa di vendita: Allora sei proprio qui.\n- Naturalmente, sei flessibile nei tempi operativi (Mo to Sa). Ti appartiene alle vendite.\n- Conosci Do-it? Così si può segnare particolarmente bene a questo punto.\n- Sempre un sorriso amichevole – questo è il tuo segreto per il successo.\n\n## Cosa offriamo\n- Sconti: Sconti sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino a 20% di sconto su vari servizi assicurativi, fino a 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati a Coop Mobile, Reka Card: sconto su abbonamento, sconto personale anche per i partner:in (vivere nella stessa famiglia), sconto su abbonamento GA\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, contratto collettivo di lavoro (GAV), 18 settimane di congedo di maternità retribuito e 4 settimane di congedo di paternità retribuito, bonus di lealtà, piano di risparmio presso il fondo pensionistico, regime flessibile e attraente per la pensione anticipata dal 58 completato. Anno di età, condizioni di lavoro attraenti\n- Ore lavorative: 5 week-end\n- Formazione: oltre 600 corsi di formazione interna, supporto per l'istruzione e la formazione esterna, gestione del talento con una vasta gamma di opportunità di sviluppo\n- Salute: aggiornamento Fitness: Fr. 200.– Sconto abbonamento annuale\n\n## La persona di contatto\nSinduja Kugaso\nHR Marketing",
+        "en": "## Tasks\n- With your friendly and competent advice you inspire our customers.\n- You adhere to the internal guidelines and so you make sure that the goods are presented attractively.\n- With the goods on our sales area and in the warehouse you are conscientious.\n- Inventory, sales and inventory-relevant processes are parts of the process management that you take over.\n\n## Requirements\n- Selling and consulting are your passion, customer satisfaction your motivation? Perfect.\n- You speak fluent German, have sales experience and ideally a completed sales training: Then you are right here.\n- Of course, you are flexible in the operating times (Mo to Sa). Belongs to you in sales.\n- Are you familiar with Do-it? So you can score particularly well at this point.\n- Always a friendly smile – this is your secret to success.\n\n## What we offer\n- Discounts: Discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all formats of the Coop Group, cheaper mobile and prepaid subscriptions at Coop Mobile, Reka Card: discount on subscription, staff discount also for partners:in (living in the same household), discount on GA subscription\n- Conditions of employment: Pension fund: 2/3 is paid by Coop, collective employment contract (GAV), 18 weeks paid maternity leave and 4 weeks paid paternity leave, loyalty bonuses, savings plan at the pension fund, flexible and attractive scheme for early retirement pension from the completed 58. Year of age, attractive employment conditions\n- Working hours: 5 weeks holidays\n- Training: More than 600 internal training courses, support for external education and training, talent management with a wide range of development opportunities\n- Health: Update Fitness: Fr. 200.– Annual subscription discount\n\n## Your contact person\nSinduja Kugasothy\nHR Marketing",
+        "fr": "## Tâche\n- Avec votre conseil amical et compétent, vous inspirez nos clients.\n- Vous respectez les directives internes et vous assurez donc que les marchandises sont présentées de manière attrayante.\n- Avec les marchandises sur notre zone de vente et dans l'entrepôt, vous êtes consciencieux.\n- Les processus d'inventaire, de vente et d'inventaire font partie de la gestion des processus que vous prenez en charge.\n\n## Exigences\n- La vente et le conseil sont votre passion, la satisfaction des clients votre motivation? Parfait.\n- Vous parlez couramment allemand, avez une expérience de vente et idéalement une formation de vente terminée: Alors vous êtes là.\n- Bien sûr, vous êtes flexible dans les temps de fonctionnement (Mo à Sa). Vous appartenez à la vente.\n- Vous connaissez Do-it ? Donc vous pouvez marquer particulièrement bien à ce stade.\n- Toujours un sourire amical – c'est votre secret pour le succès.\n\n## Ce que nous offrons\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers chez Coop Mobile, Reka Card: réduction sur l'abonnement, rabais personnel également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, contrat de travail collectif (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de retraite, régime flexible et attrayant de retraite anticipée à partir de 58. Année d'âge, conditions d'emploi attrayantes\n- Heures de travail: 5 semaines de congés\n- Formation : plus de 600 cours de formation interne, soutien à l'éducation et à la formation externes, gestion des talents avec un large éventail de possibilités de développement\n- Santé : Mise à jour de la condition physique : Fr. 200.– Rabais d'abonnement annuel\n\n## Votre personne à contacter\nSinduja Kugasothy\nMarketing des ressources humaines"
       },
       "location": "Küsnacht",
       "canton": "ZH",
@@ -17520,7 +17431,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -17552,16 +17462,16 @@
       "title": "Verkaufsberater:in Do-it",
       "titleByLocale": {
         "de": "Verkaufsberater:in Do-it",
-        "it": "Verkaufsberater:in Do-it",
-        "en": "Verkaufsberater:in Do-it",
-        "fr": "Verkaufsberater:in Do-it"
+        "it": "Consulente commerciale Do-it",
+        "en": "Sales consultant Do-it",
+        "fr": "Consultant en ventes Do-it"
       },
       "description": "## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, das du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo bis Sa) flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Do-it kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nYves Sanarica\nHR Marketing",
       "descriptionByLocale": {
         "de": "## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, das du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo bis Sa) flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Do-it kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nYves Sanarica\nHR Marketing",
-        "it": "## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, das du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo bis Sa) flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Do-it kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nYves Sanarica\nHR Marketing",
-        "en": "## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, das du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo bis Sa) flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Do-it kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nYves Sanarica\nHR Marketing",
-        "fr": "## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, das du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo bis Sa) flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Do-it kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nYves Sanarica\nHR Marketing"
+        "it": "## Compiti\n- Con il vostro consiglio amichevole e competente ispirate i nostri clienti.\n- Aderisci alle linee guida interne e quindi assicurati che le merci siano presentate in modo attraente.\n- Con le merci sulla nostra zona di vendita e nel magazzino siete coscientious.\n- Se necessario, è anche possibile aiutare in altri rayons.\n- I processi di inventario, vendita e inventario-rilevanti sono parte della gestione del processo che si prende il sopravvento.\n\n## Requisiti\n- Vendere e consultare sono la vostra passione, soddisfazione del cliente la vostra motivazione? Perfetto.\n- Parli fluente tedesco, hai esperienza di vendita e idealmente una formazione completa di vendita: Allora sei proprio qui.\n- Naturalmente, sei flessibile nei tempi operativi (Mo to Sa). Ti appartiene alle vendite.\n- Conosci Do-it? Così si può segnare particolarmente bene a questo punto.\n- Sempre un sorriso amichevole – questo è il tuo segreto per il successo.\n\n## Cosa offriamo\n- Sconti: Sconti sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino a 20% di sconto su vari servizi assicurativi, fino a 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati a Coop Mobile, Reka Card: sconto su abbonamento, sconto personale anche per i partner:in (vivere nella stessa famiglia), sconto su abbonamento GA\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, contratto collettivo di lavoro (GAV), 18 settimane di congedo di maternità retribuito e 4 settimane di congedo di paternità retribuito, bonus di lealtà, piano di risparmio presso il fondo pensionistico, regime flessibile e attraente per la pensione anticipata dal 58 completato. Anno di età, condizioni di lavoro attraenti\n- Ore lavorative: 5 week-end\n- Formazione: oltre 600 corsi di formazione interna, supporto per l'istruzione e la formazione esterna, gestione del talento con una vasta gamma di opportunità di sviluppo\n- Salute: aggiornamento Fitness: Fr. 200.– Sconto abbonamento annuale\n\n## La persona di contatto\nYves Sanarica\nHR Marketing",
+        "en": "## Tasks\n- With your friendly and competent advice you inspire our customers.\n- You adhere to the internal guidelines and so you make sure that the goods are presented attractively.\n- With the goods on our sales area and in the warehouse you are conscientious.\n- If necessary, you can also help in other rayons.\n- Inventory, sales and inventory-relevant processes are parts of the process management that you take over.\n\n## Requirements\n- Selling and consulting are your passion, customer satisfaction your motivation? Perfect.\n- You speak fluent German, you have sales experience and ideally a completed sales training: Then you are right here.\n- Of course, you are flexible in the operating times (Mo to Sa). Belongs to you in sales.\n- Are you familiar with Do-it? So you can score particularly well at this point.\n- Always a friendly smile – this is your secret to success.\n\n## What we offer\n- Discounts: Discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all formats of the Coop Group, cheaper mobile and prepaid subscriptions at Coop Mobile, Reka Card: discount on subscription, staff discount also for partners:in (living in the same household), discount on GA subscription\n- Conditions of employment: Pension fund: 2/3 is paid by Coop, collective employment contract (GAV), 18 weeks paid maternity leave and 4 weeks paid paternity leave, loyalty bonuses, savings plan at the pension fund, flexible and attractive scheme for early retirement pension from the completed 58. Year of age, attractive employment conditions\n- Working hours: 5 weeks holidays\n- Training: More than 600 internal training courses, support for external education and training, talent management with a wide range of development opportunities\n- Health: Update Fitness: Fr. 200.– Annual subscription discount\n\n## Your contact person\nYves Sanarica\nHR Marketing",
+        "fr": "## Tâche\n- Avec votre conseil amical et compétent, vous inspirez nos clients.\n- Vous respectez les directives internes et vous assurez donc que les marchandises sont présentées de manière attrayante.\n- Avec les marchandises sur notre zone de vente et dans l'entrepôt, vous êtes consciencieux.\n- Si nécessaire, vous pouvez également aider dans d'autres rayons.\n- Les processus d'inventaire, de vente et d'inventaire font partie de la gestion des processus que vous prenez en charge.\n\n## Exigences\n- La vente et le conseil sont votre passion, la satisfaction des clients votre motivation? Parfait.\n- Vous parlez couramment allemand, vous avez une expérience de vente et idéalement une formation de vente terminée: Alors vous êtes là.\n- Bien sûr, vous êtes flexible dans les temps de fonctionnement (Mo à Sa). Vous appartenez à la vente.\n- Vous connaissez Do-it ? Donc vous pouvez marquer particulièrement bien à ce stade.\n- Toujours un sourire amical – c'est votre secret pour le succès.\n\n## Ce que nous offrons\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers chez Coop Mobile, Reka Card: réduction sur l'abonnement, rabais personnel également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, contrat de travail collectif (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de retraite, régime flexible et attrayant de retraite anticipée à partir de 58. Année d'âge, conditions d'emploi attrayantes\n- Heures de travail: 5 semaines de congés\n- Formation : plus de 600 cours de formation interne, soutien à l'éducation et à la formation externes, gestion des talents avec un large éventail de possibilités de développement\n- Santé : Mise à jour de la condition physique : Fr. 200.– Rabais d'abonnement annuel\n\n## Votre personne à contacter\nYves Sanarica\nMarketing des ressources humaines"
       },
       "location": "Hinwil",
       "canton": "ZH",
@@ -17601,7 +17511,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -17633,16 +17542,16 @@
       "title": "Verkaufsberater:in Deco",
       "titleByLocale": {
         "de": "Verkaufsberater:in Deco",
-        "it": "Verkaufsberater:in Deco",
-        "en": "Verkaufsberater:in Deco",
-        "fr": "Verkaufsberater:in Deco"
+        "it": "Consulente commerciale Deco",
+        "en": "Sales consultant Deco",
+        "fr": "Consultant en ventes Deco"
       },
       "description": "## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, das du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Deco kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nYves Sanarica\nHR Marketing",
       "descriptionByLocale": {
         "de": "## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, das du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Deco kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nYves Sanarica\nHR Marketing",
-        "it": "## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, das du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Deco kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nYves Sanarica\nHR Marketing",
-        "en": "## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, das du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Deco kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nYves Sanarica\nHR Marketing",
-        "fr": "## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, das du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Deco kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nYves Sanarica\nHR Marketing"
+        "it": "## Compiti\n- Con il vostro consiglio amichevole e competente ispirate i nostri clienti.\n- Aderisci alle linee guida interne e quindi assicurati che le merci siano presentate in modo attraente.\n- Con le merci sulla nostra zona di vendita e nel magazzino siete coscientious.\n- Se necessario, è anche possibile aiutare in altri rayons.\n- I processi di inventario, vendita e inventario-rilevanti sono parte della gestione del processo che si prende il sopravvento.\n\n## Requisiti\n- Vendere e consultare sono la vostra passione, soddisfazione del cliente la vostra motivazione? Perfetto.\n- Parli fluente tedesco, hai esperienza di vendita e idealmente una formazione completa di vendita: Allora sei proprio qui.\n- Naturalmente, sei flessibile durante i tempi di distribuzione. Ti appartiene alle vendite.\n- Conosci Deco? Così si può segnare particolarmente bene a questo punto.\n- Sempre un sorriso amichevole – questo è il tuo segreto per il successo.\n\n## Cosa offriamo\n- Sconti: Sconti sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino a 20% di sconto su vari servizi assicurativi, fino a 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati a Coop Mobile, Reka Card: sconto su abbonamento, sconto personale anche per i partner:in (vivere nella stessa famiglia), sconto su abbonamento GA\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, contratto collettivo di lavoro (GAV), 18 settimane di congedo di maternità retribuito e 4 settimane di congedo di paternità retribuito, bonus di lealtà, piano di risparmio presso il fondo pensionistico, regime flessibile e attraente per la pensione anticipata dal 58 completato. Anno di età, condizioni di lavoro attraenti\n- Ore lavorative: 5 week-end\n- Formazione: oltre 600 corsi di formazione interna, supporto per l'istruzione e la formazione esterna, gestione del talento con una vasta gamma di opportunità di sviluppo\n- Salute: aggiornamento Fitness: Fr. 200.– Sconto abbonamento annuale\n\n## La persona di contatto\nYves Sanarica\nHR Marketing",
+        "en": "## Tasks\n- With your friendly and competent advice you inspire our customers.\n- You adhere to the internal guidelines and so you make sure that the goods are presented attractively.\n- With the goods on our sales area and in the warehouse you are conscientious.\n- If necessary, you can also help in other rayons.\n- Inventory, sales and inventory-relevant processes are parts of the process management that you take over.\n\n## Requirements\n- Selling and consulting are your passion, customer satisfaction your motivation? Perfect.\n- You speak fluent German, you have sales experience and ideally a completed sales training: Then you are right here.\n- Of course, you are flexible during the deployment times. Belongs to you in sales.\n- Are you familiar with Deco? So you can score particularly well at this point.\n- Always a friendly smile – this is your secret to success.\n\n## What we offer\n- Discounts: Discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all formats of the Coop Group, cheaper mobile and prepaid subscriptions at Coop Mobile, Reka Card: discount on subscription, staff discount also for partners:in (living in the same household), discount on GA subscription\n- Conditions of employment: Pension fund: 2/3 is paid by Coop, collective employment contract (GAV), 18 weeks paid maternity leave and 4 weeks paid paternity leave, loyalty bonuses, savings plan at the pension fund, flexible and attractive scheme for early retirement pension from the completed 58. Year of age, attractive employment conditions\n- Working hours: 5 weeks holidays\n- Training: More than 600 internal training courses, support for external education and training, talent management with a wide range of development opportunities\n- Health: Update Fitness: Fr. 200.– Annual subscription discount\n\n## Your contact person\nYves Sanarica\nHR Marketing",
+        "fr": "## Tâche\n- Avec votre conseil amical et compétent, vous inspirez nos clients.\n- Vous respectez les directives internes et vous assurez donc que les marchandises sont présentées de manière attrayante.\n- Avec les marchandises sur notre zone de vente et dans l'entrepôt, vous êtes consciencieux.\n- Si nécessaire, vous pouvez également aider dans d'autres rayons.\n- Les processus d'inventaire, de vente et d'inventaire font partie de la gestion des processus que vous prenez en charge.\n\n## Exigences\n- La vente et le conseil sont votre passion, la satisfaction des clients votre motivation? Parfait.\n- Vous parlez couramment allemand, vous avez une expérience de vente et idéalement une formation de vente terminée: Alors vous êtes là.\n- Bien sûr, vous êtes flexible pendant les temps de déploiement. Vous appartenez à la vente.\n- Vous connaissez Deco ? Donc vous pouvez marquer particulièrement bien à ce stade.\n- Toujours un sourire amical – c'est votre secret pour le succès.\n\n## Ce que nous offrons\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers chez Coop Mobile, Reka Card: réduction sur l'abonnement, rabais personnel également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, contrat de travail collectif (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de retraite, régime flexible et attrayant de retraite anticipée à partir de 58. Année d'âge, conditions d'emploi attrayantes\n- Heures de travail: 5 semaines de congés\n- Formation : plus de 600 cours de formation interne, soutien à l'éducation et à la formation externes, gestion des talents avec un large éventail de possibilités de développement\n- Santé : Mise à jour de la condition physique : Fr. 200.– Rabais d'abonnement annuel\n\n## Votre personne à contacter\nYves Sanarica\nMarketing des ressources humaines"
       },
       "location": "Argovia",
       "canton": "AG",
@@ -17682,7 +17591,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -17697,7 +17605,25 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-16T09:21:20.799Z"
+      "firstSeenAt": "2026-09-16T09:21:20.799Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "consulente-commerciale-a-deco-jumbo-argovia",
+          "sales-consultant-in-deco-jumbo-argovia",
+          "consultant-en-ventes-en-deco-jumbo-argovia"
+        ],
+        "en": [
+          "sales-consultant-in-deco-jumbo-argovia"
+        ],
+        "fr": [
+          "consultant-en-ventes-en-deco-jumbo-argovia"
+        ]
+      },
+      "previousSlugs": [
+        "consulente-commerciale-a-deco-jumbo-argovia",
+        "sales-consultant-in-deco-jumbo-argovia",
+        "consultant-en-ventes-en-deco-jumbo-argovia"
+      ]
     }
   ]
 }
