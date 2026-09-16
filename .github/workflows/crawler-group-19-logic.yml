@@ -6354,7 +6354,12 @@ jobs:
             fi
           fi
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing." >> "$summary_file"
-          printf '%s\n' "success_count=$success_count" "failure_count=$failure_count" "missing_count=$missing_count" >> "$output_file"
+          if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ]; then
+            wait_outcome=failure
+          else
+            wait_outcome=success
+          fi
+          printf '%s\n' "success_count=$success_count" "failure_count=$failure_count" "missing_count=$missing_count" "wait_outcome=$wait_outcome" >> "$output_file"
           exit 0
       - name: Commit crawler group data atomically
         if: always() && inputs.generation_token != '' && job.status == 'success' && steps.crawler_group_setup.outcome == 'success'
@@ -6391,7 +6396,7 @@ jobs:
           CRAWLER_GENERATION_CALLER_REPOSITORY: ${{ github.repository }}
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
-          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ job.status }}
+          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ steps.crawler_aggregate.outputs.wait_outcome || 'failure' }}
           CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"albergo-gardenia","primarySlice":"data/jobs/by-crawler/albergo-gardenia.json"},{"crawlerId":"alpiq","primarySlice":"data/jobs/by-crawler/alpiq.json"},{"crawlerId":"bucher-suter","primarySlice":"data/jobs/by-crawler/bucher-suter.json"},{"crawlerId":"convit-holding","primarySlice":"data/jobs/by-crawler/convit-holding.json"},{"crawlerId":"cseb","primarySlice":"data/jobs/by-crawler/cseb.json"},{"crawlerId":"csl-behring","primarySlice":"data/jobs/by-crawler/csl-behring.json"},{"crawlerId":"forel-klinik","primarySlice":"data/jobs/by-crawler/forel-klinik.json"},{"crawlerId":"goline","primarySlice":"data/jobs/by-crawler/goline.json"},{"crawlerId":"grace-la-margna","primarySlice":"data/jobs/by-crawler/grace-la-margna.json"},{"crawlerId":"gz-dielsdorf","primarySlice":"data/jobs/by-crawler/gz-dielsdorf.json"},{"crawlerId":"hfr-hopital-fribourgeois","primarySlice":"data/jobs/by-crawler/hfr-hopital-fribourgeois.json"},{"crawlerId":"integra-biosciences","primarySlice":"data/jobs/by-crawler/integra-biosciences.json"},{"crawlerId":"klinik-susenberg","primarySlice":"data/jobs/by-crawler/klinik-susenberg.json"},{"crawlerId":"komax","primarySlice":"data/jobs/by-crawler/komax.json"},{"crawlerId":"medartis","primarySlice":"data/jobs/by-crawler/medartis.json"},{"crawlerId":"migros-ticino","primarySlice":"data/jobs/by-crawler/migros-ticino.json"},{"crawlerId":"mikron","primarySlice":"data/jobs/by-crawler/mikron.json"},{"crawlerId":"okjob","primarySlice":"data/jobs/by-crawler/okjob.json"},{"crawlerId":"rapelli","primarySlice":"data/jobs/by-crawler/rapelli.json"},{"crawlerId":"rsbj","primarySlice":"data/jobs/by-crawler/rsbj.json"},{"crawlerId":"spitaeler-schaffhausen","primarySlice":"data/jobs/by-crawler/spitaeler-schaffhausen.json"},{"crawlerId":"stadler-rail","primarySlice":"data/jobs/by-crawler/stadler-rail.json"},{"crawlerId":"stiftung-kind-autismus","primarySlice":"data/jobs/by-crawler/stiftung-kind-autismus.json"},{"crawlerId":"suchtfachstelle-zuerich","primarySlice":"data/jobs/by-crawler/suchtfachstelle-zuerich.json"},{"crawlerId":"sulzer","primarySlice":"data/jobs/by-crawler/sulzer.json"},{"crawlerId":"sune-egge","primarySlice":"data/jobs/by-crawler/sune-egge.json"},{"crawlerId":"swissquote","primarySlice":"data/jobs/by-crawler/swissquote.json"},{"crawlerId":"vereinaklosters","primarySlice":"data/jobs/by-crawler/vereinaklosters.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-19-terminal.json
           CRAWLER_GENERATION_LEDGER_PATH: data/crawler-generation-ledger.jsonl

@@ -239,7 +239,8 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       expect(finalizer.id).toBe('crawler-generation-finalizer');
       expect(finalizer.env.CRAWLER_GENERATION_TOKEN).toBe(GENERATION_TOKEN_EXPR);
       expect(finalizer.env.CRAWLER_GENERATION_LEDGER_PATH).toBe('data/crawler-generation-ledger.jsonl');
-      expect(finalizer.env.CRAWLER_GENERATION_WAIT_OUTCOME).toBe('${{ job.status }}');
+      expect(finalizer.env.CRAWLER_GENERATION_WAIT_OUTCOME)
+        .toBe("${{ steps.crawler_aggregate.outputs.wait_outcome || 'failure' }}");
       expect(JSON.parse(finalizer.env.CRAWLER_GENERATION_EXPECTED_CRAWLERS)).toEqual(
         results.generationRoster.groups[group].map((crawlerId: string) => ({
           crawlerId,

@@ -6356,7 +6356,12 @@ jobs:
             fi
           fi
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing." >> "$summary_file"
-          printf '%s\n' "success_count=$success_count" "failure_count=$failure_count" "missing_count=$missing_count" >> "$output_file"
+          if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ]; then
+            wait_outcome=failure
+          else
+            wait_outcome=success
+          fi
+          printf '%s\n' "success_count=$success_count" "failure_count=$failure_count" "missing_count=$missing_count" "wait_outcome=$wait_outcome" >> "$output_file"
           exit 0
       - name: Commit crawler group data atomically
         if: always() && inputs.generation_token != '' && job.status == 'success' && steps.crawler_group_setup.outcome == 'success'
@@ -6393,7 +6398,7 @@ jobs:
           CRAWLER_GENERATION_CALLER_REPOSITORY: ${{ github.repository }}
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
-          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ job.status }}
+          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ steps.crawler_aggregate.outputs.wait_outcome || 'failure' }}
           CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"alcon","primarySlice":"data/jobs/by-crawler/alcon.json"},{"crawlerId":"ariston-group","primarySlice":"data/jobs/by-crawler/ariston-group.json"},{"crawlerId":"bachtelen","primarySlice":"data/jobs/by-crawler/bachtelen.json"},{"crawlerId":"bossard","primarySlice":"data/jobs/by-crawler/bossard.json"},{"crawlerId":"clinica-holistica-engiadina","primarySlice":"data/jobs/by-crawler/clinica-holistica-engiadina.json"},{"crawlerId":"corner-banca","primarySlice":"data/jobs/by-crawler/corner-banca.json"},{"crawlerId":"eth-zurich","primarySlice":"data/jobs/by-crawler/eth-zurich.json"},{"crawlerId":"ferring","primarySlice":"data/jobs/by-crawler/ferring.json"},{"crawlerId":"fust","primarySlice":"data/jobs/by-crawler/fust.json"},{"crawlerId":"giardino","primarySlice":"data/jobs/by-crawler/giardino.json"},{"crawlerId":"heineken-ch","primarySlice":"data/jobs/by-crawler/heineken-ch.json"},{"crawlerId":"huntsman","primarySlice":"data/jobs/by-crawler/huntsman.json"},{"crawlerId":"klinik-seeschau","primarySlice":"data/jobs/by-crawler/klinik-seeschau.json"},{"crawlerId":"kudelski-nagra","primarySlice":"data/jobs/by-crawler/kudelski-nagra.json"},{"crawlerId":"lindenhofgruppe","primarySlice":"data/jobs/by-crawler/lindenhofgruppe.json"},{"crawlerId":"med-ipersonal","primarySlice":"data/jobs/by-crawler/med-ipersonal.json"},{"crawlerId":"mistral-ai","primarySlice":"data/jobs/by-crawler/mistral-ai.json"},{"crawlerId":"mks-pamp","primarySlice":"data/jobs/by-crawler/mks-pamp.json"},{"crawlerId":"oerlikon","primarySlice":"data/jobs/by-crawler/oerlikon.json"},{"crawlerId":"otis","primarySlice":"data/jobs/by-crawler/otis.json"},{"crawlerId":"reha-bellikon","primarySlice":"data/jobs/by-crawler/reha-bellikon.json"},{"crawlerId":"rittmeyer-ag","primarySlice":"data/jobs/by-crawler/rittmeyer-ag.json"},{"crawlerId":"saint-gobain-weber-isover","primarySlice":"data/jobs/by-crawler/saint-gobain-weber-isover.json"},{"crawlerId":"scandit","primarySlice":"data/jobs/by-crawler/scandit.json"},{"crawlerId":"spital-davos","primarySlice":"data/jobs/by-crawler/spital-davos.json"},{"crawlerId":"spital-thusis","primarySlice":"data/jobs/by-crawler/spital-thusis.json"},{"crawlerId":"stadt-zuerich","primarySlice":"data/jobs/by-crawler/stadt-zuerich.json"},{"crawlerId":"tl-lausanne","primarySlice":"data/jobs/by-crawler/tl-lausanne.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-22-terminal.json
           CRAWLER_GENERATION_LEDGER_PATH: data/crawler-generation-ledger.jsonl
