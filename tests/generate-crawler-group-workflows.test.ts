@@ -1623,6 +1623,18 @@ describe('cross-repo crawler execution artifacts', () => {
     );
     expect(() => assertCrawlerManifestDelta({ baseManifest, currentManifest: allowed })).not.toThrow();
 
+    const withLegacyObserverDuplicate = structuredClone(allowed);
+    withLegacyObserverDuplicate.files.push({
+      path: '.github/workflows/observers/scripts/lib/canonical-json-digest.mjs',
+      sitePath: '.github/corpus-workflows/observers/scripts/lib/canonical-json-digest.mjs',
+      mode: 'identical',
+      baseline: { site: 'legacy', corpus: 'legacy', alignedAt: '2026-08-31' },
+    });
+    expect(() => assertCrawlerManifestDelta({
+      baseManifest: withLegacyObserverDuplicate,
+      currentManifest: allowed,
+    })).not.toThrow();
+
     const withCouplingSnapshot = structuredClone(allowed);
     const coupledObserver = withCouplingSnapshot.files.find((entry: any) => (
       entry.sitePath === '.github/corpus-workflows/observers/generator/tests/crawler-cross-repo-artifacts.test.mjs'
