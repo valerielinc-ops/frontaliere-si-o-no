@@ -1853,6 +1853,7 @@ describe('cross-repo crawler execution artifacts', () => {
       .toBe('${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}');
     expect(cleanupStep?.run).toContain('--cleanup --socket "$CODEX_AUTH_BROKER_SOCKET"');
     expect(logic.on.workflow_call.secrets.CODEX_AUTH_JSON).toEqual({ required: false });
+    expect(logic.on.workflow_call.secrets.CLAUDE_CODE_OAUTH_TOKEN).toEqual({ required: false });
     const logicSetupStep = Object.values(logic.jobs)[0].steps.find(
       (step: any) => step.uses?.endsWith('/.github/actions/setup-claude-haiku-fallback@main'),
     );
