@@ -11771,6 +11771,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.affitti-ticino-calo-2026.title': 'Affitti in picchiata in Ticino: calo del 10,9% negli annunci',
     'blog.article.affitti-ticino-calo-2026.excerpt': 'Per la prima volta gli affitti in offerta in Svizzera registrano un calo. In Ticino la flessione raggiunge il 10,9% con una media di 1\'501 franchi.',
     'blog.article.affitti-ticino-calo-2026.imageAlt': 'Vista di edifici residenziali e del Lago di Lugano in Ticino',
+    'blog.article.passaporto-digitale-sicurezza-sociale-ue.title': 'Passaporto digitale UE: novità per la Svizzera',
+    'blog.article.passaporto-digitale-sicurezza-sociale-ue.excerpt': 'La Commissione europea propone il passaporto digitale per la sicurezza sociale e la digitalizzazione dei diplomi, con impatti previsti anche per la Svizzera.',
+    'blog.article.passaporto-digitale-sicurezza-sociale-ue.imageAlt': 'Passaporto digitale per la sicurezza sociale UE e impatto in Svizzera',
 };
 
 export default blogMetaIt;

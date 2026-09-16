@@ -11772,6 +11772,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.affitti-ticino-calo-2026.title': 'Location en pique au Tessin : baisse de 10,9% des annonces',
     'blog.article.affitti-ticino-calo-2026.excerpt': 'Pour la première fois, les loyers proposés en Suisse connaissent une baisse. Au Tessin, la baisse atteint 10,9 % avec une moyenne de 1\'501 francs.',
     'blog.article.affitti-ticino-calo-2026.imageAlt': 'Vue des immeubles résidentiels et du lac de Lugano au Tessin',
+    'blog.article.passaporto-digitale-sicurezza-sociale-ue.title': 'Passeport numérique UE : nouveauté pour la Suisse',
+    'blog.article.passaporto-digitale-sicurezza-sociale-ue.excerpt': 'La Commission européenne propose le passeport numérique pour la sécurité sociale et la numérisation des diplômes, avec des impacts attendus également pour la Suisse.',
+    'blog.article.passaporto-digitale-sicurezza-sociale-ue.imageAlt': 'Passeport numérique de sécurité sociale UE et impact en Suisse',
 };
 
 export default blogMetaFr;
