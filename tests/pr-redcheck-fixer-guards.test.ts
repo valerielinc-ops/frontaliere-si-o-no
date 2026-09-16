@@ -62,7 +62,8 @@ describe('scope — non tocca ciò che non è suo', () => {
   it('salta le PR di un umano (stessa regola del gemello)', () => {
     expect(src).toContain('fuori scope per design');
     expect(src).toMatch(/autonomous=false/);
-    expect(src).toMatch(/fix\/\*\) autonomous=true/);
+    expect(src).toMatch(/fix\/\*\|automerge-\*\) autonomous=true/);
+    expect(src).toContain('prefisso riservato');
   });
 
   it('salta le draft', () => {

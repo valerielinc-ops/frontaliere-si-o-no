@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bachem",
-  "assembledAt": "2026-09-14T23:42:31.156Z",
+  "assembledAt": "2026-09-16T21:07:41.499Z",
   "jobs": [
     {
       "id": "bachem-c2cbd5c7fd2d",
@@ -4231,86 +4231,6 @@
           "@type": "QuantitativeValue",
           "minValue": 72500,
           "maxValue": 110500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "bachem-2ddb3be471a0",
-      "slug": "it-cloud-ingegnere-a-80-100-bachem-ag-bubendorf",
-      "slugByLocale": {
-        "it": "it-cloud-ingegnere-a-80-100-bachem-ag-bubendorf",
-        "en": "it-cloud-engineer-a-80-100-bachem-bubendorf",
-        "de": "it-cloud-ingenieur-a-80-100-bachem-ag-bubendorf",
-        "fr": "it-cloud-ingenieur-a-80-100-bachem-ag-bubendorf"
-      },
-      "company": "Bachem AG",
-      "companyKey": "bachem",
-      "companyDomain": "bachem.com",
-      "title": "IT Cloud Engineer (a), 80-100%",
-      "titleByLocale": {
-        "it": "IT Cloud Ingegnere (a), 80-100%",
-        "en": "IT Cloud Engineer (a), 80-100%",
-        "de": "IT Cloud Ingenieur (a), 80-100%",
-        "fr": "IT Cloud Ingénieur (a), 80-100%"
-      },
-      "description": "To drive our continuous organic growth, we are constantly looking for highly qualified professionals. To strengthen our team in Global IT, we are looking for a dedicated IT Cloud Engineer (a), 80-100%\n\nYour tasks:\n\n• Manage and maintain cloud operations in alignment with security, compliance, and company policies\n\n• Design, build, and support CI/CD pipelines using tools such as GitHub Actions, AWS Code Pipeline, and Jenkins\n\n• Develop and maintain Infrastructure-as-Code (IaC) solutions using Terraform and AWS CloudFormation\n\n• Enforce cloud engineering standards through governance, peer reviews, and best practices\n\n• Implement monitoring, alerting, and observability solutions to ensure system reliability and performance\n\n• Automate operational processes, including patching, backup validation, and compliance checks\n\n• Collaborate with application owners, IT teams, and the CISO organization to meet business and regulatory requirements\n\n• Support change management processes, including CAB participation and technical documentation\n\n• Provide technical leadership, mentoring, and contribute to cloud governance standards, policies, and operational runbooks\n\nYour profile:\n\n• Bachelor’s degree in computer science, IT, Engineering, or equivalent practical experience\n\n• 3+ years of hands-on AWS cloud engineering experience in a production environment\n\n• Experience working in regulated industries (e.g., pharmaceutical, biotech, medical devices)\n\n• Strong skills in Infrastructure-as-Code (preferably Terraform) and scripting (Python, Bash, or PowerShell)\n\n• Solid knowledge of AWS security services and compliance frameworks (SOC 2, ISO 27001, NIST CSF)\n\n• AWS Certified Solutions Architect (Associate or higher) or equivalent expertise\n\n• Experience with DevOps and cloud-native technologies, including Docker, Kubernetes/EKS, and CI/CD practices\n\n• Knowledge of disaster recovery, business continuity, and hybrid/multi-cloud environments\n\n• Additional advantages: AWS DevOps/Security certifications, AWS Bedrock, Veeva Vault or validated systems, NIS2 knowledge skills\n\n• Fluent in English, German is a plus\n\nOur offer:\n\n• A dynamic and rapidly growing work environment with internal development and training opportunities\n\n• Flexible working hours with home office days and an option for obtaining additional vacation days through workload reduction\n\n• Company‑run daycare center on the Bachem Campus in Bubendorf\n\n• 60% coverage of pension fund contributions by Bachem AG as well as option for extra-mandatory pension provision with our Pension Plan Plus\n\n• Access to benefits platforms with discounts from external partners\n\n• Fresh, healthy and varied food in our staff restaurant\n\n• A wide range of free sports activities on the Bachem Campus\n\nWould you like to drive innovation together with us?\n\nWe look forward to receiving your complete application documents via our application portal.\n\nLearn more about the Bachem Group and get inspired by our exciting work environment at our location in Bubendorf!",
-      "descriptionByLocale": {
-        "it": "Per guidare la nostra continua crescita organica, siamo costantemente alla ricerca di professionisti altamente qualificati. Per rafforzare il nostro team in Global IT, stiamo cercando un IT Cloud Engineer dedicato (a), 80-100%\n\nI vostri compiti:\n\n• Gestire e mantenere le operazioni cloud in linea con la sicurezza, la conformità e le politiche aziendali\n\n• Progettazione, costruzione e supporto CI/CD con strumenti come GitHub Actions, AWS Code Pipeline e Jenkins\n\n• Sviluppare e mantenere le soluzioni Infrastructure-as-Code (IaC) utilizzando Terraform e AWS CloudFormation\n\n• Rafforzare gli standard di ingegneria del cloud attraverso la governance, le recensioni dei pari e le migliori pratiche\n\n• Soluzioni di monitoraggio, allerta e osservabilità per garantire affidabilità e prestazioni del sistema\n\n• Automatizzare i processi operativi, inclusi patching, convalida di backup e controlli di conformità\n\n• Collabora con i proprietari di applicazioni, team IT e l'organizzazione CISO per soddisfare i requisiti aziendali e normativi\n\n• Supporta i processi di gestione dei cambiamenti, tra cui la partecipazione del CAB e la documentazione tecnica\n\n• Fornire leadership tecnica, mentoring e contribuire a standard di governance cloud, politiche e runbook operativi\n\nIl tuo profilo:\n\n• Corso di laurea in informatica, IT, Ingegneria, o equivalente esperienza pratica\n\n• 3+ anni di esperienza ingegneristica cloud AWS in un ambiente di produzione\n\n• Esperienza di lavoro nelle industrie regolamentate (ad esempio, farmaceutica, biotecnologia, dispositivi medici)\n\n• Forti competenze in Infrastructure-as-Code (preferibilmente Terraform) e scripting (Python, Bash, o PowerShell)\n\n• Conoscenza solida dei servizi di sicurezza AWS e dei framework di conformità (SOC 2, ISO 27001, NIST CSF)\n\n• AWS Certified Solutions Architect (associate o superiori) o competenza equivalente\n\n• Esperienza con DevOps e tecnologie cloud-native, tra cui Docker, Kubernetes/EKS e pratiche CI/CD\n\n• Conoscenza del recupero dei disastri, della continuità aziendale e degli ambienti ibridi/multicloud\n\n• Ulteriori vantaggi: AWS DevOps / Certificazioni di sicurezza, AWS Bedrock, Veeva Vault o sistemi convalidati, NIS2 competenze di conoscenza\n\n• Fluente in inglese, tedesco è un plus\n\nLa nostra offerta:\n\n• Un ambiente di lavoro dinamico e in rapida crescita con opportunità di sviluppo e formazione interne\n\n• Ore lavorative flessibili con i giorni di ufficio e l'opzione per ottenere ulteriori giorni di vacanza attraverso la riduzione del carico di lavoro\n\n• Centro di assistenza aziendale",
-        "en": "To drive our continuous organic growth, we are constantly looking for highly qualified professionals. To strengthen our team in Global IT, we are looking for a dedicated IT Cloud Engineer (a), 80-100%\n\nYour tasks:\n\n• Manage and maintain cloud operations in alignment with security, compliance, and company policies\n\n• Design, build, and support CI/CD pipelines using tools such as GitHub Actions, AWS Code Pipeline, and Jenkins\n\n• Develop and maintain Infrastructure-as-Code (IaC) solutions using Terraform and AWS CloudFormation\n\n• Enforce cloud engineering standards through governance, peer reviews, and best practices\n\n• Implement monitoring, alerting, and observability solutions to ensure system reliability and performance\n\n• Automate operational processes, including patching, backup validation, and compliance checks\n\n• Collaborate with application owners, IT teams, and the CISO organization to meet business and regulatory requirements\n\n• Support change management processes, including CAB participation and technical documentation\n\n• Provide technical leadership, mentoring, and contribute to cloud governance standards, policies, and operational runbooks\n\nYour profile:\n\n• Bachelor’s degree in computer science, IT, Engineering, or equivalent practical experience\n\n• 3+ years of hands-on AWS cloud engineering experience in a production environment\n\n• Experience working in regulated industries (e.g., pharmaceutical, biotech, medical devices)\n\n• Strong skills in Infrastructure-as-Code (preferably Terraform) and scripting (Python, Bash, or PowerShell)\n\n• Solid knowledge of AWS security services and compliance frameworks (SOC 2, ISO 27001, NIST CSF)\n\n• AWS Certified Solutions Architect (Associate or higher) or equivalent expertise\n\n• Experience with DevOps and cloud-native technologies, including Docker, Kubernetes/EKS, and CI/CD practices\n\n• Knowledge of disaster recovery, business continuity, and hybrid/multi-cloud environments\n\n• Additional advantages: AWS DevOps/Security certifications, AWS Bedrock, Veeva Vault or validated systems, NIS2 knowledge skills\n\n• Fluent in English, German is a plus\n\nOur offer:\n\n• A dynamic and rapidly growing work environment with internal development and training opportunities\n\n• Flexible working hours with home office days and an option for obtaining additional vacation days through workload reduction\n\n• Company‑run daycare center on the Bachem Campus in Bubendorf\n\n• 60% coverage of pension fund contributions by Bachem AG as well as option for extra-mandatory pension provision with our Pension Plan Plus\n\n• Access to benefits platforms with discounts from external partners\n\n• Fresh, healthy and varied food in our staff restaurant\n\n• A wide range of free sports activities on the Bachem Campus\n\nWould you like to drive innovation together with us?\n\nWe look forward to receiving your complete application documents via our application portal.\n\nLearn more about the Bachem Group and get inspired by our exciting work environment at our location in Bubendorf!",
-        "de": "Um unser kontinuierliches organisches Wachstum voranzutreiben, sind wir ständig auf der Suche nach hochqualifizierten Fachkräften. Um unser Team in der globalen IT zu stärken, suchen wir einen dedizierten IT Cloud Engineer (a), 80-100%\n\nIhre Aufgaben:\n\n• Verwalten und pflegen Sie den Cloud-Betrieb in Übereinstimmung mit den Richtlinien für Sicherheit, Compliance und Unternehmen\n\n• Design, Build und Support von CI/CD-Pipelines mit Tools wie GitHub Actions, AWS Code Pipeline und Jenkins\n\n• Entwicklung und Pflege von Infrastructure-as-Code (IaC)-Lösungen mit Terraform und AWS CloudFormation\n\n• Durchsetzung von Cloud Engineering Standards durch Governance, Peer Reviews und Best Practices\n\n• Implementieren Sie Überwachungs-, Alarmierungs- und Beobachtungslösungen, um die Zuverlässigkeit und Leistung des Systems zu gewährleisten\n\n• Automatisieren von Betriebsprozessen, einschließlich Patching, Backup-Validierung und Compliance-Prüfungen\n\n• Zusammenarbeit mit Anwendungsbesitzern, IT-Teams und der CISO-Organisation, um geschäftliche und regulatorische Anforderungen zu erfüllen\n\n• Unterstützung von Change-Management-Prozessen, einschließlich CAB-Teilnahme und technischer Dokumentation\n\n• Bieten Sie technische Führung, Mentoring und tragen Sie zu Cloud-Governance-Standards, Richtlinien und operativen Runbooks bei\n\nIhr Profil:\n\n• Bachelor-Abschluss in Informatik, IT, Engineering oder gleichwertige praktische Erfahrung\n\n• 3+ Jahre praktische AWS Cloud Engineering Erfahrung in einer Produktionsumgebung\n\n• Erfahrung in regulierten Branchen (z. B. Pharma, Biotech, Medizinprodukte)\n\n• Starke Fähigkeiten in Infrastructure-as-Code (vorzugsweise Terraform) und Skripting (Python, Bash oder PowerShell)\n\n• Fundierte Kenntnisse der AWS-Sicherheitsdienste und Compliance-Frameworks (SOC 2, ISO 27001, NIST CSF)\n\n• AWS Certified Solutions Architect (Associate oder höher) oder gleichwertiges Fachwissen\n\n• Erfahrung mit DevOps und Cloud-nativen Technologien, einschließlich Docker, Kubernetes/EKS und CI/CD\n\n• Kenntnisse über Disaster Recovery, Business Continuity und Hybrid-/Multi-Cloud-Umgebungen\n\n• Weitere Vorteile: AWS DevOps/Security-Zertifizierungen, AWS Bedrock, Veeva Vault oder validierte Systeme, NIS2-Kenntnisse\n\n• Fließend in Englisch, Deutsch ist ein Plus\n\nUnser Angebot:\n\n• Ein dynamisches und schnell wachsendes Arbeitsumfeld mit internen Entwicklungsmöglichkeiten\n\n• Flexible Arbeitszeiten mit Home-Office-Tagen und eine Option für zusätzliche Urlaubstage durch Arbeitsbelastungsreduzierung\n\n• Betriebsgeführtes Daycare Cente",
-        "fr": "Pour stimuler notre croissance organique continue, nous recherchons constamment des professionnels hautement qualifiés. Pour renforcer notre équipe en TI globale, nous recherchons un ingénieur IT Cloud dédié (a), 80-100%\n\nVos tâches:\n\n• Gérer et maintenir les opérations en nuage conformément aux politiques de sécurité, de conformité et d'entreprise\n\n• Conception, construction et soutien de pipelines CI/CD à l'aide d'outils tels que GitHub Actions, AWS Code Pipeline et Jenkins\n\n• Développer et entretenir des solutions d'infrastructure comme code (IaC) en utilisant Terraform et AWS CloudFormation\n\n• Appliquer les normes d'ingénierie du cloud par la gouvernance, l'examen par les pairs et les meilleures pratiques\n\n• Mettre en œuvre des solutions de surveillance, d'alerte et d'observation pour assurer la fiabilité et la performance du système\n\n• Automatiser les processus opérationnels, y compris le patching, la validation de sauvegarde et les contrôles de conformité\n\n• Collaborer avec les propriétaires d'applications, les équipes de TI et l'organisation de l'ISOC pour répondre aux exigences commerciales et réglementaires\n\n• Appuyer les processus de gestion du changement, y compris la participation de l'ACR et la documentation technique\n\n• Assurer le leadership technique, le mentorat et contribuer aux normes de gouvernance en nuage, aux politiques et aux guides opérationnels\n\nVotre profil:\n\n• Licence en informatique, informatique, ingénierie ou expérience pratique équivalente\n\n• 3+ ans d'expérience pratique en ingénierie du cloud AWS dans un environnement de production\n\n• Expérience dans les industries réglementées (p. ex., produits pharmaceutiques, biotechnologie, dispositifs médicaux)\n\n• De solides compétences en infrastructure comme code (de préférence Terraform) et en script (Python, Bash ou PowerShell)\n\n• Connaissance approfondie des services de sécurité AWS et des cadres de conformité (SOC 2, ISO 27001, CSF NIST)\n\n• AWS Certified Solutions Architect (associé ou supérieur) ou une expertise équivalente\n\n• Expérience des technologies DevOps et cloud-native, y compris Docker, Kubernetes/EKS, et les pratiques CI/CD\n\n• Connaissance de la reprise après sinistre, de la continuité des activités et des environnements hybrides/multiclouds\n\n• Avantages supplémentaires: AWS DevOps / Certifications de sécurité, AWS Bedrock, Veeva Vault ou systèmes validés, compétences en connaissance NIS2\n\n• Fluent en anglais, allemand est un plus\n\nNotre offre :\n\n• Un environnement de travail dynamique et en croissance rapide avec des possibilités de développement interne et de formation\n\n• Heures de travail flexibles avec les jours de bureau à domicile et une option pour obtenir des jours de vacances supplémentaires grâce à la réduction de la charge de travail\n\n• Cente de garderie gérée par l'entreprise"
-      },
-      "needsRetranslation": false,
-      "location": "Bubendorf",
-      "canton": "BL",
-      "url": "https://careers.bachem.com/job/Bubendorf-IT-Cloud-Engineer-%28a%29%2C-80-100-BL-4416/1417347333/",
-      "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-13T14:05:05.106Z",
-      "addressLocality": "Bubendorf",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4416",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Biotecnologia / Farmaceutica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-21",
-      "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1417347333/?locale=en_US",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "it-cloud-engineer-a-80-100-bachem-bubendorf",
-        "it-cloud-ingegnere-a-80-100-bachem-ag-bubendorf"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "it-cloud-engineer-a-80-100-bachem-bubendorf",
-          "it-cloud-ingegnere-a-80-100-bachem-ag-bubendorf"
-        ],
-        "de": [
-          "it-cloud-engineer-a-80-100-bachem-bubendorf"
-        ],
-        "fr": [
-          "it-cloud-engineer-a-80-100-bachem-bubendorf"
-        ]
-      },
-      "firstSeenAt": "2026-07-21T23:18:45.581Z",
-      "salaryMin": 64500,
-      "salaryMax": 110000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 64500,
-          "maxValue": 110000,
           "unitText": "YEAR"
         }
       }
