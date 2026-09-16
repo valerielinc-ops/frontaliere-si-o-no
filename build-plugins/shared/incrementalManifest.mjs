@@ -47,6 +47,7 @@ const RUNTIME_INPUT_KEYS = new Set([
 // `buildMinimalJobInput()` creates these fixed-order scalar projections;
 // marking their fresh arrays avoids recursively revalidating them per hash.
 const canonicalRelatedJobProjectionLists = new WeakSet();
+const canonicalMinimalJobInputs = new WeakSet();
 
 function normalizedKey(key) {
   return String(key).replace(/[^a-z0-9]/gi, '').toLowerCase();
@@ -133,6 +134,9 @@ function canonicalValue(value, inArray = false) {
 }
 
 export function canonicalizeInput(input) {
+  if (input && typeof input === 'object' && canonicalMinimalJobInputs.has(input)) {
+    return JSON.stringify(input);
+  }
   return canonicalValue(input) ?? 'null';
 }
 
@@ -220,7 +224,7 @@ export function buildMinimalJobInput(job, locale, slug, relatedJobs = []) {
     .filter(Boolean);
   canonicalRelatedJobProjectionLists.add(relatedJobProjections);
 
-  return {
+  const input = {
     jobId: stableJobId(job),
     jobRecordDigest: digestJobRecord(job),
     jobVersion: stableJobVersion(job),
@@ -228,6 +232,8 @@ export function buildMinimalJobInput(job, locale, slug, relatedJobs = []) {
     relatedJobs: relatedJobProjections,
     slug: String(slug ?? ''),
   };
+  canonicalMinimalJobInputs.add(input);
+  return input;
 }
 
 export function verifyRuntimeInputExclusion() {
