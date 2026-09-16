@@ -11789,6 +11789,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ffs-cargo-tagli-ticino-berna.title': 'Tagli ffs cargo: Berna risponde al Ticino',
     'blog.article.ffs-cargo-tagli-ticino-berna.excerpt': 'Il governo federale respinge la risoluzione del Cantone Ticino sui tagli di Ffs Cargo, confermando l\'autonomia gestionale dell\'azienda e la centralità dell\'asse nord-sud.',
     'blog.article.ffs-cargo-tagli-ticino-berna.imageAlt': 'Treno merci delle Ffs in transito lungo la linea ferroviaria in Ticino',
+    'blog.article.tpl-como-lecco-varese-bilancio-2026.title': 'Agenzia TPL: Bilancio di Sostenibilità e funivie gratis',
+    'blog.article.tpl-como-lecco-varese-bilancio-2026.excerpt': 'L\'Agenzia TPL presenta il Bilancio di Sostenibilità e offre una giornata di accesso gratuito a sette impianti a fune dal 16 al 22 settembre.',
+    'blog.article.tpl-como-lecco-varese-bilancio-2026.imageAlt': 'Presentazione del Bilancio di Sostenibilità dell Agenzia TPL',
 };
 
 export default blogMetaIt;
