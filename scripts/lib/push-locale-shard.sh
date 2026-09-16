@@ -26,6 +26,9 @@
 #   SHARD_HISTORY_CAP  — deploys between forced history flattens (default 50).
 #   GITHUB_SHA         — short SHA embedded in the commit message (best-effort).
 #   GITHUB_RUN_ID      — run id embedded in the commit message (best-effort).
+#   SHARD_PUSH_MODE    — `full` (default, current byte-identical path) or `delta`.
+#   SHARD_INCREMENTAL_MANIFEST_DIR — current build manifest directory; defaults
+#                                    to .cache/incremental-manifest.
 #
 # On success writes the marker $RUNNER_TEMP/shard-ok-<locale> (consumed by the
 # strip step) and exits 0. On a SKIP (no deploy key, or <dist_dir>/<locale>
@@ -44,6 +47,15 @@ set -uo pipefail
 # compact-article-shard-history.sh (issue #4881, AGENTS.md #6).
 source "$(dirname "${BASH_SOURCE[0]}")/shard-git-helpers.sh"
 
+repo_root="$(pwd)"
+SHARD_PUSH_MODE="${SHARD_PUSH_MODE:-full}"
+case "$SHARD_PUSH_MODE" in
+  full|delta) ;;
+  *) echo "::error::unsupported SHARD_PUSH_MODE '$SHARD_PUSH_MODE' (expected full|delta)" >&2; exit 1 ;;
+esac
+manifest_dir="${SHARD_INCREMENTAL_MANIFEST_DIR:-$repo_root/.cache/incremental-manifest}"
+manifest_tool="$repo_root/scripts/ci/shard-manifest-delta.mjs"
+
 loc="${1:-}"
 dist_dir="${2:-}"
 
@@ -55,6 +67,7 @@ case "$loc" in
   en|de|fr) ;;
   *) echo "::error::unsupported locale '$loc' (expected en|de|fr)" >&2; exit 1 ;;
 esac
+SHARD_REPO="${SHARD_REPO_OVERRIDE:-git@github.com:valerielinc-ops/frontaliere-$loc.git}"
 
 # RUNNER_TEMP is set in GitHub Actions; outside it (local runs) fall back to a
 # fresh temp dir so the stage dirs, keyfile and ok-marker have a home.
@@ -120,31 +133,23 @@ push_shard() {
   # its exit ($?), NOT as an `if (...)` condition — bash neuters an
   # inner `set -e` when the subshell runs in a condition/&&/|| context,
   # which would let a failed gate fall through to the push.
-  # ── Incremental delta push (#2246 item 2) ────────────────────────
-  # A blobless clone of the existing shard repo seeds $stage/.git with the
-  # remote's commit+tree graph (NO blob download → cheap, ~no bytes for a
-  # 2.5 GB tree). Overlaying the new build into that working tree and
-  # committing ON TOP of the existing tip lets `git push` negotiate the
-  # DELTA: only blobs the remote LACKS (new/changed job pages) go over the
-  # wire — unchanged pages (the vast majority deploy-to-deploy) cost
-  # nothing. Measured 25× less data vs the orphan `git init` force-push
-  # that re-sent the WHOLE tree every deploy (the ~13 min shard-push
-  # bottleneck). `git add -A` over the freshly-overlaid tree stages
-  # adds+changes+DELETIONS, so the pushed tree still EXACTLY equals the
-  # new build (removed job pages vanish) — identical end-state to the old
-  # orphan push, just transferred incrementally.
-  # FAIL-SAFE: any clone failure (first push / transient / corrupt remote)
-  # falls back to the original orphan `git init` + force-push (full tree),
-  # so this is NEVER weaker than before. Both paths run inside the SAME
-  # `set -e` subshell AFTER the integrity gates, so a monco tree is never
-  # pushed and the ok-marker is only written on a clean push.
+  # ── Full/delta push ───────────────────────────────────────────────
+  # `full` (the default) keeps the historical complete working-tree overlay
+  # byte-identical. `delta` seeds the index from a blobless remote clone and
+  # writes only changed/added blobs plus manifest tombstones; unchanged live
+  # paths stay as remote index entries. Delta precondition failures fall
+  # through to the same full overlay, and a failed delta push gets the
+  # existing orphan self-heal.
+  #
+  # The full overlay remains the fallback for first push, invalid/missing
+  # manifests, history-cap compaction, clone failure, integrity/shrink guard
+  # failure, or a delta self-heal request.
   (
     set -e
     rm -rf "$stage"; mkdir -p "$stage"
-    # Seed history from the remote (blobless = graph only, no blob bytes)
-    # so the push below sends only the delta. depth:1 keeps the clone to a
-    # single commit's trees. Non-fatal: on failure $incremental stays 0
-    # and we orphan-init below (full push) exactly as before.
+    # Full mode uses the historical blobless clone + complete overlay. Delta
+    # mode performs its index preflight below and skips this block when it can
+    # build the final tree without staging the whole payload.
     # SHARD_HISTORY_CAP: deploys between forced history flattens. Each
     # incremental push appends one commit, so the remote .git accumulates
     # superseded-blob packs over time (the published SITE stays the same
@@ -156,21 +161,108 @@ push_shard() {
     incremental=0
     dcount=0
     prev_n=0
+    delta_applied=0
+    delta_snapshot=''
+    delta_fallback_reason=''
+    delta_output="$RUNNER_TEMP/shard-delta-$loc"
+
+    if [ "$SHARD_PUSH_MODE" = delta ]; then
+      delta_sidecar="$(shard_delta_manifest_sidecar "$loc")"
+      current_manifest="$manifest_dir/$loc.jsonl"
+      if shard_manifest_snapshot "$current_manifest" "$loc" "$dist_dir" "$manifest_tool" "$delta_output"; then
+        delta_snapshot="$delta_output/snapshot.jsonl"
+        if shard_delta_clone_and_prepare \
+            "$stage" "$SHARD_REPO" "$current_manifest" "$delta_sidecar" \
+            "$loc" "$dist_dir" "$manifest_tool" "$delta_output" \
+            "$SHARD_HISTORY_CAP" "$loc shard"; then
+          delta_apply_ok=1
+          if ! shard_delta_apply_source_tree \
+              "$stage" "$dist_dir/$loc" "$loc" \
+              "$delta_output/changed-files.txt" \
+              "$delta_output/unmanifested-files.txt" \
+              "$delta_output/payload-files.txt"; then
+            delta_apply_ok=0
+            delta_fallback_reason='delta source application failed'
+          fi
+          if [ "$delta_apply_ok" = 1 ]; then
+            if ! shard_delta_remove_manifest_paths "$stage" "$delta_output/removed.txt"; then
+              delta_apply_ok=0
+              delta_fallback_reason='delta tombstone application failed'
+            fi
+          fi
+          if [ "$delta_apply_ok" = 1 ]; then
+            if ! shard_delta_add_text "$stage" .nojekyll ''; then delta_apply_ok=0; fi
+            if ! shard_delta_add_text "$stage" CNAME "origin-$loc.frontaliereticino.ch"; then delta_apply_ok=0; fi
+            if [ -f "$dist_dir/$loc.html" ]; then
+              if ! shard_delta_add_file "$stage" "$dist_dir/$loc.html" "$loc.html"; then delta_apply_ok=0; fi
+            elif ! shard_delta_remove_file "$stage" "$loc.html"; then
+              delta_apply_ok=0
+            fi
+            if [ -f "$dist_dir/404.html" ]; then
+              if ! shard_delta_add_file "$stage" "$dist_dir/404.html" 404.html; then delta_apply_ok=0; fi
+            elif ! shard_delta_remove_file "$stage" 404.html; then
+              delta_apply_ok=0
+            fi
+            if ! shard_delta_add_text "$stage" index.html "<!doctype html><meta charset=utf-8><title>frontaliereticino.ch $loc shard</title>"; then delta_apply_ok=0; fi
+            if ! shard_delta_add_file "$stage" "$delta_snapshot" "$delta_sidecar"; then delta_apply_ok=0; fi
+          fi
+          if [ "$delta_apply_ok" = 1 ]; then
+            n="$(shard_delta_count_files "$stage" "$loc")"
+            built_n="$(( n + stripped_n ))"
+            if [ ! -s "$dist_dir/$loc/index.html" ]; then
+              delta_apply_ok=0
+              delta_fallback_reason='delta source index is empty'
+            elif [ "$n" -lt "$src_n" ]; then
+              delta_apply_ok=0
+              delta_fallback_reason="delta integrity check failed (indexed $n, source $src_n)"
+            elif shard_delta_shrink_exceeded "$SHARD_DELTA_PREV_N" "$built_n" "${SHARD_SHRINK_GUARD_PCT:-50}"; then
+              delta_apply_ok=0
+              delta_fallback_reason="shrink guard would reject $SHARD_DELTA_PREV_N -> $built_n built files (>${SHARD_SHRINK_GUARD_PCT:-50}%)"
+            fi
+          fi
+          if [ "$delta_apply_ok" = 1 ]; then
+            dcount="$SHARD_DELTA_DCOUNT"
+            prev_n="$SHARD_DELTA_PREV_N"
+            incremental=1
+            if ! shard_delta_add_text "$stage" .shard-filecount "$built_n" 0; then delta_apply_ok=0; fi
+            if ! shard_delta_add_text "$stage" .shard-deploys "$((dcount + 1))" 0; then delta_apply_ok=0; fi
+          fi
+          if [ "$delta_apply_ok" != 1 ] && [ -z "$delta_fallback_reason" ]; then
+            delta_fallback_reason='delta index update failed'
+          fi
+          if [ "$delta_apply_ok" = 1 ]; then
+            delta_applied=1
+            echo "$loc shard: delta indexed tree, $n files served / $built_n built (src $src_n, prev $prev_n, changed=$SHARD_DELTA_CHANGED_FILES, reused=$SHARD_DELTA_REUSED_FILES, removed=$SHARD_DELTA_REMOVED_FILES, deploys-since-flatten=$((dcount + 1)))"
+          fi
+        else
+          delta_fallback_reason="${SHARD_DELTA_REASON:-remote delta preparation failed}"
+        fi
+      else
+        delta_fallback_reason="${SHARD_DELTA_REASON:-current manifest missing or invalid}"
+      fi
+      if [ "$delta_applied" != 1 ]; then
+        echo "::warning::$loc shard: delta fallback: $delta_fallback_reason — using full overlay"
+      fi
+    fi
+
+    if [ "$delta_applied" != 1 ]; then
+      if [ "$SHARD_PUSH_MODE" = delta ]; then
+        rm -rf "$stage"; mkdir -p "$stage"
+      fi
     # --no-checkout is LOAD-BEARING: without it `git clone` materializes
     # HEAD's working tree, which under --filter=blob:none lazily fetches
     # ALL ~2.5 GB of blobs (defeating the bandwidth win — it would just
     # trade a 2.5 GB upload for a 2.5 GB download). With --no-checkout the
     # clone fetches only the commit+tree graph (~no blob bytes); the index
-    # is still populated from HEAD, so the `git add -A` over the
-    # re-materialized build below produces a DELTA (not a from-scratch
-    # tree) and stages deletions of removed pages. The working tree starts
-    # EMPTY, so the find-wipe below is a harmless no-op on this path. Note
+    # remains available for the historical full overlay. The
+    # working tree starts EMPTY, so the find-wipe below is a harmless no-op on
+    # this path. Note
     # --no-checkout ALSO means no working-tree file is ever materialized,
     # so bookkeeping counters (.shard-deploys / .shard-filecount) must be
     # read via git-plumbing (shard_read_counter), not `[ -f ... ]` — see
     # shard-git-helpers.sh header for the incident this fixes.
     if git clone -q --depth 1 --filter=blob:none --no-checkout \
-         "git@github.com:valerielinc-ops/frontaliere-$loc.git" "$stage" 2>/dev/null \
+         "$SHARD_REPO" "$stage" 2>/dev/null \
        && [ -d "$stage/.git" ]; then
       dcount="$(shard_read_counter "$stage" .shard-deploys)"
       prev_n="$(shard_read_counter "$stage" .shard-filecount)"
@@ -205,6 +297,10 @@ push_shard() {
     # 404.html already lives at dist's root, which IS the shard root there.
     if [ -f "$dist_dir/404.html" ]; then cp "$dist_dir/404.html" "$stage/404.html"; fi
     printf '<!doctype html><meta charset=utf-8><title>frontaliereticino.ch %s shard</title>' "$loc" > "$stage/index.html"
+    if [ "$SHARD_PUSH_MODE" = delta ] && [ -n "$delta_snapshot" ] && [ -s "$delta_snapshot" ]; then
+      mkdir -p "$stage/$(dirname "$delta_sidecar")"
+      cp "$delta_snapshot" "$stage/$delta_sidecar"
+    fi
     n="$(find "$stage/$loc" -type f | wc -l)"
     # BUILT size = the shard as EMITTED by the build, before the "Strip section
     # subtrees" step removed already-verified-live section subtrees. Gate (b)
@@ -241,6 +337,33 @@ push_shard() {
     printf '%s' "$built_n" > "$stage/.shard-filecount"   # high-water-mark (BUILT size) for the next run's gate (b)
     printf '%s' "$((dcount + 1))" > "$stage/.shard-deploys"  # commits since last flatten (history-cap counter)
     echo "$loc shard: $(du -sh "$stage" 2>/dev/null | cut -f1), $n files served / $built_n built (src $src_n, section-stripped $stripped_n, prev $prev_n, incremental=$incremental, deploys-since-flatten=$((dcount + 1)))"
+    fi
+
+    if [ "$delta_applied" = 1 ]; then
+      cd "$stage"
+      git config user.email "valerielinc@gmail.com"
+      git config user.name "Valerie Linc"
+      if [ "$SHARD_DELTA_CONTENT_CHANGES" -eq 0 ]; then
+        echo "$loc shard: no content changes vs remote — skipping push (already current)"
+      else
+        _sha="${GITHUB_SHA:-local}"; _sha="${_sha:0:8}"
+        _delta_tree="$(git write-tree --missing-ok)"
+        _delta_commit="$(git commit-tree "$_delta_tree" -p HEAD -m "locale shard $loc ${_sha} (run ${GITHUB_RUN_ID:-local}) [delta]")"
+        _push_ok=0
+        if shard_push_with_retry "$stage" "$SHARD_REPO" "$_delta_commit:main" "$loc shard"; then
+          _push_ok=1
+        fi
+        if [ "$_push_ok" != 1 ] && [ "$incremental" = 1 ]; then
+          echo "::warning::$loc shard: delta self-heal required after 3 push attempts — flattening to a fresh orphan commit and retrying"
+          if git -C "$stage" checkout-index -a; then
+            if shard_orphan_flatten_and_push "$stage" "$SHARD_REPO" "locale shard $loc ${_sha} (run ${GITHUB_RUN_ID:-local}) [self-heal flatten]" "$loc shard flatten"; then
+              _push_ok=1
+            fi
+          fi
+        fi
+        [ "$_push_ok" = 1 ] || { echo "::error::$loc shard push failed after 3 attempts (+ flatten self-heal retry)"; exit 1; }
+      fi
+    else
     cd "$stage"
     git config user.email "valerielinc@gmail.com"
     git config user.name "Valerie Linc"
@@ -258,12 +381,10 @@ push_shard() {
     else
       _sha="${GITHUB_SHA:-local}"; _sha="${_sha:0:8}"
       git commit -qm "locale shard $loc ${_sha} (run ${GITHUB_RUN_ID:-local})"
-      # Incremental: fast-forward push on top of the cloned tip (delta only).
-      # Orphan fallback: force-push the single fresh commit (full tree) as
-      # before. `-f` is harmless on the incremental ff-path and required on
-      # the orphan path, so use it for both.
+      # Full overlay: force-push the fresh commit as before. `-f` is harmless
+      # on a cloned tip and required on the orphan path, so use it for both.
       _push_ok=0
-      if shard_push_with_retry "$stage" "git@github.com:valerielinc-ops/frontaliere-$loc.git" "main" "$loc shard"; then
+      if shard_push_with_retry "$stage" "$SHARD_REPO" "main" "$loc shard"; then
         _push_ok=1
       fi
       # Self-heal: 3 retries on the SAME incremental base never recover from a
@@ -276,11 +397,12 @@ push_shard() {
       # before giving up.
       if [ "$_push_ok" != 1 ] && [ "$incremental" = 1 ]; then
         echo "::warning::$loc shard: 3 incremental push attempts failed — flattening to a fresh orphan commit and retrying"
-        if shard_orphan_flatten_and_push "$stage" "git@github.com:valerielinc-ops/frontaliere-$loc.git" "locale shard $loc ${_sha} (run ${GITHUB_RUN_ID:-local}) [self-heal flatten]" "$loc shard flatten"; then
+        if shard_orphan_flatten_and_push "$stage" "$SHARD_REPO" "locale shard $loc ${_sha} (run ${GITHUB_RUN_ID:-local}) [self-heal flatten]" "$loc shard flatten"; then
           _push_ok=1
         fi
       fi
       [ "$_push_ok" = 1 ] || { echo "::error::$loc shard push failed after 3 attempts (+ flatten self-heal retry)"; exit 1; }
+    fi
     fi
   )
   rc=$?

@@ -49,6 +49,9 @@
 #                              Read via indirect expansion. Missing → skip (exit 0).
 # Optional env:
 #   RUNNER_TEMP / SHARD_HISTORY_CAP / GITHUB_SHA / GITHUB_RUN_ID — as the locale shard.
+#   SHARD_PUSH_MODE — `full` (default, current byte-identical path) or `delta`.
+#   SHARD_INCREMENTAL_MANIFEST_DIR — current build manifest directory; defaults
+#                                   to .cache/incremental-manifest.
 #
 # On success writes $RUNNER_TEMP/shard-ok-<section>-<locale> (consumed by the
 # strip step) and exits 0. SKIP (no key / subtree absent) exits 0 without the
@@ -74,6 +77,13 @@ fi
 
 repo_root="$(pwd)"  # captured before any cd — used to locate the offload script + slugs json
 slugs_json="$repo_root/scripts/lib/section-shard-slugs.json"
+SHARD_PUSH_MODE="${SHARD_PUSH_MODE:-full}"
+case "$SHARD_PUSH_MODE" in
+  full|delta) ;;
+  *) echo "::error::unsupported SHARD_PUSH_MODE '$SHARD_PUSH_MODE' (expected full|delta)" >&2; exit 1 ;;
+esac
+manifest_dir="${SHARD_INCREMENTAL_MANIFEST_DIR:-$repo_root/.cache/incremental-manifest}"
+manifest_tool="$repo_root/scripts/ci/shard-manifest-delta.mjs"
 # shard_read_counter / shard_orphan_init / shard_push_with_retry /
 # shard_orphan_flatten_and_push — shared with push-locale-shard.sh and
 # compact-article-shard-history.sh (issue #4881, AGENTS.md #6).
@@ -99,7 +109,7 @@ ORIGIN_HOST="origin-$section-$loc.frontaliereticino.ch"
 owners_json="$repo_root/scripts/lib/section-shard-owners.json"
 SHARD_OWNER="$(jq -r --arg s "$section" '.[$s] // "valerielinc-ops"' "$owners_json" 2>/dev/null || echo valerielinc-ops)"
 if [ -z "$SHARD_OWNER" ] || [ "$SHARD_OWNER" = "null" ]; then SHARD_OWNER="valerielinc-ops"; fi
-SHARD_REPO="git@github.com:$SHARD_OWNER/frontaliere-$section-$loc.git"
+SHARD_REPO="${SHARD_REPO_OVERRIDE:-git@github.com:$SHARD_OWNER/frontaliere-$section-$loc.git}"
 CDN_BASE_FIXED="https://cdn.frontaliereticino.ch"
 
 if [ -z "${RUNNER_TEMP:-}" ]; then
@@ -146,9 +156,9 @@ push_section_shard() {
   export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=30 -o ServerAliveCountMax=6 -o TCPKeepAlive=yes"
 
   # Guarded build+push in ONE `set -e` subshell (see push-locale-shard.sh for
-  # the full rationale: standalone subshell + captured $?; incremental
-  # blobless clone with a delta push and an orphan force-push fail-safe;
-  # history cap to bound .git growth).
+  # the full rationale: standalone subshell + captured $?; explicit full/delta
+  # modes with an orphan force-push fail-safe; history cap to bound .git
+  # growth).
   (
     set -e
     rm -rf "$stage"; mkdir -p "$stage"
@@ -156,41 +166,127 @@ push_section_shard() {
     incremental=0
     dcount=0
     prev_n=0
-    if git clone -q --depth 1 --filter=blob:none --no-checkout \
-         "$SHARD_REPO" "$stage" 2>/dev/null \
-       && [ -d "$stage/.git" ]; then
-      # git-plumbing reads (git show HEAD:<path>), NOT working-tree file
-      # checks — --no-checkout NEVER materializes a working-tree file, so a
-      # `[ -f "$stage/.shard-deploys" ]` check here was always false (see
-      # scripts/lib/shard-git-helpers.sh header for the full incident).
-      dcount="$(shard_read_counter "$stage" .shard-deploys)"
-      prev_n="$(shard_read_counter "$stage" .shard-filecount)"
-      if [ "$dcount" -ge "$SHARD_HISTORY_CAP" ]; then
-        echo "$section-$loc shard: history cap $SHARD_HISTORY_CAP reached (dcount=$dcount) — flattening with orphan force-push"
-        rm -rf "$stage"; mkdir -p "$stage"
-        shard_orphan_init "$stage"
-        dcount=0
+    delta_applied=0
+    delta_snapshot=''
+    delta_fallback_reason=''
+    delta_output="$RUNNER_TEMP/shard-delta-$section-$loc"
+
+    if [ "$SHARD_PUSH_MODE" = delta ]; then
+      delta_sidecar="$(shard_delta_manifest_sidecar "$loc")"
+      current_manifest="$manifest_dir/$loc.jsonl"
+      if shard_manifest_snapshot "$current_manifest" "$sub" "$stage_src/dist" "$manifest_tool" "$delta_output"; then
+        delta_snapshot="$delta_output/snapshot.jsonl"
+        if shard_delta_clone_and_prepare \
+            "$stage" "$SHARD_REPO" "$current_manifest" "$delta_sidecar" \
+            "$sub" "$stage_src/dist" "$manifest_tool" "$delta_output" \
+            "$SHARD_HISTORY_CAP" "$section-$loc shard"; then
+          delta_apply_ok=1
+          if ! shard_delta_apply_source_tree \
+              "$stage" "$stage_src/dist/$sub" "$sub" \
+              "$delta_output/changed-files.txt" \
+              "$delta_output/unmanifested-files.txt" \
+              "$delta_output/payload-files.txt"; then
+            delta_apply_ok=0
+            delta_fallback_reason='delta source application failed'
+          fi
+          if [ "$delta_apply_ok" = 1 ]; then
+            if ! shard_delta_remove_manifest_paths "$stage" "$delta_output/removed.txt"; then
+              delta_apply_ok=0
+              delta_fallback_reason='delta tombstone application failed'
+            fi
+          fi
+          if [ "$delta_apply_ok" = 1 ]; then
+            if ! shard_delta_add_text "$stage" .nojekyll '' ; then delta_apply_ok=0; fi
+            if ! shard_delta_add_text "$stage" CNAME "$ORIGIN_HOST"; then delta_apply_ok=0; fi
+            if [ -f "$stage_src/dist/404.html" ]; then
+              if ! shard_delta_add_file "$stage" "$stage_src/dist/404.html" 404.html; then delta_apply_ok=0; fi
+            elif ! shard_delta_remove_file "$stage" 404.html; then
+              delta_apply_ok=0
+            fi
+            if ! shard_delta_add_text "$stage" index.html "<!doctype html><meta charset=utf-8><title>frontaliereticino.ch $section-$loc shard</title>"; then delta_apply_ok=0; fi
+            if ! shard_delta_add_file "$stage" "$delta_snapshot" "$delta_sidecar"; then delta_apply_ok=0; fi
+          fi
+          if [ "$delta_apply_ok" = 1 ]; then
+            n="$(shard_delta_count_files "$stage" "$sub")"
+            if [ ! -s "$stage_src/dist/$sub/index.html" ]; then
+              delta_apply_ok=0
+              delta_fallback_reason='delta source index is empty'
+            elif [ "$n" -lt "$src_n" ]; then
+              delta_apply_ok=0
+              delta_fallback_reason="delta integrity check failed (indexed $n, source $src_n)"
+            elif shard_delta_shrink_exceeded "$SHARD_DELTA_PREV_N" "$n" "${SHARD_SHRINK_GUARD_PCT:-50}"; then
+              delta_apply_ok=0
+              delta_fallback_reason="shrink guard would reject $SHARD_DELTA_PREV_N -> $n files (>${SHARD_SHRINK_GUARD_PCT:-50}%)"
+            fi
+          fi
+          if [ "$delta_apply_ok" = 1 ]; then
+            dcount="$SHARD_DELTA_DCOUNT"
+            prev_n="$SHARD_DELTA_PREV_N"
+            incremental=1
+            if ! shard_delta_add_text "$stage" .shard-filecount "$n" 0; then delta_apply_ok=0; fi
+            if ! shard_delta_add_text "$stage" .shard-deploys "$((dcount + 1))" 0; then delta_apply_ok=0; fi
+          fi
+          if [ "$delta_apply_ok" != 1 ] && [ -z "$delta_fallback_reason" ]; then
+            delta_fallback_reason='delta index update failed'
+          fi
+          if [ "$delta_apply_ok" = 1 ]; then
+            delta_applied=1
+            echo "$section-$loc shard: delta indexed tree, $n files (src $src_n, prev $prev_n, changed=$SHARD_DELTA_CHANGED_FILES, reused=$SHARD_DELTA_REUSED_FILES, removed=$SHARD_DELTA_REMOVED_FILES, deploys-since-flatten=$((dcount + 1)))"
+          fi
+        else
+          delta_fallback_reason="${SHARD_DELTA_REASON:-remote delta preparation failed}"
+        fi
       else
-        find "$stage" -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} + 2>/dev/null || true
-        incremental=1
+        delta_fallback_reason="${SHARD_DELTA_REASON:-current manifest missing or invalid}"
       fi
-    else
-      echo "$section-$loc shard: no prior clone (first push / transient) — full orphan push"
-      shard_orphan_init "$stage"
+      if [ "$delta_applied" != 1 ]; then
+        echo "::warning::$section-$loc shard: delta fallback: $delta_fallback_reason — using full overlay"
+      fi
     fi
 
-    : > "$stage/.nojekyll"
-    printf '%s' "$ORIGIN_HOST" > "$stage/CNAME"
-    if [ -f "$stage_src/dist/404.html" ]; then cp "$stage_src/dist/404.html" "$stage/404.html"; fi
-    printf '<!doctype html><meta charset=utf-8><title>frontaliereticino.ch %s-%s shard</title>' "$section" "$loc" > "$stage/index.html"
-    # Copy the offloaded subtree at its canonical path (hardlink when same-fs).
-    mkdir -p "$stage/$(dirname "$sub")"
-    cp -al "$stage_src/dist/$sub" "$stage/$sub" 2>/dev/null || cp -r "$stage_src/dist/$sub" "$stage/$sub"
+    if [ "$delta_applied" != 1 ]; then
+      if [ "$SHARD_PUSH_MODE" = delta ]; then
+        rm -rf "$stage"; mkdir -p "$stage"
+      fi
+      if git clone -q --depth 1 --filter=blob:none --no-checkout \
+           "$SHARD_REPO" "$stage" 2>/dev/null \
+         && [ -d "$stage/.git" ]; then
+        # git-plumbing reads (git show HEAD:<path>), NOT working-tree file
+        # checks — --no-checkout NEVER materializes a working-tree file, so a
+        # `[ -f "$stage/.shard-deploys" ]` check here was always false (see
+        # scripts/lib/shard-git-helpers.sh header for the full incident).
+        dcount="$(shard_read_counter "$stage" .shard-deploys)"
+        prev_n="$(shard_read_counter "$stage" .shard-filecount)"
+        if [ "$dcount" -ge "$SHARD_HISTORY_CAP" ]; then
+          echo "$section-$loc shard: history cap $SHARD_HISTORY_CAP reached (dcount=$dcount) — flattening with orphan force-push"
+          rm -rf "$stage"; mkdir -p "$stage"
+          shard_orphan_init "$stage"
+          dcount=0
+        else
+          find "$stage" -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} + 2>/dev/null || true
+          incremental=1
+        fi
+      else
+        echo "$section-$loc shard: no prior clone (first push / transient) — full orphan push"
+        shard_orphan_init "$stage"
+      fi
 
-    n="$(find "$stage/$sub" -type f | wc -l)"
-    test -s "$stage/$sub/index.html"
-    [ "$n" -ge "$src_n" ]
-    # Shrink guard (defect A, issue #4881): refuse a push whose tree lost
+      : > "$stage/.nojekyll"
+      printf '%s' "$ORIGIN_HOST" > "$stage/CNAME"
+      if [ -f "$stage_src/dist/404.html" ]; then cp "$stage_src/dist/404.html" "$stage/404.html"; fi
+      printf '<!doctype html><meta charset=utf-8><title>frontaliereticino.ch %s-%s shard</title>' "$section" "$loc" > "$stage/index.html"
+      # Copy the offloaded subtree at its canonical path (hardlink when same-fs).
+      mkdir -p "$stage/$(dirname "$sub")"
+      cp -al "$stage_src/dist/$sub" "$stage/$sub" 2>/dev/null || cp -r "$stage_src/dist/$sub" "$stage/$sub"
+      if [ "$SHARD_PUSH_MODE" = delta ] && [ -n "$delta_snapshot" ] && [ -s "$delta_snapshot" ]; then
+        mkdir -p "$stage/$(dirname "$delta_sidecar")"
+        cp "$delta_snapshot" "$stage/$delta_sidecar"
+      fi
+
+      n="$(find "$stage/$sub" -type f | wc -l)"
+      test -s "$stage/$sub/index.html"
+      [ "$n" -ge "$src_n" ]
+      # Shrink guard (defect A, issue #4881): refuse a push whose tree lost
     # more than SHARD_SHRINK_GUARD_PCT% of its previous file count — the
     # data-loss hazard this guards against is a future change that stops
     # emitting this section into dist/ while the section still exists on its
@@ -234,15 +330,41 @@ push_section_shard() {
     printf '%s' "$n" > "$stage/.shard-filecount"
     printf '%s' "$((dcount + 1))" > "$stage/.shard-deploys"
     echo "$section-$loc shard: $(du -sh "$stage" 2>/dev/null | cut -f1), $n files (src $src_n, prev $prev_n, incremental=$incremental, deploys-since-flatten=$((dcount + 1)))"
+    fi
 
-    cd "$stage"
-    git config user.email "valerielinc@gmail.com"
-    git config user.name "Valerie Linc"
-    git add -A
-    if [ "$incremental" = 1 ] \
-       && git diff --cached --quiet -- . ':!.shard-deploys' ':!.shard-filecount'; then
-      echo "$section-$loc shard: no content changes vs remote — skipping push (already current)"
+    if [ "$delta_applied" = 1 ]; then
+      cd "$stage"
+      git config user.email "valerielinc@gmail.com"
+      git config user.name "Valerie Linc"
+      if [ "$SHARD_DELTA_CONTENT_CHANGES" -eq 0 ]; then
+        echo "$section-$loc shard: no content changes vs remote — skipping push (already current)"
+      else
+        _sha="${GITHUB_SHA:-local}"; _sha="${_sha:0:8}"
+        _delta_tree="$(git write-tree --missing-ok)"
+        _delta_commit="$(git commit-tree "$_delta_tree" -p HEAD -m "$section-$loc shard ${_sha} (run ${GITHUB_RUN_ID:-local}) [delta]")"
+        _push_ok=0
+        if shard_push_with_retry "$stage" "$SHARD_REPO" "$_delta_commit:main" "$section-$loc shard"; then
+          _push_ok=1
+        fi
+        if [ "$_push_ok" != 1 ] && [ "$incremental" = 1 ]; then
+          echo "::warning::$section-$loc shard: delta self-heal required after 3 push attempts — flattening to a fresh orphan commit and retrying"
+          if git -C "$stage" checkout-index -a; then
+            if shard_orphan_flatten_and_push "$stage" "$SHARD_REPO" "$section-$loc shard ${_sha} (run ${GITHUB_RUN_ID:-local}) [self-heal flatten]" "$section-$loc shard flatten"; then
+              _push_ok=1
+            fi
+          fi
+        fi
+        [ "$_push_ok" = 1 ] || { echo "::error::$section-$loc shard push failed after 3 attempts (+ flatten self-heal retry)"; exit 1; }
+      fi
     else
+      cd "$stage"
+      git config user.email "valerielinc@gmail.com"
+      git config user.name "Valerie Linc"
+      git add -A
+      if [ "$incremental" = 1 ] \
+         && git diff --cached --quiet -- . ':!.shard-deploys' ':!.shard-filecount'; then
+        echo "$section-$loc shard: no content changes vs remote — skipping push (already current)"
+      else
       _sha="${GITHUB_SHA:-local}"; _sha="${_sha:0:8}"
       git commit -qm "$section-$loc shard ${_sha} (run ${GITHUB_RUN_ID:-local})"
       _push_ok=0
@@ -265,6 +387,7 @@ push_section_shard() {
         fi
       fi
       [ "$_push_ok" = 1 ] || { echo "::error::$section-$loc shard push failed after 3 attempts (+ flatten self-heal retry)"; exit 1; }
+      fi
     fi
   )
   rc=$?

@@ -38,6 +38,328 @@ shard_read_counter() {
   printf '%s' "$val"
 }
 
+# shard_delta_manifest_sidecar <locale>
+# The build manifest lives outside dist/. Delta mode carries a filtered,
+# per-shard snapshot in the published tree so the next push has an atomic
+# previous-manifest/base-tree pair. Full mode never creates this sidecar.
+shard_delta_manifest_sidecar() {
+  local locale="$1"
+  printf '.deploy-manifest/v1/%s.jsonl' "$locale"
+}
+
+# shard_manifest_snapshot <current_manifest> <scope> <source_root> <tool> <out_dir>
+# Validates the current build manifest and writes the filtered snapshot used by
+# a full fallback as well as by a successful delta. The Node tool owns the
+# JSONL contract; bash only decides whether the result is safe to publish.
+shard_manifest_snapshot() {
+  local current="$1" scope="$2" source_root="$3" tool="$4" out_dir="$5"
+  mkdir -p "$out_dir"
+  if node "$tool" \
+      --current="$current" \
+      --scope="$scope" \
+      --source-root="$source_root" \
+      --out="$out_dir" \
+      --snapshot-only; then
+    return 0
+  fi
+  SHARD_DELTA_REASON='current manifest invalid or payload missing'
+  return 1
+}
+
+# shard_delta_clone_and_prepare <stage> <repo> <current_manifest>
+#   <sidecar_path> <scope> <source_root> <tool> <out_dir> <history_cap> <label>
+# Clone the remote without checking out blobs, validate both manifest sides,
+# and seed the index from HEAD. Return 0 only when the caller may apply a delta.
+# Normal fallback reasons return 1 and are exposed in SHARD_DELTA_REASON.
+shard_delta_clone_and_prepare() {
+  local stage="$1" repo="$2" current="$3" sidecar="$4" scope="$5"
+  local source_root="$6" tool="$7" out_dir="$8" history_cap="$9" label="${10:-shard}"
+  local clone_err previous_manifest
+  SHARD_DELTA_REASON=''
+  SHARD_DELTA_DCOUNT=0
+  SHARD_DELTA_PREV_N=0
+
+  rm -rf "$stage"
+  mkdir -p "$stage" "$out_dir"
+  clone_err="$(mktemp)"
+  if ! git clone -q --depth 1 --filter=blob:none --no-checkout "$repo" "$stage" 2>"$clone_err"; then
+    echo "::warning::$label delta clone failure: $(cat "$clone_err")" >&2
+    rm -f "$clone_err"
+    SHARD_DELTA_REASON='clone failure'
+    return 1
+  fi
+  rm -f "$clone_err"
+
+  if ! git -C "$stage" rev-parse -q --verify HEAD >/dev/null 2>&1; then
+    echo "$label delta: remote is empty — full fallback" >&2
+    SHARD_DELTA_REASON='first push / remote empty'
+    return 1
+  fi
+
+  SHARD_DELTA_DCOUNT="$(shard_read_counter "$stage" .shard-deploys)"
+  SHARD_DELTA_PREV_N="$(shard_read_counter "$stage" .shard-filecount)"
+  if [ "$SHARD_DELTA_DCOUNT" -ge "$history_cap" ]; then
+    SHARD_DELTA_REASON="history cap $history_cap reached"
+    return 1
+  fi
+  if [ ! -s "$current" ]; then
+    SHARD_DELTA_REASON='current manifest missing'
+    return 1
+  fi
+
+  previous_manifest="$out_dir/previous.jsonl"
+  if ! git -C "$stage" show "HEAD:$sidecar" > "$previous_manifest" 2>/dev/null; then
+    SHARD_DELTA_REASON='previous manifest missing'
+    return 1
+  fi
+
+  if ! node "$tool" \
+      --current="$current" \
+      --previous="$previous_manifest" \
+      --scope="$scope" \
+      --source-root="$source_root" \
+      --out="$out_dir"; then
+    SHARD_DELTA_REASON='current or previous manifest invalid'
+    return 1
+  fi
+
+  if ! git -C "$stage" read-tree HEAD; then
+    SHARD_DELTA_REASON='remote index initialization failed'
+    return 1
+  fi
+  return 0
+}
+
+# shard_delta_add_file <stage> <source_file> <target_path>
+# Compare against the remote-seeded index and update only when the source blob
+# is new/different. This is the key distinction from `git add -A` on an empty
+# no-checkout working tree.
+shard_delta_add_file() {
+  local stage="$1" source="$2" target="$3" old_oid new_oid blob_oid
+  if [ "${source#/}" = "$source" ]; then source="$(pwd)/$source"; fi
+  [ -f "$source" ] || return 1
+  old_oid="$(git -C "$stage" ls-files --stage -- "$target" 2>/dev/null | awk 'NR == 1 { print $2 }')"
+  new_oid="$(git -C "$stage" hash-object --path="$target" "$source")" || return 1
+  if [ "$old_oid" = "$new_oid" ]; then
+    SHARD_DELTA_REUSED_FILES=$((SHARD_DELTA_REUSED_FILES + 1))
+    return 0
+  fi
+  blob_oid="$(git -C "$stage" hash-object -w --path="$target" "$source")" || return 1
+  git -C "$stage" update-index --add --cacheinfo "100644,$blob_oid,$target" || return 1
+  SHARD_DELTA_CHANGED_FILES=$((SHARD_DELTA_CHANGED_FILES + 1))
+  SHARD_DELTA_CONTENT_CHANGES=$((SHARD_DELTA_CONTENT_CHANGES + 1))
+  return 0
+}
+
+# shard_delta_add_text <stage> <target_path> <content> [count_as_content]
+shard_delta_add_text() {
+  local stage="$1" target="$2" content="$3" count_change="${4:-1}"
+  local old_oid new_oid blob_oid
+  old_oid="$(git -C "$stage" ls-files --stage -- "$target" 2>/dev/null | awk 'NR == 1 { print $2 }')"
+  new_oid="$(printf '%s' "$content" | git -C "$stage" hash-object --stdin --path="$target")" || return 1
+  if [ "$old_oid" = "$new_oid" ]; then return 0; fi
+  blob_oid="$(printf '%s' "$content" | git -C "$stage" hash-object -w --stdin --path="$target")" || return 1
+  git -C "$stage" update-index --add --cacheinfo "100644,$blob_oid,$target" || return 1
+  if [ "$count_change" = 1 ]; then
+    SHARD_DELTA_CONTENT_CHANGES=$((SHARD_DELTA_CONTENT_CHANGES + 1))
+  fi
+  return 0
+}
+
+# shard_delta_remove_manifest_paths <stage> <removed_file>
+# A manifest path is a logical page path. Use one index dump and one
+# index-info update to remove its index.html tree and flat .html variant, if
+# either is present in the remote tree.
+shard_delta_remove_manifest_paths() {
+  local stage="$1" removed_file="$2"
+  local work index_dump delete_info count_file removed_count
+  [ -f "$removed_file" ] || return 1
+  [ -s "$removed_file" ] || return 0
+  work="$(mktemp -d)" || return 1
+  index_dump="$work/index.dump"
+  delete_info="$work/delete.info"
+  count_file="$work/count"
+  if ! git -C "$stage" ls-files --stage > "$index_dump"; then
+    rm -rf "$work"
+    return 1
+  fi
+  if ! awk -F '\t' \
+      -v removed_file="$removed_file" \
+      -v delete_info="$delete_info" \
+      -v count_file="$count_file" '
+      BEGIN {
+        while ((getline line < removed_file) > 0) {
+          sub(/[\/]+$/, "", line)
+          if (line != "") removed[++removed_count] = line
+        }
+        close(removed_file)
+      }
+      {
+        split($1, metadata, " ")
+        target = $2
+        for (removed_index = 1; removed_index <= removed_count; removed_index += 1) {
+          base = removed[removed_index]
+          if (target == base || target == base ".html" || index(target, base "/") == 1) {
+            print "0 0000000000000000000000000000000000000000\t" target > delete_info
+            matched += 1
+            break
+          }
+        }
+      }
+      END { print matched + 0 > count_file }
+    ' "$index_dump"; then
+    rm -rf "$work"
+    return 1
+  fi
+  removed_count="$(cat "$count_file")"
+  if [ "$removed_count" -gt 0 ] && ! git -C "$stage" update-index --index-info < "$delete_info"; then
+    rm -rf "$work"
+    return 1
+  fi
+  SHARD_DELTA_REMOVED_FILES=$((SHARD_DELTA_REMOVED_FILES + removed_count))
+  SHARD_DELTA_CONTENT_CHANGES=$((SHARD_DELTA_CONTENT_CHANGES + removed_count))
+  rm -rf "$work"
+  return 0
+}
+
+# shard_delta_remove_file <stage> <target_path>
+shard_delta_remove_file() {
+  local stage="$1" target="$2"
+  if [ -n "$(git -C "$stage" ls-files --stage -- "$target" 2>/dev/null)" ]; then
+    git -C "$stage" update-index --force-remove -- "$target" || return 1
+    SHARD_DELTA_REMOVED_FILES=$((SHARD_DELTA_REMOVED_FILES + 1))
+    SHARD_DELTA_CONTENT_CHANGES=$((SHARD_DELTA_CONTENT_CHANGES + 1))
+  fi
+  return 0
+}
+
+# shard_delta_apply_source_tree <stage> <source_root> <target_prefix>
+#   <changed_file_list> <unmanifested_file_list> <payload_file_list>
+# Manifest-covered paths arrive from shard-manifest-delta.mjs as a changed
+# file list; all other payload paths arrive as a second list. Unchanged live
+# paths stay as index entries pointing at the remote blobs and are never
+# materialized. The two lists are joined, hashed in one batch, compared with
+# one index dump, and applied with one index-info stream: there is no
+# per-payload-file git process here.
+shard_delta_apply_source_tree() {
+  local stage="$1" source_root="$2" target_prefix="$3"
+  local changed_file_list="$4" unmanifested_file_list="$5" payload_file_list="$6"
+  local work candidate_list metadata index_dump hashes candidate_hashes
+  local changed_sources index_info count_file source_count changed_count
+  [ -d "$source_root" ] || return 1
+  source_root="$(cd "$source_root" && pwd)" || return 1
+  [ -f "$changed_file_list" ] || return 1
+  [ -f "$unmanifested_file_list" ] || return 1
+  [ -f "$payload_file_list" ] || return 1
+  SHARD_DELTA_SOURCE_FILES=0
+  SHARD_DELTA_CHANGED_FILES=0
+  SHARD_DELTA_REUSED_FILES=0
+  SHARD_DELTA_REMOVED_FILES=0
+  SHARD_DELTA_CONTENT_CHANGES=0
+  work="$(mktemp -d)" || return 1
+  candidate_list="$work/candidates.txt"
+  metadata="$work/metadata.tsv"
+  index_dump="$work/index.dump"
+  hashes="$work/hashes"
+  candidate_hashes="$work/candidate-hashes.tsv"
+  changed_sources="$work/changed-sources.txt"
+  index_info="$work/index.info"
+  count_file="$work/counts"
+
+  if ! awk 'NF { print }' "$payload_file_list" > "$work/payload-nonempty.txt"; then
+    rm -rf "$work"
+    return 1
+  fi
+  source_count="$(wc -l < "$work/payload-nonempty.txt" | tr -d ' ')"
+  SHARD_DELTA_SOURCE_FILES="${source_count:-0}"
+  if ! sort -u "$changed_file_list" "$unmanifested_file_list" > "$candidate_list"; then
+    rm -rf "$work"
+    return 1
+  fi
+
+  if [ -s "$candidate_list" ]; then
+    if ! awk -v root="$source_root" -v prefix="$target_prefix" 'NF {
+        target = prefix == "" ? $1 : prefix "/" $1
+        print $1 "\t" root "/" $1 "\t" target
+      }' "$candidate_list" > "$metadata"; then
+      rm -rf "$work"
+      return 1
+    fi
+    if ! git -C "$stage" ls-files --stage > "$index_dump"; then
+      rm -rf "$work"
+      return 1
+    fi
+    if ! awk -F '\t' '{ print $2 }' "$metadata" | git -C "$stage" hash-object --stdin-paths > "$hashes"; then
+      rm -rf "$work"
+      return 1
+    fi
+    if ! paste "$metadata" "$hashes" > "$candidate_hashes"; then
+      rm -rf "$work"
+      return 1
+    fi
+    if ! awk -F '\t' \
+        -v index_file="$index_dump" \
+        -v changed_sources="$changed_sources" \
+        -v index_info="$index_info" \
+        -v count_file="$count_file" '
+        BEGIN {
+          while ((getline line < index_file) > 0) {
+            split(line, fields, "\t")
+            split(fields[1], metadata, " ")
+            old_oid[fields[2]] = metadata[2]
+          }
+          close(index_file)
+        }
+        {
+          target = $3
+          new_oid = $4
+          if (old_oid[target] == new_oid) {
+            reused += 1
+          } else {
+            print $2 > changed_sources
+            print "100644 " new_oid "\t" target > index_info
+            changed += 1
+          }
+        }
+        END {
+          print changed + 0, reused + 0 > count_file
+        }
+      ' "$candidate_hashes"; then
+      rm -rf "$work"
+      return 1
+    fi
+    read -r changed_count source_count < "$count_file"
+    if [ "$changed_count" -gt 0 ]; then
+      if ! git -C "$stage" hash-object -w --stdin-paths < "$changed_sources" >/dev/null; then
+        rm -rf "$work"
+        return 1
+      fi
+      if ! git -C "$stage" update-index --index-info < "$index_info"; then
+        rm -rf "$work"
+        return 1
+      fi
+    fi
+    SHARD_DELTA_CHANGED_FILES="$changed_count"
+    SHARD_DELTA_CONTENT_CHANGES="$changed_count"
+  fi
+  SHARD_DELTA_REUSED_FILES=$((SHARD_DELTA_SOURCE_FILES - SHARD_DELTA_CHANGED_FILES))
+  rm -rf "$work"
+  return 0
+}
+
+# shard_delta_count_files <stage> <path-prefix>
+shard_delta_count_files() {
+  local stage="$1" prefix="$2"
+  git -C "$stage" ls-files -- "$prefix" 2>/dev/null | awk 'NF { count += 1 } END { print count + 0 }'
+}
+
+# True when the final indexed tree loses more than <pct> percent of its files.
+shard_delta_shrink_exceeded() {
+  local previous="$1" current="$2" pct="$3"
+  [ "$previous" -gt 0 ] \
+    && [ "$((current * 100))" -lt "$((previous * (100 - pct)))" ]
+}
+
 # shard_orphan_init <dir>
 # Resets <dir> to a fresh, history-less git repo on branch `main`. Caller is
 # responsible for populating the working tree and committing.
