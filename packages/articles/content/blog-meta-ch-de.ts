@@ -6446,6 +6446,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ocse-rapporto-svizzera-2026.title': 'OECD-Bericht zur Schweiz: Stabilität und Wirtschaftsreformen',
     'blog.article.ocse-rapporto-svizzera-2026.excerpt': 'Die OECD hat den Bericht über die Schweiz veröffentlicht, in dem sie die wirtschaftliche Widerstandsfähigkeit schätzt, aber Reformen in den Bereichen Gesundheit, Vorsorge und Verwaltung bis Ende 2027 fordert.',
     'blog.article.ocse-rapporto-svizzera-2026.imageAlt': 'Bundeshaus in Bern Sitz der Schweizer Institutionen',
+    'blog.article.bak-economics-pil-2026-18.title': 'BAK Economics: BIP 2026 bei +1,8%, Zinserhöhung möglich',
+    'blog.article.bak-economics-pil-2026-18.excerpt': 'Das rheinische Institut hebt die Wachstumsprognose auf 1,8% an und geht bereits im Dezember von einer Intervention der SNB aus.',
+    'blog.article.bak-economics-pil-2026-18.imageAlt': 'Panoramaansicht der Schweizer Alpen und des Lago Maggiore am Morgen, goldenes Licht.',
 };
 
 export default blogMetaChDe;
