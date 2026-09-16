@@ -59,13 +59,14 @@ interface SignalEdge {
  * The hand-written list is what failed in #5330: PR #5273 added
  * `await employerProfilesFlushed` inside jobsSeoPagesPlugin without adding the
  * matching `expectPluginAfter`, and the producer was registered ~60 entries
- * LATER in vite.config.ts. With `SEQUENTIAL_PROFILE=1` (deploy.yml) every
+ * LATER in vite.config.ts. With the opt-in sequential profile every
  * closeBundle is `sequential: true`, so the producer could not run until the
  * consumer returned: the await never settled, the event loop drained, node
  * exited 0 and `vite build` "succeeded" having emitted nothing after
  * jobs-seo-pages — including the six IT landings validate-critical-dist-pages
- * guards. Deriving the edges means the next such `await` is covered the moment
- * it is written.
+ * guards. Production keeps independent hooks parallel, but this ordering guard
+ * protects the diagnostic profile and any explicitly ordered hook. Deriving the
+ * edges means the next such `await` is covered the moment it is written.
  */
 function signalEdges(): SignalEdge[] {
   const pluginsDir = path.resolve(__dirname, '../build-plugins');
@@ -116,7 +117,7 @@ function expectPluginAfter(names: string[], consumer: string, producer: string):
 }
 
 describe('build plugin ordering', () => {
-  it('keeps signal consumers after their producers in sequential closeBundle builds', () => {
+  it('keeps signal consumers after their producers in sequential closeBundle profiles', () => {
     const names = pluginNames();
 
     expectPluginAfter(names, 'border-municipality-pages', 'static-pages');
@@ -161,8 +162,8 @@ describe('build plugin ordering', () => {
 
     expect(
       violations,
-      'a closeBundle signal can only travel forward through the vite.config.ts plugin array: '
-      + 'deploy.yml builds with SEQUENTIAL_PROFILE=1, so a producer registered after its consumer '
+      'a closeBundle signal can only travel forward through the vite.config.ts plugin array '
+      + 'when the opt-in sequential profile is active, so a producer registered after its consumer '
       + 'deadlocks the build into a silent exit 0 (#5330)',
     ).toEqual([]);
   });

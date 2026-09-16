@@ -2736,14 +2736,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // fast-exit, which resolves `[]` and simply leaves every job page unlinked.
  //
  // What the signal does NOT buy is freedom from registration order (#5330).
- // The original version of this comment said "no deadlock is possible"
- // because closeBundle hooks run in parallel — they do not on deploy:
- // deploy.yml sets SEQUENTIAL_PROFILE=1 and profilePlugin then marks every
- // wrapped closeBundle `sequential: true`. Serialized, a signal can only
- // travel FORWARD through the vite.config.ts array, and employer-profile-pages
- // was registered ~60 entries AFTER this plugin: the await never settled, the
- // event loop drained, node exited 0, and `vite build` reported success having
- // emitted nothing past this line — six critical IT landings included.
+ // Production runs independent closeBundle hooks in parallel, but the explicit
+ // sequential profile remains available for diagnostics. In that serialized
+ // mode, a signal can only travel FORWARD through the vite.config.ts array;
+ // registering the producer after this consumer would leave the await
+ // unsettled, causing a green build to omit six critical IT landings.
  // employerProfilePagesPlugin is now registered immediately before this
  // plugin, and tests/build-plugin-order.test.ts derives that constraint from
  // these very imports so the next cross-plugin `await` is covered on sight.

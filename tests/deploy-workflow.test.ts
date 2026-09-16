@@ -20,6 +20,7 @@ import YAML from 'yaml';
 const ROOT = resolve(import.meta.dirname, '..');
 const VALIDATION_YML = readFileSync(resolve(ROOT, '.github/workflows/post-deploy-validate-dist.yml'), 'utf-8');
 const DEPLOY_YML = readFileSync(resolve(ROOT, '.github/workflows/deploy.yml'), 'utf-8');
+const DEPLOY_PUBLISH_YML = readFileSync(resolve(ROOT, '.github/workflows/deploy-publish.yml'), 'utf-8');
 // Every workflow that uploads dist/audit-reports/** as an artifact — the
 // directory scripts/lib/auditReport.mjs writes to (discover-eligibility.json
 // included). Since #6202 that report is written only 1-in-7 post-deploy
@@ -43,6 +44,7 @@ const REHYDRATE_LOCALE_SCRIPT = readFileSync(resolve(ROOT, 'scripts/lib/rehydrat
 const PACKAGE_JSON = JSON.parse(readFileSync(resolve(ROOT, 'package.json'), 'utf-8'));
 const BATCH_WRITE = readFileSync(resolve(ROOT, 'build-plugins/batchWrite.ts'), 'utf-8');
 const AUDIT_ALL_REGISTRY_SRC = readFileSync(resolve(ROOT, 'scripts/audit-all.mjs'), 'utf-8');
+const BUILD_LOCALE_ENV = (YAML.parse(DEPLOY_YML) as any).jobs['build-locale'].env as Record<string, unknown>;
 
 // `audit:title-uniqueness` was moved to a separate weekly workflow because it
 // OOM-killed the parallel block. All remaining gates must stay in parallel.
@@ -460,5 +462,47 @@ describe('deploy.yml — wall-time delle fasi post-build nella storia committata
     const workflow = YAML.parse(DEPLOY_YML) as any;
     const ignored = workflow.on?.push?.['paths-ignore'] ?? [];
     expect(ignored).toContain('data/build-history/**');
+  });
+
+  it('ignora solo i commit di telemetria che non alimentano il dist', () => {
+    const workflow = YAML.parse(DEPLOY_YML) as any;
+    const ignored = workflow.on?.push?.['paths-ignore'] ?? [];
+    expect(ignored).toEqual(expect.arrayContaining([
+      'data/loop-fleet/**',
+      'data/translation-observability-history.json',
+      'data/translation-observability-state.json',
+      'data/translation-stats-history.json',
+    ]));
+  });
+});
+
+describe('deploy.yml — scheduling del build senza serializzazione globale', () => {
+  it('mantiene paralleli gli hook indipendenti in produzione', () => {
+    const sequentialProfile = String(BUILD_LOCALE_ENV.SEQUENTIAL_PROFILE ?? '');
+    expect(sequentialProfile).toContain("github.event_name == 'workflow_dispatch'");
+    expect(sequentialProfile).toContain("github.event.inputs.profile_sequential == 'true'");
+    expect(sequentialProfile).toContain("github.event.inputs.parallel_plugins != 'true'");
+    expect(sequentialProfile).not.toBe('1');
+  });
+});
+
+describe('deploy-publish.yml — Pages poll usa il budget residuo del job', () => {
+  const workflow = YAML.parse(DEPLOY_PUBLISH_YML) as any;
+  const deployJob = workflow.jobs.deploy as { steps: Array<Record<string, any>>; 'timeout-minutes': number };
+
+  it('ancora la deadline al primo step e gestisce il budget pre-poll esaurito', () => {
+    expect(deployJob['timeout-minutes']).toBe(360);
+    expect(deployJob.steps[0]).toMatchObject({
+      name: 'Record publish job start',
+      id: 'publish_budget',
+    });
+    expect(deployJob.steps[0].run).toContain('job_deadline=$((job_started_at + 360 * 60))');
+
+    const pollStep = deployJob.steps.find((step) => step.name === 'Wait for server-side Pages publish (extended, beyond the 10-min action cap)');
+    expect(pollStep, 'deploy-publish.yml: manca lo step di poll Pages esteso').toBeDefined();
+    expect(pollStep!.run).toContain('job_deadline="${{ steps.publish_budget.outputs.job_deadline }}"');
+    expect(pollStep!.run).toContain('deadline=$((job_deadline - 60))');
+    expect(pollStep!.run).toContain('pre-poll publish steps consumed the available job budget');
+    expect(pollStep!.run).not.toContain('date +%s) + 330*60');
   });
 });

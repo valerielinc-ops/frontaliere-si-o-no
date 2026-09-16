@@ -104,7 +104,7 @@ describe('selectWedgedRuns', () => {
 
   it('NEVER selects a run that is executing, however long it has run', () => {
     // The load-bearing assertion. A healthy publish takes 57-83 min end to end
-    // (ten measured successes) and its deploy job may spend a further 40 min in
+    // (ten measured successes) and its deploy job may spend a further 330 min in
     // the extended server-side Pages poll, so "old" is not evidence of a wedge.
     // Cancelling an executing run is what causes the outage class this script
     // exists to avoid.

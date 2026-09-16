@@ -89,6 +89,10 @@ jobs:
     # never fires, which is correct: no github-pages artifact was produced.
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
+    # GitHub-hosted jobs have a hard six-hour execution ceiling. Keep the
+    # publish tail explicit at that maximum so a future default change cannot
+    # shorten the window available to the extended Pages poll below.
+    timeout-minutes: 360
     permissions:
       pages: write
       id-token: write
@@ -127,6 +131,17 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url || steps.deployment_first.outputs.page_url }}
     steps:
+      - name: Record publish job start
+        id: publish_budget
+        shell: bash
+        run: |
+          set -euo pipefail
+          job_started_at=$(date +%s)
+          job_deadline=$((job_started_at + 360 * 60))
+          echo "job_started_at=${job_started_at}" >> "$GITHUB_OUTPUT"
+          echo "job_deadline=${job_deadline}" >> "$GITHUB_OUTPUT"
+          echo "publish job budget starts at ${job_started_at}; hard deadline ${job_deadline}"
+
       - name: Checkout
         uses: actions/checkout@v5
         with:
@@ -289,10 +304,18 @@ jobs:
       # advanced (1780052190433 → 1780096323338). So a double action-failure is
       # NOT a real deploy failure — it just means the publish is still syncing.
       #
-      # This polls the github-pages DEPLOYMENT(s) for THIS sha for up to 40 min
-      # and goes GREEN when Pages reports success — so validate-live → publish
-      # (IndexNow, Google Indexing API, GSC, previous-slug-winners sync,
-      # last_known_good) finally run (issue #987).
+      # This polls the github-pages DEPLOYMENT(s) for THIS sha until the
+      # remaining deploy-job budget expires and goes GREEN when Pages reports
+      # success — so validate-live → publish (IndexNow, Google Indexing API,
+      # GSC, previous-slug-winners sync, last_known_good) finally run (issue
+      # #987).
+      #
+      # The first step records the job-start budget. The poll derives its
+      # deadline from that absolute timestamp, rather than starting a fresh
+      # 330-minute clock after artifact transfer and the two action attempts.
+      # Keep one minute for the terminal diagnostic/close step; if setup has
+      # already consumed that margin, fail explicitly instead of letting the
+      # runner kill the job and silently skip downstream jobs.
       #
       # ONLY `success` is a terminal GREEN. The action emits two attempts
       # (deployment_first + retry) → two Deployment objects per sha; on abort at
@@ -307,7 +330,14 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -uo pipefail
-          deadline=$(( $(date +%s) + 40*60 ))
+          job_deadline="${{ steps.publish_budget.outputs.job_deadline }}"
+          deadline=$((job_deadline - 60))
+          now=$(date +%s)
+          if [ "$now" -ge "$deadline" ]; then
+            echo "::error::pre-poll publish steps consumed the available job budget; Pages poll cannot start before the deploy job deadline (${job_deadline})."
+            exit 1
+          fi
+          echo "Pages poll has $((deadline - now)) seconds remaining before the deploy job close margin"
           while [ "$(date +%s)" -lt "$deadline" ]; do
             ids=$(gh api "repos/${GITHUB_REPOSITORY}/deployments?environment=github-pages&sha=${GITHUB_SHA}&per_page=20" --jq '.[].id' 2>/dev/null || echo "")
             if [ -n "$ids" ]; then
@@ -331,7 +361,7 @@ jobs:
             fi
             sleep 60
           done
-          echo "::error::GitHub Pages did not report success within 40 min for ${GITHUB_SHA} (publish stuck or genuinely failed)."
+          echo "::error::GitHub Pages did not report success before the remaining deploy-job budget expired for ${GITHUB_SHA} (job deadline ${job_deadline})."
           exit 1
 
       # Reporter diagnostico (#5437). SECONDA famiglia: gli opener che aprono

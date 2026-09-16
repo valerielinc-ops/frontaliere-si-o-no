@@ -19,12 +19,11 @@ description: >-
 
   Scope: runs the dedup + migration + sitemap-cleanup steps only. It does
   NOT run `assemble-jobs-dataset.mjs` (callers run + cache that themselves
-  before invoking this action) nor the build itself. The two build OOM knobs
+  before invoking this action) nor the build itself. The two build knobs
   (POST_WALK_WORKERS / SEQUENTIAL_PROFILE) stay on each caller's `build:ci`
-  step env because deploy.yml gates SEQUENTIAL_PROFILE on its
-  `parallel_plugins` dispatch input (cathedral is always sequential), so they
-  are not byte-identical and cannot be a shared constant. None of these steps
-  require secrets.
+  step env because their safe values are workflow-specific: deploy.yml keeps
+  independent hooks parallel in production, while the cathedral gate remains
+  sequential for its diagnostic contract. None of these steps require secrets.
 
 runs:
   using: 'composite'

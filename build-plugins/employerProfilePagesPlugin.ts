@@ -925,10 +925,10 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
       //
       // WHY THAT MATTERS HERE SPECIFICALLY, AND ONLY SINCE #5330. This plugin
       // moved ahead of `jobsSeoPagesPlugin` in vite.config.ts because
-      // deploy.yml runs SEQUENTIAL_PROFILE=1, under which a build signal only
-      // travels FORWARD through the plugin array — registered after its
-      // consumer, `employerProfilesFlushed` never settled and the build exited
-      // 0 having emitted nothing past the await. That move is correct and must
+      // the opt-in sequential profile lets a build signal travel only FORWARD
+      // through the plugin array — registered after its consumer,
+      // `employerProfilesFlushed` never settled and the build exited 0 having
+      // emitted nothing past the await. That move is correct and must
       // not be undone. Its side effect is that the plugin now hands over to the
       // build's memory peak: `jobsSeoPagesPlugin` parses `data/jobs.json` with
       // its own `readFileSync` and never reads this cache, so both copies were
