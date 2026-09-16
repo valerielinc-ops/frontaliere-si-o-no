@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import * as net from './bridge-transport.mjs';
 import path from 'node:path';
-import { spawn } from 'node:child_process';
+import { spawn, spawnSync } from 'node:child_process';
 import {
   FORCE_KILL_GRACE_MS,
   POSIX_PROCESS_GROUPS,
@@ -24,7 +24,10 @@ export const SHUTDOWN_TIMEOUT_MS = FORCE_KILL_GRACE_MS + 500;
 
 const allowedCommands = new Set(['push', 'fetch', 'pull', 'ls-remote']);
 const blockedGlobalOptions = new Set(['-C', '-c', '--git-dir', '--work-tree', '--namespace', '--exec-path', '--config-env', '--config', '--global', '--system', '--local', '--worktree', '--upload-pack', '--receive-pack']);
-const safeOptions = new Set(['--all', '--prune', '--tags', '--force', '--force-with-lease', '--set-upstream', '-u', '--rebase', '--no-rebase', '--ff-only', '--no-edit', '--dry-run', '--delete', '-d', '--heads', '--refs', '--mirror', '--verbose', '-v', '--quiet', '-q', '--no-tags']);
+const safeOptions = new Set(['--all', '--prune', '--tags', '--set-upstream', '-u', '--rebase', '--no-rebase', '--ff-only', '--no-edit', '--dry-run', '--heads', '--refs', '--verbose', '-v', '--quiet', '-q', '--no-tags']);
+const blockedPushOptions = new Set(['--all', '--delete', '--follow-tags', '--force', '--force-if-includes', '--force-with-lease', '--mirror', '--prune', '--tags', '-d', '-f']);
+const WORK_BRANCH_REF_PREFIX = 'refs/heads/';
+const WORK_BRANCH_NAME_RE = /^[A-Za-z0-9][A-Za-z0-9._/-]*$/;
 const shadowEntries = ['objects', 'refs', 'logs', 'info', 'hooks', 'packed-refs'];
 
 function markSideEffect(sideEffectFile) {
@@ -44,14 +47,65 @@ function responseFor(client, { code, stdout = '', stderr = '' }) {
 
 function isSafeOption(arg) {
   if (safeOptions.has(arg)) return true;
-  return /^--force-with-lease=[^\s/]+$/.test(arg)
-    || /^--depth=[0-9]+$/.test(arg)
+  return /^--depth=[0-9]+$/.test(arg)
     || /^--deepen=[0-9]+$/.test(arg)
     || /^--jobs=[0-9]+$/.test(arg);
 }
 
+function isBlockedPushOption(arg) {
+  return blockedPushOptions.has(arg)
+    || arg.startsWith('--delete=')
+    || arg.startsWith('--force=')
+    || arg.startsWith('--force-with-lease=')
+    || arg.startsWith('--mirror=');
+}
+
+function workBranchName(value) {
+  const raw = String(value || '');
+  if (!raw) return '';
+  const branch = raw.startsWith(WORK_BRANCH_REF_PREFIX)
+    ? raw.slice(WORK_BRANCH_REF_PREFIX.length)
+    : raw.startsWith('refs/') ? '' : raw;
+  if (!branch || branch === 'main' || branch === 'HEAD' || branch.startsWith('refs/')) return '';
+  if (!WORK_BRANCH_NAME_RE.test(branch) || branch.includes('//') || branch.endsWith('/')) return '';
+  if (branch.split('/').some((component) => component === '.' || component === '..' || component.endsWith('.lock'))) return '';
+  return branch;
+}
+
+function validatePushRefspecs(refspecs, allowedWorkBranch) {
+  if (refspecs.length !== 1) {
+    return 'Git push requires exactly one explicit work-branch refspec';
+  }
+  const refspec = refspecs[0];
+  if (!refspec || refspec.startsWith('+') || refspec.includes('*')) {
+    return `Git push refspec is not permitted by the Codex fallback bridge: ${refspec || '<missing>'}`;
+  }
+  const separator = refspec.indexOf(':');
+  if (separator !== -1 && refspec.indexOf(':', separator + 1) !== -1) {
+    return `Git push refspec is not permitted by the Codex fallback bridge: ${refspec}`;
+  }
+  const source = separator === -1 ? refspec : refspec.slice(0, separator);
+  const destination = separator === -1 ? '' : refspec.slice(separator + 1);
+  if (!source || (separator !== -1 && !destination)) {
+    return `Git push refspec is not permitted by the Codex fallback bridge: ${refspec}`;
+  }
+  const sourceBranch = source === 'HEAD' ? 'HEAD' : workBranchName(source);
+  if (!sourceBranch) {
+    return `Git push source is not a work branch: ${source}`;
+  }
+  const targetBranch = separator === -1
+    ? source === 'HEAD' ? workBranchName(allowedWorkBranch) : sourceBranch
+    : workBranchName(destination);
+  if (!targetBranch) {
+    return separator === -1 && source === 'HEAD'
+      ? 'Git push HEAD requires a validated current work branch'
+      : `Git push destination is not a work branch: ${destination}`;
+  }
+  return '';
+}
+
 /** Validate that the request starts with an allowed network Git command. */
-export function validateGitArgs(args, { allowedRemote = 'origin' } = {}) {
+export function validateGitArgs(args, { allowedRemote = 'origin', allowedWorkBranch = '' } = {}) {
   if (!Array.isArray(args) || args.some((arg) => typeof arg !== 'string')) return 'invalid args';
   if (args.some((arg) => blockedGlobalOptions.has(arg) || arg.startsWith('--git-dir=') || arg.startsWith('--work-tree=') || arg.startsWith('--exec-path=') || arg.startsWith('--config-env=') || arg.startsWith('--upload-pack=') || arg.startsWith('--receive-pack='))) {
     return 'Git config/exec/path options are not permitted by the Codex fallback bridge';
@@ -59,6 +113,10 @@ export function validateGitArgs(args, { allowedRemote = 'origin' } = {}) {
   const command = args[0];
   if (!command) return 'Git network command is not permitted by the Codex fallback bridge';
   if (!allowedCommands.has(command)) return `Git network command is not permitted by the Codex fallback bridge: ${command}`;
+  if (command === 'push') {
+    const blockedOption = args.slice(1).find(isBlockedPushOption);
+    if (blockedOption) return `Git push option is not permitted by the Codex fallback bridge: ${blockedOption}`;
+  }
   let separator = false;
   const positional = [];
   for (const arg of args.slice(1)) {
@@ -78,6 +136,7 @@ export function validateGitArgs(args, { allowedRemote = 'origin' } = {}) {
   if (positional.length > 0 && positional[0] !== allowedRemote) {
     return `Git remote is not permitted by the Codex fallback bridge: ${positional[0]}`;
   }
+  if (command === 'push') return validatePushRefspecs(positional.slice(1), allowedWorkBranch);
   return '';
 }
 
@@ -128,13 +187,18 @@ function safeExpectedRemote(value) {
 }
 
 /** Replace the model's mutable `origin` lookup with the host-approved URL. */
-export function buildGitNetworkArgs(args, expectedRemote) {
+export function buildGitNetworkArgs(args, expectedRemote, { allowedWorkBranch = '' } = {}) {
   const remote = safeExpectedRemote(expectedRemote);
   if (!remote) {
     throw new Error('Git bridge expected remote is invalid');
   }
   const result = [...args];
   const remoteIndex = firstPositionalIndex(result);
+  if (result[0] === 'push' && remoteIndex >= 0 && result.length === remoteIndex + 2 && result[remoteIndex + 1] === 'HEAD') {
+    const branch = workBranchName(allowedWorkBranch);
+    if (!branch) throw new Error('Git push HEAD requires a validated current work branch');
+    result[remoteIndex + 1] = `HEAD:${WORK_BRANCH_REF_PREFIX}${branch}`;
+  }
   if (remoteIndex >= 0) result[remoteIndex] = remote;
   else result.push(remote);
   return result;
@@ -221,6 +285,17 @@ function main() {
     baseEnv[`GIT_CONFIG_KEY_${index}`] = key;
     baseEnv[`GIT_CONFIG_VALUE_${index}`] = value;
   }
+  const currentWorkBranch = () => {
+    const result = spawnSync(realGit, ['symbolic-ref', '--quiet', '--short', 'HEAD'], {
+      cwd,
+      env: baseEnv,
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+      timeout: 5_000,
+    });
+    if (result.error || result.status !== 0) return '';
+    return String(result.stdout || '').trim();
+  };
   let activeConnections = 0;
   const children = new Set();
   const pendingProcessGroups = new Set();
@@ -304,9 +379,13 @@ function main() {
     client.on('end', () => {
       if (requestTooLarge) return;
       let args;
+      let allowedWorkBranch = '';
       try {
         args = JSON.parse(request);
-        const validationError = validateGitArgs(args);
+        allowedWorkBranch = Array.isArray(args) && args[0] === 'push' && args.includes('HEAD')
+          ? currentWorkBranch()
+          : '';
+        const validationError = validateGitArgs(args, { allowedWorkBranch });
         if (validationError) throw new Error(validationError);
       } catch (error) {
         finish({ code: 2, stderr: `bridge request: ${error.message}\n` });
@@ -315,7 +394,7 @@ function main() {
       client.setTimeout(RESPONSE_TIMEOUT_MS, timeoutClient);
       let childArgs;
       try {
-        childArgs = buildGitNetworkArgs(args, expectedRemote);
+        childArgs = buildGitNetworkArgs(args, expectedRemote, { allowedWorkBranch });
       } catch (error) {
         finish({ code: 2, stderr: `bridge request: ${error.message}\n` });
         return;
