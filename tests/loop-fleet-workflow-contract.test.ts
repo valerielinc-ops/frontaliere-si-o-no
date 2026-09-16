@@ -211,4 +211,11 @@ describe('loop fleet workflow contract', () => {
     expect(source).toContain('LOOP_FLEET_RECONCILE_MAX_DISPATCHES: \'3\'');
     expect(source).toContain('loop-fleet-ledger-reconcile.mjs');
   });
+
+  it('materializes the canonical JSON dependency in both ledger sparse checkouts', () => {
+    for (const name of ['loop-fleet-ledger-reconcile.yml', 'loop-fleet-ledger-audit.yml']) {
+      const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
+      expect(source, name).toContain('/scripts/lib/canonical-json-digest.mjs');
+    }
+  });
 });

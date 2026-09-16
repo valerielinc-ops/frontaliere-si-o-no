@@ -18,6 +18,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
+import { canonicalJson as canonicalRecordContent } from '../lib/canonical-json-digest.mjs';
 
 export const SOURCE_LOOPS = Object.freeze([
   ['L0', 'loop-l0-data-truth.yml', 'loop-l0-data-truth'],
@@ -102,26 +103,6 @@ function findFile(root, name) {
     }
   }
   return null;
-}
-
-function compareCodePoint(left, right) {
-  return left < right ? -1 : left > right ? 1 : 0;
-}
-
-function canonicalize(value) {
-  if (value === null || typeof value === 'string' || typeof value === 'boolean') return value;
-  if (typeof value === 'number' && Number.isFinite(value)) return value;
-  if (Array.isArray(value)) return value.map(canonicalize);
-  if (value && typeof value === 'object' && Object.getPrototypeOf(value) === Object.prototype) {
-    return Object.fromEntries(
-      Object.keys(value).sort(compareCodePoint).map((key) => [key, canonicalize(value[key])]),
-    );
-  }
-  throw new TypeError('Record contains a non-canonical value');
-}
-
-function canonicalRecordContent(value) {
-  return JSON.stringify(canonicalize(value));
 }
 
 function jsonlRecords(file) {
