@@ -34,7 +34,10 @@ describe('review → autorebase ordering', () => {
     expect(autorebase).toContain("'--remove-label', 'stale-review'");
     expect(autorebase).toContain('function clearStaleReviewLabel');
     expect(autorebase).toContain('if (dispatchTests(num, branch)) clearStaleReviewLabel(num);');
-    expect(autorebase).toContain('if (guardedReopen(num, head)) clearStaleReviewLabel(num);');
+    const postRebase = autorebase.slice(autorebase.indexOf('// Riesegui test E review'));
+    expect(postRebase).toContain('dispatchTests(num, branch)');
+    expect(postRebase).toContain('pr_number=${num}');
+    expect(postRebase).not.toContain('guardedReopen(num, head');
   });
 
   it('lets stale-review reach autorebase even when the review gate is red', () => {
@@ -86,7 +89,7 @@ describe('review → autorebase ordering', () => {
     expect(reviewGate).toContain("import { REDFLAG_IMPORTANT_RE } from './lib/constants.mjs';");
     expect(reviewGate).toContain('classification.blocking');
     expect(reviewGate).toContain('reviewCommit === headSha');
-    expect(reviewGate).toContain('scripts/ci/pr-contribution-fingerprint.mjs');
+    expect(reviewGate).not.toContain('scripts/ci/pr-contribution-fingerprint.mjs');
     expect(nativeAutoMerge).toContain('native-automerge-gate.mjs');
     expect(nativeAutoMerge).toContain('types: [opened, edited, reopened, ready_for_review, synchronize]');
     expect(nativeAutoMerge).toContain('pull_request_review:');
@@ -109,6 +112,20 @@ describe('review → autorebase ordering', () => {
     expect(ifLine).toContain('always()');
     expect(ifLine).toContain("steps.resolve.outputs.should_review == 'true'");
     expect(ifLine).not.toMatch(/steps\.codex_review\.outcome\s*!=\s*'failure'/);
+  });
+
+  it('makes provider rate limits visible and retryable instead of suppressing them for quota protection', () => {
+    const abortStart = workflow.indexOf('id: review_abort');
+    const gateStart = workflow.indexOf('id: review_gate');
+    const abortBlock = workflow.slice(abortStart, gateStart);
+
+    expect(abortStart).toBeGreaterThanOrEqual(0);
+    expect(abortBlock).toContain("grep -q '^rate_limited=true$'");
+    expect(abortBlock).toContain('stale-pr-rescuer');
+    expect(abortBlock).toContain('exit 1');
+    expect(abortBlock).not.toContain('NOT failing');
+    expect(abortBlock).not.toContain('shared Max quota');
+    expect(workflow).not.toContain('QUOTA_LEASE_ACTION');
   });
 
   it('lets the red-flag fixer act only when scope is blocking or unverifiable', () => {

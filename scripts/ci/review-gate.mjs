@@ -854,17 +854,6 @@ function readReviews(repo, pr) {
   return gh(['api', `repos/${repo}/pulls/${pr}/reviews`, '--paginate', '--slurp']);
 }
 
-function fingerprint(sha) {
-  try {
-    return execFileSync(process.execPath, ['scripts/ci/pr-contribution-fingerprint.mjs', sha], {
-      encoding: 'utf8',
-      maxBuffer: 4 * 1024 * 1024,
-    }).trim() || 'NULL';
-  } catch {
-    return 'NULL';
-  }
-}
-
 function changedPathsBetween(fromSha, toSha) {
   if (!/^[0-9a-f]{40}$/iu.test(String(fromSha || ''))
       || !/^[0-9a-f]{40}$/iu.test(String(toSha || ''))) return null;
@@ -887,6 +876,11 @@ function staleFallbackCarryForward({
   headSha,
   changedPathsFn = changedPathsBetween,
 } = {}) {
+  // This optimization is only a replay of a fallback emitted for the current
+  // review input. A rebase changes the commit identity even when the cited
+  // paths are untouched; never let the historical-replay path bypass the
+  // exact-head rule below.
+  if (String(latest?.commit_id || '') !== String(headSha || '')) return null;
   const latestBody = normalizeReviewBody(latest?.body || '');
   if (!latestBody.includes(CODEX_REVIEW_MARKER)
       || /^##\s+LGTM\b/imu.test(latestBody)) return null;
@@ -971,17 +965,8 @@ function staleFallbackCarryForward({
   };
 }
 
-export function reviewAppliesToHead(reviewCommit, headSha, fingerprintFn = fingerprint) {
-  if (!reviewCommit || !headSha) return false;
-  if (reviewCommit === headSha) return true;
-
-  const headFingerprint = fingerprintFn(headSha);
-  const reviewFingerprint = fingerprintFn(reviewCommit);
-  if (headFingerprint !== 'NULL' && headFingerprint === reviewFingerprint) {
-    console.log(`review-gate: LGTM carry-forward, contributo invariato (${reviewCommit} → ${headSha}).`);
-    return true;
-  }
-  return false;
+export function reviewAppliesToHead(reviewCommit, headSha) {
+  return Boolean(reviewCommit && headSha && reviewCommit === headSha);
 }
 
 function writeApproved(value) {
@@ -1140,7 +1125,6 @@ export async function runReviewGate({
   codexEvidence,
   codexEvidenceFile,
   repositoryPaths,
-  fingerprintFn = fingerprint,
   changedPathsFn = changedPathsBetween,
   classifyAndMintReviewFn = classifyAndMintReview,
 } = {}) {
@@ -1196,7 +1180,7 @@ export async function runReviewGate({
   // Applicability comes before scope classification. Otherwise a stale review
   // could mint a follow-up for a finding that belongs to an older head before
   // the gate correctly blocks on the changed contribution.
-  const applies = reviewAppliesToHead(reviewCommit, headSha, fingerprintFn);
+  const applies = reviewAppliesToHead(reviewCommit, headSha);
   if (findings.length > 0 && applies) {
     const classificationOptions = {
       repo,

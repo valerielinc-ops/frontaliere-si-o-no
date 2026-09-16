@@ -6,6 +6,7 @@
  */
 import { describe, it, expect } from 'vitest';
 import { isReviewWorkflowDriftPR, isTrustedDriftAuthor, prBodyContractOk } from '../scripts/ci/auto-merge-eval.mjs';
+import { decisionDeferralsAreSpecific } from '../scripts/lib/pr-body-sections-check.mjs';
 import { isReviewerBot } from '../scripts/ci/lib/constants.mjs';
 import { REVIEW_WORKFLOW_DRIFT_FILES } from '../scripts/ci/lib/constants.mjs';
 
@@ -107,5 +108,14 @@ describe('prBodyContractOk (valutato dal body, non dalla sticky)', () => {
 
   it('true con Closes singolo per riga (forma corretta)', () => {
     expect(prBodyContractOk(`${goodBody}\n\nCloses #12\nCloses #34`)).toBe(true);
+  });
+
+  it('rifiuta una deroga decisionale vaga e accetta motivo + prossimo passo concreti', () => {
+    const vague = `${goodBody.replace('- niente altro', '- il residuo è per scelta')}`;
+    const specific = `${goodBody.replace('- niente altro', '- il residuo è per scelta. **Motivo:** il provider upstream non è ancora stabile. **Prossimo passo:** riaprire il lavoro dopo due run verdi consecutivi.')}`;
+    expect(decisionDeferralsAreSpecific(vague)).toBe(false);
+    expect(prBodyContractOk(vague)).toBe(false);
+    expect(decisionDeferralsAreSpecific(specific)).toBe(true);
+    expect(prBodyContractOk(specific)).toBe(true);
   });
 });
