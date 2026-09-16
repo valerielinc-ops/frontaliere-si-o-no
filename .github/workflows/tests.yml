@@ -1715,6 +1715,7 @@ jobs:
         if: ${{ steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EVENT_ACTION: ${{ github.event.action || '' }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
           REPO: ${{ github.repository }}
@@ -1724,6 +1725,20 @@ jobs:
             --jq '[.[] | select((.user.login // "" | test("^(claude\\[bot\\]|frontaliere-automation\\[bot\\])$";"i")) and (.body|contains("## LGTM")))] | last | .commit_id // empty' 2>/dev/null || true)
           if [ -z "$last" ]; then
             echo "skip=false" >> "$GITHUB_OUTPUT"; echo "Nessuna review LGTM precedente → review piena."; exit 0
+          fi
+          # A data-only HEAD normally carries a clean LGTM forward. Do not do
+          # that after a PR metadata edit when the latest bot verdict still
+          # contains a non-zero Important/Nit: the edit may be the fix for the
+          # finding, and without a fresh review the old nit would strand the PR
+          # forever behind the native auto-merge gate.
+          if [ "${EVENT_ACTION:-}" = "edited" ]; then
+            last_body=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate \
+              --jq '[.[] | select((.user.login // "" | test("^(claude\\[bot\\]|frontaliere-automation\\[bot\\])$";"i")) and (.body|contains("## LGTM")))] | last | .body // empty' 2>/dev/null || true)
+            if printf '%s\n' "$last_body" | grep -qiE 'Important[[:space:]]*:[[:space:]]*[1-9][0-9]*|Nit[[:space:]]*:[[:space:]]*[1-9][0-9]*|🔴|🟡'; then
+              echo "skip=false" >> "$GITHUB_OUTPUT"
+              echo "PR metadata edited dopo un verdetto bot con finding Important/Nit → review piena (niente carry-forward)."
+              exit 0
+            fi
           fi
           changed=$(gh api "repos/$REPO/compare/$last...$HEAD_SHA" --jq '.files[] | .filename, (.previous_filename // empty)' 2>/dev/null || true)
           if [ -z "$changed" ]; then
