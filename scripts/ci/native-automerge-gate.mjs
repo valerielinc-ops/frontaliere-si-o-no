@@ -404,6 +404,7 @@ export function evaluateNativeAutoMerge({
     labels: pr.labels,
     paths: files,
     pathsComplete: filesComplete,
+    surface: 'pull-request',
   });
   if (!risk.verifiable) {
     return {

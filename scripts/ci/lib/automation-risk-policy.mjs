@@ -4,7 +4,9 @@
  * The policy is deliberately explicit: issue triage/fixer and native
  * auto-merge may automate only when no signal belongs to one of these domains:
  * deploy/workflow/functions, secrets/roles/permissions, billing/revenue/partner,
- * published content/SEO/Auto Ads, or outreach/communications.
+ * published content/SEO/Auto Ads, or outreach/communications. Issue triage
+ * additionally keeps its explicit control-plane deny; PR auto-merge does not
+ * treat that path class as a separate human-approval veto.
  *
  * This module has no GitHub side effects. Callers decide how to escalate a
  * blocked item, and must fail closed when a PR file list is not verifiable.
@@ -12,14 +14,13 @@
 
 export const AUTOMATION_RISK_POLICY_VERSION = 'f1-f7-v2';
 export const HUMAN_APPROVAL_LABEL = 'needs-human';
-export const CONTROL_PLANE_GUARD_VERSION = 'f1-f7-control-plane-v1';
 export const CONTROL_PLANE_DOMAIN = 'control-plane';
 
 /**
  * These are the files that can change the automation boundary itself.  The
  * list is intentionally explicit even where the broader path matcher below
- * already covers the file: bootstrap workflows use it as a compatibility
- * sentinel before they trust a helper fetched from `main`.
+ * already covers the file: issue classification and its tests use it as the
+ * stable control-plane contract.
  */
 export const CONTROL_PLANE_PATHS = Object.freeze([
   'scripts/ci/lib/automation-risk-policy.mjs',
@@ -130,7 +131,8 @@ const KNOWN_ISSUE_CATEGORIES = new Set([
 // These labels are emitted by the two read-only locale metric audits. They are
 // explicit ordinary signals, not a fallback for arbitrary `other` issues:
 // unknown text remains deny-by-default, and all F1/F7/control-plane/path
-// matches below still take precedence over this allowlist.
+// matches below still take precedence over this allowlist in the issue
+// classification surface.
 export const KNOWN_ORDINARY_ISSUE_LABELS = Object.freeze([
   'job-description-locale',
   'job-title-locale',
@@ -162,7 +164,7 @@ function pathDomains(path) {
     .map(({ id }) => id);
 }
 
-/** A control-plane path is never test-only and never human-approved here. */
+/** Control-plane paths stay outside automatic issue routing. */
 export function isControlPlanePath(path) {
   const normalized = normalizedPath(path);
   return normalized.length > 0 && CONTROL_PLANE_PATH_RE.some((pattern) => pattern.test(normalized));
@@ -214,6 +216,9 @@ function reviewTime(review) {
  * `paths` is optional for issue classification. When supplied, `pathsComplete`
  * must be true; otherwise the caller cannot prove that a high-risk path is
  * absent and the result is explicitly non-verifiable.
+ * `surface` defaults to `issue`. Native PR callers pass `pull-request`, where
+ * explicit control-plane paths are not an additional deny condition; the
+ * issue surface retains the original control-plane deny-by-default behavior.
  */
 export function classifyAutomationRisk({
   title = '',
@@ -222,6 +227,7 @@ export function classifyAutomationRisk({
   category = '',
   paths,
   pathsComplete,
+  surface = 'issue',
 } = {}) {
   const invalidMetadata = typeof title !== 'string'
     || typeof body !== 'string'
@@ -282,22 +288,30 @@ export function classifyAutomationRisk({
   }
 
   const snapshotPaths = hasPathSnapshot ? paths.map(normalizedPath) : [];
+  const isPullRequestSurface = surface === 'pull-request';
   const controlPlanePaths = snapshotPaths.filter(isControlPlanePath);
+  const controlPlaneEvidence = isPullRequestSurface ? [] : controlPlanePaths;
+  const hasControlPlanePath = isPullRequestSurface && controlPlanePaths.length > 0;
+  const pathsForRisk = isPullRequestSurface
+    ? snapshotPaths.filter((path) => !isControlPlanePath(path))
+    : snapshotPaths;
   const unknownPaths = hasPathSnapshot
-    ? snapshotPaths.filter((path) => !isRecognizedAutomationPath(path))
+    ? pathsForRisk.filter((path) => !isRecognizedAutomationPath(path))
     : [];
-  const reviewablePaths = snapshotPaths.filter((path) => !isAutomationTestPath(path));
+  const reviewablePaths = pathsForRisk.filter((path) => !isAutomationTestPath(path));
   const issueMatches = DOMAIN_DEFINITIONS
+    .filter((domain) => !(hasControlPlanePath
+      && domain.id === HIGH_RISK_DOMAINS.DEPLOY_WORKFLOW_FUNCTIONS))
     .filter((domain) => domain.issue.some((pattern) => pattern.test(issueText)))
     .map(({ id }) => id);
   const pathMatches = unique(reviewablePaths.flatMap(pathDomains));
   const domains = unique([
-    ...(controlPlanePaths.length ? [CONTROL_PLANE_DOMAIN] : []),
+    ...(controlPlaneEvidence.length ? [CONTROL_PLANE_DOMAIN] : []),
     ...issueMatches,
     ...pathMatches,
   ]);
-  const controlPlane = controlPlanePaths.length > 0
-    || (!hasPathSnapshot && extractIssuePathCandidates(issueText).some(isControlPlanePath));
+  const controlPlane = !isPullRequestSurface && (controlPlanePaths.length > 0
+    || (!hasPathSnapshot && extractIssuePathCandidates(issueText).some(isControlPlanePath)));
   const issuePathCandidates = hasPathSnapshot ? [] : extractIssuePathCandidates(issueText);
   const unknownIssuePaths = issuePathCandidates.filter((path) => !isRecognizedAutomationPath(path));
   const unknown = unique([...unknownPaths, ...unknownIssuePaths]);
@@ -327,7 +341,7 @@ export function classifyAutomationRisk({
     evidence: {
       issue: issueMatches,
       path: pathMatches,
-      controlPlane: controlPlanePaths,
+      controlPlane: controlPlaneEvidence,
     },
     humanApprovalRequired: blocked,
     reason: blocked
