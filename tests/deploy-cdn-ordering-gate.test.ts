@@ -392,6 +392,24 @@ function fakeGh(payload: unknown | null): string {
   return dir;
 }
 
+/** A jobs API stub that stalls longer than the hard-deadline slice. */
+function slowFakeGh(payload: unknown, delaySeconds: number): string {
+  const dir = mkdtempSync(join(tmpdir(), 'slow-fake-gh-'));
+  writeFileSync(join(dir, 'payload.json'), JSON.stringify(payload));
+  writeFileSync(
+    join(dir, 'gh'),
+    [
+      '#!/usr/bin/env bash',
+      `sleep ${delaySeconds}`,
+      'filter="."',
+      'while [ $# -gt 0 ]; do case "$1" in --jq) filter="$2"; shift 2 ;; *) shift ;; esac; done',
+      `jq -r "$filter" < "${join(dir, 'payload.json')}"`,
+    ].join('\n'),
+    { mode: 0o755 },
+  );
+  return dir;
+}
+
 /** A fake jobs API whose authoritative snapshot advances once per `gh` call. */
 function fakeGhSequence(payloads: (unknown | null)[]): string {
   const dir = mkdtempSync(join(tmpdir(), 'fake-gh-sequence-'));
@@ -663,6 +681,37 @@ describe('wait-cdn-build-id.sh — #7106 job-deadline safety margin', () => {
     expect(r.outputs.cdn_waited_s, 'the marker budget must never start when phase 1 hits the job deadline').toBe(
       '0',
     );
+  });
+
+  it('kills an in-flight jobs-API poll at the monotonic deadline and keeps the shard unpublished', () => {
+    const now = Math.floor(Date.now() / 1000);
+    const gh = slowFakeGh(
+      readinessPayload('in_progress', null, EARLY_CDN_STEP, 'in_progress'),
+      10,
+    );
+    const t0 = Date.now();
+    const r = runGate(['new-build'], {
+      PATH: `${gh}:${process.env.PATH ?? ''}`,
+      CDN_BUILD_ID_URL: markerUrl('new-build'),
+      CDN_IT_JOB_NAME: 'build-locale (it)',
+      CDN_IT_READY_STEP_NAME: EARLY_CDN_STEP,
+      CDN_IT_READY_TIMEOUT_S: '30',
+      CDN_IT_READY_INTERVAL_S: '1',
+      CDN_WAIT_TIMEOUT_S: '30',
+      CDN_WAIT_INTERVAL_S: '1',
+      CDN_JOB_START_EPOCH: String(now - 1),
+      CDN_JOB_DEADLINE_S: '3',
+      CDN_JOB_FINISH_RESERVE_S: '1',
+      GH_TOKEN: 'fake-token',
+      GITHUB_REPOSITORY: 'valerielinc-ops/frontaliere-si-o-no',
+      GITHUB_RUN_ID: '33520063656',
+    });
+    expect(r.code).toBe(1);
+    expect(Date.now() - t0, 'a stalled API call must not consume the ten-second fake delay').toBeLessThan(5000);
+    expect(r.outputs.cdn_ready_result).toBe('timeout');
+    expect(r.outputs.cdn_wait_result).toBe('it_ready_timeout');
+    expect(r.outputs.cdn_waited_s).toBe('0');
+    expect(r.stdout).toMatch(/hard job deadline/);
   });
 });
 
