@@ -135,7 +135,7 @@ export function renderPlateAuctionPage({ locale, view, canton, plate, vehicleTyp
   const sourceRows = Object.values(snapshot.sources || {}).sort((a, b) => a.plateCode.localeCompare(b.plateCode));
   const links = allPlateAuctionCantonCodes().map((code) => `<li><a href="${esc(pathFor(locale, 'canton', code))}" style="${LINK_ACCENT_STYLE}">${esc(code)} — ${esc(CANTON_NAMES[code]?.[locale] || code)}</a></li>`).join('');
   const cantonAuctionRows = canton ? auctionRows.filter((row) => row.sourceKey === canton || row.platePrefix === canton) : [];
-  const detailLinks = view === 'canton' && candidateRows.length <= STATIC_CANTON_ROW_LIMIT ? unlistedDetailLinks(cantonAuctionRows, locale, rows) : '';
+  const detailLinks = view === 'canton' && candidateRows.length <= STATIC_CANTON_ROW_LIMIT ? unlistedDetailLinks(candidateRows, locale, rows) : '';
   const parentPath = canton ? pathFor(locale, 'canton', canton) : view === 'rankings' ? pathFor(locale, 'rankings') : pathFor(locale, 'hub');
   const parentLabel = canton ? name : view === 'rankings' ? copy.rankings : copy.current;
   // Keep the visible heading distinct from the shell title. The audit compares

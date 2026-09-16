@@ -96,6 +96,25 @@ describe('plate-auction static pages', () => {
     expect(rendered.html).not.toContain('Alle veröffentlichten Auktionen');
   });
 
+  it('does not expand a small current catalogue with expired detail links', () => {
+    const rootDir = fixtureRoot();
+    const snapshotPath = join(rootDir, 'public', 'data', 'plate-auctions.json');
+    const snapshot = JSON.parse(readFileSync(snapshotPath, 'utf8')) as { auctions: Array<Record<string, unknown>> };
+    snapshot.auctions.push(...Array.from({ length: 2500 }, (_, index) => ({
+      ...snapshot.auctions[0],
+      id: `gr-expired-${index}`,
+      normalizedPlate: `EXPIRED${index}`,
+      auctionStatus: 'closed',
+      dataConfidence: 'partial',
+    })));
+    writeFileSync(snapshotPath, JSON.stringify(snapshot), 'utf8');
+
+    const rendered = renderPlateAuctionPage({ locale: 'it', view: 'canton', canton: 'GR', rootDir });
+
+    expect(rendered.html).not.toContain('EXPIRED0');
+    expect((rendered.html.match(/<li>/g) || []).length).toBe(0);
+  });
+
   it('renders a historical detail page with the same indexable ad surfaces', () => {
     const rootDir = fixtureRoot();
     const rendered = renderPlateAuctionPage({ locale: 'en', view: 'detail', canton: 'GR', plate: 'GR7', rootDir });
