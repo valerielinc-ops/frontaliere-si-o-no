@@ -11792,6 +11792,11 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tpl-como-lecco-varese-bilancio-2026.title': 'Agenzia TPL: Bilancio di Sostenibilità e funivie gratis',
     'blog.article.tpl-como-lecco-varese-bilancio-2026.excerpt': 'L\'Agenzia TPL presenta il Bilancio di Sostenibilità e offre una giornata di accesso gratuito a sette impianti a fune dal 16 al 22 settembre.',
     'blog.article.tpl-como-lecco-varese-bilancio-2026.imageAlt': 'Presentazione del Bilancio di Sostenibilità dell Agenzia TPL',
+    'blog.article.bollettino-frontaliere-2026-09-16.title': 'Bollettino del frontaliere – 16 settembre 2026: franco a 1.0587 €',
+    'blog.article.bollettino-frontaliere-2026-09-16.excerpt': 'I numeri di oggi, 16 settembre 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-09-16.imageAlt': 'I numeri del giorno per i frontalieri – 16 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-09-16.seoDescription': 'Bollettino frontalieri del 16 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-09-16.ogDescription': 'I numeri del 16 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
 };
 
 export default blogMetaIt;

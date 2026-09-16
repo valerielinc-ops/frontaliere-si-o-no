@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides pour les frontaliers au Tessin</description>
     <language>fr</language>
-    <lastBuildDate>Wed, 16 Sep 2026 02:21:41 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 16 Sep 2026 09:47:45 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Français</title>
@@ -17,6 +17,58 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-fr.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Bulletin du frontalier – 16 septembre 2026 : franc à 1,0587 €</title>
+      <link>https://frontaliereticino.ch/fr/articles-frontalier/bulletin-frontalier-2026-09-16/</link>
+      <description><![CDATA[Les chiffres du jour, 16 septembre 2026, pour les frontaliers : les attentes relevées ce matin à chaque douane, les communes où l'essence coûte le moins cher, le taux franc-euro à la clôture et les offres d'emploi parues en Suisse. Des données de notre suivi, relevées chaque jour.]]></description>
+      <content:encoded><![CDATA[Bonjour — nous sommes mercredi 16 septembre 2026. Voici le bulletin quotidien pour celles et ceux qui vivent d'un côté de la frontière et travaillent de l'autre : quatre chiffres mesurés aujourd'hui par notre suivi — files aux douanes, essence, taux de change et emploi — chacun avec le lien vers sa page en direct.
+
+## Attentes aux douanes ce matin
+
+Ça roule ce matin : sur 141 passages surveillés, 134 ne signalent aucune file et l'attente la plus longue n'est que de **2 minutes** (Oria-Gandria).
+
+| Douane | Attente | État |
+|---|---|---|
+| Oria-Gandria | 2 min | fluide |
+| Au-Lustenau | 1 min | fluide |
+| Camedo (Re-Centovalli) | 1 min | fluide |
+| Dumenza-Cassinone | 1 min | fluide |
+| Ponte Tresa | 1 min | fluide |
+
+Le trafic change d'heure en heure — l'état en direct de chaque douane est sur la [page du temps d'attente](/fr/temps-attente-douane/).
+## Essence : où elle coûte le moins cher aujourd’hui
+
+Sur 518 communes frontalières suivies, faire le plein revient aujourd'hui moins cher en Suisse dans 116 cas et en Italie dans 23.
+
+| Commune (IT) | Sans plomb, prix minimum |
+|---|---|
+| Livigno (SO) | 1,568 €/L |
+| Veduggio con Colzano (MB) | 1,849 €/L |
+| Arcisate (VA) | 1,854 €/L |
+| Aprica (SO) | 1,919 €/L |
+| Gallarate (VA) | 2,004 €/L |
+
+📊 **Le bon côté pour un plein.** À **Livigno** (SO), l'écart vaut aujourd'hui **27,50 € sur un plein de 50 litres** (1,568 €/L en Italie contre 2,118 €/L à la station suisse la plus proche).
+
+Les prix commune par commune, mis à jour chaque jour : [prix de l'essence à la frontière, aujourd'hui](/fr/prix-essence-suisse/aujourd-hui/).
+## Taux de change franc–euro
+
+Un franc vaut **1,0587 €** (clôture du 2026-09-15). Par rapport à la veille il gagne +0,0007 € ; sur sept jours, la variation est de -0,0041 €.
+
+💡 Quand on gagne en francs et qu'on dépense en euros, le taux fait partie du salaire : sur 4 000 CHF, un centime de variation vaut 40 € par mois. Le [calculateur de salaire net](/fr/calculer-salaire/) et le [comparatif des services de change](/fr/comparaison-services/taux-change-chf-eur/) font le calcul pour votre cas.
+## Emploi : les chiffres d’hier
+
+⚠️ Les statistiques du job board ne sont pas à jour ; la section revient dans la prochaine édition. Les offres restent sur [trouver un emploi](/fr/trouver-emploi-tessin/).
+
+## Comment naît ce bulletin
+
+Aucun des chiffres ci-dessus ne vient d’un flux d’agence — c’est notre propre suivi : files échantillonnées plusieurs fois par heure à chaque passage frontalier suisse, prix des carburants dans les communes frontalières italiennes et aux stations suisses proches, série officielle quotidienne CHF/EUR et crawlers de notre job board. Le bulletin sort tôt chaque matin, avant les trajets pendulaires ; les chiffres sont un instantané au moment de la publication, les pages liées restent en direct toute la journée.]]></content:encoded>
+      <pubDate>Wed, 16 Sep 2026 09:47:45 GMT</pubDate>
+      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/bollettino-frontaliere-2026-09-16</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/bollettino-frontaliere-2026-09-16.webp" medium="image"/>
+    </item>
     <item>
       <title>Agence TPL : Bilan de Durabilité et téléphériques gratuits</title>
       <link>https://frontaliereticino.ch/fr/articles-frontalier/agence-tpl-bilan-de-durabilite-et-telepheriques-gratuits/</link>
@@ -2272,62 +2324,6 @@ Bien que la mise en œuvre de cette proposition pour 2027 ne soit pas encore gar
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/uss-stipendi-minimo-2027</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/uss-stipendi-minimo-2027.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Bulletin du frontalier – 10 septembre 2026 : 38 minutes d&apos;attente à Gaggiolo (Cantello-Stabio)</title>
-      <link>https://frontaliereticino.ch/fr/articles-frontalier/bulletin-frontalier-2026-09-10/</link>
-      <description><![CDATA[Les chiffres du jour, 10 septembre 2026, pour les frontaliers : les attentes relevées ce matin à chaque douane, les communes où l'essence coûte le moins cher, le taux franc-euro à la clôture et les offres d'emploi parues en Suisse. Des données de notre suivi, relevées chaque jour.]]></description>
-      <content:encoded><![CDATA[Bonjour — nous sommes jeudi 10 septembre 2026. Voici le bulletin quotidien pour celles et ceux qui vivent d'un côté de la frontière et travaillent de l'autre : quatre chiffres mesurés aujourd'hui par notre suivi — files aux douanes, essence, taux de change et emploi — chacun avec le lien vers sa page en direct.
-
-## Attentes aux douanes ce matin
-
-Le dernier relevé (141 passages surveillés) place l'attente la plus longue à **Gaggiolo (Cantello-Stabio) : 38 minutes**. 114 passages ne signalent aucune file.
-
-| Douane | Attente | État |
-|---|---|---|
-| Gaggiolo (Cantello-Stabio) | 38 min | file |
-| Chiasso-Strada | 34 min | file |
-| San Pietro (Clivio-Stabio) | 8 min | ralenti |
-| Konstanz – Tägerwilen, Gottlieber Strasse | 2 min | fluide |
-| Laufenburg (Baden) – Laufenburg AG | 2 min | fluide |
-
-Le trafic change d'heure en heure — l'état en direct de chaque douane est sur la [page du temps d'attente](/fr/temps-attente-douane/).
-## Essence : où elle coûte le moins cher aujourd’hui
-
-Sur 518 communes frontalières suivies, faire le plein revient aujourd'hui moins cher en Suisse dans 85 cas et en Italie dans 52.
-
-| Commune (IT) | Sans plomb, prix minimum |
-|---|---|
-| Livigno (SO) | 1,548 €/L |
-| Veduggio con Colzano (MB) | 1,849 €/L |
-| Arcisate (VA) | 1,854 €/L |
-| Aprica (SO) | 1,919 €/L |
-| Gera Lario (CO) | 1,979 €/L |
-
-📊 **Le bon côté pour un plein.** À **Livigno** (SO), l'écart vaut aujourd'hui **28,40 € sur un plein de 50 litres** (1,548 €/L en Italie contre 2,116 €/L à la station suisse la plus proche).
-
-La station suisse la moins chère aujourd'hui est **SOCAR Samnaun** (1,38 CHF/L, ≈ 1,467 €/L), près de Curon Venosta (BZ).
-
-Les prix commune par commune, mis à jour chaque jour : [prix de l'essence à la frontière, aujourd'hui](/fr/prix-essence-suisse/aujourd-hui/).
-## Taux de change franc–euro
-
-Un franc vaut **1,0617 €** (clôture du 2026-09-09). Par rapport à la veille il perd 0,0005 € ; sur sept jours, la variation est de -0,0010 €.
-
-💡 Quand on gagne en francs et qu'on dépense en euros, le taux fait partie du salaire : sur 4 000 CHF, un centime de variation vaut 40 € par mois. Le [calculateur de salaire net](/fr/calculer-salaire/) et le [comparatif des services de change](/fr/comparaison-services/taux-change-chf-eur/) font le calcul pour votre cas.
-## Emploi : les chiffres d’hier
-
-Hier, **1 229 nouvelles offres d'emploi** en Suisse sont arrivées sur notre job board ; 8 216 sur les sept derniers jours. Au total, **28 862** annonces sont actives, de 838 entreprises.
-
-Filtrez par canton, secteur et ville : [trouver un emploi au Tessin et en Suisse](/fr/trouver-emploi-tessin/).
-
-## Comment naît ce bulletin
-
-Aucun des chiffres ci-dessus ne vient d’un flux d’agence — c’est notre propre suivi : files échantillonnées plusieurs fois par heure à chaque passage frontalier suisse, prix des carburants dans les communes frontalières italiennes et aux stations suisses proches, série officielle quotidienne CHF/EUR et crawlers de notre job board. Le bulletin sort tôt chaque matin, avant les trajets pendulaires ; les chiffres sont un instantané au moment de la publication, les pages liées restent en direct toute la journée.]]></content:encoded>
-      <pubDate>Thu, 10 Sep 2026 09:27:52 GMT</pubDate>
-      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/bollettino-frontaliere-2026-09-10</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/bollettino-frontaliere-2026-09-10.webp" medium="image"/>
     </item>
   </channel>
 </rss>
