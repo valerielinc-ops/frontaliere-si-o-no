@@ -13,6 +13,11 @@ on:
         description: 'Report duplicate routes without persisting repairs.'
         required: false
         type: boolean
+        default: true
+      human_approval:
+        description: 'Explicit human approval for expired-route repair writes.'
+        required: false
+        type: boolean
         default: false
 
 concurrency:
@@ -41,11 +46,20 @@ jobs:
           node-version: '22'
           cache: npm
 
+      - name: Require human approval for expired-route side effects
+        id: side_effect_gate
+        env:
+          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
+          APPROVAL_CONSENT: ${{ inputs.human_approval }}
+          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          APPROVAL_SCOPE: reconcile-expired-route-duplicates
+        run: node scripts/ci/human-side-effect-gate.mjs
+
       - name: Install dependencies
         run: npm ci
 
       - name: Prepare Firebase credentials for push auth
-        if: ${{ inputs.dry_run != true }}
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -57,27 +71,27 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load push credentials from Remote Config
-        if: ${{ inputs.dry_run != true }}
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
       - name: Sweep expired slices (dry run)
-        if: ${{ inputs.dry_run == true }}
+        if: steps.side_effect_gate.outputs.effective_dry_run == 'true'
         run: node scripts/reconcile-crawler-company-ownership.mjs --expired-sweep
 
       - name: Sweep expired slices and reconcile ownership
-        if: ${{ inputs.dry_run != true }}
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/reconcile-crawler-company-ownership.mjs --expired-sweep --apply
 
       - name: Reassemble dataset
-        if: ${{ inputs.dry_run != true }}
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/assemble-jobs-dataset.mjs
 
       - name: Audit expired archive
-        if: ${{ inputs.dry_run != true }}
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/audit-expired-at-parsable.mjs
 
       - name: Test gate (reconciler and commit contract)
-        if: ${{ inputs.dry_run != true }}
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: |
           set -euo pipefail
           # This is a data-only writer. Run its deterministic route, archive,
@@ -91,7 +105,7 @@ jobs:
             --reporter=dot
 
       - name: Commit and push changed slices
-        if: ${{ inputs.dry_run != true }}
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         id: commit
         run: |
           SKIP_AI_TRANSLATION=1 bash scripts/lib/git-commit-data.sh --slice-only \
@@ -101,7 +115,7 @@ jobs:
           SKIP_AI_TRANSLATION: '1'
 
       - name: Verify persisted expired archive convergence
-        if: ${{ inputs.dry_run != true }}
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: |
           set -euo pipefail
           git fetch --no-tags origin main
@@ -140,7 +154,7 @@ jobs:
           NODE
 
       - name: Trigger deploy if data changed
-        if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true
+        if: steps.commit.outputs.has_changes == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: bash scripts/lib/trigger-deploy.sh
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}

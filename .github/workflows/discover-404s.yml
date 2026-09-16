@@ -38,6 +38,11 @@ on:
         description: 'Dry run (no file writes, just report)'
         required: false
         type: boolean
+        default: true
+      human_approval:
+        description: 'Explicit human approval for 404 discovery and publication writes.'
+        required: false
+        type: boolean
         default: false
 
 # Serialize with other GSC-API workflows to avoid sharing/exhausting the
@@ -67,10 +72,20 @@ jobs:
           node-version: '22'
           cache: npm
 
+      - name: Require human approval for 404 discovery side effects
+        id: side_effect_gate
+        env:
+          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
+          APPROVAL_CONSENT: ${{ inputs.human_approval }}
+          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          APPROVAL_SCOPE: discover-404s
+        run: node scripts/ci/human-side-effect-gate.mjs
+
       - name: Install dependencies
         run: npm ci
 
       - name: Prepare Firebase credentials
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -80,6 +95,7 @@ jobs:
           fi
 
       - name: Load RC secrets
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
       # Primary identity for the deploy dispatch below = GitHub App installation
@@ -87,6 +103,7 @@ jobs:
       # its dispatch re-triggers deploy.yml just like the PAT (no GITHUB_TOKEN
       # anti-recursion). Falls back to env.GITHUB_PAT (#2861 item 1).
       - name: Mint App token (primary identity, PAT fallback)
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
@@ -95,6 +112,7 @@ jobs:
         run: node scripts/ci/mint-app-token.mjs
 
       - name: Run URL Inspection sweep
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           BATCH_SIZE: ${{ inputs.batch_size || '1500' }}
           MIN_AGE_DAYS: ${{ inputs.min_age_days || '14' }}
@@ -103,6 +121,7 @@ jobs:
             ${{ inputs.dry_run == true && '--dry-run' || '' }}
 
       - name: Run Cloudflare edge 404 sweep
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         # Third producer (#1803 — script merged but never wired to CI until
         # now). CF edge analytics records EVERY real 404 at the edge (human +
         # bot, /en /de /fr shards included, no GSC quota), unlike URL
@@ -121,7 +140,7 @@ jobs:
             ${{ inputs.dry_run == true && '--dry-run' || '' }}
 
       - name: Prune non-resolving 404-compat paths (keep test invariant green)
-        if: ${{ inputs.dry_run != true }}
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         # Same gate as sync-gsc-orphans: the sweep appends raw NOT_FOUND/SOFT_404
         # URLs; any the resolver can't map would break the committed-snapshot
         # test → main red → drain frozen. Assemble jobs first (resolver needs
@@ -131,7 +150,7 @@ jobs:
           npx --no-install tsx scripts/prune-404-compat-paths.ts
 
       - name: Commit and push
-        if: ${{ inputs.dry_run != true }}
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         id: commit
         run: |
           set -euo pipefail
@@ -178,7 +197,7 @@ jobs:
       # APP_TOKEN short-circuits the `||` and 401s trigger-deploy.sh (#3320).
       # Re-minting fresh here restores full TTL headroom for the dispatch.
       - name: Re-mint App token (fresh, avoids TTL expiry after long sweep)
-        if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true
+        if: steps.commit.outputs.has_changes == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
@@ -187,7 +206,7 @@ jobs:
         run: node scripts/ci/mint-app-token.mjs
 
       - name: Trigger deploy if compat changed
-        if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true
+        if: steps.commit.outputs.has_changes == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: |
           # Only trigger a deploy if the compat store itself changed — state-
           # file-only updates don't affect the built site.
