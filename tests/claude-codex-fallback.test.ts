@@ -431,13 +431,35 @@ describe('validator dei bridge host-side', () => {
     expect(validateGitArgs(['push', 'https://example.invalid/repo.git'])).toMatch(/paths and URLs/);
     expect(validateGitArgs(['push', 'upstream', 'main'])).toMatch(/remote is not permitted/);
     const workBranch = 'codex/fallback-bridge-test';
-    for (const flag of ['--force', '--force-with-lease', '--force-with-lease=refs/heads/other', '--delete', '-d', '--mirror']) {
+    for (const flag of [
+      '--force',
+      '--force=refs/heads/other',
+      '-f',
+      '--force-with-lease',
+      '--force-with-lease=refs/heads/other',
+      '--delete',
+      '--delete=refs/heads/other',
+      '-d',
+      '--mirror',
+      '--mirror=refs/heads/other',
+    ]) {
       expect(validateGitArgs(['push', flag, 'origin', `HEAD:refs/heads/${workBranch}`])).toMatch(/Git push option is not permitted/);
     }
     for (const refspec of [
-      'HEAD:refs/heads/main',
-      'HEAD:main',
-      'refs/heads/main:refs/heads/work',
+      'HEAD:refs/heads/other',
+      'HEAD:other',
+      `${workBranch}:refs/heads/other`,
+      `refs/heads/${workBranch}:refs/heads/other`,
+      `other:refs/heads/${workBranch}`,
+      'refs/heads/other:refs/heads/codex/fallback-bridge-test',
+      'a'.repeat(40),
+      `${'a'.repeat(40)}:refs/heads/${workBranch}`,
+      'v1.2.3',
+      `v1.2.3:refs/heads/${workBranch}`,
+      `refs/tags/v1.2.3:refs/heads/${workBranch}`,
+      `refs/remotes/origin/${workBranch}:refs/heads/${workBranch}`,
+      'refs/tags/v1.2.3',
+      `HEAD:refs/heads/main`,
       'HEAD:refs/tags/release',
       'HEAD:refs/remotes/origin/work',
       ':refs/heads/work',
@@ -445,17 +467,27 @@ describe('validator dei bridge host-side', () => {
       '+HEAD:refs/heads/work',
       'HEAD:refs/heads/work*',
     ]) {
-      expect(validateGitArgs(['push', 'origin', refspec])).toMatch(/Git push (?:refspec|source|destination)|work branch/);
+      expect(validateGitArgs(['push', 'origin', refspec], { allowedWorkBranch: workBranch })).toMatch(/Git push (?:refspec|source|destination)|work branch/);
     }
-    expect(validateGitArgs(['push'])).toMatch(/exactly one explicit work-branch refspec/);
-    expect(validateGitArgs(['push', 'origin'])).toMatch(/exactly one explicit work-branch refspec/);
-    expect(validateGitArgs(['push', 'origin', 'HEAD', 'other'])).toMatch(/exactly one explicit work-branch refspec/);
-    expect(validateGitArgs(['push', 'origin', `HEAD:refs/heads/${workBranch}`])).toBe('');
-    expect(validateGitArgs(['push', '--set-upstream', 'origin', workBranch])).toBe('');
-    expect(validateGitArgs(['push', 'origin', `refs/heads/${workBranch}`])).toBe('');
-    expect(validateGitArgs(['push', 'origin', 'HEAD'], { allowedWorkBranch: workBranch })).toBe('');
-    expect(validateGitArgs(['push', 'origin', 'HEAD'])).toMatch(/current work branch/);
-    expect(validateGitArgs(['push', 'origin', 'HEAD'], { allowedWorkBranch: 'main' })).toMatch(/current work branch/);
+    expect(validateGitArgs(['push'], { allowedWorkBranch: workBranch })).toMatch(/exactly one explicit work-branch refspec/);
+    expect(validateGitArgs(['push', 'origin'], { allowedWorkBranch: workBranch })).toMatch(/exactly one explicit work-branch refspec/);
+    expect(validateGitArgs(['push', 'origin', 'HEAD', 'other'], { allowedWorkBranch: workBranch })).toMatch(/exactly one explicit work-branch refspec/);
+    for (const refspec of [
+      'HEAD',
+      `HEAD:${workBranch}`,
+      `HEAD:refs/heads/${workBranch}`,
+      workBranch,
+      `${workBranch}:${workBranch}`,
+      `${workBranch}:refs/heads/${workBranch}`,
+      `refs/heads/${workBranch}:${workBranch}`,
+      `refs/heads/${workBranch}`,
+      `refs/heads/${workBranch}:refs/heads/${workBranch}`,
+    ]) {
+      expect(validateGitArgs(['push', 'origin', refspec], { allowedWorkBranch: workBranch })).toBe('');
+    }
+    expect(validateGitArgs(['push', '--set-upstream', 'origin', workBranch], { allowedWorkBranch: workBranch })).toBe('');
+    expect(validateGitArgs(['push', 'origin', 'HEAD:refs/heads/codex/fallback-bridge-test'], { allowedWorkBranch: '' })).toMatch(/current work branch/);
+    expect(validateGitArgs(['push', 'origin', 'HEAD:refs/heads/codex/fallback-bridge-test'], { allowedWorkBranch: 'main' })).toMatch(/current work branch/);
     expect(validateGitArgs(['fetch', 'origin', 'main'])).toBe('');
     expect(validateGitArgs(['ls-remote', 'origin', 'refs/heads/main'])).toBe('');
     const expectedRemote = 'https://github.com/owner/repo.git';
@@ -469,8 +501,8 @@ describe('validator dei bridge host-side', () => {
     expect(buildGitNetworkArgs(['fetch', '--prune'], expectedRemote)).toEqual([
       'fetch', '--prune', expectedRemote,
     ]);
-    expect(buildGitNetworkArgs(['push', '--', 'origin', 'main'], expectedRemote)).toEqual([
-      'push', '--', expectedRemote, 'main',
+    expect(buildGitNetworkArgs(['push', '--', 'origin', workBranch], expectedRemote)).toEqual([
+      'push', '--', expectedRemote, workBranch,
     ]);
   });
 

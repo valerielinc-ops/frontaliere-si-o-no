@@ -60,19 +60,23 @@ function isBlockedPushOption(arg) {
     || arg.startsWith('--mirror=');
 }
 
-function workBranchName(value) {
-  const raw = String(value || '');
-  if (!raw) return '';
-  const branch = raw.startsWith(WORK_BRANCH_REF_PREFIX)
-    ? raw.slice(WORK_BRANCH_REF_PREFIX.length)
-    : raw.startsWith('refs/') ? '' : raw;
+function currentWorkBranchName(value) {
+  const branch = String(value || '');
   if (!branch || branch === 'main' || branch === 'HEAD' || branch.startsWith('refs/')) return '';
   if (!WORK_BRANCH_NAME_RE.test(branch) || branch.includes('//') || branch.endsWith('/')) return '';
   if (branch.split('/').some((component) => component === '.' || component === '..' || component.endsWith('.lock'))) return '';
   return branch;
 }
 
+function isCurrentBranchRef(value, currentBranch) {
+  return value === currentBranch || value === `${WORK_BRANCH_REF_PREFIX}${currentBranch}`;
+}
+
 function validatePushRefspecs(refspecs, allowedWorkBranch) {
+  const currentBranch = currentWorkBranchName(allowedWorkBranch);
+  if (!currentBranch) {
+    return 'Git push requires a checked-out current work branch; detached HEAD and main are not permitted';
+  }
   if (refspecs.length !== 1) {
     return 'Git push requires exactly one explicit work-branch refspec';
   }
@@ -89,17 +93,11 @@ function validatePushRefspecs(refspecs, allowedWorkBranch) {
   if (!source || (separator !== -1 && !destination)) {
     return `Git push refspec is not permitted by the Codex fallback bridge: ${refspec}`;
   }
-  const sourceBranch = source === 'HEAD' ? 'HEAD' : workBranchName(source);
-  if (!sourceBranch) {
-    return `Git push source is not a work branch: ${source}`;
+  if (source !== 'HEAD' && !isCurrentBranchRef(source, currentBranch)) {
+    return `Git push source must be HEAD or the checked-out work branch: ${source}`;
   }
-  const targetBranch = separator === -1
-    ? source === 'HEAD' ? workBranchName(allowedWorkBranch) : sourceBranch
-    : workBranchName(destination);
-  if (!targetBranch) {
-    return separator === -1 && source === 'HEAD'
-      ? 'Git push HEAD requires a validated current work branch'
-      : `Git push destination is not a work branch: ${destination}`;
+  if (separator !== -1 && !isCurrentBranchRef(destination, currentBranch)) {
+    return `Git push destination must match the checked-out work branch: ${destination}`;
   }
   return '';
 }
@@ -195,8 +193,8 @@ export function buildGitNetworkArgs(args, expectedRemote, { allowedWorkBranch = 
   const result = [...args];
   const remoteIndex = firstPositionalIndex(result);
   if (result[0] === 'push' && remoteIndex >= 0 && result.length === remoteIndex + 2 && result[remoteIndex + 1] === 'HEAD') {
-    const branch = workBranchName(allowedWorkBranch);
-    if (!branch) throw new Error('Git push HEAD requires a validated current work branch');
+    const branch = currentWorkBranchName(allowedWorkBranch);
+    if (!branch) throw new Error('Git push requires a checked-out current work branch; detached HEAD and main are not permitted');
     result[remoteIndex + 1] = `HEAD:${WORK_BRANCH_REF_PREFIX}${branch}`;
   }
   if (remoteIndex >= 0) result[remoteIndex] = remote;
@@ -382,7 +380,7 @@ function main() {
       let allowedWorkBranch = '';
       try {
         args = JSON.parse(request);
-        allowedWorkBranch = Array.isArray(args) && args[0] === 'push' && args.includes('HEAD')
+        allowedWorkBranch = Array.isArray(args) && args[0] === 'push'
           ? currentWorkBranch()
           : '';
         const validationError = validateGitArgs(args, { allowedWorkBranch });
