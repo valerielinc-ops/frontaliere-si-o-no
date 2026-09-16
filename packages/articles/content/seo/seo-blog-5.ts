@@ -90943,6 +90943,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-costi-sviluppo-farmaci-2024': {
+    title: 'Perché sviluppare nuovi farmaci costa sempre di più',
+    description: 'Scopri perché sviluppare nuovi farmaci costa sempre di più. Nel 2024 la spesa ha raggiunto 2,23 miliardi di dollari secondo il rapporto Deloitte.',
+    keywords: 'frontalieri, ticino, svizzera, italia, perché, sviluppare, nuovi, farmaci',
+    ogTitle: 'Costi di sviluppo dei farmaci in forte aumento nel 2024',
+    ogDescription: 'Analisi dei costi per la ricerca e lo sviluppo di nuovi medicinali: nel 2024 la media ha toccato i 2,23 miliardi di dollari, segnando un incremento del 65% rispetto al 2014.',
+    canonicalPath: '/articoli-frontaliere/costi-sviluppo-farmaci-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Perché sviluppare nuovi farmaci costa sempre di più",
+      "description": "Scopri perché sviluppare nuovi farmaci costa sempre di più. Nel 2024 la spesa ha raggiunto 2,23 miliardi di dollari secondo il rapporto Deloitte.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/costi-sviluppo-farmaci-2024.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Laboratorio di ricerca farmaceutica con attrezzature moderne"
+      },
+      "datePublished": "2026-09-16T01:35:52+00:00",
+      "dateModified": "2026-09-16T01:35:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/costi-sviluppo-farmaci-2024/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

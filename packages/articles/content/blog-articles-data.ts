@@ -35139,6 +35139,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'costi-sviluppo-farmaci-2024',
+ category: 'novita',
+ date: '2026-09-16T01:35:52.336Z',
+ image: '/images/blog/costi-sviluppo-farmaci-2024.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

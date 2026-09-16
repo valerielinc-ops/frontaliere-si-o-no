@@ -11780,6 +11780,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mendrisiotto-strade-chiuse-weekend.title': 'Mendrisiotto: tre eventi e strade chiuse nel fine settimana',
     'blog.article.mendrisiotto-strade-chiuse-weekend.excerpt': 'Dal 18 al 20 settembre Rally del Ticino, Penziamo e Chiasso-Pedrinate causano chiusure stradali, limitazioni per pedoni e bus deviati nel Mendrisiotto.',
     'blog.article.mendrisiotto-strade-chiuse-weekend.imageAlt': 'Chiusure stradali nel Mendrisiotto per eventi del fine settimana',
+    'blog.article.costi-sviluppo-farmaci-2024.title': 'Perché sviluppare nuovi farmaci costa sempre di più',
+    'blog.article.costi-sviluppo-farmaci-2024.excerpt': 'Nel 2024 il costo medio per sviluppare un nuovo farmaco ha raggiunto i 2,23 miliardi di dollari, segnando un incremento del 65% rispetto al 2014.',
+    'blog.article.costi-sviluppo-farmaci-2024.imageAlt': 'Laboratorio di ricerca farmaceutica con attrezzature moderne',
 };
 
 export default blogMetaIt;

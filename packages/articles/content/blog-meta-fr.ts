@@ -11781,6 +11781,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mendrisiotto-strade-chiuse-weekend.title': 'Mendrisiotto : trois événements et des routes fermées le week-end',
     'blog.article.mendrisiotto-strade-chiuse-weekend.excerpt': 'Du 18 au 20 septembre, le Rallye du Tessin, Penziamo et Chiasso-Pedrinate provoquent des fermetures de routes, des restrictions pour les piétons et les bus déviés dans le Mendrisiotto.',
     'blog.article.mendrisiotto-strade-chiuse-weekend.imageAlt': 'Fermations de routes dans le Mendrisiotto pour les événements du week-end',
+    'blog.article.costi-sviluppo-farmaci-2024.title': 'Parce que développer de nouveaux médicaments coûte de plus en plus cher',
+    'blog.article.costi-sviluppo-farmaci-2024.excerpt': 'En 2024, le coût moyen du développement d\'un nouveau médicament a atteint 2,23 milliards de dollars, soit une augmentation de 65 % par rapport à 2014.',
+    'blog.article.costi-sviluppo-farmaci-2024.imageAlt': 'Laboratoire de recherche pharmaceutique avec des équipements modernes',
 };
 
 export default blogMetaFr;
