@@ -162,8 +162,8 @@ cat > "$body" <<'BODY'
 
 ## Non implementato (ancora)
 
-- by construction: nessun dato del corpus, engine o host viene copiato; il trasporto può toccare soltanto i 24 artifact, il loro contratto, l'observer dedicato e le baseline corrispondenti.
-- per scelta: nessun merge diretto o manuale; la PR rimane aperta finché il ciclo autonomo del corpus non la approva.
+- in questa PR, by construction: nessun dato del corpus, engine o host viene copiato; il trasporto può toccare soltanto i 24 artifact, il loro contratto, l'observer dedicato e le baseline corrispondenti.
+- blocked: il ciclo autonomo del corpus deve completare la review della HEAD e apporre `## LGTM`; fino ad allora non è autorizzato alcun merge diretto o manuale.
 BODY
 
 set +e
