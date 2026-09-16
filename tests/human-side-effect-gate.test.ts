@@ -12,6 +12,14 @@ import {
   evaluateHumanApproval,
   main,
 } from '../scripts/ci/human-side-effect-gate.mjs';
+// @ts-expect-error — the provenance verifier is a dependency-free ESM CI script.
+import {
+  evaluatePublisherDispatchAttestation,
+  PUBLISHER_SOURCE_REPOSITORY,
+  PUBLISHER_SOURCE_WORKFLOW,
+  PUBLISHER_SOURCE_WORKFLOW_PATH,
+  main as verifyPublisherMain,
+} from '../scripts/ci/verify-publisher-dispatch.mjs';
 
 const APPROVED_INPUT = {
   event: 'workflow_dispatch',
@@ -27,13 +35,78 @@ const APPROVED_INPUT = {
   scope: 'newsletter-send',
 };
 
+const SOURCE_SHA = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
+
+const VALID_PUBLISHER_EVENT = {
+  action: 'articles-published',
+  client_payload: {
+    schema_version: 1,
+    source_repository: PUBLISHER_SOURCE_REPOSITORY,
+    source_workflow: PUBLISHER_SOURCE_WORKFLOW,
+    source_workflow_path: PUBLISHER_SOURCE_WORKFLOW_PATH,
+    source_run_id: '123456789',
+    source_run_attempt: '1',
+    source_sha: SOURCE_SHA,
+    source_branch: 'main',
+    source_event: 'push',
+  },
+};
+
+const VALID_SOURCE_RUN = {
+  id: 123456789,
+  workflow_id: 323736126,
+  path: PUBLISHER_SOURCE_WORKFLOW_PATH,
+  head_branch: 'main',
+  head_sha: SOURCE_SHA,
+  event: 'push',
+  status: 'in_progress',
+  conclusion: null,
+  run_attempt: 1,
+  repository: { full_name: PUBLISHER_SOURCE_REPOSITORY },
+};
+
+const VALID_SOURCE_WORKFLOW = {
+  id: 323736126,
+  name: PUBLISHER_SOURCE_WORKFLOW,
+  path: PUBLISHER_SOURCE_WORKFLOW_PATH,
+};
+
+function publisherEvent(clientPayload = {}) {
+  return {
+    ...VALID_PUBLISHER_EVENT,
+    client_payload: { ...VALID_PUBLISHER_EVENT.client_payload, ...clientPayload },
+  };
+}
+
+function sourceRun(overrides = {}) {
+  return { ...VALID_SOURCE_RUN, ...overrides };
+}
+
+function verifyPublisher({ clientPayload, runMetadata, workflowMetadata } = {}) {
+  return evaluatePublisherDispatchAttestation({
+    eventPayload: publisherEvent(clientPayload),
+    runMetadata: runMetadata === undefined ? sourceRun() : runMetadata,
+    workflowMetadata: workflowMetadata === undefined ? VALID_SOURCE_WORKFLOW : workflowMetadata,
+  });
+}
+
 const TRUSTED_PUBLISHER_DISPATCH = {
   event: 'repository_dispatch',
   actor: 'valerielinc-ops',
   triggeringActor: 'valerielinc-ops',
   dispatchActor: 'valerielinc-ops',
   dispatchAction: 'articles-published',
-  dispatchPayloadPresent: 'false',
+  dispatchPayloadPresent: 'true',
+  publisherSourceVerified: 'true',
+  dispatchSourceSchemaVersion: '1',
+  dispatchSourceRepository: PUBLISHER_SOURCE_REPOSITORY,
+  dispatchSourceWorkflow: PUBLISHER_SOURCE_WORKFLOW,
+  dispatchSourceWorkflowPath: PUBLISHER_SOURCE_WORKFLOW_PATH,
+  dispatchSourceRunId: '123456789',
+  dispatchSourceRunAttempt: '1',
+  dispatchSourceSha: SOURCE_SHA,
+  dispatchSourceBranch: 'main',
+  dispatchSourceEvent: 'push',
   actorType: 'User',
   repository: 'valerielinc-ops/frontaliere-si-o-no',
   workflow: 'Sync article sitemaps, feeds and ticker from the articles API',
@@ -256,6 +329,16 @@ describe('human-side-effect-gate policy', () => {
     expect(decision.nonce).toMatch(/^[a-f0-9]{64}$/);
   });
 
+  it('denies an allowlisted sender when the source run was not verified', () => {
+    const decision = evaluateHumanApproval({
+      ...TRUSTED_PUBLISHER_DISPATCH,
+      publisherSourceVerified: 'false',
+    });
+    expect(decision.allow).toBe(false);
+    expect(decision.effectiveDryRun).toBe(true);
+    expect(decision.reasons).toContain('publisher-source-run-unverified');
+  });
+
   it('rejects spoofed or ambiguous publisher dispatches', () => {
     const cases = [
       {
@@ -269,14 +352,14 @@ describe('human-side-effect-gate policy', () => {
         reason: 'publisher-dispatch-action-mismatch',
       },
       {
-        name: 'payload present',
-        override: { dispatchPayloadPresent: 'true' },
-        reason: 'publisher-dispatch-payload-present-or-unknown',
+        name: 'payload missing',
+        override: { dispatchPayloadPresent: 'false' },
+        reason: 'publisher-dispatch-payload-missing-or-unknown',
       },
       {
         name: 'payload status unknown',
         override: { dispatchPayloadPresent: '' },
-        reason: 'publisher-dispatch-payload-present-or-unknown',
+        reason: 'publisher-dispatch-payload-missing-or-unknown',
       },
     ];
 
@@ -297,6 +380,7 @@ describe('human-side-effect-gate policy', () => {
       actorType: 'Bot',
     });
     const rerun = evaluateHumanApproval({ ...TRUSTED_PUBLISHER_DISPATCH, runAttempt: '2' });
+    const sourceRerun = evaluateHumanApproval({ ...TRUSTED_PUBLISHER_DISPATCH, dispatchSourceRunAttempt: '2' });
 
     expect(bot.allow).toBe(false);
     expect(bot.effectiveDryRun).toBe(true);
@@ -304,6 +388,9 @@ describe('human-side-effect-gate policy', () => {
     expect(rerun.allow).toBe(false);
     expect(rerun.effectiveDryRun).toBe(true);
     expect(rerun.reasons).toContain('run-is-a-rerun');
+    expect(sourceRerun.allow).toBe(false);
+    expect(sourceRerun.effectiveDryRun).toBe(true);
+    expect(sourceRerun.reasons).toContain('publisher-source-run-is-rerun');
   });
 
   it('rejects actor mismatch, bots, reruns, and implicit non-dry-run values', () => {
@@ -356,15 +443,123 @@ describe('human-side-effect-gate policy', () => {
   });
 });
 
+describe('publisher dispatch provenance verifier', () => {
+  it('accepts the publisher contract while its source run is still in progress', () => {
+    const decision = verifyPublisher({});
+    expect(decision).toMatchObject({ verified: true, reason: 'publisher-source-run-verified', reasons: [] });
+  });
+
+  it('rejects a payload that is not the exact attestation contract', () => {
+    for (const [name, clientPayload, reason] of [
+      ['wrong schema', { schema_version: '1' }, 'publisher-payload-schema-mismatch'],
+      ['extra key', { unexpected: 'value' }, 'publisher-payload-shape-mismatch'],
+      ['wrong source repository', { source_repository: 'other/repository' }, 'publisher-source-repository-mismatch'],
+      ['wrong source workflow', { source_workflow: 'Other workflow' }, 'publisher-source-workflow-mismatch'],
+    ] as const) {
+      const decision = verifyPublisher({ clientPayload });
+      expect(decision.verified, name).toBe(false);
+      expect(decision.reasons, name).toContain(reason);
+    }
+  });
+
+  it('rejects source run metadata that does not bind repo, workflow, run, or SHA', () => {
+    for (const [name, runMetadata, clientPayload, reason] of [
+      ['wrong API repository', sourceRun({ repository: { full_name: 'other/repository' } }), {}, 'publisher-source-run-repository-mismatch'],
+      ['wrong workflow path', sourceRun({ path: '.github/workflows/other.yml' }), {}, 'publisher-source-run-workflow-path-mismatch'],
+      ['wrong run id', sourceRun({ id: 987654321 }), {}, 'publisher-source-run-id-mismatch'],
+      ['wrong run attempt', sourceRun({ run_attempt: 2 }), {}, 'publisher-source-run-attempt-mismatch'],
+      ['wrong SHA in payload', sourceRun(), { source_sha: 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb' }, 'publisher-source-sha-mismatch'],
+      ['wrong SHA in API', sourceRun({ head_sha: 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb' }), {}, 'publisher-source-sha-mismatch'],
+    ] as const) {
+      const decision = verifyPublisher({ runMetadata, clientPayload });
+      expect(decision.verified, name).toBe(false);
+      expect(decision.reasons, name).toContain(reason);
+    }
+  });
+
+  it('rejects workflow identity and branch/event mismatches', () => {
+    for (const [name, runMetadata, workflowMetadata, clientPayload, reason] of [
+      ['wrong workflow API name', sourceRun(), { ...VALID_SOURCE_WORKFLOW, name: 'Other workflow' }, {}, 'publisher-source-workflow-api-name-mismatch'],
+      ['wrong workflow API id', sourceRun(), { ...VALID_SOURCE_WORKFLOW, id: 999999999 }, {}, 'publisher-source-run-workflow-binding-mismatch'],
+      ['wrong branch', sourceRun({ head_branch: 'develop' }), undefined, {}, 'publisher-source-branch-api-mismatch'],
+      ['wrong event', sourceRun({ event: 'workflow_dispatch' }), undefined, {}, 'publisher-source-event-api-mismatch'],
+      ['wrong branch claim', sourceRun(), undefined, { source_branch: 'develop' }, 'publisher-source-branch-mismatch'],
+      ['wrong event claim', sourceRun(), undefined, { source_event: 'workflow_dispatch' }, 'publisher-source-event-mismatch'],
+    ] as const) {
+      const decision = verifyPublisher({ runMetadata, workflowMetadata, clientPayload });
+      expect(decision.verified, name).toBe(false);
+      expect(decision.reasons, name).toContain(reason);
+    }
+  });
+
+  it('rejects API errors, failed/cancelled/unknown states, and completed replay', () => {
+    for (const [name, runMetadata, reason] of [
+      ['run API error', null, 'publisher-source-run-api-response-invalid'],
+      ['workflow API error', sourceRun(), 'publisher-source-workflow-api-response-invalid'],
+      ['failed run', sourceRun({ status: 'completed', conclusion: 'failure' }), 'publisher-source-run-status-not-allowed'],
+      ['cancelled run', sourceRun({ status: 'completed', conclusion: 'cancelled' }), 'publisher-source-run-status-not-allowed'],
+      ['unknown status', sourceRun({ status: 'unknown', conclusion: null }), 'publisher-source-run-status-not-allowed'],
+      ['unknown conclusion', sourceRun({ status: 'in_progress', conclusion: 'unknown' }), 'publisher-source-run-status-not-allowed'],
+      ['completed success replay', sourceRun({ status: 'completed', conclusion: 'success' }), 'publisher-source-run-status-not-allowed'],
+    ] as const) {
+      const decision = verifyPublisher({
+        runMetadata,
+        workflowMetadata: name === 'workflow API error' ? null : VALID_SOURCE_WORKFLOW,
+      });
+      expect(decision.verified, name).toBe(false);
+      expect(decision.reasons, name).toContain(reason);
+    }
+  });
+
+  it('rejects source reruns even if all other metadata matches', () => {
+    const decision = verifyPublisher({
+      clientPayload: { source_run_attempt: '2' },
+      runMetadata: sourceRun({ run_attempt: 2 }),
+    });
+    expect(decision.verified).toBe(false);
+    expect(decision.reasons).toContain('publisher-source-run-is-rerun');
+  });
+
+  it('writes a deny output when the API response files are unavailable', () => {
+    const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'publisher-dispatch-verifier-'));
+    const eventPath = path.join(tempRoot, 'event.json');
+    const outputPath = path.join(tempRoot, 'github-output');
+    fs.writeFileSync(eventPath, JSON.stringify(VALID_PUBLISHER_EVENT));
+    const code = verifyPublisherMain({
+      env: { GITHUB_EVENT_PATH: eventPath, GITHUB_OUTPUT: outputPath },
+      argv: ['node', 'verify-publisher-dispatch.mjs', path.join(tempRoot, 'missing-run.json'), path.join(tempRoot, 'missing-workflow.json')],
+      logger: { log() {}, error() {} },
+    });
+    expect(code).toBe(0);
+    expect(fs.readFileSync(outputPath, 'utf8')).toContain('verified=false');
+  });
+});
+
 describe('workflow wiring for the bounded F3/F4 side-effect surface', () => {
-  it('passes the publisher provenance fields to the gate and pins the current contract', () => {
+  it('verifies the publisher contract before the gate and pins every binding', () => {
     const source = workflow('sync-articles-sitemaps.yml');
+    expect(source).toContain('Verify publisher provenance via read-only metadata API');
+    expect(source).toContain('node scripts/ci/verify-publisher-dispatch.mjs');
+    expect(source).toContain('gh api --method GET');
+    expect(source).toContain('actions/runs/$PUBLISHER_SOURCE_RUN_ID');
+    expect(source).toContain("actions/workflows/publish-api.yml");
+    expect(source).toContain("PUBLISHER_SOURCE_RUN_ID: ${{ github.event.client_payload.source_run_id || '' }}");
     expect(source).toContain('APPROVAL_EVENT: ${{ github.event_name }}');
     expect(source).toContain('APPROVAL_ACTOR: ${{ github.actor }}');
     expect(source).toContain('APPROVAL_TRIGGERING_ACTOR: ${{ github.triggering_actor }}');
     expect(source).toContain("APPROVAL_DISPATCH_ACTOR: ${{ github.event.sender.login || '' }}");
     expect(source).toContain("APPROVAL_DISPATCH_ACTION: ${{ github.event.action || '' }}");
     expect(source).toContain('APPROVAL_DISPATCH_PAYLOAD_PRESENT: ${{ github.event.client_payload != null }}');
+    expect(source).toContain("APPROVAL_PUBLISHER_SOURCE_VERIFIED: ${{ steps.publisher_provenance.outputs.verified || 'false' }}");
+    expect(source).toContain("APPROVAL_DISPATCH_SOURCE_SCHEMA_VERSION: ${{ github.event.client_payload.schema_version || '' }}");
+    expect(source).toContain("APPROVAL_DISPATCH_SOURCE_REPOSITORY: ${{ github.event.client_payload.source_repository || '' }}");
+    expect(source).toContain("APPROVAL_DISPATCH_SOURCE_WORKFLOW: ${{ github.event.client_payload.source_workflow || '' }}");
+    expect(source).toContain("APPROVAL_DISPATCH_SOURCE_WORKFLOW_PATH: ${{ github.event.client_payload.source_workflow_path || '' }}");
+    expect(source).toContain("APPROVAL_DISPATCH_SOURCE_RUN_ID: ${{ github.event.client_payload.source_run_id || '' }}");
+    expect(source).toContain("APPROVAL_DISPATCH_SOURCE_RUN_ATTEMPT: ${{ github.event.client_payload.source_run_attempt || '' }}");
+    expect(source).toContain("APPROVAL_DISPATCH_SOURCE_SHA: ${{ github.event.client_payload.source_sha || '' }}");
+    expect(source).toContain("APPROVAL_DISPATCH_SOURCE_BRANCH: ${{ github.event.client_payload.source_branch || '' }}");
+    expect(source).toContain("APPROVAL_DISPATCH_SOURCE_EVENT: ${{ github.event.client_payload.source_event || '' }}");
     expect(source).toContain('APPROVAL_EXPECTED_DISPATCH_ACTOR: valerielinc-ops');
     expect(source).toContain('APPROVAL_EXPECTED_DISPATCH_REPOSITORY: valerielinc-ops/frontaliere-si-o-no');
     expect(source).toContain('APPROVAL_EXPECTED_DISPATCH_SCOPE: article-sitemap-publication');
