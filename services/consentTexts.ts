@@ -54,16 +54,11 @@
  *
  * WHY ONE FORMULA REPLACED THIRTEEN GATE-SPECIFIC ONES AT THE RENDERED GATES
  * -------------------------------------------------------------------------
- * The per-gate formulas below each named ONE channel (usually "la newsletter
- * per frontalieri"). Measured 2026-08-12: eight channels ship from this repo
- * — daily brief, weekly newsletter, job alerts, saved-jobs digest, onboarding
- * drip, dormant win-back, sunset, publisher blast — so a person who read one
- * of those formulas was told about a fraction of what they would receive.
- * The replacement named CATEGORIES (editorial / job alerts / service), never
- * products, and never a FREQUENCY: "settimanale" in the old popup formula is
- * exactly what made the move to a daily brief contestable (#5679). Frequency
- * lives on `CONSENT_PAGE_PATH`, generated from `services/communicationChannels.ts`,
- * where it can change without invalidating consent already collected.
+ * The per-gate formulas below used to enumerate channels, frequencies and
+ * opt-out controls. That made the decision copy long and duplicated details
+ * already maintained on `CONSENT_PAGE_PATH`, generated from
+ * `services/communicationChannels.ts`. The live formula keeps only the
+ * registration act, the communications scope and the versioned page pointer.
  *
  * AND WHY THAT ONE FORMULA IS NOW ONE LINE (#5765)
  * ------------------------------------------------
@@ -75,12 +70,12 @@
  * being agreed to while the document kept one of them. `JobBoard.tsx` did it
  * twice, once per gate surface: four notices in one file.
  *
- * The formula is therefore one shared disclosure plus the link. It names the
- * email categories covered by the unified choice; the page it names carries
- * the detailed channel contents, cadences and controls. Two consequences are
- * worth stating, because neither is free:
+ * The formula is therefore one shared disclosure plus the link. It identifies
+ * the communications scope; the page it names carries the detailed channel
+ * contents, cadences and controls. Two consequences are worth stating,
+ * because neither is free:
  *
- *  - the page has to CARRY the detail beyond the category names, controller
+ *  - the page has to CARRY the detail beyond the short pointer, controller
  *    included, or shortening the formula would delete a disclosure instead of
  *    relocating it. It does:
  *    `build-plugins/communicationsPagePlugin.ts` prints the categories, the
@@ -93,13 +88,11 @@
  *    which is a `version` bump here.
  *
  * WHAT THAT COST, MEASURED AND NOT HIDDEN. `consentNamesJobAlerts`
- * (functions/src/jobAlertBackfillCore.js) requires the job-alert CHANNEL to be
- * named in the stored text before a newsletter opt-in may create a job alert.
- * The displayed unified formula names the category and the shared writer also
- * records `preferences.jobs: true`, so that path is explicit and testable.
- * Historical formulas and access-only authentication still fail closed. This
- * is recorded in `tests/backfill-jobalerts-from-newsletter.test.ts` rather than
- * left as a side effect to be discovered in a funnel report.
+ * (functions/src/jobAlertBackfillCore.js) remains available for historical
+ * records and reporting, but the displayed formula no longer repeats a
+ * channel name. The live base relationship is represented by structured
+ * registration fields and the page pointer; the test keeps the old text
+ * matcher from becoming an accidental gate again.
  *
  * WHAT THAT PAGE NOW ALSO CARRIES (#5759). Third-party advertising
  * (`publisher-blast.yml`) is named as its own category on the page, but it is
@@ -303,10 +296,10 @@ const POINTER: Readonly<Record<ConsentLocale, string>> = Object.freeze({
  * entry whose text does not describe the sign-in.
  */
 const ACCESS_OPENING: Readonly<Record<ConsentLocale, string>> = Object.freeze({
-  it: 'Registrandomi o accedendo accetto i Termini e condizioni e iscrivo il mio indirizzo alle comunicazioni di Frontaliere Ticino: newsletter e aggiornamenti redazionali, avvisi di lavoro, messaggi di servizio e messaggi promozionali di terzi.',
-  en: 'By registering or signing in I accept the Terms and Conditions and subscribe my address to Frontaliere Ticino communications: newsletters and editorial updates, job alerts, service messages and promotional messages from third parties.',
-  de: 'Mit der Registrierung oder Anmeldung akzeptiere ich die Nutzungsbedingungen und trage meine Adresse in die Mitteilungen von Frontaliere Ticino ein: Newsletter und redaktionelle Aktualisierungen, Job-Alerts, Servicenachrichten und Werbenachrichten von Dritten.',
-  fr: 'En m’inscrivant ou en me connectant, j’accepte les conditions et j’inscris mon adresse aux communications de Frontaliere Ticino : newsletters et mises à jour éditoriales, alertes emploi, messages de service et messages promotionnels de tiers.',
+  it: 'Registrandomi o accedendo accetto le condizioni e mi iscrivo alle comunicazioni di Frontaliere Ticino.',
+  en: 'By registering or signing in I accept the terms and subscribe to Frontaliere Ticino communications.',
+  de: 'Mit der Registrierung oder Anmeldung akzeptiere ich die Bedingungen und abonniere die Mitteilungen von Frontaliere Ticino.',
+  fr: 'En m’inscrivant ou en me connectant, j’accepte les conditions et m’inscris aux communications de Frontaliere Ticino.',
 });
 
 /**
@@ -319,10 +312,10 @@ const ACCESS_OPENING: Readonly<Record<ConsentLocale, string>> = Object.freeze({
  * between the two sentences.
  */
 const SUBSCRIBE_OPENING: Readonly<Record<ConsentLocale, string>> = Object.freeze({
-  it: 'Registrandomi accetto i Termini e condizioni e iscrivo il mio indirizzo alle comunicazioni di Frontaliere Ticino: newsletter e aggiornamenti redazionali, avvisi di lavoro, messaggi di servizio e messaggi promozionali di terzi. Posso gestire le preferenze o revocare l’iscrizione in qualsiasi momento.',
-  en: 'By registering I accept the Terms and Conditions and subscribe my address to Frontaliere Ticino communications: newsletters and editorial updates, job alerts, service messages and promotional messages from third parties. I can manage my preferences or unsubscribe at any time.',
-  de: 'Mit der Registrierung akzeptiere ich die Nutzungsbedingungen und trage meine Adresse in die Mitteilungen von Frontaliere Ticino ein: Newsletter und redaktionelle Aktualisierungen, Job-Alerts, Servicenachrichten und Werbenachrichten von Dritten. Ich kann meine Einstellungen jederzeit verwalten oder mich abmelden.',
-  fr: 'En m’inscrivant, j’accepte les conditions et j’inscris mon adresse aux communications de Frontaliere Ticino : newsletters et mises à jour éditoriales, alertes emploi, messages de service et messages promotionnels de tiers. Je peux gérer mes préférences ou me désinscrire à tout moment.',
+  it: 'Registrandomi accetto le condizioni e mi iscrivo alle comunicazioni di Frontaliere Ticino.',
+  en: 'By registering I accept the terms and subscribe to Frontaliere Ticino communications.',
+  de: 'Mit der Registrierung akzeptiere ich die Bedingungen und abonniere die Mitteilungen von Frontaliere Ticino.',
+  fr: 'En m’inscrivant, j’accepte les conditions et m’inscris aux communications de Frontaliere Ticino.',
 });
 
 const compose = (
@@ -369,7 +362,7 @@ export const CONSENT_TEXTS = Object.freeze({
    */
   communicationsOptIn: entry({
     id: 'communications_opt_in',
-    version: '2026-09-15.1',
+    version: '2026-09-16.1',
     text: COMMUNICATIONS_OPT_IN.it,
     texts: COMMUNICATIONS_OPT_IN,
     displayed: true,
@@ -395,7 +388,7 @@ export const CONSENT_TEXTS = Object.freeze({
    */
   communicationsSignIn: entry({
     id: 'communications_sign_in',
-    version: '2026-09-15.1',
+    version: '2026-09-16.1',
     text: COMMUNICATIONS_SIGN_IN.it,
     texts: COMMUNICATIONS_SIGN_IN,
     displayed: true,
@@ -427,7 +420,7 @@ export const CONSENT_TEXTS = Object.freeze({
    */
   communicationsSignInEmail: entry({
     id: 'communications_sign_in_email',
-    version: '2026-09-15.1',
+    version: '2026-09-16.1',
     text: COMMUNICATIONS_SIGN_IN.it,
     texts: COMMUNICATIONS_SIGN_IN,
     displayed: true,
