@@ -82,6 +82,8 @@ describe('crawler workflow corpus transport', () => {
     expect(bodyEnd).toBeGreaterThan(bodyStart);
     const body = script.slice(bodyStart, bodyEnd);
     expect(body).toContain('- in questa PR, per scelta:');
+    expect(body).toContain('**Motivo:**');
+    expect(body).toContain('**Prossimo passo:**');
     expect(body).toContain('- blocked:');
     expect(body).not.toContain('\n- by construction:');
     expect(body).not.toContain('\n- per scelta:');

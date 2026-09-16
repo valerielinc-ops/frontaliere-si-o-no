@@ -65,15 +65,15 @@ describe('tests.yml review identity jq contract', () => {
     expect(runJq(filters[1], reviews)).toBe('claude-commit');
   });
 
-  it('keeps the review gate blocking while quota remains advisory', () => {
+  it('keeps the review gate blocking without a quota admission step', () => {
     const gate = workflowStepContaining('id: review_gate');
-    const quota = workflowStepContaining('id: quota');
     const abort = workflowStepContaining('id: review_abort');
 
     expect(gate).toContain('node scripts/ci/review-gate.mjs');
     expect(gate).not.toContain('continue-on-error: true');
     expect(abort).not.toContain('continue-on-error: true');
-    expect(quota).toContain('continue-on-error: true');
+    expect(workflow).not.toContain('id: quota');
+    expect(workflow).not.toContain('check-quota-backoff.mjs');
     expect(workflow).not.toContain('name: Claude usage metrics');
   });
 });
