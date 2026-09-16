@@ -6159,7 +6159,12 @@ jobs:
             fi
           fi
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing." >> "$summary_file"
-          printf '%s\n' "success_count=$success_count" "failure_count=$failure_count" "missing_count=$missing_count" >> "$output_file"
+          if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ]; then
+            wait_outcome=failure
+          else
+            wait_outcome=success
+          fi
+          printf '%s\n' "success_count=$success_count" "failure_count=$failure_count" "missing_count=$missing_count" "wait_outcome=$wait_outcome" >> "$output_file"
           exit 0
       - name: Commit crawler group data atomically
         if: always() && inputs.generation_token != '' && job.status == 'success' && steps.crawler_group_setup.outcome == 'success'
@@ -6196,7 +6201,7 @@ jobs:
           CRAWLER_GENERATION_CALLER_REPOSITORY: ${{ github.repository }}
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
-          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ job.status }}
+          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ steps.crawler_aggregate.outputs.wait_outcome || 'failure' }}
           CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"a-group","primarySlice":"data/jobs/by-crawler/a-group.json"},{"crawlerId":"amag-group","primarySlice":"data/jobs/by-crawler/amag-group.json"},{"crawlerId":"ardentis","primarySlice":"data/jobs/by-crawler/ardentis.json"},{"crawlerId":"axpo-group","primarySlice":"data/jobs/by-crawler/axpo-group.json"},{"crawlerId":"clienia-ag","primarySlice":"data/jobs/by-crawler/clienia-ag.json"},{"crawlerId":"cnp","primarySlice":"data/jobs/by-crawler/cnp.json"},{"crawlerId":"crr-suva-sion","primarySlice":"data/jobs/by-crawler/crr-suva-sion.json"},{"crawlerId":"hess-carrosserie","primarySlice":"data/jobs/by-crawler/hess-carrosserie.json"},{"crawlerId":"hilcona","primarySlice":"data/jobs/by-crawler/hilcona.json"},{"crawlerId":"hornbach","primarySlice":"data/jobs/by-crawler/hornbach.json"},{"crawlerId":"igs-bern","primarySlice":"data/jobs/by-crawler/igs-bern.json"},{"crawlerId":"jysk","primarySlice":"data/jobs/by-crawler/jysk.json"},{"crawlerId":"klinik-siloah","primarySlice":"data/jobs/by-crawler/klinik-siloah.json"},{"crawlerId":"luks","primarySlice":"data/jobs/by-crawler/luks.json"},{"crawlerId":"michel-gruppe-ag","primarySlice":"data/jobs/by-crawler/michel-gruppe-ag.json"},{"crawlerId":"msc-cargo","primarySlice":"data/jobs/by-crawler/msc-cargo.json"},{"crawlerId":"nord-anglia","primarySlice":"data/jobs/by-crawler/nord-anglia.json"},{"crawlerId":"novelis","primarySlice":"data/jobs/by-crawler/novelis.json"},{"crawlerId":"pictet","primarySlice":"data/jobs/by-crawler/pictet.json"},{"crawlerId":"rehab-basel","primarySlice":"data/jobs/by-crawler/rehab-basel.json"},{"crawlerId":"spital-thurgau","primarySlice":"data/jobs/by-crawler/spital-thurgau.json"},{"crawlerId":"spitex-ch","primarySlice":"data/jobs/by-crawler/spitex-ch.json"},{"crawlerId":"stellenpartner","primarySlice":"data/jobs/by-crawler/stellenpartner.json"},{"crawlerId":"swiss-re","primarySlice":"data/jobs/by-crawler/swiss-re.json"},{"crawlerId":"tecan","primarySlice":"data/jobs/by-crawler/tecan.json"},{"crawlerId":"tpl-lugano","primarySlice":"data/jobs/by-crawler/tpl-lugano.json"},{"crawlerId":"tsmg","primarySlice":"data/jobs/by-crawler/tsmg.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-11-terminal.json
           CRAWLER_GENERATION_LEDGER_PATH: data/crawler-generation-ledger.jsonl
