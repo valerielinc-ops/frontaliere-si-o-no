@@ -1845,15 +1845,13 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(crawlerSteps.every((step: any) => step.env?.CODEX_AUTH_BROKER_SOCKET
       === '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}')).toBe(true);
     expect(crawlerSteps.every((step: any) => step.env?.AI_MODELS_PREFER === undefined)).toBe(true);
-    expect(crawlerSteps.every((step: any) => step.env?.CLAUDE_CODE_OAUTH_TOKEN
-      === '${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}')).toBe(true);
+    expect(crawlerSteps.every((step: any) => step.env?.CLAUDE_CODE_OAUTH_TOKEN === undefined)).toBe(true);
     const cleanupStep = generatedSteps.find((step: any) => step.name === 'Cleanup Codex auth broker');
     expect(cleanupStep?.if).toBe('always()');
     expect(cleanupStep?.env?.CODEX_AUTH_BROKER_SOCKET)
       .toBe('${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}');
     expect(cleanupStep?.run).toContain('--cleanup --socket "$CODEX_AUTH_BROKER_SOCKET"');
     expect(logic.on.workflow_call.secrets.CODEX_AUTH_JSON).toEqual({ required: false });
-    expect(logic.on.workflow_call.secrets.CLAUDE_CODE_OAUTH_TOKEN).toEqual({ required: false });
     const logicSetupStep = Object.values(logic.jobs)[0].steps.find(
       (step: any) => step.uses?.endsWith('/.github/actions/setup-claude-haiku-fallback@main'),
     );
@@ -1865,7 +1863,7 @@ describe('cross-repo crawler execution artifacts', () => {
         && step.env?.CODEX_AUTH_BROKER_SOCKET
           === '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}'
         && step.env?.AI_MODELS_PREFER === undefined
-        && step.env?.CLAUDE_CODE_OAUTH_TOKEN === '${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}')).toBe(true);
+        && step.env?.CLAUDE_CODE_OAUTH_TOKEN === undefined)).toBe(true);
 
     const generateArticle = fs.readFileSync(path.join(ROOT, '.github/workflows/generate-article.yml'), 'utf8');
     expect(generateArticle).not.toMatch(/AI_MODELS_PREFER:\s*codex-cli\/gpt-5\.6-luna/);
@@ -1882,8 +1880,7 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(translationStep.env.CODEX_AUTH_JSON).toBeUndefined();
     expect(translationStep.env.CODEX_AUTH_BROKER_SOCKET)
       .toBe('${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}');
-    expect(translationStep.env.CLAUDE_CODE_OAUTH_TOKEN)
-      .toBe('${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}');
+    expect(translationStep.env.CLAUDE_CODE_OAUTH_TOKEN).toBeUndefined();
     const translationCleanupStep = Object.values(translation.jobs)[0].steps.find(
       (step: any) => step.name === 'Cleanup Codex auth broker',
     );
