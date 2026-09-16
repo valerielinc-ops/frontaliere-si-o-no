@@ -511,7 +511,28 @@ function outcomeFromEvidence({ policy, observation, result, now }) {
   });
 }
 
-function buildCanonicalOutcome({ registry, policy, observation, result, now }) {
+function buildCanonicalOutcome({ registry, policy, observation, result, now, validatorOutcome = null }) {
+  if (validatorOutcome && validatorOutcome !== 'success') {
+    const reason = `runner-local outcome validator returned ${validatorOutcome}`;
+    return {
+      outcome: buildOutcome({
+        outcomeId: policy.outcome.outcomeId,
+        status: 'unmeasurable',
+        independent: false,
+        sourceRefs: policy.outcome.sourceRefs,
+        primaryMetric: policy.primaryMetric,
+        numerator: null,
+        denominator: null,
+        requiredFieldsPresent: [],
+        missingFields: [...policy.outcome.requiredFields],
+        reason,
+        observedAt: null,
+        allowNumeratorExceedDenominator: policy.outcome.allowNumeratorExceedDenominator,
+        recordedAt: now.toISOString(),
+      }),
+      errors: [reason],
+    };
+  }
   try {
     const outcome = outcomeFromEvidence({ policy, observation, result, now });
     const checked = validateOutcomeAgainstPolicy(registry, policy.loopId, outcome);
@@ -550,6 +571,8 @@ export function recordLoopEvidence({
   const registry = validateLoopRegistry(readJson(registryPath, 'loop registry'));
   const policy = findLoopPolicy(registry, loopId);
   const context = runContext(loopId, now);
+  const validatorOutcome = text(process.env.LOOP_FLEET_VALIDATOR_OUTCOME);
+  const validatorFailed = Boolean(validatorOutcome && validatorOutcome !== 'success');
   const prefix = String(loopId).toLowerCase();
   const resolvedReportPath = reportPath || path.join(dir, 'technical-operations-audit.json');
 
@@ -592,9 +615,18 @@ export function recordLoopEvidence({
     observation: rawObserved,
     result,
     now,
+    validatorOutcome,
   });
-  const observed = rawObserved ? { ...withExecution(rawObserved, 'observation', loopId, context), outcome } : null;
-  const decided = rawDecided ? { ...withExecution(rawDecided, 'decision', loopId, context), outcome } : null;
+  const observed = rawObserved ? {
+    ...withExecution(rawObserved, 'observation', loopId, context),
+    ...(validatorFailed ? { quality: 'unmeasurable' } : {}),
+    outcome,
+  } : null;
+  const decided = rawDecided ? {
+    ...withExecution(rawDecided, 'decision', loopId, context),
+    ...(validatorFailed ? { quality: 'unmeasurable' } : {}),
+    outcome,
+  } : null;
   const observationPolicy = observed ? policyCheck(registry, loopId, observed) : { ok: false, error: evidenceError };
   const decisionPolicy = decided ? policyCheck(registry, loopId, decided) : { ok: false, error: evidenceError };
   const decisionLifecycle = decided ? lifecycleCheck(registry, loopId, decided) : { ok: false, error: evidenceError };
@@ -602,7 +634,7 @@ export function recordLoopEvidence({
     .filter((check) => !check.ok)
     .map((check) => check.error);
   const policyCompliant = policyErrors.length === 0;
-  const quality = result?.quality || observed?.quality || 'unmeasurable';
+  const quality = validatorFailed ? 'unmeasurable' : (result?.quality || observed?.quality || 'unmeasurable');
   const actionClass = decided?.actionClass || observed?.actionClass
     || actionClassForPolicy(policy, 'needsReview');
   const autonomy = (() => {

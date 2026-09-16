@@ -151,9 +151,10 @@ jobs:
           test -s "$REPORT_DIR/l3-outcome.json"
           jq -e '(.loopId == "L3" and (.status | type) == "string" and (.independent | type) == "boolean" and (.metrics | type) == "object" and .safeToAct == false and .handoffIsNotApplication == true and .runnerLocalQuarantine == true and .publishedDataUntouched == true)' "$REPORT_DIR/l3-outcome.json" >/dev/null
       - name: Record canonical L3 evidence
-        if: ${{ always() && steps.validate_l3_outcome.outcome == 'success' }}
+        if: always()
         env:
           REPORT_DIR: ${{ runner.temp }}/loop-fleet-l3
+          LOOP_FLEET_VALIDATOR_OUTCOME: ${{ steps.validate_l3_outcome.outcome }}
         run: node scripts/ci/record-loop-fleet-evidence.mjs --loop L3 --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json
       - name: Upload L3 observation and actions
         if: always()
