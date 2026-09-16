@@ -6458,6 +6458,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.vaccini-antinfluenzali-ritardo-svizzera.title': 'Flu vaccines in Switzerland: 40% arrive late',
     'blog.article.vaccini-antinfluenzali-ritardo-svizzera.excerpt': 'Delayed deliveries of 40% of flu vaccines in Switzerland. Pharmasuisse runs for cover with a second window at the end of November.',
     'blog.article.vaccini-antinfluenzali-ritardo-svizzera.imageAlt': 'Swiss pharmacy ready for the influenza vaccination campaign',
+    'blog.article.ruag-riorganizzazione-tagli-posti.title': 'RUAG reorganizes: up to 49 jobs at risk',
+    'blog.article.ruag-riorganizzazione-tagli-posti.excerpt': 'The RUAG armament group announces a reorganization that could result in the elimination of up to 49 jobs in Switzerland.',
+    'blog.article.ruag-riorganizzazione-tagli-posti.imageAlt': 'Federal buildings in Bern',
 };
 
 export default blogMetaChEn;

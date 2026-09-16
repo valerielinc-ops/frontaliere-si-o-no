@@ -6458,6 +6458,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.vaccini-antinfluenzali-ritardo-svizzera.title': 'Grippeimpfungen in der Schweiz: 40% kommen zu spät',
     'blog.article.vaccini-antinfluenzali-ritardo-svizzera.excerpt': '40% der Grippeimpfungen in der Schweiz werden verschoben. Pharmasuisse geht Ende November mit einem zweiten Fenster in Deckung.',
     'blog.article.vaccini-antinfluenzali-ritardo-svizzera.imageAlt': 'Schweizer Apotheke bereit fur die Grippeschutzimpfung',
+    'blog.article.ruag-riorganizzazione-tagli-posti.title': 'RUAG reorganisiert sich: Bis zu 49 Arbeitsplätze gefährdet',
+    'blog.article.ruag-riorganizzazione-tagli-posti.excerpt': 'Die Rüstungsgruppe RUAG kündigt eine Reorganisation an, die zum Abbau von maximal 49 Arbeitsplätzen in der Schweiz führen könnte.',
+    'blog.article.ruag-riorganizzazione-tagli-posti.imageAlt': 'Bundesgebäude in Bern',
 };
 
 export default blogMetaChDe;

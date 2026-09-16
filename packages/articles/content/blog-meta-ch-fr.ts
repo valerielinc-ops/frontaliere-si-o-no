@@ -6458,6 +6458,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.vaccini-antinfluenzali-ritardo-svizzera.title': 'Vaccins antigrippaux en Suisse : 40 % arrivent en retard',
     'blog.article.vaccini-antinfluenzali-ritardo-svizzera.excerpt': 'Les livraisons de 40% des vaccins antigrippaux en Suisse sont reportées. Pharmasuisse se met à l\'abri avec une seconde fenêtre fin novembre.',
     'blog.article.vaccini-antinfluenzali-ritardo-svizzera.imageAlt': 'Pharmacie suisse prete pour la campagne de vaccination contre la grippe',
+    'blog.article.ruag-riorganizzazione-tagli-posti.title': 'RUAG se réorganise : jusqu\'à 49 emplois à risque',
+    'blog.article.ruag-riorganizzazione-tagli-posti.excerpt': 'Le groupe d\'armement RUAG annonce une réorganisation qui pourrait entraîner la suppression d\'un maximum de 49 emplois en Suisse.',
+    'blog.article.ruag-riorganizzazione-tagli-posti.imageAlt': 'Bâtiments fédéraux à Berne',
 };
 
 export default blogMetaChFr;
