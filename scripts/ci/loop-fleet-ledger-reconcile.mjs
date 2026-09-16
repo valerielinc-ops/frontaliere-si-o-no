@@ -188,14 +188,32 @@ export function missingEvidenceRecordIds(inputDir, ledgerDir, { loopId, runId, s
     }
   }
 
-  const missing = [];
+  const sourceRecordMaps = {};
   for (const [type, values] of Object.entries(records)) {
+    const source = new Map();
     for (const record of values) {
       if (!record?.recordId || record.loopId !== loopId || record.execution?.loopId !== loopId
           || String(record.execution?.runId || '') !== String(runId)
           || String(record.execution?.sha || '').toLowerCase() !== String(sha || '').toLowerCase()) {
         return { ok: false, reason: `${type} evidence has invalid execution identity`, missing: [] };
       }
+      const recordId = String(record.recordId || '');
+      const previous = source.get(recordId);
+      if (previous && canonicalRecordContent(previous) !== canonicalRecordContent(record)) {
+        return {
+          ok: false,
+          reason: `${type} evidence contains conflicting duplicate ${recordId} in the source artifact`,
+          missing: [],
+        };
+      }
+      source.set(recordId, record);
+    }
+    sourceRecordMaps[type] = source;
+  }
+
+  const missing = [];
+  for (const [type, source] of Object.entries(sourceRecordMaps)) {
+    for (const record of source.values()) {
       const recordId = String(record.recordId || '');
       const previous = durable[type].get(recordId);
       if (!previous) {

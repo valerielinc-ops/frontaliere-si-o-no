@@ -170,6 +170,31 @@ describe('loop-fleet-ledger-reconcile', () => {
     });
   });
 
+  it('fails closed when the source artifact has conflicting duplicate content', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-reconcile-source-conflict-'));
+    const input = path.join(root, 'input');
+    const ledger = path.join(root, 'ledger');
+    fs.mkdirSync(input);
+    fs.mkdirSync(ledger);
+    const execution = { loopId: 'L0', runId: '123', sha: SHA };
+    const first = {
+      recordType: 'health',
+      loopId: 'L0',
+      recordId: 'health-1',
+      execution,
+      payload: { value: 'first' },
+    };
+    const second = { ...first, payload: { value: 'second' } };
+    writeJson(input, 'loop-fleet-evidence.json', { loopId: 'L0', run: { runId: '123', sha: SHA } });
+    writeJsonl(input, 'loop-health-history.jsonl', [first, second]);
+
+    expect(missingEvidenceRecordIds(input, ledger, { loopId: 'L0', runId: '123', sha: SHA })).toMatchObject({
+      ok: false,
+      missing: [],
+      reason: 'health evidence contains conflicting duplicate health-1 in the source artifact',
+    });
+  });
+
   it('fails closed for missing, mismatched or incomplete artifacts', () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-reconcile-test-'));
     const ledger = path.join(root, 'ledger');
