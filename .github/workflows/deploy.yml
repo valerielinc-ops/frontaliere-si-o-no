@@ -122,9 +122,6 @@ permissions:
   # sync moved to post-deploy-validation.yml, while the deploy itself only
   # uploads artifacts and publishes to GitHub Pages.
   contents: read
-  pages: write
-  id-token: write
-  issues: write     # for github-issue-creator on build/deploy failure
 
 # Workflow-level serialisation of the BUILD block (matrix-setup → prep →
 # build-locale ×4). Exactly one build run is active at a time; newer pushes
@@ -148,7 +145,64 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # Every run must prove that it is a main-branch production candidate before
+  # any build job that also pushes CDN/shard state is admitted. This keeps a
+  # manual dispatch from another ref from becoming an implicit promotion path.
+  validate-promotion-trigger:
+    name: validate production promotion trigger
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout promotion gate
+        uses: actions/checkout@v5
+        with:
+          sparse-checkout: |
+            /scripts/ci/production-promotion-gate.mjs
+          sparse-checkout-cone-mode: false
+      - name: Reject non-main or unverified source
+        env:
+          PROMOTION_EVENT: ${{ github.event_name }}
+          PROMOTION_REF: ${{ github.ref }}
+          PROMOTION_REPOSITORY: ${{ github.repository }}
+          PROMOTION_SOURCE_REPOSITORY: ${{ github.repository }}
+          PROMOTION_HEAD_SHA: ${{ github.sha }}
+        run: node scripts/ci/production-promotion-gate.mjs trigger
+
+  # `shard-secrets-overflow` is retained by build-locale for its secret pool;
+  # the actual production approval is deliberately a separate, named
+  # environment so the secret-pool environment cannot double as a safety gate.
+  production-approval:
+    name: approve production promotion
+    needs: validate-promotion-trigger
+    if: needs.validate-promotion-trigger.result == 'success'
+    runs-on: ubuntu-latest
+    environment:
+      name: production-deploy
+    permissions:
+      contents: read
+      deployments: read
+    steps:
+      - name: Checkout promotion gate
+        uses: actions/checkout@v5
+        with:
+          sparse-checkout: |
+            /scripts/ci/production-promotion-gate.mjs
+          sparse-checkout-cone-mode: false
+      - name: Verify required reviewers and environment attestation
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PROMOTION_REPOSITORY: ${{ github.repository }}
+          PROMOTION_ENVIRONMENT_NAME: production-deploy
+          PRODUCTION_DEPLOY_APPROVAL: ${{ secrets.PRODUCTION_DEPLOY_APPROVAL }}
+        run: |
+          set -euo pipefail
+          gh api --method GET \
+            "repos/${PROMOTION_REPOSITORY}/environments/${PROMOTION_ENVIRONMENT_NAME}" \
+            | node scripts/ci/production-promotion-gate.mjs approval
+
   matrix-setup:
+    needs: validate-promotion-trigger
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.build.outputs.matrix }}
@@ -201,21 +255,6 @@ jobs:
         run: npm ci
       - name: Audit no merge conflict markers
         run: npm run audit:no-merge-markers
-      - name: Prepare Firebase credentials
-        env:
-          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
-        run: |
-          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
-            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
-            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
-          fi
-      - name: Load secrets from Remote Config
-        run: |
-          if test -f scripts/load-rc-env.mjs; then
-            node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal)"
-          else
-            echo "⚠️ load-rc-env.mjs is absent in this checkout (non-fatal)"
-          fi
       - name: Cache assemble-jobs output
         uses: actions/cache@v5
         with:
@@ -232,28 +271,6 @@ jobs:
         # data/active-jobs-baseline.json auto-ratchets UP only — manual
         # commit required to lower (see CLAUDE.md rule #1).
         run: npm run audit:active-jobs-regression
-      - name: SEO position tracking (non-blocking)
-        # Refresh the 7-day GSC avg-position snapshot for status visibility and
-        # PRINT where it stands. NON-BLOCKING by design (owner decision
-        # 2026-06-24): the former SEO-landing moratorium was downgraded from a
-        # deploy gate to a tracker. Losing real SEO traffic / serving users 404s
-        # (e.g. ~14k/day indexed ricerca-stipendio-* pages going 404) outweighs
-        # the avg-position vanity metric, so position is monitored but never
-        # blocks a deploy. check-seo-moratorium.mjs reports only (always exit 0).
-        if: github.event_name == 'pull_request'
-        continue-on-error: true
-        env:
-          # OAuth2 path (currently not set; SA fallback in
-          # refresh-gsc-position-rolling.mjs uses GOOGLE_APPLICATION_CREDENTIALS
-          # exported by the Prepare Firebase credentials step above — the
-          # Firebase SA also has GSC permissions per memory
-          # `reference_firebase_sa_doubles_as_gsc`).
-          GSC_CLIENT_ID:     ${{ secrets.GSC_CLIENT_ID }}
-          GSC_CLIENT_SECRET: ${{ secrets.GSC_CLIENT_SECRET }}
-          GSC_REFRESH_TOKEN: ${{ secrets.GSC_REFRESH_TOKEN }}
-        run: |
-          node scripts/refresh-gsc-position-rolling.mjs
-          node scripts/check-seo-moratorium.mjs
       - name: Housekeeping (cross-crawler dedup + locale hardening)
         env:
           JOBS_SKIP_URL_VALIDATION: '1'
@@ -295,7 +312,7 @@ jobs:
   # ── Matrix build: one runner per locale. IT serves Pages + uploads the same
   # artifacts as the monolith; en/de/fr push to their frontaliere-<loc> shards.
   build-locale:
-    needs: [matrix-setup, prep]
+    needs: [matrix-setup, prep, production-approval]
     runs-on: ubuntu-latest
     # No per-job concurrency: the workflow-level `pages-build-run` group already
     # guarantees a single build run at a time, so this run's 4 legs never race
@@ -305,7 +322,8 @@ jobs:
     # secrets are a separate 100-slot pool that GitHub merges into the same
     # `secrets.*` context when a job declares `environment:` — no change
     # needed to how existing repo-level SHARD_*_DEPLOY_KEY secrets are read.
-    # No protection rules on this environment (see `gh api .../environments`).
+    # Production promotion is separately gated by production-approval; this
+    # environment exists only to provide the overflow shard-deploy secrets.
     environment: shard-secrets-overflow
     permissions:
       contents: write
@@ -2980,8 +2998,8 @@ jobs:
   # once per superseded commit. See that file's header for the full argument.
   # ───────────────────────────────────────────────────────────────────────
   rearm:
-    needs: [matrix-setup, prep, build-locale]
-    if: always() && github.ref == 'refs/heads/main'
+    needs: [matrix-setup, prep, production-approval, build-locale]
+    if: always() && github.ref == 'refs/heads/main' && needs.production-approval.result == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:
