@@ -182,21 +182,24 @@ jobs:
             const sectionViolations = [];
             const decisionViolations = [];
             if (hasImpl) {
-              const c = extractSection(body, /^\s{0,3}#{2,3}\s+Implementato[^\n]*/im) ?? '';
-              if (!hasMeaningfulContent(c)) {
-                sectionViolations.push(hasOnlyBareBullets(c)
+              const implementedSection = extractSection(body, /^\s{0,3}#{2,3}\s+Implementato[^\n]*/im) ?? '';
+              if (!hasMeaningfulContent(implementedSection)) {
+                sectionViolations.push(hasOnlyBareBullets(implementedSection)
                   ? '`## Implementato` contiene solo bullet placeholder vuoti (`- `) non compilati.'
                   : '`## Implementato` è vuota.');
               }
             }
             if (hasNon) {
-              const c = extractSection(body, /^\s{0,3}#{2,3}\s+Non implementato[^\n]*/im) ?? '';
-              if (!hasNessuno(c) && !hasMeaningfulContent(c)) {
-                sectionViolations.push(hasOnlyBareBullets(c)
+              const nonImplementedSection = extractSection(body, /^\s{0,3}#{2,3}\s+Non implementato[^\n]*/im) ?? '';
+              if (!hasNessuno(nonImplementedSection) && !hasMeaningfulContent(nonImplementedSection)) {
+                sectionViolations.push(hasOnlyBareBullets(nonImplementedSection)
                   ? '`## Non implementato (ancora)` contiene solo bullet placeholder vuoti (`- `) non compilati.'
                   : '`## Non implementato (ancora)` è vuota.');
               }
-              for (const bullet of topLevelBullets(c)) {
+              // Decision deferrals belong to the work-owed section. Keep the
+              // source variable explicit: using the same short name as the
+              // Implementato block made this gate easy to misread and review.
+              for (const bullet of topLevelBullets(nonImplementedSection)) {
                 const decisionViolation = decisionDeferralViolation(bullet.text);
                 if (decisionViolation) {
                   decisionViolations.push(`Voce ${bullet.index}: ${decisionViolation}`);
