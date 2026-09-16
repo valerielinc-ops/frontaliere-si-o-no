@@ -104,6 +104,8 @@ on:
         required: false
       CODEX_AUTH_JSON:
         required: false
+      CLAUDE_CODE_OAUTH_TOKEN:
+        required: false
 # No concurrency: block here — see the header note (checklist point 3).
 permissions:
   contents: read

@@ -68,6 +68,8 @@ on:
         required: false
       CODEX_AUTH_JSON:
         required: false
+      CLAUDE_CODE_OAUTH_TOKEN:
+        required: false
 permissions:
   contents: read
 env:

@@ -1815,6 +1815,7 @@ export function buildCrawlerLogicWorkflow(generatedWorkflowText, {
       secrets: {
         FIREBASE_SERVICE_ACCOUNT_JSON: { required: false },
         CODEX_AUTH_JSON: { required: false },
+        CLAUDE_CODE_OAUTH_TOKEN: { required: false },
       },
     },
   };
@@ -2010,6 +2011,7 @@ export function assertCrawlerLogicParity(generatedWorkflowText, logicWorkflowTex
   const expectedSecrets = {
         FIREBASE_SERVICE_ACCOUNT_JSON: { required: false },
         CODEX_AUTH_JSON: { required: false },
+        CLAUDE_CODE_OAUTH_TOKEN: { required: false },
   };
   const expectedLogicInputs = structuredClone(generatedTrigger.workflow_dispatch.inputs);
   expectedLogicInputs.generation_token = {
