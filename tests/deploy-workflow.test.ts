@@ -494,9 +494,11 @@ describe('deploy.yml — incremental manifest shadow observation (PR 1b)', () =>
     return step!;
   };
 
-  it('pins the opt-in env on the Build step', () => {
+  it('gates the manifest env on the Build step behind a repository variable', () => {
     const build = stepByName('Build (BUILD_LOCALE=${{ matrix.locale }})');
-    expect(build.env?.INCREMENTAL_MANIFEST).toBe('1');
+    // Run 35146607926: always-on registration cost +44 min on the IT leg.
+    // Unset variable → empty string → INCREMENTAL_MANIFEST_ENABLED false.
+    expect(build.env?.INCREMENTAL_MANIFEST).toBe("${{ vars.INCREMENTAL_MANIFEST == '1' && '1' || '' }}");
   });
 
   it('restores and saves one manifest cache per locale around the build', () => {
