@@ -13,6 +13,8 @@ import {
   reviewHasLgtm,
   reviewIsApproved,
   reviewHasZeroFindings,
+  isTransientGithubReadError,
+  withTransientGithubReadRetry,
 } from '../scripts/ci/native-automerge-gate.mjs';
 import { TEST_REVIEW_MARKER } from '../scripts/ci/review-test-policy.mjs';
 
@@ -511,6 +513,42 @@ describe('native auto-merge gate (#8512)', () => {
     expect(isAlreadyInProgressOutput('GraphQL: Pull request is not mergeable')).toBe(false);
   });
 
+  it('retries only transient GitHub read failures with a bounded schedule', () => {
+    const transient = Object.assign(new Error('gh failed'), {
+      stderr: 'HTTP 503: 503 Service Unavailable',
+    });
+    const permanent = Object.assign(new Error('gh failed'), {
+      stderr: 'HTTP 403: 403 Forbidden',
+    });
+    const sleeps: number[] = [];
+    let attempts = 0;
+
+    const result = withTransientGithubReadRetry(() => {
+      attempts += 1;
+      if (attempts < 3) throw transient;
+      return 'ok';
+    }, { sleep: (delayMs) => sleeps.push(delayMs) });
+
+    expect(result).toBe('ok');
+    expect(attempts).toBe(3);
+    expect(sleeps).toEqual([250, 750]);
+    expect(isTransientGithubReadError(transient)).toBe(true);
+    expect(isTransientGithubReadError(permanent)).toBe(false);
+  });
+
+  it('keeps a permanent GitHub read failure fail-closed without retrying it', () => {
+    const permanent = Object.assign(new Error('gh failed'), {
+      stderr: 'HTTP 403: 403 Forbidden',
+    });
+    let attempts = 0;
+
+    expect(() => withTransientGithubReadRetry(() => {
+      attempts += 1;
+      throw permanent;
+    }, { sleep: () => undefined })).toThrow('gh failed');
+    expect(attempts).toBe(1);
+  });
+
   it('revalidates review and checks after the final HEAD read and before native opt-in', () => {
     const gateSource = readFileSync(new URL('../scripts/ci/native-automerge-gate.mjs', import.meta.url), 'utf8');
     const headRead = gateSource.indexOf('current = ghJson');
@@ -526,6 +564,10 @@ describe('native auto-merge gate (#8512)', () => {
     expect(nativeOptIn).toBeGreaterThan(finalGate);
     expect(gateSource).toContain("if (finalDecision.action === 'revoke')");
     expect(gateSource).toContain('concurrentOptInSucceeded');
+    expect(gateSource).toContain('function ghJson(args)');
+    expect(gateSource).toContain('function ghJsonOnce(args)');
+    expect(gateSource).toContain('withTransientGithubReadRetry');
+    expect(gateSource).toContain('const response = ghJsonOnce');
     expect(gateSource).toContain("stdio: ['ignore', 'pipe', 'pipe']");
   });
 

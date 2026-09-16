@@ -20,6 +20,7 @@ function zombie(overrides: Record<string, unknown> = {}) {
     open_count: 0,
     click_count: 0,
     created_at: daysAgo(SUNSET_MIN_AGE_DAYS + 30),
+    confirmed_at: daysAgo(SUNSET_MIN_AGE_DAYS + 30),
     ...overrides,
   };
 }
@@ -43,8 +44,14 @@ describe('classifySunset', () => {
   });
 
   it('honors the camelCase field spellings too', () => {
-    const camel = { status: 'active', sendCount: 20, openCount: 0, clickCount: 0, createdAt: daysAgo(200) };
+    const camel = { status: 'active', sendCount: 20, openCount: 0, clickCount: 0, createdAt: daysAgo(200), confirmed_at: daysAgo(200) };
     expect(classifySunset(camel, NOW).action).toBe('winback');
+  });
+
+  it('does not require confirmation proof for ordinary lifecycle mail', () => {
+    const unproven = zombie();
+    delete (unproven as Record<string, unknown>).confirmed_at;
+    expect(classifySunset(unproven, NOW).action).toBe('winback');
   });
 
   it('waits out the grace window after a win-back before sunsetting', () => {
@@ -83,23 +90,23 @@ describe('classifySunset', () => {
     // can ever increment open_count again without a re-probe first re-admitting
     // the subscriber to a mailable status and triggering a real send) — this
     // engagement is evidence the system itself was able to produce.
-    const doc = { status: 'inactive', sunset_reprobed_at: daysAgo(1), sunset_reprobe_count: 1, open_count: 1 };
+    const doc = { status: 'inactive', sunset_reprobed_at: daysAgo(1), sunset_reprobe_count: 1, open_count: 1, confirmed_at: daysAgo(200) };
     expect(classifySunset(doc, NOW).action).toBe('reactivate');
   });
 
   it('leaves a still-silent inactive subscriber alone until the re-probe window elapses (no churn, no re-mail)', () => {
-    const freshlyInactive = { status: 'inactive', open_count: 0, click_count: 0, inactive_at: daysAgo(1) };
+    const freshlyInactive = { status: 'inactive', open_count: 0, click_count: 0, inactive_at: daysAgo(1), confirmed_at: daysAgo(200) };
     expect(classifySunset(freshlyInactive, NOW).action).toBe('none');
   });
 
   describe('re-probe — the exit `reactivate` alone cannot provide (issue #5559)', () => {
     it('grants a one-time re-probe once a plain inactive subscriber has been silent long enough', () => {
-      const longSilent = { status: 'inactive', open_count: 0, click_count: 0, inactive_at: daysAgo(REPROBE_AFTER_INACTIVE_DAYS + 1) };
+      const longSilent = { status: 'inactive', open_count: 0, click_count: 0, inactive_at: daysAgo(REPROBE_AFTER_INACTIVE_DAYS + 1), confirmed_at: daysAgo(200) };
       expect(classifySunset(longSilent, NOW).action).toBe('reprobe');
     });
 
     it('does not re-probe before the silence window elapses', () => {
-      const notYet = { status: 'inactive', open_count: 0, click_count: 0, inactive_at: daysAgo(REPROBE_AFTER_INACTIVE_DAYS - 1) };
+      const notYet = { status: 'inactive', open_count: 0, click_count: 0, inactive_at: daysAgo(REPROBE_AFTER_INACTIVE_DAYS - 1), confirmed_at: daysAgo(200) };
       expect(classifySunset(notYet, NOW).action).toBe('none');
     });
 
@@ -110,6 +117,7 @@ describe('classifySunset', () => {
         click_count: 0,
         sunset_reprobe_count: REPROBE_MAX_ATTEMPTS,
         sunset_reprobed_at: daysAgo(REPROBE_AFTER_INACTIVE_DAYS + 30),
+        confirmed_at: daysAgo(200),
       };
       expect(classifySunset(alreadyTried, NOW).action).toBe('none');
     });
@@ -122,6 +130,7 @@ describe('classifySunset', () => {
         inactive_at: daysAgo(REPROBE_AFTER_INACTIVE_DAYS + 1),
         reprobe_count: 99, // scripts/suppression-decay.mjs's own counter, unrelated mechanism
         reprobed_at: daysAgo(1), // ditto
+        confirmed_at: daysAgo(200),
       };
       expect(classifySunset(exhaustedElsewhere, NOW).action).toBe('reprobe');
     });
@@ -132,6 +141,7 @@ describe('classifySunset', () => {
         sunset_source: 'dormant_winback',
         inactive_at: daysAgo(REPROBE_AFTER_INACTIVE_DAYS + 1),
         open_count: 4, // historical engagement predating the sunset — still no exit without re-probe
+        confirmed_at: daysAgo(200),
       };
       expect(classifySunset(doc, NOW).action).toBe('reprobe');
     });
@@ -141,6 +151,10 @@ describe('classifySunset', () => {
     for (const status of ['unsubscribed', 'bounced', 'complained', 'suppressed']) {
       expect(classifySunset(zombie({ status }), NOW).action).toBe('none');
     }
+  });
+
+  it('does not re-probe or win back an explicit global stop-all address', () => {
+    expect(classifySunset(zombie({ all_email_opted_out: true }), NOW).action).toBe('none');
   });
 
   it('treats a missing status as mailable', () => {
@@ -162,6 +176,7 @@ describe('classifySunset', () => {
         inactive_at: daysAgo(5),
         open_count: 3, // historical engagement predating the sunset — must not resurrect it
         click_count: 1,
+        confirmed_at: daysAgo(200),
       };
       expect(classifySunset(doc, NOW).action).toBe('none');
     });
@@ -173,6 +188,7 @@ describe('classifySunset', () => {
         inactive_at: daysAgo(5),
         open_count: 4,
         last_open_at: daysAgo(1), // after inactive_at
+        confirmed_at: daysAgo(200),
       };
       expect(classifySunset(doc, NOW).action).toBe('reactivate');
     });
@@ -184,6 +200,7 @@ describe('classifySunset', () => {
         inactive_at: daysAgo(5),
         open_count: 4,
         last_open_at: daysAgo(5), // not strictly after
+        confirmed_at: daysAgo(200),
       };
       expect(classifySunset(doc, NOW).action).toBe('none');
     });
@@ -194,12 +211,13 @@ describe('classifySunset', () => {
         sunset_source: 'dormant_winback',
         inactive_at: daysAgo(5),
         open_count: 4, // engaged, but no last_open_at/last_click_at to prove it's fresh
+        confirmed_at: daysAgo(200),
       };
       expect(classifySunset(doc, NOW).action).toBe('none');
     });
 
     it('still reactivates a plain (non dormant_winback) inactive subscriber on lifetime engagement, unaffected', () => {
-      expect(classifySunset({ status: 'inactive', open_count: 1 }, NOW).action).toBe('reactivate');
+      expect(classifySunset({ status: 'inactive', open_count: 1, confirmed_at: daysAgo(200) }, NOW).action).toBe('reactivate');
     });
   });
 });

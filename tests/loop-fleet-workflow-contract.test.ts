@@ -94,6 +94,9 @@ describe('loop fleet workflow contract', () => {
   it('fa leggere L10 dal ledger health canonico', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'loop-l10-fleet-control.yml'), 'utf8');
     expect(source).toContain('data/loop-fleet/ledger/loop-health-history.jsonl');
+    expect(source).toContain('collect-independent-fleet-outcome.mjs');
+    expect(source).toContain('--independent-outcome "$REPORT_DIR/independent-fleet-outcome.json"');
+    expect(source).toContain('actions: read');
     expect(source).not.toContain('data/loop-health-history.jsonl');
   });
 
@@ -118,6 +121,7 @@ describe('loop fleet workflow contract', () => {
     expect(source).toContain('actions: read');
     expect(source).toContain('--strict');
     expect(source).toContain('inputs.strict');
+    expect(source).toContain("- 'scripts/lib/loop-fleet-contract.mjs'");
     expect(source).not.toMatch(/issues:\s*write|contents:\s*write|pull-requests:\s*write/u);
   });
 

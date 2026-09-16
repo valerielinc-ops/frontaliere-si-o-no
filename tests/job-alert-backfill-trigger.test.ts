@@ -2,10 +2,9 @@ import { describe, expect, it } from 'vitest';
 import { handleNewsletterSubscriberCreated } from '../functions/src/jobAlertBackfillTrigger.js';
 import { getSignalTier, signalTierChanged, resolveSignalTier, MAX_ALERTS_PER_USER } from '../functions/src/jobAlertBackfillCore.js';
 
-// The affirmative, job-alert-scoped consent `shouldSkipSubscriber` requires
-// since #5705. Spread by the tests that exercise the mechanics BEYOND the gate
-// (cap, idempotence, patch merge); every test that omits it is asserting the
-// gate itself.
+// Kept on a few fixtures to prove that historical explicit records still
+// round-trip through the same mechanics. It is not required for the base
+// relationship: registration terms cover newsletter + job alerts.
 import { JOB_ALERT_CONSENT } from './helpers/jobAlertConsent';
 
 interface AlertDoc {
@@ -97,11 +96,11 @@ describe('handleNewsletterSubscriberCreated — meta sentinel', () => {
 });
 
 describe('handleNewsletterSubscriberCreated — skip reasons', () => {
-  it('skips a subscriber with no job or location signal', async () => {
+  it('creates the broad backfill when registration has no signal yet', async () => {
     const db = fakeDb();
     const result = await handleNewsletterSubscriberCreated('a@b.ch', {}, { db: db as any });
-    expect(result).toEqual({ created: false, reason: 'no-signal' });
-    expect(db.writes).toHaveLength(0);
+    expect(result).toEqual({ created: true, tier: 'newsletter_subscribers:unknown' });
+    expect(db.writes.some((w) => w.path.includes('/alerts/backfill-newsletter'))).toBe(true);
   });
 
   it('skips a suppressed/unsubscribed subscriber even with job signal', async () => {
@@ -154,7 +153,7 @@ describe('handleNewsletterSubscriberCreated — cap enforcement', () => {
 });
 
 describe('handleNewsletterSubscriberCreated — creation', () => {
-  it('creates an alert for a job-signal subscriber who affirmatively consented to job alerts', async () => {
+  it('creates an alert for a job-board registration and carries its category as the initial keyword', async () => {
     const db = fakeDb();
     const result = await handleNewsletterSubscriberCreated(
       'a@b.ch',
@@ -166,7 +165,7 @@ describe('handleNewsletterSubscriberCreated — creation', () => {
     const alertWrite = db.writes.find((w) => w.path.includes('/alerts/backfill-newsletter'));
     expect(alertWrite).toBeDefined();
     expect(alertWrite?.payload.active).toBe(true);
-    expect(alertWrite?.payload.keywords).toEqual([]);
+    expect(alertWrite?.payload.keywords).toEqual(['tech']);
   });
 
   it('creates a location-fallback alert when there is no job signal but a location one', async () => {
@@ -205,15 +204,10 @@ describe('handleNewsletterSubscriberCreated — creation', () => {
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
-// #5705 — the invariant this file exists to protect from here on.
-//
-// The tests above USED to be the whole story: every one of them passed a
-// subscriber with an inferred signal and asserted an alert was created. That is
-// the defect, encoded as an expectation — 7.167 alerts against 578 a person
-// asked for. They now carry an explicit consent fixture, and the block below
-// pins what happens without it, tier by tier, for both trigger entry points.
+// Registration terms establish the base relationship. Signal tiers only
+// personalize the first alert; they are not consent gates.
 // ─────────────────────────────────────────────────────────────────────────────
-describe('handleNewsletterSubscriberCreated — no alert without affirmative job-alert consent (#5705)', () => {
+describe('handleNewsletterSubscriberCreated — all registration tiers use the terms-based base relationship', () => {
   const cases: Array<[string, Record<string, unknown>, Record<string, unknown> | null]> = [
     ['tier 1 — a job_category filled into a signup form', { job_category: 'tech', source_channel: 'job_gate' }, null],
     ['tier 2 — an IP-geolocated city', { geo_city: 'Lugano', source_channel: 'popup' }, null],
@@ -230,18 +224,18 @@ describe('handleNewsletterSubscriberCreated — no alert without affirmative job
   ];
 
   for (const [label, data, personalization] of cases) {
-    it(`writes nothing for ${label}`, async () => {
+    it(`creates the backfill for ${label} without a second checkbox`, async () => {
       const db = fakeDb();
       const result = await handleNewsletterSubscriberCreated('a@b.ch', data, {
         db: db as any,
         personalization: personalization as any,
       });
-      expect(result).toEqual({ created: false, reason: 'no-job-alert-consent' });
-      expect(db.writes).toHaveLength(0);
+      expect(result.created, label).toBe(true);
+      expect(db.writes.some((w) => w.path.includes('/alerts/backfill-newsletter')), label).toBe(true);
     });
   }
 
-  it('writes nothing for the newsletter consent the 6.308 were enrolled under — it never names job ads', async () => {
+  it('does not require the historical newsletter formula to name job alerts', async () => {
     const db = fakeDb();
     const result = await handleNewsletterSubscriberCreated(
       'a@b.ch',
@@ -255,14 +249,10 @@ describe('handleNewsletterSubscriberCreated — no alert without affirmative job
       },
       { db: db as any },
     );
-    expect(result).toEqual({ created: false, reason: 'no-job-alert-consent' });
-    expect(db.writes).toHaveLength(0);
+    expect(result.created).toBe(true);
   });
 
-  it('writes nothing when the notice names job alerts but the act was a sign-in, not a request', async () => {
-    // `jobUnlockSocial` in services/consentTexts.ts: the text does name the
-    // avvisi di lavoro, and says in so many words that no consent box was
-    // offered. An authentication is not an opt-in.
+  it('does not treat the historical authentication record as a separate gate', async () => {
     const db = fakeDb();
     const result = await handleNewsletterSubscriberCreated(
       'a@b.ch',
@@ -275,8 +265,7 @@ describe('handleNewsletterSubscriberCreated — no alert without affirmative job
       },
       { db: db as any },
     );
-    expect(result).toEqual({ created: false, reason: 'no-job-alert-consent' });
-    expect(db.writes).toHaveLength(0);
+    expect(result.created).toBe(true);
   });
 });
 
@@ -323,15 +312,14 @@ describe('resolveSignalTier — tier-3 personalization fallback', () => {
 });
 
 describe('handleNewsletterSubscriberCreated — tier-3 personalization fallback', () => {
-  it('skips when flat fields are empty and no personalization dep is passed (no drift for the flat-field trigger)', async () => {
+  it('creates the broad alert when flat fields are empty and no personalization dep is passed', async () => {
     const db = fakeDb();
     const result = await handleNewsletterSubscriberCreated(
       'a@b.ch',
       { source_channel: 'popup' },
       { db: db as any },
     );
-    expect(result.created).toBe(false);
-    expect(result.reason).toBe('no-signal');
+    expect(result).toEqual({ created: true, tier: 'newsletter_subscribers:popup' });
   });
 
   it('creates a personalization-fallback alert and merges the derived patch onto the parent doc', async () => {
@@ -350,15 +338,14 @@ describe('handleNewsletterSubscriberCreated — tier-3 personalization fallback'
     expect(parentWrite?.payload).toMatchObject({ location_interest: 'Mendrisio', job_category: 'IT / Tecnologia' });
   });
 
-  it('does not derive personalization-fallback when browsing data has nothing usable', async () => {
+  it('keeps the broad alert when browsing data has nothing usable', async () => {
     const db = fakeDb();
     const result = await handleNewsletterSubscriberCreated(
       'a@b.ch',
       { source_channel: 'popup' },
       { db: db as any, personalization: { viewedJobs: [], filterUsage: {} } },
     );
-    expect(result.created).toBe(false);
-    expect(result.reason).toBe('no-signal');
+    expect(result).toEqual({ created: true, tier: 'newsletter_subscribers:popup' });
   });
 
   it('derives personalization-fallback from a bare search query with no viewed jobs', () => {
@@ -454,14 +441,13 @@ describe('handleNewsletterSubscriberCreated — tier-4 URL fallback', () => {
     expect(parentWrite?.payload).toMatchObject({ location_interest: 'ti' });
   });
 
-  it('does not derive url-fallback from a non-job-board URL', async () => {
+  it('creates the broad alert when the source URL is not a job-board page', async () => {
     const db = fakeDb();
     const result = await handleNewsletterSubscriberCreated(
       'a@b.ch',
       { source_channel: 'popup', consent_source_url: 'https://frontaliereticino.ch/blog/some-article/' },
       { db: db as any },
     );
-    expect(result.created).toBe(false);
-    expect(result.reason).toBe('no-signal');
+    expect(result).toEqual({ created: true, tier: 'newsletter_subscribers:popup' });
   });
 });

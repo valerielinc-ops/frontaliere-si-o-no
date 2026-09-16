@@ -27,13 +27,9 @@ import { unlockAchievement } from '@/services/gamificationService';
 import {
  upsertNewsletterSubscriber,
  markNewsletterSubscribedLocally,
- getEmailProviderInfo,
- openEmailProvider,
- requestConfirmationEmail,
 } from '@/services/newsletterSubscribers';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
-import ConsentNotice from '@/components/shared/ConsentNotice';
-import { consentProof } from '@/services/consentTexts';
+import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import { useAuth } from '@/services/authService';
 import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
 
@@ -78,10 +74,8 @@ const SubscriptionCTA: React.FC = () => {
  // Shared eligibility logic lives in services/newsletterCtaState.ts.
  const [visible, setVisible] = useState(isNewsletterCtaEligible);
  const [email, setEmail] = useState('');
- const [consentChecked, setConsentChecked] = useState(false);
- const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'pending' | 'error' | 'exists'>('idle');
+ const [status, setStatus] = useState<'idle' | 'loading' | 'pending' | 'success' | 'error' | 'exists'>('idle');
  const [errorMessage, setErrorMessage] = useState('');
- const [resendStatus, setResendStatus] = useState<'idle' | 'sending' | 'sent' | 'cooldown' | 'error'>('idle');
 
  useEffect(() => {
  if (visible) {
@@ -103,12 +97,6 @@ const SubscriptionCTA: React.FC = () => {
  setStatus('error');
  return;
  }
- if (!consentChecked) {
- setErrorMessage(t('newsletter.consentRequired'));
- setStatus('error');
- return;
- }
-
  setStatus('loading');
 
  try {
@@ -129,27 +117,26 @@ const SubscriptionCTA: React.FC = () => {
  sourceComponent: 'SubscriptionCTA',
  sourceRouteFamily: 'calculator',
  locale: navigator.language || 'it-IT',
-        isActive: false,
-        status: 'pending',
-        // The checked form is an explicit request for a new DOI cycle after a
-        // previous opt-out; it is not proof that the address is confirmed.
-        reconsent: true,
-        // Shown by the ConsentNotice on the checkbox below, in this same
- // locale, and stored from the same function (#5712/#5718).
- ...consentProof('communicationsOptIn', 'email_checkbox', locale),
- consentGiven: true,
+ registrationMethod: 'email',
  }),
  8000,
  'newsletter_upsert',
  );
 
- if (upsert.existed && upsert.status !== 'pending') {
+ const needsConfirmation = upsert.status === 'pending' && !upsert.hadConfirmationProof;
+ if (upsert.existed && !needsConfirmation) {
  setStatus('exists');
  return;
  }
 
- markNewsletterSubscribedLocally();
+ if (needsConfirmation) {
  setStatus('pending');
+ Analytics.trackUIInteraction('newsletter_cta', 'form', 'subscribe', 'confirmation_pending');
+ return;
+ }
+
+ markNewsletterSubscribedLocally();
+ setStatus('success');
  unlockAchievement('newsletter_sub');
  Analytics.trackUIInteraction('newsletter_cta', 'form', 'subscribe', 'success');
  } catch (error: any) {
@@ -160,67 +147,23 @@ const SubscriptionCTA: React.FC = () => {
 
  if (!visible || user) return null;
 
- if (status === 'success' || status === 'pending') {
+ if (status === 'pending') {
  return (
- <div className={`mt-6 p-5 rounded-2xl text-center border ${
- status === 'pending'
- ? 'bg-gradient-to-r from-warning-subtle to-warning-subtle border-warning-border'
- : 'bg-gradient-to-r from-success-subtle to-info-subtle border-success-border'
- }`}>
- {status === 'pending' ? (
- <>
- <Mail className="w-10 h-10 text-warning mx-auto mb-2" />
+ <div className="mt-6 p-5 rounded-2xl text-center border bg-info-subtle border-info-border" role="status" aria-live="polite">
+ <Mail className="w-10 h-10 text-info mx-auto mb-2" />
  <p className="font-bold text-strong">{t('newsletter.doubleOptIn.title')}</p>
- <p className="text-xs text-subtle mt-1">{t('newsletter.doubleOptIn.description')}</p>
+ <p className="text-sm text-subtle mt-1">{t('newsletter.doubleOptIn.description')}</p>
  <p className="text-xs text-muted mt-2">{t('newsletter.doubleOptIn.spamHint')}</p>
-
- {/* FRO-23: Email provider button */}
- {email && (() => {
- const provider = getEmailProviderInfo(email);
- if (!provider) return null;
- return (
- <button
- onClick={() => openEmailProvider(email)}
- className="mt-3 inline-flex items-center gap-2 px-4 py-2 bg-warning-strong hover:bg-warning-strong-hover text-on-accent text-xs font-semibold rounded-xl transition-colors"
- >
- <Mail className="w-3.5 h-3.5" />
- {t('newsletter.openEmailProvider', { provider: provider.name })}
- </button>
- );
- })()}
-
- {/* FRO-26: Resend confirmation */}
- {email && (
- <div className="mt-2">
- <button
- disabled={resendStatus === 'sending' || resendStatus === 'sent'}
- onClick={async () => {
- setResendStatus('sending');
- try {
- const result = await requestConfirmationEmail(email);
- setResendStatus(result.success ? 'sent' : result.error === 'cooldown_active' ? 'cooldown' : 'error');
- } catch {
- setResendStatus('error');
- }
- }}
- className="text-xs font-medium text-warning underline underline-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
- >
- {resendStatus === 'sending' ? '...' :
- resendStatus === 'sent' ? t('newsletter.resendConfirmationSent') :
- resendStatus === 'cooldown' ? t('newsletter.resendConfirmationCooldown') :
- resendStatus === 'error' ? t('newsletter.resendConfirmationError') :
- t('newsletter.resendConfirmation')}
- </button>
  </div>
- )}
- </>
- ) : (
- <>
+ );
+ }
+
+ if (status === 'success') {
+ return (
+ <div className="mt-6 p-5 rounded-2xl text-center border bg-gradient-to-r from-success-subtle to-info-subtle border-success-border">
  <CheckCircle2 className="w-10 h-10 text-success mx-auto mb-2" />
  <p className="font-bold text-strong">{t('newsletter.subscriptionConfirmed')}</p>
  <p className="text-sm text-subtle mt-1">{t('newsletter.subscriptionConfirmedDesc')}</p>
- </>
- )}
  </div>
  );
  }
@@ -305,15 +248,12 @@ const SubscriptionCTA: React.FC = () => {
  )}
  </button>
  </div>
- <label className="flex items-start gap-2 cursor-pointer">
- <input
- type="checkbox"
- checked={consentChecked}
- onChange={(e) => { setConsentChecked(e.target.checked); setStatus('idle'); }}
- className="mt-0.5 w-4 h-4 rounded text-info focus-visible:ring-info shrink-0"
+ <EmailConsentCheckbox
+   id="subscription-cta-consent"
+   consentKey="communicationsOptIn"
+   locale={locale}
+   className="flex items-start gap-2"
  />
- <ConsentNotice consentKey="communicationsOptIn" locale={locale} />
- </label>
  </form>
 
  {/* Errors */}

@@ -2204,7 +2204,14 @@ describe('production spec runtime', () => {
       expect(source, name).toContain('listing.addressRegion');
       expect(source, name).toContain('listing.postalCode');
       expect(source, name).toContain('listing.streetAddress');
-      expect(source, name).toContain('if (!descriptionText) continue;');
+      // I parseri prodotti devono scartare anche descrizioni vuote. La forma
+      // minima è usata dallo scaffold; i parser con soglia di qualità possono
+      // usare direttamente una guardia più forte, che copre anche il caso vuoto.
+      expect(
+        source.includes('if (!descriptionText) continue;')
+          || source.includes('if (descriptionText.split(/\\s+/).filter(Boolean).length < MIN_DESCRIPTION_WORDS) continue;'),
+        `${name}: description guard`,
+      ).toBe(true);
       expect(source, name).not.toMatch(/description(?:ByLocale)?:.*descriptionText\s*\|\|/);
     }
     const scaffold = fs.readFileSync(path.resolve(process.cwd(), 'scripts/scaffold-crawler.mjs'), 'utf8');

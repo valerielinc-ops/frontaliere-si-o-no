@@ -468,7 +468,7 @@ const translations: Record<string, string> = {
  'results.salaryAlert.capture.emailLabel': 'Il tuo indirizzo email',
  'results.salaryAlert.capture.emailCta': 'Ricevi il link di accesso',
  'results.salaryAlert.capture.checkEmailTitle': 'Controlla la tua email',
- 'results.salaryAlert.capture.checkEmailBody': 'Ti abbiamo inviato il link. Aprilo per accedere e attivare automaticamente l’alert per questo netto.',
+ 'results.salaryAlert.capture.checkEmailBody': 'Ti abbiamo inviato un link. Aprilo per confermare l’indirizzo e accedere: l’alert per questo netto verrà attivato automaticamente.',
 
  // Multi-canton net comparison (#4471)
  'results.cantonCompare.title': 'Lo stesso lavoro in altri cantoni',
@@ -492,7 +492,8 @@ const translations: Record<string, string> = {
  'calculator.paywall.submit': 'Ricevi il PDF',
  'calculator.paywall.submitting': 'Invio in corso...',
  'calculator.paywall.dismissLabel': 'Non mostrare più',
- 'calculator.paywall.privacyNote': 'Solo per il PDF. Niente spam: puoi cancellarti in qualsiasi momento.',
+ 'calculator.paywall.privacyNote': 'Puoi gestire le preferenze o revocare il consenso in qualsiasi momento.',
+ 'calculator.paywall.consentRequired': 'Seleziona il consenso per ricevere il PDF e le comunicazioni email.',
  'calculator.paywall.successToast': 'PDF inviato! Controlla la tua casella email.',
  'calculator.paywall.errorToast': 'Impossibile inviare il PDF. Controlla l\u2019email e riprova.',
  'calculator.regimeScope.notice': 'Questo calcolo applica il regime frontalieri Italia-Svizzera: imposta alla fonte ticinese e IRPEF italiana con franchigia. Non vale per chi risiede in Francia, Germania, Austria o Liechtenstein, dove si applicano accordi diversi.',

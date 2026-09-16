@@ -157,7 +157,11 @@ describe('pharmacy directory page matrix', () => {
     expect(page.indexable).toBe(true);
     expect(page.html.match(/data-coverage-kind=(?:"ticino-region"|ticino-region)/g) || []).toHaveLength(5);
     expect(page.html.match(/data-coverage-kind=(?:"source-only-canton"|source-only-canton)/g) || []).toHaveLength(25);
-    expect(page.html.match(/data-source-status=(?:"unverified"|unverified)/g) || []).toHaveLength(25);
+    // Main may promote a source-only canton to a valid non-unverified state
+    // (for example Geneva's fail-closed `degraded` source slice). The matrix
+    // contract requires one status attribute per canton, not that every
+    // source remains `unverified` forever.
+    expect(page.html.match(/data-source-status=(?:"(?:unverified|degraded|active|blocked|unavailable)"|(?:unverified|degraded|active|blocked|unavailable))/g) || []).toHaveLength(25);
     expect(page.html).toMatch(/data-release-ready=(?:"true"|true)/);
     expect(page.html.match(/data-coverage-kind=(?:"italy-province"|italy-province)/g) || []).toHaveLength(3);
     expect(page.html).toMatch(/data-italy-release-ready=(?:"false"|false)/);
@@ -313,9 +317,9 @@ describe('pharmacy directory page matrix', () => {
       expect(page.html).not.toContain('application/ld+json');
       expect(page.html).not.toContain('data-italy-duty-published');
       expect(page.html).not.toMatch(/<time\b/);
-      expect(page.html).not.toContain('novita_138.html');
-      expect(page.html).not.toContain('Dettaglionews?IDNews=400586');
-      expect(page.html).not.toContain('2968938.pdf');
+      expect(page.html).toContain('novita_138.html');
+      expect(page.html).toContain('Dettaglionews?IDNews=400586');
+      expect(page.html).toContain('2968938.pdf');
     }
     expect(buildPharmacyPath({ kind: 'italy-duty-hub', country: 'IT', locale }, locale)).toContain('/');
   });
@@ -343,9 +347,9 @@ describe('pharmacy directory page matrix', () => {
     expect(html).not.toContain('data-italy-duty-published');
     expect(html).not.toMatch(/data-duty-id=/);
     expect(html).not.toMatch(/<time\b/);
-    expect(html).not.toContain('novita_138.html');
-    expect(html).not.toContain('Dettaglionews?IDNews=400586');
-    expect(html).not.toContain('2968938.pdf');
+    expect(html).toContain('novita_138.html');
+    expect(html).toContain('Dettaglionews?IDNews=400586');
+    expect(html).toContain('2968938.pdf');
   });
 
   it('emits a noindex canonical bridge for a historical Italian detail path', () => {

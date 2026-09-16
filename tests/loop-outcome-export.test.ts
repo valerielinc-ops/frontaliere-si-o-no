@@ -412,9 +412,15 @@ describe('read-only loop outcome exporters', () => {
   });
 
   it('keeps the L7 ledger fail-closed when canonical experiment evidence is absent or unsafe', async () => {
+    expect(() => buildL7ExperimentLedgerQuery({
+      start: '2026-09-05T12:00:00.000Z',
+      end: NOW.toISOString(),
+    })).toThrow('L7 policy is required');
+
     const query = buildL7ExperimentLedgerQuery({
       start: '2026-09-05T12:00:00.000Z',
       end: NOW.toISOString(),
+      policy: L7_POLICY,
     });
     expect(query).toContain("event IN ('experiment_assignment', 'experiment_exposure', 'experiment_outcome', 'experiment_guardrail')");
     expect(query).toContain("properties.loop_id = 'L7'");
@@ -536,7 +542,7 @@ describe('read-only loop outcome exporters', () => {
       now: NOW,
       outputPath: path.join(outputDir, 'outcomes.json'),
       client: postHogClient() as any,
-      policy: L7_POLICY,
+      registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
       posthogRunner: async () => ({
         columns: Object.keys(completeAggregate),
         results: [Object.values(completeAggregate)],
@@ -617,6 +623,7 @@ describe('read-only loop outcome exporters', () => {
       stripeEventRows: [row('stripe_events/e1', { type: 'invoice.paid', processedAt: '2026-09-12T11:00:00.000Z' })],
     });
     expect(output).toMatchObject({
+      independent: true,
       eligibleEmployerAccounts: 1,
       paidActivations: 1,
       activeSubscriptions: 1,

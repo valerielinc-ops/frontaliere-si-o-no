@@ -74,6 +74,10 @@ const TI_POLCA_SOURCE_NAME = 'Dipartimento del territorio – Canton Ticino';
 const TI_POLCA_SOURCE_URL = 'https://www.ti.ch/webcam';
 const SITG_CAMERA_SOURCE_NAME = 'SITG / Canton Genève – INFOMOB_CAMERA';
 const SITG_CAMERA_SOURCE_URL = 'https://sitg.ge.ch/donnees/infomob-camera';
+// SITG publishes compact official 400x225 JPEG frames. The generic watchdog
+// floor is tuned for the much larger Ticino GIFs; use the same low-res-safe
+// floor for every SITG feed so a valid compressed frame is not paged as broken.
+const SITG_CAMERA_MIN_BYTES = 1500;
 
 export const borderCrossings: BorderCrossing[] = [
  // COMO - TICINO
@@ -2172,6 +2176,7 @@ export const borderCrossings: BorderCrossing[] = [
    sourceName: SITG_CAMERA_SOURCE_NAME,
    sourceUrl: SITG_CAMERA_SOURCE_URL,
    refreshIntervalMs: 60000,
+   minBytes: SITG_CAMERA_MIN_BYTES,
    license: 'Immagine pubblicata dal dataset ufficiale INFOMOB del SITG',
   },
  ],
@@ -2196,6 +2201,7 @@ export const borderCrossings: BorderCrossing[] = [
    sourceName: SITG_CAMERA_SOURCE_NAME,
    sourceUrl: SITG_CAMERA_SOURCE_URL,
    refreshIntervalMs: 60000,
+   minBytes: SITG_CAMERA_MIN_BYTES,
    license: 'Immagine pubblicata dal dataset ufficiale INFOMOB del SITG',
   },
  ],
@@ -2220,6 +2226,7 @@ export const borderCrossings: BorderCrossing[] = [
    sourceName: SITG_CAMERA_SOURCE_NAME,
    sourceUrl: SITG_CAMERA_SOURCE_URL,
    refreshIntervalMs: 60000,
+   minBytes: SITG_CAMERA_MIN_BYTES,
    license: 'Immagine pubblicata dal dataset ufficiale INFOMOB del SITG',
   },
  ],
@@ -2272,6 +2279,7 @@ export const borderCrossings: BorderCrossing[] = [
    sourceName: SITG_CAMERA_SOURCE_NAME,
    sourceUrl: SITG_CAMERA_SOURCE_URL,
    refreshIntervalMs: 60000,
+   minBytes: SITG_CAMERA_MIN_BYTES,
    license: 'Immagine pubblicata dal dataset ufficiale INFOMOB del SITG',
   },
  ],

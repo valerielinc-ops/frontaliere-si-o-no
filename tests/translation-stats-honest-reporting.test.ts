@@ -10,10 +10,14 @@ import {
   emptyCounters,
   finalizeEntry,
   formatReport,
+  formatGenderFormRate,
+  selectGenderFormSample,
+  buildGenderFormRepairReport,
   slotsPresentByLength,
   isLanguageVerified,
   beforeCohortWarning,
 } from '../scripts/log-translation-stats.mjs';
+import { genderFormTargetResidual } from '../scripts/mark-mistranslated-jobs.mjs';
 import {
   formatFlaggedRate,
   collectBlockingIssues,
@@ -619,5 +623,122 @@ describe("l'età alla completezza (#17) — il numero che uno snapshot non può 
   it('non segnala una coorte before presente, anche se vuota', () => {
     expect(beforeCohortWarning('after', new Set())).toBeNull();
     expect(beforeCohortWarning('before', null)).toBeNull();
+  });
+});
+
+describe('gender-form repair cohort — la misura del dopo (#7991)', () => {
+  const SOURCE = 'Zimmermann/Zimmerin mit vielseitiger Erfahrung';
+
+  function genderFormJob(url: string, overrides: Job = {}): Job {
+    return slotComplete({
+      url,
+      slug: url,
+      title: SOURCE,
+      needsRetranslation: true,
+      titleByLocale: {
+        de: SOURCE,
+        it: 'Zimmermann/Zimmerin con esperienza versatile',
+        en: 'Carpenter with versatile experience',
+        fr: 'Charpentier avec expérience polyvalente',
+      },
+      ...overrides,
+    });
+  }
+
+  it('sceglie sempre lo stesso campione, indipendentemente dallordine dei crawler', () => {
+    const records = Array.from({ length: 140 }, (_, index) => ({
+      id: `https://example.invalid/jobs/${index}`,
+      beforeSourceTitleHash: `hash-${index}`,
+    }));
+    const sample = selectGenderFormSample(records);
+    const reversed = selectGenderFormSample([...records].reverse());
+
+    expect(sample).toEqual(reversed);
+    expect(sample).toHaveLength(120);
+    expect(new Set(sample.map((record) => record.id)).size).toBe(120);
+  });
+
+  it('misura solo un job campionato che ha davvero lasciato la coda', () => {
+    const before = genderFormJob('u-gender');
+    const after = genderFormJob('u-gender', {
+      needsRetranslation: undefined,
+      titleByLocale: {
+        de: SOURCE,
+        it: 'Falegname con esperienza versatile',
+        en: 'Carpenter with versatile experience',
+        fr: 'Charpentier avec expérience polyvalente',
+      },
+    });
+    const candidates = summarizeJobs([before], { collectGenderFormCohort: true });
+    const actualSample = selectGenderFormSample(candidates.genderFormCohortCandidates);
+    const observed = summarizeJobs([after], {
+      previouslyGenderFormSample: new Map([[
+        'u-gender',
+        { id: 'u-gender', beforeSourceTitleHash: 'wrong-source-hash' },
+      ]]),
+    });
+
+    expect(candidates.genderFormQueuedCandidates).toBe(1);
+    expect(candidates.genderFormCohortCandidates).toHaveLength(1);
+    const measured = summarizeJobs([after], {
+      previouslyGenderFormSample: new Map(actualSample.map((record) => [record.id, record])),
+    });
+    expect(observed.genderFormSampleProcessed).toBe(0); // wrong hash is fail-closed
+    expect(measured.genderFormSampleProcessed).toBe(1);
+    expect(measured.genderFormSampleResidual).toBe(0);
+    expect(genderFormTargetResidual(after)).toBe(false);
+
+    const changedSourceLanguage = summarizeJobs([{
+      ...after,
+      sourceLang: 'it',
+      titleByLocale: {
+        it: 'Falegname con esperienza versatile',
+        de: SOURCE,
+        en: 'Carpenter with versatile experience',
+        fr: 'Charpentier avec expérience polyvalente',
+      },
+    }], {
+      previouslyGenderFormSample: new Map(actualSample.map((record) => [record.id, record])),
+    });
+    expect(changedSourceLanguage.genderFormSampleProcessed).toBe(0);
+    expect(genderFormTargetResidual({ ...after, sourceLang: 'it' })).toBe(false);
+  });
+
+  it('non chiama misurato un campione parzialmente drenato', () => {
+    expect(buildGenderFormRepairReport({
+      phase: 'after',
+      cohortAvailable: true,
+      sampled: 120,
+      processed: 119,
+      residual: 2,
+    })).toMatchObject({
+      measured: false,
+      status: 'partial',
+      residualRate: 2 / 119,
+    });
+    expect(formatGenderFormRate(1, 120)).toBe('0.9%');
+  });
+
+  it('mantiene il tasso residuo come osservazione separata dal verdetto di completezza', () => {
+    const entry = finalizeEntry(emptyCounters(), {
+      label: 'after',
+      genderFormRepair: {
+        phase: 'after',
+        cohortAvailable: true,
+        sampled: 120,
+        processed: 120,
+        residual: 3,
+      },
+    });
+    expect(entry.genderFormRepair).toMatchObject({
+      measured: true,
+      status: 'measured',
+      sampled: 120,
+      processed: 120,
+      residual: 3,
+      residualRate: 3 / 120,
+    });
+    expect(formatReport(entry).join('\n')).toContain('Gender-form after:');
+    expect(formatReport(entry).join('\n')).toContain('3/120 (2.5%)');
   });
 });
