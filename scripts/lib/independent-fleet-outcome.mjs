@@ -11,7 +11,10 @@
  */
 import { buildOutcome } from './loop-fleet-contract.mjs';
 
-const SKIPPED_CONCLUSIONS = new Set(['skipped']);
+// The durable-ledger bridge deliberately does not persist cancelled source
+// runs. Keep the independent denominator aligned with that contract while
+// retaining the excluded count in the reconciliation metrics.
+const EXCLUDED_CONCLUSIONS = new Set(['skipped', 'cancelled']);
 
 function object(value) {
   return Boolean(value && typeof value === 'object' && !Array.isArray(value));
@@ -151,8 +154,10 @@ export function buildIndependentFleetControlOutcome({
     }
   }
 
-  const eligibleRuns = [...runById.values()].filter((run) => !SKIPPED_CONCLUSIONS.has(String(run.conclusion).toLowerCase()));
+  const excludedRuns = [...runById.values()].filter((run) => EXCLUDED_CONCLUSIONS.has(String(run.conclusion).toLowerCase()));
+  const eligibleRuns = [...runById.values()].filter((run) => !EXCLUDED_CONCLUSIONS.has(String(run.conclusion).toLowerCase()));
   const eligibleIds = new Set(eligibleRuns.map(runId).filter(Boolean));
+  const excludedIds = new Set(excludedRuns.map(runId).filter(Boolean));
   for (const id of eligibleIds) {
     const run = runById.get(id);
     const row = healthByRun.get(id);
@@ -165,6 +170,7 @@ export function buildIndependentFleetControlOutcome({
     }
   }
   for (const id of healthByRun.keys()) {
+    if (excludedIds.has(id)) continue;
     if (!eligibleIds.has(id)) reconciliationErrors.push(`canonical health execution ${id} has no eligible GitHub run in the window`);
   }
 
@@ -206,6 +212,7 @@ export function buildIndependentFleetControlOutcome({
     outcome,
     metrics: {
       eligibleRuns: eligibleRuns.length || null,
+      excludedRuns: excludedRuns.length,
       verifiedDecisions: measured ? verifiedDecisions : null,
       joinedRuns: joined.length,
       healthRows: health.length,

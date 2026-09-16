@@ -92,4 +92,16 @@ describe('independent fleet outcome', () => {
     expect(capped.outcome).toMatchObject({ status: 'partial', independent: false });
     expect(capped.reconciliation.errors.join(' ')).toContain('bounded');
   });
+
+  it('esclude dal denominatore i run cancellati che il bridge non persiste', () => {
+    const result = buildIndependentFleetControlOutcome({
+      ...common,
+      now: NOW,
+      healthRecords: [],
+      githubRuns: [run('101', 'cancelled')],
+    });
+
+    expect(result.outcome).toMatchObject({ status: 'unmeasurable', independent: false });
+    expect(result.metrics).toMatchObject({ eligibleRuns: null, excludedRuns: 1, reconciliationErrors: 0 });
+  });
 });
