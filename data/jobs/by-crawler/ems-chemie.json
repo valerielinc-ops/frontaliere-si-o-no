@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ems-chemie",
-  "assembledAt": "2026-09-16T09:21:45.668Z",
+  "assembledAt": "2026-09-16T21:41:38.892Z",
   "jobs": [
     {
       "title": "Assistenz Anwendungstechnik (m/w/d) 60%",
@@ -53,70 +53,6 @@
           "@type": "QuantitativeValue",
           "minValue": 46200,
           "maxValue": 76500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-16T09:21:33.961Z"
-    },
-    {
-      "title": "Assistenz Leiter Produktion (m/w/d) 50%",
-      "company": "EMS-Chemie AG",
-      "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/assistenz-leiter-produktion-m-w-d/5e79780d-c2c2-41a1-b05c-3fea9696856b",
-      "location": "Domat/Ems",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7013",
-      "streetAddress": "Via Innovativa 1",
-      "addressLocality": "Domat/Ems",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "science",
-      "description": "Assistenz Leiter Produktion (m/w/d) 50% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
-      "postedDate": "2026-09-16",
-      "source": "company-website",
-      "slug": "assistenz-leiter-produktion-m-w-d-50-ems-chemie-ag-domat-ems",
-      "slugByLocale": {
-        "it": "assistenz-leiter-produktion-m-w-d-50-ems-chemie-ag-domat-ems",
-        "en": "assistenz-leiter-produktion-m-w-d-50-ems-chemie-domat-ems",
-        "de": "assistenz-leiter-produktion-m-w-d-50-ems-chemie-domat-ems",
-        "fr": "assistenz-leiter-produktion-m-w-d-50-ems-chemie-domat-ems"
-      },
-      "titleByLocale": {
-        "it": "Assistente responsabile produzione (m/f/d) 50%",
-        "en": "Assistant Head of Production (m/f/d) 50%",
-        "de": "Assistenzleiter Produktion (m/w/d) 50%",
-        "fr": "Chef adjoint de la production (h/f/d) 50%"
-      },
-      "crawledAt": "",
-      "descriptionByLocale": {
-        "it": "Descrizione\n- Assistenz Leiter Produktion (m/w/d) 50% presso EMS-Chemie AG\n- Azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni)\n- EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo\n- Sede di lavoro: Domat/Ems",
-        "en": "Description - Assistantz Leiter Produktion (m/f/d) 50% at EMS-Chemie AG - A leading company in the field of special polymers and fine chemistry based in Domat/Ems (Grisons) - EMS-Chemie is the largest manufacturer of high performance polyamide worldwide, with about 3000 employees worldwide - Workplace: Domat/Ems",
-        "de": "Beschreibung - Assistantz Leiter Produktion (m/w/d) 50% bei EMS-Chemie AG - Ein führendes Unternehmen im Bereich Spezialpolymere und Feinchemie mit Sitz in Domat/Ems (Grisons) - EMS-Chemie ist der weltweit größte Hersteller von Hochleistungs-Polyamid mit weltweit rund 3000 Mitarbeitern - Arbeitsplatz: Domat/Ems",
-        "fr": "Description - Assistantz Leiter Produktion (h/f/d) 50% chez EMS-Chémie AG - Une entreprise leader dans le domaine des polymères spéciaux et de la chimie fine basée à Domat/Ems (Grisons) - EMS-Chémie est le plus grand fabricant de polyamide haute performance dans le monde, avec environ 3000 employés dans le monde - Milieu de travail: Domat/Ems"
-      },
-      "id": "ems-chemie-c1dc7e8663a8",
-      "sourceLang": "it",
-      "previousSlugsByLocale": {
-        "it": [
-          "assistenz-leiter-produktion-m-w-d-50-ems-chemie-domat-ems"
-        ]
-      },
-      "previousSlugs": [
-        "assistenz-leiter-produktion-m-w-d-50-ems-chemie-domat-ems"
-      ],
-      "salaryMin": 59000,
-      "salaryMax": 98000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 59000,
-          "maxValue": 98000,
           "unitText": "YEAR"
         }
       },
