@@ -89,6 +89,10 @@ jobs:
     # never fires, which is correct: no github-pages artifact was produced.
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
+    # GitHub-hosted jobs have a hard six-hour execution ceiling. Keep the
+    # publish tail explicit at that maximum so a future default change cannot
+    # shorten the window available to the extended Pages poll below.
+    timeout-minutes: 360
     permissions:
       pages: write
       id-token: write
@@ -289,10 +293,14 @@ jobs:
       # advanced (1780052190433 → 1780096323338). So a double action-failure is
       # NOT a real deploy failure — it just means the publish is still syncing.
       #
-      # This polls the github-pages DEPLOYMENT(s) for THIS sha for up to 40 min
+      # This polls the github-pages DEPLOYMENT(s) for THIS sha for up to 330 min
       # and goes GREEN when Pages reports success — so validate-live → publish
       # (IndexNow, Google Indexing API, GSC, previous-slug-winners sync,
       # last_known_good) finally run (issue #987).
+      #
+      # The deploy job is capped at 360 min. Keep 30 min for artifact
+      # download/upload, the two action attempts, and the diagnostic/close
+      # steps that surround this poll.
       #
       # ONLY `success` is a terminal GREEN. The action emits two attempts
       # (deployment_first + retry) → two Deployment objects per sha; on abort at
@@ -307,7 +315,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -uo pipefail
-          deadline=$(( $(date +%s) + 40*60 ))
+          deadline=$(( $(date +%s) + 330*60 ))
           while [ "$(date +%s)" -lt "$deadline" ]; do
             ids=$(gh api "repos/${GITHUB_REPOSITORY}/deployments?environment=github-pages&sha=${GITHUB_SHA}&per_page=20" --jq '.[].id' 2>/dev/null || echo "")
             if [ -n "$ids" ]; then
@@ -331,7 +339,7 @@ jobs:
             fi
             sleep 60
           done
-          echo "::error::GitHub Pages did not report success within 40 min for ${GITHUB_SHA} (publish stuck or genuinely failed)."
+          echo "::error::GitHub Pages did not report success within 330 min for ${GITHUB_SHA} (publish stuck or genuinely failed)."
           exit 1
 
       # Reporter diagnostico (#5437). SECONDA famiglia: gli opener che aprono
