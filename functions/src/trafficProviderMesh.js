@@ -18,6 +18,22 @@ const OPENROUTESERVICE_ROUTING_URL = 'https://api.heigit.org/openrouteservice/v2
 const STADIA_ROUTING_URL = 'https://api.stadiamaps.com/route/v1/driving';
 const REQUEST_TIMEOUT_MS = 12_000;
 
+// Firestore retries transactions that race with another writer, but a batch
+// of route segments in this process can otherwise keep colliding on the same
+// provider ledger until the SDK gives up. Serialise reservations per legacy
+// budget scope locally; separate runners remain protected by Firestore's
+// transaction itself.
+const reservationTails = new Map();
+
+function withProviderReservationLock(lockKey, task) {
+  const previous = reservationTails.get(lockKey) ?? Promise.resolve();
+  const current = previous.catch(() => undefined).then(task);
+  reservationTails.set(lockKey, current);
+  return current.finally(() => {
+    if (reservationTails.get(lockKey) === current) reservationTails.delete(lockKey);
+  });
+}
+
 function quotaLimit({ period, quotaScope, documentId = null, budgetEnv, defaultBudget, safeMaximum = defaultBudget }) {
   return Object.freeze({ period, quotaScope, documentId, budgetEnv, defaultBudget, safeMaximum });
 }
@@ -403,7 +419,7 @@ export async function reserveTrafficProviderRequest(providerId, operation = 'rou
     ? db.collection('meta').doc(`trafficProviderRate-${providerId}-${operation}`)
     : null;
 
-  return db.runTransaction(async (tx) => {
+  return withProviderReservationLock(legacyBudgetScope, () => db.runTransaction(async (tx) => {
     const snapshots = [];
     for (const item of quotaRefs) snapshots.push({ ...item, snap: await tx.get(item.ref) });
     const legacySnap = legacyIsSeparate ? await tx.get(legacyRef) : null;
@@ -530,7 +546,7 @@ export async function reserveTrafficProviderRequest(providerId, operation = 'rou
       units: requestedUnits,
       periods: decisions.map((item) => ({ period: item.period, count: item.decision.count, budget: item.limit.budget })),
     };
-  });
+  }));
 }
 
 export function getProviderApiKey(providerId, options = {}) {
