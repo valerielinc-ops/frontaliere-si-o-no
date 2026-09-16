@@ -73,6 +73,51 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  validate-promotion-trigger:
+    name: validate production promotion trigger
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout promotion gate
+        uses: actions/checkout@v5
+        with:
+          sparse-checkout: |
+            /scripts/ci/production-promotion-gate.mjs
+          sparse-checkout-cone-mode: false
+      - name: Reject non-main or unverified build source
+        env:
+          PROMOTION_EVENT: ${{ github.event_name }}
+          PROMOTION_REF: ${{ github.event.workflow_run.head_branch }}
+          PROMOTION_REPOSITORY: ${{ github.repository }}
+          PROMOTION_SOURCE_REPOSITORY: ${{ github.event.workflow_run.head_repository.full_name }}
+          PROMOTION_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+          PROMOTION_SOURCE_WORKFLOW: ${{ github.event.workflow_run.name }}
+          PROMOTION_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: node scripts/ci/production-promotion-gate.mjs trigger
+
+  production-approval:
+    name: approve production promotion
+    needs: validate-promotion-trigger
+    if: needs.validate-promotion-trigger.result == 'success'
+    runs-on: ubuntu-latest
+    environment:
+      name: production-deploy
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout promotion gate
+        uses: actions/checkout@v5
+        with:
+          sparse-checkout: |
+            /scripts/ci/production-promotion-gate.mjs
+          sparse-checkout-cone-mode: false
+      - name: Require protected environment attestation
+        env:
+          PROMOTION_ENVIRONMENT_NAME: production-deploy
+          PRODUCTION_DEPLOY_APPROVAL: ${{ secrets.PRODUCTION_DEPLOY_APPROVAL }}
+        run: node scripts/ci/production-promotion-gate.mjs approval
+
   # ───────────────────────────────────────────────────────────────────────
   # deploy: publish the build run's dist/ to GitHub Pages.
   #
@@ -87,7 +132,8 @@ jobs:
     # Only publish when the BUILD run succeeded. A failed it-shard makes the
     # build-locale matrix job (fail-fast: false) → run conclusion failure → this
     # never fires, which is correct: no github-pages artifact was produced.
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    needs: production-approval
+    if: ${{ github.event.workflow_run.conclusion == 'success' && needs.production-approval.result == 'success' }}
     runs-on: ubuntu-latest
     # GitHub-hosted jobs have a hard six-hour execution ceiling. Keep the
     # publish tail explicit at that maximum so a future default change cannot
@@ -100,9 +146,10 @@ jobs:
       issues: write
       actions: read       # cross-run download-artifact
       deployments: read   # the extended server-side poll reads /deployments + /statuses
-    # ⚠️ This `environment:` is the single point where a run can WEDGE, and it
-    # cannot be removed: actions/deploy-pages binds the Pages deployment to this
-    # run through the environment's OIDC identity.
+    # ⚠️ This `environment:` cannot be removed: actions/deploy-pages binds the
+    # Pages deployment to this run through the environment's OIDC identity. It
+    # is not the human production-approval gate; that is the separate,
+    # fail-closed `production-approval` job above.
     #
     # A job parked at an environment gate is not "running", so GitHub applies no
     # Actions-side deadline to it — not `timeout-minutes`, not the 360-min job
@@ -419,7 +466,8 @@ jobs:
   # PARALLEL with deploy — not gated on the live publish.
   # ───────────────────────────────────────────────────────────────────────
   validate-dist:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    needs: validate-promotion-trigger
+    if: ${{ github.event.workflow_run.conclusion == 'success' && needs.validate-promotion-trigger.result == 'success' }}
     uses: ./.github/workflows/post-deploy-validate-dist.yml
     with:
       deploy_run_id: ${{ github.event.workflow_run.id }}
