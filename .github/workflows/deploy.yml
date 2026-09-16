@@ -471,15 +471,20 @@ jobs:
           fi
 
       - name: Cache per-job OG images
+        if: matrix.locale == 'it'
         uses: actions/cache@v5
         with:
           path: .cache/og-jobs
           # Run 34956104680 rendered 16726 cards with 10434/27160 hits (38%),
           # spending 1256.5s wall (~21 min; ~82 CPU-min) on the IT leg. The
-          # exact key was already saved, so actions/cache could restore it but
-          # never save the newly rendered cards. A run-specific suffix makes
-          # every run save an updated snapshot; the prefix restore still picks
-          # the newest prior snapshot across code/content hash changes.
+          # Cache entries are immutable, and all four build-locale matrix legs
+          # share the same github.run_id. Without this IT-only guard, the first
+          # leg to save the run-specific key would win and the other legs could
+          # not add their files. jobOgImagesPlugin skips cache reads/writes on
+          # non-IT legs, so only IT needs to restore and save this cache. The
+          # run-specific suffix makes each IT run save an updated snapshot; the
+          # prefix restore still picks the newest prior snapshot across
+          # code/content hash changes.
           # jobOgImagesPlugin stores <slug>.<OG_RENDER_VERSION>.webp, so title /
           # company / city changes produce a different per-job key, and its
           # `pruned-stale` pass removes old render versions after restore.
