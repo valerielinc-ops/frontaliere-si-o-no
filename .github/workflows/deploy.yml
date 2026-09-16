@@ -258,21 +258,6 @@ jobs:
         run: npm ci
       - name: Audit no merge conflict markers
         run: npm run audit:no-merge-markers
-      - name: Prepare Firebase credentials
-        env:
-          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
-        run: |
-          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
-            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
-            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
-          fi
-      - name: Load secrets from Remote Config
-        run: |
-          if test -f scripts/load-rc-env.mjs; then
-            node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal)"
-          else
-            echo "⚠️ load-rc-env.mjs is absent in this checkout (non-fatal)"
-          fi
       - name: Cache assemble-jobs output
         uses: actions/cache@v5
         with:
@@ -289,28 +274,6 @@ jobs:
         # data/active-jobs-baseline.json auto-ratchets UP only — manual
         # commit required to lower (see CLAUDE.md rule #1).
         run: npm run audit:active-jobs-regression
-      - name: SEO position tracking (non-blocking)
-        # Refresh the 7-day GSC avg-position snapshot for status visibility and
-        # PRINT where it stands. NON-BLOCKING by design (owner decision
-        # 2026-06-24): the former SEO-landing moratorium was downgraded from a
-        # deploy gate to a tracker. Losing real SEO traffic / serving users 404s
-        # (e.g. ~14k/day indexed ricerca-stipendio-* pages going 404) outweighs
-        # the avg-position vanity metric, so position is monitored but never
-        # blocks a deploy. check-seo-moratorium.mjs reports only (always exit 0).
-        if: github.event_name == 'pull_request'
-        continue-on-error: true
-        env:
-          # OAuth2 path (currently not set; SA fallback in
-          # refresh-gsc-position-rolling.mjs uses GOOGLE_APPLICATION_CREDENTIALS
-          # exported by the Prepare Firebase credentials step above — the
-          # Firebase SA also has GSC permissions per memory
-          # `reference_firebase_sa_doubles_as_gsc`).
-          GSC_CLIENT_ID:     ${{ secrets.GSC_CLIENT_ID }}
-          GSC_CLIENT_SECRET: ${{ secrets.GSC_CLIENT_SECRET }}
-          GSC_REFRESH_TOKEN: ${{ secrets.GSC_REFRESH_TOKEN }}
-        run: |
-          node scripts/refresh-gsc-position-rolling.mjs
-          node scripts/check-seo-moratorium.mjs
       - name: Housekeeping (cross-crawler dedup + locale hardening)
         env:
           JOBS_SKIP_URL_VALIDATION: '1'

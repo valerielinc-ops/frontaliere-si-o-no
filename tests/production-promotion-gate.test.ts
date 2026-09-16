@@ -5,9 +5,12 @@ import { describe, expect, it } from 'vitest';
 import {
   APPROVAL_SECRET,
   EXPECTED_BUILD_WORKFLOW,
+  EXPECTED_BUILD_WORKFLOW_PATH,
+  EXPECTED_REPOSITORY,
   PRODUCTION_ENVIRONMENT,
   REQUIRED_REVIEWERS_RULE,
   validateApprovalAttestation,
+  validateCanonicalBuildRun,
   validatePromotionTrigger,
 } from '../scripts/ci/production-promotion-gate.mjs';
 
@@ -37,8 +40,8 @@ function findStep(job: any, mode: string) {
 describe('production promotion admission', () => {
   it('admits only main push/dispatch and a successful same-repository Pages build', () => {
     const common = {
-      repository: 'valerielinc-ops/frontaliere-si-o-no',
-      sourceRepository: 'valerielinc-ops/frontaliere-si-o-no',
+      repository: EXPECTED_REPOSITORY,
+      sourceRepository: EXPECTED_REPOSITORY,
     };
 
     expect(validatePromotionTrigger({
@@ -80,6 +83,44 @@ describe('production promotion admission', () => {
       conclusion: 'success',
       sourceWorkflow: EXPECTED_BUILD_WORKFLOW,
       headSha: 'abc123',
+    }).valid).toBe(false);
+    expect(validatePromotionTrigger({
+      ...common,
+      repository: 'attacker/frontaliere-si-o-no',
+      eventName: 'push',
+      ref: 'refs/heads/main',
+    }).valid).toBe(false);
+  });
+
+  it('accepts only a canonical successful build run for restore/recovery', () => {
+    const run = {
+      id: 26138669646,
+      name: EXPECTED_BUILD_WORKFLOW,
+      path: EXPECTED_BUILD_WORKFLOW_PATH,
+      event: 'push',
+      head_branch: 'main',
+      conclusion: 'success',
+      repository: { full_name: EXPECTED_REPOSITORY },
+      head_repository: { full_name: EXPECTED_REPOSITORY },
+      head_sha: '0123456789abcdef0123456789abcdef01234567',
+    };
+
+    expect(validateCanonicalBuildRun({ runId: '26138669646', run }).valid).toBe(true);
+    expect(validateCanonicalBuildRun({
+      runId: '26138669646',
+      run: { ...run, head_repository: { full_name: 'external/fork' } },
+    }).valid).toBe(false);
+    expect(validateCanonicalBuildRun({
+      runId: '26138669646',
+      run: { ...run, repository: { full_name: 'attacker/frontaliere-si-o-no' } },
+    }).valid).toBe(false);
+    expect(validateCanonicalBuildRun({
+      runId: '26138669646',
+      run: { ...run, head_sha: 'not-a-commit' },
+    }).valid).toBe(false);
+    expect(validateCanonicalBuildRun({
+      runId: '26138669646',
+      run: { ...run, conclusion: 'failure' },
     }).valid).toBe(false);
   });
 
@@ -171,5 +212,42 @@ describe('production promotion admission', () => {
     expect(needs(workflow.jobs['validate-dist'])).toContain('validate-promotion-trigger');
     expect(workflow.jobs.deploy.environment).toMatchObject({ name: 'github-pages' });
     expect(needs(workflow.jobs.publish)).toContain('deploy');
+  });
+
+  it('removes the direct post-deploy publisher dispatch path', () => {
+    const workflow = readWorkflow('post-deploy-publish.yml');
+    expect(workflow.on.workflow_dispatch).toBeUndefined();
+    expect(workflow.on.workflow_call).toBeDefined();
+  });
+
+  it('protects artifact restore with the trigger, source-run, and approval gates', () => {
+    const workflow = readWorkflow('restore-from-artifact.yml');
+    const trigger = workflow.jobs['validate-promotion-trigger'];
+    const source = workflow.jobs['validate-source-build'];
+    const approval = workflow.jobs['production-approval'];
+    const deploy = workflow.jobs.deploy;
+
+    expect(findStep(trigger, 'trigger')).toBeDefined();
+    expect(needs(source)).toContain('validate-promotion-trigger');
+    expect(findStep(source, 'source-run')).toBeDefined();
+    expect(findStep(source, 'source-run').run).toContain('gh api --method GET');
+    expect(needs(approval)).toContain('validate-source-build');
+    expect(approval.environment).toEqual({ name: PRODUCTION_ENVIRONMENT });
+    expect(findStep(approval, 'approval')).toBeDefined();
+    expect(needs(deploy)).toEqual(expect.arrayContaining([
+      'validate-source-build',
+      'production-approval',
+    ]));
+    expect(deploy.environment).toMatchObject({ name: 'github-pages' });
+  });
+
+  it('keeps pre-approval prep and dist validation secretless', () => {
+    const build = readWorkflow('deploy.yml');
+    const publish = readWorkflow('deploy-publish.yml');
+    const dist = readWorkflow('post-deploy-validate-dist.yml');
+
+    expect(JSON.stringify(build.jobs.prep)).not.toMatch(/secrets\.|load-rc-env|Remote Config|FIREBASE/i);
+    expect(publish.jobs['validate-dist'].secrets).toBeUndefined();
+    expect(JSON.stringify(dist)).not.toMatch(/secrets\.|load-rc-env|Remote Config|FIREBASE/i);
   });
 });

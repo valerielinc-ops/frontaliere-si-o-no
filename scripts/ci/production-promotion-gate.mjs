@@ -12,10 +12,12 @@
 import { readFileSync } from 'node:fs';
 
 export const MAIN_REF = 'refs/heads/main';
+export const EXPECTED_REPOSITORY = 'valerielinc-ops/frontaliere-si-o-no';
 export const PRODUCTION_ENVIRONMENT = 'production-deploy';
 export const APPROVAL_SECRET = 'PRODUCTION_DEPLOY_APPROVAL';
 export const REQUIRED_REVIEWERS_RULE = 'required_reviewers';
 export const EXPECTED_BUILD_WORKFLOW = 'Deploy to GitHub Pages';
+export const EXPECTED_BUILD_WORKFLOW_PATH = '.github/workflows/deploy.yml';
 
 function normalizeRef(value) {
   const ref = String(value || '').trim();
@@ -51,8 +53,14 @@ export function validatePromotionTrigger({
   const sourceRepo = String(sourceRepository || '').trim();
 
   if (!event) errors.push('event name is missing');
-  if (!targetRepository || !sourceRepo || targetRepository !== sourceRepo) {
-    errors.push('source repository is missing or does not match the target repository');
+  if (targetRepository !== EXPECTED_REPOSITORY) {
+    errors.push(`target repository must be ${EXPECTED_REPOSITORY}`);
+  }
+  if (sourceRepo !== EXPECTED_REPOSITORY) {
+    errors.push(`source repository must be ${EXPECTED_REPOSITORY}`);
+  }
+  if (targetRepository !== sourceRepo) {
+    errors.push('source repository does not match the target repository');
   }
 
   if (event === 'push' || event === 'workflow_dispatch') {
@@ -74,6 +82,59 @@ export function validatePromotionTrigger({
     errors.push(`event ${event} is not an approved production-promotion trigger`);
   }
 
+  return { valid: errors.length === 0, errors };
+}
+
+/**
+ * Validate the run selected by an explicit recovery/restore input.
+ *
+ * The run response is read-only evidence. The artifact is accepted only when
+ * the run id, workflow path/name, source/target repositories, main branch,
+ * successful conclusion, and full commit SHA all match the canonical build.
+ * An absent or malformed field is a hard deny.
+ *
+ * @param {object} input
+ * @param {string|number} input.runId
+ * @param {object} input.run
+ * @returns {{ valid: boolean, errors: string[] }}
+ */
+export function validateCanonicalBuildRun({ runId, run }) {
+  const errors = [];
+  const normalizedRunId = String(runId ?? '').trim();
+  if (!/^[0-9]+$/.test(normalizedRunId)) {
+    errors.push('source build run id must contain only decimal digits');
+  }
+  if (!run || typeof run !== 'object') {
+    errors.push('source build run response is missing');
+    return { valid: false, errors };
+  }
+  if (String(run.id ?? '').trim() !== normalizedRunId) {
+    errors.push('source build run id does not match the requested run');
+  }
+  if (String(run.name || '').trim() !== EXPECTED_BUILD_WORKFLOW) {
+    errors.push(`source build workflow must be ${EXPECTED_BUILD_WORKFLOW}`);
+  }
+  if (String(run.path || '').trim() !== EXPECTED_BUILD_WORKFLOW_PATH) {
+    errors.push(`source build workflow path must be ${EXPECTED_BUILD_WORKFLOW_PATH}`);
+  }
+  if (!['push', 'workflow_dispatch'].includes(String(run.event || '').trim())) {
+    errors.push('source build event is not an approved build trigger');
+  }
+  if (String(run.head_branch || '').trim() !== 'main') {
+    errors.push('source build must be from the main branch');
+  }
+  if (String(run.conclusion || '').trim() !== 'success') {
+    errors.push('source build did not complete successfully');
+  }
+  if (String(run.repository?.full_name || '').trim() !== EXPECTED_REPOSITORY) {
+    errors.push(`source build target repository must be ${EXPECTED_REPOSITORY}`);
+  }
+  if (String(run.head_repository?.full_name || '').trim() !== EXPECTED_REPOSITORY) {
+    errors.push(`source build source repository must be ${EXPECTED_REPOSITORY}`);
+  }
+  if (!/^[0-9a-f]{40}$/i.test(String(run.head_sha || '').trim())) {
+    errors.push('source build commit SHA is missing or malformed');
+  }
   return { valid: errors.length === 0, errors };
 }
 
@@ -141,6 +202,23 @@ function runCli(mode) {
     });
     if (!verdict.valid) return fail(verdict.errors);
     console.log('[production-promotion-gate] required-reviewer protection verified and environment attestation present; promotion may proceed');
+    return;
+  }
+
+  if (mode === 'source-run') {
+    const rawRun = readFileSync(0, 'utf8').trim();
+    let run;
+    try {
+      run = rawRun ? JSON.parse(rawRun) : undefined;
+    } catch {
+      return fail(['source build run response is not valid JSON']);
+    }
+    const verdict = validateCanonicalBuildRun({
+      runId: process.env.PROMOTION_SOURCE_RUN_ID,
+      run,
+    });
+    if (!verdict.valid) return fail(verdict.errors);
+    console.log(`[production-promotion-gate] canonical successful build run verified: ${process.env.PROMOTION_SOURCE_RUN_ID}`);
     return;
   }
 
