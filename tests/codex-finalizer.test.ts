@@ -47,7 +47,7 @@ function finalize(mode = 'codex-success') {
   }
 }
 
-describe('actual Codex-primary/Claude-fallback finalizer', () => {
+describe('actual Codex-only finalizer', () => {
   it('publishes Codex success only with a successfully written evidence file', () => {
     const result = finalize();
     expect(result.status, result.stderr).toBe(0);
@@ -64,22 +64,23 @@ describe('actual Codex-primary/Claude-fallback finalizer', () => {
     expect(result.output).not.toContain('action_success=true');
   });
 
-  it('accepts Claude as the fallback after a failed Codex primary', () => {
+  it('does not claim a fallback after a failed Codex primary', () => {
     const result = finalize('claude-success');
     expect(result.status, result.stderr).toBe(0);
-    expect(result.output).toContain('fallback_used=true');
-    expect(result.output).toContain('fallback_success=true');
+    expect(result.output).toContain('fallback_used=false');
+    expect(result.output).toContain('fallback_success=false');
     expect(result.output).toContain('primary_success=false');
-    expect(result.output).toContain('selected_provider=claude');
-    expect(result.output).toContain('action_success=true');
-    expect(result.output).not.toContain('fallback_evidence_file=/');
+    expect(result.output).toContain('selected_provider=none');
+    expect(result.output).toContain('action_success=false');
+    expect(result.output).toContain('claude_outcome=skipped');
   });
 
-  it('preserves a failed dual-provider outcome for the outer action', () => {
+  it('preserves a failed Codex-only outcome for the outer action', () => {
     const result = finalize('codex-failure-claude-failure');
     expect(result.status, result.stderr).toBe(0);
-    expect(result.output).toContain('fallback_used=true');
+    expect(result.output).toContain('fallback_used=false');
     expect(result.output).toContain('fallback_success=false');
+    expect(result.output).toContain('selected_provider=none');
     expect(result.output).toContain('action_success=false');
   });
 
