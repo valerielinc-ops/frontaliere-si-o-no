@@ -80,6 +80,27 @@ describe('isTrustedDriftAuthor', () => {
   it('false per meta mancante', () => {
     expect(isTrustedDriftAuthor(null)).toBe(false);
     expect(isTrustedDriftAuthor(undefined)).toBe(false);
+    expect(isTrustedDriftAuthor({ assoc: 'OWNER', login: 'owner' })).toBe(false);
+    expect(isTrustedDriftAuthor({ assoc: 'OWNER', login: 'owner', type: null })).toBe(false);
+    expect(isTrustedDriftAuthor({ assoc: 'OWNER', login: 'owner', type: 'Bot' })).toBe(false);
+    expect(isTrustedDriftAuthor({ assoc: 'OWNER', login: 'owner', type: 'App' })).toBe(false);
+    expect(isTrustedDriftAuthor({ assoc: '', login: 'owner', type: 'User' })).toBe(false);
+    expect(isTrustedDriftAuthor({ assoc: 'OWNER', login: '', type: 'User' })).toBe(false);
+  });
+
+  it('richiede type User per le associazioni umane privilegiate', () => {
+    for (const type of [undefined, null, 'Bot', 'App', '']) {
+      expect(isTrustedDriftAuthor({
+        assoc: 'COLLABORATOR',
+        login: 'trusted-human',
+        type,
+      })).toBe(false);
+    }
+    expect(isTrustedDriftAuthor({
+      assoc: 'COLLABORATOR',
+      login: 'trusted-human',
+      type: 'User',
+    })).toBe(true);
   });
 });
 

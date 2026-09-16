@@ -96,6 +96,7 @@ jobs:
       issues: write
     outputs:
       blocked: ${{ steps.risk.outputs.blocked }}
+      snapshot_fingerprint: ${{ steps.risk.outputs.snapshot_fingerprint }}
     steps:
       - name: Checkout F1/F7 policy only
         uses: actions/checkout@v5
@@ -120,35 +121,110 @@ jobs:
         run: |
           set -euo pipefail
           issue_file="${RUNNER_TEMP}/issue-f1-f7.json"
-          gh issue view "$ISSUE_NUMBER" --repo "$REPO" --json state,title,body,labels > "$issue_file"
-          decision=$(node --input-type=module - "$issue_file" <<'NODE'
+          case "$ISSUE_NUMBER" in
+            (''|*[!0-9]*) echo "::error::numero issue non verificabile"; exit 1 ;;
+          esac
+          gh issue view "$ISSUE_NUMBER" --repo "$REPO" --json number,state,title,body,labels > "$issue_file"
+          snapshot=$(jq -ceS --arg repo "$REPO" --argjson issue_number "$ISSUE_NUMBER" '
+            if (.number == $issue_number)
+              and (.state == "OPEN")
+              and ((.title | type) == "string")
+              and ((.body == null) or ((.body | type) == "string"))
+              and ((.labels | type) == "array")
+              and all(.labels[]; (type == "object") and ((.name | type) == "string") and (.name | length > 0))
+            then {
+              target: { repo: $repo, issue: .number },
+              state: .state,
+              title: .title,
+              body: (.body // ""),
+              labels: ([.labels[].name] | sort)
+            }
+            else error("issue snapshot non verificabile")
+            end
+          ' "$issue_file")
+          snapshot_fingerprint=$(printf '%s' "$snapshot" | sha256sum | cut -d' ' -f1)
+          decision=$(SNAPSHOT_FINGERPRINT="$snapshot_fingerprint" node --input-type=module - "$issue_file" <<'NODE'
           import fs from 'node:fs';
           import { classifyIssue } from './scripts/lib/classify-issue.mjs';
           import {
             classifyAutomationRisk,
-            extractIssuePathCandidates,
           } from './scripts/ci/lib/automation-risk-policy.mjs';
 
           const issue = JSON.parse(fs.readFileSync(process.argv[2], 'utf8'));
-          if (!issue || issue.state !== 'OPEN' || typeof issue.title !== 'string' || !Array.isArray(issue.labels)
+          const expectedIssueNumber = Number(process.env.ISSUE_NUMBER);
+          if (!Number.isInteger(expectedIssueNumber) || expectedIssueNumber <= 0
+              || !issue || issue.number !== expectedIssueNumber || issue.state !== 'OPEN'
+              || typeof issue.title !== 'string' || !Array.isArray(issue.labels)
+              || issue.labels.some((label) => !label || typeof label !== 'object'
+                || typeof label.name !== 'string' || label.name.length === 0)
               || (issue.body !== null && typeof issue.body !== 'string')) {
             throw new Error('issue metadata non verificabile per la policy F1/F7');
           }
-          const classification = classifyIssue(issue.title, issue.labels, issue.body ?? '');
+          const cleanReference = (value) => String(value || '')
+            .trim()
+            .replace(/[.,;:!?)}\]]+$/u, '');
+          const normalizeReference = (value) => {
+            const candidate = cleanReference(value).replaceAll('\\', '/');
+            if (!candidate || candidate.startsWith('/') || /^[A-Za-z]:\//u.test(candidate)
+                || candidate.includes('://')) return '';
+            const normalized = candidate.replace(/^\.\//u, '');
+            const segments = normalized.split('/');
+            if (!normalized || segments.some((segment) => !segment || segment === '.' || segment === '..'
+                || !/^[A-Za-z0-9_.-]+$/u.test(segment))) return '';
+            return normalized;
+          };
+          const pathTokenRe = /(?<![\w.-])((?:(?:\.{1,2}|[A-Za-z0-9_.-]+)[\\/])+[A-Za-z0-9_.-]+(?:\.[A-Za-z][A-Za-z0-9_-]*)?|[A-Za-z0-9_.-]+\.[A-Za-z][A-Za-z0-9_-]*)(?![\w-])/gu;
+          const absolutePathRe = /(?<![\w])(?:\/(?:[A-Za-z0-9_.-]+[\\/])+[A-Za-z0-9_.-]+|[A-Za-z]:[\\/](?:[A-Za-z0-9_.-]+[\\/])+[A-Za-z0-9_.-]+)/gu;
+          const repeatedSeparatorRe = /(?<![\w.-])(?:[A-Za-z0-9_.-]+[\\/])+[\\/]/gu;
+          const rootPathRe = /(?<![\w.-])(?:REVIEW\.md|README(?:\.[A-Za-z0-9_.-]+)?|CHANGELOG(?:\.[A-Za-z0-9_.-]+)?|LICENSE(?:\.[A-Za-z0-9_.-]+)?|Makefile|Dockerfile|CODEOWNERS)(?![\w.-])/giu;
+          const urlRe = /\bhttps?:\/\/[^\s<>()]+/giu;
+          const codeReferenceRe = /`([^`\r\n]+)`/gu;
+          const pathReferences = [];
+          const isPathCandidate = (value) => {
+            const candidate = cleanReference(value);
+            return /[\\]/u.test(candidate)
+              || /(?:^|[\\/])\.{1,2}[\\/]/u.test(candidate)
+              || /\.[A-Za-z][A-Za-z0-9_-]*$/u.test(candidate)
+              || /^(?:\.github|scripts|src|components|services|hooks|build-plugins|packages|tests?|docs|functions)(?:[\\/]|$)/iu.test(candidate);
+          };
+          const targetRepo = String(process.env.REPO || '').toLowerCase();
           const issueText = [
             issue.title,
             issue.body ?? '',
-            ...issue.labels.map((label) => typeof label === 'string' ? label : label.name ?? ''),
+            ...issue.labels.map(({ name }) => name),
           ].join('\n');
-          const paths = extractIssuePathCandidates(issueText);
+          for (const match of issueText.matchAll(urlRe)) {
+            let parsed;
+            try { parsed = new URL(match[0]); } catch { pathReferences.push(''); continue; }
+            const parts = parsed.pathname.split('/').filter(Boolean).map((part) => decodeURIComponent(part));
+            const repo = parts.length >= 2 ? `${parts[0]}/${parts[1]}`.toLowerCase() : '';
+            if (parsed.hostname.toLowerCase() !== 'github.com' || repo !== targetRepo
+                || !['blob', 'tree', 'raw'].includes(parts[2] || '')) continue;
+            pathReferences.push(parts.length >= 5 ? parts.slice(4).join('/') : '');
+          }
+          const withoutUrls = issueText.replace(urlRe, ' ');
+          for (const match of withoutUrls.matchAll(pathTokenRe)) {
+            if (isPathCandidate(match[1])) pathReferences.push(match[1]);
+          }
+          for (const match of withoutUrls.matchAll(absolutePathRe)) pathReferences.push(match[0]);
+          for (const match of withoutUrls.matchAll(repeatedSeparatorRe)) pathReferences.push('');
+          for (const match of withoutUrls.matchAll(rootPathRe)) pathReferences.push(match[0]);
+          for (const match of issueText.matchAll(codeReferenceRe)) {
+            const value = cleanReference(match[1]);
+            if (/[\\/]/u.test(value) || /^\.{1,2}[\\/]/u.test(value)
+                || /\.[A-Za-z][A-Za-z0-9_-]*$/u.test(value)) pathReferences.push(value);
+          }
+          const uniqueReferences = [...new Set(pathReferences)];
+          const normalizedPaths = uniqueReferences.map(normalizeReference);
+          const classification = classifyIssue(issue.title, issue.labels, issue.body ?? '');
           const policyInput = {
             title: issue.title,
             body: issue.body ?? '',
             labels: issue.labels,
             category: classification.category,
           };
-          if (paths.length > 0) {
-            policyInput.paths = paths;
+          if (uniqueReferences.length > 0) {
+            policyInput.paths = normalizedPaths;
             policyInput.pathsComplete = true;
           }
           const risk = classifyAutomationRisk(policyInput);
@@ -162,6 +238,7 @@ jobs:
             riskDenyCode: risk.denyCode,
             riskReason: risk.reason,
             unknownPaths: risk.unknownPaths,
+            snapshotFingerprint: process.env.SNAPSHOT_FINGERPRINT,
           }));
           NODE
           )
@@ -172,14 +249,17 @@ jobs:
               and (.riskDecision | type) == "string"
               and ((.riskDecision == "allow") or (.riskDecision == "deny"))
               and (.unknownPaths | type) == "array"
+              and (.snapshotFingerprint | type) == "string"
+              and (.snapshotFingerprint | test("^[0-9a-f]{64}$"))
               and (.automationBlocked == (.riskDecision == "deny"))
             then (.automationBlocked | tostring)
             else error("decisione F1/F7 non verificabile")
             end' <<< "$decision")
           domains=$(jq -er '(.riskDomains // []) | map(tostring) | join(", ")' <<< "$decision")
           version=$(jq -er '.policyVersion | strings | select(length > 0)' <<< "$decision")
-          echo "policy=$version blocked=$blocked domains=${domains:-none}"
+          echo "policy=$version blocked=$blocked domains=${domains:-none} snapshot=$snapshot_fingerprint"
           echo "blocked=$blocked" >> "$GITHUB_OUTPUT"
+          echo "snapshot_fingerprint=$snapshot_fingerprint" >> "$GITHUB_OUTPUT"
 
           if [ "$blocked" != 'true' ]; then
             exit 0
@@ -263,6 +343,50 @@ jobs:
           node-version: '22'
           cache: npm
 
+      - name: Verify issue snapshot immediately before App token and bridge (zero-Claude, fail-closed)
+        id: issue_snapshot
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          EXPECTED_SNAPSHOT_FINGERPRINT: ${{ needs.risk_policy.outputs.snapshot_fingerprint }}
+        run: |
+          set -euo pipefail
+          case "$ISSUE_NUMBER" in
+            (''|*[!0-9]*) echo "::error::numero issue non verificabile prima delle capability"; exit 1 ;;
+          esac
+          expected="${EXPECTED_SNAPSHOT_FINGERPRINT:-}"
+          if ! [[ "$expected" =~ ^[0-9a-f]{64}$ ]]; then
+            echo "::error::fingerprint snapshot mancante o non canonico: deny prima del mint/bridge."
+            exit 1
+          fi
+          issue_file="${RUNNER_TEMP}/issue-f1-f7-verify.json"
+          gh issue view "$ISSUE_NUMBER" --repo "$REPO" --json number,state,title,body,labels > "$issue_file"
+          snapshot=$(jq -ceS --arg repo "$REPO" --argjson issue_number "$ISSUE_NUMBER" '
+            if (.number == $issue_number)
+              and (.state == "OPEN")
+              and ((.title | type) == "string")
+              and ((.body == null) or ((.body | type) == "string"))
+              and ((.labels | type) == "array")
+              and all(.labels[]; (type == "object") and ((.name | type) == "string") and (.name | length > 0))
+            then {
+              target: { repo: $repo, issue: .number },
+              state: .state,
+              title: .title,
+              body: (.body // ""),
+              labels: ([.labels[].name] | sort)
+            }
+            else error("issue snapshot non verificabile")
+            end
+          ' "$issue_file")
+          actual=$(printf '%s' "$snapshot" | sha256sum | cut -d' ' -f1)
+          if [ "$actual" != "$expected" ]; then
+            echo "::error::issue snapshot cambiata o non coerente: deny prima del mint/bridge; nessuna capability remota."
+            exit 1
+          fi
+          echo "Issue snapshot verificata prima delle capability: $actual"
+          echo "verified=true" >> "$GITHUB_OUTPUT"
+
       # Conia il token della GitHub App PRIMA di ogni gate che ne dipende.
       #
       # Perché serve qui: `secrets.GITHUB_TOKEN` non ha — e non può avere — lo scope
@@ -284,6 +408,7 @@ jobs:
       # semplicemente non compare fra i `permissions`. Chi ha bisogno della CAPACITÀ deve
       # quindi gatare su APP_TOKEN_WORKFLOWS, mai sulla presenza del token.
       - name: Mint GitHub App token (zero-Claude, pre-npm)
+        if: steps.issue_snapshot.outputs.verified == 'true'
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
@@ -324,7 +449,7 @@ jobs:
         run: node scripts/ci/check-quota-backoff.mjs
 
       - name: Enforce shared quota-floor lease (fail-closed)
-        if: always()
+        if: always() && steps.issue_snapshot.outputs.verified == 'true'
         env:
           QUOTA_FLOOR_ADMIT: ${{ steps.quota.outputs.quota_floor_admit }}
           QUOTA_FLOOR_REASON: ${{ steps.quota.outputs.quota_floor_reason }}
@@ -359,7 +484,7 @@ jobs:
       # log. Un fixer che crede di avere le credenziali e non le ha spende un run
       # intero per scoprirlo al primo uso.
       - name: Firebase SA per Remote Config (decisione 2026-08-24)
-        if: always()
+        if: always() && steps.issue_snapshot.outputs.verified == 'true'
         continue-on-error: true
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
@@ -373,7 +498,7 @@ jobs:
 
       - name: Load secrets from Remote Config (decisione 2026-08-24)
         id: rc_env
-        if: always()
+        if: always() && steps.issue_snapshot.outputs.verified == 'true'
         continue-on-error: true
         run: |
           node scripts/load-rc-env.mjs
@@ -382,7 +507,7 @@ jobs:
 
       - name: Pre-flight — already-resolved gate (zero-Claude)
         id: preflight
-        if: always()
+        if: always() && steps.issue_snapshot.outputs.verified == 'true'
         # PROCEED-SAFE: a gate failure must NEVER strand the issue. The script is total
         # (catches its own throws → emits already_resolved=false), but continue-on-error is
         # belt-and-suspenders: any infra fault (node/npm) leaves the output unset → the
@@ -1049,7 +1174,7 @@ jobs:
         # perdono la coda per girare.
         timeout-minutes: 120
         id: codex_fix
-        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         # Non far fallire il job sull'exit non-zero della CLI: lo step finale
         # `Classify outcome` decide il colore in base al LAVORO reale (PR aperta
         # per la issue), non al subtype della CLI. Un `error_max_turns` DOPO che
@@ -1228,7 +1353,7 @@ jobs:
         # c'era lavoro da salvare). Best-effort in senso stretto: qualunque
         # fallimento è un warning, mai un job rosso — un salvataggio mancato non
         # deve trasformare un run terminato in un run fallito.
-        if: always() && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true' && steps.diff_gate.outcome == 'success'
+        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true' && steps.diff_gate.outcome == 'success'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -1306,7 +1431,7 @@ jobs:
         # una scrittura remota fallita. In quel caso il job non può classificare
         # un'assenza di PR come terminale legittimo: verifica il branch e fallisce
         # se la consegna non esiste.
-        if: always() && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
@@ -1358,7 +1483,7 @@ jobs:
         # provenance label explicitly so downstream reviewer/fixer jobs do not
         # have to guess from the owner author alone. The local `/fix-issue`
         # command applies this label after its own PR creation.
-        if: always() && steps.claim.outputs.claim_acquired == 'true'
+        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.claim.outputs.claim_acquired == 'true'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
@@ -1391,7 +1516,7 @@ jobs:
         # opened a PR on fix/issue-<N>, else a coarse no-pr-unspecified. It never
         # overwrites a granular marker from the CURRENT run. Historical markers
         # must not suppress telemetry for this run. Best-effort: never fails.
-        if: always() && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
@@ -1435,7 +1560,7 @@ jobs:
       # passa comunque dal reviewer (cfr. #2514 / #2288 — disambigua intenzionale
       # vs crash, colore != gate).
       - name: Classify outcome (work-done, not CLI exit)
-        if: always() && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE: ${{ github.event.issue.number }}
@@ -1478,7 +1603,7 @@ jobs:
         # `claim_acquired=true` is stronger than `in_flight=false`: it proves
         # this run wrote and re-read the remote-owned claim. Never remove a
         # local claim, a contended claim, or a claim that this run did not own.
-        if: always() && steps.claim.outputs.claim_acquired == 'true'
+        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.claim.outputs.claim_acquired == 'true'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -1491,7 +1616,7 @@ jobs:
       - name: Release issue-fix quota-floor lease (zero-Claude)
         # A contending run may reuse a reservation owned by another run. Only
         # release a lease that this run actually acquired or already owns.
-        if: always() && steps.quota.outputs.quota_floor_lease_owned == 'true'
+        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.quota.outputs.quota_floor_lease_owned == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}

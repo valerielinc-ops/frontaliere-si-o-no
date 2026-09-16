@@ -303,8 +303,12 @@ const TRUSTED_DRIFT_BOT_LOGINS = new Set([
  * `meta` = { assoc: author_association, login: user.login, type: user.type }.
  */
 export function isTrustedDriftAuthor(meta) {
-  if (!meta) return false;
-  if (meta.type !== 'Bot' && ['OWNER', 'MEMBER', 'COLLABORATOR'].includes(meta.assoc)) return true;
+  if (!meta || typeof meta !== 'object'
+      || typeof meta.assoc !== 'string' || meta.assoc.length === 0
+      || typeof meta.login !== 'string' || meta.login.length === 0
+      || typeof meta.type !== 'string' || meta.type.length === 0) return false;
+  if (meta.type === 'User'
+      && ['OWNER', 'MEMBER', 'COLLABORATOR'].includes(meta.assoc)) return true;
   // Bot identity is an exact, case-insensitive login allowlist. Prefixes and
   // naked human logins must never inherit the drift-fallback trust.
   return meta.type === 'Bot' &&
