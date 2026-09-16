@@ -2504,7 +2504,7 @@ jobs:
           **Dove guardare — il leg IT di questo run, non lo shard \`${LOCALE}\`:**
           1. il leg \`build-locale (it)\` è fallito o è stato lento? Se il suo Build fallisce, il marker non viene mai scritto e tutti e tre i leg non-IT scadono (successo esatto: run 31062047677).
           2. lo step \`Push generated assets to CDN (early …)\` del leg IT ha pubblicato? Se ha loggato \`CDN_BASE unset\` la push è fallita.
-          3. \`curl -s https://cdn.frontaliereticino.ch/cdn-build-id.txt\` corrisponde a \`${CDN_EXPECTED}\`?
+          3. \`curl -s https://cdn.frontaliereticino.ch/cdn-ready-build-id.txt\` corrisponde a \`${CDN_EXPECTED}\`?
 
           Il deploy resta verde per design: un solo shard indietro non deve abortire gli altri 26." \
             --priority 1 \

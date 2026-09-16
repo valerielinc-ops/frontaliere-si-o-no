@@ -496,7 +496,7 @@ step_push_cdn() {
   # git-push behaviour byte-identical. The credential guard is per-target,
   # applied inside each branch below (fail-closed): r2 → R2_* creds, pages →
   # CDN_DEPLOY_KEY.
-  local cdn_target="${CDN_TARGET:-pages}"
+  local cdn_target="${CDN_TARGET:-pages}" cdn_cloned_tip=''
   stage=/tmp/cdn-stage
   # Same leaked-staging-dir class fixed for push-locale-shard.sh /
   # push-section-shard.sh (issue #4734): $stage holds up to ~950 MB
@@ -620,6 +620,13 @@ step_push_cdn() {
   prev="$RUNNER_TEMP/cdn-prev"; rm -rf "$prev"
   if git clone --depth 1 --filter=blob:none --sparse \
        "$CDN_REPO_SSH" "$prev" 2>/dev/null; then
+    cdn_cloned_tip="$(git -C "$prev" rev-parse HEAD 2>/dev/null || true)"
+    if [ -z "$cdn_cloned_tip" ]; then
+      echo "::warning::additive CDN: prior clone has no readable main tip — aborting this Pages CDN push so the live marker cannot be erased"
+      rm -rf "$prev"
+      cd "$PREP_CWD"
+      return 1
+    fi
     git -C "$prev" sparse-checkout set --no-cone assets "$CDN_LIVE_BUILD_ID_FILE" 2>/dev/null || true
     if [ -d "$stage/assets" ] && [ -d "$prev/assets" ]; then
       cp -rn "$prev/assets/." "$stage/assets/" 2>/dev/null || true
@@ -672,14 +679,13 @@ step_push_cdn() {
   # Force-push a single fresh commit → CDN repo history never accumulates.
   # Content is additive (prior assets/ merged above), so the force-push no
   # longer clobbers in-flight entry hashes — it just flattens history.
-  # Was a hand-rolled copy of shard_push_with_retry's 3-attempts-with-backoff
-  # loop. Routed through the shared helper instead (AGENTS.md #6) so this push
-  # also gets the auth-failure classifier and the PAT fallback: a read-only or
-  # revoked CDN_DEPLOY_KEY used to mean "offload skipped, og/data stay in dist"
-  # on every deploy, the same silent-degradation shape as the uri-it shard
-  # incident of 2026-07-30.
+  # Routed through the shared lease-aware helper (AGENTS.md #6), so this push
+  # gets the auth-failure classifier and PAT fallback without allowing a stale
+  # full-replace tree to overwrite a live-marker promotion that won the race.
+  # A read-only or revoked CDN_DEPLOY_KEY still gets the same safety-net path as
+  # the uri-it shard incident of 2026-07-30.
   _push_ok=0
-  if shard_push_with_retry "$stage" "$CDN_REPO_SSH" main "CDN"; then
+  if shard_push_with_lease "$stage" "$CDN_REPO_SSH" main "$cdn_cloned_tip" "CDN"; then
     _push_ok=1
   fi
   if [ "$_push_ok" = 1 ]; then

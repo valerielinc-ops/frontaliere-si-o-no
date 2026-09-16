@@ -124,7 +124,7 @@ clone_cdn_repo() {
 }
 
 promote_pages() {
-  local repo_dir="$work_dir/cdn-repo" cloned_tip token push_rc=1
+  local repo_dir="$work_dir/cdn-repo" cloned_tip
   if ! clone_cdn_repo "$repo_dir"; then
     echo "::error::[cdn-live-marker] could not clone frontaliere-cdn" >&2
     return 1
@@ -149,31 +149,11 @@ promote_pages() {
     return 1
   }
 
-  # The lease makes a concurrent full CDN force-push a clean failure instead of
-  # allowing this tiny marker commit to erase its fresh payload. Retrying the
-  # same stale clone would be unsafe, so fall back to a PAT once, but keep the
-  # same lease.
-  if [ -n "${CDN_DEPLOY_KEY:-}" ]; then
-    for try in 1 2; do
-      push_rc=0
-      git -C "$repo_dir" push \
-        --force-with-lease="refs/heads/main:$cloned_tip" \
-        "$CDN_REPO_SSH" main 2>&1 || push_rc=$?
-      [ "$push_rc" -eq 0 ] && break
-      [ "$try" -lt 2 ] && sleep 3
-    done
-  fi
-  if [ "$push_rc" -ne 0 ]; then
-    token="${GITHUB_PAT:-${SHARD_PUSH_PAT:-}}"
-    if [ -n "$token" ]; then
-      echo "::add-mask::$token"
-      export SHARD_PUSH_TOKEN="$token"
-      git -C "$repo_dir" -c credential.helper= -c "credential.helper=$_SHARD_CRED_HELPER" \
-        push --force-with-lease="refs/heads/main:$cloned_tip" "$CDN_REPO_HTTPS" main 2>&1 || push_rc=$?
-      unset SHARD_PUSH_TOKEN
-    fi
-  fi
-  if [ "$push_rc" -ne 0 ]; then
+  # The shared helper keeps the lease across both credentials and never turns
+  # a stale-clone rejection into a blind force-push. This is the same guard the
+  # full build-side CDN replacement uses, so the two writers cannot erase one
+  # another's live marker.
+  if ! shard_push_with_lease "$repo_dir" "$CDN_REPO_SSH" main "$cloned_tip" "CDN live marker"; then
     echo "::error::[cdn-live-marker] Pages live-marker push failed or lost its lease; no stale clone was forced over the CDN" >&2
     return 1
   fi

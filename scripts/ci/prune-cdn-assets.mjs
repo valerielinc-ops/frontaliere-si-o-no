@@ -117,17 +117,24 @@ const CRED_HELPER =
   '!f() { test "$1" = get && printf "username=x-access-token\\npassword=%s\\n" "$SHARD_PUSH_TOKEN"; }; f';
 
 /**
- * Force-push `main` to the CDN repo. The deploy key is a single point of
+ * Force-push `main` to the CDN repo with the tip captured by the caller. The
+ * deploy key is a single point of
  * failure — read-only, revoked or (for shard repos) a secret shadowed by the
  * `shard-secrets-overflow` environment all look the same to git — so a refused
  * push is retried over HTTPS with a PAT, exactly like shard_pat_push does for
  * the section/locale/article shards (incident 2026-07-30, uri-it stale 3 days).
  * Throws the ORIGINAL error when no token is available or the fallback fails
- * too: this must never look like a successful prune.
+ * too: this must never look like a successful prune. The lease is preserved
+ * through the PAT fallback, so a credential switch cannot turn a concurrent
+ * publish into a blind force-push.
  */
-function pushCdnMain(repoDir, sshEnv) {
+function pushCdnMain(repoDir, sshEnv, clonedTip) {
+  if (!/^[0-9a-f]{40}$/.test(clonedTip)) {
+    throw new Error('invalid cloned CDN tip — refusing a force-push without a lease');
+  }
+  const lease = `--force-with-lease=refs/heads/main:${clonedTip}`;
   try {
-    execFileSync('git', ['-C', repoDir, 'push', '-f', CDN_REPO_SSH, 'main'],
+    execFileSync('git', ['-C', repoDir, 'push', lease, CDN_REPO_SSH, 'main'],
       { env: { ...process.env, ...sshEnv }, stdio: ['ignore', 'pipe', 'pipe'] });
     return;
   } catch (err) {
@@ -144,7 +151,7 @@ function pushCdnMain(repoDir, sshEnv) {
         '-C', repoDir,
         '-c', 'credential.helper=',
         '-c', `credential.helper=${CRED_HELPER}`,
-        'push', '-f', httpsUrl, 'main',
+        'push', lease, httpsUrl, 'main',
       ], {
         env: { ...process.env, SHARD_PUSH_TOKEN: token },
         stdio: ['ignore', 'pipe', 'pipe'],
@@ -313,7 +320,7 @@ async function main() {
         'commit', '-m', `chore(cdn-janitor): update age registry (no prune, ${reason})`,
       ]);
       assertFreshRemote(clonedTip, sshEnv);
-      pushCdnMain(repoDir, sshEnv);
+      pushCdnMain(repoDir, sshEnv, clonedTip);
       console.log(`[janitor] persisted age registry update (no prune, ${reason})`);
     };
 
@@ -371,7 +378,7 @@ async function main() {
     ]);
 
     assertFreshRemote(clonedTip, sshEnv);
-    pushCdnMain(repoDir, sshEnv);
+    pushCdnMain(repoDir, sshEnv, clonedTip);
 
     console.log(`[janitor] ✅ CDN updated — pruned ${toPrune.length} file(s), registered ${newCount} new`);
     if (toPrune.length > 0) {

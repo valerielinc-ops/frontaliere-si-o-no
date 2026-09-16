@@ -214,6 +214,43 @@ describe('shard-git-helpers.sh (runtime, temp git fixtures)', () => {
     }, 30_000);
   });
 
+  describe('shard_push_with_lease', () => {
+    it('refuses a stale full-replace tree without falling back to a blind force-push', () => {
+      const bare = join(root, 'lease-remote.git');
+      sh(`git init -q --bare -b main "${bare}"`);
+
+      const seed = join(root, 'lease-seed');
+      sh(`mkdir -p "${seed}"`);
+      sh('git init -q -b main', seed);
+      gitIdentity(seed);
+      writeFileSync(join(seed, 'base.txt'), 'base');
+      sh('git add -A && git commit -qm base', seed);
+      sh(`git push -q "${bare}" main`, seed);
+      const clonedTip = sh('git rev-parse HEAD', seed);
+
+      const stage = join(root, 'lease-stage');
+      sh(`mkdir -p "${stage}"`);
+      sh('git init -q -b main', stage);
+      gitIdentity(stage);
+      writeFileSync(join(stage, 'candidate.txt'), 'candidate');
+      sh('git add -A && git commit -qm candidate', stage);
+
+      // Advance the remote after the caller's clone. A force-with-lease must
+      // reject the candidate instead of erasing this newer remote tree.
+      writeFileSync(join(seed, 'remote-newer.txt'), 'newer');
+      sh('git add -A && git commit -qm newer', seed);
+      sh(`git push -q "${bare}" main`, seed);
+      const remoteTip = sh(`git ls-remote "${bare}" refs/heads/main | cut -f1`);
+
+      const out = runHelperScript(
+        `SHARD_PUSH_RETRY_DELAY=0 shard_push_with_lease "${stage}" "${bare}" main "${clonedTip}" lease-label; echo "RC=$?"`,
+      );
+      expect(out).toMatch(/remote tip moved|no SHARD_PUSH_PAT\/GITHUB_PAT/);
+      expect(out).toContain('RC=1');
+      expect(sh(`git ls-remote "${bare}" refs/heads/main | cut -f1`)).toBe(remoteTip);
+    });
+  });
+
   // ── PAT fallback (incident 2026-07-30, deploy run 30522223432) ────────────
   // uri-it's deploy key had no write access on its shard repo. Every deploy
   // burned 3 SSH retries + the orphan-flatten self-heal against the same

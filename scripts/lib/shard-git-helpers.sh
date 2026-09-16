@@ -116,6 +116,10 @@ shard_push_failure_reason() {
 # forward being an ERROR rather than something to overwrite — that is
 # push-article-shard-incremental.sh, where a rejected push means a concurrent
 # full deploy moved the tip and the content has to be rebuilt on the new base.
+# A caller protecting a full-replace push with a remote-tip lease passes the
+# literal `--force-with-lease=refs/heads/main:<sha>` instead of 1; that option
+# is preserved for the PAT fallback, so changing credentials cannot turn a
+# concurrency rejection into an unsafe blind force-push.
 # [reason] is the classified SSH failure, used only to make the recovery
 # warning actionable without claiming that every PAT fallback means a broken
 # deploy key.
@@ -125,7 +129,15 @@ shard_pat_push() {
   # `set -u` in bash 3.2 (still the default /bin/bash on macOS, where the test
   # suite runs). Unquoted expansion of a fixed, space-free flag is safe here.
   local url out rc force_flag=''
-  if [ "$force" = 1 ]; then force_flag='-f'; fi
+  case "$force" in
+    1) force_flag='-f' ;;
+    0) force_flag='' ;;
+    --force-with-lease=refs/heads/main:*) force_flag="$force" ;;
+    *)
+      echo "::warning::$label: invalid push force mode — refusing the PAT fallback"
+      return 1
+      ;;
+  esac
   SHARD_PUSH_TOKEN="${SHARD_PUSH_PAT:-${GITHUB_PAT:-}}"
   if [ -z "$SHARD_PUSH_TOKEN" ]; then
     echo "::warning::$label: no SHARD_PUSH_PAT/GITHUB_PAT in the environment — cannot fall back to an HTTPS token push"
@@ -216,6 +228,54 @@ shard_push_with_retry() {
   done
   rm -f "$out"
   shard_pat_push "$dir" "$repo" "$refspec" "$label" 1 "$fallback_reason"
+}
+
+# shard_push_with_lease <push_dir> <shard_repo> <refspec> <expected_tip> [label]
+# Force-pushes a full-replace tree only when the remote branch still points at
+# the commit the caller cloned. This is required for the CDN repo: the build
+# workflow can publish a new payload while deploy-publish.yml promotes the
+# validated live marker. A blind `-f` in that window can erase the marker that
+# the promotion just wrote and recreate issue #8560.
+#
+# The lease is deliberately kept through the PAT fallback. A stale clone is
+# never retried with a blind force-push; a transient transport error may retry
+# against the same tip, while a lease/non-fast-forward rejection returns so the
+# caller can rebuild from a fresh clone. <expected_tip> is empty only for an
+# explicitly empty remote branch; normal CDN clones always provide a 40-char
+# GitHub SHA.
+shard_push_with_lease() {
+  local dir="$1" repo="$2" refspec="$3" expected_tip="$4" label="${5:-shard}"
+  local lease out rc try fallback_reason='unclassified SSH push failure'
+  if [ -n "$expected_tip" ] && [[ ! "$expected_tip" =~ ^[0-9a-f]{40}$ ]]; then
+    echo "::error::$label: invalid expected remote tip — refusing the force-push lease" >&2
+    return 1
+  fi
+  lease="--force-with-lease=refs/heads/main:$expected_tip"
+  out="$(mktemp)"
+  for try in 1 2 3; do
+    rc=0
+    git -C "$dir" push "$lease" "$repo" "$refspec" 2>"$out" || rc=$?
+    cat "$out" >&2
+    if [ "$rc" -eq 0 ]; then
+      rm -f "$out"
+      return 0
+    fi
+    fallback_reason="$(shard_push_failure_reason "$out")"
+    if grep -qEi 'stale info|stale old info|force-with-lease|non-fast-forward' "$out"; then
+      echo "::warning::$label: remote tip moved — refusing to overwrite a concurrent publish"
+      break
+    fi
+    if shard_push_error_is_auth "$out"; then
+      echo "::warning::$label: deploy-key auth failure (not transient) — falling back to a token push with the same lease"
+      break
+    fi
+    if [ "$try" -lt 3 ]; then
+      echo "::warning::$label lease push attempt $try/3 failed — retrying in ${SHARD_PUSH_RETRY_DELAY:-5}s"
+      sleep "${SHARD_PUSH_RETRY_DELAY:-5}"
+    fi
+  done
+  rm -f "$out"
+  shard_pat_push "$dir" "$repo" "$refspec" "$label" "$lease" "$fallback_reason"
 }
 
 # shard_orphan_flatten_and_push <stage_dir> <shard_repo> <commit_message> [label]
