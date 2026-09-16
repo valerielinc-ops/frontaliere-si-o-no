@@ -83948,6 +83948,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lotta-denaro-sporco-svizzera': {
+    title: 'La lotta della Svizzera contro il denaro sporco e la corruzione',
+    description: 'Analisi del 02 set 2026 sui talloni d\'Achille della Svizzera nella lotta al denaro sporco e le complessità procedurali nella restituzione dei fondi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lotta, contro, denaro, sporco',
+    ogTitle: 'La lotta della Svizzera contro il denaro sporco',
+    ogDescription: 'Approfondimento del 02 set 2026 dedicato alle sfide e ai talloni d\'Achille della Svizzera nella gestione e restituzione del denaro sporco proveniente da attività di corruzione internazionale.',
+    canonicalPath: '/articoli-svizzera/lotta-denaro-sporco-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La lotta della Svizzera contro il denaro sporco e la corruzione",
+      "description": "Analisi del 02 set 2026 sui talloni d'Achille della Svizzera nella lotta al denaro sporco e le complessità procedurali nella restituzione dei fondi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lotta-denaro-sporco-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio bancario in Svizzera rappresentativo della lotta al denaro sporco"
+      },
+      "datePublished": "2026-09-16T02:34:31+00:00",
+      "dateModified": "2026-09-16T02:34:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lotta-denaro-sporco-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

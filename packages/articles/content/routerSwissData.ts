@@ -2181,6 +2181,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'avviare-attivita-canton-nidvaldo': { it: 'avviare-attivita-canton-nidvaldo', en: 'starting-business-canton-nidwalden', de: 'unternehmen-starten-kanton-nidwalden', fr: 'lancer-entreprise-canton-nidwald' },
  'turismo-svizzera-estate-normalizzazione': { it: 'turismo-svizzera-estate-normalizzazione', en: 'switzerland-tourism-summer-normalization', de: 'schweiz-tourismus-sommer-normalisierung', fr: 'tourisme-suisse-ete-normalisation' },
  'fides-26-polizia-esercito-berna': { it: 'fides-26-polizia-esercito-berna', en: 'fides-26-police-army-bern', de: 'fides-26-polizei-armee-bern', fr: 'fides-26-police-armee-berne' },
+ 'lotta-denaro-sporco-svizzera': { it: 'lotta-denaro-sporco-svizzera', en: 'switzerland-fight-dirty-money', de: 'schweiz-kampf-gegen-schmutziges-geld', fr: 'suisse-lutte-contre-argent-sale' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

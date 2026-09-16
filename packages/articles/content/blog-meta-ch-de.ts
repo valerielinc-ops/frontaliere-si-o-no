@@ -6476,6 +6476,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.fides-26-polizia-esercito-berna.title': 'Fidesübung 26: Polizei und Armee in Bern',
     'blog.article.fides-26-polizia-esercito-berna.excerpt': 'Die Zusammenarbeit von Polizei und Armee bei der Übung FIDES 26 im Kanton Bern hat rund 180 Polizisten und tausend Soldaten mobilisiert.',
     'blog.article.fides-26-polizia-esercito-berna.imageAlt': 'Gemeinsame Übung von Polizei und Armee FIDES 26 im Kanton Bern',
+    'blog.article.lotta-denaro-sporco-svizzera.title': 'Der Kampf der Schweiz gegen schmutziges Geld und Korruption',
+    'blog.article.lotta-denaro-sporco-svizzera.excerpt': 'Analyse vom 02.September 2026 über die Achillesfersen der Schweiz bei der Rückgabe des schmutzigen Geldes und den Knoten der direkten Bankeinzahlungen.',
+    'blog.article.lotta-denaro-sporco-svizzera.imageAlt': 'Bankgebäude in der Schweiz, das den Kampf gegen Geldwäsche darstellt',
 };
 
 export default blogMetaChDe;
