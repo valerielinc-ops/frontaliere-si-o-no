@@ -432,6 +432,7 @@ describe('validator dei bridge host-side', () => {
     expect(validateGitArgs(['push', 'upstream', 'main'])).toMatch(/remote is not permitted/);
     const workBranch = 'codex/fallback-bridge-test';
     for (const flag of [
+      '--all',
       '--force',
       '--force=refs/heads/other',
       '-f',
