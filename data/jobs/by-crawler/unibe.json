@@ -2658,12 +2658,12 @@
     },
     {
       "id": "unibe-2202bc2e48bd",
-      "slug": "post-doc-unibe-bern",
+      "slug": "assegnista-di-ricerca-universitat-bern-bern",
       "slugByLocale": {
-        "it": "post-doc-unibe-bern",
+        "it": "assegnista-di-ricerca-universitat-bern-bern",
         "en": "post-doc-unibe-bern",
         "de": "postdoc-universitat-bern-bern",
-        "fr": "post-doc-unibe-bern"
+        "fr": "apres-doc-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -2707,7 +2707,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "post-doc-universitat-bern-bern",
-        "postdoc-universitat-bern-bern-a5xwgv"
+        "postdoc-universitat-bern-bern-a5xwgv",
+        "post-doc-unibe-bern"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -2715,6 +2716,12 @@
         ],
         "de": [
           "postdoc-universitat-bern-bern-a5xwgv"
+        ],
+        "it": [
+          "post-doc-unibe-bern"
+        ],
+        "fr": [
+          "post-doc-unibe-bern"
         ]
       },
       "firstSeenAt": "2026-09-01T14:26:55.173Z",
@@ -3241,12 +3248,12 @@
     },
     {
       "id": "unibe-74c8785c52cb",
-      "slug": "endowed-professorship-34-neuromorphic-systems-34-at-the-institute-of-physiology-donor",
+      "slug": "i-need-the-original-title-in-a-language-to-translate-it-to-italian-could-you-provide-the-job-title-you-d-like-me-to",
       "slugByLocale": {
-        "it": "endowed-professorship-34-neuromorphic-systems-34-at-the-institute-of-physiology-donor",
+        "it": "i-need-the-original-title-in-a-language-to-translate-it-to-italian-could-you-provide-the-job-title-you-d-like-me-to",
         "en": "endowed-professorship-34-neuromorphic-systems-34-at-the-institute-of-physiology-donor",
         "de": "stiftungsprofessur-neuromorphe-systeme-am-institut-fur-physiologie-geber-manfred-stark-fdn-fur-hirnforschung-br",
-        "fr": "endowed-professorship-34-neuromorphic-systems-34-at-the-institute-of-physiology-donor"
+        "fr": "i-ll-translate-this-job-title-to-french-keeping-brand-names-company-names-and-acronyms-unchanged-professorship-dotee"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3303,7 +3310,18 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "endowed-professorship-34-neuromorphic-systems-34-at-the-institute-of-physiology-donor"
+        ],
+        "fr": [
+          "endowed-professorship-34-neuromorphic-systems-34-at-the-institute-of-physiology-donor"
+        ]
+      },
+      "previousSlugs": [
+        "endowed-professorship-34-neuromorphic-systems-34-at-the-institute-of-physiology-donor"
+      ]
     },
     {
       "id": "unibe-085bba0f66cf",
@@ -3471,9 +3489,9 @@
     },
     {
       "id": "unibe-e7dda69437e4",
-      "slug": "phd-position-law-and-or-political-science-governance-of-climate-extremes-unibe-bern",
+      "slug": "posizione-di-phd-legge-e-o-scienze-politiche-governance-degli-estremi-climatici-universitat-bern-bern",
       "slugByLocale": {
-        "it": "phd-position-law-and-or-political-science-governance-of-climate-extremes-unibe-bern",
+        "it": "posizione-di-phd-legge-e-o-scienze-politiche-governance-degli-estremi-climatici-universitat-bern-bern",
         "en": "phd-position-law-and-or-political-science-governance-of-climate-extremes-unibe-bern",
         "de": "phd-position-rechts-und-oder-politikwissenschaft-governance-von-klimaextremen-universitat-bern-bern",
         "fr": "doctorat-en-droit-et-en-sciences-politiques-gouvernance-des-extremes-climatiques-universitat-bern-bern"
@@ -3531,7 +3549,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-law-and-or-political-science-governance-of-climate-extremes-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-law-and-or-political-science-governance-of-climate-extremes-unibe-bern"
+      ]
     },
     {
       "id": "unibe-50777d8d9dff",
@@ -4601,9 +4627,9 @@
     },
     {
       "id": "unibe-65a197dd3424",
-      "slug": "junior-controller-in-unibe-bern",
+      "slug": "controllore-junior-universitat-bern-bern",
       "slugByLocale": {
-        "it": "junior-controller-in-unibe-bern",
+        "it": "controllore-junior-universitat-bern-bern",
         "en": "junior-controller-in-unibe-bern",
         "de": "junior-controller-in-unibe-bern",
         "fr": "controleur-junior-universitat-bern-bern"
@@ -4649,11 +4675,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "junior-controller-in-universitat-bern-bern"
+        "junior-controller-in-universitat-bern-bern",
+        "junior-controller-in-unibe-bern"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "junior-controller-in-universitat-bern-bern"
+        ],
+        "it": [
+          "junior-controller-in-unibe-bern"
         ]
       },
       "firstSeenAt": "2026-09-09T23:24:54.513Z",
