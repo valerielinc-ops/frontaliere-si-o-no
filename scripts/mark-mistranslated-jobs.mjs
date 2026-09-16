@@ -166,6 +166,20 @@ export function titleOffence(job) {
 }
 
 /**
+ * Does this text contain one of the explicit German gender forms that the
+ * Argos preprocessor collapses? Keep this predicate next to the normalizer so
+ * the marker and the after-run observer cannot drift into two definitions of
+ * the same form.
+ *
+ * @param {unknown} text
+ * @returns {boolean}
+ */
+export function hasGermanGenderForm(text) {
+  const raw = String(text ?? '');
+  return masculineGermanTitle(raw) !== raw;
+}
+
+/**
  * One-shot detector for German source titles whose pre-Argos normalization
  * would change the text. This is deliberately opt-in: retranslation does not
  * change the German source title, so the predicate stays true forever. The
@@ -175,8 +189,30 @@ export function titleOffence(job) {
 export function genderFormOffence(job) {
   const sourceLang = String(job.sourceLang || '').toLowerCase();
   const sourceTitle = String(job.title || '');
-  if (!sourceLang.startsWith('de') || masculineGermanTitle(sourceTitle) === sourceTitle) return null;
+  if (!sourceLang.startsWith('de') || !hasGermanGenderForm(sourceTitle)) return null;
   return { locale: sourceLang, detail: `title ${sourceLang} => masculineGermanTitle` };
+}
+
+/**
+ * True when a localized, non-source title still contains an explicit German
+ * gender form. This is observational: it does not decide whether a job is
+ * incomplete or enqueue it. It is the after-run half of the one-shot metric.
+ *
+ * @param {object} job
+ * @returns {boolean}
+ */
+export function genderFormTargetResidual(job) {
+  const sourceLang = String(job?.sourceLang || '').toLowerCase();
+  if (!sourceLang.startsWith('de')) return false;
+  const sourceLocale = sourceLang.split('-')[0];
+  const titles = job?.titleByLocale && typeof job.titleByLocale === 'object'
+    ? job.titleByLocale
+    : {};
+  return LOCALES.some((locale) => {
+    if (locale === sourceLang || locale === sourceLocale) return false;
+    const title = String(titles[locale] || '').trim();
+    return title.length > 0 && hasGermanGenderForm(title);
+  });
 }
 
 /**
