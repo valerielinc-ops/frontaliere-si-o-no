@@ -470,6 +470,11 @@ export class TrafficEvidenceFilter {
     return this.trafficSet.has(normalizePath(urlPath));
   }
 
+  /** Lightweight cardinalities for build-memory diagnostics. */
+  memoryStats(): { trafficSet: number; firstSeen: number } {
+    return { trafficSet: this.trafficSet.size, firstSeen: this.firstSeen.size };
+  }
+
   summary(): string {
     if (!this.active) {
       return `[traffic-evidence-filter] dormant — no decisions taken`;

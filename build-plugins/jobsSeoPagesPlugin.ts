@@ -64,7 +64,7 @@ import { markCantonSectorPage } from './shared/cantonSectorPageRegistry';
 // primitives (AGENTS.md §6); see build-plugins/shared/jobEventsCrosslink.ts.
 import { nearbyEventsBlockForJobPage } from './shared/jobEventsCrosslink';
 import { EJP_STRIPPED_MARKER } from './shared/ejpMarker';
-import { WriteCollector } from './batchWrite';
+import { getEnsuredDirsSize, WriteCollector } from './batchWrite';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildTitleWithBrand, composeSerpJobTitle, JOB_TITLE_CITY_CONNECTOR, TITLE_MAX_CHARS, clampMetaDescription, truncateHeadline, peelDanglingClauseTail, truncateTitleAtClauseBoundary, MIN_PEELED_TITLE_CHARS, truncateClauseAware } from './shared/titleSuffix';
 import { stripLeadingSectionLabel } from './shared/jobDescription/parser';
@@ -224,7 +224,8 @@ import {
   isCompanyHubNamespaceSlug,
 } from './shared/cantonSection';
 import { getCantonCities, normalizeCitySlug } from './shared/cantonCities';
-import { logBuildMem } from './shared/buildMemLog';
+import { logBuildMem, type BuildMemDetails } from './shared/buildMemLog';
+import { getPathHistory } from './sharedWriteRegistry';
 import { canonicalCleanedKey } from './shared/canonicalCleanedKey';
 import { intFromEnv } from '../scripts/lib/int-from-env.mjs';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
@@ -953,6 +954,121 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  collector.add(filePath, filePath.endsWith('.html') && !__SKIP_MINIFY ? minifyHtml(content) : content);
  }
 
+ type JobsSeoLocaleSized = Record<(typeof JOB_SEO_LOCALES)[number], { size: number }>;
+ type JobsSeoMemContext = {
+  validJobs?: ReadonlyArray<unknown>;
+  jobHtmlCache?: ReadonlyMap<unknown, string>;
+  expiredSoftLandingCache?: ReadonlyMap<unknown, string>;
+  tracking?: Record<string, Record<string, string>>;
+  expiredBySlug?: ReadonlyMap<unknown, unknown>;
+  orphanGscData?: ReadonlyMap<unknown, unknown>;
+  relatedJobsByCategory?: ReadonlyMap<unknown, unknown>;
+  relatedJobsByLocation?: ReadonlyMap<unknown, unknown>;
+  titleCollisionByLocale?: JobsSeoLocaleSized;
+  noCityTitleCollisionByLocale?: JobsSeoLocaleSized;
+  claimedTitlesByLocale?: JobsSeoLocaleSized;
+  canonicalCleanedCache?: ReadonlyMap<unknown, unknown>;
+  previousSlugClaimants?: ReadonlyMap<unknown, unknown>;
+  winnerByPrevSlugKey?: ReadonlyMap<unknown, unknown>;
+  crossLocaleCacheReads?: ReadonlyMap<unknown, unknown>;
+  writtenPaths?: ReadonlySet<unknown>;
+  activeJobDirs?: ReadonlySet<unknown>;
+  emittedActiveJobPaths?: ReadonlySet<unknown>;
+  legacyTiBridgeDirs?: ReadonlySet<unknown>;
+  jobsEnsuredDirs?: ReadonlySet<unknown>;
+  canonical: {
+   tuples: number;
+   inputs: number;
+   chunks: number;
+   results: number;
+   resultEntries: number;
+  };
+  sitemap: Record<string, number>;
+ };
+
+ const jobsSeoMemContext: JobsSeoMemContext = {
+  writtenPaths: _writtenPaths,
+  jobsEnsuredDirs: _ensuredDirs,
+  canonical: { tuples: 0, inputs: 0, chunks: 0, results: 0, resultEntries: 0 },
+  sitemap: {
+   entries: 0,
+   eligibleJobs: 0,
+   expiredEntries: 0,
+   previousSlugEntries: 0,
+  },
+ };
+
+ // Solo `.size`: sommare `length`/`byteLength` di 600k HTML (2,5-4,5 GB)
+ // a ogni marker scansiona gigabyte 14 volte per leg (review PR #8917).
+ // Il peso in byte si stima offline: entry x media misurata sul log.
+ const stringMapMemoryDetails = (map: ReadonlyMap<unknown, string> | undefined, prefix: string): BuildMemDetails => ({
+   [`${prefix}Entries`]: map?.size ?? 0,
+ });
+
+ const trackingMemoryDetails = (tracking: Record<string, Record<string, string>> | undefined): BuildMemDetails => {
+  let keys = 0;
+  let localePaths = 0;
+  if (tracking) {
+   for (const slug in tracking) {
+    if (!Object.prototype.hasOwnProperty.call(tracking, slug)) continue;
+    keys++;
+    const paths = tracking[slug];
+    if (!paths || typeof paths !== 'object') continue;
+    for (const locale in paths) {
+     if (Object.prototype.hasOwnProperty.call(paths, locale) && paths[locale]) localePaths++;
+    }
+   }
+  }
+  return { trackingKeys: keys, trackingLocalePaths: localePaths };
+ };
+
+ const sumLocaleSizes = (maps: JobsSeoLocaleSized | undefined): number => {
+  let size = 0;
+  for (const locale of JOB_SEO_LOCALES) size += maps?.[locale]?.size ?? 0;
+  return size;
+ };
+
+ const jobsSeoMemDetails = (phaseDetails: BuildMemDetails = {}): BuildMemDetails => {
+  const trafficStats = trafficFilter.memoryStats();
+  return {
+   validJobs: jobsSeoMemContext.validJobs?.length ?? 0,
+   ...stringMapMemoryDetails(jobsSeoMemContext.jobHtmlCache, 'jobHtmlCache'),
+   ...stringMapMemoryDetails(jobsSeoMemContext.expiredSoftLandingCache, 'expiredSoftLandingCache'),
+   ...trackingMemoryDetails(jobsSeoMemContext.tracking),
+   expiredBySlug: jobsSeoMemContext.expiredBySlug?.size ?? 0,
+   orphanGscData: jobsSeoMemContext.orphanGscData?.size ?? 0,
+   relatedJobsByCategory: jobsSeoMemContext.relatedJobsByCategory?.size ?? 0,
+   relatedJobsByLocation: jobsSeoMemContext.relatedJobsByLocation?.size ?? 0,
+   titleCollisionEntries: sumLocaleSizes(jobsSeoMemContext.titleCollisionByLocale),
+   noCityTitleCollisionEntries: sumLocaleSizes(jobsSeoMemContext.noCityTitleCollisionByLocale),
+   claimedTitleEntries: sumLocaleSizes(jobsSeoMemContext.claimedTitlesByLocale),
+   canonicalTuples: jobsSeoMemContext.canonical.tuples,
+   canonicalInputs: jobsSeoMemContext.canonical.inputs,
+   canonicalChunks: jobsSeoMemContext.canonical.chunks,
+   canonicalResults: jobsSeoMemContext.canonical.results,
+   canonicalResultEntries: jobsSeoMemContext.canonical.resultEntries,
+   canonicalCacheEntries: jobsSeoMemContext.canonicalCleanedCache?.size ?? 0,
+   previousSlugClaimants: jobsSeoMemContext.previousSlugClaimants?.size ?? 0,
+   previousSlugWinners: jobsSeoMemContext.winnerByPrevSlugKey?.size ?? 0,
+   crossLocaleCacheReads: jobsSeoMemContext.crossLocaleCacheReads?.size ?? 0,
+   _writtenPaths: jobsSeoMemContext.writtenPaths?.size ?? 0,
+   activeJobDirs: jobsSeoMemContext.activeJobDirs?.size ?? 0,
+   emittedActiveJobPaths: jobsSeoMemContext.emittedActiveJobPaths?.size ?? 0,
+   legacyTiBridgeDirs: jobsSeoMemContext.legacyTiBridgeDirs?.size ?? 0,
+   jobsEnsuredDirs: jobsSeoMemContext.jobsEnsuredDirs?.size ?? 0,
+   pathHistory: getPathHistory().size,
+   ensuredDirs: getEnsuredDirsSize(),
+   trafficSet: trafficStats.trafficSet,
+   firstSeen: trafficStats.firstSeen,
+   ...jobsSeoMemContext.sitemap,
+   ...phaseDetails,
+  };
+ };
+
+ const logJobsSeoMem = (phase: string, phaseDetails: BuildMemDetails = {}): void => {
+  logBuildMem(`jobsSeoPages: ${phase}`, collector, jobsSeoMemDetails(phaseDetails));
+ };
+
  /**
   * Emit a flat `.html` file as a redirect bridge directly. The full HTML at
   * `siblingHtml` was already written to the matching `outDir/index.html`,
@@ -1067,6 +1183,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // would force inline recomputation, defeating the pre-pass.
  const CANONICAL_CLEANED_CACHE_MAX = 30000;
  const canonicalCleanedCache = new Map<string, CleanedFallbackContent>();
+ jobsSeoMemContext.canonicalCleanedCache = canonicalCleanedCache;
  let _canonicalCleanedHits = 0;
  let _canonicalCleanedMisses = 0;
  let _canonicalCleanedEvictions = 0;
@@ -1563,6 +1680,8 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // per job), and `jobs` is never read past this point — free ~150-250 MB before
  // the heavy per-page emit + expired/bridge pre-scans. (Build OOM fix, #1290.)
  jobs = [];
+ jobsSeoMemContext.validJobs = validJobs;
+ logJobsSeoMem('after-valid-jobs');
 
  /**
   * Per-slug canonical override map (Semrush cannibalization fix). Loaded from
@@ -2353,6 +2472,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  /** Tracks every dist/ directory written by the active-job page generator
  * so that expired soft-landing pages never overwrite a live job page. */
  const activeJobDirs = new Set<string>();
+ jobsSeoMemContext.activeJobDirs = activeJobDirs;
 
  /**
   * Tracks every legacy-TI bridge path (`cerca-lavoro-ticino/<slug>/`,
@@ -2375,11 +2495,13 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   * to the canton-blind TI mirror. Keyed by the slug-relative path.
   */
  const legacyTiBridgeDirs = new Set<string>();
+ jobsSeoMemContext.legacyTiBridgeDirs = legacyTiBridgeDirs;
 
  /** Caches active job page HTML by `${locale}:${slug}` so bridge pages
  * (previousSlugs) can serve identical full-content pages with only the
  * canonical URL pointing to the current slug. */
  const jobHtmlCache = new Map<string, string>();
+ jobsSeoMemContext.jobHtmlCache = jobHtmlCache;
 
  const PROFILE_RELATED_COMPARE = process.env.JOBS_SEO_PROFILE_COMPARE_RELATED === '1';
  let relatedCompareMismatches = 0;
@@ -2392,6 +2514,8 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const __tRelatedIndexBuild = startTimer();
  const relatedJobsByCategory = new Map<unknown, any[]>();
  const relatedJobsByLocation = new Map<unknown, any[]>();
+ jobsSeoMemContext.relatedJobsByCategory = relatedJobsByCategory;
+ jobsSeoMemContext.relatedJobsByLocation = relatedJobsByLocation;
  const relatedJobSourceIndex = new WeakMap<object, number>();
  for (let idx = 0; idx < validJobs.length; idx++) {
  const indexedJob = validJobs[idx] as any;
@@ -2499,6 +2623,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const titleCollisionByLocale: Record<'it' | 'en' | 'de' | 'fr', Map<string, number>> = {
  it: new Map(), en: new Map(), de: new Map(), fr: new Map(),
  };
+ jobsSeoMemContext.titleCollisionByLocale = titleCollisionByLocale;
  // ── No-city title-collision map (#1932) ──
  // Parallel map keyed on the CITY-LESS composed title ("role — company", no
  // city tail). Used to decide whether the city is safe to DROP on a
@@ -2511,6 +2636,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const noCityTitleCollisionByLocale: Record<'it' | 'en' | 'de' | 'fr', Map<string, number>> = {
  it: new Map(), en: new Map(), de: new Map(), fr: new Map(),
  };
+ jobsSeoMemContext.noCityTitleCollisionByLocale = noCityTitleCollisionByLocale;
  for (const job of validJobs) {
   await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  for (const locale of localeList) {
@@ -2524,6 +2650,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  noCityBucket.set(noCityTitle, (noCityBucket.get(noCityTitle) || 0) + 1);
  }
  }
+ logJobsSeoMem('after-related-title-indexes');
 
  // ── Cross-corpus title-uniqueness net ──
  // audit-title-uniqueness is a HARD deploy gate (exit 1 on any within-locale
@@ -2538,6 +2665,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const claimedTitlesByLocale: Record<'it' | 'en' | 'de' | 'fr', Set<string>> = {
  it: new Set(), en: new Set(), de: new Set(), fr: new Set(),
  };
+ jobsSeoMemContext.claimedTitlesByLocale = claimedTitlesByLocale;
  const claimUniqueTitle = (
  locale: 'it' | 'en' | 'de' | 'fr',
  title: string,
@@ -2584,6 +2712,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // whose HTML would point at a path the per-job dedup skipped — keeping
  // sitemap and dist/ byte-for-byte consistent.
  const emittedActiveJobPaths = new Set<string>();
+ jobsSeoMemContext.emittedActiveJobPaths = emittedActiveJobPaths;
 
  // ── Canonical-fallback worker pre-pass ─────────────────────────────
  //
@@ -2602,7 +2731,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // threaded path (useful for A/B timing or debugging worker overhead).
  await (async () => {
  const optOut = process.env.JOBS_SEO_FALLBACK_WORKERS === '0';
- if (optOut) return;
+ if (optOut) {
+  logJobsSeoMem('after-canonical-prepass', { canonicalPrepassSkipped: 1 });
+  return;
+ }
  const tStart = Date.now();
  // Phase 1: enumerate unique tuples (skip cache hits — usually none at
  // this point, but harmless to check).
@@ -2639,7 +2771,16 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  }
  }
  const enumMs = Date.now() - tStartEnum;
- if (tuples.length === 0) return;
+ jobsSeoMemContext.canonical.tuples = tuples.length;
+ jobsSeoMemContext.canonical.inputs = tuples.length;
+ jobsSeoMemContext.canonical.chunks = 0;
+ jobsSeoMemContext.canonical.results = 0;
+ jobsSeoMemContext.canonical.resultEntries = 0;
+ logJobsSeoMem('after-canonical-tuple-enumeration');
+ if (tuples.length === 0) {
+  logJobsSeoMem('after-canonical-prepass');
+  return;
+ }
 
  // Phase 2: decide on parallelism. Below 500 unique tuples the worker
  // setup overhead (~500 ms × N for spawn + dynamic import) costs more
@@ -2665,6 +2806,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const cleaned = canonicalizeFallbackCleaned(t.description, t.requirements);
  canonicalCleanedCache.set(t.key, cleaned);
  }
+ jobsSeoMemContext.canonical.chunks = 1;
+ jobsSeoMemContext.canonical.results = 1;
+ jobsSeoMemContext.canonical.resultEntries = tuples.length;
+ logJobsSeoMem('after-canonical-prepass');
  // eslint-disable-next-line no-console
  console.log(
  `[jobs-seo-profile] canonical-fallback-pre-pass tuples=${tuples.length} workers=1 wall_ms=${Date.now() - tStart}`,
@@ -2709,12 +2854,20 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // bypassed here: the pre-pass output is exactly what the main loop will
  // need, so evicting would just cause inline recomputation right after.
  const tStartMerge = Date.now();
+ let canonicalResultEntries = 0;
  for (const r of results) {
  for (const entry of r.entries) {
+ canonicalResultEntries++;
  canonicalCleanedCache.set(entry.key, entry.cleaned);
  }
  }
  const mergeMs = Date.now() - tStartMerge;
+ jobsSeoMemContext.canonical.tuples = tuples.length;
+ jobsSeoMemContext.canonical.inputs = tuples.length;
+ jobsSeoMemContext.canonical.chunks = chunks.length;
+ jobsSeoMemContext.canonical.results = results.length;
+ jobsSeoMemContext.canonical.resultEntries = canonicalResultEntries;
+ logJobsSeoMem('after-canonical-worker-merge');
  const workerImportP99 = Math.max(...results.map((r) => r.profile.importMs));
  const workerWorkP99 = Math.max(...results.map((r) => r.profile.workMs));
  const workerWorkAvg = results.reduce((s, r) => s + r.profile.workMs, 0) / results.length;
@@ -3893,6 +4046,8 @@ ${staticAnalyticsHtml}
  }
  }
  }
+
+ logJobsSeoMem('after-active-pages');
 
  /* ── Company landing pages ────────────────────────────────── */
  type CompanyCopyEntry = {
@@ -9996,7 +10151,10 @@ ${staticAnalyticsHtml}
  }
 
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${validJobs.length * 4} localized job pages and sitemap-jobs.xml (${prevSlugEntries.length} previousSlug entries)`);
- logBuildMem('jobsSeoPages: after job-pages-DONE', collector);
+ jobsSeoMemContext.sitemap.eligibleJobs = sitemapEligibleJobs.length;
+ jobsSeoMemContext.sitemap.previousSlugEntries = prevSlugEntries.length;
+ jobsSeoMemContext.sitemap.entries = sitemapEligibleJobs.length + prevSlugEntries.length;
+ logBuildMem('jobsSeoPages: before-canonical-clear', collector, jobsSeoMemDetails());
 
  // Active-job emit done — release canonicalCleanedCache (~22k entries ×
  // CleanedFallbackContent, hundreds of MB peak). Only `memoCanonicalCleaned`
@@ -10011,6 +10169,7 @@ ${staticAnalyticsHtml}
  // it BEFORE clearing so the hit-rate summary keeps reporting truth.
  _canonicalCleanedCacheSizeAtEnd = canonicalCleanedCache.size;
  canonicalCleanedCache.clear();
+ logJobsSeoMem('after-canonical-clear');
 
  // Backpressure: drain pending WriteCollector flushes before the next
  // emit phase queues more. Run 26488854594 OOM'd Node at the 12 GB
@@ -11280,6 +11439,7 @@ ${staticAnalyticsHtml}
  // Sharded registry (data/all-known-job-slugs/part-*.json, #4248) — the store
  // is the ONLY reader/writer, never the raw file (AGENTS.md #6).
  let tracking: Record<string, Record<string, string>> = readAllKnownJobSlugs(rootDir) as Record<string, Record<string, string>>;
+ jobsSeoMemContext.tracking = tracking;
 
  const currentSlugs = new Set<string>();
  // Collect slug values that differ from slugByLocale.it — these are legacy
@@ -11639,6 +11799,7 @@ ${staticAnalyticsHtml}
  sourceUrl?: string;
  }
  const orphanGscData = new Map<string, OrphanEnriched>();
+ jobsSeoMemContext.orphanGscData = orphanGscData;
  try {
  // Sharded ledger (#4248). readOrphanEnriched returns a slug's locale
  // records with the STRONGEST GSC signal LAST, so the last-one-wins
@@ -11701,6 +11862,7 @@ ${staticAnalyticsHtml}
  return String(a.id || a.slug || '').localeCompare(String(b.id || b.slug || ''));
  });
  const expiredBySlug = new Map<string, any>();
+ jobsSeoMemContext.expiredBySlug = expiredBySlug;
  for (const ej of expiredJobsData) {
  // `!has` guard so the FIRST entry (most-recent due to sort above) wins.
  // Was unconditional `set` previously, which let the LAST entry (oldest
@@ -12418,6 +12580,7 @@ ${staticAnalyticsHtml}
  // whose slugByLocale has divergent values across locales — otherwise
  // we'd pin ~18k HTML strings (~550MB) in memory for no benefit.
  const expiredSoftLandingCache = new Map<string, string>();
+ jobsSeoMemContext.expiredSoftLandingCache = expiredSoftLandingCache;
  const expiredCacheKeys = new Set<string>();
  for (const ej of expiredJobsData) {
  const sbl = (ej && ej.slugByLocale) as Record<string, string> | undefined;
@@ -13310,6 +13473,15 @@ ${staticAnalyticsHtml}
  await collector.awaitDrainSlot(2);
  }
 
+ jobsSeoMemContext.sitemap.expiredEntries = expiredSitemapEntries.length;
+ logJobsSeoMem('after-expired-cache-population', {
+  expiredCount,
+  legacyCount,
+  expiredCacheKeys: expiredCacheKeys.size,
+  expiredSitemapEntries: expiredSitemapEntries.length,
+  sitemapEntries: expiredSitemapEntries.length,
+ });
+
  // Write expired jobs sitemap
  if (expiredSitemapEntries.length > 0) {
  const sitemapExpired = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${expiredSitemapEntries.join('\n')}\n</urlset>\n`;
@@ -13332,11 +13504,19 @@ ${staticAnalyticsHtml}
 
  if (expiredCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${expiredCount} soft-landing pages for ${expiredSlugs.length} expired jobs${legacyCount > 0 ? ` (+ ${legacyCount} legacy slug bridges)` : ''}`);
- logBuildMem('jobsSeoPages: after expired-softlandings', collector);
  // Backpressure between expired-soft-landing (~150k pages) and the
  // next big emit (previousSlugs full-content ~65k pages).
  await collector.awaitDrainSlot(2);
  }
+
+ jobsSeoMemContext.sitemap.expiredEntries = expiredSitemapEntries.length;
+ jobsSeoMemContext.sitemap.entries = expiredSitemapEntries.length;
+ logJobsSeoMem('after-expired-softlandings', {
+  expiredCount,
+  legacyCount,
+  expiredSitemapEntries: expiredSitemapEntries.length,
+  sitemapEntries: expiredSitemapEntries.length,
+ });
 
  /* ── Cross-locale reconciliation for expired jobs ──────────── */
  // Mirrors the active-jobs cross-locale block below, but for expired jobs.
@@ -13419,7 +13599,12 @@ ${staticAnalyticsHtml}
  // below was the only unlogged span between "after expired-softlandings"
  // and collector.flush() — the 2026-08-19 OOM died somewhere in it with no
  // [mem] line to localize which phase. Checkpointing here narrows that gap.
- logBuildMem('jobsSeoPages: after cross-locale-expired', collector);
+ logBuildMem('jobsSeoPages: before-expired-cleanup', collector, jobsSeoMemDetails({
+  expiredJobsData: expiredJobsData.length,
+  crossLocaleExpiredCount,
+  expiredSitemapEntries: expiredSitemapEntries.length,
+  sitemapEntries: expiredSitemapEntries.length,
+ }));
 
  // Cross-locale-expired-bridge was the last reader of `expiredSoftLandingCache`
  // (populated during the expired-soft-landing emit, ~152k entries × ~9 KB ≈
@@ -13457,12 +13642,16 @@ ${staticAnalyticsHtml}
  // NODE_OPTIONS=--expose-gc in `build:ci` (see PR #627); guarded for local
  // dev runs without the flag.
  forceGc();
- // Post-cleanup baseline (#6139 item 6): the checkpoint above (L13161) fires
+ // Post-cleanup baseline (#6139 item 6): the checkpoint above fires
  // BEFORE this clear()+forceGc(), so it captures pre-cleanup memory and
  // can't tell apart "cross-locale-expired loop was heavy" from "cleanup
  // didn't free what we expected". This one gives the previousSlugs prescan
  // below a known-clean starting point without losing the earlier signal.
- logBuildMem('jobsSeoPages: after cross-locale-expired-cleanup', collector);
+ logBuildMem('jobsSeoPages: after-expired-cleanup', collector, jobsSeoMemDetails({
+  expiredJobsData: expiredJobsData.length,
+  expiredSitemapEntries: expiredSitemapEntries.length,
+  sitemapEntries: expiredSitemapEntries.length,
+ }));
 
  /* ── Full-content pages for previousSlugs of active jobs ────── */
  // Serve identical full-content pages at old URLs (bookmarks, search engines).
@@ -13495,6 +13684,7 @@ ${staticAnalyticsHtml}
  // that legitimately share a prevSlug emit DIFFERENT bridge URLs —
  // ownership is per (canton, locale, oldSlug), not per (locale, oldSlug).
  const previousSlugClaimants = new Map<string, PreviousSlugCandidate[]>();
+ jobsSeoMemContext.previousSlugClaimants = previousSlugClaimants;
  for (const job of validJobs) {
   await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  const localeAwareAll = new Set<string>();
@@ -13539,6 +13729,7 @@ ${staticAnalyticsHtml}
  const previousSlugWinners: PreviousSlugWinnersFile = loadWinners(previousSlugWinnersPath);
  const previousSlugWinnersBefore = JSON.stringify(previousSlugWinners);
  const winnerByPrevSlugKey = new Map<string, string>(); // key → winner jobIdentifier
+ jobsSeoMemContext.winnerByPrevSlugKey = winnerByPrevSlugKey;
  // Day-quantized timestamp. With millisecond precision the previous-slug
  // winners registry's `lastSeenAt` field churned on every deploy, producing
  // ~96 commits/day to data/previous-slug-winners.json (one per article-cron
@@ -13580,8 +13771,11 @@ ${staticAnalyticsHtml}
  // exit 134 "Ineffective mark-compacts near heap limit" shortly after the
  // "after expired-softlandings" [mem] checkpoint, no further checkpoint
  // logged before the crash).
+ let previousSlugCandidates = 0;
+ for (const candidates of previousSlugClaimants.values()) previousSlugCandidates += candidates.length;
+ logJobsSeoMem('before-previous-slug-claimant-clear', { previousSlugCandidates });
  previousSlugClaimants.clear();
- forceGc();
+ logJobsSeoMem('after-previous-slug-claimant-clear');
 
  let bridgeCount = 0;
  let bridgeSkippedNotWinner = 0;
@@ -13844,13 +14038,16 @@ ${staticAnalyticsHtml}
  ? ` (${bridgeSkippedNotWinner} duplicate emits skipped — see data/previous-slug-winners.json for the canonical owner per slug)`
  : '';
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${bridgeCount} previousSlugs full-content pages${skipNote}`);
- // #6134: second half of the previously-unlogged stretch (see the
- // "after cross-locale-expired" checkpoint above).
- logBuildMem('jobsSeoPages: after previousSlugs-bridges', collector);
  // Backpressure between previousSlugs full-content (~65k pages) and
  // the next big emit (cross-locale-active-bridge ~56k pages).
  await collector.awaitDrainSlot(2);
  }
+ logJobsSeoMem('after-previous-slug-bridges', {
+  bridgeCount,
+  bridgeSkippedNotWinner,
+  previousSlugEntries: prevSlugEntries.length,
+  sitemapEntries: prevSlugEntries.length,
+ });
 
  // Garbage-collect entries whose oldSlug nobody has claimed in the last
  // 30 days. Without this the registry grows monotonically: deleted jobs
@@ -13905,6 +14102,7 @@ ${staticAnalyticsHtml}
  // shouldEmitLocale sul baseLocale): se i due divergono, l'effetto e' solo
  // memoria non liberata, mai una lettura mancata.
  const crossLocaleCacheReads = new Map<string, number>();
+ jobsSeoMemContext.crossLocaleCacheReads = crossLocaleCacheReads;
  for (const job of validJobs) {
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue;
@@ -14040,7 +14238,16 @@ ${staticAnalyticsHtml}
  // pesanti dentro) — i run del 19/20-08 sono morti li' senza una riga [mem]
  // che dicesse dove. Pre-cleanup di proposito, come la coppia di checkpoint
  // del blocco cross-locale-expired (#6139 item 6).
- logBuildMem('jobsSeoPages: after cross-locale-active-bridges', collector);
+ jobsSeoMemContext.sitemap.entries = sitemapEligibleJobs.length + prevSlugEntries.length + expiredSitemapEntries.length;
+ jobsSeoMemContext.sitemap.eligibleJobs = sitemapEligibleJobs.length;
+ jobsSeoMemContext.sitemap.previousSlugEntries = prevSlugEntries.length;
+ jobsSeoMemContext.sitemap.expiredEntries = expiredSitemapEntries.length;
+ logBuildMem('jobsSeoPages: before-active-corpus-release', collector, jobsSeoMemDetails({
+  crossLocaleActiveCount: crossLocaleCount,
+  sitemapEligibleJobs: sitemapEligibleJobs.length,
+  previousSlugEntries: prevSlugEntries.length,
+  expiredSitemapEntries: expiredSitemapEntries.length,
+ }));
 
  // `jobHtmlCache` (populated during the ~85k active-job-page render
  // phase) was read for the last time above, in the cross-locale-active
@@ -14089,10 +14296,17 @@ ${staticAnalyticsHtml}
  // verifica dichiarata («il rilascio libera davvero?») e sempre-vero il
  // revert-trigger. Cosi' invece gcFreed AL checkpoint E' la misura del
  // rilascio.
+ // Label storico a due forme: pinnato da tests/corpus-retention-discipline.test.ts.
  const corpusReleaseLabel = retentionProbeCandidate === null
- ? 'jobsSeoPages: after corpus-release'
- : `jobsSeoPages: after corpus-release candidate=${retentionProbeCandidate}`;
- logBuildMem(corpusReleaseLabel, collector);
+   ? 'jobsSeoPages: after corpus-release'
+   : `jobsSeoPages: after corpus-release candidate=${retentionProbeCandidate}`;
+ logBuildMem(corpusReleaseLabel, collector, jobsSeoMemDetails({
+  crossLocaleActiveCount: crossLocaleCount,
+  retentionProbeCandidate: retentionProbeCandidate ?? 'none',
+  releasedValidJobs: validJobs.length === 0 ? 1 : 0,
+  releasedJobHtmlCache: jobHtmlCache.size === 0 ? 1 : 0,
+  releasedRelatedIndexes: relatedJobsByCategory.size === 0 && relatedJobsByLocation.size === 0 ? 1 : 0,
+ }));
 
  /* ── Self-healing: cover any tracking paths not yet written ──── */
  // Safety net: any tracking path that wasn't covered by active, soft-landing,
@@ -14197,7 +14411,10 @@ ${staticAnalyticsHtml}
  // log line" senza un [mem] a dire con quanto heap ci era arrivata. Chiude
  // l'ultima finestra cieca del plugin: da qui a fine closeBundle restano
  // solo flush + sitemap patch + report.
- logBuildMem('jobsSeoPages: after self-heal', collector);
+ logBuildMem('jobsSeoPages: after-self-heal', collector, jobsSeoMemDetails({
+  healedCount,
+  relocatedActiveCount,
+ }));
 
  /* ── Flush all buffered writes in parallel batches ── */
  const t0 = Date.now();
