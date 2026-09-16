@@ -4,20 +4,20 @@
   "generatorSha256": "afc181af0a3605a090d46431806b03668776d373711d84f367a43ca81023f1b0",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "24a8ee45388f8c18ffd25dc4e0611022548de880",
+  "sourceCommit": "819f7673cf3ee3155b4586d0567bc6236457bc38",
   "artifactObservation": {
     "generatorSha256": "afc181af0a3605a090d46431806b03668776d373711d84f367a43ca81023f1b0",
     "sourceRef": "main",
-    "sourceCommit": "24a8ee45388f8c18ffd25dc4e0611022548de880"
+    "sourceCommit": "819f7673cf3ee3155b4586d0567bc6236457bc38"
   },
   "groupCount": 23,
   "artifactCount": 24,
   "observerCount": 7,
-  "crawlerCount": 603,
+  "crawlerCount": 606,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:de598b103154a95b8db92bd17d52b2f19d26aa31b1319acea275b91d5295bd28",
+    "rosterDigest": "sha256:341f84102e1cdc38ec94a692227eec1a34f30e8bc4075ba678657827dd11cdd0",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -121,6 +121,7 @@
     "scripts/update-bucherer-jobs.mjs",
     "scripts/update-buehler-jobs.mjs",
     "scripts/update-buergenstock-hotels-jobs.mjs",
+    "scripts/update-buersten-technik-jobs.mjs",
     "scripts/update-c-and-a-schweiz-jobs.mjs",
     "scripts/update-canton-ticino-osc-jobs.mjs",
     "scripts/update-canton-valais-jobs.mjs",
@@ -176,9 +177,11 @@
     "scripts/update-ehc-vd-jobs.mjs",
     "scripts/update-ehnv-jobs.mjs",
     "scripts/update-elettra-1938-jobs.mjs",
+    "scripts/update-elprom-jobs.mjs",
     "scripts/update-emil-frey-jobs.mjs",
     "scripts/update-emmi-jobs.mjs",
     "scripts/update-empa-jobs.mjs",
+    "scripts/update-endeso-jobs.mjs",
     "scripts/update-endress-hauser-jobs.mjs",
     "scripts/update-entero-jobs.mjs",
     "scripts/update-epfl-jobs.mjs",
@@ -1052,8 +1055,8 @@
     {
       "file": "crawler-group-14.yml",
       "sourceLogic": "crawler-group-14-logic.yml",
-      "sourceSha256": "c6fdabf1936503112d8c4f88d9083f6fce1f8aaa5e88f700fcc3de59f6edc6fe",
-      "artifactSha256": "32bec1917416b4c024386a8d18eb3e7e59057bf7ef1b4defa49c8bd4b4a63997",
+      "sourceSha256": "6202125ef672457057021d9153eca753c36a96ad32959df58015a5cd4cee0e75",
+      "artifactSha256": "07e64d32d33893105506698e0da283e74cdea44eac8f30d4b0eb787e484b2a73",
       "generatorSha256": "afc181af0a3605a090d46431806b03668776d373711d84f367a43ca81023f1b0",
       "members": [
         "spruengli",
@@ -1082,14 +1085,15 @@
         "daler-hopital",
         "audemars-piguet",
         "alten",
-        "city-pop"
+        "city-pop",
+        "endeso"
       ]
     },
     {
       "file": "crawler-group-15.yml",
       "sourceLogic": "crawler-group-15-logic.yml",
-      "sourceSha256": "2badc29943d6844f462ea6279ec9086f84b22dd4ea74ed8b645d1180ec1e6627",
-      "artifactSha256": "df6fab9fa98951233190d1d0abddf5ee00d031105088cecf21db6492d604cc65",
+      "sourceSha256": "a9c82c983fff930ae8bc8a58c497d0de21812110a69bebcdfda09224ca2d11e1",
+      "artifactSha256": "943b72f4b9a9cd093a8cb8521cfc9bdb58bd238495c0cf02d18b7dc205c50e36",
       "generatorSha256": "afc181af0a3605a090d46431806b03668776d373711d84f367a43ca81023f1b0",
       "members": [
         "kronenhof",
@@ -1118,14 +1122,15 @@
         "bachem",
         "apg-sga",
         "ail",
-        "sta"
+        "sta",
+        "elprom"
       ]
     },
     {
       "file": "crawler-group-16.yml",
       "sourceLogic": "crawler-group-16-logic.yml",
-      "sourceSha256": "8eebe6b41ec6010bcb56cd80953af2723ba3d7a56d3439c73ed2522509a13690",
-      "artifactSha256": "e4d38a365353448d0601e383ed608feaa141add4a1931ab69b74377b73da5116",
+      "sourceSha256": "af9e9822ff6a33935a0bc5c1d7a5fb7a2f882ad87f90fcc6e507c7c2c7661eab",
+      "artifactSha256": "23b1e13d4cc7ed5f1bad882df72732f933572887a0d73bcf9813ce0fda0347b4",
       "generatorSha256": "afc181af0a3605a090d46431806b03668776d373711d84f367a43ca81023f1b0",
       "members": [
         "ksgr",
@@ -1154,7 +1159,8 @@
         "everest-re",
         "csvm-mustair",
         "benteler",
-        "adullam"
+        "adullam",
+        "buersten-technik"
       ]
     },
     {
