@@ -30,9 +30,10 @@ const workflowTargets = [
 const setupActionPattern = /(?:^\.\/|[^/]+\/[^/]+\/)?\.github\/actions\/setup-claude-haiku-fallback(?:@[^/]+)?$/;
 const codexSecretExpression = '${{ secrets.CODEX_AUTH_JSON }}';
 const codexBrokerOutputExpression = '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}';
+const claudeOAuthExpression = '${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}';
 
 describe('indirect Codex auth workflow inventory', () => {
-  it('keeps the raw secret out of every process env and scopes it to setup input', () => {
+  it('keeps the raw Codex secret on setup and scopes Claude OAuth to consumers', () => {
     for (const { dir, name } of workflowTargets) {
       const filePath = path.join(dir, name);
       const workflow = YAML.parse(fs.readFileSync(filePath, 'utf8')) as {
@@ -41,6 +42,8 @@ describe('indirect Codex auth workflow inventory', () => {
       expect(fs.existsSync(filePath), name).toBe(true);
       const jobs = Object.values(workflow.jobs ?? {});
       expect(jobs.some((job) => Object.prototype.hasOwnProperty.call(job.env ?? {}, 'CODEX_AUTH_BROKER_SOCKET')), name)
+        .toBe(false);
+      expect(jobs.some((job) => Object.prototype.hasOwnProperty.call(job.env ?? {}, 'CLAUDE_CODE_OAUTH_TOKEN')), name)
         .toBe(false);
       const envMaps = jobs.flatMap((job) => [
         job.env ?? {},
@@ -58,9 +61,21 @@ describe('indirect Codex auth workflow inventory', () => {
       const aiSteps = jobs.flatMap((job) => job.steps ?? [])
         .filter((step) => Object.prototype.hasOwnProperty.call(step.env ?? {}, 'CODEX_AUTH_BROKER_SOCKET'));
       expect(aiSteps.length, name).toBeGreaterThan(0);
-      for (const step of aiSteps) {
+      const consumerSteps = aiSteps.filter((step) => step.name !== 'Cleanup Codex auth broker');
+      expect(consumerSteps.length, name).toBeGreaterThan(0);
+      for (const step of consumerSteps) {
         expect(step.env?.CODEX_AUTH_BROKER_SOCKET, name).toBe(codexBrokerOutputExpression);
-        expect(step.env?.CLAUDE_CODE_OAUTH_TOKEN, name).toBeUndefined();
+        if (Object.prototype.hasOwnProperty.call(step.env ?? {}, 'CLAUDE_CODE_OAUTH_TOKEN')) {
+          expect(step.env?.CLAUDE_CODE_OAUTH_TOKEN, name).toBe(claudeOAuthExpression);
+        }
+      }
+
+      const claudeTokenSteps = jobs.flatMap((job) => job.steps ?? [])
+        .filter((step) => Object.prototype.hasOwnProperty.call(step.env ?? {}, 'CLAUDE_CODE_OAUTH_TOKEN'));
+      for (const step of claudeTokenSteps) {
+        expect(aiSteps, name).toContain(step);
+        expect(step.name, name).not.toBe('Cleanup Codex auth broker');
+        expect(step.env?.CLAUDE_CODE_OAUTH_TOKEN, name).toBe(claudeOAuthExpression);
       }
 
       const cleanupSteps = jobs.flatMap((job) => job.steps ?? [])
@@ -68,6 +83,7 @@ describe('indirect Codex auth workflow inventory', () => {
       expect(cleanupSteps, name).toHaveLength(1);
       expect(cleanupSteps[0].if, name).toBe('always()');
       expect(cleanupSteps[0].env?.CODEX_AUTH_BROKER_SOCKET, name).toBe(codexBrokerOutputExpression);
+      expect(cleanupSteps[0].env?.CLAUDE_CODE_OAUTH_TOKEN, name).toBeUndefined();
       expect(cleanupSteps[0].run, name).toContain('--cleanup --socket "$CODEX_AUTH_BROKER_SOCKET"');
     }
   });

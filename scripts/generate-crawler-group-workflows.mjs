@@ -1098,7 +1098,12 @@ export function buildCrawlerAggregateShellBody(crawlers, groupIndex) {
   }
   lines.push(
     `printf '%s\\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing." >> "$summary_file"`,
-    `printf '%s\\n' "success_count=$success_count" "failure_count=$failure_count" "missing_count=$missing_count" >> "$output_file"`,
+    'if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ]; then',
+    '  wait_outcome=failure',
+    'else',
+    '  wait_outcome=success',
+    'fi',
+    `printf '%s\\n' "success_count=$success_count" "failure_count=$failure_count" "missing_count=$missing_count" "wait_outcome=$wait_outcome" >> "$output_file"`,
     'exit 0',
   );
   return lines.join('\n');
@@ -1265,11 +1270,11 @@ function crawlerGenerationTerminalSteps(groupIndex, expectedCrawlers) {
         CRAWLER_GENERATION_CALLER_REPOSITORY: '${{ github.repository }}',
         CRAWLER_GENERATION_CALLER_RUN_ID: '${{ github.run_id }}',
         CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: '${{ github.run_attempt }}',
-        // `wait-all` is a runner pseudo-step whose schema deliberately has no
-        // `id`, so it cannot populate the `steps` context. At this point the
-        // join has completed and `job.status` is the supported job-level
-        // surface that preserves success/failure/cancelled distinctly.
-        CRAWLER_GENERATION_WAIT_OUTCOME: '${{ job.status }}',
+        // Every crawler result is continue-on-error so siblings can finish.
+        // `job.status` is therefore still `success` here even when the
+        // aggregate has recorded failures; consume the aggregate's explicit
+        // verdict instead of publishing a false-success terminal manifest.
+        CRAWLER_GENERATION_WAIT_OUTCOME: "\${{ steps.crawler_aggregate.outputs.wait_outcome || 'failure' }}",
         CRAWLER_GENERATION_EXPECTED_CRAWLERS: JSON.stringify(expectedCrawlers),
         CRAWLER_GENERATION_OUTPUT: output,
         CRAWLER_GENERATION_LEDGER_PATH,

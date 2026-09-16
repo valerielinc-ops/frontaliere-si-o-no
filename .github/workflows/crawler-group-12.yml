@@ -6376,7 +6376,12 @@ jobs:
             fi
           fi
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing." >> "$summary_file"
-          printf '%s\n' "success_count=$success_count" "failure_count=$failure_count" "missing_count=$missing_count" >> "$output_file"
+          if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ]; then
+            wait_outcome=failure
+          else
+            wait_outcome=success
+          fi
+          printf '%s\n' "success_count=$success_count" "failure_count=$failure_count" "missing_count=$missing_count" "wait_outcome=$wait_outcome" >> "$output_file"
           exit 0
       - name: Commit crawler group data atomically
         if: always() && inputs.generation_token != '' && job.status == 'success' && steps.crawler_group_setup.outcome == 'success'
@@ -6413,7 +6418,7 @@ jobs:
           CRAWLER_GENERATION_CALLER_REPOSITORY: ${{ github.repository }}
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
-          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ job.status }}
+          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ steps.crawler_aggregate.outputs.wait_outcome || 'failure' }}
           CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"agie-charmilles","primarySlice":"data/jobs/by-crawler/agie-charmilles.json"},{"crawlerId":"artificialy","primarySlice":"data/jobs/by-crawler/artificialy.json"},{"crawlerId":"balgrist","primarySlice":"data/jobs/by-crawler/balgrist.json"},{"crawlerId":"brack-alltron","primarySlice":"data/jobs/by-crawler/brack-alltron.json"},{"crawlerId":"canton-ticino-osc","primarySlice":"data/jobs/by-crawler/canton-ticino-osc.json"},{"crawlerId":"cippatrasporti","primarySlice":"data/jobs/by-crawler/cippatrasporti.json"},{"crawlerId":"clinica-hildebrand","primarySlice":"data/jobs/by-crawler/clinica-hildebrand.json"},{"crawlerId":"clinique-generale-ste-anne","primarySlice":"data/jobs/by-crawler/clinique-generale-ste-anne.json"},{"crawlerId":"coopers","primarySlice":"data/jobs/by-crawler/coopers.json"},{"crawlerId":"epfl","primarySlice":"data/jobs/by-crawler/epfl.json"},{"crawlerId":"giorgio-armani","primarySlice":"data/jobs/by-crawler/giorgio-armani.json"},{"crawlerId":"imad","primarySlice":"data/jobs/by-crawler/imad.json"},{"crawlerId":"kanton-st-gallen","primarySlice":"data/jobs/by-crawler/kanton-st-gallen.json"},{"crawlerId":"klinik-gut","primarySlice":"data/jobs/by-crawler/klinik-gut.json"},{"crawlerId":"klinik-sgm","primarySlice":"data/jobs/by-crawler/klinik-sgm.json"},{"crawlerId":"kuehne-nagel","primarySlice":"data/jobs/by-crawler/kuehne-nagel.json"},{"crawlerId":"la-fonte","primarySlice":"data/jobs/by-crawler/la-fonte.json"},{"crawlerId":"manor","primarySlice":"data/jobs/by-crawler/manor.json"},{"crawlerId":"nvidia-zurich","primarySlice":"data/jobs/by-crawler/nvidia-zurich.json"},{"crawlerId":"postfinance","primarySlice":"data/jobs/by-crawler/postfinance.json"},{"crawlerId":"privatklinik-obach","primarySlice":"data/jobs/by-crawler/privatklinik-obach.json"},{"crawlerId":"raiffeisen","primarySlice":"data/jobs/by-crawler/raiffeisen.json"},{"crawlerId":"sanatorium-kilchberg","primarySlice":"data/jobs/by-crawler/sanatorium-kilchberg.json"},{"crawlerId":"sika","primarySlice":"data/jobs/by-crawler/sika.json"},{"crawlerId":"suchthilfe-region-basel","primarySlice":"data/jobs/by-crawler/suchthilfe-region-basel.json"},{"crawlerId":"swiss-life","primarySlice":"data/jobs/by-crawler/swiss-life.json"},{"crawlerId":"tally-weijl","primarySlice":"data/jobs/by-crawler/tally-weijl.json"},{"crawlerId":"upd","primarySlice":"data/jobs/by-crawler/upd.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-12-terminal.json
           CRAWLER_GENERATION_LEDGER_PATH: data/crawler-generation-ledger.jsonl
