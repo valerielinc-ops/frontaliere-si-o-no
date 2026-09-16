@@ -6461,6 +6461,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ruag-riorganizzazione-tagli-posti.title': 'RUAG se réorganise : jusqu\'à 49 emplois à risque',
     'blog.article.ruag-riorganizzazione-tagli-posti.excerpt': 'Le groupe d\'armement RUAG annonce une réorganisation qui pourrait entraîner la suppression d\'un maximum de 49 emplois en Suisse.',
     'blog.article.ruag-riorganizzazione-tagli-posti.imageAlt': 'Bâtiments fédéraux à Berne',
+    'blog.article.consiglio-federale-obiettivi-2027.title': 'Le Conseil fédéral présente ses objectifs pour 2027',
+    'blog.article.consiglio-federale-obiettivi-2027.excerpt': 'Le président Guy Parmelin a exposé à Berne les priorités stratégiques pour 2027, quatrième année de la législature fédérale 2023-2027.',
+    'blog.article.consiglio-federale-obiettivi-2027.imageAlt': 'Le Palais fédéral à Berne siège du Conseil fédéral',
 };
 
 export default blogMetaChFr;
