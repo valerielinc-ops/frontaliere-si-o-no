@@ -34,12 +34,12 @@ const AUDIT_REPORTS_UPLOAD_WORKFLOWS = [
   '.github/workflows/post-deploy-validate-live.yml',
 ] as const;
 // Section rehydrate loop (rehydrate_section) lives here, extracted out of
-// post-deploy-validate-dist.yml's 3 inline copies + the 4 seed-baseline
+// post-deploy-validate-dist.yml's inline copy + the 4 seed-baseline
 // workflows' copies into one shared script (AGENTS.md #6 dedupe).
 const REHYDRATE_SECTION_SCRIPT = readFileSync(resolve(ROOT, 'scripts/lib/rehydrate-section-shards.sh'), 'utf-8');
 // Locale rehydrate loop (rehydrate_locale) — same dedupe, extracted out of
-// post-deploy-validate-dist.yml's 3 byte-identical inline copies (issue
-// #4828) into one shared script.
+// post-deploy-validate-dist.yml's inline copy (issue #4828) into one shared
+// script.
 const REHYDRATE_LOCALE_SCRIPT = readFileSync(resolve(ROOT, 'scripts/lib/rehydrate-locale-shards.sh'), 'utf-8');
 const PACKAGE_JSON = JSON.parse(readFileSync(resolve(ROOT, 'package.json'), 'utf-8'));
 const BATCH_WRITE = readFileSync(resolve(ROOT, 'build-plugins/batchWrite.ts'), 'utf-8');
@@ -111,11 +111,16 @@ describe('post-deploy-validate-dist.yml — parallel SEO audit gates', () => {
     ).toContain('spawn_capped()');
   });
 
-  it('all dist validation jobs have explicit timeout ceilings', () => {
+  it('dist validation rehydrates once behind one timeout ceiling', () => {
     const workflow = YAML.parse(VALIDATION_YML) as any;
-    expect(workflow.jobs['validate-dist-source']?.['timeout-minutes']).toBe(90);
     expect(workflow.jobs['validate-dist-postbuild']?.['timeout-minutes']).toBe(300);
-    expect(workflow.jobs['validate-dist-postbuild-bfs']?.['timeout-minutes']).toBe(120);
+    expect(workflow.jobs['validate-dist-source']).toBeUndefined();
+    expect(workflow.jobs['validate-dist-postbuild-bfs']).toBeUndefined();
+    expect(VALIDATION_YML.match(/- name: Rehydrate locale then section shards into dist\//g)).toHaveLength(1);
+    expect(VALIDATION_YML).toContain('collect_failed source /tmp/source-val-results.txt');
+    expect(VALIDATION_YML).toContain('collect_failed bfs /tmp/bfs-timings.txt');
+    expect(VALIDATION_YML).toContain('gate-offenders');
+    expect(VALIDATION_YML).toContain('Fail when a dist validator failed');
   });
 
   it('any new audit:* script added to package.json must be reachable in post-deploy-validate-dist.yml (direct or via audit:all)', () => {
