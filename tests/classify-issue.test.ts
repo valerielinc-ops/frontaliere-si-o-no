@@ -223,6 +223,23 @@ describe('policy automazione F1/F7', () => {
     });
   });
 
+  it('conserva il match F1 come evidenza su una PR control-plane con segnale deploy', () => {
+    expect(classifyAutomationRisk({
+      title: 'ci(deploy): riordina i job del workflow',
+      body: '',
+      labels: [],
+      paths: ['.github/workflows/deploy.yml'],
+      pathsComplete: true,
+      surface: 'pull-request',
+    })).toMatchObject({
+      blocked: false,
+      decision: 'allow',
+      denyCode: null,
+      humanApprovalRequired: false,
+      evidence: { issue: ['deploy-workflow-functions'] },
+    });
+  });
+
   it('nega per default quando il file list dell’issue è incompleto', () => {
     expect(classifyAutomationRisk({ paths: ['src/safe.ts'], pathsComplete: false })).toMatchObject({
       blocked: true,

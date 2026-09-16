@@ -296,7 +296,6 @@ export function classifyAutomationRisk({
   const snapshotPaths = hasPathSnapshot ? paths.map(normalizedPath) : [];
   const controlPlanePaths = snapshotPaths.filter(isControlPlanePath);
   const controlPlaneEvidence = isPullRequestSurface ? [] : controlPlanePaths;
-  const hasControlPlanePath = isPullRequestSurface && controlPlanePaths.length > 0;
   const pathsForRisk = isPullRequestSurface
     ? snapshotPaths.filter((path) => !isControlPlanePath(path))
     : snapshotPaths;
@@ -304,9 +303,9 @@ export function classifyAutomationRisk({
     ? pathsForRisk.filter((path) => !isRecognizedAutomationPath(path))
     : [];
   const reviewablePaths = pathsForRisk.filter((path) => !isAutomationTestPath(path));
+  // Sul surface PR i domini F1/F7 restano evidenza, mai veto (REVIEW.md):
+  // un path control-plane non deve quindi cancellare il match F1 dal testo.
   const issueMatches = DOMAIN_DEFINITIONS
-    .filter((domain) => !(hasControlPlanePath
-      && domain.id === HIGH_RISK_DOMAINS.DEPLOY_WORKFLOW_FUNCTIONS))
     .filter((domain) => domain.issue.some((pattern) => pattern.test(issueText)))
     .map(({ id }) => id);
   const pathMatches = unique(reviewablePaths.flatMap(pathDomains));
