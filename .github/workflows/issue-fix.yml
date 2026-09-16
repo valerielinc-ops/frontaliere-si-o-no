@@ -1,4 +1,4 @@
-name: Issue fix (Claude → PR)
+name: Issue fix (Codex Luna Max → PR)
 
 on:
   issues:
@@ -84,7 +84,7 @@ jobs:
     #   quindi la label È il consenso umano.
     # - sender == owner: belt-and-suspenders contro label aggiunte da automation
     #   esterne / bot non fidati.
-    # - Auth via CLAUDE_CODE_OAUTH_TOKEN (subscription Max, zero API cost).
+    # - Auth via CODEX_AUTH_JSON (private Codex broker, zero API cost).
     if: |
       github.event.label.name == 'agent:fix' &&
       (github.event.sender.login == 'valerielinc-ops' ||
@@ -103,7 +103,7 @@ jobs:
           fetch-depth: 0
           # Blobless clone (#4189): con fetch-depth:0 il checkout scaricava TUTTI
           # i blob storici di questo repo data-heavy, consumando l'intero budget
-          # job da 30min → "Run Claude fix" non partiva mai. `filter: blob:none`
+          # job da 30min → "Run Codex Luna Max fix" non partiva mai. `filter: blob:none`
           # prende il commit-graph completo + il working tree di HEAD ma salta i
           # blob storici (fetch on-demand se mai servono): checkout da ~minuti a
           # ~secondi, HEAD materializzato identico → il fixer lavora invariato.
@@ -166,9 +166,9 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: node scripts/ci/mint-app-token.mjs
 
-      # Prima di `npm ci`, rileva il beacon della quota Claude per telemetria.
-      # Non blocca il run: Codex e' il provider primario e Claude e' il fallback.
-      - name: Pre-flight — quota telemetry (Codex primary, pre-npm)
+      # Prima di `npm ci`, rileva il beacon della quota legacy per telemetria.
+      # Non blocca il run: Codex Luna Max è l'unico provider del lane.
+      - name: Pre-flight — Codex lane quota telemetry (pre-npm)
         id: quota
         # Il beacon è best-effort e resta telemetria: un guasto infra non deve
         # sopprimere il run, e la quota Claude non salta Codex.
@@ -482,15 +482,15 @@ jobs:
           CTX_DIR: ${{ runner.temp }}/issue-fix-ctx
           IS_GROUP: ${{ steps.group.outputs.is_group }}
           APP_TOKEN_WORKFLOWS: ${{ env.APP_TOKEN_WORKFLOWS }}
-        # Tier high (claude-opus-5, max-turns alti): issue funnel-critical — crawler/parser/
+        # Tier high (gpt-5.6-luna, max-turns alti): issue funnel-critical — crawler/parser/
         # build-plugin/workflow CI/test gate, o uno script che MUTA/emette dati
         # indicizzati (backfill/migrate/assemble/sitemap/canonical/slug/
         # structured-data/seo). Bug lì = rischio propagato su ogni merge → probing
-        # rigoroso paga. Tier normal per il resto (stesso modello claude-opus-5,
-        # unificato owner 2026-09-03: opus a effort medium, mai claude-sonnet-4-6; cambiano solo i turni). Mirror ESATTO di
+        # rigoroso paga. Tier normal per il resto (stesso modello gpt-5.6-luna,
+        # unificato: Codex Luna Max, effort max; cambiano solo i turni). Mirror ESATTO di
         # pr-review-loop: il bare `scripts/` NON escala più (mandava ogni menzione
         # di script — inclusi helper `scripts/{ci,dev,evals}/` e audit/report
-        # read-only — a opus@40; osservato 2026-06-04 come tier-breadth waste). Gli
+        # read-only — a un cap alto; osservato 2026-06-04 come tier-breadth waste). Gli
         # script funnel restano high via i loro keyword semantici/path index-muting.
         #
         # Terza clausola (2026-07-06): analisi storica FIX_OUTCOME 5 settimane ha
@@ -618,9 +618,9 @@ jobs:
              || echo "$body" | grep -qiE 'seo-[a-z0-9]|audit-dist|validate-dist'; then
             {
               echo "tier=high"
-              echo "model=claude-opus-5"
+              echo "model=gpt-5.6-luna"
             # 40->50 (misurato 06-12): 44 run/7gg morti error_max_turns a
-            # num_turns=41 (es. run 27386343034) = run opus intera bruciata,
+            # unbounded turns (es. run 27386343034) = run intera bruciata,
             # 0 PR, issue ri-accodata -> retry = doppio burn. Il cap esiste
             # anti-runaway, non come budget di lavoro: tenerlo sopra il p99
             # osservato dei run sani.
@@ -632,12 +632,12 @@ jobs:
           else
             {
               echo "tier=normal"
-              echo "model=claude-opus-5"
+              echo "model=gpt-5.6-luna"
             # 30->40 (misurato 2026-06-12 post-#1919): 3 run tier=normal morti
             # error_max_turns al cap nella sola finestra 06:00-07:30Z (run
             # 27397873962/27399888568/27400421268, follow-up #1918/#1931) —
             # il bump #1919 copriva solo il tier high (40->50); il campione
-            # 7gg aveva mostrato solo morti opus (bias). Stessa regola: cap
+            # 7gg aveva mostrato solo morti al cap (bias). Stessa regola: cap
             # anti-runaway sopra il p99 dei run sani, non budget di lavoro.
             # 40->55 (2026-07-17, owner): bump fleet-wide, vedi tier high sopra.
               echo "max_turns=55"
@@ -871,12 +871,12 @@ jobs:
           # casi, così un push rifiutato si legge nei log senza dover indovinare.
           #
           # ATTENZIONE — questo step DA SOLO non basta, e per settimane si è creduto di sì.
-          # `claude-code-action` RI-SCRIVE il remote appena parte: `configureGitAuth()` →
+          # Il lane Codex RI-SCRIVE il remote appena parte: `configureGitAuth()` →
           # `replaceCheckoutCredentials()` fa un `git remote set-url origin
           # https://x-access-token:<suo-token>@github.com/...` incondizionato, sovrascrivendo
           # ciò che si è appena configurato qui. Il `git push` del fixer usa quindi il token
           # della action, non questo. L'unico modo per farlo restare è passarle
-          # `github_token: ${{ env.APP_TOKEN }}` — vedi lo step `Run Claude fix`. Senza quello
+          # `github_token: ${{ env.APP_TOKEN }}` — vedi lo step `Run Codex Luna Max fix`. Senza quello
           # le righe qui sotto sono vere solo fino all'avvio della action.
           if [ -n "${APP_TOKEN:-}" ]; then
             git config --unset-all "http.https://github.com/.extraheader" || true
@@ -889,10 +889,6 @@ jobs:
           else
             echo "push identity: GITHUB_TOKEN (nessun APP_TOKEN — .github/workflows/** resta non pushabile)"
           fi
-
-      - name: Setup Headroom compression proxy
-        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
-        uses: ./.github/actions/setup-headroom
 
       - name: Install deterministic PR body gate
         if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
@@ -918,7 +914,7 @@ jobs:
             echo "PR_BODY_GATE_BASELINE_FILE=$baseline_file"
           } >> "$GITHUB_ENV"
 
-      - name: Run Claude fix
+      - name: Run Codex Luna Max fix
         # Tetto sullo step (classe #7310). Il cap del job è 360min e in pratica
         # non lega mai: il vincolo che morde è `--max-turns`, e la morte al cap
         # dei turni misurata sul run 33656771164 arriva a 934s. 120min stanno
@@ -927,7 +923,7 @@ jobs:
         # `cancelled`», dove gli step di salvataggio WIP e di telemetria
         # perdono la coda per girare.
         timeout-minutes: 120
-        id: claude_review
+        id: codex_fix
         if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         # Non far fallire il job sull'exit non-zero della CLI: lo step finale
         # `Classify outcome` decide il colore in base al LAVORO reale (PR aperta
@@ -954,7 +950,6 @@ jobs:
           ISSUE_GROUP_NUMBERS: ${{ steps.group.outputs.group_numbers }}
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
-          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # L'IDENTITÀ DI PUSH DEL FIXER. Senza questo input la action ne conia uno suo
           # (la App `claude`, cioè `claude[bot]`) e con quello RI-SCRIVE il remote:
           # `src/github/operations/git-config.ts` → `replaceCheckoutCredentials()` esegue
@@ -981,16 +976,13 @@ jobs:
           # più sulle PR del fixer e ogni PR resterebbe ferma senza review.
           github_token: ${{ env.APP_TOKEN }}
           codex_github_token: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
-          show_full_output: true
           # Whitelist esplicita (hardening #898): mai `*`. I sender bot legittimi
           # del trigger sono `claude[bot]` (cascade fix → re-trigger) e
           # `github-actions[bot]` (re-label interno). Il PAT user `valerielinc-ops`
           # è un account umano → bypassa `allowed_bots`, già coperto dal gate `if`.
-          allowed_bots: 'github-actions[bot], claude[bot], frontaliere-automation[bot]'
           # 2026-07-02: --dangerously-skip-permissions sostituisce --allowedTools scoped
-          # (rationale completo: post-merge-followup.yml claude_args comment, stesso
+          # (rationale completo: post-merge-followup.yml action-input comment, stesso
           # fix, evita drift tra copie duplicate).
-          claude_args: "--effort medium --max-turns ${{ steps.tier.outputs.max_turns }} --model ${{ steps.tier.outputs.model }} --dangerously-skip-permissions"
           prompt: |
             Sei l'agent di fix autonomo per la issue #${{ github.event.issue.number }} ("${{ github.event.issue.title }}"). Tier: ${{ steps.tier.outputs.tier }}.
 
@@ -1121,7 +1113,7 @@ jobs:
             git commit -q -m "wip(issue-$ISSUE): checkpoint automatico di un run terminato senza PR"               -m "Salvato da issue-fix.yml (step deterministico), non dall'agente: il run è finito senza aprire una PR e senza eseguire il checkpoint del prompt — il caso tipico è error_max_turns, che finisce i turni proprio prima di poterlo fare."               -m "Run: $RUN_URL" || echo "wip-salvage: commit vuoto o rifiutato, continuo."
           fi
 
-          # Ri-applica l'identità di push: dopo claude-code-action il remote può
+          # Ri-applica l'identità di push: dopo il lane Codex il remote può
           # portare la sua credenziale, e l'extraheader di actions/checkout ha
           # comunque la precedenza sull'URL (stessa trappola documentata in
           # 'Configure git identity').
@@ -1163,15 +1155,15 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
           ISSUE: ${{ github.event.issue.number }}
-          CLAUDE_OUTCOME: ${{ steps.claude_review.outcome }}
+          ACTION_OUTCOME: ${{ steps.codex_fix.outcome }}
         run: |
           set -euo pipefail
           BRANCH="fix/issue-$ISSUE"
           status_file="${PR_BODY_GATE_STATUS_FILE:-}"
           baseline_file="${PR_BODY_GATE_BASELINE_FILE:-}"
-          claude_outcome="${CLAUDE_OUTCOME:-}"
+          action_outcome="${ACTION_OUTCOME:-}"
           if [ -z "$status_file" ] || [ ! -s "$status_file" ]; then
-            if [ "$claude_outcome" = "failure" ]; then
+            if [ "$action_outcome" = "failure" ]; then
               echo "::error::gh-pr-body-check ha fallito senza poter registrare lo stato della delivery."
               exit 1
             fi
@@ -1228,49 +1220,6 @@ jobs:
             --description 'PR prodotta dal loop autonomo issue-fix' --force >/dev/null 2>&1 || true
           gh pr edit "$PR" --repo "$REPO" --add-label agent:autofix
           echo "provenance: PR #$PR marcata agent:autofix."
-
-      - name: Claude usage metrics
-        # Run only when the Claude fallback actually ran and produced an execution file.
-        if: always() && steps.claude_review.outputs.claude_used == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
-        # Exact token/cost for this run (replaces estimates). Writes a table to
-        # the run Step Summary + a grep-able CLAUDE_USAGE line to the log.
-        # Best-effort: never fails the job.
-        run: node scripts/ci/claude-usage-summary.mjs "${{ steps.claude_review.outputs.execution_file }}" "issue-fix"
-
-      - name: Mark Claude terminal outcome (granular telemetry, pre-backstop)
-        # Quando la run Claude muore PRIMA di poter postare il proprio verdetto,
-        # NON lascia un marker FIX_OUTCOME → il backstop sotto posta un generico
-        # `no-pr-unspecified` che il drainer IGNORA (BACKSTOP_MARKER) → l'item
-        # viene trattato come orfano ri-tentabile e ri-accodato fino a
-        # MAX_ATTEMPTS. Questo step emette il marker GRANULARE (senza
-        # BACKSTOP_MARKER → il drainer lo VEDE) così il recupero è corretto per
-        # causa. Gira PRIMA del backstop, che quindi trova il marker e si salta.
-        #
-        # Due terminal outcome, entrambi deterministici dall'execution file:
-        #  • `error_max_turns` → marker `max-turns`: il budget di turni è esaurito
-        #    in modo riproducibile → il drainer parka subito con `needs-human`.
-        #  • HTTP 429 (quota Max esaurita) → marker `rate-limited` + beacon
-        #    `<!-- QUOTA_RESETS_AT: … -->`. **È il caso dominante e prima non era
-        #    coperto**: misurato 2026-08-05 sulle 61 run fallite della finestra
-        #    7gg, 60 sono 429 e ZERO sono error_max_turns. Il payload di un 429
-        #    porta `"subtype": "success"` con `is_error: true`, quindi il vecchio
-        #    gate subtype-only non scattava mai e la issue finiva ri-accodata 3×
-        #    contro la stessa quota esaurita → `fu-parked` → age-out close, senza
-        #    che nessun agent l'avesse mai letta (0 turni, $0). Catena assorbente
-        #    completa in scripts/ci/claude-rate-limit.mjs.
-        #
-        # Gli altri failure (5xx transienti, crash infra) restano SENZA marker →
-        # legittimamente ri-tentabili dal rescue. Nessuna falsa escalation.
-        # Best-effort, mai fa fallire il job.
-        if: always() && steps.claude_review.outputs.claude_used == 'true' && steps.claude_review.outcome == 'failure' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_REPO: ${{ github.repository }}
-          ISSUE: ${{ github.event.issue.number }}
-          EXEC_FILE: ${{ steps.claude_review.outputs.execution_file }}
-          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          WORKFLOW: issue-fix
-        run: node scripts/ci/mark-claude-terminal-outcome.mjs
 
       - name: Emit FIX_OUTCOME telemetry (deterministic backstop)
         # Skip on short-circuit: the pre-flight gate already posted the granular
@@ -1334,18 +1283,18 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE: ${{ github.event.issue.number }}
-          CLAUDE_OUTCOME: ${{ steps.claude_review.outcome }}
+          ACTION_OUTCOME: ${{ steps.codex_fix.outcome }}
         run: |
           set -uo pipefail
           # PR aperta o gia' mergiata sul branch di questa issue (head esatto).
           PR_STATE=$(gh pr list --head "fix/issue-$ISSUE" --state all --json number,state,createdAt \
             --jq '[.[] | select(.state=="OPEN" or .state=="MERGED")] | sort_by(.createdAt) | last | .number // empty' 2>/dev/null || true)
-          echo "issue=$ISSUE pr(head fix/issue-$ISSUE, open|merged)=${PR_STATE:-<none>} claude=$CLAUDE_OUTCOME"
+          echo "issue=$ISSUE pr(head fix/issue-$ISSUE, open|merged)=${PR_STATE:-<none>} action=$ACTION_OUTCOME"
           if [ -n "${PR_STATE:-}" ]; then
-            echo "✓ PR #$PR_STATE esiste (open/merged) per la issue → run SUCCESS. Job verde anche se la CLI e' uscita '$CLAUDE_OUTCOME' (false-failure: lavoro consegnato)."
+            echo "✓ PR #$PR_STATE esiste (open/merged) per la issue → run SUCCESS. Job verde anche se la CLI e' uscita '$ACTION_OUTCOME' (false-failure: lavoro consegnato)."
             exit 0
           fi
-          if [ "$CLAUDE_OUTCOME" = "failure" ]; then
+          if [ "$ACTION_OUTCOME" = "failure" ]; then
             # Quota esaurita (429): il job resta comunque RED — non e' un
             # successo e non ha consegnato niente, quindi nessun falso-verde
             # (Non-Negotiable #2, nessun error→warning). Cambia solo il MESSAGGIO:
@@ -1361,10 +1310,10 @@ jobs:
               echo "::error::issue-fix #$ISSUE: run terminata su QUOTA Claude esaurita (HTTP 429) al primo turno — l'agent non ha letto la issue (0 turni, costo 0). Non e' un fallimento di diagnosi/fix: la issue e' stata ri-accodata SENZA consumare un tentativo e il drainer sospende le promozioni fino al reset. Job RED perche' nessuna PR e' stata consegnata (nessun falso-verde)."
               exit 1
             fi
-            echo "::error::issue-fix #$ISSUE: nessuna PR aperta/mergiata e la CLI e' fallita ('$CLAUDE_OUTCOME') → non-delivery reale. Job RED (segnale preservato per loop-health + drainer)."
+            echo "::error::issue-fix #$ISSUE: nessuna PR aperta/mergiata e la CLI e' fallita ('$ACTION_OUTCOME') → non-delivery reale. Job RED (segnale preservato per loop-health + drainer)."
             exit 1
           fi
-          echo "Nessuna PR ma la CLI e' uscita pulita ('$CLAUDE_OUTCOME') → terminale legittimo (blocked/already-fixed/no-root-cause). Job verde."
+          echo "Nessuna PR ma la CLI e' uscita pulita ('$ACTION_OUTCOME') → terminale legittimo (blocked/already-fixed/no-root-cause). Job verde."
 
       - name: Release in-progress claim (zero-Claude, mutex)
         # Symmetric to the claim step above: runs on EVERY terminal path (success,

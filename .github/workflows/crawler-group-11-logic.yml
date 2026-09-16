@@ -29,7 +29,7 @@
 # own ambient token is scoped to frontaliere-articles, not this repo;
 # (2) each crawler step's own `GH_TOKEN` env line is dropped (it would
 # shadow the GITHUB_PAT-derived one bootstrapped below with the wrong,
-# read-only ambient token). CLAUDE_CODE_OAUTH_TOKEN and
+# read-only ambient token). CODEX_AUTH_BROKER_SOCKET and
 # FIREBASE_SERVICE_ACCOUNT_JSON are read via the normal secrets context,
 # unchanged — the caller passes them explicitly through this workflow's
 # declared workflow_call secrets.

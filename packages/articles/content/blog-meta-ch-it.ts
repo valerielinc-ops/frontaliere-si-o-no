@@ -6482,6 +6482,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.calcio-hockey-svizzera-economia-pubblico.title': 'Calcio e hockey in Svizzera, tra economia e popolarità',
     'blog.article.calcio-hockey-svizzera-economia-pubblico.excerpt': 'Analisi economica e di pubblico tra calcio e hockey su ghiaccio in Svizzera: ricavi della Super League, stime dell\'hockey e presenze negli stadi.',
     'blog.article.calcio-hockey-svizzera-economia-pubblico.imageAlt': 'Confronto economico tra calcio e hockey su ghiaccio in Svizzera',
+    'blog.article.assicurazione-salute-glarona-sussidio.title': 'LAMal Glarona: franchigie, sussidio e scelta modello',
+    'blog.article.assicurazione-salute-glarona-sussidio.excerpt': 'In Glarona l’assicurazione LAMal è obbligatoria entro 3 mesi, con franchigie da 300 a 2 500 CHF e possibili riduzioni cantonali basate su reddito e composizione familiare.',
+    'blog.article.assicurazione-salute-glarona-sussidio.imageAlt': 'Villaggio svizzero di Glarona con clinica moderna, simbolo dell\'assicurazione sanitaria.',
+    'blog.article.premi-lamal-glarona-modelli-franchigie.title': 'Premi cassa malati Canton Glarona: fasce, franchigie e riduzione',
+    'blog.article.premi-lamal-glarona-modelli-franchigie.excerpt': 'Nel Cantone di Glarona i premi LAMal variano per fascia di premio e franchigia; è possibile ottenere la riduzione cantonale entro tre mesi dall’iscrizione.',
+    'blog.article.premi-lamal-glarona-modelli-franchigie.imageAlt': 'Paesaggio alpino del Canton Glarona con casa tradizionale svizzera',
 };
 
 export default blogMetaChIt;

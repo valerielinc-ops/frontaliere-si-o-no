@@ -157,9 +157,10 @@ jobs:
           test -s "$REPORT_DIR/l2-outcome.json"
           jq -e '(.loopId == "L2" and (.status | type) == "string" and (.independent | type) == "boolean" and (.metrics | type) == "object" and .safeToAct == false and .publishedDataUntouched == true and .noThinPages == true and .noKeywordStuffing == true and .sourceRequired == true)' "$REPORT_DIR/l2-outcome.json" >/dev/null
       - name: Record canonical L2 evidence
-        if: ${{ always() && steps.validate_l2_outcome.outcome == 'success' }}
+        if: always()
         env:
           REPORT_DIR: ${{ runner.temp }}/loop-fleet-l2
+          LOOP_FLEET_VALIDATOR_OUTCOME: ${{ steps.validate_l2_outcome.outcome }}
         run: node scripts/ci/record-loop-fleet-evidence.mjs --loop L2 --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json
       - name: Upload L2 observation and candidates
         if: always()

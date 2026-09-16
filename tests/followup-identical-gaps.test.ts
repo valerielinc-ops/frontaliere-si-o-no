@@ -85,6 +85,6 @@ describe('follow-up identical review gates', () => {
       cause: d.cause,
     });
     expect(body).toMatch(/main|run fresco|run fresh/i);
-    expect(body).not.toContain('review Claude approvante');
+    expect(body).not.toContain('review Codex approvante');
   });
 });

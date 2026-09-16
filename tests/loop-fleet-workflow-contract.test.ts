@@ -60,7 +60,6 @@ describe('loop fleet workflow contract', () => {
 
   it('gates repaired loops on a runner-local fail-closed outcome export', () => {
     const contracts = [
-      ['loop-l3-job-quality.yml', 'l3-outcome.json', 'handoffIsNotApplication', 'validate_l3_outcome'],
       ['loop-l5-decision-moments.yml', 'l5-outcome.json', 'publishedDataUntouched', 'validate_l5_outcome'],
       ['loop-l8-revenue-attribution.yml', 'l8-outcome.json', 'externalCommercialStateUntouched', 'validate_l8_outcome'],
       ['loop-l10-fleet-control.yml', 'l10-outcome.json', 'ledgerWriteMode', 'validate_l10_outcome'],
@@ -72,6 +71,27 @@ describe('loop fleet workflow contract', () => {
       expect(source, name).toContain('if: always()');
       expect(source, name).toContain(`id: ${validatorId}`);
       expect(source, name).toContain(`steps.${validatorId}.outcome == 'success'`);
+    }
+  });
+
+  it('records L2 and L3 evidence even when their local outcome validator fails', () => {
+    const contracts = [
+      ['loop-l2-demand-utility.yml', 'L2', 'l2-outcome.json', ['.safeToAct == false', '.publishedDataUntouched == true', '.noThinPages == true', '.noKeywordStuffing == true', '.sourceRequired == true'], 'validate_l2_outcome'],
+      ['loop-l3-job-quality.yml', 'L3', 'l3-outcome.json', ['.safeToAct == false', '.handoffIsNotApplication == true', '.runnerLocalQuarantine == true', '.publishedDataUntouched == true'], 'validate_l3_outcome'],
+    ];
+    for (const [name, loopId, outcomeFile, markers, validatorId] of contracts) {
+      const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
+      expect(source, name).toContain(`test -s \"$REPORT_DIR/${outcomeFile}\"`);
+
+      const validatorBlock = source.match(new RegExp(`- name: Validate runner-local ${loopId} outcome export\\n([\\s\\S]*?)(?=\\n      - name: Record canonical|$)`, 'u'))?.[0] || '';
+      expect(validatorBlock, name).toContain('if: always()');
+      for (const marker of markers) expect(validatorBlock, name).toContain(marker);
+      expect(validatorBlock, name).toContain(`id: ${validatorId}`);
+
+      const recorderBlock = source.match(new RegExp(`- name: Record canonical ${loopId} evidence\\n([\\s\\S]*?)(?=\\n      - name:|$)`, 'u'))?.[0] || '';
+      expect(recorderBlock, name).toContain('if: always()');
+      expect(recorderBlock, name).toContain(`LOOP_FLEET_VALIDATOR_OUTCOME: \${{ steps.${validatorId}.outcome }}`);
+      expect(recorderBlock, name).not.toContain(`steps.${validatorId}.outcome == 'success'`);
     }
   });
 
@@ -210,5 +230,12 @@ describe('loop fleet workflow contract', () => {
     expect(source).not.toMatch(/pull-requests:\s*write/u);
     expect(source).toContain('LOOP_FLEET_RECONCILE_MAX_DISPATCHES: \'3\'');
     expect(source).toContain('loop-fleet-ledger-reconcile.mjs');
+  });
+
+  it('materializes the canonical JSON dependency in both ledger sparse checkouts', () => {
+    for (const name of ['loop-fleet-ledger-reconcile.yml', 'loop-fleet-ledger-audit.yml']) {
+      const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
+      expect(source, name).toContain('/scripts/lib/canonical-json-digest.mjs');
+    }
   });
 });

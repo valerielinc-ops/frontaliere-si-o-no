@@ -2183,6 +2183,8 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'fides-26-polizia-esercito-berna': { it: 'fides-26-polizia-esercito-berna', en: 'fides-26-police-army-bern', de: 'fides-26-polizei-armee-bern', fr: 'fides-26-police-armee-berne' },
  'lotta-denaro-sporco-svizzera': { it: 'lotta-denaro-sporco-svizzera', en: 'switzerland-fight-dirty-money', de: 'schweiz-kampf-gegen-schmutziges-geld', fr: 'suisse-lutte-contre-argent-sale' },
  'calcio-hockey-svizzera-economia-pubblico': { it: 'calcio-hockey-svizzera-economia-pubblico', en: 'football-hockey-switzerland-economy-public', de: 'fussball-eishockey-schweiz-wirtschaft-publikum', fr: 'football-hockey-suisse-economie-public' },
+ 'assicurazione-salute-glarona-sussidio': { it: 'assicurazione-salute-glarona-sussidio', en: 'health-insurance-glarus-subsidy', de: 'krankenversicherung-glarus-zuschuss', fr: 'assurance-sante-glaris-subvention' },
+ 'premi-lamal-glarona-modelli-franchigie': { it: 'premi-lamal-glarona-modelli-franchigie', en: 'lamal-premiums-glarus-models-deductibles', de: 'lamal-beitraege-glarus-modelle-selbstbehalte', fr: 'cotisations-lamal-glaris-modeles-franchises' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

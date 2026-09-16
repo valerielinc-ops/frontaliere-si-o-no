@@ -75,6 +75,19 @@ describe('record-loop-fleet-evidence', () => {
       .toThrow(/not allowed by registry/);
   });
 
+  it('fails closed when a declared action class exceeds the loop autonomy ceiling', () => {
+    const invalid = {
+      ...registry,
+      actionAutonomy: { ...registry.actionAutonomy, 'block-proven-defect': 'A4' },
+      loops: registry.loops.map((loop: any) => loop.loopId === 'L11'
+        ? { ...loop, actionClasses: [...new Set([...loop.actionClasses, 'block-proven-defect'])] }
+        : loop),
+    };
+
+    expect(() => validateLoopRegistry(invalid))
+      .toThrow(/L11\.actionClasses.*block-proven-defect.*requires A4.*maximum is A2/);
+  });
+
   it('fails closed when a loop provenance reference is missing or undeclared', () => {
     const missing = {
       ...registry,
@@ -356,6 +369,22 @@ describe('record-loop-fleet-evidence', () => {
 
     expect(result.summary.outcome).toMatchObject({ status: 'partial', independent: false, missingFields: [] });
     expect(result.health.ok).toBe(false);
+  });
+
+  it('does not persist healthy evidence when the runner-local validator fails', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-evidence-validator-failed-'));
+    writeL1Evidence(dir);
+    const previous = process.env.LOOP_FLEET_VALIDATOR_OUTCOME;
+    process.env.LOOP_FLEET_VALIDATOR_OUTCOME = 'failure';
+    try {
+      const result = recordLoopEvidence({ loopId: 'L1', reportDir: dir, now: NOW });
+      expect(result.summary).toMatchObject({ quality: 'unmeasurable', outcome: { status: 'unmeasurable', independent: false } });
+      expect(result.health).toMatchObject({ quality: 'unmeasurable', ok: false, outcome: { status: 'unmeasurable', independent: false } });
+      expect(result.health.outcomeErrors).toContain('runner-local outcome validator returned failure');
+    } finally {
+      if (previous === undefined) delete process.env.LOOP_FLEET_VALIDATOR_OUTCOME;
+      else process.env.LOOP_FLEET_VALIDATOR_OUTCOME = previous;
+    }
   });
 
   it('uses a durable ledger only when the caller explicitly opts in', () => {

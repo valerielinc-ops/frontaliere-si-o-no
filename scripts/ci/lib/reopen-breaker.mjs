@@ -364,9 +364,9 @@ export function renderReopenBudget({
         : cause === 'review-gate-skipped'
           ? `Cosa serve per sbloccarla: **un commit che cambi il codice del contributo**, `
             + `o una review approvante postata a mano sulla HEAD. Un close+reopen non basta: `
-            + `il \`Re-review guard\` salta Claude finché il contributo resta invariato.`
+            + `il \`Re-review guard\` salta Codex finché il contributo resta invariato.`
         : cause === 'review-gate-aborted'
-          ? `Cosa serve per sbloccarla: **una review Claude che arrivi in fondo** — l'ultima `
+          ? `Cosa serve per sbloccarla: **una review Codex che arrivi in fondo** — l'ultima `
             + `è morta senza postare un verdetto. Rilancia il run \`tests\`; se ricorre, `
             + `splitta la PR.`
         : `Cosa serve per sbloccarla: **un commit nuovo, o una review che arrivi** — il vitest `
@@ -384,13 +384,13 @@ export function renderReopenBudget({
         : cause === 'review-gate-skipped'
           ? `Cosa serve per sbloccarla: **un commit che cambi il codice del contributo**, `
             + `o una review approvante postata a mano sulla HEAD. Un close+reopen non basta: `
-            + `il \`Re-review guard\` salta Claude finché il contributo resta invariato.`
+            + `il \`Re-review guard\` salta Codex finché il contributo resta invariato.`
         : cause === 'review-gate-aborted'
-          ? `Cosa serve per sbloccarla: **una review Claude che arrivi in fondo**. I test `
+          ? `Cosa serve per sbloccarla: **una review Codex che arrivi in fondo**. I test `
             + `sono verdi, ma la review è morta senza postare un verdetto: rilancia il run `
             + `di \`tests\`, o splitta la PR se la morte per turni si ripete.`
         : cause === 'review-gate'
-          ? `Cosa serve per sbloccarla: **una review Claude approvante sulla HEAD** — `
+          ? `Cosa serve per sbloccarla: **una review Codex approvante sulla HEAD** — `
             + `\`## LGTM\` senza finding 🔴 Important. I test sono verdi: il rosso di `
             + `\`${VITEST_CHECK_NAME}\` è lo step del review gate, che gira dentro lo `
             + `stesso job. Un commit nuovo (o un close+reopen manuale) ri-esegue la review.`

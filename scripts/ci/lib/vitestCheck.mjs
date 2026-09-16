@@ -371,23 +371,25 @@ export function vitestFailureIsNotAttributableToPr({
 
 /**
  * Nome dello step di `tests.yml` che rende rosso il job `vitest (unit +
- * integration)` quando la review Claude sulla HEAD non è approvante (manca
+ * integration)` quando la review Codex sulla HEAD non è approvante (manca
  * `## LGTM`, oppure c'è un finding 🔴 Important). Vive qui e non in un literal
  * sparso perché è il DISCRIMINANTE fra due rossi che si chiamano uguali ma
  * vogliono cure opposte — vedi `vitestFailureIsReviewGate`.
  */
-export const REVIEW_GATE_STEP_NAME = 'Require approving Claude review';
+export const REVIEW_GATE_STEP_NAME = 'Require approving Codex review';
 
 /** Nome dello step che esegue davvero la review dentro il job di esecuzione. */
-export const CLAUDE_REVIEW_STEP_NAME = 'Run Claude review';
+export const CODEX_REVIEW_STEP_NAME = 'Run Codex Luna Max review';
+/** @deprecated mantenuto come alias per consumer/test storici. */
+export const CLAUDE_REVIEW_STEP_NAME = CODEX_REVIEW_STEP_NAME;
 
 /** Nome dello step che rende esplicita una review abortita senza verdetto. */
 export const REVIEW_ABORT_STEP_NAME = 'Fail on transient API error (no review posted)';
 
 const REVIEW_STEP_IN_FLIGHT = new Set(['queued', 'in_progress']);
 const NON_GATING_REVIEW_STEPS = new Set([
-  'Mint GitHub App token for Claude review',
-  'Claude usage metrics',
+  'Mint GitHub App token for Codex review',
+  'Codex usage metrics',
   'Explain the job verdict in the run summary',
 ]);
 // Questi due step appartengono alla review, non al codice della PR. Un loro
@@ -421,7 +423,7 @@ export function isNonGatingReviewStep(name) {
  * del job di esecuzione e non i test?
  *
  * ── PERCHÉ SERVE ───────────────────────────────────────────────────────────
- * Fino al 2026-08-26 la review Claude era un workflow a parte
+ * Fino al 2026-08-26 la review era un workflow a parte
  * (`pr-review-loop.yml`) innescato da `workflow_run` su `tests` == success:
  * con vitest rosso la review NON partiva, quindi «vitest rosso» implicava
  * «nessuna review possibile» e riciclare la PR era inutile per costruzione.
@@ -464,7 +466,7 @@ export function vitestFailureIsReviewGate(steps) {
 }
 
 /**
- * Il gate è rosso perché il `Re-review guard` ha saltato Claude, non perché la
+ * Il gate è rosso perché il `Re-review guard` ha saltato Codex, non perché la
  * review sia fallita a metà? Pura e conservativa: un abort esplicito della
  * review prevale sul semplice `skipped`, così un errore API non consuma/nega
  * il one-shot del review gate (#1140).

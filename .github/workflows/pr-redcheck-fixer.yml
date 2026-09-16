@@ -427,16 +427,16 @@ jobs:
 
           # Tier (mirror di pr-review-loop / issue-fix): high se la PR
           # tocca CODE funnel-critical (tests/, build-plugins/, scripts/lib/,
-          # services/seo*), normal altrimenti. Modello UNIFICATO claude-opus-5
-          # su entrambi i tier (owner 2026-09-03: opus a effort medium, mai claude-sonnet-4-6); i tier
+          # services/seo*), normal altrimenti. Modello UNIFICATO gpt-5.6-luna
+          # su entrambi i tier (Codex Luna Max, effort max); i tier
           # restano distinti solo per telemetria/prompt.
           crit=$(echo "$files" | grep -E '^(tests/|build-plugins/|scripts/lib/|services/seo)' || true)
           if [ -n "$crit" ] || [ "$files_complete" != "1" ]; then
             echo "tier=high"   >> "$GITHUB_OUTPUT"
-            echo "model=claude-opus-5"   >> "$GITHUB_OUTPUT"
+            echo "model=gpt-5.6-luna"   >> "$GITHUB_OUTPUT"
           else
             echo "tier=normal" >> "$GITHUB_OUTPUT"
-            echo "model=claude-opus-5" >> "$GITHUB_OUTPUT"
+            echo "model=gpt-5.6-luna" >> "$GITHUB_OUTPUT"
           fi
 
           # Posta/incrementa il marker round PRIMA di invocare Claude (così se la
@@ -474,13 +474,13 @@ jobs:
           git config --unset-all "http.https://github.com/.extraheader" || true
           git remote set-url origin "https://x-access-token:${PUSH_TOKEN}@github.com/${REPO}.git"
 
-      # SHA di partenza (post-merge origin/main, pre-Claude): il classify finale lo
+      # SHA di partenza (post-merge origin/main, pre-Codex): il classify finale lo
       # confronta con la HEAD remota dopo Claude per capire se il round ha davvero
       # pushato un fix → un round che pusha un fix è SUCCESS anche se la run Claude
       # è poi morta `error_max_turns` in cleanup (false-failure: 28% dei fail nel
       # campione 7gg pushavano un commit ma il job restava RED → failure-rate
       # gonfiato nel loop-health-report #1951).
-      - name: Record base SHA (pre-Claude)
+      - name: Record base SHA (pre-Codex)
         id: base
         if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
         env:
@@ -546,10 +546,6 @@ jobs:
           echo "contesto raccolto: $(wc -c < "$OUT/failing.txt") byte, $(grep -c 'FAIL ' "$OUT/failing.txt" 2>/dev/null || echo 0) righe FAIL."
           sed -n '1,25p' "$OUT/failing.txt"
 
-      - name: Setup Headroom compression proxy
-        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
-        uses: ./.github/actions/setup-headroom
-
       - name: Install deterministic PR body gate
         if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
         run: |
@@ -560,7 +556,7 @@ jobs:
           echo "$gate_dir" >> "$GITHUB_PATH"
           echo "PR_BODY_GATE_BIN=$gate_dir" >> "$GITHUB_ENV"
 
-      - name: Pre-flight — Claude quota telemetry (Codex primary)
+      - name: Pre-flight — Codex lane quota telemetry
         id: quota
         if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
         continue-on-error: true
@@ -570,15 +566,15 @@ jobs:
           CODEX_FALLBACK_MODE: '1'
         run: node scripts/ci/check-quota-backoff.mjs
 
-      - name: Run Claude ❌-check-fix
-        id: claude_review
+      - name: Run Codex Luna Max ❌-check-fix
+        id: codex_fix
         if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
         # Tetto sullo step, stessa ragione del Checkout qui sopra: senza, l'unico
         # limite era il cap del job e la run moriva `cancelled`, che NON fa
         # scattare nessun `if: failure()` e si vede solo dallo scan periodico
         # (`scripts/ci/scan-job-timeouts.mjs`) — issue #7310, run 33851702755:
         # Claude a 2140s dentro un job da 40min, ucciso senza diagnosi propria.
-        # 30min lasciano allo step un margine reale (il setup pre-Claude misurato
+        # 30min lasciano allo step un margine reale (il setup pre-Codex misurato
         # su quella run è 276s) e ~5min di coda agli step `if: always()` che
         # classificano l'esito, invece di consumarli tutti e finire nel buco.
         # Con il `continue-on-error` qui sotto lo scadere del tetto non tinge il
@@ -603,10 +599,9 @@ jobs:
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           # Auth via subscription Max (zero API cost). MAI ANTHROPIC_API_KEY.
-          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # Stessa identità dello step `Configure push remote (App token / PAT)` qui sopra,
           # e per la stessa ragione per cui la si passa in issue-fix.yml: senza questo input
-          # `claude-code-action` conia un proprio token e RI-SCRIVE il remote
+          # Il lane Codex conia un proprio token e RI-SCRIVE il remote
           # (`git-config.ts` → `replaceCheckoutCredentials()` fa un `git remote set-url`
           # incondizionato), buttando via il remote appena configurato. Il commento del
           # prompt qui sotto — «il remote origin è già autenticato con l'App token» —
@@ -617,22 +612,19 @@ jobs:
           # il ramo di default della action = comportamento odierno invariato.
           github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
-          show_full_output: true
           # Le review/PR autonome sono di claude[bot] / github-actions[bot] /
           # frontaliere-automation[bot] (App): le PR aggiornate via App token
           # triggerano con actor = l'App → senza whitelist la action aborta
           # "non-human actor: frontaliere-automation" (exit 1). Mai `*`.
-          allowed_bots: 'github-actions[bot], claude[bot], frontaliere-automation[bot]'
           # 30->45 (misurato 06-12): 25 fail vs 20 success in 7gg, TUTTI
           # error_max_turns al cap 30 (run 27390252111/27375482475/27373263097)
           # = peggior failure-rate del loop; ogni fail brucia ~8-14min di run
-          # opus senza commit e lascia il rosso alla escalation needs-human.
+          # senza commit e lascia il rosso alla escalation needs-human.
           # 2026-07-02: --dangerously-skip-permissions sostituisce --allowedTools scoped
-          # (rationale completo: post-merge-followup.yml claude_args comment, stesso
+          # (rationale completo: post-merge-followup.yml action-input comment, stesso
           # fix, evita drift tra copie duplicate).
           # 45->60 (2026-07-17, owner): bump fleet-wide di tutti i cap max-turns
           # Claude dopo l'ennesimo error_max_turns (pr-review-loop run 29556645538).
-          claude_args: "--effort medium --max-turns 60 --model ${{ steps.guard.outputs.model }} --dangerously-skip-permissions"
           prompt: |
             Il branch è già checkoutato sulla head della PR #${{ needs.preflight.outputs.pr_number }}, che ha un **check required ROSSO**.
 
@@ -669,25 +661,6 @@ jobs:
             - Se non è fixabile con confidenza (root cause non chiara, serve giudizio umano, o l'unica via sarebbe indebolire un gate) → commenta «❌ check non auto-fixabile: <motivo>» e TERMINA senza commit. Il round cap porta a `needs-human` da solo: è l'esito giusto, non una sconfitta.
             - **Token-lever:** chiamate `gh`/lettura indipendenti vanno emesse in parallelo nello stesso messaggio, mai una per turno — un messaggio con più tool-call resta 1 turno.
             - Una sola passata: diagnostica, fixa, valida, committa, pusha, aggiorna il body, STOP.
-      - name: Claude usage metrics
-        if: always() && steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claude_review.outputs.claude_used == 'true'
-        run: node scripts/ci/claude-usage-summary.mjs "${{ steps.claude_review.outputs.execution_file }}" "pr-redcheck-fixer"
-
-      # Un 429 prima del primo turno non deve consumare il round anti-loop.
-      - name: Refund round on Claude quota 429 (zero-Claude)
-        if: always() && steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_REPO: ${{ github.repository }}
-          PR: ${{ needs.preflight.outputs.pr_number }}
-          MARKER: REDCHECK_FIX_ROUND
-          ROUND: ${{ steps.guard.outputs.round }}
-          EXEC_FILE: ${{ steps.claude_review.outputs.execution_file }}
-          WORKFLOW: pr-redcheck-fixer
-          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        run: node scripts/ci/refund-fix-round.mjs
-
       - name: Cleanup Firebase credentials
         if: always()
         run: rm -f /tmp/firebase-sa.json
@@ -720,27 +693,27 @@ jobs:
           HEAD_REF: ${{ needs.preflight.outputs.head_ref }}
           BASE_SHA: ${{ steps.base.outputs.sha }}
           BASE_COMMENTS: ${{ steps.base.outputs.comments }}
-          CLAUDE_OUTCOME: ${{ steps.claude_review.outcome }}
+          ACTION_OUTCOME: ${{ steps.codex_fix.outcome }}
         run: |
           set -uo pipefail
           HEAD_NOW=$(git rev-parse HEAD 2>/dev/null || echo "")
           git fetch origin "$HEAD_REF" -q 2>/dev/null || true
           REMOTE_SHA=$(git rev-parse "origin/$HEAD_REF" 2>/dev/null || echo "")
-          echo "base=$BASE_SHA local=$HEAD_NOW remote=$REMOTE_SHA claude=$CLAUDE_OUTCOME"
+          echo "base=$BASE_SHA local=$HEAD_NOW remote=$REMOTE_SHA action=$ACTION_OUTCOME"
           if [ -n "$HEAD_NOW" ] && [ -n "$BASE_SHA" ] && [ "$HEAD_NOW" != "$BASE_SHA" ] && [ "$REMOTE_SHA" = "$HEAD_NOW" ]; then
-            echo "✓ Fix pushato questo round (HEAD avanzato e presente su origin/$HEAD_REF) → round SUCCESS. Job verde anche se la CLI è uscita '$CLAUDE_OUTCOME'."
+            echo "✓ Fix pushato questo round (HEAD avanzato e presente su origin/$HEAD_REF) → round SUCCESS. Job verde anche se l'azione è uscita '$ACTION_OUTCOME'."
             exit 0
           fi
-          if [ "$CLAUDE_OUTCOME" = "failure" ]; then
-            echo "::error::❌-check-fix: nessun commit pushato e la run Claude è fallita ('$CLAUDE_OUTCOME') → non-progress reale. Job RED (segnale preservato; round-cap → needs-human a N>=2)."
+          if [ "$ACTION_OUTCOME" = "failure" ]; then
+            echo "::error::❌-check-fix: nessun commit pushato e l'azione è fallita ('$ACTION_OUTCOME') → non-progress reale. Job RED (segnale preservato; round-cap → needs-human a N>=2)."
             exit 1
           fi
           NOW_COMMENTS=$(gh api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --jq 'length' 2>/dev/null || echo "${BASE_COMMENTS:-0}")
           if [ "${NOW_COMMENTS:-0}" -le "${BASE_COMMENTS:-0}" ]; then
-            echo "::error::❌-check-fix: nessun commit pushato, Claude uscita '$CLAUDE_OUTCOME', e nessun commento nuovo a spiegare perché (comments $BASE_COMMENTS→$NOW_COMMENTS) → non-progress SILENZIOSO, non un terminale legittimo. Job RED (segnale preservato; round-cap → needs-human a N>=2)."
+            echo "::error::❌-check-fix: nessun commit pushato, l'azione è uscita '$ACTION_OUTCOME', e nessun commento nuovo a spiegare perché (comments $BASE_COMMENTS→$NOW_COMMENTS) → non-progress SILENZIOSO, non un terminale legittimo. Job RED (segnale preservato; round-cap → needs-human a N>=2)."
             exit 1
           fi
-          echo "Nessun push ma Claude terminato pulito ('$CLAUDE_OUTCOME') con una spiegazione nuova sulla PR → terminale legittimo (es. non auto-fixabile). Job verde."
+          echo "Nessun push ma l'azione è terminata pulita ('$ACTION_OUTCOME') con una spiegazione nuova sulla PR → terminale legittimo (es. non auto-fixabile). Job verde."
           exit 0
 
       - name: Finalize redcheck PR + HEAD + failed check claim
@@ -758,7 +731,7 @@ jobs:
           CHECK_FAILURE_KEY: ${{ needs.preflight.outputs.failed_check_key }}
           CLAIM_TOKEN: ${{ steps.claim.outputs.claim_token }}
           PROCEED: ${{ steps.guard.outputs.proceed }}
-          CLAUDE_OUTCOME: ${{ steps.claude_review.outcome }}
-          EXEC_FILE: ${{ steps.claude_review.outputs.execution_file }}
+          ACTION_OUTCOME: ${{ steps.codex_fix.outcome }}
+          EXEC_FILE: ''
           GITHUB_RUN_ID: ${{ github.run_id }}
         run: node scripts/ci/pr-fixer-claim.mjs --claim

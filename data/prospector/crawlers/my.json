@@ -1,20 +1,20 @@
 {
   "companyKey": "my",
-  "companyName": "Caprez",
+  "companyName": "Ex Team AG Kanalservices",
   "companyHost": "my.jobalino.ch",
   "platform": "jobalino.ch",
   "mode": "jsonld",
   "seedUrls": [
-    "https://my.jobalino.ch/job/658ee306b792c/caprez-ingenieure-ag/bauingenieurin-technikerin-tiefbau"
+    "https://my.jobalino.ch/job/af2d709294ce19b28d316d6c2a60dfbb/spontanbewerbung_1703"
   ],
-  "detailTemplate": "/job/658ee306b792c/caprez-ingenieure-ag/bauingenieurin-technikerin-tiefbau",
+  "detailTemplate": "/job/af2d709294ce19b28d316d6c2a60dfbb/spontanbewerbung_1703",
   "detailEnrichment": false,
   "detailFetchWorkers": 4,
   "sampleVacancyCount": 1,
   "sampleTitles": [
-    "BauingenieurIn / TechnikerIn Tiefbau / 60% - 100%"
+    "Spontanbewerbung / 100%"
   ],
-  "canton": "GR",
+  "canton": "BL",
   "sourceLang": "de",
-  "learnedAt": "2026-09-10T09:01:22.981Z"
+  "learnedAt": "2026-09-16T10:38:54.596Z"
 }
