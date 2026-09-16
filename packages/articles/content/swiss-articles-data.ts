@@ -19328,6 +19328,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'bns-tassi-interessi-ubs',
+    category: 'pratico',
+    date: '2026-09-16T01:12:04.722Z',
+    image: '/images/blog/bns-tassi-interessi-ubs.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

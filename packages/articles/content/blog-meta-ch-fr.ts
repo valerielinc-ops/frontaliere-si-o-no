@@ -6452,6 +6452,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.too-big-to-fail-consiglio-stati.title': 'Too big to fail : le Conseil des Etats discute des règles UBS',
     'blog.article.too-big-to-fail-consiglio-stati.excerpt': 'La réglementation des institutions too big to fail au cœur du débat parlementaire. Le PLR propose de confier les règles au Conseil fédéral.',
     'blog.article.too-big-to-fail-consiglio-stati.imageAlt': 'Palais fédéral à Berne où la réglementation bancaire est discutée',
+    'blog.article.bns-tassi-interessi-ubs.title': 'BNS, taux directeurs à 0,0% : UBS prévoit d\'éventuelles augmentations',
+    'blog.article.bns-tassi-interessi-ubs.excerpt': 'La Banque nationale suisse devrait maintenir le taux directeur à 0,0% mais les risques d\'une hausse anticipée augmentent selon UBS.',
+    'blog.article.bns-tassi-interessi-ubs.imageAlt': 'Siege de la Banque nationale suisse a Berne',
 };
 
 export default blogMetaChFr;

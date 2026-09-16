@@ -6452,6 +6452,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.too-big-to-fail-consiglio-stati.title': 'Too big to fail: Council of States discusses UBS rules',
     'blog.article.too-big-to-fail-consiglio-stati.excerpt': 'Regulation for too big to fail institutes is at the heart of the parliamentary debate. The RLP proposes to entrust the rules to the Federal Council.',
     'blog.article.too-big-to-fail-consiglio-stati.imageAlt': 'Federal Palace in Bern where banking regulation is discussed',
+    'blog.article.bns-tassi-interessi-ubs.title': 'SNB, 0.0% lead rates: UBS forecasts possible increases',
+    'blog.article.bns-tassi-interessi-ubs.excerpt': 'The Swiss National Bank is expected to keep the lead rate at 0.0% but the risks of an early rise are growing according to UBS.',
+    'blog.article.bns-tassi-interessi-ubs.imageAlt': 'Swiss National Bank headquarters in Bern',
 };
 
 export default blogMetaChEn;

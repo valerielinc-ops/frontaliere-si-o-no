@@ -6452,6 +6452,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.too-big-to-fail-consiglio-stati.title': 'Too big to fail: Ständerat diskutiert UBS-Regeln',
     'blog.article.too-big-to-fail-consiglio-stati.excerpt': 'Die Regelung für too big to fail-Institute steht im Mittelpunkt der parlamentarischen Debatte. Die FDP schlägt vor, die Regeln dem Bundesrat zu übertragen.',
     'blog.article.too-big-to-fail-consiglio-stati.imageAlt': 'Bundeshaus in Bern, wo die Bankenregulierung diskutiert wird',
+    'blog.article.bns-tassi-interessi-ubs.title': 'SNB, Leitzinsen 0,0%: UBS rechnet mit möglichen Erhöhungen',
+    'blog.article.bns-tassi-interessi-ubs.excerpt': 'Die Schweizerische Nationalbank sollte den Leitzins bei 0,0% halten, aber die Risiken einer vorzeitigen Erhöhung steigen laut UBS.',
+    'blog.article.bns-tassi-interessi-ubs.imageAlt': 'Sitz der Schweizerischen Nationalbank in Bern',
 };
 
 export default blogMetaChDe;

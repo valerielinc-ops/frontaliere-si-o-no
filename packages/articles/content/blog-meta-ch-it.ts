@@ -6452,6 +6452,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.too-big-to-fail-consiglio-stati.title': 'Too big to fail: il Consiglio degli Stati discute le regole UBS',
     'blog.article.too-big-to-fail-consiglio-stati.excerpt': 'La regolamentazione per gli istituti too big to fail al centro del dibattito parlamentare. Il PLR propone di affidare le regole al Consiglio federale.',
     'blog.article.too-big-to-fail-consiglio-stati.imageAlt': 'Palazzo federale a Berna dove si discute la regolamentazione bancaria',
+    'blog.article.bns-tassi-interessi-ubs.title': 'BNS, tassi guida allo 0,0%: UBS prevede possibili aumenti',
+    'blog.article.bns-tassi-interessi-ubs.excerpt': 'La Banca nazionale svizzera dovrebbe mantenere il tasso guida allo 0,0% ma crescono i rischi di un rialzo anticipato secondo UBS.',
+    'blog.article.bns-tassi-interessi-ubs.imageAlt': 'Sede della Banca nazionale svizzera a Berna',
 };
 
 export default blogMetaChIt;
