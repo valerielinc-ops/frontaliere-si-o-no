@@ -384,8 +384,8 @@ export function evaluateNativeAutoMerge({
   if (typeof pr.title !== 'string' || typeof pr.body !== 'string' || !Array.isArray(pr.labels)) {
     return {
       allow: false,
-      reason: 'metadata PR (title/body/labels) non verificabili',
-      humanApprovalRequired: true,
+      reason: 'metadata PR (title/body/labels) non verificabili; deny fail-closed senza approvazione umana',
+      humanApprovalRequired: false,
       humanApprovalVerified: false,
     };
   }
@@ -408,20 +408,17 @@ export function evaluateNativeAutoMerge({
   if (!risk.verifiable) {
     return {
       allow: false,
-      reason: `policy F1/F7 non verificabile: ${risk.reason}`,
+      reason: `policy PR non verificabile: ${risk.reason}; deny fail-closed senza approvazione umana`,
       riskDomains: risk.domains,
-      humanApprovalRequired: true,
+      humanApprovalRequired: false,
       humanApprovalVerified: false,
     };
   }
-  if (risk.blocked) {
+  if (risk.needsHumanVeto) {
     const humanApproval = findSeparateHumanApproval(reviews, pr.headRefOid);
-    const reason = risk.needsHumanVeto
-      ? '`needs-human` è un veto persistente: solo un umano può rimuoverlo dopo approvazione sulla HEAD'
-      : `policy F1/F7 blocca native auto-merge (${risk.domains.join(', ') || risk.denyCode}); gestione umana separata richiesta`;
     return {
       allow: false,
-      reason: `${reason}${humanApproval ? ' e review umana verificata sulla HEAD' : ''}`,
+      reason: `\`needs-human\` è un veto persistente: solo un umano può rimuoverlo dopo approvazione sulla HEAD${humanApproval ? ' e review umana verificata sulla HEAD' : ''}`,
       riskDomains: risk.domains,
       humanApprovalRequired: true,
       humanApprovalVerified: humanApproval !== null,

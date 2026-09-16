@@ -18,10 +18,12 @@ Non passa nessuno → drop. Non importante per questo progetto.
 ## Policy automazione bounded F1/F7
 
 La policy deterministica in `scripts/ci/lib/automation-risk-policy.mjs` è un
-dominio esplicito condiviso da classifier, issue-fix e auto-merge. Blocca sempre
-questi cinque domini: `deploy-workflow-functions`,
-`secrets-roles-permissions`, `billing-revenue-partner`,
-`published-content-seo-auto-ads` e `outreach-communications`.
+contratto esplicito condiviso da classifier, issue-fix e auto-merge. Sulla
+superficie issue blocca sempre questi cinque domini:
+`deploy-workflow-functions`, `secrets-roles-permissions`,
+`billing-revenue-partner`, `published-content-seo-auto-ads` e
+`outreach-communications`. Sulla superficie PR li conserva come evidenza, non
+come veto umano.
 
 Il dominio tecnico `control-plane` resta deny-by-default per la classificazione
 delle issue: `.github/workflows/**`, `.github/actions/**`, `scripts/ci/**`,
@@ -29,8 +31,9 @@ classifier, policy, native gate, evaluator e `REVIEW.md` non entrano nel ciclo
 issue-fix/triage automatico. Nel percorso PR→auto-merge questi path non sono
 invece un veto umano aggiuntivo: il native gate valuta comunque metadata e
 file-list completa, review `## LGTM`, check verdi e la HEAD esatta. Un path non
-riconosciuto e un issue text senza categoria/signal noto ricevono anch'essi
-`decision='deny'`; non esiste allow-by-default per stringhe o file sconosciuti.
+riconosciuto sulla superficie issue e un issue text senza categoria/signal noto
+ricevono anch'essi `decision='deny'`; sulla superficie PR un path sconosciuto è
+consentito solo quando metadata e file-list sono tecnicamente verificabili.
 
 Le sole eccezioni esplicite al deny per un'issue `other` sono le label metriche
 read-only `job-description-locale` e `job-title-locale`; non trasformano testo
@@ -42,14 +45,14 @@ token App, quota, claim e agent. Un errore di lettura o parsing lascia il fixer
 skipped. Non esiste un override nel prompt.
 
 Per una PR il native gate valuta titolo/body/label e un elenco file completo:
-un elenco incompleto è deny-by-default; un dominio F1/F7 diverso dal
-control-plane impedisce l'abilitazione e revoca un opt-in native già persistente.
-`needs-human` è un veto persistente: anche una review umana APPROVED non lo
-rimuove via automazione; la rimozione richiede un umano e una review `APPROVED`
-di un utente non-bot sulla HEAD esatta. Il gate finale riacquisisce metadata e
-file-list e usa `--match-head-commit` sulla HEAD appena verificata. La stessa
-guardia copre l'evaluator legacy che conserva una mutazione `--auto` di
-compatibilità.
+metadata o elenco incompleti sono un deny tecnico fail-closed senza
+`humanApprovalRequired`; F1/F7, control-plane e path sconosciuti non aggiungono
+un veto quando il loro snapshot è verificabile. `needs-human` è
+un veto persistente: anche una review umana APPROVED non lo rimuove via
+automazione; la rimozione richiede un umano e una review `APPROVED` di un utente
+non-bot sulla HEAD esatta. Il gate finale riacquisisce metadata e file-list e
+usa `--match-head-commit` sulla HEAD appena verificata. La stessa guardia copre
+l'evaluator legacy che conserva una mutazione `--auto` di compatibilità.
 
 I bootstrap `enable-native-automerge.yml` e `retry-native-automerge.yml` non
 eseguono più una guardia statica sui path del control-plane né richiedono un
