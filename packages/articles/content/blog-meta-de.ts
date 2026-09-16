@@ -11775,6 +11775,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.salute-mentale-lavoro-ticino.title': 'Psychische Gesundheit und Arbeit: Absenzen im Tessin',
     'blog.article.salute-mentale-lavoro-ticino.excerpt': '51% der Abwesenheiten aus psychischen Gründen führen zur Auflösung des Vertrages. Die Bedeutung eines frühzeitigen Eingreifens für die berufliche Stabilität.',
     'blog.article.salute-mentale-lavoro-ticino.imageAlt': 'Büro in Lugano mit Seeblick, symbolisch für das Wohlbefinden am Arbeitsplatz.',
+    'blog.article.mendrisiotto-strade-chiuse-weekend.title': 'Mendrisiotto: Drei Veranstaltungen und gesperrte Straßen am Wochenende',
+    'blog.article.mendrisiotto-strade-chiuse-weekend.excerpt': 'Vom 18. bis 20. September verursachen die Rally del Ticino, Peniamo und Chiasso-Pedrinate Straßensperrungen, Einschränkungen für Fußgänger und umgeleitete Busse im Mendrisiotto.',
+    'blog.article.mendrisiotto-strade-chiuse-weekend.imageAlt': 'Straßensperrungen im Mendrisiotto für Wochenendveranstaltungen',
 };
 
 export default blogMetaDe;

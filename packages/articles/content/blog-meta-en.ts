@@ -11776,6 +11776,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.salute-mentale-lavoro-ticino.title': 'Mental health and work: absences in Ticino',
     'blog.article.salute-mentale-lavoro-ticino.excerpt': '51% of absences for mental reasons lead to the dissolution of the contract. The importance of early intervention for professional stability.',
     'blog.article.salute-mentale-lavoro-ticino.imageAlt': 'Office in Lugano with lake view, symbolic of workplace wellbeing.',
+    'blog.article.mendrisiotto-strade-chiuse-weekend.title': 'Mendrisiotto: three events and roads closed at the weekend',
+    'blog.article.mendrisiotto-strade-chiuse-weekend.excerpt': 'From 18 to 20 September Rally del Ticino, Penziamo and Chiasso-Pedrinate cause road closures, limitations for pedestrians and diverted buses in Mendrisiotto.',
+    'blog.article.mendrisiotto-strade-chiuse-weekend.imageAlt': 'Road closures in Mendrisiotto for weekend events',
 };
 
 export default blogMetaEn;

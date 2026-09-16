@@ -11777,6 +11777,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.salute-mentale-lavoro-ticino.title': 'Salute mentale e lavoro: le assenze in Ticino',
     'blog.article.salute-mentale-lavoro-ticino.excerpt': 'Il 51% delle assenze per motivi psichici porta allo scioglimento del contratto. L\'importanza dell\'intervento precoce per la stabilità professionale.',
     'blog.article.salute-mentale-lavoro-ticino.imageAlt': 'Ufficio a Lugano con vista lago, simbolico per il benessere lavorativo.',
+    'blog.article.mendrisiotto-strade-chiuse-weekend.title': 'Mendrisiotto: tre eventi e strade chiuse nel fine settimana',
+    'blog.article.mendrisiotto-strade-chiuse-weekend.excerpt': 'Dal 18 al 20 settembre Rally del Ticino, Penziamo e Chiasso-Pedrinate causano chiusure stradali, limitazioni per pedoni e bus deviati nel Mendrisiotto.',
+    'blog.article.mendrisiotto-strade-chiuse-weekend.imageAlt': 'Chiusure stradali nel Mendrisiotto per eventi del fine settimana',
 };
 
 export default blogMetaIt;
