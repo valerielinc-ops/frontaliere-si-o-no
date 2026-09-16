@@ -99,7 +99,7 @@ const NARROWING_ALLOWLIST: Record<string, string> = {
     'validatore post-deploy: il fallback vivo alla riga 2403 passa --reopen-within-hours 6 e --build-sha "${INPUT_DEPLOY_REF}"; collassa il flap rosso→verde→rosso dentro UN ciclo di deploy (#928/#931/#937/#941) e ha il guard anti-latenza #5539.',
   '.github/workflows/post-deploy-validate-live.yml:482:6':
     'stessa famiglia post-deploy del precedente: la ricaduta che conta è quella dentro il ciclo, non quella a giorni.',
-  '.github/workflows/deploy-publish.yml:358:6':
+  '.github/workflows/deploy-publish.yml:366:6':
     'riporta l esito della pubblicazione dello stesso deploy: oltre il ciclo corrente la condizione non è più la stessa.',
   '.github/workflows/lighthouse-ci.yml:377:6':
     'gira per PR: due run della stessa PR sono lo stesso incidente, due PR diverse no.',
