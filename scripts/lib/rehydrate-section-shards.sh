@@ -29,11 +29,11 @@ set -uo pipefail
 # snapshots the subtree before each replace and reports every trunk file the
 # shard did not carry, failing the step when any of them is an indexable page.
 #
-# deploy.yml uploads section tars BATCHED (~5 sections/artifact per
+# Older deploy.yml runs uploaded section tars BATCHED (~5 sections/artifact per
 # scripts/lib/section-shard-batches.json — GitHub Actions doesn't
 # parallelize `uses:` steps natively, and background:/wait-all: on
 # `uses:` steps broke production twice, PR #4777 reverted by #4779), so
-# one artifact download must be shared by every section in the same
+# replaying those runs shares one artifact download by every section in the same
 # batch instead of one `gh run download` per section. ensure_batch_downloaded()
 # below is the single-download choke point: the first concurrent
 # rehydrate_section() call for a given batch+locale wins an atomic `mkdir`
@@ -145,9 +145,8 @@ rehydrate_section() {
       # early, so `expected_n` undercounts) still read as complete whenever
       # extraction happened to land >= that undercount — observed as
       # "rehydrated vallese en from tar artifact: 1012 files (tar listed
-      # 316)", 208+ sitemap URLs silently missing their HTML. The upstream
-      # pack-side guard (deploy.yml's "Pack section shard dist" step,
-      # `packed_n -ne src_n`) cannot catch this either: it compares the tar
+      # 316)", 208+ sitemap URLs silently missing their HTML. A producer-side
+      # count guard cannot catch this when it compares the tar
       # against the SAME already-short source directory it was packed from,
       # so a short source and its tar always agree with each other. `-eq` is
       # the only check here that treats "extraction produced a different

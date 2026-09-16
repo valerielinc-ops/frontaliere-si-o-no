@@ -45,6 +45,7 @@
 
 import { isNewsletterOptOutBinding } from './newsletterOptOut.js';
 import { hasConfirmationProof } from './subscriberConsent.js';
+import { isCrossChannelStop } from './emailSuppression.js';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
@@ -344,6 +345,11 @@ export function decideConfirmationFollowup(data, { now, epochMs }) {
   // A recorded opt-out ends the cycle immediately (issue rule 4). Via the
   // shared predicate, so the 458 camelCase-only stamps are seen too.
   if (isNewsletterOptOutBinding(data)) return skip('opt-out');
+
+  // A stop-all or hard address signal also suppresses the reminder. The
+  // confirmation flow is separate from ordinary broadcasts, but it must not
+  // become a loophole around an explicit global opt-out.
+  if (isCrossChannelStop(data)) return skip('address-signal');
 
   if (hasHardAddressSignal(data)) return skip('address-signal');
 

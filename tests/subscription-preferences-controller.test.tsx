@@ -512,6 +512,29 @@ describe('SubscriptionPreferencesController — auth-mode source check', () => {
  expect(src).toMatch(/deleteJobAlert\(/);
  });
 
+ it('keeps advertising reactivation scoped to the advertising sender', () => {
+  const start = src.indexOf('const handleToggleAds');
+  const end = src.indexOf('const handleStopAll', start);
+  const toggle = src.slice(start, end);
+  expect(toggle).toContain('advertising_reactivated_at');
+  expect(toggle).toContain('setAdvertisingEnabled(email, token, next)');
+  expect(toggle).toContain('authSetAdvertisingOptOut(email, next)');
+  expect(toggle).not.toContain('authToggleNewsletter(email, next)');
+  expect(src).toContain("status: 'unsubscribed'` alone");
+
+  const writerStart = src.indexOf('async function authSetAdvertisingOptOut');
+  const writerEnd = src.indexOf('async function authStopAllEmails', writerStart);
+  const writer = src.slice(writerStart, writerEnd);
+  expect(writer).toContain('ADVERTISING_REACTIVATED_AT_FIELD');
+  expect(writer).not.toMatch(/all_email(?:s)?_opted_out:\s*false/);
+  expect(writer).not.toMatch(/global_email_opted_out:\s*false/);
+ });
+
+ it('uses the sender suppression predicate for the displayed advertising state', () => {
+  expect(src).toContain("import { isAdvertisingSuppressed } from '@/services/publisherBlastMatch.mjs';");
+  expect(src).toContain('advertisingEnabled: !isAdvertisingSuppressed(data)');
+ });
+
  it('source contains auth-mode Firestore helpers', () => {
  expect(src).toMatch(/authLoadFullStatus/);
  expect(src).toMatch(/authToggleNewsletter/);
@@ -523,6 +546,15 @@ describe('SubscriptionPreferencesController — auth-mode source check', () => {
  expect(src).toMatch(/deleteDoc\(/);
  expect(src).toMatch(/account_deleted_at:\s*deleteField\(\)/);
  expect(src).toMatch(/authCreateAlert\(userId, email, values\)/);
+ expect(src).not.toMatch(/emailConsentGiven/);
+ });
+
+ it('does not let the auth autologin preference create a central subscriber', () => {
+  const autoStart = src.indexOf('async function authToggleAutologin');
+  const autoEnd = src.indexOf('async function authUpdateAlert', autoStart);
+  const auto = src.slice(autoStart, autoEnd);
+  expect(auto).toContain('const existingSubscriber = await getDoc(subscriberRef);');
+  expect(auto).toContain("throw new Error('subscriber_not_found')");
  });
 
  it('keeps a tombstoned auth subscriber unsubscribed so the newsletter toggle can re-opt in', () => {

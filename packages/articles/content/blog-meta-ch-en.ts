@@ -6440,6 +6440,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.farmacie-turno-svizzera-confine-italiano.imageAlt': 'View of Lugano and its lake',
     'blog.article.farmacie-turno-svizzera-confine-italiano.seoDescription': 'On-duty pharmacies in Switzerland and the CO/VA/VB border: cantonal sources to check, five verified Ticino regions and explicit limits.',
     'blog.article.farmacie-turno-svizzera-confine-italiano.ogDescription': 'A source guide for on-duty pharmacies in Switzerland and at the Italian border: no invented calendar, verify locally before travelling.',
+    'blog.article.ocse-crescita-svizzera-2026.title': 'OECD sees more growth in Switzerland, GDP 2026 at 2.0%',
+    'blog.article.ocse-crescita-svizzera-2026.excerpt': 'The OECD revises upwards the forecasts for Switzerland: GDP growth to 2.0% in 2026 and stable average inflation to 0.6%.',
+    'blog.article.ocse-crescita-svizzera-2026.imageAlt': 'Economic overview of Switzerland with OECD growth forecasts',
+    'blog.article.ocse-rapporto-svizzera-2026.title': 'OECD Report on Switzerland: Stability and Economic Reforms',
+    'blog.article.ocse-rapporto-svizzera-2026.excerpt': 'The OECD released the report on Switzerland appreciating economic resilience but calling for reforms in health, welfare and administration by the end of 2027.',
+    'blog.article.ocse-rapporto-svizzera-2026.imageAlt': 'Federal Palace in Bern home to Swiss institutions',
+    'blog.article.bak-economics-pil-2026-18.title': 'BAK Economics: GDP 2026 at +1.8%, possible rate hike',
+    'blog.article.bak-economics-pil-2026-18.excerpt': 'The Rhenish institute raises its growth estimate to 1.8% and expects the SNB to intervene as early as December.',
+    'blog.article.bak-economics-pil-2026-18.imageAlt': 'Panoramic view of the Swiss Alps and Lake Lugano at morning, golden light on Swiss mountains.',
+    'blog.article.too-big-to-fail-consiglio-stati.title': 'Too big to fail: Council of States discusses UBS rules',
+    'blog.article.too-big-to-fail-consiglio-stati.excerpt': 'Regulation for too big to fail institutes is at the heart of the parliamentary debate. The RLP proposes to entrust the rules to the Federal Council.',
+    'blog.article.too-big-to-fail-consiglio-stati.imageAlt': 'Federal Palace in Bern where banking regulation is discussed',
 };
 
 export default blogMetaChEn;

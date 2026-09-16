@@ -10,7 +10,7 @@ import {
   type DutyWeekStatus,
 } from './dutyWeek';
 import { SWISS_CANTONS, type SwissCanton } from './swissCantons';
-import { buildItalyDutyWeekModel, type ItalyDutyWeekModel } from './italyDuty';
+import { buildItalyDutyWeekModel, type ItalyDutySourceRegistry, type ItalyDutyWeekModel } from './italyDuty';
 import type { ItalyDutySnapshot } from './italyRelease';
 import type {
   PharmacyCatalogueDataset,
@@ -69,6 +69,7 @@ export interface BuildDutyCoverageMatrixOptions {
   registry?: PharmacySourcesRegistry;
   italyDuties?: ItalyDutySnapshot;
   italyStatus?: ItalyDutySnapshot;
+  italySources?: ItalyDutySourceRegistry;
   italyMaxAgeMs?: number;
   italyPharmacyIds?: ReadonlySet<string>;
 }
@@ -156,6 +157,7 @@ export function buildDutyCoverageMatrix(options: BuildDutyCoverageMatrixOptions 
     weekStart,
     duties: options.italyDuties,
     status: options.italyStatus,
+    sources: options.italySources,
     maxAgeMs: options.italyMaxAgeMs,
     pharmacyIds: options.italyPharmacyIds,
   });

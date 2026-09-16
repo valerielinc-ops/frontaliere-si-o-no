@@ -79,6 +79,7 @@ function createFakeDb(existingDocs: Record<string, any> = {}, subcollectionDocs:
     __sets: sets,
     __adds: adds,
     __deletes: deletes,
+    __docs: existingDocs,
     __subcollectionDocs: subcollectionDocs,
   };
 }
@@ -144,6 +145,112 @@ describe('handleSubscriptionManagement', () => {
     expect(event!.data.event_type).toBe('unsubscribe');
   });
 
+  it('stop-all is a separate POST-only action and writes the global contract', async () => {
+    const db = createFakeDb({
+      newsletter_subscribers: {
+        [TEST_EMAIL]: { status: 'confirmed', isActive: true, consent_advertising: true },
+      },
+    });
+
+    const result = await handleSubscriptionManagement({
+      action: 'unsubscribe_all',
+      email: TEST_EMAIL,
+      token: VALID_TOKEN,
+      locale: 'it',
+      secret: TEST_SECRET,
+      method: 'POST',
+      db: db as any,
+    });
+
+    expect(result.status).toBe(200);
+    expect(result.json).toEqual({ success: true, allEmailsOptedOut: true });
+    const subscriberSet = db.__sets.find((s) => s.collection === 'newsletter_subscribers');
+    expect(subscriberSet!.data).toMatchObject({
+      status: 'unsubscribed',
+      isActive: false,
+      all_email_opted_out: true,
+      all_emails_opted_out: true,
+      global_email_opt_out: true,
+      global_email_opted_out: true,
+      consent_advertising: false,
+      advertising_opt_out: true,
+      daily_brief_frequency_override: 'off',
+    });
+    expect(db.__adds.find((a) => a.collection.includes('/events'))?.data.event_type)
+      .toBe('all_email_unsubscribed');
+  });
+
+  it('records advertising-only reactivation without restoring newsletter state', async () => {
+    const db = createFakeDb({
+      newsletter_subscribers: {
+        [TEST_EMAIL]: {
+          status: 'unsubscribed',
+          isActive: false,
+          unsubscribed_at: '2026-09-01T00:00:00.000Z',
+          all_email_opted_out: true,
+          all_emails_opted_out: true,
+          global_email_opt_out: true,
+          global_email_opted_out: true,
+        },
+      },
+    });
+
+    const result = await handleSubscriptionManagement({
+      action: 'set_advertising_opt_out',
+      email: TEST_EMAIL,
+      token: VALID_TOKEN,
+      locale: 'it',
+      secret: TEST_SECRET,
+      method: 'POST',
+      advertisingEnabled: true,
+      db: db as any,
+    });
+
+    expect(result.status).toBe(200);
+    const subscriberSet = db.__sets.find((s) => s.collection === 'newsletter_subscribers');
+    expect(subscriberSet!.data).toMatchObject({
+      consent_advertising: true,
+      advertising_opt_out: false,
+      advertising_reactivated_at: expect.anything(),
+    });
+    // Neither the newsletter state nor the global stop is cleared by this
+    // purpose-specific merge. The advertising sender consumes the marker; all
+    // other senders still see the recorded stop.
+    expect(subscriberSet!.data).not.toHaveProperty('status');
+    expect(subscriberSet!.data).not.toHaveProperty('all_email_opted_out');
+    expect(subscriberSet!.data).not.toHaveProperty('all_emails_opted_out');
+    expect(subscriberSet!.data).not.toHaveProperty('global_email_opt_out');
+    expect(subscriberSet!.data).not.toHaveProperty('global_email_opted_out');
+    expect(db.__docs.newsletter_subscribers[TEST_EMAIL]).toMatchObject({
+      status: 'unsubscribed',
+      all_email_opted_out: true,
+      all_emails_opted_out: true,
+      global_email_opt_out: true,
+      global_email_opted_out: true,
+    });
+  });
+
+  it('does not let a GET turn a newsletter unsubscribe into a global stop', async () => {
+    const db = createFakeDb({
+      newsletter_subscribers: {
+        [TEST_EMAIL]: { status: 'confirmed', isActive: true },
+      },
+    });
+    const result = await handleSubscriptionManagement({
+      action: 'unsubscribe_all',
+      email: TEST_EMAIL,
+      token: VALID_TOKEN,
+      locale: 'it',
+      secret: TEST_SECRET,
+      method: 'GET',
+      db: db as any,
+    });
+    expect(result.status).toBe(405);
+    expect(result.json).toEqual({ success: false, error: 'method_not_allowed' });
+    expect(db.__sets).toHaveLength(0);
+    expect(db.__adds).toHaveLength(0);
+  });
+
   it('resubscribes with valid HMAC token on a POST', async () => {
     // POST since #5711: the token is necessary but no longer sufficient, because
     // a link-following scanner gets the token for free — it is in the URL of the
@@ -182,6 +289,9 @@ describe('handleSubscriptionManagement', () => {
           account_deleted_at: '2026-08-01T09:00:00.000Z',
         },
       },
+      newsletter_subscribers: {
+        [TEST_EMAIL]: { status: 'confirmed', isActive: true, confirmed_at: '2026-07-01T00:00:00.000Z' },
+      },
     });
 
     const result = await handleSubscriptionManagement({
@@ -195,6 +305,7 @@ describe('handleSubscriptionManagement', () => {
       locations: 'Lugano',
       sectors: '',
       frequency: 'weekly',
+      emailConsentGiven: true,
       db: db as any,
     });
 
@@ -216,8 +327,11 @@ describe('handleSubscriptionManagement', () => {
     const db = createFakeDb({
       newsletter_subscribers: {
         [TEST_EMAIL]: {
-          status: 'suppressed',
-          company_follow_only: true,
+          status: 'confirmed',
+          isActive: true,
+          active: true,
+          confirmed_at: '2026-07-01T00:00:00.000Z',
+          company_follow_only: false,
           company_follow_followup_pending: true,
         },
       },
@@ -232,6 +346,7 @@ describe('handleSubscriptionManagement', () => {
       method: 'POST',
       specificCompanyKey: 'Migros Ticino',
       frequency: 'immediate',
+      emailConsentGiven: true,
       db: db as any,
     });
 
@@ -243,8 +358,41 @@ describe('handleSubscriptionManagement', () => {
     expect(markerSet?.data).toMatchObject({ company_follow_followup_pending: false });
   });
 
+  it.each([
+    ['toggle_autologin', { enabled: false }],
+    ['revoke_autologin', {
+      autologinPolicy: { mintScheme: 'v1', ttlDays: 0, legacySunsetMs: null },
+    }],
+    ['toggle_newsletter_subscription', { subscribed: false }],
+    ['set_daily_brief_frequency', { dailyBriefFrequency: 'weekly' }],
+    ['set_advertising_opt_out', { advertisingEnabled: false }],
+    ['delete_alert', { alertId: 'missing-alert' }],
+    ['update_alert', { alertId: 'missing-alert', keywords: 'developer' }],
+  ] as const)('never creates a relationship from a token preference writer when the subscriber is absent (%s)', async (action, extra) => {
+    const db = createFakeDb();
+    const result = await handleSubscriptionManagement({
+      action,
+      email: TEST_EMAIL,
+      token: VALID_TOKEN,
+      locale: 'it',
+      secret: TEST_SECRET,
+      method: 'POST',
+      db: db as any,
+      ...extra,
+    });
+
+    expect(result.status).toBe(404);
+    expect(result.json).toEqual({ success: false, error: 'subscriber_not_found' });
+    expect(db.__sets).toHaveLength(0);
+    expect(db.__adds).toHaveLength(0);
+  });
+
   it('deletes an alert by state transition and keeps the audit document', async () => {
-    const db = createFakeDb({}, {
+    const db = createFakeDb({
+      newsletter_subscribers: {
+        [TEST_EMAIL]: { status: 'confirmed', isActive: true, confirmed_at: '2026-09-01T00:00:00.000Z' },
+      },
+    }, {
       job_alert_subscribers: {
         [TEST_EMAIL]: {
           alerts: {
@@ -488,5 +636,87 @@ describe('handleSubscriptionManagement — get_full_status (issue #4298 follow-u
     expect(result.status).toBe(200);
     expect(result.json.alerts).toHaveLength(1);
     expect(result.json.alerts[0].id).toBe('alert-live');
+  });
+});
+
+describe('handleSubscriptionManagement — advertising status follows sender suppression', () => {
+  it('reports advertising off for a global stop without an advertising reactivation', async () => {
+    const db = createFakeDb({
+      newsletter_subscribers: {
+        [TEST_EMAIL]: {
+          status: 'unsubscribed',
+          isActive: false,
+          all_email_opted_out: true,
+          consent_advertising: true,
+          advertising_opt_out: false,
+        },
+      },
+    });
+
+    const result = await handleSubscriptionManagement({
+      action: 'get_full_status',
+      email: TEST_EMAIL,
+      token: VALID_TOKEN,
+      locale: 'it',
+      secret: TEST_SECRET,
+      db: db as any,
+    });
+
+    expect(result.status).toBe(200);
+    expect(result.json.newsletter.advertisingEnabled).toBe(false);
+  });
+
+  it('reports advertising on only after an explicit later reactivation', async () => {
+    const db = createFakeDb({
+      newsletter_subscribers: {
+        [TEST_EMAIL]: {
+          status: 'unsubscribed',
+          isActive: false,
+          all_email_opted_out: true,
+          unsubscribed_at: '2026-09-01T00:00:00.000Z',
+          consent_advertising: true,
+          advertising_opt_out: false,
+          advertising_reactivated_at: '2026-09-02T00:00:00.000Z',
+        },
+      },
+    });
+
+    const result = await handleSubscriptionManagement({
+      action: 'get_full_status',
+      email: TEST_EMAIL,
+      token: VALID_TOKEN,
+      locale: 'it',
+      secret: TEST_SECRET,
+      db: db as any,
+    });
+
+    expect(result.status).toBe(200);
+    expect(result.json.newsletter.advertisingEnabled).toBe(true);
+  });
+
+  it('keeps hard address suppression authoritative over the marker', async () => {
+    const db = createFakeDb({
+      newsletter_subscribers: {
+        [TEST_EMAIL]: {
+          status: 'bounced',
+          all_email_opted_out: true,
+          consent_advertising: true,
+          advertising_opt_out: false,
+          advertising_reactivated_at: '2026-09-02T00:00:00.000Z',
+        },
+      },
+    });
+
+    const result = await handleSubscriptionManagement({
+      action: 'get_full_status',
+      email: TEST_EMAIL,
+      token: VALID_TOKEN,
+      locale: 'it',
+      secret: TEST_SECRET,
+      db: db as any,
+    });
+
+    expect(result.status).toBe(200);
+    expect(result.json.newsletter.advertisingEnabled).toBe(false);
   });
 });

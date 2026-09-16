@@ -41,6 +41,18 @@ vi.mock('@/services/pdfReport', () => ({
   })),
 }));
 
+const getFirestoreLazyMock = vi.hoisted(() => vi.fn().mockResolvedValue({}));
+vi.mock('@/services/firebase', () => ({
+  getFirestoreLazy: (...args: unknown[]) => getFirestoreLazyMock(...args),
+}));
+
+const upsertUnifiedEmailSubscriberMock = vi.hoisted(() =>
+  vi.fn().mockResolvedValue({ existed: false, id: 'sub-1', status: 'pending' }),
+);
+vi.mock('@/services/newsletterSubscribers', () => ({
+  upsertUnifiedEmailSubscriber: (...args: unknown[]) => upsertUnifiedEmailSubscriberMock(...args),
+}));
+
 import CalculatorPaywall, {
   shouldShowPaywall,
   PAYWALL_DISMISSED_KEY,
@@ -198,6 +210,7 @@ describe('CalculatorPaywall — render + interaction', () => {
   beforeEach(() => {
     localStorage.clear();
     vi.clearAllMocks();
+    getFirestoreLazyMock.mockResolvedValue({});
   });
 
   afterEach(() => {
@@ -271,12 +284,61 @@ describe('CalculatorPaywall — render + interaction', () => {
       netCH_CHF: 57200,
       savingsCHF: 200,
     });
+    expect(upsertUnifiedEmailSubscriberMock).toHaveBeenCalledTimes(1);
+    expect(upsertUnifiedEmailSubscriberMock.mock.calls[0][1]).toMatchObject({
+      email: 'user@gmail.com',
+      source: 'calculator_paywall',
+      sourceComponent: 'CalculatorPaywall',
+    });
     expect(Analytics.trackFunnelStep).toHaveBeenCalledWith('paywall_email_submitted', {
       funnel: 'newsletter_paywall',
     });
 
     // Success-delay auto-close (hardcoded 1800ms in CalculatorPaywall)
     await waitFor(() => expect(onClose).toHaveBeenCalled(), { timeout: 3000 });
+  });
+
+  it('submits the PDF without requiring a second consent checkbox', async () => {
+    const fetchImpl = vi.fn(async () => new Response(JSON.stringify({ success: true }), { status: 200 }));
+    render(
+      <CalculatorPaywall
+        result={mockResult}
+        inputs={mockInputs}
+        onClose={() => {}}
+        fetchImpl={fetchImpl as unknown as typeof fetch}
+      />,
+    );
+    fireEvent.change(screen.getByPlaceholderText('calculator.paywall.emailPlaceholder'), {
+      target: { value: 'user@gmail.com' },
+    });
+    const form = document.body.querySelector('form');
+    expect(form).not.toBeNull();
+    fireEvent.submit(form!);
+
+    await waitFor(() => expect(upsertUnifiedEmailSubscriberMock).toHaveBeenCalledTimes(1));
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+  });
+
+  it('still sends the PDF when newsletter registration is unavailable', async () => {
+    getFirestoreLazyMock.mockRejectedValueOnce(new Error('UNAVAILABLE'));
+    const fetchImpl = vi.fn(async () => new Response(JSON.stringify({ success: true }), { status: 200 }));
+    render(
+      <CalculatorPaywall
+        result={mockResult}
+        inputs={mockInputs}
+        onClose={() => {}}
+        fetchImpl={fetchImpl as unknown as typeof fetch}
+      />,
+    );
+    fireEvent.change(screen.getByPlaceholderText('calculator.paywall.emailPlaceholder'), {
+      target: { value: 'user@gmail.com' },
+    });
+    const form = document.body.querySelector('form');
+    expect(form).not.toBeNull();
+    fireEvent.submit(form!);
+
+    await waitFor(() => expect(fetchImpl).toHaveBeenCalledTimes(1));
+    expect(upsertUnifiedEmailSubscriberMock).not.toHaveBeenCalled();
   });
 
   it('rejects invalid emails without calling the Cloud Function', async () => {
@@ -333,6 +395,7 @@ describe('CalculatorPaywall — 4-locale copy keys present', () => {
     'calculator.paywall.submit',
     'calculator.paywall.dismissLabel',
     'calculator.paywall.privacyNote',
+    'calculator.paywall.consentRequired',
     'calculator.paywall.successToast',
     'calculator.paywall.errorToast',
   ];

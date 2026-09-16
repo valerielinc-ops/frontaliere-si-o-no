@@ -1,6 +1,7 @@
 // @vitest-environment node
 import { describe, expect, it } from 'vitest';
 import dutiesJson from '../data/pharmacy-duties-italy.json';
+import sourcesJson from '../data/pharmacy-duties-italy-sources.json';
 import statusJson from '../data/pharmacy-duties-italy-status.json';
 import sourcesJson from '../data/pharmacy-duties-italy-sources.json';
 import {
@@ -14,6 +15,7 @@ import {
   formatItalyDutyDateTime,
 } from '../services/pharmacies/italyDuty';
 import type { ItalyDutySnapshot } from '../services/pharmacies/italyRelease';
+import type { ItalyDutySourceRegistry } from '../services/pharmacies/italyDuty';
 
 const NOW = new Date('2026-09-15T12:00:00.000Z');
 const WEEK = '2026-09-14';
@@ -75,7 +77,7 @@ function freshSnapshots(fetchedAt = FETCHED_AT): { duties: ItalyDutySnapshot; st
 }
 
 describe('Italian duty week read model', () => {
-  it('fails closed for the checked-in not_published release without duties, sources or operational timestamps', () => {
+  it('keeps the checked-in not_published release source-only without operational rows or timestamps', () => {
     const model = buildItalyDutyWeekModel({ now: NOW, weekStart: WEEK });
 
     expect(model.state).toBe('not_published');
@@ -83,7 +85,9 @@ describe('Italian duty week read model', () => {
     expect(model.indexable).toBe(false);
     expect(model.provinces).toHaveLength(3);
     expect(model.provinces.every((province) => province.duties.length === 0)).toBe(true);
-    expect(model.provinces.every((province) => province.sourceUrl === null)).toBe(true);
+    expect(model.provinces.map((province) => province.sourceUrl)).toEqual(PROVINCES.map((province) => province.sourceUrl));
+    expect(model.sourceOnly.map((province) => province.sourceUrl)).toEqual(PROVINCES.map((province) => province.sourceUrl));
+    expect(model.sourceOnly.every((province) => !('dutyCount' in province))).toBe(true);
   });
 
   it('publishes only a fresh complete release with one verified province row per province', () => {
@@ -93,6 +97,7 @@ describe('Italian duty week read model', () => {
       weekStart: WEEK,
       duties: snapshots.duties,
       status: snapshots.status,
+      sources: sourcesJson as unknown as ItalyDutySourceRegistry,
     });
 
     expect(model.state).toBe('fresh');
@@ -281,5 +286,42 @@ describe('Italian duty week read model', () => {
     expect(model.publishable).toBe(false);
     expect(model.indexable).toBe(false);
     expect(model.provinces.every((province) => province.duties.length === 0)).toBe(true);
+  });
+
+  it('uses registry sources for source-only links and never trusts a tampered status URL', () => {
+    const currentProvinces = statusJson._provinces as Record<string, Record<string, unknown>>;
+    const tamperedStatus = {
+      ...statusJson,
+      _provinces: {
+        ...currentProvinces,
+        CO: { ...currentProvinces.CO, sourceUrl: 'https://attacker.example/duty.pdf' },
+      },
+    } as unknown as ItalyDutySnapshot;
+    const model = buildItalyDutyWeekModel({ now: NOW, weekStart: WEEK, status: tamperedStatus });
+
+    expect(model.publishable).toBe(false);
+    expect(model.provinces.find((province) => province.code === 'CO')?.sourceUrl)
+      .toBe(PROVINCES[0].sourceUrl);
+    expect(model.sourceOnly.find((province) => province.code === 'CO')?.sourceUrl)
+      .toBe(PROVINCES[0].sourceUrl);
+    expect(model.reason).toContain('integrity verification failed');
+  });
+
+  it('removes an ambiguous province from source-only link-out', () => {
+    const sources = sourcesJson as unknown as ItalyDutySourceRegistry;
+    const duplicateSources = {
+      ...sources,
+      sources: [...(sources.sources as unknown[]), (sources.sources as unknown[])[0]],
+    };
+    const model = buildItalyDutyWeekModel({ now: NOW, weekStart: WEEK, sources: duplicateSources });
+
+    expect(model.publishable).toBe(false);
+    expect(model.sourceOnly.find((province) => province.code === 'CO')).toMatchObject({
+      sourceKey: null,
+      sourceUrl: null,
+    });
+    expect(model.sourceOnly.find((province) => province.code === 'VA')?.sourceUrl)
+      .toBe(PROVINCES[1].sourceUrl);
+    expect(model.reason).toContain('CO: Italy source registry province is ambiguous');
   });
 });

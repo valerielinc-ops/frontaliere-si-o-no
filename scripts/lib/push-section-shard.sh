@@ -54,13 +54,9 @@
 # strip step) and exits 0. SKIP (no key / subtree absent) exits 0 without the
 # marker. Real failure exits non-zero (the caller is continue-on-error).
 #
-# Also writes $RUNNER_TEMP/shard-srcn-<section>-<locale> right after staging,
-# holding the staged subtree's file count at THIS moment (issue #6283): the
-# caller's "Pack section shard dist" step (deploy.yml) reads it back as an
-# independent baseline to detect the staged tree shrinking between this push
-# and that later pack step — a shrink that would otherwise be invisible to
-# the pack step's own packed_n-vs-recount check, since both of those derive
-# from the SAME already-reduced directory.
+# The offloaded staging copy is temporary: it is used to build the shard push,
+# then removed before this invocation returns. Post-deploy validation keeps its
+# existing git-clone fallback for runs that do not carry a legacy tar artifact.
 # ─────────────────────────────────────────────────────────────────────────────
 set -uo pipefail
 
@@ -136,8 +132,6 @@ push_section_shard() {
     || echo "::warning::offload on $loc $section subtree returned non-zero (offload is fail-safe/exit-0; continuing)"
 
   src_n="$(find "$stage_src/dist/$sub" -type f | wc -l)"
-  printf '%s' "$src_n" > "$RUNNER_TEMP/shard-srcn-$section-$loc"
-
   stage="$RUNNER_TEMP/shard-$section-$loc"
   keyfile="$RUNNER_TEMP/shard_${section}_${loc}_key"
   printf '%s\n' "$key_val" > "$keyfile" && chmod 600 "$keyfile"
@@ -269,22 +263,15 @@ push_section_shard() {
   )
   rc=$?
   rm -f "$keyfile"
-  # NOTE: stage_src is intentionally NOT removed here. It holds the already
-  # CDN-offloaded copy of this (section, locale) subtree — byte-identical to
-  # what was just force-pushed to the shard repo. The caller (deploy.yml,
-  # "Pack section shard dist" step) packs it into a same-run tar artifact for
-  # post-deploy-validate-dist's rehydrate fast path (mirrors the locale-shard
-  # tar artifact), then removes it. Runners are ephemeral — leaving it behind
-  # when the caller doesn't consume it is a no-op cleanup-wise.
-  #
-  # $stage (the git-clone-based push staging dir, up to ~5-6 GB for ticino)
-  # is DIFFERENT from stage_src: nothing downstream ever reads it again, so
-  # unlike stage_src it is pure leaked disk. Three sections × up to ~8 GB
-  # combined accumulating unfreed within the SAME job — on top of stage_src
-  # and the IT-only OG-image generation — exhausted runner disk on the IT
-  # leg and crashed the job with "No space left on device" before it could
-  # push its CDN build id, which is what made the downstream de/en/fr
-  # locales' cross-shard ordering wait (#2569) time out (issue #4734).
+  # Both temporary trees are dead after the push. Keeping the offloaded copy
+  # until a later optional validation-artifact step made every section consume
+  # another multi-GB disk lifetime on the build's critical path; the validation
+  # workflow already falls back to cloning a shard when that optional artifact
+  # is absent. Clean both trees here so the next bounded-parallel section starts
+  # with the same disk budget regardless of the previous section's outcome.
+  if [ -n "${stage_src:-}" ]; then
+    rm -rf "$stage_src"
+  fi
   rm -rf "$stage"
   if [ "$rc" -eq 0 ]; then
     touch "$RUNNER_TEMP/shard-ok-$section-$loc"   # consumed by the strip step

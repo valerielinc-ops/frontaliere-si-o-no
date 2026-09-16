@@ -283,31 +283,32 @@ describe('build-plugins/batchWrite.ts — flush concurrency', () => {
 });
 
 /**
- * Guards for issue #2761 (follow-up of PR #2758's tar-pack rehydrate fast
- * path): the tar artifact fast path must not silently validate a
- * partial/corrupt shard with no fallback.
+ * Guards for issue #2761's tar rehydrate contract. Tar artifacts remain
+ * accepted by the post-deploy rehydrate consumers for older/replayed runs, but
+ * producing them is an optional optimization and must not delay the build that
+ * triggers the Pages publisher. New builds use the existing git-clone fallback.
  *
- *   1) Producer side (deploy.yml): each "Pack ... shard dist (tar)" step
- *      must self-verify the tar's file count against the source directory
- *      it was packed from, so a future refactor that lets the two paths
- *      drift (or a tar bug) is caught instead of silently uploading a
- *      mismatched artifact.
- *   2) Consumer side (post-deploy-validate-dist.yml): after `tar xf ...`,
+ *   Consumer side (post-deploy-validate-dist.yml): after `tar xf ...`,
  *      the rehydrate loops must check EXTRACTION COMPLETENESS (tar's own
  *      listing count vs what actually landed on disk), not just
  *      `[ -d dist/$loc ]` existence — a truncated/corrupted tar can still
  *      create a partially-populated directory that passes a bare
  *      existence check with no fallback to the safe git-clone path.
  */
-describe('deploy.yml + post-deploy-validate-dist.yml — tar-pack rehydrate fast path (#2761)', () => {
-  it('every "Pack ... shard dist (tar)" step in deploy.yml self-verifies packed vs source file count', () => {
+describe('deploy.yml + post-deploy-validate-dist.yml — optional tar rehydrate artifacts (#7924)', () => {
+  it('does not put optional shard tar creation or upload on the build critical path', () => {
     const packSteps = DEPLOY_YML.match(/- name: Pack [^\n]*shard dist \(tar\)[^\n]*\n(?:.*\n)*?(?=\n {6}- name:|\n {4}- name:)/g) || [];
-    expect(packSteps.length, 'expected at least the IT/non-IT Ticino + locale pack steps').toBeGreaterThanOrEqual(3);
+    expect(packSteps.length, 'optional shard tar pack steps must not block build completion').toBe(0);
     for (const step of packSteps) {
       expect(step, `pack step missing tar -tf listing count:\n${step}`).toMatch(/tar -tf .*\| \{ grep -vc '\/\$' \|\| true; \}/);
       expect(step, `pack step missing packed-vs-source file count comparison:\n${step}`).toMatch(/if \[ "\$packed_n" -ne "\$src_n" \]/);
       expect(step, `pack step must discard a mismatched tar (rm -f), not upload it:\n${step}`).toMatch(/rm -f "\$RUNNER_TEMP\/[^"]*\.tar"/);
     }
+    expect(DEPLOY_YML).not.toMatch(/- name: Upload shard batch [1-6] dist for post-deploy validation/);
+    expect(DEPLOY_YML).not.toContain('- name: Upload locale shard dist for post-deploy validation');
+    expect(VALIDATION_YML).toContain('falling back to a `git clone`');
+    expect(VALIDATION_YML).toContain('rehydrate-section-shards.sh');
+    expect(VALIDATION_YML).toContain('rehydrate-locale-shards.sh');
   });
 
   it('locale + section (Ticino/Svizzera/Zurigo) rehydrate loops check tar-extraction completeness, not just directory existence', () => {
@@ -359,9 +360,9 @@ describe('deploy.yml + post-deploy-validate-dist.yml — tar-pack rehydrate fast
 
 describe('deploy.yml — wall-time delle fasi post-build nella storia committata (#7301)', () => {
   // La storia in data/build-history/memory-peaks.jsonl portava un solo campo
-  // temporale, `wall_seconds`, alimentato dallo step `Build`: le fasi
-  // post-build del leg (push degli shard di sezione, pack tar) — 23 min + 5
-  // min dei 130 min totali del leg IT sul run 33833300860 — non lasciavano
+  // temporale, `wall_seconds`, alimentato dallo step `Build`: i push degli
+  // shard di sezione — 23 min dei 130 min totali del leg IT sul run
+  // 33833300860 — non lasciavano
   // traccia, e l'unica fonte restava l'API Actions run-per-run, soggetta a
   // retention e ai run cancellati.
   //
@@ -380,10 +381,7 @@ describe('deploy.yml — wall-time delle fasi post-build nella storia committata
   const PHASE_STEP_IDS = [
     'push-section-shards-it',
     'push-section-shards-nonit',
-    'pack-section-shards-it',
-    'pack-section-shards-nonit',
     'push-shard',
-    'pack-locale-shard',
   ];
 
   it.each(PHASE_STEP_IDS)('lo step "%s" emette wall_seconds su ogni uscita', (id) => {
@@ -396,7 +394,7 @@ describe('deploy.yml — wall-time delle fasi post-build nella storia committata
     );
   });
 
-  it('lo step di append delle fasi propaga gli output di TUTTI e quattro gli step di fase', () => {
+  it('lo step di append delle fasi propaga gli output di tutti gli step di fase rimasti', () => {
     const step = BUILD_LOCALE_STEPS.find((s) => s.name === 'Append post-build phase timings row');
     expect(step, 'deploy.yml: manca lo step "Append post-build phase timings row"').toBeDefined();
     const env: Record<string, string> = step!.env ?? {};
@@ -412,12 +410,7 @@ describe('deploy.yml — wall-time delle fasi post-build nella storia committata
     expect(step!.if, 'lo step di append deve girare anche sui leg falliti').toBe('always()');
     // Le chiavi che la riga deve portare: sono LORO il contratto verso chi
     // interroga la storia (`jq 'has("push_shards_seconds")'`).
-    for (const key of [
-      'push_shards_seconds',
-      'pack_tar_seconds',
-      'push_locale_shard_seconds',
-      'pack_locale_tar_seconds',
-    ]) {
+    for (const key of ['push_shards_seconds', 'push_locale_shard_seconds']) {
       expect(step!.run, `la riga appesa non porta la chiave "${key}"`).toContain(key);
     }
   });

@@ -6440,6 +6440,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.farmacie-turno-svizzera-confine-italiano.imageAlt': 'Vue de Lugano et de son lac',
     'blog.article.farmacie-turno-svizzera-confine-italiano.seoDescription': 'Pharmacies de garde en Suisse et frontière CO/VA/VB : sources cantonales à vérifier, cinq régions tessinoises vérifiées et limites explicites.',
     'blog.article.farmacie-turno-svizzera-confine-italiano.ogDescription': 'Guide des sources pour les pharmacies de garde en Suisse et à la frontière italienne : aucun calendrier inventé, vérification locale avant le déplacement.',
+    'blog.article.ocse-crescita-svizzera-2026.title': 'OCDE voit plus de croissance en Suisse, PIB 2026 à 2,0 %',
+    'blog.article.ocse-crescita-svizzera-2026.excerpt': 'L\'OCDE révise à la hausse ses prévisions pour la Suisse : croissance du PIB à 2,0% en 2026 et inflation moyenne stable à 0,6%.',
+    'blog.article.ocse-crescita-svizzera-2026.imageAlt': 'Aperçu économique de la Suisse avec les prévisions de croissance de l\'OCDE',
+    'blog.article.ocse-rapporto-svizzera-2026.title': 'Rapport OCDE sur la Suisse : stabilité et réformes économiques',
+    'blog.article.ocse-rapporto-svizzera-2026.excerpt': 'L\'OCDE a publié le rapport sur la Suisse, appréciant la résilience économique mais appelant à des réformes dans les domaines de la santé, de la prévoyance et de l\'administration d\'ici fin 2027.',
+    'blog.article.ocse-rapporto-svizzera-2026.imageAlt': 'Palais fédéral à Berne siège des institutions suisses',
+    'blog.article.bak-economics-pil-2026-18.title': 'BAK Economics : PIB 2026 à +1,8%, hausse possible des taux',
+    'blog.article.bak-economics-pil-2026-18.excerpt': 'L\'institut rhénan relève son estimation de croissance à 1,8% et envisage une intervention de la BNS dès décembre.',
+    'blog.article.bak-economics-pil-2026-18.imageAlt': 'Vue panoramique des Alpes suisses et du lac de Lugano au matin, lumière dorée.',
+    'blog.article.too-big-to-fail-consiglio-stati.title': 'Too big to fail : le Conseil des Etats discute des règles UBS',
+    'blog.article.too-big-to-fail-consiglio-stati.excerpt': 'La réglementation des institutions too big to fail au cœur du débat parlementaire. Le PLR propose de confier les règles au Conseil fédéral.',
+    'blog.article.too-big-to-fail-consiglio-stati.imageAlt': 'Palais fédéral à Berne où la réglementation bancaire est discutée',
 };
 
 export default blogMetaChFr;

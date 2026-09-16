@@ -176,10 +176,10 @@ bp_run_bounded() {
 # them, and dropping them here would turn an explicit "subtree absent" log
 # line into an invisible omission.
 #
-# Results are memoised per (dist_dir, locale) in $RUNNER_TEMP so the second
-# consumer in the same job (the "Pack section shard dist" step) does not pay
-# for a second full walk of dist. The cache is only trusted when it holds the
-# same SET of sections the section list yields right now.
+# Results are memoised per (dist_dir, locale) in $RUNNER_TEMP so the strip
+# consumer in the same job does not pay for a second full walk of dist after
+# the push fan-out. The cache is only trusted when it holds the same SET of
+# sections the section list yields right now.
 bp_section_order() {
   local dist_dir="$1" loc="$2" repo_root="${3:-$(pwd)}"
   local slugs_json="$repo_root/scripts/lib/section-shard-slugs.json"

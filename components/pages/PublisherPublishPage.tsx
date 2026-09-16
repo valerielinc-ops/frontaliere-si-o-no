@@ -17,17 +17,14 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Briefcase, Plus, Trash2, Send, AlertTriangle, Clock, CheckCircle2, Shield, Sparkles, ShoppingCart, Mail, Loader2, AlertCircle, Star, Check, PartyPopper } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { buildPath } from '@/services/router';
-import { useAuth, getAuthEmail } from '@/services/authService';
+import { useAuth } from '@/services/authService';
 import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
+import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import {
- upsertNewsletterSubscriber,
+ upsertUnifiedEmailSubscriber,
  requestConfirmationEmail,
- markNewsletterSubscribedLocally,
- isNewsletterOptedOut,
 } from '@/services/newsletterSubscribers';
-import { consentProof } from '@/services/consentTexts';
-import ConsentNotice from '@/components/shared/ConsentNotice';
 import { recaptchaService } from '@/services/recaptchaService';
 import { Analytics } from '@/services/analytics';
 import { reportCaughtError } from '@/services/errorReporter';
@@ -332,91 +329,13 @@ const PublisherPublishPage: React.FC = () => {
  const { user, loading } = useAuth();
 
  // ── Auth gate: email path state ─────────────────────────────
- // The gate offers Google + LinkedIn (SocialSignInButtons) AND an email
- // path. Email reuses the newsletter double-opt-in: a NEW address gets the
- // opt-in email (which doubles as a sign-in link via ?action=confirm_newsletter
- // auto-login, wired in App.tsx); an EXISTING address gets a passwordless login
- // link sent explicitly (requestConfirmationEmail purpose:'login'). Social
- // authentication and login-only email links do not create or renew a
- // newsletter subscription.
+ // The gate offers Google + LinkedIn (SocialSignInButtons) and an email path.
+ // Every registration uses the same terms-based newsletter + job-alert
+ // relationship; the email path then sends a passwordless login link.
  const [gateEmail, setGateEmail] = useState('');
  const [gateStatus, setGateStatus] = useState<'idle' | 'loading' | 'sent' | 'error'>('idle');
  const [gateError, setGateError] = useState('');
- const gateSocialSyncedRef = useRef(false);
- const gateSocialIntentRef = useRef(false);
 
- const markGateSocialIntent = () => {
- gateSocialIntentRef.current = true;
- try {
- // The marker survives the full-page OAuth redirect. It is short-lived and
- // consumed by the effect below, so a restored session cannot be mistaken
- // for a fresh communications request on a later visit.
- sessionStorage.setItem('publisher_social_auth_intent_at', String(Date.now()));
- } catch { /* storage unavailable — popup flow still uses the ref */ }
- };
-
- // ── Explicit social communications gate ────────────────────
- // A provider sign-in on this gate is an intentional communications action,
- // but an already-authenticated visitor opening the page is not. The previous
- // implementation subscribed from `user` alone, which made a page visit act
- // like a newsletter opt-in and could also re-enter the confirmation path.
- useEffect(() => {
- if (!user || gateSocialSyncedRef.current) return;
-
- let restoredSocialIntent = false;
- try {
- const intentAt = Number(sessionStorage.getItem('publisher_social_auth_intent_at') || '0');
- const isRecent = Number.isFinite(intentAt) && intentAt > 0 && Date.now() - intentAt < 10 * 60 * 1000;
- restoredSocialIntent = isRecent;
- if (isRecent) sessionStorage.removeItem('publisher_social_auth_intent_at');
- else if (intentAt > 0) sessionStorage.removeItem('publisher_social_auth_intent_at');
- } catch { /* storage unavailable — popup flow uses the in-memory ref */ }
-
- if (!gateSocialIntentRef.current && !restoredSocialIntent) return;
- gateSocialSyncedRef.current = true;
- if (typeof window !== 'undefined' && localStorage.getItem('newsletter_subscribed') === 'true') return;
-
- const email = getAuthEmail(user);
- if (!email) return;
- void (async () => {
- try {
- const firestore = getFirestore(await getApp());
- // Authentication alone must never touch a recorded opt-out. This check is
- // deliberately before the upsert because the upsert records an event even
- // when its state guard declines the promotion.
- if (await isNewsletterOptedOut(firestore, email)) return;
- const providerId = String(user?.providerData?.[0]?.providerId || '').toLowerCase();
- const consentMethod = providerId.includes('google')
- ? 'google_oauth'
- : providerId.includes('linkedin')
- ? 'linkedin_oauth'
- : providerId.includes('facebook')
- ? 'facebook_oauth'
- : 'social_oauth';
- await upsertNewsletterSubscriber(firestore, {
- email,
- userId: user?.uid || null,
- name: user?.displayName || null,
- preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false },
- source: 'publisher_gate_social',
- sourcePage: '/pubblica-offerta',
- sourceCta: 'publisher_gate_social',
- sourceComponent: 'PublisherPublishPage',
- sourceRouteFamily: 'publisher',
- locale: navigator.language || 'it-IT',
- // The gate renders this exact notice before the provider click. This is an
- // explicit access-gate action, not a generic auth listener or page-visit
- // side effect, so it may use the existing confirmed path without a DOI.
- isActive: true,
- status: 'confirmed',
- ...consentProof('communicationsSignIn', consentMethod, locale),
- });
- markNewsletterSubscribedLocally();
- } catch (error) {
- reportCaughtError(error, 'publisher.gateSocialSubscribe');
- }
- })();
- }, [user]);
 
  // ── Tier ────────────────────────────────────────────────────
  // free      → plain crawler-style listing (no featured/blast, external apply only), no payment.
@@ -1273,12 +1192,9 @@ const PublisherPublishPage: React.FC = () => {
  };
 
  // ── Auth gate: email sign-in handler ────────────────────────
- // Subscribe to the newsletter (= the access workflow) and deliver a sign-in
- // link. A NEW address: the opt-in email IS the link (auto-sent by the upsert).
- // An EXISTING address: the opt-in is suppressed server-side, so we request a
- // dedicated login link (purpose:'login'). Either way the user clicks the
- // link → App.tsx ?action=confirm_newsletter handler auto-logs them in and
- // returns them to /pubblica-offerta, authenticated.
+ // Create the shared terms-based registration. A new typed address receives
+ // the DOI link, which also auto-authenticates after confirmation; only an
+ // already-confirmed address needs the separate passwordless login link.
  const handleGateEmailSubmit = async (e: React.FormEvent) => {
  e.preventDefault();
  if (gateStatus === 'loading') return;
@@ -1292,41 +1208,18 @@ const PublisherPublishPage: React.FC = () => {
  setGateError('');
  try {
  const firestore = getFirestore(await getApp());
- // This is the email authentication branch, not a newsletter re-consent.
- // Keep an existing opt-out untouched and send only a passwordless login
- // link; the social branch above applies the same rule.
- if (await isNewsletterOptedOut(firestore, email)) {
- await requestConfirmationEmail(email, 'login');
- setGateStatus('sent');
- Analytics.trackUIInteraction('publisher', 'gate', 'email_login', 'sent');
- return;
- }
- const upsert = await upsertNewsletterSubscriber(firestore, {
+ // This is the same shared email relationship used by every site registration.
+ const upsert = await upsertUnifiedEmailSubscriber(firestore, {
  email,
- preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false },
  source: 'publisher_gate_email',
  sourcePage: '/pubblica-offerta',
  sourceCta: 'publisher_gate_email',
  sourceComponent: 'PublisherPublishPage',
  sourceRouteFamily: 'publisher',
- locale: navigator.language || 'it-IT',
- // Do NOT pass status/isActive: inferNewsletterSubscriptionState gives
- // explicit fields absolute precedence, so forcing 'pending' here would
- // DOWNGRADE an already-confirmed subscriber who types their email in the
- // gate. Omitting them preserves a confirmed subscriber and defaults a new
- // address to 'pending' (→ auto opt-in/login email).
- // #5712/#5718/#5765: the gate's single notice, rendered under this form,
- // same locale. Byte-identical to `communicationsSignIn` above and
- // different only in `act` — typing an address is not signing in.
- ...consentProof('communicationsSignInEmail', 'email_submit', locale),
- // No `consentGiven`: this form has no consent checkbox, so nothing here
- // is an affirmative opt-in — only "was shown" is true. See the
- // `consentGiven` section of services/consentTexts.ts (#5712).
+ locale,
  });
- // New pending subscribers already received the opt-in (= login) email from
- // the upsert. Existing subscribers need an explicit login link.
- if (upsert.existed || upsert.hadConfirmationProof) {
- await requestConfirmationEmail(email, 'login');
+ if (upsert.status !== 'pending' || upsert.hadConfirmationProof) {
+  await requestConfirmationEmail(email, 'login');
  }
  setGateStatus('sent');
  Analytics.trackUIInteraction('publisher', 'gate', 'email_login', 'sent');
@@ -1407,11 +1300,17 @@ const PublisherPublishPage: React.FC = () => {
 
  <div className="mt-6 space-y-4">
  {/* Social sign-in — same row as the newsletter box (Google + LinkedIn) */}
+ <EmailConsentCheckbox
+ id="publisher-gate-email-consent"
+ consentKey="communicationsOptIn"
+ locale={locale}
+ className="mb-3"
+ />
+
  <SocialSignInButtons
  locale={locale}
  googleWidth={320}
  errorContext="publisher.gate"
- onAuthIntent={markGateSocialIntent}
  />
 
  {/* Divider */}
@@ -1421,7 +1320,7 @@ const PublisherPublishPage: React.FC = () => {
  <div className="flex-1 h-px bg-edge" />
  </div>
 
- {/* Email path → newsletter opt-in / login link */}
+ {/* Email path → unified registration / DOI or login link */}
  <form onSubmit={handleGateEmailSubmit} className="space-y-2">
  <label htmlFor="publisher-gate-email" className="sr-only">{t('newsletter.emailPlaceholder')}</label>
  <EmailInput
@@ -1448,12 +1347,6 @@ const PublisherPublishPage: React.FC = () => {
  </button>
  </form>
 
- {/* The gate's ONE notice (#5765): under the email button, covering the
- provider buttons above it as well. */}
- <p className="flex items-start gap-1.5 text-xs text-muted leading-relaxed">
- <Shield className="w-3.5 h-3.5 text-success shrink-0 mt-0.5" />
- <ConsentNotice consentKey="communicationsSignIn" locale={locale} className="text-[10px] text-muted leading-snug block" />
- </p>
  </div>
  </div>
  );

@@ -47,6 +47,12 @@ on:
       - 'public/data/border-wait-current.json'
       - 'data/border-wait-history/**'
       - 'data/build-history/**'
+      # The SEO health loop persists evidence/state with an App-token push,
+      # but those files are not part of the dist.  Keep recovery state from
+      # consuming a full Pages build slot; a compat-shard change still stays
+      # deploy-bound through its own path.
+      - 'data/seo-health-state.json'
+      - 'data/seo-health/**'
       - 'data/border-wait-averages.json'
       - 'data/weather-snapshot.json'
       - '*.md'
@@ -650,7 +656,7 @@ jobs:
       # legs) polls cdn-build-id.txt for THIS build's id. The marker only turns
       # when the IT leg reaches its CDN push — and until now that was ~40min
       # after the IT build ended, behind 31min of section-shard pushes, 5min of
-      # packing, 1min of uploads and 4min of strip. Measured on run 31076991699
+      # 4min of strip. Measured on run 31076991699
       # (a run that SUCCEEDED): the de leg waited 2714s against a 2700s budget
       # and matched on the LAST of its 181 polls. Zero margin. The same
       # structure timed all three non-IT legs out on run 31062047677.
@@ -663,7 +669,6 @@ jobs:
       #     offload-generated-images-cdn.mjs resolves its dist as
       #     path.resolve(process.cwd(), 'dist'), so it can only touch the
       #     staged subtree;
-      #   - "Pack section shard dist" / "Upload shard batch N" only read;
       #   - strip-section-subtree.sh only `rm -rf`s dist/<sub>.
       # So the bytes published here are identical to the bytes the old call
       # site would have published. The gate predicate is UNCHANGED
@@ -1032,225 +1037,6 @@ jobs:
             }
           done < <(node scripts/ci/section-shard-purge-urls.mjs it "${sections[@]}")
           exit "$fail"
-
-      # Same-run tar artifact for post-deploy-validate-dist's section rehydrate
-      # fast path — mirrors "Pack locale shard dist (tar)" below. Previously
-      # validate-dist rehydrated each Ticino subtree by `git clone --depth 1`
-      # of the ~4 GB shard repo, one locale at a time (~12min wall on run
-      # 28564001685). push-section-shard.sh already builds an offloaded staged
-      # copy at $RUNNER_TEMP/<section>-src-it/dist/$sub (byte-identical to what
-      # it just force-pushed) and leaves it in place instead of deleting it —
-      # pack that into one tar per section (same stack-overflow-avoidance
-      # reason as the locale tar: upload-artifact enumerates every file, so a
-      # raw ~220k-file tree would fail the same way). validate-dist still
-      # falls back to the git clone when a given section's artifact is
-      # missing/corrupt. Per-section LIVE gate lives INSIDE the loop (not the
-      # step `if:`) since each section has its own repo variable.
-      - name: Pack section shard dist (tar) for post-deploy validation
-        if: matrix.locale == 'it'
-        id: pack-section-shards-it
-        continue-on-error: true
-        env:
-          TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
-          SVIZZERA_SHARD_LIVE: ${{ vars.SVIZZERA_SHARD_LIVE }}
-          ZURIGO_SHARD_LIVE: ${{ vars.ZURIGO_SHARD_LIVE }}
-          ARGOVIA_SHARD_LIVE: ${{ vars.ARGOVIA_SHARD_LIVE }}
-          APPENZELLO_SHARD_LIVE: ${{ vars.APPENZELLO_SHARD_LIVE }}
-          BASILEA_SHARD_LIVE: ${{ vars.BASILEA_SHARD_LIVE }}
-          BERNA_SHARD_LIVE: ${{ vars.BERNA_SHARD_LIVE }}
-          FRIBURGO_SHARD_LIVE: ${{ vars.FRIBURGO_SHARD_LIVE }}
-          GINEVRA_SHARD_LIVE: ${{ vars.GINEVRA_SHARD_LIVE }}
-          GLARONA_SHARD_LIVE: ${{ vars.GLARONA_SHARD_LIVE }}
-          GRIGIONI_SHARD_LIVE: ${{ vars.GRIGIONI_SHARD_LIVE }}
-          GIURA_SHARD_LIVE: ${{ vars.GIURA_SHARD_LIVE }}
-          LUCERNA_SHARD_LIVE: ${{ vars.LUCERNA_SHARD_LIVE }}
-          NEUCHATEL_SHARD_LIVE: ${{ vars.NEUCHATEL_SHARD_LIVE }}
-          NIDVALDO_SHARD_LIVE: ${{ vars.NIDVALDO_SHARD_LIVE }}
-          OBVALDO_SHARD_LIVE: ${{ vars.OBVALDO_SHARD_LIVE }}
-          SCIAFFUSA_SHARD_LIVE: ${{ vars.SCIAFFUSA_SHARD_LIVE }}
-          SOLETTA_SHARD_LIVE: ${{ vars.SOLETTA_SHARD_LIVE }}
-          SVITTO_SHARD_LIVE: ${{ vars.SVITTO_SHARD_LIVE }}
-          TURGOVIA_SHARD_LIVE: ${{ vars.TURGOVIA_SHARD_LIVE }}
-          URI_SHARD_LIVE: ${{ vars.URI_SHARD_LIVE }}
-          VAUD_SHARD_LIVE: ${{ vars.VAUD_SHARD_LIVE }}
-          VALLESE_SHARD_LIVE: ${{ vars.VALLESE_SHARD_LIVE }}
-          ZUGO_SHARD_LIVE: ${{ vars.ZUGO_SHARD_LIVE }}
-          SANGALLO_SHARD_LIVE: ${{ vars.SANGALLO_SHARD_LIVE }}
-          ARTICOLIFRONTALIERE_SHARD_LIVE: ${{ vars.ARTICOLIFRONTALIERE_SHARD_LIVE }}
-          ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
-        run: |
-          set -uo pipefail
-          # Wall-time della fase (#7301) — vedi lo step di push sopra per il
-          # perche' del trap EXIT invece di un echo finale.
-          trap 'echo "wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"' EXIT
-          # Bounded-parallel (cap 4, mirrors the push step above): tar +
-          # file-count-verify is CPU/IO-bound and independent per section
-          # (each reads/writes its own $RUNNER_TEMP/<section>-* paths, no
-          # cross-section overlap) — safe to fan out, capped for the same
-          # runner-disk-pressure reason as the push step. Same shared
-          # sliding-window driver and same longest-first order as that step
-          # (memoised in $RUNNER_TEMP, so this reuses the push step's walk of
-          # dist instead of paying for a second one).
-          source scripts/lib/bounded-parallel.sh
-          pack_section() {
-            local section="$1"
-            local live_var
-            live_var="$(echo "$section" | LC_ALL=C tr '[:lower:]' '[:upper:]')_SHARD_LIVE"
-            if [ "${!live_var:-}" != "true" ]; then
-              return 0
-            fi
-            # Gate on the SAME push ok-marker strip-section-subtree.sh
-            # requires (issue #4881 Fase 5 audit finding), not just
-            # "$src/$sub" existing. push-section-shard.sh stages "$src/$sub"
-            # BEFORE its own index.html assertion / shrink guard can still
-            # fail the push — without this check a failed-but-staged push
-            # (or, once BUILD_EMIT_SKIP is on, a section the push loop never
-            # even attempted) would still get packed and uploaded as a
-            # same-run tar, and validate-dist would rehydrate from that
-            # incomplete tar instead of correctly falling back to git-clone.
-            if [ ! -f "$RUNNER_TEMP/shard-ok-$section-it" ]; then
-              echo "no push ok-marker for $section-it (push skipped/failed this run) — validate-dist will fall back to git clone"
-              return 0
-            fi
-            local sub src packed_n src_n persisted_src_n live_src_n
-            sub="$(jq -r --arg s "$section" --arg l "it" '.[$s][$l] // empty' scripts/lib/section-shard-slugs.json)"
-            src="$RUNNER_TEMP/${section}-src-it/dist"
-            if [ ! -d "$src/$sub" ]; then
-              echo "no staged $section-it subtree (push skipped/failed) — validate-dist will fall back to git clone"
-              return 0
-            fi
-            # Independent shrink guard (issue #6283): push-section-shard.sh
-            # persists the file count it saw right after staging (BEFORE the
-            # pack step's own recount below, which reads the SAME directory
-            # and so can never disagree with itself if the tree shrank
-            # in-between). Comparing the LIVE count here against that
-            # independent, earlier baseline catches a shrink the
-            # packed_n-vs-recount check below is structurally blind to.
-            if [ -f "$RUNNER_TEMP/shard-srcn-$section-it" ]; then
-              persisted_src_n="$(cat "$RUNNER_TEMP/shard-srcn-$section-it")"
-              live_src_n=$(find "$src/$sub" -type f | wc -l)
-              if [ "$live_src_n" -ne "$persisted_src_n" ]; then
-                echo "::warning::$section-it subtree shrank between push and pack (persisted src_n=$persisted_src_n, live=$live_src_n) — skipping pack, validate-dist will fall back to git-clone"
-                return 0
-              fi
-            fi
-            tar -C "$src" -cf "$RUNNER_TEMP/$section-dist-it.tar" "$sub"
-            ls -lh "$RUNNER_TEMP/$section-dist-it.tar"
-            # Byte-identity guard (#2761 item 1): this tar and push-section-shard.sh's
-            # own push both read the SAME already-offloaded "$src/$sub" staged copy
-            # (see the comment above push_section_shard's stage_src note) — nothing
-            # mutates it in between, so the two paths are guaranteed to agree. This
-            # count check makes that guarantee self-verifying: if it ever drifts,
-            # discard the tar so validate-dist safely falls back to git-clone
-            # instead of silently validating a partial/mismatched tree. It is a
-            # SECONDARY guard (covers a bug in tar itself) — the independent
-            # shrink check above is now the primary defence against a
-            # between-steps shrink, which this recount alone cannot see.
-            packed_n=$(tar -tf "$RUNNER_TEMP/$section-dist-it.tar" | { grep -vc '/$' || true; })
-            src_n=$(find "$src/$sub" -type f | wc -l)
-            if [ "$packed_n" -ne "$src_n" ]; then
-              echo "::warning::$section-dist-it.tar file count mismatch (packed=$packed_n src=$src_n) — discarding tar, validate-dist will fall back to git-clone"
-              rm -f "$RUNNER_TEMP/$section-dist-it.tar"
-            fi
-            rm -rf "$src"
-          }
-          # Degrade to the plain list rather than pack nothing: this tar only
-          # feeds post-deploy-validate-dist's rehydrate FAST PATH, which
-          # already falls back to a git clone per section — but skipping
-          # sections silently is still not on the table.
-          order="$(bp_section_order dist it)" || {
-            echo "::warning::could not order the section list — packing in list order"
-            order="$(bash scripts/lib/deploy-shard-sections.sh)"
-          }
-          mapfile -t ordered_sections <<< "$order"
-          bp_run_bounded 4 pack_section "${ordered_sections[@]}" || true
-      - name: Upload shard batch 1 dist for post-deploy validation
-        if: matrix.locale == 'it'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: shard-batch-1-dist-it-${{ github.run_id }}
-          path: |
-            ${{ runner.temp }}/appenzello-dist-it.tar
-            ${{ runner.temp }}/argovia-dist-it.tar
-            ${{ runner.temp }}/articolifrontaliere-dist-it.tar
-            ${{ runner.temp }}/articolisvizzera-dist-it.tar
-            ${{ runner.temp }}/basilea-dist-it.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload shard batch 2 dist for post-deploy validation
-        if: matrix.locale == 'it'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: shard-batch-2-dist-it-${{ github.run_id }}
-          path: |
-            ${{ runner.temp }}/berna-dist-it.tar
-            ${{ runner.temp }}/friburgo-dist-it.tar
-            ${{ runner.temp }}/ginevra-dist-it.tar
-            ${{ runner.temp }}/giura-dist-it.tar
-            ${{ runner.temp }}/glarona-dist-it.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload shard batch 3 dist for post-deploy validation
-        if: matrix.locale == 'it'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: shard-batch-3-dist-it-${{ github.run_id }}
-          path: |
-            ${{ runner.temp }}/grigioni-dist-it.tar
-            ${{ runner.temp }}/lucerna-dist-it.tar
-            ${{ runner.temp }}/neuchatel-dist-it.tar
-            ${{ runner.temp }}/nidvaldo-dist-it.tar
-            ${{ runner.temp }}/obvaldo-dist-it.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload shard batch 4 dist for post-deploy validation
-        if: matrix.locale == 'it'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: shard-batch-4-dist-it-${{ github.run_id }}
-          path: |
-            ${{ runner.temp }}/sangallo-dist-it.tar
-            ${{ runner.temp }}/sciaffusa-dist-it.tar
-            ${{ runner.temp }}/soletta-dist-it.tar
-            ${{ runner.temp }}/svitto-dist-it.tar
-            ${{ runner.temp }}/svizzera-dist-it.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload shard batch 5 dist for post-deploy validation
-        if: matrix.locale == 'it'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: shard-batch-5-dist-it-${{ github.run_id }}
-          path: |
-            ${{ runner.temp }}/ticino-dist-it.tar
-            ${{ runner.temp }}/turgovia-dist-it.tar
-            ${{ runner.temp }}/uri-dist-it.tar
-            ${{ runner.temp }}/vallese-dist-it.tar
-            ${{ runner.temp }}/vaud-dist-it.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload shard batch 6 dist for post-deploy validation
-        if: matrix.locale == 'it'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: shard-batch-6-dist-it-${{ github.run_id }}
-          path: |
-            ${{ runner.temp }}/zugo-dist-it.tar
-            ${{ runner.temp }}/zurigo-dist-it.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
 
       - name: Strip section subtrees (IT)
         if: matrix.locale == 'it'
@@ -1834,203 +1620,6 @@ jobs:
           done < <(node scripts/ci/section-shard-purge-urls.mjs "$LOCALE" "${sections[@]}")
           exit "$fail"
 
-      # Same-run tar artifact for post-deploy-validate-dist's section rehydrate
-      # fast path — see the IT leg's "Pack section shard dist" step above for
-      # the full rationale (git-clone fallback was ~12min wall across the 4
-      # legs combined, run 28564001685). Per-section LIVE gate lives INSIDE
-      # the loop (not the step `if:`) since each section has its own repo
-      # variable.
-      - name: Pack section shard dist (tar) for post-deploy validation
-        if: matrix.locale != 'it'
-        id: pack-section-shards-nonit
-        continue-on-error: true
-        env:
-          TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
-          SVIZZERA_SHARD_LIVE: ${{ vars.SVIZZERA_SHARD_LIVE }}
-          ZURIGO_SHARD_LIVE: ${{ vars.ZURIGO_SHARD_LIVE }}
-          ARGOVIA_SHARD_LIVE: ${{ vars.ARGOVIA_SHARD_LIVE }}
-          APPENZELLO_SHARD_LIVE: ${{ vars.APPENZELLO_SHARD_LIVE }}
-          BASILEA_SHARD_LIVE: ${{ vars.BASILEA_SHARD_LIVE }}
-          BERNA_SHARD_LIVE: ${{ vars.BERNA_SHARD_LIVE }}
-          FRIBURGO_SHARD_LIVE: ${{ vars.FRIBURGO_SHARD_LIVE }}
-          GINEVRA_SHARD_LIVE: ${{ vars.GINEVRA_SHARD_LIVE }}
-          GLARONA_SHARD_LIVE: ${{ vars.GLARONA_SHARD_LIVE }}
-          GRIGIONI_SHARD_LIVE: ${{ vars.GRIGIONI_SHARD_LIVE }}
-          GIURA_SHARD_LIVE: ${{ vars.GIURA_SHARD_LIVE }}
-          LUCERNA_SHARD_LIVE: ${{ vars.LUCERNA_SHARD_LIVE }}
-          NEUCHATEL_SHARD_LIVE: ${{ vars.NEUCHATEL_SHARD_LIVE }}
-          NIDVALDO_SHARD_LIVE: ${{ vars.NIDVALDO_SHARD_LIVE }}
-          OBVALDO_SHARD_LIVE: ${{ vars.OBVALDO_SHARD_LIVE }}
-          SCIAFFUSA_SHARD_LIVE: ${{ vars.SCIAFFUSA_SHARD_LIVE }}
-          SOLETTA_SHARD_LIVE: ${{ vars.SOLETTA_SHARD_LIVE }}
-          SVITTO_SHARD_LIVE: ${{ vars.SVITTO_SHARD_LIVE }}
-          TURGOVIA_SHARD_LIVE: ${{ vars.TURGOVIA_SHARD_LIVE }}
-          URI_SHARD_LIVE: ${{ vars.URI_SHARD_LIVE }}
-          VAUD_SHARD_LIVE: ${{ vars.VAUD_SHARD_LIVE }}
-          VALLESE_SHARD_LIVE: ${{ vars.VALLESE_SHARD_LIVE }}
-          ZUGO_SHARD_LIVE: ${{ vars.ZUGO_SHARD_LIVE }}
-          SANGALLO_SHARD_LIVE: ${{ vars.SANGALLO_SHARD_LIVE }}
-          ARTICOLIFRONTALIERE_SHARD_LIVE: ${{ vars.ARTICOLIFRONTALIERE_SHARD_LIVE }}
-          ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
-        run: |
-          set -uo pipefail
-          # Wall-time della fase (#7301) — vedi lo step di push sopra per il
-          # perche' del trap EXIT invece di un echo finale.
-          trap 'echo "wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"' EXIT
-          loc="${{ matrix.locale }}"
-          # Bounded-parallel (cap 4) — see the IT leg's "Pack section shard
-          # dist" step above for the full rationale. Same shared
-          # sliding-window driver and same longest-first order (memoised by
-          # the push step, so no second walk of dist).
-          source scripts/lib/bounded-parallel.sh
-          pack_section() {
-            local section="$1"
-            local live_var
-            live_var="$(echo "$section" | LC_ALL=C tr '[:lower:]' '[:upper:]')_SHARD_LIVE"
-            if [ "${!live_var:-}" != "true" ]; then
-              return 0
-            fi
-            # Gate on the push ok-marker — see the IT leg's "Pack section
-            # shard dist" step above (issue #4881 Fase 5 audit finding) for
-            # the full rationale.
-            if [ ! -f "$RUNNER_TEMP/shard-ok-$section-$loc" ]; then
-              echo "no push ok-marker for $section-$loc (push skipped/failed this run) — validate-dist will fall back to git clone"
-              return 0
-            fi
-            local slug sub src packed_n src_n persisted_src_n live_src_n
-            slug="$(jq -r --arg s "$section" --arg l "$loc" '.[$s][$l] // empty' scripts/lib/section-shard-slugs.json)"
-            sub="$loc/$slug"
-            src="$RUNNER_TEMP/${section}-src-$loc/dist"
-            if [ ! -d "$src/$sub" ]; then
-              echo "no staged $section-$loc subtree (push skipped/failed) — validate-dist will fall back to git clone"
-              return 0
-            fi
-            # Independent shrink guard (issue #6283) — see the IT leg's "Pack
-            # section shard dist" step above for the full rationale: compare
-            # the LIVE count against the baseline push-section-shard.sh
-            # persisted right after staging, independent of the recount below.
-            if [ -f "$RUNNER_TEMP/shard-srcn-$section-$loc" ]; then
-              persisted_src_n="$(cat "$RUNNER_TEMP/shard-srcn-$section-$loc")"
-              live_src_n=$(find "$src/$sub" -type f | wc -l)
-              if [ "$live_src_n" -ne "$persisted_src_n" ]; then
-                echo "::warning::$section-$loc subtree shrank between push and pack (persisted src_n=$persisted_src_n, live=$live_src_n) — skipping pack, validate-dist will fall back to git-clone"
-                return 0
-              fi
-            fi
-            tar -C "$src" -cf "$RUNNER_TEMP/$section-dist-$loc.tar" "$sub"
-            ls -lh "$RUNNER_TEMP/$section-dist-$loc.tar"
-            # Byte-identity guard (#2761 item 1) — see the IT leg's "Pack section
-            # shard dist" step above for the full rationale: this tar and
-            # push-section-shard.sh's own push both read the SAME already-offloaded
-            # "$src/$sub" staged copy, nothing mutates it in between, so a count
-            # mismatch here can only mean a tar bug — discard rather than upload a
-            # tar validate-dist could trust incorrectly. SECONDARY guard now: the
-            # independent shrink check above is the primary defence against a
-            # between-steps shrink.
-            packed_n=$(tar -tf "$RUNNER_TEMP/$section-dist-$loc.tar" | { grep -vc '/$' || true; })
-            src_n=$(find "$src/$sub" -type f | wc -l)
-            if [ "$packed_n" -ne "$src_n" ]; then
-              echo "::warning::$section-dist-$loc.tar file count mismatch (packed=$packed_n src=$src_n) — discarding tar, validate-dist will fall back to git-clone"
-              rm -f "$RUNNER_TEMP/$section-dist-$loc.tar"
-            fi
-            rm -rf "$src"
-          }
-          # Degrade to the plain list rather than pack nothing — see the IT
-          # leg's "Pack section shard dist" step above.
-          order="$(bp_section_order dist "$loc")" || {
-            echo "::warning::could not order the section list — packing in list order"
-            order="$(bash scripts/lib/deploy-shard-sections.sh)"
-          }
-          mapfile -t ordered_sections <<< "$order"
-          bp_run_bounded 4 pack_section "${ordered_sections[@]}" || true
-      - name: Upload shard batch 1 dist for post-deploy validation
-        if: matrix.locale != 'it'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: shard-batch-1-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: |
-            ${{ runner.temp }}/appenzello-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/argovia-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/articolifrontaliere-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/articolisvizzera-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/basilea-dist-${{ matrix.locale }}.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload shard batch 2 dist for post-deploy validation
-        if: matrix.locale != 'it'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: shard-batch-2-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: |
-            ${{ runner.temp }}/berna-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/friburgo-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/ginevra-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/giura-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/glarona-dist-${{ matrix.locale }}.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload shard batch 3 dist for post-deploy validation
-        if: matrix.locale != 'it'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: shard-batch-3-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: |
-            ${{ runner.temp }}/grigioni-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/lucerna-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/neuchatel-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/nidvaldo-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/obvaldo-dist-${{ matrix.locale }}.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload shard batch 4 dist for post-deploy validation
-        if: matrix.locale != 'it'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: shard-batch-4-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: |
-            ${{ runner.temp }}/sangallo-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/sciaffusa-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/soletta-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/svitto-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/svizzera-dist-${{ matrix.locale }}.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload shard batch 5 dist for post-deploy validation
-        if: matrix.locale != 'it'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: shard-batch-5-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: |
-            ${{ runner.temp }}/ticino-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/turgovia-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/uri-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/vallese-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/vaud-dist-${{ matrix.locale }}.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload shard batch 6 dist for post-deploy validation
-        if: matrix.locale != 'it'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: shard-batch-6-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: |
-            ${{ runner.temp }}/zugo-dist-${{ matrix.locale }}.tar
-            ${{ runner.temp }}/zurigo-dist-${{ matrix.locale }}.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-
       - name: Strip section subtrees (non-IT)
         if: matrix.locale != 'it'
         env:
@@ -2112,94 +1701,6 @@ jobs:
         env:
           CDN_BASE: 'https://cdn.frontaliereticino.ch'
         run: node scripts/offload-generated-images-cdn.mjs
-
-      # Same-run shard-dist artifact for post-deploy-validate-dist rehydrate.
-      # validate-dist previously rehydrated each en/de/fr subtree by
-      # `git clone --depth 1` of the shard repo (~14min wall, serial). The pruned
-      # dist here — dist/<locale> + dist/<locale>.html — is byte-for-byte what
-      # push-locale-shard.sh force-pushes next, so uploading it lets validate-dist
-      # fetch it via `gh run download` (same-run, no API lag) instead of cloning.
-      # Uploaded AFTER "Offload shard refs to CDN" so the HTML carries the same
-      # CDN-rewritten /data refs the pushed shard serves (the clone-rehydrate it
-      # replaces consumed post-offload content) — keeps the rehydrated dist
-      # byte-identical to the git-clone path. validate-dist still falls back to the
-      # git clone when this artifact is missing (e.g. a failed shard push/upload),
-      # so a locale is NEVER silently un-validated. IT/main shard untouched
-      # (`matrix.locale != 'it'`) → matrix-equivalence sha256 intact.
-      #
-      # PACK INTO ONE TAR FIRST. The previous version uploaded the raw
-      # `dist/<loc>` tree (~410k loose files) directly. actions/upload-artifact@v7
-      # enumerates every file before upload and STACK-OVERFLOWED on that count —
-      # "##[error]Maximum call stack size exceeded" — so the upload silently
-      # failed (continue-on-error → step shows green, no artifact produced). The
-      # fast path was therefore DEAD on every deploy: validate-dist's rehydrate
-      # always fell through to the ~675s git-clone fallback. Packing the subtree
-      # into a single artifact.tar (exactly how the github-pages artifact is
-      # shipped) makes upload enumerate ONE file → no stack overflow, and the
-      # validate-dist side untars it straight into dist/ (no extra cp copy).
-      - name: Pack locale shard dist (tar) for post-deploy validation
-        if: matrix.locale != 'it'
-        id: pack-locale-shard
-        # continue-on-error for the same reason as the upload+push steps: a pack
-        # failure must degrade to validate-dist's git-clone fallback, never flip
-        # build-locale.result→failure (which would block the Pages publish).
-        continue-on-error: true
-        run: |
-          set -euo pipefail
-          # Wall-time della fase (#7301) — vedi "Push section shards (IT ...)"
-          # per il perche' del trap EXIT invece di un echo finale.
-          trap 'echo "wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"' EXIT
-          members=( "${{ matrix.locale }}" )
-          # dist/<loc>.html (= the /{loc} homepage) is normally present; guard so
-          # a future strip that drops it can't make tar exit non-zero. NB: use a
-          # full `if` — `[ -f ] && members+=()` would itself exit non-zero (and
-          # abort the step under set -e) when the homepage is absent.
-          if [ -f "dist/${{ matrix.locale }}.html" ]; then
-            members+=( "${{ matrix.locale }}.html" )
-          fi
-          tar -C dist -cf "$RUNNER_TEMP/locale-dist-${{ matrix.locale }}.tar" "${members[@]}"
-          ls -lh "$RUNNER_TEMP/locale-dist-${{ matrix.locale }}.tar"
-          # Byte-identity guard (#2761 item 1): this tar and push-locale-shard.sh's
-          # `cp -al "$dist_dir/$loc" "$stage/$loc"` both read the SAME dist/<loc>
-          # (+ <loc>.html) — this step runs BEFORE "Push locale shard" below and
-          # nothing mutates dist/<loc> in between, so the two paths are guaranteed
-          # to agree; validate-dist's git-clone fallback also only ever restores
-          # this identical <loc>/ + <loc>.html pair. This count check makes that
-          # guarantee self-verifying: if it ever drifts, discard the tar so
-          # validate-dist safely falls back to git-clone instead of silently
-          # validating a partial/mismatched tree.
-          prefixed_members=()
-          for m in "${members[@]}"; do prefixed_members+=( "dist/$m" ); done
-          packed_n=$(tar -tf "$RUNNER_TEMP/locale-dist-${{ matrix.locale }}.tar" | { grep -vc '/$' || true; })
-          src_n=$(find "${prefixed_members[@]}" -type f 2>/dev/null | wc -l)
-          if [ "$packed_n" -ne "$src_n" ]; then
-            echo "::warning::locale-dist-${{ matrix.locale }}.tar file count mismatch (packed=$packed_n src=$src_n) — discarding tar, validate-dist will fall back to git-clone"
-            rm -f "$RUNNER_TEMP/locale-dist-${{ matrix.locale }}.tar"
-          fi
-      - name: Upload locale shard dist for post-deploy validation
-        if: matrix.locale != 'it'
-        # MUST stay continue-on-error: this is a non-essential speedup artifact.
-        # deploy + validate-dist gate on `needs.build-locale.result == 'success'`
-        # (in matrix mode `build` is skipped), and build-locale has
-        # fail-fast: false, so a single leg failing here would make
-        # build-locale.result == failure → deploy blocked = no Pages publish.
-        # A transient artifact-service error or an empty dist/<loc> must instead
-        # degrade gracefully: validate-dist's git-clone fallback then rehydrates
-        # the locale (the documented resilience path). Mirrors the adjacent
-        # `Push locale shard` step, which is continue-on-error for the same reason.
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: locale-dist-${{ matrix.locale }}-${{ github.run_id }}
-          # Single tar (see "Pack locale shard dist" above) — NOT the ~410k-file
-          # tree, which overflows the action's file enumerator.
-          path: ${{ runner.temp }}/locale-dist-${{ matrix.locale }}.tar
-          # compression-level 1: the tar is mostly HTML (very compressible) and
-          # this step gates the Pages publish, so favour a fast upload over a few
-          # extra MB. validate-dist downloads it over GitHub's internal network.
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: error
 
       # ── Cross-shard CDN-push ordering guard (#2569 atomicity) ────────────
       # The non-IT shard HTML was rewritten to reference cdn.frontaliereticino.ch
@@ -2292,18 +1793,14 @@ jobs:
           # already at GitHub's hard per-job ceiling for hosted runners (6h,
           # fixed platform-wide — it cannot be raised further, so "is it big
           # enough" has to be answered by shrinking THIS gate, not by growing
-          # the job). Keep the hard platform ceiling and the post-gate reserve
-          # separate: 21600 = 360 * 60, and 180s is the measured finish window
-          # for the critical locale-shard push/purge/report path (119 recorded
-          # locale pushes have a maximum of 83s). The previous effective
-          # 19800s deadline reserved 30min from the job start and stopped a
-          # still-healthy IT build before its early CDN step on slow runs.
-          # Anchored to CDN_JOB_START_EPOCH (set by the very first step of this
-          # job), so it absorbs however long Build+shard-push actually took on
-          # THIS run before shrinking either phase's budget.
+          # the job). 19800 = (360 - 30) * 60: 30 minutes held back for the
+          # finish steps after this gate (push shard, purge, report) plus
+          # runner/provisioning overhead. Anchored to CDN_JOB_START_EPOCH (set
+          # by the very first step of this job), so it absorbs however long
+          # Build+shard-push actually took on THIS run before shrinking either
+          # phase's budget.
           CDN_JOB_START_EPOCH: ${{ env.CDN_JOB_START_EPOCH }}
-          CDN_JOB_DEADLINE_S: 21600
-          CDN_JOB_FINISH_RESERVE_S: 180
+          CDN_JOB_DEADLINE_S: 19800
         run: bash scripts/lib/wait-cdn-build-id.sh "${DEPLOY_BUILD_ID}"
 
       - name: Push locale shard
@@ -2676,8 +2173,8 @@ jobs:
 
       # Wall-time delle fasi POST-build del leg (#7301). Non possono essere
       # chiavi della riga di "Append build memory history row": quello step sta
-      # a meta' job, e push shard + pack tar finiscono molto dopo — sul run
-      # 33833300860 valgono 23 min + 5 min dei 130 min totali del leg IT. Senza
+      # a meta' job, e i push shard finiscono molto dopo — sul run
+      # 33833300860 valevano 23 min dei 130 min totali del leg IT. Senza
       # questa riga l'unica fonte su quelle fasi e' l'API Actions run-per-run,
       # soggetta a retention e ai run cancellati, quindi nessuna ottimizzazione
       # del leg IT ha una misura prima/dopo verificabile dal repo.
@@ -2706,14 +2203,10 @@ jobs:
           # sbagliato invece di restare vuoto.
           ROW_PUSH_SHARDS_IT: ${{ steps.push-section-shards-it.outputs.wall_seconds }}
           ROW_PUSH_SHARDS_NONIT: ${{ steps.push-section-shards-nonit.outputs.wall_seconds }}
-          ROW_PACK_TAR_IT: ${{ steps.pack-section-shards-it.outputs.wall_seconds }}
-          ROW_PACK_TAR_NONIT: ${{ steps.pack-section-shards-nonit.outputs.wall_seconds }}
-          # Le due fasi post-build dello shard di LOCALE: girano solo sui leg
-          # non-IT (l'apex IT pubblica via Pages), quindi sono chiavi proprie e
-          # non un `pick` sopra le due di sezione. Stessa classe di buco —
-          # fase post-build senza wall-time committato — quindi stesso fix.
+          # La fase post-build dello shard di LOCALE gira solo sui leg non-IT
+          # (l'apex IT pubblica via Pages), quindi e' una chiave propria e non
+          # un `pick` sopra quella di sezione.
           ROW_PUSH_LOCALE_SHARD: ${{ steps.push-shard.outputs.wall_seconds }}
-          ROW_PACK_LOCALE_TAR: ${{ steps.pack-locale-shard.outputs.wall_seconds }}
         run: |
           set -o pipefail
           node -e '
@@ -2723,9 +2216,7 @@ jobs:
             };
             const phases = {
               push_shards_seconds: pick("ROW_PUSH_SHARDS_IT", "ROW_PUSH_SHARDS_NONIT"),
-              pack_tar_seconds: pick("ROW_PACK_TAR_IT", "ROW_PACK_TAR_NONIT"),
               push_locale_shard_seconds: pick("ROW_PUSH_LOCALE_SHARD"),
-              pack_locale_tar_seconds: pick("ROW_PACK_LOCALE_TAR"),
             };
             // Tutte assenti = nessuna fase post-build ha girato su questo leg
             // (shard non provisionati, o job morto prima). Riga vuota = rumore

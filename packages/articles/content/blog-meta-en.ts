@@ -11767,6 +11767,15 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-15.imageAlt': 'The day\'s numbers for cross-border commuters – September 15, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-09-15.seoDescription': 'Cross-border brief, September 15, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-09-15.ogDescription': 'The numbers for September 15, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.affitti-ticino-calo-2026.title': 'Ticino Plummeting Rentals: 10.9% Decline in Listings',
+    'blog.article.affitti-ticino-calo-2026.excerpt': 'For the first time, listings in Switzerland are down. In Ticino the decline reaches 10.9% with an average of 1\'501 francs.',
+    'blog.article.affitti-ticino-calo-2026.imageAlt': 'View of residential buildings and Lake Lugano in Ticino',
+    'blog.article.passaporto-digitale-sicurezza-sociale-ue.title': 'EU Digital Passport - New for Switzerland',
+    'blog.article.passaporto-digitale-sicurezza-sociale-ue.excerpt': 'The European Commission is proposing the digital passport for social security and the digitalisation of diplomas, with expected impacts for Switzerland as well.',
+    'blog.article.passaporto-digitale-sicurezza-sociale-ue.imageAlt': 'EU digital social security pass and impact on Switzerland',
+    'blog.article.salute-mentale-lavoro-ticino.title': 'Mental health and work: absences in Ticino',
+    'blog.article.salute-mentale-lavoro-ticino.excerpt': '51% of absences for mental reasons lead to the dissolution of the contract. The importance of early intervention for professional stability.',
+    'blog.article.salute-mentale-lavoro-ticino.imageAlt': 'Office in Lugano with lake view, symbolic of workplace wellbeing.',
 };
 
 export default blogMetaEn;

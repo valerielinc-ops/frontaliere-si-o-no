@@ -51,13 +51,11 @@
 #   CDN_JOB_START_EPOCH  unix epoch seconds when the CALLING JOB started (not
 #                       this step). Unset/non-numeric → disabled, behaves
 #                       exactly as before.
-#   CDN_JOB_DEADLINE_S  hard-job seconds after CDN_JOB_START_EPOCH by which BOTH
-#                       phases combined must have already exited. Unset/non-
-#                       numeric → disabled. Both must be set together to take
-#                       effect.
-#   CDN_JOB_FINISH_RESERVE_S  seconds to hold back from that hard deadline for
-#                       the critical post-gate finish steps. Defaults to 0 so
-#                       standalone callers keep the legacy behavior.
+#   CDN_JOB_DEADLINE_S  seconds after CDN_JOB_START_EPOCH by which BOTH phases
+#                       combined must have already exited, leaving the job's
+#                       remaining budget for its own finish steps before
+#                       GitHub's own hard per-job kill. Unset/non-numeric →
+#                       disabled. Both must be set together to take effect.
 #
 # Exit codes:
 #   0  — the CDN marker matched <expected_build_id> within the timeout, OR the
@@ -134,14 +132,11 @@
 # either phase's nominal budget (which stays correct for a fast build) or
 # reducing it (which would resurrect the #7049 bug for a slow one): each
 # phase's effective timeout is clamped, once, to whatever time is actually
-# left before the hard job deadline minus CDN_JOB_FINISH_RESERVE_S. Because
-# that deadline is anchored to the JOB's start, not this step's, it absorbs
+# left before job_start + CDN_JOB_DEADLINE_S. Because that deadline is
+# anchored to the JOB's start, not this step's, it automatically absorbs
 # however long T1 turned out to be on THIS run — a slow build leaves less
 # room for the wait, a fast one leaves more — and the gate always exits on
-# its own terms, with a measured finish window, instead of racing GitHub's
-# kill signal. Keeping the hard six-hour value separate from the reserve is
-# important: the old 19800s effective deadline stopped a still-healthy IT leg
-# at 5h30, before it could reach the early CDN push on a slow but valid build.
+# its own terms, with margin, instead of racing GitHub's kill signal.
 #
 # Deliberately NOT `set -e`: every curl is allowed to fail (CDN not yet updated
 # is the EXPECTED transient case during the poll) and is guarded explicitly.
@@ -199,13 +194,9 @@ it_ready_interval_s="${CDN_IT_READY_INTERVAL_S:-30}"
 # it entirely and every budget below behaves exactly as it did before this
 # clock existed — same safe-degradation shape as the #5331 abort above.
 job_deadline_epoch=""
-job_finish_reserve_s="${CDN_JOB_FINISH_RESERVE_S:-0}"
-[[ "$job_finish_reserve_s" =~ ^[0-9]+$ ]] || job_finish_reserve_s=0
 if [[ "${CDN_JOB_START_EPOCH:-}" =~ ^[0-9]+$ ]] && [[ "${CDN_JOB_DEADLINE_S:-}" =~ ^[0-9]+$ ]]; then
-  effective_job_deadline_s=$((CDN_JOB_DEADLINE_S - job_finish_reserve_s))
-  [ "$effective_job_deadline_s" -ge 0 ] || effective_job_deadline_s=0
-  job_deadline_epoch=$((CDN_JOB_START_EPOCH + effective_job_deadline_s))
-  echo "[wait-cdn-build-id] #7106 job-deadline safety margin armed: hard deadline ${CDN_JOB_DEADLINE_S}s, finish reserve ${job_finish_reserve_s}s, gate deadline epoch ${job_deadline_epoch}"
+  job_deadline_epoch=$((CDN_JOB_START_EPOCH + CDN_JOB_DEADLINE_S))
+  echo "[wait-cdn-build-id] #7106 job-deadline safety margin armed: both phases combined must exit by epoch ${job_deadline_epoch}"
 fi
 
 # Echoes $1 (a budget in seconds) clamped to whatever remains before

@@ -456,7 +456,7 @@ const enCalculator: Record<string, string> = {
  'results.salaryAlert.capture.emailLabel': 'Your email address',
  'results.salaryAlert.capture.emailCta': 'Send me the sign-in link',
  'results.salaryAlert.capture.checkEmailTitle': 'Check your email',
- 'results.salaryAlert.capture.checkEmailBody': 'We sent you a link. Open it to sign in and automatically activate this salary alert.',
+ 'results.salaryAlert.capture.checkEmailBody': 'We sent you a link. Open it to confirm your address and sign in: this salary alert will activate automatically.',
 
  // Multi-canton net comparison (#4471)
  'results.cantonCompare.title': 'The same job in other cantons',
@@ -480,7 +480,8 @@ const enCalculator: Record<string, string> = {
  'calculator.paywall.submit': 'Send me the PDF',
  'calculator.paywall.submitting': 'Sending...',
  'calculator.paywall.dismissLabel': 'Don\u2019t show again',
- 'calculator.paywall.privacyNote': 'Only for this PDF. No spam — unsubscribe anytime.',
+ 'calculator.paywall.privacyNote': 'You can manage your preferences or withdraw consent at any time.',
+ 'calculator.paywall.consentRequired': 'Please select consent to receive the PDF and email communications.',
  'calculator.paywall.successToast': 'PDF sent! Check your inbox.',
  'calculator.paywall.errorToast': 'Could not send the PDF. Check your email and try again.',
  'calculator.regimeScope.notice': 'This calculation applies the Italy\u2013Switzerland cross-border regime: Ticino withholding tax plus Italian IRPEF with its allowance. It does not apply to residents of France, Germany, Austria or Liechtenstein, where different agreements govern.',

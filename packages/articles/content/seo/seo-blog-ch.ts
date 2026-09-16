@@ -83480,6 +83480,162 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ocse-crescita-svizzera-2026': {
+    title: 'OCSE vede più crescita in Svizzera, Pil 2026 al 2,0%',
+    description: 'L\'OCSE rivede al rialzo la crescita della Svizzera per il 2026 al 2,0%. Inflazione media stimata allo 0,6%. Leggi i dettagli dell\'Economic Survey.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ocse, vede, crescita, rivede',
+    ogTitle: 'OCSE vede più crescita in Svizzera: Pil 2026 al 2,0%',
+    ogDescription: 'L\'Organizzazione per la cooperazione e lo sviluppo economico ha pubblicato il nuovo Economic Survey. Prevista una crescita del Pil svizzero al 2,0% per il 2026 e inflazione allo 0,6%.',
+    canonicalPath: '/articoli-svizzera/ocse-crescita-svizzera-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "OCSE vede più crescita in Svizzera, Pil 2026 al 2,0%",
+      "description": "L'OCSE rivede al rialzo la crescita della Svizzera per il 2026 al 2,0%. Inflazione media stimata allo 0,6%. Leggi i dettagli dell'Economic Survey.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ocse-crescita-svizzera-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panoramica economica della Svizzera con previsioni di crescita OCSE"
+      },
+      "datePublished": "2026-09-16T00:19:29+00:00",
+      "dateModified": "2026-09-16T00:19:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ocse-crescita-svizzera-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ocse-rapporto-svizzera-2026': {
+    title: 'Rapporto OCSE sulla Svizzera: stabilità e riforme economiche',
+    description: 'Scopri i dettagli del rapporto OCSE sulla Svizzera pubblicato il 15 settembre 2026: raccomandazioni su sanità, previdenza, imprese e politica di crescita.',
+    keywords: 'frontalieri, ticino, svizzera, italia, rapporto, ocse, sulla, stabilità',
+    ogTitle: 'Rapporto OCSE Svizzera 2026: stabilità e nuove riforme',
+    ogDescription: 'L\'OCSE ha pubblicato il rapporto sulla Svizzera il 15 settembre 2026. Apprezzata la resilienza economica, ma servono riforme in sanità, previdenza e burocrazia in vista del rapporto del Consiglio federale previsto per fine 2027.',
+    canonicalPath: '/articoli-svizzera/ocse-rapporto-svizzera-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rapporto OCSE sulla Svizzera: stabilità e riforme economiche",
+      "description": "Scopri i dettagli del rapporto OCSE sulla Svizzera pubblicato il 15 settembre 2026: raccomandazioni su sanità, previdenza, imprese e politica di crescita.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ocse-rapporto-svizzera-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna sede delle istituzioni svizzere"
+      },
+      "datePublished": "2026-09-16T00:28:42+00:00",
+      "dateModified": "2026-09-16T00:28:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ocse-rapporto-svizzera-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bak-economics-pil-2026-18': {
+    title: 'BAK Economics: Pil 2026 a +1,8%, possibile rialzo tassi',
+    description: 'BAK Economics alza la stima del Pil 2026 all\'1,8% e prevede un possibile aumento dei tassi BNS già a dicembre. Inflazione attesa allo 0,6%. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, economics, possibile, rialzo, tassi',
+    ogTitle: 'BAK Economics: Pil 2026 a +1,8%, possibile rialzo tassi',
+    ogDescription: 'Nuove stime di BAK Economics: il Pil svizzero crescerà del 1,8% nel 2026, una revisione al rialzo rispetto all\'0,8% precedente. L\'inflazione resterà bassa allo 0,6%, ma la BNS potrebbe alzare i tassi già a dicembre per normalizzare la politica',
+    canonicalPath: '/articoli-svizzera/bak-economics-pil-2026-18/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "BAK Economics: Pil 2026 a +1,8%, possibile rialzo tassi",
+      "description": "BAK Economics alza la stima del Pil 2026 all'1,8% e prevede un possibile aumento dei tassi BNS già a dicembre. Inflazione attesa allo 0,6%. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bak-economics-pil-2026-18.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica sulle Alpi e il Lago di Lugano al mattino, luce dorata su montagne svizzere."
+      },
+      "datePublished": "2026-09-16T00:54:44+00:00",
+      "dateModified": "2026-09-16T00:54:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bak-economics-pil-2026-18/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-too-big-to-fail-consiglio-stati': {
+    title: 'Too big to fail: il Consiglio degli Stati discute le regole UBS',
+    description: 'Il Consiglio degli Stati discute la normativa too big to fail e i requisiti di capitale per UBS. Il PLR chiede il rinvio al Consiglio federale. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, fail, consiglio, stati, discute',
+    ogTitle: 'Too big to fail e requisiti UBS: il dibattito in Consiglio degli Stati',
+    ogDescription: 'Approfondimento sulla discussione parlamentare riguardo alla regolamentazione too big to fail per UBS e alla proposta del PLR di affidare le regole al Consiglio federale.',
+    canonicalPath: '/articoli-svizzera/too-big-to-fail-consiglio-stati/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Too big to fail: il Consiglio degli Stati discute le regole UBS",
+      "description": "Il Consiglio degli Stati discute la normativa too big to fail e i requisiti di capitale per UBS. Il PLR chiede il rinvio al Consiglio federale. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/too-big-to-fail-consiglio-stati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna dove si discute la regolamentazione bancaria"
+      },
+      "datePublished": "2026-09-16T01:04:39+00:00",
+      "dateModified": "2026-09-16T01:04:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/too-big-to-fail-consiglio-stati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

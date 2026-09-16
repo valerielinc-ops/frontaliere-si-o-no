@@ -11769,6 +11769,15 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-15.imageAlt': 'Les chiffres du jour pour les frontaliers – 15 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-09-15.seoDescription': 'Bulletin du frontalier du 15 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-09-15.ogDescription': 'Les chiffres du 15 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.affitti-ticino-calo-2026.title': 'Location en pique au Tessin : baisse de 10,9% des annonces',
+    'blog.article.affitti-ticino-calo-2026.excerpt': 'Pour la première fois, les loyers proposés en Suisse connaissent une baisse. Au Tessin, la baisse atteint 10,9 % avec une moyenne de 1\'501 francs.',
+    'blog.article.affitti-ticino-calo-2026.imageAlt': 'Vue des immeubles résidentiels et du lac de Lugano au Tessin',
+    'blog.article.passaporto-digitale-sicurezza-sociale-ue.title': 'Passeport numérique UE : nouveauté pour la Suisse',
+    'blog.article.passaporto-digitale-sicurezza-sociale-ue.excerpt': 'La Commission européenne propose le passeport numérique pour la sécurité sociale et la numérisation des diplômes, avec des impacts attendus également pour la Suisse.',
+    'blog.article.passaporto-digitale-sicurezza-sociale-ue.imageAlt': 'Passeport numérique de sécurité sociale UE et impact en Suisse',
+    'blog.article.salute-mentale-lavoro-ticino.title': 'Santé mentale et travail : les absences au Tessin',
+    'blog.article.salute-mentale-lavoro-ticino.excerpt': '51% des absences pour raisons psychiques conduisent à la résiliation du contrat. L\'importance de l\'intervention précoce pour la stabilité professionnelle.',
+    'blog.article.salute-mentale-lavoro-ticino.imageAlt': 'Bureau à Lugano avec vue sur le lac, symbolique du bien-être au travail.',
 };
 
 export default blogMetaFr;

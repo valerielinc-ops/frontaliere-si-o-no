@@ -68,9 +68,10 @@ rehydrate_locale() {
       continue
     fi
 
-    # PRIMARY: the same-run per-locale shard-dist artifact the en/de/fr
-    # build-locale shard uploaded from its already-pruned, CDN-offloaded
-    # dist (byte-identical to what push-locale-shard.sh force-pushed).
+    # LEGACY: a same-run per-locale shard-dist artifact from an older deploy,
+    # uploaded from its already-pruned, CDN-offloaded dist (byte-identical to
+    # what push-locale-shard.sh force-pushed). Current builds omit this optional
+    # artifact so that validation packaging cannot delay Pages publication.
     dl="$RUNNER_TEMP/locale-dist-$loc"
     dl_ok=1
     for attempt in 1 2; do

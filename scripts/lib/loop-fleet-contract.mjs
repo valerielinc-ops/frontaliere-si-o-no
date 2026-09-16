@@ -643,6 +643,11 @@ const EVIDENCE_REQUIRED_LIFECYCLE_EVENTS = Object.freeze([
   'merged',
   'post_merge_verified',
 ]);
+const TERMINAL_LIFECYCLE_EVENTS = Object.freeze([
+  'rollback_requested',
+  'rolled_back',
+  'inconclusive',
+]);
 
 function lifecycleEventTime(events, eventType) {
   const event = [...events]
@@ -652,6 +657,39 @@ function lifecycleEventTime(events, eventType) {
     .sort((left, right) => left.time - right.time || left.index - right.index)
     .at(0)?.candidate;
   return event ? new Date(event.occurredAt).toISOString() : null;
+}
+
+function terminalLifecycleErrors(events, eventTypes) {
+  const has = (eventType) => eventTypes.includes(eventType);
+  const postMergeVerifiedAt = lifecycleEventTime(events, 'post_merge_verified');
+  const rollbackRequestedAt = lifecycleEventTime(events, 'rollback_requested');
+  const rolledBackAt = lifecycleEventTime(events, 'rolled_back');
+  const errors = [];
+
+  // Rollback is a post-merge recovery path, not an alternative to the
+  // candidate -> PR -> merge -> verification chain.
+  if (has('rollback_requested') && !has('post_merge_verified')) {
+    errors.push('rollback_requested requires post_merge_verified');
+  }
+  if (has('rolled_back') && !has('rollback_requested')) {
+    errors.push('rolled_back requires rollback_requested');
+  }
+  if (postMergeVerifiedAt && rollbackRequestedAt
+      && Date.parse(rollbackRequestedAt) < Date.parse(postMergeVerifiedAt)) {
+    errors.push('rollback_requested occurs before post_merge_verified');
+  }
+  if (rollbackRequestedAt && rolledBackAt
+      && Date.parse(rolledBackAt) < Date.parse(rollbackRequestedAt)) {
+    errors.push('rolled_back occurs before rollback_requested');
+  }
+  if (has('inconclusive') && TERMINAL_LIFECYCLE_EVENTS.some((eventType) =>
+    eventType !== 'inconclusive' && has(eventType))) {
+    errors.push('inconclusive conflicts with a rollback terminal');
+  }
+  if (has('inconclusive') && (has('merged') || has('post_merge_verified'))) {
+    errors.push('inconclusive conflicts with a merged candidate');
+  }
+  return errors;
 }
 
 function lifecycleDeadline(startAt, hours) {
@@ -770,6 +808,13 @@ export function summarizeLifecycleEvents(events = [], { now = new Date() } = {})
     const missing = REQUIRED_LIFECYCLE_EVENT_TYPES.filter((eventType) => !eventTypes.includes(eventType));
     const duplicateEventTypes = REQUIRED_LIFECYCLE_EVENT_TYPES.filter((eventType) =>
       candidateEvents.filter((event) => event.eventType === eventType).length > 1);
+    const duplicateTerminalEventTypes = TERMINAL_LIFECYCLE_EVENTS.filter((eventType) =>
+      candidateEvents.filter((event) => event.eventType === eventType).length > 1);
+    const invalidOccurredAtEventTypes = [...new Set(candidateEvents
+      .filter((event) => !Number.isFinite(Date.parse(event?.occurredAt || '')))
+      .map((event) => typeof event?.eventType === 'string' && event.eventType.trim()
+        ? event.eventType.trim()
+        : 'unknown'))];
     const ordered = candidateEvents
       .map((event, index) => ({ event, index }))
       .filter(({ event }) => ORDERED_LIFECYCLE_EVENTS.has(event.eventType))
@@ -780,7 +825,7 @@ export function summarizeLifecycleEvents(events = [], { now = new Date() } = {})
           - (Number.isFinite(rightTime) ? rightTime : Number.POSITIVE_INFINITY)
           || left.index - right.index;
       });
-    const orderValid = ordered.every(({ event }, index) => index === 0
+    const orderValid = invalidOccurredAtEventTypes.length === 0 && ordered.every(({ event }, index) => index === 0
       || ORDERED_LIFECYCLE_EVENTS.get(event.eventType) >= ORDERED_LIFECYCLE_EVENTS.get(ordered[index - 1].event.eventType));
     const owners = [...new Set(candidateEvents.map((event) => event.owner).filter((owner) => typeof owner === 'string' && owner.trim()))];
     const sourceRecordIds = [...new Set(candidateEvents.map((event) => event.sourceRecordId).filter((sourceRecordId) => typeof sourceRecordId === 'string' && sourceRecordId.trim()))];
@@ -790,14 +835,26 @@ export function summarizeLifecycleEvents(events = [], { now = new Date() } = {})
       const event = candidateEvents.find((candidateEvent) => candidateEvent.eventType === eventType);
       return event && !(typeof event.artifactOrPr === 'string' && event.artifactOrPr.trim());
     });
-    const terminalEventTypes = ['rollback_requested', 'rolled_back', 'inconclusive']
+    const terminalEventTypes = TERMINAL_LIFECYCLE_EVENTS
       .filter((eventType) => eventTypes.includes(eventType));
+    const terminalIncoherence = [
+      ...terminalLifecycleErrors(candidateEvents, eventTypes),
+      ...duplicateTerminalEventTypes.map((eventType) => `${eventType} appears more than once`),
+      ...invalidOccurredAtEventTypes
+        .filter((eventType) => TERMINAL_LIFECYCLE_EVENTS.includes(eventType))
+        .map((eventType) => `${eventType} has invalid occurredAt`),
+    ];
+    const terminalOrderValid = terminalIncoherence.length === 0;
+    const terminalPending = terminalEventTypes.includes('rollback_requested')
+      && !terminalEventTypes.includes('rolled_back');
     const incoherent = [
       ...duplicateEventTypes.map((eventType) => `${eventType} appears more than once`),
+      ...invalidOccurredAtEventTypes.map((eventType) => `${eventType} has invalid occurredAt`),
       !orderValid ? 'events are out of order' : null,
       !ownerConsistent ? 'owner changes without an explicit reassignment event' : null,
       !sourceConsistent ? 'sourceRecordId changes across the candidate chain' : null,
       ...missingEvidence.map((eventType) => `${eventType} has no artifactOrPr reference`),
+      ...terminalIncoherence,
     ].filter(Boolean);
     const sla = lifecycleSlaSummary(candidateEvents, now, { coherent: incoherent.length === 0 });
     const sorted = candidateEvents
@@ -814,10 +871,14 @@ export function summarizeLifecycleEvents(events = [], { now = new Date() } = {})
       ownerConsistent,
       sourceConsistent,
       duplicateEventTypes,
+      duplicateTerminalEventTypes,
+      invalidOccurredAtEventTypes,
       missingEvidence,
       terminalEventTypes,
+      terminalOrderValid,
+      terminalPending,
       incoherent,
-      complete: missing.length === 0 && incoherent.length === 0,
+      complete: missing.length === 0 && incoherent.length === 0 && !terminalPending,
       sla,
       lastEvent: sorted.at(-1) ? {
         eventType: sorted.at(-1).event.eventType,
@@ -831,16 +892,19 @@ export function summarizeLifecycleEvents(events = [], { now = new Date() } = {})
       - (Number.isFinite(right.time) ? right.time : Number.POSITIVE_INFINITY)
       || left.index - right.index)
     .at(-1)?.event;
+  const allCandidatesCoherent = candidates.every((candidate) => candidate.incoherent.length === 0);
   const state = candidates.length === 0
     ? 'no_candidate'
-    : (candidates.some((candidate) => candidate.terminalEventTypes.includes('inconclusive'))
+    : (!allCandidatesCoherent
+      ? 'candidate'
+      : (candidates.some((candidate) => candidate.terminalEventTypes.includes('inconclusive'))
       ? 'inconclusive'
       : (candidates.some((candidate) => candidate.terminalEventTypes.includes('rollback_requested')
         && !candidate.terminalEventTypes.includes('rolled_back'))
         ? 'rollback_requested'
         : (candidates.some((candidate) => candidate.terminalEventTypes.includes('rolled_back'))
           ? 'rolled_back'
-          : (candidates.every((candidate) => candidate.complete) ? 'verified' : 'candidate'))));
+          : (candidates.every((candidate) => candidate.complete) ? 'verified' : 'candidate')))));
   return {
     available: true,
     eventCount: (events || []).length,

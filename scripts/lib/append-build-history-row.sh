@@ -4,9 +4,9 @@
 #
 # Estratto dallo step "Append build memory history row" di deploy.yml quando
 # e' arrivato un SECONDO produttore di righe ("Append post-build phase timings
-# row", issue #7301): le fasi post-build — push degli shard di sezione e pack
-# tar — finiscono DOPO quello step, quindi non possono essere chiavi della sua
-# riga, e senza questo script i due step duplicherebbero identiche le ~25
+# row", issue #7301): le fasi post-build — push degli shard di sezione —
+# finiscono DOPO quello step, quindi non possono essere chiavi della sua riga,
+# e senza questo script i due step duplicherebbero identiche le ~25
 # righe di commit + pull --rebase + backoff. Un solo posto da correggere se il
 # backoff cambia.
 #

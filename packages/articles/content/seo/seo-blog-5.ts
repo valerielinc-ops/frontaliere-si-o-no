@@ -90787,6 +90787,123 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-affitti-ticino-calo-2026': {
+    title: 'Affitti in picchiata in Ticino: calo del 10,9% negli annunci',
+    description: 'Gli affitti in offerta in Ticino registrano un calo del 10,9% con una media di 1\'501 franchi. Scopri i dati dello Swiss Real Estate Institute sui comuni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, picchiata, calo, negli',
+    ogTitle: 'Affitti in picchiata in Ticino: calo del 10,9% negli annunci',
+    ogDescription: 'Analisi del mercato immobiliare in Ticino: gli affitti in offerta scendono dell\'10,9% a 1\'501 franchi medi. Scopri tutti i dati sui comuni più costosi e economici, le tipologie abitative e il tasso di appartamenti sfitti.',
+    canonicalPath: '/articoli-frontaliere/affitti-ticino-calo-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti in picchiata in Ticino: calo del 10,9% negli annunci",
+      "description": "Gli affitti in offerta in Ticino registrano un calo del 10,9% con una media di 1'501 franchi. Scopri i dati dello Swiss Real Estate Institute sui comuni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affitti-ticino-calo-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di edifici residenziali e del Lago di Lugano in Ticino"
+      },
+      "datePublished": "2026-09-16T00:14:04+00:00",
+      "dateModified": "2026-09-16T00:14:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/affitti-ticino-calo-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-passaporto-digitale-sicurezza-sociale-ue': {
+    title: 'Passaporto digitale UE: novità per la Svizzera',
+    description: 'Scopri la proposta della Commissione europea per il passaporto digitale di sicurezza sociale e la digitalizzazione dei diplomi, con effetti sulla Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, passaporto, digitale, novità, commissione',
+    ogTitle: 'Passaporto digitale UE per la sicurezza sociale e impatti in Svizzera',
+    ogDescription: 'La Commissione europea ha presentato l\'European Social Security Pass a Strasburgo. Le novità sulla sicurezza sociale e sulla digitalizzazione dei diplomi interessano anche la Svizzera attraverso l\'accordo sulla libera circolazione.',
+    canonicalPath: '/articoli-frontaliere/passaporto-digitale-sicurezza-sociale-ue',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Passaporto digitale UE: novità per la Svizzera",
+      "description": "Scopri la proposta della Commissione europea per il passaporto digitale di sicurezza sociale e la digitalizzazione dei diplomi, con effetti sulla Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/passaporto-digitale-sicurezza-sociale-ue.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Passaporto digitale per la sicurezza sociale UE e impatto in Svizzera"
+      },
+      "datePublished": "2026-09-16T00:24:56+00:00",
+      "dateModified": "2026-09-16T00:24:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/passaporto-digitale-sicurezza-sociale-ue/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-salute-mentale-lavoro-ticino': {
+    title: 'Salute mentale e lavoro: le assenze in Ticino | Frontaliere Ticino',
+    description: 'Il 51% delle assenze per motivi psichici porta allo scioglimento del contratto. Scopri come l\'intervento precoce favorisce il reinserimento lavorativo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salute, mentale, lavoro, assenze',
+    ogTitle: 'Salute mentale e lavoro: le assenze in Ticino',
+    ogDescription: 'In Ticino, il 51% delle assenze per motivi psichici porta allo scioglimento del contratto. Dati, strategie di reinserimento e il ruolo dell\'AI per tutelare i lavoratori.',
+    canonicalPath: '/articoli-frontaliere/salute-mentale-lavoro-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salute mentale e lavoro: le assenze in Ticino",
+      "description": "Il 51% delle assenze per motivi psichici porta allo scioglimento del contratto. Scopri come l'intervento precoce favorisce il reinserimento lavorativo.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salute-mentale-lavoro-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio a Lugano con vista lago, simbolico per il benessere lavorativo."
+      },
+      "datePublished": "2026-09-16T01:00:47+00:00",
+      "dateModified": "2026-09-16T01:00:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salute-mentale-lavoro-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

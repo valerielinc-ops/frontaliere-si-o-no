@@ -21,9 +21,13 @@ import { useTranslation, useLocale } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
+import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
+import { getFirestoreLazy } from '@/services/firebase';
+import { upsertUnifiedEmailSubscriber, markNewsletterSubscribedLocally } from '@/services/newsletterSubscribers';
+import { isNewsletterExcluded } from '@/services/emailSuppression.mjs';
 import { generateLamalSsnPdfReport, pdfBlobToBase64 } from '@/services/pdfReport';
-import { NEWSLETTER_SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
 import { SEND_CALCULATOR_REPORT_URL } from '@/services/functionsBase';
+import { reportCaughtError } from '@/services/errorReporter';
 
 /** SSN voluntary-registration contribution bounds (share of net income, L. 213/2023). */
 const SSN_RATE_MIN = 0.03;
@@ -59,12 +63,13 @@ const LamalSsnBreakeven: React.FC<LamalSsnBreakevenProps> = ({
  computeCheapestPremium,
 }) => {
  const { t } = useTranslation();
- const locale = useLocale();
+ const [locale] = useLocale();
  const [income, setIncome] = useState<number>(50000);
  const [age, setAge] = useState<number>(defaultAge);
  const [franchise, setFranchise] = useState<number>(2500);
  const [email, setEmail] = useState('');
- const [sendStatus, setSendStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+ const [sendStatus, setSendStatus] = useState<'idle' | 'loading' | 'pending' | 'success' | 'error'>('idle');
+ const [sendError, setSendError] = useState<'email' | 'send' | null>(null);
 
  const ageGroup: BreakevenAgeGroup = age < 19 ? '0-18' : age <= 25 ? '19-25' : '26+';
  const franchises = ageGroup === '0-18' ? franchisesChild : franchisesAdult;
@@ -88,15 +93,35 @@ const LamalSsnBreakeven: React.FC<LamalSsnBreakevenProps> = ({
 
  const handleSendPdf = async (e: React.FormEvent) => {
  e.preventDefault();
- if (sendStatus === 'loading' || !result || !cheapest) return;
+ if (sendStatus === 'loading' || sendStatus === 'pending' || !result || !cheapest) return;
  const trimmed = email.trim();
  if (!validateEmailStrict(trimmed).valid) {
  setSendStatus('error');
+ setSendError('email');
  return;
  }
  setSendStatus('loading');
+ setSendError(null);
  Analytics.trackHealthInsurance('lamal_ssn_pdf_request', result.verdict);
  try {
+ // The PDF is the user's requested transactional result. Registration is
+ // best-effort so a Firestore outage cannot block report generation or delivery.
+ let upsert: Awaited<ReturnType<typeof upsertUnifiedEmailSubscriber>> | null = null;
+ try {
+  const firestore = await getFirestoreLazy('lamalSsnBreakeven.firestoreInit');
+  if (!firestore) throw new Error('firestore_unavailable');
+  upsert = await upsertUnifiedEmailSubscriber(firestore as any, {
+  email: trimmed,
+  source: 'lamal_ssn_tool',
+  sourceChannel: 'lamal_ssn_tool',
+  sourcePage: typeof window !== 'undefined' ? window.location.pathname : '/',
+  sourceCta: 'lamal_ssn_pdf',
+  sourceComponent: 'LamalSsnBreakeven',
+  locale,
+  });
+ } catch (registrationError) {
+  reportCaughtError(registrationError, 'lamalSsn.newsletterRegistration');
+ }
  const pdfBlob = await generateLamalSsnPdfReport({
  incomeCHF: income,
  age,
@@ -132,10 +157,22 @@ const LamalSsnBreakeven: React.FC<LamalSsnBreakevenProps> = ({
  throw new Error(`http_${resp.status}`);
  }
  Analytics.trackFunnelStep('lamal_ssn_email_submitted', { funnel: 'newsletter_lamal_ssn' });
- try { localStorage.setItem(NEWSLETTER_SUBSCRIBED_KEY, 'true'); } catch { /* quota — ignore */ }
- setSendStatus('success');
+ const needsConfirmation = upsert != null
+  && upsert.optedOut !== true
+  && upsert.status === 'pending'
+  && !upsert.hadConfirmationProof;
+ if (needsConfirmation) {
+   Analytics.trackFunnelStep('lamal_ssn_confirmation_pending', { funnel: 'newsletter_lamal_ssn' });
+ setSendStatus('pending');
+ } else {
+   if (upsert && upsert.optedOut !== true && !isNewsletterExcluded(upsert.status)) {
+     markNewsletterSubscribedLocally();
+   }
+   setSendStatus('success');
+ }
  } catch {
  setSendStatus('error');
+ setSendError('send');
  }
  };
 
@@ -227,18 +264,31 @@ const LamalSsnBreakeven: React.FC<LamalSsnBreakevenProps> = ({
  <Mail size={16} className="text-accent" aria-hidden="true" />
  {t('health.lamalSsn.emailCtaTitle')}
  </p>
+ <EmailConsentCheckbox
+ id="lamal-ssn-consent"
+ consentKey="communicationsOptIn"
+ locale={locale}
+ className="mb-2 flex items-start gap-2"
+ noticeClassName="text-xs text-muted leading-relaxed"
+ />
  <div className="flex flex-col sm:flex-row gap-2">
  <label htmlFor="lamal-ssn-email" className="sr-only">{t('health.lamalSsn.emailPlaceholder')}</label>
  <EmailInput
  id="lamal-ssn-email"
  value={email}
- onChange={(val) => { setEmail(val); if (sendStatus === 'error') setSendStatus('idle'); }}
+ onChange={(val) => {
+ setEmail(val);
+ if (sendStatus === 'error') {
+ setSendStatus('idle');
+ setSendError(null);
+ }
+ }}
  placeholder={t('health.lamalSsn.emailPlaceholder')}
  className="flex-1 px-3 py-2 rounded-lg border border-edge bg-surface text-strong text-sm"
  />
  <button
  type="submit"
- disabled={sendStatus === 'loading' || sendStatus === 'success' || !result}
+ disabled={sendStatus === 'loading' || sendStatus === 'pending' || sendStatus === 'success' || !result}
  className="inline-flex items-center justify-center gap-2 px-4 py-2 min-h-[40px] bg-accent-strong hover:bg-accent-strong-hover disabled:opacity-60 text-on-accent rounded-lg text-sm font-semibold transition-colors"
  >
  {sendStatus === 'loading' ? <Loader2 size={16} className="animate-spin" aria-hidden="true" /> : null}
@@ -246,6 +296,12 @@ const LamalSsnBreakeven: React.FC<LamalSsnBreakevenProps> = ({
  </button>
  </div>
  <div className="min-h-[24px] mt-1.5" aria-live="polite">
+ {sendStatus === 'pending' && (
+ <p className="text-sm text-info flex items-start gap-1.5">
+ <Mail size={14} aria-hidden="true" />
+ <span>{t('newsletter.doubleOptIn.title')} — {t('newsletter.doubleOptIn.description')} {t('newsletter.doubleOptIn.spamHint')}</span>
+ </p>
+ )}
  {sendStatus === 'success' && (
  <p className="text-sm text-success flex items-center gap-1.5">
  <CheckCircle2 size={14} aria-hidden="true" /> {t('health.lamalSsn.emailSuccess')}
@@ -253,7 +309,8 @@ const LamalSsnBreakeven: React.FC<LamalSsnBreakevenProps> = ({
  )}
  {sendStatus === 'error' && (
  <p className="text-sm text-danger flex items-center gap-1.5">
- <AlertCircle size={14} aria-hidden="true" /> {t('health.lamalSsn.emailError')}
+ <AlertCircle size={14} aria-hidden="true" />
+ {t('health.lamalSsn.emailError')}
  </p>
  )}
  </div>

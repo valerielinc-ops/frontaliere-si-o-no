@@ -11768,6 +11768,15 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-15.imageAlt': 'I numeri del giorno per i frontalieri – 15 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-09-15.seoDescription': 'Bollettino frontalieri del 15 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-09-15.ogDescription': 'I numeri del 15 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.affitti-ticino-calo-2026.title': 'Affitti in picchiata in Ticino: calo del 10,9% negli annunci',
+    'blog.article.affitti-ticino-calo-2026.excerpt': 'Per la prima volta gli affitti in offerta in Svizzera registrano un calo. In Ticino la flessione raggiunge il 10,9% con una media di 1\'501 franchi.',
+    'blog.article.affitti-ticino-calo-2026.imageAlt': 'Vista di edifici residenziali e del Lago di Lugano in Ticino',
+    'blog.article.passaporto-digitale-sicurezza-sociale-ue.title': 'Passaporto digitale UE: novità per la Svizzera',
+    'blog.article.passaporto-digitale-sicurezza-sociale-ue.excerpt': 'La Commissione europea propone il passaporto digitale per la sicurezza sociale e la digitalizzazione dei diplomi, con impatti previsti anche per la Svizzera.',
+    'blog.article.passaporto-digitale-sicurezza-sociale-ue.imageAlt': 'Passaporto digitale per la sicurezza sociale UE e impatto in Svizzera',
+    'blog.article.salute-mentale-lavoro-ticino.title': 'Salute mentale e lavoro: le assenze in Ticino',
+    'blog.article.salute-mentale-lavoro-ticino.excerpt': 'Il 51% delle assenze per motivi psichici porta allo scioglimento del contratto. L\'importanza dell\'intervento precoce per la stabilità professionale.',
+    'blog.article.salute-mentale-lavoro-ticino.imageAlt': 'Ufficio a Lugano con vista lago, simbolico per il benessere lavorativo.',
 };
 
 export default blogMetaIt;

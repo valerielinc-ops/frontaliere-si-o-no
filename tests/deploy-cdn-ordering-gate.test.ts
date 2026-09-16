@@ -610,22 +610,6 @@ describe('wait-cdn-build-id.sh — #7106 job-deadline safety margin', () => {
     expect(r.stdout).toMatch(/#7106 job-deadline safety margin: shrinking phase 2\/2 budget from 3600s to \d+s/);
   });
 
-  it('subtracts an explicit post-gate finish reserve from the hard job deadline', () => {
-    const url = markerUrl('build-42');
-    const now = Math.floor(Date.now() / 1000);
-    const r = runGate(['build-42'], {
-      CDN_BUILD_ID_URL: url,
-      CDN_WAIT_TIMEOUT_S: '3600',
-      CDN_WAIT_INTERVAL_S: '1',
-      CDN_JOB_START_EPOCH: String(now - 10), // 5s remain before the hard deadline
-      CDN_JOB_DEADLINE_S: '15',
-      CDN_JOB_FINISH_RESERVE_S: '3', // 2s remain for the gate after the reserve
-    });
-    expect(r.code).toBe(0);
-    expect(r.stdout).toMatch(/hard deadline 15s, finish reserve 3s/);
-    expect(r.stdout).toMatch(/shrinking phase 2\/2 budget from 3600s to \d+s/);
-  });
-
   it('exits cleanly with a plain timeout — never a hang — once the job deadline has already passed', () => {
     const url = markerUrl('an-older-build');
     const now = Math.floor(Date.now() / 1000);
@@ -879,7 +863,7 @@ describe('deploy.yml — the #5331 abort is actually wired to the gate step', ()
     ).toMatch(/if: matrix\.locale == 'it'/);
   });
 
-  it('#7106 anchors the gate to this leg\'s hard six-hour clock with an explicit finish reserve', () => {
+  it('#7106 anchors the gate to this leg\'s own job-start clock and holds back 30min under the platform hard-kill', () => {
     const jobStart = DEPLOY_YML.indexOf('\n  build-locale:');
     const stepsIdx = DEPLOY_YML.indexOf('\n    steps:', jobStart);
     const firstStepIdx = DEPLOY_YML.indexOf('\n      - name:', stepsIdx);
@@ -894,15 +878,14 @@ describe('deploy.yml — the #5331 abort is actually wired to the gate step', ()
     expect(gate, 'the gate must read the SAME clock the first step wrote').toMatch(
       /CDN_JOB_START_EPOCH: \$\{\{ env\.CDN_JOB_START_EPOCH \}\}/,
     );
-    expect(gate, 'the hard deadline must match timeout-minutes below, not an independent guess').toMatch(
-      /CDN_JOB_DEADLINE_S: 21600/,
+    expect(gate, '19800s = (360 - 30) * 60 — derived from timeout-minutes below, not an independent guess').toMatch(
+      /CDN_JOB_DEADLINE_S: 19800/,
     );
-    expect(gate, 'the post-gate finish reserve must be explicit and measured').toMatch(/CDN_JOB_FINISH_RESERVE_S: 180/);
 
     const job = DEPLOY_YML.slice(jobStart, stepsIdx);
     expect(
       job,
-      'timeout-minutes is the input the 21600s hard deadline is derived from — a drift here must be caught',
+      'timeout-minutes is the input the 19800s constant is derived from — a drift here must be caught',
     ).toMatch(/^ {4}timeout-minutes: 360$/m);
   });
 

@@ -6440,6 +6440,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.farmacie-turno-svizzera-confine-italiano.imageAlt': 'Blick auf Lugano und seinen See',
     'blog.article.farmacie-turno-svizzera-confine-italiano.seoDescription': 'Notdienst-Apotheken in der Schweiz und an der Grenze CO/VA/VB: kantonale Quellen prüfen, fünf bestätigte Tessiner Gebiete und klare Grenzen.',
     'blog.article.farmacie-turno-svizzera-confine-italiano.ogDescription': 'Quellenleitfaden für Notdienst-Apotheken in der Schweiz und an der italienischen Grenze: kein erfundener Kalender, lokal vor der Fahrt prüfen.',
+    'blog.article.ocse-crescita-svizzera-2026.title': 'OECD sieht mehr Wachstum in der Schweiz, BIP 2026 bei 2,0%',
+    'blog.article.ocse-crescita-svizzera-2026.excerpt': 'Die OECD revidiert die Prognose für die Schweiz nach oben: BIP-Wachstum auf 2,0% im Jahr 2026 und stabile durchschnittliche Inflation auf 0,6%.',
+    'blog.article.ocse-crescita-svizzera-2026.imageAlt': 'Wirtschaftliche Übersicht der Schweiz mit OECD-Wachstumsprognosen',
+    'blog.article.ocse-rapporto-svizzera-2026.title': 'OECD-Bericht zur Schweiz: Stabilität und Wirtschaftsreformen',
+    'blog.article.ocse-rapporto-svizzera-2026.excerpt': 'Die OECD hat den Bericht über die Schweiz veröffentlicht, in dem sie die wirtschaftliche Widerstandsfähigkeit schätzt, aber Reformen in den Bereichen Gesundheit, Vorsorge und Verwaltung bis Ende 2027 fordert.',
+    'blog.article.ocse-rapporto-svizzera-2026.imageAlt': 'Bundeshaus in Bern Sitz der Schweizer Institutionen',
+    'blog.article.bak-economics-pil-2026-18.title': 'BAK Economics: BIP 2026 bei +1,8%, Zinserhöhung möglich',
+    'blog.article.bak-economics-pil-2026-18.excerpt': 'Das rheinische Institut hebt die Wachstumsprognose auf 1,8% an und geht bereits im Dezember von einer Intervention der SNB aus.',
+    'blog.article.bak-economics-pil-2026-18.imageAlt': 'Panoramaansicht der Schweizer Alpen und des Lago Maggiore am Morgen, goldenes Licht.',
+    'blog.article.too-big-to-fail-consiglio-stati.title': 'Too big to fail: Ständerat diskutiert UBS-Regeln',
+    'blog.article.too-big-to-fail-consiglio-stati.excerpt': 'Die Regelung für too big to fail-Institute steht im Mittelpunkt der parlamentarischen Debatte. Die FDP schlägt vor, die Regeln dem Bundesrat zu übertragen.',
+    'blog.article.too-big-to-fail-consiglio-stati.imageAlt': 'Bundeshaus in Bern, wo die Bankenregulierung diskutiert wird',
 };
 
 export default blogMetaChDe;

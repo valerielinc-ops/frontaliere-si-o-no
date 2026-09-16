@@ -101,7 +101,7 @@ jobs:
     outputs:
       failed_gates: ${{ steps.gate-results.outputs.failed_gates }}
     permissions:
-      actions: read     # for download-artifact same-run (github-pages, sitemaps, shard tars)
+      actions: read     # for cross-run artifacts (github-pages, sitemaps, legacy shard tars)
     steps:
       - name: Checkout (build SHA via deploy_ref, else caller default)
         uses: actions/checkout@v5
@@ -334,15 +334,12 @@ jobs:
       # false-flag them missing. The section→locale→slug map is the single
       # source of truth at scripts/lib/section-shard-slugs.json, shared with
       # the push/strip scripts and the Cloudflare Worker's SECTION_ROUTES.
-      # PRIMARY: same-run per-locale tar artifact (`<section>-dist-<loc>-
-      # <run>`, "Pack <section> shard dist" step in deploy.yml) built from
-      # push-<section>-shard.sh's already-offloaded staged copy — byte-
-      # identical to what was force-pushed. Fetched via `gh run download`
-      # (same-run, no API lag). FALLBACK: full `git clone` of the shard repo
-      # when the artifact is missing/corrupt — a locale is NEVER silently
-      # un-validated. Before the tar artifact existed (Ticino era), all 4
-      # legs paid the git-clone path unconditionally: ~12min combined wall on
-      # run 28564001685 (~250k files/clone × 4, sequential).
+      # Legacy/replayed runs may provide a same-run per-locale tar artifact
+      # (`<section>-dist-<loc>-<run>`). Current deploys deliberately omit this
+      # optional archive: creating multi-GB validation artifacts was extending
+      # the build that must hand off to deploy-publish. When the artifact is
+      # absent or corrupt — the normal path for new deploys — use a full
+      # `git clone` of the shard repo. A locale is NEVER silently un-validated.
       # NO cross-job shard clone cache here — REMOVED deliberately, issue
       # #5441 (follow-up of #5432 point 6d). An actions/cache restore/save
       # pair keyed `shard-clone-cache-<run_id>-<job>-<attempt>` used to wrap
@@ -613,7 +610,7 @@ jobs:
     outputs:
       failed_gates: ${{ steps.gate-results.outputs.failed_gates }}
     permissions:
-      actions: read     # for download-artifact same-run (github-pages, sitemaps, shard tars)
+      actions: read     # for cross-run artifacts (github-pages, sitemaps, legacy shard tars)
     steps:
       - name: Checkout (build SHA via deploy_ref, else caller default)
         uses: actions/checkout@v5
@@ -1894,7 +1891,7 @@ jobs:
     outputs:
       failed_gates: ${{ steps.gate-results.outputs.failed_gates }}
     permissions:
-      actions: read     # for download-artifact same-run (github-pages, sitemaps, shard tars)
+      actions: read     # for cross-run artifacts (github-pages, sitemaps, legacy shard tars)
     steps:
       - name: Checkout (build SHA via deploy_ref, else caller default)
         uses: actions/checkout@v5
