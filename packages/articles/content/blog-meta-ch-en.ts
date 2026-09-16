@@ -6446,6 +6446,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ocse-rapporto-svizzera-2026.title': 'OECD Report on Switzerland: Stability and Economic Reforms',
     'blog.article.ocse-rapporto-svizzera-2026.excerpt': 'The OECD released the report on Switzerland appreciating economic resilience but calling for reforms in health, welfare and administration by the end of 2027.',
     'blog.article.ocse-rapporto-svizzera-2026.imageAlt': 'Federal Palace in Bern home to Swiss institutions',
+    'blog.article.bak-economics-pil-2026-18.title': 'BAK Economics: GDP 2026 at +1.8%, possible rate hike',
+    'blog.article.bak-economics-pil-2026-18.excerpt': 'The Rhenish institute raises its growth estimate to 1.8% and expects the SNB to intervene as early as December.',
+    'blog.article.bak-economics-pil-2026-18.imageAlt': 'Panoramic view of the Swiss Alps and Lake Lugano at morning, golden light on Swiss mountains.',
 };
 
 export default blogMetaChEn;

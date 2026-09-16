@@ -6446,6 +6446,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ocse-rapporto-svizzera-2026.title': 'Rapporto OCSE sulla Svizzera: stabilità e riforme economiche',
     'blog.article.ocse-rapporto-svizzera-2026.excerpt': 'L’OCSE ha pubblicato il rapporto sulla Svizzera apprezzando la resilienza economica ma chiedendo riforme in sanità, previdenza e amministrazione entro fine 2027.',
     'blog.article.ocse-rapporto-svizzera-2026.imageAlt': 'Palazzo federale a Berna sede delle istituzioni svizzere',
+    'blog.article.bak-economics-pil-2026-18.title': 'BAK Economics: Pil 2026 a +1,8%, possibile rialzo tassi',
+    'blog.article.bak-economics-pil-2026-18.excerpt': 'L\'istituto renano alza la stima di crescita al 1,8% e ipotizza un intervento della BNS già a dicembre.',
+    'blog.article.bak-economics-pil-2026-18.imageAlt': 'Vista panoramica sulle Alpi e il Lago di Lugano al mattino, luce dorata su montagne svizzere.',
 };
 
 export default blogMetaChIt;

@@ -19310,6 +19310,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'bak-economics-pil-2026-18',
+    category: 'novita',
+    date: '2026-09-16T00:54:44.709Z',
+    image: '/images/blog/bak-economics-pil-2026-18.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
