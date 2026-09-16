@@ -44,6 +44,10 @@ const RUNTIME_INPUT_KEYS = new Set([
   'datestamp',
 ]);
 
+// `buildMinimalJobInput()` creates these fixed-order scalar projections;
+// marking their fresh arrays avoids recursively revalidating them per hash.
+const canonicalRelatedJobProjectionLists = new WeakSet();
+
 function normalizedKey(key) {
   return String(key).replace(/[^a-z0-9]/gi, '').toLowerCase();
 }
@@ -60,6 +64,7 @@ function isCanonicalJsonReady(value, inArray = false) {
   if (value === undefined) return inArray;
   if (value === null) return true;
   if (value instanceof Date) return true;
+  if (Array.isArray(value) && canonicalRelatedJobProjectionLists.has(value)) return true;
 
   switch (typeof value) {
     case 'string':
@@ -135,27 +140,36 @@ function sha256(value) {
   return createHash('sha256').update(value, 'utf8').digest('hex');
 }
 
+const jobRecordDigestCache = new WeakMap();
+
 function digestJobRecord(job) {
+  if (!job || typeof job !== 'object') return sha256('{}');
+  const cachedDigest = jobRecordDigestCache.get(job);
+  if (cachedDigest !== undefined) return cachedDigest;
+
   // The assembler preserves source JSON key order. A shallow filter keeps the
   // full record covered without recursively canonicalizing its large fields.
-  const record = { ...(job && typeof job === 'object' ? job : {}) };
+  const record = { ...job };
   for (const key of Object.keys(record)) {
     if (isRuntimeInputKey(key)) delete record[key];
   }
   // Job records do not carry fetch-only `fetchedAt`; `updatedAt`, `crawledAt`,
   // and posting dates are retained because they are source/freshness inputs to
   // the rendered JobPosting. Only generated build metadata is excluded above.
-  return sha256(JSON.stringify(record));
+  const digest = sha256(JSON.stringify(record));
+  jobRecordDigestCache.set(job, digest);
+  return digest;
 }
 
 function projectRelatedJob(relatedJob, locale) {
   const isRecord = relatedJob && typeof relatedJob === 'object';
   const id = isRecord ? stableJobId(relatedJob) : String(relatedJob ?? '');
   if (!id) return null;
+  if (!isRecord) return { id, slug: '', digest: null };
   return {
     id,
-    slug: isRecord ? String(relatedJob?.slugByLocale?.[locale] || relatedJob?.slug || '') : '',
-    title: isRecord ? String(relatedJob?.titleByLocale?.[locale] || relatedJob?.title || '') : '',
+    slug: String(relatedJob?.slugByLocale?.[locale] || relatedJob?.slug || ''),
+    digest: digestJobRecord(relatedJob),
   };
 }
 
@@ -200,14 +214,18 @@ export function stableJobVersion(job) {
  * canonicalizer.
  */
 export function buildMinimalJobInput(job, locale, slug, relatedJobs = []) {
+  const relatedJobList = Array.isArray(relatedJobs) ? relatedJobs : [];
+  const relatedJobProjections = relatedJobList
+    .map((relatedJob) => projectRelatedJob(relatedJob, locale))
+    .filter(Boolean);
+  canonicalRelatedJobProjectionLists.add(relatedJobProjections);
+
   return {
     jobId: stableJobId(job),
     jobRecordDigest: digestJobRecord(job),
     jobVersion: stableJobVersion(job),
     locale: String(locale),
-    relatedJobs: (Array.isArray(relatedJobs) ? relatedJobs : [])
-      .map((relatedJob) => projectRelatedJob(relatedJob, locale))
-      .filter(Boolean),
+    relatedJobs: relatedJobProjections,
     slug: String(slug ?? ''),
   };
 }

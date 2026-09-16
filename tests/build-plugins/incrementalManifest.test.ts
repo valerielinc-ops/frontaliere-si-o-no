@@ -45,10 +45,14 @@ describe('incremental manifest input contract', () => {
       locale: 'de',
       slug: 'maurer-v2',
       relatedJobs: [
-        { id: 'related-1', slug: 'bezogen-1', title: 'Related one' },
-        { id: 'related-2', slug: 'related-2', title: 'Related two' },
+        { id: 'related-1', slug: 'bezogen-1', digest: expect.stringMatching(/^[a-f0-9]{64}$/) },
+        { id: 'related-2', slug: 'related-2', digest: expect.stringMatching(/^[a-f0-9]{64}$/) },
       ],
     });
+    expect(input.relatedJobs[0]).not.toHaveProperty('title');
+    expect(buildMinimalJobInput({ id: 'job-1' }, 'de', 'maurer-v2', ['related-1']).relatedJobs).toEqual([
+      { id: 'related-1', slug: '', digest: null },
+    ]);
     expect(input.jobRecordDigest).toMatch(/^[a-f0-9]{64}$/);
     expect(computeInputHash(input, 'active-job')).not.toBe(
       computeInputHash(buildMinimalJobInput({ id: 'job-1', updatedAt: 'v3' }, 'de', 'maurer-v2', ['related-1', 'related-2']), 'active-job'),
@@ -69,16 +73,23 @@ describe('incremental manifest input contract', () => {
     expect(secondHash).not.toBe(firstHash);
   });
 
-  it('changes the page hash when only a related title changes', () => {
+  it('changes the page hash when only related company and salary change', () => {
     const pageJob = { id: 'page-1', updatedAt: 'v1', title: 'Page' };
     const relatedJob = {
       id: 'related-1',
       slugByLocale: { it: 'related-job' },
       titleByLocale: { it: 'Related title' },
+      company: 'Original company',
+      salaryMin: 70_000,
+      salaryMax: 90_000,
+      currency: 'CHF',
+      location: 'Lugano',
+      canton: 'TI',
     };
     const changedRelatedJob = {
       ...relatedJob,
-      titleByLocale: { it: 'Changed related title' },
+      company: 'Changed company',
+      salaryMin: 95_000,
     };
     const firstHash = computeInputHash(
       buildMinimalJobInput(pageJob, 'it', 'page', [relatedJob]),
@@ -179,10 +190,17 @@ describe('incremental manifest input contract', () => {
   });
 
   it('measures 10k register calls on the full-record workload', () => {
-    const relatedJobs = [
-      { id: 'related-1', slugByLocale: { it: 'related-one' }, title: 'Related one' },
-      { id: 'related-2', slugByLocale: { it: 'related-two' }, title: 'Related two' },
-    ];
+    const relatedJobs = Array.from({ length: 6 }, (_, i) => ({
+      id: `related-${i + 1}`,
+      slugByLocale: { it: `related-${i + 1}` },
+      titleByLocale: { it: `Related ${i + 1}` },
+      company: `Related Company ${i + 1}`,
+      location: 'Lugano',
+      canton: 'TI',
+      salaryMin: 70_000 + i * 1_000,
+      salaryMax: 90_000 + i * 1_000,
+      currency: 'CHF',
+    }));
     const register = (manifest: IncrementalManifest, i: number) => {
       const job = {
         id: `job-${i}`,
@@ -201,7 +219,7 @@ describe('incremental manifest input contract', () => {
       );
     };
     const warmupManifest = new IncrementalManifest('it');
-    for (let i = 0; i < 1_000; i += 1) register(warmupManifest, i);
+    for (let i = 0; i < 10_000; i += 1) register(warmupManifest, i);
     const measurements: number[] = [];
     let manifest: IncrementalManifest | null = null;
     for (let round = 0; round < 3; round += 1) {
@@ -214,9 +232,11 @@ describe('incremental manifest input contract', () => {
     }
     const sortedMeasurements = [...measurements].sort((left, right) => left - right);
     const elapsedMs = sortedMeasurements[Math.floor(sortedMeasurements.length / 2)];
-    console.log(`incrementalManifest full-record register benchmark: ${elapsedMs.toFixed(3)} ms per 10k register() (median of ${measurements.length})`);
+    const projected600kMs = elapsedMs * 60;
+    console.log(`incrementalManifest full-record register benchmark: ${elapsedMs.toFixed(3)} ms per 10k register(); projected 600k with 6 related: ${projected600kMs.toFixed(3)} ms (median of ${measurements.length})`);
     expect(manifest?.toJSON().counts.total).toBe(10_000);
     expect(elapsedMs).toBeGreaterThan(0);
+    expect(projected600kMs).toBeLessThanOrEqual(5_000);
   });
 });
 

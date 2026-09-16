@@ -2806,9 +2806,9 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const perJob_matchedCity = CITY_HUB_KEYS.find((c) => jobMatchesCity(job as never, c));
  const perJob_logoUrl = companyLogo(job);
  const perJob_relatedPool = getRelatedPool(job);
- const perJob_relatedJobIds = incrementalManifests
-  ? perJob_relatedPool.map((relatedJob: any) => stableJobId(relatedJob)).filter(Boolean)
-  : null;
+ // Keep the indexed record references: relatedHtml renders these same
+ // objects, so their full digest covers every related-card field.
+ const perJob_relatedJobs = incrementalManifests ? perJob_relatedPool : null;
  const perJob_relatedSeed = (() => {
  const s = String(job.slug || '');
  let h = 2166136261 >>> 0;
@@ -2874,7 +2874,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const effectiveCanonicalUrl = resolveCanonicalUrl(perLocaleSlug[locale], canonicalUrl);
  const activeJobManifestInput = incrementalManifests
   ? {
-   ...buildMinimalJobInput(job, locale, perLocaleSlug[locale], perJob_relatedJobIds || []),
+   ...buildMinimalJobInput(job, locale, perLocaleSlug[locale], perJob_relatedJobs || []),
    canton: jobCanton,
    canonicalUrl: effectiveCanonicalUrl,
   }
