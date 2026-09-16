@@ -497,6 +497,34 @@ jobs:
           restore-keys: |
             og-jobs-${{ runner.os }}-
 
+      # Shadow-only manifest carry (#8878 1b): each locale owns one JSONL
+      # snapshot, restored from the newest previous run and saved under a
+      # unique run key after all build steps have finished. The manifest is
+      # diagnostic only; no output reuse or delta push is enabled here.
+      - name: Restore previous incremental manifest
+        id: incremental-manifest-cache
+        uses: actions/cache/restore@v5
+        with:
+          path: .cache/incremental-manifest
+          key: incremental-manifest-${{ matrix.locale }}-${{ github.run_id }}
+          restore-keys: |
+            incremental-manifest-${{ matrix.locale }}-
+
+      - name: Stash previous incremental manifest before build overwrites it
+        shell: bash
+        env:
+          MANIFEST_LOCALE: ${{ matrix.locale }}
+        run: |
+          set -euo pipefail
+          previous=".cache/incremental-manifest/${MANIFEST_LOCALE}.jsonl"
+          mkdir -p .cache/incremental-manifest-prev
+          if [ -f "$previous" ]; then
+            mv "$previous" ".cache/incremental-manifest-prev/${MANIFEST_LOCALE}.jsonl"
+            echo "[incremental-manifest] previous ${MANIFEST_LOCALE} manifest stashed ($(wc -l < ".cache/incremental-manifest-prev/${MANIFEST_LOCALE}.jsonl") lines)"
+          else
+            echo "[incremental-manifest] no previous ${MANIFEST_LOCALE} manifest (first run or cache miss)"
+          fi
+
       # IT-only: restore + stash the previous deploy content manifest so the
       # IT shard's deploy-file-delta can diff in-place HTML changes (the IT
       # shard is the one that runs deploy-it-pages-prep.sh).
@@ -530,6 +558,7 @@ jobs:
           # run that died, which is precisely the revert trigger the job-level
           # comment documents. See that comment for where to look instead.
           MALLOC_ARENA_MAX: '2'
+          INCREMENTAL_MANIFEST: '1'
         run: |
           set -o pipefail
 
@@ -656,6 +685,28 @@ jobs:
             fi
           } >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Incremental manifest shadow report
+        if: always()
+        continue-on-error: true
+        shell: bash
+        env:
+          MANIFEST_PREVIOUS: .cache/incremental-manifest-prev/${{ matrix.locale }}.jsonl
+          MANIFEST_CURRENT: .cache/incremental-manifest/${{ matrix.locale }}.jsonl
+        run: |
+          set -o pipefail
+          {
+            echo '## Incremental manifest shadow report'
+            echo
+            if [ -f "$MANIFEST_PREVIOUS" ] && [ -f "$MANIFEST_CURRENT" ]; then
+              node scripts/ci/incremental-manifest-report.mjs "$MANIFEST_PREVIOUS" "$MANIFEST_CURRENT"
+            elif [ -f "$MANIFEST_CURRENT" ]; then
+              echo "Previous: $MANIFEST_PREVIOUS (missing; first run or cache miss, no comparison)"
+              echo "Current: $MANIFEST_CURRENT ($(wc -l < "$MANIFEST_CURRENT") JSONL lines)"
+            else
+              echo "Current: $MANIFEST_CURRENT (missing; build did not write a manifest)"
+            fi
+          } | tee -a "$GITHUB_STEP_SUMMARY"
+
       - name: Verify critical dist pages before upload
         if: matrix.locale == 'it'
         run: node scripts/validate-critical-dist-pages.mjs
@@ -770,8 +821,8 @@ jobs:
           fi
           # Append + commit + push-con-rebase stanno in uno script condiviso
           # da quando "Append post-build phase timings row" (in fondo al job,
-          # #7301) e' il secondo produttore di righe: il retry ha un solo
-          # posto in cui cambiare.
+          # #7301) e' diventato il secondo produttore di righe; il manifest
+          # shadow e' il terzo. Il retry ha un solo posto in cui cambiare.
           node -e '
             const num = (v) => (v === undefined || v === "" ? null : Number(v));
             const row = {
@@ -2798,6 +2849,101 @@ jobs:
           ' | HISTORY_LABEL=build-history-profile \
               HISTORY_COMMIT_MSG="chore(build-history): append ${ROW_LOCALE} build profile run ${ROW_RUN_ID}" \
               bash scripts/lib/append-build-history-row.sh
+
+      - name: Append incremental manifest history row
+        if: always()
+        continue-on-error: true
+        shell: bash
+        env:
+          ROW_LOCALE: ${{ matrix.locale }}
+          ROW_RUN_ID: ${{ github.run_id }}
+          ROW_SHA: ${{ github.sha }}
+          MANIFEST_PREVIOUS: .cache/incremental-manifest-prev/${{ matrix.locale }}.jsonl
+          MANIFEST_CURRENT: .cache/incremental-manifest/${{ matrix.locale }}.jsonl
+        run: |
+          set -o pipefail
+          if [ ! -f "$MANIFEST_CURRENT" ]; then
+            echo "[build-history-manifest] current manifest missing; niente da appendere"
+            exit 0
+          fi
+          ROW_PREVIOUS="$MANIFEST_PREVIOUS" ROW_CURRENT="$MANIFEST_CURRENT" node --input-type=module -e '
+            import fs from "node:fs";
+            import { PAGE_KINDS } from "./build-plugins/shared/incrementalManifest.mjs";
+            import { loadManifest } from "./scripts/ci/incremental-manifest-report.mjs";
+
+            const previousPath = process.env.ROW_PREVIOUS;
+            const currentPath = process.env.ROW_CURRENT;
+            const current = await loadManifest(currentPath);
+            const previous = fs.existsSync(previousPath) ? await loadManifest(previousPath) : null;
+            const byKind = Object.fromEntries(PAGE_KINDS.map((kind) => [kind, {
+              current: current.data.counts.byKind[kind] ?? 0,
+              hits: previous ? 0 : null,
+              misses: previous ? 0 : null,
+              added: previous ? 0 : null,
+              removed: previous ? 0 : null,
+            }]));
+            const totals = {
+              current: current.data.counts.total,
+              previous: previous ? previous.data.counts.total : null,
+              hits: previous ? 0 : null,
+              misses: previous ? 0 : null,
+              added: previous ? 0 : null,
+              removed: previous ? 0 : null,
+            };
+
+            if (previous) {
+              for (const [pagePath, currentEntry] of current.entries) {
+                const stats = byKind[currentEntry.kind];
+                const previousEntry = previous.entries.get(pagePath);
+                if (!previousEntry) {
+                  stats.added += 1;
+                  totals.added += 1;
+                } else if (previousEntry.inputHash === currentEntry.inputHash) {
+                  stats.hits += 1;
+                  totals.hits += 1;
+                } else {
+                  stats.misses += 1;
+                  totals.misses += 1;
+                }
+              }
+              for (const [pagePath, previousEntry] of previous.entries) {
+                if (current.entries.has(pagePath)) continue;
+                byKind[previousEntry.kind].removed += 1;
+                totals.removed += 1;
+              }
+            }
+
+            process.stdout.write(JSON.stringify({
+              ts: new Date().toISOString(),
+              kind: "incremental-manifest",
+              locale: process.env.ROW_LOCALE,
+              run_id: process.env.ROW_RUN_ID,
+              sha: process.env.ROW_SHA,
+              previous: previous ? {
+                total: previous.data.counts.total,
+                by_kind: previous.data.counts.byKind,
+              } : null,
+              current: {
+                total: current.data.counts.total,
+                by_kind: current.data.counts.byKind,
+              },
+              totals,
+              by_kind: byKind,
+              file_size_bytes: fs.statSync(currentPath).size,
+            }));
+          ' | HISTORY_LABEL=build-history-manifest \
+              HISTORY_COMMIT_MSG="chore(build-history): append ${ROW_LOCALE} incremental manifest run ${ROW_RUN_ID}" \
+              bash scripts/lib/append-build-history-row.sh
+
+      # Save the current shadow snapshot only after the report and history row:
+      # the run-specific key is unique, while restore-keys above picks the
+      # newest prior snapshot on the next run for this locale.
+      - name: Save incremental manifest cache
+        if: always() && hashFiles('.cache/incremental-manifest/*.jsonl') != ''
+        uses: actions/cache/save@v5
+        with:
+          path: .cache/incremental-manifest
+          key: incremental-manifest-${{ matrix.locale }}-${{ github.run_id }}
 
   # ───────────────────────────────────────────────────────────────────────
   # rearm: make "every HEAD eventually gets a successful build" an invariant
