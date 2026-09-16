@@ -1,83 +1,5 @@
 [
   {
-    "timestamp": "2026-08-28T08:36:33.930Z",
-    "label": "after",
-    "total": 30435,
-    "needsRetranslation": 15434,
-    "suppressed": 57,
-    "incomplete": 16549,
-    "complete": 13886,
-    "slotsPresent": 13886,
-    "flaggedAmongSlotsPresent": 0,
-    "verifiedTranslated": 13886,
-    "sourceCopyExcused": 625,
-    "languageVerified": null,
-    "missingByLocale": {
-      "it": 5542,
-      "en": 5138,
-      "de": 1048,
-      "fr": 5313
-    },
-    "queueAge": {
-      "count": 15434,
-      "withTimestamp": 15434,
-      "oldestAgeDays": 136.9,
-      "p50AgeDays": 10.9,
-      "p90AgeDays": 57.8,
-      "buckets": {
-        "0-7d": 6569,
-        "7-30d": 4975,
-        "30-90d": 3295,
-        "90-180d": 595,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "topPending": [
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 3661
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 1383
-      },
-      {
-        "company": "Roche",
-        "pending": 697
-      },
-      {
-        "company": "Denner SA",
-        "pending": 381
-      },
-      {
-        "company": "TRAVECO Transporte AG",
-        "pending": 333
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 283
-      },
-      {
-        "company": "Confederazione Svizzera",
-        "pending": 274
-      },
-      {
-        "company": "BKW",
-        "pending": 227
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 215
-      },
-      {
-        "company": "Sulzer",
-        "pending": 203
-      }
-    ]
-  },
-  {
     "timestamp": "2026-08-31T01:57:05.001Z",
     "label": "before",
     "total": 30386,
@@ -17622,6 +17544,118 @@
       {
         "company": "Stellentreff AG",
         "pending": 61
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-16T09:50:13.555Z",
+    "label": "after",
+    "total": 32313,
+    "needsRetranslation": 5266,
+    "suppressed": 188,
+    "incomplete": 5151,
+    "complete": 27162,
+    "slotsPresent": 27162,
+    "flaggedAmongSlotsPresent": 592,
+    "verifiedTranslated": 26570,
+    "sourceCopyExcused": 459,
+    "slotsPresentByLength": 32189,
+    "languageVerified": 27990,
+    "missingByLocale": {
+      "it": 132,
+      "en": 117,
+      "de": 105,
+      "fr": 134
+    },
+    "queueAge": {
+      "count": 5266,
+      "withTimestamp": 5266,
+      "oldestAgeDays": 156,
+      "p50AgeDays": 15.7,
+      "p90AgeDays": 74.9,
+      "buckets": {
+        "0-1d": 44,
+        "1-2d": 15,
+        "2-7d": 343,
+        "0-7d": 402,
+        "7-30d": 2927,
+        "30-90d": 1528,
+        "90-180d": 409,
+        "180d+": 0
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": {
+      "count": 74,
+      "withTimestamp": 74,
+      "oldestAgeDays": 98.1,
+      "p50AgeDays": 13.8,
+      "p90AgeDays": 46.5,
+      "buckets": {
+        "0-1d": 0,
+        "1-2d": 0,
+        "2-7d": 1,
+        "0-7d": 1,
+        "7-30d": 53,
+        "30-90d": 18,
+        "90-180d": 2,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "genderFormRepair": {
+      "measured": false,
+      "status": "partial",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 1862,
+      "sampled": 120,
+      "processed": 2,
+      "residual": 0,
+      "residualRate": 0
+    },
+    "topPending": [
+      {
+        "company": "STA Personal AG",
+        "pending": 1148
+      },
+      {
+        "company": "Roche",
+        "pending": 446
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 384
+      },
+      {
+        "company": "Sulzer",
+        "pending": 162
+      },
+      {
+        "company": "PEMSA",
+        "pending": 129
+      },
+      {
+        "company": "Swiss Re",
+        "pending": 128
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 104
+      },
+      {
+        "company": "Stellentreff AG",
+        "pending": 77
+      },
+      {
+        "company": "Jaeger-LeCoultre",
+        "pending": 73
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 72
       }
     ]
   }
