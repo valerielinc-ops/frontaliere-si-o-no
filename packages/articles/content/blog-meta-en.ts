@@ -11770,6 +11770,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.affitti-ticino-calo-2026.title': 'Ticino Plummeting Rentals: 10.9% Decline in Listings',
     'blog.article.affitti-ticino-calo-2026.excerpt': 'For the first time, listings in Switzerland are down. In Ticino the decline reaches 10.9% with an average of 1\'501 francs.',
     'blog.article.affitti-ticino-calo-2026.imageAlt': 'View of residential buildings and Lake Lugano in Ticino',
+    'blog.article.passaporto-digitale-sicurezza-sociale-ue.title': 'EU Digital Passport - New for Switzerland',
+    'blog.article.passaporto-digitale-sicurezza-sociale-ue.excerpt': 'The European Commission is proposing the digital passport for social security and the digitalisation of diplomas, with expected impacts for Switzerland as well.',
+    'blog.article.passaporto-digitale-sicurezza-sociale-ue.imageAlt': 'EU digital social security pass and impact on Switzerland',
 };
 
 export default blogMetaEn;

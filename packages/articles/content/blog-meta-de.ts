@@ -11769,6 +11769,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.affitti-ticino-calo-2026.title': 'Vermietungen im Tessin rückläufig: Rückgang der Inserate um 10,9%',
     'blog.article.affitti-ticino-calo-2026.excerpt': 'Erstmals sinken die Mieten in der Schweiz. Im Tessin beträgt der Rückgang 10,9% mit einem Durchschnitt von 1\'501 Franken.',
     'blog.article.affitti-ticino-calo-2026.imageAlt': 'Blick auf Wohngebäude und den Luganersee im Tessin',
+    'blog.article.passaporto-digitale-sicurezza-sociale-ue.title': 'Digitaler EU-Pass: Neu für die Schweiz',
+    'blog.article.passaporto-digitale-sicurezza-sociale-ue.excerpt': 'Die Europäische Kommission schlägt den digitalen Pass für die soziale Sicherheit und die Digitalisierung von Diplomen vor, mit erwarteten Auswirkungen auch für die Schweiz.',
+    'blog.article.passaporto-digitale-sicurezza-sociale-ue.imageAlt': 'EU-Pass für soziale Sicherheit und Auswirkungen auf die Schweiz',
 };
 
 export default blogMetaDe;

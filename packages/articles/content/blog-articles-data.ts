@@ -35112,6 +35112,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'passaporto-digitale-sicurezza-sociale-ue',
+ category: 'novita',
+ date: '2026-09-16T00:24:55.990Z',
+ image: '/images/blog/passaporto-digitale-sicurezza-sociale-ue.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
