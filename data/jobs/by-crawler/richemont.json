@@ -3972,14 +3972,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "procurement-category-manager-richemont-plan-les-ouates-2",
-        "procurement-category-manager-richemont-plan-les-ouates",
-        "procurement-category-manager-piaget-plan-les-ouates"
+        "procurement-category-manager-richemont-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
           "procurement-category-manager-richemont-plan-les-ouates-2",
-          "procurement-category-manager-richemont-plan-les-ouates",
-          "procurement-category-manager-piaget-plan-les-ouates"
+          "procurement-category-manager-richemont-plan-les-ouates"
         ],
         "de": [
           "procurement-category-manager-richemont-plan-les-ouates-2"
@@ -5181,7 +5179,7 @@
       "slug": "gl-contabile-richemont-villars-sur-glane",
       "slugByLocale": {
         "it": "gl-contabile-richemont-villars-sur-glane",
-        "en": "gl-accountant-richemont-villars-sur-glane",
+        "en": "general-ledger-accountant-richemont-villars-sur-glane",
         "de": "gl-buchhalter-richemont-villars-sur-glane",
         "fr": "gl-accountant-richemont-villars-sur-glane"
       },
@@ -5232,6 +5230,9 @@
           "gl-accountant-richemont-villars-sur-glane"
         ],
         "de": [
+          "gl-accountant-richemont-villars-sur-glane"
+        ],
+        "en": [
           "gl-accountant-richemont-villars-sur-glane"
         ]
       },
@@ -10487,20 +10488,6 @@
       "jobReqId": "jr132699",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "it": [
-          "specialiste-analyses-materiaux-richemont-glovelier"
-        ],
-        "en": [
-          "specialiste-analyses-materiaux-richemont-glovelier"
-        ],
-        "de": [
-          "specialiste-analyses-materiaux-richemont-glovelier"
-        ]
-      },
-      "previousSlugs": [
-        "specialiste-analyses-materiaux-richemont-glovelier"
-      ],
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3126,
       "retranslationAttempts": 13,
