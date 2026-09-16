@@ -382,10 +382,15 @@ jobs:
       matrix:
         locale: ${{ fromJSON(needs.matrix-setup.outputs.matrix) }}
     env:
-      # Mirrors the monolith Build step env. Production leaves independent
-      # closeBundle hooks parallel; only hooks that explicitly declare an
-      # ordering barrier stay sequential. Full serialization is opt-in for a
-      # workflow_dispatch profile run so diagnostics never slow normal deploys.
+      # Production closeBundle hooks MUST stay serialized. PR 8818 (merged
+      # 2026-09-16) changed this default to parallel; deploy run 35100583972
+      # then OOMed all four build-locale legs (DE hit Mark-Compact at 14,334 MB
+      # against the 14,336 MB heap cap). Sequential run 34956104680 kept
+      # employerProfilePages at 6.8 GB heap (6,783-6,788 MB) versus 11.0 GB
+      # (11,053 MB) in the parallel leg. Parallel closeBundle in production is
+      # forbidden until the per-leg memory peak is below about 10 GB. The empty
+      # value is therefore an explicit workflow_dispatch + parallel_plugins=true
+      # opt-in; every other event/input resolves to '1'.
       BUILD_PROFILE: '1'
       ASSET_CDN: 'https://cdn.frontaliereticino.ch'
       # Restored to 2 (#4959 §4): the post-walk worker no longer imports the
@@ -394,7 +399,7 @@ jobs:
       # verified directly: the leaf loads, the old plugin path still fails with
       # ERR_MODULE_NOT_FOUND on siteShell.
       POST_WALK_WORKERS: '2'
-      SEQUENTIAL_PROFILE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.profile_sequential == 'true' && github.event.inputs.parallel_plugins != 'true' && '1' || '' }}
+      SEQUENTIAL_PROFILE: ${{ fromJSON('["1",""]')[github.event_name == 'workflow_dispatch' && github.event.inputs.parallel_plugins == 'true' && 1 || 0] }}
       JOBS_SEO_PROFILE_PHASES: '1'
       WEEKLY_EMPLOYERS_PROFILE: ''
       RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
