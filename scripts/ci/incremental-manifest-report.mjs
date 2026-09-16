@@ -2,8 +2,14 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import * as readline from 'node:readline';
 import { fileURLToPath } from 'node:url';
-import { PAGE_KINDS, verifyRuntimeInputExclusion } from '../../build-plugins/shared/incrementalManifest.mjs';
+import {
+  MANIFEST_FORMAT,
+  MANIFEST_VERSION,
+  PAGE_KINDS,
+  verifyRuntimeInputExclusion,
+} from '../../build-plugins/shared/incrementalManifest.mjs';
 
 function parseArgs(argv) {
   const positional = [];
@@ -22,25 +28,128 @@ function parseArgs(argv) {
 
 function usage() {
   return [
-    'Uso: node scripts/ci/incremental-manifest-report.mjs <precedente.json> <corrente.json>',
+    'Uso: node scripts/ci/incremental-manifest-report.mjs <precedente.jsonl> <corrente.jsonl>',
     '     node scripts/ci/incremental-manifest-report.mjs --previous=... --current=... [--limit=50]',
   ].join('\n');
 }
 
-function loadManifest(file) {
-  const data = JSON.parse(fs.readFileSync(file, 'utf8'));
-  if (!data || !Array.isArray(data.entries)) {
-    throw new Error(`${file}: manifest.entries deve essere un array`);
-  }
-  const entries = new Map();
-  for (const entry of data.entries) {
-    if (!entry || typeof entry.path !== 'string' || typeof entry.inputHash !== 'string' || typeof entry.kind !== 'string') {
-      throw new Error(`${file}: entry non valida`);
+function parseJsonLine(file, lineNumber, line) {
+  try {
+    const record = JSON.parse(line);
+    if (!record || typeof record !== 'object' || Array.isArray(record)) {
+      throw new Error('record deve essere un oggetto');
     }
-    if (entries.has(entry.path)) throw new Error(`${file}: path duplicato ${entry.path}`);
-    entries.set(entry.path, entry);
+    return record;
+  } catch (error) {
+    throw new Error(`${file}:${lineNumber}: JSONL non valido (${error?.message || error})`);
   }
-  return { file, data, entries };
+}
+
+function assertManifestCounts(file, counts, entries) {
+  if (!counts || !Number.isInteger(counts.total) || !counts.byKind || typeof counts.byKind !== 'object') {
+    throw new Error(`${file}: footer counts non valido`);
+  }
+  if (counts.total !== entries.size) {
+    throw new Error(`${file}: footer total=${counts.total}, osservate ${entries.size} entry`);
+  }
+  const byKind = Object.fromEntries(PAGE_KINDS.map((kind) => [kind, 0]));
+  for (const entry of entries.values()) byKind[entry.kind] += 1;
+  for (const kind of PAGE_KINDS) {
+    if (counts.byKind[kind] !== byKind[kind]) {
+      throw new Error(`${file}: footer byKind.${kind}=${counts.byKind[kind]}, osservate ${byKind[kind]}`);
+    }
+  }
+}
+
+export async function loadManifest(file) {
+  const input = fs.createReadStream(file, { encoding: 'utf8' });
+  const reader = readline.createInterface({ input, crlfDelay: Infinity });
+  let header = null;
+  let footer = null;
+  let currentKind = null;
+  let sawFooter = false;
+  let lineNumber = 0;
+  const kinds = new Map();
+  const entries = new Map();
+
+  try {
+    for await (const rawLine of reader) {
+      lineNumber += 1;
+      const line = rawLine.trim();
+      if (!line) continue;
+      const record = parseJsonLine(file, lineNumber, line);
+      if (sawFooter) throw new Error(`${file}:${lineNumber}: record dopo il footer`);
+
+      if (record.type === 'header') {
+        if (header) throw new Error(`${file}:${lineNumber}: header duplicato`);
+        if (
+          record.manifestVersion !== MANIFEST_VERSION
+          || record.format !== MANIFEST_FORMAT
+          || typeof record.locale !== 'string'
+        ) {
+          throw new Error(`${file}:${lineNumber}: header manifest non valido`);
+        }
+        header = record;
+        continue;
+      }
+      if (!header) throw new Error(`${file}:${lineNumber}: header mancante`);
+
+      if (record.type === 'kind') {
+        if (!PAGE_KINDS.includes(record.kind)) {
+          throw new Error(`${file}:${lineNumber}: kind non valido`);
+        }
+        if (kinds.has(record.kind)) {
+          throw new Error(`${file}:${lineNumber}: kind duplicato ${record.kind}`);
+        }
+        for (const field of ['templateVersion', 'sourceVersion', 'state']) {
+          if (typeof record[field] !== 'string' || record[field].length === 0) {
+            throw new Error(`${file}:${lineNumber}: metadata ${field} non valida`);
+          }
+        }
+        kinds.set(record.kind, {
+          templateVersion: record.templateVersion,
+          sourceVersion: record.sourceVersion,
+          state: record.state,
+        });
+        currentKind = record.kind;
+        continue;
+      }
+
+      if (record.type === 'footer') {
+        assertManifestCounts(file, record.counts, entries);
+        footer = record;
+        sawFooter = true;
+        continue;
+      }
+
+      if (record.type !== undefined) {
+        throw new Error(`${file}:${lineNumber}: record type non valido`);
+      }
+      if (!currentKind) throw new Error(`${file}:${lineNumber}: entry senza kind`);
+      if (typeof record.path !== 'string' || record.path.length === 0 || typeof record.hash !== 'string') {
+        throw new Error(`${file}:${lineNumber}: entry non valida`);
+      }
+      if (entries.has(record.path)) throw new Error(`${file}:${lineNumber}: path duplicato ${record.path}`);
+      entries.set(record.path, { path: record.path, inputHash: record.hash, kind: currentKind });
+    }
+  } finally {
+    reader.close();
+  }
+
+  if (!header) throw new Error(`${file}: header mancante`);
+  if (!footer) throw new Error(`${file}: footer mancante`);
+  assertManifestCounts(file, footer.counts, entries);
+  return {
+    file,
+    data: {
+      manifestVersion: header.manifestVersion,
+      format: header.format,
+      locale: header.locale,
+      counts: footer.counts,
+      kinds: Object.fromEntries(kinds),
+    },
+    entries,
+  };
 }
 
 function emptyStats() {
@@ -63,7 +172,6 @@ function pathList(label, paths, limit) {
 export function buildReport(previous, current, { limit = 50 } = {}) {
   verifyRuntimeInputExclusion();
   const stats = byKindStats();
-  const collisions = [];
   const added = [];
   const removed = [];
   let totalHits = 0;
@@ -83,16 +191,6 @@ export function buildReport(previous, current, { limit = 50 } = {}) {
     } else {
       currentStats.misses += 1;
       totalMisses += 1;
-      const previousFingerprint = previousEntry.inputFingerprint || previousEntry.canonicalInputHash;
-      const currentFingerprint = currentEntry.inputFingerprint || currentEntry.canonicalInputHash;
-      if (previousFingerprint && currentFingerprint && previousFingerprint === currentFingerprint) {
-        collisions.push({
-          path: pagePath,
-          previousHash: previousEntry.inputHash,
-          currentHash: currentEntry.inputHash,
-          kind: currentEntry.kind,
-        });
-      }
     }
   }
 
@@ -118,12 +216,7 @@ export function buildReport(previous, current, { limit = 50 } = {}) {
   }
   lines.push(`| **totale** | **${totalHits}** | **${totalMisses}** | **${added.length}** | **${removed.length}** |`);
   lines.push('');
-  lines.push(`Collisioni (stesso path, input canonico uguale, inputHash diverso): ${collisions.length}`);
-  for (const collision of collisions.slice(0, limit)) {
-    lines.push(`- ${collision.path} — ${collision.kind} (${collision.previousHash} → ${collision.currentHash})`);
-  }
-  if (collisions.length > limit) lines.push(`- … altre ${collisions.length - limit}`);
-  if (collisions.length === 0) lines.push('- Nessuna');
+  lines.push('Collisioni (fingerprint per-entry omesso): non calcolate');
   lines.push('');
   lines.push(...pathList('Path aggiunti', added, limit));
   lines.push('');
@@ -131,11 +224,15 @@ export function buildReport(previous, current, { limit = 50 } = {}) {
   return `${lines.join('\n')}\n`;
 }
 
-export function runReport(previousFile, currentFile, options) {
-  return buildReport(loadManifest(previousFile), loadManifest(currentFile), options);
+export async function runReport(previousFile, currentFile, options) {
+  const [previous, current] = await Promise.all([
+    loadManifest(previousFile),
+    loadManifest(currentFile),
+  ]);
+  return buildReport(previous, current, options);
 }
 
-function main() {
+async function main() {
   const args = parseArgs(process.argv.slice(2));
   if (args.help || !args.previous || !args.current) {
     console.error(usage());
@@ -143,7 +240,7 @@ function main() {
     return;
   }
   try {
-    process.stdout.write(runReport(args.previous, args.current, { limit: args.limit }));
+    process.stdout.write(await runReport(args.previous, args.current, { limit: args.limit }));
   } catch (error) {
     console.error(`incremental-manifest-report: ${error?.message || error}`);
     process.exitCode = 1;

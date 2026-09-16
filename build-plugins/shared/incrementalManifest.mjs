@@ -2,8 +2,10 @@ import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 
-export const MANIFEST_VERSION = 1;
+export const MANIFEST_VERSION = 2;
+export const MANIFEST_FORMAT = 'jsonl';
 export const SOURCE_VERSION = 'input@1';
+export const INCREMENTAL_MANIFEST_ENABLED = process.env.INCREMENTAL_MANIFEST === '1';
 
 export const PAGE_KINDS = Object.freeze([
   'active-job',
@@ -101,14 +103,48 @@ export function templateVersionForKind(kind) {
   return version;
 }
 
-export function computeInputFingerprint(input) {
-  return sha256(canonicalizeInput(input));
-}
-
 export function computeInputHash(input, kind, templateVersion = templateVersionForKind(kind)) {
   if (!PAGE_KINDS.includes(kind)) throw new Error(`Unknown incremental manifest page kind: ${kind}`);
   const canonical = canonicalizeInput(input);
   return sha256(`${kind}\n${templateVersion}\n${canonical}`);
+}
+
+/**
+ * Return the smallest stable identity available for a source job. The build
+ * data has no universal source-record hash, so prefer one when a crawler
+ * provides it and otherwise fall back to the stable job id/slug plus the
+ * dataset's existing version-like fields.
+ */
+export function stableJobId(job) {
+  return String(job?.id ?? job?.slug ?? '');
+}
+
+export function stableJobVersion(job) {
+  return String(
+    job?.sourceRecordHash
+    ?? job?.sourceHash
+    ?? job?.updatedAt
+    ?? job?.lastUpdatedAt
+    ?? job?.datePosted
+    ?? job?.postedDate
+    ?? job?.firstSeenAt
+    ?? '',
+  );
+}
+
+/**
+ * Build the input passed to the shadow hash. `relatedJobIds` is deliberately
+ * already projected by the caller; related job objects never enter the
+ * canonicalizer.
+ */
+export function buildMinimalJobInput(job, locale, slug, relatedJobIds = []) {
+  return {
+    jobId: stableJobId(job),
+    jobVersion: stableJobVersion(job),
+    locale: String(locale),
+    slug: String(slug ?? ''),
+    relatedJobIds: relatedJobIds.map((id) => String(id)).filter(Boolean),
+  };
 }
 
 export function verifyRuntimeInputExclusion() {
@@ -147,40 +183,61 @@ function safeLocaleFileName(locale) {
   if (!name || !/^[a-z0-9_-]+$/i.test(name)) {
     throw new Error(`Invalid incremental manifest locale: ${locale}`);
   }
-  return `${name}.json`;
+  return `${name}.jsonl`;
 }
 
 export class IncrementalManifest {
   constructor(locale) {
     this.locale = String(locale);
-    this.entries = new Map();
+    this.entriesByKind = new Map(PAGE_KINDS.map((kind) => [kind, new Map()]));
+    this.kindMetadata = new Map();
   }
 
   register(pagePath, kind, input, templateVersion = templateVersionForKind(kind), sourceVersion = SOURCE_VERSION) {
+    if (!PAGE_KINDS.includes(kind)) throw new Error(`Unknown incremental manifest page kind: ${kind}`);
     const normalizedPath = normalizeManifestPath(pagePath);
-    this.entries.set(normalizedPath, {
-      path: normalizedPath,
-      inputHash: computeInputHash(input, kind, templateVersion),
-      inputFingerprint: computeInputFingerprint(input),
-      kind,
-      templateVersion,
-      sourceVersion,
-      state: 'live',
-    });
+    const previousMetadata = this.kindMetadata.get(kind);
+    if (previousMetadata && (
+      previousMetadata.templateVersion !== templateVersion
+      || previousMetadata.sourceVersion !== sourceVersion
+      || previousMetadata.state !== 'live'
+    )) {
+      throw new Error(`Incremental manifest metadata changed within kind: ${kind}`);
+    }
+    if (!previousMetadata) {
+      this.kindMetadata.set(kind, { templateVersion, sourceVersion, state: 'live' });
+    }
+
+    for (const [existingKind, entries] of this.entriesByKind) {
+      if (existingKind !== kind) entries.delete(normalizedPath);
+    }
+    this.entriesByKind.get(kind).set(
+      normalizedPath,
+      computeInputHash(input, kind, templateVersion),
+    );
+  }
+
+  counts() {
+    const byKind = Object.fromEntries(
+      PAGE_KINDS.map((kind) => [kind, this.entriesByKind.get(kind).size]),
+    );
+    return {
+      total: Object.values(byKind).reduce((sum, count) => sum + count, 0),
+      byKind,
+    };
   }
 
   toJSON() {
-    const entries = [...this.entries.values()].sort((left, right) => compareStrings(left.path, right.path));
-    const byKind = Object.fromEntries(PAGE_KINDS.map((kind) => [kind, 0]));
-    for (const entry of entries) byKind[entry.kind] = (byKind[entry.kind] || 0) + 1;
     return {
       manifestVersion: MANIFEST_VERSION,
+      format: MANIFEST_FORMAT,
       locale: this.locale,
-      counts: {
-        total: entries.length,
-        byKind,
-      },
-      entries,
+      counts: this.counts(),
+      kinds: Object.fromEntries(
+        PAGE_KINDS
+          .filter((kind) => this.kindMetadata.has(kind))
+          .map((kind) => [kind, this.kindMetadata.get(kind)]),
+      ),
     };
   }
 
@@ -189,10 +246,32 @@ export class IncrementalManifest {
     const fileName = safeLocaleFileName(this.locale);
     const target = path.join(manifestDir, fileName);
     const temp = path.join(manifestDir, `.${fileName}.${process.pid}.tmp`);
+    const summary = this.toJSON();
+    let fd = null;
     try {
-      fs.writeFileSync(temp, `${JSON.stringify(this.toJSON(), null, 2)}\n`, 'utf8');
+      fd = fs.openSync(temp, 'w');
+      const writeLine = (record) => fs.writeSync(fd, `${JSON.stringify(record)}\n`);
+      writeLine({
+        type: 'header',
+        manifestVersion: MANIFEST_VERSION,
+        format: MANIFEST_FORMAT,
+        locale: this.locale,
+      });
+      for (const kind of PAGE_KINDS) {
+        const entries = this.entriesByKind.get(kind);
+        if (entries.size === 0) continue;
+        writeLine({ type: 'kind', kind, ...this.kindMetadata.get(kind) });
+        const sortedPaths = [...entries.keys()].sort(compareStrings);
+        for (const pagePath of sortedPaths) {
+          writeLine({ path: pagePath, hash: entries.get(pagePath) });
+        }
+      }
+      writeLine({ type: 'footer', counts: summary.counts });
+      fs.closeSync(fd);
+      fd = null;
       fs.renameSync(temp, target);
     } finally {
+      if (fd !== null) fs.closeSync(fd);
       if (fs.existsSync(temp)) fs.unlinkSync(temp);
     }
     return target;
