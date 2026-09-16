@@ -360,6 +360,11 @@ export const AI_MODELS = Object.freeze({
   // remote API — it only runs when all remote providers are exhausted.
   LOCAL_FALLBACK:      'local/fallback',
 
+  // ── Codex CLI article lane (opt-in via the action-owned broker) ────────
+  // ChatGPT subscription model. The broker keeps CODEX_AUTH_JSON outside this
+  // process and serializes bounded requests over its private Unix socket.
+  CODEX_CLI_PRIMARY:   `codex-cli/${CODEX_FALLBACK_MODEL}`,
+
   // ── Claude CLI Haiku fallback (opt-in via Remote Config) ── Routed through
   // the local `claude` CLI subprocess using the existing CLAUDE_CODE_OAUTH_TOKEN
   // (Max subscription — $0 marginal cost, same auth already used by
@@ -636,7 +641,6 @@ export const DEFAULT_CHAIN = [
   // 25/run) since this tier burns the shared Max-subscription quota that also
   // powers pr-review-loop.yml/issue-fix.yml — see the callLLM loop's cap
   // check. Set AI_COMPETING_TIERS='' to restore pinned-last-resort behavior.
-  AI_MODELS.CLAUDE_CLI_HAIKU,
 ];
 
 // ── Provider constants ───────────────────────────────────────
@@ -663,6 +667,8 @@ const PROVIDER = Object.freeze({
   // would otherwise produce 0 articles for that window. A local open-source model
   // (e.g. Qwen2.5) keeps the funnel producing at $0/zero-quota. See _callLocal.
   LOCAL:       'local',
+  // Codex CLI subscription lane through the action-owned Unix socket broker.
+  CODEX_CLI:   'codex_cli',
   // Claude CLI subprocess (Haiku), opt-in via Remote Config. Tier-0 (competing)
   // by default since 2026-07-29 — see AI_MODELS.CLAUDE_CLI_HAIKU /
   // AI_COMPETING_TIERS. _isLastResortProvider() still exempts it from
@@ -935,6 +941,10 @@ function getOmniRouteApiKey() { return (process.env.OMNIROUTE_API_KEY || 'omniro
 // (and fail) every run.
 function isClaudeCliFallbackEnabled() {
   return /^(1|true|yes|on)$/i.test((process.env.ENABLE_HAIKU_ARTICLE_FALLBACK || '').trim());
+}
+function isCodexCliPrimaryEnabled() {
+  return /^(1|true|yes|on)$/i.test((process.env.ENABLE_CODEX_ARTICLE_FALLBACK || '').trim())
+    && !!String(process.env.CODEX_AUTH_BROKER_SOCKET || '').trim();
 }
 function hasClaudeCodeOauthToken() {
   return !!(process.env.CLAUDE_CODE_OAUTH_TOKEN || '').trim();
@@ -1552,6 +1562,7 @@ function getProvider(model) {
   if (model.startsWith('chutes/'))     return PROVIDER.CHUTES;
   if (model.startsWith('zai/'))        return PROVIDER.ZAI;
   if (model.startsWith('local/'))      return PROVIDER.LOCAL;
+  if (model.startsWith('codex-cli/'))  return PROVIDER.CODEX_CLI;
   if (model.startsWith('claude-cli/')) return PROVIDER.CLAUDE_CLI;
   if (model.startsWith('omniroute/'))  return PROVIDER.OMNIROUTE;
   return PROVIDER.GITHUB;
@@ -1587,6 +1598,7 @@ function getApiModelId(model) {
   if (model.startsWith('chutes/'))     return model.slice(7);   // 7 chars: "chutes/"
   if (model.startsWith('zai/'))        return model.slice(4);   // 4 chars: "zai/"
   if (model.startsWith('local/'))      return getLocalLlmModelId(); // served-model label is runtime-configured
+  if (model.startsWith('codex-cli/'))  return model.slice(10);  // 10 chars: "codex-cli/"
   if (model.startsWith('claude-cli/')) return model.slice(11);  // 11 chars: "claude-cli/"
   if (model.startsWith('omniroute/'))  return model.slice(10);  // 10 chars: "omniroute/" → "auto"
   return model;
@@ -1620,6 +1632,10 @@ function getApiKeyForProvider(provider) {
     // a sentinel marks local/* available so the chain can reach it as last resort
     // (and '' when disabled → every local/* model is skipped). Mirrors Cloudflare.
     case PROVIDER.LOCAL:       return isLocalLlmEnabled() ? 'local-no-key' : '';
+    // Codex auth never enters this process as a token. The setup action exposes
+    // only the private broker socket and the bounded broker remains available
+    // for each request in the current job.
+    case PROVIDER.CODEX_CLI:   return isCodexCliPrimaryEnabled() ? 'codex-cli-no-key' : '';
     // No real key — auth is the CLAUDE_CODE_OAUTH_TOKEN env var, read directly
     // by the `claude` CLI subprocess. Gate on RC flag + token presence so the
     // chain only offers this model when both are actually usable. Mirrors Local.
@@ -1655,7 +1671,10 @@ function getApiKeyForProvider(provider) {
  */
 function _isLastResortProvider(modelId) {
   const p = getProvider(modelId);
-  return p === PROVIDER.LOCAL || p === PROVIDER.CLAUDE_CLI || p === PROVIDER.OMNIROUTE;
+  return p === PROVIDER.LOCAL
+    || p === PROVIDER.CODEX_CLI
+    || p === PROVIDER.CLAUDE_CLI
+    || p === PROVIDER.OMNIROUTE;
 }
 
 // Backward-compatible helpers (kept for external code)
@@ -4079,7 +4098,8 @@ export function isModelAvailable(modelId) {
  * Cloudflare Workers AI, Mistral AI) are considered.
  */
 export function isAnyModelAvailable() {
-  return DEFAULT_CHAIN.some(m => isModelAvailable(m));
+  return DEFAULT_CHAIN.some(m => isModelAvailable(m))
+    || isModelAvailable(AI_MODELS.CODEX_CLI_PRIMARY);
 }
 
 /**
@@ -6698,6 +6718,7 @@ function _hardCallCapMs(model, opts) {
   // qui sopra («otherwise the cap would fire before their own timeout ever
   // could») esiste per prevenire.
   else if (provider === PROVIDER.CLAUDE_CLI) base = Math.max(base, CLAUDE_CLI_MAX_TIMEOUT_MS);
+  else if (provider === PROVIDER.CODEX_CLI) base = Math.max(base, CODEX_CLI_MAX_TIMEOUT_MS);
   const attempts = Math.max(1, opts?.maxRetriesPerModel || 1);
   let cap = attempts * (base + MAX_RETRY_AFTER_MS) * 2 + HARD_CALL_CAP_GRACE_MS;
   if (opts?.deadlineMs) {
@@ -6831,6 +6852,7 @@ function _routeModelCall(model, messages, opts) {
     case PROVIDER.CHUTES:      return _callChutes(model, messages, opts);
     case PROVIDER.ZAI:         return _callZai(model, messages, opts);
     case PROVIDER.LOCAL:       return _callLocal(model, messages, opts);
+    case PROVIDER.CODEX_CLI:   return _callCodexCli(messages, opts);
     case PROVIDER.CLAUDE_CLI:  return _callClaudeCli(model, messages, opts);
     case PROVIDER.OMNIROUTE:   return _callOmniRoute(model, messages, opts);
     default: throw new Error(`[${model}] Unknown provider: ${provider}`);

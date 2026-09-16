@@ -33,7 +33,7 @@ describe('classifyJobFailure — di che cosa è fatto il rosso', () => {
   it('review gate rosso coi test verdi: dice che i test sono passati e nomina lo step', () => {
     const verdict = classifyJobFailure([
       step(TEST_STEP_NAME, 'success'),
-      step('Run Claude review', 'success'),
+      step('Run Codex Luna Max review', 'success'),
       step(REVIEW_GATE, 'failure'),
     ]);
     expect(verdict?.category).toBe('review-gate');
@@ -99,7 +99,7 @@ describe('classifyJobFailure — di che cosa è fatto il rosso', () => {
     // Sette step del job sono `continue-on-error: true`. Su `job.status`
     // diverso da `failure` non c'è niente da spiegare: classificare per sola
     // `conclusion` degli step scriverebbe un ❌ in cima a una run verde.
-    const steps = [step(TEST_STEP_NAME, 'success'), step('Run Claude review', 'failure')];
+    const steps = [step(TEST_STEP_NAME, 'success'), step('Run Codex Luna Max review', 'failure')];
     expect(classifyJobFailure(steps, { jobStatus: 'success' })).toBeNull();
     expect(classifyJobFailure(steps, { jobStatus: 'cancelled' })).toBeNull();
     // Job davvero rosso, o contesto assente (uso a mano su una run conclusa):

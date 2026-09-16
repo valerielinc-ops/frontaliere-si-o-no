@@ -80,14 +80,9 @@ jobs:
       # .github/actions/setup-omniroute/action.yml for the full rationale.
       - uses: ./.github/actions/setup-omniroute
 
-      # ── Claude CLI Haiku fallback (ON by default, kill-switch '0') ──────
-      # Tier-0 in ai-models.mjs's DEFAULT_CHAIN by default since 2026-07-29
-      # (AI_COMPETING_TIERS) — competes on real score instead of being
-      # reached only after every free-tier model has failed. Wired here too
-      # so the smoke-test's one-ping-per-model sweep actually exercises this
-      # tier instead of silently no-op'ing on it. See
-      # .github/actions/setup-claude-haiku-fallback/action.yml for the full
-      # rationale + incident history.
+      # ── Codex Luna Max article lane (ON by default, kill-switch '0') ────
+      # Bounded Codex CLI broker used by the smoke test. Wired here so the
+      # one-ping-per-model sweep exercises this lane instead of no-op'ing.
       - id: setup_claude_haiku_fallback
         uses: ./.github/actions/setup-claude-haiku-fallback
         with:
@@ -95,8 +90,8 @@ jobs:
 
       - name: Run smoke-test (one ping per model)
         env:
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |
           mkdir -p .tmp
           node scripts/smoke-test-ai-models.mjs > .tmp/smoke.json 2> .tmp/smoke.log

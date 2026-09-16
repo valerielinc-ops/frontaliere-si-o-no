@@ -260,7 +260,7 @@ jobs:
       # "the push did not land", which on 2026-08-06 opened a priority:high
       # issue during a GitHub Pages major_outage for four URLs that were serving
       # correctly minutes later. A false alarm there is not free: it feeds the
-      # issue-fix loop and burns shared Claude quota.
+      # issue-fix loop and burns the shared automation quota.
       #
       # The probe decides which of the two it is from FAST_PUBLISH_PUSHED_LOCALES,
       # exported by the shard-push step above — NOT from whether the URL answers.

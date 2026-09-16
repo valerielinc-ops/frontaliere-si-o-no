@@ -32,10 +32,10 @@ describe('testsRunInFlightOnHead (#6037 autorebase↔tests livelock guard)', () 
   });
   it('review-in-flight usa lo step della Jobs API, non il check-run morto `review`', () => {
     expect(reviewStepIsInFlight([
-      { name: 'Run Claude review', status: 'in_progress' },
+      { name: 'Run Codex Luna Max review', status: 'in_progress' },
     ])).toBe(true);
     expect(reviewStepIsInFlight([
-      { name: 'Run Claude review', status: 'completed' },
+      { name: 'Run Codex Luna Max review', status: 'completed' },
     ])).toBe(false);
     expect(AUTOREBASE_SOURCE).toContain('actions/jobs/');
     expect(AUTOREBASE_SOURCE).toContain('reviewStepIsInFlight');

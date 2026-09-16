@@ -18,6 +18,14 @@ const realCodexAvailable = (() => {
   });
   return probe.status === 0;
 })();
+const realCodexVersion = (() => {
+  const probe = spawnSync('codex', ['--version'], {
+    encoding: 'utf8',
+    env: { PATH: process.env.PATH || '/usr/bin:/bin' },
+  });
+  return `${probe.stdout || ''}\n${probe.stderr || ''}`
+    .match(/(?:OpenAI Codex v|codex-cli )([0-9]+\.[0-9]+\.[0-9]+)/)?.[1] || '';
+})();
 
 function waitForSocket(socketPath: string, child: ReturnType<typeof spawn>) {
   return new Promise<void>((resolve, reject) => {
@@ -98,7 +106,7 @@ function writeHangingCodex(root: string, { descendant = false } = {}) {
 }
 
 function codexPrefix(root: string) {
-  const prefix = path.join(root, 'claude-haiku-codex-cli.fixture');
+  const prefix = path.join(root, 'codex-luna-max-codex-cli.fixture');
   fs.mkdirSync(prefix, { mode: 0o700 });
   fs.chmodSync(prefix, 0o700);
   return prefix;
@@ -125,7 +133,7 @@ function waitForBrokerRuntime(existing: Set<string>) {
     const timer = setInterval(() => {
       for (const tempRoot of brokerTempRoots()) {
         const candidates = fs.readdirSync(tempRoot)
-          .filter((name) => name.startsWith('codex-haiku-broker-') && !existing.has(`${tempRoot}/${name}`));
+          .filter((name) => name.startsWith('codex-luna-max-broker-') && !existing.has(`${tempRoot}/${name}`));
         const runtime = candidates.find((name) => fs.existsSync(path.join(tempRoot, name, 'started')));
         if (runtime) {
           clearInterval(timer);
@@ -166,22 +174,22 @@ function waitForProcessGone(pid: number) {
 }
 
 const profileConfig = `model_reasoning_effort = "medium"
-default_permissions = "claude-haiku-fallback"
+default_permissions = "codex-luna-max"
 
-[permissions.claude-haiku-fallback]
+[permissions.codex-luna-max]
 description = "Read-only Codex fallback in an empty temporary workspace"
 extends = ":read-only"
 
-[permissions.claude-haiku-fallback.network]
+[permissions.codex-luna-max.network]
 enabled = false
 
-[permissions.claude-haiku-fallback.filesystem]
+[permissions.codex-luna-max.filesystem]
 ":root" = "deny"
 ":minimal" = "read"
 ":tmpdir" = "deny"
 ":slash_tmp" = "deny"
 
-[permissions.claude-haiku-fallback.filesystem.":workspace_roots"]
+[permissions.codex-luna-max.filesystem.":workspace_roots"]
 "." = "read"
 `;
 
@@ -209,7 +217,7 @@ describe('Codex auth broker runtime contract', () => {
     for (const root of roots.splice(0)) fs.rmSync(root, { recursive: true, force: true });
   });
 
-  it.skipIf(!realCodexAvailable)('parses the named permission profile with the real Codex 0.153.4 CLI', async () => {
+  it.skipIf(!realCodexAvailable)('parses the named permission profile with the installed Codex CLI', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-profile-smoke-'));
     fs.chmodSync(root, 0o700);
     roots.push(root);
@@ -217,7 +225,7 @@ describe('Codex auth broker runtime contract', () => {
     const tmpDir = path.join(root, 'tmp');
     fs.mkdirSync(workspace, { mode: 0o700 });
     fs.mkdirSync(tmpDir, { mode: 0o700 });
-    fs.writeFileSync(path.join(root, 'claude-haiku-fallback.config.toml'), profileConfig, { mode: 0o600 });
+    fs.writeFileSync(path.join(root, 'config.toml'), profileConfig, { mode: 0o600 });
 
     const output: string[] = [];
     const child = spawn('codex', [
@@ -225,7 +233,7 @@ describe('Codex auth broker runtime contract', () => {
       '--ephemeral',
       '--strict-config',
       '--ignore-rules',
-      '--profile', 'claude-haiku-fallback',
+      '--profile', 'codex-luna-max',
       '--cd', workspace,
       '--skip-git-repo-check',
       '--model', 'definitely-not-a-real-model',
@@ -254,7 +262,7 @@ describe('Codex auth broker runtime contract', () => {
     await once(child, 'close');
     clearTimeout(killTimer);
     const log = output.join('');
-    expect(log).toContain('OpenAI Codex v0.153.4');
+    expect(log).toContain(`OpenAI Codex v${realCodexVersion}`);
     expect(log).toContain('reasoning effort: medium');
     expect(log).not.toMatch(/unknown (?:field|key)|failed to (?:load|parse).*config|could not load source profile|invalid permission profile/i);
   });
@@ -343,6 +351,7 @@ describe('Codex auth broker runtime contract', () => {
     expect(response.ok, JSON.stringify(response)).toBe(true);
     expect(response).not.toHaveProperty('auth');
     expect(JSON.parse(String(response.result))).toEqual({ auth: secret, authMode: 0o600, hasRawEnv: false });
+    await expect(request(socketPath, { op: 'cleanup' })).resolves.toEqual({ ok: true, cleaned: true });
     await Promise.race([
       once(child, 'exit'),
       new Promise((_, reject) => setTimeout(() => reject(new Error('broker did not exit')), 2000)),
@@ -360,7 +369,7 @@ describe('Codex auth broker runtime contract', () => {
     const hangingCodex = writeHangingCodex(prefix);
     const existingRuntimes = new Set(
       brokerTempRoots().flatMap((tempRoot) => fs.readdirSync(tempRoot)
-        .filter((name) => name.startsWith('codex-haiku-broker-'))
+        .filter((name) => name.startsWith('codex-luna-max-broker-'))
         .map((name) => `${tempRoot}/${name}`)),
     );
     const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '600000', ...codexAttestationArgs(hangingCodex, prefix)], {
@@ -389,6 +398,7 @@ describe('Codex auth broker runtime contract', () => {
       new Promise((_, reject) => setTimeout(() => reject(new Error('test client did not close')), 1000)),
     ]);
 
+    await expect(request(socketPath, { op: 'cleanup' })).resolves.toEqual({ ok: true, cleaned: true });
     await Promise.race([
       once(child, 'exit'),
       new Promise((_, reject) => setTimeout(() => reject(new Error(
@@ -408,7 +418,7 @@ describe('Codex auth broker runtime contract', () => {
     const hangingCodex = writeHangingCodex(prefix);
     const existingRuntimes = new Set(
       brokerTempRoots().flatMap((tempRoot) => fs.readdirSync(tempRoot)
-        .filter((name) => name.startsWith('codex-haiku-broker-'))
+        .filter((name) => name.startsWith('codex-luna-max-broker-'))
         .map((name) => `${tempRoot}/${name}`)),
     );
     const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '600000', ...codexAttestationArgs(hangingCodex, prefix)], {
@@ -428,6 +438,7 @@ describe('Codex auth broker runtime contract', () => {
     });
     const runtimeRoot = await runtimePromise;
     expect(response).toMatchObject({ ok: false, error: expect.stringContaining('timed out') });
+    await expect(request(socketPath, { op: 'cleanup' })).resolves.toEqual({ ok: true, cleaned: true });
     await Promise.race([
       once(child, 'exit'),
       new Promise((_, reject) => setTimeout(() => reject(new Error('broker did not exit after Codex timeout')), 2000)),
@@ -445,7 +456,7 @@ describe('Codex auth broker runtime contract', () => {
     const hangingCodex = writeHangingCodex(prefix, { descendant: true });
     const existingRuntimes = new Set(
       brokerTempRoots().flatMap((tempRoot) => fs.readdirSync(tempRoot)
-        .filter((name) => name.startsWith('codex-haiku-broker-'))
+        .filter((name) => name.startsWith('codex-luna-max-broker-'))
         .map((name) => `${tempRoot}/${name}`)),
     );
     const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '600000', ...codexAttestationArgs(hangingCodex, prefix)], {
@@ -515,7 +526,7 @@ describe('Codex auth broker runtime contract', () => {
     expect(response.ok, JSON.stringify(response)).toBe(true);
   });
 
-  it('supports explicit cleanup before the one-shot request is consumed', async () => {
+  it('supports explicit cleanup before a bounded request is consumed', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-auth-broker-test-'));
     fs.chmodSync(root, 0o700);
     roots.push(root);

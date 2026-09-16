@@ -22,21 +22,16 @@ describe('local LLM fallback provider', () => {
     expect(AI_MODELS.LOCAL_FALLBACK).toBe('local/fallback');
   });
 
-  it('sits below every remote API, with only the opt-in OmniRoute and Claude CLI Haiku fallbacks below it', () => {
-    // AI_MODELS.CLAUDE_CLI_HAIKU (RC-gated, see ai-models-claude-cli-fallback.test.ts)
-    // is still the true final entry — an absolute last resort below even local
-    // CPU inference and OmniRoute — but local/fallback must still sit below
-    // every real remote API, which is the invariant this test guards.
-    // AI_MODELS.OMNIROUTE_AUTO (opt-in, see ai-models-omniroute-fallback.test.ts)
-    // sits between local/fallback and Claude CLI Haiku (see ai-models.mjs's
-    // DEFAULT_CHAIN / _lastResortTier comments for the tiering rationale).
-    expect(DEFAULT_CHAIN[DEFAULT_CHAIN.length - 1]).toBe(AI_MODELS.CLAUDE_CLI_HAIKU);
-    expect(DEFAULT_CHAIN[DEFAULT_CHAIN.length - 2]).toBe(AI_MODELS.OMNIROUTE_AUTO);
-    expect(DEFAULT_CHAIN[DEFAULT_CHAIN.length - 3]).toBe(AI_MODELS.LOCAL_FALLBACK);
+  it('sits below every remote API, with only the opt-in OmniRoute fallback below it', () => {
+    // The legacy Claude CLI provider remains available to compatibility tests,
+    // but it is no longer a member of the production DEFAULT_CHAIN. Codex is
+    // supplied explicitly by the workflow lane through AI_MODELS_PREFER.
+    expect(DEFAULT_CHAIN[DEFAULT_CHAIN.length - 1]).toBe(AI_MODELS.OMNIROUTE_AUTO);
+    expect(DEFAULT_CHAIN[DEFAULT_CHAIN.length - 2]).toBe(AI_MODELS.LOCAL_FALLBACK);
     // Each must appear exactly once.
     expect(DEFAULT_CHAIN.filter((m) => m === AI_MODELS.LOCAL_FALLBACK)).toHaveLength(1);
     expect(DEFAULT_CHAIN.filter((m) => m === AI_MODELS.OMNIROUTE_AUTO)).toHaveLength(1);
-    expect(DEFAULT_CHAIN.filter((m) => m === AI_MODELS.CLAUDE_CLI_HAIKU)).toHaveLength(1);
+    expect(DEFAULT_CHAIN.filter((m) => m === AI_MODELS.CLAUDE_CLI_HAIKU)).toHaveLength(0);
   });
 
   it('is unavailable (skipped) when LOCAL_LLM_ENABLED is unset', () => {
@@ -496,8 +491,8 @@ describe('local LLM fallback exhaustion never persists past the run (Firestore)'
     }
   });
 
-  // OmniRoute (opt-in last-resort, sits between local/fallback and Claude CLI
-  // Haiku — see ai-models.mjs _isLastResortProvider) earns the same exemption
+  // OmniRoute (opt-in last-resort, now the final DEFAULT_CHAIN entry — see
+  // ai-models.mjs _isLastResortProvider) earns the same exemption
   // for a DIFFERENT reason than local/fallback: the CI pilot instance is
   // EPHEMERAL (fresh, empty sqlite provider DB every run — see
   // scripts/ci/omniroute-poc-register.mjs), so a ban computed from one run's

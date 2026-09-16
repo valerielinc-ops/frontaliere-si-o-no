@@ -1,7 +1,7 @@
 /**
  * Il close+reopen di pr-autorebase (`reopenToRetrigger`) è un re-trigger
  * deterministico: chiude e riapre la PR ~2s dopo perché l'evento `reopened`
- * fa ripartire `tests.yml` — e con esso la review Claude, che dal 2026-08-26
+ * fa ripartire `tests.yml` — e con esso la review Codex, che dal 2026-08-26
  * è uno STEP di quel workflow. Il call-site post-rebase lo invoca ogni volta
  * che manca l'`## LGTM`.
  *
@@ -316,12 +316,12 @@ describe('stuck-red: un failure PROVATO non attribuibile non blocca il reopen', 
 });
 
 /**
- * #7429 — la premessa scaduta. Fino al 2026-08-26 la review Claude era un
+ * #7429 — la premessa scaduta. Fino al 2026-08-26 la review era un
  * workflow a parte (`pr-review-loop.yml`) innescato da `workflow_run` su
  * `tests == success`: «vitest rosso» implicava «review impossibile», e la
  * precondizione aveva ragione a rifiutare il riciclo. Dopo l'unificazione
  * (`80a8c73f73a`) la review è uno step DENTRO il job `vitest (unit +
- * integration)` e gira PRIMA dello step `Require approving Claude review`, che
+ * integration)` e gira PRIMA dello step `Require approving Codex review`, che
  * è ciò che rende rosso il job. Un rosso di quello step non dice «la review non
  * può partire»: dice che è già partita e il verdetto manca o è negativo — e il
  * riciclo è esattamente ciò che ne produce uno nuovo. Osservato su #7369 #7374
@@ -334,8 +334,8 @@ describe('#7429 — il rosso da REVIEW GATE non è il rosso dei test', () => {
   it('distingue il gate rosso dai test rossi guardando gli step del job', () => {
     const gateOnly = [
       { name: 'vitest related (PR diff)', conclusion: 'success' },
-      { name: 'Run Claude review', conclusion: 'success' },
-      { name: 'Require approving Claude review', conclusion: 'failure' },
+      { name: 'Run Codex Luna Max review', conclusion: 'success' },
+      { name: 'Require approving Codex review', conclusion: 'failure' },
       { name: 'Rebase near-merge PRs after review or stale rescue', conclusion: 'skipped' },
     ];
     expect(vitestFailureIsReviewGate(gateOnly)).toBe(true);
@@ -344,15 +344,15 @@ describe('#7429 — il rosso da REVIEW GATE non è il rosso dei test', () => {
     // devono trasformare un gate puro in un falso rosso dei test.
     expect(vitestFailureIsReviewGate([
       ...gateOnly,
-      { name: 'Mint GitHub App token for Claude review', conclusion: 'failure' },
-      { name: 'Claude usage metrics', conclusion: 'failure' },
+      { name: 'Mint GitHub App token for Codex review', conclusion: 'failure' },
+      { name: 'Codex usage metrics', conclusion: 'failure' },
     ])).toBe(true);
 
     // Test rotti sotto → il gate non è la causa (unica) del rosso: fail-CLOSED,
     // vale la precondizione normale. Riciclare qui rifarebbe #5896/#5906.
     expect(vitestFailureIsReviewGate([
       { name: 'vitest related (PR diff)', conclusion: 'failure' },
-      { name: 'Require approving Claude review', conclusion: 'failure' },
+      { name: 'Require approving Codex review', conclusion: 'failure' },
     ])).toBe(false);
     // Nessun dato (job id non parsabile, API muta) → nessuna eccezione.
     expect(vitestFailureIsReviewGate([])).toBe(false);
@@ -384,7 +384,7 @@ describe('#7429 — il rosso da REVIEW GATE non è il rosso dei test', () => {
       count: d.count, max: DEFAULT_MAX_REOPENS, fingerprint: redFp,
       action: d.action, reason: d.reason, cause: d.cause,
     });
-    expect(body).toContain('review Claude approvante');
+    expect(body).toContain('review Codex approvante');
     expect(body).not.toContain('far passare `vitest (unit + integration)`');
   });
 

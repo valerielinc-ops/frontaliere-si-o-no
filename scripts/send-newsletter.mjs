@@ -265,21 +265,10 @@ const NEWSLETTER_AI_CHAIN = [
   // "Setup OmniRoute" step in send-newsletter.yml) — inert no-op otherwise,
   // so it's safe to always list.
   'omniroute/auto',
-  // Same AI_MODELS.CLAUDE_CLI_HAIKU used by create-article.mjs's
-  // DEFAULT_CHAIN. Routed through the local `claude` CLI using
-  // CLAUDE_CODE_OAUTH_TOKEN (Max-plan subscription, $0 marginal cost), never
-  // ANTHROPIC_API_KEY. Since 2026-07-29 (AI_COMPETING_TIERS default) also
-  // tier-0 BY DEFAULT — same ramp-up rationale as omniroute/auto above,
-  // additionally capped at CLAUDE_CLI_MAX_CALLS_PER_RUN calls/run (default
-  // 25) since this quota is shared with pr-review-loop.yml/issue-fix.yml.
-  // Set AI_COMPETING_TIERS='' to restore the old pinned-last-resort behavior
-  // for both tiers. Inert unless
-  // ENABLE_HAIKU_ARTICLE_FALLBACK + CLAUDE_CODE_OAUTH_TOKEN are both set (see
-  // "Setup Claude CLI Haiku fallback" step in send-newsletter.yml). Uses the
-  // CLI's 'haiku' alias (not a dated snapshot id) so it tracks whatever
-  // Anthropic ships as current Haiku — keep this string identical to
-  // AI_MODELS.CLAUDE_CLI_HAIKU in scripts/lib/ai-models.mjs.
-  'claude-cli/haiku',
+  // Codex Luna Max article lane, enabled only when the action-owned broker
+  // socket is available. Keep this explicit preference scoped to generation;
+  // translations and metadata remain on the free chain.
+  'codex-cli/gpt-5.6-luna',
 ];
 
 async function generateAIBriefing(ctx) {

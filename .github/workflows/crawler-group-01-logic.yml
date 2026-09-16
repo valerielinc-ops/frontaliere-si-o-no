@@ -29,7 +29,7 @@
 # own ambient token is scoped to frontaliere-articles, not this repo;
 # (2) each crawler step's own `GH_TOKEN` env line is dropped (it would
 # shadow the GITHUB_PAT-derived one bootstrapped below with the wrong,
-# read-only ambient token). CLAUDE_CODE_OAUTH_TOKEN and
+# read-only ambient token). CODEX_AUTH_BROKER_SOCKET and
 # FIREBASE_SERVICE_ACCOUNT_JSON are read via the normal secrets context,
 # unchanged — the caller passes them explicitly through this workflow's
 # declared workflow_call secrets.
@@ -60,8 +60,6 @@ on:
         type: string
     secrets:
       FIREBASE_SERVICE_ACCOUNT_JSON:
-        required: false
-      CLAUDE_CODE_OAUTH_TOKEN:
         required: false
       CODEX_AUTH_JSON:
         required: false
@@ -124,7 +122,6 @@ jobs:
         id: crawler-launch-coop
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-coop.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_COOP_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -133,6 +130,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: coop-ticino
           JOBS_SLICE_FILE: data/jobs/by-crawler/coop-ticino.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-01"

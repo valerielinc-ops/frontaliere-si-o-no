@@ -38,7 +38,12 @@ setScoreStoreReadOnly();
 // validate the static chain and never catch a bad auto-discovered id.
 await discoverFreeModels();
 
-const MODELS = [...new Set(DEFAULT_CHAIN)];
+const MODELS = [...new Set([
+  ...DEFAULT_CHAIN,
+  ...(String(process.env.CODEX_AUTH_BROKER_SOCKET || '').trim()
+    ? [AI_MODELS.CODEX_CLI_PRIMARY]
+    : []),
+])];
 console.error(`Smoke-testing ${MODELS.length} models, one-by-one…`);
 
 const results = [];

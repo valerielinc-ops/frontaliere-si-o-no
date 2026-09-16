@@ -3,7 +3,6 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 
 const workflow = readFileSync(new URL('../.github/workflows/tests.yml', import.meta.url), 'utf8');
-const usageSummary = readFileSync(new URL('../scripts/ci/claude-usage-summary.mjs', import.meta.url), 'utf8');
 
 function workflowStepContaining(needle: string): string {
   const index = workflow.indexOf(needle);
@@ -66,17 +65,15 @@ describe('tests.yml review identity jq contract', () => {
     expect(runJq(filters[1], reviews)).toBe('claude-commit');
   });
 
-  it('keeps the review gate blocking while quota and metrics remain advisory', () => {
+  it('keeps the review gate blocking while quota remains advisory', () => {
     const gate = workflowStepContaining('id: review_gate');
     const quota = workflowStepContaining('id: quota');
     const abort = workflowStepContaining('id: review_abort');
-    const metrics = workflowStepContaining('name: Claude usage metrics');
 
     expect(gate).toContain('node scripts/ci/review-gate.mjs');
     expect(gate).not.toContain('continue-on-error: true');
     expect(abort).not.toContain('continue-on-error: true');
     expect(quota).toContain('continue-on-error: true');
-    expect(metrics).toContain('Best-effort: never fails the job.');
-    expect(usageSummary).toContain('Best-effort: never throws, never fails the job.');
+    expect(workflow).not.toContain('name: Claude usage metrics');
   });
 });

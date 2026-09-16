@@ -473,8 +473,8 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
     expect(prefetch.run).not.toContain('gh pr diff');
     expect(TESTS_YML).toContain('review-code-files.txt');
     expect(TESTS_YML).toContain('delta-files.txt');
-    expect(TESTS_YML).toContain('set_tier incremental-high claude-opus-5 35');
-    expect(TESTS_YML).toContain('set_tier incremental claude-opus-5 35');
+    expect(TESTS_YML).toContain('set_tier incremental-high gpt-5.6-luna 35');
+    expect(TESTS_YML).toContain('set_tier incremental gpt-5.6-luna 35');
     expect(TESTS_YML).toContain('Read `REVIEW.md` first');
   });
 

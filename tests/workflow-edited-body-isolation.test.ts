@@ -68,7 +68,7 @@ describe('one code verdict and metadata-triggered review recovery', () => {
       }
       if (step.if) expect(step.if).toContain("steps.body_contract.outcome != 'failure'");
     }
-    expect(job.steps.some((step: { name?: string }) => step.name === 'Require approving Claude review')).toBe(true);
+    expect(job.steps.some((step: { name?: string }) => step.name === 'Require approving Codex review')).toBe(true);
     expect(job.steps.some((step: { name?: string }) => step.name === 'Fail when required review gate is skipped')).toBe(true);
   });
 

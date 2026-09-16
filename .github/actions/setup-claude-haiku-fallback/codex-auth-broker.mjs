@@ -1,20 +1,18 @@
 #!/usr/bin/env node
 /**
- * Host-side one-shot runner for the Claude -> Codex subscription fallback.
+ * Host-side bounded runner for the Codex Luna Max subscription lane.
  *
  * The setup action passes CODEX_AUTH_JSON over stdin and never writes it to a
  * file or to GITHUB_ENV. This process keeps the credential in memory, serves
- * one structured Codex request over a private Unix socket, and is the only
+ * bounded serialized Codex requests over a private Unix socket, and is the only
  * process that materializes CODEX_HOME/auth.json. The caller receives only
  * Codex's result; the credential never crosses the socket or enters a child
  * environment.
  *
  * The socket is deliberately the only job-wide hand-off. Its parent directory
- * is 0700 and the socket is 0600, and the broker removes both after the first
- * request, on expiry, or on termination. A malformed request never receives
- * auth and does not consume the one-shot slot. The short idle TTL is a backstop
- * for persistent runners; callers should still invoke the explicit cleanup
- * operation at the end of a job.
+ * is 0700 and the socket is 0600. A malformed request never receives auth or
+ * consumes a request slot. The short idle TTL is a backstop for persistent
+ * runners; callers should still invoke explicit cleanup at the end of a job.
  */
 
 import fs from 'node:fs';
@@ -27,11 +25,12 @@ import { spawn, spawnSync } from 'node:child_process';
 const CODEX_MODEL = 'gpt-5.6-luna';
 const CODEX_EFFORT = 'max';
 const CODEX_CLI_VERSION = '0.153.4';
-const CODEX_PROFILE = 'claude-haiku-fallback';
+const CODEX_PROFILE = 'codex-luna-max';
 const MAX_REQUEST_BYTES = 1024 * 1024;
 const MAX_RESPONSE_BYTES = 2 * 1024 * 1024;
 const MAX_AUTH_BYTES = 256 * 1024;
 const DEFAULT_TTL_MS = 30 * 60 * 1000;
+const DEFAULT_MAX_REQUESTS = 512;
 const MAX_TIMEOUT_MS = 600_000;
 const CLIENT_LIVENESS_PROBE = '\0';
 
@@ -48,6 +47,10 @@ const codexCliSha256Argument = argument('--codex-sha256').toLowerCase();
 const codexCliPrefixArgument = argument('--codex-prefix');
 const ttlRaw = Number(argument('--ttl-ms', String(DEFAULT_TTL_MS)));
 const ttlMs = Number.isFinite(ttlRaw) && ttlRaw > 0 ? ttlRaw : DEFAULT_TTL_MS;
+const maxRequestsRaw = Number(argument('--max-requests', String(DEFAULT_MAX_REQUESTS)));
+const maxRequests = Number.isInteger(maxRequestsRaw) && maxRequestsRaw > 0
+  ? maxRequestsRaw
+  : DEFAULT_MAX_REQUESTS;
 
 if (!socketArgument || !socketPath || socketPath === path.dirname(socketPath)) {
   console.error('Codex auth broker socket is required');
@@ -89,7 +92,7 @@ function permissionConfig() {
   return `default_permissions = "${CODEX_PROFILE}"
 
 [permissions.${CODEX_PROFILE}]
-description = "Read-only Codex fallback in an empty temporary workspace"
+description = "Read-only Codex primary in an empty temporary workspace"
 extends = ":read-only"
 
 [permissions.${CODEX_PROFILE}.network]
@@ -158,7 +161,7 @@ function validateCodexCli() {
     throw new Error('Codex CLI prefix must be a real private 0700 directory');
   }
   const prefix = fs.realpathSync(codexCliPrefixArgument);
-  if (!path.basename(prefix).startsWith('claude-haiku-codex-cli.')) {
+  if (!path.basename(prefix).startsWith('codex-luna-max-codex-cli.')) {
     throw new Error('Codex CLI prefix is not an action-owned temporary directory');
   }
   assertOutsideWorkspace(prefix, 'prefix');
@@ -248,12 +251,12 @@ function assertPrivateRuntime(runtimeRoot, directories, files) {
 }
 
 function runCodex({ authJson: credential, prompt, timeoutMs, schema }) {
-  const runtimeRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-haiku-broker-'));
+  const runtimeRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-luna-max-broker-'));
   const codexHome = path.join(runtimeRoot, 'home');
   const codexWorkspace = path.join(runtimeRoot, 'workspace');
   const codexTmp = path.join(runtimeRoot, 'tmp');
   const authPath = path.join(codexHome, 'auth.json');
-  const configPath = path.join(codexHome, `${CODEX_PROFILE}.config.toml`);
+  const configPath = path.join(codexHome, 'config.toml');
   const outputPath = path.join(codexHome, 'last-message.txt');
   const schemaPath = path.join(codexHome, 'output-schema.json');
   let child = null;
@@ -292,7 +295,6 @@ function runCodex({ authJson: credential, prompt, timeoutMs, schema }) {
         '--ephemeral',
         '--strict-config',
         '--ignore-rules',
-        '--profile', CODEX_PROFILE,
         '--cd', codexWorkspace,
         '--skip-git-repo-check',
         '--model', CODEX_MODEL,
@@ -384,21 +386,41 @@ let codexCliSha256 = '';
 let codexCliPrefix = '';
 let server;
 let closed = false;
-let consumed = false;
+let acceptedRequests = 0;
+let activeRequest = null;
+const pendingRequests = [];
 let expiry;
 
-function cleanup() {
-  const firstCleanup = !closed;
-  closed = true;
-  clearTimeout(expiry);
+function cleanupRuntime() {
   terminateChild(activeChild, 'SIGKILL');
   activeChild = null;
-  authJson = '';
   const runtimeCleanup = activeRuntimeCleanup;
   activeRuntimeCleanup = null;
   try { runtimeCleanup?.(); } catch (error) {
     console.error(`Codex auth broker runtime cleanup failed: ${error.message}`);
   }
+}
+
+function cancelRequest(job) {
+  if (!job || job.cancelled || job.responseStarted) return;
+  job.cancelled = true;
+  if (activeRequest === job) cleanupRuntime();
+}
+
+function cleanup() {
+  const firstCleanup = !closed;
+  closed = true;
+  clearTimeout(expiry);
+  for (const job of pendingRequests.splice(0)) {
+    job.cancelled = true;
+    job.client.destroy();
+  }
+  if (activeRequest) {
+    activeRequest.cancelled = true;
+    activeRequest.client.destroy();
+  }
+  cleanupRuntime();
+  authJson = '';
   if (codexCliPrefix) {
     try { fs.rmSync(codexCliPrefix, { recursive: true, force: true }); } catch (error) {
       console.error(`Codex auth broker CLI prefix cleanup failed: ${error.message}`);
@@ -424,39 +446,71 @@ function responseFor(client, body, onSent = cleanup) {
   client.end(response, onSent);
 }
 
+function startNextRequest() {
+  if (closed || activeRequest) return;
+  let job;
+  while (pendingRequests.length > 0) {
+    const candidate = pendingRequests.shift();
+    if (!candidate.cancelled && !candidate.client.destroyed) {
+      job = candidate;
+      break;
+    }
+  }
+  if (!job) return;
+  activeRequest = job;
+  const timeoutMs = Number(job.parsed.timeoutMs);
+  job.client.setTimeout(Math.max(5000, timeoutMs + 10_000), () => {
+    cancelRequest(job);
+    job.client.destroy();
+  });
+  const credential = authJson;
+  runCodex({
+    authJson: credential,
+    prompt: job.parsed.prompt,
+    timeoutMs,
+    schema: job.parsed.schema ?? null,
+  }).then(
+    (result) => {
+      if (job.cancelled) return;
+      job.responseStarted = true;
+      responseFor(job.client, { ok: true, result }, () => {});
+    },
+    (error) => {
+      if (job.cancelled) return;
+      job.responseStarted = true;
+      responseFor(job.client, { ok: false, error: String(error?.message || error).slice(0, 300) }, () => {});
+    },
+  ).finally(() => {
+    activeChild = null;
+    if (activeRequest === job) activeRequest = null;
+    startNextRequest();
+  });
+}
+
 function handleClient(client) {
   let request = '';
   let bytes = 0;
   let handled = false;
-  let requestAccepted = false;
-  let responseStarted = false;
+  const job = { client, parsed: null, requestAccepted: false, responseStarted: false, cancelled: false };
   client.setEncoding('utf8');
   client.setTimeout(5000, () => client.destroy());
   const cancelOnDisconnect = () => {
-    // `end` is handled below as a request EOF. `close`/`error` means the peer
-    // really disappeared; once this one-shot request was accepted, terminate
-    // Codex and remove its private auth runtime rather than waiting for the
-    // child timeout/TTL.
-    if (requestAccepted && !responseStarted) cleanup();
+    if (job.requestAccepted && !job.responseStarted && !closed) cancelRequest(job);
   };
   client.on('error', cancelOnDisconnect);
   client.on('close', cancelOnDisconnect);
   client.on('end', () => {
-    // An accepted request has already consumed the client's request line and
-    // may half-close here while Codex is still running. Probe the writable
-    // side to distinguish that normal request EOF from a peer that destroyed
-    // the connection: a normal half-close accepts the byte, while a reset
-    // reports EPIPE/ECONNRESET and triggers cleanup. The client strips this
-    // private probe before parsing the eventual JSON response.
+    // The client half-closes after sending its JSON line. Probe the writable
+    // side so a reset is distinguishable from a normal request EOF.
     if (!handled) {
       handled = true;
       responseFor(client, { ok: false, error: 'request must end with a JSON line' }, () => {});
       return;
     }
-    if (requestAccepted && !responseStarted && !closed) {
+    if (job.requestAccepted && !job.responseStarted && !closed) {
       client.write(CLIENT_LIVENESS_PROBE, (error) => {
         if (!error || closed) return;
-        cleanup();
+        cancelRequest(job);
         client.destroy();
       });
     }
@@ -484,41 +538,20 @@ function handleClient(client) {
       return;
     }
     if (parsed?.op === 'cleanup') {
-      responseStarted = true;
+      job.responseStarted = true;
       responseFor(client, { ok: true, cleaned: true });
       return;
     }
-    if (consumed) {
-      responseFor(client, { ok: false, error: 'already consumed' }, () => {});
+    if (acceptedRequests >= maxRequests) {
+      responseFor(client, { ok: false, error: 'request limit exhausted' }, () => {});
       return;
     }
-    consumed = true;
-    requestAccepted = true;
-    client.setTimeout(Math.max(5000, Number(parsed.timeoutMs) + 10_000), () => {
-      terminateChild(activeChild, 'SIGKILL');
-      client.destroy();
-    });
-    const credential = authJson;
-    // Do not retain the credential while Codex is running. runCodex receives a
-    // private closure copy solely to write CODEX_HOME/auth.json.
-    authJson = '';
-    runCodex({
-      authJson: credential,
-      prompt: parsed.prompt,
-      timeoutMs: Number(parsed.timeoutMs),
-      schema: parsed.schema ?? null,
-    }).then(
-      (result) => {
-        responseStarted = true;
-        responseFor(client, { ok: true, result });
-      },
-      (error) => {
-        responseStarted = true;
-        responseFor(client, { ok: false, error: String(error?.message || error).slice(0, 300) });
-      },
-    ).finally(() => { activeChild = null; });
-    // `runCodex` receives the credential through this request-local binding,
-    // never from process.env. Malformed requests cannot force an auth operation.
+    acceptedRequests += 1;
+    job.parsed = parsed;
+    job.requestAccepted = true;
+    client.setTimeout(0);
+    pendingRequests.push(job);
+    startNextRequest();
   });
 }
 
@@ -581,7 +614,7 @@ function start(auth, cliConfig) {
   codexCliSha256 = codexCliSha256Argument;
   codexCliPrefix = cliConfig.prefix;
   validateSocketParent();
-  // The client half-closes after sending the request while Codex is still
+  // Clients half-close after sending each request while Codex is still
   // running; keep the server side open until the response is written.
   server = net.createServer({ allowHalfOpen: true }, handleClient);
   server.on('error', (error) => {

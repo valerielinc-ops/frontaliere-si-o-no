@@ -56,10 +56,11 @@ describe('indirect Codex auth workflow inventory', () => {
       expect(setupSteps[0].with?.codex_auth_json, name).toBe(codexSecretExpression);
 
       const aiSteps = jobs.flatMap((job) => job.steps ?? [])
-        .filter((step) => Object.prototype.hasOwnProperty.call(step.env ?? {}, 'CLAUDE_CODE_OAUTH_TOKEN'));
+        .filter((step) => Object.prototype.hasOwnProperty.call(step.env ?? {}, 'CODEX_AUTH_BROKER_SOCKET'));
       expect(aiSteps.length, name).toBeGreaterThan(0);
       for (const step of aiSteps) {
         expect(step.env?.CODEX_AUTH_BROKER_SOCKET, name).toBe(codexBrokerOutputExpression);
+        expect(step.env?.CLAUDE_CODE_OAUTH_TOKEN, name).toBeUndefined();
       }
 
       const cleanupSteps = jobs.flatMap((job) => job.steps ?? [])

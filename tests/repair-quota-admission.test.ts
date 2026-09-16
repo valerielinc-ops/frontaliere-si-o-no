@@ -207,11 +207,10 @@ describe('provider-neutral action wiring', () => {
     const admission = ACTION.indexOf('id: repair_quota');
     const trusted = ACTION.indexOf('id: trusted_node');
     const codex = ACTION.indexOf('id: codex');
-    const claude = ACTION.indexOf('id: claude');
     expect(admission).toBeGreaterThan(0);
     expect(admission).toBeLessThan(trusted);
     expect(trusted).toBeLessThan(codex);
-    expect(codex).toBeLessThan(claude);
+    expect(ACTION).not.toContain('\n      id: claude');
     expect(ACTION).toContain("if: steps.repair_quota.outputs.admit == 'true'");
     expect(ACTION).toContain('REPAIR_QUOTA_HELD: ${{ steps.repair_quota.outputs.held }}');
     expect(ACTION).toContain('stale-review');
@@ -226,9 +225,9 @@ describe('provider-neutral action wiring', () => {
       .toBeLessThan(ISSUE_FIX.indexOf('- name: Install dependencies'));
     expect(ISSUE_FIX).toContain("if: steps.quota.outputs.quota_floor_admit == 'true'");
     expect(ISSUE_FIX).toContain("if: always() && steps.quota.outputs.quota_floor_lease_owned == 'true'");
-    expect(ISSUE_FIX).toContain(
-      'claude_args: "--effort medium --max-turns ${{ steps.tier.outputs.max_turns }}',
-    );
+    expect(ISSUE_FIX).toContain('id: codex_fix');
+    expect(ISSUE_FIX).toContain('codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}');
+    expect(ISSUE_FIX).not.toContain('claude_args:');
     expect(ISSUE_FIX).toContain('Mai disabilitare AdSense Auto Ads');
   });
 });

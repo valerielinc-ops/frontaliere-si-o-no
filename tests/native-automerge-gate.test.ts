@@ -108,7 +108,7 @@ function reviewGateEvidenceFor(reviewId = '1', overrides: Record<string, any> = 
       check_run_url: 'https://api.github.com/repos/valerielinc-ops/frontaliere-si-o-no/check-runs/101',
       steps: [
         {
-          name: 'Require approving Claude review',
+          name: 'Require approving Codex review',
           status: 'completed',
           conclusion: 'success',
           started_at: '2026-09-13T12:03:00Z',
@@ -254,7 +254,7 @@ describe('native auto-merge gate (#8512)', () => {
   it.each([
     ['step assente', { job: { steps: [] } }],
     ['step fallito', { job: { steps: [{
-        name: 'Require approving Claude review',
+        name: 'Require approving Codex review',
         status: 'completed',
         conclusion: 'failure',
         started_at: '2026-09-13T12:03:00Z',
@@ -262,7 +262,7 @@ describe('native auto-merge gate (#8512)', () => {
       }] } }],
     ['run su HEAD diversa', { workflow: { head_sha: OLD_HEAD } }],
     ['step completato prima della review', { job: { steps: [{
-      name: 'Require approving Claude review',
+      name: 'Require approving Codex review',
       status: 'completed',
       conclusion: 'success',
       started_at: '2026-09-13T11:59:00Z',

@@ -57,7 +57,7 @@ describe('owner policy excluding test files from review', () => {
     const workflow = YAML.parse(readFileSync('.github/workflows/tests.yml', 'utf8'));
     const steps = workflow.jobs.vitest.steps;
     expect(steps.find((s: any) => s.id === 'test_only_review').if).toContain('success()');
-    for (const id of ['prefetch', 'quota', 'claude_review']) expect(steps.find((s: any) => s.id === id).if).toContain("tier != 'tests-only'");
+    for (const id of ['prefetch', 'quota', 'codex_review']) expect(steps.find((s: any) => s.id === id).if).toContain("tier != 'tests-only'");
     for (const step of steps.filter((s: any) => String(s.name).startsWith('vitest '))) expect(step.if ?? '').not.toContain('tests-only');
   });
 });

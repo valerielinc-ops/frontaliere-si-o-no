@@ -7,6 +7,7 @@ import { buildAtomicPharmacySnapshots } from '../scripts/import-pharmacies-borde
 import { buildPharmacyPath } from '../services/pharmacies/paths';
 import { BORDER_PHARMACIES, pharmacyCitySlug } from '../services/pharmacies/data';
 import { buildPharmacyTitle } from '../services/pharmacies/title';
+import { DUTY_WEEK_MAX_AGE_MS } from '../services/pharmacies/dutyWeek';
 import { buildPharmacyDirectoryPage, pharmacyPageDescriptors } from '../build-plugins/pharmacyDirectoryPagesPlugin';
 import { parsePath } from '../services/router';
 import { setLocale } from '../services/i18n';
@@ -20,6 +21,14 @@ let pharmacySeoRuntime: typeof import('../services/pharmacies/runtimeSeo');
 
 const duties = dutiesJson as PharmacyDutiesDataset;
 const catalogue = completeTicinoJson as unknown as PharmacyCatalogueDataset;
+const latestSnapshotMs = Math.max(
+  Date.parse(String(duties._fetchedAt ?? '')),
+  Date.parse(String(catalogue._fetchedAt ?? '')),
+);
+
+function fixtureNow(offsetMs: number): Date {
+  return new Date(latestSnapshotMs + offsetMs);
+}
 
 beforeAll(async () => {
   [seo, pharmacySeoRuntime] = await Promise.all([
@@ -72,7 +81,7 @@ function addStaticCitySchemas(citySlug: string): Record<string, any>[] {
 
 describe('pharmacy SEO after SPA navigation', () => {
   it('indexes the duty hub only when the complete fresh release is ready', () => {
-    const now = new Date('2026-09-15T12:00:00.000Z');
+    const now = fixtureNow(60 * 60 * 1000);
     const ready = pharmacySeoRuntime.resolvePharmacySeoMetadata(
       { kind: 'duty-hub', locale: 'it' },
       { now, duties, catalogue },
@@ -301,7 +310,7 @@ describe('pharmacy SEO after SPA navigation', () => {
   });
 
   it('keeps a stale weekly route noindex during the actual metadata update', async () => {
-    vi.useFakeTimers({ now: new Date('2026-09-17T12:00:00.000Z') });
+    vi.useFakeTimers({ now: fixtureNow(DUTY_WEEK_MAX_AGE_MS + 60 * 60 * 1000) });
     window.history.replaceState({}, '', weeklyPath());
 
     await seo.updateMetaTags('pharmacy-duty-week');

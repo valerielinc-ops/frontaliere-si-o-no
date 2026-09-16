@@ -20,11 +20,11 @@ Ogni item usa ID stabile `FU-YYYY-MM-DD-NNN` e contiene `State`, `Sources`, `Tar
 
 Il drainer promuove bucket `sealed` con item `open` e senza PR che dichiari l'ID. `issue-fix` seleziona un item per run. PR parziale: `Addresses #<bucket>` + `Follow-up item: FU-YYYY-MM-DD-NNN`, mai `Closes #<bucket>`. Il reconciler chiude con tutti gli item validi `done` e provati; body illeggibile, stato ambiguo, acceptance assente o prova debole lasciano aperto.
 
-## Gate grandchild-suppression (zero-Claude, PRIMA del triage)
+## Gate grandchild-suppression (zero-agente, PRIMA del triage)
 
 `post-merge-followup.yml` gira su OGNI PR mergiata dall'owner — **incluse le PR che FIXANO un follow-up**. Senza guardia, ogni merge può generare follow-up.
 
-Lo step deterministico `scripts/ci/is-followup-fix-pr.mjs` (zero-Claude) precede Claude e salta i fixer branch che puntano a `follow-up`. Una fix daily con `Addresses #<bucket>` + `Follow-up item: FU-...` cerca finding nuovi e li aggiunge al bucket **padre**, mai a nuova issue. Scope deferred resta nel padre. **Proceed-safe**: branch/body illeggibile o `gh issue view` in errore → triage normale.
+Lo step deterministico `scripts/ci/is-followup-fix-pr.mjs` (zero-agente) precede il lane Codex e salta i fixer branch che puntano a `follow-up`. Una fix daily con `Addresses #<bucket>` + `Follow-up item: FU-...` cerca finding nuovi e li aggiunge al bucket **padre**, mai a nuova issue. Scope deferred resta nel padre. **Proceed-safe**: branch/body illeggibile o `gh issue view` in errore → triage normale.
 
 ## Scopo
 
@@ -33,7 +33,7 @@ Ogni 🟡 nit, ❓ q e voce `## Non implementato` DEVE diventare item `follow-up
 ## Input
 
 - PR merged: `gh pr view $PR_NUMBER --json number,title,body,mergedAt,mergeCommit,url`
-- Reviewer bot reviews: `gh api repos/$REPO/pulls/$PR_NUMBER/reviews` (filtra `user.type == "Bot"` + `user.login` starts `claude`)
+- Reviewer bot reviews: `gh api repos/$REPO/pulls/$PR_NUMBER/reviews` (filtra `user.type == "Bot"` + login `github-actions[bot]`, `frontaliere-automation[bot]` o `claude[bot]` storico)
 - Issue esistenti collegate: `gh issue list --label follow-up --state all --search "PR #$PR_NUMBER" --json number,title,body`
 
 ## Parse rules
@@ -116,7 +116,7 @@ Riconosci `live-verify-only` dalle frasi-segnale nell'item (l'azione è SOLO isp
 
 La regola è: `Suggested action` deve citare fra backtick almeno un token-codice distintivo. Una `no-valid-item` non si chiude MAI: `aggregateCloseGate()` la blocca per evidenza assente.
 
-Lo step `Gate sul conio` (`scripts/ci/gate-minted-followups.mjs`, zero-Claude) rilegge la issue e usa l'oracolo di chiusura `hasFalsifiableAcceptance()` in `scripts/ci/followup-resolution-match.mjs`. Gli item non validi vengono **demoti** e riscritti in `Live-verification`; senza item la issue viene **soppressa**. Un corpo senza struttura non viene soppresso.
+Lo step `Gate sul conio` (`scripts/ci/gate-minted-followups.mjs`, zero-agente) rilegge la issue e usa l'oracolo di chiusura `hasFalsifiableAcceptance()` in `scripts/ci/followup-resolution-match.mjs`. Gli item non validi vengono **demoti** e riscritti in `Live-verification`; senza item la issue viene **soppressa**. Un corpo senza struttura non viene soppresso.
 
 Conseguenza: senza `- Suggested action:` con token-codice l'item non sopravvive. Scrivi simbolo, costante o path che un `grep` futuro troverà.
 
@@ -210,9 +210,9 @@ Skipped: P item (🔴 pre-merge or duplicate active follow-up)
 
 Zero item dopo filtro+dedup e zero live-verify → `## Post-merge follow-up triage: zero outstanding items.` senza bucket. Solo live-verify → summary con `Live-verification` e `Created: 0 issue (solo live-verification batchata)`.
 
-## Supersede detection → spostata su `followup-reconcile` (deterministica, zero-Claude)
+## Supersede detection → spostata su `followup-reconcile` (deterministica, zero-agente)
 
-**2026-06-04:** la supersede detection è in `followup-reconcile.yml` (`scripts/ci/reconcile-followups.mjs`, cron daily, **zero-Claude**): per ogni issue `follow-up` aperta verifica se la fix è **presente verbatim** nel file/token citato.
+**2026-06-04:** la supersede detection è in `followup-reconcile.yml` (`scripts/ci/reconcile-followups.mjs`, cron daily, **zero-agente**): per ogni issue `follow-up` aperta verifica se la fix è **presente verbatim** nel file/token citato.
 
 **2026-06-10 — auto-close a due tier.** `reconcile` chiude in autonomia, ma SOLO con **doppia conferma separata nel tempo** + veti di sicurezza:
 

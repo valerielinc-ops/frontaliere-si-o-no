@@ -5,7 +5,7 @@
  * Il check richiesto dal ruleset si chiama `vitest (unit + integration)`; il
  * wrapper required pubblica il risultato del job di esecuzione, che porta ~43
  * step: il contratto del body della PR, i lint, i source guard, `tsc`, i test,
- * e in fondo il verdetto della Claude review. Uno qualunque di quegli step
+ * e in fondo il verdetto della review Codex. Uno qualunque di quegli step
  * tinge di rosso il check «vitest», e ogni lettore — umano o agente — conclude
  * che i test siano rotti.
  *
@@ -29,7 +29,7 @@
  *
  * ── UNO STEP ROSSO NON È UN JOB ROSSO ────────────────────────────────────
  * Sette step di questo job portano `continue-on-error: true` — fra cui
- * `Run Claude review`, i due `Mint … token` e i due commenti advisory. Il loro
+ * `Run Codex Luna Max review`, i due `Mint … token` e i due commenti advisory. Il loro
  * fallimento NON tinge di rosso il job. Classificare per sola `conclusion`
  * degli step scriverebbe quindi un `❌` in cima alla pagina di una run VERDE,
  * cioè la stessa classe di bugia che questo modulo esiste per chiudere,
@@ -87,8 +87,8 @@ export const FAILURE_CATEGORIES = Object.freeze([
   },
   {
     id: 'review-run',
-    names: ['Run Claude review', 'Fail on transient API error (no review posted)'],
-    tail: "la Claude review non ha prodotto un verdetto (errore transient dell'API): basta ri-eseguire il job",
+    names: ['Run Codex Luna Max review', 'Fail on transient API error (no review posted)'],
+    tail: "la review Codex non ha prodotto un verdetto (errore transient dell'API): basta ri-eseguire il job",
   },
   {
     id: 'pr-body',
@@ -189,7 +189,7 @@ export function formatJobFailureSummary(verdict, checkName) {
     'Step rossi:',
     ...verdict.failedSteps.map((name) => `- \`${name}\``),
     '',
-    `_Il check richiesto si chiama \`${checkName}\`; il job di esecuzione collegato porta contratto del body, source guard, lint, typecheck, test e il verdetto della Claude review. Il suo nome non dice quale famiglia ha ceduto; questa riga sì._`,
+    `_Il check richiesto si chiama \`${checkName}\`; il job di esecuzione collegato porta contratto del body, source guard, lint, typecheck, test e il verdetto della review Codex. Il suo nome non dice quale famiglia ha ceduto; questa riga sì._`,
     '',
   ];
   return lines.join('\n');

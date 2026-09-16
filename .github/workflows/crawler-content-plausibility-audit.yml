@@ -209,10 +209,7 @@ jobs:
             --description "Record crawlato che non e' un annuncio di lavoro (audit di plausibilita' + segnalazioni manuali)" \
             --force 2>/dev/null || true
 
-      - name: Setup Headroom compression proxy
-        uses: ./.github/actions/setup-headroom
-
-      - name: Pre-flight — Claude quota telemetry (Codex primary)
+      - name: Pre-flight — Codex lane quota telemetry
         id: quota
         continue-on-error: true
         env:
@@ -226,7 +223,7 @@ jobs:
         # (20min) e la run ci moriva `cancelled` — che NON fa scattare
         # nessun `if: failure()` e si vede solo dallo scan periodico
         # (`scripts/ci/scan-job-timeouts.mjs`). Stessa classe di #7310.
-        # 13min = cap del job meno il setup pre-Claude misurato (~176s
+        # 13min = cap del job meno il setup pre-Codex misurato (~176s
         # sulle ultime run) e una coda per gli step `if: always()`.
         timeout-minutes: 13
         id: verify
@@ -236,20 +233,13 @@ jobs:
           REPO: ${{ github.repository }}
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
-          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          # Obbligatorio accanto a claude_code_oauth_token: senza,
-          # allowed_non_write_users e' un no-op silenzioso (post-merge-followup,
-          # PR #3182).
+          # Il token GitHub resta esplicito per le operazioni dell'audit.
           github_token: ${{ secrets.GITHUB_TOKEN }}
           codex_github_token: ${{ secrets.GITHUB_TOKEN }}
-          allowed_bots: "github-actions[bot], claude[bot], frontaliere-automation[bot]"
-          allowed_non_write_users: "github-actions[bot], claude[bot], frontaliere-automation[bot]"
-          show_full_output: true
           # `--dangerously-skip-permissions` NON funziona su trigger
           # schedule/workflow_dispatch (issue #3269, 3 run live): permissionMode
           # resolve "default" e blocca ~75% delle Bash. Si usa l'allowlist
           # scoped, che per un audit read-only basta.
-          claude_args: "--effort medium --max-turns 50 --model claude-opus-5 --allowedTools 'Bash(gh:*),Bash(node:*),Read,Grep,Glob'"
           prompt: |
             Verifica una lista corta di record crawlati che un filtro deterministico ha marcato come "probabilmente NON un annuncio di lavoro", e apri una issue per ciascun difetto REALE.
 
@@ -290,10 +280,6 @@ jobs:
             - Read-only sul repo: niente commit/push/edit. L'unica scrittura ammessa e' `gh issue create` / `gh issue comment`.
             - Non tentare il fix: questo audit trova, non ripara.
             - Bash e' allowlisted per binario ma NON accetta comandi composti: niente `cd ... && ...`, niente redirect `> file`, niente `xargs -I{}`. Un comando per invocazione (causa di #3679).
-
-      - name: Claude usage metrics
-        if: always() && steps.verify.outputs.claude_used == 'true'
-        run: node scripts/ci/claude-usage-summary.mjs "${{ steps.verify.outputs.execution_file }}" "crawler-content-plausibility-audit"
 
       - name: Report failure to GitHub Issues
         if: failure()

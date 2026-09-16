@@ -107,13 +107,13 @@ describe('tests.yml — segnale Claude incorporato e allocazione', () => {
   it('conta solo il passo persistito del fallback realmente usato', () => {
     expect(claudeUsageStepRan([{
       steps: [
-        { name: 'Run Claude review', status: 'completed', conclusion: 'success' },
+        { name: 'Run Codex Luna Max review', status: 'completed', conclusion: 'success' },
         { name: 'Claude usage metrics', status: 'completed', conclusion: 'skipped' },
       ],
     }])).toBe(false); // Codex-primary o tests-only
     expect(claudeUsageStepRan([{
       steps: [
-        { name: 'Run Claude review', status: 'completed', conclusion: 'success' },
+        { name: 'Run Codex Luna Max review', status: 'completed', conclusion: 'success' },
         { name: 'Claude usage metrics', status: 'completed', conclusion: 'success' },
       ],
     }])).toBe(true);

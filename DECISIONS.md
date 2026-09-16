@@ -3,7 +3,8 @@
 | Data | Decisione | Fonte |
 |---|---|---|
 | 2026-07-05 | Auto-route su OGNI categoria; supervisione = gate `## LGTM`, non esclusione a monte | AGENTS.md → Issue automation |
-| 2026-09-03 | Modello unificato claude-opus-5 a `--effort medium` per i tier del fixer (supersede claude-sonnet-5 del 2026-07-17; mai claude-sonnet-4-6) | issue-fix.yml → Tier |
+| 2026-09-03 → superseded 2026-09-16 | Modello unificato Claude Opus a `--effort medium` per i tier del fixer; decisione storica, sostituita dal lane Codex | issue-fix.yml → Tier |
+| 2026-09-16 | Workflow agentici e lane articolo unificati su Codex Luna Max (`gpt-5.6-luna`, reasoning effort `max`); nessun fallback Claude nei workflow | issue-fix.yml, tests.yml, setup Codex lane |
 | 2026-06-24 | Moratorium SEO landing RIMOSSO; posizione GSC solo informativa | AGENTS.md → Static SEO Pages |
 | 2026-08-12 | Re-permission consensi: NON si fa, per ora | #5681 (commento 12-08) |
 | 2026-08-13 | Avvisi di lavoro: cadenza a decadenza + soffitto 7 giorni; non spegnere in blocco | #5705 (commento 13-08 07:12) |

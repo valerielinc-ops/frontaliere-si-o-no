@@ -43,7 +43,7 @@ jobs:
             const failedBody = jobs.some(job => job.steps?.some(step => step.name.startsWith('PR-body completeness + multi-issue Closes') &&
                 step.conclusion === 'failure'));
             const reviewFailureSteps = new Set([
-              'Require approving Claude review',
+              'Require approving Codex review',
               'Classify review gate failure',
               'Fail when required review gate is skipped',
             ]);

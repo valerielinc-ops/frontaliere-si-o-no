@@ -267,19 +267,20 @@ export function prFixClaimDecision({ key, dedupeKey, claims = [], nowSec = Math.
  * terminal path, because the round cap and the review/check gate remain the
  * owners of that outcome.
  */
-export function claimStatusFromOutcome({ proceed, claudeOutcome = '', executionText = '' } = {}) {
+export function claimStatusFromOutcome({ proceed, actionOutcome = '', claudeOutcome = actionOutcome, executionText = '' } = {}) {
+  const outcome = actionOutcome || claudeOutcome;
   if (proceed !== true && proceed !== 'true') return 'released';
   const text = String(executionText || '');
   const transientStatus = /(?:api[_-]?error[_-]?status|status[_-]?code|http[_-]?status|status)["']?\s*[:=]\s*["']?(?:429|5\d{2})\b/iu.test(text);
   const transientText = /\b(?:HTTP|status(?:\s+code)?)\s*[:=]?\s*(?:429|5\d{2})\b|\b(?:overloaded|server_error|internal server error)\b/iu.test(text);
   const transient = transientStatus || transientText;
-  // An empty/skipped action means an earlier setup step stopped the Claude
+  // An empty/skipped action means an earlier setup step stopped the provider
   // path after the claim was acquired. It is not a verdict and must not make
   // the same contribution permanently consumed.
-  if (transient || claudeOutcome === 'cancelled' || claudeOutcome === '' || claudeOutcome === 'skipped') {
+  if (transient || outcome === 'cancelled' || outcome === '' || outcome === 'skipped') {
     return 'failed-transient';
   }
-  if (claudeOutcome === 'failure') return 'failed-terminal';
+  if (outcome === 'failure') return 'failed-terminal';
   return 'completed';
 }
 
@@ -470,7 +471,7 @@ function finalizeClaim(base, repo) {
     ? process.env.CLAIM_STATUS
     : claimStatusFromOutcome({
       proceed: process.env.PROCEED,
-      claudeOutcome: process.env.CLAUDE_OUTCOME || '',
+      actionOutcome: process.env.ACTION_OUTCOME || process.env.CLAUDE_OUTCOME || '',
       executionText,
     });
   if (current.state === state) return output({ ...base, allowed: true, token: tokenValue, state, reason: 'claim-already-finalized' });

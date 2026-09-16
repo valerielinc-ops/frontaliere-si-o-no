@@ -102,8 +102,6 @@ on:
     secrets:
       FIREBASE_SERVICE_ACCOUNT_JSON:
         required: false
-      CLAUDE_CODE_OAUTH_TOKEN:
-        required: false
       CODEX_AUTH_JSON:
         required: false
 # No concurrency: block here — see the header note (checklist point 3).
@@ -181,7 +179,7 @@ jobs:
           echo "GH_TOKEN=${GITHUB_PAT}" >> "$GITHUB_ENV"
           echo "GH_REPO=valerielinc-ops/frontaliere-si-o-no" >> "$GITHUB_ENV"
 
-      # ── Claude CLI Haiku fallback (ON by default, kill-switch '0') ──────
+      # ── Codex Luna Max article lane (ON by default, historical kill-switch '0') ──
       - id: setup_claude_haiku_fallback
         uses: valerielinc-ops/frontaliere-si-o-no/.github/actions/setup-claude-haiku-fallback@main
         with:
@@ -327,12 +325,10 @@ jobs:
         if: inputs.skip_translate != true
         env:
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: claude-cli/haiku
-          CLAUDE_CLI_MAX_CALLS_PER_RUN: '300'
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
           JOBS_CASCADE_DEADLINE_MS: ${{ vars.TRANSLATE_ARGOS_FIRST_DISABLE == '1' && '15000000' || '5400000' }}
-          # A/B sul thinking di claude-cli/haiku. Ogni azienda va a un braccio
+          # A/B sul thinking di Codex Luna Max. Ogni azienda va a un braccio
           # (sale = id della run, quindi l'assegnazione cambia a ogni giro), e
           # per ognuna si registrano tempo e traduzioni accettate. Si spegne
           # mettendo la repo var a '0': il default del codice e' gia' spento,

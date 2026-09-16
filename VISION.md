@@ -68,13 +68,13 @@ Crescono insieme o non crescono: contenuto scadente = traffico che non torna.
   l'ultima voce di «Sempre umano» (rimossa) che D3 citava: documenta il criterio
   di scelta nel body della PR, così la decisione resta verificabile a posteriori
   anche senza approvazione preventiva.
-- **D4 — Quota Claude = risorsa condivisa e scarsa.** Ogni nuovo consumer di
-  quota nasce con cap, kill-switch e telemetria. In conflitto, vince chi produce
-  più valore per token: fix piccole con scheda > run esplorativi. La frugalità
-  si ottiene per architettura (meno invocazioni), mai tagliando i turni sotto
-  la soglia che tronca il lavoro.
+- **D4 — La quota del provider è una risorsa condivisa e scarsa.** Ogni nuovo
+  consumer nasce con cap, kill-switch e telemetria. In conflitto, vince chi
+  produce più valore per token: fix piccole con scheda > run esplorativi. La
+  frugalità si ottiene per architettura (meno invocazioni), mai tagliando i turni
+  sotto la soglia che tronca il lavoro.
 
-  **Misura #7267 (2026-09-15).** Ho ricalcolato la prima finestra Opus
+  **Misura #7267 (storica, 2026-09-15).** Ho ricalcolato la prima finestra Opus
   comparabile dopo il cambio del 2026-09-03, dal **2026-09-03 al 2026-09-09**,
   prendendo dai log solo le righe `CLAUDE_USAGE` effettivamente emesse:
   **49 righe**, di cui **38 `parsed=true`** e **11 `parsed=false`** (queste
@@ -84,10 +84,10 @@ Crescono insieme o non crescono: contenuto scadente = traffico che non torna.
   era mean **$0,8220**, median **$0,5070**, **94,1%**. Sono equivalenti di
   listino, non una fattura: la finestra ha solo 38 run Claude reali su quattro
   workflow, perché le altre run erano Codex-primary, skip o non parsabili.
-  **Decisione: per scelta** manteniamo `claude-opus-5 --effort medium` già
-  deciso il 2026-09-03: il dato segnala un costo equivalente più alto, ma non
-  esiste ancora un controllo Sonnet matched né una misura di qualità che
-  giustifichi un rollback; il confronto va ripetuto su coorti omogenee.
+  **Decisione storica superseduta il 2026-09-16.** I workflow agentici ora usano
+  Codex Luna Max (`gpt-5.6-luna`, reasoning effort `max`) attraverso il broker
+  privato; non esiste più un fallback Claude nei workflow. Resta separata e
+  owner-approved la chiamata diretta Haiku delle Cloud Functions (#4495).
 - **D5 — Un'issue grande si scorpora, non si parcheggia.** Lo stadio di
   decomposizione (ISSUES.md → «Stadio di decomposizione») è il percorso di
   default per tutto ciò che non sta in un run — comprese le decisioni di
@@ -110,9 +110,9 @@ Crescono insieme o non crescono: contenuto scadente = traffico che non torna.
   E il collo di bottiglia di `needs-human` non è nemmeno lo scorporo: è
   l'USCITA. Il pre-pass deterministico drena solo le famiglie che riconosce —
   misurato in produzione lo stesso giorno, `requeue=6 decompose=2 keep=41` — e
-  le `keep` passano da un run Claude settimanale con cap 15. Allargare il
-  riconoscimento del pre-pass costa zero quota (D4) e scala; un altro run Claude
-  no. Lavoro scorporato in issue **#7280**.
+  le `keep` passano da un run agentico settimanale con cap 15. Allargare il
+  riconoscimento del pre-pass costa zero quota (D4) e scala; un altro run
+  costoso no. Lavoro scorporato in issue **#7280**.
 - **D6 — Famiglie, non istanze.** Se la stessa fix si sta applicando alla
   N-esima istanza (allowlist che cresce, timeout alzato di nuovo, stessa entry
   ripetuta), la N-esima PR DEVE aggredire la causa di famiglia o aprire
