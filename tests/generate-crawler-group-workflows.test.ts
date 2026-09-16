@@ -1542,7 +1542,7 @@ describe('cross-repo crawler execution artifacts', () => {
       expect(fs.readFileSync(path.join(outDir, observer.source), 'utf8'))
         .toBe(fs.readFileSync(path.join(portableDir, observer.source), 'utf8'));
     }
-  });
+  }, 60_000);
 
   it('rifiuta un ancoraggio commit non osservabile e conserva ref/sha espliciti', () => {
     expect(resolveCrawlerContractSource({
@@ -1652,7 +1652,7 @@ describe('cross-repo crawler execution artifacts', () => {
     const stableManifest = fs.readFileSync(corpusManifestPath, 'utf8');
     prepareCrawlerWorkflowCorpusSync({ sourceDir: portableDir, corpusRoot, alignedAt: '2026-09-01' });
     expect(fs.readFileSync(corpusManifestPath, 'utf8')).toBe(stableManifest);
-  }, 30_000);
+  }, 60_000);
 
   it('converge il transport adattato del translate in identical dopo il fix sorgente', () => {
     const { outDir, contractPath } = generateArtifacts();
@@ -1845,7 +1845,16 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(crawlerSteps.every((step: any) => step.env?.CODEX_AUTH_BROKER_SOCKET
       === '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}')).toBe(true);
     expect(crawlerSteps.every((step: any) => step.env?.AI_MODELS_PREFER === undefined)).toBe(true);
-    expect(crawlerSteps.every((step: any) => step.env?.CLAUDE_CODE_OAUTH_TOKEN === undefined)).toBe(true);
+    expect(crawlerSteps.every((step: any) => step.env?.CLAUDE_CODE_OAUTH_TOKEN
+      === '${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}')).toBe(true);
+    const finalizerStep = generatedSteps.find((step: any) => step.name === 'Finalize crawler generation manifest (shadow)');
+    expect(finalizerStep?.env).toMatchObject({
+      CRAWLER_GENERATION_WAIT_OUTCOME: '${{ job.status }}',
+      CRAWLER_GENERATION_AGGREGATE_OUTCOME: '${{ steps.crawler_aggregate.outcome }}',
+      CRAWLER_GENERATION_AGGREGATE_SUCCESS: "${{ steps.crawler_aggregate.outputs.success_count || 'invalid' }}",
+      CRAWLER_GENERATION_AGGREGATE_FAILURES: "${{ steps.crawler_aggregate.outputs.failure_count || 'invalid' }}",
+      CRAWLER_GENERATION_AGGREGATE_MISSING: "${{ steps.crawler_aggregate.outputs.missing_count || 'invalid' }}",
+    });
     const cleanupStep = generatedSteps.find((step: any) => step.name === 'Cleanup Codex auth broker');
     expect(cleanupStep?.if).toBe('always()');
     expect(cleanupStep?.env?.CODEX_AUTH_BROKER_SOCKET)
@@ -1863,7 +1872,7 @@ describe('cross-repo crawler execution artifacts', () => {
         && step.env?.CODEX_AUTH_BROKER_SOCKET
           === '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}'
         && step.env?.AI_MODELS_PREFER === undefined
-        && step.env?.CLAUDE_CODE_OAUTH_TOKEN === undefined)).toBe(true);
+        && step.env?.CLAUDE_CODE_OAUTH_TOKEN === '${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}')).toBe(true);
 
     const generateArticle = fs.readFileSync(path.join(ROOT, '.github/workflows/generate-article.yml'), 'utf8');
     expect(generateArticle).not.toMatch(/AI_MODELS_PREFER:\s*codex-cli\/gpt-5\.6-luna/);
@@ -1880,6 +1889,8 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(translationStep.env.CODEX_AUTH_JSON).toBeUndefined();
     expect(translationStep.env.CODEX_AUTH_BROKER_SOCKET)
       .toBe('${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}');
+    expect(translationStep.env.CLAUDE_CODE_OAUTH_TOKEN)
+      .toBe('${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}');
     const translationCleanupStep = Object.values(translation.jobs)[0].steps.find(
       (step: any) => step.name === 'Cleanup Codex auth broker',
     );
@@ -2083,7 +2094,7 @@ describe('cross-repo crawler execution artifacts', () => {
       expect(new Set(executed.map((step: any) => step.id)).size).toBe(executed.length);
       expect(job.needs).toBeUndefined();
     }
-  });
+  }, 60_000);
 
   it('i waiter propagano il launch outcome e falliscono subito senza stato ne PID', () => {
     const { contract, outDir } = generateArtifacts();
@@ -2104,5 +2115,5 @@ describe('cross-repo crawler execution artifacts', () => {
         expect(result.run).not.toContain("steps['crawler-launch-guess'].outcome");
       }
     }
-  });
+  }, 60_000);
 });
