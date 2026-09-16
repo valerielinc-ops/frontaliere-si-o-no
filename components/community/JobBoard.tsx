@@ -24,6 +24,8 @@ const CompanyFollowPopup = lazyRetry(() => import('@/components/community/Compan
 import CompanyFollowPlaceholder from '@/components/community/CompanyFollowPlaceholder';
 const JobMatchAlertCta = lazyRetry(() => import('@/components/community/JobMatchAlertCta'));
 const JobBoardFilterAlertCta = lazyRetry(() => import('@/components/community/JobBoardFilterAlertCta'));
+const AssistedApplicationOffer = lazyRetry(() => import('@/components/community/AssistedApplicationOffer'));
+const AssistedApplicationUpload = lazyRetry(() => import('@/components/community/AssistedApplicationUpload'));
 const SavedJobsAlertNudge = lazyRetry(() => import('@/components/community/SavedJobsAlertNudge'));
 const SaveSignInPromptModal = lazyRetry(() => import('@/components/community/SaveSignInPromptModal'));
 const ArticleRailAdStack = lazyRetry(() => import('@/components/shared/ArticleRailAdStack'));
@@ -182,6 +184,14 @@ import {
  type Inline as JobDescInline,
 } from '@/build-plugins/shared/jobDescription/parser';
 import { useAuthGateHeadlineVariant } from '@/services/authGateExperiment';
+import {
+ trackAssistedApplicationEvent,
+ useAssistedApplicationVariant,
+} from '@/services/assistedApplicationExperiment';
+import {
+ createAssistedApplicationCheckout,
+ ensureAssistedApplicationAuth,
+} from '@/services/assistedApplicationCheckout';
 import { useNewsletterAutologinInFlight } from '@/hooks/useNewsletterAutologinInFlight';
 import { useJobAlertEligibility } from '@/hooks/useJobAlertEligibility';
 import {
@@ -217,12 +227,10 @@ import { handleCompanyLogoError, generateInitialsLogo } from '@/services/logoSer
 import { deriveJobPostalCode, getJobLocationSnapshot } from '@/services/jobLocationSnapshot';
 import { getJobSalaryContext } from '@/data/salaryData';
 import {
- upsertNewsletterSubscriber,
- markNewsletterSubscribedLocally,
+ upsertUnifiedEmailSubscriber,
 } from '@/services/newsletterSubscribers';
-import { consentProof } from '@/services/consentTexts';
-import ConsentNotice from '@/components/shared/ConsentNotice';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
+import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import { requestSlot, releaseSlot, POPUP_PRIORITY } from '@/services/popupQueue';
 import { isCrawlerVisitorAgent } from '@/functions/src/lib/returnVisit.js';
 import type { Article } from '@/data/blog-articles-data';
@@ -2178,6 +2186,25 @@ function readCurrentPageViewPath(): string {
  return `${window.location.pathname}${window.location.search}${window.location.hash}`;
 }
 
+function readAssistedApplicationOrderId(): string | null {
+ if (typeof window === 'undefined') return null;
+ const value = new URLSearchParams(window.location.search).get('assisted_application_order_id');
+ return value && /^[A-Za-z0-9_-]{1,200}$/.test(value) ? value : null;
+}
+
+function isExternalApplicationJob(job: JobListing): boolean {
+ const mode = (job as { applyMode?: string }).applyMode;
+ return mode !== 'in_house' && mode !== 'forward_email';
+}
+
+function assistedApplicationJobContext(job: JobListing, variant: 'control' | 'assisted_application') {
+ return {
+  variant,
+  jobId: String(job.id),
+  companyId: String(job.companyKey || job.company || 'unknown'),
+ };
+}
+
 const JobBoard: React.FC<JobBoardProps> = ({
  onPostJob,
  initialJobSlug,
@@ -2197,6 +2224,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const { t } = useTranslation();
  const [locale] = useLocale();
  const { headline: gateHeadline } = useAuthGateHeadlineVariant(locale, t('jobBoard.gate.title'));
+ const {
+  variant: assistedApplicationVariant,
+  ready: assistedApplicationVariantReady,
+ } = useAssistedApplicationVariant();
  // Hold the detail skeleton (not the auth gate) while a newsletter autologin is
  // exchanging — the visitor is about to be signed in; flashing the gate is noise.
  const newsletterAutologinInFlight = useNewsletterAutologinInFlight();
@@ -2362,6 +2393,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // gets feedback, and the click stops being dead because the page genuinely
  // responded.
  const [appliedJobId, setAppliedJobId] = useState<string | null>(null);
+ const [assistedApplicationJob, setAssistedApplicationJob] = useState<JobListing | null>(null);
+ const [assistedCheckoutBusy, setAssistedCheckoutBusy] = useState(false);
+ const [assistedCheckoutError, setAssistedCheckoutError] = useState<string | null>(null);
  const [jobDetailPromptCategory, setJobDetailPromptCategory] = useState<string | null>(null);
  useEffect(() => {
  isLinkedInSignInAvailable().then(setLinkedInAvailable).catch(() => {});
@@ -3407,6 +3441,18 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const isJobDetailView = selectedJob !== null;
  const userEmail = authUser?.email || null;
  const userId = authUser?.uid || null;
+ const assistedApplicationOrderId = readAssistedApplicationOrderId();
+ const assistedExposureKeysRef = useRef(new Set<string>());
+ useEffect(() => {
+  if (!assistedApplicationVariantReady || !selectedJob || !isExternalApplicationJob(selectedJob)) return;
+  const exposureKey = `${selectedJob.id}:${assistedApplicationVariant}`;
+  if (assistedExposureKeysRef.current.has(exposureKey)) return;
+  assistedExposureKeysRef.current.add(exposureKey);
+  trackAssistedApplicationEvent(
+   'experiment_assigned',
+   assistedApplicationJobContext(selectedJob, assistedApplicationVariant),
+  );
+ }, [assistedApplicationVariant, assistedApplicationVariantReady, selectedJob]);
  const appliedAlertSurfaceVisible = Boolean(
   appliedJobId && selectedJob && appliedJobId === selectedJob.id,
  );
@@ -5896,8 +5942,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  saveAuthJobContext({
  slug: focusedJob.slug || null,
  company: focusedJob.company || null,
+ title: sanitizeJobTitle(focusedJob.titleByLocale?.[locale] ?? focusedJob.title),
  location: focusedJob.location || focusedJob.addressLocality || null,
  category: focusedJob.category || null,
+ searchQuery: searchQuery.trim() || null,
  });
  }
  void promptOneTap();
@@ -6005,7 +6053,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const sourceSuffix = `:${unlockedJob.company}:${sanitizeJobTitle(unlockedJob.title).slice(0, 60)}`;
  const emailDomain = String(userEmail || '').split('@')[1] || 'unknown';
 
- autoNewsletterSubscribe(userEmail || undefined, `job_gate_google${sourceSuffix}`);
+ void autoNewsletterSubscribe(userEmail || undefined, `job_gate_google${sourceSuffix}`, 'authenticated').then((consented) => {
+  if (consented) Analytics.trackNewsletter('subscribe', emailDomain);
+ });
  // Leva B: offer the one-tap job alert immediately on this just-unlocked job.
  justAuthedJobIdRef.current = unlockedJob.id;
  setAuthNotice(null);
@@ -6017,7 +6067,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  emailDomain,
  ...buildJobTrackingContext(unlockedJob),
  });
- Analytics.trackNewsletter('subscribe', emailDomain);
  Analytics.trackSelectContent('job_board_open_detail', `${unlockedJob.company}_${unlockedJob.title}`);
 
  const nextSlug = deriveLocalizedJobSlug(unlockedJob, locale);
@@ -6061,7 +6110,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [inlineAuthGateVisible]);
 
  const openDetail = (job: JobListing) => {
- if (!authResolved) return;
+  if (!authResolved) return;
  // Always navigate to the detail page — the inline auth gate handles
  // unauthenticated users with a blurred preview + sign-in form,
  // giving more context than a modal popup and boosting conversion.
@@ -6169,11 +6218,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  clearJobAuthRedirectSlug();
  const userEmail = result.email || result.user?.email;
  const sourceSuffix = jobToTrack ? `:${jobToTrack.company}:${sanitizeJobTitle(jobToTrack.title).slice(0, 60)}` : '';
- autoNewsletterSubscribe(userEmail, `job_gate_google${sourceSuffix}`);
+ const consented = await autoNewsletterSubscribe(userEmail, `job_gate_google${sourceSuffix}`, 'authenticated');
  setAuthNotice(null);
  const emailDomain = String(userEmail || '').split('@')[1] || 'unknown';
  Analytics.trackJobAuthFunnel('auth_success', { method: provider, emailDomain, ...jobContext });
- Analytics.trackNewsletter('subscribe', emailDomain);
+ if (consented) Analytics.trackNewsletter('subscribe', emailDomain);
  setAuthGateOpen(false);
  releaseSlot('job-auth-gate');
  const jobToOpen = pendingJob || selectedJob;
@@ -6200,13 +6249,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const jobContext = pendingJob ? buildJobTrackingContext(pendingJob) : {};
  try {
  const sourceSuffix = pendingJob ? `:${pendingJob.company}:${sanitizeJobTitle(pendingJob.title).slice(0, 60)}` : '';
- await autoNewsletterSubscribe(email, `job_gate_email${sourceSuffix}`);
+ const consented = await autoNewsletterSubscribe(email, `job_gate_email${sourceSuffix}`, 'email');
  localStorage.setItem(JOB_EMAIL_ACCESS_KEY, email.toLowerCase());
  setEmailAccessGranted(true);
  setAuthNotice({ kind: 'pending', email });
  const emailDomain = email.split('@')[1] || 'unknown';
  Analytics.trackJobAuthFunnel('auth_success', { method: 'email', emailDomain, ...jobContext });
- Analytics.trackNewsletter('subscribe', emailDomain);
+ if (consented) Analytics.trackNewsletter('subscribe', emailDomain);
  Analytics.trackSelectContent('job_board_email_access', emailDomain);
  authUnlockCandidateRef.current = null;
  setAuthGateOpen(false);
@@ -6234,13 +6283,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setAuthError(null);
  const jobContext = buildJobTrackingContext(job);
  try {
- await autoNewsletterSubscribe(email, `job_gate:${job.company}:${sanitizeJobTitle(job.title).slice(0, 60)}`);
+ const consented = await autoNewsletterSubscribe(email, `job_gate:${job.company}:${sanitizeJobTitle(job.title).slice(0, 60)}`, 'email');
  localStorage.setItem(JOB_EMAIL_ACCESS_KEY, email.toLowerCase());
  setEmailAccessGranted(true);
  setAuthNotice({ kind: 'pending', email });
  const emailDomain = email.split('@')[1] || 'unknown';
  Analytics.trackJobAuthFunnel('auth_success', { method: 'email', emailDomain, ...jobContext });
- Analytics.trackNewsletter('subscribe', emailDomain);
+ if (consented) Analytics.trackNewsletter('subscribe', emailDomain);
  authUnlockCandidateRef.current = null;
  setEmailInput('');
  // No need to route — the component will re-render with hasAccess=true
@@ -6276,42 +6325,27 @@ const JobBoard: React.FC<JobBoardProps> = ({
  };
  };
 
- const autoNewsletterSubscribe = async (email?: string, source?: string) => {
- if (!email) return;
+ const autoNewsletterSubscribe = async (
+ email?: string,
+ source?: string,
+ registrationMethod: 'email' | 'authenticated' = 'email',
+ ): Promise<boolean> => {
+ if (!email) return false;
  try {
  const [{ getFirestore }, { getApp }] = await Promise.all([
  import('firebase/firestore'),
  import('@/services/firebase'),
  ]);
  const firestore = getFirestore(await getApp());
- if (!firestore) return;
- // This is an explicit job-access gate, not a generic authentication hook.
- // Two callers are social sign-in unlocks that promote
- // (`isActive`/`status: 'confirmed'` below when the source is Google/Facebook)
- // because the gate displays the communications notice before the click. The
- // other two land `pending` and require the DOI link; none is triggered by a
- // page visit or by a global auth listener.
- //
- // Returning here also skips `markNewsletterSubscribedLocally()` below, which
- // is intended: that flag is what grants offerwall access, and granting a
- // subscriber perk to someone who is not a subscriber is the lie that made
- // this guard necessary. The job unlock itself is unaffected — every caller
- // grants it (JOB_EMAIL_ACCESS_KEY / setEmailAccessGranted) after the await,
- // independently of what happens in here.
- const { isNewsletterOptedOut, isNewsletterAccountDeleted } = await import('@/services/newsletterSubscribers');
- if (localStorage.getItem('newsletter_subscribed') === 'true'
- && !(await isNewsletterAccountDeleted(firestore, email))) return;
+ if (!firestore) return false;
  const normalizedSource = String(source || 'job_board_auth').toLowerCase();
- const isTrustedAuthSource = normalizedSource.includes('google') || normalizedSource.includes('facebook');
- // Social sign-in is authentication, not renewed newsletter consent. An
- // explicit email gate, however, may start a fresh DOI cycle after an opt-out;
- // the confirmation link remains the only thing that lifts the suppression.
- if (isTrustedAuthSource && await isNewsletterOptedOut(firestore, email)) return;
+ const sourceChannel = 'job_gate' as const;
  const focusedJob = selectedJob || sortedJobs[0] || null;
  const jobContext = focusedJob
  ? {
  slug: focusedJob.slug || null,
  company: focusedJob.company || null,
+ title: sanitizeJobTitle(focusedJob.titleByLocale?.[locale] ?? focusedJob.title) || null,
  location: focusedJob.location || null,
  category: normalizeJobCategory(focusedJob.category, focusedJob.title) || null,
  searchQuery: searchQuery.trim() || null,
@@ -6323,44 +6357,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
  category: null,
  searchQuery: searchQuery.trim() || null,
  };
- await upsertNewsletterSubscriber(firestore, {
+ await upsertUnifiedEmailSubscriber(firestore, {
  email,
- preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: true },
  source: source || 'job_board_auth',
- sourceChannel: isTrustedAuthSource
- ? normalizedSource.includes('facebook')
- ? 'auth_facebook'
- : 'auth_google'
- : 'job_gate',
+ sourceChannel,
  sourcePage: window.location.pathname,
- sourceCta: isTrustedAuthSource ? 'job_board_social_unlock' : 'job_board_email_unlock',
+ sourceCta: normalizedSource.includes('email') ? 'job_board_email_unlock' : 'job_board_social_unlock',
  sourceComponent: 'JobBoard',
- sourceRouteFamily: 'job-board',
- jobContext,
- locationInterest: jobContext.location,
- sectorInterest: jobContext.category,
- locale: navigator.language || 'it-IT',
- reconsent: !isTrustedAuthSource,
- isActive: isTrustedAuthSource,
- status: isTrustedAuthSource ? 'confirmed' : 'pending',
- // Two different acts, ONE sentence (#5678, #5712, #5765). Each of the two
- // gate surfaces below renders a single notice, under its "continua con
- // email" button, and both entries named here carry that exact sentence —
- // they differ only in `act`, because typing an address is not the same
- // thing as signing in. Until #5765 this gate printed the sign-in notice
- // above the provider buttons AND the opt-in notice under the email form:
- // two statements on one screen, one of them stored. The social branch
- // still promotes straight to confirmed/active with no double opt-in.
- ...consentProof(
- isTrustedAuthSource ? 'communicationsSignIn' : 'communicationsSignInEmail',
- isTrustedAuthSource
- ? (normalizedSource.includes('facebook') ? 'facebook_oauth' : 'google_oauth')
- : 'email_submit',
- locale,
- ),
- });
- markNewsletterSubscribedLocally();
- } catch { /* non-critical */ }
+   sourceRouteFamily: 'job-board',
+   locale: navigator.language || 'it-IT',
+   jobContext,
+   registrationMethod,
+   });
+ return true;
+ } catch { /* non-critical */ return false; }
  };
 
  const goToPage = (p: number) => {
@@ -6471,9 +6481,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onJobRouteChange?.(undefined);
  };
 
- const trackPublisherApplySignals = (job: JobListing, contentType: string): string => {
- const eventId = createPublisherApplyEventId();
- const referralUrl = buildReferralUrl(job);
+  const trackPublisherApplySignals = (
+  job: JobListing,
+  contentType: string,
+  options: { deferExternalHandoff?: boolean } = {},
+  ): string => {
+  const eventId = createPublisherApplyEventId();
+  const referralUrl = buildReferralUrl(job);
  Analytics.trackEvent('select_content', {
  content_type: contentType,
  item_id: `${job.company}_${job.title}`,
@@ -6484,8 +6498,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  is_sponsored: job.featured ? 'sponsored' : 'free',
  emission_id: eventId,
  });
- const mode = (job as { applyMode?: string }).applyMode;
- if (mode !== 'in_house' && mode !== 'forward_email') {
+  if (isExternalApplicationJob(job) && !options.deferExternalHandoff) {
   Analytics.trackJobApplyHandoff(job, referralUrl, {
    surface: contentType,
    emissionId: eventId,
@@ -6494,29 +6507,122 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return eventId;
  };
 
- const handleApply = (job: JobListing) => {
- const eventId = trackPublisherApplySignals(job, 'job_board_apply');
- // In-house / forward-email publisher ads apply via the on-page
+ const redirectExternalApplication = (job: JobListing, surface: string, trackHandoff: boolean) => {
+  const applyDestination = buildReferralUrl(job);
+  if (!applyDestination) return;
+  if (trackHandoff) {
+   Analytics.trackJobApplyHandoff(job, applyDestination, {
+    surface,
+    emissionId: createPublisherApplyEventId(),
+   });
+  }
+  trackAssistedApplicationEvent(
+   'external_apply_redirected',
+   { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface },
+  );
+  window.open(applyDestination, '_blank', 'noopener,noreferrer');
+  // Mutate the page in the same tick as the hand-off — the confirmation is the
+  // user-visible receipt AND the DOM change that makes this click non-dead.
+  setAppliedJobId(job.id);
+ };
+
+ const handleAssistedExternal = () => {
+  const job = assistedApplicationJob;
+  if (!job) return;
+  trackAssistedApplicationEvent(
+   'assisted_application_choose_external',
+   assistedApplicationJobContext(job, assistedApplicationVariant),
+  );
+  setAssistedApplicationJob(null);
+  setAssistedCheckoutError(null);
+  redirectExternalApplication(job, 'assisted_application_offer', true);
+ };
+
+ const handleAssistedPaid = async () => {
+  const job = assistedApplicationJob;
+  if (!job || assistedCheckoutBusy) return;
+  setAssistedCheckoutBusy(true);
+  setAssistedCheckoutError(null);
+  trackAssistedApplicationEvent(
+   'assisted_application_choose_paid',
+   assistedApplicationJobContext(job, assistedApplicationVariant),
+  );
+  trackAssistedApplicationEvent(
+   'checkout_started',
+   { ...assistedApplicationJobContext(job, assistedApplicationVariant), price_eur_cents: 99 },
+  );
+  try {
+   const user = authUser?.getIdToken ? authUser : await ensureAssistedApplicationAuth();
+   if (!user?.getIdToken) throw new Error('assisted_application_auth_required');
+   const currentPath = `${window.location.origin}${window.location.pathname}`;
+   const result = await createAssistedApplicationCheckout({
+    jobId: String(job.id),
+    companyId: String(job.companyKey || job.company || 'unknown'),
+    jobUrl: String(job.url || job.applyUrl || ''),
+    companyName: String(job.company || ''),
+    jobTitle: sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title),
+    experimentVariant: assistedApplicationVariant,
+    successUrl: currentPath,
+    cancelUrl: currentPath,
+   }, user);
+   window.location.assign(result.url);
+  } catch (error) {
+   setAssistedCheckoutBusy(false);
+   setAssistedCheckoutError(t('jobBoard.assisted.checkoutError'));
+   trackAssistedApplicationEvent(
+    'checkout_failed',
+    { ...assistedApplicationJobContext(job, assistedApplicationVariant), reason: 'session_creation_failed' },
+   );
+   if ((error as { message?: string })?.message === 'assisted_application_auth_required') onRequireAuth?.();
+  }
+ };
+
+ // A treatment click can happen on a list card while auth is still resolving.
+ // Keep the selected job queued and route it as soon as the detail host is
+ // allowed to open; otherwise the list has no offer mount and the click looks
+ // like a dead CTA.
+ useEffect(() => {
+  if (!assistedApplicationJob || isJobDetailView || !authResolved) return;
+  openDetail(assistedApplicationJob);
+ }, [assistedApplicationJob, authResolved, isJobDetailView]);
+
+ const handleApply = (job: JobListing, surface = 'job_board_apply') => {
+  const isExternal = isExternalApplicationJob(job);
+  const eventId = trackPublisherApplySignals(
+   job,
+   surface,
+   isExternal && assistedApplicationVariant === 'assisted_application'
+    ? { deferExternalHandoff: true }
+    : undefined,
+  );
+  // In-house / forward-email publisher ads apply via the on-page
  // PublisherApplyForm (#candidatura), NOT an external URL. For these,
  // applyUrl/url point back at the ad's own /lavoro/<slug> page, so opening
  // job.url in a new tab just re-shows the listing ("returns to the ad"
  // bug). Scroll to the in-page form instead.
  const mode = (job as { applyMode?: string }).applyMode;
  if (mode === 'in_house' || mode === 'forward_email') {
- trackPublisherApplyClick(job as { publisherJobId?: string | null }, { eventId: eventId });
- document.getElementById('candidatura')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
- return;
+  trackPublisherApplyClick(job as { publisherJobId?: string | null }, { eventId: eventId });
+  document.getElementById('candidatura')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  return;
  }
  // External publisher ads: count the apply click too (session-debounced, so it
  // never double-counts with the header logo/title links). No-op for crawled jobs.
  trackPublisherApplyClick(job as { publisherJobId?: string | null }, { eventId: eventId });
- const applyDestination = buildReferralUrl(job);
- if (applyDestination) {
- window.open(applyDestination, '_blank', 'noopener,noreferrer');
- // Mutate the page in the same tick as the hand-off — the confirmation is the
- // user-visible receipt AND the DOM change that makes this click non-dead.
- setAppliedJobId(job.id);
+ if (assistedApplicationVariant === 'assisted_application') {
+  trackAssistedApplicationEvent(
+   'job_apply_click',
+   { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface },
+  );
+  // List/card surfaces do not render the offer host themselves. Route those
+  // clicks through the detail render, where `assistedApplicationOfferJsx` is
+  // mounted, so the treatment CTA never becomes an invisible state update.
+  setAssistedCheckoutError(null);
+  setAssistedApplicationJob(job);
+  if (!isJobDetailView) openDetail(job);
+  return;
  }
+ redirectExternalApplication(job, surface, false);
  };
 
  const handleShare = async (job: JobListing) => {
@@ -6838,6 +6944,27 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </Suspense>
  ) : null;
 
+ const assistedApplicationOfferJsx = assistedApplicationJob ? (
+  <Suspense fallback={null}>
+   <AssistedApplicationOffer
+    jobId={String(assistedApplicationJob.id)}
+    companyId={String(assistedApplicationJob.companyKey || assistedApplicationJob.company || 'unknown')}
+    companyName={assistedApplicationJob.company}
+    jobTitle={sanitizeJobTitle(assistedApplicationJob.titleByLocale?.[locale] ?? assistedApplicationJob.title)}
+    variant={assistedApplicationVariant}
+    onChooseExternal={handleAssistedExternal}
+    onChoosePaid={handleAssistedPaid}
+    onClose={() => {
+     setAssistedApplicationJob(null);
+     setAssistedCheckoutBusy(false);
+     setAssistedCheckoutError(null);
+    }}
+    paidLoading={assistedCheckoutBusy}
+    error={assistedCheckoutError}
+   />
+  </Suspense>
+ ) : null;
+
  const authGateModalJsx = authGateOpen ? (
  <div className="fixed inset-0 z-[90] flex items-center justify-center p-4" onClick={(e) => { if (e.target === e.currentTarget) { authUnlockCandidateRef.current = null; setAuthGateOpen(false); releaseSlot('job-auth-gate'); setPendingJob(null); setAuthError(null); } }}>
  <div aria-hidden="true" className="absolute inset-0 bg-black/45 backdrop-blur-sm" />
@@ -6875,6 +7002,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-success" />{t('jobBoard.gate.benefit3')}</span>
  <span className="inline-flex items-center gap-1"><Shield size={12} className="text-success" />{t('jobBoard.gate.privacyNote')}</span>
  </div>
+
+ <EmailConsentCheckbox
+  consentKey="communicationsOptIn"
+  locale={locale}
+  className="text-xs text-muted leading-relaxed"
+ />
 
  {/* Social proof */}
  {jobs.length > 0 && (
@@ -6917,7 +7050,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const ctx = buildJobTrackingContext(job);
  Analytics.trackJobAuthFunnel('auth_method_click', { method: 'linkedin', ...ctx });
  setAuthBusy('linkedin');
- saveAuthJobContext({ slug: job.slug, company: job.company, location: job.location, category: job.category });
+ saveAuthJobContext({
+  slug: job.slug,
+  company: job.company,
+  title: sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title),
+  location: job.location,
+  category: job.category,
+  searchQuery: searchQuery.trim() || null,
+ });
  const jobSlug = job.slugByLocale?.[locale] ?? job.slug;
  const section = getJobBoardSectionSlug(locale);
  const prefix = locale === 'it' ? '' : `/${locale}`;
@@ -6963,10 +7103,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {authBusy === 'email' ? <Loader2 className="w-4 h-4 animate-spin" /> : <Mail className="w-4 h-4" />}
  {t('jobBoard.authGateEmailCta')}
  </button>
- {/* The gate's ONE notice (#5765). It covers both ways through this gate —
- the provider buttons above and this button — which is why the sentence
- opens with "accedendo" and why both branches of the upsert store it. */}
- <ConsentNotice consentKey="communicationsSignIn" locale={locale} className="text-[10px] text-muted leading-snug block" />
  </form>
  </div>
 
@@ -7005,6 +7141,18 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  </div>
  );
+
+ if (assistedApplicationOrderId) {
+  return (
+   <Suspense fallback={<div className="mx-auto max-w-2xl px-4 py-12 text-center text-sm text-subtle">{t('jobBoard.assisted.loading')}</div>}>
+    <AssistedApplicationUpload
+     orderId={assistedApplicationOrderId}
+     authUser={authUser}
+     onRequireAuth={onRequireAuth}
+    />
+   </Suspense>
+  );
+ }
 
  if (jobsLoading) {
  // Expired job pages with seeded data: render the expired view immediately
@@ -8336,6 +8484,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </li>
  </ul>
 
+ <EmailConsentCheckbox
+  consentKey="communicationsOptIn"
+  locale={locale}
+  className="mt-3 text-xs text-muted leading-relaxed"
+ />
+
  {/* Social proof — keep one short line */}
  {jobs.length > 0 && (
  <p className="mt-3 text-xs font-medium text-accent">
@@ -8379,7 +8533,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const ctx = buildJobTrackingContext(job);
  Analytics.trackJobAuthFunnel('auth_method_click', { method: 'linkedin', ...ctx });
  setAuthBusy('linkedin');
- saveAuthJobContext({ slug: job.slug, company: job.company, location: job.location, category: job.category });
+ saveAuthJobContext({
+  slug: job.slug,
+  company: job.company,
+  title: sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title),
+  location: job.location,
+  category: job.category,
+  searchQuery: searchQuery.trim() || null,
+ });
  const jobSlug = job.slugByLocale?.[locale] ?? job.slug;
  const section = getJobBoardSectionSlug(locale);
  const prefix = locale === 'it' ? '' : `/${locale}`;
@@ -8435,13 +8596,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </button>
  </form>
  </details>
- {/* OUTSIDE the <details> on purpose (#5765). This is the gate's only
- notice and it covers the provider buttons too, so it may not disappear
- when somebody collapses the email form — which is exactly what would
- happen if it sat inside, and the social branch would then subscribe an
- address with nothing on screen. Placed right after the form, so with
- the panel open (the default) it still reads under the email button. */}
- <ConsentNotice consentKey="communicationsSignIn" locale={locale} className="text-[10px] text-muted leading-snug block" />
  </div>
 
  {authError && <p className="text-sm text-danger mt-2">{authError}</p>}
@@ -8705,9 +8859,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Publisher / sponsored ad: a paid submission carries a `publisherJobId`. Used
  // to gate the per-job "Avvisami per questo annuncio" CTA (specificJobId alert).
  const isPublisherAd = Boolean((selectedJob as { publisherJobId?: string | null }).publisherJobId);
- const scrollToCandidatura = () => {
- document.getElementById('candidatura')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
- };
  const detailPageUrl = `${PUBLIC_SITE_URL}${buildJobPath(selectedJob)}`;
  const companySearchSlug = buildCompanySearchSlug(selectedJob.company, selectedJob.companyKey, locale);
  const detailJobCanton = resolveJobCanton(selectedJob);
@@ -8873,6 +9024,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  {authPendingNoticeJsx}
 
+ {assistedApplicationOfferJsx}
+
  <article className="hybrid-ab-root">
  <header className="hybrid-ab-hero">
  <h1 className="hybrid-ab-title">
@@ -8937,18 +9090,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  />
  </div>
  ) : (
- <a
+ <button
+  type="button"
  className="hybrid-ab-cta"
- href={applyUrl}
- target="_blank"
- rel="nofollow noopener noreferrer"
- onClick={() => {
- const eventId = trackPublisherApplySignals(selectedJob, 'job_board_apply');
- trackPublisherApplyClick(selectedJob as { publisherJobId?: string | null }, { eventId: eventId });
- }}
+ onClick={() => handleApply(selectedJob)}
  >
  {t('jobBoard.apply')}
- </a>
+ </button>
  )}
 
  {!(selectedJob as unknown as { publisherJobId?: string }).publisherJobId && (
@@ -9027,6 +9175,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  {authPendingNoticeJsx}
 
+ {assistedApplicationOfferJsx}
+
  {/* 3-column rail grid: left rail | content | right rail. 180px rails at xl
      (1280–1399), widening to 300px at xlw (≥1400) to host the ArticleRailAd
      half-page creatives — same full-height side-rail layout as the article
@@ -9049,9 +9199,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  target={isInHouseApply ? undefined : '_blank'}
  rel="nofollow noopener noreferrer"
  onClick={(e) => {
- if (isInHouseApply) { e.preventDefault(); scrollToCandidatura(); }
- const eventId = trackPublisherApplySignals(selectedJob, 'job_board_apply_header_logo');
- trackPublisherApplyClick(selectedJob as { publisherJobId?: string | null }, { eventId: eventId });
+  e.preventDefault();
+  handleApply(selectedJob, 'job_board_apply_header_logo');
  }}
  aria-label={`${t('jobBoard.apply')} ${selectedJob.company}`}
  className="w-14 h-14 sm:w-20 sm:h-20 rounded-xl bg-surface/90 flex items-center justify-center overflow-hidden border border-edge shrink-0 shadow-sm transition-transform hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-info"
@@ -9077,9 +9226,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  target={isInHouseApply ? undefined : '_blank'}
  rel="nofollow noopener noreferrer"
  onClick={(e) => {
- if (isInHouseApply) { e.preventDefault(); scrollToCandidatura(); }
- const eventId = trackPublisherApplySignals(selectedJob, 'job_board_apply_header_title');
- trackPublisherApplyClick(selectedJob as { publisherJobId?: string | null }, { eventId: eventId });
+  e.preventDefault();
+  handleApply(selectedJob, 'job_board_apply_header_title');
  }}
  className="hover:underline decoration-2 underline-offset-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
  >

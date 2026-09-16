@@ -13,7 +13,7 @@ import {
   Timer,
 } from 'lucide-react';
 import { Analytics } from '@/services/analyticsProxy';
-import ConsentNotice from '@/components/shared/ConsentNotice';
+import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
 import { validateEmailStrict } from '@/components/shared/EmailInput';
 import {
@@ -25,7 +25,6 @@ import {
   upsertNewsletterSubscriber,
   requestConfirmationEmail,
 } from '@/services/newsletterSubscribers';
-import { consentProof } from '@/services/consentTexts';
 import { app } from '@/services/firebase';
 import { signStabioDossoPetition } from '@/services/petition';
 import { buildStabioDossoPetitionPath } from '@/services/petitionRoute';
@@ -115,7 +114,6 @@ export function StabioDossoPetitionPage() {
   const { t, locale } = useTranslation();
   const { user, loading: authLoading } = useAuth();
   const [email, setEmail] = useState('');
-  const [consentChecked, setConsentChecked] = useState(false);
   const [status, setStatus] = useState<FormStatus>('idle');
   const [error, setError] = useState('');
   const [alreadySigned, setAlreadySigned] = useState(false);
@@ -132,12 +130,10 @@ export function StabioDossoPetitionPage() {
 
   useEffect(() => {
     if (!user) return;
-    // These flags are written only after the visitor has checked the consent
-    // box and deliberately pressed a sign-in control. They preserve that
-    // context across the provider redirect without auto-consenting a restored
-    // session that arrived here for another reason.
+    // Preserve the pending petition context across a provider redirect. The
+    // registration terms are recorded by the shared auth listener; this flag
+    // only remembers that the visitor came here to sign.
     if (readStorage(PENDING_EMAIL_KEY) || readStorage(AUTH_INTENT_KEY)) {
-      setConsentChecked(true);
       clearStorage(AUTH_INTENT_KEY);
       if (status === 'email-sent') setStatus('idle');
     }
@@ -168,12 +164,6 @@ export function StabioDossoPetitionPage() {
       setStatus('error');
       return;
     }
-    if (!consentChecked) {
-      setError(t('petition.form.consentRequired'));
-      setStatus('error');
-      return;
-    }
-
     setStatus('loading');
     setError('');
     try {
@@ -188,26 +178,17 @@ export function StabioDossoPetitionPage() {
         sourceComponent: 'StabioDossoPetitionPage',
         sourceRouteFamily: 'petition',
         locale,
+        // A typed address still needs the DOI click. The confirmation link
+        // also creates the authenticated session used to return and sign.
+        registrationMethod: 'email',
         signupLocale: locale,
         preferredLocale: locale,
         preferences: { traffic: true, general: true },
-        status: 'pending',
-        isActive: false,
-        reconsent: true,
-        ...consentProof('communicationsSignInEmail', 'email_checkbox', locale),
-        consentGiven: true,
-        consentPurpose: 'stabioPetition',
       });
-      // A deliberate re-consent may still report the historical opt-out while
-      // the fresh DOI is pending. Only a non-pending opt-out is a hard stop.
       if (capture.optedOut && capture.status !== 'pending') throw new Error('newsletter-opted-out');
 
-      // A new pending address receives the DOI message from the upsert; that
-      // confirmation link also returns a Firebase custom-auth session. An
-      // existing/previously confirmed address does not enter that DOI branch,
-      // so explicitly request the passwordless login link before showing the
-      // "check your email" state. Without this branch the visitor could be
-      // left waiting for an email that never enables the signing session.
+      // A new/pending address gets the DOI from the shared upsert. A confirmed
+      // address needs only the separate passwordless access link to sign.
       if (
         (capture.status === 'confirmed' || capture.status === 'subscribed')
         && (capture.existed || capture.hadConfirmationProof)
@@ -233,23 +214,12 @@ export function StabioDossoPetitionPage() {
       setStatus('error');
       return;
     }
-    if (!consentChecked) {
-      setError(t('petition.form.consentRequired'));
-      setStatus('error');
-      return;
-    }
-
     setStatus('loading');
     setError('');
     try {
       const db = await initFirestore();
       if (!db) throw new Error('firestore-unavailable');
       const providerId = user.providerData?.find((provider: { providerId?: string }) => provider?.providerId)?.providerId || '';
-      const consentMethod = providerId === 'google.com'
-        ? 'google_oauth'
-        : providerId === 'linkedin.com'
-          ? 'linkedin_oauth'
-          : 'email_checkbox';
       const capture = await upsertNewsletterSubscriber(db, {
         email: normalizedEmail,
         userId: user.uid || null,
@@ -264,28 +234,10 @@ export function StabioDossoPetitionPage() {
         signupLocale: locale,
         preferredLocale: locale,
         preferences: { traffic: true, general: true },
-        status: 'confirmed',
-        isActive: true,
-        // A checked box is an explicit request to re-enter the DOI flow for
-        // addresses that previously opted out. The confirmation link must
-        // lift that opt-out before the petition can be signed.
-        reconsent: true,
-        ...consentProof(
-          providerId === 'google.com' || providerId === 'linkedin.com'
-            ? 'communicationsSignIn'
-            : 'communicationsSignInEmail',
-          consentMethod,
-          locale,
-        ),
-        consentGiven: true,
-        consentPurpose: 'stabioPetition',
       });
-      // A deliberate re-consent may still report the historical opt-out while
-      // the fresh DOI is pending. Only a non-pending opt-out is a hard stop.
       if (capture.optedOut && capture.status !== 'pending') throw new Error('newsletter-opted-out');
       if (capture.status !== 'confirmed' && capture.status !== 'subscribed') {
         setStatus('email-sent');
-        Analytics.trackUIInteraction('stabio_petition', 'form', 'newsletter_reconsent_requested', 'newsletter_gate');
         return;
       }
 
@@ -436,22 +388,15 @@ export function StabioDossoPetitionPage() {
               <>
                 <p className="mt-6 rounded-2xl bg-surface-alt px-4 py-3 text-sm leading-6 text-subtle">{t('petition.form.accountNotice')}</p>
                 <div className="mt-6 rounded-2xl border border-edge bg-surface-alt p-4">
-                  <div className="flex items-start gap-3">
-                    <input
-                      id="stabio-petition-consent"
-                      type="checkbox"
-                      checked={consentChecked}
-                      onChange={(event) => { setConsentChecked(event.target.checked); setError(''); }}
-                      className="mt-1 h-5 w-5 shrink-0 rounded border-edge text-accent focus:ring-2 focus:ring-accent"
-                    />
-                    <label htmlFor="stabio-petition-consent" className="text-sm font-medium leading-6 text-strong">
-                      {t('petition.form.checkboxIntro')}
-                    </label>
-                  </div>
-                  <ConsentNotice
-                    consentKey="communicationsSignIn"
+                  <p className="text-sm font-medium leading-6 text-strong">
+                    {t('petition.form.checkboxIntro')}
+                  </p>
+                  <EmailConsentCheckbox
+                    id="stabio-petition-consent"
+                    consentKey="communicationsOptIn"
                     locale={locale}
-                    className="mt-3 block text-xs leading-5 text-muted"
+                    className="mt-3 flex items-start gap-2 cursor-pointer"
+                    noticeClassName="text-xs leading-5 text-muted"
                   />
                 </div>
 
@@ -501,17 +446,15 @@ export function StabioDossoPetitionPage() {
                     <div>
                       <h3 className="text-sm font-semibold text-strong">{t('petition.form.socialTitle')}</h3>
                       <p className="mt-1 text-xs leading-5 text-muted">{t('petition.form.socialIntro')}</p>
-                      {!authLoading && consentChecked && (
+                      {!authLoading && (
                         <SocialSignInButtons
                           locale={locale}
                           className="mt-4"
                           layout="stack"
                           errorContext="stabioPetition.socialSignIn"
                           onAuthIntent={markAuthIntent}
-                          mountEnabled={!authLoading && consentChecked}
                         />
                       )}
-                      {!consentChecked && <p className="mt-3 text-xs text-muted">{t('petition.form.consentRequired')}</p>}
                     </div>
                   </>
                 )}

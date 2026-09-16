@@ -82,8 +82,15 @@ function validateDurableEvent(registry, event, label) {
   return event;
 }
 
+/**
+ * The observer's capture metadata is expected to change when a run retries.
+ * The event itself must remain immutable, however: a changed PR, event type or
+ * evidence reference under the same deterministic recordId is a real conflict.
+ */
 function sameRecord(left, right) {
-  return JSON.stringify(left) === JSON.stringify(right);
+  const { recordedAt: _leftRecordedAt, execution: _leftExecution, ...leftEvent } = left;
+  const { recordedAt: _rightRecordedAt, execution: _rightExecution, ...rightEvent } = right;
+  return JSON.stringify(leftEvent) === JSON.stringify(rightEvent);
 }
 
 /** Append new observed events idempotently; conflicting record IDs fail closed. */

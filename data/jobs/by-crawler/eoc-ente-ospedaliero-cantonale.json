@@ -353,7 +353,6 @@
           "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-bellinzona-2",
           "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-bellinzona-3",
           "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-lugano-2",
-          "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-feey97",
           "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
           "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-feezql",
           "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-lugano-3",
@@ -381,7 +380,6 @@
         "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-bellinzona-2",
         "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-bellinzona-3",
         "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-lugano-2",
-        "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-feey97",
         "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
         "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-feezql",
         "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-lugano-3",
@@ -1407,10 +1405,14 @@
       "previousSlugsByLocale": {
         "de": [
           "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona"
+        ],
+        "it": [
+          "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-feey97"
         ]
       },
       "previousSlugs": [
-        "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-feey97"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,

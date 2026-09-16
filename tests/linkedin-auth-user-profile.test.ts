@@ -34,6 +34,20 @@ describe('LinkedIn auth Cloud Function — subscriber profile enrichment', () =>
     expect(source).toContain('updatedAt: admin.firestore.FieldValue.serverTimestamp()');
   });
 
+  it('creates the base terms relationship when the subscriber document is missing', () => {
+    const enrichFn = source.slice(
+      source.indexOf('async function enrichSubscriberProfile'),
+      source.indexOf('async function handleLinkedInCallback')
+    );
+    expect(enrichFn).toContain('const existingSubscriber = await subRef.get();');
+    expect(enrichFn).toContain("status: 'confirmed'");
+    expect(enrichFn).toContain("consent_basis: 'registration_terms'");
+    expect(enrichFn).toContain("registration_terms_accepted: true");
+    expect(enrichFn).toContain("consent_act: 'registration_terms_acceptance'");
+    expect(enrichFn).toContain("consent_method: 'terms_and_conditions'");
+    expect(enrichFn).not.toContain('if (!existingSubscriber.exists) return;');
+  });
+
   it('handles Firestore write failure gracefully (best-effort)', () => {
     expect(source).toContain("console.error('[linkedinAuthCallback] Failed to enrich subscriber profile:'");
     const enrichFn = source.slice(
@@ -149,19 +163,22 @@ describe('Firestore rules — newsletter_subscribers collection', () => {
    * The two grants that must NOT have moved, pinned so the next narrowing pass
    * has to argue with a test instead of a silence.
    *
-   * `create` and non-consent `update` stay public because anonymous subscription
-   * is the product (App.tsx's unsubscribe fall-through also depends on it), and `get` stays public because
-   * the anonymous subscribe path READS before it writes —
-   * `captureNewsletterSubscriber` and `isNewsletterOptedOut`, the latter with
-   * callers in TaxCalendar, JobBoard and PublisherPublishPage that have no
-   * signed-in user. `isNewsletterOptedOut` fails closed, so denying that read
-   * would suppress subscriptions without raising anything.
+   * `get` stays public because the anonymous subscribe path READS before it
+   * writes — `captureNewsletterSubscriber` and `isNewsletterOptedOut`, the
+   * latter with callers in TaxCalendar, JobBoard and PublisherPublishPage that
+   * have no signed-in user. `isNewsletterOptedOut` fails closed, so denying
+   * that read would suppress subscriptions without raising anything.
+   * Creates are deliberately narrower: a pending or verified, consent-bearing
+   * payload is required, so authentication/profile enrichment cannot create a
+   * newsletter relationship by itself.
    */
   it('keeps anonymous subscribe working: get and non-consent writes stay public', () => {
     const own = directRules(subBlock);
     expect(own).toContain('allow get: if true');
-    expect(own).toContain('allow create: if true');
-    expect(own).toContain('allow update: if !consentFieldsTouched(request.resource.data, resource.data)');
+    expect(own).toContain('allow create: if isPendingNewsletterCreate()');
+    expect(own).toContain('|| isVerifiedConfirmedCreate(email)');
+    expect(own).toContain('allow update: if (');
+    expect(own).toContain('!consentFieldsTouched(request.resource.data, resource.data)');
   });
 
   /**
@@ -196,7 +213,10 @@ describe('Firestore rules — newsletter_subscribers collection', () => {
   it('keeps the engagement log append-only and closed to client reads', () => {
     const events = matchBlock(subBlock, 'match /events/{eventId}');
     expect(events).toContain('allow read: if false');
-    expect(events).toContain('allow create: if true');
+    expect(events).toContain('allow create: if !(');
+    expect(events).toContain("request.resource.data.keys().hasAll(['event_type', 'source_channel'])");
+    expect(events).toContain("request.resource.data.event_type == 'confirm'");
+    expect(events).toContain("request.resource.data.source_channel == 'confirmation_link'");
     expect(events).toContain('allow update, delete: if false');
     expect(events).not.toMatch(/allow\s+[^;]*write[^;]*:\s*if\s+true/);
   });
@@ -507,7 +527,25 @@ describe('Frontend authService — subscriber profile enrichment', () => {
 
   it('handles Firestore write failure gracefully', () => {
     expect(source).toContain('.catch(() => {})');
-    expect(source).toContain("console.warn('[Auth] Failed to enrich subscriber profile:'");
+    expect(source).toContain("console.warn('[Auth] Failed to register/enrich subscriber profile:'");
+  });
+});
+
+describe('Profile enrichment — no subscriber creation side effect', () => {
+  it('only merges partial profile fields onto an existing subscriber', () => {
+    const source = readFileSync(resolve(root, 'services/profileFirestore.ts'), 'utf8');
+    expect(source).toContain('const existingSubscriber = await getDoc(subscriberRef);');
+    expect(source).toContain('if (!existingSubscriber.exists()) return;');
+  });
+
+  it('only toggles autologin on an existing subscriber', () => {
+    const source = readFileSync(resolve(root, 'components/pages/UserProfile.tsx'), 'utf8');
+    const toggleFn = source.slice(
+      source.indexOf('const handleToggleAutologin'),
+      source.indexOf('//', source.indexOf('const handleToggleAutologin'))
+    );
+    expect(toggleFn).toContain('const existingSubscriber = await getDoc(subscriberRef);');
+    expect(toggleFn).toContain('if (!existingSubscriber.exists()) return;');
   });
 });
 

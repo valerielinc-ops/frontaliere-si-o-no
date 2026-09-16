@@ -140,7 +140,9 @@ jobs:
         # A full loop takes ~30 minutes, which is long enough for another push
         # to land on the branch first: the first remote run failed here with
         # "! [rejected] (fetch first)". So: rebase onto whatever arrived, and
-        # retry — the loop's state files are append-mostly and rebase cleanly.
+        # retry — the resolver below merges the append-mostly queue, registry,
+        # validation history and generated crawler specs without dropping the
+        # other run's observations.
         run: |
           git config user.name  'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
@@ -150,7 +152,9 @@ jobs:
             exit 0
           fi
           git commit -m 'prospector: aggiorna coda candidati, registro piattaforme e report qualita'
-          bash scripts/lib/git-push-with-retry.sh --branch "$GITHUB_REF_NAME"
+          bash scripts/lib/git-push-with-retry.sh \
+            --branch "$GITHUB_REF_NAME" \
+            --in-place-resolver-cmd 'node scripts/lib/resolve-prospector-conflicts.mjs && git add -A'
 
       # ── Chiusura del loop ────────────────────────────────────────────────
       # Ship dei crawler che hanno superato il gate: nessun passo umano. Gira

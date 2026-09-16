@@ -1,7 +1,7 @@
 /**
  * newsletterWelcomeEmail.js — post-signup welcome email (replaces the
- * generic "you're confirmed" email that used to only go out via the nightly
- * cron, up to 24h late). Sent within seconds of double opt-in confirmation.
+ * generic "welcome" email that used to only go out via the nightly cron, up to
+ * 24h late). Sent within seconds of a terms-based registration.
  *
  * Idempotency: a Firestore transaction claims `welcome_sent_at` on the
  * subscriber doc BEFORE the provider call, so two racing triggers (e.g. the
@@ -21,9 +21,8 @@ import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './emailCascad
 import { getRemoteConfigValue, getNewsletterSecrets, bridgeEmailCascadeCredentialsToEnv, getAutologinPolicyConfig, getNewsletterTokenPolicyConfig } from './remoteConfigSecrets.js';
 import { resolveAutologinPolicy } from './lib/autologinCode.js';
 import { resolveNewsletterTokenPolicy } from './lib/newsletterActionToken.js';
-import { isNewsletterExcluded } from './lib/emailSuppression.js';
+import { isCrossChannelStop, isNewsletterExcluded } from './lib/emailSuppression.js';
 import { isNewsletterOptOutBinding } from './lib/newsletterOptOut.js';
-import { hasConfirmationProof } from './lib/subscriberConsent.js';
 import { resolveWelcomeContext } from './lib/welcomeSegment.js';
 import { resolveSubscriberLocale } from './lib/subscriberLocale.js';
 import { buildWelcomeEmail } from './lib/welcomeEmailTemplate.js';
@@ -139,33 +138,13 @@ function evaluateWelcomeEligibility(data, isPreview) {
   // camelCase stamp on 458 documents (#5673, #5688). Via the shared predicate,
   // which lifts the opt-out on an explicit re-opt-in (#5711) — a welcome mail
   // after a deliberate re-subscription is exactly what should still go out.
-  if (isNewsletterExcluded(data?.status) || isNewsletterOptOutBinding(data)) {
+  if (isCrossChannelStop(data) || isNewsletterExcluded(data?.status) || isNewsletterOptOutBinding(data)) {
     return { ok: false, skipped: 'suppressed' };
   }
-  // THE STAMP, never the word and never the boolean (#5700). This read
-  //
-  //     data?.status === 'confirmed' || data?.isActive === true || data?.active === true
-  //
-  // which is the same OR the daily brief carried before #5694 and the drip
-  // before #5700, and all three disjuncts are states a MACHINE writes: the
-  // 2026-07 recovery pass DEDUCED `confirmed` from the signup origin, and
-  // scripts/mailtrap-suppression-retry.mjs:176 writes `status: 'pending',
-  // isActive: true` as a deliverability re-probe. 550 production documents
-  // (2026-08-13, 8.673 docs) passed it with nothing recording their consent,
-  // and this is the welcome mail — the FIRST thing a fabricated subscriber
-  // would receive.
-  if (!hasConfirmationProof(data)) {
-    return { ok: false, skipped: 'not_confirmed' };
-  }
   if (!isPreview) {
-    // Both spellings, and no `created_at` fallback (#5700). The fallback made a
-    // missing stamp free: a doc with no proof still had an anchor, so the only
-    // thing standing between it and a welcome mail was the OR above. The gate
-    // now guarantees a stamp, so the fallback is unreachable — removed rather
-    // than kept as dead code, because it is what a future relaxation of the
-    // gate would silently re-arm. `confirmedAt` is the camelCase twin the SPA
-    // writer leaves on 458 documents (#5673): reading only the snake_case name
-    // would report `too_old` for a subscriber who had just confirmed.
+    // Both timestamp spellings are accepted for legacy rows. New terms-based
+    // registrations write confirmed_at centrally; without an anchor, do not
+    // back-send a welcome to an old record.
     const anchor = toDate(data?.confirmed_at) || toDate(data?.confirmedAt);
     if (!anchor || Date.now() - anchor.getTime() > RECENCY_WINDOW_MS) {
       return { ok: false, skipped: 'too_old' };
@@ -279,15 +258,12 @@ export async function sendNewsletterWelcomeEmail({ email, locale, db: injectedDb
   const ctx = resolveWelcomeContext(data);
   const resolvedLocale = resolveSubscriberLocale(data, locale);
 
-  // Whether to say "your alert is active" or to OFFER one. Since #5705 the
-  // backfillJobAlertOnNewsletterSignup trigger creates nothing without an
-  // affirmative job-alert consent, so for a new subscriber this now resolves
-  // false and the email offers the alert instead of announcing it — which is
-  // the correct direction: an offer the reader can accept is a consent, an
-  // announcement of a subscription they never asked for is the defect.
-  // Prefer the alert doc as ground truth (a subscriber who really created one
-  // still gets the "active" copy); with no doc, fall back to the SAME predicate
-  // the trigger uses, so the email and the trigger can't disagree.
+  // Whether to say "your alert is active" or to offer one. Registration terms
+  // establish the base relationship, while the signal/context carried by the
+  // signup determines the first criteria. Prefer the alert doc as ground truth
+  // (a subscriber whose alert was already materialised still gets the active
+  // copy); with no doc, fall back to the SAME predicate the trigger uses, so
+  // the email and the trigger cannot disagree.
   // Only the `job` segment branches on this, so the sub-collection read is
   // skipped for the other four — no point paying a Firestore round-trip per
   // send for a value nothing downstream reads.

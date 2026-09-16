@@ -2,17 +2,17 @@
  * tests/welcome-client-hook.test.ts — regression guard for the client-side
  * welcome-email wiring in services/newsletterSubscribers.ts.
  *
- * Explicit contextual gates may still write PRE-CONFIRMED records client-side
- * via upsertNewsletterSubscriber, but generic authentication and One Tap are
- * access-only now. These explicit records never hit a confirmation-link Cloud
- * Function, so the requestWelcomeEmail branch in upsertNewsletterSubscriber
- * is their welcome touchpoint.
+ * Authenticated-provider registration surfaces write CONFIRMED records
+ * client-side via upsertNewsletterSubscriber under the site terms. Typed
+ * email registration stays PENDING and uses the confirmation-link Cloud
+ * Function; only the provider-authenticated branch uses requestWelcomeEmail.
  *
  * upsertNewsletterSubscriber has 17 direct callers (impact:
  * impactedCount 29, risk CRITICAL) — this suite exists specifically to
  * prove the branch is purely additive: byte-identical behavior for the
- * pending/confirmed-existed cases, plus the confirmed-new case, and that a
- * failing welcome-email request can NEVER surface to callers of
+ * confirmed-existed case, plus the confirmed-new authenticated case, the
+ * pending typed-email case, and that a failing welcome-email request can
+ * NEVER surface to callers of
  * upsertNewsletterSubscriber.
  *
  * Firestore mocking follows the established convention (see
@@ -79,7 +79,7 @@ describe('welcome-email client-side wiring (services/newsletterSubscribers.ts)',
     vi.restoreAllMocks();
   });
 
-  it('(a) confirmed && !existed calls requestWelcomeEmail exactly once', async () => {
+  it('(a) authenticated confirmed && !existed calls requestWelcomeEmail exactly once', async () => {
     getDocMock.mockResolvedValue(NOT_EXISTS);
 
     const result = await upsertNewsletterSubscriber({} as any, {
@@ -87,6 +87,8 @@ describe('welcome-email client-side wiring (services/newsletterSubscribers.ts)',
       status: 'confirmed',
       // #5678: a NEW subscriber cannot be created without a consent text.
       consentText: 'formula di prova',
+      consentGiven: true,
+      registrationMethod: 'authenticated',
     });
 
     expect(result).toEqual({ existed: false, id: 'new-confirmed@example.com', status: 'confirmed', optedOut: false, hadConfirmationProof: false });
@@ -117,14 +119,13 @@ describe('welcome-email client-side wiring (services/newsletterSubscribers.ts)',
     expect(fetchMock).not.toHaveBeenCalled();
   });
 
-  it('(c) pending && !existed calls requestConfirmationEmail and NOT requestWelcomeEmail (pre-existing behavior)', async () => {
+  it('(c) typed email registration calls requestConfirmationEmail and NOT requestWelcomeEmail', async () => {
     getDocMock.mockResolvedValue(NOT_EXISTS);
 
     const result = await upsertNewsletterSubscriber({} as any, {
       email: 'new-pending@example.com',
       status: 'pending',
-      // #5678: a NEW subscriber cannot be created without a consent text.
-      consentText: 'formula di prova',
+      registrationMethod: 'email',
     });
 
     expect(result).toEqual({ existed: false, id: 'new-pending@example.com', status: 'pending', optedOut: false, hadConfirmationProof: false });
@@ -144,6 +145,8 @@ describe('welcome-email client-side wiring (services/newsletterSubscribers.ts)',
       status: 'confirmed',
       // #5678: a NEW subscriber cannot be created without a consent text.
       consentText: 'formula di prova',
+      consentGiven: true,
+      registrationMethod: 'authenticated',
     });
 
     // The return value is byte-identical to the success case: the failing

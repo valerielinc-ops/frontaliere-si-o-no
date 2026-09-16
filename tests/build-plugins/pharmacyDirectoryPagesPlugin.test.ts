@@ -4,12 +4,17 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { buildPharmacyAliasBridge, buildPharmacyDirectoryPage, emitPharmacyAliasBridge, pharmacyPageDescriptors } from '../../build-plugins/pharmacyDirectoryPagesPlugin';
+import { renderItalyDutyCoverageSection } from '../../build-plugins/pharmacyItalyDuty';
 import { ITALY_BORDER_PHARMACIES, TICINO_CITIES, TICINO_PHARMACIES, pharmacyCitySlug } from '../../services/pharmacies/data';
+import { buildDutyCoverageMatrix } from '../../services/pharmacies/dutyCoverageMatrix';
 import { buildPharmacyPath } from '../../services/pharmacies/paths';
 import { formatDutyDateTime } from '../../services/pharmacies/dutyWeek';
 import { extractVisibleText } from '../../scripts/audit-text-html-ratio.mjs';
 import catalogueJson from '../../data/pharmacies-ticino-complete.json';
 import dutiesJson from '../../data/pharmacy-duties-ticino.json';
+import italyDutiesJson from '../../data/pharmacy-duties-italy.json';
+import italyStatusJson from '../../data/pharmacy-duties-italy-status.json';
+import type { ItalyDutySnapshot } from '../../services/pharmacies/italyRelease';
 import type { PharmacyDutiesDataset } from '../../services/pharmacies/types';
 
 const locales = ['it', 'en', 'de', 'fr'] as const;
@@ -152,8 +157,17 @@ describe('pharmacy directory page matrix', () => {
     expect(page.indexable).toBe(true);
     expect(page.html.match(/data-coverage-kind=(?:"ticino-region"|ticino-region)/g) || []).toHaveLength(5);
     expect(page.html.match(/data-coverage-kind=(?:"source-only-canton"|source-only-canton)/g) || []).toHaveLength(25);
-    expect(page.html.match(/data-source-status=(?:"unverified"|unverified)/g) || []).toHaveLength(25);
+    // Main may promote a source-only canton to a valid non-unverified state
+    // (for example Geneva's fail-closed `degraded` source slice). The matrix
+    // contract requires one status attribute per canton, not that every
+    // source remains `unverified` forever.
+    expect(page.html.match(/data-source-status=(?:"(?:unverified|degraded|active|blocked|unavailable)"|(?:unverified|degraded|active|blocked|unavailable))/g) || []).toHaveLength(25);
     expect(page.html).toMatch(/data-release-ready=(?:"true"|true)/);
+    expect(page.html.match(/data-coverage-kind=(?:"italy-province"|italy-province)/g) || []).toHaveLength(3);
+    expect(page.html).toMatch(/data-italy-release-ready=(?:"false"|false)/);
+    expect(page.html).toMatch(/data-italy-indexable=(?:"false"|false)/);
+    expect(page.html).toMatch(/data-italy-release-state=(?:"not_published"|not_published)/);
+    expect(page.html).not.toContain('data-italy-duty-published');
     expect(page.html).toContain('https://apotheken-aargau.ch/notfall/');
     expect(page.html).toContain('https://www.farmacielocarnese.ch/');
 
@@ -289,6 +303,53 @@ describe('pharmacy directory page matrix', () => {
     expect(tamperedPage.indexable).toBe(false);
     expect(tamperedPage.html).toContain('noindex,follow');
     expect(tamperedPage.html).not.toContain('"@type":"ItemList"');
+  });
+
+  it.each(locales)('keeps Italian duty hub and week noindex and without JSON-LD while the release is not published (%s)', (locale) => {
+    const hub = pharmacyPageDescriptors().find((candidate) => candidate.kind === 'italy-duty-hub');
+    const week = pharmacyPageDescriptors().find((candidate) => candidate.kind === 'italy-duty-week');
+    const weekDescriptor = { ...week!, weekStart: '2026-09-14' };
+
+    for (const descriptor of [hub!, weekDescriptor]) {
+      const page = buildPharmacyDirectoryPage(descriptor, locale, '/tmp/pharmacy-dist');
+      expect(page.indexable).toBe(false);
+      expect(page.html).toContain('noindex,follow');
+      expect(page.html).not.toContain('application/ld+json');
+      expect(page.html).not.toContain('data-italy-duty-published');
+      expect(page.html).not.toMatch(/<time\b/);
+      expect(page.html).toContain('novita_138.html');
+      expect(page.html).toContain('Dettaglionews?IDNews=400586');
+      expect(page.html).toContain('2968938.pdf');
+    }
+    expect(buildPharmacyPath({ kind: 'italy-duty-hub', country: 'IT', locale }, locale)).toContain('/');
+  });
+
+  it('keeps the static Italy coverage renderer fail-closed for a partial release', () => {
+    const partialDuties = {
+      ...italyDutiesJson,
+      _release: { ...italyDutiesJson._release, state: 'partial' },
+    } as unknown as ItalyDutySnapshot;
+    const partialStatus = {
+      ...italyStatusJson,
+      _release: { ...italyStatusJson._release, state: 'partial' },
+    } as unknown as ItalyDutySnapshot;
+    const matrix = buildDutyCoverageMatrix({
+      locale: 'it',
+      weekStart: '2026-09-14',
+      now: new Date('2026-09-15T12:00:00.000Z'),
+      italyDuties: partialDuties,
+      italyStatus: partialStatus,
+    });
+    const html = renderItalyDutyCoverageSection('it', matrix);
+
+    expect(matrix.italy.state).toBe('partial');
+    expect(html.match(/data-coverage-kind="italy-province"/g) || []).toHaveLength(3);
+    expect(html).not.toContain('data-italy-duty-published');
+    expect(html).not.toMatch(/data-duty-id=/);
+    expect(html).not.toMatch(/<time\b/);
+    expect(html).toContain('novita_138.html');
+    expect(html).toContain('Dettaglionews?IDNews=400586');
+    expect(html).toContain('2968938.pdf');
   });
 
   it('emits a noindex canonical bridge for a historical Italian detail path', () => {

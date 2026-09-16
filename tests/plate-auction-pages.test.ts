@@ -22,6 +22,8 @@ function fixtureRoot({ auctionCount = 1, withDist = false }: { auctionCount?: nu
   tempDirs.push(rootDir);
   const dataDir = join(rootDir, 'public', 'data');
   mkdirSync(dataDir, { recursive: true });
+  const registryDir = join(rootDir, 'data');
+  mkdirSync(registryDir, { recursive: true });
   const groups = auctionCount === 41 ? FULL_FIXTURE_GROUPS : [{ sourceKey: 'GR', canton: 'Grigioni', platePrefix: 'GR', count: auctionCount }];
   const auctions = groups.flatMap((group, groupIndex) => Array.from({ length: group.count }, (_, index) => {
     const filtered = auctionCount > 1 && groupIndex === groups.length - 1 && index === group.count - 1;
@@ -50,6 +52,24 @@ function fixtureRoot({ auctionCount = 1, withDist = false }: { auctionCount?: nu
     auctions,
     history: [{ id: 'gr-final', sourceKey: 'GR', canton: 'Grigioni', platePrefix: 'GR', normalizedPlate: 'GR7', finalPriceChf: 7000, finalPriceVerifiedAt: '2026-09-12T18:00:00.000Z', auctionStatus: 'sold', dataConfidence: 'verified', officialAuctionUrl: 'https://eauktion.gr.ch/' }],
   }), 'utf8');
+  writeFileSync(join(registryDir, 'plate-auction-sources-registry.json'), JSON.stringify({
+    generatedAt: '2026-09-13T12:00:00.000Z',
+    sources: Object.fromEntries(groups.map((group) => [group.sourceKey.toLowerCase(), {
+      canton: group.canton,
+      plateCode: group.sourceKey,
+      officialUrl: 'https://eauktion.gr.ch/',
+      accessMethod: 'manual',
+      fetchFrequency: 'P1D',
+      timezone: 'Europe/Zurich',
+      parserVersion: 'test',
+      availableFields: [],
+      rateLimit: 'test',
+      termsOfUse: 'test',
+      owner: 'test',
+      status: 'active',
+      sourceFetchedAt: '2026-09-13T12:00:00.000Z',
+    }])),
+  }), 'utf8');
   if (withDist) {
     mkdirSync(join(rootDir, 'dist'), { recursive: true });
   }
@@ -57,6 +77,48 @@ function fixtureRoot({ auctionCount = 1, withDist = false }: { auctionCount?: nu
 }
 
 describe('plate-auction static pages', () => {
+  it('renders registry-backed canton coverage and freshness on the national hub', () => {
+    const rootDir = fixtureRoot();
+    const rendered = renderPlateAuctionPage({ locale: 'it', view: 'hub', rootDir });
+
+    expect(rendered.html).toContain('Copertura per cantone');
+    expect(rendered.html).toContain('data-canton-status=active');
+    expect(rendered.html).toContain('Grigioni (GR)');
+    expect(rendered.html).toContain('Ultimo aggiornamento');
+    expect(rendered.html).toContain('https://eauktion.gr.ch/');
+
+    const english = renderPlateAuctionPage({ locale: 'en', view: 'hub', rootDir });
+    expect(english.html).toContain('Graubünden (GR)');
+  });
+
+  it('shows coverage in progress and suppresses listings when no registry source is active', () => {
+    const rootDir = fixtureRoot();
+    const registryPath = join(rootDir, 'data', 'plate-auction-sources-registry.json');
+    const registry = JSON.parse(readFileSync(registryPath, 'utf8')) as { sources: Record<string, { status: string }> };
+    for (const source of Object.values(registry.sources)) source.status = 'unverified';
+    writeFileSync(registryPath, JSON.stringify(registry), 'utf8');
+
+    const rendered = renderPlateAuctionPage({ locale: 'it', view: 'hub', rootDir });
+    expect(rendered.html).toContain('Copertura in corso');
+    expect(rendered.html).toContain('data-canton-status=unverified');
+    expect(rendered.html).not.toContain('<table>');
+    expect(rendered.html).not.toContain('GR8');
+    expect(rendered.html).toContain('https://eauktion.gr.ch/');
+  });
+
+  it('fails closed when the source registry is malformed', () => {
+    const rootDir = fixtureRoot();
+    writeFileSync(join(rootDir, 'data', 'plate-auction-sources-registry.json'), JSON.stringify({
+      generatedAt: '2026-09-13T12:00:00.000Z',
+      sources: null,
+    }), 'utf8');
+
+    const rendered = renderPlateAuctionPage({ locale: 'it', view: 'hub', rootDir });
+    expect(rendered.html).toContain('Il registro delle fonti cantonali non è disponibile');
+    expect(rendered.html).not.toContain('<table>');
+    expect(rendered.html).not.toContain('GR8');
+  });
+
   it('uses verified history for rankings and keeps the live row out', () => {
     const rootDir = fixtureRoot();
     const rendered = renderPlateAuctionPage({ locale: 'it', view: 'rankings', rootDir });
@@ -96,7 +158,7 @@ describe('plate-auction static pages', () => {
     expect(rendered.html).not.toContain('Alle veröffentlichten Auktionen');
   });
 
-  it('does not expand a small current catalogue with expired detail links', () => {
+  it('caps extra detail links when a small current catalogue has old rows', () => {
     const rootDir = fixtureRoot();
     const snapshotPath = join(rootDir, 'public', 'data', 'plate-auctions.json');
     const snapshot = JSON.parse(readFileSync(snapshotPath, 'utf8')) as { auctions: Array<Record<string, unknown>> };
@@ -111,8 +173,9 @@ describe('plate-auction static pages', () => {
 
     const rendered = renderPlateAuctionPage({ locale: 'it', view: 'canton', canton: 'GR', rootDir });
 
-    expect(rendered.html).not.toContain('EXPIRED0');
-    expect((rendered.html.match(/<li>/g) || []).length).toBe(0);
+    expect(rendered.html).toContain('EXPIRED0');
+    expect(rendered.html).not.toContain('EXPIRED48');
+    expect((rendered.html.match(/<li>/g) || []).length).toBeLessThanOrEqual(48);
   });
 
   it('renders a historical detail page with the same indexable ad surfaces', () => {
@@ -185,6 +248,15 @@ describe('plate-auction static pages', () => {
       expect(new Set(items.map((item) => item.item)).size).toBe(items.length);
       expect(items.at(-1)?.item).toBe(`https://frontaliereticino.ch/${page.urlPath}/`);
     }
+  });
+
+  it('bounds a large canton index while keeping detail pages separate', () => {
+    const rootDir = fixtureRoot({ auctionCount: 2000 });
+    const rendered = renderPlateAuctionPage({ locale: 'de', view: 'canton', canton: 'GR', rootDir });
+
+    expect(Buffer.byteLength(rendered.html, 'utf8')).toBeLessThan(260 * 1024);
+    expect(rendered.html).toContain('GR2006');
+    expect(rendered.html).not.toContain('/gr56/');
   });
 
   it('materializes every published detail URL and includes it in the sitemap', async () => {

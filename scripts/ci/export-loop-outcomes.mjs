@@ -17,6 +17,7 @@ import {
   GA4_READONLY_SCOPE,
   ga4DateRange,
 } from '../lib/ga4-service-account.mjs';
+import { loadLoopPolicy } from '../lib/loop-fleet-contract.mjs';
 
 export const DEFAULT_L1_WINDOW_DAYS = 4;
 export const DEFAULT_L5_WINDOW_DAYS = 8;
@@ -47,16 +48,6 @@ const L7_EVENT_NAMES = Object.freeze([
   'experiment_outcome',
   'experiment_guardrail',
 ]);
-const L7_DEFAULT_POLICY = Object.freeze({
-  outcomeId: 'registered-experiment-outcome',
-  primaryMetric: 'registered_outcome_per_eligible_cohort',
-  minimumSample: 200,
-  guardrails: ['persistent assignment', 'minimum sample', 'explicit expiry', 'no automatic price change'],
-  candidateTtlHours: 168,
-  sourceRefs: ['experiment-assignment-exposure-outcome'],
-  assignmentMethod: 'stable-sha256',
-  assignmentKey: 'experiment-session-id',
-});
 
 function isObject(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -503,45 +494,49 @@ export async function exportL5({
   return outcome;
 }
 
-function normalizeL7Policy(policy = {}) {
-  const outcome = isObject(policy.outcome) ? policy.outcome : {};
-  const allocation = isObject(policy.allocationPolicy) ? policy.allocationPolicy : {};
-  const contamination = isObject(allocation.contaminationPolicy) ? allocation.contaminationPolicy : {};
-  const lifecycle = isObject(policy.lifecycle) ? policy.lifecycle : {};
-  const configuredSourceRefs = Array.isArray(outcome.sourceRefs)
-    ? outcome.sourceRefs.filter(text).map((sourceRef) => sourceRef.trim())
-    : [];
-  const sourceRefs = configuredSourceRefs.length ? configuredSourceRefs : L7_DEFAULT_POLICY.sourceRefs;
+function normalizeL7Policy(policy) {
+  if (!isObject(policy)) throw new Error('L7 policy is required and must come from the loop fleet registry');
+  const outcome = isObject(policy.outcome) ? policy.outcome : null;
+  const allocation = isObject(policy.allocationPolicy) ? policy.allocationPolicy : null;
+  const contamination = isObject(allocation?.contaminationPolicy) ? allocation.contaminationPolicy : null;
+  const lifecycle = isObject(policy.lifecycle) ? policy.lifecycle : null;
+  if (!text(outcome?.outcomeId)) throw new Error('L7 policy outcome.outcomeId is required');
+  if (!text(policy.primaryMetric)) throw new Error('L7 policy primaryMetric is required');
+  if (!Number.isInteger(policy.minimumSample) || policy.minimumSample < 1) {
+    throw new Error('L7 policy minimumSample must be a positive integer');
+  }
+  if (!Array.isArray(policy.guardrails) || policy.guardrails.length === 0 || policy.guardrails.some((guardrail) => !text(guardrail))) {
+    throw new Error('L7 policy guardrails must be a non-empty array of text');
+  }
+  if (!Array.isArray(outcome?.sourceRefs) || outcome.sourceRefs.length === 0 || outcome.sourceRefs.some((sourceRef) => !text(sourceRef))) {
+    throw new Error('L7 policy outcome.sourceRefs must be a non-empty array of text');
+  }
+  if (!Number.isFinite(lifecycle?.candidateTtlHours) || lifecycle.candidateTtlHours <= 0) {
+    throw new Error('L7 policy lifecycle.candidateTtlHours must be positive');
+  }
+  if (!text(allocation?.assignmentMethod)) throw new Error('L7 policy allocationPolicy.assignmentMethod is required');
+  if (!text(allocation?.assignmentKey)) throw new Error('L7 policy allocationPolicy.assignmentKey is required');
+  if (!text(contamination?.key)) throw new Error('L7 policy allocationPolicy.contaminationPolicy.key is required');
+  const sourceRefs = outcome.sourceRefs.map((sourceRef) => sourceRef.trim());
   return {
-    outcomeId: text(outcome.outcomeId) ? outcome.outcomeId.trim() : L7_DEFAULT_POLICY.outcomeId,
-    primaryMetric: text(policy.primaryMetric) ? policy.primaryMetric.trim() : L7_DEFAULT_POLICY.primaryMetric,
-    minimumSample: integer(policy.minimumSample) ? policy.minimumSample : L7_DEFAULT_POLICY.minimumSample,
-    guardrails: Array.isArray(policy.guardrails) && policy.guardrails.length
-      ? policy.guardrails.filter(text).map((guardrail) => guardrail.trim())
-      : L7_DEFAULT_POLICY.guardrails,
-    candidateTtlHours: number(lifecycle.candidateTtlHours) && lifecycle.candidateTtlHours > 0
-      ? lifecycle.candidateTtlHours
-      : L7_DEFAULT_POLICY.candidateTtlHours,
+    outcomeId: outcome.outcomeId.trim(),
+    primaryMetric: policy.primaryMetric.trim(),
+    minimumSample: policy.minimumSample,
+    guardrails: policy.guardrails.map((guardrail) => guardrail.trim()),
+    candidateTtlHours: lifecycle.candidateTtlHours,
     sourceRefs,
-    assignmentMethod: text(allocation.assignmentMethod) ? allocation.assignmentMethod.trim() : L7_DEFAULT_POLICY.assignmentMethod,
-    assignmentKey: text(allocation.assignmentKey) ? allocation.assignmentKey.trim() : L7_DEFAULT_POLICY.assignmentKey,
-    contaminationKey: text(contamination.key) ? contamination.key.trim() : (
-      text(allocation.assignmentKey) ? allocation.assignmentKey.trim() : L7_DEFAULT_POLICY.assignmentKey
-    ),
+    assignmentMethod: allocation.assignmentMethod.trim(),
+    assignmentKey: allocation.assignmentKey.trim(),
+    contaminationKey: contamination.key.trim(),
   };
 }
 
-function readL7Policy(registryPath, policyOverride = null) {
-  if (policyOverride) return normalizeL7Policy(policyOverride);
-  const registry = JSON.parse(fs.readFileSync(path.resolve(registryPath), 'utf8'));
-  const policy = Array.isArray(registry.loops)
-    ? registry.loops.find((loop) => loop?.loopId === 'L7')
-    : null;
-  if (!policy) throw new Error('loop-fleet registry has no L7 policy: ' + registryPath);
-  return normalizeL7Policy(policy);
+function readL7Policy(registryPath) {
+  const { policy } = loadLoopPolicy(registryPath, 'L7');
+  return policy;
 }
 
-export function buildL7ExperimentLedgerQuery({ start, end, policy = {} } = {}) {
+export function buildL7ExperimentLedgerQuery({ start, end, policy } = {}) {
   if (!text(start) || !text(end)) throw new Error('L7 experiment query requires start and end');
   const normalizedPolicy = normalizeL7Policy(policy);
   const assignmentEvent = quoteHogQLString('experiment_assignment');
@@ -804,11 +799,10 @@ export async function exportL7({
   days = DEFAULT_L7_WINDOW_DAYS,
   client = null,
   posthogRunner = runHogQL,
-  policy = null,
 } = {}) {
   const firestore = client || new GoogleDataClient();
   const window = rollingWindow(now, Number(days) * 24);
-  const resolvedPolicy = policy || readL7Policy(registryPath);
+  const resolvedPolicy = readL7Policy(registryPath);
   const config = await resolvePostHogConfig(firestore);
   const response = await posthogRunner(buildL7ExperimentLedgerQuery({ ...window, policy: resolvedPolicy }), config);
   const aggregate = postHogAggregate(response, 'L7 experiment ledger');
@@ -1467,6 +1461,7 @@ export function buildL9OutcomeLedger({ profiles, publisherRows = [], orderRows =
   }
 
   return {
+    independent: true,
     generatedAt: now.toISOString(),
     inventoryScope: {
       cohortKey: 'employer-profiles-v1',

@@ -333,6 +333,9 @@ export function validateEmployerFunnelOutcomes(outcomes, {
   }
   const issues = [];
   const warnings = [];
+  if (outcomes.independent !== true) {
+    issues.push('outcomes.independent must be explicitly true for an independent employer funnel ledger');
+  }
   const generatedAt = finiteDate(outcomes.generatedAt || outcomes._meta?.generatedAt);
   if (!generatedAt) issues.push('employer funnel outcomes generatedAt is missing or invalid');
   const exportEvidence = outcomes.export;
@@ -426,6 +429,7 @@ export function validateEmployerFunnelOutcomes(outcomes, {
   }
   const snapshot = {
     path: sourcePath,
+    independent: outcomes.independent === true,
     generatedAt: generatedAt?.toISOString() || null,
     ageHours: ageHours === null ? null : Number(ageHours.toFixed(3)),
     ...Object.fromEntries(Object.entries(values).map(([name, value]) => [name, integer(value) ? value : null])),
@@ -439,7 +443,10 @@ export function validateEmployerFunnelOutcomes(outcomes, {
     export: exportEvidence && object(exportEvidence) ? exportEvidence : null,
   };
   let quality = 'observed';
-  if (!generatedAt || Object.values(values).some((value) => !integer(value)) || !finiteNumber(mrrRecognizedChf)) quality = 'partial';
+  if (outcomes.independent !== true
+      || !generatedAt
+      || Object.values(values).some((value) => !integer(value))
+      || !finiteNumber(mrrRecognizedChf)) quality = 'partial';
   else if (ageHours < -CLOCK_SKEW_HOURS || ageHours > maxAgeHours) quality = 'stale';
   else if (values.eligibleEmployerAccounts === 0) quality = 'zero';
   else if (issues.length) quality = 'partial';

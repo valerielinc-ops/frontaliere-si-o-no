@@ -55,4 +55,27 @@ describe('pharmacy country SPA route', () => {
     expect(container.querySelectorAll('article')).toHaveLength(0);
     expect(container.textContent).toContain('Verifica sempre telefonicamente con la farmacia prima di recarti sul posto: orari e turni possono cambiare.');
   });
+
+  it.each(locales)('routes the Italian duty hub and week to a fail-closed country UI (%s)', (locale) => {
+    vi.useFakeTimers({ now: new Date('2026-09-15T12:00:00.000Z') });
+    const hub = render(<PharmacyDirectory page={{ kind: 'italy-duty-hub', country: 'IT', locale }} />);
+    const hubRoot = hub.container.querySelector('[data-italy-duty-week="true"]');
+    expect(hubRoot).toHaveAttribute('data-italy-release-state', 'not_published');
+    expect(hubRoot).toHaveAttribute('data-italy-publishable', 'false');
+    expect(hubRoot).toHaveAttribute('data-italy-indexable', 'false');
+    expect(hubRoot?.querySelectorAll('[data-italy-duty-province]')).toHaveLength(3);
+    expect(hubRoot?.querySelectorAll('[data-duty-country="IT"]')).toHaveLength(0);
+    expect(hubRoot?.querySelectorAll('time')).toHaveLength(0);
+    expect(hubRoot?.querySelectorAll('[data-italy-duty-published]')).toHaveLength(0);
+    expect(hubRoot?.querySelectorAll('a[href^="https://"]')).toHaveLength(3);
+
+    cleanup();
+    const week = render(<PharmacyDirectory page={{ kind: 'italy-duty-week', country: 'IT', locale, weekStart: '2026-09-14' }} />);
+    const weekRoot = week.container.querySelector('[data-italy-duty-week="true"]');
+    expect(weekRoot).toHaveAttribute('data-italy-release-state', 'not_published');
+    expect(weekRoot?.querySelectorAll('[data-italy-duty-province]')).toHaveLength(3);
+    expect(weekRoot?.querySelectorAll('[data-duty-country="IT"]')).toHaveLength(0);
+    expect(weekRoot?.querySelectorAll('time')).toHaveLength(0);
+    expect(weekRoot?.querySelectorAll('a[href^="https://"]')).toHaveLength(3);
+  });
 });

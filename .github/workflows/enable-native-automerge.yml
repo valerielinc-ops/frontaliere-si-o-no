@@ -13,7 +13,7 @@ on:
   pull_request_target:
     # These events are observation/retry points only: the helper is fail-closed
     # until review and the required check both pass.
-    types: [opened, reopened, ready_for_review, synchronize]
+    types: [opened, edited, reopened, ready_for_review, synchronize]
   pull_request_review:
     # A later edit/dismissal invalidates a previously valid verdict too; the
     # same fail-closed gate must re-read the review/check pair and revoke any

@@ -90787,6 +90787,318 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-affitti-ticino-calo-2026': {
+    title: 'Affitti in picchiata in Ticino: calo del 10,9% negli annunci',
+    description: 'Gli affitti in offerta in Ticino registrano un calo del 10,9% con una media di 1\'501 franchi. Scopri i dati dello Swiss Real Estate Institute sui comuni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, picchiata, calo, negli',
+    ogTitle: 'Affitti in picchiata in Ticino: calo del 10,9% negli annunci',
+    ogDescription: 'Analisi del mercato immobiliare in Ticino: gli affitti in offerta scendono dell\'10,9% a 1\'501 franchi medi. Scopri tutti i dati sui comuni più costosi e economici, le tipologie abitative e il tasso di appartamenti sfitti.',
+    canonicalPath: '/articoli-frontaliere/affitti-ticino-calo-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti in picchiata in Ticino: calo del 10,9% negli annunci",
+      "description": "Gli affitti in offerta in Ticino registrano un calo del 10,9% con una media di 1'501 franchi. Scopri i dati dello Swiss Real Estate Institute sui comuni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affitti-ticino-calo-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di edifici residenziali e del Lago di Lugano in Ticino"
+      },
+      "datePublished": "2026-09-16T00:14:04+00:00",
+      "dateModified": "2026-09-16T00:14:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/affitti-ticino-calo-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-passaporto-digitale-sicurezza-sociale-ue': {
+    title: 'Passaporto digitale UE: novità per la Svizzera',
+    description: 'Scopri la proposta della Commissione europea per il passaporto digitale di sicurezza sociale e la digitalizzazione dei diplomi, con effetti sulla Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, passaporto, digitale, novità, commissione',
+    ogTitle: 'Passaporto digitale UE per la sicurezza sociale e impatti in Svizzera',
+    ogDescription: 'La Commissione europea ha presentato l\'European Social Security Pass a Strasburgo. Le novità sulla sicurezza sociale e sulla digitalizzazione dei diplomi interessano anche la Svizzera attraverso l\'accordo sulla libera circolazione.',
+    canonicalPath: '/articoli-frontaliere/passaporto-digitale-sicurezza-sociale-ue',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Passaporto digitale UE: novità per la Svizzera",
+      "description": "Scopri la proposta della Commissione europea per il passaporto digitale di sicurezza sociale e la digitalizzazione dei diplomi, con effetti sulla Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/passaporto-digitale-sicurezza-sociale-ue.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Passaporto digitale per la sicurezza sociale UE e impatto in Svizzera"
+      },
+      "datePublished": "2026-09-16T00:24:56+00:00",
+      "dateModified": "2026-09-16T00:24:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/passaporto-digitale-sicurezza-sociale-ue/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-salute-mentale-lavoro-ticino': {
+    title: 'Salute mentale e lavoro: le assenze in Ticino | Frontaliere Ticino',
+    description: 'Il 51% delle assenze per motivi psichici porta allo scioglimento del contratto. Scopri come l\'intervento precoce favorisce il reinserimento lavorativo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salute, mentale, lavoro, assenze',
+    ogTitle: 'Salute mentale e lavoro: le assenze in Ticino',
+    ogDescription: 'In Ticino, il 51% delle assenze per motivi psichici porta allo scioglimento del contratto. Dati, strategie di reinserimento e il ruolo dell\'AI per tutelare i lavoratori.',
+    canonicalPath: '/articoli-frontaliere/salute-mentale-lavoro-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salute mentale e lavoro: le assenze in Ticino",
+      "description": "Il 51% delle assenze per motivi psichici porta allo scioglimento del contratto. Scopri come l'intervento precoce favorisce il reinserimento lavorativo.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salute-mentale-lavoro-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio a Lugano con vista lago, simbolico per il benessere lavorativo."
+      },
+      "datePublished": "2026-09-16T01:00:47+00:00",
+      "dateModified": "2026-09-16T01:00:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salute-mentale-lavoro-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-mendrisiotto-strade-chiuse-weekend': {
+    title: 'Mendrisiotto: tre eventi e strade chiuse nel fine settimana',
+    description: 'Dal 18 al 20 settembre Rally del Ticino, Penziamo e Chiasso-Pedrinate bloccano le strade nel Mendrisiotto. Scopri chiusure, bus deviati e orari. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, mendrisiotto, eventi, strade, chiuse',
+    ogTitle: 'Mendrisiotto: tre eventi e strade chiuse nel fine settimana',
+    ogDescription: 'Informazioni dettagliate sulle chiusure stradali, variazioni dei trasporti pubblici e limitazioni per i pedoni nel Mendrisiotto dal 18 al 20 settembre a causa di Rally del Ticino, Penziamo e Chiasso-Pedrinate.',
+    canonicalPath: '/articoli-frontaliere/mendrisiotto-strade-chiuse-weekend',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mendrisiotto: tre eventi e strade chiuse nel fine settimana",
+      "description": "Dal 18 al 20 settembre Rally del Ticino, Penziamo e Chiasso-Pedrinate bloccano le strade nel Mendrisiotto. Scopri chiusure, bus deviati e orari. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mendrisiotto-strade-chiuse-weekend.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Chiusure stradali nel Mendrisiotto per eventi del fine settimana"
+      },
+      "datePublished": "2026-09-16T01:17:21+00:00",
+      "dateModified": "2026-09-16T01:17:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mendrisiotto-strade-chiuse-weekend/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-costi-sviluppo-farmaci-2024': {
+    title: 'Perché sviluppare nuovi farmaci costa sempre di più',
+    description: 'Scopri perché sviluppare nuovi farmaci costa sempre di più. Nel 2024 la spesa ha raggiunto 2,23 miliardi di dollari secondo il rapporto Deloitte.',
+    keywords: 'frontalieri, ticino, svizzera, italia, perché, sviluppare, nuovi, farmaci',
+    ogTitle: 'Costi di sviluppo dei farmaci in forte aumento nel 2024',
+    ogDescription: 'Analisi dei costi per la ricerca e lo sviluppo di nuovi medicinali: nel 2024 la media ha toccato i 2,23 miliardi di dollari, segnando un incremento del 65% rispetto al 2014.',
+    canonicalPath: '/articoli-frontaliere/costi-sviluppo-farmaci-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Perché sviluppare nuovi farmaci costa sempre di più",
+      "description": "Scopri perché sviluppare nuovi farmaci costa sempre di più. Nel 2024 la spesa ha raggiunto 2,23 miliardi di dollari secondo il rapporto Deloitte.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/costi-sviluppo-farmaci-2024.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Laboratorio di ricerca farmaceutica con attrezzature moderne"
+      },
+      "datePublished": "2026-09-16T01:35:52+00:00",
+      "dateModified": "2026-09-16T01:35:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/costi-sviluppo-farmaci-2024/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-goldbach-group-ristrutturazione-licenziamenti': {
+    title: 'Goldbach Group si riorganizza: fino a 35 licenziamenti',
+    description: 'Riorganizzazione in vista per Goldbach Group in Svizzera: l\'azienda unisce due divisioni e prevede fino a 35 licenziamenti con piano sociale. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, goldbach, group, riorganizza, fino',
+    ogTitle: 'Goldbach Group si riorganizza: fino a 35 licenziamenti',
+    ogDescription: 'L\'azienda zurighese Goldbach Group unisce due divisioni pubblicitarie. Annunciati fino a 35 licenziamenti e un piano sociale per i dipendenti coinvolti.',
+    canonicalPath: '/articoli-frontaliere/goldbach-group-ristrutturazione-licenziamenti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Goldbach Group si riorganizza: fino a 35 licenziamenti",
+      "description": "Riorganizzazione in vista per Goldbach Group in Svizzera: l'azienda unisce due divisioni e prevede fino a 35 licenziamenti con piano sociale. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/goldbach-group-ristrutturazione-licenziamenti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede aziendale e uffici in Svizzera"
+      },
+      "datePublished": "2026-09-16T01:45:03+00:00",
+      "dateModified": "2026-09-16T01:45:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/goldbach-group-ristrutturazione-licenziamenti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ffs-cargo-tagli-ticino-berna': {
+    title: 'Tagli ffs cargo: Berna risponde al Ticino | Frontaliere Ticino',
+    description: 'Berna respinge la risoluzione del Ticino sui tagli di Ffs Cargo. Albert Rösti conferma l\'autonomia gestionale delle ferrovie e la centralità nord-sud.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tagli, cargo, berna, risponde',
+    ogTitle: 'Tagli Ffs Cargo, Berna non si esprime: sono scelte aziendali',
+    ogDescription: 'Il governo federale risponde alla risoluzione del Cantone Ticino sui tagli di Ffs Cargo confermando l\'autonomia gestionale delle ferrovie e l\'assenza di interventi correttivi.',
+    canonicalPath: '/articoli-frontaliere/ffs-cargo-tagli-ticino-berna',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tagli ffs cargo: Berna risponde al Ticino",
+      "description": "Berna respinge la risoluzione del Ticino sui tagli di Ffs Cargo. Albert Rösti conferma l'autonomia gestionale delle ferrovie e la centralità nord-sud.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ffs-cargo-tagli-ticino-berna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno merci delle Ffs in transito lungo la linea ferroviaria in Ticino"
+      },
+      "datePublished": "2026-09-16T02:10:01+00:00",
+      "dateModified": "2026-09-16T02:10:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ffs-cargo-tagli-ticino-berna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tpl-como-lecco-varese-bilancio-2026': {
+    title: 'Agenzia TPL: Bilancio di Sostenibilità e funivie gratis',
+    description: 'L\'Agenzia TPL presenta il Bilancio di Sostenibilità a Como e offre corse gratuite su sette impianti a fune per la Settimana della Mobilità. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, agenzia, bilancio, sostenibilità, funivie',
+    ogTitle: 'Agenzia TPL presenta il Bilancio e offre corse in funivia',
+    ogDescription: 'Scopri i dettagli sulla presentazione del secondo Bilancio di Sostenibilità dell\'Agenzia TPL e l\'iniziativa delle funivie gratuite per la Settimana Europea della Mobilità.',
+    canonicalPath: '/articoli-frontaliere/tpl-como-lecco-varese-bilancio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Agenzia TPL: Bilancio di Sostenibilità e funivie gratis",
+      "description": "L'Agenzia TPL presenta il Bilancio di Sostenibilità a Como e offre corse gratuite su sette impianti a fune per la Settimana della Mobilità. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tpl-como-lecco-varese-bilancio-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Presentazione del Bilancio di Sostenibilità dell Agenzia TPL"
+      },
+      "datePublished": "2026-09-16T02:21:41+00:00",
+      "dateModified": "2026-09-16T02:21:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tpl-como-lecco-varese-bilancio-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
