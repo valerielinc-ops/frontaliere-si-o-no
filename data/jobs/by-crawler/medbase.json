@@ -7876,10 +7876,10 @@
       "companyDomain": "medbase.ch",
       "title": "Lehrstelle Fachmann/-frau Apotheke EFZ 2027 (a) - Zürich Helvetiaplatz",
       "titleByLocale": {
-        "it": "Apprendistato Farmacista AFC 2027 (a) - Zurigo Helvetiaplatz",
-        "en": "Apprenticeship Pharmacist EFZ 2027 (a) - Zurich Helvetiaplatz",
+        "it": "Apprendistato Farmacista EFZ 2027 (a) - Zurigo Helvetiaplatz",
+        "en": "Apprenticeship Specialist Pharmacy EFZ 2027 (a) - Zurich Helvetiaplatz",
         "de": "Lehrstelle Fachmann/-frau Apotheke EFZ 2027 (a) - Zürich Helvetiaplatz",
-        "fr": "I need to check the job data to understand what needs to be translated. <function_calls> <invoke name=\"bash\"> <parameter name=\"command\">grep -r \"Apprenticeship position for Pharmacy Specialist EFZ 2027\" /home/runner/work/frontaliere-articles/frontaliere-articles/data --include=\"*.json\" | head -5</parameter> </invoke> </function_calls> <function_calls> <invoke name=\"bash\"> <parameter name=\"command\">find /home/runner/work/frontaliere-articles/frontaliere-articles/data -name \"*.json\" -type f | xargs grep -l \"Pharmacy Specialist\" | head -5</parameter> </invoke> </function_calls> Let me search for the job entry more broadly: <function_calls> <invoke name=\"bash\"> <parameter name=\"command\">find /home/runner/work/frontaliere-articles/frontaliere-articles/data -name \"*.json\" -type f -exec grep -l \"EFZ 2027\" {} \\;</parameter> </invoke> </function_calls> Could you provide the file path or job ID where this title appears? That way I can locate it and provide the complete French translation in context."
+        "fr": "Apprentissage Spécialiste en Pharmacie EFZ 2027 (a) - Zürich Helvetiaplatz"
       },
       "description": "Herzlich willkommen bei der Medbase Apotheke Zürich Helvetiaplatz\n\nMitten im pulsierenden Zürcher Kreis 4 beraten wir eine urbane, multikulturelle Kundschaft sowie langjährige Stammkundinnen und Stammkunden .\nNeben einem breiten Sortiment an Produkten aus Schulmedizin, Naturheilkunde und Kosmetik bieten wir Dienstleistungen wie Impfungen, GesundheitsChecks oder Beratungen an.\nZudem betreuen wir zahlreiche Heime, sind vertraut mit der Verblisterung von Medikamenten und verfügen über ein gut a usgerüstetes Labor für Herstellungen.\nUnsere Apotheke engagiert sich überdies in der Ausbildung von Lernenden sowie Apothekerinnen und Apothekern im Assistenzjahr.\nBei der Medbase Apotheke Helvetiaplatz pflegen wir einen wertschätzenden Umgang miteinander und lieben den lebhaften Austausch mit Kundinnen und Kunden.\nDas kannst du bewegen\n\nIn deiner Ausbildung bei Medbase wirst du von einem erfahrenen Team begleitet und unterstützt. Du lernst alle wichtigen Facetten des Apothekenalltags kennen und entwickelst die Fähigkeiten, die du für eine erfolgreiche Karriere benötigst.\n\n• Kontrolle und Einräumung von Wareneingängen\n\n• Zusammenstellung von Medikamenten gemäss Arztrezepten und Kennzeichnung mit Einnahmevorschriften\n\n• Herstellung einfacher Rezepturen und hauseigener Arzneimittel unter Anleitung\n\n• Kundenberatung in den Bereichen Gesundheit, Krankheit und Kosmetik\n\n• Attraktive Präsentation der Produkte in der Apotheke\n\nWas du mitbringst\n\n• Gute Leistungen in naturwissenschaftlichen Fächern der Sekundarschule A / gegliederten Oberstufe Niveau E\n\n• Freude am Kundenkontakt und eigenverantwortliches Arbeiten\n\n• Zuverlässigkeit, Einfühlungsvermögen und sorgfältige Arbeitsweise\n\nBereit für die Zukunft? Jetzt bewerben.\n\n#WeAreMedbase\n\nWer Grosses bewegen will, muss eine Idee von der Zukunft haben. Vor 20 Jahren wurde Medbase mit der Idee gegründet, Gesundheitsversorgung für die gesamte Schweiz aus einer Hand zu bieten.\nAus einer Praxis mit drei Mitarbeitenden ist heute eine 360 Grad-Gesundheitsanbieterin mit rund 4.000 Mitarbeitenden an 170 Standorten geworden, bestehend aus vier Geschäftsfeldern: Medical, Wholesale & Onlineservices, Apotheke und Dental.\nSie haben die Möglichkeit, diese Erfolgsgeschichte mit uns fortzuschreiben. Denn Medbase wächst weiter.",
       "descriptionByLocale": {
@@ -7939,7 +7939,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "medbase-6b53bd0384ba",
