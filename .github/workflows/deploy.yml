@@ -474,7 +474,16 @@ jobs:
         uses: actions/cache@v5
         with:
           path: .cache/og-jobs
-          key: og-jobs-${{ runner.os }}-${{ hashFiles('build-plugins/jobOgImagesPlugin.ts', 'public/fonts/Roboto-*.ttf', 'data/company-logos-manifest.json') }}
+          # Run 34956104680 rendered 16726 cards with 10434/27160 hits (38%),
+          # spending 1256.5s wall (~21 min; ~82 CPU-min) on the IT leg. The
+          # exact key was already saved, so actions/cache could restore it but
+          # never save the newly rendered cards. A run-specific suffix makes
+          # every run save an updated snapshot; the prefix restore still picks
+          # the newest prior snapshot across code/content hash changes.
+          # jobOgImagesPlugin stores <slug>.<OG_RENDER_VERSION>.webp, so title /
+          # company / city changes produce a different per-job key, and its
+          # `pruned-stale` pass removes old render versions after restore.
+          key: og-jobs-${{ runner.os }}-${{ hashFiles('build-plugins/jobOgImagesPlugin.ts', 'public/fonts/Roboto-*.ttf', 'data/company-logos-manifest.json') }}-${{ github.run_id }}
           restore-keys: |
             og-jobs-${{ runner.os }}-
 
@@ -2697,8 +2706,11 @@ jobs:
             --workflow "${{ github.workflow }}" \
             --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
-      # Wall-time delle fasi POST-build del leg (#7301). Non possono essere
-      # chiavi della riga di "Append build memory history row": quello step sta
+      # Marker del profilo + wall-time delle fasi POST-build del leg (#7301).
+      # I marker finiscono nella stessa riga bounded del JSONL per permettere
+      # confronti tra run con jq, invece di lasciare il dato solo nel log.
+      # Queste metriche non possono essere chiavi della riga di
+      # "Append build memory history row": quello step sta
       # a meta' job, e push shard + pack tar finiscono molto dopo — sul run
       # 33833300860 valgono 23 min + 5 min dei 130 min totali del leg IT. Senza
       # questa riga l'unica fonte su quelle fasi e' l'API Actions run-per-run,
@@ -2713,7 +2725,8 @@ jobs:
       # Riga SEPARATA nello stesso JSONL, non uno schema unico: le due righe
       # hanno produttori e momenti diversi, e le 294 righe gia' committate non
       # avranno mai queste chiavi. Chi legge il file discrimina sulla presenza
-      # della chiave.
+      # della chiave. `profile` e `phases` sono limitati a 25 elementi ciascuno
+      # dal parser; i campi post-build restano per compatibilita' con jq.
       - name: Append post-build phase timings row
         if: always()
         continue-on-error: true
@@ -2739,30 +2752,41 @@ jobs:
           ROW_PACK_LOCALE_TAR: ${{ steps.pack-locale-shard.outputs.wall_seconds }}
         run: |
           set -o pipefail
-          node -e '
+          marker_json='{"profile":[],"phases":[]}'
+          if [ -f /tmp/build.log ]; then
+            marker_json="$(node scripts/ci/parse-build-profile-markers.mjs /tmp/build.log)"
+          fi
+          ROW_MARKERS="$marker_json" node -e '
             const pick = (...names) => {
               const v = names.map((n) => process.env[n]).find((x) => x);
               return v === undefined ? null : Number(v);
             };
-            const phases = {
+            const postBuild = {
               push_shards_seconds: pick("ROW_PUSH_SHARDS_IT", "ROW_PUSH_SHARDS_NONIT"),
               pack_tar_seconds: pick("ROW_PACK_TAR_IT", "ROW_PACK_TAR_NONIT"),
               push_locale_shard_seconds: pick("ROW_PUSH_LOCALE_SHARD"),
               pack_locale_tar_seconds: pick("ROW_PACK_LOCALE_TAR"),
             };
+            const markers = JSON.parse(process.env.ROW_MARKERS || "{}");
+            const profile = Array.isArray(markers.profile) ? markers.profile : [];
+            const phases = Array.isArray(markers.phases) ? markers.phases : [];
             // Tutte assenti = nessuna fase post-build ha girato su questo leg
-            // (shard non provisionati, o job morto prima). Riga vuota = rumore
-            // nella storia: meglio niente.
-            if (Object.values(phases).every((v) => v === null)) process.exit(0);
+            // e nessun marker nel log (shard non provisionati, o job morto
+            // prima). Riga vuota = rumore nella storia: meglio niente.
+            if (Object.values(postBuild).every((v) => v === null)
+                && profile.length === 0 && phases.length === 0) process.exit(0);
             process.stdout.write(JSON.stringify({
               ts: new Date().toISOString(),
               locale: process.env.ROW_LOCALE,
               run_id: process.env.ROW_RUN_ID,
               sha: process.env.ROW_SHA,
-              ...phases,
+              kind: "build-profile",
+              profile,
+              phases,
+              ...postBuild,
             }));
-          ' | HISTORY_LABEL=build-history-phases \
-              HISTORY_COMMIT_MSG="chore(build-history): append ${ROW_LOCALE} post-build phase timings run ${ROW_RUN_ID}" \
+          ' | HISTORY_LABEL=build-history-profile \
+              HISTORY_COMMIT_MSG="chore(build-history): append ${ROW_LOCALE} build profile run ${ROW_RUN_ID}" \
               bash scripts/lib/append-build-history-row.sh
 
   # ───────────────────────────────────────────────────────────────────────
