@@ -6455,6 +6455,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.bns-tassi-interessi-ubs.title': 'SNB, 0.0% lead rates: UBS forecasts possible increases',
     'blog.article.bns-tassi-interessi-ubs.excerpt': 'The Swiss National Bank is expected to keep the lead rate at 0.0% but the risks of an early rise are growing according to UBS.',
     'blog.article.bns-tassi-interessi-ubs.imageAlt': 'Swiss National Bank headquarters in Bern',
+    'blog.article.vaccini-antinfluenzali-ritardo-svizzera.title': 'Flu vaccines in Switzerland: 40% arrive late',
+    'blog.article.vaccini-antinfluenzali-ritardo-svizzera.excerpt': 'Delayed deliveries of 40% of flu vaccines in Switzerland. Pharmasuisse runs for cover with a second window at the end of November.',
+    'blog.article.vaccini-antinfluenzali-ritardo-svizzera.imageAlt': 'Swiss pharmacy ready for the influenza vaccination campaign',
 };
 
 export default blogMetaChEn;

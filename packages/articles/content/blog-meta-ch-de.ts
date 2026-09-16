@@ -6455,6 +6455,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.bns-tassi-interessi-ubs.title': 'SNB, Leitzinsen 0,0%: UBS rechnet mit möglichen Erhöhungen',
     'blog.article.bns-tassi-interessi-ubs.excerpt': 'Die Schweizerische Nationalbank sollte den Leitzins bei 0,0% halten, aber die Risiken einer vorzeitigen Erhöhung steigen laut UBS.',
     'blog.article.bns-tassi-interessi-ubs.imageAlt': 'Sitz der Schweizerischen Nationalbank in Bern',
+    'blog.article.vaccini-antinfluenzali-ritardo-svizzera.title': 'Grippeimpfungen in der Schweiz: 40% kommen zu spät',
+    'blog.article.vaccini-antinfluenzali-ritardo-svizzera.excerpt': '40% der Grippeimpfungen in der Schweiz werden verschoben. Pharmasuisse geht Ende November mit einem zweiten Fenster in Deckung.',
+    'blog.article.vaccini-antinfluenzali-ritardo-svizzera.imageAlt': 'Schweizer Apotheke bereit fur die Grippeschutzimpfung',
 };
 
 export default blogMetaChDe;

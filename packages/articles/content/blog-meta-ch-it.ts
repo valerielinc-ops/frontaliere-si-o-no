@@ -6455,6 +6455,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.bns-tassi-interessi-ubs.title': 'BNS, tassi guida allo 0,0%: UBS prevede possibili aumenti',
     'blog.article.bns-tassi-interessi-ubs.excerpt': 'La Banca nazionale svizzera dovrebbe mantenere il tasso guida allo 0,0% ma crescono i rischi di un rialzo anticipato secondo UBS.',
     'blog.article.bns-tassi-interessi-ubs.imageAlt': 'Sede della Banca nazionale svizzera a Berna',
+    'blog.article.vaccini-antinfluenzali-ritardo-svizzera.title': 'Vaccini antinfluenzali in Svizzera: il 40% arriva in ritardo',
+    'blog.article.vaccini-antinfluenzali-ritardo-svizzera.excerpt': 'Slittano le consegne del 40% dei vaccini antinfluenzali in Svizzera. Pharmasuisse corre ai ripari con una seconda finestra a fine novembre.',
+    'blog.article.vaccini-antinfluenzali-ritardo-svizzera.imageAlt': 'Farmacia svizzera pronta per la campagna di vaccinazione antinfluenzale',
 };
 
 export default blogMetaChIt;

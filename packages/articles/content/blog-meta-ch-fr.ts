@@ -6455,6 +6455,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.bns-tassi-interessi-ubs.title': 'BNS, taux directeurs à 0,0% : UBS prévoit d\'éventuelles augmentations',
     'blog.article.bns-tassi-interessi-ubs.excerpt': 'La Banque nationale suisse devrait maintenir le taux directeur à 0,0% mais les risques d\'une hausse anticipée augmentent selon UBS.',
     'blog.article.bns-tassi-interessi-ubs.imageAlt': 'Siege de la Banque nationale suisse a Berne',
+    'blog.article.vaccini-antinfluenzali-ritardo-svizzera.title': 'Vaccins antigrippaux en Suisse : 40 % arrivent en retard',
+    'blog.article.vaccini-antinfluenzali-ritardo-svizzera.excerpt': 'Les livraisons de 40% des vaccins antigrippaux en Suisse sont reportées. Pharmasuisse se met à l\'abri avec une seconde fenêtre fin novembre.',
+    'blog.article.vaccini-antinfluenzali-ritardo-svizzera.imageAlt': 'Pharmacie suisse prete pour la campagne de vaccination contre la grippe',
 };
 
 export default blogMetaChFr;
