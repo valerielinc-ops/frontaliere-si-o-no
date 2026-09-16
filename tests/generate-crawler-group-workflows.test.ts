@@ -1855,6 +1855,7 @@ describe('cross-repo crawler execution artifacts', () => {
 
     expect(contract.siteRuntimePaths).toContain('scripts/ci/translate-recovery-successor-guard.mjs');
     expect(guard).toMatchObject({
+      id: 'recovery_guard',
       if: "steps.checkout.outcome == 'success' && github.run_attempt > 1",
       env: {
         GITHUB_API_URL: '${{ github.api_url }}',
@@ -1868,6 +1869,21 @@ describe('cross-repo crawler execution artifacts', () => {
     });
     expect(job.steps.indexOf(guard)).toBeGreaterThan(job.steps.indexOf(checkoutReady));
     expect(job.steps.filter((step: any) => step.name === 'Validate recovery successor claim')).toHaveLength(1);
+
+    const recoveryReady = "(github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')";
+    const postGuardAlways = job.steps
+      .slice(job.steps.indexOf(guard) + 1)
+      .filter((step: any) => typeof step.if === 'string' && step.if.includes('always()'));
+    const cleanup = postGuardAlways.find((step: any) => step.name === 'Cleanup Codex auth broker');
+    expect(cleanup?.if).toBe('always()');
+    for (const step of postGuardAlways.filter((step: any) => step !== cleanup)) {
+      expect(step.if, step.name).toContain(recoveryReady);
+    }
+    expect(postGuardAlways.some((step: any) => step.name === 'Install Argos Translate (local MT engine)')).toBe(true);
+    expect(postGuardAlways.some((step: any) => step.name === 'Commit translations')).toBe(true);
+
+    const failureReporter = job.steps.find((step: any) => step.name === 'Report failure to GitHub Issues');
+    expect(failureReporter?.if).not.toContain('recovery_guard');
 
     for (const artifact of contract.artifacts.filter((entry: any) => entry.file !== 'translate-pending.yml')) {
       const doc = YAML.parse(fs.readFileSync(path.join(outDir, artifact.file), 'utf8'));
