@@ -154,7 +154,7 @@ jobs:
       - name: Bootstrap write auth for frontaliere-si-o-no (GITHUB_PAT from Remote Config)
         run: |-
           if [ -z "${GITHUB_PAT:-}" ]; then
-            echo "::error::GITHUB_PAT missing from Remote Config (RC_TO_ENV in scripts/load-rc-env.mjs) — cannot push crawler data to valerielinc-ops/frontaliere-si-o-no or file crawler-failure issues there. Aborting before any crawler runs so this fails loud, not as 27 silent push failures."
+            echo "::error::GITHUB_PAT missing from Remote Config (RC_TO_ENV in scripts/load-rc-env.mjs) — cannot push crawler data to valerielinc-ops/frontaliere-si-o-no or file crawler-failure issues there. Aborting before any crawler runs so this fails loud, not as 28 silent push failures."
             exit 1
           fi
           git remote set-url origin "https://x-access-token:${GITHUB_PAT}@github.com/valerielinc-ops/frontaliere-si-o-no.git"
@@ -2577,6 +2577,95 @@ jobs:
           fi
           launcher_pid=$!
           printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch elprom
+        id: crawler-launch-elprom
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-elprom.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
+          JOBS_ELPROM_STRICT: ${{ inputs.strict_localization || '1' }}
+          CRAWLER_SLICE_ONLY: "1"
+          SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
+          JOBS_HOUSEKEEPING_SCOPE: elprom
+          JOBS_SLICE_FILE: data/jobs/by-crawler/elprom.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+        run: |-
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          mkdir -p "$state_dir"
+          script_path="$state_dir/elprom.sh"
+          launcher_path="$state_dir/elprom.launcher.sh"
+          log_path="$state_dir/elprom.log"
+          pid_path="$state_dir/elprom.pid"
+          status_path="$state_dir/elprom.status"
+          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set -uo pipefail
+          set +e
+
+          # ---- elprom: run crawler (verbatim from original workflow) ----
+          node scripts/update-elprom-jobs.mjs
+          crawler_exit=$?
+          git_commit_exit=0
+
+          # ---- elprom: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
+          if [ "$crawler_exit" -eq 0 ]; then
+            (node scripts/cleanup-jobs.mjs) || true
+          fi
+
+          # ---- elprom: Commit and push (verbatim, only if crawler succeeded) ----
+          if [ "$crawler_exit" -eq 0 ]; then
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update elprom jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
+            git_commit_exit=$?
+          fi
+
+          # ---- elprom: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+            node scripts/lib/github-issue-creator.mjs \
+              --title "Crawler Failure: Run elprom" \
+              --description "## Crawler fallito
+            **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            **Branch:** ${{ github.ref_name }}
+            **Trigger:** ${{ github.event_name }}" \
+              --priority 2 \
+              --label Bug \
+              --workflow "Run elprom"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::elprom: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ elprom: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::elprom: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ elprom: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::elprom: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ elprom: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
+
+          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; }; then
+            exit 1
+          fi
+          exit 0' > "$script_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-15/elprom.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-15/elprom.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-15/elprom.status.tmp.$$"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
+          mv "$status_tmp" "$status_file"
+          exit "$crawler_exit"' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Run kronenhof
         id: crawler-kronenhof
         if: always()
@@ -4035,6 +4124,60 @@ jobs:
             exit 1
           fi
           exit "$status"
+      - name: Run elprom
+        id: crawler-elprom
+        if: always()
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-elprom'].outcome }}
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-15"
+          status_file="$state_dir/elprom.status"
+          pid_file="$state_dir/elprom.pid"
+          log_file="$state_dir/elprom.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::elprom: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::elprom: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::elprom: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::elprom: invalid detached crawler PID: $pid"
+                exit 1
+              fi
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::elprom: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::elprom: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::elprom: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
       - name: Commit crawler group data atomically
         if: always() && inputs.generation_token != '' && job.status == 'success'
         run: |-
@@ -4071,7 +4214,7 @@ jobs:
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
           CRAWLER_GENERATION_WAIT_OUTCOME: ${{ job.status }}
-          CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"ail-lugano","primarySlice":"data/jobs/by-crawler/ail-lugano.json"},{"crawlerId":"apg-sga","primarySlice":"data/jobs/by-crawler/apg-sga.json"},{"crawlerId":"asana-spital","primarySlice":"data/jobs/by-crawler/asana-spital.json"},{"crawlerId":"avaloq","primarySlice":"data/jobs/by-crawler/avaloq.json"},{"crawlerId":"bachem","primarySlice":"data/jobs/by-crawler/bachem.json"},{"crawlerId":"css-versicherung","primarySlice":"data/jobs/by-crawler/css-versicherung.json"},{"crawlerId":"ffs-officine-ferrovie-federali","primarySlice":"data/jobs/by-crawler/ffs-officine-ferrovie-federali.json"},{"crawlerId":"gesundheitsnetz-kuesnacht","primarySlice":"data/jobs/by-crawler/gesundheitsnetz-kuesnacht.json"},{"crawlerId":"grand-hotel-kronenhof","primarySlice":"data/jobs/by-crawler/grand-hotel-kronenhof.json"},{"crawlerId":"gzo-wetzikon","primarySlice":"data/jobs/by-crawler/gzo-wetzikon.json"},{"crawlerId":"holcim","primarySlice":"data/jobs/by-crawler/holcim.json"},{"crawlerId":"ibsa-institut-biochimique","primarySlice":"data/jobs/by-crawler/ibsa-institut-biochimique.json"},{"crawlerId":"kanton-aargau","primarySlice":"data/jobs/by-crawler/kanton-aargau.json"},{"crawlerId":"kanton-solothurn","primarySlice":"data/jobs/by-crawler/kanton-solothurn.json"},{"crawlerId":"klinik-adelheid","primarySlice":"data/jobs/by-crawler/klinik-adelheid.json"},{"crawlerId":"knowledge-lab","primarySlice":"data/jobs/by-crawler/knowledge-lab.json"},{"crawlerId":"mabetex","primarySlice":"data/jobs/by-crawler/mabetex.json"},{"crawlerId":"migros-hq","primarySlice":"data/jobs/by-crawler/migros-hq.json"},{"crawlerId":"octapharma","primarySlice":"data/jobs/by-crawler/octapharma.json"},{"crawlerId":"pfister","primarySlice":"data/jobs/by-crawler/pfister.json"},{"crawlerId":"recruitingapp-2563","primarySlice":"data/jobs/by-crawler/recruitingapp-2563.json"},{"crawlerId":"rennbahnklinik","primarySlice":"data/jobs/by-crawler/rennbahnklinik.json"},{"crawlerId":"spital-affoltern","primarySlice":"data/jobs/by-crawler/spital-affoltern.json"},{"crawlerId":"sta","primarySlice":"data/jobs/by-crawler/sta.json"},{"crawlerId":"unispital-basel","primarySlice":"data/jobs/by-crawler/unispital-basel.json"},{"crawlerId":"valiant-bank","primarySlice":"data/jobs/by-crawler/valiant-bank.json"},{"crawlerId":"wagerenhof","primarySlice":"data/jobs/by-crawler/wagerenhof.json"}]'
+          CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"ail-lugano","primarySlice":"data/jobs/by-crawler/ail-lugano.json"},{"crawlerId":"apg-sga","primarySlice":"data/jobs/by-crawler/apg-sga.json"},{"crawlerId":"asana-spital","primarySlice":"data/jobs/by-crawler/asana-spital.json"},{"crawlerId":"avaloq","primarySlice":"data/jobs/by-crawler/avaloq.json"},{"crawlerId":"bachem","primarySlice":"data/jobs/by-crawler/bachem.json"},{"crawlerId":"css-versicherung","primarySlice":"data/jobs/by-crawler/css-versicherung.json"},{"crawlerId":"elprom","primarySlice":"data/jobs/by-crawler/elprom.json"},{"crawlerId":"ffs-officine-ferrovie-federali","primarySlice":"data/jobs/by-crawler/ffs-officine-ferrovie-federali.json"},{"crawlerId":"gesundheitsnetz-kuesnacht","primarySlice":"data/jobs/by-crawler/gesundheitsnetz-kuesnacht.json"},{"crawlerId":"grand-hotel-kronenhof","primarySlice":"data/jobs/by-crawler/grand-hotel-kronenhof.json"},{"crawlerId":"gzo-wetzikon","primarySlice":"data/jobs/by-crawler/gzo-wetzikon.json"},{"crawlerId":"holcim","primarySlice":"data/jobs/by-crawler/holcim.json"},{"crawlerId":"ibsa-institut-biochimique","primarySlice":"data/jobs/by-crawler/ibsa-institut-biochimique.json"},{"crawlerId":"kanton-aargau","primarySlice":"data/jobs/by-crawler/kanton-aargau.json"},{"crawlerId":"kanton-solothurn","primarySlice":"data/jobs/by-crawler/kanton-solothurn.json"},{"crawlerId":"klinik-adelheid","primarySlice":"data/jobs/by-crawler/klinik-adelheid.json"},{"crawlerId":"knowledge-lab","primarySlice":"data/jobs/by-crawler/knowledge-lab.json"},{"crawlerId":"mabetex","primarySlice":"data/jobs/by-crawler/mabetex.json"},{"crawlerId":"migros-hq","primarySlice":"data/jobs/by-crawler/migros-hq.json"},{"crawlerId":"octapharma","primarySlice":"data/jobs/by-crawler/octapharma.json"},{"crawlerId":"pfister","primarySlice":"data/jobs/by-crawler/pfister.json"},{"crawlerId":"recruitingapp-2563","primarySlice":"data/jobs/by-crawler/recruitingapp-2563.json"},{"crawlerId":"rennbahnklinik","primarySlice":"data/jobs/by-crawler/rennbahnklinik.json"},{"crawlerId":"spital-affoltern","primarySlice":"data/jobs/by-crawler/spital-affoltern.json"},{"crawlerId":"sta","primarySlice":"data/jobs/by-crawler/sta.json"},{"crawlerId":"unispital-basel","primarySlice":"data/jobs/by-crawler/unispital-basel.json"},{"crawlerId":"valiant-bank","primarySlice":"data/jobs/by-crawler/valiant-bank.json"},{"crawlerId":"wagerenhof","primarySlice":"data/jobs/by-crawler/wagerenhof.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-15-terminal.json
           CRAWLER_GENERATION_LEDGER_PATH: data/crawler-generation-ledger.jsonl
         run: node scripts/crawler-group-generation-finalizer.mjs
