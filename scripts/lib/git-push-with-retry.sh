@@ -256,10 +256,6 @@ until git push --no-verify origin "HEAD:${BRANCH}"; do
     git reset --hard HEAD
   fi
   if ! git rebase "origin/${BRANCH}"; then
-    if [ "$stashed" = "1" ]; then
-      echo "::warning::Rebase conflict with --stash-dirty active — restoring stashed changes before aborting"
-      git stash pop || echo "::error::Failed to restore stash after aborted rebase; stash left in stack for manual recovery"
-    fi
     if [ -n "$IN_PLACE_RESOLVER_CMD" ]; then
       echo "Rebase conflict; resolving in place via: $IN_PLACE_RESOLVER_CMD"
       # GIT_EDITOR=: stops `git rebase --continue` from spawning an editor
@@ -269,7 +265,13 @@ until git push --no-verify origin "HEAD:${BRANCH}"; do
       # `:` is the POSIX no-op shell builtin; rebase reuses the existing
       # commit message verbatim, which is exactly what we want.
       if eval "$IN_PLACE_RESOLVER_CMD" && GIT_EDITOR=: git rebase --continue; then
-        : # success — fall through to retry push
+        # The rebase is complete now; only restore a stashed WIP after Git is
+        # out of its conflict state. --stash-dirty is normally used without a
+        # resolver, but keeping this ordering safe costs nothing if callers
+        # combine the options later.
+        if [ "$stashed" = "1" ]; then
+          restore_stashed_wip || exit 1
+        fi
       else
         echo "::error::In-place conflict resolver failed"
         git rebase --abort 2>/dev/null || true
@@ -292,7 +294,14 @@ until git push --no-verify origin "HEAD:${BRANCH}"; do
       fi
     else
       echo "::error::Rebase conflict and no resolver provided"
+      # Abort first. Restoring the stash while the rebase is still active can
+      # make a successful stash restoration disappear again when the abort
+      # resets the worktree, losing the WIP that --stash-dirty promised to
+      # preserve.
       git rebase --abort 2>/dev/null || true
+      if [ "$stashed" = "1" ]; then
+        restore_stashed_wip || exit 1
+      fi
       exit 1
     fi
   elif [ "$stashed" = "1" ]; then
