@@ -446,14 +446,20 @@ jobs:
             echo 0
           fi
           echo '::endgroup::'
+          dist_bytes='?'
+          dist_files='0'
+          if [ -d dist ]; then
+            dist_bytes="$(du -sb dist | awk '{print $1}')"
+            dist_files="$(find dist -type f | wc -l | tr -d ' ')"
+          fi
           {
             echo "### ${BUILD_VARIANT} build summary"
             echo
             echo '| metric | value |'
             echo '|---|---|'
             echo "| wall-time | ${BUILD_ELAPSED_SECONDS:-?}s |"
-            echo "| dist bytes (du -sb) | $(du -sb dist 2>/dev/null | awk '{print \$1}' || echo '?') |"
-            echo "| dist files | $(find dist -type f 2>/dev/null | wc -l | tr -d ' ') |"
+            echo "| dist bytes (du -sb) | ${dist_bytes} |"
+            echo "| dist files | ${dist_files} |"
             echo "| peak_rss_mb | ${PEAK_RSS_MB:-?} |"
             echo "| peak_anon_mb | ${PEAK_ANON_MB:-?} |"
             echo "| min_host_avail_mb | ${MIN_HOST_AVAIL_MB:-?} |"
