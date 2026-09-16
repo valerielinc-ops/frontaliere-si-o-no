@@ -11772,6 +11772,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.passaporto-digitale-sicurezza-sociale-ue.title': 'Digitaler EU-Pass: Neu für die Schweiz',
     'blog.article.passaporto-digitale-sicurezza-sociale-ue.excerpt': 'Die Europäische Kommission schlägt den digitalen Pass für die soziale Sicherheit und die Digitalisierung von Diplomen vor, mit erwarteten Auswirkungen auch für die Schweiz.',
     'blog.article.passaporto-digitale-sicurezza-sociale-ue.imageAlt': 'EU-Pass für soziale Sicherheit und Auswirkungen auf die Schweiz',
+    'blog.article.salute-mentale-lavoro-ticino.title': 'Psychische Gesundheit und Arbeit: Absenzen im Tessin',
+    'blog.article.salute-mentale-lavoro-ticino.excerpt': '51% der Abwesenheiten aus psychischen Gründen führen zur Auflösung des Vertrages. Die Bedeutung eines frühzeitigen Eingreifens für die berufliche Stabilität.',
+    'blog.article.salute-mentale-lavoro-ticino.imageAlt': 'Büro in Lugano mit Seeblick, symbolisch für das Wohlbefinden am Arbeitsplatz.',
 };
 
 export default blogMetaDe;

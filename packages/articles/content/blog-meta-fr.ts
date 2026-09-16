@@ -11775,6 +11775,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.passaporto-digitale-sicurezza-sociale-ue.title': 'Passeport numérique UE : nouveauté pour la Suisse',
     'blog.article.passaporto-digitale-sicurezza-sociale-ue.excerpt': 'La Commission européenne propose le passeport numérique pour la sécurité sociale et la numérisation des diplômes, avec des impacts attendus également pour la Suisse.',
     'blog.article.passaporto-digitale-sicurezza-sociale-ue.imageAlt': 'Passeport numérique de sécurité sociale UE et impact en Suisse',
+    'blog.article.salute-mentale-lavoro-ticino.title': 'Santé mentale et travail : les absences au Tessin',
+    'blog.article.salute-mentale-lavoro-ticino.excerpt': '51% des absences pour raisons psychiques conduisent à la résiliation du contrat. L\'importance de l\'intervention précoce pour la stabilité professionnelle.',
+    'blog.article.salute-mentale-lavoro-ticino.imageAlt': 'Bureau à Lugano avec vue sur le lac, symbolique du bien-être au travail.',
 };
 
 export default blogMetaFr;
