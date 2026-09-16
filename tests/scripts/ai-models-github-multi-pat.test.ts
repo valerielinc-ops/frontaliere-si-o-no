@@ -63,8 +63,11 @@ describe('GitHub Models PAT rotation', () => {
     process.env.GH_MODELS_PAT = 'pat1';
     process.env.GH_MODELS_PAT_2 = 'pat2';
     const seen: string[] = [];
-    globalThis.fetch = (async (_url: string, init?: RequestInit) => {
+    globalThis.fetch = (async (url: string, init?: RequestInit) => {
       const tok = bearer(init);
+      if (url.endsWith('/catalog/models')) {
+        return { ok: true, status: 200, headers: { get: () => null }, text: async () => '{"models":[{"id":"openai/gpt-4o"}]}' } as unknown as Response;
+      }
       seen.push(tok);
       if (tok === 'pat1') {
         return { ok: false, status: 429, headers: { get: () => null }, text: async () => 'RateLimitReached: userbymodelbyday limit exceeded' } as unknown as Response;
@@ -94,8 +97,11 @@ describe('GitHub Models PAT rotation', () => {
     process.env.GH_MODELS_PAT = 'pat1';
     process.env.GH_MODELS_PAT_2 = 'pat2';
     let pat2Body: Record<string, unknown> | null = null;
-    globalThis.fetch = (async (_url: string, init?: RequestInit) => {
+    globalThis.fetch = (async (url: string, init?: RequestInit) => {
       const tok = bearer(init);
+      if (url.endsWith('/catalog/models')) {
+        return { ok: true, status: 200, headers: { get: () => null }, text: async () => '{"models":[{"id":"openai/gpt-4o"}]}' } as unknown as Response;
+      }
       if (tok === 'pat1') {
         return { ok: false, status: 429, headers: { get: () => null }, text: async () => 'userbymodelbyday limit' } as unknown as Response;
       }
