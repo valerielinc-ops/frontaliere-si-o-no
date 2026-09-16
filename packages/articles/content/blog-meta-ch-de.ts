@@ -6440,6 +6440,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.farmacie-turno-svizzera-confine-italiano.imageAlt': 'Blick auf Lugano und seinen See',
     'blog.article.farmacie-turno-svizzera-confine-italiano.seoDescription': 'Notdienst-Apotheken in der Schweiz und an der Grenze CO/VA/VB: kantonale Quellen prüfen, fünf bestätigte Tessiner Gebiete und klare Grenzen.',
     'blog.article.farmacie-turno-svizzera-confine-italiano.ogDescription': 'Quellenleitfaden für Notdienst-Apotheken in der Schweiz und an der italienischen Grenze: kein erfundener Kalender, lokal vor der Fahrt prüfen.',
+    'blog.article.ocse-crescita-svizzera-2026.title': 'OECD sieht mehr Wachstum in der Schweiz, BIP 2026 bei 2,0%',
+    'blog.article.ocse-crescita-svizzera-2026.excerpt': 'Die OECD revidiert die Prognose für die Schweiz nach oben: BIP-Wachstum auf 2,0% im Jahr 2026 und stabile durchschnittliche Inflation auf 0,6%.',
+    'blog.article.ocse-crescita-svizzera-2026.imageAlt': 'Wirtschaftliche Übersicht der Schweiz mit OECD-Wachstumsprognosen',
 };
 
 export default blogMetaChDe;

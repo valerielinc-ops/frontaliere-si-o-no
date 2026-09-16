@@ -83480,6 +83480,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ocse-crescita-svizzera-2026': {
+    title: 'OCSE vede più crescita in Svizzera, Pil 2026 al 2,0%',
+    description: 'L\'OCSE rivede al rialzo la crescita della Svizzera per il 2026 al 2,0%. Inflazione media stimata allo 0,6%. Leggi i dettagli dell\'Economic Survey.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ocse, vede, crescita, rivede',
+    ogTitle: 'OCSE vede più crescita in Svizzera: Pil 2026 al 2,0%',
+    ogDescription: 'L\'Organizzazione per la cooperazione e lo sviluppo economico ha pubblicato il nuovo Economic Survey. Prevista una crescita del Pil svizzero al 2,0% per il 2026 e inflazione allo 0,6%.',
+    canonicalPath: '/articoli-svizzera/ocse-crescita-svizzera-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "OCSE vede più crescita in Svizzera, Pil 2026 al 2,0%",
+      "description": "L'OCSE rivede al rialzo la crescita della Svizzera per il 2026 al 2,0%. Inflazione media stimata allo 0,6%. Leggi i dettagli dell'Economic Survey.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ocse-crescita-svizzera-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panoramica economica della Svizzera con previsioni di crescita OCSE"
+      },
+      "datePublished": "2026-09-16T00:19:29+00:00",
+      "dateModified": "2026-09-16T00:19:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ocse-crescita-svizzera-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

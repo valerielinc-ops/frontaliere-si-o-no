@@ -6440,6 +6440,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.farmacie-turno-svizzera-confine-italiano.imageAlt': 'Vista di Lugano e del suo lago',
     'blog.article.farmacie-turno-svizzera-confine-italiano.seoDescription': 'Farmacie di turno in Svizzera e confine CO/VA/VB: fonti cantonali da verificare, cinque regioni ticinesi verificate e limiti espliciti.',
     'blog.article.farmacie-turno-svizzera-confine-italiano.ogDescription': 'Guida alle fonti per le farmacie di turno in Svizzera e al confine italiano: nessun calendario inventato, verifiche locali prima di partire.',
+    'blog.article.ocse-crescita-svizzera-2026.title': 'OCSE vede più crescita in Svizzera, Pil 2026 al 2,0%',
+    'blog.article.ocse-crescita-svizzera-2026.excerpt': 'L\'OCSE rivede al rialzo le previsioni per la Svizzera: crescita del Pil al 2,0% nel 2026 e inflazione media stabile allo 0,6%.',
+    'blog.article.ocse-crescita-svizzera-2026.imageAlt': 'Panoramica economica della Svizzera con previsioni di crescita OCSE',
 };
 
 export default blogMetaChIt;
