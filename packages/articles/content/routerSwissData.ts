@@ -2179,6 +2179,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'consiglio-federale-obiettivi-2027': { it: 'consiglio-federale-obiettivi-2027', en: 'federal-council-goals-2027', de: 'bundesrat-ziele-2027', fr: 'conseil-federal-objectifs-2027' },
  'migros-ristruttura-online-retail': { it: 'migros-ristruttura-online-retail', en: 'migros-restructures-online-retail', de: 'migros-strukturiert-online-retail-neu', fr: 'migros-restructure-l-online-retail' },
  'avviare-attivita-canton-nidvaldo': { it: 'avviare-attivita-canton-nidvaldo', en: 'starting-business-canton-nidwalden', de: 'unternehmen-starten-kanton-nidwalden', fr: 'lancer-entreprise-canton-nidwald' },
+ 'turismo-svizzera-estate-normalizzazione': { it: 'turismo-svizzera-estate-normalizzazione', en: 'switzerland-tourism-summer-normalization', de: 'schweiz-tourismus-sommer-normalisierung', fr: 'tourisme-suisse-ete-normalisation' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

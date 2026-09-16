@@ -6470,6 +6470,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avviare-attivita-canton-nidvaldo.title': 'Ein Unternehmen im Kanton Nidwalden gründen: Praxisleitfaden',
     'blog.article.avviare-attivita-canton-nidvaldo.excerpt': 'Die notwendigen Schritte für die Wahl der Rechtsform, die Eintragung ins Handelsregister und die Fixkosten für die Unternehmensgründung im Kanton Nidwalden.',
     'blog.article.avviare-attivita-canton-nidvaldo.imageAlt': 'Modernes Bürogebäude in einem Schweizer Kanton für geschäftliche Aktivitäten',
+    'blog.article.turismo-svizzera-estate-normalizzazione.title': 'Schweiz Tourismus, Sommernachfrage normalisiert sich',
+    'blog.article.turismo-svizzera-estate-normalizzazione.excerpt': 'Die August-Daten bestätigen eine langsame Normalisierung der touristischen Nachfrage in der Eidgenossenschaft zwischen Golf- und asiatischen Einbrüchen und Binnenboom.',
+    'blog.article.turismo-svizzera-estate-normalizzazione.imageAlt': 'Sommerpanorama in der Schweiz mit Touristen und alpinen Zielen',
 };
 
 export default blogMetaChDe;

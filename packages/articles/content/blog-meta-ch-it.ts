@@ -6470,6 +6470,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avviare-attivita-canton-nidvaldo.title': 'Avviare un\'attività nel Canton Nidvaldo: guida pratica',
     'blog.article.avviare-attivita-canton-nidvaldo.excerpt': 'I passi necessari per la scelta della forma giuridica, l\'iscrizione al registro di commercio e i costi fissi per avviare un\'impresa nel Canton Nidvaldo.',
     'blog.article.avviare-attivita-canton-nidvaldo.imageAlt': 'Edificio moderno in un cantone svizzero per attività economica',
+    'blog.article.turismo-svizzera-estate-normalizzazione.title': 'Svizzera Turismo, la domanda estiva si sta normalizzando',
+    'blog.article.turismo-svizzera-estate-normalizzazione.excerpt': 'I dati di agosto confermano una lenta normalizzazione della domanda turistica nella Confederazione, tra cali da Golfo e Asia e boom interno.',
+    'blog.article.turismo-svizzera-estate-normalizzazione.imageAlt': 'Panorama estivo in Svizzera con turisti e destinazioni alpine',
 };
 
 export default blogMetaChIt;

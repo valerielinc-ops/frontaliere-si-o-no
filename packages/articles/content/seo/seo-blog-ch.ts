@@ -83870,6 +83870,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-turismo-svizzera-estate-normalizzazione': {
+    title: 'Svizzera Turismo, la domanda estiva si sta normalizzando',
+    description: 'I dati di agosto confermano una normalizzazione della domanda turistica in Svizzera, con flessione dei pernottamenti e divari tra le diverse regioni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, turismo, domanda, estiva, normalizzando',
+    ogTitle: 'Svizzera Turismo: domanda estiva in lenta normalizzazione',
+    ogDescription: 'Analisi dei dati sui pernottamenti turistici in Svizzera: calo ad agosto, impatto del turismo interno e flessione dei visitatori dai Paesi del Golfo.',
+    canonicalPath: '/articoli-svizzera/turismo-svizzera-estate-normalizzazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera Turismo, la domanda estiva si sta normalizzando",
+      "description": "I dati di agosto confermano una normalizzazione della domanda turistica in Svizzera, con flessione dei pernottamenti e divari tra le diverse regioni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/turismo-svizzera-estate-normalizzazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama estivo in Svizzera con turisti e destinazioni alpine"
+      },
+      "datePublished": "2026-09-16T02:14:11+00:00",
+      "dateModified": "2026-09-16T02:14:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/turismo-svizzera-estate-normalizzazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

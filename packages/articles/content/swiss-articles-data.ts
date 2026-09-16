@@ -19382,6 +19382,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'turismo-svizzera-estate-normalizzazione',
+    category: 'novita',
+    date: '2026-09-16T02:14:11.881Z',
+    image: '/images/blog/turismo-svizzera-estate-normalizzazione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

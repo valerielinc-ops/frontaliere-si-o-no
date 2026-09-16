@@ -6470,6 +6470,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avviare-attivita-canton-nidvaldo.title': 'Starting a business in Canton Nidvaldo: a practical guide',
     'blog.article.avviare-attivita-canton-nidvaldo.excerpt': 'The necessary steps for the choice of legal form, registration in the commercial register and fixed costs to start a business in the Canton of Nidvaldo.',
     'blog.article.avviare-attivita-canton-nidvaldo.imageAlt': 'Modern office building in a Swiss canton for business activities',
+    'blog.article.turismo-svizzera-estate-normalizzazione.title': 'Switzerland Tourism, summer demand is normalizing',
+    'blog.article.turismo-svizzera-estate-normalizzazione.excerpt': 'The August data confirm a slow normalization of tourism demand in the Confederation, with declines from the Gulf and Asia and an internal boom.',
+    'blog.article.turismo-svizzera-estate-normalizzazione.imageAlt': 'Summer panorama in Switzerland with tourists and alpine destinations',
 };
 
 export default blogMetaChEn;
