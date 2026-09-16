@@ -137,7 +137,12 @@ export async function loadManifest(file) {
         throw new Error(`${file}:${lineNumber}: entry non valida`);
       }
       if (entries.has(record.path)) throw new Error(`${file}:${lineNumber}: path duplicato ${record.path}`);
-      entries.set(record.path, { path: record.path, inputHash: record.hash, kind: currentKind });
+      const entry = { path: record.path, inputHash: record.hash, kind: currentKind };
+      // POST_WALK_INCREMENTAL optionally adds a compact identity/reference
+      // index. Keep the report's public counters unchanged while allowing the
+      // post-walk planner to prove same-job and explicit path dependencies.
+      if (record.postWalk !== undefined) entry.postWalk = record.postWalk;
+      entries.set(record.path, entry);
     }
   } finally {
     reader.close();
