@@ -476,13 +476,16 @@ describe('deploy.yml — wall-time delle fasi post-build nella storia committata
   });
 });
 
-describe('deploy.yml — scheduling del build senza serializzazione globale', () => {
-  it('mantiene paralleli gli hook indipendenti in produzione', () => {
+describe('deploy.yml — closeBundle serializzati in produzione (OOM run 35100583972)', () => {
+  // #8818 aveva reso paralleli gli hook in produzione: heap a 11 GB gia' prima di
+  // jobs-seo-pages (6,8 GB in sequenziale) e OOM su tutti e quattro i leg. Il
+  // parallelo resta solo opt-in esplicito da workflow_dispatch.
+  it('vale 1 su push e diventa vuoto solo con parallel_plugins esplicito', () => {
     const sequentialProfile = String(BUILD_LOCALE_ENV.SEQUENTIAL_PROFILE ?? '');
+    expect(sequentialProfile).toContain('fromJSON(\'["1",""]\')');
     expect(sequentialProfile).toContain("github.event_name == 'workflow_dispatch'");
-    expect(sequentialProfile).toContain("github.event.inputs.profile_sequential == 'true'");
-    expect(sequentialProfile).toContain("github.event.inputs.parallel_plugins != 'true'");
-    expect(sequentialProfile).not.toBe('1');
+    expect(sequentialProfile).toContain("github.event.inputs.parallel_plugins == 'true'");
+    expect(sequentialProfile).not.toContain('profile_sequential');
   });
 });
 
