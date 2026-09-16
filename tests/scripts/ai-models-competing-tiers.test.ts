@@ -90,13 +90,13 @@ describe('ai-models AI_COMPETING_TIERS kill-switch', () => {
       // about DEFAULT_CHAIN once tier-0 makes both candidates equal-tier).
       // Deriving it from the real DEFAULT_CHAIN also makes this assertion
       // self-updating if the array is ever reordered. GEMINI_FLASH sits far
-      // earlier in DEFAULT_CHAIN than OMNIROUTE_AUTO / CLAUDE_CLI_HAIKU (both
-      // live at the very bottom of the array — see ai-models.mjs lines
-      // ~600-622). With every score equal (0, nothing persisted yet), the
-      // promoted tiers start BEHIND, not pinned to the top.
-      const candidates = new Set([AI_MODELS.CLAUDE_CLI_HAIKU, AI_MODELS.OMNIROUTE_AUTO, AI_MODELS.GEMINI_FLASH]);
+      // earlier in DEFAULT_CHAIN than OMNIROUTE_AUTO (the final active
+      // last-resort entry; the legacy Claude provider is not in this chain).
+      // With every score equal (0, nothing persisted yet), the promoted tier
+      // starts BEHIND, not pinned to the top.
+      const candidates = new Set([AI_MODELS.OMNIROUTE_AUTO, AI_MODELS.GEMINI_FLASH]);
       const chain = DEFAULT_CHAIN.filter((m) => candidates.has(m));
-      expect(chain).toEqual([AI_MODELS.GEMINI_FLASH, AI_MODELS.OMNIROUTE_AUTO, AI_MODELS.CLAUDE_CLI_HAIKU]); // sanity-check the assumed real order
+      expect(chain).toEqual([AI_MODELS.GEMINI_FLASH, AI_MODELS.OMNIROUTE_AUTO]); // sanity-check the assumed real order
       expect(getPreferredModel({ chain })).toBe(AI_MODELS.GEMINI_FLASH);
     });
   });

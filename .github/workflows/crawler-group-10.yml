@@ -121,7 +121,6 @@ jobs:
         id: crawler-launch-jumbo
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-jumbo.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_JUMBO_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -131,6 +130,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/jumbo.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-10"
@@ -211,7 +211,6 @@ jobs:
         id: crawler-launch-swiss-medical-network
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-swiss-medical-network.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_SWISS_MEDICAL_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -221,6 +220,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/swiss-medical-network.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-10"
@@ -301,7 +301,6 @@ jobs:
         id: crawler-launch-viva-luzern
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-viva-luzern.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_VIVA_LUZERN_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -311,6 +310,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/viva-luzern.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-10"
@@ -391,7 +391,6 @@ jobs:
         id: crawler-launch-kiabi
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-kiabi.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_KIABI_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -401,6 +400,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/kiabi.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-10"
@@ -481,7 +481,6 @@ jobs:
         id: crawler-launch-richemont
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-richemont.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_RICHEMONT_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -491,6 +490,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/richemont.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-10"
@@ -571,7 +571,6 @@ jobs:
         id: crawler-launch-hug
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-hug.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_HUG_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -581,6 +580,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/hug.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-10"
@@ -661,7 +661,6 @@ jobs:
         id: crawler-launch-triaplus
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-triaplus.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_TRIAPLUS_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -671,6 +670,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/triaplus.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-10"
@@ -751,7 +751,6 @@ jobs:
         id: crawler-launch-interroll
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-interroll.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_INTERROLL_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -761,6 +760,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/interroll.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-10"
@@ -841,7 +841,6 @@ jobs:
         id: crawler-launch-laderach
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-laderach.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_LADERACH_STRICT: ${{ inputs.strict_localization || '0' }}
@@ -851,6 +850,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/laderach.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-10"
@@ -931,7 +931,6 @@ jobs:
         id: crawler-launch-ems-chemie
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-ems-chemie.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_EMS_CHEMIE_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -941,6 +940,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/ems-chemie.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-10"
@@ -1021,7 +1021,6 @@ jobs:
         id: crawler-launch-lis
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-lis.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_LIS_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1031,6 +1030,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/lis-lugano-istituti-sociali.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-10"
@@ -1111,7 +1111,6 @@ jobs:
         id: crawler-launch-mtic
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-mtic.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_MTIC_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1121,6 +1120,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/mtic-group.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-10"
@@ -1201,7 +1201,6 @@ jobs:
         id: crawler-launch-pzm-muensingen
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-pzm-muensingen.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_PZM_MUENSINGEN_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1211,6 +1210,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/pzm-muensingen.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-10"
@@ -1291,7 +1291,6 @@ jobs:
         id: crawler-launch-hilti
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-hilti.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_HILTI_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1301,6 +1300,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/hilti.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-10"
@@ -1381,7 +1381,6 @@ jobs:
         id: crawler-launch-vz-vermoegenszentrum
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-vz-vermoegenszentrum.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_VZ_VERMOEGENSZENTRUM_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1391,6 +1390,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/vz-vermoegenszentrum.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-10"
@@ -1471,7 +1471,6 @@ jobs:
         id: crawler-launch-kulm-hotel
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-kulm-hotel.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_KULM_HOTEL_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1481,6 +1480,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/kulm-hotel.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-10"
@@ -1561,7 +1561,6 @@ jobs:
         id: crawler-launch-ipw
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-ipw.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_IPW_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1571,6 +1570,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/ipw.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-10"
@@ -1651,7 +1651,6 @@ jobs:
         id: crawler-launch-medbase
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-medbase.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_MEDBASE_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1661,6 +1660,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/medbase.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-10"
@@ -1741,7 +1741,6 @@ jobs:
         id: crawler-launch-centiel
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-centiel.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_CENTIEL_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1751,6 +1750,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/centiel.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-10"
@@ -1831,7 +1831,6 @@ jobs:
         id: crawler-launch-bucherer
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-bucherer.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_BUCHERER_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1841,6 +1840,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/bucherer.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-10"
@@ -1921,7 +1921,6 @@ jobs:
         id: crawler-launch-hamilton
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-hamilton.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_HAMILTON_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1931,6 +1930,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/hamilton-bonaduz-ag.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-10"
@@ -2011,7 +2011,6 @@ jobs:
         id: crawler-launch-emmi
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-emmi.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_EMMI_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2021,6 +2020,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/emmi.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-10"
@@ -2101,7 +2101,6 @@ jobs:
         id: crawler-launch-ksgl
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-ksgl.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_KSGL_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2111,6 +2110,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/ksgl.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-10"
@@ -2191,7 +2191,6 @@ jobs:
         id: crawler-launch-endress-hauser
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-endress-hauser.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_ENDRESS_HAUSER_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2201,6 +2200,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/endress-hauser.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-10"
@@ -2281,7 +2281,6 @@ jobs:
         id: crawler-launch-berit-klinik
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-berit-klinik.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_BERIT_KLINIK_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2292,6 +2291,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/berit-klinik.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-10"
@@ -2372,7 +2372,6 @@ jobs:
         id: crawler-launch-fondation-domus
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-fondation-domus.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_FONDATION_DOMUS_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2382,6 +2381,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/fondation-domus.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-10"
@@ -2462,7 +2462,6 @@ jobs:
         id: crawler-launch-stellentreff
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-stellentreff.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_STELLENTREFF_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2472,6 +2471,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/stellentreff.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-10"

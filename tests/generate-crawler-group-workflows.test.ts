@@ -1771,6 +1771,8 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(crawlerSteps.every((step: any) => step.env?.CODEX_AUTH_JSON === undefined)).toBe(true);
     expect(crawlerSteps.every((step: any) => step.env?.CODEX_AUTH_BROKER_SOCKET
       === '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}')).toBe(true);
+    expect(crawlerSteps.every((step: any) => step.env?.AI_MODELS_PREFER
+      === 'codex-cli/gpt-5.6-luna')).toBe(true);
     const cleanupStep = generatedSteps.find((step: any) => step.name === 'Cleanup Codex auth broker');
     expect(cleanupStep?.if).toBe('always()');
     expect(cleanupStep?.env?.CODEX_AUTH_BROKER_SOCKET)
@@ -1786,7 +1788,8 @@ describe('cross-repo crawler execution artifacts', () => {
       .filter((step: any) => step.id?.startsWith('crawler-launch-'))
       .every((step: any) => step.env?.CODEX_AUTH_JSON === undefined
         && step.env?.CODEX_AUTH_BROKER_SOCKET
-          === '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}')).toBe(true);
+          === '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}'
+        && step.env?.AI_MODELS_PREFER === 'codex-cli/gpt-5.6-luna')).toBe(true);
 
     const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
     const translationSetupStep = Object.values(translation.jobs)[0].steps.find(

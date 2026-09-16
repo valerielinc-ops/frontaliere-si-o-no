@@ -621,7 +621,7 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
     });
 
     expect(result.approved).toBe(false);
-    expect(result.reason).toMatch(/nessuna review Claude/i);
+    expect(result.reason).toMatch(/nessuna review Codex/i);
   });
 
   it('approves an identical-fingerprint review from a previous SHA', async () => {

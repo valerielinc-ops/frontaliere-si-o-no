@@ -1,6 +1,6 @@
 name: Post-merge follow-up triage
 
-# SCHEDULED-BATCH (era pull_request:[closed] per-PR). Una sola sessione Claude ogni
+# SCHEDULED-BATCH (era pull_request:[closed] per-PR). Una sola sessione Codex Luna Max ogni
 # ~3h triagia TUTTE le PR mergiate dall'owner dalla finestra precedente, invece di
 # UNA run per ogni merge. Il ~60-80% delle run per-PR creava zero issue → spreco
 # sulla quota Max OAuth CONDIVISA (AGENTS.md § frugalità — "più batched"). Sicurezza
@@ -38,8 +38,8 @@ jobs:
     #   ora in `collect-followup-batch.mjs`, non più nell'`if:` del job.
     # - `workflow_dispatch` (closes #774): backfill manuale di UNA PR già mergiata ma
     #   non triagiata (es. PR vecchie pre-adozione). Volontario → nessun gate qui; le
-    #   condizioni "merged + same-owner" sono ri-verificate dentro il prompt Claude.
-    # Auth via CLAUDE_CODE_OAUTH_TOKEN (subscription Max, zero API cost).
+    #   condizioni "merged + same-owner" sono ri-verificate dentro il prompt Codex.
+    # Auth via CODEX_AUTH_JSON (private Codex broker, zero API cost).
     # Scope: leggere PR body `## Non implementato` + reviewer 🟡/❓ e creare issue
     # `follow-up` quando il filtro scopo passa. Vedi FOLLOWUP.md.
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
@@ -64,7 +64,7 @@ jobs:
       #    applica i DUE gate per-PR esistenti (grandchild-suppression + no-op pre-gate,
       #    invocati come subprocess: risparmio preservato anche in batch).
       #  - workflow_dispatch → batch = [pr_number] diretto (backfill volontario,
-      #    bypass gate: il prompt Claude ri-verifica eligibility).
+      #    bypass gate: il prompt Codex ri-verifica eligibility).
       # PROCEED-SAFE: un gate per-PR inconcludente → PR inclusa nel batch (mai persa);
       # errori delle sorgenti di raccolta → collection_ok=false e run rossa.
       # Se il batch supera il limite della sessione provider, il collector emette
@@ -86,7 +86,7 @@ jobs:
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             PR="$INPUT_PR_NUMBER"
-            echo "::notice::Backfill dispatch per PR #${PR} (eligibility ri-verificata nel prompt Claude)."
+            echo "::notice::Backfill dispatch per PR #${PR} (eligibility ri-verificata nel prompt Codex)."
             {
               echo "batch_prs=${PR}"
               echo "batch_count=1"
@@ -101,15 +101,15 @@ jobs:
       # Sibling della stessa classe misurata su issue-fix.yml (2026-08-05). Il
       # tracker #1951 segnalava questo workflow al 38% di failure-rate: scaricati
       # i log delle run fallite, sono **tutte HTTP 429** — quota Max condivisa
-      # esaurita, esattamente come le 60/61 di issue-fix. Claude non esegue (0
+      # esaurita, esattamente come le 60/61 di issue-fix. Il lane non esegue (0
       # turni, $0) e la run muore rossa.
       #
       # Qui il RECUPERO era già corretto e NON va toccato: il watermark avanza
       # solo sulle run di SUCCESSO, quindi una run fallita lascia la finestra
       # indietro e la successiva (≤3h) la ri-copre — nessun contatore di
-      # Il beacon viene conservato per telemetria e diagnosi della quota Claude;
-      # non e' piu' un gate di esecuzione, perche' Codex e' il provider primario.
-      - name: Pre-flight — quota telemetry (Codex primary)
+      # Il beacon legacy viene conservato per telemetria e diagnosi della quota;
+      # non e' un gate di esecuzione: Codex Luna Max e' l'unico provider del lane.
+      - name: Pre-flight — Codex lane quota telemetry
         id: quota
         # Il controllo è best-effort: un guasto infra non deve sopprimere il
         # triage, che resta affidato al provider primario e al suo fallback.
@@ -124,12 +124,7 @@ jobs:
         # (stessa quota, stesso account) e non modifica nessuna label.
         run: node scripts/ci/check-quota-backoff.mjs
 
-      - name: Setup Headroom compression proxy
-        if: steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
-        uses: ./.github/actions/setup-headroom
-
-      # Il beacon della quota Claude resta telemetria: Codex e' il provider primario,
-      # quindi una quota Claude aperta non puo' saltare il batch.
+      # Il beacon legacy resta telemetria: la quota aperta non puo' saltare il batch.
 
       # Il follow-up puo' trovare un file che appartiene al producer del corpus,
       # anche quando la PR sorgente e' nel sito. In quel caso l'issue deve nascere
@@ -154,7 +149,7 @@ jobs:
         continue-on-error: true
         run: node scripts/load-rc-env.mjs
 
-      # Prefetch zero-Claude (token-lever, stesso bundle di tests.yml/pr-review-loop):
+      # Prefetch zero-agent (token-lever, stesso bundle di tests.yml/pr-review-loop):
       # il prompt sotto rifà, per OGNI PR del batch, `gh pr view N --json ...` + `gh api
       # .../reviews`, e il check "In-flight PR overlap" rifà `gh pr list --state open` +
       # `gh pr diff <n> --name-only` per ciascuna PR aperta. Con `batch_count` PR per run
@@ -162,7 +157,7 @@ jobs:
       # di puro setup, che qui è già zero-provider perché `batch_prs` è noto PRIMA che
       # l'agente parta. Fail-open: un fetch fallito lascia la sezione vuota/`{}` e il
       # prompt sa rifare la chiamata diretta se il bundle risulta incompleto.
-      - name: Prefetch follow-up batch context (zero-Claude)
+      - name: Prefetch follow-up batch context (zero-agent)
         id: batchctx
         if: steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
         env:
@@ -216,7 +211,7 @@ jobs:
           echo "Prefetched follow-up batch context in $CTX_DIR:"
           ls -la "$CTX_DIR"
 
-      - name: Run Claude follow-up triage (batch)
+      - name: Run Codex Luna Max follow-up triage (batch)
         # Tetto sullo step: senza, l'unico limite era il cap del job
         # (40min) e la run ci moriva `cancelled` — che NON fa scattare
         # nessun `if: failure()` e si vede solo dallo scan periodico
@@ -230,8 +225,7 @@ jobs:
         # interamente saltata.
         if: steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
         uses: ./.github/actions/claude-codex-fallback
-        # The shared action runs one Codex subscription attempt first and invokes
-        # Claude only when the Codex primary does not complete successfully.
+        # The shared action runs one bounded Codex Luna Max subscription attempt.
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BATCH_PRS: ${{ steps.collect.outputs.batch_prs }}
@@ -241,66 +235,22 @@ jobs:
           EVENT_NAME: ${{ github.event_name }}
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
-          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          # `allowed_non_write_users` (sotto) funziona SOLO con `github_token` esplicito,
-          # non con la sola GitHub App auth di `claude_code_oauth_token` (docs/security.md
-          # anthropics/claude-code-action: "Only works when github_token is provided as
-          # input"). Senza questo il bypass del gate write-access è un no-op silenzioso e
-          # la run continua a fallire con lo stesso errore che questo file dichiara di
-          # risolvere (trovato in review PR #3182). Token auto-generato, scope limitato ai
-          # `permissions:` del job (pull-requests/issues write), scade a fine job — NON un
-          # PAT statico.
+          # Token effimero limitato ai permessi del job; non è un PAT statico.
           github_token: ${{ secrets.GITHUB_TOKEN }}
           codex_github_token: ${{ secrets.GITHUB_TOKEN }}
           # The corpus PAT is a separate host-side bridge scope. It is never
           # included in the Codex child environment and is accepted only for
           # nanakokyobashi-rgb/frontaliere-articles issue operations.
           codex_corpus_github_token: ${{ env.GITHUB_PAT_NANAKO || env.GITHUB_PAT }}
-          # Il merge che alimenta questo workflow è fatto da automation interna con DUE
-          # actor bot distinti — entrambi vanno in whitelist o claude-code-action aborta
-          # "Workflow initiated by non-human actor":
-          #  - `frontaliere-automation[bot]`: actor del path PRIMARIO di cascade
-          #    post-LGTM (`auto-merge-on-lgtm.yml` mergia con APP_TOKEN). CORREZIONE
-          #    2026-07-01: l'assunzione "lo schedule gira come github-actions[bot]" era
-          #    sbagliata — `triggering_actor` osservato sui run schedulati è
-          #    `frontaliere-automation[bot]` (ultimo autore del commit che ha introdotto
-          #    il cron, PR #3157). Manteniamo comunque la whitelist anche per il path
-          #    workflow_dispatch self-invocato e per simmetria coi sibling (issue-fix).
-          #  - `github-actions[bot]`: fallback per eventuali dispatch manuali via UI.
-          # `claude[bot]` per simmetria coi sibling. Mai `*`.
-          allowed_bots: "github-actions[bot], claude[bot], frontaliere-automation[bot]"
-          # `allowed_bots` bypassa solo il gate "non-human actor" — claude-code-action fa
-          # un secondo check SEPARATO ("does the actor have write access") via l'API
-          # collaborator-permission, che una GitHub App bot NON supera (non è un
-          # collaborator classico anche se ha accesso reale via installation). Root
-          # cause della run schedulata che falliva 100% dal merge di PR #3157 con "User
-          # does not have write access on this repository" (turns=0, $0 — falliva PRIMA
-          # di invocare Claude, zero triage creato da allora). Stessi 3 nomi di
-          # allowed_bots.
-          allowed_non_write_users: "github-actions[bot], claude[bot], frontaliere-automation[bot]"
-          show_full_output: true
-          # max-turns DINAMICO = min(26 + 8*batch_count, 80), floor 26 (era
-          # min(20+6n,60); bump fleet-wide 2026-07-17, owner). AGENTS.md vieta di
-          # ABBASSARE i turni di post-merge-followup (15→20
-          # fu un fix di `error_max_turns` su PR perse); qui processiamo N PR in una
-          # sessione → vanno ALZATI in proporzione, mai sotto il floor. Modello →
-          # claude-opus-5 (owner 2026-09-03: opus a effort medium, mai claude-sonnet-4-6).
-          # Se una sessione satura il cap (batch grande) → error_max_turns → run NON
-          # success → watermark non avanza → la prossima run schedulata ri-copre la
-          # finestra; l'idempotenza salta le PR già commentate, riprende le restanti.
-          # 2026-07-02: ROLLBACK di `--dangerously-skip-permissions` (adottato la
-          # mattina stessa) — issue #3269: run schedulati/workflow_dispatch (questo
-          # workflow gira su `schedule`) risolvono `permissionMode` a "default"
-          # nonostante il flag, bloccando quasi ogni Bash con "requires approval"
-          # (confermato sul run 28594653701 di oggi, 13:43Z: 36 blocchi, zero
-          # comment postato). pr-review-loop.yml (trigger `workflow_run`) e
-          # issue-fix.yml (trigger `issues`) invece OTTENGONO bypassPermissions
-          # regolarmente con la stessa config — il pattern correla con
-          # l'event_name del trigger (schedule/workflow_dispatch → sempre bloccato,
-          # anche con actor umano), non con settings/claude_args. Torniamo allo
-          # scoped `--allowedTools` precedente (problema noto ma minore: rifiuta
-          # a volte sintassi shell non staticamente analizzabile, non blocca TUTTO).
-          claude_args: "--effort medium --max-turns ${{ steps.collect.outputs.max_turns }} --model claude-opus-5 --allowedTools 'Bash(gh:*),Read,Grep,Glob'"
+          # Il merge che alimenta questo workflow può arrivare da automation interna:
+          # i token host-side restano limitati ai permessi del job e ai bridge espliciti.
+          # max-turns DINAMICO = min(26 + 8*batch_count, 80), floor 26: il cap cresce
+          # con il numero di PR, senza consentire sessioni illimitate.
+          # Se il batch satura il cap, il watermark non avanza e la run successiva
+          # ricopre la finestra; l'idempotenza salta le PR già commentate.
+          # Percorsi storici non presenti in questo repository: `auto-merge-on-lgtm.yml`
+          # e `pr-review-loop.yml`. Il triage corrente vive in questo workflow e in
+          # `tests.yml`; i nomi sopra sono solo riferimenti documentali di confine.
           prompt: |
             Triage automatico follow-up in BATCH (${{ github.event_name }}).
             PR da processare (CSV): ${{ steps.collect.outputs.batch_prs }}
@@ -316,7 +266,7 @@ jobs:
             1. Leggi `FOLLOWUP.md` — contratto operativo completo (parse rules, filtro scopo, dedup, issue format, closing comment).
             2. Leggi `REVIEW.md → "Scopo progetto"` per il filtro funnel.
             3. `gh issue list --label follow-up --state all --json number,title --limit 300` (SOLO `number,title`: il bulk overview serve per la vista d'insieme; il dedup vero è item-level e il body va letto solo per i bucket daily candidati). Riusa questa lista per il dedup su tutte le PR del batch.
-            4. Il contesto per-PR del batch è già prefetchato (zero-Claude, token-lever) in `${{ runner.temp }}/followup-ctx/followup-bundle.md`: leggilo con `Read` — contiene, per ciascuna PR #N del batch, `gh pr view` (number/title/body/mergedAt/mergeCommit/url/author) + le review, e l'elenco delle PR aperte con i rispettivi file (per l'In-flight PR overlap sotto). Non ripetere queste chiamate per-PR a meno che la sezione della PR risulti vuota/incompleta nel bundle.
+            4. Il contesto per-PR del batch è già prefetchato in `${{ runner.temp }}/followup-ctx/followup-bundle.md`: leggilo con `Read` — contiene, per ciascuna PR #N del batch, `gh pr view` (number/title/body/mergedAt/mergeCommit/url/author) + le review, e l'elenco delle PR aperte con i rispettivi file (per l'In-flight PR overlap sotto). Non ripetere queste chiamate per-PR a meno che la sezione della PR risulti vuota/incompleta nel bundle.
 
             **Protocollo bucket giornaliero (vincolante):**
             - La chiave è `${{ steps.collect.outputs.daily_key }}` in `Europe/Zurich`, derivata dal giorno della triage riuscita, MAI da `mergedAt`. Lo stesso retry può quindi raccogliere la finestra arretrata nello stesso bucket della run.
@@ -325,7 +275,7 @@ jobs:
             - Ogni item deve avere un ID stabile `FU-YYYY-MM-DD-NNN`, assegnato una sola volta, e i campi `Target repository`, `Target file`, `Original text`, `Suggested action`, `Acceptance token`, `Sources`. Deduplica col fingerprint `target repository + target file + token/azione normalizzata`; su match aggiungi la PR alla riga `Sources`, non un secondo item.
             - Il body resta `State: collecting` finché tutti i chunk seriali del batch sono conclusi. Non troncare mai il set per un cap “max 10”: il cap vale solo per chunk/sessione. Un errore lascia il bucket collecting e la finestra senza avanzare; il retry riusa la stessa chiave e le PR già commentate restano idempotenti.
             - Se la finestra supera il budget della sessione, il collector fornisce al massimo quattro PR e imposta `collection_ok=false`. Processa tutte le PR emesse; il verifier finale rende intenzionalmente rossa la run schedulata, quindi il watermark di successo non avanza. La run successiva riusa la stessa finestra, salta per idempotenza le PR già commentate e processa il residuo dal primo PR non commentato. Non aprire un secondo bucket per lo stesso `(daily_key, target repository)`.
-            - Solo il gate zero-Claude successivo demota gli item privi di acceptance falsificabile, porta il bucket a `State: sealed` e aggiunge `agent:fix-queued`. Un bucket collecting non è lavorabile dal drainer.
+            - Solo il gate zero-agent successivo demota gli item privi di acceptance falsificabile, porta il bucket a `State: sealed` e aggiunge `agent:fix-queued`. Un bucket collecting non è lavorabile dal drainer.
             - Una PR di fix daily con `Addresses #<bucket>` e `Follow-up item: FU-...` passa il gate anti-nipote solo per cercare finding nuovi: non creare issue figlie. Leggi il bucket padre nello stesso repository target; i finding già coperti dal padre aggiornano `Sources`/si deduplicano, quelli genuinamente nuovi si appendono al padre (se sealed, riportalo a collecting per il gate successivo). Se il padre è illeggibile, posta il blocco sulla PR e non creare un contenitore alternativo.
 
             **Per OGNI PR #N del batch (CSV sopra):**
@@ -383,7 +333,7 @@ jobs:
             - Le append al body sono concorrenti: lettura subito prima, confronto baseline/hash, ricostruzione su body nuovo e commento append-only per gli eventi di stato. Un errore di append non deve cancellare item già presenti.
             - Incerto sul filtro → crea con rationale "needs triage".
             - **Token-lever:** chiamate `gh`/lettura indipendenti vanno emesse in parallelo nello stesso messaggio, mai una per turno — un messaggio con più tool-call resta 1 turno.
-            - NB: la supersede detection NON è scope di questo prompt — la fa già `followup-reconcile.yml` deterministico daily (zero-Claude). Una PR nata per un bucket porta `Follow-up item: FU-...` e `Addresses #<bucket>`; non usare `Closes` finché resta anche un item aperto.
+            - NB: la supersede detection NON è scope di questo prompt — la fa già `followup-reconcile.yml` deterministico daily (zero-agent). Una PR nata per un bucket porta `Follow-up item: FU-...` e `Addresses #<bucket>`; non usare `Closes` finché resta anche un item aperto.
 
       # NB: niente self-retry step (era richiesto dal modello per-PR, dove un run fallito
       # = triage perso per sempre). Nel modello batch il watermark avanza SOLO su run di
@@ -392,14 +342,14 @@ jobs:
       # `## Post-merge follow-up triage`) salta le PR già processate e riprende le altre.
       # Retry at-least-once by-construction, senza ricorsione né `actions: write`.
 
-      # Do not infer completion from an action exit code: Codex/Claude can stop
+      # Do not infer completion from an action exit code: Codex can stop
       # after one chunk while the batch still contains other PRs.  The gate may
       # seal a collecting bucket only when every PR in the positive batch carries
       # the required idempotency marker and the action/fallback itself succeeded.
-      # A successful empty collection is complete without invoking Claude; an
+      # A successful empty collection is complete without invoking an agent; an
       # empty/failed collection is not. The explicit collection_ok output keeps
       # those states distinct so a collector error cannot advance the watermark.
-      - name: Verify complete follow-up triage (zero-Claude)
+      - name: Verify complete follow-up triage (zero-agent)
         id: triage_complete
         if: always()
         env:
@@ -408,7 +358,7 @@ jobs:
           BATCH_PRS: ${{ steps.collect.outputs.batch_prs }}
           BATCH_COUNT: ${{ steps.collect.outputs.batch_count }}
           COLLECTION_OK: ${{ steps.collect.outputs.collection_ok }}
-          CLAUDE_OUTCOME: ${{ steps.followup.outputs.claude_outcome }}
+          ACTION_OUTCOME: ${{ steps.followup.outputs.codex_outcome }}
           ACTION_SUCCESS: ${{ steps.followup.outputs.action_success }}
           CORPUS_REPO: nanakokyobashi-rgb/frontaliere-articles
           GITHUB_PAT_NANAKO: ${{ env.GITHUB_PAT_NANAKO || env.GITHUB_PAT }}
@@ -464,7 +414,7 @@ jobs:
               echo "triage incompleta: batch_count=0 ma BATCH_PRS non è vuoto"
               marker_ok=false
             else
-              # There is no Claude action for a genuinely empty, successfully
+              # There is no agent action for a genuinely empty, successfully
               # collected window. This is the only zero-batch completion path.
               action_ok=true
             fi
@@ -521,10 +471,10 @@ jobs:
             fi
           fi
           if [ "$count" -gt 0 ] 2>/dev/null; then
-            if [ "${CLAUDE_OUTCOME:-}" = success ] || [ "${ACTION_SUCCESS:-}" = true ]; then
+            if [ "${ACTION_OUTCOME:-}" = success ] || [ "${ACTION_SUCCESS:-}" = true ]; then
               action_ok=true
             else
-              echo "triage incompleta: batch positivo senza esito Codex/Claude riuscito"
+              echo "triage incompleta: batch positivo senza esito Codex riuscito"
             fi
           fi
           if [ "$marker_ok" = true ] && [ "$persistence_ok" = true ] && [ "$action_ok" = true ]; then
@@ -536,7 +486,7 @@ jobs:
             exit 1
           fi
 
-      # Gate DETERMINISTICO in ingresso sul conio (zero-Claude). Il divieto di mintare
+      # Gate DETERMINISTICO in ingresso sul conio (zero-agent). Il divieto di mintare
       # item senza condizione di accettazione falsificabile esiste gia' sopra, ma vive
       # SOLO nel prompt: e' una richiesta a un LLM, non un invariante. Misurato il
       # 2026-09-06 sul sito, ultimi 7 giorni: 164 aggregate coniate, 91 (55% = 13,0/giorno)
@@ -547,10 +497,10 @@ jobs:
       # `scripts/ci/followup-resolution-match.mjs`, importato verbatim — mai un predicato
       # nuovo, e mai piu' largo: e' il vincolo di #7587), demota gli item che non passano
       # nel commento di summary della PR, e sopprime la issue quando non ne resta nessuno.
-      # `if: always()` perche' il gate deve girare anche se lo step Claude e' finito in
+      # `if: always()` perche' il gate deve girare anche se lo step Codex e' finito in
       # timeout DOPO aver creato una issue; `continue-on-error` perche' un guasto qui non
       # deve poter far cadere il triage (la issue resta intatta, e' il verso sicuro).
-      - name: Gate sul conio — demota gli item senza condizione di accettazione (zero-Claude)
+      - name: Gate sul conio — demota gli item senza condizione di accettazione (zero-agent)
         if: always()
         continue-on-error: true
         env:
@@ -565,7 +515,7 @@ jobs:
       # Le follow-up che riguardano il producer vengono coniate sul corpus, non sul
       # sito. Il gate deve quindi leggere/scrivere le issue su Nanako ma commentare la
       # PR sorgente qui: `GATE_PR_REPO` separa i due repository nel gate.
-      - name: Gate sul conio — corpus (zero-Claude)
+      - name: Gate sul conio — corpus (zero-agent)
         if: always()
         continue-on-error: true
         env:
@@ -582,12 +532,6 @@ jobs:
             exit 0
           fi
           node scripts/ci/gate-minted-followups.mjs
-
-      - name: Claude usage metrics
-        if: always() && steps.followup.outputs.claude_used == 'true'
-        # Exact token/cost for this run (replaces estimates). Writes a table to the run
-        # Step Summary + a grep-able CLAUDE_USAGE line to the log. Best-effort: never fails.
-        run: node scripts/ci/claude-usage-summary.mjs "${{ steps.followup.outputs.execution_file }}" "post-merge-followup"
 
       - name: Cleanup Firebase credentials
         if: always()

@@ -173,8 +173,22 @@ function unlistedDetailLinks(rows: SnapshotRow[], locale: PlateLocale, listedRow
   return links.join('');
 }
 
-export function renderPlateAuctionPage({ locale, view, canton, plate, vehicleType, rootDir, distDir }: { locale: PlateLocale; view: 'hub' | 'rankings' | 'canton' | 'detail'; canton?: string; plate?: string; vehicleType?: PlateVehicleType; rootDir: string; distDir?: string }): { urlPath: string; html: string } {
-  const copy = COPY[locale];
+export type PlateAuctionContext = {
+  snapshot: Snapshot;
+  coverage: ReturnType<typeof readSourceCoverage>;
+  auctionRows: SnapshotRow[];
+  activeHistoryRows: SnapshotRow[];
+  detailRows: SnapshotRow[];
+  detailRowsByPlate: Map<string, SnapshotRow[]>;
+  rankingRows: SnapshotRow[];
+};
+
+// Calcolato UNA volta per build e passato a ogni render. Prima #8753 ogni
+// pagina di dettaglio rileggeva e riparsava i 20 MB di snapshot e rifaceva
+// normalizzazione, dedup e ranking su ~22k righe: 4 locali × 22k pagine =
+// 227 min di closeBundle (run 34972736506) contro 0,4 min (run 34956104680),
+// abbastanza da far scadere il timeout di 360 min di ogni leg del deploy.
+export function loadPlateAuctionContext(rootDir: string): PlateAuctionContext {
   const snapshot = readSnapshot(rootDir);
   const coverage = readSourceCoverage(rootDir, snapshot);
   const activeSourceCodes = new Set(coverage.entries.filter((entry) => entry.status === 'active').map((entry) => entry.plateCode.toUpperCase()));
@@ -184,11 +198,25 @@ export function renderPlateAuctionPage({ locale, view, canton, plate, vehicleTyp
   const activeHistoryRows = (snapshot.history || [])
     .filter((row) => activeSourceCodes.has(String(row.sourceKey || row.platePrefix).toUpperCase()));
   const detailRows = detailRowsForSnapshot({ ...snapshot, history: activeHistoryRows }, auctionRows);
-  const detailRow = view === 'detail'
-    ? detailRows.find((row) => row.normalizedPlate.toLowerCase() === String(plate || '').toLowerCase() && (!canton || row.sourceKey === canton || row.platePrefix === canton) && (vehicleType ? (row.vehicleType || 'car') === vehicleType : (row.vehicleType || 'car') === 'car'))
-    : undefined;
+  const detailRowsByPlate = new Map<string, SnapshotRow[]>();
+  for (const row of detailRows) {
+    const key = row.normalizedPlate.toLowerCase();
+    const bucket = detailRowsByPlate.get(key);
+    if (bucket) bucket.push(row); else detailRowsByPlate.set(key, [row]);
+  }
   const rankingRows = latestVerifiedFinalRows(activeHistoryRows.length ? activeHistoryRows : auctionRows);
-  const candidateRows = (view === 'rankings' ? rankingRows : auctionRows)
+  return { snapshot, coverage, auctionRows, activeHistoryRows, detailRows, detailRowsByPlate, rankingRows };
+}
+
+export function renderPlateAuctionPage({ locale, view, canton, plate, vehicleType, rootDir, distDir, context }: { locale: PlateLocale; view: 'hub' | 'rankings' | 'canton' | 'detail'; canton?: string; plate?: string; vehicleType?: PlateVehicleType; rootDir: string; distDir?: string; context?: PlateAuctionContext }): { urlPath: string; html: string } {
+  const copy = COPY[locale];
+  const { snapshot, coverage, auctionRows, detailRowsByPlate, rankingRows } = context ?? loadPlateAuctionContext(rootDir);
+  const detailRow = view === 'detail'
+    ? (detailRowsByPlate.get(String(plate || '').toLowerCase()) || []).find((row) => (!canton || row.sourceKey === canton || row.platePrefix === canton) && (vehicleType ? (row.vehicleType || 'car') === vehicleType : (row.vehicleType || 'car') === 'car'))
+    : undefined;
+  // Le liste servono solo alle pagine indice: su un dettaglio filtrare e
+  // ordinare 17k righe per pagina è lo stesso O(n²) appena tolto.
+  const candidateRows = view === 'detail' ? [] : (view === 'rankings' ? rankingRows : auctionRows)
     .filter((row) => (view === 'rankings'
       ? ['closed', 'sold', 'unsold'].includes(row.auctionStatus) && row.dataConfidence === 'verified' && typeof row.finalPriceChf === 'number' && Boolean(row.finalPriceVerifiedAt)
       : isCurrentRow(row))
@@ -208,7 +236,7 @@ export function renderPlateAuctionPage({ locale, view, canton, plate, vehicleTyp
   const urlPath = pathFor(locale, view, canton, detailRow?.normalizedPlate || plate, detailRow?.vehicleType || vehicleType);
   const canonicalUrl = `${BASE_URL}${urlPath}`;
   const links = allPlateAuctionCantonCodes().map((code) => `<li><a href="${esc(pathFor(locale, 'canton', code))}" style="${LINK_ACCENT_STYLE}">${esc(code)} — ${esc(CANTON_NAMES[code]?.[locale] || code)}</a></li>`).join('');
-  const cantonAuctionRows = canton ? auctionRows.filter((row) => row.sourceKey === canton || row.platePrefix === canton) : [];
+  const cantonAuctionRows = view === 'canton' && canton ? auctionRows.filter((row) => row.sourceKey === canton || row.platePrefix === canton) : [];
   const detailLinks = view === 'canton'
     ? unlistedDetailLinks(cantonAuctionRows, locale, rows, CANTON_INDEX_MAX_DETAIL_LINKS)
     : '';
@@ -257,27 +285,20 @@ export function plateAuctionsPagesPlugin(rootDir: string): Plugin {
     if (process.env.SKIP_PLATE_AUCTION_PAGES === '1') return;
     const distDir = np.join(rootDir, 'dist');
     if (!fs.existsSync(distDir)) return;
-    const snapshot = readSnapshot(rootDir);
-    const coverage = readSourceCoverage(rootDir, snapshot);
-    const activeSourceCodes = new Set(coverage.entries.filter((entry) => entry.status === 'active').map((entry) => entry.plateCode.toUpperCase()));
-    const auctionRows = (snapshot.auctions || [])
-      .map(normalizeExpiredRow)
-      .filter((row) => activeSourceCodes.has(String(row.sourceKey || row.platePrefix).toUpperCase()));
-    const activeHistoryRows = (snapshot.history || [])
-      .filter((row) => activeSourceCodes.has(String(row.sourceKey || row.platePrefix).toUpperCase()));
-    const detailRows = detailRowsForSnapshot({ ...snapshot, history: activeHistoryRows }, auctionRows);
+    const context = loadPlateAuctionContext(rootDir);
+    const { detailRows } = context;
     let written = 0;
     for (const locale of LOCALES) {
       for (const view of ['hub', 'rankings'] as const) {
-        const rendered = renderPlateAuctionPage({ locale, view, rootDir, distDir });
+        const rendered = renderPlateAuctionPage({ locale, view, rootDir, distDir, context });
         const out = np.join(distDir, rendered.urlPath, 'index.html'); fs.mkdirSync(np.dirname(out), { recursive: true }); fs.writeFileSync(out, rendered.html, 'utf8'); written++;
       }
       for (const canton of allPlateAuctionCantonCodes()) {
-        const rendered = renderPlateAuctionPage({ locale, view: 'canton', canton, rootDir, distDir });
+        const rendered = renderPlateAuctionPage({ locale, view: 'canton', canton, rootDir, distDir, context });
         const out = np.join(distDir, rendered.urlPath, 'index.html'); fs.mkdirSync(np.dirname(out), { recursive: true }); fs.writeFileSync(out, rendered.html, 'utf8'); written++;
       }
       for (const row of detailRows) {
-        const rendered = renderPlateAuctionPage({ locale, view: 'detail', canton: row.sourceKey || row.platePrefix, plate: row.normalizedPlate, vehicleType: row.vehicleType, rootDir, distDir });
+        const rendered = renderPlateAuctionPage({ locale, view: 'detail', canton: row.sourceKey || row.platePrefix, plate: row.normalizedPlate, vehicleType: row.vehicleType, rootDir, distDir, context });
         const out = np.join(distDir, rendered.urlPath, 'index.html'); fs.mkdirSync(np.dirname(out), { recursive: true }); fs.writeFileSync(out, rendered.html, 'utf8'); written++;
       }
     }
