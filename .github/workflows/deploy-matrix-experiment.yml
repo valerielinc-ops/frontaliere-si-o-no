@@ -1,4 +1,4 @@
-# Per-locale matrix build EXPERIMENT (study phase — does NOT deploy).
+# Per-locale/all-locale matrix build EXPERIMENT (study phase — does NOT deploy).
 #
 # Tests the proposed matrix-per-locale build: instead of one monolithic build
 # emitting all four locales, fan one build per locale across separate runners
@@ -6,6 +6,9 @@
 # missing prerequisite — the BUILD_LOCALE emit filter (build-plugins/shared/
 # localeEmitFilter.ts) — end-to-end on real data, and measures the per-runner
 # wall-time vs the ~23 min monolith.
+# With all_locales=true, the same matrix has exactly one leg and deliberately
+# leaves BUILD_LOCALE unset, measuring the proposed single-process four-locale
+# build on the production-sized runner.
 #
 # SAFETY: manual (workflow_dispatch) only. It NEVER pushes to the production
 # shard repos (frontaliere-{en,de,fr}/cdn) and NEVER touches GitHub Pages — it
@@ -28,6 +31,11 @@ on:
         description: 'Comma-separated locales to build in the matrix'
         required: false
         default: 'it,en,de,fr'
+      all_locales:
+        description: 'Build all four locales in one process (single memory canary)'
+        type: boolean
+        required: false
+        default: false
       fast_build:
         description: 'FAST_BUILD=1 (skip heavy feature plugins for a quick smoke test)'
         type: boolean
@@ -60,16 +68,21 @@ jobs:
         id: build
         env:
           LOCALES_INPUT: ${{ github.event.inputs.locales }}
+          ALL_LOCALES_INPUT: ${{ github.event.inputs.all_locales }}
         run: |
           set -eo pipefail
           RAW="${LOCALES_INPUT:-it,en,de,fr}"
-          # Keep only valid locales, in canonical order, de-duplicated.
-          JSON=$(node -e '
-            const all = ["it","en","de","fr"];
-            const want = new Set(String(process.env.RAW||"").split(",").map(s=>s.trim().toLowerCase()).filter(Boolean));
-            const out = all.filter(l => want.has(l));
-            process.stdout.write(JSON.stringify(out.length ? out : all));
-          ' RAW="$RAW")
+          if [ "${ALL_LOCALES_INPUT:-false}" = 'true' ]; then
+            JSON='[{"locale":"all","all_locales":true}]'
+          else
+            # Keep only valid locales, in canonical order, de-duplicated.
+            JSON=$(RAW="$RAW" node -e '
+              const all = ["it","en","de","fr"];
+              const want = new Set(String(process.env.RAW||"").split(",").map(s=>s.trim().toLowerCase()).filter(Boolean));
+              const out = all.filter(l => want.has(l));
+              process.stdout.write(JSON.stringify((out.length ? out : all).map(locale => ({ locale, all_locales: false }))));
+            ')
+          fi
           echo "matrix=$JSON" >> "$GITHUB_OUTPUT"
           echo "Locale matrix: $JSON"
 
@@ -157,23 +170,47 @@ jobs:
   build-locale:
     needs: [matrix-setup, prep]
     runs-on: ubuntu-latest
+    timeout-minutes: 360
     strategy:
       fail-fast: false
       matrix:
-        locale: ${{ fromJSON(needs.matrix-setup.outputs.matrix) }}
+        include: ${{ fromJSON(needs.matrix-setup.outputs.matrix) }}
     env:
-      BUILD_LOCALE: ${{ matrix.locale }}
+      BUILD_VARIANT: ${{ matrix.locale == 'all' && 'all-locales' || matrix.locale }}
       FAST_BUILD: ${{ github.event.inputs.fast_build == 'true' && '1' || '' }}
       SEQUENTIAL_PROFILE: ${{ github.event.inputs.parallel_plugins == 'true' && '' || '1' }}
+      BUILD_PROFILE: '1'
+      POST_WALK_WORKERS: '2'
+      JOBS_SEO_PROFILE_PHASES: '1'
       RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
+      RELATED_SEARCH_PREPASS_CONCURRENCY: '1'
       JOBS_SEO_RETENTION_PROBE: ${{ github.event.inputs.retention_probe }}
     steps:
+      # Copied minimally from deploy.yml's build-locale job, whose source of
+      # truth is the production cleanup step in this same repository.
+      - name: Free disk space (remove unused toolchains)
+        shell: bash
+        run: |
+          echo "::group::Disk usage BEFORE cleanup"
+          df -h /
+          echo "::endgroup::"
+          sudo rm -rf /usr/local/lib/android &
+          sudo rm -rf /usr/share/dotnet &
+          sudo rm -rf /opt/ghc &
+          sudo rm -rf /usr/local/share/boost &
+          sudo rm -rf /opt/hostedtoolcache/CodeQL &
+          sudo rm -rf /usr/share/swift &
+          wait
+          echo "::group::Disk usage AFTER cleanup"
+          df -h /
+          echo "::endgroup::"
+
       - name: Checkout
         uses: actions/checkout@v5
 
-      # Lockstep con deploy.yml: stesso script, stessi numeri, un posto solo
-      # (scripts/ci/grow-build-swap.sh). Senza, l'esperimento misurerebbe un
-      # runtime diverso da quello di produzione.
+      # Lockstep con deploy.yml's build-locale job: stesso script, stessi
+      # numeri, un posto solo (scripts/ci/grow-build-swap.sh). Senza,
+      # l'esperimento misurerebbe un runtime diverso da quello di produzione.
       - name: Grow swap (il tetto V8 a 14336 MB vuole headroom sull'host)
         run: bash scripts/ci/grow-build-swap.sh
 
@@ -243,19 +280,174 @@ jobs:
           restore-keys: |
             og-jobs-${{ runner.os }}-
 
-      - name: Build (BUILD_LOCALE=${{ matrix.locale }})
+      - name: Configure locale emit mode
+        env:
+          ALL_LOCALES: ${{ matrix.all_locales }}
+          LOCALE: ${{ matrix.locale }}
+        run: |
+          if [ "$ALL_LOCALES" = 'true' ]; then
+            echo 'All-locale canary: BUILD_LOCALE is intentionally unset.'
+          else
+            echo "BUILD_LOCALE=$LOCALE" >> "$GITHUB_ENV"
+            echo "Per-locale experiment: BUILD_LOCALE=$LOCALE"
+          fi
+
+      - name: Record disk/dist usage before build
+        shell: bash
+        run: |
+          set -o pipefail
+          echo '::group::Disk/dist usage BEFORE build'
+          echo '[dist-metrics] df -B1 .'
+          df -B1 .
+          echo '[dist-metrics] du -sb dist'
+          du -sb dist 2>/dev/null || echo 'dist is absent before build'
+          echo '[dist-metrics] find dist -type f | wc -l'
+          find dist -type f 2>/dev/null | wc -l
+          echo '::endgroup::'
+
+      - name: Build (${{ matrix.locale == 'all' && 'all locales' || format('BUILD_LOCALE={0}', matrix.locale) }})
+        id: build_step
+        shell: bash
+        env:
+          # Same allocator setting as deploy.yml's build-locale job; it is
+          # part of the memory measurement, not a canary-only optimization.
+          MALLOC_ARENA_MAX: '2'
         run: |
           set -eo pipefail
-          echo "::group::Build locale ${BUILD_LOCALE}"
+          echo "::group::Build ${BUILD_VARIANT}"
           START=$(date +%s)
-          npm run build:ci 2>&1 | tee "/tmp/build-${BUILD_LOCALE}.log"
+
+          # Host-memory sampler copied from deploy.yml's build-locale step.
+          # MemAvailable is the host signal needed to distinguish a host-side
+          # kill from a V8/build-memory-guard failure.
+          ( end=$(( $(date +%s) + 14400 ))
+            while [ "$(date +%s)" -lt "$end" ]; do
+              printf '[hostmem] '
+              awk '/^(MemTotal|MemAvailable|MemFree|SwapFree|Dirty):/ {sub(/:/,"",$1); printf "%s=%dMB ", $1, $2/1024}' /proc/meminfo
+              printf 'topRSS=%dMB\n' "$(ps -eo rss= --sort=-rss | head -1 | awk '{print int($1/1024)}')"
+              sleep 10
+            done ) &
+          sampler=$!
+          trap 'kill "$sampler" 2>/dev/null || true' EXIT
+
+          npm run build:ci 2>&1 | tee /tmp/build.log
+          build_exit="${PIPESTATUS[0]}"
           END=$(date +%s)
           echo "::endgroup::"
           ELAPSED=$((END - START))
           echo "BUILD_ELAPSED_SECONDS=$ELAPSED" >> "$GITHUB_ENV"
-          echo "⏱️  Locale '${BUILD_LOCALE}' build wall-time: ${ELAPSED}s ($((ELAPSED/60))m$((ELAPSED%60))s)"
+          echo "wall_seconds=$ELAPSED" >> "$GITHUB_OUTPUT"
+          echo "⏱️  ${BUILD_VARIANT} build wall-time: ${ELAPSED}s ($((ELAPSED/60))m$((ELAPSED%60))s)"
+          exit "$build_exit"
+
+      # Copied from deploy.yml's build-locale memory instrumentation. The
+      # canary remains report-only: it does not open issues or publish output.
+      - name: Read build memory report
+        id: memguard
+        if: always()
+        shell: bash
+        run: |
+          set -o pipefail
+          breach=''
+          peak=''
+          peak_anon=''
+          avail=''
+          headroom=''
+          swap_free=''
+          if [ -f /tmp/build-memory-peak.json ]; then
+            breach=$(node -e 'const r=require("/tmp/build-memory-peak.json");process.stdout.write(String(r.breach??""))' || true)
+            peak=$(node -e 'const r=require("/tmp/build-memory-peak.json");process.stdout.write(String(r.peakRssMb??""))' || true)
+            peak_anon=$(node -e 'const r=require("/tmp/build-memory-peak.json");process.stdout.write(String(r.peakAnonMb??""))' || true)
+            avail=$(node -e 'const r=require("/tmp/build-memory-peak.json");process.stdout.write(String(r.minHostAvailMb??""))' || true)
+            headroom=$(node -e 'const r=require("/tmp/build-memory-peak.json");process.stdout.write(String(r.minHostHeadroomMb??""))' || true)
+            swap_free=$(node -e 'const r=require("/tmp/build-memory-peak.json");process.stdout.write(String(r.minSwapFreeMb??""))' || true)
+            cat /tmp/build-memory-peak.json
+          else
+            echo '[memguard] no report: build did not close (host kill) or guard was not armed'
+          fi
+          {
+            echo "breach=$breach"
+            echo "peak_rss_mb=$peak"
+            echo "peak_anon_mb=$peak_anon"
+            echo "min_host_avail_mb=$avail"
+            echo "min_host_headroom_mb=$headroom"
+            echo "min_swap_free_mb=$swap_free"
+          } >> "$GITHUB_OUTPUT"
+
+      # Same [hostmem] sampler as deploy.yml's build-locale step. It is kept
+      # beside the build here so a host-side OOM is distinguishable from a
+      # build-memory-guard breach in this study workflow.
+      - name: Build profile summary
+        if: always()
+        shell: bash
+        run: |
+          {
+            echo '## Build profile markers'
+            echo
+            echo '| marker | detail |'
+            echo '|---|---|'
+            if [ -f /tmp/build.log ]; then
+              awk '
+                /^\[profile-detail\]/ || /^\[phase-timing/ {
+                  marker = $1
+                  sub(/^\[/, "", marker)
+                  sub(/\]$/, "", marker)
+                  detail = $0
+                  sub(/^\[[^]]+\][[:space:]]*/, "", detail)
+                  gsub(/\|/, "&#124;", detail)
+                  printf "| `%s` | %s |\n", marker, detail
+                  found = 1
+                }
+                END {
+                  if (!found) print "| _none_ | no profile markers emitted |"
+                }
+              ' /tmp/build.log
+            else
+              echo '| _none_ | /tmp/build.log was not produced |'
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      # The [hostmem] sampler is started in the build step, matching
+      # deploy.yml's build-locale implementation. Keep this explicit marker in
+      # the workflow next to the report so the source/consumer relationship is
+      # obvious when the study workflow is reviewed.
+      - name: Report dist size + timing
+        if: always()
+        env:
+          PEAK_RSS_MB: ${{ steps.memguard.outputs.peak_rss_mb }}
+          PEAK_ANON_MB: ${{ steps.memguard.outputs.peak_anon_mb }}
+          MIN_HOST_AVAIL_MB: ${{ steps.memguard.outputs.min_host_avail_mb }}
+          MIN_HOST_HEADROOM_MB: ${{ steps.memguard.outputs.min_host_headroom_mb }}
+          MIN_SWAP_FREE_MB: ${{ steps.memguard.outputs.min_swap_free_mb }}
+          MEMORY_BREACH: ${{ steps.memguard.outputs.breach }}
+        run: |
+          set -o pipefail
+          echo '::group::Disk/dist usage AFTER build'
+          echo '[dist-metrics] df -B1 .'
+          df -B1 .
+          echo '[dist-metrics] du -sb dist'
+          du -sb dist 2>/dev/null || echo 'dist is absent after build'
+          echo '[dist-metrics] find dist -type f | wc -l'
+          find dist -type f 2>/dev/null | wc -l
+          echo '::endgroup::'
+          {
+            echo "### ${BUILD_VARIANT} build summary"
+            echo
+            echo '| metric | value |'
+            echo '|---|---|'
+            echo "| wall-time | ${BUILD_ELAPSED_SECONDS:-?}s |"
+            echo "| dist bytes (du -sb) | $(du -sb dist 2>/dev/null | awk '{print \$1}' || echo '?') |"
+            echo "| dist files | $(find dist -type f 2>/dev/null | wc -l | tr -d ' ') |"
+            echo "| peak_rss_mb | ${PEAK_RSS_MB:-?} |"
+            echo "| peak_anon_mb | ${PEAK_ANON_MB:-?} |"
+            echo "| min_host_avail_mb | ${MIN_HOST_AVAIL_MB:-?} |"
+            echo "| min_host_headroom_mb | ${MIN_HOST_HEADROOM_MB:-?} |"
+            echo "| min_swap_free_mb | ${MIN_SWAP_FREE_MB:-?} |"
+            echo "| breach | ${MEMORY_BREACH:-} |"
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Prune to locale shard (filesystem-level, mirrors production push_shard)
+        if: matrix.all_locales != true
         # The in-build BUILD_LOCALE filter only gates WriteCollector writes;
         # direct-fs.writeFileSync emitters (redirect/bridge/weather/alias) still
         # write every locale. This removes the non-owned locale output the same
@@ -263,38 +455,24 @@ jobs:
         run: node scripts/ci/prune-locale-shard.mjs dist
 
       - name: Validate locale shard output
+        if: matrix.all_locales != true
         run: node scripts/ci/validate-locale-shard-build.mjs dist
 
-      - name: Hash-manifest the pruned shard dist (equivalence check)
-        run: node scripts/ci/dist-hash-manifest.mjs dist "/tmp/manifest-${BUILD_LOCALE}.txt"
-      - name: Upload shard manifest
+      - name: Hash-manifest the dist (equivalence check)
+        run: node scripts/ci/dist-hash-manifest.mjs dist "/tmp/manifest-${{ matrix.locale }}.txt"
+      - name: Upload build manifest
         uses: actions/upload-artifact@v7
         with:
           name: manifest-${{ matrix.locale }}
           path: /tmp/manifest-${{ matrix.locale }}.txt
           retention-days: 1
 
-      - name: Report dist size + timing
-        if: always()
-        run: |
-          set -eo pipefail
-          SIZE=$(du -sh dist 2>/dev/null | cut -f1 || echo '?')
-          FILES=$(find dist -type f 2>/dev/null | wc -l | tr -d ' ' || echo '?')
-          {
-            echo "### Locale \`${BUILD_LOCALE}\` build summary"
-            echo ""
-            echo "| metric | value |"
-            echo "|---|---|"
-            echo "| wall-time | ${BUILD_ELAPSED_SECONDS:-?}s |"
-            echo "| dist size | ${SIZE} |"
-            echo "| dist files | ${FILES} |"
-          } >> "$GITHUB_STEP_SUMMARY"
-
   # ── Classic monolith build (all 4 locales) from the SAME prep snapshot ──
   # Reference for the equivalence check. Same data + same wall-clock window as
   # the shards (both start right after prep) ⇒ no time-variance. NO BUILD_LOCALE.
   monolith:
     needs: [matrix-setup, prep]
+    if: inputs.all_locales != true
     runs-on: ubuntu-latest
     env:
       SEQUENTIAL_PROFILE: ${{ github.event.inputs.parallel_plugins == 'true' && '' || '1' }}
@@ -372,6 +550,7 @@ jobs:
   # ── Equivalence gate: recomposed 4 shards === monolith (byte/sha256) ──
   compare:
     needs: [build-locale, monolith]
+    if: inputs.all_locales != true
     runs-on: ubuntu-latest
     steps:
       - name: Checkout (compare script)
