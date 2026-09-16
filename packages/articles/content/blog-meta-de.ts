@@ -11781,6 +11781,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.costi-sviluppo-farmaci-2024.title': 'Warum die Entwicklung neuer Medikamente immer teurer wird',
     'blog.article.costi-sviluppo-farmaci-2024.excerpt': 'Im Jahr 2024 beliefen sich die durchschnittlichen Kosten für die Entwicklung eines neuen Medikaments auf 2,23 Milliarden US-Dollar, was einem Anstieg von 65% gegenüber 2014 entspricht.',
     'blog.article.costi-sviluppo-farmaci-2024.imageAlt': 'Pharmazeutisches Forschungslabor mit moderner Ausrüstung',
+    'blog.article.goldbach-group-ristrutturazione-licenziamenti.title': 'Goldbach Group reorganisiert sich: Bis zu 35 Entlassungen',
+    'blog.article.goldbach-group-ristrutturazione-licenziamenti.excerpt': 'Das von der TX Group kontrollierte Zürcher Unternehmen fasst zwei Divisionen im Bereich Werbung zusammen und leitet ein Vernehmlassungsverfahren ein.',
+    'blog.article.goldbach-group-ristrutturazione-licenziamenti.imageAlt': 'Buerogebaeude in der Schweiz',
 };
 
 export default blogMetaDe;
