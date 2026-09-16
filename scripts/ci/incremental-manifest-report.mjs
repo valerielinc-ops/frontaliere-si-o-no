@@ -11,6 +11,11 @@ import {
   verifyRuntimeInputExclusion,
 } from '../../build-plugins/shared/incrementalManifest.mjs';
 
+// Added after the first manifest format was deployed. Treat the missing field
+// as zero so the first report after this change can compare an old snapshot
+// with a new one; newly written manifests still always serialize the key.
+const LEGACY_OPTIONAL_KINDS = new Set(['related-search-sitemap']);
+
 function parseArgs(argv) {
   const positional = [];
   const args = { limit: 50 };
@@ -55,7 +60,9 @@ function assertManifestCounts(file, counts, entries) {
   const byKind = Object.fromEntries(PAGE_KINDS.map((kind) => [kind, 0]));
   for (const entry of entries.values()) byKind[entry.kind] += 1;
   for (const kind of PAGE_KINDS) {
-    if (counts.byKind[kind] !== byKind[kind]) {
+    const declared = counts.byKind[kind];
+    if (declared === undefined && LEGACY_OPTIONAL_KINDS.has(kind)) continue;
+    if (declared !== byKind[kind]) {
       throw new Error(`${file}: footer byKind.${kind}=${counts.byKind[kind]}, osservate ${byKind[kind]}`);
     }
   }
@@ -169,11 +176,24 @@ function pathList(label, paths, limit) {
   return lines;
 }
 
+const RELATED_SITEMAP_SHARD_RE = /^sitemap-search-clusters(?:-\d+)?\.xml$/;
+
+function relatedSitemapTombstoneCandidates(previous, current) {
+  return [...previous.entries]
+    .filter(([pagePath, entry]) =>
+      entry.kind === 'related-search-sitemap'
+      && RELATED_SITEMAP_SHARD_RE.test(pagePath)
+      && !current.entries.has(pagePath),
+    )
+    .map(([pagePath]) => pagePath);
+}
+
 export function buildReport(previous, current, { limit = 50 } = {}) {
   verifyRuntimeInputExclusion();
   const stats = byKindStats();
   const added = [];
   const removed = [];
+  const tombstoneCandidates = relatedSitemapTombstoneCandidates(previous, current);
   let totalHits = 0;
   let totalMisses = 0;
 
@@ -221,6 +241,8 @@ export function buildReport(previous, current, { limit = 50 } = {}) {
   lines.push(...pathList('Path aggiunti', added, limit));
   lines.push('');
   lines.push(...pathList('Path rimossi', removed, limit));
+  lines.push('');
+  lines.push(...pathList('Tombstone candidati (clearStaleClusterSitemaps)', tombstoneCandidates, limit));
   return `${lines.join('\n')}\n`;
 }
 

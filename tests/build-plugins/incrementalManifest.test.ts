@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { performance } from 'node:perf_hooks';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import {
   buildMinimalJobInput,
@@ -106,6 +106,22 @@ describe('incremental manifest input contract', () => {
     expect(INCREMENTAL_MANIFEST_ENABLED).toBe(false);
   });
 
+  it('shares one per-locale manifest instance between plugin callers', () => {
+    const moduleUrl = pathToFileURL(path.join(ROOT, 'build-plugins/shared/incrementalManifest.mjs')).href;
+    const script = `
+      import { getIncrementalManifestMap } from ${JSON.stringify(moduleUrl)};
+      const first = getIncrementalManifestMap('/fixture-root', ['it']);
+      const second = getIncrementalManifestMap('/fixture-root', ['it', 'en']);
+      console.log(first?.get('it') === second?.get('it') ? 'shared' : 'split');
+    `;
+    const output = execFileSync(process.execPath, ['--input-type=module', '--eval', script], {
+      cwd: ROOT,
+      encoding: 'utf8',
+      env: { ...process.env, INCREMENTAL_MANIFEST: '1' },
+    });
+    expect(output.trim()).toBe('shared');
+  });
+
   it('excludes build and generation metadata from the hash', () => {
     expect(verifyRuntimeInputExclusion()).toBe(true);
   });
@@ -189,6 +205,42 @@ describe('incremental manifest input contract', () => {
     }
   });
 
+  it('writes jobs, related pages, and related sitemap shards into one locale file', () => {
+    const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'incremental-manifest-kinds-'));
+    try {
+      const manifest = new IncrementalManifest('it');
+      manifest.register('/jobs/fixture/', 'active-job', { slug: 'fixture' });
+      manifest.register('/ricerca/fixture/', 'related-search-cluster', { slug: 'fixture' });
+      manifest.register('sitemap-search-clusters-001.xml', 'related-search-sitemap', {
+        locale: 'it',
+        shardFile: 'sitemap-search-clusters-001.xml',
+        membership: ['https://frontaliereticino.ch/ricerca/fixture/'],
+        order: ['https://frontaliereticino.ch/ricerca/fixture/'],
+      });
+
+      const target = manifest.write(tempRoot);
+      const lines = fs.readFileSync(target, 'utf8').trim().split('\n').map((line) => JSON.parse(line));
+      expect(lines.filter((line) => line.type === 'kind').map((line) => line.kind)).toEqual([
+        'active-job',
+        'related-search-cluster',
+        'related-search-sitemap',
+      ]);
+      expect(lines.at(-1)).toMatchObject({
+        type: 'footer',
+        counts: {
+          total: 3,
+          byKind: {
+            'active-job': 1,
+            'related-search-cluster': 1,
+            'related-search-sitemap': 1,
+          },
+        },
+      });
+    } finally {
+      fs.rmSync(tempRoot, { recursive: true, force: true });
+    }
+  });
+
   it('measures 10k register calls on the full-record workload', () => {
     const relatedJobs = Array.from({ length: 6 }, (_, i) => ({
       id: `related-${i + 1}`,
@@ -255,11 +307,16 @@ describe('incremental manifest report', () => {
     expect(output).toContain('| expired-soft-landing | 0 | 1 | 0 | 0 |');
     expect(output).toContain('| legacy-slug-bridge | 0 | 0 | 0 | 1 |');
     expect(output).toContain('| cross-locale-reconciliation | 0 | 0 | 1 | 0 |');
+    expect(output).toContain('| related-search-cluster | 1 | 1 | 1 | 1 |');
+    expect(output).toContain('| related-search-sitemap | 1 | 0 | 0 | 1 |');
     expect(output).toContain('Collisioni (fingerprint per-entry omesso): non calcolate');
-    expect(output).toContain('Path aggiunti (1):');
+    expect(output).toContain('Path aggiunti (2):');
     expect(output).toContain('cerca-lavoro-ticino/riconciliazione/');
-    expect(output).toContain('Path rimossi (1):');
+    expect(output).toContain('ricerca/aggiunta/');
+    expect(output).toContain('Path rimossi (3):');
     expect(output).toContain('cerca-lavoro-ticino/vecchio-slug/');
+    expect(output).toContain('Tombstone candidati (clearStaleClusterSitemaps) (1):');
+    expect(output).toContain('sitemap-search-clusters-002.xml');
     expect(output).toContain('Runtime fields esclusi dall’input: OK');
   });
 });
