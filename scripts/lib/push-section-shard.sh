@@ -190,9 +190,10 @@ push_section_shard() {
             delta_fallback_reason='delta source application failed'
           fi
           if [ "$delta_apply_ok" = 1 ]; then
-            if ! shard_delta_remove_manifest_paths "$stage" "$delta_output/removed.txt"; then
+            if ! shard_delta_remove_stale_payload_paths \
+                "$stage" "$sub" "$delta_output/payload-files.txt" "$delta_output/removed.txt"; then
               delta_apply_ok=0
-              delta_fallback_reason='delta tombstone application failed'
+              delta_fallback_reason="${SHARD_DELTA_REASON:-delta tombstone application failed}"
             fi
           fi
           if [ "$delta_apply_ok" = 1 ]; then

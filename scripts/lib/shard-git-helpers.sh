@@ -166,48 +166,90 @@ shard_delta_add_text() {
   return 0
 }
 
-# shard_delta_remove_manifest_paths <stage> <removed_file>
-# A manifest path is a logical page path. Use one index dump and one
-# index-info update to remove its index.html tree and flat .html variant, if
-# either is present in the remote tree.
-shard_delta_remove_manifest_paths() {
-  local stage="$1" removed_file="$2"
-  local work index_dump delete_info count_file removed_count
+# shard_delta_remove_stale_payload_paths <stage> <scope_prefix>
+#   <payload_file_list> <removed_file>
+# The seeded index is the previous inventory. Remove every tracked payload
+# path under the scope that is absent from the current payload list, including
+# unmanifested files and children of a still-live manifest page. Root service
+# files are handled separately by the caller and are never part of this set.
+# One awk pass emits all deletion records and cross-checks every manifest
+# tombstone before one index-info update.
+shard_delta_remove_stale_payload_paths() {
+  local stage="$1" scope_prefix="$2" payload_file_list="$3" removed_file="$4"
+  local work index_dump delete_info count_file missing_file removed_count
+  [ -f "$payload_file_list" ] || return 1
   [ -f "$removed_file" ] || return 1
-  [ -s "$removed_file" ] || return 0
   work="$(mktemp -d)" || return 1
   index_dump="$work/index.dump"
   delete_info="$work/delete.info"
   count_file="$work/count"
-  if ! git -C "$stage" ls-files --stage > "$index_dump"; then
+  missing_file="$work/missing-tombstones"
+  if [ -n "$scope_prefix" ]; then
+    if ! git -C "$stage" ls-files --stage -- "$scope_prefix/" > "$index_dump"; then
+      rm -rf "$work"
+      return 1
+    fi
+  elif ! git -C "$stage" ls-files --stage > "$index_dump"; then
     rm -rf "$work"
     return 1
   fi
   if ! awk -F '\t' \
+      -v scope_prefix="$scope_prefix" \
+      -v payload_file_list="$payload_file_list" \
       -v removed_file="$removed_file" \
       -v delete_info="$delete_info" \
-      -v count_file="$count_file" '
+      -v count_file="$count_file" \
+      -v missing_file="$missing_file" '
+      function is_service_path(path) {
+        return (path == ".nojekyll" || path == "CNAME" || path == "404.html" || path == "index.html" || path == ".shard-deploys" || path == ".shard-filecount" || index(path, ".deploy-manifest/") == 1 || (scope_prefix != "" && path == scope_prefix ".html"))
+      }
+
+      function mark_removed_candidates(path, candidate, slash) {
+        candidate = path
+        if (candidate in removed) found[candidate] = 1
+        if (length(candidate) > 11 && substr(candidate, length(candidate) - 10) == "/index.html") {
+          candidate = substr(candidate, 1, length(candidate) - 11)
+          if (candidate in removed) found[candidate] = 1
+        } else if (length(candidate) > 5 && substr(candidate, length(candidate) - 4) == ".html") {
+          candidate = substr(candidate, 1, length(candidate) - 5)
+          if (candidate in removed) found[candidate] = 1
+        }
+        while ((slash = match(candidate, /\/[^\/]*$/)) > 0) {
+          candidate = substr(candidate, 1, slash - 1)
+          if (candidate in removed) found[candidate] = 1
+        }
+      }
+
       BEGIN {
+        prefix = scope_prefix == "" ? "" : scope_prefix "/"
+        while ((getline line < payload_file_list) > 0) {
+          if (line != "") live[prefix line] = 1
+        }
+        close(payload_file_list)
         while ((getline line < removed_file) > 0) {
           sub(/[\/]+$/, "", line)
-          if (line != "") removed[++removed_count] = line
+          if (line != "") removed[line] = 1
         }
         close(removed_file)
       }
       {
         split($1, metadata, " ")
         target = $2
-        for (removed_index = 1; removed_index <= removed_count; removed_index += 1) {
-          base = removed[removed_index]
-          if (target == base || target == base ".html" || index(target, base "/") == 1) {
-            print "0 0000000000000000000000000000000000000000\t" target > delete_info
-            matched += 1
-            break
-          }
-        }
+        if (is_service_path(target) || target in live) next
+        print "0 0000000000000000000000000000000000000000\t" target > delete_info
+        matched += 1
+        mark_removed_candidates(target)
       }
-      END { print matched + 0 > count_file }
+      END {
+        print matched + 0 > count_file
+        for (removed_path in removed) if (!(removed_path in found)) print removed_path > missing_file
+      }
     ' "$index_dump"; then
+    rm -rf "$work"
+    return 1
+  fi
+  if [ -s "$missing_file" ]; then
+    SHARD_DELTA_REASON='manifest tombstone cross-check failed'
     rm -rf "$work"
     return 1
   fi

@@ -94,6 +94,12 @@ function writePayload(scenario: Scenario, files: Record<string, string>): void {
   }
 }
 
+function writePayloadFile(scenario: Scenario, relativePath: string, content: string): void {
+  const target = join(scenario.dist, 'en', relativePath);
+  mkdirSync(join(target, '..'), { recursive: true });
+  writeFileSync(target, content);
+}
+
 function writeManyPayload(scenario: Scenario, count: number, changedIndex = -1): void {
   rmSync(scenario.dist, { recursive: true, force: true });
   const assets = join(scenario.dist, 'en', 'assets');
@@ -258,6 +264,50 @@ describe('delta push degli shard', () => {
       assertContent(scenario.remote, 'en/pages/a/index.html', '<html>A</html>');
       assertContent(scenario.remote, 'en/pages/b/index.html', '<html>B v2</html>');
       assertContent(scenario.remote, 'en/pages/d/index.html', '<html>D</html>');
+    } finally {
+      rmSync(scenario.root, { recursive: true, force: true });
+    }
+  });
+
+  it('rimuove nel delta un file payload non coperto dal manifest', () => {
+    const scenario = createScenario('unmanifested-delete');
+    try {
+      writePayload(scenario, { 'pages/a': '<html>A</html>' });
+      writePayloadFile(scenario, 'assets/obsolete.txt', 'obsolete\n');
+      writeManifest(scenario, ['pages/a'], 'v1');
+      expect(runPush(scenario, 'delta').status).toBe(0);
+      expect(treeFiles(scenario.remote)).toContain('en/assets/obsolete.txt');
+
+      writePayload(scenario, { 'pages/a': '<html>A</html>' });
+      writeManifest(scenario, ['pages/a'], 'v1');
+      const result = runPush(scenario, 'delta');
+      expect(result.status).toBe(0);
+      expect(result.output).toContain('delta indexed tree');
+      expect(result.output).toMatch(/removed=1/);
+      expect(treeFiles(scenario.remote)).not.toContain('en/assets/obsolete.txt');
+      assertContent(scenario.remote, 'en/pages/a/index.html', '<html>A</html>');
+    } finally {
+      rmSync(scenario.root, { recursive: true, force: true });
+    }
+  });
+
+  it('rimuove nel delta un child stale di una entry manifest ancora live', () => {
+    const scenario = createScenario('live-manifest-child-delete');
+    try {
+      writePayload(scenario, { 'pages/a': '<html>A</html>' });
+      writePayloadFile(scenario, 'pages/a/obsolete.txt', 'obsolete child\n');
+      writeManifest(scenario, ['pages/a'], 'v1');
+      expect(runPush(scenario, 'delta').status).toBe(0);
+      expect(treeFiles(scenario.remote)).toContain('en/pages/a/obsolete.txt');
+
+      writePayload(scenario, { 'pages/a': '<html>A</html>' });
+      writeManifest(scenario, ['pages/a'], 'v1');
+      const result = runPush(scenario, 'delta');
+      expect(result.status).toBe(0);
+      expect(result.output).toContain('delta indexed tree');
+      expect(result.output).toMatch(/removed=1/);
+      expect(treeFiles(scenario.remote)).not.toContain('en/pages/a/obsolete.txt');
+      assertContent(scenario.remote, 'en/pages/a/index.html', '<html>A</html>');
     } finally {
       rmSync(scenario.root, { recursive: true, force: true });
     }

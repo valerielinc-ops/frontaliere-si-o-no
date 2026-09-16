@@ -95,6 +95,8 @@ function listPayloadFiles(root, relative = '') {
       files.push(...listPayloadFiles(childAbsolute, childRelative));
     } else if (entry.isFile()) {
       files.push(childRelative.split(path.sep).join('/'));
+    } else {
+      throw new Error('payload non-regular: ' + childRelative);
     }
   }
   return files.sort();
@@ -113,13 +115,13 @@ function relativeManifestPath(pagePath, scope) {
 
 function isCoveredByManifest(relativePath, manifestBases) {
   if (manifestBases.has(relativePath)) return true;
-  if (relativePath.endsWith('.html') && manifestBases.has(relativePath.slice(0, -'.html'.length))) {
+  if (relativePath === 'index.html' && manifestBases.has('')) return true;
+  if (relativePath.endsWith('/index.html')
+      && manifestBases.has(relativePath.slice(0, -'/index.html'.length))) {
     return true;
   }
-  let parent = relativePath;
-  while (parent.includes('/')) {
-    parent = parent.slice(0, parent.lastIndexOf('/'));
-    if (manifestBases.has(parent)) return true;
+  if (relativePath.endsWith('.html') && manifestBases.has(relativePath.slice(0, -'.html'.length))) {
+    return true;
   }
   return false;
 }
