@@ -190,6 +190,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-lidl.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_LIDL_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -337,6 +338,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-spital-limmattal.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_SPITAL_LIMMATTAL_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -484,6 +486,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-nant.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_NANT_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -631,6 +634,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-volksschule-luzern.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_VOLKSSCHULE_LUZERN_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -778,6 +782,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-pemsa.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_PEMSA_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -925,6 +930,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-tarchini-group.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: tarchini-group
           JOBS_SLICE_FILE: data/jobs/by-crawler/tarchini-group.json
@@ -1068,6 +1074,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-puk-zuerich.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_PUK_ZUERICH_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1215,6 +1222,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-pole-sante-pays-enhaut.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_POLE_SANTE_PAYS_ENHAUT_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1362,6 +1370,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-zurzach-care.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_ZURZACH_CARE_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1509,6 +1518,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-hitachi-energy.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: hitachi-energy
           JOBS_SLICE_FILE: data/jobs/by-crawler/hitachi-energy.json
@@ -1652,6 +1662,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-google-switzerland.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_GOOGLE_SWITZERLAND_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1799,6 +1810,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-suedhang.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_SUEDHANG_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1946,6 +1958,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-honegger.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_HONEGGER_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2093,6 +2106,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-jsafrasarasin.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_JSAFRASARASIN_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2240,6 +2254,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-kanton-basel-landschaft.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_KANTON_BASEL_LANDSCHAFT_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2387,6 +2402,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-hermes.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_HERMES_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2534,6 +2550,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-ergolz-klinik.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_ERGOLZ_KLINIK_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2681,6 +2698,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-emil-frey.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_EMIL_FREY_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2828,6 +2846,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-ferrovia-retica.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_FERROVIA_RETICA_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2975,6 +2994,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-klinik-im-hasel.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_KLINIK_IM_HASEL_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -3122,6 +3142,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-gkb.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_GKB_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -3269,6 +3290,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-cereneo.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_CERENEO_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -3416,6 +3438,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-equans.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           CRAWLER_SLICE_ONLY: "1"
@@ -3562,6 +3585,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-clariant.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_CLARIANT_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -3709,6 +3733,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-ameos-ch.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_AMEOS_CH_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -3856,6 +3881,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-anybotics.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_ANYBOTICS_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -4003,6 +4029,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-aarreha-schinznach.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_AARREHA_SCHINZNACH_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -6222,6 +6249,10 @@ jobs:
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
           CRAWLER_GENERATION_WAIT_OUTCOME: ${{ job.status }}
+          CRAWLER_GENERATION_AGGREGATE_OUTCOME: ${{ steps.crawler_aggregate.outcome }}
+          CRAWLER_GENERATION_AGGREGATE_SUCCESS: ${{ steps.crawler_aggregate.outputs.success_count || 'invalid' }}
+          CRAWLER_GENERATION_AGGREGATE_FAILURES: ${{ steps.crawler_aggregate.outputs.failure_count || 'invalid' }}
+          CRAWLER_GENERATION_AGGREGATE_MISSING: ${{ steps.crawler_aggregate.outputs.missing_count || 'invalid' }}
           CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"aarreha-schinznach","primarySlice":"data/jobs/by-crawler/aarreha-schinznach.json"},{"crawlerId":"ameos-ch","primarySlice":"data/jobs/by-crawler/ameos-ch.json"},{"crawlerId":"anybotics","primarySlice":"data/jobs/by-crawler/anybotics.json"},{"crawlerId":"cereneo","primarySlice":"data/jobs/by-crawler/cereneo.json"},{"crawlerId":"clariant","primarySlice":"data/jobs/by-crawler/clariant.json"},{"crawlerId":"emil-frey","primarySlice":"data/jobs/by-crawler/emil-frey.json"},{"crawlerId":"equans","primarySlice":"data/jobs/by-crawler/equans.json"},{"crawlerId":"ergolz-klinik","primarySlice":"data/jobs/by-crawler/ergolz-klinik.json"},{"crawlerId":"ferrovia-retica","primarySlice":"data/jobs/by-crawler/ferrovia-retica.json"},{"crawlerId":"gkb","primarySlice":"data/jobs/by-crawler/gkb.json"},{"crawlerId":"google-switzerland","primarySlice":"data/jobs/by-crawler/google-switzerland.json"},{"crawlerId":"hermes","primarySlice":"data/jobs/by-crawler/hermes.json"},{"crawlerId":"hitachi-energy","primarySlice":"data/jobs/by-crawler/hitachi-energy.json"},{"crawlerId":"honegger","primarySlice":"data/jobs/by-crawler/honegger.json"},{"crawlerId":"jsafrasarasin","primarySlice":"data/jobs/by-crawler/jsafrasarasin.json"},{"crawlerId":"kanton-basel-landschaft","primarySlice":"data/jobs/by-crawler/kanton-basel-landschaft.json"},{"crawlerId":"klinik-im-hasel","primarySlice":"data/jobs/by-crawler/klinik-im-hasel.json"},{"crawlerId":"lidl-svizzera","primarySlice":"data/jobs/by-crawler/lidl-svizzera.json"},{"crawlerId":"nant","primarySlice":"data/jobs/by-crawler/nant.json"},{"crawlerId":"pemsa","primarySlice":"data/jobs/by-crawler/pemsa.json"},{"crawlerId":"pole-sante-pays-enhaut","primarySlice":"data/jobs/by-crawler/pole-sante-pays-enhaut.json"},{"crawlerId":"puk-zuerich","primarySlice":"data/jobs/by-crawler/puk-zuerich.json"},{"crawlerId":"spital-limmattal","primarySlice":"data/jobs/by-crawler/spital-limmattal.json"},{"crawlerId":"suedhang","primarySlice":"data/jobs/by-crawler/suedhang.json"},{"crawlerId":"tarchini-group","primarySlice":"data/jobs/by-crawler/tarchini-group.json"},{"crawlerId":"volksschule-luzern","primarySlice":"data/jobs/by-crawler/volksschule-luzern.json"},{"crawlerId":"zurzach-care","primarySlice":"data/jobs/by-crawler/zurzach-care.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-04-terminal.json
           CRAWLER_GENERATION_LEDGER_PATH: data/crawler-generation-ledger.jsonl

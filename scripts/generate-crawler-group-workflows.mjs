@@ -1154,13 +1154,11 @@ export function buildCrawlerAggregateFailureGateShellBody() {
 function buildCrawlerStepEnv(crawler, summaryFile) {
   const merged = {
     SLUG_HISTORY_SUMMARY_FILE: summaryFile,
-    // The crawler AI lane uses the Codex subscription through the private
-    // broker created by the setup action below. Do not pass the Claude OAuth
-    // credential into a background crawler: it would re-enable the legacy
-    // Haiku lane and expose a shared subscription to every child process.
-    // The Codex Luna Max lane is reached through that broker; only its socket
-    // capability crosses the background-process boundary. Most crawlers route
-    // callLLM through dedicated-crawler-common.mjs / shared-jobs-crawler.mjs.
+    // The provider-neutral article chain can fall back to Claude Haiku when
+    // the Codex broker is unavailable. Keep its OAuth credential in the
+    // crawler launch step so every callLLM process can reach that fallback;
+    // ai-models.mjs still gates it by Remote Config and the per-run cap.
+    CLAUDE_CODE_OAUTH_TOKEN: '${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}',
   };
   Object.assign(merged, crawler.runStep.env || {});
   for (const step of crawler.postSteps) {
@@ -1265,11 +1263,15 @@ function crawlerGenerationTerminalSteps(groupIndex, expectedCrawlers) {
         CRAWLER_GENERATION_CALLER_REPOSITORY: '${{ github.repository }}',
         CRAWLER_GENERATION_CALLER_RUN_ID: '${{ github.run_id }}',
         CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: '${{ github.run_attempt }}',
-        // `wait-all` is a runner pseudo-step whose schema deliberately has no
-        // `id`, so it cannot populate the `steps` context. At this point the
-        // join has completed and `job.status` is the supported job-level
-        // surface that preserves success/failure/cancelled distinctly.
+        // Member launch/result steps and the aggregate are continue-on-error,
+        // so job.status alone cannot see a failed member. Keep the runner
+        // status for cancellation/bootstrap failures and pass the aggregate's
+        // durable result/counts for the finalizer to reconcile.
         CRAWLER_GENERATION_WAIT_OUTCOME: '${{ job.status }}',
+        CRAWLER_GENERATION_AGGREGATE_OUTCOME: "\${{ steps.crawler_aggregate.outcome }}",
+        CRAWLER_GENERATION_AGGREGATE_SUCCESS: "\${{ steps.crawler_aggregate.outputs.success_count || 'invalid' }}",
+        CRAWLER_GENERATION_AGGREGATE_FAILURES: "\${{ steps.crawler_aggregate.outputs.failure_count || 'invalid' }}",
+        CRAWLER_GENERATION_AGGREGATE_MISSING: "\${{ steps.crawler_aggregate.outputs.missing_count || 'invalid' }}",
         CRAWLER_GENERATION_EXPECTED_CRAWLERS: JSON.stringify(expectedCrawlers),
         CRAWLER_GENERATION_OUTPUT: output,
         CRAWLER_GENERATION_LEDGER_PATH,

@@ -125,6 +125,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-ksgr.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_KSGR_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -273,6 +274,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-senevita.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_SENEVITA_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -421,6 +423,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-rehaklinik-hasliberg.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_REHAKLINIK_HASLIBERG_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -570,6 +573,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-eoc.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_EOC_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -718,6 +722,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-tich.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_TICH_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -866,6 +871,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-swisscom.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_SWISSCOM_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1014,6 +1020,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-swica.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_SWICA_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1162,6 +1169,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-spital-nidwalden.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_SPITAL_NIDWALDEN_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1310,6 +1318,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-spitex-zuerich.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_SPITEX_ZUERICH_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1458,6 +1467,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-fhgr.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_FHGR_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1606,6 +1616,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-vir-biotechnology.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_VIR_BIOTECHNOLOGY_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1754,6 +1765,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-postauto.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_POSTAUTO_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1902,6 +1914,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-kispi-sg.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_KISPI_SG_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2050,6 +2063,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-recruitingapp-1154.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_RECRUITINGAPP_1154_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2198,6 +2212,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-decathlon.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_DECATHLON_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2346,6 +2361,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-gemeinde-st-moritz.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_GEMEINDE_ST_MORITZ_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2494,6 +2510,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-hopital-la-tour.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_HOPITAL_LA_TOUR_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2642,6 +2659,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-davos-klosters-bergbahnen.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_DAVOS_KLOSTERS_BERGBAHNEN_STRICT: ${{ inputs.strict_localization || '0' }}
@@ -2790,6 +2808,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-claraspital.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_CLARASPITAL_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2938,6 +2957,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-ghol.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_GHOL_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -3086,6 +3106,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-lastminute.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_LASTMINUTE_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -3234,6 +3255,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-entero.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_ENTERO_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -3382,6 +3404,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-franklin-university.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_FRANKLIN_UNIVERSITY_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -3530,6 +3553,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-everest-re.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_EVEREST_RE_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -3678,6 +3702,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-csvm-mustair.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_CSVM_MUSTAIR_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -3827,6 +3852,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-benteler.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_BENTELER_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -3975,6 +4001,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-adullam.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_ADULLAM_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -6195,6 +6222,10 @@ jobs:
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
           CRAWLER_GENERATION_WAIT_OUTCOME: ${{ job.status }}
+          CRAWLER_GENERATION_AGGREGATE_OUTCOME: ${{ steps.crawler_aggregate.outcome }}
+          CRAWLER_GENERATION_AGGREGATE_SUCCESS: ${{ steps.crawler_aggregate.outputs.success_count || 'invalid' }}
+          CRAWLER_GENERATION_AGGREGATE_FAILURES: ${{ steps.crawler_aggregate.outputs.failure_count || 'invalid' }}
+          CRAWLER_GENERATION_AGGREGATE_MISSING: ${{ steps.crawler_aggregate.outputs.missing_count || 'invalid' }}
           CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"adullam","primarySlice":"data/jobs/by-crawler/adullam.json"},{"crawlerId":"amministrazione-cantonale-ti","primarySlice":"data/jobs/by-crawler/amministrazione-cantonale-ti.json"},{"crawlerId":"benteler","primarySlice":"data/jobs/by-crawler/benteler.json"},{"crawlerId":"claraspital","primarySlice":"data/jobs/by-crawler/claraspital.json"},{"crawlerId":"csvm-mustair","primarySlice":"data/jobs/by-crawler/csvm-mustair.json"},{"crawlerId":"davos-klosters-bergbahnen","primarySlice":"data/jobs/by-crawler/davos-klosters-bergbahnen.json"},{"crawlerId":"decathlon","primarySlice":"data/jobs/by-crawler/decathlon.json"},{"crawlerId":"entero","primarySlice":"data/jobs/by-crawler/entero.json"},{"crawlerId":"eoc-ente-ospedaliero-cantonale","primarySlice":"data/jobs/by-crawler/eoc-ente-ospedaliero-cantonale.json"},{"crawlerId":"everest-re","primarySlice":"data/jobs/by-crawler/everest-re.json"},{"crawlerId":"fhgr","primarySlice":"data/jobs/by-crawler/fhgr.json"},{"crawlerId":"franklin-university","primarySlice":"data/jobs/by-crawler/franklin-university.json"},{"crawlerId":"gemeinde-st-moritz","primarySlice":"data/jobs/by-crawler/gemeinde-st-moritz.json"},{"crawlerId":"ghol","primarySlice":"data/jobs/by-crawler/ghol.json"},{"crawlerId":"hopital-la-tour","primarySlice":"data/jobs/by-crawler/hopital-la-tour.json"},{"crawlerId":"kantonsspital-graubuenden-ksgr","primarySlice":"data/jobs/by-crawler/kantonsspital-graubuenden-ksgr.json"},{"crawlerId":"kispi-sg","primarySlice":"data/jobs/by-crawler/kispi-sg.json"},{"crawlerId":"lastminute-com","primarySlice":"data/jobs/by-crawler/lastminute-com.json"},{"crawlerId":"postauto","primarySlice":"data/jobs/by-crawler/postauto.json"},{"crawlerId":"recruitingapp-1154","primarySlice":"data/jobs/by-crawler/recruitingapp-1154.json"},{"crawlerId":"rehaklinik-hasliberg","primarySlice":"data/jobs/by-crawler/rehaklinik-hasliberg.json"},{"crawlerId":"senevita","primarySlice":"data/jobs/by-crawler/senevita.json"},{"crawlerId":"spital-nidwalden","primarySlice":"data/jobs/by-crawler/spital-nidwalden.json"},{"crawlerId":"spitex-zuerich","primarySlice":"data/jobs/by-crawler/spitex-zuerich.json"},{"crawlerId":"swica","primarySlice":"data/jobs/by-crawler/swica.json"},{"crawlerId":"swisscom-sede-ticino","primarySlice":"data/jobs/by-crawler/swisscom-sede-ticino.json"},{"crawlerId":"vir-biotechnology","primarySlice":"data/jobs/by-crawler/vir-biotechnology.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-16-terminal.json
           CRAWLER_GENERATION_LEDGER_PATH: data/crawler-generation-ledger.jsonl

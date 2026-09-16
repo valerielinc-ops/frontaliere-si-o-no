@@ -190,6 +190,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-orell-fuessli-thalia.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_ORELL_FUESSLI_THALIA_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -337,6 +338,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-stadtspital-zuerich.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_STADTSPITAL_ZUERICH_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -484,6 +486,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-dormakaba.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_DORMAKABA_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -631,6 +634,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-ksbl.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_KSBL_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -778,6 +782,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-marriott.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_MARRIOTT_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -925,6 +930,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-kellerhals-carrard.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_KELLERHALS_CARRARD_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1072,6 +1078,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-klinik-sonnenhalde.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_KLINIK_SONNENHALDE_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1219,6 +1226,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-logitech.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_LOGITECH_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1366,6 +1374,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-vtg.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_VTG_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1513,6 +1522,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-nestle.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_NESTLE_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1660,6 +1670,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-spital-buelach.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_SPITAL_BUELACH_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1807,6 +1818,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-pdag.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_PDAG_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1954,6 +1966,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-ricola.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_RICOLA_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2101,6 +2114,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-omega.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_OMEGA_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2248,6 +2262,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-michaelpage.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_MICHAELPAGE_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2395,6 +2410,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-galderma.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_GALDERMA_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2542,6 +2558,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-six-group.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_SIX_GROUP_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2689,6 +2706,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-hoch-health.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_HOCH_HEALTH_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2836,6 +2854,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-liebherr.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_LIEBHERR_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2983,6 +3002,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-cambiavalute.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_CAMBIAVALUTE_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -3130,6 +3150,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-confederazione.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_CONFEDERAZIONE_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -3277,6 +3298,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-livit.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_LIVIT_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -3424,6 +3446,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-flury-stiftung.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_FLURY_STIFTUNG_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -3571,6 +3594,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-bps-suisse.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_BPS_SUISSE_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -3718,6 +3742,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-beekeeper.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_BEEKEEPER_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -3865,6 +3890,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-ardian.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_ARDIAN_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -4012,6 +4038,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-clinique-le-noirmont.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_CLINIQUE_LE_NOIRMONT_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -4160,6 +4187,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-geberit.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_GEBERIT_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -6454,6 +6482,10 @@ jobs:
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
           CRAWLER_GENERATION_WAIT_OUTCOME: ${{ job.status }}
+          CRAWLER_GENERATION_AGGREGATE_OUTCOME: ${{ steps.crawler_aggregate.outcome }}
+          CRAWLER_GENERATION_AGGREGATE_SUCCESS: ${{ steps.crawler_aggregate.outputs.success_count || 'invalid' }}
+          CRAWLER_GENERATION_AGGREGATE_FAILURES: ${{ steps.crawler_aggregate.outputs.failure_count || 'invalid' }}
+          CRAWLER_GENERATION_AGGREGATE_MISSING: ${{ steps.crawler_aggregate.outputs.missing_count || 'invalid' }}
           CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"ardian","primarySlice":"data/jobs/by-crawler/ardian.json"},{"crawlerId":"beekeeper","primarySlice":"data/jobs/by-crawler/beekeeper.json"},{"crawlerId":"bps-suisse","primarySlice":"data/jobs/by-crawler/bps-suisse.json"},{"crawlerId":"cambiavalute","primarySlice":"data/jobs/by-crawler/cambiavalute.json"},{"crawlerId":"clinique-le-noirmont","primarySlice":"data/jobs/by-crawler/clinique-le-noirmont.json"},{"crawlerId":"confederazione-ticino","primarySlice":"data/jobs/by-crawler/confederazione-ticino.json"},{"crawlerId":"dormakaba","primarySlice":"data/jobs/by-crawler/dormakaba.json"},{"crawlerId":"flury-stiftung","primarySlice":"data/jobs/by-crawler/flury-stiftung.json"},{"crawlerId":"galderma","primarySlice":"data/jobs/by-crawler/galderma.json"},{"crawlerId":"geberit","primarySlice":"data/jobs/by-crawler/geberit.json"},{"crawlerId":"hoch-health","primarySlice":"data/jobs/by-crawler/hoch-health.json"},{"crawlerId":"kellerhals-carrard","primarySlice":"data/jobs/by-crawler/kellerhals-carrard.json"},{"crawlerId":"klinik-sonnenhalde","primarySlice":"data/jobs/by-crawler/klinik-sonnenhalde.json"},{"crawlerId":"ksbl","primarySlice":"data/jobs/by-crawler/ksbl.json"},{"crawlerId":"liebherr","primarySlice":"data/jobs/by-crawler/liebherr.json"},{"crawlerId":"livit","primarySlice":"data/jobs/by-crawler/livit.json"},{"crawlerId":"logitech","primarySlice":"data/jobs/by-crawler/logitech.json"},{"crawlerId":"marriott","primarySlice":"data/jobs/by-crawler/marriott.json"},{"crawlerId":"michaelpage","primarySlice":"data/jobs/by-crawler/michaelpage.json"},{"crawlerId":"nestle","primarySlice":"data/jobs/by-crawler/nestle.json"},{"crawlerId":"omega","primarySlice":"data/jobs/by-crawler/omega.json"},{"crawlerId":"orell-fuessli-thalia","primarySlice":"data/jobs/by-crawler/orell-fuessli-thalia.json"},{"crawlerId":"pdag","primarySlice":"data/jobs/by-crawler/pdag.json"},{"crawlerId":"ricola","primarySlice":"data/jobs/by-crawler/ricola.json"},{"crawlerId":"six-group","primarySlice":"data/jobs/by-crawler/six-group.json"},{"crawlerId":"spital-buelach","primarySlice":"data/jobs/by-crawler/spital-buelach.json"},{"crawlerId":"stadtspital-zuerich","primarySlice":"data/jobs/by-crawler/stadtspital-zuerich.json"},{"crawlerId":"vtg","primarySlice":"data/jobs/by-crawler/vtg.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-21-terminal.json
           CRAWLER_GENERATION_LEDGER_PATH: data/crawler-generation-ledger.jsonl

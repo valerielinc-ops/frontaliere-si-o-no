@@ -320,6 +320,30 @@ function requiredEnv(name) {
   return value;
 }
 
+function parseAggregateCount(value) {
+  if (typeof value !== 'string' || !/^\d+$/.test(value)) return null;
+  const count = Number(value);
+  return Number.isSafeInteger(count) ? count : null;
+}
+
+/**
+ * A member failure is deliberately isolated with continue-on-error so the
+ * other crawlers can finish. `job.status` at the finalizer therefore remains
+ * successful even when the aggregate's durable status files contain failed
+ * or missing members. Reconcile the runner status with the aggregate outputs
+ * before writing the terminal manifest; malformed aggregate evidence fails
+ * closed instead of being recorded as a successful generation.
+ */
+export function resolveCrawlerGenerationWaitOutcome(waitOutcome, aggregate = {}) {
+  if (waitOutcome !== 'success') return waitOutcome;
+  if (aggregate.outcome !== 'success') return 'failure';
+  const successCount = parseAggregateCount(aggregate.success);
+  const failureCount = parseAggregateCount(aggregate.failures);
+  const missingCount = parseAggregateCount(aggregate.missing);
+  if (successCount === null || failureCount === null || missingCount === null) return 'failure';
+  return failureCount > 0 || missingCount > 0 ? 'failure' : 'success';
+}
+
 export function runCrawlerGroupGenerationFinalizerCli() {
   const expectedCrawlers = JSON.parse(requiredEnv('CRAWLER_GENERATION_EXPECTED_CRAWLERS'));
   const runnerTemp = requiredEnv('RUNNER_TEMP');
@@ -336,6 +360,15 @@ export function runCrawlerGroupGenerationFinalizerCli() {
       : path.resolve(runnerTemp, receiptDirectory),
     path.join('crawler-generation', 'receipts'),
   );
+  const waitOutcome = resolveCrawlerGenerationWaitOutcome(
+    requiredEnv('CRAWLER_GENERATION_WAIT_OUTCOME'),
+    {
+      outcome: process.env.CRAWLER_GENERATION_AGGREGATE_OUTCOME ?? '',
+      success: process.env.CRAWLER_GENERATION_AGGREGATE_SUCCESS ?? '',
+      failures: process.env.CRAWLER_GENERATION_AGGREGATE_FAILURES ?? '',
+      missing: process.env.CRAWLER_GENERATION_AGGREGATE_MISSING ?? '',
+    },
+  );
   const manifest = finalizeCrawlerGroup({
     cwd: process.cwd(),
     group,
@@ -343,7 +376,7 @@ export function runCrawlerGroupGenerationFinalizerCli() {
     callerRepository: requiredEnv('CRAWLER_GENERATION_CALLER_REPOSITORY'),
     callerRunId: requiredEnv('CRAWLER_GENERATION_CALLER_RUN_ID'),
     callerRunAttempt: Number(requiredEnv('CRAWLER_GENERATION_CALLER_RUN_ATTEMPT')),
-    waitOutcome: requiredEnv('CRAWLER_GENERATION_WAIT_OUTCOME'),
+    waitOutcome,
     checkedAt: process.env.CRAWLER_GENERATION_CHECKED_AT || new Date().toISOString(),
     remoteRepository: SITE_REPOSITORY,
     remoteName: 'origin',

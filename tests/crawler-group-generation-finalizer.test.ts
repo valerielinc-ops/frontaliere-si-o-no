@@ -3,7 +3,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { describe, expect, it } from 'vitest';
-import { createCrawlerGenerationLedgerEntry, finalizeCrawlerGroup, readCrawlerGenerationLedger, validateCrawlerGenerationLedgerEntry } from '../scripts/crawler-group-generation-finalizer.mjs';
+import { createCrawlerGenerationLedgerEntry, finalizeCrawlerGroup, readCrawlerGenerationLedger, resolveCrawlerGenerationWaitOutcome, validateCrawlerGenerationLedgerEntry } from '../scripts/crawler-group-generation-finalizer.mjs';
 import { digestDocument, validateGroupTerminalManifest } from '../scripts/lib/crawler-generation-contract.mjs';
 import { MAX_RECEIPT_BYTES, createCrawlerGenerationReceipt } from '../scripts/lib/crawler-generation-receipt.mjs';
 
@@ -60,6 +60,17 @@ function baseInput(fixture: ReturnType<typeof fixtureRepository>) {
 }
 
 describe('crawler group generation finalizer', () => {
+  it.each([
+    ['success', 'success', { outcome: 'success', success: '4', failures: '0', missing: '0' }, 'success'],
+    ['failed member', 'success', { outcome: 'success', success: '3', failures: '1', missing: '0' }, 'failure'],
+    ['missing member', 'success', { outcome: 'success', success: '3', failures: '0', missing: '1' }, 'failure'],
+    ['aggregate failure', 'success', { outcome: 'failure', success: 'invalid', failures: 'invalid', missing: 'invalid' }, 'failure'],
+    ['malformed counts', 'success', { outcome: 'success', success: 'invalid', failures: '0', missing: '0' }, 'failure'],
+    ['cancelled runner', 'cancelled', { outcome: 'success', success: '4', failures: '0', missing: '0' }, 'cancelled'],
+  ])('reconciles aggregate evidence for %s', (_label, waitOutcome, aggregate, expected) => {
+    expect(resolveCrawlerGenerationWaitOutcome(waitOutcome, aggregate)).toBe(expected);
+  });
+
   it('appends a digest-bound durable record without replacing prior runs', () => {
     const fixture = fixtureRepository();
     writeReceipt(fixture, receiptFor(fixture, [fixture.slice], 'noop', fixture.initial));

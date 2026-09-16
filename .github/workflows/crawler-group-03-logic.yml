@@ -130,6 +130,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-felfel.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_FELFEL_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -277,6 +278,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-siemens.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_SIEMENS_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -424,6 +426,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-linnea.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_LINNEA_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -571,6 +574,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-oscam-castelrotto.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_OSCAM_CASTELROTTO_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -719,6 +723,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-zkb.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_ZKB_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -866,6 +871,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-rss-surselva.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_RSS_SURSELVA_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1013,6 +1019,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-ukbb.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_UKBB_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1160,6 +1167,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-totalenergies.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_TOTALENERGIES_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1307,6 +1315,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-uzh.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_UZH_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1454,6 +1463,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-klinik-aadorf.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_KLINIK_AADORF_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1602,6 +1612,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-efg.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_EFG_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1749,6 +1760,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-spital-maennedorf.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_SPITAL_MAENNEDORF_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1896,6 +1908,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-ubs.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_UBS_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2043,6 +2056,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-ksa.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_KSA_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2190,6 +2204,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-kispi-zurich.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_KISPI_ZURICH_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2337,6 +2352,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-helsinn.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_HELSINN_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2484,6 +2500,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-hib.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_HIB_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2631,6 +2648,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-galliker.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_GALLIKER_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2778,6 +2796,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-clinique-cic.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_CLINIQUE_CIC_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2925,6 +2944,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-casale.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_CASALE_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -3072,6 +3092,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-interdiscount.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_INTERDISCOUNT_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -3219,6 +3240,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-bosch.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_BOSCH_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -3366,6 +3388,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-hopital-de-moutier.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_HOPITAL_DE_MOUTIER_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -3513,6 +3536,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-mobiliar.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_MOBILIAR_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -3660,6 +3684,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-berner-montage.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_BERNER_MONTAGE_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -3807,6 +3832,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-climeworks.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_CLIMEWORKS_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -3954,6 +3980,7 @@ jobs:
         continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-arosa-lenzerheide.txt
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_AROSA_LENZERHEIDE_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -6173,6 +6200,10 @@ jobs:
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
           CRAWLER_GENERATION_WAIT_OUTCOME: ${{ job.status }}
+          CRAWLER_GENERATION_AGGREGATE_OUTCOME: ${{ steps.crawler_aggregate.outcome }}
+          CRAWLER_GENERATION_AGGREGATE_SUCCESS: ${{ steps.crawler_aggregate.outputs.success_count || 'invalid' }}
+          CRAWLER_GENERATION_AGGREGATE_FAILURES: ${{ steps.crawler_aggregate.outputs.failure_count || 'invalid' }}
+          CRAWLER_GENERATION_AGGREGATE_MISSING: ${{ steps.crawler_aggregate.outputs.missing_count || 'invalid' }}
           CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"arosa-lenzerheide","primarySlice":"data/jobs/by-crawler/arosa-lenzerheide.json"},{"crawlerId":"berner-montage","primarySlice":"data/jobs/by-crawler/berner-montage.json"},{"crawlerId":"bosch-thermotechnik-ag","primarySlice":"data/jobs/by-crawler/bosch-thermotechnik-ag.json"},{"crawlerId":"casale","primarySlice":"data/jobs/by-crawler/casale.json"},{"crawlerId":"climeworks","primarySlice":"data/jobs/by-crawler/climeworks.json"},{"crawlerId":"clinique-cic","primarySlice":"data/jobs/by-crawler/clinique-cic.json"},{"crawlerId":"efg-international","primarySlice":"data/jobs/by-crawler/efg-international.json"},{"crawlerId":"felfel","primarySlice":"data/jobs/by-crawler/felfel.json"},{"crawlerId":"galliker","primarySlice":"data/jobs/by-crawler/galliker.json"},{"crawlerId":"helsinn","primarySlice":"data/jobs/by-crawler/helsinn.json"},{"crawlerId":"hib-broye","primarySlice":"data/jobs/by-crawler/hib-broye.json"},{"crawlerId":"hopital-de-moutier","primarySlice":"data/jobs/by-crawler/hopital-de-moutier.json"},{"crawlerId":"interdiscount","primarySlice":"data/jobs/by-crawler/interdiscount.json"},{"crawlerId":"kispi-zurich","primarySlice":"data/jobs/by-crawler/kispi-zurich.json"},{"crawlerId":"klinik-aadorf","primarySlice":"data/jobs/by-crawler/klinik-aadorf.json"},{"crawlerId":"ksa","primarySlice":"data/jobs/by-crawler/ksa.json"},{"crawlerId":"linnea","primarySlice":"data/jobs/by-crawler/linnea.json"},{"crawlerId":"mobiliar","primarySlice":"data/jobs/by-crawler/mobiliar.json"},{"crawlerId":"oscam-castelrotto","primarySlice":"data/jobs/by-crawler/oscam-castelrotto.json"},{"crawlerId":"rss-surselva","primarySlice":"data/jobs/by-crawler/rss-surselva.json"},{"crawlerId":"siemens","primarySlice":"data/jobs/by-crawler/siemens.json"},{"crawlerId":"spital-maennedorf","primarySlice":"data/jobs/by-crawler/spital-maennedorf.json"},{"crawlerId":"totalenergies","primarySlice":"data/jobs/by-crawler/totalenergies.json"},{"crawlerId":"ubs","primarySlice":"data/jobs/by-crawler/ubs.json"},{"crawlerId":"ukbb","primarySlice":"data/jobs/by-crawler/ukbb.json"},{"crawlerId":"uzh","primarySlice":"data/jobs/by-crawler/uzh.json"},{"crawlerId":"zkb","primarySlice":"data/jobs/by-crawler/zkb.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-03-terminal.json
           CRAWLER_GENERATION_LEDGER_PATH: data/crawler-generation-ledger.jsonl

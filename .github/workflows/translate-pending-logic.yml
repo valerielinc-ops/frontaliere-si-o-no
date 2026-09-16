@@ -326,6 +326,7 @@ jobs:
         env:
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
           JOBS_CASCADE_DEADLINE_MS: ${{ vars.TRANSLATE_ARGOS_FIRST_DISABLE == '1' && '15000000' || '5400000' }}
           # A/B sul thinking di Codex Luna Max. Ogni azienda va a un braccio
