@@ -11,6 +11,7 @@ import {
   LEGACY_DISPATCH_POST_ATTEMPTS,
   LEGACY_DISPATCH_RETRY_DELAY_MS,
   MAX_CRAWLER_GENERATION_REAPER_CANDIDATES,
+  PREFLIGHT_ALIGNMENT_BACKOFF_MS,
   cleanupCrawlerGenerationDispatchRef,
   createGitHubActionsRequester,
   dispatchWorkflowOnce,
@@ -1444,6 +1445,141 @@ describe('generation checkpoint and preflight', () => {
     expect(request.mock.calls.filter(([input]) => input.method !== 'GET')).toHaveLength(0);
   });
 
+  it('reconciles a transient same-source generator skew before deciding the crawler wave', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-preflight-lineage-retry-'));
+    tempRoots.push(root);
+    const observer = Buffer.from('observer-workflow\n');
+    const artifacts = groupArtifactFixture();
+    const lineage = {
+      sourceRepository: 'valerielinc-ops/frontaliere-si-o-no',
+      generatorSha256: 'd'.repeat(64),
+    };
+    const localContract = { ...preflightFixture(observer, artifacts), ...lineage };
+    const staleRemoteContract = {
+      ...localContract,
+      generatorSha256: 'c'.repeat(64),
+    };
+    const contractPath = path.join(root, 'contract.json');
+    const observerPath = path.join(root, 'observer.yml');
+    fs.writeFileSync(contractPath, JSON.stringify(localContract));
+    fs.writeFileSync(observerPath, observer);
+    let contractReads = 0;
+    const sleeps: number[] = [];
+    const notices: any[] = [];
+    const request = vi.fn(async (input: any) => {
+      if (input.path.includes('/generator/data/crawler-cross-repo-contract.json?')) {
+        const contract = contractReads++ === 0 ? staleRemoteContract : localContract;
+        return {
+          status: 200,
+          body: {
+            encoding: 'base64',
+            content: Buffer.from(JSON.stringify(contract)).toString('base64'),
+          },
+        };
+      }
+      return preflightResponse(input, localContract, observer, artifacts);
+    });
+
+    await expect(runPreflight({
+      request,
+      contractPath,
+      observerPath,
+      sleep: async (milliseconds) => { sleeps.push(milliseconds); },
+      onTransientMismatch: (notice) => { notices.push(notice); },
+    })).resolves.toMatchObject({
+      ready: true,
+      dispatchMode: 'shadow',
+      reconciliation: {
+        status: 'aligned_after_retry',
+        attempts: 2,
+        maxAttempts: PREFLIGHT_ALIGNMENT_BACKOFF_MS.length + 1,
+      },
+    });
+    expect(contractReads).toBe(2);
+    expect(sleeps).toEqual([PREFLIGHT_ALIGNMENT_BACKOFF_MS[0]]);
+    expect(notices).toMatchObject([{
+      attempt: 1,
+      nextAttempt: 2,
+      maxAttempts: PREFLIGHT_ALIGNMENT_BACKOFF_MS.length + 1,
+      reasons: ['contract_mismatch'],
+    }]);
+  });
+
+  it('keeps a persistent same-source skew blocked after the bounded reconciliation window', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-preflight-lineage-exhausted-'));
+    tempRoots.push(root);
+    const observer = Buffer.from('observer-workflow\n');
+    const artifacts = groupArtifactFixture();
+    const localContract = {
+      ...preflightFixture(observer, artifacts),
+      sourceRepository: 'valerielinc-ops/frontaliere-si-o-no',
+      generatorSha256: 'd'.repeat(64),
+    };
+    const staleRemoteContract = {
+      ...localContract,
+      generatorSha256: 'c'.repeat(64),
+    };
+    const contractPath = path.join(root, 'contract.json');
+    const observerPath = path.join(root, 'observer.yml');
+    fs.writeFileSync(contractPath, JSON.stringify(localContract));
+    fs.writeFileSync(observerPath, observer);
+    const sleeps: number[] = [];
+    const request = vi.fn(async (input: any) => (
+      preflightResponse(input, staleRemoteContract, observer, artifacts)
+    ));
+
+    await expect(runPreflight({
+      request,
+      contractPath,
+      observerPath,
+      sleep: async (milliseconds) => { sleeps.push(milliseconds); },
+    })).resolves.toMatchObject({
+      ready: false,
+      dispatchMode: 'blocked',
+      reasons: ['contract_mismatch'],
+      reconciliation: {
+        status: 'exhausted',
+        attempts: PREFLIGHT_ALIGNMENT_BACKOFF_MS.length + 1,
+        maxAttempts: PREFLIGHT_ALIGNMENT_BACKOFF_MS.length + 1,
+      },
+    });
+    expect(sleeps).toEqual(PREFLIGHT_ALIGNMENT_BACKOFF_MS);
+  });
+
+  it('fails closed without reconciliation when the remote source repository is different', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-preflight-lineage-invalid-'));
+    tempRoots.push(root);
+    const observer = Buffer.from('observer-workflow\n');
+    const artifacts = groupArtifactFixture();
+    const localContract = {
+      ...preflightFixture(observer, artifacts),
+      sourceRepository: 'valerielinc-ops/frontaliere-si-o-no',
+      generatorSha256: 'd'.repeat(64),
+    };
+    const remoteContract = {
+      ...localContract,
+      sourceRepository: 'someone-else/fork',
+      generatorSha256: 'c'.repeat(64),
+    };
+    const contractPath = path.join(root, 'contract.json');
+    const observerPath = path.join(root, 'observer.yml');
+    fs.writeFileSync(contractPath, JSON.stringify(localContract));
+    fs.writeFileSync(observerPath, observer);
+    const sleep = vi.fn(async () => {});
+    const request = vi.fn(async (input: any) => (
+      preflightResponse(input, remoteContract, observer, artifacts)
+    ));
+
+    await expect(runPreflight({ request, contractPath, observerPath, sleep })).resolves.toEqual({
+      ready: false,
+      dispatchMode: 'blocked',
+      corpusCodeCommit: null,
+      reasons: ['contract_mismatch'],
+      warnings: [],
+    });
+    expect(sleep).not.toHaveBeenCalled();
+  });
+
   it.each([
     ['404', { status: 404, body: null }],
     ['403 without Retry-After', { status: 403, body: null }],
@@ -1771,16 +1907,24 @@ describe('generation checkpoint and preflight', () => {
   });
 
   it('reports missing preflight API configuration as a blocking infrastructure failure', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-preflight-output-'));
+    tempRoots.push(root);
+    const output = path.join(root, 'preflight.env');
     vi.spyOn(process.stdout, 'write').mockImplementation(() => true);
+    const stderr = vi.spyOn(process.stderr, 'write').mockImplementation(() => true);
     await expect(runCrawlerGenerationDispatchCli([
       'preflight', '--contract', 'not-read.json', '--observer', 'not-read.yml',
-    ], {})).resolves.toEqual({
+    ], { GITHUB_OUTPUT: output })).resolves.toEqual({
       ready: false,
       dispatchMode: 'blocked',
       corpusCodeCommit: null,
       reasons: ['preflight_infrastructure_error'],
     });
     expect(process.exitCode).toBe(1);
+    expect(fs.readFileSync(output, 'utf8')).toContain('reasons=preflight_infrastructure_error');
+    expect(stderr).toHaveBeenCalledWith(expect.stringContaining(
+      'crawler generation preflight blocked (mode=blocked, reasons=preflight_infrastructure_error)',
+    ));
   });
 
   it('rejects a not-ready canonical dispatch before creating a checkpoint or sending a POST', async () => {
