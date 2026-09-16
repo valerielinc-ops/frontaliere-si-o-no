@@ -11774,6 +11774,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.passaporto-digitale-sicurezza-sociale-ue.title': 'Passaporto digitale UE: novità per la Svizzera',
     'blog.article.passaporto-digitale-sicurezza-sociale-ue.excerpt': 'La Commissione europea propone il passaporto digitale per la sicurezza sociale e la digitalizzazione dei diplomi, con impatti previsti anche per la Svizzera.',
     'blog.article.passaporto-digitale-sicurezza-sociale-ue.imageAlt': 'Passaporto digitale per la sicurezza sociale UE e impatto in Svizzera',
+    'blog.article.salute-mentale-lavoro-ticino.title': 'Salute mentale e lavoro: le assenze in Ticino',
+    'blog.article.salute-mentale-lavoro-ticino.excerpt': 'Il 51% delle assenze per motivi psichici porta allo scioglimento del contratto. L\'importanza dell\'intervento precoce per la stabilità professionale.',
+    'blog.article.salute-mentale-lavoro-ticino.imageAlt': 'Ufficio a Lugano con vista lago, simbolico per il benessere lavorativo.',
 };
 
 export default blogMetaIt;

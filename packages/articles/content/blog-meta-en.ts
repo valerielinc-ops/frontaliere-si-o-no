@@ -11773,6 +11773,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.passaporto-digitale-sicurezza-sociale-ue.title': 'EU Digital Passport - New for Switzerland',
     'blog.article.passaporto-digitale-sicurezza-sociale-ue.excerpt': 'The European Commission is proposing the digital passport for social security and the digitalisation of diplomas, with expected impacts for Switzerland as well.',
     'blog.article.passaporto-digitale-sicurezza-sociale-ue.imageAlt': 'EU digital social security pass and impact on Switzerland',
+    'blog.article.salute-mentale-lavoro-ticino.title': 'Mental health and work: absences in Ticino',
+    'blog.article.salute-mentale-lavoro-ticino.excerpt': '51% of absences for mental reasons lead to the dissolution of the contract. The importance of early intervention for professional stability.',
+    'blog.article.salute-mentale-lavoro-ticino.imageAlt': 'Office in Lugano with lake view, symbolic of workplace wellbeing.',
 };
 
 export default blogMetaEn;
