@@ -2172,6 +2172,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'ocse-crescita-svizzera-2026': { it: 'ocse-crescita-svizzera-2026', en: 'oecd-switzerland-growth-2026', de: 'oecd-schweiz-wachstum-2026', fr: 'ocde-croissance-suisse-2026' },
  'ocse-rapporto-svizzera-2026': { it: 'ocse-rapporto-svizzera-2026', en: 'oecd-switzerland-report-2026', de: 'oecd-bericht-schweiz-2026', fr: 'ocde-rapport-suisse-2026' },
  'bak-economics-pil-2026-18': { it: 'bak-economics-pil-2026-18', en: 'bak-economics-swiss-gdp-2026-forecast', de: 'bak-economics-schweizer-bip-2026-prognose', fr: 'bak-economics-pib-suisse-2026-prevision' },
+ 'too-big-to-fail-consiglio-stati': { it: 'too-big-to-fail-consiglio-stati', en: 'too-big-to-fail-council-of-states', de: 'too-big-to-fail-staenderat', fr: 'too-big-to-fail-conseil-des-etats' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

@@ -6449,6 +6449,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.bak-economics-pil-2026-18.title': 'BAK Economics: GDP 2026 at +1.8%, possible rate hike',
     'blog.article.bak-economics-pil-2026-18.excerpt': 'The Rhenish institute raises its growth estimate to 1.8% and expects the SNB to intervene as early as December.',
     'blog.article.bak-economics-pil-2026-18.imageAlt': 'Panoramic view of the Swiss Alps and Lake Lugano at morning, golden light on Swiss mountains.',
+    'blog.article.too-big-to-fail-consiglio-stati.title': 'Too big to fail: Council of States discusses UBS rules',
+    'blog.article.too-big-to-fail-consiglio-stati.excerpt': 'Regulation for too big to fail institutes is at the heart of the parliamentary debate. The RLP proposes to entrust the rules to the Federal Council.',
+    'blog.article.too-big-to-fail-consiglio-stati.imageAlt': 'Federal Palace in Bern where banking regulation is discussed',
 };
 
 export default blogMetaChEn;

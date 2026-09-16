@@ -6449,6 +6449,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.bak-economics-pil-2026-18.title': 'BAK Economics: BIP 2026 bei +1,8%, Zinserhöhung möglich',
     'blog.article.bak-economics-pil-2026-18.excerpt': 'Das rheinische Institut hebt die Wachstumsprognose auf 1,8% an und geht bereits im Dezember von einer Intervention der SNB aus.',
     'blog.article.bak-economics-pil-2026-18.imageAlt': 'Panoramaansicht der Schweizer Alpen und des Lago Maggiore am Morgen, goldenes Licht.',
+    'blog.article.too-big-to-fail-consiglio-stati.title': 'Too big to fail: Ständerat diskutiert UBS-Regeln',
+    'blog.article.too-big-to-fail-consiglio-stati.excerpt': 'Die Regelung für too big to fail-Institute steht im Mittelpunkt der parlamentarischen Debatte. Die FDP schlägt vor, die Regeln dem Bundesrat zu übertragen.',
+    'blog.article.too-big-to-fail-consiglio-stati.imageAlt': 'Bundeshaus in Bern, wo die Bankenregulierung diskutiert wird',
 };
 
 export default blogMetaChDe;
