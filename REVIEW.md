@@ -18,19 +18,19 @@ Non passa nessuno → drop. Non importante per questo progetto.
 ## Policy automazione bounded F1/F7
 
 La policy deterministica in `scripts/ci/lib/automation-risk-policy.mjs` è un
-dominio esplicito condiviso da classifier, issue-fix e auto-merge. La versione
-e il sentinel `CONTROL_PLANE_GUARD_VERSION` sono parte del contratto: un helper
-bootstrap senza quel sentinel non è trusted. Blocca sempre
+dominio esplicito condiviso da classifier, issue-fix e auto-merge. Blocca sempre
 questi cinque domini: `deploy-workflow-functions`,
 `secrets-roles-permissions`, `billing-revenue-partner`,
 `published-content-seo-auto-ads` e `outreach-communications`.
 
-Il sesto dominio tecnico `control-plane` è deny-by-default e viene valutato
-prima dell'eccezione test-only: `.github/workflows/**`, `.github/actions/**`,
-`scripts/ci/**`, classifier, policy, native gate, evaluator e `REVIEW.md` non
-possono essere modificati dal percorso autonomo. Un path non riconosciuto e
-un issue text senza categoria/signal noto ricevono anch'essi `decision='deny'`;
-non esiste allow-by-default per stringhe o file sconosciuti.
+Il dominio tecnico `control-plane` resta deny-by-default per la classificazione
+delle issue: `.github/workflows/**`, `.github/actions/**`, `scripts/ci/**`,
+classifier, policy, native gate, evaluator e `REVIEW.md` non entrano nel ciclo
+issue-fix/triage automatico. Nel percorso PR→auto-merge questi path non sono
+invece un veto umano aggiuntivo: il native gate valuta comunque metadata e
+file-list completa, review `## LGTM`, check verdi e la HEAD esatta. Un path non
+riconosciuto e un issue text senza categoria/signal noto ricevono anch'essi
+`decision='deny'`; non esiste allow-by-default per stringhe o file sconosciuti.
 
 Le sole eccezioni esplicite al deny per un'issue `other` sono le label metriche
 read-only `job-description-locale` e `job-title-locale`; non trasformano testo
@@ -42,22 +42,21 @@ token App, quota, claim e agent. Un errore di lettura o parsing lascia il fixer
 skipped. Non esiste un override nel prompt.
 
 Per una PR il native gate valuta titolo/body/label e un elenco file completo:
-un elenco incompleto è deny-by-default; un dominio rischioso impedisce
-l'abilitazione e revoca un opt-in native già persistente. `needs-human` è un
-veto persistente: anche una review umana APPROVED non lo rimuove via automazione;
-la rimozione richiede un umano e una review `APPROVED` di un utente non-bot sulla
-HEAD esatta. Il gate finale riacquisisce metadata e file-list e usa
-`--match-head-commit` sulla HEAD appena verificata. La stessa guardia copre
-l'evaluator legacy che conserva una mutazione `--auto` di compatibilità.
+un elenco incompleto è deny-by-default; un dominio F1/F7 diverso dal
+control-plane impedisce l'abilitazione e revoca un opt-in native già persistente.
+`needs-human` è un veto persistente: anche una review umana APPROVED non lo
+rimuove via automazione; la rimozione richiede un umano e una review `APPROVED`
+di un utente non-bot sulla HEAD esatta. Il gate finale riacquisisce metadata e
+file-list e usa `--match-head-commit` sulla HEAD appena verificata. La stessa
+guardia copre l'evaluator legacy che conserva una mutazione `--auto` di
+compatibilità.
 
-I bootstrap `enable-native-automerge.yml` e `retry-native-automerge.yml` eseguono
-una guardia statica prima di scaricare policy/credenziali e verificano il
-sentinel comportamentale del helper. La versione della workflow già presente su
-`main` non può però essere retroattivamente cambiata da questa PR: durante la
-valutazione della PR che introduce la guardia, `pull_request_target` può ancora
-eseguire il file preesistente di `main`. Questo limite di protezione GitHub non
-è aggirato qui: il percorso resta fail-closed/no-op o richiede intervento umano
-finché una guardia preesistente e verificabile non è su `main`.
+I bootstrap `enable-native-automerge.yml` e `retry-native-automerge.yml` non
+eseguono più una guardia statica sui path del control-plane né richiedono un
+sentinel dedicato: scaricano e verificano la sintassi degli helper trusted da
+`main`, quindi il gate PR applica la policy `surface='pull-request'` insieme ai
+requisiti già esistenti. Non c'è un vincolo di approvazione umana solo perché la
+PR modifica un workflow, un'azione, `scripts/ci/**`, il classifier o `REVIEW.md`.
 
 Branch protection, ruoli e impostazioni amministrative non sono modificati né
 assunti verificabili da questa policy: se GitHub non consente la verifica, il

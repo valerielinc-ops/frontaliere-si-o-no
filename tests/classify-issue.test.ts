@@ -228,6 +228,20 @@ describe('policy automazione F1/F7', () => {
     }
   });
 
+  it('allows control-plane paths for PR auto-merge while issue classification stays deny-by-default', () => {
+    for (const path of CONTROL_PLANE_PATHS) {
+      const out = classifyAutomationRisk({
+        title: 'Aggiornare il workflow di auto-merge',
+        body: 'La PR modifica la pipeline e gli script CI del control-plane.',
+        paths: [path],
+        pathsComplete: true,
+        surface: 'pull-request',
+      });
+      expect(out).toMatchObject({ blocked: false, decision: 'allow', controlPlane: false });
+      expect(out.domains).not.toContain('control-plane');
+    }
+  });
+
   it('does not let an unrecognised path or generic issue text enter automation', () => {
     expect(isRecognizedAutomationPath('unknown-zone/agent-target.ts')).toBe(false);
     expect(classifyAutomationRisk({

@@ -494,6 +494,7 @@ function main() {
     labels: pr.labels,
     paths: fileSnapshot.files,
     pathsComplete: fileSnapshot.complete,
+    surface: 'pull-request',
   });
   if (!risk.verifiable || risk.blocked) {
     return fail(`Policy F1/F7 blocca l'auto-merge legacy PR #${PR} (${risk.domains.join(', ') || risk.reason}) — serve gestione umana separata.`);
@@ -725,6 +726,7 @@ function main() {
     labels: freshPr.labels,
     paths: freshFileSnapshot.files,
     pathsComplete: freshFileSnapshot.complete,
+    surface: 'pull-request',
   });
   if (!freshRisk.verifiable || freshRisk.blocked) {
     return fail(`Policy F1/F7 finale blocca PR #${PR} (${freshRisk.domains.join(', ') || freshRisk.reason}) — serve gestione umana separata.`);

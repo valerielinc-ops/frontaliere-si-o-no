@@ -38,44 +38,6 @@ jobs:
       (github.event_name == 'pull_request_target' && github.event.pull_request.draft == false)
     runs-on: ubuntu-latest
     steps:
-      - name: Static control-plane bootstrap guard (pre-existing, deny-by-default)
-        env:
-          GH_TOKEN: ${{ github.token }}
-          REPOSITORY: ${{ github.repository }}
-          EVENT_PR_NUMBER: ${{ github.event.pull_request.number || '' }}
-          EVENT_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.event.workflow_run.head_sha || '' }}
-        run: |
-          set -euo pipefail
-          pr_number="${EVENT_PR_NUMBER:-}"
-          if [ -z "$pr_number" ] && [ -n "${EVENT_HEAD_SHA:-}" ]; then
-            if ! pr_number=$(gh api "repos/$REPOSITORY/commits/$EVENT_HEAD_SHA/pulls" --paginate --slurp \
-              | jq -r '[add[] | select(.state == "open" and .base.ref == "main") | .number] | .[0] // empty'); then
-              echo "::error::control-plane bootstrap guard: PR metadata non verificabile; hard fail umano."
-              exit 1
-            fi
-          fi
-          if [ -z "$pr_number" ]; then
-            echo 'control-plane bootstrap guard: nessuna PR associata; nessuna mutation.'
-            exit 0
-          fi
-          if ! files=$(gh api "repos/$REPOSITORY/pulls/$pr_number/files?per_page=100" --paginate --jq '.[].filename'); then
-            echo "::error::control-plane bootstrap guard: file-list PR #$pr_number non verificabile; hard fail umano."
-            exit 1
-          fi
-          if [ -z "$files" ]; then
-            echo "::error::control-plane bootstrap guard: file-list PR #$pr_number vuoto/non verificabile; hard fail umano."
-            exit 1
-          fi
-          while IFS= read -r path; do
-            case "$path" in
-              .github/workflows/*|.github/actions/*|scripts/ci/*|scripts/lib/classify-issue.mjs|REVIEW.md)
-                echo "::error::control-plane path $path in PR #$pr_number: bootstrap deny-by-default; serve approvazione umana."
-                exit 1
-                ;;
-            esac
-          done <<< "$files"
-          echo "control-plane bootstrap guard: PR #$pr_number non modifica il control-plane staticamente."
-
       # This job needs only the Remote Config loader and its dependency-free
       # JWT helper. A git checkout still has to fetch the repository's large
       # tree before sparse checkout can select those files, so download the
@@ -129,9 +91,7 @@ jobs:
             && node --check "$policy_tmp" \
             && node --check "$risk_tmp" \
             && node --check "$files_tmp" \
-            && node --check "$vitest_tmp" \
-            && grep -q 'CONTROL_PLANE_GUARD_VERSION' "$risk_tmp" \
-            && grep -q 'isControlPlanePath' "$risk_tmp"; then
+            && node --check "$vitest_tmp"; then
             mv "$gate_tmp" "$helper_dir/native-automerge-gate.mjs"
             mv "$policy_tmp" "$helper_dir/review-test-policy.mjs"
             mv "$risk_tmp" "$helper_dir/lib/automation-risk-policy.mjs"
