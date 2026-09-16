@@ -7,6 +7,10 @@ name: Post-deploy Validate (dist)
 # integrity-verdict separately classifies named quality rows so a quality-only
 # finding cannot sequester publish after the Pages deploy already succeeded.
 # This single-runner layout removes the three independent ~13 GB rehydrates.
+# This reusable validator is deliberately side-effect-free for social channels:
+# it contains no Firebase/Remote Config hydration and no Facebook, LinkedIn, or
+# Reddit publisher steps. Those effects live in post-deploy-publish.yml, whose
+# caller keeps them downstream of the production-approval gate.
 on:
   workflow_call:
     inputs:
@@ -15,7 +19,7 @@ on:
         required: true
         type: string
       deploy_event_name:
-        description: 'github.event_name from the caller. Used to gate Facebook/LinkedIn posting and live-meta wait to workflow_dispatch deploys (article publishing pipeline).'
+        description: 'github.event_name from the caller. Used to gate live-meta validation to workflow_dispatch deploys (article publishing pipeline).'
         required: true
         type: string
       deploy_ref:

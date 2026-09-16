@@ -214,10 +214,39 @@ describe('production promotion admission', () => {
     expect(needs(workflow.jobs.publish)).toContain('deploy');
   });
 
-  it('removes the direct post-deploy publisher dispatch path', () => {
+  it('routes post-deploy recovery dispatch through source-run and approval gates', () => {
     const workflow = readWorkflow('post-deploy-publish.yml');
-    expect(workflow.on.workflow_dispatch).toBeUndefined();
+    expect(workflow.on.workflow_dispatch?.inputs?.source_run_id).toMatchObject({
+      required: true,
+      type: 'string',
+    });
     expect(workflow.on.workflow_call).toBeDefined();
+    const trigger = workflow.jobs['validate-recovery-trigger'];
+    const source = workflow.jobs['validate-recovery-source'];
+    const approval = workflow.jobs['recovery-production-approval'];
+    const publish = workflow.jobs.publish;
+
+    expect(findStep(trigger, 'trigger')).toBeDefined();
+    expect(needs(source)).toContain('validate-recovery-trigger');
+    expect(findStep(source, 'source-run')).toBeDefined();
+    expect(source.outputs.head_sha).toContain('source-build.outputs.head_sha');
+    expect(needs(approval)).toContain('validate-recovery-source');
+    expect(approval.environment).toEqual({ name: PRODUCTION_ENVIRONMENT });
+    const approvalStep = findStep(approval, 'approval');
+    expect(approvalStep).toBeDefined();
+    expect(approvalStep.env).toMatchObject({
+      GH_TOKEN: '${{ github.token }}',
+      PROMOTION_REPOSITORY: '${{ github.repository }}',
+      PROMOTION_ENVIRONMENT_NAME: PRODUCTION_ENVIRONMENT,
+      [APPROVAL_SECRET]: `\${{ secrets.${APPROVAL_SECRET} }}`,
+    });
+    expect(approvalStep.run).toContain('gh api --method GET');
+    expect(needs(publish)).toEqual(expect.arrayContaining([
+      'validate-recovery-source',
+      'recovery-production-approval',
+    ]));
+    expect(JSON.stringify(publish)).toContain('workflow_call');
+    expect(JSON.stringify(publish)).toContain('workflow_dispatch');
   });
 
   it('protects artifact restore with the trigger, source-run, and approval gates', () => {
@@ -245,9 +274,19 @@ describe('production promotion admission', () => {
     const build = readWorkflow('deploy.yml');
     const publish = readWorkflow('deploy-publish.yml');
     const dist = readWorkflow('post-deploy-validate-dist.yml');
+    const postDeployPublish = readWorkflow('post-deploy-publish.yml');
 
     expect(JSON.stringify(build.jobs.prep)).not.toMatch(/secrets\.|load-rc-env|Remote Config|FIREBASE/i);
     expect(publish.jobs['validate-dist'].secrets).toBeUndefined();
     expect(JSON.stringify(dist)).not.toMatch(/secrets\.|load-rc-env|Remote Config|FIREBASE/i);
+    const distSteps = Object.values(dist.jobs).flatMap((job: any) => job.steps ?? []);
+    expect(JSON.stringify(distSteps)).not.toMatch(/post-to-(facebook|linkedin|reddit)|FB_|LINKEDIN|REDDIT/i);
+
+    const publishCaller = publish.jobs.publish;
+    expect(needs(publishCaller)).toContain('deploy');
+    expect(needs(publish.jobs.deploy)).toContain('production-approval');
+    expect(JSON.stringify(postDeployPublish.jobs.publish)).toMatch(/Load secrets from Remote Config/);
+    expect(JSON.stringify(postDeployPublish.jobs.publish)).toMatch(/Post to LinkedIn Company Page/);
+    expect(JSON.stringify(postDeployPublish.jobs.publish)).toMatch(/Post to Reddit Communities/);
   });
 });

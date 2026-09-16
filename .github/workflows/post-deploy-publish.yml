@@ -21,10 +21,6 @@ name: Post-deploy Publish (side-effects + mark good)
 #
 # Inputs match validate-live (deploy_run_id + deploy_event_name).
 on:
-  # This reusable workflow intentionally has no `workflow_dispatch`: its
-  # side-effects can only be reached through the deploy-publish workflow_run
-  # chain, after that caller has admitted the canonical build and production
-  # approval. Recovery cannot inject an arbitrary run id here.
   workflow_call:
     inputs:
       deploy_run_id:
@@ -40,10 +36,120 @@ on:
         required: false
         type: string
         default: ''
+  # Recovery is deliberately a separate trigger path, but it enters the same
+  # side-effect job only after the canonical source-run and production
+  # approval jobs below. It cannot inject an arbitrary artifact/run id.
+  workflow_dispatch:
+    inputs:
+      source_run_id:
+        description: 'Canonical successful Deploy to GitHub Pages run ID to replay post-deploy side effects from'
+        required: true
+        type: string
 
 jobs:
-  publish:
+  validate-recovery-trigger:
+    name: validate recovery promotion trigger
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout promotion gate
+        uses: actions/checkout@v5
+        with:
+          sparse-checkout: |
+            /scripts/ci/production-promotion-gate.mjs
+          sparse-checkout-cone-mode: false
+      - name: Reject non-main or unverified recovery trigger
+        env:
+          PROMOTION_EVENT: ${{ github.event_name }}
+          PROMOTION_REF: ${{ github.ref }}
+          PROMOTION_REPOSITORY: ${{ github.repository }}
+          PROMOTION_SOURCE_REPOSITORY: ${{ github.repository }}
+          PROMOTION_HEAD_SHA: ${{ github.sha }}
+        run: node scripts/ci/production-promotion-gate.mjs trigger
+
+  validate-recovery-source:
+    name: validate canonical recovery source build
+    needs: validate-recovery-trigger
+    if: github.event_name == 'workflow_dispatch' && needs.validate-recovery-trigger.result == 'success'
+    runs-on: ubuntu-latest
+    outputs:
+      head_sha: ${{ steps.source-build.outputs.head_sha }}
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - name: Checkout promotion gate
+        uses: actions/checkout@v5
+        with:
+          sparse-checkout: |
+            /scripts/ci/production-promotion-gate.mjs
+          sparse-checkout-cone-mode: false
+      - name: Validate successful canonical source build
+        id: source-build
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PROMOTION_REPOSITORY: ${{ github.repository }}
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+        run: |
+          set -euo pipefail
+          case "$SOURCE_RUN_ID" in
+            ''|*[!0-9]*)
+              echo "::error::source_run_id must contain only decimal digits"
+              exit 1
+              ;;
+          esac
+          source_run_json="$RUNNER_TEMP/canonical-source-run.json"
+          gh api --method GET \
+            "repos/${PROMOTION_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}" \
+            > "$source_run_json"
+          PROMOTION_SOURCE_RUN_ID="$SOURCE_RUN_ID" \
+            node scripts/ci/production-promotion-gate.mjs source-run < "$source_run_json"
+          head_sha=$(jq -er '.head_sha // empty' "$source_run_json")
+          printf 'head_sha=%s\n' "$head_sha" >> "$GITHUB_OUTPUT"
+
+  recovery-production-approval:
+    name: approve recovery promotion
+    needs: validate-recovery-source
+    if: github.event_name == 'workflow_dispatch' && needs.validate-recovery-source.result == 'success'
+    runs-on: ubuntu-latest
+    environment:
+      name: production-deploy
+    permissions:
+      contents: read
+      deployments: read
+    steps:
+      - name: Checkout promotion gate
+        uses: actions/checkout@v5
+        with:
+          sparse-checkout: |
+            /scripts/ci/production-promotion-gate.mjs
+          sparse-checkout-cone-mode: false
+      - name: Verify required reviewers and environment attestation
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PROMOTION_REPOSITORY: ${{ github.repository }}
+          PROMOTION_ENVIRONMENT_NAME: production-deploy
+          PRODUCTION_DEPLOY_APPROVAL: ${{ secrets.PRODUCTION_DEPLOY_APPROVAL }}
+        run: |
+          set -euo pipefail
+          gh api --method GET \
+            "repos/${PROMOTION_REPOSITORY}/environments/${PROMOTION_ENVIRONMENT_NAME}" \
+            | node scripts/ci/production-promotion-gate.mjs approval
+
+  publish:
+    needs: [validate-recovery-source, recovery-production-approval]
+    if: >-
+      always() &&
+      (github.event_name == 'workflow_call' ||
+       (needs.validate-recovery-source.result == 'success' &&
+        needs.recovery-production-approval.result == 'success'))
+    runs-on: ubuntu-latest
+    env:
+      EFFECTIVE_DEPLOY_RUN_ID: ${{ github.event_name == 'workflow_dispatch' && inputs.source_run_id || inputs.deploy_run_id }}
+      EFFECTIVE_DEPLOY_EVENT_NAME: ${{ github.event_name == 'workflow_dispatch' && 'workflow_dispatch' || inputs.deploy_event_name }}
+      EFFECTIVE_DEPLOY_REF: ${{ github.event_name == 'workflow_dispatch' && needs.validate-recovery-source.outputs.head_sha || inputs.deploy_ref }}
     permissions:
       contents: write   # for git push in sync-previous-slug-winners
       actions: read     # for download-artifact same-run
@@ -52,7 +158,7 @@ jobs:
       - name: Checkout (build SHA via deploy_ref, else caller default)
         uses: actions/checkout@v5
         with:
-          ref: ${{ inputs.deploy_ref }}
+          ref: ${{ env.EFFECTIVE_DEPLOY_REF }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
@@ -94,28 +200,28 @@ jobs:
         uses: actions/download-artifact@v7
         continue-on-error: true
         with:
-          name: pre-deploy-snapshot-${{ inputs.deploy_run_id }}
+          name: pre-deploy-snapshot-${{ env.EFFECTIVE_DEPLOY_RUN_ID }}
           path: /tmp/pre-deploy-snapshot
-          run-id: ${{ inputs.deploy_run_id }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ env.EFFECTIVE_DEPLOY_RUN_ID }}
+          github-token: ${{ github.token }}
 
       - name: Download previous-slug winners (optional)
         uses: actions/download-artifact@v7
         continue-on-error: true
         with:
-          name: winners-${{ inputs.deploy_run_id }}
+          name: winners-${{ env.EFFECTIVE_DEPLOY_RUN_ID }}
           path: /tmp/winners
-          run-id: ${{ inputs.deploy_run_id }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ env.EFFECTIVE_DEPLOY_RUN_ID }}
+          github-token: ${{ github.token }}
 
       - name: Download sitemaps bundle (pre-deploy + new + build-id)
         uses: actions/download-artifact@v7
         continue-on-error: true
         with:
-          name: sitemaps-${{ inputs.deploy_run_id }}
+          name: sitemaps-${{ env.EFFECTIVE_DEPLOY_RUN_ID }}
           path: /tmp/sitemaps-bundle
-          run-id: ${{ inputs.deploy_run_id }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ env.EFFECTIVE_DEPLOY_RUN_ID }}
+          github-token: ${{ github.token }}
 
       # Master jobs.json (titleByLocale/slugByLocale) is GITIGNORED and
       # stripped from the Pages artifact (jobsJsonDistCleanupPlugin, PR #712),
@@ -130,10 +236,10 @@ jobs:
         uses: actions/download-artifact@v7
         continue-on-error: true
         with:
-          name: jobs-master-${{ inputs.deploy_run_id }}
+          name: jobs-master-${{ env.EFFECTIVE_DEPLOY_RUN_ID }}
           path: /tmp/jobs-master
-          run-id: ${{ inputs.deploy_run_id }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ env.EFFECTIVE_DEPLOY_RUN_ID }}
+          github-token: ${{ github.token }}
 
       - name: Stage downloaded data files
         run: |
@@ -211,9 +317,9 @@ jobs:
         id: deploy-meta
         continue-on-error: true
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
           # Dispatch/call inputs reach the shell as DATA, never as script text.
-          INPUT_DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
+          INPUT_DEPLOY_RUN_ID: ${{ env.EFFECTIVE_DEPLOY_RUN_ID }}
         run: |
           DATA=$(node scripts/deploy-registry.mjs get \
             --run-id="$INPUT_DEPLOY_RUN_ID" 2>/dev/null || echo '{}')
@@ -222,7 +328,7 @@ jobs:
       - name: Wait for live article metadata
         if: |
           success() &&
-          inputs.deploy_event_name == 'workflow_dispatch' &&
+          env.EFFECTIVE_DEPLOY_EVENT_NAME == 'workflow_dispatch' &&
           fromJson(steps.deploy-meta.outputs.data || '{}').articleUrl != null
         id: wait_live_meta
         continue-on-error: true
@@ -247,7 +353,7 @@ jobs:
       - name: Post to LinkedIn Company Page
         if: |
           success() &&
-          inputs.deploy_event_name == 'workflow_dispatch' &&
+          env.EFFECTIVE_DEPLOY_EVENT_NAME == 'workflow_dispatch' &&
           fromJson(steps.deploy-meta.outputs.data || '{}').articleId != null &&
           steps.wait_live_meta.outcome == 'success'
         continue-on-error: true
@@ -268,7 +374,7 @@ jobs:
       - name: Post to Reddit Communities
         if: |
           success() &&
-          inputs.deploy_event_name == 'workflow_dispatch' &&
+          env.EFFECTIVE_DEPLOY_EVENT_NAME == 'workflow_dispatch' &&
           fromJson(steps.deploy-meta.outputs.data || '{}').articleId != null &&
           steps.wait_live_meta.outcome == 'success'
         continue-on-error: true
@@ -305,7 +411,7 @@ jobs:
           # verify-post-deploy-seo.mjs) only honors GH_TOKEN/GITHUB_TOKEN —
           # without this, post-deploy SEO regressions never opened an issue
           # (PR #3322 review, same class as monitor-gsc-job-indexation.mjs).
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           timeout 90 node scripts/submit-google-indexing-jobs.js &
           PID_GOOGLE=$!
@@ -348,9 +454,9 @@ jobs:
         if: failure()
         continue-on-error: true
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
           # Dispatch/call inputs reach the shell as DATA, never as script text.
-          INPUT_DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
+          INPUT_DEPLOY_RUN_ID: ${{ env.EFFECTIVE_DEPLOY_RUN_ID }}
         run: |
           # Standard "Workflow Failure: <name>" prefix so the central reconciler
           # (close-recovered-failure-issues.mjs) auto-closes on recovery; <name> equals
