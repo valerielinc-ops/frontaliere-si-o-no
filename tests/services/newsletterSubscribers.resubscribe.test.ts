@@ -87,6 +87,7 @@ describe('captureNewsletterSubscriber — resubscribe_link source (issue #2852 i
         source: 'popup',
         // #5678: a NEW subscriber cannot be created without a consent text.
         consentText: 'formula di prova',
+        consentGiven: true,
       },
     );
 

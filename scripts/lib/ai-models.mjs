@@ -943,11 +943,10 @@ const CLAUDE_CLI_BIN = (process.env.CLAUDE_CLI_BIN || 'claude').trim();
 const CODEX_CLI_MAX_TIMEOUT_MS = 600_000;
 const CODEX_CLI_MIN_TIMEOUT_MS = 15_000;
 const CODEX_FALLBACK_MARKER_PREFIX = 'claude-haiku-codex-fallback';
-// Indirect provider fallback is deliberately lighter than the workflow-agent
-// fallback (which uses effort=max): this path replaces a single content call,
-// preserves the caller's schema/output contract, and must leave wall-clock
-// budget for the normal model chain if Codex also fails.
-export const CODEX_INDIRECT_FALLBACK_EFFORT = 'medium';
+// The Haiku replacement uses the same Codex Luna Max model/effort as the
+// workflow-agent path. It remains one-shot and preserves the caller's
+// schema/output contract; if Codex fails, the normal model chain continues.
+export const CODEX_INDIRECT_FALLBACK_EFFORT = 'max';
 
 // The Codex subscription fallback is one-shot per GitHub run. The in-process
 // flag is only a fast path for callers outside Actions; workflow processes use

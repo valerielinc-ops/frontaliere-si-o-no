@@ -219,14 +219,23 @@ describe('case 2 — accept, then unsubscribe: the opt-out wins and the proof st
     expect(decision).not.toHaveProperty('payload');
   });
 
-  it('honours an opt-out recorded on the parent subscriber document', () => {
-    // A person can leave from the newsletter side; the alert document knows
-    // nothing about it. Reading only the alert would let a mis-tap on a CTA
-    // bring them back into contact — the 186-resuscitati shape (#5672).
+  it('treats a newsletter unsubscribe as a job-alert stop', () => {
+    // The unsubscribe is an explicit recipient opt-out, so an alert upgrade
+    // cannot use a stale alert record to re-enable mail on another channel.
     expect(
       planJobAlertConsentUpgrade({
         alert: backfilledAlert(),
         subscriber: { status: 'unsubscribed' },
+        proof: proof(),
+      }),
+    ).toEqual({ write: false, reason: 'opt-out-binding' });
+  });
+
+  it('honours an explicit global stop recorded on the parent subscriber document', () => {
+    expect(
+      planJobAlertConsentUpgrade({
+        alert: backfilledAlert(),
+        subscriber: { status: 'unsubscribed', all_email_opted_out: true },
         proof: proof(),
       }),
     ).toEqual({ write: false, reason: 'opt-out-binding' });
@@ -380,17 +389,9 @@ describe('what is stored is what was on screen', () => {
    * `newsletter_subscribers` document.
    */
   const SURFACES = [
-    'components/community/JobDetailAlertPrompt.tsx',
-    'components/community/JobMatchAlertCta.tsx',
-    'components/community/JobBoardFilterAlertCta.tsx',
-    'components/community/JobDetailJobAlertButton.tsx',
-    'components/community/SavedJobsAlertNudge.tsx',
-    'components/community/JobAlertForm.tsx',
-    'components/community/CompanyFollowButton.tsx',
-    'components/calculator/SalaryAlertCTA.tsx',
-    // The consent-banner panel (#5842): not an activation CTA — it upgrades the
-    // travaso alerts on its own act (see `buildJobAlertConsentProof`'s `act`
-    // override), and it renders the same notice, so the pairing holds.
+    // The banner is the one remediation surface for historical alerts that do
+    // not yet carry a registration proof. Ordinary registration/alert CTAs no
+    // longer ask for, or manufacture, a second consent act.
     'components/shared/CommunicationsConsentBanner.tsx',
   ];
 
@@ -403,7 +404,7 @@ describe('what is stored is what was on screen', () => {
     const src = read(file);
     expect(src, `${file} must record the proof`).toMatch(/upgradeBackfilledAlertConsent/);
     expect(src, `${file} records a formula it never puts on screen`).toMatch(
-      new RegExp(`<ConsentNotice[^>]*consentKey="${JOB_ALERT_CONSENT_KEY}"`),
+      new RegExp(`<(?:ConsentNotice|EmailConsentCheckbox)[^>]*consentKey="${JOB_ALERT_CONSENT_KEY}"`),
     );
   });
 

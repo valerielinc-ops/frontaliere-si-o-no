@@ -183,10 +183,10 @@ export function renderItalyDutyWeek({
         const pharmacyLink = pharmacy && path
           ? `<a href="${esc(buildPharmacyPath(path, locale))}">${esc(pharmacy.name)}</a>`
           : esc(duty.pharmacyId);
-        return `<tr data-duty-id="${esc(duty.id)}" data-duty-country="IT"><td>${esc(formatItalyDutyDateTime(duty.startsAt).slice(0, 10))}</td><td><time datetime="${esc(duty.startsAt)}">${esc(formatItalyDutyDateTime(duty.startsAt).slice(11))}</time> – <time datetime="${esc(duty.endsAt)}">${esc(formatItalyDutyDateTime(duty.endsAt))}</time></td><td><strong>${pharmacyLink}</strong></td><td><a href="${esc(duty.sourceUrl)}" rel="nofollow noopener">${esc(copy.source)}</a></td></tr>`;
+        return `<tr data-duty-id="${esc(duty.id)}" data-duty-country="IT"><td>${esc(formatItalyDutyDateTime(duty.startsAt).slice(0, 10))}</td><td><time datetime="${esc(duty.startsAt)}">${esc(formatItalyDutyDateTime(duty.startsAt).slice(11))}</time> – <time datetime="${esc(duty.endsAt)}">${esc(formatItalyDutyDateTime(duty.endsAt))}</time></td><td><strong>${pharmacyLink}</strong></td><td><a href="${esc(province.sourceUrl || duty.sourceUrl)}" rel="nofollow noopener">${esc(copy.source)}</a></td></tr>`;
       }).join('')
       : '';
-    const source = model.publishable && province.sourceUrl
+    const source = province.sourceUrl
       ? ` <a href="${esc(province.sourceUrl)}" rel="nofollow noopener">${esc(copy.openSource)}</a>`
       : '';
     const fetched = model.indexable && province.fetchedAt
@@ -238,7 +238,7 @@ export function renderItalyDutyCoverageSection(locale: Locale, matrix: DutyCover
         return `<li data-duty-id="${esc(duty.id)}" data-duty-country="IT"><strong>${esc(copy.pharmacy)}:</strong> ${link}<br><strong>${esc(copy.interval)}:</strong> <time datetime="${esc(duty.startsAt)}">${esc(formatItalyDutyDateTime(duty.startsAt))}</time> – <time datetime="${esc(duty.endsAt)}">${esc(formatItalyDutyDateTime(duty.endsAt))}</time></li>`;
       }).join('')}</ul>`
       : `<p style="${BODY_STYLE}">${esc(matrix.italy.indexable ? copy.noIntervals : copy.italyUnavailableNotice(matrix.italy.state))}</p>`;
-    const source = matrix.italy.publishable && province.sourceUrl
+    const source = province.sourceUrl
       ? ` <a href="${esc(province.sourceUrl)}" rel="nofollow noopener">${esc(copy.openOfficialSource)}</a>`
       : '';
     return `<section data-coverage-kind="italy-province" data-province-code="${esc(province.code)}"${matrix.italy.publishable ? ' data-italy-duty-published="true"' : ''}><h3 style="${H3_STYLE}">${esc(province.name)}</h3><p style="${BODY_STYLE}"><strong>${esc(matrix.italy.publishable ? copy.italyPublishedLabel : copy.italyNotPublishedLabel)}</strong>${source}</p>${rows}</section>`;

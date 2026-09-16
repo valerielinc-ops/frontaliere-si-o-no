@@ -295,10 +295,10 @@ async function migrateLocalSavedJobs(uid: string): Promise<void> {
 /**
  * Owner-only profile fields the digest + this migration need. Only written
  * on first-ever creation of `users/{uid}` (see below) or refreshed on later
- * logins for `email`/`locale` — `savedJobsDigest.optedOut` is deliberately
- * NEVER touched again after creation so a digest unsubscribe flip (set
- * server-side by `savedJobsDigestUnsubscribe`) can't be clobbered by a
- * subsequent client re-login re-defaulting it to `false`.
+ * logins for `email`/`locale` — `savedJobsDigest` is deliberately NEVER touched again after creation so a
+ * digest preference (set server-side by
+ * `savedJobsDigestUnsubscribe` or in the preference centre) can't be
+ * clobbered by a subsequent client re-login re-defaulting it.
  */
 async function ensureUserProfileDoc(
   uid: string,
@@ -312,7 +312,10 @@ async function ensureUserProfileDoc(
       await f.setDoc(ref, {
         email: meta?.email ?? null,
         locale: meta?.locale ?? 'it',
-        savedJobsDigest: { optedOut: false },
+        // The central confirmed communications choice enables this channel
+        // when the user has saved jobs. `optedOut` is reserved for an explicit
+        // channel stop, so a new profile starts unset rather than denied.
+        savedJobsDigest: { optedIn: false, optedOut: false },
       });
     } else if (meta) {
       await f.setDoc(ref, { email: meta.email, locale: meta.locale }, { merge: true });

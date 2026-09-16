@@ -83480,6 +83480,552 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ocse-crescita-svizzera-2026': {
+    title: 'OCSE vede più crescita in Svizzera, Pil 2026 al 2,0%',
+    description: 'L\'OCSE rivede al rialzo la crescita della Svizzera per il 2026 al 2,0%. Inflazione media stimata allo 0,6%. Leggi i dettagli dell\'Economic Survey.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ocse, vede, crescita, rivede',
+    ogTitle: 'OCSE vede più crescita in Svizzera: Pil 2026 al 2,0%',
+    ogDescription: 'L\'Organizzazione per la cooperazione e lo sviluppo economico ha pubblicato il nuovo Economic Survey. Prevista una crescita del Pil svizzero al 2,0% per il 2026 e inflazione allo 0,6%.',
+    canonicalPath: '/articoli-svizzera/ocse-crescita-svizzera-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "OCSE vede più crescita in Svizzera, Pil 2026 al 2,0%",
+      "description": "L'OCSE rivede al rialzo la crescita della Svizzera per il 2026 al 2,0%. Inflazione media stimata allo 0,6%. Leggi i dettagli dell'Economic Survey.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ocse-crescita-svizzera-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panoramica economica della Svizzera con previsioni di crescita OCSE"
+      },
+      "datePublished": "2026-09-16T00:19:29+00:00",
+      "dateModified": "2026-09-16T00:19:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ocse-crescita-svizzera-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ocse-rapporto-svizzera-2026': {
+    title: 'Rapporto OCSE sulla Svizzera: stabilità e riforme economiche',
+    description: 'Scopri i dettagli del rapporto OCSE sulla Svizzera pubblicato il 15 settembre 2026: raccomandazioni su sanità, previdenza, imprese e politica di crescita.',
+    keywords: 'frontalieri, ticino, svizzera, italia, rapporto, ocse, sulla, stabilità',
+    ogTitle: 'Rapporto OCSE Svizzera 2026: stabilità e nuove riforme',
+    ogDescription: 'L\'OCSE ha pubblicato il rapporto sulla Svizzera il 15 settembre 2026. Apprezzata la resilienza economica, ma servono riforme in sanità, previdenza e burocrazia in vista del rapporto del Consiglio federale previsto per fine 2027.',
+    canonicalPath: '/articoli-svizzera/ocse-rapporto-svizzera-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rapporto OCSE sulla Svizzera: stabilità e riforme economiche",
+      "description": "Scopri i dettagli del rapporto OCSE sulla Svizzera pubblicato il 15 settembre 2026: raccomandazioni su sanità, previdenza, imprese e politica di crescita.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ocse-rapporto-svizzera-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna sede delle istituzioni svizzere"
+      },
+      "datePublished": "2026-09-16T00:28:42+00:00",
+      "dateModified": "2026-09-16T00:28:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ocse-rapporto-svizzera-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bak-economics-pil-2026-18': {
+    title: 'BAK Economics: Pil 2026 a +1,8%, possibile rialzo tassi',
+    description: 'BAK Economics alza la stima del Pil 2026 all\'1,8% e prevede un possibile aumento dei tassi BNS già a dicembre. Inflazione attesa allo 0,6%. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, economics, possibile, rialzo, tassi',
+    ogTitle: 'BAK Economics: Pil 2026 a +1,8%, possibile rialzo tassi',
+    ogDescription: 'Nuove stime di BAK Economics: il Pil svizzero crescerà del 1,8% nel 2026, una revisione al rialzo rispetto all\'0,8% precedente. L\'inflazione resterà bassa allo 0,6%, ma la BNS potrebbe alzare i tassi già a dicembre per normalizzare la politica',
+    canonicalPath: '/articoli-svizzera/bak-economics-pil-2026-18/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "BAK Economics: Pil 2026 a +1,8%, possibile rialzo tassi",
+      "description": "BAK Economics alza la stima del Pil 2026 all'1,8% e prevede un possibile aumento dei tassi BNS già a dicembre. Inflazione attesa allo 0,6%. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bak-economics-pil-2026-18.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica sulle Alpi e il Lago di Lugano al mattino, luce dorata su montagne svizzere."
+      },
+      "datePublished": "2026-09-16T00:54:44+00:00",
+      "dateModified": "2026-09-16T00:54:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bak-economics-pil-2026-18/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-too-big-to-fail-consiglio-stati': {
+    title: 'Too big to fail: il Consiglio degli Stati discute le regole UBS',
+    description: 'Il Consiglio degli Stati discute la normativa too big to fail e i requisiti di capitale per UBS. Il PLR chiede il rinvio al Consiglio federale. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, fail, consiglio, stati, discute',
+    ogTitle: 'Too big to fail e requisiti UBS: il dibattito in Consiglio degli Stati',
+    ogDescription: 'Approfondimento sulla discussione parlamentare riguardo alla regolamentazione too big to fail per UBS e alla proposta del PLR di affidare le regole al Consiglio federale.',
+    canonicalPath: '/articoli-svizzera/too-big-to-fail-consiglio-stati/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Too big to fail: il Consiglio degli Stati discute le regole UBS",
+      "description": "Il Consiglio degli Stati discute la normativa too big to fail e i requisiti di capitale per UBS. Il PLR chiede il rinvio al Consiglio federale. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/too-big-to-fail-consiglio-stati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna dove si discute la regolamentazione bancaria"
+      },
+      "datePublished": "2026-09-16T01:04:39+00:00",
+      "dateModified": "2026-09-16T01:04:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/too-big-to-fail-consiglio-stati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bns-tassi-interessi-ubs': {
+    title: 'BNS, tassi guida allo 0,0%: UBS prevede possibili aumenti',
+    description: 'La Banca nazionale svizzera manterrà il tasso guida allo 0,0% ma crescono i rischi di un rialzo anticipato secondo UBS. Scopri tutti i dettagli. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassi, allo, prevede, possibili',
+    ogTitle: 'BNS, tassi guida allo 0,0%: UBS prevede possibili aumenti',
+    ogDescription: 'Analisi di UBS sulla BNS: il tasso guida resta allo 0,0% per ora, ma aumentano i rischi di un intervento anticipato sui tassi di interesse a causa di petrolio, gas e cambio.',
+    canonicalPath: '/articoli-svizzera/bns-tassi-interessi-ubs/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "BNS, tassi guida allo 0,0%: UBS prevede possibili aumenti",
+      "description": "La Banca nazionale svizzera manterrà il tasso guida allo 0,0% ma crescono i rischi di un rialzo anticipato secondo UBS. Scopri tutti i dettagli. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bns-tassi-interessi-ubs.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede della Banca nazionale svizzera a Berna"
+      },
+      "datePublished": "2026-09-16T01:12:04+00:00",
+      "dateModified": "2026-09-16T01:12:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bns-tassi-interessi-ubs/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vaccini-antinfluenzali-ritardo-svizzera': {
+    title: 'Vaccini antinfluenzali in Svizzera: il 40% arriva in ritardo',
+    description: 'Il 40% dei vaccini antinfluenzali in Svizzera arriva in ritardo. Pharmasuisse apre una seconda finestra a fine novembre in farmacia e studi medici.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vaccini, antinfluenzali, arriva, ritardo',
+    ogTitle: 'Vaccini antinfluenzali in Svizzera: il 40% arriva in ritardo',
+    ogDescription: 'Problemi di fornitura per il 40% dei vaccini antinfluenzali in Svizzera. Pharmasuisse introduce una nuova finestra di vaccinazione a fine novembre.',
+    canonicalPath: '/articoli-svizzera/vaccini-antinfluenzali-ritardo-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vaccini antinfluenzali in Svizzera: il 40% arriva in ritardo",
+      "description": "Il 40% dei vaccini antinfluenzali in Svizzera arriva in ritardo. Pharmasuisse apre una seconda finestra a fine novembre in farmacia e studi medici.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vaccini-antinfluenzali-ritardo-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Farmacia svizzera pronta per la campagna di vaccinazione antinfluenzale"
+      },
+      "datePublished": "2026-09-16T01:22:19+00:00",
+      "dateModified": "2026-09-16T01:22:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/vaccini-antinfluenzali-ritardo-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ruag-riorganizzazione-tagli-posti': {
+    title: 'RUAG si riorganizza: fino a 49 posti di lavoro a rischio',
+    description: 'Il gruppo d\'armamento RUAG annuncia una riorganizzazione con tagli fino a 49 posti di lavoro nei siti di Berna, Thun ed Emmen. Tutti i dettagli. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, ruag, riorganizza, fino, posti',
+    ogTitle: 'RUAG: riorganizzazione e tagli fino a 49 posti di lavoro in Svizzera',
+    ogDescription: 'Il gruppo d\'armamento RUAG avvia una procedura di consultazione che coinvolge i siti di Berna, Thun ed Emmen, con la possibile soppressione di 49 posti.',
+    canonicalPath: '/articoli-svizzera/ruag-riorganizzazione-tagli-posti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "RUAG si riorganizza: fino a 49 posti di lavoro a rischio",
+      "description": "Il gruppo d'armamento RUAG annuncia una riorganizzazione con tagli fino a 49 posti di lavoro nei siti di Berna, Thun ed Emmen. Tutti i dettagli. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ruag-riorganizzazione-tagli-posti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edifici federali a Berna"
+      },
+      "datePublished": "2026-09-16T01:29:58+00:00",
+      "dateModified": "2026-09-16T01:29:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ruag-riorganizzazione-tagli-posti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-consiglio-federale-obiettivi-2027': {
+    title: 'Il Consiglio federale presenta gli obiettivi per il 2027',
+    description: 'Scopri le priorità strategiche, economiche, sociali e di trasporto stabilite dal Consiglio federale per il 2027 presentate a Berna da Guy Parmelin.',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, presenta, obiettivi',
+    ogTitle: 'Il Consiglio federale presenta gli obiettivi strategici per il 2027',
+    ogDescription: 'Il presidente della Confederazione Guy Parmelin ha presentato a Berna le priorità del Consiglio federale per il 2027, focalizzate su economia, trasporti, riforme sociali e sicurezza.',
+    canonicalPath: '/articoli-svizzera/consiglio-federale-obiettivi-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il Consiglio federale presenta gli obiettivi per il 2027",
+      "description": "Scopri le priorità strategiche, economiche, sociali e di trasporto stabilite dal Consiglio federale per il 2027 presentate a Berna da Guy Parmelin.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/consiglio-federale-obiettivi-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il palazzo federale a Berna sede del Consiglio federale"
+      },
+      "datePublished": "2026-09-16T01:40:06+00:00",
+      "dateModified": "2026-09-16T01:40:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/consiglio-federale-obiettivi-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-migros-ristruttura-online-retail': {
+    title: 'Migros dà più indipendenza all\'online e cambia i vertici',
+    description: 'Il colosso Migros crea il settore Online Retail e nomina Florian Teuteberg presidente di Migros Online. Scopri i dettagli della riorganizzazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, migros, indipendenza, online, cambia',
+    ogTitle: 'Migros dà più indipendenza all\'online e cambia i vertici',
+    ogDescription: 'Il gruppo Migros annuncia una profonda riorganizzazione interna creando il nuovo settore Online Retail e affidando la presidenza di Migros Online a Florian Teuteberg.',
+    canonicalPath: '/articoli-svizzera/migros-ristruttura-online-retail/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Migros dà più indipendenza all'online e cambia i vertici",
+      "description": "Il colosso Migros crea il settore Online Retail e nomina Florian Teuteberg presidente di Migros Online. Scopri i dettagli della riorganizzazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/migros-ristruttura-online-retail.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede amministrativa Migros in Svizzera"
+      },
+      "datePublished": "2026-09-16T01:48:49+00:00",
+      "dateModified": "2026-09-16T01:48:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/migros-ristruttura-online-retail/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-avviare-attivita-canton-nidvaldo': {
+    title: 'Avviare un\'attività nel Canton Nidvaldo: guida pratica',
+    description: 'Scopri come avviare un\'impresa nel Canton Nidvaldo: registro di commercio, forme giuridiche, obblighi assicurativi e fiscali spiegati in modo semplice.',
+    keywords: 'frontalieri, ticino, svizzera, italia, avviare, attività, canton, nidvaldo',
+    ogTitle: 'Avviare un\'attività nel Canton Nidvaldo: guida e costi',
+    ogDescription: 'Vuoi aprire un\'azienda nel Canton Nidvaldo? Scopri le procedure per il registro di commercio, le imposte e gli obblighi previdenziali in questa guida pratica.',
+    canonicalPath: '/articoli-svizzera/avviare-attivita-canton-nidvaldo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Avviare un'attività nel Canton Nidvaldo: guida pratica",
+      "description": "Scopri come avviare un'impresa nel Canton Nidvaldo: registro di commercio, forme giuridiche, obblighi assicurativi e fiscali spiegati in modo semplice.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avviare-attivita-canton-nidvaldo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio moderno in un cantone svizzero per attività economica"
+      },
+      "datePublished": "2026-09-16T02:04:47+00:00",
+      "dateModified": "2026-09-16T02:04:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avviare-attivita-canton-nidvaldo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-turismo-svizzera-estate-normalizzazione': {
+    title: 'Svizzera Turismo, la domanda estiva si sta normalizzando',
+    description: 'I dati di agosto confermano una normalizzazione della domanda turistica in Svizzera, con flessione dei pernottamenti e divari tra le diverse regioni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, turismo, domanda, estiva, normalizzando',
+    ogTitle: 'Svizzera Turismo: domanda estiva in lenta normalizzazione',
+    ogDescription: 'Analisi dei dati sui pernottamenti turistici in Svizzera: calo ad agosto, impatto del turismo interno e flessione dei visitatori dai Paesi del Golfo.',
+    canonicalPath: '/articoli-svizzera/turismo-svizzera-estate-normalizzazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera Turismo, la domanda estiva si sta normalizzando",
+      "description": "I dati di agosto confermano una normalizzazione della domanda turistica in Svizzera, con flessione dei pernottamenti e divari tra le diverse regioni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/turismo-svizzera-estate-normalizzazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama estivo in Svizzera con turisti e destinazioni alpine"
+      },
+      "datePublished": "2026-09-16T02:14:11+00:00",
+      "dateModified": "2026-09-16T02:14:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/turismo-svizzera-estate-normalizzazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-fides-26-polizia-esercito-berna': {
+    title: 'Esercitazione FIDES 26: polizia ed esercito a Berna',
+    description: 'Scopri i risultati dell\'esercitazione congiunta FIDES 26 nel cantone di Berna tra polizia cantonale ed esercito svizzero contro minacce ibride. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, esercitazione, fides, polizia, esercito',
+    ogTitle: 'Esercitazione FIDES 26: polizia ed esercito nel canton Berna',
+    ogDescription: 'Dettagli e scenari dell\'esercitazione congiunta FIDES 26 nel canton Berna. Coinvolti 180 poliziotti e mille soldati contro minacce ibride e attacchi informatici.',
+    canonicalPath: '/articoli-svizzera/fides-26-polizia-esercito-berna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Esercitazione FIDES 26: polizia ed esercito a Berna",
+      "description": "Scopri i risultati dell'esercitazione congiunta FIDES 26 nel cantone di Berna tra polizia cantonale ed esercito svizzero contro minacce ibride. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/fides-26-polizia-esercito-berna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Esercitazione congiunta tra polizia ed esercito FIDES 26 nel cantone di Berna"
+      },
+      "datePublished": "2026-09-16T02:26:07+00:00",
+      "dateModified": "2026-09-16T02:26:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/fides-26-polizia-esercito-berna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lotta-denaro-sporco-svizzera': {
+    title: 'La lotta della Svizzera contro il denaro sporco e la corruzione',
+    description: 'Analisi del 02 set 2026 sui talloni d\'Achille della Svizzera nella lotta al denaro sporco e le complessità procedurali nella restituzione dei fondi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lotta, contro, denaro, sporco',
+    ogTitle: 'La lotta della Svizzera contro il denaro sporco',
+    ogDescription: 'Approfondimento del 02 set 2026 dedicato alle sfide e ai talloni d\'Achille della Svizzera nella gestione e restituzione del denaro sporco proveniente da attività di corruzione internazionale.',
+    canonicalPath: '/articoli-svizzera/lotta-denaro-sporco-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La lotta della Svizzera contro il denaro sporco e la corruzione",
+      "description": "Analisi del 02 set 2026 sui talloni d'Achille della Svizzera nella lotta al denaro sporco e le complessità procedurali nella restituzione dei fondi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lotta-denaro-sporco-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio bancario in Svizzera rappresentativo della lotta al denaro sporco"
+      },
+      "datePublished": "2026-09-16T02:34:31+00:00",
+      "dateModified": "2026-09-16T02:34:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lotta-denaro-sporco-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-calcio-hockey-svizzera-economia-pubblico': {
+    title: 'Calcio e hockey in Svizzera, tra economia e popolarità',
+    description: 'Confronto economico tra calcio e hockey in Svizzera: ricavi Super League a 440 milioni, stime hockey a 300 milioni e dati sul pubblico negli stadi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, calcio, hockey, economia, popolarità',
+    ogTitle: 'Calcio e hockey in Svizzera, tra economia e popolarità',
+    ogDescription: 'Analisi finanziaria e di pubblico tra Super League e campionato svizzero di hockey su ghiaccio per la stagione 2024-2025, con ricavi, spettatori e differenze territoriali.',
+    canonicalPath: '/articoli-svizzera/calcio-hockey-svizzera-economia-pubblico/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Calcio e hockey in Svizzera, tra economia e popolarità",
+      "description": "Confronto economico tra calcio e hockey in Svizzera: ricavi Super League a 440 milioni, stime hockey a 300 milioni e dati sul pubblico negli stadi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/calcio-hockey-svizzera-economia-pubblico.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Confronto economico tra calcio e hockey su ghiaccio in Svizzera"
+      },
+      "datePublished": "2026-09-16T02:41:41+00:00",
+      "dateModified": "2026-09-16T02:41:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/calcio-hockey-svizzera-economia-pubblico/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

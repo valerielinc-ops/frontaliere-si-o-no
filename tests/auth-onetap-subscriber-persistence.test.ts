@@ -10,10 +10,10 @@ const orphanBackfill = readFileSync(
 );
 
 /**
- * Authentication is not newsletter consent. One Tap may enrich an existing
- * profile, but it must not create or reactivate newsletter_subscribers/{email}.
+ * Authentication is a registration channel under the site terms. One Tap may
+ * create/enrich the central relationship, without a second checkbox or DOI.
  */
-describe('Google One Tap — no newsletter side effect', () => {
+describe('Google One Tap — central terms registration', () => {
   function sectionBetween(start: string, end: string): string {
     const a = source.indexOf(start);
     const b = source.indexOf(end, a + start.length);
@@ -21,7 +21,7 @@ describe('Google One Tap — no newsletter side effect', () => {
     return source.slice(a, b);
   }
 
-  it('handleOneTapResponse only performs profile enrichment after auth', () => {
+  it('handleOneTapResponse delegates the terms-based registration to the central writer', () => {
     const handler = sectionBetween(
       'async function handleOneTapResponse',
       '/**\n * Show Google One Tap prompt',
@@ -34,8 +34,11 @@ describe('Google One Tap — no newsletter side effect', () => {
     expect(source).not.toMatch(/persistOneTapSubscriber\b/);
   });
 
-  it('does not write a newsletter record anywhere in the auth service', () => {
-    expect(source).not.toMatch(/upsertNewsletterSubscriber|newsletterSubscribers/);
+  it('records the base relationship without an explicit checkbox or DOI', () => {
+    expect(source).toContain('upsertNewsletterSubscriber');
+    expect(source).toContain('registrationTermsAccepted: true');
+    expect(source).toMatch(/skipConfirmationEmail:\s*provider !== 'email'/);
+    expect(source).not.toMatch(/requestConfirmationEmail/);
   });
 
   it('keeps the historical orphan inventory report-only', () => {

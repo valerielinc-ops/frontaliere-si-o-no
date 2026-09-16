@@ -17,6 +17,9 @@ import admin from 'firebase-admin';
 import { ensureAdminApp } from './newsletterResendWebhookCore.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
 
+const REGISTRATION_TERMS_VERSION = '2026-09-15.1';
+const REGISTRATION_TERMS_TEXT = 'Registrandomi accetto i Termini e condizioni e iscrivo il mio indirizzo alle comunicazioni di Frontaliere Ticino: newsletter e aggiornamenti redazionali, avvisi di lavoro, messaggi di servizio e messaggi promozionali di terzi. Posso gestire le preferenze o revocare l’iscrizione in qualsiasi momento. Condizioni (v. 2026-09-15.1).';
+
 /**
  * Fetch basic profile data from LinkedIn /v2/me endpoint.
  * Requires `r_basicprofile` scope. Returns headline (typically "Job Title at Company")
@@ -45,7 +48,11 @@ async function fetchLinkedInBasicProfile(accessToken) {
 /**
  * Enrich newsletter_subscribers/{email} with LinkedIn profile data.
  * Best-effort — login succeeds even if Firestore write fails.
- * Merges into existing subscriber doc; only writes non-null fields.
+ * Merges into the central subscriber doc; only writes non-null fields. A
+ * LinkedIn registration is covered by the same terms-based base relationship
+ * as every other authentication provider, so a missing row is created with
+ * newsletter + job-alert membership. Existing suppression/opt-out state is
+ * preserved and never resurrected by login.
  *
  * @param {string} email - User email (document key)
  * @param {object} profileData - LinkedIn profile fields
@@ -53,12 +60,71 @@ async function fetchLinkedInBasicProfile(accessToken) {
 async function enrichSubscriberProfile(email, profileData) {
  try {
  const db = admin.firestore();
- const subRef = db.collection('newsletter_subscribers').doc(email.trim().toLowerCase());
+ const normalizedEmail = email.trim().toLowerCase();
+ const subRef = db.collection('newsletter_subscribers').doc(normalizedEmail);
+ const existingSubscriber = await subRef.get();
+ const existing = existingSubscriber.exists ? existingSubscriber.data() || {} : null;
 
  const updateData = {
+ email: normalizedEmail,
  updatedAt: admin.firestore.FieldValue.serverTimestamp(),
  lastLoginAt: admin.firestore.FieldValue.serverTimestamp(),
  };
+ if (!existing) {
+  Object.assign(updateData, {
+   status: 'confirmed',
+   isActive: true,
+   active: true,
+   preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false, jobs: true },
+   interests: ['jobs'],
+   source: 'auth_linkedin',
+   source_channel: 'auth_linkedin',
+   consent_given: true,
+   consent_given_at: admin.firestore.FieldValue.serverTimestamp(),
+   consent_advertising: true,
+   consent_advertising_at: admin.firestore.FieldValue.serverTimestamp(),
+   consent_advertising_updated_at: admin.firestore.FieldValue.serverTimestamp(),
+   consent_basis: 'registration_terms',
+   registration_terms_accepted: true,
+   registration_terms_version: REGISTRATION_TERMS_VERSION,
+   registration_terms_text: REGISTRATION_TERMS_TEXT,
+   registration_terms_accepted_at: admin.firestore.FieldValue.serverTimestamp(),
+   consent_text: REGISTRATION_TERMS_TEXT,
+   consent_text_version: REGISTRATION_TERMS_VERSION,
+   consent_text_displayed: true,
+   consent_act: 'registration_terms_acceptance',
+   consent_method: 'terms_and_conditions',
+   consent_purpose: 'unified_email_channels',
+   confirmed_at: admin.firestore.FieldValue.serverTimestamp(),
+   confirmedAt: admin.firestore.FieldValue.serverTimestamp(),
+   created_at: admin.firestore.FieldValue.serverTimestamp(),
+  });
+ } else if (existing.registration_terms_accepted !== true) {
+  // Preserve the existing status and opt-out stamps; this only records the
+  // current terms basis that applies to the authenticated account.
+  Object.assign(updateData, {
+   consent_given: true,
+   consent_given_at: existing.consent_given_at || admin.firestore.FieldValue.serverTimestamp(),
+   consent_basis: 'registration_terms',
+   registration_terms_accepted: true,
+   registration_terms_version: REGISTRATION_TERMS_VERSION,
+   registration_terms_text: REGISTRATION_TERMS_TEXT,
+   registration_terms_accepted_at: existing.registration_terms_accepted_at || admin.firestore.FieldValue.serverTimestamp(),
+   consent_text: existing.consent_text || REGISTRATION_TERMS_TEXT,
+   consent_text_version: existing.consent_text_version || REGISTRATION_TERMS_VERSION,
+   consent_text_displayed: true,
+   consent_act: existing.consent_act || 'registration_terms_acceptance',
+   consent_method: existing.consent_method || 'terms_and_conditions',
+   consent_purpose: existing.consent_purpose || 'unified_email_channels',
+  });
+ }
+ if (existing && existing.advertising_opt_out !== true && existing.consent_advertising !== true) {
+  Object.assign(updateData, {
+   consent_advertising: true,
+   consent_advertising_at: existing.consent_advertising_at || admin.firestore.FieldValue.serverTimestamp(),
+   consent_advertising_updated_at: admin.firestore.FieldValue.serverTimestamp(),
+  });
+ }
  for (const [key, value] of Object.entries(profileData)) {
  if (value != null) {
  updateData[key] = value;

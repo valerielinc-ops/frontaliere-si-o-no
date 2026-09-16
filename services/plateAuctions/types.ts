@@ -86,6 +86,9 @@ export interface PlateAuctionSourceEntry {
   termsOfUse: string;
   owner: string;
   status: PlateAuctionSourceStatus;
+  /** Optional per-source freshness stamps supplied by the registry refresh. */
+  lastVerifiedAt?: string;
+  sourceFetchedAt?: string;
   /** Free-text discovery notes (e.g. what Fase 0 — AGENTS.md/#4854 — still needs to confirm). */
   notes?: string;
 }

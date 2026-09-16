@@ -60,7 +60,12 @@ describe('duty coverage matrix', () => {
     expect(matrix.italy.publishable).toBe(false);
     expect(matrix.italy.indexable).toBe(false);
     expect(matrix.italy.provinces.every((province) => province.duties.length === 0)).toBe(true);
-    expect(matrix.italy.provinces.every((province) => province.sourceUrl === null)).toBe(true);
+    expect(matrix.italy.provinces.map((province) => province.sourceUrl)).toEqual([
+      'https://www.comune.merone.co.it/novita/comunicati_stampa/novita_138.html',
+      'https://comune.marchirolo.varese.it/Dettaglionews?IDNews=400586',
+      'https://www.aslvco.it/wp-content/uploads/2025/12/2968938.pdf?x88295=',
+    ]);
+    expect(matrix.italy.sourceOnly.every((province) => !('dutyCount' in province))).toBe(true);
 
     const english = buildDutyCoverageMatrix({ duties, catalogue, registry, locale: 'en', now, weekStart: '2026-09-14' });
     expect(english.sourceOnlyCantons.find((canton) => canton.code === 'AG')?.name).toBe('Aargau');

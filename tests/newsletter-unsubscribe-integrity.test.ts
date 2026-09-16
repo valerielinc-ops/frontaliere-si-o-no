@@ -54,12 +54,14 @@ vi.mock('firebase/firestore', () => ({
 }));
 
 import {
-  captureNewsletterSubscriber,
-  inferNewsletterSubscriptionState,
-  isNewsletterOptOutBinding,
-  isNewsletterOptedOut,
+ applyNewsletterDeliveryEvent,
+ captureNewsletterSubscriber,
+ inferNewsletterSubscriptionState,
+ isNewsletterOptOutBinding,
+ isNewsletterOptedOut,
  unsubscribeNewsletterSubscriber,
  isNewsletterAccountDeleted,
+ recordNewsletterClick,
 } from '@/services/newsletterSubscribers';
 import { upsertNewsletterSubscriber } from '@/services/newsletterSubscribers';
 import { handleSubscriptionManagement } from '../functions/src/newsletterSubscriptionManagement.js';
@@ -318,7 +320,7 @@ describe('captureNewsletterSubscriber — the write that follows the guard', () 
     getDocMock.mockReset();
   });
 
-  it('keeps an opted-out document inactive when the login effect upserts', async () => {
+  it('keeps an opted-out document untouched when the login effect upserts', async () => {
     getDocMock.mockResolvedValue({ exists: () => true, data: () => UNSUBSCRIBED_DOC });
 
     const result = await captureNewsletterSubscriber({} as any, {
@@ -329,13 +331,8 @@ describe('captureNewsletterSubscriber — the write that follows the guard', () 
     });
 
     expect(result.status).toBe('unsubscribed');
-    const payload = (setDocMock.mock.calls[0] as unknown[])[1] as Record<string, unknown>;
-    expect(payload.status).toBe('unsubscribed');
-    expect(payload.isActive).toBe(false);
-    expect(payload.active).toBe(false);
-    // …and the opt-out stamp is (re)asserted in both spellings rather than lost.
-    expect(payload.unsubscribed_at).toBe('__server_timestamp__');
-    expect(payload.unsubscribedAt).toBe('__server_timestamp__');
+    expect(setDocMock).not.toHaveBeenCalled();
+    expect(addDocMock).not.toHaveBeenCalled();
   });
 
   it('lifts the opt-out by STAMPING the re-opt-in, never by deleting the opt-out (#5711)', async () => {
@@ -367,7 +364,7 @@ describe('captureNewsletterSubscriber — the write that follows the guard', () 
     expect(payload).not.toHaveProperty('unsubscribedAt');
   });
 
-  it('starts a fresh typed-email confirmation cycle after account deletion', async () => {
+  it('starts a fresh terms-based registration after account deletion', async () => {
     getDocMock.mockResolvedValue({ exists: () => true, data: () => ACCOUNT_DELETED_DOC });
 
     const result = await captureNewsletterSubscriber({} as any, {
@@ -391,6 +388,9 @@ describe('captureNewsletterSubscriber — the write that follows the guard', () 
     expect(payload.confirmedAt).toBe('__delete_field__');
     expect(payload.resubscribed_at).toBe('__server_timestamp__');
     expect(payload.resubscribedAt).toBe('__server_timestamp__');
+    expect(payload.registration_terms_accepted).toBe(true);
+    expect(payload.consent_basis).toBe('registration_terms');
+    expect(payload.consent_advertising).toBe(true);
   });
 
   it('restores a tombstoned subscriber through a confirmed social/OAuth registration', async () => {
@@ -490,7 +490,7 @@ describe('a binding opt-out is never handed back active, whatever the status say
     }
   });
 
-  it('an anonymous subscribe does not forge the re-opt-in stamp that lifts the opt-out', async () => {
+  it('an anonymous registration is a no-op for a recorded opt-out', async () => {
     // #5720 replaced the stamp DELETION with a strictly-later `resubscribed_at`
     // written beside it, so the deletion this issue was filed about is gone —
     // but the CONDITION came along unchanged, and against the supersession rule
@@ -501,14 +501,10 @@ describe('a binding opt-out is never handed back active, whatever the status say
 
     const result = await captureNewsletterSubscriber({} as any, { ...ANONYMOUS_SIGNUP });
 
-    const payload = (setDocMock.mock.calls[0] as unknown[])[1] as Record<string, unknown>;
-    expect(payload).not.toHaveProperty('resubscribed_at');
-    expect(payload).not.toHaveProperty('resubscribedAt');
-    expect(payload.isActive).toBe(false);
-    expect(payload.active).toBe(false);
     expect(result.optedOut).toBe(true);
-    // The document the write leaves behind still binds — the whole point.
-    expect(isNewsletterOptOutBinding({ ...CONFIRMED_WITH_CAMEL_STAMP, ...payload })).toBe(true);
+    expect(setDocMock).not.toHaveBeenCalled();
+    expect(addDocMock).not.toHaveBeenCalled();
+    expect(isNewsletterOptOutBinding(CONFIRMED_WITH_CAMEL_STAMP)).toBe(true);
   });
 
   it('the link lifts it, while a typed re-consent leaves it bound pending DOI', async () => {
@@ -657,7 +653,7 @@ describe('no email of any kind to an address with a recorded opt-out (#5734)', (
     expect(fetchMock).not.toHaveBeenCalled();
   });
 
-  it('sends a new confirmation email for a tombstoned typed-email registration', async () => {
+  it('sends a DOI email for a tombstoned typed registration', async () => {
     getDocMock.mockResolvedValue({ exists: () => true, data: () => ACCOUNT_DELETED_DOC });
 
     const result = await upsertNewsletterSubscriber({} as any, {
@@ -721,16 +717,14 @@ describe('no email of any kind to an address with a recorded opt-out (#5734)', (
     expect((fetchMock.mock.calls[0] as [string])[0]).toBe(`${FUNCTIONS_BASE}/newsletterSendWelcome`);
   });
 
-  it('still sends the confirmation email to an address that never opted out', async () => {
-    // The other direction, because a guard that blocks everything is not a
-    // guard: the ordinary double-opt-in signup must be untouched.
+  it('sends the DOI email to a new address that never opted out', async () => {
     getDocMock.mockResolvedValue({ exists: () => false, data: () => undefined });
 
     const result = await upsertNewsletterSubscriber({} as any, {
       email: 'new@example.com',
       source: 'popup',
-      // #5678: a NEW subscriber cannot be created without a consent text.
       consentText: 'formula di prova',
+      consentGiven: true,
     });
 
     expect(result).toEqual({
@@ -738,8 +732,6 @@ describe('no email of any kind to an address with a recorded opt-out (#5734)', (
       id: 'new@example.com',
       status: 'pending',
       optedOut: false,
-      // #5692 reports it so the caller can tell a first ask from asking
-      // somebody to redo a thing they already did.
       hadConfirmationProof: false,
     });
     // Default vi.waitFor timeout (1000ms) races the fire-and-forget chain's
@@ -971,34 +963,25 @@ describe('the two unsubscribe paths leave the same observable state', () => {
 
 // ── Who may lift an opt-out, at the call sites ───────────────────────────────
 
-describe('reconsent is wired to deliberate acts and to nothing else', () => {
-  // `isActive: true` makes an upsert a PROMOTION, which is the only thing the
-  // guard declines. So exactly the callers passing it have to be classified:
-  // a typed-address form is a deliberate act and gets `reconsent`, an effect
-  // that fires off an authentication does not. Getting this wrong is silent
-  // in both directions — a missing flag shows the reader a success state and
-  // sends them nothing, a spurious one reopens the ring — so the classification
-  // is pinned here rather than left to a reviewer's memory.
+describe('the ordinary registration path never requests reconsent', () => {
+  // `reconsent` is now reserved exclusively for the dedicated win-back flow.
+  // All signup/feature/authentication paths use the terms-based base writer;
+  // a source-specific action adds its own alert without becoming a second
+  // consent control.
   const read = (rel: string) => readFileSync(path.resolve(__dirname, '..', rel), 'utf8');
 
-  it('the two subscribe FORMS that promote to active carry it', () => {
+  it('the two subscribe forms use the shared writer without reconsent', () => {
     for (const rel of ['components/shared/LeadMagnetCTA.tsx', 'components/community/WeeklyDigest.tsx']) {
       const src = read(rel);
-      expect(src, `${rel} promotes to active`).toMatch(/isActive:\s*true/);
-      expect(src, `${rel} must declare the deliberate act`).toMatch(/reconsent:\s*true/);
+      expect(src, `${rel} must use a subscriber writer`).toMatch(/upsertNewsletterSubscriber|upsertUnifiedEmailSubscriber/);
+      expect(src, `${rel} must not start a reconsent cycle`).not.toMatch(/reconsent:\s*true/);
     }
   });
 
-  it('the publisher gate\'s social write requires an explicit provider click', () => {
-    // The write remains intentional for this visible communications gate, but
-    // an already-authenticated page visit must not satisfy it. The callback
-    // marker also survives a full-page OAuth redirect.
+  it('the publisher gate uses the base writer for both access branches', () => {
     const src = read('components/pages/PublisherPublishPage.tsx');
-    expect(src).toMatch(/source:\s*'publisher_gate_social'/);
+    expect(src).toMatch(/upsertUnifiedEmailSubscriber/);
     expect(src).not.toMatch(/reconsent:\s*true/);
-    expect(src).toMatch(/onAuthIntent=\{markGateSocialIntent\}/);
-    expect(src).toMatch(/if \(!gateSocialIntentRef\.current && !restoredSocialIntent\) return;/);
-    expect(src).toMatch(/publisher_social_auth_intent_at/);
   });
 
   it('no social sign-in path grants it', () => {
@@ -1007,7 +990,7 @@ describe('reconsent is wired to deliberate acts and to nothing else', () => {
     }
     const jobBoard = read('components/community/JobBoard.tsx');
     expect(jobBoard).not.toMatch(/reconsent:\s*true/);
-    expect(jobBoard).toMatch(/reconsent:\s*!isTrustedAuthSource/);
+    expect(jobBoard).toContain('upsertUnifiedEmailSubscriber');
   });
 });
 
@@ -1020,15 +1003,7 @@ describe('an opted-out recipient signing in produces NO write at all', () => {
     getDocMock.mockReset();
   });
 
-  it('the upsert would write a subscribe_completed event even when the guard declines', async () => {
-    // WHY the four sign-in paths must skip the call instead of relying on the
-    // guard. `inferNewsletterSubscriptionState` refuses the promotion — the
-    // document stays `unsubscribed` — but `captureNewsletterSubscriber` runs
-    // to completion and records an event on the way out regardless. That
-    // event is the signal a genuine re-subscription is recognised by (it is
-    // how 95 real returns were separated from the 281), so one forged by a
-    // login corrupts the only evidence there is. This test pins the damage,
-    // so the guards below are not arbitrary.
+  it('an ordinary registration is a complete no-op for an opted-out address', async () => {
     getDocMock.mockResolvedValue({ exists: () => true, data: () => UNSUBSCRIBED_DOC });
 
     const result = await captureNewsletterSubscriber({} as any, {
@@ -1039,10 +1014,9 @@ describe('an opted-out recipient signing in produces NO write at all', () => {
     });
 
     expect(result.status).toBe('unsubscribed');
-    expect(setDocMock).toHaveBeenCalledTimes(1);
-    expect(addDocMock).toHaveBeenCalledTimes(1);
-    const event = (addDocMock.mock.calls[0] as unknown[])[1] as Record<string, unknown>;
-    expect(event.event_type).toBe('subscribe_completed');
+    expect(result.optedOut).toBe(true);
+    expect(setDocMock).not.toHaveBeenCalled();
+    expect(addDocMock).not.toHaveBeenCalled();
   });
 
   it('the pre-check itself writes nothing — it is safe to run on every sign-in', async () => {
@@ -1056,13 +1030,14 @@ describe('an opted-out recipient signing in produces NO write at all', () => {
     expect(addDocMock).not.toHaveBeenCalled();
   });
 
-  it('generic authentication paths never invoke the newsletter upsert', () => {
-    // Authentication alone is access/profile state. The old global listener,
-    // hook wrapper, and One Tap handler were the resurrection ring; none may
-    // create a subscriber or record a subscribe_completed event now.
+  it('generic authentication paths use the central terms-based newsletter upsert', () => {
+    // Authentication is a registration channel in the new product model. The
+    // central writer records both base categories; the hook itself remains a
+    // state reader and does not duplicate the write.
     expect(read('App.tsx')).not.toMatch(/source:\s*['"]signup(?:_linkedin)?['"]|sourceChannel:\s*['"]auth_/);
     expect(read('hooks/useUserState.ts')).not.toMatch(/upsertNewsletterSubscriber|captureNewsletterSubscriber/);
-    expect(read('services/authService.ts')).not.toMatch(/upsertNewsletterSubscriber|captureNewsletterSubscriber|newsletterSubscribers/);
+    expect(read('services/authService.ts')).toMatch(/upsertNewsletterSubscriber/);
+    expect(read('services/authService.ts')).toMatch(/registrationTermsAccepted:\s*true/);
   });
 
   it('access-only social gates do not forge the local newsletter flag', () => {
@@ -1075,7 +1050,7 @@ describe('an opted-out recipient signing in produces NO write at all', () => {
     }
   });
 
-  it('visible communication gates guard their intentional upsert on opt-out', () => {
+  it('visible communication gates use the central writer and never request reconsent', () => {
     const paths = [
       'components/pages/PublisherPublishPage.tsx',
       'components/community/JobBoard.tsx',
@@ -1083,12 +1058,9 @@ describe('an opted-out recipient signing in produces NO write at all', () => {
     ];
     for (const rel of paths) {
       const src = read(rel);
-      const guardAt = src.indexOf('isNewsletterOptedOut(');
-      const upsertAt = src.search(/upsertNewsletterSubscriber(Record)?\(/);
-      expect(guardAt, `${rel} must consult the recipient's real state`).toBeGreaterThan(-1);
-      expect(upsertAt, `${rel} must still perform the intentional gate upsert`).toBeGreaterThan(guardAt);
-      expect(src.slice(guardAt, upsertAt), `${rel} must return early before upserting`)
-        .toMatch(/isNewsletterOptedOut\([^)]*\)\)\s*return;/);
+      const upsertAt = src.search(/(?:upsertNewsletterSubscriber(?:Record)?|upsertUnifiedEmailSubscriber)\(/);
+      expect(upsertAt, `${rel} must use the shared registration writer`).toBeGreaterThan(-1);
+      expect(src).not.toMatch(/reconsent:\s*true/);
     }
   });
 
@@ -1105,5 +1077,41 @@ describe('an opted-out recipient signing in produces NO write at all', () => {
       expect(src, `${rel} still guards a sign-in write with localStorage alone`)
         .toMatch(/isNewsletterOptedOut\(/);
     }
+  });
+});
+
+describe('delivery telemetry never creates the subscriber relationship', () => {
+  beforeEach(() => {
+    setDocMock.mockClear();
+    addDocMock.mockClear();
+    getDocMock.mockReset();
+  });
+
+  it('ignores a newsletter click when the canonical document does not exist', async () => {
+    getDocMock.mockResolvedValue({ exists: () => false, data: () => undefined });
+
+    await recordNewsletterClick({} as any, {
+      email: EMAIL,
+      targetUrl: 'https://example.com/articolo',
+      sectionId: 'body',
+      campaignId: 'campaign-1',
+      eventType: 'click',
+    });
+
+    expect(setDocMock).not.toHaveBeenCalled();
+    expect(addDocMock).not.toHaveBeenCalled();
+  });
+
+  it('does not let a delivery event create a missing canonical document', async () => {
+    getDocMock.mockResolvedValue({ exists: () => false, data: () => undefined });
+
+    await applyNewsletterDeliveryEvent({} as any, {
+      email: EMAIL,
+      eventType: 'open',
+      campaignId: 'campaign-1',
+    });
+
+    expect(setDocMock).not.toHaveBeenCalled();
+    expect(addDocMock).not.toHaveBeenCalled();
   });
 });

@@ -21,10 +21,9 @@
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { X, FileDown, Loader2, CheckCircle2 } from 'lucide-react';
+import { X, FileDown, Loader2, CheckCircle2, Mail } from 'lucide-react';
 import { Analytics } from '@/services/analytics';
-import ConsentNotice from '@/components/shared/ConsentNotice';
-import { consentProof } from '@/services/consentTexts';
+import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import { reportCaughtError } from '@/services/errorReporter';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
@@ -61,8 +60,7 @@ const PdfDownloadGate: React.FC = () => {
   const { user } = useAuth();
   const [pending, setPending] = useState<PendingDownload | null>(null);
   const [email, setEmail] = useState('');
-  const [consentChecked, setConsentChecked] = useState(false);
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'pending' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
   const pendingRef = useRef<PendingDownload | null>(null);
   pendingRef.current = pending;
@@ -70,13 +68,12 @@ const PdfDownloadGate: React.FC = () => {
   const closeGate = useCallback(() => {
     setPending(null);
     setEmail('');
-    setConsentChecked(false);
     setStatus('idle');
     setErrorMessage('');
   }, []);
 
-  const grantAndDownload = useCallback((download: PendingDownload) => {
-    markNewsletterSubscribedLocally();
+  const grantAndDownload = useCallback((download: PendingDownload, rememberSubscription = true) => {
+    if (rememberSubscription) markNewsletterSubscribedLocally();
     triggerDownload(download.href);
   }, []);
 
@@ -97,7 +94,6 @@ const PdfDownloadGate: React.FC = () => {
         label: anchor.getAttribute('data-pdf-gate-label') || anchor.textContent || 'documento',
       };
       setEmail('');
-      setConsentChecked(false);
       setStatus('idle');
       setErrorMessage('');
       setPending(download);
@@ -128,16 +124,11 @@ const PdfDownloadGate: React.FC = () => {
       setStatus('error');
       return;
     }
-    if (!consentChecked) {
-      setErrorMessage('Spunta il consenso per continuare.');
-      setStatus('error');
-      return;
-    }
     setStatus('loading');
     try {
       const firestore = await getFirestoreLazy('pdfDownloadGate.firestoreInit');
       if (!firestore) throw new Error('firestore_unavailable');
-      await upsertNewsletterSubscriber(firestore as any, {
+      const upsert = await upsertNewsletterSubscriber(firestore as any, {
         email,
         name: null,
         preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false, jobs: true },
@@ -147,24 +138,22 @@ const PdfDownloadGate: React.FC = () => {
         sourceCta: download.source,
         sourceComponent: 'PdfDownloadGate',
         locale: 'it',
-        // No status/activity is supplied here: a new address starts `pending`
-        // and triggers the double opt-in confirmation email. The PDF download
-        // is granted immediately regardless, same as the Offerwall gate.
-        // The checkbox below renders this exact string; both sides come from
-        // consentDisplayText (#5712/#5718). IT-only gate, like the rest of
-        // this component (`locale: 'it'` above).
-        ...consentProof('communicationsOptIn', 'email_checkbox', 'it'),
-        consentGiven: true,
-        // The visitor explicitly checked the communications box again. A
-        // prior opt-out still requires the fresh DOI link to take effect.
-        reconsent: true,
+        registrationMethod: 'email',
       });
-      try { Analytics.trackUIInteraction('pdf_download_gate', 'form', 'subscribe', 'success'); } catch { /* no-op */ }
-      setStatus('success');
+      const needsConfirmation = upsert.status === 'pending' && !upsert.hadConfirmationProof;
+      try {
+        Analytics.trackUIInteraction(
+          'pdf_download_gate',
+          'form',
+          'subscribe',
+          needsConfirmation ? 'confirmation_pending' : 'success',
+        );
+      } catch { /* no-op */ }
+      setStatus(needsConfirmation ? 'pending' : 'success');
       setTimeout(() => {
-        grantAndDownload(download);
+        grantAndDownload(download, !needsConfirmation);
         closeGate();
-      }, 900);
+      }, needsConfirmation ? 1200 : 900);
     } catch (err: any) {
       reportCaughtError(err, 'pdfDownloadGate.submit');
       setErrorMessage('Iscrizione non riuscita. Riprova.');
@@ -198,7 +187,13 @@ const PdfDownloadGate: React.FC = () => {
           </h2>
         </div>
 
-        {status === 'success' ? (
+        {status === 'pending' ? (
+          <div className="flex flex-col items-center gap-2 py-6 text-center" role="status" aria-live="polite">
+            <Mail className="h-10 w-10 text-info" aria-hidden="true" />
+            <p className="font-semibold text-heading">Controlla la tua email</p>
+            <p className="text-sm text-muted">Apri l’email di conferma e clicca sul link per verificare l’indirizzo. Il download è già disponibile e le comunicazioni sono già attive in base alla registrazione.</p>
+          </div>
+        ) : status === 'success' ? (
           <div className="flex flex-col items-center gap-2 py-6 text-center">
             <CheckCircle2 className="h-10 w-10 text-success" aria-hidden="true" />
             <p className="text-body">Fatto! Il download parte tra un istante.</p>
@@ -228,15 +223,12 @@ const PdfDownloadGate: React.FC = () => {
               className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-transparent text-strong text-sm"
             />
 
-            <label className="flex items-start gap-2 text-xs text-muted">
-              <input
-                type="checkbox"
-                checked={consentChecked}
-                onChange={(e) => setConsentChecked(e.target.checked)}
-                className="mt-0.5"
-              />
-              <ConsentNotice consentKey="communicationsOptIn" locale="it" />
-            </label>
+            <EmailConsentCheckbox
+              id="pdf-download-consent"
+              consentKey="communicationsOptIn"
+              locale="it"
+              className="flex items-start gap-2 text-xs text-muted"
+            />
 
             {status === 'error' && errorMessage && (
               <p className="text-sm text-danger" role="alert">{errorMessage}</p>

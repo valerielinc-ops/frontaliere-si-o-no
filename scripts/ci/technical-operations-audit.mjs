@@ -1443,6 +1443,10 @@ export function auditWorkflowFiles(root = ROOT) {
     generatedAt: new Date().toISOString(),
     commit: currentCommit(root),
     filesScanned: files.length,
+    // The recorder uses this independently enumerated inventory to avoid
+    // promoting a report that merely claims a clean file count to a measured
+    // L11 outcome.
+    workflowFiles: [...files],
     workflowNames: [...names].sort(),
     findings: dedupeFindings(findings).sort((a, b) => a.file.localeCompare(b.file) || a.line - b.line || a.rule.localeCompare(b.rule)),
   };

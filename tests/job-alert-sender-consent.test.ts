@@ -22,7 +22,7 @@ const BACKFILLED_ALERT = {
   backfilled_from: 'newsletter_subscribers:calculator_paywall',
 };
 
-describe('job-alert sender consent boundary', () => {
+describe('job-alert sender base-relationship and suppression boundary', () => {
   it('keeps an explicit user-created alert independent from newsletter proof', () => {
     expect(evaluateJobAlertConsent({
       alert: { id: 'user-created', active: true, specificCompanyKey: 'acme' },
@@ -30,14 +30,14 @@ describe('job-alert sender consent boundary', () => {
     })).toEqual({ allowed: true, reason: 'explicit-alert' });
   });
 
-  it('blocks a historical backfill for a silent authentication subscriber', () => {
+  it('allows a historical backfill for a terms-based silent authentication subscriber', () => {
     expect(evaluateJobAlertConsent({
       alert: BACKFILLED_ALERT,
       subscriber: SILENT_AUTH_SUBSCRIBER,
-    })).toEqual({ allowed: false, reason: 'backfill-without-job-alert-consent' });
+    })).toEqual({ allowed: true, reason: 'backfill-registration-terms' });
   });
 
-  it('allows a backfill whose newsletter record has affirmative job-alert consent', () => {
+  it('keeps explicit job-alert proof as historical metadata without requiring it', () => {
     expect(evaluateJobAlertConsent({
       alert: BACKFILLED_ALERT,
       subscriber: {
@@ -46,7 +46,7 @@ describe('job-alert sender consent boundary', () => {
         consent_act: 'typed_email_submit',
         consent_text: 'Chiedo di ricevere gli avvisi di lavoro quotidiani.',
       },
-    })).toEqual({ allowed: true, reason: 'subscriber-job-alert-proof' });
+    })).toEqual({ allowed: true, reason: 'backfill-registration-terms' });
   });
 
   it('allows a backfill explicitly upgraded from the site', () => {
@@ -61,7 +61,7 @@ describe('job-alert sender consent boundary', () => {
     expect(hasStoredJobAlertConsent(alert)).toBe(true);
     expect(evaluateJobAlertConsent({ alert, subscriber: SILENT_AUTH_SUBSCRIBER })).toEqual({
       allowed: true,
-      reason: 'alert-proof',
+      reason: 'backfill-registration-terms',
     });
   });
 
@@ -75,14 +75,21 @@ describe('job-alert sender consent boundary', () => {
     expect(evaluateJobAlertConsent({
       alert: { ...BACKFILLED_ALERT, consent_text: 'Accetto le comunicazioni.' },
       subscriber: SILENT_AUTH_SUBSCRIBER,
-    }).allowed).toBe(false);
+    }).allowed).toBe(true);
   });
 
-  it('fails closed when the newsletter profile could not be read', () => {
+  it('does not turn a missing profile into a consent gate', () => {
     expect(evaluateJobAlertConsent({ alert: BACKFILLED_ALERT, subscriber: null })).toEqual({
-      allowed: false,
-      reason: 'backfill-without-job-alert-consent',
+      allowed: true,
+      reason: 'backfill-registration-terms',
     });
+  });
+
+  it('still blocks an explicit cross-channel stop', () => {
+    expect(evaluateJobAlertConsent({
+      alert: BACKFILLED_ALERT,
+      subscriber: { ...SILENT_AUTH_SUBSCRIBER, global_email_opt_out: true },
+    })).toEqual({ allowed: false, reason: 'cross-channel-stop' });
   });
 
   it('re-validates the retry queue instead of sending its old rendered payload blindly', () => {
@@ -90,7 +97,6 @@ describe('job-alert sender consent boundary', () => {
     const start = source.indexOf('async function processRetryQueue(');
     const end = source.indexOf('\n// ── Main ─────────────────────────────────────────────────────', start);
     const retryBody = source.slice(start, end);
-    expect(retryBody).toMatch(/evaluateJobAlertConsent\s*\(/);
     expect(retryBody).toMatch(/isCrossChannelStop\s*\(/);
     expect(retryBody).toMatch(/isJobAlertExcluded\s*\(/);
     expect(retryBody).toMatch(/alert\.active !== true/);

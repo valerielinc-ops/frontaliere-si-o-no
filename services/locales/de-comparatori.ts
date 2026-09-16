@@ -523,6 +523,7 @@ const deComparatori: Record<string, string> = {
  'health.lamalSsn.emailSending': 'Senden\u2026',
  'health.lamalSsn.emailSuccess': 'Fertig! Pr\u00fcfe deinen Posteingang.',
  'health.lamalSsn.emailError': 'Senden fehlgeschlagen. E-Mail pr\u00fcfen und erneut versuchen.',
+ 'health.lamalSsn.consentRequired': 'Bitte erteilen Sie Ihre Einwilligung, um das PDF und E-Mail-Kommunikation zu erhalten.',
  'health.lamalSsn.disclaimer': 'Unverbindliche Sch\u00e4tzungen zu Informationszwecken, keine Beratung. Pr\u00e4mien auf priminfo.admin.ch und Satz bei deiner Region pr\u00fcfen.',
  'health.subtitle': 'Vergleich LAMal-Krankenkassenprämien vs SSN Italien für Grenzgänger',
  'health.warningTitle': 'Optionsrecht',

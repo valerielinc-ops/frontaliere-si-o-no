@@ -1,6 +1,5 @@
 import React from 'react';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { CONSENT_TEXTS } from '@/services/consentTexts';
 import { render, screen, fireEvent, cleanup, waitFor, act } from '@testing-library/react';
 import PdfDownloadGate from '@/components/shared/PdfDownloadGate';
 import { NEWSLETTER_SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
@@ -35,7 +34,13 @@ vi.mock('@/services/firebase', () => ({
 }));
 vi.mock('@/services/errorReporter', () => ({ reportCaughtError: vi.fn() }));
 
-const upsertNewsletterSubscriberMock = vi.fn().mockResolvedValue({ existed: false, id: 'sub-1', status: 'pending' });
+const upsertNewsletterSubscriberMock = vi.fn().mockResolvedValue({
+  existed: false,
+  id: 'sub-1',
+  status: 'confirmed',
+  optedOut: false,
+  hadConfirmationProof: true,
+});
 const markNewsletterSubscribedLocallyMock = vi.fn();
 vi.mock('@/services/newsletterSubscribers', () => ({
   upsertNewsletterSubscriber: (...args: unknown[]) => upsertNewsletterSubscriberMock(...args),
@@ -98,13 +103,40 @@ describe('PdfDownloadGate', () => {
     expect(markNewsletterSubscribedLocallyMock).not.toHaveBeenCalled();
   });
 
-  it('rejects submit without a checked consent box', async () => {
+  it('submits without requiring a second consent checkbox', async () => {
+    vi.useFakeTimers();
     const anchor = renderGatedAnchor();
     fireEvent.click(anchor);
     fireEvent.change(screen.getByLabelText('Email per scaricare il PDF'), { target: { value: 'candidato@aziendaticino.ch' } });
     fireEvent.click(screen.getByRole('button', { name: 'Registrati e scarica' }));
-    expect(await screen.findByText('Spunta il consenso per continuare.')).toBeInTheDocument();
-    expect(upsertNewsletterSubscriberMock).not.toHaveBeenCalled();
+    await act(async () => {
+      await Promise.resolve();
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+    expect(upsertNewsletterSubscriberMock).toHaveBeenCalledTimes(1);
+    await act(async () => { await vi.advanceTimersByTimeAsync(1000); });
+  });
+
+  it('keeps the download available but does not mark a typed pending address as subscribed', async () => {
+    vi.useFakeTimers();
+    upsertNewsletterSubscriberMock.mockResolvedValueOnce({
+      existed: false,
+      id: 'sub-pending',
+      status: 'pending',
+      optedOut: false,
+      hadConfirmationProof: false,
+    });
+    const clickSpy = vi.spyOn(HTMLAnchorElement.prototype, 'click').mockImplementation(() => {});
+    const anchor = renderGatedAnchor();
+    fireEvent.click(anchor);
+    fireEvent.change(screen.getByLabelText('Email per scaricare il PDF'), { target: { value: 'candidato@aziendaticino.ch' } });
+    fireEvent.click(screen.getByRole('button', { name: 'Registrati e scarica' }));
+
+    await vi.waitFor(() => expect(screen.getByText('Controlla la tua email')).toBeInTheDocument());
+    expect(markNewsletterSubscribedLocallyMock).not.toHaveBeenCalled();
+    await vi.advanceTimersByTimeAsync(1300);
+    expect(clickSpy).toHaveBeenCalledTimes(1);
   });
 
   it('rejects an invalid email', async () => {
@@ -128,10 +160,6 @@ describe('PdfDownloadGate', () => {
     const anchor = renderGatedAnchor('self_cert_health_ch', 'Questionario svizzero — stato di salute');
     fireEvent.click(anchor);
     fireEvent.change(screen.getByLabelText('Email per scaricare il PDF'), { target: { value: 'candidato@aziendaticino.ch' } });
-    // The checkbox label is now the register formula itself, rendered by
-    // ConsentNotice — the string this gate also STORES (#5712). Matching on it
-    // is therefore matching on the consent proof, not on decorative copy.
-    fireEvent.click(screen.getByLabelText(/Iscrivo il mio indirizzo alle comunicazioni/));
     fireEvent.click(screen.getByRole('button', { name: 'Registrati e scarica' }));
 
     await vi.waitFor(() => expect(upsertNewsletterSubscriberMock).toHaveBeenCalledTimes(1));
@@ -139,11 +167,8 @@ describe('PdfDownloadGate', () => {
     expect(input.email).toBe('candidato@aziendaticino.ch');
     expect(input.source).toBe('lead_magnet_self_cert_health_ch');
     expect(input.sourceChannel).toBe('lead_magnet');
-    expect(input.consentGiven).toBe(true);
-    // …and what was ticked is what is kept: same string, same locale.
-    expect(input.consentText).toBe(CONSENT_TEXTS.communicationsOptIn.text);
-    expect(input.consentTextDisplayed).toBe(true);
-    expect(input.consentAct).toBe('typed_email_submit');
+    expect(input.consentGiven).toBeUndefined();
+    expect(input.consentText).toBeUndefined();
 
     await vi.advanceTimersByTimeAsync(1000);
     expect(markNewsletterSubscribedLocallyMock).toHaveBeenCalledTimes(1);

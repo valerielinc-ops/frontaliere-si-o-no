@@ -118,6 +118,7 @@ describe('L0 Data Truth & Freshness', () => {
       primaryMetric: 'test',
       guardrails: ['missing is not zero'],
       minimumSample: 1,
+      actionClass: 'observe',
       quality: 'unmeasurable',
     })).toThrow(/null numerator and denominator/);
   });

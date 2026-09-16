@@ -88,7 +88,7 @@ describe('review → autorebase ordering', () => {
     expect(reviewGate).toContain('reviewCommit === headSha');
     expect(reviewGate).toContain('scripts/ci/pr-contribution-fingerprint.mjs');
     expect(nativeAutoMerge).toContain('native-automerge-gate.mjs');
-    expect(nativeAutoMerge).toContain('types: [opened, reopened, ready_for_review, synchronize]');
+    expect(nativeAutoMerge).toContain('types: [opened, edited, reopened, ready_for_review, synchronize]');
     expect(nativeAutoMerge).toContain('pull_request_review:');
     expect(nativeAutoMerge).toContain('workflow_run:');
     expect(nativeAutoMergeRetry).toContain("cron: '*/20 * * * *'");

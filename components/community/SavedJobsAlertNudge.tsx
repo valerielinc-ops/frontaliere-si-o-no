@@ -2,8 +2,9 @@ import { useCallback, useEffect, useState } from 'react';
 import { BellRing, Loader2, X } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
-import { subscribeJobAlertOneTap, upgradeBackfilledAlertConsent } from '@/services/jobAlertService';
+import { subscribeJobAlertOneTap } from '@/services/jobAlertService';
 import ConsentNotice from '@/components/shared/ConsentNotice';
+import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import BottomPromptShell from '@/components/shared/BottomPromptShell';
 import { POPUP_PRIORITY } from '@/services/popupQueue';
 
@@ -57,8 +58,6 @@ export interface SavedJobsAlertNudgeProps {
   onShown?: () => void;
   /** Injectable for tests. */
   subscribe?: typeof subscribeJobAlertOneTap;
-  /** Optional override for the consent-proof upgrade (used by tests). */
-  upgradeConsent?: typeof upgradeBackfilledAlertConsent;
 }
 
 const SUCCESS_AUTO_DISMISS_MS = 6000;
@@ -79,7 +78,6 @@ export default function SavedJobsAlertNudge({
   onErrored,
   onShown,
   subscribe = subscribeJobAlertOneTap,
-  upgradeConsent = upgradeBackfilledAlertConsent,
 }: SavedJobsAlertNudgeProps) {
   const { t } = useTranslation();
   const [status, setStatus] = useState<SavedJobsAlertNudgeStatus>('idle');
@@ -94,18 +92,24 @@ export default function SavedJobsAlertNudge({
     }
     setStatus('submitting');
     try {
-      await subscribe(userId, email, categoryLabel, locale, undefined, cantonCode);
+      await subscribe(userId, email, categoryLabel, locale, undefined, cantonCode, {
+        email,
+        source: 'saved_jobs_alert_nudge',
+        sourceChannel: 'job_gate',
+        sourcePage: typeof window !== 'undefined' ? window.location.pathname : null,
+        sourceCta: 'saved_jobs_alert_nudge',
+        sourceComponent: 'SavedJobsAlertNudge',
+        sourceRouteFamily: 'saved-jobs',
+        locale,
+        jobContext: { category: categoryLabel },
+      });
       setStatus('success');
-      // #5876 — an explicit "Sì, avvisami" under the notice below. Records the
-      // consent proof on this person's travaso alerts, never awaited into the
-      // error path.
-      void upgradeConsent(email, locale).catch(() => {});
       onAccepted();
     } catch (error: unknown) {
       setStatus('error');
       if (onErrored) onErrored(error);
     }
-  }, [status, userId, email, categoryLabel, cantonCode, locale, onAcceptTapped, onAccepted, onAnonymousAccept, onClose, onErrored, subscribe, upgradeConsent]);
+  }, [status, userId, email, categoryLabel, cantonCode, locale, onAcceptTapped, onAccepted, onAnonymousAccept, onClose, onErrored, subscribe]);
 
   const handleDismiss = useCallback(() => {
     onDismissed();
@@ -211,17 +215,23 @@ export default function SavedJobsAlertNudge({
                 </>
               )}
             </div>
-            {(status === 'idle' || status === 'error') && (
-              // Small print under the buttons, same rationale as
-              // JobDetailAlertPrompt: the sentence is the stored consent proof
-              // and stays verbatim, but it no longer sits between the promise
-              // and the CTA.
+            {(status === 'idle' || status === 'error') && userId && email ? (
+              <EmailConsentCheckbox
+                id="saved-jobs-nudge-consent"
+                locale={locale}
+                consentKey="communicationsOptIn"
+                className="mt-2"
+              />
+            ) : (status === 'idle' || status === 'error') ? (
+              // The notice links the action to the terms-based communication
+              // relationship. Anonymous visitors still finish registration in
+              // the alert form; no second consent control is needed.
               <ConsentNotice
                 consentKey="communicationsOptIn"
                 locale={locale}
                 className="mt-2 text-[10px] text-muted leading-snug block"
               />
-            )}
+            ) : null}
           </div>
         </div>
       </div>
