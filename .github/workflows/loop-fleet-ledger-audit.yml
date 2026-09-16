@@ -45,6 +45,7 @@ jobs:
             /data/loop-fleet/ledger/
             /scripts/ci/loop-fleet-ledger-audit.mjs
             /scripts/ci/loop-fleet-ledger-reconcile.mjs
+            /scripts/lib/canonical-json-digest.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /.github/workflows/
           sparse-checkout-cone-mode: false
