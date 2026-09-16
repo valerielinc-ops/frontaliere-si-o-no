@@ -77,9 +77,10 @@ permissions:
   id-token: write
 
 jobs:
-  # This job is deliberately separate from the fixer: it runs with only the
-  # repository token, before the App token, quota lease, claim and agent. A
-  # policy read/parse error fails the dependency and therefore skips `fix`.
+  # This job is deliberately separate from the fixer: it is the deterministic
+  # issue/path preflight, with only the repository token, before the App token,
+  # quota lease, claim and agent. A policy read/parse error fails the dependency
+  # and therefore skips `fix`.
   risk_policy:
     if: |
       github.event.label.name == 'agent:fix' &&
@@ -110,7 +111,7 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Evaluate F1/F7 automation policy (fail-closed)
+      - name: Preflight F1/F7 path-risk policy before capabilities (zero-Claude, fail-closed)
         id: risk
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -123,19 +124,55 @@ jobs:
           decision=$(node --input-type=module - "$issue_file" <<'NODE'
           import fs from 'node:fs';
           import { classifyIssue } from './scripts/lib/classify-issue.mjs';
+          import {
+            classifyAutomationRisk,
+            extractIssuePathCandidates,
+          } from './scripts/ci/lib/automation-risk-policy.mjs';
 
           const issue = JSON.parse(fs.readFileSync(process.argv[2], 'utf8'));
           if (!issue || issue.state !== 'OPEN' || typeof issue.title !== 'string' || !Array.isArray(issue.labels)
               || (issue.body !== null && typeof issue.body !== 'string')) {
             throw new Error('issue metadata non verificabile per la policy F1/F7');
           }
-          process.stdout.write(JSON.stringify(classifyIssue(issue.title, issue.labels, issue.body ?? '')));
+          const classification = classifyIssue(issue.title, issue.labels, issue.body ?? '');
+          const issueText = [
+            issue.title,
+            issue.body ?? '',
+            ...issue.labels.map((label) => typeof label === 'string' ? label : label.name ?? ''),
+          ].join('\n');
+          const paths = extractIssuePathCandidates(issueText);
+          const policyInput = {
+            title: issue.title,
+            body: issue.body ?? '',
+            labels: issue.labels,
+            category: classification.category,
+          };
+          if (paths.length > 0) {
+            policyInput.paths = paths;
+            policyInput.pathsComplete = true;
+          }
+          const risk = classifyAutomationRisk(policyInput);
+          process.stdout.write(JSON.stringify({
+            ...classification,
+            ...risk,
+            automationBlocked: risk.blocked,
+            humanApprovalRequired: risk.humanApprovalRequired,
+            riskDomains: risk.domains,
+            riskDecision: risk.decision,
+            riskDenyCode: risk.denyCode,
+            riskReason: risk.reason,
+            unknownPaths: risk.unknownPaths,
+          }));
           NODE
           )
           blocked=$(jq -er '
             if (.automationBlocked | type) == "boolean"
               and (.humanApprovalRequired | type) == "boolean"
               and (.riskDomains | type) == "array"
+              and (.riskDecision | type) == "string"
+              and ((.riskDecision == "allow") or (.riskDecision == "deny"))
+              and (.unknownPaths | type) == "array"
+              and (.automationBlocked == (.riskDecision == "deny"))
             then (.automationBlocked | tostring)
             else error("decisione F1/F7 non verificabile")
             end' <<< "$decision")
@@ -163,7 +200,8 @@ jobs:
     # Gate (tutti necessari):
     # - L'evento è l'aggiunta della label `agent:fix` (opt-in esplicito, mai
     #   trigger su qualunque label). Solo collaborator/owner possono labellare.
-    # - Il job `risk_policy` ha già verificato che l'issue non appartenga a un
+    # - Il job `risk_policy` ha già verificato issue e path citati, prima di
+    #   qualunque capacità App/bridge, e che l'issue non appartenga a un
     #   dominio F1/F7 e che il routing automatico sia consentito.
     # - sender == owner: belt-and-suspenders contro label aggiunte da automation
     #   esterne / bot non fidati.

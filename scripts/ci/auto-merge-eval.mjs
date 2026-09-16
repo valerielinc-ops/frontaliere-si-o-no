@@ -289,6 +289,12 @@ export function isReviewWorkflowDriftPR(filenames) {
   return filenames.some((f) => REVIEW_WORKFLOW_DRIFT_FILES.includes(f));
 }
 
+const TRUSTED_DRIFT_BOT_LOGINS = new Set([
+  'claude[bot]',
+  'github-actions[bot]',
+  'frontaliere-automation[bot]',
+]);
+
 /**
  * True se l'autore della PR è fidato per il drift-fallback (merge senza review
  * Claude): l'owner/membro/collaboratore del repo, oppure uno dei bot di
@@ -298,11 +304,11 @@ export function isReviewWorkflowDriftPR(filenames) {
  */
 export function isTrustedDriftAuthor(meta) {
   if (!meta) return false;
-  if (['OWNER', 'MEMBER', 'COLLABORATOR'].includes(meta.assoc)) return true;
-  // Internal automation bots: reviewer (claude*) / github-actions, plus the
-  // frontaliere-automation App by EXACT slug (don't widen to all Bot authors).
+  if (meta.type !== 'Bot' && ['OWNER', 'MEMBER', 'COLLABORATOR'].includes(meta.assoc)) return true;
+  // Bot identity is an exact, case-insensitive login allowlist. Prefixes and
+  // naked human logins must never inherit the drift-fallback trust.
   return meta.type === 'Bot' &&
-    (/^(claude|github-actions)/i.test(meta.login || '') || meta.login === 'frontaliere-automation[bot]');
+    TRUSTED_DRIFT_BOT_LOGINS.has(String(meta.login || '').toLowerCase());
 }
 
 // Required-headers regex — MIRROR di `.github/workflows/pr-body-contract.yml`

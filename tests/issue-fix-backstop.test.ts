@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
+import { classifyIssue } from '../scripts/lib/classify-issue.mjs';
 
 const workflow = readFileSync(new URL('../.github/workflows/issue-fix.yml', import.meta.url), 'utf8');
 
@@ -22,6 +23,46 @@ describe('issue-fix F1/F7 policy gate', () => {
     expect(workflow).toContain("needs.risk_policy.outputs.blocked != 'true'");
   });
 
+  it('esegue il preflight path-risk zero-Claude prima di token e bridge', () => {
+    const start = workflow.indexOf('  risk_policy:');
+    const end = workflow.indexOf('\n  fix:', start);
+    const gate = workflow.slice(start, end);
+    const appToken = workflow.indexOf('Mint GitHub App token');
+    const bridge = workflow.indexOf('uses: ./.github/actions/claude-codex-fallback');
+    const outputGate = workflow.indexOf('- name: Enforce F1/F7 output diff gate');
+
+    expect(gate).toContain('Preflight F1/F7 path-risk policy before capabilities');
+    expect(gate).toContain('extractIssuePathCandidates');
+    expect(gate).toContain('classifyAutomationRisk');
+    expect(gate).toContain('policyInput.pathsComplete = true');
+    expect(gate).toContain('automationBlocked: risk.blocked');
+    expect(end).toBeLessThan(appToken);
+    expect(end).toBeLessThan(bridge);
+    expect(bridge).toBeLessThan(outputGate);
+
+    expect(classifyIssue(
+      'Follow-up: update the source module',
+      ['follow-up'],
+      'Suggested action: edit `src/fix.ts`.',
+    )).toMatchObject({ automationBlocked: false });
+    expect(classifyIssue(
+      'Follow-up: update the source module',
+      ['follow-up'],
+      'Suggested action: edit `unknown-zone/agent-target.ts`.',
+    )).toMatchObject({
+      automationBlocked: true,
+      riskDenyCode: 'unknown-path',
+    });
+    expect(classifyIssue(
+      'Follow-up: update the workflow',
+      ['follow-up'],
+      'Suggested action: edit `.github/workflows/issue-fix.yml`.',
+    )).toMatchObject({
+      automationBlocked: true,
+      riskDenyCode: 'control-plane',
+    });
+  });
+
   it('usa actor type e login esatti, senza prefissi aggirabili', () => {
     expect(workflow).toContain("github.event.sender.type == 'User'");
     expect(workflow).toContain("github.event.sender.type == 'Bot'");
@@ -30,7 +71,7 @@ describe('issue-fix F1/F7 policy gate', () => {
     expect(workflow).not.toContain("startsWith(github.event.sender.login, 'claude')");
   });
 
-  it('applica il diff gate deterministico prima del checkpoint/push WIP', () => {
+  it('mantiene il diff gate deterministico come barriera prima del checkpoint/push WIP', () => {
     const diffGate = workflow.indexOf('- name: Enforce F1/F7 output diff gate');
     const wip = workflow.indexOf('- name: Salva il lavoro parziale');
     const appToken = workflow.indexOf('Mint GitHub App token');
