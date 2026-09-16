@@ -1,12 +1,11 @@
 /**
  * Bounded F1/F7 policy for automation entry points.
  *
- * The policy is deliberately explicit: issue triage/fixer and native
- * auto-merge may automate only when no signal belongs to one of these domains:
- * deploy/workflow/functions, secrets/roles/permissions, billing/revenue/partner,
- * published content/SEO/Auto Ads, or outreach/communications. Issue triage
- * additionally keeps its explicit control-plane deny; PR auto-merge does not
- * treat that path class as a separate human-approval veto.
+ * The policy is deliberately explicit: issue triage/fixer keeps its deny-by-
+ * default F1/F7 and control-plane policy. The pull-request surface still
+ * requires verifiable metadata and a complete file list, but F1/F7 domains,
+ * control-plane paths, and unknown paths are evidence rather than human-
+ * approval vetoes there. `needs-human` remains the only policy veto on PRs.
  *
  * This module has no GitHub side effects. Callers decide how to escalate a
  * blocked item, and must fail closed when a PR file list is not verifiable.
@@ -214,11 +213,12 @@ function reviewTime(review) {
  * Classify an issue or a complete PR path snapshot without side effects.
  *
  * `paths` is optional for issue classification. When supplied, `pathsComplete`
- * must be true; otherwise the caller cannot prove that a high-risk path is
- * absent and the result is explicitly non-verifiable.
- * `surface` defaults to `issue`. Native PR callers pass `pull-request`, where
- * explicit control-plane paths are not an additional deny condition; the
- * issue surface retains the original control-plane deny-by-default behavior.
+ * must be true; otherwise the caller cannot prove which paths are in scope and
+ * the result is explicitly non-verifiable. The pull-request surface requires
+ * this complete, non-empty snapshot. It allows recognized and unknown paths,
+ * including every F1/F7 domain; `needs-human` remains a separate hard veto.
+ * `surface` defaults to `issue`, which retains the original control-plane,
+ * high-risk, and unknown issue/path deny-by-default behavior.
  */
 export function classifyAutomationRisk({
   title = '',
@@ -229,6 +229,7 @@ export function classifyAutomationRisk({
   pathsComplete,
   surface = 'issue',
 } = {}) {
+  const isPullRequestSurface = surface === 'pull-request';
   const invalidMetadata = typeof title !== 'string'
     || typeof body !== 'string'
     || !Array.isArray(labels)
@@ -270,7 +271,8 @@ export function classifyAutomationRisk({
 
   const issueText = [title, body, ...labelNames].join('\n');
   const hasPathSnapshot = paths !== undefined || pathsComplete !== undefined;
-  if (hasPathSnapshot && (!Array.isArray(paths) || pathsComplete !== true
+  if ((isPullRequestSurface || hasPathSnapshot)
+    && (!Array.isArray(paths) || pathsComplete !== true
     || paths.length === 0 || paths.some((path) => !normalizedPath(path)))) {
     return {
       policyVersion: AUTOMATION_RISK_POLICY_VERSION,
@@ -288,7 +290,6 @@ export function classifyAutomationRisk({
   }
 
   const snapshotPaths = hasPathSnapshot ? paths.map(normalizedPath) : [];
-  const isPullRequestSurface = surface === 'pull-request';
   const controlPlanePaths = snapshotPaths.filter(isControlPlanePath);
   const controlPlaneEvidence = isPullRequestSurface ? [] : controlPlanePaths;
   const hasControlPlanePath = isPullRequestSurface && controlPlanePaths.length > 0;
@@ -318,15 +319,17 @@ export function classifyAutomationRisk({
   const knownIssue = KNOWN_ISSUE_CATEGORIES.has(String(category).toLowerCase())
     || issueMatches.length > 0
     || labelNames.some((label) => KNOWN_ORDINARY_ISSUE_LABEL_SET.has(label));
-  const denyCode = controlPlane
-    ? 'control-plane'
-    : unknown.length > 0
-      ? 'unknown-path'
-      : issueMatches.length || pathMatches.length
-        ? 'high-risk-domain'
-        : !hasPathSnapshot && !knownIssue
-          ? 'unknown-issue'
-          : null;
+  const denyCode = isPullRequestSurface
+    ? null
+    : controlPlane
+      ? 'control-plane'
+      : unknown.length > 0
+        ? 'unknown-path'
+        : issueMatches.length || pathMatches.length
+          ? 'high-risk-domain'
+          : !hasPathSnapshot && !knownIssue
+            ? 'unknown-issue'
+            : null;
   const blocked = denyCode !== null;
   return {
     policyVersion: AUTOMATION_RISK_POLICY_VERSION,
@@ -352,7 +355,9 @@ export function classifyAutomationRisk({
           : controlPlane
             ? `control-plane sotto modifica: ${controlPlanePaths.join(', ') || 'riferimento issue'}`
             : `domini F1/F7 rilevati: ${domains.join(', ')}`
-      : 'nessun dominio F1/F7 rilevato e path riconosciuti',
+      : isPullRequestSurface
+        ? 'PR con metadata e file-list completi e verificabili; F1/F7, control-plane e path sconosciuti non sono veto policy'
+        : 'nessun dominio F1/F7 rilevato e path riconosciuti',
   };
 }
 
