@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { validateBestPracticeSeo } from '../../scripts/validate-page-seo-quality.mjs';
+import { collectHtmlFiles, validateBestPracticeSeo } from '../../scripts/validate-page-seo-quality.mjs';
 
 const GOOD_PAGE = `
   <html>
@@ -66,5 +66,24 @@ describe('validateBestPracticeSeo', () => {
     expect(types).not.toContain('missingOgDescription');
     expect(types).not.toContain('missingOgUrl');
     expect(types).toContain('missingImageAlt');
+  });
+});
+
+describe('collectHtmlFiles', () => {
+  it('handles a child directory with more pages than a spread call can accept', () => {
+    const pageCount = 130_000;
+    const entries = Array.from({ length: pageCount }, (_, index) => `page-${index}`);
+    const fakeFs = {
+      readdirSync(dir: string) {
+        if (dir === 'dist') return ['section'];
+        if (dir === 'dist/section') return entries;
+        return ['index.html'];
+      },
+      statSync(filePath: string) {
+        return { isDirectory: () => !filePath.endsWith('index.html') };
+      },
+    };
+
+    expect(collectHtmlFiles('dist', '', fakeFs)).toHaveLength(pageCount);
   });
 });
