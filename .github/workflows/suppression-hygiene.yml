@@ -62,6 +62,16 @@ on:
         options:
           - dry-run
           - apply
+      dry_run:
+        description: 'Keep the run preview-only unless explicitly disabled with human approval.'
+        required: false
+        default: true
+        type: boolean
+      human_approval:
+        description: 'Explicit human approval for suppression recovery writes.'
+        required: false
+        default: false
+        type: boolean
       tiers:
         description: 'KILL SWITCH — proven-alive-only stops the re-probe without a deploy'
         required: false
@@ -128,12 +138,22 @@ jobs:
           node-version: '22'
           cache: 'npm'
 
+      - name: Require human approval for suppression side effects
+        id: side_effect_gate
+        env:
+          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
+          APPROVAL_CONSENT: ${{ inputs.human_approval }}
+          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          APPROVAL_SCOPE: suppression-hygiene
+        run: node scripts/ci/human-side-effect-gate.mjs
+
       # --ignore-scripts: the three scripts here need firebase-admin and the
       # Node stdlib only; the native postinstalls (onnxruntime) are dead weight.
       - name: Install dependencies
         run: npm ci --ignore-scripts
 
       - name: Prepare Firebase credentials
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -146,17 +166,24 @@ jobs:
           fi
 
       - name: Load secrets from Remote Config
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         continue-on-error: true
         run: node scripts/load-rc-env.mjs
 
       # ── 1. Self-heal ────────────────────────────────────────────────────────
       - name: Decay proven-alive suppressions
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' || steps.side_effect_gate.outputs.effective_dry_run == 'true'
         env:
           # Scheduled runs apply; manual runs use the chosen mode (default
           # dry-run — safe to inspect before acting). Same convention as
           # job-alert-sunset.yml and mailtrap-suppression-retry.yml.
           MODE: ${{ github.event_name == 'schedule' && 'apply' || inputs.mode || 'dry-run' }}
+          ALLOW_SIDE_EFFECT: ${{ steps.side_effect_gate.outputs.allow_side_effect }}
+          EFFECTIVE_DRY_RUN: ${{ steps.side_effect_gate.outputs.effective_dry_run }}
         run: |
+          if [ "$ALLOW_SIDE_EFFECT" != "true" ] || [ "$EFFECTIVE_DRY_RUN" = "true" ]; then
+            MODE=dry-run
+          fi
           echo "♻️  Suppression decay (tier=proven-alive) mode=$MODE"
           case "$MODE" in
             apply) node scripts/suppression-decay.mjs --apply --tier=proven-alive ;;
@@ -166,14 +193,20 @@ jobs:
 
       # ── 2. Ramped re-probe ──────────────────────────────────────────────────
       - name: Re-probe never-probed suppressions (ramped)
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' || steps.side_effect_gate.outputs.effective_dry_run == 'true'
         continue-on-error: true
         env:
           MODE: ${{ github.event_name == 'schedule' && 'apply' || inputs.mode || 'dry-run' }}
+          ALLOW_SIDE_EFFECT: ${{ steps.side_effect_gate.outputs.allow_side_effect }}
+          EFFECTIVE_DRY_RUN: ${{ steps.side_effect_gate.outputs.effective_dry_run }}
           # Both kill-switch layers collapse into one value here: the repo-level
           # env above, AND the dispatch input. Either one set to stop wins,
           # because the runner treats the literal 'false' as off.
           SUPPRESSION_REPROBE_ENABLED: ${{ (inputs.tiers == 'proven-alive-only' && 'false') || env.SUPPRESSION_REPROBE_ENABLED }}
         run: |
+          if [ "$ALLOW_SIDE_EFFECT" != "true" ] || [ "$EFFECTIVE_DRY_RUN" = "true" ]; then
+            MODE=dry-run
+          fi
           echo "🔬 Re-probe (tier=never-probed) mode=$MODE enabled=$SUPPRESSION_REPROBE_ENABLED"
           echo "   The probe IS the next regular newsletter — no probe message is sent from here."
           echo "   Rails: batch cap, per-address budget, circuit breaker on the previous cohort."

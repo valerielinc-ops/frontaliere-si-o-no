@@ -40,6 +40,16 @@ on:
         description: 'Required for mode=send (double opt-in — real emails go out)'
         type: boolean
         default: false
+      dry_run:
+        description: 'Keep outreach preview-only unless explicitly disabled with human approval.'
+        required: false
+        default: true
+        type: boolean
+      human_approval:
+        description: 'Explicit human approval for outreach side effects.'
+        required: false
+        default: false
+        type: boolean
       touch:
         description: 'Sequence touch number (1-4)'
         required: false
@@ -102,10 +112,20 @@ jobs:
           node-version: 22
           cache: npm
 
+      - name: Require human approval for outreach side effects
+        id: side_effect_gate
+        env:
+          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
+          APPROVAL_CONSENT: ${{ inputs.human_approval }}
+          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          APPROVAL_SCOPE: cold-email-outreach
+        run: node scripts/ci/human-side-effect-gate.mjs
+
       - name: Install dependencies
         run: npm ci
 
       - name: Prepare Firebase credentials
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -116,6 +136,7 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load secrets from Remote Config (email providers + GA4)
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
       - name: Refresh employer target report (GA4, 90 days)
@@ -125,6 +146,7 @@ jobs:
         run: node scripts/employer-traffic-report.mjs --source ga4 --days 90 --min 1 --json data/employer-outreach/report.json
 
       - name: Drain STOP replies into suppression (best-effort)
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         continue-on-error: true
         run: node scripts/process-stop-replies.mjs --apply
 
@@ -134,6 +156,8 @@ jobs:
           TOP_INPUT: ${{ github.event.inputs.top }}
           MODE: ${{ github.event.inputs.mode }}
           CONFIRM: ${{ github.event.inputs.confirm }}
+          ALLOW_SIDE_EFFECT: ${{ steps.side_effect_gate.outputs.allow_side_effect }}
+          EFFECTIVE_DRY_RUN: ${{ steps.side_effect_gate.outputs.effective_dry_run }}
         run: |
           TOUCH="$TOUCH_INPUT"
           TOP="$TOP_INPUT"
@@ -144,7 +168,7 @@ jobs:
             echo "::warning::top=$TOP exceeds DAILY_COMPANY_CAP=$DAILY_COMPANY_CAP — clamping."
             TOP="$DAILY_COMPANY_CAP"
           fi
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "$MODE" = "send" ] && [ "$CONFIRM" = "true" ]; then
+          if [ "$ALLOW_SIDE_EFFECT" = "true" ] && [ "$EFFECTIVE_DRY_RUN" = "false" ] && [ "$MODE" = "send" ] && [ "$CONFIRM" = "true" ]; then
             echo "📨 REAL SEND — touch $TOUCH, cap $TOP companies, max $MAX_TOUCHES_PER_COMPANY touches/company"
             node scripts/send-cold-emails.mjs --send --confirm \
               --touch "$TOUCH" --top "$TOP" --max-touches "$MAX_TOUCHES_PER_COMPANY" \
@@ -159,7 +183,7 @@ jobs:
               | tee /tmp/outreach.log
           fi
           {
-            echo "## Cold email outreach — $( [ "$MODE" = "send" ] && [ "$CONFIRM" = "true" ] && echo 'REAL SEND' || echo 'dry-run preview' )"
+            echo "## Cold email outreach — $( [ "$ALLOW_SIDE_EFFECT" = "true" ] && [ "$EFFECTIVE_DRY_RUN" = "false" ] && [ "$MODE" = "send" ] && [ "$CONFIRM" = "true" ] && echo 'REAL SEND' || echo 'dry-run preview' )"
             echo ""
             echo '```'
             tail -n 120 /tmp/outreach.log

@@ -33,6 +33,16 @@ on:
         required: false
         default: '200'
         type: string
+      dry_run:
+        description: 'Keep the run preview-only unless explicitly disabled with human approval.'
+        required: false
+        default: true
+        type: boolean
+      human_approval:
+        description: 'Explicit human approval for onboarding sends.'
+        required: false
+        default: false
+        type: boolean
 
 concurrency:
   group: send-onboarding-drip
@@ -73,10 +83,20 @@ jobs:
         with:
           node-version: '22'
 
+      - name: Require human approval for onboarding side effects
+        id: side_effect_gate
+        env:
+          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
+          APPROVAL_CONSENT: ${{ inputs.human_approval }}
+          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          APPROVAL_SCOPE: onboarding-drip
+        run: node scripts/ci/human-side-effect-gate.mjs
+
       - name: Install dependencies
         run: npm ci
 
       - name: Prepare Firebase credentials
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -89,15 +109,22 @@ jobs:
           fi
 
       - name: Load secrets from Remote Config
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
       - name: Run onboarding drip
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' || steps.side_effect_gate.outputs.effective_dry_run == 'true'
         env:
           MODE: ${{ github.event.inputs.mode || 'send' }}
           TARGET: ${{ github.event.inputs.target_email || '' }}
           TEST_STEP: ${{ github.event.inputs.test_step || '0' }}
           MAX: ${{ github.event.inputs.max || '200' }}
+          ALLOW_SIDE_EFFECT: ${{ steps.side_effect_gate.outputs.allow_side_effect }}
+          EFFECTIVE_DRY_RUN: ${{ steps.side_effect_gate.outputs.effective_dry_run }}
         run: |
+          if [ "$ALLOW_SIDE_EFFECT" != "true" ] || [ "$EFFECTIVE_DRY_RUN" = "true" ]; then
+            MODE=dry-run
+          fi
           echo "📧 Onboarding drip mode=$MODE max=$MAX"
           if [ "$MODE" = "send" ]; then
             node scripts/send-onboarding-drip.mjs --send --max "$MAX"

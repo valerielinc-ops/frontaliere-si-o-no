@@ -37,6 +37,17 @@ on:
     # Twice a day, offset off the hour to stay clear of the deploy cron.
     - cron: '23 5,17 * * *'
   workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Keep the run preview-only unless explicitly disabled with human approval.'
+        required: false
+        default: true
+        type: boolean
+      human_approval:
+        description: 'Explicit human approval for the sitemap publication path.'
+        required: false
+        default: false
+        type: boolean
 
 concurrency:
   group: sync-articles-sitemaps
@@ -59,7 +70,17 @@ jobs:
         with:
           node-version: '22'
 
+      - name: Require human approval for publication side effects
+        id: side_effect_gate
+        env:
+          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
+          APPROVAL_CONSENT: ${{ inputs.human_approval }}
+          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          APPROVAL_SCOPE: article-sitemap-publication
+        run: node scripts/ci/human-side-effect-gate.mjs
+
       - name: Prepare Firebase credentials for push auth
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -71,6 +92,7 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load push credentials from Remote Config
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: |
           test -f scripts/load-rc-env.mjs
           node scripts/load-rc-env.mjs
@@ -273,7 +295,7 @@ jobs:
 
       - name: Commit if changed
         id: commit
-        if: steps.gate.outputs.skipped != 'true'
+        if: steps.gate.outputs.skipped != 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: |
           set -euo pipefail
           # Recorded BEFORE the commit, because after it `git diff` is clean.
@@ -448,7 +470,7 @@ jobs:
       # Gated on the file having actually changed so a quiet run does not spend
       # a Cloudflare purge on a byte-identical re-PUT.
       - name: Prepare Firebase credentials
-        if: steps.commit.outputs.news-sitemap-changed == 'true' || steps.commit.outputs.ticker-changed == 'true' || steps.commit.outputs.feeds-changed == 'true'
+        if: (steps.commit.outputs.news-sitemap-changed == 'true' || steps.commit.outputs.ticker-changed == 'true' || steps.commit.outputs.feeds-changed == 'true') && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -458,7 +480,7 @@ jobs:
           fi
 
       - name: Load secrets from Remote Config
-        if: steps.commit.outputs.news-sitemap-changed == 'true' || steps.commit.outputs.ticker-changed == 'true' || steps.commit.outputs.feeds-changed == 'true'
+        if: (steps.commit.outputs.news-sitemap-changed == 'true' || steps.commit.outputs.ticker-changed == 'true' || steps.commit.outputs.feeds-changed == 'true') && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: |
           if test -f scripts/load-rc-env.mjs; then
             node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal)"
@@ -467,7 +489,7 @@ jobs:
           fi
 
       - name: Publish the news sitemap to the edge
-        if: steps.commit.outputs.news-sitemap-changed == 'true'
+        if: steps.commit.outputs.news-sitemap-changed == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         continue-on-error: true
         run: node scripts/publish-edge-files.mjs --only=/sitemap-news.xml
 
@@ -478,7 +500,7 @@ jobs:
       # be invisible to the guard — the same way a backslash continuation hides
       # --files= from the purge guard.
       - name: Publish the RSS feeds to the edge
-        if: steps.commit.outputs.feeds-changed == 'true'
+        if: steps.commit.outputs.feeds-changed == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         continue-on-error: true
         run: node scripts/publish-edge-files.mjs --only=/rss.xml,/rss-it.xml,/rss-en.xml,/rss-de.xml,/rss-fr.xml,/rss-svizzera.xml,/rss-svizzera-it.xml,/rss-svizzera-en.xml,/rss-svizzera-de.xml,/rss-svizzera-fr.xml
 
@@ -514,7 +536,7 @@ jobs:
       # publish-article-chunks.mjs (TICKER_CDN_KEY / TICKER_CACHE_CONTROL) so
       # the two writers cannot disagree about the freshness contract.
       - name: Publish the news-ticker payload to the edge
-        if: steps.commit.outputs.ticker-changed == 'true'
+        if: steps.commit.outputs.ticker-changed == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         continue-on-error: true
         run: |
           set -euo pipefail

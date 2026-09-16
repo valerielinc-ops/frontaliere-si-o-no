@@ -33,6 +33,11 @@ on:
         default: 'true'
         type: choice
         options: ['true', 'false']
+      human_approval:
+        description: 'Explicit human approval for publishing Telegram posts.'
+        required: false
+        default: false
+        type: boolean
 
 concurrency:
   group: telegram-channel-broadcast
@@ -59,10 +64,19 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
         with: { node-version: 22, cache: npm }
+      - name: Require human approval for social side effects
+        id: side_effect_gate
+        env:
+          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
+          APPROVAL_CONSENT: ${{ inputs.human_approval }}
+          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          APPROVAL_SCOPE: telegram-post
+        run: node scripts/ci/human-side-effect-gate.mjs
       - name: Install dependencies
         run: npm ci
 
       - name: Prepare Firebase credentials
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -70,11 +84,15 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/sa.json" >> "$GITHUB_ENV"
 
       - name: Load secrets from RC
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
       - name: Resolve real-send flag
+        env:
+          ALLOW_SIDE_EFFECT: ${{ steps.side_effect_gate.outputs.allow_side_effect }}
+          EFFECTIVE_DRY_RUN: ${{ steps.side_effect_gate.outputs.effective_dry_run }}
         run: |
-          if [ "$DRY_RUN" = "true" ]; then
+          if [ "$ALLOW_SIDE_EFFECT" != "true" ] || [ "$EFFECTIVE_DRY_RUN" = "true" ]; then
             echo "TELEGRAM_SEND=" >> "$GITHUB_ENV"
           else
             echo "TELEGRAM_SEND=1" >> "$GITHUB_ENV"
@@ -85,19 +103,19 @@ jobs:
         run: node scripts/assemble-jobs-dataset.mjs --stats
 
       - name: Broadcast jobs digest
-        if: env.MODE == 'jobs'
+        if: env.MODE == 'jobs' && (steps.side_effect_gate.outputs.allow_side_effect == 'true' || steps.side_effect_gate.outputs.effective_dry_run == 'true')
         run: node scripts/post-to-telegram.mjs jobs
 
       - name: Broadcast dogane ranking
-        if: env.MODE == 'border'
+        if: env.MODE == 'border' && (steps.side_effect_gate.outputs.allow_side_effect == 'true' || steps.side_effect_gate.outputs.effective_dry_run == 'true')
         run: npx --no-install tsx scripts/post-to-telegram.mjs border
 
       - name: Broadcast preferred-source announcement
-        if: env.MODE == 'preferred-source'
+        if: env.MODE == 'preferred-source' && (steps.side_effect_gate.outputs.allow_side_effect == 'true' || steps.side_effect_gate.outputs.effective_dry_run == 'true')
         run: node scripts/post-to-telegram.mjs preferred-source
 
       - name: Commit posted ledgers
-        if: success() && env.DRY_RUN != 'true' && (env.MODE == 'jobs' || env.MODE == 'preferred-source')
+        if: success() && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true' && (env.MODE == 'jobs' || env.MODE == 'preferred-source')
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"

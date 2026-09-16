@@ -36,6 +36,16 @@ on:
           - preview
           - test
           - send
+      dry_run:
+        description: 'Keep the run preview-only unless explicitly disabled with human approval.'
+        required: false
+        default: true
+        type: boolean
+      human_approval:
+        description: 'Explicit human approval for sending the newsletter.'
+        required: false
+        default: false
+        type: boolean
       target_email:
         description: 'Recipient for test mode'
         required: false
@@ -113,10 +123,20 @@ jobs:
         with:
           node-version: '22'
 
+      - name: Require human approval for newsletter side effects
+        id: side_effect_gate
+        env:
+          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
+          APPROVAL_CONSENT: ${{ inputs.human_approval }}
+          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          APPROVAL_SCOPE: newsletter-send
+        run: node scripts/ci/human-side-effect-gate.mjs
+
       - name: Install dependencies
         run: npm ci
 
       - name: Prepare Firebase credentials
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -129,6 +149,7 @@ jobs:
           fi
 
       - name: Load secrets from Remote Config
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
       # ── OmniRoute (ON by default, RC kill-switch ENABLE_OMNIROUTE_FALLBACK='0')
@@ -136,12 +157,14 @@ jobs:
       # as AI_MODELS.OMNIROUTE_AUTO. See
       # .github/actions/setup-omniroute/action.yml for the full rationale.
       - uses: ./.github/actions/setup-omniroute
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
 
       # ── Codex Luna Max article lane (ON by default, historical kill-switch '0') ──
       # The shared action exposes only a private broker socket to the
       # newsletter process.
       - id: setup_claude_haiku_fallback
         uses: ./.github/actions/setup-claude-haiku-fallback
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
 
@@ -167,9 +190,15 @@ jobs:
           VARIANT: ${{ inputs.variant || 'general' }}
           ENHANCEMENTS: ${{ inputs.enhancements || 'topJobs,clusterPages,evergreen' }}
           AB_TEST: ${{ inputs.ab_test || '' }}
+          ALLOW_SIDE_EFFECT: ${{ steps.side_effect_gate.outputs.allow_side_effect }}
+          EFFECTIVE_DRY_RUN: ${{ steps.side_effect_gate.outputs.effective_dry_run }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
           AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' || steps.side_effect_gate.outputs.effective_dry_run == 'true'
         run: |
+          if [ "$ALLOW_SIDE_EFFECT" != "true" ] || [ "$EFFECTIVE_DRY_RUN" = "true" ]; then
+            MODE=preview
+          fi
           segmented_display=""
           variant_args=(--variant "$VARIANT")
           if [ "$VARIANT" = "auto" ]; then

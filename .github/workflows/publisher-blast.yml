@@ -48,6 +48,11 @@ on:
         description: 'Dry-run (log audience, do not send)'
         type: boolean
         default: true
+      human_approval:
+        description: 'Explicit human approval for the publisher blast.'
+        required: false
+        default: false
+        type: boolean
   schedule:
     - cron: '17 7 * * *' # daily 07:17 UTC
 
@@ -96,10 +101,20 @@ jobs:
         with:
           node-version: 22
 
+      - name: Require human approval for blast side effects
+        id: side_effect_gate
+        env:
+          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
+          APPROVAL_CONSENT: ${{ inputs.human_approval }}
+          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          APPROVAL_SCOPE: publisher-blast
+        run: node scripts/ci/human-side-effect-gate.mjs
+
       - name: Install dependencies
         run: npm ci
 
       - name: Prepare Firebase credentials
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -110,12 +125,16 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load secrets from Remote Config (RESEND_API_KEY)
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
       - name: Run blast
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' || steps.side_effect_gate.outputs.effective_dry_run == 'true'
+        env:
+          ALLOW_SIDE_EFFECT: ${{ steps.side_effect_gate.outputs.allow_side_effect }}
+          EFFECTIVE_DRY_RUN: ${{ steps.side_effect_gate.outputs.effective_dry_run }}
         run: |
-          # Scheduled runs always send; manual runs honor the dry_run input (default true).
-          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ github.event.inputs.dry_run }}" = "false" ]; then
+          if [ "$ALLOW_SIDE_EFFECT" = "true" ] && [ "$EFFECTIVE_DRY_RUN" = "false" ]; then
             node scripts/blast-publisher-ads.mjs --send
           else
             node scripts/blast-publisher-ads.mjs

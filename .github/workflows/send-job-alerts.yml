@@ -102,6 +102,16 @@ on:
         required: false
         default: ''
         type: string
+      dry_run:
+        description: 'Build the alerts but do not send.'
+        required: false
+        default: true
+        type: boolean
+      human_approval:
+        description: 'Explicit human approval for sending emails.'
+        required: false
+        default: false
+        type: boolean
 
 concurrency:
   group: job-alerts
@@ -149,10 +159,20 @@ jobs:
           node-version: 22
           cache: npm
 
+      - name: Require human approval for email side effects
+        id: side_effect_gate
+        env:
+          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
+          APPROVAL_CONSENT: ${{ inputs.human_approval }}
+          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          APPROVAL_SCOPE: job-alert-email
+        run: node scripts/ci/human-side-effect-gate.mjs
+
       - name: Install dependencies
         run: npm ci
 
       - name: Prepare Firebase credentials
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -164,12 +184,14 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load secrets from Remote Config
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
       - name: Assemble jobs dataset
         run: node scripts/assemble-jobs-dataset.mjs
 
       - name: Send job alert emails
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' || steps.side_effect_gate.outputs.effective_dry_run == 'true'
         continue-on-error: true
         id: send-alerts
         env:
@@ -179,9 +201,16 @@ jobs:
           # import as well as to the explicit failure-report step below.
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TARGET_EMAIL: ${{ inputs.target_email }}
+          ALLOW_SIDE_EFFECT: ${{ steps.side_effect_gate.outputs.allow_side_effect }}
+          EFFECTIVE_DRY_RUN: ${{ steps.side_effect_gate.outputs.effective_dry_run }}
           # Bypass newsletter cooldown when targeting a single test recipient
           SKIP_NEWSLETTER_COOLDOWN: ${{ inputs.target_email != '' && '1' || '' }}
-        run: node scripts/send-job-alerts.mjs
+        run: |
+          if [ "$ALLOW_SIDE_EFFECT" = "true" ] && [ "$EFFECTIVE_DRY_RUN" = "false" ]; then
+            node scripts/send-job-alerts.mjs
+          else
+            node scripts/send-job-alerts.mjs --dry-run
+          fi
 
       - name: Report failure to GitHub Issues
         if: steps.send-alerts.outcome == 'failure'

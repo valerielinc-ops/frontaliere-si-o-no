@@ -46,6 +46,16 @@ on:
         description: 'Commit SHA to check out (default: the SHA main was at when this run was dispatched)'
         required: false
         type: string
+      dry_run:
+        description: 'Keep the run preview-only unless explicitly disabled with human approval.'
+        required: false
+        default: true
+        type: boolean
+      human_approval:
+        description: 'Explicit human approval for the side-effect path.'
+        required: false
+        default: false
+        type: boolean
 
 # Serialize per ARTICLE, not per section.
 #
@@ -103,7 +113,20 @@ jobs:
         with:
           node-version: 22
 
+      # Scheduled, push, and dispatch callers that do not carry a verifiable
+      # human approval remain render-only. The helper binds approval to the
+      # first attempt of this run and consumes its nonce once.
+      - name: Require human approval for publication side effects
+        id: side_effect_gate
+        env:
+          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
+          APPROVAL_CONSENT: ${{ inputs.human_approval }}
+          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          APPROVAL_SCOPE: article-publication
+        run: node scripts/ci/human-side-effect-gate.mjs
+
       - name: Prepare Firebase credentials
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -123,6 +146,7 @@ jobs:
       # via `npx -y tsx` (on-demand, no repo install) and the shard-push /
       # CDN-upload scripts are plain bash + Node built-ins.
       - name: Load secrets from Remote Config (R2 + indexing)
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
       - name: Render article (fast path)
@@ -148,7 +172,7 @@ jobs:
       # PUT must degrade to "image 404s for social crawlers until the next
       # deploy", not to "the article never goes live at all".
       - name: Upload CDN assets (images)
-        if: steps.render.outcome == 'success'
+        if: steps.render.outcome == 'success' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         continue-on-error: true
         run: |
           set -uo pipefail
@@ -186,7 +210,7 @@ jobs:
       # uppercasing that exact token, so the two scripts resolve the SAME
       # deploy-key secret for the SAME shard repo.
       - name: Push locale shards (parallel, fault-tolerant)
-        if: steps.render.outcome == 'success'
+        if: steps.render.outcome == 'success' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY }}
           SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY }}
@@ -276,7 +300,7 @@ jobs:
       # the full deploy.yml chain, which is the source of truth anyway.
       - name: Verify shard URLs are live
         id: verify
-        if: steps.render.outcome == 'success'
+        if: steps.render.outcome == 'success' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: |
           set +e
           node scripts/wait-for-live-article-shards.mjs /tmp/fast-publish/summary.json
@@ -310,7 +334,7 @@ jobs:
       # possible. --ticker-only builds the registry in a temp dir purely to compute it
       # and uploads nothing else.
       - name: Publish news-ticker payload
-        if: steps.verify.outcome == 'success' && steps.verify.outputs.delayed != 'true'
+        if: steps.verify.outcome == 'success' && steps.verify.outputs.delayed != 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         continue-on-error: true
         run: npx -y tsx@4 scripts/publish-article-chunks.mjs --ticker-only
 
@@ -334,14 +358,15 @@ jobs:
       # publish-edge-files.mjs's own `runLlmsGenerator()` only runs for a
       # whole-table or explicit selection that includes those entries, so
       # this narrower call no longer regenerates/pushes it here.
-      # Gated on render only to match this file's own convention of not
+      # Gated on the verified push and human approval to match this file's own
+      # convention of not
       # running later steps once an earlier ungated step has failed the job.
       # NEVER blocks the publish: a failed render/PUT/purge here just means
       # those apex paths keep serving their previous R2 copy (or fall open to
       # the origin passthrough) until this step succeeds on a later run or
       # the next full deploy.
       - name: Publish edge files (sitemap pushable origin, corpus-owned)
-        if: steps.verify.outcome == 'success' && steps.verify.outputs.delayed != 'true'
+        if: steps.verify.outcome == 'success' && steps.verify.outputs.delayed != 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         continue-on-error: true
         run: node scripts/publish-edge-files.mjs --producer=corpus
 
@@ -375,7 +400,7 @@ jobs:
       # live and the hubs are already pushed. A missed publish means the sitemap
       # is one fast-publish behind, not that anything 404s.
       - name: Publish + commit the topic-hub sitemap
-        if: steps.verify.outcome == 'success' && steps.verify.outputs.delayed != 'true'
+        if: steps.verify.outcome == 'success' && steps.verify.outputs.delayed != 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -429,7 +454,7 @@ jobs:
       # deploy — so without a direct submit here a fast-published article would
       # reach Google in minutes and Bing/Yandex only hours later.
       - name: Notify search engines (Google Indexing API + IndexNow)
-        if: steps.verify.outcome == 'success' && steps.verify.outputs.delayed != 'true'
+        if: steps.verify.outcome == 'success' && steps.verify.outputs.delayed != 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         continue-on-error: true
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
