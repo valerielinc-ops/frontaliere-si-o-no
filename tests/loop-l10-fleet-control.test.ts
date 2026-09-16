@@ -399,4 +399,43 @@ describe('L10 Engineering Learning / Fleet Control', () => {
     })).rejects.toThrow('issue service unavailable');
     expect(fs.existsSync(path.join(reportDir, 'l10-result.json'))).toBe(false);
   });
+
+  it('uses the independent reconciliation artifact and never self-promotes health alone', async () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l10-independent-input-'));
+    const registryPath = writeJson(dir, 'registry.json', registry());
+    const quotaPath = writeJsonl(dir, 'quota.jsonl', [quotaRow()]);
+    const reportDir = path.join(dir, 'report');
+    const outcome = buildOutcome({
+      outcomeId: 'verified-l10',
+      status: 'zero',
+      independent: true,
+      sourceRefs: ['test-source'],
+      primaryMetric: 'verified_metric',
+      numerator: 0,
+      denominator: 2,
+      requiredFieldsPresent: ['generatedAt', 'numerator', 'denominator'],
+      missingFields: [],
+      reason: 'independent GitHub run and health join',
+      observedAt: NOW.toISOString(),
+      recordedAt: NOW.toISOString(),
+    });
+    const independentPath = writeJson(dir, 'independent.json', {
+      outcome,
+      metrics: { eligibleRuns: 2, joinedRuns: 2, reconciliationErrors: 0 },
+    });
+
+    const result = await runL10({
+      now: NOW,
+      registryPath,
+      quotaPath,
+      healthPath: path.join(dir, 'missing-health.jsonl'),
+      independentOutcomePath: independentPath,
+      reportDir,
+      issue: false,
+      logger: { log() {} },
+    });
+
+    expect(result.outcome).toMatchObject({ status: 'zero', independent: true, numerator: 0, denominator: 2 });
+    expect(result.observation.outcome).toMatchObject({ status: 'zero', independent: true });
+  });
 });
