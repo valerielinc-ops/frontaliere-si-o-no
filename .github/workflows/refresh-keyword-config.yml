@@ -3,6 +3,17 @@ on:
   schedule:
     - cron: '30 3 * * 1'  # Every Monday at 03:30 UTC
   workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Keep the run preview-only unless explicitly disabled with human approval.'
+        required: false
+        default: true
+        type: boolean
+      human_approval:
+        description: 'Explicit human approval for keyword-config publication side effects.'
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -22,6 +33,15 @@ jobs:
           node-version: 22
           cache: npm
 
+      - name: Require human approval for keyword-config side effects
+        id: side_effect_gate
+        env:
+          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
+          APPROVAL_CONSENT: ${{ inputs.human_approval }}
+          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          APPROVAL_SCOPE: refresh-keyword-config
+        run: node scripts/ci/human-side-effect-gate.mjs
+
       - name: Install dependencies
         # Needed by "Load RC secrets" below (scripts/load-rc-env.mjs dynamically
         # imports firebase-admin, an npm package, not a builtin). Without this,
@@ -31,6 +51,7 @@ jobs:
         run: npm ci --no-audit --no-fund
 
       - name: Prepare Firebase credentials for push auth
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -42,12 +63,15 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load push credentials from Remote Config
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
       - name: Generate keyword pages config
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/generate-keyword-pages-config.mjs
 
       - name: Re-cluster orphan queries (F3b)
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         # Runs off the latest committed gsc-orphan-queries.json (refreshed by
         # sync-gsc-orphans.mjs in its own workflow). Safe to run: produces a
         # deterministic JSON artifact that the build plugin consumes.
@@ -55,6 +79,7 @@ jobs:
 
       - name: Commit if changed
         id: commit
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
@@ -79,7 +104,7 @@ jobs:
           echo "has_changes=true" >> "$GITHUB_OUTPUT"
 
       - name: Prepare Firebase credentials
-        if: steps.commit.outputs.has_changes == 'true'
+        if: steps.commit.outputs.has_changes == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -92,7 +117,7 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load RC secrets
-        if: steps.commit.outputs.has_changes == 'true'
+        if: steps.commit.outputs.has_changes == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
       # Primary identity for the deploy dispatch below = GitHub App installation
@@ -100,7 +125,7 @@ jobs:
       # its dispatch re-triggers deploy.yml just like the PAT (no GITHUB_TOKEN
       # anti-recursion). Falls back to env.GITHUB_PAT (#2861 item 1).
       - name: Mint App token (primary identity, PAT fallback)
-        if: steps.commit.outputs.has_changes == 'true'
+        if: steps.commit.outputs.has_changes == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
@@ -115,7 +140,7 @@ jobs:
         # The commit above pushes via GITHUB_TOKEN, which never triggers
         # deploy.yml's `push` event (GitHub anti-recursion) — same class of
         # gap fixed for sync-gsc-orphans.yml (#2861 item 1).
-        if: steps.commit.outputs.has_changes == 'true'
+        if: steps.commit.outputs.has_changes == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         # Hard-fail by design (no `|| true`, #6936): a failed dispatch here
         # fails the job, caught by "Report failure to GitHub Issues" below —
         # that GitHub issue IS this caller's recovery net (auto-triage picks

@@ -25,6 +25,11 @@ on:
         description: 'Dry run (no file writes, just report)'
         required: false
         type: boolean
+        default: true
+      human_approval:
+        description: 'Explicit human approval for GSC orphan publication side effects.'
+        required: false
+        type: boolean
         default: false
 
 concurrency:
@@ -53,10 +58,20 @@ jobs:
           node-version: '22'
           cache: npm
 
+      - name: Require human approval for GSC orphan side effects
+        id: side_effect_gate
+        env:
+          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
+          APPROVAL_CONSENT: ${{ inputs.human_approval }}
+          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          APPROVAL_SCOPE: sync-gsc-orphans
+        run: node scripts/ci/human-side-effect-gate.mjs
+
       - name: Install dependencies
         run: npm ci
 
       - name: Prepare Firebase credentials
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -69,6 +84,7 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load RC secrets
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
       # Primary identity for the deploy dispatch below = GitHub App installation
@@ -76,6 +92,7 @@ jobs:
       # its dispatch re-triggers deploy.yml just like the PAT (no GITHUB_TOKEN
       # anti-recursion). Falls back to env.GITHUB_PAT (#2861 item 1).
       - name: Mint App token (primary identity, PAT fallback)
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
@@ -84,6 +101,7 @@ jobs:
         run: node scripts/ci/mint-app-token.mjs
 
       - name: Sync GSC orphan slugs + enrich
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: |
           node scripts/sync-gsc-orphans.mjs \
             ${{ inputs.dry_run == true && '--dry-run' || '' }}
@@ -92,19 +110,19 @@ jobs:
           ENABLE_WAYBACK: ${{ inputs.enable_wayback == true && '1' || '0' }}
 
       - name: Assemble jobs dataset (needed by reconcile)
-        if: ${{ inputs.dry_run != true }}
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/assemble-jobs-dataset.mjs
 
       - name: Reconcile orphan + expired slugs with active jobs
-        if: ${{ inputs.dry_run != true }}
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/reconcile-job-slugs.mjs
 
       - name: Mine all job slugs for comprehensive coverage
-        if: ${{ inputs.dry_run != true }}
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/mine-all-job-slugs.mjs
 
       - name: Canton-aware migration of slug registry (keep registry invariant pre-commit)
-        if: ${{ inputs.dry_run != true }}
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         # mine-all-job-slugs writes every entry under the legacy TI section.
         # Rewrite entries attributable to live non-TI jobs to their canton-aware
         # paths BEFORE committing to main (bot-direct-to-main gate, same
@@ -114,7 +132,7 @@ jobs:
         run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 
       - name: Prune non-resolving 404-compat paths (keep test invariant green)
-        if: ${{ inputs.dry_run != true }}
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         # Gate bot-direct-to-main against the committed-snapshot invariant
         # (tests/search-console-compat.test.ts): drop any appended path the
         # resolver can't map BEFORE commit, so main never goes red on a raw
@@ -130,12 +148,12 @@ jobs:
       # growing number instead of a silent one. Never fails the job: it is
       # telemetry, and the commit below is the step that matters.
       - name: Report orphan reconciliation backlog
-        if: ${{ inputs.dry_run != true }}
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         continue-on-error: true
         run: node scripts/report-orphan-reconciliation.mjs
 
       - name: Commit and push
-        if: ${{ inputs.dry_run != true }}
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         id: commit
         run: |
           SKIP_AI_TRANSLATION=1 bash scripts/lib/git-commit-data.sh --slice-only \
@@ -171,7 +189,7 @@ jobs:
           MAX_PUSH_ATTEMPTS: '8'
 
       - name: Trigger deploy if data changed
-        if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true
+        if: steps.commit.outputs.has_changes == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: |
           # Check if tracking or compat data changed (new soft-landing pages needed)
           TRACKING_CHANGES=$(git diff HEAD~1 --name-only -- data/all-known-job-slugs data/seo-404-compat | wc -l)

@@ -35,9 +35,14 @@ on:
       dry_run:
         description: 'Inspect only — do not commit recovered slugs'
         required: false
-        default: 'false'
+        default: 'true'
         type: choice
         options: ['false', 'true']
+      human_approval:
+        description: 'Explicit human approval for previousSlugs recovery writes.'
+        required: false
+        default: false
+        type: boolean
       tripwire_threshold:
         # Counted against recoverable_slugs (slugs still unreachable today),
         # NOT the far larger total_lost. The old default of 10 was calibrated
@@ -156,10 +161,20 @@ jobs:
           node-version: '22'
           cache: npm
 
+      - name: Require human approval for previousSlugs recovery side effects
+        id: side_effect_gate
+        env:
+          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
+          APPROVAL_CONSENT: ${{ inputs.human_approval }}
+          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          APPROVAL_SCOPE: recover-prev-slugs
+        run: node scripts/ci/human-side-effect-gate.mjs
+
       - name: Install dependencies
         run: npm ci
 
       - name: Prepare Firebase credentials for push auth
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -171,6 +186,7 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load push credentials from Remote Config
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
       # #5348 residuo genuino: due record con lo STESSO `.id` (dedicated-crawler
@@ -188,8 +204,9 @@ jobs:
       # backfill può sanare una perdita che vive nella duplicazione stessa.
       - name: Reconcile duplicate stable-id job records
         id: reconcile
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' || steps.side_effect_gate.outputs.effective_dry_run == 'true'
         env:
-          DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+          DRY_RUN: ${{ steps.side_effect_gate.outputs.effective_dry_run }}
         run: |
           set -euo pipefail
           mkdir -p /tmp/prev-slug-recovery
@@ -265,9 +282,9 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Backfill recoverable slugs
-        if: steps.scan.outputs.recoverable_slugs != '0'
+        if: steps.scan.outputs.recoverable_slugs != '0' && (steps.side_effect_gate.outputs.allow_side_effect == 'true' || steps.side_effect_gate.outputs.effective_dry_run == 'true')
         env:
-          DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+          DRY_RUN: ${{ steps.side_effect_gate.outputs.effective_dry_run }}
         run: |
           set -euo pipefail
           DRY_RUN_FLAG=""
@@ -286,7 +303,7 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Commit and push restored slices
-        if: (steps.scan.outputs.recoverable_slugs != '0' || steps.reconcile.outputs.reconciled_dropped != '0') && (github.event.inputs.dry_run || 'false') != 'true'
+        if: (steps.scan.outputs.recoverable_slugs != '0' || steps.reconcile.outputs.reconciled_dropped != '0') && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |

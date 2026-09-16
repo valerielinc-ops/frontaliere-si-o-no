@@ -32,7 +32,18 @@ on:
   #
   # `workflow_dispatch` stays: a manual run is still useful to drain the queue
   # on demand, and it cannot cause the race because it is not periodic.
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Keep the run preview-only unless explicitly disabled with human approval.'
+        required: false
+        default: true
+        type: boolean
+      human_approval:
+        description: 'Explicit human approval for journalist publication side effects.'
+        required: false
+        default: false
+        type: boolean
 
 concurrency:
   # Serialize: never two concurrent commits from this pipeline to main.
@@ -59,10 +70,20 @@ jobs:
         with:
           node-version: 22
 
+      - name: Require human approval for journalist publication side effects
+        id: side_effect_gate
+        env:
+          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
+          APPROVAL_CONSENT: ${{ inputs.human_approval }}
+          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          APPROVAL_SCOPE: publish-journalist-articles
+        run: node scripts/ci/human-side-effect-gate.mjs
+
       - name: Install dependencies
         run: npm ci
 
       - name: Prepare Firebase credentials
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -80,6 +101,7 @@ jobs:
       # notify-journalist-article-live.yml, which runs after the deploy this
       # job triggers actually succeeds.
       - name: Load secrets from Remote Config
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
       # publish-journalist-article.mjs imports registerArticleFiles/
@@ -89,13 +111,16 @@ jobs:
       # here before this change; added as part of the OmniRoute rollout to
       # every ai-models.mjs consumer workflow.
       - uses: ./.github/actions/setup-omniroute
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
       - id: setup_claude_haiku_fallback
         uses: ./.github/actions/setup-claude-haiku-fallback
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
 
       - name: Publish queued journalist articles
         id: publish
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
           AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
@@ -113,6 +138,7 @@ jobs:
 
       - name: Commit registered article files (test-gated) + push with rebase-retry
         id: commit
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -140,7 +166,7 @@ jobs:
           fi
 
       - name: Trigger deploy workflow
-        if: steps.commit.outputs.has_changes == 'true'
+        if: steps.commit.outputs.has_changes == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: bash scripts/lib/trigger-deploy.sh || true
 
       # Issue #4837 stream C: this workflow can publish MULTIPLE articles per
@@ -154,7 +180,7 @@ jobs:
       # fast-publish dispatch still leaves the article to go live via the
       # normal deploy chain triggered above.
       - name: Trigger fast-publish workflow(s)
-        if: steps.commit.outputs.has_changes == 'true'
+        if: steps.commit.outputs.has_changes == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           PUBLISHED_IDS_JSON: ${{ steps.publish.outputs.published_ids }}
         run: |

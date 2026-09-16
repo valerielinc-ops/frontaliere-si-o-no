@@ -5,7 +5,18 @@ on:
     # Offset from the Firebase collector so the static snapshot has a clean
     # source window before the deploy rebuilds the SEO pages and sitemap.
     - cron: "17 */6 * * *"
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Keep the run preview-only unless explicitly disabled with human approval.'
+        required: false
+        default: true
+        type: boolean
+      human_approval:
+        description: 'Explicit human approval for plate-auction publication writes.'
+        required: false
+        default: false
+        type: boolean
 
 concurrency:
   group: refresh-plate-auctions
@@ -38,10 +49,20 @@ jobs:
           node-version: 22
           cache: npm
 
+      - name: Require human approval for plate-auction side effects
+        id: side_effect_gate
+        env:
+          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
+          APPROVAL_CONSENT: ${{ inputs.human_approval }}
+          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          APPROVAL_SCOPE: refresh-plate-auctions
+        run: node scripts/ci/human-side-effect-gate.mjs
+
       - name: Install dependencies
         run: npm ci --ignore-scripts
 
       - name: Prepare Firebase credentials
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -51,6 +72,7 @@ jobs:
           fi
 
       - name: Refresh every active public catalogue
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/plate-auctions/ingest.mjs
 
       - name: Fail closed on source health or snapshot drift
@@ -71,10 +93,12 @@ jobs:
         run: git diff --check
 
       - name: Load push credentials from Remote Config
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
       - name: Commit and push static snapshot
         id: commit
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -92,7 +116,7 @@ jobs:
 
       - name: Trigger static deploy and sitemap rebuild
         id: deploy
-        if: steps.commit.outputs.has_changes == 'true'
+        if: steps.commit.outputs.has_changes == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           EXPECTED_SHA: ${{ steps.commit.outputs.expected_sha }}
           GITHUB_REPOSITORY: ${{ github.repository }}

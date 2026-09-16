@@ -6,7 +6,18 @@ on:
     - cron: '37 1-5,7-23 * * *'
     # Daily at 06:37 UTC — write to Firestore AND commit repo cache
     - cron: '37 6 * * *'
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Keep the run preview-only unless explicitly disabled with human approval.'
+        required: false
+        default: true
+        type: boolean
+      human_approval:
+        description: 'Explicit human approval for fuel-price writes and publication.'
+        required: false
+        default: false
+        type: boolean
 
 concurrency:
   group: fuel-prices
@@ -44,7 +55,17 @@ jobs:
         with:
           node-version: 22
 
+      - name: Require human approval for fuel-price side effects
+        id: side_effect_gate
+        env:
+          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
+          APPROVAL_CONSENT: ${{ inputs.human_approval }}
+          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          APPROVAL_SCOPE: update-fuel-prices
+        run: node scripts/ci/human-side-effect-gate.mjs
+
       - name: Prepare Firebase credentials
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -54,9 +75,11 @@ jobs:
           fi
 
       - name: Load push credentials from Remote Config
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
       - name: Install firebase-admin
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: npm install --no-save firebase-admin
 
       - name: Detect daily run
@@ -73,6 +96,7 @@ jobs:
           fi
 
       - name: Generate and upload fuel prices to Firestore
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: |
           if [ "${{ steps.schedule.outputs.daily }}" = "true" ]; then
             node scripts/generate-fuel-prices-dataset.mjs --save-local
@@ -81,19 +105,19 @@ jobs:
           fi
 
       - name: Persist daily snapshot of raw fuel prices JSON
-        if: steps.schedule.outputs.daily == 'true'
+        if: steps.schedule.outputs.daily == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: |
           mkdir -p data/fuel-prices-history
           cp public/data/fuel-prices.json "data/fuel-prices-history/$(date -u +%F).json"
 
       - name: Snapshot fuel history for SEO pages (F6)
-        if: steps.schedule.outputs.daily == 'true'
+        if: steps.schedule.outputs.daily == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/snapshot-fuel-history.mjs
 
       # Daily: commit repo cache + trigger deploy (with rebase-retry for concurrent pushes)
       - name: Commit repo cache (daily only)
         id: commit
-        if: steps.schedule.outputs.daily == 'true'
+        if: steps.schedule.outputs.daily == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -113,11 +137,11 @@ jobs:
           fi
 
       - name: Load secrets from Remote Config
-        if: steps.commit.outputs.has_changes == 'true'
+        if: steps.commit.outputs.has_changes == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
       - name: Trigger deploy workflow
-        if: steps.commit.outputs.has_changes == 'true'
+        if: steps.commit.outputs.has_changes == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: bash scripts/lib/trigger-deploy.sh || true
 
       - name: Report failure to GitHub Issues

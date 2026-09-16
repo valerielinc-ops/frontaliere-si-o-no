@@ -23,7 +23,18 @@ on:
   # # Weekly, Monday 04:50 UTC — off-peak minute slot (avoids jobs :05-:55,
   # # articles :22, article-gen :07/:37, weather :23, events :40, fuel :37).
   # - cron: '50 4 * * 1'
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Keep the run preview-only unless explicitly disabled with human approval.'
+        required: false
+        default: true
+        type: boolean
+      human_approval:
+        description: 'Explicit human approval for ranking-content publication side effects.'
+        required: false
+        default: false
+        type: boolean
 
 concurrency:
   group: border-wait-ranking-digest
@@ -50,10 +61,20 @@ jobs:
           node-version: 22
           cache: npm
 
+      - name: Require human approval for ranking-content side effects
+        id: side_effect_gate
+        env:
+          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
+          APPROVAL_CONSENT: ${{ inputs.human_approval }}
+          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          APPROVAL_SCOPE: generate-border-wait-ranking-weekly
+        run: node scripts/ci/human-side-effect-gate.mjs
+
       - name: Install dependencies
         run: npm ci --no-audit --no-fund --ignore-scripts
 
       - name: Prepare Firebase credentials for push auth
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -65,10 +86,12 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load push credentials from Remote Config
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
       - name: Refresh ranking digest article body + snapshot JSON
         id: refresh
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: npx --no-install tsx scripts/generate-border-wait-ranking-article.mjs
 
       - name: Gate — refreshed body files must keep the suite green
@@ -77,6 +100,7 @@ jobs:
 
       - name: Commit + push (with rebase-retry)
         id: commit
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -100,7 +124,7 @@ jobs:
           echo "has_changes=true" >> "$GITHUB_OUTPUT"
 
       - name: Trigger deploy workflow
-        if: steps.commit.outputs.has_changes == 'true'
+        if: steps.commit.outputs.has_changes == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: bash scripts/lib/trigger-deploy.sh || true
 
       - name: Report failure to GitHub Issues

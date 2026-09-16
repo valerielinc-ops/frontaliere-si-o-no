@@ -32,9 +32,23 @@ const SIDE_EFFECT_WORKFLOWS = [
   // Writer/publication/content scope from the audit.
   'fast-publish-article.yml',
   'publisher-jobs-sync.yml',
+  'publish-journalist-articles.yml',
   'mirror-articles-corpus.yml',
   'sync-articles-sitemaps.yml',
   'crawl-events.yml',
+  'recover-prev-slugs.yml',
+  'refresh-keyword-config.yml',
+  'sync-gsc-orphans.yml',
+  'update-fuel-prices.yml',
+  'backfill-expired-from-history.yml',
+  'discover-404s.yml',
+  'discover-404s-via-cloudflare.yml',
+  'generate-border-wait-ranking-weekly.yml',
+  'update-health-premiums.yml',
+  'refresh-plate-auctions.yml',
+  'reconcile-expired-route-duplicates.yml',
+  'migrate-prospected-slugs.yml',
+  'seo-health-loop.yml',
   // Communication, outreach, newsletter, alert, recipient, and social scope.
   'cold-email-outreach.yml',
   'send-company-alerts.yml',
@@ -67,6 +81,100 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const workflow = (name: string) => fs.readFileSync(path.join(ROOT, '.github', 'workflows', name), 'utf8');
 const APPROVED_GATE_IF = "steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'";
+
+/** Named writer/provider paths added by the Pasteur F5/F6/F9 inventory. */
+const GATED_SIDE_EFFECT_STEPS: Record<string, RegExp[]> = {
+  'publish-journalist-articles.yml': [
+    /Publish queued journalist articles/u,
+    /Commit registered article files/u,
+    /Trigger deploy workflow/u,
+    /Trigger fast-publish workflow/u,
+  ],
+  'recover-prev-slugs.yml': [
+    /Reconcile duplicate stable-id job records/u,
+    /Backfill recoverable slugs/u,
+    /Commit and push restored slices/u,
+  ],
+  'refresh-keyword-config.yml': [
+    /Generate keyword pages config/u,
+    /Re-cluster orphan queries/u,
+    /Commit if changed/u,
+    /Trigger deploy if config changed/u,
+  ],
+  'sync-gsc-orphans.yml': [
+    /Sync GSC orphan slugs/u,
+    /Assemble jobs dataset/u,
+    /Reconcile orphan/u,
+    /Mine all job slugs/u,
+    /Canton-aware migration/u,
+    /Prune non-resolving/u,
+    /Commit and push$/u,
+    /Trigger deploy if data changed/u,
+  ],
+  'update-fuel-prices.yml': [
+    /Generate and upload fuel prices/u,
+    /Persist daily snapshot/u,
+    /Snapshot fuel history/u,
+    /Commit repo cache/u,
+    /Trigger deploy workflow/u,
+  ],
+  'backfill-expired-from-history.yml': [
+    /Recover dropped jobs/u,
+    /Reassemble dataset/u,
+    /Commit and push$/u,
+    /Trigger deploy if data changed/u,
+  ],
+  'discover-404s.yml': [
+    /Run URL Inspection sweep/u,
+    /Run Cloudflare edge 404 sweep/u,
+    /Prune non-resolving/u,
+    /Commit and push$/u,
+    /Re-mint App token/u,
+    /Trigger deploy if compat changed/u,
+  ],
+  'discover-404s-via-cloudflare.yml': [
+    /Run Cloudflare 404 sweep/u,
+    /Refresh CF-hot 404 list/u,
+    /Prune non-resolving/u,
+    /Commit and push$/u,
+    /Trigger deploy if compat changed/u,
+  ],
+  'generate-border-wait-ranking-weekly.yml': [
+    /Refresh ranking digest article body/u,
+    /Commit \+ push/u,
+    /Trigger deploy workflow/u,
+  ],
+  'update-health-premiums.yml': [
+    /Fetch health premiums/u,
+    /Validate generated health premiums/u,
+    /Commit and push if changed/u,
+    /Trigger deploy workflow/u,
+  ],
+  'refresh-plate-auctions.yml': [
+    /Refresh every active public catalogue/u,
+    /Commit and push static snapshot/u,
+    /Trigger static deploy/u,
+  ],
+  'reconcile-expired-route-duplicates.yml': [
+    /Sweep expired slices and reconcile ownership/u,
+    /Reassemble dataset/u,
+    /Commit and push changed slices/u,
+    /Trigger deploy if data changed/u,
+  ],
+  'migrate-prospected-slugs.yml': [
+    /Apply and validate migration/u,
+    /Commit and push exact migration paths/u,
+    /Trigger deploy after migration/u,
+  ],
+  'seo-health-loop.yml': [
+    /Run five-phase SEO health loop/u,
+    /Reconcile 404 compatibility store/u,
+    /Save health state before compat push/u,
+    /Commit and push corrected compat shards/u,
+    /Restore and persist health state/u,
+    /Trigger deploy for live compat correction/u,
+  ],
+};
 
 function credentialHydrationSteps(source: string) {
   const document = YAML.parse(source) as { jobs?: Record<string, { steps?: Array<Record<string, unknown>> }> };
@@ -171,6 +279,8 @@ describe('workflow wiring for the bounded F3/F4 side-effect surface', () => {
       const approvalBlock = source.match(/human_approval:[\s\S]{0,240}/u)?.[0] ?? '';
       expect(approvalBlock).toMatch(/type:\s*boolean/u);
       expect(approvalBlock).toMatch(/default:\s*false/u);
+      const dryRunBlock = source.match(/dry_run:[\s\S]{0,240}/u)?.[0] ?? '';
+      expect(dryRunBlock).toMatch(/default:\s*['"]?true/u);
       expect(source).toContain('APPROVAL_ACTOR_TYPE');
       expect(source).toContain('steps.side_effect_gate.outputs.allow_side_effect');
       expect(source).toContain('steps.side_effect_gate.outputs.effective_dry_run');
@@ -186,6 +296,26 @@ describe('workflow wiring for the bounded F3/F4 side-effect surface', () => {
         for (const step of credentialHydrationSteps(source).filter((candidate) => candidate.jobName === jobName)) {
           expect(step.index, `${name}:${jobName}:${step.name} must follow the gate`).toBeGreaterThan(gateIndex);
           expect(step.if, `${name}:${jobName}:${step.name} must deny by default`).toContain(APPROVED_GATE_IF);
+        }
+      }
+    });
+  }
+
+  for (const [name, stepPatterns] of Object.entries(GATED_SIDE_EFFECT_STEPS)) {
+    it(`${name} gates every inventoried writer/provider path`, () => {
+      const document = YAML.parse(workflow(name)) as { jobs?: Record<string, { steps?: Array<Record<string, unknown>> }> };
+      const steps = Object.values(document.jobs ?? {}).flatMap((job) => job.steps ?? []);
+      for (const pattern of stepPatterns) {
+        const matches = steps.filter((step) => pattern.test(String(step.name ?? '')));
+        expect(matches, `${name}: missing inventoried side-effect step ${pattern}`).not.toHaveLength(0);
+        for (const step of matches) {
+          const condition = String(step.if ?? '');
+          expect(condition, `${name}:${String(step.name)} must consume allow_side_effect`).toContain(
+            'steps.side_effect_gate.outputs.allow_side_effect',
+          );
+          expect(condition, `${name}:${String(step.name)} must consume effective_dry_run`).toContain(
+            'steps.side_effect_gate.outputs.effective_dry_run',
+          );
         }
       }
     });
