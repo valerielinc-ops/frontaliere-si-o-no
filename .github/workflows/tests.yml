@@ -1732,11 +1732,16 @@ jobs:
           # finding, and without a fresh review the old nit would strand the PR
           # forever behind the native auto-merge gate.
           if [ "${EVENT_ACTION:-}" = "edited" ]; then
-            last_body=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate \
-              --jq '[.[] | select((.user.login // "" | test("^(claude\\[bot\\]|frontaliere-automation\\[bot\\])$";"i")) and (.body|contains("## LGTM")))] | last | .body // empty' 2>/dev/null || true)
-            if printf '%s\n' "$last_body" | grep -qiE 'Important[[:space:]]*:[[:space:]]*[1-9][0-9]*|Nit[[:space:]]*:[[:space:]]*[1-9][0-9]*|🔴|🟡'; then
+            if last_body=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate 2>/dev/null \
+              | jq -sr --arg commit "$last" 'add | [ .[] | select((.commit_id == $commit) and ((.user.login // "" | test("^(claude\\[bot\\]|frontaliere-automation\\[bot\\])$";"i"))) and (.body|contains("## LGTM")))] | last | .body // empty'); then
+              if printf '%s\n' "$last_body" | grep -qiE 'Important[[:space:]]*:[[:space:]]*[1-9][0-9]*|Nit[[:space:]]*:[[:space:]]*[1-9][0-9]*|🔴|🟡'; then
+                echo "skip=false" >> "$GITHUB_OUTPUT"
+                echo "PR metadata edited dopo un verdetto bot con finding Important/Nit → review piena (niente carry-forward)."
+                exit 0
+              fi
+            else
               echo "skip=false" >> "$GITHUB_OUTPUT"
-              echo "PR metadata edited dopo un verdetto bot con finding Important/Nit → review piena (niente carry-forward)."
+              echo "Review bot non verificabile dopo PR metadata edit → review piena (fail-closed)."
               exit 0
             fi
           fi
