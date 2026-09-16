@@ -1,19 +1,200 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-09-13T13:51:34.630Z",
-  "total": 28,
-  "newCount": 0,
-  "updatedCount": 1,
+  "generatedAt": "2026-09-16T23:39:11.966Z",
+  "total": 29,
+  "newCount": 1,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 27,
-  "durationMs": 12491,
-  "avgDurationMs": 12491,
+  "unchangedCount": 26,
+  "durationMs": 16401,
+  "avgDurationMs": 16401,
   "durationHistory": [
-    12491
+    16401
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "efg-6436",
+      "slug": "it-analyst-and-software-engineer-efg-lugano",
+      "company": "EFG International AG",
+      "title": "IT Analyst and Software Engineer",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "tech",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-16",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6436",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "We are looking for a Software Engineer with strong development skills to join the IT Trading & Treasury team of a leading private bank, supporting mission-critical front-office systems used daily by a trading room of around 50 traders.",
+              "You will own the technical delivery and operational support of our Order Management, Pricing and Position Keeping platforms across asset classes — securities, derivatives and structured products — as well as the in-house applications we build to close gaps around them.",
+              "This is a hands-on engineering role. You will design and write code, customise vendor platforms, integrate systems front-to-back, and keep production running. The environment is technically rich and highly integrated: order flow, market data, pricing, risk and core banking all connect through the platforms you will own.",
+              "<i>Build & Change</i>"
+            ],
+            "responsibilities": [
+              "Develop, customise and maintain components across the order management, pricing and position keeping platforms, to support new business requirements and platform evolution.",
+              "Design and build in-house applications for the trading desk — integration layers, reporting tools, automation and health-check utilities — where the vendor platforms do not cover the need.",
+              "Deliver enhancements and full project phases end-to-end: analysis, technical design, development, testing, deployment and documentation.",
+              "Work front-to-back across the technology stack, working across databases (Oracle, MS SQL), application servers (Windows, Linux) and front-end components.",
+              "Manage and troubleshoot FIX protocol connectivity towards brokers, exchanges and execution venues — session configuration, message flow analysis, troubleshooting.",
+              "Build and maintain integrations between trading platforms, market data providers, the core banking system and downstream risk and back-office systems.",
+              "Ensure data consistency across systems with different data models and formats, and design the mapping and reconciliation logic.",
+              "Provide L2/L3 application support across trading workflows, from intraday incidents to root-cause analysis and permanent fixes.",
+              "Act as technical escalation point of complex issues, coordinating with external vendors and other IT teams (infrastructure, database, network, core banking) to resolve them.",
+              "Manage incidents with the trading desk with clear communication on impact and expected resolution time — and write the post-mortem when it matters.",
+              "Work directly with traders, Market Risk and Operations to translate business needs into technical solutions, and to challenge requirements where a better technical answer exists.",
+              "Partner with internal IT teams in a small, senior team where technical decisions are discussed openly and ownership is real."
+            ],
+            "requirements": [
+              "3–8 years of experience in application development and/or application support within financial services IT.",
+              "Solid development skills in Java and/or Python — you write production code, not only scripts.",
+              "Very good knowledge of SQL and relational database systems (Oracle, MS SQL), including the ability to read and optimise queries; familiarity with application servers (Windows mainly, Linux).",
+              "Understandingof financial products, related workflows and pricing concepts: mark-to-market and valuation logic, volatility and market data inputs, P&L attribution — sufficient to reason about pricing behaviour and diagnose pricing issues",
+              "Ability to read and navigate an existing codebase, diagnose issues and deliver clean, maintainable solutions.",
+              "Fluent English; Italian is a strong advantage for the Lugano location; French is a plus.",
+              "University degree in computer science, engineering, finance or an equivalent background.",
+              "Knowledge of the FIX protocol — experience configuring or troubleshooting FIX sessions is a significant plus.",
+              "Exposure to securities trading workflows (equities, fixed income), derivatives or structured products.",
+              "Experience with vendor front-office platforms — FrontArena, Ullink, FinIQ or comparable OMS/pricing systems.",
+              "Familiarity with Powershell or shell scripting, CI/CD, version control, environment management (dev / UAT / production).",
+              "Composure under pressure: trading systems fail at the worst possible moment, and you keep a clear head when they do.",
+              "Technical curiosity and proactivity — you identify the better technical answer rather than waiting to be told what to build.",
+              "Communication across audiences: you will explain a technical constraint to a trader and a business constraint to a developer.",
+              "Flexibility: occasional shift work, and support during bank holidays or Saturdays for releases and critical activities.",
+              "Team orientation in a small team where colleagues cover for each other."
+            ],
+            "benefits": [
+              "A technically rich environment with real ownership of critical front-office systems — your work is visible on the trading floor the day it goes live.",
+              "Exposure to both run and change: you will build new systems and keep existing ones running, rather than being confined to one or the other.",
+              "Deep financial-product knowledge built on the job, across securities, derivatives and structured products, alongside traders and Market Risk.",
+              "Formal vendor and domain training on trading platforms and financial products for the right candidate.",
+              "A collaborative team with senior colleagues to learn from and genuine influence on technical decisions.<br>",
+              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results",
+              "Passionate: Being committed and striving for excellence",
+              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
+              "Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.<br>"
+            ],
+            "process": [],
+            "highlights": [
+              "Develop, customise and maintain components across the order management, pricing and position keeping platforms, to support new business requirements and platform evolution.",
+              "Design and build in-house applications for the trading desk — integration layers, reporting tools, automation and health-check utilities — where the vendor platforms do not cover the need.",
+              "Deliver enhancements and full project phases end-to-end: analysis, technical design, development, testing, deployment and documentation.",
+              "3–8 years of experience in application development and/or application support within financial services IT.",
+              "Solid development skills in Java and/or Python — you write production code, not only scripts.",
+              "Very good knowledge of SQL and relational database systems (Oracle, MS SQL), including the ability to read and optimise queries; familiarity with application servers (Windows mainly, Linux).",
+              "A technically rich environment with real ownership of critical front-office systems — your work is visible on the trading floor the day it goes live.",
+              "Exposure to both run and change: you will build new systems and keep existing ones running, rather than being confined to one or the other."
+            ],
+            "keywords": [
+              "3–8 years of experience in application development and/or application support within financial services IT.",
+              "Solid development skills in Java and/or Python — you write production code",
+              "Very good knowledge of SQL and relational database systems (Oracle",
+              "Understandingof financial products",
+              "Ability to read and navigate an existing codebase",
+              "Develop",
+              "Design and build in-house applications for the trading desk — integration layers",
+              "Deliver enhancements and full project phases end-to-end",
+              "Work front-to-back across the technology stack"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "<br>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.<br>"
+                ],
+                "bullets": []
+              },
+              {
+                "id": "company",
+                "heading": "Our Purpose and Mission",
+                "paragraphs": [
+                  "Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 6
+          }
+        }
+      },
+      "crawledAt": "2026-09-16T23:39:01.514Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "datePosted": "2026-09-16",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
+    {
+      "id": "efg-6488",
+      "slug": "global-regulatory-reporting-specialista-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "Global Regulatory Reporting Specialist",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-14",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6488",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>General Info</strong></span><br><span>· Department: Finance – Regulatory Reporting</span><br><span>· Work time Percentage: 100%</span><br><span>· Location: Geneva</span></p><p><span><strong>Our Company</strong></span><br><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.</span><br><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span><br><span>Empowering entrepreneurial minds to create value – today and for the future.</span><br><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span>As Global Regulatory Reporting Specialist, you will lead the end‑to‑end production, integrity and continuous enhancement of prudential regulatory returns for EFG’s Swiss entity and its international network of booking centres. Operating within the CFO function, you will act as a senior subject‑matter expert on capital adequacy, liquidity and statistical reporting, ensuring complete, accurate and timely submissions across multiple jurisdictions.</span></p><p><span>You will work autonomously across the full regulatory reporting lifecycle, from interpretation of complex rules and data requirements, through design of robust processes and controls, to delivery of high‑quality reports to regulators. In close collaboration with Finance, Risk, Treasury, IT and local CFO teams, you will shape sustainable reporting solutions, drive automation and support the bank’s regulatory change agenda, with decisions that influence EFG’s regulatory risk profile over the medium term.</span></p><p><span><strong>Key Responsibilities</strong></span></p><p><span><strong>Regulatory Reporting Production and Ownership</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Lead the end‑to‑end production of Swiss and international prudential regulatory returns (e.g. capital adequacy, LCR, NSFR, large exposures, COREP and statistical reports), ensuring accuracy, completeness and timely submission across all in‑scope entities.</span></li><li><span>Define and manage the operational reporting calendar, including resource planning and sequencing of monthly, quarterly and annual submissions across different time zones.</span></li><li><span>Establish, document and maintain audit‑ready reporting processes, controls and reconciliations that support operational excellence and a high level of data integrity.</span></li></ul><p><span><strong>Regulatory Interpretation and Complex Analysis</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Interpret and apply relevant regulatory frameworks (e.g. Basel III, FINMA Ordinances and Circulars, CRR/CRD and other European, Asian and offshore prudential regimes) to define clear reporting requirements and data rules.</span></li><li><span>Perform advanced analyses on capital and liquidity metrics, explaining key movements, trends and sensitivities to senior stakeholders in Finance, Risk and Treasury.</span></li><li><span>Design pragmatic solutions for non‑standard transactions and data gaps, balancing regulatory expectations, operational feasibility and long‑term sustainability.</span></li></ul><p><span><strong>Change Management, Projects and Automation</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Monitor regulatory developments across all jurisdictions in scope and assess their impact on reporting architecture, data models and processes.</span></li><li><span>Act as business owner or functional lead for regulatory and IT change initiatives, defining business requirements, test cases and acceptance criteria for new or enhanced reporting tools.</span></li><li><span>Drive automation and process improvement initiatives (e.g. enhancements to reporting systems and control dashboards) to increase efficiency, reduce manual effort and strengthen control.</span></li></ul><p><span><strong>Advisory, Stakeholder Management and Collaboration</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Advise Finance, Risk, Treasury and Front Office on the regulatory implications of new products, transactions and structural balance sheet changes.</span></li><li><span>Represent Regulatory Reporting in cross‑functional working groups, ensuring regulatory requirements are embedded in upstream processes and systems.</span></li><li><span>Build strong relationships with local CFOs and finance teams across the Group, promoting consistent standards and fostering a culture of accountability for data quality.</span></li></ul><p><span><strong>Leadership, Coaching and Best Practice</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Provide expert guidance, coaching and review to junior team members, promoting best practice in regulatory interpretation, documentation and stakeholder communication.</span></li><li><span>Contribute to the continuous improvement of the Regulatory Reporting function by sharing knowledge, standardising methodologies and supporting the development of internal expertise.</span></li></ul><p><span> </span></p><p><span><strong>Requirements and Qualifications</strong></span></p><p><span><strong>Education and Professional Background</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>University degree in Finance, Accounting, Economics, Business Administration or a related quantitative discipline.</span></li><li><span>Postgraduate qualification and/or professional certification (e.g. CPA, CFA, FRM or equivalent) is a strong asset.</span></li><li><span>Typically 8–12 years of experience in private banking or financial services, with a focus on Regulatory Reporting, Financial Accounting, Risk or Audit.</span></li><li><span>Proven experience working with Swiss prudential regulation and exposure to at least one other international regime (e.g. European, Asian or offshore centres).</span></li></ul><p><span><strong>Technical and Functional Expertise</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Deep understanding of prudential regulatory frameworks relevant to EFG (e.g. Basel III, FINMA Ordinances and Circulars, CRR/CRD‑based European frameworks, and Basel‑derived regimes in Asia and offshore centres).</span></li><li><span>Strong grasp of how regulatory requirements translate into data structures, systems architecture and reporting processes.</span></li><li><span>Solid knowledge of related functions (Risk, Treasury, Accounting, Private Banking) and their interdependencies, with the ability to integrate perspectives when designing reporting solutions.</span></li><li><span>High proficiency in Excel and regulatory reporting tools; experience working with large data sets and complex reconciliations.</span></li><li><span>Familiarity with data querying and visualisation tools is an advantage, as is experience in building analytical and control dashboards.</span></li></ul><p><span><strong>Languages</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>English: full professional proficiency (spoken and written), as the main working language across the Group.</span></li><li><span>French: fluency is a strong asset for interaction with local stakeholders in Geneva and with French‑regulated entities; other languages are an advantage.</span></li></ul><p><span> </span></p><p><span><strong>Behavioural Skills and Working Style</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Strong sense of accountability, with the ability to work autonomously on complex deliverables and take ownership of the integrity and timeliness of regulatory submissions.</span></li><li><span>Proactive, solution‑oriented mindset, able to prioritise effectively and manage multiple reporting cycles and projects under tight deadlines.</span></li><li><span>Excellent communication skills, capable of conveying complex regulatory and technical topics clearly to both specialist and non‑specialist audiences.</span></li><li><span>Collaborative team player with strong interpersonal skills, able to influence and negotiate with stakeholders across cultures, functions and time zones.</span></li><li><span>Future‑oriented and comfortable with change, with a keen interest in regulatory developments, digitalisation and process automation.</span></li></ul><p><span> </span></p><p><span><strong>Our Values</strong></span><br><span>· Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span><br><span>· Hands-on: Being proactive to rapidly deliver high-quality results</span><br><span>· Passionate: Being committed and striving for excellence</span><br><span>· Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span><br><span>· Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p><p><span>Please ensure to attach a cover letter to your CV when filling the application.</span></p><p><span> </span></p><p> </p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 6
+          }
+        }
+      },
+      "crawledAt": "2026-09-16T23:39:01.517Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-09-03",
+      "salaryMin": 104500,
+      "salaryMax": 183500,
+      "salarySource": "estimated",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-09-03T23:15:04.646Z",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
     {
       "id": "efg-5984",
       "slug": "operatore-di-commutazione-efg-international-ag-lugano",
@@ -155,7 +336,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-13T13:51:30.829Z",
+      "crawledAt": "2026-09-16T23:39:01.554Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-08-14",
@@ -207,7 +388,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-13T13:51:30.828Z",
+      "crawledAt": "2026-09-16T23:39:01.552Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-08-13",
@@ -221,125 +402,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "efg-6384",
-      "slug": "business-risk-manager-pb-coo-brm-temp-efg-zurich",
-      "company": "EFG International AG",
-      "title": "Business Risk Manager - PB COO - BRM (TEMP)",
-      "location": "Zurich",
-      "canton": "ZH",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-20",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6384",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [],
-            "responsibilities": [],
-            "requirements": [
-              "Economics Bachelor’s degree or equivalent experience in the related field",
-              "Experience in the Financial & Audit Industry, Risk Control domain, Compliance and Risk Management functions",
-              "Excellent data analysis and and Program Languages (Python, SQL, R), Bloomberg Terminal",
-              "Languages required: English, German, French and Italian",
-              "Pro-active and clear communicator with strong organizational skills",
-              "Detailed oriented, precise and ability to work under pressure and tight deadlines",
-              "Willing to go the extra mile, efficient and resourceful"
-            ],
-            "benefits": [
-              "<strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results",
-              "<strong>Passionate</strong>: Being committed and striving for excellence",
-              "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
-              "<strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
-            ],
-            "process": [],
-            "highlights": [
-              "Economics Bachelor’s degree or equivalent experience in the related field",
-              "Experience in the Financial & Audit Industry, Risk Control domain, Compliance and Risk Management functions",
-              "Excellent data analysis and and Program Languages (Python, SQL, R), Bloomberg Terminal",
-              "<strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results"
-            ],
-            "keywords": [
-              "Economics Bachelor’s degree or equivalent experience in the related field",
-              "Experience in the Financial & Audit Industry",
-              "Excellent data analysis and and Program Languages (Python",
-              "Languages required",
-              "Pro-active and clear communicator with strong organizational skills"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "details",
-                "heading": "Role",
-                "paragraphs": [
-                  "Motivated, passionate, hard worker and positive individual who continuously aims to make outstanding contributions and effect a difference from day 1."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "details",
-                "heading": "Main Responsibilites",
-                "paragraphs": [],
-                "bullets": [
-                  "Execute all BRM controls on Investment Solutions area on a monthly respectively quarterly basis and ensures precise and proper documentation of results",
-                  "Preparation of the IS RSC and IS BRM control report",
-                  "Ensure that the identified control NOKs and related risk mitigating actions are timely remediated",
-                  "Contribution on preparation of the annual IS risk and control self-assessment (RSCA) as well as other ad hoc assessment & reviews.",
-                  "Work with the Regional and Global PB BRM to achieve a robust First Line of Defence in the Area",
-                  "Report on the internal control environment and potentially arising risks or issues.",
-                  "Collaborate with local Compliance teams, Ops Risk and auditors for any ad-hoc reviews",
-                  "Key contact person a IS Area Level for IT, tools, trainings topics and issues"
-                ]
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-09-13T13:51:30.827Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "datePosted": "2026-07-20",
-      "salaryMin": 189000,
-      "salaryMax": 331500,
-      "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "country": "CH",
-      "firstSeenAt": "2026-07-20T22:01:00.554Z",
-      "salarySource": "estimated",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
         "translation": 25,
         "completeness": 19
       }
@@ -489,7 +551,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-13T13:51:30.826Z",
+      "crawledAt": "2026-09-16T23:39:01.551Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-25",
@@ -507,127 +569,6 @@
         "richness": 25,
         "translation": 25,
         "completeness": 22
-      }
-    },
-    {
-      "id": "efg-6327",
-      "slug": "ricevitore-efg-international-ag-zurich",
-      "company": "EFG International AG",
-      "title": "Receptionist",
-      "location": "Zurich",
-      "canton": "ZH",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-21",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6327",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [],
-            "responsibilities": [],
-            "requirements": [
-              "Successfully completed commercial education;",
-              "Proven experience in hospitality/hôtellerie;",
-              "Service-oriented, flexible, reliable, and a strong team player",
-              "Proven experience in intervention management;",
-              "Around 5-7 years of working experience as Receptionist and/or Administrative Assistant;",
-              "Fluent in German and English is a must. French/Italian would be strongly valued;",
-              "Excellent time management skill, ability to multitask and prioritize request from various sources;",
-              "Accurate and detail oriented;",
-              "Very good knowledge of Microsoft Office package and proficient in the use of IT tools",
-              "Communicative, trustworthy presence, politeness;",
-              "Able to work in a challenging, pressure and dynamic environment."
-            ],
-            "benefits": [],
-            "process": [],
-            "highlights": [
-              "Successfully completed commercial education;",
-              "Proven experience in hospitality/hôtellerie;",
-              "Service-oriented, flexible, reliable, and a strong team player"
-            ],
-            "keywords": [
-              "Successfully completed commercial education",
-              "Proven experience in hospitality/hôtellerie",
-              "Service-oriented",
-              "Proven experience in intervention management",
-              "Around 5-7 years of working experience as Receptionist and/or Administrative Assistant"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.The receptionist ensures a seamless, premium experience that echoes the standards of five-star hospitality. The receptionist delivers professional and client focused reception, switchboard services and administrative tasks.",
-                  "<span><strong>JOB DESCRIPTION</strong></span>",
-                  "The receptionist is the first point of contact and ensures a seamless, premium client experience in line with five‑star hospitality standards. They provide professional, client‑focused reception and switchboard services, while efficiently handling a variety of administrative tasks."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "details",
-                "heading": "Main activities",
-                "paragraphs": [],
-                "bullets": []
-              },
-              {
-                "id": "details",
-                "heading": "1. Hospitality services",
-                "paragraphs": [
-                  "<br><strong>2. Admin support</strong>"
-                ],
-                "bullets": [
-                  "Follow the Hospitality service protocol (SOP).",
-                  "Serves visitors by greeting, welcoming and directing them appropriately. Taking care of guests anticipating their hospitality needs and making the experience impeccable according to our corporate standard quality.",
-                  "Physically welcome clients and visitors (Escort and seat clients in lounges, offer a drink, and serve).",
-                  "Set up and restore lounges/conference rooms + service.",
-                  "Maintains security and controlling access. Issuing visitor badges. Noticing and reporting suspicious activity.",
-                  "Organise and book meeting rooms.",
-                  "Support internal event and management meeting (e.g. organise, manage, and order breakfasts/lunches for meetings upon request.",
-                  "Handle sensitive information in a confidential manner comply with all internal regulations.",
-                  "Register external visitors and issue badges.",
-                  "Keep statistics (number of clients/visitors).",
-                  "Ensure that the facilities are kept clean and remedy any issues together with service providers. Coordinate with facility management or maintenance for repairs (chairs, lighting, doors, elevator, noise, ventilation, etc.).",
-                  "Prepare \"Welcome Packs,\" and organize induction day"
-                ]
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-09-13T13:51:30.824Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "datePosted": "2026-07-21",
-      "salaryMin": 113000,
-      "salaryMax": 198500,
-      "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "country": "CH",
-      "firstSeenAt": "2026-07-21T11:19:19.247Z",
-      "salarySource": "estimated",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
       }
     },
     {
@@ -718,7 +659,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-13T13:51:30.823Z",
+      "crawledAt": "2026-09-16T23:39:01.549Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-07-23",
@@ -846,7 +787,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-13T13:51:30.822Z",
+      "crawledAt": "2026-09-16T23:39:01.546Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -901,7 +842,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-13T13:51:30.821Z",
+      "crawledAt": "2026-09-16T23:39:01.544Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-28",
@@ -1026,7 +967,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-13T13:51:30.820Z",
+      "crawledAt": "2026-09-16T23:39:01.542Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -1081,7 +1022,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-13T13:51:30.819Z",
+      "crawledAt": "2026-09-16T23:39:01.539Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1209,7 +1150,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-13T13:51:30.807Z",
+      "crawledAt": "2026-09-16T23:39:01.519Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1232,18 +1173,18 @@
       }
     },
     {
-      "id": "efg-6488",
-      "slug": "global-regulatory-reporting-specialista-efg-international-ag-geneve",
+      "id": "efg-6384",
+      "slug": "business-risk-manager-pb-coo-brm-temp-efg-zurich",
       "company": "EFG International AG",
-      "title": "Global Regulatory Reporting Specialist",
-      "location": "Geneve",
-      "canton": "GE",
+      "title": "Business Risk Manager - PB COO - BRM (TEMP)",
+      "location": "Zurich",
+      "canton": "ZH",
       "category": "finance",
-      "contract": "permanent",
+      "contract": "temporary",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-03",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6488",
+      "postedDate": "2026-07-20",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6384",
       "source": "Oracle HCM API",
       "sourceLang": "en",
       "companyKey": "efg-international",
@@ -1251,34 +1192,222 @@
       "canonicalContent": {
         "byLocale": {
           "en": {
-            "summary": [
-              "<p><span><strong>General Info</strong></span><br><span>· Department: Finance – Regulatory Reporting</span><br><span>· Work time Percentage: 100%</span><br><span>· Location: Geneva</span></p><p><span><strong>Our Company</strong></span><br><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.</span><br><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span><br><span>Empowering entrepreneurial minds to create value – today and for the future.</span><br><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span>As Global Regulatory Reporting Specialist, you will lead the end‑to‑end production, integrity and continuous enhancement of prudential regulatory returns for EFG’s Swiss entity and its international network of booking centres. Operating within the CFO function, you will act as a senior subject‑matter expert on capital adequacy, liquidity and statistical reporting, ensuring complete, accurate and timely submissions across multiple jurisdictions.</span></p><p><span>You will work autonomously across the full regulatory reporting lifecycle, from interpretation of complex rules and data requirements, through design of robust processes and controls, to delivery of high‑quality reports to regulators. In close collaboration with Finance, Risk, Treasury, IT and local CFO teams, you will shape sustainable reporting solutions, drive automation and support the bank’s regulatory change agenda, with decisions that influence EFG’s regulatory risk profile over the medium term.</span></p><p><span><strong>Key Responsibilities</strong></span></p><p><span><strong>Regulatory Reporting Production and Ownership</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Lead the end‑to‑end production of Swiss and international prudential regulatory returns (e.g. capital adequacy, LCR, NSFR, large exposures, COREP and statistical reports), ensuring accuracy, completeness and timely submission across all in‑scope entities.</span></li><li><span>Define and manage the operational reporting calendar, including resource planning and sequencing of monthly, quarterly and annual submissions across different time zones.</span></li><li><span>Establish, document and maintain audit‑ready reporting processes, controls and reconciliations that support operational excellence and a high level of data integrity.</span></li></ul><p><span><strong>Regulatory Interpretation and Complex Analysis</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Interpret and apply relevant regulatory frameworks (e.g. Basel III, FINMA Ordinances and Circulars, CRR/CRD and other European, Asian and offshore prudential regimes) to define clear reporting requirements and data rules.</span></li><li><span>Perform advanced analyses on capital and liquidity metrics, explaining key movements, trends and sensitivities to senior stakeholders in Finance, Risk and Treasury.</span></li><li><span>Design pragmatic solutions for non‑standard transactions and data gaps, balancing regulatory expectations, operational feasibility and long‑term sustainability.</span></li></ul><p><span><strong>Change Management, Projects and Automation</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Monitor regulatory developments across all jurisdictions in scope and assess their impact on reporting architecture, data models and processes.</span></li><li><span>Act as business owner or functional lead for regulatory and IT change initiatives, defining business requirements, test cases and acceptance criteria for new or enhanced reporting tools.</span></li><li><span>Drive automation and process improvement initiatives (e.g. enhancements to reporting systems and control dashboards) to increase efficiency, reduce manual effort and strengthen control.</span></li></ul><p><span><strong>Advisory, Stakeholder Management and Collaboration</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Advise Finance, Risk, Treasury and Front Office on the regulatory implications of new products, transactions and structural balance sheet changes.</span></li><li><span>Represent Regulatory Reporting in cross‑functional working groups, ensuring regulatory requirements are embedded in upstream processes and systems.</span></li><li><span>Build strong relationships with local CFOs and finance teams across the Group, promoting consistent standards and fostering a culture of accountability for data quality.</span></li></ul><p><span><strong>Leadership, Coaching and Best Practice</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Provide expert guidance, coaching and review to junior team members, promoting best practice in regulatory interpretation, documentation and stakeholder communication.</span></li><li><span>Contribute to the continuous improvement of the Regulatory Reporting function by sharing knowledge, standardising methodologies and supporting the development of internal expertise.</span></li></ul><p><span> </span></p><p><span><strong>Requirements and Qualifications</strong></span></p><p><span><strong>Education and Professional Background</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>University degree in Finance, Accounting, Economics, Business Administration or a related quantitative discipline.</span></li><li><span>Postgraduate qualification and/or professional certification (e.g. CPA, CFA, FRM or equivalent) is a strong asset.</span></li><li><span>Typically 8–12 years of experience in private banking or financial services, with a focus on Regulatory Reporting, Financial Accounting, Risk or Audit.</span></li><li><span>Proven experience working with Swiss prudential regulation and exposure to at least one other international regime (e.g. European, Asian or offshore centres).</span></li></ul><p><span><strong>Technical and Functional Expertise</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Deep understanding of prudential regulatory frameworks relevant to EFG (e.g. Basel III, FINMA Ordinances and Circulars, CRR/CRD‑based European frameworks, and Basel‑derived regimes in Asia and offshore centres).</span></li><li><span>Strong grasp of how regulatory requirements translate into data structures, systems architecture and reporting processes.</span></li><li><span>Solid knowledge of related functions (Risk, Treasury, Accounting, Private Banking) and their interdependencies, with the ability to integrate perspectives when designing reporting solutions.</span></li><li><span>High proficiency in Excel and regulatory reporting tools; experience working with large data sets and complex reconciliations.</span></li><li><span>Familiarity with data querying and visualisation tools is an advantage, as is experience in building analytical and control dashboards.</span></li></ul><p><span><strong>Languages</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>English: full professional proficiency (spoken and written), as the main working language across the Group.</span></li><li><span>French: fluency is a strong asset for interaction with local stakeholders in Geneva and with French‑regulated entities; other languages are an advantage.</span></li></ul><p><span> </span></p><p><span><strong>Behavioural Skills and Working Style</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Strong sense of accountability, with the ability to work autonomously on complex deliverables and take ownership of the integrity and timeliness of regulatory submissions.</span></li><li><span>Proactive, solution‑oriented mindset, able to prioritise effectively and manage multiple reporting cycles and projects under tight deadlines.</span></li><li><span>Excellent communication skills, capable of conveying complex regulatory and technical topics clearly to both specialist and non‑specialist audiences.</span></li><li><span>Collaborative team player with strong interpersonal skills, able to influence and negotiate with stakeholders across cultures, functions and time zones.</span></li><li><span>Future‑oriented and comfortable with change, with a keen interest in regulatory developments, digitalisation and process automation.</span></li></ul><p><span> </span></p><p><span><strong>Our Values</strong></span><br><span>· Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span><br><span>· Hands-on: Being proactive to rapidly deliver high-quality results</span><br><span>· Passionate: Being committed and striving for excellence</span><br><span>· Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span><br><span>· Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p><p><span>Please ensure to attach a cover letter to your CV when filling the application.</span></p><p><span> </span></p><p> </p>"
-            ],
+            "summary": [],
             "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
+            "requirements": [
+              "Economics Bachelor’s degree or equivalent experience in the related field",
+              "Experience in the Financial & Audit Industry, Risk Control domain, Compliance and Risk Management functions",
+              "Excellent data analysis and and Program Languages (Python, SQL, R), Bloomberg Terminal",
+              "Languages required: English, German, French and Italian",
+              "Pro-active and clear communicator with strong organizational skills",
+              "Detailed oriented, precise and ability to work under pressure and tight deadlines",
+              "Willing to go the extra mile, efficient and resourceful"
+            ],
+            "benefits": [
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results",
+              "<strong>Passionate</strong>: Being committed and striving for excellence",
+              "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
+              "<strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
+            ],
             "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 6
+            "highlights": [
+              "Economics Bachelor’s degree or equivalent experience in the related field",
+              "Experience in the Financial & Audit Industry, Risk Control domain, Compliance and Risk Management functions",
+              "Excellent data analysis and and Program Languages (Python, SQL, R), Bloomberg Terminal",
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results"
+            ],
+            "keywords": [
+              "Economics Bachelor’s degree or equivalent experience in the related field",
+              "Experience in the Financial & Audit Industry",
+              "Excellent data analysis and and Program Languages (Python",
+              "Languages required",
+              "Pro-active and clear communicator with strong organizational skills"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "company",
+                "heading": "Our Purpose and Mission",
+                "paragraphs": [
+                  "Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "details",
+                "heading": "Role",
+                "paragraphs": [
+                  "Motivated, passionate, hard worker and positive individual who continuously aims to make outstanding contributions and effect a difference from day 1."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "details",
+                "heading": "Main Responsibilites",
+                "paragraphs": [],
+                "bullets": [
+                  "Execute all BRM controls on Investment Solutions area on a monthly respectively quarterly basis and ensures precise and proper documentation of results",
+                  "Preparation of the IS RSC and IS BRM control report",
+                  "Ensure that the identified control NOKs and related risk mitigating actions are timely remediated",
+                  "Contribution on preparation of the annual IS risk and control self-assessment (RSCA) as well as other ad hoc assessment & reviews.",
+                  "Work with the Regional and Global PB BRM to achieve a robust First Line of Defence in the Area",
+                  "Report on the internal control environment and potentially arising risks or issues.",
+                  "Collaborate with local Compliance teams, Ops Risk and auditors for any ad-hoc reviews",
+                  "Key contact person a IS Area Level for IT, tools, trainings topics and issues"
+                ]
+              }
+            ],
+            "readingMinutes": 3
           }
         }
       },
-      "crawledAt": "2026-09-08T23:17:38.457Z",
-      "addressLocality": "Geneve",
+      "crawledAt": "2026-09-13T13:51:30.827Z",
+      "addressLocality": "Zurich",
       "addressCountry": "CH",
-      "datePosted": "2026-09-03",
-      "salaryMin": 104500,
-      "salaryMax": 183500,
-      "salarySource": "estimated",
-      "addressRegion": "GE",
+      "datePosted": "2026-07-20",
+      "salaryMin": 189000,
+      "salaryMax": 331500,
+      "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-09-03T23:15:04.646Z",
-      "_qualityScore": 93,
+      "country": "CH",
+      "firstSeenAt": "2026-07-20T22:01:00.554Z",
+      "salarySource": "estimated",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "efg-6327",
+      "slug": "ricevitore-efg-international-ag-zurich",
+      "company": "EFG International AG",
+      "title": "Receptionist",
+      "location": "Zurich",
+      "canton": "ZH",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-21",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6327",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [],
+            "responsibilities": [],
+            "requirements": [
+              "Successfully completed commercial education;",
+              "Proven experience in hospitality/hôtellerie;",
+              "Service-oriented, flexible, reliable, and a strong team player",
+              "Proven experience in intervention management;",
+              "Around 5-7 years of working experience as Receptionist and/or Administrative Assistant;",
+              "Fluent in German and English is a must. French/Italian would be strongly valued;",
+              "Excellent time management skill, ability to multitask and prioritize request from various sources;",
+              "Accurate and detail oriented;",
+              "Very good knowledge of Microsoft Office package and proficient in the use of IT tools",
+              "Communicative, trustworthy presence, politeness;",
+              "Able to work in a challenging, pressure and dynamic environment."
+            ],
+            "benefits": [],
+            "process": [],
+            "highlights": [
+              "Successfully completed commercial education;",
+              "Proven experience in hospitality/hôtellerie;",
+              "Service-oriented, flexible, reliable, and a strong team player"
+            ],
+            "keywords": [
+              "Successfully completed commercial education",
+              "Proven experience in hospitality/hôtellerie",
+              "Service-oriented",
+              "Proven experience in intervention management",
+              "Around 5-7 years of working experience as Receptionist and/or Administrative Assistant"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "company",
+                "heading": "Our Purpose and Mission",
+                "paragraphs": [
+                  "Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.The receptionist ensures a seamless, premium experience that echoes the standards of five-star hospitality. The receptionist delivers professional and client focused reception, switchboard services and administrative tasks.",
+                  "<span><strong>JOB DESCRIPTION</strong></span>",
+                  "The receptionist is the first point of contact and ensures a seamless, premium client experience in line with five‑star hospitality standards. They provide professional, client‑focused reception and switchboard services, while efficiently handling a variety of administrative tasks."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "details",
+                "heading": "Main activities",
+                "paragraphs": [],
+                "bullets": []
+              },
+              {
+                "id": "details",
+                "heading": "1. Hospitality services",
+                "paragraphs": [
+                  "<br><strong>2. Admin support</strong>"
+                ],
+                "bullets": [
+                  "Follow the Hospitality service protocol (SOP).",
+                  "Serves visitors by greeting, welcoming and directing them appropriately. Taking care of guests anticipating their hospitality needs and making the experience impeccable according to our corporate standard quality.",
+                  "Physically welcome clients and visitors (Escort and seat clients in lounges, offer a drink, and serve).",
+                  "Set up and restore lounges/conference rooms + service.",
+                  "Maintains security and controlling access. Issuing visitor badges. Noticing and reporting suspicious activity.",
+                  "Organise and book meeting rooms.",
+                  "Support internal event and management meeting (e.g. organise, manage, and order breakfasts/lunches for meetings upon request.",
+                  "Handle sensitive information in a confidential manner comply with all internal regulations.",
+                  "Register external visitors and issue badges.",
+                  "Keep statistics (number of clients/visitors).",
+                  "Ensure that the facilities are kept clean and remedy any issues together with service providers. Coordinate with facility management or maintenance for repairs (chairs, lighting, doors, elevator, noise, ventilation, etc.).",
+                  "Prepare \"Welcome Packs,\" and organize induction day"
+                ]
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-09-13T13:51:30.824Z",
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "datePosted": "2026-07-21",
+      "salaryMin": 113000,
+      "salaryMax": 198500,
+      "addressRegion": "ZH",
+      "employmentType": "FULL_TIME",
+      "country": "CH",
+      "firstSeenAt": "2026-07-21T11:19:19.247Z",
+      "salarySource": "estimated",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
         "translation": 25,
         "completeness": 19
       }
