@@ -134,7 +134,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/kantonsspital-graubuenden-ksgr.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-16"
@@ -283,7 +282,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/senevita.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-16"
@@ -433,7 +431,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/rehaklinik-hasliberg.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-16"
@@ -582,7 +579,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/eoc-ente-ospedaliero-cantonale.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-16"
@@ -731,7 +727,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/amministrazione-cantonale-ti.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-16"
@@ -880,7 +875,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/swisscom-sede-ticino.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-16"
@@ -1029,7 +1023,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/swica.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-16"
@@ -1178,7 +1171,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/spital-nidwalden.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-16"
@@ -1327,7 +1319,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/spitex-zuerich.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-16"
@@ -1476,7 +1467,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/fhgr.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-16"
@@ -1625,7 +1615,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/vir-biotechnology.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-16"
@@ -1774,7 +1763,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/postauto.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-16"
@@ -1923,7 +1911,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/kispi-sg.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-16"
@@ -2072,7 +2059,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/recruitingapp-1154.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-16"
@@ -2221,7 +2207,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/decathlon.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-16"
@@ -2370,7 +2355,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/gemeinde-st-moritz.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-16"
@@ -2519,7 +2503,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/hopital-la-tour.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-16"
@@ -2668,7 +2651,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/davos-klosters-bergbahnen.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-16"
@@ -2817,7 +2799,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/claraspital.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-16"
@@ -2966,7 +2947,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/ghol.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-16"
@@ -3115,7 +3095,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/lastminute-com.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-16"
@@ -3264,7 +3243,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/entero.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-16"
@@ -3413,7 +3391,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/franklin-university.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-16"
@@ -3562,7 +3539,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/everest-re.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-16"
@@ -3712,7 +3688,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/csvm-mustair.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-16"
@@ -3861,7 +3836,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/benteler.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-16"
@@ -4010,7 +3984,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/adullam.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-16"

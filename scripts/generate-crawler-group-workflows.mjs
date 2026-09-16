@@ -1177,10 +1177,11 @@ function buildCrawlerStepEnv(crawler, summaryFile) {
   // maps, so a crawler cannot accidentally replace the capability reference
   // with a job-wide variable or a user-controlled value.
   merged.CODEX_AUTH_BROKER_SOCKET = '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}';
-  // The broker socket is only a capability; provider selection still needs to
-  // be explicit so every crawler tries Codex Luna Max before the normal model
-  // cascade. If the broker is unavailable, ai-models falls back normally.
-  merged.AI_MODELS_PREFER = 'codex-cli/gpt-5.6-luna';
+  // Keep provider selection out of the process-wide environment. The crawler
+  // invokes create-article.mjs, which already passes Codex as a per-call
+  // preference only to body generation. A global AI_MODELS_PREFER would also
+  // affect the pre-spend classifier and could consume the run's one-shot
+  // Codex marker before the body call reaches the intended lane.
   return Object.fromEntries(
     Object.entries(merged).map(([key, value]) => [key, normalizeCrawlerInputReferences(value)]),
   );
