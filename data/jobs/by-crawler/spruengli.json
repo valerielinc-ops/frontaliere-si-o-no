@@ -1436,7 +1436,6 @@
         "stv-gestionnaire-de-succursale-80-100-bern-station-confiserie-sprungli-ag-bern",
         "stv-filialleiter-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T14:17:28.128Z",
       "salaryMin": 109000,
       "salaryMax": 167000,
@@ -1450,8 +1449,7 @@
           "maxValue": 167000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "spruengli-7b0af595b779",
