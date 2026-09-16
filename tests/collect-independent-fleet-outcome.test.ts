@@ -139,4 +139,23 @@ describe('collect-independent-fleet-outcome', () => {
     expect(calls).toBe(1);
     expect(delays).toEqual([]);
   });
+
+  it('ritenta anche il timeout restituito dal coordinatore GitHub locale', () => {
+    let calls = 0;
+    const delays: number[] = [];
+    const result = listCompletedRuns({
+      repo: 'owner/repo',
+      workflow: 'technical-operations-supervisor.yml',
+      execFileSyncImpl: () => {
+        calls += 1;
+        if (calls < 2) throw new Error('github-coordinator: github_coordinator_timeout: socket');
+        return '[]';
+      },
+      sleep: (delay: number) => delays.push(delay),
+    });
+
+    expect(result).toEqual({ runs: [], error: null });
+    expect(calls).toBe(2);
+    expect(delays).toEqual([250]);
+  });
 });

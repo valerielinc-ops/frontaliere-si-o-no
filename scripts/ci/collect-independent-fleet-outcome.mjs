@@ -21,7 +21,7 @@ const DEFAULT_WINDOW_HOURS = 48;
 const DEFAULT_MAX_RECORDS = 1000;
 const GITHUB_READ_ATTEMPTS = 3;
 const GITHUB_READ_RETRY_DELAYS_MS = Object.freeze([250, 750]);
-const TRANSIENT_GITHUB_READ_ERROR = /(?:\bHTTP\s+5\d{2}\b|\b5\d{2}\s+(?:bad gateway|service unavailable|gateway timeout)\b|service unavailable|bad gateway|gateway timeout|timed?\s*out|ECONNRESET|ETIMEDOUT|EAI_AGAIN)/iu;
+const TRANSIENT_GITHUB_READ_ERROR = /(?:\bHTTP\s+5\d{2}\b|\b5\d{2}\s+(?:bad gateway|service unavailable|gateway timeout)\b|service unavailable|bad gateway|gateway timeout|\btimeout\b|timed?\s*out|ECONNRESET|ETIMEDOUT|EAI_AGAIN)/iu;
 
 function valueAfter(argv, flag, fallback = null) {
   const index = argv.indexOf(flag);
