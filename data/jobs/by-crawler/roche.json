@@ -6840,7 +6840,6 @@
         ],
         "en": [
           "medical-director-roche-ch",
-          "medical-director-cvm-roche-ch",
           "medical-director-cvm-roche-ch-27mycl"
         ],
         "de": [
@@ -9377,7 +9376,6 @@
           "medical-director-cvm-roche-ch-3"
         ],
         "en": [
-          "medical-director-cvm-roche-ch",
           "medical-director-cvm-roche-ch-iufbmm"
         ],
         "de": [
@@ -15787,9 +15785,9 @@
     },
     {
       "id": "roche-1b5b9f8f23a3",
-      "slug": "it-strategic-risk-audit-manager-roche-ch",
+      "slug": "responsabile-strategico-dei-rischi-it-e-audit-roche-basel",
       "slugByLocale": {
-        "it": "it-strategic-risk-audit-manager-roche-ch",
+        "it": "responsabile-strategico-dei-rischi-it-e-audit-roche-basel",
         "en": "it-strategic-risk-audit-manager-roche-ch",
         "de": "it-strategisches-risiko-audit-manager-roche-basel",
         "fr": "gestionnaire-des-risques-strategiques-et-de-la-verification-de-la-ti-roche-basel"
@@ -15845,7 +15843,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-strategic-risk-audit-manager-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "it-strategic-risk-audit-manager-roche-ch"
+      ]
     },
     {
       "id": "roche-0d9441159f09",
@@ -16064,7 +16070,6 @@
         "en": [
           "solution-architect-dia-rd-roche-ch",
           "solution-architect-dia-commercial-operations-roche-ch",
-          "solution-architect-dia-r-d-roche-ch",
           "solution-architect-dia-r-d-roche-ch-3i9uyi"
         ],
         "de": [
@@ -18333,9 +18338,9 @@
     },
     {
       "id": "roche-de887abb027e",
-      "slug": "senior-principal-scientist-nmr-expert-roche-ch",
+      "slug": "senior-principal-scientist-esperto-rmn-roche-basel",
       "slugByLocale": {
-        "it": "senior-principal-scientist-nmr-expert-roche-ch",
+        "it": "senior-principal-scientist-esperto-rmn-roche-basel",
         "en": "senior-principal-scientist-nmr-expert-roche-ch",
         "de": "senior-principal-scientist-nmr-experte-roche-basel",
         "fr": "chercheur-principal-expert-en-rmn-roche-basel"
@@ -18391,7 +18396,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-principal-scientist-nmr-expert-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-principal-scientist-nmr-expert-roche-ch"
+      ]
     },
     {
       "id": "roche-050966f381c0",
@@ -65928,13 +65941,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "intellectual-property-patent-attorney-roche-ch",
-        "intellectual-property-patent-attorney-roche-basel"
+        "intellectual-property-patent-attorney-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "intellectual-property-patent-attorney-roche-ch",
-          "intellectual-property-patent-attorney-roche-basel"
+          "intellectual-property-patent-attorney-roche-ch"
         ],
         "de": [
           "intellectual-property-patent-attorney-roche-ch"

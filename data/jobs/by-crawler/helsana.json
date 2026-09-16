@@ -3171,7 +3171,7 @@
       "slug": "medico-specialista-t-60-100-helsana-berna",
       "slugByLocale": {
         "it": "medico-specialista-t-60-100-helsana-berna",
-        "en": "medecin-specialiste-t-60-100-helsana-bern-homeoffice",
+        "en": "medical-specialist-60-100-helsana-berna",
         "de": "medecin-specialiste-t-60-100-helsana-bern-homeoffice",
         "fr": "medecin-specialise-t-60-100-helsana-berna"
       },
@@ -3231,6 +3231,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "medecin-specialiste-t-60-100-helsana-bern-homeoffice"
+        ],
+        "en": [
           "medecin-specialiste-t-60-100-helsana-bern-homeoffice"
         ]
       },
