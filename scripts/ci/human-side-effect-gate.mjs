@@ -6,10 +6,13 @@
  * A workflow run is allowed to send, publish, post, or mutate recipient state
  * only when all of these facts come from GitHub's event context:
  *
- *   - the event is an explicit workflow_dispatch;
+ *   - the event is an explicit workflow_dispatch, or a repository_dispatch
+ *     carrying the exact publisher action and a workflow-pinned principal
+ *     attestation;
  *   - the dispatch was initiated by the same actor that triggered the run;
  *   - GitHub identifies that actor as a User (not an App/bot);
- *   - the operator explicitly supplied human_approval=true and dry_run=false;
+ *   - a manual dispatch explicitly supplied human_approval=true and
+ *     dry_run=false, or the publisher dispatch has no input override;
  *   - this is the first attempt of a fresh run.
  *
  * The nonce is derived from the repository, workflow, actor, run id and run
@@ -31,6 +34,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 export const HUMAN_APPROVAL_EVENT = 'workflow_dispatch';
+export const PUBLISHER_DISPATCH_EVENT = 'repository_dispatch';
+export const PUBLISHER_DISPATCH_ACTION = 'articles-published';
 export const REQUIRED_ACTOR_TYPE = 'user';
 export const NONCE_VERSION = 'human-side-effect-v1';
 
@@ -126,8 +131,17 @@ export function evaluateHumanApproval({
   consent,
   dryRun,
   scope,
+  dispatchActor,
+  dispatchAction,
+  dispatchPayloadPresent,
+  expectedDispatchActor,
+  expectedDispatchRepository,
+  expectedDispatchScope,
+  expectedDispatchWorkflow,
 } = {}) {
   const eventName = stringValue(event);
+  const isManualApprovalEvent = eventName === HUMAN_APPROVAL_EVENT;
+  const isPublisherDispatchEvent = eventName === PUBLISHER_DISPATCH_EVENT;
   const humanActor = stringValue(actor);
   const initiator = stringValue(triggeringActor);
   const senderType = stringValue(actorType).toLowerCase();
@@ -135,14 +149,23 @@ export function evaluateHumanApproval({
   const workflowName = stringValue(workflow);
   const id = stringValue(runId);
   const attempt = stringValue(runAttempt);
-  const approval = normalizeBooleanInput(consent);
-  const requestedDryRun = normalizeBooleanInput(dryRun);
+  const consentValue = stringValue(consent);
+  const dryRunValue = stringValue(dryRun);
+  const approval = normalizeBooleanInput(consentValue);
+  const requestedDryRun = normalizeBooleanInput(dryRunValue);
   const approvalScope = stringValue(scope);
+  const publisherActor = stringValue(dispatchActor);
+  const publisherAction = stringValue(dispatchAction);
+  const publisherPayloadPresent = stringValue(dispatchPayloadPresent);
+  const configuredPublisherActor = stringValue(expectedDispatchActor);
+  const configuredRepository = stringValue(expectedDispatchRepository);
+  const configuredScope = stringValue(expectedDispatchScope);
+  const configuredWorkflow = stringValue(expectedDispatchWorkflow);
   const reasons = [];
 
-  if (eventName !== HUMAN_APPROVAL_EVENT) reasons.push('event-not-workflow-dispatch');
-  if (approval !== 'true') reasons.push('human-approval-not-explicit');
-  if (requestedDryRun !== 'false') reasons.push('dry-run-not-explicitly-disabled');
+  if (!isManualApprovalEvent && !isPublisherDispatchEvent) reasons.push('event-not-workflow-dispatch');
+  if (!isPublisherDispatchEvent && approval !== 'true') reasons.push('human-approval-not-explicit');
+  if (!isPublisherDispatchEvent && requestedDryRun !== 'false') reasons.push('dry-run-not-explicitly-disabled');
   if (senderType !== REQUIRED_ACTOR_TYPE) reasons.push('actor-is-not-a-github-user');
   if (!humanActor || !isSafeActor(humanActor) || isBotActor(humanActor)) reasons.push('actor-invalid-or-bot');
   if (!initiator || !isSafeActor(initiator) || isBotActor(initiator)) reasons.push('triggering-actor-invalid-or-bot');
@@ -155,6 +178,38 @@ export function evaluateHumanApproval({
   if (attempt !== '1') reasons.push('run-is-a-rerun');
   if (!isSafeScope(approvalScope)) reasons.push('scope-invalid');
 
+  if (isPublisherDispatchEvent) {
+    // The current publisher uses SITE_REPO_PAT and sends only event_type. The
+    // receiving event consequently has no source-repository claim to verify;
+    // the protected proof available at this boundary is the exact PAT
+    // principal observed in sender.login. Pin the principal, action, target
+    // workflow, repository and scope in the receiving workflow. Any future
+    // client_payload is ambiguous until its attestation contract is reviewed.
+    if (consentValue !== '') reasons.push('publisher-dispatch-has-consent-override');
+    if (dryRunValue !== '') reasons.push('publisher-dispatch-has-dry-run-override');
+    if (publisherAction !== PUBLISHER_DISPATCH_ACTION) reasons.push('publisher-dispatch-action-mismatch');
+    if (!publisherActor || !isSafeActor(publisherActor) || isBotActor(publisherActor)) {
+      reasons.push('publisher-dispatch-actor-invalid-or-bot');
+    }
+    if (!configuredPublisherActor || !isSafeActor(configuredPublisherActor)
+      || publisherActor.toLowerCase() !== configuredPublisherActor.toLowerCase()) {
+      reasons.push('publisher-dispatch-actor-mismatch');
+    }
+    if (!publisherActor || !humanActor || publisherActor.toLowerCase() !== humanActor.toLowerCase()) {
+      reasons.push('publisher-dispatch-sender-mismatch');
+    }
+    if (publisherPayloadPresent !== 'false') reasons.push('publisher-dispatch-payload-present-or-unknown');
+    if (!isSafeRepository(configuredRepository) || repo.toLowerCase() !== configuredRepository.toLowerCase()) {
+      reasons.push('publisher-dispatch-repository-mismatch');
+    }
+    if (!isSafeWorkflow(configuredWorkflow) || workflowName !== configuredWorkflow) {
+      reasons.push('publisher-dispatch-workflow-mismatch');
+    }
+    if (!isSafeScope(configuredScope) || approvalScope !== configuredScope) {
+      reasons.push('publisher-dispatch-scope-mismatch');
+    }
+  }
+
   const nonce = deriveApprovalNonce({
     scope: approvalScope,
     repository: repo,
@@ -166,9 +221,11 @@ export function evaluateHumanApproval({
 
   return {
     allow: reasons.length === 0 && nonce !== null,
-    effectiveDryRun: reasons.length !== 0 || nonce === null || requestedDryRun !== 'false',
+    effectiveDryRun: reasons.length !== 0 || nonce === null,
     nonce,
-    reason: reasons[0] || 'human-workflow-dispatch-approved',
+    reason: reasons[0] || (isPublisherDispatchEvent
+      ? 'trusted-publisher-dispatch-approved'
+      : 'human-workflow-dispatch-approved'),
     reasons,
   };
 }
@@ -217,6 +274,13 @@ function githubEnvironment(env = process.env) {
     consent: env.APPROVAL_CONSENT,
     dryRun: env.APPROVAL_DRY_RUN,
     scope: env.APPROVAL_SCOPE,
+    dispatchActor: env.APPROVAL_DISPATCH_ACTOR,
+    dispatchAction: env.APPROVAL_DISPATCH_ACTION,
+    dispatchPayloadPresent: env.APPROVAL_DISPATCH_PAYLOAD_PRESENT,
+    expectedDispatchActor: env.APPROVAL_EXPECTED_DISPATCH_ACTOR,
+    expectedDispatchRepository: env.APPROVAL_EXPECTED_DISPATCH_REPOSITORY,
+    expectedDispatchScope: env.APPROVAL_EXPECTED_DISPATCH_SCOPE,
+    expectedDispatchWorkflow: env.APPROVAL_EXPECTED_DISPATCH_WORKFLOW,
   };
 }
 

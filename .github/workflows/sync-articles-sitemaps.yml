@@ -73,10 +73,23 @@ jobs:
       - name: Require human approval for publication side effects
         id: side_effect_gate
         env:
+          # The current publisher sends only event_type through SITE_REPO_PAT.
+          # Pin the observed PAT principal and the full event shape here; a
+          # principal/action/payload mismatch stays dry-run until reviewed.
+          APPROVAL_EVENT: ${{ github.event_name }}
+          APPROVAL_ACTOR: ${{ github.actor }}
+          APPROVAL_TRIGGERING_ACTOR: ${{ github.triggering_actor }}
           APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
           APPROVAL_CONSENT: ${{ inputs.human_approval }}
           APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
           APPROVAL_SCOPE: article-sitemap-publication
+          APPROVAL_DISPATCH_ACTOR: ${{ github.event.sender.login || '' }}
+          APPROVAL_DISPATCH_ACTION: ${{ github.event.action || '' }}
+          APPROVAL_DISPATCH_PAYLOAD_PRESENT: ${{ github.event.client_payload != null }}
+          APPROVAL_EXPECTED_DISPATCH_ACTOR: valerielinc-ops
+          APPROVAL_EXPECTED_DISPATCH_REPOSITORY: valerielinc-ops/frontaliere-si-o-no
+          APPROVAL_EXPECTED_DISPATCH_SCOPE: article-sitemap-publication
+          APPROVAL_EXPECTED_DISPATCH_WORKFLOW: Sync article sitemaps, feeds and ticker from the articles API
         run: node scripts/ci/human-side-effect-gate.mjs
 
       - name: Prepare Firebase credentials for push auth

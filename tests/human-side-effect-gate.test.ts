@@ -27,6 +27,27 @@ const APPROVED_INPUT = {
   scope: 'newsletter-send',
 };
 
+const TRUSTED_PUBLISHER_DISPATCH = {
+  event: 'repository_dispatch',
+  actor: 'valerielinc-ops',
+  triggeringActor: 'valerielinc-ops',
+  dispatchActor: 'valerielinc-ops',
+  dispatchAction: 'articles-published',
+  dispatchPayloadPresent: 'false',
+  actorType: 'User',
+  repository: 'valerielinc-ops/frontaliere-si-o-no',
+  workflow: 'Sync article sitemaps, feeds and ticker from the articles API',
+  runId: '987654321',
+  runAttempt: '1',
+  consent: '',
+  dryRun: '',
+  scope: 'article-sitemap-publication',
+  expectedDispatchActor: 'valerielinc-ops',
+  expectedDispatchRepository: 'valerielinc-ops/frontaliere-si-o-no',
+  expectedDispatchScope: 'article-sitemap-publication',
+  expectedDispatchWorkflow: 'Sync article sitemaps, feeds and ticker from the articles API',
+};
+
 /** Workflows whose scheduled/manual paths can send, post, publish, or alter recipient state. */
 const SIDE_EFFECT_WORKFLOWS = [
   // Writer/publication/content scope from the audit.
@@ -84,6 +105,12 @@ const APPROVED_GATE_IF = "steps.side_effect_gate.outputs.allow_side_effect == 't
 
 /** Named writer/provider paths added by the Pasteur F5/F6/F9 inventory. */
 const GATED_SIDE_EFFECT_STEPS: Record<string, RegExp[]> = {
+  'sync-articles-sitemaps.yml': [
+    /Commit if changed/u,
+    /Publish the news sitemap to the edge/u,
+    /Publish the RSS feeds to the edge/u,
+    /Publish the news-ticker payload to the edge/u,
+  ],
   'publish-journalist-articles.yml': [
     /Publish queued journalist articles/u,
     /Commit registered article files/u,
@@ -221,6 +248,64 @@ describe('human-side-effect-gate policy', () => {
     expect(decision.nonce).toBe(deriveApprovalNonce(APPROVED_INPUT));
   });
 
+  it('allows the current publisher repository_dispatch only with its pinned PAT principal and action', () => {
+    const decision = evaluateHumanApproval(TRUSTED_PUBLISHER_DISPATCH);
+    expect(decision.allow).toBe(true);
+    expect(decision.effectiveDryRun).toBe(false);
+    expect(decision.reason).toBe('trusted-publisher-dispatch-approved');
+    expect(decision.nonce).toMatch(/^[a-f0-9]{64}$/);
+  });
+
+  it('rejects spoofed or ambiguous publisher dispatches', () => {
+    const cases = [
+      {
+        name: 'spoofed sender',
+        override: { actor: 'attacker', triggeringActor: 'attacker', dispatchActor: 'attacker' },
+        reason: 'publisher-dispatch-actor-mismatch',
+      },
+      {
+        name: 'wrong action',
+        override: { dispatchAction: 'articles-published-copy' },
+        reason: 'publisher-dispatch-action-mismatch',
+      },
+      {
+        name: 'payload present',
+        override: { dispatchPayloadPresent: 'true' },
+        reason: 'publisher-dispatch-payload-present-or-unknown',
+      },
+      {
+        name: 'payload status unknown',
+        override: { dispatchPayloadPresent: '' },
+        reason: 'publisher-dispatch-payload-present-or-unknown',
+      },
+    ];
+
+    for (const testCase of cases) {
+      const decision = evaluateHumanApproval({ ...TRUSTED_PUBLISHER_DISPATCH, ...testCase.override });
+      expect(decision.allow, testCase.name).toBe(false);
+      expect(decision.effectiveDryRun, testCase.name).toBe(true);
+      expect(decision.reasons, testCase.name).toContain(testCase.reason);
+    }
+  });
+
+  it('rejects bot and rerun publisher dispatches', () => {
+    const bot = evaluateHumanApproval({
+      ...TRUSTED_PUBLISHER_DISPATCH,
+      actor: 'github-actions[bot]',
+      triggeringActor: 'github-actions[bot]',
+      dispatchActor: 'github-actions[bot]',
+      actorType: 'Bot',
+    });
+    const rerun = evaluateHumanApproval({ ...TRUSTED_PUBLISHER_DISPATCH, runAttempt: '2' });
+
+    expect(bot.allow).toBe(false);
+    expect(bot.effectiveDryRun).toBe(true);
+    expect(bot.reasons).toEqual(expect.arrayContaining(['actor-is-not-a-github-user', 'actor-invalid-or-bot']));
+    expect(rerun.allow).toBe(false);
+    expect(rerun.effectiveDryRun).toBe(true);
+    expect(rerun.reasons).toContain('run-is-a-rerun');
+  });
+
   it('rejects actor mismatch, bots, reruns, and implicit non-dry-run values', () => {
     for (const override of [
       { actor: 'other' },
@@ -272,6 +357,20 @@ describe('human-side-effect-gate policy', () => {
 });
 
 describe('workflow wiring for the bounded F3/F4 side-effect surface', () => {
+  it('passes the publisher provenance fields to the gate and pins the current contract', () => {
+    const source = workflow('sync-articles-sitemaps.yml');
+    expect(source).toContain('APPROVAL_EVENT: ${{ github.event_name }}');
+    expect(source).toContain('APPROVAL_ACTOR: ${{ github.actor }}');
+    expect(source).toContain('APPROVAL_TRIGGERING_ACTOR: ${{ github.triggering_actor }}');
+    expect(source).toContain("APPROVAL_DISPATCH_ACTOR: ${{ github.event.sender.login || '' }}");
+    expect(source).toContain("APPROVAL_DISPATCH_ACTION: ${{ github.event.action || '' }}");
+    expect(source).toContain('APPROVAL_DISPATCH_PAYLOAD_PRESENT: ${{ github.event.client_payload != null }}');
+    expect(source).toContain('APPROVAL_EXPECTED_DISPATCH_ACTOR: valerielinc-ops');
+    expect(source).toContain('APPROVAL_EXPECTED_DISPATCH_REPOSITORY: valerielinc-ops/frontaliere-si-o-no');
+    expect(source).toContain('APPROVAL_EXPECTED_DISPATCH_SCOPE: article-sitemap-publication');
+    expect(source).toContain('APPROVAL_EXPECTED_DISPATCH_WORKFLOW: Sync article sitemaps, feeds and ticker from the articles API');
+  });
+
   for (const name of SIDE_EFFECT_WORKFLOWS) {
     it(`${name} puts every live side-effect path behind the shared gate`, () => {
       const source = workflow(name);
