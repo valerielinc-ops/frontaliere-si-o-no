@@ -652,6 +652,11 @@ const BASE_URL = 'https://frontaliereticino.ch';
 // Model aliases for callLLM opts (used by callers that pass opts.model)
 const GH_MODEL_HEAVY = AI_MODELS.GPT4O;
 const GH_MODEL_LIGHT = AI_MODELS.GPT4O_MINI;
+// Prefer the Codex subscription only for the full article-body generation.
+// Keeping this per-call prevents the pre-spend classifier, title rewrite,
+// expansion, fact-check and translations from consuming the run's one-shot
+// Codex lane before the expensive generation call reaches it.
+const PREFERRED_GENERATION_MODELS = [AI_MODELS.CODEX_CLI_PRIMARY];
 const BLOG_IMAGE_TARGET_MAX_BYTES = 220 * 1024; // target ~220KB
 const BLOG_IMAGE_HARD_MAX_BYTES = 320 * 1024;   // hard cap ~320KB
 const MIN_BODY_CHARS = 2500;  // ~400 words minimum; 800 chars was too permissive
@@ -6148,7 +6153,7 @@ Rispondi SOLO con JSON valido, senza markdown.` },
     itRaw = await callLLM(llmMessages, { model: AI_MODELS.GEMINI_FLASH, temperature, maxTokens: IT_GENERATION_MAX_TOKENS, jsonMode: true, jsonSchema: articleSchema });
     console.error(`  ↪ Completato con Gemini ${AI_MODELS.GEMINI_FLASH}`);
   } else {
-    itRaw = await callLLM(llmMessages, { model: forceModel || GH_MODEL_HEAVY, temperature, maxTokens: IT_GENERATION_MAX_TOKENS, jsonMode: true, jsonSchema: articleSchema });
+    itRaw = await callLLM(llmMessages, { model: forceModel || GH_MODEL_HEAVY, prefer: PREFERRED_GENERATION_MODELS, temperature, maxTokens: IT_GENERATION_MAX_TOKENS, jsonMode: true, jsonSchema: articleSchema });
   }
   let itData;
   const itRepaired = repairLlmJson(itRaw);
@@ -6175,7 +6180,7 @@ Rispondi SOLO con JSON valido, senza markdown.` },
     try {
       const itRaw2 = useGeminiDirect
         ? await callLLM(llmMessages, { model: AI_MODELS.GEMINI_FLASH, temperature: 0.3, maxTokens: retryTokens, jsonMode: true, jsonSchema: articleSchema })
-        : await callLLM(llmMessages, { model: forceModel || GH_MODEL_HEAVY, temperature: 0.3, maxTokens: retryTokens, jsonMode: true, jsonSchema: articleSchema });
+        : await callLLM(llmMessages, { model: forceModel || GH_MODEL_HEAVY, prefer: PREFERRED_GENERATION_MODELS, temperature: 0.3, maxTokens: retryTokens, jsonMode: true, jsonSchema: articleSchema });
       itData = JSON.parse(repairLlmJson(itRaw2));
       console.error(`  ✅ Retry IT riuscito`);
     } catch (retryErr) {
