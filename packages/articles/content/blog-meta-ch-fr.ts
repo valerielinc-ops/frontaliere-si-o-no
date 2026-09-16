@@ -6485,6 +6485,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assicurazione-salute-glarona-sussidio.title': 'LAMal Glaris : franchises, subvention et choix modèle',
     'blog.article.assicurazione-salute-glarona-sussidio.excerpt': 'À Glaris, l’assurance LAMal est obligatoire dans les 3 mois, avec des franchises de 300 à 2 500 CHF et d\'éventuelles réductions cantonales basées sur le revenu et la composition familiale.',
     'blog.article.assicurazione-salute-glarona-sussidio.imageAlt': 'Village suisse du Glaris avec clinique moderne, symbole de l\'assurance santé.',
+    'blog.article.premi-lamal-glarona-modelli-franchigie.title': 'Primes caisse-maladie Canton de Glaris : fourchettes, franchises et réduction',
+    'blog.article.premi-lamal-glarona-modelli-franchigie.excerpt': 'Dans le canton de Glaris, les primes LAMal varient selon la fourchette de primes et de franchises ; la réduction cantonale peut être obtenue dans les trois mois suivant l\'inscription.',
+    'blog.article.premi-lamal-glarona-modelli-franchigie.imageAlt': 'Paysage alpin du canton de Glaris avec une maison suisse traditionnelle',
 };
 
 export default blogMetaChFr;
