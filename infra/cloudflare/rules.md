@@ -42,7 +42,8 @@ purpose/rollback. Rule 3 is the subject of this doc:
 > currently loses.** In `http_request_cache_settings` a later matching rule
 > overrides an earlier one. Live order is `early-boot-js-bypass-cache` at index 2
 > and `cdn-r2-passthrough-cache` (`cache: true`, matches *every* cdn path except
-> `/cdn-build-id.txt`) at index 4 — so the bypass documented below is overridden.
+> `/cdn-build-id.txt` and `/cdn-ready-build-id.txt`) at index 4 — so the bypass
+> documented below is overridden.
 > Verified 2026-08-05: `GET https://cdn.frontaliereticino.ch/assets/early-boot.js`
 > returns `cf-cache-status: HIT`, not `BYPASS`. The version-skew self-heal window
 > this rule exists to close is therefore **not** closed. Tracked separately from
@@ -83,8 +84,8 @@ purpose/rollback. Rule 3 is the subject of this doc:
   `cf-cache-status: HIT`, not `BYPASS`, so the stale-self-heal window this rule
   exists to close was open the whole time.
   The fix is an **exclusion, not a reordering**: `cdn-r2-passthrough-cache` now
-  excludes `/assets/early-boot.js` (the same shape as its existing
-  `/cdn-build-id.txt` exclusion), which makes this the only rule matching that
+  excludes `/assets/early-boot.js` (the same shape as its existing build-marker
+  exclusions), which makes this the only rule matching that
   path regardless of index. Reordering would have been one dashboard edit away
   from silently reverting, since the order is only a side effect of
   append-on-create. Guarded by `tests/cdn-zone-rule-invariants.test.ts`.
@@ -115,7 +116,7 @@ purpose/rollback. Rule 3 is the subject of this doc:
 ### `cdn-r2-passthrough-cache` (managed by `scripts/cf-locale-failover-setup.mjs`)
 
 - **Rule id:** `0c83f11bdd424cf28d7dabaf637ba525`
-- **Expression:** `(http.host eq "cdn.frontaliereticino.ch" and http.request.uri.path ne "/cdn-build-id.txt")`
+- **Expression:** `(http.host eq "cdn.frontaliereticino.ch" and http.request.uri.path ne "/cdn-build-id.txt" and http.request.uri.path ne "/cdn-ready-build-id.txt")`
 - **Action:** `set_cache_settings` → `cache: true`, `edge_ttl: {mode: respect_origin}`,
   `browser_ttl: {mode: respect_origin}`
 - **THE LOAD-BEARING FACT:** because the edge TTL *respects origin*, the

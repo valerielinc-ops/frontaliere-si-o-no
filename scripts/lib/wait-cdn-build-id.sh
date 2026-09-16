@@ -14,16 +14,19 @@
 # IT leg + Pages deploy fail but en/de/fr may have ALREADY gone live).
 #
 # This guard makes the non-IT shard publish WAIT until the IT CDN push has
-# published THIS build's marker. deploy-it-pages-prep.sh stamps DEPLOY_BUILD_ID
-# into cdn-build-id.txt inside the SAME force-push as the assets/data, so the
-# marker turning equal to the expected id PROVES this build's CDN payload is live
-# (atomic: one force-push publishes the whole tree + the marker together).
+# published THIS build's readiness marker. deploy-it-pages-prep.sh stamps
+# DEPLOY_BUILD_ID into the ready marker inside the SAME force-push as the
+# assets/data, so the marker turning equal to the expected id proves this
+# build's CDN payload is available to the parallel locale shards. The separate
+# live marker remains owned by the post-Pages validation promotion; a build that
+# is cancelled after this early push therefore cannot make the runtime watchdog
+# pair an older live site with a newer CDN generation.
 #
 # Usage:
 #   wait-cdn-build-id.sh <expected_build_id>
 #
 # Env (optional, with safe defaults):
-#   CDN_BUILD_ID_URL    marker URL (default https://cdn.frontaliereticino.ch/cdn-build-id.txt)
+#   CDN_BUILD_ID_URL    marker URL (default https://cdn.frontaliereticino.ch/<ready marker>)
 #   CDN_WAIT_TIMEOUT_S  total budget in seconds before giving up (default 600)
 #   CDN_WAIT_INTERVAL_S poll interval in seconds (default 15)
 #   CDN_WAIT_MARGIN_WARN_S  near-miss threshold in seconds (default 300). A
@@ -152,6 +155,8 @@
 # ─────────────────────────────────────────────────────────────────────────────
 set -uo pipefail
 
+source "$(dirname "${BASH_SOURCE[0]}")/cdn-marker-paths.env"
+
 expected="${1:-}"
 
 # Append `key=value` to $GITHUB_OUTPUT / $GITHUB_STEP_SUMMARY when running under
@@ -174,7 +179,7 @@ if [ -z "$expected" ]; then
   exit 0
 fi
 
-url="${CDN_BUILD_ID_URL:-https://cdn.frontaliereticino.ch/cdn-build-id.txt}"
+url="${CDN_BUILD_ID_URL:-https://cdn.frontaliereticino.ch/${CDN_READY_BUILD_ID_FILE}}"
 timeout_s="${CDN_WAIT_TIMEOUT_S:-600}"
 interval_s="${CDN_WAIT_INTERVAL_S:-15}"
 margin_warn_s="${CDN_WAIT_MARGIN_WARN_S:-300}"

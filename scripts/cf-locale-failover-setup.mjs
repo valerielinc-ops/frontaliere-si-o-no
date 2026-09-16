@@ -45,9 +45,10 @@
  *       "CF 5xx: cdn.*" issue class (#4332, #4668): this host had NO cache
  *       rule at all, so cf-cache-status was DYNAMIC on every path — every
  *       request round-tripped to R2 origin with zero edge buffering, so any
- *       transient R2 hiccup surfaced immediately as a live 5xx. Excludes
- *       /cdn-build-id.txt (kept no-store — the #2569 cross-shard publish
- *       gate polls it and must always see the live origin value) AND
+ *       transient R2 hiccup surfaced immediately as a live 5xx. Excludes both
+ *       CDN build markers (kept no-store — the #2569 cross-shard publish gate
+ *       polls the readiness marker and the runtime watchdog polls the live
+ *       marker; both must always see the origin value) AND
  *       /assets/early-boot.js — this rule is appended LAST and a later rule
  *       wins in the cache phase, so without that exclusion its `cache: true`
  *       silently overrode the `early-boot-js-bypass-cache` rule and the file
@@ -129,6 +130,7 @@
 
 import { stableStringify } from './lib/stable-stringify.mjs';
 import { resolveZoneId as resolveZoneIdShared } from './lib/cf-analytics.mjs';
+import { CDN_LIVE_BUILD_ID_PATH, CDN_READY_BUILD_ID_PATH } from './lib/cdn-marker-paths.mjs';
 
 const REST_BASE = 'https://api.cloudflare.com/client/v4';
 const ZONE_NAME = process.env.CF_ZONE_NAME || 'frontaliereticino.ch';
@@ -314,7 +316,7 @@ const CACHE_ACTION_PARAMETERS = {
 // correct explicit per-prefix Cache-Control (assets/og/images/data/job-canon,
 // see deploy-it-pages-prep.sh _r2_sync), so a fixed override would risk
 // serving a stale asset past a deploy. respect_origin also means a response
-// with no positive Cache-Control (e.g. /cdn-build-id.txt's `no-store`, or an
+// with no positive Cache-Control (e.g. either build marker's `no-store`, or an
 // R2 404) is never cached, without needing per-status overrides here.
 //
 // Because this is respect_origin, the object's Cache-Control IS the edge TTL —
@@ -411,9 +413,10 @@ const MANAGED_CACHE_RULES = [
   },
   {
     // R2-origin CDN passthrough cache — see header doc (c) for full rationale.
-    // Excludes /cdn-build-id.txt: the #2569 cross-shard publish-ordering gate
-    // (scripts/lib/wait-cdn-build-id.sh) polls this exact URL and must always
-    // observe the live origin value, never a cached one.
+    // Excludes both build markers: the #2569 cross-shard publish-ordering gate
+    // (scripts/lib/wait-cdn-build-id.sh) polls the ready marker, while the
+    // runtime watchdog polls the live marker. Both must observe origin bytes,
+    // never a cached one.
     //
     // ALSO excludes /assets/early-boot.js, and that exclusion is load-bearing
     // (2026-08-05, #5176). In the `http_request_cache_settings` phase EVERY
@@ -431,7 +434,7 @@ const MANAGED_CACHE_RULES = [
     // of append-on-create, and a foreign rule can be re-created at any index by
     // whoever owns it. Excluding the path here makes the bypass the ONLY rule
     // that matches it, so it cannot be overridden no matter how the list is
-    // ordered. Same shape as the /cdn-build-id.txt exclusion above.
+    // ordered. Same shape as the marker exclusions above.
     //
     // Why it matters beyond tidiness: a stale early-boot.js serves an old
     // self-heal listener set against new HTML, which is the cross-chunk skew
@@ -442,7 +445,8 @@ const MANAGED_CACHE_RULES = [
     description: 'cdn-r2-passthrough-cache (managed by scripts/cf-locale-failover-setup.mjs)',
     expression:
       '(http.host eq "cdn.frontaliereticino.ch" and ' +
-      'http.request.uri.path ne "/cdn-build-id.txt" and ' +
+      `http.request.uri.path ne "${CDN_LIVE_BUILD_ID_PATH}" and ` +
+      `http.request.uri.path ne "${CDN_READY_BUILD_ID_PATH}" and ` +
       `http.request.uri.path ne "${EARLY_BOOT_PATH}")`,
     action_parameters: CDN_CACHE_ACTION_PARAMETERS,
   },

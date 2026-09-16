@@ -664,7 +664,7 @@ jobs:
       # is the ordering the section-shard comment below depends on.
       #
       # WHY THE HOIST. The #2569 gate ("Wait for IT CDN push" on the en/de/fr
-      # legs) polls cdn-build-id.txt for THIS build's id. The marker only turns
+      # legs) polls the CDN readiness marker for THIS build's id. The marker only turns
       # when the IT leg reaches its CDN push — and until now that was ~40min
       # after the IT build ended, behind 31min of section-shard pushes, 5min of
       # packing, 1min of uploads and 4min of strip. Measured on run 31076991699
@@ -684,7 +684,7 @@ jobs:
       #   - strip-section-subtree.sh only `rm -rf`s dist/<sub>.
       # So the bytes published here are identical to the bytes the old call
       # site would have published. The gate predicate is UNCHANGED
-      # (cdn-build-id.txt == DEPLOY_BUILD_ID, marker written last, in the same
+      # (ready-marker == DEPLOY_BUILD_ID, marker written last, in the same
       # atomic publish as the payload) — it is simply satisfied ~40min earlier.
       #
       # #2569 is not weakened, it is EXTENDED: the 25 IT section shards pushed
@@ -2225,8 +2225,8 @@ jobs:
       # parallel matrix runner with no ordering vs this leg. Publishing this
       # shard BEFORE the IT CDN push lands this build's payload would put the
       # live locale ahead of the CDN (refs 404 / serve a prior build's data).
-      # deploy-it-pages-prep.sh stamps DEPLOY_BUILD_ID into the CDN's
-      # cdn-build-id.txt in the SAME force-push as the payload, so this gate —
+      # deploy-it-pages-prep.sh stamps DEPLOY_BUILD_ID into the CDN readiness
+      # marker in the SAME force-push as the payload, so this gate —
       # polling that marker until it equals THIS build's id — only unblocks once
       # the IT CDN push has atomically published this build. continue-on-error so
       # a timeout never flips build-locale.result→failure (that would block the

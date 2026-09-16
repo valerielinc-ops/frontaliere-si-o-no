@@ -450,6 +450,68 @@ jobs:
       issues: write     # github-issue-creator on validation failure
 
   # ───────────────────────────────────────────────────────────────────────
+  # promote-cdn-live-marker: the early IT CDN push is only a readiness signal.
+  # A cancelled build can reach that push and never publish its Pages artifact
+  # (issue #8560), so the runtime watchdog must keep seeing the previous CDN
+  # generation until the apex build-id has passed validate-live. The script also
+  # refuses to overwrite a newer live build and uses a force-with-lease for the
+  # legacy CDN repo, so concurrent publishers fail closed instead of clobbering
+  # the payload they did not build.
+  # ───────────────────────────────────────────────────────────────────────
+  promote-cdn-live-marker:
+    needs: [deploy, validate-live]
+    if: ${{ !cancelled() && needs.deploy.result == 'success' && needs.validate-live.result == 'success' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Cache node_modules
+        id: node-modules-cache
+        uses: actions/cache@v5
+        with:
+          path: node_modules
+          key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
+            echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Download build id from the validated build
+        uses: actions/download-artifact@v7
+        with:
+          name: sitemaps-${{ github.event.workflow_run.id }}
+          path: sitemaps-bundle
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Promote validated build as CDN live marker
+        env:
+          CDN_DEPLOY_KEY: ${{ secrets.CDN_DEPLOY_KEY }}
+          CDN_TARGET: ${{ vars.CDN_TARGET || 'pages' }}
+        run: bash scripts/lib/promote-cdn-live-marker.sh sitemaps-bundle/build-id.txt
+
+  # ───────────────────────────────────────────────────────────────────────
   # publish: post-deploy side effects (IndexNow, Google Indexing API, GSC,
   # previous-slug-winners sync, LinkedIn/Reddit article posting).
   #
@@ -488,8 +550,8 @@ jobs:
   # serving, submitting its URLs is wrong.
   # ───────────────────────────────────────────────────────────────────────
   publish:
-    needs: [deploy, validate-dist, validate-live]
-    if: ${{ !cancelled() && needs.deploy.result == 'success' && needs.validate-live.result == 'success' && needs.validate-dist.outputs.integrity_ok == 'true' }}
+    needs: [deploy, validate-dist, validate-live, promote-cdn-live-marker]
+    if: ${{ !cancelled() && needs.deploy.result == 'success' && needs.validate-live.result == 'success' && needs.promote-cdn-live-marker.result == 'success' && needs.validate-dist.outputs.integrity_ok == 'true' }}
     uses: ./.github/workflows/post-deploy-publish.yml
     with:
       deploy_run_id: ${{ github.event.workflow_run.id }}
@@ -507,11 +569,12 @@ jobs:
   # Pages/live cycle always gets an immediate runtime check. The watchdog's
   # schedule and manual trigger remain independent backstops.
   runtime-watchdog:
-    needs: [deploy, validate-dist, validate-live, publish]
+    needs: [deploy, validate-dist, validate-live, promote-cdn-live-marker, publish]
     if: >-
       ${{ always() &&
           needs.deploy.result == 'success' &&
           needs.validate-live.result == 'success' &&
+          needs.promote-cdn-live-marker.result != 'cancelled' &&
           (needs.publish.result == 'success' ||
            needs.publish.result == 'failure' ||
            needs.publish.result == 'skipped') }}

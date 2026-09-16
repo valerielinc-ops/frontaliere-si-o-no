@@ -2,9 +2,10 @@
 /**
  * Runtime reliability watchdog for the public HTML/CDN build pair.
  *
- * A deploy publishes the CDN marker last, but the CDN serves mutable stable
- * asset URLs. A stale edge object can therefore coexist with a current
- * `cdn-build-id.txt` even when the normal CI probe is green. This probe fetches
+ * The build job publishes a CDN readiness marker before the Pages artifact, but
+ * the live `cdn-build-id.txt` is promoted only after Pages validation. The CDN
+ * serves mutable stable asset URLs, so a stale edge object can still coexist
+ * with a current live marker even when the normal CI probe is green. This probe fetches
  * a cache-busted copy of a small critical-asset set and compares it with the
  * copy a browser would receive at the stable URL. The companion workflow then
  * purges only the divergent URLs through the existing, variant-aware
@@ -16,11 +17,12 @@
 
 import { createHash } from 'node:crypto';
 import { pathToFileURL } from 'node:url';
+import { CDN_LIVE_BUILD_ID_PATH } from './lib/cdn-marker-paths.mjs';
 
 export const SITE_ORIGIN = 'https://frontaliereticino.ch';
 export const CDN_ORIGIN = 'https://cdn.frontaliereticino.ch';
 export const SITE_BUILD_ID_PATH = '/build-id.txt';
-export const CDN_BUILD_ID_PATH = '/cdn-build-id.txt';
+export const CDN_BUILD_ID_PATH = CDN_LIVE_BUILD_ID_PATH;
 export const RUNTIME_CIRCUIT_COOLDOWN_MS = 15 * 60 * 1000;
 
 // These are the stable bundle files involved in the observed version-skew

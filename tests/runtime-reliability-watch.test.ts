@@ -137,8 +137,10 @@ describe('runtime reliability watchdog', () => {
       new URL('../.github/workflows/deploy-publish.yml', import.meta.url),
       'utf8',
     );
+    expect(publishWorkflow).toContain('promote-cdn-live-marker:');
+    expect(publishWorkflow).toContain('run: bash scripts/lib/promote-cdn-live-marker.sh sitemaps-bundle/build-id.txt');
     expect(publishWorkflow).toContain('runtime-watchdog:');
-    expect(publishWorkflow).toContain('needs: [deploy, validate-dist, validate-live, publish]');
+    expect(publishWorkflow).toContain('needs: [deploy, validate-dist, validate-live, promote-cdn-live-marker, publish]');
     expect(publishWorkflow).toMatch(/if:\s*>-\s*\n\s*\$\{\{ always\(\)/);
     expect(publishWorkflow).toContain('actions: write  # workflow_dispatch is the explicit chained trigger');
     expect(publishWorkflow).toContain('gh workflow run runtime-reliability-watch.yml');

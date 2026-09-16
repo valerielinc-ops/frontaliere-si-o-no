@@ -62,6 +62,7 @@ import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { planJanitor } from './cdn-prune-plan.mjs';
+import { CDN_REPO_SSH } from '../lib/cdn-marker-paths.mjs';
 
 // Shared Vite content-hash matcher (base64url alphabet `[A-Za-z0-9_-]`).
 // Imported — NOT copy-pasted — so the char class can't drift from the canonical
@@ -86,7 +87,6 @@ const GRACE_DAYS = Number.isFinite(__graceRaw) && __graceRaw > 0 ? __graceRaw : 
 const __maxPruneRaw = Number(process.env.MAX_PRUNE_PER_RUN);
 const MAX_PRUNE_PER_RUN = Number.isFinite(__maxPruneRaw) && __maxPruneRaw > 0 ? __maxPruneRaw : 6000;
 const CDN_DEPLOY_KEY = process.env.CDN_DEPLOY_KEY ?? '';
-const CDN_REPO_SSH = 'git@github.com:valerielinc-ops/frontaliere-cdn.git';
 const LIVE_ENTRY_URL = 'https://frontaliereticino.ch/';
 const CDN_ASSETS_HOST = 'cdn.frontaliereticino.ch/assets/';
 

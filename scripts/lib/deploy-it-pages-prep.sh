@@ -52,6 +52,9 @@
 # Output files / markers written (same as the monolith):
 #   $RUNNER_TEMP/artifact.tar                  — packed Pages artifact
 #   $RUNNER_TEMP/assets-same-origin.marker     — produced by offload step (consumed by guard)
+#   CDN_READY_BUILD_ID_FILE                    — this build's CDN payload is ready for shard gates
+#   CDN_LIVE_BUILD_ID_FILE                     — carried from the last validated build; promoted by
+#                                                promote-cdn-live-marker.sh after Pages validation
 #   /tmp/new-sitemap-urls.json                 — packed new sitemap URLs
 #   /tmp/pre-deploy-sitemap-urls.json          — produced by capture-deployed-sitemaps.mjs
 #   /tmp/sitemaps-bundle/                       — pre-deploy + build-id.txt + new-sitemap-urls
@@ -74,6 +77,7 @@ set -uo pipefail
 # push-section-shard.sh / push-locale-shard.sh, used by the CDN assets push
 # below instead of a second copy of the retry loop (AGENTS.md #6).
 source "$(dirname "${BASH_SOURCE[0]}")/shard-git-helpers.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/cdn-marker-paths.env"
 
 RUNNER_TEMP="${RUNNER_TEMP:-/tmp}"
 
@@ -286,9 +290,10 @@ _publish_cdn_r2() {
     echo "⚠️ R2 payload sync had errors — NOT writing marker (shard gate keeps last good live)"
     return 0
   fi
-  # Marker LAST (atomicity #2569): only now is this build's full payload on R2.
-  printf '%s' "${DEPLOY_BUILD_ID:-}" > "$stage/cdn-build-id.txt"
-  if "${RC[@]}" copyto "$stage/cdn-build-id.txt" "$bkt/cdn-build-id.txt" \
+  # Readiness marker LAST (atomicity #2569): only now is this build's full
+  # payload on R2. The live marker is promoted only after Pages validation.
+  printf '%s' "${DEPLOY_BUILD_ID:-}" > "$stage/$CDN_READY_BUILD_ID_FILE"
+  if "${RC[@]}" copyto "$stage/$CDN_READY_BUILD_ID_FILE" "$bkt/$CDN_READY_BUILD_ID_FILE" \
        --header-upload "Content-Type: text/plain; charset=utf-8" --header-upload "Cache-Control: no-store, max-age=0"; then
     export_env CDN_BASE "https://cdn.frontaliereticino.ch"
     echo "✅ synced CDN payload to R2 ($R2_BUCKET); marker=${DEPLOY_BUILD_ID:-<empty>}"
@@ -608,21 +613,38 @@ step_push_cdn() {
   # JS → SPA dead (prod outage 2026-06-04). og/data/images are same-path
   # and fully refreshed above (overwrite is correct for them).
   # prune-cdn-assets.mjs GCs the carried-forward legacy hashes post-grace.
-  # Sparse + blob:none keeps the clone to the small assets/ tree only.
-  if [ -d "$stage/assets" ]; then
-    prev="$RUNNER_TEMP/cdn-prev"; rm -rf "$prev"
-    if git clone --depth 1 --filter=blob:none --sparse \
-         git@github.com:valerielinc-ops/frontaliere-cdn.git "$prev" 2>/dev/null; then
-      git -C "$prev" sparse-checkout set assets 2>/dev/null || true
-      if [ -d "$prev/assets" ]; then
-        cp -rn "$prev/assets/." "$stage/assets/" 2>/dev/null || true
-        echo "additive CDN: carried forward prior assets/ (now $(ls -1 "$stage/assets" | wc -l) files)"
-      fi
-    else
-      echo "additive CDN: no prior CDN clone (first push / transient) — proceeding with new assets only"
+  # Sparse + blob:none keeps the clone to the small assets/ tree plus the live
+  # marker. The marker must be carried forward even when this build has no
+  # assets directory: an early CDN push is allowed to precede Pages, but it may
+  # never erase the last validated generation.
+  prev="$RUNNER_TEMP/cdn-prev"; rm -rf "$prev"
+  if git clone --depth 1 --filter=blob:none --sparse \
+       "$CDN_REPO_SSH" "$prev" 2>/dev/null; then
+    git -C "$prev" sparse-checkout set --no-cone assets "$CDN_LIVE_BUILD_ID_FILE" 2>/dev/null || true
+    if [ -d "$stage/assets" ] && [ -d "$prev/assets" ]; then
+      cp -rn "$prev/assets/." "$stage/assets/" 2>/dev/null || true
+      echo "additive CDN: carried forward prior assets/ (now $(ls -1 "$stage/assets" | wc -l) files)"
     fi
+    # The live marker is deliberately carried forward. A build may be
+    # cancelled after this early CDN push; replacing it here would make the
+    # runtime pair claim that an unvalidated CDN generation is live.
+    if [ -f "$prev/$CDN_LIVE_BUILD_ID_FILE" ]; then
+      cp "$prev/$CDN_LIVE_BUILD_ID_FILE" "$stage/$CDN_LIVE_BUILD_ID_FILE"
+    fi
+  else
+    echo "::warning::additive CDN: prior clone failed — aborting this Pages CDN push so the live marker cannot be erased"
     rm -rf "$prev"
+    # In dual-publish mode _publish_cdn_r2 may already have exported CDN_BASE,
+    # but the documented live origin is still Pages. Force the normal prep to
+    # retry instead of offloading HTML to an unverified R2-only path.
+    if [ "$cdn_target" = "both" ]; then
+      unset CDN_BASE
+      export_env CDN_BASE ""
+    fi
+    cd "$PREP_CWD"
+    return 1
   fi
+  rm -rf "$prev"
   echo "CDN payload: $(du -sh "$stage" | cut -f1)"
   # Flag if the CDN repo nears the GitHub Pages ~1 GB published-site soft limit.
   # With additive assets/ the payload grows slowly across deploys (only NEW
@@ -633,14 +655,13 @@ step_push_cdn() {
   if [ "$payload_bytes" -gt 950000000 ]; then
     echo "::warning::CDN payload ${payload_bytes} bytes (>950 MB) — approaching GitHub Pages ~1 GB soft limit; run the CDN assets/ janitor or split (e.g. keep blog heroes on jsDelivr)"
   fi
-  # Cross-shard atomicity marker (#2569): stamp THIS build's DEPLOY_BUILD_ID
+  # Cross-shard readiness marker (#2569): stamp THIS build's DEPLOY_BUILD_ID
   # into the CDN payload so it is published in the SAME force-push as the
-  # assets/data. The non-IT shards (en/de/fr) poll cdn.frontaliereticino.ch/
-  # cdn-build-id.txt for this exact id BEFORE publishing → they never go live
-  # referencing a CDN that does not yet hold this build's /data + /assets.
-  # When DEPLOY_BUILD_ID is unset (local run / monolith path) the marker is
-  # written empty — harmless, the shard gate only enforces on a non-empty id.
-  printf '%s' "${DEPLOY_BUILD_ID:-}" > "$stage/cdn-build-id.txt"
+  # assets/data. The non-IT shards (en/de/fr) poll the ready marker for this
+  # exact id BEFORE publishing → they never go live referencing a CDN that
+  # does not yet hold this build's /data + /assets. The live marker is kept
+  # from the previous commit and promoted only after Pages validation.
+  printf '%s' "${DEPLOY_BUILD_ID:-}" > "$stage/$CDN_READY_BUILD_ID_FILE"
   cd "$stage"
   git init -q
   git checkout -q -b main
@@ -658,7 +679,7 @@ step_push_cdn() {
   # on every deploy, the same silent-degradation shape as the uri-it shard
   # incident of 2026-07-30.
   _push_ok=0
-  if shard_push_with_retry "$stage" "git@github.com:valerielinc-ops/frontaliere-cdn.git" main "CDN"; then
+  if shard_push_with_retry "$stage" "$CDN_REPO_SSH" main "CDN"; then
     _push_ok=1
   fi
   if [ "$_push_ok" = 1 ]; then

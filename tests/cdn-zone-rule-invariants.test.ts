@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { CDN_LIVE_BUILD_ID_PATH, CDN_READY_BUILD_ID_PATH } from '../scripts/lib/cdn-marker-paths.mjs';
 
 /**
  * Guards two zone-rule invariants on `cdn.frontaliereticino.ch` (#5176), both
@@ -95,8 +96,12 @@ describe('early-boot.js cache bypass cannot be overridden', () => {
     ).toBe(true);
   });
 
-  it('keeps excluding /cdn-build-id.txt (the #2569 publish-ordering gate polls it)', () => {
-    expect(ruleBlock('cdn-r2-passthrough-cache')).toContain('http.request.uri.path ne "/cdn-build-id.txt"');
+  it('keeps both build markers out of the CDN cache', () => {
+    const block = ruleBlock('cdn-r2-passthrough-cache');
+    expect(CDN_LIVE_BUILD_ID_PATH).toBe('/cdn-build-id.txt');
+    expect(CDN_READY_BUILD_ID_PATH).toBe('/cdn-ready-build-id.txt');
+    expect(block).toMatch(/http\.request\.uri\.path ne "\$\{CDN_LIVE_BUILD_ID_PATH\}"/);
+    expect(block).toMatch(/http\.request\.uri\.path ne "\$\{CDN_READY_BUILD_ID_PATH\}"/);
   });
 });
 
