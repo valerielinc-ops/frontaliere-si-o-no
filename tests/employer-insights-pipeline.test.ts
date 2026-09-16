@@ -1026,11 +1026,22 @@ describe('publisher apply-click deduplication', () => {
     expect(retry).toMatchObject({ record: false, removed: 1, unavailable: 0, status: 'available' });
   });
 
-  it('passes a stable emission id at every publisher apply callsite', () => {
-    const jobBoardCalls = [...JOB_BOARD_SOURCE.matchAll(/trackPublisherApplyClick\(([\s\S]*?)\)/g)].map((match) => match[1]);
+  it('passes one stable emission id through the shared publisher apply handler', () => {
+    const handleApplyStart = JOB_BOARD_SOURCE.indexOf('const handleApply =');
+    const handleShareStart = JOB_BOARD_SOURCE.indexOf('const handleShare =', handleApplyStart);
+    expect(handleApplyStart).toBeGreaterThanOrEqual(0);
+    expect(handleShareStart).toBeGreaterThan(handleApplyStart);
 
-    expect(jobBoardCalls).toHaveLength(5);
+    const handleApplySource = JOB_BOARD_SOURCE.slice(handleApplyStart, handleShareStart);
+    const jobBoardCalls = [...handleApplySource.matchAll(/trackPublisherApplyClick\(([\s\S]*?)\)/g)].map((match) => match[1]);
+
+    // All rendered apply surfaces enter this shared handler; its two mutually
+    // exclusive branches are the only publisher click callsites.
+    expect(jobBoardCalls).toHaveLength(2);
     expect(jobBoardCalls.every((call) => /\{\s*eventId\s*:/.test(call))).toBe(true);
+    expect(JOB_BOARD_SOURCE.slice(0, handleApplyStart)).not.toMatch(/trackPublisherApplyClick\(/);
+    expect(JOB_BOARD_SOURCE.slice(handleShareStart)).not.toMatch(/trackPublisherApplyClick\(/);
+    expect(handleApplySource).toMatch(/const eventId = trackPublisherApplySignals\(/);
     expect(PUBLISHER_APPLY_FORM_SOURCE).toMatch(/trackPublisherApplyClick\([\s\S]*?\{\s*eventId\s*:/);
   });
 
