@@ -424,25 +424,86 @@ describe('validator dei bridge host-side', () => {
     }
   });
 
-  it('richiede il vero primo comando git e blocca alias/config/path/URL bypass', () => {
+  it('richiede il vero primo comando git e applica la policy fail-closed dei push', () => {
     expect(validateGitArgs(['-c', 'alias.x=!cat /tmp/secret', 'push'])).toMatch(/config\/exec\/path/);
     expect(validateGitArgs(['--git-dir=/tmp/other', 'push'])).toMatch(/config\/exec\/path/);
     expect(validateGitArgs(['push', '--upload-pack=cat', 'origin'])).toMatch(/config\/exec\/path/);
     expect(validateGitArgs(['push', 'https://example.invalid/repo.git'])).toMatch(/paths and URLs/);
     expect(validateGitArgs(['push', 'upstream', 'main'])).toMatch(/remote is not permitted/);
-    expect(validateGitArgs(['push', '--force-with-lease', 'origin', 'HEAD:refs/heads/main'])).toBe('');
+    const workBranch = 'codex/fallback-bridge-test';
+    for (const flag of [
+      '--all',
+      '--force',
+      '--force=refs/heads/other',
+      '-f',
+      '--force-with-lease',
+      '--force-with-lease=refs/heads/other',
+      '--delete',
+      '--delete=refs/heads/other',
+      '-d',
+      '--mirror',
+      '--mirror=refs/heads/other',
+    ]) {
+      expect(validateGitArgs(['push', flag, 'origin', `HEAD:refs/heads/${workBranch}`])).toMatch(/Git push option is not permitted/);
+    }
+    for (const refspec of [
+      'HEAD:refs/heads/other',
+      'HEAD:other',
+      `${workBranch}:refs/heads/other`,
+      `refs/heads/${workBranch}:refs/heads/other`,
+      `other:refs/heads/${workBranch}`,
+      'refs/heads/other:refs/heads/codex/fallback-bridge-test',
+      'a'.repeat(40),
+      `${'a'.repeat(40)}:refs/heads/${workBranch}`,
+      'v1.2.3',
+      `v1.2.3:refs/heads/${workBranch}`,
+      `refs/tags/v1.2.3:refs/heads/${workBranch}`,
+      `refs/remotes/origin/${workBranch}:refs/heads/${workBranch}`,
+      'refs/tags/v1.2.3',
+      `HEAD:refs/heads/main`,
+      'HEAD:refs/tags/release',
+      'HEAD:refs/remotes/origin/work',
+      ':refs/heads/work',
+      'HEAD:refs/heads/work:',
+      '+HEAD:refs/heads/work',
+      'HEAD:refs/heads/work*',
+    ]) {
+      expect(validateGitArgs(['push', 'origin', refspec], { allowedWorkBranch: workBranch })).toMatch(/Git push (?:refspec|source|destination)|work branch/);
+    }
+    expect(validateGitArgs(['push'], { allowedWorkBranch: workBranch })).toMatch(/exactly one explicit work-branch refspec/);
+    expect(validateGitArgs(['push', 'origin'], { allowedWorkBranch: workBranch })).toMatch(/exactly one explicit work-branch refspec/);
+    expect(validateGitArgs(['push', 'origin', 'HEAD', 'other'], { allowedWorkBranch: workBranch })).toMatch(/exactly one explicit work-branch refspec/);
+    for (const refspec of [
+      'HEAD',
+      `HEAD:${workBranch}`,
+      `HEAD:refs/heads/${workBranch}`,
+      workBranch,
+      `${workBranch}:${workBranch}`,
+      `${workBranch}:refs/heads/${workBranch}`,
+      `refs/heads/${workBranch}:${workBranch}`,
+      `refs/heads/${workBranch}`,
+      `refs/heads/${workBranch}:refs/heads/${workBranch}`,
+    ]) {
+      expect(validateGitArgs(['push', 'origin', refspec], { allowedWorkBranch: workBranch })).toBe('');
+    }
+    expect(validateGitArgs(['push', '--set-upstream', 'origin', workBranch], { allowedWorkBranch: workBranch })).toBe('');
+    expect(validateGitArgs(['push', 'origin', 'HEAD:refs/heads/codex/fallback-bridge-test'], { allowedWorkBranch: '' })).toMatch(/current work branch/);
+    expect(validateGitArgs(['push', 'origin', 'HEAD:refs/heads/codex/fallback-bridge-test'], { allowedWorkBranch: 'main' })).toMatch(/current work branch/);
     expect(validateGitArgs(['fetch', 'origin', 'main'])).toBe('');
     expect(validateGitArgs(['ls-remote', 'origin', 'refs/heads/main'])).toBe('');
     const expectedRemote = 'https://github.com/owner/repo.git';
     expect(canonicalGitRemote({ host: 'https://github.com', repository: 'owner/repo' })).toBe(expectedRemote);
-    expect(buildGitNetworkArgs(['push', 'origin', 'HEAD:refs/heads/main'], expectedRemote)).toEqual([
-      'push', expectedRemote, 'HEAD:refs/heads/main',
+    expect(buildGitNetworkArgs(['push', 'origin', `HEAD:refs/heads/${workBranch}`], expectedRemote)).toEqual([
+      'push', expectedRemote, `HEAD:refs/heads/${workBranch}`,
+    ]);
+    expect(buildGitNetworkArgs(['push', 'origin', 'HEAD'], expectedRemote, { allowedWorkBranch: workBranch })).toEqual([
+      'push', expectedRemote, `HEAD:refs/heads/${workBranch}`,
     ]);
     expect(buildGitNetworkArgs(['fetch', '--prune'], expectedRemote)).toEqual([
       'fetch', '--prune', expectedRemote,
     ]);
-    expect(buildGitNetworkArgs(['push', '--', 'origin', 'main'], expectedRemote)).toEqual([
-      'push', '--', expectedRemote, 'main',
+    expect(buildGitNetworkArgs(['push', '--', 'origin', workBranch], expectedRemote)).toEqual([
+      'push', '--', expectedRemote, workBranch,
     ]);
   });
 
@@ -846,7 +907,7 @@ describe('copertura workflow diretti', () => {
     expect(ghClient).toContain('client.setTimeout(RESPONSE_TIMEOUT_MS');
     expect(gitClient).toContain('client.setTimeout(RESPONSE_TIMEOUT_MS');
     expect(gitBridge).not.toContain('currentOrigin(');
-    expect(gitBridge).toContain('buildGitNetworkArgs(args, expectedRemote)');
+    expect(gitBridge).toContain('buildGitNetworkArgs(args, expectedRemote, { allowedWorkBranch })');
     expect(gitBridge).toContain('GIT_COMMON_DIR: shadowCommonDir');
     expect(gitBridge).toContain('net.createServer({ allowHalfOpen: true }');
     expect(gitBridge).toContain("terminateChild('client-disconnected')");
