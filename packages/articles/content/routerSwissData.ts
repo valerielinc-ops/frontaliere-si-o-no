@@ -2176,6 +2176,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'bns-tassi-interessi-ubs': { it: 'bns-tassi-interessi-ubs', en: 'snb-interest-rates-ubs', de: 'snb-zinssaetze-ubs', fr: 'bns-taux-interet-ubs' },
  'vaccini-antinfluenzali-ritardo-svizzera': { it: 'vaccini-antinfluenzali-ritardo-svizzera', en: 'flu-vaccines-delay-switzerland', de: 'grippeschutzimpfung-verzoegerung-schweiz', fr: 'vaccins-grippe-retard-suisse' },
  'ruag-riorganizzazione-tagli-posti': { it: 'ruag-riorganizzazione-tagli-posti', en: 'ruag-reorganization-job-cuts', de: 'ruag-reorganisation-stellenabbau', fr: 'ruag-reorganisation-suppression-postes' },
+ 'consiglio-federale-obiettivi-2027': { it: 'consiglio-federale-obiettivi-2027', en: 'federal-council-goals-2027', de: 'bundesrat-ziele-2027', fr: 'conseil-federal-objectifs-2027' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

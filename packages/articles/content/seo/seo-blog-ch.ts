@@ -83753,6 +83753,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-consiglio-federale-obiettivi-2027': {
+    title: 'Il Consiglio federale presenta gli obiettivi per il 2027',
+    description: 'Scopri le priorità strategiche, economiche, sociali e di trasporto stabilite dal Consiglio federale per il 2027 presentate a Berna da Guy Parmelin.',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, presenta, obiettivi',
+    ogTitle: 'Il Consiglio federale presenta gli obiettivi strategici per il 2027',
+    ogDescription: 'Il presidente della Confederazione Guy Parmelin ha presentato a Berna le priorità del Consiglio federale per il 2027, focalizzate su economia, trasporti, riforme sociali e sicurezza.',
+    canonicalPath: '/articoli-svizzera/consiglio-federale-obiettivi-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il Consiglio federale presenta gli obiettivi per il 2027",
+      "description": "Scopri le priorità strategiche, economiche, sociali e di trasporto stabilite dal Consiglio federale per il 2027 presentate a Berna da Guy Parmelin.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/consiglio-federale-obiettivi-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il palazzo federale a Berna sede del Consiglio federale"
+      },
+      "datePublished": "2026-09-16T01:40:06+00:00",
+      "dateModified": "2026-09-16T01:40:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/consiglio-federale-obiettivi-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

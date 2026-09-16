@@ -6461,6 +6461,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ruag-riorganizzazione-tagli-posti.title': 'RUAG reorganisiert sich: Bis zu 49 Arbeitsplätze gefährdet',
     'blog.article.ruag-riorganizzazione-tagli-posti.excerpt': 'Die Rüstungsgruppe RUAG kündigt eine Reorganisation an, die zum Abbau von maximal 49 Arbeitsplätzen in der Schweiz führen könnte.',
     'blog.article.ruag-riorganizzazione-tagli-posti.imageAlt': 'Bundesgebäude in Bern',
+    'blog.article.consiglio-federale-obiettivi-2027.title': 'Bundesrat legt Ziele für 2027 vor',
+    'blog.article.consiglio-federale-obiettivi-2027.excerpt': 'Präsident Guy Parmelin erläuterte in Bern die strategischen Prioritäten für 2027, das vierte Jahr der eidgenössischen Legislatur 2023-2027.',
+    'blog.article.consiglio-federale-obiettivi-2027.imageAlt': 'Das Bundeshaus in Bern Sitz des Bundesrates',
 };
 
 export default blogMetaChDe;
