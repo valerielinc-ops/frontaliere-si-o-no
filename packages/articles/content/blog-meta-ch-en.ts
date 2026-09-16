@@ -6440,6 +6440,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.farmacie-turno-svizzera-confine-italiano.imageAlt': 'View of Lugano and its lake',
     'blog.article.farmacie-turno-svizzera-confine-italiano.seoDescription': 'On-duty pharmacies in Switzerland and the CO/VA/VB border: cantonal sources to check, five verified Ticino regions and explicit limits.',
     'blog.article.farmacie-turno-svizzera-confine-italiano.ogDescription': 'A source guide for on-duty pharmacies in Switzerland and at the Italian border: no invented calendar, verify locally before travelling.',
+    'blog.article.ocse-crescita-svizzera-2026.title': 'OECD sees more growth in Switzerland, GDP 2026 at 2.0%',
+    'blog.article.ocse-crescita-svizzera-2026.excerpt': 'The OECD revises upwards the forecasts for Switzerland: GDP growth to 2.0% in 2026 and stable average inflation to 0.6%.',
+    'blog.article.ocse-crescita-svizzera-2026.imageAlt': 'Economic overview of Switzerland with OECD growth forecasts',
 };
 
 export default blogMetaChEn;

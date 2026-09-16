@@ -19292,6 +19292,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ocse-crescita-svizzera-2026',
+    category: 'novita',
+    date: '2026-09-16T00:19:29.031Z',
+    image: '/images/blog/ocse-crescita-svizzera-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

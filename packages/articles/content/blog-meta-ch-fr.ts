@@ -6440,6 +6440,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.farmacie-turno-svizzera-confine-italiano.imageAlt': 'Vue de Lugano et de son lac',
     'blog.article.farmacie-turno-svizzera-confine-italiano.seoDescription': 'Pharmacies de garde en Suisse et frontière CO/VA/VB : sources cantonales à vérifier, cinq régions tessinoises vérifiées et limites explicites.',
     'blog.article.farmacie-turno-svizzera-confine-italiano.ogDescription': 'Guide des sources pour les pharmacies de garde en Suisse et à la frontière italienne : aucun calendrier inventé, vérification locale avant le déplacement.',
+    'blog.article.ocse-crescita-svizzera-2026.title': 'OCDE voit plus de croissance en Suisse, PIB 2026 à 2,0 %',
+    'blog.article.ocse-crescita-svizzera-2026.excerpt': 'L\'OCDE révise à la hausse ses prévisions pour la Suisse : croissance du PIB à 2,0% en 2026 et inflation moyenne stable à 0,6%.',
+    'blog.article.ocse-crescita-svizzera-2026.imageAlt': 'Aperçu économique de la Suisse avec les prévisions de croissance de l\'OCDE',
 };
 
 export default blogMetaChFr;
