@@ -52,6 +52,16 @@ function validRequestKey(value) {
   return REQUEST_KEY_RE.test(result) ? result : '';
 }
 
+function isFullChargeRefund(charge) {
+  if (charge?.refunded === true) return true;
+  const amount = Number(charge?.amount);
+  const amountRefunded = Number(charge?.amount_refunded);
+  return Number.isFinite(amount)
+    && amount > 0
+    && Number.isFinite(amountRefunded)
+    && amountRefunded >= amount;
+}
+
 function sha256(value) {
   return createHash('sha256').update(value).digest('hex');
 }
@@ -389,6 +399,10 @@ export async function handleAssistedApplicationWebhookEvent(event, { db: dbFn, t
       orderRef = match.ref;
     }
     if (!orderRef) return true;
+    if (!isFullChargeRefund(obj)) {
+      console.warn('[assistedApplicationWebhook] partial charge refund left in queue', orderId);
+      return true;
+    }
 
     await firestore.runTransaction(async (transaction) => {
       const currentSnapshot = await transaction.get(orderRef);

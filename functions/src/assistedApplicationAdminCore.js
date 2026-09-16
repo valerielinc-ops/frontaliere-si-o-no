@@ -7,6 +7,7 @@
  * other AdminPanel endpoints; CVs are returned only as short-lived signed URLs.
  */
 
+import { randomUUID } from 'node:crypto';
 import { FieldValue } from 'firebase-admin/firestore';
 import { assertAdmin } from './adminEmployerInsights.js';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
@@ -46,6 +47,11 @@ const EVENT_FOR_STATUS = Object.freeze({
   blocked: 'manual_submission_blocked',
 });
 
+// A crashed process can leave a reservation behind after Stripe has accepted
+// the idempotent refund request. Let a later owner retry reuse that same Stripe
+// idempotency key while keeping concurrent admin actions serialized.
+const REFUND_RESERVATION_TTL_MS = 15 * 60 * 1000;
+
 class AssistedApplicationAdminError extends Error {
   constructor(code, status = 400) {
     super(code);
@@ -75,6 +81,16 @@ function timestampToIso(value) {
   } catch {
     return null;
   }
+}
+
+function timestampMillis(value) {
+  const iso = timestampToIso(value);
+  return iso ? Date.parse(iso) : 0;
+}
+
+function refundReservationIsStale(value) {
+  const pendingAt = timestampMillis(value);
+  return pendingAt > 0 && Date.now() - pendingAt >= REFUND_RESERVATION_TTL_MS;
 }
 
 function isAssistedApplicationStorageKey(orderId, value) {
@@ -223,6 +239,9 @@ async function handleTransition(db, raw, adminEmail) {
       if (current.paymentStatus !== 'paid') {
         throw new AssistedApplicationAdminError('payment_not_confirmed', 409);
       }
+      if (current.refundStatus === 'pending') {
+        throw new AssistedApplicationAdminError('refund_in_progress', 409);
+      }
       if (!ALLOWED_TRANSITIONS[fromStatus]?.has(toStatus)) {
         throw new AssistedApplicationAdminError('invalid_transition', 409);
       }
@@ -262,6 +281,54 @@ async function resolvePaymentReference(order, stripe) {
   }
 }
 
+async function reserveRefund(db, orderRef) {
+  const reservationId = randomUUID();
+  let alreadyRefunded = false;
+  await db.runTransaction(async (transaction) => {
+    const snapshot = await transaction.get(orderRef);
+    if (!snapshot.exists) throw new AssistedApplicationAdminError('order_not_found', 404);
+    const order = snapshot.data() || {};
+    if (order.paymentStatus === 'refunded' || order.submissionStatus === 'refunded') {
+      alreadyRefunded = true;
+      return;
+    }
+    if (order.paymentStatus !== 'paid') {
+      throw new AssistedApplicationAdminError('payment_not_refundable', 409);
+    }
+    if (order.submissionStatus === 'submitted') {
+      throw new AssistedApplicationAdminError('already_submitted', 409);
+    }
+    if (order.refundStatus === 'pending' && !refundReservationIsStale(order.refundPendingAt)) {
+      throw new AssistedApplicationAdminError('refund_in_progress', 409);
+    }
+    transaction.set(orderRef, {
+      refundStatus: 'pending',
+      refundReservationId: reservationId,
+      refundPendingAt: new Date(),
+      updatedAt: FieldValue.serverTimestamp(),
+    }, { merge: true });
+  });
+  return { reservationId, alreadyRefunded };
+}
+
+async function releaseRefundReservation(db, orderRef, reservationId) {
+  try {
+    await db.runTransaction(async (transaction) => {
+      const snapshot = await transaction.get(orderRef);
+      const order = snapshot.exists ? snapshot.data() || {} : null;
+      if (!order || order.refundStatus !== 'pending' || order.refundReservationId !== reservationId) return;
+      transaction.set(orderRef, {
+        refundStatus: null,
+        refundReservationId: null,
+        refundPendingAt: null,
+        updatedAt: FieldValue.serverTimestamp(),
+      }, { merge: true });
+    });
+  } catch (error) {
+    console.error('[manageAssistedApplicationAdmin] refund reservation release failed', error instanceof Error ? error.message : String(error));
+  }
+}
+
 async function handleRefund(db, raw, adminEmail) {
   const orderId = boundedString(raw.orderId, 200);
   const notes = optionalString(raw.submissionNotes ?? raw.notes, 2000);
@@ -285,6 +352,11 @@ async function handleRefund(db, raw, adminEmail) {
   const reference = await resolvePaymentReference(order, stripe);
   if (!reference) throw new AssistedApplicationAdminError('payment_reference_missing', 409);
 
+  const reservation = await reserveRefund(db, orderRef);
+  if (reservation.alreadyRefunded) {
+    return { status: 200, body: { ok: true, orderId, submissionStatus: 'refunded', alreadyRefunded: true } };
+  }
+
   let refund;
   try {
     refund = await stripe.refunds.create(
@@ -292,38 +364,65 @@ async function handleRefund(db, raw, adminEmail) {
       { idempotencyKey: `assisted-application-refund:${orderId}` },
     );
   } catch (error) {
+    await releaseRefundReservation(db, orderRef, reservation.reservationId);
     console.error('[manageAssistedApplicationAdmin] Stripe refund failed', error instanceof Error ? error.message : String(error));
     return { status: 502, body: { ok: false, error: 'stripe_refund_failed' } };
   }
 
+  let alreadyRefunded = false;
   const timestamp = FieldValue.serverTimestamp();
-  const update = {
-    paymentStatus: 'refunded',
-    submissionStatus: 'refunded',
-    stripeRefundId: boundedString(refund?.id, 200) || null,
-    refundedAt: timestamp,
-    statusChangedAt: timestamp,
-    updatedAt: timestamp,
-    ...(notes ? { submissionNotes: notes } : {}),
-  };
-  const event = buildAssistedApplicationEvent('refund_issued', {
-    actorEmail: adminEmail,
-    refundId: update.stripeRefundId,
-    fromStatus: statusFor(order),
-    toStatus: 'refunded',
-    ...(notes ? { submissionNotes: notes } : {}),
-  });
-  await db.runTransaction(async (transaction) => {
-    transaction.set(orderRef, update, { merge: true });
-    transaction.set(orderRef.collection('events').doc(), event);
-  });
+  const refundId = boundedString(refund?.id, 200) || null;
+  try {
+    await db.runTransaction(async (transaction) => {
+      const currentSnapshot = await transaction.get(orderRef);
+      if (!currentSnapshot.exists) throw new AssistedApplicationAdminError('order_not_found', 404);
+      const current = currentSnapshot.data() || {};
+      if (current.paymentStatus === 'refunded' || current.submissionStatus === 'refunded') {
+        alreadyRefunded = true;
+        return;
+      }
+      // The reservation blocks ordinary admin transitions. Keep this check in
+      // the final transaction too: an Admin-SDK writer outside this endpoint
+      // must never be overwritten after Stripe has returned.
+      if (current.refundStatus !== 'pending' || current.refundReservationId !== reservation.reservationId) {
+        throw new AssistedApplicationAdminError('refund_state_changed', 409);
+      }
+      if (current.submissionStatus === 'submitted') {
+        throw new AssistedApplicationAdminError('already_submitted', 409);
+      }
+      const update = {
+        paymentStatus: 'refunded',
+        submissionStatus: 'refunded',
+        refundStatus: 'completed',
+        stripeRefundId: refundId,
+        refundedAt: timestamp,
+        statusChangedAt: timestamp,
+        updatedAt: timestamp,
+        ...(notes ? { submissionNotes: notes } : {}),
+      };
+      const event = buildAssistedApplicationEvent('refund_issued', {
+        actorEmail: adminEmail,
+        refundId,
+        fromStatus: statusFor(current),
+        toStatus: 'refunded',
+        ...(notes ? { submissionNotes: notes } : {}),
+      });
+      transaction.set(orderRef, update, { merge: true });
+      transaction.set(orderRef.collection('events').doc(), event);
+    });
+  } catch (error) {
+    return transitionErrorResponse(error);
+  }
+  if (alreadyRefunded) {
+    return { status: 200, body: { ok: true, orderId, submissionStatus: 'refunded', alreadyRefunded: true } };
+  }
   return {
     status: 200,
     body: {
       ok: true,
       orderId,
       submissionStatus: 'refunded',
-      refundId: update.stripeRefundId,
+      refundId,
     },
   };
 }

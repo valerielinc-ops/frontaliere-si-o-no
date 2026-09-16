@@ -77,6 +77,8 @@ function errorMessage(error: unknown, status: number): string {
     blocked_reason_required: 'Inserisci una motivazione per bloccare la candidatura.',
     payment_not_confirmed: 'Il pagamento non è confermato.',
     payment_not_refundable: 'Questo ordine non può essere rimborsato.',
+    refund_in_progress: 'Per questo ordine è già in corso un rimborso.',
+    refund_state_changed: 'L’ordine è cambiato durante il rimborso; verifica lo stato prima di riprovare.',
     payment_reference_missing: 'Riferimento Stripe mancante: rimborso non eseguito.',
     already_submitted: 'La candidatura è già stata inviata e non è rimborsabile da questa coda.',
     stripe_refund_failed: 'Stripe non ha completato il rimborso; nessun dato è stato marcato come rimborsato.',
