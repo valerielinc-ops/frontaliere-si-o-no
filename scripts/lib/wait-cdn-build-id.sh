@@ -51,11 +51,14 @@
 #   CDN_JOB_START_EPOCH  unix epoch seconds when the CALLING JOB started (not
 #                       this step). Unset/non-numeric → disabled, behaves
 #                       exactly as before.
-#   CDN_JOB_DEADLINE_S  seconds after CDN_JOB_START_EPOCH by which BOTH phases
-#                       combined must have already exited, leaving the job's
-#                       remaining budget for its own finish steps before
-#                       GitHub's own hard per-job kill. Unset/non-numeric →
-#                       disabled. Both must be set together to take effect.
+#   CDN_JOB_DEADLINE_S  hard-job seconds after CDN_JOB_START_EPOCH by which BOTH
+#                       phases combined must have already exited. Unset/non-
+#                       numeric → disabled. Both must be set together to take
+#                       effect.
+#   CDN_JOB_FINISH_RESERVE_S  seconds to hold back from that hard deadline for
+#                       the critical post-gate finish steps. Defaults to 0 so
+#                       standalone callers keep the legacy behavior. Decimal
+#                       values are rejected; leading zeroes are accepted.
 #
 # Exit codes:
 #   0  — the CDN marker matched <expected_build_id> within the timeout, OR the
@@ -131,12 +134,18 @@
 # CDN_JOB_START_EPOCH/CDN_JOB_DEADLINE_S close that gap WITHOUT touching
 # either phase's nominal budget (which stays correct for a fast build) or
 # reducing it (which would resurrect the #7049 bug for a slow one): each
-# phase's effective timeout is clamped, once, to whatever time is actually
-# left before job_start + CDN_JOB_DEADLINE_S. Because that deadline is
-# anchored to the JOB's start, not this step's, it automatically absorbs
-# however long T1 turned out to be on THIS run — a slow build leaves less
-# room for the wait, a fast one leaves more — and the gate always exits on
-# its own terms, with margin, instead of racing GitHub's kill signal.
+# phase's effective timeout is clamped to whatever time is actually left before
+# the hard job deadline minus CDN_JOB_FINISH_RESERVE_S. The remaining time is
+# recalculated from Bash's monotonic `SECONDS` counter before and after every
+# API/marker command and every sleep; each in-flight command receives no more
+# than that remaining budget. Because the deadline is anchored to the JOB's
+# start, not this step's, it absorbs however long T1 turned out to be on THIS
+# run — a slow build leaves less room for the wait, a fast one leaves more —
+# and the gate always exits on its own terms, with a measured finish window,
+# instead of racing GitHub's kill signal. Keeping the hard six-hour value
+# separate from the reserve is important: the old 19800s effective deadline
+# stopped a still-healthy IT leg at 5h30, before it could reach the early CDN
+# push on a slow but valid build.
 #
 # Deliberately NOT `set -e`: every curl is allowed to fail (CDN not yet updated
 # is the EXPECTED transient case during the poll) and is guarded explicitly.
@@ -194,31 +203,97 @@ it_ready_interval_s="${CDN_IT_READY_INTERVAL_S:-30}"
 # it entirely and every budget below behaves exactly as it did before this
 # clock existed — same safe-degradation shape as the #5331 abort above.
 job_deadline_epoch=""
+job_deadline_remaining_at_start=""
+job_clock_start_seconds="$SECONDS"
+job_finish_reserve_s="${CDN_JOB_FINISH_RESERVE_S:-0}"
+[[ "$job_finish_reserve_s" =~ ^[0-9]+$ ]] || job_finish_reserve_s=0
 if [[ "${CDN_JOB_START_EPOCH:-}" =~ ^[0-9]+$ ]] && [[ "${CDN_JOB_DEADLINE_S:-}" =~ ^[0-9]+$ ]]; then
-  job_deadline_epoch=$((CDN_JOB_START_EPOCH + CDN_JOB_DEADLINE_S))
-  echo "[wait-cdn-build-id] #7106 job-deadline safety margin armed: both phases combined must exit by epoch ${job_deadline_epoch}"
+  hard_job_deadline_s=$((10#${CDN_JOB_DEADLINE_S}))
+  finish_reserve_s=$((10#${job_finish_reserve_s}))
+  effective_job_deadline_s=$((hard_job_deadline_s - finish_reserve_s))
+  [ "$effective_job_deadline_s" -ge 0 ] || effective_job_deadline_s=0
+  job_deadline_epoch=$((10#${CDN_JOB_START_EPOCH} + effective_job_deadline_s))
+  job_now_epoch="$(date +%s)"
+  job_deadline_remaining_at_start=$((job_deadline_epoch - job_now_epoch))
+  echo "[wait-cdn-build-id] #7106 job-deadline safety margin armed: hard deadline ${CDN_JOB_DEADLINE_S}s, finish reserve ${job_finish_reserve_s}s, gate deadline epoch ${job_deadline_epoch}"
 fi
 
-# Echoes $1 (a budget in seconds) clamped to whatever remains before
-# job_deadline_epoch, floored at 0. A no-op (echoes $1 unchanged) when the
-# clock above is disabled. Called once per phase, not per poll — the loops
-# below stay clock-free and count polls, exactly as before (#5251 batched
-# tests rely on this: elapsed tracks `interval_s` additions, never wall time).
+# Refreshes the monotonic remaining time before the hard deadline. `SECONDS` is
+# inherited by command substitutions but never modified by this script, so a
+# slow `gh`/`curl` invocation is included in the same clock as the sleeps.
+job_deadline_remaining_s() {
+  JOB_DEADLINE_REMAINING_S=""
+  [ -n "$job_deadline_remaining_at_start" ] || return 0
+  local script_elapsed=$((SECONDS - job_clock_start_seconds))
+  JOB_DEADLINE_REMAINING_S=$((job_deadline_remaining_at_start - script_elapsed))
+  [ "$JOB_DEADLINE_REMAINING_S" -ge 0 ] || JOB_DEADLINE_REMAINING_S=0
+}
+
+# Refreshes the elapsed time of a nominal phase from an absolute monotonic
+# origin. The old poll-counter clock only advanced after `sleep`, so time spent
+# inside a timed-out `gh`/`curl` command was invisible to the phase budget. Keep
+# this in the parent shell (rather than a command substitution) so the Bash
+# `SECONDS` reading includes the whole child-command interval.
+phase_elapsed_s() {
+  local phase_start_seconds="$1"
+  local phase_elapsed=$((SECONDS - phase_start_seconds))
+  [ "$phase_elapsed" -ge 0 ] || phase_elapsed=0
+  PHASE_ELAPSED_S="$phase_elapsed"
+}
+
+# Echoes $1 (a nominal phase budget) clamped to whatever remains before the
+# hard deadline, floored at 0. A no-op (echoes $1 unchanged) when the third
+# clock is disabled. This is only the initial clamp; the loops below refresh
+# the same monotonic clock for every command and sleep.
 clamp_to_job_deadline() {
   local budget="$1"
   if [ -z "$job_deadline_epoch" ]; then
     printf '%s' "$budget"
     return
   fi
-  local now remaining
-  now="$(date +%s)"
-  remaining=$((job_deadline_epoch - now))
-  [ "$remaining" -ge 0 ] || remaining=0
+  local remaining
+  job_deadline_remaining_s
+  remaining="$JOB_DEADLINE_REMAINING_S"
   if [ "$remaining" -lt "$budget" ]; then
     printf '%s' "$remaining"
   else
     printf '%s' "$budget"
   fi
+}
+
+# A command can outlive the nominal poll interval (and, with a network/API
+# stall, the whole phase). GNU timeout is present on the GitHub-hosted runner;
+# if a standalone caller lacks it, fail closed for bounded calls rather than
+# silently reintroducing an unbounded wait. KILL is intentional: a TERM grace
+# period would itself consume the finish reserve.
+timeout_bin="$(command -v timeout 2>/dev/null || true)"
+run_bounded() {
+  local seconds="$1"
+  shift
+  [[ "$seconds" =~ ^[0-9]+$ ]] || return 124
+  [ "$seconds" -ge 1 ] || return 124
+  [ -n "$timeout_bin" ] || return 125
+  "$timeout_bin" --signal=KILL "${seconds}s" "$@"
+}
+
+# Sets COMMAND_TIMEOUT_S to the smaller of the nominal phase remainder and
+# the monotonic job remainder. A zero job remainder means no child may start.
+# The legacy first poll still gets a one-second nominal cap when its phase
+# budget is zero (the old file:// timeout=0 tests rely on that one immediate
+# observation), but the hard job deadline always wins.
+command_timeout_s() {
+  local phase_remaining="$1"
+  local candidate="$phase_remaining"
+  [ "$candidate" -ge 1 ] || candidate=1
+  job_deadline_remaining_s
+  if [ -n "$JOB_DEADLINE_REMAINING_S" ]; then
+    if [ "$JOB_DEADLINE_REMAINING_S" -le 0 ]; then
+      COMMAND_TIMEOUT_S=0
+      return 0
+    fi
+    [ "$JOB_DEADLINE_REMAINING_S" -lt "$candidate" ] && candidate="$JOB_DEADLINE_REMAINING_S"
+  fi
+  COMMAND_TIMEOUT_S="$candidate"
 }
 
 # Every precondition is checked ONCE, up front. The legacy #5331 observer keeps
@@ -265,8 +340,10 @@ fi
 # checks the dead job before the marker, and the exact marker remains the last
 # word when the early push succeeded before some unrelated later step failed.
 it_readiness_state() {
+  local command_timeout="${1:-0}"
+  [ "$command_timeout" -ge 1 ] || return 1
   # shellcheck disable=SC2016 # jq reads the exported exact names via env.*.
-  gh api \
+  run_bounded "$command_timeout" gh api \
     "repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/jobs?per_page=100&filter=latest" \
     --jq '([ .jobs[]? | select(.name == env.WAIT_CDN_IT_JOB) ] | first) as $job
       | ([ $job.steps[]? | select(.name == env.WAIT_CDN_IT_READY_STEP) ] | first) as $step
@@ -302,6 +379,22 @@ fail_before_marker() {
   [ -z "$conclusion" ] || emit_output cdn_it_conclusion "$conclusion"
 }
 
+fail_readiness_deadline() {
+  local detail="$1"
+  local force_timeout="${2:-0}"
+  if [ "$force_timeout" = 1 ] || [ "$ready_observations" -gt 0 ]; then
+    ready_result=timeout
+    wait_result=it_ready_timeout
+  else
+    ready_result=unobservable
+    wait_result=it_ready_unobservable
+  fi
+  echo "::error title=CDN readiness gate deadline::[wait-cdn-build-id] ${detail} (API failures=${ready_api_failures}, authoritative waiting observations=${ready_observations}) before '${WAIT_CDN_IT_READY_STEP}' became ready — the ${timeout_s}s marker budget was NOT consumed and this shard is NOT published"
+  fail_before_marker "$wait_result" "$ready_result" "$ready_elapsed" "$ready_api_failures"
+  emit_summary "🛑 **#7049 CDN readiness gate DEADLINE** after \`${ready_elapsed}s\`: early CDN step not ready (API failures \`${ready_api_failures}\`, waiting observations \`${ready_observations}\`). The marker budget remained untouched; this shard was NOT published."
+  exit 1
+}
+
 # ── #7049 phase 1: wait for the IT leg to REACH the early CDN push ───────────
 # The old single-phase gate started burning its 2700s marker budget as soon as a
 # faster non-IT build finished. Run 33520063656 measured why that is unsound:
@@ -316,17 +409,34 @@ if [ -n "$WAIT_CDN_IT_READY_STEP" ]; then
     it_ready_timeout_s="$clamped_ready"
   fi
   echo "[wait-cdn-build-id] phase 1/2: waiting up to ${it_ready_timeout_s}s for IT step '${WAIT_CDN_IT_READY_STEP}' before starting the ${timeout_s}s marker budget"
+  ready_phase_start_seconds="$SECONDS"
   ready_elapsed=0
   ready_attempt=0
   ready_api_failures=0
   ready_observations=0
   while :; do
     ready_attempt=$((ready_attempt + 1))
+    phase_elapsed_s "$ready_phase_start_seconds"
+    ready_elapsed="$PHASE_ELAPSED_S"
+    job_deadline_remaining_s
+    if [ -n "$JOB_DEADLINE_REMAINING_S" ] && [ "$JOB_DEADLINE_REMAINING_S" -le 0 ]; then
+      fail_readiness_deadline "the hard job deadline (including the post-gate reserve) was reached at phase 1/2 elapsed=${ready_elapsed}s" 1
+    fi
+    command_timeout_s "$((it_ready_timeout_s - ready_elapsed))"
     readiness=""
-    if readiness="$(it_readiness_state)"; then
+    if readiness="$(it_readiness_state "$COMMAND_TIMEOUT_S")"; then
       readiness="$(printf '%s' "$readiness" | tr -d '[:space:]')"
     else
       readiness="unobservable"
+    fi
+    phase_elapsed_s "$ready_phase_start_seconds"
+    ready_elapsed="$PHASE_ELAPSED_S"
+    job_deadline_remaining_s
+    if [ -n "$JOB_DEADLINE_REMAINING_S" ] && [ "$JOB_DEADLINE_REMAINING_S" -le 0 ]; then
+      fail_readiness_deadline "the hard job deadline (including the post-gate reserve) expired during the phase 1/2 API poll at elapsed=${ready_elapsed}s" 1
+    fi
+    if [ "$ready_elapsed" -gt "$it_ready_timeout_s" ]; then
+      fail_readiness_deadline "phase 1/2 exceeded its ${it_ready_timeout_s}s nominal deadline during the API poll"
     fi
     case "$readiness" in
       ready)
@@ -359,20 +469,24 @@ if [ -n "$WAIT_CDN_IT_READY_STEP" ]; then
         ;;
     esac
     if [ "$ready_elapsed" -ge "$it_ready_timeout_s" ]; then
-      if [ "$ready_observations" -gt 0 ]; then
-        ready_result=timeout
-        wait_result=it_ready_timeout
-      else
-        ready_result=unobservable
-        wait_result=it_ready_unobservable
-      fi
-      echo "::error title=CDN readiness gate deadline::[wait-cdn-build-id] phase 1/2 reached its ${it_ready_timeout_s}s deadline (API failures=${ready_api_failures}, authoritative waiting observations=${ready_observations}) before '${WAIT_CDN_IT_READY_STEP}' became ready — the ${timeout_s}s marker budget was NOT consumed and this shard is NOT published"
-      fail_before_marker "$wait_result" "$ready_result" "$ready_elapsed" "$ready_api_failures"
-      emit_summary "🛑 **#7049 CDN readiness gate DEADLINE** after \`${ready_elapsed}s\`: early CDN step not ready (API failures \`${ready_api_failures}\`, waiting observations \`${ready_observations}\`). The marker budget remained untouched; this shard was NOT published."
-      exit 1
+      fail_readiness_deadline "phase 1/2 reached its ${it_ready_timeout_s}s nominal deadline"
     fi
-    sleep "$it_ready_interval_s"
-    ready_elapsed=$((ready_elapsed + it_ready_interval_s))
+    sleep_for="$it_ready_interval_s"
+    phase_remaining=$((it_ready_timeout_s - ready_elapsed))
+    [ "$sleep_for" -le "$phase_remaining" ] || sleep_for="$phase_remaining"
+    job_deadline_remaining_s
+    if [ -n "$JOB_DEADLINE_REMAINING_S" ]; then
+      [ "$sleep_for" -le "$JOB_DEADLINE_REMAINING_S" ] || sleep_for="$JOB_DEADLINE_REMAINING_S"
+    fi
+    if [ "$sleep_for" -gt 0 ]; then
+      if [ -n "$timeout_bin" ]; then
+        run_bounded "$sleep_for" sleep "$sleep_for" || true
+      else
+        sleep "$sleep_for"
+      fi
+      phase_elapsed_s "$ready_phase_start_seconds"
+      ready_elapsed="$PHASE_ELAPSED_S"
+    fi
   done
 fi
 
@@ -380,11 +494,13 @@ fi
 # job as finished-and-not-successful. Prints NOTHING — and never fails the
 # caller — in every other case, including transport errors. See the header.
 it_leg_dead_conclusion() {
+  local command_timeout="${1:-0}"
+  [ "$command_timeout" -ge 1 ] || return 0
   local out
   # `|| true`: a 403/404/rate-limit/network blip must read as "not yet seen",
   # never as a licence to abort. 2>/dev/null keeps a token-scope warning out of
   # the value itself.
-  out="$(gh api \
+  out="$(run_bounded "$command_timeout" gh api \
       "repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/jobs?per_page=100&filter=latest" \
       --jq '[ .jobs[]?
               | select(.name == env.WAIT_CDN_IT_JOB)
@@ -403,6 +519,20 @@ it_leg_dead_conclusion() {
   esac
 }
 
+gate_timeout() {
+  local detail="${1:-}"
+  echo "::error title=CDN ordering gate TIMED OUT::[wait-cdn-build-id] timed out after ${elapsed}s waiting for CDN build id=${expected}${detail} (last seen='${got}') — NOT publishing this shard ahead of the IT CDN push (#2569 atomicity guard)"
+  emit_output cdn_wait_result timeout
+  emit_output cdn_waited_s "$elapsed"
+  emit_output cdn_margin_s 0
+  emit_output cdn_last_seen "$got"
+  emit_output cdn_expected "$expected"
+  emit_output cdn_timeout_s "$timeout_s"
+  emit_output cdn_near_miss "false"
+  emit_summary "🛑 **#2569 CDN ordering gate TIMED OUT** after \`${elapsed}s\` (budget \`${timeout_s}s\`)${detail}. Expected marker \`${expected}\`, last seen \`${got:-<none>}\`. **This shard was NOT published — the live locale is STALE.**"
+  exit 1
+}
+
 clamped_wait="$(clamp_to_job_deadline "$timeout_s")"
 if [ "$clamped_wait" -lt "$timeout_s" ]; then
   echo "[wait-cdn-build-id] #7106 job-deadline safety margin: shrinking phase 2/2 budget from ${timeout_s}s to ${clamped_wait}s so this gate can still exit cleanly before the job's own hard kill"
@@ -411,10 +541,27 @@ fi
 
 echo "[wait-cdn-build-id] phase 2/2: gating shard publish on CDN build id=${expected} (url=${url}, timeout=${timeout_s}s, interval=${interval_s}s, near-miss<${margin_warn_s}s)"
 
+marker_phase_start_seconds="$SECONDS"
 elapsed=0
 attempt=0
 while :; do
   attempt=$((attempt + 1))
+  phase_elapsed_s "$marker_phase_start_seconds"
+  elapsed="$PHASE_ELAPSED_S"
+  job_deadline_remaining_s
+  if [ -n "$JOB_DEADLINE_REMAINING_S" ] && [ "$JOB_DEADLINE_REMAINING_S" -le 0 ]; then
+    got=""
+    gate_timeout " because the hard job deadline (including the post-gate reserve) was reached before another poll"
+  fi
+  if [ "$attempt" -gt 1 ] && [ "$elapsed" -ge "$timeout_s" ]; then
+    got=""
+    gate_timeout
+  fi
+  command_timeout_s "$((timeout_s - elapsed))"
+  if [ "$COMMAND_TIMEOUT_S" -le 0 ]; then
+    got=""
+    gate_timeout " because the hard job deadline (including the post-gate reserve) was reached before the poll"
+  fi
   # #5331: ask the jobs API BEFORE polling the marker, so the marker read below
   # is the last word — if the IT leg pushed the CDN payload and then died in a
   # later step, the payload is live and this shard is still safe to publish.
@@ -422,7 +569,19 @@ while :; do
   # noticing is nothing against the 2700s it saves.
   it_dead=""
   if [ -n "$WAIT_CDN_IT_JOB" ] && [ $(( (attempt - 1) % it_check_every )) -eq 0 ]; then
-    it_dead="$(it_leg_dead_conclusion)"
+    it_dead="$(it_leg_dead_conclusion "$COMMAND_TIMEOUT_S")"
+  fi
+  phase_elapsed_s "$marker_phase_start_seconds"
+  elapsed="$PHASE_ELAPSED_S"
+  job_deadline_remaining_s
+  if [ -n "$JOB_DEADLINE_REMAINING_S" ] && [ "$JOB_DEADLINE_REMAINING_S" -le 0 ]; then
+    got=""
+    gate_timeout " because the hard job deadline (including the post-gate reserve) expired during the IT-leg API poll"
+  fi
+  command_timeout_s "$((timeout_s - elapsed))"
+  if [ "$COMMAND_TIMEOUT_S" -le 0 ]; then
+    got=""
+    gate_timeout " because the hard job deadline (including the post-gate reserve) was reached before the marker poll"
   fi
   # On R2 the marker is published with `no-store`, but append a unique cache-bust
   # query per poll so the Cloudflare edge can NEVER serve a stale id: R2 is
@@ -433,7 +592,7 @@ while :; do
   # `|| true` (and a literal fallback): under a caller's `set -e`/pipefail a
   # curl miss (404 / not-yet-published) must NOT abort — it is the expected
   # transient state we are polling through.
-  got="$(curl -fsS "$poll_url" 2>/dev/null || true)"
+  got="$(run_bounded "$COMMAND_TIMEOUT_S" curl -fsS "$poll_url" 2>/dev/null || true)"
   got="$(printf '%s' "$got" | tr -d '[:space:]')"
   # `got` is REMOTE bytes and is later emitted to $GITHUB_OUTPUT (and from
   # there into an issue body). Whitespace is already gone, which is what keeps
@@ -442,6 +601,15 @@ while :; do
   # Comparison below is unaffected: DEPLOY_BUILD_ID is digits-only (see the
   # "Mint shared digits-only build id" step in deploy.yml).
   got="$(printf '%s' "$got" | LC_ALL=C tr -cd 'A-Za-z0-9._-' | cut -c1-64)"
+  phase_elapsed_s "$marker_phase_start_seconds"
+  elapsed="$PHASE_ELAPSED_S"
+  job_deadline_remaining_s
+  if [ -n "$JOB_DEADLINE_REMAINING_S" ] && [ "$JOB_DEADLINE_REMAINING_S" -le 0 ]; then
+    gate_timeout " because the hard job deadline (including the post-gate reserve) expired during the marker poll"
+  fi
+  if [ "$elapsed" -gt "$timeout_s" ]; then
+    gate_timeout " because phase 2/2 exceeded its ${timeout_s}s nominal deadline during the marker poll"
+  fi
   if [ "$got" = "$expected" ]; then
     margin=$((timeout_s - elapsed))
     echo "[wait-cdn-build-id] ✅ CDN published build id=${expected} after ${elapsed}s (${attempt} polls) — shard publish unblocked"
@@ -483,18 +651,23 @@ while :; do
     exit 1
   fi
   if [ "$elapsed" -ge "$timeout_s" ]; then
-    echo "::error title=CDN ordering gate TIMED OUT::[wait-cdn-build-id] timed out after ${elapsed}s waiting for CDN build id=${expected} (last seen='${got}') — NOT publishing this shard ahead of the IT CDN push (#2569 atomicity guard)"
-    emit_output cdn_wait_result timeout
-    emit_output cdn_waited_s "$elapsed"
-    emit_output cdn_margin_s 0
-    emit_output cdn_last_seen "$got"
-    emit_output cdn_expected "$expected"
-    emit_output cdn_timeout_s "$timeout_s"
-    emit_output cdn_near_miss "false"
-    emit_summary "🛑 **#2569 CDN ordering gate TIMED OUT** after \`${elapsed}s\` (budget \`${timeout_s}s\`). Expected marker \`${expected}\`, last seen \`${got:-<none>}\`. **This shard was NOT published — the live locale is STALE.**"
-    exit 1
+    gate_timeout
   fi
   echo "[wait-cdn-build-id] CDN id='${got}' != '${expected}' (elapsed ${elapsed}s/${timeout_s}s) — retrying in ${interval_s}s"
-  sleep "$interval_s"
-  elapsed=$((elapsed + interval_s))
+  sleep_for="$interval_s"
+  phase_remaining=$((timeout_s - elapsed))
+  [ "$sleep_for" -le "$phase_remaining" ] || sleep_for="$phase_remaining"
+  job_deadline_remaining_s
+  if [ -n "$JOB_DEADLINE_REMAINING_S" ]; then
+    [ "$sleep_for" -le "$JOB_DEADLINE_REMAINING_S" ] || sleep_for="$JOB_DEADLINE_REMAINING_S"
+  fi
+  if [ "$sleep_for" -gt 0 ]; then
+    if [ -n "$timeout_bin" ]; then
+      run_bounded "$sleep_for" sleep "$sleep_for" || true
+    else
+      sleep "$sleep_for"
+    fi
+    phase_elapsed_s "$marker_phase_start_seconds"
+    elapsed="$PHASE_ELAPSED_S"
+  fi
 done

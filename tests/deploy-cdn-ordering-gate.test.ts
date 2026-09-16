@@ -255,9 +255,9 @@ function runGate(args: string[], env: Record<string, string> = {}): GateRun {
  * budget-burning cases below cost the same wall time each whether they run
  * alone or nine at a time.
  *
- * The assertions that pin the budget (`cdn_waited_s`) stay deterministic under
- * load because the script counts polls (`elapsed=$((elapsed + interval_s))`),
- * it does not read a clock.
+ * The assertions that pin the budget (`cdn_waited_s`) stay bounded under load
+ * because the script refreshes an absolute monotonic phase clock after every
+ * child command and sleep.
  */
 function runGateAsync(args: string[], env: Record<string, string> = {}): Promise<GateRun> {
   const { outFile, sumFile } = gateFiles();
@@ -392,6 +392,35 @@ function fakeGh(payload: unknown | null): string {
   return dir;
 }
 
+/** A jobs API stub that stalls longer than the hard-deadline slice. */
+function slowFakeGh(payload: unknown, delaySeconds: number): string {
+  const dir = mkdtempSync(join(tmpdir(), 'slow-fake-gh-'));
+  writeFileSync(join(dir, 'payload.json'), JSON.stringify(payload));
+  writeFileSync(
+    join(dir, 'gh'),
+    [
+      '#!/usr/bin/env bash',
+      `sleep ${delaySeconds}`,
+      'filter="."',
+      'while [ $# -gt 0 ]; do case "$1" in --jq) filter="$2"; shift 2 ;; *) shift ;; esac; done',
+      `jq -r "$filter" < "${join(dir, 'payload.json')}"`,
+    ].join('\n'),
+    { mode: 0o755 },
+  );
+  return dir;
+}
+
+/** A marker endpoint stub that stalls longer than the nominal phase budget. */
+function slowFakeCurl(marker: string, delaySeconds: number): string {
+  const dir = mkdtempSync(join(tmpdir(), 'slow-fake-curl-'));
+  writeFileSync(
+    join(dir, 'curl'),
+    ['#!/usr/bin/env bash', `sleep ${delaySeconds}`, `printf '%s' ${JSON.stringify(marker)}`].join('\n'),
+    { mode: 0o755 },
+  );
+  return dir;
+}
+
 /** A fake jobs API whose authoritative snapshot advances once per `gh` call. */
 function fakeGhSequence(payloads: (unknown | null)[]): string {
   const dir = mkdtempSync(join(tmpdir(), 'fake-gh-sequence-'));
@@ -490,13 +519,14 @@ describe('wait-cdn-build-id.sh — #7049 keeps readiness time out of the marker 
       'old-build',
       'new-build',
     );
+    env.CDN_IT_READY_TIMEOUT_S = '2';
     const r = runGate([_expected], env);
     expect(r.code, 'a missing marker must still keep the shard unpublished').toBe(1);
     expect(r.outputs.cdn_ready_result).toBe('ready');
-    expect(r.outputs.cdn_ready_waited_s, 'phase 1 used its own clock').toBe('1');
+    expect(Number(r.outputs.cdn_ready_waited_s), 'phase 1 used its own clock').toBeGreaterThanOrEqual(1);
     expect(r.outputs.cdn_wait_result).toBe('timeout');
     expect(r.outputs.cdn_waited_s, 'phase 2 still received its full independent budget').toBe('1');
-    expect(r.stdout).toMatch(/phase 1\/2 ready after 1s/);
+    expect(r.stdout).toMatch(/phase 1\/2 ready after \d+s/);
     expect(r.stdout).toMatch(/phase 2\/2: gating shard publish/);
   });
 
@@ -528,12 +558,13 @@ describe('wait-cdn-build-id.sh — #7049 keeps readiness time out of the marker 
 
   it('fails closed on a bounded jobs-API uncertainty even when the marker happens to match', () => {
     const { _expected, ...env } = readinessEnv([null], 'new-build', 'new-build');
+    env.CDN_IT_READY_TIMEOUT_S = '2';
     const r = runGate([_expected], env);
     expect(r.code).toBe(1);
     expect(r.outputs.cdn_ready_result).toBe('unobservable');
     expect(r.outputs.cdn_wait_result).toBe('it_ready_unobservable');
-    expect(r.outputs.cdn_ready_waited_s).toBe('1');
-    expect(r.outputs.cdn_ready_api_failures, 'both bounded polls were uncertain').toBe('2');
+    expect(Number(r.outputs.cdn_ready_waited_s)).toBeGreaterThanOrEqual(1);
+    expect(Number(r.outputs.cdn_ready_api_failures), 'both bounded polls were uncertain').toBeGreaterThanOrEqual(2);
     expect(r.outputs.cdn_waited_s).toBe('0');
     expect(r.stdout).not.toMatch(/CDN published build id/);
   });
@@ -544,10 +575,11 @@ describe('wait-cdn-build-id.sh — #7049 keeps readiness time out of the marker 
       'new-build',
       'new-build',
     );
+    env.CDN_IT_READY_TIMEOUT_S = '2';
     const r = runGate([_expected], env);
     expect(r.code).toBe(0);
     expect(r.outputs.cdn_ready_result).toBe('ready');
-    expect(r.outputs.cdn_ready_waited_s).toBe('1');
+    expect(Number(r.outputs.cdn_ready_waited_s)).toBeGreaterThanOrEqual(1);
     expect(r.outputs.cdn_ready_api_failures).toBe('1');
     expect(r.outputs.cdn_wait_result).toBe('matched');
   });
@@ -610,6 +642,22 @@ describe('wait-cdn-build-id.sh — #7106 job-deadline safety margin', () => {
     expect(r.stdout).toMatch(/#7106 job-deadline safety margin: shrinking phase 2\/2 budget from 3600s to \d+s/);
   });
 
+  it('subtracts an explicit post-gate finish reserve from the hard job deadline', () => {
+    const url = markerUrl('build-42');
+    const now = Math.floor(Date.now() / 1000);
+    const r = runGate(['build-42'], {
+      CDN_BUILD_ID_URL: url,
+      CDN_WAIT_TIMEOUT_S: '3600',
+      CDN_WAIT_INTERVAL_S: '1',
+      CDN_JOB_START_EPOCH: String(now - 10), // 5s remain before the hard deadline
+      CDN_JOB_DEADLINE_S: '15',
+      CDN_JOB_FINISH_RESERVE_S: '3', // 2s remain for the gate after the reserve
+    });
+    expect(r.code).toBe(0);
+    expect(r.stdout).toMatch(/hard deadline 15s, finish reserve 3s/);
+    expect(r.stdout).toMatch(/shrinking phase 2\/2 budget from 3600s to \d+s/);
+  });
+
   it('exits cleanly with a plain timeout — never a hang — once the job deadline has already passed', () => {
     const url = markerUrl('an-older-build');
     const now = Math.floor(Date.now() / 1000);
@@ -648,6 +696,77 @@ describe('wait-cdn-build-id.sh — #7106 job-deadline safety margin', () => {
       '0',
     );
   });
+
+  it('kills an in-flight jobs-API poll at the monotonic deadline and keeps the shard unpublished', () => {
+    const now = Math.floor(Date.now() / 1000);
+    const gh = slowFakeGh(
+      readinessPayload('in_progress', null, EARLY_CDN_STEP, 'in_progress'),
+      10,
+    );
+    const t0 = Date.now();
+    const r = runGate(['new-build'], {
+      PATH: `${gh}:${process.env.PATH ?? ''}`,
+      CDN_BUILD_ID_URL: markerUrl('new-build'),
+      CDN_IT_JOB_NAME: 'build-locale (it)',
+      CDN_IT_READY_STEP_NAME: EARLY_CDN_STEP,
+      CDN_IT_READY_TIMEOUT_S: '30',
+      CDN_IT_READY_INTERVAL_S: '1',
+      CDN_WAIT_TIMEOUT_S: '30',
+      CDN_WAIT_INTERVAL_S: '1',
+      CDN_JOB_START_EPOCH: String(now - 1),
+      CDN_JOB_DEADLINE_S: '3',
+      CDN_JOB_FINISH_RESERVE_S: '1',
+      GH_TOKEN: 'fake-token',
+      GITHUB_REPOSITORY: 'valerielinc-ops/frontaliere-si-o-no',
+      GITHUB_RUN_ID: '33520063656',
+    });
+    expect(r.code).toBe(1);
+    expect(Date.now() - t0, 'a stalled API call must not consume the ten-second fake delay').toBeLessThan(5000);
+    expect(r.outputs.cdn_ready_result).toBe('timeout');
+    expect(r.outputs.cdn_wait_result).toBe('it_ready_timeout');
+    expect(r.outputs.cdn_waited_s).toBe('0');
+    expect(r.stdout).toMatch(/hard job deadline/);
+  });
+
+  it('charges an in-flight readiness poll to its nominal phase budget', () => {
+    const gh = slowFakeGh(readinessPayload('in_progress', null, EARLY_CDN_STEP, 'in_progress'), 10);
+    const t0 = Date.now();
+    const r = runGate(['new-build'], {
+      PATH: `${gh}:${process.env.PATH ?? ''}`,
+      CDN_BUILD_ID_URL: markerUrl('new-build'),
+      CDN_IT_JOB_NAME: 'build-locale (it)',
+      CDN_IT_READY_STEP_NAME: EARLY_CDN_STEP,
+      CDN_IT_READY_TIMEOUT_S: '2',
+      CDN_IT_READY_INTERVAL_S: '1',
+      CDN_WAIT_TIMEOUT_S: '30',
+      CDN_WAIT_INTERVAL_S: '1',
+      CDN_IT_CHECK_EVERY_N: '1',
+      GH_TOKEN: 'fake-token',
+      GITHUB_REPOSITORY: 'valerielinc-ops/frontaliere-si-o-no',
+      GITHUB_RUN_ID: '33520063656',
+    });
+    expect(r.code).toBe(1);
+    expect(Date.now() - t0, 'a stalled API call must not be retried after the phase budget').toBeLessThan(5000);
+    expect(Number(r.outputs.cdn_ready_waited_s)).toBeGreaterThanOrEqual(2);
+    expect(r.outputs.cdn_ready_result).toBe('unobservable');
+    expect(r.outputs.cdn_wait_result).toBe('it_ready_unobservable');
+    expect(r.outputs.cdn_waited_s).toBe('0');
+  });
+
+  it('charges an in-flight marker poll to its nominal phase budget', () => {
+    const curl = slowFakeCurl('old-build', 10);
+    const t0 = Date.now();
+    const r = runGate(['new-build'], {
+      PATH: `${curl}:${process.env.PATH ?? ''}`,
+      CDN_BUILD_ID_URL: markerUrl('old-build'),
+      CDN_WAIT_TIMEOUT_S: '2',
+      CDN_WAIT_INTERVAL_S: '1',
+    });
+    expect(r.code).toBe(1);
+    expect(Date.now() - t0, 'a stalled marker call must not be retried after the phase budget').toBeLessThan(5000);
+    expect(Number(r.outputs.cdn_waited_s)).toBeGreaterThanOrEqual(2);
+    expect(r.outputs.cdn_wait_result).toBe('timeout');
+  });
 });
 
 /** Gate env wired for the abort, pointed at a fake `gh` serving `payload`. */
@@ -676,7 +795,7 @@ describe('wait-cdn-build-id.sh — abort the moment the IT leg can no longer pub
     expect(r.code, 'an aborted gate must still NOT let the shard publish').toBe(1);
     // The whole point: 0s waited against a 6s budget. Before #5331 this was 6s
     // (2700s in production).
-    expect(r.outputs.cdn_waited_s, 'must abort on the first poll, not at the budget').toBe('0');
+    expect(Number(r.outputs.cdn_waited_s), 'must abort on the first poll, not at the budget').toBeLessThan(6);
     expect(Date.now() - t0, 'must return well before the budget elapses').toBeLessThan(5000);
     expect(r.outputs.cdn_wait_result).toBe('it_leg_failed');
     expect(r.outputs.cdn_it_conclusion).toBe('failure');
@@ -782,7 +901,7 @@ describe('wait-cdn-build-id.sh — abort the moment the IT leg can no longer pub
       expect(r.outputs.cdn_it_conclusion).toBeUndefined();
       // Spent the whole budget: proof it really kept polling rather than
       // short-circuiting on an ambiguous answer.
-      expect(r.outputs.cdn_waited_s).toBe('6');
+      expect(Number(r.outputs.cdn_waited_s)).toBeGreaterThanOrEqual(6);
       expect(r.stdout).not.toMatch(/ABORTED/);
     },
   );
@@ -863,7 +982,7 @@ describe('deploy.yml — the #5331 abort is actually wired to the gate step', ()
     ).toMatch(/if: matrix\.locale == 'it'/);
   });
 
-  it('#7106 anchors the gate to this leg\'s own job-start clock and holds back 30min under the platform hard-kill', () => {
+  it('#7106 anchors the gate to this leg\'s hard six-hour clock with an explicit finish reserve', () => {
     const jobStart = DEPLOY_YML.indexOf('\n  build-locale:');
     const stepsIdx = DEPLOY_YML.indexOf('\n    steps:', jobStart);
     const firstStepIdx = DEPLOY_YML.indexOf('\n      - name:', stepsIdx);
@@ -878,14 +997,15 @@ describe('deploy.yml — the #5331 abort is actually wired to the gate step', ()
     expect(gate, 'the gate must read the SAME clock the first step wrote').toMatch(
       /CDN_JOB_START_EPOCH: \$\{\{ env\.CDN_JOB_START_EPOCH \}\}/,
     );
-    expect(gate, '19800s = (360 - 30) * 60 — derived from timeout-minutes below, not an independent guess').toMatch(
-      /CDN_JOB_DEADLINE_S: 19800/,
+    expect(gate, 'the hard deadline must match timeout-minutes below, not an independent guess').toMatch(
+      /CDN_JOB_DEADLINE_S: 21600/,
     );
+    expect(gate, 'the post-gate finish reserve must be explicit and measured').toMatch(/CDN_JOB_FINISH_RESERVE_S: 180/);
 
     const job = DEPLOY_YML.slice(jobStart, stepsIdx);
     expect(
       job,
-      'timeout-minutes is the input the 19800s constant is derived from — a drift here must be caught',
+      'timeout-minutes is the input the 21600s hard deadline is derived from — a drift here must be caught',
     ).toMatch(/^ {4}timeout-minutes: 360$/m);
   });
 
