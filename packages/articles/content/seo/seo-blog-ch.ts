@@ -84026,6 +84026,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-assicurazione-salute-glarona-sussidio': {
+    title: 'LAMal Glarona: franchigie, sussidio e scelta modello',
+    description: 'Scopri come funziona l’assicurazione LAMal in Glarona: scadenza a 3 mesi, franchigie da 300 a 2 500 CHF e sussidio cantonale basato su reddito e famiglia.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lamal, glarona, franchigie, sussidio',
+    ogTitle: 'LAMal Glarona: franchigie, sussidio e modelli assicurativi',
+    ogDescription: 'In Glarona l’assicurazione malattia obbligatoria deve essere stipulata entro tre mesi, con franchigie comprese tra 300 e 2 500 CHF. Il cantone offre sussidi per chi rispetta criteri di reddito e composizione familiare, oltre a modelli HMO e telmed',
+    canonicalPath: '/articoli-svizzera/assicurazione-salute-glarona-sussidio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "LAMal Glarona: franchigie, sussidio e scelta modello",
+      "description": "Scopri come funziona l’assicurazione LAMal in Glarona: scadenza a 3 mesi, franchigie da 300 a 2 500 CHF e sussidio cantonale basato su reddito e famiglia.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assicurazione-salute-glarona-sussidio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Villaggio svizzero di Glarona con clinica moderna, simbolo dell'assicurazione sanitaria."
+      },
+      "datePublished": "2026-09-16T10:26:48+00:00",
+      "dateModified": "2026-09-16T10:26:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/assicurazione-salute-glarona-sussidio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

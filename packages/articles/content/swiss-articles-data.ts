@@ -19418,6 +19418,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'assicurazione-salute-glarona-sussidio',
+    category: 'pratico',
+    date: '2026-09-16T10:26:48.561Z',
+    image: '/images/blog/assicurazione-salute-glarona-sussidio.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

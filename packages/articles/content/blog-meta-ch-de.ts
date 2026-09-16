@@ -6482,6 +6482,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.calcio-hockey-svizzera-economia-pubblico.title': 'Fußball und Hockey in der Schweiz, zwischen Wirtschaft und Popularität',
     'blog.article.calcio-hockey-svizzera-economia-pubblico.excerpt': 'Ökonomische und öffentliche Analyse von Fußball und Eishockey in der Schweiz: Einnahmen aus der Super League, Eishockeyschätzungen und Stadionauftritte.',
     'blog.article.calcio-hockey-svizzera-economia-pubblico.imageAlt': 'Wirtschaftlicher Vergleich zwischen Fussball und Eishockey in der Schweiz',
+    'blog.article.assicurazione-salute-glarona-sussidio.title': 'KVG Glarus: Selbstbehalte, Beitrag und Modellwahl',
+    'blog.article.assicurazione-salute-glarona-sussidio.excerpt': 'In Glarus ist die KVG-Versicherung innerhalb von 3 Monaten obligatorisch, mit Franchisen von 300 bis 2 500 CHF und möglichen kantonalen Ermäßigungen aufgrund von Einkommen und Familienzusammensetzung.',
+    'blog.article.assicurazione-salute-glarona-sussidio.imageAlt': 'Schweizer Dorf in Glarus mit moderner Klinik, Symbol für Krankenversicherung.',
 };
 
 export default blogMetaChDe;
