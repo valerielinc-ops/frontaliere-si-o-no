@@ -6473,6 +6473,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.turismo-svizzera-estate-normalizzazione.title': 'Schweiz Tourismus, Sommernachfrage normalisiert sich',
     'blog.article.turismo-svizzera-estate-normalizzazione.excerpt': 'Die August-Daten bestätigen eine langsame Normalisierung der touristischen Nachfrage in der Eidgenossenschaft zwischen Golf- und asiatischen Einbrüchen und Binnenboom.',
     'blog.article.turismo-svizzera-estate-normalizzazione.imageAlt': 'Sommerpanorama in der Schweiz mit Touristen und alpinen Zielen',
+    'blog.article.fides-26-polizia-esercito-berna.title': 'Fidesübung 26: Polizei und Armee in Bern',
+    'blog.article.fides-26-polizia-esercito-berna.excerpt': 'Die Zusammenarbeit von Polizei und Armee bei der Übung FIDES 26 im Kanton Bern hat rund 180 Polizisten und tausend Soldaten mobilisiert.',
+    'blog.article.fides-26-polizia-esercito-berna.imageAlt': 'Gemeinsame Übung von Polizei und Armee FIDES 26 im Kanton Bern',
 };
 
 export default blogMetaChDe;

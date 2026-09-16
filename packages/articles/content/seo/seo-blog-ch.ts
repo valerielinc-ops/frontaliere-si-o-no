@@ -83909,6 +83909,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fides-26-polizia-esercito-berna': {
+    title: 'Esercitazione FIDES 26: polizia ed esercito a Berna',
+    description: 'Scopri i risultati dell\'esercitazione congiunta FIDES 26 nel cantone di Berna tra polizia cantonale ed esercito svizzero contro minacce ibride. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, esercitazione, fides, polizia, esercito',
+    ogTitle: 'Esercitazione FIDES 26: polizia ed esercito nel canton Berna',
+    ogDescription: 'Dettagli e scenari dell\'esercitazione congiunta FIDES 26 nel canton Berna. Coinvolti 180 poliziotti e mille soldati contro minacce ibride e attacchi informatici.',
+    canonicalPath: '/articoli-svizzera/fides-26-polizia-esercito-berna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Esercitazione FIDES 26: polizia ed esercito a Berna",
+      "description": "Scopri i risultati dell'esercitazione congiunta FIDES 26 nel cantone di Berna tra polizia cantonale ed esercito svizzero contro minacce ibride. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/fides-26-polizia-esercito-berna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Esercitazione congiunta tra polizia ed esercito FIDES 26 nel cantone di Berna"
+      },
+      "datePublished": "2026-09-16T02:26:07+00:00",
+      "dateModified": "2026-09-16T02:26:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/fides-26-polizia-esercito-berna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
