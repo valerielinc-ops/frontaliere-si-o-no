@@ -11793,6 +11793,11 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tpl-como-lecco-varese-bilancio-2026.title': 'Agence TPL : Bilan de Durabilité et téléphériques gratuits',
     'blog.article.tpl-como-lecco-varese-bilancio-2026.excerpt': 'L\'Agence TPL présente le Bilan de Durabilité et offre une journée d\'accès gratuit à sept installations à câbles du 16 au 22 septembre.',
     'blog.article.tpl-como-lecco-varese-bilancio-2026.imageAlt': 'Présentation du rapport de durabilité de l agence TPL',
+    'blog.article.bollettino-frontaliere-2026-09-16.title': 'Bulletin du frontalier – 16 septembre 2026 : franc à 1,0587 €',
+    'blog.article.bollettino-frontaliere-2026-09-16.excerpt': 'Les chiffres du jour, 16 septembre 2026, pour les frontaliers : les attentes relevées ce matin à chaque douane, les communes où l\'essence coûte le moins cher, le taux franc-euro à la clôture et les offres d\'emploi parues en Suisse. Des données de notre suivi, relevées chaque jour.',
+    'blog.article.bollettino-frontaliere-2026-09-16.imageAlt': 'Les chiffres du jour pour les frontaliers – 16 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
+    'blog.article.bollettino-frontaliere-2026-09-16.seoDescription': 'Bulletin du frontalier du 16 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
+    'blog.article.bollettino-frontaliere-2026-09-16.ogDescription': 'Les chiffres du 16 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
 };
 
 export default blogMetaFr;
