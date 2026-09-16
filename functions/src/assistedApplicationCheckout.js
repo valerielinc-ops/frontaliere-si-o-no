@@ -144,6 +144,9 @@ function pendingOrderData(order, orderId, userId, requestKeyHash, checkoutAttemp
     consentedAt: null,
     submittedAt: null,
     refundedAt: null,
+    stripePaymentIntentId: null,
+    stripeChargeId: null,
+    stripeRefundId: null,
     retentionPurgedAt: null,
     createdAt: admin.firestore.FieldValue.serverTimestamp(),
     updatedAt: admin.firestore.FieldValue.serverTimestamp(),
@@ -360,7 +363,60 @@ export async function handleAssistedApplicationWebhookEvent(event, { db: dbFn, t
   const isAsyncSucceeded = event.type === 'checkout.session.async_payment_succeeded';
   const isAsyncFailed = event.type === 'checkout.session.async_payment_failed';
   const isExpired = event.type === 'checkout.session.expired';
-  if (!isCompleted && !isAsyncSucceeded && !isAsyncFailed && !isExpired) return false;
+  const isChargeRefunded = event.type === 'charge.refunded';
+  if (!isCompleted && !isAsyncSucceeded && !isAsyncFailed && !isExpired && !isChargeRefunded) return false;
+
+  const firestore = dbFn();
+
+  // A one-off assisted payment can also be refunded from the Stripe dashboard.
+  // Stripe normally carries the PaymentIntent metadata onto the charge; the
+  // lookup fallback keeps older orders reachable when only payment_intent is
+  // present on the charge payload.
+  if (isChargeRefunded) {
+    let orderId = boundedString(obj.metadata?.orderId, 200);
+    let orderRef = orderId
+      ? firestore.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId)
+      : null;
+    if (obj.metadata?.product && obj.metadata.product !== ASSISTED_APPLICATION_PRODUCT) return false;
+    if (!orderRef) {
+      const paymentIntentId = boundedString(obj.payment_intent, 200);
+      const collection = firestore.collection(ASSISTED_APPLICATIONS_COLLECTION);
+      if (!paymentIntentId || typeof collection.where !== 'function') return false;
+      const matches = await collection.where('stripePaymentIntentId', '==', paymentIntentId).limit(1).get();
+      const match = matches.docs?.[0];
+      if (!match) return false;
+      orderId = match.id;
+      orderRef = match.ref;
+    }
+    if (!orderRef) return true;
+
+    await firestore.runTransaction(async (transaction) => {
+      const currentSnapshot = await transaction.get(orderRef);
+      const currentOrder = currentSnapshot.exists ? currentSnapshot.data() || {} : null;
+      if (!currentSnapshot.exists || currentOrder.submissionStatus === 'refunded') return;
+      const refundId = boundedString(obj.refunds?.data?.[0]?.id, 200);
+      transaction.set(orderRef, {
+        paymentStatus: 'refunded',
+        submissionStatus: 'refunded',
+        stripePaymentIntentId: boundedString(obj.payment_intent, 200) || null,
+        stripeChargeId: boundedString(obj.id, 200) || null,
+        stripeRefundId: refundId || null,
+        refundedAt: ts,
+        statusChangedAt: ts,
+        updatedAt: ts,
+      }, { merge: true });
+      transaction.set(orderRef.collection('events').doc(`refund-${refundId || obj.id || orderId}`), {
+        eventType: 'refund_issued',
+        actor: 'stripe_webhook',
+        refundId: refundId || null,
+        fromStatus: boundedString(currentOrder.submissionStatus, 80) || null,
+        toStatus: 'refunded',
+        createdAt: ts,
+      });
+    });
+    return true;
+  }
+
   if (obj.metadata?.product !== ASSISTED_APPLICATION_PRODUCT) return false;
 
   const orderId = boundedString(obj.metadata?.orderId || obj.client_reference_id, 200);
@@ -400,6 +456,9 @@ export async function handleAssistedApplicationWebhookEvent(event, { db: dbFn, t
     submissionStatus: paymentStatus === 'paid' ? 'awaiting_upload' : 'awaiting_payment',
     checkoutSessionStatus,
     stripeSessionId: obj.id || null,
+    stripePaymentIntentId: typeof obj.payment_intent === 'string'
+      ? obj.payment_intent
+      : obj.payment_intent?.id || null,
     amountTotal: typeof obj.amount_total === 'number' ? obj.amount_total : null,
     currency: obj.currency || ASSISTED_APPLICATION_CURRENCY,
     customerEmail: obj.customer_details?.email || obj.customer_email || null,
@@ -408,7 +467,6 @@ export async function handleAssistedApplicationWebhookEvent(event, { db: dbFn, t
     ...(paymentFailureReason ? { paymentFailureReason } : {}),
   };
 
-  const firestore = dbFn();
   const orderRef = firestore.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
   await firestore.runTransaction(async (transaction) => {
     const currentSnapshot = await transaction.get(orderRef);
