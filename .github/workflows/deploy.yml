@@ -2309,14 +2309,24 @@ jobs:
           # already at GitHub's hard per-job ceiling for hosted runners (6h,
           # fixed platform-wide — it cannot be raised further, so "is it big
           # enough" has to be answered by shrinking THIS gate, not by growing
-          # the job). 19800 = (360 - 30) * 60: 30 minutes held back for the
-          # finish steps after this gate (push shard, purge, report) plus
-          # runner/provisioning overhead. Anchored to CDN_JOB_START_EPOCH (set
-          # by the very first step of this job), so it absorbs however long
-          # Build+shard-push actually took on THIS run before shrinking either
-          # phase's budget.
+          # the job). Keep the hard platform ceiling and the post-gate reserve
+          # separate: 21600 = 360 * 60, and 180s is the measured finish window
+          # for the critical locale-shard push/purge/report path. The end-to-end
+          # post-gate measurement in run 34956104680
+          # (https://github.com/valerielinc-ops/frontaliere-si-o-no/actions/runs/34956104680)
+          # recorded 114s (de), 113s (en), and 109s (fr) from gate success to
+          # job finish, including each shard push, purge, cleanup, and report;
+          # the maximum is below the 180s reserve. The earlier 119-push sample
+          # maxed at 83s, and is retained as a historical cross-check. The
+          # previous effective 19800s deadline reserved 30min from the job
+          # start and stopped a still-healthy IT build before its early CDN
+          # step on slow runs.
+          # Anchored to CDN_JOB_START_EPOCH (set by the very first step of this
+          # job), so it absorbs however long Build+shard-push actually took on
+          # THIS run before shrinking either phase's budget.
           CDN_JOB_START_EPOCH: ${{ env.CDN_JOB_START_EPOCH }}
-          CDN_JOB_DEADLINE_S: 19800
+          CDN_JOB_DEADLINE_S: 21600
+          CDN_JOB_FINISH_RESERVE_S: 180
         run: bash scripts/lib/wait-cdn-build-id.sh "${DEPLOY_BUILD_ID}"
 
       - name: Push locale shard
