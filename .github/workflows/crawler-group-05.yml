@@ -78,6 +78,7 @@ jobs:
       CRAWLER_GENERATION_TOKEN: ${{ inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}
       CRAWLER_GENERATION_RECEIPT_DIR: crawler-generation/receipts
       CRAWLER_GROUP_COMMIT_DIR: crawler-generation/commit-batch
+      CRAWLER_GROUP_MAX_PARALLEL: "4"
       DATA_PIPELINE_LEASE: "1"
     steps:
       - name: Checkout
@@ -115,8 +116,13 @@ jobs:
         uses: ./.github/actions/setup-claude-haiku-fallback
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+      - name: Confirm crawler shared setup succeeded
+        id: crawler_group_setup
+        run: "true"
       - name: Launch klinik-schuetzen
         id: crawler-launch-klinik-schuetzen
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-klinik-schuetzen.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
@@ -132,13 +138,15 @@ jobs:
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
-          mkdir -p "$state_dir"
+          mkdir -p "$state_dir/slots"
           script_path="$state_dir/klinik-schuetzen.sh"
           launcher_path="$state_dir/klinik-schuetzen.launcher.sh"
+          worker_path="$state_dir/klinik-schuetzen.worker.sh"
           log_path="$state_dir/klinik-schuetzen.log"
           pid_path="$state_dir/klinik-schuetzen.pid"
           status_path="$state_dir/klinik-schuetzen.status"
-          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          started_path="$state_dir/klinik-schuetzen.started"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -193,11 +201,66 @@ jobs:
           script_path="$RUNNER_TEMP/crawler-generation/group-05/klinik-schuetzen.sh"
           status_file="$RUNNER_TEMP/crawler-generation/group-05/klinik-schuetzen.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-05/klinik-schuetzen.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/klinik-schuetzen.started"
+          : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
           printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
           mv "$status_tmp" "$status_file"
-          exit "$crawler_exit"' > "$launcher_path"
+          exit "$crawler_exit"' > "$worker_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-05"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-05/klinik-schuetzen.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-05/klinik-schuetzen.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-05/klinik-schuetzen.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/klinik-schuetzen.started"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            printf '\''1\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 1
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            bash "$worker_path"
+            exit $?
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                exit 0
+              fi
+              if [ -s "$status_file" ]; then
+                status="$(cat "$status_file" 2>/dev/null || true)"
+                if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+                printf '\''1\n'\'' > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit 1
+              fi
+              if [ -e "$started_file" ]; then
+                # A worker that acquired a slot but disappeared before its atomic
+                # status write must not be retried or waited on for the full budget.
+                # Preserve the child status when available; 143 is the conventional
+                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$flock_exit"
+                if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                printf '\''%s\n'\'' "$flock_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$flock_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
             env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
@@ -207,6 +270,8 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch epi-geneve
         id: crawler-launch-epi-geneve
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-epi-geneve.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
@@ -222,13 +287,15 @@ jobs:
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
-          mkdir -p "$state_dir"
+          mkdir -p "$state_dir/slots"
           script_path="$state_dir/epi-geneve.sh"
           launcher_path="$state_dir/epi-geneve.launcher.sh"
+          worker_path="$state_dir/epi-geneve.worker.sh"
           log_path="$state_dir/epi-geneve.log"
           pid_path="$state_dir/epi-geneve.pid"
           status_path="$state_dir/epi-geneve.status"
-          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          started_path="$state_dir/epi-geneve.started"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -283,11 +350,66 @@ jobs:
           script_path="$RUNNER_TEMP/crawler-generation/group-05/epi-geneve.sh"
           status_file="$RUNNER_TEMP/crawler-generation/group-05/epi-geneve.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-05/epi-geneve.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/epi-geneve.started"
+          : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
           printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
           mv "$status_tmp" "$status_file"
-          exit "$crawler_exit"' > "$launcher_path"
+          exit "$crawler_exit"' > "$worker_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-05"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-05/epi-geneve.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-05/epi-geneve.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-05/epi-geneve.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/epi-geneve.started"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            printf '\''1\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 1
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            bash "$worker_path"
+            exit $?
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                exit 0
+              fi
+              if [ -s "$status_file" ]; then
+                status="$(cat "$status_file" 2>/dev/null || true)"
+                if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+                printf '\''1\n'\'' > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit 1
+              fi
+              if [ -e "$started_file" ]; then
+                # A worker that acquired a slot but disappeared before its atomic
+                # status write must not be retried or waited on for the full budget.
+                # Preserve the child status when available; 143 is the conventional
+                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$flock_exit"
+                if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                printf '\''%s\n'\'' "$flock_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$flock_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
             env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
@@ -297,6 +419,8 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch kempinski
         id: crawler-launch-kempinski
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-kempinski.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
@@ -312,13 +436,15 @@ jobs:
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
-          mkdir -p "$state_dir"
+          mkdir -p "$state_dir/slots"
           script_path="$state_dir/kempinski.sh"
           launcher_path="$state_dir/kempinski.launcher.sh"
+          worker_path="$state_dir/kempinski.worker.sh"
           log_path="$state_dir/kempinski.log"
           pid_path="$state_dir/kempinski.pid"
           status_path="$state_dir/kempinski.status"
-          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          started_path="$state_dir/kempinski.started"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -373,11 +499,66 @@ jobs:
           script_path="$RUNNER_TEMP/crawler-generation/group-05/kempinski.sh"
           status_file="$RUNNER_TEMP/crawler-generation/group-05/kempinski.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-05/kempinski.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/kempinski.started"
+          : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
           printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
           mv "$status_tmp" "$status_file"
-          exit "$crawler_exit"' > "$launcher_path"
+          exit "$crawler_exit"' > "$worker_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-05"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-05/kempinski.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-05/kempinski.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-05/kempinski.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/kempinski.started"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            printf '\''1\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 1
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            bash "$worker_path"
+            exit $?
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                exit 0
+              fi
+              if [ -s "$status_file" ]; then
+                status="$(cat "$status_file" 2>/dev/null || true)"
+                if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+                printf '\''1\n'\'' > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit 1
+              fi
+              if [ -e "$started_file" ]; then
+                # A worker that acquired a slot but disappeared before its atomic
+                # status write must not be retried or waited on for the full budget.
+                # Preserve the child status when available; 143 is the conventional
+                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$flock_exit"
+                if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                printf '\''%s\n'\'' "$flock_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$flock_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
             env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
@@ -387,6 +568,8 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch vaxcyte
         id: crawler-launch-vaxcyte
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-vaxcyte.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
@@ -402,13 +585,15 @@ jobs:
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
-          mkdir -p "$state_dir"
+          mkdir -p "$state_dir/slots"
           script_path="$state_dir/vaxcyte.sh"
           launcher_path="$state_dir/vaxcyte.launcher.sh"
+          worker_path="$state_dir/vaxcyte.worker.sh"
           log_path="$state_dir/vaxcyte.log"
           pid_path="$state_dir/vaxcyte.pid"
           status_path="$state_dir/vaxcyte.status"
-          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          started_path="$state_dir/vaxcyte.started"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -463,11 +648,66 @@ jobs:
           script_path="$RUNNER_TEMP/crawler-generation/group-05/vaxcyte.sh"
           status_file="$RUNNER_TEMP/crawler-generation/group-05/vaxcyte.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-05/vaxcyte.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/vaxcyte.started"
+          : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
           printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
           mv "$status_tmp" "$status_file"
-          exit "$crawler_exit"' > "$launcher_path"
+          exit "$crawler_exit"' > "$worker_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-05"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-05/vaxcyte.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-05/vaxcyte.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-05/vaxcyte.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/vaxcyte.started"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            printf '\''1\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 1
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            bash "$worker_path"
+            exit $?
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                exit 0
+              fi
+              if [ -s "$status_file" ]; then
+                status="$(cat "$status_file" 2>/dev/null || true)"
+                if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+                printf '\''1\n'\'' > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit 1
+              fi
+              if [ -e "$started_file" ]; then
+                # A worker that acquired a slot but disappeared before its atomic
+                # status write must not be retried or waited on for the full budget.
+                # Preserve the child status when available; 143 is the conventional
+                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$flock_exit"
+                if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                printf '\''%s\n'\'' "$flock_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$flock_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
             env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
@@ -477,6 +717,8 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch tether
         id: crawler-launch-tether
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-tether.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
@@ -492,13 +734,15 @@ jobs:
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
-          mkdir -p "$state_dir"
+          mkdir -p "$state_dir/slots"
           script_path="$state_dir/tether.sh"
           launcher_path="$state_dir/tether.launcher.sh"
+          worker_path="$state_dir/tether.worker.sh"
           log_path="$state_dir/tether.log"
           pid_path="$state_dir/tether.pid"
           status_path="$state_dir/tether.status"
-          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          started_path="$state_dir/tether.started"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -553,11 +797,66 @@ jobs:
           script_path="$RUNNER_TEMP/crawler-generation/group-05/tether.sh"
           status_file="$RUNNER_TEMP/crawler-generation/group-05/tether.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-05/tether.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/tether.started"
+          : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
           printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
           mv "$status_tmp" "$status_file"
-          exit "$crawler_exit"' > "$launcher_path"
+          exit "$crawler_exit"' > "$worker_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-05"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-05/tether.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-05/tether.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-05/tether.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/tether.started"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            printf '\''1\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 1
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            bash "$worker_path"
+            exit $?
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                exit 0
+              fi
+              if [ -s "$status_file" ]; then
+                status="$(cat "$status_file" 2>/dev/null || true)"
+                if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+                printf '\''1\n'\'' > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit 1
+              fi
+              if [ -e "$started_file" ]; then
+                # A worker that acquired a slot but disappeared before its atomic
+                # status write must not be retried or waited on for the full budget.
+                # Preserve the child status when available; 143 is the conventional
+                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$flock_exit"
+                if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                printf '\''%s\n'\'' "$flock_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$flock_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
             env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
@@ -567,6 +866,8 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch schulthess-klinik
         id: crawler-launch-schulthess-klinik
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-schulthess-klinik.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
@@ -582,13 +883,15 @@ jobs:
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
-          mkdir -p "$state_dir"
+          mkdir -p "$state_dir/slots"
           script_path="$state_dir/schulthess-klinik.sh"
           launcher_path="$state_dir/schulthess-klinik.launcher.sh"
+          worker_path="$state_dir/schulthess-klinik.worker.sh"
           log_path="$state_dir/schulthess-klinik.log"
           pid_path="$state_dir/schulthess-klinik.pid"
           status_path="$state_dir/schulthess-klinik.status"
-          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          started_path="$state_dir/schulthess-klinik.started"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -643,11 +946,66 @@ jobs:
           script_path="$RUNNER_TEMP/crawler-generation/group-05/schulthess-klinik.sh"
           status_file="$RUNNER_TEMP/crawler-generation/group-05/schulthess-klinik.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-05/schulthess-klinik.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/schulthess-klinik.started"
+          : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
           printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
           mv "$status_tmp" "$status_file"
-          exit "$crawler_exit"' > "$launcher_path"
+          exit "$crawler_exit"' > "$worker_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-05"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-05/schulthess-klinik.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-05/schulthess-klinik.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-05/schulthess-klinik.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/schulthess-klinik.started"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            printf '\''1\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 1
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            bash "$worker_path"
+            exit $?
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                exit 0
+              fi
+              if [ -s "$status_file" ]; then
+                status="$(cat "$status_file" 2>/dev/null || true)"
+                if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+                printf '\''1\n'\'' > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit 1
+              fi
+              if [ -e "$started_file" ]; then
+                # A worker that acquired a slot but disappeared before its atomic
+                # status write must not be retried or waited on for the full budget.
+                # Preserve the child status when available; 143 is the conventional
+                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$flock_exit"
+                if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                printf '\''%s\n'\'' "$flock_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$flock_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
             env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
@@ -657,6 +1015,8 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch vitrea-gesundheit
         id: crawler-launch-vitrea-gesundheit
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-vitrea-gesundheit.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
@@ -672,13 +1032,15 @@ jobs:
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
-          mkdir -p "$state_dir"
+          mkdir -p "$state_dir/slots"
           script_path="$state_dir/vitrea-gesundheit.sh"
           launcher_path="$state_dir/vitrea-gesundheit.launcher.sh"
+          worker_path="$state_dir/vitrea-gesundheit.worker.sh"
           log_path="$state_dir/vitrea-gesundheit.log"
           pid_path="$state_dir/vitrea-gesundheit.pid"
           status_path="$state_dir/vitrea-gesundheit.status"
-          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          started_path="$state_dir/vitrea-gesundheit.started"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -733,11 +1095,66 @@ jobs:
           script_path="$RUNNER_TEMP/crawler-generation/group-05/vitrea-gesundheit.sh"
           status_file="$RUNNER_TEMP/crawler-generation/group-05/vitrea-gesundheit.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-05/vitrea-gesundheit.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/vitrea-gesundheit.started"
+          : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
           printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
           mv "$status_tmp" "$status_file"
-          exit "$crawler_exit"' > "$launcher_path"
+          exit "$crawler_exit"' > "$worker_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-05"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-05/vitrea-gesundheit.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-05/vitrea-gesundheit.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-05/vitrea-gesundheit.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/vitrea-gesundheit.started"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            printf '\''1\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 1
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            bash "$worker_path"
+            exit $?
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                exit 0
+              fi
+              if [ -s "$status_file" ]; then
+                status="$(cat "$status_file" 2>/dev/null || true)"
+                if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+                printf '\''1\n'\'' > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit 1
+              fi
+              if [ -e "$started_file" ]; then
+                # A worker that acquired a slot but disappeared before its atomic
+                # status write must not be retried or waited on for the full budget.
+                # Preserve the child status when available; 143 is the conventional
+                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$flock_exit"
+                if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                printf '\''%s\n'\'' "$flock_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$flock_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
             env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
@@ -747,6 +1164,8 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch mendrisio
         id: crawler-launch-mendrisio
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-mendrisio.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
@@ -762,13 +1181,15 @@ jobs:
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
-          mkdir -p "$state_dir"
+          mkdir -p "$state_dir/slots"
           script_path="$state_dir/mendrisio.sh"
           launcher_path="$state_dir/mendrisio.launcher.sh"
+          worker_path="$state_dir/mendrisio.worker.sh"
           log_path="$state_dir/mendrisio.log"
           pid_path="$state_dir/mendrisio.pid"
           status_path="$state_dir/mendrisio.status"
-          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          started_path="$state_dir/mendrisio.started"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -823,11 +1244,66 @@ jobs:
           script_path="$RUNNER_TEMP/crawler-generation/group-05/mendrisio.sh"
           status_file="$RUNNER_TEMP/crawler-generation/group-05/mendrisio.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-05/mendrisio.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/mendrisio.started"
+          : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
           printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
           mv "$status_tmp" "$status_file"
-          exit "$crawler_exit"' > "$launcher_path"
+          exit "$crawler_exit"' > "$worker_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-05"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-05/mendrisio.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-05/mendrisio.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-05/mendrisio.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/mendrisio.started"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            printf '\''1\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 1
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            bash "$worker_path"
+            exit $?
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                exit 0
+              fi
+              if [ -s "$status_file" ]; then
+                status="$(cat "$status_file" 2>/dev/null || true)"
+                if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+                printf '\''1\n'\'' > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit 1
+              fi
+              if [ -e "$started_file" ]; then
+                # A worker that acquired a slot but disappeared before its atomic
+                # status write must not be retried or waited on for the full budget.
+                # Preserve the child status when available; 143 is the conventional
+                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$flock_exit"
+                if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                printf '\''%s\n'\'' "$flock_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$flock_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
             env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
@@ -837,6 +1313,8 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch valora
         id: crawler-launch-valora
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-valora.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
@@ -852,13 +1330,15 @@ jobs:
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
-          mkdir -p "$state_dir"
+          mkdir -p "$state_dir/slots"
           script_path="$state_dir/valora.sh"
           launcher_path="$state_dir/valora.launcher.sh"
+          worker_path="$state_dir/valora.worker.sh"
           log_path="$state_dir/valora.log"
           pid_path="$state_dir/valora.pid"
           status_path="$state_dir/valora.status"
-          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          started_path="$state_dir/valora.started"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -913,11 +1393,66 @@ jobs:
           script_path="$RUNNER_TEMP/crawler-generation/group-05/valora.sh"
           status_file="$RUNNER_TEMP/crawler-generation/group-05/valora.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-05/valora.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/valora.started"
+          : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
           printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
           mv "$status_tmp" "$status_file"
-          exit "$crawler_exit"' > "$launcher_path"
+          exit "$crawler_exit"' > "$worker_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-05"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-05/valora.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-05/valora.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-05/valora.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/valora.started"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            printf '\''1\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 1
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            bash "$worker_path"
+            exit $?
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                exit 0
+              fi
+              if [ -s "$status_file" ]; then
+                status="$(cat "$status_file" 2>/dev/null || true)"
+                if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+                printf '\''1\n'\'' > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit 1
+              fi
+              if [ -e "$started_file" ]; then
+                # A worker that acquired a slot but disappeared before its atomic
+                # status write must not be retried or waited on for the full budget.
+                # Preserve the child status when available; 143 is the conventional
+                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$flock_exit"
+                if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                printf '\''%s\n'\'' "$flock_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$flock_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
             env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
@@ -927,6 +1462,8 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch talan
         id: crawler-launch-talan
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-talan.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
@@ -942,13 +1479,15 @@ jobs:
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
-          mkdir -p "$state_dir"
+          mkdir -p "$state_dir/slots"
           script_path="$state_dir/talan.sh"
           launcher_path="$state_dir/talan.launcher.sh"
+          worker_path="$state_dir/talan.worker.sh"
           log_path="$state_dir/talan.log"
           pid_path="$state_dir/talan.pid"
           status_path="$state_dir/talan.status"
-          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          started_path="$state_dir/talan.started"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -1003,11 +1542,66 @@ jobs:
           script_path="$RUNNER_TEMP/crawler-generation/group-05/talan.sh"
           status_file="$RUNNER_TEMP/crawler-generation/group-05/talan.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-05/talan.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/talan.started"
+          : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
           printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
           mv "$status_tmp" "$status_file"
-          exit "$crawler_exit"' > "$launcher_path"
+          exit "$crawler_exit"' > "$worker_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-05"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-05/talan.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-05/talan.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-05/talan.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/talan.started"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            printf '\''1\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 1
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            bash "$worker_path"
+            exit $?
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                exit 0
+              fi
+              if [ -s "$status_file" ]; then
+                status="$(cat "$status_file" 2>/dev/null || true)"
+                if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+                printf '\''1\n'\'' > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit 1
+              fi
+              if [ -e "$started_file" ]; then
+                # A worker that acquired a slot but disappeared before its atomic
+                # status write must not be retried or waited on for the full budget.
+                # Preserve the child status when available; 143 is the conventional
+                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$flock_exit"
+                if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                printf '\''%s\n'\'' "$flock_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$flock_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
             env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
@@ -1017,6 +1611,8 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch straumann
         id: crawler-launch-straumann
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-straumann.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
@@ -1032,13 +1628,15 @@ jobs:
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
-          mkdir -p "$state_dir"
+          mkdir -p "$state_dir/slots"
           script_path="$state_dir/straumann.sh"
           launcher_path="$state_dir/straumann.launcher.sh"
+          worker_path="$state_dir/straumann.worker.sh"
           log_path="$state_dir/straumann.log"
           pid_path="$state_dir/straumann.pid"
           status_path="$state_dir/straumann.status"
-          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          started_path="$state_dir/straumann.started"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -1093,11 +1691,66 @@ jobs:
           script_path="$RUNNER_TEMP/crawler-generation/group-05/straumann.sh"
           status_file="$RUNNER_TEMP/crawler-generation/group-05/straumann.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-05/straumann.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/straumann.started"
+          : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
           printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
           mv "$status_tmp" "$status_file"
-          exit "$crawler_exit"' > "$launcher_path"
+          exit "$crawler_exit"' > "$worker_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-05"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-05/straumann.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-05/straumann.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-05/straumann.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/straumann.started"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            printf '\''1\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 1
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            bash "$worker_path"
+            exit $?
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                exit 0
+              fi
+              if [ -s "$status_file" ]; then
+                status="$(cat "$status_file" 2>/dev/null || true)"
+                if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+                printf '\''1\n'\'' > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit 1
+              fi
+              if [ -e "$started_file" ]; then
+                # A worker that acquired a slot but disappeared before its atomic
+                # status write must not be retried or waited on for the full budget.
+                # Preserve the child status when available; 143 is the conventional
+                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$flock_exit"
+                if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                printf '\''%s\n'\'' "$flock_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$flock_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
             env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
@@ -1107,6 +1760,8 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch hugo-boss
         id: crawler-launch-hugo-boss
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-hugo-boss.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
@@ -1122,13 +1777,15 @@ jobs:
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
-          mkdir -p "$state_dir"
+          mkdir -p "$state_dir/slots"
           script_path="$state_dir/hugo-boss.sh"
           launcher_path="$state_dir/hugo-boss.launcher.sh"
+          worker_path="$state_dir/hugo-boss.worker.sh"
           log_path="$state_dir/hugo-boss.log"
           pid_path="$state_dir/hugo-boss.pid"
           status_path="$state_dir/hugo-boss.status"
-          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          started_path="$state_dir/hugo-boss.started"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -1183,11 +1840,66 @@ jobs:
           script_path="$RUNNER_TEMP/crawler-generation/group-05/hugo-boss.sh"
           status_file="$RUNNER_TEMP/crawler-generation/group-05/hugo-boss.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-05/hugo-boss.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/hugo-boss.started"
+          : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
           printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
           mv "$status_tmp" "$status_file"
-          exit "$crawler_exit"' > "$launcher_path"
+          exit "$crawler_exit"' > "$worker_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-05"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-05/hugo-boss.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-05/hugo-boss.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-05/hugo-boss.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/hugo-boss.started"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            printf '\''1\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 1
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            bash "$worker_path"
+            exit $?
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                exit 0
+              fi
+              if [ -s "$status_file" ]; then
+                status="$(cat "$status_file" 2>/dev/null || true)"
+                if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+                printf '\''1\n'\'' > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit 1
+              fi
+              if [ -e "$started_file" ]; then
+                # A worker that acquired a slot but disappeared before its atomic
+                # status write must not be retried or waited on for the full budget.
+                # Preserve the child status when available; 143 is the conventional
+                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$flock_exit"
+                if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                printf '\''%s\n'\'' "$flock_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$flock_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
             env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
@@ -1197,6 +1909,8 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch faulhaber
         id: crawler-launch-faulhaber
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-faulhaber.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
@@ -1212,13 +1926,15 @@ jobs:
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
-          mkdir -p "$state_dir"
+          mkdir -p "$state_dir/slots"
           script_path="$state_dir/faulhaber.sh"
           launcher_path="$state_dir/faulhaber.launcher.sh"
+          worker_path="$state_dir/faulhaber.worker.sh"
           log_path="$state_dir/faulhaber.log"
           pid_path="$state_dir/faulhaber.pid"
           status_path="$state_dir/faulhaber.status"
-          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          started_path="$state_dir/faulhaber.started"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -1273,11 +1989,66 @@ jobs:
           script_path="$RUNNER_TEMP/crawler-generation/group-05/faulhaber.sh"
           status_file="$RUNNER_TEMP/crawler-generation/group-05/faulhaber.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-05/faulhaber.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/faulhaber.started"
+          : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
           printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
           mv "$status_tmp" "$status_file"
-          exit "$crawler_exit"' > "$launcher_path"
+          exit "$crawler_exit"' > "$worker_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-05"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-05/faulhaber.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-05/faulhaber.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-05/faulhaber.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/faulhaber.started"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            printf '\''1\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 1
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            bash "$worker_path"
+            exit $?
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                exit 0
+              fi
+              if [ -s "$status_file" ]; then
+                status="$(cat "$status_file" 2>/dev/null || true)"
+                if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+                printf '\''1\n'\'' > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit 1
+              fi
+              if [ -e "$started_file" ]; then
+                # A worker that acquired a slot but disappeared before its atomic
+                # status write must not be retried or waited on for the full budget.
+                # Preserve the child status when available; 143 is the conventional
+                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$flock_exit"
+                if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                printf '\''%s\n'\'' "$flock_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$flock_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
             env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
@@ -1287,6 +2058,8 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch ipersonal
         id: crawler-launch-ipersonal
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-ipersonal.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
@@ -1302,13 +2075,15 @@ jobs:
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
-          mkdir -p "$state_dir"
+          mkdir -p "$state_dir/slots"
           script_path="$state_dir/ipersonal.sh"
           launcher_path="$state_dir/ipersonal.launcher.sh"
+          worker_path="$state_dir/ipersonal.worker.sh"
           log_path="$state_dir/ipersonal.log"
           pid_path="$state_dir/ipersonal.pid"
           status_path="$state_dir/ipersonal.status"
-          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          started_path="$state_dir/ipersonal.started"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -1363,11 +2138,66 @@ jobs:
           script_path="$RUNNER_TEMP/crawler-generation/group-05/ipersonal.sh"
           status_file="$RUNNER_TEMP/crawler-generation/group-05/ipersonal.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-05/ipersonal.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/ipersonal.started"
+          : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
           printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
           mv "$status_tmp" "$status_file"
-          exit "$crawler_exit"' > "$launcher_path"
+          exit "$crawler_exit"' > "$worker_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-05"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-05/ipersonal.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-05/ipersonal.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-05/ipersonal.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/ipersonal.started"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            printf '\''1\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 1
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            bash "$worker_path"
+            exit $?
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                exit 0
+              fi
+              if [ -s "$status_file" ]; then
+                status="$(cat "$status_file" 2>/dev/null || true)"
+                if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+                printf '\''1\n'\'' > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit 1
+              fi
+              if [ -e "$started_file" ]; then
+                # A worker that acquired a slot but disappeared before its atomic
+                # status write must not be retried or waited on for the full budget.
+                # Preserve the child status when available; 143 is the conventional
+                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$flock_exit"
+                if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                printf '\''%s\n'\'' "$flock_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$flock_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
             env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
@@ -1377,6 +2207,8 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch eraneos
         id: crawler-launch-eraneos
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-eraneos.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
@@ -1392,13 +2224,15 @@ jobs:
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
-          mkdir -p "$state_dir"
+          mkdir -p "$state_dir/slots"
           script_path="$state_dir/eraneos.sh"
           launcher_path="$state_dir/eraneos.launcher.sh"
+          worker_path="$state_dir/eraneos.worker.sh"
           log_path="$state_dir/eraneos.log"
           pid_path="$state_dir/eraneos.pid"
           status_path="$state_dir/eraneos.status"
-          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          started_path="$state_dir/eraneos.started"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -1453,11 +2287,66 @@ jobs:
           script_path="$RUNNER_TEMP/crawler-generation/group-05/eraneos.sh"
           status_file="$RUNNER_TEMP/crawler-generation/group-05/eraneos.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-05/eraneos.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/eraneos.started"
+          : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
           printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
           mv "$status_tmp" "$status_file"
-          exit "$crawler_exit"' > "$launcher_path"
+          exit "$crawler_exit"' > "$worker_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-05"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-05/eraneos.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-05/eraneos.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-05/eraneos.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/eraneos.started"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            printf '\''1\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 1
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            bash "$worker_path"
+            exit $?
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                exit 0
+              fi
+              if [ -s "$status_file" ]; then
+                status="$(cat "$status_file" 2>/dev/null || true)"
+                if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+                printf '\''1\n'\'' > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit 1
+              fi
+              if [ -e "$started_file" ]; then
+                # A worker that acquired a slot but disappeared before its atomic
+                # status write must not be retried or waited on for the full budget.
+                # Preserve the child status when available; 143 is the conventional
+                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$flock_exit"
+                if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                printf '\''%s\n'\'' "$flock_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$flock_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
             env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
@@ -1467,6 +2356,8 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch h-ju-hopital-du-jura
         id: crawler-launch-h-ju-hopital-du-jura
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-h-ju-hopital-du-jura.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
@@ -1482,13 +2373,15 @@ jobs:
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
-          mkdir -p "$state_dir"
+          mkdir -p "$state_dir/slots"
           script_path="$state_dir/h-ju-hopital-du-jura.sh"
           launcher_path="$state_dir/h-ju-hopital-du-jura.launcher.sh"
+          worker_path="$state_dir/h-ju-hopital-du-jura.worker.sh"
           log_path="$state_dir/h-ju-hopital-du-jura.log"
           pid_path="$state_dir/h-ju-hopital-du-jura.pid"
           status_path="$state_dir/h-ju-hopital-du-jura.status"
-          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          started_path="$state_dir/h-ju-hopital-du-jura.started"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -1543,11 +2436,66 @@ jobs:
           script_path="$RUNNER_TEMP/crawler-generation/group-05/h-ju-hopital-du-jura.sh"
           status_file="$RUNNER_TEMP/crawler-generation/group-05/h-ju-hopital-du-jura.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-05/h-ju-hopital-du-jura.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/h-ju-hopital-du-jura.started"
+          : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
           printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
           mv "$status_tmp" "$status_file"
-          exit "$crawler_exit"' > "$launcher_path"
+          exit "$crawler_exit"' > "$worker_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-05"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-05/h-ju-hopital-du-jura.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-05/h-ju-hopital-du-jura.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-05/h-ju-hopital-du-jura.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/h-ju-hopital-du-jura.started"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            printf '\''1\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 1
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            bash "$worker_path"
+            exit $?
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                exit 0
+              fi
+              if [ -s "$status_file" ]; then
+                status="$(cat "$status_file" 2>/dev/null || true)"
+                if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+                printf '\''1\n'\'' > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit 1
+              fi
+              if [ -e "$started_file" ]; then
+                # A worker that acquired a slot but disappeared before its atomic
+                # status write must not be retried or waited on for the full budget.
+                # Preserve the child status when available; 143 is the conventional
+                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$flock_exit"
+                if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                printf '\''%s\n'\'' "$flock_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$flock_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
             env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
@@ -1557,6 +2505,8 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch gavi
         id: crawler-launch-gavi
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-gavi.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
@@ -1572,13 +2522,15 @@ jobs:
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
-          mkdir -p "$state_dir"
+          mkdir -p "$state_dir/slots"
           script_path="$state_dir/gavi.sh"
           launcher_path="$state_dir/gavi.launcher.sh"
+          worker_path="$state_dir/gavi.worker.sh"
           log_path="$state_dir/gavi.log"
           pid_path="$state_dir/gavi.pid"
           status_path="$state_dir/gavi.status"
-          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          started_path="$state_dir/gavi.started"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -1633,11 +2585,66 @@ jobs:
           script_path="$RUNNER_TEMP/crawler-generation/group-05/gavi.sh"
           status_file="$RUNNER_TEMP/crawler-generation/group-05/gavi.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-05/gavi.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/gavi.started"
+          : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
           printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
           mv "$status_tmp" "$status_file"
-          exit "$crawler_exit"' > "$launcher_path"
+          exit "$crawler_exit"' > "$worker_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-05"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-05/gavi.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-05/gavi.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-05/gavi.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/gavi.started"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            printf '\''1\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 1
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            bash "$worker_path"
+            exit $?
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                exit 0
+              fi
+              if [ -s "$status_file" ]; then
+                status="$(cat "$status_file" 2>/dev/null || true)"
+                if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+                printf '\''1\n'\'' > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit 1
+              fi
+              if [ -e "$started_file" ]; then
+                # A worker that acquired a slot but disappeared before its atomic
+                # status write must not be retried or waited on for the full budget.
+                # Preserve the child status when available; 143 is the conventional
+                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$flock_exit"
+                if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                printf '\''%s\n'\'' "$flock_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$flock_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
             env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
@@ -1647,6 +2654,8 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch clinique-la-source
         id: crawler-launch-clinique-la-source
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-clinique-la-source.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
@@ -1662,13 +2671,15 @@ jobs:
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
-          mkdir -p "$state_dir"
+          mkdir -p "$state_dir/slots"
           script_path="$state_dir/clinique-la-source.sh"
           launcher_path="$state_dir/clinique-la-source.launcher.sh"
+          worker_path="$state_dir/clinique-la-source.worker.sh"
           log_path="$state_dir/clinique-la-source.log"
           pid_path="$state_dir/clinique-la-source.pid"
           status_path="$state_dir/clinique-la-source.status"
-          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          started_path="$state_dir/clinique-la-source.started"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -1723,11 +2734,66 @@ jobs:
           script_path="$RUNNER_TEMP/crawler-generation/group-05/clinique-la-source.sh"
           status_file="$RUNNER_TEMP/crawler-generation/group-05/clinique-la-source.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-05/clinique-la-source.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/clinique-la-source.started"
+          : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
           printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
           mv "$status_tmp" "$status_file"
-          exit "$crawler_exit"' > "$launcher_path"
+          exit "$crawler_exit"' > "$worker_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-05"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-05/clinique-la-source.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-05/clinique-la-source.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-05/clinique-la-source.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/clinique-la-source.started"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            printf '\''1\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 1
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            bash "$worker_path"
+            exit $?
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                exit 0
+              fi
+              if [ -s "$status_file" ]; then
+                status="$(cat "$status_file" 2>/dev/null || true)"
+                if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+                printf '\''1\n'\'' > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit 1
+              fi
+              if [ -e "$started_file" ]; then
+                # A worker that acquired a slot but disappeared before its atomic
+                # status write must not be retried or waited on for the full budget.
+                # Preserve the child status when available; 143 is the conventional
+                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$flock_exit"
+                if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                printf '\''%s\n'\'' "$flock_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$flock_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
             env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
@@ -1737,6 +2803,8 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch csd-engineers
         id: crawler-launch-csd-engineers
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-csd-engineers.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
@@ -1752,13 +2820,15 @@ jobs:
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
-          mkdir -p "$state_dir"
+          mkdir -p "$state_dir/slots"
           script_path="$state_dir/csd-engineers.sh"
           launcher_path="$state_dir/csd-engineers.launcher.sh"
+          worker_path="$state_dir/csd-engineers.worker.sh"
           log_path="$state_dir/csd-engineers.log"
           pid_path="$state_dir/csd-engineers.pid"
           status_path="$state_dir/csd-engineers.status"
-          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          started_path="$state_dir/csd-engineers.started"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -1813,11 +2883,66 @@ jobs:
           script_path="$RUNNER_TEMP/crawler-generation/group-05/csd-engineers.sh"
           status_file="$RUNNER_TEMP/crawler-generation/group-05/csd-engineers.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-05/csd-engineers.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/csd-engineers.started"
+          : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
           printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
           mv "$status_tmp" "$status_file"
-          exit "$crawler_exit"' > "$launcher_path"
+          exit "$crawler_exit"' > "$worker_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-05"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-05/csd-engineers.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-05/csd-engineers.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-05/csd-engineers.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/csd-engineers.started"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            printf '\''1\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 1
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            bash "$worker_path"
+            exit $?
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                exit 0
+              fi
+              if [ -s "$status_file" ]; then
+                status="$(cat "$status_file" 2>/dev/null || true)"
+                if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+                printf '\''1\n'\'' > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit 1
+              fi
+              if [ -e "$started_file" ]; then
+                # A worker that acquired a slot but disappeared before its atomic
+                # status write must not be retried or waited on for the full budget.
+                # Preserve the child status when available; 143 is the conventional
+                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$flock_exit"
+                if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                printf '\''%s\n'\'' "$flock_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$flock_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
             env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
@@ -1827,6 +2952,8 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch cedes
         id: crawler-launch-cedes
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-cedes.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
@@ -1842,13 +2969,15 @@ jobs:
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
-          mkdir -p "$state_dir"
+          mkdir -p "$state_dir/slots"
           script_path="$state_dir/cedes.sh"
           launcher_path="$state_dir/cedes.launcher.sh"
+          worker_path="$state_dir/cedes.worker.sh"
           log_path="$state_dir/cedes.log"
           pid_path="$state_dir/cedes.pid"
           status_path="$state_dir/cedes.status"
-          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          started_path="$state_dir/cedes.started"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -1903,11 +3032,66 @@ jobs:
           script_path="$RUNNER_TEMP/crawler-generation/group-05/cedes.sh"
           status_file="$RUNNER_TEMP/crawler-generation/group-05/cedes.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-05/cedes.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/cedes.started"
+          : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
           printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
           mv "$status_tmp" "$status_file"
-          exit "$crawler_exit"' > "$launcher_path"
+          exit "$crawler_exit"' > "$worker_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-05"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-05/cedes.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-05/cedes.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-05/cedes.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/cedes.started"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            printf '\''1\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 1
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            bash "$worker_path"
+            exit $?
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                exit 0
+              fi
+              if [ -s "$status_file" ]; then
+                status="$(cat "$status_file" 2>/dev/null || true)"
+                if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+                printf '\''1\n'\'' > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit 1
+              fi
+              if [ -e "$started_file" ]; then
+                # A worker that acquired a slot but disappeared before its atomic
+                # status write must not be retried or waited on for the full budget.
+                # Preserve the child status when available; 143 is the conventional
+                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$flock_exit"
+                if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                printf '\''%s\n'\'' "$flock_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$flock_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
             env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
@@ -1917,6 +3101,8 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch bracco
         id: crawler-launch-bracco
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-bracco.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
@@ -1932,13 +3118,15 @@ jobs:
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
-          mkdir -p "$state_dir"
+          mkdir -p "$state_dir/slots"
           script_path="$state_dir/bracco.sh"
           launcher_path="$state_dir/bracco.launcher.sh"
+          worker_path="$state_dir/bracco.worker.sh"
           log_path="$state_dir/bracco.log"
           pid_path="$state_dir/bracco.pid"
           status_path="$state_dir/bracco.status"
-          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          started_path="$state_dir/bracco.started"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -1993,11 +3181,66 @@ jobs:
           script_path="$RUNNER_TEMP/crawler-generation/group-05/bracco.sh"
           status_file="$RUNNER_TEMP/crawler-generation/group-05/bracco.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-05/bracco.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/bracco.started"
+          : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
           printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
           mv "$status_tmp" "$status_file"
-          exit "$crawler_exit"' > "$launcher_path"
+          exit "$crawler_exit"' > "$worker_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-05"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-05/bracco.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-05/bracco.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-05/bracco.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/bracco.started"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            printf '\''1\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 1
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            bash "$worker_path"
+            exit $?
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                exit 0
+              fi
+              if [ -s "$status_file" ]; then
+                status="$(cat "$status_file" 2>/dev/null || true)"
+                if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+                printf '\''1\n'\'' > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit 1
+              fi
+              if [ -e "$started_file" ]; then
+                # A worker that acquired a slot but disappeared before its atomic
+                # status write must not be retried or waited on for the full budget.
+                # Preserve the child status when available; 143 is the conventional
+                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$flock_exit"
+                if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                printf '\''%s\n'\'' "$flock_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$flock_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
             env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
@@ -2007,6 +3250,8 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch bms-building
         id: crawler-launch-bms-building
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-bms-building.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
@@ -2022,13 +3267,15 @@ jobs:
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
-          mkdir -p "$state_dir"
+          mkdir -p "$state_dir/slots"
           script_path="$state_dir/bms-building.sh"
           launcher_path="$state_dir/bms-building.launcher.sh"
+          worker_path="$state_dir/bms-building.worker.sh"
           log_path="$state_dir/bms-building.log"
           pid_path="$state_dir/bms-building.pid"
           status_path="$state_dir/bms-building.status"
-          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          started_path="$state_dir/bms-building.started"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -2083,11 +3330,66 @@ jobs:
           script_path="$RUNNER_TEMP/crawler-generation/group-05/bms-building.sh"
           status_file="$RUNNER_TEMP/crawler-generation/group-05/bms-building.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-05/bms-building.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/bms-building.started"
+          : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
           printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
           mv "$status_tmp" "$status_file"
-          exit "$crawler_exit"' > "$launcher_path"
+          exit "$crawler_exit"' > "$worker_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-05"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-05/bms-building.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-05/bms-building.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-05/bms-building.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/bms-building.started"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            printf '\''1\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 1
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            bash "$worker_path"
+            exit $?
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                exit 0
+              fi
+              if [ -s "$status_file" ]; then
+                status="$(cat "$status_file" 2>/dev/null || true)"
+                if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+                printf '\''1\n'\'' > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit 1
+              fi
+              if [ -e "$started_file" ]; then
+                # A worker that acquired a slot but disappeared before its atomic
+                # status write must not be retried or waited on for the full budget.
+                # Preserve the child status when available; 143 is the conventional
+                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$flock_exit"
+                if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                printf '\''%s\n'\'' "$flock_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$flock_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
             env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
@@ -2097,6 +3399,8 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch citta-di-bellinzona
         id: crawler-launch-citta-di-bellinzona
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-citta-di-bellinzona.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
@@ -2112,13 +3416,15 @@ jobs:
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
-          mkdir -p "$state_dir"
+          mkdir -p "$state_dir/slots"
           script_path="$state_dir/citta-di-bellinzona.sh"
           launcher_path="$state_dir/citta-di-bellinzona.launcher.sh"
+          worker_path="$state_dir/citta-di-bellinzona.worker.sh"
           log_path="$state_dir/citta-di-bellinzona.log"
           pid_path="$state_dir/citta-di-bellinzona.pid"
           status_path="$state_dir/citta-di-bellinzona.status"
-          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          started_path="$state_dir/citta-di-bellinzona.started"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -2173,11 +3479,66 @@ jobs:
           script_path="$RUNNER_TEMP/crawler-generation/group-05/citta-di-bellinzona.sh"
           status_file="$RUNNER_TEMP/crawler-generation/group-05/citta-di-bellinzona.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-05/citta-di-bellinzona.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/citta-di-bellinzona.started"
+          : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
           printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
           mv "$status_tmp" "$status_file"
-          exit "$crawler_exit"' > "$launcher_path"
+          exit "$crawler_exit"' > "$worker_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-05"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-05/citta-di-bellinzona.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-05/citta-di-bellinzona.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-05/citta-di-bellinzona.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/citta-di-bellinzona.started"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            printf '\''1\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 1
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            bash "$worker_path"
+            exit $?
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                exit 0
+              fi
+              if [ -s "$status_file" ]; then
+                status="$(cat "$status_file" 2>/dev/null || true)"
+                if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+                printf '\''1\n'\'' > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit 1
+              fi
+              if [ -e "$started_file" ]; then
+                # A worker that acquired a slot but disappeared before its atomic
+                # status write must not be retried or waited on for the full budget.
+                # Preserve the child status when available; 143 is the conventional
+                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$flock_exit"
+                if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                printf '\''%s\n'\'' "$flock_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$flock_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
             env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
@@ -2187,6 +3548,8 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch berner-klinik-montana
         id: crawler-launch-berner-klinik-montana
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-berner-klinik-montana.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
@@ -2202,13 +3565,15 @@ jobs:
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
-          mkdir -p "$state_dir"
+          mkdir -p "$state_dir/slots"
           script_path="$state_dir/berner-klinik-montana.sh"
           launcher_path="$state_dir/berner-klinik-montana.launcher.sh"
+          worker_path="$state_dir/berner-klinik-montana.worker.sh"
           log_path="$state_dir/berner-klinik-montana.log"
           pid_path="$state_dir/berner-klinik-montana.pid"
           status_path="$state_dir/berner-klinik-montana.status"
-          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          started_path="$state_dir/berner-klinik-montana.started"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -2263,11 +3628,66 @@ jobs:
           script_path="$RUNNER_TEMP/crawler-generation/group-05/berner-klinik-montana.sh"
           status_file="$RUNNER_TEMP/crawler-generation/group-05/berner-klinik-montana.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-05/berner-klinik-montana.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/berner-klinik-montana.started"
+          : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
           printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
           mv "$status_tmp" "$status_file"
-          exit "$crawler_exit"' > "$launcher_path"
+          exit "$crawler_exit"' > "$worker_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-05"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-05/berner-klinik-montana.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-05/berner-klinik-montana.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-05/berner-klinik-montana.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/berner-klinik-montana.started"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            printf '\''1\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 1
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            bash "$worker_path"
+            exit $?
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                exit 0
+              fi
+              if [ -s "$status_file" ]; then
+                status="$(cat "$status_file" 2>/dev/null || true)"
+                if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+                printf '\''1\n'\'' > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit 1
+              fi
+              if [ -e "$started_file" ]; then
+                # A worker that acquired a slot but disappeared before its atomic
+                # status write must not be retried or waited on for the full budget.
+                # Preserve the child status when available; 143 is the conventional
+                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$flock_exit"
+                if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                printf '\''%s\n'\'' "$flock_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$flock_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
             env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
@@ -2277,6 +3697,8 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch agroscope
         id: crawler-launch-agroscope
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-agroscope.txt
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
@@ -2288,13 +3710,15 @@ jobs:
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
-          mkdir -p "$state_dir"
+          mkdir -p "$state_dir/slots"
           script_path="$state_dir/agroscope.sh"
           launcher_path="$state_dir/agroscope.launcher.sh"
+          worker_path="$state_dir/agroscope.worker.sh"
           log_path="$state_dir/agroscope.log"
           pid_path="$state_dir/agroscope.pid"
           status_path="$state_dir/agroscope.status"
-          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          started_path="$state_dir/agroscope.started"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -2349,11 +3773,66 @@ jobs:
           script_path="$RUNNER_TEMP/crawler-generation/group-05/agroscope.sh"
           status_file="$RUNNER_TEMP/crawler-generation/group-05/agroscope.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-05/agroscope.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/agroscope.started"
+          : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
           printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
           mv "$status_tmp" "$status_file"
-          exit "$crawler_exit"' > "$launcher_path"
+          exit "$crawler_exit"' > "$worker_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-05"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-05/agroscope.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-05/agroscope.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-05/agroscope.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/agroscope.started"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            printf '\''1\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 1
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            bash "$worker_path"
+            exit $?
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                exit 0
+              fi
+              if [ -s "$status_file" ]; then
+                status="$(cat "$status_file" 2>/dev/null || true)"
+                if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+                printf '\''1\n'\'' > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit 1
+              fi
+              if [ -e "$started_file" ]; then
+                # A worker that acquired a slot but disappeared before its atomic
+                # status write must not be retried or waited on for the full budget.
+                # Preserve the child status when available; 143 is the conventional
+                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$flock_exit"
+                if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                printf '\''%s\n'\'' "$flock_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$flock_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
             env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
@@ -2363,6 +3842,8 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch amstein-walthert
         id: crawler-launch-amstein-walthert
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-amstein-walthert.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
@@ -2378,13 +3859,15 @@ jobs:
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
-          mkdir -p "$state_dir"
+          mkdir -p "$state_dir/slots"
           script_path="$state_dir/amstein-walthert.sh"
           launcher_path="$state_dir/amstein-walthert.launcher.sh"
+          worker_path="$state_dir/amstein-walthert.worker.sh"
           log_path="$state_dir/amstein-walthert.log"
           pid_path="$state_dir/amstein-walthert.pid"
           status_path="$state_dir/amstein-walthert.status"
-          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          started_path="$state_dir/amstein-walthert.started"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -2439,11 +3922,66 @@ jobs:
           script_path="$RUNNER_TEMP/crawler-generation/group-05/amstein-walthert.sh"
           status_file="$RUNNER_TEMP/crawler-generation/group-05/amstein-walthert.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-05/amstein-walthert.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/amstein-walthert.started"
+          : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
           printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
           mv "$status_tmp" "$status_file"
-          exit "$crawler_exit"' > "$launcher_path"
+          exit "$crawler_exit"' > "$worker_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-05"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-05/amstein-walthert.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-05/amstein-walthert.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-05/amstein-walthert.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/amstein-walthert.started"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            printf '\''1\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 1
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            bash "$worker_path"
+            exit $?
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                exit 0
+              fi
+              if [ -s "$status_file" ]; then
+                status="$(cat "$status_file" 2>/dev/null || true)"
+                if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+                printf '\''1\n'\'' > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit 1
+              fi
+              if [ -e "$started_file" ]; then
+                # A worker that acquired a slot but disappeared before its atomic
+                # status write must not be retried or waited on for the full budget.
+                # Preserve the child status when available; 143 is the conventional
+                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$flock_exit"
+                if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                printf '\''%s\n'\'' "$flock_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$flock_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
             env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
@@ -2453,6 +3991,8 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch caseificio-gottardo
         id: crawler-launch-caseificio-gottardo
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-caseificio-gottardo.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
@@ -2468,13 +4008,15 @@ jobs:
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
-          mkdir -p "$state_dir"
+          mkdir -p "$state_dir/slots"
           script_path="$state_dir/caseificio-gottardo.sh"
           launcher_path="$state_dir/caseificio-gottardo.launcher.sh"
+          worker_path="$state_dir/caseificio-gottardo.worker.sh"
           log_path="$state_dir/caseificio-gottardo.log"
           pid_path="$state_dir/caseificio-gottardo.pid"
           status_path="$state_dir/caseificio-gottardo.status"
-          rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"
+          started_path="$state_dir/caseificio-gottardo.started"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -2529,11 +4071,66 @@ jobs:
           script_path="$RUNNER_TEMP/crawler-generation/group-05/caseificio-gottardo.sh"
           status_file="$RUNNER_TEMP/crawler-generation/group-05/caseificio-gottardo.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-05/caseificio-gottardo.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/caseificio-gottardo.started"
+          : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
           printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
           mv "$status_tmp" "$status_file"
-          exit "$crawler_exit"' > "$launcher_path"
+          exit "$crawler_exit"' > "$worker_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-05"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-05/caseificio-gottardo.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-05/caseificio-gottardo.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-05/caseificio-gottardo.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-05/caseificio-gottardo.started"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            printf '\''1\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 1
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            bash "$worker_path"
+            exit $?
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                exit 0
+              fi
+              if [ -s "$status_file" ]; then
+                status="$(cat "$status_file" 2>/dev/null || true)"
+                if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+                printf '\''1\n'\'' > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit 1
+              fi
+              if [ -e "$started_file" ]; then
+                # A worker that acquired a slot but disappeared before its atomic
+                # status write must not be retried or waited on for the full budget.
+                # Preserve the child status when available; 143 is the conventional
+                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$flock_exit"
+                if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                printf '\''%s\n'\'' "$flock_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$flock_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
           if command -v setsid >/dev/null 2>&1; then
             env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
           else
@@ -2544,6 +4141,7 @@ jobs:
       - name: Run klinik-schuetzen
         id: crawler-klinik-schuetzen
         if: always()
+        continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-klinik-schuetzen'].outcome }}
         run: |-
@@ -2598,6 +4196,7 @@ jobs:
       - name: Run epi-geneve
         id: crawler-epi-geneve
         if: always()
+        continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-epi-geneve'].outcome }}
         run: |-
@@ -2652,6 +4251,7 @@ jobs:
       - name: Run kempinski
         id: crawler-kempinski
         if: always()
+        continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-kempinski'].outcome }}
         run: |-
@@ -2706,6 +4306,7 @@ jobs:
       - name: Run vaxcyte
         id: crawler-vaxcyte
         if: always()
+        continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-vaxcyte'].outcome }}
         run: |-
@@ -2760,6 +4361,7 @@ jobs:
       - name: Run tether
         id: crawler-tether
         if: always()
+        continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-tether'].outcome }}
         run: |-
@@ -2814,6 +4416,7 @@ jobs:
       - name: Run schulthess-klinik
         id: crawler-schulthess-klinik
         if: always()
+        continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-schulthess-klinik'].outcome }}
         run: |-
@@ -2868,6 +4471,7 @@ jobs:
       - name: Run vitrea-gesundheit
         id: crawler-vitrea-gesundheit
         if: always()
+        continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-vitrea-gesundheit'].outcome }}
         run: |-
@@ -2922,6 +4526,7 @@ jobs:
       - name: Run mendrisio
         id: crawler-mendrisio
         if: always()
+        continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-mendrisio'].outcome }}
         run: |-
@@ -2976,6 +4581,7 @@ jobs:
       - name: Run valora
         id: crawler-valora
         if: always()
+        continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-valora'].outcome }}
         run: |-
@@ -3030,6 +4636,7 @@ jobs:
       - name: Run talan
         id: crawler-talan
         if: always()
+        continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-talan'].outcome }}
         run: |-
@@ -3084,6 +4691,7 @@ jobs:
       - name: Run straumann
         id: crawler-straumann
         if: always()
+        continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-straumann'].outcome }}
         run: |-
@@ -3138,6 +4746,7 @@ jobs:
       - name: Run hugo-boss
         id: crawler-hugo-boss
         if: always()
+        continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-hugo-boss'].outcome }}
         run: |-
@@ -3192,6 +4801,7 @@ jobs:
       - name: Run faulhaber
         id: crawler-faulhaber
         if: always()
+        continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-faulhaber'].outcome }}
         run: |-
@@ -3246,6 +4856,7 @@ jobs:
       - name: Run ipersonal
         id: crawler-ipersonal
         if: always()
+        continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-ipersonal'].outcome }}
         run: |-
@@ -3300,6 +4911,7 @@ jobs:
       - name: Run eraneos
         id: crawler-eraneos
         if: always()
+        continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-eraneos'].outcome }}
         run: |-
@@ -3354,6 +4966,7 @@ jobs:
       - name: Run h-ju-hopital-du-jura
         id: crawler-h-ju-hopital-du-jura
         if: always()
+        continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-h-ju-hopital-du-jura'].outcome }}
         run: |-
@@ -3408,6 +5021,7 @@ jobs:
       - name: Run gavi
         id: crawler-gavi
         if: always()
+        continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-gavi'].outcome }}
         run: |-
@@ -3462,6 +5076,7 @@ jobs:
       - name: Run clinique-la-source
         id: crawler-clinique-la-source
         if: always()
+        continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-clinique-la-source'].outcome }}
         run: |-
@@ -3516,6 +5131,7 @@ jobs:
       - name: Run csd-engineers
         id: crawler-csd-engineers
         if: always()
+        continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-csd-engineers'].outcome }}
         run: |-
@@ -3570,6 +5186,7 @@ jobs:
       - name: Run cedes
         id: crawler-cedes
         if: always()
+        continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-cedes'].outcome }}
         run: |-
@@ -3624,6 +5241,7 @@ jobs:
       - name: Run bracco
         id: crawler-bracco
         if: always()
+        continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-bracco'].outcome }}
         run: |-
@@ -3678,6 +5296,7 @@ jobs:
       - name: Run bms-building
         id: crawler-bms-building
         if: always()
+        continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-bms-building'].outcome }}
         run: |-
@@ -3732,6 +5351,7 @@ jobs:
       - name: Run citta-di-bellinzona
         id: crawler-citta-di-bellinzona
         if: always()
+        continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-citta-di-bellinzona'].outcome }}
         run: |-
@@ -3786,6 +5406,7 @@ jobs:
       - name: Run berner-klinik-montana
         id: crawler-berner-klinik-montana
         if: always()
+        continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-berner-klinik-montana'].outcome }}
         run: |-
@@ -3840,6 +5461,7 @@ jobs:
       - name: Run agroscope
         id: crawler-agroscope
         if: always()
+        continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-agroscope'].outcome }}
         run: |-
@@ -3894,6 +5516,7 @@ jobs:
       - name: Run amstein-walthert
         id: crawler-amstein-walthert
         if: always()
+        continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-amstein-walthert'].outcome }}
         run: |-
@@ -3948,6 +5571,7 @@ jobs:
       - name: Run caseificio-gottardo
         id: crawler-caseificio-gottardo
         if: always()
+        continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-caseificio-gottardo'].outcome }}
         run: |-
@@ -3999,8 +5623,565 @@ jobs:
             exit 1
           fi
           exit "$status"
+      - name: Aggregate crawler outcomes
+        id: crawler_aggregate
+        if: always()
+        continue-on-error: true
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-05"
+          summary_file="${GITHUB_STEP_SUMMARY:-/dev/null}"
+          output_file="${GITHUB_OUTPUT:-/dev/null}"
+          success_count=0
+          failure_count=0
+          missing_count=0
+          printf '%s\n' '### Crawler group 05 outcome' >> "$summary_file"
+          printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
+          status_file="$state_dir/klinik-schuetzen.status"
+          if [ ! -s "$status_file" ]; then
+            echo "::warning::klinik-schuetzen: no terminal status was published"
+            printf '%s\n' '| klinik-schuetzen | missing status |' >> "$summary_file"
+            missing_count=$((missing_count + 1))
+          else
+            status="$(cat "$status_file" 2>/dev/null || true)"
+            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+              echo "::error::klinik-schuetzen: invalid terminal status: $status"
+              printf '%s\n' '| klinik-schuetzen | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 0 ]; then
+              printf '%s\n' '| klinik-schuetzen | success |' >> "$summary_file"
+              success_count=$((success_count + 1))
+            else
+              echo "::error::klinik-schuetzen: crawler exited with status $status"
+              printf '| klinik-schuetzen | failed (%s) |\n' "$status" >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            fi
+          fi
+          status_file="$state_dir/epi-geneve.status"
+          if [ ! -s "$status_file" ]; then
+            echo "::warning::epi-geneve: no terminal status was published"
+            printf '%s\n' '| epi-geneve | missing status |' >> "$summary_file"
+            missing_count=$((missing_count + 1))
+          else
+            status="$(cat "$status_file" 2>/dev/null || true)"
+            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+              echo "::error::epi-geneve: invalid terminal status: $status"
+              printf '%s\n' '| epi-geneve | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 0 ]; then
+              printf '%s\n' '| epi-geneve | success |' >> "$summary_file"
+              success_count=$((success_count + 1))
+            else
+              echo "::error::epi-geneve: crawler exited with status $status"
+              printf '| epi-geneve | failed (%s) |\n' "$status" >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            fi
+          fi
+          status_file="$state_dir/kempinski.status"
+          if [ ! -s "$status_file" ]; then
+            echo "::warning::kempinski: no terminal status was published"
+            printf '%s\n' '| kempinski | missing status |' >> "$summary_file"
+            missing_count=$((missing_count + 1))
+          else
+            status="$(cat "$status_file" 2>/dev/null || true)"
+            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+              echo "::error::kempinski: invalid terminal status: $status"
+              printf '%s\n' '| kempinski | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 0 ]; then
+              printf '%s\n' '| kempinski | success |' >> "$summary_file"
+              success_count=$((success_count + 1))
+            else
+              echo "::error::kempinski: crawler exited with status $status"
+              printf '| kempinski | failed (%s) |\n' "$status" >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            fi
+          fi
+          status_file="$state_dir/vaxcyte.status"
+          if [ ! -s "$status_file" ]; then
+            echo "::warning::vaxcyte: no terminal status was published"
+            printf '%s\n' '| vaxcyte | missing status |' >> "$summary_file"
+            missing_count=$((missing_count + 1))
+          else
+            status="$(cat "$status_file" 2>/dev/null || true)"
+            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+              echo "::error::vaxcyte: invalid terminal status: $status"
+              printf '%s\n' '| vaxcyte | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 0 ]; then
+              printf '%s\n' '| vaxcyte | success |' >> "$summary_file"
+              success_count=$((success_count + 1))
+            else
+              echo "::error::vaxcyte: crawler exited with status $status"
+              printf '| vaxcyte | failed (%s) |\n' "$status" >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            fi
+          fi
+          status_file="$state_dir/tether.status"
+          if [ ! -s "$status_file" ]; then
+            echo "::warning::tether: no terminal status was published"
+            printf '%s\n' '| tether | missing status |' >> "$summary_file"
+            missing_count=$((missing_count + 1))
+          else
+            status="$(cat "$status_file" 2>/dev/null || true)"
+            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+              echo "::error::tether: invalid terminal status: $status"
+              printf '%s\n' '| tether | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 0 ]; then
+              printf '%s\n' '| tether | success |' >> "$summary_file"
+              success_count=$((success_count + 1))
+            else
+              echo "::error::tether: crawler exited with status $status"
+              printf '| tether | failed (%s) |\n' "$status" >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            fi
+          fi
+          status_file="$state_dir/schulthess-klinik.status"
+          if [ ! -s "$status_file" ]; then
+            echo "::warning::schulthess-klinik: no terminal status was published"
+            printf '%s\n' '| schulthess-klinik | missing status |' >> "$summary_file"
+            missing_count=$((missing_count + 1))
+          else
+            status="$(cat "$status_file" 2>/dev/null || true)"
+            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+              echo "::error::schulthess-klinik: invalid terminal status: $status"
+              printf '%s\n' '| schulthess-klinik | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 0 ]; then
+              printf '%s\n' '| schulthess-klinik | success |' >> "$summary_file"
+              success_count=$((success_count + 1))
+            else
+              echo "::error::schulthess-klinik: crawler exited with status $status"
+              printf '| schulthess-klinik | failed (%s) |\n' "$status" >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            fi
+          fi
+          status_file="$state_dir/vitrea-gesundheit.status"
+          if [ ! -s "$status_file" ]; then
+            echo "::warning::vitrea-gesundheit: no terminal status was published"
+            printf '%s\n' '| vitrea-gesundheit | missing status |' >> "$summary_file"
+            missing_count=$((missing_count + 1))
+          else
+            status="$(cat "$status_file" 2>/dev/null || true)"
+            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+              echo "::error::vitrea-gesundheit: invalid terminal status: $status"
+              printf '%s\n' '| vitrea-gesundheit | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 0 ]; then
+              printf '%s\n' '| vitrea-gesundheit | success |' >> "$summary_file"
+              success_count=$((success_count + 1))
+            else
+              echo "::error::vitrea-gesundheit: crawler exited with status $status"
+              printf '| vitrea-gesundheit | failed (%s) |\n' "$status" >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            fi
+          fi
+          status_file="$state_dir/mendrisio.status"
+          if [ ! -s "$status_file" ]; then
+            echo "::warning::mendrisio: no terminal status was published"
+            printf '%s\n' '| mendrisio | missing status |' >> "$summary_file"
+            missing_count=$((missing_count + 1))
+          else
+            status="$(cat "$status_file" 2>/dev/null || true)"
+            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+              echo "::error::mendrisio: invalid terminal status: $status"
+              printf '%s\n' '| mendrisio | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 0 ]; then
+              printf '%s\n' '| mendrisio | success |' >> "$summary_file"
+              success_count=$((success_count + 1))
+            else
+              echo "::error::mendrisio: crawler exited with status $status"
+              printf '| mendrisio | failed (%s) |\n' "$status" >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            fi
+          fi
+          status_file="$state_dir/valora.status"
+          if [ ! -s "$status_file" ]; then
+            echo "::warning::valora: no terminal status was published"
+            printf '%s\n' '| valora | missing status |' >> "$summary_file"
+            missing_count=$((missing_count + 1))
+          else
+            status="$(cat "$status_file" 2>/dev/null || true)"
+            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+              echo "::error::valora: invalid terminal status: $status"
+              printf '%s\n' '| valora | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 0 ]; then
+              printf '%s\n' '| valora | success |' >> "$summary_file"
+              success_count=$((success_count + 1))
+            else
+              echo "::error::valora: crawler exited with status $status"
+              printf '| valora | failed (%s) |\n' "$status" >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            fi
+          fi
+          status_file="$state_dir/talan.status"
+          if [ ! -s "$status_file" ]; then
+            echo "::warning::talan: no terminal status was published"
+            printf '%s\n' '| talan | missing status |' >> "$summary_file"
+            missing_count=$((missing_count + 1))
+          else
+            status="$(cat "$status_file" 2>/dev/null || true)"
+            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+              echo "::error::talan: invalid terminal status: $status"
+              printf '%s\n' '| talan | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 0 ]; then
+              printf '%s\n' '| talan | success |' >> "$summary_file"
+              success_count=$((success_count + 1))
+            else
+              echo "::error::talan: crawler exited with status $status"
+              printf '| talan | failed (%s) |\n' "$status" >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            fi
+          fi
+          status_file="$state_dir/straumann.status"
+          if [ ! -s "$status_file" ]; then
+            echo "::warning::straumann: no terminal status was published"
+            printf '%s\n' '| straumann | missing status |' >> "$summary_file"
+            missing_count=$((missing_count + 1))
+          else
+            status="$(cat "$status_file" 2>/dev/null || true)"
+            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+              echo "::error::straumann: invalid terminal status: $status"
+              printf '%s\n' '| straumann | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 0 ]; then
+              printf '%s\n' '| straumann | success |' >> "$summary_file"
+              success_count=$((success_count + 1))
+            else
+              echo "::error::straumann: crawler exited with status $status"
+              printf '| straumann | failed (%s) |\n' "$status" >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            fi
+          fi
+          status_file="$state_dir/hugo-boss.status"
+          if [ ! -s "$status_file" ]; then
+            echo "::warning::hugo-boss: no terminal status was published"
+            printf '%s\n' '| hugo-boss | missing status |' >> "$summary_file"
+            missing_count=$((missing_count + 1))
+          else
+            status="$(cat "$status_file" 2>/dev/null || true)"
+            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+              echo "::error::hugo-boss: invalid terminal status: $status"
+              printf '%s\n' '| hugo-boss | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 0 ]; then
+              printf '%s\n' '| hugo-boss | success |' >> "$summary_file"
+              success_count=$((success_count + 1))
+            else
+              echo "::error::hugo-boss: crawler exited with status $status"
+              printf '| hugo-boss | failed (%s) |\n' "$status" >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            fi
+          fi
+          status_file="$state_dir/faulhaber.status"
+          if [ ! -s "$status_file" ]; then
+            echo "::warning::faulhaber: no terminal status was published"
+            printf '%s\n' '| faulhaber | missing status |' >> "$summary_file"
+            missing_count=$((missing_count + 1))
+          else
+            status="$(cat "$status_file" 2>/dev/null || true)"
+            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+              echo "::error::faulhaber: invalid terminal status: $status"
+              printf '%s\n' '| faulhaber | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 0 ]; then
+              printf '%s\n' '| faulhaber | success |' >> "$summary_file"
+              success_count=$((success_count + 1))
+            else
+              echo "::error::faulhaber: crawler exited with status $status"
+              printf '| faulhaber | failed (%s) |\n' "$status" >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            fi
+          fi
+          status_file="$state_dir/ipersonal.status"
+          if [ ! -s "$status_file" ]; then
+            echo "::warning::ipersonal: no terminal status was published"
+            printf '%s\n' '| ipersonal | missing status |' >> "$summary_file"
+            missing_count=$((missing_count + 1))
+          else
+            status="$(cat "$status_file" 2>/dev/null || true)"
+            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+              echo "::error::ipersonal: invalid terminal status: $status"
+              printf '%s\n' '| ipersonal | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 0 ]; then
+              printf '%s\n' '| ipersonal | success |' >> "$summary_file"
+              success_count=$((success_count + 1))
+            else
+              echo "::error::ipersonal: crawler exited with status $status"
+              printf '| ipersonal | failed (%s) |\n' "$status" >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            fi
+          fi
+          status_file="$state_dir/eraneos.status"
+          if [ ! -s "$status_file" ]; then
+            echo "::warning::eraneos: no terminal status was published"
+            printf '%s\n' '| eraneos | missing status |' >> "$summary_file"
+            missing_count=$((missing_count + 1))
+          else
+            status="$(cat "$status_file" 2>/dev/null || true)"
+            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+              echo "::error::eraneos: invalid terminal status: $status"
+              printf '%s\n' '| eraneos | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 0 ]; then
+              printf '%s\n' '| eraneos | success |' >> "$summary_file"
+              success_count=$((success_count + 1))
+            else
+              echo "::error::eraneos: crawler exited with status $status"
+              printf '| eraneos | failed (%s) |\n' "$status" >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            fi
+          fi
+          status_file="$state_dir/h-ju-hopital-du-jura.status"
+          if [ ! -s "$status_file" ]; then
+            echo "::warning::h-ju-hopital-du-jura: no terminal status was published"
+            printf '%s\n' '| h-ju-hopital-du-jura | missing status |' >> "$summary_file"
+            missing_count=$((missing_count + 1))
+          else
+            status="$(cat "$status_file" 2>/dev/null || true)"
+            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+              echo "::error::h-ju-hopital-du-jura: invalid terminal status: $status"
+              printf '%s\n' '| h-ju-hopital-du-jura | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 0 ]; then
+              printf '%s\n' '| h-ju-hopital-du-jura | success |' >> "$summary_file"
+              success_count=$((success_count + 1))
+            else
+              echo "::error::h-ju-hopital-du-jura: crawler exited with status $status"
+              printf '| h-ju-hopital-du-jura | failed (%s) |\n' "$status" >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            fi
+          fi
+          status_file="$state_dir/gavi.status"
+          if [ ! -s "$status_file" ]; then
+            echo "::warning::gavi: no terminal status was published"
+            printf '%s\n' '| gavi | missing status |' >> "$summary_file"
+            missing_count=$((missing_count + 1))
+          else
+            status="$(cat "$status_file" 2>/dev/null || true)"
+            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+              echo "::error::gavi: invalid terminal status: $status"
+              printf '%s\n' '| gavi | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 0 ]; then
+              printf '%s\n' '| gavi | success |' >> "$summary_file"
+              success_count=$((success_count + 1))
+            else
+              echo "::error::gavi: crawler exited with status $status"
+              printf '| gavi | failed (%s) |\n' "$status" >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            fi
+          fi
+          status_file="$state_dir/clinique-la-source.status"
+          if [ ! -s "$status_file" ]; then
+            echo "::warning::clinique-la-source: no terminal status was published"
+            printf '%s\n' '| clinique-la-source | missing status |' >> "$summary_file"
+            missing_count=$((missing_count + 1))
+          else
+            status="$(cat "$status_file" 2>/dev/null || true)"
+            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+              echo "::error::clinique-la-source: invalid terminal status: $status"
+              printf '%s\n' '| clinique-la-source | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 0 ]; then
+              printf '%s\n' '| clinique-la-source | success |' >> "$summary_file"
+              success_count=$((success_count + 1))
+            else
+              echo "::error::clinique-la-source: crawler exited with status $status"
+              printf '| clinique-la-source | failed (%s) |\n' "$status" >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            fi
+          fi
+          status_file="$state_dir/csd-engineers.status"
+          if [ ! -s "$status_file" ]; then
+            echo "::warning::csd-engineers: no terminal status was published"
+            printf '%s\n' '| csd-engineers | missing status |' >> "$summary_file"
+            missing_count=$((missing_count + 1))
+          else
+            status="$(cat "$status_file" 2>/dev/null || true)"
+            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+              echo "::error::csd-engineers: invalid terminal status: $status"
+              printf '%s\n' '| csd-engineers | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 0 ]; then
+              printf '%s\n' '| csd-engineers | success |' >> "$summary_file"
+              success_count=$((success_count + 1))
+            else
+              echo "::error::csd-engineers: crawler exited with status $status"
+              printf '| csd-engineers | failed (%s) |\n' "$status" >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            fi
+          fi
+          status_file="$state_dir/cedes.status"
+          if [ ! -s "$status_file" ]; then
+            echo "::warning::cedes: no terminal status was published"
+            printf '%s\n' '| cedes | missing status |' >> "$summary_file"
+            missing_count=$((missing_count + 1))
+          else
+            status="$(cat "$status_file" 2>/dev/null || true)"
+            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+              echo "::error::cedes: invalid terminal status: $status"
+              printf '%s\n' '| cedes | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 0 ]; then
+              printf '%s\n' '| cedes | success |' >> "$summary_file"
+              success_count=$((success_count + 1))
+            else
+              echo "::error::cedes: crawler exited with status $status"
+              printf '| cedes | failed (%s) |\n' "$status" >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            fi
+          fi
+          status_file="$state_dir/bracco.status"
+          if [ ! -s "$status_file" ]; then
+            echo "::warning::bracco: no terminal status was published"
+            printf '%s\n' '| bracco | missing status |' >> "$summary_file"
+            missing_count=$((missing_count + 1))
+          else
+            status="$(cat "$status_file" 2>/dev/null || true)"
+            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+              echo "::error::bracco: invalid terminal status: $status"
+              printf '%s\n' '| bracco | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 0 ]; then
+              printf '%s\n' '| bracco | success |' >> "$summary_file"
+              success_count=$((success_count + 1))
+            else
+              echo "::error::bracco: crawler exited with status $status"
+              printf '| bracco | failed (%s) |\n' "$status" >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            fi
+          fi
+          status_file="$state_dir/bms-building.status"
+          if [ ! -s "$status_file" ]; then
+            echo "::warning::bms-building: no terminal status was published"
+            printf '%s\n' '| bms-building | missing status |' >> "$summary_file"
+            missing_count=$((missing_count + 1))
+          else
+            status="$(cat "$status_file" 2>/dev/null || true)"
+            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+              echo "::error::bms-building: invalid terminal status: $status"
+              printf '%s\n' '| bms-building | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 0 ]; then
+              printf '%s\n' '| bms-building | success |' >> "$summary_file"
+              success_count=$((success_count + 1))
+            else
+              echo "::error::bms-building: crawler exited with status $status"
+              printf '| bms-building | failed (%s) |\n' "$status" >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            fi
+          fi
+          status_file="$state_dir/citta-di-bellinzona.status"
+          if [ ! -s "$status_file" ]; then
+            echo "::warning::citta-di-bellinzona: no terminal status was published"
+            printf '%s\n' '| citta-di-bellinzona | missing status |' >> "$summary_file"
+            missing_count=$((missing_count + 1))
+          else
+            status="$(cat "$status_file" 2>/dev/null || true)"
+            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+              echo "::error::citta-di-bellinzona: invalid terminal status: $status"
+              printf '%s\n' '| citta-di-bellinzona | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 0 ]; then
+              printf '%s\n' '| citta-di-bellinzona | success |' >> "$summary_file"
+              success_count=$((success_count + 1))
+            else
+              echo "::error::citta-di-bellinzona: crawler exited with status $status"
+              printf '| citta-di-bellinzona | failed (%s) |\n' "$status" >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            fi
+          fi
+          status_file="$state_dir/berner-klinik-montana.status"
+          if [ ! -s "$status_file" ]; then
+            echo "::warning::berner-klinik-montana: no terminal status was published"
+            printf '%s\n' '| berner-klinik-montana | missing status |' >> "$summary_file"
+            missing_count=$((missing_count + 1))
+          else
+            status="$(cat "$status_file" 2>/dev/null || true)"
+            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+              echo "::error::berner-klinik-montana: invalid terminal status: $status"
+              printf '%s\n' '| berner-klinik-montana | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 0 ]; then
+              printf '%s\n' '| berner-klinik-montana | success |' >> "$summary_file"
+              success_count=$((success_count + 1))
+            else
+              echo "::error::berner-klinik-montana: crawler exited with status $status"
+              printf '| berner-klinik-montana | failed (%s) |\n' "$status" >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            fi
+          fi
+          status_file="$state_dir/agroscope.status"
+          if [ ! -s "$status_file" ]; then
+            echo "::warning::agroscope: no terminal status was published"
+            printf '%s\n' '| agroscope | missing status |' >> "$summary_file"
+            missing_count=$((missing_count + 1))
+          else
+            status="$(cat "$status_file" 2>/dev/null || true)"
+            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+              echo "::error::agroscope: invalid terminal status: $status"
+              printf '%s\n' '| agroscope | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 0 ]; then
+              printf '%s\n' '| agroscope | success |' >> "$summary_file"
+              success_count=$((success_count + 1))
+            else
+              echo "::error::agroscope: crawler exited with status $status"
+              printf '| agroscope | failed (%s) |\n' "$status" >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            fi
+          fi
+          status_file="$state_dir/amstein-walthert.status"
+          if [ ! -s "$status_file" ]; then
+            echo "::warning::amstein-walthert: no terminal status was published"
+            printf '%s\n' '| amstein-walthert | missing status |' >> "$summary_file"
+            missing_count=$((missing_count + 1))
+          else
+            status="$(cat "$status_file" 2>/dev/null || true)"
+            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+              echo "::error::amstein-walthert: invalid terminal status: $status"
+              printf '%s\n' '| amstein-walthert | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 0 ]; then
+              printf '%s\n' '| amstein-walthert | success |' >> "$summary_file"
+              success_count=$((success_count + 1))
+            else
+              echo "::error::amstein-walthert: crawler exited with status $status"
+              printf '| amstein-walthert | failed (%s) |\n' "$status" >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            fi
+          fi
+          status_file="$state_dir/caseificio-gottardo.status"
+          if [ ! -s "$status_file" ]; then
+            echo "::warning::caseificio-gottardo: no terminal status was published"
+            printf '%s\n' '| caseificio-gottardo | missing status |' >> "$summary_file"
+            missing_count=$((missing_count + 1))
+          else
+            status="$(cat "$status_file" 2>/dev/null || true)"
+            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+              echo "::error::caseificio-gottardo: invalid terminal status: $status"
+              printf '%s\n' '| caseificio-gottardo | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 0 ]; then
+              printf '%s\n' '| caseificio-gottardo | success |' >> "$summary_file"
+              success_count=$((success_count + 1))
+            else
+              echo "::error::caseificio-gottardo: crawler exited with status $status"
+              printf '| caseificio-gottardo | failed (%s) |\n' "$status" >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            fi
+          fi
+          printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing." >> "$summary_file"
+          printf '%s\n' "success_count=$success_count" "failure_count=$failure_count" "missing_count=$missing_count" >> "$output_file"
+          exit 0
       - name: Commit crawler group data atomically
-        if: always() && inputs.generation_token != '' && job.status == 'success'
+        if: always() && inputs.generation_token != '' && job.status == 'success' && steps.crawler_group_setup.outcome == 'success'
         run: |-
           set +e
           bash scripts/lib/git-commit-data.sh --group-batch "Auto-update crawler group 05 jobs"
@@ -4085,6 +6266,34 @@ jobs:
           if-no-files-found: error
           overwrite: true
           retention-days: 14
+      - name: Fail crawler group after all member outcomes
+        if: always()
+        env:
+          CRAWLER_AGGREGATE_OUTCOME: ${{ steps.crawler_aggregate.outcome }}
+          CRAWLER_AGGREGATE_SUCCESS: ${{ steps.crawler_aggregate.outputs.success_count || 'invalid' }}
+          CRAWLER_AGGREGATE_FAILURES: ${{ steps.crawler_aggregate.outputs.failure_count || 'invalid' }}
+          CRAWLER_AGGREGATE_MISSING: ${{ steps.crawler_aggregate.outputs.missing_count || 'invalid' }}
+        run: |-
+          set -euo pipefail
+          aggregate_outcome="${CRAWLER_AGGREGATE_OUTCOME:-failure}"
+          success_count="${CRAWLER_AGGREGATE_SUCCESS:-invalid}"
+          failure_count="${CRAWLER_AGGREGATE_FAILURES:-invalid}"
+          missing_count="${CRAWLER_AGGREGATE_MISSING:-invalid}"
+          if [ "$aggregate_outcome" != "success" ]; then
+            echo "::error::crawler aggregate step did not complete; group failed after preserving already-running siblings"
+            exit 1
+          fi
+          for count in "$success_count" "$failure_count" "$missing_count"; do
+            if ! [[ "$count" =~ ^[0-9]+$ ]]; then
+              echo "::error::crawler aggregate produced an invalid count: $count"
+              exit 1
+            fi
+          done
+          if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ]; then
+            echo "::error::crawler group completed with $success_count succeeded, $failure_count failed, $missing_count missing; healthy siblings were preserved, but the group remains failed until incomplete crawlers are recovered"
+            exit 1
+          fi
+          echo "✅ all $success_count crawler members completed successfully"
       - name: Release cross-entry crawler live-run lease
         if: always() && env.CRAWLER_GROUP_LIVE_LEASE_OWNED == '1'
         continue-on-error: true
