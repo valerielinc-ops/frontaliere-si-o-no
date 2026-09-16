@@ -1,0 +1,21 @@
+{
+  "companyKey": "congrex",
+  "companyName": "Congrex Schweiz AG",
+  "companyHost": "congrex.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://congrex.com/jobs/"
+  ],
+  "detailTemplate": "/jobs/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Learn More Sachbearbeiter/in Finanzen (50-70%)",
+    "Learn More Event Organiser (80-100%)"
+  ],
+  "canton": "BS",
+  "sourceLang": "en",
+  "learnedAt": "2026-09-16T10:39:14.584Z"
+}

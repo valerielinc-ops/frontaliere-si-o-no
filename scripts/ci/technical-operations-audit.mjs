@@ -26,11 +26,16 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { parseDocument } from 'yaml';
 import { createGithubIssue, ensureLabelsExist } from '../lib/github-issue-creator.mjs';
+import { loadLoopPolicy } from '../lib/loop-fleet-contract.mjs';
 import { auditLoopFleetBindings } from './loop-fleet-registry-audit.mjs';
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 export const WORKFLOW_DIR_NAME = path.join('.github', 'workflows');
 export const DEFAULT_ISSUE_TITLE = 'Technical operations audit: workflow/data contract regressions';
+export const L11_LOOP_ID = 'L11';
+export const L11_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
+export const L11_METADATA_SCHEMA_VERSION = 1;
+const HOUR_MS = 3_600_000;
 export const PERMISSION_KEYS = new Set([
   'actions', 'attestations', 'checks', 'contents', 'deployments', 'discussions',
   'id-token', 'issues', 'models', 'packages', 'pages', 'pull-requests',
@@ -1466,6 +1471,124 @@ export function summarize(report) {
   return summary;
 }
 
+function positiveIntegerOrNull(value) {
+  return Number.isInteger(value) && value > 0 ? value : null;
+}
+
+function normalizeIsoTimestamp(value) {
+  const timestamp = Date.parse(typeof value === 'string' ? value : '');
+  return Number.isFinite(timestamp) ? new Date(timestamp).toISOString() : null;
+}
+
+function addHoursOrNull(startAt, hours) {
+  const startMs = Date.parse(startAt || '');
+  return Number.isFinite(startMs) && Number.isInteger(hours) && hours > 0
+    ? new Date(startMs + hours * HOUR_MS).toISOString()
+    : null;
+}
+
+/**
+ * Metadata duraturi per un avviso L11.
+ *
+ * L'owner resta il ruolo dichiarato dal registry, mai una persona scelta dal
+ * runner. Le deadline partono dal timestamp del report: la deadline owner è
+ * lo SLA di presa in carico, mentre expiresAt è il TTL del candidato. Il
+ * prossimo riesame è la deadline dello SLA owner, che per L11 coincide con la
+ * cadenza giornaliera dichiarata.
+ *
+ * Se policy o timestamp non sono osservabili, il risultato è esplicitamente
+ * `unmeasurable` e non sostituisce i valori mancanti con default locali.
+ */
+export function buildL11OperationalMetadata({
+  policy = null,
+  generatedAt = null,
+  registryPath = L11_REGISTRY_PATH,
+  reason = null,
+} = {}) {
+  const isL11Policy = policy?.loopId === L11_LOOP_ID;
+  const lifecycle = isL11Policy && policy.lifecycle && typeof policy.lifecycle === 'object'
+    ? policy.lifecycle
+    : {};
+  const owner = isL11Policy && typeof policy.owner === 'string' && policy.owner.trim()
+    ? policy.owner.trim()
+    : null;
+  const cadence = isL11Policy && typeof policy.cadence === 'string' && policy.cadence.trim()
+    ? policy.cadence.trim()
+    : null;
+  const observedAt = normalizeIsoTimestamp(generatedAt);
+  const candidateTtlHours = positiveIntegerOrNull(lifecycle.candidateTtlHours);
+  const ownerSlaHours = positiveIntegerOrNull(lifecycle.ownerSlaHours);
+  const postMergeVerificationHours = positiveIntegerOrNull(lifecycle.postMergeVerificationHours);
+  const deadlineAt = addHoursOrNull(observedAt, ownerSlaHours);
+  const expiresAt = addHoursOrNull(observedAt, candidateTtlHours);
+  const complete = Boolean(
+    observedAt
+      && owner
+      && cadence
+      && candidateTtlHours
+      && ownerSlaHours
+      && postMergeVerificationHours
+      && deadlineAt
+      && expiresAt,
+  );
+
+  return {
+    schemaVersion: L11_METADATA_SCHEMA_VERSION,
+    loopId: L11_LOOP_ID,
+    status: complete ? 'available' : 'unmeasurable',
+    owner,
+    ownerType: owner ? 'registry-role' : null,
+    registryPath,
+    generatedAt: observedAt,
+    cadence,
+    lifecycle: {
+      candidateTtlHours,
+      ownerSlaHours,
+      postMergeVerificationHours,
+    },
+    // Keep the lifecycle limits flat as well: existing status consumers expose
+    // these names and older readers can ignore this additive metadata block.
+    candidateTtlHours,
+    ownerSlaHours,
+    postMergeVerificationHours,
+    deadlineAt,
+    expiresAt,
+    nextReviewAt: deadlineAt,
+    ...(reason ? { reason } : {}),
+  };
+}
+
+/** Missing L11 lifecycle policy is an audit error, not an ordinary warning. */
+export function l11OperationalMetadataFinding(metadata, registryPath = L11_REGISTRY_PATH) {
+  if (metadata?.status === 'available') return null;
+  return finding(
+    registryPath,
+    'loop-registry.l11-operational-metadata',
+    'error',
+    'L11 operational metadata is unavailable; owner, TTL and SLA cannot be verified',
+    1,
+    metadata?.reason || 'metadata status is not available',
+  );
+}
+
+/** Read the validated L11 policy without weakening the audit on bad input. */
+export function loadL11OperationalMetadata({
+  root = ROOT,
+  generatedAt = null,
+  registryPath = L11_REGISTRY_PATH,
+} = {}) {
+  try {
+    const { policy } = loadLoopPolicy(path.resolve(root, registryPath), L11_LOOP_ID);
+    return buildL11OperationalMetadata({ policy, generatedAt, registryPath });
+  } catch (error) {
+    return buildL11OperationalMetadata({
+      generatedAt,
+      registryPath,
+      reason: `L11 registry metadata unavailable: ${error?.message || String(error)}`,
+    });
+  }
+}
+
 /**
  * Keep the L11 issue route proportional to the evidence actually observed.
  *
@@ -1548,6 +1671,16 @@ export function renderMarkdown(report, { maxFindings = 240, compact = true } = {
     `- Generato: ${report.generatedAt}`,
     '',
   ];
+  if (report.operationalMetadata) {
+    lines.push(
+      '### Metadata operativi L11',
+      '',
+      '```json',
+      JSON.stringify(report.operationalMetadata, null, 2),
+      '```',
+      '',
+    );
+  }
   const visibleFindings = compact ? compactFindings(report.findings) : report.findings;
   const selected = visibleFindings.slice(0, maxFindings);
   for (const item of selected) {
@@ -1573,6 +1706,15 @@ async function main() {
   const argv = process.argv.slice(2);
   const workflowReport = auditWorkflowFiles(ROOT);
   const registryReport = auditLoopFleetBindings({ root: ROOT });
+  const operationalMetadata = loadL11OperationalMetadata({
+    root: ROOT,
+    generatedAt: workflowReport.generatedAt,
+    registryPath: registryReport.registryPath,
+  });
+  const operationalMetadataFinding = l11OperationalMetadataFinding(
+    operationalMetadata,
+    registryReport.registryPath,
+  );
   const report = {
     ...workflowReport,
     registry: {
@@ -1580,10 +1722,24 @@ async function main() {
       loopsScanned: registryReport.loopsScanned,
       loopIds: registryReport.loopIds,
     },
-    findings: dedupeFindings([...workflowReport.findings, ...registryReport.findings])
+    operationalMetadata,
+    findings: dedupeFindings([
+      ...workflowReport.findings,
+      ...registryReport.findings,
+      ...(operationalMetadataFinding ? [operationalMetadataFinding] : []),
+    ])
       .sort((left, right) => left.file.localeCompare(right.file) || left.line - right.line || left.rule.localeCompare(right.rule)),
   };
   const summary = summarize(report);
+  const routing = auditIssueRouting(summary);
+  report.operationalMetadata = {
+    ...report.operationalMetadata,
+    routing: {
+      route: routing.route,
+      add: routing.add,
+      remove: routing.remove,
+    },
+  };
   const reportPath = cliValue(argv, '--report');
   if (reportPath) {
     fs.mkdirSync(path.dirname(path.resolve(reportPath)), { recursive: true });
@@ -1603,11 +1759,10 @@ async function main() {
       '### Azione del supervisore',
       '',
       '- Questo report è stato prodotto senza modificare workflow o dati.',
-      `- Routing: **${auditIssueRouting(summary).route}** — gli errori provati possono entrare nell’issue-fix bounded; i warning restano da confermare con una prova runtime.`,
+      `- Routing: **${routing.route}** — gli errori provati possono entrare nell’issue-fix bounded; i warning restano da confermare con una prova runtime.`,
       '- Un dato non osservabile resta `unmeasurable`, non viene trasformato in zero.',
       runUrl ? `- Run: ${runUrl}` : '',
     ].filter(Boolean).join('\n');
-    const routing = auditIssueRouting(summary);
     try {
       const result = await createGithubIssue({
         title: DEFAULT_ISSUE_TITLE,
