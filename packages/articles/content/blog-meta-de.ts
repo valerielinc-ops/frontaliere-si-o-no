@@ -11766,6 +11766,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-15.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 15. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-09-15.seoDescription': 'Grenzgänger-Bulletin vom 15. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-09-15.ogDescription': 'Die Zahlen vom 15. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.affitti-ticino-calo-2026.title': 'Vermietungen im Tessin rückläufig: Rückgang der Inserate um 10,9%',
+    'blog.article.affitti-ticino-calo-2026.excerpt': 'Erstmals sinken die Mieten in der Schweiz. Im Tessin beträgt der Rückgang 10,9% mit einem Durchschnitt von 1\'501 Franken.',
+    'blog.article.affitti-ticino-calo-2026.imageAlt': 'Blick auf Wohngebäude und den Luganersee im Tessin',
 };
 
 export default blogMetaDe;

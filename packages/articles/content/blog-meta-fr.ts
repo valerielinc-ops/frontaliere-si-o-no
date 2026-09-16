@@ -11769,6 +11769,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-15.imageAlt': 'Les chiffres du jour pour les frontaliers – 15 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-09-15.seoDescription': 'Bulletin du frontalier du 15 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-09-15.ogDescription': 'Les chiffres du 15 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.affitti-ticino-calo-2026.title': 'Location en pique au Tessin : baisse de 10,9% des annonces',
+    'blog.article.affitti-ticino-calo-2026.excerpt': 'Pour la première fois, les loyers proposés en Suisse connaissent une baisse. Au Tessin, la baisse atteint 10,9 % avec une moyenne de 1\'501 francs.',
+    'blog.article.affitti-ticino-calo-2026.imageAlt': 'Vue des immeubles résidentiels et du lac de Lugano au Tessin',
 };
 
 export default blogMetaFr;

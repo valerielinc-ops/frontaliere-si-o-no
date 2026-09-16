@@ -11768,6 +11768,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-15.imageAlt': 'I numeri del giorno per i frontalieri – 15 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-09-15.seoDescription': 'Bollettino frontalieri del 15 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-09-15.ogDescription': 'I numeri del 15 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.affitti-ticino-calo-2026.title': 'Affitti in picchiata in Ticino: calo del 10,9% negli annunci',
+    'blog.article.affitti-ticino-calo-2026.excerpt': 'Per la prima volta gli affitti in offerta in Svizzera registrano un calo. In Ticino la flessione raggiunge il 10,9% con una media di 1\'501 franchi.',
+    'blog.article.affitti-ticino-calo-2026.imageAlt': 'Vista di edifici residenziali e del Lago di Lugano in Ticino',
 };
 
 export default blogMetaIt;
