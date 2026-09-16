@@ -624,20 +624,47 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
     expect(result.reason).toMatch(/nessuna review Claude/i);
   });
 
-  it('approves an identical-fingerprint review from a previous SHA', async () => {
+  it('blocks an identical-fingerprint review from a previous SHA', async () => {
     const result = await runReviewGate({
       repo: 'owner/repo',
       pr: 1,
       headSha: HEAD_SHA,
       reviews: [[approvingBotReview]],
-      fingerprintFn: () => 'same-contribution',
       mutate: false,
     });
 
-    expect(result).toMatchObject({
-      approved: true,
-      reviewCommit: PRIOR_SHA,
+    expect(result.approved).toBe(false);
+    expect(result.reason).toMatch(/non sulla HEAD|non applicabile|manca ## LGTM/i);
+  });
+
+  it('does not carry a stale Codex fallback across an autorebase', async () => {
+    const fixedReview = {
+      ...approvingBotReview,
+      body: [
+        '## Findings (Important: 0, Nit: 0)',
+        '',
+        'Fix di `src/changed.mjs:L12`: ok.',
+        '',
+        '## LGTM',
+      ].join('\n'),
+    };
+    const staleFallback = {
+      ...historicalImportantReview,
+      body: `${CODEX_REVIEW_MARKER}\n${historicalImportantReview.body.replace(/\n## LGTM$/u, '')}`,
+      commit_id: 'b'.repeat(40),
+    };
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[historicalImportantReview, fixedReview, staleFallback]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      changedPathsFn: () => [],
+      mutate: false,
     });
+
+    expect(result.approved).toBe(false);
+    expect(result.reason).toMatch(/non sulla HEAD|manca ## LGTM|non applicabile/i);
   });
 
   it('carries a prior LGTM across a fallback that repeats unchanged confirmed findings', async () => {

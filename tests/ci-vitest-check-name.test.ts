@@ -544,8 +544,9 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
  *
  * I push diretti su main e le merge queue devono attraversare lo stesso gate
  * blocking della PR: il verde deve restare una prova anche fuori dal percorso
- * pull request. Le PR usano invece newest-wins perché l'head precedente
- * diventa irrilevante quando arriva un nuovo commit.
+ * pull request. Le PR hanno invece una corsia per PR+HEAD: una review nuova
+ * può avanzare in parallelo e l'head precedente resta osservabile, ma il gate
+ * exact-head impedisce che un verdetto stantio autorizzi il merge.
  *
  * AGENTS.md fa dipendere una regola operativa esplicita da questo segnale
  * («main rosso blocca a cascata, priorità assoluta main verde»): senza verdetto
@@ -569,14 +570,13 @@ describe('main health-signal contract (verdetto non cancellabile)', () => {
     expect(concurrencyBlock).toMatch(/cancel-in-progress:/);
   });
 
-  it('cancel-in-progress è newest-wins solo per PR e dispatch manuali', () => {
+  it('le run non vengono cancellate e la corsia è separata per PR+HEAD', () => {
     const m = concurrencyBlock.match(/cancel-in-progress:\s*(.+?)\s*$/m);
     expect(m, '`cancel-in-progress:` non trovato').toBeTruthy();
     const value = (m![1] || '').replace(/^['"]|['"]$/g, '');
-    expect(value).toMatch(/github\.event_name\s*==\s*'pull_request'/);
-    expect(value).toMatch(/github\.event_name\s*==\s*'workflow_dispatch'/);
-    expect(value).not.toMatch(/github\.event_name\s*==\s*'push'/);
-    expect(value).not.toMatch(/github\.event_name\s*==\s*'merge_group'/);
+    expect(value).toBe('false');
+    expect(concurrencyBlock).toMatch(/github\.event\.pull_request\.number/);
+    expect(concurrencyBlock).toMatch(/github\.event\.pull_request\.head\.sha/);
   });
 
   it('lancia la suite sui push diretti a main', () => {

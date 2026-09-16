@@ -17,6 +17,9 @@ import {
   hasOnlyBareBullets,
   hasNessuno,
   filesUncitedInBody,
+  decisionDeferralSpecificity,
+  decisionDeferralFindings,
+  decisionDeferralsAreSpecific,
 } from '../scripts/lib/pr-body-sections-check.mjs';
 
 // ---------------------------------------------------------------------------
@@ -173,6 +176,37 @@ describe('hasNessuno', () => {
 
   it('detects Nessuno when alongside other text', () => {
     expect(hasNessuno('- Nessuno — task completo\n')).toBe(true);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Decision deferrals
+// ---------------------------------------------------------------------------
+describe('decision deferrals', () => {
+  it('requires concrete Motivo and Prossimo passo fields in strict mode', () => {
+    const vague = makeBody({ nonImplContent: '- Il residuo resta per scelta.' });
+    const specific = makeBody({
+      nonImplContent:
+        '- Il residuo resta per scelta. **Motivo:** il provider upstream è instabile. '
+        + '**Prossimo passo:** riaprire dopo due run verdi consecutivi.\n',
+    });
+
+    expect(checkPrBodySections(vague).ok).toBe(true);
+    expect(checkPrBodySections(vague, { strictDecisionDeferrals: true }).ok).toBe(false);
+    expect(decisionDeferralFindings(vague)).toHaveLength(1);
+    expect(decisionDeferralsAreSpecific(specific)).toBe(true);
+    expect(decisionDeferralSpecificity(specific.split('\n').find((line) => line.startsWith('- Il'))).specific).toBe(true);
+    expect(checkPrBodySections(specific, { strictDecisionDeferrals: true }).ok).toBe(true);
+  });
+
+  it('joins wrapped bullet lines before validating the two fields', () => {
+    const body = makeBody({
+      nonImplContent:
+        '- Il residuo resta by construction. **Motivo:** il contratto upstream '
+        + 'non è ancora stabile.\n'
+        + '  **Prossimo passo:** riprovare dopo il prossimo rilascio verificato.\n',
+    });
+    expect(decisionDeferralsAreSpecific(body)).toBe(true);
   });
 });
 
