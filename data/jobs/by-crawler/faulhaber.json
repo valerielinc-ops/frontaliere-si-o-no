@@ -1,6 +1,6 @@
 {
   "crawlerKey": "faulhaber",
-  "assembledAt": "2026-09-13T13:54:52.297Z",
+  "assembledAt": "2026-09-16T23:45:11.381Z",
   "jobs": [
     {
       "id": "faulhaber-2bee9b1324a0",
@@ -46,16 +46,18 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/23370/Candidatura-spontanea",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-13T13:54:48.397Z",
+      "crawledAt": "2026-09-16T23:45:06.919Z",
       "previousSlugs": [
         "spontaneous-application-faulhaber-croglio",
         "spontananwendung-faulhaber-croglio",
         "demande-spontanee-faulhaber-croglio",
-        "candidatura-spontanea-croglio-faulhaber"
+        "candidatura-spontanea-croglio-faulhaber",
+        "candidatura-faulhaber-croglio"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "candidatura-spontanea-croglio-faulhaber"
+          "candidatura-spontanea-croglio-faulhaber",
+          "candidatura-faulhaber-croglio"
         ],
         "en": [
           "spontaneous-application-faulhaber-croglio"
@@ -68,6 +70,7 @@
         ]
       },
       "firstSeenAt": "2026-09-01T01:16:48.809Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -127,13 +130,15 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/55489/R-D-Mechanical-Engineer-Gearbox-design",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T13:54:37.101Z",
+      "crawledAt": "2026-09-16T23:44:54.985Z",
       "previousSlugs": [
-        "r-d-mechanical-engineer-gearbox-design-croglio-faulhaber"
+        "r-d-mechanical-engineer-gearbox-design-croglio-faulhaber",
+        "r-d-mechanical-ingegnere-gearbox-design-faulhaber-croglio"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "r-d-mechanical-engineer-gearbox-design-croglio-faulhaber"
+          "r-d-mechanical-engineer-gearbox-design-croglio-faulhaber",
+          "r-d-mechanical-ingegnere-gearbox-design-faulhaber-croglio"
         ],
         "fr": [
           "r-d-mechanical-engineer-gearbox-design-croglio-faulhaber"
@@ -171,9 +176,9 @@
       "title": "JUNIOR LOGISTICS SPECIALIST",
       "titleByLocale": {
         "it": "JUNIOR Logistica Specialista",
-        "en": "UN",
         "de": "JUNIOR Logistik Spezialist",
-        "fr": "JUNIOR Logistique Spécialiste"
+        "fr": "JUNIOR Logistique Spécialiste",
+        "en": "JUNIOR LOGISTICS SPECIALIST"
       },
       "description": "CH - Croglio\n\nLogistics\n\nFixed employment\n\nYoung professional\n\nWe are looking for a young and motivated professional who already has a basic understanding of logistics and supply chain processes, combined with a strong interest and background in IT and digital systems.\n The position offers the opportunity to develop expertise in logistics processes, SAP, data analysis, warehouse management and continuous improvement.\n\nYOUR RESPONSIBILITIES\n\n• Support the Logistics Manager in the daily management and analysis of logistics activities.\n\n• Learn and progressively take responsibility for specific logistics processes.\n\n• Work with SAP and other IT systems supporting logistics and warehouse operations.\n\n• Analyze logistics data and prepare reports and KPIs.\n\n• Support the optimization of warehouse processes and material flows.\n\n• Identify opportunities for process improvement and participate in improvement projects.\n\n• Support the implementation and optimization of digital solutions within Logistics.\n\n• Collaborate with Logistics, Production, IT and other departments.\n\n• Gradually develop ownership of specific processes and projects.\n\nYOUR PROFILE\n\n• ESSENTIAL REQUIREMENTS\n• Initial experience, education or training in Logistics, Supply Chain, Warehouse Management or a related field.\n\n• A solid IT background or strong interest and aptitude for IT systems and digital solutions.\n\n• Good command of English, both written and spoken.\n\n• Good analytical and problem-solving skills.\n\n• Good knowledge of Microsoft Office, particularly Excel.\n\n• A structured and practical approach to work.\n\n• Curiosity, initiative and a strong willingness to learn.\n\n• Ability to work both independently and as part of a team\n\n• ADDITIONAL SKILLS CONSIDERED AS A PLUS\n• Experience with SAP.\n\n• Experience in an industrial or manufacturing environment.\n\n• Knowledge of warehouse management systems or ERP systems.\n\n• Experience with data analysis and reporting.\n\nApply now\n\nPrint Job\n\nBenefits\n\n• Canteen\n\n• Barrier-free\n\n• Parking lot\n\n• Company doctor\n\n• Employee events\n\n• Coaching\n\nGiovanna Biggi\n\nFaulhaber SA\n\nVia Cantonale 6980 Croglio",
       "descriptionByLocale": {
@@ -200,7 +205,7 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/57267/JUNIOR-LOGISTICS-SPECIALIST",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-13T13:54:24.904Z",
+      "crawledAt": "2026-09-16T23:44:42.532Z",
       "previousSlugs": [
         "junior-logistica-specialista-faulhaber-croglio"
       ],
@@ -240,7 +245,7 @@
       "companyDomain": "faulhaber.com",
       "title": "Tecnico di misura",
       "titleByLocale": {
-        "it": "Tecnologia Misura",
+        "it": "Tecnico di misura",
         "en": "Technician di misura",
         "de": "Techniker di misura",
         "fr": "Technicien di misura"
@@ -270,17 +275,19 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/57372/Tecnico-di-misura",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-13T13:54:12.626Z",
+      "crawledAt": "2026-09-16T23:44:29.725Z",
       "previousSlugs": [
         "technicien-di-misura-faulhaber-croglio",
-        "tecnico-di-misura-croglio-faulhaber"
+        "tecnico-di-misura-croglio-faulhaber",
+        "tecnologia-misura-faulhaber-croglio"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "tecnico-di-misura-croglio-faulhaber",
+          "tecnologia-misura-faulhaber-croglio"
+        ],
         "fr": [
           "technicien-di-misura-faulhaber-croglio"
-        ],
-        "it": [
-          "tecnico-di-misura-croglio-faulhaber"
         ]
       },
       "needsRetranslation": true,
