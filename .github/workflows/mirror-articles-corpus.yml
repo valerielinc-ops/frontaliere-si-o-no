@@ -64,6 +64,17 @@ on:
   # # Every two hours, offset off the hour to stay clear of the deploy cron.
   # - cron: '41 */2 * * *'
   workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Keep the run preview-only unless explicitly disabled with human approval.'
+        required: false
+        default: true
+        type: boolean
+      human_approval:
+        description: 'Explicit human approval for the corpus mirror push.'
+        required: false
+        default: false
+        type: boolean
 
 # Serialised, never cancelled: two mirrors racing would interleave force-pushes
 # over the same tree.
@@ -105,7 +116,17 @@ jobs:
             !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
 
+      - name: Require human approval for corpus publication
+        id: side_effect_gate
+        env:
+          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
+          APPROVAL_CONSENT: ${{ inputs.human_approval }}
+          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          APPROVAL_SCOPE: corpus-mirror-publication
+        run: node scripts/ci/human-side-effect-gate.mjs
+
       - name: Push packages/articles to the articles repo
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           PAT: ${{ secrets.ARTICLES_REPO_PAT }}
         run: |
