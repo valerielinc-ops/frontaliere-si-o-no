@@ -1880,6 +1880,7 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(translationStep.env.CODEX_AUTH_JSON).toBeUndefined();
     expect(translationStep.env.CODEX_AUTH_BROKER_SOCKET)
       .toBe('${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}');
+    expect(translationStep.env.CLAUDE_CODE_OAUTH_TOKEN).toBeUndefined();
     const translationCleanupStep = Object.values(translation.jobs)[0].steps.find(
       (step: any) => step.name === 'Cleanup Codex auth broker',
     );
