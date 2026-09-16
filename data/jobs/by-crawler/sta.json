@@ -8318,12 +8318,12 @@
     },
     {
       "id": "sta-e941acc64e42",
-      "slug": "schreiner-in-service-mit-flexiblen-arbeitszeiten-zurich-zurich-sta-ch",
+      "slug": "servizio-di-falegnameria-con-orari-di-lavoro-flessibili-sta-personal-ag-zurich-zurich",
       "slugByLocale": {
-        "it": "schreiner-in-service-mit-flexiblen-arbeitszeiten-zurich-zurich-sta-ch",
-        "en": "schreiner-in-service-mit-flexiblen-arbeitszeiten-zurich-zurich-sta-ch",
+        "it": "servizio-di-falegnameria-con-orari-di-lavoro-flessibili-sta-personal-ag-zurich-zurich",
+        "en": "carpenter-service-with-flexible-working-hours-sta-personal-ag-zurich-zurich",
         "de": "schreiner-in-service-mit-flexiblen-arbeitszeiten-zurich-zurich-sta-ch",
-        "fr": "schreiner-in-service-mit-flexiblen-arbeitszeiten-zurich-zurich-sta-ch"
+        "fr": "service-de-menuiserie-avec-horaires-de-travail-flexibles-sta-personal-ag-zurich-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -8376,7 +8376,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-in-service-mit-flexiblen-arbeitszeiten-zurich-zurich-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-service-mit-flexiblen-arbeitszeiten-zurich-zurich-sta-ch"
+        ],
+        "fr": [
+          "schreiner-in-service-mit-flexiblen-arbeitszeiten-zurich-zurich-sta-ch"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-in-service-mit-flexiblen-arbeitszeiten-zurich-zurich-sta-ch"
+      ]
     },
     {
       "id": "sta-e6ef63762c70",
@@ -8765,9 +8779,9 @@
       "slug": "schreiner-in-con-verantwortung-per-hochwertige-montagearbeiten-sta-personal-ag-zurich",
       "slugByLocale": {
         "it": "schreiner-in-con-verantwortung-per-hochwertige-montagearbeiten-sta-personal-ag-zurich",
-        "en": "schreiner-in-mit-verantwortung-fur-hochwertige-montagearbeiten-zurich-zurich-sta-ch",
+        "en": "carpenter-with-responsibility-for-high-quality-assembly-work-sta-personal-ag-zurich-zurich",
         "de": "schreiner-in-mit-verantwortung-fur-hochwertige-montagearbeiten-zurich-zurich-sta-ch",
-        "fr": "schreiner-in-mit-verantwortung-fur-hochwertige-montagearbeiten-zurich-zurich-sta-ch"
+        "fr": "charpentier-responsable-des-travaux-de-montage-de-haute-qualite-sta-personal-ag-zurich-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -8812,6 +8826,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "schreiner-in-mit-verantwortung-fur-hochwertige-montagearbeiten-zurich-zurich-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-mit-verantwortung-fur-hochwertige-montagearbeiten-zurich-zurich-sta-ch"
+        ],
+        "fr": [
           "schreiner-in-mit-verantwortung-fur-hochwertige-montagearbeiten-zurich-zurich-sta-ch"
         ]
       },
@@ -8905,9 +8925,9 @@
       "slug": "schreiner-in-con-technischer-projektleitung-e-3d-planung-sta-personal-ag-hochdorf",
       "slugByLocale": {
         "it": "schreiner-in-con-technischer-projektleitung-e-3d-planung-sta-personal-ag-hochdorf",
-        "en": "schreiner-in-mit-technischer-projektleitung-und-3d-planung-hochdorf-luzern-sta-ch",
+        "en": "carpenter-with-technical-project-management-and-3d-planning-sta-personal-ag-hochdorf-luzern",
         "de": "schreiner-in-mit-technischer-projektleitung-und-3d-planung-hochdorf-luzern-sta-ch",
-        "fr": "schreiner-in-mit-technischer-projektleitung-und-3d-planung-hochdorf-luzern-sta-ch"
+        "fr": "ebeniste-ou-ebeniste-avec-encadrement-technique-de-projet-et-planification-3d-sta-personal-ag-hochdorf-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -8952,6 +8972,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "schreiner-in-mit-technischer-projektleitung-und-3d-planung-hochdorf-luzern-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-mit-technischer-projektleitung-und-3d-planung-hochdorf-luzern-sta-ch"
+        ],
+        "fr": [
           "schreiner-in-mit-technischer-projektleitung-und-3d-planung-hochdorf-luzern-sta-ch"
         ]
       },
@@ -9207,9 +9233,9 @@
       "slug": "schreiner-in-con-teamarbeit-e-montagetatigkeiten-sta-personal-ag-schaffhausen",
       "slugByLocale": {
         "it": "schreiner-in-con-teamarbeit-e-montagetatigkeiten-sta-personal-ag-schaffhausen",
-        "en": "schreiner-in-mit-teamarbeit-und-montagetatigkeiten-schaffhausen-schaffhausen-sta-ch",
+        "en": "carpenter-with-teamwork-and-assembly-activities-sta-personal-ag-schaffhausen-schaffhausen",
         "de": "schreiner-in-mit-teamarbeit-und-montagetatigkeiten-schaffhausen-schaffhausen-sta-ch",
-        "fr": "schreiner-in-mit-teamarbeit-und-montagetatigkeiten-schaffhausen-schaffhausen-sta-ch"
+        "fr": "charpentier-avec-travail-d-equipe-et-activites-de-montage-sta-personal-ag-schaffhausen-schaffhausen"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -9254,6 +9280,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "schreiner-in-mit-teamarbeit-und-montagetatigkeiten-schaffhausen-schaffhausen-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-mit-teamarbeit-und-montagetatigkeiten-schaffhausen-schaffhausen-sta-ch"
+        ],
+        "fr": [
           "schreiner-in-mit-teamarbeit-und-montagetatigkeiten-schaffhausen-schaffhausen-sta-ch"
         ]
       },
@@ -9355,9 +9387,9 @@
       "slug": "schreiner-in-con-schwerpunkt-service-e-montage-sta-personal-ag-zurich",
       "slugByLocale": {
         "it": "schreiner-in-con-schwerpunkt-service-e-montage-sta-personal-ag-zurich",
-        "en": "schreiner-in-mit-schwerpunkt-service-und-montage-zurich-zurich-sta-ch",
+        "en": "carpenter-with-focus-on-service-and-assembly-sta-personal-ag-zurich-zurich",
         "de": "schreiner-in-mit-schwerpunkt-service-und-montage-zurich-zurich-sta-ch",
-        "fr": "schreiner-in-mit-schwerpunkt-service-und-montage-zurich-zurich-sta-ch"
+        "fr": "charpentier-avec-accent-sur-le-service-et-l-assemblage-sta-personal-ag-zurich-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -9402,6 +9434,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "schreiner-in-mit-schwerpunkt-service-und-montage-zurich-zurich-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-mit-schwerpunkt-service-und-montage-zurich-zurich-sta-ch"
+        ],
+        "fr": [
           "schreiner-in-mit-schwerpunkt-service-und-montage-zurich-zurich-sta-ch"
         ]
       },
@@ -9503,9 +9541,9 @@
       "slug": "schreiner-in-con-schwerpunkt-innenausbau-e-service-sta-personal-ag-dietikon",
       "slugByLocale": {
         "it": "schreiner-in-con-schwerpunkt-innenausbau-e-service-sta-personal-ag-dietikon",
-        "en": "schreiner-in-mit-schwerpunkt-innenausbau-und-service-dietikon-zurich-sta-ch",
+        "en": "carpenter-with-focus-on-interior-design-and-service-sta-personal-ag-dietikon-zurich",
         "de": "schreiner-in-mit-schwerpunkt-innenausbau-und-service-dietikon-zurich-sta-ch",
-        "fr": "schreiner-in-mit-schwerpunkt-innenausbau-und-service-dietikon-zurich-sta-ch"
+        "fr": "charpentier-avec-accent-sur-la-conception-et-le-service-d-interieur-sta-personal-ag-dietikon-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -9550,6 +9588,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "schreiner-in-mit-schwerpunkt-innenausbau-und-service-dietikon-zurich-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-mit-schwerpunkt-innenausbau-und-service-dietikon-zurich-sta-ch"
+        ],
+        "fr": [
           "schreiner-in-mit-schwerpunkt-innenausbau-und-service-dietikon-zurich-sta-ch"
         ]
       },
@@ -9652,9 +9696,9 @@
       "slug": "schreiner-in-con-schwerpunkt-cnc-technik-e-mobelbau-sta-personal-ag-uster",
       "slugByLocale": {
         "it": "schreiner-in-con-schwerpunkt-cnc-technik-e-mobelbau-sta-personal-ag-uster",
-        "en": "schreiner-in-mit-schwerpunkt-cnc-technik-und-mobelbau-uster-zurich-sta-ch",
+        "en": "carpenter-with-focus-on-cnc-technology-and-furniture-construction-sta-personal-ag-uster-zurich",
         "de": "schreiner-in-mit-schwerpunkt-cnc-technik-und-mobelbau-uster-zurich-sta-ch",
-        "fr": "schreiner-in-mit-schwerpunkt-cnc-technik-und-mobelbau-uster-zurich-sta-ch"
+        "fr": "charpentier-axe-sur-la-technologie-cnc-et-la-construction-de-meubles-sta-personal-ag-uster-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -9699,6 +9743,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "schreiner-in-mit-schwerpunkt-cnc-technik-und-mobelbau-uster-zurich-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-mit-schwerpunkt-cnc-technik-und-mobelbau-uster-zurich-sta-ch"
+        ],
+        "fr": [
           "schreiner-in-mit-schwerpunkt-cnc-technik-und-mobelbau-uster-zurich-sta-ch"
         ]
       },
@@ -9797,12 +9847,12 @@
     },
     {
       "id": "sta-f46af8340478",
-      "slug": "schreiner-in-mit-projektleitungsaufgaben-avor-zurich-zurich-sta-ch",
+      "slug": "falegname-con-compiti-di-gestione-del-progetto-avor-sta-personal-ag-zurich-zurich",
       "slugByLocale": {
-        "it": "schreiner-in-mit-projektleitungsaufgaben-avor-zurich-zurich-sta-ch",
-        "en": "schreiner-in-mit-projektleitungsaufgaben-avor-zurich-zurich-sta-ch",
+        "it": "falegname-con-compiti-di-gestione-del-progetto-avor-sta-personal-ag-zurich-zurich",
+        "en": "carpenter-with-project-management-tasks-avor-sta-personal-ag-zurich-zurich",
         "de": "schreiner-in-mit-projektleitungsaufgaben-avor-zurich-zurich-sta-ch",
-        "fr": "schreiner-in-mit-projektleitungsaufgaben-avor-zurich-zurich-sta-ch"
+        "fr": "charpentier-avec-taches-de-gestion-de-projet-avor-sta-personal-ag-zurich-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -9855,16 +9905,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-in-mit-projektleitungsaufgaben-avor-zurich-zurich-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-mit-projektleitungsaufgaben-avor-zurich-zurich-sta-ch"
+        ],
+        "fr": [
+          "schreiner-in-mit-projektleitungsaufgaben-avor-zurich-zurich-sta-ch"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-in-mit-projektleitungsaufgaben-avor-zurich-zurich-sta-ch"
+      ]
     },
     {
       "id": "sta-5d26855b45b7",
-      "slug": "schreiner-in-mit-schwerpunkt-baulicher-brandschutz-zurich-zurich-sta-ch",
+      "slug": "falegname-a-specializzato-a-nella-protezione-antincendio-strutturale-sta-personal-ag-zurich-zurich",
       "slugByLocale": {
-        "it": "schreiner-in-mit-schwerpunkt-baulicher-brandschutz-zurich-zurich-sta-ch",
-        "en": "schreiner-in-mit-schwerpunkt-baulicher-brandschutz-zurich-zurich-sta-ch",
+        "it": "falegname-a-specializzato-a-nella-protezione-antincendio-strutturale-sta-personal-ag-zurich-zurich",
+        "en": "carpenter-with-focus-on-structural-fire-protection-sta-personal-ag-zurich-zurich",
         "de": "schreiner-in-mit-schwerpunkt-baulicher-brandschutz-zurich-zurich-sta-ch",
-        "fr": "schreiner-in-mit-schwerpunkt-baulicher-brandschutz-zurich-zurich-sta-ch"
+        "fr": "charpentier-axe-sur-la-protection-contre-les-incendies-structurels-sta-personal-ag-zurich-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -9917,7 +9981,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-in-mit-schwerpunkt-baulicher-brandschutz-zurich-zurich-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-mit-schwerpunkt-baulicher-brandschutz-zurich-zurich-sta-ch"
+        ],
+        "fr": [
+          "schreiner-in-mit-schwerpunkt-baulicher-brandschutz-zurich-zurich-sta-ch"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-in-mit-schwerpunkt-baulicher-brandschutz-zurich-zurich-sta-ch"
+      ]
     },
     {
       "id": "sta-98930bcba30e",
