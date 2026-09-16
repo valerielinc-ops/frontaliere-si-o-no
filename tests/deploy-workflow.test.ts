@@ -429,7 +429,7 @@ describe('deploy.yml — wall-time delle fasi post-build nella storia committata
     }
   });
 
-  it('entrambi i produttori di righe passano dallo stesso script di append+push', () => {
+  it('tutti i produttori di righe passano dallo stesso script di append+push', () => {
     // Il retry-con-rebase (5 tentativi, backoff 5/10/15/25/40s) ha un solo
     // posto in cui cambiare: 4 leg concorrenti + gli altri produttori su main
     // out-race regolarmente una finestra piu' corta, e due copie divergenti
@@ -439,8 +439,12 @@ describe('deploy.yml — wall-time delle fasi post-build nella storia committata
     );
     expect(
       producers.map((s) => s.name),
-      'attesi due produttori di righe di build-history (memoria + fasi post-build)',
-    ).toEqual(['Append build memory history row', 'Append post-build phase timings row']);
+      'attesi tre produttori di righe di build-history (memoria + fasi post-build + manifest)',
+    ).toEqual([
+      'Append build memory history row',
+      'Append post-build phase timings row',
+      'Append incremental manifest history row',
+    ]);
     for (const s of producers) {
       expect(s.run, `"${s.name}": commit message non passato allo script condiviso`).toContain(
         'HISTORY_COMMIT_MSG=',
@@ -478,6 +482,73 @@ describe('deploy.yml — wall-time delle fasi post-build nella storia committata
       'data/translation-observability-state.json',
       'data/translation-stats-history.json',
     ]));
+  });
+});
+
+describe('deploy.yml — incremental manifest shadow observation (PR 1b)', () => {
+  const workflow = YAML.parse(DEPLOY_YML) as any;
+  const steps: Array<Record<string, any>> = workflow.jobs['build-locale'].steps;
+  const stepByName = (name: string) => {
+    const step = steps.find((candidate) => candidate.name === name);
+    expect(step, `deploy.yml: manca lo step "${name}" nel job build-locale`).toBeDefined();
+    return step!;
+  };
+
+  it('pins the opt-in env on the Build step', () => {
+    const build = stepByName('Build (BUILD_LOCALE=${{ matrix.locale }})');
+    expect(build.env?.INCREMENTAL_MANIFEST).toBe('1');
+  });
+
+  it('restores and saves one manifest cache per locale around the build', () => {
+    const restore = stepByName('Restore previous incremental manifest');
+    const stash = stepByName('Stash previous incremental manifest before build overwrites it');
+    const buildIndex = steps.indexOf(stepByName('Build (BUILD_LOCALE=${{ matrix.locale }})'));
+    const restoreIndex = steps.indexOf(restore);
+    const stashIndex = steps.indexOf(stash);
+    expect(restore.uses).toBe('actions/cache/restore@v5');
+    expect(restore.with).toMatchObject({
+      path: '.cache/incremental-manifest',
+      key: 'incremental-manifest-${{ matrix.locale }}-${{ github.run_id }}',
+    });
+    expect(String(restore.with['restore-keys']).trim()).toBe('incremental-manifest-${{ matrix.locale }}-');
+    expect(stash.run).toContain('.cache/incremental-manifest-prev');
+    expect(stash.run).toContain('mv "$previous"');
+    expect(restoreIndex).toBeLessThan(stashIndex);
+    expect(stashIndex).toBeLessThan(buildIndex);
+
+    const save = stepByName('Save incremental manifest cache');
+    expect(save.uses).toBe('actions/cache/save@v5');
+    expect(save.if).toContain('always()');
+    expect(save.with).toMatchObject({
+      path: '.cache/incremental-manifest',
+      key: 'incremental-manifest-${{ matrix.locale }}-${{ github.run_id }}',
+    });
+    expect(steps.indexOf(save)).toBe(steps.length - 1);
+  });
+
+  it('reports the real previous/current CLI and remains non-blocking', () => {
+    const report = stepByName('Incremental manifest shadow report');
+    expect(report.if).toBe('always()');
+    expect(report['continue-on-error']).toBe(true);
+    expect(report.run).toContain('node scripts/ci/incremental-manifest-report.mjs "$MANIFEST_PREVIOUS" "$MANIFEST_CURRENT"');
+    expect(report.run).toContain('$GITHUB_STEP_SUMMARY');
+    expect(report.env).toMatchObject({
+      MANIFEST_PREVIOUS: '.cache/incremental-manifest-prev/${{ matrix.locale }}.jsonl',
+      MANIFEST_CURRENT: '.cache/incremental-manifest/${{ matrix.locale }}.jsonl',
+    });
+  });
+
+  it('appends a manifest telemetry row with first-run and per-kind fields', () => {
+    const history = stepByName('Append incremental manifest history row');
+    expect(history.if).toBe('always()');
+    expect(history['continue-on-error']).toBe(true);
+    expect(history.run).toContain('kind: "incremental-manifest"');
+    expect(history.run).toContain('previous: previous ?');
+    expect(history.run).toContain('file_size_bytes');
+    expect(history.run).toContain('by_kind');
+    expect(history.run).toContain('scripts/lib/append-build-history-row.sh');
+    expect(history.run).toContain('HISTORY_LABEL=build-history-manifest');
+    expect(history.run).toContain('HISTORY_COMMIT_MSG=');
   });
 });
 
