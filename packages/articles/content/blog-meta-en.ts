@@ -11782,6 +11782,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.costi-sviluppo-farmaci-2024.title': 'Because developing new drugs costs more and more',
     'blog.article.costi-sviluppo-farmaci-2024.excerpt': 'In 2024, the average cost to develop a new drug reached $2.23 billion, an increase of 65% compared to 2014.',
     'blog.article.costi-sviluppo-farmaci-2024.imageAlt': 'Pharmaceutical research laboratory with modern equipment',
+    'blog.article.goldbach-group-ristrutturazione-licenziamenti.title': 'Goldbach Group reorganises: up to 35 redundancies',
+    'blog.article.goldbach-group-ristrutturazione-licenziamenti.excerpt': 'The Zurich company controlled by TX Group joins two divisions in the advertising sector, initiating a consultation procedure.',
+    'blog.article.goldbach-group-ristrutturazione-licenziamenti.imageAlt': 'Corporate office building in Switzerland',
 };
 
 export default blogMetaEn;

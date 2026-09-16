@@ -11783,6 +11783,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.costi-sviluppo-farmaci-2024.title': 'Perché sviluppare nuovi farmaci costa sempre di più',
     'blog.article.costi-sviluppo-farmaci-2024.excerpt': 'Nel 2024 il costo medio per sviluppare un nuovo farmaco ha raggiunto i 2,23 miliardi di dollari, segnando un incremento del 65% rispetto al 2014.',
     'blog.article.costi-sviluppo-farmaci-2024.imageAlt': 'Laboratorio di ricerca farmaceutica con attrezzature moderne',
+    'blog.article.goldbach-group-ristrutturazione-licenziamenti.title': 'Goldbach Group si riorganizza: fino a 35 licenziamenti',
+    'blog.article.goldbach-group-ristrutturazione-licenziamenti.excerpt': 'L\'azienda zurighese controllata da TX Group unisce due divisioni nel settore della pubblicità, avviando una procedura di consultazione.',
+    'blog.article.goldbach-group-ristrutturazione-licenziamenti.imageAlt': 'Sede aziendale e uffici in Svizzera',
 };
 
 export default blogMetaIt;

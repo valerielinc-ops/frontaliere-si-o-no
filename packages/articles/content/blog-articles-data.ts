@@ -35148,6 +35148,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'goldbach-group-ristrutturazione-licenziamenti',
+ category: 'novita',
+ date: '2026-09-16T01:45:03.619Z',
+ image: '/images/blog/goldbach-group-ristrutturazione-licenziamenti.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

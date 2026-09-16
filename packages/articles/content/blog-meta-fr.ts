@@ -11784,6 +11784,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.costi-sviluppo-farmaci-2024.title': 'Parce que développer de nouveaux médicaments coûte de plus en plus cher',
     'blog.article.costi-sviluppo-farmaci-2024.excerpt': 'En 2024, le coût moyen du développement d\'un nouveau médicament a atteint 2,23 milliards de dollars, soit une augmentation de 65 % par rapport à 2014.',
     'blog.article.costi-sviluppo-farmaci-2024.imageAlt': 'Laboratoire de recherche pharmaceutique avec des équipements modernes',
+    'blog.article.goldbach-group-ristrutturazione-licenziamenti.title': 'Goldbach Group se réorganise : jusqu\'à 35 licenciements',
+    'blog.article.goldbach-group-ristrutturazione-licenziamenti.excerpt': 'La société zurichoise contrôlée par TX Group unit deux divisions dans le secteur de la publicité, en lançant une procédure de consultation.',
+    'blog.article.goldbach-group-ristrutturazione-licenziamenti.imageAlt': 'Immeuble de bureaux en Suisse',
 };
 
 export default blogMetaFr;

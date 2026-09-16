@@ -90982,6 +90982,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-goldbach-group-ristrutturazione-licenziamenti': {
+    title: 'Goldbach Group si riorganizza: fino a 35 licenziamenti',
+    description: 'Riorganizzazione in vista per Goldbach Group in Svizzera: l\'azienda unisce due divisioni e prevede fino a 35 licenziamenti con piano sociale. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, goldbach, group, riorganizza, fino',
+    ogTitle: 'Goldbach Group si riorganizza: fino a 35 licenziamenti',
+    ogDescription: 'L\'azienda zurighese Goldbach Group unisce due divisioni pubblicitarie. Annunciati fino a 35 licenziamenti e un piano sociale per i dipendenti coinvolti.',
+    canonicalPath: '/articoli-frontaliere/goldbach-group-ristrutturazione-licenziamenti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Goldbach Group si riorganizza: fino a 35 licenziamenti",
+      "description": "Riorganizzazione in vista per Goldbach Group in Svizzera: l'azienda unisce due divisioni e prevede fino a 35 licenziamenti con piano sociale. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/goldbach-group-ristrutturazione-licenziamenti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede aziendale e uffici in Svizzera"
+      },
+      "datePublished": "2026-09-16T01:45:03+00:00",
+      "dateModified": "2026-09-16T01:45:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/goldbach-group-ristrutturazione-licenziamenti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
