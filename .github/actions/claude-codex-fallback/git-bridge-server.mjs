@@ -60,22 +60,24 @@ function isBlockedPushOption(arg) {
     || arg.startsWith('--mirror=');
 }
 
-function currentWorkBranchName(value) {
-  const branch = String(value || '');
-  if (!branch || branch === 'main' || branch === 'HEAD' || branch.startsWith('refs/')) return '';
+function currentWorkBranchRef(value) {
+  const ref = String(value || '');
+  if (!ref.startsWith(WORK_BRANCH_REF_PREFIX)) return '';
+  const branch = ref.slice(WORK_BRANCH_REF_PREFIX.length);
+  if (!branch || branch === 'main' || branch === 'HEAD') return '';
   if (!WORK_BRANCH_NAME_RE.test(branch) || branch.includes('//') || branch.endsWith('/')) return '';
   if (branch.split('/').some((component) => component === '.' || component === '..' || component.endsWith('.lock'))) return '';
-  return branch;
+  return ref;
 }
 
-function isCurrentBranchRef(value, currentBranch) {
-  return value === currentBranch || value === `${WORK_BRANCH_REF_PREFIX}${currentBranch}`;
+function isCurrentBranchRef(value, currentBranchRef) {
+  return value === currentBranchRef;
 }
 
 function validatePushRefspecs(refspecs, allowedWorkBranch) {
-  const currentBranch = currentWorkBranchName(allowedWorkBranch);
-  if (!currentBranch) {
-    return 'Git push requires a checked-out current work branch; detached HEAD and main are not permitted';
+  const currentBranchRef = currentWorkBranchRef(allowedWorkBranch);
+  if (!currentBranchRef) {
+    return 'Git push requires a checked-out current work branch under refs/heads; detached HEAD, main, and other namespaces are not permitted';
   }
   if (refspecs.length !== 1) {
     return 'Git push requires exactly one explicit work-branch refspec';
@@ -93,11 +95,11 @@ function validatePushRefspecs(refspecs, allowedWorkBranch) {
   if (!source || (separator !== -1 && !destination)) {
     return `Git push refspec is not permitted by the Codex fallback bridge: ${refspec}`;
   }
-  if (source !== 'HEAD' && !isCurrentBranchRef(source, currentBranch)) {
-    return `Git push source must be HEAD or the checked-out work branch: ${source}`;
+  if (source !== 'HEAD' && !isCurrentBranchRef(source, currentBranchRef)) {
+    return `Git push source must be HEAD or the full checked-out work-branch ref: ${source}`;
   }
-  if (separator !== -1 && !isCurrentBranchRef(destination, currentBranch)) {
-    return `Git push destination must match the checked-out work branch: ${destination}`;
+  if (separator !== -1 && !isCurrentBranchRef(destination, currentBranchRef)) {
+    return `Git push destination must be the full checked-out work-branch ref: ${destination}`;
   }
   return '';
 }
@@ -193,9 +195,9 @@ export function buildGitNetworkArgs(args, expectedRemote, { allowedWorkBranch = 
   const result = [...args];
   const remoteIndex = firstPositionalIndex(result);
   if (result[0] === 'push' && remoteIndex >= 0 && result.length === remoteIndex + 2 && result[remoteIndex + 1] === 'HEAD') {
-    const branch = currentWorkBranchName(allowedWorkBranch);
-    if (!branch) throw new Error('Git push requires a checked-out current work branch; detached HEAD and main are not permitted');
-    result[remoteIndex + 1] = `HEAD:${WORK_BRANCH_REF_PREFIX}${branch}`;
+    const branchRef = currentWorkBranchRef(allowedWorkBranch);
+    if (!branchRef) throw new Error('Git push requires a checked-out current work branch under refs/heads; detached HEAD, main, and other namespaces are not permitted');
+    result[remoteIndex + 1] = `HEAD:${branchRef}`;
   }
   if (remoteIndex >= 0) result[remoteIndex] = remote;
   else result.push(remote);
@@ -231,6 +233,18 @@ function writeShadowCommonDir(hostScratch, commonGitDir, expectedRemote) {
     fs.rmSync(shadow, { recursive: true, force: true });
     throw error;
   }
+}
+
+export function resolveCurrentWorkBranchRef({ realGit, cwd, env }) {
+  const result = spawnSync(realGit, ['symbolic-ref', '--quiet', 'HEAD'], {
+    cwd,
+    env,
+    encoding: 'utf8',
+    stdio: ['ignore', 'pipe', 'ignore'],
+    timeout: 5_000,
+  });
+  if (result.error || result.status !== 0) return '';
+  return currentWorkBranchRef(String(result.stdout || '').trim());
 }
 
 function main() {
@@ -283,17 +297,7 @@ function main() {
     baseEnv[`GIT_CONFIG_KEY_${index}`] = key;
     baseEnv[`GIT_CONFIG_VALUE_${index}`] = value;
   }
-  const currentWorkBranch = () => {
-    const result = spawnSync(realGit, ['symbolic-ref', '--quiet', '--short', 'HEAD'], {
-      cwd,
-      env: baseEnv,
-      encoding: 'utf8',
-      stdio: ['ignore', 'pipe', 'ignore'],
-      timeout: 5_000,
-    });
-    if (result.error || result.status !== 0) return '';
-    return String(result.stdout || '').trim();
-  };
+  const currentWorkBranch = () => resolveCurrentWorkBranchRef({ realGit, cwd, env: baseEnv });
   let activeConnections = 0;
   const children = new Set();
   const pendingProcessGroups = new Set();
