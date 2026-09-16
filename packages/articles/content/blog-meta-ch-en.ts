@@ -6443,6 +6443,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ocse-crescita-svizzera-2026.title': 'OECD sees more growth in Switzerland, GDP 2026 at 2.0%',
     'blog.article.ocse-crescita-svizzera-2026.excerpt': 'The OECD revises upwards the forecasts for Switzerland: GDP growth to 2.0% in 2026 and stable average inflation to 0.6%.',
     'blog.article.ocse-crescita-svizzera-2026.imageAlt': 'Economic overview of Switzerland with OECD growth forecasts',
+    'blog.article.ocse-rapporto-svizzera-2026.title': 'OECD Report on Switzerland: Stability and Economic Reforms',
+    'blog.article.ocse-rapporto-svizzera-2026.excerpt': 'The OECD released the report on Switzerland appreciating economic resilience but calling for reforms in health, welfare and administration by the end of 2027.',
+    'blog.article.ocse-rapporto-svizzera-2026.imageAlt': 'Federal Palace in Bern home to Swiss institutions',
 };
 
 export default blogMetaChEn;

@@ -6443,6 +6443,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ocse-crescita-svizzera-2026.title': 'OCDE voit plus de croissance en Suisse, PIB 2026 à 2,0 %',
     'blog.article.ocse-crescita-svizzera-2026.excerpt': 'L\'OCDE révise à la hausse ses prévisions pour la Suisse : croissance du PIB à 2,0% en 2026 et inflation moyenne stable à 0,6%.',
     'blog.article.ocse-crescita-svizzera-2026.imageAlt': 'Aperçu économique de la Suisse avec les prévisions de croissance de l\'OCDE',
+    'blog.article.ocse-rapporto-svizzera-2026.title': 'Rapport OCDE sur la Suisse : stabilité et réformes économiques',
+    'blog.article.ocse-rapporto-svizzera-2026.excerpt': 'L\'OCDE a publié le rapport sur la Suisse, appréciant la résilience économique mais appelant à des réformes dans les domaines de la santé, de la prévoyance et de l\'administration d\'ici fin 2027.',
+    'blog.article.ocse-rapporto-svizzera-2026.imageAlt': 'Palais fédéral à Berne siège des institutions suisses',
 };
 
 export default blogMetaChFr;

@@ -83519,6 +83519,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ocse-rapporto-svizzera-2026': {
+    title: 'Rapporto OCSE sulla Svizzera: stabilità e riforme economiche',
+    description: 'Scopri i dettagli del rapporto OCSE sulla Svizzera pubblicato il 15 settembre 2026: raccomandazioni su sanità, previdenza, imprese e politica di crescita.',
+    keywords: 'frontalieri, ticino, svizzera, italia, rapporto, ocse, sulla, stabilità',
+    ogTitle: 'Rapporto OCSE Svizzera 2026: stabilità e nuove riforme',
+    ogDescription: 'L\'OCSE ha pubblicato il rapporto sulla Svizzera il 15 settembre 2026. Apprezzata la resilienza economica, ma servono riforme in sanità, previdenza e burocrazia in vista del rapporto del Consiglio federale previsto per fine 2027.',
+    canonicalPath: '/articoli-svizzera/ocse-rapporto-svizzera-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rapporto OCSE sulla Svizzera: stabilità e riforme economiche",
+      "description": "Scopri i dettagli del rapporto OCSE sulla Svizzera pubblicato il 15 settembre 2026: raccomandazioni su sanità, previdenza, imprese e politica di crescita.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ocse-rapporto-svizzera-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna sede delle istituzioni svizzere"
+      },
+      "datePublished": "2026-09-16T00:28:42+00:00",
+      "dateModified": "2026-09-16T00:28:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ocse-rapporto-svizzera-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -6443,6 +6443,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ocse-crescita-svizzera-2026.title': 'OCSE vede più crescita in Svizzera, Pil 2026 al 2,0%',
     'blog.article.ocse-crescita-svizzera-2026.excerpt': 'L\'OCSE rivede al rialzo le previsioni per la Svizzera: crescita del Pil al 2,0% nel 2026 e inflazione media stabile allo 0,6%.',
     'blog.article.ocse-crescita-svizzera-2026.imageAlt': 'Panoramica economica della Svizzera con previsioni di crescita OCSE',
+    'blog.article.ocse-rapporto-svizzera-2026.title': 'Rapporto OCSE sulla Svizzera: stabilità e riforme economiche',
+    'blog.article.ocse-rapporto-svizzera-2026.excerpt': 'L’OCSE ha pubblicato il rapporto sulla Svizzera apprezzando la resilienza economica ma chiedendo riforme in sanità, previdenza e amministrazione entro fine 2027.',
+    'blog.article.ocse-rapporto-svizzera-2026.imageAlt': 'Palazzo federale a Berna sede delle istituzioni svizzere',
 };
 
 export default blogMetaChIt;
