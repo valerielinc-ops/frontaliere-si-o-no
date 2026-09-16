@@ -6479,6 +6479,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lotta-denaro-sporco-svizzera.title': 'La lutte de la Suisse contre l\'argent sale et la corruption',
     'blog.article.lotta-denaro-sporco-svizzera.excerpt': 'Analyse du 02 sept 2026 sur les talons d\'Achille de la Suisse dans la restitution de l\'argent sale et le nœud des versements bancaires directs.',
     'blog.article.lotta-denaro-sporco-svizzera.imageAlt': 'Bâtiment bancaire en Suisse représentant la lutte contre l\'argent sale',
+    'blog.article.calcio-hockey-svizzera-economia-pubblico.title': 'Football et hockey en Suisse, entre économie et popularité',
+    'blog.article.calcio-hockey-svizzera-economia-pubblico.excerpt': 'Analyse économique et du public entre le football et le hockey sur glace en Suisse : revenus de la Super League, estimations du hockey et présence dans les stades.',
+    'blog.article.calcio-hockey-svizzera-economia-pubblico.imageAlt': 'Comparaison économique entre le football et le hockey sur glace en Suisse',
 };
 
 export default blogMetaChFr;

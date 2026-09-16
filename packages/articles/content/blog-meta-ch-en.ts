@@ -6479,6 +6479,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lotta-denaro-sporco-svizzera.title': 'Switzerland\'s fight against dirty money and corruption',
     'blog.article.lotta-denaro-sporco-svizzera.excerpt': 'Analysis of 02 Sep 2026 on the Achilles heels of Switzerland in the return of dirty money and the knot of direct bank deposits.',
     'blog.article.lotta-denaro-sporco-svizzera.imageAlt': 'Bank building in Switzerland representing the fight against dirty money',
+    'blog.article.calcio-hockey-svizzera-economia-pubblico.title': 'Football and hockey in Switzerland, between economy and popularity',
+    'blog.article.calcio-hockey-svizzera-economia-pubblico.excerpt': 'Economic and public analysis between football and ice hockey in Switzerland: Super League revenues, hockey estimates and stadium appearances.',
+    'blog.article.calcio-hockey-svizzera-economia-pubblico.imageAlt': 'Economic comparison between football and ice hockey in Switzerland',
 };
 
 export default blogMetaChEn;
