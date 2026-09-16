@@ -111,6 +111,13 @@ export function checkItalyDutyData({ duties, status, sources, catalogue, now = n
     errors.push('snapshot fetchedAt is stale, missing, or in the future');
   }
 
+  const dutyRows = Array.isArray(duties?.duties) ? duties.duties : [];
+  const dutyCountsByProvince = new Map(ITALY_DUTY_PROVINCES.map((province) => [province, 0]));
+  for (const duty of dutyRows) {
+    if (dutyCountsByProvince.has(duty?.province)) {
+      dutyCountsByProvince.set(duty.province, dutyCountsByProvince.get(duty.province) + 1);
+    }
+  }
   const provinceStatuses = status?._provinces && typeof status._provinces === 'object' ? status._provinces : {};
   for (const province of ITALY_DUTY_PROVINCES) {
     const entry = provinceStatuses[province];
@@ -125,7 +132,11 @@ export function checkItalyDutyData({ duties, status, sources, catalogue, now = n
     if (!Array.isArray(entry.errors)) errors.push(`status.${province}: errors must be an array`);
     if (!Array.isArray(entry.warnings)) errors.push(`status.${province}: warnings must be an array`);
     if (!checkFreshness(entry.fetchedAt, now)) errors.push(`status.${province}: fetchedAt is stale`);
+    const effectiveDutyCount = dutyCountsByProvince.get(province) || 0;
     if (!Number.isInteger(entry.dutyCount) || entry.dutyCount < 1) errors.push(`status.${province}: no duty rows`);
+    if (entry.dutyCount !== effectiveDutyCount) {
+      errors.push(`status.${province}: dutyCount ${entry.dutyCount} does not match duties rows ${effectiveDutyCount}`);
+    }
     if (Array.isArray(entry.errors) && entry.errors.length > 0) errors.push(`status.${province}: source errors present`);
   }
   if (Array.isArray(status?._errors) && status._errors.length > 0) errors.push('status: errors present');
@@ -155,7 +166,7 @@ export function checkItalyDutyData({ duties, status, sources, catalogue, now = n
   }
 
   const seen = new Set();
-  for (const [index, duty] of (Array.isArray(duties?.duties) ? duties.duties : []).entries()) {
+  for (const [index, duty] of dutyRows.entries()) {
     if (!ITALY_DUTY_PROVINCES.includes(duty?.province)) errors.push(`duties[${index}]: missing or ambiguous province`);
     if (!duty?.pharmacyId || duty?.sourceType !== 'official' || !/^https:\/\//i.test(duty?.sourceUrl || '')) {
       errors.push(`duties[${index}]: missing official identity/source`);

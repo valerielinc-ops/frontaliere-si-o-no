@@ -6476,6 +6476,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.fides-26-polizia-esercito-berna.title': 'Esercitazione FIDES 26: polizia ed esercito a Berna',
     'blog.article.fides-26-polizia-esercito-berna.excerpt': 'La cooperazione tra polizia ed esercito nell\'esercitazione FIDES 26 nel cantone di Berna ha mobilitato circa 180 agenti e un migliaio di soldati.',
     'blog.article.fides-26-polizia-esercito-berna.imageAlt': 'Esercitazione congiunta tra polizia ed esercito FIDES 26 nel cantone di Berna',
+    'blog.article.lotta-denaro-sporco-svizzera.title': 'La lotta della Svizzera contro il denaro sporco e la corruzione',
+    'blog.article.lotta-denaro-sporco-svizzera.excerpt': 'Analisi del 02 set 2026 sui talloni d\'Achille della Svizzera nella restituzione del denaro sporco e il nodo dei versamenti bancari diretti.',
+    'blog.article.lotta-denaro-sporco-svizzera.imageAlt': 'Edificio bancario in Svizzera rappresentativo della lotta al denaro sporco',
+    'blog.article.calcio-hockey-svizzera-economia-pubblico.title': 'Calcio e hockey in Svizzera, tra economia e popolarità',
+    'blog.article.calcio-hockey-svizzera-economia-pubblico.excerpt': 'Analisi economica e di pubblico tra calcio e hockey su ghiaccio in Svizzera: ricavi della Super League, stime dell\'hockey e presenze negli stadi.',
+    'blog.article.calcio-hockey-svizzera-economia-pubblico.imageAlt': 'Confronto economico tra calcio e hockey su ghiaccio in Svizzera',
 };
 
 export default blogMetaChIt;
