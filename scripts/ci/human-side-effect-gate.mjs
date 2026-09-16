@@ -32,12 +32,21 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import {
+  PUBLISHER_DISPATCH_ACTION,
+  PUBLISHER_SOURCE_BRANCH,
+  PUBLISHER_SOURCE_EVENT,
+  PUBLISHER_SOURCE_REPOSITORY,
+  PUBLISHER_SOURCE_WORKFLOW,
+  PUBLISHER_SOURCE_WORKFLOW_PATH,
+} from './verify-publisher-dispatch.mjs';
 
 export const HUMAN_APPROVAL_EVENT = 'workflow_dispatch';
 export const PUBLISHER_DISPATCH_EVENT = 'repository_dispatch';
-export const PUBLISHER_DISPATCH_ACTION = 'articles-published';
 export const REQUIRED_ACTOR_TYPE = 'user';
 export const NONCE_VERSION = 'human-side-effect-v1';
+
+export { PUBLISHER_DISPATCH_ACTION } from './verify-publisher-dispatch.mjs';
 
 const BOT_ACTOR_NAMES = new Set([
   'dependabot',
@@ -67,6 +76,10 @@ function isSafeActor(value) {
 
 function isSafeWorkflow(value) {
   return value.length > 0 && value.length <= 256 && !hasControlCharacters(value);
+}
+
+function isSafeSha(value) {
+  return /^[0-9a-f]{40}$/u.test(value);
 }
 
 function isSafeScope(value) {
@@ -134,6 +147,16 @@ export function evaluateHumanApproval({
   dispatchActor,
   dispatchAction,
   dispatchPayloadPresent,
+  publisherSourceVerified,
+  dispatchSourceSchemaVersion,
+  dispatchSourceRepository,
+  dispatchSourceWorkflow,
+  dispatchSourceWorkflowPath,
+  dispatchSourceRunId,
+  dispatchSourceRunAttempt,
+  dispatchSourceSha,
+  dispatchSourceBranch,
+  dispatchSourceEvent,
   expectedDispatchActor,
   expectedDispatchRepository,
   expectedDispatchScope,
@@ -157,6 +180,16 @@ export function evaluateHumanApproval({
   const publisherActor = stringValue(dispatchActor);
   const publisherAction = stringValue(dispatchAction);
   const publisherPayloadPresent = stringValue(dispatchPayloadPresent);
+  const publisherVerification = stringValue(publisherSourceVerified);
+  const sourceSchemaVersion = stringValue(dispatchSourceSchemaVersion);
+  const sourceRepository = stringValue(dispatchSourceRepository);
+  const sourceWorkflow = stringValue(dispatchSourceWorkflow);
+  const sourceWorkflowPath = stringValue(dispatchSourceWorkflowPath);
+  const sourceRunId = stringValue(dispatchSourceRunId);
+  const sourceRunAttempt = stringValue(dispatchSourceRunAttempt);
+  const sourceSha = stringValue(dispatchSourceSha);
+  const sourceBranch = stringValue(dispatchSourceBranch);
+  const sourceEvent = stringValue(dispatchSourceEvent);
   const configuredPublisherActor = stringValue(expectedDispatchActor);
   const configuredRepository = stringValue(expectedDispatchRepository);
   const configuredScope = stringValue(expectedDispatchScope);
@@ -179,12 +212,9 @@ export function evaluateHumanApproval({
   if (!isSafeScope(approvalScope)) reasons.push('scope-invalid');
 
   if (isPublisherDispatchEvent) {
-    // The current publisher uses SITE_REPO_PAT and sends only event_type. The
-    // receiving event consequently has no source-repository claim to verify;
-    // the protected proof available at this boundary is the exact PAT
-    // principal observed in sender.login. Pin the principal, action, target
-    // workflow, repository and scope in the receiving workflow. Any future
-    // client_payload is ambiguous until its attestation contract is reviewed.
+    // client_payload is only an untrusted claim. The preceding workflow step
+    // must have verified it against the source repository's read-only metadata
+    // API; the gate also checks the exact values passed from that payload.
     if (consentValue !== '') reasons.push('publisher-dispatch-has-consent-override');
     if (dryRunValue !== '') reasons.push('publisher-dispatch-has-dry-run-override');
     if (publisherAction !== PUBLISHER_DISPATCH_ACTION) reasons.push('publisher-dispatch-action-mismatch');
@@ -198,7 +228,7 @@ export function evaluateHumanApproval({
     if (!publisherActor || !humanActor || publisherActor.toLowerCase() !== humanActor.toLowerCase()) {
       reasons.push('publisher-dispatch-sender-mismatch');
     }
-    if (publisherPayloadPresent !== 'false') reasons.push('publisher-dispatch-payload-present-or-unknown');
+    if (publisherPayloadPresent !== 'true') reasons.push('publisher-dispatch-payload-missing-or-unknown');
     if (!isSafeRepository(configuredRepository) || repo.toLowerCase() !== configuredRepository.toLowerCase()) {
       reasons.push('publisher-dispatch-repository-mismatch');
     }
@@ -208,6 +238,22 @@ export function evaluateHumanApproval({
     if (!isSafeScope(configuredScope) || approvalScope !== configuredScope) {
       reasons.push('publisher-dispatch-scope-mismatch');
     }
+    if (publisherVerification !== 'true') reasons.push('publisher-source-run-unverified');
+    if (sourceSchemaVersion !== '1') reasons.push('publisher-source-schema-mismatch');
+    if (sourceRepository !== PUBLISHER_SOURCE_REPOSITORY) {
+      reasons.push('publisher-source-repository-mismatch');
+    }
+    if (sourceWorkflow !== PUBLISHER_SOURCE_WORKFLOW) {
+      reasons.push('publisher-source-workflow-mismatch');
+    }
+    if (sourceWorkflowPath !== PUBLISHER_SOURCE_WORKFLOW_PATH) {
+      reasons.push('publisher-source-workflow-path-mismatch');
+    }
+    if (!isPositiveIntegerString(sourceRunId)) reasons.push('publisher-source-run-id-invalid');
+    if (sourceRunAttempt !== '1') reasons.push('publisher-source-run-is-rerun');
+    if (!isSafeSha(sourceSha)) reasons.push('publisher-source-sha-invalid');
+    if (sourceBranch !== PUBLISHER_SOURCE_BRANCH) reasons.push('publisher-source-branch-mismatch');
+    if (sourceEvent !== PUBLISHER_SOURCE_EVENT) reasons.push('publisher-source-event-mismatch');
   }
 
   const nonce = deriveApprovalNonce({
@@ -277,6 +323,16 @@ function githubEnvironment(env = process.env) {
     dispatchActor: env.APPROVAL_DISPATCH_ACTOR,
     dispatchAction: env.APPROVAL_DISPATCH_ACTION,
     dispatchPayloadPresent: env.APPROVAL_DISPATCH_PAYLOAD_PRESENT,
+    publisherSourceVerified: env.APPROVAL_PUBLISHER_SOURCE_VERIFIED,
+    dispatchSourceSchemaVersion: env.APPROVAL_DISPATCH_SOURCE_SCHEMA_VERSION,
+    dispatchSourceRepository: env.APPROVAL_DISPATCH_SOURCE_REPOSITORY,
+    dispatchSourceWorkflow: env.APPROVAL_DISPATCH_SOURCE_WORKFLOW,
+    dispatchSourceWorkflowPath: env.APPROVAL_DISPATCH_SOURCE_WORKFLOW_PATH,
+    dispatchSourceRunId: env.APPROVAL_DISPATCH_SOURCE_RUN_ID,
+    dispatchSourceRunAttempt: env.APPROVAL_DISPATCH_SOURCE_RUN_ATTEMPT,
+    dispatchSourceSha: env.APPROVAL_DISPATCH_SOURCE_SHA,
+    dispatchSourceBranch: env.APPROVAL_DISPATCH_SOURCE_BRANCH,
+    dispatchSourceEvent: env.APPROVAL_DISPATCH_SOURCE_EVENT,
     expectedDispatchActor: env.APPROVAL_EXPECTED_DISPATCH_ACTOR,
     expectedDispatchRepository: env.APPROVAL_EXPECTED_DISPATCH_REPOSITORY,
     expectedDispatchScope: env.APPROVAL_EXPECTED_DISPATCH_SCOPE,

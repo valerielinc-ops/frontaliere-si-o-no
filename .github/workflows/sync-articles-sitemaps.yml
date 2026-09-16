@@ -11,9 +11,11 @@ name: Sync article sitemaps, feeds and ticker from the articles API
 # publisher's repository_dispatch keys on the event type, not on this name.
 #
 # repository_dispatch is the primary trigger, and it is the right shape: the
-# publisher knows when it has published, so the push is the event. The schedule
-# is only a safety net for a dispatch that never arrives (token rotated, API
-# outage) — it is not the mechanism.
+# publisher knows when it has published, so the push is the event. Its
+# client_payload is an attestation-shaped claim only; the receiver verifies the
+# source run and workflow with read-only GitHub metadata API before allowing any
+# write. The schedule is only a safety net for a dispatch that never arrives
+# (token rotated, API outage) — it is not the mechanism.
 #
 # scripts/pull-articles-api.mjs refuses rather than degrades: it validates the
 # manifest, both sitemaps (gating on hreflang alternate counts as well as url
@@ -70,12 +72,53 @@ jobs:
         with:
           node-version: '22'
 
+      # The corpus worker must send this exact contract in client_payload:
+      # schema_version=1; source_repository, source_workflow,
+      # source_workflow_path, source_run_id, source_run_attempt, source_sha,
+      # source_branch and source_event. All values except schema_version are
+      # strings; source_branch=main and source_event=push. This payload is not
+      # a signature. Query the public source-run/workflow metadata first, and
+      # fail closed on an API error or on any mismatch.
+      - name: Verify publisher provenance via read-only metadata API
+        id: publisher_provenance
+        if: github.event_name == 'repository_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PUBLISHER_SOURCE_RUN_ID: ${{ github.event.client_payload.source_run_id || '' }}
+        run: |
+          set -euo pipefail
+          run_metadata="$RUNNER_TEMP/frontaliere-publisher-run.json"
+          workflow_metadata="$RUNNER_TEMP/frontaliere-publisher-workflow.json"
+          printf '{}' > "$run_metadata"
+          printf '{}' > "$workflow_metadata"
+
+          # The id is untrusted data. Validate it before placing it in a quoted
+          # URL segment; malformed ids never reach the API.
+          if [[ "$PUBLISHER_SOURCE_RUN_ID" =~ ^[1-9][0-9]{0,20}$ ]]; then
+            if ! gh api --method GET \
+              --header 'Accept: application/vnd.github+json' \
+              --header 'X-GitHub-Api-Version: 2022-11-28' \
+              "repos/nanakokyobashi-rgb/frontaliere-articles/actions/runs/$PUBLISHER_SOURCE_RUN_ID" \
+              > "$run_metadata"; then
+              printf '{}' > "$run_metadata"
+            fi
+            if ! gh api --method GET \
+              --header 'Accept: application/vnd.github+json' \
+              --header 'X-GitHub-Api-Version: 2022-11-28' \
+              'repos/nanakokyobashi-rgb/frontaliere-articles/actions/workflows/publish-api.yml' \
+              > "$workflow_metadata"; then
+              printf '{}' > "$workflow_metadata"
+            fi
+          fi
+
+          node scripts/ci/verify-publisher-dispatch.mjs "$run_metadata" "$workflow_metadata"
+
       - name: Require human approval for publication side effects
         id: side_effect_gate
         env:
-          # The current publisher sends only event_type through SITE_REPO_PAT.
-          # Pin the observed PAT principal and the full event shape here; a
-          # principal/action/payload mismatch stays dry-run until reviewed.
+          # Pin the target principal and event shape. The source fields below
+          # are copied as data from client_payload; the preceding verifier must
+          # have matched them against GitHub metadata before this gate can pass.
           APPROVAL_EVENT: ${{ github.event_name }}
           APPROVAL_ACTOR: ${{ github.actor }}
           APPROVAL_TRIGGERING_ACTOR: ${{ github.triggering_actor }}
@@ -86,6 +129,16 @@ jobs:
           APPROVAL_DISPATCH_ACTOR: ${{ github.event.sender.login || '' }}
           APPROVAL_DISPATCH_ACTION: ${{ github.event.action || '' }}
           APPROVAL_DISPATCH_PAYLOAD_PRESENT: ${{ github.event.client_payload != null }}
+          APPROVAL_PUBLISHER_SOURCE_VERIFIED: ${{ steps.publisher_provenance.outputs.verified || 'false' }}
+          APPROVAL_DISPATCH_SOURCE_SCHEMA_VERSION: ${{ github.event.client_payload.schema_version || '' }}
+          APPROVAL_DISPATCH_SOURCE_REPOSITORY: ${{ github.event.client_payload.source_repository || '' }}
+          APPROVAL_DISPATCH_SOURCE_WORKFLOW: ${{ github.event.client_payload.source_workflow || '' }}
+          APPROVAL_DISPATCH_SOURCE_WORKFLOW_PATH: ${{ github.event.client_payload.source_workflow_path || '' }}
+          APPROVAL_DISPATCH_SOURCE_RUN_ID: ${{ github.event.client_payload.source_run_id || '' }}
+          APPROVAL_DISPATCH_SOURCE_RUN_ATTEMPT: ${{ github.event.client_payload.source_run_attempt || '' }}
+          APPROVAL_DISPATCH_SOURCE_SHA: ${{ github.event.client_payload.source_sha || '' }}
+          APPROVAL_DISPATCH_SOURCE_BRANCH: ${{ github.event.client_payload.source_branch || '' }}
+          APPROVAL_DISPATCH_SOURCE_EVENT: ${{ github.event.client_payload.source_event || '' }}
           APPROVAL_EXPECTED_DISPATCH_ACTOR: valerielinc-ops
           APPROVAL_EXPECTED_DISPATCH_REPOSITORY: valerielinc-ops/frontaliere-si-o-no
           APPROVAL_EXPECTED_DISPATCH_SCOPE: article-sitemap-publication
