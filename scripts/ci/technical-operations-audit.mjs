@@ -47,6 +47,8 @@ const STEP_ID_RE = /^[A-Za-z_][A-Za-z0-9_-]*$/;
 const PATH_RE = /\b((?:scripts|functions|tests|\.github\/actions|\.github\/scripts)\/[A-Za-z0-9_./-]+\.(?:mjs|cjs|js|ts|sh|yml|yaml))\b/g;
 const DATA_PATH_RE = /\b((?:data|public\/data)\/[A-Za-z0-9_./-]+\.(?:json|jsonl|csv|ts))\b/g;
 const OUTPUT_RE = /(?:echo|printf)\s+["']?([A-Za-z_][A-Za-z0-9_-]*)(?:=|<<)/g;
+const SHELL_ASSIGNMENT_RE = /(?:^|[;\n])\s*(?:export\s+)?([A-Za-z_][A-Za-z0-9_]*)=/gm;
+const SHELL_OUTPUT_ALIAS_RE = /(?:^|[;\n])\s*(?:export\s+)?([A-Za-z_][A-Za-z0-9_]*)=(?:"\$\{GITHUB_OUTPUT(?::-[^"$`(){};\s]+)?\}"|\$\{GITHUB_OUTPUT(?::-[^"$`(){};\s]+)?\}|\$GITHUB_OUTPUT)(?=\s*(?:#.*)?(?:;|\n|$))/gm;
 const OUTPUT_HELPER_CALL_RE = /\b(?:write_output|writeOutput|set_output|setOutput|emit_output|emitOutput)\s*\(\s*["']([A-Za-z_][A-Za-z0-9_-]*)["']/g;
 const OUTPUT_HELPER_SHELL_RE = /\b(?:write_output|writeOutput|set_output|setOutput|emit_output|emitOutput)\s+["']?([A-Za-z_][A-Za-z0-9_-]*)["']?/g;
 const OUTPUT_ACTIONS_FILE_RE = /\bappendActionsFile\s*\(\s*["']GITHUB_OUTPUT["']\s*,\s*["']([A-Za-z_][A-Za-z0-9_-]*)["']/g;
@@ -758,8 +760,107 @@ function heredocOutputRanges(source) {
   return ranges;
 }
 
+function assignmentNameStart(match) {
+  return (match.index ?? 0) + match[0].lastIndexOf(match[1]);
+}
+
+/**
+ * Track only shell variables whose current assignment is a direct, static
+ * alias of GITHUB_OUTPUT. Dynamic aliases stay unknown so an audit warning is
+ * still emitted when the destination cannot be proven from the source.
+ */
+function shellOutputAliasBindings(source) {
+  const raw = String(source || '');
+  if (!raw.includes('$GITHUB_OUTPUT') && !raw.includes('${GITHUB_OUTPUT')) return [];
+  const aliases = [...raw.matchAll(SHELL_OUTPUT_ALIAS_RE)];
+  if (aliases.length === 0) return [];
+  const outputAliasStarts = new Set(aliases.map((match) => assignmentNameStart(match)));
+  return [...raw.matchAll(SHELL_ASSIGNMENT_RE)].map((match) => ({
+    name: match[1],
+    index: assignmentNameStart(match),
+    outputAlias: outputAliasStarts.has(assignmentNameStart(match)),
+  }));
+}
+
+function latestShellAssignment(bindings, name, beforeIndex) {
+  let latest = null;
+  for (const binding of bindings) {
+    if (binding.name !== name || binding.index >= beforeIndex) continue;
+    if (!latest || binding.index > latest.index) latest = binding;
+  }
+  return latest;
+}
+
+/**
+ * Find shell redirections to GITHUB_OUTPUT or to a proven shell alias. The
+ * scanner ignores quoted text and comments, then limits each range to the
+ * command's physical line so unrelated literals cannot become outputs.
+ */
+function shellOutputRedirectRanges(source, bindings) {
+  const raw = String(source || '');
+  if (!raw.includes('>') || (bindings.length === 0 && !raw.includes('$GITHUB_OUTPUT'))) return [];
+  const ranges = [];
+  let lineStart = 0;
+  while (lineStart < raw.length) {
+    const newline = raw.indexOf('\n', lineStart);
+    const lineEnd = newline < 0 ? raw.length : newline;
+    const line = raw.slice(lineStart, lineEnd);
+    if (!/^\s*(?:#|\/\/)/u.test(line)) {
+      let quote = null;
+      let escaped = false;
+      for (let offset = 0; offset < line.length; offset += 1) {
+        const char = line[offset];
+        if (quote) {
+          if (escaped) {
+            escaped = false;
+          } else if (char === '\\') {
+            escaped = true;
+          } else if (char === quote) {
+            quote = null;
+          }
+          continue;
+        }
+        if (char === "'" || char === '"' || char === '`') {
+          quote = char;
+          continue;
+        }
+        if (char === '#' && (offset === 0 || /\s/u.test(line[offset - 1]))) break;
+        if (char !== '>') continue;
+
+        let targetOffset = offset + 1;
+        if (line[targetOffset] === '>') targetOffset += 1;
+        while (/\s/u.test(line[targetOffset] || '')) targetOffset += 1;
+        const quoted = line[targetOffset] === '"';
+        if (quoted) targetOffset += 1;
+        if (line[targetOffset] === "'") continue;
+
+        const variable = line.slice(targetOffset).match(
+          /^\$\{([A-Za-z_][A-Za-z0-9_]*)(?::-[^}]+)?\}|^\$([A-Za-z_][A-Za-z0-9_]*)/u,
+        );
+        if (!variable) continue;
+        const name = variable[1] || variable[2];
+        const variableEnd = targetOffset + variable[0].length;
+        const targetEndsHere = quoted
+          ? line[variableEnd] === '"'
+          : !/[A-Za-z0-9_$/{]/u.test(line[variableEnd] || '');
+        if (!targetEndsHere) continue;
+        const isOutput = name === 'GITHUB_OUTPUT'
+          || latestShellAssignment(bindings, name, lineStart + offset)?.outputAlias === true;
+        if (isOutput) {
+          ranges.push({ start: lineStart, end: lineEnd });
+          break;
+        }
+      }
+    }
+    if (newline < 0) break;
+    lineStart = newline + 1;
+  }
+  return ranges;
+}
+
 function outputSinkRanges(source) {
   const raw = String(source || '');
+  const shellBindings = shellOutputAliasBindings(raw);
   const outputVariables = new Set(['process.env.GITHUB_OUTPUT', 'env.GITHUB_OUTPUT']);
   for (const match of raw.matchAll(/\b(?:const|let|var)\s+([A-Za-z_$][A-Za-z0-9_$]*)\s*=\s*process\.env\.GITHUB_OUTPUT\b/g)) {
     outputVariables.add(match[1]);
@@ -794,7 +895,11 @@ function outputSinkRanges(source) {
       end: closingIndex >= 0 ? closingIndex + 1 : raw.length,
     });
   }
-  return [...ranges, ...heredocOutputRanges(raw)];
+  return [
+    ...ranges,
+    ...shellOutputRedirectRanges(raw, shellBindings),
+    ...heredocOutputRanges(raw),
+  ];
 }
 
 function literalOutputKeys(source, sinkRanges = outputSinkRanges(source)) {
@@ -899,7 +1004,7 @@ function objectEntryOutputKeys(source, sinkRanges = outputSinkRanges(source)) {
 
 function outputKeysFromSource(source) {
   const raw = String(source || '');
-  if (!/\$GITHUB_OUTPUT\b|(?:process|env)\.GITHUB_OUTPUT\b|appendActionsFile\s*\(\s*["']GITHUB_OUTPUT["']/.test(raw)) return new Set();
+  if (!/\$GITHUB_OUTPUT\b|\$\{GITHUB_OUTPUT\b|(?:process|env)\.GITHUB_OUTPUT\b|appendActionsFile\s*\(\s*["']GITHUB_OUTPUT["']/.test(raw)) return new Set();
   const keys = new Set([...raw.matchAll(OUTPUT_RE)].map((match) => match[1]));
   for (const match of raw.matchAll(OUTPUT_HELPER_CALL_RE)) keys.add(match[1]);
   for (const match of raw.matchAll(OUTPUT_HELPER_SHELL_RE)) keys.add(match[1]);
