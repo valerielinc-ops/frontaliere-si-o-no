@@ -394,6 +394,14 @@ export function validateLoopRegistry(registry) {
     if (!Object.hasOwn(actionAutonomyMap, actionClass)) fail(`actionAutonomy is missing ${actionClass}`);
   }
   for (const loop of normalizedLoops) {
+    for (const actionClass of loop.actionClasses) {
+      const requiredAutonomy = actionAutonomy(actionClass, actionAutonomyMap);
+      if (AUTONOMY_ORDER[requiredAutonomy] > AUTONOMY_ORDER[loop.maxAutonomy]) {
+        fail(`${loop.loopId}.actionClasses ${actionClass} requires ${requiredAutonomy}, registry maximum is ${loop.maxAutonomy}`);
+      }
+    }
+  }
+  for (const loop of normalizedLoops) {
     for (const [key, actionClass] of Object.entries(loop.actionPolicy || {})) {
       const parts = actionClassParts(actionClass);
       const unsupported = parts.filter((part) => !loop.actionClasses.includes(part));
