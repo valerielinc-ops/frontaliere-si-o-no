@@ -2174,6 +2174,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'bak-economics-pil-2026-18': { it: 'bak-economics-pil-2026-18', en: 'bak-economics-swiss-gdp-2026-forecast', de: 'bak-economics-schweizer-bip-2026-prognose', fr: 'bak-economics-pib-suisse-2026-prevision' },
  'too-big-to-fail-consiglio-stati': { it: 'too-big-to-fail-consiglio-stati', en: 'too-big-to-fail-council-of-states', de: 'too-big-to-fail-staenderat', fr: 'too-big-to-fail-conseil-des-etats' },
  'bns-tassi-interessi-ubs': { it: 'bns-tassi-interessi-ubs', en: 'snb-interest-rates-ubs', de: 'snb-zinssaetze-ubs', fr: 'bns-taux-interet-ubs' },
+ 'vaccini-antinfluenzali-ritardo-svizzera': { it: 'vaccini-antinfluenzali-ritardo-svizzera', en: 'flu-vaccines-delay-switzerland', de: 'grippeschutzimpfung-verzoegerung-schweiz', fr: 'vaccins-grippe-retard-suisse' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
