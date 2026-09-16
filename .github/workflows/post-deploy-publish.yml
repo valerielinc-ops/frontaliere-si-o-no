@@ -19,7 +19,9 @@ name: Post-deploy Publish (side-effects + mark good)
 # rolled-back dist (mismatch or 404). IndexNow had pinged Bing on the
 # bad-dist URLs, baking the bad version into search engines.
 #
-# Inputs match validate-live (deploy_run_id + deploy_event_name).
+# Inputs match validate-live (deploy_run_id + deploy_event_name). When this
+# reusable workflow is called by deploy-publish.yml, the inherited github
+# context is the caller's workflow_run event; it is not workflow_call.
 on:
   workflow_call:
     inputs:
@@ -47,9 +49,42 @@ on:
         type: string
 
 jobs:
+  validate-deploy-publish-caller:
+    name: validate deploy-publish workflow_run caller
+    if: github.event_name == 'workflow_run'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout promotion gate
+        uses: actions/checkout@v5
+        with:
+          sparse-checkout: |
+            /scripts/ci/production-promotion-gate.mjs
+          sparse-checkout-cone-mode: false
+      - name: Reject non-canonical workflow_run caller
+        env:
+          PROMOTION_EVENT: ${{ github.event_name }}
+          PROMOTION_CALLER_WORKFLOW: ${{ github.workflow }}
+          PROMOTION_CALLER_WORKFLOW_REF: ${{ github.workflow_ref }}
+          PROMOTION_REPOSITORY: ${{ github.repository }}
+          PROMOTION_SOURCE_REPOSITORY: ${{ github.event.workflow_run.head_repository.full_name }}
+          PROMOTION_SOURCE_REF: ${{ github.event.workflow_run.head_branch }}
+          PROMOTION_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+          PROMOTION_SOURCE_WORKFLOW: ${{ github.event.workflow_run.name }}
+          PROMOTION_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+          PROMOTION_SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
+          PROMOTION_SOURCE_EVENT: ${{ github.event.workflow_run.event }}
+          INPUT_DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
+          INPUT_DEPLOY_EVENT_NAME: ${{ inputs.deploy_event_name }}
+          INPUT_DEPLOY_REF: ${{ inputs.deploy_ref }}
+        run: node scripts/ci/production-promotion-gate.mjs caller
+
   validate-recovery-trigger:
     name: validate recovery promotion trigger
-    if: github.event_name == 'workflow_dispatch'
+    if: >-
+      github.event_name == 'workflow_dispatch' &&
+      github.workflow_ref == format('{0}/.github/workflows/post-deploy-publish.yml@refs/heads/main', github.repository)
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -72,7 +107,10 @@ jobs:
   validate-recovery-source:
     name: validate canonical recovery source build
     needs: validate-recovery-trigger
-    if: github.event_name == 'workflow_dispatch' && needs.validate-recovery-trigger.result == 'success'
+    if: >-
+      github.event_name == 'workflow_dispatch' &&
+      github.workflow_ref == format('{0}/.github/workflows/post-deploy-publish.yml@refs/heads/main', github.repository) &&
+      needs.validate-recovery-trigger.result == 'success'
     runs-on: ubuntu-latest
     outputs:
       head_sha: ${{ steps.source-build.outputs.head_sha }}
@@ -112,7 +150,10 @@ jobs:
   recovery-production-approval:
     name: approve recovery promotion
     needs: validate-recovery-source
-    if: github.event_name == 'workflow_dispatch' && needs.validate-recovery-source.result == 'success'
+    if: >-
+      github.event_name == 'workflow_dispatch' &&
+      github.workflow_ref == format('{0}/.github/workflows/post-deploy-publish.yml@refs/heads/main', github.repository) &&
+      needs.validate-recovery-source.result == 'success'
     runs-on: ubuntu-latest
     environment:
       name: production-deploy
@@ -139,11 +180,13 @@ jobs:
             | node scripts/ci/production-promotion-gate.mjs approval
 
   publish:
-    needs: [validate-recovery-source, recovery-production-approval]
+    needs: [validate-deploy-publish-caller, validate-recovery-source, recovery-production-approval]
     if: >-
       always() &&
-      (github.event_name == 'workflow_call' ||
-       (needs.validate-recovery-source.result == 'success' &&
+      ((github.event_name == 'workflow_run' &&
+        needs.validate-deploy-publish-caller.result == 'success') ||
+       (github.event_name == 'workflow_dispatch' &&
+        needs.validate-recovery-source.result == 'success' &&
         needs.recovery-production-approval.result == 'success'))
     runs-on: ubuntu-latest
     env:

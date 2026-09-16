@@ -18,6 +18,8 @@ export const APPROVAL_SECRET = 'PRODUCTION_DEPLOY_APPROVAL';
 export const REQUIRED_REVIEWERS_RULE = 'required_reviewers';
 export const EXPECTED_BUILD_WORKFLOW = 'Deploy to GitHub Pages';
 export const EXPECTED_BUILD_WORKFLOW_PATH = '.github/workflows/deploy.yml';
+export const EXPECTED_PUBLISH_WORKFLOW = 'Publish to GitHub Pages (deploy + validate)';
+export const EXPECTED_PUBLISH_WORKFLOW_PATH = '.github/workflows/deploy-publish.yml';
 
 function normalizeRef(value) {
   const ref = String(value || '').trim();
@@ -81,6 +83,98 @@ export function validatePromotionTrigger({
   } else if (event) {
     errors.push(`event ${event} is not an approved production-promotion trigger`);
   }
+
+  return { valid: errors.length === 0, errors };
+}
+
+/**
+ * Validate the normal post-deploy publisher caller contract.
+ *
+ * A reusable workflow inherits the caller's github context. The normal
+ * deploy-publish caller therefore arrives here as workflow_run, not
+ * workflow_call. Keep the caller identity and every artifact selector tied to
+ * that canonical event so an arbitrary reusable-workflow call cannot reach
+ * production side effects.
+ *
+ * @param {object} input
+ * @param {string} input.eventName
+ * @param {string} input.workflow
+ * @param {string} input.workflowRef
+ * @param {string} input.repository
+ * @param {string} input.sourceRepository
+ * @param {string} input.sourceRef
+ * @param {string} input.sourceConclusion
+ * @param {string} input.sourceWorkflow
+ * @param {string} input.sourceHeadSha
+ * @param {string|number} input.sourceRunId
+ * @param {string} input.sourceEventName
+ * @param {string|number} input.deployRunId
+ * @param {string} input.deployEventName
+ * @param {string} input.deployRef
+ * @returns {{ valid: boolean, errors: string[] }}
+ */
+export function validateDeployPublishCaller({
+  eventName,
+  workflow,
+  workflowRef,
+  repository,
+  sourceRepository,
+  sourceRef,
+  sourceConclusion,
+  sourceWorkflow,
+  sourceHeadSha,
+  sourceRunId,
+  sourceEventName,
+  deployRunId,
+  deployEventName,
+  deployRef,
+}) {
+  const errors = [];
+  const event = String(eventName || '').trim();
+  const targetRepository = String(repository || '').trim();
+  const sourceRun = String(sourceRunId ?? '').trim();
+  const requestedRun = String(deployRunId ?? '').trim();
+  const sourceEvent = String(sourceEventName || '').trim();
+  const requestedEvent = String(deployEventName || '').trim();
+  const sourceSha = String(sourceHeadSha || '').trim();
+  const requestedRef = String(deployRef || '').trim();
+  const expectedWorkflowRef = `${EXPECTED_REPOSITORY}/${EXPECTED_PUBLISH_WORKFLOW_PATH}@${MAIN_REF}`;
+
+  if (event !== 'workflow_run') {
+    errors.push('normal post-deploy publishing requires a workflow_run caller context');
+  }
+  if (String(workflow || '').trim() !== EXPECTED_PUBLISH_WORKFLOW) {
+    errors.push(`caller workflow must be ${EXPECTED_PUBLISH_WORKFLOW}`);
+  }
+  if (String(workflowRef || '').trim() !== expectedWorkflowRef) {
+    errors.push(`caller workflow ref must be ${expectedWorkflowRef}`);
+  }
+  if (!/^[0-9]+$/.test(sourceRun)) {
+    errors.push('caller source build run id is missing or malformed');
+  }
+  if (requestedRun !== sourceRun) {
+    errors.push('deploy_run_id does not match the caller workflow_run id');
+  }
+  if (!sourceEvent || requestedEvent !== sourceEvent) {
+    errors.push('deploy_event_name does not match the caller workflow_run event');
+  }
+  if (!/^[0-9a-f]{40}$/i.test(sourceSha)) {
+    errors.push('caller source build SHA is missing or malformed');
+  }
+  if (requestedRef !== sourceSha) {
+    errors.push('deploy_ref does not match the caller workflow_run head SHA');
+  }
+
+  const trigger = validatePromotionTrigger({
+    eventName: event,
+    ref: sourceRef,
+    repository: targetRepository,
+    sourceRepository,
+    conclusion: sourceConclusion,
+    sourceWorkflow,
+    headSha: sourceSha,
+  });
+  errors.push(...trigger.errors);
 
   return { valid: errors.length === 0, errors };
 }
@@ -202,6 +296,28 @@ function runCli(mode) {
     });
     if (!verdict.valid) return fail(verdict.errors);
     console.log('[production-promotion-gate] required-reviewer protection verified and environment attestation present; promotion may proceed');
+    return;
+  }
+
+  if (mode === 'caller') {
+    const verdict = validateDeployPublishCaller({
+      eventName: process.env.PROMOTION_EVENT,
+      workflow: process.env.PROMOTION_CALLER_WORKFLOW,
+      workflowRef: process.env.PROMOTION_CALLER_WORKFLOW_REF,
+      repository: process.env.PROMOTION_REPOSITORY,
+      sourceRepository: process.env.PROMOTION_SOURCE_REPOSITORY,
+      sourceRef: process.env.PROMOTION_SOURCE_REF,
+      sourceConclusion: process.env.PROMOTION_CONCLUSION,
+      sourceWorkflow: process.env.PROMOTION_SOURCE_WORKFLOW,
+      sourceHeadSha: process.env.PROMOTION_HEAD_SHA,
+      sourceRunId: process.env.PROMOTION_SOURCE_RUN_ID,
+      sourceEventName: process.env.PROMOTION_SOURCE_EVENT,
+      deployRunId: process.env.INPUT_DEPLOY_RUN_ID,
+      deployEventName: process.env.INPUT_DEPLOY_EVENT_NAME,
+      deployRef: process.env.INPUT_DEPLOY_REF,
+    });
+    if (!verdict.valid) return fail(verdict.errors);
+    console.log('[production-promotion-gate] canonical deploy-publish workflow_run caller admitted');
     return;
   }
 

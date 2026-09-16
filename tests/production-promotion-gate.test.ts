@@ -6,11 +6,15 @@ import {
   APPROVAL_SECRET,
   EXPECTED_BUILD_WORKFLOW,
   EXPECTED_BUILD_WORKFLOW_PATH,
+  EXPECTED_PUBLISH_WORKFLOW,
+  EXPECTED_PUBLISH_WORKFLOW_PATH,
   EXPECTED_REPOSITORY,
+  MAIN_REF,
   PRODUCTION_ENVIRONMENT,
   REQUIRED_REVIEWERS_RULE,
   validateApprovalAttestation,
   validateCanonicalBuildRun,
+  validateDeployPublishCaller,
   validatePromotionTrigger,
 } from '../scripts/ci/production-promotion-gate.mjs';
 
@@ -124,6 +128,44 @@ describe('production promotion admission', () => {
     }).valid).toBe(false);
   });
 
+  it('admits the real workflow_run caller only with canonical build provenance', () => {
+    const buildSha = '0123456789abcdef0123456789abcdef01234567';
+    const caller = {
+      eventName: 'workflow_run',
+      workflow: EXPECTED_PUBLISH_WORKFLOW,
+      workflowRef: `${EXPECTED_REPOSITORY}/${EXPECTED_PUBLISH_WORKFLOW_PATH}@${MAIN_REF}`,
+      repository: EXPECTED_REPOSITORY,
+      sourceRepository: EXPECTED_REPOSITORY,
+      sourceRef: 'main',
+      sourceConclusion: 'success',
+      sourceWorkflow: EXPECTED_BUILD_WORKFLOW,
+      sourceHeadSha: buildSha,
+      sourceRunId: '26138669646',
+      sourceEventName: 'push',
+      deployRunId: '26138669646',
+      deployEventName: 'push',
+      deployRef: buildSha,
+    };
+
+    expect(validateDeployPublishCaller(caller).valid).toBe(true);
+    expect(validateDeployPublishCaller({
+      ...caller,
+      eventName: 'workflow_call',
+    }).valid).toBe(false);
+    expect(validateDeployPublishCaller({
+      ...caller,
+      eventName: 'workflow_dispatch',
+    }).valid).toBe(false);
+    expect(validateDeployPublishCaller({
+      ...caller,
+      workflowRef: `${EXPECTED_REPOSITORY}/.github/workflows/other.yml@${MAIN_REF}`,
+    }).valid).toBe(false);
+    expect(validateDeployPublishCaller({
+      ...caller,
+      deployRunId: '99999999999',
+    }).valid).toBe(false);
+  });
+
   it('denies a missing or incorrectly named environment attestation', () => {
     const protectedEnvironment = {
       name: PRODUCTION_ENVIRONMENT,
@@ -224,13 +266,22 @@ describe('production promotion admission', () => {
     const trigger = workflow.jobs['validate-recovery-trigger'];
     const source = workflow.jobs['validate-recovery-source'];
     const approval = workflow.jobs['recovery-production-approval'];
+    const caller = workflow.jobs['validate-deploy-publish-caller'];
     const publish = workflow.jobs.publish;
+    const directRecoveryRef = "github.workflow_ref == format('{0}/.github/workflows/post-deploy-publish.yml@refs/heads/main', github.repository)";
 
+    expect(caller.if).toBe("github.event_name == 'workflow_run'");
+    expect(findStep(caller, 'caller')).toBeDefined();
+    expect(caller.permissions).toEqual({ contents: 'read' });
+    expect(trigger.if).toContain("github.event_name == 'workflow_dispatch'");
+    expect(trigger.if).toContain(directRecoveryRef);
     expect(findStep(trigger, 'trigger')).toBeDefined();
     expect(needs(source)).toContain('validate-recovery-trigger');
+    expect(source.if).toContain(directRecoveryRef);
     expect(findStep(source, 'source-run')).toBeDefined();
     expect(source.outputs.head_sha).toContain('source-build.outputs.head_sha');
     expect(needs(approval)).toContain('validate-recovery-source');
+    expect(approval.if).toContain(directRecoveryRef);
     expect(approval.environment).toEqual({ name: PRODUCTION_ENVIRONMENT });
     const approvalStep = findStep(approval, 'approval');
     expect(approvalStep).toBeDefined();
@@ -242,15 +293,20 @@ describe('production promotion admission', () => {
     });
     expect(approvalStep.run).toContain('gh api --method GET');
     expect(needs(publish)).toEqual(expect.arrayContaining([
+      'validate-deploy-publish-caller',
       'validate-recovery-source',
       'recovery-production-approval',
     ]));
+    expect(publish.if).toContain("github.event_name == 'workflow_run'");
+    expect(publish.if).toContain("needs.validate-deploy-publish-caller.result == 'success'");
+    expect(publish.if).toContain("github.event_name == 'workflow_dispatch'");
+    expect(publish.if).not.toContain("github.event_name == 'workflow_call'");
     const markGood = publish.steps.find((step: any) => step.name === 'Mark this deploy as last_known_good');
     expect(markGood?.run).toContain('EFFECTIVE_DEPLOY_RUN_ID');
     expect(markGood?.run).toContain('EFFECTIVE_DEPLOY_REF');
     expect(markGood?.run).not.toContain('${{ github.run_id }}');
     expect(markGood?.run).not.toContain('${{ github.sha }}');
-    expect(JSON.stringify(publish)).toContain('workflow_call');
+    expect(JSON.stringify(publish)).toContain('workflow_run');
     expect(JSON.stringify(publish)).toContain('workflow_dispatch');
   });
 
