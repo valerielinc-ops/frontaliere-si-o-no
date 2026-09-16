@@ -27,7 +27,6 @@ import { REVIEW_GATE_STEP_NAME } from './lib/vitestCheck.mjs';
 
 const TESTS_WORKFLOW_PATH = '.github/workflows/tests.yml';
 const TESTS_WORKFLOW_EVENT = 'pull_request';
-const NIT_MARKER_RE = /^[^\n🔴🟢]*(?<!`)🟡\s*\*{0,2}\s*Nit\s*\*{0,2}\s*[:—-]/mu;
 const FINDINGS_HEADING_RE = /^\s{0,3}#{1,3}\s+Findings\b[^\n]*$/i;
 const LGTM_HEADING_RE = /^\s{0,3}##\s+LGTM\s*$/m;
 const TEST_ONLY_REVIEW_BOT_RE = /^(?:github-actions|frontaliere-automation)\[bot\]$/i;
@@ -111,15 +110,19 @@ export function latestBotReviewOnHead(reviews, head) {
   return latestBotReviewMatching(reviews, (review) => review?.commit_id === head);
 }
 
-/** Require the explicit reviewer summary, rather than inferring zero findings. */
+/**
+ * Require the explicit reviewer summary with zero blocking findings.
+ *
+ * `🟡 Nit` is advisory per REVIEW.md and may therefore coexist with `## LGTM`.
+ * The native gate must agree with the review gate in `tests.yml`: only an
+ * actual `🔴 Important` keeps the merge out, not a non-blocking nit.
+ */
 export function reviewHasZeroFindings(body) {
   if (typeof body !== 'string') return false;
   const findingsHeading = body.split(/\r?\n/).find((line) => FINDINGS_HEADING_RE.test(line));
   if (!findingsHeading) return false;
   return /\bImportant\s*:\s*0\b/i.test(findingsHeading)
-    && /\bNit\s*:\s*0\b/i.test(findingsHeading)
-    && !REDFLAG_IMPORTANT_RE.test(body)
-    && !NIT_MARKER_RE.test(body);
+    && !REDFLAG_IMPORTANT_RE.test(body);
 }
 
 export function reviewHasLgtm(body) {
@@ -398,7 +401,7 @@ export function evaluateNativeAutoMerge({
     })
     : { allow: false, reason: 'review raw già approvante' };
   if (review && !reviewIsApproved(review) && !reviewGateException.allow) {
-    return { allow: false, reason: 'ultima review bot non è Important 0/Nit 0 + LGTM' };
+    return { allow: false, reason: 'ultima review bot non è Important 0 + LGTM senza 🔴 Important' };
   }
 
   const check = requiredVitestDecision(checkRuns, pr.headRefOid);

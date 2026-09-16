@@ -24,6 +24,9 @@ export const ASSISTED_APPLICATION_EVENT_NAMES = [
   'cv_upload_completed',
   'cv_upload_failed',
   'manual_submission_queued',
+  'manual_submission_completed',
+  'manual_submission_blocked',
+  'refund_issued',
 ] as const;
 
 const ANONYMOUS_DISTINCT_ID_KEY = 'frontaliere_assisted_application_distinct_id';

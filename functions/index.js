@@ -65,6 +65,7 @@ import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './src/emailCa
 import { bridgeEmailCascadeCredentialsToEnv } from './src/remoteConfigSecrets.js';
 import { handleManageJournalistRole } from './src/journalistRoleCore.js';
 import { handleRedazioneAdmin } from './src/redazioneAdminCore.js';
+import { handleAssistedApplicationAdmin } from './src/assistedApplicationAdminCore.js';
 import { getAdminDb } from './src/newsletterResendWebhookCore.js';
 import { handleCreatePublisherCheckout, handleAttachPublisherJob, handleStripeWebhook, handleCreateBillingPortal, handleArchivePublisherAd, handleRestorePublisherAd } from './src/stripePublisherCore.js';
 import { handleCreateReaderCheckout, handleClaimReaderCheckout, handleCreateReaderBillingPortal } from './src/stripeReaderCore.js';
@@ -342,6 +343,22 @@ export const manageRedazioneAdmin = onRequest(
       res.status(status).json(body);
     } catch (error) {
       console.error('[manageRedazioneAdmin]', error instanceof Error ? error.message : String(error));
+      res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
+// Owner-only operational queue for paid assisted applications. The endpoint
+// returns signed CV links and performs every status/refund mutation server-side;
+// `firestore.rules` keeps the candidate-facing collection non-listable.
+export const manageAssistedApplicationAdmin = onRequest(
+  { region: 'europe-west6', memory: '256MiB', timeoutSeconds: 30, cors: true },
+  async (req, res) => {
+    try {
+      const { status, body } = await handleAssistedApplicationAdmin(req);
+      res.status(status).json(body);
+    } catch (error) {
+      console.error('[manageAssistedApplicationAdmin]', error instanceof Error ? error.message : String(error));
       res.status(500).json({ ok: false, error: 'internal_error' });
     }
   },
