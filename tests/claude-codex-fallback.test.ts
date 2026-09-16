@@ -443,6 +443,14 @@ describe('validator dei bridge host-side', () => {
         '- Il finding è un falso positivo. **Motivo:** il parser ha un contratto diverso. **Prossimo passo:** verificare il fixture condiviso.',
         '',
       ].join('\n')).ok).toBe(true);
+      expect(validatePrBodyContract([
+        '## Implementato',
+        '- Body validation is enforced in questa PR.',
+        '',
+        '## Non implementato (ancora)',
+        '- Il finding è un falso positivo. **Motivo:** **TBD**. **Prossimo passo:** verificare il fixture condiviso.',
+        '',
+      ].join('\n')).violations).toContain('decision deferrals require concrete Motivo and Prossimo passo');
       expect(validateGhArgs(['pr', 'create', '--repo', 'owner/repo', '--body-file', validBody], context)).toBe('');
       expect(validateGhArgs(['pr', 'create', '--repo', 'owner/repo', '--body-file', invalidBody], context)).toMatch(/body contract/);
       expect(validateGhArgs(['pr', 'create', '--repo', 'owner/repo', '--body', 'inline body'], context)).toMatch(/inline/);

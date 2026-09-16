@@ -171,4 +171,12 @@ describe('tests.yml contract job — ineffective closing keyword (issue #5784)',
     ));
     expect(setFailed.join(' ')).not.toMatch(/deroga/i);
   });
+
+  it('rejects a Markdown-formatted placeholder in the real inline gate', async () => {
+    const { setFailed } = await runContractCheck(wrapNonImplemented(
+      '- Il finding è un falso positivo. **Motivo:** **TBD**. '
+      + '**Prossimo passo:** chiudere dopo la verifica del fixture condiviso.',
+    ));
+    expect(setFailed.join(' ')).toMatch(/deroga.*falso positivo/i);
+  });
 });

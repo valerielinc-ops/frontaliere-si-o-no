@@ -91,9 +91,12 @@ const DECISION_RE = /\bby\s+construction\b|\bper\s+(?:scelta|costruzione|design)
 const DECISION_REASON_RE = /\b(?:motivo|ragione|reason)\s*:\s*(.+?)(?=\s+\b(?:prossimo\s+passo|next\s+step|azione\s+successiva)\s*:|$)/iu;
 const DECISION_NEXT_STEP_RE = /\b(?:prossimo\s+passo|next\s+step|azione\s+successiva)\s*:\s*(.+)$/iu;
 const DECISION_PLACEHOLDER_RE = /^(?:<[^>]+>|\.\.\.|tbd|n\/a|da\s+(?:definire|decidere|valutare)|da\s+fare)\s*[.!]?$/iu;
+function stripDecisionFormatting(value) {
+  return String(value ?? '').replace(/[*_~`]/gu, '');
+}
 
 function concreteDecisionValue(value) {
-  const clean = String(value ?? '').replace(/\s+/gu, ' ').trim();
+  const clean = stripDecisionFormatting(value).replace(/\s+/gu, ' ').trim();
   return clean.length >= 8
     && !DECISION_PLACEHOLDER_RE.test(clean)
     && /[\p{L}\p{N}]/u.test(clean);
@@ -115,7 +118,7 @@ function bodyTopLevelBullets(value) {
 }
 
 function decisionDeferralViolation(bullet) {
-  const clean = String(bullet ?? '');
+  const clean = stripDecisionFormatting(bullet);
   if (!DECISION_RE.test(clean)) return false;
   const reason = clean.match(DECISION_REASON_RE)?.[1]?.trim() || '';
   const nextStep = clean.match(DECISION_NEXT_STEP_RE)?.[1]?.trim() || '';
