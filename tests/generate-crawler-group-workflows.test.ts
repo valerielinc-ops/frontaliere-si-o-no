@@ -20,8 +20,9 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
-import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, generate, buildCrawlerShellBody, buildCrawlerLaunchShellBody, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths, resolveCrawlerContractSource } from '../scripts/generate-crawler-group-workflows.mjs';
+import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, CRAWLER_GROUP_MAX_PARALLEL, generate, buildCrawlerShellBody, buildCrawlerLaunchShellBody, buildCrawlerAggregateFailureGateShellBody, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths, resolveCrawlerContractSource } from '../scripts/generate-crawler-group-workflows.mjs';
 import { assertCrawlerManifestDelta, CORPUS_OBSERVER_FILES, CRAWLER_WORKFLOW_FILES, prepareCrawlerWorkflowCorpusSync } from '../scripts/ci/prepare-crawler-workflow-corpus-sync.mjs';
 import { collectRelativeImportClosure } from './helpers/collectRelativeImportClosure';
 
@@ -29,6 +30,8 @@ interface Crawler {
   slug: string;
   durationMs: number;
 }
+
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 function crawlerLaunchSteps(steps: any[]) {
   return steps.filter((step) => typeof step?.id === 'string' && step.id.startsWith('crawler-launch-'));
@@ -752,6 +755,50 @@ describe('buildCrawlerLaunchShellBody — runner cleanup isolation', () => {
     expect(body).toContain('env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path"');
     expect(body).toContain('env -u RUNNER_TRACKING_ID nohup bash "$launcher_path"');
   });
+
+  it('bounds active crawler bodies with a per-group semaphore and records a lost worker', () => {
+    const body = buildCrawlerLaunchShellBody({
+      slug: 'bounded-crawler',
+      runStep: { env: {}, run: 'true' },
+      postSteps: [],
+    }, 2);
+
+    expect(body).toContain(`max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-4}"`);
+    expect(body).toContain('for slot_index in $(seq 1 "$max_parallel"); do');
+    expect(body).toContain('flock -n "$slot_path" bash "$worker_path"');
+    expect(body).toContain('started_file="$RUNNER_TEMP/crawler-generation/group-02/bounded-crawler.started"');
+    expect(body).toContain('terminal_exit=143');
+  });
+});
+
+describe('crawler group outcome isolation', () => {
+  it('fails the group only after all member outcomes have been aggregated', () => {
+    const body = buildCrawlerAggregateFailureGateShellBody();
+    const run = (values: Record<string, string>) => {
+      try {
+        execFileSync('bash', ['-e', '-c', body], {
+          env: { ...process.env, ...values },
+          encoding: 'utf8',
+        });
+        return 0;
+      } catch (error: any) {
+        return error.status ?? 1;
+      }
+    };
+
+    expect(run({
+      CRAWLER_AGGREGATE_OUTCOME: 'success',
+      CRAWLER_AGGREGATE_SUCCESS: '3',
+      CRAWLER_AGGREGATE_FAILURES: '0',
+      CRAWLER_AGGREGATE_MISSING: '0',
+    })).toBe(0);
+    expect(run({
+      CRAWLER_AGGREGATE_OUTCOME: 'success',
+      CRAWLER_AGGREGATE_SUCCESS: '2',
+      CRAWLER_AGGREGATE_FAILURES: '1',
+      CRAWLER_AGGREGATE_MISSING: '0',
+    })).not.toBe(0);
+  });
 });
 
 describe('push-contention class (exit 42) in generated steps', () => {
@@ -813,20 +860,46 @@ describe('#6380 — one atomic commit per crawler group', () => {
       expect(launchers.length).toBeGreaterThan(0);
       expect(results).toHaveLength(launchers.length);
       for (const step of launchers) {
+        expect(step.if).toBe("always() && steps.crawler_group_setup.outcome == 'success'");
+        expect(step['continue-on-error']).toBe(true);
         expect(step.run).toContain('CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock');
       }
+      for (const step of results) {
+        expect(step.if).toBe('always()');
+        expect(step['continue-on-error']).toBe(true);
+      }
+      const setup = job.steps.find((step: any) => step.id === 'crawler_group_setup');
+      expect(setup).toMatchObject({
+        name: 'Confirm crawler shared setup succeeded',
+        run: 'true',
+      });
+      const aggregate = job.steps.find((step: any) => step.name === 'Aggregate crawler outcomes');
+      expect(aggregate).toMatchObject({
+        if: 'always()',
+        'continue-on-error': true,
+      });
+      expect(aggregate.run).toContain('no terminal status was published');
+      expect(aggregate.run).toContain('Summary:');
+      expect(job.env.CRAWLER_GROUP_MAX_PARALLEL).toBe(String(CRAWLER_GROUP_MAX_PARALLEL));
 
       const batchIndexes = job.steps
         .map((step, index) => ({ step, index }))
         .filter(({ step }) => step.name === 'Commit crawler group data atomically');
       expect(batchIndexes).toHaveLength(1);
       expect(batchIndexes[0].index).toBeGreaterThan(Math.max(...results.map((step) => job.steps.indexOf(step))));
-      expect(batchIndexes[0].step.if).toBe("always() && inputs.generation_token != '' && job.status == 'success'");
+      expect(batchIndexes[0].step.if).toBe("always() && inputs.generation_token != '' && job.status == 'success' && steps.crawler_group_setup.outcome == 'success'");
       expect(batchIndexes[0].step.run).toContain('git-commit-data.sh --group-batch');
       const cleanupIndex = job.steps.findIndex((step) => step.name === 'Cleanup Codex auth broker');
       if (cleanupIndex >= 0) expect(cleanupIndex).toBeGreaterThan(batchIndexes[0].index);
       const finalizerIndex = job.steps.findIndex((step) => step.name === 'Finalize crawler generation manifest (shadow)');
       expect(finalizerIndex).toBeGreaterThan(Math.max(batchIndexes[0].index, cleanupIndex));
+      const aggregateGate = job.steps.find((step: any) => step.name === 'Fail crawler group after all member outcomes');
+      expect(aggregateGate).toMatchObject({ if: 'always()' });
+      expect(aggregateGate.env).toMatchObject({
+        CRAWLER_AGGREGATE_OUTCOME: "\${{ steps.crawler_aggregate.outcome }}",
+      });
+      expect(aggregateGate.run).toContain('healthy siblings were preserved');
+      expect(job.steps.indexOf(aggregateGate)).toBeGreaterThan(finalizerIndex);
       const ledgerIndex = job.steps.findIndex((step) => step.name === 'Persist crawler generation ledger');
       const uploadIndex = job.steps.findIndex((step) => step.name === 'Upload crawler generation manifest (shadow)');
       expect(ledgerIndex).toBeGreaterThan(finalizerIndex);
@@ -1028,7 +1101,7 @@ describe('#6482 — committed crawler-group-*.yml are byte-identical to the gene
           `If the .yml is the correct state and the pins are the stale side: node scripts/generate-crawler-group-workflows.mjs --bootstrap-from-workflows`,
       ).toBe(true);
     }
-  });
+  }, 30_000);
 
   it('every manifest crawler is pinned, exactly once', () => {
     // NOT asserted: "no stale pin". A pin whose crawler left the manifest is
@@ -1418,6 +1491,19 @@ describe('cross-repo crawler execution artifacts', () => {
       .toThrow(/workflow_call inputs\/secrets/);
   });
 
+  it('ignora l’ordine delle chiavi nei mapping YAML del contratto', () => {
+    const [generated] = generate({ outDir: workflowsDir, assignmentsPath, write: false });
+    const logicPath = path.join(workflowsDir, 'crawler-group-01-logic.yml');
+    const logicDoc = YAML.parse(fs.readFileSync(logicPath, 'utf8'));
+    const logicJob: any = Object.values(logicDoc.jobs)[0];
+    const rcStep = logicJob.steps.find((step: any) => step.name === 'Load secrets from Remote Config');
+    const reorderedRcStep = Object.fromEntries(Object.entries(rcStep).reverse());
+    logicJob.steps = logicJob.steps.map((step: any) => step === rcStep ? reorderedRcStep : step);
+
+    expect(() => assertCrawlerLogicParity(generated.content, YAML.stringify(logicDoc), path.basename(logicPath)))
+      .not.toThrow();
+  });
+
   it('include by default ogni nuovo bucket non dichiarato sicuro da escludere', () => {
     const bucketsPath = path.join(tmp, 'checkout-buckets.json');
     fs.writeFileSync(bucketsPath, JSON.stringify({
@@ -1758,6 +1844,8 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(crawlerSteps.every((step: any) => step.env?.CODEX_AUTH_JSON === undefined)).toBe(true);
     expect(crawlerSteps.every((step: any) => step.env?.CODEX_AUTH_BROKER_SOCKET
       === '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}')).toBe(true);
+    expect(crawlerSteps.every((step: any) => step.env?.AI_MODELS_PREFER === undefined)).toBe(true);
+    expect(crawlerSteps.every((step: any) => step.env?.CLAUDE_CODE_OAUTH_TOKEN === undefined)).toBe(true);
     const cleanupStep = generatedSteps.find((step: any) => step.name === 'Cleanup Codex auth broker');
     expect(cleanupStep?.if).toBe('always()');
     expect(cleanupStep?.env?.CODEX_AUTH_BROKER_SOCKET)
@@ -1773,7 +1861,12 @@ describe('cross-repo crawler execution artifacts', () => {
       .filter((step: any) => step.id?.startsWith('crawler-launch-'))
       .every((step: any) => step.env?.CODEX_AUTH_JSON === undefined
         && step.env?.CODEX_AUTH_BROKER_SOCKET
-          === '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}')).toBe(true);
+          === '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}'
+        && step.env?.AI_MODELS_PREFER === undefined
+        && step.env?.CLAUDE_CODE_OAUTH_TOKEN === undefined)).toBe(true);
+
+    const generateArticle = fs.readFileSync(path.join(ROOT, '.github/workflows/generate-article.yml'), 'utf8');
+    expect(generateArticle).not.toMatch(/AI_MODELS_PREFER:\s*codex-cli\/gpt-5\.6-luna/);
 
     const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
     const translationSetupStep = Object.values(translation.jobs)[0].steps.find(

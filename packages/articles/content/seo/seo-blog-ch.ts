@@ -84065,6 +84065,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-premi-lamal-glarona-modelli-franchigie': {
+    title: 'Premi cassa malati Canton Glarona: fasce, franchigie e riduzione',
+    description: 'Nel Cantone di Glarona i premi LAMal variano per fascia di premio e franchigia; è possibile ottenere la riduzione cantonale entro tre mesi dall’iscrizione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, cassa, malati, canton',
+    ogTitle: 'Premi cassa malati Canton Glarona: fasce, franchigie',
+    ogDescription: 'Nel Cantone di Glarona i premi LAMal variano per fascia di premio e franchigia; è possibile ottenere la riduzione cantonale entro tre mesi dall’iscrizione.',
+    canonicalPath: '/articoli-svizzera/premi-lamal-glarona-modelli-franchigie/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi cassa malati Canton Glarona: fasce, franchigie e riduzione",
+      "description": "Nel Cantone di Glarona i premi LAMal variano per fascia di premio e franchigia; è possibile ottenere la riduzione cantonale entro tre mesi dall’iscrizione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-lamal-glarona-modelli-franchigie.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio alpino del Canton Glarona con casa tradizionale svizzera"
+      },
+      "datePublished": "2026-09-16T11:54:46+00:00",
+      "dateModified": "2026-09-16T11:54:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-lamal-glarona-modelli-franchigie/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -69,8 +69,10 @@ describe('crawler workflow corpus transport', () => {
     expect(script).not.toMatch(/content\/|engine\/|host\//);
   });
 
-  it('descrive nel body generato tutti gli observer e le baseline trasportate', () => {
-    expect(script).toContain('i sette observer dedicati e le 32 baseline');
+  it('descrive nel body generato il delta reale, senza conteggi fissi del catalogo', () => {
+    expect(script).toContain('i file di trasporto effettivamente presenti nel diff della branch');
+    expect(script).toContain('il trasporto resta limitato ai file elencati dal diff');
+    expect(script).not.toMatch(/24 workflow crawler eseguibili|sette observer dedicati|32 baseline/);
   });
 
   it('emette stati espliciti nel body per evitare un finding Important del review-gate', () => {
@@ -79,7 +81,7 @@ describe('crawler workflow corpus transport', () => {
     expect(bodyStart).toBeGreaterThanOrEqual(0);
     expect(bodyEnd).toBeGreaterThan(bodyStart);
     const body = script.slice(bodyStart, bodyEnd);
-    expect(body).toContain('- in questa PR, by construction:');
+    expect(body).toContain('- in questa PR, per scelta:');
     expect(body).toContain('- blocked:');
     expect(body).not.toContain('\n- by construction:');
     expect(body).not.toContain('\n- per scelta:');

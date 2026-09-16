@@ -62,6 +62,7 @@ jobs:
             /data/loop-fleet/loop-registry.json
             /data/loop-fleet/ledger/
             /scripts/ci/merge-loop-fleet-ledger.mjs
+            /scripts/lib/canonical-json-digest.mjs
             /scripts/ci/mint-app-token.mjs
             /scripts/ci/pr-body-check-gate.mjs
             /scripts/ci/lib/hook-exit-codes.mjs

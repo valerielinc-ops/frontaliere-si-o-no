@@ -199,9 +199,23 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       expect(launchers.every((step: any) =>
         !Object.prototype.hasOwnProperty.call(step.env ?? {}, 'CRAWLER_GENERATION_TOKEN'))).toBe(true);
       expect(resultsByCrawler.every((step: any) => step.if === 'always()')).toBe(true);
+      expect(launchers.every((step: any) =>
+        step.if === "always() && steps.crawler_group_setup.outcome == 'success'"
+        && step['continue-on-error'] === true)).toBe(true);
+      expect(resultsByCrawler.every((step: any) => step['continue-on-error'] === true)).toBe(true);
+      expect(stepByName(job.steps, 'Aggregate crawler outcomes')).toMatchObject({
+        if: 'always()',
+        'continue-on-error': true,
+      });
+      expect(stepByName(job.steps, 'Fail crawler group after all member outcomes')).toMatchObject({
+        if: 'always()',
+        env: {
+          CRAWLER_AGGREGATE_OUTCOME: "\${{ steps.crawler_aggregate.outcome }}",
+        },
+      });
       expect(stepByName(job.steps, 'Commit crawler group data atomically')).toEqual({
         name: 'Commit crawler group data atomically',
-        if: "always() && inputs.generation_token != '' && job.status == 'success'",
+        if: "always() && inputs.generation_token != '' && job.status == 'success' && steps.crawler_group_setup.outcome == 'success'",
         run: [
           'set +e',
           `bash scripts/lib/git-commit-data.sh --group-batch "Auto-update crawler group ${group} jobs"`,
@@ -286,7 +300,7 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
         step.id?.startsWith('crawler-launch-') || step.name === 'Commit crawler group data atomically');
       expect(portableProducers).toHaveLength(results.generationRoster.groups[group].length + 1);
       expect(stepByName(portableJob.steps, 'Commit crawler group data atomically').if)
-        .toBe("always() && inputs.generation_token != '' && job.status == 'success'");
+        .toBe("always() && inputs.generation_token != '' && job.status == 'success' && steps.crawler_group_setup.outcome == 'success'");
       expect(portableProducers.every((step: any) =>
         !Object.prototype.hasOwnProperty.call(step.env ?? {}, 'CRAWLER_GENERATION_TOKEN'))).toBe(true);
       expect(portableJob.steps.at(-1).name).toBe('Release cross-entry crawler live-run lease');

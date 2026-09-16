@@ -15,7 +15,10 @@
  * workflow invalid before a job starts. Each crawler is therefore launched
  * from a normal `run` step as a detached process, then observed by a normal
  * `run` step that waits for its status file. The launch steps overlap inside
- * one job, so the group still holds one concurrent-job slot.
+ * one job, so the group still holds one concurrent-job slot. The detached
+ * launchers use a small per-group semaphore: a runner never has to execute
+ * the whole 27-crawler group at once, while every member still gets its own
+ * terminal result.
  *
  * DESIGN CONSTRAINT: every crawler's data-path selection and error-reporting
  * mechanism remains the one implemented in its own script. Each crawler's
@@ -213,6 +216,12 @@ export const OUTLIER_MEDIAN_MULTIPLE = 4;
 // GitHub Actions hard job timeout is 360min (6h). Keep meaningful margin.
 export const JOB_TIMEOUT_MINUTES = 340;
 export const SAFETY_CEILING_MS = JOB_TIMEOUT_MINUTES * 60 * 1000;
+// A group contains up to 28 crawlers and several of them run Chromium, large
+// parsers, or AI translation. Starting every detached process together can
+// exhaust a hosted runner and surface as a bare SIGTERM/exit 143. Four active
+// crawler bodies leave headroom for the runner and still keep the measured
+// group wall-clock comfortably below the 340-minute job budget.
+export const CRAWLER_GROUP_MAX_PARALLEL = 4;
 
 function loadJson(p) {
   return JSON.parse(fs.readFileSync(p, 'utf8'));
@@ -844,11 +853,12 @@ export function buildCrawlerShellBody(crawler) {
     lines.push('');
   }
 
-  // Fail this launcher process (and therefore its result step and the job,
-  // making the `if: failure()` failure-report step's condition true — it already
-  // ran inline above, but a non-zero exit here is also what makes the
-  // overall job/step show red in the Actions UI and what a future consumer
-  // of this script's own exit status observes) if EITHER
+  // Fail this launcher process (and therefore its result step). The result
+  // step is deliberately `continue-on-error` at the group level, so later
+  // siblings are still launched and waited independently; the final aggregate
+  // gate turns the whole group red only after all members have reported.
+  // This non-zero exit is also what a future consumer of this script's own
+  // exit status observes if EITHER
   // the crawl OR the commit/push failed.
   // Contention loss (42) with a successful crawl does NOT fail the step: the
   // job conclusion is what close-recovered-failure-issues.mjs keys recovery
@@ -878,35 +888,97 @@ function isCrawlerLaunchStep(step) {
  * the launcher writes the crawler body to a private script, detaches a new
  * session, and returns immediately. The detached wrapper records the exact
  * exit code atomically; the matching result step below turns that code back
- * into a normal Actions step conclusion and streams the saved log.
+ * into a normal Actions step conclusion and streams the saved log. The wrapper
+ * acquires one of the group's bounded slots before it starts the crawler body,
+ * so a burst cannot exhaust the hosted runner.
  */
 export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
   const nn = String(groupIndex).padStart(2, '0');
   const slug = crawler.slug;
   const body = buildCrawlerShellBody(crawler);
-  const launcher = [
+  const worker = [
     'set +e',
     `script_path="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.sh"`,
     `status_file="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.status"`,
     `status_tmp="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.status.tmp.$$"`,
+    `started_file="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.started"`,
+    ': > "$started_file"',
     'bash "$script_path"',
     'crawler_exit=$?',
     'printf \'%s\\n\' "$crawler_exit" > "$status_tmp"',
     'mv "$status_tmp" "$status_file"',
     'exit "$crawler_exit"',
   ].join('\n');
+  const launcher = [
+    'set +e',
+    `state_dir="$RUNNER_TEMP/crawler-generation/group-${nn}"`,
+    `worker_path="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.worker.sh"`,
+    `status_file="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.status"`,
+    `status_tmp="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.status.tmp.$$"`,
+    `started_file="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.started"`,
+    `max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-${CRAWLER_GROUP_MAX_PARALLEL}}"`,
+    'if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then',
+    '  echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"',
+    '  printf \'1\\n\' > "$status_tmp"',
+    '  mv "$status_tmp" "$status_file"',
+    '  exit 1',
+    'fi',
+    'if ! command -v flock >/dev/null 2>&1; then',
+    '  echo "flock is unavailable; running this crawler without the group semaphore"',
+    '  bash "$worker_path"',
+    '  exit $?',
+    'fi',
+    'while :; do',
+    '  for slot_index in $(seq 1 "$max_parallel"); do',
+    '    slot_path="$state_dir/slots/slot-${slot_index}.lock"',
+    '    flock -n "$slot_path" bash "$worker_path"',
+    '    flock_exit=$?',
+    '    if [ "$flock_exit" -eq 0 ]; then',
+    '      exit 0',
+    '    fi',
+    '    if [ -s "$status_file" ]; then',
+    '      status="$(cat "$status_file" 2>/dev/null || true)"',
+    '      if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi',
+    '      printf \'1\\n\' > "$status_tmp"',
+    '      mv "$status_tmp" "$status_file"',
+    '      exit 1',
+    '    fi',
+    '    if [ -e "$started_file" ]; then',
+    '      # A worker that acquired a slot but disappeared before its atomic',
+    '      # status write must not be retried or waited on for the full budget.',
+    '      # Preserve the child status when available; 143 is the conventional',
+    '      # fallback for a SIGTERM from the runner/host.',
+    '      terminal_exit="$flock_exit"',
+    '      if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi',
+    '      printf \'%s\\n\' "$terminal_exit" > "$status_tmp"',
+    '      mv "$status_tmp" "$status_file"',
+    '      exit "$terminal_exit"',
+    '    fi',
+    '    if [ "$flock_exit" -ne 1 ]; then',
+    '      printf \'%s\\n\' "$flock_exit" > "$status_tmp"',
+    '      mv "$status_tmp" "$status_file"',
+    '      exit "$flock_exit"',
+    '    fi',
+    '  done',
+    '  sleep 1',
+    'done',
+  ].join('\n');
   return [
     'set -euo pipefail',
     `state_dir="$RUNNER_TEMP/crawler-generation/group-${nn}"`,
-    'mkdir -p "$state_dir"',
+    'mkdir -p "$state_dir/slots"',
     `script_path="$state_dir/${slug}.sh"`,
     `launcher_path="$state_dir/${slug}.launcher.sh"`,
+    `worker_path="$state_dir/${slug}.worker.sh"`,
     `log_path="$state_dir/${slug}.log"`,
     `pid_path="$state_dir/${slug}.pid"`,
     `status_path="$state_dir/${slug}.status"`,
-    'rm -f "$script_path" "$launcher_path" "$log_path" "$pid_path" "$status_path"',
+    `started_path="$state_dir/${slug}.started"`,
+    'rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"',
     '# shellcheck disable=SC2016,SC1003',
     `printf '%s\\n' ${shellQuote(body)} > "$script_path"`,
+    '# shellcheck disable=SC2016,SC1003',
+    `printf '%s\\n' ${shellQuote(worker)} > "$worker_path"`,
     '# shellcheck disable=SC2016,SC1003',
     `printf '%s\\n' ${shellQuote(launcher)} > "$launcher_path"`,
     'if command -v setsid >/dev/null 2>&1; then',
@@ -976,6 +1048,89 @@ export function buildCrawlerResultShellBody(crawler, groupIndex) {
 }
 
 /**
+ * Summarize every crawler independently after the result waiters have run.
+ *
+ * The result steps intentionally remain red when their own crawler failed, but
+ * they are `continue-on-error` steps so GitHub does not skip the next crawler.
+ * This normal step is the human-readable join: it reads the durable status
+ * files, reports success/failure/missing separately, and always exits zero so
+ * a partial batch can still publish the descriptors produced by healthy
+ * siblings. The terminal manifest remains fail-closed for the central
+ * generation barrier when a receipt is missing.
+ */
+export function buildCrawlerAggregateShellBody(crawlers, groupIndex) {
+  const nn = String(groupIndex).padStart(2, '0');
+  const lines = [
+    'set -uo pipefail',
+    `state_dir="$RUNNER_TEMP/crawler-generation/group-${nn}"`,
+    'summary_file="${GITHUB_STEP_SUMMARY:-/dev/null}"',
+    'output_file="${GITHUB_OUTPUT:-/dev/null}"',
+    'success_count=0',
+    'failure_count=0',
+    'missing_count=0',
+    `printf '%s\\n' '### Crawler group ${nn} outcome' >> "$summary_file"`,
+    `printf '%s\\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"`,
+  ];
+  for (const crawler of crawlers) {
+    const slug = crawler.slug;
+    lines.push(
+      `status_file="$state_dir/${slug}.status"`,
+      'if [ ! -s "$status_file" ]; then',
+      `  echo "::warning::${slug}: no terminal status was published"`,
+      `  printf '%s\\n' '| ${slug} | missing status |' >> "$summary_file"`,
+      '  missing_count=$((missing_count + 1))',
+      'else',
+      '  status="$(cat "$status_file" 2>/dev/null || true)"',
+      '  if ! [[ "$status" =~ ^[0-9]+$ ]]; then',
+      `    echo "::error::${slug}: invalid terminal status: $status"`,
+      `    printf '%s\\n' '| ${slug} | invalid status |' >> "$summary_file"`,
+      '    failure_count=$((failure_count + 1))',
+      '  elif [ "$status" -eq 0 ]; then',
+      `    printf '%s\\n' '| ${slug} | success |' >> "$summary_file"`,
+      '    success_count=$((success_count + 1))',
+      '  else',
+      `    echo "::error::${slug}: crawler exited with status $status"`,
+      `    printf '| ${slug} | failed (%s) |\\n' "$status" >> "$summary_file"`,
+      '    failure_count=$((failure_count + 1))',
+      '  fi',
+      'fi',
+    );
+  }
+  lines.push(
+    `printf '%s\\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing." >> "$summary_file"`,
+    `printf '%s\\n' "success_count=$success_count" "failure_count=$failure_count" "missing_count=$missing_count" >> "$output_file"`,
+    'exit 0',
+  );
+  return lines.join('\n');
+}
+
+/** Keep the group visibly failed, but only after every crawler was observed. */
+export function buildCrawlerAggregateFailureGateShellBody() {
+  return [
+    'set -euo pipefail',
+    'aggregate_outcome="${CRAWLER_AGGREGATE_OUTCOME:-failure}"',
+    'success_count="${CRAWLER_AGGREGATE_SUCCESS:-invalid}"',
+    'failure_count="${CRAWLER_AGGREGATE_FAILURES:-invalid}"',
+    'missing_count="${CRAWLER_AGGREGATE_MISSING:-invalid}"',
+    'if [ "$aggregate_outcome" != "success" ]; then',
+    '  echo "::error::crawler aggregate step did not complete; group failed after preserving already-running siblings"',
+    '  exit 1',
+    'fi',
+    'for count in "$success_count" "$failure_count" "$missing_count"; do',
+    '  if ! [[ "$count" =~ ^[0-9]+$ ]]; then',
+    '    echo "::error::crawler aggregate produced an invalid count: $count"',
+    '    exit 1',
+    '  fi',
+    'done',
+    'if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ]; then',
+    '  echo "::error::crawler group completed with $success_count succeeded, $failure_count failed, $missing_count missing; healthy siblings were preserved, but the group remains failed until incomplete crawlers are recovered"',
+    '  exit 1',
+    'fi',
+    'echo "✅ all $success_count crawler members completed successfully"',
+  ].join('\n');
+}
+
+/**
  * Merge a crawler's runStep + postSteps env maps into one map for the
  * step's own YAML `env:` mapping (plus the per-crawler SLUG_HISTORY_SUMMARY_FILE).
  *
@@ -999,13 +1154,13 @@ export function buildCrawlerResultShellBody(crawler, groupIndex) {
 function buildCrawlerStepEnv(crawler, summaryFile) {
   const merged = {
     SLUG_HISTORY_SUMMARY_FILE: summaryFile,
-    // Auth for the opt-in Claude CLI Haiku fallback (tier-0 by default since
-    // 2026-07-29 — see AI_COMPETING_TIERS in ai-models.mjs; see the
-    // "Setup Claude CLI Haiku fallback" step below). Harmless to always
-    // pass: ai-models.mjs only offers the model when this AND the RC flag
-    // are both set. Most crawlers route callLLM through
-    // dedicated-crawler-common.mjs / shared-jobs-crawler.mjs.
-    CLAUDE_CODE_OAUTH_TOKEN: '${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}',
+    // The crawler AI lane uses the Codex subscription through the private
+    // broker created by the setup action below. Do not pass the Claude OAuth
+    // credential into a background crawler: it would re-enable the legacy
+    // Haiku lane and expose a shared subscription to every child process.
+    // The Codex Luna Max lane is reached through that broker; only its socket
+    // capability crosses the background-process boundary. Most crawlers route
+    // callLLM through dedicated-crawler-common.mjs / shared-jobs-crawler.mjs.
   };
   Object.assign(merged, crawler.runStep.env || {});
   for (const step of crawler.postSteps) {
@@ -1022,6 +1177,11 @@ function buildCrawlerStepEnv(crawler, summaryFile) {
   // maps, so a crawler cannot accidentally replace the capability reference
   // with a job-wide variable or a user-controlled value.
   merged.CODEX_AUTH_BROKER_SOCKET = '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}';
+  // Keep provider selection out of the process-wide environment. The crawler
+  // invokes create-article.mjs, which already passes Codex as a per-call
+  // preference only to body generation. A global AI_MODELS_PREFER would also
+  // affect the pre-spend classifier and could consume the run's one-shot
+  // Codex marker before the body call reaches the intended lane.
   return Object.fromEntries(
     Object.entries(merged).map(([key, value]) => [key, normalizeCrawlerInputReferences(value)]),
   );
@@ -1146,10 +1306,10 @@ function crawlerGenerationTerminalSteps(groupIndex, expectedCrawlers) {
 }
 
 /**
- * The broker normally exits immediately after its one-shot request. Keep an
+ * The broker serves a bounded sequence of Codex Luna Max requests. Keep an
  * explicit always-run cleanup at the end of the job as well: this covers runs
- * that never reach Claude/Codex and persistent runners where the short broker
- * TTL should remain only a backstop, not the normal lifecycle.
+ * that never reach Codex and persistent runners where the TTL should remain
+ * only a backstop, not the normal lifecycle.
  */
 function codexAuthBrokerCleanupStep() {
   return {
@@ -1255,8 +1415,8 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
   // as AI_MODELS.OMNIROUTE_AUTO. Since 2026-07-29 (AI_COMPETING_TIERS
   // default, see ai-models.mjs's _lastResortTier doc comment) this tier is
   // tier-0 BY DEFAULT — it competes on real score against the direct
-  // free-tier providers, it is not pinned relative to LOCAL_FALLBACK/
-  // CLAUDE_CLI_HAIKU by tier rank anymore (AI_COMPETING_TIERS='' restores
+  // free-tier providers, it is not pinned relative to LOCAL_FALLBACK by tier
+  // rank anymore (AI_COMPETING_TIERS='' restores
   // that). Shared composite action: see
   // .github/actions/setup-omniroute/action.yml for the full rationale +
   // incident history. Must run before the per-crawler steps below so
@@ -1267,23 +1427,27 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
   // itself relies on below).
   steps.push({ uses: './.github/actions/setup-omniroute' });
 
-  // Claude CLI Haiku fallback (ON by default, kill-switch '0') — tier-0 by
-  // default in ai-models.mjs's DEFAULT_CHAIN since 2026-07-29
-  // (AI_COMPETING_TIERS), competing on real score instead of being reached
-  // only after every free-tier model has failed. Capped at
-  // CLAUDE_CLI_MAX_CALLS_PER_RUN calls/run (default 25) since this quota is
-  // shared with pr-review-loop.yml/issue-fix.yml. Shared composite action:
-  // see .github/actions/setup-claude-haiku-fallback/action.yml for the full
-  // rationale + incident history. Must run before the per-crawler steps
-  // below so ENABLE_HAIKU_ARTICLE_FALLBACK is forced into $GITHUB_ENV in
-  // time for every launcher to inherit it.
+  // Codex Luna Max article lane (ON by default, historical kill-switch '0').
+  // The setup action installs the pinned Codex CLI and exposes only a private
+  // bounded broker socket to the per-crawler steps below. Its raw subscription
+  // credential never enters a crawler environment.
   steps.push({
     id: 'setup_claude_haiku_fallback',
     uses: './.github/actions/setup-claude-haiku-fallback',
     // Keep the Codex secret on the setup action's process only. That action
-    // keeps it in a one-shot broker and exposes only a socket output to the
+    // keeps it in a bounded broker and exposes only a socket output to the
     // individual crawler AI steps; no raw secret enters any crawler step.
     with: { codex_auth_json: '${{ secrets.CODEX_AUTH_JSON }}' },
+  });
+
+  // This sentinel separates a shared bootstrap failure from an individual
+  // crawler failure. Launchers may run after a previous launch step fails, but
+  // they must not start at all when checkout/dependencies/secrets/AI setup did
+  // not complete for the group.
+  steps.push({
+    name: 'Confirm crawler shared setup succeeded',
+    id: 'crawler_group_setup',
+    run: 'true',
   });
 
   for (const crawler of group.members) {
@@ -1293,6 +1457,11 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
     steps.push({
       name: `Launch ${crawler.slug}`,
       id: launchStepId,
+      // `always()` prevents one failed launch step from skipping every later
+      // launch. The setup sentinel keeps a genuine group bootstrap failure
+      // from turning into N copies of the same crawler error.
+      if: "always() && steps.crawler_group_setup.outcome == 'success'",
+      'continue-on-error': true,
       // HAZARD FIX 1 (SLUG_HISTORY_SUMMARY_FILE) + #3713 root-cause fix: every
       // env value the crawler's runStep/postSteps declared lives here, in the
       // step's own YAML env: map, instead of being text-spliced into the
@@ -1307,6 +1476,7 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
       name: `Run ${crawler.slug}`,
       id: `crawler-${crawler.slug}`,
       if: 'always()',
+      'continue-on-error': true,
       env: {
         CRAWLER_LAUNCH_OUTCOME: `\${{ steps['crawler-launch-${crawler.slug}'].outcome }}`,
       },
@@ -1314,13 +1484,23 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
     });
   }
   steps.push({
+    name: 'Aggregate crawler outcomes',
+    id: 'crawler_aggregate',
+    if: 'always()',
+    'continue-on-error': true,
+    run: buildCrawlerAggregateShellBody(group.members, groupIndex),
+  });
+  steps.push({
     name: 'Commit crawler group data atomically',
     // The reusable workflow keeps a coordinate-derived token only as a
     // diagnostic fallback for legacy callers. It is not a barrier binding:
     // publishing its slices would let an unregistered caller reach main
-    // before the central observer rejects the manifest. A failed/cancelled
-    // crawler group is likewise not allowed to publish a partial batch.
-    if: "always() && inputs.generation_token != '' && job.status == 'success'",
+    // before the central observer rejects the manifest. A shared-setup
+    // failure is likewise not allowed to publish a partial batch; an
+    // individual crawler failure is isolated, so healthy siblings may publish
+    // their descriptors while the central observer keeps the generation
+    // barrier fail-closed until the missing receipt is recovered.
+    if: "always() && inputs.generation_token != '' && job.status == 'success' && steps.crawler_group_setup.outcome == 'success'",
     // PUSH-CONTENTION CLASS (exit 42 from git-commit-data.sh, see
     // commit_isolated_from_worktree): with `--group-batch`, GROUP_BATCH=true
     // takes it out of the sequential soft-success path (JOBS_SLICE_FILE
@@ -1352,6 +1532,17 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
   });
   steps.push(codexAuthBrokerCleanupStep());
   steps.push(...crawlerGenerationTerminalSteps(groupIndex, crawlerGenerationMembers(group)));
+  steps.push({
+    name: 'Fail crawler group after all member outcomes',
+    if: 'always()',
+    env: {
+      CRAWLER_AGGREGATE_OUTCOME: "\${{ steps.crawler_aggregate.outcome }}",
+      CRAWLER_AGGREGATE_SUCCESS: "\${{ steps.crawler_aggregate.outputs.success_count || 'invalid' }}",
+      CRAWLER_AGGREGATE_FAILURES: "\${{ steps.crawler_aggregate.outputs.failure_count || 'invalid' }}",
+      CRAWLER_AGGREGATE_MISSING: "\${{ steps.crawler_aggregate.outputs.missing_count || 'invalid' }}",
+    },
+    run: buildCrawlerAggregateFailureGateShellBody(),
+  });
   steps.push(liveRunLeaseReleaseStep(groupName));
 
   return {
@@ -1396,6 +1587,7 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
           CRAWLER_GENERATION_TOKEN: CRAWLER_GENERATION_TOKEN_EXPR,
           CRAWLER_GENERATION_RECEIPT_DIR: 'crawler-generation/receipts',
           CRAWLER_GROUP_COMMIT_DIR: 'crawler-generation/commit-batch',
+          CRAWLER_GROUP_MAX_PARALLEL: String(CRAWLER_GROUP_MAX_PARALLEL),
           DATA_PIPELINE_LEASE: '1',
         },
         steps,
@@ -1612,7 +1804,6 @@ export function buildCrawlerLogicWorkflow(generatedWorkflowText, {
       inputs: logicInputs,
       secrets: {
         FIREBASE_SERVICE_ACCOUNT_JSON: { required: false },
-        CLAUDE_CODE_OAUTH_TOKEN: { required: false },
         CODEX_AUTH_JSON: { required: false },
       },
     },
@@ -1723,14 +1914,14 @@ function normalizedContractStep(step, side, fileName, members) {
 
   if (copy?.name === 'Load secrets from Remote Config') {
     const expected = side === 'generated' ? localRemoteConfigStep() : logicRemoteConfigStep();
-    if (JSON.stringify(copy) !== JSON.stringify(expected)) {
+    if (canonicalJson(copy) !== canonicalJson(expected)) {
       throw new Error(`${fileName}: ${side} RC bootstrap drifted from its complete allowed form`);
     }
     return { name: copy.name, run: 'node scripts/load-rc-env.mjs' };
   }
 
   if (copy?.name === 'Bootstrap write auth for frontaliere-si-o-no (GITHUB_PAT from Remote Config)') {
-    if (side !== 'logic' || JSON.stringify(copy) !== JSON.stringify(logicWriteAuthStep(members))) {
+    if (side !== 'logic' || canonicalJson(copy) !== canonicalJson(logicWriteAuthStep(members))) {
       throw new Error(`${fileName}: undeclared write-auth bootstrap difference`);
     }
     return null;
@@ -1740,7 +1931,7 @@ function normalizedContractStep(step, side, fileName, members) {
     const nn = /crawler-group-(\d{2})/.exec(fileName)?.[1];
     const groupName = `crawler-group-${nn}`;
     const expected = side === 'generated' ? liveRunGuardStep(groupName) : logicLiveRunGuardStep(groupName);
-    if (!nn || JSON.stringify(copy) !== JSON.stringify(expected)) {
+    if (!nn || canonicalJson(copy) !== canonicalJson(expected)) {
       throw new Error(`${fileName}: ${side} live-run guard drifted from its complete allowed form`);
     }
     return { name: copy.name };
@@ -1750,7 +1941,7 @@ function normalizedContractStep(step, side, fileName, members) {
     const nn = /crawler-group-(\d{2})/.exec(fileName)?.[1];
     const groupName = `crawler-group-${nn}`;
     const expected = liveRunLeaseReleaseStep(groupName);
-    if (!nn || JSON.stringify(copy) !== JSON.stringify(expected)) {
+    if (!nn || canonicalJson(copy) !== canonicalJson(expected)) {
       throw new Error(`${fileName}: ${side} live-run lease release drifted from its complete allowed form`);
     }
     return copy;
@@ -1796,19 +1987,18 @@ export function assertCrawlerLogicParity(generatedWorkflowText, logicWorkflowTex
     ?.filter(isCrawlerLaunchStep).length;
   if (!nn || generatedWorkflow.name !== `Crawler Group ${nn} (${generatedMembers} crawlers)` ||
       logicWorkflow.name !== crawlerLogicWorkflowName(nn) ||
-      JSON.stringify(generatedWorkflow.concurrency) !== JSON.stringify({
+      canonicalJson(generatedWorkflow.concurrency) !== canonicalJson({
     group: `jobs-crawler-group-${nn}`,
     'cancel-in-progress': false,
-  }) || JSON.stringify(generatedWorkflow.permissions) !== JSON.stringify({ contents: 'write', issues: 'write' }) ||
+  }) || canonicalJson(generatedWorkflow.permissions) !== canonicalJson({ contents: 'write', issues: 'write' }) ||
       logicWorkflow.concurrency !== undefined ||
-      JSON.stringify(logicWorkflow.permissions) !== JSON.stringify({ contents: 'read' })) {
+      canonicalJson(logicWorkflow.permissions) !== canonicalJson({ contents: 'read' })) {
     throw new Error(`${fileName}: reusable metadata drifted from the allowed cross-repo form`);
   }
   const generatedTrigger = generatedWorkflow.on;
   const logicTrigger = logicWorkflow.on;
   const expectedSecrets = {
         FIREBASE_SERVICE_ACCOUNT_JSON: { required: false },
-        CLAUDE_CODE_OAUTH_TOKEN: { required: false },
         CODEX_AUTH_JSON: { required: false },
   };
   const expectedLogicInputs = structuredClone(generatedTrigger.workflow_dispatch.inputs);
@@ -1821,13 +2011,13 @@ export function assertCrawlerLogicParity(generatedWorkflowText, logicWorkflowTex
       JSON.stringify(Object.keys(generatedTrigger?.workflow_dispatch ?? {})) !== JSON.stringify(['inputs']) ||
       JSON.stringify(Object.keys(logicTrigger ?? {})) !== JSON.stringify(['workflow_call']) ||
       JSON.stringify(Object.keys(logicTrigger?.workflow_call ?? {}).sort()) !== JSON.stringify(['inputs', 'secrets']) ||
-      JSON.stringify(expectedLogicInputs) !== JSON.stringify(logicTrigger.workflow_call.inputs) ||
-      JSON.stringify(logicTrigger.workflow_call.secrets) !== JSON.stringify(expectedSecrets)) {
+      canonicalJson(expectedLogicInputs) !== canonicalJson(logicTrigger.workflow_call.inputs) ||
+      canonicalJson(logicTrigger.workflow_call.secrets) !== canonicalJson(expectedSecrets)) {
     throw new Error(`${fileName}: workflow_call inputs/secrets drifted from the generated contract`);
   }
   const generated = normalizedJobContract(generatedWorkflow, 'generated', fileName);
   const logic = normalizedJobContract(logicWorkflow, 'logic', fileName);
-  if (JSON.stringify(generated) !== JSON.stringify(logic)) {
+  if (canonicalJson(generated) !== canonicalJson(logic)) {
     throw new Error(`${fileName} drifted from generate-crawler-group-workflows.mjs (full job mismatch)`);
   }
   return logic.job.steps

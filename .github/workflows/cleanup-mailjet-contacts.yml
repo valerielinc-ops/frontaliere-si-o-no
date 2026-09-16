@@ -20,6 +20,11 @@ on:
         required: false
         default: true
         type: boolean
+      human_approval:
+        description: 'Explicit human approval for deleting contacts.'
+        required: false
+        default: false
+        type: boolean
       keep:
         description: 'Contacts to retain (newest kept)'
         required: false
@@ -73,10 +78,20 @@ jobs:
         with:
           node-version: '22'
 
+      - name: Require human approval for recipient-state side effects
+        id: side_effect_gate
+        env:
+          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
+          APPROVAL_CONSENT: ${{ inputs.human_approval }}
+          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          APPROVAL_SCOPE: mailjet-contact-cleanup
+        run: node scripts/ci/human-side-effect-gate.mjs
+
       - name: Install dependencies
         run: npm ci
 
       - name: Prepare Firebase credentials
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -89,11 +104,14 @@ jobs:
           fi
 
       - name: Load secrets from Remote Config
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
       - name: Cleanup Mailjet contacts
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' || steps.side_effect_gate.outputs.effective_dry_run == 'true'
         env:
-          # Scheduled runs always delete; manual runs default to dry-run.
-          DRY_RUN: ${{ github.event_name == 'schedule' && 'false' || inputs.dry_run }}
+          DRY_RUN: ${{ steps.side_effect_gate.outputs.effective_dry_run }}
           KEEP: ${{ inputs.keep || '500' }}
+          ALLOW_SIDE_EFFECT: ${{ steps.side_effect_gate.outputs.allow_side_effect }}
+          EFFECTIVE_DRY_RUN: ${{ steps.side_effect_gate.outputs.effective_dry_run }}
         run: node scripts/cleanup-mailjet-contacts.mjs

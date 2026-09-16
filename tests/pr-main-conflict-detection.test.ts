@@ -104,7 +104,7 @@ describe('la rilevazione gira fuori dal gate near-merge', () => {
 
   it('usa un’etichetta dedicata, non stale-review', () => {
     // `stale-review` fa rifare la review a ogni giro dell'autorebase: usarla
-    // per un segnale informativo costerebbe una review Claude per ogni PR in
+    // per un segnale informativo costerebbe una review Codex per ogni PR in
     // conflitto a ogni tick.
     const fn = SRC.slice(SRC.indexOf('function reportMainConflict'), SRC.indexOf('function commentConflictOnce'));
     expect(fn).toContain('MAIN_CONFLICT_LABEL');

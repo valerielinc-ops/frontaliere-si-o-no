@@ -22,6 +22,16 @@ on:
         required: false
         default: false
         type: boolean
+      dry_run:
+        description: 'Keep the probe preview-only unless explicitly disabled with human approval.'
+        required: false
+        default: true
+        type: boolean
+      human_approval:
+        description: 'Explicit human approval for the one-email probe.'
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: read
@@ -64,10 +74,20 @@ jobs:
         with:
           node-version: '22'
 
+      - name: Require human approval for probe side effects
+        id: side_effect_gate
+        env:
+          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
+          APPROVAL_CONSENT: ${{ inputs.human_approval }}
+          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          APPROVAL_SCOPE: mailgun-probe-send
+        run: node scripts/ci/human-side-effect-gate.mjs
+
       - name: Install dependencies
         run: npm ci
 
       - name: Prepare Firebase credentials
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -79,15 +99,19 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load secrets from Remote Config
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
       - name: Run Mailgun scheduled-send probe
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' || steps.side_effect_gate.outputs.effective_dry_run == 'true'
         env:
           PROBE_TO: ${{ inputs.to }}
           PROBE_DAYS: ${{ inputs.days }}
           PROBE_SEND: ${{ inputs.send }}
+          ALLOW_SIDE_EFFECT: ${{ steps.side_effect_gate.outputs.allow_side_effect }}
+          EFFECTIVE_DRY_RUN: ${{ steps.side_effect_gate.outputs.effective_dry_run }}
         run: |
-          if [ "$PROBE_SEND" = "true" ]; then
+          if [ "$PROBE_SEND" = "true" ] && [ "$ALLOW_SIDE_EFFECT" = "true" ] && [ "$EFFECTIVE_DRY_RUN" = "false" ]; then
             echo "⚠️  Live send requested (--send): one real email will be delivered."
             node scripts/probe-mailgun-scheduled.mjs --to "$PROBE_TO" --days "$PROBE_DAYS" --send | tee -a "$GITHUB_STEP_SUMMARY"
           else

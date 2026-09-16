@@ -6485,6 +6485,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assicurazione-salute-glarona-sussidio.title': 'LAMal Glarus: deductibles, subsidy and model choice',
     'blog.article.assicurazione-salute-glarona-sussidio.excerpt': 'In Glarus, LAMal insurance is mandatory within 3 months, with deductibles from CHF 300 to CHF 2,500 and possible cantonal reductions based on income and family composition.',
     'blog.article.assicurazione-salute-glarona-sussidio.imageAlt': 'Swiss village in Glarus with a modern clinic, representing health insurance.',
+    'blog.article.premi-lamal-glarona-modelli-franchigie.title': 'Health insurance premiums Canton Glarus: bands, deductibles and reduction',
+    'blog.article.premi-lamal-glarona-modelli-franchigie.excerpt': 'In the Canton of Glarus, LAMal premiums vary by premium range and deductible; it is possible to obtain the cantonal reduction within three months of registration.',
+    'blog.article.premi-lamal-glarona-modelli-franchigie.imageAlt': 'Alpine landscape of the Glarus canton with a traditional Swiss house',
 };
 
 export default blogMetaChEn;

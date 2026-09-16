@@ -512,6 +512,43 @@ describe('handleAssistedApplicationWebhookEvent', () => {
       submissionStatus: 'awaiting_payment',
     }));
   });
+
+  it('keeps the queue open when Stripe reports only a partial charge refund', async () => {
+    const { handleCreateAssistedApplicationCheckout, handleAssistedApplicationWebhookEvent } = await loadCheckout();
+    await handleCreateAssistedApplicationCheckout(request());
+    await handleAssistedApplicationWebhookEvent({
+      type: 'checkout.session.completed',
+      data: {
+        object: {
+          id: 'cs_assisted_1',
+          amount_total: 99,
+          currency: 'eur',
+          payment_status: 'paid',
+          metadata: { product: 'assisted_application', orderId: 'order-1' },
+        },
+      },
+    }, { db: firestore, ts: '__paid_timestamp__' });
+
+    const handled = await handleAssistedApplicationWebhookEvent({
+      type: 'charge.refunded',
+      data: {
+        object: {
+          id: 'ch_assisted_1',
+          amount: 99,
+          amount_refunded: 50,
+          refunded: false,
+          payment_intent: 'pi_assisted_1',
+          metadata: { product: 'assisted_application', orderId: 'order-1' },
+        },
+      },
+    }, { db: firestore, ts: '__partial_refund_timestamp__' });
+
+    expect(handled).toBe(true);
+    expect(store.assisted_applications['order-1']).toEqual(expect.objectContaining({
+      paymentStatus: 'paid',
+      submissionStatus: 'awaiting_upload',
+    }));
+  });
 });
 
 describe('signed project-wide Stripe webhook wiring', () => {
