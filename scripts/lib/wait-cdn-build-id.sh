@@ -229,6 +229,18 @@ job_deadline_remaining_s() {
   [ "$JOB_DEADLINE_REMAINING_S" -ge 0 ] || JOB_DEADLINE_REMAINING_S=0
 }
 
+# Refreshes the elapsed time of a nominal phase from an absolute monotonic
+# origin. The old poll-counter clock only advanced after `sleep`, so time spent
+# inside a timed-out `gh`/`curl` command was invisible to the phase budget. Keep
+# this in the parent shell (rather than a command substitution) so the Bash
+# `SECONDS` reading includes the whole child-command interval.
+phase_elapsed_s() {
+  local phase_start_seconds="$1"
+  local phase_elapsed=$((SECONDS - phase_start_seconds))
+  [ "$phase_elapsed" -ge 0 ] || phase_elapsed=0
+  PHASE_ELAPSED_S="$phase_elapsed"
+}
+
 # Echoes $1 (a nominal phase budget) clamped to whatever remains before the
 # hard deadline, floored at 0. A no-op (echoes $1 unchanged) when the third
 # clock is disabled. This is only the initial clamp; the loops below refresh
@@ -397,12 +409,15 @@ if [ -n "$WAIT_CDN_IT_READY_STEP" ]; then
     it_ready_timeout_s="$clamped_ready"
   fi
   echo "[wait-cdn-build-id] phase 1/2: waiting up to ${it_ready_timeout_s}s for IT step '${WAIT_CDN_IT_READY_STEP}' before starting the ${timeout_s}s marker budget"
+  ready_phase_start_seconds="$SECONDS"
   ready_elapsed=0
   ready_attempt=0
   ready_api_failures=0
   ready_observations=0
   while :; do
     ready_attempt=$((ready_attempt + 1))
+    phase_elapsed_s "$ready_phase_start_seconds"
+    ready_elapsed="$PHASE_ELAPSED_S"
     job_deadline_remaining_s
     if [ -n "$JOB_DEADLINE_REMAINING_S" ] && [ "$JOB_DEADLINE_REMAINING_S" -le 0 ]; then
       fail_readiness_deadline "the hard job deadline (including the post-gate reserve) was reached at phase 1/2 elapsed=${ready_elapsed}s" 1
@@ -414,9 +429,14 @@ if [ -n "$WAIT_CDN_IT_READY_STEP" ]; then
     else
       readiness="unobservable"
     fi
+    phase_elapsed_s "$ready_phase_start_seconds"
+    ready_elapsed="$PHASE_ELAPSED_S"
     job_deadline_remaining_s
     if [ -n "$JOB_DEADLINE_REMAINING_S" ] && [ "$JOB_DEADLINE_REMAINING_S" -le 0 ]; then
       fail_readiness_deadline "the hard job deadline (including the post-gate reserve) expired during the phase 1/2 API poll at elapsed=${ready_elapsed}s" 1
+    fi
+    if [ "$ready_elapsed" -gt "$it_ready_timeout_s" ]; then
+      fail_readiness_deadline "phase 1/2 exceeded its ${it_ready_timeout_s}s nominal deadline during the API poll"
     fi
     case "$readiness" in
       ready)
@@ -464,7 +484,8 @@ if [ -n "$WAIT_CDN_IT_READY_STEP" ]; then
       else
         sleep "$sleep_for"
       fi
-      ready_elapsed=$((ready_elapsed + sleep_for))
+      phase_elapsed_s "$ready_phase_start_seconds"
+      ready_elapsed="$PHASE_ELAPSED_S"
     fi
   done
 fi
@@ -520,10 +541,13 @@ fi
 
 echo "[wait-cdn-build-id] phase 2/2: gating shard publish on CDN build id=${expected} (url=${url}, timeout=${timeout_s}s, interval=${interval_s}s, near-miss<${margin_warn_s}s)"
 
+marker_phase_start_seconds="$SECONDS"
 elapsed=0
 attempt=0
 while :; do
   attempt=$((attempt + 1))
+  phase_elapsed_s "$marker_phase_start_seconds"
+  elapsed="$PHASE_ELAPSED_S"
   job_deadline_remaining_s
   if [ -n "$JOB_DEADLINE_REMAINING_S" ] && [ "$JOB_DEADLINE_REMAINING_S" -le 0 ]; then
     got=""
@@ -547,6 +571,8 @@ while :; do
   if [ -n "$WAIT_CDN_IT_JOB" ] && [ $(( (attempt - 1) % it_check_every )) -eq 0 ]; then
     it_dead="$(it_leg_dead_conclusion "$COMMAND_TIMEOUT_S")"
   fi
+  phase_elapsed_s "$marker_phase_start_seconds"
+  elapsed="$PHASE_ELAPSED_S"
   job_deadline_remaining_s
   if [ -n "$JOB_DEADLINE_REMAINING_S" ] && [ "$JOB_DEADLINE_REMAINING_S" -le 0 ]; then
     got=""
@@ -575,9 +601,14 @@ while :; do
   # Comparison below is unaffected: DEPLOY_BUILD_ID is digits-only (see the
   # "Mint shared digits-only build id" step in deploy.yml).
   got="$(printf '%s' "$got" | LC_ALL=C tr -cd 'A-Za-z0-9._-' | cut -c1-64)"
+  phase_elapsed_s "$marker_phase_start_seconds"
+  elapsed="$PHASE_ELAPSED_S"
   job_deadline_remaining_s
   if [ -n "$JOB_DEADLINE_REMAINING_S" ] && [ "$JOB_DEADLINE_REMAINING_S" -le 0 ]; then
     gate_timeout " because the hard job deadline (including the post-gate reserve) expired during the marker poll"
+  fi
+  if [ "$elapsed" -gt "$timeout_s" ]; then
+    gate_timeout " because phase 2/2 exceeded its ${timeout_s}s nominal deadline during the marker poll"
   fi
   if [ "$got" = "$expected" ]; then
     margin=$((timeout_s - elapsed))
@@ -636,6 +667,7 @@ while :; do
     else
       sleep "$sleep_for"
     fi
-    elapsed=$((elapsed + sleep_for))
+    phase_elapsed_s "$marker_phase_start_seconds"
+    elapsed="$PHASE_ELAPSED_S"
   fi
 done
