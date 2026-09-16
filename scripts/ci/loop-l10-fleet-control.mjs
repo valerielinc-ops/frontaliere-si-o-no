@@ -694,6 +694,15 @@ function readJson(filePath, label) {
   return JSON.parse(fs.readFileSync(absolute, 'utf8'));
 }
 
+function readOptionalJson(filePath) {
+  if (!filePath || !fs.existsSync(path.resolve(filePath))) return null;
+  try {
+    return readJson(filePath, filePath);
+  } catch {
+    return null;
+  }
+}
+
 function reportMarkdown(verdict, observation, decision) {
   const registry = verdict.snapshot?.registry || {};
   const quota = verdict.snapshot?.quota || {};
@@ -714,36 +723,51 @@ function reportMarkdown(verdict, observation, decision) {
   return `${lines.join('\n')}\n`;
 }
 
-function buildFleetControlOutcome({ verdict, policy, registry, now }) {
+function buildFleetControlOutcome({ verdict, policy, registry, now, independentPayload = null }) {
   const health = verdict.snapshot?.health || {};
   const generatedAt = finiteDate(health.latestAt);
   const eligibleRuns = integer(health.eligibleRuns) ? health.eligibleRuns : null;
   const verifiedDecisions = integer(health.verifiedDecisions) ? health.verifiedDecisions : null;
-  const measurable = verdict.ok
-    && health.quality === 'observed'
-    && eligibleRuns !== null
-    && verifiedDecisions !== null;
-  const outcomeQuality = health.quality || verdict.quality || 'unmeasurable';
-  const status = measurable
-    ? 'observed'
-    : (outcomeQuality === 'stale' ? 'stale' : (outcomeQuality === 'unmeasurable' ? 'unmeasurable' : 'partial'));
-  const outcome = buildValidatedLoopOutcome({
+  let independentOutcome = null;
+  let independentOutcomeError = null;
+  if (object(independentPayload?.outcome)) {
+    try {
+      const candidate = validateOutcomeAgainstPolicy(registry, LOOP_ID, independentPayload.outcome).outcome;
+      const measured = (candidate.status === 'observed' || candidate.status === 'zero')
+        && candidate.independent === true
+        && candidate.numerator !== null
+        && candidate.denominator !== null
+        && candidate.missingFields.length === 0;
+      if (measured) independentOutcome = candidate;
+      else independentOutcomeError = 'artifact does not contain a measured independent outcome';
+    } catch (error) {
+      independentOutcomeError = error.message;
+    }
+  } else if (independentPayload) {
+    independentOutcomeError = 'independent fleet outcome artifact has no outcome object';
+  }
+  const fallbackQuality = ['stale', 'unmeasurable', 'missing'].includes(health.quality)
+    ? health.quality
+    : 'partial';
+  const fallbackOutcome = buildValidatedLoopOutcome({
     registry,
     loopId: LOOP_ID,
-    quality: status,
-    independent: measurable,
-    numerator: verifiedDecisions,
-    denominator: eligibleRuns,
+    quality: fallbackQuality,
+    independent: false,
+    numerator: null,
+    denominator: null,
     observedAt: generatedAt?.toISOString() || null,
-    reason: measurable
-      ? 'fresh health ledger confirms eligible runs, verified decisions and gate-preserving artifacts'
-      : `fleet control outcome is ${status}; no throughput is inferred from missing or invalid health rows`,
+    reason: independentOutcomeError
+      ? `independent fleet outcome rejected: ${independentOutcomeError}`
+      : `fleet control outcome is ${fallbackQuality}; independent GitHub run reconciliation is unavailable`,
     now,
   });
+  const outcome = independentOutcome || fallbackOutcome;
+  const outcomeGeneratedAt = finiteDate(outcome.observedAt) || generatedAt;
   return {
     ...outcome,
     loopId: LOOP_ID,
-    generatedAt: generatedAt?.toISOString() || null,
+    generatedAt: outcomeGeneratedAt?.toISOString() || null,
     metrics: {
       eligibleRuns,
       verifiedDecisions,
@@ -754,12 +778,16 @@ function buildFleetControlOutcome({ verdict, policy, registry, now }) {
       retries: integer(health.retries) ? health.retries : null,
       quotaUnits: finiteNumber(health.quotaUnits) ? health.quotaUnits : null,
       artifactCollisions: integer(health.artifactCollisions) ? health.artifactCollisions : null,
+      ...(object(independentPayload?.metrics) ? independentPayload.metrics : {}),
     },
     evidence: {
-      source: 'loop-health-history',
+      source: independentOutcome
+        ? 'GitHub Actions run inventory + canonical loop health ledger'
+        : 'loop-health-history; independent reconciliation unavailable',
       sourcePath: health.path,
       sourceRefs: policy.outcome.sourceRefs,
-      status: measurable ? 'verified' : 'unverified',
+      status: independentOutcome?.independent ? 'verified' : 'unverified',
+      ...(independentOutcomeError ? { error: independentOutcomeError } : {}),
     },
     evidenceStatus: health.missing ? 'missing' : (outcome.independent ? 'verified' : 'unverified'),
     sourcePath: health.path,
@@ -858,6 +886,7 @@ export async function runL10({
   healthPath = DEFAULT_HEALTH_PATH,
   maxAgeHours = DEFAULT_MAX_AGE_HOURS,
   minimumSample,
+  independentOutcomePath = null,
   issue = false,
   apply = false,
   reportDir = null,
@@ -925,8 +954,18 @@ export async function runL10({
       },
     },
   };
-  const outcome = buildFleetControlOutcome({ verdict, policy: loopPolicy, registry: loopRegistry, now });
-  const measurable = verdict.quality === 'observed' && verdict.ok;
+  const independentPayload = readOptionalJson(independentOutcomePath);
+  const outcome = buildFleetControlOutcome({
+    verdict,
+    policy: loopPolicy,
+    registry: loopRegistry,
+    now,
+    independentPayload,
+  });
+  const measurable = (outcome.status === 'observed' || outcome.status === 'zero')
+    && outcome.independent === true
+    && outcome.numerator !== null
+    && outcome.denominator !== null;
   const health = verdict.snapshot?.health || {};
   const candidateStarts = [
     finiteDate(verdict.snapshot?.quota?.latestAt),
@@ -935,6 +974,9 @@ export async function runL10({
   const observationStart = candidateStarts.length
     ? new Date(Math.min(...candidateStarts.map((value) => value.getTime()))).toISOString()
     : now.toISOString();
+  const observationQuality = measurable
+    ? outcome.status
+    : (verdict.quality === 'observed' ? 'partial' : verdict.quality);
   const observation = buildObservation({
     loopId: LOOP_ID,
     goal: loopPolicy.goal,
@@ -944,13 +986,13 @@ export async function runL10({
     sourceSnapshot: verdict.snapshot || { registryPath, quotaPath, healthPath },
     observationWindow: { start: observationStart, end: now.toISOString(), timezone: 'UTC' },
     cohort: 'non-skipped-loop-executions-with-verifiable-artifacts',
-    numerator: measurable ? health.verifiedDecisions : null,
-    denominator: measurable ? health.eligibleRuns : null,
+    numerator: measurable ? outcome.numerator : null,
+    denominator: measurable ? outcome.denominator : null,
     primaryMetric: loopPolicy.primaryMetric,
     guardrails: loopPolicy.guardrails,
     minimumSample: policyMinimumSample,
     actionClass,
-    quality: verdict.quality,
+    quality: observationQuality,
     recordedAt: now.toISOString(),
   });
   observation.outcome = outcome;
@@ -1015,6 +1057,7 @@ function parseArgs(argv) {
     registryPath: valueAfter('--registry', DEFAULT_REGISTRY_PATH),
     quotaPath: valueAfter('--quota', DEFAULT_QUOTA_PATH),
     healthPath: valueAfter('--health', DEFAULT_HEALTH_PATH),
+    independentOutcomePath: valueAfter('--independent-outcome', null),
     maxAgeHours,
     minimumSample,
     reportDir: valueAfter('--report-dir', process.env.RUNNER_TEMP

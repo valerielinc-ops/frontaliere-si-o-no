@@ -10,10 +10,12 @@ on:
       - 'data/quota-history.jsonl'
       - 'data/loop-fleet/ledger/loop-health-history.jsonl'
       - 'scripts/ci/loop-l10-fleet-control.mjs'
+      - 'scripts/ci/collect-independent-fleet-outcome.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/ci/technical-operations-audit.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
+      - 'scripts/lib/independent-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
       - '.github/workflows/technical-operations-supervisor.yml'
       - '.github/workflows/loop-l10-fleet-control.yml'
@@ -23,10 +25,12 @@ on:
       - 'data/quota-history.jsonl'
       - 'data/loop-fleet/ledger/loop-health-history.jsonl'
       - 'scripts/ci/loop-l10-fleet-control.mjs'
+      - 'scripts/ci/collect-independent-fleet-outcome.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/ci/technical-operations-audit.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
+      - 'scripts/lib/independent-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
       - '.github/workflows/technical-operations-supervisor.yml'
       - '.github/workflows/loop-l10-fleet-control.yml'
@@ -40,6 +44,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
   issues: write
 
 concurrency:
@@ -60,9 +65,12 @@ jobs:
             /data/quota-history.jsonl
             /data/loop-fleet/ledger/loop-health-history.jsonl
             /scripts/ci/loop-l10-fleet-control.mjs
+            /scripts/ci/collect-independent-fleet-outcome.mjs
             /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /scripts/lib/loop-fleet-outcome.mjs
+            /scripts/lib/independent-fleet-outcome.mjs
+            /scripts/ci/loop-fleet-status.mjs
             /scripts/lib/github-issue-creator.mjs
             /.github/workflows/loop-l10-fleet-control.yml
           sparse-checkout-cone-mode: false
@@ -78,6 +86,18 @@ jobs:
             echo 'LOOP_FLEET_COLLISIONS=0'
             echo 'LOOP_FLEET_GATE_BYPASS=false'
           } >> "$GITHUB_ENV"
+      - name: Collect independent GitHub run oracle
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l10
+        run: |
+          mkdir -p "$REPORT_DIR"
+          node scripts/ci/collect-independent-fleet-outcome.mjs \
+            --registry data/loop-fleet/loop-registry.json \
+            --health data/loop-fleet/ledger/loop-health-history.jsonl \
+            --repo "$GH_REPO" \
+            --out "$REPORT_DIR/independent-fleet-outcome.json"
       - name: Audit loop operations
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -86,7 +106,7 @@ jobs:
         run: |
           set -o pipefail
           mkdir -p "$REPORT_DIR"
-          args=(--json --apply --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json --quota data/quota-history.jsonl --health data/loop-fleet/ledger/loop-health-history.jsonl)
+          args=(--json --apply --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json --quota data/quota-history.jsonl --health data/loop-fleet/ledger/loop-health-history.jsonl --independent-outcome "$REPORT_DIR/independent-fleet-outcome.json")
           if [ "$ISSUE_ENABLED" = "true" ]; then
             args+=(--issue --strict)
           else

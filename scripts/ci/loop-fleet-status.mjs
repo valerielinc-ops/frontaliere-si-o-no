@@ -22,7 +22,7 @@ import {
 
 const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
 const DEFAULT_LEDGER_DIR = path.join('data', 'loop-fleet', 'ledger');
-const LOOP_WORKFLOWS = Object.freeze({
+export const LOOP_WORKFLOWS = Object.freeze({
   L0: 'loop-l0-data-truth.yml',
   L1: 'loop-l1-reliability.yml',
   L2: 'loop-l2-demand-utility.yml',

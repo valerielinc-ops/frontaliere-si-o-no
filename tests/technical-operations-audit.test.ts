@@ -838,6 +838,7 @@ describe('technical operations audit', () => {
   it('scansiona l’inventario reale e non può passare con uno scan vuoto', () => {
     const report = auditWorkflowFiles(process.cwd());
     expect(report.filesScanned).toBeGreaterThanOrEqual(200);
+    expect(report.workflowFiles).toHaveLength(report.filesScanned);
     expect(report.workflowNames.length).toBeGreaterThanOrEqual(200);
     expect(report.findings.every((item: any) => item.file.endsWith('.yml') || item.file.endsWith('.yaml'))).toBe(true);
   }, 30_000);

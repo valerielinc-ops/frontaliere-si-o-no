@@ -623,6 +623,7 @@ describe('read-only loop outcome exporters', () => {
       stripeEventRows: [row('stripe_events/e1', { type: 'invoice.paid', processedAt: '2026-09-12T11:00:00.000Z' })],
     });
     expect(output).toMatchObject({
+      independent: true,
       eligibleEmployerAccounts: 1,
       paidActivations: 1,
       activeSubscriptions: 1,

@@ -45,6 +45,7 @@ function profiles(...entries: Record<string, unknown>[]) {
 
 function outcomes(overrides: Record<string, unknown> = {}) {
   return {
+    independent: true,
     generatedAt: '2026-09-12T11:30:00.000Z',
     inventoryScope: {
       cohortKey: 'employer-profiles-v1',
@@ -88,6 +89,14 @@ describe('L9 Employer Supply → Paid Activation', () => {
       profiles: { profileCount: 1, validProfileCount: 1 },
       outcomes: { eligibleEmployerAccounts: 100, paidActivations: 10, mrrRecognizedChf: 1200 },
     });
+  });
+
+  it('does not promote a well-shaped ledger without an explicit independent attestation', () => {
+    const { independent: _ignored, ...withoutAttestation } = outcomes();
+    const verdict = validateEmployerActivation({ profiles: profiles(), outcomes: withoutAttestation }, { now: NOW });
+    expect(verdict).toMatchObject({ ok: false, quality: 'partial' });
+    expect(verdict.snapshot.outcomes).toMatchObject({ independent: false });
+    expect(verdict.issues.join(' ')).toContain('outcomes.independent must be explicitly true');
   });
 
   it('treats inventory as supply evidence and does not infer paid activation', () => {

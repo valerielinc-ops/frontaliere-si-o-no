@@ -155,11 +155,63 @@ function lifecycleCheck(registry, loopId, record) {
 function buildTechnicalAuditRecords({ report, reportPath, policy, now }) {
   const summary = report?.summary;
   const summaryValid = summary && integer(summary.error) && integer(summary.warning) && integer(summary.info) && integer(summary.total);
+  const findings = Array.isArray(report?.findings) ? report.findings : null;
+  const workflowFiles = Array.isArray(report?.workflowFiles) ? report.workflowFiles : null;
+  const inventoryValid = Number.isInteger(report?.filesScanned)
+    && report.filesScanned > 0
+    && workflowFiles
+    && workflowFiles.length === report.filesScanned
+    && new Set(workflowFiles).size === workflowFiles.length
+    && workflowFiles.every((file) => typeof file === 'string' && /^\.github\/workflows\/[^/]+\.ya?ml$/u.test(file));
+  const findingsBySeverity = findings
+    ? findings.reduce((counts, item) => {
+      if (item?.severity === 'error' || item?.severity === 'warning' || item?.severity === 'info') {
+        counts[item.severity] += 1;
+      } else {
+        counts.unknown += 1;
+      }
+      return counts;
+    }, { error: 0, warning: 0, info: 0, unknown: 0 })
+    : null;
+  const findingsConsistent = Boolean(summaryValid && findingsBySeverity && findings
+    && findingsBySeverity.unknown === 0
+    && summary.total === findings.length
+    && summary.error === findingsBySeverity.error
+    && summary.warning === findingsBySeverity.warning
+    && summary.info === findingsBySeverity.info);
   const generatedAt = iso(report?.generatedAt);
   const start = generatedAt && Date.parse(generatedAt) <= now.getTime() ? generatedAt : now.toISOString();
-  const quality = !summaryValid
+  const auditQuality = !summaryValid
     ? 'unmeasurable'
     : (summary.error === 0 && summary.warning === 0 ? 'observed' : 'partial');
+  const independentMeasured = auditQuality === 'observed'
+    && generatedAt !== null
+    && inventoryValid
+    && findingsConsistent;
+  const quality = independentMeasured
+    ? 'observed'
+    : (auditQuality === 'partial' ? 'partial' : 'unmeasurable');
+  const outcome = buildOutcome({
+    outcomeId: policy.outcome.outcomeId,
+    status: quality,
+    independent: independentMeasured,
+    sourceRefs: policy.outcome.sourceRefs,
+    primaryMetric: policy.primaryMetric,
+    numerator: independentMeasured ? report.filesScanned : null,
+    denominator: independentMeasured ? report.filesScanned : null,
+    requiredFieldsPresent: independentMeasured ? [...policy.outcome.requiredFields] : (generatedAt ? ['generatedAt'] : []),
+    missingFields: independentMeasured
+      ? []
+      : policy.outcome.requiredFields.filter((field) => field !== 'generatedAt' || !generatedAt),
+    reason: independentMeasured
+      ? 'independently enumerated workflow inventory is complete and has no error or warning findings'
+      : (auditQuality === 'partial'
+        ? 'workflow inventory audit has findings; no healthy reachable-workflow rate is promoted'
+        : 'workflow inventory outcome is unavailable or its report contract is incomplete'),
+    observedAt: generatedAt,
+    allowNumeratorExceedDenominator: policy.outcome.allowNumeratorExceedDenominator,
+    recordedAt: now.toISOString(),
+  });
   const actionClass = actionClassForPolicy(policy, quality === 'observed' ? 'healthy' : 'needsReview');
   const sourceSnapshot = {
     source: 'technical-operations-audit',
@@ -167,6 +219,12 @@ function buildTechnicalAuditRecords({ report, reportPath, policy, now }) {
     commit: text(report?.commit),
     generatedAt,
     filesScanned: integer(report?.filesScanned) ? report.filesScanned : null,
+    workflowFiles,
+    independentInventory: {
+      complete: inventoryValid && findingsConsistent,
+      findingsConsistent,
+      findingsBySeverity,
+    },
     summary: summary || null,
   };
   const observation = buildObservation({
@@ -178,8 +236,8 @@ function buildTechnicalAuditRecords({ report, reportPath, policy, now }) {
     sourceSnapshot,
     observationWindow: { start, end: now.toISOString(), timezone: 'UTC' },
     cohort: 'repository-workflow-inventory',
-    numerator: quality === 'observed' ? 1 : null,
-    denominator: quality === 'observed' ? 1 : null,
+    numerator: independentMeasured ? report.filesScanned : null,
+    denominator: independentMeasured ? report.filesScanned : null,
     primaryMetric: policy.primaryMetric,
     guardrails: policy.guardrails,
     minimumSample: policy.minimumSample,
@@ -187,6 +245,7 @@ function buildTechnicalAuditRecords({ report, reportPath, policy, now }) {
     quality,
     recordedAt: now.toISOString(),
   });
+  observation.outcome = outcome;
   const decision = buildDecision({
     loopId: 'L11',
     goal: policy.goal,
@@ -215,6 +274,7 @@ function buildTechnicalAuditRecords({ report, reportPath, policy, now }) {
       issueCount: summaryValid ? summary.error : null,
       warningCount: summaryValid ? summary.warning : null,
       filesScanned: integer(report?.filesScanned) ? report.filesScanned : null,
+      outcome,
     },
   };
 }

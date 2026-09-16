@@ -440,4 +440,58 @@ describe('record-loop-fleet-evidence', () => {
       .toMatchObject({ loopId: 'L11', issueCount: 2, warningCount: 1, issued: false });
     expect(fs.readFileSync(path.join(dir, 'lifecycle-events.jsonl'), 'utf8').trim().split('\n')).toHaveLength(2);
   });
+
+  it('promotes L11 only when the workflow inventory and audit findings agree', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-l11-independent-'));
+    const workflowFiles = [
+      '.github/workflows/one.yml',
+      '.github/workflows/two.yml',
+      '.github/workflows/three.yaml',
+    ];
+    const reportPath = writeJson(dir, 'technical-operations-audit.json', {
+      generatedAt: NOW.toISOString(),
+      commit: 'a'.repeat(40),
+      filesScanned: workflowFiles.length,
+      workflowFiles,
+      summary: { error: 0, warning: 0, info: 0, total: 0 },
+      findings: [],
+    });
+    const result = recordLoopEvidence({ loopId: 'L11', reportDir: dir, reportPath, now: NOW });
+
+    expect(result.summary).toMatchObject({
+      loopId: 'L11',
+      evidenceComplete: true,
+      policyCompliant: true,
+      quality: 'observed',
+      outcome: {
+        status: 'observed',
+        independent: true,
+        numerator: workflowFiles.length,
+        denominator: workflowFiles.length,
+        missingFields: [],
+      },
+    });
+    expect(JSON.parse(fs.readFileSync(path.join(dir, 'loop-health-history.jsonl'), 'utf8')))
+      .toMatchObject({
+        loopId: 'L11',
+        ok: true,
+        outcome: { status: 'observed', independent: true, numerator: 3, denominator: 3 },
+      });
+  });
+
+  it('non promuove un conteggio pulito quando l inventario non è completo', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-l11-inventory-gap-'));
+    const reportPath = writeJson(dir, 'technical-operations-audit.json', {
+      generatedAt: NOW.toISOString(),
+      commit: 'a'.repeat(40),
+      filesScanned: 2,
+      workflowFiles: ['.github/workflows/one.yml'],
+      summary: { error: 0, warning: 0, info: 0, total: 0 },
+      findings: [],
+    });
+    const result = recordLoopEvidence({ loopId: 'L11', reportDir: dir, reportPath, now: NOW });
+
+    expect(result.summary.outcome).toMatchObject({ status: 'unmeasurable', independent: false });
+    expect(result.health.ok).toBe(false);
+  });
 });

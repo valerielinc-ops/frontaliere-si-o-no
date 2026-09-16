@@ -1461,6 +1461,7 @@ export function buildL9OutcomeLedger({ profiles, publisherRows = [], orderRows =
   }
 
   return {
+    independent: true,
     generatedAt: now.toISOString(),
     inventoryScope: {
       cohortKey: 'employer-profiles-v1',
