@@ -13,21 +13,18 @@ import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { resolveCvLink } from './publisherApplicationsCore.js';
 import { getStripe } from './stripePublisherCore.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
+import {
+  ASSISTED_APPLICATIONS_COLLECTION,
+  ASSISTED_APPLICATION_ADMIN_STATUSES,
+  ASSISTED_APPLICATION_ADMIN_STATUS_SET,
+} from './assistedApplicationConstants.js';
 
-const ASSISTED_APPLICATIONS_COLLECTION = 'assisted_applications';
-
-export const ASSISTED_APPLICATION_ADMIN_STATUSES = Object.freeze([
-  'ready_for_manual_submission',
-  'in_progress',
-  'submitted',
-  'blocked',
-  'refunded',
-]);
+export { ASSISTED_APPLICATION_ADMIN_STATUSES };
 
 const ALL_SUBMISSION_STATUSES = new Set([
   'awaiting_payment',
   'awaiting_upload',
-  ...ASSISTED_APPLICATION_ADMIN_STATUSES,
+  ...ASSISTED_APPLICATION_ADMIN_STATUS_SET,
   'cancelled',
 ]);
 
@@ -78,11 +75,6 @@ function timestampToIso(value) {
   } catch {
     return null;
   }
-}
-
-function timestampMillis(value) {
-  const iso = timestampToIso(value);
-  return iso ? Date.parse(iso) : 0;
 }
 
 function isAssistedApplicationStorageKey(orderId, value) {
@@ -158,8 +150,10 @@ export async function handleListAssistedApplications(db, status = null) {
   const docs = (snapshot.docs || []).filter((doc) => {
     const data = doc.data() || {};
     const submissionStatus = statusFor(data);
+    const isPaidOrder = data.paymentStatus === 'paid';
+    const isRefundedOrder = submissionStatus === 'refunded' && data.paymentStatus === 'refunded';
     return (status ? submissionStatus === status : ASSISTED_APPLICATION_ADMIN_STATUSES.includes(submissionStatus))
-      && (submissionStatus === 'refunded' || data.paymentStatus === 'paid' || data.paymentStatus === 'refunded');
+      && (isPaidOrder || isRefundedOrder);
   });
 
   const orders = await Promise.all(docs.map(async (doc) => {
@@ -212,7 +206,7 @@ async function handleTransition(db, raw, adminEmail) {
   const orderId = boundedString(raw.orderId, 200);
   const toStatus = boundedString(raw.submissionStatus || raw.status, 80);
   const notes = optionalString(raw.submissionNotes ?? raw.notes, 2000);
-  if (!orderId || !ASSISTED_APPLICATION_ADMIN_STATUSES.includes(toStatus)) {
+  if (!orderId || !ALL_SUBMISSION_STATUSES.has(toStatus)) {
     throw new AssistedApplicationAdminError('invalid_input', 400);
   }
   if (toStatus === 'blocked' && !notes) {

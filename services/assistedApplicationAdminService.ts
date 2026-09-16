@@ -8,19 +8,20 @@
 
 import { FUNCTIONS_BASE } from './functionsBase';
 import type { AssistedApplicationVariant } from './assistedApplicationExperiment';
+import { ASSISTED_APPLICATION_ADMIN_STATUSES as SHARED_ASSISTED_APPLICATION_ADMIN_STATUSES } from '@/functions/src/assistedApplicationConstants.js';
 
 export const ASSISTED_APPLICATION_ADMIN_ENDPOINT =
   `${FUNCTIONS_BASE}/manageAssistedApplicationAdmin`;
 
-export const ASSISTED_APPLICATION_ADMIN_STATUSES = [
-  'ready_for_manual_submission',
-  'in_progress',
-  'submitted',
-  'blocked',
-  'refunded',
-] as const;
+export type AssistedApplicationAdminStatus =
+  | 'ready_for_manual_submission'
+  | 'in_progress'
+  | 'submitted'
+  | 'blocked'
+  | 'refunded';
 
-export type AssistedApplicationAdminStatus = (typeof ASSISTED_APPLICATION_ADMIN_STATUSES)[number];
+export const ASSISTED_APPLICATION_ADMIN_STATUSES =
+  SHARED_ASSISTED_APPLICATION_ADMIN_STATUSES as readonly AssistedApplicationAdminStatus[];
 
 export interface AssistedApplicationAdminOrder {
   orderId: string;
@@ -60,6 +61,11 @@ interface AuthLike {
   getIdToken: () => Promise<string>;
 }
 
+interface AdminRequestInit extends Omit<RequestInit, 'headers'> {
+  url?: string;
+  headers?: Record<string, string>;
+}
+
 function errorMessage(error: unknown, status: number): string {
   const code = typeof error === 'string' ? error : '';
   const messages: Record<string, string> = {
@@ -80,7 +86,7 @@ function errorMessage(error: unknown, status: number): string {
 
 async function requestAdmin(
   user: AuthLike | null | undefined,
-  input: RequestInit & { url?: string } = {},
+  input: AdminRequestInit = {},
 ): Promise<Record<string, unknown>> {
   if (!user) throw new Error('Devi essere autenticato come admin per gestire le candidature.');
   const idToken = await user.getIdToken();

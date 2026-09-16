@@ -10,13 +10,13 @@
 import admin from 'firebase-admin';
 import { createHash } from 'node:crypto';
 import { db, getStripe, verifyCaller } from './stripePublisherCore.js';
+import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
 
 export const ASSISTED_APPLICATION_PRODUCT = 'assisted_application';
 export const ASSISTED_APPLICATION_PRICE_CENTS = 99;
 export const ASSISTED_APPLICATION_CURRENCY = 'eur';
 export const ASSISTED_APPLICATION_CONSENT_VERSION = 'assisted-application-v1';
 
-const ASSISTED_APPLICATIONS_COLLECTION = 'assisted_applications';
 const ASSISTED_APPLICATION_CHECKOUT_REQUESTS_COLLECTION = 'assisted_application_checkout_requests';
 const VALID_VARIANTS = new Set(['control', 'assisted_application']);
 const REQUEST_KEY_RE = /^[A-Za-z0-9_-]{16,128}$/;
@@ -354,7 +354,7 @@ export async function handleCreateAssistedApplicationCheckout(req) {
 
 /**
  * Dispatch target for the signed, project-wide Stripe webhook. Returns true
- * only for this product's Checkout completion, so publisher/reader handlers
+ * only for this product's payment/refund events, so publisher/reader handlers
  * never see or reinterpret the event.
  */
 export async function handleAssistedApplicationWebhookEvent(event, { db: dbFn, ts }) {
@@ -373,11 +373,11 @@ export async function handleAssistedApplicationWebhookEvent(event, { db: dbFn, t
   // lookup fallback keeps older orders reachable when only payment_intent is
   // present on the charge payload.
   if (isChargeRefunded) {
-    let orderId = boundedString(obj.metadata?.orderId, 200);
+    const hasAssistedMetadata = obj.metadata?.product === ASSISTED_APPLICATION_PRODUCT;
+    let orderId = hasAssistedMetadata ? boundedString(obj.metadata?.orderId, 200) : '';
     let orderRef = orderId
       ? firestore.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId)
       : null;
-    if (obj.metadata?.product && obj.metadata.product !== ASSISTED_APPLICATION_PRODUCT) return false;
     if (!orderRef) {
       const paymentIntentId = boundedString(obj.payment_intent, 200);
       const collection = firestore.collection(ASSISTED_APPLICATIONS_COLLECTION);
