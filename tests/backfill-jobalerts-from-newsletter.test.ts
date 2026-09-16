@@ -208,19 +208,15 @@ describe('consentNamesJobAlerts — scope of the notice, in the four locales', (
 // import (no bundler, TypeScript). The two therefore agree by convention only —
 // exactly the kind of contract that has no import shape and so is invisible to
 // every guard that follows imports. This checks it directly.
-describe('the consent register remains available for historical audits (#5705, #5712)', () => {
+describe('the consent register and the historical gate stay distinct (#5705, #5712)', () => {
   /**
-   * The displayed unified communications formula deliberately names the jobs
-   * category. It can therefore authorize the automatic compatibility backfill
-   * only when the subscriber document also carries the explicit `jobs: true`
-   * preference; a displayed notice by itself is never enough.
+   * The displayed unified communications formula points to the page instead of
+   * naming the jobs category. The old text matcher remains for historical
+   * records, but no current displayed formula can open the former path.
    */
-  const OPENS_THE_CHANNEL: string[] = [
-    'communicationsOptIn',
-    'communicationsSignInEmail',
-  ];
+  const OPENS_THE_CHANNEL: string[] = [];
 
-  it('identifies the former displayed job-alert formula for historical records', () => {
+  it('lets no current displayed formula open the former job-alert path', () => {
     const passing = Object.entries(CONSENT_TEXTS)
       .filter(([, proof]) =>
         hasAffirmativeJobAlertConsent({
@@ -228,7 +224,6 @@ describe('the consent register remains available for historical audits (#5705, #
           consent_text: proof.text,
           consent_text_displayed: proof.displayed,
           consent_act: proof.act,
-          preferences: { jobs: true },
         }),
       )
       .map(([key]) => key)
@@ -265,17 +260,9 @@ describe('the consent register remains available for historical audits (#5705, #
       .filter(([, proof]) => consentNamesJobAlerts(proof.text))
       .map(([key]) => key)
       .sort();
-    expect(naming).toEqual([
-      'communicationsOptIn',
-      'communicationsSignIn',
-      'communicationsSignInEmail',
-      'jobUnlockEmail',
-      'jobUnlockSocial',
-    ]);
-    // The two historical unlock entries are `displayed: false` and can never
-    // admit anybody. The displayed unified formula is the one live disclosure
-    // that scopes the jobs category; its `preferences.jobs` companion keeps
-    // the gate explicit and machine-checkable.
+    expect(naming).toEqual(['jobUnlockEmail', 'jobUnlockSocial']);
+    // Both are `displayed: false` — recorded, never rendered — so no current
+    // displayed formula scopes a job alert through the former text matcher.
     for (const key of ['jobUnlockEmail', 'jobUnlockSocial'] as const) {
       expect(CONSENT_TEXTS[key].displayed, key).toBe(false);
     }

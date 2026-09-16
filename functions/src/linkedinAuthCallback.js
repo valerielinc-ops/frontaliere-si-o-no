@@ -17,8 +17,8 @@ import admin from 'firebase-admin';
 import { ensureAdminApp } from './newsletterResendWebhookCore.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
 
-const REGISTRATION_TERMS_VERSION = '2026-09-15.1';
-const REGISTRATION_TERMS_TEXT = 'Registrandomi accetto i Termini e condizioni e iscrivo il mio indirizzo alle comunicazioni di Frontaliere Ticino: newsletter e aggiornamenti redazionali, avvisi di lavoro, messaggi di servizio e messaggi promozionali di terzi. Posso gestire le preferenze o revocare l’iscrizione in qualsiasi momento. Condizioni (v. 2026-09-15.1).';
+const REGISTRATION_TERMS_VERSION = '2026-09-16.1';
+const REGISTRATION_TERMS_TEXT = 'Registrandomi accetto le condizioni e mi iscrivo alle comunicazioni di Frontaliere Ticino. Condizioni (v. 2026-09-15.1).';
 
 /**
  * Fetch basic profile data from LinkedIn /v2/me endpoint.

@@ -1033,7 +1033,7 @@ describe('what the displayed formulas may and may not say', () => {
     expect(plugin, 'and it must link the full privacy notice').toMatch(/PRIVACY_PATH\[locale\]/);
   });
 
-  it('names the job-alert channel in every current unified formula', () => {
+  it('no longer names the job-alert channel — and that closes a path, on purpose', () => {
     /**
      * THE COST OF THE SHORT FORMULA, ASSERTED SO IT CANNOT BE A SURPRISE.
      *
@@ -1044,21 +1044,22 @@ describe('what the displayed formulas may and may not say', () => {
      * enumerated the categories, so it contained those words, so a checkbox
      * gate could satisfy `hasAffirmativeJobAlertConsent` and open a job alert.
      *
-     * The current unified registration activates the job-alert category under
-     * the Terms and Conditions, so every displayed formula must name it. The
-     * historical access formulas are not used by this current flow and retain
-     * their old wording for existing records.
+     * #5765 moved the categories to `/comunicazioni/`. No displayed formula
+     * names the channel any more, and that path is fail-closed again. Stated
+     * here rather than discovered in a funnel report: it is a consequence of
+     * the short wording, and re-opening it means naming the channel in the
+     * sentence — a wording decision, not a code shortcut.
      *
      * The assertion is two-directional on purpose. It fails if the displayed
-     * formula stops naming the channel, and it fails if the matcher stops
-     * recognising the phrases at all, which would make the check vacuous.
+     * formula starts naming the channel again, and it fails if the matcher
+     * stops recognising the phrases at all, which would make the check vacuous.
      */
     for (const proof of displayed) {
       for (const locale of CONSENT_LOCALES) {
         expect(
           consentNamesJobAlerts(proof.texts?.[locale]),
-          `${proof.id}/${locale} must preserve its channel wording`,
-        ).toBe(true);
+          `${proof.id}/${locale} names the job-alert channel — that re-opens automatic alert creation, see #5765`,
+        ).toBe(false);
       }
     }
     expect(consentNamesJobAlerts('ricevo gli avvisi di lavoro'), 'the matcher itself has rotted').toBe(true);
@@ -1129,16 +1130,15 @@ describe('what the displayed formulas may and may not say', () => {
         .toMatch(/CATEGORY_NOTE/);
     });
 
-    it('names third-party advertising in the base formula and points to the page', () => {
-      // Advertising is part of the base registration now, so the sentence must
-      // name it together with the other covered communication categories. The
-      // page still carries the detailed recipients, purposes and opt-out route.
+    it('keeps the one-line formula short — the naming lives on the page, not in the sentence', () => {
+      // The formula points to the page instead of repeating its categories;
+      // the page still carries the detailed recipients, purposes and opt-out route.
       for (const proof of displayed) {
         for (const locale of CONSENT_LOCALES) {
           expect(
             proof.texts?.[locale],
-            `${proof.id}/${locale} must name third-party advertising`,
-          ).toMatch(ADVERTISING);
+            `${proof.id}/${locale} should point at the page, not enumerate the category`,
+          ).not.toMatch(ADVERTISING);
           expect(proof.texts?.[locale]).toContain(CONSENT_PAGE_LABELS[locale]);
         }
       }
