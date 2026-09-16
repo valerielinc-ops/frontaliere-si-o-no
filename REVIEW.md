@@ -15,6 +15,54 @@ Finding important SE impatta:
 
 Non passa nessuno → drop. Non importante per questo progetto.
 
+## Policy automazione bounded F1/F7
+
+La policy deterministica in `scripts/ci/lib/automation-risk-policy.mjs` è un
+dominio esplicito condiviso da classifier, issue-fix e auto-merge. La versione
+e il sentinel `CONTROL_PLANE_GUARD_VERSION` sono parte del contratto: un helper
+bootstrap senza quel sentinel non è trusted. Blocca sempre
+questi cinque domini: `deploy-workflow-functions`,
+`secrets-roles-permissions`, `billing-revenue-partner`,
+`published-content-seo-auto-ads` e `outreach-communications`.
+
+Il sesto dominio tecnico `control-plane` è deny-by-default e viene valutato
+prima dell'eccezione test-only: `.github/workflows/**`, `.github/actions/**`,
+`scripts/ci/**`, classifier, policy, native gate, evaluator e `REVIEW.md` non
+possono essere modificati dal percorso autonomo. Un path non riconosciuto e
+un issue text senza categoria/signal noto ricevono anch'essi `decision='deny'`;
+non esiste allow-by-default per stringhe o file sconosciuti.
+
+Le sole eccezioni esplicite al deny per un'issue `other` sono le label metriche
+read-only `job-description-locale` e `job-title-locale`; non trasformano testo
+generico in un segnale noto e non prevalgono mai su dominio, path sconosciuto o
+control-plane. Per un'issue ad alto rischio il classifier restituisce `route='none'` e
+`autofix=false`; `issue-triage` rimuove le label di routing e applica
+`needs-human`, mentre il job `risk_policy` dell'issue-fix si chiude prima di
+token App, quota, claim e agent. Un errore di lettura o parsing lascia il fixer
+skipped. Non esiste un override nel prompt.
+
+Per una PR il native gate valuta titolo/body/label e un elenco file completo:
+un elenco incompleto è deny-by-default; un dominio rischioso impedisce
+l'abilitazione e revoca un opt-in native già persistente. `needs-human` è un
+veto persistente: anche una review umana APPROVED non lo rimuove via automazione;
+la rimozione richiede un umano e una review `APPROVED` di un utente non-bot sulla
+HEAD esatta. Il gate finale riacquisisce metadata e file-list e usa
+`--match-head-commit` sulla HEAD appena verificata. La stessa guardia copre
+l'evaluator legacy che conserva una mutazione `--auto` di compatibilità.
+
+I bootstrap `enable-native-automerge.yml` e `retry-native-automerge.yml` eseguono
+una guardia statica prima di scaricare policy/credenziali e verificano il
+sentinel comportamentale del helper. La versione della workflow già presente su
+`main` non può però essere retroattivamente cambiata da questa PR: durante la
+valutazione della PR che introduce la guardia, `pull_request_target` può ancora
+eseguire il file preesistente di `main`. Questo limite di protezione GitHub non
+è aggirato qui: il percorso resta fail-closed/no-op o richiede intervento umano
+finché una guardia preesistente e verificabile non è su `main`.
+
+Branch protection, ruoli e impostazioni amministrative non sono modificati né
+assunti verificabili da questa policy: se GitHub non consente la verifica, il
+gate resta fail-closed.
+
 ## Severity
 
 | Marker | Quando |
@@ -115,7 +163,7 @@ PR a tier `high` (vedi tabella "Tier review"): prima del summary, includi `## Ad
 
 **Un ❓ dell'adversarial check il cui soggetto è funnel-critical NON resta sepolto qui.** Se impatta monetizzazione/traffico (SEO/redirect/structured-data/AdSense/sitemap/indicizzabilità) → 🔴 Important in `## Findings` (vedi Verification → escalation); non parcheggiarlo qui (#829: redirect-bridge come ❓ → `## LGTM` + zero follow-up).
 
-Tassonomia macchina: `STATE_PATTERNS` in `scripts/lib/pr-body-sections-check.mjs`; `bulletState()` gestisce gli stati chiudenti, quindi niente `agent:fix`/`needs-human`. Omissione di `width` resta bug di rendering.
+Tassonomia macchina: `STATE_PATTERNS` in `scripts/lib/pr-body-sections-check.mjs`; `bulletState()` gestisce gli stati chiudenti, quindi niente `agent:fix`/`needs-human` nei PR body. `needs-human` resta invece uno stato operativo F1/F7 delle issue/PR, non un claim di completezza. Omissione di `width` resta bug di rendering.
 
 ## Verification
 

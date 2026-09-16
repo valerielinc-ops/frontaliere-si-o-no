@@ -174,12 +174,14 @@ const TRACKER = {
     { name: 'automation' }, { name: 'agent:no-age-out' },
   ],
 };
-/** La forma di #5888: follow-up vera, workflow-scoped, NON tracker → deve entrare. */
+/** La forma di #5888: follow-up vera, ordinaria e workflow-scoped, NON tracker.
+ * Il capability guard valuta il body dopo l'ammissione al pool. */
 const REAL_FOLLOWUP = {
   number: 5888,
   title: 'follow-up(#5883): 1 item deferred — fold breadcrumb-coverage into audit-all',
+  body: 'Suggested action: correggere lo step in `.github/workflows/pr-body-contract.yml`.',
   labels: [
-    { name: 'follow-up' }, { name: 'funnel-seo' }, { name: 'agent:triaged' },
+    { name: 'follow-up' }, { name: 'funnel-ux' }, { name: 'agent:triaged' },
     { name: 'fu-prio:high' }, { name: 'fu-parked' },
   ],
 };
@@ -222,6 +224,14 @@ describe('#5544 — un tracker permanente non entra MAI nel pool del parked-retr
 
   it('#5888 — una follow-up VERA workflow-scoped entra comunque: la fix non ha chiuso troppo', () => {
     expect(isReparkableCandidate(REAL_FOLLOWUP)).toBe(true);
+  });
+
+  it('una follow-up SEO resta esclusa dal retry: il deny F1/F7 non si allenta', () => {
+    expect(isReparkableCandidate({
+      ...REAL_FOLLOWUP,
+      labels: REAL_FOLLOWUP.labels.map((label) =>
+        label.name === 'funnel-ux' ? { name: 'funnel-seo' } : label),
+    })).toBe(false);
   });
 
   it('gli altri filtri di ammissione restano attivi', () => {

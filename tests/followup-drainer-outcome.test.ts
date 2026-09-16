@@ -129,6 +129,7 @@ describe('isAgeOutEligible (drain del ratchet follow-up)', () => {
   const now = Date.parse('2026-06-09T12:00:00Z');
   const opts = { now, ageOutDays: 21, inactiveDays: 14 };
   const iss = (labels: string[], createdDaysAgo: number, updatedDaysAgo: number) => ({
+    title: 'follow-up(#test): bounded age-out candidate',
     labels: labels.map((name) => ({ name })),
     createdAt: new Date(now - createdDaysAgo * DAY).toISOString(),
     updatedAt: new Date(now - updatedDaysAgo * DAY).toISOString(),

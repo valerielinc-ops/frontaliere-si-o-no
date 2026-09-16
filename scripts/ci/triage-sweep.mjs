@@ -16,8 +16,9 @@
  *
  * Questo sweep, schedulato, recupera le orfane qualunque sia la causa: riusa il
  * classifier deterministico (`classify-issue.mjs`, stesse regole del path
- * event-driven — ogni categoria autofix dal 2026-07-05, owner decision "Rimuovi
- * tutte le guardie") e applica `agent:triaged` + routing.
+ * event-driven). I domini F1/F7 vengono marcati `needs-human` e non entrano
+ * mai nel routing automatico; le issue ordinarie ricevono `agent:triaged` +
+ * routing.
  *
  * GENTLE BY-CONSTRUCTION (anti-burst, frugalità quota):
  *   - crawler-transient → solo `agent:triaged`, NIENTE route: si auto-chiudono
@@ -25,9 +26,9 @@
  *   - crawler (non-transient) → `agent:fix` diretto SOLO se lo slot issue-fix è
  *     libero, e UNO per run (`crawlerDirectFixBudget`); gli altri finiscono in
  *     `agent:fix-queued` + `fu-prio:high` come tutti. Vedi sotto.
- *   - ogni altra categoria (follow-up, revenue, tracker, validation-failure,
- *     other, …) → `agent:fix-queued` (+fu-prio): il followup-drainer le
- *     promuove UNA alla volta → nessun burst per costruzione.
+ *   - ogni altra categoria ordinaria (follow-up, validation-failure, other,
+ *     …) → `agent:fix-queued` (+fu-prio): il followup-drainer le promuove UNA
+ *     alla volta → nessun burst per costruzione.
  *
  * IL CAP A 5 ERA CALIBRATO SUL NUMERO SBAGLIATO (#5514, 2026-08-10). Il vecchio
  * `ROUTE_FIX_CAP=5` era nato come anti-burst, ma la coda che doveva proteggere
@@ -52,7 +53,7 @@
  * PRIMA del routing (race di concurrency) l'issue resta triaged-ma-non-routata
  * per sempre (il primo passaggio non la vede: non è orfana). Usato anche per il
  * backfill one-time post-PR #3554 (nuova policy routing universale: categorie
- * revenue/tracker/validation-failure/other ora ricevono agent:fix-queued). Non
+ * le categorie ordinarie ricevono agent:fix-queued). Non
  * tocca le issue già in stato di routing (agent:fix/agent:fix-queued/fu-parked/
  * fu-attempt:*) né le crawler-transient.
  *
@@ -145,7 +146,11 @@ export const ROUTING_LABELS = ['agent:fix', 'agent:fix-queued', 'fu-parked', 'fu
 
 /** Il secondo passaggio non deve riesaminare i pin già esclusi dal routing. */
 export function isTriagedButNotRouted(iss) {
-  return !isFixerExempt(names(iss)) && !ROUTING_LABELS.some((r) => has(iss, r));
+  const decision = classifyIssue(iss?.title, names(iss), iss?.body);
+  return decision.autofix === true
+    && decision.route !== 'none'
+    && !isFixerExempt(names(iss))
+    && !ROUTING_LABELS.some((r) => has(iss, r));
 }
 
 function main() {
@@ -155,7 +160,7 @@ function main() {
   let issues = [];
   try {
     issues = gh(['issue', 'list', '--repo', REPO, '--state', 'open',
-      '--limit', '300', '--json', 'number,title,labels']);
+      '--limit', '300', '--json', 'number,title,body,labels']);
   } catch (e) { console.error(`gh issue list fallito: ${String(e).slice(0, 160)}`); process.exit(0); }
 
   // Orfane = open senza agent:triaged. Più vecchie prima (numero crescente).
@@ -190,6 +195,24 @@ function main() {
     catch (e) { console.log(`::warning::#${n} agent:triaged fallito: ${String(e).slice(0, 100)}`); }
   };
 
+  // Escalation F1/F7 con l'identità del triage: non usa il PAT/App che attiva
+  // issue-fix. Un errore qui lascia l'issue senza routing, mai il contrario.
+  const markHuman = (n, domains = []) => {
+    if (DRY) { console.log(`[dry] #${n} → +needs-human (${domains.join(', ') || 'policy'})`); return; }
+    try {
+      gh(['issue', 'edit', String(n), '--repo', REPO,
+        '--remove-label', 'agent:fix', '--remove-label', 'agent:fix-queued'], { json: false });
+    } catch (e) {
+      console.log(`::warning::#${n} rimozione label routing stale fallita (${String(e).slice(0, 120)}) — routing bloccato comunque.`);
+    }
+    try {
+      gh(['issue', 'edit', String(n), '--repo', REPO, '--add-label', 'needs-human'], { json: false });
+      console.log(`#${n} F1/F7 (${domains.join(', ') || 'policy'}) → needs-human, nessun routing.`);
+    } catch (e) {
+      console.log(`::error::#${n} escalation F1/F7 non applicata (${String(e).slice(0, 120)}) — routing bloccato comunque.`);
+    }
+  };
+
   // --- Primo passaggio: orfane (senza agent:triaged) ---
   if (!orphans.length) {
     console.log('Nessuna issue orfana (tutte triaged). ✅');
@@ -202,7 +225,11 @@ function main() {
 
     for (const iss of orphans) {
       const n = iss.number;
-      const { category, autofix, route, fuPrio } = classifyIssue(iss.title, names(iss));
+      const { category, autofix, route, fuPrio, automationBlocked, riskDomains } = classifyIssue(
+        iss.title,
+        names(iss),
+        iss.body,
+      );
 
       // Routable = ha un routing reale (fix/queue), auto-route consentito, non transient.
       // Decisione PRIMA di qualunque label: marcare triaged una routabile che NON
@@ -231,6 +258,12 @@ function main() {
       // Da qui marchiamo SEMPRE triaged (idempotente).
       markTriaged(n);
 
+      if (automationBlocked) {
+        markHuman(n, riskDomains);
+        markedOnly++;
+        continue;
+      }
+
       // crawler-transient → solo triaged (si auto-chiudono, routarle = burn).
       if (isCrawlerTransient) {
         console.log(`#${n} crawler-transient → solo triaged (auto-close, no route).`);
@@ -238,9 +271,8 @@ function main() {
         continue;
       }
 
-      // Difensivo: dal 2026-07-05 classifyIssue non produce più route='none'/
-      // autofix=false per nessuna categoria — questo branch resta come guard
-      // contro un futuro classifier che reintroduca una categoria human-only.
+      // Difensivo: questo branch resta come guard contro un classifier che
+      // reintroduca una categoria human-only.
       if (route === 'none' || autofix !== true) { markedOnly++; continue; }
       // PAT garantito qui: le routabili con !PAT sono già state lasciate orfane sopra.
 
@@ -275,7 +307,7 @@ function main() {
   let allTriaged = [];
   try {
     allTriaged = gh(['issue', 'list', '--repo', REPO, '--state', 'open',
-      '--label', 'agent:triaged', '--limit', '300', '--json', 'number,title,labels']);
+      '--label', 'agent:triaged', '--limit', '300', '--json', 'number,title,body,labels']);
   } catch (e) { console.error(`gh issue list (triaged-no-route): ${String(e).slice(0, 160)}`); }
 
   const unrouted = allTriaged.filter(isTriagedButNotRouted);
@@ -285,8 +317,18 @@ function main() {
     console.log(`Issue triaged-but-not-routed: ${unrouted.length}`);
     for (const iss of unrouted) {
       const n = iss.number;
-      const { route, fuPrio } = classifyIssue(iss.title, names(iss));
+      const { route, fuPrio, automationBlocked, riskDomains } = classifyIssue(
+        iss.title,
+        names(iss),
+        iss.body,
+      );
       const isCrawlerTransient = has(iss, 'crawler-transient');
+
+      if (automationBlocked) {
+        markHuman(n, riskDomains);
+        markedOnly++;
+        continue;
+      }
 
       // crawler-transient: si auto-chiudono quando il crawler recupera.
       if (isCrawlerTransient) {

@@ -10,18 +10,16 @@
  * Software AG" deve restare `revenue`, non `crawler`, pur matchando la regex
  * crawler — vedi tests/classify-issue.test.ts).
  *
- * autofix = true per OGNI categoria (2026-07-05, owner decision: guardrail
- * category-based rimosse — vedi AGENTS.md → "Issue automation"). L'unica
- * eccezione non è una categoria ma un PIN esplicito sulla singola issue
- * (`FIXER_EXEMPT_LABELS`, sotto): un tracker su causa esterna. Il fixer ha
- * comunque le sue safety-valve generiche (root-cause non determinabile,
- * capability-guard workflows/secrets, ecc. — ISSUES.md → "Abort senza PR"):
- * quelle restano, non sono guardrail di categoria.
+ * `autofix` resta disponibile per le categorie ordinarie, ma la policy F1/F7
+ * (`scripts/ci/lib/automation-risk-policy.mjs`) ha precedenza: i domini ad
+ * alto rischio sono `route='none'`, `autofix=false` e richiedono gestione umana
+ * separata. Anche un errore del chiamante che non fornisce una classificazione
+ * valida non abilita un percorso nuovo: il routing effettivo resta nel workflow.
  *
  * route — COME applicare il fix (2026-06-04, anti-starvation):
  *   'fix'   → agent:fix immediato (crawler: production-critical, basso volume,
  *             route diretto provato sicuro da mesi — resta l'UNICA eccezione).
- *   'queue' → agent:fix-queued (ogni altra categoria): NON parte subito.
+ *   'queue' → agent:fix-queued (ogni altra categoria ordinaria): NON parte subito.
  *             `followup-drainer` lo promuove a agent:fix UNO alla volta, solo
  *             quando lo slot issue-fix è libero → mai cancellato-in-coda. Fix
  *             della starvation osservata 2026-06-04 (slot concurrency globale
@@ -34,15 +32,16 @@
  *
  * Uso modulo:
  *   import { classifyIssue } from './classify-issue.mjs';
- *   const { category, autofix, route, fuPrio } = classifyIssue(title, labels);
+ *   const { category, autofix, route, fuPrio } = classifyIssue(title, labels, body);
  *
  * Uso CLI (dal workflow):
- *   node scripts/lib/classify-issue.mjs "<title>" '<labels-json-array>'
+ *   node scripts/lib/classify-issue.mjs "<title>" '<labels-json-array>' "<body>"
  *   → stdout JSON: {"category":"crawler","autofix":true,"route":"fix","fuPrio":null}
  */
 
 import { realpathSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
+import { classifyAutomationRisk } from '../ci/lib/automation-risk-policy.mjs';
 
 /**
  * Label che PINNANO una issue fuori dal ciclo di fix automatico.
@@ -82,11 +81,12 @@ export function isFixerExempt(labels = []) {
   return FIXER_EXEMPT_LABELS.some((l) => set.has(l));
 }
 
-export function classifyIssue(title = '', labels = []) {
-  const set = new Set((labels || []).map((s) => String(s).toLowerCase()));
+export function classifyIssue(title = '', labels = [], body = '') {
+  const labelNames = (Array.isArray(labels) ? labels : []).map((label) =>
+    String(typeof label === 'string' ? label : label?.name ?? '').toLowerCase());
+  const set = new Set(labelNames);
   const has = (name) => set.has(String(name).toLowerCase());
   const t = (re) => re.test(title || '');
-
   let category = 'other';
 
   if (has('revenue') || has('rpm-canary') || t(/RPM canary|\bRPM\b/i)) {
@@ -107,15 +107,21 @@ export function classifyIssue(title = '', labels = []) {
     category = 'validation-failure';
   }
 
-  // Pin fuori dal ciclo (vedi `FIXER_EXEMPT_LABELS`): la categoria resta quella
-  // che è — serve ancora a chi legge e ai monitor — ma non c'è routing. Il
-  // ramo `route === 'none' || autofix !== true` esiste già, e intatto, in
-  // `issue-triage.yml`, in entrambi i passaggi di `triage-sweep.mjs` e nel
-  // drainer: era stato lasciato «come guard contro un futuro classifier che
-  // reintroduca una categoria human-only». Questo è quel caso.
+  // La policy riceve la categoria già derivata: una follow-up ordinaria resta
+  // classificabile anche quando il caller non passa il body, mentre `other`
+  // sconosciuto resta deny-by-default. I segnali F1/F7 continuano a prevalere.
+  const risk = classifyAutomationRisk({ title, body, labels, category });
+
+  // High-risk F1/F7 ha precedenza sul pin: nessun dominio ad alto rischio può
+  // essere auto-gestito, anche se qualcuno ha lasciato una label di routing.
+  // Per le issue ordinarie il pin conserva la categoria leggibile ma toglie il
+  // routing, come prima.
   const exempt = isFixerExempt(labels);
-  const autofix = !exempt;
-  const route = exempt ? 'none' : category === 'crawler' ? 'fix' : 'queue'; // crawler: immediato; resto: coda anti-starvation
+  const automationBlocked = risk.blocked || !risk.verifiable;
+  const autofix = !exempt && !automationBlocked;
+  const route = automationBlocked || exempt
+    ? 'none'
+    : category === 'crawler' ? 'fix' : 'queue'; // crawler: immediato; resto: coda anti-starvation
   const fuPrio =
     route === 'queue'
       ? has('funnel-monetization') ||
@@ -127,7 +133,22 @@ export function classifyIssue(title = '', labels = []) {
         : 'low'
       : null;
 
-  return { category, autofix, route, fuPrio };
+  return {
+    category,
+    autofix,
+    route,
+    fuPrio,
+    policyVersion: risk.policyVersion,
+    automationBlocked,
+    humanApprovalRequired: risk.humanApprovalRequired || automationBlocked,
+    riskDomains: risk.domains,
+    riskReason: risk.reason,
+    riskDecision: risk.decision,
+    riskDenyCode: risk.denyCode,
+    controlPlane: risk.controlPlane,
+    needsHumanVeto: risk.needsHumanVeto,
+    unknownPaths: risk.unknownPaths,
+  };
 }
 
 // CLI mode
@@ -147,5 +168,5 @@ if (isDirectRun) {
   } catch {
     labels = [];
   }
-  process.stdout.write(JSON.stringify(classifyIssue(title, labels)));
+  process.stdout.write(JSON.stringify(classifyIssue(title, labels, process.argv[4] || '')));
 }
