@@ -50,6 +50,13 @@
  * Set POST_WALK_WORKERS=1 to force single-threaded execution (useful when
  * profiling or when running on a constrained runner where worker spawn cost
  * outweighs parallel gains).
+ *
+ * Opt-in incremental mode: POST_WALK_INCREMENTAL=1 keeps the complete HTML
+ * existence walk/set but sends only manifest-changed and proven-affected files
+ * through the transforms. The default is the unchanged full path. Set
+ * POST_WALK_INCREMENTAL_VERIFY=1 to dry-run the full single-threaded path on
+ * all files or the deterministic POST_WALK_INCREMENTAL_VERIFY_SAMPLE subset;
+ * a full-write mismatch falls back to the full write path.
  */
 
 import path from 'node:path';
@@ -79,6 +86,17 @@ import {
   printSummary as printPostWalkProfile,
   type SerializedBuckets,
 } from './shared/postWalkCoordinatorProfiler';
+import {
+  buildPostWalkIncrementalPlan,
+  comparePostWalkVerification,
+  loadPostWalkManifestPair,
+  POST_WALK_INCREMENTAL_DEPENDENCY_RULE,
+  postWalkIncrementalEnabled,
+  postWalkIncrementalVerifyEnabled,
+  postWalkIncrementalVerifySampleSize,
+  selectPostWalkVerificationPaths,
+  type PostWalkIncrementalPlan,
+} from './shared/postWalkIncremental';
 
 interface CoordinatorOptions {
   readonly baseUrl: string;
@@ -94,6 +112,9 @@ interface WorkerResult {
   hreflangLinksDropped: number;
   totalWrites: number;
   writeFailures: Array<{ filePath: string; msg: string }>;
+  // Populated only by the coordinator's single-threaded dry-run verifier.
+  // Worker threads do not need to serialize this set during normal builds.
+  wouldWritePaths?: string[];
   // Worker-emitted per-phase profiler buckets. Empty array when profiler is
   // disabled (POST_WALK_PROFILE=0 or BUILD_PROFILE=0). Coordinator folds
   // these into its own module-level buckets via profileIngestBuckets()
@@ -144,6 +165,19 @@ function chunkRoundRobin<T>(items: readonly T[], n: number): T[][] {
 }
 
 const RELATED_SEARCH_HUB_FLAT = new Set(['ricerca.html', 'search.html', 'suche.html', 'recherche.html']);
+const POST_WALK_MANIFEST_LOCALES = ['it', 'en', 'de', 'fr'] as const;
+
+function resolvePostWalkManifestLocales(): readonly string[] {
+  const raw = (process.env.BUILD_LOCALE ?? '').trim();
+  if (!raw) return POST_WALK_MANIFEST_LOCALES;
+  const selected = raw
+    .split(',')
+    .map((locale) => locale.trim().toLowerCase())
+    .filter((locale): locale is (typeof POST_WALK_MANIFEST_LOCALES)[number] =>
+      (POST_WALK_MANIFEST_LOCALES as readonly string[]).includes(locale),
+    );
+  return selected.length > 0 ? [...new Set(selected)] : POST_WALK_MANIFEST_LOCALES;
+}
 
 function isPreEmittedJobFlatBridgePath(distDir: string, filePath: string): boolean {
   if (path.basename(filePath) === 'index.html' || !filePath.endsWith('.html')) return false;
@@ -175,6 +209,7 @@ function runSingleThreaded(
   distDir: string,
   baseUrl: string,
   trimmedBase: string,
+  writeFiles = true,
 ): WorkerResult {
   const result: WorkerResult = {
     bridgeConverted: 0,
@@ -186,6 +221,7 @@ function runSingleThreaded(
     hreflangLinksDropped: 0,
     totalWrites: 0,
     writeFailures: [],
+    wouldWritePaths: [],
   };
 
   // Article sections are routed away from this build and have no file here on
@@ -291,13 +327,16 @@ function runSingleThreaded(
     }
 
     if (mutated && html !== original) {
+      result.wouldWritePaths?.push(filePath);
       const __tWrite = profileStart();
-      try {
-        fs.writeFileSync(filePath, html, 'utf-8');
-        result.totalWrites++;
-      } catch (err: unknown) {
-        const msg = err instanceof Error ? err.message : String(err);
-        result.writeFailures.push({ filePath, msg });
+      if (writeFiles) {
+        try {
+          fs.writeFileSync(filePath, html, 'utf-8');
+          result.totalWrites++;
+        } catch (err: unknown) {
+          const msg = err instanceof Error ? err.message : String(err);
+          result.writeFailures.push({ filePath, msg });
+        }
       }
       profileRecord('write', __tWrite);
     }
@@ -349,6 +388,7 @@ function mergeResults(results: WorkerResult[]): WorkerResult {
       hreflangLinksDropped: acc.hreflangLinksDropped + r.hreflangLinksDropped,
       totalWrites: acc.totalWrites + r.totalWrites,
       writeFailures: acc.writeFailures.concat(r.writeFailures),
+      wouldWritePaths: (acc.wouldWritePaths ?? []).concat(r.wouldWritePaths ?? []),
     }),
     {
       bridgeConverted: 0,
@@ -360,6 +400,7 @@ function mergeResults(results: WorkerResult[]): WorkerResult {
       hreflangLinksDropped: 0,
       totalWrites: 0,
       writeFailures: [],
+      wouldWritePaths: [],
     },
   );
 }
@@ -389,6 +430,7 @@ export function postWalkCoordinatorPlugin(
         const startTotal = Date.now();
 
         // ── Phase A: enumerate every emitted HTML file once ──────────
+        const walkStartedAt = Date.now();
         const __tWalk = profileStart();
         const allHtmlPaths: string[] = collectHtml(distDir, []);
         const processHtmlPaths: string[] = [];
@@ -424,6 +466,64 @@ export function postWalkCoordinatorPlugin(
           }
         }
         profileRecord('walk-dist', __tWalk);
+        const walkPhaseMs = Date.now() - walkStartedAt;
+        const fullProcessHtmlPaths = [...processHtmlPaths];
+        let incrementalPlan: PostWalkIncrementalPlan | null = null;
+        let incrementalManifestPhaseMs = 0;
+        let incrementalVerifyPhaseMs = 0;
+        const incrementalEnabled = postWalkIncrementalEnabled();
+        if (incrementalEnabled) {
+          const manifestStartedAt = Date.now();
+          const manifests = fs.existsSync(path.join(rootDir, 'data', 'jobs.json'))
+            ? await loadPostWalkManifestPair(rootDir, resolvePostWalkManifestLocales())
+            : {
+                ok: false as const,
+                reason: 'data/jobs.json missing: current manifest is incomplete',
+              };
+          if ('reason' in manifests) {
+            const fallbackReason = manifests.reason;
+            // eslint-disable-next-line no-console
+            console.warn(
+              `[post-walk-coordinator][incremental] fallback=full reason=${fallbackReason}`,
+            );
+            incrementalPlan = {
+              mode: 'full',
+              processHtmlPaths: fullProcessHtmlPaths,
+              eligibleByManifest: 0,
+              processed: fullProcessHtmlPaths.length,
+              skippedUnchanged: 0,
+              affected: 0,
+              changed: 0,
+              added: 0,
+              removed: 0,
+              fallbackReason,
+              reasonsByPath: new Map(),
+            };
+          } else {
+            incrementalPlan = buildPostWalkIncrementalPlan({
+              distDir,
+              allHtmlPaths,
+              processableHtmlPaths: fullProcessHtmlPaths,
+              baseUrl,
+              manifests: manifests.pair,
+            });
+            if (incrementalPlan.mode === 'incremental') {
+              processHtmlPaths.length = 0;
+              processHtmlPaths.push(...incrementalPlan.processHtmlPaths);
+            } else {
+              // Keep the pre-existing full path when the proof is incomplete.
+              processHtmlPaths.length = 0;
+              processHtmlPaths.push(...fullProcessHtmlPaths);
+            }
+            if (incrementalPlan.fallbackReason) {
+              // eslint-disable-next-line no-console
+              console.warn(
+                `[post-walk-coordinator][incremental] fallback=full reason=${incrementalPlan.fallbackReason}`,
+              );
+            }
+          }
+          incrementalManifestPhaseMs = Date.now() - manifestStartedAt;
+        }
         const filesScanned = allHtmlPaths.length;
         if (filesScanned === 0) {
           // eslint-disable-next-line no-console
@@ -432,6 +532,7 @@ export function postWalkCoordinatorPlugin(
         }
 
         // ── Phase B: load blog-articles target map ONCE ──────────────
+        const blogPhaseStartedAt = Date.now();
         const __tBlogLoad = profileStart();
         const blogIndexSlugs = readBlogIndexSlugs(rootDir);
         const blogArticles: readonly BlogArticleHtmlFile[] = listBlogArticleHtmlFiles(
@@ -445,8 +546,60 @@ export function postWalkCoordinatorPlugin(
           }
         }
         profileRecord('load-blog-articles', __tBlogLoad);
+        const blogPhaseMs = Date.now() - blogPhaseStartedAt;
+
+        if (
+          incrementalEnabled
+          && incrementalPlan?.mode === 'incremental'
+          && postWalkIncrementalVerifyEnabled()
+        ) {
+          const verifyStartedAt = Date.now();
+          const verificationPaths = selectPostWalkVerificationPaths(
+            fullProcessHtmlPaths,
+            postWalkIncrementalVerifySampleSize(),
+          );
+          const fullDryRun = runSingleThreaded(
+            verificationPaths,
+            existingHtmlSet,
+            blogIndexHtmlByPath,
+            distDir,
+            baseUrl,
+            trimmedBase,
+            false,
+          );
+          const comparison = comparePostWalkVerification({
+            fullWouldWritePaths: fullDryRun.wouldWritePaths ?? [],
+            incrementalProcessPaths: processHtmlPaths,
+            sampledPaths: verificationPaths,
+          });
+          incrementalVerifyPhaseMs = Date.now() - verifyStartedAt;
+          // eslint-disable-next-line no-console
+          console.log(
+            `[post-walk-coordinator][incremental-verify] sampled=${verificationPaths.length} `
+              + `would-write-but-skipped=${comparison.wouldWriteButSkipped.length} `
+              + `processed-without-write=${comparison.processedButWouldNotWrite.length}`,
+          );
+          if (comparison.wouldWriteButSkipped.length > 0) {
+            const reason =
+              `verify mismatch: ${comparison.wouldWriteButSkipped.length} full-write path(s) were skipped`;
+            // eslint-disable-next-line no-console
+            console.warn(`[post-walk-coordinator][incremental] fallback=full reason=${reason}`);
+            incrementalPlan = {
+              ...incrementalPlan,
+              mode: 'full',
+              processHtmlPaths: fullProcessHtmlPaths,
+              processed: fullProcessHtmlPaths.length,
+              skippedUnchanged: 0,
+              affected: 0,
+              fallbackReason: reason,
+            };
+            processHtmlPaths.length = 0;
+            processHtmlPaths.push(...fullProcessHtmlPaths);
+          }
+        }
 
         // ── Phase C: dispatch work ─────────────────────────────────
+        const processPhaseStartedAt = Date.now();
         const workerCount = resolveWorkerCount(processHtmlPaths.length);
         const merged: WorkerResult =
           workerCount <= 1
@@ -489,6 +642,7 @@ export function postWalkCoordinatorPlugin(
                 profileRecord('merge-results', __tMerge);
                 return finalMerged;
               })();
+        const processPhaseMs = Date.now() - processPhaseStartedAt;
 
         for (const f of merged.writeFailures) {
           // eslint-disable-next-line no-console
@@ -507,6 +661,22 @@ export function postWalkCoordinatorPlugin(
             `hreflang: ${merged.hreflangFilesRewritten} rewritten / ${merged.hreflangLinksKept} kept / ${merged.hreflangLinksDropped} dropped, ` +
             `total writes: ${merged.totalWrites}`,
         );
+
+        if (incrementalEnabled && incrementalPlan) {
+          // eslint-disable-next-line no-console
+          console.log(
+            `[post-walk-coordinator][incremental] scanned=${filesScanned} `
+              + `eligible-by-manifest=${incrementalPlan.eligibleByManifest} `
+              + `processed=${processHtmlPaths.length} `
+              + `skipped-unchanged=${incrementalPlan.skippedUnchanged} `
+              + `affected=${incrementalPlan.affected} `
+              + `writes=${merged.totalWrites} `
+              + `fallback=${incrementalPlan.fallbackReason ?? 'none'} `
+              + `phases_ms=walk:${walkPhaseMs},manifest:${incrementalManifestPhaseMs},`
+              + `blog:${blogPhaseMs},process:${processPhaseMs},verify:${incrementalVerifyPhaseMs} `
+              + `dependency-rule="${POST_WALK_INCREMENTAL_DEPENDENCY_RULE}"`,
+          );
+        }
 
         // Unified [post-walk-profile] summary table. No-op when the profiler
         // is gated off. Mirrors the jobs-seo / related-search summary so the
