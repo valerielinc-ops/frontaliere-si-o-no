@@ -75,6 +75,15 @@ function hasValidTransportManifestKeys(entry) {
 
 const LEGACY_OBSERVER_TARGETS = new Set(CORPUS_OBSERVER_FILES.map(({ target }) => target));
 
+// PR #1515 registered these two transport entries as `adapted` while the
+// corpus-only translation lease removal was being carried. Once the canonical
+// site artifact also drops that lease, the next official sync must be able to
+// converge them back to `identical` and remove the temporary reason.
+const CONVERGENT_ADAPTED_TRANSPORT_SITE_PATHS = new Set([
+  '.github/corpus-workflows/translate-pending.yml',
+  '.github/corpus-workflows/contract.json',
+]);
+
 // A previous transport layout accidentally registered observer files below
 // `.github/workflows/observers/`. Those entries are stale duplicates of the
 // canonical observer destinations and may be removed during normalization;
@@ -83,6 +92,13 @@ function isLegacyObserverTransportEntry(entry, destination) {
   return LEGACY_OBSERVER_TARGETS.has(destination)
     && typeof entry?.path === 'string'
     && entry.path.startsWith('.github/workflows/observers/');
+}
+
+function isConvergentAdaptedTransportEntry(entry, sitePath) {
+  return CONVERGENT_ADAPTED_TRANSPORT_SITE_PATHS.has(sitePath)
+    && entry?.mode === 'adapted'
+    && typeof entry?.reason === 'string'
+    && Object.keys(entry).sort().join(',') === 'baseline,mode,path,reason,sitePath';
 }
 
 function sha16(content) {
@@ -148,9 +164,13 @@ export function assertCrawlerManifestDelta({ baseManifest, currentManifest } = {
     }
     const baseIndex = (expected.files ?? []).findIndex((entry) => entry.sitePath === sitePath);
     if (baseIndex >= 0) {
-      expected.files[baseIndex].baseline = structuredClone(current.baseline);
-      if (Object.hasOwn(current, 'couplingSnapshot')) {
-        expected.files[baseIndex].couplingSnapshot = structuredClone(current.couplingSnapshot);
+      if (isConvergentAdaptedTransportEntry(expected.files[baseIndex], sitePath)) {
+        expected.files[baseIndex] = structuredClone(current);
+      } else {
+        expected.files[baseIndex].baseline = structuredClone(current.baseline);
+        if (Object.hasOwn(current, 'couplingSnapshot')) {
+          expected.files[baseIndex].couplingSnapshot = structuredClone(current.couplingSnapshot);
+        }
       }
     } else {
       expected.files.push(structuredClone(current));
@@ -213,10 +233,16 @@ export function prepareCrawlerWorkflowCorpusSync({ sourceDir, corpusRoot, aligne
       normalizedFiles.push(entry);
       continue;
     }
+    const convergentAdapted = isConvergentAdaptedTransportEntry(entry, entry.sitePath);
+    const canonicalIdentical = entry.mode === 'identical' && hasValidTransportManifestKeys(entry);
     if (isLegacyObserverTransportEntry(entry, destination)) continue;
-    if (entry.path !== destination || entry.mode !== 'identical' ||
-        !hasValidTransportManifestKeys(entry) || observed.has(entry.sitePath)) {
+    if (entry.path !== destination || (!canonicalIdentical && !convergentAdapted) ||
+        observed.has(entry.sitePath)) {
       throw new Error(`invalid or duplicate crawler transport mapping: ${entry.sitePath}`);
+    }
+    if (convergentAdapted) {
+      entry.mode = 'identical';
+      delete entry.reason;
     }
     observed.add(entry.sitePath);
     normalizedFiles.push(entry);
