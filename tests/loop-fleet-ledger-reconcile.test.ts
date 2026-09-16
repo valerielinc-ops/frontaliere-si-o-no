@@ -101,6 +101,75 @@ describe('loop-fleet-ledger-reconcile', () => {
     });
   });
 
+  it('keeps canonical-equivalent duplicate records idempotent', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-reconcile-canonical-duplicate-'));
+    const input = path.join(root, 'input');
+    const ledger = path.join(root, 'ledger');
+    fs.mkdirSync(input);
+    fs.mkdirSync(ledger);
+    const execution = { loopId: 'L0', runId: '123', sha: SHA };
+    const records = {
+      observation: { recordType: 'observation', loopId: 'L0', recordId: 'observation-1', execution },
+      decision: { recordType: 'decision', loopId: 'L0', recordId: 'decision-1', execution },
+      health: {
+        recordType: 'health',
+        loopId: 'L0',
+        recordId: 'health-1',
+        execution,
+        payload: { beta: 2, alpha: 1 },
+      },
+      lifecycle: { recordType: 'lifecycle-event', loopId: 'L0', recordId: 'lifecycle-1', execution },
+    };
+    const reorderedHealth = {
+      payload: { alpha: 1, beta: 2 },
+      execution,
+      recordId: 'health-1',
+      loopId: 'L0',
+      recordType: 'health',
+    };
+    writeJson(input, 'loop-fleet-evidence.json', { loopId: 'L0', run: { runId: '123', sha: SHA } });
+    writeJsonl(input, 'loop-observations.jsonl', [records.observation]);
+    writeJsonl(input, 'loop-decisions.jsonl', [records.decision]);
+    writeJsonl(input, 'loop-health-history.jsonl', [records.health]);
+    writeJsonl(input, 'lifecycle-events.jsonl', [records.lifecycle]);
+    writeJsonl(ledger, 'loop-observations.jsonl', [records.observation]);
+    writeJsonl(ledger, 'loop-decisions.jsonl', [records.decision]);
+    writeJsonl(ledger, 'loop-health-history.jsonl', [records.health, reorderedHealth]);
+    writeJsonl(ledger, 'lifecycle-events.jsonl', [records.lifecycle]);
+
+    expect(missingEvidenceRecordIds(input, ledger, { loopId: 'L0', runId: '123', sha: SHA })).toMatchObject({
+      ok: true,
+      missing: [],
+      reason: 'source run is already durable',
+    });
+  });
+
+  it('fails closed when a duplicate recordId has conflicting content', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-reconcile-conflicting-duplicate-'));
+    const input = path.join(root, 'input');
+    const ledger = path.join(root, 'ledger');
+    fs.mkdirSync(input);
+    fs.mkdirSync(ledger);
+    const execution = { loopId: 'L0', runId: '123', sha: SHA };
+    const sourceHealth = {
+      recordType: 'health',
+      loopId: 'L0',
+      recordId: 'health-1',
+      execution,
+      payload: { value: 'source' },
+    };
+    const durableHealth = { ...sourceHealth, payload: { value: 'different' } };
+    writeJson(input, 'loop-fleet-evidence.json', { loopId: 'L0', run: { runId: '123', sha: SHA } });
+    writeJsonl(input, 'loop-health-history.jsonl', [sourceHealth]);
+    writeJsonl(ledger, 'loop-health-history.jsonl', [durableHealth]);
+
+    expect(missingEvidenceRecordIds(input, ledger, { loopId: 'L0', runId: '123', sha: SHA })).toMatchObject({
+      ok: false,
+      missing: [],
+      reason: 'health evidence contains conflicting duplicate health-1 in the durable ledger',
+    });
+  });
+
   it('fails closed for missing, mismatched or incomplete artifacts', () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-reconcile-test-'));
     const ledger = path.join(root, 'ledger');
