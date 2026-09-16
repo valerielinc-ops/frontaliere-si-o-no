@@ -2,6 +2,7 @@ import { describe, it, expect, beforeEach, vi, afterEach } from 'vitest';
 import {
   savePendingJobAlert,
   consumePendingJobAlert,
+  consumePendingJobAlertIntent,
   clearPendingJobAlert,
 } from '@/services/pendingJobAlert';
 import type { JobAlertConfig } from '@/services/jobAlertService';
@@ -29,6 +30,16 @@ describe('pendingJobAlert', () => {
   it('round-trips a saved config', () => {
     savePendingJobAlert(config);
     expect(consumePendingJobAlert()).toEqual(config);
+  });
+
+  it('round-trips the owning impression surface for funnel attribution', () => {
+    savePendingJobAlert(config, 'inline_card');
+    expect(consumePendingJobAlertIntent()).toEqual({ config, surface: 'inline_card' });
+  });
+
+  it('upgrades a legacy bare config to the inline-card surface', () => {
+    localStorage.setItem('pending_job_alert', JSON.stringify({ value: config, savedAt: Date.now() }));
+    expect(consumePendingJobAlertIntent()).toEqual({ config, surface: 'inline_card' });
   });
 
   it('consumes once — a second consume returns null', () => {

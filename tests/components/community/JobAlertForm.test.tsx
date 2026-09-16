@@ -17,24 +17,40 @@
  */
 
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { render, screen, fireEvent, cleanup, within } from '@testing-library/react';
+import { render, screen, fireEvent, cleanup, within, waitFor } from '@testing-library/react';
 import JobAlertForm from '@/components/community/JobAlertForm';
+
+const {
+  createAlertMock,
+  getUserAlertsMock,
+  getJobAlertEligibilityMock,
+  trackJobAlertCreatedMock,
+} = vi.hoisted(() => ({
+  createAlertMock: vi.fn(async () => ({ id: 'x' })),
+  getUserAlertsMock: vi.fn(async () => []),
+  getJobAlertEligibilityMock: vi.fn(async () => ({ eligible: false, reason: null })),
+  trackJobAlertCreatedMock: vi.fn(),
+}));
 
 // Mock the service so the form can dynamic-import it without trying to talk
 // to a real Firestore (we don't assert on this — see the service-level tests
 // for the payload contract).
 vi.mock('@/services/jobAlertService', () => ({
-  createAlert: vi.fn(async () => ({ id: 'x' })),
-  getUserAlerts: vi.fn(async () => []),
+  createAlert: createAlertMock,
+  getUserAlerts: getUserAlertsMock,
   deleteAlert: vi.fn(async () => undefined),
   updateAlert: vi.fn(async () => undefined),
+}));
+
+vi.mock('@/services/jobAlertEligibility', () => ({
+  getJobAlertEligibility: getJobAlertEligibilityMock,
 }));
 
 vi.mock('@/services/analytics', () => ({
   Analytics: {
     trackJobAlertCtaClick: vi.fn(),
     trackJobAlertCtaShown: vi.fn(),
-    trackJobAlertCreated: vi.fn(),
+    trackJobAlertCreated: trackJobAlertCreatedMock,
     trackJobAlertDeleted: vi.fn(),
   },
 }));
@@ -86,7 +102,11 @@ function getFieldset(): HTMLFieldSetElement {
 }
 
 beforeEach(() => {
-  // nothing to set up beyond the per-file mocks
+  createAlertMock.mockClear();
+  getUserAlertsMock.mockClear();
+  getJobAlertEligibilityMock.mockReset();
+  getJobAlertEligibilityMock.mockResolvedValue({ eligible: false, reason: null });
+  trackJobAlertCreatedMock.mockClear();
 });
 
 afterEach(() => {
@@ -256,5 +276,42 @@ describe('JobAlertForm — initialCantonCode prefill (issue #4298)', () => {
     // re-seed the canton the user just cleared.
     rerender(<JobAlertForm authUser={authUser} initialKeyword="Sviluppo" initialCantonCode="TI" />);
     expect(getCantonChip(/Ticino/).getAttribute('aria-pressed')).toBe('false');
+  });
+});
+
+describe('JobAlertForm — contextual one-tap creation', () => {
+  it('creates the prefilled alert directly for an authenticated eligible user', async () => {
+    getJobAlertEligibilityMock.mockResolvedValue({ eligible: true, reason: null });
+    render(<JobAlertForm authUser={authUser} initialKeyword="infermiere" initialCantonCode="TI" />);
+
+    const oneTap = await screen.findByTestId('job-alert-one-tap');
+    fireEvent.click(oneTap);
+
+    await waitFor(() => expect(createAlertMock).toHaveBeenCalledTimes(1));
+    expect(createAlertMock).toHaveBeenCalledWith(
+      'user-1',
+      'foo@example.com',
+      expect.objectContaining({
+        keywords: ['infermiere'],
+        cantonFilter: ['TI'],
+        frequency: 'weekly',
+      }),
+    );
+  });
+
+  it('keeps the pending replay on the same inline-card funnel surface', async () => {
+    const onRequireAuth = vi.fn();
+    const { rerender } = render(
+      <JobAlertForm authUser={null} initialKeyword="infermiere" onRequireAuth={onRequireAuth} />,
+    );
+    fireEvent.click(screen.getAllByRole('button')[0]);
+    fireEvent.click(screen.getByRole('button', { name: /Accedi per creare un alert/i }));
+    expect(onRequireAuth).toHaveBeenCalledTimes(1);
+
+    rerender(<JobAlertForm authUser={authUser} initialKeyword="infermiere" />);
+    await waitFor(() => expect(createAlertMock).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(trackJobAlertCreatedMock).toHaveBeenCalledWith(
+      expect.objectContaining({ surface: 'inline_card' }),
+    ));
   });
 });

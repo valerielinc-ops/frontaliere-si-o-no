@@ -18,8 +18,50 @@ import { saveIntent, consumeIntent, clearIntent } from '@/services/pendingIntent
 
 const KEY = 'pending_job_alert';
 
-export function savePendingJobAlert(config: JobAlertConfig): void {
-  saveIntent(KEY, config);
+/** The impression-bearing surface that owns the shared alert form. */
+export type PendingJobAlertSurface = 'inline_card';
+
+export interface PendingJobAlertIntent {
+  config: JobAlertConfig;
+  surface: PendingJobAlertSurface;
+}
+
+/**
+ * Save the config together with the surface that emitted its impression.
+ *
+ * Older versions stored the bare config. `normalizePendingJobAlertIntent`
+ * below deliberately accepts that shape so a user already in an auth
+ * round-trip is not forced to start over after this deploy.
+ */
+export function savePendingJobAlert(
+  config: JobAlertConfig,
+  surface: PendingJobAlertSurface = 'inline_card',
+): void {
+  saveIntent(KEY, { config, surface });
+}
+
+function normalizePendingJobAlertIntent(
+  value: PendingJobAlertIntent | JobAlertConfig | null,
+): PendingJobAlertIntent | null {
+  if (!value || typeof value !== 'object') return null;
+  if ('config' in value) {
+    return {
+      config: value.config,
+      // Only an impression-bearing surface is valid for the conversion goal.
+      // Unknown future/legacy values fail closed onto the owning form surface
+      // instead of producing a created event the goal cannot count.
+      surface: value.surface === 'inline_card' ? value.surface : 'inline_card',
+    };
+  }
+  // Backward compatibility for entries written before surface metadata.
+  return { config: value, surface: 'inline_card' };
+}
+
+/** Return and clear the pending intent, including its funnel surface. */
+export function consumePendingJobAlertIntent(): PendingJobAlertIntent | null {
+  return normalizePendingJobAlertIntent(
+    consumeIntent<PendingJobAlertIntent | JobAlertConfig>(KEY),
+  );
 }
 
 /**
@@ -27,7 +69,7 @@ export function savePendingJobAlert(config: JobAlertConfig): void {
  * the TTL. Returns null when absent, expired, or malformed.
  */
 export function consumePendingJobAlert(): JobAlertConfig | null {
-  return consumeIntent<JobAlertConfig>(KEY);
+  return consumePendingJobAlertIntent()?.config ?? null;
 }
 
 export function clearPendingJobAlert(): void {

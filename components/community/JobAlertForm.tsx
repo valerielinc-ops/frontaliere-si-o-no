@@ -13,7 +13,8 @@ import type { JobAlert, JobAlertConfig } from '@/services/jobAlertService';
 import { listCantonOptions, getCantonLabel, CANTON_CODES, type CantonLocale } from '@/services/cantonList';
 import { ABOVE_MOBILE_NAV_BOTTOM } from '@/components/shared/mobileNavClearance';
 import { consumeJobAlertOpen } from '@/services/jobAlertOpenSignal';
-import { savePendingJobAlert, consumePendingJobAlert } from '@/services/pendingJobAlert';
+import { savePendingJobAlert, consumePendingJobAlertIntent } from '@/services/pendingJobAlert';
+import { useImpressionTracker } from '@/hooks/useImpressionTracker';
 import ProfileEnrichmentPrompt from './ProfileEnrichmentPrompt';
 import { SECTORS } from './jobAlertConstants';
 import { loadEnrichmentProfileFields } from '@/services/profileFirestore';
@@ -90,6 +91,51 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  const [editingAlertId, setEditingAlertId] = useState<string | null>(null);
  const [toast, setToast] = useState<string | null>(null);
 
+ const oneTapKeyword = initialKeyword.trim();
+ const [oneTapEligible, setOneTapEligible] = useState(false);
+
+ // All inline-card impressions share one guard. The form can become visible
+ // either through the contextual one-tap CTA or the existing auto-expand path;
+ // counting both would re-inflate the same person's denominator.
+ const inlineShownTrackedRef = useRef(false);
+ const trackInlineShown = useCallback((candidateKeyword: string) => {
+   if (inlineShownTrackedRef.current) return;
+   inlineShownTrackedRef.current = true;
+   import('@/services/analytics')
+     .then(({ Analytics }) => Analytics.trackJobAlertCtaShown('inline_card', candidateKeyword))
+     .catch(() => {});
+ }, []);
+
+ // A known user with an active search already supplied the alert criterion.
+ // Reuse the shared resolver (and its session cache) so the one-tap CTA is
+ // never shown for an existing matching alert or a full alert budget.
+ useEffect(() => {
+   if (!authUser?.uid || !authUser.email || !oneTapKeyword) {
+     setOneTapEligible(false);
+     return;
+   }
+   let cancelled = false;
+   setOneTapEligible(false);
+   import('@/services/jobAlertEligibility')
+     .then(({ getJobAlertEligibility }) => getJobAlertEligibility(authUser.uid, oneTapKeyword))
+     .then((result) => {
+       if (!cancelled) setOneTapEligible(result.eligible);
+     })
+     .catch(() => {
+       // A failed eligibility read must not expose a create action that could
+       // duplicate an existing alert or fail predictably at the quota guard.
+       if (!cancelled) setOneTapEligible(false);
+     });
+   return () => {
+     cancelled = true;
+   };
+ }, [authUser?.email, authUser?.uid, oneTapKeyword]);
+
+ const oneTapImpressionRef = useImpressionTracker(
+   () => trackInlineShown(oneTapKeyword),
+   { enabled: oneTapEligible && !expanded },
+ );
+
  // Update keyword when search changes
  useEffect(() => {
  if (initialKeyword) setKeyword(initialKeyword);
@@ -123,13 +169,11 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  // Impression, not intent — kept out of `cta_click` so the funnel
  // ratio open→accept stays meaningful (auto_expand was 380 vs 33
  // real opens in 14 days, fully drowning the "open" signal).
- import('@/services/analytics')
- .then(({ Analytics }) => Analytics.trackJobAlertCtaShown('inline_card', k))
- .catch(() => {});
+ trackInlineShown(k);
  }
  }, 800);
  return () => window.clearTimeout(timer);
- }, [initialKeyword, expanded]);
+ }, [initialKeyword, expanded, trackInlineShown]);
 
  // Listen for external requests to open the form (sticky banner, end-of-list
  // card, post-auth prompt). Scrolls into view and expands. The optional
@@ -200,10 +244,24 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
     locale: locale as "it" | "en" | "de" | "fr",
   }), [keyword, selectedLocations, selectedContracts, selectedSectors, selectedCantons, frequency, locale]);
 
+  const buildOneTapConfig = useCallback((): JobAlertConfig => ({
+    keywords: oneTapKeyword ? [oneTapKeyword] : [],
+    locations: [],
+    contractTypes: [],
+    sectors: [],
+    cantonFilter: initialCantonCode && CANTON_CODES.includes(initialCantonCode)
+      ? [initialCantonCode]
+      : null,
+    // Preset/one-tap alerts stay engine-managed; the manual picker above is
+    // the only path that pins a cadence explicitly.
+    frequency: 'weekly',
+    locale: locale as "it" | "en" | "de" | "fr",
+  }), [initialCantonCode, locale, oneTapKeyword]);
+
   const configIsEmpty = (c: JobAlertConfig): boolean => c.keywords.length === 0 && c.locations.length === 0;
 
   const persistAlert = useCallback(
-    async (uid: string, email: string, config: JobAlertConfig, surface: 'inline_card' | 'post_auth_auto'): Promise<JobAlert> => {
+    async (uid: string, email: string, config: JobAlertConfig, surface: 'inline_card'): Promise<JobAlert> => {
       const { createAlert } = await import("@/services/jobAlertService");
       const alert = await createAlert(uid, email, config);
       setAlerts((prev) => [alert, ...prev]);
@@ -267,12 +325,12 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
   const pendingConsumedRef = useRef(false);
   useEffect(() => {
     if (!authUser || pendingConsumedRef.current) return;
-    const pending = consumePendingJobAlert();
+    const pending = consumePendingJobAlertIntent();
     if (!pending) return;
     pendingConsumedRef.current = true;
     (async () => {
       try {
-        const created = await persistAlert(authUser.uid, authUser.email || "", pending, "post_auth_auto");
+        const created = await persistAlert(authUser.uid, authUser.email || "", pending.config, pending.surface);
         showToast(t("jobAlert.created") || "Alert creata! Riceverai una email con le nuove offerte.");
         // Reset like the manual path so the now-authenticated user can't re-submit
         // the still-populated form and create a duplicate alert.
@@ -315,6 +373,33 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  } finally {
  setSaving(false);
  }
+ };
+
+ const handleOneTapCreate = async () => {
+   if (!authUser?.uid || !authUser.email || !oneTapEligible || !oneTapKeyword) return;
+   import('@/services/analytics')
+     .then(({ Analytics }) => Analytics.trackJobAlertCtaClick('inline_card', 'accept', oneTapKeyword))
+     .catch(() => {});
+   setSaving(true);
+   try {
+     const config = buildOneTapConfig();
+     const created = await persistAlert(authUser.uid, authUser.email, config, 'inline_card');
+     import('@/services/analytics')
+       .then(({ Analytics }) => Analytics.trackJobAlertCtaClick('inline_card', 'success', oneTapKeyword))
+       .catch(() => {});
+     showToast(t('jobAlert.created') || 'Alert creata! Riceverai una email con le nuove offerte.');
+     setOneTapEligible(false);
+     resetForm();
+     if (authUser.email) maybeShowEnrichmentPrompt(authUser.email, created);
+     try { localStorage.setItem(JOB_ALERT_SUBSCRIBED_KEY, 'true'); } catch { /* no-op */ }
+   } catch (err: any) {
+     import('@/services/analytics')
+       .then(({ Analytics }) => Analytics.trackJobAlertCtaClick('inline_card', 'error', oneTapKeyword))
+       .catch(() => {});
+     showToast(err?.message || (t('jobAlert.error.generic') as string) || 'Errore durante la creazione dell\'alert.');
+   } finally {
+     setSaving(false);
+   }
  };
 
  const handleDelete = async (alertId: string) => {
@@ -413,8 +498,25 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
 
  return (
  <div className="mt-4 mb-6">
+ {oneTapEligible && !expanded && (
+ <div ref={oneTapImpressionRef} className="mb-2">
+        <button
+          type="button"
+          onClick={handleOneTapCreate}
+          disabled={saving}
+          aria-busy={saving}
+          data-testid="job-alert-one-tap"
+          aria-label={`${t('jobAlert.create') || 'Crea alert'}: ${oneTapKeyword}`}
+ className="w-full flex items-center justify-center gap-2 min-h-[44px] px-4 py-2.5 rounded-xl bg-accent-strong text-on-accent text-sm font-semibold hover:bg-accent-strong-hover disabled:opacity-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+ >
+ {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Bell className="w-4 h-4" />}
+ {t('jobAlert.create') || 'Crea alert'}
+ </button>
+ </div>
+ )}
  {/* Trigger card */}
  <button
+ type="button"
  onClick={() => {
  if (!expanded) {
  import('@/services/analytics')
