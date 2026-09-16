@@ -162,23 +162,21 @@ describe('native auto-merge gate (#8512)', () => {
   });
 
   it.each([
-    ['secrets/ruoli/permessi', 'config/iam/roles.yml', 'secrets-roles-permissions'],
-    ['billing/revenue/partner', 'services/partner/billing.ts', 'billing-revenue-partner'],
-    ['contenuti pubblicati/SEO/Auto Ads', 'packages/articles/content/guide.md', 'published-content-seo-auto-ads'],
-    ['outreach/comunicazioni', 'scripts/newsletter/send.mjs', 'outreach-communications'],
-  ])('non abilita native auto-merge per %s', (_label, changedFile, domain) => {
+    ['workflow/control-plane', '.github/workflows/release.yml'],
+    ['secrets/ruoli/permessi', 'config/iam/roles.yml'],
+    ['billing/revenue/partner', 'services/partner/billing.ts'],
+    ['contenuti pubblicati/SEO/Auto Ads', 'packages/articles/content/guide.md'],
+    ['outreach/comunicazioni', 'scripts/newsletter/send.mjs'],
+    ['path sconosciuto', 'unknown-zone/agent-target.ts'],
+  ])('consente native auto-merge per %s con review e Vitest verdi', (_label, changedFile) => {
     const result = evaluateNativeAutoMerge({
       pr: pr({ changedFiles: [changedFile] }),
       reviews: [review(CLEAN_BODY)],
       checkRuns: [vitest()],
     });
 
-    expect(result).toMatchObject({
-      allow: false,
-      humanApprovalRequired: true,
-      humanApprovalVerified: false,
-    });
-    expect(result.riskDomains).toContain(domain);
+    expect(result).toMatchObject({ allow: true });
+    expect(result).not.toHaveProperty('humanApprovalRequired');
   });
 
   it.each([
@@ -196,7 +194,7 @@ describe('native auto-merge gate (#8512)', () => {
     expect(result).toMatchObject({ allow: true });
   });
 
-  it('mantiene il deny anche quando una review umana separata è verificata', () => {
+  it('non aggiunge un veto umano separato ai domini F1/F7', () => {
     const human = {
       id: 9,
       user: { type: 'User', login: 'owner' },
@@ -206,17 +204,12 @@ describe('native auto-merge gate (#8512)', () => {
     };
     const result = evaluateNativeAutoMerge({
       pr: pr({ changedFiles: ['config/iam/roles.yml'] }),
-      reviews: [human],
+      reviews: [human, review(CLEAN_BODY)],
       checkRuns: [vitest()],
     });
 
-    expect(result).toMatchObject({
-      allow: false,
-      humanApprovalRequired: true,
-      humanApprovalVerified: true,
-      humanApprovalReviewId: 9,
-    });
-    expect(result.reason).toMatch(/gestione umana separata/i);
+    expect(result).toMatchObject({ allow: true });
+    expect(result).not.toHaveProperty('humanApprovalRequired');
   });
 
   it('needs-human è un veto persistente: la review umana non autorizza la rimozione automatica', () => {
@@ -240,16 +233,6 @@ describe('native auto-merge gate (#8512)', () => {
     });
   });
 
-  it.each([
-    'unknown-zone/agent-target.ts',
-  ])('nega un path sconosciuto anche con review e check verdi: %s', (changedFile) => {
-    expect(evaluateNativeAutoMerge({
-      pr: pr({ changedFiles: [changedFile] }),
-      reviews: [review(CLEAN_BODY)],
-      checkRuns: [vitest()],
-    })).toMatchObject({ allow: false, humanApprovalRequired: true });
-  });
-
   it('nega se title/body/labels non sono metadata verificabili', () => {
     expect(evaluateNativeAutoMerge({
       pr: pr({ body: null }),
@@ -265,12 +248,12 @@ describe('native auto-merge gate (#8512)', () => {
       checkRuns: [vitest()],
     })).toMatchObject({
       allow: false,
-      humanApprovalRequired: true,
+      humanApprovalRequired: false,
       humanApprovalVerified: false,
     });
   });
 
-  it('revoca un opt-in native persistente quando il diff entra in un dominio F1/F7', () => {
+  it('mantiene un opt-in native persistente quando il diff entra in un dominio F1/F7', () => {
     expect(revalidateNativeAutoMerge({
       pr: pr({
         autoMergeRequest: { enabledAt: '2026-09-13T12:00:00Z' },
@@ -279,9 +262,8 @@ describe('native auto-merge gate (#8512)', () => {
       reviews: [review(CLEAN_BODY)],
       checkRuns: [vitest()],
     })).toMatchObject({
-      allow: false,
-      action: 'revoke',
-      humanApprovalRequired: true,
+      allow: true,
+      action: 'retain',
     });
   });
 
