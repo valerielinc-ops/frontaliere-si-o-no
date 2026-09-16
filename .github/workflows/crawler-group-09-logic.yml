@@ -132,6 +132,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: solina
           JOBS_SLICE_FILE: data/jobs/by-crawler/solina.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-09"
@@ -220,6 +221,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: spital-muri
           JOBS_SLICE_FILE: data/jobs/by-crawler/spital-muri.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-09"
@@ -308,6 +310,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: localsearch
           JOBS_SLICE_FILE: data/jobs/by-crawler/localsearch.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-09"
@@ -396,6 +399,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: the-living-circle
           JOBS_SLICE_FILE: data/jobs/by-crawler/the-living-circle.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-09"
@@ -484,6 +488,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: klinik-barmelweid
           JOBS_SLICE_FILE: data/jobs/by-crawler/klinik-barmelweid.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-09"
@@ -572,6 +577,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: hirslanden
           JOBS_SLICE_FILE: data/jobs/by-crawler/hirslanden.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-09"
@@ -660,6 +666,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: oetiker
           JOBS_SLICE_FILE: data/jobs/by-crawler/oetiker.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-09"
@@ -748,6 +755,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: suva
           JOBS_SLICE_FILE: data/jobs/by-crawler/suva.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-09"
@@ -836,6 +844,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: weisse-arena
           JOBS_SLICE_FILE: data/jobs/by-crawler/weisse-arena.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-09"
@@ -924,6 +933,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: lwphr
           JOBS_SLICE_FILE: data/jobs/by-crawler/lwphr.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-09"
@@ -1012,6 +1022,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: sunrise-sede-ticino
           JOBS_SLICE_FILE: data/jobs/by-crawler/sunrise-sede-ticino.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-09"
@@ -1100,6 +1111,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: csc-costruzioni
           JOBS_SLICE_FILE: data/jobs/by-crawler/csc-costruzioni.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-09"
@@ -1188,6 +1200,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: spital-sts
           JOBS_SLICE_FILE: data/jobs/by-crawler/spital-sts.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-09"
@@ -1276,6 +1289,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: ete
           JOBS_SLICE_FILE: data/jobs/by-crawler/ete.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-09"
@@ -1364,6 +1378,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: spital-oberengadin
           JOBS_SLICE_FILE: data/jobs/by-crawler/spital-oberengadin.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-09"
@@ -1452,6 +1467,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: paraplegie
           JOBS_SLICE_FILE: data/jobs/by-crawler/paraplegie.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-09"
@@ -1540,6 +1556,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: ermenegildo-zegna-logistica
           JOBS_SLICE_FILE: data/jobs/by-crawler/ermenegildo-zegna-logistica.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-09"
@@ -1628,6 +1645,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: fusalp
           JOBS_SLICE_FILE: data/jobs/by-crawler/fusalp.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-09"
@@ -1716,6 +1734,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: concara
           JOBS_SLICE_FILE: data/jobs/by-crawler/concara.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-09"
@@ -1804,6 +1823,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: fielmann
           JOBS_SLICE_FILE: data/jobs/by-crawler/fielmann.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-09"
@@ -1892,6 +1912,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: concordia
           JOBS_SLICE_FILE: data/jobs/by-crawler/concordia.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-09"
@@ -1980,6 +2001,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: engadin-tourismus
           JOBS_SLICE_FILE: data/jobs/by-crawler/engadin-tourismus.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-09"
@@ -2068,6 +2090,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: colin-cie
           JOBS_SLICE_FILE: data/jobs/by-crawler/colin-cie.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-09"
@@ -2156,6 +2179,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: bcv
           JOBS_SLICE_FILE: data/jobs/by-crawler/bcv.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-09"
@@ -2244,6 +2268,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: apple-retail-switzerland
           JOBS_SLICE_FILE: data/jobs/by-crawler/apple-retail-switzerland.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-09"
@@ -2332,6 +2357,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: bethesda-spital
           JOBS_SLICE_FILE: data/jobs/by-crawler/bethesda-spital.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-09"
@@ -2420,6 +2446,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: air-zermatt
           JOBS_SLICE_FILE: data/jobs/by-crawler/air-zermatt.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-09"
