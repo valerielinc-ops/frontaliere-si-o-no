@@ -998,23 +998,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   },
  };
 
- const stringMapMemoryDetails = (map: ReadonlyMap<unknown, string> | undefined, prefix: string): BuildMemDetails => {
-  let entries = 0;
-  let chars = 0;
-  let bytes = 0;
-  if (map) {
-   for (const value of map.values()) {
-    entries++;
-    chars += value.length;
-    bytes += Buffer.byteLength(value, 'utf8');
-   }
-  }
-  return {
-   [`${prefix}Entries`]: entries,
-   [`${prefix}Chars`]: chars,
-   [`${prefix}Bytes`]: bytes,
-  };
- };
+ // Solo `.size`: sommare `length`/`byteLength` di 600k HTML (2,5-4,5 GB)
+ // a ogni marker scansiona gigabyte 14 volte per leg (review PR #8917).
+ // Il peso in byte si stima offline: entry x media misurata sul log.
+ const stringMapMemoryDetails = (map: ReadonlyMap<unknown, string> | undefined, prefix: string): BuildMemDetails => ({
+   [`${prefix}Entries`]: map?.size ?? 0,
+ });
 
  const trackingMemoryDetails = (tracking: Record<string, Record<string, string>> | undefined): BuildMemDetails => {
   let keys = 0;
@@ -14307,7 +14296,11 @@ ${staticAnalyticsHtml}
  // verifica dichiarata («il rilascio libera davvero?») e sempre-vero il
  // revert-trigger. Cosi' invece gcFreed AL checkpoint E' la misura del
  // rilascio.
- logBuildMem('jobsSeoPages: after-corpus-release', collector, jobsSeoMemDetails({
+ // Label storico a due forme: pinnato da tests/corpus-retention-discipline.test.ts.
+ const corpusReleaseLabel = retentionProbeCandidate === null
+   ? 'jobsSeoPages: after corpus-release'
+   : `jobsSeoPages: after corpus-release candidate=${retentionProbeCandidate}`;
+ logBuildMem(corpusReleaseLabel, collector, jobsSeoMemDetails({
   crossLocaleActiveCount: crossLocaleCount,
   retentionProbeCandidate: retentionProbeCandidate ?? 'none',
   releasedValidJobs: validJobs.length === 0 ? 1 : 0,
