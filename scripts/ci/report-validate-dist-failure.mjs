@@ -269,7 +269,7 @@ function fence(text) {
  * @param {{
  *   repo: string, runId: string, runAttempt?: string,
  *   deployRunId?: string, deployRef?: string, deployEvent?: string,
- *   results?: { source?: string, postbuild?: string, bfs?: string },
+ *   results?: { dist?: string, source?: string, postbuild?: string, bfs?: string },
  *   failedJobs?: { name: string, htmlUrl?: string, failedStep?: string,
  *                  gates?: ReturnType<typeof parseGateLines>['failedGates'],
  *                  summaryLines?: string[], excerpt?: string, logNote?: string }[],
@@ -292,6 +292,9 @@ export function buildIssuePayloads(input) {
     }
   }
 
+  const jobResults = results.dist
+    ? `- **Job results:** dist=${results.dist}`
+    : `- **Job results:** source=${results.source || 'n/d'} · postbuild=${results.postbuild || 'n/d'} · bfs=${results.bfs || 'n/d'}`;
   const header = [
     '## Run',
     `- **Validation run:** ${runUrl(repo, runId)} (attempt ${runAttempt})`,
@@ -304,7 +307,7 @@ export function buildIssuePayloads(input) {
       ? `- **Build SHA:** \`${deployRef}\` (= \`deploy_ref\` = \`workflow_run.head_sha\`: il commit della BUILD. Per un run innescato da workflow_run \`github.sha\` NON è questo commit — non usarlo.)`
       : '- **Build SHA:** non disponibile (deploy_ref non passato: run legacy o dispatch manuale — NON ripiegare su github.sha, che per workflow_run non è il commit della build)',
     deployEvent ? `- **Trigger build:** ${deployEvent}` : null,
-    `- **Job results:** source=${results.source || 'n/d'} · postbuild=${results.postbuild || 'n/d'} · bfs=${results.bfs || 'n/d'}`,
+    jobResults,
     '',
     '## Job/step falliti',
     ...(failedJobs.length > 0
@@ -508,11 +511,14 @@ function reportDist({ dryRun }) {
   const deployRunId = process.env.INPUT_DEPLOY_RUN_ID || process.env.DEPLOY_RUN_ID || '';
   const deployRef = process.env.INPUT_DEPLOY_REF || process.env.DEPLOY_REF || '';
   const deployEvent = process.env.INPUT_DEPLOY_EVENT || process.env.DEPLOY_EVENT || '';
-  const results = {
-    source: process.env.SOURCE_RESULT || '',
-    postbuild: process.env.POSTBUILD_RESULT || '',
-    bfs: process.env.BFS_RESULT || '',
-  };
+  const distResult = process.env.DIST_RESULT || '';
+  const results = distResult
+    ? { dist: distResult }
+    : {
+        source: process.env.SOURCE_RESULT || '',
+        postbuild: process.env.POSTBUILD_RESULT || '',
+        bfs: process.env.BFS_RESULT || '',
+      };
 
   const failedJobs = [];
   if (repo && runId) {

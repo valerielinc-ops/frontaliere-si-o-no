@@ -213,6 +213,15 @@ describe('buildIssuePayloads — una issue per gate, fallback legacy', () => {
     expect(payload.body).toContain('byFeature');
   });
 
+  it('body: il workflow accorpato riporta il risultato del solo job dist', () => {
+    const [payload] = buildIssuePayloads(bfsInput({
+      results: { dist: 'failure' },
+      failedJobs: [],
+    }));
+    expect(payload.body).toContain('- **Job results:** dist=failure');
+    expect(payload.body).not.toContain('source=');
+  });
+
   it('senza deploy_ref il body lo dice e NON ripiega su github.sha', () => {
     const [payload] = buildIssuePayloads(bfsInput({ deployRef: '' }));
     expect(payload.body).toContain('deploy_ref non passato');

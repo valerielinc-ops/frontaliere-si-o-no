@@ -107,34 +107,44 @@ function detectLocale(pagePath) {
   return 'it';
 }
 
-// Recursively collect all index.html files
-function collectHtmlFiles(dir, basePath = '') {
+// Iteratively collect all index.html files. The previous recursive collector
+// used `results.push(...collectHtmlFiles(...))`; once a child directory held
+// more than V8's argument limit, spreading its result raised
+// `RangeError: Maximum call stack size exceeded` before the sampled checks
+// could even start (seen repeatedly in post-deploy report-only runs).
+function collectHtmlFiles(dir, basePath = '', fsApi = { readdirSync, statSync }) {
   const results = [];
-  let entries;
-  try {
-    entries = readdirSync(dir);
-  } catch {
-    return results;
-  }
+  const pending = [{ dir, basePath }];
 
-  for (const entry of entries) {
-    const fullPath = join(dir, entry);
-    let stats;
+  while (pending.length > 0) {
+    const current = pending.pop();
+    let entries;
     try {
-      stats = statSync(fullPath);
+      entries = fsApi.readdirSync(current.dir);
     } catch {
       continue;
     }
 
-    if (stats.isDirectory()) {
-      results.push(...collectHtmlFiles(fullPath, join(basePath, entry)));
-    } else if (entry === 'index.html') {
-      results.push({
-        filePath: fullPath,
-        pagePath: basePath,
-      });
+    for (const entry of entries) {
+      const fullPath = join(current.dir, entry);
+      let stats;
+      try {
+        stats = fsApi.statSync(fullPath);
+      } catch {
+        continue;
+      }
+
+      if (stats.isDirectory()) {
+        pending.push({ dir: fullPath, basePath: join(current.basePath, entry) });
+      } else if (entry === 'index.html') {
+        results.push({
+          filePath: fullPath,
+          pagePath: current.basePath,
+        });
+      }
     }
   }
+
   return results;
 }
 
@@ -713,7 +723,7 @@ function printWarningGroup(label, entries, limit) {
   console.log();
 }
 
-export { validateBestPracticeSeo };
+export { collectHtmlFiles, validateBestPracticeSeo };
 
 const invokedScript = process.argv[1] ? pathToFileURL(process.argv[1]).href : '';
 if (import.meta.url === invokedScript) main();
