@@ -6464,6 +6464,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.consiglio-federale-obiettivi-2027.title': 'Il Consiglio federale presenta gli obiettivi per il 2027',
     'blog.article.consiglio-federale-obiettivi-2027.excerpt': 'Il presidente Guy Parmelin ha illustrato a Berna le priorità strategiche per il 2027, quarto anno della legislatura federale 2023-2027.',
     'blog.article.consiglio-federale-obiettivi-2027.imageAlt': 'Il palazzo federale a Berna sede del Consiglio federale',
+    'blog.article.migros-ristruttura-online-retail.title': 'Migros dà più indipendenza all\'online e cambia i vertici',
+    'blog.article.migros-ristruttura-online-retail.excerpt': 'Il gruppo Migros riorganizza le strutture creando il settore Online Retail indipendente e nomina Florian Teuteberg nuovo presidente.',
+    'blog.article.migros-ristruttura-online-retail.imageAlt': 'Sede amministrativa Migros in Svizzera',
 };
 
 export default blogMetaChIt;

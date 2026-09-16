@@ -2177,6 +2177,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'vaccini-antinfluenzali-ritardo-svizzera': { it: 'vaccini-antinfluenzali-ritardo-svizzera', en: 'flu-vaccines-delay-switzerland', de: 'grippeschutzimpfung-verzoegerung-schweiz', fr: 'vaccins-grippe-retard-suisse' },
  'ruag-riorganizzazione-tagli-posti': { it: 'ruag-riorganizzazione-tagli-posti', en: 'ruag-reorganization-job-cuts', de: 'ruag-reorganisation-stellenabbau', fr: 'ruag-reorganisation-suppression-postes' },
  'consiglio-federale-obiettivi-2027': { it: 'consiglio-federale-obiettivi-2027', en: 'federal-council-goals-2027', de: 'bundesrat-ziele-2027', fr: 'conseil-federal-objectifs-2027' },
+ 'migros-ristruttura-online-retail': { it: 'migros-ristruttura-online-retail', en: 'migros-restructures-online-retail', de: 'migros-strukturiert-online-retail-neu', fr: 'migros-restructure-l-online-retail' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

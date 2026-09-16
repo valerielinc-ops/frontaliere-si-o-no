@@ -19364,6 +19364,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'migros-ristruttura-online-retail',
+    category: 'novita',
+    date: '2026-09-16T01:48:49.211Z',
+    image: '/images/blog/migros-ristruttura-online-retail.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
