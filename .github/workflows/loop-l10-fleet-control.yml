@@ -8,7 +8,10 @@ on:
     paths:
       - 'data/loop-fleet/loop-registry.json'
       - 'data/quota-history.jsonl'
-      - 'data/loop-fleet/ledger/loop-health-history.jsonl'
+      # The durable health ledger is an input to the scheduled/manual audit,
+      # but a ledger merge is an output of L10. Keeping it out of this push
+      # filter prevents ledger -> L10 -> ledger recursion; pull_request below
+      # still validates changes to the input contract.
       - 'scripts/ci/loop-l10-fleet-control.mjs'
       - 'scripts/ci/collect-independent-fleet-outcome.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
