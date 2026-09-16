@@ -2,7 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 import { loadManifest } from '../../scripts/ci/incremental-manifest-report.mjs';
-import { extractHreflangUrls } from '../hreflangPostprocessPlugin';
+import { extractHreflangAlternates } from '../hreflangPostprocessPlugin';
+import { EMIT_ALL_LOCALES, ownerEmitLocale, shouldEmitLocale } from './localeEmitFilter';
 
 export const POST_WALK_INCREMENTAL_ENV = 'POST_WALK_INCREMENTAL';
 export const POST_WALK_INCREMENTAL_VERIFY_ENV = 'POST_WALK_INCREMENTAL_VERIFY';
@@ -22,24 +23,41 @@ const NON_HTML_MANIFEST_KIND = 'related-search-sitemap';
  * - a changed entry owns both physical aliases of its logical page;
  * - related canonical/mirror entries with the same `kind + inputHash` are one
  *   cluster and are affected together;
+ * - pages carrying the same job identity in current/previous input metadata,
+ *   and entries explicitly referring to an added/removed path, are affected;
  * - hreflang siblings named by a changed page are affected by resolving only
  *   the changed page's links against the complete `existingHtmlSet`;
- * - an added or removed logical page falls back to the full pass. The JSONL
- *   manifest has no reverse hreflang edge index, so proving that an existing
- *   page cannot change when a file appears/disappears would require reading
- *   every HTML file. Full fallback is the conservative, byte-identity proof.
+ * - an added/removed page does not itself force a full pass. A removal without
+ *   a resolvable kind + job identity still falls back, as does an owned
+ *   hreflang target missing from `existingHtmlSet`.
  *
- * The same rule is deliberately used for canonical and cross-locale paths: a
- * path not covered by the manifest remains on the complete path, while an
- * uncertain dependency never becomes an incremental skip.
+ * `hreflangPostprocessPlugin` uses this same existence oracle: a target owned
+ * by the current BUILD_LOCALE is checked against this leg's HTML set, while a
+ * target owned by another locale is retained by `shouldEmitLocale`/
+ * `ownerEmitLocale` and is not resolved against a cross-locale list. The
+ * locale value on the hreflang tag, rather than a guessed URL prefix, decides
+ * that ownership.
+ *
+ * Related hubs/listings that register `buildRelatedClusterManifestInput` have
+ * membership/order in their hash, so an added/removed job changes their own
+ * manifest entry. Unregistered families remain on the existing full path.
  */
 export const POST_WALK_INCREMENTAL_DEPENDENCY_RULE =
-  'aliases + same kind/inputHash cluster + hreflang targets; added/removed logical pages fall back because reverse edges are not manifest-backed';
+  'aliases + same kind/inputHash cluster + same-job/explicit path references + owned hreflang targets; add/remove stays incremental unless identity or existence proof is missing';
+
+export type PostWalkManifestMetadata = {
+  readonly jobIds?: readonly string[];
+  readonly slugs?: readonly string[];
+  readonly references?: readonly string[];
+};
 
 export type PostWalkManifestEntry = {
   readonly path: string;
   readonly inputHash: string;
   readonly kind: string;
+  /** Present in direct planner fixtures and in opt-in compact manifest data. */
+  readonly input?: unknown;
+  readonly postWalk?: PostWalkManifestMetadata;
 };
 
 export type PostWalkManifestSnapshot = {
@@ -119,9 +137,38 @@ function normalizeLocales(locales: readonly string[]): string[] {
   return [...new Set(locales.map((locale) => String(locale).trim().toLowerCase()).filter(Boolean))];
 }
 
+function validatePostWalkMetadata(value: unknown, label: string): PostWalkManifestMetadata | undefined {
+  if (value === undefined) return undefined;
+  if (!value || typeof value !== 'object' || Array.isArray(value)) {
+    throw new Error(`${label}: postWalk metadata non valida`);
+  }
+  const record = value as Record<string, unknown>;
+  const metadata: {
+    jobIds?: readonly string[];
+    slugs?: readonly string[];
+    references?: readonly string[];
+  } = {};
+  for (const field of ['jobIds', 'slugs', 'references'] as const) {
+    if (record[field] === undefined) continue;
+    if (
+      !Array.isArray(record[field])
+      || record[field].some((item) => typeof item !== 'string' || item.length === 0)
+    ) {
+      throw new Error(`${label}: postWalk.${field} non valido`);
+    }
+    metadata[field] = record[field] as readonly string[];
+  }
+  return metadata;
+}
+
 type LoadedManifest = {
   readonly data: { readonly locale: string; readonly kinds: Record<string, unknown> };
-  readonly entries: Map<string, { readonly path: string; readonly inputHash: string; readonly kind: string }>;
+  readonly entries: Map<string, {
+    readonly path: string;
+    readonly inputHash: string;
+    readonly kind: string;
+    readonly postWalk?: PostWalkManifestMetadata;
+  }>;
 };
 
 function mergeLoadedManifests(
@@ -144,10 +191,12 @@ function mergeLoadedManifests(
     }
     for (const [rawPath, rawEntry] of manifest.entries) {
       const pagePath = normalizeLogicalPath(rawPath);
+      const postWalk = validatePostWalkMetadata(rawEntry.postWalk, `entry ${rawPath}`);
       const entry: PostWalkManifestEntry = {
         path: pagePath,
         inputHash: String(rawEntry.inputHash),
         kind: String(rawEntry.kind),
+        ...(postWalk ? { postWalk } : {}),
       };
       if (!entry.path || !entry.inputHash || !entry.kind) {
         throw new Error(`entry manifest non valida: ${rawPath}`);
@@ -264,25 +313,191 @@ function fullPlan(
   };
 }
 
+type PostWalkEntryIdentity = {
+  readonly jobIds: Set<string>;
+  readonly slugs: Set<string>;
+  readonly references: Set<string>;
+};
+
+function emptyEntryIdentity(): PostWalkEntryIdentity {
+  return { jobIds: new Set(), slugs: new Set(), references: new Set() };
+}
+
+function addIdentityValue(
+  identity: PostWalkEntryIdentity,
+  value: unknown,
+  key: string,
+  seen: WeakSet<object>,
+): void {
+  if (typeof value === 'string' || typeof value === 'number') {
+    const stringValue = String(value).trim();
+    if (!stringValue) return;
+    const normalizedKey = key.replace(/[^a-z0-9]/gi, '').toLowerCase();
+    if (normalizedKey === 'jobid' || normalizedKey === 'winnerid') identity.jobIds.add(stringValue);
+    if (normalizedKey.includes('slug')) identity.slugs.add(stringValue);
+    if (
+      normalizedKey.includes('path')
+      || normalizedKey.includes('url')
+      || normalizedKey.includes('href')
+      || normalizedKey.includes('file')
+      || normalizedKey.includes('candidate')
+      || normalizedKey.includes('tracking')
+      || normalizedKey.includes('prose')
+      || normalizedKey.includes('reference')
+    ) {
+      identity.references.add(stringValue);
+    }
+    return;
+  }
+  if (!value || typeof value !== 'object' || seen.has(value)) return;
+  seen.add(value);
+  if (Array.isArray(value)) {
+    for (const item of value) addIdentityValue(identity, item, key, seen);
+    return;
+  }
+  for (const [childKey, childValue] of Object.entries(value)) {
+    addIdentityValue(identity, childValue, childKey, seen);
+  }
+}
+
+function entryIdentity(entry: PostWalkManifestEntry): PostWalkEntryIdentity {
+  const identity = emptyEntryIdentity();
+  const metadata = entry.postWalk;
+  for (const jobId of metadata?.jobIds ?? []) {
+    if (String(jobId).trim()) identity.jobIds.add(String(jobId).trim());
+  }
+  for (const slug of metadata?.slugs ?? []) {
+    if (String(slug).trim()) identity.slugs.add(String(slug).trim());
+  }
+  for (const reference of metadata?.references ?? []) {
+    if (String(reference).trim()) identity.references.add(String(reference).trim());
+  }
+  if (entry.input !== undefined) addIdentityValue(identity, entry.input, '', new WeakSet());
+  return identity;
+}
+
+function hasResolvableIdentity(entry: PostWalkManifestEntry | undefined): boolean {
+  if (!entry || !String(entry.kind ?? '').trim()) return false;
+  const identity = entryIdentity(entry);
+  return identity.jobIds.size > 0 || identity.slugs.size > 0;
+}
+
+function logicalPathFromReference(value: string, baseUrl: string): string | null {
+  let reference = String(value).trim();
+  if (!reference) return null;
+  const trimmedBase = baseUrl.replace(/\/+$/, '');
+  if (reference === trimmedBase) reference = '';
+  else if (reference.startsWith(`${trimmedBase}/`)) reference = reference.slice(trimmedBase.length);
+  else if (/^[a-z][a-z\d+.-]*:/i.test(reference)) {
+    try {
+      reference = new URL(reference).pathname;
+    } catch {
+      return null;
+    }
+  }
+  const query = reference.indexOf('?');
+  if (query !== -1) reference = reference.slice(0, query);
+  const hash = reference.indexOf('#');
+  if (hash !== -1) reference = reference.slice(0, hash);
+  reference = normalizeLogicalPath(reference);
+  if (reference === 'index.html') return '';
+  if (reference.endsWith('/index.html')) {
+    return normalizeLogicalPath(reference.slice(0, -'/index.html'.length));
+  }
+  if (reference.endsWith('.html')) {
+    return normalizeLogicalPath(reference.slice(0, -'.html'.length));
+  }
+  return reference || null;
+}
+
+type PostWalkIdentityIndex = {
+  readonly byJobId: Map<string, Set<string>>;
+  readonly bySlug: Map<string, Set<string>>;
+  readonly byReference: Map<string, Set<string>>;
+};
+
+function addIndexValue(index: Map<string, Set<string>>, value: string, logical: string): void {
+  const paths = index.get(value) ?? new Set<string>();
+  paths.add(logical);
+  index.set(value, paths);
+}
+
+function addEntryToIdentityIndex(
+  index: PostWalkIdentityIndex,
+  logical: string,
+  entry: PostWalkManifestEntry,
+  baseUrl: string,
+): void {
+  const identity = entryIdentity(entry);
+  for (const jobId of identity.jobIds) addIndexValue(index.byJobId, jobId, logical);
+  for (const slug of identity.slugs) addIndexValue(index.bySlug, slug, logical);
+  for (const reference of identity.references) {
+    const referencePath = logicalPathFromReference(reference, baseUrl);
+    if (referencePath !== null) addIndexValue(index.byReference, referencePath, logical);
+  }
+}
+
+function emptyIdentityIndex(): PostWalkIdentityIndex {
+  return { byJobId: new Map(), bySlug: new Map(), byReference: new Map() };
+}
+
+function buildIdentityIndex(
+  entries: ReadonlyMap<string, PostWalkManifestEntry>,
+  baseUrl: string,
+): PostWalkIdentityIndex {
+  const index: PostWalkIdentityIndex = {
+    byJobId: new Map(),
+    bySlug: new Map(),
+    byReference: new Map(),
+  };
+  for (const [logical, entry] of entries) {
+    addEntryToIdentityIndex(index, logical, entry, baseUrl);
+  }
+  return index;
+}
+
+function addIdentityMatches(
+  affectedLogicals: Set<string>,
+  index: PostWalkIdentityIndex,
+  identity: PostWalkEntryIdentity,
+): void {
+  for (const jobId of identity.jobIds) {
+    for (const logical of index.byJobId.get(jobId) ?? []) affectedLogicals.add(logical);
+  }
+  for (const slug of identity.slugs) {
+    for (const logical of index.bySlug.get(slug) ?? []) affectedLogicals.add(logical);
+  }
+}
+
 function resolveHreflangTargetFiles(
+  locale: string,
   href: string,
   baseUrl: string,
   distDir: string,
   allHtmlPaths: ReadonlySet<string>,
-): string[] {
+): { readonly files: string[]; readonly missingOwnedTarget: boolean } {
+  const targetOwned = EMIT_ALL_LOCALES || shouldEmitLocale(ownerEmitLocale(locale));
   const trimmedBase = baseUrl.replace(/\/+$/, '');
   let target = String(href).trim();
-  if (!target) return [];
   if (target === trimmedBase) target = '';
   else if (target.startsWith(`${trimmedBase}/`)) target = target.slice(trimmedBase.length);
-  else if (/^[a-z][a-z\d+.-]*:/i.test(target)) return [];
+  else if (/^[a-z][a-z\d+.-]*:/i.test(target)) {
+    // A different absolute origin is not a cross-locale sibling in this
+    // build. The legacy transform will check it on an owned page, so keep the
+    // proof conservative and let the coordinator take the full path.
+    return { files: [], missingOwnedTarget: targetOwned };
+  }
   const query = target.indexOf('?');
   if (query !== -1) target = target.slice(0, query);
   const hash = target.indexOf('#');
   if (hash !== -1) target = target.slice(0, hash);
   target = normalizeLogicalPath(target);
   const candidates = logicalCandidates(target).map((relative) => path.join(distDir, relative));
-  return candidates.filter((candidate) => allHtmlPaths.has(candidate));
+  const files = candidates.filter((candidate) => allHtmlPaths.has(candidate));
+  return {
+    files,
+    missingOwnedTarget: files.length === 0 && targetOwned,
+  };
 }
 
 function markPath(
@@ -360,17 +575,23 @@ export function buildPostWalkIncrementalPlan(input: {
       `manifest corrente incompleto: path HTML non emesso (${missingCurrentPaths.slice(0, 3).join(', ')})`,
     );
   }
-  if (added.size > 0 || removed.size > 0) {
-    const detail = added.size > 0
-      ? `entry nuove=${added.size}`
-      : `path rimossi=${removed.size}`;
+
+  // A removal is safe to plan incrementally only when the previous entry can
+  // identify the owning job. Additions do not need a reverse scan: the new
+  // page is selected below, and pages whose input names it are selected from
+  // the same compact index. A missing identity on a removed page is the one
+  // add/remove case where the dependency cannot be demonstrated.
+  const unresolvedRemovals = [...removed].filter(
+    (logical) => !hasResolvableIdentity(previous.get(logical)),
+  );
+  if (unresolvedRemovals.length > 0) {
     return fullPlan(
       processableHtmlPaths,
       eligibleByManifest,
       changed.size,
       added.size,
       removed.size,
-      `dipendenza hreflang/cross-locale incerta dopo ${detail}; reverse edges non presenti nel manifest`,
+      `rimozione senza kind/jobId risolvibile: ${unresolvedRemovals.slice(0, 3).join(', ')}`,
     );
   }
 
@@ -405,6 +626,46 @@ export function buildPostWalkIncrementalPlan(input: {
     }
   };
 
+  // An addition is a new page to transform, not a reason to abandon the
+  // incremental plan. A removed page has no current physical alias, so its
+  // same-job and explicit-reference matches are marked below.
+  for (const logical of added) markLogical(logical, 'affected');
+
+  const hasDependencyEvents = changed.size > 0 || added.size > 0 || removed.size > 0;
+  const hasAddRemoveEvents = added.size > 0 || removed.size > 0;
+  const currentIdentityIndex = hasDependencyEvents
+    ? buildIdentityIndex(current, baseUrl)
+    : emptyIdentityIndex();
+  const previousIdentityIndex = hasAddRemoveEvents
+    ? buildIdentityIndex(previous, baseUrl)
+    : emptyIdentityIndex();
+  // During the first opt-in run a current entry may be written with the new
+  // compact metadata while its unchanged predecessor predates that field (or
+  // vice versa). Keep both snapshots' identity on the current logical path.
+  for (const [logical, previousEntry] of previous) {
+    if (current.has(logical)) addEntryToIdentityIndex(currentIdentityIndex, logical, previousEntry, baseUrl);
+  }
+  const eventIdentities = [...new Set([...changed, ...added, ...removed])]
+    .map((logical) => [current.get(logical), previous.get(logical)] as const)
+    .flatMap(([currentEntry, previousEntry]) => [currentEntry, previousEntry])
+    .filter((entry): entry is PostWalkManifestEntry => entry !== undefined)
+    .map(entryIdentity);
+  const identityAffected = new Set<string>();
+  for (const identity of eventIdentities) {
+    addIdentityMatches(identityAffected, currentIdentityIndex, identity);
+  }
+  for (const logical of [...added, ...removed]) {
+    for (const affectedLogical of currentIdentityIndex.byReference.get(logical) ?? []) {
+      identityAffected.add(affectedLogical);
+    }
+    for (const affectedLogical of previousIdentityIndex.byReference.get(logical) ?? []) {
+      if (current.has(affectedLogical)) identityAffected.add(affectedLogical);
+    }
+  }
+  for (const logical of identityAffected) {
+    if (!changed.has(logical)) markLogical(logical, 'affected');
+  }
+
   // Canonical cluster/mirror pages share the exact manifest hash when they
   // were rendered from the same source projection. This avoids guessing from
   // localized slugs while still covering related-search canonical siblings.
@@ -437,8 +698,25 @@ export function buildPostWalkIncrementalPlan(input: {
           `impossibile leggere il path cambiato ${filePath}: ${error instanceof Error ? error.message : String(error)}`,
         );
       }
-      for (const href of extractHreflangUrls(html)) {
-        for (const targetFile of resolveHreflangTargetFiles(href, baseUrl, distDir, allHtml)) {
+      for (const alternate of extractHreflangAlternates(html)) {
+        const resolution = resolveHreflangTargetFiles(
+          alternate.locale,
+          alternate.url,
+          baseUrl,
+          distDir,
+          allHtml,
+        );
+        if (resolution.missingOwnedTarget) {
+          return fullPlan(
+            processableHtmlPaths,
+            eligibleByManifest,
+            changed.size,
+            added.size,
+            removed.size,
+            `target hreflang di pagina cambiata non presente in existingHtmlSet: ${alternate.url}`,
+          );
+        }
+        for (const targetFile of resolution.files) {
           const targetLogical = byAbsolute.get(targetFile);
           if (targetLogical !== undefined && targetLogical !== logical) {
             markLogical(targetLogical, 'affected');

@@ -79,17 +79,27 @@ interface HreflangPostprocessOptions {
 const HREFLANG_LINK_RX =
   /<link\s+rel="alternate"\s+hreflang="([^"]+)"\s+href="([^"]+)"\s*\/?>(?:\s*\n?)?/g;
 
-/** Return hrefs from a page without opening any of their target files. */
-export function extractHreflangUrls(html: string): readonly string[] {
+export type ExtractedHreflangAlternate = {
+  readonly locale: string;
+  readonly url: string;
+};
+
+/** Return hreflang locale/href pairs without opening any target files. */
+export function extractHreflangAlternates(html: string): readonly ExtractedHreflangAlternate[] {
   HREFLANG_LINK_RX.lastIndex = 0;
-  const urls: string[] = [];
+  const alternates: ExtractedHreflangAlternate[] = [];
   let match = HREFLANG_LINK_RX.exec(html);
   while (match !== null) {
-    urls.push(match[2]);
+    alternates.push({ locale: match[1], url: match[2] });
     match = HREFLANG_LINK_RX.exec(html);
   }
   HREFLANG_LINK_RX.lastIndex = 0;
-  return urls;
+  return alternates;
+}
+
+/** Return hrefs from a page without opening any of their target files. */
+export function extractHreflangUrls(html: string): readonly string[] {
+  return extractHreflangAlternates(html).map(({ url }) => url);
 }
 
 /**

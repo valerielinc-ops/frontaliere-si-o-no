@@ -667,6 +667,8 @@ export function postWalkCoordinatorPlugin(
           console.log(
             `[post-walk-coordinator][incremental] scanned=${filesScanned} `
               + `eligible-by-manifest=${incrementalPlan.eligibleByManifest} `
+              + `mode=${incrementalPlan.mode} `
+              + `changed-entries=${incrementalPlan.changed} added-entries=${incrementalPlan.added} removed-entries=${incrementalPlan.removed} `
               + `processed=${processHtmlPaths.length} `
               + `skipped-unchanged=${incrementalPlan.skippedUnchanged} `
               + `affected=${incrementalPlan.affected} `
