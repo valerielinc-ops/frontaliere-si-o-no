@@ -19,6 +19,9 @@ const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.jso
 const DEFAULT_HEALTH_PATH = path.join('data', 'loop-fleet', 'ledger', 'loop-health-history.jsonl');
 const DEFAULT_WINDOW_HOURS = 48;
 const DEFAULT_MAX_RECORDS = 1000;
+const GITHUB_READ_ATTEMPTS = 3;
+const GITHUB_READ_RETRY_DELAYS_MS = Object.freeze([250, 750]);
+const TRANSIENT_GITHUB_READ_ERROR = /(?:\bHTTP\s+5\d{2}\b|\b5\d{2}\s+(?:bad gateway|service unavailable|gateway timeout)\b|service unavailable|bad gateway|gateway timeout|timed?\s*out|ECONNRESET|ETIMEDOUT|EAI_AGAIN)/iu;
 
 function valueAfter(argv, flag, fallback = null) {
   const index = argv.indexOf(flag);
@@ -47,27 +50,53 @@ function readJsonl(file) {
   return { records, errors };
 }
 
-function listCompletedRuns({ repo, workflow }) {
-  try {
-    const raw = execFileSync('gh', [
-      'run', 'list',
-      '--repo', repo,
-      '--workflow', workflow,
-      '--branch', 'main',
-      '--status', 'completed',
-      '--limit', String(DEFAULT_MAX_RECORDS),
-      '--json', 'databaseId,status,conclusion,createdAt,updatedAt,headSha,url',
-    ], {
-      encoding: 'utf8',
-      maxBuffer: 16 * 1024 * 1024,
-      stdio: ['ignore', 'pipe', 'pipe'],
-    });
-    const runs = JSON.parse(raw);
-    if (!Array.isArray(runs)) return { runs: [], error: `GitHub returned a non-array for ${workflow}` };
-    return { runs, error: null };
-  } catch {
-    return { runs: [], error: `GitHub Actions run inventory unavailable for ${workflow}` };
+function transientReadError(error) {
+  return TRANSIENT_GITHUB_READ_ERROR.test([
+    error?.message,
+    error?.stderr,
+    error?.stdout,
+  ].map((value) => String(value || '')).join('\n'));
+}
+
+function sleepForRetry(delayMs) {
+  if (!Number.isFinite(delayMs) || delayMs <= 0) return;
+  const wait = new Int32Array(new SharedArrayBuffer(4));
+  Atomics.wait(wait, 0, 0, delayMs);
+}
+
+export function listCompletedRuns({
+  repo,
+  workflow,
+  maxRecords = DEFAULT_MAX_RECORDS,
+  execFileSyncImpl = execFileSync,
+  sleep = sleepForRetry,
+}) {
+  for (let attempt = 0; attempt < GITHUB_READ_ATTEMPTS; attempt += 1) {
+    try {
+      const raw = execFileSyncImpl('gh', [
+        'run', 'list',
+        '--repo', repo,
+        '--workflow', workflow,
+        '--branch', 'main',
+        '--status', 'completed',
+        '--limit', String(maxRecords),
+        '--json', 'databaseId,status,conclusion,createdAt,updatedAt,headSha,url',
+      ], {
+        encoding: 'utf8',
+        maxBuffer: 16 * 1024 * 1024,
+        stdio: ['ignore', 'pipe', 'pipe'],
+      });
+      const runs = JSON.parse(raw);
+      if (!Array.isArray(runs)) return { runs: [], error: `GitHub returned a non-array for ${workflow}` };
+      return { runs, error: null };
+    } catch (error) {
+      if (attempt + 1 >= GITHUB_READ_ATTEMPTS || !transientReadError(error)) {
+        return { runs: [], error: `GitHub Actions run inventory unavailable for ${workflow}` };
+      }
+      sleep(GITHUB_READ_RETRY_DELAYS_MS[attempt]);
+    }
   }
+  return { runs: [], error: `GitHub Actions run inventory unavailable for ${workflow}` };
 }
 
 export function collectIndependentFleetOutcome({
@@ -88,7 +117,7 @@ export function collectIndependentFleetOutcome({
     sourceErrors.push('GitHub repository is not configured');
   } else {
     for (const workflow of Object.values(LOOP_WORKFLOWS)) {
-      const result = listRunsImpl({ repo, workflow });
+      const result = listRunsImpl({ repo, workflow, maxRecords });
       if (result.error) sourceErrors.push(result.error);
       runs.push(...(Array.isArray(result.runs) ? result.runs : []));
     }

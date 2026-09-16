@@ -3,7 +3,10 @@ import os from 'node:os';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 // @ts-expect-error — the collector is a dependency-free ESM CI script.
-import { collectIndependentFleetOutcome } from '../scripts/ci/collect-independent-fleet-outcome.mjs';
+import {
+  collectIndependentFleetOutcome,
+  listCompletedRuns,
+} from '../scripts/ci/collect-independent-fleet-outcome.mjs';
 
 const NOW = new Date('2026-09-16T01:00:00.000Z');
 const SHA = 'a'.repeat(40);
@@ -89,5 +92,51 @@ describe('collect-independent-fleet-outcome', () => {
 
     expect(result.outcome).toMatchObject({ status: 'partial', independent: false });
     expect(result.reconciliation.errors.join(' ')).toContain('appears more than once');
+  });
+
+  it('ritenta soltanto una lettura GitHub transitoria e conserva il limite bounded', () => {
+    let calls = 0;
+    const delays: number[] = [];
+    let command: string[] = [];
+    const result = listCompletedRuns({
+      repo: 'owner/repo',
+      workflow: 'technical-operations-supervisor.yml',
+      maxRecords: 7,
+      execFileSyncImpl: (_binary: string, args: string[]) => {
+        command = args;
+        calls += 1;
+        if (calls < 3) {
+          const error = new Error('gh: HTTP 503 service unavailable');
+          throw error;
+        }
+        return '[]';
+      },
+      sleep: (delay: number) => delays.push(delay),
+    });
+
+    expect(result).toEqual({ runs: [], error: null });
+    expect(calls).toBe(3);
+    expect(delays).toEqual([250, 750]);
+    expect(command).toContain('--limit');
+    expect(command[command.indexOf('--limit') + 1]).toBe('7');
+  });
+
+  it('non ritenta errori GitHub non transitori', () => {
+    let calls = 0;
+    const delays: number[] = [];
+    const result = listCompletedRuns({
+      repo: 'owner/repo',
+      workflow: 'technical-operations-supervisor.yml',
+      maxRecords: 7,
+      execFileSyncImpl: () => {
+        calls += 1;
+        throw new Error('gh: HTTP 404 workflow not found');
+      },
+      sleep: (delay: number) => delays.push(delay),
+    });
+
+    expect(result).toMatchObject({ runs: [], error: expect.stringContaining('unavailable') });
+    expect(calls).toBe(1);
+    expect(delays).toEqual([]);
   });
 });
