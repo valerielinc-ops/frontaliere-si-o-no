@@ -24,8 +24,12 @@ describe('Codex Luna Max article lane setup action', () => {
       runs?: { steps?: Array<{ id?: string; run?: string }> };
     };
     const steps = document.runs?.steps ?? [];
+    const gate = steps.find((step) => step.name === 'Resolve Codex Luna Max article gate')?.run ?? '';
     const resolver = steps.find((step) => step.id === 'trusted_toolchain')?.run ?? '';
     const install = steps.find((step) => step.id === 'install_codex_cli')?.run ?? '';
+    expect(gate).toContain('resolved_gate="${ENABLE_CODEX_ARTICLE_FALLBACK:-${ENABLE_HAIKU_ARTICLE_FALLBACK:-1}}"');
+    expect(gate).toContain('ENABLE_CODEX_ARTICLE_FALLBACK=$resolved_gate');
+    expect(gate).not.toContain('ENABLE_CODEX_ARTICLE_FALLBACK=0');
     expect(resolver).toContain('report_runtime_candidates()');
     expect(resolver).toContain('path_components_trusted');
     expect(resolver).toContain('node_version=');

@@ -1020,6 +1020,9 @@ function buildCrawlerStepEnv(crawler, summaryFile) {
   // maps, so a crawler cannot accidentally replace the capability reference
   // with a job-wide variable or a user-controlled value.
   merged.CODEX_AUTH_BROKER_SOCKET = '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}';
+  // The broker socket is only a capability; provider selection still needs to
+  // be explicit so every crawler uses the Codex Luna Max article lane.
+  merged.AI_MODELS_PREFER = 'codex-cli/gpt-5.6-luna';
   return Object.fromEntries(
     Object.entries(merged).map(([key, value]) => [key, normalizeCrawlerInputReferences(value)]),
   );
