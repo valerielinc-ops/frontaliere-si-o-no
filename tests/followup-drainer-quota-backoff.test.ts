@@ -135,7 +135,7 @@ describe('age-out: la coda di uscita che rendeva la perdita definitiva', () => {
   const opts = { now: Date.now(), ageOutDays: 10, inactiveDays: 7 };
   const parked = {
     title: 'Strategia per apparire su Google News',
-    labels: [{ name: 'agent:triaged' }, { name: 'fu-prio:low' }, { name: 'fu-parked' }, { name: 'fu-attempt:3' }],
+    labels: [{ name: 'follow-up' }, { name: 'agent:triaged' }, { name: 'fu-prio:low' }, { name: 'fu-parked' }, { name: 'fu-attempt:3' }],
     createdAt: iso(20 * DAY),
     updatedAt: iso(9 * DAY),
   };

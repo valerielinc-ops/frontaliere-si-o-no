@@ -61,11 +61,28 @@ describe('crawlerDirectFixBudget', () => {
   it('esclude dal secondo passaggio i pin keep-open e agent:no-age-out', () => {
     const labels = (...names: string[]) => names.map((name) => ({ name }));
     const stringLabels = (...names: string[]) => names;
-    expect(isTriagedButNotRouted({ labels: labels('agent:triaged', 'keep-open') })).toBe(false);
-    expect(isTriagedButNotRouted({ labels: labels('agent:triaged', 'agent:no-age-out') })).toBe(false);
-    expect(isTriagedButNotRouted({ labels: labels('agent:triaged') })).toBe(true);
-    expect(isTriagedButNotRouted({ labels: stringLabels('agent:triaged', 'keep-open') })).toBe(false);
-    expect(isTriagedButNotRouted({ labels: stringLabels('agent:triaged', 'agent:no-age-out') })).toBe(false);
-    expect(isTriagedButNotRouted({ labels: stringLabels('agent:triaged') })).toBe(true);
+    const issue = (issueLabels: unknown) => ({
+      title: 'follow-up(#1): ordinary triage candidate',
+      body: '',
+      labels: issueLabels,
+    });
+    expect(isTriagedButNotRouted(issue(labels('agent:triaged', 'keep-open')))).toBe(false);
+    expect(isTriagedButNotRouted(issue(labels('agent:triaged', 'agent:no-age-out')))).toBe(false);
+    expect(isTriagedButNotRouted(issue(labels('agent:triaged')))).toBe(true);
+    expect(isTriagedButNotRouted(issue(stringLabels('agent:triaged', 'keep-open')))).toBe(false);
+    expect(isTriagedButNotRouted(issue(stringLabels('agent:triaged', 'agent:no-age-out')))).toBe(false);
+    expect(isTriagedButNotRouted(issue(stringLabels('agent:triaged')))).toBe(true);
+  });
+
+  it('testo non classificabile → il secondo passaggio resta deny-by-default', () => {
+    expect(isTriagedButNotRouted({ labels: [{ name: 'agent:triaged' }] })).toBe(false);
+  });
+
+  it('esclude dal secondo passaggio i domini F1/F7', () => {
+    expect(isTriagedButNotRouted({
+      title: 'Aggiornare il workflow di deploy',
+      body: 'Il service account richiede permessi aggiuntivi.',
+      labels: [{ name: 'agent:triaged' }],
+    })).toBe(false);
   });
 });
