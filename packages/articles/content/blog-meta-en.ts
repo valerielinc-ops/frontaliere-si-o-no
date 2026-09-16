@@ -11788,6 +11788,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ffs-cargo-tagli-ticino-berna.title': 'FFS cargo cuts: Bern responds to Ticino',
     'blog.article.ffs-cargo-tagli-ticino-berna.excerpt': 'The federal government rejects the resolution of the Canton of Ticino on the cuts of FFS Cargo, confirming the management autonomy of the company and the centrality of the north-south axis.',
     'blog.article.ffs-cargo-tagli-ticino-berna.imageAlt': 'Ffs freight train transiting along the railway line in Ticino',
+    'blog.article.tpl-como-lecco-varese-bilancio-2026.title': 'TPL Agency: Sustainability Report and free cable cars',
+    'blog.article.tpl-como-lecco-varese-bilancio-2026.excerpt': 'The TPL Agency presents the Sustainability Report and offers a day of free access to seven cableway installations from 16 to 22 September.',
+    'blog.article.tpl-como-lecco-varese-bilancio-2026.imageAlt': 'Presentation of the Sustainability Report by the TPL Agency',
 };
 
 export default blogMetaEn;

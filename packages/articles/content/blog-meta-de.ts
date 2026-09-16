@@ -11787,6 +11787,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ffs-cargo-tagli-ticino-berna.title': 'SBB Cargo-Schnitte: Bern antwortet auf Tessin',
     'blog.article.ffs-cargo-tagli-ticino-berna.excerpt': 'Die Bundesregierung lehnt den Beschluss des Kantons Tessin über die Kürzungen von SBB Cargo ab und bestätigt die Führungsautonomie des Unternehmens und die Zentralität der Nord-Süd-Achse.',
     'blog.article.ffs-cargo-tagli-ticino-berna.imageAlt': 'SBB-Cargo-Zug auf der Bahnstrecke im Tessin',
+    'blog.article.tpl-como-lecco-varese-bilancio-2026.title': 'TPL-Agentur: Nachhaltigkeitsbilanz und kostenlose Seilbahnen',
+    'blog.article.tpl-como-lecco-varese-bilancio-2026.excerpt': 'Die TPL-Agentur stellt den Nachhaltigkeitsbericht vor und bietet vom 16. bis 22. September einen kostenlosen Tag Zugang zu sieben Seilbahnen.',
+    'blog.article.tpl-como-lecco-varese-bilancio-2026.imageAlt': 'Präsentation des Nachhaltigkeitsberichts der TPL-Agentur',
 };
 
 export default blogMetaDe;

@@ -11790,6 +11790,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ffs-cargo-tagli-ticino-berna.title': 'Coupes CFF cargo : Berne répond au Tessin',
     'blog.article.ffs-cargo-tagli-ticino-berna.excerpt': 'Le gouvernement fédéral rejette la résolution du canton du Tessin sur les réductions de Ffs Cargo, confirmant l\'autonomie de gestion de l\'entreprise et la centralité de l\'axe nord-sud.',
     'blog.article.ffs-cargo-tagli-ticino-berna.imageAlt': 'Train de marchandises des CFF en transit sur la ligne ferroviaire au Tessin',
+    'blog.article.tpl-como-lecco-varese-bilancio-2026.title': 'Agence TPL : Bilan de Durabilité et téléphériques gratuits',
+    'blog.article.tpl-como-lecco-varese-bilancio-2026.excerpt': 'L\'Agence TPL présente le Bilan de Durabilité et offre une journée d\'accès gratuit à sept installations à câbles du 16 au 22 septembre.',
+    'blog.article.tpl-como-lecco-varese-bilancio-2026.imageAlt': 'Présentation du rapport de durabilité de l agence TPL',
 };
 
 export default blogMetaFr;

@@ -91060,6 +91060,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tpl-como-lecco-varese-bilancio-2026': {
+    title: 'Agenzia TPL: Bilancio di Sostenibilità e funivie gratis',
+    description: 'L\'Agenzia TPL presenta il Bilancio di Sostenibilità a Como e offre corse gratuite su sette impianti a fune per la Settimana della Mobilità. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, agenzia, bilancio, sostenibilità, funivie',
+    ogTitle: 'Agenzia TPL presenta il Bilancio e offre corse in funivia',
+    ogDescription: 'Scopri i dettagli sulla presentazione del secondo Bilancio di Sostenibilità dell\'Agenzia TPL e l\'iniziativa delle funivie gratuite per la Settimana Europea della Mobilità.',
+    canonicalPath: '/articoli-frontaliere/tpl-como-lecco-varese-bilancio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Agenzia TPL: Bilancio di Sostenibilità e funivie gratis",
+      "description": "L'Agenzia TPL presenta il Bilancio di Sostenibilità a Como e offre corse gratuite su sette impianti a fune per la Settimana della Mobilità. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tpl-como-lecco-varese-bilancio-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Presentazione del Bilancio di Sostenibilità dell Agenzia TPL"
+      },
+      "datePublished": "2026-09-16T02:21:41+00:00",
+      "dateModified": "2026-09-16T02:21:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tpl-como-lecco-varese-bilancio-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
