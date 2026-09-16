@@ -11779,6 +11779,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mendrisiotto-strade-chiuse-weekend.title': 'Mendrisiotto: three events and roads closed at the weekend',
     'blog.article.mendrisiotto-strade-chiuse-weekend.excerpt': 'From 18 to 20 September Rally del Ticino, Penziamo and Chiasso-Pedrinate cause road closures, limitations for pedestrians and diverted buses in Mendrisiotto.',
     'blog.article.mendrisiotto-strade-chiuse-weekend.imageAlt': 'Road closures in Mendrisiotto for weekend events',
+    'blog.article.costi-sviluppo-farmaci-2024.title': 'Because developing new drugs costs more and more',
+    'blog.article.costi-sviluppo-farmaci-2024.excerpt': 'In 2024, the average cost to develop a new drug reached $2.23 billion, an increase of 65% compared to 2014.',
+    'blog.article.costi-sviluppo-farmaci-2024.imageAlt': 'Pharmaceutical research laboratory with modern equipment',
 };
 
 export default blogMetaEn;
