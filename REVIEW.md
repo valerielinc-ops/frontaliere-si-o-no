@@ -15,6 +15,31 @@ Finding important SE impatta:
 
 Non passa nessuno → drop. Non importante per questo progetto.
 
+## Policy automazione bounded F1/F7
+
+La policy deterministica in `scripts/ci/lib/automation-risk-policy.mjs` è un
+dominio esplicito condiviso da classifier, issue-fix e auto-merge. Blocca sempre
+questi cinque domini: `deploy-workflow-functions`,
+`secrets-roles-permissions`, `billing-revenue-partner`,
+`published-content-seo-auto-ads` e `outreach-communications`.
+
+Per un'issue ad alto rischio il classifier restituisce `route='none'` e
+`autofix=false`; `issue-triage` rimuove le label di routing e applica
+`needs-human`, mentre il job `risk_policy` dell'issue-fix si chiude prima di
+token App, quota, claim e agent. Un errore di lettura o parsing lascia il fixer
+skipped. Non esiste un override nel prompt.
+
+Per una PR il native gate valuta titolo/body/label e un elenco file completo:
+un elenco incompleto è deny-by-default; un dominio rischioso impedisce
+l'abilitazione e revoca un opt-in native già persistente. La stessa guardia
+copre l'evaluator legacy che conserva una mutazione `--auto` di compatibilità.
+Una gestione umana separata è verificabile solo con una review GitHub
+`APPROVED` di un utente non-bot sulla HEAD esatta; questa prova documenta il
+passaggio umano ma non è un bypass dell'auto-merge, che resta vietato per i
+domini F1/F7. Branch protection, ruoli e impostazioni amministrative non sono
+modificati né assunti verificabili da questa policy: se GitHub non consente la
+verifica, il gate resta fail-closed.
+
 ## Severity
 
 | Marker | Quando |
@@ -115,7 +140,7 @@ PR a tier `high` (vedi tabella "Tier review"): prima del summary, includi `## Ad
 
 **Un ❓ dell'adversarial check il cui soggetto è funnel-critical NON resta sepolto qui.** Se impatta monetizzazione/traffico (SEO/redirect/structured-data/AdSense/sitemap/indicizzabilità) → 🔴 Important in `## Findings` (vedi Verification → escalation); non parcheggiarlo qui (#829: redirect-bridge come ❓ → `## LGTM` + zero follow-up).
 
-Tassonomia macchina: `STATE_PATTERNS` in `scripts/lib/pr-body-sections-check.mjs`; `bulletState()` gestisce gli stati chiudenti, quindi niente `agent:fix`/`needs-human`. Omissione di `width` resta bug di rendering.
+Tassonomia macchina: `STATE_PATTERNS` in `scripts/lib/pr-body-sections-check.mjs`; `bulletState()` gestisce gli stati chiudenti, quindi niente `agent:fix`/`needs-human` nei PR body. `needs-human` resta invece uno stato operativo F1/F7 delle issue/PR, non un claim di completezza. Omissione di `width` resta bug di rendering.
 
 ## Verification
 

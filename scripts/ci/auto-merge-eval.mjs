@@ -77,6 +77,8 @@ import {
   isReviewerBot,
 } from './lib/constants.mjs';
 import { latestCompletedVitestConclusion } from './lib/vitestCheck.mjs';
+import { fetchPrFiles } from './lib/fetchPrFiles.mjs';
+import { classifyAutomationRisk } from './lib/automation-risk-policy.mjs';
 import { checkClosesLines } from '../lib/pr-body-closes-check.mjs';
 import { checkMergePreviewDuplicates } from './lib/mergePreviewCheck.mjs';
 import {
@@ -429,7 +431,7 @@ function main() {
   let pr;
   try {
     pr = gh(['pr', 'view', PR, '--repo', REPO, '--json',
-      'number,state,isDraft,headRefOid,labels,mergeStateStatus']);
+      'number,title,body,state,isDraft,headRefOid,labels,mergeStateStatus']);
   } catch (e) {
     return fail(`Impossibile leggere PR #${PR}: ${String(e).slice(0, 160)} — skip.`);
   }
@@ -448,6 +450,29 @@ function main() {
   const head = pr.headRefOid;
   const labels = (pr.labels || []).map((l) => l.name);
   console.log(`HEAD SHA: ${head} · labels: [${labels.join(', ') || '—'}]`);
+
+  // Legacy/debug evaluator still has a native `--auto` mutation below. Keep
+  // it behind the same explicit F1/F7 policy as the native gate; an incomplete
+  // file list is not evidence that a risky path is absent.
+  let fileSnapshot;
+  try {
+    fileSnapshot = fetchPrFiles(PR, gh, REPO);
+  } catch (e) {
+    return fail(`Impossibile leggere l'elenco file della PR #${PR}: ${String(e).slice(0, 160)} — skip fail-closed.`);
+  }
+  if (!fileSnapshot.complete) {
+    return fail(`Elenco file PR #${PR} non verificabile (${fileSnapshot.reason}) — policy F1/F7 deny-by-default, skip.`);
+  }
+  const risk = classifyAutomationRisk({
+    title: pr.title,
+    body: pr.body,
+    labels: pr.labels,
+    paths: fileSnapshot.files,
+    pathsComplete: fileSnapshot.complete,
+  });
+  if (!risk.verifiable || risk.blocked) {
+    return fail(`Policy F1/F7 blocca l'auto-merge legacy PR #${PR} (${risk.domains.join(', ') || risk.reason}) — serve gestione umana separata.`);
+  }
 
   // 2. Ultima review del bot reviewer sulla HEAD corrente: `## LGTM` e NO 🔴 Important.
   let reviews;

@@ -68,4 +68,12 @@ describe('crawlerDirectFixBudget', () => {
     expect(isTriagedButNotRouted({ labels: stringLabels('agent:triaged', 'agent:no-age-out') })).toBe(false);
     expect(isTriagedButNotRouted({ labels: stringLabels('agent:triaged') })).toBe(true);
   });
+
+  it('esclude dal secondo passaggio i domini F1/F7', () => {
+    expect(isTriagedButNotRouted({
+      title: 'Aggiornare il workflow di deploy',
+      body: 'Il service account richiede permessi aggiuntivi.',
+      labels: [{ name: 'agent:triaged' }],
+    })).toBe(false);
+  });
 });

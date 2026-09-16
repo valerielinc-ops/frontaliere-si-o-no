@@ -23,6 +23,11 @@ import {
   findTestOnlyApproval,
   TEST_REVIEW_MARKER,
 } from './review-test-policy.mjs';
+import { fetchPrFiles } from './lib/fetchPrFiles.mjs';
+import {
+  classifyAutomationRisk,
+  findSeparateHumanApproval,
+} from './lib/automation-risk-policy.mjs';
 import { REVIEW_GATE_STEP_NAME } from './lib/vitestCheck.mjs';
 
 const TESTS_WORKFLOW_PATH = '.github/workflows/tests.yml';
@@ -368,6 +373,8 @@ export function evaluateNativeAutoMerge({
   verifiedTestOnlyReview = null,
   reviewGateEvidence = null,
   repository = null,
+  changedFiles,
+  changedFilesComplete,
 } = {}) {
   if (!pr || pr.state !== 'OPEN' || pr.isDraft !== false || pr.baseRefName !== 'main') {
     return { allow: false, reason: 'PR non aperta, draft o non basata su main' };
@@ -380,6 +387,38 @@ export function evaluateNativeAutoMerge({
   }
   if (pr.autoMergeRequest !== null) {
     return { allow: false, reason: 'native auto-merge già abilitato' };
+  }
+
+  const files = changedFiles !== undefined ? changedFiles : pr.changedFiles;
+  const filesComplete = changedFilesComplete !== undefined
+    ? changedFilesComplete
+    : pr.changedFilesComplete;
+  const risk = classifyAutomationRisk({
+    title: pr.title,
+    body: pr.body,
+    labels: pr.labels,
+    paths: files,
+    pathsComplete: filesComplete,
+  });
+  if (!risk.verifiable) {
+    return {
+      allow: false,
+      reason: `policy F1/F7 non verificabile: ${risk.reason}`,
+      riskDomains: risk.domains,
+      humanApprovalRequired: true,
+      humanApprovalVerified: false,
+    };
+  }
+  if (risk.blocked) {
+    const humanApproval = findSeparateHumanApproval(reviews, pr.headRefOid);
+    return {
+      allow: false,
+      reason: `policy F1/F7 blocca native auto-merge (${risk.domains.join(', ')}); gestione umana separata richiesta${humanApproval ? ' e verificata sulla HEAD' : ''}`,
+      riskDomains: risk.domains,
+      humanApprovalRequired: true,
+      humanApprovalVerified: humanApproval !== null,
+      humanApprovalReviewId: humanApproval?.id || null,
+    };
   }
 
   // The required check is the complete `tests` job. Its review gate already
@@ -445,6 +484,8 @@ export function revalidateNativeAutoMerge({
   verifiedTestOnlyReview = null,
   reviewGateEvidence = null,
   repository = null,
+  changedFiles,
+  changedFilesComplete,
 } = {}) {
   if (!pr || !Object.hasOwn(pr, 'autoMergeRequest')) {
     return { allow: false, action: 'skip', reason: 'stato auto-merge non verificabile' };
@@ -456,6 +497,8 @@ export function revalidateNativeAutoMerge({
     verifiedTestOnlyReview,
     reviewGateEvidence,
     repository,
+    changedFiles,
+    changedFilesComplete,
   });
   if (pr.autoMergeRequest !== null) {
     return {
@@ -549,6 +592,14 @@ function loadVerifiedTestOnlyReview(repo, pr, head, reviews) {
     repo,
     pr,
   });
+}
+
+function loadChangedFiles(repo, pr) {
+  const snapshot = fetchPrFiles(pr, ghForTestOnlyReview, repo);
+  if (!snapshot.complete) {
+    throw new Error(`elenco file PR non completo (${snapshot.reason})`);
+  }
+  return snapshot;
 }
 
 const REVIEW_METADATA_QUERY = [
@@ -708,7 +759,7 @@ function main() {
   let pr;
   try {
     pr = ghJson(['pr', 'view', prNumber, '--repo', repo, '--json',
-      'number,id,state,isDraft,baseRefName,headRefOid,autoMergeRequest']);
+      'number,id,title,body,labels,state,isDraft,baseRefName,headRefOid,autoMergeRequest']);
   } catch (error) {
     console.error(`::error::native auto-merge guard: impossibile leggere PR #${prNumber}: ${String(error).slice(0, 240)}`);
     process.exitCode = 1;
@@ -718,6 +769,19 @@ function main() {
     return skip('PR non aperta, draft o non basata su main');
   }
   const hadAutoMerge = pr.autoMergeRequest !== null;
+
+  let changedFileSnapshot;
+  try {
+    changedFileSnapshot = loadChangedFiles(repo, prNumber);
+  } catch (error) {
+    if (hadAutoMerge) {
+      revokeExistingAutoMerge(repo, pr, 'elenco file PR non verificabile');
+      return;
+    }
+    console.error(`::error::native auto-merge guard: lettura file PR fallita: ${String(error).slice(0, 240)}`);
+    process.exitCode = 1;
+    return;
+  }
 
   let reviews;
   let checkRuns;
@@ -750,6 +814,8 @@ function main() {
     verifiedTestOnlyReview,
     reviewGateEvidence,
     repository: repo,
+    changedFiles: changedFileSnapshot.files,
+    changedFilesComplete: changedFileSnapshot.complete,
   });
   console.log(`Native auto-merge guard PR #${prNumber} HEAD=${pr.headRefOid}: ${decision.reason}`);
   if (decision.action === 'revoke') {
@@ -763,7 +829,7 @@ function main() {
   let current;
   try {
     current = ghJson(['pr', 'view', prNumber, '--repo', repo, '--json',
-      'number,id,state,isDraft,baseRefName,headRefOid,autoMergeRequest']);
+      'number,id,title,body,labels,state,isDraft,baseRefName,headRefOid,autoMergeRequest']);
   } catch (error) {
     console.error(`::error::native auto-merge guard: conferma HEAD fallita: ${String(error).slice(0, 240)}`);
     process.exitCode = 1;
@@ -787,7 +853,9 @@ function main() {
   let finalCheckRuns;
   let finalVerifiedTestOnlyReview;
   let finalReviewGateEvidence;
+  let finalChangedFileSnapshot;
   try {
+    finalChangedFileSnapshot = loadChangedFiles(repo, prNumber);
     finalReviews = loadReviews(repo, prNumber);
     finalCheckRuns = loadCheckRuns(repo, current.headRefOid);
     finalVerifiedTestOnlyReview = loadVerifiedTestOnlyReview(
@@ -819,6 +887,8 @@ function main() {
     verifiedTestOnlyReview: finalVerifiedTestOnlyReview,
     reviewGateEvidence: finalReviewGateEvidence,
     repository: repo,
+    changedFiles: finalChangedFileSnapshot.files,
+    changedFilesComplete: finalChangedFileSnapshot.complete,
   });
   console.log(`Native auto-merge guard PR #${prNumber} final gate: ${finalDecision.reason}`);
   if (finalDecision.action === 'revoke') {
