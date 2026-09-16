@@ -3,6 +3,26 @@ import { describe, expect, it } from 'vitest';
 
 const workflow = readFileSync(new URL('../.github/workflows/issue-fix.yml', import.meta.url), 'utf8');
 
+describe('issue-fix F1/F7 policy gate', () => {
+  it('blocca prima di token App, quota, claim e agent', () => {
+    const start = workflow.indexOf('  risk_policy:');
+    const end = workflow.indexOf('\n  fix:', start);
+    const gate = workflow.slice(start, end);
+
+    expect(start).toBeGreaterThan(-1);
+    expect(end).toBeGreaterThan(start);
+    expect(gate).toContain('Checkout F1/F7 policy only');
+    expect(gate).toContain('classifyIssue(issue.title, issue.labels, issue.body ?? \'\')');
+    expect(gate).toContain('needs-human');
+    expect(gate).toContain('--remove-label "agent:fix"');
+    expect(gate).toContain('--remove-label "agent:fix-queued"');
+    expect(gate).toContain('--add-label "needs-human"');
+    expect(gate).not.toContain('Mint GitHub App token');
+    expect(workflow).toContain('needs: risk_policy');
+    expect(workflow).toContain("needs.risk_policy.outputs.blocked != 'true'");
+  });
+});
+
 describe('issue-fix FIX_OUTCOME backstop', () => {
   it('non lascia che un marker storico sopprima il run corrente', () => {
     expect(workflow).toMatch(/permissions:\n(?:  .*\n)*  actions: read\n/);

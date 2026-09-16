@@ -77,15 +77,98 @@ permissions:
   id-token: write
 
 jobs:
+  # This job is deliberately separate from the fixer: it runs with only the
+  # repository token, before the App token, quota lease, claim and agent. A
+  # policy read/parse error fails the dependency and therefore skips `fix`.
+  risk_policy:
+    if: |
+      github.event.label.name == 'agent:fix' &&
+      (github.event.sender.login == 'valerielinc-ops' ||
+       github.event.sender.login == 'frontaliere-automation[bot]' ||
+       startsWith(github.event.sender.login, 'claude'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    permissions:
+      contents: read
+      issues: write
+    outputs:
+      blocked: ${{ steps.risk.outputs.blocked }}
+    steps:
+      - name: Checkout F1/F7 policy only
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            scripts/lib/classify-issue.mjs
+            scripts/ci/lib/automation-risk-policy.mjs
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Evaluate F1/F7 automation policy (fail-closed)
+        id: risk
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          set -euo pipefail
+          issue_file="${RUNNER_TEMP}/issue-f1-f7.json"
+          gh issue view "$ISSUE_NUMBER" --repo "$REPO" --json title,body,labels > "$issue_file"
+          decision=$(node --input-type=module - "$issue_file" <<'NODE'
+          import fs from 'node:fs';
+          import { classifyIssue } from './scripts/lib/classify-issue.mjs';
+
+          const issue = JSON.parse(fs.readFileSync(process.argv[2], 'utf8'));
+          if (!issue || typeof issue.title !== 'string' || !Array.isArray(issue.labels)
+              || (issue.body !== null && typeof issue.body !== 'string')) {
+            throw new Error('issue metadata non verificabile per la policy F1/F7');
+          }
+          process.stdout.write(JSON.stringify(classifyIssue(issue.title, issue.labels, issue.body ?? '')));
+          NODE
+          )
+          blocked=$(jq -er '
+            if (.automationBlocked | type) == "boolean"
+              and (.humanApprovalRequired | type) == "boolean"
+              and (.riskDomains | type) == "array"
+            then (.automationBlocked | tostring)
+            else error("decisione F1/F7 non verificabile")
+            end' <<< "$decision")
+          domains=$(jq -er '(.riskDomains // []) | map(tostring) | join(", ")' <<< "$decision")
+          version=$(jq -er '.policyVersion | strings | select(length > 0)' <<< "$decision")
+          echo "policy=$version blocked=$blocked domains=${domains:-none}"
+          echo "blocked=$blocked" >> "$GITHUB_OUTPUT"
+
+          if [ "$blocked" != 'true' ]; then
+            exit 0
+          fi
+
+          echo "::warning::F1/F7 policy $version: domini=${domains:-non verificabili} → issue-fix fermo prima dell'agent."
+          if ! gh issue edit "$ISSUE_NUMBER" --repo "$REPO" \
+            --remove-label "agent:fix" --remove-label "agent:fix-queued" \
+            --add-label "needs-human"; then
+            echo "::error::F1/F7 escalation label non applicata; il job fixer dipendente resta bloccato."
+            exit 1
+          fi
+          gh issue comment "$ISSUE_NUMBER" --repo "$REPO" --body "⛔ **Automazione F1/F7 arrestata** (policy $version). Domini: ${domains:-non verificabili}. La issue è stata tolta dal routing automatico e marcata needs-human: serve una gestione umana separata e verificabile; nessun fixer o auto-merge viene autorizzato da questo percorso." \
+            || echo "::warning::commento di escalation F1/F7 non postato (label needs-human applicata)."
+
   fix:
+    needs: risk_policy
     # Gate (tutti necessari):
     # - L'evento è l'aggiunta della label `agent:fix` (opt-in esplicito, mai
-    #   trigger su qualunque label). Solo collaborator/owner possono labellare,
-    #   quindi la label È il consenso umano.
+    #   trigger su qualunque label). Solo collaborator/owner possono labellare.
+    # - Il job `risk_policy` ha già verificato che l'issue non appartenga a un
+    #   dominio F1/F7 e che il routing automatico sia consentito.
     # - sender == owner: belt-and-suspenders contro label aggiunte da automation
     #   esterne / bot non fidati.
     # - Auth via CODEX_AUTH_JSON (private Codex broker, zero API cost).
     if: |
+      needs.risk_policy.result == 'success' &&
+      needs.risk_policy.outputs.blocked != 'true' &&
       github.event.label.name == 'agent:fix' &&
       (github.event.sender.login == 'valerielinc-ops' ||
        github.event.sender.login == 'frontaliere-automation[bot]' ||
@@ -995,7 +1078,7 @@ jobs:
             **Bootstrap (in quest'ordine):**
             1. Leggi `ISSUES.md` → "Fix flow" — contratto operativo del fixer.
             2. Il contratto vincolante di `AGENTS.md` è già iniettato sopra. Leggi da `AGENTS.md` solo le sezioni operative necessarie, inclusa l'architettura, dopo aver caricato il contratto.
-            2b. Leggi `VISION.md` per i driver di decisione: quando un driver copre una scelta (D1-D8), DECIDI e procedi citandolo nel body della PR. La sezione «Sempre umano» è stata RIMOSSA il 2026-08-24 (istruzione diretta del proprietario): nessuna categoria di business — LPD, denaro, invii massivi, ritiro editoriale, scope, infra irreversibile inclusi — richiede più un'approvazione preventiva. Scala a `needs-human` SOLO un blocco di capacità reale (credenziale davvero assente, scope insufficiente, causa non trovata dopo indagine) — mai più per una decisione che il ciclo può prendere da sé.
+            2b. Leggi `VISION.md` per i driver di decisione: quando un driver copre una scelta (D1-D8), DECIDI e procedi citandolo nel body della PR. Eccezione strutturale F1/F7: il job `risk_policy` ha già escluso i domini `deploy-workflow-functions`, `secrets-roles-permissions`, `billing-revenue-partner`, `published-content-seo-auto-ads` e `outreach-communications`; se la policy è non verificabile, questo job non avvia il fixer. Non rimuovere `needs-human`, non riapplicare `agent:fix` e non cercare un bypass: una gestione umana separata deve verificare l'oggetto fuori dal percorso autonomo.
             Il registro delle decisioni è stato precaricato deterministicamente dal workflow (zero-Claude) e va trattato come fonte vincolante; non cercare il file e non ri-chiedere ciò che è già deciso:
 
             ### Registro delle decisioni del proprietario (iniettato dal workflow)

@@ -48,6 +48,8 @@ function pr(overrides: Record<string, unknown> = {}) {
     baseRefName: 'main',
     headRefOid: HEAD,
     autoMergeRequest: null,
+    changedFiles: ['src/safe.ts'],
+    changedFilesComplete: true,
     ...overrides,
   };
 }
@@ -153,6 +155,77 @@ describe('native auto-merge gate (#8512)', () => {
 
     expect(result.allow).toBe(true);
     expect(result.reason).toContain('success');
+  });
+
+  it.each([
+    ['deploy/workflow/functions', '.github/workflows/release.yml', 'deploy-workflow-functions'],
+    ['secrets/ruoli/permessi', 'config/iam/roles.yml', 'secrets-roles-permissions'],
+    ['billing/revenue/partner', 'services/partner/billing.ts', 'billing-revenue-partner'],
+    ['contenuti pubblicati/SEO/Auto Ads', 'packages/articles/content/guide.md', 'published-content-seo-auto-ads'],
+    ['outreach/comunicazioni', 'scripts/newsletter/send.mjs', 'outreach-communications'],
+  ])('non abilita native auto-merge per %s', (_label, changedFile, domain) => {
+    const result = evaluateNativeAutoMerge({
+      pr: pr({ changedFiles: [changedFile] }),
+      reviews: [review(CLEAN_BODY)],
+      checkRuns: [vitest()],
+    });
+
+    expect(result).toMatchObject({
+      allow: false,
+      humanApprovalRequired: true,
+      humanApprovalVerified: false,
+    });
+    expect(result.riskDomains).toContain(domain);
+  });
+
+  it('mantiene il deny anche quando una review umana separata è verificata', () => {
+    const human = {
+      id: 9,
+      user: { type: 'User', login: 'owner' },
+      state: 'APPROVED',
+      commit_id: HEAD,
+      submitted_at: '2026-09-13T12:02:00Z',
+    };
+    const result = evaluateNativeAutoMerge({
+      pr: pr({ changedFiles: ['.github/workflows/release.yml'] }),
+      reviews: [human],
+      checkRuns: [vitest()],
+    });
+
+    expect(result).toMatchObject({
+      allow: false,
+      humanApprovalRequired: true,
+      humanApprovalVerified: true,
+      humanApprovalReviewId: 9,
+    });
+    expect(result.reason).toMatch(/gestione umana separata/i);
+  });
+
+  it('nega per default con file list non verificabile', () => {
+    expect(evaluateNativeAutoMerge({
+      pr: pr({ changedFilesComplete: false }),
+      reviews: [review(CLEAN_BODY)],
+      checkRuns: [vitest()],
+    })).toMatchObject({
+      allow: false,
+      humanApprovalRequired: true,
+      humanApprovalVerified: false,
+    });
+  });
+
+  it('revoca un opt-in native persistente quando il diff entra in un dominio F1/F7', () => {
+    expect(revalidateNativeAutoMerge({
+      pr: pr({
+        autoMergeRequest: { enabledAt: '2026-09-13T12:00:00Z' },
+        changedFiles: ['.github/workflows/release.yml'],
+      }),
+      reviews: [review(CLEAN_BODY)],
+      checkRuns: [vitest()],
+    })).toMatchObject({
+      allow: false,
+      action: 'revoke',
+      humanApprovalRequired: true,
+    });
   });
 
   it('allows outside-diff findings only with the structured successful review-gate proof', () => {
@@ -615,6 +688,7 @@ describe('native auto-merge workflow wiring (#8512)', () => {
     expect(workflow).toContain('NATIVE_AUTOMERGE_BOOTSTRAP_READY=false');
     expect(workflow).toContain('gate_tmp="$helper_dir/native-automerge-gate-check.mjs"');
     expect(workflow).toContain('scripts/ci/review-test-policy.mjs?ref=main');
+    expect(workflow).toContain('scripts/ci/lib/automation-risk-policy.mjs?ref=main');
     expect(workflow).toContain('scripts/ci/lib/fetchPrFiles.mjs?ref=main');
     expect(workflow).toContain('scripts/ci/lib/vitestCheck.mjs?ref=main');
     expect(workflow).toContain('node --check "$gate_tmp"');
@@ -630,6 +704,7 @@ describe('native auto-merge workflow wiring (#8512)', () => {
     expect(retry).toContain('sort_by(.createdAt) | reverse | .[].number');
     expect(retry).toContain('gate_tmp="$helper_dir/native-automerge-gate-check.mjs"');
     expect(retry).toContain('scripts/ci/review-test-policy.mjs?ref=main');
+    expect(retry).toContain('scripts/ci/lib/automation-risk-policy.mjs?ref=main');
     expect(retry).toContain('scripts/ci/lib/fetchPrFiles.mjs?ref=main');
     expect(retry).toContain('scripts/ci/lib/vitestCheck.mjs?ref=main');
     expect(retry).toContain('node --check "$gate_tmp"');
