@@ -6449,6 +6449,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.bak-economics-pil-2026-18.title': 'BAK Economics: Pil 2026 a +1,8%, possibile rialzo tassi',
     'blog.article.bak-economics-pil-2026-18.excerpt': 'L\'istituto renano alza la stima di crescita al 1,8% e ipotizza un intervento della BNS già a dicembre.',
     'blog.article.bak-economics-pil-2026-18.imageAlt': 'Vista panoramica sulle Alpi e il Lago di Lugano al mattino, luce dorata su montagne svizzere.',
+    'blog.article.too-big-to-fail-consiglio-stati.title': 'Too big to fail: il Consiglio degli Stati discute le regole UBS',
+    'blog.article.too-big-to-fail-consiglio-stati.excerpt': 'La regolamentazione per gli istituti too big to fail al centro del dibattito parlamentare. Il PLR propone di affidare le regole al Consiglio federale.',
+    'blog.article.too-big-to-fail-consiglio-stati.imageAlt': 'Palazzo federale a Berna dove si discute la regolamentazione bancaria',
 };
 
 export default blogMetaChIt;
