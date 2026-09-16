@@ -13,6 +13,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import {
   appendJsonlSerialized,
+  validateLifecycleCandidateTerminalChain,
   validateLifecycleEvent,
   validateLoopRegistry,
 } from '../lib/loop-fleet-contract.mjs';
@@ -113,6 +114,7 @@ export function appendLoopFleetLifecycle({
   const target = path.resolve(ledgerDir, 'lifecycle-events.jsonl');
   const existing = readJsonl(target, 'durable lifecycle ledger');
   const byId = new Map();
+  const existingByCandidate = new Map();
   for (const [index, event] of existing.entries()) {
     validateDurableEvent(registry, event, `durable lifecycle event ${index + 1}`);
     const previous = byId.get(event.recordId);
@@ -120,6 +122,33 @@ export function appendLoopFleetLifecycle({
       throw new Error(`durable lifecycle ledger has conflicting duplicate ${event.recordId}`);
     }
     byId.set(event.recordId, event);
+    if (!existingByCandidate.has(event.candidateId)) existingByCandidate.set(event.candidateId, []);
+    existingByCandidate.get(event.candidateId).push(event);
+  }
+
+  // Resolve all input conflicts before the first write. Only candidates with a
+  // genuinely new record are chain-validated; replaying an already persisted
+  // batch must not retroactively reject historical read-only state.
+  const newById = new Map();
+  for (const event of input) {
+    const previous = byId.get(event.recordId) || newById.get(event.recordId);
+    if (previous && !sameRecord(previous, event)) {
+      throw new Error(`durable lifecycle ledger has conflicting duplicate ${event.recordId}`);
+    }
+    if (!previous) newById.set(event.recordId, event);
+  }
+
+  const candidateEventsToValidate = new Map();
+  for (const event of newById.values()) {
+    if (!candidateEventsToValidate.has(event.candidateId)) {
+      candidateEventsToValidate.set(event.candidateId, [
+        ...(existingByCandidate.get(event.candidateId) || []),
+      ]);
+    }
+    candidateEventsToValidate.get(event.candidateId).push(event);
+  }
+  for (const [candidateId, candidateEvents] of candidateEventsToValidate.entries()) {
+    validateLifecycleCandidateTerminalChain(candidateId, candidateEvents);
   }
 
   let appended = 0;

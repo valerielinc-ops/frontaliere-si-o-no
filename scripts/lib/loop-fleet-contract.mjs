@@ -700,6 +700,34 @@ function terminalLifecycleErrors(events, eventTypes) {
   return errors;
 }
 
+/**
+ * Validate terminal invariants for a candidate before a new event is written.
+ * Read-only summaries report these contradictions; writers must reject them.
+ */
+export function validateLifecycleCandidateTerminalChain(candidateId, events) {
+  const normalizedCandidateId = requireText(candidateId, 'candidateId');
+  if (!Array.isArray(events) || events.length === 0) {
+    fail(`${normalizedCandidateId}.lifecycle events must be a non-empty array`);
+  }
+  for (const event of events) {
+    const eventCandidateId = requireText(event?.candidateId, `${normalizedCandidateId}.candidateId`);
+    if (eventCandidateId !== normalizedCandidateId) {
+      fail(`${normalizedCandidateId}.lifecycle event belongs to ${eventCandidateId}`);
+    }
+  }
+  const eventTypes = [...new Set(events.map((event) => event.eventType))];
+  const errors = [
+    ...terminalLifecycleErrors(events, eventTypes),
+    ...TERMINAL_LIFECYCLE_EVENTS
+      .filter((eventType) => events.filter((event) => event.eventType === eventType).length > 1)
+      .map((eventType) => `${eventType} appears more than once`),
+  ];
+  if (errors.length) {
+    fail(`${normalizedCandidateId}.lifecycle terminal chain is incoherent: ${errors.join('; ')}`);
+  }
+  return { candidateId: normalizedCandidateId, eventTypes };
+}
+
 function lifecycleDeadline(startAt, hours) {
   const startMs = Date.parse(startAt || '');
   return Number.isFinite(startMs) && Number.isInteger(hours) && hours > 0
