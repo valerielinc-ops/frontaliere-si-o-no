@@ -196,7 +196,6 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: coop-ticino
           JOBS_SLICE_FILE: data/jobs/by-crawler/coop-ticino.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-01"
