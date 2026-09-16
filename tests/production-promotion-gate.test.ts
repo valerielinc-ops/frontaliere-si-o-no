@@ -245,6 +245,11 @@ describe('production promotion admission', () => {
       'validate-recovery-source',
       'recovery-production-approval',
     ]));
+    const markGood = publish.steps.find((step: any) => step.name === 'Mark this deploy as last_known_good');
+    expect(markGood?.run).toContain('EFFECTIVE_DEPLOY_RUN_ID');
+    expect(markGood?.run).toContain('EFFECTIVE_DEPLOY_REF');
+    expect(markGood?.run).not.toContain('${{ github.run_id }}');
+    expect(markGood?.run).not.toContain('${{ github.sha }}');
     expect(JSON.stringify(publish)).toContain('workflow_call');
     expect(JSON.stringify(publish)).toContain('workflow_dispatch');
   });
@@ -276,6 +281,13 @@ describe('production promotion admission', () => {
     const dist = readWorkflow('post-deploy-validate-dist.yml');
     const postDeployPublish = readWorkflow('post-deploy-publish.yml');
 
+    expect(build.permissions).toEqual({ contents: 'read' });
+    expect(build.jobs['matrix-setup'].permissions).toBeUndefined();
+    expect(build.jobs.prep.permissions).toBeUndefined();
+    expect(build.jobs['build-locale'].permissions).toMatchObject({
+      pages: 'write',
+      'id-token': 'write',
+    });
     expect(JSON.stringify(build.jobs.prep)).not.toMatch(/secrets\.|load-rc-env|Remote Config|FIREBASE/i);
     expect(publish.jobs['validate-dist'].secrets).toBeUndefined();
     expect(JSON.stringify(dist)).not.toMatch(/secrets\.|load-rc-env|Remote Config|FIREBASE/i);

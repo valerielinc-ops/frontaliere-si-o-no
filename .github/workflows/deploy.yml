@@ -122,9 +122,6 @@ permissions:
   # sync moved to post-deploy-validation.yml, while the deploy itself only
   # uploads artifacts and publishes to GitHub Pages.
   contents: read
-  pages: write
-  id-token: write
-  issues: write     # for github-issue-creator on build/deploy failure
 
 # Workflow-level serialisation of the BUILD block (matrix-setup → prep →
 # build-locale ×4). Exactly one build run is active at a time; newer pushes
