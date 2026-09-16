@@ -106,7 +106,7 @@ describe('anti-loop — bounded come il gemello', () => {
     // consumasse il round, un fixer che crasha sistematicamente girerebbe
     // all'infinito. L'anti-loop vale più del round sprecato.
     const i = src.indexOf('REDCHECK_FIX_ROUND: %s');
-    const j = src.indexOf('Run Claude');
+    const j = src.indexOf('Run Codex Luna Max');
     expect(i).toBeGreaterThan(0);
     expect(i).toBeLessThan(j);
   });

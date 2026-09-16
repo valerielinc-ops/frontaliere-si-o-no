@@ -349,7 +349,7 @@ export function reviewGateEvidenceDecision({
 
   return {
     allow: true,
-    reason: 'step Require approving Claude review successivo alla review raw sulla stessa HEAD',
+    reason: 'step Require approving Codex review successivo alla review raw sulla stessa HEAD',
     runId: workflow.id,
     jobId: job.id,
     checkId: check.id,

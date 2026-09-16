@@ -22,7 +22,7 @@ describe('post-merge follow-up mint gates', () => {
 
     const quotaTelemetry = steps.find((step) => step.id === 'quota');
     expect(quotaTelemetry).toMatchObject({
-      name: 'Pre-flight — quota telemetry (Codex primary)',
+      name: 'Pre-flight — Codex lane quota telemetry',
       'continue-on-error': true,
     });
   });

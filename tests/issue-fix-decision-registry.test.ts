@@ -26,7 +26,7 @@ describe('issue-fix — il registro delle decisioni arriva al fixer', () => {
     expect(decisions.match(/^\| \d{4}-\d{2}-\d{2} \| /gm)?.length ?? 0).toBeGreaterThan(0);
   });
 
-  it('collega lo stesso file allo step output e al prompt Claude', () => {
+  it('collega lo stesso file allo step output e al prompt Codex', () => {
     expect(tierStart).toBeGreaterThanOrEqual(0);
     expect(tier).toContain('DECISIONS_FILE="DECISIONS.md"');
     expect(tier).toContain('DECISIONS_MAX_BYTES=12288');
