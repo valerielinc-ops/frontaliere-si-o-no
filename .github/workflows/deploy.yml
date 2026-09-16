@@ -394,6 +394,11 @@ jobs:
       # flip one true without the other in the SAME deploy.
       ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
       ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
+      # Jobs SEO HTML reuse is deliberately repository-variable opt-in. An
+      # unset variable keeps the old build path byte-for-byte: no HTML cache
+      # restore, no reuse reads, and no extra current-cache writes.
+      JOBS_SEO_REUSE: ${{ vars.JOBS_SEO_REUSE == '1' && '1' || '' }}
+      JOBS_SEO_REUSE_VERIFY: ${{ vars.JOBS_SEO_REUSE_VERIFY == '1' && '1' || '' }}
     steps:
       # #7106 — anchors the CDN gate's job-deadline safety margin (see "WHY A
       # THIRD CLOCK" in scripts/lib/wait-cdn-build-id.sh) to this leg's REAL
@@ -515,10 +520,11 @@ jobs:
           restore-keys: |
             og-jobs-${{ runner.os }}-
 
-      # Shadow-only manifest carry (#8878 1b): each locale owns one JSONL
+      # Incremental manifest carry (#8878 1b): each locale owns one JSONL
       # snapshot, restored from the newest previous run and saved under a
-      # unique run key after all build steps have finished. The manifest is
-      # diagnostic only; no output reuse or delta push is enabled here.
+      # unique run key after all build steps have finished. It remains
+      # diagnostic-only by default; the separate jobs SEO HTML cache below is
+      # also opt-in through the repository variable JOBS_SEO_REUSE=1.
       - name: Restore previous incremental manifest
         id: incremental-manifest-cache
         uses: actions/cache/restore@v5
@@ -527,6 +533,19 @@ jobs:
           key: incremental-manifest-${{ matrix.locale }}-${{ github.run_id }}
           restore-keys: |
             incremental-manifest-${{ matrix.locale }}-
+
+      # Opt-in only. The key is derived from the restored previous manifest,
+      # so a matching input-hash snapshot brings back the corresponding raw
+      # HTML blobs without cloning a previous dist/shard.
+      - name: Restore previous jobs SEO HTML cache
+        if: env.JOBS_SEO_REUSE == '1'
+        id: jobs-seo-html-cache
+        uses: actions/cache/restore@v5
+        with:
+          path: .cache/incremental-html
+          key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}
+          restore-keys: |
+            jobs-seo-html-${{ matrix.locale }}-
 
       - name: Stash previous incremental manifest before build overwrites it
         shell: bash
@@ -2952,6 +2971,15 @@ jobs:
           ' | HISTORY_LABEL=build-history-manifest \
               HISTORY_COMMIT_MSG="chore(build-history): append ${ROW_LOCALE} incremental manifest run ${ROW_RUN_ID}" \
               bash scripts/lib/append-build-history-row.sh
+
+      # Keep the blobs alongside the manifest snapshot for the next opt-in
+      # run. A failed/incomplete build must never become the reusable source.
+      - name: Save jobs SEO HTML cache
+        if: success() && env.JOBS_SEO_REUSE == '1' && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != '' && hashFiles('.cache/incremental-html/**') != ''
+        uses: actions/cache/save@v5
+        with:
+          path: .cache/incremental-html
+          key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}
 
       # Save the current shadow snapshot only after the report and history row:
       # the run-specific key is unique, while restore-keys above picks the
