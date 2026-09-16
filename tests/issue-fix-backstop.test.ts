@@ -9,6 +9,14 @@ import { classifyIssue } from '../scripts/lib/classify-issue.mjs';
 import { classifyAutomationRisk } from '../scripts/ci/lib/automation-risk-policy.mjs';
 
 const workflow = readFileSync(new URL('../.github/workflows/issue-fix.yml', import.meta.url), 'utf8');
+const alreadyResolvedGate = readFileSync(
+  new URL('../scripts/ci/check-issue-already-resolved.mjs', import.meta.url),
+  'utf8',
+);
+const workflowScopeGate = readFileSync(
+  new URL('../scripts/ci/check-workflows-scope.mjs', import.meta.url),
+  'utf8',
+);
 const repositoryRoot = fileURLToPath(new URL('..', import.meta.url));
 
 function extractInlineRiskScript() {
@@ -265,6 +273,26 @@ describe('issue-fix F1/F7 policy gate', () => {
     expect(workflow).toMatch(
       /if: always\(\) && steps\.issue_snapshot\.outputs\.verified == 'true'/u,
     );
+  });
+
+  it('fa consumare ai preflight lo stesso snapshot senza fallback live', () => {
+    const preflight = workflow.indexOf('id: preflight');
+    const scopeGuard = workflow.indexOf('id: scope_guard');
+    const tier = workflow.indexOf('- name: Determine fix tier');
+
+    expect(workflow.slice(preflight, tier)).toContain(
+      'ISSUE_FIX_SNAPSHOT_FILE: ${{ runner.temp }}/issue-fix-ctx/issue.json',
+    );
+    expect(workflow.slice(scopeGuard, tier)).toContain(
+      'ISSUE_FIX_SNAPSHOT_FILE: ${{ runner.temp }}/issue-fix-ctx/issue.json',
+    );
+    for (const source of [alreadyResolvedGate, workflowScopeGate]) {
+      const snapshotBranch = source.indexOf('if (ISSUE_FIX_SNAPSHOT_FILE)');
+      const liveRead = source.indexOf("['issue', 'view', ISSUE");
+      expect(snapshotBranch).toBeGreaterThan(-1);
+      expect(liveRead).toBeGreaterThan(snapshotBranch);
+      expect(source).toContain('proceeding without a live fallback');
+    }
   });
 
   it('usa actor type e login esatti, senza prefissi aggirabili', () => {

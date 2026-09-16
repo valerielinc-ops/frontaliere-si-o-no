@@ -679,6 +679,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_FIX_SNAPSHOT_FILE: ${{ runner.temp }}/issue-fix-ctx/issue.json
         # STRUCTURAL fix per escalation #1647 (`fix-outcome:already-fixed` 10×/14d).
         # Prima di spendere un run Claude, controlla deterministicamente se questa
         # follow-up è già stata risolta su main da una PR successiva senza `Closes #N`
@@ -728,6 +729,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_FIX_SNAPSHOT_FILE: ${{ runner.temp }}/issue-fix-ctx/issue.json
         # STRUCTURAL fix for escalation #4227 (`fix-outcome:blocked-workflows-scope`
         # 12×/14d — #4140 #4160 #4189 #4244 #4256 #4266 #4284 #4322 #4365 #4370 #4375 and
         # more). scripts/ci/check-workflows-scope.mjs was built for a prior escalation
