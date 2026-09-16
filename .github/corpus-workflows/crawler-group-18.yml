@@ -184,7 +184,6 @@ jobs:
         id: crawler-launch-tertianum
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-tertianum.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_TERTIANUM_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -273,7 +272,6 @@ jobs:
         id: crawler-launch-etat-de-vaud
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-etat-de-vaud.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_ETAT_DE_VAUD_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -362,7 +360,6 @@ jobs:
         id: crawler-launch-rheinmetall-air-defence
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-rheinmetall-air-defence.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_RHEINMETALL_AIR_DEFENCE_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -451,7 +448,6 @@ jobs:
         id: crawler-launch-trumpf
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-trumpf.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_TRUMPF_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -540,7 +536,6 @@ jobs:
         id: crawler-launch-sfs-group
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-sfs-group.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_SFS_GROUP_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -629,7 +624,6 @@ jobs:
         id: crawler-launch-usi
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-usi.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_USI_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -718,7 +712,6 @@ jobs:
         id: crawler-launch-ksml
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-ksml.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_KSML_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -807,7 +800,6 @@ jobs:
         id: crawler-launch-spital-lachen
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-spital-lachen.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_SPITAL_LACHEN_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -896,7 +888,6 @@ jobs:
         id: crawler-launch-kanton-zuerich
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-kanton-zuerich.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_KANTON_ZUERICH_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -985,7 +976,6 @@ jobs:
         id: crawler-launch-zuger-kantonsspital
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-zuger-kantonsspital.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_ZUGER_KANTONSSPITAL_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1074,7 +1064,6 @@ jobs:
         id: crawler-launch-sicpa
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-sicpa.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_SICPA_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1163,7 +1152,6 @@ jobs:
         id: crawler-launch-hofweissbad
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-hofweissbad.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_HOFWEISSBAD_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1252,7 +1240,6 @@ jobs:
         id: crawler-launch-tinext
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-tinext.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_TINEXT_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1341,7 +1328,6 @@ jobs:
         id: crawler-launch-apleona-schweiz-ag
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-apleona-schweiz-ag.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_APLEONA_SCHWEIZ_AG_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1453,7 +1439,6 @@ jobs:
         id: crawler-launch-pkb-private-bank
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-pkb-private-bank.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_PKB_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1542,7 +1527,6 @@ jobs:
         id: crawler-launch-klinik-schloss-mammern
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-klinik-schloss-mammern.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_KLINIK_SCHLOSS_MAMMERN_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1631,7 +1615,6 @@ jobs:
         id: crawler-launch-zermatt-bergbahnen
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-zermatt-bergbahnen.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_ZERMATT_BERGBAHNEN_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1720,7 +1703,6 @@ jobs:
         id: crawler-launch-etat-de-fribourg
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-etat-de-fribourg.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_ETAT_DE_FRIBOURG_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1809,7 +1791,6 @@ jobs:
         id: crawler-launch-huber-suhner
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-huber-suhner.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_HUBER_SUHNER_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1898,7 +1879,6 @@ jobs:
         id: crawler-launch-canton-valais
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-canton-valais.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_CANTON_VALAIS_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1987,7 +1967,6 @@ jobs:
         id: crawler-launch-constellium
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-constellium.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_CONSTELLIUM_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2076,7 +2055,6 @@ jobs:
         id: crawler-launch-empa
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-empa.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_EMPA_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2165,7 +2143,6 @@ jobs:
         id: crawler-launch-kantonsspital-uri
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-kantonsspital-uri.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_KANTONSSPITAL_URI_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2254,7 +2231,6 @@ jobs:
         id: crawler-launch-bobst
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-bobst.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_BOBST_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2343,7 +2319,6 @@ jobs:
         id: crawler-launch-bally
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-bally.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_BALLY_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2432,7 +2407,6 @@ jobs:
         id: crawler-launch-baloise
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-baloise.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_BALOISE_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2521,7 +2495,6 @@ jobs:
         id: crawler-launch-etavis
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-etavis.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_ETAVIS_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2610,7 +2583,6 @@ jobs:
         id: crawler-launch-amina-bank
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-amina-bank.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_AMINA_BANK_STRICT: ${{ inputs.strict_localization || '1' }}

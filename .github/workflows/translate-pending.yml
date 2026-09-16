@@ -146,13 +146,14 @@ jobs:
       - name: Load RC secrets
         run: node scripts/load-rc-env.mjs
 
-      # ── Claude CLI Haiku fallback (ON by default, kill-switch '0') ──────
+      # ── Codex Luna Max article lane (ON by default, historical kill-switch '0') ──
       # Phase 2b cascade (relocalize-pending-jobs.mjs -> dedicated-crawler-
       # common.mjs -> ai-models.mjs) — tier-0 in ai-models.mjs's DEFAULT_CHAIN
       # by default since 2026-07-29 (AI_COMPETING_TIERS), competing on real
       # score instead of being reached only after every free-tier model has
-      # failed. See .github/actions/setup-claude-haiku-fallback/action.yml
-      # for the full rationale + incident history.
+      # failed. The setup action exposes only a private Codex broker socket to
+      # the translation process; its subscription credential never enters the
+      # job environment.
       - id: setup_claude_haiku_fallback
         uses: ./.github/actions/setup-claude-haiku-fallback
         with:
@@ -332,42 +333,10 @@ jobs:
         if: inputs.skip_translate != true
         env:
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
-          # Auth for the opt-in Claude CLI Haiku fallback (tier-0 by default
-          # since 2026-07-29 — see AI_COMPETING_TIERS in ai-models.mjs; see
-          # "Setup Claude CLI Haiku fallback" step above). Harmless to always
-          # pass: ai-models.mjs only offers the model when this AND the RC
-          # flag are both set.
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          # ── More Haiku (#5650) ────────────────────────────────────────────
-          # Being ELIGIBLE was never the problem. claude-cli has been tier-0
-          # (AI_COMPETING_TIERS) since 2026-07-29, and promotion only removes
-          # the tier penalty — inside tier 0 the order is by accumulated score,
-          # and a tier that is never called accumulates none. So it sat at score
-          # 0 behind every free model with a positive history. Measured on run
-          # 31690534255 (2026-08-13, this workflow): 46 free models exhausted,
-          # 12 fallbacks, and `last-resort: … claude-cli not reached this run`
-          # — not skipped, not failed: never reached, on every one of the run's
-          # AI summaries.
-          #
-          # AI_MODELS_PREFER moves it to the FRONT of the score-sorted chain
-          # while keeping the entire chain behind it as fallback (unlike
-          # AI_MODELS_FORCE_CHAIN, which would truncate to just this model).
-          # Haiku is paid on the existing Max subscription and converts instead
-          # of 429-ing, which is what makes the raised cap below reachable: the
-          # cascade's cost per job is dominated by falling through exhausted
-          # free providers, not by the translation itself.
-          # Revert: delete this line (chain returns to pure score order).
-          AI_MODELS_PREFER: claude-cli/haiku
-          # The cap that actually bounds Haiku usage. Default is 25/run because
-          # this quota is SHARED with pr-review-loop.yml / issue-fix.yml, and
-          # starving those would stall the merge pipeline. Raised to 300 to
-          # match the cascade cap below (900 jobs, of which only the LLM
-          # localization path calls a model at all — measured 21 callLLM calls
-          # per 100 jobs on run 31690534255, so ~190 at 900 jobs; 300 leaves
-          # headroom without unbounding it). This is the declared cost lever:
-          # raise it further only with the review loop's usage in hand.
-          CLAUDE_CLI_MAX_CALLS_PER_RUN: '300'
+          # Prefer the subscribed Codex lane while preserving every existing
+          # provider as a fallback when the broker is unavailable.
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
           # Cap the slow cascade's run-wide deadline so it does a SHORT top-up pass
           # instead of expanding to fill 250min (measured: Phase 2b grew to 229min /
           # ~269min total on run 28074729486 even though Phase 2a had already drained

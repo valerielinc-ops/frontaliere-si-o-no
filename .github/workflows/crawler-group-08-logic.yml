@@ -29,7 +29,7 @@
 # own ambient token is scoped to frontaliere-articles, not this repo;
 # (2) each crawler step's own `GH_TOKEN` env line is dropped (it would
 # shadow the GITHUB_PAT-derived one bootstrapped below with the wrong,
-# read-only ambient token). CLAUDE_CODE_OAUTH_TOKEN and
+# read-only ambient token). CODEX_AUTH_BROKER_SOCKET and
 # FIREBASE_SERVICE_ACCOUNT_JSON are read via the normal secrets context,
 # unchanged — the caller passes them explicitly through this workflow's
 # declared workflow_call secrets.
@@ -60,8 +60,6 @@ on:
         type: string
     secrets:
       FIREBASE_SERVICE_ACCOUNT_JSON:
-        required: false
-      CLAUDE_CODE_OAUTH_TOKEN:
         required: false
       CODEX_AUTH_JSON:
         required: false
@@ -126,7 +124,6 @@ jobs:
         id: crawler-launch-salina-reha
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-salina-reha.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_SALINA_REHA_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -216,7 +213,6 @@ jobs:
         id: crawler-launch-postch
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-postch.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_POSTCH_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -305,7 +301,6 @@ jobs:
         id: crawler-launch-thurklinik
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-thurklinik.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_THURKLINIK_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -394,7 +389,6 @@ jobs:
         id: crawler-launch-smg-swiss-marketplace-group
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-smg-swiss-marketplace-group.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_SMG_SWISS_MARKETPLACE_GROUP_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -483,7 +477,6 @@ jobs:
         id: crawler-launch-rieter
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-rieter.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_RIETER_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -572,7 +565,6 @@ jobs:
         id: crawler-launch-molecular-partners
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-molecular-partners.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_MOLECULAR_PARTNERS_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -661,7 +653,6 @@ jobs:
         id: crawler-launch-sro
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-sro.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_SRO_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -750,7 +741,6 @@ jobs:
         id: crawler-launch-victorinox
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-victorinox.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_VICTORINOX_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -839,7 +829,6 @@ jobs:
         id: crawler-launch-soh-solothurner-spitaeler
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-soh-solothurner-spitaeler.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_SOH_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -928,7 +917,6 @@ jobs:
         id: crawler-launch-patek-philippe
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-patek-philippe.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_PATEK_PHILIPPE_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1017,7 +1005,6 @@ jobs:
         id: crawler-launch-skyguide
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-skyguide.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_SKYGUIDE_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1106,7 +1093,6 @@ jobs:
         id: crawler-launch-klinik-schoenberg
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-klinik-schoenberg.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_KLINIK_SCHOENBERG_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1196,7 +1182,6 @@ jobs:
         id: crawler-launch-volg
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-volg.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_VOLG_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1285,7 +1270,6 @@ jobs:
         id: crawler-launch-fachkraft
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-fachkraft.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_FACHKRAFT_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1374,7 +1358,6 @@ jobs:
         id: crawler-launch-cs-bregaglia
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-cs-bregaglia.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_CS_BREGAGLIA_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1463,7 +1446,6 @@ jobs:
         id: crawler-launch-szb-chb
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-szb-chb.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_SZB_CHB_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1552,7 +1534,6 @@ jobs:
         id: crawler-launch-hes-so-valais
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-hes-so-valais.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_HESSO_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1641,7 +1622,6 @@ jobs:
         id: crawler-launch-josef-mueller
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-josef-mueller.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_JOSEF_MUELLER_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1730,7 +1710,6 @@ jobs:
         id: crawler-launch-caritas-schweiz
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-caritas-schweiz.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_CARITAS_SCHWEIZ_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1819,7 +1798,6 @@ jobs:
         id: crawler-launch-burkhalter
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-burkhalter.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_BURKHALTER_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1908,7 +1886,6 @@ jobs:
         id: crawler-launch-dic-sa
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-dic-sa.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           CRAWLER_SLICE_ONLY: "1"
@@ -1996,7 +1973,6 @@ jobs:
         id: crawler-launch-ehc-vd
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-ehc-vd.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_EHC_VD_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2085,7 +2061,6 @@ jobs:
         id: crawler-launch-chopard
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-chopard.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_CHOPARD_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2174,7 +2149,6 @@ jobs:
         id: crawler-launch-dxt
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-dxt.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_DXT_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2263,7 +2237,6 @@ jobs:
         id: crawler-launch-cds-savognin
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-cds-savognin.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_CDS_SAVOGNIN_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2352,7 +2325,6 @@ jobs:
         id: crawler-launch-has-healthcare
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-has-healthcare.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_HAS_HEALTHCARE_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2441,7 +2413,6 @@ jobs:
         id: crawler-launch-damiani
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-damiani.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_DAMIANI_STRICT: ${{ inputs.strict_localization || '1' }}

@@ -121,7 +121,6 @@ jobs:
         id: crawler-launch-merian-iselin
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-merian-iselin.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_MERIAN_ISELIN_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -211,7 +210,6 @@ jobs:
         id: crawler-launch-julius-baer
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-julius-baer.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_JULIUS_BAER_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -301,7 +299,6 @@ jobs:
         id: crawler-launch-hochgebirgsklinik-davos
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-hochgebirgsklinik-davos.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_HOCHGEBIRGSKLINIK_DAVOS_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -391,7 +388,6 @@ jobs:
         id: crawler-launch-srg-ssr
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-srg-ssr.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_SRG_SSR_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -481,7 +477,6 @@ jobs:
         id: crawler-launch-privatklinik-hohenegg
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-privatklinik-hohenegg.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_PRIVATKLINIK_HOHENEGG_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -571,7 +566,6 @@ jobs:
         id: crawler-launch-rolex
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-rolex.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_ROLEX_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -661,7 +655,6 @@ jobs:
         id: crawler-launch-spital-uster
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-spital-uster.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_SPITAL_USTER_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -751,7 +744,6 @@ jobs:
         id: crawler-launch-transgourmet
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-transgourmet.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_TRANSGOURMET_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -841,7 +833,6 @@ jobs:
         id: crawler-launch-reha-andeer
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-reha-andeer.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_REHA_ANDEER_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -932,7 +923,6 @@ jobs:
         id: crawler-launch-planzer
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-planzer.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_PLANZER_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1022,7 +1012,6 @@ jobs:
         id: crawler-launch-migrolino
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-migrolino.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_MIGROLINO_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1112,7 +1101,6 @@ jobs:
         id: crawler-launch-swatchgroup
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-swatchgroup.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_SWATCH_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1204,7 +1192,6 @@ jobs:
         id: crawler-launch-hopital-de-lavaux
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-hopital-de-lavaux.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_HOPITAL_DE_LAVAUX_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1294,7 +1281,6 @@ jobs:
         id: crawler-launch-gmo
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-gmo.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_GMO_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1384,7 +1370,6 @@ jobs:
         id: crawler-launch-privatklinik-bethanien
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-privatklinik-bethanien.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_PRIVATKLINIK_BETHANIEN_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1474,7 +1459,6 @@ jobs:
         id: crawler-launch-palliativklinik
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-palliativklinik.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_PALLIATIVKLINIK_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1564,7 +1548,6 @@ jobs:
         id: crawler-launch-fincons
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-fincons.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_FINCONS_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1654,7 +1637,6 @@ jobs:
         id: crawler-launch-denner
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-denner.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_DENNER_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1744,7 +1726,6 @@ jobs:
         id: crawler-launch-hoval
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-hoval.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
           JOBS_HOUSEKEEPING_SCOPE: hoval
           JOBS_SLICE_FILE: data/jobs/by-crawler/hoval.json
@@ -1830,7 +1811,6 @@ jobs:
         id: crawler-launch-croix-rouge-fribourgeoise
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-croix-rouge-fribourgeoise.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_CROIX_ROUGE_FRIBOURGEOISE_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -1920,7 +1900,6 @@ jobs:
         id: crawler-launch-modellstation-somosa
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-modellstation-somosa.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_MODELLSTATION_SOMOSA_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2011,7 +1990,6 @@ jobs:
         id: crawler-launch-epi-stiftung
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-epi-stiftung.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_EPI_STIFTUNG_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2101,7 +2079,6 @@ jobs:
         id: crawler-launch-hopital-du-valais
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-hopital-du-valais.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_HOPITAL_DU_VALAIS_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2191,7 +2168,6 @@ jobs:
         id: crawler-launch-arsante-clinique-de-carouge
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-arsante-clinique-de-carouge.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_ARSANTE_CLINIQUE_DE_CAROUGE_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2281,7 +2257,6 @@ jobs:
         id: crawler-launch-grand-resort-bad-ragaz
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-grand-resort-bad-ragaz.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_GRAND_RESORT_BAD_RAGAZ_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2371,7 +2346,6 @@ jobs:
         id: crawler-launch-abb
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-abb.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_ABB_STRICT: ${{ inputs.strict_localization || '1' }}
@@ -2461,7 +2435,6 @@ jobs:
         id: crawler-launch-ehnv
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-ehnv.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_EHNV_STRICT: ${{ inputs.strict_localization || '1' }}
