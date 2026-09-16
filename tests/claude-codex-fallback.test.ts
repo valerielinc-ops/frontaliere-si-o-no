@@ -100,6 +100,12 @@ const workflowNames = [
   'crawler-content-plausibility-audit.yml',
 ];
 
+const highConcurrencyReviewWorkflows = new Set([
+  'tests.yml',
+  'pr-redflag-fixer.yml',
+  'pr-redcheck-fixer.yml',
+]);
+
 const repoRoot = resolve(import.meta.dirname, '..');
 
 describe('decisione Claude → Codex', () => {
@@ -412,6 +418,30 @@ describe('validator dei bridge host-side', () => {
     try {
       expect(validatePrBodyContract(readFileSync(validBody, 'utf8')).ok).toBe(true);
       expect(validatePrBodyContract(readFileSync(invalidBody, 'utf8')).ok).toBe(false);
+      expect(validatePrBodyContract([
+        '## Implementato',
+        '- Body validation is enforced in questa PR.',
+        '',
+        '## Non implementato (ancora)',
+        '- Il finding è un falso positivo.',
+        '',
+      ].join('\n')).violations).toContain('decision deferrals require concrete Motivo and Prossimo passo');
+      expect(validatePrBodyContract([
+        '## Implementato',
+        '- Body validation is enforced in questa PR.',
+        '',
+        '## Non implementato (ancora)',
+        '- Il finding non è un falso positivo: va sistemato nel follow-up.',
+        '',
+      ].join('\n')).ok).toBe(true);
+      expect(validatePrBodyContract([
+        '## Implementato',
+        '- Body validation is enforced in questa PR.',
+        '',
+        '## Non implementato (ancora)',
+        '- Il finding è un falso positivo. **Motivo:** il parser ha un contratto diverso. **Prossimo passo:** verificare il fixture condiviso.',
+        '',
+      ].join('\n')).ok).toBe(true);
       expect(validateGhArgs(['pr', 'create', '--repo', 'owner/repo', '--body-file', validBody], context)).toBe('');
       expect(validateGhArgs(['pr', 'create', '--repo', 'owner/repo', '--body-file', invalidBody], context)).toMatch(/body contract/);
       expect(validateGhArgs(['pr', 'create', '--repo', 'owner/repo', '--body', 'inline body'], context)).toMatch(/inline/);
@@ -617,7 +647,12 @@ describe('copertura workflow diretti', () => {
     expect(workflow).toContain('codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}');
     expect(workflow).toContain('codex_github_token:');
     expect(workflow).toContain('github_token:');
-    expect(workflow).toContain("CODEX_FALLBACK_MODE: '1'");
+    if (highConcurrencyReviewWorkflows.has(workflowName)) {
+      expect(workflow).not.toContain("CODEX_FALLBACK_MODE: '1'");
+      expect(workflow).not.toContain('check-quota-backoff.mjs');
+    } else {
+      expect(workflow).toContain("CODEX_FALLBACK_MODE: '1'");
+    }
     expect(workflow).not.toContain('OPENAI_API_KEY');
     expect(workflow).not.toContain('CODEX_ACCESS_TOKEN');
   });
