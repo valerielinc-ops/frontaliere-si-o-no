@@ -43,8 +43,7 @@ import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import {
   buildMinimalJobInput,
-  INCREMENTAL_MANIFEST_ENABLED,
-  IncrementalManifest,
+  getIncrementalManifestMap,
   stableJobId,
 } from './shared/incrementalManifest.mjs';
 import {
@@ -725,13 +724,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // Shadow-only and opt-in: normal production builds allocate no manifest maps
  // and perform no shadow hashing. When enabled for a shard, allocate only the
  // locales that the same build leg owns and emits.
- const incrementalManifests = INCREMENTAL_MANIFEST_ENABLED
-  ? new Map(
-   JOB_SEO_LOCALES
-    .filter((locale) => shouldEmitLocale(locale))
-    .map((locale) => [locale, new IncrementalManifest(locale)]),
-  )
-  : null;
+ const incrementalManifests = getIncrementalManifestMap(
+  rootDir,
+  JOB_SEO_LOCALES.filter((locale) => shouldEmitLocale(locale)),
+ );
  const registerIncrementalPage = (locale: (typeof JOB_SEO_LOCALES)[number], pagePath: string, kind: string, input: unknown) => {
   incrementalManifests?.get(locale)?.register(pagePath, kind, input);
  };
@@ -14209,19 +14205,6 @@ ${staticAnalyticsHtml}
  const skipped = collector.skippedByHash;
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s` +
  (skipped > 0 ? ` (${skipped} skipped by content hash)` : ''));
- // Signal downstream consumers (relatedSearchClustersPlugin) that bridge
- // HTML is on disk. Without this, parallel closeBundle lets the cluster
- // sitemap be written before bridge writes flush, leaking non-self-
- // canonical bridge URLs into sitemap-search-clusters.xml.
- // Signal is also resolved on the jobs.json-missing early-return path above
- // (search resolveJobsSeoPagesFlushed), so EVERY normal exit of closeBundle
- // resolves jobsSeoPagesFlushed. The only way to reach this point without
- // having resolved it earlier is the happy path; the early-return covers the
- // jobless case. A thrown error propagates to Vite and fails the build
- // (fail-fast, not a deadlock). Hence the await in relatedSearchClustersPlugin
- // (cache-hit path L2190 + writeSitemap L2029) never hangs. (#947/#950)
- resolveJobsSeoPagesFlushed();
-
  // Print profiler summary in normal profiled CI builds; local opt-out:
  // JOBS_SEO_PROFILE=0.
  printJobsSeoProfile();
@@ -14334,15 +14317,21 @@ ${staticAnalyticsHtml}
  `(bridges=${fmtBytes(bridgeBytesSaved)}, soft-landings=${fmtBytes(softLandingBytesSaved)}, gsc-keyword=${fmtBytes(gscKeywordBytesSaved)})`
  );
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m ${trafficFilter.summary()}`);
- if (incrementalManifests) {
-  for (const manifest of incrementalManifests.values()) {
-   const manifestPath = manifest.write(rootDir);
-   const manifestData = manifest.toJSON();
-   console.log(
-    `\x1b[36m[jobs-seo-pages]\x1b[0m incremental manifest ${np.relative(rootDir, manifestPath)} ` +
-    `entries=${manifestData.counts.total} kinds=${JSON.stringify(manifestData.counts.byKind)}`,
-   );
+ try {
+  if (incrementalManifests) {
+   for (const manifest of incrementalManifests.values()) {
+    const manifestPath = manifest.write(rootDir);
+    const manifestData = manifest.toJSON();
+    console.log(
+     `\x1b[36m[jobs-seo-pages]\x1b[0m incremental manifest ${np.relative(rootDir, manifestPath)} ` +
+     `entries=${manifestData.counts.total} kinds=${JSON.stringify(manifestData.counts.byKind)}`,
+    );
+   }
   }
+ } finally {
+  // Resolve after the shared manifest write. The related plugin awaits this
+  // barrier before writing its own entries into the same per-locale map.
+  resolveJobsSeoPagesFlushed();
  }
  },
  };
