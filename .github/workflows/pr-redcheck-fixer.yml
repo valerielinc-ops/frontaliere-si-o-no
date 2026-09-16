@@ -20,8 +20,8 @@ name: PR ❌ check fixer (bounded, red required check on bot PRs)
 # della HEAD corrente (un rosso stantio non e' un difetto da fixare).
 #
 # ANTI-LOOP: marker `<!-- REDCHECK_FIX_ROUND: N -->`, cap 2 → `needs-human` e
-# STOP senza Claude, identico al gemello e per la stessa ragione (frugalita' di
-# quota: non bruciare turni in un loop che non converge).
+# STOP senza Claude, identico al gemello e per la stessa ragione: non ripetere
+# tentativi sullo stesso rosso quando il branch non sta avanzando.
 
 on:
   workflow_run:
@@ -376,7 +376,7 @@ jobs:
             echo "::warning::Round cap raggiunto ($ROUND >= $MAX_ROUNDS) → escalation needs-human, no Claude."
             gh pr edit "$PR_NUMBER" --repo "$REPO" --add-label "needs-human" 2>/dev/null \
               || echo "label needs-human assente — creala: gh label create needs-human"
-            gh pr comment "$PR_NUMBER" --repo "$REPO" --body "$(printf '🛑 **needs-human** (auto): il ❌-check-fixer ha già tentato %s round senza far tornare verde la CI. STOP automatico (anti-loop, frugalità quota). Serve revisione umana: apri il job fallito, leggi le righe \x60FAIL \x60 e applica il fix a mano.' "$ROUND")" \
+            gh pr comment "$PR_NUMBER" --repo "$REPO" --body "$(printf '🛑 **needs-human** (auto): il ❌-check-fixer ha già tentato %s round senza far tornare verde la CI. STOP automatico (anti-loop, nessun progresso). Serve revisione umana: apri il job fallito, leggi le righe \x60FAIL \x60 e applica il fix a mano.' "$ROUND")" \
               2>/dev/null || true
             echo "proceed=false" >> "$GITHUB_OUTPUT"
             exit 0
@@ -560,16 +560,6 @@ jobs:
           echo "$gate_dir" >> "$GITHUB_PATH"
           echo "PR_BODY_GATE_BIN=$gate_dir" >> "$GITHUB_ENV"
 
-      - name: Pre-flight — Claude quota telemetry (Codex primary)
-        id: quota
-        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_REPO: ${{ github.repository }}
-          CODEX_FALLBACK_MODE: '1'
-        run: node scripts/ci/check-quota-backoff.mjs
-
       - name: Run Claude ❌-check-fix
         id: claude_review
         if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
@@ -662,7 +652,7 @@ jobs:
             **Chiusura:**
             - Commit con l'identity già configurata (Valerie Linc <valerielinc@gmail.com>), messaggio conventional.
             - Push sullo stesso branch: `git push origin HEAD:${{ needs.preflight.outputs.head_ref }}`. Il remote `origin` è già autenticato → ri-attiva `tests` e `pr-review-loop`.
-            - Aggiorna il body della PR: scrivi il testo completo nel file assoluto `$RUNNER_TEMP/pr-redcheck-pr-body.md` (imposta `BODY_FILE` a quel path), esegui `node scripts/ci/pr-body-check-gate.mjs --body-file "$BODY_FILE"` e solo con exit 0 chiama `gh pr edit "$PR_NUMBER" --repo "$REPO" --body-file "$BODY_FILE"`. Non usare un body inline: il wrapper deterministico su `gh` blocca ogni riscrittura senza body-file o con body non conforme prima della chiamata remota. Mantieni `## Implementato` (aggiungi cosa hai riparato e perché il test falliva) + `## Non implementato (ancora)`, con lo stato letterale su ogni bullet: `in questa PR` / `PR concatenata #N` / `per scelta` / `by construction` / `blocked: <causa esterna reale>`.
+            - Aggiorna il body della PR: scrivi il testo completo nel file assoluto `$RUNNER_TEMP/pr-redcheck-pr-body.md` (imposta `BODY_FILE` a quel path), esegui `node scripts/ci/pr-body-check-gate.mjs --body-file "$BODY_FILE"` e solo con exit 0 chiama `gh pr edit "$PR_NUMBER" --repo "$REPO" --body-file "$BODY_FILE"`. Non usare un body inline: il wrapper deterministico su `gh` blocca ogni riscrittura senza body-file o con body non conforme prima della chiamata remota. Mantieni `## Implementato` (aggiungi cosa hai riparato e perché il test falliva) + `## Non implementato (ancora)`, con lo stato letterale su ogni bullet: `in questa PR` / `PR concatenata #N` / `per scelta` / `by construction` / `falso positivo` / `blocked: <causa esterna reale>`. Le deroghe decisionali (`per scelta`, `by construction`, `falso positivo`, `blocked: decisione del proprietario`) devono includere nello stesso bullet `**Motivo:** <causa concreta>. **Prossimo passo:** <azione concreta>.`; una deroga nuda o generica viene bloccata. Se stai solo rimandando il lavoro, usa `PR concatenata #N` o `blocked: <causa esterna reale>`.
 
             **Constraint:**
             - SOLO il check rosso. Non rifare la PR, non drive-by, non "già che ci sono".

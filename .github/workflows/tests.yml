@@ -159,7 +159,7 @@ jobs:
             // `per scelta`/`by construction` without a concrete reason and a
             // concrete next step used to look closed while silently dropping
             // the work from follow-up.
-            const DECISION_RE = /\bby construction\b|\bper (?:scelta|costruzione|design)\b|(?:è|e')\s+una\s+decisione\b|\bdi proposito\b|\bdeliberat\w*|\bblocked\s*:\s*(?:decisione del proprietario|owner decision)\b/i;
+            const DECISION_RE = /\bby construction\b|\bper (?:scelta|costruzione|design)\b|(?:è|e')\s+una\s+decisione\b|\bdi proposito\b|\bdeliberat\w*|\bblocked\s*:\s*(?:decisione del proprietario|owner decision)\b|(?<!\bnon\s+(?:è|sono|erano)\s+(?:un\s+|una\s+)?)\bfalso\s+positivo\b|(?<!\bnot\s+(?:a\s+)?)\bfalse\s+positive\b/iu;
             const DECISION_REASON_RE = /\b(?:motivo|ragione|reason)\s*:\s*(.+?)(?=\s+\b(?:prossimo\s+passo|next\s+step|azione\s+successiva)\s*:|$)/iu;
             const DECISION_NEXT_STEP_RE = /\b(?:prossimo\s+passo|next\s+step|azione\s+successiva)\s*:\s*(.+)$/iu;
             const DECISION_PLACEHOLDER_RE = /^(?:<[^>]+>|\.\.\.|tbd|n\/a|da\s+(?:definire|decidere|valutare)|da\s+fare)\s*[.!]?$/iu;
@@ -175,10 +175,11 @@ jobs:
               const reason = clean.match(DECISION_REASON_RE)?.[1]?.trim() || '';
               const nextStep = clean.match(DECISION_NEXT_STEP_RE)?.[1]?.trim() || '';
               if (concreteDecisionValue(reason) && concreteDecisionValue(nextStep)) return null;
-              return 'una deroga `per scelta`/`by construction` deve contenere `**Motivo:** <causa concreta>. **Prossimo passo:** <azione concreta>`.';
+              return 'una deroga `per scelta`/`by construction`/`falso positivo` deve contenere `**Motivo:** <causa concreta>. **Prossimo passo:** <azione concreta>`.';
             };
 
             const sectionViolations = [];
+            const decisionViolations = [];
             if (hasImpl) {
               const c = extractSection(body, /^\s{0,3}#{2,3}\s+Implementato[^\n]*/im) ?? '';
               if (!hasMeaningfulContent(c)) {
@@ -197,7 +198,7 @@ jobs:
               for (const bullet of topLevelBullets(c)) {
                 const decisionViolation = decisionDeferralViolation(bullet.text);
                 if (decisionViolation) {
-                  sectionViolations.push(`Voce ${bullet.index}: ${decisionViolation}`);
+                  decisionViolations.push(`Voce ${bullet.index}: ${decisionViolation}`);
                 }
               }
             }
@@ -454,7 +455,7 @@ jobs:
             };
 
             // --- All-clear (violations) — advisories can still be present -----------
-            if (missing.length === 0 && sectionViolations.length === 0 && closesViolations.length === 0 && intentViolations.length === 0 && aggregateCloseViolations.length === 0) {
+            if (missing.length === 0 && sectionViolations.length === 0 && decisionViolations.length === 0 && closesViolations.length === 0 && intentViolations.length === 0 && aggregateCloseViolations.length === 0) {
               const okBody = `${STICKY}\n✅ **PR-body contract OK** — sezioni obbligatorie presenti e compilate, nessun \`Closes\` multi-issue su una riga, nessuna keyword di chiusura inefficace, nessun \`Closes\` su follow-up aggregata.`
                 + (advisoryParts.length ? `\n\n${advisoryParts.join('\n\n')}` : '');
               // Solo un prior da aggiornare, oppure un advisory reale da segnalare per
@@ -488,6 +489,17 @@ jobs:
                 `"Nessuno" (task completo, AGENTS.md #8) oppure elenca gli item residui con stato/next-step.`,
               );
               fails.push(`empty section(s): ${sectionViolations.length}`);
+            }
+            if (decisionViolations.length) {
+              parts.push(
+                `🔴 **Deroga decisionale non specifica** — una voce in ` +
+                `\`## Non implementato (ancora)\` usa uno stato terminale senza ` +
+                `una causa e un'azione verificabili nello stesso bullet:\n\n` +
+                decisionViolations.map((m) => `- ${m}`).join('\n') + '\n\n' +
+                `Completa la voce con \`**Motivo:** <causa concreta>. **Prossimo passo:** ` +
+                `<azione concreta>\`.`,
+              );
+              fails.push(`decision deferral(s): ${decisionViolations.join('; ')}`);
             }
             if (closesViolations.length) {
               const lines = closesViolations
@@ -2128,16 +2140,6 @@ jobs:
           APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: node scripts/ci/mint-app-token.mjs
-
-      - name: Pre-flight — Claude quota telemetry (Codex primary)
-        id: quota
-        if: ${{ steps.tier.outputs.tier != 'tests-only' && steps.body_contract.outcome != 'failure' && (steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true') }}
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_REPO: ${{ github.repository }}
-          CODEX_FALLBACK_MODE: '1'
-        run: node scripts/ci/check-quota-backoff.mjs
 
       - name: Publish automatic LGTM for a tests-only PR
         id: test_only_review

@@ -208,6 +208,17 @@ describe('decision deferrals', () => {
     });
     expect(decisionDeferralsAreSpecific(body)).toBe(true);
   });
+
+  it('treats `falso positivo` as a decision, with negation-aware matching', () => {
+    const vague = makeBody({ nonImplContent: '- Il finding è un falso positivo.' });
+    expect(checkPrBodySections(vague, { strictDecisionDeferrals: true }).ok).toBe(false);
+    expect(decisionDeferralFindings(vague)).toHaveLength(1);
+
+    const negated = makeBody({
+      nonImplContent: '- Il finding non è un falso positivo: va sistemato nel follow-up.',
+    });
+    expect(decisionDeferralFindings(negated)).toHaveLength(0);
+  });
 });
 
 // ---------------------------------------------------------------------------
