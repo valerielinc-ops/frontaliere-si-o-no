@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 // @ts-expect-error — il supervisore è uno script ESM zero-dependency applicativo
@@ -6,6 +7,9 @@ import {
   auditWorkflowFiles,
   auditWorkflowText,
   auditIssueRouting,
+  buildL11OperationalMetadata,
+  l11OperationalMetadataFinding,
+  loadL11OperationalMetadata,
   cronError,
   normalizeTriggers,
   renderMarkdown,
@@ -39,6 +43,103 @@ describe('technical operations audit', () => {
       remove: 'agent:fix-queued',
       route: 'review-only',
     });
+  });
+
+  it('espone owner, TTL/SLA e prossima revisione dalla policy canonica L11', () => {
+    const generatedAt = '2026-09-16T12:00:00.000Z';
+    const metadata = loadL11OperationalMetadata({ root: path.resolve('.'), generatedAt });
+
+    expect(metadata).toMatchObject({
+      schemaVersion: 1,
+      loopId: 'L11',
+      status: 'available',
+      owner: 'Chief Operations Assurance',
+      ownerType: 'registry-role',
+      generatedAt,
+      candidateTtlHours: 72,
+      ownerSlaHours: 24,
+      postMergeVerificationHours: 24,
+      deadlineAt: '2026-09-17T12:00:00.000Z',
+      expiresAt: '2026-09-19T12:00:00.000Z',
+      nextReviewAt: '2026-09-17T12:00:00.000Z',
+      lifecycle: {
+        candidateTtlHours: 72,
+        ownerSlaHours: 24,
+        postMergeVerificationHours: 24,
+      },
+    });
+    expect(metadata.owner).not.toMatch(/@/);
+  });
+
+  it('rende i metadata visibili nell’avviso warning e resta fail-closed senza policy', () => {
+    const generatedAt = '2026-09-16T12:00:00.000Z';
+    const unavailable = buildL11OperationalMetadata({
+      generatedAt,
+      reason: 'registry missing',
+    });
+    expect(unavailable).toMatchObject({
+      status: 'unmeasurable',
+      owner: null,
+      candidateTtlHours: null,
+      ownerSlaHours: null,
+      deadlineAt: null,
+      expiresAt: null,
+      nextReviewAt: null,
+      reason: 'registry missing',
+    });
+
+    const metadata = loadL11OperationalMetadata({ root: path.resolve('.'), generatedAt });
+    const markdown = renderMarkdown({
+      filesScanned: 1,
+      commit: 'abc',
+      generatedAt,
+      findings: [],
+      operationalMetadata: {
+        ...metadata,
+        routing: auditIssueRouting({ error: 0, warning: 1 }),
+      },
+    });
+    expect(markdown).toContain('### Metadata operativi L11');
+    expect(markdown).toContain('Chief Operations Assurance');
+    expect(markdown).toContain('2026-09-17T12:00:00.000Z');
+    expect(markdown).toContain('2026-09-19T12:00:00.000Z');
+    expect(markdown).toContain('review-only');
+  });
+
+  it('promuove a errore il registry valido ma privo della policy L11', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'technical-operations-l11-missing-'));
+    const registryPath = path.resolve('data/loop-fleet/loop-registry.json');
+    const registry = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
+    const loops = registry.loops.filter((loop: { loopId: string }) => loop.loopId !== 'L11');
+    const declaredActionClasses = new Set(
+      loops.flatMap((loop: { actionClasses: string[] }) => loop.actionClasses
+        .flatMap((value) => value.split('+').map((part) => part.trim()))),
+    );
+    const withoutL11 = {
+      ...registry,
+      loops,
+      actionAutonomy: Object.fromEntries(
+        Object.entries(registry.actionAutonomy).filter(([actionClass]) => declaredActionClasses.has(actionClass)),
+      ),
+    };
+    const relativeRegistryPath = path.join('data', 'loop-fleet', 'loop-registry.json');
+    fs.mkdirSync(path.join(root, 'data', 'loop-fleet'), { recursive: true });
+    fs.writeFileSync(path.join(root, relativeRegistryPath), `${JSON.stringify(withoutL11)}\n`);
+
+    const metadata = loadL11OperationalMetadata({
+      root,
+      generatedAt: '2026-09-16T12:00:00.000Z',
+      registryPath: relativeRegistryPath,
+    });
+    const metadataFinding = l11OperationalMetadataFinding(metadata, relativeRegistryPath);
+
+    expect(metadata.status).toBe('unmeasurable');
+    expect(metadataFinding).toMatchObject({
+      file: relativeRegistryPath,
+      rule: 'loop-registry.l11-operational-metadata',
+      severity: 'error',
+    });
+    expect(auditIssueRouting({ error: 1, warning: 0 }).route).toBe('bounded-fix-queue');
   });
 
   it('rifiuta chiavi step non supportate da GitHub Actions', () => {
