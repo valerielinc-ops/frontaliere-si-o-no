@@ -6,6 +6,7 @@ import {
   APPROVAL_SECRET,
   EXPECTED_BUILD_WORKFLOW,
   PRODUCTION_ENVIRONMENT,
+  REQUIRED_REVIEWERS_RULE,
   validateApprovalAttestation,
   validatePromotionTrigger,
 } from '../scripts/ci/production-promotion-gate.mjs';
@@ -83,17 +84,47 @@ describe('production promotion admission', () => {
   });
 
   it('denies a missing or incorrectly named environment attestation', () => {
+    const protectedEnvironment = {
+      name: PRODUCTION_ENVIRONMENT,
+      protection_rules: [{
+        type: REQUIRED_REVIEWERS_RULE,
+        reviewers: [{ type: 'User', reviewer: { login: 'release-manager' } }],
+      }],
+    };
+
     expect(validateApprovalAttestation({
       environmentName: PRODUCTION_ENVIRONMENT,
       attestation: 'configured-out-of-band',
+      environment: protectedEnvironment,
     }).valid).toBe(true);
     expect(validateApprovalAttestation({
       environmentName: PRODUCTION_ENVIRONMENT,
       attestation: '   ',
+      environment: protectedEnvironment,
     }).valid).toBe(false);
     expect(validateApprovalAttestation({
       environmentName: 'github-pages',
       attestation: 'configured-out-of-band',
+      environment: protectedEnvironment,
+    }).valid).toBe(false);
+  });
+
+  it('denies a present secret when required-reviewer protection is not demonstrable', () => {
+    expect(validateApprovalAttestation({
+      environmentName: PRODUCTION_ENVIRONMENT,
+      attestation: 'present-but-insufficient',
+      environment: {
+        name: PRODUCTION_ENVIRONMENT,
+        protection_rules: [],
+      },
+    }).valid).toBe(false);
+    expect(validateApprovalAttestation({
+      environmentName: PRODUCTION_ENVIRONMENT,
+      attestation: 'present-but-insufficient',
+      environment: {
+        name: PRODUCTION_ENVIRONMENT,
+        protection_rules: [{ type: 'wait_timer', reviewers: [] }],
+      },
     }).valid).toBe(false);
   });
 
@@ -110,12 +141,17 @@ describe('production promotion admission', () => {
       expect(approval.environment, `${file}: protected environment missing`).toEqual({
         name: PRODUCTION_ENVIRONMENT,
       });
+      expect(approval.permissions, `${file}: environment API read permission missing`)
+        .toMatchObject({ deployments: 'read' });
       const approvalStep = findStep(approval, 'approval');
       expect(approvalStep, `${file}: approval attestation not checked`).toBeDefined();
       expect(approvalStep.env).toMatchObject({
+        GH_TOKEN: '${{ github.token }}',
+        PROMOTION_REPOSITORY: '${{ github.repository }}',
         PROMOTION_ENVIRONMENT_NAME: PRODUCTION_ENVIRONMENT,
         [APPROVAL_SECRET]: `\${{ secrets.${APPROVAL_SECRET} }}`,
       });
+      expect(approvalStep.run).toContain('gh api --method GET');
 
       const promotionJob = file === 'deploy.yml'
         ? workflow.jobs['build-locale']

@@ -48,6 +48,7 @@ jobs:
       name: production-deploy
     permissions:
       contents: read
+      deployments: read
     steps:
       - name: Checkout promotion gate
         uses: actions/checkout@v5
@@ -55,11 +56,17 @@ jobs:
           sparse-checkout: |
             /scripts/ci/production-promotion-gate.mjs
           sparse-checkout-cone-mode: false
-      - name: Require protected environment attestation
+      - name: Verify required reviewers and environment attestation
         env:
+          GH_TOKEN: ${{ github.token }}
+          PROMOTION_REPOSITORY: ${{ github.repository }}
           PROMOTION_ENVIRONMENT_NAME: production-deploy
           PRODUCTION_DEPLOY_APPROVAL: ${{ secrets.PRODUCTION_DEPLOY_APPROVAL }}
-        run: node scripts/ci/production-promotion-gate.mjs approval
+        run: |
+          set -euo pipefail
+          gh api --method GET \
+            "repos/${PROMOTION_REPOSITORY}/environments/${PROMOTION_ENVIRONMENT_NAME}" \
+            | node scripts/ci/production-promotion-gate.mjs approval
 
   deploy-functions:
     needs: production-approval
