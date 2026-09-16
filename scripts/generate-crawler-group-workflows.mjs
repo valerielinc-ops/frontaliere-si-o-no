@@ -1723,14 +1723,14 @@ function normalizedContractStep(step, side, fileName, members) {
 
   if (copy?.name === 'Load secrets from Remote Config') {
     const expected = side === 'generated' ? localRemoteConfigStep() : logicRemoteConfigStep();
-    if (JSON.stringify(copy) !== JSON.stringify(expected)) {
+    if (canonicalJson(copy) !== canonicalJson(expected)) {
       throw new Error(`${fileName}: ${side} RC bootstrap drifted from its complete allowed form`);
     }
     return { name: copy.name, run: 'node scripts/load-rc-env.mjs' };
   }
 
   if (copy?.name === 'Bootstrap write auth for frontaliere-si-o-no (GITHUB_PAT from Remote Config)') {
-    if (side !== 'logic' || JSON.stringify(copy) !== JSON.stringify(logicWriteAuthStep(members))) {
+    if (side !== 'logic' || canonicalJson(copy) !== canonicalJson(logicWriteAuthStep(members))) {
       throw new Error(`${fileName}: undeclared write-auth bootstrap difference`);
     }
     return null;
@@ -1740,7 +1740,7 @@ function normalizedContractStep(step, side, fileName, members) {
     const nn = /crawler-group-(\d{2})/.exec(fileName)?.[1];
     const groupName = `crawler-group-${nn}`;
     const expected = side === 'generated' ? liveRunGuardStep(groupName) : logicLiveRunGuardStep(groupName);
-    if (!nn || JSON.stringify(copy) !== JSON.stringify(expected)) {
+    if (!nn || canonicalJson(copy) !== canonicalJson(expected)) {
       throw new Error(`${fileName}: ${side} live-run guard drifted from its complete allowed form`);
     }
     return { name: copy.name };
@@ -1750,7 +1750,7 @@ function normalizedContractStep(step, side, fileName, members) {
     const nn = /crawler-group-(\d{2})/.exec(fileName)?.[1];
     const groupName = `crawler-group-${nn}`;
     const expected = liveRunLeaseReleaseStep(groupName);
-    if (!nn || JSON.stringify(copy) !== JSON.stringify(expected)) {
+    if (!nn || canonicalJson(copy) !== canonicalJson(expected)) {
       throw new Error(`${fileName}: ${side} live-run lease release drifted from its complete allowed form`);
     }
     return copy;
@@ -1796,12 +1796,12 @@ export function assertCrawlerLogicParity(generatedWorkflowText, logicWorkflowTex
     ?.filter(isCrawlerLaunchStep).length;
   if (!nn || generatedWorkflow.name !== `Crawler Group ${nn} (${generatedMembers} crawlers)` ||
       logicWorkflow.name !== crawlerLogicWorkflowName(nn) ||
-      JSON.stringify(generatedWorkflow.concurrency) !== JSON.stringify({
+      canonicalJson(generatedWorkflow.concurrency) !== canonicalJson({
     group: `jobs-crawler-group-${nn}`,
     'cancel-in-progress': false,
-  }) || JSON.stringify(generatedWorkflow.permissions) !== JSON.stringify({ contents: 'write', issues: 'write' }) ||
+  }) || canonicalJson(generatedWorkflow.permissions) !== canonicalJson({ contents: 'write', issues: 'write' }) ||
       logicWorkflow.concurrency !== undefined ||
-      JSON.stringify(logicWorkflow.permissions) !== JSON.stringify({ contents: 'read' })) {
+      canonicalJson(logicWorkflow.permissions) !== canonicalJson({ contents: 'read' })) {
     throw new Error(`${fileName}: reusable metadata drifted from the allowed cross-repo form`);
   }
   const generatedTrigger = generatedWorkflow.on;
@@ -1821,13 +1821,13 @@ export function assertCrawlerLogicParity(generatedWorkflowText, logicWorkflowTex
       JSON.stringify(Object.keys(generatedTrigger?.workflow_dispatch ?? {})) !== JSON.stringify(['inputs']) ||
       JSON.stringify(Object.keys(logicTrigger ?? {})) !== JSON.stringify(['workflow_call']) ||
       JSON.stringify(Object.keys(logicTrigger?.workflow_call ?? {}).sort()) !== JSON.stringify(['inputs', 'secrets']) ||
-      JSON.stringify(expectedLogicInputs) !== JSON.stringify(logicTrigger.workflow_call.inputs) ||
-      JSON.stringify(logicTrigger.workflow_call.secrets) !== JSON.stringify(expectedSecrets)) {
+      canonicalJson(expectedLogicInputs) !== canonicalJson(logicTrigger.workflow_call.inputs) ||
+      canonicalJson(logicTrigger.workflow_call.secrets) !== canonicalJson(expectedSecrets)) {
     throw new Error(`${fileName}: workflow_call inputs/secrets drifted from the generated contract`);
   }
   const generated = normalizedJobContract(generatedWorkflow, 'generated', fileName);
   const logic = normalizedJobContract(logicWorkflow, 'logic', fileName);
-  if (JSON.stringify(generated) !== JSON.stringify(logic)) {
+  if (canonicalJson(generated) !== canonicalJson(logic)) {
     throw new Error(`${fileName} drifted from generate-crawler-group-workflows.mjs (full job mismatch)`);
   }
   return logic.job.steps

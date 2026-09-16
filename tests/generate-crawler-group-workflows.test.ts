@@ -1418,6 +1418,19 @@ describe('cross-repo crawler execution artifacts', () => {
       .toThrow(/workflow_call inputs\/secrets/);
   });
 
+  it('ignora l’ordine delle chiavi nei mapping YAML del contratto', () => {
+    const [generated] = generate({ outDir: workflowsDir, assignmentsPath, write: false });
+    const logicPath = path.join(workflowsDir, 'crawler-group-01-logic.yml');
+    const logicDoc = YAML.parse(fs.readFileSync(logicPath, 'utf8'));
+    const logicJob: any = Object.values(logicDoc.jobs)[0];
+    const rcStep = logicJob.steps.find((step: any) => step.name === 'Load secrets from Remote Config');
+    const reorderedRcStep = Object.fromEntries(Object.entries(rcStep).reverse());
+    logicJob.steps = logicJob.steps.map((step: any) => step === rcStep ? reorderedRcStep : step);
+
+    expect(() => assertCrawlerLogicParity(generated.content, YAML.stringify(logicDoc), path.basename(logicPath)))
+      .not.toThrow();
+  });
+
   it('include by default ogni nuovo bucket non dichiarato sicuro da escludere', () => {
     const bucketsPath = path.join(tmp, 'checkout-buckets.json');
     fs.writeFileSync(bucketsPath, JSON.stringify({

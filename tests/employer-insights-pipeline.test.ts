@@ -158,6 +158,32 @@ describe('employer insights event coverage', () => {
     expect(result).toMatchObject({ ok: true, coverage: { returned: 100, sourceObserved: 100 } });
   });
 
+  it('treats document windows with reordered keys as equivalent', () => {
+    const payload = gatePayload();
+    const document = payload.documents[0];
+    document.window = Object.fromEntries(Object.entries(document.window).reverse()) as typeof document.window;
+
+    const result = validateEmployerInsightsPayload(payload, {
+      currentDocumentCount: 10,
+      expectedSource: 'posthog',
+    });
+
+    expect(result.ok).toBe(true);
+  });
+
+  it('fails closed when a document window is missing', () => {
+    const payload = gatePayload();
+    delete (payload.documents[0] as { window?: unknown }).window;
+
+    const result = validateEmployerInsightsPayload(payload, {
+      currentDocumentCount: 10,
+      expectedSource: 'posthog',
+    });
+
+    expect(result.ok).toBe(false);
+    expect(result.errors).toContain('document window does not match payload window: company-0');
+  });
+
   it('serializes a complete machine-readable dry-run envelope', () => {
     const [doc] = build([event({ eventKey: 'dry-run-event' })]);
     const payload = buildDryRunPayload({
