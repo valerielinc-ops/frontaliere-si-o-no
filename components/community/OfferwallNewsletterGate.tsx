@@ -21,8 +21,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { X, Mail, Loader2, CheckCircle2 } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
-import ConsentNotice from '@/components/shared/ConsentNotice';
-import { consentProof } from '@/services/consentTexts';
+import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import { Analytics } from '@/services/analytics';
 import { reportCaughtError } from '@/services/errorReporter';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
@@ -30,7 +29,7 @@ import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
 import { useAuth } from '@/services/authService';
 import { hasFirebaseAuthPersistence } from '@/services/firebaseAuthPersistence';
 import {
-  upsertNewsletterSubscriber,
+  upsertUnifiedEmailSubscriber,
   markNewsletterSubscribedLocally,
 } from '@/services/newsletterSubscribers';
 
@@ -46,9 +45,10 @@ const COPY: Record<OfferwallLocale, {
   submit: string;
   dismiss: string;
   invalidEmail: string;
-  consentRequired: string;
   error: string;
   success: string;
+  pendingTitle: string;
+  pendingBody: string;
 }> = {
   it: {
     title: 'Continua a leggere gratis',
@@ -57,9 +57,10 @@ const COPY: Record<OfferwallLocale, {
     submit: 'Iscriviti e leggi',
     dismiss: 'No grazie',
     invalidEmail: 'Inserisci un indirizzo email valido.',
-    consentRequired: 'Spunta il consenso per continuare.',
     error: 'Iscrizione non riuscita. Riprova.',
-    success: 'Fatto! Controlla la mail per confermare.',
+    success: 'Fatto! Accesso sbloccato.',
+    pendingTitle: 'Controlla la tua email',
+    pendingBody: 'Apri l’email di conferma e clicca sul link per verificare l’indirizzo: l’accesso e le comunicazioni sono già attivi in base alla registrazione.',
   },
   en: {
     title: 'Keep reading for free',
@@ -68,9 +69,10 @@ const COPY: Record<OfferwallLocale, {
     submit: 'Subscribe & read',
     dismiss: 'No thanks',
     invalidEmail: 'Please enter a valid email address.',
-    consentRequired: 'Please tick the consent box to continue.',
     error: 'Subscription failed. Please try again.',
-    success: 'Done! Check your inbox to confirm.',
+    success: 'Done! Access unlocked.',
+    pendingTitle: 'Check your email',
+    pendingBody: 'Open the confirmation email and click the link to verify your address: access and communications are already active under the registration terms.',
   },
   de: {
     title: 'Kostenlos weiterlesen',
@@ -79,9 +81,10 @@ const COPY: Record<OfferwallLocale, {
     submit: 'Abonnieren & lesen',
     dismiss: 'Nein danke',
     invalidEmail: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.',
-    consentRequired: 'Bitte bestätigen Sie die Einwilligung, um fortzufahren.',
     error: 'Anmeldung fehlgeschlagen. Bitte erneut versuchen.',
-    success: 'Fertig! Bitte bestätigen Sie in Ihrem Postfach.',
+    success: 'Fertig! Zugang freigeschaltet.',
+    pendingTitle: 'Prüfen Sie Ihre E-Mail',
+    pendingBody: 'Öffnen Sie die Bestätigungs-E-Mail und klicken Sie auf den Link, um Ihre Adresse zu bestätigen: Zugang und Mitteilungen sind aufgrund der Registrierung bereits aktiv.',
   },
   fr: {
     title: 'Continuez à lire gratuitement',
@@ -90,9 +93,10 @@ const COPY: Record<OfferwallLocale, {
     submit: 'S’abonner et lire',
     dismiss: 'Non merci',
     invalidEmail: 'Veuillez saisir une adresse e-mail valide.',
-    consentRequired: 'Veuillez cocher le consentement pour continuer.',
     error: 'Échec de l’inscription. Veuillez réessayer.',
-    success: 'Terminé ! Vérifiez votre boîte mail pour confirmer.',
+    success: 'Terminé ! Accès débloqué.',
+    pendingTitle: 'Vérifiez votre email',
+    pendingBody: 'Ouvrez l’email de confirmation et cliquez sur le lien pour vérifier votre adresse : l’accès et les communications sont déjà actifs selon votre inscription.',
   },
 };
 
@@ -219,8 +223,7 @@ const OfferwallNewsletterGate: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [activeLocale, setActiveLocale] = useState<OfferwallLocale>('it');
   const [email, setEmail] = useState('');
-  const [consentChecked, setConsentChecked] = useState(false);
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'pending' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
   // The pending promise resolver handed back to the Offerwall's show().
   const resolverRef = useRef<((granted: boolean) => void) | null>(null);
@@ -244,7 +247,6 @@ const OfferwallNewsletterGate: React.FC = () => {
       if (resolverRef.current) resolverRef.current(false);
       setActiveLocale(normalizeLocale(offerwallLang, localeRef.current));
       setEmail('');
-      setConsentChecked(false);
       setStatus('idle');
       setErrorMessage('');
       setOpen(true);
@@ -295,42 +297,31 @@ const OfferwallNewsletterGate: React.FC = () => {
       setStatus('error');
       return;
     }
-    if (!consentChecked) {
-      setErrorMessage(copy.consentRequired);
-      setStatus('error');
-      return;
-    }
     setStatus('loading');
     try {
       const firestore = await initFirestore();
       if (!firestore) throw new Error('firestore_unavailable');
-      await upsertNewsletterSubscriber(firestore, {
+      const upsert = await upsertUnifiedEmailSubscriber(firestore, {
         email,
-        name: null,
-        preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false },
         source: 'offerwall',
         sourceChannel: 'offerwall',
         sourcePage: window.location.pathname,
         sourceCta: 'offerwall_custom_choice',
         sourceComponent: 'OfferwallNewsletterGate',
         locale: activeLocale,
-        // No status/activity is supplied here: a new address starts `pending`
-        // and triggers the double opt-in confirmation email. Page access (the
-        // Offerwall reward) is granted immediately regardless.
-        // Same string the checkbox rendered, same locale, one function
-        // (#5712/#5718). The four-locale table this replaced described only
-        // the newsletter, which was never all the visitor would receive.
-        ...consentProof('communicationsOptIn', 'email_checkbox', activeLocale),
-        consentGiven: true,
-        // Re-entering the address and checking this box starts a new DOI
-        // cycle; it never bypasses an existing opt-out.
-        reconsent: true,
       });
-      markNewsletterSubscribedLocally();
-      try { Analytics.trackUIInteraction('offerwall_gate', 'form', 'subscribe', 'success'); } catch { /* no-op */ }
-      setStatus('success');
-      // Grant access after a brief success confirmation.
-      setTimeout(() => settle(true), 900);
+      const needsConfirmation = upsert.status === 'pending' && !upsert.hadConfirmationProof;
+      if (needsConfirmation) {
+        try { Analytics.trackUIInteraction('offerwall_gate', 'form', 'subscribe', 'confirmation_pending'); } catch { /* no-op */ }
+        setStatus('pending');
+      } else {
+        markNewsletterSubscribedLocally();
+        try { Analytics.trackUIInteraction('offerwall_gate', 'form', 'subscribe', 'success'); } catch { /* no-op */ }
+        setStatus('success');
+      }
+      // Grant content access after a brief state confirmation. A pending DOI
+      // must not be confused with a confirmed communications subscription.
+      setTimeout(() => settle(true), needsConfirmation ? 1200 : 900);
     } catch (err: any) {
       reportCaughtError(err, 'offerwallGate.submit');
       setErrorMessage(copy.error);
@@ -364,7 +355,13 @@ const OfferwallNewsletterGate: React.FC = () => {
           </h2>
         </div>
 
-        {status === 'success' ? (
+        {status === 'pending' ? (
+          <div className="flex flex-col items-center gap-2 py-6 text-center" role="status" aria-live="polite">
+            <Mail className="h-10 w-10 text-info" aria-hidden="true" />
+            <p className="font-semibold text-heading">{copy.pendingTitle}</p>
+            <p className="text-sm text-muted">{copy.pendingBody}</p>
+          </div>
+        ) : status === 'success' ? (
           <div className="flex flex-col items-center gap-2 py-6 text-center">
             <CheckCircle2 className="h-10 w-10 text-success" aria-hidden="true" />
             <p className="text-body">{copy.success}</p>
@@ -397,15 +394,12 @@ const OfferwallNewsletterGate: React.FC = () => {
               className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-transparent text-strong text-sm"
             />
 
-            <label className="flex items-start gap-2 text-xs text-muted">
-              <input
-                type="checkbox"
-                checked={consentChecked}
-                onChange={(e) => setConsentChecked(e.target.checked)}
-                className="mt-0.5"
-              />
-              <ConsentNotice consentKey="communicationsOptIn" locale={activeLocale} />
-            </label>
+            <EmailConsentCheckbox
+              id="offerwall-email-consent"
+              consentKey="communicationsOptIn"
+              locale={activeLocale}
+              className="flex items-start gap-2 text-xs text-muted"
+            />
 
             {status === 'error' && errorMessage && (
               <p className="text-sm text-danger" role="alert">{errorMessage}</p>

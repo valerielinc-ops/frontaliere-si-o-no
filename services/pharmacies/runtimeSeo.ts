@@ -17,11 +17,15 @@ import {
 } from './data';
 import { buildPharmacyPath, type PharmacyPath } from './paths';
 import { buildDutyWeekModel } from './dutyWeek';
+import { buildDutyCoverageMatrix, type DutyCoverageMatrixModel } from './dutyCoverageMatrix';
+import { buildItalyDutyWeekModel, currentItalyDutyWeekStart, type ItalyDutyWeekModel } from './italyDuty';
 import { currentDutyForRegion } from './duties';
 import { buildPharmacyTitle } from './title';
 import { safePharmacyUrl, type Pharmacy, type PharmacyCatalogueDataset, type PharmacyDutiesDataset } from './types';
 import dutiesJson from '../../data/pharmacy-duties-ticino.json';
 import completeTicinoJson from '../../data/pharmacies-ticino-complete.json';
+import italyDutiesJson from '../../data/pharmacy-duties-italy.json';
+import italyStatusJson from '../../data/pharmacy-duties-italy-status.json';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -31,6 +35,8 @@ type PharmacyRuntimeSeoMetadata = SEOMetadata & {
 
 const RUNTIME_PHARMACY_DUTIES = dutiesJson as PharmacyDutiesDataset;
 const RUNTIME_PHARMACY_CATALOGUE = completeTicinoJson as unknown as PharmacyCatalogueDataset;
+const RUNTIME_ITALY_DUTIES = italyDutiesJson as Record<string, unknown>;
+const RUNTIME_ITALY_STATUS = italyStatusJson as Record<string, unknown>;
 
 /**
  * Runtime copy for the route-driven pharmacy surface. The static pharmacy
@@ -44,7 +50,10 @@ const RUNTIME_PHARMACY_COPY: Record<Locale, {
   dutyHubTitle: string;
   dutyCityTitle: (city: string) => string;
   dutyWeekTitle: (weekStart: string) => string;
+  italyDutyHubTitle: string;
+  italyDutyWeekTitle: (weekStart: string) => string;
   dutyWeekDescription: string;
+  italyDutyDescription: string;
   directoryDescription: string;
   breadcrumbLabel: string;
   keywords: string;
@@ -56,7 +65,10 @@ const RUNTIME_PHARMACY_COPY: Record<Locale, {
     dutyHubTitle: 'Farmacie di turno in Ticino',
     dutyCityTitle: (city) => `Farmacia di turno: informazioni per ${city}`,
     dutyWeekTitle: (weekStart) => `Farmacie di turno in Ticino: settimana del ${weekStart}`,
+    italyDutyHubTitle: 'Farmacie di turno in Italia',
+    italyDutyWeekTitle: (weekStart) => `Farmacie di turno in Italia: settimana del ${weekStart}`,
     dutyWeekDescription: 'Calendario settimanale delle regioni ticinesi con intervalli verificati. Non è una copertura di tutti i cantoni né delle farmacie italiane di confine.',
+    italyDutyDescription: 'Calendario settimanale separato per Como, Varese e Verbano-Cusio-Ossola. I turni compaiono solo quando il release ufficiale italiano è fresco, completo e pubblicabile.',
     directoryDescription: 'Directory transfrontaliera di Ticino e province italiane vicine. Ogni sede mostra la fonte, la data di recupero e separa i dati anagrafici dagli orari e dai servizi opzionali.',
     breadcrumbLabel: 'Farmacie',
     keywords: 'farmacie Ticino, farmacie di turno, farmacie confine Italia',
@@ -68,7 +80,10 @@ const RUNTIME_PHARMACY_COPY: Record<Locale, {
     dutyHubTitle: 'On-duty pharmacies in Ticino',
     dutyCityTitle: (city) => `On-duty pharmacy information for ${city}`,
     dutyWeekTitle: (weekStart) => `On-duty pharmacies in Ticino: week of ${weekStart}`,
+    italyDutyHubTitle: 'On-duty pharmacies in Italy',
+    italyDutyWeekTitle: (weekStart) => `On-duty pharmacies in Italy: week of ${weekStart}`,
     dutyWeekDescription: 'Weekly schedule for Ticino areas with verified intervals only. This is not coverage for every Swiss canton or for Italian border pharmacies.',
+    italyDutyDescription: 'Weekly schedule separated into Como, Varese and Verbano-Cusio-Ossola. Duties appear only when the official Italian release is fresh, complete and publishable.',
     directoryDescription: 'Cross-border directory for Ticino and nearby Italian provinces. Each location shows its source, retrieval date and the distinction between identity, hours and optional services.',
     breadcrumbLabel: 'Pharmacies',
     keywords: 'pharmacies Ticino, on-duty pharmacies, Italian border pharmacies',
@@ -80,7 +95,10 @@ const RUNTIME_PHARMACY_COPY: Record<Locale, {
     dutyHubTitle: 'Notdienst-Apotheken im Tessin',
     dutyCityTitle: (city) => `Informationen zum Apotheken-Notdienst in ${city}`,
     dutyWeekTitle: (weekStart) => `Notdienst-Apotheken im Tessin: Woche ab ${weekStart}`,
+    italyDutyHubTitle: 'Notdienst-Apotheken in Italien',
+    italyDutyWeekTitle: (weekStart) => `Notdienst-Apotheken in Italien: Woche ab ${weekStart}`,
     dutyWeekDescription: 'Wochenplan für Tessiner Regionen mit verifizierten Zeiträumen. Dies ist keine Abdeckung aller Schweizer Kantone oder der italienischen Grenzapotheken.',
+    italyDutyDescription: 'Wochenplan getrennt für Como, Varese und Verbano-Cusio-Ossola. Notdienste erscheinen nur bei einem frischen, vollständigen und veröffentlichbaren offiziellen italienischen Release.',
     directoryDescription: 'Grenzüberschreitendes Verzeichnis für das Tessin und nahe italienische Provinzen. Jede Seite zeigt Quelle, Abrufdatum und die Trennung von Identität, Zeiten und optionalen Leistungen.',
     breadcrumbLabel: 'Apotheken',
     keywords: 'Apotheken Tessin, Notdienst-Apotheken, italienische Grenzapotheken',
@@ -92,7 +110,10 @@ const RUNTIME_PHARMACY_COPY: Record<Locale, {
     dutyHubTitle: 'Pharmacies de garde au Tessin',
     dutyCityTitle: (city) => `Informations de garde pour ${city}`,
     dutyWeekTitle: (weekStart) => `Pharmacies de garde au Tessin : semaine du ${weekStart}`,
+    italyDutyHubTitle: 'Pharmacies de garde en Italie',
+    italyDutyWeekTitle: (weekStart) => `Pharmacies de garde en Italie : semaine du ${weekStart}`,
     dutyWeekDescription: 'Planning hebdomadaire des régions tessinoises dont les intervalles sont vérifiés. Il ne couvre pas tous les cantons suisses ni les pharmacies italiennes de la frontière.',
+    italyDutyDescription: 'Planning hebdomadaire séparé pour Côme, Varèse et Verbano-Cusio-Ossola. Les gardes apparaissent uniquement avec un release officiel italien frais, complet et publiable.',
     directoryDescription: 'Répertoire transfrontalier du Tessin et des provinces italiennes voisines. Chaque site montre sa source, sa date de collecte et distingue identité, horaires et services optionnels.',
     breadcrumbLabel: 'Pharmacies',
     keywords: 'pharmacies Tessin, pharmacies de garde, pharmacies frontière italienne',
@@ -133,10 +154,16 @@ function pharmacyRuntimeTitle(path: PharmacyPath, locale: Locale): { title: stri
   if (path.kind === 'canton') return { title: copy.cantonTitle, resolved: true };
   if (path.kind === 'country') return { title: copy.italyTitle, resolved: true };
   if (path.kind === 'duty-hub') return { title: copy.dutyHubTitle, resolved: true };
+  if (path.kind === 'italy-duty-hub') return { title: copy.italyDutyHubTitle, resolved: true };
   if (path.kind === 'duty-week') {
     return path.weekStart
       ? { title: copy.dutyWeekTitle(path.weekStart), resolved: true }
       : { title: copy.dutyHubTitle, resolved: false };
+  }
+  if (path.kind === 'italy-duty-week') {
+    return path.weekStart
+      ? { title: copy.italyDutyWeekTitle(path.weekStart), resolved: true }
+      : { title: copy.italyDutyHubTitle, resolved: false };
   }
   if (path.kind === 'duty-city') {
     const city = pharmacyCityName(path);
@@ -302,6 +329,58 @@ function dutyWeekStructuredData(path: PharmacyPath, title: string, model: Return
   };
 }
 
+function dutyCoverageStructuredData(path: PharmacyPath, title: string, matrix: DutyCoverageMatrixModel): Record<string, any> | undefined {
+  if (!matrix.releaseReady) return undefined;
+  const duties = matrix.regions.flatMap((region) => region.duties);
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: title,
+    url: `${BASE_URL}${buildPharmacyPath(path, path.locale)}`,
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: duties.length,
+      itemListElement: duties.slice(0, MAX_COLLECTION_SCHEMA_ITEMS).flatMap((duty, index) => {
+        const pharmacy = pharmacyById(duty.pharmacyId);
+        return pharmacy
+          ? [{
+            '@type': 'ListItem',
+            position: index + 1,
+            name: `${pharmacy.name} — ${duty.coverageName}`,
+            url: `${BASE_URL}${buildPharmacyPath(pharmacyPathForRecord(pharmacy, path.locale), path.locale)}`,
+          }]
+          : [];
+      }),
+    },
+  };
+}
+
+function italyDutyStructuredData(path: PharmacyPath, title: string, model: ItalyDutyWeekModel): Record<string, any> | undefined {
+  if (!model.indexable) return undefined;
+  const duties = model.provinces.flatMap((province) => province.duties);
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: title,
+    url: `${BASE_URL}${buildPharmacyPath(path, path.locale)}`,
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: duties.length,
+      itemListElement: duties.slice(0, MAX_COLLECTION_SCHEMA_ITEMS).flatMap((duty, index) => {
+        const pharmacy = pharmacyById(duty.pharmacyId);
+        return pharmacy?.country === 'IT'
+          ? [{
+            '@type': 'ListItem',
+            position: index + 1,
+            name: `${pharmacy.name} — ${duty.coverageName}`,
+            url: `${BASE_URL}${buildPharmacyPath(pharmacyPathForRecord(pharmacy, path.locale), path.locale)}`,
+          }]
+          : [];
+      }),
+    },
+  };
+}
+
 function pharmacyBreadcrumbStructuredData(path: PharmacyPath, title: string): Record<string, any> {
   const copy = RUNTIME_PHARMACY_COPY[path.locale];
   return {
@@ -326,6 +405,8 @@ export function resolvePharmacySeoMetadata(
     now?: Date;
     duties?: PharmacyDutiesDataset;
     catalogue?: PharmacyCatalogueDataset;
+    italyDuties?: Record<string, unknown>;
+    italyStatus?: Record<string, unknown>;
   } = {},
 ): PharmacyRuntimeSeoMetadata {
   const locale = path.locale;
@@ -337,9 +418,30 @@ export function resolvePharmacySeoMetadata(
       catalogue: options.catalogue ?? RUNTIME_PHARMACY_CATALOGUE,
     })
     : null;
-  const indexable = resolved && path.kind !== 'duty-city' && (model ? model.indexable : true);
+  const coverageMatrix = path.kind === 'duty-hub'
+    ? buildDutyCoverageMatrix({ locale, now: options.now, duties: options.duties ?? RUNTIME_PHARMACY_DUTIES, catalogue: options.catalogue ?? RUNTIME_PHARMACY_CATALOGUE })
+    : null;
+  const italyModel = path.kind === 'italy-duty-hub' || path.kind === 'italy-duty-week'
+    ? buildItalyDutyWeekModel({
+      now: options.now,
+      weekStart: path.weekStart || currentItalyDutyWeekStart(options.now),
+      duties: options.italyDuties ?? RUNTIME_ITALY_DUTIES,
+      status: options.italyStatus ?? RUNTIME_ITALY_STATUS,
+    })
+    : null;
+  const indexable = resolved && path.kind !== 'duty-city' && (model
+    ? model.indexable
+    : italyModel
+      ? italyModel.indexable
+      : coverageMatrix
+        ? coverageMatrix.releaseReady
+        : true);
   const description = model
     ? copy.dutyWeekDescription
+    : italyModel
+      ? copy.italyDutyDescription
+    : coverageMatrix
+      ? copy.dutyWeekDescription
     : `${title}. ${copy.directoryDescription}`;
   const canonicalPath = buildPharmacyPath(path, locale);
   const collectionPharmacies = pharmaciesForCollection(path);
@@ -347,11 +449,19 @@ export function resolvePharmacySeoMetadata(
     ? pharmacyDetailStructuredData(pharmacy, locale)
     : model
       ? dutyWeekStructuredData(path, title, model)
-      : collectionPharmacies
-        ? path.kind === 'country'
-          ? countryCollectionStructuredData(path, title)
-          : collectionStructuredData(path, title, collectionPharmacies)
-        : undefined;
+      : italyModel
+        ? italyModel.indexable && indexable
+          ? italyDutyStructuredData(path, title, italyModel)
+          : undefined
+      : coverageMatrix
+        ? coverageMatrix.releaseReady && indexable
+          ? dutyCoverageStructuredData(path, title, coverageMatrix)
+          : undefined
+        : collectionPharmacies
+          ? path.kind === 'country'
+            ? countryCollectionStructuredData(path, title)
+            : collectionStructuredData(path, title, collectionPharmacies)
+          : undefined;
   const breadcrumb = indexable ? pharmacyBreadcrumbStructuredData(path, title) : undefined;
   const structuredData = primaryStructuredData && breadcrumb
     ? [primaryStructuredData, breadcrumb]

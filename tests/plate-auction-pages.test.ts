@@ -4,6 +4,7 @@ import { tmpdir } from 'node:os';
 import { afterEach, describe, expect, it } from 'vitest';
 import { plateAuctionsPagesPlugin, renderPlateAuctionPage } from '../build-plugins/plateAuctionsPagesPlugin';
 import { buildPlateAuctionPath } from '../services/plateAuctions/paths';
+import { AD_SLOTS } from '../services/adsenseSlots';
 
 const tempDirs: string[] = [];
 const FULL_FIXTURE_GROUPS = [
@@ -21,6 +22,8 @@ function fixtureRoot({ auctionCount = 1, withDist = false }: { auctionCount?: nu
   tempDirs.push(rootDir);
   const dataDir = join(rootDir, 'public', 'data');
   mkdirSync(dataDir, { recursive: true });
+  const registryDir = join(rootDir, 'data');
+  mkdirSync(registryDir, { recursive: true });
   const groups = auctionCount === 41 ? FULL_FIXTURE_GROUPS : [{ sourceKey: 'GR', canton: 'Grigioni', platePrefix: 'GR', count: auctionCount }];
   const auctions = groups.flatMap((group, groupIndex) => Array.from({ length: group.count }, (_, index) => {
     const filtered = auctionCount > 1 && groupIndex === groups.length - 1 && index === group.count - 1;
@@ -49,6 +52,24 @@ function fixtureRoot({ auctionCount = 1, withDist = false }: { auctionCount?: nu
     auctions,
     history: [{ id: 'gr-final', sourceKey: 'GR', canton: 'Grigioni', platePrefix: 'GR', normalizedPlate: 'GR7', finalPriceChf: 7000, finalPriceVerifiedAt: '2026-09-12T18:00:00.000Z', auctionStatus: 'sold', dataConfidence: 'verified', officialAuctionUrl: 'https://eauktion.gr.ch/' }],
   }), 'utf8');
+  writeFileSync(join(registryDir, 'plate-auction-sources-registry.json'), JSON.stringify({
+    generatedAt: '2026-09-13T12:00:00.000Z',
+    sources: Object.fromEntries(groups.map((group) => [group.sourceKey.toLowerCase(), {
+      canton: group.canton,
+      plateCode: group.sourceKey,
+      officialUrl: 'https://eauktion.gr.ch/',
+      accessMethod: 'manual',
+      fetchFrequency: 'P1D',
+      timezone: 'Europe/Zurich',
+      parserVersion: 'test',
+      availableFields: [],
+      rateLimit: 'test',
+      termsOfUse: 'test',
+      owner: 'test',
+      status: 'active',
+      sourceFetchedAt: '2026-09-13T12:00:00.000Z',
+    }])),
+  }), 'utf8');
   if (withDist) {
     mkdirSync(join(rootDir, 'dist'), { recursive: true });
   }
@@ -56,6 +77,48 @@ function fixtureRoot({ auctionCount = 1, withDist = false }: { auctionCount?: nu
 }
 
 describe('plate-auction static pages', () => {
+  it('renders registry-backed canton coverage and freshness on the national hub', () => {
+    const rootDir = fixtureRoot();
+    const rendered = renderPlateAuctionPage({ locale: 'it', view: 'hub', rootDir });
+
+    expect(rendered.html).toContain('Copertura per cantone');
+    expect(rendered.html).toContain('data-canton-status=active');
+    expect(rendered.html).toContain('Grigioni (GR)');
+    expect(rendered.html).toContain('Ultimo aggiornamento');
+    expect(rendered.html).toContain('https://eauktion.gr.ch/');
+
+    const english = renderPlateAuctionPage({ locale: 'en', view: 'hub', rootDir });
+    expect(english.html).toContain('Graubünden (GR)');
+  });
+
+  it('shows coverage in progress and suppresses listings when no registry source is active', () => {
+    const rootDir = fixtureRoot();
+    const registryPath = join(rootDir, 'data', 'plate-auction-sources-registry.json');
+    const registry = JSON.parse(readFileSync(registryPath, 'utf8')) as { sources: Record<string, { status: string }> };
+    for (const source of Object.values(registry.sources)) source.status = 'unverified';
+    writeFileSync(registryPath, JSON.stringify(registry), 'utf8');
+
+    const rendered = renderPlateAuctionPage({ locale: 'it', view: 'hub', rootDir });
+    expect(rendered.html).toContain('Copertura in corso');
+    expect(rendered.html).toContain('data-canton-status=unverified');
+    expect(rendered.html).not.toContain('<table>');
+    expect(rendered.html).not.toContain('GR8');
+    expect(rendered.html).toContain('https://eauktion.gr.ch/');
+  });
+
+  it('fails closed when the source registry is malformed', () => {
+    const rootDir = fixtureRoot();
+    writeFileSync(join(rootDir, 'data', 'plate-auction-sources-registry.json'), JSON.stringify({
+      generatedAt: '2026-09-13T12:00:00.000Z',
+      sources: null,
+    }), 'utf8');
+
+    const rendered = renderPlateAuctionPage({ locale: 'it', view: 'hub', rootDir });
+    expect(rendered.html).toContain('Il registro delle fonti cantonali non è disponibile');
+    expect(rendered.html).not.toContain('<table>');
+    expect(rendered.html).not.toContain('GR8');
+  });
+
   it('uses verified history for rankings and keeps the live row out', () => {
     const rootDir = fixtureRoot();
     const rendered = renderPlateAuctionPage({ locale: 'it', view: 'rankings', rootDir });
@@ -69,20 +132,44 @@ describe('plate-auction static pages', () => {
     expect(rendered.html).not.toContain('<main><nav');
   });
 
-  it('renders an empty, explicit detail page when a historical URL has no live row', () => {
+  it('emits vehicle type and the shared top/in-feed ad slots in static pages', () => {
+    const rootDir = fixtureRoot({ auctionCount: 5 });
+    const snapshotPath = join(rootDir, 'public', 'data', 'plate-auctions.json');
+    const snapshot = JSON.parse(readFileSync(snapshotPath, 'utf8')) as { auctions: Array<Record<string, unknown>> };
+    snapshot.auctions[0].vehicleType = 'motorcycle';
+    writeFileSync(snapshotPath, JSON.stringify(snapshot), 'utf8');
+
+    const rendered = renderPlateAuctionPage({ locale: 'it', view: 'hub', rootDir });
+    expect(rendered.html).toContain('Moto');
+    expect(rendered.html).toContain('ft-plate-auction-top-ad');
+    expect(rendered.html).toContain(`data-ad-slot=${AD_SLOTS.JOBDETAIL_TOP_BANNER.slot}`);
+    expect(rendered.html).toContain('ft-infeed-ad');
+    expect(rendered.html).toContain(`data-ad-slot=${AD_SLOTS.JOBLIST_INFEED_DESKTOP.slot}`);
+    expect(rendered.html).toContain('id=rail-left-root');
+    expect(rendered.html).toContain('id=rail-right-root');
+  });
+
+  it('renders a historical detail page with the same indexable ad surfaces', () => {
     const rootDir = fixtureRoot();
     const rendered = renderPlateAuctionPage({ locale: 'en', view: 'detail', canton: 'GR', plate: 'GR7', rootDir });
     expect(rendered.urlPath).toBe('en/swiss-plate-auctions/graubunden-gr/gr7');
-    expect(rendered.html).toContain('No public row is available right now.');
-    expect(rendered.html).toContain('noindex,follow');
-    expect(rendered.html).not.toContain('GR8');
+    expect(rendered.html).toContain('GR7');
+    expect(rendered.html).toContain('index, follow');
+    expect(rendered.html).toContain('ft-plate-auction-top-ad');
+    expect(rendered.html).toContain('id=rail-left-root');
+    expect(rendered.html).toContain('id=rail-right-root');
+    expect(rendered.html).not.toContain('noindex');
   });
 
-  it('keeps individual auction records crawlable but out of the index', () => {
+  it('keeps individual auction records indexable', () => {
     const rootDir = fixtureRoot();
     const rendered = renderPlateAuctionPage({ locale: 'it', view: 'detail', canton: 'GR', plate: 'GR8', rootDir });
-    expect(rendered.html).toContain('noindex,follow');
+    expect(rendered.html).toContain('index, follow');
+    expect(rendered.html).toContain('ft-plate-auction-top-ad');
+    expect(rendered.html).toContain('id=rail-left-root');
+    expect(rendered.html).toContain('id=rail-right-root');
     expect(rendered.html).toContain('GR8');
+    expect(rendered.html).not.toContain('noindex');
   });
 
   it('keeps a live row with an unparseable deadline consistent with the dynamic feed', () => {
@@ -134,7 +221,16 @@ describe('plate-auction static pages', () => {
     }
   });
 
-  it('links every sitemap detail URL from static locale hubs', async () => {
+  it('bounds a large canton index while keeping detail pages separate', () => {
+    const rootDir = fixtureRoot({ auctionCount: 2000 });
+    const rendered = renderPlateAuctionPage({ locale: 'de', view: 'canton', canton: 'GR', rootDir });
+
+    expect(Buffer.byteLength(rendered.html, 'utf8')).toBeLessThan(260 * 1024);
+    expect(rendered.html).toContain('GR2006');
+    expect(rendered.html).not.toContain('/gr56/');
+  });
+
+  it('materializes every published detail URL and includes it in the sitemap', async () => {
     const rootDir = fixtureRoot({ auctionCount: 41, withDist: true });
     const closeBundle = plateAuctionsPagesPlugin(rootDir).closeBundle;
     if (typeof closeBundle !== 'function') throw new Error('plate-auction plugin has no closeBundle hook');
@@ -142,7 +238,7 @@ describe('plate-auction static pages', () => {
 
     const sitemap = readFileSync(join(rootDir, 'dist', 'sitemap-plate-auctions.xml'), 'utf8');
     const sitemapLocs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
-    expect(sitemapLocs).toHaveLength(4 * (2 + 26));
+    expect(sitemapLocs).toHaveLength(4 * (2 + 26 + 41));
     expect(new Set(sitemapLocs).size).toBe(sitemapLocs.length);
     const expectedDetailUrls = new Set<string>();
     for (const locale of ['it', 'en', 'de', 'fr'] as const) {
@@ -155,11 +251,24 @@ describe('plate-auction static pages', () => {
         for (let index = 0; index < group.count; index++) {
           const detailPath = buildPlateAuctionPath({ locale, view: 'detail', canton: group.sourceKey, plate: `${group.platePrefix}${index + 8}` });
           const detailUrl = `https://frontaliereticino.ch${detailPath}`;
-          expectedDetailUrls.add(detailUrl);
-          expect(sitemap).not.toContain(`<loc>${detailUrl}</loc>`);
-          expect(canton).toContain(`href="${detailPath}"`);
+          const conflicting = group.sourceKey === 'ZH' && index === group.count - 1;
+          if (conflicting) {
+            expect(sitemap).not.toContain(`<loc>${detailUrl}</loc>`);
+            expect(canton).not.toContain(`href="${detailPath}"`);
+          } else {
+            expectedDetailUrls.add(detailUrl);
+            expect(sitemap).toContain(`<loc>${detailUrl}</loc>`);
+            expect(canton).toContain(`href="${detailPath}"`);
+          }
         }
       }
+      const historyPath = buildPlateAuctionPath({ locale, view: 'detail', canton: 'GR', plate: 'GR7' });
+      const historyUrl = `https://frontaliereticino.ch${historyPath}`;
+      expectedDetailUrls.add(historyUrl);
+      expect(sitemap).toContain(`<loc>${historyUrl}</loc>`);
+      const historyHtml = readFileSync(join(rootDir, 'dist', historyPath.slice(1), 'index.html'), 'utf8');
+      expect(historyHtml).toContain('index, follow');
+      expect(historyHtml).toContain('ft-plate-auction-top-ad');
     }
     expect(expectedDetailUrls.size).toBe(164);
   });

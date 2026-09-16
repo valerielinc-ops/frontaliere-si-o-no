@@ -5,8 +5,7 @@ import { useTranslation, getCantonI18nParams } from '../../services/i18n';
 import { lazyRetry } from '@/services/lazyRetry';
 import { Analytics } from '@/services/analytics';
 import { upsertNewsletterSubscriber, markNewsletterSubscribedLocally } from '@/services/newsletterSubscribers';
-import { consentProof } from '@/services/consentTexts';
-import ConsentNotice from '@/components/shared/ConsentNotice';
+import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import { useAuth, renderGoogleButtonWithReadiness, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
 import { NEWSLETTER_SUBSCRIBED_KEY as SUBSCRIBED_KEY, isNewsletterCtaEligible } from '@/services/newsletterCtaState';
 import { SkeletonMobileResultCard } from '@/components/shared/Skeletons';
@@ -87,7 +86,7 @@ const MobileCalcLayout: React.FC<Props> = ({
  // from first paint only for visitors who will actually see it.
  const [newsletterCtaEligible] = useState(isNewsletterCtaEligible);
  const [gateEmail, setGateEmail] = useState('');
- const [gateStatus, setGateStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+ const [gateStatus, setGateStatus] = useState<'idle' | 'loading' | 'pending' | 'success' | 'error'>('idle');
  const pendingAnalysisAction = useRef<(() => void) | null>(null);
  const sheetRef = useRef<HTMLDivElement>(null);
  const backdropRef = useRef<HTMLDivElement>(null);
@@ -158,28 +157,31 @@ const MobileCalcLayout: React.FC<Props> = ({
  import('@/services/gamificationService'),
  ]);
  const db = getFirestore(await getApp());
- await upsertNewsletterSubscriber(db, {
+ const upsert = await upsertNewsletterSubscriber(db, {
       email,
       source: 'analysis_gate',
-      // The email gate is an explicit new request, but an old opt-out remains
-      // binding until the fresh DOI link is used.
-      reconsent: true,
-      // #5678/#5712: this gate exchanged the full salary analysis for the
- // address. The notice under the button is now what gets stored.
- ...consentProof('communicationsOptIn', 'email_submit', locale),
+      registrationMethod: 'email',
  });
  // `upsertNewsletterSubscriber` owns the single DOI request. Do not send a
  // second one here: the old duplicate raced the first fire-and-forget request
  // and could produce two provider deliveries before the cooldown was written.
+ // Opening the analysis remains immediate, but a typed address is not marked
+ // as a confirmed newsletter subscriber until the DOI link is clicked.
+ const needsConfirmation = upsert.status === 'pending' && !upsert.hadConfirmationProof;
+ if (needsConfirmation) {
+ Analytics.trackEvent('newsletter_gate_confirmation_pending', { source: 'full_analysis' });
+ setGateStatus('pending');
+ } else {
  markNewsletterSubscribedLocally();
  unlockAchievement('newsletter_subscriber');
  Analytics.trackEvent('newsletter_gate_subscribed', { source: 'full_analysis' });
  setGateStatus('success');
+ }
  setTimeout(() => {
  setShowNewsletterGate(false);
  pendingAnalysisAction.current?.();
  pendingAnalysisAction.current = null;
- }, 1500);
+ }, needsConfirmation ? 1800 : 1500);
  } catch {
  setGateStatus('error');
  }
@@ -599,7 +601,14 @@ const MobileCalcLayout: React.FC<Props> = ({
  <span>{t('newsletterGate.benefit3')}</span>
  </div>
  </div>
- {gateStatus === 'success' ? (
+ {gateStatus === 'pending' ? (
+ <div className="flex flex-col items-center justify-center gap-2 py-3 text-info font-semibold text-sm" role="status" aria-live="polite">
+ <Mail size={20} aria-hidden="true" />
+ <span>{t('newsletter.doubleOptIn.title')}</span>
+ <span className="text-xs font-normal text-subtle text-center">{t('newsletter.doubleOptIn.description')}</span>
+ <span className="text-[11px] font-normal text-muted text-center">{t('newsletter.doubleOptIn.spamHint')}</span>
+ </div>
+ ) : gateStatus === 'success' ? (
  <div className="flex items-center justify-center gap-2 py-3 text-success font-semibold text-sm">
  <CheckCircle2 size={18} />
  {t('newsletterGate.success')}
@@ -646,7 +655,13 @@ const MobileCalcLayout: React.FC<Props> = ({
  {gateStatus === 'loading' ? <Loader2 size={16} className="animate-spin" /> : <Mail size={16} />}
  {t('newsletterGate.subscribe')}
  </button>
- <ConsentNotice consentKey="communicationsOptIn" locale={locale} className="text-[11px] text-muted leading-relaxed block" />
+ <EmailConsentCheckbox
+   id="mobile-analysis-gate-consent"
+   consentKey="communicationsOptIn"
+   locale={locale}
+   className="flex items-start gap-2"
+   noticeClassName="text-[11px] text-muted leading-relaxed"
+ />
  {gateStatus === 'error' && (
  <p className="text-xs text-danger text-center">{t('newsletterGate.error')}</p>
  )}

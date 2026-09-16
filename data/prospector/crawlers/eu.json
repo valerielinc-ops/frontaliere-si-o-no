@@ -1,0 +1,23 @@
+{
+  "companyKey": "eu",
+  "companyName": "Posizioni aperte presso Proton",
+  "companyHost": "job-boards.eu.greenhouse.io",
+  "platform": "greenhouse.io",
+  "mode": "template",
+  "seedUrls": [
+    "https://job-boards.eu.greenhouse.io/proton"
+  ],
+  "detailTemplate": "/proton/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 50,
+  "sampleTitles": [
+    "Senior Backend Engineer (Account) Paris; Geneva",
+    "Frontend Engineer (B2B Products) Taipei; Geneva; Skopje",
+    "Customer Support Advisor Skopje",
+    "Senior Android Software Engineer - Geneva Geneva",
+    "Senior Android Software Engineer - London London"
+  ],
+  "sourceLang": "it",
+  "learnedAt": "2026-09-15T19:36:29.717Z"
+}

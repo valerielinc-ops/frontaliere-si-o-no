@@ -456,7 +456,7 @@ const deCalculator: Record<string, string> = {
  'results.salaryAlert.capture.emailLabel': 'Deine E-Mail-Adresse',
  'results.salaryAlert.capture.emailCta': 'Anmeldelink senden',
  'results.salaryAlert.capture.checkEmailTitle': 'Prüfe deine E-Mail',
- 'results.salaryAlert.capture.checkEmailBody': 'Wir haben dir einen Link geschickt. Öffne ihn, um dich anzumelden und diesen Lohn-Alert automatisch zu aktivieren.',
+ 'results.salaryAlert.capture.checkEmailBody': 'Wir haben dir einen Link geschickt. Öffne ihn, um deine Adresse zu bestätigen und dich anzumelden: Dieser Lohn-Alert wird automatisch aktiviert.',
 
  // Multi-canton net comparison (#4471)
  'results.cantonCompare.title': 'Derselbe Job in anderen Kantonen',
@@ -480,7 +480,8 @@ const deCalculator: Record<string, string> = {
  'calculator.paywall.submit': 'PDF erhalten',
  'calculator.paywall.submitting': 'Senden...',
  'calculator.paywall.dismissLabel': 'Nicht mehr anzeigen',
- 'calculator.paywall.privacyNote': 'Nur f\u00fcr dieses PDF. Kein Spam \u2014 Abmeldung jederzeit m\u00f6glich.',
+ 'calculator.paywall.privacyNote': 'Sie k\u00f6nnen Ihre Einstellungen jederzeit verwalten oder Ihre Einwilligung widerrufen.',
+ 'calculator.paywall.consentRequired': 'Bitte erteilen Sie Ihre Einwilligung, um das PDF und E-Mail-Kommunikation zu erhalten.',
  'calculator.paywall.successToast': 'PDF verschickt! Pr\u00fcfen Sie Ihren Posteingang.',
  'calculator.paywall.errorToast': 'PDF konnte nicht gesendet werden. Bitte E-Mail pr\u00fcfen und erneut versuchen.',
  'calculator.regimeScope.notice': 'Diese Berechnung bildet das Grenzg\u00e4nger-Regime Italien\u2013Schweiz ab: Tessiner Quellensteuer und italienische IRPEF mit Freibetrag. Sie gilt nicht f\u00fcr Einwohner von Frankreich, Deutschland, \u00d6sterreich oder Liechtenstein \u2014 dort gelten andere Abkommen.',

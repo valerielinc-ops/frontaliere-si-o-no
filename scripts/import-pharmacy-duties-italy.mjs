@@ -212,7 +212,9 @@ export async function importItalyPharmacyDuties({
       allWarnings.push(...parsed.warnings.map((warning) => `${source.key}: ${warning}`));
       statuses.push(sourceStatus(source, parsed, attemptedAt));
     } catch (error) {
-      const message = error instanceof Error ? error.message : String(error);
+      const baseMessage = error instanceof Error ? error.message : String(error);
+      const causeCode = error?.cause?.code ? ' (' + error.cause.code + ')' : '';
+      const message = source.key + ': ' + baseMessage + causeCode;
       allErrors.push(message);
       statuses.push({
         province: source.province,

@@ -8,12 +8,10 @@ import {
   deleteAlert,
   findCompanyAlert,
   subscribeCompanyAlert,
-  upgradeBackfilledAlertConsent,
 } from '@/services/jobAlertService';
 import { savePendingCompanyFollow } from '@/services/companyFollowIntent';
-import { upsertNewsletterSubscriber, requestConfirmationEmail } from '@/services/newsletterSubscribers';
-import { consentProof } from '@/services/consentTexts';
-import ConsentNotice from '@/components/shared/ConsentNotice';
+import { upsertUnifiedEmailSubscriber, requestConfirmationEmail } from '@/services/newsletterSubscribers';
+import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import CompanyFollowPlaceholder from './CompanyFollowPlaceholder';
 import { getFirestore } from 'firebase/firestore';
 import { getApp } from '@/services/firebase';
@@ -28,7 +26,7 @@ export type CompanyFollowButtonStatus =
   | 'error'
   /** Anonymous visitor tapped "Segui": the email field is open (#5012 phase 2). */
   | 'capture'
-  /** Opt-in email sent; the follow is parked until the link is clicked. */
+  /** Access email sent; the follow is parked until the link is used. */
   | 'pendingOptIn';
 
 export interface CompanyFollowButtonProps {
@@ -60,7 +58,6 @@ export interface CompanyFollowButtonProps {
   lookup?: typeof findCompanyAlert;
   subscribe?: typeof subscribeCompanyAlert;
   unfollow?: typeof deleteAlert;
-  upgradeConsent?: typeof upgradeBackfilledAlertConsent;
   captureEmail?: (email: string, intent: { company: string; companyKey?: string | null }) => Promise<void>;
 }
 
@@ -74,17 +71,16 @@ export interface CompanyFollowButtonProps {
  *
  * ── TWO PATHS (phase 2) ───────────────────────────────────────────────────
  * Signed in  → write the alert immediately (`subscribeCompanyAlert`).
- * Anonymous  → capture the address, subscribe it as PENDING through the site's
- *              existing double opt-in (`upsertNewsletterSubscriber` fires
- *              `newsletterSendConfirmation`), and PARK the follow in
+ * Anonymous  → register the address under the site's terms-based relationship,
+ *              request an access link, and PARK the follow in
  *              services/companyFollowIntent.ts. App.tsx replays it once the
- *              confirmation link signs the visitor in.
+ *              login link signs the visitor in.
  *
  * Phase 1 returned `null` for anonymous visitors, so the highest-intent reader
  * on the page — someone looking at a specific employer's ad — could not follow
- * at all. No alert document is ever written for an unconfirmed address:
- * consent first, subscription second. That ordering is what double opt-in
- * means, and it is why the intent is parked instead of written optimistically.
+ * at all. The follow intent is parked while the address is authenticated; the
+ * terms-based base relationship is written immediately and the concrete
+ * company alert is replayed after login.
  *
  * Unfollow DEACTIVATES the alert (`deleteAlert` → `active:false` + `unsubscribed_at`).
  *
@@ -122,14 +118,13 @@ export default function CompanyFollowButton({
   lookup = findCompanyAlert,
   subscribe = subscribeCompanyAlert,
   unfollow = deleteAlert,
-  upgradeConsent = upgradeBackfilledAlertConsent,
   captureEmail,
 }: CompanyFollowButtonProps) {
   const { t } = useTranslation();
   const [status, setStatus] = useState<CompanyFollowButtonStatus>('loading');
   const [alertId, setAlertId] = useState<string | null>(null);
-  const [typedEmail, setTypedEmail] = useState('');
-  const [captureError, setCaptureError] = useState('');
+ const [typedEmail, setTypedEmail] = useState('');
+ const [captureError, setCaptureError] = useState('');
 
   const slug = companyAlertKey(company, companyKey || undefined);
   const signedIn = Boolean(userId && email);
@@ -150,42 +145,49 @@ export default function CompanyFollowButton({
 
   const handleFollow = useCallback(async () => {
     if (!slug) return;
-    // Anonymous: open the capture field instead of writing. The alert needs a
-    // confirmed address, and asking for it here IS the growth case — an
-    // anonymous visitor who wants one employer's ads is an acquired email.
+    // Anonymous: open the capture field instead of writing. The concrete alert
+    // needs an authenticated user id; asking for the address here supplies the
+    // identity needed to replay the follow after the access link is used.
     if (!signedIn) { setStatus('capture'); return; }
     setStatus('submitting');
     try {
       const created = await subscribe(userId as string, email as string, { name: company, companyKey }, locale, {
         slug: sourceJobSlug ?? null,
         url: sourceJobUrl ?? null,
-        title: sourceJobTitle ?? null,
+          title: sourceJobTitle ?? null,
+      }, {
+        email: email as string,
+        source: 'company_follow_button',
+        // Keep the authenticated and anonymous follow paths on the same
+        // unified-consent channel. The legacy `company_follow_button` value is
+        // retained only for historical rows/backfills whose purpose was
+        // company-follow-only; using it here would silently omit the user from
+        // the other email channels despite the shared checkbox.
+        sourceChannel: 'company_follow_unified',
+        sourcePage: typeof window !== 'undefined' ? window.location.pathname : null,
+        sourceCta: 'company_follow_button',
+        sourceComponent: 'CompanyFollowButton',
+        sourceRouteFamily: 'company-follow',
+        locale,
+        jobContext: { company },
       });
       setAlertId(created.id);
-      // #5876 — following a company is the same explicit act, behind the same
-      // notice (rendered below on the capture form), as the other 7 surfaces
-      // this issue wires up. If this email also carries a travaso alert, the
-      // act converts its deduced consent into an explicit one. Never awaited
-      // into the error path: a proof that fails to land must not turn a
-      // successful follow into an error toast.
-      void upgradeConsent(email as string, locale).catch(() => {});
       setStatus('following');
       if (onSubscribed) onSubscribed();
     } catch (error: unknown) {
       setStatus('error');
       if (onErrored) onErrored(error);
     }
-  }, [company, companyKey, email, locale, onErrored, onSubscribed, signedIn, slug, sourceJobSlug, sourceJobTitle, sourceJobUrl, subscribe, upgradeConsent, userId]);
+  }, [company, companyKey, email, locale, onErrored, onSubscribed, signedIn, slug, sourceJobSlug, sourceJobTitle, sourceJobUrl, subscribe, userId]);
 
   /**
    * Anonymous submit. Reuses the site's ONE consent mechanism end to end:
-   * `upsertNewsletterSubscriber` writes `status:'pending'` and auto-fires the
-   * confirmation email for a new DOI cycle. An address with valid proof gets
-   * an explicit `purpose:'login'` link instead; a proofless historical auth
-   * row remains on the fresh DOI path. Without either branch a returning
-   * visitor would tap "Segui", receive no email, and never be followed:
-   * silent failure, the exact defect class this feature keeps being audited
-   * for.
+   * `upsertUnifiedEmailSubscriber` writes the terms-based relationship. The
+   * access email is separate from consent: it only authenticates the address
+   * so App.tsx can replay the parked follow. A proofless historical row may
+   * still receive the dedicated remediation flow; without an access branch a
+   * returning visitor would tap "Segui", receive no email, and never be
+   * followed.
    */
   const handleCaptureSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
@@ -202,36 +204,33 @@ export default function CompanyFollowButton({
         await captureEmail(trimmed, { company, companyKey });
       } else {
         const firestore = getFirestore(await getApp());
-        const upsert = await upsertNewsletterSubscriber(firestore, {
+        const upsert = await upsertUnifiedEmailSubscriber(firestore, {
           email: trimmed,
-          preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false },
           source: 'company_follow_button',
+          // Do not use the legacy `company_follow_button` channel here: that
+          // compatibility path intentionally authorises only the follow
+          // purpose. This gate is the unified email choice and enables the
+          // shared jobs relationship; company-follow remains a separate alert
+          // record under that relationship.
+          sourceChannel: 'company_follow_unified',
           sourcePage: typeof window !== 'undefined' ? window.location.pathname : '',
           sourceCta: 'company_follow_button',
           sourceComponent: 'CompanyFollowButton',
-          sourceRouteFamily: 'community',
-          locale: typeof navigator !== 'undefined' ? navigator.language || 'it-IT' : 'it-IT',
-          // Following an employer is an explicit communications request. For
-          // a previous opt-out it starts a new DOI cycle; the email link, not
-          // this form, is what reactivates delivery.
-          reconsent: true,
-          // #5712/#5718: the notice under this form renders the same string
-          // in the same locale, so what is stored is what was read.
-          ...consentProof('communicationsOptIn', 'email_submit', locale),
-          // No `consentGiven`: this form has no consent checkbox, so nothing here
-          // is an affirmative opt-in — only "was shown" is true. See the
-          // `consentGiven` section of services/consentTexts.ts (#5712).
+          sourceRouteFamily: 'company-follow',
+          locale,
+          jobContext: { company },
         });
-        // A proofless historical auth row can be `pending` after this explicit
-        // re-consent form; in that case the upsert already requested the fresh
-        // DOI and a second login email would be redundant. A pending row with
-        // real proof still needs the access link because no DOI is sent.
+        // A proofless historical row can remain `pending` while the dedicated
+        // remediation flow is open; in that case the upsert already requested
+        // the fresh DOI and a second login email would be redundant. A row with
+        // existing proof still needs the access link because no DOI is sent.
         if (upsert.status !== 'pending' || upsert.hadConfirmationProof) {
           await requestConfirmationEmail(trimmed, 'login');
         }
       }
-      // Park the follow. It becomes an alert only after the confirmation link
-      // lands (App.tsx → flushPendingCompanyFollows), never before.
+      // Park the follow. It becomes a concrete alert after the login link lands
+      // (App.tsx → flushPendingCompanyFollows), while the base relationship is
+      // already present.
       savePendingCompanyFollow({
         company,
         companyKey: companyKey ?? null,
@@ -323,7 +322,13 @@ export default function CompanyFollowButton({
             {t('jobAlert.companyFollow.cta')}
           </button>
         </div>
-        <ConsentNotice consentKey="communicationsOptIn" locale={locale} className="mt-2 text-[10px] text-muted leading-snug block" />
+        <EmailConsentCheckbox
+          id="company-follow-email-consent"
+          locale={locale}
+          consentKey="communicationsOptIn"
+          className="mt-2 flex items-start gap-2 cursor-pointer"
+          noticeClassName="text-[10px] text-muted leading-snug"
+        />
         {captureError && <p className="mt-2 text-xs text-danger">{captureError}</p>}
       </form>
     );
@@ -368,15 +373,12 @@ export default function CompanyFollowButton({
           : t('jobAlert.companyFollow.hint', 'Ricevi una email quando questa azienda pubblica nuovi lavori.')}
       </p>
       {!following && (
-        // #5902 review round 1: handleFollow (above) records this same
-        // consentKey via upgradeConsent — the notice must be on screen in the
-        // signed-in branch too, not only on the anonymous capture form below,
-        // or the write would assert consent_text_displayed:true for a formula
-        // nobody saw.
-        <ConsentNotice
-          consentKey="communicationsOptIn"
+        <EmailConsentCheckbox
+          id="company-follow-signed-in-consent"
           locale={locale}
-          className="mt-2 text-[10px] text-muted leading-snug block"
+          consentKey="communicationsOptIn"
+          className="mt-2 flex items-start gap-2 cursor-pointer"
+          noticeClassName="text-[10px] text-muted leading-snug"
         />
       )}
       {following && (

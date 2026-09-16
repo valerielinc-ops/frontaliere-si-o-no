@@ -12,10 +12,12 @@ recente o che una farmacia sia di turno in questo momento.
 ## Registro al 15 settembre 2026
 
 `active` è riservato alla fonte Ticino, già verificata come leggibile dal
-connettore esistente. Le altre 25 entry sono `unverified`: l'URL è stato
-registrato nella ricognizione, ma non esiste ancora un connettore o un dataset
-di turni collegato a questa applicazione. La colonna `accessMethod` descrive il
-percorso di accesso da valutare; non è una prova di fetch riuscito.
+connettore esistente. Ginevra è `degraded`: il connettore dedicato legge la
+pagina pubblica, ma il calendario osservato è incompleto e resta
+`not_published`. Le altre 24 entry sono `unverified`: l'URL è stato registrato
+nella ricognizione, ma non esiste ancora un connettore o un dataset di turni
+collegato a questa applicazione. La colonna `accessMethod` descrive il percorso
+di accesso da valutare; non è una prova di fetch riuscito.
 
 | Codice | Chiave registry | Cantone | Tipo | Accesso | Stato | Verificata | Fonte |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -26,7 +28,7 @@ percorso di accesso da valutare; non è una prova di fetch riuscito.
 | BL | `basel-landschaft` | Basilea Campagna | official | manual | unverified | 2026-09-15 | [Basilea Campagna — domande mediche](https://www.baselland.ch/politik-und-behorden/direktionen/volkswirtschafts-und-gesundheitsdirektion/amt-fur-gesundheit/medizinische-dienste/kantonsaerztlicher-dienst/kontakte/medizinische-fragen) |
 | BS | `basel-stadt` | Basilea Città | official | manual | unverified | 2026-09-15 | [Basilea Città — elenco farmacie](https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt) |
 | FR | `fribourg` | Friburgo | association | html-scrape | unverified | 2026-09-15 | [Pharmacies Fribourg — pharmacie de garde](https://www.pharmaciesfribourg.ch/fr/prestations-et-conseils/pharmacie-de-garde) |
-| GE | `geneva` | Ginevra | association | html-scrape | unverified | 2026-09-15 | [Pharma Genève — pharmacie de garde](https://pharmageneve.swiss/pharmacie-de-garde/) |
+| GE | `geneva` | Ginevra | association | html-scrape | degraded | 2026-09-15 | [Pharma Genève — pharmacie de garde](https://pharmageneve.swiss/pharmacie-de-garde/) |
 | GL | `glarus` | Glarona | official | manual | unverified | 2026-09-15 | [Glarona — numeri di emergenza](https://www.gl.ch/verwaltung/finanzen-und-gesundheit/gesundheit/gesundheitsversorgung/notfallnummern.html/1691) |
 | GR | `graubunden` | Grigioni | association | html-scrape | unverified | 2026-09-15 | [Apotheke Chur — emergenza](https://notfall.apotheke-chur.ch/) |
 | JU | `jura` | Giura | association | html-scrape | unverified | 2026-09-15 | [Giura — numeri di emergenza](https://www.jura.ch/fr/Autorites/Administration/CHA/SIC/Urgences/Numeros-d-urgence-Urgence.html) |
@@ -57,13 +59,15 @@ calendario di farmacie.
 - La mappa geografica è completa: ogni codice e ogni chiave di
   `SWISS_CANTONS` ha una entry e un URL HTTPS di ingresso.
 - La copertura dei turni non è completa: solo Ticino ha una fonte `active` e un
-  connettore/dataset già verificato. Le altre entry restano `unverified`.
-- L'assenza di `sourceFetchedAt` per i 25 cantoni non è uno zero turni: indica
-  che questa applicazione non ha ancora registrato un fetch riuscito da un
-  connettore per quelle fonti.
-- Nessuna fonte è stata marcata `degraded` o `blocked`: la ricognizione ha
-  fornito URL di ingresso utilizzabili, ma non ha dato evidenza sufficiente di
-  instabilità o accesso negato. L'assenza di un connettore si esprime con
+  connettore/dataset operativo verificato. Ginevra ha un connettore dedicato,
+  ma la sua fonte è `degraded` e il relativo snapshot resta `not_published`;
+  le altre 24 entry restano `unverified`.
+- L'assenza di `sourceFetchedAt` per le 24 fonti `unverified` non è uno zero
+  turni: indica che questa applicazione non ha ancora registrato un fetch
+  riuscito da un connettore per quelle fonti.
+- `degraded` è riservato a una fonte raggiungibile ma non sufficientemente
+  completa o stabile per la pubblicazione, come Ginevra; `blocked` resta
+  disponibile per un accesso negato. L'assenza di un connettore si esprime con
   `unverified`, non con uno stato operativo inventato.
 
 ## Link di fonte e turno live non sono la stessa cosa

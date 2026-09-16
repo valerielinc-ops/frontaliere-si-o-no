@@ -2168,6 +2168,21 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'ssr-risparmi-270-milioni-2029': { it: 'ssr-risparmi-270-milioni-2029', en: 'ssr-savings-270-million-2029', de: 'ssr-einsparungen-270-millionen-2029', fr: 'ssr-economies-270-millions-2029' },
  'premi-lamal-politica-responsabilita': { it: 'premi-lamal-politica-responsabilita', en: 'lamal-premiums-politics-responsibility', de: 'kvg-praemien-politik-verantwortung', fr: 'primes-lamal-politique-responsabilite' },
  'formazione-adulta-reddito-svizzera': { it: 'formazione-adulta-reddito-svizzera', en: 'adult-education-income-switzerland', de: 'bildung-erwachsene-einkommen-schweiz', fr: 'formation-adultes-revenu-suisse' },
+ 'farmacie-turno-svizzera-confine-italiano': { it: 'farmacie-turno-svizzera-confine-italiano', en: 'on-duty-pharmacies-switzerland-italian-border', de: 'notdienst-apotheken-schweiz-italienische-grenze', fr: 'pharmacies-garde-suisse-frontiere-italienne' },
+ 'ocse-crescita-svizzera-2026': { it: 'ocse-crescita-svizzera-2026', en: 'oecd-switzerland-growth-2026', de: 'oecd-schweiz-wachstum-2026', fr: 'ocde-croissance-suisse-2026' },
+ 'ocse-rapporto-svizzera-2026': { it: 'ocse-rapporto-svizzera-2026', en: 'oecd-switzerland-report-2026', de: 'oecd-bericht-schweiz-2026', fr: 'ocde-rapport-suisse-2026' },
+ 'bak-economics-pil-2026-18': { it: 'bak-economics-pil-2026-18', en: 'bak-economics-swiss-gdp-2026-forecast', de: 'bak-economics-schweizer-bip-2026-prognose', fr: 'bak-economics-pib-suisse-2026-prevision' },
+ 'too-big-to-fail-consiglio-stati': { it: 'too-big-to-fail-consiglio-stati', en: 'too-big-to-fail-council-of-states', de: 'too-big-to-fail-staenderat', fr: 'too-big-to-fail-conseil-des-etats' },
+ 'bns-tassi-interessi-ubs': { it: 'bns-tassi-interessi-ubs', en: 'snb-interest-rates-ubs', de: 'snb-zinssaetze-ubs', fr: 'bns-taux-interet-ubs' },
+ 'vaccini-antinfluenzali-ritardo-svizzera': { it: 'vaccini-antinfluenzali-ritardo-svizzera', en: 'flu-vaccines-delay-switzerland', de: 'grippeschutzimpfung-verzoegerung-schweiz', fr: 'vaccins-grippe-retard-suisse' },
+ 'ruag-riorganizzazione-tagli-posti': { it: 'ruag-riorganizzazione-tagli-posti', en: 'ruag-reorganization-job-cuts', de: 'ruag-reorganisation-stellenabbau', fr: 'ruag-reorganisation-suppression-postes' },
+ 'consiglio-federale-obiettivi-2027': { it: 'consiglio-federale-obiettivi-2027', en: 'federal-council-goals-2027', de: 'bundesrat-ziele-2027', fr: 'conseil-federal-objectifs-2027' },
+ 'migros-ristruttura-online-retail': { it: 'migros-ristruttura-online-retail', en: 'migros-restructures-online-retail', de: 'migros-strukturiert-online-retail-neu', fr: 'migros-restructure-l-online-retail' },
+ 'avviare-attivita-canton-nidvaldo': { it: 'avviare-attivita-canton-nidvaldo', en: 'starting-business-canton-nidwalden', de: 'unternehmen-starten-kanton-nidwalden', fr: 'lancer-entreprise-canton-nidwald' },
+ 'turismo-svizzera-estate-normalizzazione': { it: 'turismo-svizzera-estate-normalizzazione', en: 'switzerland-tourism-summer-normalization', de: 'schweiz-tourismus-sommer-normalisierung', fr: 'tourisme-suisse-ete-normalisation' },
+ 'fides-26-polizia-esercito-berna': { it: 'fides-26-polizia-esercito-berna', en: 'fides-26-police-army-bern', de: 'fides-26-polizei-armee-bern', fr: 'fides-26-police-armee-berne' },
+ 'lotta-denaro-sporco-svizzera': { it: 'lotta-denaro-sporco-svizzera', en: 'switzerland-fight-dirty-money', de: 'schweiz-kampf-gegen-schmutziges-geld', fr: 'suisse-lutte-contre-argent-sale' },
+ 'calcio-hockey-svizzera-economia-pubblico': { it: 'calcio-hockey-svizzera-economia-pubblico', en: 'football-hockey-switzerland-economy-public', de: 'fussball-eishockey-schweiz-wirtschaft-publikum', fr: 'football-hockey-suisse-economie-public' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

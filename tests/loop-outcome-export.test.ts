@@ -4,6 +4,10 @@ import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   buildL1TelemetryExport,
+  buildUnavailableL1TelemetryExport,
+  buildUnavailableL3OutcomeExport,
+  buildUnavailableL4OutcomeExport,
+  buildUnavailableL5DecisionMomentExport,
   buildL3OutcomeExport,
   buildL4OutcomeLedger,
   buildL5DecisionMomentExport,
@@ -76,6 +80,37 @@ describe('read-only loop outcome exporters', () => {
       usefulSessions: 18595,
       errorFreeUsefulSessions: 7738,
       _meta: { issue: 4304, generatedAt: NOW.toISOString() },
+    });
+  });
+
+  it('emits explicit unavailable L1/L3/L4 placeholders instead of failing before evidence recording', () => {
+    expect(buildUnavailableL1TelemetryExport({ generatedAt: NOW.toISOString() })).toMatchObject({
+      generatedAt: NOW.toISOString(),
+      usefulSessions: null,
+      errorFreeUsefulSessions: null,
+      independent: false,
+      export: { readOnly: true, unavailable: true, mutationsPerformed: false },
+    });
+    expect(buildUnavailableL3OutcomeExport({ generatedAt: NOW.toISOString() })).toMatchObject({
+      generatedAt: NOW.toISOString(),
+      eligibleJobSessions: null,
+      validHandoffs: null,
+      applications: null,
+      independent: false,
+      export: { handoffIsNotApplication: true, publishedDataUntouched: true, unavailable: true },
+    });
+    expect(buildUnavailableL4OutcomeExport({ generatedAt: NOW.toISOString() })).toMatchObject({
+      generatedAt: NOW.toISOString(),
+      eligibleConsentedUsers: null,
+      returningUsers7d: null,
+      independent: false,
+      export: { externalDeliveryUntouched: true, unavailable: true, mutationsPerformed: false },
+    });
+    expect(buildUnavailableL5DecisionMomentExport({ generatedAt: NOW.toISOString(), reason: 'test outage' })).toMatchObject({
+      generatedAt: NOW.toISOString(),
+      independent: false,
+      export: { readOnly: true, unavailable: true, publishedDataUntouched: true },
+      _meta: { reason: 'test outage' },
     });
   });
 
@@ -377,9 +412,15 @@ describe('read-only loop outcome exporters', () => {
   });
 
   it('keeps the L7 ledger fail-closed when canonical experiment evidence is absent or unsafe', async () => {
+    expect(() => buildL7ExperimentLedgerQuery({
+      start: '2026-09-05T12:00:00.000Z',
+      end: NOW.toISOString(),
+    })).toThrow('L7 policy is required');
+
     const query = buildL7ExperimentLedgerQuery({
       start: '2026-09-05T12:00:00.000Z',
       end: NOW.toISOString(),
+      policy: L7_POLICY,
     });
     expect(query).toContain("event IN ('experiment_assignment', 'experiment_exposure', 'experiment_outcome', 'experiment_guardrail')");
     expect(query).toContain("properties.loop_id = 'L7'");
@@ -501,7 +542,7 @@ describe('read-only loop outcome exporters', () => {
       now: NOW,
       outputPath: path.join(outputDir, 'outcomes.json'),
       client: postHogClient() as any,
-      policy: L7_POLICY,
+      registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
       posthogRunner: async () => ({
         columns: Object.keys(completeAggregate),
         results: [Object.values(completeAggregate)],
@@ -582,6 +623,7 @@ describe('read-only loop outcome exporters', () => {
       stripeEventRows: [row('stripe_events/e1', { type: 'invoice.paid', processedAt: '2026-09-12T11:00:00.000Z' })],
     });
     expect(output).toMatchObject({
+      independent: true,
       eligibleEmployerAccounts: 1,
       paidActivations: 1,
       activeSubscriptions: 1,

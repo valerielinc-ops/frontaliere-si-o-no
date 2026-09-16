@@ -12,7 +12,9 @@ import {
   SlidersHorizontal,
 } from 'lucide-react';
 import PharmacyMap from '@/components/pharmacies/PharmacyMap';
+import PharmacyDutyCoverageMatrix from '@/components/pharmacies/PharmacyDutyCoverageMatrix';
 import PharmacyDutyWeek from '@/components/pages/PharmacyDutyWeek';
+import PharmacyItalyDutyWeek from '@/components/pages/PharmacyItalyDutyWeek';
 import {
   BORDER_PHARMACIES,
   ITALY_BORDER_PHARMACIES,
@@ -224,16 +226,11 @@ function CountryDirectoryPage({ locale }: { locale: Locale }) {
 
 function DutyPage({ page, locale, now }: { page: PharmacyPath; locale: Locale; now: Date }) {
   const copy = COPY[locale];
-  const regionNames = [...new Set(DUTIES.duties.map((duty) => duty.coverageName))]
-    .filter((region) => Boolean(currentDutyForRegion(DUTIES, region, now)));
   const city = page.kind === 'duty-city' && page.citySlug ? TICINO_CITIES.find((candidate) => candidate.slug === page.citySlug)?.name : undefined;
   const coverage = city ? [...new Set(scopeForPage(page).map((pharmacy) => DUTY_COVERAGE_BY_PHARMACY.get(pharmacy.id)).filter(Boolean))][0] : undefined;
   const currentDuty = coverage ? currentDutyForRegion(DUTIES, coverage, now) : undefined;
   const duties = currentDuty ? [currentDuty] : [];
-  const hubContent = regionNames.length > 0
-    ? <div className="grid gap-4 md:grid-cols-2">{regionNames.map((region) => <div key={region}><h3 className="sr-only">{region}</h3><DutyCard duty={currentDutyForRegion(DUTIES, region, now)} locale={locale} now={now} /></div>)}</div>
-    : <p className="rounded-xl border border-edge bg-surface-alt p-4 text-sm text-muted" role="status">{copy.noDuty}</p>;
-  return <div className="mx-auto max-w-6xl space-y-8"><header className="space-y-3"><p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">{copy.swiss}</p><h1 className="font-display text-3xl font-bold tracking-tight text-heading sm:text-4xl">{page.kind === 'duty-city' ? `${copy.dutyHub}: ${city || ''}` : copy.dutyHub}</h1><p className="max-w-3xl text-base leading-7 text-muted">{copy.verify}</p></header>{page.kind === 'duty-city' ? <section className="space-y-4" aria-labelledby="pharmacy-duty-city-heading"><h2 id="pharmacy-duty-city-heading" className="font-display text-xl font-bold text-heading">{coverage || copy.dutyArea}</h2><div className="grid gap-4 md:grid-cols-2">{duties.slice(0, 6).map((duty) => <DutyCard key={duty.id} duty={duty} locale={locale} now={now} />)}</div>{duties.length === 0 && <p className="rounded-xl border border-edge bg-surface-alt p-4 text-sm text-muted" role="status">{copy.noDuty}</p>}</section> : <section className="space-y-4" aria-labelledby="pharmacy-duty-heading"><h2 id="pharmacy-duty-heading" className="font-display text-xl font-bold text-heading">{copy.dutyHub}</h2>{hubContent}</section>}<aside className="rounded-2xl border border-accent/30 bg-accent-subtle p-5 text-sm leading-6 text-body"><strong className="text-heading">{copy.verifyHeading}</strong><p className="mt-2 text-muted">{copy.verify}</p></aside></div>;
+  return <div className="mx-auto max-w-6xl space-y-8"><header className="space-y-3"><p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">{copy.swiss}</p><h1 className="font-display text-3xl font-bold tracking-tight text-heading sm:text-4xl">{page.kind === 'duty-city' ? `${copy.dutyHub}: ${city || ''}` : copy.dutyHub}</h1><p className="max-w-3xl text-base leading-7 text-muted">{copy.verify}</p></header>{page.kind === 'duty-city' ? <section className="space-y-4" aria-labelledby="pharmacy-duty-city-heading"><h2 id="pharmacy-duty-city-heading" className="font-display text-xl font-bold text-heading">{coverage || copy.dutyArea}</h2><div className="grid gap-4 md:grid-cols-2">{duties.slice(0, 6).map((duty) => <DutyCard key={duty.id} duty={duty} locale={locale} now={now} />)}</div>{duties.length === 0 && <p className="rounded-xl border border-edge bg-surface-alt p-4 text-sm text-muted" role="status">{copy.noDuty}</p>}</section> : <PharmacyDutyCoverageMatrix locale={locale} now={now} />}<aside className="rounded-2xl border border-accent/30 bg-accent-subtle p-5 text-sm leading-6 text-body"><strong className="text-heading">{copy.verifyHeading}</strong><p className="mt-2 text-muted">{copy.verify}</p></aside></div>;
 }
 
 export default function PharmacyDirectory({ page }: { page: PharmacyPath }) {
@@ -242,6 +239,7 @@ export default function PharmacyDirectory({ page }: { page: PharmacyPath }) {
   const pharmacy = pharmacyForPage(page);
   if (page.kind === 'pharmacy') return pharmacy ? <DetailPage pharmacy={pharmacy} locale={page.locale} now={now} /> : <p className="mx-auto max-w-2xl rounded-xl border border-edge bg-surface-alt p-5 text-muted">{COPY[page.locale].noPharmacy}</p>;
   if (page.kind === 'duty-week') return <PharmacyDutyWeek page={page} />;
+  if (page.kind === 'italy-duty-hub' || page.kind === 'italy-duty-week') return <PharmacyItalyDutyWeek page={page} now={now} />;
   if (page.kind === 'duty-hub' || page.kind === 'duty-city') return <DutyPage page={page} locale={page.locale} now={now} />;
   if (page.kind === 'country') return <CountryDirectoryPage locale={page.locale} />;
   if (page.kind === 'city' && !page.areaSlug && page.citySlug) {

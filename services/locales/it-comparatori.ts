@@ -549,6 +549,7 @@ const translations: Record<string, string> = {
  'health.lamalSsn.emailSending': 'Invio\u2026',
  'health.lamalSsn.emailSuccess': 'Fatto! Controlla la tua casella email.',
  'health.lamalSsn.emailError': 'Invio non riuscito. Controlla l\u2019email e riprova.',
+ 'health.lamalSsn.consentRequired': 'Seleziona il consenso per ricevere il PDF e le comunicazioni email.',
  'health.lamalSsn.disclaimer': 'Stime indicative a scopo informativo, non costituiscono consulenza. Verifica i premi su priminfo.admin.ch e l\u2019aliquota presso la tua regione.',
  'health.subtitle': 'Confronto casse malati LAMal vs SSN Italia per frontalieri Ticino',
  'health.warningTitle': 'Diritto di opzione',

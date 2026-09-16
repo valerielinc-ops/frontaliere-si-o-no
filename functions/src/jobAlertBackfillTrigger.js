@@ -12,12 +12,11 @@
  * `jobAlertBackfillCore.js` — no drift between "day-0 backfill of existing
  * docs" and "day-N auto-creation for new ones".
  *
- * Since #5705 the shared `shouldSkipSubscriber` also requires an affirmative,
- * job-alert-scoped consent on the subscriber document, so this handler returns
- * `{created: false, reason: 'no-job-alert-consent'}` — writing nothing — for
- * every subscriber whose consent covers the newsletter only. That is the case
- * for the whole list today; see the consent-gate section in
- * `jobAlertBackfillCore.js` for why a signal tier is not a request.
+ * The registration terms create the base relationship for both newsletter and
+ * job alerts. The shared `shouldSkipSubscriber` therefore creates the broad
+ * backfill alert even when no signal exists yet; the alert is refined later by
+ * searches, visits and clicks. Only invalid addresses and explicit
+ * unsubscribe/suppression states stop creation.
  *
  * Also invoked, with a `personalization` dep, from the companion
  * `backfillJobAlertOnPersonalizationSync` trigger (functions/index.js) on
@@ -58,7 +57,10 @@ export async function handleNewsletterSubscriberCreated(
     return { created: false, reason: 'meta_sentinel' };
   }
 
-  const email = normalizeEmail(data?.email || emailId);
+  // The Firestore document id is the canonical address key. Legacy rows may
+  // carry a display-formatted `email` value (for example `Name <a@b.test>`),
+  // while the live trigger always receives the normalized id.
+  const email = normalizeEmail(emailId || data?.email);
   const skipReason = shouldSkipSubscriber(email, data, personalization);
   if (skipReason) {
     return { created: false, reason: skipReason };

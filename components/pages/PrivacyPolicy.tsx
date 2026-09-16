@@ -215,7 +215,7 @@ export const PrivacyPolicy: React.FC = () => {
           </div>
           <div>
             <h1 className="text-2xl sm:text-3xl font-light font-display text-heading">Privacy Policy</h1>
-            <p className="text-sm text-muted mt-1">Ultimo aggiornamento: 12 agosto 2026</p>
+            <p className="text-sm text-muted mt-1">Ultimo aggiornamento: 14 settembre 2026</p>
           </div>
         </div>
         <p className="text-subtle leading-relaxed">
@@ -378,31 +378,37 @@ export const PrivacyPolicy: React.FC = () => {
           </h2>
           <div className="space-y-3 text-subtle">
             <p>
-              Qualora l'utente si iscriva volontariamente al servizio di newsletter, il Titolare del trattamento raccoglierà
-              e conserverà l'indirizzo e-mail fornito ai sensi dell'art. 6, par. 1, lett. a) del Regolamento (UE) 2016/679 (GDPR),
-              sulla base del consenso esplicito prestato dall'utente al momento dell'iscrizione.
+              Quando una persona si registra sul sito — tramite email, Google, LinkedIn, Gmail o un altro sistema di
+              accesso — il Titolare registra l'accettazione dei Termini e la iscrive al rapporto base di comunicazioni:
+              newsletter, job alert, messaggi di servizio e comunicazioni promozionali di terzi. Non viene richiesta una
+              casella separata per questi canali: il dettaglio di ciò che
+              viene inviato e delle relative preferenze è nei Termini e nella pagina{' '}
+              <a href="/comunicazioni/" className="text-accent underline">«Comunicazioni»</a>.
             </p>
             <div className="bg-surface-alt/50 p-4 rounded-2xl border border-edge">
               <h3 className="font-medium text-heading mb-2">Finalità del trattamento</h3>
               <p className="text-sm">
-                L'indirizzo e-mail sarà utilizzato per le seguenti finalità: (i) invio periodico di comunicazioni informative
-                relative ai servizi offerti dalla piattaforma, inclusi aggiornamenti su tassi di cambio, traffico ai valichi
-                e novità normative fiscali; (ii) comunicazioni promozionali, offerte personalizzate e contenuti di marketing
-                diretto relativi ai servizi della piattaforma e dei partner commerciali convenzionati, ai sensi dell'art. 130,
-                commi 1 e 2, del D.Lgs. 196/2003 (Codice Privacy) e successive modifiche; (iii) profilazione di base per
-                l'ottimizzazione dei contenuti inviati sulla base delle preferenze espresse dall'utente e delle interazioni
-                con le comunicazioni ricevute, nel rispetto dei principi di minimizzazione e proporzionalità ex art. 5 GDPR.
+                L'indirizzo e-mail può essere utilizzato per: (i) comunicazioni informative e di servizio relative alla
+                piattaforma, inclusi aggiornamenti su tassi di cambio, traffico ai valichi e novità normative fiscali;
+                (ii) il rapporto base di newsletter e job alert, con criteri che si arricchiscono dal canale di registrazione,
+                dalle ricerche, dalle visite e dai clic sulle offerte; (iii) canali aggiuntivi come aziende seguite e lavori
+                salvati, attivati dall'azione corrispondente; (iv) selezionare contenuti pertinenti sulla base delle
+                preferenze e delle interazioni con le nostre comunicazioni; queste informazioni possono essere utilizzate
+                per selezionare comunicazioni promozionali di terzi. Quando il canale è attivo, possiamo comunicare,
+                mettere a disposizione o cedere l'indirizzo email e le informazioni pertinenti a inserzionisti e partner
+                pubblicitari per le loro finalità commerciali descritte nei Termini e nella pagina «Comunicazioni».
               </p>
             </div>
             <div className="bg-surface-alt/50 p-4 rounded-2xl border border-edge">
               <h3 className="font-medium text-heading mb-2">Base giuridica e conservazione</h3>
               <p className="text-sm">
-                Il trattamento è fondato sul consenso dell'interessato (art. 6, par. 1, lett. a), GDPR) e, limitatamente
-                al soft spam, sul legittimo interesse del Titolare (art. 6, par. 1, lett. f), GDPR), conformemente al
-                Considerando 47 del Regolamento. I dati saranno conservati fino alla revoca del consenso o alla
-                cancellazione dell'iscrizione. L'utente può revocare il consenso in qualsiasi momento tramite il link
-                di cancellazione presente in ogni comunicazione, senza pregiudizio per la liceità del trattamento
-                basato sul consenso prestato prima della revoca.
+                La registrazione e l'accettazione dei Termini costituiscono la base dichiarata per le comunicazioni email
+                e i job alert del rapporto base; le comunicazioni strettamente necessarie all'esecuzione di un servizio
+                richiesto possono avere la diversa base contrattuale applicabile. I dati saranno conservati fino alla
+                revoca dell'iscrizione o alla cancellazione dell'account. L'utente può interrompere le comunicazioni in qualsiasi momento
+                tramite il link di cancellazione presente in ogni comunicazione, senza pregiudizio per la liceità del
+                del trattamento precedente. La pubblicità di terzi è attiva nell'ambito del rapporto base, ma può essere
+                disattivata separatamente dal centro preferenze.
               </p>
             </div>
             <div className="bg-surface-alt/50 p-4 rounded-2xl border border-edge">
@@ -596,10 +602,10 @@ export const PrivacyPolicy: React.FC = () => {
               e dell'art. 31 nLPD:
             </p>
             <ul className="list-disc list-inside space-y-2 ml-4 text-sm">
-              <li><strong>Consenso</strong> (art. 6.1.a): cookie analytics e pubblicitari, iscrizione alla newsletter e ai job alert.</li>
+              <li><strong>Consenso</strong> (art. 6.1.a): cookie analytics e pubblicitari quando richiesto, iscrizione alle comunicazioni e attivazione dei job alert o di altri canali opzionali.</li>
               <li><strong>Esecuzione di misure precontrattuali / contratto</strong> (art. 6.1.b): gestione dell'account, della dashboard e dei servizi richiesti dall'utente.</li>
               <li><strong>Obbligo legale</strong> (art. 6.1.c): adempimenti fiscali, contabili e risposte a richieste delle autorità.</li>
-              <li><strong>Legittimo interesse</strong> (art. 6.1.f): sicurezza del sito, prevenzione di abusi/frodi, statistiche aggregate e «soft spam» verso clienti, con valutazione di bilanciamento e diritto di opposizione.</li>
+              <li><strong>Legittimo interesse</strong> (art. 6.1.f): sicurezza del sito, prevenzione di abusi e frodi e statistiche aggregate, con valutazione di bilanciamento e diritto di opposizione.</li>
             </ul>
             <p className="text-sm">
               Quando la base è il consenso, puoi revocarlo in qualsiasi momento senza che ciò pregiudichi la
@@ -608,11 +614,11 @@ export const PrivacyPolicy: React.FC = () => {
             <div className="bg-surface-alt/50 p-4 rounded-2xl border border-edge">
               <h3 className="font-medium text-heading mb-2">Cessione, fusione o vendita dell'attività</h3>
               <p className="text-sm">
-                Se il sito, o un suo ramo di attività, viene ceduto, conferito o fuso in un'altra azienda, i dati
-                che trattiamo possono essere trasferiti a chi acquista, insieme all'attività, e il trattamento
-                prosegue alle condizioni descritte in questa informativa. Se dopo il trasferimento le finalità
-                cambiano, te ne verrà data notizia aggiornando questa pagina prima che il cambiamento abbia
-                effetto.
+                Un'eventuale cessione, fusione o vendita dell'attività può comportare il trasferimento dei dati
+                necessari al successore, nei limiti consentiti dalla legge e con le garanzie applicabili. Questo evento
+                non autorizza automaticamente nuovi usi dei dati o nuove comunicazioni commerciali: se cambiano il
+                titolare o le finalità, forniremo l'informativa richiesta e raccoglieremo un nuovo consenso quando
+                necessario prima di usare i dati per lo scopo modificato.
               </p>
             </div>
           </div>
@@ -870,7 +876,7 @@ export const PrivacyPolicy: React.FC = () => {
               su questa pagina; in caso di modifiche sostanziali ne daremo evidenza aggiornando la data sottostante.
             </p>
             <p className="text-sm italic">
-              Data ultimo aggiornamento: <strong>12 agosto 2026</strong>
+              Data ultimo aggiornamento: <strong>14 settembre 2026</strong>
             </p>
           </div>
         </div>

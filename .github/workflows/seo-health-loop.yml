@@ -31,7 +31,7 @@ on:
         description: 'Bounded Cloudflare 5xx path probe size'
         required: false
         type: string
-        default: '100'
+        default: '320'
 
 concurrency:
   group: seo-health-loop
@@ -91,7 +91,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HEALTH_SAMPLE: ${{ inputs.sample || '80' }}
           HEALTH_JOB_SAMPLE: ${{ inputs.job_sample || '30' }}
-          HEALTH_ERROR_SAMPLE: ${{ inputs.error_sample || '100' }}
+          HEALTH_ERROR_SAMPLE: ${{ inputs.error_sample || '320' }}
           HEALTH_DRY_RUN: ${{ inputs.dry_run || false }}
         run: |
           set -euo pipefail

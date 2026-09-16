@@ -138,7 +138,6 @@ describe('Italian duty release contract', () => {
     };
     expect(checkItalyDutyData({ duties, status, sources: httpRawSources, catalogue, now: new Date('2026-09-15T12:00:00.000Z') }))
       .toContain('source como-ats-2026-2027: rawUrl must be official HTTPS');
-
     const statusCountMismatch = {
       ...status,
       _provinces: {

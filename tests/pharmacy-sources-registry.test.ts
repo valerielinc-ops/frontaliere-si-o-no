@@ -78,7 +78,7 @@ describe('pharmacy sources registry schema', () => {
   });
 
   it('keeps non-Ticino sources unverified until a connector or dataset exists', () => {
-    for (const canton of SWISS_CANTONS.filter((candidate) => candidate.code !== 'TI')) {
+    for (const canton of SWISS_CANTONS.filter((candidate) => candidate.code !== 'TI' && candidate.code !== 'GE')) {
       const source = registry.sources[canton.key];
       expect(source.status).not.toBe('active');
       expect(source.sourceFetchedAt).toBeUndefined();
@@ -86,11 +86,23 @@ describe('pharmacy sources registry schema', () => {
   });
 
   it('marks associative and institutional discovery sources explicitly', () => {
-    for (const canton of SWISS_CANTONS.filter((candidate) => candidate.code !== 'TI')) {
+    for (const canton of SWISS_CANTONS.filter((candidate) => candidate.code !== 'TI' && candidate.code !== 'GE')) {
       const source = registry.sources[canton.key];
       expect(source.status).toBe('unverified');
       expect(source.sourceType).toBe(ASSOCIATION_CANTON_KEYS.has(canton.key) ? 'association' : 'official');
     }
+  });
+
+  it('marks Geneva degraded while its dedicated connector remains not_published', () => {
+    expect(registry.sources.geneva).toMatchObject({
+      officialSourceUrl: 'https://pharmageneve.swiss/pharmacie-de-garde/',
+      accessMethod: 'html-scrape',
+      timezone: 'Europe/Zurich',
+      sourceType: 'association',
+      status: 'degraded',
+    });
+    expect(registry.sources.geneva.notes).toContain('not_published');
+    expect(registry.sources.geneva.notes).toContain('calendario annuale');
   });
 
   it('rejects an entry missing a required field', () => {

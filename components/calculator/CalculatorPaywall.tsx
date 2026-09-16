@@ -27,6 +27,10 @@ import {
 } from '@/services/authService';
 import { reportCaughtError } from '@/services/errorReporter';
 import { NEWSLETTER_SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
+import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
+import { getFirestoreLazy } from '@/services/firebase';
+import { upsertUnifiedEmailSubscriber } from '@/services/newsletterSubscribers';
+import { isNewsletterExcluded } from '@/services/emailSuppression.mjs';
 
 export const PAYWALL_DISMISSED_KEY = 'frontaliere_paywall_dismissed';
 export const SIM_COMPLETE_COUNTER_KEY = 'counter_sim_complete';
@@ -227,6 +231,26 @@ const CalculatorPaywall: React.FC<CalculatorPaywallProps> = ({ result, inputs, o
     setStatus('loading');
     setErrorMessage('');
     try {
+      // The PDF is the user's requested transactional result. Registration is
+      // best-effort: a Firestore outage must not turn a successful report
+      // request into a dead-end. Do not mark the local newsletter flag unless
+      // this registration actually returned a sendable state.
+      let registration: Awaited<ReturnType<typeof upsertUnifiedEmailSubscriber>> | null = null;
+      try {
+        const firestore = await getFirestoreLazy('calculatorPaywall.firestoreInit');
+        if (!firestore) throw new Error('firestore_unavailable');
+        registration = await upsertUnifiedEmailSubscriber(firestore as any, {
+          email: trimmed,
+          source: 'calculator_paywall',
+          sourceChannel: 'calculator_paywall',
+          sourcePage: typeof window !== 'undefined' ? window.location.pathname : '/',
+          sourceCta: 'calculator_paywall_pdf',
+          sourceComponent: 'CalculatorPaywall',
+          locale,
+        });
+      } catch (registrationError) {
+        reportCaughtError(registrationError, 'paywall.newsletterRegistration');
+      }
       const pdfBlob = await generateCalculatorPdfReport({ result, inputs, locale }, trimmed);
       const pdfBase64 = await pdfBlobToBase64(pdfBlob);
       const resultSummary = {
@@ -239,7 +263,14 @@ const CalculatorPaywall: React.FC<CalculatorPaywallProps> = ({ result, inputs, o
       const resp = await fetcher(SEND_CALCULATOR_REPORT_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: trimmed, pdfBase64, resultSummary, locale }),
+        body: JSON.stringify({
+          email: trimmed,
+          pdfBase64,
+          resultSummary,
+          locale,
+          sourcePath: typeof window !== 'undefined' ? window.location.pathname : '/',
+          source: 'calculator_paywall',
+        }),
       });
       if (!resp.ok) {
         Analytics.trackError(`sendCalculatorReport failed: ${resp.status}`);
@@ -250,7 +281,9 @@ const CalculatorPaywall: React.FC<CalculatorPaywallProps> = ({ result, inputs, o
       Analytics.trackDecisionMomentNextAction('calculator', 'calculator_report');
       // Mark as subscribed so the paywall (and other subscribe prompts) stop
       // re-asking the same email across the site.
-      try { localStorage.setItem(NEWSLETTER_SUBSCRIBED_KEY, 'true'); } catch { /* ignore quota */ }
+      if (registration && registration.optedOut !== true && !isNewsletterExcluded(registration.status)) {
+        try { localStorage.setItem(NEWSLETTER_SUBSCRIBED_KEY, 'true'); } catch { /* ignore quota */ }
+      }
       setStatus('success');
       // Auto-close after short delay so the user sees the confirmation.
       setTimeout(() => onClose(), 1800);
@@ -374,6 +407,14 @@ const CalculatorPaywall: React.FC<CalculatorPaywallProps> = ({ result, inputs, o
                 onChange={(val) => { setEmail(val); if (status === 'error') setStatus('idle'); }}
                 placeholder={t('calculator.paywall.emailPlaceholder')}
                 className="w-full px-4 py-2.5 bg-surface border border-edge rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-accent text-strong text-sm"
+              />
+
+              <EmailConsentCheckbox
+                id="calc-paywall-consent"
+                consentKey="communicationsOptIn"
+                locale={locale}
+                className="flex items-start gap-2"
+                noticeClassName="text-xs text-muted leading-relaxed"
               />
 
               {status === 'error' && errorMessage && (

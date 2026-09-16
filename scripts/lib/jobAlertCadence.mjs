@@ -875,13 +875,12 @@ export function reactivationAfterReturnVisit({ alert, sub, newsletter = null, no
   if (isJobAlertExcluded(sub?.status)) {
     return no(JOB_ALERT_REACTIVATION_BLOCKS.SUPPRESSED, `the job-alert document says '${String(sub?.status)}'`);
   }
-  // 3. A global opt-out. `isCrossChannelStop` is the predicate #5688 exists for:
-  // a person who clicked "disiscriviti" left no trace at all on the job-alert
-  // document, and 127 of 127 addresses suppressed after an LPD complaint kept
-  // their alerts. A missing newsletter document is not an unknown — it is an
-  // address that never had one, and it cannot carry an instruction to stop.
+  // 3. A global opt-out. `isCrossChannelStop` is the shared predicate for an
+  // explicit stop-all or an address-level hard suppression. A newsletter-only
+  // unsubscribe is intentionally not included: it is a channel-local choice,
+  // while a missing newsletter document cannot carry a stop instruction.
   if (newsletter && isCrossChannelStop(newsletter)) {
-    return no(JOB_ALERT_REACTIVATION_BLOCKS.CHANNEL_OPT_OUT, 'the newsletter document records an opt-out or a suppression');
+    return no(JOB_ALERT_REACTIVATION_BLOCKS.CHANNEL_OPT_OUT, 'the newsletter document records a global stop or hard suppression');
   }
 
   // 1, 2, 6 and 7 — the page load itself.

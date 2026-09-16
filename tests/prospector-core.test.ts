@@ -10,7 +10,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, expectTypeOf, it } from 'vitest';
 import { registrableDomain, tenantLabel, sameOrg, normalizeHost, safeDecodePath, stripPublicSuffix } from '../scripts/lib/prospector/registrable.mjs';
-import { parseRobots, robotsAllows } from '../scripts/lib/prospector/polite-fetch.mjs';
+import { clearPoliteFetchStateForTests, parseRobots, robotsAllows } from '../scripts/lib/prospector/polite-fetch.mjs';
 import {
   loadRegistry, observePlatform, isPlatformEligible, enumerablePlatforms,
   sharedHostPlatforms, listingPathHints, recordExpansionAttempt,
@@ -1172,6 +1172,37 @@ describe('quality grading', () => {
     expect(report.score).toBe(0);
   });
 
+  it('can grade a one-vacancy employer without making the gate unreachable', async () => {
+    const url = 'https://employer.example/jobs/software-engineer/';
+    const html = `<html><head><title>Software Engineer | Acme</title></head><body>`
+      + `<main><h1>Software Engineer</h1><div class="job-location">Lugano, Ticino, CH</div>`
+      + `<article class="vacancy-description"><p>Acme is looking for a software engineer to join the engineering team and build reliable services for Swiss customers.</p>`
+      + `<p>Your role includes designing, implementing, testing and documenting features, collaborating with product and operations, reviewing code, and supporting production releases.</p>`
+      + `<p>Requirements include professional experience with software development, clear communication, and a practical approach to solving problems in a team. Apply now with your CV for this full-time position.</p></article></main>`
+      + `</body></html>`;
+    clearPoliteFetchStateForTests();
+    try {
+      const report = await gradeExtraction(
+        { companyKey: 'acme', seedUrls: [url] },
+        [{ title: 'Software Engineer', url }],
+        {
+          sampleSize: 4,
+          fetchImpl: async (requestedUrl) => new Response(
+            requestedUrl.endsWith('/robots.txt') ? 'User-agent: *\\nAllow: /\\n' : html,
+            { status: 200, headers: { 'content-type': 'text/html' } },
+          ),
+          lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+          sleepImpl: async () => {},
+        },
+      );
+      expect(report.sampled).toBe(1);
+      expect(report.score).toBe(1);
+      expect(report.verdict).toBe('good');
+    } finally {
+      clearPoliteFetchStateForTests();
+    }
+  });
+
   it('flags a listing whose titles are all the same', async () => {
     const dup = Array.from({ length: 5 }, (_, i) => ({ title: 'Candidatura spontanea', url: `https://x.example/j/${i}` }));
     const report = await gradeExtraction({ companyKey: 'x' }, dup, { sampleSize: 0 });
@@ -2173,7 +2204,14 @@ describe('production spec runtime', () => {
       expect(source, name).toContain('listing.addressRegion');
       expect(source, name).toContain('listing.postalCode');
       expect(source, name).toContain('listing.streetAddress');
-      expect(source, name).toContain('if (!descriptionText) continue;');
+      // I parseri prodotti devono scartare anche descrizioni vuote. La forma
+      // minima è usata dallo scaffold; i parser con soglia di qualità possono
+      // usare direttamente una guardia più forte, che copre anche il caso vuoto.
+      expect(
+        source.includes('if (!descriptionText) continue;')
+          || source.includes('if (descriptionText.split(/\\s+/).filter(Boolean).length < MIN_DESCRIPTION_WORDS) continue;'),
+        `${name}: description guard`,
+      ).toBe(true);
       expect(source, name).not.toMatch(/description(?:ByLocale)?:.*descriptionText\s*\|\|/);
     }
     const scaffold = fs.readFileSync(path.resolve(process.cwd(), 'scripts/scaffold-crawler.mjs'), 'utf8');

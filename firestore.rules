@@ -75,7 +75,13 @@ service cloud.firestore {
         'consent_method', 'consent_given', 'consent_given_at',
         'consent_source_url', 'consent_user_agent', 'consent_ip',
         'consent_ip_recorded_at', 'consent_upgraded_at',
-        'consent_proof_verified', 'consent_purpose', 'consent_recorded_at',
+        'consent_proof_verified', 'consent_purpose', 'consent_basis', 'consent_recorded_at',
+        'registration_terms_accepted', 'registration_terms_version',
+        'registration_terms_text', 'registration_terms_accepted_at',
+        'consent_advertising', 'consent_advertising_at',
+        'consent_advertising_updated_at',
+        // Legacy advertising opt-out: keep it owner/endpoint controlled too.
+        'advertising_opt_out', 'advertising_opt_out_updated_at',
       ]);
     }
 
@@ -88,9 +94,14 @@ service cloud.firestore {
         'email', 'source', 'source_channel',
         'status', 'isActive', 'active',
         'confirmed_at', 'confirmedAt',
+        'registration_terms_accepted', 'registration_terms_version',
+        'registration_terms_text', 'registration_terms_accepted_at',
         'unsubscribed_at', 'unsubscribedAt',
         'resubscribed_at', 'resubscribedAt',
         'subscribed_at', 'subscribedAt',
+        'all_email_opted_out', 'all_emails_opted_out',
+        'global_email_opt_out', 'global_email_opted_out',
+        'all_email_opted_out_at', 'global_email_opt_out_at',
         'confirmation_attempts', 'confirmationAttempts',
         'confirmation_cycle_started_at', 'confirmationCycleStartedAt',
         'confirmation_sent_at', 'confirmationSentAt',
@@ -112,6 +123,24 @@ service cloud.firestore {
       return newData.diff(oldData).affectedKeys().hasAny([
         'confirmed_via', 'confirmedVia',
       ]);
+    }
+
+    // A client registration may update the terms-based consent record of an
+    // existing subscriber, but it must not add, delete or rewrite the
+    // server-owned DOI provenance that is already on that document.
+    function confirmationProvenanceUnchanged() {
+      return (
+        ((!resource.data.keys().hasAny(['confirmed_via'])
+          && !request.resource.data.keys().hasAny(['confirmed_via']))
+          || (resource.data.keys().hasAny(['confirmed_via'])
+            && request.resource.data.keys().hasAny(['confirmed_via'])
+            && request.resource.data.confirmed_via == resource.data.confirmed_via))
+        && ((!resource.data.keys().hasAny(['confirmedVia'])
+          && !request.resource.data.keys().hasAny(['confirmedVia']))
+          || (resource.data.keys().hasAny(['confirmedVia'])
+            && request.resource.data.keys().hasAny(['confirmedVia'])
+            && request.resource.data.confirmedVia == resource.data.confirmedVia))
+      );
     }
 
     function isVerifiedSubscriberOwner(email) {
@@ -161,6 +190,57 @@ service cloud.firestore {
         && !request.resource.data.keys().hasAny(['confirmed_via', 'confirmedVia']);
     }
 
+    // An authenticated provider registration is governed by the terms and
+    // conditions: it creates the base newsletter + job-alert relationship
+    // without a second checkbox or DOI. Typed-email registrations use the
+    // pending branch above; only the server DOI handler may promote them.
+    function isTermsBasedConfirmedCreate(email) {
+      return isVerifiedSubscriberOwner(email)
+        && request.resource.data.keys().hasAll([
+        'status', 'isActive', 'active',
+        'registration_terms_accepted', 'consent_basis',
+        'consent_text', 'consent_text_displayed', 'consent_act', 'consent_method',
+      ])
+        && request.resource.data.status == 'confirmed'
+        && request.resource.data.isActive == true
+        && request.resource.data.active == true
+        && request.resource.data.registration_terms_accepted == true
+        && request.resource.data.consent_basis == 'registration_terms'
+        && request.resource.data.consent_text is string
+        && request.resource.data.consent_text != ''
+        && request.resource.data.consent_text_displayed == true
+        && request.resource.data.consent_act == 'registration_terms_acceptance'
+        && request.resource.data.consent_method == 'terms_and_conditions'
+        && request.resource.data.keys().hasAny(['confirmed_at', 'confirmedAt'])
+        && !request.resource.data.keys().hasAny(['confirmed_via', 'confirmedVia']);
+    }
+
+    function isTermsBasedConfirmedUpdate(email) {
+      return isVerifiedSubscriberOwner(email)
+        && request.resource.data.keys().hasAll([
+        'status', 'isActive', 'active',
+        'registration_terms_accepted', 'consent_basis',
+        'consent_text', 'consent_text_displayed', 'consent_act', 'consent_method',
+      ])
+        && request.resource.data.status == 'confirmed'
+        && request.resource.data.isActive == true
+        && request.resource.data.active == true
+        && request.resource.data.registration_terms_accepted == true
+        && request.resource.data.consent_basis == 'registration_terms'
+        && request.resource.data.consent_text is string
+        && request.resource.data.consent_text != ''
+        && request.resource.data.consent_text_displayed == true
+        && request.resource.data.consent_act == 'registration_terms_acceptance'
+        && request.resource.data.consent_method == 'terms_and_conditions'
+        && request.resource.data.keys().hasAny(['confirmed_at', 'confirmedAt'])
+        && !request.resource.data.keys().hasAny(['unsubscribed_at', 'unsubscribedAt'])
+        && confirmationProvenanceUnchanged()
+        && (!resource.data.keys().hasAny(['status'])
+          || resource.data.status == 'pending'
+          || resource.data.status == 'confirmed'
+          || resource.data.status == 'subscribed');
+    }
+
     function isAnonymousOptOutTransition() {
       return request.resource.data.keys().hasAll(['status', 'isActive', 'active'])
         && request.resource.data.status == 'unsubscribed'
@@ -168,6 +248,69 @@ service cloud.firestore {
         && request.resource.data.active == false
         && request.resource.data.keys().hasAny(['unsubscribed_at', 'unsubscribedAt'])
         && !consentFieldsTouched(request.resource.data, resource.data)
+        && !confirmationProvenanceFieldsTouched(request.resource.data, resource.data);
+    }
+
+    // A stop-all write is an authenticated owner transition with an explicit
+    // terminal shape. The token-mode preference action uses the Admin SDK; this
+    // clause covers the same deliberate action from the signed-in profile.
+    function isVerifiedGlobalEmailOptOut(email) {
+      return isVerifiedSubscriberOwner(email)
+        && request.resource.data.keys().hasAll([
+          'status', 'isActive', 'active',
+          'all_email_opted_out', 'all_emails_opted_out',
+          'global_email_opt_out', 'global_email_opted_out',
+          'consent_advertising', 'advertising_opt_out',
+        ])
+        && request.resource.data.status == 'unsubscribed'
+        && request.resource.data.isActive == false
+        && request.resource.data.active == false
+        && request.resource.data.all_email_opted_out == true
+        && request.resource.data.all_emails_opted_out == true
+        && request.resource.data.global_email_opt_out == true
+        && request.resource.data.global_email_opted_out == true
+        && request.resource.data.consent_advertising == false
+        && request.resource.data.advertising_opt_out == true
+        && !confirmationProvenanceFieldsTouched(request.resource.data, resource.data);
+    }
+
+    // An explicit channel control may lift a prior stop-all marker without
+    // reactivating the other channels. Keep this transition owner-only and
+    // limited to the four global fields: the digest toggle, for example, must
+    // not be able to turn the newsletter back on as a side effect.
+    function isVerifiedGlobalEmailReactivation(email) {
+      return isVerifiedSubscriberOwner(email)
+        && resource.data.keys().hasAny([
+          'all_email_opted_out', 'all_emails_opted_out',
+          'global_email_opt_out', 'global_email_opted_out',
+        ])
+        && request.resource.data.keys().hasAll([
+          'all_email_opted_out', 'all_emails_opted_out',
+          'global_email_opt_out', 'global_email_opted_out',
+        ])
+        && request.resource.data.all_email_opted_out == false
+        && request.resource.data.all_emails_opted_out == false
+        && request.resource.data.global_email_opt_out == false
+        && request.resource.data.global_email_opted_out == false
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+          'all_email_opted_out', 'all_emails_opted_out',
+          'global_email_opt_out', 'global_email_opted_out',
+        ]);
+    }
+
+    // The advertising card is an opt-out preference for a category already
+    // included in the base registration, not a generic profile edit. Keep both
+    // the activation field and the legacy hard-deny mirror coherent when the
+    // verified owner changes it.
+    function isVerifiedAdvertisingPreferenceUpdate(email) {
+      return isVerifiedSubscriberOwner(email)
+        && request.resource.data.keys().hasAll(['consent_advertising', 'advertising_opt_out'])
+        && (
+          (request.resource.data.consent_advertising == true
+            && request.resource.data.advertising_opt_out == false)
+          || (request.resource.data.consent_advertising == false
+            && request.resource.data.advertising_opt_out == true)
+        )
         && !confirmationProvenanceFieldsTouched(request.resource.data, resource.data);
     }
 
@@ -344,6 +487,7 @@ service cloud.firestore {
       // ESP webhook cores — is Admin SDK and never evaluates this file.
       allow list: if isSiteAdmin();
       allow create: if isPendingNewsletterCreate()
+        || isTermsBasedConfirmedCreate(email)
         || isVerifiedConfirmedCreate(email)
         || (isVerifiedSubscriberOwner(email)
           && !request.resource.data.keys().hasAny([
@@ -370,7 +514,11 @@ service cloud.firestore {
         )
         || isVerifiedOwnerNonStateUpdate(email)
         || isAnonymousOptOutTransition()
+        || isVerifiedGlobalEmailOptOut(email)
+        || isVerifiedGlobalEmailReactivation(email)
+        || isVerifiedAdvertisingPreferenceUpdate(email)
         || isPendingNewsletterRenewal()
+        || isTermsBasedConfirmedUpdate(email)
         || isVerifiedConfirmedUpdate(email)
         || isVerifiedPriorProofResubscribe(email)
         || isVerifiedLegacyResubscribe(email);
@@ -767,6 +915,73 @@ service cloud.firestore {
         && request.resource.data.tier == resource.data.tier
         && request.resource.data.amountTotal == resource.data.amountTotal
         && request.resource.data.customerEmail == resource.data.customerEmail;
+      allow delete: if false;
+    }
+
+    // Assisted-application orders (#6405/#6406). The order is created and
+    // paid by the server-side checkout/webhook only. The browser can read its
+    // own order and, after payment, record consent and candidate fields; the
+    // payment identity and job metadata are frozen by the affected-key guard.
+    match /assisted_applications/{orderId} {
+      allow get: if isSiteAdmin()
+        || (isSignedIn() && request.auth.uid == resource.data.userId);
+      allow list: if false;
+      allow create: if false;
+      allow update: if isSignedIn()
+        && request.auth.uid == resource.data.userId
+        && resource.data.paymentStatus == 'paid'
+        && resource.data.orderId == orderId
+        && request.resource.data.userId == resource.data.userId
+        && request.resource.data.orderId == orderId
+        && request.resource.data.paymentStatus == resource.data.paymentStatus
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+          'applicantName', 'applicantEmail', 'applicantPhone',
+          'cvStorageKey', 'coverLetterStorageKey',
+          'cvUploadedAt',
+          'consentVersion', 'consentedAt', 'submissionStatus', 'submittedAt', 'updatedAt',
+        ])
+        && request.resource.data.consentVersion == 'assisted-application-v1'
+        && request.resource.data.consentedAt is timestamp
+        && (resource.data.consentVersion == null
+          || (request.resource.data.consentVersion == resource.data.consentVersion
+            && request.resource.data.consentedAt == resource.data.consentedAt))
+        && (request.resource.data.applicantName == null
+          || request.resource.data.applicantName is string)
+        && (request.resource.data.applicantEmail == null
+          || request.resource.data.applicantEmail is string)
+        && (request.resource.data.applicantPhone == null
+          || request.resource.data.applicantPhone is string)
+        && (request.resource.data.cvStorageKey == null
+          || request.resource.data.cvStorageKey is string)
+        && (request.resource.data.cvStorageKey == null
+          || request.resource.data.cvStorageKey.matches('^assisted-application-uploads/' + orderId + '/[A-Za-z0-9._-]+$'))
+        && (!request.resource.data.keys().hasAll(['cvUploadedAt'])
+          || request.resource.data.cvUploadedAt == null
+          || request.resource.data.cvUploadedAt is timestamp)
+        && (request.resource.data.cvStorageKey == resource.data.cvStorageKey
+          || (resource.data.cvStorageKey == null
+            && request.resource.data.cvStorageKey is string
+            && request.resource.data.keys().hasAll(['cvUploadedAt'])
+            && request.resource.data.cvUploadedAt is timestamp))
+        && (!resource.data.keys().hasAll(['cvUploadedAt'])
+          || request.resource.data.cvUploadedAt == resource.data.cvUploadedAt
+          || (resource.data.cvStorageKey == null
+            && request.resource.data.cvStorageKey is string
+            && request.resource.data.keys().hasAll(['cvUploadedAt'])
+            && request.resource.data.cvUploadedAt is timestamp))
+        && (request.resource.data.coverLetterStorageKey == null
+          || request.resource.data.coverLetterStorageKey is string)
+        && (request.resource.data.coverLetterStorageKey == null
+          || request.resource.data.coverLetterStorageKey.matches('^assisted-application-uploads/' + orderId + '/[A-Za-z0-9._-]+$'))
+        && (request.resource.data.submittedAt == null
+          || request.resource.data.submittedAt is timestamp)
+        && (request.resource.data.submittedAt == resource.data.submittedAt
+          || (resource.data.submissionStatus == 'awaiting_upload'
+            && request.resource.data.submissionStatus == 'ready_for_manual_submission'
+            && request.resource.data.submittedAt is timestamp))
+        && (request.resource.data.submissionStatus == resource.data.submissionStatus
+          || (resource.data.submissionStatus == 'awaiting_upload'
+            && request.resource.data.submissionStatus == 'ready_for_manual_submission'));
       allow delete: if false;
     }
 
