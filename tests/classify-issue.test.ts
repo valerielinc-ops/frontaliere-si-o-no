@@ -193,10 +193,34 @@ describe('policy automazione F1/F7', () => {
     ['services/partner/billing.ts', 'billing-revenue-partner'],
     ['packages/articles/content/guide.md', 'published-content-seo-auto-ads'],
     ['scripts/newsletter/send.mjs', 'outreach-communications'],
-  ])('blocca il path PR %s nel dominio %s', (path, domain) => {
+  ])('blocca il path %s nella superficie issue, nel dominio %s', (path, domain) => {
     const out = classifyAutomationRisk({ paths: [path], pathsComplete: true });
     expect(out).toMatchObject({ blocked: true, verifiable: true });
     expect(out.domains).toContain(domain);
+  });
+
+  it.each([
+    ['workflow/control-plane', '.github/workflows/release.yml'],
+    ['secrets/ruoli/permessi', 'config/iam/roles.yml'],
+    ['billing/revenue/partner', 'services/partner/billing.ts'],
+    ['contenuti pubblicati/SEO/Auto Ads', 'packages/articles/content/guide.md'],
+    ['outreach/comunicazioni', 'scripts/newsletter/send.mjs'],
+    ['path sconosciuto', 'unknown-zone/agent-target.ts'],
+  ])('consente %s sulla superficie PR con snapshot completo', (_label, path) => {
+    expect(classifyAutomationRisk({
+      title: 'Aggiornamento verificato',
+      body: '',
+      labels: [],
+      paths: [path],
+      pathsComplete: true,
+      surface: 'pull-request',
+    })).toMatchObject({
+      blocked: false,
+      decision: 'allow',
+      denyCode: null,
+      verifiable: true,
+      humanApprovalRequired: false,
+    });
   });
 
   it('nega per default quando il file list della PR è incompleto', () => {
@@ -207,6 +231,28 @@ describe('policy automazione F1/F7', () => {
     });
   });
 
+  it('richiede metadata e file-list verificabili sulla superficie PR', () => {
+    for (const input of [
+      { paths: undefined, pathsComplete: undefined },
+      { paths: ['src/safe.ts'], pathsComplete: false },
+      { paths: [], pathsComplete: true },
+    ]) {
+      expect(classifyAutomationRisk({
+        title: 'PR verificabile',
+        body: '',
+        labels: [],
+        ...input,
+        surface: 'pull-request',
+      })).toMatchObject({
+        blocked: true,
+        decision: 'deny',
+        denyCode: 'paths-unverifiable',
+        verifiable: false,
+        humanApprovalRequired: true,
+      });
+    }
+  });
+
   it('non usa i nomi dei test-only path come segnale di dominio', () => {
     expect(isAutomationTestPath('tests/seo/workflow.test.ts')).toBe(true);
     expect(classifyAutomationRisk({
@@ -215,7 +261,7 @@ describe('policy automazione F1/F7', () => {
     })).toMatchObject({ blocked: false, verifiable: true });
   });
 
-  it('denies every explicit control-plane path before any test-only exception', () => {
+  it('denies every explicit control-plane path on the issue surface', () => {
     for (const path of CONTROL_PLANE_PATHS) {
       expect(isControlPlanePath(path), path).toBe(true);
       expect(classifyAutomationRisk({ paths: [path], pathsComplete: true })).toMatchObject({
@@ -273,11 +319,12 @@ describe('policy automazione F1/F7', () => {
     })).toMatchObject({ blocked: true, decision: 'deny', denyCode: 'high-risk-domain' });
   });
 
-  it('keeps needs-human as a persistent hard veto, even with an exact safe diff', () => {
+  it.each(['issue', 'pull-request'] as const)('keeps needs-human as a persistent hard veto on %s', (surface) => {
     expect(classifyAutomationRisk({
       labels: ['needs-human'],
       paths: ['src/safe.ts'],
       pathsComplete: true,
+      surface,
     })).toMatchObject({
       blocked: true,
       decision: 'deny',

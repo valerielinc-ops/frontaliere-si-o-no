@@ -477,8 +477,8 @@ function main() {
   }
 
   // Legacy/debug evaluator still has a native `--auto` mutation below. Keep
-  // it behind the same explicit F1/F7 policy as the native gate; an incomplete
-  // file list is not evidence that a risky path is absent.
+  // it behind the same PR-surface verification as the native gate; an
+  // incomplete file list is not evidence that the snapshot is trustworthy.
   let fileSnapshot;
   try {
     fileSnapshot = fetchPrFiles(PR, gh, REPO);
@@ -496,8 +496,11 @@ function main() {
     pathsComplete: fileSnapshot.complete,
     surface: 'pull-request',
   });
-  if (!risk.verifiable || risk.blocked) {
-    return fail(`Policy F1/F7 blocca l'auto-merge legacy PR #${PR} (${risk.domains.join(', ') || risk.reason}) — serve gestione umana separata.`);
+  if (!risk.verifiable) {
+    return fail(`Policy PR non verificabile per l'auto-merge legacy PR #${PR}: ${risk.reason} — skip fail-closed.`);
+  }
+  if (risk.needsHumanVeto) {
+    return fail(`PR #${PR} marcata needs-human: veto persistente, rimozione solo da umano con approvazione sulla HEAD — skip.`);
   }
 
   // 2. Ultima review del bot reviewer sulla HEAD corrente: `## LGTM` e NO 🔴 Important.
@@ -728,8 +731,11 @@ function main() {
     pathsComplete: freshFileSnapshot.complete,
     surface: 'pull-request',
   });
-  if (!freshRisk.verifiable || freshRisk.blocked) {
-    return fail(`Policy F1/F7 finale blocca PR #${PR} (${freshRisk.domains.join(', ') || freshRisk.reason}) — serve gestione umana separata.`);
+  if (!freshRisk.verifiable) {
+    return fail(`Policy PR finale non verificabile per #${PR}: ${freshRisk.reason} — skip fail-closed.`);
+  }
+  if (freshRisk.needsHumanVeto) {
+    return fail(`PR #${PR} marcata needs-human nella rilettura finale: veto persistente, rimozione solo da umano — skip.`);
   }
 
   // Tutti i gate passano → abilita il merge automatico nativo di GitHub. Il
