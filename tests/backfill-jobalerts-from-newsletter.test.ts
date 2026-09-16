@@ -62,6 +62,11 @@ describe('backfill-jobalerts-from-newsletter — shouldSkipSubscriber', () => {
     );
   });
 
+  it('keeps newsletter lifecycle exclusions out of the job-alert backfill', () => {
+    expect(shouldSkipSubscriber('a@b.ch', { job_category: 'tech', status: 'inactive' })).toBe('suppressed');
+    expect(shouldSkipSubscriber('a@b.ch', { job_category: 'tech', status: 'expired' })).toBe('suppressed');
+  });
+
   it('keeps a no-signal registration eligible for the broad alert', () => {
     expect(shouldSkipSubscriber('a@b.ch', { job_slug: 'some-job-abc123' })).toBeNull();
     expect(shouldSkipSubscriber('a@b.ch', {})).toBeNull();
@@ -321,22 +326,18 @@ describe('the historical backfill is report-only by default and writes only with
   });
 });
 
-describe('live JobAlert backfill requires the registration marker', () => {
+describe('live JobAlert backfill does not require the registration marker', () => {
   const src = readRepoFile('functions/index.js');
 
-  it('does not let profile or social-auth document creation manufacture an alert', () => {
+  it('does not use registration_terms_accepted as a consent gate', () => {
     const signupStart = src.indexOf('export const backfillJobAlertOnNewsletterSignup');
     const personalizationStart = src.indexOf('export const backfillJobAlertOnPersonalizationSync');
     const signup = src.slice(signupStart, personalizationStart);
     const personalization = src.slice(personalizationStart, src.indexOf('// Publisher domain ownership verification'));
-    const markerGuard = 'afterData?.registration_terms_accepted !== true';
-
-    expect(signup).toContain(markerGuard);
-    expect(signup.indexOf(markerGuard)).toBeLessThan(signup.indexOf('handleNewsletterSubscriberCreated'));
-    expect(personalization).toContain('parentData?.registration_terms_accepted !== true');
-    expect(personalization.indexOf('parentData?.registration_terms_accepted !== true')).toBeLessThan(
-      personalization.indexOf('handleNewsletterSubscriberCreated'),
-    );
+    expect(signup).not.toContain('afterData?.registration_terms_accepted !== true');
+    expect(signup).toContain('hasNewsletterSubscriberRecord(afterData)');
+    expect(personalization).not.toContain('parentData?.registration_terms_accepted !== true');
+    expect(personalization).toContain('hasNewsletterSubscriberRecord(parentData)');
   });
 
   it('ritenta gli errori transitori invece di perdere il rapporto newsletter→JobAlert', () => {

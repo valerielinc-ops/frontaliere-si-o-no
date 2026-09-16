@@ -1,6 +1,12 @@
 import { describe, expect, it } from 'vitest';
 import { handleNewsletterSubscriberCreated } from '../functions/src/jobAlertBackfillTrigger.js';
-import { getSignalTier, signalTierChanged, resolveSignalTier, MAX_ALERTS_PER_USER } from '../functions/src/jobAlertBackfillCore.js';
+import {
+  getSignalTier,
+  hasNewsletterSubscriberRecord,
+  signalTierChanged,
+  resolveSignalTier,
+  MAX_ALERTS_PER_USER,
+} from '../functions/src/jobAlertBackfillCore.js';
 
 // Kept on a few fixtures to prove that historical explicit records still
 // round-trip through the same mechanics. It is not required for the base
@@ -83,6 +89,33 @@ describe('getSignalTier', () => {
     // no job_category) carries the same explicit intent as job_category and
     // must not fall through to no-signal.
     expect(getSignalTier({ sector_interest: 'health' })).toBe('signal');
+  });
+});
+
+describe('hasNewsletterSubscriberRecord', () => {
+  it('recognizes a legacy subscriber without the registration marker', () => {
+    expect(hasNewsletterSubscriberRecord({
+      status: 'confirmed',
+      consent_text: 'Newsletter consent',
+      registration_terms_accepted: null,
+    })).toBe(true);
+  });
+
+  it('does not treat a bare authentication profile as a subscription', () => {
+    expect(hasNewsletterSubscriberRecord({
+      auth_uid: 'uid-1',
+      auth_provider: 'google',
+      name: 'Reader',
+    })).toBe(false);
+  });
+
+  it('recognizes a legacy pending row without any confirmation proof', () => {
+    expect(hasNewsletterSubscriberRecord({ status: 'pending' })).toBe(true);
+  });
+
+  it('recognizes a legacy row whose only subscriber marker is boolean confirmed', () => {
+    expect(hasNewsletterSubscriberRecord({ confirmed: false })).toBe(true);
+    expect(hasNewsletterSubscriberRecord({ confirmed: true })).toBe(true);
   });
 });
 

@@ -86,7 +86,11 @@ import { enforceFreeTierCap } from './src/publisherFreeCapCore.js';
 import { syncAuthAccountForSubscriber } from './src/newsletterSubscriberAuthSync.js';
 import { cleanupUserDataForDeletedAccount, isAccountDeletedTombstone } from './src/authAccountCleanup.js';
 import { handleNewsletterSubscriberCreated } from './src/jobAlertBackfillTrigger.js';
-import { signalTierChanged, getSignalTier } from './src/jobAlertBackfillCore.js';
+import {
+ signalTierChanged,
+ getSignalTier,
+ hasNewsletterSubscriberRecord,
+} from './src/jobAlertBackfillCore.js';
 import { resolveSubscriberLocale } from './src/lib/subscriberLocale.js';
 import { handlePetitionSign } from './src/petitionSign.js';
 import { getPublicPlateAuctionSnapshot, refreshPlateAuctions as runPlateAuctionRefresh } from './src/plateAuctions.js';
@@ -1934,22 +1938,23 @@ export const cleanupUserDataOnAccountDelete = functionsV1.runWith({ failurePolic
 });
 
 // Real-time counterpart of scripts/backfill-jobalerts-from-newsletter.mjs:
-// every terms-based registration gets the base newsletter + job-alert
+// every newsletter subscriber record gets the base newsletter + job-alert
 // relationship, instead of waiting for the next manual batch run. The alert
 // starts broad when no context is available and is refined by later searches,
 // visits and clicks. Shares its decision logic with the batch script via
-// jobAlertBackfillCore.js.
+// jobAlertBackfillCore.js. Newsletter lifecycle exclusions and explicit
+// suppression remain enforced by the shared predicate; confirmation proof is
+// not a gate here.
 //
 // onDocumentWritten (not onDocumentCreated): social sign-in flows
 // (services/authService.ts) write this doc twice, unsequenced — an
 // un-awaited auth-fields-only write races the full signal-carrying upsert,
 // and the bare write structurally tends to land first. A one-shot create
 // hook would see zero signal and skip the subscriber permanently once the
-// real signal arrives via a later merge. New documents carrying
-// registration_terms_accepted and its first write are always processed,
-// including registrations with no signal yet. signalTierChanged still gates
-// later enrichment writes (and the explicit registration marker is required
-// below), so routine engagement writes (open/click tracking) remain a cheap
+// real signal arrives via a later merge. A bare auth/profile write is ignored
+// until the document carries subscriber fields; the first such write is
+// processed even when no signal is available yet. signalTierChanged still
+// gates later enrichment writes, so routine engagement writes remain a cheap
 // no-op.
 export const backfillJobAlertOnNewsletterSignup = onDocumentWritten(
  { region: 'europe-west6', memory: '256MiB', retry: true, document: 'newsletter_subscribers/{email}' },
@@ -1959,23 +1964,21 @@ export const backfillJobAlertOnNewsletterSignup = onDocumentWritten(
  const after = event.data?.after;
  if (!after?.exists) return; // ignore deletes
  const afterData = after.data();
- // A newsletter_subscribers document can also be created by profile sync,
- // social auth or other non-registration flows. Only the explicit terms-based
- // registration is allowed to manufacture the broad newsletter + JobAlert
- // relationship; the historical migration remains an explicit batch action.
- if (afterData?.registration_terms_accepted !== true) return;
+ // A bare profile/auth write is not a newsletter subscription. Once the
+ // document carries the normal subscriber shape, legacy rows without the
+ // newer registration marker follow the same no-proof-gate path as new rows.
+ if (!hasNewsletterSubscriberRecord(afterData)) return;
  const beforeData = event.data?.before?.exists ? event.data.before.data() : null;
  const clearedAccountDeletion = beforeData
   && isAccountDeletedTombstone(beforeData)
   && !isAccountDeletedTombstone(afterData);
  const created = !beforeData;
- const registrationTermsAccepted = afterData?.registration_terms_accepted === true
-  && beforeData?.registration_terms_accepted !== true;
+ const subscriberRecordAppeared = !hasNewsletterSubscriberRecord(beforeData);
  // A fresh registration can reuse the old signal fields, so the tier itself
- // may not change. The first registration-terms write and a cleared lifecycle
- // marker are legitimate eligibility edges; ordinary profile/engagement writes
- // still remain no-ops.
- if (!created && !registrationTermsAccepted && !signalTierChanged(beforeData, afterData) && !clearedAccountDeletion) return;
+ // may not change. The first complete subscriber record and a cleared
+ // lifecycle marker are legitimate eligibility edges. Ordinary
+ // profile/engagement writes still remain no-ops.
+ if (!created && !subscriberRecordAppeared && !signalTierChanged(beforeData, afterData) && !clearedAccountDeletion) return;
  try {
  const result = await handleNewsletterSubscriberCreated(emailId, afterData);
  if (result.created) {
@@ -2018,7 +2021,7 @@ export const backfillJobAlertOnPersonalizationSync = onDocumentWritten(
  const parentSnap = await getAdminDb().collection('newsletter_subscribers').doc(emailId).get();
  if (!parentSnap.exists) return;
  const parentData = parentSnap.data();
- if (parentData?.registration_terms_accepted !== true) return;
+ if (!hasNewsletterSubscriberRecord(parentData)) return;
  if (getSignalTier(parentData) !== 'none') return; // already resolved via flat fields
  const result = await handleNewsletterSubscriberCreated(emailId, parentData, {
  personalization: after.data(),

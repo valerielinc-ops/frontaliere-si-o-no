@@ -15,6 +15,7 @@ export {
   hasAffirmativeJobAlertConsent,
   buildAlertPayload,
   getSignalTier,
+  hasNewsletterSubscriberRecord,
   signalTierChanged,
   resolveSignalTier,
 } from '../../functions/src/jobAlertBackfillCore.js';

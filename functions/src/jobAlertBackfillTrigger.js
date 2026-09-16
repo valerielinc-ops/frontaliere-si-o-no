@@ -12,11 +12,11 @@
  * `jobAlertBackfillCore.js` — no drift between "day-0 backfill of existing
  * docs" and "day-N auto-creation for new ones".
  *
- * The registration terms create the base relationship for both newsletter and
- * job alerts. The shared `shouldSkipSubscriber` therefore creates the broad
- * backfill alert even when no signal exists yet; the alert is refined later by
- * searches, visits and clicks. Only invalid addresses and explicit
- * unsubscribe/suppression states stop creation.
+ * The newsletter registration creates the base relationship for both
+ * newsletter and job alerts. The shared `shouldSkipSubscriber` therefore
+ * creates the broad backfill alert even when no signal exists yet; the alert
+ * is refined later by searches, visits and clicks. Newsletter lifecycle
+ * exclusions, invalid addresses and explicit suppression states stop creation.
  *
  * Also invoked, with a `personalization` dep, from the companion
  * `backfillJobAlertOnPersonalizationSync` trigger (functions/index.js) on
