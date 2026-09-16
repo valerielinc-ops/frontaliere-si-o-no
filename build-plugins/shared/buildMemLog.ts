@@ -13,11 +13,13 @@
  * runs can be diffed field-by-field at the same milestone, which stops working
  * the moment one copy is retuned and the other is not.
  *
- * The emitted line is byte-identical to the original so existing log greps
- * (`grep '\[mem\]'` over a downloaded run log) keep matching.
+ * Without `details`, the emitted line is byte-identical to the original so
+ * existing log greps (`grep '\[mem\]'` over a downloaded run log) keep matching.
  */
 
 import { forceGc } from './forceGc';
+
+export type BuildMemDetails = Readonly<Record<string, number | string>>;
 
 /**
  * @param label Milestone name, conventionally `<plugin>: <phase>` — e.g.
@@ -26,8 +28,11 @@ import { forceGc } from './forceGc';
  * @param collector Optional `WriteCollector`; when passed, its pending-write
  *   and in-flight-flush counts are appended (read reflectively so this module
  *   does not import `batchWrite` just to name a type).
+ * @param details Optional scalar diagnostic cardinalities appended as
+ *   `key=value` pairs; callers must count in place and must not copy retained
+ *   build structures merely to measure them.
  */
-export function logBuildMem(label: string, collector?: unknown): void {
+export function logBuildMem(label: string, collector?: unknown, details?: BuildMemDetails): void {
   const mb = (n: number) => Math.round(n / 1048576);
   // Force a full GC first (build:ci runs with --expose-gc) so the reported heap
   // is the LIVE set, not garbage V8 keeps lazily under its 12 GB ceiling. DUAL
@@ -47,7 +52,12 @@ export function logBuildMem(label: string, collector?: unknown): void {
   const extra = c
     ? ` pendingWrites=${c.writes?.size ?? '?'} inflightFlushes=${c._pendingFlushes?.size ?? '?'}`
     : '';
+  const detailText = details
+    ? Object.entries(details)
+        .map(([key, value]) => ` ${key}=${value}`)
+        .join('')
+    : '';
   console.log(
-    `\x1b[35m[mem]\x1b[0m ${label} heapUsed=${mb(m.heapUsed)}MB (gcFreed=${freed}MB) external=${mb(m.external)}MB arrayBuffers=${mb(m.arrayBuffers)}MB rss=${mb(m.rss)}MB${extra}`,
+    `\x1b[35m[mem]\x1b[0m ${label} heapUsed=${mb(m.heapUsed)}MB (gcFreed=${freed}MB) external=${mb(m.external)}MB arrayBuffers=${mb(m.arrayBuffers)}MB rss=${mb(m.rss)}MB${extra}${detailText}`,
   );
 }
