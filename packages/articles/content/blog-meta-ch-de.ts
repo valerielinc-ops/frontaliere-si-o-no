@@ -6464,6 +6464,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.consiglio-federale-obiettivi-2027.title': 'Bundesrat legt Ziele für 2027 vor',
     'blog.article.consiglio-federale-obiettivi-2027.excerpt': 'Präsident Guy Parmelin erläuterte in Bern die strategischen Prioritäten für 2027, das vierte Jahr der eidgenössischen Legislatur 2023-2027.',
     'blog.article.consiglio-federale-obiettivi-2027.imageAlt': 'Das Bundeshaus in Bern Sitz des Bundesrates',
+    'blog.article.migros-ristruttura-online-retail.title': 'Migros macht Online unabhängiger und wechselt die Führung',
+    'blog.article.migros-ristruttura-online-retail.excerpt': 'Die Migros-Gruppe reorganisiert die Strukturen zum eigenständigen Online Retail und ernennt Florian Teuteberg zum neuen Präsidenten.',
+    'blog.article.migros-ristruttura-online-retail.imageAlt': 'Migros Verwaltungsgebaeude in der Schweiz',
 };
 
 export default blogMetaChDe;

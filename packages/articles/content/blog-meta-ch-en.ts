@@ -6464,6 +6464,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.consiglio-federale-obiettivi-2027.title': 'The Federal Council presents the objectives for 2027',
     'blog.article.consiglio-federale-obiettivi-2027.excerpt': 'President Guy Parmelin outlined in Bern the strategic priorities for 2027, the fourth year of the 2023-2027 federal legislature.',
     'blog.article.consiglio-federale-obiettivi-2027.imageAlt': 'The Federal Palace in Bern seat of the Swiss Federal Council',
+    'blog.article.migros-ristruttura-online-retail.title': 'Migros gives more independence to the online and changes the top management',
+    'blog.article.migros-ristruttura-online-retail.excerpt': 'The Migros group reorganizes the structures creating the independent Online Retail sector and appoints Florian Teuteberg as new president.',
+    'blog.article.migros-ristruttura-online-retail.imageAlt': 'Migros administrative headquarters in Switzerland',
 };
 
 export default blogMetaChEn;
