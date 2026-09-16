@@ -83636,6 +83636,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bns-tassi-interessi-ubs': {
+    title: 'BNS, tassi guida allo 0,0%: UBS prevede possibili aumenti',
+    description: 'La Banca nazionale svizzera manterrà il tasso guida allo 0,0% ma crescono i rischi di un rialzo anticipato secondo UBS. Scopri tutti i dettagli. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassi, allo, prevede, possibili',
+    ogTitle: 'BNS, tassi guida allo 0,0%: UBS prevede possibili aumenti',
+    ogDescription: 'Analisi di UBS sulla BNS: il tasso guida resta allo 0,0% per ora, ma aumentano i rischi di un intervento anticipato sui tassi di interesse a causa di petrolio, gas e cambio.',
+    canonicalPath: '/articoli-svizzera/bns-tassi-interessi-ubs/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "BNS, tassi guida allo 0,0%: UBS prevede possibili aumenti",
+      "description": "La Banca nazionale svizzera manterrà il tasso guida allo 0,0% ma crescono i rischi di un rialzo anticipato secondo UBS. Scopri tutti i dettagli. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bns-tassi-interessi-ubs.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede della Banca nazionale svizzera a Berna"
+      },
+      "datePublished": "2026-09-16T01:12:04+00:00",
+      "dateModified": "2026-09-16T01:12:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bns-tassi-interessi-ubs/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
