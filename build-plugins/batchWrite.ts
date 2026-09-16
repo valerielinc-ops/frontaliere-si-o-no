@@ -103,6 +103,11 @@ export function getGlobalIntraPluginOverwrites(): number {
   return globalIntraPluginOverwrites;
 }
 
+/** Read-only diagnostic count for the process-wide directory cache. */
+export function getEnsuredDirsSize(): number {
+  return ensuredDirs.size;
+}
+
 /** Called by writeRegistryResetPlugin's buildStart to clear stale state. */
 export function _resetGlobalIntraPluginOverwriteCounter(): void {
   globalIntraPluginOverwrites = 0;
