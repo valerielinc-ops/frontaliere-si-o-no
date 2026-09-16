@@ -2,14 +2,14 @@ name: tests
 run-name: "Code checks and review · ${{ github.event.pull_request.number && format('PR #{0}', github.event.pull_request.number) || github.ref_name }} · ${{ github.event.action || github.event_name }}"
 
 # One required check owns checkout, source guards, typecheck, Vitest and review.
-# The PR body contract is a step of this code run. Metadata edits and labels do
-# not start code validation and never publish a second verdict on the same SHA.
+# The PR body contract is a step of this code run. Title/body edits start one
+# fresh validation/review run on the current SHA; labels remain non-triggering.
 # Keep the job name aligned with the ruleset and scripts/ci/lib/constants.mjs.
 
 on:
   pull_request:
     branches: [main]
-    types: [opened, synchronize, reopened, ready_for_review]
+    types: [opened, edited, synchronize, reopened, ready_for_review]
   push:
     branches: [main]
   # Required checks are evaluated on the merge queue ref, not on the PR event.
