@@ -260,6 +260,7 @@ const DECISION_RE = /\bby construction\b|\bper (?:scelta|costruzione|design)\b|(
 const DECISION_REASON_RE = /\b(?:motivo|ragione|reason)\s*:\s*(.+?)(?=\s+\b(?:prossimo\s+passo|next\s+step|azione\s+successiva)\s*:|$)/iu;
 const DECISION_NEXT_STEP_RE = /\b(?:prossimo\s+passo|next\s+step|azione\s+successiva)\s*:\s*(.+)$/iu;
 const DECISION_PLACEHOLDER_RE = /^(?:<[^>]+>|\.\.\.|tbd|n\/a|da\s+(?:definire|decidere|valutare)|da\s+fare)\s*[.!]?$/iu;
+const DECISION_STATES = new Set(['by-choice', 'by-construction', 'blocked-owner']);
 const NON_IMPL_ANY_RE = /^[ \t]{0,3}#{2,3}[ \t]+Non[ \t]+implementato\b[^\n]*/im;
 
 function stripDecisionFormatting(text) {
@@ -285,6 +286,14 @@ export function decisionDeferralSpecificity(text) {
   };
 }
 
+function isDecisionDeferral(text) {
+  const normalized = stripDecisionFormatting(text);
+  // `bulletState` is the canonical classifier. The explicit regex retains
+  // older prose forms (`deliberatamente`, `è una decisione`), while the state
+  // check also covers the accepted negation-aware `falso positivo` synonym.
+  return DECISION_RE.test(normalized) || DECISION_STATES.has(bulletState(normalized));
+}
+
 function topLevelDecisionBullets(rawContent) {
   const clean = stripNonContent(rawContent ?? '');
   const bullets = [];
@@ -306,7 +315,7 @@ export function decisionDeferralFindings(body = '') {
   const content = extractSection(String(body ?? ''), NON_IMPL_ANY_RE);
   if (content === null) return [];
   return topLevelDecisionBullets(content)
-    .filter((bullet) => DECISION_RE.test(bullet.text))
+    .filter((bullet) => isDecisionDeferral(bullet.text))
     .map((bullet) => ({ ...bullet, specificity: decisionDeferralSpecificity(bullet.text) }))
     .filter((bullet) => !bullet.specificity.specific);
 }
