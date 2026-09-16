@@ -153,6 +153,22 @@ describe('issue-fix F1/F7 policy gate', () => {
   });
 
   it('applica davvero l estrattore inline ai riferimenti dell issue', () => {
+    expect(runInlineRisk('.env')).toMatchObject({
+      automationBlocked: true,
+      riskDenyCode: 'high-risk-domain',
+    });
+    expect(runInlineRisk('.npmrc')).toMatchObject({
+      automationBlocked: true,
+      riskDenyCode: 'unknown-path',
+    });
+    expect(runInlineRisk('.gitignore')).toMatchObject({
+      automationBlocked: true,
+      riskDenyCode: 'unknown-path',
+    });
+    expect(runInlineRisk('/.env')).toMatchObject({
+      automationBlocked: true,
+      riskDenyCode: 'paths-unverifiable',
+    });
     expect(runInlineRisk('REVIEW.md')).toMatchObject({
       automationBlocked: true,
       riskDenyCode: 'control-plane',

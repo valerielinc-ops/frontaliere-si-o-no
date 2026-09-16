@@ -173,8 +173,8 @@ jobs:
                 || !/^[A-Za-z0-9_.-]+$/u.test(segment))) return '';
             return normalized;
           };
-          const pathTokenRe = /(?<![\w.-])((?:(?:\.{1,2}|[A-Za-z0-9_.-]+)[\\/])+[A-Za-z0-9_.-]+(?:\.[A-Za-z][A-Za-z0-9_-]*)?|[A-Za-z0-9_.-]+\.[A-Za-z][A-Za-z0-9_-]*)(?![\w-])/gu;
-          const absolutePathRe = /(?<![\w])(?:\/(?:[A-Za-z0-9_.-]+[\\/])+[A-Za-z0-9_.-]+|[A-Za-z]:[\\/](?:[A-Za-z0-9_.-]+[\\/])+[A-Za-z0-9_.-]+)/gu;
+          const pathTokenRe = /(?<![\w./-])((?:(?:\.{1,2}|[A-Za-z0-9_.-]+)[\\/])+[A-Za-z0-9_.-]+(?:\.[A-Za-z][A-Za-z0-9_-]*)?|[A-Za-z0-9_.-]+\.[A-Za-z][A-Za-z0-9_-]*|\.[A-Za-z0-9][A-Za-z0-9_.-]*)(?![\w./-])/gu;
+          const absolutePathRe = /(?<![\w])(?:\/\.[A-Za-z0-9][A-Za-z0-9_.-]*|\/(?:[A-Za-z0-9_.-]+[\\/])+[A-Za-z0-9_.-]+|[A-Za-z]:[\\/](?:[A-Za-z0-9_.-]+[\\/])+[A-Za-z0-9_.-]+)/gu;
           const repeatedSeparatorRe = /(?<![\w.-])(?:[A-Za-z0-9_.-]+[\\/])+[\\/]/gu;
           const rootPathRe = /(?<![\w.-])(?:REVIEW\.md|README(?:\.[A-Za-z0-9_.-]+)?|CHANGELOG(?:\.[A-Za-z0-9_.-]+)?|LICENSE(?:\.[A-Za-z0-9_.-]+)?|Makefile|Dockerfile|CODEOWNERS)(?![\w.-])/giu;
           const urlRe = /\bhttps?:\/\/[^\s<>()]+/giu;
