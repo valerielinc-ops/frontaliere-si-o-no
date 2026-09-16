@@ -1461,8 +1461,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
 
  if (!fs.existsSync(jobsPath)) {
  console.warn('[jobs-seo-pages] data/jobs.json not found');
+ // Nessun manifest: uno snapshot valido con zero entry sarebbe
+ // indistinguibile da un corpus vuoto per un consumer di reuse/tombstone
+ // (review PR #8878) e gli farebbe trattare come rimosse tutte le pagine.
  if (incrementalManifests) {
-  for (const manifest of incrementalManifests.values()) manifest.write(rootDir);
+   console.warn('[incremental-manifest] data/jobs.json missing: no manifest written (incomplete shard)');
  }
  // Unblock downstream consumers before bailing. relatedSearchClustersPlugin
  // `await`s jobsSeoPagesFlushed (writeSitemap L2029 + cache-hit path L2190);
@@ -13762,7 +13765,7 @@ ${staticAnalyticsHtml}
  _qw(np.join(outDir, 'index.html'), indexHtml);
  if (incrementalManifests) {
   registerIncrementalPage(locale, oldPath, 'previous-slugs-full-content', {
-   ...buildMinimalJobInput(job, locale, currentSlug),
+   ...buildMinimalJobInput(job, locale, currentSlug, getRelatedPool(job)),
    path: oldPath,
    canton: jobCantonForBridge,
    oldSlug,
@@ -13819,7 +13822,7 @@ ${staticAnalyticsHtml}
  _qw(np.join(legacyTIOutDir, 'index.html'), indexHtml);
  if (incrementalManifests) {
   registerIncrementalPage(locale, legacyTIRelPath, 'previous-slugs-full-content', {
-   ...buildMinimalJobInput(job, locale, currentSlug),
+   ...buildMinimalJobInput(job, locale, currentSlug, getRelatedPool(job)),
    path: legacyTIRelPath,
    canton: jobCantonForBridge,
    oldSlug,
@@ -14015,7 +14018,7 @@ ${staticAnalyticsHtml}
  _writtenPaths.add(indexFile);
  if (incrementalManifests) {
   registerIncrementalPage(baseLocale, relPath, 'cross-locale-reconciliation', {
-   ...buildMinimalJobInput(job, baseLocale, baseSlug),
+   ...buildMinimalJobInput(job, baseLocale, baseSlug, getRelatedPool(job)),
    source: 'active-job',
    path: relPath,
    baseLocale,
