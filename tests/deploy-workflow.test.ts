@@ -20,6 +20,7 @@ import YAML from 'yaml';
 const ROOT = resolve(import.meta.dirname, '..');
 const VALIDATION_YML = readFileSync(resolve(ROOT, '.github/workflows/post-deploy-validate-dist.yml'), 'utf-8');
 const DEPLOY_YML = readFileSync(resolve(ROOT, '.github/workflows/deploy.yml'), 'utf-8');
+const DEPLOY_PUBLISH_YML = readFileSync(resolve(ROOT, '.github/workflows/deploy-publish.yml'), 'utf-8');
 // Every workflow that uploads dist/audit-reports/** as an artifact — the
 // directory scripts/lib/auditReport.mjs writes to (discover-eligibility.json
 // included). Since #6202 that report is written only 1-in-7 post-deploy
@@ -482,5 +483,26 @@ describe('deploy.yml — scheduling del build senza serializzazione globale', ()
     expect(sequentialProfile).toContain("github.event.inputs.profile_sequential == 'true'");
     expect(sequentialProfile).toContain("github.event.inputs.parallel_plugins != 'true'");
     expect(sequentialProfile).not.toBe('1');
+  });
+});
+
+describe('deploy-publish.yml — Pages poll usa il budget residuo del job', () => {
+  const workflow = YAML.parse(DEPLOY_PUBLISH_YML) as any;
+  const deployJob = workflow.jobs.deploy as { steps: Array<Record<string, any>>; 'timeout-minutes': number };
+
+  it('ancora la deadline al primo step e gestisce il budget pre-poll esaurito', () => {
+    expect(deployJob['timeout-minutes']).toBe(360);
+    expect(deployJob.steps[0]).toMatchObject({
+      name: 'Record publish job start',
+      id: 'publish_budget',
+    });
+    expect(deployJob.steps[0].run).toContain('job_deadline=$((job_started_at + 360 * 60))');
+
+    const pollStep = deployJob.steps.find((step) => step.name === 'Wait for server-side Pages publish (extended, beyond the 10-min action cap)');
+    expect(pollStep, 'deploy-publish.yml: manca lo step di poll Pages esteso').toBeDefined();
+    expect(pollStep!.run).toContain('job_deadline="${{ steps.publish_budget.outputs.job_deadline }}"');
+    expect(pollStep!.run).toContain('deadline=$((job_deadline - 60))');
+    expect(pollStep!.run).toContain('pre-poll publish steps consumed the available job budget');
+    expect(pollStep!.run).not.toContain('date +%s) + 330*60');
   });
 });
