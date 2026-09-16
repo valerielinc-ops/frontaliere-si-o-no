@@ -1,19 +1,20 @@
 {
   "companyKey": "jobportal",
-  "companyName": "csl-immobilien",
+  "companyName": "Ortho-Team AG",
   "companyHost": "app.jobportal.abaservices.ch",
   "platform": "abaservices.ch",
   "mode": "jsonld",
   "seedUrls": [
-    "https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/56de7637-9acc-1793-19a5-22930895d5a7?jp=ABACUS"
+    "https://app.jobportal.abaservices.ch/job-advertisement/618207f9-d9a9-4276-a4e0-d3b53027b76a/7aa93175-4232-8652-2d04-0d1e4fb87097"
   ],
-  "detailTemplate": "/job-advertisement/cslimmobilien/56de7637-9acc-1793-19a5-22930895d5a7",
+  "detailTemplate": "/job-advertisement/618207f9-d9a9-4276-a4e0-d3b53027b76a/7aa93175-4232-8652-2d04-0d1e4fb87097",
   "detailEnrichment": false,
   "detailFetchWorkers": 4,
   "sampleVacancyCount": 1,
   "sampleTitles": [
-    "Sachbearbeiter*in BETA Zürich"
+    "Lernende:r / Praktikant:in Orthopädietechniker:in 1"
   ],
-  "sourceLang": "de",
-  "learnedAt": "2026-09-14T09:43:44.180Z"
+  "canton": "BS",
+  "sourceLang": "it",
+  "learnedAt": "2026-09-16T10:38:56.591Z"
 }
