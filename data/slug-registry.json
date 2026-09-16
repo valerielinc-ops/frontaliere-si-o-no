@@ -287174,7 +287174,7 @@
     "canonicalSlug": "gl-contabile-richemont-villars-sur-glane",
     "slugByLocale": {
       "it": "gl-contabile-richemont-villars-sur-glane",
-      "en": "gl-accountant-richemont-villars-sur-glane",
+      "en": "general-ledger-accountant-richemont-villars-sur-glane",
       "de": "gl-buchhalter-richemont-villars-sur-glane",
       "fr": "gl-accountant-richemont-villars-sur-glane"
     },
@@ -722727,7 +722727,8 @@
     "slugByLocale": {
       "de": "verkaufer-in-food-springer-coop-ostermundigen-bern-1xrftd",
       "it": "seller-food-springer-coop-genossenschaft-ostermundigen",
-      "fr": "produits-alimentaires-vendus-springer-coop-genossenschaft-ostermundigen"
+      "fr": "produits-alimentaires-vendus-springer-coop-genossenschaft-ostermundigen",
+      "en": "seller-food-springer-coop-genossenschaft-ostermundigen-bern"
     },
     "createdAt": "2026-09-14",
     "canton": "BE"
@@ -726198,7 +726199,9 @@
     "canonicalSlug": "zimmermann-zimmerin-holzbau-vorarbeiter-in-con-projektleitung-sta-personal-ag-winterthur",
     "slugByLocale": {
       "it": "zimmermann-zimmerin-holzbau-vorarbeiter-in-con-projektleitung-sta-personal-ag-winterthur",
-      "de": "zimmermann-zimmerin-8211-holzbau-vorarbeiter-in-mit-projektleitung-winterthur-zurich-sta"
+      "de": "zimmermann-zimmerin-8211-holzbau-vorarbeiter-in-mit-projektleitung-winterthur-zurich-sta",
+      "en": "carpenter-timber-construction-foreman-with-project-management-sta-personal-ag-winterthur-zurich",
+      "fr": "charpentier-contremaitre-en-construction-bois-avec-gestion-de-projet-sta-personal-ag-winterthur-zurich"
     },
     "createdAt": "2026-09-16",
     "canton": "ZH"
@@ -726206,7 +726209,10 @@
   "url|https://www.sta.jobs/stellen/zimmermann-zimmerin-holzbau-vorarbeiter-in-affoltern-am-albis-dauerstelle-103750": {
     "canonicalSlug": "zimmermann-zimmerin-8211-holzbau-vorarbeiter-in-mit-fuhrungserfahrung-affoltern-am-albis",
     "slugByLocale": {
-      "de": "zimmermann-zimmerin-8211-holzbau-vorarbeiter-in-mit-fuhrungserfahrung-affoltern-am-albis"
+      "de": "zimmermann-zimmerin-8211-holzbau-vorarbeiter-in-mit-fuhrungserfahrung-affoltern-am-albis",
+      "it": "carpentiere-a-caposquadra-costruzioni-in-legno-con-esperienza-dirigenziale-sta-personal-ag-affoltern-am-albis-zurich",
+      "en": "zimmermann-zimmerin-woodwork-foreman-with-leadership-experience-sta-personal-ag-affoltern-am-albis-zurich",
+      "fr": "zimmermann-zimmerin-contremaitre-en-bois-avec-experience-de-leadership-sta-personal-ag-affoltern-am-albis-zurich"
     },
     "createdAt": "2026-09-16",
     "canton": "ZH"
@@ -726247,7 +726253,10 @@
   "url|https://www.sta.jobs/stellen/spengler-in-luzern-dauerstelle-104282": {
     "canonicalSlug": "spengler-in-mit-selbstandiger-arbeitsweise-luzern-luzern-sta-ch",
     "slugByLocale": {
-      "de": "spengler-in-mit-selbstandiger-arbeitsweise-luzern-luzern-sta-ch"
+      "de": "spengler-in-mit-selbstandiger-arbeitsweise-luzern-luzern-sta-ch",
+      "it": "lattoniere-a-con-modalita-di-lavoro-indipendente-sta-personal-ag-luzern-luzern",
+      "en": "locksmith-with-an-independent-work-style-sta-personal-ag-luzern-luzern",
+      "fr": "plombier-iere-autonome-sta-personal-ag-luzern-luzern"
     },
     "createdAt": "2026-09-16",
     "canton": "LU"
@@ -726267,7 +726276,9 @@
     "canonicalSlug": "spengler-in-per-energetische-sanierungen-sta-personal-ag-langenthal",
     "slugByLocale": {
       "it": "spengler-in-per-energetische-sanierungen-sta-personal-ag-langenthal",
-      "de": "spengler-in-fur-energetische-sanierungen-langenthal-bern-sta-ch"
+      "de": "spengler-in-fur-energetische-sanierungen-langenthal-bern-sta-ch",
+      "en": "energy-refurbisher-sta-personal-ag-langenthal-bern",
+      "fr": "plombier-iere-pour-renovations-energetiques-sta-personal-ag-langenthal-bern"
     },
     "createdAt": "2026-09-16",
     "canton": "BE"
@@ -744842,7 +744853,10 @@
   "id|coopjobs.ch|d77dfdd7-902f-4673-8a86-5631c0966dde": {
     "canonicalSlug": "backer-in-konditor-in-coop-chur-graubunden",
     "slugByLocale": {
-      "de": "backer-in-konditor-in-coop-chur-graubunden-0id7r6"
+      "de": "backer-in-konditor-in-coop-chur-graubunden-0id7r6",
+      "it": "panificio-pasticceria-coop-genossenschaft-chur",
+      "en": "baker-confectioner-coop-genossenschaft-chur",
+      "fr": "baker-confiseur-coop-genossenschaft-chur"
     },
     "createdAt": "2026-09-16",
     "canton": "GR"
@@ -744850,7 +744864,8 @@
   "id|coopjobs.ch|a9e2ea42-d8bf-478f-a8a1-54d5ffbdd26c": {
     "canonicalSlug": "call-agent-m-w-d-kundendienst-coop-ch-80-100-coop-ch-spreitenbach-aargau",
     "slugByLocale": {
-      "de": "call-agent-m-w-d-kundendienst-coop-ch-80-100-coop-ch-spreitenbach-aargau-8ch3h1"
+      "de": "call-agent-m-w-d-kundendienst-coop-ch-80-100-coop-ch-spreitenbach-aargau-8ch3h1",
+      "fr": "appelez-l-agent-h-f-d-service-a-la-clientele-coop-ch-80-100-coop-genossenschaft-spreitenbach"
     },
     "createdAt": "2026-09-16",
     "canton": "AG"
@@ -744858,7 +744873,10 @@
   "id|coopjobs.ch|d8125810-f39d-4ed1-9747-912242d93e07": {
     "canonicalSlug": "kochin-koch-m-w-d-coop-ristorante-balgach-sankt-gallen",
     "slugByLocale": {
-      "de": "kochin-koch-m-w-d-coop-ristorante-balgach-sankt-gallen-7ubws3"
+      "de": "kochin-koch-m-w-d-coop-ristorante-balgach-sankt-gallen-7ubws3",
+      "it": "cooker-m-f-d-coop-genossenschaft-balgach",
+      "en": "chef-chef-m-f-d-coop-genossenschaft-balgach",
+      "fr": "cuisiniere-h-f-d-coop-genossenschaft-balgach"
     },
     "createdAt": "2026-09-16",
     "canton": "SG"
@@ -744866,7 +744884,10 @@
   "id|coopjobs.ch|3e8e2af0-eba8-4bb8-ab49-447f63770fe0": {
     "canonicalSlug": "kommissionierer-in-coop-bern",
     "slugByLocale": {
-      "de": "kommissionierer-in-coop-bern-4tyeys"
+      "de": "kommissionierer-in-coop-bern-4tyeys",
+      "it": "pickers-ordine-coop-genossenschaft-bern-c1bdf2",
+      "en": "order-pickers-coop-genossenschaft-bern-c1bdf2",
+      "fr": "commandeurs-coop-genossenschaft-bern-c1bdf2"
     },
     "createdAt": "2026-09-16",
     "canton": "BE"
@@ -744874,7 +744895,10 @@
   "id|coopjobs.ch|b9c3e450-697f-468b-8c4a-d565f6f336cf": {
     "canonicalSlug": "metzger-in-fleischfachfrau-fleischfachmann-coop-ilanz-glion-graubunden",
     "slugByLocale": {
-      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-ilanz-glion-graubunden-mk2aur"
+      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-ilanz-glion-graubunden-mk2aur",
+      "it": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-ilanz-glion",
+      "en": "butcher-meat-specialist-meat-specialist-coop-genossenschaft-ilanz-glion",
+      "fr": "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-ilanz-glion"
     },
     "createdAt": "2026-09-16",
     "canton": "GR"
@@ -744893,7 +744917,10 @@
   "id|coopjobs.ch|0a25cbf6-3d65-4f21-8f61-d4574b96ca88": {
     "canonicalSlug": "sachbearbeiter-in-wareneingang-80-100-coop-langenthal-bern",
     "slugByLocale": {
-      "de": "sachbearbeiter-in-wareneingang-80-100-coop-langenthal-bern-now4eb"
+      "de": "sachbearbeiter-in-wareneingang-80-100-coop-langenthal-bern-now4eb",
+      "it": "ware-receiving-clerk-80-100-coop-genossenschaft-langenthal",
+      "en": "goods-receipt-clerk-80-100-coop-genossenschaft-langenthal",
+      "fr": "personnel-reception-des-marchandises-80-100-coop-genossenschaft-langenthal"
     },
     "createdAt": "2026-09-16",
     "canton": "BE"
@@ -744901,7 +744928,10 @@
   "id|coopjobs.ch|3fbfdba2-c7b1-4aed-9fd2-b0b81cbd5812": {
     "canonicalSlug": "staplerfahrer-in-coop-thun-bern",
     "slugByLocale": {
-      "de": "staplerfahrer-in-coop-thun-bern-3gxgmb"
+      "de": "staplerfahrer-in-coop-thun-bern-3gxgmb",
+      "it": "driver-per-il-carrello-elevatore-coop-genossenschaft-thun",
+      "en": "forklift-drivers-coop-genossenschaft-thun",
+      "fr": "conducteurs-de-chariot-elevateur-coop-genossenschaft-thun"
     },
     "createdAt": "2026-09-16",
     "canton": "BE"
@@ -744909,7 +744939,10 @@
   "id|coopjobs.ch|6ec755bc-59f6-4dc4-a5e5-6ca165027a55": {
     "canonicalSlug": "stv-rayonleiter-in-convenience-metzgerei-coop-bern",
     "slugByLocale": {
-      "de": "stv-rayonleiter-in-convenience-metzgerei-coop-bern-ls49z2"
+      "de": "stv-rayonleiter-in-convenience-metzgerei-coop-bern-ls49z2",
+      "it": "capo-della-funzione-del-capo-dell-ufficio-del-direttore-dell-ufficio-del-direttore-dell-ufficio-del-direttore-dell",
+      "en": "head-of-the-office-of-the-head-of-the-office-of-the-head-of-the-office-of-the-director-of-the-office-of-the-80da3d",
+      "fr": "chef-du-bureau-du-chef-du-bureau-du-directeur-du-bureau-du-directeur-du-bureau-du-directeur-du-bureau-du-80da3d"
     },
     "createdAt": "2026-09-16",
     "canton": "BE"
@@ -744917,7 +744950,10 @@
   "id|coopjobs.ch|a9fbcd22-2a3e-4509-8909-8fc49c695ebe": {
     "canonicalSlug": "teamleiter-in-e-shop-logistik-coop-langenthal-bern",
     "slugByLocale": {
-      "de": "teamleiter-in-e-shop-logistik-coop-langenthal-bern-xjw0m8"
+      "de": "teamleiter-in-e-shop-logistik-coop-langenthal-bern-xjw0m8",
+      "it": "team-leader-nella-logistica-e-shop-coop-genossenschaft-langenthal",
+      "en": "team-leader-e-shop-logistics-coop-genossenschaft-langenthal",
+      "fr": "chef-d-equipe-en-logistique-e-shop-coop-genossenschaft-langenthal"
     },
     "createdAt": "2026-09-16",
     "canton": "BE"
@@ -744925,7 +744961,10 @@
   "id|coopjobs.ch|d8e37cf4-eb5b-4c06-8f32-372c38b1fc33": {
     "canonicalSlug": "verkaufer-in-food-frischprodukte-coop-heimberg-bern",
     "slugByLocale": {
-      "de": "verkaufer-in-food-frischprodukte-coop-heimberg-bern-3gatbn"
+      "de": "verkaufer-in-food-frischprodukte-coop-heimberg-bern-3gatbn",
+      "it": "vendita-prodotti-alimentari-freschi-coop-genossenschaft-heimberg",
+      "en": "seller-food-fresh-products-coop-genossenschaft-heimberg",
+      "fr": "produits-de-vente-produits-frais-coop-genossenschaft-heimberg"
     },
     "createdAt": "2026-09-16",
     "canton": "BE"
@@ -744933,7 +744972,10 @@
   "id|coopjobs.ch|20324f78-945f-4d4a-b193-2fafefb04e18": {
     "canonicalSlug": "verkaufer-in-food-molkerei-coop-luzern",
     "slugByLocale": {
-      "de": "verkaufer-in-food-molkerei-coop-luzern-3ie49n"
+      "de": "verkaufer-in-food-molkerei-coop-luzern-3ie49n",
+      "it": "seller-food-danni-coop-genossenschaft-luzern",
+      "en": "seller-food-dairy-coop-genossenschaft-luzern",
+      "fr": "produits-alimentaires-vendus-produits-laitiers-coop-genossenschaft-luzern"
     },
     "createdAt": "2026-09-16",
     "canton": "LU"
@@ -744941,7 +744983,10 @@
   "id|coopjobs.ch|f3e53bb1-6799-48f5-876b-b2b473f2f10a": {
     "canonicalSlug": "verkaufer-in-food-coop-arosa-graubunden",
     "slugByLocale": {
-      "de": "verkaufer-in-food-coop-arosa-graubunden-pvmf57"
+      "de": "verkaufer-in-food-coop-arosa-graubunden-pvmf57",
+      "it": "vendita-prodotti-alimentari-coop-genossenschaft-arosa",
+      "en": "seller-food-coop-genossenschaft-arosa",
+      "fr": "aliments-pour-vendeurs-coop-genossenschaft-arosa"
     },
     "createdAt": "2026-09-16",
     "canton": "GR"
@@ -744949,7 +744994,10 @@
   "id|coopjobs.ch|677fcbc9-2837-46cf-bc40-637b8e7ffde0": {
     "canonicalSlug": "verkaufer-in-frischprodukte-brot-coop-triengen-luzern",
     "slugByLocale": {
-      "de": "verkaufer-in-frischprodukte-brot-coop-triengen-luzern-x8aztp"
+      "de": "verkaufer-in-frischprodukte-brot-coop-triengen-luzern-x8aztp",
+      "it": "vendita-prodotti-freschi-pane-coop-genossenschaft-triengen",
+      "en": "seller-fresh-products-bread-coop-genossenschaft-triengen",
+      "fr": "vendeur-de-produits-frais-pain-coop-genossenschaft-triengen"
     },
     "createdAt": "2026-09-16",
     "canton": "LU"
@@ -744957,7 +745005,10 @@
   "id|coopjobs.ch|bfc7a58b-73bb-40fa-b701-9cfa2b0c6aa6": {
     "canonicalSlug": "verkaufer-in-frischprodukte-inkl-produktion-coop-oberburg-bei-burgdorf-bern",
     "slugByLocale": {
-      "de": "verkaufer-in-frischprodukte-inkl-produktion-coop-oberburg-bei-burgdorf-bern-wwo58w"
+      "de": "verkaufer-in-frischprodukte-inkl-produktion-coop-oberburg-bei-burgdorf-bern-wwo58w",
+      "it": "vendita-prodotti-freschi-incl-produzione-coop-genossenschaft-oberburg-bei-burgdorf",
+      "en": "seller-fresh-products-incl-production-coop-genossenschaft-oberburg-bei-burgdorf",
+      "fr": "vendeur-produits-frais-incl-production-coop-genossenschaft-oberburg-bei-burgdorf"
     },
     "createdAt": "2026-09-16",
     "canton": "BE"
@@ -744965,7 +745016,10 @@
   "id|coopjobs.ch|90f109e8-f421-4dfc-aa21-a7b80aa6c3dc": {
     "canonicalSlug": "verkaufer-in-frischprodukte-metzgerei-coop-zweisimmen-bern",
     "slugByLocale": {
-      "de": "verkaufer-in-frischprodukte-metzgerei-coop-zweisimmen-bern-4m1ic3"
+      "de": "verkaufer-in-frischprodukte-metzgerei-coop-zweisimmen-bern-4m1ic3",
+      "it": "vendita-prodotti-freschi-macellaio-coop-genossenschaft-zweisimmen",
+      "en": "seller-fresh-products-butcher-coop-genossenschaft-zweisimmen",
+      "fr": "vendeur-produits-frais-boucher-coop-genossenschaft-zweisimmen"
     },
     "createdAt": "2026-09-16",
     "canton": "BE"
@@ -744973,7 +745027,10 @@
   "id|coopjobs.ch|c27cf6f4-4cf2-4cca-97fa-2150a31359fa": {
     "canonicalSlug": "verkaufer-in-frischprodukte-molkerei-brot-coop-emmen-luzern",
     "slugByLocale": {
-      "de": "verkaufer-in-frischprodukte-molkerei-brot-coop-emmen-luzern-dalb4c"
+      "de": "verkaufer-in-frischprodukte-molkerei-brot-coop-emmen-luzern-dalb4c",
+      "it": "vendita-prodotti-freschi-pane-e-pane-coop-genossenschaft-emmen",
+      "en": "seller-fresh-products-dairy-bread-coop-genossenschaft-emmen",
+      "fr": "vendeur-de-produits-frais-bouilloire-et-pain-coop-genossenschaft-emmen"
     },
     "createdAt": "2026-09-16",
     "canton": "LU"
@@ -744981,7 +745038,10 @@
   "id|coopjobs.ch|745758e6-cdba-43f8-acac-c399235bd838": {
     "canonicalSlug": "verkaufer-in-kassen-services-coop-jegenstorf-bern",
     "slugByLocale": {
-      "de": "verkaufer-in-kassen-services-coop-jegenstorf-bern-y1kw90"
+      "de": "verkaufer-in-kassen-services-coop-jegenstorf-bern-y1kw90",
+      "it": "vendita-cassa-servizi-coop-genossenschaft-jegenstorf",
+      "en": "seller-cash-register-services-coop-genossenschaft-jegenstorf",
+      "fr": "caisse-enregistreuse-services-du-vendeur-coop-genossenschaft-jegenstorf"
     },
     "createdAt": "2026-09-16",
     "canton": "BE"
@@ -744989,7 +745049,10 @@
   "id|coopjobs.ch|871e4c33-32bd-4b4c-a690-fef3e01b0acb": {
     "canonicalSlug": "verkaufer-in-kassen-services-coop-buochs-nidwalden",
     "slugByLocale": {
-      "de": "verkaufer-in-kassen-services-coop-buochs-nidwalden-r0b409"
+      "de": "verkaufer-in-kassen-services-coop-buochs-nidwalden-r0b409",
+      "it": "vendita-cassa-servizi-coop-genossenschaft-buochs",
+      "en": "seller-cash-register-services-coop-genossenschaft-buochs",
+      "fr": "caisse-enregistreuse-services-du-vendeur-coop-genossenschaft-buochs"
     },
     "createdAt": "2026-09-16",
     "canton": "NW"
@@ -744997,7 +745060,10 @@
   "id|coopjobs.ch|fb2f7c27-bacd-4acf-ac5e-8649beda7853": {
     "canonicalSlug": "verkaufer-in-kassen-services-coop-laupen-bern",
     "slugByLocale": {
-      "de": "verkaufer-in-kassen-services-coop-laupen-bern-aamqge"
+      "de": "verkaufer-in-kassen-services-coop-laupen-bern-aamqge",
+      "it": "vendita-cassa-servizi-coop-genossenschaft-laupen",
+      "en": "seller-cash-register-services-coop-genossenschaft-laupen",
+      "fr": "caisse-enregistreuse-services-du-vendeur-coop-genossenschaft-laupen"
     },
     "createdAt": "2026-09-16",
     "canton": "BE"
@@ -745005,7 +745071,10 @@
   "id|coopjobs.ch|5d8ec41c-1438-4482-a938-1ed669479efa": {
     "canonicalSlug": "verkaufsberater-in-kosmetik-coop-city-luzern",
     "slugByLocale": {
-      "de": "verkaufsberater-in-kosmetik-coop-city-luzern-y9wtik"
+      "de": "verkaufsberater-in-kosmetik-coop-city-luzern-y9wtik",
+      "it": "consulente-di-vendita-cosmetici-coop-genossenschaft-luzern",
+      "en": "sales-consultant-cosmetics-coop-genossenschaft-luzern",
+      "fr": "consultant-en-produits-cosmetiques-coop-genossenschaft-luzern"
     },
     "createdAt": "2026-09-16",
     "canton": "LU"
@@ -745013,7 +745082,10 @@
   "id|coopjobs.ch|aed4cd2b-da4e-4e0d-b43e-af2fe854dd1c": {
     "canonicalSlug": "cuisiniere-cuisinier-m-w-d-coop-ristorante-vich-vaud",
     "slugByLocale": {
-      "fr": "cuisiniere-cuisinier-m-w-d-coop-ristorante-vich-vaud-u6l7cu"
+      "fr": "cuisiniere-cuisinier-m-w-d-coop-ristorante-vich-vaud-u6l7cu",
+      "it": "cucina-cucina-m-f-d-coop-genossenschaft-vich",
+      "en": "cook-kitchen-m-f-d-coop-genossenschaft-vich",
+      "de": "koch-kuche-m-w-d-coop-genossenschaft-vich"
     },
     "createdAt": "2026-09-16",
     "canton": "VD"
@@ -745021,7 +745093,10 @@
   "id|coopjobs.ch|ffee30c0-1a39-4691-8f8d-770219decdac": {
     "canonicalSlug": "cuisiniere-cuisinier-m-w-d-coop-ristorante-neuchatel",
     "slugByLocale": {
-      "fr": "cuisiniere-cuisinier-m-w-d-coop-ristorante-neuchatel-2o2ryp"
+      "fr": "cuisiniere-cuisinier-m-w-d-coop-ristorante-neuchatel-2o2ryp",
+      "it": "cucina-cucina-m-f-d-coop-genossenschaft-neuchatel",
+      "en": "cook-kitchen-m-f-d-coop-genossenschaft-neuchatel",
+      "de": "koch-kuche-m-w-d-coop-genossenschaft-neuchatel"
     },
     "createdAt": "2026-09-16",
     "canton": "NE"
@@ -745029,7 +745104,10 @@
   "id|coopjobs.ch|3a7b1886-c0fe-44ce-98a6-73468be59516": {
     "canonicalSlug": "backer-in-konditor-in-coop-st-gallen-sankt-gallen",
     "slugByLocale": {
-      "de": "backer-in-konditor-in-coop-st-gallen-sankt-gallen-oj8cje"
+      "de": "backer-in-konditor-in-coop-st-gallen-sankt-gallen-oj8cje",
+      "it": "panificio-pasticceria-coop-genossenschaft-st-gallen",
+      "en": "baker-confectioner-coop-genossenschaft-st-gallen",
+      "fr": "baker-confiseur-coop-genossenschaft-st-gallen"
     },
     "createdAt": "2026-09-16",
     "canton": "SG"
@@ -745037,7 +745115,10 @@
   "id|coopjobs.ch|6b5cee08-4ad0-43b8-a0b8-c7fa89d173db": {
     "canonicalSlug": "backer-in-konditor-in-coop-oftringen-aargau",
     "slugByLocale": {
-      "de": "backer-in-konditor-in-coop-oftringen-aargau-3efet9"
+      "de": "backer-in-konditor-in-coop-oftringen-aargau-3efet9",
+      "it": "panificio-pasticceria-coop-genossenschaft-oftringen",
+      "en": "baker-confectioner-coop-genossenschaft-oftringen",
+      "fr": "baker-confiseur-coop-genossenschaft-oftringen"
     },
     "createdAt": "2026-09-16",
     "canton": "AG"
@@ -745046,7 +745127,9 @@
     "canonicalSlug": "elektriker-in-efz-coop-dietikon-zurich",
     "slugByLocale": {
       "it": "elektriker-in-cfc-coop-dietikon-zurich-qqka1y",
-      "de": "elektriker-in-efz-coop-dietikon-zurich-qqka1y"
+      "de": "elektriker-in-efz-coop-dietikon-zurich-qqka1y",
+      "en": "electricians-efz-coop-genossenschaft-dietikon",
+      "fr": "electriciens-efz-coop-genossenschaft-dietikon"
     },
     "createdAt": "2026-09-16",
     "canton": "ZH"
@@ -745076,7 +745159,9 @@
   "id|coopjobs.ch|62b7012e-d9e1-48c5-9142-0ff3ac4a4e90": {
     "canonicalSlug": "kochin-koch-m-w-d-coop-ristorante-interlaken-bern",
     "slugByLocale": {
-      "de": "kochin-koch-m-w-d-coop-ristorante-interlaken-bern-t0jc97"
+      "de": "kochin-koch-m-w-d-coop-ristorante-interlaken-bern-t0jc97",
+      "it": "chef-chef-m-f-d-coop-genossenschaft-interlaken",
+      "fr": "cuisiniere-h-f-d-coop-genossenschaft-interlaken"
     },
     "createdAt": "2026-09-16",
     "canton": "BE"
@@ -745084,7 +745169,10 @@
   "id|coopjobs.ch|a37726ce-7d8c-44a3-bf4a-ca4e88f00d5d": {
     "canonicalSlug": "lagermitarbeiter-in-kommissionierung-coop-oberbuchsiten-solothurn",
     "slugByLocale": {
-      "de": "lagermitarbeiter-in-kommissionierung-coop-oberbuchsiten-solothurn-2eziui"
+      "de": "lagermitarbeiter-in-kommissionierung-coop-oberbuchsiten-solothurn-2eziui",
+      "it": "raccoglitore-personale-del-magazzino-coop-genossenschaft-oberbuchsiten",
+      "en": "warehouse-staff-picking-coop-genossenschaft-oberbuchsiten",
+      "fr": "cueillette-du-personnel-de-l-entrepot-coop-genossenschaft-oberbuchsiten"
     },
     "createdAt": "2026-09-16",
     "canton": "SO"
@@ -745092,7 +745180,10 @@
   "id|coopjobs.ch|af966dd7-7f81-4f88-b4a6-877c298be415": {
     "canonicalSlug": "lagermitarbeiter-in-warenausgang-coop-oberbuchsiten-solothurn",
     "slugByLocale": {
-      "de": "lagermitarbeiter-in-warenausgang-coop-oberbuchsiten-solothurn-t15r2a"
+      "de": "lagermitarbeiter-in-warenausgang-coop-oberbuchsiten-solothurn-t15r2a",
+      "it": "personale-del-magazzino-fuori-dalle-merci-coop-genossenschaft-oberbuchsiten",
+      "en": "warehouse-staff-out-of-goods-coop-genossenschaft-oberbuchsiten",
+      "fr": "personnel-de-l-entrepot-hors-marchandises-coop-genossenschaft-oberbuchsiten"
     },
     "createdAt": "2026-09-16",
     "canton": "SO"
@@ -745101,7 +745192,9 @@
     "canonicalSlug": "leiter-in-it-service-center-coop-basel-stadt",
     "slugByLocale": {
       "it": "responsabile-it-service-center-coop-basel-stadt-3toqpx",
-      "de": "leiter-in-it-service-center-coop-basel-stadt-3toqpx"
+      "de": "leiter-in-it-service-center-coop-basel-stadt-3toqpx",
+      "en": "head-of-it-service-center-coop-genossenschaft-basel",
+      "fr": "chef-du-centre-de-services-informatiques-coop-genossenschaft-basel"
     },
     "createdAt": "2026-09-16",
     "canton": "BS"
@@ -745110,7 +745203,9 @@
     "canonicalSlug": "mediamatiker-in-efz-coop-muttenz",
     "slugByLocale": {
       "it": "mediamatiker-in-cfc-coop-muttenz-p0rs9u",
-      "de": "mediamatiker-in-efz-coop-muttenz-p0rs9u"
+      "de": "mediamatiker-in-efz-coop-muttenz-p0rs9u",
+      "en": "efz-media-matters-coop-muttenz",
+      "fr": "efz-questions-relatives-aux-medias-coop-muttenz"
     },
     "createdAt": "2026-09-16",
     "canton": "BL"
@@ -745118,7 +745213,10 @@
   "id|coopjobs.ch|043606d8-7a15-4f5e-95b6-a6a15ad74b67": {
     "canonicalSlug": "metzger-in-fleischfachfrau-fleischfachmann-coop-kriens-luzern",
     "slugByLocale": {
-      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-kriens-luzern-u91gat"
+      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-kriens-luzern-u91gat",
+      "it": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-kriens",
+      "en": "butcher-meat-specialist-meat-specialist-coop-genossenschaft-kriens",
+      "fr": "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-kriens"
     },
     "createdAt": "2026-09-16",
     "canton": "LU"
@@ -745126,7 +745224,10 @@
   "id|coopjobs.ch|63aaa5ee-82c1-4759-8560-2746c16aba67": {
     "canonicalSlug": "metzger-in-fleischfachfrau-fleischfachmann-coop-einsiedeln-schwyz",
     "slugByLocale": {
-      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-einsiedeln-schwyz-i6xguy"
+      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-einsiedeln-schwyz-i6xguy",
+      "it": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-einsiedeln",
+      "en": "butcher-meat-specialist-meat-specialist-coop-genossenschaft-einsiedeln",
+      "fr": "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-einsiedeln"
     },
     "createdAt": "2026-09-16",
     "canton": "SZ"
@@ -745134,7 +745235,10 @@
   "id|coopjobs.ch|6f55f730-7e4e-476c-b67e-a4de09be068d": {
     "canonicalSlug": "metzger-in-fleischfachfrau-fleischfachmann-coop-schenkon-luzern",
     "slugByLocale": {
-      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-schenkon-luzern-8hrzkc"
+      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-schenkon-luzern-8hrzkc",
+      "it": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-schenkon",
+      "en": "butcher-meat-specialist-meat-specialist-coop-genossenschaft-schenkon",
+      "fr": "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-schenkon"
     },
     "createdAt": "2026-09-16",
     "canton": "LU"
@@ -745142,7 +745246,10 @@
   "id|coopjobs.ch|727da812-faee-4f8f-bccd-fe55300c1f7e": {
     "canonicalSlug": "metzger-in-fleischfachfrau-fleischfachmann-coop-worb-bern",
     "slugByLocale": {
-      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-worb-bern-und8e6"
+      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-worb-bern-und8e6",
+      "it": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-worb",
+      "en": "butcher-meat-specialist-meat-specialist-coop-genossenschaft-worb",
+      "fr": "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-worb"
     },
     "createdAt": "2026-09-16",
     "canton": "BE"
@@ -745150,7 +745257,10 @@
   "id|coopjobs.ch|9b61182c-ce30-4077-b54b-f19cd8be234e": {
     "canonicalSlug": "metzger-in-fleischfachfrau-fleischfachmann-coop-risch-rotkreuz-zug",
     "slugByLocale": {
-      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-risch-rotkreuz-zug-bifnb7"
+      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-risch-rotkreuz-zug-bifnb7",
+      "it": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-risch-rotkreuz",
+      "en": "butcher-meat-specialist-meat-specialist-coop-genossenschaft-risch-rotkreuz",
+      "fr": "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-risch-rotkreuz"
     },
     "createdAt": "2026-09-16",
     "canton": "ZG"
@@ -745158,7 +745268,10 @@
   "id|coopjobs.ch|b46fe37b-4d06-40b3-8a38-9ae2c77c3f73": {
     "canonicalSlug": "metzger-in-fleischfachfrau-fleischfachmann-coop-engelberg-obwalden",
     "slugByLocale": {
-      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-engelberg-obwalden-r4pqol"
+      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-engelberg-obwalden-r4pqol",
+      "it": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-engelberg",
+      "en": "butcher-meat-specialist-meat-specialist-coop-genossenschaft-engelberg",
+      "fr": "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-engelberg"
     },
     "createdAt": "2026-09-16",
     "canton": "OW"
@@ -745166,7 +745279,10 @@
   "id|coopjobs.ch|deb7eeb1-339e-46fd-9660-6ab253958837": {
     "canonicalSlug": "metzger-in-fleischfachfrau-fleischfachmann-coop-kussnacht-schwyz",
     "slugByLocale": {
-      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-kussnacht-schwyz-io09bc"
+      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-kussnacht-schwyz-io09bc",
+      "it": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-kussnacht",
+      "en": "butcher-meat-specialist-meat-specialist-coop-genossenschaft-kussnacht",
+      "fr": "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-kussnacht"
     },
     "createdAt": "2026-09-16",
     "canton": "SZ"
@@ -745174,7 +745290,10 @@
   "id|coopjobs.ch|ebc948c8-8085-4ae9-bb00-6fb058620261": {
     "canonicalSlug": "metzger-in-fleischfachfrau-fleischfachmann-coop-cham-zug",
     "slugByLocale": {
-      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-cham-zug-wy8va7"
+      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-cham-zug-wy8va7",
+      "it": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-cham",
+      "en": "butcher-meat-specialist-meat-specialist-coop-genossenschaft-cham",
+      "fr": "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-cham"
     },
     "createdAt": "2026-09-16",
     "canton": "ZG"
@@ -745182,7 +745301,10 @@
   "id|coopjobs.ch|f8c24361-ff2d-4e41-b647-10dbfef434e4": {
     "canonicalSlug": "metzger-in-fleischfachfrau-fleischfachmann-coop-emmen-luzern",
     "slugByLocale": {
-      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-emmen-luzern-9w00pl"
+      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-emmen-luzern-9w00pl",
+      "it": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-emmen",
+      "en": "butcher-meat-specialist-meat-specialist-coop-genossenschaft-emmen",
+      "fr": "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-emmen"
     },
     "createdAt": "2026-09-16",
     "canton": "LU"
@@ -745242,7 +745364,10 @@
   "id|coopjobs.ch|d9187d44-6277-4690-81fa-58a5b4e4f28b": {
     "canonicalSlug": "rayonleiter-in-fisch-coop-emmen-luzern",
     "slugByLocale": {
-      "de": "rayonleiter-in-fisch-coop-emmen-luzern-53g9jh"
+      "de": "rayonleiter-in-fisch-coop-emmen-luzern-53g9jh",
+      "it": "rayon-conduttore-pesce-coop-genossenschaft-emmen",
+      "en": "rayon-conductor-fish-coop-genossenschaft-emmen",
+      "fr": "poisson-conducteur-de-rayonne-coop-genossenschaft-emmen"
     },
     "createdAt": "2026-09-16",
     "canton": "LU"
@@ -745250,7 +745375,10 @@
   "id|coopjobs.ch|d432f068-136c-4c21-80c7-445bce1153e1": {
     "canonicalSlug": "rayonleiter-in-frischprodukte-coop-stans-nidwalden",
     "slugByLocale": {
-      "de": "rayonleiter-in-frischprodukte-coop-stans-nidwalden-juljro"
+      "de": "rayonleiter-in-frischprodukte-coop-stans-nidwalden-juljro",
+      "it": "prodotti-freschi-del-conduttore-rayon-coop-genossenschaft-stans",
+      "en": "rayon-conductor-fresh-products-coop-genossenschaft-stans",
+      "fr": "rayon-conducteur-produits-frais-coop-genossenschaft-stans"
     },
     "createdAt": "2026-09-16",
     "canton": "NW"
@@ -745258,7 +745386,10 @@
   "id|coopjobs.ch|515cc954-a7cc-4a5b-8672-09c0352ef2f3": {
     "canonicalSlug": "rayonleiter-in-grundnahrungsmittel-coop-kussnacht-schwyz",
     "slugByLocale": {
-      "de": "rayonleiter-in-grundnahrungsmittel-coop-kussnacht-schwyz-vasiyt"
+      "de": "rayonleiter-in-grundnahrungsmittel-coop-kussnacht-schwyz-vasiyt",
+      "it": "rayon-conduttore-cibo-base-coop-genossenschaft-kussnacht",
+      "en": "rayon-conductor-staple-food-coop-genossenschaft-kussnacht",
+      "fr": "rayon-conducteur-aliment-de-base-coop-genossenschaft-kussnacht"
     },
     "createdAt": "2026-09-16",
     "canton": "SZ"
@@ -745266,7 +745397,10 @@
   "id|coopjobs.ch|72cf4ebd-652f-4fca-8504-eb65d6479af6": {
     "canonicalSlug": "rayonleiter-in-grundnahrungsmittel-coop-meggen-luzern",
     "slugByLocale": {
-      "de": "rayonleiter-in-grundnahrungsmittel-coop-meggen-luzern-ge7a7x"
+      "de": "rayonleiter-in-grundnahrungsmittel-coop-meggen-luzern-ge7a7x",
+      "it": "rayon-conduttore-cibo-base-coop-genossenschaft-meggen",
+      "en": "rayon-conductor-staple-food-coop-genossenschaft-meggen",
+      "fr": "rayon-conducteur-aliment-de-base-coop-genossenschaft-meggen"
     },
     "createdAt": "2026-09-16",
     "canton": "LU"
@@ -745274,7 +745408,10 @@
   "id|coopjobs.ch|db4fa1a0-b1d8-4f71-8cb3-c70c07a33b65": {
     "canonicalSlug": "rayonleiter-in-grundnahrungsmittel-coop-riehen-basel-stadt",
     "slugByLocale": {
-      "de": "rayonleiter-in-grundnahrungsmittel-coop-riehen-basel-stadt-02i8jt"
+      "de": "rayonleiter-in-grundnahrungsmittel-coop-riehen-basel-stadt-02i8jt",
+      "it": "rayon-conduttore-cibo-base-coop-genossenschaft-riehen",
+      "en": "rayon-conductor-staple-food-coop-genossenschaft-riehen",
+      "fr": "rayon-conducteur-aliment-de-base-coop-genossenschaft-riehen"
     },
     "createdAt": "2026-09-16",
     "canton": "BS"
@@ -745282,7 +745419,10 @@
   "id|coopjobs.ch|6187b9b2-ffba-4ae8-8657-06051554f03d": {
     "canonicalSlug": "rayonleiter-in-molkerei-eier-kase-coop-zumikon-zurich",
     "slugByLocale": {
-      "de": "rayonleiter-in-molkerei-eier-kase-coop-zumikon-zurich-trb53s"
+      "de": "rayonleiter-in-molkerei-eier-kase-coop-zumikon-zurich-trb53s",
+      "it": "rayon-conduttore-latticini-uova-formaggio-coop-genossenschaft-zumikon",
+      "en": "rayon-conductor-dairy-eggs-cheese-coop-genossenschaft-zumikon",
+      "fr": "rayon-chef-lait-oeufs-fromage-coop-genossenschaft-zumikon"
     },
     "createdAt": "2026-09-16",
     "canton": "ZH"
@@ -745290,7 +745430,10 @@
   "id|coopjobs.ch|bc2f9323-4a18-43dc-a1ff-23af41bfbfa5": {
     "canonicalSlug": "rayonleiter-in-molkerei-eier-kase-coop-kussnacht-schwyz",
     "slugByLocale": {
-      "de": "rayonleiter-in-molkerei-eier-kase-coop-kussnacht-schwyz-ko17qi"
+      "de": "rayonleiter-in-molkerei-eier-kase-coop-kussnacht-schwyz-ko17qi",
+      "it": "rayon-conduttore-latticini-uova-formaggio-coop-genossenschaft-kussnacht",
+      "en": "rayon-conductor-dairy-eggs-cheese-coop-genossenschaft-kussnacht",
+      "fr": "rayon-chef-lait-oeufs-fromage-coop-genossenschaft-kussnacht"
     },
     "createdAt": "2026-09-16",
     "canton": "SZ"
@@ -745298,7 +745441,10 @@
   "id|coopjobs.ch|a5d6d698-4b1e-4e60-b092-b04145a8390b": {
     "canonicalSlug": "rayonleiter-in-nonfood-coop-unterentfelden-aargau",
     "slugByLocale": {
-      "de": "rayonleiter-in-nonfood-coop-unterentfelden-aargau-9l0sv3"
+      "de": "rayonleiter-in-nonfood-coop-unterentfelden-aargau-9l0sv3",
+      "it": "rayon-conduttore-non-alimentare-coop-genossenschaft-unterentfelden",
+      "en": "rayon-conductor-non-food-coop-genossenschaft-unterentfelden",
+      "fr": "rayon-conducteur-non-alimentaire-coop-genossenschaft-unterentfelden"
     },
     "createdAt": "2026-09-16",
     "canton": "AG"
@@ -745306,7 +745452,10 @@
   "id|coopjobs.ch|c62b8387-2b57-4c99-a614-7b5a58b13e77": {
     "canonicalSlug": "rayonleiter-in-nonfood-coop-langnau-im-emmental-bern",
     "slugByLocale": {
-      "de": "rayonleiter-in-nonfood-coop-langnau-im-emmental-bern-iyfpsm"
+      "de": "rayonleiter-in-nonfood-coop-langnau-im-emmental-bern-iyfpsm",
+      "it": "rayon-conduttore-non-alimentare-coop-genossenschaft-langnau-im-emmental",
+      "en": "rayon-conductor-non-food-coop-genossenschaft-langnau-im-emmental",
+      "fr": "rayon-conducteur-non-alimentaire-coop-genossenschaft-langnau-im-emmental"
     },
     "createdAt": "2026-09-16",
     "canton": "BE"
@@ -745314,7 +745463,10 @@
   "id|coopjobs.ch|110f195e-1492-48d2-928d-1c714e33fdd7": {
     "canonicalSlug": "rayonleiter-in-wein-getranke-coop-malters-luzern",
     "slugByLocale": {
-      "de": "rayonleiter-in-wein-getranke-coop-malters-luzern-f6fe7u"
+      "de": "rayonleiter-in-wein-getranke-coop-malters-luzern-f6fe7u",
+      "it": "vino-bevande-rayon-coop-genossenschaft-malters",
+      "en": "rayon-conductor-wine-drinks-coop-genossenschaft-malters",
+      "fr": "vin-boissons-conducteur-de-rayonne-coop-genossenschaft-malters"
     },
     "createdAt": "2026-09-16",
     "canton": "LU"
@@ -745322,7 +745474,10 @@
   "id|coopjobs.ch|a0908da6-1165-44c7-aadb-7af9ccc6919a": {
     "canonicalSlug": "rayonleiter-in-wein-getranke-coop-aarberg-bern",
     "slugByLocale": {
-      "de": "rayonleiter-in-wein-getranke-coop-aarberg-bern-w4ncaj"
+      "de": "rayonleiter-in-wein-getranke-coop-aarberg-bern-w4ncaj",
+      "it": "vino-bevande-rayon-coop-genossenschaft-aarberg",
+      "en": "rayon-conductor-wine-drinks-coop-genossenschaft-aarberg",
+      "fr": "vin-boissons-conducteur-de-rayonne-coop-genossenschaft-aarberg"
     },
     "createdAt": "2026-09-16",
     "canton": "BE"
@@ -745331,7 +745486,9 @@
     "canonicalSlug": "spezialist-in-fur-nebenkostenabrechnungen-datenqualitat-coop-immobilien-bern",
     "slugByLocale": {
       "it": "spezialist-in-per-nebenkostenabrechnungen-datenqualitat-coop-immobilien-bern-di7rm4",
-      "de": "spezialist-in-fur-nebenkostenabrechnungen-datenqualitat-coop-immobilien-bern-di7rm4"
+      "de": "spezialist-in-fur-nebenkostenabrechnungen-datenqualitat-coop-immobilien-bern-di7rm4",
+      "en": "specialist-for-incidental-costs-billing-data-quality-coop-immobilien-bern",
+      "fr": "specialiste-des-couts-accessoires-facturation-qualite-des-donnees-coop-immobilien-bern"
     },
     "createdAt": "2026-09-16",
     "canton": "BE"
@@ -745339,7 +745496,10 @@
   "id|coopjobs.ch|add25a12-43f5-41e0-b797-012abdad3b68": {
     "canonicalSlug": "stv-teamleiter-in-wareneingang-coop-oberbuchsiten-solothurn",
     "slugByLocale": {
-      "de": "stv-teamleiter-in-wareneingang-coop-oberbuchsiten-solothurn-1bldxk"
+      "de": "stv-teamleiter-in-wareneingang-coop-oberbuchsiten-solothurn-1bldxk",
+      "it": "assistant-receiving-manager-coop-genossenschaft-oberbuchsiten",
+      "en": "deputy-team-leader-goods-receipt-coop-genossenschaft-oberbuchsiten",
+      "fr": "chef-d-equipe-reception-des-marchandises-coop-genossenschaft-oberbuchsiten"
     },
     "createdAt": "2026-09-16",
     "canton": "SO"
@@ -745347,7 +745507,10 @@
   "id|coopjobs.ch|172df5b9-4b2f-4d0b-83b0-cf84c3aeb5f1": {
     "canonicalSlug": "verkaufer-in-fisch-coop-emmen-luzern",
     "slugByLocale": {
-      "de": "verkaufer-in-fisch-coop-emmen-luzern-mazp4d"
+      "de": "verkaufer-in-fisch-coop-emmen-luzern-mazp4d",
+      "it": "pesce-di-venditore-coop-genossenschaft-emmen",
+      "en": "seller-fish-coop-genossenschaft-emmen",
+      "fr": "poissons-vendus-coop-genossenschaft-emmen"
     },
     "createdAt": "2026-09-16",
     "canton": "LU"
@@ -745355,7 +745518,10 @@
   "id|coopjobs.ch|e22e0f35-c131-48f1-b80c-4cfcdad0e954": {
     "canonicalSlug": "verkaufer-in-fisch-coop-sarnen-obwalden",
     "slugByLocale": {
-      "de": "verkaufer-in-fisch-coop-sarnen-obwalden-6m7ds7"
+      "de": "verkaufer-in-fisch-coop-sarnen-obwalden-6m7ds7",
+      "it": "pesce-di-venditore-coop-genossenschaft-sarnen",
+      "en": "seller-fish-coop-genossenschaft-sarnen",
+      "fr": "poissons-vendus-coop-genossenschaft-sarnen"
     },
     "createdAt": "2026-09-16",
     "canton": "OW"
@@ -745363,7 +745529,10 @@
   "id|coopjobs.ch|4b526b94-5626-45ac-9cff-2dcbf0122e34": {
     "canonicalSlug": "verkaufer-in-food-getranke-tiefkuhler-coop-dagmersellen-luzern",
     "slugByLocale": {
-      "de": "verkaufer-in-food-getranke-tiefkuhler-coop-dagmersellen-luzern-96klpf"
+      "de": "verkaufer-in-food-getranke-tiefkuhler-coop-dagmersellen-luzern-96klpf",
+      "it": "vendita-prodotti-alimentari-bevande-congelatori-coop-genossenschaft-dagmersellen",
+      "en": "seller-food-drinks-freezers-coop-genossenschaft-dagmersellen",
+      "fr": "vente-de-nourriture-boissons-congelateurs-coop-genossenschaft-dagmersellen"
     },
     "createdAt": "2026-09-16",
     "canton": "LU"
@@ -745371,7 +745540,10 @@
   "id|coopjobs.ch|ee196259-b49e-474b-bcf0-174c5b6506d0": {
     "canonicalSlug": "verkaufer-in-food-studentenaushilfe-coop-zurich",
     "slugByLocale": {
-      "de": "verkaufer-in-food-studentenaushilfe-coop-zurich-hmng9c"
+      "de": "verkaufer-in-food-studentenaushilfe-coop-zurich-hmng9c",
+      "it": "aiuto-per-gli-studenti-del-venditore-coop-genossenschaft-zurich",
+      "en": "seller-food-student-help-coop-genossenschaft-zurich",
+      "fr": "seller-food-aide-etudiante-coop-genossenschaft-zurich"
     },
     "createdAt": "2026-09-16",
     "canton": "ZH"
@@ -745379,7 +745551,10 @@
   "id|coopjobs.ch|0d520828-294b-461c-bb85-9c116d400710": {
     "canonicalSlug": "verkaufer-in-food-coop-sursee-luzern",
     "slugByLocale": {
-      "de": "verkaufer-in-food-coop-sursee-luzern-5qhkuw"
+      "de": "verkaufer-in-food-coop-sursee-luzern-5qhkuw",
+      "it": "vendita-prodotti-alimentari-coop-genossenschaft-sursee",
+      "en": "seller-food-coop-genossenschaft-sursee",
+      "fr": "aliments-pour-vendeurs-coop-genossenschaft-sursee"
     },
     "createdAt": "2026-09-16",
     "canton": "LU"
@@ -745387,7 +745562,10 @@
   "id|coopjobs.ch|19e35052-bf2c-47fd-885d-370f509e6430": {
     "canonicalSlug": "verkaufer-in-food-coop-city-zurich",
     "slugByLocale": {
-      "de": "verkaufer-in-food-coop-city-zurich-2gc6jw"
+      "de": "verkaufer-in-food-coop-city-zurich-2gc6jw",
+      "it": "vendita-prodotti-alimentari-coop-genossenschaft-zurich-7e4e12",
+      "en": "seller-food-coop-genossenschaft-zurich-7e4e12",
+      "fr": "aliments-pour-vendeurs-coop-genossenschaft-zurich-7e4e12"
     },
     "createdAt": "2026-09-16",
     "canton": "ZH"
@@ -745395,7 +745573,10 @@
   "id|coopjobs.ch|1d3d04fc-373c-44b0-b360-6b24ed97d356": {
     "canonicalSlug": "verkaufer-in-food-coop-emmen-luzern",
     "slugByLocale": {
-      "de": "verkaufer-in-food-coop-emmen-luzern-gl0odg"
+      "de": "verkaufer-in-food-coop-emmen-luzern-gl0odg",
+      "it": "vendita-prodotti-alimentari-coop-genossenschaft-emmen",
+      "en": "seller-food-coop-genossenschaft-emmen",
+      "fr": "aliments-pour-vendeurs-coop-genossenschaft-emmen"
     },
     "createdAt": "2026-09-16",
     "canton": "LU"
@@ -745403,7 +745584,10 @@
   "id|coopjobs.ch|35130b04-527a-4209-a508-fae461ab2c1c": {
     "canonicalSlug": "verkaufer-in-food-coop-menzingen-zug",
     "slugByLocale": {
-      "de": "verkaufer-in-food-coop-menzingen-zug-hs522c"
+      "de": "verkaufer-in-food-coop-menzingen-zug-hs522c",
+      "it": "vendita-prodotti-alimentari-coop-genossenschaft-menzingen",
+      "en": "seller-food-coop-genossenschaft-menzingen",
+      "fr": "aliments-pour-vendeurs-coop-genossenschaft-menzingen"
     },
     "createdAt": "2026-09-16",
     "canton": "ZG"
@@ -745411,7 +745595,10 @@
   "id|coopjobs.ch|3a35d77c-220c-459e-91b9-a84f9a1e439a": {
     "canonicalSlug": "verkaufer-in-food-coop-city-olten-solothurn",
     "slugByLocale": {
-      "de": "verkaufer-in-food-coop-city-olten-solothurn-eyx1al"
+      "de": "verkaufer-in-food-coop-city-olten-solothurn-eyx1al",
+      "it": "vendita-prodotti-alimentari-coop-genossenschaft-olten",
+      "en": "seller-food-coop-genossenschaft-olten",
+      "fr": "aliments-pour-vendeurs-coop-genossenschaft-olten"
     },
     "createdAt": "2026-09-16",
     "canton": "SO"
@@ -745419,7 +745606,10 @@
   "id|coopjobs.ch|5fea8ff0-fb27-4d5a-b978-c743833980f6": {
     "canonicalSlug": "verkaufer-in-food-coop-mels-sankt-gallen",
     "slugByLocale": {
-      "de": "verkaufer-in-food-coop-mels-sankt-gallen-d9wgxb"
+      "de": "verkaufer-in-food-coop-mels-sankt-gallen-d9wgxb",
+      "it": "vendita-prodotti-alimentari-coop-genossenschaft-mels",
+      "en": "seller-food-coop-genossenschaft-mels",
+      "fr": "aliments-pour-vendeurs-coop-genossenschaft-mels"
     },
     "createdAt": "2026-09-16",
     "canton": "SG"
@@ -745427,7 +745617,10 @@
   "id|coopjobs.ch|6682b2a0-00c9-402b-aee4-a1586c8c2508": {
     "canonicalSlug": "verkaufer-in-food-coop-zurich-2",
     "slugByLocale": {
-      "de": "verkaufer-in-food-coop-zurich-6b0mvz"
+      "de": "verkaufer-in-food-coop-zurich-6b0mvz",
+      "it": "vendita-prodotti-alimentari-coop-genossenschaft-zurich-0572fd",
+      "en": "seller-food-coop-genossenschaft-zurich-0572fd",
+      "fr": "aliments-pour-vendeurs-coop-genossenschaft-zurich-0572fd"
     },
     "createdAt": "2026-09-16",
     "canton": "ZH"
@@ -745435,7 +745628,10 @@
   "id|coopjobs.ch|777ba081-ba01-4fcb-9faa-6f16f1cfaac7": {
     "canonicalSlug": "verkaufer-in-food-coop-zurich",
     "slugByLocale": {
-      "de": "verkaufer-in-food-coop-zurich-vbt1k5"
+      "de": "verkaufer-in-food-coop-zurich-vbt1k5",
+      "it": "vendita-prodotti-alimentari-coop-genossenschaft-zurich-572bf6",
+      "en": "seller-food-coop-genossenschaft-zurich-572bf6",
+      "fr": "aliments-pour-vendeurs-coop-genossenschaft-zurich-572bf6"
     },
     "createdAt": "2026-09-16",
     "canton": "ZH"
@@ -745443,7 +745639,10 @@
   "id|coopjobs.ch|9269ca35-96a0-4126-89ad-c606aee1b23f": {
     "canonicalSlug": "verkaufer-in-food-coop-gossau-zh-zurich",
     "slugByLocale": {
-      "de": "verkaufer-in-food-coop-gossau-zh-zurich-cmqtty"
+      "de": "verkaufer-in-food-coop-gossau-zh-zurich-cmqtty",
+      "it": "vendita-prodotti-alimentari-coop-genossenschaft-gossau-zh",
+      "en": "seller-food-coop-genossenschaft-gossau-zh",
+      "fr": "aliments-pour-vendeurs-coop-genossenschaft-gossau-zh"
     },
     "createdAt": "2026-09-16",
     "canton": "ZH"
@@ -745451,7 +745650,10 @@
   "id|coopjobs.ch|aea92eaa-72c7-47d2-a031-d9ddffd7f65d": {
     "canonicalSlug": "verkaufer-in-food-coop-jegenstorf-bern",
     "slugByLocale": {
-      "de": "verkaufer-in-food-coop-jegenstorf-bern-wqjc0o"
+      "de": "verkaufer-in-food-coop-jegenstorf-bern-wqjc0o",
+      "it": "vendita-prodotti-alimentari-coop-genossenschaft-jegenstorf",
+      "en": "seller-food-coop-genossenschaft-jegenstorf",
+      "fr": "aliments-pour-vendeurs-coop-genossenschaft-jegenstorf"
     },
     "createdAt": "2026-09-16",
     "canton": "BE"
@@ -745459,7 +745661,10 @@
   "id|coopjobs.ch|d16b566c-2739-49c9-bca5-922ba3cc82ad": {
     "canonicalSlug": "verkaufer-in-food-coop-luzern",
     "slugByLocale": {
-      "de": "verkaufer-in-food-coop-luzern-bvcpdl"
+      "de": "verkaufer-in-food-coop-luzern-bvcpdl",
+      "it": "vendita-prodotti-alimentari-coop-genossenschaft-luzern-e5d54a",
+      "en": "seller-food-coop-genossenschaft-luzern-e5d54a",
+      "fr": "aliments-pour-vendeurs-coop-genossenschaft-luzern"
     },
     "createdAt": "2026-09-16",
     "canton": "LU"
@@ -745467,7 +745672,10 @@
   "id|coopjobs.ch|df9f2015-46c4-42c1-82ce-c9fccea72de1": {
     "canonicalSlug": "verkaufer-in-food-coop-rapperswil-jona-sankt-gallen",
     "slugByLocale": {
-      "de": "verkaufer-in-food-coop-rapperswil-jona-sankt-gallen-85bmv8"
+      "de": "verkaufer-in-food-coop-rapperswil-jona-sankt-gallen-85bmv8",
+      "it": "vendita-prodotti-alimentari-coop-genossenschaft-rapperswil-jona-cb1a33",
+      "en": "seller-food-coop-genossenschaft-rapperswil-jona-cb1a33",
+      "fr": "aliments-pour-vendeurs-coop-genossenschaft-rapperswil-jona"
     },
     "createdAt": "2026-09-16",
     "canton": "SG"
@@ -745476,7 +745684,9 @@
     "canonicalSlug": "verkaufer-in-frischprodukte-fruchte-und-gemuse-coop-lenzburg-aargau",
     "slugByLocale": {
       "it": "verkaufer-in-frischprodukte-fruchte-e-gemuse-coop-lenzburg-aargau-aegcef",
-      "de": "verkaufer-in-frischprodukte-fruchte-und-gemuse-coop-lenzburg-aargau-aegcef"
+      "de": "verkaufer-in-frischprodukte-fruchte-und-gemuse-coop-lenzburg-aargau-aegcef",
+      "en": "seller-fresh-products-fruit-and-vegetables-coop-genossenschaft-lenzburg",
+      "fr": "vendeur-de-produits-frais-fruits-et-legumes-coop-genossenschaft-lenzburg"
     },
     "createdAt": "2026-09-16",
     "canton": "AG"
@@ -745484,7 +745694,10 @@
   "id|coopjobs.ch|2ab41451-d1ce-4cc6-a1d7-a705e4cc4574": {
     "canonicalSlug": "verkaufer-in-frischprodukte-coop-nottwil-luzern",
     "slugByLocale": {
-      "de": "verkaufer-in-frischprodukte-coop-nottwil-luzern-is7m4l"
+      "de": "verkaufer-in-frischprodukte-coop-nottwil-luzern-is7m4l",
+      "it": "vendita-prodotti-freschi-coop-genossenschaft-nottwil",
+      "en": "seller-fresh-products-coop-genossenschaft-nottwil",
+      "fr": "vendeur-de-produits-frais-coop-genossenschaft-nottwil"
     },
     "createdAt": "2026-09-16",
     "canton": "LU"
@@ -745492,7 +745705,10 @@
   "id|coopjobs.ch|60043dba-dac3-4308-9f45-49d5c96de4d6": {
     "canonicalSlug": "verkaufer-in-frischprodukte-coop-burgdorf-bern",
     "slugByLocale": {
-      "de": "verkaufer-in-frischprodukte-coop-burgdorf-bern-q8hsiq"
+      "de": "verkaufer-in-frischprodukte-coop-burgdorf-bern-q8hsiq",
+      "it": "vendita-prodotti-freschi-coop-genossenschaft-burgdorf",
+      "en": "seller-fresh-products-coop-genossenschaft-burgdorf",
+      "fr": "vendeur-de-produits-frais-coop-genossenschaft-burgdorf"
     },
     "createdAt": "2026-09-16",
     "canton": "BE"
@@ -745500,7 +745716,10 @@
   "id|coopjobs.ch|7d0a5a2c-5e2f-4af1-a49f-e59573643ba3": {
     "canonicalSlug": "verkaufer-in-frischprodukte-coop-murten-freiburg",
     "slugByLocale": {
-      "de": "verkaufer-in-frischprodukte-coop-murten-freiburg-lfll1f"
+      "de": "verkaufer-in-frischprodukte-coop-murten-freiburg-lfll1f",
+      "it": "vendita-prodotti-freschi-coop-genossenschaft-murten",
+      "en": "seller-fresh-products-coop-genossenschaft-murten",
+      "fr": "vendeur-de-produits-frais-coop-genossenschaft-murten"
     },
     "createdAt": "2026-09-16",
     "canton": "FR"
@@ -745508,7 +745727,10 @@
   "id|coopjobs.ch|a25d4392-4619-4506-843e-afe6cd0dedd1": {
     "canonicalSlug": "verkaufer-in-frischprodukte-coop-jegenstorf-bern",
     "slugByLocale": {
-      "de": "verkaufer-in-frischprodukte-coop-jegenstorf-bern-qwyjqj"
+      "de": "verkaufer-in-frischprodukte-coop-jegenstorf-bern-qwyjqj",
+      "it": "vendita-prodotti-freschi-coop-genossenschaft-jegenstorf",
+      "en": "seller-fresh-products-coop-genossenschaft-jegenstorf",
+      "fr": "vendeur-de-produits-frais-coop-genossenschaft-jegenstorf"
     },
     "createdAt": "2026-09-16",
     "canton": "BE"
@@ -745516,7 +745738,10 @@
   "id|coopjobs.ch|bf07fc5d-bf8b-4d98-b987-bba90dc31e49": {
     "canonicalSlug": "verkaufer-in-frischprodukte-coop-adligenswil-luzern",
     "slugByLocale": {
-      "de": "verkaufer-in-frischprodukte-coop-adligenswil-luzern-il6gxo"
+      "de": "verkaufer-in-frischprodukte-coop-adligenswil-luzern-il6gxo",
+      "it": "vendita-prodotti-freschi-coop-genossenschaft-adligenswil",
+      "en": "seller-fresh-products-coop-genossenschaft-adligenswil",
+      "fr": "vendeur-de-produits-frais-coop-genossenschaft-adligenswil"
     },
     "createdAt": "2026-09-16",
     "canton": "LU"
@@ -745524,7 +745749,10 @@
   "id|coopjobs.ch|1ab231e0-8f52-4cc0-9334-0d2f17d1cf31": {
     "canonicalSlug": "verkaufer-in-kassen-services-coop-oftringen-aargau",
     "slugByLocale": {
-      "de": "verkaufer-in-kassen-services-coop-oftringen-aargau-cvqq6g"
+      "de": "verkaufer-in-kassen-services-coop-oftringen-aargau-cvqq6g",
+      "it": "vendita-cassa-servizi-coop-genossenschaft-oftringen",
+      "en": "seller-cash-register-services-coop-genossenschaft-oftringen",
+      "fr": "caisse-enregistreuse-services-du-vendeur-coop-genossenschaft-oftringen"
     },
     "createdAt": "2026-09-16",
     "canton": "AG"
@@ -745532,7 +745760,10 @@
   "id|coopjobs.ch|b3e6bc5c-9750-4780-82be-f04b80fbc3fc": {
     "canonicalSlug": "verkaufer-in-kassen-services-coop-luzern",
     "slugByLocale": {
-      "de": "verkaufer-in-kassen-services-coop-luzern-t3p6ec"
+      "de": "verkaufer-in-kassen-services-coop-luzern-t3p6ec",
+      "it": "vendita-cassa-servizi-coop-genossenschaft-luzern-419d6a",
+      "en": "seller-cash-register-services-coop-genossenschaft-luzern-419d6a",
+      "fr": "caisse-enregistreuse-services-du-vendeur-coop-genossenschaft-luzern-419d6a"
     },
     "createdAt": "2026-09-16",
     "canton": "LU"
@@ -745540,7 +745771,10 @@
   "id|coopjobs.ch|da886a37-afdb-4031-a29f-9f5351ee6d4c": {
     "canonicalSlug": "verkaufer-in-kassen-services-coop-luzern-2",
     "slugByLocale": {
-      "de": "verkaufer-in-kassen-services-coop-luzern-vb1x5i"
+      "de": "verkaufer-in-kassen-services-coop-luzern-vb1x5i",
+      "it": "vendita-cassa-servizi-coop-genossenschaft-luzern-686928",
+      "en": "seller-cash-register-services-coop-genossenschaft-luzern-686928",
+      "fr": "caisse-enregistreuse-services-du-vendeur-coop-genossenschaft-luzern-686928"
     },
     "createdAt": "2026-09-16",
     "canton": "LU"
@@ -745549,7 +745783,9 @@
     "canonicalSlug": "verkaufsberater-in-haushalt-und-elektro-coop-city-schaffhausen",
     "slugByLocale": {
       "it": "verkaufsberater-in-haushalt-e-elektro-coop-city-schaffhausen-g81gp5",
-      "de": "verkaufsberater-in-haushalt-und-elektro-coop-city-schaffhausen-g81gp5"
+      "de": "verkaufsberater-in-haushalt-und-elektro-coop-city-schaffhausen-g81gp5",
+      "en": "sales-consultant-household-and-electric-coop-genossenschaft-schaffhausen",
+      "fr": "consultant-en-ventes-domestiques-et-electriques-coop-genossenschaft-schaffhausen"
     },
     "createdAt": "2026-09-16",
     "canton": "SH"
@@ -745557,7 +745793,10 @@
   "id|coopjobs.ch|51fcc430-662f-4d6b-895e-57e00759852a": {
     "canonicalSlug": "verkaufsberater-in-herrenkonfektion-coop-city-zurich",
     "slugByLocale": {
-      "de": "verkaufsberater-in-herrenkonfektion-coop-city-zurich-lxukhb"
+      "de": "verkaufsberater-in-herrenkonfektion-coop-city-zurich-lxukhb",
+      "it": "consulente-vendite-abbigliamento-uomo-coop-genossenschaft-zurich",
+      "en": "sales-consultant-men-s-clothing-coop-genossenschaft-zurich",
+      "fr": "vetements-pour-hommes-coop-genossenschaft-zurich"
     },
     "createdAt": "2026-09-16",
     "canton": "ZH"
@@ -745565,7 +745804,10 @@
   "id|coopjobs.ch|4eff6015-562a-4011-b4e9-6a95ddb01175": {
     "canonicalSlug": "weihnachtsaushilfe-coop-city-zurich",
     "slugByLocale": {
-      "de": "weihnachtsaushilfe-coop-city-zurich-5r7o7p"
+      "de": "weihnachtsaushilfe-coop-city-zurich-5r7o7p",
+      "it": "assistenza-natalizia-coop-genossenschaft-zurich",
+      "en": "christmas-assistance-coop-genossenschaft-zurich",
+      "fr": "aide-a-noel-coop-genossenschaft-zurich"
     },
     "createdAt": "2026-09-16",
     "canton": "ZH"
@@ -745573,7 +745815,10 @@
   "id|coopjobs.ch|41a9d87d-d812-4647-b9de-23535cd4db4d": {
     "canonicalSlug": "bouchere-boucher-poissonniere-poissonnier-m-w-d-coop-crissier-vaud",
     "slugByLocale": {
-      "fr": "bouchere-boucher-poissonniere-poissonnier-m-w-d-coop-crissier-vaud-3r8k6y"
+      "fr": "bouchere-boucher-poissonniere-poissonnier-m-w-d-coop-crissier-vaud-3r8k6y",
+      "it": "bouchere-boucher-fisher-fisher-m-f-d-coop-genossenschaft-crissier",
+      "en": "bouchere-butcher-poissonnier-fishman-m-f-d-coop-genossenschaft-crissier",
+      "de": "bouchere-butcher-poissonnier-fishman-m-w-d-coop-genossenschaft-crissier"
     },
     "createdAt": "2026-09-16",
     "canton": "VD"
@@ -745581,7 +745826,10 @@
   "id|coopjobs.ch|5cc5c861-8f14-4cef-a3c4-92b26f8a71a3": {
     "canonicalSlug": "collaboratrice-collaborateur-restaurant-poste-pour-etudiant-e-m-w-d-coop-ristorante-lausanne-vaud",
     "slugByLocale": {
-      "fr": "collaboratrice-collaborateur-restaurant-poste-pour-etudiant-e-m-w-d-coop-ristorante-lausanne-vaud-wlhc55"
+      "fr": "collaboratrice-collaborateur-restaurant-poste-pour-etudiant-e-m-w-d-coop-ristorante-lausanne-vaud-wlhc55",
+      "it": "collaboratore-partner-restaurant-student-post-m-f-d-coop-genossenschaft-lausanne",
+      "en": "collaborator-partner-restaurant-student-post-m-f-d-coop-genossenschaft-lausanne",
+      "de": "mitarbeiter-partnerrestaurant-student-post-m-w-d-coop-genossenschaft-lausanne"
     },
     "createdAt": "2026-09-16",
     "canton": "VD"
@@ -745600,7 +745848,10 @@
   "id|coopjobs.ch|d4f1003b-c85e-4393-a891-ea0eb6df7673": {
     "canonicalSlug": "call-agent-m-w-d-kundendienst-coop-ch-40-stundenlohn-coop-ch-spreitenbach-aargau",
     "slugByLocale": {
-      "de": "call-agent-m-w-d-kundendienst-coop-ch-40-stundenlohn-coop-ch-spreitenbach-aargau-3acxry"
+      "de": "call-agent-m-w-d-kundendienst-coop-ch-40-stundenlohn-coop-ch-spreitenbach-aargau-3acxry",
+      "it": "call-agent-m-f-d-servizio-clienti-coop-ch-40-tariffa-oraria-coop-genossenschaft-spreitenbach",
+      "en": "call-agent-m-f-d-customer-service-coop-ch-40-hourly-wage-coop-genossenschaft-spreitenbach",
+      "fr": "appelez-l-agent-h-f-d-service-a-la-clientele-coop-ch-40-salaire-horaire-coop-genossenschaft-spreitenbach"
     },
     "createdAt": "2026-09-16",
     "canton": "AG"
