@@ -6,6 +6,7 @@ import {
   EMPLOYER_INSIGHTS_COVERAGE_FLOOR,
   EMPLOYER_INSIGHTS_SOURCES,
 } from '../lib/employer-insights-contract.mjs';
+import { canonicalJson } from '../lib/canonical-json-digest.mjs';
 
 function finiteNumber(value) {
   const number = Number(value);
@@ -13,7 +14,8 @@ function finiteNumber(value) {
 }
 
 function sameJson(left, right) {
-  return JSON.stringify(left) === JSON.stringify(right);
+  if (left === undefined || right === undefined) return left === right;
+  return canonicalJson(left) === canonicalJson(right);
 }
 
 function validIso(value) {

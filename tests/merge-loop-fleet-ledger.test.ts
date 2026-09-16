@@ -106,6 +106,55 @@ describe('merge-loop-fleet-ledger', () => {
     }
   });
 
+  it('treats source records with reordered keys as canonical-equivalent', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-ledger-canonical-source-'));
+    const inputDir = path.join(root, 'input');
+    const ledgerDir = path.join(root, 'ledger');
+    fs.mkdirSync(inputDir);
+    writeL1Evidence(inputDir);
+
+    const previous = {
+      GITHUB_REPOSITORY: process.env.GITHUB_REPOSITORY,
+      GITHUB_WORKFLOW: process.env.GITHUB_WORKFLOW,
+      GITHUB_EVENT_NAME: process.env.GITHUB_EVENT_NAME,
+      GITHUB_REF: process.env.GITHUB_REF,
+      GITHUB_SHA: process.env.GITHUB_SHA,
+      GITHUB_RUN_ID: process.env.GITHUB_RUN_ID,
+      GITHUB_RUN_ATTEMPT: process.env.GITHUB_RUN_ATTEMPT,
+    };
+    Object.assign(process.env, {
+      GITHUB_REPOSITORY: 'example/frontaliere',
+      GITHUB_WORKFLOW: 'Loop L1 reliability',
+      GITHUB_EVENT_NAME: 'schedule',
+      GITHUB_REF: 'refs/heads/main',
+      GITHUB_SHA: SHA,
+      GITHUB_RUN_ID: '12345',
+      GITHUB_RUN_ATTEMPT: '1',
+    });
+    try {
+      recordEvidence({ loopId: 'L1', reportDir: inputDir, now: NOW });
+      const healthFile = path.join(inputDir, 'loop-health-history.jsonl');
+      const health = JSON.parse(fs.readFileSync(healthFile, 'utf8'));
+      const reorderedHealth = Object.fromEntries(Object.entries(health).reverse());
+      fs.writeFileSync(healthFile, `${JSON.stringify(health)}\n${JSON.stringify(reorderedHealth)}\n`);
+
+      const first = mergeLedger({
+        loopId: 'L1',
+        runId: '12345',
+        sha: SHA,
+        inputDir,
+        ledgerDir,
+      });
+      expect(first.results.health.appended).toBe(1);
+      expect(first.results.health.skipped).toBe(1);
+    } finally {
+      for (const [key, value] of Object.entries(previous)) {
+        if (value === undefined) delete process.env[key];
+        else process.env[key] = value;
+      }
+    }
+  });
+
   it('rejects a record whose run identity does not match the requested source', () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-ledger-identity-'));
     const inputDir = path.join(root, 'input');

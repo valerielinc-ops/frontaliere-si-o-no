@@ -19,6 +19,7 @@ import {
   validateOutcomeAgainstPolicy,
   validateLoopRegistry,
 } from '../lib/loop-fleet-contract.mjs';
+import { canonicalJson } from '../lib/canonical-json-digest.mjs';
 
 const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
 const LEDGER_FILES = Object.freeze({
@@ -150,7 +151,7 @@ function validateHistoricalRecord(registry, type, record) {
 }
 
 function sameRecord(left, right) {
-  return JSON.stringify(left) === JSON.stringify(right);
+  return canonicalJson(left) === canonicalJson(right);
 }
 
 function mergeRecords({ target, label, records, registry, loopId, type }) {
