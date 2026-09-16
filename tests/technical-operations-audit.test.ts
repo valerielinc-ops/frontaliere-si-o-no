@@ -15,6 +15,7 @@ import {
   renderMarkdown,
   summarize,
 } from '../scripts/ci/technical-operations-audit.mjs';
+import { buildCrawlerAggregateShellBody } from '../scripts/generate-crawler-group-workflows.mjs';
 
 describe('technical operations audit', () => {
   it('normalizza le tre forme valide di on', () => {
@@ -425,6 +426,49 @@ describe('technical operations audit', () => {
     ].join('\n');
     const findings = auditWorkflowText('.github/workflows/output.yml', source, { root: '/repo' });
     expect(findings.map((item: any) => item.rule)).toContain('workflow.output-not-produced');
+  });
+
+  it('riconosce gli output dell’aggregate crawler tramite alias shell statico', () => {
+    const body = buildCrawlerAggregateShellBody([{ slug: 'alpha' }], 1);
+    const source = [
+      'name: crawler-output-alias',
+      'on: [push]',
+      'jobs:',
+      '  build:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: aggregate',
+      '        id: crawler_aggregate',
+      '        run: |',
+      ...body.split('\n').map((line) => `          ${line}`),
+      '      - name: consumer',
+      '        run: echo "${{ steps.crawler_aggregate.outputs.success_count }} ${{ steps.crawler_aggregate.outputs.failure_count }} ${{ steps.crawler_aggregate.outputs.missing_count }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/crawler-output-alias.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([]);
+  });
+
+  it('non considera un alias shell dinamico o sovrascritto come GITHUB_OUTPUT', () => {
+    const source = [
+      'name: dynamic-output-alias',
+      'on: [push]',
+      'jobs:',
+      '  build:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: producer',
+      '        id: producer',
+      '        run: |',
+      '          output_file="${GITHUB_OUTPUT:-/dev/null}"',
+      '          output_file="${OTHER_OUTPUT:-/dev/null}"',
+      '          printf \'%s\\n\' "decoy=yes" >> "$output_file"',
+      '      - name: consumer',
+      '        run: echo "${{ steps.producer.outputs.decoy }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/dynamic-output-alias.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([
+      expect.objectContaining({ severity: 'warning', evidence: 'steps.producer.outputs.decoy' }),
+    ]);
   });
 
   it('segue gli output letterali di uno script first-party invocato staticamente', () => {
@@ -942,7 +986,11 @@ describe('technical operations audit', () => {
     expect(report.workflowFiles).toHaveLength(report.filesScanned);
     expect(report.workflowNames.length).toBeGreaterThanOrEqual(200);
     expect(report.findings.every((item: any) => item.file.endsWith('.yml') || item.file.endsWith('.yaml'))).toBe(true);
-  }, 30_000);
+    expect(report.findings.filter((item: any) =>
+      /^\.github\/workflows\/crawler-group-\d+(?:-logic)?\.yml$/u.test(item.file)
+      && item.rule === 'workflow.output-not-produced',
+    )).toEqual([]);
+  }, 45_000);
 
   it('renderizza conteggi e severità nel report', () => {
     const report = {

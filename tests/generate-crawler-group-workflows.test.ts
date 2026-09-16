@@ -20,6 +20,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
 import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, CRAWLER_GROUP_MAX_PARALLEL, generate, buildCrawlerShellBody, buildCrawlerLaunchShellBody, buildCrawlerAggregateFailureGateShellBody, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths, resolveCrawlerContractSource } from '../scripts/generate-crawler-group-workflows.mjs';
 import { assertCrawlerManifestDelta, CORPUS_OBSERVER_FILES, CRAWLER_WORKFLOW_FILES, prepareCrawlerWorkflowCorpusSync } from '../scripts/ci/prepare-crawler-workflow-corpus-sync.mjs';
@@ -29,6 +30,8 @@ interface Crawler {
   slug: string;
   durationMs: number;
 }
+
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 function crawlerLaunchSteps(steps: any[]) {
   return steps.filter((step) => typeof step?.id === 'string' && step.id.startsWith('crawler-launch-'));
@@ -1488,6 +1491,19 @@ describe('cross-repo crawler execution artifacts', () => {
       .toThrow(/workflow_call inputs\/secrets/);
   });
 
+  it('ignora l’ordine delle chiavi nei mapping YAML del contratto', () => {
+    const [generated] = generate({ outDir: workflowsDir, assignmentsPath, write: false });
+    const logicPath = path.join(workflowsDir, 'crawler-group-01-logic.yml');
+    const logicDoc = YAML.parse(fs.readFileSync(logicPath, 'utf8'));
+    const logicJob: any = Object.values(logicDoc.jobs)[0];
+    const rcStep = logicJob.steps.find((step: any) => step.name === 'Load secrets from Remote Config');
+    const reorderedRcStep = Object.fromEntries(Object.entries(rcStep).reverse());
+    logicJob.steps = logicJob.steps.map((step: any) => step === rcStep ? reorderedRcStep : step);
+
+    expect(() => assertCrawlerLogicParity(generated.content, YAML.stringify(logicDoc), path.basename(logicPath)))
+      .not.toThrow();
+  });
+
   it('include by default ogni nuovo bucket non dichiarato sicuro da escludere', () => {
     const bucketsPath = path.join(tmp, 'checkout-buckets.json');
     fs.writeFileSync(bucketsPath, JSON.stringify({
@@ -1828,8 +1844,7 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(crawlerSteps.every((step: any) => step.env?.CODEX_AUTH_JSON === undefined)).toBe(true);
     expect(crawlerSteps.every((step: any) => step.env?.CODEX_AUTH_BROKER_SOCKET
       === '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}')).toBe(true);
-    expect(crawlerSteps.every((step: any) => step.env?.AI_MODELS_PREFER
-      === 'codex-cli/gpt-5.6-luna')).toBe(true);
+    expect(crawlerSteps.every((step: any) => step.env?.AI_MODELS_PREFER === undefined)).toBe(true);
     expect(crawlerSteps.every((step: any) => step.env?.CLAUDE_CODE_OAUTH_TOKEN === undefined)).toBe(true);
     const cleanupStep = generatedSteps.find((step: any) => step.name === 'Cleanup Codex auth broker');
     expect(cleanupStep?.if).toBe('always()');
@@ -1847,8 +1862,11 @@ describe('cross-repo crawler execution artifacts', () => {
       .every((step: any) => step.env?.CODEX_AUTH_JSON === undefined
         && step.env?.CODEX_AUTH_BROKER_SOCKET
           === '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}'
-        && step.env?.AI_MODELS_PREFER === 'codex-cli/gpt-5.6-luna'
+        && step.env?.AI_MODELS_PREFER === undefined
         && step.env?.CLAUDE_CODE_OAUTH_TOKEN === undefined)).toBe(true);
+
+    const generateArticle = fs.readFileSync(path.join(ROOT, '.github/workflows/generate-article.yml'), 'utf8');
+    expect(generateArticle).not.toMatch(/AI_MODELS_PREFER:\s*codex-cli\/gpt-5\.6-luna/);
 
     const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
     const translationSetupStep = Object.values(translation.jobs)[0].steps.find(
