@@ -104,6 +104,24 @@ function fail(msg) {
   process.exit(0); // esito atteso, non errore di workflow
 }
 
+function normalizedPrLabels(pr) {
+  return (Array.isArray(pr?.labels) ? pr.labels : [])
+    .map((label) => String(label?.name || '').toLowerCase())
+    .sort();
+}
+
+/** Metadata is re-read immediately before mutation; any drift denies it. */
+function samePrMetadata(left, right) {
+  return left?.number === right?.number
+    && left?.state === right?.state
+    && left?.isDraft === right?.isDraft
+    && left?.baseRefName === right?.baseRefName
+    && left?.headRefOid === right?.headRefOid
+    && left?.title === right?.title
+    && left?.body === right?.body
+    && JSON.stringify(normalizedPrLabels(left)) === JSON.stringify(normalizedPrLabels(right));
+}
+
 // Osservabilità (feedback backlog-agent): quando l'## LGTM è presente ma il
 // merge ATTENDE vitest, postiamo UN commento (deduped via marker) così il
 // comportamento "held for vitest" è visibile sulla PR senza dover pollare i
@@ -431,7 +449,7 @@ function main() {
   let pr;
   try {
     pr = gh(['pr', 'view', PR, '--repo', REPO, '--json',
-      'number,title,body,state,isDraft,headRefOid,labels,mergeStateStatus']);
+      'number,title,body,state,isDraft,baseRefName,headRefOid,labels,autoMergeRequest,mergeStateStatus']);
   } catch (e) {
     return fail(`Impossibile leggere PR #${PR}: ${String(e).slice(0, 160)} — skip.`);
   }
@@ -448,8 +466,15 @@ function main() {
     return fail(`PR #${PR} mergeStateStatus=DIRTY (conflitto con main/sibling) — skip; va risolta a mano (vedi label stale-review), nessun tentativo di merge.`);
   }
   const head = pr.headRefOid;
-  const labels = (pr.labels || []).map((l) => l.name);
+  const labels = Array.isArray(pr.labels) ? pr.labels.map((l) => l?.name) : [];
   console.log(`HEAD SHA: ${head} · labels: [${labels.join(', ') || '—'}]`);
+  if (!Array.isArray(pr.labels) || typeof pr.title !== 'string' || typeof pr.body !== 'string'
+      || pr.baseRefName !== 'main') {
+    return fail(`Metadata PR #${PR} non verificabile (title/body/labels/base) — policy deny-by-default, skip.`);
+  }
+  if (labels.some((label) => String(label || '').toLowerCase() === 'needs-human')) {
+    return fail(`PR #${PR} marcata needs-human: veto persistente, rimozione solo da umano con approvazione sulla HEAD — skip.`);
+  }
 
   // Legacy/debug evaluator still has a native `--auto` mutation below. Keep
   // it behind the same explicit F1/F7 policy as the native gate; an incomplete
@@ -671,6 +696,40 @@ function main() {
     }
   }
 
+  // Last-mile re-acquisition: the metadata and complete file list used above
+  // are not a compare-and-swap token. Read both again immediately before the
+  // sole mutation and bind that mutation to the freshly observed HEAD.
+  let freshPr;
+  let freshFileSnapshot;
+  try {
+    freshPr = gh(['pr', 'view', PR, '--repo', REPO, '--json',
+      'number,title,body,state,isDraft,baseRefName,headRefOid,labels,autoMergeRequest,mergeStateStatus']);
+    freshFileSnapshot = fetchPrFiles(PR, gh, REPO);
+  } catch (e) {
+    return fail(`Metadata/file-list finale PR #${PR} non verificabile (${String(e).slice(0, 160)}) — skip fail-closed.`);
+  }
+  if (!samePrMetadata(pr, freshPr) || freshPr.headRefOid !== head) {
+    return fail(`Metadata o HEAD PR #${PR} cambiati durante la valutazione — skip; nessuna mutation su snapshot stantio.`);
+  }
+  if (!Array.isArray(freshPr.labels) || freshPr.state !== 'OPEN'
+      || freshPr.isDraft !== false || freshPr.baseRefName !== 'main'
+      || freshPr.labels.some((label) => String(label?.name || '').toLowerCase() === 'needs-human')) {
+    return fail(`PR #${PR} non più eleggibile o needs-human aggiunta nella rilettura finale — skip.`);
+  }
+  if (!freshFileSnapshot.complete) {
+    return fail(`File-list finale PR #${PR} incompleto (${freshFileSnapshot.reason}) — skip fail-closed.`);
+  }
+  const freshRisk = classifyAutomationRisk({
+    title: freshPr.title,
+    body: freshPr.body,
+    labels: freshPr.labels,
+    paths: freshFileSnapshot.files,
+    pathsComplete: freshFileSnapshot.complete,
+  });
+  if (!freshRisk.verifiable || freshRisk.blocked) {
+    return fail(`Policy F1/F7 finale blocca PR #${PR} (${freshRisk.domains.join(', ') || freshRisk.reason}) — serve gestione umana separata.`);
+  }
+
   // Tutti i gate passano → abilita il merge automatico nativo di GitHub. Il
   // Ruleset/branch protection decide quando il merge può realmente avvenire;
   // questo evaluator verifica ancora i gate custom per compatibilità durante
@@ -738,7 +797,10 @@ function main() {
     }
   };
 
-  const mergeArgs = ['pr', 'merge', PR, '--auto', '--squash', '--delete-branch', '--repo', REPO];
+  const mergeArgs = [
+    'pr', 'merge', PR, '--auto', '--squash', '--delete-branch', '--repo', REPO,
+    '--match-head-commit', freshPr.headRefOid,
+  ];
   try {
     gh(mergeArgs, { json: false, token: primary });
     console.log(`PR #${PR} mergiata.`);

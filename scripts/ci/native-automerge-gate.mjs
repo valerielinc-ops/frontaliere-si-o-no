@@ -382,11 +382,16 @@ export function evaluateNativeAutoMerge({
   if (typeof pr.headRefOid !== 'string' || !pr.headRefOid) {
     return { allow: false, reason: 'HEAD SHA mancante' };
   }
+  if (typeof pr.title !== 'string' || typeof pr.body !== 'string' || !Array.isArray(pr.labels)) {
+    return {
+      allow: false,
+      reason: 'metadata PR (title/body/labels) non verificabili',
+      humanApprovalRequired: true,
+      humanApprovalVerified: false,
+    };
+  }
   if (!Object.hasOwn(pr, 'autoMergeRequest')) {
     return { allow: false, reason: 'stato auto-merge non verificabile' };
-  }
-  if (pr.autoMergeRequest !== null) {
-    return { allow: false, reason: 'native auto-merge già abilitato' };
   }
 
   const files = changedFiles !== undefined ? changedFiles : pr.changedFiles;
@@ -411,14 +416,22 @@ export function evaluateNativeAutoMerge({
   }
   if (risk.blocked) {
     const humanApproval = findSeparateHumanApproval(reviews, pr.headRefOid);
+    const reason = risk.needsHumanVeto
+      ? '`needs-human` è un veto persistente: solo un umano può rimuoverlo dopo approvazione sulla HEAD'
+      : `policy F1/F7 blocca native auto-merge (${risk.domains.join(', ') || risk.denyCode}); gestione umana separata richiesta`;
     return {
       allow: false,
-      reason: `policy F1/F7 blocca native auto-merge (${risk.domains.join(', ')}); gestione umana separata richiesta${humanApproval ? ' e verificata sulla HEAD' : ''}`,
+      reason: `${reason}${humanApproval ? ' e review umana verificata sulla HEAD' : ''}`,
       riskDomains: risk.domains,
       humanApprovalRequired: true,
       humanApprovalVerified: humanApproval !== null,
       humanApprovalReviewId: humanApproval?.id || null,
+      needsHumanVeto: Boolean(risk.needsHumanVeto),
+      riskDenyCode: risk.denyCode,
     };
+  }
+  if (pr.autoMergeRequest !== null) {
+    return { allow: false, reason: 'native auto-merge già abilitato' };
   }
 
   // The required check is the complete `tests` job. Its review gate already
@@ -712,6 +725,25 @@ function skip(reason) {
   console.log(`Native auto-merge guard: ${reason} — nessun merge.`);
 }
 
+function normalizedPrLabels(pr) {
+  return (Array.isArray(pr?.labels) ? pr.labels : [])
+    .map((label) => String(label?.name || '').toLowerCase())
+    .sort();
+}
+
+/** Metadata that must remain stable between the first and final reads. */
+function samePrMetadata(left, right) {
+  return left?.number === right?.number
+    && left?.id === right?.id
+    && left?.state === right?.state
+    && left?.isDraft === right?.isDraft
+    && left?.baseRefName === right?.baseRefName
+    && left?.headRefOid === right?.headRefOid
+    && left?.title === right?.title
+    && left?.body === right?.body
+    && JSON.stringify(normalizedPrLabels(left)) === JSON.stringify(normalizedPrLabels(right));
+}
+
 /** Bind the native opt-in to the exact HEAD that passed the gate. */
 export function nativeAutoMergeArgs({ repo, prNumber, headSha } = {}) {
   if (!/^[0-9a-f]{40}$/i.test(headSha || '')) {
@@ -835,10 +867,7 @@ function main() {
     process.exitCode = 1;
     return;
   }
-  const currentStateChanged = current.state !== 'OPEN'
-    || current.isDraft !== false
-    || current.baseRefName !== 'main'
-    || current.headRefOid !== pr.headRefOid;
+  const currentStateChanged = !samePrMetadata(pr, current);
   if (currentStateChanged) {
     if (current.state === 'OPEN' && current.autoMergeRequest !== null) {
       revokeExistingAutoMerge(repo, current, 'HEAD o stato cambiato dopo il gate');
@@ -880,8 +909,31 @@ function main() {
     return;
   }
 
+  // The final file/review/check reads are still not enough: title, body,
+  // labels and HEAD may change while they are being fetched. Re-acquire the
+  // complete PR metadata immediately before the only enabling mutation.
+  let fresh;
+  try {
+    fresh = ghJson(['pr', 'view', prNumber, '--repo', repo, '--json',
+      'number,id,title,body,labels,state,isDraft,baseRefName,headRefOid,autoMergeRequest']);
+  } catch (error) {
+    if (current.autoMergeRequest !== null) {
+      revokeExistingAutoMerge(repo, current, 'metadata PR non leggibili prima dell’opt-in');
+      return;
+    }
+    console.error(`::error::native auto-merge guard: metadata finale PR illeggibile: ${String(error).slice(0, 240)}`);
+    process.exitCode = 1;
+    return;
+  }
+  if (!samePrMetadata(current, fresh)) {
+    if (fresh.state === 'OPEN' && fresh.autoMergeRequest !== null) {
+      revokeExistingAutoMerge(repo, fresh, 'metadata/file-list non più stabile prima dell’opt-in');
+    }
+    return skip('metadata PR o HEAD cambiati dopo la rilettura finale; serve una nuova valutazione');
+  }
+
   const finalDecision = revalidateNativeAutoMerge({
-    pr: current,
+    pr: fresh,
     reviews: finalReviews,
     checkRuns: finalCheckRuns,
     verifiedTestOnlyReview: finalVerifiedTestOnlyReview,
@@ -898,12 +950,12 @@ function main() {
   if (!finalDecision.allow) {
     return skip('review/check cambiati o non più validi prima dell’opt-in; nessun merge.');
   }
-  if (current.autoMergeRequest !== null) {
+  if (fresh.autoMergeRequest !== null) {
     return skip('native auto-merge già abilitato e rivalidato sulla HEAD corrente');
   }
 
   try {
-    const output = execFileSync('gh', nativeAutoMergeArgs({ repo, prNumber, headSha: pr.headRefOid }), {
+    const output = execFileSync('gh', nativeAutoMergeArgs({ repo, prNumber, headSha: fresh.headRefOid }), {
       encoding: 'utf8',
       stdio: ['ignore', 'pipe', 'pipe'],
       env: { ...process.env },
@@ -912,7 +964,7 @@ function main() {
   } catch (error) {
     const details = capturedErrorOutput(error);
     if (isAlreadyInProgressOutput(details)
-      && concurrentOptInSucceeded(repo, prNumber, pr.headRefOid)) {
+      && concurrentOptInSucceeded(repo, prNumber, fresh.headRefOid)) {
       console.log(`Native auto-merge guard: opt-in concorrente confermato per PR #${prNumber} sulla HEAD corrente`);
       return;
     }

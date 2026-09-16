@@ -83,9 +83,11 @@ jobs:
   risk_policy:
     if: |
       github.event.label.name == 'agent:fix' &&
-      (github.event.sender.login == 'valerielinc-ops' ||
-       github.event.sender.login == 'frontaliere-automation[bot]' ||
-       startsWith(github.event.sender.login, 'claude'))
+      ((github.event.sender.type == 'User' &&
+        github.event.sender.login == 'valerielinc-ops') ||
+       (github.event.sender.type == 'Bot' &&
+        (github.event.sender.login == 'frontaliere-automation[bot]' ||
+         github.event.sender.login == 'claude[bot]')))
     runs-on: ubuntu-latest
     timeout-minutes: 6
     permissions:
@@ -117,13 +119,13 @@ jobs:
         run: |
           set -euo pipefail
           issue_file="${RUNNER_TEMP}/issue-f1-f7.json"
-          gh issue view "$ISSUE_NUMBER" --repo "$REPO" --json title,body,labels > "$issue_file"
+          gh issue view "$ISSUE_NUMBER" --repo "$REPO" --json state,title,body,labels > "$issue_file"
           decision=$(node --input-type=module - "$issue_file" <<'NODE'
           import fs from 'node:fs';
           import { classifyIssue } from './scripts/lib/classify-issue.mjs';
 
           const issue = JSON.parse(fs.readFileSync(process.argv[2], 'utf8'));
-          if (!issue || typeof issue.title !== 'string' || !Array.isArray(issue.labels)
+          if (!issue || issue.state !== 'OPEN' || typeof issue.title !== 'string' || !Array.isArray(issue.labels)
               || (issue.body !== null && typeof issue.body !== 'string')) {
             throw new Error('issue metadata non verificabile per la policy F1/F7');
           }
@@ -170,9 +172,11 @@ jobs:
       needs.risk_policy.result == 'success' &&
       needs.risk_policy.outputs.blocked != 'true' &&
       github.event.label.name == 'agent:fix' &&
-      (github.event.sender.login == 'valerielinc-ops' ||
-       github.event.sender.login == 'frontaliere-automation[bot]' ||
-       startsWith(github.event.sender.login, 'claude'))
+      ((github.event.sender.type == 'User' &&
+        github.event.sender.login == 'valerielinc-ops') ||
+       (github.event.sender.type == 'Bot' &&
+        (github.event.sender.login == 'frontaliere-automation[bot]' ||
+         github.event.sender.login == 'claude[bot]')))
     runs-on: ubuntu-latest
     # 40→360 (2026-07-17, #4341): 40min ha già ricausato ci-timeout 2x (#4189,
     # #4219) dopo il bump 30→40 — stesso costrutto di pr-review-loop.yml, stesso
@@ -1059,10 +1063,11 @@ jobs:
           # più sulle PR del fixer e ogni PR resterebbe ferma senza review.
           github_token: ${{ env.APP_TOKEN }}
           codex_github_token: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
-          # Whitelist esplicita (hardening #898): mai `*`. I sender bot legittimi
-          # del trigger sono `claude[bot]` (cascade fix → re-trigger) e
-          # `github-actions[bot]` (re-label interno). Il PAT user `valerielinc-ops`
-          # è un account umano → bypassa `allowed_bots`, già coperto dal gate `if`.
+          # Whitelist esplicita (hardening #898): mai `*` né prefissi. I soli
+          # sender ammessi dal gate sono `claude[bot]`,
+          # `frontaliere-automation[bot]` e l'utente esatto `valerielinc-ops`,
+          # ciascuno con il proprio actor type. `github-actions[bot]` non è
+          # ammesso: un evento GITHUB_TOKEN non deve riattivare il fixer.
           # 2026-07-02: --dangerously-skip-permissions sostituisce --allowedTools scoped
           # (rationale completo: post-merge-followup.yml action-input comment, stesso
           # fix, evita drift tra copie duplicate).
@@ -1107,7 +1112,7 @@ jobs:
                **Questo container CI è GIÀ un checkout isolato monouso** (step `Checkout` in cima al workflow, `actions/checkout@v5` fresh a ogni run). **NON creare un worktree interno `.claude/worktrees/**` qui**: la regola "worktree-first" di `AGENTS.md`/`CLAUDE.md` esiste per sessioni interattive locali con un `main` condiviso — non si applica in un container CI già isolato, e crearne uno dentro non aggiunge isolamento, brucia solo turni rifacendo la meccanica del checkout (osservato #4263: ~6 turni finali sprecati su un ciclo `git diff` → patch → fetch → `.claude/worktrees/... add` → apply mai completato, 0 PR). Lavora direttamente nella root del checkout.
             2. Diagnosi root cause della issue (NON sintomo). **Scorciatoia scheda (issue da decomposizione):** se il body o un commento contiene una sezione `## Scheda` (issue nata dallo stadio `issue-decompose`, tipicamente label `from-decompose`), la scheda È la diagnosi già fatta — verifica la CAUSA in ≤3 turni col COMANDO della METRICA; se regge, salta direttamente al passo 3 e usa la METRICA come criterio di verifica del fix e l'OSSERVATORE come test da aggiungere. Se la verifica smentisce la CAUSA, prosegui con la diagnosi normale e dichiaralo nel commento finale. **Scorciatoia segnali (issue da reporter zero-Claude, ISSUES.md → "Contratto minimo"):** se il body contiene `## Segnali (raccolti automaticamente)`, NON è una diagnosi (nessuna CAUSA) — ma il `Comando di riproduzione` verifica lo stato attuale in un turno invece di ricostruirlo, `Metrica` dà osservato/atteso come criterio di successo, `Evidenza` punta a dove guardare. Usali per saltare la scoperta iniziale, poi diagnostica la CAUSA normalmente. Per categoria `crawler`: il selector è driftato → rigenera/aggiusta il parser; preferisci `node scripts/generate-company-parser.mjs` o l'edit mirato del parser/config citato nel body. **Turn-budget:** se dopo ~15 turni di esplorazione non emerge una root cause chiara, NON continuare a scavare sullo stesso vicolo cieco — restringi lo scope (issue aggregate: scegli un item più semplice, vedi circuit-breaker sopra) o termina pulito con l'outcome `no-root-cause` (già definito in fondo al prompt) invece di bruciare il resto del budget senza convergere.
             3. Applica fix CHIRURGICO alla **CLASSE del bug, NON al singolo file** (AGENTS.md non-negotiable #6): no drive-by refactor / no speculative abstraction, MA per un fix di pattern (regex/replace/guard/floor/threshold/selector/bullet-idiom) `rg`/`grep` i sibling funnel-critical (`scripts/update-*.mjs`, `scripts/lib/*-parser.mjs`, `build-plugins/**`) per lo STESSO costrutto → sweepa l'intera classe nella STESSA PR, oppure giustifica OGNI sibling non toccato in `## Non implementato`. Toccare i file gemelli con lo stesso antipattern NON è drive-by: è il fix completo. Pre-empt del 🔴 reviewer "stesso antipattern nel file gemello" (osservato #1083/#1073 il 2026-06-02: PR mono-file → 🔴 sibling → 2 cicli review+fix sprecati sulla quota Max condivisa).
-            4. **Checkpoint WIP — commit+push IMMEDIATO (anti-100%-loss, #4337):** appena il fix del passo 3 è applicato (anche se non ancora testato dal gate del passo 6), committa tutto con `git add -A && git commit -m "wip(issue-$ISSUE_NUMBER): checkpoint pre-test"` e pusha SUBITO: `git push -u origin fix/issue-$ISSUE_NUMBER`. **Perché ORA:** prima di questo cambio commit+push+PR accadevano SOLO a fine flusso — un run morto per `--max-turns` prima di arrivarci perdeva il 100% del diff col container (#4337: 71 turni, $6.58, edit reali a `build-plugins/staticPagesPlugin.ts`, branch mai pushato, 404 su GitHub). Con questo checkpoint, se il run muore DOPO questo punto il branch sopravvive su GitHub col diff reale — recuperabile dal prossimo retry via la resume-logic del passo 1, invece di una perdita totale.
+            4. **Checkpoint WIP — commit immediato, push subordinato al diff gate (anti-100%-loss, #4337):** appena il fix del passo 3 è applicato (anche se non ancora testato dal gate del passo 6), committa tutto con `git add -A && git commit -m "wip(issue-$ISSUE_NUMBER): checkpoint pre-test"`. **NON eseguire `git push` né `gh pr create` prima del diff gate deterministico esterno:** lo step `Enforce F1/F7 output diff gate` classifica il diff completo e solo dopo il checkpoint deterministico può pushare. Se il gate nega, termina senza consegna e lascia `needs-human`/il job rosso. **Perché ORA:** prima di questo cambio commit+push+PR accadevano SOLO a fine flusso — un run morto per `--max-turns` prima di arrivarci perdeva il 100% del diff col container (#4337: 71 turni, $6.58, edit reali a `build-plugins/staticPagesPlugin.ts`, branch mai pushato, 404 su GitHub). Il checkpoint locale conserva il lavoro fino alla decisione fail-closed del workflow.
             5. Mai abbassare quality gate/test/validation per "far passare" (non-negotiable #1).
             6. **Gate test pre-PR (anti re-review — OBBLIGATORIO):** gira UNA VOLTA i test che coprono l'area toccata: `npx vitest run <path/glob pertinente al code modificato>` (es. fix a un parser → `npx vitest run tests/<area>`). Verde → procedi al passo 7. Rosso → NON ri-lanciare l'intero file/suite da capo: rigira SOLO il test fallito con `-t <pattern che matcha il nome del test>`, fixa la root cause, ri-verifica scoped, ripeti finché verde. NON girare la suite intera col `npm test` cieco: qui manca `data/jobs.json` (lo assembla la CI `tests`) → sarebbe rossa per infra, non per il tuo fix; se il tuo cambiamento tocca l'assembly dati gira prima `node scripts/assemble-jobs-dataset.mjs`. NON lanciare un `npx tsc --noEmit` full-repo a meno che il fix tocchi davvero type definitions condivise ampiamente (`types/`, interfacce esportate cross-modulo) — per un fix scoped il vitest sull'area toccata basta. **Perché la tightening:** #4263 (aggregate già ristretto a 1 item dal circuit-breaker) ha bruciato il budget 50 turni su ~25 di diagnosi + DUE pass completi di `npx vitest run` sull'intero file + un `npx tsc --noEmit` full-repo + ~6 turni finali di un ciclo patch→worktree mai completato (vedi passo 1) — zero PR consegnata. Test scoping disciplinato = turni per il fix vero, non per ripetere verifiche già fatte. La review Claude ora parte SOLO dopo `tests` verde (gate `pr-review-loop` su `workflow_run[tests]==success`): una PR coi test rossi non riceve review e resta ferma — spreco di un ciclo.
             7. Commit (SOLO se ci sono cambi oltre il checkpoint WIP del passo 4, es. fix ai test rossi del passo 6): identity canonica già configurata, messaggio conventional, in fondo nessuna email non-canonica. Se dal passo 4 non è cambiato altro, questo passo è un no-op — non serve squashare: una storia wip+fix sul branch va bene.
@@ -1134,6 +1139,36 @@ jobs:
             - Se il fix richiede una credenziale, USALA: Remote Config è caricato in questo run (decisione del 2026-08-24). Termina con `blocked-secrets` solo se la variabile che ti serve è davvero vuota in `process.env`, e nominala.
             - **Telemetria outcome (OBBLIGATORIO):** ogni volta che termini, l'ULTIMO commento che posti sulla issue DEVE iniziare con un marker HTML su riga propria: `<!-- FIX_OUTCOME: <code> -->`. `<code>` ∈ `pr-created` (PR aperta) · `blocked-workflows-scope` · `blocked-secrets` · `blocked-admin-settings` · `no-root-cause` · `overlap-skip` · `pr-already-open` · `already-fixed` · `revenue-tracker-manual`. Se apri una PR (passo 9) e non posti altri commenti, aggiungi comunque un commento col solo marker `<!-- FIX_OUTCOME: pr-created -->`. Il lessons-harvester aggrega questi marker per rilevare classi di blocco ricorrenti e proporre migliorie ai doc/prompt (vedi ISSUES.md → "Auto-improvement loop").
 
+      - name: Enforce F1/F7 output diff gate (before checkpoint/push)
+        id: diff_gate
+        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        env:
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin main
+          paths_file="$RUNNER_TEMP/f1-f7-output.paths"
+          {
+            git diff --name-only origin/main
+            git ls-files --others --exclude-standard
+          } | sort -u > "$paths_file"
+          if [ ! -s "$paths_file" ]; then
+            echo "::error::F1/F7 diff gate: nessun diff verificabile da consegnare; deny-by-default."
+            exit 1
+          fi
+          node --input-type=module - "$paths_file" <<'NODE'
+          import fs from 'node:fs';
+          import { classifyAutomationRisk } from './scripts/ci/lib/automation-risk-policy.mjs';
+
+          const paths = fs.readFileSync(process.argv[2], 'utf8').split(/\r?\n/u).filter(Boolean);
+          const decision = classifyAutomationRisk({ paths, pathsComplete: true });
+          if (!decision.verifiable || decision.blocked || decision.decision !== 'allow') {
+            console.error(`F1/F7 diff gate deny: ${decision.reason}`);
+            process.exit(1);
+          }
+          console.log(`F1/F7 diff gate allow: ${paths.length} path riconosciuti`);
+          NODE
+
       - name: Salva il lavoro parziale (WIP checkpoint deterministico, zero-Claude)
         # PERCHÉ ESISTE (misurato il 2026-08-24). Il checkpoint WIP c'era già —
         # ma come PASSO DEL PROMPT (passo 4), cioè affidato alla scelta
@@ -1155,7 +1190,7 @@ jobs:
         # c'era lavoro da salvare). Best-effort in senso stretto: qualunque
         # fallimento è un warning, mai un job rosso — un salvataggio mancato non
         # deve trasformare un run terminato in un run fallito.
-        if: always() && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: always() && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true' && steps.diff_gate.outcome == 'success'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

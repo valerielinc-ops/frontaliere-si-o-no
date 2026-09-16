@@ -18,10 +18,19 @@ Non passa nessuno → drop. Non importante per questo progetto.
 ## Policy automazione bounded F1/F7
 
 La policy deterministica in `scripts/ci/lib/automation-risk-policy.mjs` è un
-dominio esplicito condiviso da classifier, issue-fix e auto-merge. Blocca sempre
+dominio esplicito condiviso da classifier, issue-fix e auto-merge. La versione
+e il sentinel `CONTROL_PLANE_GUARD_VERSION` sono parte del contratto: un helper
+bootstrap senza quel sentinel non è trusted. Blocca sempre
 questi cinque domini: `deploy-workflow-functions`,
 `secrets-roles-permissions`, `billing-revenue-partner`,
 `published-content-seo-auto-ads` e `outreach-communications`.
+
+Il sesto dominio tecnico `control-plane` è deny-by-default e viene valutato
+prima dell'eccezione test-only: `.github/workflows/**`, `.github/actions/**`,
+`scripts/ci/**`, classifier, policy, native gate, evaluator e `REVIEW.md` non
+possono essere modificati dal percorso autonomo. Un path non riconosciuto e
+un issue text senza categoria/signal noto ricevono anch'essi `decision='deny'`;
+non esiste allow-by-default per stringhe o file sconosciuti.
 
 Per un'issue ad alto rischio il classifier restituisce `route='none'` e
 `autofix=false`; `issue-triage` rimuove le label di routing e applica
@@ -31,14 +40,25 @@ skipped. Non esiste un override nel prompt.
 
 Per una PR il native gate valuta titolo/body/label e un elenco file completo:
 un elenco incompleto è deny-by-default; un dominio rischioso impedisce
-l'abilitazione e revoca un opt-in native già persistente. La stessa guardia
-copre l'evaluator legacy che conserva una mutazione `--auto` di compatibilità.
-Una gestione umana separata è verificabile solo con una review GitHub
-`APPROVED` di un utente non-bot sulla HEAD esatta; questa prova documenta il
-passaggio umano ma non è un bypass dell'auto-merge, che resta vietato per i
-domini F1/F7. Branch protection, ruoli e impostazioni amministrative non sono
-modificati né assunti verificabili da questa policy: se GitHub non consente la
-verifica, il gate resta fail-closed.
+l'abilitazione e revoca un opt-in native già persistente. `needs-human` è un
+veto persistente: anche una review umana APPROVED non lo rimuove via automazione;
+la rimozione richiede un umano e una review `APPROVED` di un utente non-bot sulla
+HEAD esatta. Il gate finale riacquisisce metadata e file-list e usa
+`--match-head-commit` sulla HEAD appena verificata. La stessa guardia copre
+l'evaluator legacy che conserva una mutazione `--auto` di compatibilità.
+
+I bootstrap `enable-native-automerge.yml` e `retry-native-automerge.yml` eseguono
+una guardia statica prima di scaricare policy/credenziali e verificano il
+sentinel comportamentale del helper. La versione della workflow già presente su
+`main` non può però essere retroattivamente cambiata da questa PR: durante la
+valutazione della PR che introduce la guardia, `pull_request_target` può ancora
+eseguire il file preesistente di `main`. Questo limite di protezione GitHub non
+è aggirato qui: il percorso resta fail-closed/no-op o richiede intervento umano
+finché una guardia preesistente e verificabile non è su `main`.
+
+Branch protection, ruoli e impostazioni amministrative non sono modificati né
+assunti verificabili da questa policy: se GitHub non consente la verifica, il
+gate resta fail-closed.
 
 ## Severity
 

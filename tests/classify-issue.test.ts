@@ -10,8 +10,12 @@ import { describe, it, expect } from 'vitest';
 import { classifyIssue, isFixerExempt, FIXER_EXEMPT_LABELS } from '../scripts/lib/classify-issue.mjs';
 import {
   classifyAutomationRisk,
+  CONTROL_PLANE_PATHS,
+  extractIssuePathCandidates,
   findSeparateHumanApproval,
+  isControlPlanePath,
   isAutomationTestPath,
+  isRecognizedAutomationPath,
   isSeparateHumanApproval,
 } from '../scripts/ci/lib/automation-risk-policy.mjs';
 
@@ -208,6 +212,52 @@ describe('policy automazione F1/F7', () => {
       paths: ['tests/seo/workflow.test.ts'],
       pathsComplete: true,
     })).toMatchObject({ blocked: false, verifiable: true });
+  });
+
+  it('denies every explicit control-plane path before any test-only exception', () => {
+    for (const path of CONTROL_PLANE_PATHS) {
+      expect(isControlPlanePath(path), path).toBe(true);
+      expect(classifyAutomationRisk({ paths: [path], pathsComplete: true })).toMatchObject({
+        blocked: true,
+        decision: 'deny',
+        denyCode: 'control-plane',
+        controlPlane: true,
+        humanApprovalRequired: true,
+      });
+    }
+  });
+
+  it('does not let an unrecognised path or generic issue text enter automation', () => {
+    expect(isRecognizedAutomationPath('unknown-zone/agent-target.ts')).toBe(false);
+    expect(classifyAutomationRisk({
+      paths: ['unknown-zone/agent-target.ts'],
+      pathsComplete: true,
+    })).toMatchObject({ blocked: true, decision: 'deny', denyCode: 'unknown-path' });
+    expect(classifyAutomationRisk({
+      title: 'Please investigate this',
+      body: 'No deterministic category is declared.',
+      labels: [],
+    })).toMatchObject({ blocked: true, decision: 'deny', denyCode: 'unknown-issue' });
+  });
+
+  it('keeps needs-human as a persistent hard veto, even with an exact safe diff', () => {
+    expect(classifyAutomationRisk({
+      labels: ['needs-human'],
+      paths: ['src/safe.ts'],
+      pathsComplete: true,
+    })).toMatchObject({
+      blocked: true,
+      decision: 'deny',
+      denyCode: 'needs-human-veto',
+      needsHumanVeto: true,
+      humanApprovalRequired: true,
+    });
+  });
+
+  it('extracts path candidates without treating URLs as repository paths', () => {
+    expect(extractIssuePathCandidates(
+      'Fix `src/safe.ts`; reference https://github.com/example/repo/blob/main/secret/key.txt.',
+    )).toEqual(['src/safe.ts']);
   });
 
   it('riconosce solo una review umana APPROVED sulla HEAD esatta', () => {

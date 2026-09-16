@@ -21,6 +21,27 @@ describe('issue-fix F1/F7 policy gate', () => {
     expect(workflow).toContain('needs: risk_policy');
     expect(workflow).toContain("needs.risk_policy.outputs.blocked != 'true'");
   });
+
+  it('usa actor type e login esatti, senza prefissi aggirabili', () => {
+    expect(workflow).toContain("github.event.sender.type == 'User'");
+    expect(workflow).toContain("github.event.sender.type == 'Bot'");
+    expect(workflow).toContain("github.event.sender.login == 'claude[bot]'");
+    expect(workflow).toContain("github.event.sender.login == 'frontaliere-automation[bot]'");
+    expect(workflow).not.toContain("startsWith(github.event.sender.login, 'claude')");
+  });
+
+  it('applica il diff gate deterministico prima del checkpoint/push WIP', () => {
+    const diffGate = workflow.indexOf('- name: Enforce F1/F7 output diff gate');
+    const wip = workflow.indexOf('- name: Salva il lavoro parziale');
+    const appToken = workflow.indexOf('Mint GitHub App token');
+    expect(diffGate).toBeGreaterThan(-1);
+    expect(wip).toBeGreaterThan(diffGate);
+    expect(workflow.indexOf('risk_policy:')).toBeLessThan(appToken);
+    expect(workflow).toContain('classifyAutomationRisk');
+    expect(workflow).toContain('pathsComplete: true');
+    expect(workflow).toContain('git diff --name-only origin/main');
+    expect(workflow).toContain("steps.diff_gate.outcome == 'success'");
+  });
 });
 
 describe('issue-fix FIX_OUTCOME backstop', () => {

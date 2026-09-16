@@ -87,8 +87,6 @@ export function classifyIssue(title = '', labels = [], body = '') {
   const set = new Set(labelNames);
   const has = (name) => set.has(String(name).toLowerCase());
   const t = (re) => re.test(title || '');
-  const risk = classifyAutomationRisk({ title, body, labels });
-
   let category = 'other';
 
   if (has('revenue') || has('rpm-canary') || t(/RPM canary|\bRPM\b/i)) {
@@ -108,6 +106,11 @@ export function classifyIssue(title = '', labels = [], body = '') {
   } else if (t(/Validation Failure/i) || (has('bug') && has('priority:urgent'))) {
     category = 'validation-failure';
   }
+
+  // La policy riceve la categoria già derivata: una follow-up ordinaria resta
+  // classificabile anche quando il caller non passa il body, mentre `other`
+  // sconosciuto resta deny-by-default. I segnali F1/F7 continuano a prevalere.
+  const risk = classifyAutomationRisk({ title, body, labels, category });
 
   // High-risk F1/F7 ha precedenza sul pin: nessun dominio ad alto rischio può
   // essere auto-gestito, anche se qualcuno ha lasciato una label di routing.
@@ -140,6 +143,11 @@ export function classifyIssue(title = '', labels = [], body = '') {
     humanApprovalRequired: risk.humanApprovalRequired || automationBlocked,
     riskDomains: risk.domains,
     riskReason: risk.reason,
+    riskDecision: risk.decision,
+    riskDenyCode: risk.denyCode,
+    controlPlane: risk.controlPlane,
+    needsHumanVeto: risk.needsHumanVeto,
+    unknownPaths: risk.unknownPaths,
   };
 }
 

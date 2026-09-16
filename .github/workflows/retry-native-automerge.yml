@@ -20,6 +20,38 @@ jobs:
   retry:
     runs-on: ubuntu-latest
     steps:
+      - name: Static control-plane bootstrap guard (pre-existing, deny-by-default)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          if ! pr_numbers=$(gh pr list --repo "$REPOSITORY" --state open --base main --limit 100 \
+            --json number,isDraft --jq '.[] | select(.isDraft == false) | .number'); then
+            echo '::error::control-plane bootstrap guard: elenco PR non verificabile; hard fail umano.'
+            exit 1
+          fi
+          while IFS= read -r pr_number; do
+            [ -n "$pr_number" ] || continue
+            if ! files=$(gh api "repos/$REPOSITORY/pulls/$pr_number/files?per_page=100" --paginate --jq '.[].filename'); then
+              echo "::error::control-plane bootstrap guard: file-list PR #$pr_number non verificabile; hard fail umano."
+              exit 1
+            fi
+            if [ -z "$files" ]; then
+              echo "::error::control-plane bootstrap guard: file-list PR #$pr_number vuoto/non verificabile; hard fail umano."
+              exit 1
+            fi
+            while IFS= read -r path; do
+              case "$path" in
+                .github/workflows/*|.github/actions/*|scripts/ci/*|scripts/lib/classify-issue.mjs|REVIEW.md)
+                  echo "::error::control-plane path $path in PR #$pr_number: retry fermato; serve approvazione umana."
+                  exit 1
+                  ;;
+              esac
+            done <<< "$files"
+          done <<< "$pr_numbers"
+          echo 'control-plane bootstrap guard: nessuna PR aperta modifica il control-plane staticamente.'
+
       # Two-step rollout: the gate is trusted only when it is already present
       # on main. If this workflow lands before the helper (or main is rolled
       # back to a version without it), the job is a successful no-op and never
@@ -68,7 +100,9 @@ jobs:
             && node --check "$policy_tmp" \
             && node --check "$risk_tmp" \
             && node --check "$files_tmp" \
-            && node --check "$vitest_tmp"; then
+            && node --check "$vitest_tmp" \
+            && grep -q 'CONTROL_PLANE_GUARD_VERSION' "$risk_tmp" \
+            && grep -q 'isControlPlanePath' "$risk_tmp"; then
             mv "$gate_tmp" "$helper_dir/native-automerge-gate.mjs"
             mv "$policy_tmp" "$helper_dir/review-test-policy.mjs"
             mv "$risk_tmp" "$helper_dir/lib/automation-risk-policy.mjs"
