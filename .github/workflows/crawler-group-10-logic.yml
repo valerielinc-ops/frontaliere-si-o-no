@@ -6134,7 +6134,12 @@ jobs:
             fi
           fi
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing." >> "$summary_file"
-          printf '%s\n' "success_count=$success_count" "failure_count=$failure_count" "missing_count=$missing_count" >> "$output_file"
+          if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ]; then
+            wait_outcome=failure
+          else
+            wait_outcome=success
+          fi
+          printf '%s\n' "success_count=$success_count" "failure_count=$failure_count" "missing_count=$missing_count" "wait_outcome=$wait_outcome" >> "$output_file"
           exit 0
       - name: Commit crawler group data atomically
         if: always() && inputs.generation_token != '' && job.status == 'success' && steps.crawler_group_setup.outcome == 'success'
@@ -6171,7 +6176,7 @@ jobs:
           CRAWLER_GENERATION_CALLER_REPOSITORY: ${{ github.repository }}
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
-          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ job.status }}
+          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ steps.crawler_aggregate.outputs.wait_outcome || 'failure' }}
           CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"berit-klinik","primarySlice":"data/jobs/by-crawler/berit-klinik.json"},{"crawlerId":"bucherer","primarySlice":"data/jobs/by-crawler/bucherer.json"},{"crawlerId":"centiel","primarySlice":"data/jobs/by-crawler/centiel.json"},{"crawlerId":"emmi","primarySlice":"data/jobs/by-crawler/emmi.json"},{"crawlerId":"ems-chemie","primarySlice":"data/jobs/by-crawler/ems-chemie.json"},{"crawlerId":"endress-hauser","primarySlice":"data/jobs/by-crawler/endress-hauser.json"},{"crawlerId":"fondation-domus","primarySlice":"data/jobs/by-crawler/fondation-domus.json"},{"crawlerId":"hamilton-bonaduz-ag","primarySlice":"data/jobs/by-crawler/hamilton-bonaduz-ag.json"},{"crawlerId":"hilti","primarySlice":"data/jobs/by-crawler/hilti.json"},{"crawlerId":"hug","primarySlice":"data/jobs/by-crawler/hug.json"},{"crawlerId":"interroll","primarySlice":"data/jobs/by-crawler/interroll.json"},{"crawlerId":"ipw","primarySlice":"data/jobs/by-crawler/ipw.json"},{"crawlerId":"jumbo","primarySlice":"data/jobs/by-crawler/jumbo.json"},{"crawlerId":"kiabi","primarySlice":"data/jobs/by-crawler/kiabi.json"},{"crawlerId":"ksgl","primarySlice":"data/jobs/by-crawler/ksgl.json"},{"crawlerId":"kulm-hotel","primarySlice":"data/jobs/by-crawler/kulm-hotel.json"},{"crawlerId":"laderach","primarySlice":"data/jobs/by-crawler/laderach.json"},{"crawlerId":"lis-lugano-istituti-sociali","primarySlice":"data/jobs/by-crawler/lis-lugano-istituti-sociali.json"},{"crawlerId":"medbase","primarySlice":"data/jobs/by-crawler/medbase.json"},{"crawlerId":"mtic-group","primarySlice":"data/jobs/by-crawler/mtic-group.json"},{"crawlerId":"pzm-muensingen","primarySlice":"data/jobs/by-crawler/pzm-muensingen.json"},{"crawlerId":"richemont","primarySlice":"data/jobs/by-crawler/richemont.json"},{"crawlerId":"stellentreff","primarySlice":"data/jobs/by-crawler/stellentreff.json"},{"crawlerId":"swiss-medical-network","primarySlice":"data/jobs/by-crawler/swiss-medical-network.json"},{"crawlerId":"triaplus","primarySlice":"data/jobs/by-crawler/triaplus.json"},{"crawlerId":"viva-luzern","primarySlice":"data/jobs/by-crawler/viva-luzern.json"},{"crawlerId":"vz-vermoegenszentrum","primarySlice":"data/jobs/by-crawler/vz-vermoegenszentrum.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-10-terminal.json
           CRAWLER_GENERATION_LEDGER_PATH: data/crawler-generation-ledger.jsonl
