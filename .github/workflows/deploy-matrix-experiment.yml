@@ -300,9 +300,17 @@ jobs:
           echo '[dist-metrics] df -B1 .'
           df -B1 .
           echo '[dist-metrics] du -sb dist'
-          du -sb dist 2>/dev/null || echo 'dist is absent before build'
+          if [ -d dist ]; then
+            du -sb dist
+          else
+            echo 'dist is absent before build'
+          fi
           echo '[dist-metrics] find dist -type f | wc -l'
-          find dist -type f 2>/dev/null | wc -l
+          if [ -d dist ]; then
+            find dist -type f | wc -l
+          else
+            echo 0
+          fi
           echo '::endgroup::'
 
       - name: Build (${{ matrix.locale == 'all' && 'all locales' || format('BUILD_LOCALE={0}', matrix.locale) }})
@@ -426,9 +434,17 @@ jobs:
           echo '[dist-metrics] df -B1 .'
           df -B1 .
           echo '[dist-metrics] du -sb dist'
-          du -sb dist 2>/dev/null || echo 'dist is absent after build'
+          if [ -d dist ]; then
+            du -sb dist
+          else
+            echo 'dist is absent after build'
+          fi
           echo '[dist-metrics] find dist -type f | wc -l'
-          find dist -type f 2>/dev/null | wc -l
+          if [ -d dist ]; then
+            find dist -type f | wc -l
+          else
+            echo 0
+          fi
           echo '::endgroup::'
           {
             echo "### ${BUILD_VARIANT} build summary"
