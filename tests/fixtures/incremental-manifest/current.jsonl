@@ -1,0 +1,11 @@
+{"type":"header","manifestVersion":2,"format":"jsonl","locale":"it"}
+{"type":"kind","kind":"active-job","templateVersion":"active-job@1","sourceVersion":"input@1","state":"live"}
+{"path":"cerca-lavoro-ticino/collisione/","hash":"7777777777777777777777777777777777777777777777777777777777777777"}
+{"path":"cerca-lavoro-ticino/muratore/","hash":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}
+{"type":"kind","kind":"expired-soft-landing","templateVersion":"expired-soft-landing@1","sourceVersion":"input@1","state":"live"}
+{"path":"cerca-lavoro-ticino/ufficio-scaduto/","hash":"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"}
+{"type":"kind","kind":"cross-locale-reconciliation","templateVersion":"cross-locale-reconciliation@1","sourceVersion":"input@1","state":"live"}
+{"path":"cerca-lavoro-ticino/riconciliazione/","hash":"8888888888888888888888888888888888888888888888888888888888888888"}
+{"type":"kind","kind":"related-search-cluster","templateVersion":"related-search-cluster@1","sourceVersion":"input@1","state":"live"}
+{"path":"ricerca/muratore-ticino/","hash":"eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"}
+{"type":"footer","counts":{"total":5,"byKind":{"active-job":2,"expired-soft-landing":1,"legacy-slug-bridge":0,"previous-slugs-full-content":0,"cross-locale-reconciliation":1,"related-search-cluster":1}}}

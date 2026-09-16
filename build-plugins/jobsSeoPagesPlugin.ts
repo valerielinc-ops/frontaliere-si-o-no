@@ -42,6 +42,12 @@ import { buildSoftLandingThinHtml } from './shared/softLandingThinShell';
 import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/gscKeywordThinShell';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import {
+  buildMinimalJobInput,
+  INCREMENTAL_MANIFEST_ENABLED,
+  IncrementalManifest,
+  stableJobId,
+} from './shared/incrementalManifest.mjs';
+import {
   normalizeSearchTerm as normalizeSearchTermShared,
   collectSearchLandingMatches,
 } from './shared/searchLandingMatch';
@@ -716,6 +722,19 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const retentionProbeCandidate = parseJobsSeoRetentionProbe(process.env[JOBS_SEO_RETENTION_PROBE_ENV]);
  const distDir = np.resolve(rootDir, 'dist');
  const jobsPath = np.resolve(rootDir, 'data/jobs.json');
+ // Shadow-only and opt-in: normal production builds allocate no manifest maps
+ // and perform no shadow hashing. When enabled for a shard, allocate only the
+ // locales that the same build leg owns and emits.
+ const incrementalManifests = INCREMENTAL_MANIFEST_ENABLED
+  ? new Map(
+   JOB_SEO_LOCALES
+    .filter((locale) => shouldEmitLocale(locale))
+    .map((locale) => [locale, new IncrementalManifest(locale)]),
+  )
+  : null;
+ const registerIncrementalPage = (locale: (typeof JOB_SEO_LOCALES)[number], pagePath: string, kind: string, input: unknown) => {
+  incrementalManifests?.get(locale)?.register(pagePath, kind, input);
+ };
 
  // BFS-depth closure (2026-06-11): the per-canton "Esplora" navigator only
  // linked the top-8 cities by job count, leaving every OTHER emitted
@@ -1442,6 +1461,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
 
  if (!fs.existsSync(jobsPath)) {
  console.warn('[jobs-seo-pages] data/jobs.json not found');
+ // Nessun manifest: uno snapshot valido con zero entry sarebbe
+ // indistinguibile da un corpus vuoto per un consumer di reuse/tombstone
+ // (review PR #8878) e gli farebbe trattare come rimosse tutte le pagine.
+ if (incrementalManifests) {
+   console.warn('[incremental-manifest] data/jobs.json missing: no manifest written (incomplete shard)');
+ }
  // Unblock downstream consumers before bailing. relatedSearchClustersPlugin
  // `await`s jobsSeoPagesFlushed (writeSitemap L2029 + cache-hit path L2190);
  // returning here without resolving the signal would hang those awaits
@@ -2784,6 +2809,9 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const perJob_matchedCity = CITY_HUB_KEYS.find((c) => jobMatchesCity(job as never, c));
  const perJob_logoUrl = companyLogo(job);
  const perJob_relatedPool = getRelatedPool(job);
+ // Keep the indexed record references: relatedHtml renders these same
+ // objects, so their full digest covers every related-card field.
+ const perJob_relatedJobs = incrementalManifests ? perJob_relatedPool : null;
  const perJob_relatedSeed = (() => {
  const s = String(job.slug || '');
  let h = 2166136261 >>> 0;
@@ -2847,6 +2875,13 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // The page itself is still emitted with its own URL (breadcrumbs,
  // JobPosting, etc. describe THIS page) so existing backlinks resolve.
  const effectiveCanonicalUrl = resolveCanonicalUrl(perLocaleSlug[locale], canonicalUrl);
+ const activeJobManifestInput = incrementalManifests
+  ? {
+   ...buildMinimalJobInput(job, locale, perLocaleSlug[locale], perJob_relatedJobs || []),
+   canton: jobCanton,
+   canonicalUrl: effectiveCanonicalUrl,
+  }
+  : null;
  const localizedTitle = stripLiteralMarkdownFromTitle(String(job?.titleByLocale?.[locale] || job.title || ''));
  const jobLocation = perJob_jobLocation;
  const dc = getCantonDisplayLabel(perJob_cantonCode, locale);
@@ -3750,6 +3785,9 @@ ${staticAnalyticsHtml}
  recordPhase('template-render', __tPh_template);
  const __tPh_write = phaseTimer();
  _qw(np.join(outDir, 'index.html'), html);
+ if (incrementalManifests) {
+  registerIncrementalPage(locale, canonicalPath, 'active-job', activeJobManifestInput);
+ }
  jobHtmlCache.set(`${locale}:${perLocaleSlug[locale]}`, html);
  // Also write flat .html so /slug serves 200 (avoids GitHub Pages 301 redirect)
  // Uses a canonical bridge page instead of a noindex/meta-refresh alias
@@ -3799,6 +3837,15 @@ ${staticAnalyticsHtml}
  const legacyDir = np.join(distDir, legacyRel);
  _md(legacyDir);
  _qw(np.join(legacyDir, 'index.html'), legacyIndexHtml);
+ if (incrementalManifests) {
+  registerIncrementalPage(locale, legacyRel, 'legacy-slug-bridge', {
+   bridgeType: 'locale-slug',
+   source: activeJobManifestInput,
+   sourcePath: canonicalPath,
+   targetPath: legacyRel,
+   legacySlug: job.slug,
+  });
+ }
  const legacyFlat = np.join(distDir, legacyRel + '.html');
  _qwFlatFull(legacyFlat, legacyIndexHtml.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
  }
@@ -3830,6 +3877,15 @@ ${staticAnalyticsHtml}
  const legacyTIDir = np.join(distDir, legacyTIRel);
  _md(legacyTIDir);
  _qw(np.join(legacyTIDir, 'index.html'), legacyTIIndexHtml);
+ if (incrementalManifests) {
+  registerIncrementalPage(locale, legacyTIRel, 'legacy-slug-bridge', {
+   bridgeType: 'legacy-ti',
+   source: activeJobManifestInput,
+   sourcePath: canonicalPath,
+   targetPath: legacyTIRel,
+   legacySlug: job.slug,
+  });
+ }
  const legacyTIFlat = np.join(distDir, legacyTIRel + '.html');
  _qwFlatFull(legacyTIFlat, legacyTIIndexHtml.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
  // Claim this TI-mirror path as the AUTHORITATIVE active bridge so the
@@ -12328,13 +12384,14 @@ ${staticAnalyticsHtml}
  // Never overwrite ANY page already written by an earlier phase
  // (active jobs, company pages, search pages, editorial pages)
  const targetFile = np.join(distDir, normPath, 'index.html');
- if (_writtenPaths.has(targetFile)) return;
- if (activeJobDirs.has(normPath)) return;
+ if (_writtenPaths.has(targetFile)) return false;
+ if (activeJobDirs.has(normPath)) return false;
 
  const outDir = np.join(distDir, normPath);
  _qw(np.join(outDir, 'index.html'), html);
  const flatFile = np.join(distDir, normPath + '.html');
  _qwFlat(flatFile, html);
+ return true;
  };
 
  // Pre-compute company → active jobs lookup (O(1) instead of O(n) per expired page)
@@ -12359,7 +12416,6 @@ ${staticAnalyticsHtml}
  }
  return result;
  };
-
  // Cache soft-landing HTML per (locale, slug) so the cross-locale
  // reconciliation pass below can reuse it instead of re-rendering.
  // Only cache slugs that actually need it — jobs from expired-jobs.json
@@ -13132,7 +13188,38 @@ ${staticAnalyticsHtml}
  emittedSoftLandingPaths.add(__slPathKey);
 
  const __tEjpWrite = phaseTimer();
- writeSoftLandingPage(relPath.slice(1), softLandingHtml);
+ const softLandingManifestInput = incrementalManifests
+  ? {
+   ...buildMinimalJobInput(
+    ejData || { slug },
+    locale,
+    slug,
+    (sameCompanyActiveJobs.length > 0 ? sameCompanyActiveJobs : selectRecentJobs(slug, slug))
+     .map((relatedJob: any) => stableJobId(relatedJob))
+     .filter(Boolean),
+   ),
+   path: relPath,
+   trackingPaths: paths,
+   company: jobCompany,
+   location: jobLocation,
+   canton: jobCanton,
+   sector: jobSector,
+   contract: jobContract,
+   datePosted: jobDatePosted,
+   expiredAt: jobExpiredAt,
+   gscQueries: Array.isArray(gscInfo?.queries) ? gscInfo.queries.slice(0, 6) : [],
+   candidatePaths: __slCandidatePaths,
+   prosePaths: __slProsePaths,
+   keepProse: __slKeepProse,
+   action: __slAction,
+  }
+  : null;
+ const wroteSoftLanding = writeSoftLandingPage(relPath.slice(1), softLandingHtml);
+ if (wroteSoftLanding) {
+  if (incrementalManifests) {
+   registerIncrementalPage(locale, relPath, 'expired-soft-landing', softLandingManifestInput);
+  }
+ }
  const cacheKey = `${locale}:${slug}`;
  if (expiredCacheKeys.has(cacheKey)) {
  expiredSoftLandingCache.set(cacheKey, softLandingHtml);
@@ -13145,7 +13232,18 @@ ${staticAnalyticsHtml}
  const trackedRel = relPath.replace(/^\//, '');
  if (legacyRel !== trackedRel && !emittedSoftLandingPaths.has(legacyRel.replace(/\/+$/, ''))) {
  emittedSoftLandingPaths.add(legacyRel.replace(/\/+$/, ''));
- writeSoftLandingPage(legacyRel, softLandingHtml);
+ const wroteLegacySoftLanding = writeSoftLandingPage(legacyRel, softLandingHtml);
+ if (wroteLegacySoftLanding) {
+  if (incrementalManifests) {
+   registerIncrementalPage(locale, legacyRel, 'legacy-slug-bridge', {
+    bridgeType: 'expired-soft-landing-legacy-locale',
+    source: softLandingManifestInput,
+    sourcePath: relPath,
+    targetPath: legacyRel,
+    legacySlug: slug,
+   });
+  }
+ }
  legacyCount++;
  }
  }
@@ -13298,6 +13396,17 @@ ${staticAnalyticsHtml}
  _md(outDir);
  _qw(indexFile, bridgeHtml);
  _writtenPaths.add(indexFile);
+ if (incrementalManifests) {
+  registerIncrementalPage(baseLocale, relPath, 'cross-locale-reconciliation', {
+   ...buildMinimalJobInput(ej, baseLocale, baseSlug),
+   source: 'expired-soft-landing',
+   path: relPath,
+   baseLocale,
+   foreignSlug,
+   canton: ejCantonForCrossLocale,
+   slugByLocale,
+  });
+ }
  crossLocaleExpiredCount++;
  recordEmit('cross-locale-expired-bridge', __tCrossLocaleExpired);
  // Sibling backpressure (AGENTS.md #6): same unbounded background-flush
@@ -13654,6 +13763,17 @@ ${staticAnalyticsHtml}
 
  _md(outDir);
  _qw(np.join(outDir, 'index.html'), indexHtml);
+ if (incrementalManifests) {
+  registerIncrementalPage(locale, oldPath, 'previous-slugs-full-content', {
+   ...buildMinimalJobInput(job, locale, currentSlug, getRelatedPool(job)),
+   path: oldPath,
+   canton: jobCantonForBridge,
+   oldSlug,
+   currentSlug,
+   winnerId,
+   previousSlugsByLocale: pslByLocale,
+  });
+ }
 
  const flatFile = np.join(distDir, oldPath.replace(/^\//, '') + '.html');
  _md(np.dirname(flatFile));
@@ -13700,6 +13820,18 @@ ${staticAnalyticsHtml}
  const legacyTIOutDir = np.join(distDir, legacyTIRelPath);
  _md(legacyTIOutDir);
  _qw(np.join(legacyTIOutDir, 'index.html'), indexHtml);
+ if (incrementalManifests) {
+  registerIncrementalPage(locale, legacyTIRelPath, 'previous-slugs-full-content', {
+   ...buildMinimalJobInput(job, locale, currentSlug, getRelatedPool(job)),
+   path: legacyTIRelPath,
+   canton: jobCantonForBridge,
+   oldSlug,
+   currentSlug,
+   winnerId,
+   previousSlugsByLocale: pslByLocale,
+   bridgeType: 'legacy-ti',
+  });
+ }
  const legacyTIFlatFile = np.join(distDir, legacyTIRelPath + '.html');
  _md(np.dirname(legacyTIFlatFile));
  _qwFlat(legacyTIFlatFile, indexHtml);
@@ -13884,6 +14016,18 @@ ${staticAnalyticsHtml}
  _md(outDir);
  _qw(indexFile, bridgeHtml);
  _writtenPaths.add(indexFile);
+ if (incrementalManifests) {
+  registerIncrementalPage(baseLocale, relPath, 'cross-locale-reconciliation', {
+   ...buildMinimalJobInput(job, baseLocale, baseSlug, getRelatedPool(job)),
+   source: 'active-job',
+   path: relPath,
+   baseLocale,
+   foreignSlug,
+   canton: jobCantonForCrossLocale,
+   slugPerLocale,
+   previousSlugsByLocale: prevSlugsByLocale,
+  });
+ }
  // Note: skip the flat `.html` variant — GH Pages serves
  // /dir/index.html for direct URL hits and the flat variant
  // would double disk usage for ~27k bridge pages.
@@ -14190,6 +14334,16 @@ ${staticAnalyticsHtml}
  `(bridges=${fmtBytes(bridgeBytesSaved)}, soft-landings=${fmtBytes(softLandingBytesSaved)}, gsc-keyword=${fmtBytes(gscKeywordBytesSaved)})`
  );
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m ${trafficFilter.summary()}`);
+ if (incrementalManifests) {
+  for (const manifest of incrementalManifests.values()) {
+   const manifestPath = manifest.write(rootDir);
+   const manifestData = manifest.toJSON();
+   console.log(
+    `\x1b[36m[jobs-seo-pages]\x1b[0m incremental manifest ${np.relative(rootDir, manifestPath)} ` +
+    `entries=${manifestData.counts.total} kinds=${JSON.stringify(manifestData.counts.byKind)}`,
+   );
+  }
+ }
  },
  };
 }
