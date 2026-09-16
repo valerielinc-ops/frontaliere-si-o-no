@@ -6443,6 +6443,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ocse-crescita-svizzera-2026.title': 'OECD sieht mehr Wachstum in der Schweiz, BIP 2026 bei 2,0%',
     'blog.article.ocse-crescita-svizzera-2026.excerpt': 'Die OECD revidiert die Prognose für die Schweiz nach oben: BIP-Wachstum auf 2,0% im Jahr 2026 und stabile durchschnittliche Inflation auf 0,6%.',
     'blog.article.ocse-crescita-svizzera-2026.imageAlt': 'Wirtschaftliche Übersicht der Schweiz mit OECD-Wachstumsprognosen',
+    'blog.article.ocse-rapporto-svizzera-2026.title': 'OECD-Bericht zur Schweiz: Stabilität und Wirtschaftsreformen',
+    'blog.article.ocse-rapporto-svizzera-2026.excerpt': 'Die OECD hat den Bericht über die Schweiz veröffentlicht, in dem sie die wirtschaftliche Widerstandsfähigkeit schätzt, aber Reformen in den Bereichen Gesundheit, Vorsorge und Verwaltung bis Ende 2027 fordert.',
+    'blog.article.ocse-rapporto-svizzera-2026.imageAlt': 'Bundeshaus in Bern Sitz der Schweizer Institutionen',
 };
 
 export default blogMetaChDe;

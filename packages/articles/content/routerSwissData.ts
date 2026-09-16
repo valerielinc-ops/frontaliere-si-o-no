@@ -2170,6 +2170,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'formazione-adulta-reddito-svizzera': { it: 'formazione-adulta-reddito-svizzera', en: 'adult-education-income-switzerland', de: 'bildung-erwachsene-einkommen-schweiz', fr: 'formation-adultes-revenu-suisse' },
  'farmacie-turno-svizzera-confine-italiano': { it: 'farmacie-turno-svizzera-confine-italiano', en: 'on-duty-pharmacies-switzerland-italian-border', de: 'notdienst-apotheken-schweiz-italienische-grenze', fr: 'pharmacies-garde-suisse-frontiere-italienne' },
  'ocse-crescita-svizzera-2026': { it: 'ocse-crescita-svizzera-2026', en: 'oecd-switzerland-growth-2026', de: 'oecd-schweiz-wachstum-2026', fr: 'ocde-croissance-suisse-2026' },
+ 'ocse-rapporto-svizzera-2026': { it: 'ocse-rapporto-svizzera-2026', en: 'oecd-switzerland-report-2026', de: 'oecd-bericht-schweiz-2026', fr: 'ocde-rapport-suisse-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
