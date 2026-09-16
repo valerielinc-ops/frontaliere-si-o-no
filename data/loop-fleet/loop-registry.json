@@ -41,7 +41,6 @@
     "stale-label": "A3",
     "quarantine": "A2",
     "block-publication": "A4",
-    "block-proven-defect": "A4",
     "suppress": "A4",
     "defer": "A4",
     "route": "A4",
@@ -437,7 +436,7 @@
       },
       "minimumSample": 1,
       "maxAutonomy": "A2",
-      "actionClasses": ["observe", "issue", "pr", "block-proven-defect"],
+      "actionClasses": ["observe", "issue", "pr"],
       "actionPolicy": {
         "healthy": "observe",
         "needsReview": "issue"

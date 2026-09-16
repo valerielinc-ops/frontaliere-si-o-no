@@ -75,6 +75,19 @@ describe('record-loop-fleet-evidence', () => {
       .toThrow(/not allowed by registry/);
   });
 
+  it('fails closed when a declared action class exceeds the loop autonomy ceiling', () => {
+    const invalid = {
+      ...registry,
+      actionAutonomy: { ...registry.actionAutonomy, 'block-proven-defect': 'A4' },
+      loops: registry.loops.map((loop: any) => loop.loopId === 'L11'
+        ? { ...loop, actionClasses: [...new Set([...loop.actionClasses, 'block-proven-defect'])] }
+        : loop),
+    };
+
+    expect(() => validateLoopRegistry(invalid))
+      .toThrow(/L11\.actionClasses.*block-proven-defect.*requires A4.*maximum is A2/);
+  });
+
   it('fails closed when a loop provenance reference is missing or undeclared', () => {
     const missing = {
       ...registry,
