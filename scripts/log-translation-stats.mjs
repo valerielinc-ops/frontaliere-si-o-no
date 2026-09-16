@@ -64,9 +64,15 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { isIncomplete as isIncompleteCanonical } from './relocalize-pending-jobs.mjs';
-import { titleOffence, descriptionOffence } from './mark-mistranslated-jobs.mjs';
+import {
+  titleOffence,
+  descriptionOffence,
+  genderFormOffence,
+  genderFormTargetResidual,
+} from './mark-mistranslated-jobs.mjs';
 import { QUEUE_AGE_BUCKET_KEYS, summarizeQueueAge } from './lib/job-traffic-priority.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 
@@ -104,6 +110,117 @@ export const LOCALES = ['it', 'en', 'de', 'fr'];
 export const MIN_DESC = 120;
 export const MIN_TITLE = 3;
 
+/** Fixed, reproducible cohort for the one-shot German gender-form repair. */
+export const GENDER_FORM_SAMPLE_SIZE = 120;
+export const GENDER_FORM_SAMPLE_SEED = 20260908;
+
+function sha256(value) {
+  return createHash('sha256').update(String(value)).digest('hex');
+}
+
+function sourceTitleHash(job) {
+  return sha256(String(job?.title || ''));
+}
+
+/**
+ * Select a stable sample by hash, never by slice-file order. The latter is not
+ * a sampling method: a crawler rename or directory sort change would silently
+ * replace the cohort between the before and after passes.
+ *
+ * @param {Array<{id:string, beforeSourceTitleHash:string, beforeSourceLang?:string}>} records
+ * @param {{seed?:number, size?:number}} [options]
+ * @returns {Array<{id:string, beforeSourceTitleHash:string}>}
+ */
+export function selectGenderFormSample(
+  records,
+  { seed = GENDER_FORM_SAMPLE_SEED, size = GENDER_FORM_SAMPLE_SIZE } = {},
+) {
+  const limit = Number.isInteger(size) && size >= 0 ? size : GENDER_FORM_SAMPLE_SIZE;
+  const unique = new Map();
+  for (const record of Array.isArray(records) ? records : []) {
+    const id = typeof record?.id === 'string' ? record.id.trim() : '';
+    const beforeSourceTitleHash = typeof record?.beforeSourceTitleHash === 'string'
+      ? record.beforeSourceTitleHash
+      : '';
+    const beforeSourceLang = typeof record?.beforeSourceLang === 'string'
+      ? record.beforeSourceLang.trim().toLowerCase()
+      : '';
+    if (!id || !beforeSourceTitleHash || unique.has(id)) continue;
+    unique.set(id, { id, beforeSourceTitleHash, beforeSourceLang });
+  }
+  return [...unique.values()]
+    .sort((left, right) => {
+      const leftRank = sha256(`${seed}:${left.id}`);
+      const rightRank = sha256(`${seed}:${right.id}`);
+      return leftRank.localeCompare(rightRank) || left.id.localeCompare(right.id);
+    })
+    .slice(0, limit);
+}
+
+/**
+ * Build the persisted/reportable state for the before/after metric.
+ * `measured` is true only after every sampled job has left the retranslation
+ * queue and is complete. Partial drains remain visible but cannot be mistaken
+ * for the final rate.
+ */
+export function buildGenderFormRepairReport({
+  phase = 'unmeasured',
+  queuedCandidates = null,
+  requested = GENDER_FORM_SAMPLE_SIZE,
+  seed = GENDER_FORM_SAMPLE_SEED,
+  sampled = 0,
+  processed = 0,
+  residual = 0,
+  cohortAvailable = false,
+} = {}) {
+  if (phase === 'before') {
+    return {
+      measured: false,
+      status: sampled > 0 ? 'cohort-captured' : 'no-queued-candidates',
+      seed,
+      requested,
+      queuedCandidates,
+      sampled,
+      processed: 0,
+      residual: 0,
+      residualRate: null,
+    };
+  }
+
+  if (!cohortAvailable) {
+    return {
+      measured: false,
+      status: 'not-measured',
+      seed,
+      requested,
+      queuedCandidates,
+      sampled: 0,
+      processed: 0,
+      residual: 0,
+      residualRate: null,
+    };
+  }
+
+  const complete = sampled > 0 && processed === sampled;
+  return {
+    measured: complete,
+    status: sampled === 0
+      ? 'no-queued-candidates'
+      : complete
+        ? 'measured'
+        : processed > 0
+          ? 'partial'
+          : 'awaiting-retranslation',
+    seed,
+    requested,
+    queuedCandidates,
+    sampled,
+    processed,
+    residual,
+    residualRate: processed > 0 ? residual / processed : null,
+  };
+}
+
 function readJson(p) {
   try { return JSON.parse(fs.readFileSync(p, 'utf-8')); } catch { return null; }
 }
@@ -124,6 +241,17 @@ export function formatCompleteRatio(part, total) {
   if (part >= total) return `${part}/${total} (100%)`;
   const floored = Math.min(Math.floor((part / total) * 1000) / 10, 99.9);
   return `${part}/${total} (${floored.toFixed(1)}%)`;
+}
+
+/**
+ * Format the gender-form residual rate as a problem rate. A non-zero residual
+ * must never print as 0.0%, even while the sample is partial.
+ */
+export function formatGenderFormRate(residual, processed) {
+  if (!Number.isFinite(processed) || processed <= 0) return 'n/a';
+  if (residual >= processed) return '100%';
+  const ceiled = Math.min(Math.ceil((residual / processed) * 1000) / 10, 99.9);
+  return `${ceiled.toFixed(1)}%`;
 }
 
 /**
@@ -250,6 +378,14 @@ export function emptyCounters() {
     // which is a different statement from having measured zero. An empty array
     // by default would quietly make all of them claim the second.
     completedSamples: null,
+    // The one-shot German gender-form cohort. These counters are populated only
+    // by the `before` pass (or for sampled ids on `after`), so ordinary
+    // observability snapshots do not retain a corpus-sized id list.
+    genderFormCandidates: 0,
+    genderFormQueuedCandidates: 0,
+    genderFormCohortCandidates: [],
+    genderFormSampleProcessed: 0,
+    genderFormSampleResidual: 0,
   };
 }
 
@@ -274,14 +410,24 @@ export function jobCohortId(job) {
  * Count one array of jobs (one crawler slice). Pure — no I/O.
  *
  * @param {object[]} jobs
- * @param {{ collectIncompleteIds?: boolean, previouslyIncomplete?: Set<string>|null }} [opts]
+ * @param {{ collectIncompleteIds?: boolean, previouslyIncomplete?: Set<string>|null,
+ *           collectGenderFormCohort?: boolean,
+ *           previouslyGenderFormSample?: Map<string, object>|null }} [opts]
  *   `collectIncompleteIds` fills `incompleteIds` (the `before` pass writes it to
  *   the cohort sidecar). `previouslyIncomplete` is that cohort read back on the
  *   `after` pass: a job that is complete now and appears in it was completed by
  *   THIS run, and only those jobs land in `completedSamples`.
  * @returns {ReturnType<typeof emptyCounters>}
  */
-export function summarizeJobs(jobs, { collectIncompleteIds = false, previouslyIncomplete = null } = {}) {
+export function summarizeJobs(
+  jobs,
+  {
+    collectIncompleteIds = false,
+    previouslyIncomplete = null,
+    collectGenderFormCohort = false,
+    previouslyGenderFormSample = null,
+  } = {},
+) {
   const c = emptyCounters();
   // Asked for the diff — so from here on "no sample" means zero, not unmeasured.
   if (previouslyIncomplete) c.completedSamples = [];
@@ -289,6 +435,43 @@ export function summarizeJobs(jobs, { collectIncompleteIds = false, previouslyIn
     c.total++;
     const { incomplete, sourceCopyExcused } = classifyJob(job);
     const flagged = !!job.needsRetranslation;
+    const id = jobCohortId(job);
+
+    // Capture only jobs that are both explicitly in the retranslation queue and
+    // match the same source-side predicate as the one-shot marker. This is the
+    // actual before cohort, not a post-hoc count of every German source title.
+    if (collectGenderFormCohort) {
+      const genderFormHit = genderFormOffence(job);
+      if (genderFormHit) {
+        c.genderFormCandidates++;
+        if (flagged) {
+          c.genderFormQueuedCandidates++;
+          if (id) {
+            c.genderFormCohortCandidates.push({
+              id,
+              beforeSourceTitleHash: sourceTitleHash(job),
+              beforeSourceLang: String(job.sourceLang || '').trim().toLowerCase(),
+            });
+          }
+        }
+      }
+    }
+
+    // A sample member counts only when the same source title is still present,
+    // the job is complete, and its retranslation flag has actually cleared. A
+    // record that merely remains in the dataset is not evidence of a repair.
+    if (previouslyGenderFormSample && id) {
+      const sampleRecord = previouslyGenderFormSample.get(id);
+      const sameSourceTitle = sampleRecord?.beforeSourceTitleHash === sourceTitleHash(job);
+      const sourceLang = String(job.sourceLang || '').trim().toLowerCase();
+      const sameGermanSource = sampleRecord?.beforeSourceLang === sourceLang &&
+        sourceLang.startsWith('de');
+      if (sampleRecord && sameSourceTitle && sameGermanSource && !incomplete && !flagged) {
+        c.genderFormSampleProcessed++;
+        if (genderFormTargetResidual(job)) c.genderFormSampleResidual++;
+      }
+    }
+
     if (flagged) {
       c.needsRetranslation++;
       c.queuedSamples.push({
@@ -315,7 +498,6 @@ export function summarizeJobs(jobs, { collectIncompleteIds = false, previouslyIn
     // snapshot never sees the moment it was served. Only the diff against the
     // cohort the `before` pass captured identifies the jobs this run completed.
     if (!incomplete && previouslyIncomplete) {
-      const id = jobCohortId(job);
       if (id && previouslyIncomplete.has(id)) {
         c.completedSamples.push({
           firstSeenAt: job.firstSeenAt,
@@ -356,9 +538,16 @@ export function mergeCounters(dst, src) {
   dst.sourceCopyExcused += src.sourceCopyExcused;
   dst.slotsPresentByLength += src.slotsPresentByLength;
   dst.languageVerified += src.languageVerified;
+  dst.genderFormCandidates += src.genderFormCandidates;
+  dst.genderFormQueuedCandidates += src.genderFormQueuedCandidates;
+  dst.genderFormSampleProcessed += src.genderFormSampleProcessed;
+  dst.genderFormSampleResidual += src.genderFormSampleResidual;
   for (const loc of LOCALES) dst.byLocale[loc] += src.byLocale[loc];
   if (src.queuedSamples?.length) dst.queuedSamples.push(...src.queuedSamples);
   if (src.incompleteIds?.length) dst.incompleteIds.push(...src.incompleteIds);
+  if (src.genderFormCohortCandidates?.length) {
+    dst.genderFormCohortCandidates.push(...src.genderFormCohortCandidates);
+  }
   // An EMPTY array still promotes `dst` out of `null`: a slice that was diffed
   // and completed nothing is a measurement, and merging it must not read as
   // "never measured". Only a `null` on every side leaves the total unmeasured.
@@ -376,7 +565,16 @@ export function mergeCounters(dst, src) {
  * series stays comparable; `slotsPresent` is the same number under a name that
  * does not claim more than it measures.
  */
-export function finalizeEntry(counters, { label, topPending = [], timestamp = new Date().toISOString(), now = Date.now() } = {}) {
+export function finalizeEntry(
+  counters,
+  {
+    label,
+    topPending = [],
+    timestamp = new Date().toISOString(),
+    now = Date.now(),
+    genderFormRepair = undefined,
+  } = {},
+) {
   const complete = counters.total - counters.incomplete;
   // Queue AGE, not just queue SIZE (#5653 item 2).
   //
@@ -435,6 +633,7 @@ export function finalizeEntry(counters, { label, topPending = [], timestamp = ne
     // Present only on the `after` pass of a run whose `before` pass ran; `null`
     // everywhere else, including on the 200 rows written before #17.
     completionAge,
+    genderFormRepair: buildGenderFormRepairReport(genderFormRepair),
     topPending,
   };
 }
@@ -502,6 +701,25 @@ export function formatReport(entry) {
         `(p90 ${ca.p90AgeDays ?? 'n/a'}d · ${ca.count} jobs completed this run · under 24h: ${ca.buckets[QUEUE_AGE_BUCKET_KEYS[0]]})`);
   }
 
+  // The gender-form one-shot has a separate before/after cohort. A partial
+  // drain is printed with its observed counts but is never labelled measured;
+  // this is the guard against mistaking a mid-run snapshot for the requested
+  // 120-job after result.
+  const gf = entry.genderFormRepair;
+  if (!gf || gf.status === 'not-measured') {
+    row('Gender-form after:', 'not measured',
+        '(no before cohort for this run — needs the before/after pair)');
+  } else if (entry.label === 'before') {
+    row('Gender-form cohort:', `${gf.sampled}/${gf.requested}`,
+        `${gf.queuedCandidates ?? 0} queued candidates · seed ${gf.seed}`);
+  } else {
+    const rate = formatGenderFormRate(gf.residual, gf.processed);
+    const note = gf.measured
+      ? `complete sample ${gf.sampled}/${gf.requested} · seed ${gf.seed}`
+      : `${gf.processed}/${gf.sampled} processed · ${gf.status} · seed ${gf.seed}`;
+    row('Gender-form after:', `${gf.residual}/${gf.processed} (${rate})`, note);
+  }
+
   // COMPLETE is reserved for the exact case: nothing missing and nothing
   // flagged. Anything else says so in words, not just in a percentage.
   if (entry.incomplete === 0 && entry.needsRetranslation === 0) {
@@ -521,15 +739,17 @@ export function formatReport(entry) {
 }
 
 /**
- * Read the cohort the `before` pass left behind, or `null` when there is none.
+ * Read the state the `before` pass left behind, or `null` when there is none.
  *
  * Fail-open on purpose: a missing, empty or malformed sidecar degrades the run
- * to "age at completion not measured" and is reported as such. It must never
- * fail the translation run, which has real work to commit either way.
+ * to "after not measured" and is reported as such. It must never fail the
+ * translation run, which has real work to commit either way. The old sidecar
+ * was a bare array of incomplete ids; accepting it keeps age-at-completion
+ * history compatible while correctly leaving the new gender sample unmeasured.
  *
- * @returns {Set<string>|null}
+ * @returns {{ incompleteIds: string[], genderFormSample: object|null }|null}
  */
-function readCohort() {
+function readCohortState() {
   const raw = readJson(COHORT_FILE);
   // An EMPTY cohort is a cohort: the `before` pass ran and found nothing
   // incomplete. Collapsing it onto `null` would make the `after` pass report
@@ -537,8 +757,32 @@ function readCohort() {
   // null/zero conflation that `completedSamples: null` exists to prevent,
   // reopened by the reader. `null` is reserved for a sidecar that is absent or
   // malformed, which is the only case where nothing was measured.
-  if (!Array.isArray(raw)) return null;
-  return new Set(raw);
+  if (Array.isArray(raw)) return { incompleteIds: raw, genderFormSample: null };
+  if (!raw || typeof raw !== 'object' || !Array.isArray(raw.incompleteIds)) return null;
+
+  const sample = raw.genderFormSample;
+  if (!sample || typeof sample !== 'object' || !Array.isArray(sample.records)) {
+    return { incompleteIds: raw.incompleteIds, genderFormSample: null };
+  }
+
+  const records = sample.records.filter((record) =>
+    typeof record?.id === 'string' && record.id.trim() &&
+    typeof record?.beforeSourceTitleHash === 'string' && record.beforeSourceTitleHash &&
+    typeof record?.beforeSourceLang === 'string' && record.beforeSourceLang.trim().toLowerCase().startsWith('de'),
+  );
+  return {
+    incompleteIds: raw.incompleteIds,
+    genderFormSample: {
+      seed: Number.isInteger(sample.seed) ? sample.seed : GENDER_FORM_SAMPLE_SEED,
+      requested: Number.isInteger(sample.requested) && sample.requested >= 0
+        ? sample.requested
+        : GENDER_FORM_SAMPLE_SIZE,
+      queuedCandidates: Number.isInteger(sample.queuedCandidates) && sample.queuedCandidates >= 0
+        ? sample.queuedCandidates
+        : null,
+      records,
+    },
+  };
 }
 
 export function beforeCohortWarning(label, cohort) {
@@ -553,7 +797,11 @@ function main() {
   // snapshot with no partner pass, so it neither writes nor reads the cohort.
   const isBefore = label === 'before';
   const isAfter = label === 'after';
-  const previouslyIncomplete = isAfter ? readCohort() : null;
+  const cohortState = isAfter ? readCohortState() : null;
+  const previouslyIncomplete = cohortState ? new Set(cohortState.incompleteIds) : null;
+  const previouslyGenderFormSample = cohortState?.genderFormSample
+    ? new Map(cohortState.genderFormSample.records.map((record) => [record.id, record]))
+    : null;
   const cohortWarning = beforeCohortWarning(label, previouslyIncomplete);
   if (cohortWarning) console.warn(cohortWarning);
 
@@ -569,6 +817,8 @@ function main() {
     const sliceCounters = summarizeJobs(jobs, {
       collectIncompleteIds: isBefore,
       previouslyIncomplete,
+      collectGenderFormCohort: isBefore,
+      previouslyGenderFormSample,
     });
     mergeCounters(counters, sliceCounters);
     if (sliceCounters.incomplete > 0) {
@@ -579,7 +829,33 @@ function main() {
 
   topCompanies.sort((a, b) => b.pending - a.pending);
 
-  const entry = finalizeEntry(counters, { label, topPending: topCompanies.slice(0, 10) });
+  const genderFormSample = isBefore
+    ? selectGenderFormSample(counters.genderFormCohortCandidates)
+    : [];
+  const genderFormRepair = isBefore
+    ? {
+      phase: 'before',
+      seed: GENDER_FORM_SAMPLE_SEED,
+      requested: GENDER_FORM_SAMPLE_SIZE,
+      queuedCandidates: counters.genderFormQueuedCandidates,
+      sampled: genderFormSample.length,
+    }
+    : {
+      phase: 'after',
+      cohortAvailable: Boolean(cohortState?.genderFormSample),
+      seed: cohortState?.genderFormSample?.seed ?? GENDER_FORM_SAMPLE_SEED,
+      requested: cohortState?.genderFormSample?.requested ?? GENDER_FORM_SAMPLE_SIZE,
+      queuedCandidates: cohortState?.genderFormSample?.queuedCandidates ?? null,
+      sampled: cohortState?.genderFormSample?.records.length ?? 0,
+      processed: counters.genderFormSampleProcessed,
+      residual: counters.genderFormSampleResidual,
+    };
+
+  const entry = finalizeEntry(counters, {
+    label,
+    topPending: topCompanies.slice(0, 10),
+    genderFormRepair,
+  });
 
   for (const line of formatReport(entry)) console.log(line);
 
@@ -595,8 +871,21 @@ function main() {
   // same reason: losing the sidecar costs one metric, not the run.
   if (isBefore) {
     try {
-      fs.writeFileSync(COHORT_FILE, JSON.stringify(counters.incompleteIds), 'utf-8');
-      console.log(`   Cohort for age-at-completion: ${counters.incompleteIds.length} incomplete jobs → ${COHORT_FILE}\n`);
+      fs.writeFileSync(COHORT_FILE, JSON.stringify({
+        version: 2,
+        incompleteIds: counters.incompleteIds,
+        genderFormSample: {
+          seed: GENDER_FORM_SAMPLE_SEED,
+          requested: GENDER_FORM_SAMPLE_SIZE,
+          queuedCandidates: counters.genderFormQueuedCandidates,
+          records: genderFormSample,
+        },
+      }), 'utf-8');
+      console.log(
+        `   Cohort for age-at-completion: ${counters.incompleteIds.length} incomplete jobs → ${COHORT_FILE}`
+          + `; gender-form sample ${genderFormSample.length}/${GENDER_FORM_SAMPLE_SIZE}`
+          + ` from ${counters.genderFormQueuedCandidates} queued candidates\n`,
+      );
     } catch (err) {
       console.warn(`   ⚠️ Could not write ${COHORT_FILE}: ${err.message} — age at completion will read "not measured".\n`);
     }
