@@ -142,4 +142,17 @@ describe('mergeSentJobs', () => {
     const fresh = filterUnsentJobs(ranked, map1, NOW + day); // tomorrow
     expect(fresh.map((j) => j.id)).toEqual(['y']);
   });
+
+  it('deduplicates a re-crawled publisher projection by its stable id', () => {
+    const day = 24 * 60 * 60 * 1000;
+    const publisherJob = {
+      id: 'pub-KNYO6oOYvTLgNlOBR6oA-lugano',
+      firstSeenAt: new Date(NOW - 6 * day).toISOString(),
+      postedDate: new Date(NOW - 6 * day).toISOString(),
+      crawledAt: new Date(NOW).toISOString(),
+    };
+    const sent = mergeSentJobs({}, [publisherJob], NOW);
+
+    expect(filterUnsentJobs([publisherJob], sent, NOW)).toEqual([]);
+  });
 });

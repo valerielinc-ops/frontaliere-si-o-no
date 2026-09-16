@@ -256,6 +256,7 @@ describe('crawler generation PR B workflow wiring', () => {
     const preflight = steps.find((step: any) => step.name === 'Preflight crawler generation shadow transport');
     const dispatch = steps.find((step: any) => step.name === 'Dispatch crawler generation wave');
     const sentinel = steps.find((step: any) => step.name === 'Dispatch crawler generation sentinel');
+    const waveOutcome = steps.find((step: any) => step.name === 'Assert crawler generation wave outcome');
     const cleanup = steps.find((step: any) => step.name === 'Cleanup accepted crawler generation ref');
     const failureReporter = steps.find((step: any) => step.name === 'Report failure to GitHub Issues');
     expect(preflight).not.toHaveProperty('continue-on-error');
@@ -272,6 +273,19 @@ describe('crawler generation PR B workflow wiring', () => {
     expect(sentinel.run).toContain('scripts/crawler-generation-dispatch.mjs dispatch-sentinel');
     expect(sentinel.run).toContain('[ "$SHADOW_READY" != "true" ]');
     expect(sentinel.env.SHADOW_READY).toContain('steps.generation_wave.outputs.shadow_ready');
+    expect(waveOutcome).toMatchObject({
+      if: 'always()',
+      env: {
+        GENERATION_PREFLIGHT_READY: "${{ steps.generation_preflight.outputs.ready || 'false' }}",
+        GENERATION_PREFLIGHT_MODE: "${{ steps.generation_preflight.outputs.dispatch_mode || 'unknown' }}",
+        GENERATION_PREFLIGHT_REASONS: "${{ steps.generation_preflight.outputs.reasons || 'unknown' }}",
+        GENERATION_WAVE_OUTCOME: "${{ steps.generation_wave.outcome || 'skipped' }}",
+        GENERATION_WAVE_STARTED: "${{ steps.generation_wave.outputs.shadow_ready || 'false' }}",
+      },
+    });
+    expect(waveOutcome.run).toContain('crawler generation wave not launched');
+    expect(waveOutcome.run).toContain('$GENERATION_PREFLIGHT_REASONS');
+    expect(waveOutcome.run).toContain('dry-run=true');
     const checkpointUpload = steps.find((step: any) => step.name === 'Upload crawler generation dispatch checkpoint');
     expect(checkpointUpload).toMatchObject({
       if: 'always()',
@@ -297,6 +311,7 @@ describe('crawler generation PR B workflow wiring', () => {
     expect(preflight.env.GENERATION_PREFLIGHT_OUTPUT).toBe('${{ runner.temp }}/crawler-generation-dispatch/preflight.json');
     const translationDispatch = steps.find((step: any) => step.name === 'Dispatch translate-pending (frontaliere-articles)');
     expect(translationDispatch.env.GENERATION_PREFLIGHT_READY).toContain('steps.generation_preflight.outputs.ready');
+    expect(translationDispatch.env.GENERATION_PREFLIGHT_REASONS).toContain('steps.generation_preflight.outputs.reasons');
     expect(translationDispatch.run).toContain('does not make the blocked crawler wave green');
     const sentinelValidation = YAML.parse(fs.readFileSync(observerPath, 'utf8'))
       .jobs.sentinel.steps.find((step: any) => step.name === 'Validate manual sentinel binding before checkout');

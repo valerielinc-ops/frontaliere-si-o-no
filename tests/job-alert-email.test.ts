@@ -3,6 +3,8 @@ import path from 'node:path';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import {
   buildAlertEmail,
+  isActuallyNewJob,
+  jobRealFreshnessMs,
   mailerooMetaOnSent,
   __setFirestoreAdminForTest,
 } from '../scripts/send-job-alerts.mjs';
@@ -194,6 +196,95 @@ describe('job alert email — ✨ NUOVA badge keyed on firstSeenAt (48h)', () =>
     const job = fixtureJob({ firstSeenAt: undefined });
     const result = buildAlertEmail(fixtureAlert('it'), [job], true);
     expect(result.html).not.toContain('✨ NUOVA');
+  });
+});
+
+describe('job alert email — real freshness is not a publisher re-crawl', () => {
+  const hoursAgo = (hours: number) => new Date(Date.now() - hours * 3600 * 1000).toISOString();
+
+  const recrawledPublisherJob = () => fixtureJob({
+    id: 'pub-KNYO6oOYvTLgNlOBR6oA-lugano',
+    source: 'publisher-submitted',
+    publisherJobId: 'KNYO6oOYvTLgNlOBR6oA',
+    title: 'Ergoterapista dipl. (m/f) – 60–100%',
+    company: 'Ergo Ticino Sagl',
+    firstSeenAt: hoursAgo(6 * 24),
+    postedDate: hoursAgo(6 * 24),
+    crawledAt: new Date().toISOString(),
+  });
+
+  it('does not treat a paid publisher re-projection as new', () => {
+    const job = recrawledPublisherJob();
+    const now = Date.now();
+
+    expect(jobRealFreshnessMs(job)).toBe(Date.parse(job.firstSeenAt));
+    expect(isActuallyNewJob(job, now)).toBe(false);
+
+    const result = buildAlertEmail(
+      { ...fixtureAlert('it'), id: 'backfill-newsletter' },
+      [job],
+      true,
+    );
+
+    expect(result.html).toContain('1 offerta selezionata per te');
+    expect(result.html).toContain('1 offerta selezionata:');
+    expect(result.html).not.toContain('1 nuova offerta per te');
+    expect(result.html).not.toContain('✨ NUOVA');
+    expect(result.text).toContain('1 offerta selezionata per te');
+    // A non-empty alert subject is item-specific and must not reintroduce the
+    // generic “new” claim that the hero/preheader has already avoided.
+    expect(result.subject).toContain('Ergoterapista');
+    expect(result.subject).not.toMatch(/nuov/i);
+  });
+
+  it('keeps genuinely new publisher offers on the new path', () => {
+    const job = recrawledPublisherJob();
+    const fresh = hoursAgo(3);
+    job.firstSeenAt = fresh;
+    job.postedDate = fresh;
+
+    expect(isActuallyNewJob(job, Date.now())).toBe(true);
+    const result = buildAlertEmail(fixtureAlert('it'), [job], true);
+
+    expect(result.html).toContain('1 nuova offerta per te');
+    expect(result.html).toContain('✨ NUOVA');
+    expect(result.html).not.toContain('1 offerta selezionata per te');
+  });
+
+  it('uses postedDate when firstSeenAt is absent, never crawledAt alone', () => {
+    const withPostedDate = recrawledPublisherJob();
+    withPostedDate.firstSeenAt = undefined;
+    withPostedDate.postedDate = hoursAgo(3);
+    expect(isActuallyNewJob(withPostedDate, Date.now())).toBe(true);
+
+    const crawledOnly = recrawledPublisherJob();
+    crawledOnly.firstSeenAt = undefined;
+    crawledOnly.postedDate = undefined;
+    expect(isActuallyNewJob(crawledOnly, Date.now())).toBe(false);
+  });
+
+  it('uses neutral copy when a message mixes new and re-crawled offers', () => {
+    const oldJob = recrawledPublisherJob();
+    const newJob = fixtureJob({
+      id: 'fresh-job',
+      firstSeenAt: hoursAgo(3),
+      postedDate: hoursAgo(3),
+      crawledAt: new Date().toISOString(),
+    });
+    const result = buildAlertEmail(fixtureAlert('it'), [newJob, oldJob], true);
+
+    expect(result.html).toContain('2 offerte selezionate per te');
+    expect(result.html).not.toContain('2 nuove offerte per te');
+  });
+
+  it.each([
+    ['it', '1 offerta selezionata per te'],
+    ['en', '1 selected job for you'],
+    ['de', '1 ausgewählte Stelle für Sie'],
+    ['fr', '1 offre sélectionnée pour vous'],
+  ] as const)('uses neutral freshness copy in %s', (locale, expected) => {
+    const result = buildAlertEmail(fixtureAlert(locale), [recrawledPublisherJob()], true);
+    expect(result.html).toContain(expected);
   });
 });
 

@@ -2,8 +2,8 @@
 /**
  * FRO-333: Send Job Alert emails to subscribed users.
  *
- * Reads active job alerts from Firestore, matches them against jobs
- * added/updated in the last 24h, and sends email notifications via the
+ * Reads active job alerts from Firestore, matches them against jobs still
+ * present in the inventory window, and sends email notifications via the
  * multi-provider email cascade (Mailgun → Resend → Mailjet → Mailtrap → Cloudflare).
  *
  * Retry mechanism: When all providers exhaust their daily quota and emails
@@ -26,7 +26,13 @@ import { peelDanglingClauseTail } from '../build-plugins/shared/clauseTail.mjs';
 import { normalizeContract, formatSalary, emailTagChip } from '../services/newsletter-content.mjs';
 import { nlNormLocale } from '../services/newsletter-template.mjs';
 import { renderRecommendedBlock } from '../services/newsletter/recommendedBlock.mjs';
-import { buildAlertProfile, scoreJobForAlert, partitionByGeoPreference, freshnessBoost } from '../services/jobAlertMatching.mjs';
+import {
+  buildAlertProfile,
+  scoreJobForAlert,
+  partitionByGeoPreference,
+  freshnessBoost,
+  FRESHNESS_BOOST_48H_MS,
+} from '../services/jobAlertMatching.mjs';
 import { classifyZeroMatchCause } from './lib/job-alert-zero-match-diagnosis.mjs';
 import { createCantonResolvers, AGGREGATE_KEY } from '../build-plugins/shared/cantonResolvers.mjs';
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
@@ -99,8 +105,9 @@ const JOB_EMAIL_RANKING_RUN_ID = process.env.GITHUB_RUN_ID
 // Candidate-pool gate: jobs whose crawledAt (or postedDate fallback) falls
 // inside this window. NOTE: crawledAt refreshes on every re-crawl, so this is
 // an "inventory still listed as of the last day" gate, NOT a "new jobs" gate —
-// genuine novelty is keyed on firstSeenAt (freshnessBoost + the NEW badge),
-// and per-user novelty is enforced by the sentJobIds dedup (alert-sent-jobs.mjs).
+// genuine novelty is keyed on firstSeenAt (postedDate fallback for copy/badge;
+// freshnessBoost itself remains firstSeenAt-only), and per-user novelty is
+// enforced by the sentJobIds dedup (alert-sent-jobs.mjs).
 const MATCH_WINDOW_MS = 24 * 60 * 60 * 1000; // 24 hours
 // Max job cards rendered in one alert email. Also the honest basis for the
 // subject/hero counts and for the sentJobIds rotation (only what the user
@@ -286,7 +293,7 @@ const LEGAL_SUFFIX_RE = /[- ](?:sa|sagl|s-a|ag|gmbh|s-r-l|srl|spa|s-p-a|holding|
 
 // First PARSEABLE date among candidates → epoch ms (0 if none). Local twin of
 // build-plugins/shared/firstParsableDate.ts (runtime .mjs, cannot import .ts):
-// stops a malformed postedDate from shadowing crawledAt in the freshness window.
+// stops a malformed postedDate from shadowing another usable date.
 function firstParsableMs(...values) {
   for (const v of values) {
     if (v === null || v === undefined || v === '') continue;
@@ -294,6 +301,31 @@ function firstParsableMs(...values) {
     if (Number.isFinite(ts)) return ts;
   }
   return 0;
+}
+
+// `crawledAt` means "last verified live" for the rolling inventory and is
+// intentionally excluded here: publisher projections refresh it on every sync.
+// Real novelty is anchored to the immutable discovery/source dates instead.
+export function jobRealFreshnessMs(job) {
+  return firstParsableMs(job?.firstSeenAt, job?.postedDate);
+}
+
+/**
+ * Whether an offer may be described as new in the email copy.
+ *
+ * The sender still uses `crawledAt` to keep the live inventory available to
+ * normal alerts and the first `backfill-newsletter` send. This separate
+ * predicate prevents that availability check from becoming a false novelty
+ * claim. Unknown dates are conservative: the offer can still be delivered,
+ * but it is described as selected rather than new.
+ */
+export function isActuallyNewJob(job, nowMs = Date.now(), windowMs = FRESHNESS_BOOST_48H_MS) {
+  const freshnessMs = jobRealFreshnessMs(job);
+  return freshnessMs > 0
+    && Number.isFinite(nowMs)
+    && Number.isFinite(windowMs)
+    && freshnessMs <= nowMs
+    && nowMs - freshnessMs <= windowMs;
 }
 
 function trySlug(slug) {
@@ -345,8 +377,12 @@ const EMAIL_STRINGS = {
     subjectNew: (n) => `\ud83d\udd14 ${n} nuov${n === 1 ? 'a offerta' : 'e offerte'}`,
     subjectFor: 'per',
     subjectDefault: 'le tue offerte',
-    preheader: (n, label) => `${n} nuove offerte: ${label}`,
-    heroTitle: (n) => `\ud83d\udd14 ${n} nuov${n === 1 ? 'a offerta' : 'e offerte'} per te`,
+    preheader: (n, label, fresh = true) => fresh
+      ? `${n} nuove offerte: ${label}`
+      : `${n} offert${n === 1 ? 'a selezionata' : 'e selezionate'}: ${label}`,
+    heroTitle: (n, fresh = true) => fresh
+      ? `\ud83d\udd14 ${n} nuov${n === 1 ? 'a offerta' : 'e offerte'} per te`
+      : `\ud83d\udd14 ${n} offert${n === 1 ? 'a selezionata' : 'e selezionate'} per te`,
     filters: 'Filtri',
     sectionLabel: '\ud83d\udcbc Lavoro',
     sectionTitle: 'Le offerte che fanno per te',
@@ -375,8 +411,12 @@ const EMAIL_STRINGS = {
     subjectNew: (n) => `\ud83d\udd14 ${n} new job${n === 1 ? '' : 's'}`,
     subjectFor: 'for',
     subjectDefault: 'your alerts',
-    preheader: (n, label) => `${n} new jobs: ${label}`,
-    heroTitle: (n) => `\ud83d\udd14 ${n} new job${n === 1 ? '' : 's'} for you`,
+    preheader: (n, label, fresh = true) => fresh
+      ? `${n} new jobs: ${label}`
+      : `${n} selected job${n === 1 ? '' : 's'}: ${label}`,
+    heroTitle: (n, fresh = true) => fresh
+      ? `\ud83d\udd14 ${n} new job${n === 1 ? '' : 's'} for you`
+      : `\ud83d\udd14 ${n} selected job${n === 1 ? '' : 's'} for you`,
     filters: 'Filters',
     sectionLabel: '\ud83d\udcbc Jobs',
     sectionTitle: 'Jobs that match your criteria',
@@ -405,8 +445,12 @@ const EMAIL_STRINGS = {
     subjectNew: (n) => `\ud83d\udd14 ${n} neue Stelle${n === 1 ? '' : 'n'}`,
     subjectFor: 'f\u00fcr',
     subjectDefault: 'Ihre Alerts',
-    preheader: (n, label) => `${n} neue Stellen: ${label}`,
-    heroTitle: (n) => `\ud83d\udd14 ${n} neue Stelle${n === 1 ? '' : 'n'} f\u00fcr Sie`,
+    preheader: (n, label, fresh = true) => fresh
+      ? `${n} neue Stellen: ${label}`
+      : `${n} ausgewählte Stelle${n === 1 ? '' : 'n'}: ${label}`,
+    heroTitle: (n, fresh = true) => fresh
+      ? `\ud83d\udd14 ${n} neue Stelle${n === 1 ? '' : 'n'} f\u00fcr Sie`
+      : `\ud83d\udd14 ${n} ausgewählte Stelle${n === 1 ? '' : 'n'} f\u00fcr Sie`,
     filters: 'Filter',
     sectionLabel: '\ud83d\udcbc Stellen',
     sectionTitle: 'Passende Stellenangebote',
@@ -435,8 +479,12 @@ const EMAIL_STRINGS = {
     subjectNew: (n) => `\ud83d\udd14 ${n} nouvelle${n === 1 ? '' : 's'} offre${n === 1 ? '' : 's'}`,
     subjectFor: 'pour',
     subjectDefault: 'vos alertes',
-    preheader: (n, label) => `${n} nouvelles offres: ${label}`,
-    heroTitle: (n) => `\ud83d\udd14 ${n} nouvelle${n === 1 ? '' : 's'} offre${n === 1 ? '' : 's'} pour vous`,
+    preheader: (n, label, fresh = true) => fresh
+      ? `${n} nouvelles offres: ${label}`
+      : `${n} offre${n === 1 ? '' : 's'} sélectionnée${n === 1 ? '' : 's'}: ${label}`,
+    heroTitle: (n, fresh = true) => fresh
+      ? `\ud83d\udd14 ${n} nouvelle${n === 1 ? '' : 's'} offre${n === 1 ? '' : 's'} pour vous`
+      : `\ud83d\udd14 ${n} offre${n === 1 ? '' : 's'} sélectionnée${n === 1 ? '' : 's'} pour vous`,
     filters: 'Filtres',
     sectionLabel: '\ud83d\udcbc Emploi',
     sectionTitle: 'Les offres qui vous correspondent',
@@ -551,9 +599,11 @@ export const STATIC_CITY_CANTON_FLOOR = {
   lugano: 'ti', bellinzona: 'ti', mendrisio: 'ti', chiasso: 'ti',
 };
 
-// Returns the recent-job match pool AND a lightweight slug/id → geography index
-// over the FULL dataset. The index lets us recover the location of the job a
-// one-tap subscriber engaged with (`sourceJobSlug`) even when that job is older
+// Returns the rolling live-inventory match pool AND a lightweight slug/id →
+// geography index over the FULL dataset. The pool's crawledAt window is an
+// availability check, not a novelty claim; email copy and badges use
+// jobRealFreshnessMs() instead. The index lets us recover the location of a job
+// a one-tap subscriber engaged with (`sourceJobSlug`) even when it is older
 // than the 24h match window — folded into the matcher as a soft location signal
 // so same-area jobs rank to the top of a location-less alert.
 function loadJobs() {
@@ -739,9 +789,16 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true, rankingCon
   // preheader — is based on the jobs actually RENDERED in this email, not the
   // full match-pool size: the pool is a rolling crawledAt window that re-admits
   // the whole re-crawled inventory daily, so its size says nothing about
-  // novelty. What makes the rendered jobs "new for you" is the sentJobIds
-  // dedup (never emailed to this alert before) + the freshness-first ranking.
+  // novelty. `sentJobIds` says whether an offer is new to THIS alert; the
+  // copy below makes the stronger site-wide "new" claim only when every shown
+  // offer has a real first-seen/source date inside the freshness window.
   const shownJobs = matchedJobs.slice(0, MAX_JOB_CARDS);
+  const nowMs = Date.now();
+  // An email containing even one older re-crawl uses neutral copy. This keeps
+  // the first backfill email useful for a subscriber who has never seen the
+  // offer, without calling a standing publisher ad a newly published offer.
+  const useNewCopy = shownJobs.length === 0
+    || shownJobs.every((job) => isActuallyNewJob(job, nowMs));
 
   // Headline-language backstop (see selectHeadlineIndex): swap the first
   // reliably-`locale` job into the lead position (index 0) so it becomes both
@@ -764,7 +821,9 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true, rankingCon
 
   // Subject: lead with the most relevant job (LinkedIn-style personalization).
   // Format: "🔔 {title} at {company}" or "🔔 {title} at {company} (+N more)"
-  // Capped at 78 characters total. Empty matches fall back to the legacy generic subject.
+  // Capped at 78 characters total. Non-empty subjects are deliberately
+  // item-specific and contain no novelty claim; the hero/preheader below carry
+  // the explicit new-vs-selected wording.
   const SUBJECT_MAX = 78;
   // Truncate at the last word boundary before max chars and strip dangling punctuation.
   // This avoids ugly mid-word ellipses like "Revisori dei conti, esperti tecnici…".
@@ -951,10 +1010,9 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true, rankingCon
     // Bundled logos render contained on white.
     const logoStyle = 'display:block;width:44px;height:44px;border-radius:10px;background:#ffffff;object-fit:contain;padding:4px;box-sizing:border-box;';
     const tags = [];
-    // "NEW" badge for jobs first seen within 48 hours.
-    const firstSeen = job.firstSeenAt ? new Date(job.firstSeenAt).getTime() : 0;
-    const isNew = firstSeen > 0 && (Date.now() - firstSeen) < 48 * 60 * 60 * 1000;
-    if (isNew) tags.push(tagChip(s.newBadge, 'green'));
+    // "NEW" badge uses the same real freshness predicate as the hero/preheader;
+    // a refreshed crawledAt alone can never mint the badge.
+    if (isActuallyNewJob(job, nowMs)) tags.push(tagChip(s.newBadge, 'green'));
     // Salary chip — only when the job has structured salary data (most don't).
     const salaryLabel = formatSalary(job, locale);
     if (salaryLabel) tags.push(tagChip(escHtml(salaryLabel), 'blue'));
@@ -1023,7 +1081,7 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true, rankingCon
   </style>
 </head>
 <body>
-  <div style="display:none!important;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">${s.preheader(shownJobs.length, subjectLabel)}&nbsp;\u200c\u200c\u200c\u200c</div>
+  <div style="display:none!important;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">${s.preheader(shownJobs.length, subjectLabel, useNewCopy)}&nbsp;\u200c\u200c\u200c\u200c</div>
   <table width="100%" cellpadding="0" cellspacing="0" style="background:${LIGHT_BG};">
     <tr><td align="center" style="padding:0;">
       <table class="outer-table" width="620" cellpadding="0" cellspacing="0" style="width:100%;max-width:620px;">
@@ -1044,7 +1102,7 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true, rankingCon
 
         <!-- Hero -->
         <tr><td style="background:${BRAND_DARK};padding:20px 28px 28px;" class="section-pad">
-          <div style="font-size:22px;font-weight:800;color:${WHITE};margin:0;">${s.heroTitle(shownJobs.length)}</div>
+          <div style="font-size:22px;font-weight:800;color:${WHITE};margin:0;">${s.heroTitle(shownJobs.length, useNewCopy)}</div>
           <div style="font-size:13px;color:${MUTED_ON_DARK};margin-top:6px;">${s.filters}: ${filterSummary}</div>
         </td></tr>
 
@@ -1112,7 +1170,7 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true, rankingCon
 
   // ── Plaintext alternative (multipart/alternative) ──────────
   // Built from the same data source as the HTML — never regex-stripped.
-  const heroLine = s.heroTitle(shownJobs.length).replace(/\ud83d\udd14\s*/, '\u{1F514} ');
+  const heroLine = s.heroTitle(shownJobs.length, useNewCopy).replace(/\ud83d\udd14\s*/, '\u{1F514} ');
   const textJobs = shownJobs.map((job, i) => {
     const title = cleanTitle(job.titleByLocale?.[locale] || job.titleByLocale?.it || job.title || s.fallbackTitle);
     const company = job.company || '';
@@ -1598,9 +1656,11 @@ async function main() {
     console.warn(`   ⚠️  Global preferred send hour read failed: ${e?.message || e}`);
   }
 
-  // 1. Load recent jobs (+ full-dataset geo index for source-job resolution)
+  // 1. Load the rolling inventory (+ full-dataset geo index for source-job resolution)
   const { recent: recentJobs, locationIndex, cityToCanton } = loadJobs();
-  console.log(`   Recent jobs (last 24h): ${recentJobs.length}`);
+  const genuinelyFreshJobs = recentJobs.filter((job) => isActuallyNewJob(job)).length;
+  console.log(`   Live inventory verified in the last 24h: ${recentJobs.length}`);
+  console.log(`   Genuinely fresh by firstSeenAt/postedDate (last 48h): ${genuinelyFreshJobs}`);
   // Diagnostic (#3020): confirm the full-dataset geo index is non-trivially
   // populated. Source-geo recovery for one-tap alerts (sourceJobLocationsFor)
   // is a soft no-op when this index is empty — so a size of 0 here means the

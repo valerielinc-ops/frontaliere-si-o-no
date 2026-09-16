@@ -246,6 +246,31 @@ jobs:
             --runner-temp "$RUNNER_TEMP" \
             --checkpoint "$CHECKPOINT"
 
+      - name: Assert crawler generation wave outcome
+        if: always()
+        env:
+          GENERATION_PREFLIGHT_READY: ${{ steps.generation_preflight.outputs.ready || 'false' }}
+          GENERATION_PREFLIGHT_MODE: ${{ steps.generation_preflight.outputs.dispatch_mode || 'unknown' }}
+          GENERATION_PREFLIGHT_REASONS: ${{ steps.generation_preflight.outputs.reasons || 'unknown' }}
+          GENERATION_WAVE_OUTCOME: ${{ steps.generation_wave.outcome || 'skipped' }}
+          GENERATION_WAVE_STARTED: ${{ steps.generation_wave.outputs.shadow_ready || 'false' }}
+          DRY_RUN: ${{ inputs.dry_run || 'false' }}
+        run: |
+          set -euo pipefail
+          if [ "$DRY_RUN" = "true" ]; then
+            echo "::notice::crawler generation wave intentionally not launched (dry-run=true)."
+            exit 0
+          fi
+          if [ "$GENERATION_PREFLIGHT_READY" != "true" ]; then
+            echo "::error::crawler generation wave not launched: preflight mode=$GENERATION_PREFLIGHT_MODE reasons=$GENERATION_PREFLIGHT_REASONS"
+            exit 1
+          fi
+          if [ "$GENERATION_WAVE_OUTCOME" != "success" ] || [ "$GENERATION_WAVE_STARTED" != "true" ]; then
+            echo "::error::crawler generation wave not launched or not accepted: outcome=$GENERATION_WAVE_OUTCOME shadow_ready=$GENERATION_WAVE_STARTED"
+            exit 1
+          fi
+          echo "✅ crawler generation wave launched and accepted by the dispatcher."
+
       - name: Upload crawler generation dispatch checkpoint
         if: always()
         continue-on-error: true
@@ -294,9 +319,10 @@ jobs:
         env:
           GENERATION_PREFLIGHT_READY: ${{ steps.generation_preflight.outputs.ready || 'false' }}
           GENERATION_PREFLIGHT_MODE: ${{ steps.generation_preflight.outputs.dispatch_mode || 'unknown' }}
+          GENERATION_PREFLIGHT_REASONS: ${{ steps.generation_preflight.outputs.reasons || 'unknown' }}
         run: |
           if [ "$GENERATION_PREFLIGHT_READY" != "true" ]; then
-            echo "::warning::crawler generation preflight is $GENERATION_PREFLIGHT_MODE; translate-pending is only the safety-net dispatch and does not make the blocked crawler wave green."
+            echo "::warning::crawler generation preflight is $GENERATION_PREFLIGHT_MODE (reasons=$GENERATION_PREFLIGHT_REASONS); translate-pending is only the safety-net dispatch and does not make the blocked crawler wave green."
           fi
           if [ -z "${GITHUB_PAT_NANAKO:-}" ]; then
             echo "ℹ️ GITHUB_PAT_NANAKO not loaded — skipping the translate-pending cross-repo dispatch (its 5 daily crons remain the safety net)."
