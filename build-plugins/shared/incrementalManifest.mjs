@@ -14,6 +14,7 @@ export const PAGE_KINDS = Object.freeze([
   'previous-slugs-full-content',
   'cross-locale-reconciliation',
   'related-search-cluster',
+  'related-search-sitemap',
 ]);
 
 export const TEMPLATE_VERSIONS = Object.freeze({
@@ -23,6 +24,7 @@ export const TEMPLATE_VERSIONS = Object.freeze({
   'previous-slugs-full-content': 'previous-slugs-full-content@1',
   'cross-locale-reconciliation': 'cross-locale-reconciliation@1',
   'related-search-cluster': 'related-search-cluster@1',
+  'related-search-sitemap': 'related-search-sitemap@1',
 });
 
 const RUNTIME_INPUT_KEYS = new Set([
@@ -379,4 +381,31 @@ export class IncrementalManifest {
     }
     return target;
   }
+}
+
+// Both the jobs and related-search plugins run closeBundle hooks in parallel.
+// Keep one manifest instance per build root/locale so their writes compose in
+// memory and the later writer cannot overwrite the other plugin's kinds.
+const manifestMapsByRoot = new Map();
+
+export function getIncrementalManifestMap(rootDir, locales) {
+  if (!INCREMENTAL_MANIFEST_ENABLED) return null;
+  const rootKey = path.resolve(String(rootDir));
+  let manifests = manifestMapsByRoot.get(rootKey);
+  if (!manifests) {
+    manifests = new Map();
+    manifestMapsByRoot.set(rootKey, manifests);
+  }
+
+  const selected = new Map();
+  for (const locale of locales) {
+    const key = String(locale);
+    let manifest = manifests.get(key);
+    if (!manifest) {
+      manifest = new IncrementalManifest(key);
+      manifests.set(key, manifest);
+    }
+    selected.set(key, manifest);
+  }
+  return selected;
 }
