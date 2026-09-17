@@ -5,6 +5,7 @@ import {
 } from '../build-plugins/relatedSearchClustersPlugin';
 import {
   computeInputHash,
+  createIncrementalManifestInputCache,
   getIncrementalManifestMap,
   INCREMENTAL_MANIFEST_ENABLED,
 } from '../build-plugins/shared/incrementalManifest.mjs';
@@ -27,6 +28,7 @@ function clusterInput(
   clusterIndex: 0 | 1,
   matchingJobs = jobsFor(RELATED_CLUSTER_FIXTURE.clusters[clusterIndex].matchingJobIds),
   title: string = RELATED_CLUSTER_FIXTURE.clusters[clusterIndex].title,
+  inputCache?: unknown,
 ) {
   const cluster = RELATED_CLUSTER_FIXTURE.clusters[clusterIndex];
   return buildRelatedClusterManifestInput({
@@ -43,6 +45,7 @@ function clusterInput(
     },
     related: [{ keyword: 'engineer', url: '/ricerca-engineer/' }],
     hreflang: [{ locale: 'it', url: `/it/${cluster.slug}/` }],
+    inputCache,
   });
 }
 
@@ -73,6 +76,18 @@ describe('related-search cluster shadow manifest', () => {
     expect(hash(jobChanged)).not.toBe(hash(base));
     expect(hash(titleChanged)).not.toBe(hash(base));
     expect(hash(base, 'related-search-cluster@2')).not.toBe(hash(base));
+  });
+
+  it('reuses stable-id job digests when a cluster recreates matching job objects', () => {
+    const inputCache = createIncrementalManifestInputCache();
+    const base = clusterInput(0, undefined, undefined, inputCache);
+    const recreated = clusterInput(
+      0,
+      jobsFor(RELATED_CLUSTER_FIXTURE.clusters[0].matchingJobIds).map((job) => ({ ...job })),
+      undefined,
+      inputCache,
+    );
+    expect(recreated).toEqual(base);
   });
 
   it('excludes the build date and other runtime metadata from cluster hashes', () => {
