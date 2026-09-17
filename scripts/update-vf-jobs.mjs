@@ -36,6 +36,12 @@ const VF_KEY = 'vf-international-the-north-face-timberland';
 // shared engine's actual freshly-crawled+localized output instead of
 // crashing on the unguarded read below (issue #3768).
 const DATA_JOBS = crawlerScratchPathFor(VF_KEY);
+const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
+
+function writeVfJobs(jobs) {
+  writeJsonAtomic(DATA_JOBS, jobs);
+  writeJsonAtomic(PUBLIC_JOBS, jobs);
+}
 
 function normalizeKey(value = '') {
   return String(value || '')
@@ -117,7 +123,7 @@ function normalizeVfLocations() {
     byCanton[resolved.canton] = (byCanton[resolved.canton] || 0) + 1;
   }
 
-  if (normalized > 0) writeJsonAtomic(DATA_JOBS, jobs);
+  if (normalized > 0) writeVfJobs(jobs);
   console.log(`🗺️ VF Swiss locality normalization: ${normalized}/${normalized + unresolved} changed, ${unresolved} unresolved; cantons ${JSON.stringify(byCanton)}`);
   return { normalized, unresolved, total: normalized + unresolved, byCanton };
 }
@@ -133,7 +139,7 @@ function ensureSourceLang() {
     if (job.sourceLang !== lang) { job.sourceLang = lang; changed++; }
   }
   if (changed > 0) {
-    writeJsonAtomic(DATA_JOBS, jobs);
+    writeVfJobs(jobs);
     console.log(`📝 Set sourceLang on ${changed} VF job(s).`);
   }
 }
