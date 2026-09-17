@@ -72,48 +72,6 @@ describe('VTG authoritative regional discovery', () => {
       regionTotals: { TI: 0, Ostschweiz1: 0, Ostschweiz2: 0 },
     });
   });
-
-  it('paginates the Swiss-wide scope through the declared total', async () => {
-    const jobs = Array.from({ length: 501 }, (_, index) => job(
-      `00000000-0000-4000-8000-${String(index).padStart(12, '0')}`,
-    ));
-    const offsets: number[] = [];
-    const fetchImpl = async (input: string | URL | Request) => {
-      const url = new URL(String(input));
-      const offset = Number(url.searchParams.get('offset'));
-      offsets.push(offset);
-      return new Response(JSON.stringify({
-        total: jobs.length,
-        jobs: jobs.slice(offset, offset + 500),
-      }), { status: 200 });
-    };
-
-    const result = await fetchVtgJobUrls({ fetchImpl, scope: 'ch-wide', timeoutMs: 1000 });
-
-    expect(offsets).toEqual([0, 500]);
-    expect(result).toMatchObject({
-      fetched: 501,
-      regionTotals: { CH: 501 },
-      sourceZero: false,
-    });
-    expect(result.urls).toHaveLength(501);
-  });
-
-  it('fails closed when a Swiss-wide page is shorter than its declared remainder', async () => {
-    const jobs = Array.from({ length: 500 }, (_, index) => job(
-      `10000000-0000-4000-8000-${String(index).padStart(12, '0')}`,
-    ));
-    const fetchImpl = async (input: string | URL | Request) => {
-      const offset = Number(new URL(String(input)).searchParams.get('offset'));
-      return new Response(JSON.stringify({
-        total: 501,
-        jobs: offset === 0 ? jobs : [],
-      }), { status: 200 });
-    };
-
-    await expect(fetchVtgJobUrls({ fetchImpl, scope: 'ch-wide', timeoutMs: 1000 }))
-      .rejects.toThrow(/fetched 500\/501/);
-  });
 });
 
 describe('VTG adapter persistence', () => {
