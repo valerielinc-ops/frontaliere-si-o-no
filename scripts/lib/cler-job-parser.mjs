@@ -15,9 +15,11 @@ import { assertJsonListShape } from './assert-json-list-shape.mjs';
  * before the caller can treat it as a zero-job refresh.
  *
  * @param {unknown} data parsed Cler jobssearch response
+ * @param {{ allowPartial?: boolean }} [options] A page may be shorter than
+ *   the declared total only while the caller is walking subsequent pages.
  * @returns {{ listings: object[], declaredTotal: number, sourceEmptyProven: boolean }}
  */
-export function parseClerApiResponse(data) {
+export function parseClerApiResponse(data, { allowPartial = false } = {}) {
   const listings = assertJsonListShape(data, { key: 'results', source: 'cler' });
   const hasResultsArray = data !== null
     && typeof data === 'object'
@@ -36,9 +38,10 @@ export function parseClerApiResponse(data) {
   if (!Number.isSafeInteger(declaredTotal) || declaredTotal < 0) {
     throw new Error('Cler source response did not expose a valid resultsTotalCount; completeness is unverified.');
   }
-  if (listings.length !== declaredTotal) {
+  if (listings.length > declaredTotal || (!allowPartial && listings.length !== declaredTotal)) {
     throw new Error(
-      `Cler source listing is incomplete: API declares ${declaredTotal} listings but returned ${listings.length}; `
+      `Cler source listing is ${listings.length > declaredTotal ? 'larger than' : 'shorter than'} `
+      + `the declared total: API declares ${declaredTotal} listings but returned ${listings.length}; `
       + 'refusing a truncated or unproven refresh.',
     );
   }

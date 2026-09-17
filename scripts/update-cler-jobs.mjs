@@ -158,7 +158,9 @@ function resolveBranchAddress(arbeitsort) {
 }
 const API_BASE = 'https://www.cler.ch';
 // German API returns results; Italian returns 0 (locale mismatch on server side)
-const API_PATH = '/de/api/jobssearch/search?sc_site=bc&jobs=%7B3F115DCF-9CE3-4466-9E05-53D8D9B5DAC0%7D&predefinedFilter=&pageSize=50';
+const PAGE_SIZE = 50;
+const MAX_LISTING_PAGES = 1000;
+const API_PATH = `/de/api/jobssearch/search?sc_site=bc&jobs=%7B3F115DCF-9CE3-4466-9E05-53D8D9B5DAC0%7D&predefinedFilter=&pageSize=${PAGE_SIZE}`;
 
 const TIMEOUT_MS = parseInt(process.env.JOBS_CRAWLER_TIMEOUT_MS || '15000', 10);
 const UA = 'Mozilla/5.0 (compatible; FrontaliereBot/1.0)';
@@ -265,17 +267,76 @@ async function fetchWithTimeout(url, options = {}) {
 }
 
 async function fetchJobListings() {
-  const url = `${API_BASE}${API_PATH}`;
-  console.log(`  📡 Fetching API: ${url}`);
-  const res = await fetchWithTimeout(url, {
-    headers: { Accept: 'application/json' },
-  });
-  if (!res.ok) {
-    throw new Error(`API returned ${res.status}`);
+  const listingsByKey = new Map();
+  let declaredTotal = null;
+
+  for (let page = 0; page < MAX_LISTING_PAGES; page++) {
+    const url = `${API_BASE}${API_PATH}&page=${page}`;
+    console.log(`  📡 Fetching API page ${page + 1}: ${url}`);
+    const res = await fetchWithTimeout(url, {
+      headers: { Accept: 'application/json' },
+    });
+    if (!res.ok) {
+      throw new Error(`API returned ${res.status}`);
+    }
+    const data = await res.json();
+    const {
+      listings: pageListings,
+      declaredTotal: pageTotal,
+    } = parseClerApiResponse(data, { allowPartial: true });
+    if (declaredTotal === null) {
+      declaredTotal = pageTotal;
+    } else if (pageTotal !== declaredTotal) {
+      throw new Error(
+        `Cler source total changed during pagination: ${declaredTotal} → ${pageTotal} at page=${page}`,
+      );
+    }
+
+    const before = listingsByKey.size;
+    for (const listing of pageListings) {
+      const relativeUrl = listing?.link?.url || '';
+      const absoluteUrl = relativeUrl.startsWith('http')
+        ? relativeUrl
+        : `${API_BASE}${relativeUrl.startsWith('/') ? relativeUrl : `/${relativeUrl}`}`;
+      const key = extractStableJobId(absoluteUrl)
+        || String(listing?.slug || '').trim().toLowerCase();
+      if (!key) {
+        throw new Error('Cler source listing has no stable identity; pagination completeness is unverified.');
+      }
+      if (!listingsByKey.has(key)) listingsByKey.set(key, listing);
+    }
+    const added = listingsByKey.size - before;
+
+    if (listingsByKey.size > declaredTotal) {
+      throw new Error(
+        `Cler source pagination exceeded declared total: source=${declaredTotal}, read=${listingsByKey.size}`,
+      );
+    }
+    if (listingsByKey.size >= declaredTotal) break;
+    if (pageListings.length === 0) {
+      throw new Error(
+        `Cler source pagination ended before declared coverage: source=${declaredTotal}, read=${listingsByKey.size}`,
+      );
+    }
+    if (added === 0) {
+      throw new Error(
+        `Cler source pagination did not advance at page=${page}; repeated page has ${listingsByKey.size} unique listings`,
+      );
+    }
+    if (pageListings.length < PAGE_SIZE) {
+      throw new Error(
+        `Cler source pagination returned a short page before declared coverage: source=${declaredTotal}, read=${listingsByKey.size}`,
+      );
+    }
   }
-  const data = await res.json();
-  const { listings, declaredTotal } = parseClerApiResponse(data);
-  console.log(`  📋 API returned ${listings.length}/${declaredTotal} listings (source total verified)`);
+
+  if (declaredTotal === null || listingsByKey.size < declaredTotal) {
+    throw new Error(
+      `Cler source pagination exhausted its safety bound: source=${declaredTotal ?? 'unknown'}, read=${listingsByKey.size}`,
+    );
+  }
+  const listings = [...listingsByKey.values()];
+  console.log(`  📋 API returned ${listings.length}/${declaredTotal} unique listings (source total verified)`);
   return listings;
 }
 

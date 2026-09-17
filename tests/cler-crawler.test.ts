@@ -182,6 +182,23 @@ describe('parseClerApiResponse — source completeness proof', () => {
     expect(parsed.sourceEmptyProven).toBe(false);
   });
 
+  it('accepts a page shorter than the declared total only in pagination mode', () => {
+    const parsed = parseClerApiResponse(
+      { results: [{ title: 'A' }], resultsTotalCount: 51 },
+      { allowPartial: true },
+    );
+    expect(parsed.listings).toHaveLength(1);
+    expect(() => parseClerApiResponse({ results: [{ title: 'A' }], resultsTotalCount: 51 }))
+      .toThrow(/shorter than the declared total/);
+  });
+
+  it('rejects a page that exceeds the declared total even in pagination mode', () => {
+    expect(() => parseClerApiResponse(
+      { results: [{ title: 'A' }, { title: 'B' }], resultsTotalCount: 1 },
+      { allowPartial: true },
+    )).toThrow(/larger than the declared total/);
+  });
+
   it('fails closed when the response envelope cannot prove a source result', () => {
     expect(() => parseClerApiResponse({ error: 'rate limited' })).toThrow(/results array/);
     expect(() => parseClerApiResponse({ results: [] })).toThrow(/resultsTotalCount/);
