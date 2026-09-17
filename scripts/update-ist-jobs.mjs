@@ -19,18 +19,17 @@
  *
  * Discovery flow:
  *   1. Fetch https://jobs.inspirededu.com/sitemap.xml
- *   2. Extract /job/<slug>/<id>/ URLs whose city slug maps to an IST
- *      Swiss canton (TI / GR) — a cheap pre-filter so we only fetch
- *      detail pages that can plausibly be IST positions.
+ *   2. Extract every live /job/<slug>/<id>/ URL; the sitemap is the complete
+ *      multi-campus source, so discovery must not encode a city allowlist.
  *   3. Fetch each job detail page, parse schema.org microdata
  *   4. Build job objects and merge into data/jobs.json
  *   5. Run the base crawler for AI localization (4 locales)
  *   6. Post-process: fix company name, location, canton
  *   7. Validate locale coverage across IT/EN/DE/FR
  *
- * IST commonly has zero live openings; in that case the sitemap simply
- * contains no TI/GR slugs and the crawler legitimately keeps existing data
- * (no error) — see fetchIstJobs / main's empty-result branch.
+ * The detail page remains authoritative for the Swiss location. Foreign
+ * postings from the group's worldwide portal are discarded after parsing;
+ * missing or unresolved locations are never assigned a historical default.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -55,11 +54,12 @@ import {
   validateDedicatedLocaleCoverage,
   mergePreserveLocaleData,
   detectLang,
+  isLocationExplicitlyForeign,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { inferSwissTargetCanton, inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
-import { getCantonDisplayName, getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { getCantonDisplayName } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { locateTagByAttribute, extractBalancedTagBlock } from './lib/hospital-custom-html-helpers.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -77,29 +77,18 @@ const IST_KEY = 'international-school-of-ticino';
 // of #3775/#3768).
 const DATA_JOBS = crawlerScratchPathFor(IST_KEY);
 const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
-const DEFAULT_CANTON = getCompanyDefaults(IST_KEY)?.canton || 'TI';
 const IST_COMPANY_NAME = 'International School of Ticino';
 const IST_COMPANY_HOST = 'jobs.inspirededu.com';
-const IST_BASE_URL = 'https://jobs.inspirededu.com';
 const IST_SITEMAP_URL = 'https://jobs.inspirededu.com/sitemap.xml';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
-// Stable discovery seeds recorded in the adapter config. These are
-// location-scoped entry points (sitemap + TalentBrew location search) that
-// stay valid as postings rotate — NOT the per-job `/job/<id>/` URLs, which
-// 404 the moment a posting is filled (the prior single-job seed was the
-// original source of the recurring 0-job health-check flag).
+// Stable discovery seed recorded in the adapter config. The sitemap stays
+// valid as postings rotate — NOT the per-job `/job/<id>/` URLs, which 404 the
+// moment a posting is filled (the prior single-job seed was the original
+// source of the recurring 0-job health-check flag).
 const IST_DISCOVERY_SEED_URLS = [
   IST_SITEMAP_URL,
-  'https://jobs.inspirededu.com/search-jobs/results?Location=Lugano&CurrentPage=1',
-  'https://jobs.inspirededu.com/search-jobs/results?Location=Chur&CurrentPage=1',
 ];
-
-// Cantons where IST (and its sister Inspired campuses that share the
-// "International School of Ticino" crawler scope) physically operate.
-// Used as a cheap sitemap-slug pre-filter; the authoritative canton is
-// re-derived from each job detail page's streetAddress.
-const IST_TARGET_CANTONS = new Set(['TI', 'GR']);
 
 const UA = process.env.JOBS_CRAWLER_USER_AGENT ||
   'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -160,8 +149,8 @@ function isIstJob(job) {
   return (
     key === IST_KEY ||
     key.startsWith('international-school-of-ticino') ||
-    (company.includes('international school') && company.includes('ticino')) ||
-    (url.includes('inspirededu.com') && (url.includes('ticino') || url.includes('lugano')))
+    company.includes('international school') ||
+    url.includes('inspirededu.com')
   );
 }
 
@@ -202,53 +191,14 @@ async function fetchHtml(url) {
   }
 }
 
-/* ── Discovery ─────────────────────────────────────────────── */
-
-/**
- * Decode the city token from a `/job/<City-Slug>/<id>/` URL and resolve it to
- * a canton. Inspired's sitemap encodes the location as the first segment of
- * the job slug (e.g. `/job/Lugano-German-Teacher/...`, `/job/Chur-Maths/...`).
- * The token may be percent-encoded (`%C3%A9`, `&apos;`) so we decode before
- * extracting the leading word(s).
- */
-function inferCantonFromJobUrl(jobUrl = '') {
-  let path = jobUrl;
-  try {
-    path = new URL(jobUrl, IST_BASE_URL).pathname;
-  } catch {
-    /* fall through with raw value */
-  }
-  const m = path.match(/\/job\/([^/]+)/i);
-  if (!m) return null;
-
-  let slug = m[1];
-  try {
-    slug = decodeURIComponent(slug);
-  } catch {
-    /* keep raw slug on malformed encoding */
-  }
-  slug = slug.replace(/&apos;|&#39;/g, "'").replace(/[-+]/g, ' ');
-
-  // Try the leading 1- and 2-word city candidates (e.g. "St Moritz").
-  const words = slug.split(/\s+/).filter(Boolean);
-  const candidates = [];
-  if (words[0]) candidates.push(words[0]);
-  if (words[1]) candidates.push(`${words[0]} ${words[1]}`);
-  for (const candidate of candidates) {
-    const canton = inferAnyCanton(candidate);
-    if (canton) return canton;
-  }
-  return null;
-}
-
 /**
  * Discover live IST job-detail URLs from the careers portal sitemap.
  *
  * The portal's search results are AJAX-loaded (SuccessFactors RMK /
  * Jobs2Web), so the static search HTML has no `/job/` hrefs. The flat
- * sitemap.xml still lists every live job URL, so we read it and keep only
- * URLs whose city slug maps to an IST canton (TI / GR). The detail fetch
- * then re-derives the real canton from each page's streetAddress.
+ * sitemap.xml lists every live job URL across the group's campuses; the
+ * detail fetch then applies the shared Swiss-location guard and re-derives
+ * the canton from each page's streetAddress.
  */
 async function discoverIstJobUrls() {
   console.log(`🔍 Reading IST job sitemap: ${IST_SITEMAP_URL}`);
@@ -267,17 +217,10 @@ async function discoverIstJobUrls() {
   }
   console.log(`  🗺️  Sitemap lists ${allJobUrls.length} total job URLs`);
 
-  const urls = new Set();
-  for (const jobUrl of allJobUrls) {
-    const canton = inferCantonFromJobUrl(jobUrl);
-    if (canton && IST_TARGET_CANTONS.has(canton)) {
-      urls.add(jobUrl);
-    }
-  }
-
-  console.log(`  📋 Discovered ${urls.size} TI/GR-area job URLs`);
+  const urls = new Set(allJobUrls);
+  console.log(`  📋 Discovered ${urls.size} job URLs for detail-level Swiss filtering`);
   if (urls.size === 0) {
-    console.log('  ℹ️ No Lugano/Ticino/Graubünden roles live right now (IST often has no openings).');
+    console.log('  ℹ️ No live job URLs in the portal sitemap.');
   }
   return [...urls];
 }
@@ -350,22 +293,17 @@ async function fetchJobDetail(url) {
 
 /* ── Location & canton mapping ─────────────────────────────── */
 
-function inferCanton(location = '') {
-  return inferAnyCanton(location) || 'TI';
-}
-
 function parseLocation(locText = '') {
-  // Format: "Lugano, CH" or "Lugano"
+  // Format: "City, CH" or "City"
   const parts = locText.split(',');
-  return parts[0].trim() || 'Lugano';
+  return parts[0].trim();
 }
 
 /**
- * Extract the ISO country code from a streetAddress like "Lugano, CH" or
- * "Como, IT". Returns the upper-cased 2-letter code, or '' when absent.
- * Inspired's portal lists Italian border cities (e.g. Como) whose city slug
- * maps to a Swiss frontalier canton (TI) in our location table, so we must
- * trust the detail page's country code to reject non-CH (e.g. Como, IT) jobs.
+ * Extract the ISO country code from a streetAddress like "City, CH" or
+ * "City, IT". Returns the upper-cased 2-letter code, or '' when absent.
+ * The detail page's country code is an additional guard for border or
+ * ambiguous city names that the shared location table can recognize.
  */
 function parseCountryCode(locText = '') {
   const parts = String(locText || '').split(',');
@@ -397,28 +335,17 @@ function detectExperienceLevel(title = '') {
   return 'MID';
 }
 
-// City fallbacks per canton. IST's physical campuses are in Lugano (TI) and
-// Chur (GR); other cantons use the canton name as the city fallback.
-const IST_DEFAULT_CITY_BY_CANTON = {
-  TI: 'Lugano',
-  GR: 'Chur',
-};
-
-function istFallbackCity(canton, locale = 'it') {
-  return IST_DEFAULT_CITY_BY_CANTON[canton] || getCantonDisplayName(canton, locale);
+function buildDescription(title, descriptionText, location, canton) {
+  const region = getCantonDisplayName(canton, 'en') || 'Switzerland';
+  const place = location || region;
+  const base = descriptionText || `${title} position at the International School of Ticino in ${place}, Switzerland.`;
+  return `${base}\n\nThe International School of Ticino (IST) is part of the Inspired Education Group, one of the world's leading premium school groups. Located in ${place}, IST offers a stimulating international learning environment in ${region}.`.trim();
 }
 
-function buildDescription(title, descriptionText, location, canton = DEFAULT_CANTON) {
-  const region = getCantonDisplayName(canton, 'en');
-  const defaultCity = istFallbackCity(canton, 'en');
-  const base = descriptionText || `${title} position at the International School of Ticino in ${location}, Switzerland.`;
-  return `${base}\n\nThe International School of Ticino (IST) is part of the Inspired Education Group, one of the world's leading premium school groups. Located in ${defaultCity}, IST offers a stimulating international learning environment in ${region}.`.trim();
-}
-
-function buildDescriptionIt(title, location, canton = DEFAULT_CANTON) {
-  const region = getCantonDisplayName(canton, 'it');
-  const defaultCity = istFallbackCity(canton, 'it');
-  return `Posizione aperta presso la International School of Ticino a ${location}.\nRuolo: ${title}.\n\nLa International School of Ticino (IST) fa parte di Inspired Education Group, uno dei principali gruppi scolastici premium al mondo. Situata a ${defaultCity}, IST offre un ambiente di apprendimento internazionale stimolante in ${region}.`.trim();
+function buildDescriptionIt(title, location, canton) {
+  const region = getCantonDisplayName(canton, 'it') || 'Svizzera';
+  const place = location || region;
+  return `Posizione aperta presso la International School of Ticino a ${place}.\nRuolo: ${title}.\n\nLa International School of Ticino (IST) fa parte di Inspired Education Group, uno dei principali gruppi scolastici premium al mondo. Situata a ${place}, IST offre un ambiente di apprendimento internazionale stimolante in ${region}.`.trim();
 }
 
 /* ── Fetch and build all IST jobs ──────────────────────────── */
@@ -442,19 +369,32 @@ async function fetchIstJobs() {
     }
 
     const title = normalizeSpace(detail.title);
-    const city = parseLocation(detail.location);
+    const rawLocation = normalizeSpace(detail.location);
+    const city = parseLocation(rawLocation);
 
-    // Authoritative country guard: the sitemap-slug pre-filter can let in
-    // Italian border cities (e.g. "Como, IT") whose name maps to a Swiss
-    // frontalier canton. Trust the detail page's country code and drop any
-    // job that is not explicitly in Switzerland.
-    const countryCode = parseCountryCode(detail.location);
+    // The portal is worldwide. Require a resolved Swiss municipality/canton,
+    // exclude explicit foreign locations, and then use the detail page's
+    // canton as the per-announcement source of truth.
+    const countryCode = parseCountryCode(rawLocation);
     if (countryCode && countryCode !== 'CH') {
       console.log(`  ⏭️  Skipped — ${city}, ${countryCode} is not in Switzerland`);
       continue;
     }
 
-    const canton = inferCanton(city);
+    if (
+      !rawLocation ||
+      isLocationExplicitlyForeign(rawLocation) ||
+      !isTargetSwissLocation(rawLocation, { includeBorderProximity: false })
+    ) {
+      console.log(`  ⏭️  Skipped — unresolved or non-Swiss location: ${rawLocation || 'missing'}`);
+      continue;
+    }
+
+    const canton = inferAnyCanton(rawLocation);
+    if (!canton || !city) {
+      console.log(`  ⏭️  Skipped — canton/city not resolved from: ${rawLocation}`);
+      continue;
+    }
     const publicUrl = detail.canonicalUrl || url;
 
     const descEn = buildDescription(title, detail.description, city, canton);
@@ -577,7 +517,7 @@ function updateAdapterConfig() {
   adapter.priority = Math.max(adapter.priority || 0, 10);
   adapter.crawlerModes = ['sitemap', 'html', 'jsonld'];
   adapter.seedUrls = IST_DISCOVERY_SEED_URLS;
-  adapter.notes = 'SuccessFactors RMK / Jobs2Web portal at jobs.inspirededu.com — search is AJAX-loaded, so discovery reads sitemap.xml and keeps /job/<City>/<id>/ URLs whose city maps to IST cantons (TI/GR). seedUrls are stable location entry points, not per-job URLs (those 404 once a posting is filled). IST often has zero live TI/GR openings, in which case the crawler legitimately keeps existing data with no error.';
+  adapter.notes = 'SuccessFactors RMK / Jobs2Web portal at jobs.inspirededu.com — search is AJAX-loaded, so discovery reads the complete sitemap and filters each detail by isTargetSwissLocation() plus inferAnyCanton(). seedUrls contains the stable sitemap entry point; foreign or unresolved locations are never published.';
   adapter.updatedAt = new Date().toISOString();
 
   fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
@@ -609,9 +549,28 @@ function postProcessIstJobs() {
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   const jobs = Array.isArray(raw) ? raw : [];
   let fixed = 0;
+  let dropped = 0;
+  const nextJobs = [];
 
   for (const job of jobs) {
-    if (!isIstJob(job)) continue;
+    if (!isIstJob(job)) {
+      nextJobs.push(job);
+      continue;
+    }
+
+    const location = parseLocation(normalizeSpace(job.location || job.addressLocality || ''));
+    const rawLocation = normalizeSpace([job.location, job.addressLocality].filter(Boolean).join(', '));
+    const canton = inferAnyCanton(rawLocation);
+    if (
+      !location ||
+      !canton ||
+      isLocationExplicitlyForeign(rawLocation) ||
+      !isTargetSwissLocation(rawLocation, { includeBorderProximity: false })
+    ) {
+      dropped++;
+      console.warn(`  ⏭️  Dropped IST row with unresolved or non-Swiss location: ${rawLocation || 'missing'}`);
+      continue;
+    }
 
     if (job.company !== IST_COMPANY_NAME) {
       job.company = IST_COMPANY_NAME;
@@ -622,20 +581,21 @@ function postProcessIstJobs() {
       fixed++;
     }
     job.country = 'CH';
-    if (!job.canton) {
-      job.canton = DEFAULT_CANTON;
+    if (job.canton !== canton) {
+      job.canton = canton;
       fixed++;
     }
-    if (!job.location) {
-      job.location = 'Lugano';
+    if (job.location !== location) {
+      job.location = location;
       fixed++;
     }
+    nextJobs.push(job);
   }
 
-  if (fixed > 0) {
-    writeJsonAtomic(DATA_JOBS, jobs);
-    writeJsonAtomic(PUBLIC_JOBS, jobs);
-    console.log(`🔧 Post-processed ${fixed} IST jobs (fixed company/location/canton).`);
+  if (fixed > 0 || dropped > 0) {
+    writeJsonAtomic(DATA_JOBS, nextJobs);
+    writeJsonAtomic(PUBLIC_JOBS, nextJobs);
+    console.log(`🔧 Post-processed IST jobs (fixed ${fixed}, dropped ${dropped}).`);
   }
 }
 
@@ -651,9 +611,16 @@ function logStats(beforeSnapshot = new Map()) {
   const istJobs = allJobs.filter(isIstJob);
 
   console.log(`\n📊 === International School of Ticino Job Stats ===`);
-  const tiJobs = istJobs.filter(j => j.canton === 'TI').length;
-  const grJobs = istJobs.filter(j => j.canton === 'GR').length;
-  console.log(`  🏫 Total IST jobs: ${istJobs.length} (TI: ${tiJobs}, GR: ${grJobs})`);
+  const byCanton = new Map();
+  for (const job of istJobs) {
+    const canton = job.canton || 'UNKNOWN';
+    byCanton.set(canton, (byCanton.get(canton) || 0) + 1);
+  }
+  const cantonSummary = [...byCanton.entries()]
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([canton, count]) => `${canton}: ${count}`)
+    .join(', ') || 'none';
+  console.log(`  🏫 Total IST jobs: ${istJobs.length} (${cantonSummary})`);
 
   if (istJobs.length > 0) {
     console.log(`  📋 Jobs:`);
@@ -703,7 +670,7 @@ async function main() {
 
   if (discoveredJobs.length === 0) {
     console.log('\n⚠️ No IST jobs discovered.');
-    console.log('   The careers portal may have no TI/GR openings.');
+    console.log('   The careers portal may have no current Swiss openings.');
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
     // Refresh adapter metadata even on the empty path so its stable discovery
     // seeds never drift back to a frozen per-job URL between live openings.

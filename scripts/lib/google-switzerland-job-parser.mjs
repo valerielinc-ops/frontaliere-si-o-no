@@ -2,7 +2,7 @@
 /**
  * Google Switzerland job parser — careers.google.com search + detail pages.
  *
- * Source: https://www.google.com/about/careers/applications/jobs/results/?location=Zurich%2C%20Switzerland
+ * Source: https://www.google.com/about/careers/applications/jobs/results/?location=Switzerland
  * (issue #3337 Wave D row 2: "Custom, Google Switzerland, Zurigo, ..." — the
  * "Custom" tag turned out accurate: Google's careers portal is a bespoke
  * Google-built Angular/wiz app (product name "HiringCportalFrontendUi"), NOT
@@ -29,10 +29,9 @@
  * on each re-check across several days.
  *
  * Meanwhile Google started server-rendering the same pages. Verified live
- * 2026-08-07 with a plain UA'd `fetch`, no proxy: the Zurich-filtered search
+ * 2026-08-07 with a plain UA'd `fetch`, no proxy: the country-level search
  * returns the complete card markup (title, org, location, experience level,
- * Minimum qualifications) and its own declared total ("34 jobs matched" /
- * "Showing 1 to 20 of 34 rows" — 20 + 14 across `?page=1,2`, reconciled below),
+ * Minimum qualifications) and its own declared total, reconciled below.
  * and each detail page returns the full Minimum/Preferred qualifications +
  * About the job + Responsibilities body. Still zero `application/ld+json`.
  *
@@ -51,15 +50,19 @@
  * deploy. A class-based selector here would have a shelf life of days.
  *
  * Exports the 4 required functions for the crawler template:
- *   - fetchAllGoogleSwitzerlandJobs() — Fetch and parse all Zurich-eligible jobs
+ *   - fetchAllGoogleSwitzerlandJobs() — Fetch and parse all Switzerland-eligible jobs
  *   - isGoogleSwitzerlandJob()        — Match jobs belonging to this company
  *   - isTrustedDomain()               — Validate URLs belong to this company
  *   - slugify() / stripHtml()         — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {
+  inferAnyCanton,
+  isTargetSwissLocation,
+  swissCityFromLocationField,
+} from './target-swiss-locations.mjs';
 import { fetchViaJinaWithRetry, detectJinaErrorBody } from './jina-proxy.mjs';
 import { fetchHtml, htmlToText, decodeEntities } from './hospital-custom-html-helpers.mjs';
 
@@ -69,8 +72,8 @@ export const GOOGLE_SWITZERLAND_KEY = 'google-switzerland';
 export const GOOGLE_SWITZERLAND_COMPANY_NAME = 'Google Switzerland';
 export const GOOGLE_SWITZERLAND_COMPANY_DOMAIN = 'google.com';
 
-const CAREER_URL = 'https://www.google.com/about/careers/applications/jobs/results/?location=Zurich%2C%20Switzerland';
-const SEARCH_LOCATION_QS = 'location=Zurich%2C%20Switzerland';
+const CAREER_URL = 'https://www.google.com/about/careers/applications/jobs/results/?location=Switzerland';
+const SEARCH_LOCATION_QS = 'location=Switzerland';
 const MAX_LISTING_PAGES = 8; // safety cap — 61 jobs / ~20 per page observed live ≈ 4 pages
 
 /* ── HQ fallback (Brandschenkestrasse 110, 8002 Zürich, ZH) ──────────
@@ -84,7 +87,6 @@ const MAX_LISTING_PAGES = 8; // safety cap — 61 jobs / ~20 per page observed l
  */
 const HQ = {
   city: 'Zürich',
-  canton: 'ZH',
   postalCode: '8002',
   streetAddress: 'Brandschenkestrasse 110',
   region: 'Zürich',
@@ -100,6 +102,27 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * Resolve one Google location field against the nationwide Swiss scope.
+ * Multi-location cards are valid when at least one listed location is Swiss;
+ * the city/canton stored on the job come from the Swiss municipality signal.
+ */
+function resolveSwissGoogleLocation(rawLocation = '') {
+  const location = normalizeSpace(rawLocation);
+  if (
+    !location
+    || isLocationExplicitlyForeign(location)
+    || !isTargetSwissLocation(location, { includeBorderProximity: false })
+  ) {
+    return null;
+  }
+
+  const city = swissCityFromLocationField(location);
+  const canton = inferAnyCanton(location);
+  if (!city || !canton) return null;
+  return { city, canton };
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -539,7 +562,7 @@ async function fetchJobDescription(canonicalUrl) {
 /* ── Fetch + Parse ─────────────────────────────────────────── */
 
 /**
- * Fetch all Google Switzerland jobs (Zurich R&D hub only).
+ * Fetch all Google Switzerland jobs returned by the country-level search.
  * Returns an array of ParsedJob objects (source-locale only).
  *
  * IMPORTANT: Only set source-locale fields. Other locales are filled by
@@ -593,12 +616,13 @@ export async function fetchAllGoogleSwitzerlandJobs() {
     if (seenUrls.has(publicUrl)) continue;
     seenUrls.add(publicUrl);
 
-    // Only keep postings whose listed location(s) actually include Zurich
-    // (the location filter narrows the search, but multi-location postings
-    // can list Zurich alongside other cities — that's still a valid Zurich
-    // opening, so we keep it and store the Zurich-facing location text).
+    // The country-level search can return foreign-only and multi-location
+    // cards. Keep a card only when its location field contains a resolvable
+    // Swiss municipality/canton; this preserves valid multi-location cards
+    // while preventing foreign-only postings from entering the dataset.
     const rawLocation = listing.location || '';
-    if (!/z[üu]rich/i.test(rawLocation)) continue;
+    const swissLocation = resolveSwissGoogleLocation(rawLocation);
+    if (!swissLocation) continue;
 
     detailIndex += 1;
     // Polite delay between sequential detail fetches (mirrors the 250ms
@@ -610,10 +634,11 @@ export async function fetchAllGoogleSwitzerlandJobs() {
       ? `Minimum qualifications:\n${listing.minQuals.map((q) => `• ${q}`).join('\n')}`
       : '';
     const descriptionRaw = detailBody || minQualsText;
-    const descriptionText = stripHtml(descriptionRaw) || `${title} — ${GOOGLE_SWITZERLAND_COMPANY_NAME}, Zürich.`;
+    const descriptionText = stripHtml(descriptionRaw)
+      || `${title} — ${GOOGLE_SWITZERLAND_COMPANY_NAME}, ${swissLocation.city}.`;
 
-    const location = 'Zürich';
-    const canton = inferSwissTargetCanton(location) || HQ.canton;
+    const location = swissLocation.city;
+    const canton = swissLocation.canton;
     const { city, postalCode, streetAddress, region } = resolveAddress(location);
 
     const sourceLang = detectLang(descriptionText || title, 'en');
