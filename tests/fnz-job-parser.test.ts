@@ -44,20 +44,12 @@ describe('fnz-job-parser / resolveFnzSwissLocation', () => {
     }])).toBeNull();
   });
 
-  it('keeps generic Switzerland with the confirmed Zürich fallback', () => {
-    expect(resolveFnzSwissLocation(['Switzerland'])).toEqual({
-      raw: 'Switzerland',
-      location: 'Zürich',
-      canton: 'ZH',
-    });
+  it('rejects generic Switzerland instead of inventing Chiasso', () => {
+    expect(resolveFnzSwissLocation(['Switzerland'])).toBeNull();
   });
 
-  it('keeps an unresolved Swiss remote label with the confirmed Zürich fallback', () => {
-    expect(resolveFnzSwissLocation(['Remote, Switzerland'])).toEqual({
-      raw: 'Remote, Switzerland',
-      location: 'Zürich',
-      canton: 'ZH',
-    });
+  it('rejects an unresolved Swiss remote label instead of inventing a city', () => {
+    expect(resolveFnzSwissLocation(['Remote, Switzerland'])).toBeNull();
   });
 
   it('does not map an explicit non-Zürich canton-only value to Zürich', () => {
