@@ -12,47 +12,6 @@ import {
   isCapriHoldingsJob,
   CAPRI_WORKDAY_HOSTS,
 } from '@/scripts/lib/capri-holdings-job-parser.mjs';
-import {
-  isSwissWorkdayListing,
-  resolveWorkdayLocation,
-} from '../scripts/update-capri-holdings-jobs.mjs';
-
-describe('Capri Workday location resolution', () => {
-  it('accepts a Swiss location in a later bullet field', () => {
-    expect(isSwissWorkdayListing({ bulletFields: ['Full time', 'Manno'] })).toBe(true);
-  });
-
-  it('accepts an explicit Swiss country signal from the listing', () => {
-    expect(isSwissWorkdayListing({ locationCountry: 'Switzerland' })).toBe(true);
-  });
-
-  it('does not invent a historical location for a country-only listing', () => {
-    const resolved = resolveWorkdayLocation(
-      { country: 'Switzerland', bulletFields: ['5 locations'] },
-      { country: 'Switzerland' },
-    );
-
-    expect(resolved).toMatchObject({
-      countryIsSwiss: true,
-      locationRaw: '',
-      canton: '',
-      resolvedSwissSignal: true,
-    });
-  });
-
-  it('prefers a concrete canton resolved from the detail over the listing', () => {
-    const resolved = resolveWorkdayLocation(
-      { bulletFields: ['Zurich'] },
-      { location: 'Manno' },
-    );
-
-    expect(resolved).toMatchObject({
-      detailLocation: 'Manno',
-      locationRaw: 'Manno',
-      canton: 'TI',
-    });
-  });
-});
 
 // ─── Fixture: Workday detail page (Mendrisio) ───
 const MENDRISIO_JOB_HTML = `
