@@ -226,11 +226,14 @@ jobs:
           git checkout --detach origin/main
 
           base_branch='chore/loop-fleet-ledger'
-          open_pr_record=$(bounded_remote gh pr list \
+          open_epoch_prs=$(bounded_remote gh pr list \
             --repo "$GITHUB_REPOSITORY" \
             --state open \
+            --limit 1000 \
             --json number,headRefName,baseRefName,createdAt \
-            --jq 'map(select(.baseRefName == "main" and (.headRefName == "chore/loop-fleet-ledger" or (.headRefName | test("^chore/loop-fleet-ledger-L([0-9]|1[01])-[0-9]+-[0-9]+$"))))) | sort_by(.number) | if length == 0 then "" else .[-1] | [(.number | tostring), .headRefName, .createdAt] | @tsv end')
+            --jq 'map(select(.baseRefName == "main" and (.headRefName == "chore/loop-fleet-ledger" or (.headRefName | test("^chore/loop-fleet-ledger-L([0-9]|1[01])-[0-9]+-[0-9]+$")))))')
+          open_epoch_count=$(jq 'length' <<<"$open_epoch_prs")
+          open_pr_record=$(jq -r 'sort_by(.number) | if length == 0 then "" else .[-1] | [(.number | tostring), .headRefName, .createdAt] | @tsv end' <<<"$open_epoch_prs")
           open_pr=''
           open_branch=''
           open_created_at=''
@@ -261,9 +264,16 @@ jobs:
             epoch_decision=$(node scripts/ci/loop-fleet-epoch-policy.mjs \
               --open-pr true \
               --batch-count "$epoch_batch_count" \
-              --age-minutes "$epoch_age_minutes")
+              --age-minutes "$epoch_age_minutes" \
+              --open-epoch-count "$open_epoch_count")
             if [ "$(jq -r '.allow' <<<"$epoch_decision")" != 'true' ]; then
               reason=$(jq -r '.reason' <<<"$epoch_decision")
+              route=$(jq -r '.route' <<<"$epoch_decision")
+              preserve_source=$(jq -r '.preserveSource' <<<"$epoch_decision")
+              if [ "$route" = 'defer-source' ] && [ "$preserve_source" = 'true' ]; then
+                echo "::notice::ledger epoch deferred because ${open_epoch_count} open bridge epochs reached the cap ($reason); source run $SOURCE_RUN_ID is preserved for the next bridge/reconcile run and no new ledger PR is opened."
+                exit 0
+              fi
               echo "::notice::ledger epoch routed to a new batch PR because PR #$open_pr is bounded ($reason); source run $SOURCE_RUN_ID is preserved."
               open_pr=''
               open_branch=''

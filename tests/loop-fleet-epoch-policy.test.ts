@@ -14,6 +14,7 @@ describe('loop-fleet ledger epoch policy', () => {
       route: 'canonical-branch',
       preserveSource: true,
       reason: 'no-open-epoch',
+      openEpochCount: 0,
     });
   });
 
@@ -22,11 +23,13 @@ describe('loop-fleet ledger epoch policy', () => {
       openPr: true,
       batchCount: LEDGER_EPOCH_LIMITS.maxBatches - 1,
       ageMinutes: LEDGER_EPOCH_LIMITS.maxAgeMinutes - 1,
+      openEpochCount: LEDGER_EPOCH_LIMITS.maxOpenEpochs,
     })).toMatchObject({
       allow: true,
       route: 'open-epoch',
       preserveSource: true,
       reason: 'within-bounds',
+      openEpochCount: LEDGER_EPOCH_LIMITS.maxOpenEpochs,
     });
   });
 
@@ -62,6 +65,47 @@ describe('loop-fleet ledger epoch policy', () => {
       route: 'new-batch-branch',
       preserveSource: true,
       reason: 'epoch-age-unavailable',
+    });
+  });
+
+  it('defers a new epoch when the open bridge epoch cap is reached', () => {
+    expect(ledgerEpochDecision({
+      openPr: true,
+      batchCount: 1,
+      ageMinutes: LEDGER_EPOCH_LIMITS.maxAgeMinutes,
+      openEpochCount: LEDGER_EPOCH_LIMITS.maxOpenEpochs,
+    })).toMatchObject({
+      allow: false,
+      route: 'defer-source',
+      preserveSource: true,
+      reason: 'open-epoch-cap-reached',
+      openEpochCount: LEDGER_EPOCH_LIMITS.maxOpenEpochs,
+    });
+  });
+
+  it('routes to a new bridge epoch below the open epoch cap', () => {
+    expect(ledgerEpochDecision({
+      openPr: true,
+      batchCount: 1,
+      ageMinutes: LEDGER_EPOCH_LIMITS.maxAgeMinutes,
+      openEpochCount: LEDGER_EPOCH_LIMITS.maxOpenEpochs - 1,
+    })).toMatchObject({
+      allow: false,
+      route: 'new-batch-branch',
+      preserveSource: true,
+      reason: 'age-cap-reached',
+      openEpochCount: LEDGER_EPOCH_LIMITS.maxOpenEpochs - 1,
+    });
+  });
+
+  it('fails closed for an inconsistent no-open epoch count at the cap', () => {
+    expect(ledgerEpochDecision({
+      openEpochCount: LEDGER_EPOCH_LIMITS.maxOpenEpochs,
+    })).toMatchObject({
+      allow: false,
+      route: 'defer-source',
+      preserveSource: true,
+      reason: 'open-epoch-cap-reached',
     });
   });
 
