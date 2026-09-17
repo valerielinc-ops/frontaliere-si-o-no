@@ -1,12 +1,35 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   SWISS_LIFE_KEY,
   SWISS_LIFE_COMPANY_NAME,
+  assertSwissLifeNationalReadComplete,
+  fetchSwissListings,
   isSwissLifeJob,
   isTrustedDomain,
   parseWorkdayLocation,
+  resolveSwissLifeLocation,
 } from '../scripts/lib/swiss-life-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+function makeListing(id: string, locationsText = 'Zürich, Switzerland') {
+  return {
+    externalPath: `/job/${id}`,
+    title: `Swiss Life job ${id}`,
+    locationsText,
+    bulletFields: [id],
+  };
+}
+
+function jsonResponse(body: unknown) {
+  return {
+    ok: true,
+    json: async () => body,
+  };
+}
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+});
 
 describe('Swiss Life crawler parser', () => {
   // ── Constants ──
@@ -20,6 +43,23 @@ describe('Swiss Life crawler parser', () => {
     expect(parseWorkdayLocation('Sion-VS')).toBe('Sion');
     expect(parseWorkdayLocation('Visp-Switzerland')).toBe('Visp');
     expect(parseWorkdayLocation('ST-MAURICE')).toBe('ST-MAURICE');
+  });
+
+  it('resolves Swiss locations across cantons', () => {
+    expect(resolveSwissLifeLocation({ location: 'Zürich, Switzerland' })).toBe('Zürich');
+    expect(resolveSwissLifeLocation({ location: 'Lugano, Ticino' })).toBe('Lugano');
+  });
+
+  it('prefers a concrete additional locality over a country-only primary descriptor', () => {
+    expect(resolveSwissLifeLocation({
+      location: 'Switzerland',
+      additionalLocations: [{ descriptor: 'Zürich, Switzerland' }],
+    })).toBe('Zürich');
+  });
+
+  it('fails closed when no Swiss locality and canton can be resolved', () => {
+    expect(resolveSwissLifeLocation({ location: 'Switzerland' })).toBe('');
+    expect(resolveSwissLifeLocation({ location: 'Arezzo, Italy' })).toBe('');
   });
 
   // ── isCompanyJob ──
@@ -132,6 +172,93 @@ describe('Swiss Life crawler parser', () => {
 
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+    });
+  });
+
+  describe('national pagination', () => {
+    it('continues after a short page until the declared total is reached', async () => {
+      const pages = new Map([
+        [0, { total: 2, jobPostings: [makeListing('one')] }],
+        [1, { total: 2, jobPostings: [makeListing('two')] }],
+      ]);
+      const offsets: number[] = [];
+      vi.stubGlobal('fetch', vi.fn(async (_url: string, options: RequestInit) => {
+        const body = JSON.parse(String(options.body));
+        offsets.push(body.offset);
+        return jsonResponse(pages.get(body.offset) || { total: 2, jobPostings: [] });
+      }));
+
+      const listings = await fetchSwissListings();
+
+      expect(offsets).toEqual([0, 1]);
+      expect(listings.map((listing) => listing.externalPath)).toEqual(['/job/one', '/job/two']);
+    });
+
+    it('fails explicitly when an empty page leaves the declared total incomplete', async () => {
+      const pages = new Map([
+        [0, { total: 2, jobPostings: [makeListing('only')] }],
+        [1, { total: 2, jobPostings: [] }],
+      ]);
+      vi.stubGlobal('fetch', vi.fn(async (_url: string, options: RequestInit) => {
+        const body = JSON.parse(String(options.body));
+        return jsonResponse(pages.get(body.offset) || { total: 2, jobPostings: [] });
+      }));
+
+      await expect(fetchSwissListings()).rejects.toThrow(/1 of 2 declared records fetched/);
+    });
+
+    it('fails closed when Workday repeats a page without new source records', async () => {
+      const repeatedPage = { total: 3, jobPostings: [makeListing('repeated')] };
+      vi.stubGlobal('fetch', vi.fn(async () => jsonResponse(repeatedPage)));
+
+      await expect(fetchSwissListings()).rejects.toThrow(/repeated page or no new records/);
+    });
+
+    it('fails closed when raw pages have no identity used by the final deduplication map', async () => {
+      const pages = new Map([
+        [0, {
+          total: 2,
+          jobPostings: [{
+            externalPath: '',
+            title: 'Unidentified Swiss Life job, first representation',
+            locationsText: 'Zürich, Switzerland',
+            bulletFields: [],
+          }],
+        }],
+        [1, {
+          total: 2,
+          jobPostings: [{
+            externalPath: '',
+            title: 'Unidentified Swiss Life job, second representation',
+            locationsText: 'Zürich, Switzerland',
+            bulletFields: [],
+          }],
+        }],
+      ]);
+      vi.stubGlobal('fetch', vi.fn(async (_url: string, options: RequestInit) => {
+        const body = JSON.parse(String(options.body));
+        return jsonResponse(pages.get(body.offset) || { total: 2, jobPostings: [] });
+      }));
+
+      await expect(fetchSwissListings()).rejects.toThrow(/stable record identity/);
+    });
+  });
+
+  describe('national read completeness', () => {
+    it('accepts a single declared listing without a count gate', () => {
+      expect(() => assertSwissLifeNationalReadComplete({
+        terminationProven: true,
+        totalHits: 1,
+        recordsSeen: 1,
+      })).not.toThrow();
+    });
+
+    it('rejects a truncated read against the declared total', () => {
+      expect(() => assertSwissLifeNationalReadComplete({
+        terminationProven: false,
+        totalHits: 123,
+        recordsSeen: 80,
+      })).toThrow(/80 of 123 declared records fetched/);
     });
   });
 });
