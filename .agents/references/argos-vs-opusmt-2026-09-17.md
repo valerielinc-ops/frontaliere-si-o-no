@@ -22,9 +22,32 @@ Base della matrice: 282 rifiuti Argos confrontabili.
 | skip:source-locale | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | skip:empty-raw | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
-## 3. Numero che conta
+## 3. Numeri che contano
 
-OpusMT risolve **127/282** slot che Argos non risolve, cioè **45.0%** (intervallo Wilson 95%: **39.3%–50.9%**; N=282).
+### Stima pesata sulla produzione
+
+Il numero di testa è una stima pesata sulla **composizione di produzione**, non sul campione round-robin: OpusMT recupererebbe **35,1%**, cioè circa **1.712 slot per run**. La ripesatura dei tassi di recupero per causa è:
+
+```text
+bucket candidate-untranslated (3.478):
+  binnen-i              1.565 x  9,1% =   142
+  compound-residue        887 x 42,7% =   379
+  source-overlap          336 x 35,7% =   120
+  source-function-word    335 x 88,9% =   298
+  source-orthography      199 x 30,8% =    61
+  source-copy             156 x 45,7% =    71
+                                  tot = 1.071  (30,8%)
+bucket source-copy separato (1.402) x 45,7% =   641  (45,7%)
+TOTALE                              1.712 su 4.880 =  35,1%
+```
+
+### Tasso sul campione
+
+Il **45,0% (127/282; IC95% Wilson 39,3%–50,9%; N=282)** resta nel report, ma va letto come **tasso pesato sul campione a parità di azienda (round-robin per company)**. Il round-robin evita che una singola fonte (per esempio fachkraft.ch) domini il campione, ma introduce una composizione per-causa diversa da quella di produzione: `binnen-i`, la causa più ostica (recupero 9,1%), è sotto-rappresentato di 7,5 volte nel campione (**11/184 = 6,0%** del bucket `skip:candidate-untranslated`) rispetto alla produzione (**1.565/3.478 = 45,0%**, dalla fase 2a della run GitHub Actions **35095698299**, blocco `Language arm`).
+
+I tassi di recupero **per causa** nella tabella successiva sono il risultato trasferibile; l'aggregato sul campione **127/282** non lo è, perché il disegno round-robin ne altera la composizione per-causa.
+
+> **Avvertenza per le ripesature future:** questi tassi vanno ripesati ogni volta sulla composizione per causa della run di produzione del momento, non sui numeri fissi del 2026-09-17, perché la distribuzione delle cause cambia da una run all'altra.
 
 Distribuzione delle decisioni OpusMT sul braccio rifiutato:
 
@@ -78,4 +101,4 @@ Distribuzione delle decisioni OpusMT sul braccio rifiutato:
 
 ## 6. Verdetto
 
-**SÌ** — soglia dichiarata: cambio giustificato solo se OpusMT recupera almeno **10%** dei rifiuti Argos **e** la stima sui 4900 slot resta entro il budget di 280.0 min. Risultato misurato: 127/282 = 45.0%; tempo stimato 102.3 min. **entrambe le condizioni della soglia sono soddisfatte**
+**SÌ** — soglia dichiarata: cambio giustificato solo se OpusMT recupera almeno **10%** dei rifiuti Argos **e** la stima sui 4900 slot resta entro il budget di 280.0 min. Risultato operativo: **35,1% (~1.712 slot/run)** contro le **9 scritture/run** che Argos produce oggi, cioè un fattore di circa **190×**, ben sopra la soglia del 10%; tempo stimato 102.3 min. **Entrambe le condizioni della soglia sono soddisfatte**.
