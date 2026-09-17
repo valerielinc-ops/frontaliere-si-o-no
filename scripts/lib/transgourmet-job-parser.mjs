@@ -14,7 +14,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -278,10 +278,6 @@ function parsePensum(szas = {}, attrs = {}) {
  * Normalize canton code from Prospective.ch region names.
  */
 function normalizeCantonCode(regionName = '') {
-  const lower = normalize(regionName);
-  if (['wallis', 'valais', 'vallese'].some((n) => lower.includes(n))) return 'VS';
-  if (['tessin', 'ticino'].some((n) => lower.includes(n))) return 'TI';
-  if (['graubünden', 'graubunden', 'grigioni', 'grisons'].some((n) => lower.includes(n))) return 'GR';
   return inferAnyCanton(regionName) || '';
 }
 

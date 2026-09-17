@@ -23,25 +23,10 @@ import { firstLocationSegment } from './ats-clients/workday-client.mjs';
  */
 
 import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
-import { getCompanyDefaults } from './crawler-location-config.mjs';
-
-const HQ = getCompanyDefaults('otis');
 
 export const WORKDAY_API_BASE = 'https://otis.wd504.myworkdayjobs.com/wday/cxs/otis/REC_Ext_Gateway';
 export const WORKDAY_PUBLIC_BASE = 'https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway';
 export const COMPANY_HOST = 'otis.wd504.myworkdayjobs.com';
-
-/**
- * Known Ticino location keywords for filtering.
- */
-export const TICINO_LOCATION_KEYWORDS = [
-  'lugano', 'ticino', 'manno', 'bellinzona', 'locarno',
-  'mendrisio', 'chiasso', 'sorengo', 'agno', 'bioggio',
-  'rivera', 'lamone', 'grancia', 'muzzano', 'paradiso',
-  'switzerland', 'svizzera', 'suisse', 'schweiz',
-  'st-gallen', 'st. gallen', 'zürich', 'zurich', 'bern', 'basel', 'geneva', 'genève',
-  'lausanne', 'winterthur', 'luzern', 'lucerne',
-];
 
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
@@ -83,7 +68,7 @@ export function slugify(value = '') {
 }
 
 /**
- * Check if a Workday location string refers to Switzerland/Ticino.
+ * Check if a Workday location string refers to Switzerland.
  */
 export function isSwissLocation(locationText = '') {
   if (isTargetSwissLocation(locationText)) return true;
@@ -96,7 +81,7 @@ export function isSwissLocation(locationText = '') {
  * Parse city name from Workday location text.
  * Real format: "Walenbüchelstrasse 3, 9000 St-Gallen, Switzerland"
  * Also handles: "Bahnhofstrasse 3, Postfach 371, Dietlikon / ZH"
- *               "CHE - Lugano", "Ticino, Switzerland", plain "Switzerland"
+ *               "CHE - Lugano", "Zurich, Switzerland", plain "Switzerland"
  */
 export function parseWorkdayCity(locText = '') {
   const cleaned = String(locText || '').trim();
@@ -245,8 +230,8 @@ export function parseOtisWorkdayDetail(detail, externalPath = '') {
     title,
     description: descriptionText,
     url: publicUrl,
-    city: city || 'Ticino',
-    canton: inferAnyCanton(city) || HQ.canton,
+    city,
+    canton: inferAnyCanton(city) || '',
     employmentType: inferEmploymentType(title, descriptionText, timeType),
     datePosted: startDate,
     jobReqId,
