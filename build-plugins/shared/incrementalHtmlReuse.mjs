@@ -256,7 +256,7 @@ export function htmlHasIndexableRobots(html) {
 
 function htmlAssetReferences(html) {
   const references = [];
-  const assetReferencePattern = /<(script|link|img|source)\b[^>]*?\b(src|href)\s*=\s*["']([^"']+)["'][^>]*>/gi;
+  const assetReferencePattern = /<(script|link|img|source)\b[^>]*?\s(src|href)\s*=\s*["']([^"']+)["'][^>]*>/gi;
   for (const match of String(html).matchAll(assetReferencePattern)) {
     const tag = match[1].toLowerCase();
     const url = match[3];
@@ -280,7 +280,7 @@ function htmlInlineBlocks(html) {
   const blocks = [];
   const blockPattern = /<(script|style)\b([^>]*)>([\s\S]*?)<\/\1\s*>/gi;
   for (const match of String(html).matchAll(blockPattern)) {
-    if (/\bsrc\s*=/i.test(match[2])) continue;
+    if (/\ssrc\s*=/i.test(match[2])) continue;
     blocks.push(`${match[1].toLowerCase()}:${match[3]}`);
   }
   const styleAttributePattern = /\bstyle\s*=\s*["']([^"']*)["']/gi;

@@ -303,6 +303,24 @@ describe('jobs SEO disk HTML reuse', () => {
     }
   });
 
+  it('ignores data-src and data-href when classifying HTML assets', async () => {
+    const rootDir = fixtureRoot();
+    const pagePath = '/cerca-lavoro-ticino/verify-data-attributes/';
+    const input = { value: 'same' };
+    const previousHtml = '<img data-src="/assets/old.svg"><p>same</p>';
+    const currentHtml = '<img data-src="/assets/new.svg"><p>same</p>';
+    try {
+      writePreviousManifest(rootDir, pagePath, 'active-job', input);
+      writeCachedHtml(rootDir, pagePath, previousHtml);
+      const reuse = await createReuse(rootDir, true);
+      const candidate = reuse.lookup('it', pagePath, 'active-job', input, 'active');
+      reuse.finish(candidate, currentHtml);
+      expect(reuse.summary().active.mismatchReasons).toEqual({ 'html-content-changed': 1 });
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
   it('verify mode classifies inline mismatches separately', async () => {
     const rootDir = fixtureRoot();
     const pagePath = '/cerca-lavoro-ticino/verify-inline/';
