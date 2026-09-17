@@ -35,8 +35,10 @@ shard_read_counter() {
   local dir="$1" path="$2" val
   val="$(git -C "$dir" show "HEAD:$path" 2>/dev/null || echo 0)"
   # Older section pushes wrote the `wc -l` padding into this marker. Keep
-  # reading those trees while all new writes use the canonical decimal form.
-  val="${val//[[:space:]]/}"
+  # reading those trees while all new writes use the canonical decimal form;
+  # reject malformed internal whitespace instead of silently joining digits.
+  val="${val#"${val%%[![:space:]]*}"}"
+  val="${val%"${val##*[![:space:]]}"}"
   [[ "$val" =~ ^[0-9]+$ ]] || val=0
   printf '%s' "$val"
 }
@@ -179,7 +181,7 @@ shard_delta_add_text() {
 # must commit the same canonical decimal marker, not two `wc` spellings.
 shard_count_files() {
   local dir="$1"
-  find "$dir" -type f -print0 | tr -cd '\0' | wc -c | tr -d '[:space:]'
+  find "$dir" -type f -print0 | perl -0ne '$count += 1; END { print $count + 0 }'
 }
 
 # shard_index_has_content_changes <stage>
@@ -322,8 +324,8 @@ shard_delta_remove_stale_payload_paths() {
 # shard_delta_remove_file <stage> <target_path>
 shard_delta_remove_file() {
   local stage="$1" target="$2"
-  if [ "$(git -C "$stage" -c core.quotePath=false ls-files --stage -z -- "$target" 2>/dev/null \
-      | wc -c | tr -d '[:space:]')" -gt 0 ]; then
+  if git -C "$stage" -c core.quotePath=false ls-files --stage -z -- "$target" 2>/dev/null \
+      | perl -0ne '$found = 1; END { exit($found ? 0 : 1) }'; then
     git -C "$stage" -c core.quotePath=false update-index --force-remove -- "$target" || return 1
     SHARD_DELTA_REMOVED_FILES=$((SHARD_DELTA_REMOVED_FILES + 1))
     SHARD_DELTA_CONTENT_CHANGES=$((SHARD_DELTA_CONTENT_CHANGES + 1))
@@ -369,7 +371,7 @@ shard_delta_apply_source_tree() {
     rm -rf "$work"
     return 1
   fi
-  source_count="$(tr -cd '\0' < "$payload_file_list" | wc -c | tr -d '[:space:]')"
+  source_count="$(perl -0ne '$count += 1; END { print $count + 0 }' < "$payload_file_list")"
   SHARD_DELTA_SOURCE_FILES="${source_count:-0}"
 
   if [ -s "$candidate_list" ]; then
@@ -558,7 +560,7 @@ shard_delta_verify_prepare() {
       SHARD_VERIFY_REASON='verification output directory unavailable'
       return 1
     fi
-    if ! ( cd "$payload_root" && find . -type f -print0 | perl -0pe 's#^\./##' ) > "$out_dir/payload-files.txt"; then
+    if ! ( cd "$payload_root" && find . -type f -print0 | perl -0ne 's#^\./##; print "$_\0"' ) > "$out_dir/payload-files.txt"; then
       SHARD_VERIFY_REASON='verification payload listing failed'
       return 1
     fi
@@ -724,7 +726,7 @@ shard_delta_verify_report() {
 shard_delta_count_files() {
   local stage="$1" prefix="$2"
   git -C "$stage" -c core.quotePath=false ls-files -z -- "$prefix" 2>/dev/null \
-    | tr -cd '\0' | wc -c | tr -d '[:space:]'
+    | perl -0ne '$count += 1; END { print $count + 0 }'
 }
 
 # True when the final indexed tree loses more than <pct> percent of its files.

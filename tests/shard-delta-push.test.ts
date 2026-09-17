@@ -586,6 +586,24 @@ describe('delta push degli shard', () => {
     }
   });
 
+  it('mantiene path Unicode anche nel fallback del verifier senza manifest valido', () => {
+    const scenario = createScenario('unicode-verifier-fallback');
+    const files = {
+      'pages/aktienmarkt-rot-ölpreise-tessin': '<html>oil fallback</html>',
+    };
+    try {
+      writePayload(scenario, files);
+      writeManifest(scenario, Object.keys(files), 'v1');
+      writeFileSync(join(scenario.manifestDir, 'en.jsonl'), '{invalid jsonl\n');
+      const result = runPush(scenario, 'full', { SHARD_PUSH_VERIFY: '1' });
+      expect(result.status).toBe(0);
+      expect(result.output).toMatch(/mismatches=0/);
+      expect(treeFiles(scenario.remote)).toContain('en/pages/aktienmarkt-rot-ölpreise-tessin/index.html');
+    } finally {
+      rmSync(scenario.root, { recursive: true, force: true });
+    }
+  });
+
   it('usa liste e hashing batch anche con qualche migliaio di file non manifestati', () => {
     const scenario = createScenario('batch-thousands');
     const payloadFiles = 3000;
