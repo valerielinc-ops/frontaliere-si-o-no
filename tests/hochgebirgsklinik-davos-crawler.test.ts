@@ -4,6 +4,8 @@ import {
   HOCHGEBIRGSKLINIK_DAVOS_COMPANY_NAME,
   isHochgebirgsklinikDavosJob,
   isTrustedDomain,
+  extractTypesenseApiKeyFromNuxtData,
+  fetchTypesenseApiKey,
   fetchJobListingsWithKeyRetry,
 } from '../scripts/lib/hochgebirgsklinik-davos-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
@@ -88,6 +90,61 @@ describe('Hochgebirgsklinik Davos crawler parser', () => {
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  describe('Typesense key extraction', () => {
+    it('resolves a direct Nuxt reference to the scoped key', () => {
+      const nuxtArr = [{}, {}, {}, { [`typesenseApiKey-${JOB_SHOP_ID}`]: 4 }, 'scoped-key-12345678901234567890'];
+      expect(extractTypesenseApiKeyFromNuxtData(nuxtArr)).toBe('scoped-key-12345678901234567890');
+    });
+
+    it('returns no key when the SSR ref is null, allowing the public refresh path', () => {
+      const nuxtArr = [
+        {},
+        {},
+        {},
+        { jobShopData: 4, [`typesenseApiKey-${JOB_SHOP_ID}`]: 5 },
+        { jobShopCompanyVanity: 6 },
+        null,
+      ];
+      expect(extractTypesenseApiKeyFromNuxtData(nuxtArr)).toBeNull();
+    });
+
+    it('refreshes a missing SSR key through the job-shop public API', async () => {
+      const nuxtArr = [
+        {},
+        {},
+        {},
+        { jobShopData: 4, [`typesenseApiKey-${JOB_SHOP_ID}`]: 5 },
+        { jobShopCompanyVanity: 6 },
+        null,
+        'hochgebirgsklinik-davos',
+      ];
+      const html = `<script id="__NUXT_DATA__" type="application/json">${JSON.stringify(nuxtArr)}</script>`;
+      const calls: Array<{ url: string; init?: RequestInit }> = [];
+      const originalFetch = global.fetch;
+      global.fetch = vi.fn(async (url: unknown, init?: RequestInit) => {
+        calls.push({ url: String(url), init });
+        if (String(url).includes('/search/api-key')) {
+          return {
+            ok: true,
+            status: 200,
+            text: async () => JSON.stringify({ key: 'refreshed-key-12345678901234567890' }),
+          } as unknown as Response;
+        }
+        return { ok: true, status: 200, text: async () => html } as unknown as Response;
+      }) as unknown as typeof fetch;
+
+      try {
+        await expect(fetchTypesenseApiKey()).resolves.toBe('refreshed-key-12345678901234567890');
+      } finally {
+        global.fetch = originalFetch;
+      }
+
+      const refreshCall = calls.find((call) => call.url.includes('/search/api-key'));
+      expect(refreshCall?.url).toContain('backoffice_vanity%3Ahochgebirgsklinik-davos');
+      expect(refreshCall?.init?.headers).toMatchObject({ 'X-Tenant-Id': 'hochgebirgsklinik-davos' });
     });
   });
 
@@ -197,9 +254,15 @@ describe('Hochgebirgsklinik Davos crawler parser', () => {
   //    seen in the Hornbach crawler's #3688/#3940/#4319 pattern) ──
   describe('fetchJobListingsWithKeyRetry', () => {
     const orig = global.fetch;
+    const origRetries = process.env.JOBS_CRAWLER_RETRIES;
+    const origRetryBase = process.env.JOBS_CRAWLER_RETRY_BASE_MS;
 
     afterEach(() => {
       global.fetch = orig;
+      if (origRetries === undefined) delete process.env.JOBS_CRAWLER_RETRIES;
+      else process.env.JOBS_CRAWLER_RETRIES = origRetries;
+      if (origRetryBase === undefined) delete process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+      else process.env.JOBS_CRAWLER_RETRY_BASE_MS = origRetryBase;
     });
 
     it('retries once with a freshly re-scraped key after an HTTP 401 from multi_search', async () => {
@@ -233,7 +296,10 @@ describe('Hochgebirgsklinik Davos crawler parser', () => {
       await expect(fetchJobListingsWithKeyRetry('stale-key')).rejects.toThrow(/401/);
     });
 
-    it('does not retry a non-401 error (e.g. HTTP 500)', async () => {
+    it('does not refresh the key for a non-401 error (e.g. HTTP 500)', async () => {
+      // The shared fetch layer may retry transient 5xx statuses, but a 500
+      // must never trigger the separate stale-key refresh path.
+      process.env.JOBS_CRAWLER_RETRIES = '0';
       let calls = 0;
       global.fetch = vi.fn(async () => {
         calls += 1;

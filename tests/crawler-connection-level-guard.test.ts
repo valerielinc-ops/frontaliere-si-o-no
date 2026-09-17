@@ -123,6 +123,28 @@ describe('runStandardCrawlerPipeline — connection-level fetch guard', () => {
       }),
     ).resolves.toBeUndefined();
   });
+
+  it('preserves existing jobs when the shared fetch retry marker is propagated directly', async () => {
+    // fetchWithRetry() uses retryExhausted on its final Error. PastaHR's
+    // cross-origin 403 path reaches this boundary in exactly that form; it is
+    // a transient WAF fence, not a source/parser failure.
+    const root = makeRoot();
+    const err = Object.assign(new Error('HTTP 403 from https://www.publicjobs.ch/widget'), {
+      status: 403,
+      retryExhausted: true,
+    });
+    await expect(
+      runStandardCrawlerPipeline({
+        companyKey: 'test-co',
+        companyLabel: 'Test Co',
+        isCompanyJob: () => false,
+        fetchJobs: async () => {
+          throw err;
+        },
+        root,
+      }),
+    ).resolves.toBeUndefined();
+  });
 });
 
 describe('feed-endpoint-guard', () => {
@@ -193,6 +215,18 @@ describe('exitCrawlerOnError — custom-main terminal catch', () => {
     const httpErr = Object.assign(new Error('HTTP 429'), {
       status: 429,
       retryBudgetExhausted: true,
+    });
+    expect(() => exitCrawlerOnError(httpErr, 'Test Co')).toThrow('exit:0');
+    expect(exit).toHaveBeenCalledWith(0);
+  });
+
+  it('exits 0 (soft, preserve) on the shared fetch retry-exhausted marker', () => {
+    const exit = vi.spyOn(process, 'exit').mockImplementation(((code?: number) => {
+      throw new Error(`exit:${code}`);
+    }) as never);
+    const httpErr = Object.assign(new Error('HTTP 403'), {
+      status: 403,
+      retryExhausted: true,
     });
     expect(() => exitCrawlerOnError(httpErr, 'Test Co')).toThrow('exit:0');
     expect(exit).toHaveBeenCalledWith(0);

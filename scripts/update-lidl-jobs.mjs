@@ -135,6 +135,8 @@ const LIDL_VERIFIED_LOCALITY_CANTONS = new Map([
   ['perlen|6035', 'LU'],
   ['emmenbrucke|6020', 'LU'],
   ['bevaix|2022', 'NE'],
+  ['niederuzwil|9244', 'SG'],
+  ['romont|1680', 'FR'],
 ]);
 
 function isLidlJob(job) {
@@ -236,7 +238,8 @@ function languageScore(lang = '') {
 
 /**
  * Resolve a job's canton CH-wide from the source-backed location fields. The
- * bare `location.city` is tried first via inferAnyCanton (26 cantons).
+ * A source-verified city + postal pair is authoritative and is checked first;
+ * otherwise the bare `location.city` is tried via inferAnyCanton (26 cantons).
  * The city string MUST be passed alone: a combined "city + region" string makes
  * inferAnyCanton return the wrong canton because of TARGET_CANTONS array order.
  * Delivery localities absent from BFS require an exact, verified city + postal
@@ -248,6 +251,11 @@ export function inferLidlCanton(fields) {
   const postalCode = String(fields?.zipCode || '').trim();
   const country = String(fields?.country || '').trim().toUpperCase();
   if (!city || country !== 'CH') return '';
+
+  // A source-verified city + postal pair outranks an ambiguous municipality
+  // token (Romont is the live example) and any city-only inference.
+  const verifiedLocality = LIDL_VERIFIED_LOCALITY_CANTONS.get(`${normalizeKey(city)}|${postalCode}`);
+  if (verifiedLocality) return verifiedLocality;
 
   const inferred = inferAnyCanton(city);
   if (inferred) return inferred;
@@ -261,7 +269,7 @@ export function inferLidlCanton(fields) {
   if (exactCandidates) {
     return exactCandidates.size === 1 ? [...exactCandidates][0] : '';
   }
-  return LIDL_VERIFIED_LOCALITY_CANTONS.get(`${normalizeKey(city)}|${postalCode}`) || '';
+  return '';
 }
 
 function normalizeLidlContract(raw = '') {

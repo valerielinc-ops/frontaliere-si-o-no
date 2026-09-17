@@ -14,6 +14,7 @@ import {
   normalizeListingWhitespace,
   extractLocationContractSegment,
   hasStandaloneSwissSignal,
+  preferAlpiqDetailDescription,
   slugify,
   stripHtml,
 } from '@/scripts/lib/alpiq-job-parser.mjs';
@@ -75,6 +76,29 @@ const DETAIL_HTML_FIXTURE = `
     <li>Fluent in English, German or French is a plus</li>
   </ul>
 </div>
+`;
+
+const CURRENT_DETAIL_HTML_FIXTURE = `
+<main class="main-content">
+  <h1 class="hero--headline">Product Manager - Trading and Origination</h1>
+  <div class="rte-text-wrapper">
+    <p><b>Mission</b></p>
+    <p>Join the New Product Implementation team and manage the product life cycle for energy trading and origination.</p>
+    <p><b>Your main responsibilities</b></p>
+    <ul>
+      <li>Manage product design, approval and implementation.</li>
+      <li>Coordinate with Front Office, Risk and key stakeholders.</li>
+      <li>Lead product governance projects and documentation.</li>
+    </ul>
+    <p><strong>Your profile</strong></p>
+    <ul>
+      <li>Several years of experience in energy trading or product management.</li>
+      <li>Strong analytical and stakeholder management skills.</li>
+    </ul>
+    <p>Disclaimer: applications from agencies are not considered.</p>
+  </div>
+  <div data-content-element="facts_container"><h2>Your benefits</h2><p>Competitive salary package.</p></div>
+</main>
 `;
 
 // ── Tests ────────────────────────────────────────────────────────
@@ -187,6 +211,27 @@ describe('Alpiq crawler — detail page parsing', () => {
 
   it('returns null for empty input', () => {
     expect(parseAlpiqDetailHtml('')).toBeNull();
+  });
+
+  it('extracts the role-specific Sitecore section instead of the generic page chrome', () => {
+    const result = parseAlpiqDetailHtml(CURRENT_DETAIL_HTML_FIXTURE);
+    expect(result?.title).toBe('Product Manager - Trading and Origination');
+    expect(result?.description).toContain('Your main responsibilities');
+    expect(result?.description).toContain('Manage product design');
+    expect(result?.description).not.toContain('Competitive salary package');
+    expect(result?.description).not.toContain('Disclaimer:');
+    expect(result?.bullets).toHaveLength(5);
+  });
+
+  it('uses a rich detail description and keeps a thin listing fallback', () => {
+    const detail = parseAlpiqDetailHtml(CURRENT_DETAIL_HTML_FIXTURE);
+    expect(preferAlpiqDetailDescription('About the Role | Location: Olten', detail))
+      .toContain('Manage product design');
+    expect(preferAlpiqDetailDescription('About the Role | Location: Olten', {
+      description: 'Short text',
+      bullets: [],
+      sections: [],
+    })).toBe('About the Role | Location: Olten');
   });
 });
 

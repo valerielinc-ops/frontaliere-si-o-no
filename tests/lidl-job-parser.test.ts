@@ -533,6 +533,8 @@ const LIDL_VERIFIED_LOCATIONS = [
   ['Perlen', '6035', 'LU'],
   ['Emmenbrücke', '6020', 'LU'],
   ['Bevaix', '2022', 'NE'],
+  ['Niederuzwil', '9244', 'SG'],
+  ['Romont', '1680', 'FR'],
 ] as const;
 
 function licaEnvelope(
@@ -719,8 +721,8 @@ describe('Lidl authoritative LiCa discovery', () => {
     };
 
     await expect(fetchLidlJobDetailUrls({ fetchImpl, timeoutMs: 1000 })).resolves.toMatchObject({
-      totalCount: 12,
-      rawFetched: 12,
+      totalCount: swissHits.length + 1,
+      rawFetched: swissHits.length + 1,
       duplicateIdentity: 0,
       droppedForeign: 1,
       unresolvedSwiss: 0,
