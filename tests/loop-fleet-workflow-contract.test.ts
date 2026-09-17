@@ -197,28 +197,41 @@ describe('loop fleet workflow contract', () => {
     expect(source).toContain('GitHub PR API did not accept the ledger PR update after 3 attempts');
   });
 
-  it('descrive le PR ledger cumulative senza attribuirle a un solo loop', () => {
+  it('descrive il PR ledger come batch sorgente bounded', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8');
     expect(source).toContain('Latest immutable batch:');
-    expect(source).toContain('This PR can accumulate multiple validated batches while it is open');
+    expect(source).toContain('This PR contains one bounded source batch');
     expect(source).toContain('for the latest ${SOURCE_LOOP} batch');
     expect(source).toContain('--title "chore(loop-fleet): persist durable evidence batches"');
   });
 
-  it('ritrova branch ledger suffissati e limita il lookup alle PR con base main', () => {
+  it('ritrova solo branch ledger bridge validi e limita il lookup alle PR con base main', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8');
-    expect(source).toContain('--json number,headRefName,baseRefName');
+    expect(source).toContain('--json number,headRefName,baseRefName,createdAt');
     expect(source).toContain('.baseRefName == "main"');
-    expect(source).toContain('startswith("chore/loop-fleet-ledger-")');
+    expect(source).toContain('test("^chore/loop-fleet-ledger-L([0-9]|1[01])-[0-9]+-[0-9]+$")');
+    expect(source).not.toContain('startswith("chore/loop-fleet-ledger-")');
     expect(source).toContain('source_orphan_branch=$(bounded_remote git ls-remote --heads origin');
-    expect(source).toContain('if [ -z "$open_pr" ]; then\n            source_orphan_branch=$(bounded_remote git ls-remote --heads origin');
-    expect(source).toContain('if [ -z "$source_orphan_branch" ]; then\n              base_branch_ref=$(bounded_remote git ls-remote --heads origin');
+    expect(source).toContain('if [ -z "$open_pr" ] && [ "$frozen_epoch" != \'true\' ] && [ -z "$source_orphan_branch" ]; then');
+    expect(source).toContain('if [ "$frozen_epoch" = \'true\' ] && [ -n "$source_orphan_branch" ]; then');
     expect(source).toContain('ledger_branch="$open_branch"');
     expect(source).toContain('orphan_recovery=\'true\'');
     expect(source).toContain('ledger_branch="$base_branch"');
     expect(source).toContain('&& [ "$orphan_recovery" != \'true\' ]; then');
     expect(source).toContain('Recovering an orphan ledger branch that already contains this validated batch.');
     expect(source).toContain('git checkout -b "$branch" "origin/$ledger_branch"');
+  });
+
+  it('freezes an open ledger epoch before repeated workflow_run heads can starve it', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8');
+    expect(source).toContain('/scripts/ci/loop-fleet-epoch-policy.mjs');
+    expect(source).toContain('epoch_batch_count=$(git log "origin/$open_branch"');
+    expect(source).toContain('--batch-count "$epoch_batch_count"');
+    expect(source).toContain('--age-minutes "$epoch_age_minutes"');
+    expect(source).toContain('ledger epoch routed to a new batch PR because PR #$open_pr is bounded');
+    expect(source).toContain('source run $SOURCE_RUN_ID is preserved');
+    expect(source).toContain('branch="${base_branch}-${SOURCE_LOOP}-${SOURCE_RUN_ID}-${GITHUB_RUN_ATTEMPT}"');
+    expect(source).not.toContain('will be recovered after the PR terminal event');
   });
 
   it('bounds remote append/PR operations and disables interactive prompts', () => {
@@ -265,12 +278,23 @@ describe('loop fleet workflow contract', () => {
     expect(source).toContain('bounded_remote git push --set-upstream origin "$branch"');
     expect(source).toContain('export GIT_TERMINAL_PROMPT=0');
     expect(source).toContain('export GH_PAGER=cat');
-    expect(source).toContain('if [ -z "$open_pr" ]; then\n            base_branch_ref=$(bounded_remote git ls-remote --heads origin');
+    expect(source).toContain("base_branch='chore/loop-fleet-ledger-lifecycle'");
+    expect(source).toContain('/scripts/ci/loop-fleet-epoch-policy.mjs');
+    expect(source).toContain('--json number,headRefName,baseRefName,createdAt');
+    expect(source).toContain('epoch_batch_count=$(git log "origin/$open_branch"');
+    expect(source).toContain('--batch-count "$epoch_batch_count"');
+    expect(source).toContain('--age-minutes "$epoch_age_minutes"');
+    expect(source).toContain('lifecycle epoch routed to a new PR because PR #$open_pr is bounded');
+    expect(source).toContain('observed events are preserved');
+    expect(source).toContain('branch="${base_branch}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"');
+    expect(source).toContain('orphan_recovery=\'true\'');
+    expect(source).toContain('Recovering an orphan lifecycle-ledger branch');
+    expect(source).not.toContain('will be recovered after the PR terminal event');
     for (const command of [
       'bounded_remote git fetch origin main',
       'bounded_remote gh pr list',
       'bounded_remote git ls-remote --heads origin',
-      'bounded_remote git fetch origin "$base_branch"',
+      'bounded_remote git fetch origin "$open_branch"',
       'bounded_remote gh pr edit',
       'bounded_remote gh pr create',
     ]) {
