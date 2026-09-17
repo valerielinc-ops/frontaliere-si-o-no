@@ -529,6 +529,7 @@ jobs:
               --header 'Accept: application/vnd.github.raw+json' \
               > "$destination"
           }
+          download_main package.json "$policy_root/package.json"
           download_main scripts/ci/review-test-policy.mjs "$policy_root/scripts/ci/review-test-policy.mjs"
           download_main scripts/ci/lib/fetchPrFiles.mjs "$policy_root/scripts/ci/lib/fetchPrFiles.mjs"
           download_main scripts/lib/loop-fleet-contract.mjs "$policy_root/scripts/lib/loop-fleet-contract.mjs"
