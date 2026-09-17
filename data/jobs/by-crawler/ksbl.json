@@ -386,13 +386,15 @@
         "it": [
           "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
           "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal-s9bict",
-          "unterassistentin-unterassistent-medizin-a-ksbl-liestal-s9bict"
+          "unterassistentin-unterassistent-medizin-a-ksbl-liestal-s9bict",
+          "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal"
         ]
       },
       "previousSlugs": [
         "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
         "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal-s9bict",
-        "unterassistentin-unterassistent-medizin-a-ksbl-liestal-s9bict"
+        "unterassistentin-unterassistent-medizin-a-ksbl-liestal-s9bict",
+        "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -1795,11 +1797,28 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-operationstechnik-hf-in-ausbildung-fruhling-2027-a-ksbl-liestal"
+        "fachfrau-fachmann-operationstechnik-hf-in-ausbildung-fruhling-2027-a-ksbl-liestal",
+        "specialista-esperto-operazioni-ingegneria-hf-kantonsspital-baselland-ksbl-liestal",
+        "specialist-expert-operations-engineering-hf-kantonsspital-baselland-ksbl-liestal",
+        "fachfrau-fachmann-operationstechnik-hf-ksbl-liestal",
+        "specialiste-expert-genie-des-operations-hf-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-operationstechnik-hf-in-ausbildung-fruhling-2027-a-ksbl-liestal"
+          "fachfrau-fachmann-operationstechnik-hf-in-ausbildung-fruhling-2027-a-ksbl-liestal",
+          "specialista-esperto-operazioni-ingegneria-hf-kantonsspital-baselland-ksbl-liestal",
+          "specialist-expert-operations-engineering-hf-kantonsspital-baselland-ksbl-liestal",
+          "fachfrau-fachmann-operationstechnik-hf-ksbl-liestal",
+          "specialiste-expert-genie-des-operations-hf-kantonsspital-baselland-ksbl-liestal"
+        ],
+        "en": [
+          "specialist-expert-operations-engineering-hf-kantonsspital-baselland-ksbl-liestal"
+        ],
+        "de": [
+          "fachfrau-fachmann-operationstechnik-hf-ksbl-liestal"
+        ],
+        "fr": [
+          "specialiste-expert-genie-des-operations-hf-kantonsspital-baselland-ksbl-liestal"
         ]
       },
       "firstSeenAt": "2026-05-19T10:23:43.124Z",
@@ -1962,11 +1981,28 @@
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-pneumologie-a-ksbl-liestal"
+        "oberarztin-oberarzt-pneumologie-a-ksbl-liestal",
+        "anestesia-medico-senior-kantonsspital-baselland-ksbl-liestal",
+        "senior-physician-anesthesia-kantonsspital-baselland-ksbl-liestal",
+        "oberarztin-oberarzt-anasthesie-ksbl-liestal",
+        "anesthesie-chez-le-medecin-principal-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-pneumologie-a-ksbl-liestal"
+          "oberarztin-oberarzt-pneumologie-a-ksbl-liestal",
+          "anestesia-medico-senior-kantonsspital-baselland-ksbl-liestal",
+          "senior-physician-anesthesia-kantonsspital-baselland-ksbl-liestal",
+          "oberarztin-oberarzt-anasthesie-ksbl-liestal",
+          "anesthesie-chez-le-medecin-principal-kantonsspital-baselland-ksbl-liestal"
+        ],
+        "en": [
+          "senior-physician-anesthesia-kantonsspital-baselland-ksbl-liestal"
+        ],
+        "de": [
+          "oberarztin-oberarzt-anasthesie-ksbl-liestal"
+        ],
+        "fr": [
+          "anesthesie-chez-le-medecin-principal-kantonsspital-baselland-ksbl-liestal"
         ]
       },
       "firstSeenAt": "2026-05-19T10:23:38.304Z",
@@ -3675,7 +3711,11 @@
         "dipl-care-specialist-imc-a-kantonsspital-baselland-ksbl-liestal",
         "dipl-pflegefachfrau-pflegefachmann-imc-a-ksbl-liestal",
         "dipl-specialiste-des-soins-imc-a-kantonsspital-baselland-ksbl-liestal",
-        "dipl-pflegefachfrau-pflegefachmann-endoskopie-a-ksbl-liestal-wo2xsh"
+        "dipl-pflegefachfrau-pflegefachmann-endoskopie-a-ksbl-liestal-wo2xsh",
+        "dipl-infermieristica-professionale-walk-in-permanence-kantonsspital-baselland-ksbl-liestal",
+        "dipl-nursing-professional-walk-in-permanence-kantonsspital-baselland-ksbl-liestal",
+        "dipl-pflegefachfrau-pflegefachmann-walk-in-permanence-ksbl-liestal",
+        "c-est-quoi-la-permanence-des-professionnels-de-la-sante-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3683,17 +3723,24 @@
           "dipl-infermieristica-professionale-imc-a-kantonsspital-baselland-ksbl-liestal",
           "dipl-care-specialist-imc-a-kantonsspital-baselland-ksbl-liestal",
           "dipl-pflegefachfrau-pflegefachmann-imc-a-ksbl-liestal",
-          "dipl-specialiste-des-soins-imc-a-kantonsspital-baselland-ksbl-liestal"
+          "dipl-specialiste-des-soins-imc-a-kantonsspital-baselland-ksbl-liestal",
+          "dipl-infermieristica-professionale-walk-in-permanence-kantonsspital-baselland-ksbl-liestal",
+          "dipl-nursing-professional-walk-in-permanence-kantonsspital-baselland-ksbl-liestal",
+          "dipl-pflegefachfrau-pflegefachmann-walk-in-permanence-ksbl-liestal",
+          "c-est-quoi-la-permanence-des-professionnels-de-la-sante-kantonsspital-baselland-ksbl-liestal"
         ],
         "en": [
-          "dipl-care-specialist-imc-a-kantonsspital-baselland-ksbl-liestal"
+          "dipl-care-specialist-imc-a-kantonsspital-baselland-ksbl-liestal",
+          "dipl-nursing-professional-walk-in-permanence-kantonsspital-baselland-ksbl-liestal"
         ],
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-imc-a-ksbl-liestal",
-          "dipl-pflegefachfrau-pflegefachmann-endoskopie-a-ksbl-liestal-wo2xsh"
+          "dipl-pflegefachfrau-pflegefachmann-endoskopie-a-ksbl-liestal-wo2xsh",
+          "dipl-pflegefachfrau-pflegefachmann-walk-in-permanence-ksbl-liestal"
         ],
         "fr": [
-          "dipl-specialiste-des-soins-imc-a-kantonsspital-baselland-ksbl-liestal"
+          "dipl-specialiste-des-soins-imc-a-kantonsspital-baselland-ksbl-liestal",
+          "c-est-quoi-la-permanence-des-professionnels-de-la-sante-kantonsspital-baselland-ksbl-liestal"
         ]
       },
       "firstSeenAt": "2026-06-24T22:28:36.685Z",
@@ -4853,17 +4900,30 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "diatkochin-diatkoch-fa-in-ausbildung-2027-a-ksbl-liestal"
+        "diatkochin-diatkoch-fa-in-ausbildung-2027-a-ksbl-liestal",
+        "cucina-dietetica-cucina-dietetica-chef-a-kantonsspital-baselland-ksbl-liestal",
+        "dietetic-cook-diet-cook-chef-a-kantonsspital-baselland-ksbl-liestal",
+        "diatkochin-diatkoch-kochin-koch-a-ksbl-liestal",
+        "cuisiniere-dietetique-cuisiniere-cuisiniere-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diatkochin-diatkoch-fa-in-ausbildung-2027-a-ksbl-liestal"
+          "diatkochin-diatkoch-fa-in-ausbildung-2027-a-ksbl-liestal",
+          "cucina-dietetica-cucina-dietetica-chef-a-kantonsspital-baselland-ksbl-liestal",
+          "dietetic-cook-diet-cook-chef-a-kantonsspital-baselland-ksbl-liestal",
+          "diatkochin-diatkoch-kochin-koch-a-ksbl-liestal",
+          "cuisiniere-dietetique-cuisiniere-cuisiniere-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "en": [
-          "diatkochin-diatkoch-fa-in-ausbildung-2027-a-ksbl-liestal"
+          "diatkochin-diatkoch-fa-in-ausbildung-2027-a-ksbl-liestal",
+          "dietetic-cook-diet-cook-chef-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "fr": [
-          "diatkochin-diatkoch-fa-in-ausbildung-2027-a-ksbl-liestal"
+          "diatkochin-diatkoch-fa-in-ausbildung-2027-a-ksbl-liestal",
+          "cuisiniere-dietetique-cuisiniere-cuisiniere-a-kantonsspital-baselland-ksbl-liestal"
+        ],
+        "de": [
+          "diatkochin-diatkoch-kochin-koch-a-ksbl-liestal"
         ]
       },
       "firstSeenAt": "2026-08-01T11:14:33.992Z",
@@ -6433,17 +6493,30 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-onkologie-a-ksbl-liestal"
+        "dipl-pflegefachfrau-pflegefachmann-onkologie-a-ksbl-liestal",
+        "dipl-specialista-oncology-haematology-kantonsspital-baselland-ksbl-liestal",
+        "dipl-nursing-specialist-oncology-haematology-kantonsspital-baselland-ksbl-liestal",
+        "dipl-pflegefachfrau-pflegefachmann-onkologie-hamatologie-ksbl-liestal",
+        "dipl-specialiste-en-oncologie-et-hematologie-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-pflegefachmann-onkologie-a-ksbl-liestal"
+          "dipl-pflegefachfrau-pflegefachmann-onkologie-a-ksbl-liestal",
+          "dipl-specialista-oncology-haematology-kantonsspital-baselland-ksbl-liestal",
+          "dipl-nursing-specialist-oncology-haematology-kantonsspital-baselland-ksbl-liestal",
+          "dipl-pflegefachfrau-pflegefachmann-onkologie-hamatologie-ksbl-liestal",
+          "dipl-specialiste-en-oncologie-et-hematologie-kantonsspital-baselland-ksbl-liestal"
         ],
         "en": [
-          "dipl-pflegefachfrau-pflegefachmann-onkologie-a-ksbl-liestal"
+          "dipl-pflegefachfrau-pflegefachmann-onkologie-a-ksbl-liestal",
+          "dipl-nursing-specialist-oncology-haematology-kantonsspital-baselland-ksbl-liestal"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-onkologie-a-ksbl-liestal"
+          "dipl-pflegefachfrau-pflegefachmann-onkologie-a-ksbl-liestal",
+          "dipl-specialiste-en-oncologie-et-hematologie-kantonsspital-baselland-ksbl-liestal"
+        ],
+        "de": [
+          "dipl-pflegefachfrau-pflegefachmann-onkologie-hamatologie-ksbl-liestal"
         ]
       },
       "firstSeenAt": "2026-09-01T08:50:06.742Z",

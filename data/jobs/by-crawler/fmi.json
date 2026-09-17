@@ -3732,19 +3732,32 @@
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-hf-fh-80-100-fmi-unterseen",
         "pflegefachfrau-pflegefachmann-hf-fh-80-100-spitaler-fmi-ag-unterseen",
-        "infermieristica-professionale-hf-fh-80-100-spitaler-fmi-ag-unterseen"
+        "infermieristica-professionale-hf-fh-80-100-spitaler-fmi-ag-unterseen",
+        "pflegefachperson-hf-fh-o-sozialpadagog-in-hf-fh-40-60-spitaler-fmi-ag-unterseen",
+        "nursing-professional-hf-fh-or-social-pedagogue-in-hf-fh-40-60-spitaler-fmi-ag-unterseen",
+        "pflegefachperson-hf-fh-oder-sozialpadagog-in-hf-fh-40-60-fmi-unterseen",
+        "soins-infirmiers-professionnels-hf-fh-ou-pedagogie-sociale-en-hf-fh-40-60-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-pflegefachmann-hf-fh-80-100-fmi-unterseen",
           "pflegefachfrau-pflegefachmann-hf-fh-80-100-spitaler-fmi-ag-unterseen",
-          "infermieristica-professionale-hf-fh-80-100-spitaler-fmi-ag-unterseen"
+          "infermieristica-professionale-hf-fh-80-100-spitaler-fmi-ag-unterseen",
+          "pflegefachperson-hf-fh-o-sozialpadagog-in-hf-fh-40-60-spitaler-fmi-ag-unterseen",
+          "nursing-professional-hf-fh-or-social-pedagogue-in-hf-fh-40-60-spitaler-fmi-ag-unterseen",
+          "pflegefachperson-hf-fh-oder-sozialpadagog-in-hf-fh-40-60-fmi-unterseen",
+          "soins-infirmiers-professionnels-hf-fh-ou-pedagogie-sociale-en-hf-fh-40-60-spitaler-fmi-ag-unterseen"
         ],
         "en": [
-          "pflegefachfrau-pflegefachmann-hf-fh-80-100-fmi-unterseen"
+          "pflegefachfrau-pflegefachmann-hf-fh-80-100-fmi-unterseen",
+          "nursing-professional-hf-fh-or-social-pedagogue-in-hf-fh-40-60-spitaler-fmi-ag-unterseen"
         ],
         "fr": [
-          "pflegefachfrau-pflegefachmann-hf-fh-80-100-fmi-unterseen"
+          "pflegefachfrau-pflegefachmann-hf-fh-80-100-fmi-unterseen",
+          "soins-infirmiers-professionnels-hf-fh-ou-pedagogie-sociale-en-hf-fh-40-60-spitaler-fmi-ag-unterseen"
+        ],
+        "de": [
+          "pflegefachperson-hf-fh-oder-sozialpadagog-in-hf-fh-40-60-fmi-unterseen"
         ]
       },
       "firstSeenAt": "2026-07-16T23:06:46.475Z",
@@ -4121,17 +4134,30 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "expert-in-anasthesiepflege-70-100-fmi-unterseen"
+        "expert-in-anasthesiepflege-70-100-fmi-unterseen",
+        "esperto-di-cura-nell-area-chirurgica-cns-80-100-spitaler-fmi-ag-unterseen",
+        "care-expert-in-cns-surgical-area-80-100-spitaler-fmi-ag-unterseen",
+        "pflegeexpert-in-cns-chirurgischer-bereich-80-100-fmi-unterseen",
+        "expert-en-soins-dans-la-zone-chirurgicale-du-snc-80-100-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expert-in-anasthesiepflege-70-100-fmi-unterseen"
+          "expert-in-anasthesiepflege-70-100-fmi-unterseen",
+          "esperto-di-cura-nell-area-chirurgica-cns-80-100-spitaler-fmi-ag-unterseen",
+          "care-expert-in-cns-surgical-area-80-100-spitaler-fmi-ag-unterseen",
+          "pflegeexpert-in-cns-chirurgischer-bereich-80-100-fmi-unterseen",
+          "expert-en-soins-dans-la-zone-chirurgicale-du-snc-80-100-spitaler-fmi-ag-unterseen"
         ],
         "en": [
-          "expert-in-anasthesiepflege-70-100-fmi-unterseen"
+          "expert-in-anasthesiepflege-70-100-fmi-unterseen",
+          "care-expert-in-cns-surgical-area-80-100-spitaler-fmi-ag-unterseen"
         ],
         "fr": [
-          "expert-in-anasthesiepflege-70-100-fmi-unterseen"
+          "expert-in-anasthesiepflege-70-100-fmi-unterseen",
+          "expert-en-soins-dans-la-zone-chirurgicale-du-snc-80-100-spitaler-fmi-ag-unterseen"
+        ],
+        "de": [
+          "pflegeexpert-in-cns-chirurgischer-bereich-80-100-fmi-unterseen"
         ]
       },
       "firstSeenAt": "2026-07-31T11:36:43.865Z",
