@@ -19,7 +19,7 @@ import {
 } from './dedicated-crawler-common.mjs';
 import {
   inferAnyCanton,
-  isTargetSwissLocation,
+  isSwissLocationText,
 } from './target-swiss-locations.mjs';
 import { splitJobLocation } from './job-location-display.mjs';
 import { stripSuccessFactorsMoreLocations } from './successfactors-jobs2web-widget-guard.mjs';
@@ -103,7 +103,7 @@ function normalizeKey(value = '') {
 
 function isSwissListingLocation(location = '') {
   const value = String(location || '');
-  return /(?:^|,\s*)CH(?:\s|$)/i.test(value) || isTargetSwissLocation(value);
+  return /(?:^|,\s*)CH(?:\s|$)/i.test(value) || isSwissLocationText(value);
 }
 
 function wordCount(text = '') {
@@ -459,7 +459,7 @@ export async function prepareZurichInsuranceCrawler({
       const detailDescription = extractDescription(detailHtml);
       const canton = inferAnyCanton(listing.location);
       const location = splitJobLocation(listing.location, canton).city;
-      if (!canton || !location || !isTargetSwissLocation(listing.location)) {
+      if (!canton || !location || !isSwissLocationText(listing.location)) {
         // Per-row reject, not a run abort: the failure granularity is the run
         // (aggregate gate below), so one undecodable office cannot zero the
         // entire Zurich slice.

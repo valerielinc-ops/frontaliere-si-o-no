@@ -22,6 +22,7 @@ describe('Anker Swiss Ticino AG crawler parser', () => {
   it('resolves only catalogue-backed postal codes', () => {
     expect(lookupSwissPostalCode('Zürich')).toBe('8001');
     expect(lookupSwissPostalCode('Zürich, CH')).toBe('8001');
+    expect(lookupSwissPostalCode('8001')).toBe('8001');
     expect(lookupSwissPostalCode('Unknown Swiss locality')).toBe('');
   });
 

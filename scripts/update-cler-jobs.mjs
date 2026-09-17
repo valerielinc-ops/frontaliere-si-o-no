@@ -39,7 +39,7 @@ import {
   extractJobMeta,
   dedupeClerJobsByStableId,
 } from './lib/cler-job-parser.mjs';
-import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
+import { inferAnyCanton, isSwissLocationText } from './lib/target-swiss-locations.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -143,7 +143,7 @@ function resolveBranchAddress(arbeitsort) {
         street: branch.street,
       };
     }
-    if (isTargetSwissLocation(candidate)) {
+    if (isSwissLocationText(candidate)) {
       const canton = inferAnyCanton(candidate);
       if (!canton) continue;
       return {

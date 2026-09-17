@@ -13,6 +13,7 @@ function normalize(value = '') {
 const POSTAL_CODES_BY_LOCALITY = new Map(
   Object.entries(POSTAL_CODES).map(([locality, postalCode]) => [normalize(locality), String(postalCode)]),
 );
+const POSTAL_CODES_SET = new Set(POSTAL_CODES_BY_LOCALITY.values());
 
 /**
  * Resolve a Swiss postal code only when the source locality is present in the
@@ -25,7 +26,7 @@ export function lookupSwissPostalCode(value = '') {
   if (!raw) return '';
 
   const explicit = raw.match(/\b(\d{4})\b/);
-  if (explicit && !(Number(explicit[1]) >= 2020 && Number(explicit[1]) <= 2039)) {
+  if (explicit && POSTAL_CODES_SET.has(explicit[1])) {
     return explicit[1];
   }
 

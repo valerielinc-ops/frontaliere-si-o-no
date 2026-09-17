@@ -35,7 +35,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import { fetchHtml } from './hospital-custom-html-helpers.mjs';
-import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { inferAnyCanton, isSwissLocationText } from './target-swiss-locations.mjs';
 import { extractJobPostingLd, jobPostingDescriptionText, jobPostingAddress } from './jsonld-jobposting.mjs';
 import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.ts';
 
@@ -143,9 +143,16 @@ async function fetchAllDetailUrls() {
   const out = [];
   let offset = 0;
   let expectedTotal = null;
+  let pagesRead = 0;
   while (true) {
+    if (pagesRead >= MAX_PAGES) {
+      throw new Error(
+        `Concordia listing pagination exhausted safety bound (${MAX_PAGES} pages) without reaching the source total/end marker`,
+      );
+    }
     const pageUrl = `${LISTING_URL}?offset=${offset}&limit=${PAGE_SIZE}&lang=de`;
     const html = await fetchHtml(pageUrl);
+    pagesRead += 1;
     const declaredTotal = parseConcordiaListingTotal(html);
     if (declaredTotal !== null) {
       if (expectedTotal !== null && declaredTotal !== expectedTotal) {
@@ -235,7 +242,7 @@ export async function fetchAllConcordiaJobs() {
     const addr = jobPostingAddress(ld);
     const location = normalizeSpace(addr.addressLocality || '');
     const canton = resolveCanton(addr.addressRegion, location);
-    if (!location || !isTargetSwissLocation(location) || !canton) {
+    if (!location || !isSwissLocationText(location) || !canton) {
       unresolvedLocations += 1;
       continue;
     }
