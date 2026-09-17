@@ -197,6 +197,10 @@ const SCHEDULE_ARMED_WORKFLOWS = [
   'newsletter-dormant-winback.yml',
   'newsletter-sunset.yml',
   'job-alert-sunset.yml',
+  'instagram-daily-broadcast.yml',
+  'suppression-hygiene.yml',
+  'telegram-channel-broadcast.yml',
+  'tiktok-daily-broadcast.yml',
 ];
 
 const SCHEDULE_UNARMED_WORKFLOWS = [
@@ -204,16 +208,12 @@ const SCHEDULE_UNARMED_WORKFLOWS = [
   'fb-articles-daily-schedule.yml',
   'fb-events-daily-schedule.yml',
   'fb-jobs-daily-schedule.yml',
-  'instagram-daily-broadcast.yml',
   'linkedin-member-daily.yml',
   'mailtrap-suppression-retry.yml',
   'probe-mailgun-scheduled.yml',
   'publisher-blast.yml',
   'recover-prev-slugs.yml',
   'reddit-jobs-daily-schedule.yml',
-  'suppression-hygiene.yml',
-  'telegram-channel-broadcast.yml',
-  'tiktok-daily-broadcast.yml',
 ];
 
 const SCHEDULE_SIDE_EFFECT_WORKFLOWS = [
@@ -784,9 +784,9 @@ describe('workflow wiring for the bounded F3/F4 side-effect surface', () => {
     }
   });
 
-  it('arms trusted schedules only on the ten alert/newsletter workflows', () => {
-    expect(SCHEDULE_ARMED_WORKFLOWS).toHaveLength(10);
-    expect(SCHEDULE_UNARMED_WORKFLOWS).toHaveLength(14);
+  it('arms trusted schedules only on workflows whose schedules apply side effects', () => {
+    expect(SCHEDULE_ARMED_WORKFLOWS).toHaveLength(14);
+    expect(SCHEDULE_UNARMED_WORKFLOWS).toHaveLength(10);
     expect(SCHEDULE_SIDE_EFFECT_WORKFLOWS).toHaveLength(24);
 
     for (const name of SCHEDULE_SIDE_EFFECT_WORKFLOWS) {

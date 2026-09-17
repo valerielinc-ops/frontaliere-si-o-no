@@ -43,6 +43,7 @@ const HELPER_MODULE = 'scripts/lib/pr-body-sections-check.mjs';
 
 /** The two fixer prompts, keyed by workflow file name. */
 const FIXERS = ['pr-redflag-fixer.yml', 'issue-fix.yml'] as const;
+const BODY_CONTRACT_FIXERS = ['pr-redflag-fixer.yml', 'pr-redcheck-fixer.yml', 'issue-fix.yml'] as const;
 const CLOSING_STATE_LITERALS = [
   'in questa PR',
   'PR concatenata #N',
@@ -82,6 +83,17 @@ function prompt(file: string): string {
 }
 
 describe('the autonomous fixers read declared states before contradicting them (#5917)', () => {
+  it.each(BODY_CONTRACT_FIXERS)('%s requires auditable decision deferrals in the PR body', (file) => {
+    const p = prompt(file);
+    expect(p, `${file}: missing the false-positive decision state.`).toMatch(/falso positivo/i);
+    expect(p, `${file}: missing the concrete decision reason field.`).toMatch(/Motivo.*causa concreta/i);
+    expect(p, `${file}: missing the concrete decision next-step field.`).toMatch(/Prossimo passo.*azione concreta/i);
+    expect(
+      p,
+      `${file}: a vague decision must not be taught as a closing deferral.`,
+    ).toMatch(/nuda|vaga|placeholder.*blocc|blocc.*nuda|blocc.*vaga/i);
+  });
+
   it('the scanner reaches a real prompt in both workflows', () => {
     for (const file of FIXERS) {
       // Anti-vacuity: these prompts are long operating contracts. A few hundred
@@ -350,8 +362,8 @@ describe('the autonomous fixers read declared states before contradicting them (
     // tests/followup-bullet-state-classes.test.ts. Pinned here is only what the
     // NEW prompt text hinges on: the two halves of `blocked:` decide opposite
     // ways, in the module AND in the gate the prompts cite.
-    const owner = '- il flag lo decide il proprietario — blocked: decisione del proprietario';
-    const ownerEnglish = '- the owner decides the flag — blocked: owner decision';
+    const owner = '- il flag lo decide il proprietario — blocked: decisione del proprietario. **Motivo:** serve una scelta di prodotto. **Prossimo passo:** rivalutare dopo la decisione del proprietario.';
+    const ownerEnglish = '- the owner decides the flag — blocked: owner decision. **Motivo:** serve una scelta di prodotto. **Prossimo passo:** rivalutare dopo la decisione del proprietario.';
     const technical = '- attende il repo gemello — blocked: il mirror è manuale';
     expect((sections as any).bulletState(owner)).toBe('blocked-owner');
     expect((sections as any).bulletState(ownerEnglish)).toBe('blocked-owner');

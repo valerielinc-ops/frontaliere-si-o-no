@@ -292,12 +292,14 @@ describe('stuck-red: un failure PROVATO non attribuibile non blocca il reopen', 
     }).action).toBe('skip-breaker');
   });
 
-  it('WIRING: il call-site post-rebase passa stuckRedReason a guardedReopen', () => {
-    // La decisione pura sopra non basta: senza il wiring il call-site
-    // chiamerebbe `guardedReopen(num, head)` e l'eccezione non scatterebbe
-    // mai — guardia presente, buco intatto, la stessa forma della guardia
-    // morta trovata su M3b (identificatore giusto, punto sbagliato).
-    expect(script).toContain('guardedReopen(num, head, { stuckRedReason })');
+  it('WIRING: il call-site post-rebase dispatcha test + review sulla nuova HEAD', () => {
+    // Il dispatch parametrizzato ha sostituito il close+reopen: il workflow
+    // può risolvere la PR dal numero anche quando il push PAT non produce un
+    // evento pull_request, e la review riparte senza una race di stato.
+    const postRebase = script.slice(script.indexOf('// Riesegui test E review'));
+    expect(postRebase).toContain('dispatchTests(num, branch)');
+    expect(postRebase).toContain('pr_number=${num}');
+    expect(postRebase).not.toContain('guardedReopen(num, head');
     expect(script).toMatch(/failureNotAttributable:\s*stuckRedReason/);
   });
 

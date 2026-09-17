@@ -17,6 +17,9 @@ import {
   hasOnlyBareBullets,
   hasNessuno,
   filesUncitedInBody,
+  decisionDeferralSpecificity,
+  decisionDeferralFindings,
+  decisionDeferralsAreSpecific,
 } from '../scripts/lib/pr-body-sections-check.mjs';
 
 // ---------------------------------------------------------------------------
@@ -173,6 +176,73 @@ describe('hasNessuno', () => {
 
   it('detects Nessuno when alongside other text', () => {
     expect(hasNessuno('- Nessuno — task completo\n')).toBe(true);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Decision deferrals
+// ---------------------------------------------------------------------------
+describe('decision deferrals', () => {
+  it('requires concrete Motivo and Prossimo passo fields in strict mode', () => {
+    const vague = makeBody({ nonImplContent: '- Il residuo resta per scelta.' });
+    const specific = makeBody({
+      nonImplContent:
+        '- Il residuo resta per scelta. **Motivo:** il provider upstream è instabile. '
+        + '**Prossimo passo:** riaprire dopo due run verdi consecutivi.\n',
+    });
+
+    expect(checkPrBodySections(vague).ok).toBe(true);
+    expect(checkPrBodySections(vague, { strictDecisionDeferrals: true }).ok).toBe(false);
+    expect(decisionDeferralFindings(vague)).toHaveLength(1);
+    expect(decisionDeferralsAreSpecific(specific)).toBe(true);
+    expect(decisionDeferralSpecificity(specific.split('\n').find((line) => line.startsWith('- Il'))).specific).toBe(true);
+    expect(checkPrBodySections(specific, { strictDecisionDeferrals: true }).ok).toBe(true);
+  });
+
+  it('joins wrapped bullet lines before validating the two fields', () => {
+    const body = makeBody({
+      nonImplContent:
+        '- Il residuo resta by construction. **Motivo:** il contratto upstream '
+        + 'non è ancora stabile.\n'
+        + '  **Prossimo passo:** riprovare dopo il prossimo rilascio verificato.\n',
+    });
+    expect(decisionDeferralsAreSpecific(body)).toBe(true);
+  });
+
+  it('checks decision bullets with the same indentation accepted by sectionBullets', () => {
+    const body = makeBody({
+      nonImplContent: '  - Il residuo resta by construction.\n',
+    });
+    expect(decisionDeferralFindings(body)).toHaveLength(1);
+    expect(checkPrBodySections(body, { strictDecisionDeferrals: true }).ok).toBe(false);
+  });
+
+  it('rejects placeholder tokens used as a prefix or suffix of an audit field', () => {
+    const prefixed = makeBody({
+      nonImplContent:
+        '- Il residuo resta by construction. **Motivo:** N/A — il dettaglio manca. '
+        + '**Prossimo passo:** riprovare dopo il prossimo rilascio verificato.\n',
+    });
+    const suffixed = makeBody({
+      nonImplContent:
+        '- Il residuo resta by construction. **Motivo:** il contratto upstream è instabile. '
+        + '**Prossimo passo:** TBD — definire il test dopo il prossimo rilascio verificato.\n',
+    });
+    expect(decisionDeferralFindings(prefixed)).toHaveLength(1);
+    expect(decisionDeferralFindings(suffixed)).toHaveLength(1);
+    expect(checkPrBodySections(prefixed, { strictDecisionDeferrals: true }).ok).toBe(false);
+    expect(checkPrBodySections(suffixed, { strictDecisionDeferrals: true }).ok).toBe(false);
+  });
+
+  it('treats `falso positivo` as a decision, with negation-aware matching', () => {
+    const vague = makeBody({ nonImplContent: '- Il finding è un falso positivo.' });
+    expect(checkPrBodySections(vague, { strictDecisionDeferrals: true }).ok).toBe(false);
+    expect(decisionDeferralFindings(vague)).toHaveLength(1);
+
+    const negated = makeBody({
+      nonImplContent: '- Il finding non è un falso positivo: va sistemato nel follow-up.',
+    });
+    expect(decisionDeferralFindings(negated)).toHaveLength(0);
   });
 });
 

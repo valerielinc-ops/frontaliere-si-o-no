@@ -87,6 +87,43 @@ const NON_IMPLEMENTED_ANY_HEADER_RE = /^[ \t]{0,3}#{2,3}[ \t]+Non[ \t]+implement
 const CHAINED_PR_RE = /\bPR\s+concatenat[ao]\b/i;
 const CHAINED_PR_NUMBER_RE = /\bPR\s+concatenat[ao]\s*#\s*\d+/i;
 const BODY_STATE_RE = /\bin\s+questa\s+PR\b|\bPR\s+concatenat[ao]\s*#\s*\d+\b|\bper\s+scelta\b|\bby\s+construction\b|\bblocked\s*:\s*\S|\bfalso\s+positivo\b/i;
+const DECISION_RE = /\bby\s+construction\b|\bper\s+(?:scelta|costruzione|design)\b|(?:è|e')\s+una\s+decisione\b|\bdi\s+proposito\b|\bdeliberat\w*|\bblocked\s*:\s*(?:decisione\s+del\s+proprietario|owner\s+decision)\b|(?<!\bnon\s+(?:è|sono|erano)\s+(?:un\s+|una\s+)?)\bfalso\s+positivo\b|(?<!\bnot\s+(?:a\s+)?)\bfalse\s+positive\b/iu;
+const DECISION_REASON_RE = /\b(?:motivo|ragione|reason)\s*:\s*(.+?)(?=\s+\b(?:prossimo\s+passo|next\s+step|azione\s+successiva)\s*:|$)/iu;
+const DECISION_NEXT_STEP_RE = /\b(?:prossimo\s+passo|next\s+step|azione\s+successiva)\s*:\s*(.+)$/iu;
+const DECISION_PLACEHOLDER_RE = /(?:^|[\s:;,.!?()\[\]{}—–-])(?:<[^>]+>|\.\.\.|tbd|n\/a|da\s+(?:definire|decidere|valutare|fare))(?=$|[\s:;,.!?()\[\]{}—–-])/iu;
+function stripDecisionFormatting(value) {
+  return String(value ?? '').replace(/[*_~`]/gu, '');
+}
+
+function concreteDecisionValue(value) {
+  const clean = stripDecisionFormatting(value).replace(/\s+/gu, ' ').trim();
+  return clean.length >= 8
+    && !DECISION_PLACEHOLDER_RE.test(clean)
+    && /[\p{L}\p{N}]/u.test(clean);
+}
+
+function bodyTopLevelBullets(value) {
+  const bullets = [];
+  let current = '';
+  for (const line of stripBodyNonContent(value).split('\n')) {
+    if (/^[ \t]*[-*+][ \t]+\S/.test(line)) {
+      if (current) bullets.push(current);
+      current = line.trim();
+    } else if (current && line.trim()) {
+      current += ` ${line.trim()}`;
+    }
+  }
+  if (current) bullets.push(current);
+  return bullets;
+}
+
+function decisionDeferralViolation(bullet) {
+  const clean = stripDecisionFormatting(bullet);
+  if (!DECISION_RE.test(clean)) return false;
+  const reason = clean.match(DECISION_REASON_RE)?.[1]?.trim() || '';
+  const nextStep = clean.match(DECISION_NEXT_STEP_RE)?.[1]?.trim() || '';
+  return !(concreteDecisionValue(reason) && concreteDecisionValue(nextStep));
+}
 
 function realRoot(value) {
   try { return fs.realpathSync(value); } catch { return ''; }
@@ -504,6 +541,9 @@ export function validatePrBodyContract(body) {
     }
     if (bullets.some((bullet) => !BODY_STATE_RE.test(bullet))) {
       violations.push('every residual bullet requires a literal state');
+    }
+    if (bodyTopLevelBullets(section).some(decisionDeferralViolation)) {
+      violations.push('decision deferrals require concrete Motivo and Prossimo passo');
     }
   }
   return { ok: violations.length === 0, violations };

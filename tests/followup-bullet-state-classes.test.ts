@@ -53,9 +53,9 @@ const BODY = `## Implementato
 
 - Rinomina del modulo — in questa PR
 - Estrazione del parser condiviso — PR concatenata #4242
-- Nessun retry sul path offline — per scelta
-- Il gate non copre \`data/\` — by construction
-- Promozione a gate duro — blocked: decisione del proprietario
+- Nessun retry sul path offline — per scelta. **Motivo:** il provider offline non è supportato. **Prossimo passo:** rivalutare dopo il prossimo rilascio del provider.
+- Il gate non copre \`data/\` — by construction. **Motivo:** il dato è generato fuori dal codice. **Prossimo passo:** verificare il contratto al prossimo cambio di pipeline.
+- Promozione a gate duro — blocked: decisione del proprietario. **Motivo:** serve una scelta di prodotto. **Prossimo passo:** rivalutare dopo la decisione del proprietario.
 - Copia sul corpus — blocked: nessun trasporto automatico sotto scripts/**
 - Ripulire il naming dei campi legacy
 `;
@@ -63,9 +63,9 @@ const BODY = `## Implementato
 // Il testo del bullet basta a identificarlo, e resta leggibile nel diff.
 const IN_THIS_PR = 'Rinomina del modulo — in questa PR';
 const CHAINED = 'Estrazione del parser condiviso — PR concatenata #4242';
-const BY_CHOICE = 'Nessun retry sul path offline — per scelta';
-const BY_CONSTRUCTION = 'Il gate non copre `data/` — by construction';
-const BLOCKED_OWNER = 'Promozione a gate duro — blocked: decisione del proprietario';
+const BY_CHOICE = 'Nessun retry sul path offline — per scelta. **Motivo:** il provider offline non è supportato. **Prossimo passo:** rivalutare dopo il prossimo rilascio del provider.';
+const BY_CONSTRUCTION = 'Il gate non copre `data/` — by construction. **Motivo:** il dato è generato fuori dal codice. **Prossimo passo:** verificare il contratto al prossimo cambio di pipeline.';
+const BLOCKED_OWNER = 'Promozione a gate duro — blocked: decisione del proprietario. **Motivo:** serve una scelta di prodotto. **Prossimo passo:** rivalutare dopo la decisione del proprietario.';
 const BLOCKED_TECH = 'Copia sul corpus — blocked: nessun trasporto automatico sotto scripts/**';
 const NO_STATE = 'Ripulire il naming dei campi legacy';
 
@@ -84,6 +84,17 @@ describe('stato letterale dei bullet: classificazione', () => {
 
   it('`falso positivo` e\' un sinonimo accettato di `per scelta` (stesso stato by-choice)', () => {
     expect(bulletState('falso positivo — check: motivo')).toBe('by-choice');
+  });
+
+  it('una decisione vaga resta candidata finché non porta Motivo e Prossimo passo concreti', () => {
+    expect(isCandidateItem('scope non coperto — per scelta')).toBe(true);
+    expect(isCandidateItem('scope non coperto — by construction')).toBe(true);
+    expect(isCandidateItem('scope non coperto — falso positivo')).toBe(true);
+    expect(isCandidateItem('scope non coperto — blocked: decisione del proprietario')).toBe(true);
+    expect(isCandidateItem(
+      'scope non coperto — falso positivo. **Motivo:** le due regole hanno semantica diversa. '
+      + '**Prossimo passo:** chiudere dopo la verifica del fixture condiviso.',
+    )).toBe(false);
   });
 
   it('`non e\' un falso positivo` dichiara l\'opposto: resta lavoro dovuto, non by-choice (#3367)', () => {

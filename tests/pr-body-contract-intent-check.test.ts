@@ -111,6 +111,8 @@ async function runContractCheck(body: string): Promise<ContractResult> {
 
 const wrap = (line: string) =>
   `## Implementato\n- roba fatta\n\n${line}\n\n## Non implementato (ancora)\nNessuno\n`;
+const wrapNonImplemented = (line: string) =>
+  `## Implementato\n- roba fatta\n\n## Non implementato (ancora)\n${line}\n`;
 
 describe('tests.yml contract job — ineffective closing keyword (issue #5784)', () => {
   it('flags «Chiude #123» — GitHub does not honor it, the issue would stay open', async () => {
@@ -153,5 +155,41 @@ describe('tests.yml contract job — ineffective closing keyword (issue #5784)',
   it('matches the measured recurrence shape (PR #5776 → issue #5725)', async () => {
     const { setFailed } = await runContractCheck(wrap('Chiude #5725'));
     expect(setFailed.join(' ')).toMatch(/ineffective closing keyword/);
+  });
+
+  it('flags a vague `falso positivo` deferral in the real inline gate', async () => {
+    const { setFailed } = await runContractCheck(
+      wrapNonImplemented('- Il finding è un falso positivo.'),
+    );
+    expect(setFailed.join(' ')).toMatch(/deroga.*falso positivo/i);
+  });
+
+  it('accepts a concrete `falso positivo` deferral in the real inline gate', async () => {
+    const { setFailed } = await runContractCheck(wrapNonImplemented(
+      '- Il finding è un falso positivo. **Motivo:** il parser ha un contratto diverso. '
+      + '**Prossimo passo:** chiudere dopo la verifica del fixture condiviso.',
+    ));
+    expect(setFailed.join(' ')).not.toMatch(/deroga/i);
+  });
+
+  it('rejects a Markdown-formatted placeholder in the real inline gate', async () => {
+    const { setFailed } = await runContractCheck(wrapNonImplemented(
+      '- Il finding è un falso positivo. **Motivo:** **TBD**. '
+      + '**Prossimo passo:** chiudere dopo la verifica del fixture condiviso.',
+    ));
+    expect(setFailed.join(' ')).toMatch(/deroga.*falso positivo/i);
+  });
+
+  it('rejects placeholder-prefixed and placeholder-suffixed fields in the real inline gate', async () => {
+    const prefixed = await runContractCheck(wrapNonImplemented(
+      '- Il finding è un falso positivo. **Motivo:** N/A — manca il dettaglio. '
+      + '**Prossimo passo:** chiudere dopo la verifica del fixture condiviso.',
+    ));
+    const suffixed = await runContractCheck(wrapNonImplemented(
+      '- Il finding è un falso positivo. **Motivo:** il parser ha un contratto diverso. '
+      + '**Prossimo passo:** TBD — definire il test dopo la verifica del fixture condiviso.',
+    ));
+    expect(prefixed.setFailed.join(' ')).toMatch(/deroga.*falso positivo/i);
+    expect(suffixed.setFailed.join(' ')).toMatch(/deroga.*falso positivo/i);
   });
 });
