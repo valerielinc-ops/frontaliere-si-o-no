@@ -868,6 +868,7 @@ describe('Swiss-only location filtering (Swatch Group US-jobs leak, 2026-06-17)'
     expect(isLocationExplicitlyForeign('Rue de la Gare, Lausanne')).toBe(false);
     expect(isLocationExplicitlyForeign('St. Gallen, SG')).toBe(false);
     expect(isLocationExplicitlyForeign('Lausanne, VD')).toBe(false);
+    expect(isLocationExplicitlyForeign('Zürich, CH')).toBe(false);
     expect(isLocationExplicitlyForeign('Zurich, FR')).toBe(true);
   });
 

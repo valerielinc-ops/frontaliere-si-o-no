@@ -6203,6 +6203,7 @@ function hasExplicitForeignCountryCode(lower) {
   for (const match of lower.matchAll(FINAL_FOREIGN_COUNTRY_CODE_RE)) {
     const location = String(match[1] || '').trim();
     const code = String(match[2] || '').toUpperCase();
+    if (code === 'CH') continue;
     // A final code is Swiss when it agrees with a Swiss municipality in the
     // same field. An unrecognized locality keeps a canton code ambiguous;
     // otherwise a known Swiss locality with a mismatched code remains an
