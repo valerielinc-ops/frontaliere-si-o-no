@@ -5,6 +5,7 @@ import {
   GLOBAL_DATA_PIPELINE_LEASE_POLL_MS,
   GLOBAL_DATA_PIPELINE_LEASE_WAIT_MS,
   firestoreDocumentName,
+  isRetryableLeaseError,
   leaseDecision,
 } from '../scripts/lib/global-data-pipeline-lease.mjs';
 
@@ -48,6 +49,16 @@ describe('global data pipeline lease', () => {
     expect(shell).toContain('trap global_data_pipeline_lease_cleanup EXIT');
     expect(shell).toContain('node "$lease_script" release');
     expect(shell).toContain('global data-pipeline lease remained busy after the bounded wait');
+  });
+
+  it('ritenta timeout e transient Firestore, ma non errori permanenti', () => {
+    const timeout = new Error('The operation was aborted due to timeout');
+    timeout.name = 'TimeoutError';
+    expect(isRetryableLeaseError(timeout)).toBe(true);
+    expect(isRetryableLeaseError({ status: 503 })).toBe(true);
+    expect(isRetryableLeaseError({ body: { error: { status: 'ABORTED' } } })).toBe(true);
+    expect(isRetryableLeaseError({ status: 401 })).toBe(false);
+    expect(isRetryableLeaseError(new Error('service account project_id is missing'))).toBe(false);
   });
 
   it('usa il resource name Firestore nei write di transazione, non l URL REST', () => {
