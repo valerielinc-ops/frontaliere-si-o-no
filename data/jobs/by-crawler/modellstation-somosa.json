@@ -1,5 +1,72 @@
 {
   "crawlerKey": "modellstation-somosa",
-  "assembledAt": "2026-09-16T22:09:10.823Z",
-  "jobs": []
+  "assembledAt": "2026-09-17T03:48:23.201Z",
+  "jobs": [
+    {
+      "id": "modellstation-somosa-3c65c2b9696b",
+      "slug": "keine-offenen-stellen-modellstation-somosa-winterthur",
+      "slugByLocale": {
+        "de": "keine-offenen-stellen-modellstation-somosa-winterthur",
+        "it": "keine-offenen-stellen-modellstation-somosa-winterthur",
+        "en": "keine-offenen-stellen-modellstation-somosa-winterthur",
+        "fr": "keine-offenen-stellen-modellstation-somosa-winterthur"
+      },
+      "company": "Modellstation SOMOSA",
+      "companyKey": "modellstation-somosa",
+      "companyDomain": "somosa.ch",
+      "title": "Keine offenen Stellen",
+      "titleByLocale": {
+        "de": "Keine offenen Stellen",
+        "it": "Keine offenen Stellen",
+        "en": "Keine offenen Stellen",
+        "fr": "Keine offenen Stellen"
+      },
+      "description": "Auch wenn aktuell keine Stellen zu besetzten sind, sind wir offen für motivierte Menschen.\n\nModellstation SOMOSA — jugendpsychiatrische Klinik und Jugendheim für Adoleszente (6–18 Jahre), Winterthur (ZH), Schweiz.",
+      "descriptionByLocale": {
+        "de": "Auch wenn aktuell keine Stellen zu besetzten sind, sind wir offen für motivierte Menschen.\n\nModellstation SOMOSA — jugendpsychiatrische Klinik und Jugendheim für Adoleszente (6–18 Jahre), Winterthur (ZH), Schweiz.",
+        "it": "Auch wenn aktuell keine Stellen zu besetzten sind, sind wir offen für motivierte Menschen.\n\nModellstation SOMOSA — jugendpsychiatrische Klinik und Jugendheim für Adoleszente (6–18 Jahre), Winterthur (ZH), Schweiz.",
+        "en": "Auch wenn aktuell keine Stellen zu besetzten sind, sind wir offen für motivierte Menschen.\n\nModellstation SOMOSA — jugendpsychiatrische Klinik und Jugendheim für Adoleszente (6–18 Jahre), Winterthur (ZH), Schweiz.",
+        "fr": "Auch wenn aktuell keine Stellen zu besetzten sind, sind wir offen für motivierte Menschen.\n\nModellstation SOMOSA — jugendpsychiatrische Klinik und Jugendheim für Adoleszente (6–18 Jahre), Winterthur (ZH), Schweiz."
+      },
+      "needsRetranslation": true,
+      "location": "Winterthur",
+      "canton": "ZH",
+      "url": "https://www.somosa.ch/offene-stellen-detail/keine-offenen-stellen",
+      "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-17T03:48:18.063Z",
+      "addressLocality": "Winterthur",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8400",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-17",
+      "applyUrl": "https://www.somosa.ch/offene-stellen-detail/keine-offenen-stellen",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-17T03:48:18.063Z"
+    }
+  ]
 }
