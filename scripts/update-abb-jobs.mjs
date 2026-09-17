@@ -48,7 +48,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { inferSwissTargetCanton, inferAnyCanton } from './lib/target-swiss-locations.mjs';
-import { isTargetCanton, getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { isTargetCanton } from './lib/crawler-location-config.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -65,12 +65,11 @@ const ABB_KEY = 'abb-svizzera-sede-ticino';
 const DATA_JOBS = crawlerScratchPathFor(ABB_KEY);
 const PUBLIC_DATA_JOBS = `${DATA_JOBS}.public.json`;
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
-const DEFAULT_CANTON = getCompanyDefaults(ABB_KEY)?.canton || 'TI';
 const ABB_COMPANY_NAME = 'ABB Svizzera (sede Ticino)';
 const ABB_HOST = 'careers.abb';
 const ABB_COMPANY_DOMAIN = 'abb.ch';
 // Phenom refineSearch widget API + country facet covering ALL of Switzerland
-// (CH-wide: every canton, not just TI/GR). The Phenom careers SSR page ignores
+// (CH-wide: every canton, without a regional allowlist). The Phenom careers SSR page ignores
 // URL facet params, so we POST the widgets endpoint with the country facet.
 const ABB_SEARCH_API = 'https://careers.abb/widgets';
 const ABB_SEARCH_COUNTRY = 'Switzerland';
@@ -211,7 +210,7 @@ function buildSeedMetaFromJob(job, canton) {
   const contract = normalizeAbbContract(job?.jobType || job?.type || job?.contractType || '');
   return {
     location,
-    canton: canton || DEFAULT_CANTON,
+    canton: canton || '',
     country: 'CH',
     company: ABB_COMPANY_NAME,
     companyDomain: ABB_COMPANY_DOMAIN,
@@ -568,13 +567,11 @@ function postProcessAbbJobs() {
 function logAbbJobStats(beforeSnapshot = new Map()) {
   if (!fs.existsSync(DATA_JOBS)) {
     console.log('ℹ️ jobs.json non trovato — nessuna statistica disponibile.');
-    return { total: 0, ticino: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
+    return { total: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
   }
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   const allJobs = Array.isArray(raw) ? raw : [];
   const abbJobs = allJobs.filter(isAbbJob);
-  const ticinoJobs = abbJobs.filter((job) => normalize(job?.canton) === 'ti');
-
   const byCanton = new Map();
   for (const job of abbJobs) {
     const c = String(job?.canton || '').trim().toUpperCase() || '??';
@@ -594,7 +591,7 @@ function logAbbJobStats(beforeSnapshot = new Map()) {
   const crawlDiff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
   printCrawlChangeSummary(crawlDiff, 'ABB');
   writeCrawlChangeSummaryToGH(crawlDiff, 'ABB');
-  return { total: abbJobs.length, ticino: ticinoJobs.length, crawlDiff };
+  return { total: abbJobs.length, crawlDiff };
 
 }
 

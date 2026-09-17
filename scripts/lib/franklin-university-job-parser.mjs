@@ -127,7 +127,7 @@ function extractLocationField(bodyText = '') {
  * open role. Only leaf accordions (no further nested accordion inside) that
  * aren't a "no openings" placeholder are real jobs. Postings explicitly
  * located outside Switzerland (e.g. US remote admissions roles) are
- * out of scope for this Ticino/Switzerland job board and are skipped.
+ * out of scope for this Swiss job board and are skipped.
  * Returns an array of { title, url, snippet, location } objects.
  */
 function parseListingPage(html = '') {

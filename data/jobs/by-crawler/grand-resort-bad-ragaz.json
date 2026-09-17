@@ -775,12 +775,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "concierge-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
-        "masseur-20-40-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
+        "masseur-20-40-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+        "masseur-20-40-m-w-i-grand-resort-bad-ragaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "concierge-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
-          "masseur-20-40-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
+          "masseur-20-40-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+          "masseur-20-40-m-w-i-grand-resort-bad-ragaz"
         ],
         "fr": [
           "concierge-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
@@ -1938,10 +1940,10 @@
     },
     {
       "id": "grand-resort-bad-ragaz-d4c96e15445e",
-      "slug": "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+      "slug": "capo-verde-3-00-m-p-i-grand-resort-bad-ragaz-bad-ragaz",
       "slugByLocale": {
-        "it": "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
-        "en": "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+        "it": "capo-verde-3-00-m-p-i-grand-resort-bad-ragaz-bad-ragaz",
+        "en": "head-green-3-00-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
         "de": "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
         "fr": "chef-greenkeeper-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz"
       },
@@ -1998,14 +2000,25 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
+        ],
+        "en": [
+          "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
+        ]
+      },
+      "previousSlugs": [
+        "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
+      ]
     },
     {
       "id": "grand-resort-bad-ragaz-ac123099e8a3",
-      "slug": "demi-chef-de-partie-patisserie-hauptkuchen-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+      "slug": "demi-chef-de-partie-patis-serie-cucine-principali-100-p-m-i-grand-resort-bad-ragaz-bad-ragaz",
       "slugByLocale": {
         "de": "demi-chef-de-partie-patisserie-hauptkuchen-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
-        "it": "demi-chef-de-partie-patisserie-hauptkuchen-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+        "it": "demi-chef-de-partie-patis-serie-cucine-principali-100-p-m-i-grand-resort-bad-ragaz-bad-ragaz",
         "en": "demi-chef-de-partie-patisserie-hauptkuchen-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
         "fr": "demi-chef-de-partie-patisserie-hauptkuchen-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
       },
@@ -2064,7 +2077,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-17T03:45:32.294Z"
+      "firstSeenAt": "2026-09-17T03:45:32.294Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "demi-chef-de-partie-patisserie-hauptkuchen-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+        ]
+      },
+      "previousSlugs": [
+        "demi-chef-de-partie-patisserie-hauptkuchen-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+      ]
     },
     {
       "id": "grand-resort-bad-ragaz-d238fdd4b8e1",

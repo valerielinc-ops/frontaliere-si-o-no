@@ -7361,9 +7361,9 @@
     },
     {
       "id": "eth-zurich-549aafb9e019",
-      "slug": "nomis-foundation-eth-postdoctoral-fellowship-eth-zurich-ch",
+      "slug": "fondazione-nomis-eth-flelowship-postdoctorale-eth-zurich-zurich",
       "slugByLocale": {
-        "it": "nomis-foundation-eth-postdoctoral-fellowship-eth-zurich-ch",
+        "it": "fondazione-nomis-eth-flelowship-postdoctorale-eth-zurich-zurich",
         "en": "nomis-foundation-eth-postdoctoral-fellowship-eth-zurich-ch",
         "de": "nomis-stiftung-eth-postdoc-fellowship-eth-zurich-zurich",
         "fr": "fondation-nomis-bourse-postdoctorale-eth-eth-zurich-zurich"
@@ -7419,7 +7419,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "nomis-foundation-eth-postdoctoral-fellowship-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "nomis-foundation-eth-postdoctoral-fellowship-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-387a19a1cb14",
