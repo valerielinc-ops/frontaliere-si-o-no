@@ -14,7 +14,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
 import { JSDOM } from 'jsdom';
 import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
-import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { getCantonDisplayName, getCompanyDefaults } from './crawler-location-config.mjs';
 
 const HQ = getCompanyDefaults('convit');
 
@@ -179,10 +179,12 @@ export function parseConvitDetailPage(html = '', fallbackTitle = '') {
 export function buildConvitLocalizedContent(job = {}) {
   const title = String(job.title || '').trim();
   const canton = job.canton || HQ.canton;
-  const regionLabel = canton === 'GR' ? 'Grigioni' : 'Ticino';
-  const regionLabelDe = canton === 'GR' ? 'Graubünden' : 'Tessin';
-  const regionLabelFr = canton === 'GR' ? 'Grisons' : 'Tessin';
-  const defaultCity = canton === 'GR' ? 'Graubünden' : 'Massagno';
+  const regionLabel = getCantonDisplayName(canton, 'it') || 'Svizzera';
+  const regionLabelDe = getCantonDisplayName(canton, 'de') || 'Schweiz';
+  const regionLabelFr = getCantonDisplayName(canton, 'fr') || 'Suisse';
+  const defaultCity = canton === HQ.canton
+    ? HQ.city
+    : (getCantonDisplayName(canton, 'it') || 'Svizzera');
   const location = String(job.location || '').trim() || defaultCity;
   const description = String(job.description || '').trim();
 
@@ -207,14 +209,15 @@ export function buildConvitLocalizedContent(job = {}) {
 /**
  * Check whether a location string is relevant to any target canton.
  */
-export function isConvitTicinoRelevant(location = '') {
+export function isConvitSwissRelevant(location = '') {
   const loc = normalizeSpace(location);
   if (!loc) return true; // Convit is known TI company — include if no location
   return isTargetSwissLocation(loc);
 }
 
 /**
- * Infer canton (TI or GR) from location text. Falls back to HQ canton for Convit's home base.
+ * Infer canton from location text. Falls back to the registered HQ canton when
+ * the detail page omits a location.
  */
 export function inferConvitCanton(location = '') {
   return inferAnyCanton(location) || HQ.canton;

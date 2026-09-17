@@ -24,9 +24,10 @@ describe('lwphr-job-parser', () => {
     expect(jobs[0].pdfUrl).toContain('lwphr.ch/uploads/');
   });
 
-  it('infers Lugano/Ticino locations from PDF text', () => {
+  it('infers Swiss locations from PDF text without inventing a city', () => {
     expect(inferLwphrLocation('Consulente', 'Per importante società finanziaria nel Luganese')).toBe('Lugano');
-    expect(inferLwphrLocation('Marketing Manager', 'Sede di lavoro Ticino')).toBe('Ticino');
+    expect(inferLwphrLocation('Marketing Manager', 'Sede di lavoro Ticino')).toBe('');
+    expect(inferLwphrLocation('Marketing Manager', 'Sede di lavoro Zürich, Switzerland')).toBe('');
   });
 
   it('builds localized wrappers around pdf descriptions', () => {

@@ -1,6 +1,7 @@
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
 import { titleOverlap, MIN_TITLE_OVERLAP } from './title-utils.mjs';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
 export { titleOverlap, MIN_TITLE_OVERLAP };
 
 function normalize(value = '') {
@@ -116,13 +117,23 @@ export function parseLwphrOpenJobs(html = '') {
 }
 
 export function inferLwphrLocation(title = '', pdfText = '') {
-  const text = `${title} ${pdfText}`.toLowerCase();
-  if (/locarno/.test(text)) return 'Locarno';
-  if (/mendrisiotto|mendrisio/.test(text)) return 'Mendrisio';
-  if (/luganese|lugano/.test(text)) return 'Lugano';
-  if (/ticino/.test(text)) return 'Ticino';
-  if (/svizzera|switzerland/.test(text)) return 'Ticino';
-  return 'Lugano';
+  const text = `${title} ${pdfText}`.trim();
+  const canton = inferAnyCanton(text)
+    || (/(?:^|\s)luganese(?:\s|$)/i.test(text) ? inferAnyCanton('Lugano') : '');
+  if (!canton) return '';
+
+  const candidates = [
+    ['Locarno', /\blocarn(?:o|ese)\b/i],
+    ['Mendrisio', /\bmendrisiotto\b|\bmendrisio\b/i],
+    ['Lugano', /\bluganese\b|\blugano\b/i],
+  ];
+  for (const [city, pattern] of candidates) {
+    if (pattern.test(text) && inferAnyCanton(city) === canton) return city;
+  }
+
+  // A canton or country name is enough to resolve the region, not a city.
+  // Keep the locality empty instead of attributing the mandate to Lugano.
+  return '';
 }
 
 export function inferLwphrCategory(title = '', pdfText = '') {
@@ -135,8 +146,12 @@ export function inferLwphrCategory(title = '', pdfText = '') {
   return 'other';
 }
 
-export function buildLwphrLocalizedPayload({ title = '', pdfText = '', location = 'Lugano', pdfUrl = '' } = {}) {
+export function buildLwphrLocalizedPayload({ title = '', pdfText = '', location = '', pdfUrl = '' } = {}) {
   const trimmed = normalize(pdfText);
+  const locationIt = location || 'non specificata';
+  const locationEn = location || 'not specified';
+  const locationDe = location || 'nicht angegeben';
+  const locationFr = location || 'non précisé';
   const titles = {
     en: title,
     it: title,
@@ -152,26 +167,26 @@ export function buildLwphrLocalizedPayload({ title = '', pdfText = '', location 
 
   const descriptions = {
     it: [
-      `LWP Ledermann Wieting & Partners pubblica questa opportunita nel suo portale Ticino. La descrizione completa del ruolo e stata estratta dal PDF ufficiale del mandato.`,
-      `Sede indicativa: ${location}.`,
+      `LWP Ledermann Wieting & Partners pubblica questa opportunità sul proprio portale di selezione. La descrizione completa del ruolo è stata estratta dal PDF ufficiale del mandato.`,
+      `Sede indicativa: ${locationIt}.`,
       trimmed,
       `PDF ufficiale: ${pdfUrl}`,
     ].join('\n\n'),
     en: [
-      `LWP Ledermann Wieting & Partners lists this role on its Ticino opportunities portal. The full role description below is extracted from the official PDF published by the recruiter.`,
-      `Indicative location: ${location}.`,
+      `LWP Ledermann Wieting & Partners lists this role on its recruitment portal. The full role description below is extracted from the official PDF published by the recruiter.`,
+      `Indicative location: ${locationEn}.`,
       trimmed,
       `Official PDF: ${pdfUrl}`,
     ].join('\n\n'),
     de: [
-      `LWP Ledermann Wieting & Partners veroeffentlicht diese Stelle im Tessiner Karriereportal. Die vollstaendige Beschreibung unten wurde aus dem offiziellen PDF der Ausschreibung extrahiert.`,
-      `Ungefaehrer Arbeitsort: ${location}.`,
+      `LWP Ledermann Wieting & Partners veröffentlicht diese Stelle im eigenen Karriereportal. Die vollständige Beschreibung unten wurde aus dem offiziellen PDF der Ausschreibung extrahiert.`,
+      `Ungefährer Arbeitsort: ${locationDe}.`,
       trimmed,
       `Offizielles PDF: ${pdfUrl}`,
     ].join('\n\n'),
     fr: [
-      `LWP Ledermann Wieting & Partners publie cette opportunite sur son portail carrières au Tessin. La description complete ci-dessous provient du PDF officiel de l annonce.`,
-      `Lieu indicatif: ${location}.`,
+      `LWP Ledermann Wieting & Partners publie cette opportunité sur son portail de recrutement. La description complète ci-dessous provient du PDF officiel de l’annonce.`,
+      `Lieu indicatif : ${locationFr}.`,
       trimmed,
       `PDF officiel: ${pdfUrl}`,
     ].join('\n\n'),
