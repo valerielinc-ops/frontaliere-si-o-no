@@ -113,19 +113,21 @@ function assertCompleteTsmgSourceSnapshot(payload) {
   }
   for (const [index, job] of payload.entries()) {
     const location = job?.categories?.location;
+    const country = typeof job?.country === 'string' ? job.country.trim() : '';
     if (
       !job
       || typeof job !== 'object'
       || !String(job.id || '').trim()
       || !String(job.hostedUrl || '').trim()
-      || typeof job.country !== 'string'
+      || !country
       || !job.categories
       || typeof job.categories !== 'object'
       || typeof location !== 'string'
+      || !location.trim()
     ) {
       throw new Error(`TSMG Lever returned a degraded snapshot at posting ${index + 1}`);
     }
-    if (job.country.trim().toUpperCase() === 'CH' && !isSwissLocationText(location)) {
+    if (country.toUpperCase() === 'CH' && !isSwissLocationText(location)) {
       throw new Error(`TSMG Lever returned an unrecognised Swiss location at posting ${index + 1}`);
     }
   }
@@ -302,9 +304,6 @@ async function main() {
   const rawJobs = assertCompleteTsmgSourceSnapshot(await fetchJson(API_URL));
   const swiss = rawJobs.filter((job) => String(job.country || '').trim().toUpperCase() === 'CH');
   const target = swiss.filter((job) => isTsmgTargetLocation(job?.categories?.location || ''));
-  if (swiss.length > 0 && target.length === 0) {
-    throw new Error(`TSMG Lever snapshot contains ${swiss.length} Swiss posting(s), but none matched the target location filter`);
-  }
   console.log(`📋 Total Lever jobs: ${rawJobs.length}`);
   console.log(`📋 Switzerland jobs: ${swiss.length}`);
   console.log(`📋 Ticino/Grigioni jobs: ${target.length}`);
