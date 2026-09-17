@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 23,
-  "crawlerCount": 603,
+  "crawlerCount": 606,
   "groups": {
     "10": [
       "berit-klinik",
@@ -130,6 +130,7 @@
       "daler-hopital",
       "delvitech-sa",
       "duferco",
+      "endeso",
       "engel-voelkers",
       "fondation-soins-lausanne",
       "ksow",
@@ -156,6 +157,7 @@
       "avaloq",
       "bachem",
       "css-versicherung",
+      "elprom",
       "ffs-officine-ferrovie-federali",
       "gesundheitsnetz-kuesnacht",
       "grand-hotel-kronenhof",
@@ -182,6 +184,7 @@
       "adullam",
       "amministrazione-cantonale-ti",
       "benteler",
+      "buersten-technik",
       "claraspital",
       "csvm-mustair",
       "davos-klosters-bergbahnen",
@@ -732,6 +735,7 @@
     "bucherer": "data/jobs/by-crawler/bucherer.json",
     "buehler": "data/jobs/by-crawler/buehler.json",
     "buergenstock-hotels": "data/jobs/by-crawler/buergenstock-hotels.json",
+    "buersten-technik": "data/jobs/by-crawler/buersten-technik.json",
     "burkhalter": "data/jobs/by-crawler/burkhalter-group.json",
     "c-and-a-schweiz": "data/jobs/by-crawler/c-and-a-schweiz.json",
     "cambiavalute": "data/jobs/by-crawler/cambiavalute.json",
@@ -811,10 +815,12 @@
     "ehc-vd": "data/jobs/by-crawler/ehc-vd.json",
     "ehnv": "data/jobs/by-crawler/ehnv.json",
     "elettra-1938": "data/jobs/by-crawler/elettra-1938.json",
+    "elprom": "data/jobs/by-crawler/elprom.json",
     "emil-frey": "data/jobs/by-crawler/emil-frey.json",
     "emmi": "data/jobs/by-crawler/emmi.json",
     "empa": "data/jobs/by-crawler/empa.json",
     "ems-chemie": "data/jobs/by-crawler/ems-chemie.json",
+    "endeso": "data/jobs/by-crawler/endeso.json",
     "endress-hauser": "data/jobs/by-crawler/endress-hauser.json",
     "engadin-tourismus": "data/jobs/by-crawler/engadin-tourismus.json",
     "engel-voelkers": "data/jobs/by-crawler/engel-voelkers.json",
@@ -1258,5 +1264,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:de598b103154a95b8db92bd17d52b2f19d26aa31b1319acea275b91d5295bd28"
+  "digest": "sha256:341f84102e1cdc38ec94a692227eec1a34f30e8bc4075ba678657827dd11cdd0"
 }
