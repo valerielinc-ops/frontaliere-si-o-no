@@ -39,6 +39,7 @@ import { slugify } from './crawler-template.mjs';
 import { fetchHtml } from './hospital-custom-html-helpers.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { extractJobPostingLd, jobPostingDescriptionText, jobPostingAddress } from './jsonld-jobposting.mjs';
+import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.ts';
 
 export const CONCORDIA_KEY = 'concordia';
 export const CONCORDIA_COMPANY_NAME = 'Concordia';
@@ -56,6 +57,17 @@ function normalizeSpace(s = '') {
 
 export function resolveCanton(addressRegion = '', addressLocality = '') {
   return inferAnyCanton(addressRegion) || inferAnyCanton(addressLocality) || '';
+}
+
+export function resolveConcordiaAddress(address = {}, location = '', canton = '') {
+  const fallbackAddress = resolveFallbackAddress(CONCORDIA_KEY, location, canton);
+  const sourcePostalCode = normalizeSpace(address?.postalCode || '');
+  return {
+    postalCode: /^\d{4}$/.test(sourcePostalCode)
+      ? sourcePostalCode
+      : fallbackAddress.postalCode,
+    streetAddress: normalizeSpace(address?.streetAddress || '') || fallbackAddress.streetAddress,
+  };
 }
 
 /** Insurance/national-employer-scoped role category detector. */
@@ -188,7 +200,11 @@ export async function fetchAllConcordiaJobs() {
       console.warn(`  ⚠️ skipping job with unresolved Swiss location: ${title}`);
       continue;
     }
-    const postalCode = normalizeSpace(addr.postalCode || '');
+    // JSON-LD occasionally omits address fields. Preserve verified source data
+    // when present; otherwise use a coherent same-canton civic fallback so the
+    // emitted JobPosting always satisfies the structured-data contract without
+    // stamping Concordia's Lucerne HQ onto a job in another canton.
+    const { postalCode, streetAddress } = resolveConcordiaAddress(addr, location, canton);
     const employmentType = /PART_TIME/i.test(ld.employmentType) ? 'PART_TIME'
       : /FULL_TIME/i.test(ld.employmentType) ? 'FULL_TIME' : 'OTHER';
     const postedDate = /^\d{4}-\d{2}-\d{2}/.test(String(ld.datePosted || ''))
@@ -223,7 +239,7 @@ export async function fetchAllConcordiaJobs() {
       addressCountry: 'CH',
       country: 'CH',
       postalCode,
-      streetAddress: addr.streetAddress || '',
+      streetAddress,
       category: detectCategory(title),
       contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
       employmentType,
