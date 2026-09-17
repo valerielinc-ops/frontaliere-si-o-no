@@ -33,6 +33,15 @@ const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
 
 const PAGE_SIZE = 100;
 
+function prospectiveSourceListingKey(listing = {}) {
+  for (const value of [listing.id, listing.hk_id, listing.viewkey]) {
+    const normalized = String(value ?? '').trim();
+    if (normalized) return `id:${normalized}`;
+  }
+  const directLink = normalizeSpace(listing?.links?.directlink || '');
+  return directLink ? `url:${directLink}` : '';
+}
+
 function normalize(s = '') {
   return String(s || '').trim().toLowerCase();
 }
@@ -351,6 +360,7 @@ export function createProspectiveChParser(config) {
     console.log();
 
     const all = [];
+    const seenSourceKeys = new Set();
     let offset = 0;
     let total = Infinity;
     let declaredTotal = null;
@@ -372,7 +382,8 @@ export function createProspectiveChParser(config) {
       }
       const items = assertJsonListShape(data, { key: 'jobs', source: companyName, lang: apiLang });
       const pageTotal = Number(data?.total);
-      if (Number.isFinite(pageTotal)) {
+      const hasValidTotal = Number.isSafeInteger(pageTotal) && pageTotal >= 0;
+      if (hasValidTotal) {
         if (declaredTotal !== null && pageTotal !== declaredTotal && strictPagination) {
           throw new Error(`Prospective ${companyName} source total changed during pagination: ${declaredTotal} → ${pageTotal}`);
         }
@@ -382,26 +393,48 @@ export function createProspectiveChParser(config) {
         throw new Error(`Prospective ${companyName} source did not declare a finite total at offset=${offset}`);
       }
       if (items.length === 0) {
-        if (strictPagination && all.length !== total) {
-          throw new Error(`Prospective ${companyName} pagination incomplete: fetched ${all.length}/${total} listings`);
+        if (strictPagination && seenSourceKeys.size !== total) {
+          throw new Error(`Prospective ${companyName} pagination incomplete: fetched ${seenSourceKeys.size}/${total} unique listings`);
         }
         break;
       }
-      all.push(...items);
+      const pageNewItems = [];
+      for (const [index, item] of items.entries()) {
+        const key = prospectiveSourceListingKey(item);
+        if (!key) {
+          if (strictPagination) {
+            throw new Error(
+              `Prospective ${companyName} listing at offset=${offset}, row=${index} has no stable identity; pagination completeness is unverified`,
+            );
+          }
+          pageNewItems.push(item);
+          continue;
+        }
+        if (seenSourceKeys.has(key)) continue;
+        seenSourceKeys.add(key);
+        pageNewItems.push(item);
+      }
+      const added = pageNewItems.length;
+      if (strictPagination && added === 0) {
+        throw new Error(
+          `Prospective ${companyName} pagination did not advance at offset=${offset}; repeated page has ${seenSourceKeys.size} unique listings`,
+        );
+      }
+      all.push(...(strictPagination ? pageNewItems : items));
       offset += items.length;
-      if (strictPagination && all.length > total) {
-        throw new Error(`Prospective ${companyName} pagination exceeded declared total: fetched ${all.length}/${total} listings`);
+      if (strictPagination && seenSourceKeys.size > total) {
+        throw new Error(`Prospective ${companyName} pagination exceeded declared total: fetched ${seenSourceKeys.size}/${total} unique listings`);
       }
       if (items.length < PAGE_SIZE) {
-        if (strictPagination && all.length !== total) {
-          throw new Error(`Prospective ${companyName} pagination incomplete: fetched ${all.length}/${total} listings`);
+        if (strictPagination && seenSourceKeys.size !== total) {
+          throw new Error(`Prospective ${companyName} pagination incomplete: fetched ${seenSourceKeys.size}/${total} unique listings`);
         }
         break;
       }
       await new Promise((r) => setTimeout(r, 250));
     }
-    if (strictPagination && (declaredTotal === null || all.length !== declaredTotal)) {
-      throw new Error(`Prospective ${companyName} pagination incomplete: fetched ${all.length}/${declaredTotal ?? 'unknown'} listings`);
+    if (strictPagination && (declaredTotal === null || seenSourceKeys.size !== declaredTotal)) {
+      throw new Error(`Prospective ${companyName} pagination incomplete: fetched ${seenSourceKeys.size}/${declaredTotal ?? 'unknown'} unique listings`);
     }
     console.log(`  ✓ ${all.length} Prospective jobs (API total=${total})\n`);
     if (!all.length) return [];
