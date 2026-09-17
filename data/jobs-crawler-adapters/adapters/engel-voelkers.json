@@ -10,7 +10,7 @@
   "seedUrls": [
     "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro"
   ],
-  "notes": "Dedicated Engel & Völkers Switzerland crawler. Parses the Next.js SSR careers page HTML. Keeps TI + GR jobs from Ticino Premium Properties SA and other regional offices.",
+  "notes": "Dedicated Engel & Völkers Switzerland crawler. Parses the Next.js SSR careers page HTML, keeps postings from all Swiss licensees, and derives each canton from the posting location.",
   "updatedAt": "2026-09-01T10:21:46.293Z",
   "seedMetaByUrl": {
     "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/dd5f005f-a14a-4e75-9f03-58d49b724f88": {

@@ -4,7 +4,7 @@
  *
  * Crawls https://lombardi.group/eng/careers/open-positions
  * 1. Fetches listing page → extracts embedded _jobs JSON
- * 2. Filters Swiss/Ticino jobs (sedeId=1 → Giubiasco)
+ * 2. Filters the local Swiss office (sedeId=1 → Giubiasco)
  * 3. Enriches with detail page data (full description, requirements)
  * 4. Merges into data/jobs.json
  * 5. Updates adapter config
@@ -40,7 +40,7 @@ import {
 import {
   parseLombardiListingPage,
   parseLombardiDetailPage,
-  isLombardiTicinoRelevant,
+  isLombardiLocalJob,
   buildLombardiLocalizedContent,
   titleOverlap,
 } from './lib/lombardi-job-parser.mjs';
@@ -299,22 +299,22 @@ async function main() {
   const rawJobs = await parseLombardiListingPage(TIMEOUT_MS);
   console.log(`📋 Found ${rawJobs.length} total positions`);
 
-  // Filter: Switzerland + Ticino sedeId
+  // Filter: Switzerland + local office sedeId
   const swissJobs = rawJobs.filter((j) => j.descNazione === 'Switzerland');
   console.log(`🇨🇭 Swiss positions: ${swissJobs.length}`);
 
-  const ticinoJobs = swissJobs.filter((j) => isLombardiTicinoRelevant(j));
-  console.log(`📍 Ticino-relevant (Giubiasco): ${ticinoJobs.length}`);
+  const localJobs = swissJobs.filter((j) => isLombardiLocalJob(j));
+  console.log(`📍 Local office (Giubiasco): ${localJobs.length}`);
 
-  if (ticinoJobs.length === 0) {
-    console.log('⚠️ No Ticino-relevant jobs found — skipping.');
+  if (localJobs.length === 0) {
+    console.log('⚠️ No local-office jobs found — skipping.');
     return;
   }
 
   // Enrich with detail page data
   console.log('\n📄 Fetching detail pages...');
   const enriched = [];
-  for (const raw of ticinoJobs) {
+  for (const raw of localJobs) {
     const detail = await parseLombardiDetailPage(raw.annuncioId, TIMEOUT_MS);
     if (detail) {
       console.log(`  ✅ ${raw.titolo} → ${detail.city} (${detail.occupancy}) [${detail.sectionCount} sections, ${detail.markdown.length} chars]`);
@@ -322,7 +322,7 @@ async function main() {
       console.log(`  ⚠️ ${raw.titolo} → detail page failed`);
     }
     enriched.push({ raw, detail });
-    if (enriched.length < ticinoJobs.length) await sleep(DETAIL_DELAY_MS);
+    if (enriched.length < localJobs.length) await sleep(DETAIL_DELAY_MS);
   }
 
   const jobs = enriched.map(({ raw, detail }) => buildLombardiJob(raw, detail));

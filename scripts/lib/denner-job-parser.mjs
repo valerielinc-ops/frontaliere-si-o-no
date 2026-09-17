@@ -13,12 +13,10 @@
  * Exports:
  *   parseDennerListingPage(html)  -- extract job links from listing page
  *   parseDennerDetailPage(html)   -- extract job data from detail page
- *   isDennerTicinoJob(job)        -- filter for Ticino positions
  *   isDennerJob(job)              -- match Denner jobs in dataset
  *   DENNER_PORTAL_URL             -- Migros Group portal URL for Denner
  */
 
-import { isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
 
 /** Migros Group job portal URL for Denner */
@@ -156,21 +154,6 @@ export function parseDennerDetailPage(html = '') {
   if (!title && !body) return null;
 
   return { title, body, location, percentage };
-}
-
-/**
- * Check if a Denner job is in Ticino.
- * @param {{ location?: string, canton?: string, city?: string }} job
- * @returns {boolean}
- */
-export function isDennerTicinoJob(job) {
-  if (!job) return false;
-  const loc = String(job.location || job.city || '').toLowerCase();
-  const canton = String(job.canton || '').toLowerCase();
-
-  if (canton === 'ti' || canton === 'ticino' || canton === 'tessin') return true;
-
-  return isTargetSwissLocation(loc);
 }
 
 /**

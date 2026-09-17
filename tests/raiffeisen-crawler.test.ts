@@ -5,6 +5,7 @@ import {
   isRaiffeisenJob,
   isTrustedDomain,
   isVedeggioCassarateListing,
+  isSwissRaiffeisenListing,
 } from '../scripts/lib/raiffeisen-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -92,6 +93,42 @@ describe('Raiffeisen (national) crawler parser', () => {
       expect(isVedeggioCassarateListing(null)).toBe(false);
       expect(isVedeggioCassarateListing(undefined)).toBe(false);
       expect(isVedeggioCassarateListing({})).toBe(false);
+    });
+  });
+
+  describe('isSwissRaiffeisenListing (source geography gate)', () => {
+    it('accepts a Swiss city from the Prospective location fields', () => {
+      expect(isSwissRaiffeisenListing({
+        szas: {
+          'sza_location.city': 'Dornach',
+          'sza_location.country': 'Schweiz',
+        },
+      })).toBe(true);
+    });
+
+    it('accepts a Swiss city in an indexed multi-location field', () => {
+      expect(isSwissRaiffeisenListing({
+        szas: {
+          'sza_location.2.city': 'Küssnacht (SZ)',
+          'sza_location.2.country': 'Schweiz',
+        },
+      })).toBe(true);
+    });
+
+    it('rejects a foreign location even when a Swiss city name is embedded elsewhere', () => {
+      expect(isSwissRaiffeisenListing({
+        szas: {
+          'sza_location.city': 'Baden',
+          'sza_location.country': 'Österreich',
+          sza_introduction: 'Baden bei Wien',
+        },
+      })).toBe(false);
+    });
+
+    it('rejects a source row with no resolvable location', () => {
+      expect(isSwissRaiffeisenListing({
+        szas: { 'sza_location.country': 'Schweiz' },
+      })).toBe(false);
     });
   });
 

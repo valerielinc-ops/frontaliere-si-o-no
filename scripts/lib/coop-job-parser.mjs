@@ -9,7 +9,7 @@
 import { JSDOM } from 'jsdom';
 import { fetch as undiciFetch } from 'undici';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
-import { normalizeSwissTargetLocationText } from './target-swiss-locations.mjs';
+import { inferAnyCanton, normalizeSwissTargetLocationText } from './target-swiss-locations.mjs';
 import {
   createSpecUrlPolicy,
   fetchFollowingValidatedRedirects,
@@ -187,14 +187,21 @@ export function coopDescHtmlToMarkdown(html = '') {
 }
 
 // ─────────────────────────────────────────────────────────────
-// Canton normalization (local copy — same logic as update-coop-jobs.mjs)
+// JSON-LD canton normalization. The shared inference covers all 26 cantons;
+// these overrides only cover localized labels absent from the canton data.
 // ─────────────────────────────────────────────────────────────
 
-function normalizeCantonCode(raw = '', fallback = '') {
+const COOP_CANTON_LABEL_OVERRIDES = {
+  'regione di basilea': 'BL',
+  nidwaldo: 'NW',
+  obwaldo: 'OW',
+};
+
+export function resolveCoopCantonCode(raw = '', locality = '', fallback = '') {
   const lower = String(raw || '').trim().toLowerCase();
-  if (['ti', 'ticino', 'tessin'].includes(lower)) return 'TI';
-  if (['gr', 'grigioni', 'graubunden', 'graubünden', 'grisons'].includes(lower)) return 'GR';
-  return fallback || '';
+  const override = COOP_CANTON_LABEL_OVERRIDES[lower];
+  if (override) return override;
+  return inferAnyCanton(raw) || inferAnyCanton(locality) || fallback || '';
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -217,8 +224,8 @@ export function applyCoopJsonLdToJob(job, jsonLd) {
     updated.addressLocality = ldLocality;
     changed = true;
   }
-  if (ldRegion) {
-    const ldCanton = normalizeCantonCode(ldRegion, updated.canton);
+  if (ldRegion || ldLocality) {
+    const ldCanton = resolveCoopCantonCode(ldRegion, ldLocality, updated.canton);
     if (ldCanton && ldCanton !== updated.canton) {
       updated.canton = ldCanton;
       updated.addressRegion = ldCanton;

@@ -14,10 +14,9 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  */
 
 import { JSDOM } from 'jsdom';
-import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
-import { getCompanyDefaults } from './crawler-location-config.mjs';
-
-const HQ = getCompanyDefaults('engelvoelkers');
+import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
+import { isSwissLocationText, inferAnyCanton } from './target-swiss-locations.mjs';
+import { getCantonDisplayName } from './crawler-location-config.mjs';
 
 const BASE_URL = 'https://www.engelvoelkers.com';
 const LISTING_PATH = '/ch/it/azienda/carriera/offerte-di-lavoro';
@@ -124,7 +123,7 @@ export function parseEngelvoelkersListingPage(html = '') {
     let location = '';
     const cardRoot = container;
     if (cardRoot) {
-      // Location is usually in a div that contains city text like "Lugano, Switzerland"
+      // Location is usually in a div that contains a city and country.
       const allDivs = [...cardRoot.querySelectorAll('div')];
       for (const div of allDivs) {
         const text = normalizeSpace(div.textContent || '');
@@ -252,12 +251,12 @@ export function parseEngelvoelkersDetailPage(html = '', fallbackTitle = '') {
  */
 export function buildEngelvoelkersLocalizedContent(job = {}) {
   const title = String(job.title || '').trim();
-  const canton = job.canton || HQ.canton;
-  const regionIt = canton === 'GR' ? 'Grigioni' : 'Ticino';
-  const regionDe = canton === 'GR' ? 'Graubünden' : 'Tessin';
-  const regionFr = canton === 'GR' ? 'Grisons' : 'Tessin';
-  const defaultCity = canton === 'GR' ? 'Graubünden' : 'Lugano';
-  const location = String(job.location || '').replace(/,?\s*Switzerland$/i, '').trim() || defaultCity;
+  const canton = String(job.canton || '').toUpperCase().trim();
+  const regionIt = getCantonDisplayName(canton, 'it') || canton;
+  const regionEn = getCantonDisplayName(canton, 'en') || canton;
+  const regionDe = getCantonDisplayName(canton, 'de') || canton;
+  const regionFr = getCantonDisplayName(canton, 'fr') || canton;
+  const location = String(job.location || '').replace(/,?\s*Switzerland$/i, '').trim();
   const description = String(job.description || '').trim();
   const company = String(job.company || 'Engel & Völkers').trim();
 
@@ -281,7 +280,7 @@ export function buildEngelvoelkersLocalizedContent(job = {}) {
 
   const enDetailsBlock = [
     'Position highlights:',
-    `• Location: ${location}, ${regionIt}`,
+    `• Location: ${location}, ${regionEn}`,
     `• Employer: ${company}`,
     '• Sector: Premium real estate',
     `• Canton: ${canton}`,
@@ -328,23 +327,15 @@ export function buildEngelvoelkersLocalizedContent(job = {}) {
 }
 
 /**
- * Check whether a location string is relevant to any target canton.
+ * Check whether a location string belongs to any Swiss canton.
  */
-export function isEngelvoelkersTicinoRelevant(location = '', company = '') {
+export function isEngelvoelkersSwissRelevant(location = '') {
   const loc = normalizeSpace(location);
-  const comp = normalizeSpace(company).toLowerCase();
-
-  // Known Ticino subsidiary
-  if (comp.includes('ticino premium properties')) return true;
-
   if (!loc) return false;
-  return isTargetSwissLocation(loc);
+  return !isLocationExplicitlyForeign(loc) && isSwissLocationText(loc);
 }
 
-/** Infer canton (TI or GR) from location text. Falls back to HQ canton. */
-export function inferEngelvoelkersCanton(location = '', company = '') {
-  // Location-first: resolve the location before the company name (which may embed
-  // a different city), so it wins over inferAnyCanton's TARGET_CANTONS array-order
-  // sensitivity (a combined string could let the company's city override).
-  return inferAnyCanton(location) || inferAnyCanton(company) || HQ.canton;
+/** Infer the Swiss canton from the posting's own location text. */
+export function inferEngelvoelkersCanton(location = '') {
+  return inferAnyCanton(location);
 }

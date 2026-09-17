@@ -10,22 +10,21 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  *   HTML page with full description, requirements, location, contacts.
  *
  * Sede mapping (Swiss offices):
- *   sedeId=1       → Giubiasco (TI)  ← target
+ *   sedeId=1       → Giubiasco (TI)  ← local target office
  *   sedeId=12      → Fribourg
  *   sedeId=435302  → Rotkreuz
  *   sedeId=446348  → Urdorf
  *   sedeId=458683  → Lausanne
  */
 
-import { isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 
 const LISTING_URL = 'https://lombardi.group/eng/careers/open-positions';
 const DETAIL_URL = 'https://lombardi.group/eng/careers/job?id=';
 
-// Ticino sedeIds (Giubiasco)
-const TICINO_SEDE_IDS = new Set([1]);
+// Local office sedeIds (Giubiasco)
+const LOCAL_SEDE_IDS = new Set(['1']);
 
 
 function slugify(value = '') {
@@ -254,13 +253,12 @@ export async function parseLombardiDetailPage(annuncioId, timeoutMs = 15000) {
 }
 
 /**
- * Check if a Lombardi job is in any target canton.
+ * Check whether a listing belongs to Lombardi's local Swiss office.
+ * The source exposes several Swiss offices; this crawler intentionally keeps
+ * only `sedeId=1` (Giubiasco), rather than expanding to every Swiss canton.
  */
-export function isLombardiTicinoRelevant(job = {}) {
-  if (TICINO_SEDE_IDS.has(job.sedeId)) return true;
-  const loc = normalizeSpace(job.city || '');
-  if (!loc) return false;
-  return isTargetSwissLocation(loc);
+export function isLombardiLocalJob(job = {}) {
+  return LOCAL_SEDE_IDS.has(String(job.sedeId ?? ''));
 }
 
 /**
@@ -268,7 +266,7 @@ export function isLombardiTicinoRelevant(job = {}) {
  */
 function lombardiBoilerplate(title, city, occupancy) {
   const occLabel = occupancy ? ` (${occupancy})` : '';
-  return `Lombardi Group, studio di ingegneria con sede a ${city}, cerca un profilo ${title}${occLabel}. Lombardi è specializzata nella progettazione di grandi infrastrutture: tunnel, dighe, ponti e impianti idroelettrici in Svizzera e nel mondo. Lo studio, con sede principale a Giubiasco (Ticino), opera nei settori dell'ingegneria civile, idraulica e geotecnica. Candidati tramite il portale ufficiale.`;
+  return `Lombardi Group, studio di ingegneria con sede a ${city}, cerca un profilo ${title}${occLabel}. Lombardi è specializzata nella progettazione di grandi infrastrutture: tunnel, dighe, ponti e impianti idroelettrici in Svizzera e nel mondo. Lo studio, con sede locale a Giubiasco, opera nei settori dell'ingegneria civile, idraulica e geotecnica. Candidati tramite il portale ufficiale.`;
 }
 
 /**

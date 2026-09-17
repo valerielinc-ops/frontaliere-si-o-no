@@ -23,6 +23,7 @@ import {
   applyCoopSourceDetailToJob,
   enrichCoopSourceBackedJobs,
   buildCoopTranslationCacheEntry,
+  resolveCoopCantonCode,
 } from '../scripts/lib/coop-job-parser.mjs';
 
 const frenchDetailFixture = JSON.parse(
@@ -30,6 +31,13 @@ const frenchDetailFixture = JSON.parse(
 );
 
 describe('Coop authoritative detail routing', () => {
+  it('resolves localized canton labels and locality across the full Swiss scope', () => {
+    expect(resolveCoopCantonCode('Graubünden', '', '')).toBe('GR');
+    expect(resolveCoopCantonCode('Nidwaldo', '', '')).toBe('NW');
+    expect(resolveCoopCantonCode('', 'Chur', '')).toBe('GR');
+    expect(resolveCoopCantonCode('Principato del Liechtenstein', '', '')).toBe('');
+  });
+
   it('publishes the feed allowlist only through explicit detail seeds', () => {
     const seedDetailUrls = [
       frenchDetailFixture.url,

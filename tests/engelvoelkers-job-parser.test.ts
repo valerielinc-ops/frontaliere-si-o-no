@@ -1,5 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { parseEngelvoelkersDetailPage } from '../scripts/lib/engelvoelkers-job-parser.mjs';
+import {
+  buildEngelvoelkersLocalizedContent,
+  inferEngelvoelkersCanton,
+  isEngelvoelkersSwissRelevant,
+  parseEngelvoelkersDetailPage,
+} from '../scripts/lib/engelvoelkers-job-parser.mjs';
 
 const FIXTURE_HTML = `<!DOCTYPE html>
 <html lang="it">
@@ -52,5 +57,27 @@ describe('Engel & Völkers parser', () => {
     expect(result.description).toContain('Beratung anspruchsvoller Kundschaft im Tessin');
     expect(result.description).not.toContain('Trova gli immobili in vendita');
     expect(result.description.length).toBeGreaterThan(180);
+  });
+
+  it('accepts Swiss licensee locations across cantons and rejects foreign locations', () => {
+    expect(isEngelvoelkersSwissRelevant('Zürich, Switzerland')).toBe(true);
+    expect(isEngelvoelkersSwissRelevant('Lugano, Switzerland')).toBe(true);
+    expect(isEngelvoelkersSwissRelevant('Como, Italy')).toBe(false);
+    expect(inferEngelvoelkersCanton('Zürich, Switzerland')).toBe('ZH');
+    expect(inferEngelvoelkersCanton('Lugano, Switzerland')).toBe('TI');
+  });
+
+  it('localizes the derived canton without a fixed regional fallback', () => {
+    const result = buildEngelvoelkersLocalizedContent({
+      title: 'Immobilienberater/in',
+      location: 'Zürich',
+      canton: 'ZH',
+      company: 'Engel & Völkers Zürich',
+      description: 'Beratung und Verkauf hochwertiger Immobilien.',
+    });
+
+    expect(result.descriptionByLocale.it).toContain('Zurigo');
+    expect(result.descriptionByLocale.it).toContain('Canton: ZH');
+    expect(result.descriptionByLocale.it).not.toContain('Ticino');
   });
 });

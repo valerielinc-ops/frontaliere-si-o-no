@@ -11,10 +11,11 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.ts';
+import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml, fetchJson } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { isSwissLocationText, inferAnyCanton } from './target-swiss-locations.mjs';
 import { assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -28,7 +29,6 @@ const BASE_URL = 'https://careers.nagra.com';
 // The listing page lives under the `?page=advertisement` route of the
 // in-house ATS — the bare CAREER_URL root has no job table (issue #3797).
 const ADVERTISEMENT_URL = 'https://careers.nagra.com/?page=advertisement';
-const HQ = getCompanyDefaults('kudelski-nagra');
 
 /**
  * Kudelski/NAGRA uses Greenhouse for recruitment. Greenhouse provides
@@ -37,6 +37,7 @@ const HQ = getCompanyDefaults('kudelski-nagra');
 const GH_BOARDS_API = 'https://boards-api.greenhouse.io/v1/boards/kudelski/jobs';
 const GH_BOARDS_DETAIL = 'https://boards-api.greenhouse.io/v1/boards/kudelski/jobs';
 const GH_PUBLIC_BASE = 'https://careers.nagra.com';
+const COMPANY_DEFAULTS = getCompanyDefaults(KUDELSKI_NAGRA_KEY);
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -202,11 +203,34 @@ function parseNagraAdvertisementTable(html = '') {
 }
 
 /**
- * Check if a location is relevant (Lugano/Ticino or broader Swiss).
+ * Check whether a posting belongs to any Swiss canton.
  */
-function isRelevantLocation(location = '') {
-  const loc = location.toLowerCase();
-  return /lugano|ticino|tessin|cheseaux|lausanne|switzerland|schweiz|suisse|svizzera|vaud/i.test(loc) || !loc;
+function isSwissLocation(location = '') {
+  const loc = normalizeSpace(location);
+  return Boolean(loc) && !isLocationExplicitlyForeign(loc) && isSwissLocationText(loc);
+}
+
+function isSwissListingCandidate(location = '') {
+  const loc = normalizeSpace(location);
+  if (!loc) return false;
+  // The listing table sometimes exposes only the country. Keep that source
+  // candidate long enough to resolve its actual city from the detail page;
+  // the publish gate below still requires inferAnyCanton().
+  return isSwissLocation(loc);
+}
+
+function extractDetailLocation(html = '') {
+  if (!html) return '';
+  const labelled = [
+    /<(?:strong|b)[^>]*>\s*(?:location|work\s+location|lieu\s+de\s+travail|arbeitsort)\s*:?\s*<\/(?:strong|b)>\s*([^<]+)/i,
+    /<label[^>]*>\s*(?:location|work\s+location|lieu\s+de\s+travail|arbeitsort)\s*:?\s*<\/label>\s*<span[^>]*>([\s\S]*?)<\/span>/i,
+  ];
+  for (const pattern of labelled) {
+    const match = html.match(pattern);
+    const location = normalizeSpace(stripHtml(match?.[1] || ''));
+    if (location) return location;
+  }
+  return '';
 }
 
 /** Title of a raw listing, whatever shape the source used for it. */
@@ -221,8 +245,7 @@ function listingTitle(listing) {
  * Strategy:
  *  1. Try Greenhouse Boards API with multiple board slugs
  *  2. Fall back to HTML scraping of careers.nagra.com
- *  3. Filter for Swiss locations (Kudelski is headquartered in Cheseaux-sur-Lausanne
- *     with a significant office in Lugano)
+ *  3. Filter for Swiss locations across all 26 cantons
  */
 export async function fetchAllKudelskiNagraJobs() {
   console.log(`🔍 Fetching Kudelski NAGRA jobs`);
@@ -256,10 +279,10 @@ export async function fetchAllKudelskiNagraJobs() {
     return [];
   }
 
-  // Filter for Swiss locations
+  // Filter for Swiss locations across the full canton set.
   const swissListings = listings.filter((l) => {
     const loc = l.location?.name || l.location || l.city || '';
-    return isRelevantLocation(typeof loc === 'string' ? loc : loc?.name || '');
+    return isSwissListingCandidate(typeof loc === 'string' ? loc : loc?.name || '');
   });
 
   console.log(`  📋 Total listings: ${listings.length}, Swiss-filtered: ${swissListings.length}`);
@@ -274,10 +297,58 @@ export async function fetchAllKudelskiNagraJobs() {
     const title = listingTitle(listing);
     if (title.length < 3) continue;
 
-    // Greenhouse returns location as { name: "..." } or a string
+    // Greenhouse returns location as { name: "..." } or a string.
     const rawLoc = listing.location?.name || listing.location || listing.city || '';
-    const location = normalizeSpace(typeof rawLoc === 'string' ? rawLoc : rawLoc?.name || '') || HQ?.city || 'Lugano';
-    const canton = inferAnyCanton(location) || HQ?.canton || '';
+    let location = normalizeSpace(typeof rawLoc === 'string' ? rawLoc : rawLoc?.name || '');
+
+    // The NAGRA table currently gives some Swiss offers only as
+    // "Switzerland". Resolve the city from the official detail page instead
+    // of inventing a headquarters canton (the old code stamped these TI).
+    if (!inferAnyCanton(location)) {
+      const detailUrl = listing.absolute_url || listing.url || listing.link || '';
+      if (isTrustedDomain(detailUrl)) {
+        try {
+          const detailHtml = await fetchHtml(detailUrl, { timeoutMs: 20000 });
+          const detailLocation = extractDetailLocation(detailHtml);
+          if (detailLocation) location = detailLocation;
+        } catch (err) {
+          console.warn(`  ⚠️ Kudelski NAGRA: detail fetch failed for ${title}: ${err.message}`);
+        }
+      }
+    }
+
+    const canton = inferAnyCanton(location);
+    if (!location || !canton) {
+      console.warn(`  ⚠️ Kudelski NAGRA: skipping unresolvable Swiss location "${location || '(empty)'}" (${title})`);
+      continue;
+    }
+
+    // Keep source address data when present; otherwise resolve a complete
+    // same-canton fallback from the posting location. The company default is
+    // only eligible when its canton agrees with the derived canton, so a
+    // posting outside the historical Lugano HQ cannot inherit TI/6900.
+    const addressLocality = normalizeSpace(
+      location.replace(/,?\s*(?:Switzerland|Schweiz|Suisse|Svizzera)$/i, ''),
+    );
+    const fallbackAddress = resolveFallbackAddress(
+      KUDELSKI_NAGRA_KEY,
+      addressLocality || (COMPANY_DEFAULTS?.canton === canton ? COMPANY_DEFAULTS.city : ''),
+      canton,
+    );
+    const sourcePostalCode = normalizeSpace(
+      listing.postalCode
+      || listing.zipCode
+      || listing.location?.postalCode
+      || listing.location?.zipCode
+      || '',
+    );
+    const sourceStreetAddress = normalizeSpace(
+      listing.streetAddress
+      || listing.address
+      || listing.location?.streetAddress
+      || listing.location?.address
+      || '',
+    );
 
     // Greenhouse provides job content as HTML
     const descriptionHtml = listing.content || listing.description || '';
@@ -313,11 +384,12 @@ export async function fetchAllKudelskiNagraJobs() {
       source: 'Kudelski NAGRA Dedicated Parser',
       sourceLang,
       crawledAt: new Date().toISOString(),
-      addressLocality: location,
-      addressRegion: HQ?.addressRegion || 'TI',
+      addressLocality: addressLocality || fallbackAddress.addressLocality,
+      addressRegion: canton,
+      streetAddress: sourceStreetAddress || fallbackAddress.streetAddress,
       addressCountry: 'CH',
       country: 'CH',
-      postalCode: HQ?.postalCode || '6900',
+      postalCode: /^\d{4}$/.test(sourcePostalCode) ? sourcePostalCode : fallbackAddress.postalCode,
       category: detectCategory(title),
       contract: detectEmploymentType(listing.timeType || title) === 'PART_TIME' ? 'part-time' : 'full-time',
       employmentType: detectEmploymentType(listing.timeType || title),

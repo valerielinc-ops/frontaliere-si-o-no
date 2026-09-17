@@ -19,6 +19,7 @@ import {
   isTrustedDomain,
   parseConcordiaListing,
   resolveCanton,
+  resolveConcordiaAddress,
   detectCategory,
   detectExperienceLevel,
 } from '@/scripts/lib/concordia-job-parser.mjs';
@@ -136,8 +137,24 @@ describe('Concordia crawler parser', () => {
       expect(resolveCanton('', 'Lugano')).toBe('TI');
     });
 
-    it('falls back to HQ default (LU) when nothing resolves', () => {
-      expect(resolveCanton('', '')).toBe('LU');
+    it('leaves an unresolvable source location without inventing an HQ canton', () => {
+      expect(resolveCanton('', '')).toBe('');
+    });
+  });
+
+  describe('resolveConcordiaAddress', () => {
+    it('fills omitted fields with a fallback in the derived canton', () => {
+      expect(resolveConcordiaAddress({}, 'Zürich', 'ZH')).toEqual({
+        postalCode: '8001',
+        streetAddress: 'Bahnhofstrasse 1',
+      });
+    });
+
+    it('keeps a valid source postal code and street address', () => {
+      expect(resolveConcordiaAddress({ postalCode: '3011', streetAddress: 'Bundesplatz 5' }, 'Bern', 'BE')).toEqual({
+        postalCode: '3011',
+        streetAddress: 'Bundesplatz 5',
+      });
     });
   });
 

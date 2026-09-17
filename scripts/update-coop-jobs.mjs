@@ -60,10 +60,10 @@ import {
   titleOverlap,
   applyCoopJsonLdToJob,
   buildCoopTranslationCacheEntry,
+  resolveCoopCantonCode,
 } from './lib/coop-job-parser.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
-import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -293,33 +293,6 @@ function deriveLocalizedSlug(job, locale) {
   return String(job?.slug || '').trim();
 }
 
-/**
- * Resolve a Prospective.ch attribute-30 canton label (e.g. "Zurigo",
- * "Vallese", "Ticino") to a 2-letter Swiss canton code, CH-wide.
- *
- * inferAnyCanton (BFS over names + aliases + municipalities for all 26
- * cantons) resolves most labels directly. A few localized labels the API
- * uses are not in that name set, so they are mapped explicitly here:
- *   - "Regione di Basilea" → BL (Basel-Landschaft)
- *   - "Nidwaldo"           → NW
- *   - "Obwaldo"            → OW
- * The Liechtenstein label ("Principato del Liechtenstein") is intentionally
- * left unresolved (not a Swiss canton).
- */
-const COOP_CANTON_LABEL_OVERRIDES = {
-  'regione di basilea': 'BL',
-  nidwaldo: 'NW',
-  obwaldo: 'OW',
-};
-
-function normalizeCantonCode(raw = '', fallback = '') {
-  const label = String(raw || '').trim();
-  if (!label) return fallback || '';
-  const override = COOP_CANTON_LABEL_OVERRIDES[label.toLowerCase()];
-  if (override) return override;
-  return inferAnyCanton(label) || fallback || '';
-}
-
 function cantonLabel(canton = '') {
   return canton || '';
 }
@@ -332,7 +305,7 @@ function dateOnly(raw = '') {
 
 function buildSeedMetaFromApiJob(job, fallbackCanton = '') {
   const attr30 = String(job?.attributes?.['30']?.[0] || '').trim();
-  const canton = normalizeCantonCode(attr30, fallbackCanton);
+  const canton = resolveCoopCantonCode(attr30, '', fallbackCanton);
   // Try to get city-level location from various API fields before falling back to canton
   const apiCity = String(job?.location || job?.place || job?.city || job?.address?.city || '').trim();
   const location = apiCity || attr30 || cantonLabel(canton || fallbackCanton);
@@ -990,13 +963,11 @@ async function postProcessCoopJobs() {
 function logCoopJobStats(beforeSnapshot = new Map()) {
   if (!fs.existsSync(DATA_JOBS)) {
     console.log('ℹ️ jobs.json non trovato — nessuna statistica disponibile.');
-    return { total: 0, ticino: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
+    return { total: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
   }
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   const allJobs = Array.isArray(raw) ? raw : [];
   const coopJobs = allJobs.filter(isCoopJob);
-  const ticinoJobs = coopJobs.filter((job) => normalize(job?.canton) === 'ti');
-
   const unrecognizedDivisions = findUnrecognizedCoopDivisions(allJobs);
   if (unrecognizedDivisions.length > 0) {
     console.warn(
@@ -1024,7 +995,7 @@ function logCoopJobStats(beforeSnapshot = new Map()) {
   printCrawlChangeSummary(crawlDiff, 'Coop');
   writeCrawlChangeSummaryToGH(crawlDiff, 'Coop');
 
-  return { total: coopJobs.length, ticino: ticinoJobs.length, coopJobs, crawlDiff };
+  return { total: coopJobs.length, coopJobs, crawlDiff };
 }
 
 function validateCoopLocaleCoverage() {

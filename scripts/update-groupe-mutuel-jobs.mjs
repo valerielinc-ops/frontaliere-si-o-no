@@ -49,8 +49,8 @@ import {
   detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton, rescueSwissCityFromText  } from './lib/target-swiss-locations.mjs';
-import { isTargetCanton, TARGET_CANTONS, COMPANY_HQ, markLocationDerivedFromVacancyText } from './lib/crawler-location-config.mjs';
+import { inferAnyCanton, rescueSwissCityFromText } from './lib/target-swiss-locations.mjs';
+import { markLocationDerivedFromVacancyText } from './lib/crawler-location-config.mjs';
 import { assertJsonListShapeMultiKey } from './lib/assert-json-list-shape.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -392,34 +392,7 @@ function parseCsodLocation(rawLocation = '') {
 }
 
 function inferCanton(location = '') {
-  // First try the shared utility
-  const canton = inferAnyCanton(location);
-  if (canton) return canton;
-
-  const loc = normalize(location);
-
-  // Groupe Mutuel primary locations
-  if (loc.includes('martigny')) return 'VS';
-  if (loc.includes('sion') || loc.includes('sitten')) return 'VS';
-  if (loc.includes('sierre') || loc.includes('siders')) return 'VS';
-  if (loc.includes('monthey')) return 'VS';
-  if (loc.includes('visp') || loc.includes('viège')) return 'VS';
-  if (loc.includes('brig') || loc.includes('brigue')) return 'VS';
-  if (loc.includes('naters')) return 'VS';
-  if (loc.includes('valais') || loc.includes('wallis')) return 'VS';
-
-  // Other Swiss cities
-  if (loc.includes('lausanne') || loc.includes('vevey') || loc.includes('montreux') || loc.includes('nyon') || loc.includes('morges')) return 'VD';
-  if (loc.includes('genev') || loc.includes('genèv') || loc.includes('genf')) return 'GE';
-  if (loc.includes('fribourg') || loc.includes('freiburg') || loc.includes('bulle')) return 'FR';
-  if (loc.includes('neuchâtel') || loc.includes('neuchatel') || loc.includes('neuenburg')) return 'NE';
-  if (loc.includes('bern') || loc.includes('berne')) return 'BE';
-  if (loc.includes('zurich') || loc.includes('zürich')) return 'ZH';
-  if (loc.includes('basel') || loc.includes('bâle')) return 'BS';
-  if (loc.includes('luzern') || loc.includes('lucerne')) return 'LU';
-  if (loc.includes('lugano') || loc.includes('chiasso') || loc.includes('bellinzona') || loc.includes('locarno') || loc.includes('mendrisio')) return 'TI';
-
-  return '';
+  return inferAnyCanton(location);
 }
 
 /* ── Job building ──────────────────────────────────────────── */
@@ -501,26 +474,24 @@ function parseCsodJob(rawJob) {
   if (Array.isArray(rawJob.locations) && rawJob.locations.length > 0) {
     city = rawJob.locations[0].city || '';
   }
- if (!city) {
-  const locationRaw = rawJob.location || rawJob.locationName || rawJob.city || rawJob.jobLocation || '';
-  city = parseCsodLocation(locationRaw);
- }
+  if (!city) {
+    const locationRaw = rawJob.location || rawJob.locationName || rawJob.city || rawJob.jobLocation || '';
+    city = parseCsodLocation(locationRaw);
+  }
   // New API: externalDescription; old: description/jobDescription
   const descriptionRaw = rawJob.externalDescription || rawJob.description || rawJob.jobDescription || rawJob.shortDescription || '';
   const descriptionText = stripHtml(descriptionRaw);
- let cityFromVacancyText = '';
- if (!city) {
-  // Groupe Mutuel's career portal is Swiss-only (no country facet to lean
-  // on) — an unresolved city here is a parse failure, not evidence of a
-  // foreign job. Give it the same second-chance anchor as
-  // assemble-jobs-dataset.mjs's canton rescue: a real Swiss city named in
-  // the description, falling back to Groupe Mutuel's HQ (Martigny) rather
-  // than dropping the listing outright.
-  cityFromVacancyText = rescueSwissCityFromText(descriptionText);
-  city = cityFromVacancyText || COMPANY_HQ[GROUPE_MUTUEL_KEY].city;
- }
+  let cityFromVacancyText = '';
+  if (!city) {
+    // The portal is Swiss-only, but an empty source location is still a parse
+    // gap. Recover only a Swiss municipality explicitly present in the vacancy
+    // text; never stamp the company HQ onto a multi-site posting.
+    cityFromVacancyText = rescueSwissCityFromText(descriptionText);
+    city = cityFromVacancyText;
+  }
 
   const canton = inferCanton(city);
+  if (!city || !canton) return null;
 
   const publicUrl = requisitionId
     ? buildPublicUrl(requisitionId)
@@ -624,7 +595,7 @@ async function fetchGroupeMutuelJobs() {
     if (parsed) {
       jobs.push(parsed);
     } else {
-      console.log(`  ⏭️  Skipped — empty/short title`);
+      console.log(`  ⏭️  Skipped — empty/short title or unresolved Swiss location`);
     }
   }
 
@@ -664,8 +635,8 @@ async function mergeGroupeMutuelJobs(discoveredJobs) {
   // Delegate the actual old<->fresh reconciliation (incl. slug-rename
   // protection via isSlugStable/addPreviousSlugForLocale, already keyed
   // correctly by stable id) to the shared merge helper (issue #3699).
-  // company/companyKey/country/canton force-normalization and the
-  // location default are handled independently by
+  // company/companyKey/country/canton force-normalization and location
+  // validation are handled independently by
   // postProcessGroupeMutuelJobs() right after this function runs, so no
   // constant-field overrides need to be reapplied here.
   const mergedGmJobs = mergePreserveLocaleData(existingGmJobs, discoveredJobs);
@@ -751,8 +722,7 @@ function postProcessGroupeMutuelJobs() {
       if (job.canton) fixed++;
     }
     if (!job.location) {
-      job.location = 'Martigny';
-      fixed++;
+      console.warn(`⚠️ Groupe Mutuel: source job has no location; leaving it unresolved instead of assigning the HQ.`);
     }
   }
 

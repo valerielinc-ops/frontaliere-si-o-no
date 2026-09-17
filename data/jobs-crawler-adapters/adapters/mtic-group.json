@@ -11,7 +11,7 @@
     "https://www.mtic-group.org/it/opportunita-di-lavoro",
     "https://spsintercertsa.mtic-group.org/it/opportunita-di-lavoro"
   ],
-  "notes": "Dedicated MTIC Group crawler. Reads TYPO3 listing page organized by subsidiary. Filters to SPS InterCert S.A. (Lugano Paradiso, CH) and other Swiss positions. Also checks SPS subdomain.",
+  "notes": "Dedicated MTIC Group crawler. Reads TYPO3 listing page organized by subsidiary and keeps the Lugano-Paradiso SPS InterCert S.A. Swiss subsidiary. Also checks its official SPS subdomain.",
   "updatedAt": "2026-09-01T10:16:54.272Z",
   "seedMetaByUrl": {
     "http://spsintercertsa.mtic-group.org/it/opportunita-di-lavoro/open-position-dispositivi-medici": {

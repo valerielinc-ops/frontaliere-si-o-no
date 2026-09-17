@@ -16,7 +16,7 @@
  * national set. The canton of each job is inferred per-job from the
  * city string alone via inferAnyCanton (CH-wide, all 26 cantons).
  * Jobs whose city does not resolve to a Swiss canton (foreign / unknown)
- * are dropped — there is no TI default.
+ * are dropped — no canton is invented for unresolved locations.
  *
  * This crawler:
  *   1. Fetches all pages of the national career center (unfiltered).
@@ -204,7 +204,7 @@ function parseJobListings(html) {
  * combined string to inferAnyCanton would let TARGET_CANTONS array order
  * pick the wrong canton, so we infer from the bare city only.
  * Returns a 2-letter Swiss canton code, or '' when the city is not a
- * Swiss location (foreign / unknown) — never defaults to TI.
+ * Swiss location (foreign / unknown) — never invents a canton.
  */
 function resolveJobCanton(city = '') {
   return inferAnyCanton(String(city || '').trim()) || '';

@@ -12,11 +12,10 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  *   - Title in <h2>
  *   - Full HTML description in content body
  *   - No JSON-LD JobPosting (TYPO3 plain content)
- *   - Location may be mentioned in description text (e.g., "Rho (MI)", "Lugano")
+ *   - Location may be mentioned in description text (e.g., "Lugano Paradiso")
  */
 
 import { JSDOM } from 'jsdom';
-import { isTargetSwissLocation } from './target-swiss-locations.mjs';
 
 const BASE_URL = 'https://www.mtic-group.org';
 
@@ -115,7 +114,7 @@ export function parseMticListingPage(html = '') {
  * Extract subsidiary name, location, and country from section header text.
  * Examples:
  *   "MTIC InterCert S.r.l. | Rho (MI) / Fiume Veneto (PN)" → Italy
- *   "SPS InterCert S.A. | Lugano Paradiso - Switzerland" → Switzerland/TI
+ *   "SPS InterCert S.A. | Lugano Paradiso - Switzerland" → Swiss/Lugano
  *   "InterCert GmbH - Group of MTIC - | Bonn - Germany" → Germany
  *   "MTIC Group | Sedi Internazionali" → International
  */
@@ -171,24 +170,15 @@ export function parseMticDetailPage(html = '', fallbackTitle = '') {
 
 /**
  * Try to extract a location mention from job description text.
- * Looks for patterns like "sede a Lugano", "Rho (MI)", "Paradiso", etc.
+ * Looks for the local-office mentions "Lugano" and "Paradiso".
  */
 function extractLocationFromText(text = '') {
-  // Swiss Ticino locations
-  const tiMatch = text.match(
-    /\b(Lugano(?:\s+Paradiso)?|Paradiso|Massagno|Bellinzona|Locarno|Mendrisio|Chiasso|Manno|Bioggio|Lamone|Mezzovico|Agno|Rivera|Magliaso)\b/i,
+  // The Swiss subsidiary is tied to the Lugano-Paradiso office. Do not treat
+  // client/project locations mentioned in a description as job locations.
+  const localMatch = text.match(
+    /\b(Lugano(?:\s+Paradiso)?|Paradiso)\b/i,
   );
-  if (tiMatch) return tiMatch[1];
-
-  // Other Swiss locations
-  const chMatch = text.match(
-    /\b(Zurigo|Zürich|Ginevra|Genève|Berna|Bern|Basilea|Basel|Losanna|Lausanne|Lucerna|Luzern)\b/i,
-  );
-  if (chMatch) return chMatch[1];
-
-  // Italian locations in description
-  const itMatch = text.match(/\b(Rho\s*\(?MI\)?|Fiume\s+Veneto\s*\(?PN\)?|Milano|Roma|Torino)\b/i);
-  if (itMatch) return itMatch[1];
+  if (localMatch) return localMatch[1];
 
   return '';
 }
@@ -220,17 +210,10 @@ export function buildMticLocalizedContent(job = {}) {
 }
 
 /**
- * Check whether a job is relevant to Ticino/Swiss cross-border area.
- * Primary: Swiss subsidiary (SPS InterCert S.A. in Lugano Paradiso)
- * Secondary: any job with Swiss location mentioned
+ * Check whether a listing belongs to MTIC's Lugano-based Swiss subsidiary.
+ * The group page also exposes Italian and German subsidiaries; a Swiss city
+ * mentioned in a foreign subsidiary's description is not a local opening.
  */
-export function isMticTicinoRelevant(job = {}) {
-  // Swiss subsidiary jobs are always relevant
-  if (job.subsidiaryCountry === 'CH') return true;
-
-  // Check location string
-  const loc = normalizeSpace(job.location || job.subsidiaryLocation || '').toLowerCase();
-  if (!loc) return false;
-
-  return isTargetSwissLocation(loc);
+export function isMticSwissSubsidiaryJob(job = {}) {
+  return String(job.subsidiaryCountry || '').toUpperCase() === 'CH';
 }

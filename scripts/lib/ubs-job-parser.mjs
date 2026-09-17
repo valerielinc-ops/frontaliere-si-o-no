@@ -31,7 +31,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton, rescueSwissCityFromText  } from './target-swiss-locations.mjs';
+import { inferAnyCanton, rescueSwissCityFromText } from './target-swiss-locations.mjs';
 import { markLocationDerivedFromVacancyText } from './crawler-location-config.mjs';
 import { assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
 
@@ -147,9 +147,8 @@ function buildJobUrl(reqId, siteId = SITE_IDS[0]) {
 }
 
 /**
- * Infer postal code from city name. Returns '' when the city is not a
- * Valais branch we know about; the crawler normalisation step uses
- * COMPANY_HQ defaults (UBS HQ = Zürich 8001 post-Cathedral) instead.
+ * Infer postal code from the small set of Valais city labels used by the
+ * source. Unknown city labels intentionally remain without an invented code.
  */
 function inferPostalCode(city = '') {
   return VS_POSTAL_CODES[normalize(city)] || '';
@@ -186,44 +185,12 @@ function fallbackCantonFromRegion(region = '') {
 /**
  * Infer canton from the city + region string.
  * Taleo formtext23 uses patterns like "Schweiz - Zürich", "Suisse - Genève",
- * "Schweiz - Valais". CH-wide post-Cathedral: detect all 26 cantons via
- * canton names (DE/FR/IT/EN aliases) before falling back to the shared
- * inference helper. Returns '' when undetermined — canton-quorum-gate
- * downstream handles blank canton tags.
+ * "Schweiz - Valais". The shared municipality/alias dataset covers all 26
+ * cantons; only the source's broad macro-region labels need the small
+ * source-specific fallback map above. Returns '' when undetermined.
  */
 function inferCanton(city = '', region = '') {
- const lower = normalize(`${city} ${region}`);
-  // Region-string canton heuristics — Taleo uses "Schweiz - {Canton}".
-  if (lower.includes('valais') || lower.includes('wallis')) return 'VS';
-  if (lower.includes('zurich') || lower.includes('zürich') || lower.includes('zuerich')) return 'ZH';
-  if (lower.includes('geneva') || lower.includes('geneve') || lower.includes('genève') || lower.includes('genf')) return 'GE';
-  if (lower.includes('basel-stadt') || lower.includes('bâle-ville')) return 'BS';
-  if (lower.includes('basel-land') || lower.includes('bâle-campagne')) return 'BL';
-  if (lower.includes('vaud') || lower.includes('waadt')) return 'VD';
-  if (lower.includes('ticino') || lower.includes('tessin')) return 'TI';
-  if (lower.includes('graub') || lower.includes('grigion') || lower.includes('grisons')) return 'GR';
-  if (lower.includes('bern') || lower.includes('berne')) return 'BE';
-  if (lower.includes('lucerne') || lower.includes('luzern')) return 'LU';
-  if (lower.includes('aargau') || lower.includes('argovi')) return 'AG';
-  if (lower.includes('st.gall') || lower.includes('saint-gall') || lower.includes('san gallo')) return 'SG';
-  if (lower.includes('fribourg') || lower.includes('freiburg') || lower.includes('friburgo')) return 'FR';
-  if (lower.includes('neuchât') || lower.includes('neuchat') || lower.includes('neuenburg')) return 'NE';
-  if (lower.includes('jura')) return 'JU';
-  if (lower.includes('schaffhaus')) return 'SH';
-  if (lower.includes('thurgau') || lower.includes('thurgovie')) return 'TG';
-  if (lower.includes('solothurn') || lower.includes('soleure')) return 'SO';
-  if (lower.includes('schwyz')) return 'SZ';
-  if (lower.includes('zug') || lower.includes('zoug')) return 'ZG';
-  if (lower.includes('uri')) return 'UR';
-  if (lower.includes('glarus') || lower.includes('glaris')) return 'GL';
-  if (lower.includes('appenzell-ausserrhoden') || lower.includes('appenzell ar')) return 'AR';
-  if (lower.includes('appenzell-innerrhoden') || lower.includes('appenzell ai')) return 'AI';
-  if (lower.includes('obwalden')) return 'OW';
-  if (lower.includes('nidwalden')) return 'NW';
-  // Gstaad is in Berne (BE).
-  if (lower.includes('gstaad')) return 'BE';
-  // Try the shared inference function (returns a canton code or null).
- return inferAnyCanton(city) || inferAnyCanton(region) || '';
+  return inferAnyCanton(city) || inferAnyCanton(region) || '';
 }
 
 function resolveSwissLocation(cityStr = '', region = '') {
@@ -239,6 +206,7 @@ function resolveSwissLocation(cityStr = '', region = '') {
  if (city && canton) return regionLooksForeign ? null : { city, canton };
  if (city && inferAnyCanton(city)) return regionLooksForeign ? null : { city, canton: inferAnyCanton(city) };
  if (!isSwissRegion(region) && !canton) return null;
+ if (!canton) return null;
  return {
   city: city || fallbackLocationFromRegion(region) || 'Svizzera',
   canton,
@@ -537,17 +505,18 @@ function buildJobFromTaleo(taleoJob, siteId = SITE_IDS[0]) {
   // This Taleo tenant (siteid 5012) IS UBS Switzerland — a job whose city/
   // region text didn't resolve isn't necessarily foreign. Give it the same
   // second-chance anchor as assemble-jobs-dataset.mjs's canton rescue: a
-  // real Swiss city named in the description, falling back to UBS's Swiss
-  // HQ (Zürich) rather than dropping a listing this tenant already
-  // confirms is Swiss.
+  // real Swiss city named in the description. If no source-backed city is
+  // available, the posting remains unresolved rather than receiving a fixed
+  // HQ location.
   // Never rescue a region that explicitly doesn't look Swiss (e.g. "United
   // States - New York") — that's the legit regionLooksForeign guard inside
   // resolveSwissLocation(), not a lack-of-signal case.
   const regionExplicitlyForeign = Boolean(region) && !isSwissRegion(region);
-  const resolvedLocation = resolveSwissLocation(cityStr, region) || (regionExplicitlyForeign ? null : (() => {
+ const resolvedLocation = resolveSwissLocation(cityStr, region) || (regionExplicitlyForeign ? null : (() => {
     const cityFromText = rescueSwissCityFromText(descriptionText);
-    const rescueCity = cityFromText || 'Zürich';
-    return { city: rescueCity, canton: inferAnyCanton(rescueCity) || 'ZH', fromVacancyText: Boolean(cityFromText) };
+    return cityFromText
+      ? { city: cityFromText, canton: inferAnyCanton(cityFromText), fromVacancyText: true }
+      : null;
   })());
   if (!resolvedLocation) return null;
   const { city, canton, fromVacancyText } = resolvedLocation;

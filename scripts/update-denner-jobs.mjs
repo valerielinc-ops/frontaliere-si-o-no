@@ -10,7 +10,7 @@
  * (overview, tasks, skills, benefits, recruitment) and JSON-LD.
  *
  * This crawler:
- *   1. Fetches Migros listing pages filtered for Denner + Ticino regions
+ *   1. Fetches the full Denner career center across Swiss regions
  *   2. Extracts job detail URLs from the SSR HTML
  *   3. Fetches each detail page and parses title/description/location
  *   4. Merges parsed jobs into data/jobs.json
@@ -73,8 +73,8 @@ const DENNER_COMPANY_NAME = 'Denner';
 const DENNER_HOST = 'jobs.migros.ch';
 const DENNER_LISTING_BASE = 'https://jobs.migros.ch/it/le-nostre-imprese/denner-sa/posti-di-lavoro-vacanti';
 
-/** Ticino city → postal code map (postalCode enrichment for Denner TI stores) */
-const TICINO_PLZ = {
+/** Known Swiss city → postal code map for Denner store locations */
+const KNOWN_CITY_POSTAL_CODES = {
   lugano: '6900', bellinzona: '6500', locarno: '6600', mendrisio: '6850',
   chiasso: '6830', biasca: '6710', giubiasco: '6512', agno: '6982',
   manno: '6928', rivera: '6802', camorino: '6528', tenero: '6598',
@@ -315,7 +315,7 @@ async function fetchAndParseDetailPages(urls) {
         requirements: migrosData?.requirements || [],
         requirementsByLocale: { it: migrosData?.requirements || [] },
         location,
-        postalCode: postalCode || TICINO_PLZ[location.toLowerCase()] || '',
+        postalCode: postalCode || KNOWN_CITY_POSTAL_CODES[location.toLowerCase()] || '',
         canton: inferAnyCanton(location) || '',
         addressLocality: location || '',
         addressRegion: inferAnyCanton(location) || '',

@@ -189,5 +189,26 @@ describe('Kudelski NAGRA crawler parser', () => {
 
       expect(JSON.stringify(jobs)).toBe('[]');
     });
+
+    it('fills a valid address fallback in the derived canton, not the company HQ canton', async () => {
+      greenhouseBoard([
+        {
+          id: 1,
+          title: 'Embedded Software Engineer',
+          location: { name: 'Baden, Switzerland' },
+          content: 'Firmware work.',
+        },
+      ]);
+
+      const jobs = await fetchAllKudelskiNagraJobs();
+
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0].canton).toBe('AG');
+      expect(jobs[0].addressRegion).toBe('AG');
+      expect(jobs[0].postalCode).toMatch(/^\d{4}$/);
+      expect(jobs[0].postalCode).toBe('5000');
+      expect(jobs[0].postalCode).not.toBe('6900');
+      expect(jobs[0].streetAddress).toBeTruthy();
+    });
   });
 });

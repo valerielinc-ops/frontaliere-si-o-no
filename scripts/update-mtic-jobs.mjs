@@ -4,7 +4,7 @@
  *
  * Crawls https://www.mtic-group.org/it/opportunita-di-lavoro (TYPO3 CMS)
  * 1. Fetches listing page → extracts jobs grouped by subsidiary
- * 2. Filters to Swiss subsidiary (SPS InterCert S.A., Lugano Paradiso)
+ * 2. Filters to the Lugano-Paradiso Swiss subsidiary (SPS InterCert S.A.)
  * 3. Fetches detail pages for enrichment (title, description, location)
  * 4. Merges into data/jobs.json
  * 5. Updates adapter config
@@ -41,7 +41,7 @@ import {
   parseMticListingPage,
   parseMticDetailPage,
   buildMticLocalizedContent,
-  isMticTicinoRelevant,
+  isMticSwissSubsidiaryJob,
 } from './lib/mtic-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
@@ -178,7 +178,7 @@ async function fetchAllListings(counts = null) {
     const spsItems = parseMticListingPage(spsHtml);
     if (spsItems.length > 0) {
       console.log(`  📌 SPS InterCert subdomain: ${spsItems.length} additional positions`);
-      // Mark them as Swiss
+      // The official SPS subdomain belongs to the Lugano-Paradiso subsidiary.
       for (const item of spsItems) {
         item.subsidiaryCountry = 'CH';
         item.subsidiary = 'SPS InterCert S.A.';
@@ -235,14 +235,14 @@ async function enrichWithDetails(listings) {
     if (i < toFetch.length - 1) await sleep(DETAIL_DELAY_MS);
   }
 
-  // Filter to Ticino-relevant only
-  const ticino = enriched.filter((job) => isMticTicinoRelevant(job));
-  console.log(`\n📍 Ticino-relevant jobs: ${ticino.length} / ${enriched.length}`);
-  if (ticino.length === 0) {
+  // Filter to the Lugano-based Swiss subsidiary only
+  const swissSubsidiaryJobs = enriched.filter((job) => isMticSwissSubsidiaryJob(job));
+  console.log(`\n📍 Swiss subsidiary (Lugano-Paradiso): ${swissSubsidiaryJobs.length} / ${enriched.length}`);
+  if (swissSubsidiaryJobs.length === 0) {
     console.log('  ℹ️ SPS InterCert S.A. (Lugano Paradiso) currently has no open positions.');
-    console.log('  ℹ️ The crawler will pick up new Swiss positions when they appear.');
+    console.log('  ℹ️ The crawler will pick up new Lugano-Paradiso positions when they appear.');
   }
-  return ticino;
+  return swissSubsidiaryJobs;
 }
 
 function buildMticJob(row) {
@@ -340,7 +340,7 @@ function updateAdapterConfig(jobs) {
     priority: 18,
     crawlerModes: ['html'],
     seedUrls: [CAREERS_URL, 'https://spsintercertsa.mtic-group.org/it/opportunita-di-lavoro'],
-    notes: 'Dedicated MTIC Group crawler. Reads TYPO3 listing page organized by subsidiary. Filters to SPS InterCert S.A. (Lugano Paradiso, CH) and other Swiss positions. Also checks SPS subdomain.',
+    notes: 'Dedicated MTIC Group crawler. Reads TYPO3 listing page organized by subsidiary and keeps the Lugano-Paradiso SPS InterCert S.A. Swiss subsidiary. Also checks its official SPS subdomain.',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });
@@ -389,7 +389,7 @@ function validateLocales() {
     isTrustedDomain,
     untrustedDomainReason: 'url_not_mtic_domain',
     failWhenNoJobs: false,
-    noJobsMessage: 'No MTIC Group Swiss jobs found — SPS InterCert may have no current openings.',
+    noJobsMessage: 'No MTIC Group Lugano jobs found — SPS InterCert may have no current openings.',
     detectSourceLang: (text, job) => job?.sourceLang || detectLang(text, 'it'),
   });
 }
@@ -433,7 +433,7 @@ async function main() {
   counts.parsed = deduplicated.length;
   counts.lastFetchOutcome = counts.parsed > 0 ? 'ok' : 'filtered_empty';
   if (deduplicated.length === 0) {
-    console.log('⚠️ No Ticino jobs found after filtering — keeping the published slice unchanged.');
+    console.log('⚠️ No Lugano-Paradiso jobs found after filtering — keeping the published slice unchanged.');
     writeMticSummary({ counts });
     return;
   }
