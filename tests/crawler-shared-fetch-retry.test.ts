@@ -337,7 +337,10 @@ describe('pastahr-widget-client — cross-origin anti-bot fence retry (#3255)', 
 
     await expect(
       fetchPastaHrWidgetPage(new URLSearchParams({ page: '0' }), CROSS_ORIGIN_OPTS),
-    ).rejects.toThrow(/HTTP 403/);
+    ).rejects.toMatchObject({
+      message: expect.stringMatching(/HTTP 403/),
+      retryExhausted: true,
+    });
     // 1 initial attempt + the shared default of 3 retries = 4 total.
     expect(fetchMock).toHaveBeenCalledTimes(4);
     expect(launchChromiumMock).not.toHaveBeenCalled();
