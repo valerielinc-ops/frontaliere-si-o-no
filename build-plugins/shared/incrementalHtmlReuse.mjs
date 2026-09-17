@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {
   computeInputHash,
+  JOB_DIGEST_ALGORITHM_VERSION,
   loadIncrementalManifest,
   normalizeManifestPath,
   templateVersionForKind,
@@ -159,6 +160,7 @@ export function computeJobsSeoEmitterFingerprints(rootDir) {
     sha256(JSON.stringify({
       kind,
       templateVersion: templateVersionForKind(kind),
+      jobDigestAlgorithm: JOB_DIGEST_ALGORITHM_VERSION,
       codeHash,
       assetManifestHash,
       renderFlags,

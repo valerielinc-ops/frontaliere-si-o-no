@@ -3083,7 +3083,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const effectiveCanonicalUrl = resolveCanonicalUrl(perLocaleSlug[locale], canonicalUrl);
  const activeJobManifestInput = incrementalManifests
   ? {
-   ...buildMinimalJobInput(job, locale, perLocaleSlug[locale], perJob_relatedJobs || [], incrementalManifestInputCache),
+   ...buildMinimalJobInput(job, locale, perLocaleSlug[locale], perJob_relatedJobs || [], incrementalManifestInputCache, job),
    canton: jobCanton,
    canonicalUrl: effectiveCanonicalUrl,
   }
@@ -14199,7 +14199,7 @@ ${staticAnalyticsHtml}
  if (__brAction === 'thin') bridgeThinCount++; else bridgeFullCount++;
  const previousSlugReuseInput = incrementalManifests
   ? {
-   ...buildMinimalJobInput(job, locale, currentSlug, getRelatedPool(job), incrementalManifestInputCache),
+   ...buildMinimalJobInput(job, locale, currentSlug, getRelatedPool(job), incrementalManifestInputCache, job),
    path: oldPath,
    sourceInputHash: canonicalInputHash,
    canton: jobCantonForBridge,
@@ -14281,7 +14281,7 @@ ${staticAnalyticsHtml}
  const legacyTIOutDir = np.join(distDir, legacyTIRelPath);
  const legacyTIReuseInput = incrementalManifests
   ? {
-   ...buildMinimalJobInput(job, locale, currentSlug, getRelatedPool(job), incrementalManifestInputCache),
+   ...buildMinimalJobInput(job, locale, currentSlug, getRelatedPool(job), incrementalManifestInputCache, job),
    path: legacyTIRelPath,
    sourceInputHash: canonicalInputHash,
    canton: jobCantonForBridge,
@@ -14527,7 +14527,7 @@ ${staticAnalyticsHtml}
  const __tCrossLocaleActive = startTimer();
  const crossLocaleActiveReuseInput = incrementalManifests
   ? {
-   ...buildMinimalJobInput(job, baseLocale, baseSlug, getRelatedPool(job), incrementalManifestInputCache),
+   ...buildMinimalJobInput(job, baseLocale, baseSlug, getRelatedPool(job), incrementalManifestInputCache, job),
    source: 'active-job',
    sourceInputHash: baseInputHash,
    path: relPath,
