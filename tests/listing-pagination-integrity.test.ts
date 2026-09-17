@@ -43,4 +43,23 @@ describe('listing pagination integrity', () => {
       expect(source, file).toContain('paginationIntegrity.proven');
     }
   });
+
+  it('does not accept terminal listing evidence without pagination proof', async () => {
+    const { hasAuthoritativeListingPageEvidence } = await import(
+      '../scripts/lib/job-listing-evidence.mjs'
+    );
+    expect(hasAuthoritativeListingPageEvidence({
+      isTerminalPage: true,
+      listingMarkupSeen: true,
+      listingRowsSeen: false,
+      emptyStateObserved: true,
+    })).toBe(false);
+    expect(hasAuthoritativeListingPageEvidence({
+      isTerminalPage: true,
+      listingMarkupSeen: true,
+      listingRowsSeen: false,
+      emptyStateObserved: true,
+      paginationIntegrityProven: true,
+    })).toBe(true);
+  });
 });

@@ -131,12 +131,13 @@ function extractNextPageUrl(html, currentUrl) {
   return null;
 }
 
-function hasBoardTerminalPageEvidence(discovered) {
+function hasBoardTerminalPageEvidence(discovered, paginationIntegrityProven) {
   const explicitEmpty = discovered.boardListingEmptyStateObserved === true;
   const shortPage = discovered.boardListingMarkupSeen === true
     && hasBoardShortListingPageProof(discovered.boardListingSourceRowCount);
   return hasAuthoritativeListingPageEvidence({
     isTerminalPage: shortPage,
+    paginationIntegrityProven,
     listingMarkupSeen: shortPage,
     listingRowsSeen: discovered.length > 0,
     emptyStateObserved: shortPage && explicitEmpty,
@@ -174,7 +175,7 @@ async function fetchBoardListings() {
     // Check for next page
     const nextUrl = extractNextPageUrl(html, pageUrl);
     if (!nextUrl) {
-      terminalPageEvidenceProven = hasBoardTerminalPageEvidence(discovered);
+      terminalPageEvidenceProven = hasBoardTerminalPageEvidence(discovered, paginationIntegrity.proven);
       terminationProven = terminalPageEvidenceProven;
       break;
     }

@@ -42,6 +42,7 @@ import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { readCurrentRunJobs } from './lib/crawler-run-jobs.mjs';
 import { createListingPaginationIntegrity } from './lib/listing-pagination-integrity.mjs';
+import { hasAuthoritativeListingPageEvidence } from './lib/job-listing-evidence.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -165,8 +166,16 @@ async function fetchSunriseListings() {
       console.warn(`⚠️ Sunrise pagination integrity failed at offset ${offset}; source snapshot is unproven.`);
       break;
     }
+    const shortPage = rawRecordCount < PAGE_SIZE;
+    const pageTerminationEvidence = hasAuthoritativeListingPageEvidence({
+      isTerminalPage: shortPage,
+      paginationIntegrityProven: paginationIntegrity.proven,
+      listingMarkupSeen: payloadPresent,
+      listingRowsSeen: rawRecordCount > 0,
+      emptyStateObserved: rawRecordCount === 0,
+    });
     if (rawRecordCount === 0) {
-      terminationProven = true;
+      terminationProven = pageTerminationEvidence;
       break;
     }
     for (const row of rows) {
@@ -175,8 +184,8 @@ async function fetchSunriseListings() {
       seen.add(key);
       discovered.push(row);
     }
-    if (rawRecordCount < PAGE_SIZE) {
-      terminationProven = true;
+    if (shortPage) {
+      terminationProven = pageTerminationEvidence;
       break;
     }
   }

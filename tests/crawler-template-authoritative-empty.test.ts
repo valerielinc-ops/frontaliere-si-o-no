@@ -292,6 +292,7 @@ describe('standard crawler authoritative-empty policy', () => {
       isTerminalPage: true,
       listingMarkupSeen: true,
       listingRowsSeen: true,
+      paginationIntegrityProven: true,
     })).toBe(true);
     expect(hasAuthoritativeListingPageEvidence({
       isTerminalPage: true,
@@ -301,6 +302,7 @@ describe('standard crawler authoritative-empty policy', () => {
     expect(hasAuthoritativeListingPageEvidence({
       isTerminalPage: true,
       emptyStateObserved: true,
+      paginationIntegrityProven: true,
     })).toBe(true);
     expect(hasAuthoritativeListingPageEvidence({
       isTerminalPage: true,
@@ -311,7 +313,7 @@ describe('standard crawler authoritative-empty policy', () => {
     const source = readRepoFile('scripts/update-board-jobs.mjs');
     expect(source).toContain('hasBoardShortListingPageProof');
     expect(source).toContain('isTerminalPage: shortPage');
-    expect(source).toContain('hasBoardTerminalPageEvidence(discovered)');
+    expect(source).toContain('hasBoardTerminalPageEvidence(discovered, paginationIntegrity.proven)');
   });
 
   it.each([

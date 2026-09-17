@@ -864,8 +864,10 @@ describe('Swiss-only location filtering (Swatch Group US-jobs leak, 2026-06-17)'
     expect(isLocationExplicitlyForeign('Lugano, Italy')).toBe(true);
     expect(isLocationExplicitlyForeign('Lugano, IT')).toBe(true);
     expect(isLocationExplicitlyForeign('IT Support in Lugano')).toBe(false);
+    expect(isLocationExplicitlyForeign('IT, Support in Lugano')).toBe(false);
     expect(isLocationExplicitlyForeign('Brussels, BE')).toBe(true);
     expect(isLocationExplicitlyForeign('Athens, GR')).toBe(true);
+    expect(isLocationExplicitlyForeign('Paris, FR')).toBe(true);
     expect(isLocationExplicitlyForeign('Lugano, CH')).toBe(false);
     expect(isLocationExplicitlyForeign('Bern, BE')).toBe(false);
     expect(isLocationExplicitlyForeign('Lugano, Switzerland')).toBe(false);

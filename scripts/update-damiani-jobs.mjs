@@ -156,13 +156,14 @@ async function fetchDamianiListings() {
       break;
     }
     if (rows.length === 0) {
-      terminationProven = true;
       terminalPageEvidenceProven = hasAuthoritativeListingPageEvidence({
         isTerminalPage: true,
+        paginationIntegrityProven: paginationIntegrity.proven,
         listingMarkupSeen: searchTableRendered,
         listingRowsSeen: rows.length > 0,
         emptyStateObserved: pageEmptyStateObserved,
       });
+      terminationProven = terminalPageEvidenceProven;
       break;
     }
     for (const row of rows) {
@@ -172,13 +173,14 @@ async function fetchDamianiListings() {
       discovered.push(row);
     }
     if (rows.length < PAGE_SIZE) {
-      terminationProven = true;
       terminalPageEvidenceProven = hasAuthoritativeListingPageEvidence({
         isTerminalPage: true,
+        paginationIntegrityProven: paginationIntegrity.proven,
         listingMarkupSeen: searchTableRendered,
         listingRowsSeen: rows.length > 0,
         emptyStateObserved: pageEmptyStateObserved,
       });
+      terminationProven = terminalPageEvidenceProven;
       break;
     }
   }

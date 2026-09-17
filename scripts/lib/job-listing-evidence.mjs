@@ -23,8 +23,10 @@ export function hasAuthoritativeListingPageEvidence({
   listingMarkupSeen = false,
   listingRowsSeen = false,
   emptyStateObserved = false,
+  paginationIntegrityProven = false,
 } = {}) {
   return isTerminalPage === true
+    && paginationIntegrityProven === true
     && (emptyStateObserved === true
       || (listingMarkupSeen === true && listingRowsSeen === true));
 }

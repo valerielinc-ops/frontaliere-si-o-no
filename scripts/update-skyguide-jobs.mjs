@@ -188,13 +188,14 @@ async function fetchListings() {
     }
     console.log(`📋 Page ${page + 1} (startrow ${startRow}): ${rows.length} rows`);
     if (rows.length === 0) {
-      terminationProven = true;
       terminalPageEvidenceProven = hasAuthoritativeListingPageEvidence({
         isTerminalPage: true,
+        paginationIntegrityProven: paginationIntegrity.proven,
         listingMarkupSeen,
         listingRowsSeen: rows.length > 0,
         emptyStateObserved: pageEmptyStateObserved,
       });
+      terminationProven = terminalPageEvidenceProven;
       break;
     }
     for (const row of rows) {
@@ -208,13 +209,14 @@ async function fetchListings() {
     // (Bounded by LISTING_MAX_PAGES; we don't early-break on all-duplicate pages
     // because SuccessFactors paginates sequentially by startrow.)
     if (rows.length < LISTING_PAGE_SIZE) {
-      terminationProven = true;
       terminalPageEvidenceProven = hasAuthoritativeListingPageEvidence({
         isTerminalPage: true,
+        paginationIntegrityProven: paginationIntegrity.proven,
         listingMarkupSeen,
         listingRowsSeen: rows.length > 0,
         emptyStateObserved: pageEmptyStateObserved,
       });
+      terminationProven = terminalPageEvidenceProven;
       break;
     }
   }

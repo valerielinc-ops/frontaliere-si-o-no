@@ -6181,29 +6181,31 @@ export function isLocationExplicitlyForeign(locationField) {
     'nl', 'no', 'pl', 'pt', 'qa', 'ro', 'ru', 'sa', 'se', 'sg', 'th', 'tr',
     'tw', 'ua', 'us', 'vn', 'za',
   ];
-  // ISO alpha-2 is authoritative only in a country/suffix position. Scanning
-  // every two-letter token in a mixed title/snippet misclassifies e.g. "IT
-  // Support in Lugano" as Italy. Collisions with canton codes are resolved
-  // from the location prefix: "Bern, BE" is Swiss, while "Paris, FR" is not.
+  // ISO alpha-2 is authoritative only as the trailing country/suffix of a
+  // location field. Never scan every two-letter token in a mixed title/snippet:
+  // "IT Support in Lugano" is a Swiss job title, not an Italy location. The
+  // prefix is then used to resolve canton-code collisions: "Bern, BE" is Swiss,
+  // while "Paris, FR" is not.
   const foreignCountryCodeSuffixRe = new RegExp(
-    `(?:^|[,;|/:(])\\s*(${foreignCountryCodes.join('|')})\\s*(?=$|[),;|/])`,
-    'giu',
+    `(?:^|[,;|/:(-])\\s*(${foreignCountryCodes.join('|')})\\s*[)\\]]?\\s*$`,
+    'iu',
   );
   let hasForeignCountryCode = false;
-  for (const match of lower.matchAll(foreignCountryCodeSuffixRe)) {
+  const suffixMatch = lower.match(foreignCountryCodeSuffixRe);
+  if (suffixMatch) {
+    const match = suffixMatch;
     const code = String(match[1] || '').toUpperCase();
     if (!ALL_CANTON_CODES.includes(code)) {
       hasForeignCountryCode = true;
-      break;
-    }
-    const locationPrefix = lower
-      .slice(0, match.index)
-      .replace(/[,;|/:(\s]+$/g, '')
-      .trim();
-    const inferredSwissCanton = inferAnyCanton(locationPrefix);
-    if (!inferredSwissCanton || inferredSwissCanton.toUpperCase() !== code) {
-      hasForeignCountryCode = true;
-      break;
+    } else {
+      const locationPrefix = lower
+        .slice(0, match.index)
+        .replace(/[,;|/:(-\s]+$/g, '')
+        .trim();
+      const inferredSwissCanton = inferAnyCanton(locationPrefix);
+      if (!inferredSwissCanton || inferredSwissCanton.toUpperCase() !== code) {
+        hasForeignCountryCode = true;
+      }
     }
   }
   // Check explicit country markers before canton inference so a mixed
