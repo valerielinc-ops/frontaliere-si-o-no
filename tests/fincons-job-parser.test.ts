@@ -4,8 +4,16 @@ import {
   parseFinconsJobDetail,
   buildFinconsLocalizedContent,
 } from '../scripts/lib/fincons-job-parser.mjs';
+import { resolveFinconsLocation } from '../scripts/lib/fincons-location.mjs';
 
 describe('fincons-job-parser', () => {
+  it('does not relabel an explicitly foreign detail with a Swiss listing fallback', () => {
+    expect(resolveFinconsLocation(
+      { location: 'Milan, Italy', country: 'Italy' },
+      { location: 'Lugano, Ticino, Switzerland' },
+    )).toBeNull();
+  });
+
   it('parses Lugano listing rows', () => {
     const html = `
       <table id="jobs_table">

@@ -25,14 +25,13 @@ import {
   detectLang,
   mergeLocaleTextMap,
   captureLostSlugs,
-  isLocationExplicitlyForeign,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   parseFinconsListingsPage,
   parseFinconsJobDetail,
   buildFinconsLocalizedContent,
 } from './lib/fincons-job-parser.mjs';
-import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
+import { classifyFinconsLocation, resolveFinconsLocation } from './lib/fincons-location.mjs';
 import { resolveSwissStructuredAddress } from './lib/swiss-structured-address.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
@@ -81,29 +80,6 @@ function normalizeKey(value = '') {
     .replace(/^-+|-+$/g, '');
 }
 
-function normalizeCountry(value = '') {
-  return String(value || '').trim().toLowerCase();
-}
-
-function isSwissFinconsLocation(location = '', country = '') {
-  return classifyFinconsLocation(location, country) === 'swiss';
-}
-
-function classifyFinconsLocation(location = '', country = '') {
-  const normalizedLocation = String(location || '').trim();
-  const countryToken = normalizeCountry(country);
-  if (countryToken && !['ch', 'switzerland', 'svizzera', 'schweiz', 'suisse'].includes(countryToken)) {
-    return 'foreign';
-  }
-  if (!normalizedLocation) return 'unresolved';
-  if (isLocationExplicitlyForeign(normalizedLocation)) return 'foreign';
-  if (!isTargetSwissLocation(normalizedLocation, { includeBorderProximity: false })) {
-    return 'unresolved';
-  }
-  if (!inferAnyCanton(normalizedLocation)) return 'unresolved';
-  return 'swiss';
-}
-
 function assertCompleteFinconsListing(html, rows) {
   const source = String(html || '');
   const hasJobsTable = /<table\b[^>]*\bid\s*=\s*["']jobs_table["'][^>]*>/i.test(source);
@@ -115,31 +91,6 @@ function assertCompleteFinconsListing(html, rows) {
       `Fincons listing could not be read completely (table=${hasJobsTable}, source rows=${sourceRowCount}, parsed rows=${rows.length}); preserving the last known-good crawler data.`,
     );
   }
-}
-
-function resolveFinconsLocation(detail = {}, listing = {}) {
-  const candidates = [
-    { value: detail.location, country: detail.country },
-    { value: listing.location, country: '' },
-  ]
-    .map(({ value, country }) => ({
-      location: String(value || '').trim(),
-      country,
-    }))
-    .filter(({ location }) => location);
-
-  for (const { location, country } of candidates) {
-    if (!isSwissFinconsLocation(location, country)) continue;
-    const canton = inferAnyCanton([location, detail.region].filter(Boolean).join(', '));
-    if (!canton) continue;
-    return {
-      location: location.split(',')[0].trim(),
-      canton,
-      sourceLocation: location,
-    };
-  }
-
-  return null;
 }
 
 function absoluteUrl(raw = '') {
@@ -251,7 +202,7 @@ async function buildFinconsJob(listing) {
     company: COMPANY_NAME,
     companyKey: COMPANY_KEY,
     companyDomain: COMPANY_DOMAIN,
-    location: address.city,
+    location: resolved.location,
     addressLocality: address.city,
     addressRegion: address.canton,
     addressCountry: 'CH',

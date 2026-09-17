@@ -60,6 +60,18 @@ export function resolveSwissStructuredAddress({
   const capital = CANTON_CAPITALS[normalizedCanton] || {};
   const resolvedCity = normalizeSpace(city) || capital.city || 'Switzerland';
 
+  // A canton-capital postcode cannot safely be paired with a different
+  // municipality. When the source omits the postcode, use the complete
+  // capital fallback so the structured address remains internally coherent.
+  if (!isSwissPostalCode(postalCode) && capital.city && capital.postalCode) {
+    return {
+      city: capital.city,
+      canton: normalizedCanton || 'CH',
+      postalCode: capital.postalCode,
+      streetAddress: capital.city,
+    };
+  }
+
   return {
     city: resolvedCity,
     canton: normalizedCanton || 'CH',

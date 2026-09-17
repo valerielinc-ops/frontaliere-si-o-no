@@ -632,7 +632,7 @@ export function normalizeLastminuteRow(job) {
     companyKey: LASTMINUTE_KEY,
     companyDomain: LASTMINUTE_COMPANY_DOMAIN,
     source: 'Company Careers Crawler',
-    location: address.city,
+    location,
     addressLocality: address.city,
     addressRegion: address.canton,
     addressCountry: 'CH',

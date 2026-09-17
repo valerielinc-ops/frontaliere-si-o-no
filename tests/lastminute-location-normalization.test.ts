@@ -46,8 +46,9 @@ describe('lastminute location normalization', () => {
     expect(normalized).toMatchObject({
       location: 'Chiasso',
       canton: 'TI',
+      addressLocality: 'Bellinzona',
       postalCode: '6500',
-      streetAddress: 'Chiasso',
+      streetAddress: 'Bellinzona',
       addressCountry: 'CH',
     });
   });
