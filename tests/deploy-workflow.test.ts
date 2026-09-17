@@ -554,6 +554,44 @@ describe('deploy.yml — incremental manifest shadow observation (PR 1b)', () =>
   });
 });
 
+describe('deploy.yml — shard push mode and advisory delta verification', () => {
+  const workflow = YAML.parse(DEPLOY_YML) as any;
+  const steps: Array<Record<string, any>> = workflow.jobs['build-locale'].steps;
+  const pushStep = (name: string) => {
+    const step = steps.find((candidate) => candidate.name === name);
+    expect(step, `deploy.yml: manca lo step "${name}" nel job build-locale`).toBeDefined();
+    return step!;
+  };
+  const sectionSteps = [
+    'Push section shards (IT → frontaliere-<section>-it)',
+    'Push section shards (non-IT → frontaliere-<section>-<loc>)',
+  ];
+
+  it('pins SHARD_PUSH_MODE to the repository-variable expression on every shard push step', () => {
+    for (const name of [...sectionSteps, 'Push locale shard']) {
+      expect(pushStep(name).env?.SHARD_PUSH_MODE).toBe("${{ vars.SHARD_PUSH_MODE == 'delta' && 'delta' || 'full' }}");
+    }
+  });
+
+  it('exposes the advisory verifier only through vars.SHARD_PUSH_VERIFY', () => {
+    for (const name of [...sectionSteps, 'Push locale shard']) {
+      expect(pushStep(name).env?.SHARD_PUSH_VERIFY).toBe("${{ vars.SHARD_PUSH_VERIFY == '1' && '1' || '' }}");
+    }
+  });
+
+  it('uploads mismatch reports under the locale/run-scoped artifact name without blocking deploy', () => {
+    const upload = pushStep('Upload advisory shard push verification report');
+    expect(upload.if).toBe("always() && vars.SHARD_PUSH_VERIFY == '1'");
+    expect(upload['continue-on-error']).toBe(true);
+    expect(upload.uses).toBe('actions/upload-artifact@v7');
+    expect(upload.with).toMatchObject({
+      name: 'shard-push-verify-${{ matrix.locale }}-${{ github.run_id }}',
+      path: '${{ runner.temp }}/shard-push-verify',
+      'if-no-files-found': 'ignore',
+    });
+  });
+});
+
 describe('deploy.yml — benchmark-only controls never enter production', () => {
   it('does not set the experiment stop, sample, or benchmark guard', () => {
     expect(DEPLOY_YML).not.toContain('BUILD_STOP_AFTER');
