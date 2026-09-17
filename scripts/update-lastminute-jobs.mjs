@@ -51,6 +51,7 @@ import {
   buildLastminuteLocaleFallback,
 } from './lib/lastminute-job-parser.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
+import { resolveSwissStructuredAddress } from './lib/swiss-structured-address.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -617,6 +618,12 @@ export function normalizeLastminuteRow(job) {
   }
   const refreshedSlugs = refreshLastminuteSlugs({ ...job, ...localeFields }, location);
   const contract = inferLastminuteContract({ ...job, ...localeFields });
+  const address = resolveSwissStructuredAddress({
+    city: location,
+    canton,
+    postalCode: job?.postalCode,
+    streetAddress: job?.streetAddress,
+  });
 
   return {
     ...job,
@@ -625,9 +632,13 @@ export function normalizeLastminuteRow(job) {
     companyKey: LASTMINUTE_KEY,
     companyDomain: LASTMINUTE_COMPANY_DOMAIN,
     source: 'Company Careers Crawler',
-    location,
-    addressLocality: location,
-    canton,
+    location: address.city,
+    addressLocality: address.city,
+    addressRegion: address.canton,
+    addressCountry: 'CH',
+    postalCode: address.postalCode,
+    streetAddress: address.streetAddress,
+    canton: address.canton,
     country: 'CH',
     contract,
     slug: refreshedSlugs.slug,
