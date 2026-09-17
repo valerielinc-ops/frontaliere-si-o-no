@@ -4,6 +4,15 @@ import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from 
 import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { hasExplicitEmptyJobListing } from './job-listing-evidence.mjs';
 
+// ApplyToJob/JazzHR renders this public board in pages of at most 30 rows.
+// This is a source-completeness signal only; it is not a minimum vacancy gate.
+export const BOARD_LISTING_FULL_PAGE_SIZE = 30;
+
+export function hasBoardShortListingPageProof(sourceRowCount) {
+  const count = Number(sourceRowCount);
+  return Number.isInteger(count) && count >= 0 && count < BOARD_LISTING_FULL_PAGE_SIZE;
+}
+
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
 }
@@ -121,6 +130,11 @@ export function parseBoardListings(html = '') {
       });
     Object.defineProperties(rows, {
       boardListingMarkupSeen: { value: true, enumerable: false },
+      boardListingSourceRowCount: { value: atsItems.length, enumerable: false },
+      boardListingShortPageProof: {
+        value: hasBoardShortListingPageProof(atsItems.length),
+        enumerable: false,
+      },
       boardListingSkippedMalformedRows: { value: skippedMalformedRows, enumerable: false },
       boardListingEmptyStateObserved: {
         value: hasExplicitEmptyJobListing(listingContainer?.textContent || '', {
@@ -149,6 +163,11 @@ export function parseBoardListings(html = '') {
     });
   Object.defineProperties(rows, {
     boardListingMarkupSeen: { value: Boolean(listingContainer), enumerable: false },
+    boardListingSourceRowCount: { value: cards.length, enumerable: false },
+    boardListingShortPageProof: {
+      value: hasBoardShortListingPageProof(cards.length),
+      enumerable: false,
+    },
     boardListingSkippedMalformedRows: { value: skippedMalformedRows, enumerable: false },
     boardListingEmptyStateObserved: {
       value: hasExplicitEmptyJobListing(listingContainer?.textContent || '', {

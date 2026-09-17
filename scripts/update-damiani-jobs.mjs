@@ -152,6 +152,7 @@ async function fetchDamianiListings() {
       terminalPageEvidenceProven = hasAuthoritativeListingPageEvidence({
         isTerminalPage: true,
         listingMarkupSeen: searchTableRendered,
+        listingRowsSeen: rows.length > 0,
         emptyStateObserved: pageEmptyStateObserved,
       });
       break;
@@ -167,6 +168,7 @@ async function fetchDamianiListings() {
       terminalPageEvidenceProven = hasAuthoritativeListingPageEvidence({
         isTerminalPage: true,
         listingMarkupSeen: searchTableRendered,
+        listingRowsSeen: rows.length > 0,
         emptyStateObserved: pageEmptyStateObserved,
       });
       break;

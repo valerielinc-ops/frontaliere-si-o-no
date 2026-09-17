@@ -184,6 +184,7 @@ async function fetchListings() {
       terminalPageEvidenceProven = hasAuthoritativeListingPageEvidence({
         isTerminalPage: true,
         listingMarkupSeen,
+        listingRowsSeen: rows.length > 0,
         emptyStateObserved: pageEmptyStateObserved,
       });
       break;
@@ -203,6 +204,7 @@ async function fetchListings() {
       terminalPageEvidenceProven = hasAuthoritativeListingPageEvidence({
         isTerminalPage: true,
         listingMarkupSeen,
+        listingRowsSeen: rows.length > 0,
         emptyStateObserved: pageEmptyStateObserved,
       });
       break;

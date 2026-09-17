@@ -21,8 +21,10 @@ export function hasExplicitEmptyJobListing(text = '', { scopedToListing = false 
 export function hasAuthoritativeListingPageEvidence({
   isTerminalPage = false,
   listingMarkupSeen = false,
+  listingRowsSeen = false,
   emptyStateObserved = false,
 } = {}) {
   return isTerminalPage === true
-    && (listingMarkupSeen === true || emptyStateObserved === true);
+    && (emptyStateObserved === true
+      || (listingMarkupSeen === true && listingRowsSeen === true));
 }

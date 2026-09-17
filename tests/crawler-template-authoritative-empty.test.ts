@@ -291,7 +291,13 @@ describe('standard crawler authoritative-empty policy', () => {
     expect(hasAuthoritativeListingPageEvidence({
       isTerminalPage: true,
       listingMarkupSeen: true,
+      listingRowsSeen: true,
     })).toBe(true);
+    expect(hasAuthoritativeListingPageEvidence({
+      isTerminalPage: true,
+      listingMarkupSeen: true,
+      listingRowsSeen: false,
+    })).toBe(false);
     expect(hasAuthoritativeListingPageEvidence({
       isTerminalPage: true,
       emptyStateObserved: true,
@@ -303,9 +309,8 @@ describe('standard crawler authoritative-empty policy', () => {
 
   it('does not treat a full Board page without a next link as terminal evidence', () => {
     const source = readRepoFile('scripts/update-board-jobs.mjs');
-    expect(source).toContain('const BOARD_LISTING_PAGE_SIZE = 30');
-    expect(source).toContain('discovered.length > 0');
-    expect(source).toContain('discovered.length < BOARD_LISTING_PAGE_SIZE');
+    expect(source).toContain('hasBoardShortListingPageProof');
+    expect(source).toContain('isTerminalPage: shortPage');
     expect(source).toContain('hasBoardTerminalPageEvidence(discovered)');
   });
 

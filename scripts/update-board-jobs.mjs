@@ -36,6 +36,7 @@ import {
   parseBoardJobDetail,
   inferBoardCategory,
   buildBoardLocalizedContent,
+  hasBoardShortListingPageProof,
 } from './lib/board-job-parser.mjs';
 import { evaluateAuthoritativeSnapshot, exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { hasAuthoritativeListingPageEvidence } from './lib/job-listing-evidence.mjs';
@@ -57,9 +58,6 @@ const COMPANY_HOST = 'www.board.com';
 const COMPANY_DOMAIN = 'board.com';
 const CAREERS_URL = 'https://boardinternationalsa.applytojob.com/apply';
 const LOCALES = ['it', 'en', 'de', 'fr'];
-// ApplyToJob renders 30 listing rows per page. A full page without a next link
-// is not terminal evidence: the pagination selector may have drifted.
-const BOARD_LISTING_PAGE_SIZE = 30;
 
 function readJson(filePath, fallback) {
   try {
@@ -135,12 +133,12 @@ function extractNextPageUrl(html, currentUrl) {
 function hasBoardTerminalPageEvidence(discovered) {
   const explicitEmpty = discovered.boardListingEmptyStateObserved === true;
   const shortPage = discovered.boardListingMarkupSeen === true
-    && discovered.length > 0
-    && discovered.length < BOARD_LISTING_PAGE_SIZE;
+    && hasBoardShortListingPageProof(discovered.boardListingSourceRowCount);
   return hasAuthoritativeListingPageEvidence({
-    isTerminalPage: true,
+    isTerminalPage: shortPage,
     listingMarkupSeen: shortPage,
-    emptyStateObserved: explicitEmpty,
+    listingRowsSeen: discovered.length > 0,
+    emptyStateObserved: shortPage && explicitEmpty,
   });
 }
 
@@ -168,8 +166,8 @@ async function fetchBoardListings() {
     // Check for next page
     const nextUrl = extractNextPageUrl(html, pageUrl);
     if (!nextUrl) {
-      terminationProven = true;
       terminalPageEvidenceProven = hasBoardTerminalPageEvidence(discovered);
+      terminationProven = terminalPageEvidenceProven;
       break;
     }
     if (!seenPageUrls.has(nextUrl)) {
