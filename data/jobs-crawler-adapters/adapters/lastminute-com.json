@@ -10,11 +10,19 @@
     "jsonld"
   ],
   "seedUrls": [
+    "https://corporate.lastminute.com/careers/jobs/job?id=744000148443690&jobName=AI+Automation+Engineer",
     "https://corporate.lastminute.com/careers/jobs/job?id=744000113487537&jobName=Global+Payroll"
   ],
-  "notes": "Dedicated lastminute.com crawler seeds from Chiasso listing pages and canonicalizes detail URLs under corporate.lastminute.com/careers/jobs/job?id=...",
-  "updatedAt": "2026-09-01T10:45:10.736Z",
+  "notes": "Dedicated lastminute.com crawler reads the complete careers listing, resolves each posting through SmartRecruiters, keeps only Swiss locations with inferAnyCanton(), and canonicalizes detail URLs under corporate.lastminute.com/careers/jobs/job?id=...",
+  "updatedAt": "2026-09-17T14:18:38.677Z",
   "seedMetaByUrl": {
+    "https://corporate.lastminute.com/careers/jobs/job?id=744000148443690&jobName=AI+Automation+Engineer": {
+      "location": "Chiasso",
+      "canton": "TI",
+      "country": "CH",
+      "company": "lastminute.com",
+      "companyDomain": "lastminute.com"
+    },
     "https://corporate.lastminute.com/careers/jobs/job?id=744000113487537&jobName=Global+Payroll": {
       "location": "Chiasso",
       "canton": "TI",

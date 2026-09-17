@@ -10,10 +10,8 @@
     "jsonld"
   ],
   "seedUrls": [
-    "https://jobs.inspirededu.com/sitemap.xml",
-    "https://jobs.inspirededu.com/search-jobs/results?Location=Lugano&CurrentPage=1",
-    "https://jobs.inspirededu.com/search-jobs/results?Location=Chur&CurrentPage=1"
+    "https://jobs.inspirededu.com/sitemap.xml"
   ],
-  "notes": "SuccessFactors RMK / Jobs2Web portal at jobs.inspirededu.com — search is AJAX-loaded, so discovery reads sitemap.xml and keeps /job/<City>/<id>/ URLs whose city maps to IST cantons (TI/GR). seedUrls are stable location entry points, not per-job URLs (those 404 once a posting is filled). IST often has zero live TI/GR openings, in which case the crawler legitimately keeps existing data with no error.",
-  "updatedAt": "2026-09-01T10:24:29.665Z"
+  "notes": "SuccessFactors RMK / Jobs2Web portal at jobs.inspirededu.com — search is AJAX-loaded, so discovery reads the complete sitemap and filters each detail by isTargetSwissLocation() plus inferAnyCanton(). seedUrls contains the stable sitemap entry point; foreign or unresolved locations are never published.",
+  "updatedAt": "2026-09-17T14:03:49.238Z"
 }
