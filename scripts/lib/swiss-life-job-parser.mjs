@@ -22,6 +22,7 @@
  *   - slugify() / stripHtml()  — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.ts';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferAnyCanton, isSwissLocationText, isTargetSwissLocation } from './target-swiss-locations.mjs';
@@ -340,6 +341,17 @@ export async function fetchAllSwissLifeJobs() {
       console.log(`  ⏭️  Skipped — no Swiss canton could be inferred from ${city}`);
       continue;
     }
+    const fallbackAddress = resolveFallbackAddress(undefined, city, canton);
+    const sourceAddress = typeof info.streetAddress === 'string'
+      ? info.streetAddress
+      : typeof info.address === 'string'
+        ? info.address
+        : info.address?.streetAddress || info.address?.addressLine1 || '';
+    const sourcePostalCode = info.postalCode
+      || info.zipCode
+      || info.address?.postalCode
+      || info.address?.zipCode
+      || '';
     const descriptionHtml = info.jobDescription || '';
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = `${WORKDAY_PUBLIC_BASE}${externalPath}`;
@@ -377,6 +389,8 @@ export async function fetchAllSwissLifeJobs() {
       // ── Recommended fields ──
       addressLocality: city,
       addressRegion: canton,
+      streetAddress: normalizeSpace(sourceAddress) || fallbackAddress.streetAddress,
+      postalCode: normalizeSpace(sourcePostalCode) || fallbackAddress.postalCode,
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),

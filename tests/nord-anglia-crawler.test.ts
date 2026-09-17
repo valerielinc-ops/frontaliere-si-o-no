@@ -225,6 +225,8 @@ describe('Nord Anglia Education Switzerland crawler parser', () => {
     const [job] = await fetchAllNordAngliaJobs();
     expect(job.location).toBe('Geneva');
     expect(job.canton).toBe('GE');
+    expect(job.streetAddress).toBeTruthy();
+    expect(job.postalCode).toMatch(/^\d{4}$/);
   });
 
   it('resolves composed Swiss localities from route prefixes', async () => {
@@ -237,6 +239,8 @@ describe('Nord Anglia Education Switzerland crawler parser', () => {
     const [job] = await fetchAllNordAngliaJobs();
     expect(job.location).toBe('St Moritz');
     expect(job.canton).toBe('GR');
+    expect(job.streetAddress).toBeTruthy();
+    expect(job.postalCode).toMatch(/^\d{4}$/);
   });
 
   it('keeps Swiss locations returned by the national full-text search', async () => {

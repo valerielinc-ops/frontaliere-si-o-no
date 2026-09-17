@@ -12,6 +12,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { createHash } from 'node:crypto';
+import { resolveFallbackAddress } from '../build-plugins/shared/companyHqAddresses.ts';
 import { fileURLToPath } from 'node:url';
 import { safeLocationToken } from './lib/safe-location-token.mjs';
 import {
@@ -171,6 +172,7 @@ async function main() {
       console.log(`  ⏭️  ${raw.title}: no Swiss canton could be inferred from "${loc}" — skipping`);
       continue;
     }
+    const fallbackAddress = resolveFallbackAddress(undefined, loc, canton);
 
     // Build rich locale-specific descriptions (200+ chars each)
     const descByLocale = hasRealDescription
@@ -201,6 +203,8 @@ async function main() {
       canton,
       addressRegion: canton,
       addressLocality: loc,
+      streetAddress: fallbackAddress.streetAddress,
+      postalCode: fallbackAddress.postalCode,
       addressCountry: 'CH',
       category: 'fashion',
       contract: 'full-time', employmentType: inferEmploymentType(raw.title, description),

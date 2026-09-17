@@ -40,6 +40,7 @@
  *   - slugify() / stripHtml()  — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.ts';
 import { XMLParser, XMLValidator } from 'fast-xml-parser';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
@@ -513,6 +514,7 @@ export async function fetchAllNordAngliaJobs() {
       );
       continue;
     }
+    const fallbackAddress = resolveFallbackAddress(undefined, location, canton);
     const description = descriptionText || `${title} presso ${NORD_ANGLIA_COMPANY_NAME} a ${location}, Svizzera.`;
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} nord-anglia ${location}`);
@@ -547,8 +549,8 @@ export async function fetchAllNordAngliaJobs() {
       // ── Recommended fields (structured-data completeness, Non-Negotiable #3) ──
       addressLocality: location,
       addressRegion: canton,
-      streetAddress: '',
-      postalCode: '',
+      streetAddress: fallbackAddress.streetAddress,
+      postalCode: fallbackAddress.postalCode,
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),
