@@ -1,7 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-import { loadManifest } from '../../scripts/ci/incremental-manifest-report.mjs';
+// Import the shared loader, never the CLI script: scripts/ci/*.mjs carry a
+// shebang and an `import.meta.url` main guard, and Vite's config bundler
+// prepends its file-scope variables on the same line as the shebang, which
+// broke every build leg of run 35169891808 (`Syntax error "!"`).
+import { loadIncrementalManifest } from './incrementalManifest.mjs';
 import { extractHreflangAlternates } from '../hreflangPostprocessPlugin';
 import { EMIT_ALL_LOCALES, ownerEmitLocale, shouldEmitLocale } from './localeEmitFilter';
 
@@ -222,7 +226,7 @@ async function loadSnapshot(
     if (!fs.existsSync(file)) {
       throw new Error(`${label} manifest mancante: ${file}`);
     }
-    loaded.push(await loadManifest(file));
+    loaded.push(await loadIncrementalManifest(file));
     if (loaded[index].data.locale !== locales[index]) {
       throw new Error(
         `${label} manifest ${file} dichiara locale ${loaded[index].data.locale}, atteso ${locales[index]}`,

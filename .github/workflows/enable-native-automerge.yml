@@ -53,7 +53,7 @@ jobs:
         run: |
           set -euo pipefail
           helper_dir="${RUNNER_TEMP}/native-automerge-helpers"
-          mkdir -p "$helper_dir/lib"
+          mkdir -p "$helper_dir/lib" "$helper_dir/../lib"
           gh api "repos/${GITHUB_REPOSITORY}/contents/scripts/load-rc-env.mjs?ref=main" \
             --header 'Accept: application/vnd.github.raw+json' \
             > "$helper_dir/load-rc-env.mjs"
@@ -67,6 +67,7 @@ jobs:
           risk_tmp="$helper_dir/lib/automation-risk-policy-check.mjs"
           files_tmp="$helper_dir/lib/fetchPrFiles-check.mjs"
           vitest_tmp="$helper_dir/lib/vitestCheck-check.mjs"
+          contract_tmp="$helper_dir/../lib/loop-fleet-contract-check.mjs"
           if gh api "repos/${GITHUB_REPOSITORY}/contents/scripts/ci/native-automerge-gate.mjs?ref=main" \
             --header 'Accept: application/vnd.github.raw+json' \
             > "$gate_tmp" \
@@ -82,6 +83,9 @@ jobs:
             && gh api "repos/${GITHUB_REPOSITORY}/contents/scripts/ci/lib/vitestCheck.mjs?ref=main" \
             --header 'Accept: application/vnd.github.raw+json' \
             > "$vitest_tmp" \
+            && gh api "repos/${GITHUB_REPOSITORY}/contents/scripts/lib/loop-fleet-contract.mjs?ref=main" \
+            --header 'Accept: application/vnd.github.raw+json' \
+            > "$contract_tmp" \
             && [ -s "$gate_tmp" ] \
             && [ -s "$policy_tmp" ] \
             && [ -s "$risk_tmp" ] \
@@ -91,19 +95,21 @@ jobs:
             && node --check "$policy_tmp" \
             && node --check "$risk_tmp" \
             && node --check "$files_tmp" \
-            && node --check "$vitest_tmp"; then
+            && node --check "$vitest_tmp" \
+            && node --check "$contract_tmp"; then
             mv "$gate_tmp" "$helper_dir/native-automerge-gate.mjs"
             mv "$policy_tmp" "$helper_dir/review-test-policy.mjs"
             mv "$risk_tmp" "$helper_dir/lib/automation-risk-policy.mjs"
             mv "$files_tmp" "$helper_dir/lib/fetchPrFiles.mjs"
             mv "$vitest_tmp" "$helper_dir/lib/vitestCheck.mjs"
+            mv "$contract_tmp" "$helper_dir/../lib/loop-fleet-contract.mjs"
             gh api "repos/${GITHUB_REPOSITORY}/contents/scripts/ci/lib/constants.mjs?ref=main" \
               --header 'Accept: application/vnd.github.raw+json' \
               > "$helper_dir/lib/constants.mjs"
             echo "NATIVE_AUTOMERGE_BOOTSTRAP_READY=true" >> "$GITHUB_ENV"
             echo 'Native auto-merge gate bootstrap is present on main.'
           else
-            rm -f "$gate_tmp" "$policy_tmp" "$risk_tmp" "$files_tmp" "$vitest_tmp" \
+            rm -f "$gate_tmp" "$policy_tmp" "$risk_tmp" "$files_tmp" "$vitest_tmp" "$contract_tmp" \
               "$helper_dir/native-automerge-gate.mjs" "$helper_dir/review-test-policy.mjs" \
               "$helper_dir/lib/automation-risk-policy.mjs" \
               "$helper_dir/lib/fetchPrFiles.mjs"
