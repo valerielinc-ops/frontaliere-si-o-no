@@ -43,6 +43,25 @@ describe('fnz-job-parser / resolveFnzSwissLocation', () => {
     });
   });
 
+  it('retains concrete capital municipalities whose names also identify cantons', () => {
+    expect(resolveFnzSwissLocation([{
+      descriptor: 'Bern',
+      addressLocality: 'Bern',
+      postalCode: '3000',
+    }])).toMatchObject({
+      location: 'Bern',
+      canton: 'BE',
+    });
+    expect(resolveFnzSwissLocation([{
+      descriptor: 'Zürich',
+      addressLocality: 'Zürich',
+      postalCode: '8001',
+    }])).toMatchObject({
+      location: 'Zürich',
+      canton: 'ZH',
+    });
+  });
+
   it('rejects a city and richer address signal that point to different cantons', () => {
     expect(resolveFnzSwissLocation([{
       descriptor: 'CH Zurich',
