@@ -1380,9 +1380,6 @@ export function detectBoilerplateDescriptions(jobs, crawlerKey) {
   let eligibleCount = 0;
 
   for (const job of jobs) {
-    if (job.needsRetranslation) continue;
-    eligibleCount++;
-
     // Parser health is measured on the SOURCE text the parser produced.
     // A job crawled from a German/French source with SKIP_AI_TRANSLATION=1 can
     // have a real source description but an empty or stale IT locale until
@@ -1401,6 +1398,8 @@ export function detectBoilerplateDescriptions(jobs, crawlerKey) {
       String(job.descriptionByLocale?.en || '').trim() ||
       String(job.descriptionByLocale?.fr || '').trim();
     if (!desc) {
+      // A translation-backlog marker must never hide a missing source.
+      eligibleCount++;
       boilerplateJobs.push({
         slug: job.slug || job.title || 'unknown',
         title: job.title || '',
@@ -1423,6 +1422,9 @@ export function detectBoilerplateDescriptions(jobs, crawlerKey) {
     const hasContentHeadings = CONTENT_HEADINGS_RE.test(desc);
 
     if (markerCount >= 2 && !hasContentHeadings) {
+      // Evaluate source health before honoring needsRetranslation: the marker
+      // is a parser failure, not a translation-backlog condition.
+      eligibleCount++;
       boilerplateJobs.push({
         slug: job.slug || job.title || 'unknown',
         title: job.title || '',
@@ -1442,6 +1444,9 @@ export function detectBoilerplateDescriptions(jobs, crawlerKey) {
     const uniqueWords = cleaned.split(/\s+/).filter(w => w.length > 0).length;
 
     if (uniqueWords < MIN_UNIQUE_WORDS) {
+      // Same separation as above for a short/boilerplate source. A queued job
+      // is exempt only when its source text itself is healthy.
+      eligibleCount++;
       boilerplateJobs.push({
         slug: job.slug || job.title || 'unknown',
         title: job.title || '',
@@ -1449,7 +1454,11 @@ export function detectBoilerplateDescriptions(jobs, crawlerKey) {
         totalWords,
         uniqueWords,
       });
+      continue;
     }
+
+    if (job.needsRetranslation) continue;
+    eligibleCount++;
   }
 
   const ratio = eligibleCount > 0 ? boilerplateJobs.length / eligibleCount : 0;
