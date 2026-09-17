@@ -6,6 +6,7 @@ import { describe, expect, it } from 'vitest';
 import {
   explicitTerminalEvidence,
   expiredClosedPullRequestEvidence,
+  isFleetLedgerPr,
   observeLifecycle,
 } from '../scripts/ci/observe-loop-fleet-lifecycle.mjs';
 // @ts-expect-error — the lifecycle appender is a dependency-free ESM CI script.
@@ -118,6 +119,14 @@ function terminalEvent(eventType: string, candidateId: string, occurredAt: strin
 }
 
 describe('loop-fleet independent lifecycle observer', () => {
+  it('recognizes only bridge producer branches and excludes lifecycle writer branches', () => {
+    expect(isFleetLedgerPr(fleetPr({ headRefName: 'chore/loop-fleet-ledger' }))).toBe(true);
+    expect(isFleetLedgerPr(fleetPr({ headRefName: 'chore/loop-fleet-ledger-L11-123-2' }))).toBe(true);
+    expect(isFleetLedgerPr(fleetPr({ headRefName: 'chore/loop-fleet-ledger-lifecycle' }))).toBe(false);
+    expect(isFleetLedgerPr(fleetPr({ headRefName: 'chore/loop-fleet-ledger-lifecycle-123-2' }))).toBe(false);
+    expect(isFleetLedgerPr(fleetPr({ headRefName: 'chore/loop-fleet-ledger-L12-123-2' }))).toBe(false);
+  });
+
   it('emits only independently observed PR, test, review, merge and post-merge events', () => {
     const result = observeLifecycle({
       registry,

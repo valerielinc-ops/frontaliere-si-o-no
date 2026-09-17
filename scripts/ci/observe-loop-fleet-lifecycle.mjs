@@ -118,7 +118,8 @@ export function isFleetLedgerPr(pr) {
   return Boolean(pr
     && text(pr.baseRefName) === 'main'
     && /^chore\(loop-fleet\): persist\b/u.test(text(pr.title) || '')
-    && /^chore\/loop-fleet-ledger(?:-|$)/u.test(text(pr.headRefName) || ''));
+    && (text(pr.headRefName) === 'chore/loop-fleet-ledger'
+      || /^chore\/loop-fleet-ledger-L(?:[0-9]|1[01])-[0-9]+-[0-9]+$/u.test(text(pr.headRefName) || '')));
 }
 
 function commitMessages(pr) {
