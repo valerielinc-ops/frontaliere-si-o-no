@@ -348,17 +348,17 @@ export function buildStatusRows(registry, runResults, evidenceResults) {
     const actualAutonomy = text(evidence?.requiredAutonomy) || text(health.requiredAutonomy);
     const lifecycleSlaOverdue = lifecycleEvents?.sla?.status === 'overdue'
       || lifecycleEvents?.candidates?.some((candidate) => candidate.sla?.status === 'overdue');
-    const nextHumanAction = missingOutcome
-      ? 'validate or attach the independent outcome before changing exposure'
+    const nextAutomaticAction = missingOutcome
+      ? 'defer exposure and record the missing independent outcome'
       : (evidenceError
         ? (operationalMetricsError
-          ? 'restore complete operational telemetry and rerun the loop'
-          : 'restore or attach the independent source and rerun the loop')
+          ? 'defer the decision, restore complete operational telemetry and rerun the loop'
+          : 'defer the decision, restore the independent source and rerun the loop')
         : (lifecycleSlaOverdue
-          ? 'resolve the overdue lifecycle candidate with its owner and record trusted terminal evidence'
+          ? 'defer the candidate, enforce its lifecycle SLA and record trusted terminal evidence'
           : (lifecycleIncomplete
-            ? 'advance the candidate through PR, tests, review, merge and post-merge verification'
-            : 'review the recorded outcome and close the observation window')));
+            ? 'advance the candidate through PR, tests, automatic review, auto-merge and post-merge verification'
+            : 'record the outcome and close the observation window automatically')));
     return {
       loopId: policy.loopId,
       goal: policy.goal,
@@ -391,8 +391,8 @@ export function buildStatusRows(registry, runResults, evidenceResults) {
       evidenceError,
       issue,
       missingOutcome,
-      nextHumanAction,
-      nextAction: nextHumanAction,
+      nextAutomaticAction,
+      nextAction: nextAutomaticAction,
       issueCount,
       warningCount,
       operationalMetrics,
@@ -417,7 +417,7 @@ function renderMarkdown(rows) {
   const lines = [
     '## Loop fleet status',
     '',
-    '| Loop | Owner | Ultimo run | Ledger durable | Qualità | Issue | Missing outcome | Decisione | Autonomia effettiva / max | Telemetria operativa | TTL / SLA / verify | Lifecycle | SLA lifecycle | Fonti dichiarate | Next human action | Policy |',
+    '| Loop | Owner | Ultimo run | Ledger durable | Qualità | Issue | Missing outcome | Decisione | Autonomia effettiva / max | Telemetria operativa | TTL / SLA / verify | Lifecycle | SLA lifecycle | Fonti dichiarate | Prossima azione automatica | Policy |',
     '| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |',
   ];
   for (const row of rows) {
@@ -438,7 +438,7 @@ function renderMarkdown(rows) {
     const issue = row.issue || '—';
     const missingOutcome = row.missingOutcome || '—';
     const policy = row.evidenceComplete && row.policyCompliant ? 'ok' : 'incomplete';
-    lines.push(`| ${row.loopId} | ${row.owner} | ${run} | ${ledger} | ${row.quality} | ${issue} | ${missingOutcome} | ${row.decision} | ${autonomy} | ${telemetry} | ${lifecycle} | ${lifecycleState} | ${lifecycleSla} | ${sources} | ${row.nextHumanAction} | ${policy} |`);
+    lines.push(`| ${row.loopId} | ${row.owner} | ${run} | ${ledger} | ${row.quality} | ${issue} | ${missingOutcome} | ${row.decision} | ${autonomy} | ${telemetry} | ${lifecycle} | ${lifecycleState} | ${lifecycleSla} | ${sources} | ${row.nextAutomaticAction} | ${policy} |`);
   }
   lines.push('', 'Qualità o evidenza assente = `unmeasurable`; il report non sintetizza zeri.');
   return `${lines.join('\n')}\n`;

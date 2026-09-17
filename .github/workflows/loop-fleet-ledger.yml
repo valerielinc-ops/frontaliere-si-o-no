@@ -63,6 +63,7 @@ jobs:
             /data/loop-fleet/loop-registry.json
             /data/loop-fleet/ledger/
             /scripts/ci/merge-loop-fleet-ledger.mjs
+            /scripts/ci/loop-fleet-epoch-policy.mjs
             /scripts/lib/canonical-json-digest.mjs
             /scripts/ci/mint-app-token.mjs
             /scripts/ci/pr-body-check-gate.mjs
@@ -228,12 +229,13 @@ jobs:
           open_pr_record=$(bounded_remote gh pr list \
             --repo "$GITHUB_REPOSITORY" \
             --state open \
-            --json number,headRefName,baseRefName \
-            --jq 'map(select(.baseRefName == "main" and (.headRefName == "chore/loop-fleet-ledger" or (.headRefName | startswith("chore/loop-fleet-ledger-"))))) | sort_by(.number) | if length == 0 then "" else .[-1] | [(.number | tostring), .headRefName] | @tsv end')
+            --json number,headRefName,baseRefName,createdAt \
+            --jq 'map(select(.baseRefName == "main" and (.headRefName == "chore/loop-fleet-ledger" or (.headRefName | startswith("chore/loop-fleet-ledger-"))))) | sort_by(.number) | if length == 0 then "" else .[-1] | [(.number | tostring), .headRefName, .createdAt] | @tsv end')
           open_pr=''
           open_branch=''
+          open_created_at=''
           if [ -n "$open_pr_record" ]; then
-            IFS=$'\t' read -r open_pr open_branch <<<"$open_pr_record"
+            IFS=$'\t' read -r open_pr open_branch open_created_at <<<"$open_pr_record"
           fi
           source_orphan_branch=''
           base_branch_ref=''
@@ -266,6 +268,31 @@ jobs:
                 git show "origin/$ledger_branch:data/loop-fleet/ledger/$ledger_file" > "data/loop-fleet/ledger/$ledger_file"
               fi
             done
+          fi
+
+          # Freeze one open PR epoch before it can chase workflow_run head
+          # churn forever. The next scheduled/reconciled run retries after the
+          # current PR has reached its normal automatic terminal state.
+          if [ -n "$open_pr" ]; then
+            epoch_batch_count=$(git log "origin/$open_branch" --format='%s' --not origin/main \
+              | awk '/^chore\(loop-fleet\): persist / { count += 1 } END { print count + 0 }')
+            epoch_age_minutes=''
+            if [ -n "$open_created_at" ]; then
+              created_epoch=$(date -d "$open_created_at" +%s 2>/dev/null || true)
+              now_epoch=$(date +%s)
+              if [ -n "$created_epoch" ] && [ "$now_epoch" -ge "$created_epoch" ]; then
+                epoch_age_minutes=$(( (now_epoch - created_epoch) / 60 ))
+              fi
+            fi
+            epoch_decision=$(node scripts/ci/loop-fleet-epoch-policy.mjs \
+              --open-pr true \
+              --batch-count "$epoch_batch_count" \
+              --age-minutes "$epoch_age_minutes")
+            if [ "$(jq -r '.allow' <<<"$epoch_decision")" != 'true' ]; then
+              reason=$(jq -r '.reason' <<<"$epoch_decision")
+              echo "::notice::ledger epoch frozen for PR #$open_pr ($reason); source run $SOURCE_RUN_ID will be recovered after the PR terminal event."
+              exit 0
+            fi
           fi
 
           node scripts/ci/merge-loop-fleet-ledger.mjs \
