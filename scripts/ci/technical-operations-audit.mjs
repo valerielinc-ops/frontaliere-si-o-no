@@ -22,6 +22,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { parseDocument } from 'yaml';
@@ -35,7 +36,13 @@ export const DEFAULT_ISSUE_TITLE = 'Technical operations audit: workflow/data co
 export const L11_LOOP_ID = 'L11';
 export const L11_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
 export const L11_METADATA_SCHEMA_VERSION = 1;
+export const L11_ISSUE_CONTRACT_SCHEMA_VERSION = 1;
+export const L11_ISSUE_CONTRACT_MARKER = '<!-- L11_ISSUE_CONTRACT:';
 const HOUR_MS = 3_600_000;
+const MAX_ISSUE_BODY_LENGTH = 60_000;
+// `renderL11IssueContract` emits one JSON line; the greedy close captures the
+// outer object even though the contract contains the nested `ttl` object.
+const L11_ISSUE_CONTRACT_RE = /<!-- L11_ISSUE_CONTRACT:\s*(\{.*\})\s*-->/m;
 export const PERMISSION_KEYS = new Set([
   'actions', 'attestations', 'checks', 'contents', 'deployments', 'discussions',
   'id-token', 'issues', 'models', 'packages', 'pages', 'pull-requests',
@@ -1624,6 +1631,12 @@ export function buildL11OperationalMetadata({
   const candidateTtlHours = positiveIntegerOrNull(lifecycle.candidateTtlHours);
   const ownerSlaHours = positiveIntegerOrNull(lifecycle.ownerSlaHours);
   const postMergeVerificationHours = positiveIntegerOrNull(lifecycle.postMergeVerificationHours);
+  const actionPolicy = {
+    healthy: isL11Policy && typeof policy.actionPolicy?.healthy === 'string'
+      && policy.actionPolicy.healthy.trim() ? policy.actionPolicy.healthy.trim() : null,
+    needsReview: isL11Policy && typeof policy.actionPolicy?.needsReview === 'string'
+      && policy.actionPolicy.needsReview.trim() ? policy.actionPolicy.needsReview.trim() : null,
+  };
   const deadlineAt = addHoursOrNull(observedAt, ownerSlaHours);
   const expiresAt = addHoursOrNull(observedAt, candidateTtlHours);
   const complete = Boolean(
@@ -1634,7 +1647,9 @@ export function buildL11OperationalMetadata({
       && ownerSlaHours
       && postMergeVerificationHours
       && deadlineAt
-      && expiresAt,
+      && expiresAt
+      && actionPolicy.healthy
+      && actionPolicy.needsReview,
   );
 
   return {
@@ -1656,6 +1671,7 @@ export function buildL11OperationalMetadata({
     candidateTtlHours,
     ownerSlaHours,
     postMergeVerificationHours,
+    actionPolicy,
     deadlineAt,
     expiresAt,
     nextReviewAt: deadlineAt,
@@ -1702,20 +1718,130 @@ export function loadL11OperationalMetadata({
  * remain visible and durable, but must not consume fixer quota or be presented
  * as an approved remediation candidate. The separate review label also makes a
  * warning-only recurrence distinguishable from a fixable one without using the
- * `needs-human` label, which has its own rescue/sweep semantics.
+ * `needs-human` label, which has its own rescue/sweep semantics. A missing or
+ * malformed registry action policy is review-only too: routing cannot be
+ * inferred from the finding count alone.
  */
-export function auditIssueRouting(summary) {
+export function auditIssueRouting(summary, metadata) {
   const provenError = Number(summary?.error || 0) > 0;
+  const reviewAction = metadata?.status === 'available' && metadata.actionPolicy?.needsReview;
+  const issueAllowed = typeof reviewAction === 'string'
+    && reviewAction.split('+').map((part) => part.trim()).includes('issue');
+  const canQueue = provenError && issueAllowed;
   return {
     labels: [
       'operations-audit',
-      provenError ? 'agent:fix-queued' : 'operations-audit-review',
+      canQueue ? 'agent:fix-queued' : 'operations-audit-review',
       'agent:no-age-out',
     ],
-    add: provenError ? 'agent:fix-queued' : 'operations-audit-review',
-    remove: provenError ? 'operations-audit-review' : 'agent:fix-queued',
-    route: provenError ? 'bounded-fix-queue' : 'review-only',
+    add: canQueue ? 'agent:fix-queued' : 'operations-audit-review',
+    remove: canQueue ? 'operations-audit-review' : 'agent:fix-queued',
+    route: canQueue ? 'bounded-fix-queue' : 'review-only',
   };
+}
+
+function shortHash(value) {
+  return createHash('sha256').update(String(value)).digest('hex').slice(0, 24);
+}
+
+function findingIdentity(item) {
+  return [
+    item?.file || '',
+    item?.line || '',
+    item?.rule || '',
+    item?.severity || '',
+    item?.message || '',
+    item?.evidence || '',
+  ].join('\u0000');
+}
+
+/**
+ * Machine-readable handoff for the normal issue → triage → fixer path.
+ *
+ * L11 itself remains observe/report-only. `remediationPr` is deliberately
+ * empty here: the fixer may later attach proof after it has actually opened a
+ * PR. The IDs make that proof correlate to this candidate and observation,
+ * while a missing registry/TTL keeps the contract ineligible fail-closed.
+ */
+export function buildL11IssueContract({
+  report = {},
+  metadata = null,
+  routing = null,
+  repository = process.env.GITHUB_REPOSITORY || process.env.GH_REPO || null,
+  runId = process.env.GITHUB_RUN_ID || null,
+  runAttempt = process.env.GITHUB_RUN_ATTEMPT || null,
+} = {}) {
+  const findings = Array.isArray(report.findings)
+    ? report.findings.map(findingIdentity).sort()
+    : [];
+  const candidateId = `lf-candidate-${shortHash(JSON.stringify({
+    loopId: L11_LOOP_ID,
+    registryPath: metadata?.registryPath || L11_REGISTRY_PATH,
+    actionClass: metadata?.actionPolicy?.needsReview || null,
+    findings,
+  }))}`;
+  const generatedAt = normalizeIsoTimestamp(report.generatedAt || metadata?.generatedAt);
+  const sourceRecordId = `lf-source-${shortHash(JSON.stringify({
+    loopId: L11_LOOP_ID,
+    repository,
+    workflow: 'technical-operations-supervisor',
+    runId,
+    runAttempt,
+    commit: report.commit || null,
+    generatedAt,
+  }))}`;
+  const candidateTtlHours = positiveIntegerOrNull(metadata?.candidateTtlHours);
+  const expiresAt = normalizeIsoTimestamp(metadata?.expiresAt);
+  return {
+    schemaVersion: L11_ISSUE_CONTRACT_SCHEMA_VERSION,
+    loopId: L11_LOOP_ID,
+    mode: 'observe-report-only',
+    candidateId,
+    sourceRecordId,
+    sourceCommit: report.commit || null,
+    registryPath: metadata?.registryPath || null,
+    generatedAt,
+    candidateTtlHours,
+    expiresAt,
+    ttl: { hours: candidateTtlHours, expiresAt },
+    actionClass: metadata?.actionPolicy?.needsReview || null,
+    route: routing?.route || 'review-only',
+    remediationPrProofRequired: true,
+    remediationPr: null,
+  };
+}
+
+export function renderL11IssueContract(contract) {
+  return `${L11_ISSUE_CONTRACT_MARKER} ${JSON.stringify(contract)} -->`;
+}
+
+/** Keep the latest contract in the issue body, including deduplicated recurrences. */
+function syncAuditIssueContract(issueNumber, contract, fallbackBody) {
+  if (!issueNumber) return;
+  const marker = renderL11IssueContract(contract);
+  try {
+    const currentJson = execFileSync('gh', [
+      'issue', 'view', String(issueNumber), '--json', 'body',
+      ...(process.env.GH_REPO ? ['--repo', process.env.GH_REPO] : []),
+    ], { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'inherit'] });
+    const current = JSON.parse(currentJson).body || '';
+    const body = L11_ISSUE_CONTRACT_RE.test(current)
+      ? current.replace(L11_ISSUE_CONTRACT_RE, marker)
+      : [marker, current || fallbackBody || '_no details provided_'].filter(Boolean).join('\n\n');
+    const boundedBody = body.length > MAX_ISSUE_BODY_LENGTH
+      ? `${body.slice(0, MAX_ISSUE_BODY_LENGTH - 30)}\n\n...(truncated)`
+      : body;
+    execFileSync('gh', [
+      'issue', 'edit', String(issueNumber), '--body', boundedBody,
+      ...(process.env.GH_REPO ? ['--repo', process.env.GH_REPO] : []),
+    ], { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'inherit'] });
+    console.log(`Issue audit #${issueNumber}: contratto L11 aggiornato nel body`);
+  } catch (error) {
+    // The issue/comment remains durable even if this reconciliation is
+    // temporarily unavailable. The next audit recurrence retries it; triage
+    // must not infer eligibility from a missing body marker.
+    console.error(`Impossibile sincronizzare il contratto L11 dell'issue #${issueNumber}: ${error.message}`);
+  }
 }
 
 /**
@@ -1725,9 +1851,9 @@ export function auditIssueRouting(summary) {
  * reconciliation, a warning-only tracker could remain stuck in `agent:fix-queued`
  * forever after the audit became warning-only.
  */
-function syncAuditIssueRouting(issueNumber, summary) {
+function syncAuditIssueRouting(issueNumber, summary, metadata) {
   if (!issueNumber) return;
-  const routing = auditIssueRouting(summary);
+  const routing = auditIssueRouting(summary, metadata);
   try {
     // Deduplicated issues return before createGithubIssue's normal label
     // provisioning path. Provision the target label here too, otherwise the
@@ -1836,7 +1962,12 @@ async function main() {
       .sort((left, right) => left.file.localeCompare(right.file) || left.line - right.line || left.rule.localeCompare(right.rule)),
   };
   const summary = summarize(report);
-  const routing = auditIssueRouting(summary);
+  const routing = auditIssueRouting(summary, operationalMetadata);
+  const issueContract = buildL11IssueContract({
+    report,
+    metadata: operationalMetadata,
+    routing,
+  });
   report.operationalMetadata = {
     ...report.operationalMetadata,
     routing: {
@@ -1844,6 +1975,7 @@ async function main() {
       add: routing.add,
       remove: routing.remove,
     },
+    issueContract,
   };
   const reportPath = cliValue(argv, '--report');
   if (reportPath) {
@@ -1859,6 +1991,8 @@ async function main() {
       ? `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`
       : null;
     const description = [
+      renderL11IssueContract(issueContract),
+      '',
       renderMarkdown(report),
       '',
       '### Azione del supervisore',
@@ -1881,7 +2015,10 @@ async function main() {
         },
       });
       issuePersisted = Boolean(result?.persisted);
-      if (issuePersisted) syncAuditIssueRouting(result.number, summary);
+      if (issuePersisted) {
+        syncAuditIssueContract(result.number, issueContract, description);
+        syncAuditIssueRouting(result.number, summary, operationalMetadata);
+      }
       console.log(issuePersisted ? `Issue audit persistita: #${result.number || '?'}\n` : 'Issue audit non persistita.\n');
     } catch (error) {
       console.error(`Impossibile persistere l'issue audit: ${error.message}`);
