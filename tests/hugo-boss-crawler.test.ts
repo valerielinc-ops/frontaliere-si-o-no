@@ -232,6 +232,13 @@ describe('fetchJobs national pagination', () => {
       'Swiss job valid-3',
     ]);
   });
+
+  it('rejects a page without a raw DDO jobs array', async () => {
+    const fetchHtml = vi.fn(async () => '<html><body>vendor error</body></html>');
+
+    await expect(fetchJobs({ fetchHtml })).rejects.toThrow(/without a proven terminal page/);
+    expect(fetchHtml).toHaveBeenCalledTimes(1);
+  });
 });
 
 describe('assertHugoBossNationalReadComplete', () => {

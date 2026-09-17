@@ -282,6 +282,18 @@ describe('Nord Anglia Education Switzerland crawler parser', () => {
     warnSpy.mockRestore();
   });
 
+  it('fails closed when a non-generic feed has no Swiss location signal', async () => {
+    const driftedFeed = validRssItem({
+      title: '<title><![CDATA[Teacher of Biology]]></title>',
+      link: '<link>https://careers.nordanglia.com/job/Teacher-of-Biology/1399902133/</link>',
+    });
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(driftedFeed, { status: 200 })));
+
+    await expect(fetchAllNordAngliaJobs()).rejects.toThrow(
+      /no Swiss title or route signals found in 1 non-generic RSS items/,
+    );
+  });
+
   it('keeps a valid job when location drops are exactly 50% of a small feed', async () => {
     const mixedFeed = rssFeed(
       rssItemXml(),

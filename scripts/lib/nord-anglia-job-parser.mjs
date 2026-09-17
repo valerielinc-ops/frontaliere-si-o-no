@@ -447,6 +447,7 @@ export async function fetchAllNordAngliaJobs() {
 
   const jobs = [];
   const seen = new Set();
+  let nonGenericFeedItems = 0;
   let swissScopeCandidates = 0;
   let swissScopeDrops = 0;
   for (const item of listings) {
@@ -457,6 +458,7 @@ export async function fetchAllNordAngliaJobs() {
     // Evergreen placeholders are intentionally outside the drop-ratio
     // denominator: they are valid vendor records, but not open positions.
     if (isGenericOffer(title)) continue;
+    nonGenericFeedItems++;
 
     const titleLocation = extractTitleLocation(rawTitle);
     const routeToken = extractJobRouteToken(link);
@@ -573,6 +575,11 @@ export async function fetchAllNordAngliaJobs() {
   // One malformed candidate is logged and dropped, but combined title/URL
   // drift over half of the relevant items remains a hard failure so the
   // indexed slice is kept.
+  if (nonGenericFeedItems > 0 && swissScopeCandidates === 0) {
+    throw new Error(
+      `[nord-anglia-drop-ratio] Swiss location guard: no Swiss title or route signals found in ${nonGenericFeedItems} non-generic RSS items`,
+    );
+  }
   assertDropRatioWithinLimit('Swiss location guard', swissScopeCandidates, swissScopeDrops);
 
   console.log(`\n📋 Total ${NORD_ANGLIA_COMPANY_NAME} jobs discovered: ${jobs.length}`);

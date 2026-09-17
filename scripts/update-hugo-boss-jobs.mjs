@@ -115,7 +115,11 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
     );
     if (reportedTotal > 0) totalHits = reportedTotal;
     const rawPageJobs = ddo?.eagerLoadRefineSearch?.data?.jobs;
-    const rawPageCount = Array.isArray(rawPageJobs) ? rawPageJobs.length : 0;
+    if (!Array.isArray(rawPageJobs)) {
+      console.error('❌ Hugo Boss page did not contain a DDO jobs array.');
+      break;
+    }
+    const rawPageCount = rawPageJobs.length;
     const pageJobs = parseSearchPage(html);
     console.log(`  📄 Page ${page + 1}: ${pageJobs.length} parsed jobs from ${rawPageCount} DDO records (from=${from}${totalHits ? `, total=${totalHits}` : ''})`);
     for (const job of pageJobs) {
