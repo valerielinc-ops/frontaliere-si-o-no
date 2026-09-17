@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * La Côte International School Aubonne (Nord Anglia Education) job parser.
+ * Nord Anglia Education Switzerland job parser.
  *
  * ── ATS discovery ──────────────────────────────────────────────────────
  * Table row listed ATS as "n.d." (undetermined). Discovered from scratch:
@@ -12,10 +12,11 @@
  *   by ALL Nord Anglia schools worldwide, including several other Swiss
  *   brands: Collège du Léman (Geneva), Collège Champittet (Lausanne/Pully),
  *   Collège Beau Soleil (Villars-sur-Ollon) — confirmed via a broad
- *   `keywords=(Switzerland)` RSS query that returned 20 postings across all
- *   four schools. This parser scopes strictly to Aubonne (see below).
+ *   `keywords=(Switzerland)` RSS query that returned postings across the
+ *   Swiss schools. This parser keeps every Swiss location returned by the
+ *   tenant.
  * - The tenant exposes a free, unauthenticated RSS export per saved search:
- *   `https://careers.nordangliaeducation.com/services/rss/job/?locale=en_GB&keywords=(Aubonne)`
+ *   `https://careers.nordanglia.com/services/rss/job/?locale=en_GB&keywords=(Switzerland)`
  *   — confirmed live, returns full HTML job descriptions inline (no
  *   secondary detail-page fetch needed). This is simpler and more robust
  *   than scraping the jobs2web HTML search/detail pages (used by the
@@ -23,16 +24,10 @@
  *   for other tenants) so this parser talks to the RSS feed directly
  *   instead of routing through that shared client.
  *
- * School: La Côte International School (LCIS), Aubonne VD — a Nord Anglia
- * Education campus. Address: Chemin de Clamogne 8, 1170 Aubonne, VD
- * (confirmed via school's public listing / IB World Schools directory).
- *
- * Multi-brand-tenant scope guard: the RSS `keywords=(Aubonne)` filter is a
- * full-text search, not a strict location filter, so every parsed item is
- * additionally required to carry an explicit "(Aubonne, CH)" suffix in its
- * title AND an `/job/Aubonne-...` path segment in its link — both must
- * agree before a listing is accepted. This keeps the crawler scoped to the
- * Aubonne campus even if the shared tenant's search relevance ever drifts.
+ * The RSS `keywords=(Switzerland)` filter is a full-text search, not a strict
+ * location filter. Each item is therefore accepted only when its title or
+ * canonical route resolves to a Swiss locality through the shared location
+ * helper; conflicting foreign route evidence is dropped.
  *
  * Generic/evergreen "Share Your Profile With ..." talent-pool listings are
  * dropped (not real open roles) — same convention as other dedicated
@@ -45,20 +40,32 @@
  *   - slugify() / stripHtml()  — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.mjs';
 import { XMLParser, XMLValidator } from 'fast-xml-parser';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { assertFeedBodyLooksLikeXml, assertFeedEndpointHost } from './feed-endpoint-guard.mjs';
 import { httpFetchWithRetry } from './transient-fetch.mjs';
+import {
+  canonicalSwissCityName,
+  inferAnyCanton,
+  isCantonOnlyLabel,
+  isKnownSwissCity,
+  isSwissLocationText,
+  normalizeSwissTargetLocationText,
+  isTargetSwissLocation,
+} from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
 export const NORD_ANGLIA_KEY = 'nord-anglia';
-export const NORD_ANGLIA_COMPANY_NAME = 'La Côte International School (Nord Anglia Education)';
+export const NORD_ANGLIA_COMPANY_NAME = 'Nord Anglia Education Switzerland';
 export const NORD_ANGLIA_COMPANY_DOMAIN = 'nordangliaeducation.com';
 
-const CAREER_URL = 'https://careers.nordangliaeducation.com/services/rss/job/?locale=en_GB&keywords=(Aubonne)';
-const ATS_HOST = 'careers.nordangliaeducation.com';
+const CAREER_URL = 'https://careers.nordanglia.com/services/rss/job/?locale=en_GB&keywords=(Switzerland)';
+const ATS_HOST = 'careers.nordanglia.com';
+const LEGACY_ATS_HOST = 'careers.nordangliaeducation.com';
+const ATS_HOSTS = new Set([ATS_HOST, LEGACY_ATS_HOST]);
 const POLITE_UA = 'FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/bot)';
 const DEFAULT_TIMEOUT_MS = 20_000;
 // Exactly 50% is deliberately tolerated: one malformed vendor item must not
@@ -68,21 +75,7 @@ const MAX_ITEM_DROP_RATIO = 0.5;
 const RSS_ITEM_STATS = Symbol('nordAngliaRssItemStats');
 const BARE_XML_AMPERSAND_RE = /<!\[CDATA\[[\s\S]*?\]\]>|&(?!amp;|lt;|gt;|quot;|apos;|#\d+;|#x[0-9a-fA-F]+;)/g;
 
-/** Confirmed real-world address of the Aubonne VD campus (Non-Negotiable #3 inputs). */
-const HQ = {
-  city: 'Aubonne',
-  canton: 'VD',
-  postalCode: '1170',
-  streetAddress: 'Chemin de Clamogne 8',
-  region: 'VD',
-};
-
 const SECTOR = 'Istruzione / Scuole internazionali';
-
-/** Marker required in BOTH title and link before a listing is trusted as Aubonne-scoped. */
-const AUBONNE_TITLE_RE = /\(Aubonne,\s*CH\)\s*$/i;
-const AUBONNE_TITLE_HINT_RE = /\baubonne\b/i;
-const AUBONNE_LINK_RE = /\/job\/Aubonne-/i;
 
 /** Evergreen talent-pool / "share your profile" placeholders — not real open roles. */
 const GENERIC_OFFER_PATTERNS = [
@@ -106,6 +99,15 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+function canonicalNordAngliaCity(value = '', canton = '') {
+  const candidate = normalizeSpace(value);
+  if (!candidate || !canton || isCantonOnlyLabel(candidate)) return '';
+  const canonical = isKnownSwissCity(candidate, canton)
+    ? canonicalSwissCityName(candidate)
+    : candidate;
+  return normalizeSwissTargetLocationText(canonical);
 }
 
 function toArray(val) {
@@ -173,9 +175,43 @@ function toIsoDate(raw) {
   return Number.isNaN(d.getTime()) ? null : d.toISOString().slice(0, 10);
 }
 
-/** Strip the trailing "(Aubonne, CH)" location suffix jobs2web appends to RSS titles. */
+/** Strip the trailing "(City, CH)" location suffix jobs2web appends to RSS titles. */
 function stripLocationSuffix(title = '') {
   return normalizeSpace(String(title || '').replace(/\(\s*[^()]*,\s*CH\s*\)\s*$/i, ''));
+}
+
+function isSwissNordAngliaLocation(value = '') {
+  return isTargetSwissLocation(value, { includeGrigioni: true, includeBorderProximity: false })
+    || isSwissLocationText(value);
+}
+
+function extractTitleLocation(title = '') {
+  return normalizeSpace(String(title || '').match(/\(\s*([^(),]+(?:\s+[^(),]+)*)\s*,\s*CH\s*\)\s*$/i)?.[1] || '');
+}
+
+function extractJobRouteToken(rawUrl = '') {
+  try {
+    const url = new URL(normalizeSpace(rawUrl));
+    return decodeURIComponent(url.pathname).match(/^\/job\/([^/]+)\/\d+\/?$/i)?.[1] || '';
+  } catch {
+    return '';
+  }
+}
+
+function extractRouteLocation(rawUrl = '') {
+  const routeToken = extractJobRouteToken(rawUrl);
+  if (!routeToken) return '';
+  const segments = routeToken.split('-').filter(Boolean);
+  // jobs2web encodes a multi-word locality as the beginning of the slug
+  // (`St-Moritz-...`, `Villars-sur-Ollon-...`) and may mark its boundary with
+  // an underscore. Try prefixes and let the shared helper resolve the first
+  // Swiss locality instead of maintaining a city list here.
+  for (let length = 1; length <= segments.length; length += 1) {
+    const rawCandidate = segments.slice(0, length).join(' ');
+    const candidate = normalizeSpace(rawCandidate.replace(/_/g, ' '));
+    if (candidate && isSwissNordAngliaLocation(candidate)) return candidate;
+  }
+  return '';
 }
 
 /** Extract the numeric jobs2web requisition ID from a public job URL. */
@@ -191,19 +227,13 @@ function isGenericOffer(title = '') {
 /* ── Company Matchers ──────────────────────────────────────── */
 
 /**
- * Check if a job belongs to La Côte International School Aubonne.
+ * Check if a job belongs to Nord Anglia Education's Swiss tenant.
  * Used by the template to filter this company's jobs from the global dataset.
  *
- * IMPORTANT — collision guard: `careers.nordangliaeducation.com` is a SHARED
- * jobs2web tenant serving multiple unrelated Nord Anglia Swiss brands
- * (Collège du Léman Geneva, Collège Champittet Lausanne/Pully, Collège Beau
- * Soleil Villars-sur-Ollon). Bare host membership is NOT sufficient to claim
- * a job here — a job on that host only belongs to this crawler if it is
- * either explicitly labelled with this company's key/name, or its URL path
- * carries the Aubonne-specific `/job/Aubonne-...` segment this parser scopes
- * to. The plain marketing domain (`nordangliaeducation.com` and subdomains
- * other than the shared ATS host) is always trusted since LCIS is presently
- * the only Aubonne-branded page on it.
+ * The shared jobs2web tenant contains several Swiss Nord Anglia schools. The
+ * tenant is therefore accepted only when the job has a Swiss location signal;
+ * unrelated domains and explicitly labelled non-Nord-Anglia schools remain
+ * outside this crawler.
  */
 export function isNordAngliaJob(job) {
   const key = normalize(job?.companyKey || job?.company || '')
@@ -213,41 +243,70 @@ export function isNordAngliaJob(job) {
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
   const rawUrl = String(job?.url || '');
-
-  if (
-    key === NORD_ANGLIA_KEY ||
-    key.startsWith('nord-anglia') ||
-    company.includes('la côte international school') ||
-    company.includes('la cote international school')
-  ) {
-    return true;
-  }
-
-  // "nord anglia" alone is ambiguous (matches every sibling school too) —
-  // only trust it combined with an explicit Aubonne marker.
-  const mentionsNordAnglia = company.includes('nord anglia');
-  const mentionsAubonne = normalize(job?.location || '').includes('aubonne') || /aubonne/i.test(rawUrl);
-  if (mentionsNordAnglia && mentionsAubonne) return true;
-
+  const explicitNordAngliaIdentity = (
+    key === NORD_ANGLIA_KEY
+    || key.startsWith('nord-anglia')
+    || company.includes('nord anglia')
+    || company.includes('la côte international school')
+    || company.includes('la cote international school')
+  );
   let host = '';
   try {
     host = new URL(rawUrl).hostname.toLowerCase();
   } catch {
     host = '';
   }
+  const locationText = [job?.location, job?.addressLocality, job?.title, rawUrl]
+    .filter(Boolean)
+    .join(' ');
+  const explicitLocationText = [job?.location, job?.addressLocality, rawUrl]
+    .filter(Boolean)
+    .join(' ');
+
+  if (explicitNordAngliaIdentity) {
+    if (!rawUrl) return true;
+    if (ATS_HOSTS.has(host)) return Boolean(extractRouteLocation(rawUrl));
+    if (host === 'nordangliaeducation.com' || host.endsWith('.nordangliaeducation.com')) {
+      return isSwissNordAngliaLocation(explicitLocationText);
+    }
+    return true;
+  }
+
+  // A different explicit company identity wins over the shared ATS host.
+  // The national feed itself emits the generic nord-anglia key; this guard
+  // prevents an already-labelled sibling crawler record from being claimed
+  // during global dataset filtering.
+  if (
+    key
+    && !key.startsWith('nord-anglia')
+    && !company.includes('nord anglia')
+    && !company.includes('la côte international school')
+    && !company.includes('la cote international school')
+  ) return false;
+
+  // "nord anglia" plus a Swiss location identifies the national tenant while
+  // avoiding claims for foreign sibling postings.
+  const mentionsNordAnglia = company.includes('nord anglia');
+  if (mentionsNordAnglia && isSwissNordAngliaLocation(locationText)) return true;
+
   if (!host) return false;
 
-  if (host === ATS_HOST) {
-    // Shared multi-school tenant — only the Aubonne-scoped path belongs here.
-    return AUBONNE_LINK_RE.test(rawUrl);
+  if (ATS_HOSTS.has(host)) {
+    // Shared multi-school tenant — claim only Swiss routes.
+    return Boolean(extractRouteLocation(rawUrl));
   }
-  return host === 'nordangliaeducation.com' || host.endsWith('.nordangliaeducation.com');
+  if (host === 'nordangliaeducation.com' || host.endsWith('.nordangliaeducation.com')) {
+    // The marketing domain is global; host membership alone is not evidence
+    // that a listing belongs to the Swiss crawler. Keep only Swiss school
+    // paths (for example /la-cote-aubonne/), and reject a bare /careers URL.
+    return isSwissNordAngliaLocation(locationText);
+  }
+  return false;
 }
 
 /**
  * Validate that a URL belongs to Nord Anglia Education's marketing domain OR
- * the shared jobs2web ATS host (careers.nordangliaeducation.com) that
- * actually serves postings.
+ * one of the shared jobs2web ATS hosts that serves postings.
  */
 export function isTrustedDomain(rawUrl = '') {
   try {
@@ -255,7 +314,7 @@ export function isTrustedDomain(rawUrl = '') {
     return (
       host === 'nordangliaeducation.com' ||
       host.endsWith('.nordangliaeducation.com') ||
-      host === ATS_HOST
+      ATS_HOSTS.has(host)
     );
   } catch {
     return false;
@@ -265,7 +324,7 @@ export function isTrustedDomain(rawUrl = '') {
 export function canonicalizeNordAngliaJobUrl(rawUrl = '') {
   try {
     const url = new URL(normalizeSpace(rawUrl));
-    if (url.hostname.toLowerCase() !== ATS_HOST || !AUBONNE_LINK_RE.test(url.pathname)) return '';
+    if (!ATS_HOSTS.has(url.hostname.toLowerCase()) || !/^\/job\/[^/]+\/\d+\/?$/i.test(url.pathname)) return '';
     url.search = '';
     url.hash = '';
     return url.toString();
@@ -305,7 +364,7 @@ function detectEmploymentType(text = '') {
 /* ── Fetch + Parse ─────────────────────────────────────────── */
 
 /**
- * Fetch and parse the Aubonne-scoped RSS feed. Single request, no
+ * Fetch and parse the Switzerland-scoped RSS feed. Single request, no
  * pagination — jobs2web RSS exports return every matching item at once.
  *
  * @returns {Promise<Array<{title, link, description, pubDate}>>}
@@ -331,7 +390,7 @@ async function fetchJobListings() {
   return parseNordAngliaRss(xml);
 }
 
-/** Parse the Aubonne-scoped jobs2web RSS payload into scalar item fields. */
+/** Parse the Switzerland-scoped jobs2web RSS payload into scalar item fields. */
 export function parseNordAngliaRss(xml = '') {
   if (typeof xml !== 'string') {
     throw new Error('Nord Anglia RSS feed XML parse failed: expected a string');
@@ -399,8 +458,8 @@ export function parseNordAngliaRss(xml = '') {
 }
 
 /**
- * Fetch all La Côte International School Aubonne (Nord Anglia Education)
- * jobs. Returns an array of ParsedJob objects (source-locale only).
+ * Fetch all Nord Anglia Education Switzerland jobs. Returns an array of
+ * ParsedJob objects (source-locale only).
  *
  * IMPORTANT: Only set source-locale fields. Other locales are filled
  * by the AI localization step and translate-pending pipeline.
@@ -415,7 +474,7 @@ export async function fetchAllNordAngliaJobs() {
     assertDropRatioWithinLimit('malformed RSS item guard', rssItemStats.total, rssItemStats.dropped);
   }
   if (!listings || listings.length === 0) {
-    console.warn('⚠️ No job listings returned (may genuinely mean zero open Aubonne roles right now).');
+    console.warn('⚠️ No Swiss job listings returned (the vendor feed may currently be unavailable).');
     return [];
   }
 
@@ -423,8 +482,9 @@ export async function fetchAllNordAngliaJobs() {
 
   const jobs = [];
   const seen = new Set();
-  let aubonneScopeCandidates = 0;
-  let aubonneScopeDrops = 0;
+  let swissScopeCandidates = 0;
+  let swissSignalCandidates = 0;
+  let swissScopeDrops = 0;
   for (const item of listings) {
     const rawTitle = normalizeSpace(item.title || '');
     const link = normalizeSpace(item.link || '');
@@ -433,40 +493,62 @@ export async function fetchAllNordAngliaJobs() {
     // Evergreen placeholders are intentionally outside the drop-ratio
     // denominator: they are valid vendor records, but not open positions.
     if (isGenericOffer(title)) continue;
+    // Count before location recognition: a changed title/route format must
+    // contribute to the denominator instead of disappearing silently.
+    swissScopeCandidates++;
 
+    const titleLocation = extractTitleLocation(rawTitle);
+    const routeToken = extractJobRouteToken(link);
+    const routeLocation = extractRouteLocation(link);
     const publicUrl = canonicalizeNordAngliaJobUrl(link);
-    const hasTitleScope = AUBONNE_TITLE_RE.test(rawTitle) && title.length >= 3;
-    // The vendor search is full-text and may legitimately return unrelated
-    // records. Count an item only when either independent signal still hints
-    // at Aubonne; then require both signals before publishing it. This catches
-    // one-sided vendor drift without treating ordinary search noise as drift.
-    const isAubonneCandidate = AUBONNE_TITLE_HINT_RE.test(rawTitle) || Boolean(publicUrl);
-    if (!isAubonneCandidate) continue;
-    aubonneScopeCandidates++;
+    const titleIsSwiss = Boolean(titleLocation && isSwissNordAngliaLocation(titleLocation));
+    const routeIsSwiss = Boolean(routeLocation);
+    // The national RSS query is full-text and may return unrelated records.
+    // Keep those records in the denominator: if the vendor format drifts,
+    // they must be visible to the same fail-closed drop-ratio guard.
+    if (!titleIsSwiss && !routeIsSwiss) {
+      swissScopeDrops++;
+      continue;
+    }
+    swissSignalCandidates++;
 
-    // The RSS `keywords=` param is full-text search, not a strict location
-    // filter. The title identifies an Aubonne candidate; canonicalization
-    // below independently requires the trusted host + Aubonne path. Keeping
-    // those checks separate makes vendor title and URL-template drift
-    // independently observable.
     let scopeDropped = false;
-    if (!hasTitleScope) {
+    if (routeToken && !routeIsSwiss) {
       scopeDropped = true;
       console.warn(
-        `[nord-anglia-title-scope-drop] Skipped "${title || '[missing title]'}" at `
-        + `${jobUrlForDiagnostic(link)} because its `
-        + 'title no longer matches the expected Aubonne scope marker',
+        `[nord-anglia-location-conflict-drop] Skipped "${title || '[missing title]'}" at `
+        + `${jobUrlForDiagnostic(link)} because its route does not resolve to Switzerland`,
       );
+    }
+    if (titleIsSwiss && routeIsSwiss) {
+      const titleCanton = inferAnyCanton(titleLocation);
+      const routeCanton = inferAnyCanton(routeLocation);
+      if (titleCanton && routeCanton && titleCanton !== routeCanton) {
+        scopeDropped = true;
+        console.warn(
+          `[nord-anglia-location-conflict-drop] Skipped "${title}" at `
+          + `${jobUrlForDiagnostic(link)} because title and route cantons differ`,
+        );
+      }
+      const titleCity = canonicalNordAngliaCity(titleLocation, titleCanton);
+      const routeCity = canonicalNordAngliaCity(routeLocation, routeCanton);
+      if (!scopeDropped && titleCity && routeCity && titleCity !== routeCity) {
+        scopeDropped = true;
+        console.warn(
+          `[nord-anglia-location-conflict-drop] Skipped "${title}" at `
+          + `${jobUrlForDiagnostic(link)} because title and route localities differ`,
+        );
+      }
     }
     if (!publicUrl) {
       scopeDropped = true;
       console.warn(
         `[nord-anglia-canonical-url-drop] Skipped "${title}"; candidate URL `
-        + `${jobUrlForDiagnostic(link)} is not a trusted canonical Aubonne job URL`,
+        + `${jobUrlForDiagnostic(link)} is not a trusted canonical Swiss job URL`,
       );
     }
     if (scopeDropped) {
-      aubonneScopeDrops++;
+      swissScopeDrops++;
       continue;
     }
     if (seen.has(publicUrl)) continue;
@@ -474,9 +556,19 @@ export async function fetchAllNordAngliaJobs() {
 
     const descriptionHtml = item.description;
     const descriptionText = stripHtml(descriptionHtml);
-    const description = descriptionText || `${title} presso ${NORD_ANGLIA_COMPANY_NAME} ad Aubonne.`;
+    const location = titleIsSwiss ? titleLocation : routeLocation;
+    const canton = inferAnyCanton(location);
+    if (!canton) {
+      swissScopeDrops++;
+      console.warn(
+        `[nord-anglia-location-drop] Skipped "${title}"; no Swiss canton could be inferred from "${location}"`,
+      );
+      continue;
+    }
+    const fallbackAddress = resolveFallbackAddress(undefined, location, canton);
+    const description = descriptionText || `${title} presso ${NORD_ANGLIA_COMPANY_NAME} a ${location}, Svizzera.`;
     const sourceLang = detectLang(descriptionText || title, 'en');
-    const jobSlug = slugify(`${title} nord-anglia aubonne`);
+    const jobSlug = slugify(`${title} nord-anglia ${location}`);
     // New identity is derived from the same canonical URL that is published,
     // so tracking/session query rotation cannot mint a new job. The standard
     // crawler merge matches the stable numeric requisition ID in this URL and
@@ -498,18 +590,18 @@ export async function fetchAllNordAngliaJobs() {
       titleByLocale: { [sourceLang]: title },
       description,
       descriptionByLocale: { [sourceLang]: description },
-      location: HQ.city,
-      canton: HQ.canton,
+      location,
+      canton,
       url: publicUrl,
-      source: 'La Côte International School Aubonne Dedicated Parser (Nord Anglia jobs2web RSS)',
+      source: 'Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)',
       sourceLang,
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields (structured-data completeness, Non-Negotiable #3) ──
-      addressLocality: HQ.city,
-      addressRegion: HQ.region,
-      streetAddress: HQ.streetAddress,
-      postalCode: HQ.postalCode,
+      addressLocality: fallbackAddress.addressLocality,
+      addressRegion: canton,
+      streetAddress: fallbackAddress.streetAddress,
+      postalCode: fallbackAddress.postalCode,
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),
@@ -529,10 +621,16 @@ export async function fetchAllNordAngliaJobs() {
     jobs.push(job);
   }
 
-  // One malformed candidate is logged and dropped, but combined title/URL
-  // drift over half of the relevant items remains a hard failure so the
-  // indexed slice is kept.
-  assertDropRatioWithinLimit('Aubonne title/URL scope guard', aubonneScopeCandidates, aubonneScopeDrops);
+  // A non-empty relevant feed with zero Swiss signals is an explicit hard
+  // failure, rather than an empty success. Once at least one signal is
+  // present, combined drops over half of all non-generic candidates remain a
+  // hard failure so the indexed slice is kept.
+  if (swissScopeCandidates > 0 && swissSignalCandidates === 0) {
+    throw new Error(
+      `[nord-anglia-drop-ratio] Swiss location guard: no Swiss title or route signals found in ${swissScopeCandidates} non-generic RSS items`,
+    );
+  }
+  assertDropRatioWithinLimit('Swiss location guard', swissScopeCandidates, swissScopeDrops);
 
   console.log(`\n📋 Total ${NORD_ANGLIA_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;

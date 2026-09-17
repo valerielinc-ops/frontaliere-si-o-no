@@ -19,15 +19,18 @@ import {
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 
-runStandardCrawlerPipeline({
-  companyKey: SWISS_LIFE_KEY,
-  companyLabel: SWISS_LIFE_COMPANY_NAME,
-  root: ROOT,
-  fetchJobs: fetchAllSwissLifeJobs,
-  isCompanyJob: isSwissLifeJob,
-  isTrustedDomain,
-  defaultSourceLang: 'de',
-}).catch((err) => {
-  console.error(`❌ Swiss Life crawler failed: ${err?.message || err}`);
-  process.exit(1);
-});
+const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (isDirectRun) {
+  runStandardCrawlerPipeline({
+    companyKey: SWISS_LIFE_KEY,
+    companyLabel: SWISS_LIFE_COMPANY_NAME,
+    root: ROOT,
+    fetchJobs: fetchAllSwissLifeJobs,
+    isCompanyJob: isSwissLifeJob,
+    isTrustedDomain,
+    defaultSourceLang: 'de',
+  }).catch((err) => {
+    console.error(`❌ Swiss Life crawler failed: ${err?.message || err}`);
+    process.exit(1);
+  });
+}

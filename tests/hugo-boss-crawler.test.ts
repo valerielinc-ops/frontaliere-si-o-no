@@ -4,9 +4,12 @@
  * Tests parseSearchPage(), parseDetailPage(), buildDetailUrl(),
  * detectCategory(), detectExperienceLevel(), and isHugoBossTargetLocation().
  */
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
+
+import { fetchJobs } from '../scripts/update-hugo-boss-jobs.mjs';
 
 import {
+  assertHugoBossNationalReadComplete,
   extractPhenomDdo,
   parseSearchPage,
   parseDetailPage,
@@ -37,6 +40,7 @@ phApp.ddo = {
           "state": "Ticino",
           "cityState": "Coldrerio, Ticino",
           "cityStateCountry": "Coldrerio, Ticino, Switzerland",
+          "country": "Switzerland",
           "address": "",
           "category": "Design & Brands",
           "multi_category": ["Design & Brands"],
@@ -53,6 +57,7 @@ phApp.ddo = {
           "state": "Ticino",
           "cityState": "Coldrerio, Ticino",
           "cityStateCountry": "Coldrerio, Ticino, Switzerland",
+          "country": "Switzerland",
           "address": "",
           "category": "Product Development & Digital Excellence",
           "multi_category": ["Product Development & Digital Excellence"],
@@ -69,6 +74,7 @@ phApp.ddo = {
           "state": "Hessen",
           "cityState": "Frankfurt, Hessen",
           "cityStateCountry": "Frankfurt, Hessen, Germany",
+          "country": "Germany",
           "address": "",
           "category": "Retail",
           "postedDate": "2026-03-12",
@@ -133,6 +139,29 @@ phApp.ddo = {
 </html>
 `;
 
+function makeSearchPage(totalHits: number | null, jobs: Record<string, unknown>[]) {
+  const data = {
+    ...(totalHits === null ? {} : { totalHits }),
+    jobs,
+  };
+  return `<script>phApp.ddo = ${JSON.stringify({
+    eagerLoadRefineSearch: { data },
+  })}; phApp.experimentData = {};</script>`;
+}
+
+function makeSwissJob(id: string, title = `Swiss job ${id}`) {
+  return {
+    jobId: id,
+    reqId: id,
+    title,
+    city: 'Zürich',
+    state: 'Zürich',
+    cityStateCountry: 'Zürich, Zürich, Switzerland',
+    country: 'Switzerland',
+    jobSeqNo: `HUBOGLOBAL${id}EXTERNALENGLOBAL`,
+  };
+}
+
 // ─── Tests ──────────────────────────────────────────────────────────────────
 
 describe('extractPhenomDdo', () => {
@@ -166,6 +195,7 @@ describe('parseSearchPage', () => {
     const jobs = parseSearchPage(FIXTURE_SEARCH_PAGE);
     expect(jobs[0].city).toBe('Coldrerio');
     expect(jobs[0].state).toBe('Ticino');
+    expect(jobs[0].country).toBe('Switzerland');
   });
 
   it('returns empty array for empty input', () => {
@@ -177,17 +207,169 @@ describe('parseSearchPage', () => {
   });
 });
 
+describe('fetchJobs national pagination', () => {
+  it('advances by unique DDO identities when a page item is filtered out', async () => {
+    const pages = new Map([
+      ['0', makeSearchPage(4, [
+        makeSwissJob('valid-1'),
+        { jobId: 'dropped-1', reqId: 'dropped-1' },
+      ])],
+      ['2', makeSearchPage(4, [
+        makeSwissJob('valid-2'),
+        makeSwissJob('valid-3'),
+      ])],
+    ]);
+    const requestedFroms: string[] = [];
+    const fetchHtml = vi.fn(async (url: string | URL) => {
+      const from = new URL(String(url)).searchParams.get('from') || '';
+      requestedFroms.push(from);
+      return pages.get(from) || makeSearchPage(4, []);
+    });
+
+    const jobs = await fetchJobs({ fetchHtml });
+
+    expect(requestedFroms).toEqual(['0', '2']);
+    expect(fetchHtml).toHaveBeenCalledTimes(2);
+    expect(jobs.map((job) => job.title)).toEqual([
+      'Swiss job valid-1',
+      'Swiss job valid-2',
+      'Swiss job valid-3',
+    ]);
+  });
+
+  it('rejects a page without a Phenom DDO/data envelope as an unproven termination', async () => {
+    const fetchHtml = vi.fn(async () => '<html><body>vendor error</body></html>');
+
+    await expect(fetchJobs({ fetchHtml })).rejects.toThrow(/without a proven terminal page/);
+    expect(fetchHtml).toHaveBeenCalledTimes(1);
+  });
+
+  it('accepts a valid empty Phenom DDO/data envelope as a proven termination', async () => {
+    const fetchHtml = vi.fn(async () => makeSearchPage(0, []));
+
+    await expect(fetchJobs({ fetchHtml })).resolves.toEqual([]);
+    expect(fetchHtml).toHaveBeenCalledTimes(1);
+  });
+
+  it('fails closed when Phenom repeats a page and makes no raw-record progress', async () => {
+    const repeatedPage = makeSearchPage(4, [
+      makeSwissJob('repeated-1'),
+      makeSwissJob('repeated-2'),
+    ]);
+    const fetchHtml = vi.fn(async () => repeatedPage);
+
+    await expect(fetchJobs({ fetchHtml })).rejects.toThrow(/repeated page or no new raw records/);
+    expect(fetchHtml).toHaveBeenCalledTimes(2);
+  });
+
+  it('fails closed when a page has no identity used by the final deduplication map', async () => {
+    const pages = new Map([
+      ['0', makeSearchPage(2, [{
+        ...makeSwissJob('stable-id'),
+        jobSeqNo: 'HUBOGLOBAL-FIRST-SEQ',
+      }])],
+      ['1', makeSearchPage(2, [{
+        ...makeSwissJob('', 'Same listing without a requisition ID'),
+        jobSeqNo: 'HUBOGLOBAL-SECOND-SEQ',
+      }])],
+    ]);
+    const fetchHtml = vi.fn(async (url: string | URL) => {
+      const from = new URL(String(url)).searchParams.get('from') || '';
+      return pages.get(from) || makeSearchPage(2, []);
+    });
+
+    await expect(fetchJobs({ fetchHtml })).rejects.toThrow(/stable record identity/);
+    expect(fetchHtml).toHaveBeenCalledTimes(2);
+  });
+
+  it('does not treat a short page without totalHits as terminal', async () => {
+    const pages = new Map([
+      ['0', makeSearchPage(null, [makeSwissJob('short-1')])],
+      ['1', makeSearchPage(null, [makeSwissJob('short-2')])],
+      ['2', makeSearchPage(null, [])],
+    ]);
+    const fetchHtml = vi.fn(async (url: string | URL) => {
+      const from = new URL(String(url)).searchParams.get('from') || '';
+      return pages.get(from) || makeSearchPage(null, []);
+    });
+
+    await expect(fetchJobs({ fetchHtml })).resolves.toHaveLength(2);
+    expect(fetchHtml).toHaveBeenCalledTimes(3);
+  });
+
+  it('uses a coherent canton fallback when raw.city is country-only', async () => {
+    const genericCityJob = {
+      ...makeSwissJob('generic-city'),
+      city: 'Switzerland',
+      state: 'Zürich',
+      cityState: 'Switzerland, Zürich',
+      cityStateCountry: 'Switzerland, Zürich, Switzerland',
+      address: 'The Circle 02',
+      postalCode: '8058',
+    };
+    const fetchHtml = vi.fn(async () => makeSearchPage(1, [genericCityJob]));
+
+    const [job] = await fetchJobs({ fetchHtml });
+
+    expect(job).toMatchObject({
+      location: 'Zürich',
+      addressLocality: 'Zürich',
+      addressRegion: 'ZH',
+      postalCode: '8001',
+    });
+    expect(job.location).not.toBe('Switzerland');
+  });
+});
+
+describe('assertHugoBossNationalReadComplete', () => {
+  it('rejects a later-page failure when the portal omitted totalHits', () => {
+    expect(() => assertHugoBossNationalReadComplete({
+      terminationProven: false,
+      totalHits: null,
+      recordsSeen: 100,
+    })).toThrow(/without a proven terminal page/);
+  });
+
+  it('rejects a truncated read against the declared national total', () => {
+    expect(() => assertHugoBossNationalReadComplete({
+      terminationProven: false,
+      totalHits: 782,
+      recordsSeen: 573,
+    })).toThrow(/573 of 782 declared records fetched/);
+  });
+
+  it('accepts a proven empty-page termination without totalHits', () => {
+    expect(() => assertHugoBossNationalReadComplete({
+      terminationProven: true,
+      totalHits: null,
+      recordsSeen: 42,
+    })).not.toThrow();
+  });
+});
+
 describe('isHugoBossTargetLocation', () => {
-  it('matches Coldrerio Ticino', () => {
+  it('matches a Swiss location in Ticino', () => {
     expect(isHugoBossTargetLocation({ city: 'Coldrerio', state: 'Ticino' })).toBe(true);
   });
 
-  it('matches cityStateCountry containing Ticino', () => {
+  it('matches country-qualified Swiss location text', () => {
     expect(isHugoBossTargetLocation({ cityStateCountry: 'Coldrerio, Ticino, Switzerland' })).toBe(true);
   });
 
   it('does not match Frankfurt', () => {
     expect(isHugoBossTargetLocation({ city: 'Frankfurt', state: 'Hessen' })).toBe(false);
+  });
+
+  it('matches a Swiss location outside the original single-location scope', () => {
+    expect(isHugoBossTargetLocation({ city: 'Zürich', state: 'Zürich', country: 'Switzerland' })).toBe(true);
+  });
+
+  it('rejects a foreign city that shares a Swiss municipality name', () => {
+    expect(isHugoBossTargetLocation({
+      city: 'Bellevue',
+      cityStateCountry: 'Bellevue, Washington, United States',
+      country: 'United States',
+    })).toBe(false);
   });
 
   it('does not match empty job', () => {
