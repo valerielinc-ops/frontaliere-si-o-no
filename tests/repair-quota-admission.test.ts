@@ -224,7 +224,7 @@ describe('provider-neutral action wiring', () => {
     expect(ISSUE_FIX.indexOf('Enforce shared quota-floor lease (fail-closed)'))
       .toBeLessThan(ISSUE_FIX.indexOf('- name: Install dependencies'));
     expect(ISSUE_FIX).toContain("if: steps.quota.outputs.quota_floor_admit == 'true'");
-    expect(ISSUE_FIX).toContain("if: always() && steps.quota.outputs.quota_floor_lease_owned == 'true'");
+    expect(ISSUE_FIX).toContain("if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.quota.outputs.quota_floor_lease_owned == 'true'");
     expect(ISSUE_FIX).toContain('id: codex_fix');
     expect(ISSUE_FIX).toContain('codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}');
     expect(ISSUE_FIX).not.toContain('claude_args:');
