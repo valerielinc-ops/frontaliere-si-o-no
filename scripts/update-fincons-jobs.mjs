@@ -35,7 +35,7 @@ import {
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { evaluateAuthoritativeSnapshot, exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
-import { isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
+import { isTargetSwissLocation as isGenericTargetSwissLocation } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -248,6 +248,18 @@ function updateAdapterConfig(jobs) {
 function isRecognizedFinconsSourceLocation(raw = '') {
   const value = String(raw || '').trim();
   return Boolean(value && (isLocationExplicitlyForeign(value) || isTargetSwissLocation(value)));
+}
+
+// Keep the source validator and the filtered target path on the same
+// country-aware predicate: "Lugano, Italy" must remain foreign even though
+// the Swiss municipality/canton signal is present.
+function isTargetSwissLocation(raw = '', options = {}) {
+  const value = String(raw || '').trim();
+  return Boolean(
+    value
+    && !isLocationExplicitlyForeign(value)
+    && isGenericTargetSwissLocation(value, options),
+  );
 }
 
 function copyFinconsSourceEvidence(jobs, sourceRows, targetRows) {
