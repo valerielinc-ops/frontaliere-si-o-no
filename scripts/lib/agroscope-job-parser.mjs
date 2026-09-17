@@ -40,7 +40,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  * Apply links: career74.sapsf.eu/career?company=bundesamtf&...
  */
 
-import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { isTargetCanton } from './crawler-location-config.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
@@ -221,13 +221,21 @@ export function parseAgroscopeApiResponse(data = {}) {
 }
 
 /**
- * Keep a job when it resolves to a Swiss canton (CH-wide, all 26). Agroscope is
- * a national federal research org, so we keep every Swiss posting and drop only
- * foreign ("Estero") ones — those resolve to no canton (the macro-region
- * carries no Swiss canton code and the clean city is not a CH municipality).
+ * Keep a job when its concrete locality resolves to Switzerland (CH-wide, all
+ * 26 cantons). Agroscope is a national federal research org, so we keep every
+ * Swiss posting and drop only foreign ("Estero") ones. The city is required so
+ * a later JobPosting cannot pair a generic country label with a canton.
  */
 export function isAgroscopeSwissRelevant(job = {}) {
-  return isTargetCanton(String(job.canton || '').toUpperCase());
+  const city = cleanAgroscopeCity(job.city || job.location || '');
+  const canton = String(job.canton || '').toUpperCase();
+  const cityIsSwiss = isTargetSwissLocation(city, { includeBorderProximity: false });
+  const cityIsKnownStation = Boolean(AGROSCOPE_STATION_CANTON[String(city).toLowerCase().trim()]);
+  return Boolean(
+    city &&
+    isTargetCanton(canton) &&
+    (cityIsSwiss || cityIsKnownStation),
+  );
 }
 
 /**

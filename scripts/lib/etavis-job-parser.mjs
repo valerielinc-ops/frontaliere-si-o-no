@@ -42,6 +42,10 @@
  * real salary data is published, so it is intentionally NOT copied into the
  * job object; downstream per-canton salary estimation fills it in.
  *
+ * Scope: national Swiss board across all 26 cantons. Each vacancy is retained
+ * only when its own city passes the strict Swiss-location predicate; no
+ * Zürich/8050 office default is used for another locality or a missing city.
+ *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllEtavisJobs()  — Fetch and parse all jobs
  *   - isEtavisJob()         — Match jobs belonging to this company
@@ -52,7 +56,8 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { fetchHtml, decodeEntities } from './hospital-custom-html-helpers.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import SWISS_POSTAL_CODES from '../../data/swiss-postal-codes.json' with { type: 'json' };
+import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -62,9 +67,6 @@ export const ETAVIS_COMPANY_DOMAIN = 'etavis.ch';
 
 const LISTING_URL = 'https://etavis.softgarden.io/de/vacancies';
 const SOFTGARDEN_BASE = 'https://etavis.softgarden.io';
-const DEFAULT_CITY = 'Zürich';
-const DEFAULT_CANTON = 'ZH';
-const DEFAULT_POSTAL = '8050';
 const POLITE_DELAY_MS = 120;
 
 function normalize(value = '') {
@@ -156,6 +158,42 @@ function detectEmploymentType(title = '', jsonLdType = '') {
   if (jsonLdType && /full/i.test(jsonLdType)) return 'FULL_TIME';
   if (jsonLdType && /part/i.test(jsonLdType)) return 'PART_TIME';
   return 'OTHER';
+}
+
+/**
+ * Resolve one vacancy's own city before building structured-data fields.
+ *
+ * ETAVIS is a multi-subsidiary, multi-canton group: the old Zürich/8050
+ * defaults made a missing detail page look like a Zürich posting. A detail
+ * locality or listing-row locality must therefore be a concrete Swiss city;
+ * the canton is derived from that same city and never from a foreign city plus
+ * a contradictory region label. A missing postal code is filled only from the
+ * city-keyed Swiss postal snapshot; the field remains present when that
+ * snapshot has no entry and is completed by the shared assembler.
+ *
+ * @param {object} address - JSON-LD PostalAddress, when available.
+ * @param {string} listingLocation - city from the listing row.
+ * @returns {{city:string,canton:string,postalCode:string,streetAddress:string,region:string}|null}
+ */
+export function resolveAddress(address = {}, listingLocation = '') {
+  const city = normalizeSpace(address.addressLocality || listingLocation);
+  if (!city || !isTargetSwissLocation(city, { includeBorderProximity: false })) return null;
+
+  const canton = inferAnyCanton(city);
+  if (!canton) return null;
+
+  const sourcePostal = normalizeSpace(address.postalCode || '');
+  const postalCode = /^\d{4}$/.test(sourcePostal)
+    ? sourcePostal
+    : normalizeSpace(SWISS_POSTAL_CODES[city] || '');
+
+  return {
+    city,
+    canton,
+    postalCode,
+    streetAddress: normalizeSpace(address.streetAddress || ''),
+    region: canton,
+  };
 }
 
 /* ── Listing parsing ───────────────────────────────────────── */
@@ -271,13 +309,29 @@ export async function fetchAllEtavisJobs(options = {}) {
     listingHtml = await htmlFetcher(LISTING_URL);
   } catch (err) {
     console.warn(`⚠️ ETAVIS listing fetch failed: ${err?.message || err}`);
-    return [];
+    const failed = [];
+    Object.defineProperties(failed, {
+      discoveredCount: { value: 0, enumerable: false },
+      fetchOutcome: { value: 'connection_error', enumerable: false },
+    });
+    return failed;
   }
 
   const rows = parseListingHtml(listingHtml);
   if (!rows.length) {
-    console.warn('⚠️ No job listings returned (selector drift?).');
-    return [];
+    const tableFound = /<table\b[^>]*\bid\s*=\s*["']?sortableTable9375499\b/i.test(String(listingHtml || ''));
+    const fetchOutcome = tableFound ? 'ok' : 'selector_miss';
+    console.warn(
+      tableFound
+        ? 'ℹ️ ETAVIS listing is empty: Softgarden table read successfully.'
+        : '⚠️ ETAVIS listing selector miss: expected Softgarden table not found.',
+    );
+    const empty = [];
+    Object.defineProperties(empty, {
+      discoveredCount: { value: 0, enumerable: false },
+      fetchOutcome: { value: fetchOutcome, enumerable: false },
+    });
+    return empty;
   }
   console.log(`  📋 Listings found: ${rows.length}`);
   console.log(`  📄 Fetching detail pages for rich descriptions + addresses...`);
@@ -297,11 +351,14 @@ export async function fetchAllEtavisJobs(options = {}) {
     }
 
     const address = detail?.jobLocation?.address || {};
-    const location = normalizeSpace(address.addressLocality || row.location || DEFAULT_CITY);
-    const canton =
-      inferSwissTargetCanton(`${address.addressRegion || ''} ${location}`) || DEFAULT_CANTON;
-    const postalCode = normalizeSpace(address.postalCode || DEFAULT_POSTAL);
-    const streetAddress = normalizeSpace(address.streetAddress || '');
+    const resolvedAddress = resolveAddress(address, row.location);
+    if (!resolvedAddress) {
+      console.warn(
+        `  ⚠️ Skipping ETAVIS job ${row.id}: unresolved Swiss city (${address.addressLocality || row.location || 'empty'}).`,
+      );
+      continue;
+    }
+    const { city: location, canton, postalCode, streetAddress } = resolvedAddress;
     // hiringOrganization.name is the actual posting subsidiary (e.g. "ETAVIS
     // Elettro-Impianti SA", "Gfeller Elektro") — more accurate for job
     // seekers than the generic group label, and still matched by
@@ -380,6 +437,11 @@ export async function fetchAllEtavisJobs(options = {}) {
     `\n📋 Total ${ETAVIS_COMPANY_NAME} jobs discovered: ${jobs.length} ` +
       `(${detailHits} with real detail-page descriptions).`,
   );
+  Object.defineProperties(jobs, {
+    discoveredCount: { value: rows.length, enumerable: false },
+    parsedCount: { value: jobs.length, enumerable: false },
+    fetchOutcome: { value: jobs.length > 0 ? 'ok' : 'filtered_empty', enumerable: false },
+  });
   return jobs;
 }
 
@@ -387,6 +449,7 @@ export async function fetchAllEtavisJobs(options = {}) {
 export const __testables = {
   parseListingHtml,
   parseDetailJsonLd,
+  resolveAddress,
   resolveApplyUrl,
   LISTING_URL,
   SOFTGARDEN_BASE,

@@ -1150,13 +1150,23 @@
           "quality-manager-per-il-cliente-80-100-abb-svizzera-sede-ticino-quartino",
           "production-manager-abb-svizzera-sede-ticino-quartino-ticino-a86iz6",
           "responsabile-contratti-abb-svizzera-sede-ticino-quartino-ticino",
-          "responsabile-qualita-clienti-80-100-abb-svizzera-sede-ticino-quartino"
+          "responsabile-qualita-clienti-80-100-abb-svizzera-sede-ticino-quartino",
+          "programma-di-produzione-m-f-d-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+          "production-scheduler-m-w-d-80-100-abb-svizzera-sede-ticino-quartino-ticino-rzbgwq",
+          "produktionsplaner-m-w-d-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+          "programmeur-de-production-h-f-d-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+          "production-scheduler-m-w-d-80-100-abb-svizzera-sede-ticino-quartino-ticino"
         ],
         "de": [
-          "production-manager-abb-svizzera-sede-ticino-quartino-ticino-a86iz6"
+          "production-manager-abb-svizzera-sede-ticino-quartino-ticino-a86iz6",
+          "produktionsplaner-m-w-d-80-100-abb-svizzera-sede-ticino-quartino-ticino"
         ],
         "fr": [
-          "production-manager-abb-svizzera-sede-ticino-quartino-ticino-a86iz6"
+          "production-manager-abb-svizzera-sede-ticino-quartino-ticino-a86iz6",
+          "programmeur-de-production-h-f-d-80-100-abb-svizzera-sede-ticino-quartino-ticino"
+        ],
+        "en": [
+          "production-scheduler-m-w-d-80-100-abb-svizzera-sede-ticino-quartino-ticino-rzbgwq"
         ]
       },
       "previousSlugs": [
@@ -1164,7 +1174,12 @@
         "quality-manager-per-il-cliente-80-100-abb-svizzera-sede-ticino-quartino",
         "production-manager-abb-svizzera-sede-ticino-quartino-ticino-a86iz6",
         "responsabile-contratti-abb-svizzera-sede-ticino-quartino-ticino",
-        "responsabile-qualita-clienti-80-100-abb-svizzera-sede-ticino-quartino"
+        "responsabile-qualita-clienti-80-100-abb-svizzera-sede-ticino-quartino",
+        "programma-di-produzione-m-f-d-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+        "production-scheduler-m-w-d-80-100-abb-svizzera-sede-ticino-quartino-ticino-rzbgwq",
+        "produktionsplaner-m-w-d-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+        "programmeur-de-production-h-f-d-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+        "production-scheduler-m-w-d-80-100-abb-svizzera-sede-ticino-quartino-ticino"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -1950,11 +1965,32 @@
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
-          "r-d-engineer-80-100-abb-svizzera-sede-ticino-quartino-ticino"
+          "r-d-engineer-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+          "product-quality-ingegnere-100-abb-svizzera-sede-ticino-quartino-ticino-apsfhb",
+          "product-quality-engineer-100-abb-svizzera-sede-ticino-quartino-ticino-apsfhb",
+          "product-qualitat-ingenieur-100-abb-svizzera-sede-ticino-quartino-ticino-apsfhb",
+          "product-qualite-ingenieur-100-abb-svizzera-sede-ticino-quartino-ticino-apsfhb",
+          "product-quality-engineer-100-abb-svizzera-sede-ticino-quartino-ticino",
+          "quality-technician-80-100-abb-svizzera-sede-ticino-quartino"
+        ],
+        "en": [
+          "product-quality-engineer-100-abb-svizzera-sede-ticino-quartino-ticino-apsfhb"
+        ],
+        "de": [
+          "product-qualitat-ingenieur-100-abb-svizzera-sede-ticino-quartino-ticino-apsfhb"
+        ],
+        "fr": [
+          "product-qualite-ingenieur-100-abb-svizzera-sede-ticino-quartino-ticino-apsfhb"
         ]
       },
       "previousSlugs": [
-        "r-d-engineer-80-100-abb-svizzera-sede-ticino-quartino-ticino"
+        "r-d-engineer-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+        "product-quality-ingegnere-100-abb-svizzera-sede-ticino-quartino-ticino-apsfhb",
+        "product-quality-engineer-100-abb-svizzera-sede-ticino-quartino-ticino-apsfhb",
+        "product-qualitat-ingenieur-100-abb-svizzera-sede-ticino-quartino-ticino-apsfhb",
+        "product-qualite-ingenieur-100-abb-svizzera-sede-ticino-quartino-ticino-apsfhb",
+        "product-quality-engineer-100-abb-svizzera-sede-ticino-quartino-ticino",
+        "quality-technician-80-100-abb-svizzera-sede-ticino-quartino"
       ],
       "salarySource": "estimated",
       "baseSalary": {

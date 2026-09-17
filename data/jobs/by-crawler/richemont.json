@@ -3752,12 +3752,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "procurement-category-manager-richemont-plan-les-ouates-2",
-        "procurement-category-manager-richemont-plan-les-ouates"
+        "procurement-category-manager-richemont-plan-les-ouates",
+        "procurement-category-manager-piaget-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
           "procurement-category-manager-richemont-plan-les-ouates-2",
-          "procurement-category-manager-richemont-plan-les-ouates"
+          "procurement-category-manager-richemont-plan-les-ouates",
+          "procurement-category-manager-piaget-plan-les-ouates"
         ],
         "de": [
           "procurement-category-manager-richemont-plan-les-ouates-2"
@@ -4601,19 +4603,54 @@
         "sales-associate-m-f-richemont-geneva",
         "associe-commercial-m-f-van-cleef-arpels-geneva",
         "vertriebspartner-m-w-d-van-cleef-arpels-geneva",
-        "sales-associate-m-w-d-van-cleef-arpels-geneva"
+        "sales-associate-m-w-d-van-cleef-arpels-geneva",
+        "addetto-alle-vendite-senior-cartier-geneva",
+        "senior-sales-associate-cartier-geneva",
+        "leitender-vertriebsmitarbeiter-cartier-geneva",
+        "senior-sales-associate-richemont-geneva-n74jn7",
+        "senior-sales-associate-richemont-geneva-2",
+        "senior-sales-associate-richemont-geneva",
+        "assistente-vendite-senior-cartier-geneva",
+        "senior-verkaufsmitarbeiter-cartier-geneva",
+        "associe-de-vente-senior-cartier-geneva",
+        "avocat-principal-cartier-geneva",
+        "grand-vendeur-vendite-senior-roger-dubuis-geneva",
+        "grand-vendeur-senior-sales-associate-roger-dubuis-geneva",
+        "grand-vendeur-senior-sales-associate-richemont-geneva",
+        "grand-vendeur-addetto-alle-vendite-senior-roger-dubuis-geneva",
+        "grand-vendeur-associato-senior-alle-vendite-roger-dubuis-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-associate-m-f-richemont-geneva"
+          "sales-associate-m-f-richemont-geneva",
+          "addetto-alle-vendite-senior-cartier-geneva",
+          "senior-sales-associate-cartier-geneva",
+          "leitender-vertriebsmitarbeiter-cartier-geneva",
+          "senior-sales-associate-richemont-geneva-n74jn7",
+          "senior-sales-associate-richemont-geneva-2",
+          "senior-sales-associate-richemont-geneva",
+          "assistente-vendite-senior-cartier-geneva",
+          "senior-verkaufsmitarbeiter-cartier-geneva",
+          "associe-de-vente-senior-cartier-geneva",
+          "avocat-principal-cartier-geneva",
+          "grand-vendeur-vendite-senior-roger-dubuis-geneva",
+          "grand-vendeur-senior-sales-associate-roger-dubuis-geneva",
+          "grand-vendeur-senior-sales-associate-richemont-geneva",
+          "grand-vendeur-addetto-alle-vendite-senior-roger-dubuis-geneva",
+          "grand-vendeur-associato-senior-alle-vendite-roger-dubuis-geneva"
         ],
         "de": [
           "sales-associate-m-f-richemont-geneva",
           "vertriebspartner-m-w-d-van-cleef-arpels-geneva",
-          "sales-associate-m-w-d-van-cleef-arpels-geneva"
+          "sales-associate-m-w-d-van-cleef-arpels-geneva",
+          "leitender-vertriebsmitarbeiter-cartier-geneva"
         ],
         "fr": [
-          "associe-commercial-m-f-van-cleef-arpels-geneva"
+          "associe-commercial-m-f-van-cleef-arpels-geneva",
+          "senior-sales-associate-richemont-geneva-n74jn7"
+        ],
+        "en": [
+          "senior-sales-associate-cartier-geneva"
         ]
       },
       "firstSeenAt": "2026-06-30T23:17:28.764Z",
@@ -9284,11 +9321,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sales-associate-richemont-zurich",
-        "sales-associate-richemont-zurich-t0sdvd"
+        "sales-associate-richemont-zurich-t0sdvd",
+        "sales-associate-van-cleef-arpels-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-associate-richemont-zurich"
+          "sales-associate-richemont-zurich",
+          "sales-associate-van-cleef-arpels-zurich"
         ],
         "de": [
           "sales-associate-richemont-zurich"
@@ -10285,7 +10324,15 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-analyses-materiaux-richemont-glovelier"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-analyses-materiaux-richemont-glovelier"
+      ]
     },
     {
       "id": "richemont-beb532d93689",
