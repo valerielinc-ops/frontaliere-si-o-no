@@ -1,6 +1,6 @@
 {
   "crawlerKey": "css-versicherung",
-  "assembledAt": "2026-09-16T21:39:28.539Z",
+  "assembledAt": "2026-09-17T06:59:54.463Z",
   "jobs": [
     {
       "id": "css-versicherung-b3eb37f0ac8f",
@@ -33,7 +33,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spontanbewerbung-kundenberater-in-fuer-privatkunden-region-zofingen-aarau-frick/36b01376-f5e2-4689-be50-0d98b88c4186",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:05:42.807Z",
+      "crawledAt": "2026-09-17T06:59:46.851Z",
       "addressLocality": "Zofingen",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -111,7 +111,7 @@
       "url": "https://jobs.css.ch/offene-stellen/fachexpert-in-stationaer-pflege-drg-leistungspruefung/0e0dbc51-9e0d-4797-8792-f79f62a4cd0f",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:05:41.662Z",
+      "crawledAt": "2026-09-17T06:59:46.417Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -185,7 +185,7 @@
       "url": "https://jobs.css.ch/offene-stellen/expert-e-en-prestations-au-sein-de-la-section-dispositions-des-prestations-expertise/c67ee64e-73f4-40c6-a0b3-a0f6b5b86d84",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-13T14:05:40.903Z",
+      "crawledAt": "2026-09-17T06:59:45.933Z",
       "addressLocality": "Lausanne et/ou Lucerne",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -214,6 +214,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:41.538Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -259,7 +260,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spontanbewerbung-kundenberater-in-fuer-privatkunden-region-baden/121c903a-23a4-46ea-964d-65eb52d151f9",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:05:40.363Z",
+      "crawledAt": "2026-09-17T06:59:45.459Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -283,11 +284,11 @@
         "spontaneous-application-customer-consultant-for-private-customers-region-baden-css-versicherung-baden",
         "application-spontanee-consultant-client-pour-les-clients-prives-region-baden-css-versicherung-baden",
         "application-spontanee-consultant-client-pour-clients-prives-region-baden-css-versicherung-baden",
-        "consulente-clienti-per-clienti-privati-regione-baden-css-versicherung-baden",
         "application-spontanee-consultant-client-pour-les-clients-prives-region-baselland-80-100-css-versicherung-baselland",
         "spontanbewerbung-kundenberater-in-per-privatkunden-region-baselland-80-100-css-versicherung-baselland-reinach-liestal",
         "spontaneous-application-customer-consultant-for-private-customers-region-baselland-80-100-css-versicherung-baselland",
-        "spontanbewerbung-kundenberater-in-fur-privatkunden-region-baselland-80-100-css"
+        "spontanbewerbung-kundenberater-in-fur-privatkunden-region-baselland-80-100-css",
+        "consulente-clienti-per-clienti-privati-regione-baden-css-versicherung-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -296,27 +297,28 @@
           "spontaneous-application-customer-consultant-for-private-customers-region-baden-css-versicherung-baden",
           "application-spontanee-consultant-client-pour-les-clients-prives-region-baden-css-versicherung-baden",
           "application-spontanee-consultant-client-pour-clients-prives-region-baden-css-versicherung-baden",
-          "consulente-clienti-per-clienti-privati-regione-baden-css-versicherung-baden",
           "application-spontanee-consultant-client-pour-les-clients-prives-region-baselland-80-100-css-versicherung-baselland",
           "spontanbewerbung-kundenberater-in-per-privatkunden-region-baselland-80-100-css-versicherung-baselland-reinach-liestal",
           "spontaneous-application-customer-consultant-for-private-customers-region-baselland-80-100-css-versicherung-baselland",
-          "spontanbewerbung-kundenberater-in-fur-privatkunden-region-baselland-80-100-css"
+          "spontanbewerbung-kundenberater-in-fur-privatkunden-region-baselland-80-100-css",
+          "consulente-clienti-per-clienti-privati-regione-baden-css-versicherung-baden"
         ],
         "en": [
           "spontanbewerbung-kundenberater-in-fur-privatkunden-region-baden-css-versicherung-baden",
           "spontaneous-application-customer-consultant-for-private-customers-region-baden-css-versicherung-baden",
           "spontaneous-application-customer-consultant-for-private-customers-region-baselland-80-100-css-versicherung-baselland"
         ],
+        "de": [
+          "spontanbewerbung-kundenberater-in-fur-privatkunden-region-baselland-80-100-css"
+        ],
         "fr": [
           "spontanbewerbung-kundenberater-in-fur-privatkunden-region-baden-css-versicherung-baden",
           "application-spontanee-consultant-client-pour-les-clients-prives-region-baden-css-versicherung-baden",
           "application-spontanee-consultant-client-pour-les-clients-prives-region-baselland-80-100-css-versicherung-baselland"
-        ],
-        "de": [
-          "spontanbewerbung-kundenberater-in-fur-privatkunden-region-baselland-80-100-css"
         ]
       },
       "firstSeenAt": "2026-07-07T12:22:54.283Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -362,7 +364,7 @@
       "url": "https://jobs.css.ch/offene-stellen/expert-e-prevoyance/673035ed-9a32-41a5-ac43-1a504e852e7d",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-13T14:05:39.759Z",
+      "crawledAt": "2026-09-17T06:59:44.824Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "",
@@ -436,7 +438,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-fachfrau-mann-kundendialog-efz-partner-plus-agentur-august-2027/b960af58-8f97-4994-ae69-b52632906b67",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:05:39.235Z",
+      "crawledAt": "2026-09-17T06:59:44.327Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -514,7 +516,7 @@
       "url": "https://jobs.css.ch/offene-stellen/expert-in-im-kundenservice-mit-mehrjaehriger-erfahrung/2ba5404b-0c75-4bea-bcf0-1c1a8968ef2a",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:05:37.647Z",
+      "crawledAt": "2026-09-17T06:59:43.953Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -588,7 +590,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenbetreuer-in-kundenservice-center-mit-digitaler-affinitaet/cb6d6cce-b8b1-4f71-940b-a7b6db2348d6",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:05:36.694Z",
+      "crawledAt": "2026-09-17T06:59:43.499Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -618,13 +620,13 @@
         "mitarbeiter-in-kundenservice-center-mit-erfahrung-in-der-kundenbetreuung-80-100-css",
         "centre-de-service-a-la-clientele-avec-experience-en-service-a-la-clientele-80-100-css-versicherung-root-hybrid-c7453e",
         "kundenbetreuer-in-kundenservice-center-mit-erfahrung-in-der-kundenbetreuung-80-100-css",
-        "collaboratore-trice-kundenservice-center-con-digitaler-affinitat-100-css-versicherung-root-hybrid",
         "collaboratore-trice-kundenservice-center-con-fokus-im-einzelleben-80-100-css-versicherung-root-hybrid",
         "employee-customer-service-center-with-focus-on-individual-life-80-100-css-versicherung-root-hybrid",
         "mitarbeiter-in-kundenservice-center-mit-fokus-im-einzelleben-80-100-css-versicherung-root",
         "centre-de-service-a-la-clientele-des-employes-avec-un-accent-sur-la-vie-individuelle-80-100-css-versicherung-root-hybrid",
         "mitarbeiter-in-kundenservice-center-mit-fokus-im-einzelleben-80-100-css-versicherung-premier",
-        "kundenbetreuer-in-kundenservice-center-mit-fokus-im-einzelleben-80-100-css-versicherung"
+        "kundenbetreuer-in-kundenservice-center-mit-fokus-im-einzelleben-80-100-css-versicherung",
+        "collaboratore-trice-kundenservice-center-con-digitaler-affinitat-100-css-versicherung-root-hybrid"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -639,13 +641,13 @@
           "mitarbeiter-in-kundenservice-center-mit-erfahrung-in-der-kundenbetreuung-80-100-css",
           "centre-de-service-a-la-clientele-avec-experience-en-service-a-la-clientele-80-100-css-versicherung-root-hybrid-c7453e",
           "kundenbetreuer-in-kundenservice-center-mit-erfahrung-in-der-kundenbetreuung-80-100-css",
-          "collaboratore-trice-kundenservice-center-con-digitaler-affinitat-100-css-versicherung-root-hybrid",
           "collaboratore-trice-kundenservice-center-con-fokus-im-einzelleben-80-100-css-versicherung-root-hybrid",
           "employee-customer-service-center-with-focus-on-individual-life-80-100-css-versicherung-root-hybrid",
           "mitarbeiter-in-kundenservice-center-mit-fokus-im-einzelleben-80-100-css-versicherung-root",
           "centre-de-service-a-la-clientele-des-employes-avec-un-accent-sur-la-vie-individuelle-80-100-css-versicherung-root-hybrid",
           "mitarbeiter-in-kundenservice-center-mit-fokus-im-einzelleben-80-100-css-versicherung-premier",
-          "kundenbetreuer-in-kundenservice-center-mit-fokus-im-einzelleben-80-100-css-versicherung"
+          "kundenbetreuer-in-kundenservice-center-mit-fokus-im-einzelleben-80-100-css-versicherung",
+          "collaboratore-trice-kundenservice-center-con-digitaler-affinitat-100-css-versicherung-root-hybrid"
         ],
         "en": [
           "customer-service-center-with-experience-in-customer-service-80-100-css-versicherung-root-hybrid",
@@ -708,7 +710,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-kauffrau-mann-efz-august-2027/b66629d4-8742-45ba-867b-50058db70a79",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:05:35.687Z",
+      "crawledAt": "2026-09-17T06:59:43.014Z",
       "addressLocality": "Luzern Hauptsitz",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -767,6 +769,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:08.327Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -796,7 +799,7 @@
       "title": "Senior Identity- und Access Management Engineer (w/m) 80-100%",
       "titleByLocale": {
         "it": "Senior Identity- e Access Management Ingegnere (w/m) 80-100%",
-        "en": "Senior Identity and Access Management Engineer (m/f) 80-100 %",
+        "en": "Senior Identity- und Access Management Engineer (w/m) 80-100%",
         "de": "Senior Identity- und Access Management Ingenieur (w/m) 80-100%",
         "fr": "Ingénieur principal de gestion de l'identité et de l'accès (h/f) 80-100 %"
       },
@@ -812,7 +815,7 @@
       "url": "https://jobs.css.ch/offene-stellen/senior-identity-und-access-management-engineer-w-m/11c90747-5262-431c-80c8-9e8da6216c9d",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:05:34.759Z",
+      "crawledAt": "2026-09-17T06:59:42.602Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -842,6 +845,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:05.024Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
@@ -871,7 +875,7 @@
       "title": "Senior Java & Integration Engineer (w/m)",
       "titleByLocale": {
         "it": "Senior Java & Integration Ingegnere (w/m)",
-        "en": "Senior Java and Integration Engineer (m/f)",
+        "en": "Senior Java & Integration Engineer (w/m)",
         "de": "Senior Java & Integration Ingenieur (w/m)",
         "fr": "Senior Java & Integration Ingénieur (w/m)"
       },
@@ -887,7 +891,7 @@
       "url": "https://jobs.css.ch/offene-stellen/seniorjava-integration-engineer-w-m/679e9fe7-b3dd-43c2-a64c-b4b014c0c9dc",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:05:30.669Z",
+      "crawledAt": "2026-09-17T06:59:41.968Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -963,7 +967,7 @@
       "url": "https://jobs.css.ch/offene-stellen/agenturleiter-in-lachen/53c6d796-7b42-4e87-9ef4-f0006776e151",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:05:29.683Z",
+      "crawledAt": "2026-09-17T06:59:41.492Z",
       "addressLocality": "Lachen",
       "addressRegion": "SZ",
       "streetAddress": "",
@@ -998,6 +1002,7 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:34:15.944Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
@@ -1043,7 +1048,7 @@
       "url": "https://jobs.css.ch/offene-stellen/conseiller-ere-a-la-clientele/a0bc53ae-4e56-48ab-8a89-d28c039618c0",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-13T14:05:28.657Z",
+      "crawledAt": "2026-09-17T06:59:40.941Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "streetAddress": "",
@@ -1129,7 +1134,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-fuer-privatkunden/2851f164-4bd7-47ae-87c0-e1578f3e1b32",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:05:26.716Z",
+      "crawledAt": "2026-09-17T06:59:40.536Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1207,7 +1212,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-fuer-privatkunden-rheintal-mit-vbv/458e150e-c6cf-453c-a75e-4ff956af5fd4",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:05:25.222Z",
+      "crawledAt": "2026-09-17T06:59:40.106Z",
       "addressLocality": "Altstätten SG",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -1285,7 +1290,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spontanbewerbung-mitarbeiter-in-kundenservice-rheintal-appenzellerland/93efaee9-1ba8-4855-893e-355485b803a2",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:05:24.214Z",
+      "crawledAt": "2026-09-17T06:59:39.663Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -1365,7 +1370,7 @@
       "url": "https://jobs.css.ch/offene-stellen/agenturleiter-in-solothurn/aaa76472-aabe-4f7d-9662-2974b739a320",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:05:22.170Z",
+      "crawledAt": "2026-09-17T06:59:39.185Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1445,7 +1450,7 @@
       "url": "https://jobs.css.ch/offene-stellen/fachspezialist-in-planung-steuerung-ksc/2c83f456-189e-49c7-8a8f-61c54ec500c2",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:05:19.159Z",
+      "crawledAt": "2026-09-17T06:59:38.683Z",
       "addressLocality": "Root, Vennes oder Lugano / hybrid",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -1525,7 +1530,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-fuer-privatkunden-basel/c14069cf-84a5-45e5-9c9c-f363cbc9d38e",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:05:17.713Z",
+      "crawledAt": "2026-09-17T06:59:38.231Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "",
@@ -1605,7 +1610,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-privatkunden-wohlen-mit-vbv/52a83867-8c19-4807-9f7b-88354e95a87e",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:05:16.763Z",
+      "crawledAt": "2026-09-17T06:59:37.790Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -1679,7 +1684,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-fuer-privatkunden-einsiedeln/0e61eeee-e9ff-4129-a2ce-67df56ecc98a",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:05:15.729Z",
+      "crawledAt": "2026-09-17T06:59:37.327Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "streetAddress": "",
@@ -1759,7 +1764,7 @@
       "url": "https://jobs.css.ch/offene-stellen/agenturleiter-in-oberwallis/166ce09d-9d82-499e-8d38-b7d65fa7c3fc",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:05:14.176Z",
+      "crawledAt": "2026-09-17T06:59:36.909Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "streetAddress": "",
@@ -1807,6 +1812,7 @@
         ]
       },
       "firstSeenAt": "2026-08-18T21:37:42.720Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -1836,7 +1842,7 @@
       "title": "Datenbank Engineer (w/m) 80-100%",
       "titleByLocale": {
         "it": "Datenbank Ingegnere (w/m) 80-100%",
-        "en": "Database Engineer (m/f) 80-100 %",
+        "en": "Datenbank Engineer (w/m) 80-100%",
         "de": "Datenbank Ingenieur (w/m) 80-100%",
         "fr": "Datenbank Ingénieur (w/m) 80-100%"
       },
@@ -1852,7 +1858,7 @@
       "url": "https://jobs.css.ch/offene-stellen/datenbank-engineer-w-m/ffc2879b-9e0e-4a59-9995-c4581a16cbd7",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:05:08.704Z",
+      "crawledAt": "2026-09-17T06:59:36.477Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -1871,6 +1877,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-08-19T10:02:56.631Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -1916,7 +1923,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spezialist-in-batchbetrieb-und-job-scheduling-control-m/d10a0c04-3282-45df-9eed-1153478b9884",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:05:07.713Z",
+      "crawledAt": "2026-09-17T06:59:36.096Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -1978,7 +1985,7 @@
       "title": "Senior Java Software Engineer (w/m) 80-100%",
       "titleByLocale": {
         "it": "Senior Java Software Ingegnere (w/m) 80-100%",
-        "en": "Senior Java Software Engineer (m/f) 80-100 %",
+        "en": "Senior Java Software Engineer (w/m) 80-100%",
         "de": "Senior Java Software Ingenieur (w/m) 80-100%",
         "fr": "Senior Java Software Ingénieur (w/m) 80-100%"
       },
@@ -1994,7 +2001,7 @@
       "url": "https://jobs.css.ch/offene-stellen/senior-java-software-engineer-w-m/23754e2a-4043-4ccf-8f95-cec4b622ffbe",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:05:06.713Z",
+      "crawledAt": "2026-09-17T06:59:35.710Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -2059,7 +2066,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-fuer-privatkunden-bern/87b6400a-2189-455f-92e9-07848b6f73dc",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:05:05.728Z",
+      "crawledAt": "2026-09-17T06:59:35.155Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -2121,7 +2128,7 @@
       "title": "Expert Data Engineer (w/m) 80-100%",
       "titleByLocale": {
         "it": "Expert Data Ingegnere (w/m) 80-100%",
-        "en": "Expert Data Engineer (m/f) 80-100 %",
+        "en": "Expert Data Engineer (w/m) 80-100%",
         "de": "Expert Data Ingenieur (w/m) 80-100%",
         "fr": "Expert Data Ingénieur (w/m) 80-100%"
       },
@@ -2137,7 +2144,7 @@
       "url": "https://jobs.css.ch/offene-stellen/expert-data-engineer-w-m/1a36e481-f317-47f8-ae2d-f51ce3b497f9",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:05:04.848Z",
+      "crawledAt": "2026-09-17T06:59:34.695Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -2156,6 +2163,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-08-25T22:07:35.537Z",
+      "needsRetranslation": true,
       "salaryMin": 74500,
       "salaryMax": 127000,
       "salarySource": "estimated",
@@ -2201,7 +2209,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenbetreuer-in-team-mutationen/4235d3cb-155f-4ab9-9994-729fc18e5760",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:05:03.659Z",
+      "crawledAt": "2026-09-17T06:59:34.055Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -2281,7 +2289,7 @@
       "url": "https://jobs.css.ch/offene-stellen/medizinische-r-kodierer-in/5cf8fc5e-bfee-43df-a92a-3ff3770ffa7a",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:05:02.677Z",
+      "crawledAt": "2026-09-17T06:59:33.564Z",
       "addressLocality": "Luzern oder/und Lausanne",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -2316,6 +2324,7 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:18:31.225Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -2361,7 +2370,7 @@
       "url": "https://jobs.css.ch/offene-stellen/codeurs-medicaux/324723a6-3096-4bb8-910e-fc9001d440cc",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-13T14:05:01.754Z",
+      "crawledAt": "2026-09-17T06:59:33.079Z",
       "addressLocality": "Lausanne ou/et Lucerne",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -2441,7 +2450,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-fuer-privatkunden-luzern/d5b987cf-35f0-4076-b41a-22426a7ed831",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:05:00.793Z",
+      "crawledAt": "2026-09-17T06:59:32.515Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -2523,7 +2532,7 @@
       "url": "https://jobs.css.ch/offene-stellen/agenturleiter-in-liestal/9a7507a0-316d-4593-b1a5-d5bb0e0460fa",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:04:59.669Z",
+      "crawledAt": "2026-09-17T06:59:31.997Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "",
@@ -2603,7 +2612,7 @@
       "url": "https://jobs.css.ch/offene-stellen/apprentissage-d-employe-e-de-commerce-aout-2027/da021750-bf53-4696-90af-1ade7bfdce22",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-13T14:04:56.170Z",
+      "crawledAt": "2026-09-17T06:59:31.514Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -2632,6 +2641,7 @@
         ]
       },
       "firstSeenAt": "2026-09-02T23:18:02.327Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 94500,
       "salarySource": "estimated",
@@ -2677,7 +2687,7 @@
       "url": "https://jobs.css.ch/offene-stellen/apprentissage-d-employe-e-de-commerce-agence-de-sierre-aout-2027/d0d3a31e-7739-409c-8e43-ae2e431ea572",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-13T14:04:54.163Z",
+      "crawledAt": "2026-09-17T06:59:31.131Z",
       "addressLocality": "Sierre",
       "addressRegion": "VS",
       "streetAddress": "",
@@ -2716,6 +2726,7 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:43:59.822Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 94500,
       "salarySource": "estimated",
@@ -2761,7 +2772,7 @@
       "url": "https://jobs.css.ch/offene-stellen/apprentissage-d-employe-e-de-commerce-agence-de-sion-aout-2027/486c19d0-44f5-4da7-8746-23bb110eb9ec",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-13T14:04:53.204Z",
+      "crawledAt": "2026-09-17T06:59:30.752Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "streetAddress": "",
@@ -2797,6 +2808,7 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:43:54.319Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 94500,
       "salarySource": "estimated",
@@ -2842,7 +2854,7 @@
       "url": "https://jobs.css.ch/offene-stellen/apprentissage-d-employe-e-de-commerce-agence-de-bulle-aout-2027/0589f501-046d-431d-8873-1df9f75ae7a9",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-13T14:04:52.781Z",
+      "crawledAt": "2026-09-17T06:59:30.252Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "streetAddress": "",
@@ -2878,6 +2890,7 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:43:48.841Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -2923,7 +2936,7 @@
       "url": "https://jobs.css.ch/offene-stellen/apprentissage-d-agent-e-relation-client-aout-2027/0ce11c26-41f7-467a-8c60-78962d50b68d",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-13T14:04:52.176Z",
+      "crawledAt": "2026-09-17T06:59:29.723Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -3005,7 +3018,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenbetreuer-in-mit-mehrjaehriger-erfahrung-in-telefonischem-kundenservice/19a2e87f-94a8-470a-a939-f33365f8f0c4",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:04:51.746Z",
+      "crawledAt": "2026-09-17T06:59:29.305Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -3085,7 +3098,7 @@
       "url": "https://jobs.css.ch/offene-stellen/assistent-in-leiterin-eigenvertrieb/7054b823-509e-47cc-941c-be33bb058ff2",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:04:46.140Z",
+      "crawledAt": "2026-09-17T06:59:28.807Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -3165,7 +3178,7 @@
       "url": "https://jobs.css.ch/offene-stellen/fachspezialist-in-leistungsgrundlagen-qualitaetssicherung/4a0e4944-b225-4b2e-9146-634a3071ddf7",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:04:40.667Z",
+      "crawledAt": "2026-09-17T06:59:28.349Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -3241,6 +3254,7 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:16:52.186Z",
+      "needsRetranslation": true,
       "salaryMin": 74500,
       "salaryMax": 123500,
       "salarySource": "estimated",
@@ -3254,6 +3268,81 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "css-versicherung-4f5fa05fe9be",
+      "slug": "apprendistato-kauffrau-mann-cfc-100-august-2027-css-zurich-oerlikon",
+      "slugByLocale": {
+        "de": "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-zurich-oerlikon",
+        "it": "apprendistato-kauffrau-mann-cfc-100-august-2027-css-zurich-oerlikon",
+        "en": "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-zurich-oerlikon",
+        "fr": "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-zurich-oerlikon"
+      },
+      "company": "CSS",
+      "companyKey": "css-versicherung",
+      "companyDomain": "css.ch",
+      "title": "Lehrstelle Kauffrau/-mann EFZ 100% (August 2027)",
+      "titleByLocale": {
+        "de": "Lehrstelle Kauffrau/-mann EFZ 100% (August 2027)",
+        "it": "Apprendistato Kauffrau/-mann CFC 100% (August 2027)",
+        "en": "Lehrstelle Kauffrau/-mann EFZ 100% (August 2027)",
+        "fr": "Lehrstelle Kauffrau/-mann EFZ 100% (August 2027)"
+      },
+      "description": "Während deiner 3-jährigen Ausbildung bei uns tauchst du in die Welt der Kranken- und Sozialversicherungen ein. Dank unseres internen Schulungsprogramms und der praktischen Erfahrung am Arbeitsplatz wirst du zur echten Expertin / zum echten Experten.\nWir sind top motiviert und wollen nachhaltig etwas bewegen. Unsere Mission? Klar, zuverlässig und unkompliziert für unsere Kundinnen und Kunden da zu sein.\nAls starkes Team unterstützen wir uns gegenseitig. Erfolge feiern wir am liebsten gemeinsam. Klingt gut? Dann lass uns kennenlernen!\n\nSo sieht dein Alltag aus\n\n• Du liebst den Kontakt mit Menschen? Perfekt! Im Kundendialog betreust du täglich unsere Kundinnen und Kunden - mündlich und schriftlich.\n\n• Dein Wissen zählt: Du gibst klare und hilfreiche Auskünfte.\n\n• Mit unseren Produkten und Leistungen kennst du dich bestens aus: Du erstellst Offerten und verarbeitest Anträge und Versicherungsänderungen.\n\n• Teamwork makes the dream work: Du sorgst für reibungslose interne Abläufe und koordinierst mit anderen Abteilungen.\n\n• Du erledigst auch administrative Tätigkeiten.\n\n• Abwechslung gefällig? Du arbeitest in spannenden Projekten der Berufsbildung mit und bringst deine frischen Ideen ein.\n\nDas bringst du mit\n\n• Kundenkontakt macht dir Freude – egal ob persönlich oder telefonisch, auch wenn es einmal hektisch wird.\n\n• Du bist motiviert, lernbereit und packst jede Herausforderung gewissenhaft an.\n\n• Du arbeitest genau und sorgfältig.\n\n• Du blühst im Team auf und freust dich darauf, Erfolge gemeinsam zu feiern.\n\n• Du kannst dich in Deutsch klar und verständlich ausdrücken.\n\n• Gute Noten in Sprachen und Mathe? Check!\n\nGute Argumente - typisch CSS\n\n• Freie Fahrt in der ganzen Schweiz: Wir schenken dir das GA während deiner gesamten Ausbildungszeit.\n\n• Geniesse deine Ferien: Mehr Zeit für dich - mit 6 Wochen Ferien pro Jahr.\n\n• Spare Geld: Wir füllen dein Sparkässeli dank gratis Schulmaterial und einer bis zu 50% günstigeren Krankenkassenprämie.\n\n• Coole Anlässe für dich: Feier mit uns den Start in deine Ausbildung, lerne andere Lernende kennen und geniesse CSS Events wie die Samichlaus-Party.\n\n• Lerne neue Sprachen: Erhalte einen Zuschuss für deinen Sprachaufenthalt im Ausland oder deinen Sprachkurs.\n\n• Bleibe fit: Wir kümmern uns um dich - mit Lernsessions zu deiner Gesundheit und Gesundheitsangeboten am und neben dem Arbeitsplatz.\n\nKontakt\n\nFragen zum Bewerbungsprozess?\nRufe unsere/n Berufsbildner/in Laura Isenaj an.\n058 277 56 23\nlaura.isenaj@css.ch\n\nDas ist die CSS\n\nRund 1,7 Millionen Kundinnen und Kunden, rund 100 Agenturen, rund 3000 Mitarbeitende und eine der führenden Schweizer Kranken- und Sachversicherer. Ja, wir sind ganz schön gross. Zum Glück. Denn gross sind dadurch auch unsere Möglichkeiten, wirklich etwas zu bewegen. Unsere Wurzeln gehen bis 1899 zurück. Seither sind wir gesund gewachsen, aber darauf ruhen wir uns nicht aus: Für die Zukunft haben wir noch viel vor - vielleicht zusammen mit dir?",
+      "descriptionByLocale": {
+        "de": "Während deiner 3-jährigen Ausbildung bei uns tauchst du in die Welt der Kranken- und Sozialversicherungen ein. Dank unseres internen Schulungsprogramms und der praktischen Erfahrung am Arbeitsplatz wirst du zur echten Expertin / zum echten Experten.\nWir sind top motiviert und wollen nachhaltig etwas bewegen. Unsere Mission? Klar, zuverlässig und unkompliziert für unsere Kundinnen und Kunden da zu sein.\nAls starkes Team unterstützen wir uns gegenseitig. Erfolge feiern wir am liebsten gemeinsam. Klingt gut? Dann lass uns kennenlernen!\n\nSo sieht dein Alltag aus\n\n• Du liebst den Kontakt mit Menschen? Perfekt! Im Kundendialog betreust du täglich unsere Kundinnen und Kunden - mündlich und schriftlich.\n\n• Dein Wissen zählt: Du gibst klare und hilfreiche Auskünfte.\n\n• Mit unseren Produkten und Leistungen kennst du dich bestens aus: Du erstellst Offerten und verarbeitest Anträge und Versicherungsänderungen.\n\n• Teamwork makes the dream work: Du sorgst für reibungslose interne Abläufe und koordinierst mit anderen Abteilungen.\n\n• Du erledigst auch administrative Tätigkeiten.\n\n• Abwechslung gefällig? Du arbeitest in spannenden Projekten der Berufsbildung mit und bringst deine frischen Ideen ein.\n\nDas bringst du mit\n\n• Kundenkontakt macht dir Freude – egal ob persönlich oder telefonisch, auch wenn es einmal hektisch wird.\n\n• Du bist motiviert, lernbereit und packst jede Herausforderung gewissenhaft an.\n\n• Du arbeitest genau und sorgfältig.\n\n• Du blühst im Team auf und freust dich darauf, Erfolge gemeinsam zu feiern.\n\n• Du kannst dich in Deutsch klar und verständlich ausdrücken.\n\n• Gute Noten in Sprachen und Mathe? Check!\n\nGute Argumente - typisch CSS\n\n• Freie Fahrt in der ganzen Schweiz: Wir schenken dir das GA während deiner gesamten Ausbildungszeit.\n\n• Geniesse deine Ferien: Mehr Zeit für dich - mit 6 Wochen Ferien pro Jahr.\n\n• Spare Geld: Wir füllen dein Sparkässeli dank gratis Schulmaterial und einer bis zu 50% günstigeren Krankenkassenprämie.\n\n• Coole Anlässe für dich: Feier mit uns den Start in deine Ausbildung, lerne andere Lernende kennen und geniesse CSS Events wie die Samichlaus-Party.\n\n• Lerne neue Sprachen: Erhalte einen Zuschuss für deinen Sprachaufenthalt im Ausland oder deinen Sprachkurs.\n\n• Bleibe fit: Wir kümmern uns um dich - mit Lernsessions zu deiner Gesundheit und Gesundheitsangeboten am und neben dem Arbeitsplatz.\n\nKontakt\n\nFragen zum Bewerbungsprozess?\nRufe unsere/n Berufsbildner/in Laura Isenaj an.\n058 277 56 23\nlaura.isenaj@css.ch\n\nDas ist die CSS\n\nRund 1,7 Millionen Kundinnen und Kunden, rund 100 Agenturen, rund 3000 Mitarbeitende und eine der führenden Schweizer Kranken- und Sachversicherer. Ja, wir sind ganz schön gross. Zum Glück. Denn gross sind dadurch auch unsere Möglichkeiten, wirklich etwas zu bewegen. Unsere Wurzeln gehen bis 1899 zurück. Seither sind wir gesund gewachsen, aber darauf ruhen wir uns nicht aus: Für die Zukunft haben wir noch viel vor - vielleicht zusammen mit dir?",
+        "it": "Während deiner 3-jährigen Ausbildung bei uns tauchst du in die Welt der Kranken- und Sozialversicherungen ein. Dank unseres internen Schulungsprogramms und der praktischen Erfahrung am Arbeitsplatz wirst du zur echten Expertin / zum echten Experten.\nWir sind top motiviert und wollen nachhaltig etwas bewegen. Unsere Mission? Klar, zuverlässig und unkompliziert für unsere Kundinnen und Kunden da zu sein.\nAls starkes Team unterstützen wir uns gegenseitig. Erfolge feiern wir am liebsten gemeinsam. Klingt gut? Dann lass uns kennenlernen!\n\nSo sieht dein Alltag aus\n\n• Du liebst den Kontakt mit Menschen? Perfekt! Im Kundendialog betreust du täglich unsere Kundinnen und Kunden - mündlich und schriftlich.\n\n• Dein Wissen zählt: Du gibst klare und hilfreiche Auskünfte.\n\n• Mit unseren Produkten und Leistungen kennst du dich bestens aus: Du erstellst Offerten und verarbeitest Anträge und Versicherungsänderungen.\n\n• Teamwork makes the dream work: Du sorgst für reibungslose interne Abläufe und koordinierst mit anderen Abteilungen.\n\n• Du erledigst auch administrative Tätigkeiten.\n\n• Abwechslung gefällig? Du arbeitest in spannenden Projekten der Berufsbildung mit und bringst deine frischen Ideen ein.\n\nDas bringst du mit\n\n• Kundenkontakt macht dir Freude – egal ob persönlich oder telefonisch, auch wenn es einmal hektisch wird.\n\n• Du bist motiviert, lernbereit und packst jede Herausforderung gewissenhaft an.\n\n• Du arbeitest genau und sorgfältig.\n\n• Du blühst im Team auf und freust dich darauf, Erfolge gemeinsam zu feiern.\n\n• Du kannst dich in Deutsch klar und verständlich ausdrücken.\n\n• Gute Noten in Sprachen und Mathe? Check!\n\nGute Argumente - typisch CSS\n\n• Freie Fahrt in der ganzen Schweiz: Wir schenken dir das GA während deiner gesamten Ausbildungszeit.\n\n• Geniesse deine Ferien: Mehr Zeit für dich - mit 6 Wochen Ferien pro Jahr.\n\n• Spare Geld: Wir füllen dein Sparkässeli dank gratis Schulmaterial und einer bis zu 50% günstigeren Krankenkassenprämie.\n\n• Coole Anlässe für dich: Feier mit uns den Start in deine Ausbildung, lerne andere Lernende kennen und geniesse CSS Events wie die Samichlaus-Party.\n\n• Lerne neue Sprachen: Erhalte einen Zuschuss für deinen Sprachaufenthalt im Ausland oder deinen Sprachkurs.\n\n• Bleibe fit: Wir kümmern uns um dich - mit Lernsessions zu deiner Gesundheit und Gesundheitsangeboten am und neben dem Arbeitsplatz.\n\nKontakt\n\nFragen zum Bewerbungsprozess?\nRufe unsere/n Berufsbildner/in Laura Isenaj an.\n058 277 56 23\nlaura.isenaj@css.ch\n\nDas ist die CSS\n\nRund 1,7 Millionen Kundinnen und Kunden, rund 100 Agenturen, rund 3000 Mitarbeitende und eine der führenden Schweizer Kranken- und Sachversicherer. Ja, wir sind ganz schön gross. Zum Glück. Denn gross sind dadurch auch unsere Möglichkeiten, wirklich etwas zu bewegen. Unsere Wurzeln gehen bis 1899 zurück. Seither sind wir gesund gewachsen, aber darauf ruhen wir uns nicht aus: Für die Zukunft haben wir noch viel vor - vielleicht zusammen mit dir?",
+        "en": "Während deiner 3-jährigen Ausbildung bei uns tauchst du in die Welt der Kranken- und Sozialversicherungen ein. Dank unseres internen Schulungsprogramms und der praktischen Erfahrung am Arbeitsplatz wirst du zur echten Expertin / zum echten Experten.\nWir sind top motiviert und wollen nachhaltig etwas bewegen. Unsere Mission? Klar, zuverlässig und unkompliziert für unsere Kundinnen und Kunden da zu sein.\nAls starkes Team unterstützen wir uns gegenseitig. Erfolge feiern wir am liebsten gemeinsam. Klingt gut? Dann lass uns kennenlernen!\n\nSo sieht dein Alltag aus\n\n• Du liebst den Kontakt mit Menschen? Perfekt! Im Kundendialog betreust du täglich unsere Kundinnen und Kunden - mündlich und schriftlich.\n\n• Dein Wissen zählt: Du gibst klare und hilfreiche Auskünfte.\n\n• Mit unseren Produkten und Leistungen kennst du dich bestens aus: Du erstellst Offerten und verarbeitest Anträge und Versicherungsänderungen.\n\n• Teamwork makes the dream work: Du sorgst für reibungslose interne Abläufe und koordinierst mit anderen Abteilungen.\n\n• Du erledigst auch administrative Tätigkeiten.\n\n• Abwechslung gefällig? Du arbeitest in spannenden Projekten der Berufsbildung mit und bringst deine frischen Ideen ein.\n\nDas bringst du mit\n\n• Kundenkontakt macht dir Freude – egal ob persönlich oder telefonisch, auch wenn es einmal hektisch wird.\n\n• Du bist motiviert, lernbereit und packst jede Herausforderung gewissenhaft an.\n\n• Du arbeitest genau und sorgfältig.\n\n• Du blühst im Team auf und freust dich darauf, Erfolge gemeinsam zu feiern.\n\n• Du kannst dich in Deutsch klar und verständlich ausdrücken.\n\n• Gute Noten in Sprachen und Mathe? Check!\n\nGute Argumente - typisch CSS\n\n• Freie Fahrt in der ganzen Schweiz: Wir schenken dir das GA während deiner gesamten Ausbildungszeit.\n\n• Geniesse deine Ferien: Mehr Zeit für dich - mit 6 Wochen Ferien pro Jahr.\n\n• Spare Geld: Wir füllen dein Sparkässeli dank gratis Schulmaterial und einer bis zu 50% günstigeren Krankenkassenprämie.\n\n• Coole Anlässe für dich: Feier mit uns den Start in deine Ausbildung, lerne andere Lernende kennen und geniesse CSS Events wie die Samichlaus-Party.\n\n• Lerne neue Sprachen: Erhalte einen Zuschuss für deinen Sprachaufenthalt im Ausland oder deinen Sprachkurs.\n\n• Bleibe fit: Wir kümmern uns um dich - mit Lernsessions zu deiner Gesundheit und Gesundheitsangeboten am und neben dem Arbeitsplatz.\n\nKontakt\n\nFragen zum Bewerbungsprozess?\nRufe unsere/n Berufsbildner/in Laura Isenaj an.\n058 277 56 23\nlaura.isenaj@css.ch\n\nDas ist die CSS\n\nRund 1,7 Millionen Kundinnen und Kunden, rund 100 Agenturen, rund 3000 Mitarbeitende und eine der führenden Schweizer Kranken- und Sachversicherer. Ja, wir sind ganz schön gross. Zum Glück. Denn gross sind dadurch auch unsere Möglichkeiten, wirklich etwas zu bewegen. Unsere Wurzeln gehen bis 1899 zurück. Seither sind wir gesund gewachsen, aber darauf ruhen wir uns nicht aus: Für die Zukunft haben wir noch viel vor - vielleicht zusammen mit dir?",
+        "fr": "Während deiner 3-jährigen Ausbildung bei uns tauchst du in die Welt der Kranken- und Sozialversicherungen ein. Dank unseres internen Schulungsprogramms und der praktischen Erfahrung am Arbeitsplatz wirst du zur echten Expertin / zum echten Experten.\nWir sind top motiviert und wollen nachhaltig etwas bewegen. Unsere Mission? Klar, zuverlässig und unkompliziert für unsere Kundinnen und Kunden da zu sein.\nAls starkes Team unterstützen wir uns gegenseitig. Erfolge feiern wir am liebsten gemeinsam. Klingt gut? Dann lass uns kennenlernen!\n\nSo sieht dein Alltag aus\n\n• Du liebst den Kontakt mit Menschen? Perfekt! Im Kundendialog betreust du täglich unsere Kundinnen und Kunden - mündlich und schriftlich.\n\n• Dein Wissen zählt: Du gibst klare und hilfreiche Auskünfte.\n\n• Mit unseren Produkten und Leistungen kennst du dich bestens aus: Du erstellst Offerten und verarbeitest Anträge und Versicherungsänderungen.\n\n• Teamwork makes the dream work: Du sorgst für reibungslose interne Abläufe und koordinierst mit anderen Abteilungen.\n\n• Du erledigst auch administrative Tätigkeiten.\n\n• Abwechslung gefällig? Du arbeitest in spannenden Projekten der Berufsbildung mit und bringst deine frischen Ideen ein.\n\nDas bringst du mit\n\n• Kundenkontakt macht dir Freude – egal ob persönlich oder telefonisch, auch wenn es einmal hektisch wird.\n\n• Du bist motiviert, lernbereit und packst jede Herausforderung gewissenhaft an.\n\n• Du arbeitest genau und sorgfältig.\n\n• Du blühst im Team auf und freust dich darauf, Erfolge gemeinsam zu feiern.\n\n• Du kannst dich in Deutsch klar und verständlich ausdrücken.\n\n• Gute Noten in Sprachen und Mathe? Check!\n\nGute Argumente - typisch CSS\n\n• Freie Fahrt in der ganzen Schweiz: Wir schenken dir das GA während deiner gesamten Ausbildungszeit.\n\n• Geniesse deine Ferien: Mehr Zeit für dich - mit 6 Wochen Ferien pro Jahr.\n\n• Spare Geld: Wir füllen dein Sparkässeli dank gratis Schulmaterial und einer bis zu 50% günstigeren Krankenkassenprämie.\n\n• Coole Anlässe für dich: Feier mit uns den Start in deine Ausbildung, lerne andere Lernende kennen und geniesse CSS Events wie die Samichlaus-Party.\n\n• Lerne neue Sprachen: Erhalte einen Zuschuss für deinen Sprachaufenthalt im Ausland oder deinen Sprachkurs.\n\n• Bleibe fit: Wir kümmern uns um dich - mit Lernsessions zu deiner Gesundheit und Gesundheitsangeboten am und neben dem Arbeitsplatz.\n\nKontakt\n\nFragen zum Bewerbungsprozess?\nRufe unsere/n Berufsbildner/in Laura Isenaj an.\n058 277 56 23\nlaura.isenaj@css.ch\n\nDas ist die CSS\n\nRund 1,7 Millionen Kundinnen und Kunden, rund 100 Agenturen, rund 3000 Mitarbeitende und eine der führenden Schweizer Kranken- und Sachversicherer. Ja, wir sind ganz schön gross. Zum Glück. Denn gross sind dadurch auch unsere Möglichkeiten, wirklich etwas zu bewegen. Unsere Wurzeln gehen bis 1899 zurück. Seither sind wir gesund gewachsen, aber darauf ruhen wir uns nicht aus: Für die Zukunft haben wir noch viel vor - vielleicht zusammen mit dir?"
+      },
+      "location": "Zürich-Oerlikon",
+      "canton": "ZH",
+      "url": "https://jobs.css.ch/offene-stellen/lehrstelle-kauffrau-mann-efz-august-2027/c05e5354-9500-47e7-99e7-189b6999ce92",
+      "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-17T06:59:27.887Z",
+      "addressLocality": "Zürich-Oerlikon",
+      "addressRegion": "ZH",
+      "streetAddress": "",
+      "postalCode": "6002",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-16",
+      "applyUrl": "https://jobs.css.ch/offene-stellen/lehrstelle-kauffrau-mann-efz-august-2027/c05e5354-9500-47e7-99e7-189b6999ce92",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-zurich-oerlikon"
+        ]
+      },
+      "previousSlugs": [
+        "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-zurich-oerlikon"
+      ],
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-17T06:59:27.887Z"
     }
   ]
 }
