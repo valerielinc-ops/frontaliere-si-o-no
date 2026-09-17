@@ -34,14 +34,16 @@
  * explicitly-partitioned crawler achieves full CH-wide coverage with zero
  * risk to that existing production pipeline.
  *
- * Canton is inferred per-posting from the listing's own city (via the
- * shared factory's `inferSwissTargetCanton`), covering all 26 cantons.
- * `defaultCanton`/`defaultCity`/`defaultPostalCode` below are only the HQ
- * fallback for the rare posting whose location can't be resolved.
+ * Canton and Swiss scope are resolved per posting from the source location
+ * and region with `isTargetSwissLocation()` + `inferAnyCanton()`, covering
+ * all 26 cantons. Unresolved locations are dropped; the national feed never
+ * receives a headquarters city, canton, postal code or street as a fallback.
  *
  * Uses the shared Prospective.ch factory.
  */
 import { createProspectiveChParser } from './prospective-ch-job-parser-common.mjs';
+import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { getCantonPostalFallback } from './canton-postal-fallback.mjs';
 
 export const RAIFFEISEN_KEY = 'raiffeisen';
 export const RAIFFEISEN_COMPANY_NAME = 'Raiffeisen';
@@ -68,17 +70,80 @@ function isVedeggioCassarateListing(listing) {
   return haystack.includes('vedeggio') || haystack.includes('cassarate');
 }
 
+const SWISS_COUNTRY_VALUES = new Set(['ch', 'switzerland', 'schweiz', 'suisse', 'svizzera']);
+
+function normalizeSourceValue(value = '') {
+  return String(value || '').replace(/\s+/g, ' ').trim();
+}
+
+function sourceRegion(listing) {
+  const szas = listing?.szas || {};
+  return normalizeSourceValue(
+    szas['sza_location.region']
+      || szas['sza_workplace.region']
+      || szas.sza_region
+      || listing?.region
+      || '',
+  );
+}
+
+function sourceCountry(listing) {
+  const szas = listing?.szas || {};
+  return normalizeSourceValue(
+    szas['sza_location.country']
+      || szas['sza_workplace.country']
+      || szas.sza_country
+      || listing?.country
+      || '',
+  );
+}
+
+function sourceLocation(listing) {
+  const szas = listing?.szas || {};
+  const city = normalizeSourceValue(szas['sza_location.city'] || szas['sza_workplace.city']);
+  if (city) return city;
+
+  // A small number of national listings omit the dotted city field but keep
+  // the source's flat location label, e.g. "Rothenburg, Schweiz". Strip only
+  // the source country suffix; do not invent a city from the HQ.
+  const flat = normalizeSourceValue(szas.sza_location);
+  if (!flat) return '';
+  const withoutCountry = flat.replace(/,?\s*(?:CH|Switzerland|Schweiz|Suisse|Svizzera)\s*$/i, '').trim();
+  const postalCity = withoutCountry.match(/\b\d{4}(?:\s+|-(?=\p{L}))(?<city>\p{L}[^,]*)/u);
+  if (postalCity?.groups?.city) return normalizeSourceValue(postalCity.groups.city);
+  return normalizeSourceValue(withoutCountry.split(',')[0]);
+}
+
+/**
+ * Resolve one Raiffeisen listing using only its own source-backed location.
+ * Region is included because the Prospective feed contains legitimate
+ * multi-site labels and occasional records without a city field.
+ */
+export function resolveRaiffeisenLocation(listing) {
+  const location = sourceLocation(listing);
+  const region = sourceRegion(listing);
+  const country = sourceCountry(listing);
+  const signal = [location, region].filter(Boolean).join(' ');
+  const canton = inferAnyCanton(signal);
+  const countryIsSwiss = !country || SWISS_COUNTRY_VALUES.has(country.toLowerCase());
+  return {
+    location,
+    canton,
+    valid: Boolean(location && canton && countryIsSwiss && isTargetSwissLocation(signal)),
+  };
+}
+
 const parser = createProspectiveChParser({
   companyKey: RAIFFEISEN_KEY,
   companyName: RAIFFEISEN_COMPANY_NAME,
   companyDomain: RAIFFEISEN_COMPANY_DOMAIN,
   mediumId: '1950',
   apiLang: 'de',
-  defaultCanton: 'SG',
-  defaultCity: 'St. Gallen',
-  defaultPostalCode: '9001',
   publicCareerUrl: 'https://jobs.raiffeisen.ch/',
   defaultSourceLang: 'de',
+  strictPagination: true,
+  locationResolver: resolveRaiffeisenLocation,
+  postalCodeFallback: (canton) => getCantonPostalFallback(canton),
   extraTrustedHosts: ['jobs.raiffeisen.ch', 'www.raiffeisen.ch'],
   // Partition: drop the regional bank already covered by the dedicated
   // raiffeisen-vc crawler (see header comment above).
