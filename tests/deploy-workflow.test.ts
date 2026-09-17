@@ -592,6 +592,17 @@ describe('deploy.yml — shard push mode and advisory delta verification', () =>
   });
 });
 
+describe('deploy.yml — benchmark-only controls never enter production', () => {
+  it('does not set the experiment stop, sample, or benchmark guard', () => {
+    expect(DEPLOY_YML).not.toContain('BUILD_STOP_AFTER');
+    expect(DEPLOY_YML).not.toContain('JOBS_SEO_SAMPLE');
+    expect(DEPLOY_YML).not.toContain('BUILD_BENCH');
+    expect(BUILD_LOCALE_ENV).not.toHaveProperty('BUILD_STOP_AFTER');
+    expect(BUILD_LOCALE_ENV).not.toHaveProperty('JOBS_SEO_SAMPLE');
+    expect(BUILD_LOCALE_ENV).not.toHaveProperty('BUILD_BENCH');
+  });
+});
+
 describe('deploy.yml — closeBundle serializzati in produzione (OOM run 35100583972)', () => {
   // #8818 aveva reso paralleli gli hook in produzione: heap a 11 GB gia' prima di
   // jobs-seo-pages (6,8 GB in sequenziale) e OOM su tutti e quattro i leg. Il
