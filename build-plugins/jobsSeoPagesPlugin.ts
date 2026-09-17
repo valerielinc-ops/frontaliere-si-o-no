@@ -34,6 +34,12 @@ import { hostFromUrl } from './shared/hostFromUrl';
 import { dedupeUrlsetXmlByLoc } from './shared/sitemapUrlsetDedupe';
 import { sanitizeJobTitleForDisplay as stripLiteralMarkdownFromTitle } from './shared/stripLiteralMarkdown';
 import { minifyHtml } from './shared/htmlMinify';
+import {
+ hasCachedOrEmittedHtml,
+ hasEmittedHtml,
+ readCachedOrEmittedHtml,
+ releaseDiskBackedHtmlCache,
+} from './shared/jobsSeoHtmlCache';
 import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
 import { expiredJobSlugVariants } from './shared/expiredSlugVariants';
 import { truncateCodeUnits } from './shared/safeTruncate';
@@ -2533,9 +2539,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
 
  /** Caches active job page HTML by `${locale}:${slug}` so bridge pages
  * (previousSlugs) can serve identical full-content pages with only the
- * canonical URL pointing to the current slug. */
+ * canonical URL pointing to the current slug. Entries are released after
+ * the active emit once the same bytes are confirmed on disk. */
  const jobHtmlCache = new Map<string, string>();
  jobsSeoMemContext.jobHtmlCache = jobHtmlCache;
+ const activeHtmlPaths = new Map<string, string>();
 
  const PROFILE_RELATED_COMPARE = process.env.JOBS_SEO_PROFILE_COMPARE_RELATED === '1';
  let relatedCompareMismatches = 0;
@@ -3986,6 +3994,7 @@ ${staticAnalyticsHtml}
   registerIncrementalPage(locale, canonicalPath, 'active-job', activeJobManifestInput);
  }
  jobHtmlCache.set(`${locale}:${perLocaleSlug[locale]}`, html);
+ activeHtmlPaths.set(`${locale}:${perLocaleSlug[locale]}`, canonicalPath);
  // Also write flat .html so /slug serves 200 (avoids GitHub Pages 301 redirect)
  // Uses a canonical bridge page instead of a noindex/meta-refresh alias
  const flatPath = canonicalPath.replace(/\/+$/, '');
@@ -4127,7 +4136,22 @@ ${staticAnalyticsHtml}
  }
  }
 
- logJobsSeoMem('after-active-pages');
+ // The active pages are all queued by this point. Flush them before releasing
+ // their source strings so every bridge can use the exact emitted artifact.
+ // Missing files are kept as a tiny fallback for collision/foreign-writer
+ // edge cases; the normal path drops the full HTML cache before the marker.
+ await collector.flush();
+ const activeHtmlDiskBackedKeys = new Set<string>();
+ for (const [key, relativePath] of activeHtmlPaths) {
+  if (hasEmittedHtml(distDir, relativePath)) activeHtmlDiskBackedKeys.add(key);
+ }
+ const releasedActiveHtmlEntries = releaseDiskBackedHtmlCache(jobHtmlCache, activeHtmlDiskBackedKeys);
+ activeHtmlPaths.clear();
+ logJobsSeoMem('after-active-pages', {
+  activeHtmlSource: 'disk',
+  releasedActiveHtmlEntries,
+  activeHtmlFallbackEntries: jobHtmlCache.size,
+ });
 
  /* ── Company landing pages ────────────────────────────────── */
  type CompanyCopyEntry = {
@@ -10150,7 +10174,9 @@ ${staticAnalyticsHtml}
  const addEntry = (ps: string, locale: 'it' | 'en' | 'de' | 'fr') => {
  const currentSlug = localizedSlug(job, locale);
  if (!ps || ps === currentSlug) return;
- if (!jobHtmlCache.has(`${locale}:${currentSlug}`)) return;
+ const currentCanonicalRelPath = `${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCantonForSitemapPrevSlugs)}/${currentSlug}`
+  .replace(/\/+/g, '/');
+ if (!hasCachedOrEmittedHtml(jobHtmlCache, `${locale}:${currentSlug}`, distDir, currentCanonicalRelPath)) return;
  const psRelPath = `${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCantonForSitemapPrevSlugs)}/${ps}`.replace(/\/+/g, '/').replace(/^\//, '');
  if (activeJobDirs.has(psRelPath)) return;
  if (prevSlugSitemapPaths.has(psRelPath)) return;
@@ -12661,6 +12687,28 @@ ${staticAnalyticsHtml}
  // we'd pin ~18k HTML strings (~550MB) in memory for no benefit.
  const expiredSoftLandingCache = new Map<string, string>();
  jobsSeoMemContext.expiredSoftLandingCache = expiredSoftLandingCache;
+ // Cross-locale reconciliation happens after the complete expired sweep, so
+ // keep only a bounded chunk of HTML in memory. Once a chunk is flushed, its
+ // cache entries are read back from dist/ by the later reconciliation pass.
+ const EXPIRED_HTML_CACHE_CHUNK_SIZE = 512;
+ const expiredHtmlCacheOnDisk = new Set<string>();
+ const expiredHtmlCachePaths = new Map<string, string>();
+ let expiredHtmlCachePeakEntries = 0;
+ let expiredHtmlCacheChunks = 0;
+ let expiredHtmlCacheReleasedEntries = 0;
+ const releaseExpiredHtmlCacheChunk = async (): Promise<void> => {
+  if (expiredHtmlCacheOnDisk.size === 0) return;
+  await collector.flush();
+  const confirmedDiskKeys = new Set<string>();
+  for (const key of expiredHtmlCacheOnDisk) {
+   const relativePath = expiredHtmlCachePaths.get(key);
+   if (relativePath && hasEmittedHtml(distDir, relativePath)) confirmedDiskKeys.add(key);
+   else expiredHtmlCacheOnDisk.delete(key);
+  }
+  expiredHtmlCacheReleasedEntries += releaseDiskBackedHtmlCache(expiredSoftLandingCache, confirmedDiskKeys);
+  expiredHtmlCacheOnDisk.clear();
+  expiredHtmlCacheChunks++;
+ };
  const expiredCacheKeys = new Set<string>();
  for (const ej of expiredJobsData) {
  const sbl = (ej && ej.slugByLocale) as Record<string, string> | undefined;
@@ -12730,7 +12778,8 @@ ${staticAnalyticsHtml}
  // only the most-recent (per the sort above) lands on disk.
  const emittedSoftLandingPaths = new Set<string>();
 
- for (const slug of expiredSlugs) {
+ for (let expiredSlugIndex = 0; expiredSlugIndex < expiredSlugs.length; expiredSlugIndex++) {
+ const slug = expiredSlugs[expiredSlugIndex];
  const paths = tracking[slug];
  const ejData = expiredBySlug.get(slug);
 
@@ -13480,7 +13529,17 @@ ${staticAnalyticsHtml}
  }
  const cacheKey = `${locale}:${slug}`;
  if (expiredCacheKeys.has(cacheKey)) {
- expiredSoftLandingCache.set(cacheKey, softLandingHtml);
+  expiredSoftLandingCache.set(cacheKey, softLandingHtml);
+  if (wroteSoftLanding) {
+   expiredHtmlCachePaths.set(cacheKey, relPath);
+   expiredHtmlCacheOnDisk.add(cacheKey);
+  } else {
+   // A collision means the generated string is still the only faithful
+   // fallback; do not let a previous disk path evict this replacement.
+   expiredHtmlCachePaths.delete(cacheKey);
+   expiredHtmlCacheOnDisk.delete(cacheKey);
+  }
+  expiredHtmlCachePeakEntries = Math.max(expiredHtmlCachePeakEntries, expiredSoftLandingCache.size);
  }
  expiredCount++;
 
@@ -13584,13 +13643,24 @@ ${staticAnalyticsHtml}
  // awaitDrainSlot) sono il bound giusto, mentre 7 batch (~1 GB) erano
  // tarati sulle fasi iniziali a heap basso.
  await collector.awaitDrainSlot(2);
+ if ((expiredSlugIndex + 1) % EXPIRED_HTML_CACHE_CHUNK_SIZE === 0) {
+  await releaseExpiredHtmlCacheChunk();
  }
+ }
+
+ // Release the final partial chunk before the retained-set checkpoint. The
+ // cross-locale pass below will read these pages from disk as needed.
+ await releaseExpiredHtmlCacheChunk();
 
  jobsSeoMemContext.sitemap.expiredEntries = expiredSitemapEntries.length;
  logJobsSeoMem('after-expired-cache-population', {
   expiredCount,
   legacyCount,
   expiredCacheKeys: expiredCacheKeys.size,
+  expiredCacheEntries: expiredSoftLandingCache.size,
+  expiredHtmlCachePeakEntries,
+  expiredHtmlCacheChunks,
+  expiredHtmlCacheReleasedEntries,
   expiredSitemapEntries: expiredSitemapEntries.length,
   sitemapEntries: expiredSitemapEntries.length,
  });
@@ -13631,6 +13701,31 @@ ${staticAnalyticsHtml}
   sitemapEntries: expiredSitemapEntries.length,
  });
 
+ // Last-reader release, proven by the marker immediately above: the expired
+ // renderer has finished reading these indexes and the cross-locale pass only
+ // needs expiredJobsData, tracking and the disk-backed HTML paths.
+ // - titleCollisionByLocale: active-page title probe (before after-active-pages)
+ // - noCityTitleCollisionByLocale / claimedTitlesByLocale: expired renderer
+ // - expiredFaqCache: getExpiredFaqHtml in the expired locale loop
+ // - expiredBySlug / orphanGscData: expired renderer's per-slug lookup
+ // - companyActiveJobsMap / recentJobPool: expired related-job selection
+ // - bridgeClaimedPaths / emittedSoftLandingPaths / expiredCacheKeys: expired
+ //   emit and sitemap loops, all included in the checkpoint above.
+ for (const locale of localeList) {
+  titleCollisionByLocale[locale].clear();
+  noCityTitleCollisionByLocale[locale].clear();
+  claimedTitlesByLocale[locale].clear();
+ }
+ expiredFaqCache.clear();
+ expiredBySlug.clear();
+ orphanGscData.clear();
+ companyActiveJobsMap.clear();
+ recentJobPool.length = 0;
+ bridgeClaimedPaths.clear();
+ emittedSoftLandingPaths.clear();
+ expiredCacheKeys.clear();
+ expiredSlugs.length = 0;
+
  /* ── Cross-locale reconciliation for expired jobs ──────────── */
  // Mirrors the active-jobs cross-locale block below, but for expired jobs.
  // When an expired job has distinct `slugByLocale`, generate a soft-landing
@@ -13656,7 +13751,13 @@ ${staticAnalyticsHtml}
  // doesn't own (Fase 1c, same class as the active-job bridge loops below).
  // No-op in the all-locale build.
  if (!shouldEmitLocale(baseLocale)) continue;
- const baseHtml = expiredSoftLandingCache.get(`${baseLocale}:${baseSlug}`);
+ const baseCacheKey = `${baseLocale}:${baseSlug}`;
+ const baseHtml = readCachedOrEmittedHtml(
+  expiredSoftLandingCache,
+  baseCacheKey,
+  distDir,
+  expiredHtmlCachePaths.get(baseCacheKey) || tracking[baseSlug]?.[baseLocale] || '',
+ );
  if (!baseHtml) continue;
  const baseInputHash = incrementalManifests?.get(baseLocale)?.getHash(
   tracking[baseSlug]?.[baseLocale],
@@ -13739,37 +13840,23 @@ ${staticAnalyticsHtml}
   sitemapEntries: expiredSitemapEntries.length,
  }));
 
- // Cross-locale-expired-bridge was the last reader of `expiredSoftLandingCache`
- // (populated during the expired-soft-landing emit, ~152k entries × ~9 KB ≈
- // ~1.4 GB peak heap). After this loop the cache is dead state — the
- // previous-slug-bridge + cross-locale-active-bridge phases that follow read
- // from `jobHtmlCache` instead, never this one. Run 26497882342 OOM'd at
- // heap=10.8 GB during this stretch; freeing ~1.4 GB here puts the heap
- // back well under the 12 GB cap before the heavier write/flush phases run.
+ // Cross-locale-expired-bridge was the last reader of the bounded
+ // `expiredSoftLandingCache`. Most entries were already released after their
+ // 512-slug chunk was flushed; this final clear drops only collision fallbacks.
  expiredSoftLandingCache.clear();
+ expiredHtmlCachePaths.clear();
+ expiredHtmlCacheOnDisk.clear();
  // #6134 (strutturale): l'intero universo "expired" e' morto qui insieme
- // alla cache. Ultimi lettori: `expiredJobsData` il loop cross-locale-expired
- // qui sopra (L13099), `expiredBySlug` la render dei soft-landing (L12289),
- // `orphanGscData` idem (L12333, e porta il FULL CONTENT di ~43k slug
- // orfani). Le fasi previousSlugs/cross-locale-active che seguono leggono da
- // validJobs/jobHtmlCache, mai da queste. Tenerle vive fino a fine
- // closeBundle significava attraversare le due fasi piu' pesanti rimaste con
- // l'object graph di expired-jobs.json (~65 MB su disco) ancora in pancia.
- // Audit closure-safety (#6168): `expiredBySlug`/`orphanGscData` are read
- // ONLY at L12289/L12333 — both identifiers appear nowhere else in this
- // file, so no closure defined earlier (e.g. a callback queued past this
- // point) can hold a live reference into either map. Both reads happen
- // synchronously at the top of each per-slug/per-locale loop body, before
- // any `await`; the extracted fields are copied into plain per-iteration
- // consts and serialized into the HTML string handed to `_qw` → `collector
- // .add(filePath, content)` (L909-911), which stores the already-built
- // string, not a reference back into these maps. The soft-landing loop and
- // the cross-locale-expired loop above both fully resolve (sequential
- // `await collector.awaitDrainSlot(...)`, no fire-and-forget) before this
- // cleanup block runs, so `.clear()` below can never race a pending read.
+ // alla cache. `expiredJobsData` ha il suo ultimo lettore nel loop
+ // cross-locale-expired appena concluso; `expiredBySlug` e `orphanGscData`
+ // erano già morti al marker after-expired-softlandings e sono stati rilasciati
+ // lì. Le fasi previousSlugs/cross-locale-active che seguono leggono da
+ // validJobs/jobHtmlCache, mai da questi indici.
+ // Audit closure-safety (#6168): i due indici vengono letti sincronicamente
+ // prima degli await del renderer e il cross-locale pass successivo usa solo
+ // expiredJobsData/tracking; nessuna callback può quindi osservare le mappe
+ // dopo il rilascio anticipato.
  expiredJobsData = [];
- expiredBySlug.clear();
- orphanGscData.clear();
  // Force a major GC so the freed ~1.4 GB is returned to the OS immediately
  // instead of waiting for the next idle scavenge. `global.gc` is exposed by
  // NODE_OPTIONS=--expose-gc in `build:ci` (see PR #627); guarded for local
@@ -13782,6 +13869,9 @@ ${staticAnalyticsHtml}
  // below a known-clean starting point without losing the earlier signal.
  logBuildMem('jobsSeoPages: after-expired-cleanup', collector, jobsSeoMemDetails({
   expiredJobsData: expiredJobsData.length,
+  expiredCacheEntries: expiredSoftLandingCache.size,
+  expiredHtmlCacheChunks,
+  expiredHtmlCacheReleasedEntries,
   expiredSitemapEntries: expiredSitemapEntries.length,
   sitemapEntries: expiredSitemapEntries.length,
  }));
@@ -13931,8 +14021,6 @@ ${staticAnalyticsHtml}
 
  for (const locale of localeList) {
  const currentSlug = localizedSlug(job, locale);
- const cachedHtml = jobHtmlCache.get(`${locale}:${currentSlug}`);
- if (!cachedHtml) continue;
  // Per-locale shard build (BUILD_LOCALE): skip the expensive previousSlugs
  // bridge render/emit for locales this shard isn't responsible for (Fase 1c,
  // deferred from #2494). The winners registry (data/previous-slug-winners.json)
@@ -13945,6 +14033,15 @@ ${staticAnalyticsHtml}
   `${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCantonForBridge)}/${currentSlug}`
    .replace(/\/+/g, '/'),
  );
+ // The former `jobHtmlCache.get` lookup is now disk-backed after the active
+ // marker; the fallback map preserves the old result only when no file exists.
+ const cachedHtml = readCachedOrEmittedHtml(
+  jobHtmlCache,
+  `${locale}:${currentSlug}`,
+  distDir,
+  canonicalPathForReuse,
+ );
+ if (!cachedHtml) continue;
  const canonicalInputHash = incrementalManifests?.get(locale)?.getHash(
   canonicalPathForReuse,
   'active-job',
@@ -14225,6 +14322,13 @@ ${staticAnalyticsHtml}
   sitemapEntries: prevSlugEntries.length,
  });
 
+ // Last-reader release, with the marker above as the proof point:
+ // winnerByPrevSlugKey is read only by the previous-slug emit loop, and
+ // legacyTiBridgeDirs is read only by its legacy-TI mirror guard. The active
+ // and cross-locale bridge loops that follow use activeJobDirs instead.
+ winnerByPrevSlugKey.clear();
+ legacyTiBridgeDirs.clear();
+
  // Garbage-collect entries whose oldSlug nobody has claimed in the last
  // 30 days. Without this the registry grows monotonically: deleted jobs
  // leave their winner entries behind as ghosts, and a slug that nobody
@@ -14330,7 +14434,12 @@ ${staticAnalyticsHtml}
   'active-job',
  ) ?? null;
  const crossLocaleCacheKey = `${baseLocale}:${baseSlug}`;
- const cachedHtml = jobHtmlCache.get(crossLocaleCacheKey);
+ const cachedHtml = readCachedOrEmittedHtml(
+  jobHtmlCache,
+  crossLocaleCacheKey,
+  distDir,
+  baseCanonicalPath,
+ );
  // Eviction all'ultimo lettore (vedi il refcount pre-pass sopra): la cache
  // scende progressivamente DURANTE il loop invece di restare piatta fino al
  // clear() in coda. Il decremento avviene anche su cache-miss, perche' il
@@ -14344,8 +14453,13 @@ ${staticAnalyticsHtml}
  if (countedReads !== undefined) {
  const remainingReads = countedReads - 1;
  if (remainingReads <= 0) {
- crossLocaleCacheReads.delete(crossLocaleCacheKey);
- jobHtmlCache.delete(crossLocaleCacheKey);
+  crossLocaleCacheReads.delete(crossLocaleCacheKey);
+  // The canonical HTML is disk-backed after the active-pages flush. The
+  // fallback entry, when a foreign writer left no readable file, is removed
+  // only at the corpus-release safety net below.
+  if (jobHtmlCache.has(crossLocaleCacheKey) && hasEmittedHtml(distDir, baseCanonicalPath)) {
+   jobHtmlCache.delete(crossLocaleCacheKey);
+  }
  } else {
  crossLocaleCacheReads.set(crossLocaleCacheKey, remainingReads);
  }
@@ -14454,6 +14568,14 @@ ${staticAnalyticsHtml}
   expiredSitemapEntries: expiredSitemapEntries.length,
  }));
 
+ // Last-reader release, after the existing checkpoint: the cross-locale-active
+ // loop above is the final reader of both sets, while the checkpoint itself is
+ // the final reader of the sitemap arrays. Keep pathHistory untouched.
+ crossLocaleCacheReads.clear();
+ emittedActiveJobPaths.clear();
+ expiredSitemapEntries.length = 0;
+ prevSlugEntries.length = 0;
+
  // `jobHtmlCache` (populated during the ~85k active-job-page render
  // phase) was read for the last time above, in the cross-locale-active
  // bridge loop — the self-heal pass and final flush below never touch
@@ -14494,7 +14616,6 @@ ${staticAnalyticsHtml}
  implicitPreviousSlugs.length = 0;
  companyActiveJobsMap.clear();
  recentJobPool.length = 0;
- crossLocaleCacheReads.clear();
  // NIENTE forceGc() esplicito prima del checkpoint (review di #6154,
  // finding 1): logBuildMem fotografa heapUsed, POI esegue la sua GC e
  // riporta gcFreed come delta. Con una GC gia' fatta qui il checkpoint
@@ -14621,6 +14742,13 @@ ${staticAnalyticsHtml}
   healedCount,
   relocatedActiveCount,
  }));
+
+ // Last-reader release, proven by after-self-heal: the final safety-net loop
+ // has consumed tracking, _writtenPaths and activeJobDirs. Do not clear
+ // pathHistory; the write-registry report still owns that cross-plugin state.
+ for (const key of Object.keys(tracking)) delete tracking[key];
+ _writtenPaths.clear();
+ activeJobDirs.clear();
 
  /* ── Flush all buffered writes in parallel batches ── */
  const t0 = Date.now();
