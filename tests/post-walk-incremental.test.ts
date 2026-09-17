@@ -9,6 +9,7 @@ import { afterEach, describe, expect, it } from 'vitest';
 import { IncrementalManifest } from '../build-plugins/shared/incrementalManifest.mjs';
 import {
   buildPostWalkIncrementalPlan,
+  buildPostWalkIncrementalPlanFromState,
   comparePostWalkVerification,
   loadPostWalkManifestState,
   loadPostWalkManifestPair,
@@ -367,6 +368,41 @@ describe('post-walk incremental planning', () => {
       'previous-references-loaded',
       'previous-loaded',
     ]);
+  });
+
+  it('preserves previous identity metadata when an unchanged current entry predates the projection', async () => {
+    const root = fixtureRoot();
+    const distDir = path.join(root, 'dist');
+    const changedPath = writeHtml(root, 'jobs/changed/index.html', 'changed');
+    const migratedPath = writeHtml(root, 'jobs/migrated/index.html', 'migrated');
+    const previousEntries = [
+      { path: 'jobs/changed/', kind: 'active-job', input: { jobId: 'shared-job', title: 'old' } },
+      { path: 'jobs/migrated/', kind: 'active-job', input: { jobId: 'shared-job', title: 'same' } },
+    ];
+    writeManifest(root, 'incremental-manifest-prev', previousEntries, true);
+    writeManifest(root, 'incremental-manifest', [
+      { path: 'jobs/changed/', kind: 'active-job', input: { jobId: 'shared-job', title: 'new' } },
+      { path: 'jobs/migrated/', kind: 'active-job', input: { jobId: 'shared-job', title: 'same' } },
+    ]);
+
+    const loaded = await loadPostWalkManifestState(root, ['it'], BASE_URL);
+    expect(loaded.ok).toBe(true);
+    if ('reason' in loaded) throw new Error(loaded.reason);
+    expect(loaded.state.current.entries.get('jobs/migrated')?.postWalk?.jobIds)
+      .toEqual(['shared-job']);
+
+    const plan = buildPostWalkIncrementalPlanFromState({
+      distDir,
+      allHtmlPaths: [changedPath, migratedPath],
+      processableHtmlPaths: [changedPath, migratedPath],
+      baseUrl: BASE_URL,
+      state: loaded.state,
+    });
+
+    expect(plan.mode).toBe('incremental');
+    expect(plan.changed).toBe(1);
+    expect(plan.affected).toBe(1);
+    expect(plan.processHtmlPaths).toEqual([changedPath, migratedPath]);
   });
 
   it('selects a deterministic 2% sample and always includes forced affected paths', () => {

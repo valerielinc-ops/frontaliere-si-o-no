@@ -303,10 +303,36 @@ export async function loadPostWalkManifestPair(
   }
 }
 
-type MutablePostWalkManifestEntry = PostWalkManifestEntry & {
+type MutablePostWalkManifestEntry = Omit<PostWalkManifestEntry, 'postWalk'> & {
+  postWalk?: PostWalkManifestMetadata;
   _seenPreviousEntry?: boolean;
   _seenPreviousHtml?: boolean;
 };
+
+const POST_WALK_METADATA_FIELDS = ['jobIds', 'slugs', 'references'] as const;
+
+function mergePostWalkMetadata(
+  current: PostWalkManifestMetadata | undefined,
+  previous: PostWalkManifestMetadata | undefined,
+): PostWalkManifestMetadata | undefined {
+  if (!previous) return current;
+  if (!current) return previous;
+
+  let merged: PostWalkManifestMetadata = current;
+  for (const field of POST_WALK_METADATA_FIELDS) {
+    const currentValues = current[field] ?? [];
+    const previousValues = previous[field] ?? [];
+    if (previousValues.length === 0) continue;
+    const values = [...new Set([...currentValues, ...previousValues])];
+    if (
+      values.length !== currentValues.length
+      || values.some((value, index) => value !== currentValues[index])
+    ) {
+      merged = { ...merged, [field]: values };
+    }
+  }
+  return merged;
+}
 
 function manifestKindMetadataMismatch(
   currentKinds: ReadonlyMap<string, string>,
@@ -406,6 +432,17 @@ function registerPreviousEntry(
     state.changed.add(currentLogical);
     addEventIdentity(state, currentEntry);
     addEventIdentity(state, previousEntry);
+  } else {
+    // A manifest can straddle the introduction of postWalk metadata: the
+    // current entry may have the same content hash but no identity projection
+    // while the previous entry still carries the job/slug/reference edges.
+    // Preserve that projection on the compact current scan, matching the old
+    // pair planner's identity-index compatibility rule without retaining the
+    // previous entry.
+    mutableCurrent.postWalk = mergePostWalkMetadata(
+      currentEntry.postWalk,
+      previousEntry.postWalk,
+    );
   }
 }
 
