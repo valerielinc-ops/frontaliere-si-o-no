@@ -54,9 +54,9 @@ describe('Capri structured address resolution', () => {
     });
   });
 
-  it('switches the whole tuple when a known city has no verified street', () => {
+  it('uses the verified city tuple when the source omits a street', () => {
     expect(resolveSwissStructuredAddress({ city: 'Manno', canton: 'TI' })).toMatchObject({
-      city: 'Bellinzona', canton: 'TI', postalCode: '6500', streetAddress: 'Piazza Governo',
+      city: 'Manno', canton: 'TI', postalCode: '6928', streetAddress: 'Via Cantonale 2c',
     });
   });
 });

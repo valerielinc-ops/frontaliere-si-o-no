@@ -46,6 +46,7 @@ const CANTON_CAPITAL_ADDRESSES = Object.freeze({
 // locality. Unknown municipalities fall back to the complete canton tuple.
 const CITY_FALLBACK_STREETS = Object.freeze({
   lugano: 'Piazza Riforma 1',
+  manno: 'Via Cantonale 2c',
   mendrisio: 'Via Luigi Benteler 1',
   winterthur: 'Stadthausstrasse 4a',
   landquart: 'Bahnhofstrasse 2',
