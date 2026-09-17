@@ -375,7 +375,7 @@ describe('L7 Experiment Allocator', () => {
       });
   });
 
-  it('claims persistent ledger support only from a complete observed outcome source', async () => {
+  it('does not claim persistent ledger support without direct outcome provenance', async () => {
     const files = tempFiles(registry(), outcomes());
     const result = await runL7({
       now: NOW,
@@ -387,7 +387,7 @@ describe('L7 Experiment Allocator', () => {
     expect(result).toMatchObject({
       verdict: { ok: true, quality: 'observed' },
       outcome: {
-        independent: true,
+        independent: false,
         evidenceStatus: 'verified',
         ledger: { status: 'verified', persistent: true, guardrails: true, duration: true },
         allocationPlan: {

@@ -21,6 +21,10 @@ function writeL1Evidence(dir: string) {
     recordType: 'observation',
     schemaVersion: 1,
     loopId: 'L1',
+    sourceSnapshot: {
+      source: 'synthetic-independent-test-source',
+      path: 'synthetic-outcome.json',
+    },
     actionClass: 'issue+suspend-canary',
     quality: 'partial',
     recordedAt: NOW.toISOString(),
@@ -29,6 +33,10 @@ function writeL1Evidence(dir: string) {
     recordType: 'decision',
     schemaVersion: 1,
     loopId: 'L1',
+    sourceSnapshot: {
+      source: 'synthetic-independent-test-source',
+      path: 'synthetic-outcome.json',
+    },
     actionClass: 'issue+suspend-canary',
     decision: 'candidate',
     startedAt: NOW.toISOString(),
@@ -43,6 +51,33 @@ function writeL1Evidence(dir: string) {
     warningCount: 2,
     issued: true,
     actionsWritten: false,
+  });
+}
+
+function writeIndependentL1Outcome(dir: string) {
+  const observation = JSON.parse(fs.readFileSync(path.join(dir, 'l1-observation.json'), 'utf8'));
+  observation.quality = 'observed';
+  observation.outcome = buildOutcome({
+    outcomeId: 'error-free-useful-session',
+    status: 'observed',
+    independent: true,
+    sourceRefs: ['posthog-error-telemetry'],
+    primaryMetric: 'error_free_useful_session_rate',
+    numerator: 95,
+    denominator: 100,
+    requiredFieldsPresent: ['generatedAt', 'numerator', 'denominator'],
+    missingFields: [],
+    reason: 'synthetic independent telemetry export',
+    observedAt: NOW.toISOString(),
+    recordedAt: NOW.toISOString(),
+  });
+  writeJson(dir, 'l1-observation.json', observation);
+  writeJson(dir, 'l1-result.json', {
+    loopId: 'L1',
+    ok: true,
+    quality: 'observed',
+    issueCount: 0,
+    warningCount: 0,
   });
 }
 
@@ -371,6 +406,186 @@ describe('record-loop-fleet-evidence', () => {
     expect(result.health.ok).toBe(false);
   });
 
+  it('promotes an independent outcome only with a direct candidate/source/TTL chain', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-evidence-independent-valid-'));
+    writeL1Evidence(dir);
+    writeIndependentL1Outcome(dir);
+
+    const result = recordLoopEvidence({ loopId: 'L1', reportDir: dir, now: NOW });
+
+    expect(result.summary).toMatchObject({
+      policyCompliant: true,
+      outcomePolicyCompliant: true,
+      outcome: {
+        status: 'observed',
+        independent: true,
+        numerator: 95,
+        denominator: 100,
+        missingFields: [],
+      },
+      outcomeProvenance: {
+        source: 'synthetic-independent-test-source',
+        sourceRecordId: result.decision.recordId,
+        candidateId: result.decision.recordId,
+        expiresAt: result.decision.expiresAt,
+        observedAt: NOW.toISOString(),
+      },
+    });
+    expect(result.health.ok).toBe(true);
+    expect(result.lifecycleEvents).toHaveLength(2);
+    expect(JSON.parse(fs.readFileSync(path.join(dir, 'loop-fleet-outcome.json'), 'utf8')))
+      .toMatchObject({
+        outcomeProvenance: {
+          candidateId: result.decision.recordId,
+          sourceRecordId: result.decision.recordId,
+          source: 'synthetic-independent-test-source',
+          expiresAt: result.decision.expiresAt,
+        },
+      });
+  });
+
+  it('fails closed when an independent outcome uses an observing decision', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-evidence-observing-decision-'));
+    writeL1Evidence(dir);
+    writeIndependentL1Outcome(dir);
+    const decision = JSON.parse(fs.readFileSync(path.join(dir, 'l1-decision.json'), 'utf8'));
+    decision.decision = 'observing';
+    writeJson(dir, 'l1-decision.json', decision);
+
+    const result = recordLoopEvidence({ loopId: 'L1', reportDir: dir, now: NOW });
+
+    expect(result.summary).toMatchObject({
+      policyCompliant: false,
+      outcomePolicyCompliant: false,
+      outcome: { status: 'partial', independent: false, numerator: null, denominator: null },
+    });
+    expect(result.summary.outcomeErrors).toContain('independent outcome decision must be candidate');
+    expect(result.health.ok).toBe(false);
+    expect(result.lifecycleEvents).toHaveLength(0);
+  });
+
+  it('does not borrow counts or timestamps from the observation artifact', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-evidence-independent-artifact-'));
+    writeL1Evidence(dir);
+    const observation = JSON.parse(fs.readFileSync(path.join(dir, 'l1-observation.json'), 'utf8'));
+    observation.numerator = 95;
+    observation.denominator = 100;
+    observation.sourceSnapshot.evidence = { outcomes: { generatedAt: NOW.toISOString() } };
+    observation.outcome = {
+      recordType: 'outcome',
+      schemaVersion: 1,
+      outcomeId: 'error-free-useful-session',
+      status: 'observed',
+      independent: true,
+      sourceRefs: ['posthog-error-telemetry'],
+      primaryMetric: 'error_free_useful_session_rate',
+      reason: 'synthetic candidate without direct outcome fields',
+    };
+    writeJson(dir, 'l1-observation.json', observation);
+    writeJson(dir, 'l1-result.json', { loopId: 'L1', ok: true, quality: 'observed' });
+
+    const result = recordLoopEvidence({ loopId: 'L1', reportDir: dir, now: NOW });
+
+    expect(result.summary).toMatchObject({
+      policyCompliant: false,
+      outcomePolicyCompliant: false,
+      outcome: {
+        status: 'partial',
+        independent: false,
+        numerator: null,
+        denominator: null,
+        missingFields: ['generatedAt', 'numerator', 'denominator'],
+      },
+    });
+    expect(result.summary.outcomeErrors.join(' ')).toMatch(/direct on the outcome record/);
+    expect(result.summary.outcomeErrors.join(' ')).toMatch(/numerator must be present/);
+  });
+
+  it('does not turn a missing zero-quality outcome into a measured zero', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-evidence-missing-zero-'));
+    writeL1Evidence(dir);
+    const observation = JSON.parse(fs.readFileSync(path.join(dir, 'l1-observation.json'), 'utf8'));
+    const resultArtifact = JSON.parse(fs.readFileSync(path.join(dir, 'l1-result.json'), 'utf8'));
+    observation.quality = 'zero';
+    resultArtifact.quality = 'zero';
+    writeJson(dir, 'l1-observation.json', observation);
+    writeJson(dir, 'l1-result.json', resultArtifact);
+
+    const result = recordLoopEvidence({ loopId: 'L1', reportDir: dir, now: NOW });
+
+    expect(result.summary.outcome).toMatchObject({
+      status: 'partial',
+      independent: false,
+      numerator: null,
+      denominator: null,
+      missingFields: ['generatedAt', 'numerator', 'denominator'],
+    });
+    expect(result.health.ok).toBe(false);
+  });
+
+  it('rejects mismatched source references instead of replacing them with registry metadata', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-evidence-independent-source-ref-'));
+    writeL1Evidence(dir);
+    writeIndependentL1Outcome(dir);
+    const observation = JSON.parse(fs.readFileSync(path.join(dir, 'l1-observation.json'), 'utf8'));
+    observation.outcome.sourceRefs = ['unrelated-artifact'];
+    writeJson(dir, 'l1-observation.json', observation);
+
+    const result = recordLoopEvidence({ loopId: 'L1', reportDir: dir, now: NOW });
+
+    expect(result.summary.outcome).toMatchObject({
+      status: 'partial',
+      independent: false,
+      numerator: null,
+      denominator: null,
+    });
+    expect(result.summary.outcomeErrors).toContain('independent outcome sourceRefs must exactly match the registry');
+    expect(result.summary.policyCompliant).toBe(false);
+    expect(result.lifecycleEvents).toHaveLength(2);
+  });
+
+  it('does not emit candidate lifecycle events when source or TTL references are missing', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-evidence-candidate-refs-'));
+    writeL1Evidence(dir);
+    writeIndependentL1Outcome(dir);
+    const decision = JSON.parse(fs.readFileSync(path.join(dir, 'l1-decision.json'), 'utf8'));
+    delete decision.sourceSnapshot;
+    delete decision.expiresAt;
+    writeJson(dir, 'l1-decision.json', decision);
+
+    const result = recordLoopEvidence({ loopId: 'L1', reportDir: dir, now: NOW });
+
+    expect(result.summary).toMatchObject({
+      policyCompliant: false,
+      lifecycleCompliant: false,
+      outcome: { status: 'partial', independent: false, numerator: null, denominator: null },
+      lifecycleEventTypes: [],
+    });
+    expect(result.policyErrors.join(' ')).toMatch(/sourceSnapshot\.source is missing/);
+    expect(result.summary.outcomeErrors.join(' ')).toMatch(/expiresAt is missing or invalid/);
+    expect(result.lifecycleEvents).toHaveLength(0);
+  });
+
+  it('degrades an otherwise complete outcome after its decision TTL expires', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-evidence-expired-'));
+    writeL1Evidence(dir);
+    writeIndependentL1Outcome(dir);
+    const decision = JSON.parse(fs.readFileSync(path.join(dir, 'l1-decision.json'), 'utf8'));
+    decision.expiresAt = new Date(NOW.getTime() - 1_000).toISOString();
+    writeJson(dir, 'l1-decision.json', decision);
+
+    const result = recordLoopEvidence({ loopId: 'L1', reportDir: dir, now: NOW });
+
+    expect(result.summary).toMatchObject({
+      policyCompliant: false,
+      lifecycleCompliant: false,
+      outcome: { status: 'partial', independent: false, numerator: null, denominator: null },
+      lifecycleEventTypes: [],
+    });
+    expect(result.summary.outcomeErrors.join(' ')).toMatch(/expiresAt .* is expired/);
+    expect(result.lifecycleEvents).toHaveLength(0);
+  });
+
   it('does not persist healthy evidence when the runner-local validator fails', () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-evidence-validator-failed-'));
     writeL1Evidence(dir);
@@ -419,6 +634,7 @@ describe('record-loop-fleet-evidence', () => {
   it('fails closed when a decision exceeds the registry TTL', () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-evidence-ttl-'));
     writeL1Evidence(dir);
+    writeIndependentL1Outcome(dir);
     const decision = JSON.parse(fs.readFileSync(path.join(dir, 'l1-decision.json'), 'utf8'));
     decision.expiresAt = new Date(NOW.getTime() + 25 * 3_600_000).toISOString();
     fs.writeFileSync(path.join(dir, 'l1-decision.json'), `${JSON.stringify(decision)}\n`);
@@ -429,6 +645,13 @@ describe('record-loop-fleet-evidence', () => {
     expect(result.summary.written).toMatchObject({ observation: true, decision: true, health: true });
     expect(result.policyErrors.join(' ')).toMatch(/exceeds candidate TTL/);
     expect(result.health.lifecycleCompliant).toBe(false);
+    expect(result.summary.outcome).toMatchObject({
+      status: 'partial',
+      independent: false,
+      numerator: null,
+      denominator: null,
+    });
+    expect(result.lifecycleEvents).toHaveLength(0);
   });
 
   it('starts the TTL at decision time when the observation source is older', () => {
@@ -467,10 +690,12 @@ describe('record-loop-fleet-evidence', () => {
       .toMatchObject({ loopId: 'L11', quality: 'partial', numerator: null, denominator: null });
     expect(JSON.parse(fs.readFileSync(path.join(dir, 'loop-health-history.jsonl'), 'utf8')))
       .toMatchObject({ loopId: 'L11', issueCount: 2, warningCount: 1, issued: false });
+    expect(Date.parse(result.decision.expiresAt) - NOW.getTime())
+      .toBe(72 * 3_600_000);
     expect(fs.readFileSync(path.join(dir, 'lifecycle-events.jsonl'), 'utf8').trim().split('\n')).toHaveLength(2);
   });
 
-  it('promotes L11 only when the workflow inventory and audit findings agree', () => {
+  it('fails closed when a measured L11 inventory uses an observing decision', () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-l11-independent-'));
     const workflowFiles = [
       '.github/workflows/one.yml',
@@ -490,22 +715,24 @@ describe('record-loop-fleet-evidence', () => {
     expect(result.summary).toMatchObject({
       loopId: 'L11',
       evidenceComplete: true,
-      policyCompliant: true,
+      policyCompliant: false,
       quality: 'observed',
       outcome: {
-        status: 'observed',
-        independent: true,
-        numerator: workflowFiles.length,
-        denominator: workflowFiles.length,
+        status: 'partial',
+        independent: false,
+        numerator: null,
+        denominator: null,
         missingFields: [],
       },
     });
     expect(JSON.parse(fs.readFileSync(path.join(dir, 'loop-health-history.jsonl'), 'utf8')))
       .toMatchObject({
         loopId: 'L11',
-        ok: true,
-        outcome: { status: 'observed', independent: true, numerator: 3, denominator: 3 },
+        ok: false,
+        outcome: { status: 'partial', independent: false, numerator: null, denominator: null },
       });
+    expect(result.summary.outcomeErrors).toContain('independent outcome decision must be candidate');
+    expect(result.lifecycleEvents).toHaveLength(0);
   });
 
   it('non promuove un conteggio pulito quando l inventario non è completo', () => {

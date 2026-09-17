@@ -6,6 +6,10 @@ import * as readline from 'node:readline';
 export const MANIFEST_VERSION = 2;
 export const MANIFEST_FORMAT = 'jsonl';
 export const SOURCE_VERSION = 'input@1';
+// The emitter fingerprint includes this value. Bumping it makes the first
+// build after a change to the canonical job digest algorithm miss old HTML
+// reuse entries even when the page input happens to hash identically.
+export const JOB_DIGEST_ALGORITHM_VERSION = 'job-digest@2';
 export const INCREMENTAL_MANIFEST_ENABLED = process.env.INCREMENTAL_MANIFEST === '1';
 
 export const PAGE_KINDS = Object.freeze([
@@ -298,6 +302,13 @@ export function createIncrementalManifestInputCache() {
     jobDigestsById: new Map(),
     relatedJobProjectionsByKey: new Map(),
   };
+  Object.defineProperty(cache, '_metrics', {
+    value: {
+      jobDigestComputations: 0,
+      relatedProjectionComputations: 0,
+    },
+    enumerable: false,
+  });
   Object.defineProperty(cache, '_estimatedBytes', {
     value: {
       jobDigestsById: 0,
@@ -369,6 +380,7 @@ function digestJobRecord(job, inputCache = null) {
   // Job records do not carry fetch-only `fetchedAt`; `updatedAt`, `crawledAt`,
   // and posting dates are retained because they are source/freshness inputs to
   // the rendered JobPosting. Only generated build metadata is excluded above.
+  if (inputCache?._metrics) inputCache._metrics.jobDigestComputations += 1;
   const digest = sha256(JSON.stringify(record));
   const cacheEntry = { signature: cheapJobRecordSignature(job), digest };
   jobRecordDigestCache.set(job, cacheEntry);
@@ -401,6 +413,7 @@ function projectRelatedJob(relatedJob, locale, inputCache = null) {
     slug: String(relatedJob?.slugByLocale?.[locale] || relatedJob?.slug || ''),
     digest: digestJobRecord(relatedJob, inputCache),
   };
+  if (inputCache?._metrics) inputCache._metrics.relatedProjectionComputations += 1;
   const digestEntry = jobRecordDigestCache.get(relatedJob);
   const cacheEntry = {
     signature: digestEntry?.signature ?? cheapJobRecordSignature(relatedJob),
@@ -451,7 +464,18 @@ export function stableJobVersion(job) {
  * by a cheap digest; only the small related-job projection enters the
  * canonicalizer.
  */
-export function buildMinimalJobInput(job, locale, slug, relatedJobs = [], inputCache = null) {
+export function buildMinimalJobInput(
+  job,
+  locale,
+  slug,
+  relatedJobs = [],
+  inputCache = null,
+  canonicalJob = null,
+) {
+  // Bridge page records may carry a page-local id/slug or other route fields.
+  // Keep those fields in the page input below, but always derive the job
+  // identity/version/digest from the canonical source record when supplied.
+  const sourceJob = canonicalJob && typeof canonicalJob === 'object' ? canonicalJob : job;
   const relatedJobList = Array.isArray(relatedJobs) ? relatedJobs : [];
   const relatedJobProjections = relatedJobList
     .map((relatedJob) => projectRelatedJob(relatedJob, locale, inputCache))
@@ -460,9 +484,9 @@ export function buildMinimalJobInput(job, locale, slug, relatedJobs = [], inputC
   markCanonicalJson(relatedJobProjections, JSON.stringify(relatedJobProjections));
 
   const input = {
-    jobId: stableJobId(job),
-    jobRecordDigest: digestJobRecord(job, inputCache),
-    jobVersion: stableJobVersion(job),
+    jobId: stableJobId(sourceJob),
+    jobRecordDigest: digestJobRecord(sourceJob, inputCache),
+    jobVersion: stableJobVersion(sourceJob),
     locale: String(locale),
     relatedJobs: relatedJobProjections,
     slug: String(slug ?? ''),
@@ -744,6 +768,10 @@ function inputCacheMemoryStats(inputCache) {
       entries: relatedProjectionLists?.size ?? 0,
       estimatedBytes: Math.max(0, Math.round(relatedProjectionListsEstimatedBytes)),
     },
+    computations: {
+      jobDigestComputations: inputCache?._metrics?.jobDigestComputations ?? 0,
+      relatedProjectionComputations: inputCache?._metrics?.relatedProjectionComputations ?? 0,
+    },
   };
 }
 
@@ -762,10 +790,12 @@ export function getIncrementalManifestMemoryStats(rootDir) {
     { entries: 0, estimatedBytes: 0 },
   );
   const inputCacheStats = inputCacheMemoryStats(inputCache);
-  const inputCacheTotal = Object.values(inputCacheStats).reduce(
-    (total, stats) => total + stats.estimatedBytes,
-    0,
-  );
+  const inputCacheTotal = Object.values(inputCacheStats)
+    .filter((stats) => stats && typeof stats.estimatedBytes === 'number')
+    .reduce(
+      (total, stats) => total + stats.estimatedBytes,
+      0,
+    );
   return {
     manifests: {
       locales: Object.keys(manifestStats).length,
