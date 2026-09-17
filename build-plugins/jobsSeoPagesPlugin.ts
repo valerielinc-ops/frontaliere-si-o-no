@@ -42,11 +42,12 @@ import { buildSoftLandingThinHtml } from './shared/softLandingThinShell';
 import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/gscKeywordThinShell';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import {
-  buildMinimalJobInput,
-  getIncrementalManifestInputCache,
-  getIncrementalManifestMap,
-  INCREMENTAL_MANIFEST_ENABLED,
-  stableJobId,
+ buildMinimalJobInput,
+ getIncrementalManifestInputCache,
+ getIncrementalManifestMap,
+ INCREMENTAL_MANIFEST_ENABLED,
+ resetIncrementalManifestInputCache,
+ stableJobId,
 } from './shared/incrementalManifest.mjs';
 import {
   computeJobsSeoEmitterFingerprints,
@@ -722,6 +723,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  apply: 'build',
  enforce: 'post',
  async closeBundle() {
+ resetIncrementalManifestInputCache(rootDir);
  // Fail the build loudly (follow-up #3608 item 2) instead of silently
  // emitting a literal "undefined" segment in a sector-hub canonical URL —
  // see assertSectorHubTablesComplete() doc comment in ./jobSectorLanding.

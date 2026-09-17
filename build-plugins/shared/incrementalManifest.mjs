@@ -722,6 +722,12 @@ export function getIncrementalManifestInputCache(rootDir) {
   return inputCache;
 }
 
+export function resetIncrementalManifestInputCache(rootDir) {
+  // Digest/projection entries are valid only for the build that populated them.
+  const rootKey = path.resolve(String(rootDir));
+  manifestInputCachesByRoot.delete(rootKey);
+}
+
 export function getIncrementalManifestMap(rootDir, locales, force = false) {
   if (!INCREMENTAL_MANIFEST_ENABLED && !force) return null;
   const rootKey = path.resolve(String(rootDir));

@@ -194,6 +194,48 @@ describe('incremental manifest input contract', () => {
     expect(output.trim()).toBe('shared');
   });
 
+  it('does not share stale digest entries across builds in one process', () => {
+    const moduleUrl = pathToFileURL(path.join(ROOT, 'build-plugins/shared/incrementalManifest.mjs')).href;
+    const script = `
+      import {
+        buildMinimalJobInput,
+        getIncrementalManifestInputCache,
+        resetIncrementalManifestInputCache,
+      } from ${JSON.stringify(moduleUrl)};
+      const root = '/fixture-root';
+      const firstCache = getIncrementalManifestInputCache(root);
+      const first = buildMinimalJobInput(
+        { id: 'cache-job-generation', title: 'first title', updatedAt: 'fixture-v1' },
+        'it',
+        'cache-job-generation',
+        [],
+        firstCache,
+      );
+      resetIncrementalManifestInputCache(root);
+      const secondCache = getIncrementalManifestInputCache(root);
+      const second = buildMinimalJobInput(
+        { id: 'cache-job-generation', title: 'second title', updatedAt: 'fixture-v1' },
+        'it',
+        'cache-job-generation',
+        [],
+        secondCache,
+      );
+      console.log(JSON.stringify({
+        cacheReplaced: firstCache !== secondCache,
+        digestChanged: first.jobRecordDigest !== second.jobRecordDigest,
+      }));
+    `;
+    const output = execFileSync(process.execPath, ['--input-type=module', '--eval', script], {
+      cwd: ROOT,
+      encoding: 'utf8',
+      env: { ...process.env, INCREMENTAL_MANIFEST: '1' },
+    });
+    expect(JSON.parse(output.trim())).toEqual({
+      cacheReplaced: true,
+      digestChanged: true,
+    });
+  });
+
   it('excludes build and generation metadata from the hash', () => {
     expect(verifyRuntimeInputExclusion()).toBe(true);
   });
