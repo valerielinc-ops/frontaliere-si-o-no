@@ -162,19 +162,26 @@ async function fetchSunriseListings() {
     payloadPresent = true;
     malformedRecordCount += Number(rows.sunriseSearchSkippedMalformedRecords || 0);
     const rawRecordCount = Number(rows.sunriseSearchRawRecordCount || 0);
-    if (!paginationIntegrity.observe(rows).accepted) {
-      console.warn(`⚠️ Sunrise pagination integrity failed at offset ${offset}; source snapshot is unproven.`);
-      break;
+    const pageIntegrity = paginationIntegrity.observe(rows);
+    if (!pageIntegrity.accepted) {
+      throw new Error(
+        `Sunrise pagination integrity failed at offset ${offset} (${pageIntegrity.reason}); `
+        + 'refusing to publish an incomplete source snapshot.',
+      );
     }
-    const shortPage = rawRecordCount < PAGE_SIZE;
+    // After the integrity check, every row is uniquely identified and has no
+    // overlap with an earlier page. This is the only count that may prove a
+    // short-page terminal condition; raw source rows can include duplicates.
+    const pageRecordCount = rows.length;
+    const shortPage = pageRecordCount < PAGE_SIZE;
     const pageTerminationEvidence = hasAuthoritativeListingPageEvidence({
       isTerminalPage: shortPage,
       paginationIntegrityProven: paginationIntegrity.proven,
       listingMarkupSeen: payloadPresent,
-      listingRowsSeen: rawRecordCount > 0,
+      listingRowsSeen: pageRecordCount > 0,
       emptyStateObserved: rawRecordCount === 0,
     });
-    if (rawRecordCount === 0) {
+    if (pageRecordCount === 0) {
       terminationProven = pageTerminationEvidence;
       break;
     }

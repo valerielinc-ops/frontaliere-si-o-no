@@ -151,9 +151,12 @@ async function fetchDamianiListings() {
           `${skippedMalformedRows}/${diagnostic.total} rows malformed`,
       );
     }
-    if (!paginationIntegrity.observe(rows).accepted) {
-      console.warn(` Damiani pagination integrity failed at startrow=${startrow}; source snapshot is unproven.`);
-      break;
+    const pageIntegrity = paginationIntegrity.observe(rows);
+    if (!pageIntegrity.accepted) {
+      throw new Error(
+        `Damiani pagination integrity failed at startrow=${startrow} (${pageIntegrity.reason}); `
+        + 'refusing to publish an incomplete source snapshot.',
+      );
     }
     if (rows.length === 0) {
       terminalPageEvidenceProven = hasAuthoritativeListingPageEvidence({

@@ -166,9 +166,12 @@ async function fetchBoardListings() {
     const discovered = parseBoardListings(html);
     skippedMalformedRows += Number(discovered.boardListingSkippedMalformedRows || 0);
     console.log(`  → Found ${discovered.length} listings on page ${page}`);
-    if (!paginationIntegrity.observe(discovered).accepted) {
-      console.warn(`⚠️ Board pagination integrity failed on page ${page}; source snapshot is unproven.`);
-      break;
+    const pageIntegrity = paginationIntegrity.observe(discovered);
+    if (!pageIntegrity.accepted) {
+      throw new Error(
+        `⚠️ Board pagination integrity failed on page ${page} (${pageIntegrity.reason}); `
+        + 'refusing to publish an incomplete source snapshot.',
+      );
     }
     allDiscovered.push(...discovered);
 

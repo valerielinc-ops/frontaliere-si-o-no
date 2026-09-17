@@ -28,6 +28,22 @@ describe('listing pagination integrity', () => {
     expect(integrity.proven).toBe(false);
   });
 
+  it('cannot turn a repeated short page into terminal listing evidence', async () => {
+    const { hasAuthoritativeListingPageEvidence } = await import(
+      '../scripts/lib/job-listing-evidence.mjs'
+    );
+    const integrity = createListingPaginationIntegrity({ getRowKey: (row) => row.id });
+
+    expect(integrity.observe([{ id: 'a' }, { id: 'b' }]).accepted).toBe(true);
+    expect(integrity.observe([{ id: 'a' }]).accepted).toBe(false);
+    expect(hasAuthoritativeListingPageEvidence({
+      isTerminalPage: true,
+      listingMarkupSeen: true,
+      listingRowsSeen: true,
+      paginationIntegrityProven: integrity.proven,
+    })).toBe(false);
+  });
+
   it('wires strict page identity proof into every crawler with the short-page zero path', () => {
     const runners = [
       ['update-sunrise-jobs.mjs', 'sunriseSourcePaginationIntegrityProven'],

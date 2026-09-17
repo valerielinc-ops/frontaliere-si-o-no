@@ -182,9 +182,12 @@ async function fetchListings() {
           `${skippedMalformedRows}/${diagnostic.total} rows malformed`,
       );
     }
-    if (!paginationIntegrity.observe(rows).accepted) {
-      console.warn(`⚠️ Skyguide pagination integrity failed at startrow=${startRow}; source snapshot is unproven.`);
-      break;
+    const pageIntegrity = paginationIntegrity.observe(rows);
+    if (!pageIntegrity.accepted) {
+      throw new Error(
+        `⚠️ Skyguide pagination integrity failed at startrow=${startRow} (${pageIntegrity.reason}); `
+        + 'refusing to publish an incomplete source snapshot.',
+      );
     }
     console.log(`📋 Page ${page + 1} (startrow ${startRow}): ${rows.length} rows`);
     if (rows.length === 0) {
