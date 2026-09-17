@@ -5,7 +5,7 @@
  * Crawls https://www.hitachienergy.com/careers/open-jobs (AEM + Workday ATS)
  * 1. Fetches Switzerland jobs via AEM JSON listing API (paginated)
  * 2. Optionally fetches detail pages for rich descriptions
- * 3. Filters Ticino/Grigioni-relevant jobs via shared geo-filtering
+ * 3. Filters Swiss jobs via the shared all-canton geo-filtering
  * 4. Merges into data/jobs.json
  * 5. Updates adapter config
  */
@@ -44,7 +44,7 @@ import {
   parseHitachiEnergyListingJson,
   parseHitachiEnergyDetailPage,
   buildHitachiEnergyLocalizedContent,
-  isHitachiEnergyTicinoRelevant,
+  isHitachiEnergySwissRelevant,
   inferHitachiEnergyCanton,
   hasMorePages,
   PAGE_SIZE,
@@ -238,17 +238,17 @@ async function fetchAllListings() {
 }
 
 async function enrichWithDetails(listings) {
-  // Only enrich Ticino-relevant jobs with descriptions
-  const ticinoJobs = listings.filter((job) =>
-    isHitachiEnergyTicinoRelevant(job.location) ||
-    isHitachiEnergyTicinoRelevant(job.primaryLocation),
+  // Enrich every listing whose location identifies Switzerland.
+  const swissJobs = listings.filter((job) =>
+    isHitachiEnergySwissRelevant(job.location) ||
+    isHitachiEnergySwissRelevant(job.primaryLocation),
   );
 
-  console.log(`\n📍 Ticino/GR-relevant jobs: ${ticinoJobs.length} / ${listings.length}`);
+  console.log(`\n📍 Swiss-canton jobs: ${swissJobs.length} / ${listings.length}`);
 
-  if (ticinoJobs.length === 0) return [];
+  if (swissJobs.length === 0) return [];
 
-  const toFetch = ticinoJobs.slice(0, MAX_DETAIL_PAGES);
+  const toFetch = swissJobs.slice(0, MAX_DETAIL_PAGES);
   console.log(`🔎 Fetching up to ${toFetch.length} detail pages...`);
 
   const enriched = [];
@@ -367,7 +367,7 @@ function updateAdapterConfig(jobs) {
     priority: 18,
     crawlerModes: ['api'],
     seedUrls: [`${CAREERS_URL}?filterable587622750-location=Switzerland`],
-    notes: 'Dedicated Hitachi Energy crawler uses the AEM JSON listing API filtered to Switzerland, then filters for Ticino/GR locations. Descriptions enriched from detail pages.',
+    notes: 'Dedicated Hitachi Energy crawler uses the AEM JSON listing API filtered to Switzerland, then keeps locations resolving to one of the 26 Swiss cantons; descriptions are enriched from detail pages.',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });
@@ -383,7 +383,7 @@ function validateLocales() {
     isTrustedDomain,
     untrustedDomainReason: 'url_not_hitachi_domain',
     failWhenNoJobs: false,
-    noJobsMessage: 'No Hitachi Energy Ticino/GR jobs found after dedicated crawl.',
+    noJobsMessage: 'No Hitachi Energy Swiss-canton jobs found after dedicated crawl.',
     detectSourceLang: (text, job) => job?.sourceLang || detectLang(text, 'en'),
   });
 }
@@ -407,7 +407,7 @@ async function main() {
   const enrichedListings = await enrichWithDetails(listings);
 
   if (enrichedListings.length === 0) {
-    console.log('⚠️ No Ticino/GR-relevant jobs found in Switzerland listings — updating adapter with 0 jobs.');
+    console.log('⚠️ No Swiss-canton jobs found in Switzerland listings — updating adapter with 0 jobs.');
     mergeJobs([]);
     updateAdapterConfig([]);
     validateLocales();
