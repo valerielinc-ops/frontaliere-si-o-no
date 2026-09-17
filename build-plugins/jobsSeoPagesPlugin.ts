@@ -51,6 +51,7 @@ import {
  buildMinimalJobInput,
  getIncrementalManifestInputCache,
  getIncrementalManifestMap,
+ logIncrementalManifestMemory,
  INCREMENTAL_MANIFEST_ENABLED,
  resetIncrementalManifestInputCache,
  stableJobId,
@@ -14882,6 +14883,7 @@ ${staticAnalyticsHtml}
      `entries=${manifestData.counts.total} kinds=${JSON.stringify(manifestData.counts.byKind)}`,
     );
    }
+   logIncrementalManifestMemory(rootDir, 'jobs');
   }
   jobsSeoReuse?.logSummary();
  } finally {

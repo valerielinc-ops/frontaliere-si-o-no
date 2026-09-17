@@ -293,31 +293,55 @@ function hasMatchingSignature(entry, job) {
   return entry && typeof entry === 'object' && hasMatchingJobRecordSignature(job, entry.signature);
 }
 
-function hasMatchingRelatedProjectionList(entry, relatedJobs) {
-  if (!entry || !Array.isArray(entry.signatures) || entry.signatures.length !== relatedJobs.length) {
-    return false;
-  }
-  for (let index = 0; index < relatedJobs.length; index += 1) {
-    const relatedJob = relatedJobs[index];
-    if (relatedJob && typeof relatedJob === 'object') {
-      if (!hasMatchingJobRecordSignature(relatedJob, entry.signatures[index])) return false;
-    } else if (entry.signatures[index] !== null) {
-      return false;
-    }
-  }
-  return true;
-}
-
 export function createIncrementalManifestInputCache() {
-  return {
+  const cache = {
     jobDigestsById: new Map(),
     relatedJobProjectionsByKey: new Map(),
-    relatedProjectionListsByKey: new Map(),
   };
+  Object.defineProperty(cache, '_estimatedBytes', {
+    value: {
+      jobDigestsById: 0,
+      relatedJobProjectionsByKey: 0,
+    },
+    enumerable: false,
+  });
+  return cache;
 }
 
 const jobRecordDigestCache = new WeakMap();
 const relatedJobProjectionCache = new WeakMap();
+
+function estimateStringBytes(value) {
+  return typeof value === 'string' ? Buffer.byteLength(value, 'utf8') + 16 : 0;
+}
+
+function estimateValueBytes(value, seen = new Set()) {
+  if (value === null || value === undefined) return 8;
+  if (typeof value === 'string') return estimateStringBytes(value);
+  if (typeof value === 'number' || typeof value === 'boolean') return 8;
+  if (typeof value !== 'object') return 0;
+  if (seen.has(value)) return 0;
+  seen.add(value);
+  if (Array.isArray(value)) {
+    return 24 + value.reduce((total, item) => total + estimateValueBytes(item, seen), 0);
+  }
+  return 40 + Object.entries(value).reduce(
+    (total, [key, item]) => total + estimateStringBytes(key) + estimateValueBytes(item, seen),
+    0,
+  );
+}
+
+function estimateMapEntryBytes(key, value) {
+  return 48 + estimateStringBytes(key) + estimateValueBytes(value);
+}
+
+function setInputCacheEntry(inputCache, mapName, key, value) {
+  const map = inputCache[mapName];
+  const previous = map.get(key);
+  if (previous) inputCache._estimatedBytes[mapName] -= estimateMapEntryBytes(key, previous);
+  map.set(key, value);
+  inputCache._estimatedBytes[mapName] += estimateMapEntryBytes(key, value);
+}
 
 function digestJobRecord(job, inputCache = null) {
   if (!job || typeof job !== 'object') return sha256('{}');
@@ -328,7 +352,7 @@ function digestJobRecord(job, inputCache = null) {
   }
   const cachedDigest = jobRecordDigestCache.get(job);
   if (hasMatchingSignature(cachedDigest, job)) {
-    if (inputCache && stableId) inputCache.jobDigestsById.set(stableId, cachedDigest);
+    if (inputCache && stableId) setInputCacheEntry(inputCache, 'jobDigestsById', stableId, cachedDigest);
     return cachedDigest.digest;
   }
 
@@ -348,7 +372,7 @@ function digestJobRecord(job, inputCache = null) {
   const digest = sha256(JSON.stringify(record));
   const cacheEntry = { signature: cheapJobRecordSignature(job), digest };
   jobRecordDigestCache.set(job, cacheEntry);
-  if (inputCache && stableId) inputCache.jobDigestsById.set(stableId, cacheEntry);
+  if (inputCache && stableId) setInputCacheEntry(inputCache, 'jobDigestsById', stableId, cacheEntry);
   return digest;
 }
 
@@ -383,7 +407,7 @@ function projectRelatedJob(relatedJob, locale, inputCache = null) {
     projection,
   };
   projectionsByLocale.set(locale, cacheEntry);
-  if (cacheKey) inputCache.relatedJobProjectionsByKey.set(cacheKey, cacheEntry);
+  if (cacheKey) setInputCacheEntry(inputCache, 'relatedJobProjectionsByKey', cacheKey, cacheEntry);
   return projection;
 }
 
@@ -429,46 +453,11 @@ export function stableJobVersion(job) {
  */
 export function buildMinimalJobInput(job, locale, slug, relatedJobs = [], inputCache = null) {
   const relatedJobList = Array.isArray(relatedJobs) ? relatedJobs : [];
-  const stableId = stableJobId(job);
-  let relatedIds = null;
-  if (inputCache && stableId) {
-    relatedIds = [];
-    for (const relatedJob of relatedJobList) {
-      if (relatedJob && typeof relatedJob === 'object') {
-        relatedIds.push(stableJobId(relatedJob));
-      } else {
-        relatedIds.push(String(relatedJob ?? ''));
-      }
-    }
-  }
-  const relatedCacheKey = relatedIds && relatedIds.every(Boolean)
-    ? `${stableId}\u0000${String(locale)}\u0000${relatedIds.join('\u0000')}`
-    : null;
-  const cachedRelatedProjections = relatedCacheKey
-    ? inputCache.relatedProjectionListsByKey.get(relatedCacheKey)
-    : undefined;
-  let relatedJobProjections = cachedRelatedProjections && hasMatchingRelatedProjectionList(
-    cachedRelatedProjections,
-    relatedJobList,
-  )
-    ? cachedRelatedProjections.projections
-    : undefined;
-  if (!relatedJobProjections) {
-    relatedJobProjections = relatedJobList
-      .map((relatedJob) => projectRelatedJob(relatedJob, locale, inputCache))
-      .filter(Boolean);
-    canonicalRelatedJobProjectionLists.add(relatedJobProjections);
-    markCanonicalJson(relatedJobProjections, JSON.stringify(relatedJobProjections));
-    if (relatedCacheKey) {
-      inputCache.relatedProjectionListsByKey.set(relatedCacheKey, {
-        signatures: relatedJobList.map((relatedJob) => {
-          if (!relatedJob || typeof relatedJob !== 'object') return null;
-          return jobRecordDigestCache.get(relatedJob)?.signature ?? cheapJobRecordSignature(relatedJob);
-        }),
-        projections: relatedJobProjections,
-      });
-    }
-  }
+  const relatedJobProjections = relatedJobList
+    .map((relatedJob) => projectRelatedJob(relatedJob, locale, inputCache))
+    .filter(Boolean);
+  canonicalRelatedJobProjectionLists.add(relatedJobProjections);
+  markCanonicalJson(relatedJobProjections, JSON.stringify(relatedJobProjections));
 
   const input = {
     jobId: stableJobId(job),
@@ -583,6 +572,7 @@ export class IncrementalManifest {
     this.entriesByPath = new Map();
     this.kindMetadata = new Map();
     this.jobsSeoEmitterFingerprint = null;
+    this.estimatedEntryBytes = 0;
   }
 
   setJobsSeoEmitterFingerprint(fingerprint) {
@@ -610,12 +600,16 @@ export class IncrementalManifest {
     }
 
     const postWalk = compactPostWalkMetadata(input);
-    this.entriesByPath.set(normalizedPath, {
+    const entry = {
       kind,
       hash: computeInputHash(input, kind, templateVersion),
       templateVersion,
       ...(postWalk ? { postWalk } : {}),
-    });
+    };
+    const previousEntry = this.entriesByPath.get(normalizedPath);
+    if (previousEntry) this.estimatedEntryBytes -= estimateMapEntryBytes(normalizedPath, previousEntry);
+    this.entriesByPath.set(normalizedPath, entry);
+    this.estimatedEntryBytes += estimateMapEntryBytes(normalizedPath, entry);
   }
 
   hasPath(pagePath) {
@@ -720,6 +714,82 @@ export function getIncrementalManifestInputCache(rootDir) {
     manifestInputCachesByRoot.set(rootKey, inputCache);
   }
   return inputCache;
+}
+
+function manifestMemoryStats(manifest) {
+  return {
+    entries: manifest.entriesByPath.size,
+    estimatedBytes: Math.max(0, Math.round(manifest.estimatedEntryBytes)),
+  };
+}
+
+function inputCacheMemoryStats(inputCache) {
+  const statsFor = (name) => ({
+    entries: inputCache?.[name]?.size ?? 0,
+    estimatedBytes: Math.max(0, Math.round(inputCache?._estimatedBytes?.[name] ?? 0)),
+  });
+  const relatedProjectionLists = inputCache?.relatedProjectionListsByKey;
+  const relatedProjectionListsEstimatedBytes = relatedProjectionLists
+    ? [...relatedProjectionLists.entries()].reduce(
+      (total, [key, value]) => total + estimateMapEntryBytes(key, value),
+      0,
+    )
+    : 0;
+  return {
+    jobDigestsById: statsFor('jobDigestsById'),
+    relatedJobProjectionsByKey: statsFor('relatedJobProjectionsByKey'),
+    // Kept in the report so CI can prove that the old per-list retention stays
+    // absent. Related projections are rebuilt as a short-lived array per input.
+    relatedProjectionListsByKey: {
+      entries: relatedProjectionLists?.size ?? 0,
+      estimatedBytes: Math.max(0, Math.round(relatedProjectionListsEstimatedBytes)),
+    },
+  };
+}
+
+export function getIncrementalManifestMemoryStats(rootDir) {
+  const rootKey = path.resolve(String(rootDir));
+  const manifests = manifestMapsByRoot.get(rootKey);
+  const inputCache = manifestInputCachesByRoot.get(rootKey);
+  const manifestStats = manifests
+    ? Object.fromEntries([...manifests.entries()].map(([locale, manifest]) => [locale, manifestMemoryStats(manifest)]))
+    : {};
+  const records = Object.values(manifestStats).reduce(
+    (total, stats) => ({
+      entries: total.entries + stats.entries,
+      estimatedBytes: total.estimatedBytes + stats.estimatedBytes,
+    }),
+    { entries: 0, estimatedBytes: 0 },
+  );
+  const inputCacheStats = inputCacheMemoryStats(inputCache);
+  const inputCacheTotal = Object.values(inputCacheStats).reduce(
+    (total, stats) => total + stats.estimatedBytes,
+    0,
+  );
+  return {
+    manifests: {
+      locales: Object.keys(manifestStats).length,
+      byLocale: manifestStats,
+    },
+    inputCache: inputCacheStats,
+    records,
+    weakMaps: {
+      jobRecordDigestCache: { entries: null, estimatedBytes: null },
+      relatedJobProjectionCache: { entries: null, estimatedBytes: null },
+    },
+    estimatedBytes: {
+      inputCache: inputCacheTotal,
+      records: records.estimatedBytes,
+      knownTotal: inputCacheTotal + records.estimatedBytes,
+    },
+  };
+}
+
+export function logIncrementalManifestMemory(rootDir, phase) {
+  const stats = getIncrementalManifestMemoryStats(rootDir);
+  // eslint-disable-next-line no-console
+  console.log(`[incremental-manifest] memory phase=${phase} ${JSON.stringify(stats)}`);
+  return stats;
 }
 
 export function resetIncrementalManifestInputCache(rootDir) {

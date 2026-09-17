@@ -115,6 +115,7 @@ import {
   buildMinimalJobInput,
   getIncrementalManifestInputCache,
   getIncrementalManifestMap,
+  logIncrementalManifestMemory,
   INCREMENTAL_MANIFEST_ENABLED,
 } from './shared/incrementalManifest.mjs';
 import {
@@ -3944,6 +3945,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
             `entries=${manifestData.counts.total} kinds=${JSON.stringify(manifestData.counts.byKind)}`,
           );
         }
+        logIncrementalManifestMemory(rootDir, 'final');
       };
 
       // Tiered emission for cluster pages (urlClass: 'gsc-keyword-landing').
